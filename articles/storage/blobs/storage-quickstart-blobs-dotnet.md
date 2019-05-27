@@ -6,15 +6,16 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-origin.date: 11/14/2018
-ms.date: 04/08/2019
+origin.date: 05/09/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 437db8f654a6e52df027d90da4e38fc32f5b8b75
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.reviewer: seguler
+ms.openlocfilehash: a9a5c7a9b54e6e922c96a1b8f2653ab97b83dce4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890190"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004322"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 
@@ -24,21 +25,21 @@ ms.locfileid: "58890190"
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-接下来，请下载并安装适用于操作系统的 .NET Core 2.0。 如果运行的是 Windows，可以安装 Visual Studio 并根据偏好使用 .NET Framework。 也可选择安装一个可以在操作系统中使用的编辑器。
+接下来，请下载并安装适用于操作系统的 .NET Core 2.1。 如果运行的是 Windows，可以安装 Visual Studio 并根据偏好使用 .NET Framework。 也可选择安装一个可以在操作系统中使用的编辑器。
 
-# [<a name="windows"></a>Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 - 安装 [.NET Core for Windows](https://www.microsoft.com/net/download/windows) 或 [.NET Framework](https://www.microsoft.com/net/download/windows)（Visual Studio for Windows 已随附）
 - 安装 [Visual Studio for Windows](https://www.visualstudio.com/)。 如果使用的是 .NET Core，则可以根据需要安装 Visual Studio。  
 
 有关在 .NET Core 与 .NET Framework 之间做出选择的信息，请参阅[为服务器应用选择 .NET Core 或 .NET Framework](https://docs.microsoft.com/dotnet/standard/choosing-core-framework-server)。
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 - 安装[用于 Linux 的 .NET Core](https://www.microsoft.com/net/download/linux)
 - （可选）安装 [Visual Studio Code](https://www.visualstudio.com/) 和 [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
 
-# [<a name="macos"></a>macOS](#tab/macos)
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 - 安装[用于 macOS 的 .NET Core](https://www.microsoft.com/net/download/macos)。
 - （可选）安装[用于 Mac 的 Visual Studio](https://www.visualstudio.com/vs/visual-studio-mac/)
@@ -49,13 +50,13 @@ ms.locfileid: "58890190"
 
 本快速入门中使用的示例应用程序是基本的控制台应用程序。 可以浏览 [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart) 上的示例应用程序。
 
-使用 [git](https://git-scm.com/) 可将应用程序的副本下载到开发环境。 
+使用 [git](https://git-scm.com/) 可将应用程序的副本下载到开发环境。
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 *storage-blobs-dotnet-quickstart* 文件夹并将其打开，然后双击 *storage-blobs-dotnet-quickstart.sln*。 
+此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 *storage-blobs-dotnet-quickstart* 文件夹并将其打开，然后双击 *storage-blobs-dotnet-quickstart.sln*。
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -65,15 +66,15 @@ git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 
 复制连接字符串以后，请将其写入运行应用程序的本地计算机的新环境变量中。 若要设置环境变量，请打开控制台窗口，并遵照适用于操作系统的说明。 将 `<yourconnectionstring>` 替换为实际的连接字符串：
 
-# [<a name="windows"></a>Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```cmd
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-添加环境变量后，可能需要重启任何正在运行的、需要读取环境变量的程序（包括控制台窗口）。 例如，如果使用 Visual Studio 作为编辑器，请在运行示例之前重启 Visual Studio。 
+添加环境变量后，可能需要重启任何正在运行的、需要读取环境变量的程序（包括控制台窗口）。 例如，如果使用 Visual Studio 作为编辑器，请在运行示例之前重启 Visual Studio。
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
 export storageconnectionstring=<yourconnectionstring>
@@ -81,12 +82,12 @@ export storageconnectionstring=<yourconnectionstring>
 
 添加环境变量后，请从控制台窗口运行 `source ~/.bashrc`，使更改生效。
 
-# [<a name="macos"></a>macOS](#tab/macos)
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 编辑 .bash_profile，然后添加环境变量：
 
 ```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 添加环境变量后，请从控制台窗口运行 `source .bash_profile`，使更改生效。
@@ -95,31 +96,31 @@ export STORAGE_CONNECTION_STRING=<yourconnectionstring>
 
 ## <a name="run-the-sample"></a>运行示例
 
-此示例在本地 **MyDocuments** 文件夹中创建一个测试文件，然后将其上传到 Blob 存储。 此示例然后会列出容器中的 Blob，并使用新名称下载文件，以便对旧文件和新文件进行比较。 
+此示例在本地 **MyDocuments** 文件夹中创建一个测试文件，然后将其上传到 Blob 存储。 此示例然后会列出容器中的 Blob，并使用新名称下载文件，以便对旧文件和新文件进行比较。
 
-# [<a name="windows"></a>Windows](#tab/windows)
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-如果使用 Visual Studio 作为编辑器，可以按 **F5** 运行应用程序。 
+如果使用 Visual Studio 作为编辑器，可以按 **F5** 运行应用程序。
 
 否则，请导航到应用程序目录，并使用 `dotnet run` 命令运行应用程序。
 
-```
+```console
 dotnet run
 ```
 
-# [<a name="linux"></a>Linux](#tab/linux)
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 导航到你的应用程序目录并使用 `dotnet run` 命令运行应用程序。
 
-```
+```console
 dotnet run
 ```
 
-# [<a name="macos"></a>macOS](#tab/macos)
+# <a name="macostabmacos"></a>[macOS](#tab/macos)
 
 导航到你的应用程序目录并使用 `dotnet run` 命令运行应用程序。
 
-```
+```console
 dotnet run
 ```
 
@@ -127,7 +128,7 @@ dotnet run
 
 示例应用程序的输出类似于以下示例：
 
-```
+```output
 Azure Blob storage - .NET Quickstart sample
 
 Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
@@ -145,7 +146,7 @@ Press any key to delete the sample files and example container.
 
 按 **Enter** 键时，应用程序会删除存储容器和文件。 在删除之前，请在 **MyDocuments** 文件夹中查看这两个文件。 可以打开它们，然后就会观察到它们完全相同。 从控制台窗口复制 Blob 的 URL，将其粘贴到浏览器中，查看 Blob 的内容。
 
-验证文件后，按任意键可完成演示并删除测试文件。 既然现在已了解此示例的用途，打开 Program.cs 文件可查看代码。 
+验证文件后，按任意键可完成演示并删除测试文件。 既然现在已了解此示例的用途，打开 Program.cs 文件可查看代码。
 
 ## <a name="understand-the-sample-code"></a>了解示例代码
 
@@ -192,16 +193,15 @@ else
 > [!IMPORTANT]
 > 容器名称必须为小写。 有关命名容器和 Blob 的详细信息，请参阅[命名和引用容器、Blob 和元数据](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)。
 
-
 ```csharp
 // Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique.
 CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
-// Set the permissions so the blobs are public. 
+// Set the permissions so the blobs are public.
 BlobContainerPermissions permissions = new BlobContainerPermissions
 {
     PublicAccess = BlobContainerPublicAccessType.Blob
@@ -249,7 +249,7 @@ do
     {
         Console.WriteLine(item.Uri);
     }
-} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
+} while (blobContinuationToken != null); // Loop while the continuation token is not null.
 
 ```
 
@@ -258,7 +258,7 @@ do
 接下来，示例使用 [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync) 方法将以前创建的 Blob 下载到本地文件系统。 示例代码向 Blob 名称添加后缀“_DOWNLOADED”，这样你就可以在本地文件系统中看到这两个文件。
 
 ```csharp
-// Download the blob to a local file, using the reference created earlier. 
+// Download the blob to a local file, using the reference created earlier.
 // Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
@@ -289,8 +289,8 @@ File.Delete(destinationFile);
 
 ### <a name="binaries-and-source-code"></a>二进制文件和源代码
 
-- 下载 Azure 存储的最新版 [.NET 客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)的 NuGet 包。 
-- 查看 GitHub 上的 [.NET 客户端库源代码](https://github.com/Azure/azure-storage-net)。
+- 下载 Azure Blob 存储的最新版 [.NET 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)的 NuGet 包。
+- 查看 GitHub 上的[适用于 .NET 的 Microsoft Azure 存储 Blob SDK 源代码](https://github.com/Azure/azure-storage-net/tree/master/Blob)。
 
 ### <a name="client-library-reference-and-samples"></a>客户端库参考和示例
 
@@ -299,13 +299,12 @@ File.Delete(destinationFile);
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 .NET 上传、下载和列出 Blob。 
+本快速入门介绍了如何使用 .NET 上传、下载和列出 Blob。
 
-若要了解如何创建一个 Web 应用，以便将映像上传到 Blob 存储，请继续学习[使用 Azure 存储将映像数据上传到云中](storage-upload-process-images.md)。
+若要了解如何创建一个 Web 应用，以便将映像上传到 Blob 存储，请继续学习：
 
 > [!div class="nextstepaction"]
-> [Blob 存储操作说明](storage-dotnet-how-to-use-blobs.md)
+> [上传和处理图像](storage-upload-process-images.md)
 
 - 若要详细了解 .NET Core，请参阅 [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/)（.NET 10 分钟入门）。
 - 若要了解可以通过用于 Windows 的 Visual Studio 部署的示例应用程序，请参阅 [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/)（.NET 照片库 Web 应用程序示例与 Azure Blob 存储）。
- 

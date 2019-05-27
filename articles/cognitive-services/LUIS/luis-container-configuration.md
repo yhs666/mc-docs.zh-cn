@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: c930384dac55b140a56dce73cf08bbf448ed297a
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 85a547115b08296b624f74864c8b01ce145cb93c
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556876"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828520"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>配置语言理解 Docker 容器 
 
@@ -42,11 +42,11 @@ ms.locfileid: "65556876"
 
 ## <a name="apikey-setting"></a>ApiKey 设置
 
-`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，并且该值必须是为 [`Billing`](#billing-setting) 配置设置指定的语言理解资源的有效密钥。
+`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，且此值必须是为 [`Billing`](#billing-setting) 配置设置指定的“认知服务”资源的有效密钥。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：语言理解的“资源管理”，在“密钥”下
+* Azure 门户：**认知服务**“资源管理”部分的“密钥”下
 * LUIS 门户：“密钥和终结点”设置页。 
 
 请勿使用初学者密钥或创作密钥。 
@@ -57,12 +57,15 @@ ms.locfileid: "65556876"
 
 ## <a name="billing-setting"></a>账单设置
 
-`Billing` 设置指定 Azure 上用于计量容器账单信息的语言理解资源的终结点 URI。 必须为此配置设置指定值，并且该值必须是 Azure 上语言理解资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
+`Billing` 设置指定 Azure 上用于计量容器帐单信息的“认知服务”资源的终结点 URI。 必须为这个配置设置指定值，且此值必须是 Azure 上“认知服务”资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：语言理解的“概述”，标记为 `Endpoint`
+* Azure 门户：**认知服务**概述，标记为 `Endpoint`
 * LUIS 门户：“密钥和终结点设置”页面，作为终结点 URI 的一部分。
+
+请记住在 URL 中包括 `luis/v2.0` 路由，如下表所示：
+
 
 |必须| Name | 数据类型 | 说明 |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 * **行继续符**：以下各节中的 docker 命令使用反斜杠 `\` 作为行继续符。 根据主机操作系统的要求替换或删除字符。 
 * **参数顺序**：除非非常熟悉 docker 容器，否则不要更改参数顺序。
 
+请记住在 URL 中包括 `luis/v2.0` 路由，如下表所示。
+
 将 {_argument_name_} 替换为为你自己的值：
 
 | 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | 已训练 LUIS 应用程序的终结点密钥。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | Azure 门户的“语言理解概述”页面上提供了计费终结点值。|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | Azure `Cognitive Services`“概览”页面上提供了账单终结点值。 |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](luis-container-howto.md#billing)。
-> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”，也可以在 Azure 语言理解资源密钥页上找到。 
+> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”，也可以在 Azure `Cognitive Services`资源密钥页上找到。 
 
 ### <a name="basic-example"></a>基本示例
 

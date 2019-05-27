@@ -13,15 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 01/31/2017
-ms.date: 11/26/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
+ms.reviewer: jroth
 experimental_id: d51f3cc6-753b-4e
-ms.openlocfilehash: 6a4a041108429f08a8f22fe62128f983180adeaf
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 91f54bc39a4dc3480bad17d663a078c6d73af6f1
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674663"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004276"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure-classic-deployment"></a>连接到 Azure 上的 SQL Server 虚拟机（经典部署）
 > [!div class="op_single_selector"]
@@ -34,7 +35,7 @@ ms.locfileid: "52674663"
 本主题介绍如何连接到 Azure 中虚拟机上运行的 SQL Server 实例。 它介绍了一些[常规连接方案](#connection-scenarios)，并提供了[在 Azure VM 中配置 SQL Server 连接的详细步骤](#steps-for-configuring-sql-server-connectivity-in-an-azure-vm)。
 
 > [!IMPORTANT] 
-> Azure 提供两个不同的部署模型用于创建和处理资源：[Resource Manager 和经典模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果使用的是 Resource Manager VM，请参阅[使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../sql/virtual-machines-windows-sql-connect.md)。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../../../azure-resource-manager/resource-manager-deployment-model.md)。 本文介绍如何使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 如果使用的是 Resource Manager VM，请参阅[使用 Resource Manager 连接到 Azure 上的 SQL Server 虚拟机](../sql/virtual-machines-windows-sql-connect.md)。
 
 ## <a name="connection-scenarios"></a>连接方案
 客户端连接虚拟机上运行的 SQL Server 的方式取决于客户端的位置与计算机/网络配置。 这些方案包括：
@@ -49,7 +50,7 @@ ms.locfileid: "52674663"
 > 
 
 ### <a name="connect-to-sql-server-in-the-same-cloud-service"></a>连接到同一云服务中的 SQL Server
-可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](../classic/connect-vms-classic.md#connect-vms-in-a-standalone-cloud-service)。 在此方案中，一台虚拟机上的客户端尝试连接到在同一云服务中另一虚拟机上运行的 SQL Server。
+可以在同一云服务中创建多个虚拟机。 若要了解此虚拟机方案，请参阅[如何将虚拟机连接到虚拟网络或云服务](/virtual-machines/windows/classic/connect-vms-classic#connect-vms-in-a-standalone-cloud-service)。 在此方案中，一台虚拟机上的客户端尝试连接到在同一云服务中另一虚拟机上运行的 SQL Server。
 
 在此方案中，可使用 VM **名称**（在门户中也显示为**计算机名**或**主机名**）进行连接。 这是你在创建 VM 时为其提供的名称。 例如，如果将 SQL VM 命名为 **mysqlvm**，则同一云服务中的客户端 VM 可以使用以下连接字符串进行连接：
 
@@ -64,7 +65,7 @@ ms.locfileid: "52674663"
 
     "Server=mycloudservice.chinacloudapp.cn,57500;Integrated Security=false;User ID=<login_name>;Password=<your_password>"
 
-尽管此连接字符串使客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](../classic/setup-endpoints.md#manage-the-acl-on-an-endpoint)。
+尽管此连接字符串使客户端可通过 Internet 进行连接，但这并不意味着任何人都可以连接到 SQL Server。 外部客户端必须有正确的用户名和密码。 为了提高安全性，请不要对公共虚拟机终结点使用常用的 1433 端口。 如果可能，请考虑在终结点上添加 ACL 以将流量限制到允许的客户端。 有关在终结点上使用 ACL 的说明，请参阅[管理终结点上的 ACL](/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)。
 
 > [!NOTE]
 > 使用此方法与 SQL Server 通信时，Azure 数据中心的所有传出数据都将服从[出站数据传输的定价](https://www.azure.cn/pricing/details/data-transfer/)。
@@ -107,6 +108,8 @@ ms.locfileid: "52674663"
 如果还打算针对高可用性和灾难恢复使用 AlwaysOn 可用性组，则应考虑实施侦听器。 数据库客户端连接到侦听器，而不是直接连接到一个 SQL Server 实例。 侦听器将客户端路由到可用性组中的主副本。 有关详细信息，请参阅[在 Azure 中配置 AlwaysOn 可用性组的 ILB 侦听器](../classic/ps-sql-int-listener.md)。
 
 请务必查看适用于 Azure 虚拟机上运行的 SQL Server 的所有最佳安全性实践。 有关详细信息，请参阅 [Azure 虚拟机中 SQL Server 的安全注意事项](../sql/virtual-machines-windows-sql-security.md)。
+
+<!--Not Available on learning-paths-->
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [Azure 虚拟机上的 SQL Server](../sql/virtual-machines-windows-sql-server-iaas-overview.md)。
 

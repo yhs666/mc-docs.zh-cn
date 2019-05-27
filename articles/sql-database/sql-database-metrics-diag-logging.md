@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 05150e626c19be7d3d7720403992fe9f3b460f87
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 05/20/2019
+ms.openlocfilehash: 94d41466bb773dbed27b3704f135737b8a6c9a8e
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854535"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629181"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -26,18 +26,15 @@ ms.locfileid: "64854535"
 
 单一数据库和弹性池中的共用数据库可以流式传输指标和诊断日志，方便进行性能监视。 可以配置数据库，以将资源使用情况、辅助角色和会话以及连接性传输到以下 Azure 资源之一：
 
-- **Azure SQL Analytics**：使用报表、警报和缓解建议对 Azure SQL 数据库进行智能监视。
 - **Azure 事件中心**：将 SQL 数据库遥测与自定义监视解决方案或热管道相集成。
 - **Azure 存储**：低价存档大量遥测数据。
-
-    ![体系结构](./media/sql-database-metrics-diag-logging/architecture.png)
 
 有关各种 Azure 服务支持的指标和日志类别的详细信息，请参阅：
 
 - [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)
 
-本文提供的指导可帮助你为 Azure SQL 数据库启用诊断遥测。  它还可以帮助你了解如何将 Azure SQL Analytics 配置为监视工具用于查看数据库诊断遥测数据。
+本文提供的指导可帮助你为 Azure SQL 数据库启用诊断遥测。
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>启用诊断遥测的日志记录
 
@@ -51,7 +48,6 @@ ms.locfileid: "64854535"
 
 启用指标和诊断日志记录时，需要指定收集诊断遥测数据的 Azure 资源目标。 可用选项包括：
 
-- Azure SQL 分析
 - Azure 事件中心
 - Azure 存储
 
@@ -76,15 +72,12 @@ ms.locfileid: "64854535"
 | [AutomaticTuning](#automatic-tuning-dataset)：包含有关数据库的自动优化建议的信息。 | 是 |
 | [SQLInsights](#intelligent-insights-dataset)：包含针对数据库性能的智能见解。 有关详细信息，请参阅[智能见解](sql-database-intelligent-insights.md)。 | 是 |
 
-> [!IMPORTANT]
-> 弹性池具有自己单独的诊断遥测数据，独立于它们包含的数据库。 这是必须注意的，因为诊断遥测数据是为每个这样的资源单独配置的，如下所述。
-
 > [!NOTE]
 > 无法从数据库诊断设置启用安全审核和 SQLSecurityAuditEvents 日志（虽然显示在屏幕上）。 若要启用审核日志流式传输，请参阅[为数据库设置审核](sql-database-auditing.md#subheading-2)。
 
 ## <a name="azure-portal"></a>Azure 门户
 
-可以在 Azure 门户中使用每个单一数据库或共用数据库的“诊断设置”菜单，配置诊断遥测数据的流式传输。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心和 Azure Monitor 日志。
+可以在 Azure 门户中使用每个单一数据库或共用数据库的“诊断设置”菜单，配置诊断遥测数据的流式传输。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 
@@ -95,13 +88,14 @@ ms.locfileid: "64854535"
 1. 转到 Azure **SQL 数据库**资源。
 1. 选择“诊断设置”。
 1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
-   - 最多可以创建三个并行连接用于流式传输诊断遥测数据。
+   - 最多可以创建两个并行连接，用于流式传输诊断遥测数据。
    - 选择“+添加诊断设置”，配置为将诊断数据并行流式传输到多个资源。
 
    ![为单一数据库或共用数据库启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 输入设置名称供自己参考。
-1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”或“发送到 Log Analytics”。
+1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”。
 1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。
+   ![为单一数据库、共用数据库或实例数据库配置诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. 选择“其他安全性验证” 。
 1. 针对要监视的每个数据库重复上述步骤。
 
@@ -138,18 +132,6 @@ ms.locfileid: "64854535"
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- 若要允许将诊断日志发送到 Log Analytics 工作区，请使用以下命令：
-
-   ```powershell
-   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
-   ```
-
-- 可以使用以下命令获取 Log Analytics 工作区的资源 ID：
-
-   ```powershell
-   (Get-AzOperationalInsightsWorkspace).ResourceId
-   ```
-
 可以结合这些参数启用多个输出选项。
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -179,12 +161,6 @@ ms.locfileid: "64854535"
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- 若要启用将诊断日志发送到 Log Analytics 工作区，请使用以下命令：
-
-   ```azurecli-interactive
-   azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
-   ```
-
 可以结合这些参数启用多个输出选项。
 
 ### <a name="rest-api"></a>REST API
@@ -194,46 +170,6 @@ ms.locfileid: "64854535"
 ### <a name="resource-manager-template"></a>Resource Manager 模板
 
 阅读有关如何[在创建资源时使用资源管理器模板启用诊断设置](../azure-monitor/platform/diagnostic-logs-stream-template.md)的信息。
-
-## <a name="stream-into-azure-sql-analytics"></a>流式传输到 Azure SQL Analytics
-
-Azure SQL Analytics 是一种云解决方案，可监视 Azure SQL 数据库的性能。 它可以帮助你收集和可视化 Azure SQL 数据库性能指标，并提供内置智能进行性能故障排除。
-
-![Azure SQL Analytics 概述](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
-
-在门户中使用“诊断设置”选项卡上的内置“发送到 Log Analytics”选项，可将 SQL 数据库指标和诊断日志流式传输到 Azure SQL Analytics。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用日志分析。
-
-### <a name="installation-overview"></a>安装概述
-
-可以使用 Azure SQL Analytics 监视 SQL 数据库群。 执行以下步骤：
-
-1. 从 Azure 市场创建 Azure SQL Analytics 解决方案。
-2. 在解决方案中创建监视工作区。
-3. 将数据库配置为向该工作区流式传输诊断遥测数据。
-
-如果使用的是弹性池，则还需配置从这些资源进行的诊断遥测数据流式传输。
-
-### <a name="create-azure-sql-analytics-resource"></a>创建 Azure SQL Analytics 资源
-
-1. 在 Azure 市场中搜索 Azure SQL Analytics 并选择它。
-
-   ![在门户中搜索 Azure SQL Analytics](./media/sql-database-metrics-diag-logging/sql-analytics-in-marketplace.png)
-
-2. 在解决方案的概述屏幕上选择“创建”。
-
-3. 在“Azure SQL Analytics”窗体中填写所需的附加信息：工作区名称、订阅、资源组、位置和定价层。
-
-   ![在门户中配置 Azure SQL Analytics](./media/sql-database-metrics-diag-logging/sql-analytics-configuration-blade.png)
-
-4. 选择“确定”以确认，然后选择“创建”。
-
-### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>将数据库配置为记录指标和诊断日志
-
-使用 Azure 门户配置数据库记录其指标的位置是最简单的方式。 如前所述，在 Azure 门户中转到 SQL 数据库资源，然后选择“诊断设置”。
-
-### <a name="use-the-sql-analytics-solution"></a>使用 SQL Analytics 解决方案
-
-可以使用 SQL Analytics 作为分层仪表板来查看 SQL 数据库资源。
 
 ## <a name="stream-into-event-hubs"></a>流式传输到事件中心
 
@@ -282,9 +218,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 ## <a name="data-retention-policy-and-pricing"></a>数据保留策略和定价
 
-如果选择事件中心或存储帐户，可以指定保留策略。 此策略删除早于选定时间段的数据。 如果指定 Log analytics，保留策略将取决于所选的定价层。 在这种情况下，提供的免费数据引入单位每月可免费监视多个数据库。 消耗的诊断遥测量超过免费单位可能会产生费用。 请注意，与空闲数据相比，工作负荷较重的活动数据库越多，引入的数据就越多。 有关详细信息，请参阅 [Log Analytics 定价](https://azure.cn/pricing/details/monitor/)。
-
-如果使用 Azure SQL Analytics，则可以选择 Azure SQL Analytics 导航菜单上的“OMS 工作区”，然后选择“使用情况”和“预估成本”，来监视解决方案中的数据引入消耗量。
+如果选择事件中心或存储帐户，可以指定保留策略。 此策略删除早于选定时间段的数据。
 
 ## <a name="metrics-and-logs-available"></a>可用的指标和日志
 
@@ -558,7 +492,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 若要了解如何启用日志记录并了解各种 Azure 服务支持的指标和日志类别，请参阅：
 
-- [Microsoft Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
+- [Azure 中的指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Azure 诊断日志概述](../azure-monitor/platform/diagnostic-logs-overview.md)
 
 若要了解事件中心，请阅读以下主题：

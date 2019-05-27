@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 02/08/2019
-ms.date: 03/27/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 2c87ce3c03081970213c4b680c177f864cb7c0f2
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 7483892d7245ff1e4589f2965b5008de14a2d822
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505424"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598885"
 ---
 # <a name="detect-domain-specific-content"></a>检测特定于域的内容
 
@@ -31,7 +31,7 @@ ms.locfileid: "58505424"
 
 以下是 **models/celebrities/analyze** API 为给定图像返回的示例 JSON 响应：
 
-![Satya Nadella 的站立图](./images/satya.jpeg)
+![Satya Nadella 的站立微笑图](./images/satya.jpeg)
 
 ```json
 {
@@ -142,4 +142,4 @@ ms.locfileid: "58505424"
 
 了解有关[对图像进行分类](concept-categorizing-images.md)的概念。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

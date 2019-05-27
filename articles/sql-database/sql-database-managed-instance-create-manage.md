@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: f630924580c8242268ad7ede49bdb6d8091aafbc
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 05/20/2019
+ms.openlocfilehash: dbcb60a5abbfc4ee0c9b1703aaac815c3024eb69
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003489"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629145"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL 数据库托管实例的托管 API 引用
 
@@ -37,7 +37,7 @@ ms.locfileid: "59003489"
 若要使用 Azure PowerShell 创建并管理托管实例，请使用以下 PowerShell cmdlet。 如果需要安装或升级 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 > [!TIP]
-> 有关 PowerShell 示例脚本，请参阅[快速启动脚本：使用 PowerShell 库创建 Azure SQL 托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
+> 有关 PowerShell 示例脚本，请参阅[快速启动脚本：使用 PowerShell 库创建 Azure SQL 托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-create-azure-sql-managed-instance-using-powershell/)。
 
 | Cmdlet | 说明 |
 | --- | --- |

@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 11/26/2018
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da61229cc7db1cf7d62f553d425d8d1909a86657
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: b1c2acab5433fb9b2c8a85cc8333cfbac2a539b2
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544820"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609816"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>如何通过 Node.js 使用服务总线主题和订阅
 
@@ -36,9 +35,12 @@ ms.locfileid: "58544820"
 
 有关主题和订阅的详细信息，请参阅[后续步骤](#next-steps)一节。
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以[激活 Visual Studio 或 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或者注册[免费试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线**命名空间**并获取**连接字符串**。
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    > [!NOTE]
+    > 在本快速入门中，你将使用 **Node.js** 创建一个**主题**和对此主题的**订阅**。 
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 创建一个空的 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或使用 WebMatrix 创建网站。

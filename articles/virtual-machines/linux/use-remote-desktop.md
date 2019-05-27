@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: f4f5428d2c81d1a9e1228e5159cf30fb28eb9dbe
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9e7a5418dd64e2b07d98fb35334b4e1a87df0248
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004043"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004239"
 ---
 # <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>安装和配置远程桌面以连接到 Azure 中的 Linux VM
-通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](http://www.xrdp.org))。
+通常使用安全外壳 (SSH) 连接从命令行管理 Azure 中的 Linux 虚拟机 (VM)。 如果不熟悉 Linux，或者要快速进行故障排除，使用远程桌面可能会更方便。 本文详细介绍如何使用 Resource Manager 部署模型为 Linux VM 安装和配置桌面环境 ([xfce](https://www.xfce.org)) 和远程桌面 ([xrdp](https://www.xrdp.org))。
 
 ## <a name="prerequisites"></a>先决条件
 本文需要 Azure 中的现有 Ubuntu 16.04 LTS VM。 如果需要创建 VM，请使用以下方法之一：
@@ -125,7 +125,7 @@ tcp     0     0      0.0.0.0:3389       0.0.0.0:*     LISTEN     53188/xrdp
 sudo service xrdp restart
 ```
 
-查看 Ubuntu VM 上的 */var/log* 中的日志，以获得该服务可能未响应的原因的指示。 也可以在远程桌面连接尝试期间监视 syslog 以查看任何错误：
+请查看 Ubuntu VM 上的 */var/log* 中的日志，以获得该服务可能未响应的原因的指示。 也可以在远程桌面连接尝试期间监视 syslog 以查看任何错误：
 
 ```bash
 tail -f /var/log/syslog

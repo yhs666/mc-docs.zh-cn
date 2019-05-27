@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.author: v-biyu
-ms.openlocfilehash: f118d17a392e58462ac7a855bcfc9aa56fda8971
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 61c2b46ea4f40690de9e2db5b83ae7f11a439c97
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505619"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628780"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>批量导出和导入 Azure 通知中心注册
 在某些情况下，我们需要在通知中心创建或修改大量的注册。 其中的某些情况是先进行标记更新，再进行批量计算，或者迁移现有的推送实施方案以使用通知中心。
@@ -35,7 +35,7 @@ ms.locfileid: "58505619"
 
 - 一个预配的通知中心。
 - 一个 Azure 存储 Blob 容器。
-- 对 Azure 存储和 Azure 服务总线 NuGet 包的引用。
+- 对 [Azure 存储 NuGet 包](https://www.nuget.org/packages/windowsazure.storage/)和[通知中心 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)的引用。
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>创建输入文件并将其存储在 Blob 中
 输入文件包含以 XML 格式序列化的注册列表，每行包含一个注册。 以下代码示例演示如何使用 Azure SDK 序列化注册并将其上传到 Blob 容器。
@@ -133,7 +133,7 @@ while (i > 0 && job.Status != NotificationHubJobStatus.Completed)
 以下示例代码将注册导入到通知中心。
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;

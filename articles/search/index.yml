@@ -1,0 +1,66 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 搜索文档
+metadata:
+  document_id: null
+  title: Azure 搜索文档 – 教程、快速入门和 API 参考
+  description: 了解如何使用 Azure 搜索创建基于专用异类内容的企业搜索解决方案。 教程、API 参考和其他文档介绍了如何将从简单到高级的语法用于各种方案，以便将可搜索内容整合到单个可查询的快速索引中。
+  services: search
+  author: HeidiSteen
+  manager: cgronlun
+  ms.service: search
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 05/02/2019
+  ms.date: 06/03/2019
+  ms.author: v-biyu
+abstract:
+  description: 了解如何使用 Azure 搜索创建基于专用异类内容的企业搜索解决方案。 教程、API 参考和其他文档介绍了如何将从简单到高级的语法用于各种方案，以便将可搜索内容整合到单个可查询的快速索引中。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>认知搜索</b></a>现已正式发布，支持将 AI 扩充用于生产方案。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知识存储（预览版）</b></a>扩展了认知搜索。 将 AI 扩充保存到存储，随后可以在除 Azure 搜索以外的其他应用中查看、整形和使用扩充。 立即<a href="/azure/search/knowledge-store-howto">开始使用<b></b></a>。
+  aside:
+    image:
+      alt: null
+      height: 110
+      src: 'https://docs.microsoft.com/azure/search/media/index/search-page-callouts3.png'
+      width: 250
+sections:
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: '开始在门户中使用搜索服务，然后使用 C# 或 REST 来定义、加载和查询索引。'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /search/media/index/portal.svg
+            text: Azure 门户
+            href: 'https://docs.azure.cn/zh-cn/search/search-create-service-portal'
+          - image:
+              src: /search/media/index/logo_Csharp.svg
+            text: .NET
+            href: 'https://docs.azure.cn/zh-cn/search/search-create-index-dotnet'
+          - image:
+              src: /search/media/index/rest.svg
+            text: REST
+            href: 'https://docs.azure.cn/zh-cn/search/search-fiddler'
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 使用 .NET 或 REST 编写代码，或者尝试使用门户进行快速的概念测试。
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/search/search-get-started-portal">使用门户编制索引并进行查询测试</a>
+          - html: <a href="/search/search-howto-dotnet-sdk">使用 .NET 编写首个搜索解决方案</a>
+          - html: <a href="/search/cognitive-search-tutorial-blob">使用 AI（认知服务）扩充</a>
+          - html: <a href="/search/search-indexer-tutorial">通过 .NET 对 Azure SQL 数据库内容进行索引</a>
+          - html: <a href="/search/search-semi-structured-data">通过 REST 对 Azure Blob 存储中的半结构化数据进行索引</a>
+  - title: 参考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 语言
+            html: '<p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="https://docs.microsoft.com/zh-cn/dotnet/api/?term=microsoft.azure.management.search">.NET（管理）</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python（管理）</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/zh-cn/rest/api/searchservice">服务 API 参考</a></p><p><a href="https://docs.microsoft.com/zh-cn/rest/api/searchmanagement">管理 API 参考</a></p>'

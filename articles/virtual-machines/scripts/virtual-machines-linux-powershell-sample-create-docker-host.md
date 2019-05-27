@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/02/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e1f14282eeaf60ce34f8896aad609481bf835d6f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 3bac4b5aed9a675302b50b62f58625c49c6b32c2
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003877"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004283"
 ---
 # <a name="create-a-docker-host-with-powershell"></a>使用 PowerShell 创建 Docker 主机
 
@@ -32,11 +32,14 @@ ms.locfileid: "59003877"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 # Variables for common values
 $resourceGroup = "myResourceGroup"
 $location = "chinanorth"

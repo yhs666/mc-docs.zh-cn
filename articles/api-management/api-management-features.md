@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 12/31/2018
+ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: e72b09e49e1569dd2c13a041c395ff96edb26ad4
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: ae49699e8b86f475ae538d5bad74eb70c8be2a6b
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736729"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194997"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理层的基于功能的比较
 
@@ -35,7 +35,7 @@ ms.locfileid: "53736729"
 | 内置缓存                                                                               | 是            | 是            | 是            | 是            |
 | 内置分析                                                                           | 是            | 是            | 是            | 是            |
 | [SSL 设置](api-management-howto-manage-protocols-ciphers.md)                             | 是            | 是            | 是            | 是            |
-| [外部缓存](https://aka.ms/apimbyoc)                                                    | 否<sup>3</sup> | 否<sup>3</sup> | 否<sup>3</sup> | 否<sup>3</sup> |
+| [外部缓存](https://aka.ms/apimbyoc)                                                    | 是            | 是            | 是            | 是            |
 | [客户端证书身份验证](api-management-howto-mutual-certificates-for-clients.md) | 是            | 是            | 是            | 是            |
 | [备份和还原](api-management-howto-disaster-recovery-backup-restore.md)               | 是            | 是            | 是            | 是            |
 | [基于 Git 的管理](api-management-configuration-repository-git.md)                        | 是            | 是            | 是            | 是            |
@@ -44,6 +44,4 @@ ms.locfileid: "53736729"
 
 <sup>1</sup> 允许使用 Azure AD 作为标识提供者，以用于开发人员门户上的用户登录。<br/>
 <sup>2</sup> 包括相关功能，例如用户、组、问题、应用程序和电子邮件模板以及通知。<br/>
-<sup>3</sup> 此层即将支持外部缓存。<br/>
-<sup>4</sup> 在正式发布前，会向消耗层中添加客户端证书身份验证。<br/>
-<sup>5</sup> 将向消耗层中添加完整的 Azure Monitor 支持。
+

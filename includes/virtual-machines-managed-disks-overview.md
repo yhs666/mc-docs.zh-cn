@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 01/11/2019
-ms.date: 04/01/2019
+origin.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 65231a960d04b7683633a72c55d38aacc06bca7b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: f879e875f6779df5ba0efd39d7cee66fc29b04b6
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004205"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004241"
 ---
 ## <a name="benefits-of-managed-disks"></a>托管磁盘的优势
 
@@ -32,6 +32,8 @@ ms.locfileid: "59004205"
 
 托管磁盘集成可用性集，可确保[可用性集中的 VM](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) 的磁盘彼此之间完全隔离以避免单点故障。 磁盘自动放置于不同的存储缩放单元（模块）。 如果某个模块因硬件或软件故障而失败，则只有其磁盘在该模块上的 VM 实例会失败。 例如，假定某个应用程序在 5 台 VM 上运行并且这些 VM 位于一个可用性集中。 这些 VM 的磁盘不会存储在同一个模块中，因此，如果一个模块失败，该应用程序的其他实例可以继续运行。
 
+<!--Not Available on ### Integration with Availability Zones-->
+
 ### <a name="azure-backup-support"></a>Azure 备份支持
 
 若要防范区域灾难，可以使用 [Azure 备份](../articles/backup/backup-introduction-to-azure-backup.md)创建具有基于时间的备份和备份保留策略的备份作业。 这样就可以随意执行简单的 VM 还原。 目前，Azure 备份支持高达 4 TB (TiB) 的磁盘大小。 有关详细信息，请参阅[为具有托管磁盘的 VM 使用 Azure 备份](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup)。
@@ -42,11 +44,15 @@ ms.locfileid: "59004205"
 
 ## <a name="disk-roles"></a>磁盘角色
 
-### <a name="data-disks"></a>数据磁盘数
+在 Azure 中有三个主要磁盘角色：数据磁盘、OS 磁盘和临时磁盘。 这些角色将映射到附加到虚拟机的磁盘。
 
-数据磁盘是附加到虚拟机的托管磁盘，用于存储应用程序数据或其他需要保留的数据。 数据磁盘注册为 SCSI 驱动器并且带有所选择的字母标记。 每个数据磁盘的最大容量为 4,095 GB (GiB)。 虚拟机的大小决定了可附加的磁盘数目，以及可用来托管磁盘的存储类型。
+![操作中的磁盘角色](media/virtual-machines-managed-disks-overview/disk-types.png)
 
-### <a name="os-disks"></a>OS 磁盘
+### <a name="data-disk"></a>数据磁盘
+
+数据磁盘是附加到虚拟机的托管磁盘，用于存储应用程序数据或其他需要保留的数据。 数据磁盘注册为 SCSI 驱动器并且带有所选择的字母标记。 每个数据磁盘的最大容量为 32,767 gibibytes (GiB)。 虚拟机的大小决定了可附加的磁盘数目，以及可用来托管磁盘的存储类型。
+
+### <a name="os-disk"></a>操作系统磁盘
 
 每个虚拟机都附加了一个操作系统磁盘。 该 OS 磁盘有一个预先安装的 OS，是在创建 VM 时选择的。
 
@@ -54,7 +60,7 @@ ms.locfileid: "59004205"
 
 ### <a name="temporary-disk"></a>临时磁盘
 
-每个 VM 包含一个不是托管磁盘的临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 VM 成功标准重启期间，临时驱动器上的数据将保留。 
+每个 VM 包含一个不是托管磁盘的临时磁盘。 临时磁盘为应用程序和进程提供短期存储存储空间，仅用于存储页面或交换文件等数据。 在[维护事件](../articles/virtual-machines/windows/manage-availability.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json#understand-vm-reboots---maintenance-vs-downtime)期间或[重新部署 VM](../articles/virtual-machines/troubleshooting/redeploy-to-new-node-windows.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) 时，临时磁盘上的数据可能会丢失。 在 Azure Linux VM 上，临时磁盘默认为 /dev/sdb，而在 Windows VM 上，临时磁盘默认为 E:。 在 VM 成功标准重启期间，临时磁盘上的数据将保留。
 
 ## <a name="managed-disk-snapshots"></a>托管磁盘快照
 
@@ -62,8 +68,8 @@ ms.locfileid: "59004205"
 
 若要了解有关如何使用托管磁盘创建快照的详细信息，请查看下列资源：
 
-* [使用 Windows 中的快照创建作为托管磁盘存储的 VHD 的副本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [使用 Linux 中的快照创建作为托管磁盘存储的 VHD 的副本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [在 Windows 中使用快照创建存储为托管磁盘的 VHD 的副本](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [在 Linux 中使用快照创建存储为托管磁盘的 VHD 的副本](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>映像
 
@@ -71,8 +77,8 @@ ms.locfileid: "59004205"
 
 有关创建映像的信息，请查看以下文章：
 
-* [如何捕获 Azure 中通用 VM 的托管映像](../articles/virtual-machines/windows/capture-image-resource.md)
-* [如何使用 Azure CLI 通用化和捕获 Linux 虚拟机](../articles/virtual-machines/linux/capture-image.md)
+* [如何在 Azure 中捕获通用 VM 的托管映像](../articles/virtual-machines/windows/capture-image-resource.md)
+* [如何使用 Azure CLI 生成和捕获 Linux 虚拟机](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>映像与快照
 

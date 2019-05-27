@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 02/06/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: a054cdb8ab637bddf9815867bf4eb1e84c906c72
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 3297b548cd058d93276b9b08ab6749d582526dd4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65835776"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004280"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>配置一个或多个 Always On 可用性组侦听器 - Resource Manager
 本主题说明如何：
@@ -70,21 +70,21 @@ ms.locfileid: "65835776"
 
 本文中的示例指定了一个标准负载均衡器。 在示例中，脚本包括了 `-sku Standard`。
 
-```PowerShell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
+```powershell
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
 若要创建基本负载均衡器，请从创建负载均衡器的行中删除 `-sku Standard`。 例如：
 
-```PowerShell
-$ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
+```powershell
+$ILB= New-AzLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
 ```
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 创建内部负载均衡器
 
 <!-- Not Available on [Microsoft 模板](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)-->
 
-以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzSubscription ` 设置订阅。 
+以下 PowerShell 脚本创建内部负载均衡器、配置负载均衡规则，并设置负载均衡器的 IP 地址。 要运行该脚本，请打开 Windows PowerShell ISE，然后将脚本粘贴到“脚本”窗格中。 使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 PowerShell。 如果有多个 Azure 订阅，请使用 `Select-AzSubscription` 设置订阅。 
 
 ```powershell
 # Connect-AzAccount -Environment AzureChinaCloud
@@ -135,7 +135,7 @@ foreach($VMName in $VMNames)
 ```
 
 <a name="Add-IP"></a>
-##  <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 将 IP 地址添加到现有负载均衡器
+## <a name="example-script-add-an-ip-address-to-an-existing-load-balancer-with-powershell"></a>示例脚本：使用 PowerShell 将 IP 地址添加到现有负载均衡器
 要使用多个可用性组，请将附加的 IP 地址添加到负载均衡器。 每个 IP 地址都需要有自身的负载均衡规则、探测端口和前端端口。
 
 前端端口是应用程序用来连接到 SQL Server 实例的端口。 不同可用性组的 IP 地址可以使用相同的前端端口。

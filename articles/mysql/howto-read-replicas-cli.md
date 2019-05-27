@@ -5,24 +5,24 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 01/23/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 3b6b9146fb6fd788dd2cd92599096a8e1472856e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 04/29/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: f68a68d21054273112f39c75c2cc22c18c3b066c
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663747"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731900"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for MySQL 中创建和管理只读副本
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-> [!IMPORTANT]
-> 只读副本功能目前以公共预览版提供。
-
 在本文中，你将了解如何使用 Azure CLI 在与 Azure Database for MySQL 服务中的主服务器相同的 Azure 区域内创建和管理只读副本。
+
+> [!NOTE]
+> Azure CLI 尚不支持在与主服务器不同的区域中创建副本。 若要创建跨区域副本，请改用 [Azure 门户]( howto-read-replicas-portal.md)。
 
 ## <a name="prerequisites"></a>先决条件
 

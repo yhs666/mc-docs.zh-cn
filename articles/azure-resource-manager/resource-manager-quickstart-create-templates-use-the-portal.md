@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 ms.topic: quickstart
 ms.author: v-yeche
-ms.openlocfilehash: 6f8e85069b8a3a0532a030f91a88432f13cea72f
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 0e7259fcc983a86f30a19a7ddd56f91106935f42
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529177"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195475"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板
@@ -39,14 +39,15 @@ ms.locfileid: "59529177"
 需要有经验的模板开发人员在尝试部署不熟悉的 Azure 资源时，会使用此方法来生成模板。 有关使用门户导出模板的更多信息，请参阅[将资源组导出到模板](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。 查找工作模板的另一种方法是 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
+    <!--MOONCAKE: Not Available on - blob, file, table, queue-->
 2. 选择“创建资源” > “存储” > “存储帐户”。
   
-   <!--MOONCAKE: Not Available on - blob, file, table, queue-->
+    <!--MOONCAKE: Not Available on - blob, file, table, queue-->
   
     ![使用 Azure 门户创建 Azure 存储帐户](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. 输入以下信息：
 
-    |名称|值|
+    |Name|Value|
     |----|----|
     |**资源组**|选择“新建”，然后指定所选资源组的名称。 在屏幕截图中，资源组名称为 *mystorage1016rg*。 资源组是 Azure 资源的容器。 资源组方便 Azure 资源的管理。 |
     |**名称**|为存储帐户指定唯一的名称。 存储帐户名称在整个 Azure 中必须是唯一的，且仅包含小写字母和数字。 名称长度必须介于 3 到 24 个字符之间。 如果收到错误消息“存储帐户名称‘mystorage1016’已被占用”，请尝试使用“&lt;名称>存储&lt;MMDD 格式的今日日期>”，例如“johndolestorage1016”。 |

@@ -8,15 +8,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 11/27/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2e3b51095fd0ab2a8bc082ddc3bfbf4e2fd79158
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 231531798c0b99b871c0563a315239756a98d822
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627276"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668833"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一个 PowerShell Runbook
 
@@ -57,7 +57,7 @@ ms.locfileid: "58627276"
 
 2. 通过单击“保存” 保存 Runbook。
 
-## <a name="a-namestep-3---test-the-runbook-test-the-runbook"></a><a name="step-3---test-the-runbook"> 测试 runbook
+## <a name="step-3---test-the-runbook"> </a> 测试 runbook
 
 在发布 Runbook 使其可在生产中使用之前，需对其进行测试以确保其能正常工作。 测试 Runbook 时，可以运行其“草稿”版本并以交互方式查看其输出。
 
@@ -99,7 +99,7 @@ ms.locfileid: "58627276"
 10. 关闭“流”页和“作业”页以返回到 MyFirstRunbook-PowerShell 页。
 11. 在“详细信息”下单击“作业”打开此 Runbook 的“作业”窗格。 此页列出此 runbook 创建的所有作业。 由于只运行该作业一次，应该只会看到一个列出的作业。
 
-    ![作业列表](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
+   ![作业列表](media/automation-first-runbook-textual-powershell/runbook-control-job-tile.png)  
 
 12. 可以单击此作业，打开在启动 Runbook 时查看过的“作业”窗格。 这样便可以回溯并查看为特定 runbook 创建的任何作业的详细信息。
 

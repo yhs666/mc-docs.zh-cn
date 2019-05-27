@@ -1,213 +1,207 @@
-items:
 - name: Azure 存储文档
   href: /storage/
 - name: 概述
-  items:
-  - name: 什么是 Azure 文件？
-    href: storage-files-introduction.md
   expanded: true
+  items:
+    - name: 什么是 Azure 文件？
+      href: storage-files-introduction.md
 - name: 快速入门
   items:
-  - name: 创建/使用文件共享 - Windows
-    href: storage-files-quick-create-use-windows.md
-  - name: 创建文件共享 - 门户
-    href: storage-how-to-use-files-portal.md
-  - name: 创建文件共享 - PowerShell
-    href: storage-how-to-use-files-powershell.md
-  - name: 创建文件共享 - CLI
-    href: storage-how-to-use-files-cli.md
-  - name: 创建文件共享 - 存储资源管理器
-    href: storage-how-to-use-files-storage-explorer.md
+    - name: 创建/使用文件共享 - Windows
+      href: storage-files-quick-create-use-windows.md
+    - name: 创建文件共享 - 门户
+      href: storage-how-to-use-files-portal.md
+    - name: 创建文件共享 - PowerShell
+      href: storage-how-to-use-files-powershell.md
+    - name: 创建文件共享 - CLI
+      href: storage-how-to-use-files-cli.md
+    - name: 创建文件共享 - 存储资源管理器
+      href: storage-how-to-use-files-storage-explorer.md
 - name: 教程
+  items: null
 - name: 概念
   items:
-  - name: 关于 Azure 文件
-    href: storage-files-planning.md
-  - name: 关于存储帐户
-    href: ../common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 冗余
-    items:
-    - name: Azure 存储复制
-      href: ../common/storage-redundancy.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 本地冗余存储
-      href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 异地冗余存储
-      href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: Azure 文件共享快照
-    href: storage-snapshots-files.md
-  - name: 可伸缩性和性能目标
-    href: storage-files-scale-targets.md
-  - name: 安全
-    items:
-    - name: Azure 存储安全
-      href: ../common/storage-security-guide.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 静态数据加密
-      href: ../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 开发
-    items:
-    - name: 管理并发
-      href: ../common/storage-concurrency.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 共享密钥身份验证
-      href: https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-    - name: 共享访问签名 (SAS)
-      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 监视和故障排除
-    items:
-    - name: 监视、诊断和故障排除
-      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: Azure Monitor 中的指标
-      href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 迁移到新指标
-      href: ../common/storage-metrics-migration.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 存储分析指标（经典）
-      href: ../common/storage-analytics-metrics.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 灾难恢复和故障转移
-    href: ../common/storage-disaster-recovery-guidance.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 限制
-  - name: 常见问题解答
-    href: storage-files-faq.md
+    - name: 关于 Azure 文件
+      href: storage-files-planning.md
+    - name: 关于存储帐户
+      href: ../common/storage-account-options.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 冗余
+      items:
+        - name: Azure 存储复制
+          href: ../common/storage-redundancy.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 本地冗余存储
+          href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 异地冗余存储
+          href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: Azure 文件共享快照
+      href: storage-snapshots-files.md
+    - name: 可伸缩性和性能目标
+      href: storage-files-scale-targets.md
+    - name: 安全
+      items:
+        - name: Azure 存储安全
+          href: ../common/storage-security-guide.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 存储帐户加密
+          href: ../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 开发
+      items:
+        - name: 管理并发
+          href: ../common/storage-concurrency.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 共享密钥身份验证
+          href: 'https://docs.microsoft.com/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services'
+        - name: 共享访问签名 (SAS)
+          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 监视和故障排除
+      items:
+        - name: 监视、诊断和故障排除
+          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: Azure Monitor 中的指标
+          href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 迁移到新指标
+          href: ../common/storage-metrics-migration.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 存储分析指标（经典）
+          href: ../common/storage-analytics-metrics.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 灾难恢复和故障转移
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 常见问题
+      href: storage-files-faq.md
 - name: 操作指南
   items:
-  - name: 创建
-    items:
-    - name: 创建文件共享
-      href: storage-how-to-create-file-share.md
-  - name: 部署
-    items:
-    - name: 部署 Azure 文件
-      href: storage-files-deployment-guide.md
-  - name: 装载
-    items:
-    - name: 通过 Windows 使用 Azure 文件
-      href: storage-how-to-use-files-windows.md
-    - name: 通过 Linux 使用 Azure 文件
-      href: storage-how-to-use-files-linux.md
-    - name: 通过 macOS 使用 Azure 文件
-      href: storage-how-to-use-files-mac.md
-  - name: 管理
-    items:
-    - name: 管理 Azure 独立云中的存储
-      href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 监视
-  - name: 迁移
-    items:
-    - name: 将数据移入和移出 Azure 存储
-      href: ../common/storage-moving-data.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: AzCopy on Windows
-      href: ../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: Linux 上的 AzCopy
-      href: ../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 开发
-    items:
-    - name: 配置连接字符串
-      href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: .NET
-      href: storage-dotnet-how-to-use-files.md
-    - name: Java
-      href: storage-java-how-to-use-file-storage.md
-    - name: C++
-      href: storage-c-plus-plus-how-to-use-files.md
-    - name: Python
-      href: storage-python-how-to-use-file-storage.md
-  - name: 安全
-    items:
-    - name: 配置防火墙和虚拟网络
-      href: ../common/storage-network-security.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 需要安全传输
-      href: ../common/storage-require-secure-transfer.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 为 Azure 存储客户端启用安全 TLS
-      href: ../common/storage-security-tls.md
-  - name: 故障排除
-    items:
-    - name: 排查 Windows 上的 Azure 文件问题
-      href: storage-troubleshoot-windows-file-connection-problems.md
-    - name: 排查 Linux 上的 Azure 文件问题
-      href: storage-troubleshoot-linux-file-connection-problems.md
+    - name: 创建
+      items:
+        - name: 创建文件共享
+          href: storage-how-to-create-file-share.md
+    - name: 部署
+      items:
+        - name: 部署 Azure 文件
+          href: storage-files-deployment-guide.md
+    - name: 装载
+      items:
+        - name: 通过 Windows 使用 Azure 文件
+          href: storage-how-to-use-files-windows.md
+        - name: 通过 Linux 使用 Azure 文件
+          href: storage-how-to-use-files-linux.md
+        - name: 通过 macOS 使用 Azure 文件
+          href: storage-how-to-use-files-mac.md
+    - name: 管理
+      items:
+        - name: 管理 Azure 独立云中的存储
+          href: ../common/storage-powershell-independent-clouds.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 监视
+      items: null
+    - name: 迁移
+      items:
+        - name: 将数据移入和移出 Azure 存储
+          href: ../common/storage-moving-data.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: AzCopy on Windows
+          href: ../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: Linux 上的 AzCopy
+          href: ../common/storage-use-azcopy-linux.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 开发
+      items:
+        - name: 配置连接字符串
+          href: ../common/storage-configure-connection-string.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: .NET
+          href: storage-dotnet-how-to-use-files.md
+        - name: Java
+          href: storage-java-how-to-use-file-storage.md
+        - name: C++
+          href: storage-c-plus-plus-how-to-use-files.md
+        - name: Python
+          href: storage-python-how-to-use-file-storage.md
+    - name: 安全
+      items:
+        - name: 配置防火墙和虚拟网络
+          href: ../common/storage-network-security.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 需要安全传输
+          href: ../common/storage-require-secure-transfer.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 为 Azure 存储客户端启用安全 TLS
+          href: ../common/storage-security-tls.md
+    - name: 故障排除
+      items:
+        - name: 排查 Windows 上的 Azure 文件问题
+          href: storage-troubleshoot-windows-file-connection-problems.md
+        - name: 排查 Linux 上的 Azure 文件问题
+          href: storage-troubleshoot-linux-file-connection-problems.md
 - name: 参考
   items:
-  - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/azure.storage
-  - name: Azure CLI
-    href: https://docs.azure.cn/cli/storage
-  - name: .NET
-    items:
-    - name: Blob、队列、表和文件
-      href: https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/client
-    - name: 数据移动
-      href: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.datamovement
-    - name: 资源管理器
-      href: https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/management
-  - name: Java
-    items:
-    - name: Blob、队列、表和文件
-      href: https://docs.azure.cn/java/api/storage/clientlibrary
-  - name: Node.js
-    href: https://docs.microsoft.com/javascript/api/overview/azure/storage
-  - name: Ruby
-    href: http://azure.github.io/azure-storage-ruby
-  - name: PHP
-    href: http://azure.github.io/azure-storage-php/
-  - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/storage
-  - name: C++
-    href: http://azure.github.io/azure-storage-cpp
-  - name: iOS
-    href: http://azure.github.io/azure-storage-ios/
-  - name: Android
-    href: http://azure.github.io/azure-storage-android
-  - name: REST
-    items:
-    - name: Blob、队列、表和文件
-      href: https://docs.microsoft.com/rest/api/storageservices
-    - name: 资源提供程序
-      href: https://docs.microsoft.com/rest/api/storagerp
-    - name: 导入/导出
-      href: https://docs.microsoft.com/rest/api/storageimportexport
-- name: 资源
-  items:
-  - name: Azure 存储客户端工具
-    href: ../common/storage-explorers.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/storage/blobs/
-  - name: 定价计算器
-    href: https://www.azure.cn/pricing/calculator/
-  - name: Azure 存储资源管理器
-    items:
-    - name: 存储资源管理器
-      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 存储资源管理器发行说明
-      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 排查存储资源管理器问题
-      href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
-    - name: 存储资源管理器可访问性
-      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2ffiles%2ftoc.json
-  - name: NuGet 包
-    items:
-    - name: 适用于 .NET 的 Azure 存储客户端库
-      href: https://www.nuget.org/packages/WindowsAzure.Storage/
-    - name: Azure 存储数据移动库
-      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
-    - name: Azure 配置管理器
-      href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
-  - name: 源代码
-    items:
+    - name: PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/azure.storage'
+    - name: Azure CLI
+      href: 'https://docs.azure.cn/cli/storage'
     - name: .NET
       items:
-      - name: Blob、队列、表和文件
-        href: https://github.com/Azure/azure-storage-net
-      - name: 数据移动
-        href: https://github.com/Azure/azure-storage-net-data-movement
-      - name: 资源提供程序
-        href: https://github.com/Azure/azure-sdk-for-net
+        - name: Blob、队列、表和文件
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/client'
+        - name: 数据移动
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.storage.datamovement'
+        - name: 资源管理器
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/storage/management'
     - name: Java
-      href: https://github.com/Azure/azure-storage-java
-    - name: C++
-      href: https://github.com/Azure/azure-storage-cpp
+      items:
+        - name: Blob、队列、表和文件
+          href: 'https://docs.azure.cn/java/api/storage/clientlibrary'
+    - name: Node.js
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
+    - name: Ruby
+      href: 'https://azure.github.io/azure-storage-ruby'
+    - name: PHP
+      href: 'https://azure.github.io/azure-storage-php/'
     - name: Python
-      href: https://github.com/Azure/azure-storage-python
-ms.openlocfilehash: cf1a3d923a10bdaf31aa3a9481511e0813bb4183
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890128"
+      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
+    - name: C++
+      href: 'https://azure.github.io/azure-storage-cpp'
+    - name: iOS
+      href: 'https://azure.github.io/azure-storage-ios/'
+    - name: Android
+      href: 'https://azure.github.io/azure-storage-android'
+    - name: REST
+      items:
+        - name: Blob、队列、表和文件
+          href: 'https://docs.microsoft.com/rest/api/storageservices'
+        - name: 资源提供程序
+          href: 'https://docs.microsoft.com/rest/api/storagerp'
+        - name: 导入/导出
+          href: 'https://docs.microsoft.com/rest/api/storageimportexport'
+- name: 资源
+  items:
+    - name: Azure 存储客户端工具
+      href: ../common/storage-explorers.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/storage/blobs/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/pricing/calculator/'
+    - name: Azure 存储资源管理器
+      items:
+        - name: 存储资源管理器
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 存储资源管理器发行说明
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 排查存储资源管理器问题
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fstorage%2ffiles%2ftoc.json
+        - name: 存储资源管理器可访问性
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2ffiles%2ftoc.json
+    - name: NuGet 包
+      items:
+        - name: 适用于 .NET 的 Azure 存储客户端库
+          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Azure 存储数据移动库
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Azure 配置管理器
+          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+    - name: 源代码
+      items:
+        - name: .NET
+          items:
+            - name: Blob、队列、表和文件
+              href: 'https://github.com/Azure/azure-storage-net'
+            - name: 数据移动
+              href: 'https://github.com/Azure/azure-storage-net-data-movement'
+            - name: 资源提供程序
+              href: 'https://github.com/Azure/azure-sdk-for-net'
+        - name: Java
+          href: 'https://github.com/Azure/azure-storage-java'
+        - name: C++
+          href: 'https://github.com/Azure/azure-storage-cpp'
+        - name: Python
+          href: 'https://github.com/Azure/azure-storage-python'

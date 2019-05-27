@@ -1,18 +1,18 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中转储和还原
-description: 介绍如何在 Azure Database for PostgreSQL 中将 PostgreSQL 数据库解压缩为转储文件，以及如何从 pg_dump 创建的文件进行还原。
+title: 如何在 Azure Database for PostgreSQL - 单一服务器中进行转储和还原
+description: 介绍了如何在 Azure Database for PostgreSQL - 单一服务器中将 PostgreSQL 数据库解压缩为转储文件，以及如何从 pg_dump 创建的文件进行还原。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/22/2018
-ms.date: 04/01/2019
-ms.openlocfilehash: 9944bd50fbedf138f89dcf99c94693bcd11fbc95
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 09a3134328ec87ccee7727984f90a780082171c2
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503636"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732013"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。

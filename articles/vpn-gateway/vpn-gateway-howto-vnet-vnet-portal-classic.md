@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/14/2018
-ms.date: 04/01/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 226ac35020cd87c45691173b1d159e0dceeff179
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: ced039bc5ddcef4cf225ca371e349fb21cb54138
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63849408"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195030"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>配置 VNet 到 VNet 连接（经典）
 
@@ -40,6 +40,8 @@ ms.locfileid: "63849408"
 >
 
 ![VNet 到 VNet 连接示意图](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>关于 VNet 到 VNet 的连接
 
@@ -166,7 +168,7 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 3. 网关子网名称自动以所需的名称“GatewaySubnet”进行填充。 “地址范围”包含分配给 VPN 网关服务的 IP 地址。 某些配置允许使用网关子网 /29，但最好使用 /28 或 /27 以适应将来可能需要为网关服务使用更多 IP 地址的配置。 在示例设置中，我们使用了 10.11.1.0/27。 调整地址空间，然后单击“确定”。
 4. 配置“网关大小”。 此设置指的是[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 5. 配置“路由类型”。 此配置的路由类型必须为“动态”。 无法在以后更改路由类型，除非删除网关并创建一个新网关。
-6. 单击 **“确定”**。
+6. 单击 **“确定”** 。
 7. 在“新建 VPN 连接”页上，单击“确定”，开始创建虚拟网络网关。 创建网关通常需要 45 分钟或更长的时间，具体取决于所选网关 SKU。
 
 ## <a name="vnet4settings"></a>步骤 5 - 配置 TestVNet4 设置
@@ -220,19 +222,19 @@ Azure 使用在每个本地网络站点中指定的设置来确定如何在 VNet
 2. 使用提升的权限打开 PowerShell 控制台，并连接到帐户。 使用下面的示例来帮助连接：
 
    ```powershell
-   Connect-AzureRmAccount -Environment AzureChinaCloud
+   Connect-AzAccount -Environment AzureChinaCloud
    ```
 
    检查该帐户的订阅。
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    如果有多个订阅，请选择要使用的订阅。
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    接下来，使用以下 cmdlet 将 Azure 订阅添加到经典部署模型的 PowerShell。

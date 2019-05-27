@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-origin.date: 08/09/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 9b0823208432ce60187ddcebe95fabb6b241ce35
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 01/25/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: f470c7dce50c454a8a4468b926c61734ec15eaed
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003509"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629215"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
@@ -33,7 +33,7 @@ ms.locfileid: "59003509"
 
 - **混合数据同步：** 借助数据同步，可以在本地数据库和 Azure SQL 数据库之间保持数据同步，以便启用混合应用程序。 此功能可能会吸引在考虑迁移到云中，并希望启用 Azure 应用程序的客户。
 - **分布式应用程序：** 在许多情况下，跨各个数据库分散不同的工作负载会大有裨益。 例如，如果有大型生产数据库，但还需要对此数据运行报表或分析工作负载，那么使用第二个数据库来处理此额外工作负载将会有所帮助。 这种方法可最大限度地减轻对生产工作负载造成的性能影响。 可以使用 SQL 数据同步来同步这两个数据库。
-- **全球分布的应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
+- **全球分布的应用程序：** 许多企业的业务分布在多个区域，甚至是多个国家/地区/区域。 为了最大限度地缩短网络延迟时间，最好将数据存储在靠近的区域中。 借助 SQL 数据同步，可轻松同步世界各地区域中的数据库。
 
 数据同步不是以下场景的首选解决方案：
 
@@ -80,7 +80,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 | | 数据同步 | 事务复制 |
 |---|---|---|
 | 优点 | - 主动-主动支持<br/>- 在本地和 Azure SQL 数据库之间双向同步 | - 更低的延迟<br/>- 事务一致性<br/>- 迁移后重用现有拓扑 |
-| 缺点 | - 5 分钟或更长的延迟<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库单一数据库或入池数据库发布<br/>- 维护成本高 |
+| 缺点 | - 5 分钟或更长的延迟<br/>- 无事务一致性<br/>- 更高的性能影响 | - 无法从 Azure SQL 数据库单一数据库或共用数据库发布<br/>- 维护成本高 |
 | | | |
 
 ## <a name="get-started-with-sql-data-sync"></a>SQL 数据同步入门
@@ -97,11 +97,11 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 ### <a name="review-the-best-practices-for-data-sync"></a>查看数据同步最佳做法
 
-- [Azure SQL 数据同步最佳做法](sql-database-best-practices-data-sync.md)
+- [Azure SQL 数据同步最佳实践](sql-database-best-practices-data-sync.md)
 
 ### <a name="did-something-go-wrong"></a>出现了错误
 
-- [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
+- [Azure SQL 数据同步问题疑难解答](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="consistency-and-performance"></a>一致性和性能
 
@@ -111,7 +111,7 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 #### <a name="performance-impact"></a>性能影响
 
-SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在用户数据库中创建用于跟踪的端表。 这些更改跟踪活动会对数据库工作负荷产生影响。 评估服务层并根据需要升级。
+SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在用户数据库中创建用于跟踪的端表。 这些更改跟踪活动会对数据库工作负荷产生影响。 评估服务层级并根据需要升级。
 
 在同步组创建、更新和删除期间预配和取消预配也可能会影响数据库性能。 
 
@@ -229,7 +229,7 @@ SQL 数据同步在所有区域中都可用。
 
 SQL 数据同步是否按预期执行？ 若要监视活动和排查问题，请参阅以下文章：
 
-- [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
+- [Azure SQL 数据同步问题疑难解答](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>了解有关 Azure SQL 数据库的详细信息
 

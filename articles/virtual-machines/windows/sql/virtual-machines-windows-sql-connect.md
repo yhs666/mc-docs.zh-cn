@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/12/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: f5058b0bf00c63aad214ff573c40cda55b3c3735
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 9138633c32cb607cef31ead6ef0f8dbd7bbf02e6
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544773"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004112"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
@@ -94,7 +94,7 @@ Server=mysqlvm;Integrated Security=true
 ```
 
 <a name="change"></a>
-##  <a name="change-sql-connectivity-settings"></a>更改 SQL 连接设置
+## <a name="change-sql-connectivity-settings"></a>更改 SQL 连接设置
 
 可以更改 Azure 门户中的 SQL Server 虚拟机的连接设置。
 
@@ -114,7 +114,7 @@ Server=mysqlvm;Integrated Security=true
 
 <a name="manualtcp"></a>
 <a name="manualTCP"></a>
-##  <a name="enable-tcpip-for-developer-and-express-editions"></a>为 Developer Edition 和 Express Edition 启用 TCP/IP
+## <a name="enable-tcpip-for-developer-and-express-editions"></a>为 Developer Edition 和 Express Edition 启用 TCP/IP
 
 更改 SQL Server 连接性设置时，Azure 不会为 SQL Server Developer Edition 和 Express Edition 自动启用 TCP/IP 协议。 以下步骤说明了如何手动启用 TCP/IP，以便通过 IP 地址进行远程连接。
 
@@ -133,7 +133,7 @@ Server=mysqlvm;Integrated Security=true
 [!INCLUDE [Connect to SQL Server in a VM Resource Manager](../../../../includes/virtual-machines-sql-server-connection-steps-resource-manager.md)]
 
 <a name="manual"></a>
-##  <a name="manual-configuration-and-troubleshooting"></a>手动配置和故障排除
+## <a name="manual-configuration-and-troubleshooting"></a>手动配置和故障排除
 
 尽管门户提供自动配置连接的选项，但了解如何手动配置连接也非常重要。 了解相关要求也有助于进行故障排除。
 

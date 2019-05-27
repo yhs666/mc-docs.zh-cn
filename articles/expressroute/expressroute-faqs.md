@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 04/16/2019
+origin.date: 05/12/2019
 ms.author: v-yiso
-ms.date: 05/06/2019
-ms.openlocfilehash: c6c3f82e872478ce0fda30088b13c89fd49bba8b
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 05/27/2019
+ms.openlocfilehash: 93effc35501606db9e330f0e12ee8470bdfe4120
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854533"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829282"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -106,6 +106,9 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 如果其中一个交叉连接出现故障，不会失去连接。 可使用冗余连接，以支持网络负载和提供 ExpressRoute 线路的高可用性。 另外，还可以在不同对等位置创建一条线路以获得线路级恢复能力。
 
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>如何在专用对等互连上实现冗余？
+
+多个来自不同对等互连位置的 ExpressRoute 线路可以连接到同一虚拟网络，在单个线路变得不可用的情况下提供高可用性。 然后，可以为本地连接[分配更高的权重](/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection)，首选特定的线路。 强烈建议客户设置至少两条 ExpressRoute 线路，避免单点故障。 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>如何确保连接到 ExpressRoute 的虚拟网络上的高可用性？
 
 可以通过将不同对等互连位置的 ExpressRoute 线路连接到虚拟网络来实现高可用性。如果一个 ExpressRoute 线路出现故障，则连接将故障转移到另一条 ExpressRoute 线路。 默认情况下，将基于等成本多路径路由 (ECMP) 对离开虚拟网络的流量进行路由。 可以使用连接权重来使一条线路优先于另一条线路。 有关详细信息，请参阅[优化 ExpressRoute 路由](expressroute-optimize-routing.md)。
@@ -132,7 +135,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>在相同市内是否可以有多条 ExpressRoute 线路？ 是否可以将这些线路链接到同一虚拟网络？
 
-是的。 可以具有多条包含相同或不同服务提供商的 ExpressRoute 线路。 如果城区内有多个 ExpressRoute 对等位置，并且线路创建在了不同的对等位置，则可以将这些线路链接到同一虚拟网络。 如果在相同对等位置创建线路，则仍可将这些线路链接到同一虚拟网络，但每个对等互连位置最多只能有 4 个 ExpressRoute 线路。 
+是的。 可以具有多条包含相同或不同服务提供商的 ExpressRoute 线路。 如果城区内有多个 ExpressRoute 对等位置，并且线路创建在了不同的对等位置，则可以将这些线路链接到同一虚拟网络。 如果在同一对等互连位置创建线路，则可将最多 4 条线路链接到同一虚拟网络。
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>如何将我的虚拟网络连接到 ExpressRoute 线路
 
@@ -170,7 +173,7 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>是否可以将一个虚拟网络连接到多条 ExpressRoute 线路？
 
-是的。 可将一个虚拟网络最多链接到四条 ExpressRoute 线路。 必须通过四个不同的 [ExpressRoute 位置](expressroute-locations.md)订购这些线路。
+是的。 可以在相同的或不同的对等互连位置将一个虚拟网络最多链接到四条 ExpressRoute 线路。 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>能否从连接到 ExpressRoute 线路的虚拟网络访问 Internet？
 

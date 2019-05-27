@@ -1,20 +1,20 @@
 ---
-title: 快速入门：使用节点 Web 应用在 Azure Key Vault 中设置和检索机密 - Azure Key Vault | Azure Docs
+title: 快速入门：使用 .NET Web 应用在 Azure Key Vault 中设置和检索机密 - Azure Key Vault | Azure Docs
 description: 在本快速入门中，请使用 .NET Web 应用在 Azure Key Vault 中设置和检索机密
 services: key-vault
-author: prashanthyv
+author: mbaldwin
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 05/27/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 83fc0313b4ac5bf98d3274da77560409bb7c63b3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cb18636e3f0736ed28b8666c2ab2567ef919f685
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625788"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628776"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>快速入门：使用 .NET Web 应用在 Azure Key Vault 中设置和检索机密
 

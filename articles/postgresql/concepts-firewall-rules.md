@@ -1,22 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 服务器防火墙规则
-description: 本文介绍 Azure Database for PostgreSQL 服务器的防火墙规则。
-services: postgresql
+title: Azure Database for PostgreSQL - 单一服务器中的防火墙规则
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器的防火墙规则。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 06/21/2018
-ms.openlocfilehash: 622b91dd97a94d282d1a22aaf388ad520af10200
-ms.sourcegitcommit: 92503f045267f436cf3ca7fa9e6f1c13be17fb44
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 476decafd359c77d254a766f72f7615fdedfda10
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858185"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731940"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>Azure Database for PostgreSQL 服务器防火墙规则
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的防火墙规则
 在指定哪些计算机具有访问权限之前，Azure Database for PostgreSQL 服务器防火墙将禁止所有对数据库服务器的访问。 防火墙基于每个请求的起始 IP 地址授予对服务器的访问权限。
 要配置防火墙，请创建防火墙规则，以指定可接受的 IP 地址的范围。 可以在服务器级别创建防火墙规则。
 

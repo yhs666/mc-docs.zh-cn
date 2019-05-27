@@ -1,6 +1,6 @@
 ---
 title: Azure SQL 数据库服务 - vCore | Microsoft 文档
-description: 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。
+description: 使用基于 vCore 的购买模型，可以单独缩放计算和存储资源、匹配本地性能，以及优化价格。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: sashan, moslake
+ms.reviewer: sashan, moslake, carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: fe74695cf839261107d4f4f9e7aa808e5a448974
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 31bd68b006efd0daea209fc2725856201a83e205
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627359"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629221"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore 服务层、Azure 混合权益和迁移
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>在 vCore 服务层级中进行选择，然后从 DTU 服务层级进行迁移
 
-使用基于 vCore 的购买模型，可以单独缩放计算和存储资源，匹配本地性能，以及优化价格。 它还允许你选择硬件世代：
+使用基于 vCore 的购买模型，可以单独缩放计算和存储资源、匹配本地性能，以及优化价格。 它还允许你选择硬件世代：
 
 - 第 4 代 - 最多 24 个基于 Intel E5-2673 v3 (Haswell) 2.4 GHz 处理器的逻辑 CPU，vCore = 1 PP（物理核心），每核心 7 GB，附加了 SSD
 - 第 5 代 - 最多 80 个基于 Intel E5-2673 v4 (Broadwell) 2.3 GHz 处理器的逻辑 CPU，vCore=1 LP（超线程），每个核心 5.1 GB，快速 eNVM SSD
@@ -30,40 +30,41 @@ ms.locfileid: "58627359"
 第 4 代为每个 vCore 提供的内存要大得多。 但是，第 5 代硬件允许以高得多的力度纵向扩展计算资源。
 
 > [!NOTE]
-> 有关基于 DTU 的服务层的信息，请参阅[基于 DTU 的服务层](sql-database-service-tiers-dtu.md)。 若要了解如何区分基于 DTU 的服务层和基于 vCore 的服务层，请参阅 [Azure SQL 数据库购买模型](sql-database-purchase-models.md)。
+> 有关基于 DTU 的服务层级的信息，请参阅[基于 DTU 的服务层级](sql-database-service-tiers-dtu.md)。 有关区分基于 DTU 的服务层级和基于 vCore 的服务层级的信息，请参阅 [Azure SQL 数据库购买模型](sql-database-purchase-models.md)。
 
 ## <a name="service-tier-characteristics"></a>服务层特征
 
-vCore 模型提供了三个服务层：常规用途、超大规模和业务关键。 服务层根据一系列计算大小、高可用性设计、故障隔离、存储类型和大小以及 IO 范围进行区分。 必须单独配置所需的存储和备份保持期。 在 Azure 门户中，转到“服务器”（而不是数据库）>“托管备份”>“配置策略”>“时间点还原配置”>“7 - 35 天”。
+vCore 模型提供了三个服务层级：“常规用途”、“超大规模”和“业务关键”。 服务层级根据一系列计算大小、高可用性设计、故障隔离、存储类型和大小以及 IO 范围进行区分。 必须单独配置所需的存储和备份保持期。 在 Azure 门户中，转到“服务器”（而不是数据库）>“托管备份”>“配置策略”>“时间点还原配置”>“7 - 35 天”。
 
-下表可帮助你了解这两个层之间的差别：
+下表可帮助你了解这三个层之间的差别：
 
-||**常规用途**|**业务关键**|
-|---|---|---|
-|最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|
-|计算|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|Gen4：1 到 24 个 vCore<br/>Gen5：1 到 80 个 vCore|
+||**常规用途**|**业务关键**|**超大规模**|
+|---|---|---|---|
+|最适用于|大多数业务工作负荷。 提供预算导向的、均衡且可缩放的计算和存储选项。|IO 要求高的业务应用程序。 使用多个独立副本，提供最高级别的故障恢复能力。|具有很高的可缩放存储和读取缩放要求的大多数业务工作负荷|
+|计算|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore<br/>**无服务器计算**<br/>Gen5：0.5 - 4 vCore|**预配计算**：<br/>Gen4：1 到 24 个 vCore<br/>Gen5：2 到 80 个 vCore|**预配计算**：<br/>Gen5：2 到 80 个 vCore|
+|内存|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB<br/>**无服务器计算**<br/>Gen5：每个 vCore 3 GB|**预配计算**：<br/>Gen4：每个 vCore 7 GB<br/>Gen5：每个 vCore 5.1 GB |**预配计算**：<br/>Gen5：每个 vCore 5.1 GB|
+|存储|使用远程存储：<br/>**单一数据库预配计算**：<br/>5 GB � 4 TB<br/>**单一数据库无服务器计算**：<br/>5 GB - 1 TB|使用本地 SSD 存储：<br/>**单一数据库预配计算**：<br/>5 GB � 4 TB|可以根据需要灵活地自动扩展存储。 支持高达 100 TB 存储及更多存储。 使用本地 SSD 存储作为本地缓冲池缓存和本地数据存储。 使用 Azure 远程存储作为最终的长期数据存储。 |
 |内存|Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB | Gen4：每个核心 7 GB<br>Gen5：每个核心 5.1 GB |
-|存储|使用[高级远程存储](../virtual-machines/windows/premium-storage.md)：<br/>单一数据库：5 GB - 4 TB |使用本地 SSD 存储：<br/>单一数据库：5 GB - 4 TB |
-|IO 吞吐量（近似）|单一数据库：每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|
-|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|
-|备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|
-|内存中|不支持|支持|
+|IO 吞吐量（近似）|单一数据库：每个 vCore 提供 500 IOPS，最大 7000 IOPS|每个 vCore 提供 5000 IOPS，最大 200,000 IOPS|TBD|
+|可用性|1 个副本，无读取缩放组|3 个副本，1 个[读取缩放副本](sql-database-read-scale-out.md)，<br/>区域冗余 HA|1 个读/写副本加 0-4 个[读取缩放副本](sql-database-read-scale-out.md)|
+|备份|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md)，7-35 天（默认为 7 天）|Azure 远程存储中基于快照的备份和还原使用这些快照进行快速恢复。 备份瞬间完成，不会影响计算的 IO 性能。 还原速度非常快，不基于数据操作的大小（需要几分钟，而不是几小时或几天）。|
+|内存中|不支持|支持|不支持|
 |||
 
 - 有关详细信息，请参阅[单一数据库中的 vCore 资源限制](sql-database-vcore-resource-limits-single-databases.md)。
-- 若要详细了解常规用途服务层和业务关键服务层，请参阅[常规用途服务层和业务关键服务层](sql-database-service-tiers-general-purpose-business-critical.md)。
-- 若要详细了解基于 vCore 的采购模型中的超大规模服务层，请参阅[超大规模服务层](sql-database-service-tier-hyperscale.md)。  
-
-> [!IMPORTANT]
-> 如果所需的计算容量 vCore 数不超过一个，请使用基于 DTU 的购买模型。
+- 若要详细了解“常规用途”服务层级和“业务关键”服务层级，请参阅[“常规用途”服务层级和“业务关键”服务层级](sql-database-service-tiers-general-purpose-business-critical.md)。
+- 若要详细了解基于 vCore 的购买模型中的“超大规模”服务层级，请参阅[“超大规模”服务层级](sql-database-service-tier-hyperscale.md)。  
 
 ## <a name="azure-hybrid-benefit"></a>Azure 混合权益
 
-在基于 vCore 的购买模型中，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
+在基于 vCore 的购买模型的预配计算机层级中，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)交换现有许可证，以获得 SQL 数据库的折扣价格。 借助这项 Azure 权益，可以使用附带软件保障的本地 SQL Server 许可证，将 Azure SQL 数据库的成本最多节省 30%。
 
 ![定价](./media/sql-database-service-tiers/pricing.png)
 
-使用 Azure 混合权益，你可以选择仅为底层 Azure 基础结构付费且将现有的 SQL Server 许可证用于 SQL 数据库引擎自身 (**BasePrice**)，也可以选择同时为底层基础结构和 SQL Server 许可证付费 (**LicenseIncluded**)。 可以使用 Azure 门户或下列 API 之一来选择或更改许可模型。
+使用 Azure 混合权益，你可以选择仅为底层 Azure 基础结构付费且将现有的 SQL Server 许可证用于 SQL 数据库引擎自身 (**BasePrice**)，也可以选择同时为底层基础结构和 SQL Server 许可证付费 (**LicenseIncluded**)。
+
+
+可以使用 Azure 门户或下列 API 之一来选择或更改许可模型。
 
 - 使用 PowerShell 设置或更新许可证类型：
 
@@ -94,7 +95,7 @@ vCore 模型提供了三个服务层：常规用途、超大规模和业务关�
 
 下表提供具体迁移场景的指导：
 
-|当前服务层|目标服务层|迁移类型|用户操作|
+|当前服务层级|目标服务层级|迁移类型|用户操作|
 |---|---|---|---|
 |标准|常规用途|横向|可按任意顺序迁移，但需确保 vCore 大小适当*|
 |高级|业务关键|横向|可按任意顺序迁移，但需确保 vCore 大小适当*|
@@ -114,7 +115,7 @@ vCore 模型提供了三个服务层：常规用途、超大规模和业务关�
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>创建异地复制辅助数据库
 
-只能使用与主数据库相同的服务层来创建异地辅助数据库。 对于日志生成速率较高的数据库，建议使用与主数据库相同的计算大小来创建辅助数据库。 如果在弹性池中为单个主数据库创建异地辅助数据库，建议对该池使用与主数据库计算大小匹配的 `maxVCore` 设置。 如果在弹性池中为另一个弹性池的主数据库创建异地辅助数据库，建议对该池使用相同的 `maxVCore` 设置
+只能使用与主数据库相同的服务层级来创建异地辅助数据库。 对于日志生成速率较高的数据库，建议使用与主数据库相同的计算大小来创建辅助数据库。 如果在弹性池中为单个主数据库创建异地辅助数据库，建议对该池使用与主数据库计算大小匹配的 `maxVCore` 设置。 如果在弹性池中为另一个弹性池的主数据库创建异地辅助数据库，建议对该池使用相同的 `maxVCore` 设置
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>使用数据库复制将基于 DTU 的数据库转换为基于 vCore 的数据库
 
@@ -122,5 +123,5 @@ vCore 模型提供了三个服务层：常规用途、超大规模和业务关�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关适用于单一数据库的特定计算大小和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。
+- 有关适用于单一数据库的特定计算大小和存储大小选项的详细信息，请参阅[适用于单一数据库的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md)。
 - 若要详细了解适用于弹性池的特定计算大小和存储大小选项，请参阅[适用于弹性池的 SQL 数据库基于 vCore 的资源限制](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)。

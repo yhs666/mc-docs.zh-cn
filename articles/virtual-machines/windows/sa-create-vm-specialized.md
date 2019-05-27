@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: e34bd0030f42ed58463568ccb223dcc2d2da57df
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 0fce8f932d8e993f2050e1770d77c98b45032e11
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003711"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004189"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "59003711"
 * [上传 VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [复制现有 Azure VM 的 VHD](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 <a name="option-1-upload-a-specialized-vhd"></a>
 ## <a name="option-1-upload-a-specialized-vhd"></a>选项 1：上传专用 VHD
@@ -42,9 +42,9 @@ ms.locfileid: "59003711"
 ### <a name="prepare-the-vm"></a>准备 VM
 可上传使用本地 VM 创建的专用 VHD 或从另一个云导出的 VHD。 用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果想要使用当前 VHD 创建新 VM，请确保完成以下步骤。 
 
-  * [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 不要使用 Sysprep 通用化 VM。
-  * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
-  * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
+* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 不要使用 Sysprep 通用化 VM。
+* 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
+* 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
 ### <a name="get-the-storage-account"></a>获取存储帐户
 需要在 Azure 中创建一个存储帐户用于存储上传的 VM 映像。 可以使用现有存储帐户，也可以创建新存储帐户。 
@@ -211,10 +211,10 @@ Elapsed time:            00.00:13:07
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
     ```    
-   ### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
-   若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
-   这需要在创建与其关联的网络接口前完成。  
-   本示例将 NSG 名称设置为 **myNsg**，将 RDP 规则名称设置为 **myRdpRule**。
+### <a name="create-the-network-security-group-and-an-rdp-rule"></a>创建网络安全组和 RDP 规则
+若要使用 RDP 登录到 VM，需要创建一个允许在端口 3389 上进行 RDP 访问的安全规则。 由于新 VM 的 VHD 是从现有专用 VM 创建的，因此在创建 VM 后，可以使用源虚拟机中有权通过 RDP 登录的现有帐户。
+这需要在创建与其关联的网络接口前完成。  
+本示例将 NSG 名称设置为 **myNsg**，将 RDP 规则名称设置为 **myRdpRule**。
 
 ```powershell
 $nsgName = "myNsg"

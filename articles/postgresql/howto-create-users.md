@@ -1,21 +1,20 @@
 ---
-title: 在 Azure Database for PostgreSQL 服务器中创建用户
-description: 本文介绍了如何创建新的用户帐户，用以与 Azure Database for PostgreSQL 服务器进行交互。
+title: 在 Azure Database for PostgreSQL - 单一服务器中创建用户
+description: 本文介绍了如何创建新的用户帐户，用以与 Azure Database for PostgreSQL - 单一服务器进行交互。
 author: WenJason
 ms.author: v-jay
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 46c288e68b71de1865626b4c1f5cd3c29e9caf0a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 2f2fb097c2ef4214ae64c03855f2e50062b6a4a6
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674422"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732021"
 ---
-# <a name="create-users-in-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中创建用户 
+# <a name="create-users-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中创建用户
 本文介绍了如何在 Azure Database for PostgreSQL 服务器中创建用户。
 
 ## <a name="the-server-admin-account"></a>服务器管理员帐户
@@ -28,7 +27,7 @@ ms.locfileid: "52674422"
 
 服务器管理员用户是 azure_pg_admin 角色的成员。 但是，服务器管理员帐户不是 azure_superuser 角色的一部分。 由于此服务是托管的 PaaS 服务，因此只有 Microsoft 是超级用户角色的一部分。 
 
-PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [PostgreSQL 产品文档](https://www.postgresql.org/docs/current/static/sql-createrole.html)中所述。 在 Azure Database for PostgreSQL 中，向服务器管理员用户授予了以下权限：LOGIN、NOSUPERUSER、INHERIT、CREATEDB、CREATEROLE、NOREPLICATION
+PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [PostgreSQL 产品文档](https://www.postgresql.org/docs/current/static/sql-createrole.html)中所述。 在 Azure Database for PostgreSQL 中，服务器管理员用户被授予以下权限：LOGIN、NOSUPERUSER、INHERIT、CREATEDB、CREATEROLE、NOREPLICATION
 
 可以使用服务器管理员用户帐户创建其他用户并向这些用户授予 azure_pg_admin 角色。 此外，还可以使用服务器管理员帐户创建只能访问各个数据库和架构的权限较低的用户和角色。
 
@@ -78,6 +77,6 @@ PostgreSQL 引擎使用权限来控制对数据库对象的访问权限，如 [P
    ```
 
 ## <a name="next-steps"></a>后续步骤
-打开防火墙以允许连接到新用户计算机的 IP 地址：通过 [Azure CLI](howto-manage-firewall-using-cli.md) 或 [使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-portal.md)。
+针对新用户计算机的 IP 地址打开防火墙，使其能够连接：[使用 Azure 门户](howto-manage-firewall-using-portal.md)或 [Azure CLI 创建和管理 Azure Database for PostgreSQL 防火墙规则](howto-manage-firewall-using-cli.md)。
 
 有关用户帐户管理的详细信息，请参阅 PostgreSQL 产品文档来了解[数据库角色和权限](https://www.postgresql.org/docs/current/static/user-manag.html)、[GRANT 语法](https://www.postgresql.org/docs/current/static/sql-grant.html)和[权限](https://www.postgresql.org/docs/current/static/ddl-priv.html)。

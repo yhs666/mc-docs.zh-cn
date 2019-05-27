@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5b1e34107a7c1ad0c1805b783d29a3fd2e75be9b
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: fae34341a73eec69ff192de463e16b44d6f34b6d
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555633"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828557"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 
@@ -102,7 +102,7 @@ LUIS 理解以下语言：
 |环境|版本|目的|
 |--|--|--|
 |德语<br>`de-de`|1.0.0|通过使用基于机器学习的 tokenizer 将单词拆分，尝试将复合单词分解为它们的单个组件，从而对单词进行标记。<br>如果用户输入 `Ich fahre einen krankenwagen` 作为话语，它将转换为 `Ich fahre einen kranken wagen`。 允许将 `kranken` 和 `wagen` 分别标记为不同的实体。|
-|德语<br>`de-de`|1.0.1|通过基于空格拆分单词来标记单词。<br> 如果用户输入 `Ich fahre einen krankenwagen` 作为话语，则它仍然是单个标记。 因此 `krankenwagen` 标记为单个实体。 |
+|德语<br>`de-de`|1.0.2|通过基于空格拆分单词来标记单词。<br> 如果用户输入 `Ich fahre einen krankenwagen` 作为话语，则它仍然是单个标记。 因此 `krankenwagen` 标记为单个实体。 |
 
 ### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之间迁移
 <!--

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 12/6/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 5b5f099ef481096f3fe6df1189d89626a994e11e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 05/20/2019
+ms.openlocfilehash: 77205109eb1384fe5dbf48f91683339282715652
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663737"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731980"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的限制
 
@@ -86,9 +86,12 @@ ms.locfileid: "56663737"
 ### <a name="vnet-service-endpoints"></a>VNet 服务终结点
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。
 
+### <a name="storage-size"></a>存储大小
+- 有关每个定价层的存储大小限制，请参阅[定价层](concepts-pricing-tiers.md)。
+
 ## <a name="current-known-issues"></a>当前已知的问题
 - 建立连接后，MySQL 服务器实例显示错误的服务器版本。 若要获取正确的服务器实例引擎版本，请使用 `select version();` 命令。
 
 ## <a name="next-steps"></a>后续步骤
-- [每个服务层中有哪些可用资源](concepts-pricing-tiers.md)
+- [每个服务层级中有哪些可用资源](concepts-pricing-tiers.md)
 - [支持的 MySQL 数据库版本](concepts-supported-versions.md)

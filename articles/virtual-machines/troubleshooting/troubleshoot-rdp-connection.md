@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 03/23/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: d20e503229548b0c8a614b4ab6005620de440397
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 0ad0a9e12835f0ae04c4c2683f281c3b27727bbc
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666373"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004137"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>排查 Azure 虚拟机的远程桌面连接问题
 与基于 Windows 的 Azure 虚拟机 (VM) 的远程桌面协议 (RDP) 连接可能会因各种原因而失败，使用户无法访问 VM。 问题可能出在 VM 上的远程桌面服务、网络连接或主计算机上的远程桌面客户端。 本文介绍解决 RDP 连接问题的一些最常见方法。 
 
 如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 <a name="quickfixrdp"></a>
 
@@ -69,7 +69,7 @@ ms.locfileid: "56666373"
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/reset-rdp.png)
 2. **验证网络安全组规则**。 使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 RDP 端口（默认值 3389）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
-3. **查看 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
+3. **查看 VM 启动诊断**。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
     本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [VM 启动诊断](boot-diagnostics.md)。
 
@@ -120,11 +120,8 @@ ms.locfileid: "56666373"
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
-        -VMName "myVM" -Location "chinanorth" -Name "myVMAccessExtension"
+        -VMName "myVM" -Location chinanorth -Name "myVMAccessExtension"
     ```
-    
-    <!--Notice: RG is chinanorth-->
-    
 2. **验证网络安全组规则**。 此故障排除步骤验证网络安全组中是否存在允许 RDP 流量的规则。 RDP 的默认端口为 TCP 端口 3389。 允许 RDP 通信的规则可能无法在创建 VM 时自动创建。
 
     首先，将网络安全组的所有配置数据分配到 `$rules` 变量。 以下示例将在名为 `myResourceGroup` 的资源组中获取关于名为 `myNetworkSecurityGroup` 的网络安全组的信息：
@@ -206,16 +203,16 @@ ms.locfileid: "56666373"
     ![在 Azure 门户中重置 RDP 配置](./media/troubleshoot-rdp-connection/classic-reset-rdp.png)
 2. **验证云服务终结点**。 此故障排除步骤验证云服务中是否存在允许 RDP 流量的终结点。 RDP 的默认端口为 TCP 端口 3389。 创建 VM 时，可能不会自动创建允许 RDP 流量的规则。
 
-   在 Azure 门户中选择 VM。 单击“终结点”按钮以查看当前为 VM 配置的终结点。 验证终结点存在，它们允许 TCP 端口 3389 上的 RDP 通信。
+    在 Azure 门户中选择 VM。 单击“终结点”按钮以查看当前为 VM 配置的终结点。 验证终结点存在，它们允许 TCP 端口 3389 上的 RDP 通信。
 
-   以下示例显示了允许 RDP 流量的有效终结点：
+    以下示例显示了允许 RDP 流量的有效终结点：
 
-   ![在 Azure 门户中验证云服务终结点](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
+    ![在 Azure 门户中验证云服务终结点](./media/troubleshoot-rdp-connection/classic-verify-cloud-services-endpoints.png)
 
-   如果不存在允许 RDP 通信的终结点，请[创建云服务终结点](../windows/classic/setup-endpoints.md)。 允许使用 TCP 连接到专用端口 3389。
-3. **检查 VM 启动诊断**。 此故障排除步骤检查 VM 控制台日志，确定 VM 是否报告了问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
+    如果不存在允许 RDP 通信的终结点，请[创建云服务终结点](../windows/classic/setup-endpoints.md)。 允许使用 TCP 连接到专用端口 3389。
+3. **检查 VM 启动诊断**。 此故障排除步骤通过查看 VM 控制台日志确定 VM 是否报告问题。 并非所有 VM 都已启用启动诊断，因此，此故障排除步骤可能是可选的。
 
-    本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [Boot Diagnostics for VMs](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)（VM 的启动诊断）。
+    本文未介绍具体的故障排除步骤，而是指出会影响 RDP 连接的更广泛问题。 有关查看控制台日志和 VM 屏幕截图的详细信息，请参阅 [VM 启动诊断](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/)。
 4. **检查 VM 资源运行状况**。 此故障排除步骤验证 Azure 平台不存在可能影响 VM 连接性的已知问题。
 
     在 Azure 门户中选择 VM。 在“设置”窗格中向下滚动到靠近列表底部的“支持 + 故障排除”部分。  单击“资源运行状况”按钮。 A healthy VM reports as being <bpt id="p1">**</bpt>Available<ept id="p1">**</ept>:

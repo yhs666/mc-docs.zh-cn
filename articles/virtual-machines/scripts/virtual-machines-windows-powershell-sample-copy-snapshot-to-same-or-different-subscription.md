@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/28/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 47bc277ccd0daeab7a1025e618493de8ebc01cc9
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 667d5f1916791204d7e339daf5fda25552771caf
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004127"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003988"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>在相同或不同订阅中通过 PowerShell 复制托管磁盘的快照
 
@@ -35,12 +35,12 @@ ms.locfileid: "59004127"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-#Sign-in the Azure China Cloud
+# Sign-in the Azure China Cloud
 Connect-AzAccount -Environment AzureChinaCloud
 
 #Provide the subscription Id of the subscription where snapshot exists
@@ -69,6 +69,8 @@ $targetResourceGroupName='yourTargetResourceGroupName'
 #If snapshot is copied to the same subscription then you can skip this step
 Select-AzSubscription -SubscriptionId $targetSubscriptionId
 
+#We recommend you to store your snapshots in Standard storage to reduce cost. Please use Standard_ZRS in regions where zone redundant storage (ZRS) is available, otherwise use Standard_LRS
+#Please check out the availability of ZRS here: https://docs.microsoft.com/Az.Storage/common/storage-redundancy-zrs#support-coverage-and-regional-availability
 $snapshotConfig = New-AzSnapshotConfig -SourceResourceId $snapshot.Id -Location $snapshot.Location -CreateOption Copy -SkuName Standard_LRS
 
 #Create a new snapshot in the target subscription and resource group

@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 05/15/2017
 ms.author: v-yiso
-ms.date: 12/03/2018
-ms.openlocfilehash: e5629b0dd9d4f6a4571232ae9294bce81f2cca67
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 06/03/2019
+ms.openlocfilehash: e74d5490b4751fbe789c796f5ae5d08f17931345
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675287"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195017"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>设备孪生入门 (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "52675287"
 
 若要完成本教程，需要满足以下条件：
 
-* Visual Studio 2017。
+* Visual Studio。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心

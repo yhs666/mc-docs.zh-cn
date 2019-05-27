@@ -7,15 +7,14 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 12/24/2018
-ms.date: 12/24/2018
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: d95199fb1fe1febb6c962b6e24b70dc8c52eab94
-ms.sourcegitcommit: 649f5093a9a9a89f4117ae3845172997922aec31
+ms.openlocfilehash: 19216490d160207983042492d99969c452abb0fb
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/24/2018
-ms.locfileid: "53784623"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609814"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Monitor 中的 Azure 服务总线指标（预览版）
 
@@ -28,9 +27,9 @@ Azure Monitor 提供了统一的用户界面，可用于监视各种 Azure 服�
 
 ## <a name="access-metrics"></a>访问指标
 
-Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)或 Azure Monitor API（REST 和 .NET）和事件中心访问指标。 有关详细信息，请参阅 [Azure Monitor 指标](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](https://portal.azure.cn)、Azure Monitor API（REST 和 .Net）与分析解决方案（例如 Azure Monitor 日志和事件中心）访问指标。 有关详细信息，请参阅 [Azure Monitor 中的指标](../azure-monitor/platform/data-platform-metrics.md)。
 
-默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 此值是在 Azure Monitor 中的[诊断设置](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings)中配置的。
+默认情况下，已启用指标，并且可访问最近 30 天的数据。 如需将数据保留更长一段时间，可将指标数据存档到 Azure 存储帐户。 此值是在 Azure Monitor 中的[诊断设置](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)中配置的。
 
 ## <a name="access-metrics-in-the-portal"></a>在门户中访问指标
 
@@ -46,7 +45,8 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 
 ## <a name="billing"></a>计费
 
-在预览版中，可免费使用 Azure Monitor 中的指标。 但是，如果使用引入指标数据的其他解决方案，可能就需要收费。 例如，如果将指标数据存档到 Azure 存储帐户，则 Azure 存储会收费。
+在预览版中，可免费使用 Azure Monitor 中的指标。 但是，如果使用引入指标数据的其他解决方案，可能就需要收费。 例如，如果将指标数据存档到 Azure 存储帐户，则 Azure 存储会收费。 或者，如果将指标数据流式传输到 Azure Monitor 日志进行高级分析，则 Azure Monitor 日志会收费。
+
 以下指标可提供服务运行状况的概述。 
 
 > [!NOTE]
@@ -88,8 +88,6 @@ Azure Monitor 提供多种访问指标的方法。 可通过 [Azure 门户](http
 | 指标名称 | 说明 |
 | ------------------- | ----------------- |
 |ActiveConnections（预览版）|命名空间以及实体上的活动连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|打开的连接数（预览版）|打开的连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName|
-|关闭的连接数（预览版）|关闭的连接数。<br/><br/> 单元：计数 <br/> 聚合类型：总计 <br/> 维度：EntityName |
 
 ## <a name="resource-usage-metrics"></a>资源使用情况指标
 
@@ -114,7 +112,7 @@ Azure 总线服务支持对 Azure Monitor 中的指标使用以下维度。 为�
 1. 在“服务总线命名空间”页面的“指标”选项卡上，选择“配置警报”。 
 
     ![“指标”页面 - 配置警报菜单](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. 选择“选择目标”，并在“选择资源”页面上执行以下操作： 
+2. 选择“选择目标”选项，并在“选择资源”页面上执行以下操作： 
     1. 对于“按资源类型筛选”字段，选择“服务总线命名空间”。 
     2. 对于“按订阅筛选”字段，选择你的订阅。
     3. 从列表中选择“服务总线命名空间”。 

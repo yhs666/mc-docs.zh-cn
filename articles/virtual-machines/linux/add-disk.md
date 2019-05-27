@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 06/13/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: a7e87bd25805ea6131334bf2bb8cc0c64ebad0f3
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7ce7afa331f36babecfaeabc3eb40b444b64f9d1
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666026"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835753"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。
@@ -128,6 +128,12 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
+使用以下命令更新内核：
+
+```
+partprobe 
+```
+
 现在，使用 `mkfs` 命令将文件系统写入到该分区。 指定文件系统类型和设备名称。 以下示例在通过前面的步骤创建的 */dev/sdc1* 分区中创建 *ext4* 文件系统：
 
 ```bash
@@ -204,6 +210,8 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版都提供 *nofail* 和/或 *nobootwait* fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
 > 
 > 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+
+<!--Not Available on [Serial Console documentation](/virtual-machines/troubleshooting/serial-console-linux)-->
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中对 Linux 的 TRIM/UNMAP 支持
 某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 此功能主要用于标准存储中，如果你创建大型文件后又将其删除，则该功能将通知 Azure 已删除的页不再有效并且可以丢弃，可以节省成本。

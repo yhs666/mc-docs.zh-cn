@@ -1,26 +1,22 @@
 ---
-title: Azure Database for PostgreSQL 中查询存储功能的使用方案
-description: 本文介绍 Azure Database for PostgreSQL 中“查询存储”功能的一些使用方案。
-services: postgresql
+title: Azure Database for PostgreSQL - 单一服务器中的查询存储功能的使用方案
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器中的查询存储功能的一些使用方案。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/26/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 5208c58cd1abe9e7457ad2655eb49de6d48454d8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: dcff3eccab556e6efb6c911db9b7fe70bfd9140a
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675635"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731903"
 ---
 # <a name="usage-scenarios-for-query-store"></a>查询存储的使用方案
 
-**适用于：** Azure Database for PostgreSQL 9.6 和 10
-
-> [!IMPORTANT]
-> 查询存储功能目前以公共预览版提供。
+**适用于：** Azure Database for PostgreSQL - 单一服务器 9.6 和 10
 
 可以在各种场景中使用查询存储，在这些场景中，跟踪和维护可预测的工作负载性能至关重要。 请考虑以下示例： 
 - 识别和优化消耗最高的查询 

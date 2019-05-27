@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 05/10/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 89874c115a1d19c3308175e8ed1164971bea6392
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 7e8a1ce031d1b4db7476dfaa48a10e3513878584
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004056"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003985"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>通过将现有托管 OS 磁盘与 PowerShell 配合使用来创建虚拟机
 
@@ -31,15 +31,16 @@ ms.locfileid: "59004056"
 * 基于从专用 VHD 文件创建的现有托管磁盘创建 VM 
 * 基于从快照创建的现有托管 OS 磁盘创建 VM 
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id
 $subscriptionId = 'yourSubscriptionId'
 
@@ -117,7 +118,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | 创建虚拟机。 |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
 
-对于市场映像，使用 [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan?view=azurermps-6.7.0) 设置计划信息。
+对于市场映像，使用 [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan) 设置计划信息。
 
 ```powershell
 Set-AzVMPlan -VM $VirtualMachine -Publisher $Publisher -Product $Product -Name $Bame

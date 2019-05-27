@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/23/2018
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: tables
-ms.openlocfilehash: 2e60f1f2bb5a416519f850b56662b275ccfd8845
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: f4046eb2971fd0072e5fe834dc5cc7fa6a24547f
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665588"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004318"
 ---
 # <a name="design-for-data-modification"></a>针对数据修改的设计
 本文重点介绍优化插入、更新和删除的设计注意事项。 在某些情况下，需要在针对查询优化的设计与针对数据修改优化的设计之间进行权衡，就像你在设计关系数据库时要做的那样（尽管在关系数据库中，管理设计权衡的方法是不同的）。 “表设计模式”部分介绍了一些详细的表服务设计模式，着重阐释了其中的部分权衡。 在实践中，会发现许多针对查询实体优化的设计对于修改实体也能很好地工作。  
@@ -35,6 +35,7 @@ ms.locfileid: "56665588"
 [表设计模式](table-storage-design-patterns.md)一文的以下模式解决了管理一致性的问题：  
 
 * [内分区的第二索引模式](table-storage-design-patterns.md#intra-partition-secondary-index-pattern) - 利用同一分区中的 **RowKey** 值存储每个实体的多个副本，实现快速、高效的查询，并借助不同的 **RowKey** 值替换排序顺序。  
+* [内分区的第二索引模式](table-storage-design-patterns.md#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 **RowKey** 值替换排序顺序。  
 * [最终一致性事务模式](table-storage-design-patterns.md#eventually-consistent-transactions-pattern) - 通过使用 Azure 队列跨分区边界或存储系统边界启用最终一致的行为。
 * [索引实体模式](table-storage-design-patterns.md#index-entities-pattern) - 维护索引实体，实现返回实体列表的高效搜索。  
 * [反规范模式](table-storage-design-patterns.md#denormalization-pattern) - 将相关数据组合在一起放置在单个实体中，以便能够使用单个点查询检索所有所需的数据。  

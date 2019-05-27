@@ -13,15 +13,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: afb0e8f735dad5dff6de71f0a0169040e95357c8
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 10fa9730fe9b291f223408380de90869ad9ebfaa
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003917"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004157"
 ---
 # <a name="create-a-snapshot"></a>创建快照
 
@@ -45,7 +45,7 @@ ms.locfileid: "59003917"
 
 以下步骤演示如何使用 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet 复制 VHD 磁盘、创建快照配置以及创建磁盘的快照。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. 设置一些参数： 
 
@@ -73,7 +73,7 @@ ms.locfileid: "59003917"
        -CreateOption copy
     ```
 
-<!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
+    <!--Not Available on [availability zones](../../availability-zones/az-overview.md)-->
 
 4. 拍摄快照：
 

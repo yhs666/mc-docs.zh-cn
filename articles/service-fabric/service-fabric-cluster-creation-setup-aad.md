@@ -13,23 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/15/2019
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7723739fa12ab82dec824718cc78afeec6073e37
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4fdce48a592fdcb5af6cbef58e1751752a9607c4
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625124"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195408"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
-对在 Azure 上运行的群集，建议使用 Azure Active Directory (Azure AD) 来保护对管理终结点的访问。  本文介绍了如何设置 Azure AD 来对 Service Fabric 群集的客户端进行身份验证，这必须在[创建群集](service-fabric-cluster-creation-via-arm.md)之前完成。  通过 Azure AD，组织（称为租户）可管理用户对应用程序的访问。 应用程序分为采用基于 Web 的登录 UI 的应用程序和采用本地客户端体验的应用程序。 本文假设已创建了一个租户。 如果未创建，请先阅读[如何获取 Azure Active Directory 租户][active-directory-howto-tenant]。
+对在 Azure 上运行的群集，建议使用 Azure Active Directory (Azure AD) 来保护对管理终结点的访问。  本文介绍了如何设置 Azure AD 来对 Service Fabric 群集的客户端进行身份验证，这必须在[创建群集](service-fabric-cluster-creation-via-arm.md)之前完成。  通过 Azure AD，组织（称为租户）可管理用户对应用程序的访问。 应用程序分为采用基于 Web 的登录 UI 的应用程序和采用本地客户端体验的应用程序。 
 
-## <a name="create-azure-ad-applications"></a>创建 Azure AD 应用程序
 Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 的 [Service Fabric Explorer][service-fabric-visualizing-your-cluster] 和 [Visual Studio][service-fabric-manage-application-in-visual-studio]。 因此，需要创建两个 Azure AD 应用程序来控制对群集的访问：一个 Web 应用程序和一个本机应用程序。  创建应用程序后，将用户分配到只读和管理员角色。
-
-为了简化涉及到配置 Azure AD 与 Service Fabric 群集的一些步骤，我们创建了一组 Windows PowerShell 脚本。
 
 > [!NOTE]
 > 在创建群集之前，请完成以下步骤。 因为脚本需要群集名称和终结点，这些值应是规划的值，而不是已创建的值。
@@ -43,20 +40,21 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 2. 右键单击 zip 文件，选择“属性”，“解除阻止”复选框，并单击“应用”。
 3. 解压缩 zip 文件。
 
-## <a name="create-azure-ad-applications-and-asssign-users-to-roles"></a>创建 Azure AD 应用程序并为用户分配角色
-创建两个 Azure AD 应用程序来控制对群集的访问权限：一个 Web 应用程序和一个本机应用程序。 创建用于表示群集的应用程序后，请将用户分配到 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)：只读和管理员。
+## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>创建 Azure AD 应用程序并为用户分配角色
+创建两个 Azure AD 应用程序来控制对群集的访问：一个 Web 应用程序和一个本机应用程序。 创建用于表示群集的应用程序后，请将用户分配到 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)：只读和管理员。
 
 运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。  另请指定用户的用户名和密码。  例如：
 
 <!--MOONCAKE: Add -location china parameter in cmdlet-->
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location 'china' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
 <!--MOONCAKE: Add -location china parameter in cmdlet-->
+
 > [!NOTE]
 > 对于 Azure 中国云，还应指定 `-Location` 参数。
 
@@ -92,7 +90,7 @@ Azure AD 的设置和使用可能有一定难度，可以参考下面的一些�
 
 ![SFX 证书对话框][sfx-select-certificate-dialog]
 
-#### <a name="reason"></a>原因
+#### <a name="reason"></a>Reason
 未在 Azure AD 群集应用程序中为用户分配角色。 因此，Service Fabric 群集的 Azure AD 身份验证失败。 Service Fabric Explorer 将故障回复到证书身份验证。
 
 #### <a name="solution"></a>解决方案
@@ -111,7 +109,7 @@ Azure AD 的设置和使用可能有一定难度，可以参考下面的一些�
 
 ![SFX 回复地址不匹配][sfx-reply-address-not-match]
 
-#### <a name="reason"></a>原因
+#### <a name="reason"></a>Reason
 代表 Service Fabric Explorer 的群集 (web) 应用程序尝试针对 Azure AD 进行身份验证，在执行请求的过程中提供了重定向返回 URL。 但是，该 URL 并未列在 Azure AD 应用程序的“回复 URL”列表中。
 
 #### <a name="solution"></a>解决方案
@@ -122,7 +120,7 @@ Azure AD 的设置和使用可能有一定难度，可以参考下面的一些�
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>使用 Azure AD 身份验证通过 PowerShell 连接群集
 若要连接 Service Fabric 群集，请使用以下 PowerShell 命令示例：
 
-```PowerShell
+```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
@@ -138,7 +136,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 在设置 Azure Active Directory 应用程序并为用户设置角色后，[配置并部署群集](service-fabric-cluster-creation-via-arm.md)。
 
 <!-- Links -->
-[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest?view=azure-cli-latest
+[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

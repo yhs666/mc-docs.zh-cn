@@ -1,25 +1,25 @@
 ---
 title: 对象检测 - 计算机视觉
 titleSuffix: Azure Cognitive Services
-description: 与使用计算机视觉 API 检测对象相关的概念。
+description: 了解与计算机视觉 API 的对象检测功能相关的概念 - 使用情况和限制。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 03/11/2019
-ms.date: 04/22/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 8642204dd853360333f2fe04929c3b23fbe895b0
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 76926e789bde4ce9a41791b21e6a87c468a3b674
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855375"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598884"
 ---
-# <a name="object-detection"></a>对象检测
+# <a name="detect-common-objects-in-images"></a>检测图像中的常见对象
 
 对象检测类似于[标记](concept-tagging-images.md)，但是 API 返回找到的每个对象的边框坐标（以像素为单位）。 例如，如果图像包含狗、猫和人，检测操作将列出这些对象及其在图像中的坐标。 可以使用此功能处理图像中对象之间的关系。 还可以确定图像中是否有多个相同标记的实例。
 

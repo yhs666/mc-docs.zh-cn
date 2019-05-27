@@ -14,14 +14,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 05/30/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e262ce63a7536216263e16d9509594a6ff7b6ae
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 43110ecf8ebbbe0c139e6a63077a61f12baee830
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003949"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004235"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，可能会由于安全外壳 (SSH) 错误、SSH 连接失败或 SSH 被拒绝而发生问题，本文可帮助你查找并更正这些问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
@@ -53,6 +53,7 @@ ms.locfileid: "59003949"
 可以使用以下方法之一重置凭据或 SSH 配置：
 
 * [Azure 门户](#use-the-azure-portal) - 如果需要快速重置 SSH 配置或 SSH 密钥，并且没有安装 Azure 工具，则很适合使用此方法。
+    <!--Not Available on * [Azure VM Serial Console](https://aka.ms/serialconsolelinux)-->
 * [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 如果要处理经典 VM，则可以使用 [Azure 经典 CLI](#use-the-azure-classic-cli)。
 * [Azure VMAccessForLinux 扩展](#use-the-vmaccess-extension) - 创建和重复使用 json 定义文件来重置 SSH 配置或用户凭据。
 
@@ -220,8 +221,8 @@ azure vm restart --resource-group myResourceGroup --name myVM
 
 > [!NOTE]
 > 完成此操作后，临时磁盘数据将丢失，系统将更新与虚拟机关联的动态 IP 地址。
-> 
-> 
+>
+>
 
 ### <a name="azure-portal"></a>Azure 门户
 若要使用 Azure 门户重新部署 VM，请选择 VM，然后向下滚动到“支持 + 故障排除”部分。 选择“重新部署”，如以下示例中所示：
@@ -256,7 +257,7 @@ azure vm redeploy --resource-group myResourceGroup --name myVM
     * 重置密码或 SSH 密钥。
     * 创建 *sudo* 用户帐户。
     * 重置 SSH 配置。
-* 检查 VM 的资源运行状况，了解是否存在任何平台问题。<br>
+* 检查 VM 的资源运行状况，了解是否存在任何平台问题。<br />
     选择 VM 并向下滚动到“设置” > “检查运行状况”。
 
 ## <a name="additional-resources"></a>其他资源

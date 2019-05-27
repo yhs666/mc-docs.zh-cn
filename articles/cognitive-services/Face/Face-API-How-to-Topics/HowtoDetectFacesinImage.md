@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-origin.date: 02/22/2019
-ms.date: 03/13/2019
+origin.date: 04/18/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: c430e347400337c5df406078b6c789d29a225880
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9a5d8bb419120d937ac71b7e946807610accfce3
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964479"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668968"
 ---
 # <a name="get-face-detection-data"></a>获取人脸检测数据
 
@@ -56,17 +56,13 @@ foreach (var face in faces)
 
 ## <a name="get-face-landmarks"></a>获取人脸特征点
 
-人脸特征点是人脸上的一组易于查找的点，例如瞳孔或鼻尖。 可以通过将 _returnFaceLandmarks_ 参数设置为 **true** 来获取人脸特征点数据。
+[人脸特征点](../concepts/face-detection.md#face-landmarks)是人脸上的一组易于查找的点，例如瞳孔或鼻尖。 可以通过将 _returnFaceLandmarks_ 参数设置为 **true** 来获取人脸特征点数据。
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
 ```
 
-默认情况下，有 27 个预定义的特征点。 下图显示了所有 27 个点：
-
-![标有所有 27 个特征点的人脸插图](../Images/landmarks.1.jpg)
-
-返回的点以像素为单位，就像人脸矩形框一样。 以下代码演示如何检索鼻子和瞳孔的位置：
+以下代码演示如何进一步检索鼻子和瞳孔的位置：
 
 ```csharp
 foreach (var face in faces)
@@ -110,19 +106,7 @@ Vector faceDirection = new Vector(
 
 ## <a name="get-face-attributes"></a>获取人脸特性
 
-除了人脸矩形和特征点以外，人脸检测 API 还可以分析人脸的几个概念特性。 其中包括：
-
-- Age
-- 性别
-- 笑容程度
-- 面部毛发
-- 眼镜
-- 3D 头部姿势
-- 情感
-
-> [!IMPORTANT]
-> 这些属性是使用统计算法预测的，不一定准确。 根据特性数据做出决策时请小心。
->
+除了人脸矩形和特征点以外，人脸检测 API 还可以分析人脸的几个概念特性。 如需完整列表，请参阅[人脸属性](../concepts/face-detection.md#attributes)概念部分。
 
 若要分析人脸特性，请将 _returnFaceAttributes_ 参数设置为 **[FaceAttributeType 枚举](https://dotnet/api/microsoft.azure.cognitiveservices.vision.face/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** 值的列表。
 
@@ -155,13 +139,17 @@ foreach (var face in faces)
 }
 ```
 
-若要详细了解每个特性，请参阅[词汇表](../Glossary.md)。
+若要详细了解每个属性，请参阅[人脸检测和属性](../concepts/face-detection.md)概念指南。
 
 ## <a name="next-steps"></a>后续步骤
 
-本指南介绍了如何使用人脸检测的各项功能。 接下来请参阅[词汇表](../Glossary.md)，以更详细地了解检索到的人脸数据。
+本指南介绍了如何使用人脸检测的各项功能。 接下来，请按深度教程的说明操作，将这些功能集成到应用中。
+
+- [教程：创建一个用于显示图像中人脸数据的 WPF 应用](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [教程：创建一个用于检测和定格图像中人脸的 Android 应用](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>相关主题
 
 - [参考文档 (REST)](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
+<!-- Update_Description: wording update -->

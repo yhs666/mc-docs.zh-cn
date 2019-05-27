@@ -1,26 +1,21 @@
 ---
-title: 为 Azure 存储配置连接字符串 | Azure
+title: 配置 Azure 存储的连接字符串 | Microsoft Docs
 description: 为 Azure 存储帐户配置连接字符串。 连接字符串包含在运行时从应用程序访问 Azure 存储帐户所需的授权信息。
 services: storage
-documentationcenter: ''
-author: forester123
-manager: digimobile
-editor: tysonn
-ms.assetid: ecb0acb5-90a9-4eb2-93e6-e9860eda5e53
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 04/12/2017
-ms.date: 10/16/2017
-ms.author: v-johch
-ms.openlocfilehash: 7958790f15551fc3c4fe2fcac53a51ed7427aea4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/27/2019
+ms.author: v-jay
+ms.reviewer: cbrooks
+ms.subservice: common
+ms.openlocfilehash: 79fca3e817527921d11b959cf4896f37c32d4178
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654187"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004039"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 

@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 4581197b2b63c3478d9762f4b743a4e385a9ab59
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: cb72fa796a933ce1e965dd55bfd2eb9479b47e98
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004002"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004249"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>教程 - 使用 Azure CLI 管理 Azure 磁盘
 
@@ -48,7 +48,7 @@ Azure 虚拟机 (VM) 使用磁盘来存储操作系统、应用程序和数据�
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
-若要安装应用程序和存储数据，可添加额外的数据磁盘。 在任何需要持久和响应性数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
+若要安装应用程序和存储数据，可添加额外的数据磁盘。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -67,13 +67,17 @@ Azure 提供两种类型的磁盘：标准磁盘和高级磁盘。
 ### <a name="premium-disk-performance"></a>高级磁盘性能
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 例如，Standard_GS5 VM 最多可实现 80,000 IOPS。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Linux VM 大小](sizes.md)。
+尽管上表确定了每个磁盘的最大 IOPS，但还可通过条带化多个数据磁盘实现更高级别的性能。 若要详细了解每个 VM 的最大 IOPS，请参阅 [Linux VM 大小](sizes.md)。
+
+<!--Not Available on  For instance, a Standard_GS5 VM can achieve a maximum of 80,000 IOPS.-->
+
+## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
+
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-and-attach-disks"></a>创建并附加磁盘
 
 可创建磁盘，并将其附加到新建 VM 或现有 VM。
-
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ### <a name="attach-disk-at-vm-creation"></a>在 VM 创建时附加磁盘
 
@@ -270,6 +274,6 @@ az vm disk attach \
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+> [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
 <!--Update_Description: update meta properties, update link, wording update -->

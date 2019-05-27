@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/12/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e878e2c590482c2804212462b60a5f3b24263ee
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 28af8329b1f75cb6881c7c21cd29b3519da9da4e
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625860"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835615"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>适用于 Linux 的 DSC 扩展 (Microsoft.OSTCExtensions.DSCForLinux)
 
 Desired State Configuration (DSC) 是一个管理平台，可让你使用“配置即代码”来管理 IT 和开发基础结构。
 
-DSCForLinux 扩展由 Microsoft 发布和提供支持。 该扩展在 Azure 虚拟机上安装 OMI 和 DSC 代理。 DSC 扩展还能执行以下操作
+DSCForLinux 扩展由 Azure 发布并提供支持。 该扩展在 Azure 虚拟机上安装 OMI 和 DSC 代理。 DSC 扩展还能执行以下操作
 
 - 将 Linux VM 注册到 Azure 自动化帐户，以便从 Azure 自动化服务提取配置 (Register ExtensionAction)
 - 将 MOF 配置推送到 Linux VM (Push ExtensionAction)
@@ -34,7 +34,7 @@ DSCForLinux 扩展由 Microsoft 发布和提供支持。 该扩展在 Azure 虚�
 - 将自定义的 DSC 模块安装到 Linux VM (Install ExtensionAction)
 - 在 Linux VM 中删除自定义的 DSC 模块 (Remove ExtensionAction)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +49,7 @@ DSC Linux 扩展支持所有[在 Azure 上认可的 Linux 分发版](/virtual-ma
 
 ### <a name="internet-connectivity"></a>Internet 连接
 
-DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Register 扩展要求连接到自动化服务。 对于其他操作（例如“提取”），Install 扩展要求连接到 Azure 存储/Github， 具体取决于客户提供的设置。
+DSCForLinux 扩展要求目标虚拟机已连接到 Internet。 例如，Register 扩展要求连接到自动化服务。 对于其他操作（例如“拉取”和“安装”），扩展要求连接到 Azure 存储/Github， 具体取决于客户提供的设置。
 
 ## <a name="extension-schema"></a>扩展架构
 
@@ -421,7 +421,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.windowsazure.cn/support/support-azure)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Not Available on [MSDN Azure and CSDN Azure](https://www.azure.cn/support/community/)-->
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 03/22/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: a193fb992d7101f3420012cc2a52d636e6775896
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 36d2a94b8d0fe9eee65552b24fdb8b745725fd2f
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003907"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829278"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
@@ -217,7 +217,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 ### <a name="ssh"></a>SSH
 
-通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
+通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如，**/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
 
 每个头节点可能具有唯一的日志条目，因此应该检查两个头节点上的日志。
 
@@ -248,25 +248,24 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 ## <a name="how-to-configure-the-node-size"></a>如何配置节点大小
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)上找到 HDInsight 可用的不同 VM 大小的列表。
 
-创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell][azure-powershell] 和 [Azure 经典 CLI][azure-cli] 指定大小：
+创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell 模块 Az][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
 
 * **Azure 门户**：创建群集时，可以设置群集所用节点的大小：
 
     ![群集创建向导的图像，其中包含节点大小选项](./media/hdinsight-high-availability-linux/headnodesize.png)
 
-* **Azure 经典 CLI**：使用 `azure hdinsight cluster create` 命令时，可以使用 `--headNodeSize`、`--workerNodeSize` 和 `--zookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
+* **Azure CLI**：使用 [az hdinsight create](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-create) 命令时，可以使用 `--headnode-size`、`--workernode-size` 和 `--zookeepernode-size` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
 
-* **Azure PowerShell**：使用 `New-AzHDInsightCluster` cmdlet 时，可以使用 `-HeadNodeVMSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
+* **Azure PowerShell**：使用 [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) cmdlet 时，可以使用 `-HeadNodeSize`、`-WorkerNodeSize` 和 `-ZookeeperNodeSize` 参数设置头节点、辅助角色节点与 ZooKeeper 节点的大小。
 
 ## <a name="next-steps"></a>后续步骤
 
 请使用以下链接深入了解本文档中所述的内容。
 
 * [Apache Ambari REST 参考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [安装和配置 Azure 经典 CLI](../cli-install-nodejs.md)
+* [安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)
 * [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
 * [配置基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 

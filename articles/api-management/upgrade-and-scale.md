@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 08/18/2018
-ms.date: 12/31/2018
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: b764749399100b79b8ea66b8f69344749611b5bf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1374bac4a28df81a95451e101b60bb4806670b58
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625920"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829240"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>升级和缩放 Azure API 管理实例  
 
@@ -65,9 +65,9 @@ ms.locfileid: "58625920"
 3. 选择所需的层。
 4. 指定想要添加的“单位”数。 可以使用滑块，或键入单位数。  
     如果选择“高级”层，则首先需要选择一个区域。
-5. 按“保存”
+5. 按“保存”。
 
 ## <a name="next-steps"></a>后续步骤
 
-[如何将 Azure API 管理服务实例部署到多个 Azure 区域](api-management-howto-deploy-multi-region.md)
-*[如何自动缩放 Azure API 管理服务实例](api-management-howto-autoscale.md)
+- [如何将 Azure API 管理服务实例部署到多个 Azure 区域](api-management-howto-deploy-multi-region.md)
+- [如何自动缩放 Azure API 管理服务实例](api-management-howto-autoscale.md)

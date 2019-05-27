@@ -1,5 +1,5 @@
 ---
-title: 识别印刷文本、手写文本 - 计算机视觉
+title: 识别印刷文本/手写文本，计算机视觉
 titleSuffix: Azure Cognitive Services
 description: 与使用计算机视觉 API 识别图像中的印刷文本和手写文本相关的概念。
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 02/19/2019
-ms.date: 03/27/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: f1b1567b28bc07331229007c2f7b5c889e84427d
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 9ba56fbac5aa0daabee32314e098698bd55b4f12
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505447"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598871"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>识别打印文本和手写文本
 
@@ -46,13 +46,11 @@ ms.locfileid: "58505447"
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR（光学字符识别）API
 
-计算机视觉的光学字符识别 (OCR) API 类似于读取 API，但它以同步方式执行，且未针对大型文档进行优化。 该 API 使用早期的识别模型，但可以处理更多的语言。
-
-OCR 支持 25 种语言：阿拉伯语、简体中文、繁体中文、捷克语、丹麦语、荷兰语、英语、芬兰语、法语、德语、希腊语、匈牙利语、意大利语、日语、韩语、挪威语、波兰语、葡萄牙语、罗马尼亚语、俄语、塞尔维亚语(西里尔文和拉丁语)、斯洛伐克语、西班牙语、瑞典语和土耳其语。 OCR 会自动检测所检测到的文本的语言。
+计算机视觉的光学字符识别 (OCR) API 类似于读取 API，但它以同步方式执行，且未针对大型文档进行优化。 该 API 使用早期的识别模型，但可以处理更多的语言；如需所支持的语言的完整列表，请参阅[语言支持](language-support.md#text-recognition)。
 
 如有必要，OCR 会更正已识别文本的旋转，方法是以度为单位返回有关水平图像轴的旋转偏移量。 OCR 还提供每个字的帧坐标，如下图所示。
 
-![一个示意图，描绘正在旋转的图像及其正在读取和画出的文本](./Images/vision-overview-ocr.png)
+![正在旋转的图像及其正在读取和画出的文本](./Images/vision-overview-ocr.png)
 
 有关详细信息，请参阅 [OCR 参考文档](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)。
 

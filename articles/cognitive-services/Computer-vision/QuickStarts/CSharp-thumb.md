@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 02/08/2019
-ms.date: 03/26/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: b58c694cd14e26e75e325d018a1f1f3738939167
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 9d2952f2edab8c13913128005946d15251e5869b
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505565"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598911"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c-in-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 C# 生成缩略图
 
@@ -28,7 +28,7 @@ ms.locfileid: "58505565"
 ## <a name="prerequisites"></a>先决条件
 
 - 必须具有 [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) 或更高版本。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample-application"></a>创建和运行示例应用程序
 

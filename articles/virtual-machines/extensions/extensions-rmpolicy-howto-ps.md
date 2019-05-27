@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0d7887bfad122f0fe465b01e7f287db446f364d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 117ff616abcaae9e4bf9cfb46f52d5e46d8560b5
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627117"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835607"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 
@@ -29,13 +29,13 @@ ms.locfileid: "58627117"
 
 <!-- Notice: Remove the cloud shell -->
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-rules-file"></a>创建规则文件
 
 若要限制可以安装哪些扩展，需要使用[规则](../../governance/policy/concepts/definition-structure.md#policy-rule)来提供用于识别扩展的逻辑。
 
-本示例演示如何创建规则文件来拒绝“Microsoft.Compute”发布的扩展。如果在本地使用 PowerShell，也可以创建一个本地文件并将路径 ($home/clouddrive) 替换为计算机上本地文件的路径。
+本示例展示了如何通过在 Azure 本地 Shell 中创建规则文件来拒绝“Microsoft.Compute”发布的扩展，当在本地使用 PowerShell 时，也可以创建一个本地文件并将路径 ($home/clouddrive) 替换为计算机上本地文件的路径。
 
 <!-- Not Available on in Azure Cloud Shell-->
 <!-- Not Available on [Cloud Shell](https://shell.azure.com/powershell)-->

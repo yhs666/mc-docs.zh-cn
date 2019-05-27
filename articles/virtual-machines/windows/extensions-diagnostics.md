@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/06/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2dc4893c2a04ba8e0dc8b76b4abe0a85ed1fe176
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 43825551a57df9f30a573cdf61c9403c5c2420ba
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666024"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004120"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>适用于 Windows VM 的 Azure 诊断扩展
 
@@ -64,7 +64,7 @@ az vm extension set \
 
 可以使用 `Set-AzVMDiagnosticsExtension` 命令将 Azure 诊断扩展添加到现有的虚拟机。 另请参阅[使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断](ps-extensions-diagnostics.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 $vm_resourcegroup = "myvmresourcegroup"

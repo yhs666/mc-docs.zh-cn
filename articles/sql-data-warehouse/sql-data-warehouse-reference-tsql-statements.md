@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 06/13/2018
-ms.date: 10/15/2018
+ms.subservice: implement
+origin.date: 05/01/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: dfe2719197dc90d26ca7b7ef0cc60027b91bfe3e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 60546eeab7012d90f27b1f7e1bd2c9c83be88716
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656020"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828822"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中支持的 T-SQL 语句
 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
@@ -41,6 +41,7 @@ ms.locfileid: "52656020"
 * [CREATE TABLE](https://msdn.microsoft.com/zh-cn/library/mt203953.aspx)
 * [CREATE TABLE AS SELECT](https://msdn.microsoft.com/zh-cn/library/mt204041.aspx)
 * [CREATE VIEW](https://msdn.microsoft.com/zh-cn/library/ms187956.aspx)
+* [CREATE WORKLOAD CLASSIFIER](https://docs.microsoft.com/zh-cn/sql/t-sql/statements/create-workload-classifier-transact-sql)
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/zh-cn/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/zh-cn/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/zh-cn/library/mt130698.aspx)
@@ -50,6 +51,7 @@ ms.locfileid: "52656020"
 * [DROP TABLE](https://msdn.microsoft.com/zh-cn/library/ms173790.aspx)
 * [DROP SCHEMA](https://msdn.microsoft.com/zh-cn/library/ms186751.aspx)
 * [DROP VIEW](https://msdn.microsoft.com/zh-cn/library/ms173492.aspx)
+* [DROP WORKLOAD CLASSIFIER](https://docs.microsoft.com/zh-cn/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/zh-cn/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/zh-cn/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/zh-cn/library/ms187348.aspx)

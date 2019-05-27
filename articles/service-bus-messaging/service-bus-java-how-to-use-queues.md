@@ -11,30 +11,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 01/28/19
+ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ee71992f318aa3a5d4760ed287345d4f3d096a55
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 054ff75256a35846caf6a3691dc6fc5a49db5d90
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625882"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609808"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-
-本文介绍了如何使用服务总线队列。 这些示例采用 Java 编写，并且使用了 [Azure SDK for Java][Azure SDK for Java]。 涉及的任务包括创建队列、发送和接收消息以及删除队列。
+在本教程中，你将了解如何创建 Java 应用程序来向服务总线队列发送消息以及从中接收消息。 
 
 > [!NOTE]
-> 可在 [azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中的 GitHub 上找到 Java 示例。
+> 可以在 GitHub 上的 [azure-service-bus 存储库](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)中找到 Java 示例。
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。
+    1. 阅读服务总线**队列**的快速**概述**。 
+    2. 创建一个服务总线**命名空间**。 
+    3. 获取**连接字符串**。
+    4. 创建一个服务总线**队列**。
+3. 安装 [Azure SDK for Java][Azure SDK for Java]。 
 
-## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-## <a name="create-a-service-bus-queue"></a>创建服务总线队列
-[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：

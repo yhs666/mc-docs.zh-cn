@@ -1,5 +1,5 @@
 ---
-title: 快速入门：特定于域的图像内容 - REST、Python
+title: 快速入门：特定于域的内容 - REST、Python
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将通过计算机视觉 API 和 Python 使用域模型来识别图像中的名人和地标。
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/26/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 441c3cded5667ba266210481d5549c91242e201b
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: a78b5c2ab520fa33afeef992394b3d816891d9ee
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505550"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598890"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：通过计算机视觉中的 REST API 和 Python 使用域模型
 
@@ -32,7 +32,7 @@ ms.locfileid: "58505550"
 ## <a name="prerequisites"></a>先决条件
 
 - 如果想在本地运行此示例，必须安装 [Python](https://www.python.org/downloads/)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-landmarks-sample"></a>创建并运行地标示例
 

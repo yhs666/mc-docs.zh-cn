@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/04/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: e8e32b10802347ae5512249e3f6bb22cb2b0f19f
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: f1863ab1d97ef8fa9c1e1a6303fb96316843bfa0
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855426"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598887"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 Python 提取手写文本
 
@@ -28,14 +28,14 @@ ms.locfileid: "64855426"
 
 可以在 [MyBinder](https://mybinder.org) 上使用 Jupyter 笔记本以分步方式运行此快速入门。 要启动活页夹，请选择以下按钮：
 
-[![活页夹](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
+[![启动活页夹按钮](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="prerequisites"></a>先决条件
 
 - 如果想在本地运行此示例，必须安装 [Python](https://www.python.org/downloads/)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample"></a>创建并运行示例
 
@@ -406,4 +406,3 @@ for polygon in polygons:
 > [!div class="nextstepaction"]
 > [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
 
-<!-- Update_Description: code update -->

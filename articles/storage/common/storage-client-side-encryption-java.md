@@ -7,15 +7,16 @@ ms.service: storage
 ms.devlang: java
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.author: v-jay
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1ca890131387c352ad2f1269a8251bf310151430
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 2cc873225b224ac52b78b9e173bd479be057bd9e
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890187"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004041"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-azure-storage"></a>Azure 存储的使用 Java 的客户端加密和 Azure 密钥保管库
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -119,7 +120,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 1. 脱机创建一个机密并将其上传到密钥保管库。  
 2. 使用机密的基标识符作为参数来解析机密的当前版本进行加密，并在本地缓存此信息。 使用 CachingKeyResolver 进行缓存；用户不需要实现自己的缓存逻辑。  
 3. 创建加密策略时，使用缓存解析程序作为输入。
-   有关密钥保管库用法的详细信息，请查看加密代码示例。 <fix URL>  
+   有关密钥保管库用法的详细信息，请查看加密代码示例。
 
 ## <a name="best-practices"></a>最佳实践
 仅在用于 Java 的存储空间客户端库中提供加密支持。
@@ -143,12 +144,12 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
   * 如果指定为获取密钥，则调用密钥解析程序。 如果指定了解析程序，但该解析程序不具有密钥标识符的映射，则会引发错误。  
   * 如果未指定解析程序，但指定了密钥，则在该密钥的标识符与所需密钥标识符匹配时使用该密钥。 如果标识符不匹配，则会引发错误。  
     
-    [加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>演示了针对 Blob、队列和表的更详细端到端方案，以及密钥保管库集成。
+    [加密示例](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) 演示了针对 Blob、队列和表的更详细端到端方案，以及密钥保管库集成。
 
 ### <a name="requireencryption-mode"></a>RequireEncryption 模式
 用户可以选择启用这样的操作模式，要求加密所有上传和下载行为。 在此模式下，尝试在没有加密策略的情况下上传数据或下载在服务中未加密的数据，会导致在客户端上失败。 请求选项对象的 **requireEncryption** 标志控制此行为。 如果应用程序要对存储在 Azure 存储中的所有对象进行加密，则可以在服务客户端对象的默认请求选项上设置 **requireEncryption** 属性。   
 
-例如，使用 **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)**，要求对通过该客户端对象执行的所有 Blob 操作进行加密。
+例如，使用 **CloudBlobClient.getDefaultRequestOptions().setRequireEncryption(true)** ，要求对通过该客户端对象执行的所有 Blob 操作进行加密。
 
 ### <a name="blob-service-encryption"></a>Blob 服务加密
 创建 **BlobEncryptionPolicy** 对象并在请求选项中对其进行设置（使用 **DefaultRequestOptions** 基于每个 API 或在客户端级别设置）。 其他所有事项均由客户端库在内部处理。
@@ -255,4 +256,3 @@ public void setEncryptedProperty1(final String encryptedProperty1) {
   * [核心](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault-core) 程序包
   * [客户端](https://mvnrepository.com/artifact/com.microsoft.azure/azure-keyvault) 程序包
 * 访问 [Azure 密钥保管库文档](../../key-vault/key-vault-whatis.md)
-<!--Update_Description: update link-->

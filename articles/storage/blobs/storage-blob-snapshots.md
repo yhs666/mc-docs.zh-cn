@@ -1,20 +1,20 @@
 ---
-title: 在 Azure 存储中创建 Blob 的只读快照 | Azure
+title: 在 Azure 存储中创建 Blob 的只读快照 | Microsoft Docs
 description: 了解如何在指定时刻及时创建 blob 的快照以备份 blob 数据。 了解如何对快照计费，以及如何使用快照最大程度地减少容量费用。
 services: storage
-author: forester123
-manager: josefree
+author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/06/2018
-ms.date: 06/11/2018
-ms.author: v-haiqya
-ms.openlocfilehash: a7ec877b83567852759596519d8f77b664d1af62
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/27/2019
+ms.author: v-jay
+ms.subservice: blobs
+ms.openlocfilehash: ff5b06f46aea1d9aec69cd8ffbedec7c7dc1c91f
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652347"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004240"
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
 
@@ -171,13 +171,13 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 * 有关 Blob 存储使用的其他代码示例，请参阅 [Azure 代码示例](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)。 可以下载示例应用程序并运行，或在 GitHub 上浏览代码。
 
-[dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
-[dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx
-[dotnet_CreateSnapshotAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.createsnapshotasync.aspx
-[dotnet_HTTPStatusCode]: https://msdn.microsoft.com/library/system.net.httpstatuscode(v=vs.110).aspx
-[dotnet_PutBlockList]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblocklist.aspx
-[dotnet_PutBlock]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.putblock.aspx
-[dotnet_UploadFromByteArray]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfrombytearray.aspx
-[dotnet_UploadFromFile]: https://msdn.microsoft.com/library/azure/mt705654.aspx
-[dotnet_UploadFromStream]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstream.aspx
-[dotnet_UploadText]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.uploadtext.aspx
+[dotnet_AccessCondition]: https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.accesscondition
+[dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
+[dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
+[dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
+[dotnet_PutBlockList]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
+[dotnet_PutBlock]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
+[dotnet_UploadFromByteArray]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfrombytearray
+[dotnet_UploadFromFile]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfromfile
+[dotnet_UploadFromStream]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
+[dotnet_UploadText]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext

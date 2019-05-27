@@ -1,10 +1,10 @@
 ---
 title: 了解虚拟机规模集模板 | Microsoft Docs
-description: 了解如何创建虚拟机规模集的最小可行规模集模板
+description: 了解如何创建虚拟机规模集的基本规模集模板
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,28 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/01/2017
-ms.date: 03/28/2019
+origin.date: 04/26/2019
+ms.date: 05/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3a66a82e6e4a996a5dde5efc77e81f52973a23fe
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 3c5b6734fb008de3687109a6773f162b78e2759e
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544778"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917456"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>了解虚拟机规模集模板
-[Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建最小的可行规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。 
+[Azure Resource Manager 模板](/azure-resource-manager/resource-group-overview#template-deployment)是部署成组的相关资源的好办法。 本系列教程演示如何创建基本规模集模板，以及如何修改此模板以满足各种场景。 所有示例都来自此 [GitHub 存储库](https://github.com/gatneil/mvss)。
 
 此模板简单易用。 有关更完整的规模集模板的示例，请参阅 [Azure 快速入门模板 GitHub 存储库](https://github.com/Azure/azure-quickstart-templates)，并搜索包含字符串 `vmss` 的文件夹。
 
 如果已能够熟练创建模板，可以跳到“后续步骤”部分，查看如何修改此模板。
-
-## <a name="review-the-template"></a>查看模板
-
-使用 GitHub 查看最小可行规模集模板 [azuredeploy.json](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)。
-
-在本教程中，让我们研究 diff (`git diff master minimum-viable-scale-set`) 以逐个创建最小可行规模集模板。
 
 ## <a name="define-schema-and-contentversion"></a>定义 $schema 和 contentVersion
 首先，定义模板中的 `$schema` 和 `contentVersion`。 `$schema` 元素定义模板语言的版本，用于 Visual Studio 语法突出显示和类似的验证功能。 Azure 不使用 `contentVersion` 元素。 而是帮助跟踪模板版本。
@@ -44,6 +38,7 @@ ms.locfileid: "58544778"
   "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>定义参数
 接下来，定义两个参数：`adminUsername` 和 `adminPassword`。 参数是部署时指定的值。 `adminUsername` 参数只是一个 `string` 类型，但是由于 `adminPassword` 是一个机密，因此将其类型指定为 `securestring`。 稍后，要将这些参数传递到规模集配置。
 
@@ -71,13 +66,13 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
    "resources": [
 ```
 
-所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 此示例的第一个资源具有类型 [Microsoft.Network/virtualNetwork](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)、名称 `myVnet` 和 apiVersion `2016-03-30`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/)。）
+所有资源都需要 `type`、`name`、`apiVersion` 和 `location` 属性。 此示例的第一个资源具有类型 [Microsoft.Network/virtualNetwork](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)、名称 `myVnet` 和 apiVersion `2018-11-01`。 （若要查找资源类型的最新 API 版本，请参阅 [Azure 资源管理器模板参考](https://docs.microsoft.com/azure/templates/)。）
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>指定位置
@@ -118,7 +113,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -137,7 +132,7 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 ```
 
 ### <a name="choose-type-of-updates"></a>选择更新类型
-规模集还需要知道如何处理规模集的更新。 目前有两个选项：`Manual` 和 `Automatic`。 有关这两者之间的区别的详细信息，请参阅文档[如何升级规模集](./virtual-machine-scale-sets-upgrade-scale-set.md)。
+规模集还需要知道如何处理规模集的更新。 目前有三个选项：`Manual`、`Rolling`、`Automatic`。 有关这两者之间的区别的详细信息，请参阅文档[如何升级规模集](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model)。
 
 ```json
        "properties": {
@@ -214,4 +209,4 @@ Resource Manager 模板还可用于定义稍后要在模板中使用的变量。
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

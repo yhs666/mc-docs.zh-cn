@@ -14,29 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/16/2018
-ms.date: 01/14/2019
+origin.date: 03/20/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1bf7173dca81228212f105984b3bac3712257465
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 8989027aa32f4a6c36273ab3fc6073a877b78729
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029222"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829184"
 ---
 # <a name="use-mapreduce-in-apache-hadoop-on-hdinsight"></a>在 Apache Hadoop on HDInsight 中使用 MapReduce
 
-了解如何在 HDInsight 群集上运行 MapReduce 作业。 使用下表找到可将 MapReduce 与 HDInsight 配合使用的各种方法：
-
-| **请使用以下方法**... | **...实现此目的** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |通过 **SSH** |Linux |Linux、Unix、Mac OS X 或 Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |使用 **REST**（示例使用 cURL）远程提交作业 |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows |Windows |
-
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
->
+了解如何在 HDInsight 群集上运行 MapReduce 作业。 
 
 ## <a id="whatis"></a>什么是 MapReduce
 
@@ -70,8 +60,6 @@ Hadoop 流式处理通过 STDIN 和 STDOUT 与映射器和化简器通信。 映
 有关将 Hadoop 流式处理与 HDInsight 配合使用的示例，请参阅以下文档：
 
 * [开发 C# MapReduce 作业](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
-
-* [开发 Python MapReduce 作业](apache-hadoop-streaming-python.md)
 
 ## <a id="data"></a>示例数据
 
@@ -159,8 +147,6 @@ public class WordCount {
 
 * [为 HDInsight 开发 Java MapReduce 应用程序](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [为 HDInsight 开发 Python MapReduce 应用程序](apache-hadoop-streaming-python.md)
-
 ## <a id="run"></a>运行 MapReduce
 
 HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定哪种方法最适合用户，并访问此链接进行演练。
@@ -171,18 +157,11 @@ HDInsight 可以使用各种方法运行 HiveQL 作业。 使用下表来确定�
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |使用 **REST** |Linux 或 Windows |Linux、Unix、Mac OS X 或 Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |使用 **Windows PowerShell** |Linux 或 Windows |Windows |
 
-
-
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 ## <a id="nextsteps"></a>后续步骤
 
 若要了解如何使用 HDInsight 中的数据的详细信息，请参阅以下文档：
 
 * [为 HDInsight 开发 Java MapReduce 程序](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [为 HDInsight 开发 Python 流式处理 MapReduce 程序](apache-hadoop-streaming-python.md)
 
 * [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
 

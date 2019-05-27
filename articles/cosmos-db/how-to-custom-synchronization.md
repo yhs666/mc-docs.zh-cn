@@ -4,25 +4,25 @@ description: 了解如何实现自定义同步以根据 Azure Cosmos DB 的更�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9484ffa7657a36b96bc0f7b58f88a9b1e0d419f4
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 79f24779a2a6fce39ecc031ebb6240bd132509d1
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988053"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668939"
 ---
 # <a name="how-to-implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>如何实现自定义同步以根据更高可用性和性能进行优化
 
-Azure Cosmos DB 提供五个妥善定义的一致性级别供你选择，以便在一致性、性能和可用性之间进行权衡。 非常一致性确保数据同步复制，并在 Azure Cosmos 帐户可用的每个区域中持久保存。 此配置虽然提供最高的持久性级别，但会降低性能和可用性。 如果应用程序想要在不影响性能的情况下根据需要控制/放宽数据持久性，可以在应用层采用自定义同步，以实现所需的持久性级别。
+Azure Cosmos DB 提供[五个定义明确的一致性级别](consistency-levels.md)供你选择，以便在一致性、性能和可用性之间进行权衡。 非常一致性确保数据同步复制，并在 Azure Cosmos 帐户可用的每个区域中持久保存。 此配置虽然提供最高的持久性级别，但会降低性能和可用性。 如果应用程序想要在不影响性能的情况下根据需要控制/放宽数据持久性，可以在应用层采用“自定义同步”，以实现所需的持久性级别。
 
-<!--Not Availabel on The diagram below visually depicts the custom synchronization model.-->
+<!--MOONCAKE: Not Availabel on The diagram below visually depicts the custom synchronization model.-->
 
-<!--Not Availabel on ![Custom Synchronization](./media/how-to-custom-synchronization/custom-synchronization.png)-->
+<!--MOONCAKE: Not Availabel on ![Custom Synchronization](./media/how-to-custom-synchronization/custom-synchronization.png)-->
 
-在一个方案中，Azure Cosmos 容器在中国的 4 个区域中进行多区域复制。 针对此方案中的所有中国区域使用非常一致性会影响性能。 为确保在不影响写入延迟的情况下提高数据持久性级别，应用程序可以使用两个共享同一会话令牌的客户端。
+在此方案中，Azure Cosmos 容器在中国的 4 个区域中进行多区域复制。 针对此方案中的所有中国区域使用非常一致性会影响性能。 为确保在不影响写入延迟的情况下提高数据持久性级别，应用程序可以使用两个共享同一[会话令牌](how-to-manage-consistency.md#utilize-session-tokens)的客户端。
 
 <!--MOONCAKE: multiple continets to China -->
 <!--MOONCAKE: US West as China East and US East as China East 2-->
@@ -97,11 +97,8 @@ class MyDataAccessLayer
 若要详细了解 Azure Cosmos DB 中的多区域分发和一致性，请阅读以下文章：
 
 * [在 Azure Cosmos DB 中选择适当的一致性级别](consistency-levels-choosing.md)
-
 * [Azure Cosmos DB 中的一致性、可用性和性能权衡](consistency-levels-tradeoffs.md)
-
 * [如何在 Azure Cosmos DB 中管理一致性](how-to-manage-consistency.md)
-
 * [Azure Cosmos DB 中的分区和数据分布](partition-data.md)
 
 <!--Update_Description: new articles on how to custom synchronization -->

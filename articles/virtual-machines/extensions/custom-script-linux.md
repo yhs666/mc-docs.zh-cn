@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5505c4a85aa9b00b8a1de8589e6c07788bea5c19
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f83d3f838434f12732b634cfededd41d09cfe3c6
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625637"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835618"
 ---
 <!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
@@ -107,12 +107,12 @@ ms.locfileid: "58625637"
 
 |           名称           |                                     值/示例                                      |   数据类型    |
 |--------------------------|------------------------------------------------------------------------------------------|----------------|
-|        apiVersion        |                                        2015-06-15                                        |      日期      |
+|        apiVersion        |                                        2015-06-15                                        |      date      |
 |        发布者         |                               Microsoft.Compute.Extensions                               |     字符串     |
 |           type           |                                       CustomScript                                       |     字符串     |
 |    typeHandlerVersion    |                                           2.0                                            |      int       |
 |      fileUris（例如）      |                  https://github.com/MyProject/Archive/MyPythonScript.py                  |     数组      |
-|  commandToExecute（例如）  |                           python MyPythonScript.py <my-param1>                           |     字符串     |
+|  commandToExecute（例如）  |                           python MyPythonScript.py \<my-param1>                          |     字符串     |
 |          脚本          | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= |     字符串     |
 |   skipDos2Unix（示例）    |                                          false                                           |    布尔值     |
 |     timestamp（示例）     |                                        123456789                                         | 32 位整数 |

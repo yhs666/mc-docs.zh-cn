@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/27/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 28d4a3d85e416fd572d507a0e26e0006fc0171fd
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 39417c6cec196837cbe34880b4ca01cd582a7aba
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855034"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598870"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 Python 分析本地图像
 
@@ -32,9 +32,9 @@ ms.locfileid: "64855034"
 ## <a name="prerequisites"></a>先决条件
 
 - 如果想在本地运行此示例，必须安装 [Python](https://www.python.org/downloads/)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 - 必须已安装以下 Python 包。 可以使用 [pip](https://packaging.python.org/tutorials/installing-packages/) 来安装 Python 包。
-    - [requests](http://docs.python-requests.org/en/master/)
+    - 请求
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 
@@ -179,4 +179,3 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
 > [!div class="nextstepaction"]
 > [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
 
-<!-- Update_Description: wording update -->

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: overview
 origin.date: 04/03/2019
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: dc2f08c7b650422847488f841fbd0082e2da9484
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 6e906cee2e0cb395c459ac2c7a3117504b7b884e
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529479"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195369"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure 中的专用 Docker 容器注册表简介
 
@@ -39,10 +39,8 @@ Azure 提供包括 Azure 命令行界面、Azure 门户和 API 支持在内的�
 
 ## <a name="key-concepts"></a>关键概念
 
-* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 Webhook 集成、通过 Azure Active Directory 进行的注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
-  
-    <!-- Not Available on [geo-replication](container-registry-geo-replication.md)-->
-  
+* **注册表** - 在 Azure 订阅中创建一个或多个容器注册表。 注册表以三种 SKU 形式提供：[基本、标准和高级](container-registry-skus.md)，每一种都支持 Webhook 集成、通过 Azure Active Directory 进行的注册表身份验证，以及删除功能。 在与部署相同的 Azure 位置创建注册表，充分利用容器映像的本地闭合网络存储。 将高级注册表的[异地复制](container-registry-geo-replication.md)功能用于高级复制和容器映像分发方案。 完全限定的注册表名称采用以下格式：`myregistry.azurecr.cn`。
+
     可以使用 Azure 标识、Azure Active Directory 支持的[服务主体](../active-directory/develop/app-objects-and-service-principals.md)或提供的管理员帐户来[控制访问](container-registry-authentication.md)（针对容器注册表）。 使用 Azure CLI 或标准的 `docker login` 命令登录到注册表。
 
 * **存储库** - 一个注册表包含一个或多个存储库，该库是包含容器映像的虚拟组，而这些映像使用相同的名称但不同的标记或摘要。 Azure 容器注册表支持多级存储库命名空间。 使用多级命名空间可将特定应用相关的映像集合分组，或者将特定开发或运营团队的应用集合分组。 例如：
@@ -51,7 +49,7 @@ Azure 提供包括 Azure 命令行界面、Azure 门户和 API 支持在内的�
     * `myregistry.azurecr.cn/warrantydept/dotnet-build` 表示用于构建 .NET 应用、在保修部门之间共享的映像
     * `myregistry.azurecr.cn/warrantydept/customersubmissions/web` 表示一个 Web 映像，它已在客户提交应用中分组，由保修部门拥有
 
-* **映像** - 存储在存储库中，每个映像是兼容 Docker 的容器的只读快照。 Azure 容器注册表可以包含 Windows 和 Linux 映像。 可以控制所有容器部署的映像名称。 使用标准 [Docker 命令](https://docs.docker.com/engine/reference/commandline/)可将映像推送到存储库，或者从存储库中提取映像。 除了容器映像，Azure 容器注册表还存储[相关的内容格式](container-registry-image-formats.md)，例如 [Helm 图表](container-registry-helm-repos.md)，用于将应用程序部署到 Kubernetes。
+* **映像** - 存储在存储库中，每个映像是兼容 Docker 的容器的只读快照。 Azure 容器注册表可以包含 Windows 和 Linux 映像。 可以控制所有容器部署的映像名称。 使用标准 [Docker 命令](https://docs.docker.com/engine/reference/commandline/)可将映像推送到存储库，或者从存储库中提取映像。 除了 Docker 容器映像外，Azure 容器注册表还存储[相关的内容格式](container-registry-image-formats.md)，例如 [Helm 图表](container-registry-helm-repos.md)和为[开放容器计划 (OCI) 映像格式规范](https://github.com/opencontainers/image-spec/blob/master/spec.md)构建的映像。
 
 * **容器** - 容器定义软件应用程序及其在完整文件系统中包装的依赖项，包括代码、运行时、系统工具和库。 可以基于从容器注册表提取的 Windows 或 Linux 映像运行 Docker 容器。 在一台计算机上运行的容器共享操作系统内核。 Docker 容器完全可移植到所有主要 Linux 发行版、macOS 和 Windows。
 

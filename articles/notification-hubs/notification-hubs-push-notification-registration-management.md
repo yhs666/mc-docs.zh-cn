@@ -14,13 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/14/2018
 ms.author: v-biyu
-ms.date: 04/29/2019
-ms.openlocfilehash: f1130c4ec595508107e2db84b50dad9f2f7c5061
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.date: 05/27/2019
+ms.openlocfilehash: f7a04be5b86b58de60a8ead5be75df15bee10ffa
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566288"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628741"
 ---
 # <a name="registration-management"></a>注册管理
 
@@ -37,7 +37,7 @@ ms.locfileid: "59566288"
 注册将设备的平台通知服务 (PNS) 句柄与标记（有时还包括模板）相关联。 PNS 句柄可能是 ChannelURI、设备令牌。 标记用于将通知路由到一组正确的设备句柄。 有关详细信息，请参阅[路由和标记表达式](notification-hubs-tags-segment-push-message.md)。 模板用于实现按注册转换。 有关详细信息，请参阅[模板](notification-hubs-templates-cross-platform-push-messages.md)。
 
 > [!NOTE]
-> Azure 通知中心支持每次注册最多 60 个标记。
+> Azure 通知中心支持每个设备注册最多 60 个标记。
 
 ### <a name="installations"></a>安装
 
@@ -102,8 +102,7 @@ ms.locfileid: "59566288"
 
 对于 Windows 应用商店客户端应用程序，将通知发送到辅助磁贴与将通知发送到主磁贴相同。 安装中也支持此行为。 辅助磁贴具有不同的 ChannelUri，客户端应用上的 SDK 会以透明方式处理此 ChannelUri。
 
-SecondaryTiles 字典使用的 TileId 与在 Windows 应用商店应用中创建 SecondaryTiles 时使用的 TileId 相同。
-与主 ChannelUri 一样，辅助磁贴的 ChannelUri 可随时更改。 为了使通知中心中的安装保持更新，设备必须使用辅助磁贴的当前 ChannelUri 刷新这些安装。
+SecondaryTiles 字典使用的 TileId 与在 Windows 应用商店应用中创建 SecondaryTiles 时使用的 TileId 相同。 与主 ChannelUri 一样，辅助磁贴的 ChannelUri 可随时更改。 为了使通知中心中的安装保持更新，设备必须使用辅助磁贴的当前 ChannelUri 刷新这些安装。
 
 ## <a name="registration-management-from-the-device"></a>从设备管理注册
 

@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/04/2019
-ms.date: 04/15/2019
+origin.date: 05/06/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd688a052bd888a774a21af5649dada1260afb90
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 1e30a9364dc8667dcacae248f924249fc9726b73
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615217"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668913"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 SQL 查询示例
 
@@ -140,14 +140,14 @@ Azure Cosmos DB SQL API 帐户支持使用 结构化查询语言 (SQL) 作为 JS
     }]
 ```
 
-以下查询返回家庭中 `id` 匹配 `WakefieldFamily` 的所有孩子的名字，按年级排序。
+以下查询返回 `id` 与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 其结果是：
@@ -317,6 +317,71 @@ VALUE 关键字提供一种只返回 JSON 值的方式。 例如，下面所示�
     ]
 ```
 
+<a name="DistinctKeyword"></a>
+## <a name="distinct-keyword"></a>DISTINCT 关键字
+
+DISTINCT 关键字消除了查询投影中的重复项。
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+在此示例中，查询将投影每个姓氏的值。
+
+其结果是：
+
+```json
+[
+    "Andersen"
+]
+```
+
+也可以投影唯一对象。 在本例中，两个文档中的一个文档不存在 lastName 对象，因此查询将返回一个空对象。
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+其结果是：
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+还可以在子查询内的投影中使用 DISTINCT：
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+此查询投影包含每个孩子的 givenName 的数组，并删除了重复项。 此数组的别名为 ChildNames，并在外部查询中投影。
+
+其结果是：
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>别名
 
 可以显式为查询中的值指定别名。 如果查询包含两个同名的属性，请使用别名来重命名其中一个或两个属性，以便可以在投影的结果中消除其歧义。
@@ -384,7 +449,7 @@ FROM 子句可将源化简为更小的子集。 要在每个项中仅枚举子�
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -605,7 +670,7 @@ FROM 子句可将源化简为更小的子集。 要在每个项中仅枚举子�
 <a name="TopKeyword"></a>
 ## <a name="top-operator"></a>TOP 运算符
 
-TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法是结合使用 TOP 与 ORDER BY 子句，将结果限制为前 `N` 个有序值。 要预见性地指示哪些行受到 TOP 的影响，只能结合使用这两个子句。 
+TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法是结合使用 TOP 与 ORDER BY 子句，将结果限制为前 `N` 个有序值。 要预见性地指示哪些行受到 TOP 的影响，只能结合使用这两个子句。
 
 可以结合一个常量值使用 TOP（如以下示例中所示），或者在参数化查询中结合一个变量值使用 TOP。 有关详细信息，请参阅[参数化查询](#parameterized-queries)部分。
 
@@ -686,6 +751,63 @@ TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法�
       }
     ]
 ```
+
+此外，可按多个属性排序。 按多个属性排序的查询需要[组合索引](index-policy.md#composite-indexes)。 请考虑下列查询：
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+此查询根据城市名称的升序检索家庭 `id`。 如果多个项包含同一个城市名称，该查询将按 `creationDate` 的降序排序。
+
+<a name="OffsetLimitClause"></a>
+## <a name="offset-limit-clause"></a>OFFSET LIMIT 子句
+
+OFFSET LIMIT 是一个可选子句，它会跳过然后提取查询中特定数目的值。 必须在 OFFSET LIMIT 子句中指定 OFFSET 计数和 LIMIT 计数。
+
+将 OFFSET LIMIT 与 ORDER BY 子句结合使用时，将通过跳过然后提取排序值来生成结果集。 如果不使用 ORDER BY 子句，则会生成值的确定顺序。
+
+例如，以下查询跳过第一个值并返回第二个值（按居住城市名称的顺序）：
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+其结果是：
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+以下查询跳过第一个值并返回第二个值（不排序）：
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+其结果是：
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
 ## <a name="scalar-expressions"></a>标量表达式
 
 SELECT 子句支持标量表达式，例如常量、算术表达式和逻辑表达式。 以下查询使用一个标量表达式：
@@ -1024,7 +1146,7 @@ API 扩展了 SQL 语法，支持使用 UDF 的自定义应用程序逻辑。 �
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 
@@ -1726,7 +1848,7 @@ Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 资源模型由 Az
 
 .NET 客户端自动循环访问 `foreach` 块中所有的查询结果页，如前面的示例中所示。 [REST API](#RestAPI) 部分介绍的查询选项也适用于在 `CreateDocumentQuery` 方法中使用 `FeedOptions` 和 `FeedResponse` 类的 .NET SDK。 可以使用 `MaxItemCount` 设置控制页数。
 
-还可以通过使用 `IQueryable` 对象创建 `IDocumentQueryable`，并读取 ` ResponseContinuationToken` 值并将它们作为 `FeedOptions` 中的 `RequestContinuationToken` 向回传递，从而显式控制分页。 可以设置 `EnableScanInQuery`，以便在配置的索引策略不支持该查询时启用扫描。 对于分区容器，可以使用 `PartitionKey` 针对单个分区运行查询，不过，Azure Cosmos DB 可以自动从查询文本中提取此信息。 可以使用 `EnableCrossPartitionQuery` 针对多个分区运行查询。
+还可以通过使用 `IQueryable` 对象创建 `IDocumentQueryable`，并读取 `ResponseContinuationToken` 值并将它们作为 `FeedOptions` 中的 `RequestContinuationToken` 向回传递，从而显式控制分页。 可以设置 `EnableScanInQuery`，以便在配置的索引策略不支持该查询时启用扫描。 对于分区容器，可以使用 `PartitionKey` 针对单个分区运行查询，不过，Azure Cosmos DB 可以自动从查询文本中提取此信息。 可以使用 `EnableCrossPartitionQuery` 针对多个分区运行查询。
 
 有关更多包含查询的 .NET 示例，请参阅 GitHub 中的 [Azure Cosmos DB .NET 示例](https://github.com/Azure/azure-cosmosdb-dotnet)。
 

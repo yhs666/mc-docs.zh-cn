@@ -12,24 +12,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 10/31/2018
+ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9a01cc39f27c0df40bb8bd7b799aa313dd0921b0
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: dd610dc7ca8635fb1f2ca351195962bcc10215d5
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544752"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609876"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本指南说明如何使用服务总线队列。 示例是用 PHP 编写的并使用了 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的任务包括**创建队列**、**发送和接收消息**以及**删除队列**。
+本教程介绍如何创建 PHP 应用程序，以便向服务总线队列发送消息以及从中接收消息。 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。
+    1. 阅读服务总线**队列**的快速**概述**。 
+    2. 创建一个服务总线**命名空间**。 
+    3. 获取**连接字符串**。 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+        > [!NOTE]
+        > 在本教程中，需使用 PHP 在服务总线命名空间中创建一个**队列**。 
+3. [Azure SDK for PHP](../php-download-sdk.md)
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
 

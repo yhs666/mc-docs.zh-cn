@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 04/19/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 523553127c729a8de9ae8241b39fc9b828cc1e54
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 10906dd298f5fc52c593c40c457bbf344f0cb7cd
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854591"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629167"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>使用自动故障转移组可以实现多个数据库的透明、协调式故障转移
 
@@ -45,7 +45,7 @@ ms.locfileid: "64854591"
 
   故障转移组是由单个 SQL 数据库服务器管理的一组数据库，当主要区域的服务中断导致所有或部分主要数据库不可用时，该组数据库可作为一个单元故障转移到另一区域。
 
-  - **SQL 数据库服务器**
+- **SQL 数据库服务器**
 
      使用 SQL 数据库服务器，可以将一个 SQL 数据库服务器上的部分或所有用户数据库放入故障转移组。 此外，SQL 数据库服务器支持一个 SQL 数据库服务器上有多个故障转移组。
 
@@ -65,21 +65,13 @@ ms.locfileid: "64854591"
 
   可将一个弹性池内的所有或多个数据库放入同一故障转移组。 如果主数据库在弹性池中，将在具有相同名称的弹性池（辅助池）中自动创建辅助数据库。 必须确保辅助服务器包含名称完全相同的弹性池，并有足够的可用容量来托管将由故障转移组创建的辅助数据库。 如果在辅助池中已有辅助数据库的池中添加数据库，则该异地复制链接由组继承。 在不属于故障转移组的服务器中添加已有辅助数据库的数据库时，会在辅助池中创建新的辅助数据库。
   
-  - **故障转移组读写侦听器**
+- **故障转移组读写侦听器**
 
-  构成的 DNS CNAME 记录，指向当前主要节点的 URL。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。
-
-  - **读写侦听器的 SQL 数据库服务器 DNS CNAME 记录**
-
-     在 SQL 数据库服务器上，指向当前主要数据库 URL 的故障转移组 DNS CNAME 记录格式为 `<fog-name>.database.chinasloudapi.cn`。
+  构成的 DNS CNAME 记录，指向当前主要节点的 URL。 它允许读写 SQL 应用程序在故障转移发生后主服务器发生更改时，以透明方式重新连接到主数据库。 在 SQL 数据库服务器上创建故障转移组时，侦听器 URL 的 DNS CNAME 记录格式为 `<fog-name>.database.chinacloudapi.cn`。
 
 - **故障转移组只读侦听器**
 
-  构成的 DNS CNAME 记录，指向只读侦听器，后者指向辅助节点的 URL。 它可让只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助节点。
-
-  - **只读侦听器的 SQL 数据库服务器 DNS CNAME 记录**
-
-     在 SQL 数据库服务器上，指向辅助数据库 URL 的只读侦听器 DNS CNAME 记录格式为 `'.secondary.database.chinasloudapi.cn`。
+  构成的 DNS CNAME 记录，指向只读侦听器，后者指向辅助节点的 URL。 它可让只读 SQL 应用程序以透明方式使用指定的负载均衡规则连接到辅助节点。 在 SQL 数据库服务器上创建故障转移组时，侦听器 URL 的 DNS CNAME 记录格式为 `<fog-name>.secondary.database.chinacloudapi.cn`。
 
 - **自动故障转移策略**
 
@@ -155,12 +147,12 @@ ms.locfileid: "64854591"
 
   如果检测到服务中断，SQL 会等待 **GracePeriodWithDataLossHours** 指定的期限。 默认值为 1 小时。 如果不能承受丢失数据，请确保设置 **GracePeriodWithDataLossHours** 到一个足够大的数字，如 24 小时。 使用手动组故障转移从辅助节点故障回复到主要节点。
 
-> [!IMPORTANT]
-> DTU 少于或等于 800、使用异地复制的数据库超过 250 个的弹性数据库池可能会遇到更长的计划故障转移和性能下降等问题。  这些问题更可能在写密集型工作负荷下发生，例如，异地复制终结点广泛分隔于各个地理位置，或者每个数据库使用多个辅助终结点。  当异地复制滞后随着时间推移增加时，这些问题的症状便会显现。  这种滞后可以使用 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 进行监视。  如果发生这些问题，缓解方法包括增加池 DTU 的数量或者减少同一池中异地复制数据库的数量。
+  > [!IMPORTANT]
+  > DTU 少于或等于 800、使用异地复制的数据库超过 250 个的弹性数据库池可能会遇到更长的计划故障转移和性能下降等问题。  这些问题更可能在写密集型工作负荷下发生，例如，异地复制终结点广泛分隔于各个地理位置，或者每个数据库使用多个辅助终结点。  当异地复制滞后随着时间推移增加时，这些问题的症状便会显现。  这种滞后可以使用 [sys.dm_geo_replication_link_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 进行监视。  如果发生这些问题，缓解方法包括增加池 DTU 的数量或者减少同一池中异地复制数据库的数量。
 
 ## <a name="failover-groups-and-network-security"></a>故障转移组和网络安全
 
-对于某些应用程序，安全规则要求只允许特定组件（如 VM、Web 服务等）通过网络访问数据层。此要求对业务连续性设计和故障转移组的使用提出了一些挑战。 在实施此类受限访问时，应考虑以下选项。
+对于某些应用程序，安全规则要求只允许特定组件（如 VM、Web 服务等）通过网络访问数据层。此要求对业务连续性设计和故障转移组的使用提出了一些挑战。 在实施此类受限访问时，请考虑以下选项。
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>使用故障转移组和虚拟网络规则
 

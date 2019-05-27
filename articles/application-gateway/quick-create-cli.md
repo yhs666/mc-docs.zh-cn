@@ -6,25 +6,25 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/08/2019
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 1fee447bd6c54a8a997037195cca1295c4fc6447
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: b76dbb1db105c497a454c3ca786e2a63548bc8ee
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788732"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960891"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI
 
-本快速入门介绍如何使用 Azure 门户创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
+本快速入门介绍如何使用 Azure CLI 创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-### <a name="azure-powershell-module"></a>Azure PowerShell 模块
+### <a name="azure-cli"></a>Azure CLI
 
 如果选择在本地安装并使用 CLI，请运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 有关安装或升级的信息，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 

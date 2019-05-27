@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/11/2019
-ms.date: 03/26/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 5c9d1542d3a2dfdcc06cab69f7f78ec59621b41c
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: fa4db4879d0b11103d149fb93e8a2aaf6858db02
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505566"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598889"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 PHP 生成缩略图
 
@@ -29,7 +29,7 @@ ms.locfileid: "58505566"
 
 - 必须安装有 [PHP](https://secure.php.net/downloads.php)。
 - 必须安装有 [Pear](https://pear.php.net)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample"></a>创建并运行示例
 

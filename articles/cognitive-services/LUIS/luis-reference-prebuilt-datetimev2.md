@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 87f25d1d1c5f09f44babaaa3cb1acd5ae5c316f3
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 6f2efe3b98ca0253073e318d300169b889bd308e
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555619"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828533"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 DatetimeV2 预生成实体
 
@@ -31,16 +31,16 @@ ms.locfileid: "65555619"
 ```json
 "entities": [
   {
-    "entity": "8am on may 2nd 2017",
+    "entity": "8am on may 2nd 2019",
     "type": "builtin.datetimeV2.datetime",
     "startIndex": 0,
     "endIndex": 18,
     "resolution": {
       "values": [
         {
-          "timex": "2017-05-02T08",
+          "timex": "2019-05-02T08",
           "type": "datetime",
-          "value": "2017-05-02 08:00:00"
+          "value": "2019-05-02 08:00:00"
         }
       ]
     }
@@ -82,7 +82,7 @@ ms.locfileid: "65555619"
 |属性名称|属性说明|
 |--|--|
 |timex|遵循 [ISO 8601 标准](https://en.wikipedia.org/wiki/ISO_8601)的、以 TIMEX 格式表示的时间、日期或日期范围，以及使用 TimeML 语言的注释的 TIMEX3 属性。 [TIMEX 准则](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf)中描述了此注释。|
-|type|子类型，可以是以下项之一：datetime、date、time、daterange、timerange、datetimerange、duration、set。|
+|type|子类型，可以是下述项目之一：`datetime`、`date`、`time`、`daterange`、`timerange`、`datetimerange`、`duration`、`set`。|
 |value|**可选。** 采用 yyyy:MM:dd（日期）、HH:mm:ss（时间）、yyyy:MM:dd HH:mm:ss（日期时间）格式的日期时间对象。 如果 `type` 为 `duration`，则值是秒数（持续时间） <br/> 仅当 `type` 为 `datetime`、`date`、`time` 或 `duration 时才使用。|
 
 ## <a name="valid-date-values"></a>有效日期值
@@ -116,12 +116,12 @@ ms.locfileid: "65555619"
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2017-05-02"
+            "value": "2019-05-02"
           },
           {
             "timex": "XXXX-05-02",
             "type": "date",
-            "value": "2018-05-02"
+            "value": "2020-05-02"
           }
         ]
       }
@@ -145,14 +145,8 @@ ms.locfileid: "65555619"
           {
             "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
             "type": "daterange",
-            "start": "2017-05-02",
-            "end": "2017-05-05"
-          },
-          {
-            "timex": "(XXXX-05-02,XXXX-05-05,P3D)",
-            "type": "daterange",
-            "start": "2018-05-02",
-            "end": "2018-05-05"
+            "start": "2019-05-02",
+            "end": "2019-05-05"
           }
         ]
       }
@@ -176,14 +170,8 @@ ms.locfileid: "65555619"
           {
             "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
             "type": "daterange",
-            "start": "2017-06-13",
-            "end": "2017-06-15"
-          },
-          {
-            "timex": "(XXXX-WXX-2,XXXX-WXX-4,P2D)",
-            "type": "daterange",
-            "start": "2017-06-20",
-            "end": "2017-06-22"
+            "start": "2019-04-30",
+            "end": "2019-05-02"
           }
         ]
       }
@@ -216,6 +204,89 @@ ms.locfileid: "65555619"
       }
     }
   ]
+```
+
+## <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+
+DatetimeV2 JSON 响应在 API V3 中已更改。 
+
+自 API V2 以来的更改：
+* `datetimeV2.timex.type` 属性不再返回，因为它在父级别 `datetimev2.type` 返回。 
+* `datetimeV2.timex` 属性已重名为 `datetimeV2.value`。
+
+对于话语 `8am on may 2nd 2017`，DatetimeV2 的 V3 版本为：
+
+```JSON
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+```
+
+以下 JSON 的 `verbose` 参数设置为 `false`：
+
+```json
+{
+    "query": "8am on may 2nd 2017",
+    "prediction": {
+        "normalizedQuery": "8am on may 2nd 2017",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.6826963
+            }
+        },
+        "entities": {
+            "datetimeV2": [
+                {
+                    "type": "datetime",
+                    "values": [
+                        {
+                            "timex": "2017-05-02T08",
+                            "value": "2017-05-02 08:00:00"
+                        }
+                    ]
+                }
+            ],
+            "$instance": {
+                "datetimeV2": [
+                    {
+                        "type": "builtin.datetimeV2.datetime",
+                        "text": "8am on may 2nd 2017",
+                        "startIndex": 0,
+                        "length": 19,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="deprecated-prebuilt-datetime"></a>已弃用的预生成日期时间

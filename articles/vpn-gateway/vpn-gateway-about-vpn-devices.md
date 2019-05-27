@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 04/01/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 1e45b82ee35a408ac234a92dfa1bbf72dfd4f665
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 446c06a267c9a1eec9f8c1239e5b1012c89a0cad
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626288"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194908"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -46,7 +46,6 @@ ms.locfileid: "58626288"
 | Allied Telesis     |AR 系列 VPN 路由器 |AR 系列 5.4.7+               |即将支持     |[配置指南](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall F 系列 |PolicyBased：5.4.3<br>RouteBased：6.2.0 |[配置指南](https://techlib.barracuda.com/NGF/AzurePolicyBasedVPNGW) |[配置指南](https://techlib.barracuda.com/NGF/AzureRouteBasedVPNGW) |
 | Barracuda Networks, Inc. |Barracuda NextGen Firewall X 系列 |Barracuda Firewall 6.5 |[配置指南](https://techlib.barracuda.com/BFW/ConfigAzureVPNGateway) |不兼容 |
-| Brocade            |Vyatta 5400 vRouter   |Virtual Router 6.6R3 GA|[配置指南](http://www1.brocade.com/downloads/documents/html_product_manuals/vyatta/vyatta_5400_manual/wwhelp/wwhimpl/js/html/wwhelp.htm#href=VPN_Site-to-Site%20IPsec%20VPN/Preface.1.1.html) |不兼容 |
 | 检查点 |安全网关 |R80.10 |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[配置指南](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
 | Cisco              |ASA       |8.3<br>8.4+ (IKEv2*) |支持 |[配置指南*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
 | Cisco |ASR |PolicyBased：IOS 15.1<br>RouteBased：IOS 15.2 |支持 |支持 |

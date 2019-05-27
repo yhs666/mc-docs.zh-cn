@@ -1,23 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 的连接库
-description: 本文介绍了几个库和驱动程序，开发人员可在对应用程序编码以连接和查询 PostgreSQL 的 Azure 数据库时，使用这些库和驱动程序。
-services: postgresql
+title: Azure Database for PostgreSQL - 单一服务器的连接库
+description: 本文介绍了几个库和驱动程序，开发人员可在对应用程序编码以连接和查询 Azure Database for PostgreSQL - 单一服务器时，使用这些库和驱动程序。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 36483ef55f758fa4c02639de1768f2f84175af06
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: fa296cfdc9fb8bc1b283fc024e1b196686c1da0c
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675413"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731949"
 ---
-# <a name="connection-libraries-for-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 的连接库
+# <a name="connection-libraries-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器的连接库
 本文列出了开发人员在开发要连接到的应用程序和查询 Azure Database for PostgreSQL 时可使用的库和驱动程序。
 
 ## <a name="client-interfaces"></a>客户端接口

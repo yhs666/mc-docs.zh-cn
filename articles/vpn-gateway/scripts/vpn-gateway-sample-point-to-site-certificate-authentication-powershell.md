@@ -8,14 +8,14 @@ ms.service: vpn-gateway
 ms.devlang: powershell
 ms.topic: sample
 origin.date: 04/17/2018
-ms.date: 03/04/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 82347f8a1212162d497272c41a2b489ecae7d17a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1ac51cdea9eebbe60f629970e7720dbaf9963cd0
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626235"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194916"
 ---
 # <a name="create-a-vpn-gateway-and-add-point-to-site-configuration-using-powershell"></a>使用 PowerShell 创建 VPN 网关并添加点到站点配置
 
@@ -102,23 +102,22 @@ Remove-AzResourceGroup -Name TestRG1
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
-
-|                                                                 命令                                                                 |                                                 注释                                                 |
-|-----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
-|      [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig)       |  添加子网配置。 在虚拟网络创建过程中会使用此配置。   |
-|        [Add-AzVpnClientRootCertificate](https://docs.microsoft.com/powershell/module/az.network/add-azvpnclientrootcertificate)         |                将根证书公钥信息上传到 VPN 网关。                |
-|                  [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)                   |                                    获取虚拟网络详细信息。                                    |
-|           [Get-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgateway)            |                                获取虚拟网络网关详细信息。                                |
-|      [Get-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworksubnetconfig)       |                        获取虚拟网络子网配置详细信息。                         |
-|                  [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)                   |                      创建用于存储所有资源的资源组。                      |
-|      [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig)       | 创建子网配置。 在虚拟网络创建过程中会使用此配置。 |
-|                  [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork)                   |                                      创建虚拟网络。                                       |
-|                 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress)                  |                                     创建公共 IP 地址。                                      |
-|   [New-AzVirtualNetworkGatewayIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig)    |                                新建网关 IP 配置。                                |
-| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway?view=azurermps-6.8.1) |                                        创建 VPN 网关。                                         |
-|      [New-SelfSignedCertificate]<https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps>)       |                              新建自签名根证书。                              |
-|               [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                |                     删除资源组及其中包含的所有资源。                      |
-|                  [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork)                   |                        设置虚拟网络的子网配置。                         |
+| 命令 | 注释 |
+|---|---|
+| [Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 添加子网配置。 在虚拟网络创建过程中会使用此配置。 |
+| [Add-AzVpnClientRootCertificate](https://docs.microsoft.com/powershell/module/az.network/add-azvpnclientrootcertificate) | 将根证书公钥信息上传到 VPN 网关。|
+| [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) | 获取虚拟网络详细信息。 |
+| [Get-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgateway) | 获取虚拟网络网关详细信息。 |
+| [Get-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 获取虚拟网络子网配置详细信息。 |
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) | 创建子网配置。 在虚拟网络创建过程中会使用此配置。 |
+| [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) | 创建虚拟网络。 |
+| [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) | 创建公共 IP 地址。 |
+| [New-AzVirtualNetworkGatewayIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | 新建网关 IP 配置。 |
+| [New-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgateway) | 创建 VPN 网关。 |
+| [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate?view=win10-ps) | 新建自签名根证书。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 |
+| [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) | 设置虚拟网络的子网配置。 |
 
 ## <a name="next-steps"></a>后续步骤
 

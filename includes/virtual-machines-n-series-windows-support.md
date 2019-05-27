@@ -5,16 +5,16 @@ services: virtual-machines-windows
 author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
-origin.date: 11/27/2018
-ms.date: 12/24/2018
+origin.date: 02/11/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 4b3aa44901695fc2d6153f190ec942ee8e70204d
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 95e9e7c48a09c1dd99a11cc4f9c32f632f1045e7
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736211"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004113"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>支持的操作系统和驱动程序
 

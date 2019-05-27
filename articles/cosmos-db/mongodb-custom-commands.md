@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 03/26/2019
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0893b0e2afc808e2351f1547ff5a2fc3d3bf2019
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: a1dd2adc17db5e8287339d65f8314799a643749e
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615304"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668924"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>使用 MongoDB 扩展命令管理 Azure Cosmos DB's API for MongoDB 中存储的数据 
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * [获取集合](#get-collection)
 
 <a name="create-database"></a>
-##  <a name="create-database"></a>创建数据库
+## <a name="create-database"></a>创建数据库
 
 “创建数据库”扩展命令可创建新的 MongoDB 数据库。 数据库名称取自该命令所针对的数据库上下文。 CreateDatabase 命令的格式如下：
 
@@ -75,7 +75,7 @@ db.runCommand({customAction: "CreateDatabase", offerThroughput: 1000 });
 ```
 
 <a name="update-database"></a>
-##  <a name="update-database"></a>更新数据库
+## <a name="update-database"></a>更新数据库
 
 “更新数据库”扩展命令可更新与指定的数据库相关联的属性。 目前只能更新“offerThroughput”属性。
 
@@ -109,7 +109,7 @@ db.runCommand({customAction: "UpdateDatabase", offerThroughput: 1200 });
 ```
 
 <a name="get-database"></a>
-##  <a name="get-database"></a>获取数据库
+## <a name="get-database"></a>获取数据库
 
 “获取数据库”扩展命令返回数据库对象。 数据库名称取自该命令所针对的数据库上下文。
 
@@ -149,7 +149,7 @@ db.runCommand({customAction: "GetDatabase"});
 ```
 
 <a name="create-collection"></a>
-##  <a name="create-collection"></a>创建集合
+## <a name="create-collection"></a>创建集合
 
 “创建集合”扩展命令可创建新的 MongoDB 集合。 数据库名称取自该命令所针对的数据库上下文。 CreateCollection 命令的格式如下：
 
@@ -166,7 +166,7 @@ db.runCommand({customAction: "GetDatabase"});
 
 |**字段**|**类型** |**说明** |
 |---------|---------|---------|
-| customAction    | 字符串 | 自定义命令的名称。 必须是“CreateDatabase”     |
+| customAction    | 字符串 | 自定义命令的名称。 必须是“CreateCollection”     |
 | collection      | 字符串 | 集合的名称                                   |
 | offerThroughput | int    | 要对数据库设置的预配吞吐量。 它是一个可选参数 |
 | shardKey        | 字符串 | 要在其中创建分片集合的分片键路径。 它是一个可选参数 |
@@ -196,7 +196,7 @@ db.runCommand({customAction: "CreateCollection", collection: "testCollection", o
 ```
 
 <a name="update-collection"></a>
-##  <a name="update-collection"></a>更新集合
+## <a name="update-collection"></a>更新集合
 
 “更新集合”扩展命令可更新与指定的集合相关联的属性。
 
@@ -232,7 +232,7 @@ db.runCommand({customAction: "UpdateCollection", collection: "testCollection", o
 ```
 
 <a name="get-collection"></a>
-##  <a name="get-collection"></a>获取集合
+## <a name="get-collection"></a>获取集合
 
 “获取集合”自定义命令返回集合对象。
 
@@ -276,7 +276,7 @@ db.runCommand({customAction: "GetCollection", collection: "testCollection"});
 ```
 
 <a name="default-output"></a>
-##  <a name="default-output-of-a-custom-command"></a>自定义命令的默认输出
+## <a name="default-output-of-a-custom-command"></a>自定义命令的默认输出
 
 如果未指定，则自定义响应包含带有以下字段的文档：
 

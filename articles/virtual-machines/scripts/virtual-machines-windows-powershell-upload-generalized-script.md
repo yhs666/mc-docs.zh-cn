@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/02/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b66b7504235e4d74cfd8c80d256f20c6648dbcc7
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e5a9fe61faa1e1c5019c8201778d3bbbb8de32bf
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666346"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66173203"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>将 VHD 上传到 Azure 并创建新的 VM 的示例脚本
 
@@ -32,11 +32,14 @@ ms.locfileid: "56666346"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 # Provide values for the variables
 $resourceGroup = 'myResourceGroup'
 $location = 'ChinaEast'
@@ -151,7 +154,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 | [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | 指定虚拟机的映像。                                                                                                                                            |
 | [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
 | [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | 设置虚拟机的操作系统磁盘属性。                                                                                                                      |
-| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?view=azurermps-6.8.1)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
+| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)                 | 将网络接口添加到虚拟机。                                                                                                                                       |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | 创建虚拟机。                                                                                                                                                            |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | 删除资源组及其中包含的所有资源。                                                                                                                         |
 

@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/18/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 86b88425a092868168ba7d39325050224a78c871
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4e1139dcbdae69644ab904b043c558e3cb21f2cc
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666419"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004135"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 启动时停滞，并在 Azure 中显示“正在准备 Windows。 请不要关闭计算机”
 
 本文可帮助解决虚拟机 (VM) 在启动时停滞，并显示“正在准备 Windows。 请不要关闭计算机”的问题。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>症状
 
@@ -132,7 +132,7 @@ ms.locfileid: "56666419"
 
 **对于非托管磁盘**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount -Environment AzureChinaCloud
 
@@ -163,7 +163,7 @@ New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
 
 **对于托管磁盘**
 
-```PowerShell
+```powershell
 # To log in to Azure Resource Manager
 Login-AzAccount -EnvironmentName AzureChinaCloud
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: d722cc0c7582c9f10a7d6c4612825ab1a5abc1c0
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: c48d75a4419fb77d3fa93a23e595df47ca842bb4
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555605"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828504"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的百分比预生成实体
 百分比数字可以显示为分数 `3 1/2` 或百分比 `2%`。 此实体已定型，因此不需要将包含百分比的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持百分比实体。 
@@ -25,6 +25,9 @@ ms.locfileid: "65555605"
 百分比托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L114) GitHub 存储库中
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>预构建百分比实体的解析
+
+### <a name="api-version-2x"></a>API 版本 2.x
+
 以下示例显示了 **builtin.percentage** 实体的解析。
 
 ```json
@@ -51,6 +54,64 @@ ms.locfileid: "65555605"
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+
+以下 JSON 的 `verbose` 参数设置为 `false`：
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ]
+        }
+    }
+}
+```
+
+以下 JSON 的 `verbose` 参数设置为 `true`：
+
+```json
+{
+    "query": "set a trigger when my stock goes up 2%",
+    "prediction": {
+        "normalizedQuery": "set a trigger when my stock goes up 2%",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.541765451
+            }
+        },
+        "entities": {
+            "percentage": [
+                2
+            ],
+            "$instance": {
+                "percentage": [
+                    {
+                        "type": "builtin.percentage",
+                        "text": "2%",
+                        "startIndex": 36,
+                        "length": 2,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

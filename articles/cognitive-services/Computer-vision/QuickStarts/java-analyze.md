@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/27/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 09bcc0a69ebba5a795a1efcb7da9ff458dceb3ed
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 351dc7d5ba140c4463c01e8752e0342e1a9530f5
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855295"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598905"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入门：使用计算机视觉 REST API 和 Java 分析远程图像
 
@@ -28,7 +28,7 @@ ms.locfileid: "64855295"
 ## <a name="prerequisites"></a>先决条件
 
 - 必须已安装 [Java&trade; Platform 标准版开发工具包 7 或 8](https://aka.ms/azure-jdks)（JDK 7 或 8）。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample-application"></a>创建和运行示例应用程序
 
@@ -208,4 +208,3 @@ REST Response:
 > [!div class="nextstepaction"]
 > [计算机视觉 API Java 教程](../Tutorials/java-tutorial.md)
 
-<!-- Update_Description: wording update -->

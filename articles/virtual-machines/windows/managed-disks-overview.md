@@ -1,22 +1,22 @@
 ---
 title: Azure 托管磁盘简介 | Azure
-description: 可在使用 Azure Windows VM 时处理存储帐户的 Azure 托管磁盘的概述
+description: 概要介绍 Azure 托管磁盘，该磁盘在使用 Azure Windows VM 时处理存储帐户
 services: virtual-machines-windows,storage
 author: rockboyfor
 ms.service: virtual-machines-windows
 ms.workload: storage
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
-origin.date: 02/11/2019
-ms.date: 04/01/2019
+ms.topic: overview
+origin.date: 04/22/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 10d2fbc91125be027e4a08ab5e7318c45a4f4958
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b637f33a742b9a106291b6194cc7f448b0043e46
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004001"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004243"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 
@@ -31,4 +31,4 @@ Azure 托管磁盘是虚拟硬盘 (VHD)。 可以将其视为本地服务器中�
 > [!div class="nextstepaction"]
 > [选择适用于 IaaS VM 的磁盘类型](disks-types.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

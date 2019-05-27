@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1372ecec7c3021ffe3453b55f65f926f158783a2
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 976740129aee9091b82551c4856b628c3984ec91
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555551"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828503"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>创作和发布区域及关联的密钥
 
@@ -43,11 +43,16 @@ ms.locfileid: "65555551"
 ## <a name="public-apps"></a>公共应用
 公共应用在所有区域中发布，以便有基于区域的 LUIS 资源密钥的用户可以在与其资源密钥关联的任何区域中访问该应用。
 
-## 发布到中国 <a name="publishing-to-china"></a>
+## <a name="publishing-regions-are-tied-to-authoring-regions"></a>发布区域绑定到创作区域
+
+创作区域中的应用仅可发布到对应的发布区域。 如果应用目前位于错误的创作区域中，请导出应用，然后将其导入发布区域对应的正确创作区域。 
+
+
+## <a name="publishing-to-china"></a>发布到中国 
 
 若要发布到中国区域，请仅在 https://au.luis.ai 创建 LUIS 应用。 如果尝试使用中国区域中的密钥将应用发布到其他区域，LUIS 会显示警告消息。 请改用 https://au.luis.ai。 在 [https://au.luis.ai][au.luis.ai] 中创建的 LUIS 应用不会自动迁移到其他区域。 要实现迁移，请导出然后再导入 LUIS 应用。
 
-## <a name="china-publishing-regions"></a>中国发布区域
+## 中国发布区域 <a name="publishing-to-china"></a>
 
  全球区域 | 创作 API 区域和创作网站| 发布和查询区域<br>`API region name`   |  终结点 URL 格式   |
 |-----|------|------|------|

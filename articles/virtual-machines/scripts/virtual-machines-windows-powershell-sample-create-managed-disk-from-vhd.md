@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: e77acbb09ce805d31a6cdb030ba30cf09d9195e8
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 83303d3ca9fc7f08512e637cb42bc85a4de673df
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666092"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003986"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
@@ -31,13 +31,14 @@ ms.locfileid: "56666092"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块版本 4.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud ` 来创建与 Azure 的连接。 
-
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id where Managed Disks will be created
 $subscriptionId = 'yourSubscriptionId'
 
@@ -50,8 +51,8 @@ $diskName = 'yourDiskName'
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'PremiumLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType = 'Premium_LRS'
 
 #Provide the Azure region (e.g. chinanorth) where Managed Disk will be located.
 #This location should be same as the storage account where VHD file is stored

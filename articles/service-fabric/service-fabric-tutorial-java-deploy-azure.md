@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/26/2018
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b08bd6a0824239c1923fb2199661cf1c20d64efe
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: f40cf6291d2663322aee37e81f93280f0c1fc3bf
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463515"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195488"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 
@@ -173,7 +173,7 @@ ms.locfileid: "57463515"
     https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
-    EventHubs 的 SAS URL 遵循以下结构： https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>。 例如： https://testeventhubnamespace.servicebus.chinacloudapi.cn/testeventhub?sr=https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
+    EventHubs 的 SAS URL 遵循以下结构：`https://<namespacename>.servicebus.chinacloudapi.cn/<eventhubsname>?sr=<sastoken>`。 例如： `https://testeventhubnamespace.servicebus.chinacloudapi.cn/testeventhub?sr=https%3A%2F%testeventhub.servicebus.chinacloudapi.cn%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender`
 
 12. 打开 *sfdeploy.parameters.json* 文件，替换前述步骤中的以下内容。 [SAS-URL-STORAGE-ACCOUNT] 已在步骤 8 中记录。 [SAS-URL-EVENT-HUBS] 已在步骤 11 中记录。
 

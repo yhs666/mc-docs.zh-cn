@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 66ff4f894fbc41428d55f2b1df2e403fdbb187a3
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 874de96cb7635214ff7876627722517934a2c356
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557057"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65997316"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一组示例话语进行批处理测试
 
@@ -95,6 +95,8 @@ ms.locfileid: "65557057"
 该图表中红色的两个分区表示与预期预测不匹配的陈述。 它们表示需要更多 LUIS 训练的陈述。 
 
 该图表中绿色的两个分区与预期预测相匹配。
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

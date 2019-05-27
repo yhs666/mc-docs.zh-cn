@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 68c9825b0309a8541625398e9223bde48dcbd2c9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: e16380d6be0fb39796eb81f07d3e6ce34e44383a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666038"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003989"
 ---
 # <a name="exportcopy-managed-snapshots-as-vhd-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管快照作为 VHD 导出/复制到不同区域中的存储帐户
 
@@ -31,11 +31,14 @@ ms.locfileid: "56666038"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id of the subscription where snapshot is created
 $subscriptionId = "yourSubscriptionId"
 
@@ -60,9 +63,6 @@ $storageAccountKey = 'yourStorageAccountKey'
 
 #Provide the name of the VHD file to which snapshot will be copied.
 $destinationVHDFileName = "yourvhdfilename"
-
-#Sign-in the Azure China Cloud
-Connect-AzAccount -Environment AzureChinaCloud
 
 # Set the context to the subscription Id where Snapshot is created
 Select-AzSubscription -SubscriptionId $SubscriptionId

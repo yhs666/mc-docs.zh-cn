@@ -4,15 +4,15 @@ description: 显示资源类型如何在 Azure 资源管理器模板中进行完
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 02/13/2019
-ms.date: 03/18/2019
+origin.date: 04/24/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 664635a1ee1f84ca49e534d819c1beffbfdb9cee
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: c24c8d9aefeed95eb9b6a2f94c579231d7b65401
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355893"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195425"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 本文描述了资源类型如何在不是以完全模式部署的模板中进行删除。
@@ -402,7 +402,14 @@ ms.locfileid: "59355893"
 | vaults/accessPolicies | 否 | 
 | vaults/secrets | 否 | 
 
-<!--Not Available on ## Microsoft.Kusto-->
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| 资源类型 | 完整模式删除 |
+| ------------- | ----------- |
+| clusters | 是 | 
+| clusters/databases | 否 | 
+| clusters/databases/dataconnections | 否 | 
+| clusters/databases/eventhubconnections | 否 | 
+
 <!--Not Available on ## Microsoft.LabServices-->
 <!--Not Available on ## Microsoft.LocationBasedServices-->
 <!--Not Available on ## Microsoft.LocationServices-->

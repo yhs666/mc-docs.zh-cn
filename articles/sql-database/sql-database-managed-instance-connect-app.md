@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sstein, bonova, carlrab
 manager: digimobile
 origin.date: 11/09/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: 6d5a9020982f55f4dd894b4af7dda4ff3a587b2a
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 05/20/2019
+ms.openlocfilehash: 13834c692c87cd48f39bc7aaa219483bc05bd872
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855167"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629148"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 
@@ -147,7 +147,8 @@ ms.locfileid: "64855167"
 |JDBC 驱动程序| 6.4.0 |
 |Node.js 驱动程序| 2.1.1 |
 |OLEDB 驱动程序| 18.0.2.0 |
-|SSMS| 17.8.1 或[更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|SSMS| 18.0 或[更高版本](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
+|[SMO](https://docs.microsoft.com/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) 或更高版本 |
 
 ## <a name="next-steps"></a>后续步骤
 

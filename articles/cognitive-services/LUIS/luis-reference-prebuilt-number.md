@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: f9d5f707ecd43d1d0f9fb52e5ece08dfeccaf86e
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 5369c5654bcda98c3cba312188dac789a0f74e27
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555599"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828512"
 ---
 # <a name="number-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的数字预生成实体
 有许多方式使用数字值来量化、表达和描述信息片段。 本文仅包括了其中一些可能的示例。 LUIS 解释用户陈述中的变体并返回一致的数字值。 此实体已定型，因此不需要将包含数字的陈述示例添加到应用程序意向中。 
@@ -41,6 +41,10 @@ ms.locfileid: "65555599"
 LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.number`** 实体的已识别值。
 
 ## <a name="resolution-for-prebuilt-number"></a>预构建数字解析
+
+
+### <a name="api-version-2x"></a>API 版本 2.x
+
 下面的示例显示了来自 LUIS 的 JSON 响应，其中包括了对陈述“two dozen”的值 24 的解析。
 
 ```json
@@ -76,6 +80,64 @@ LUIS 在它返回的 JSON 响应的 `resolution` 字段中包括 **`builtin.numb
       }
     }
   ]
+}
+```
+
+### <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+
+以下 JSON 的 `verbose` 参数设置为 `false`：
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ]
+        }
+    }
+}
+```
+
+以下 JSON 的 `verbose` 参数设置为 `true`：
+
+```json
+{
+    "query": "order two dozen eggs",
+    "prediction": {
+        "normalizedQuery": "order two dozen eggs",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "number": [
+                24
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "two dozen",
+                        "startIndex": 6,
+                        "length": 9,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

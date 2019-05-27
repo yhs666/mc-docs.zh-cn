@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/08/2019
-ms.date: 04/16/2019
+ms.date: 05/20/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 83f5bf97b37d3a5d581495556abe6e10d13c3d43
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 2ebff5279eae7555aef2f29cbc32749954f2d12f
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686474"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960917"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure 门户
 
@@ -66,7 +66,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 
 3. 选择“确定”，返回到“设置”页。
 
-4. 选择“前端 IP 配置”。 在“前端 IP 配置”下，验证“IP 地址类型”是否设置为“公共”。 在“公共 IP 地址”下，验证是否已选择“新建”。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例选择了公共前端 IP。 
+4. 选择“前端 IP 配置”。 在“前端 IP 配置”下，验证“IP 地址类型”是否设置为“公共”。 在“公共 IP 地址”下，验证是否已选择“新建”。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 本示例选择了公共前端 IP。
 
 5. 输入 *myAGPublicIPAddress* 作为公共 IP 地址名称。 
 
@@ -109,9 +109,9 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
     - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
     - **用户名**：输入 *azureuser* 作为管理员用户名。
     - **密码**：输入 *Azure123456!* 作为管理员密码。
-4. 接受其他默认值，然后选择“下一步:**磁盘”**。  
-5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”**。
-6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”**。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但我们需要确保已建立 IP 连接。 
+4. 接受其他默认值，然后选择“下一步:**磁盘”** 。  
+5. 接受“磁盘”选项卡的默认值，然后选择“下一步:**网络”** 。
+6. 在“网络”选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但我们需要确保已建立 IP 连接。 
 7. 在“管理”选项卡上，将“启动诊断”设置为“关闭”。 接受其他默认值，然后选择“复查 + 创建”。
 8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。
 9. 等待虚拟机创建完成，然后再继续操作。
@@ -123,7 +123,7 @@ Azure 需要一个虚拟网络才能在创建的资源之间通信。 可以创�
 1. 在 PowerShell 中使用以下命令登录到 Azure 门户：
 
     ```powershell
-    Login-azureRmAccount -EnvironmentName AzureChinaCloud
+    Connect-AzAccount -Environment AzureChinaCloud
     ```
 
 2. 运行以下命令以在虚拟机上安装 IIS： 

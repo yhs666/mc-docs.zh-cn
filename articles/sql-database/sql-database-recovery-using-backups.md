@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: f330abd27f1e8ff26b6fcda2fc84f86aee48ba98
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 04/30/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: c4d34a000cd9b65864f9cfee048a2162dc259c97
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003463"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629173"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 
@@ -29,17 +29,17 @@ ms.locfileid: "59003463"
 - 在恢复到最新备份点的相同区域中的任一 SQL 数据库服务器上创建新数据库。
 - 在恢复到最近复制备份点的其他任何区域中的任一 SQL 数据库服务器上创建新数据库。
 
-如果已配置[备份长期保留](sql-database-long-term-retention.md)，还可以从任何区域中的任一 SQL 数据库服务器上的任何 LTR 备份创建新数据库。
+如果已配置[备份长期保留](sql-database-long-term-retention.md)，还可以从任一 SQL 数据库服务器上的任何 LTR 备份创建新数据库。
 
 > [!IMPORTANT]
 > 还原期间无法覆盖现有数据库。
 
-使用标准或高级服务层时，在遇到下列情况时，已还原数据库将产生额外的存储费用：
+使用“标准”或“高级”服务层级时，在遇到下列情况时，已还原数据库将产生额外的存储费用：
 
 - 如果数据库最大大小超过 500 GB，请将 P11-P15 还原为 S4-S12 或 P1-P6。
 - 如果数据库最大大小超过 250 GB，请将 P1-P6 还原为 S4-S12。
 
-由于已还原数据库的最大大小超出了该计算大小附送的存储量，因此将产生额外费用，针对超出附送量的任何额外预配存储收取。 有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，只要将数据库最大大小减少到附送的量，就能避免此项额外费用。
+如果已还原数据库的最大大小超出了目标数据库服务层级和性能级别附送的存储量，将产生额外的费用。 超出附送量的额外预配存储将产生额外的费用。 有关额外存储定价的详细信息，请参阅 [SQL 数据库定价页面](https://azure.cn/pricing/details/sql-database/)。 如果实际使用的空间量小于附送的存储量，可以通过将数据库最大大小设置为附送的量，来避免产生额外的费用。
 
 > [!NOTE]
 > 在创建[数据库副本](sql-database-copy.md)时，将用到[自动数据库备份](sql-database-automated-backups.md)。
@@ -55,36 +55,36 @@ ms.locfileid: "59003463"
 - 还原到不同区域时的网络带宽
 - 目标区域中正在处理的并行还原请求数
 
-对于非常大和/或活动的数据库，还原可能要花费几个小时。 如果一个区域出现长时间的服务中断，则可能是因为存在大量正在由其他区域处理的异地还原请求。 当存在很多请求时，则可能会延长该区域中数据库的恢复时间。 大部分数据库还原操作可在 12 小时内完成。
+对于较大和/或非常活跃的数据库，还原可能要花费几个小时。 如果一个区域出现长时间的服务中断，则可能是因为存在大量正在由其他区域处理的异地还原请求。 当存在很多请求时，则可能会延长该区域中数据库的恢复时间。 大部分数据库还原操作可在 12 小时内完成。
 
-对于单个订阅，会在要提交和处理的并发还原请求数上有一些限制（包括时间点还原、异地还原和从长期保留备份中还原）：
+对于单个订阅，并发还原请求的数目存在限制。  这些限制适用于时间点还原、异地还原和从长期保留备份中还原的任意组合：
 
-| | **处理的最大并发请求数** | **提交的最大并发请求数** |
+| | **处理的并发请求数最多为 #** | **提交的并发请求数最多为 #** |
 | :--- | --: | --: |
 |单个数据库（每个订阅）|10 个|60|
 |弹性池（每个池）|4|200|
 ||||
 
-没有任何内置功能用于执行批量还原。 [Azure SQL 数据库：完全恢复服务器](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)脚本是完成此任务的一种方法示例。
+目前没有任何内置的方法可以还原整个服务器。 [Azure SQL 数据库：完全恢复服务器](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666)脚本举例演示了如何完成此任务。
 
 > [!IMPORTANT]
 > 若要使用自动备份进行恢复，用户必须是订阅中的 SQL Server 参与者角色的成员或是订阅所有者 - 请参阅 [RBAC：内置角色](../role-based-access-control/built-in-roles.md)。 可以使用 Azure 门户、PowerShell 或 REST API 进行恢复。 但不能使用 Transact-SQL。
 
 ## <a name="point-in-time-restore"></a>时间点还原
 
-可以使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，将独立数据库、入池数据库或实例数据库还原到早期时间点，作为同一服务器上的新数据库。 数据库可还原到任何服务层或计算大小。 确保要将数据库还原到其中的服务器上有足够的资源。 还原完成后，还原的数据库应是一个完全可联机访问的正常数据库。 还原的数据库将基于其服务层和计算大小按标准费率计费。 在数据库还原完成之前，不会产生费用。
+可以使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST API](https://docs.microsoft.com/rest/api/sql/databases)，将独立数据库、共用数据库或实例数据库还原到早期的时间点。 请求可以指定要还原的数据库的任何服务层级或计算大小。 确保要将数据库还原到其中的服务器上有足够的资源。 完成后，将在原始数据库所在的同一台服务器上创建一个新数据库。 还原的数据库将根据其服务层级和计算大小按标准费率计费。 在数据库还原完成之前，不会产生费用。
 
-为了恢复目的，通常会将数据库还原到一个较早的点。 这样做时，可以将还原的数据库作为原始数据库的替代数据库，或使用它来检索数据，并更新原始数据库。
+通常，为恢复目的将数据库还原到较早点。 可将还原的数据库视为原始数据库的替代数据库，或使用它作为源数据来更新原始数据库。
 
 - **数据库替换**
 
-  如果还原的数据库旨在替换原始数据库，那么应验证计算大小和/或服务层是否合适，如有必要，还应调整该数据库的规模。 可以使用 T-SQL 中的 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令来重命名原始数据库，然后为还原的数据库指定原有的名称。
+  如果还原的数据库旨在替换原始数据库，则你应该指定原始数据库的计算大小和服务层级。 然后，可以使用 T-SQL 中的 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令来重命名原始数据库，并为还原的数据库指定原有的名称。
 
 - **数据恢复**
 
-  如果打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写和执行要从还原的数据库将数据提取到原始数据库时所必需的数据恢复脚本。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。
+  如果你打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写并执行一个数据恢复脚本，用于从还原的数据库提取数据并将其应用到原始数据库。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。
 
-要使用 Azure 门户将单一数据库、入池数据库或实例数据库恢复到某个时间点，请打开该数据库的页面，并在工具栏上单击“还原”。
+要使用 Azure 门户将单一数据库、共用数据库或实例数据库恢复到某个时间点，请打开该数据库的页面，并在工具栏上单击“还原”。
 
 ![时间点还原](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "59003463"
 
 ## <a name="deleted-database-restore"></a>已删除的数据库还原
 
-通过使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上已删除的数据库的删除时间。 可以使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 在保留期间将已删除的数据库还原到较早的时间点。
+使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上的删除时间或早期的时间点。 
 
 > [!TIP]
 > 有关展示如何还原已删除数据库的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
@@ -102,7 +102,7 @@ ms.locfileid: "59003463"
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>使用 Azure 门户还原已删除的数据库
 
-若要使用 Azure 门户恢复处于[基于 DTU 的模型保留期](sql-database-service-tiers-dtu.md)或[基于 vCore 的模型保留期](sql-database-service-tiers-vcore.md)的已删除数据库，请打开服务器的页面，并在“操作”区域中，单击“已删除的数据库”。
+若要使用 Azure 门户恢复已删除的数据库，请打开服务器的页面，然后在“操作”区中单击“已删除的数据库”。
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -113,9 +113,9 @@ ms.locfileid: "59003463"
 
 ## <a name="geo-restore"></a>异地还原
 
-可在任何 Azure 区域的任何服务器上从最新异地复制的备份中还原 SQL 数据库。 异地还原使用异地冗余备份作为源，即使由于停电而无法访问数据库或数据中心，也依然能够使用它来恢复数据库。
+可在任何 Azure 区域的任何服务器上从最新异地复制的备份中还原 SQL 数据库。 异地还原使用异地复制的备份作为源。 即使由于停电而无法访问数据库或数据中心，也依然能够请求此功能。
 
-当数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 如果区域中出现的大规模事件导致数据库应用程序不可用，可以从异地复制的备份中将数据库还原到任何其他区域中的服务器。 创建备份后，将其异地复制到其他区域中的 Azure Blob 时会出现延迟。 此延迟可能长达一小时，因此发生灾难时，会有长达 1 小时的数据丢失风险。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
+当数据库因其所在的区域发生事故而不可用时，异地还原是默认的恢复选项。 可将数据库还原到任何其他区域中的服务器。 创建备份后，将其异地复制到其他区域中的 Azure Blob 时会出现延迟。 因此，已还原的数据库最长可能滞后于原始数据库 1 小时。 下图显示的是从其他区域中的最后一个可用备份中还原数据库。
 
 ![异地还原](./media/sql-database-geo-restore/geo-restore-2.png)
 
@@ -125,7 +125,7 @@ ms.locfileid: "59003463"
 当前，异地辅助数据库上不支持时间点还原。 仅主数据库支持时间点还原。 有关使用异地还原在中断后恢复的详细信息，请参阅[在中断后恢复](sql-database-disaster-recovery.md)。
 
 > [!IMPORTANT]
-> 从备份中恢复是 SQL 数据库中提供的最基本的灾难恢复解决方案，具有最长的 恢复点目标 (RPO) 和估计恢复时间 (ERT)。 对于使用小型数据库（例如基本服务层或弹性池中的小型租户数据库）的解决方案，异地还原在 ERT 为最长 12 小时（通常远远小于 12 小时）的情况下通常是一个合理的 DR 解决方案。 对于使用大型数据库并需要更短恢复时间的解决方案，应考虑使用[活动异地复制](sql-database-active-geo-replication.md)或[自动故障转移组](sql-database-auto-failover-group.md)。 活动异地复制可提供低得多的 RPO 和 ERT，因为它只需要启动故障转移，即可故障转移到连续复制的辅助数据库。 自动故障转移组为一组数据库启用自动故障转移。 有关业务连续性选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+> 异地还原是 SQL 数据库中提供的最基本的灾难恢复解决方案。 它依赖于自动创建的异地复制备份，其 RPO 为 1 小时，估计恢复时间最长为 12 小时。 它不保证在发生区域性的服务中断后，目标区域可提供足够的容量来还原数据库，因为此时的需求可能会急剧上升。 对于使用相对较小数据库的非业务关键型应用程序，异地还原是适当的灾难恢复解决方案。 对于使用大型数据库且必须确保业务连续性的业务关键型应用程序，应使用[自动故障转移组](sql-database-auto-failover-group.md)。 此功能提供的 RPO 和 RTO 要低得多，并且始终可以保证容量。 有关业务连续性选项的详细信息，请参阅[业务连续性概述](sql-database-business-continuity.md)。
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 门户进行异地还原
 
@@ -141,7 +141,7 @@ ms.locfileid: "59003463"
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
-- 若要还原独立数据库或入池数据库，请参阅 [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+- 若要还原独立数据库或共用数据库，请参阅 [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
 
   | Cmdlet | 说明 |
   | --- | --- |
@@ -155,7 +155,7 @@ ms.locfileid: "59003463"
 
 ### <a name="rest-api"></a>REST API
 
-使用 REST API 还原单一数据库或入池数据库：
+使用 REST API 还原单一数据库或共用数据库：
 
 | API | 说明 |
 | --- | --- |
@@ -164,11 +164,11 @@ ms.locfileid: "59003463"
 
 ### <a name="azure-cli"></a>Azure CLI
 
-若要使用 Azure CLI 还原单一数据库或入池数据库，请参阅 [az sql db restore](/cli/sql/db#az-sql-db-restore)。
+若要使用 Azure CLI 还原单一数据库或共用数据库，请参阅 [az sql db restore](/cli/sql/db#az-sql-db-restore)。
 
 ## <a name="summary"></a>摘要
 
-自动备份可保护数据库，使其免受用户和应用程序错误、意外的数据库删除和长时间中断的影响。 此内置的功能适用于所有服务层和计算大小。
+自动备份可保护数据库，使其免受用户和应用程序错误、意外的数据库删除和长时间中断的影响。 此内置的功能适用于所有服务层级和计算大小。
 
 ## <a name="next-steps"></a>后续步骤
 

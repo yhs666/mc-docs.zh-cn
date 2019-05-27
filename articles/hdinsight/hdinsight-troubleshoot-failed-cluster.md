@@ -9,17 +9,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 03/19/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 43afa7af31a6f0d05ef175bb4643434bc6268022
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.date: 05/27/2019
+ms.openlocfilehash: 49bff9c8515355cb6846310cfb8b81ec2bc17be9
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004129"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829277"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或故障问题
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>排查 HDInsight 群集速度慢或作业失败问题
 
-如果 HDInsight 群集运行速度缓慢或者发生故障并返回错误代码，你可以使用多个故障排除选项。 如果作业的运行时间超过预期或者响应时间比平时要慢，原因可能是群集的上游组件（例如运行群集的服务）发生故障。 但是，这些速度变慢问题的最常见原因是缩放不足。 创建新的 HDInsight 群集时，请选择适当的[虚拟机大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)
+如果 HDInsight 群集上的应用程序处理数据运行速度缓慢或者发生故障并返回错误代码，你可以使用多个故障排除选项。 如果作业的运行时间超过预期或者响应时间比平时要慢，原因可能是群集的上游组件（例如运行群集的服务）发生故障。 但是，这些速度变慢问题的最常见原因是缩放不足。 创建新的 HDInsight 群集时，请选择适当的[虚拟机大小](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters)。
 
 若要诊断群集变慢或故障的原因，请收集有关环境的各个方面的信息，例如，关联的 Azure 服务、群集配置和作业执行信息。 一种有效的诊断方法是尝试在另一个群集上再现错误状态。
 
@@ -238,7 +238,7 @@ HDInsight Ambari UI 中包含一些“快速链接”部分。  若要访问 HDI
 
 ### <a name="view-hadoop-generated-log-files"></a>查看 Hadoop 生成的日志文件
 
-HDInsight 群集会生成日志，这些日志将写入 Azure 表和 Azure Blob 存储。 YARN 会创建自身的执行日志。 有关详细信息，请参阅[管理 HDInsight 群集的日志](hdinsight-log-management.md#access-the-hadoop-log-files)。
+HDInsight 群集会生成日志，这些日志将写入到 Azure 表和 Azure Blob 存储。 YARN 会创建自身的执行日志。 有关详细信息，请参阅[管理 HDInsight 群集的日志](hdinsight-log-management.md#access-the-hadoop-log-files)。
 
 ### <a name="review-heap-dumps"></a>查看堆转储
 

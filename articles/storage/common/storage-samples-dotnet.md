@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 01/12/2017
-ms.date: 05/20/2019
+origin.date: 05/03/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: db0a1d225185d9733e11cdf3af7ea84be907add4
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 008f2965010acdcd3741cdc2bbb62c6fa49a5fee
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549970"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004027"
 ---
 # <a name="azure-storage-samples-using-net"></a>使用 .NET 的 Azure 存储示例
 
@@ -30,7 +30,7 @@ ms.locfileid: "65549970"
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>追加 Blob</td> 
-<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference 方法示例</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Blob 入门</a></td> 
 </tr> 
 <tr> 
 <td>块 blob</td>

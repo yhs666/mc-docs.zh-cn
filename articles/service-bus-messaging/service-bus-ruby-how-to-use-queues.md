@@ -14,24 +14,29 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36dfef26a2abf1ce308013987ef7c80cd4aace1a
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 7eb797355bb81aa3004afd455c7e7a38df85ee21
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544688"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609861"
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>如何通过 Ruby 使用服务总线队列
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-本指南介绍如何使用服务总线队列。 相关示例通过 Ruby 编写并使用 Azure gem。 涉及的方案包括“创建队列、发送和接收消息”以及“删除队列”。 有关服务总线队列的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本教程介绍如何创建 Ruby 应用程序，以便向服务总线队列发送消息以及从中接收消息。 相关示例用 Ruby 编写且使用 Azure gem。
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或注册[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文中的步骤操作。
+    1. 阅读服务总线**队列**的快速**概述**。 
+    2. 创建一个服务总线**命名空间**。 
+    3. 获取**连接字符串**。 
 
-## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-   
+        > [!NOTE]
+        > 在本教程中，需使用 Ruby 在服务总线命名空间中创建一个**队列**。 
+
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## <a name="how-to-create-a-queue"></a>如何创建队列

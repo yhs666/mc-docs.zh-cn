@@ -6,15 +6,15 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 11/06/2018
-ms.date: 03/18/2019
+ms.date: 05/13/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3cad646a73820c3f612914034d3e58681393137b
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 06067834799551fef2af281bfee506f0c39a21a5
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004686"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668918"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的更改源 - 概述
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 非常适合用于 IoT、游戏、零售和操作日志记录应
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>更改源和 _etag、_lsn 或 _ts
 
-_etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _ts 是修改或创建时间戳。 可以使用 _ts 进行时间顺序比较。 _lsn 是仅为更改源添加的批 ID，它表示事务 ID。许多项可能具有相同的 _lsn。 FeedResponse 上的 ETag 不同于项上看到的 _etag。 _etag 是用于并发控制的内部标识符，它告知项的版本，而 ETag 用于将源定序。
+_etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _ts 是修改或创建时间戳。 可以使用 _ts 进行时间顺序比较。 _lsn 是仅为更改源添加的批 ID，它表示事务 ID。 许多项可能具有相同的 _lsn。 FeedResponse 上的 ETag 不同于项上看到的 _etag。 _etag 是用于并发控制的内部标识符，它告知项的版本，而 ETag 用于将源定序。
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>更改源用例和方案
 

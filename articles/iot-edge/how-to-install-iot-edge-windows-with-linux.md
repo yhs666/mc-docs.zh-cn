@@ -1,133 +1,115 @@
 ---
-title: 如何在带有 Linux 容器的 Windows 上安装 Azure IoT Edge | Microsoft Docs
-description: 在带有 Linux 容器的 Windows 上安装 Azure IoT Edge 的说明
+title: 在 Windows 上安装适用于 Linux 的 Azure IoT Edge | Microsoft Docs
+description: 有关在 Windows 10、Windows Server 和 Windows IoT Core 上安装适用于 Linux 容器的 Azure IoT Edge 的说明
 author: kgremban
 manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 08/27/2018
-ms.date: 12/10/2018
+origin.date: 05/06/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: b1cfddd25ba272b133a38da281611987aaee8537
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 55f337cbfc4e23c7308769479ff14cd7021aa346
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626498"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829135"
 ---
-# <a name="install-the-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>在 Windows 上安装 Azure IoT Edge 运行时，使其与 Linux 容器一起使用
+# <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>使用 Windows 上的 IoT Edge 运行 Linux 容器
 
-使用 Azure IoT Edge 运行时可将设备转变为 IoT Edge 设备。 该运行时可以部署在像 Raspberry Pi 一样小的设备上，也可以部署在像工业服务器一样大的设备上。 使用 IoT Edge 运行时配置设备后，即可开始从云中部署业务逻辑。 
+使用 Windows 计算机测试适用于 Linux 设备的 IoT Edge 模块。 
 
-若要了解有关 IoT Edge 运行时如何工作以及包含哪些组件的详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
+在生产方案中，Windows 设备应该只运行 Windows 容器。 但是，一种常见的开发方案是使用 Windows 计算机生成适用于 Linux 设备的 IoT Edge 模块。 使用适用于 Windows 的 IoT Edge 运行时可以运行 Linux 容器以实现**测试和开发**目的。 
 
-本文列出了在 Windows x64 (AMD/Intel) 系统上使用 Linux 容器安装 Azure IoT Edge 运行时的步骤。 Windows 支持目前为预览版。
+本文列出了在 Windows x64 (AMD/Intel) 系统上使用 Linux 容器安装 Azure IoT Edge 运行时的步骤。 若要详细了解 IoT Edge 运行时安装程序，包括有关所有安装参数的详细信息，请参阅 [在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)。
 
-> [!NOTE]
-> 不推荐或支持在 Windows 系统上使用 Linux 容器作为 Azure IoT Edge 的生产配置。 但可将其用于开发和测试。
+## <a name="prerequisites"></a>先决条件
 
-## <a name="supported-windows-versions"></a>支持的 Windows 版本
-使用 Linux 容器时，可在以下版本的 Windows 上使用 Azure IoT Edge 进行开发和测试：
-  * Windows 10 或更高版本的桌面操作系统。
-  * Windows Server 2016 或更高版本的服务器操作系统。
+参考本部分检查你的 Windows 设备是否支持 IoT Edge，并在安装之前为容器引擎准备好该设备。 
 
-有关当前支持哪些操作系统的详细信息，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。 
+### <a name="supported-windows-versions"></a>支持的 Windows 版本
 
-## <a name="install-the-container-runtime"></a>安装容器运行时 
+包含 Linux 容器的 Azure IoT Edge 可在以下版本的 Windows 上运行： 
+* Windows 10 周年更新（内部版本 14393）或更高版本
+* Windows Server 2016 或更高版本
 
-Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器运行时（例如 Docker）。 
+有关最新版 IoT Edge 包含的功能的详细信息，请参阅 [Azure IoT Edge 发行说明](https://github.com/Azure/azure-iotedge/releases)。
 
-可通过[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 进行开发和测试。 将用于 Windows 的 Docker 配置为[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。
+若要在虚拟机上安装 IoT Edge，请启用嵌套虚拟化并分配至少 2-GB 内存。 如何启用嵌套虚拟化取决于所用的虚拟机监控程序。 就 Hyper-V 来说，第 2 代虚拟机已默认启用嵌套虚拟化。 如果使用 VMWare，则可通过切换开关在虚拟机上启用此功能。 
 
-## <a name="install-the-azure-iot-edge-security-daemon"></a>安装 Azure IoT Edge 安全守护程序
+### <a name="prepare-the-container-engine"></a>准备容器引擎 
+
+Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器引擎。 在 Windows 计算机上运行 Windows 与 Linux 容器的最大配置差别在于，IoT Edge 安装包含 Windows 容器运行时，但在安装 IoT Edge 之前，需要提供自己的 Linux 容器运行时。 
+
+若要设置一台 Windows 计算机用于开发和测试适用于 Linux 设备的容器，可以使用 [Docker Desktop](https://www.docker.com/docker-windows) 作为容器引擎。 在安装 IoT Edge 之前，需要安装 Docker 并将其配置为[使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。  
+
+如果 IoT Edge 设备是 Windows 计算机，请检查它是否符合 Hyper-V 的[系统要求](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements)。
+
+## <a name="install-iot-edge-on-a-new-device"></a>在新设备上安装 IoT Edge
 
 >[!NOTE]
 >Azure IoT Edge 软件程序包受制于程序包中的许可条款（位于 LICENSE 目录中）。 使用程序包之前请阅读这些许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用程序包。
 
-可以使用 IoT 中心提供的设备连接字符串手动预配单个 IoT Edge 设备。 或者，可以使用设备预配服务自动预配设备，当需要预配多个设备时这会非常有用。 根据预配选项，选择合适的安装脚本。 
+某个 PowerShell 脚本将下载并安装 Azure IoT Edge 安全守护程序。 然后，安全守护程序将启动两个运行时模块中的第一个，即 IoT Edge 代理，以便能够远程部署其他模块。 
 
-### <a name="option-1-install-and-manually-provision"></a>选项 1：安装和手动预配
+首次在设备上安装 IoT Edge 运行时时，需要使用 IoT 中心内的标识预配该设备。 可以使用 IoT 中心提供的设备连接字符串手动预配单个 IoT Edge 设备。 或者，可以使用设备预配服务自动预配设备，需要设置多个设备时，这种做法非常有用。 
 
-1. 按照[注册新的 Azure IoT Edge 设备](how-to-register-device-portal.md)中的步骤注册设备并检索设备连接字符串。 
+可以在[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)一文中详细了解不同的安装选项和参数。 为 Linux 容器安装并配置 Docker Desktop 后，主要安装差别是使用 **-ContainerOs** 参数声明 Linux。 例如： 
 
-2. 在 IoT Edge 设备上，以管理员身份运行 PowerShell。 
+1. 注册新的 IoT Edge 设备并检索设备连接字符串（如果尚未这样做）。 复制连接字符串，以便稍后在本部分中使用。 可以使用以下工具完成此步骤：
 
-3. 下载并安装 IoT Edge 运行时。 
+   * [Azure 门户](how-to-register-device-portal.md)
+   * [Azure CLI](how-to-register-device-cli.md)
+   * [Visual Studio Code](how-to-register-device-vscode.md)
 
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Linux
-   ```
+2. 以管理员身份运行 PowerShell。
 
-4. 当系统提示输入 DeviceConnectionString 时，请提供从 IoT 中心检索的连接字符串。 请勿对连接字符串使用引号。 
-
-### <a name="option-2-install-and-automatically-provision"></a>选项 2：安装和自动预配
-
-1. 按照“在 Windows上创建和预配模拟 TPM Edge 设备”中的步骤，设置设备预配服务并检索其**范围 ID**，模拟 TPM 设备并检索其**注册 ID**，然后创建个人注册。 在 IoT 中心注册设备后，继续安装。  
-
-   >[!TIP]
-   >在安装和测试期间，确保运行 TPM 模拟器的窗口处于打开状态。 
-
-2. 在 IoT Edge 设备上，以管理员身份运行 PowerShell。 
-
-3. 下载并安装 IoT Edge 运行时。 
+3. **Deploy-IoTEdge** 命令检查 Windows 计算机是否使用了支持的版本，启用容器功能，然后下载 moby 运行时（不是用于 Linux 容器）和 IoT Edge 运行时。 该命令默认使用 Windows 容器，因此会将 Linux 声明为所需的容器操作系统。 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Dps -ContainerOs Linux
+   Deploy-IoTEdge -ContainerOs Linux
    ```
 
-4. 出现提示时，为预配服务和设备提供 ScopeID 和 RegistrationID。
+4. 此时，IoT Core 设备可能会自动重启。 其他 Windows 10 或 Windows Server 设备可能会提示你重启。 如果是这样，请立即重启设备。 设备准备就绪后，再次以管理员身份运行 PowerShell。
+
+5. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时。 该命令默认为使用设备连接字符串进行手动预配。 再次将 Linux 声明为所需的容器操作系统。 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Linux
+   ```
+
+6. 出现提示时，请提供在步骤 1 中检索到的设备连接字符串。 该设备连接字符串会将物理设备与 IoT 中心内的设备 ID 相关联。 
+
+   该设备连接字符串采用以下格式（不包括引号）：`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 
-可通过以下方式查看 IoT Edge 服务的状态： 
+检查 IoT Edge 服务的状态。 该服务应列为“正在运行”。  
 
 ```powershell
 Get-Service iotedge
 ```
 
-使用下述项检查过去 5 分钟的服务日志：
+检查过去 5 分钟的服务日志。 
 
 ```powershell
-
-# Displays logs from last 5 min, newest at the bottom.
-
-Get-WinEvent -ea SilentlyContinue `
-  -FilterHashtable @{ProviderName= "iotedged";
-    LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
-  select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false} |
-  format-table -autosize -wrap
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-此外，还可使用以下命令列出正在运行的模块：
+列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
 
 ```powershell
 iotedge list
 ```
 
-## <a name="tips-and-suggestions"></a>提示和建议
-
-如果网络具有代理服务器，请按照[配置 IoT Edge 设备以通过代理服务器进行通信](how-to-configure-proxy-support.md)中的步骤进行操作，以安装并启动 IoT Edge 运行时。
-
 ## <a name="next-steps"></a>后续步骤
 
 预配了安装运行时的 IoT Edge 设备后，现在可以[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)。
 
-如果无法正确安装 Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
+如果无法正常安装 IoT Edge，请查看[故障排除](troubleshoot.md)页。
 
-
-<!-- Images -->
-[img-docker-nat]: ./media/how-to-install-iot-edge-windows-with-linux/dockernat.png
-
-<!-- Links -->
-[lnk-docker-config]: https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
-[lnk-trouble]: troubleshoot.md
-[lnk-docker-for-windows]: https://www.docker.com/docker-windows
-[lnk-modules]: how-to-deploy-modules-portal.md
+若要将现有安装更新到最新版本的 IoT Edge，请参阅[更新 IoT Edge 安全守护程序和运行时](how-to-update-iot-edge.md)。

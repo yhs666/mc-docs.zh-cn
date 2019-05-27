@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 03/20/2019
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 797e7950ef0022c6a06818283791323d582493cd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 16514623728682e716d5d149356e278b1a15ed49
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625538"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829287"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux 上安装 Azure IoT Edge 运行时 (ARM32v7/armhf)
 
@@ -23,7 +23,7 @@ ms.locfileid: "58625538"
 
 若要了解有关 IoT Edge 运行时如何工作以及包含哪些组件的详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出了在 Linux ARM32v7/armhf IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 例如，这些步骤适用于 Raspberry Pi 设备。 有关支持的 ARM32 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。 
+本文列出了在 Linux ARM32v7/armhf IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 例如，这些步骤适用于 Raspberry Pi 设备。 有关支持的 ARM32 操作系统的列表，请参阅 [Azure IoT Edge 支持的系统](support.md#operating-systems)。 
 
 >[!NOTE]
 >Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用程序包。
@@ -148,7 +148,7 @@ sudo systemctl restart iotedge
 
 ## <a name="verify-successful-installation"></a>验证是否成功安装
 
-如果使用了上一部分中的**手动配置**步骤，则应在设备上成功预配并运行 IoT Edge 运行时。 或者，如果使用了**自动配置**步骤，则需要完成一些额外的步骤，以便运行时可以代表你向 IoT 中心注册你的设备。 
+如果使用了上一部分中的**手动配置**步骤，则应在设备上成功预配并运行 IoT Edge 运行时。 或者，如果使用了**自动配置**步骤，则需要完成一些额外的步骤，以便运行时可以代表你向 IoT 中心注册你的设备。 有关后续步骤，请参阅[在 Linux 虚拟机上创建和预配模拟 TPM IoT Edge 设备](how-to-auto-provision-simulated-device-linux.md#give-iot-edge-access-to-the-tpm)。
 
 使用以下命令检查 IoT Edge 守护程序的状态：
 
@@ -156,7 +156,7 @@ sudo systemctl restart iotedge
 systemctl status iotedge
 ```
 
-使用以下命令观察守护程序日志：
+使用以下命令查看守护程序日志：
 
 ```bash
 journalctl -u iotedge --no-pager --no-full

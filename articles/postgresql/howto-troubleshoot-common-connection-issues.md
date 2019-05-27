@@ -1,21 +1,21 @@
 ---
-title: 排查 Azure Databases for PostgreSQL 的连接问题
-description: 了解如何排查 Azure Databases for PostgreSQL 的连接问题。
+title: 排查 Azure Databases for PostgreSQL - 单一服务器的连接问题
+description: 了解如何排查 Azure Databases for PostgreSQL - 单一服务器的连接问题。
 keywords: postgresql 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 11/09/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 425d2af21319b7203d4b4b6588252776a0ac54b9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 01822a7256451f62a01e7a11d8a514ad7ffd6e8e
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625200"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731997"
 ---
-# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql"></a>排查 Azure Databases for PostgreSQL 的连接问题
+# <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>排查 Azure Databases for PostgreSQL - 单一服务器的连接问题
 
 连接问题可能由多种因素造成，包括：
 
@@ -25,7 +25,7 @@ ms.locfileid: "58625200"
 * 某些 Azure Database for PostgreSQL 资源达到了最大限制
 * 服务的基础结构出现问题
 * 正在服务中执行维护
-* 通过缩放 vCore 数目或移到不同的服务层更改了服务器的计算资源分配
+* 通过缩放 vCore 数目或移到不同的服务层级更改了服务器的计算资源分配
 
 通常，Azure Database for PostgreSQL 的连接问题可按如下方式分类：
 
@@ -34,7 +34,7 @@ ms.locfileid: "58625200"
 
 ## <a name="troubleshoot-transient-errors"></a>对暂时性错误进行故障排除
 
-在执行维护、系统遇到硬件或软件错误，或更改服务器的 vCore 数目或服务层时，会发生暂时性错误。 Azure Database for PostgreSQL 服务具有内置的高可用性，可以自动缓解此类问题。 但是，应用程序会短暂地与服务器断开连接，通常不会超过 60 秒。 某些事件偶尔可能需要更长的时间才能缓解，例如，当某个大型事务导致恢复长时间运行时。
+在执行维护、系统遇到硬件或软件错误，或更改服务器的 vCore 数目或服务层级时，会发生暂时性错误。 Azure Database for PostgreSQL 服务具有内置的高可用性，可以自动缓解此类问题。 但是，应用程序会短暂地与服务器断开连接，通常不会超过 60 秒。 某些事件偶尔可能需要更长的时间才能缓解，例如，当某个大型事务导致恢复长时间运行时。
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>解决暂时性连接问题的步骤
 
@@ -49,7 +49,7 @@ ms.locfileid: "58625200"
 
 * 服务器防火墙配置：请确保用于 PostgreSQL 服务器防火墙的 Azure 数据库配置为允许来自客户机（包括代理服务器和网关）的连接。
 * 客户端防火墙配置：客户端的防火墙必须允许连接到数据库服务器。 对于无法访问的服务器 IP 地址和端口，必需授予其访问权限，并且必须允许使用某些防火墙的应用程序名称（如 PostgreSQL）。
-* 用户错误：例如，你可能错误键入了连接参数（例如，在连接字符串中键入了服务器名称，或者在用户名中遗漏了 <em>@servername</em> 后缀）。
+* 用户失误：例如，你可能错误键入了连接参数（例如，在连接字符串中键入了服务器名称，或者在用户名中遗漏了 *\@servername* 后缀）。
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解决永久性连接问题的步骤
 

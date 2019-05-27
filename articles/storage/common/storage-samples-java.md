@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.devlang: java
 ms.topic: article
-origin.date: 01/12/2017
-ms.date: 05/20/2019
+origin.date: 05/03/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 6a2c3e9c8f26786e2cda37144bde782b6bc16326
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: ae5e37297ea5ab37f7af22732c1cab6b348fd4e8
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549922"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004017"
 ---
 # <a name="azure-storage-samples-using-java"></a>使用 Java 的 Azure 存储示例
 
@@ -23,172 +23,172 @@ ms.locfileid: "65549922"
 
 下表概述了我们的示例存储库以及每个示例中介绍的方案。 单击链接可查看 GitHub 中相应的示例代码。
 
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">终结点</th><th style="font-size:110%">方案</th><th style="font-size:110%">代码示例</th></tr></thead><tbody> 
-<tr> 
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">终结点</th><th style="font-size:110%">方案</th><th style="font-size:110%">代码示例</th></tr></thead><tbody>
+<tr>
 <td rowspan="16"><b>Blob</b></td>
-<td>追加 Blob</td> 
-<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td> 
-</tr> 
-<tr> 
+<td>追加 Blob</td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
+</tr>
+<tr>
 <td>块 blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>客户端加密</td>
 <td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption">Java 中的 Azure 客户端加密入门</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>复制 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>创建容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>删除 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>删除容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>Blob 元数据/属性/统计信息</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>容器 ACL/元数据/属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Java 中 Azure Blob 服务入门</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>获取页面范围</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/CloudPageBlobTests.java">页 blob 测试示例</a></td>
-</tr> 
-<tr> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java#L399">Getting Started with Azure Blob Service in Java</a></td>
+</tr>
+<tr>
 <td>租用 Blob/容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>列出 Blob/容器</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td>页 blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
 </tr>
-<tr> 
+<tr>
 <td>SAS</td>
 <td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">SAS 测试示例</a></td>
 </tr>   
-<tr> 
+<tr>
 <td>服务属性</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobAdvanced.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr>           
-<tr> 
+</tr>
+<tr>
 <td>快照 Blob</td>
 <td><a href="https://github.com/Azure-Samples/storage-blob-java-getting-started/blob/master/src/BlobBasics.java">Getting Started with Azure Blob Service in Java</a></td>
-</tr> 
-<tr> 
+</tr>
+<tr>
 <td rowspan="9"><b>文件</b></td>
-<td>创建共享/目录/文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
+<td>创建共享/目录/文件</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td>
 </tr>
-<tr> 
-<td>删除共享/目录/文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>目录属性/元数据</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>下载文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>文件属性/元数据/指标</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>文件服务属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>列出目录和文件</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
+<tr>
+<td>删除共享/目录/文件</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td>
 </tr>
-<tr> 
-<td>列出共享</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td> 
+<tr>
+<td>目录属性/元数据</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td>
 </tr>
-<tr> 
-<td>共享属性/元数据/统计信息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java 中 Azure 文件服务入门</a></td> 
+<tr>
+<td>下载文件</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td>
 </tr>
-<tr> 
+<tr>
+<td>文件属性/元数据/指标</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td>
+</tr>
+<tr>
+<td>文件服务属性</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Getting Started with Azure File Service in Java</a></td>
+</tr>
+<tr>
+<td>列出目录和文件</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td>
+</tr>
+<tr>
+<td>列出共享</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileBasics.java">Getting Started with Azure File Service in Java</a></td>
+</tr>
+<tr>
+<td>共享属性/元数据/统计信息</td>
+<td><a href="https://github.com/Azure-Samples/storage-file-java-getting-started/blob/master/src/FileAdvanced.java">Java 中 Azure 文件服务入门</a></td>
+</tr>
+<tr>
 <td rowspan="8"><b>队列</b></td>
-<td>添加消息</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/queue/gettingstarted/QueueBasics.java">存储 Java 客户端库示例</a></td> 
-</tr> 
-<tr> 
-<td>客户端加密</td> 
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage/encryption/queue/gettingstarted/QueueGettingStarted.java">存储 Java 客户端库示例</a></td> 
-</tr> 
-<tr> 
-<td>创建队列</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>删除消息/队列</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>速览消息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>队列 ACL/元数据/统计信息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>队列服务属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>更新消息</td> 
-<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td> 
-</tr> 
-<tr> 
+<td>添加消息</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java#L63">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>客户端加密</td>
+<td><a href="https://github.com/Azure-Samples/storage-java-client-side-encryption/blob/master/src/gettingstarted/KeyVaultGettingStarted.java">Java 中的 Azure 客户端加密入门</a></td>
+</tr>
+<tr>
+<td>创建队列</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>删除消息/队列</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>速览消息</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>队列 ACL/元数据/统计信息</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>队列服务属性</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueAdvanced.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
+<td>更新消息</td>
+<td><a href="https://github.com/Azure-Samples/storage-queue-java-getting-started/blob/master/src/QueueBasics.java">Getting Started with Azure Queue Service in Java</a></td>
+</tr>
+<tr>
 <td rowspan="7"><b>表</b></td>
-<td>创建表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>删除实体/表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>插入/合并/替换实体</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>查询实体</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>查询表</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>表 ACL/属性</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-<tr> 
-<td>更新实体</td> 
-<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td> 
-</tr> 
-</tbody> 
+<td>创建表</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>删除实体/表</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>插入/合并/替换实体</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>查询实体</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>查询表</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>表 ACL/属性</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableAdvanced.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+<tr>
+<td>更新实体</td>
+<td><a href="https://github.com/Azure-Samples/storage-table-java-getting-started/blob/master/src/main/java/com/microsoft/azure/cosmosdb/tablesample/TableBasics.java">Getting Started with Azure Table Service in Java</a></td>
+</tr>
+</tbody>
 </table>
 <br/>
 

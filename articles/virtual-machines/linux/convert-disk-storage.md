@@ -14,22 +14,21 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 4c6542816f5eef0488c0fa61cc0915f351ca6378
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cd858fe57fcd5af7063de8e6d94182fd2e0ccb6e
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626521"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835729"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-or-premium-to-standard"></a>将 Azure 托管磁盘存储从标准类型转换为高级类型，或者从高级类型转换为标准类型
 
-Azure 托管磁盘有三种[磁盘类型](disks-types.md)：高级 SSD、标准 SSD 和标准 HDD。 可以根据性能需求，轻松在高级 SSD、标准 SSD 和标准 HDD 之间切换，此过程只会造成短暂的停机。 
+Azure 托管磁盘有三种[磁盘类型](disks-types.md)：高级 SSD、标准 SSD 和标准 HDD。 可以根据性能需求，轻松在高级 SSD、标准 SSD 和标准 HDD 之间切换，此过程只会造成短暂的停机。 非托管磁盘不支持此功能。 但是，可以轻松[将非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，然后即可切换磁盘类型。
 
 <!--Not Available on Azure Ultra Disk Storage-->
-<!--Not Available on This functionality is not supported for unmanaged disks or Ultra Disk Storage. But you can easily [convert unmanaged to managed disks](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.-->
 
 本文介绍如何使用 Azure CLI 将托管磁盘从标准类型转换为高级类型，或者从高级类型转换为标准类型。 若要安装或升级 CLI 工具，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 

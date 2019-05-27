@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 服务器 vnet 服务终结点概述
-description: 了解 VNET 服务终结点如何为 Azure Database for PostgreSQL 服务器工作。
+title: Azure Database for PostgreSQL（单一服务器）中的虚拟网络 (VNet) 服务终结点概述
+description: 了解适用于 Azure Database for PostgreSQL（单一服务器）的虚拟网络 (VNet) 服务终结点的原理。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: 8d677d946b950801bdeb32ff689baaf1dfb9e435
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 2c9218e0f1573dcb0384d20aa330fdbd56f467c4
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836984"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731941"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>使用适用于Azure Database for PostgreSQL 的虚拟网络服务终结点和规则
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>对 Azure Database for PostgreSQL（单一数据库）使用虚拟网络服务终结点和规则
 
 虚拟网络规则是一种防火墙安全功能，用于控制是否允许 Azure Database for PostgreSQL 服务器接受从虚拟网络中的特定子网发送的通信。 本文说明了为何有时候最好选择虚拟网络规则功能来安全地允许与 Azure Database for PostgreSQL 服务器的通信。
 
@@ -107,6 +107,8 @@ RBAC 备用：
 ## <a name="limitations"></a>限制
 
 对于 Azure Database for PostgreSQL，虚拟网络规则功能具有以下限制：
+
+- Web 应用可以映射到 VNet/子网中的专用 IP。 即使已从给定 VNet/子网启用服务终结点，从 Web 应用到服务器的连接也将具有 Azure 公共 IP 源，而不是 VNet/子网源。 若要启用从 Web 应用到具有 VNet 防火墙规则的服务器的连接，必须在该服务器上允许 Azure 服务访问服务器。
 
 - 在 Azure Database for PostgreSQL 的防火墙中，每个虚拟网络规则都引用一个子网。 引用的所有这些子网都必须托管在同一个托管 Azure Database for PostgreSQL 的地理区域内。
 

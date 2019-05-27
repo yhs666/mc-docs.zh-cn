@@ -1,32 +1,33 @@
 ---
-title: 使用 Ansible 在 Azure 中创建 Linux 虚拟机
-description: 了解如何使用 Ansible 在 Azure 中创建 Linux 虚拟机
-ms.service: ansible
+title: 快速入门 - 使用 Ansible 在 Azure 中配置 Linux 虚拟机 | Azure
+description: 在本快速入门中，你将了解如何使用 Ansible 在 Azure 中创建 Linux 虚拟机
 keywords: ansible, azure, devops, 虚拟机
+ms.topic: tutorial
+ms.service: ansible
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
-ms.topic: quickstart
-origin.date: 08/22/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: ba3ae9d25af68783788192ca11f5867c595d2156
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+origin.date: 04/22/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 2c5f8a92b2c2c4b86fb9bed64e1a7881aa139be3
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666443"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835751"
 ---
 <!-- Verify successfully-->
-# <a name="use-ansible-to-create-a-linux-virtual-machine-in-azure"></a>使用 Ansible 在 Azure 中创建 Linux 虚拟机
-Ansible 使用声明性语言，适用于通过 Ansible *playbook* 来自动完成 Azure 资源的创建、配置和部署。 本文的各个部分介绍该部分中用于创建和配置 Linux 虚拟机不同部分的 Ansible playbook 的外观。 [完整的 Ansible playbook](#complete-sample-ansible-playbook) 列在本文末尾。
+# <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 在 Azure 中配置 Linux 虚拟机
+
+Ansible 使用声明性语言，适用于通过 Ansible *playbook* 来自动完成 Azure 资源的创建、配置和部署。 本文提供了一个用于配置 Linux 虚拟机的示例 Ansible playbook。 [完整的 Ansible playbook](#complete-sample-ansible-playbook) 列在本文末尾。
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅** - 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
+
 Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible playbook 部分在 `chinaeast` 位置创建名为 `myResourceGroup` 的资源组：
 
 ```yaml
@@ -37,6 +38,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ```
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
+
 创建 Azure 虚拟机时，必须创建[虚拟网络](/virtual-network/virtual-networks-overview)或使用现有的虚拟网络。 此外，还需要确定如何在虚拟网络上访问虚拟机。 以下示例 Ansible playbook 部分在 `10.0.0.0/16` 地址空间中创建名为 `myVnet` 的虚拟网络：
 
 ```yaml
@@ -61,7 +63,9 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ```
 
 ## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
-[公共 IP 地址](/virtual-network/virtual-network-ip-addresses-overview-arm)允许 Internet 资源与 Azure 资源进行入站通信。 在 IP 地址已分配给 Azure 资源的情况下，公共 IP 地址还允许这些资源与 Internet 和面向公众的 Azure 服务进行出站通信。 此地址专门用于该资源，直到你对其取消分配。 如果公共 IP 地址未分配给资源，该资源仍可与 Internet 进行出站通信，但 Azure 会动态分配不专用于该资源的可用 IP 地址。 
+
+[公共 IP 地址](/virtual-network/virtual-network-ip-addresses-overview-arm)允许 Internet 资源与 Azure 资源进行入站通信。
+公共 IP 地址还使 Azure 资源能够与面向公众的 Azure 服务进行出站通信。 在这两种方案中，为分配给正在访问的资源的 IP 地址。 此地址专门用于该资源，直到你对其取消分配。 如果未将资源分配给公共 IP 地址，则资源仍可以通过 Internet 进行出站通信。 此连接通过 Azure 动态分配可用的 IP 地址进行创建。 动态分配的地址不专用于该资源。
 
 以下示例 Ansible playbook 部分创建名为 `myPublicIP` 的公共 IP 地址：
 
@@ -74,9 +78,10 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ```
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
-可以使用[网络安全组](/virtual-network/security-overview)来筛选 Azure 虚拟网络中出入 Azure 资源的网络流量。 网络安全组包含安全规则，这些规则可允许或拒绝多种 Azure 资源的入站和出站网络流量。 
 
-以下示例 Ansible playbook 部分创建名为 `myNetworkSecurityGroup` 的网络安全组并定义允许 TCP 端口 22 上的 SSH 流量的规则：
+[网络安全组](/virtual-network/security-overview)筛选虚拟网络中 Azure 资源之间的网络流量。 定义安全规则，用于管理进出 Azure 资源的入站和出站流量。 有关 Azure 资源和网络安全组的详细信息，请参阅 [Azure 服务的虚拟网络集成](/virtual-network/virtual-network-for-azure-services)
+
+以下 playbook 创建名为 `myNetworkSecurityGroup` 的网络安全组。 网络安全组包括一条规则，允许 TCP 端口 22 上的 SSH 流量。
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -93,6 +98,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ```
 
 ## <a name="create-a-virtual-network-interface-card"></a>创建虚拟网络接口卡
+
 虚拟网络接口卡将虚拟机连接到规定的虚拟网络、公共 IP 地址和网络安全组。 
 
 示例 Ansible playbook 部分中的以下部分创建名为 `myNIC` 的虚拟网络接口卡，该卡连接到已创建的虚拟网络资源：
@@ -109,6 +115,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ```
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
+
 最后一步是创建虚拟机，该虚拟机使用在本文的前述部分创建的所有资源。 
 
 在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 \<your-ssh-public-key-data\> 占位符替换为你自己的完整公钥数据。
@@ -212,10 +219,11 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 此部分详述如何运行在本文中提供的示例 Ansible playbook。
 
-<!-- Not Available on [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040)-->
-<!-- Not Available on [Cloud Shell](/cloud-shell/overview)-->
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-1. 使用 SSH 命令访问已安装的 Linux VM，并在[先决条件](#prerequisites)部分成功配置 Ansible。 将 &lt;ip-address> 占位符替换为 Linux VM 中的 IP 地址。
+    <!-- Not Available on [Cloud Shell](/cloud-shell/overview)-->
+
+1. 使用 SSH 命令访问已安装的 Linux VM，并在[先决条件](#prerequisites)部分成功配置 Ansible。 将 \<ip-address\> 占位符替换为 Linux VM 中的 IP 地址。
     
     ```bash
     ssh azureuser@<ip-address>
@@ -290,7 +298,8 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
     ```
 
 ## <a name="next-steps"></a>后续步骤
+
 > [!div class="nextstepaction"] 
-> [使用 Ansible 在 Azure 中管理 Linux 虚拟机](./ansible-manage-linux-vm.md)
+> [快速入门：使用 Ansible 在 Azure 中管理 Linux 虚拟机](./ansible-manage-linux-vm.md)
 
 <!-- Update_Description: wording update -->

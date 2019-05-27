@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 658dfb83952e9fefe530b2b0f10f28a3864f31ae
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 6ce043865f07b8010488cb0e1255dfa6f6d8bf68
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003931"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003973"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure 资源管理器部署模型。
@@ -32,12 +32,12 @@ ms.locfileid: "59003931"
 * 如需详细的指南和迁移演练，请参阅 [Technical deep dive on platform-supported migration from classic to Azure Resource Manager](migration-classic-resource-manager-deep-dive.md)（从技术方面深入探讨如何在支持的平台上完成从经典部署模型到 Azure Resource Manager 部署模型的迁移）。
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md)
 
-<br>
+<br />
 下面是一个流程图，用于确定在迁移过程中需要执行步骤的顺序
 
 ![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="step-1-plan-for-migration"></a>步骤 1：规划迁移
 下面是建议在将 IaaS 资源从经典部署模型迁移到 Resource Manager 部署模型时遵循的一些最佳实践：
@@ -55,7 +55,7 @@ ms.locfileid: "59003931"
 
 如需安装说明，请参阅 [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)（如何安装和配置 Azure PowerShell）。
 
-<br>
+<br />
 
 ## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>步骤 3：确保你是 Azure 门户中订阅的管理员
 若要执行此迁移，必须在 [Azure 门户](https://portal.azure.cn)中将你添加为订阅的协同管理员。
@@ -90,7 +90,7 @@ ms.locfileid: "59003931"
 > [!NOTE]
 > 注册是一次性步骤，但必须在尝试迁移之前完成。 如果不注册，则会出现以下错误消息：
 >
-> *BadRequest: 订阅尚未注册迁移。*
+> *BadRequest:Subscription is not registered for migration.* （BadRequest：订阅尚未注册迁移。）
 
 使用以下命令向迁移资源提供程序注册：
 
@@ -124,7 +124,7 @@ ms.locfileid: "59003931"
     Select-AzureSubscription -SubscriptionName "My Azure Subscription"
 ```
 
-<br>
+<br />
 
 ## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure 资源管理器虚拟机 vCPU
 可以使用以下 PowerShell 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)。
@@ -160,7 +160,7 @@ Get-AzVMUsage -Location "China North"
 
 准备迁移云服务中的虚拟机。 可以从两个选项中进行选择。
 
-* **选项 1. 将 VM 迁移到平台所创建的虚拟网络上**
+* **选项 1.将 VM 迁移到平台所创建的虚拟网络上**
 
     首先，使用以下命令验证用户是否可以迁移云服务：
 
@@ -176,7 +176,7 @@ Get-AzVMUsage -Location "China North"
     Move-AzureService -Prepare -ServiceName $serviceName `
         -DeploymentName $deploymentName -CreateNewVirtualNetwork
     ```
-* **选项 2. 迁移到资源管理器部署模型中的现有虚拟网络**
+* **选项 2.迁移到 Resource Manager 部署模型中的现有虚拟网络**
 
     此示例将资源组名称设置为 **myResourceGroup**、将虚拟网络名称设置为 **myVirtualNetwork** 并将子网名称设置为 **mySubNet**。 将该示例中的名称替换成自己的资源名称。
 
@@ -229,7 +229,8 @@ Get-AzVMUsage -Location "China North"
 若要迁移虚拟网络中的虚拟机，可迁移虚拟网络。 虚拟机随虚拟网络自动迁移。 选取要迁移的虚拟网络。
 > [!NOTE]
 > 通过使用虚拟机的 VHD（OS 和数据）文件创建新的使用托管磁盘的 Resource Manager 虚拟机来[迁移单个经典虚拟机](migrate-single-classic-to-resource-manager.md)。
-<br>
+
+<br />
 
 > [!NOTE]
 > 虚拟网络名称可能和新门户中显示的名称不同。 新的 Azure 门户显示名称为 `[vnet-name]`，但实际的虚拟网络名称的类型是 `Group [resource-group-name] [vnet-name]`。 迁移之前，使用命令 `Get-AzureVnetSite | Select -Property Name` 查找实际的虚拟网络名称，或者在旧版 Azure 门户中查看它。 
@@ -344,9 +345,9 @@ Get-AzVMUsage -Location "China North"
     ```
 
 ## <a name="next-steps"></a>后续步骤
-* [平台支持的从经典部署模型到 Azure 资源管理器部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-* [有关平台支持的从经典部署模型到 Azure Resource Manager 的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
-* [规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [平台支持的从经典部署模型到 Azure Resource Manager 部署模型的 IaaS 资源迁移概述](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [有关平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移的技术深入探讨](migration-classic-resource-manager-deep-dive.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+* [规划从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移](migration-classic-resource-manager-plan.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [使用 CLI 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器](../linux/migration-classic-resource-manager-cli.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [用于帮助将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器部署模型的社区工具](migration-classic-resource-manager-community-tools.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 * [查看最常见的迁移错误](migration-classic-resource-manager-errors.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)

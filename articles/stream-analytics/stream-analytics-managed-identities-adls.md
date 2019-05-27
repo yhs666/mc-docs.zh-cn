@@ -6,40 +6,40 @@ author: lingliw
 ms.author: v-lingwu
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 09/27/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 644d280ef186c342f7f613a92f9c0d961bc6176f
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.date: 04/08/2019
+ms.custom: seodec18
+ms.openlocfilehash: ee68832466d09477d1e4f7517a9e0042b1f77cef
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219536"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609829"
 ---
-# <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>使用托管标识在 Azure Data Lake Storage Gen1 输出（预览版）中对 Azure 流分析作业进行身份验证
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>使用托管标识在 Azure Data Lake Storage Gen1 中对流分析进行身份验证
 
 Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托管标识身份验证。 标识是 Azure Active Directory 中注册的表示给定流分析作业的托管应用程序，可用于对目标资源进行身份验证。 托管标识消除了基于用户的身份验证方法的如下限制：发生密码更改或用户令牌过期（每隔 90 天过期）时需要重新进行身份验证。 此外，托管标识有助于将输出到 Azure Data Lake Storage Gen1 的流分析作业部署自动化。
 
-请访问 [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)（Azure 流分析中的八项新功能）博客文章来注册此预览版并详细了解新功能。
+本文将介绍下面三种方法，用于为输出到 Azure Data Lake Storage Gen1 的 Azure 流分析作业启用托管标识：通过 Azure 门户、Azure 资源管理器模板部署以及适用于 Visual Studio 的 Azure 流分析工具。
 
-本文介绍两种为输出到 Azure Data Lake Storage Gen1 的 Azure 流分析作业启用托管标识的方法：通过 Azure 门户，以及通过 Azure 资源管理器模板部署。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="enable-managed-identity-with-azure-portal"></a>使用 Azure 门户启用托管标识
+## <a name="azure-portal"></a>Azure 门户
 
-1. 首先创建新的流分析作业，或在 Azure 门户中打开现有的作业。 在屏幕左侧的菜单栏中，选择“配置”下面的“托管标识(预览版)”。
+1. 首先创建新的流分析作业，或在 Azure 门户中打开现有的作业。 在屏幕左侧的菜单栏中，选择“配置”下面的“托管标识”。
 
-   ![配置流分析托管标识预览版](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![配置流分析托管标识](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. 在右侧显示的窗口中选择“使用系统分配的托管标识(预览版)”。 单击“保存”，为 Azure Active Directory 中的流分析作业标识创建服务主体。 新建标识的生命周期将由 Azure 管理。 删除流分析作业时，Azure 会自动删除关联的标识（即服务主体）。
+2. 在右侧显示的窗口中选择“使用系统分配的托管标识”。 单击“保存”，为 Azure Active Directory 中的流分析作业标识创建服务主体。 新建标识的生命周期将由 Azure 管理。 删除流分析作业时，Azure 会自动删除关联的标识（即服务主体）。
 
    保存配置后，服务主体的对象 ID (OID) 将列为主体 ID，如下所示：
 
-   ![流分析主体 ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
-
+   ![流分析服务主体 ID](./media/stream-analytics-managed-identities-adls/stream-analytics-principal-id.png)
+ 
    服务主体与流分析作业同名。 例如，如果作业的名称是 **MyASAJob**，则创建的服务主体的名称也是 **MyASAJob**。
 
-3. 在 ADLS Gen1 输出接收器的输出属性窗口中，单击“身份验证模式”下拉列表并选择“托管标识(预览版)”。
+3. 在 ADLS Gen1 输出接收器的输出属性窗口中，单击“身份验证模式”下拉列表并选择“托管标识”。****
 
-4. 填写其余的属性。 若要详细了解如何创建 ADLS 输出，请参阅“使用流分析创建 Data Lake Store 输出”。 完成后，单击“保存”。
+4. 填写其余的属性。 完成后，单击“保存”。
 
    ![配置 Azure Data Lake Storage](./media/stream-analytics-managed-identities-adls/stream-analytics-configure-adls.png)
 
@@ -54,16 +54,37 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
 7. 在“选择用户或组”窗格中的文本框内，键入服务主体的名称。 请记住，服务主体的名称也是相应流分析作业的名称。 开始键入主体名称时，它会显示在文本框下面。 选择所需的服务主体名称，然后单击“选择”。
 
    ![选择服务主体名称](./media/stream-analytics-managed-identities-adls/stream-analytics-service-principal-name.png)
-
+ 
 8. 在“权限”窗格中，选中“写入”和“执行”权限并将其分配到“此文件夹和所有子文件夹”。 然后单击“确定”。
 
-   ![选择权限](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
-
+   ![选择写入和执行权限](./media/stream-analytics-managed-identities-adls/stream-analytics-select-permissions.png)
+ 
 9. 该服务主体将列在“访问”窗格中“分配的权限”下面，如下所示。 现在，可以返回并启动流分析作业。
 
-   ![访问列表](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
+   ![门户中的流分析访问列表](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
-   若要详细了解 Data Lake Storage Gen1 文件系统权限，请参阅 [Azure Data Lake Storage Gen1 中的访问控制](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-access-control)。
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>适用于 Visual Studio 的流分析工具
+
+1. 在 JobConfig.json 中，将“使用系统分配的标识”设置为“True”。
+
+   ![流分析作业配置托管标识](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. 在 ADLS Gen1 输出接收器的输出属性窗口中，单击“身份验证模式”下拉列表并选择“托管标识”。****
+
+   ![ADLS 输出托管标识](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. 填写其余的属性，然后单击“保存”。
+
+4. 在查询编辑器中，单击“提交到 Azure”。
+
+   在你提交作业时，这些工具将执行下面两项操作：
+
+   * 在 Azure Active Directory 中为流分析作业的标识自动创建服务主体。 新建标识的生命周期将由 Azure 管理。 删除流分析作业时，Azure 会自动删除关联的标识（即服务主体）。
+
+   * 为作业中使用的 ADLS Gen1 前缀路径自动设置“写入”和“执行”权限，并将这些权限分配给此文件夹和所有子级。
+
+5. 可以在生成计算机上（在 Visual Studio 之外）使用[流分析 CI.CD Nuget 包](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) 1.5.0 或更高版本生成带有以下属性的资源管理器模板。 按照下一节中的资源管理器模板部署步骤获取服务主体，并通过 PowerShell 授予对该服务主体的访问权限。
 
 ## <a name="resource-manager-template-deployment"></a>资源管理器模板部署
 
@@ -103,8 +124,11 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
                  "dateFormat": "YYYY/MM/DD",
                  "timeFormat": "HH",
                  "authenticationMode": "Msi"
-                 }
-
+             }
+           }
+         }
+       }
+     }
    }
    ```
 
@@ -124,6 +148,7 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
            "sku": {
              "name": "standard"
            },
+     }
    }
    ```
 
@@ -136,7 +161,7 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
 2. 使用 PowerShell 提供对服务主体的访问权限。 若要通过 PowerShell 授予对服务主体的访问权限，请执行以下命令：
 
    ```powershell
-   Set-AzureRmDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
+   Set-AzDataLakeStoreItemAclEntry -AccountName <accountName> -Path <Path> -AceType User -Id <PrinicpalId> -Permissions <Permissions>
    ```
 
    **PrincipalId** 是服务主体的对象 ID，创建服务主体后，会在门户屏幕上列出此 ID。 如果使用资源管理器模板部署创建了作业，则对象 ID 将列在作业响应的标识属性中。
@@ -144,11 +169,19 @@ Azure 流分析支持使用 Azure Data Lake Storage (ADLS) Gen1 输出进行托�
    **示例**
 
    ```powershell
-   PS > Set-AzureRmDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
+   PS > Set-AzDataLakeStoreItemAclEntry -AccountName "adlsmsidemo" -Path / -AceType
    User -Id 14c6fd67-d9f5-4680-a394-cd7df1f9bacf -Permissions WriteExecute
    ```
 
-   若要详细了解上述 PowerShell 命令，请参阅 [Set-AzureRmDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/azurerm.datalakestore/set-azurermdatalakestoreitemaclentry?view=azurermps-6.8.1&viewFallbackFrom=azurermps-4.2.0#optional-parameters) 文档。
+   若要详细了解上述 PowerShell 命令，请参阅 [Set-AzDataLakeStoreItemAclEntry](https://docs.microsoft.com/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry) 文档。
+
+## <a name="limitations"></a>限制
+此特性不支持以下功能：
+
+1.  **多租户访问**：为给定流分析作业创建的服务主体会驻留在在其上创建了作业的 Azure Active Directory 租户上，不能针对驻留在另一 Azure Active Directory 租户上的资源使用。 因此，只能将 MSI 用在 ADLS Gen 1 资源上，且这些资源必须位于 Azure 流分析作业所在的 Azure Active Directory 租户中。 
+
+2.  **[用户分配标识](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**：不受支持。这意味着用户不能输入自己的供流分析作业使用的服务主体。 服务主体由 Azure 流分析生成。 
+
 
 ## <a name="next-steps"></a>后续步骤
 

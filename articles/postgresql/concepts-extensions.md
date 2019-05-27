@@ -1,24 +1,24 @@
 ---
-title: 使用 Azure Database for PostgreSQL 中的 PostgreSQL 扩展
-description: 介绍有关使用 Azure Database for PostgreSQL 中的扩展来扩展数据库功能的功能。
+title: 使用 Azure Database for PostgreSQL（单一服务器）中的 PostgreSQL 扩展
+description: 介绍有关使用 Azure Database for PostgreSQL（单一服务器）中的扩展来扩展数据库功能的功能。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 03/18/2019
-ms.date: 04/01/2019
-ms.openlocfilehash: a689b2b29294e7e6bd08e376193b65226ec50d78
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: e9cccd8dcd67f9996461bbf051bea28f3330419d
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627230"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731935"
 ---
-# <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的 PostgreSQL 扩展
-PostgreSQL 支持使用扩展来扩展数据的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展可以如同内置功能一样运行。 有关 PostgreSQL 扩展的详细信息，请参阅 [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)（将相关对象打包到扩展中）。
+# <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的 PostgreSQL 扩展
+PostgreSQL 支持使用扩展来扩展数据的功能。 扩展允许在单个包中将多个相关 SQL 对象捆绑在一起，可以使用单个命令在数据库中加载或删除该包。 在数据库中加载之后，扩展可以如同内置功能一样运行。 有关 PostgreSQL 扩展的详细信息，请参阅  [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)（将相关对象打包到扩展中）。
 
 ## <a name="how-to-use-postgresql-extensions"></a>如何使用 PostgreSQL 扩展
-必须先在数据库中安装 PostgreSQL 扩展，然后才能使用它们。 若要安装特定扩展，请通过 psql 工具运行 [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 命令，将打包的对象加载到数据库中。
+必须先在数据库中安装 PostgreSQL 扩展，然后才能使用它们。 若要安装特定扩展，请通过 psql 工具运行  [CREATE EXTENSION](https://www.postgresql.org/docs/9.6/static/sql-createextension.html)  命令，将打包的对象加载到数据库中。
 
 Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列出）。 未列出的扩展不受支持；无法使用 Azure Database for PostgreSQL 服务创建自己的扩展。
 
@@ -28,7 +28,6 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 ### <a name="data-types-extensions"></a>数据类型扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | 提供用于自动加密密码的数据类型。 |
@@ -41,7 +40,6 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 ### <a name="functions-extensions"></a>函数扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | 提供一种计算地球表面上的大圆距离的方法。 |
@@ -52,11 +50,11 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | 提供函数和运算符，用于基于三元匹配确定字母数字文本的相似性。 |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 提供可操作整个表（包括交叉表）的函数。 |
 > | [uuid ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | 生成全局唯一标识符 (UUID)。 |
+> | [orafce](https://github.com/orafce/orafce) | 提供部分通过商业数据库模拟的函数和包。 |
 
 ### <a name="full-text-search-extensions"></a>全文搜索扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 提供用于整数的文本搜索字典模板。 |
@@ -65,7 +63,6 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 ### <a name="index-types-extensions"></a>索引类型扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 提供示例 GIN 运算符类，该类对特定数据类型实现类似 B-tree 的行为。 |
@@ -74,16 +71,13 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 ### <a name="language-extensions"></a>语言扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 可加载过程语言。 |
-> | [plv8](https://plv8.github.io/) | 可用于存储过程、触发器等的 PostgreSQL 的 Javascript 语言扩展。 |
 
 ### <a name="miscellaneous-extensions"></a>其他扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
 > | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | 提供一种方法用于实时检查共享缓冲区缓存的当前状况。 |
@@ -99,10 +93,9 @@ Azure Database for PostgreSQL 目前支持部分关键扩展（已在下面列�
 ### <a name="postgis-extensions"></a>PostGIS 扩展
 
 > [!div class="mx-tableFixed"]
-> 
 > | **扩展** | **说明** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL 的空间和地理对象。 |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL 的空间和地理对象。 |
 > | address\_standardizer, address\_standardizer\_data\_us | 用于将地址分析成构成元素。 用于支持地理编码地址规范化步骤。 |
 > | [pgrouting](https://pgrouting.org/) | 扩展 PostGIS / PostgreSQL 地理空间数据库，以提供地理空间路由功能。 |
 

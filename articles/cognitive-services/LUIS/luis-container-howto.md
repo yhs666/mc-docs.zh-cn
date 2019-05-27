@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: a5ff9348b4d0cb4c6c0c356d34d2dedf5e138fbb
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 3a166e1529f927038433749317502956332142d9
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556960"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828518"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安装并运行 LUIS docker 容器
  
-语言理解 (LUIS) 容器可将已训练或已发布的语言理解模型（也称为 [LUIS 应用](https://www.luis.ai)）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回 Azure 语言理解模型以提高应用的预测准确性。
+语言理解 (LUIS) 容器可将已训练或已发布的语言理解模型（也称为 [LUIS 应用](https://www.luis.ai)）加载到 docker 容器中并提供对容器的 API 终结点中的查询预测的访问权限。 可以从容器中收集查询日志并将这些日志上传回语言理解应用以提高应用的预测准确性。
 
 以下视频演示如何使用此容器。
 
@@ -77,7 +77,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ![使用语言理解 (LUIS) 容器的过程](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
 1. 通过 LUIS 门户或 LUIS API [导出容器的包](#export-packaged-app-from-luis)。
-1. 将包文件移动到[主计算机](#the-host-computer)上的所需输入目录中。 请勿重命名、更改或解压缩 LUIS 包文件。
+1. 将包文件移动到[主计算机](#the-host-computer)上的所需输入目录中。 请勿重命名、更改、覆盖或解压缩 LUIS 包文件。
 1. 使用所需的输入装入点和计费设置[运行容器](##run-the-container-with-docker-run)。 提供 `docker run` 命令的多个[示例](luis-container-configuration.md#example-docker-run-commands)。 
 1. [查询容器的预测终结点](#query-the-containers-prediction-endpoint)。 
 1. 使用完此容器后，从 LUIS 门户的输出装入点[导入终结点日志](#import-the-endpoint-logs-for-active-learning)并[停止](#stop-the-container)容器。
@@ -106,7 +106,7 @@ LUIS 容器需要已训练或已发布的 LUIS 应用才能回复用户话语的
 |生产|获取、发布|Azure 和容器|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
-> 请勿重命名、更改或解压缩 LUIS 包文件。
+> 请勿重命名、更改、覆盖或解压缩 LUIS 包文件。
 
 ### <a name="packaging-prerequisites"></a>打包先决条件
 
@@ -114,7 +114,7 @@ LUIS 容器需要已训练或已发布的 LUIS 应用才能回复用户话语的
 
 |打包要求|详细信息|
 |--|--|
-|Azure 语言理解资源实例|支持的区域包括<br><br>美国西部 (```westus```)<br>西欧 (```westeurope```)<br>中国东部 (```australiaeast```)|
+|Azure 认知服务资源实例|支持的区域包括<br><br>美国西部 (```westus```)<br>西欧 (```westeurope```)<br>中国东部 (```australiaeast```)|
 |已训练或已发布的 LUIS 应用|没有[不受支持的依赖项](#unsupported-dependencies)。 |
 |访问[主计算机](#the-host-computer)的文件系统 |主计算机必须允许[输入装入点](luis-container-configuration.md#mount-settings)。|
   
@@ -245,7 +245,7 @@ ApiKey={ENDPOINT_KEY}
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](#billing)。
-> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”，也可以在 Azure 语言理解资源密钥页上找到。  
+> ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”，也可以在 Azure `Cognitive Services`资源密钥页上找到。  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -324,25 +324,34 @@ curl -X GET \
 
 ## <a name="billing"></a>计费
 
-LUIS 容器使用 Azure 帐户中的语言理解资源向 Azure 发送账单信息。 
+LUIS 容器使用 Azure 帐户中的认知服务资源向 Azure 发送账单信息。 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 有关这些选项的详细信息，请参阅[配置容器](luis-container-configuration.md)。
 
-## <a name="unsupported-dependencies"></a>不受支持的依赖项
+## <a name="supported-dependencies-for-latest-container"></a>支持的 `latest` 容器依赖项
+
+在 2019 //Build 上发布的最新容器将支持：
+
+* 必应拼写检查：使用 `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` 查询字符串参数向查询预测终结点发出的请求。 若要了解详细信息，请参阅[必应拼写检查 v7 教程](luis-tutorial-bing-spellcheck.md)。 如果使用此功能，则容器会将话语发送到必应拼写检查 V7 资源。
+* [新的预生成的域](luis-reference-prebuilt-domains.md)：这些聚焦于企业的域包括实体、示例话语以及模式。 扩展这些供自己使用的域。 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>不支持的 `latest` 容器依赖项
+
+如果 LUIS 应用有不受支持的依赖项，则在删除这些不受支持的功能之前，无法[针对容器进行导出](#export-packaged-app-from-luis)。 尝试针对容器进行导出时，LUIS 门户会报告需删除的不受支持的功能。
 
 如果 LUIS 应用程序不包括以下任何依赖项，则可以使用该应用程序：
 
 不受支持的应用配置|详细信息|
 |--|--|
-|不受支持的容器区域性| 德语 (de-DE)<br>荷兰语 (nl-NL)<br>日语 (ja-JP)<br>|
-|不受支持的域|预生成域，包括预生成域意向和实体|
+|不受支持的容器区域性| 荷兰语 (nl-NL)<br>日语 (ja-JP)<br>仅 [1.0.1 tokenizer 或更高版本](luis-language-support.md#custom-tokenizer-versions)支持德语。|
 |所有区域性不支持的实体|所有区域性的 [KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) 预生成实体|
 |英语 (EN-US) 区域性不支持的实体|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) 预生成实体|
 |语音启动|容器中不支持外部依赖项。|
 |情绪分析|容器中不支持外部依赖项。|
-|必应拼写检查|容器中不支持外部依赖项。|
 
 ## <a name="summary"></a>摘要
 

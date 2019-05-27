@@ -4,17 +4,17 @@ description: 了解可以运行 Azure IoT Edge 守护程序和运行时的操作
 author: kgremban
 manager: timlt
 ms.author: v-yiso
-origin.date: 03/18/2019
-ms.date: 04/08/2019
+origin.date: 05/06/2019
+ms.date: 05/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2ae2aefecc343ff94d2c59b6b7d3d310823a94dc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bfcdb968e11a1e3b89fc59a691a550cbaa6537ca
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626083"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829312"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支持的系统
 
@@ -31,7 +31,8 @@ Azure IoT Edge 需要使用容器引擎启动模块，因为模块是以容器�
 
 <br>
 <center>
-<img src="./media/support/only-moby-for-production.png" alt="Moby as container runtime"/>
+
+![Moby 用作容器运行时](./media/support/only-moby-for-production.png)
 </center>
 
 ## <a name="operating-systems"></a>操作系统
@@ -47,7 +48,8 @@ Azure IoT Edge 在可以运行容器的大多数操作系统上运行，但并�
 
 <br>
 <center>
-<img src="./media/support/edge-on-device.png" alt="Host OS matches guest OS"/>
+
+![主机 OS 与来宾 OS 相匹配](./media/support/edge-on-device.png)
 </center>
 
 ### <a name="tier-1"></a>第 1 层
@@ -58,14 +60,15 @@ Azure IoT Edge 在可以运行容器的大多数操作系统上运行，但并�
 | Raspbian-stretch | 否 | 是|
 | Ubuntu Server 16.04 | 是 | 否 |
 | Ubuntu Server 18.04 | 是 | 否 |
+| Windows 10 IoT 企业版 17763 | 是 | 否 |
 
 公共预览版
 
 | 操作系统 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT 核心版 17763 | 是 | 否 |
-| Windows 10 IoT 企业版 17763 | 是 | 否 |
-| Windows Server 2019 | 是 | 否 |
+| Windows Server 2019 内部版本 17763 | 是 | 否 |
+| Windows Server IoT 2019 内部版本 17763 | 是 | 否 |
 
 在 Windows 上运行 Windows 容器的设备必须使用上面列出的 Windows 操作系统。 生产环境中仅支持此配置。 适用于 Windows 的 Azure IoT Edge 安装包允许在 Windows 上使用 Linux 容器；但是，只能将此配置用于开发和测试。 在生产环境中的 Windows 上使用 Linux 容器是不受支持的配置。 任何版本的 Windows 10 内部版本 14393 或更高版本，以及 Windows Server 2016 或更高版本都可用于此开发方案。
 
@@ -88,7 +91,8 @@ Azure IoT Edge 可在虚拟机中运行。 当客户想要利用边缘智能增�
 
 <br>
 <center>
-<img src="./media/support/edge-on-vm.png" alt="Azure IoT Edge in a VM"/>
+
+![VM 中的 Azure IoT Edge](./media/support/edge-on-vm.png)
 </center>
 
 ## <a name="minimum-system-requirements"></a>最低系统要求

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 24f07fe6d01e69bd4c3ed7eea0265b81cca55299
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 2d560d7752ec256851562d2376946575e9006a9d
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556944"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828532"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>模式可提高预测的准确性
 模式旨在多条话语非常类似的情况下提升准确性。  使用模式可在不提供更多话语的情况下获得更高的意向准确度。 
@@ -41,7 +41,7 @@ ms.locfileid: "65556944"
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>模式不保证提取意向
 模式使用多种预测技术。 在模式中设置模板话语的意向并不保证得出意向预测，但表示很可能得出。 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>模式不会提升机器学习到的实体检测
 
@@ -50,7 +50,7 @@ ms.locfileid: "65556944"
 若将多个话语合并到单个模式，则无法提升实体预测。 若要触发简单实体，需要添加话语或使用列表实体，否则模式将无法触发。
 
 ## <a name="patterns-use-entity-roles"></a>模式使用实体角色
-如果模式中的两个或多个实体具有相关的上下文，模式会使用实体[角色](luis-concept-roles.md)来提取关于实体的上下文信息。 这相当于分层实体子对象，但仅可在模式中使用。 
+如果模式中的两个或多个实体具有相关的上下文，模式会使用实体[角色](luis-concept-roles.md)来提取关于实体的上下文信息。  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>使用和不使用模式的情况下的预测得分
 假定有足够多的实例话语，则 LUIS 不使用模式即能提高预测的置信度。 无需提供尽量多的话语，模式就能增加置信度得分。  
@@ -83,7 +83,7 @@ ms.locfileid: "65556944"
 |是一个新窗体|匹配模式中的外层可选字词和非可选字词|
 |一个新窗体|仅匹配必需的字词|
 
-带括号的**分组**语法可以嵌套两层。 例如：`(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`。 这允许匹配任意三个实体。 
+带括号的**分组**语法可以嵌套两层。 例如：`(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`。 此功能允许匹配任意三个实体。 
 
 如果 Entity1 是具有起点（西雅图）和终点（开罗）等角色的位置，并且 Entity 2 是列表实体中的一座已知大楼名称 (RedWest-C)，则以下话语将映射到此模式：
 

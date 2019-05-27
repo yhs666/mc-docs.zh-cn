@@ -8,15 +8,15 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-origin.date: 11/19/2018
-ms.date: 04/01/2019
+origin.date: 03/15/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: b912fd4862cbb3de128e40e7afaf8306c43a3889
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 883f2b9a3e839b4ecd8ebe965b85bb12c0aa959f
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348598"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829161"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>快速入门：控制连接到 IoT 中心的设备 (Android)
 
@@ -36,9 +36,15 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 ## <a name="prerequisites"></a>先决条件
 
 
-* https://developer.android.com/studio/ 提供的 Android Studio。 有关 Android Studio 安装的详细信息，请参阅 [Android 安装](https://developer.android.com/studio/install)。
+* [https://developer.android.com/studio/](https://developer.android.com/studio/)提供的 Android Studio。 有关 Android Studio 安装的详细信息，请参阅 [Android 安装](https://developer.android.com/studio/install)。
 
 * 本文中的示例使用 Android SDK 27。
+
+* 运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IOT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
+
+   ```azurecli
+   az extension add --name azure-cli-iot-ext
+   ```
 
 * 本快速入门需要两个示例应用程序：[设备 SDK 示例 Android 应用程序](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample)和[服务 SDK 示例 Android 应用程序](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample)。 这两个示例都是 GitHub 上 azure-iot-samples-java 存储库的一部分。 请下载或克隆 [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 存储库。
 
@@ -55,14 +61,13 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 CLI 来注册模拟设备。
 
-1. 运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。
+1. 在终端中运行以下命令来创建设备标识。
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
    **MyAndroidDevice**：此值是为注册的设备提供的名称。 请按显示的方法使用 MyAndroidDevice。 如果为设备选择其他名称，则可能还需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
 
     ```azurecli
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
@@ -91,7 +96,7 @@ IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入�
 **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
 ```azurecli
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 记下如下所示的服务连接字符串：
@@ -116,11 +121,18 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 3. 在 Android Studio 中，单击“文件” > “将项目与 Gradle 文件同步”。 验证生成是否已完成。
 
+   > [!NOTE]
+   > 如果项目同步失败，可能是由于以下某个原因：
+   >
+   > * 项目中引用的 Android Gradle 插件和 Gradle 的版本对于 Android Studio 版本来说已经过时。 请按照[这些说明](https://developer.android.com/studio/releases/gradle-plugin)操作，以引用并安装正确版本的插件和 Gradle 以进行安装。
+   > * Android SDK 的许可协议尚未签署。 请按照 Build 输出中的说明签署许可协议并下载 SDK。
+
+
 4. 生成完成以后，请单击“运行” > “运行‘应用’”。 将应用配置为在物理 Android 设备或 Android 模拟器上运行。 若要详细了解如何在物理设备或模拟器上运行 Android 应用，请参阅[运行您的应用](https://developer.android.com/training/basics/firstapp/running-app)。
 
 5. 待应用加载以后，请单击“启动”按钮，开始将遥测数据发送到 IoT 中心：
 
-    ![应用程序](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![客户端设备 android 应用的示例屏幕截图](media/quickstart-control-device-android/sample-screenshot.png)
 
 在运行时期间执行服务 SDK 示例以更新遥测时间间隔时，需要让此应用在物理设备或模拟器上运行。
 
@@ -138,7 +150,7 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
     ```
     以下屏幕截图显示了 IoT 中心接收 Android 设备发送的遥测数据后的输出：
 
-      ![使用 Azure CLI 读取设备消息](media/quickstart-send-telemetry-android/read-data.png)
+      ![使用 Azure CLI 读取设备消息](media/quickstart-control-device-android/read-data.png)
 
 默认情况下，遥测应用每 5 秒钟从 Android 设备发送一次遥测数据。 在下一部分，将使用直接方法调用更新 Android IoT 设备的遥测时间间隔。
 

@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 10/04/2018
-ms.date: 03/04/2019
+origin.date: 03/15/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 1ac1b5062a57101c6c61c9038e48eb487da30675
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 73078b72ab32c091dcf0f2129dab23d1681cc772
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833408"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828827"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库的内存和并发限制
 查看分配给 Azure SQL 数据仓库中的各个性能级别和资源类的内存和并发限制。 若要了解详细信息并将这些功能应用于你的工作负荷管理计划，请参阅[用于工作负荷管理的资源类](resource-classes-for-workload-management.md)。 
@@ -71,7 +71,7 @@ ms.locfileid: "56833408"
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## <a name="concurrency-maximums"></a>并发性最大值
-为了确保每个查询都有足够的资源来有效执行，SQL 数据仓库会通过向每个查询分配并发槽位来跟踪资源利用率。 系统将查询放入某个队列，然后，查询在队列中等待有足够的[并发槽位](resource-classes-for-workload-management.md#concurrency-slots)可用。 并发槽位还确定 CPU 优先级。 有关详细信息，请参阅[分析工作负荷](analyze-your-workload.md)。
+为了确保每个查询都有足够的资源来有效执行，SQL 数据仓库会通过向每个查询分配并发槽位来跟踪资源利用率。 系统将根据重要性和并发槽位将查询置于队列中。 查询将在队列中等待，直到有足够的并发槽位可用。 [重要性](/sql-data-warehouse/sql-data-warehouse-workload-importance)和并发槽位决定了 CPU 优先级。 有关详细信息，请参阅[分析工作负荷](analyze-your-workload.md)。
 
 ### <a name="gen2"></a>Gen2
  

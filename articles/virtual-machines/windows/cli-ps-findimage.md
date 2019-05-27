@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/25/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8144dde72bd6590ab2237277cb604e90da88b504
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 1d548d1b13ab37f7d2e037e9058fe49bb390665c
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003948"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004229"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像
 
@@ -29,7 +29,7 @@ ms.locfileid: "59003948"
 
 你还可以使用 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure CLI](../linux/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -73,21 +73,21 @@ ms.locfileid: "59003948"
 
     ```powershell
     $pubName="<publisher>"
-    Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
 
 3. 填写你选择的产品/服务名称并列出 SKU：
 
     ```powershell
     $offerName="<offer>"
-    Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
 
 4. 填写你选择的 SKU 名称并获取映像版本：
 
     ```powershell
     $skuName="<SKU>"
-    Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
 
 从 `Get-AzVMImage` 命令的输出中，可以选择要部署新虚拟机的版本映像。
@@ -100,6 +100,8 @@ Get-AzVMImagePublisher -Location $locName | Select PublisherName
 ```
 
 部分输出：
+
+<!--MOONCCAKE: CUSTOMIZE-->
 
 ```
 PublisherName
@@ -124,11 +126,13 @@ Canonical
 ...
 ```
 
+<!--MOONCCAKE: CUSTOMIZE-->
+
 对于“MicrosoftWindowsServer”发布者：
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
-Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
 输出：
@@ -148,10 +152,12 @@ WindowsServerSemiAnnual
 
 ```powershell
 $offerName="WindowsServer"
-Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
 ```
 
 部分输出：
+
+<!--MOONCAKE CUSTOMIZE-->
 
 ```
 Skus
@@ -190,7 +196,7 @@ Skus
 
 ```powershell
 $skuName="2019-Datacenter"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 现在可以将所选发布者、产品/服务、SKU 和版本合并到 URN 中（由“:”分隔的值）。 使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 创建 VM 时，使用 `--image` 参数传递此 URN。 还可以将 URN 中的版本号替换为 "latest" 以获取映像的最新版本。

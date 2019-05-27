@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: a2f25a218b76f72e12b356703ab3fe1f95700444
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: d1876a1ef058f1706d359b9e08b20e7a0218147f
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529118"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195420"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源
 
@@ -97,8 +97,6 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
-
-若要完成教程，请参阅[教程：将 Azure 资源移到另一个资源组或订阅](./resource-manager-tutorial-move-resources.md)。 
 
 有关详细信息，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 

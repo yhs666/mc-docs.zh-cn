@@ -9,13 +9,13 @@ ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 09/15/2017
 ms.author: v-jamebr
-ms.date: 04/01/2019
-ms.openlocfilehash: 275040a2ecc4f8c4896f60fedc3f644c24dcbbca
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 06/03/2019
+ms.openlocfilehash: 1af0f0939a1a5a0c8f60f4177cf6ca2e7223bec7
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348660"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194994"
 ---
 # <a name="get-started-with-device-management-netnet"></a>设备管理入门 (.NET/.NET)
 
@@ -34,7 +34,7 @@ ms.locfileid: "58348660"
 
 要完成本教程，需要以下各项：
 
-* Visual Studio 2017。
+* Visual Studio。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心

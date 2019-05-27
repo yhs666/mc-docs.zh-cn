@@ -1,26 +1,22 @@
 ---
-title: Azure Database for PostgreSQL 中的查询存储
-description: 本文介绍 Azure Database for PostgreSQL 中的查询存储功能。
+title: Azure Database for PostgreSQL - 单一服务器中的查询存储
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器中的查询存储功能。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/01/2019
-ms.openlocfilehash: 227af4c8f78c97f2133d8eb17fff7ee74813c2c8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 760f7c711f98005d71d3c3ffa9a8bb8874713f3c
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625194"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731902"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>使用查询存储监视性能
 
-**适用于：** Azure Database for PostgreSQL 9.6 和 10
-
-> [!IMPORTANT]
-> 查询存储功能目前以公共预览版提供。
-
+**适用于：** Azure Database for PostgreSQL - 单一服务器 9.6 和 10
 
 Azure Database for PostgreSQL 中的查询存储功能提供了一种一段时间内跟踪查询性能的方法。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for PostgreSQL 实例中的名为 azure_sys 的数据库中。
 
@@ -51,8 +47,8 @@ az postgres server configuration set --name pgms_wait_sampling.query_capture_mod
 
 ## <a name="information-in-query-store"></a>查询存储中的信息
 查询存储有两个存储：
-- 用于保存查询执行统计信息的运行时统计信息存储。
-- 用于保存等待统计信息的等待统计信息存储。
+- 运行时统计信息存储，用于保存查询执行统计信息。
+- 等待统计信息存储，用于保存等待统计信息。
 
 使用查询存储的常见方案包括：
 - 确定在给定时间范围内执行查询的次数
@@ -122,38 +118,38 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |runtime_stats_entry_id |bigint | | runtime_stats_entries 表的 ID|
 |user_id    |oid    |pg_authid.oid  |执行此语句的用户的 OID|
 |db_id  |oid    |pg_database.oid    |在其中执行语句的数据库的 OID|
-|query_id   |bigint  || 根据语句的分析树计算的内部哈希代码|
-|query_sql_text |Varchar(10000)  || 代表语句的文本。 具有相同结构的不同查询聚集在一起；此文本是群集中第一个查询的文本。|
+|query_id   |bigint  || 根据语句的分析树计算的内部哈希代码|
+|query_sql_text |Varchar(10000)  || 代表语句的文本。 具有相同结构的不同查询聚集在一起；此文本是群集中第一个查询的文本。|
 |plan_id    |bigint |   |与此查询对应的计划 ID，尚不可用|
 |start_time |timestamp  ||  查询按时段聚合 - 默认情况下，存储桶的时间跨度为 15 分钟。 这是与此条目的时段相对应的开始时间。|
 |end_time   |timestamp  ||  对应于此条目的时段的结束时间。|
-|calls  |bigint  || 执行查询的次数|
-|total_time |双精度   ||  总查询执行时间（毫秒）|
+|calls  |bigint  || 执行查询的次数|
+|total_time |双精度   ||  总查询执行时间（毫秒）|
 |min_time   |双精度   ||  最小查询执行时间（毫秒）|
 |max_time   |双精度   ||  最大查询执行时间（毫秒）|
 |mean_time  |双精度   ||  平均查询执行时间（毫秒）|
 |stddev_time|   双精度    ||  查询执行时间的标准偏差（毫秒） |
-|行   |bigint ||  由语句检索或影响的总行数|
-|shared_blks_hit|   bigint  ||  语句的共享块缓存命中总数|
+|行   |bigint ||  由语句检索或影响的总行数|
+|shared_blks_hit|   bigint  ||  语句的共享块缓存命中总数|
 |shared_blks_read|  bigint  ||  由语句读取的共享块总数|
-|shared_blks_dirtied|   bigint   || 由语句更新的共享块总数 |
-|shared_blks_written|   bigint  ||  由语句编写的共享块总数|
+|shared_blks_dirtied|   bigint   || 由语句更新的共享块总数 |
+|shared_blks_written|   bigint  ||  由语句编写的共享块总数|
 |local_blks_hit|    bigint ||   语句的本地块缓存命中总数|
-|local_blks_read|   bigint   || 由语句读取的本地块总数|
-|local_blks_dirtied|    bigint  ||  由语句更新的本地块总数|
-|local_blks_written|    bigint  ||  由语句编写的本地块总数|
-|temp_blks_read |bigint  || 由语句读取的临时块总数|
-|temp_blks_written| bigint   || 由语句编写的临时块总数|
-|blk_read_time  |双精度    || 语句读取块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
-|blk_write_time |双精度    || 语句编写块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
-
+|local_blks_read|   bigint   || 由语句读取的本地块总数|
+|local_blks_dirtied|    bigint  ||  由语句更新的本地块总数|
+|local_blks_written|    bigint  ||  由语句编写的本地块总数|
+|temp_blks_read |bigint  || 由语句读取的临时块总数|
+|temp_blks_written| bigint   || 由语句编写的临时块总数|
+|blk_read_time  |双精度    || 语句读取块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
+|blk_write_time |双精度    || 语句写入块所花费的总时间（以毫秒为单位）（如果启用了 track_io_timing，否则为零）|
+    
 ### <a name="querystorequerytextsview"></a>query_store.query_texts_view
 此视图返回查询存储中的查询文本数据。 每个不同的 query_text 都有一行。
 
 |**名称**|  **类型**|   **说明**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 表的 ID|
-|query_sql_text |Varchar(10000)     |代表语句的文本。 具有相同结构的不同查询聚集在一起；此文本是群集中第一个查询的文本。|
+|query_sql_text |Varchar(10000)     |代表语句的文本。 具有相同结构的不同查询聚集在一起；此文本是群集中第一个查询的文本。|
 
 ### <a name="querystorepgmswaitsamplingview"></a>query_store.pgms_wait_sampling_view
 此视图返回查询存储中的等待事件数据。 每个不同的数据库 ID、用户 ID、查询 ID 和事件都有一行。
@@ -162,8 +158,8 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |执行此语句的用户的 OID|
 |db_id  |oid    |pg_database.oid    |在其中执行语句的数据库的 OID|
-|query_id   |bigint     ||根据语句的分析树计算的内部哈希代码|
-|event_type |text       ||后端正在等待的事件类型|
+|query_id   |bigint     ||根据语句的分析树计算的内部哈希代码|
+|event_type |text       ||后端正在等待的事件类型|
 |event  |text       ||后端当前正在等待的等待事件名称|
 |calls  |Integer        ||捕获的相同事件的数量|
 
@@ -171,11 +167,11 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="functions"></a>函数
 Query_store.qs_reset() 返回无效值
 
-`qs_reset` 丢弃查询存储迄今收集的所有统计信息。 只能由服务器管理员角色执行此函数。
+`qs_reset` 丢弃查询存储到目前为止收集的所有统计信息。 只能由服务器管理员角色执行此函数。
 
 Query_store.staging_data_reset() 返回无效值
 
-`staging_data_reset` 丢弃查询存储在内存中收集的所有统计信息（即内存中尚未刷新到数据库的数据）。 只能由服务器管理员角色执行此函数。
+`staging_data_reset` 丢弃查询存储在内存中收集的所有统计信息（即内存中尚未刷新到数据库的数据）。 只能由服务器管理员角色执行此函数。
 
 ## <a name="limitations-and-known-issues"></a>限制和已知问题
 - 如果 PostgreSQL 服务器具有参数 default_transaction_read_only，则查询存储无法捕获数据。

@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6cf4c11cdbc41671ad767bdb546963ce278e7c9b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a9595ac8f074f7d7d5c14c2a6d374b891743c902
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004323"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003878"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
@@ -33,11 +33,14 @@ ms.locfileid: "59004323"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id where Managed Disks will be created
 $subscriptionId = 'yourSubscriptionId'
 
@@ -50,8 +53,8 @@ $diskName = 'yourDiskName'
 #Provide the size of the disks in GB. It should be greater than the VHD file size.
 $diskSize = '128'
 
-#Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-$storageType = 'PremiumLRS'
+#Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+$storageType = 'Premium_LRS'
 
 #Provide the Azure region (e.g. chinanorth) where Managed Disk will be located.
 #This location should be same as the storage account where VHD file is stored
@@ -92,5 +95,4 @@ New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $di
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties, udpate powershell az cmdlet -->
-<!-- ms.date: 04/01/2018 -->
+<!-- Update_Description: update meta properties -->

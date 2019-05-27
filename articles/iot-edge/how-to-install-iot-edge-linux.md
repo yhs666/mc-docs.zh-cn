@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 03/21/2019
-ms.date: 04/22/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: b7c8e06006b2369e5ca31852665371d142f5b478
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: d5a3e6c5b5c15ae5da980494916feeaed750ce10
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529437"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829286"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>在 Linux 上安装 Azure IoT Edge 运行时 (x64)
 
@@ -23,7 +23,7 @@ ms.locfileid: "59529437"
 
 若要了解详细信息，请参阅[了解 Azure IoT Edge 运行时及其体系结构](iot-edge-runtime.md)。
 
-本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持](support.md#operating-systems)。
+本文列出了在 Ubuntu Linux x64 (Intel/AMD) IoT Edge 设备上安装 Azure IoT Edge 运行时的步骤。 有关支持的 AMD64 操作系统的列表，请参阅 [Azure IoT Edge 支持的系统](support.md#operating-systems)。
 
 >[!NOTE]
 >Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用包。
@@ -188,7 +188,7 @@ sudo systemctl restart iotedge
 systemctl status iotedge
 ```
 
-使用以下命令观察守护程序日志：
+使用以下命令查看守护程序日志：
 
 ```bash
 journalctl -u iotedge --no-pager --no-full

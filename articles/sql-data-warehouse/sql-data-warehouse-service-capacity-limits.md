@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 origin.date: 11/14/2018
-ms.date: 11/26/2018
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: b30dacf02cf8020953237acb3ffeef3261641df0
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 62e442cb6e3567f0aec9f495f4842589d44f95be
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855326"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828838"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL 数据仓库容量限制
 Azure SQL 数据仓库的各个组件允许的最大值。
@@ -55,7 +55,7 @@ Azure SQL 数据仓库的各个组件允许的最大值。
 ## <a name="loads"></a>加载
 | Category | 说明 | 最大值 |
 |:--- |:--- |:--- |
-| Polybase 加载 |每行 MB 数 |1<br/><br/>Polybase 仅加载到小于 1 MB 的行，并且无法加载到 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)。<br/><br/> |
+| Polybase 加载 |每行 MB 数 |1<br/><br/>Polybase 加载小于 1 MB 的行。 不支持将 LOB 数据类型加载到具有聚集列存储索引 (CCI) 的表。<br/><br/> |
 
 ## <a name="queries"></a>查询
 | 类别 | 说明 | 最大值 |

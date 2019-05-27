@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 02/13/2019
-ms.date: 03/26/2019
+origin.date: 02/26/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: f6c48ce228aa1830651c5868d4ab7ab339920853
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 15bfd708f94b0ce308b2956460300fd4273110e5
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626554"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668978"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>如何调用文本分析 REST API
 
@@ -27,7 +27,7 @@ ms.locfileid: "58626554"
 回想一下，文本分析是无状态的，因此，没有任何要管理的数据资产。 收到文本后将对其进行上传和分析，其结果会立即返回到调用应用程序。
 
 > [!Tip]
-> 对于一次性调用以了解 API 的工作原理，可以从内置 API 测试控制台发送 POST 请求，可在任何 [API 文档页](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)上使用。 没有任何设置，且唯一要求是将访问密钥和 JSON 文档粘贴到该请求。 
+> 对于一次性调用以了解 API 的工作原理，可以从内置 API 测试控制台发送 POST 请求，可在任何 [API 文档页](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)上使用。 没有任何设置，且唯一要求是将访问密钥和 JSON 文档粘贴到该请求。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -61,10 +61,10 @@ ms.locfileid: "58626554"
 
    资源终结点如下所示（你的区域可能有所不同）：
 
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/sentiment`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/keyPhrases`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/languages`
-   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1-preview/entities`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/sentiment`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/keyPhrases`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/languages`
+   + `https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/entities`
 
 2. 设置三个请求标头：
 
@@ -76,19 +76,19 @@ ms.locfileid: "58626554"
 
    ![请求带终结点和标头的屏幕截图](../media/postman-request-keyphrase-1.png)
 
-3. 单击“正文”，然后选择“原始”格式。
+4. 单击“正文”，然后选择“原始”格式。
 
    ![请求具有正文设置的屏幕截图](../media/postman-request-body-raw.png)
 
-4. 采用对预期分析有效的格式粘贴某些 JSON 文档。 有关特定分析的详细信息，请参阅下面的主题：
+5. 采用对预期分析有效的格式粘贴某些 JSON 文档。 有关特定分析的详细信息，请参阅下面的主题：
 
-   + [语言检测](text-analytics-how-to-language-detection.md)  
-   + [关键短语提取](text-analytics-how-to-keyword-extraction.md)  
-   + [情绪分析](text-analytics-how-to-sentiment-analysis.md)  
-   + [实体识别（预览版）](text-analytics-how-to-entity-linking.md)  
+  + [语言检测](text-analytics-how-to-language-detection.md)  
+  + [关键短语提取](text-analytics-how-to-keyword-extraction.md)  
+  + [情绪分析](text-analytics-how-to-sentiment-analysis.md)  
+  + [实体识别](text-analytics-how-to-entity-linking.md)  
 
 
-5. 单击“发送”以提交请求。 每分钟可以提交多达 100 个请求。 
+6. 单击“发送”以提交请求。 每分钟可以提交多达 100 个请求。 
 
    在 Postman 中，响应会在下一个窗口中显示为单个 JSON 文档，请求中提供的每个文档 ID 对应一个条目。
 

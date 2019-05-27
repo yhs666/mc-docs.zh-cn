@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 02/18/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 679b5725b7f8d64ed2fd9fba0e6a4fff9a36c77f
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 17af99f03002f1fd3746280e25ae43f8c1422ea8
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440050"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195453"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建专用容器注册表
 
@@ -24,6 +24,7 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 
 还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
+<!--Not Available on Azure Cloud Shell-->
 ## <a name="create-a-resource-group"></a>创建资源组
 
 使用 [az group create][az-group-create] 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
@@ -34,11 +35,9 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 az group create --name myResourceGroup --location chinanorth
 ```
 
-<!--Notice:  Currently the Container Registry is only valid on ChinaNorth and ChinaEast2-->
-
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-在本快速入门中，请创建一个基本注册表。该注册表已优化过成本，是供开发者了解 Azure 容器注册表的选项。 有关可用服务层的详细信息，请参阅[容器注册表 SKU][container-registry-skus]。
+在本快速入门中，请创建一个基本注册表。该注册表已优化过成本，是供开发者了解 Azure 容器注册表的选项。 有关可用服务层级的详细信息，请参阅[容器注册表 SKU][container-registry-skus]。
 
 使用 [az acr create][az-acr-create] 命令创建 ACR 实例。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 myContainerRegistry007。 将其更新为唯一值。
 
@@ -69,8 +68,6 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry007 --s
 }
 ```
 
-<!--Notice:  Currently the Container Registry is only valid on ChinaNorth and ChinaEast2 -->
-
 记下输出中的 `loginServer`，这是完全限定的注册表名称（全部小写）。 在本快速入门的剩余部分，`<acrName>` 是容器注册表名称的占位符。
 
 ## <a name="log-in-to-registry"></a>登录到注册表
@@ -98,13 +95,13 @@ az acr repository list --name <acrName> --output table
 ```
 Result
 ----------------
-busybox
+hello-world
 ```
 
-以下示例列出了 busybox 存储库的标记。
+以下示例列出了 hello-world 存储库中的标记。
 
 ```azurecli
-az acr repository show-tags --name <acrName> --repository busybox --output table
+az acr repository show-tags --name <acrName> --repository hello-world --output table
 ```
 
 输出：

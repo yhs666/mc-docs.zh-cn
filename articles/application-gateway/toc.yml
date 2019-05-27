@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: 教程
   items:
-    - name: 托管单一站点
-      href: quick-create-portal.md
     - name: 启用 Web 应用程序防火墙
       href: application-gateway-web-application-firewall-portal.md
     - name: 使用 SSL 进行保护

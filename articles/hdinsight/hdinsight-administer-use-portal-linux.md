@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 12/26/2018
-ms.date: 04/15/2019
+origin.date: 03/26/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8bce480de5e51d7ca242e403da6ec717b01ef934
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 762a7fb7eaab936ad828f066775529f1f6780031
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004069"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829155"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -23,7 +23,7 @@ ms.locfileid: "59004069"
 
 使用 [Azure门户][azure-portal]可以管理 Azure HDInsight 中的 [Apache Hadoop](https://hadoop.apache.org/) 群集。 使用上述选项卡选择器，可以了解如何使用其他工具在 HDInsight 中管理 Hadoop 群集。
 
-**先决条件**
+## <a name="prerequisites"></a>先决条件
 - Azure 订阅。 
 - HDInsight 中的现有 Apache Hadoop 群集。  请参阅[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
@@ -42,60 +42,79 @@ ms.locfileid: "59004069"
 ![Azure 门户 HDInsight 群集概要](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials2.png)
 
 **顶部菜单：**  
-- **移动**：将群集移至其他资源组或其他订阅。  
-- **删除**：删除群集。  
-- **刷新**：刷新视图。
 
-**左侧菜单：**  
- - **顶部左侧菜单**  
-    - **概览**：提供群集的常规信息。
-    -  **活动日志**：显示和查询活动日志。
-    - **访问控制 (IAM)**：使用角色分配。  请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)。
-    - **标记**：可让用户设置键/值对，以定义云服务的自定义分类。 例如，用户可以创建名为 **project**的键，并对与特定项目关联的所有服务使用一个公用值。
-    - **诊断和解决问题**：显示故障排除信息。
-    - **快速入门**：显示可帮助你开始使用 HDInsight 的信息。
-    - **工具**：HDInsight 相关工具的帮助信息。
+| 项目| 说明 |
+|---|---|
+|移动|将群集移至其他资源组或其他订阅。|
+|Delete|删除群集。 |
+|刷新|刷新视图。|
 
-- **“设置”菜单**  
-  - **群集大小**：检查、增加和减少群集辅助角色节点的数量。 请参阅[缩放群集](hdinsight-administer-use-portal-linux.md#scale-clusters)。
-  - **配额限制**：显示订阅的已使用和可用核心数。
-  - **SSH + 群集登录**：显示使用安全 Shell (SSH) 连接与群集建立连接的说明。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
-  - **Data Lake Storage Gen1**：配置 Data Lake Storage Gen1 访问。  请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
-  - **存储帐户**：查看存储帐户和密钥。 存储帐户是在群集创建过程中进行配置。
-  - **应用程序**：添加/删除 HDInsight 应用程序。  请参阅[安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)。
-  - **脚本操作**：在群集上运行 Bash 脚本。 请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
-  - **外部元存储**：查看 [Apache Hive](https://hive.apache.org/) 和 [Apache Oozie](https://oozie.apache.org/) 元存储。 只能在群集创建过程中配置元存储。
-  - **HDInsight 合作伙伴**：添加/删除当前 HDInsight 合作伙伴。
-  - **属性**：查看[群集属性](#properties)。
-  - **锁定**：添加锁防止群集遭到修改或删除。
-  -  **自动化脚本**：显示和导出群集的 Azure 资源管理器模板。 目前，只能导出相关的 Azure 存储帐户。 请参阅[使用 Azure 资源管理器模板在 HDInsight 中创建基于 Linux 的 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。
+**Left menu:**  
+  - **顶部左侧菜单**
 
-- **监视菜单**
-  - **警报**：管理警报和操作。
-  - **指标**：监视 Azure Monitor 日志中的群集指标。
-  - **诊断设置**：存储诊断指标的位置设置。
-  - **Operations Management Suite**：监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。
+    | 项目| 说明 |
+    |---|---|
+    |概述|提供群集的常规信息。|
+    |活动日志|显示和查询活动日志。|
+    |访问控制 (IAM)|使用角色分配。  请参阅[使用角色分配管理对 Azure 订阅资源的访问权限](../role-based-access-control/role-assignments-portal.md)。|
+    |Tags|可让用户设置键/值对，以定义云服务的自定义分类。 例如，用户可以创建名为 **project**的键，并对与特定项目关联的所有服务使用一个公用值。|
+    |诊断并解决问题|显示故障排除信息。|
+    |快速入门|显示可帮助你开始使用 HDInsight 的信息。|
+    |工具|HDInsight 相关工具的帮助信息。|
 
-- **“支持 + 故障排除”菜单**
-  - **资源运行状况**：参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。
-  - **新建支持请求**：允许用户通过 Microsoft 支持创建支持票证。
-    
+  - **“设置”菜单**  
+
+    | 项目| 说明 |
+    |---|---|
+    |群集大小|检查、增加和减少群集辅助角色节点的数量。 请参阅[缩放群集](hdinsight-administer-use-portal-linux.md#scale-clusters)。|
+    |配额限制|显示订阅的已用核心数和可用核心数。|
+    |SSH + 群集登录|显示使用安全 Shell (SSH) 连接与群集建立连接的说明。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。|
+    |Data Lake Storage Gen1|配置 Data Lake Storage Gen1 访问。  请参阅[快速入门：在 HDInsight 中设置群集](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。|
+    |存储帐户|查看存储帐户和密钥。 存储帐户是在群集创建过程中进行配置。|
+    |应用程序|添加/删除 HDInsight 应用程序。  请参阅[安装自定义 HDInsight 应用程序](hdinsight-apps-install-custom-applications.md)。|
+    |脚本操作|在群集上运行 Bash 脚本。 请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。|
+    |外部元存储|查看 [Apache Hive](https://hive.apache.org/) 和 [Apache Oozie](https://oozie.apache.org/) 元存储。 只能在群集创建过程中配置元存储。|
+    |HDInsight 合作伙伴|添加/删除当前 HDInsight 合作伙伴。|
+    |属性|查看[群集属性](#properties)。|
+    |锁|添加锁防止群集遭到修改或删除。|
+    |自动化脚本|显示和导出群集的 Azure 资源管理器模板。 目前，只能导出相关的 Azure 存储帐户。 请参阅[使用 Azure 资源管理器模板在 HDInsight 中创建基于 Linux 的 Apache Hadoop 群集](hdinsight-hadoop-create-linux-clusters-arm-templates.md)。|
+
+  - **监视菜单**
+
+    | 项目| 说明 |
+    |---|---|
+    |警报|管理警报和操作。|
+    |指标|监视 Azure Monitor 日志中的群集指标。|
+    |诊断设置|存储诊断指标的位置设置。|
+    |Operations Management Suite|监视 Azure Operations Management Suite (OMS) 和 Azure Monitor 日志中的群集。|
+
+  - **支持 + 故障排除菜单**
+
+    | 项目| 说明 |
+    |---|---|
+    |资源运行状况|参阅 [Azure 资源运行状况概述](../service-health/resource-health-overview.md)。|
+    |新建支持请求|允许用户通过 Microsoft 支持创建支持票证。|
+
 ## <a name="properties"></a> 群集属性
+
 在“[群集主页](#homePage)”的“设置”下，选择“属性”。
-* **主机名**：群集名称。
-* **群集 URL**：Ambari Web 界面的 URL。
-* **安全外壳 (SSH)**：用于通过 SSH 访问群集的用户名和主机名。
-* **状态**：下列其中一项：Aborted、Accepted、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、Operational、Running、Error、Deleting、Deleted、Timedout、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued 或 ClusterCustomization。
-* **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)中的“区域”下拉列表框。
-* **创建日期**：部署群集的日期。
-* **操作系统**：“Windows”或“Linux”。
-* **类型**：Hadoop、HBase、Storm、Spark。
-* **版本**。 请参阅 [HDInsight 版本](hdinsight-component-versioning.md)。
-* **订阅**：订阅名称。
-* **默认数据源**：默认的群集文件系统。
-* **工作节点大小**：工作节点的所选 VM 大小。
-* **头节点大小**：头节点的所选 VM 大小。
-* **虚拟网络**：群集将要部署到的虚拟网络的名称（如果已在部署时选择）。
+
+|项目 | 说明 |
+|---|---|
+|主机名|群集名称。|
+|群集 URL|Ambari Web 界面的 URL。|
+|安全外壳 (SSH)|用于通过 SSH 访问群集的用户名和主机名。|
+|状态|下列其中一项：Aborted、Accepted、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、Operational、Running、Error、Deleting、Deleted、Timedout、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued 或 ClusterCustomization。|
+|区域|Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://azure.microsoft.com/pricing/details/hdinsight/)中的“区域”下拉列表框。|
+|创建日期|部署群集的日期。|
+|操作系统|“Windows”或“Linux”。|
+|类型|Hadoop、HBase、Storm、Spark。|
+|版本|请参阅 [HDInsight 版本](hdinsight-component-versioning.md)。|
+|订阅|订阅名称。|
+|默认数据源|默认的群集文件系统。|
+|工作器节点大小|工作节点的所选 VM 大小。|
+|头节点大小|头节点的所选 VM 大小。|
+|虚拟网络|群集将要部署到的虚拟网络的名称（如果在部署时已选择）。|
 
 ## <a name="move-clusters"></a>移动群集
 
@@ -214,7 +233,7 @@ Ambari 提供由其 RESTful API 提供支持的直观、易用的 Hadoop 管理 
 有关详细信息，请参阅[使用 Apache Ambari Web UI 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="change-passwords"></a>更改密码
-HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户（即 HTTP 用户帐户）和 SSH 用户帐户是在创建过程中创建的。 可以使用门户更改群集用户帐户密码，使用脚本操作更改 SSH 用户帐户。
+HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户（HTTP 用户帐户）和 SSH 用户帐户是在创建过程中创建的。 可以使用门户更改群集用户帐户密码，使用脚本操作更改 SSH 用户帐户。
 
 ### <a name="change-the-cluster-user-password"></a>更改群集用户密码
 
@@ -247,7 +266,7 @@ HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户（�
 4. 在“脚本操作”边栏选项卡中，选择“提交新项”。 
 5. 在“提交脚本操作”边栏选项卡中输入以下信息：
 
-   | 字段 | 值 |
+   | 字段 | Value |
    | --- | --- |
    | 脚本类型 | 从下拉列表中选择“- 自定义”。|
    | Name |“更改 ssh 密码” |

@@ -1,5 +1,5 @@
 ---
-title: Azure 认可的 Linux 发行版 | Azure
+title: Azure 认可的 Linux 分发版 | Azure
 description: 了解 Azure 认可的分发中的 Linux，包括 Ubuntu、CentOS、Oracle 和 SUSE 的指南。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 11/21/2017
-ms.date: 04/01/2019
+origin.date: 05/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 089ccfaf225b670af4fd4656390a44bbf6888ea4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8b5da70836b09547743aa74ef8a2823d9f7ada55
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627734"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835759"
 ---
-# <a name="linux-distributions-endorsed-on-azure"></a>Azure 认可的 Linux 分发
+# <a name="endorsed-linux-distributions-on-azure"></a>Azure 认可的 Linux 分发版
 合作伙伴在 Azure 市场中提供了 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 在此期间，对于市场未提供的分发，用户始终可以按照[创建并上传包含 Linux 操作系统的虚拟硬盘](/virtual-machines/linux/create-upload-generic)中的准则安装自己的 Linux。
 
 ## <a name="supported-distributions-and-versions"></a>支持的发行版和版本
@@ -44,9 +44,27 @@ Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的�
 | openSUSE |openSUSE Leap 42.2+ |在内核中 |包：在“python-azure-agent”下的 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在内核中 |包：在“walinuxagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>** 有关在 Azure 中对 Ubuntu 12.04 的支持，请参阅 [EOL 通知](https://azure.microsoft.com/blog/ubuntu-12-04-precise-pangolin-nearing-end-of-life/)。
+- **<sup>1</sup>** 对 Ubuntu 12.04 和 14.04 的扩展支持有关的信息可在此处找到：[Ubuntu 扩展安全维护](https://www.ubuntu.com/esm)。
 
 <!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
+
+## <a name="image-update-cadence"></a>映像的更新节奏
+Azure 要求受认可 Linux 分发版的发布者在每个季度或以更快的节奏，定期使用最新修补程序和安全修复程序，更新其在 Azure 市场中的映像。 在 Azure 市场中更新的映像将自动以新版映像 SKU 的形式提供给客户使用。 有关如何查找 Linux 映像的详细信息：[在 Azure 市场中查找 Linux VM 映像](/virtual-machines/linux/cli-ps-findimage)。
+
+### <a name="additional-links"></a>其他链接
+ - [SUSE 公有云映像生命周期](https://www.suse.com/c/suse-public-cloud-image-life-cycle/)
+
+## <a name="azure-tuned-kernels"></a>Azure 优化的内核
+
+Azure 与众多认可的 Linux 分发商密切合作，以优化他们在 Azure 市场中发布的映像。 这种协作的一个方面体现在：开发针对 Azure 平台优化的 Linux 内核，并以完全受支持组件的形式交付 Linux 分发版。 Azure 优化的内核整合了新的功能和性能改进，并且与分发版中提供的默认或常规内核相比，其发布节奏更快（通常每季度发布一次）。
+
+在大多数情况下，你会发现这些内核已预装在 Azure 市场中的默认映像内，因此，Azure 客户可以立即获得这些优化内核的优势。 可在以下链接中找到有关这些 Azure 优化内核的详细信息：
+
+ - CentOS Azure 优化内核 - 通过 CentOS 虚拟化 SIG 提供 - [详细信息](https://wiki.centos.org/SpecialInterestGroup/Virtualization)
+ - Debian 云内核 - 适用于 Azure 上的 Debian 10 和 Debian 9“后向移植”映像 - [详细信息](https://wiki.debian.org/Cloud/MicrosoftAzure)
+ - SLES Azure 优化内核 - [详细信息](https://www.suse.com/c/a-different-builtin-kernel-for-azure-on-demand-images/)
+ - Ubuntu Azure 优化内核 - [详细信息](https://blog.ubuntu.com/2017/09/21/microsoft-and-canonical-increase-velocity-with-azure-tailored-kernel)
+
 ## <a name="partners"></a>合作伙伴
 
 ### <a name="coreos"></a>CoreOS

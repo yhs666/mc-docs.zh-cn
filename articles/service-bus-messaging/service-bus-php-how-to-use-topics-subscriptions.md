@@ -15,25 +15,33 @@ ms.topic: article
 origin.date: 09/06/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: bac3f99ac922bcde262f99d0a9a8967063c58105
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 5da161d842b91b06d32bbee2243ee78eee1415f7
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544821"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609843"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文说明如何使用服务总线主题和订阅。 示例采用 PHP 编写并使用 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的应用场景包括**创建主题和订阅**、**创建订阅筛选器**、**将消息发送到主题**、**从订阅接收消息**以及**删除主题和订阅**。
+本文说明如何使用服务总线主题和订阅。 示例采用 PHP 编写并使用 [Azure SDK for PHP](../php-download-sdk.md)。 涉及的方案包括：
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 创建主题和订阅 
+- 创建订阅筛选器 
+- 将消息发送到主题 
+- 从订阅接收消息
+- 删除主题和订阅
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以[激活 Visual Studio 或 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或者注册[免费试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线**命名空间**并获取**连接字符串**。
+
+    > [!NOTE]
+    > 在本快速入门中，你将使用 **PHP** 创建一个**主题**和对此主题的**订阅**。 
 
 ## <a name="create-a-php-application"></a>创建 PHP 应用程序
-
 创建访问 Azure Blob 服务的 PHP 应用程序的唯一要求是从代码中引用[用于 PHP 的 Azure SDK](../php-download-sdk.md) 中的类。 可以使用任何开发工具或记事本创建应用程序。
 
 > [!NOTE]
@@ -163,7 +171,7 @@ catch(ServiceException $e){
 ```
 
 ### <a name="create-subscriptions-with-filters"></a>创建具有筛选器的订阅
-还可以设置筛选器，以指定发送到主题的哪些消息应该在特定主题订阅中显示。 订阅支持的最灵活的一种筛选器是 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter)，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关 SqlFilters 的详细信息，请参阅 [SqlFilter.SqlExpression 属性][sqlfilter]。
+还可以设置筛选器，以指定发送到主题的哪些消息应该在特定主题订阅中显示。 订阅支持的最灵活的一种筛选器是 [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)，它实现了一部分 SQL92 功能。 SQL 筛选器对发布到主题的消息的属性进行操作。 有关 SqlFilters 的详细信息，请参阅 [SqlFilter.SqlExpression 属性][sqlfilter]。
 
 > [!NOTE]
 > 有关订阅的每个规则单独处理传入消息，并将其结果消息添加到订阅。 此外，每个新订阅具有一个默认 **Rule** 对象，该对象包含将主题中的所有消息添加到订阅的筛选器。 要仅接收与筛选器匹配的消息，必须删除默认规则。 可以使用 `ServiceBusRestProxy->deleteRule` 方法删除默认规则。

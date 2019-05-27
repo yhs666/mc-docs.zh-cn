@@ -6,23 +6,25 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 12/17/2018
-ms.date: 03/11/2019
+ms.date: 05/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 92fe221d764068b5a0c83e26721a7ce5e2d96399
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2d68db6b9f14407f911ac53b3f7acaa75cfad1d0
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626552"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829150"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全守护程序和运行时
 
 当 IoT Edge 服务发布新版本时，可能需要更新 IoT Edge 设备，使其获得最新功能并改善安全性。 本文提供有关在新版本推出时如何更新 IoT Edge 设备的信息。 
 
 若要转移到较新的版本，需要更新 IoT Edge 设备的两个组件。 第一个组件是安全守护程序，它在设备上运行并在设备启动时启动运行时模块。 目前，只能从设备本身更新安全守护程序。 第二个组件是由 IoT Edge 中心和 IoT Edge 代理模块组成的运行时。 根据部署的构造方式，可以从设备或者远程更新运行时。 
+
+若要查找最新版本的 Azure IoT Edge，请参阅 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)。
 
 >[!IMPORTANT]
 >如果在 Windows 设备上运行 Azure IoT Edge，则在下述某个条件适用于设备的情况下，请勿将其更新到版本 1.0.5： 
@@ -49,25 +51,15 @@ apt-get install libiothsm iotedge
 
 ### <a name="windows-devices"></a>Windows 设备
 
-在 Windows 设备上，请使用 PowerShell 脚本卸载并重新安装安全守护程序。 安装脚本会自动提取最新版本的安全守护程序。 
-
-在管理员 PowerShell 会话中卸载安全守护程序。 
+在 Windows 设备上，请使用 PowerShell 脚本更新安全守护程序。 脚本会自动提取最新版本的安全守护程序。 
 
 ```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-UnInstall-SecurityDaemon
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -ContainerOs <Windows or Linux>
 ```
 
-在没有任何参数的情况下运行 `Uninstall-SecurityDaemon` 命令只会从设备中删除安全守护程序以及两个运行时容器映像。 config.yaml 文件以及 Moby 容器引擎中的数据会保留在设备上。 保留配置信息意味着，在安装过程中，不需再次为设备提供连接字符串或设备预配服务信息。 
+运行 Update-IoTEdge 命令会从设备中删除安全守护程序以及两个运行时容器映像。 config.yaml 文件以及 Moby 容器引擎中的数据会保留在设备上（如果使用 Windows 容器）。 保留配置信息意味着，在更新过程中，不需再次为设备提供连接字符串或设备预配服务信息。 
 
-根据 IoT Edge 设备使用的是 Windows 容器还是 Linux 容器重新安装安全守护程序。 请将短语 **\<Windows or Linux\>** 替换为相应的容器操作系统。 使用 **-ExistingConfig** 标志即可指向设备上的现有 config.yaml 文件。 
-
-```powershell
-. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -ExistingConfig -ContainerOS <Windows or Linux>
-```
-
-若要安装特定版本的安全守护程序，请从 [IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)下载相应的 iotedged-windows.zip 文件。 然后，使用 `-OfflineInstallationPath` 参数指向文件位置。 有关详细信息，请参阅[脱机安装](how-to-install-iot-edge-windows.md#offline-installation)。
+若要安装特定版本的安全守护程序，请从 [IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)下载相应的 Microsoft-Azure-IoTEdge.cab 文件。 然后，使用 `-OfflineInstallationPath` 参数指向文件位置。 有关详细信息，请参阅[脱机安装](how-to-install-iot-edge-windows.md#offline-installation)。
 
 ## <a name="update-the-runtime-containers"></a>更新运行时容器
 

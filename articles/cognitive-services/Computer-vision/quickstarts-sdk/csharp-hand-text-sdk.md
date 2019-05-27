@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/26/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: d9bf02518b7006cc0b2febc976ac36511ff02049
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 296369a9947370f6628893d6b99d4455f53edb8b
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855043"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598852"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-computer-vision-c-sdk"></a>快速入门：使用计算机视觉 C# SDK 提取手写文本
 
@@ -25,7 +25,7 @@ ms.locfileid: "64855043"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 若要使用计算机视觉，需要一个订阅密钥；请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 计算机视觉订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 * 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 客户端库 NuGet 包。 不需下载程序包。 下面提供了安装说明。
 
@@ -199,4 +199,4 @@ Pack my box with five dozen liquor jugs
 > [!div class="nextstepaction"]
 > [探索计算机视觉 API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

@@ -4,33 +4,25 @@ titleSuffix: Azure Cognitive Services
 description: 使用人脸 API 标识图像中的人脸。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
-origin.date: 03/01/2018
-ms.date: 10/23/2018
+origin.date: 04/10/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: ecbdf03dc78e8926ef5a038bdfce4bfb8fc6f0a4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 669dbb5b8f82ffc376da63a2cdc2e544a3a7d8ce
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657369"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668970"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>示例：如何标识图像中的人脸
+# <a name="example-identify-faces-in-images"></a>示例：识别图像中的人脸
 
-本指南演示如何使用事先根据已知人员创建的 PersonGroup 来标识未知人脸。 示例是利用人脸 API 客户端库采用 C# 编写的。
+本指南演示如何使用事先根据已知人员创建的 PersonGroup 来标识未知人脸。 这些示例是使用人脸 API 客户端库以 C# 语言编写的。
 
-## <a name="concepts"></a> 概念
-
-如果不熟悉本指南中的以下概念，请随时在[术语表](../Glossary.md)中搜索定义：
-
-- 人脸 - 检测
-- 人脸 - 标识
-- PersonGroup
-
-## <a name="preparation"></a> 准备
+<a name="preparation"></a>准备工作
 
 本示例演示以下操作：
 
@@ -39,18 +31,18 @@ ms.locfileid: "52657369"
 
 若要开始演示本示例，需准备一批照片：
 
-- 一些包含人脸的照片。 [单击此处下载示例照片](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)（分别为 Anna、Bill 和 Clare 的照片）。
+- 一些包含该人人脸的照片。 [下载示例照片](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data)，分别为 Anna、Bill 和 Clare。
 - 一系列测试照片，可能包含或不包含 Anna、Bill 或 Clare 的人脸，用于测试身份。 也可从前面的链接选择一些示例图片。
 
 ## <a name="step-1-authorize-the-api-call"></a>步骤 1：授权 API 调用
 
-每次调用人脸 API 都需要提供订阅密钥。 此密钥可以通过查询字符串参数传递，或在请求头中指定。 若要通过查询字符串传递订阅密钥，请参阅充当示例的[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)的请求 URL：
+每次调用人脸 API 都需要提供订阅密钥。 此密钥可以通过查询字符串参数传递，或在请求头中指定。 若要通过查询字符串传递订阅密钥，请参阅 [Face - Detect](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)（人脸 - 检测）的请求 URL 示例：
 ```
 https://api.cognitive.azure.cn/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes]
 &subscription-key=<Subscription key>
 ```
 
-也可在 HTTP 请求头中指定订阅密钥：**ocp-apim-subscription-key：&lt;订阅密钥&gt;**。使用客户端库时，订阅密钥通过 FaceServiceClient 类的构造函数传入。 例如：
+作为替代方法，也可以在 HTTP 请求头 **ocp-apim-subscription-key: 中指定订阅密钥：&lt;订阅密钥&gt;** 使用客户端库时，订阅密钥通过 FaceServiceClient 类的构造函数传入。 例如：
  
 ```CSharp 
 faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -188,7 +180,9 @@ using (Stream s = File.OpenRead(testImageFile))
 
 ## <a name="related-topics"></a>相关主题
 
+- [人脸识别概念](../concepts/face-recognition.md)
 - [如何检测图像中的人脸](HowtoDetectFacesinImage.md)
 - [如何添加人脸](how-to-add-faces.md)
 - [如何使用大规模功能](how-to-use-large-scale.md)
 
+<!-- Update_Description: wording update -->

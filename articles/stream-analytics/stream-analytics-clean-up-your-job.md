@@ -2,23 +2,23 @@
 title: 清理 Azure 流分析作业
 description: 本文演示用于删除 Azure 流分析作业的不同方法。
 services: stream-analytics
-author: rockboyfor
+author: lingliw
 manager: digimobile
-ms.author: v-yeche
+ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 408562fa5eeb865f41ca0858da4da17784f2e912
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 7680e16203983922b62e3300a86534f63e079d73
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544796"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609882"
 ---
 # <a name="clean-up-your-azure-stream-analytics-job"></a>清理 Azure 流分析作业
 
-可以通过Azure 门户、Azure PowerShell、Azure SDK for .NET 或 REST API 轻松地删除 Azure 流分析作业。
+可以通过Azure 门户、Azure PowerShell、Azure SDK for .NET 或 REST API 轻松地删除 Azure 流分析作业。 流分析作业在删除后无法恢复。
 
 >[!NOTE] 
 >当停止流分析作业时，数据只会保留在输入和输出存储中，例如事件中心或 Azure SQL 数据库。 如果需要从 Azure 中删除数据，请务必遵循流分析作业的输入和输出资源删除过程进行操作。
@@ -46,7 +46,7 @@ ms.locfileid: "58544796"
 ## <a name="stop-or-delete-a-job-using-powershell"></a>使用 PowerShell 停止或删除作业
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-若要使用 PowerShell 停止作业，请使用 [Stop-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0) cmdlet。 若要使用 PowerShell 删除作业，请使用 [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet。
+若要使用 PowerShell 停止作业，请使用 [Stop-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob?view=azurermps-5.7.0) cmdlet。 若要使用 PowerShell 删除作业，请使用 [Remove-AzureRmStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/Remove-AzureRmStreamAnalyticsJob?view=azurermps-5.7.0) cmdlet。
 
 ## <a name="stop-or-delete-a-job-using-azure-sdk-for-net"></a>使用 Azure SDK for .NET 停止或删除作业
 

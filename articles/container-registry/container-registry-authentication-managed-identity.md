@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/16/2019
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7a0598e2dfc82ea057a044fb50a1cf5a74fbab61
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 14ad1b17559009de9bb37fc224d081d218e444ec
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529301"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195452"
 ---
 <!--Verify successfully-->
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 托管标识向 Azure 容器注册表验证身份 
@@ -178,7 +178,7 @@ az role assignment create --assignee $spID --scope $resourceID --role acrpull
 
 通过 SSH 连接到配置了标识的 Docker 虚拟机。 使用 VM 上安装的 Azure CLI 运行以下 Azure CLI 命令。
 
-首先，使用在 VM 上配置的标识，通过 [az login][az-login] 在 Azure CLI 中进行身份验证。 对于 \<userID\>，请将其替换为在上一步中检索到的标识 ID。 
+首先，使用在 VM 上配置的标识，通过 [az login][az-login] 在 Azure CLI 中进行身份验证。 对于 `<userID>`，请替换成在上一步中检索到的标识 ID。 
 
 ```azurecli
 az login --identity --username <userID>

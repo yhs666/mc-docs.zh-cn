@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 的定价层
-description: 本文介绍 Azure Database for PostgreSQL 的定价层。
+title: Azure Database for PostgreSQL - 单一服务器的定价层
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器的定价层。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: eee7e77efcd1079867162d69312e9d44d0db2c13
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: a1ade9ac0b7b3133848b3d1aa74b7e7d7eb2030b
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855445"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731915"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Azure Database for PostgreSQL 定价层
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的定价层
 
 可以在以下三个不同的定价层之一中创建 Azure Database for PostgreSQL 服务器：“基本”、“常规用途”和“内存优化”。 定价层的差异表现在可以预配的 vCore 中的计算量、每个 vCore 的内存，以及用于存储数据的存储技术。 所有资源都在 PostgreSQL 服务器级别预配。 一个服务器可以有一个或多个数据库。
 

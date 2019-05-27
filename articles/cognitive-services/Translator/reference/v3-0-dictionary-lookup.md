@@ -3,20 +3,20 @@ title: 文本翻译 API 字典查找方法
 titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API 字典查找方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 03/29/2018
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: cfb0812b6958899a2f7f1a127a2808ceb4ffb4b2
-ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
+ms.openlocfilehash: f763d9807218751ee2b65e5e2fec8691d7da848b
+ms.sourcegitcommit: 2312c8153c559ed1a235d029c7522283d9c92864
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529044"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65730989"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>文本翻译 API 3.0：字典查找
 
@@ -57,8 +57,8 @@ https://api.translator.azure.cn/dictionary/lookup?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td><em>授权</em><br/><em>headers</em></td>
-    <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
+    <td>身份验证标头</td>
+    <td>必需的请求标头。<br/>请参阅<a href="/cognitive-services/translator/reference/v3-0-reference#authentication">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -211,4 +211,6 @@ curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&
     }
 ]
 ```
+
+<!-- Update_Description: wording update -->
 

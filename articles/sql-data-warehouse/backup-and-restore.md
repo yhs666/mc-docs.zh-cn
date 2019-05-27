@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 03/01/2019
-ms.date: 04/29/2019
+origin.date: 04/30/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 41dfdd3194013fe8472d0a053f3d1a9177b20f1d
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: a898a4b1bed2fb02f78e659b0879bcdaa19b8103
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854869"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828831"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 
@@ -78,7 +78,7 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 
 如果使用的是异地冗余存储，则会单独收取异地存储费。 异地冗余存储按标准的读取访问异地冗余存储 (RA-GRS) 费率计费。
 
-有关 SQL 数据仓库定价的详细信息，请参阅 [SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。
+有关 SQL 数据仓库定价的详细信息，请参阅 [SQL 数据仓库定价](https://www.azure.cn/pricing/details/sql-data-warehouse/)。 跨区域还原时，不会对数据流出量收费。
 
 ## <a name="restoring-from-restore-points"></a>从还原点还原
 

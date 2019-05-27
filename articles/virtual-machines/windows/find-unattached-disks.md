@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 8fec7c6036e6ad213e255d20795ca79a60451bd4
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 92d4b4449264ea67062ff26628048bfa90bb5ef4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003900"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004119"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>查找并删除未连接的 Azure 托管和非托管磁盘
 
@@ -93,7 +93,6 @@ foreach($storageAccount in $storageAccounts){
             }
         }
     }
-
 }
 ```
 

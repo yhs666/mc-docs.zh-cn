@@ -1,5 +1,5 @@
 ---
-title: 适用于 Azure 的 Desired State Configuration 概述
+title: Azure Desired State Configuration 扩展处理程序简介 | Azure
 description: 了解如何使用 PowerShell Desired State Configuration (DSC) 的 Azure 扩展处理程序。 本文包括先决条件、体系结构和 cmdlet。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 origin.date: 05/02/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 98409e371e68c4c2b37297d04c585853b2738b78
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ea0bac1138a4bde5682f82521070bdf8e45fdfc4
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626649"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835603"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Azure Desired State Configuration 扩展处理程序简介
 
@@ -77,7 +77,7 @@ Azure DSC 扩展包括一个默认配置脚本，该脚本计划在对 Azure Aut
 
 可以在 [Azure 门户](../../automation/automation-dsc-onboarding.md#azure-portal)中或者使用 PowerShell 查看此信息。
 
-```PowerShell
+```powershell
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
 (Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
 ```
@@ -143,7 +143,7 @@ $storageName = 'demostorage'
 #Publish the configuration script to user storage
 Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupName $resourceGroup -StorageAccountName $storageName -force
 #Set the VM to run the DSC configuration
-Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
+Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate -ConfigurationName 'IISInstall'
 ```
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 部署

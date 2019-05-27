@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 使用人脸 API 中的大规模功能。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 origin.date: 03/01/2018
-ms.date: 10/23/2018
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: ae2c6ea19ee39c93fc617aafa6f93c257c95c771
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b2ad510980c58fa64b67b5c6624dc3aa124db374
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52667146"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668914"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>示例：如何使用大规模功能
 
@@ -38,12 +38,12 @@ LargePersonGroup 最多可以包含 1,000,000 人，每人最多 248 张面部�
 
 ## <a name="concepts"></a>概念
 
-如果不熟悉本指南中的以下概念，可在[术语表](../Glossary.md)中找到相关定义：
+在继续操作之前，你应当先熟悉以下概念：
 
 - LargePersonGroup：人员集合，容量高达 1,000,000。
 - LargeFaceList：人脸集合，容量高达 1,000,000。
-- 定型：一个预处理过程，用于确保 Identification/FindSimilar 的性能。
-- Identification：从 PersonGroup 或 LargePersonGroup 中识别一张或多张人脸。
+- 训练：一个预处理过程，用于确保 Identification/FindSimilar 的性能。
+- 识别：从 PersonGroup 或 LargePersonGroup 中识别一张或多张人脸。
 - FindSimilar：从 FaceList 或 LargeFaceList 中搜索相似的人脸。
 
 ## <a name="step-1-authorize-the-api-call"></a>步骤 1：授权 API 调用
@@ -211,7 +211,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 如上所示，数据管理和 FindSimilar 部分几乎一样。
 唯一的例外是，全新的预处理定型操作必须在 LargeFaceList 中完成，然后 FindSimilar 才能正常工作。
 
-## <a name="step-3-train-suggestions"></a>步骤 3：定型建议
+## <a name="step-3-train-suggestions"></a>步骤 3：训练建议
 
 尽管定型操作可加快 [FindSimilar](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 和 [Identification](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)，但定型时间非常煎熬，尤其是涉及大规模操作时。
 下表列出了不同规模的估计定型时间：
@@ -232,7 +232,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 应根据 LargeFaceList 的预期容量自定义时间间隔。
 
 同样的策略也适用于 LargePersonGroup。
-例如，当定型包含 1,000,000 人的 LargePersonGroup 时，`timeIntervalInMilliseconds` 可能为 60000（也称为 一分钟间隔）。
+例如，当定型包含 1,000,000 人的 LargePersonGroup 时，`timeIntervalInMilliseconds` 可能为 60000（1 分钟间隔）。
 
 ## <a name="step-32-small-scale-buffer"></a>步骤 3.2：小规模缓冲区
 
@@ -250,7 +250,7 @@ LargePersonGroup/LargeFaceList 中的人员/人脸仅在定型后才可搜索。
 1. 当缓冲区集合大小增加到阈值或在系统空闲时，创建新的缓冲区集合并触发对主集合的定型。
 1. 完成对主集合的定型后，删除旧的缓冲区集合。
 
-## <a name="step-33-standalone-training"></a>Step 3.3：独立定型
+## <a name="step-33-standalone-training"></a>步骤 3.3：独立训练
 
 如果可以介绍相对较长的时间延迟，则不需要在添加新数据后立即触发定型操作。
 相反，可从主逻辑中拆分定型操作并定期触发该操作。
@@ -295,8 +295,11 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 - LargePersonGroup 和 LargeFaceList 的工作原理类似于 PersonGroup/FaceList，但 LargeFaceList 需要使用定型操作。
 - 采取适当的定型策略，以对大规模数据集执行动态数据更新。
 
-## <a name="related-topics"></a>相关主题
+## <a name="next-steps"></a>后续步骤
 
-- [如何识别图像中的人脸](HowtoIdentifyFacesinImage.md)
+请遵循操作指南了解如何将人脸添加到 PersonGroup，或针对 PersonGroup 执行“识别”操作。
+
 - [如何添加人脸](how-to-add-faces.md)
+- [如何识别图像中的人脸](HowtoIdentifyFacesinImage.md)
 
+<!-- Update_Description: wording update -->

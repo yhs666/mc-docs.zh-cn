@@ -13,12 +13,12 @@ ms.reviewer: carlrab, jovanpop
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 7f4f1ffec83d27e44334828373ff876d3885901d
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: 39f5259d78a8a67965c4f1fd634fc9a5093441e0
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003480"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629248"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 
@@ -30,7 +30,7 @@ ms.locfileid: "59003480"
 > * 使用 PowerShell cmdlet 上传证书
 
 > [!IMPORTANT]
-> Azure SQL 数据库托管实例的透明数据加密在服务托管模式下工作。 迁移的证书仅用于还原 TDE 保护的数据库。 还原后不久，迁移的证书即会替换为不同的系统托管证书。
+> 迁移的证书仅用于还原 TDE 保护的数据库。 还原后不久，迁移的证书即会替换为不同的保护程序，可能是服务托管证书，也可能是密钥保管库中的非对称密钥，具体取决于在实例上设置的透明数据加密类型。
 
 ## <a name="prerequisites"></a>先决条件
 

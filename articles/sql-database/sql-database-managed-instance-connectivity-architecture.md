@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 04/16/2019
 ms.date: 04/29/2019
-ms.openlocfilehash: 43c9549b791a724f17a44d3fb0b36e6091421025
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: cf5c94911394d6d3bda857cb3429df5909f3d2d0
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855556"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629146"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -87,7 +87,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 
 在虚拟网络中的专用子网内部署托管实例。 该子网必须具有以下特征：
 
-- **专用子网：** 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该托管实例以外的其他任何资源，以后无法在该子网中添加资源。
+- **专用子网：** 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该托管实例以外的其他任何资源，以后无法在该子网中添加其他类型的资源。
 - **网络安全组 (NSG)**：与虚拟网络关联的 NSG 必须在其他任何规则的前面定义[入站安全规则](#mandatory-inbound-security-rules)和[出站安全规则](#mandatory-outbound-security-rules)。 当托管实例配置为使用重定向连接时，可以使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对托管实例数据终结点的访问。
 - **用户定义的路由 (UDR) 表：** 与虚拟网络关联的 UDR 表必须包含特定的[条目](#user-defined-routes)。
 - **没有服务终结点：** 不应将任何服务终结点与托管实例的子网相关联。 创建虚拟网络时，请务必禁用“服务终结点”选项。

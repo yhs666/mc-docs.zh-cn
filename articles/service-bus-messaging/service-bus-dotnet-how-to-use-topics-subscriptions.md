@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 81ab577e1b225b6e35dbd4e67613628183c0d5a2
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 8be0d510d4e221a160b66a636cc6b626488f8fdc
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544726"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609804"
 ---
 # <a name="get-started-with-service-bus-topics"></a>服务总线主题入门
 
@@ -27,24 +27,20 @@ ms.locfileid: "58544726"
 
 本教程涵盖以下步骤：
 
-1. 使用 Azure 门户创建服务总线命名空间。
-2. 使用 Azure 门户创建服务总线主题。
-3. 使用 Azure 门户创建该主题的服务总线订阅。
-4. 编写 .NET Core 控制台应用程序，向主题发送一组消息。
-5. 编写 .NET Core 控制台应用程序，从订阅接收这些消息。
+1. 编写 .NET Core 控制台应用程序，向主题发送一组消息。
+2. 编写 .NET Core 控制台应用程序，从订阅接收这些消息。
 
 ## <a name="prerequisites"></a>先决条件
 
-1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
-2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
-2. Azure 订阅。
-
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-subscriptions-portal](../../includes/service-bus-create-topics-subscriptions-portal.md)]
-
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以[激活 Visual Studio 或 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或者注册[免费试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
+    1. 创建一个服务总线**命名空间**。
+    2. 获取**连接字符串**。
+    3. 在此命名空间中创建一个**主题**。
+    4. 在此命名空间中创建对此主题的**一个订阅**。
+3. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
+4. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
+ 
 ## <a name="send-messages-to-the-topic"></a>将消息发送到主题
 
 为了将消息发送到主题中，请使用 Visual Studio 编写一个 C# 控制台应用程序。
@@ -204,7 +200,7 @@ ms.locfileid: "58544726"
 
 ## <a name="receive-messages-from-the-subscription"></a>从订阅接收消息
 
-若要接收刚发送的消息，请创建另一 .NET Core 控制台应用程序并安装 **Microsoft.Azure.ServiceBus** NuGet 包，类似于前面的发件人应用程序。
+若要接收你发送的消息，请创建另一个 .NET Core 控制台应用程序并安装 **Microsoft.Azure.ServiceBus** NuGet 包，类似于前面的发件人应用程序。
 
 ### <a name="write-code-to-receive-messages-from-the-subscription"></a>编写从订阅接收消息的代码
 

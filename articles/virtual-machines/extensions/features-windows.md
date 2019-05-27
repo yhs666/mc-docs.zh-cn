@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9896f6aebedb18ea395216832beb2cc91d67091
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b5e9ce6de72969d425694600e15ba8160e5b1950
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627166"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835613"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>适用于 Windows 的虚拟机扩展和功能
 
@@ -30,11 +30,14 @@ Azure 虚拟机 (VM) 扩展是小型应用程序，可在 Azure VM 上提供部�
 
 本文提供 VM 扩展的概述、使用 Azure VM 扩展的先决条件，以及有关如何检测、管理和删除 VM 扩展的指导。 本文提供的是概况信息，因为有许多 VM 扩展可用，每个扩展可能具有独特的配置。 扩展特定的详细信息可在每个特定于单个扩展的文档中找到。
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="use-cases-and-samples"></a>用例和示例
 
 有许多不同的 Azure VM 扩展可用，每个都有特定用例。 示例包括：
 
 - 使用适用于 Windows 的 DSC 扩展将 PowerShell 所需状态配置应用到 VM。 有关详细信息，请参阅 [Azure Desired State configuration extension](dsc-overview.md)（Azure Desired State Configuration 扩展）。
+- 使用 Azure Monitoring Agent VM 扩展配置 VM 监视功能。
     <!--Not Available on [Connect Azure VMs to Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md)-->
 - 使用 Chef 配置 Azure VM。 有关详细信息，请参阅[使用 Chef 自动执行 Azure VM 部署](../windows/chef-automation.md)。
 - 使用 Datadog 扩展配置 Azure 基础结构监视功能。 有关详细信息，请参阅 [Datadog 博客](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)。
@@ -348,7 +351,7 @@ AutoUpgradeMinorVersion     : True
 
 以下故障排除步骤适用于所有 VM 扩展。
 
-1. 若要检查 Windows 来宾代理日志，请在预配扩展时查看 *C:\WindowsAzure\Logs\WaAppAgent.txt* 中的活动
+1. 若要查看 Windows 来宾代理日志，请在预配扩展时查看 *C:\WindowsAzure\Logs\WaAppAgent.txt* 中的活动
 
 2. 查看 *C:\WindowsAzure\Logs\Plugins\<extensionName>* 中的实际扩展日志，以了解更多详细信息
 

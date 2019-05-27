@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 9869e53c6b300cf990532be84df04ef15cb2ca19
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: bfae9d3bde3791aa0dc01d4e87f5f1873dffe40e
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555656"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828541"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 门户中创建新的 LUIS 应用
 可通过多种方法创建 LUIS 应用。 可以在 [LUIS](https://www.luis.ai) 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 创建。
@@ -66,10 +66,19 @@ ms.locfileid: "65555656"
 
 * 已存在具有该名称的应用。 重新导入应用，并将“可选名称”设置为新名称。 
 
-## <a name="export-app"></a>导出应用
+## <a name="export-app-for-backup"></a>导出用于备份的应用
 
-1. 在“我的应用”页，选择“导入新应用”。
-1. 在“导入新应用”对话框中，选择定义 LUIS 应用的 JSON 文件。
+1. 在“我的应用”页上，选择“导出”。
+1. 选择“导出为 JSON”。 浏览器下载应用的有效版本。
+1. 将此文件添加到备份系统，对模型存档。
+
+## <a name="export-app-for-containers"></a>导出容器的应用
+
+1. 在“我的应用”页上，选择“导出”。
+1. 选择“导出为容器”，然后选择要导出的已发布槽（生产或过渡）。
+1. 将此文件与 [LUIS 容器](luis-container-howto.md)配合使用。 
+
+    若要导出一个已训练但尚未发布的模型，以便将其与 LUIS 容器配合使用，请转到“版本”页，从该处导出。 
 
 ## <a name="delete-app"></a>删除应用
 

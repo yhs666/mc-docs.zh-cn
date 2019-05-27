@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 02/12/2019
-ms.date: 03/26/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: ba8286de14081943ea8216e5a4fe5b1bd532c07e
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 86d94d0d9e4b822c325ef11a6384909d0ad11334
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505602"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598853"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-sdk-and-c"></a>快速入门：使用计算机视觉 SDK 和 C# 生成缩略图
 
@@ -25,7 +25,7 @@ ms.locfileid: "58505602"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 若要使用计算机视觉，需要一个订阅密钥；请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 计算机视觉订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 * 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 客户端库 NuGet 包。 不需下载程序包。 下面提供了安装说明。
 

@@ -8,19 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-origin.date: 03/29/2019
-ms.date: 04/23/2019
+origin.date: 04/28/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4afbd977a960faefa5ac1a8a76dd520bef2f6d71
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 2ad3090e648a7af91510149907bbb67a96f14776
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854767"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668843"
 ---
 # <a name="face-api-release-notes"></a>人脸 API 发行说明
 
 本文适用于人脸 API 服务 1.0 版。
+
+### <a name="release-changes-in-april-2019"></a>2019 年 4 月版本更改
+
+* 提高了 `age` 和 `headPose` 属性的总体准确性。 此外还更新了 `headPose` 属性，`pitch` 值现已启用。 使用这些属性的方法是在[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` 参数的 `returnFaceAttributes` 参数中指定它们。 
+
+* 提高了[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)和 [LargePersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)的速度。
 
 ### <a name="release-changes-in-march-2019"></a>2019 年 3 月版本更改
 
@@ -28,7 +34,7 @@ ms.locfileid: "64854767"
 
 ### <a name="release-changes-in-january-2019"></a>2019 年 1 月的发布更改
 
-* 添加了快照功能以支持跨订阅的数据迁移：[快照](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot)。
+* 添加了快照功能以支持跨订阅的数据迁移：[快照](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get)。 如需更多详细信息，请参阅[如何将人脸数据迁移到其他人脸订阅](Face-API-How-to-Topics/how-to-migrate-face-data.md)。
 
 ### <a name="release-changes-in-october-2018"></a>2018 年 10 月的发布更改
 
@@ -87,3 +93,4 @@ ms.locfileid: "64854767"
 
 * 于 2016 年 6 月 30 日弃用了人脸 API 的 V0 终结点。
 
+<!-- Update_Description: wording update -->

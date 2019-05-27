@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 12/04/2018
-ms.date: 04/29/2019
+origin.date: 4/26/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 2434f033865b65fae2c064146c49684f6ab07f9b
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 556c51a1d136066d476f54998d4369427aefad51
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855608"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828836"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -58,8 +58,7 @@ ms.locfileid: "64855608"
 ## <a name="polybase"></a>Polybase
 | 问题                                           | 解决方法                                                   |
 | :---------------------------------------------- | :----------------------------------------------------------- |
-| 由于行大加载失败                | 目前 Polybase 不提供大型行支持。  这意味着，如果你的表包含 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX)，则无法使用外部表加载数据。  目前仅支持通过 Azure 流分析、SSIS、BCP 或 .NET SQLBulkCopy 类加载大型行。 未来版本会添加对大型行的 PolyBase 支持。 |
-| 使用 bcp 加载包含 MAX 数据类型的表失败 | 有一个已知问题，它要求在某些情况下将 VARCHAR(MAX)、NVARCHAR(MAX) 或 VARBINARY(MAX) 放置在表的末尾。  请尝试将 MAX 列移到表的末尾。 |
+| 使用 TINYINT 和 DATE 类型时导出失败             | 对于 Parquet 和 ORC 文件格式，DATE 类型的值必须介于 1970-01-01 00:00:01 UTC 和 2038-01-19 03:14:07 之间。 TINYINT 类型的值必须介于 0-127 之间。    |
 
 ## <a name="differences-from-sql-database"></a>与 SQL 数据库的差异
 | 问题                                 | 解决方法                                                   |

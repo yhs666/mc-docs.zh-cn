@@ -14,13 +14,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 04/08/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 740380eb719802a42f2f8e6b16363a0a1ddf50ec
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/20/2019
+ms.openlocfilehash: 88b241252932b5831e8be93e37c721a97e756ce7
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529174"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629147"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -210,9 +210,15 @@ ms.locfileid: "59529174"
 
 - 有关审核日志使用方法的完整列表，请参阅 [SQL 数据库审核入门](sql-database-auditing.md)。
 
-### <a name="consume-logs-stored-in-event-hub"></a>使用存储在事件中心中的日志
+### <a name="consume-logs-stored-in-event-hub"></a>使用在事件中心中存储的日志
 
 若要使用事件中心的审核日志数据，需设置一个流来使用事件并将其写入到目标。 有关详细信息，请参阅 Azure 事件中心文档。
+
+### <a name="consume-and-analyze-logs-stored-in-azure-monitor-logs"></a>使用和分析存储在 Azure Monitor 日志中的日志
+
+如果将审核日志写入到 Azure Monitor 日志，则可以在 Log Analytics 工作区中使用它们，可以在其中对审核数据运行高级搜索。 首先，导航到 Log Analytics 工作区，在“常规”部分下单击“日志”，然后输入一个简单查询（例如：`search "SQLSecurityAuditEvents"`）以查看审核日志。  
+
+有了 Azure Monitor 日志，就可以使用集成的搜索和自定义仪表板来轻松分析所有工作负荷和服务器上的数百万记录，获得实时操作见解。 有关 Azure Monitor 日志搜索语言和命令的其他有用信息，请参阅 [Azure Monitor 日志搜索参考](/azure-monitor/log-query/log-query-overview)。
 
 ## <a name="auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server"></a>Azure SQL 数据库中的数据库与 SQL Server 中的数据库之间的审核差异
 

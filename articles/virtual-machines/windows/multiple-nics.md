@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/26/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 87f59795017361132fe78dc0d2e80f0ce70d35b9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 4fe4e145d09734867c93702e74d2cbcd7a5d474a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665830"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004115"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
 Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接设置不同的子网。 可以将 VM 上的多个 NIC 关联到多个子网，但这些子网必须全都位于同一个虚拟网络 (vNet) 中。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -29,7 +29,7 @@ Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种�
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>创建具有多个 NIC 的 VM
 首先创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
@@ -266,9 +266,9 @@ Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络�
 
     子网的网关地址是为该子网定义的地址范围中的第一个 IP 地址（以 .1 结尾）。 如果不想路由子网外部的所有流量，可改为向特定目标添加单独的路由。 例如，如果只想将流量从辅助网络接口路由到 192.168.3.0 网络，请输入以下命令：
 
-      ```
-      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
-      ```
+    ```
+    route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+    ```
 
 4. 例如，若要确认与 192.168.3.0 网络中资源的通信是否成功，请输入以下命令使用接口 7 (192.168.2.4) 对 192.168.3.4 执行 ping 操作：
 
@@ -278,9 +278,9 @@ Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络�
 
     可能需要使用以下命令通过正在 ping 的设备的 Windows 防火墙打开 ICMP：
 
-      ```
-      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
-      ```
+    ```
+    netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+    ```
 
 5. 若要确认已添加的路由是否在路由表中，请输入 `route print` 命令，它将返回一个类似于以下文本的输出：
 

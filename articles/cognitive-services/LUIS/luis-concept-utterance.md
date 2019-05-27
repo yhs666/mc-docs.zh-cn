@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: fe2ff983c0a112b42709ab3bcfd0154ced5782ca
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 47567096b62845de1dc87f8ff5be61002f4e110a
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555715"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828527"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -74,13 +74,47 @@ LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 �
 
 最好先从几个陈述开始，然后[审查终结点陈述](luis-how-to-review-endpoint-utterances.md)以进行正确的意向预测和实体提取。
 
-## <a name="punctuation-marks"></a>标点符号
+## <a name="utterance-normalization"></a>话语规范化
 
-默认情况下，LUIS 不会忽略标点符号，因为某些客户端应用程序可能会对这些标记赋予含义。 确保示例话语使用“标点”和“无标点”，以便两种样式都返回相同的相对分数。 如果标点在你的客户端应用程序中没有特定含义，请考虑使用模式[忽略标点](#ignoring-words-and-punctuation)。 
+话语规范化是指在训练和预测期间忽略标点和音调符号的影响这一过程。
 
-## <a name="ignoring-words-and-punctuation"></a>忽略单词和标点
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>音调符号和标点的话语规范化
 
-如果想要忽略示例陈述中的特定单词或标点符号，请在 _ignore_ 语法中使用[模式](luis-concept-patterns.md#pattern-syntax)。 
+话语规范化是在你创建或导入应用时定义的，因为它是应用 JSON 文件中的设置。 话语规范化设置默认关闭。 
+
+音调符号是文本中的标记或符号，例如： 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+如果应用打开规范化，则对于使用音调符号或标点的所有话语来说，“测试”窗格、批量测试和终结点查询中的分数会变化。
+
+在 `settings` 参数中针对 LUIS JSON 应用文件的音调符号或标点打开话语规范化。
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+规范化**标点**是指在训练模型和预测终结点查询之前，从话语中删除标点。 
+
+规范化**音调符号**是指将话语中带音调符号的字符替换为常规字符。 例如：`Je parle français` 变成了 `Je parle francais`。 
+
+规范化不是指不会在示例话语或预测响应中看到标点和音调符号，而是指在训练和预测过程中会将其忽略。
+
+
+### <a name="punctuation-marks"></a>标点符号
+
+如果标点未规范化，则默认情况下，LUIS 不会忽略标点符号，因为某些客户端应用程序可能会对这些标记赋予含义。 确保示例话语使用“标点”和“无标点”，以便两种样式都返回相同的相对分数。 
+
+如果标点在客户端应用程序中没有特定含义，请考虑通过规范化标点来[忽略标点](#utterance-normalization)。 
+
+### <a name="ignoring-words-and-punctuation"></a>忽略单词和标点
+
+若要忽略模式中的特定单词或标点，请将 [pattern](luis-concept-patterns.md#pattern-syntax) 与方括号 `[]` 的 _ignore_ 语法配合使用。 
 
 ## <a name="training-utterances"></a>训练陈述
 

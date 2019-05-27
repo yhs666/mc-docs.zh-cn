@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/11/2019
-ms.date: 03/26/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 1ee8afd90627e53e2054e981300740ef2c951df8
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 66e8f7678bf15b27f06a23fc5eb5357d0886d891
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505552"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598891"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 Node.js 提取印刷体文本 (OCR)
 
@@ -29,7 +29,7 @@ ms.locfileid: "58505552"
 
 - 必须安装有 [Node.js](https://nodejs.org) 4.x 或更高版本。
 - 必须安装有 [npm](https://www.npmjs.com/)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample"></a>创建并运行示例
 

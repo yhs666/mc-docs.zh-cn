@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/02/2019
-ms.date: 02/26/2019
+ms.date: 05/21/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 07571c6227afd1e6c5fd3306016b627b8c6e0f78
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 83c7ebe8d04040927dafe3c72fa64cd48682e630
+ms.sourcegitcommit: 932a335a0e5526ea70be496c393484702722f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836954"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65997330"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>查看 Azure 资源的 RBAC 更改的活动日志
 
-有时需要了解 Azure 资源的基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
+有时需要了解 Azure 资源的基于角色的访问控制 (RBAC) 更改，如出于审核或故障排除目的。 只要有人更改了你订阅中的角色分配或角色定义，这些更改就会被记录到 [Azure 活动日志](../azure-monitor/platform/activity-logs-overview.md)中。 可以查看活动日志，了解在过去 90 天内发生的所有 RBAC 更改。
 
 ## <a name="operations-that-are-logged"></a>记录的操作
 
@@ -38,13 +38,13 @@ ms.locfileid: "56836954"
 
 ## <a name="azure-portal"></a>Azure 门户
 
-最简单的入手方式就是使用 Azure 门户查看活动日志。 下面的屏幕截图展示了已筛选为显示角色分配和角色定义操作的活动日志示例。 它还包括一个能将日志下载为 CSV 文件的链接。
+最简单的入手方式就是使用 Azure 门户查看活动日志。 下面的屏幕截图展示了已筛选为显示角色分配和角色定义操作的活动日志示例。 它还包括一个用于将日志下载为 CSV 文件的链接。
 
 ![使用门户的活动日志 - 屏幕截图](./media/change-history-report/activity-log-portal.png)
 
 门户中的活动日志有多个筛选器。 下面是与 RBAC 相关的筛选器：
 
-|筛选器  |值  |
+|筛选器  |Value  |
 |---------|---------|
 |事件类别     | <ul><li>管理</li></ul>         |
 |操作     | <ul><li>创建角色分配</li> <li>删除角色分配</li> <li>创建或更新自定义角色定义</li> <li>删除自定义角色定义</li></ul>      |
@@ -67,7 +67,7 @@ Get-AzLog -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Act
 此命令列出过去 7 天内资源组中所有角色定义的更改：
 
 ```azurepowershell
-Get-AzLog -ResourceGroupName pharma-sales-projectforecast -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
+Get-AzLog -ResourceGroupName pharma-sales -StartTime (Get-Date).AddDays(-7) | Where-Object {$_.Authorization.Action -like 'Microsoft.Authorization/roleDefinitions/*'}
 ```
 
 此命令列出过去 7 天内订阅中所有角色分配和角色定义的更改，并在列表中显示结果：
@@ -89,7 +89,7 @@ EventTimestamp          : 4/20/2018 9:18:05 PM
 $_.Authorization.Action : Microsoft.Authorization/roleAssignments/write
 Properties              :
                           requestbody    : {"Id":"22222222-2222-2222-2222-222222222222","Properties":{"PrincipalId":"33333333-3333-3333-3333-333333333333","RoleDefinitionId":"/subscriptions/00000000-0000-0000-0000-000000000000/providers
-                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales-projectforecast"}}
+                          /Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c","Scope":"/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales"}}
 
 ```
 
@@ -100,7 +100,7 @@ Properties              :
 此命令列出从启动以来资源组中存在的活动日志：
 
 ```azurecli
-az monitor activity-log list --resource-group pharma-sales-projectforecast --start-time 2018-04-20T00:00:00Z
+az monitor activity-log list --resource-group pharma-sales --start-time 2018-04-20T00:00:00Z
 ```
 
 此命令列出从启动以来授权资源提供程序的活动日志：
@@ -110,7 +110,7 @@ az monitor activity-log list --resource-provider "Microsoft.Authorization" --sta
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- [在活动日志中查看事件](/azure-resource-manager/resource-group-audit)
-- [使用 Azure 活动日志监视订阅活动](/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [在活动日志中查看事件](/azure-resource-manager/resource-group-audit)
+* [使用 Azure 活动日志监视订阅活动](/monitoring-and-diagnostics/monitoring-overview-activity-logs)
 
 <!-- Update_Description: wording update -->

@@ -11,11 +11,11 @@ origin.date: 07/10/2017
 ms.author: v-yiso
 ms.date: 12/03/2018
 ms.openlocfilehash: a042a154d7d0619aa9e57b98b1cd1b9e26443450
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625156"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "66195035"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>计划和广播作业 (Java)
 

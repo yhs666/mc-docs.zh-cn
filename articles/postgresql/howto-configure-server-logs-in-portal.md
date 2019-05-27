@@ -1,24 +1,22 @@
 ---
-title: 在 Azure 门户中配置和访问 PostgreSQL 的服务器日志
-description: 本文介绍了如何从 Azure 门户配置和访问 Azure Database for PostgreSQL 中的服务器日志。
-services: postgresql
+title: 在 Azure 门户中配置和访问 Azure Database for PostgreSQL（单一服务器）的服务器日志
+description: 本文介绍了如何从 Azure 门户配置和访问 Azure Database for PostgreSQL（单一服务器）中的服务器日志。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-ms.date: 06/22/2018
-ms.openlocfilehash: 5fd430dfe057c6f9d6723dbe00752f30cf1bdbe5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 611d402b253fa209c919eb3ff03b2411a9bfd141
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656603"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732038"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问 Azure Database for PostgreSQL（单一服务器）日志
 
-可以从 Azure 门户配置、列出和下载 [Azure Database for PostgreSQL 服务器日志](concepts-server-logs.md)。
+可以从 Azure 门户配置、列出和下载 [Azure Database for PostgreSQL 日志](concepts-server-logs.md)。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
@@ -27,11 +25,11 @@ ms.locfileid: "52656603"
 ## <a name="configure-logging"></a>配置日志记录
 配置对查询日志和错误日志的访问权限。 
 
-1. 登录到 [Azure 门户](http://portal.azure.cn/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
 2. 选择你的 Azure Database for PostgreSQL 服务器。
 
-3. 在侧栏中的“监视”部分下，选择“服务器日志”。 
+3. 在侧栏“监视”部分下，选择“服务器日志”。 
 
    ![选择服务器日志，然后选择“单击此处以启用...”](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
 
@@ -43,16 +41,16 @@ ms.locfileid: "52656603"
 
    ![参数的长列表，其中包含了要保存或丢弃的更改](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-6. 单击“服务器参数”页上的“关闭”按钮（X 图标）返回到日志列表。
+6. 单击服务器参数页上的“关闭”按钮（X 图标）返回到日志列表。
 
 ## <a name="view-list-and-download-logs"></a>查看列表并下载日志
-日志记录开始后，可以在“服务器日志”面板上查看可用日志列表并下载各个日志文件。 
+日志记录开始后，在“服务器日志”面板上可以查看可用日志列表，并下载单个日志文件。 
 
 1. 打开 Azure 门户。
 
 2. 选择你的 Azure Database for PostgreSQL 服务器。
 
-3. 在侧栏中的“监视”部分下，选择“服务器日志”。 此页面将显示日志文件列表，如图所示：
+3. 在侧栏“监视”部分下，选择“服务器日志”。 此页面将显示日志文件列表，如图所示：
 
    ![服务器日志列表](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
@@ -68,7 +66,7 @@ ms.locfileid: "52656603"
    ![单击“下载”图标](./media/howto-configure-server-logs-in-portal/6-download.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 若要了解如何以编程方式下载日志，请参阅[使用 CLI 访问服务器日志](howto-configure-server-logs-using-cli.md)。
+- 若要了解如何以编程方式下载日志，请参阅[在 CLI 中访问服务器日志](howto-configure-server-logs-using-cli.md)。
 - 详细了解 Azure DB for PostgreSQL 中的[服务器日志](concepts-server-logs.md)。 
 - 有关参数定义和 PostgreSQL 日志记录的详细信息，请参阅[错误报告和日志记录](https://www.postgresql.org/docs/current/static/runtime-config-logging.html)上的 PostgreSQL 文档。
 

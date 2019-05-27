@@ -1,21 +1,21 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中备份和还原服务器
-description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器。
+title: 如何在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
+description: 了解如何使用 Azure CLI 在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-origin.date: 04/01/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: f6ca1f1937a5b6911dbc3ade84cafe17c8ca191c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: fca411fa3b8087a11f6c3707632d65fd3dca82fc
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626167"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732002"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL 中备份和还原服务器
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
 
 ## <a name="backup-happens-automatically"></a>自动进行备份
 Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功能。 通过此功能，用户可将服务器及其所有数据库还原到新服务器上的某个较早时间点。

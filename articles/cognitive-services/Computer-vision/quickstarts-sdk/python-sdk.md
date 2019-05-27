@@ -1,22 +1,22 @@
 ---
 title: 快速入门：Python SDK
 titleSuffix: Azure Cognitive Services
-description: 本快速入门介绍如何使用 Python SDK 完成常见任务。
+description: 此快速入门中介绍了如何使用 Python SDK 执行常见任务，如分析图像、获取描述、识别文本和生成缩略图。
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/28/2019
-ms.date: 04/22/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 83093e5426430d0f4d573b72e636de58e6713817
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 52e9d960e546083532ea3b2ccdfadf476c0d77a0
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854836"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598845"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>适用于 Python 的 Azure 认知服务计算机视觉 SDK
 
@@ -39,7 +39,7 @@ ms.locfileid: "64854836"
 ## <a name="prerequisites"></a>先决条件
 
 * [Python 3.6+][python]
-* 计算机视觉密钥和关联的终结点 创建 [ComputerVisionClient][ref_computervisionclient] 客户端对象的实例时需要使用这些值。 使用以下其中一种方法获取这些值。
+* [计算机视觉密钥][computervision_resource]和关联的终结点。 创建 [ComputerVisionClient][ref_computervisionclient] 客户端对象的实例时需要使用这些值。 使用以下其中一种方法获取这些值。
 
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果你拥有 Azure 订阅
@@ -100,7 +100,7 @@ ACCT_NAME=<computervision-account-name>
 
 如果忘记了终结点和密钥，可以使用以下方法找到它们。 如需创建密钥和终结点，则可使用适用于 [Azure 订阅持有人](#if-you-have-an-azure-subscription)的方法，或者使用适用于[没有 Azure 订阅的用户](#if-you-dont-have-an-azure-subscription)的方法。
 
-使用 Azure powershell 在两个环境变量中填充计算机视觉帐户的**终结点**及其**密钥**之一（也可以在 [Azure 门户][azure_portal]中找到这些值）。 此代码片段已针对 Bash shell 格式化。
+使用以下 Azure CLI 代码片段在两个环境变量中填充计算机视觉帐户的**终结点**及其**密钥**之一（也可以在 [Azure 门户][azure_portal]中找到这些值）。 此代码片段已针对 Bash shell 格式化。
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
@@ -209,12 +209,13 @@ for caption in analysis.captions:
 
 ### <a name="get-text-from-image"></a>获取图像中的文本
 
-可以从图像中获取任何手写或打印的文本。 这需要对 SDK 进行两次调用：[`recognize_text`][ref_computervisionclient_recognize_text] 和 [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]。 对 recognize_text 的调用是异步的。 在 get_text_operation_result 调用的结果中，需要先使用 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] 检查第一次调用是否已完成，然后提取文本数据。 结果包括文本以及该文本的边框坐标。
+可以从图像中获取任何手写或打印的文本。 这需要对 SDK 进行两次调用：[`batch_read_file`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) 和 [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-)。 对 `batch_read_file` 的调用是异步的。 在 `get_read_operation_result` 调用的结果中，需要先使用 [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] 检查第一次调用是否已完成，然后提取文本数据。 结果包括文本以及该文本的边框坐标。
 
 ```Python
 # import models
 from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
@@ -223,7 +224,7 @@ custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -232,16 +233,17 @@ operationId = operationLocation[idLocation:]
 
 # SDK call
 while True:
-    result = client.get_text_operation_result(operationId)
+    result = client.get_read_operation_result(operationId)
     if result.status not in ['NotStarted', 'Running']:
         break
     time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
+    for textResult in result.recognition_results:
+        for line in textResult.lines:
+            print(line.text)
+            print(line.bounding_box)
 ```
 
 ### <a name="generate-thumbnail"></a>生成缩略图
@@ -307,12 +309,6 @@ except HTTPFailure as e:
 
 使用 [ComputerVisionClient][ref_computervisionclient] 客户端时，可能会遇到服务强制实施的[速率限制][computervision_request_units]所导致的暂时性错误，或者网络中断等其他暂时性问题。
 
-### <a name="more-sample-code"></a>更多示例代码
-
-SDK 的 GitHub 存储库中提供了多个计算机视觉 Python SDK 示例。 这些示例提供了在使用计算机视觉时经常遇到的其他场景的示例代码：
-
-* [recognize_text][recognize-text]
-
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
@@ -322,7 +318,7 @@ SDK 的 GitHub 存储库中提供了多个计算机视觉 Python SDK 示例。 �
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
+[azure_cli]: /cli/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_portal]: https://portal.azure.cn
 [azure_sub]: https://www.azure.cn/pricing/1rmb-trial/
 
@@ -339,6 +335,8 @@ SDK 的 GitHub 存储库中提供了多个计算机视觉 Python SDK 示例。 �
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
+[computervision_resource]: https://www.azure.cn/pricing/1rmb-trial/?
+
 [computervision_docs]: /cognitive-services/computer-vision/home
 
 [ref_computervisionclient]: https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -351,8 +349,6 @@ SDK 的 GitHub 存储库中提供了多个计算机视觉 Python SDK 示例。 �
 
 [ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
-
 [ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
 [ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -362,9 +358,6 @@ SDK 的 GitHub 存储库中提供了多个计算机视觉 Python SDK 示例。 �
 
 [ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
 
-[computervision_request_units]:https://www.azure.cn/pricing/details/cognitive-services
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-
+[computervision_request_units]:https://www.azure.cn/pricing/details/cognitive-services/
 
 <!-- Update_Description: wording update -->

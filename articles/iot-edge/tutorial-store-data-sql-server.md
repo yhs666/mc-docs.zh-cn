@@ -6,18 +6,20 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 03/28/2019
-ms.date: 04/22/2019
+ms.date: 05/27/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: d04ea49c0557e775fdf1776e825438589a3a9ba4
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 77351446ef35f2e4ec7fc441edaa0767c2b44912
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529351"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829344"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>教程：使用 SQL Server 数据库存储边缘中的数据
+
+部署 SQL Server 模块，以便在运行 Azure IoT Edge 的 Linux 设备上存储数据。
 
 使用 Azure IoT Edge 和 SQL Server 在边缘存储和查询数据。 Azure IoT Edge 有基本的存储功能，可以在设备脱机的情况下缓存消息，在重新建立连接后再转发这些消息。 不过，你可能需要更高级的存储功能，例如在本地查询数据的功能。 IoT Edge 设备可以使用本地数据库来执行更复杂的计算，而不需要与 IoT 中心保持连接。 
 
@@ -35,54 +37,24 @@ ms.locfileid: "59529351"
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure IoT Edge 设备：
+在开始学习本教程之前，你应该已经完成上一教程，了解如何设置用于开发 Linux 容器的开发环境：[开发适用于 Linux 设备的 IoT Edge 模块](tutorial-develop-for-linux.md)。 完成该教程后，已应准备好以下必备组件： 
 
-* 可以按照适用于 [Linux](quickstart-linux.md) 的快速入门中的步骤，将 Azure 虚拟机用作 IoT Edge 设备。
-* SQL Server 仅支持 Linux 容器。 若要将 Windows 设备用作 IoT Edge 设备来测试本教程，必须对其进行配置，使之使用 Linux 容器。 请参阅[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)，了解为 Windows 上的 Linux 容器配置 IoT Edge 运行时所需完成的先决条件和安装步骤。
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
+* 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
+* 一个容器注册表，例如 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
+* 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 
-云资源：
+本教程使用 Azure Functions 模块将数据发送到 SQL Server。 若要通过 Azure Functions 开发 IoT Edge 模块，请在开发计算机上安装下述额外的必备组件： 
 
-* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
-
-开发资源：
-
-* [Visual Studio Code](https://code.visualstudio.com/)。 
 * [适用于 Visual Studio Code 的 C#（由 OmniSharp 提供支持）扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 
-* [适用于 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。 
-* [Docker CE](https://docs.docker.com/install/)。 
-  * 如果在 Windows 计算机上进行开发，请务必将 Docker [配置为使用 Linux 容器](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)。 
-
-## <a name="create-a-container-registry"></a>创建容器注册表
-
-本教程将使用适用于 Visual Studio Code 的 Azure IoT 工具来生成模块并从文件创建**容器映像**。 然后将该映像推送到用于存储和管理映像的**注册表**。 最后，从注册表部署在 IoT Edge 设备上运行的映像。  
-
-可以使用任意兼容 Docker 的注册表来保存容器映像。 两个常见 Docker 注册表服务分别是 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)和 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教程使用 Azure 容器注册表。 
-
-如果还没有容器注册表，请执行以下步骤，以便在 Azure 中创建一个新的：
-
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “容器” > “容器注册表”。
-
-2. 提供以下值，以便创建容器注册表：
-
-   | 字段 | 值 | 
-   | ----- | ----- |
-   | 注册表名称 | 提供唯一名称。 |
-   | 订阅 | 从下拉列表中选择“订阅”。 |
-   | 资源组 | 建议对在 IoT Edge 快速入门和教程中创建的所有测试资源使用同一资源组。 例如，**IoTEdgeResources**。 |
-   | 位置 | 选择靠近你的位置。 |
-   | 管理员用户 | 设置为“启用”。 |
-   | SKU | 选择“基本”。 | 
-
-5. 选择“创建”。
-
-6. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
-
-7. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值来访问容器注册表。 
 
 ## <a name="create-a-function-project"></a>创建函数项目
 
 若要将数据发送到数据库中，需要通过一个模块将数据进行适当的结构化并存储在表中。 
+
+### <a name="create-a-new-project"></a>创建新项目
 
 以下步骤将介绍如何使用 Visual Studio Code 和 Azure IoT 工具来创建 IoT Edge 函数。
 
@@ -90,7 +62,7 @@ Azure IoT Edge 设备：
 
 2. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
 
-3. 在命令面板中，键入并运行 **`Azure IoT Edge: New IoT Edge Solution`** 命令。 在命令面板中提供以下信息，以便创建解决方案： 
+3. 在命令面板中，键入并运行“Azure IoT Edge: New IoT Edge solution”命令。 在命令面板中提供以下信息，以便创建解决方案： 
 
    | 字段 | 值 |
    | ----- | ----- |
@@ -102,20 +74,23 @@ Azure IoT Edge 设备：
 
    VS Code 窗口将加载你的 IoT Edge 解决方案空间。 
    
-4. 在你的 IoT Edge 解决方案中，打开 \.env 文件。 
+### <a name="add-your-registry-credentials"></a>添加注册表凭据
 
-   只要你创建新的 IoT Edge 解决方案，VS Code 就会提示你在 \.env 文件中提供注册表凭据。 此文件会被 git 忽略，IoT Edge 扩展会在以后使用它，以便通过注册表访问 IoT Edge 设备。 
+环境文件存储容器注册表的凭据，并将其与 IoT Edge 运行时共享。 此运行时需要这些凭据才能将专用映像拉取到 IoT Edge 设备中。
 
-   如果你在上一步骤中未提供容器注册表而是接受了默认的 localhost:5000，则不会具有 \.env 文件。
+1. 在 VS Code 资源管理器中，打开 .env 文件。
+2. 使用从 Azure 容器注册表复制的 **username** 和 **password** 值更新相关字段。
+3. 保存此文件。
 
-5. 在 .env 文件中，为 IoT Edge 运行时提供注册表凭据，使之能够访问模块映像。 找到 **CONTAINER_REGISTRY_USERNAME** 和 **CONTAINER_REGISTRY_PASSWORD** 部分并在等号后插入你的凭据： 
+### <a name="select-your-target-architecture"></a>选择目标体系结构
 
-   ```env
-   CONTAINER_REGISTRY_USERNAME_yourregistry=<username>
-   CONTAINER_REGISTRY_PASSWORD_yourregistry=<password>
-   ```
+目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的 C 模块。 需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认设置为 Linux AMD64。 
 
-6. 保存 .env 文件。
+1. 打开命令面板并搜索 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或者选择窗口底部边栏中的快捷方式图标。 
+
+2. 在命令面板中，从选项列表中选择目标体系结构。 本教程将使用 Ubuntu 虚拟机作为 IoT Edge 设备，因此将保留默认设置 **amd64**。 
+
+### <a name="update-the-module-with-custom-code"></a>使用自定义代码更新模块
 
 7. 在 VS Code 资源管理器中，打开“modules” > “sqlFunction” > “sqlFunction.cs”。
 
@@ -232,7 +207,7 @@ Azure IoT Edge 设备：
 
 2. 在命令面板中，键入并运行 **Azure IoT Edge:** Add IoT Edge module”。 在命令面板中，提供以下信息以添加新模块： 
 
-   | 字段 | 值 | 
+   | 字段 | Value | 
    | ----- | ----- |
    | 选择部署模板文件 | 命令面板会突出显示当前解决方案文件夹中的 deployment.template.json 文件。 选择该文件。  |
    | 选择模块模板 | 选择“Azure 市场中的模块”。 |
@@ -276,19 +251,11 @@ Azure IoT Edge 设备：
 
 可以通过 IoT 中心设置设备上的模块，但是也可以通过 Visual Studio Code 访问 IoT 中心和设备。 在此部分，请先设置对 IoT 中心的访问权限，然后使用 VS Code 将解决方案部署到 IoT Edge 设备。 
 
-1. 在 VS Code 命令面板中，选择 **`Azure IoT Hub: Select IoT Hub`**。
+1. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
 
-2. 根据提示登录到 Azure 帐户。 
+2. 右键单击要将其作为部署目标的设备，然后选择“为单个设备创建部署”。 
 
-3. 在命令面板中选择 Azure 订阅，然后选择 IoT 中心。 
-
-4. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
-
-5. 右键单击要将其作为部署目标的设备，然后选择“为单个设备创建部署”。 
-
-   ![为单个设备创建部署](./media/tutorial-store-data-sql-server/create-deployment.png)
-
-6. 在文件资源管理器中导航到解决方案中的 **config** 文件夹，然后选择 **deployment.amd64**。 单击“选择 Edge 部署清单”。 
+3. 在文件资源管理器中导航到解决方案中的 **config** 文件夹，然后选择 **deployment.amd64**。 单击“选择 Edge 部署清单”。 
 
    请不要使用 deployment.template.json 文件作为部署清单。
 
@@ -361,7 +328,7 @@ Azure IoT Edge 设备：
 
 本教程介绍了如何创建 Azure Functions 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备以后，即可详细了解如何[使用用于 Visual Studio Code 的 Azure IoT Edge 开发 Azure Functions](how-to-develop-csharp-function.md)。 
 
-继续阅读后续教程，了解如何使用 Azure IoT Edge 通过其他方式将数据转化为边缘业务见解。
+若要在边缘上尝试另一存储方法，请了解如何在 IoT Edge 上使用 Azure Blob 存储。 
 
 > [!div class="nextstepaction"]
-> [使用 C# 代码筛选传感器数据](tutorial-csharp-module.md)
+> [通过 IoT Edge 上的 Azure Blob 存储在边缘存储数据](how-to-store-data-blob.md)

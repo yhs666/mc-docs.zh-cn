@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
 origin.date: 02/20/2019
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6f3278451b28b3d59cd410750f935b1f92b449c5
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f791b679f9a1f86a63b398561ad7f9c33c5ed211
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964443"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668917"
 ---
 # <a name="what-is-the-azure-face-api"></a>什么是 Azure 人脸 API？
 
@@ -25,18 +25,18 @@ Azure 人脸 API 服务是一项认知服务，其提供的算法可用于检测
 
 ## <a name="face-detection"></a>人脸检测
 
-人脸 API 可以检测图像中的人脸，并返回其位置的矩形坐标。 人脸检测还可提取一系列人脸相关属性，例如身体姿势、头部姿势、性别、年龄、情感、面部毛发和眼镜。
+人脸 API 可以检测图像中的人脸，并返回其位置的矩形坐标。 人脸检测还可提取一系列人脸相关属性，例如头部姿势、性别、年龄、情感、面部毛发和眼镜。
 
-> [!NOTE] 
+> [!NOTE]
 > 人脸检测功能也可通过[计算机视觉 API](/cognitive-services/computer-vision/home) 获取，但若要对人脸数据执行进一步的操作，则应使用人脸 API（本服务）。
 
 ![一位女士和一位男士的图像，在其面部绘制了矩形并显示了年龄和性别](./Images/Face.detection.jpg)
 
-有关人脸检测的详细信息，请参阅[人脸检测操作方法指南](face-api-how-to-topics/howtodetectfacesinimage.md)或浏览[检测 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 参考文档。
+有关人脸检测的详细信息，请参阅[人脸检测](concepts/face-detection.md)概念文章或浏览[检测 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) 参考文档。
 
 ## <a name="face-verification"></a>人脸验证
 
-验证 API 针对检测到的两个人脸执行身份验证，或由一个检测到的人脸对一个人员对象执行身份验证。 实际上，它会评估两张脸是否属于同一个人。 这可能适用于安全方案。 有关详细信息，请参阅[验证 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a)。
+验证 API 针对检测到的两个人脸执行身份验证，或由一个检测到的人脸对一个人员对象执行身份验证。 实际上，它会评估两张脸是否属于同一个人。 这可能适用于安全方案。 有关详细信息，请参阅[人脸识别](concepts/face-recognition.md)概念指南或[验证 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 参考文档。
 
 ## <a name="find-similar-faces"></a>查找相似人脸
 
@@ -50,11 +50,11 @@ Azure 人脸 API 服务是一项认知服务，其提供的算法可用于检测
 
 ![五位微笑的人的图像。 图像 a) 和 b) 为同一人](./Images/FaceFindSimilar.Candidates.jpg)
 
-为了查找四张相似的人脸，**matchPerson** 模式会返回 (a) 和 (b)，它们与目标人脸描述同一个人。 **matchFace** 模式返回 (a)、(b)、(c)、(d)，恰好四个候选项，即使某些选项与目标不是同一人或者相似度低，也是如此。 有关详细信息，请参阅[查找相似人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237)。
+为了查找四张相似的人脸，**matchPerson** 模式会返回 (a) 和 (b)，它们与目标人脸描述同一个人。 **matchFace** 模式返回 (a)、(b)、(c)、(d)，恰好四个候选项，即使某些选项与目标不是同一人或者相似度低，也是如此。 有关详细信息，请参阅[人脸识别](concepts/face-recognition.md)概念指南或[查找类似 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) 参考文档。
 
 ## <a name="face-grouping"></a>人脸分组
 
-组 API 会基于相似性将未知人脸的集合分为几组。 每个组是原始人脸集合的互不相交真子集。 一个组中的所有人脸可能属于同一人，但一个人可能有多个不同的组（按其他特征区分，例如按表情区分）。 有关详细信息，请参阅[组 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238)。
+组 API 会基于相似性将未知人脸的集合分为几组。 每个组是原始人脸集合的互不相交真子集。 一个组中的所有人脸可能属于同一人，但一个人可能有多个不同的组（按其他特征区分，例如按表情区分）。 有关详细信息，请参阅[人脸识别](concepts/face-recognition.md)概念指南或[组 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 参考文档。
 
 ## <a name="person-identification"></a>人员识别
 
@@ -66,7 +66,7 @@ Azure 人脸 API 服务是一项认知服务，其提供的算法可用于检测
 
 创建和训练数据库后，可以对组使用新检测到的人脸进行标识。 如果人脸被标识为组中的某一人员，则返回该人员对象。
 
-有关人员标识的详细信息，请参阅[标识 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)。
+有关人员识别的详细信息，请参阅[人脸识别](concepts/face-recognition.md)概念指南或[标识 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) 参考文档。
 
 ## <a name="sample-apps"></a>示例应用
 
@@ -77,11 +77,12 @@ Azure 人脸 API 服务是一项认知服务，其提供的算法可用于检测
 
 ## <a name="data-privacy-and-security"></a>数据隐私和安全性
 
-与所有认知服务一样，使用人脸服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices)来了解详细信息。
+与所有认知服务一样，使用人脸服务的开发人员应该了解 Microsoft 针对客户数据的政策。 请参阅 Microsoft 信任中心上的[“认知服务”页面](https://www.trustcenter.cn)来了解详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
 按照一个快速入门的说明，通过代码实现简单的人脸检测方案。
+
 - [快速入门：使用 .NET SDK 和 C# 检测图像中的人脸](quickstarts/csharp.md)（有其他语言可用）
 
 

@@ -7,15 +7,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 11/26/2018
-ms.date: 03/04/2019
+ms.date: 05/27/2019
 ms.author: v-jay
+ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: d7853004bf28af18658cc7713cdb45bc1d67f740
-ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.openlocfilehash: c1ac3e6fb72443ae134df8001bf8622a16e31012
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196562"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004238"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 
@@ -126,7 +127,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，将从[公共 GitHub 示例存储库](https://github.com/WenJason/storage-blob-upload-from-webapp)部署 Web 应用。 使用 [az webapp deployment source config](/cli/webapp/deployment/source) 命令配置 Web 应用的 GitHub 部署。
 
-示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 [Microsoft.WindowsAzure.Storage.Auth](/dotnet/api/microsoft.windowsazure.storage.auth?view=azure-dotnet) 命名空间与 Azure 存储进行交互。
+示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 Microsoft.WindowsAzure.Storage.Auth 命名空间与 Azure 存储进行交互。
 
 ```azurecli
 az webapp deployment source config --name $webapp \
@@ -254,7 +255,7 @@ public static async Task<bool> UploadFileToStorage(Stream fileStream, string fil
 在示例代码中，`post` 路由负责将图像上传到 Blob 容器中。 此路由使用模块来帮助处理上传：
 
 - [multer](https://github.com/expressjs/multer) 为路由处理程序实施上传策略。
-- [into-stream](https://github.com/sindresorhus/into-stream) 将缓冲区转换成 [createBlockBlobFromStream] 所需要的流。(http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
+- [into-stream](https://github.com/sindresorhus/into-stream) 将缓冲区转换成 [createBlockBlobFromStream] 所需要的流。(https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html)
 
 将文件发送到路由时，文件的内容仍保留在内存中，直至文件上传到 Blob 容器。
 
@@ -318,7 +319,7 @@ router.post('/', uploadStrategy, (req, res) => {
 在示例代码中，`post` 路由负责将图像上传到 Blob 容器中。 此路由使用模块来帮助处理上传：
 
 - [multer](https://github.com/expressjs/multer) 为路由处理程序实施上传策略。
-- [into-stream](https://github.com/sindresorhus/into-stream) 将缓冲区转换成 [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html) 所需要的流。
+- [into-stream](https://github.com/sindresorhus/into-stream) 将缓冲区转换成 [createBlockBlobFromStream](https://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html) 所需要的流。
 
 将文件发送到路由时，文件的内容仍保留在内存中，直至文件上传到 Blob 容器。
 

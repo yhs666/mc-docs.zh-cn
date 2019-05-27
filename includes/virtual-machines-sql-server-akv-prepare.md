@@ -11,15 +11,15 @@ ms.topic: include
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 04/30/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2a74ce64addc7fd74780c9d1cf89e6c2beae9321
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 08047a200e11faf25ed51e5607fd69ad74ab0beb
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004203"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004111"
 ---
 ## <a name="prepare-for-akv-integration"></a>准备 AKV 集成
 若要使用 Azure Key Vault 集成来配置 SQL Server VM，有以下几个先决条件： 
@@ -30,12 +30,14 @@ ms.locfileid: "59004203"
 
 以下各节描述了这些先决条件，以及稍后运行 PowerShell cmdlet 需要收集的信息。
 
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 <a name="install"></a>
-###  <a name="install-azure-powershell"></a>安装 Azure PowerShell
-请确保已安装最新的 Azure PowerShell SDK。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
+### <a name="install-azure-powershell"></a>安装 Azure PowerShell
+请确保已安装最新的 Azure PowerShell SDK。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a name="register"></a>
-###  <a name="register-an-application-in-your-azure-active-directory"></a>将应用程序注册到 Azure Active Directory
+### <a name="register-an-application-in-your-azure-active-directory"></a>将应用程序注册到 Azure Active Directory
 首先，订阅中需要有 Azure Active Directory (AAD)。 其优点之一是允许为特定用户和应用程序授予对密钥保管库的权限。
 
 <!-- Not Available on [Azure Active Directory] (https://www.azure.cn/trial/get-started-active-directory/)-->
@@ -56,7 +58,7 @@ ms.locfileid: "59004203"
 * 必须为此新的客户端 ID 授予以下访问权限：**获取**、**密钥换行**、**取消密钥换行**。 可通过 [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet 实现此操作。 有关详细信息，请参阅 [Azure 密钥保管库概述](../articles/key-vault/key-vault-overview.md)。
 
 <a name="createkeyvault"></a>
-###  <a name="create-a-key-vault"></a>创建密钥保管库
+### <a name="create-a-key-vault"></a>创建密钥保管库
 若要使用 Azure Key Vault 来存储将用于在 VM 中加密的密钥，将需要对密钥保管库的访问权限。 如果尚未设置密钥保管库，请按照[开始使用 Azure Key Vault](../articles/key-vault/key-vault-overview.md) 一文中的步骤创建一个。 在完成这些步骤之前，需要在设置期间收集一些信息，之后在 SQL VM 上启用 Azure Key Vault 集成时需要这些信息。
 
     New-AzKeyVault -VaultName 'ContosoKeyVault' -ResourceGroupName 'ContosoResourceGroup' -Location 'China East'

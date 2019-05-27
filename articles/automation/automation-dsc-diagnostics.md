@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 779e814c87761bd0222fd7195d813d1928dd3d69
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 2be778477dc6ac8a565298df20bacf3b9f6f19a2
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502602"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668812"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>将 Azure Automation State Configuration 报表数据转发到 Azure Monitor 日志
 
@@ -25,7 +25,6 @@ Azure Automation State Configuration 会将节点状态数据保留 30 天。
 可以使用 Azure Monitor 日志进行以下操作：
 
 - 获取托管节点和单个资源的符合性信息
-- 基于符合性状态触发电子邮件或警报
 - 跨托管节点编写高级查询
 - 跨自动化帐户关联符合性状态
 - 随着时间的推移，可视化节点符合性历史记录
@@ -86,24 +85,9 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 还可以通过在 Azure Monitor 日志中进行搜索来查看日志。
 请参阅[使用日志搜索查找数据](/azure-monitor/log-query/log-query-overview)。
-键入以下查询以查找 State Configuration 日志：
-`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus'`
+键入以下查询以查找 State Configuration 日志：`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus'`
 
-还可以通过操作名称缩小查询范围。 例如：
-`AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus' and OperationName=='DscNodeStatusData'`
-
-### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>State Configuration 符合性检查失败时发送一封电子邮件
-
-我们的一家重要客户提出的请求是，当 DSC 配置出现问题时能够发送电子邮件或短信。
-
-若要创建预警规则，需要首先针对应调用警报的 State Configuration 报表记录创建日志搜索。 单击“+ 新建警报规则”按钮以创建并配置警报规则。
-
-1. 在“Log Analytics 工作区概述”页中，单击“日志”。
-1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：  `AzureDiagnostics | where Category=='DscNodeStatus' and NodeName_s=='DSCTEST1' and OperationName=='DscNodeStatusData' and ResultType=='Failed'`
-
-   如果已设置在工作区中收集来自多个自动化帐户或订阅的日志，则可以按照订阅或自动化帐户来为警报分组。  
-   自动化帐户名称可能派生自 DscNodeStatusData 搜索中的 Resource 字段。  
-1. 若要打开“创建规则”屏幕，请单击页面顶部的“+ 新建警报规则”。 有关警报配置选项的详细信息，请参阅[创建警报规则](../azure-monitor/platform/alerts-metric.md)。
+还可以通过操作名称缩小查询范围。 例如： `AzureDiagnostics | where ResourceProvider=='MICROSOFT.AUTOMATION' and Category=='DscNodeStatus' and OperationName=='DscNodeStatusData'`
 
 ### <a name="find-failed-dsc-resources-across-all-nodes"></a>在所有节点中查找失败的 DSC 资源
 
@@ -111,7 +95,7 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 若要查找失败的 DSC 资源的所有实例。
 
 1. 在“Log Analytics 工作区概述”页中，单击“日志”。
-1. 在查询字段中键入以下搜索，针对警报创建日志搜索查询：  `AzureDiagnostics | where Category=='DscNodeStatus' and OperationName=='DscResourceStatusData' and ResultType=='Failed'`
+1. 通过在查询字段中键入以下搜索，创建一个日志搜索查询：`AzureDiagnostics | where Category=='DscNodeStatus' and OperationName=='DscResourceStatusData' and ResultType=='Failed'`
 
 ### <a name="view-historical-dsc-node-status"></a>查看历史 DSC 节点状态
 
@@ -192,7 +176,6 @@ Set-AzureRmDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Wo
 
 将 Automation State Configuration 数据发送到 Azure Monitor 日志后，可以通过以下操作更好地了解 Automation State Configuration 节点的状态：
 
-- 设置警报，以便在出现问题时通知你
 - 使用自定义视图和搜索查询直观地显示 Runbook 结果、Runbook 作业状态，以及其他相关的关键指标。  
 
 Azure Monitor 日志可以更直观地显示 Automation State Configuration 数据的运行情况，并且有助于更快地解决事件。

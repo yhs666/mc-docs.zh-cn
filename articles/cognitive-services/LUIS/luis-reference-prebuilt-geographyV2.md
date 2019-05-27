@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: db5f8e5bfdf56113533645dc90be7c3249cd648a
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 68068c7bf3fe202edd1ad3a100c5db2412b03bbb
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555601"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828506"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 GeographyV2 预生成实体
 预构建的 geographyV2 可以检测地点。 由于此实体已经过训练，因此不需要将包含 GeographyV2 的陈述示例添加到应用程序意向中。 GeographyV2 实体支持英语[区域性](luis-reference-prebuilt-entities.md)。
@@ -34,6 +34,9 @@ ms.locfileid: "65555601"
 
 
 ## <a name="resolution-for-geographyv2-entity"></a>GeographyV2 实体的解析
+
+### <a name="api-version-2x"></a>API 版本 2.x
+
 以下示例显示了 builtin.geographyV2 实体的解析。
 
 ```json
@@ -88,6 +91,104 @@ ms.locfileid: "65555601"
         }
     ]
 } 
+```
+
+### <a name="preview-api-version-3x"></a>预览版 API 版本 3.x
+
+以下 JSON 的 `verbose` 参数设置为 `false`：
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ]
+        }
+    }
+}
+```
+
+以下 JSON 的 `verbose` 参数设置为 `true`：
+
+```json
+{
+    "query": "Carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+    "prediction": {
+        "normalizedQuery": "carol is visiting the sphinx in gizah egypt in africa before heading to texas",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.5115521
+            }
+        },
+        "entities": {
+            "geographyV2": [
+                "the sphinx",
+                "gizah",
+                "egypt",
+                "africa",
+                "texas"
+            ],
+            "$instance": {
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "the sphinx",
+                        "startIndex": 18,
+                        "length": 10,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "gizah",
+                        "startIndex": 32,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "egypt",
+                        "startIndex": 38,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "africa",
+                        "startIndex": 47,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    },
+                    {
+                        "type": "builtin.geographyV2",
+                        "text": "texas",
+                        "startIndex": 72,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>后续步骤

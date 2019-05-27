@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72c194a362a13202633037adb6288d30d3a6b890
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 1fc46718ccd3b7d8243fcbf6c3ec3f7ded4f0bc4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004170"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004126"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -38,11 +38,11 @@ ms.locfileid: "59004170"
 
 本文介绍如何使用托管磁盘。 如果有需要使用存储帐户的旧版部署，请参阅[从存储帐户中的专用 VHD 创建 VM](sa-create-vm-specialized.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="option-1-use-an-existing-disk"></a>选项 1：使用现有磁盘
 
-如果你的 VM 已删除，并且你希望重复使用 OS 磁盘创建新 VM，请使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk?view=azurermps-6.8.1)。
+如果你的 VM 已删除，并且你希望重复使用 OS 磁盘创建新 VM，请使用 [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk)。
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'

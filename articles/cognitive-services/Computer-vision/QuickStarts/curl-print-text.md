@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/11/2019
-ms.date: 03/26/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: cb0ebb4f6b7b64eff03cf2ac0a59d500223a1554
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 14faf9a84d36fe4c13296e43801734e414b47f63
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505626"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598913"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-curl-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 cURL 提取印刷体文本 (OCR)
 
@@ -28,7 +28,7 @@ ms.locfileid: "58505626"
 ## <a name="prerequisites"></a>先决条件
 
 - 必须具有 [cURL](https://curl.haxx.se/windows)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="create-and-run-the-sample-command"></a>创建并运行示例命令
 

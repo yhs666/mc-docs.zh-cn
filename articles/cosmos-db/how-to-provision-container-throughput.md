@@ -4,39 +4,37 @@ description: 了解如何在 Azure Cosmos DB 中预配容器级别的吞吐量
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 11/06/2018
-ms.date: 03/04/2019
+origin.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: e4b0d5a988519c83b2d2944de33a103e7ea613e2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 351c6bf6007a6febc30381eb6d4763085d1e242f
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627662"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668912"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上预配吞吐量
 
-本文介绍如何在 Azure Cosmos DB 中为容器（集合）预配吞吐量。 可以为单个容器预配吞吐量，也可以[为数据库预配](how-to-provision-database-throughput.md)吞吐量，并在数据库中的容器之间共享。 可以使用 Azure 门户、Azure CLI 或 Azure CosmosDB SDK 为容器预配吞吐量。
+本文介绍如何在 Azure Cosmos DB 中为容器（集合、图形或表）预配吞吐量。 可以为单个容器预配吞吐量，也可以[为数据库预配吞吐量](how-to-provision-database-throughput.md)，并在数据库中的容器之间共享。 可以使用 Azure 门户、Azure CLI 或 Azure Cosmos DB SDK 为容器预配吞吐量。
 
-<!-- Not Available on graph, table-->
-
-## <a name="provision-throughput-by-using-azure-portal"></a>使用 Azure 门户预配吞吐量
+## <a name="provision-throughput-using-azure-portal"></a>使用 Azure 门户预配吞吐量
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. [创建新的 Azure Cosmos DB 帐户](create-sql-api-dotnet.md#create-a-database-account)或选择现有的帐户。
+1. [创建新的 Azure Cosmos 帐户](create-sql-api-dotnet.md#create-account)，或选择现有的 Azure Cosmos 帐户。
 
-3. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
+1. 打开“数据资源管理器”窗格，然后选择“新建集合”。 接下来，请提供以下详细信息：
 
-   * 表明要创建新数据库还是使用现有数据库。
-   * 输入集合 ID（或者表或图形）。
-   * 输入分区键值（例如 `/userid`）。
-   * 输入吞吐量（例如 1000 RU）。
-   * 选择“确定” 。
+    * 表明要创建新数据库还是使用现有数据库。
+    * 输入容器（或表或图）ID。
+    * 输入分区键值（例如 `/userid`）。
+    * 输入要预配的吞吐量（例如，1000 RU）
+    * 选择“确定” 。
 
-     ![数据资源管理器的屏幕截图，突出显示“新建集合”](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![数据资源管理器的屏幕截图，突出显示“新建集合”](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
-## <a name="provision-throughput-by-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
+## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
 
 ```azurecli
 # Create a container with a partition key and provision throughput of 1000 RU/s
@@ -49,19 +47,15 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-若要为 Azure Cosmos DB 帐户（使用用于 MongoDB 的 Azure Cosmos DB API 配置）预配吞吐量，请使用 `/myShardKey` 作为分区键路径。
-
-<!-- Not Available on  Cassandra API account, use '/myPrimaryKey' for the partition key path.-->
+若要在 Azure Cosmos DB 帐户（使用用于 MongoDB 的 Azure Cosmos DB API）为容器预配吞吐量，请使用 `/myShardKey` 作为分区键路径。 若要使用 Cassandra API 在 Azure Cosmos DB 帐户中为容器预配吞吐量，请使用 `/myPrimaryKey` 作为分区键路径。
 
 ## <a name="provision-throughput-by-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 
-<!-- Not Available on > [!Note]-->
-<!-- Not Available on > Use the SQL API to provision throughput for all APIs except for Cassandra API-->
+> [!Note]
+> 使用适用于 SQL API 的 Cosmos SDK 为除 Cassandra API 之外的所有 Cosmos DB API 预配吞吐量。
 
 <a name="dotnet-most"></a>
-### <a name="sql-and-mongodb-apis"></a>SQL 和 MongoDB API
-
-<!-- Not Availble on Gremlin, and Table APIs-->
+### <a name="sql-mongodb-gremlin-and-table-apis"></a>SQL、MongoDB、Gremlin 和表 API
 
 ```csharp
 // Create a container with a partition key and provision throughput of 1000 RU/s
@@ -76,13 +70,21 @@ await client.CreateDocumentCollectionAsync(
 ```
 
 <a name="dotnet-cassandra"></a>
-<!-- Not Available on ### Cassandra API-->
+### <a name="cassandra-api"></a>Cassandra API
+
+```csharp
+// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+session.Execute(CREATE TABLE myKeySpace.myTable(
+    user_id int PRIMARY KEY,
+    firstName text,
+    lastName text) WITH cosmosdb_provisioned_throughput=1000);
+```
 
 ## <a name="next-steps"></a>后续步骤
 
 请参阅以下文章，了解如何在 Azure Cosmos DB 中预配吞吐量：
 
-* [如何为数据库预配吞吐量](how-to-provision-database-throughput.md)
+* [如何预配数据库吞吐量](how-to-provision-database-throughput.md)
 * [Azure Cosmos DB 中的请求单位和吞吐量](request-units.md)
 
 <!-- Update_Description: update meta properties, wording update -->

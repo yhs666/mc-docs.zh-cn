@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: e8e0519079cb0bf807c1c5f0be482bb1142caafc
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/27/2019
+ms.openlocfilehash: d625ce11067f665d058b07c41a5524064324c463
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529214"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829153"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -47,11 +47,13 @@ ms.locfileid: "59529214"
 现在需创建“委派终结点”。 该终结点需执行多项操作：
 
 1. 接收以下形式的请求：
-
-   > http://www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL of source page}&salt={string}&sig={string}
-
+   
+   > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={源页的 URL}&salt={字符串}&sig={字符串}*
+   > 
+   > 
+   
     登录/注册示例的查询参数：
-
+   
    * **operation**：确定委派请求的类型，在此示例中只能为 **SignIn**
    * **returnUrl**：用户已在其中单击了登录或注册链接的页面的 URL
    * **salt**：用于计算安全哈希的特殊 salt 字符串
@@ -66,7 +68,7 @@ ms.locfileid: "59529214"
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
 3. 验证收到的是否为登录/注册请求：需将 **operation** 查询参数设置为“**SignIn**”。
 4. 向用户提供登录或注册 UI
-5. 如果用户要注册，则需在 API 管理中为其创建相应的帐户。 请使用 API 管理 REST API [创建用户]。 这样做时，请确保将用户 ID 设置为与用户存储中的用户 ID 相同，或设置为可跟踪的 ID。
+5. 如果用户要注册，则需在 API 管理中为其创建相应的帐户。 请使用 API 管理 REST API [创建用户]。 这样做时，请确保将用户 ID 设置为与用户存储中的用户 ID 相同的值，或设置为可跟踪的 ID。
 6. 在成功对用户进行身份验证后：
 
    * 通过 API 管理 REST API [请求单一登录 (SSO) 令牌]
@@ -103,11 +105,10 @@ ms.locfileid: "59529214"
 接下来，确保委托终结点执行以下操作：
 
 1. 接收以下形式的请求：
-
-
-   > <em>http://www.yourwebsite.com/apimdelegation?operation={operation}&productId={product to subscribe to}&userId={user making request}&salt={string}&sig={string}</em>
-
-
+   
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={操作}&productId={要订阅的产品}&userId={提出请求的用户}&salt={字符串}&sig={字符串}*
+   >
+   
     产品订阅示例的查询参数：
 
    * **operation**：标识委派请求的类型。 对于产品订阅请求，有效选项包括：
@@ -130,7 +131,7 @@ ms.locfileid: "59529214"
      > 
    * 将上面计算的哈希与 **sig** 查询参数的值进行比较。 如果两个哈希匹配，则转到下一步，否则拒绝该请求。
 3. 根据在 **operation** 中请求的操作类型（例如请求计费信息、提问更多问题，等等）处理产品订阅。
-4. 在这一端成功为用户订阅产品以后，即可[调用产品订阅 REST API] 为用户订阅 API 管理产品。
+4. 在这一端成功为用户订阅产品以后，即可[调用订阅 REST API] 为用户订阅 API 管理产品。
 
 ## <a name="delegate-example-code"> </a> 示例代码
 
@@ -179,8 +180,8 @@ var signature = digest.toString('base64');
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
 [请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[创建用户]: https://docs.microsoft.com/en-us/rest/api/apimanagement/user/createorupdate
-[调用产品订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[创建用户]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[调用订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [下文提供了示例代码]: #delegate-example-code
 

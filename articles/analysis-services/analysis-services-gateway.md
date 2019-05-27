@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 12/19/2018
-ms.date: 04/15/2019
+origin.date: 04/30/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2c713f38ed38c1989429cb453cd2cab3f7c03ce4
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: a2a81babaad61df6a98abf106c6e5164cffe1e84
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529443"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195405"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
 本地数据网关提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
@@ -53,7 +53,7 @@ ms.locfileid: "59529443"
 如果由于身份验证，代理服务器遇到问题，建议将 Windows 服务帐户更改为域用户或托管服务帐户。
 
 ## <a name="ports"> </a>端口
-网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。  网关不需要入站端口。
+网关会创建与 Azure 服务总线之间的出站连接。 它在以下出站端口上进行通信：TCP 443（默认值）、5671、5672、9350 到 9354。 网关不需要入站端口。
 
 我们建议在防火墙中将数据区域的 IP 地址列入允许列表。 可以下载 [Azure 数据中心 IP 列表](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 该列表每周都会进行更新。
 
@@ -187,23 +187,6 @@ ms.locfileid: "59529443"
 #### <a name="event-logs"></a>事件日志
 
 可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。
-
-<a name="telemetry"></a>
-## <a name="telemetry"></a>遥测
-遥测可用于监视和排错。 默认情况下
-
-**启用遥测**
-
-1.  查看计算机上的本地数据网关客户端目录。 通常为 **%systemdrive%\Program Files\On-premises data gateway**。 或者可以打开服务控制台，并查看可执行文件的路径：本地数据网关服务的一个属性。
-2.  在客户端目录的 Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config 文件中， 将 SendTelemetry 设置更改为 true。
-
-    ```
-        <setting name="SendTelemetry" serializeAs="String">
-                    <value>true</value>
-        </setting>
-    ```
-
-3.  保存更改，然后重启 Windows 服务：本地数据网关服务。
 
 ## <a name="next-steps"></a>后续步骤
 * [安装并配置本地数据网关](analysis-services-gateway-install.md)。   

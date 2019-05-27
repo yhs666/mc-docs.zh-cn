@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 510b1a7642d34ecf2943b2f1d2defa48bc2bef70
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 025e9f51afb73cd390a555c836ab566a5d36f971
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544783"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609831"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 
@@ -38,8 +38,8 @@ Azure 门户提供了可用于监视和排查查询和作业性能问题的关�
 | 函数请求数      | Azure 机器学习函数（如果存在）的调用数。 |
 | 输入反序列化错误       | 不可反序列化的输入事件数。  |
 | 输入事件字节数      | 流分析作业收到的数据量（以字节为单位）。 这可以用于验证正在发送到输入源的事件。 |
-| 输入事件数           | 从输入事件反序列化的记录数。 |
-| 收到的输入源数       | 作业收到的事件数。 这可以用于验证正在发送到输入源的事件。 |
+| 输入事件数           | 从输入事件反序列化的记录数。 此计数不包括导致反序列化错误的传入事件。 |
+| 收到的输入源数       | 作业收到的消息数。 对于事件中心，消息是单个 EventData。 对于 Blob，消息是单个 Blob。 请注意，输入源在反序列化之前不计数。 如果存在反序列化错误，则输入源数可能大于输入事件数。 否则，它可能小于或等于输入事件数，因为每条消息可能包含多个事件。 |
 | 延迟输入事件数      | 到达时间晚于已配置的延迟到达容错时段的事件。 详细了解 [Azure 流分析事件顺序注意事项](stream-analytics-out-of-order-and-late-events.md)。 |
 | 无序事件数    | 收到的无序事件的数目，系统根据事件排序策略来删除这些事件，或者为其提供一个经过调整的时间戳。 这可能会受“无序容错时段”设置的影响。 |
 | 输出事件数          | 流分析作业发送到输出目标的数据量，以事件计数来衡量。 |

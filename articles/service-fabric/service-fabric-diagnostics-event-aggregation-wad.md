@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/03/2018
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36333ff67a95a1b09e21980334ff14a011a0fc63
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: b877854f216e84e1ad9b49596f462c4422e10f00
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204165"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195426"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>使用 Windows Azure 诊断聚合和集合事件
 > [!div class="op_single_selector"]
@@ -31,9 +31,12 @@ ms.locfileid: "57204165"
 
 当你运行 Azure Service Fabric 群集时，最好是从一个中心位置的所有节点中收集日志。 将日志放在中心位置可帮助分析和排查群集中的问题，或该群集中运行的应用程序与服务的问题。
 
-上传和收集日志的一种方式是使用 Windows Azure 诊断 (WAD) 扩展，该扩展将日志上传到 Azure 存储并且能够选择将日志发送到 Azure 事件中心。 也可以使用外部进程读取存储中的事件，并将它们放在分析平台产品（例如 [Log Analytics](../log-analytics/log-analytics-service-fabric.md) 或其他日志分析解决方案）中。
+上传和收集日志的方式之一是使用 Windows Azure 诊断 (LAD) 扩展，它可将日志上传到 Azure 存储，并且还提供了将日志发送到 Azure 事件中心的选项。
 
 <!-- Not Available on Application Insight -->
+<!--Not Available on [Log Analytics](../log-analytics/log-analytics-service-fabric.md)-->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 本文中使用了以下工具：
@@ -44,12 +47,12 @@ ms.locfileid: "57204165"
 
 ## <a name="service-fabric-platform-events"></a>Service Fabric 平台事件
 Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagnostics-event-generation-infra.md)，该扩展预配置了其中的以下通道来将监视和诊断数据发送到存储表或其他位置：
-  * [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台执行的较高级别的操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
-  * [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
-  * [Reliable Services 编程模型事件](service-fabric-reliable-services-diagnostics.md)
+* [操作事件](service-fabric-diagnostics-event-generation-operational.md)：Service Fabric 平台执行的较高级别的操作。 示例包括创建应用程序和服务、节点状态更改和升级信息。 这些会以 Windows 事件跟踪 (ETW) 日志的形式发出
+* [Reliable Actors 编程模型事件](service-fabric-reliable-actors-diagnostics.md)
+* [Reliable Services 编程模型事件](service-fabric-reliable-services-diagnostics.md)
 
 ## <a name="deploy-the-diagnostics-extension-through-the-portal"></a>通过门户部署诊断扩展
-收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个虚拟机规模集节点上。 诊断扩展会收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 以下步骤概述了如何通过 Azure 门户和 Azure 资源管理器模板为新的和现有的群集完成此操作。
+收集日志的第一个步骤是将诊断扩展部署在 Service Fabric 群集中的每个虚拟机规模集节点上。 诊断扩展将收集每个 VM 上的日志，并将它们上传到指定的存储帐户。 以下步骤概述了如何通过 Azure 门户和 Azure 资源管理器模板为新的和现有的群集完成此操作。
 
 ### <a name="deploy-the-diagnostics-extension-as-part-of-cluster-creation-through-azure-portal"></a>在通过 Azure 门户创建群集过程中部署诊断扩展
 创建群集时，在群集配置步骤中，展开可选设置并确保将“诊断”设置为“打开”（默认设置）。
@@ -60,7 +63,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 ![群集模板](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-现在，我们将聚合 Azure 存储中的事件，[设置 Log Analytics](service-fabric-diagnostics-oms-setup.md) 来获取见解并在 Log Analytics 门户中查询它们
+<!--Not Available on [set up Log Analytics](service-fabric-diagnostics-oms-setup.md)-->
 
 >[!NOTE]
 >目前没有任何方法可以筛选或清理发送到表的事件。 如果未实现某个流程来从表中删除事件，则表会不断增大（默认上限为 50 GB）。 [本文的下文中进一步说明了](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota)如何对此进行更改。 另外，在[监视器示例](https://github.com/Azure-Samples/service-fabric-watchdog-service)中有一个运行数据整理服务的示例，建议为自己编写一个，除非有需要存储超过 30 或 90 天日志的的理由。
@@ -72,7 +75,7 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 若要查看 Resource Manager 模板中的诊断设置，请打开 azuredeploy.json 文件并搜索 **IaaSDiagnostics**。 若要使用此模板创建群集，请选择在上面的链接中提供的“部署到 Azure”  按钮。
 
-或者，也可以下载 Resource Manager 示例，进行更改，并在 Azure PowerShell 窗口中输入 `New-AzureRmResourceGroupDeployment` 命令，使用修改后的模板创建群集。 有关要在命令中传入的参数，请参阅以下代码。 有关如何使用 PowerShell 部署资源组的详细信息，请参阅[使用 Azure Resource Manager 模板部署资源组](../azure-resource-manager/resource-group-template-deploy.md)一文。
+或者，也可以下载 Resource Manager 示例，进行更改，并在 Azure PowerShell 窗口中输入 `New-AzResourceGroupDeployment` 命令，使用修改后的模板创建群集。 有关要在命令中传入的参数，请参阅以下代码。 有关如何使用 PowerShell 部署资源组的详细信息，请参阅[使用 Azure Resource Manager 模板部署资源组](../azure-resource-manager/resource-group-template-deploy.md)一文。
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>向现有群集添加诊断扩展
 如果存在尚未部署诊断的现有群集，可以通过群集模板来添加或更新该扩展。 修改用于创建现有群集的 Resource Manager 模板，或者如前所述从门户下载该模板。 执行以下任务来修改 template.json 文件：
@@ -81,14 +84,15 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 ```json
 {
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Storage/storageAccounts",
-  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
-  "location": "[parameters('computeLocation')]",
-  "sku": {
-    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "apiVersion": "2018-07-01",
+    "type": "Microsoft.Storage/storageAccounts",
+    "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+    "location": "[parameters('computeLocation')]",
+    "sku": {
+    "name": "[parameters('applicationDiagnosticsStorageAccountType')]"
+    "tier": "standard"
   },
-  "tags": {
+    "tags": {
     "resourceType": "Service Fabric",
     "clusterName": "[parameters('clusterName')]"
   }
@@ -201,26 +205,26 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 * 操作通道 - 基本：默认情况下启用，由 Service Fabric 和群集执行的高级操作，包括出现节点事件、部署新应用程序或升级回滚等。有关事件的列表，请参阅[操作通道事件](/service-fabric/service-fabric-diagnostics-event-generation-operational)。
 
-```json
-      scheduledTransferKeywordFilter: "4611686018427387904"
-  ```
+    ```json
+    scheduledTransferKeywordFilter: "4611686018427387904"
+    ```
 * 操作通道 - 详细：这包括运行状况报告和负载均衡决策，加上基本操作通道中的所有内容。 这些事件由系统或代码使用 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 或 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx) 等运行状况或加载报告 API 生成。 要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000008”添加到 ETW 提供程序列表。
 
-```json
-      scheduledTransferKeywordFilter: "4611686018427387912"
-  ```
+    ```json
+    scheduledTransferKeywordFilter: "4611686018427387912"
+    ```
 
 * 数据和消息通道 - 基本：消息（当前仅限 ReverseProxy）和数据路径中生成的关键日志和事件，以及详细操作通道日志。 这些事件是请求处理失败和 ReverseProxy 中的其他严重问题以及已处理的请求。 **这是我们针对全面日志记录的建议**。 若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000010”添加到 ETW 提供程序列表。
 
-```json
-      scheduledTransferKeywordFilter: "4611686018427387928"
-  ```
+    ```json
+    scheduledTransferKeywordFilter: "4611686018427387928"
+    ```
 
-* 数据和消息通道 - 详细：包含群集和详细操作通道中的数据和消息提供的所有非关键日志。 有关对所有反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。  若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000020”添加到 ETW 提供程序列表。
+* 数据和消息通道 - 详细：包含群集和详细操作通道中的数据和消息提供的所有非关键日志的详细通道。 有关对所有反向代理事件的详细故障排除，请参阅[反向代理诊断指南](service-fabric-reverse-proxy-diagnostics.md)。  若要在 Visual Studio 的诊断事件查看器中查看这些事件，请将“Microsoft-ServiceFabric:4:0x4000000000000020”添加到 ETW 提供程序列表。
 
-```json
-      scheduledTransferKeywordFilter: "4611686018427387944"
-  ```
+    ```json
+    scheduledTransferKeywordFilter: "4611686018427387944"
+    ```
 
 >[!NOTE]
 >此通道包含非常大量的事件，从详细通道启用事件收集会导致快速生成大量跟踪并可能会消耗存储容量。 请只有在绝对必要的情况下才启用此项。
@@ -269,34 +273,35 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 
 若要将诊断更新为从新的 EventSource 通道（表示要部署的新应用程序）收集日志，请执行之前描述的相同的步骤，其中描述了现有群集的诊断设置。
 
-在使用 `New-AzureRmResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 事件源的名称定义为 Visual Studio 生成的 ServiceEventSource.cs 文件中的代码的一部分。
+在使用 `New-AzResourceGroupDeployment` PowerShell 命令应用配置更新之前，请更新 template.json 文件中的 `EtwEventSourceProviderConfiguration` 节，添加新 EventSource 通道的条目。 事件源的名称定义为 Visual Studio 生成的 ServiceEventSource.cs 文件中的代码的一部分。
 
 例如，如果事件源名为 My-Eventsource，请添加以下代码，将来自 My-Eventsource 的事件放入名为 MyDestinationTableName 的表中。
 
 ```json
-        {
-            "provider": "My-Eventsource",
-            "scheduledTransferPeriod": "PT5M",
-            "DefaultEvents": {
-            "eventDestination": "MyDestinationTableName"
-            }
-        }
+{
+    "provider": "My-Eventsource",
+    "scheduledTransferPeriod": "PT5M",
+    "DefaultEvents": {
+    "eventDestination": "MyDestinationTableName"
+    }
+}
 ```
 
-若要收集性能计数器或事件日志，请参考[使用 Azure Resource Manager 模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中提供的示例修改 Resource Manager 模板。 然后，重新发布资源管理器模板。
+若要收集性能计数器或事件日志，请参考[使用 Azure 资源管理器模板创建具有监视和诊断功能的 Windows 虚拟机](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中提供的示例修改资源管理器模板。 然后，重新发布资源管理器模板。
 
 ## <a name="collect-performance-counters"></a>收集性能计数器
 
 若要从群集中收集性能指标，请将性能计数器添加到群集的资源管理器模板中的“WadCfg > DiagnosticMonitorConfiguration”。 有关修改 `WadCfg` 以收集特定性能计数器的步骤，请参阅[通过 WAD 监控性能](service-fabric-diagnostics-perf-wad.md)。 对于我们建议收集的性能计数器列表，请参阅 [Service Fabric 性能计数器](service-fabric-diagnostics-event-generation-perf.md)。
 
-<!-- Wait for [Performance monitoring with WAD](service-fabric-diagnostics-perf-wad.md) -->
 <!-- Not Available on If you are using an Application Insights sink, as described in the section below, and want these metrics to show up in Application Insights, then make sure to add the sink name in the "sinks" section as shown above. This will automatically send the performance counters that are individually configured to your Application Insights resource. -->
 <!-- Not Available on ## Send logs to Application Insights -->
 
 
 ## <a name="next-steps"></a>后续步骤
 
-正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 如果选择使用 Log Analytics、Kibana 或其他不在资源管理器模板中直接配置的任何数据分析和可视化平台，请确保设置所选平台以读入这些存储表中的数据。 对于 Log Analytics 这样做相对简单，相关介绍在[事件和日志分析](service-fabric-diagnostics-event-analysis-oms.md)中。 
+正确配置 Azure 诊断后，将看到来自 ETW 和 EventSource 日志的存储表中的数据。 
+
+<!--Not Available on If you choose to use Log Analytics, Kibana, or any other data analytics and visualization platform that is not directly configured in the Resource Manager template, make sure to set up the platform of your choice to read in the data from these storage tables. Doing this for Log Analytics is relatively trivial, and is explained in [Event and log analysis](service-fabric-diagnostics-event-analysis-oms.md)-->
 
 <!-- Not Available on [appropriate article](service-fabric-diagnostics-event-analysis-appinsights.md) -->
 
@@ -306,7 +311,8 @@ Service Fabric 提供了一些[现成的日志记录通道](service-fabric-diagn
 * [了解如何使用诊断扩展收集性能计数器或日志](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 <!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
-
-* [使用 Log Analytics 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
+<!-- Not Available on * [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)-->
+<!-- Not Available on * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)-->
+<!-- Not Available on * [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)-->
 
 <!--Update_Description: update meta propreties, update link, wording update -->

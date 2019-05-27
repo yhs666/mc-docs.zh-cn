@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 77361745def48d4bb272d9b1e49782bc73fe244a
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fadd3839a3a13a4fffc203a8130ec147e834de5b
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666059"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004286"
 ---
 # <a name="create-a-snapshot"></a>创建快照 
 
@@ -53,7 +53,9 @@ az snapshot create \
     --name osDisk-backup
 ```
 
-<!-- Not Available on Availability zones --> 可以使用 [az snapshot list](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-list) 查看快照列表。
+<!-- Not Available on Availability zones -->
+
+可以使用 [az snapshot list](https://docs.azure.cn/zh-cn/cli/snapshot?view=azure-cli-latest#az-snapshot-list) 查看快照列表。
 
 ```azurecli
 az snapshot list \

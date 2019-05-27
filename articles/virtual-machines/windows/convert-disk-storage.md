@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 7e1bc92b61f9526bbd7fefe7da6c17dd7ae0848a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b729e81a9afbaf47822d76fed7e1f87a77dfe223
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003773"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004082"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新托管磁盘的存储类型
 
 Azure 托管磁盘有三个选项：高级 SSD、标准 SSD 和标准 HDD。 可以根据性能需求在这些存储类型之间切换，切换过程只会造成极短暂的停机。 非托管磁盘不支持此功能。 但是，可以轻松[将非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，然后即可切换磁盘类型。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -139,6 +139,9 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 此示例演示如何将单个 VM 磁盘从标准 HDD 转换为标准 SSD，或者从标准 SSD 转换为标准 HDD：
 
 ```powershell
+
+# Sign in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk

@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: tutorial
 origin.date: 02/13/2019
-ms.date: 03/13/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 57a962f44dff77e0d6fac7095f8e5ed93ef01cd7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: e6966568962d9f107c5c8cc85806b1fcb24bc088
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964485"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668926"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>教程：将 Power BI 与文本分析认知服务集成
 
-Microsoft Power BI Desktop 是免费的应用程序，可让你连接、转换和可视化你的数据。 文本分析服务是 Azure 认知服务的一部分，它提供自然语言处理。 给定原始的非结构化文本，它可以提取最重要的短语、分析情绪和确定已知实体（例如品牌）。 可以综合使用这些工具快速了解客户谈论的内容和客户的感受。
+Power BI Desktop 是免费的应用程序，可让你连接、转换和可视化你的数据。 文本分析服务是 Azure 认知服务的一部分，它提供自然语言处理。 给定原始的非结构化文本，它可以提取最重要的短语、分析情绪和确定已知实体（例如品牌）。 可以综合使用这些工具快速了解客户谈论的内容和客户的感受。
 
 本教程介绍以下操作：
 
@@ -34,9 +34,9 @@ Microsoft Power BI Desktop 是免费的应用程序，可让你连接、转换�
 ## <a name="prerequisites"></a>先决条件
 <a name="Prerequisites"></a>
 
-- Microsoft Power BI Desktop。 [免费下载](https://powerbi.microsoft.com/get-started/)。
-- 一个 Azure 帐户。 [启动 1 元试用版](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)或[登录](https://portal.azure.cn/)。
-- 包含文本分析 API 的认知服务 API 帐户。 如果没有帐户，可以[注册](../../cognitive-services-apis-create-account.md)并使用 5,000 个事务/月的免费层级（请参阅[定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)以完成本教程）。
+- Power BI Desktop。 [免费下载](https://powerbi.microsoft.com/get-started/)。
+- 一个 Azure 帐户。 [启动试用版](https://www.azure.cn/pricing/1rmb-trial/)或[登录](https://portal.azure.cn/)。
+- 包含文本分析 API 的认知服务 API 帐户。 如果没有帐户，可以[注册](../../cognitive-services-apis-create-account.md)并使用 5,000 个事务/月的免费层级（请参阅[定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/text-analytics/)以完成本教程）。
 - 在注册期间生成的[文本分析访问密钥](../how-tos/text-analytics-how-to-access-key.md)。
 - 客户评论。 可以使用[我们的示例数据](https://aka.ms/cogsvc/ta)或你自己的数据。 本教程假定你使用我们的示例数据。
 
@@ -90,7 +90,7 @@ CSV 导入对话框用于验证 Power BI Desktop 是否已正确检测到字符�
 ## <a name="understand-the-api"></a>了解 API
 <a name="UnderstandingAPI"></a>
 
-对于每个 HTTP 请求，文本分析服务的[关键短语 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) 最多可以处理一千个文本文档。 Power BI 偏好一次处理一个记录，因此在本教程中，对 API 的每次调用将只包含一个文档。 对于每个要处理的文档，关键短语 API 要求提供以下字段。
+对于每个 HTTP 请求，文本分析服务的[关键短语 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) 最多可以处理一千个文本文档。 Power BI 偏好一次处理一个记录，因此在本教程中，对 API 的每次调用将只包含一个文档。 对于每个要处理的文档，关键短语 API 要求提供以下字段。
 
 | | |
 | - | - |
@@ -121,7 +121,7 @@ CSV 导入对话框用于验证 Power BI Desktop 是否已正确检测到字符�
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -224,7 +224,7 @@ Power BI Desktop 需要时间来发出必需的 HTTP 请求。 对于表中的�
 // Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/sentiment",
+    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/sentiment",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -241,7 +241,7 @@ in  sentiment
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/languages",
+    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -255,7 +255,7 @@ in  language
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/languages",
+    endpoint    = "https://api.cognitive.azure.cn/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -275,7 +275,7 @@ in  language
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -292,7 +292,7 @@ in  keyphrases
 详细了解文本分析服务、Power Query M 公式语言或 Power BI。
 
 > [!div class="nextstepaction"]
-> [文本分析 API 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [文本分析 API 参考](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
 > [Power Query M reference](https://msdn.microsoft.com/library/mt211003.aspx)（Power Query M 参考）

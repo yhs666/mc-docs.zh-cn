@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 01/04/2019
-ms.date: 01/28/2019
+ms.date: 05/27/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5924315d178a4f39ca22d1faf5495bb37233f38b
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: c89e4957627385a210888fa17f8456957d55fa3a
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890198"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829366"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -28,11 +28,12 @@ ms.locfileid: "58890198"
 > * 查看筛选的数据。
 
 <center>
-<img src="./media/tutorial-deploy-function/functions-architecture.png" alt="Diagram - Tutorial architecture, stage and deploy function module"/>
+
+![ - 教程体系结构、暂存以及部署函数模块](./media/tutorial-deploy-function/functions-architecture.png)
 </center>
 
 >[!NOTE]
->Azure IoT Edge 上的 Azure Function 模块为[公共预览版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)。 
+>Azure IoT Edge 上的 Azure Function 模块为公共预览版。 
 
 在本教程中创建的 Azure 函数可以筛选由设备生成的温度数据。 该函数只在温度高于指定阈值的情况下，向 Azure IoT 中心上游发送消息。 
 
@@ -40,52 +41,26 @@ ms.locfileid: "58890198"
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure IoT Edge 设备：
+在开始学习本教程之前，你应该已经完成上一教程，了解如何设置用于开发 Linux 容器的开发环境：[开发适用于 Linux 设备的 IoT Edge 模块](tutorial-develop-for-linux.md)。 完成该教程后，已应准备好以下必备组件： 
 
-* 可以按照适用于 [Linux](quickstart-linux.md) 或 [Windows 设备](quickstart.md)的快速入门中的步骤，将开发计算机或虚拟机设置为 Edge 设备。
+* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
+* 一个[运行 Azure IoT Edge 的 Linux 设备](quickstart-linux.md)
+* 一个容器注册表，例如 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
+* 配置了 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) 的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 配置为运行 Linux 容器的 [Docker CE](https://docs.docker.com/install/)。
 
-云资源：
+若要通过 Azure Functions 开发 IoT Edge 模块，请在开发计算机上安装下述额外的必备组件： 
 
-* Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。 
-
-开发资源：
-
-* [Visual Studio Code](https://code.visualstudio.com/)。 
 * [适用于 Visual Studio Code 的 C# 扩展（由 OmniSharp 提供支持）](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
-* [适用于 Visual Studio Code 的 Azure IoT 工具](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)。 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
-* [Docker CE](https://docs.docker.com/install/)。 
-
-## <a name="create-a-container-registry"></a>创建容器注册表
-
-本教程将使用适用于 Visual Studio Code 的 Azure IoT 工具来生成模块并从文件创建**容器映像**。 然后将该映像推送到用于存储和管理映像的**注册表**。 最后，从注册表部署在 IoT Edge 设备上运行的映像。  
-
-可以使用任意兼容 Docker 的注册表来保存容器映像。 两个常见 Docker 注册表服务分别是 [Azure 容器注册表](/container-registry/)和 [Docker 中心](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)。 本教程使用 Azure 容器注册表。 
-
-1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源” > “容器” > “容器注册表”。
-
-    ![在 Azure 门户中创建容器注册表](./media/tutorial-deploy-function/create-container-registry.png)
-
-2. 提供以下值，以便创建容器注册表：
-
-   | 字段 | 值 | 
-   | ----- | ----- |
-   | 注册表名称 | 提供唯一名称。 |
-   | 订阅 | 从下拉列表中选择“订阅”。 |
-   | 资源组 | 建议对在 IoT Edge 快速入门和教程中创建的所有测试资源使用同一资源组。 例如，**IoTEdgeResources**。 |
-   | 位置 | 选择靠近你的位置。 |
-   | 管理员用户 | 设置为“启用”。 |
-   | SKU | 选择“基本”。 | 
-
-5. 选择“创建”。
-
-6. 创建容器注册表后，请浏览到其中，然后选择“访问密钥”。 
-
-7. 复制“登录服务器”、“用户名”和“密码”的值。 本教程后面会用到这些值来访问容器注册表。 
 
 ## <a name="create-a-function-project"></a>创建函数项目
 
 在先决条件部分安装的适用于 Visual Studio Code 的 Azure IoT 工具提供管理功能和一些代码模板。 在本部分，请使用 Visual Studio Code 创建包含 Azure 函数的 IoT Edge 解决方案。 
+
+### <a name="create-a-new-project"></a>创建新项目
+
+创建可以使用自己的代码进行自定义的 C# 函数解决方案模板。
 
 1. 在开发计算机上打开 Visual Studio Code。
 
@@ -103,9 +78,29 @@ Azure IoT Edge 设备：
 
    ![提供 Docker 映像存储库](./media/tutorial-deploy-function/repository.png)
 
-4. VS Code 窗口将加载你的 IoT Edge 解决方案工作区：一个 \.vscode 文件夹、一个 modules 文件夹、一个部署清单模板文件， 以及一个 \.env 文件。 在 VS Code 资源管理器中，打开“模块” > “CSharpFunction” > “CSharpFunction.cs”。
+### <a name="add-your-registry-credentials"></a>添加注册表凭据
 
-5. 将 **CSharpFunction.cs** 文件的内容替换为以下代码。 此代码接收有关环境温度和计算机温度的遥测，只有在计算机温度高于定义的阈值时才将消息转发到 IoT 中心。
+环境文件存储容器注册表的凭据，并将其与 IoT Edge 运行时共享。 此运行时需要这些凭据才能将专用映像拉取到 IoT Edge 设备中。
+
+1. 在 VS Code 资源管理器中，打开 .env 文件。
+2. 使用从 Azure 容器注册表复制的 **username** 和 **password** 值更新相关字段。
+3. 保存此文件。
+
+### <a name="select-your-target-architecture"></a>选择目标体系结构
+
+目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的 C 模块。 需要选择面向每个解决方案的体系结构，因为每种体系结构类型的容器的生成和运行方式均不相同。 默认设置为 Linux AMD64。 
+
+1. 打开命令面板并搜索 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或者选择窗口底部边栏中的快捷方式图标。 
+
+2. 在命令面板中，从选项列表中选择目标体系结构。 本教程将使用 Ubuntu 虚拟机作为 IoT Edge 设备，因此将保留默认设置 **amd64**。 
+
+### <a name="update-the-module-with-custom-code"></a>使用自定义代码更新模块
+
+让我们添加一些附加的代码，使模块在将消息转发到 IoT 中心之前，先在边缘上对其进行处理。
+
+1. 在 Visual Studio Code 中，打开“模块” > “CSharpFunction” > “CSharpFunction.cs”。
+
+1. 将 **CSharpFunction.cs** 文件的内容替换为以下代码。 此代码接收有关环境温度和计算机温度的遥测，只有在计算机温度高于定义的阈值时才将消息转发到 IoT 中心。
 
    ```csharp
    using System;
@@ -199,15 +194,7 @@ Azure IoT Edge 设备：
     Login Succeeded
     ```
 
-2. 在 VS Code 资源管理器的 IoT Edge 解决方案工作区中打开 **deployment.template.json** 文件。 此文件将需要部署到设备的具体模块告知 IoT Edge 运行时。 请注意，Function 模块 **CSharpFunction** 与提供测试数据的 **tempSensor** 模块一起列出。 若要详细了解部署清单，请参阅[了解如何使用、配置和重用 IoT Edge 模块](module-composition.md)。
-
-   ![查看部署清单中的模块](./media/tutorial-deploy-function/deployment-template.png)
-
-3. 打开 IoT Edge 解决方案工作区中的 **.env** 文件。 此 git 忽略的文件存储容器注册表凭据，因此不需将它们置于部署清单模板中。 为容器注册表提供“用户名”和“密码”。 
-
-5. 保存此文件。
-
-6. 在 VS Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。 
+3. 在 VS Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。 
 
 告知 Visual Studio Code 生成解决方案时，它首先获取部署模板中的信息，然后在名为 **config** 的新文件夹中生成 deployment.json 文件。然后，它在集成终端运行两个命令，即 `docker build` 和 `docker push`。 这两个命令会生成代码，将函数容器化，然后将代码推送到在初始化解决方案时指定的容器注册表。 
 
@@ -224,15 +211,7 @@ Azure IoT Edge 设备：
 
 可以使用 Azure 门户将函数模块部署到 IoT Edge 设备，就像在快速入门中所做的一样。 也可以在 Visual Studio Code 中部署和监视模块。 以下部分使用适用于 VS Code 的 Azure IoT 工具，该工具已在先决条件中列出。 如果尚未安装该扩展，现在请安装。 
 
-1. 打开 VS Code 命令面板，方法是选择“视图” > “命令面板”。
-
-2. 搜索并运行 **`Azure: Sign in`** 命令。 按照说明登录 Azure 帐户。 
-
-3. 在命令面板中，搜索并运行 **`Azure IoT Hub: Select IoT Hub`** 命令。 
-
-4. 选择包含 IoT 中心的订阅，然后选择要访问的 IoT 中心。
-
-5. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
+1. 在 VS Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
 
 6. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。 
 
@@ -259,12 +238,9 @@ Azure IoT Edge 设备：
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
-
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建一个 Azure 函数模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备以后，即可详细了解如何[使用用于 Visual Studio Code 的 Azure IoT Edge 开发 Azure 函数](how-to-develop-csharp-function.md)。 
+在本教程中，你已创建一个 Azure 函数模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 做好生成自己的模块的准备以后，即可详细了解如何[使用用于 Visual Studio Code 的 Azure IoT Edge 进行开发](how-to-vs-code-develop-module.md)。 
 
 继续阅读后续教程，了解如何使用 Azure IoT Edge 通过其他方式将数据转化为边缘业务见解。
 

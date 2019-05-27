@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/21/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 3328ab0e7ed0d29c62a9e91311173181dc0808b2
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9a5e50a63af649ef6f2d39b0c5a2afce3089f13c
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004184"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003897"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -36,7 +36,7 @@ ms.locfileid: "59004184"
 
 1. 打开 PowerShell，通过运行 **Connect-AzAccount** 命令建立对 Azure 帐户的访问。
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
 
@@ -50,8 +50,8 @@ ms.locfileid: "59004184"
 
 根据需要进行修改，然后运行这些 cmdlet 以初始化这些变量。
 
-```PowerShell
-$Location = "ChinaEast"
+```powershell
+$Location = "chinaeast"
 $ResourceGroupName = "sqlvm2"
 ```
 
@@ -60,7 +60,7 @@ $ResourceGroupName = "sqlvm2"
 
 根据需要进行修改，然后运行以下 cmdlet 以初始化这些变量。 我们建议将[高级 SSD](../disks-types.md#premium-ssd) 用于生产工作负载。
 
-```PowerShell
+```powershell
 $StorageName = $ResourceGroupName + "storage"
 $StorageSku = "Premium_LRS"
 ```
@@ -78,7 +78,7 @@ $StorageSku = "Premium_LRS"
 
 根据需要进行修改，然后运行此 cmdlet 以初始化这些变量。
 
-```PowerShell
+```powershell
 $InterfaceName = $ResourceGroupName + "ServerInterface"
 $NsgName = $ResourceGroupName + "nsg"
 $TCPIPAllocationMethod = "Dynamic"
@@ -94,7 +94,7 @@ $DomainName = $ResourceGroupName
 
 根据需要进行修改，然后运行此 cmdlet 以初始化这些变量。
 
-```PowerShell
+```powershell
 $VMName = $ResourceGroupName + "VM"
 $ComputerName = $ResourceGroupName + "Server"
 $VMSize = "Standard_DS13"
@@ -107,13 +107,13 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 首先，使用 `Get-AzVMImageOffer` 命令列出所有 SQL Server 映像套餐。 此命令将列出 Azure 门户中当前提供的映像，以及只能通过 PowerShell 安装的早期映像：
 
-    ```PowerShell
+    ```powershell
     Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
     ```
 
 1. 对于本教程，请使用以下变量指定 Windows Server 2016 上的 SQL Server 2017。
 
-    ```PowerShell
+    ```powershell
     $OfferName = "SQL2017-WS2016"
     $PublisherName = "MicrosoftSQLServer"
     $Version = "latest"
@@ -121,13 +121,13 @@ $OSDiskName = $VMName + "OSDisk"
 
 1. 接下来，列出套餐的可用版本。
 
-    ```PowerShell
+    ```powershell
     Get-AzVMImageSku -Location $Location -Publisher 'MicrosoftSQLServer' -Offer $OfferName | Select Skus
     ```
 
 1. 对于本教程，请使用 SQL Server 2017 Developer Edition (**SQLDEV**)。 Developer Edition 针对测试和开发自由授权，用户只需支付运行 VM 的成本。
 
-    ```PowerShell
+    ```powershell
     $Sku = "SQLDEV"
     ```
 
@@ -136,7 +136,7 @@ $OSDiskName = $VMName + "OSDisk"
 
 运行此 cmdlet 来创建新的资源组。
 
-```PowerShell
+```powershell
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 ```
 
@@ -145,7 +145,7 @@ New-AzResourceGroup -Name $ResourceGroupName -Location $Location
 
 运行此 cmdlet 来创建新的存储帐户。
 
-```PowerShell
+```powershell
 $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
    -Name $StorageName -SkuName $StorageSku `
    -Kind "Storage" -Location $Location
@@ -169,7 +169,7 @@ $StorageAccount = New-AzStorageAccount -ResourceGroupName $ResourceGroupName `
 
 运行此 cmdlet 来创建虚拟子网配置。
 
-```PowerShell
+```powershell
 $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefix $VNetSubnetAddressPrefix
 ```
 
@@ -178,7 +178,7 @@ $SubnetConfig = New-AzVirtualNetworkSubnetConfig -Name $SubnetName -AddressPrefi
 
 运行此 cmdlet 来创建虚拟网络。
 
-```PowerShell
+```powershell
 $VNet = New-AzVirtualNetwork -Name $VNetName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AddressPrefix $VNetAddressPrefix -Subnet $SubnetConfig
@@ -192,7 +192,7 @@ $VNet = New-AzVirtualNetwork -Name $VNetName `
 
 运行此 cmdlet 来创建公共 IP 地址。
 
-```PowerShell
+```powershell
 $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -AllocationMethod $TCPIPAllocationMethod -DomainNameLabel $DomainName
@@ -203,14 +203,14 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 1. 首先，为 RDP 创建网络安全组规则，以允许远程桌面连接。
 
-    ```PowerShell
+    ```powershell
     $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 3389 -Access Allow
     ```
 1. 配置一个允许 TCP 端口 1433 上的流量的网络安全组规则。 这样就可以通过 Internet 连接到 SQL Server。
 
-    ```PowerShell
+    ```powershell
     $NsgRuleSQL = New-AzNetworkSecurityRuleConfig -Name "MSSQLRule"  -Protocol Tcp `
       -Direction Inbound -Priority 1001 -SourceAddressPrefix * -SourcePortRange * `
       -DestinationAddressPrefix * -DestinationPortRange 1433 -Access Allow
@@ -218,7 +218,7 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 1. 创建网络安全组。
 
-    ```PowerShell
+    ```powershell
     $Nsg = New-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroupName `
       -Location $Location -Name $NsgName `
       -SecurityRules $NsgRuleRDP,$NsgRuleSQL
@@ -229,7 +229,7 @@ $PublicIp = New-AzPublicIpAddress -Name $InterfaceName `
 
 运行此 cmdlet 来创建网络接口。
 
-```PowerShell
+```powershell
 $Interface = New-AzNetworkInterface -Name $InterfaceName `
    -ResourceGroupName $ResourceGroupName -Location $Location `
    -SubnetId $VNet.Subnets[0].Id -PublicIpAddressId $PublicIp.Id `
@@ -249,7 +249,7 @@ $Interface = New-AzNetworkInterface -Name $InterfaceName `
 
 运行此 cmdlet 来创建虚拟机对象。
 
-```PowerShell
+```powershell
 $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 ```
 
@@ -258,7 +258,7 @@ $VirtualMachine = New-AzVMConfig -VMName $VMName -VMSize $VMSize
 
 运行以下 cmdlet，然后在 PowerShell 凭据请求窗口中，键入虚拟机中本地管理员帐户使用的名称和密码。
 
-```PowerShell
+```powershell
 $Credential = Get-Credential -Message "Type the name and password of the local administrator account."
 ```
 
@@ -272,7 +272,7 @@ $Credential = Get-Credential -Message "Type the name and password of the local a
 
 运行此 cmdlet 来设置虚拟机的操作系统属性。
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
    -Windows -ComputerName $ComputerName -Credential $Credential `
    -ProvisionVMAgent -EnableAutoUpdate
@@ -283,7 +283,7 @@ $VirtualMachine = Set-AzVMOperatingSystem -VM $VirtualMachine `
 
 运行此 cmdlet 来设置虚拟机的网络接口。
 
-```PowerShell
+```powershell
 $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 ```
 
@@ -292,7 +292,7 @@ $VirtualMachine = Add-AzVMNetworkInterface -VM $VirtualMachine -Id $Interface.Id
 
 运行此 cmdlet 来设置 Blob 存储位置。
 
-```PowerShell
+```powershell
 $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDiskName + ".vhd"
 ```
 
@@ -305,7 +305,7 @@ $OSDiskUri = $StorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $OSDis
 
 运行此 cmdlet 来设置虚拟机的操作系统磁盘属性。
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
    $OSDiskName -VhdUri $OSDiskUri -Caching ReadOnly -CreateOption FromImage
 ```
@@ -315,7 +315,7 @@ $VirtualMachine = Set-AzVMOSDisk -VM $VirtualMachine -Name `
 
 运行此 cmdlet 来指定虚拟机的平台映像。
 
-```PowerShell
+```powershell
 $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
    -PublisherName $PublisherName -Offer $OfferName `
    -Skus $Sku -Version $Version
@@ -329,7 +329,7 @@ $VirtualMachine = Set-AzVMSourceImage -VM $VirtualMachine `
 
 运行此 cmdlet 来创建虚拟机。
 
-```PowerShell
+```powershell
 New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualMachine
 ```
 
@@ -341,7 +341,7 @@ New-AzVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $VirtualM
 ## <a name="install-the-sql-iaas-agent"></a>安装 SQL IaaS 代理
 SQL Server 虚拟机支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)的自动管理功能。 若要在新 VM 上安装该代理，请在创建 VM 后运行以下命令。
 
-```PowerShell
+```powershell
 Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
 ```
 
@@ -349,7 +349,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName
 
 如果不需要让 VM 持续运行，可以在不使用它时将它停止，以免产生不必要的费用。 以下命令可停止 VM，但会保留它供将来使用。
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 
@@ -358,11 +358,11 @@ Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ## <a name="example-script"></a>示例脚本
 以下脚本包含本教程的完整 PowerShell 脚本。 它假设已将 Azure 订阅设置为配合使用 **Connect-AzAccount** 和 **Select-AzSubscription** 命令。
 
-```PowerShell
+```powershell
 # Variables
 
 ## Global
-$Location = "ChinaEast"
+$Location = "chinaeast"
 $ResourceGroupName = "sqlvm2"
 
 ## Storage

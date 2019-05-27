@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/08/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 94e6f118627a9a12a6e2a164a0e433dca0d5efb3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1678703777677ed99af8b803c49a7e79045e76e5
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627739"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835765"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>有关未认可分发版的信息
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -52,16 +52,13 @@ Azure 上运行的所有分发版都要满足一些先决条件。 本文的内�
 * VHD 允许的最大大小为 1,023 GB。
 * 在安装 Linux 系统时，建议使用标准分区而不是逻辑卷管理器 (LVM)，这是许多安装的默认设置。 使用标准分区可避免 LVM 名称与克隆的 VM 发生冲突，特别是在 OS 磁盘曾经连接到另一台相同的 VM 进行故障排除的情况下。 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 可以在数据磁盘上使用。
 * 需要装载 UDF 文件系统的内核支持。 在 Azure 上首次启动时，预配配置将使用附加到来宾的 UDF 格式媒体传递到 Linux VM。 Azure Linux 代理必须装载 UDF 文件系统才能读取其配置和预配 VM。
-* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 
+* 低于 2.6.37 的 Linux 内核版本不支持具有更大 VM 大小的 Hyper-V 上的 NUMA。 此问题主要影响使用上游 Red Hat 2.6.32 内核的旧分发版，在 Red Hat Enterprise Linux (RHEL) 6.6 (kernel-2.6.32-504) 中已解决。 运行版本低于 2.6.37 的自定义内核的系统，或者版本低于 2.6.32-504 的基于 RHEL 的内核必须在 grub.conf 中的内核命令行上设置启动参数 `numa=off`。 有关详细信息，请参阅 [Red Hat KB 436883](https://access.redhat.com/solutions/436883)。
 * 不要在 OS 磁盘上配置交换分区。 可根据以下步骤中所述配置 Linux 代理，并在临时资源磁盘上创建交换文件。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1 MB。 从原始磁盘转换为 VHD 时，必须根据以下步骤中所述，确保在转换前原始磁盘大小是 1 MB 的倍数。
 
-<!-- Not Available on Line 51 This issue primarily impacts older distributions using the upstream Red Hat 2.6.32 kernel, and was fixed in RHEL 6.6 (kernel-2.6.32-504). Systems running custom kernels older than 2.6.37, or RHEL-based kernels older than 2.6.32-504 must set the boot parameter `numa=off` on the kernel command-line in grub.conf. For more information see Red Hat [KB 436883](https://access.redhat.com/solutions/436883) -->
-
 ### <a name="installing-kernel-modules-without-hyper-v"></a>安装无 Hyper-V 的内核模块
-Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的虚拟机，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非 VM 检测到它正在 Hyper-V 环境中运行。 使用不同的虚拟化系统（例如 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd，以便至少 hv_vmbus 和 hv_storvsc 内核模块可在初始 ramdisk 上使用。
+Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要某些内核模块才能在 Azure 中运行。 如果具有在 Hyper-V 外部创建的虚拟机，Linux 安装程序可能无法在初始 ramdisk（initrd 或 initramfs）中包含 Hyper-V 驱动程序，除非 VM 检测到它正在 Hyper-V 环境中运行。 使用不同的虚拟化系统（例如 Virtualbox、KVM 等）来准备 Linux 映像时，可能需要重新生成 initrd，以便至少 hv_vmbus 和 hv_storvsc 内核模块可在初始 ramdisk 上使用。  在基于上游 Red Hat 分发版的系统上（可能还包括其他系统），这是一个已知问题。
 
-<!-- Not Avaiable on This is a known issue at least on systems based on the upstream Red Hat distribution. -->
 重新生成 initrd 或 initramfs 映像的机制可能会因发行版而有所不同。 查阅分发的文档或相应过程的支持。  以下示例演示如何使用 `mkinitrd` 实用工具重新生成 initrd：
 
 1. 备份现有 initrd 映像：
@@ -80,7 +77,7 @@ Azure 在 Hyper-V 虚拟机监控程序上运行，因此 Linux 需要某些内�
 ### <a name="resizing-vhds"></a>调整 VHD 大小
 Azure 上的 VHD 映像必须已将虚拟大小调整为 1MB。  通常情况下，使用 Hyper-V 创建的 VHD 已正确调整。  如果未正确调整 VHD，在尝试基于 VHD 创建映像时，可能会收到如下错误消息：
 
-* VHD http://<mystorageaccount>.blob.core.chinacloudapi.cn/vhds/MyLinuxVM.vhd 的虚拟大小为 21475270656 字节，这是不受支持的。 大小必须是整数（以 MB 为单位）。
+* VHD http:\//\<mystorageaccount>.blob.core.chinacloudapi.cn/vhds/MyLinuxVM.vhd 的虚拟大小为 21475270656 字节，这是不受支持的。 大小必须是整数（以 MB 为单位）。
 
 在这种情况下，可使用 Hyper-V 管理器控制台或 [Resize-VHD](https://technet.microsoft.com/library/hh848535.aspx) PowerShell cmdlet 调整 VM 大小。  如果不是在 Windows 环境中运行，我们建议使用 `qemu-img` 转换（如果需要）并调整 VHD 大小。
 
@@ -176,7 +173,7 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
     ```  
     rhgb quiet crashkernel=auto
     ```
-    图形引导和静默引导不适用于云环境，在该环境中我们希望将所有日志发送到串行端口。 可根据需要配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量至少减少 128 MB，这对于较小的 VM 而言可能是个问题。
+    图形界面式引导和安静引导在云环境中不适用，在云环境中，我们希望所有日志都发送到串行端口。 可根据需要配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量至少减少 128 MB，这对于较小的 VM 而言可能是个问题。
 
 1. 安装 Azure Linux 代理。
 
@@ -188,11 +185,11 @@ Hyper-V 和 Azure 的 Linux 集成服务 (LIS) 驱动程序会直接影响上游
 
     Azure Linux 代理可使用在 Azure 上设置后附加到虚拟机的本地资源磁盘自动配置交换空间。 本地资源磁盘是临时磁盘，并可能在取消预配 VM 时被清空。 安装 Azure Linux 代理（上述步骤 2）后，根据需要在 /etc/waagent.conf 中修改以下参数。
     ```  
-        ResourceDisk.Format=y
-        ResourceDisk.Filesystem=ext4
-        ResourceDisk.MountPoint=/mnt/resource
-        ResourceDisk.EnableSwap=y
-        ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
+    ResourceDisk.Format=y
+    ResourceDisk.Filesystem=ext4
+    ResourceDisk.MountPoint=/mnt/resource
+    ResourceDisk.EnableSwap=y
+    ResourceDisk.SwapSizeMB=2048    ## NOTE: Set this to your desired size.
     ```
 
 1. 运行以下命令以取消预配虚拟机。

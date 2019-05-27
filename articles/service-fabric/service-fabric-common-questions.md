@@ -13,18 +13,20 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7d78ec35dd9d904b1d7c79df4b96d81d7f2d676c
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: cc033b14ce8c107cb253dfd0e037bf34eff1ce7b
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204095"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195485"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric 常见问题
 
 有许多关于 Service Fabric 可以做些什么以及应该如何使用的常见问题。 本文档介绍其中许多常见问题及其答案。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>群集设置和管理
 
@@ -62,7 +64,6 @@ ms.locfileid: "57204095"
 **详细解答** - 尽管通过大型虚拟机规模集可将虚拟机规模集缩放至多达 1000 个 VM 实例，但这是通过使用放置组 (PG) 实现的。 容错域 (FD) 和升级域 (UD) 仅在使用 FD 和 UD 来为服务副本/服务实例做出放置决策的放置组 Service Fabric 中保持一致。 因为 FD 和 UD 仅在放置组中可比较，因此 SF 无法使用它。 例如，如果 PG1 中的 VM1 具有一个 FD=0 的拓扑，并且 PG2 中的 VM9 具有一个 FD=4 的拓扑，这并不意味着 VM1 和 VM2 在两个不同的硬件机架上，因此在这种情况下 SF 无法使用 FD 值做出放置决策。
 
 当前，大型虚拟机规模集还存在其他问题，例如缺少 level-4 负载均衡支持。 
-
 <!--Not Available on [details on Large scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
 ### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Service Fabric 群集的最小大小如何？ 为什么不能更小？
 
@@ -103,7 +104,6 @@ ms.locfileid: "57204095"
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>是否可以对群集节点类型（虚拟机规模集）中的附加数据磁盘进行加密？
 是的。  有关详细信息，请参阅[创建具有附加数据磁盘的群集](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks)。
-
 <!--Not Available on [Encrypt disks (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md) -->
 <!--Not Available on [Encrypt disks (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md)-->
 

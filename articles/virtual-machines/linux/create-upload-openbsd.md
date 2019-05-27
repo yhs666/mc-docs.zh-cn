@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 05/24/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29c8cf3e4206423bfffbbf18e3e8395042bda764
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 34753db00c8ebeae0ee9c88adddd2710a80bd3a9
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626622"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835787"
 ---
 # <a name="create-and-upload-an-openbsd-disk-image-to-azure"></a>创建 OpenBSD 磁盘映像并将其上传到 Azure
 本文介绍如何创建和上传包含 OpenBSD 操作系统的虚拟硬盘 (VHD)。 上传后，可将其用作自己的映像，通过 Azure CLI 在 Azure 中创建虚拟机 (VM)。
@@ -31,7 +31,7 @@ ms.locfileid: "58626622"
 
 * **Azure 订阅** - 如果没有帐户，只需几分钟即可创建一个。 如果有 MSDN 订阅，请参阅 [Visual Studio 订户的每月 Azure 信用额度](https://www.azure.cn/support/legal/offer-rate-plans/)。 否则，请了解如何[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。  
 * Azure CLI - 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
-* **安装在 .vhd 文件中的 OpenBSD 操作系统** - 必须将受支持的 OpenBSD 操作系统（[6.1 版本 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.1/amd64/)）安装到虚拟硬盘中。 可使用多种工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 并创建虚拟机](https://technet.microsoft.com/library/hh846766.aspx)。
+* **安装在 .vhd 文件中的 OpenBSD 操作系统** - 必须将受支持的 OpenBSD 操作系统（[6.2 版 AMD64](https://ftp.openbsd.org/pub/OpenBSD/6.2/amd64/)）安装到虚拟硬盘中。 可使用多种工具创建 .vhd 文件。 例如，可使用 Hyper-V 等虚拟化解决方案创建 .vhd 文件并安装操作系统。 有关如何安装和使用 Hyper-V 的说明，请参阅[安装 Hyper-V 并创建虚拟机](https://technet.microsoft.com/library/hh846766.aspx)。
 
 ## <a name="prepare-openbsd-image-for-azure"></a>为 Azure 准备 OpenBSD 映像
 在安装了 OpenBSD 操作系统 6.1（已添加 Hyper-V 支持）的 VM上，完成以下步骤：

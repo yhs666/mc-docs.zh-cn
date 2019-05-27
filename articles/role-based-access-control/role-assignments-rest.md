@@ -13,15 +13,15 @@ ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 06/20/2018
-ms.date: 03/20/2019
+ms.date: 05/21/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 8503e8448fbbb726e805d379f5c8597072207b06
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 01e58148a17f8833b3d23c76cb84f06d04b564d7
+ms.sourcegitcommit: 932a335a0e5526ea70be496c393484702722f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318901"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65997319"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-rest-api"></a>使用 RBAC 和 REST API 管理对 Azure 资源的访问权限
 
@@ -29,7 +29,7 @@ ms.locfileid: "58318901"
 
 ## <a name="list-access"></a>列出访问权限
 
-在 RBAC 中，若要列出访问权限，请列出角色分配。 若要列出角色分配，可以使用其中一个[角色分配 - List](https://docs.microsoft.com/rest/api/authorization/roleassignments/list) REST API。 若要优化结果，请指定一个范围和可选的筛选器。 若要调用 API，必须具有对指定范围的 `Microsoft.Authorization/roleAssignments/read` 操作的访问权限。 多个 [Azure 资源的内置角色](built-in-roles.md)具有对此操作的访问权限。
+在 RBAC 中，若要列出访问权限，请列出角色分配。 若要列出角色分配，可以使用其中一个[角色分配 - List](https://docs.microsoft.com/rest/api/authorization/roleassignments/list) REST API。 若要优化结果，请指定一个范围和可选的筛选器。
 
 1. 从下面的请求开始：
 
@@ -43,7 +43,7 @@ ms.locfileid: "58318901"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 订阅 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 资源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 将“{filter}”替换为筛选角色分配列表时要应用的条件。
 
@@ -82,7 +82,7 @@ ms.locfileid: "58318901"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 订阅 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 资源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 将“{roleAssignmentName}”替换为角色分配的 GUID 标识符。
 
@@ -110,7 +110,7 @@ ms.locfileid: "58318901"
     | --- | --- |
     | `subscriptions/{subscriptionId}` | 订阅 |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 资源组 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 资源 |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
 1. 将“{roleAssignmentName}”替换为角色分配的 GUID 标识符。
 
@@ -120,4 +120,4 @@ ms.locfileid: "58318901"
 - [Azure REST API 参考](https://docs.microsoft.com/rest/api/azure/)
 - [使用 REST API 为 Azure 资源创建自定义角色](custom-roles-rest.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

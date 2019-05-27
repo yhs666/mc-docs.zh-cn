@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7299271883f189cf933a15aafadaaa34b57e965
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306130"
 documentType: LandingData
 title: Azure 资源管理器文档
 metadata:
@@ -12,60 +6,59 @@ metadata:
   description: 了解如何使用 Resource Manager 以组的方式部署和管理解决方案资源并创建模板，以便进行一致且可重复的资源部署。
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: 资源管理器, azure, devops, 教程, 示例, 参考, 文档
+  keywords: '资源管理器, azure, devops, 教程, 示例, 参考, 文档'
   author: rockboyfor
   manager: digimobile
   ms.author: v-yeche
   ms.topic: landing-page
   origin.date: 12/10/2018
-  ms.date: 02/18/2019
+  ms.date: 06/03/2019
 abstract:
   description: 了解如何使用 Resource Manager 以组的形式部署、监视和管理解决方案资源。 教程、API 参考和其他文档介绍了如何设置资源组并创建模板，以便进行一致且可重复的部署。
 sections:
-- title: 快速入门
-  items:
-  - type: paragraph
-    text: 通过各种工具创建部署 Azure 资源所需的 Azure 资源管理器模板。
-  - type: list
-    style: icon48
+  - title: 快速入门
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: 使用 Azure 门户生成模板
-      href: https://docs.azure.cn/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: 使用 Visual Studio Code 创建模板
-      href: https://docs.azure.cn/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code
-    - image:
-        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
-      text: 使用 Visual Studio 创建模板
-      href: https://docs.azure.cn/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy
-- title: 分步教程
-  items:
-  - type: paragraph
-    text: 了解如何创建部署 Azure 资源所需的 Azure 资源管理器模板。
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 通过各种工具创建部署 Azure 资源所需的 Azure 资源管理器模板。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: 使用 Azure 门户生成模板
+            href: 'https://docs.azure.cn/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: 使用 Visual Studio Code 创建模板
+            href: 'https://docs.azure.cn/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: 使用 Visual Studio 创建模板
+            href: 'https://docs.azure.cn/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
+  - title: 分步教程
     items:
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">利用资源管理器模板参考</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">创建 Azure 资源的多个实例</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-move-resources">移动资源</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">设置资源部署顺序</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-use-conditions">使用条件</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-use-key-vault">集成 Azure Key Vault</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-linked-templates">创建链接的模板</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">部署虚拟机扩展</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">部署 SQL 扩展</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-secure-artifacts">保护模板项目</a>。
-    - html: <a href="/azure-resource-manager/deployment-manager-tutorial">使用安全部署做法</a>。
-    - html: <a href="/azure-resource-manager/resource-manager-tutorial-troubleshoot">排查模板部署问题</a>。
-- title: 示例
-  items:
-  - type: paragraph
-    text: 常见部署任务的示例配置模板。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何创建部署 Azure 资源所需的 Azure 资源管理器模板。
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">利用资源管理器模板参考</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">创建 Azure 资源的多个实例</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">设置资源部署顺序</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-use-conditions">使用条件</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-use-key-vault">集成 Azure Key Vault</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-create-linked-templates">创建链接的模板</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">部署虚拟机扩展</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">部署 SQL 扩展</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-secure-artifacts">保护模板项目</a>。
+          - html: <a href="/azure-resource-manager/deployment-manager-tutorial">使用安全部署做法</a>。
+          - html: <a href="/azure-resource-manager/resource-manager-tutorial-troubleshoot">排查模板部署问题</a>。
+  - title: 示例
     items:
-    - html: <a href="https://github.com/Azure/azure-quickstart-templates/">Azure 快速启动模板</a>
+      - type: paragraph
+        text: 常见部署任务的示例配置模板。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: '<a href="https://github.com/Azure/azure-quickstart-templates/">Azure 快速启动模板</a>'

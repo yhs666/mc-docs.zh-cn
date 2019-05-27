@@ -5,17 +5,17 @@ author: kgremban
 manager: timlt
 ms.author: v-yiso
 origin.date: 09/21/2018
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1fb8d1e2931c1c7c5ea34aae57d2ef06fac4e663
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e08670f779c48ad6058695a21c29ca3c67b73ec6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625795"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829360"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>教程：将 Azure 流分析作为 IoT Edge 模块进行部署
 
@@ -36,8 +36,7 @@ Azure 流分析提供一种丰富结构化的查询语法，可用于在云和 I
 
 <center>
 
-<img src="./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png" alt="Tutorial architecture diagram"/>
-
+![关系图 - 教程体系结构、阶段和部署 ASA 作业](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -47,7 +46,7 @@ Azure 流分析提供一种丰富结构化的查询语法，可用于在云和 I
 
 Azure IoT Edge 设备：
 
-* 可以按照适用于 [Linux](quickstart-linux.md) 或 [Windows 设备](quickstart.md)的快速入门中的步骤，将开发计算机或虚拟机用作 Edge 设备。
+* 可以按照适用于 [Linux](quickstart-linux.md) 或 [Windows 设备](quickstart.md)的快速入门中的步骤，将 Azure 虚拟机用作 IoT Edge 设备。
 
 云资源：
 
@@ -230,17 +229,16 @@ Azure IoT Edge 设备：
 
 应该可以看到，机器温度逐渐升高，在 30 秒内达到了 70 度。 然后，流分析模块触发重置，机器温度下降到 21 度。 
 
-   ![将命令输出重置为模块日志](./media/tutorial-deploy-stream-analytics/docker_log.png)
+   ![将命令输出重置到模块日志中](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>清理资源 
 
 如果打算继续学习下一篇建议的文章，可以保留已创建的资源和配置，以便重复使用。 还可以继续使用相同的 IoT Edge 设备作为测试设备。 
 
-否则，可以删除本文中创建的本地配置和 Azure 资源，以避免收费。 
+否则，可以删除本文中使用的本地配置和 Azure 资源，以免产生费用。 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 

@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 origin.date: 06/27/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 2ef8b14e0624c16d14b71dad04862d47595aed98
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 1a52f305a7b03c622e8f6548cf538a4fe30e08c4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003769"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004282"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
 

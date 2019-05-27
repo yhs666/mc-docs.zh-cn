@@ -14,16 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/14/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe511e743397949ae3551e6119d73f9eef3e05bf
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 100f213c9db29b8dba2a5b392277054cf2ff600a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665986"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004125"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>使用 C# 和 Resource Manager 模板部署 Azure 虚拟机
+
 本文介绍如何使用 C# 部署 Azure 资源管理器模板。 创建的模板会在包含单个子网的新虚拟网络中部署运行 Windows Server 的单个虚拟机。
 
 有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。 有关模板中所有资源的详细信息，请参阅 [Azure 资源管理器模板演练](../../azure-resource-manager/resource-manager-template-walkthrough.md)。
@@ -45,7 +46,7 @@ ms.locfileid: "56665986"
 1. 单击“工具” > “Nuget 包管理器”，然后单击“包管理器控制台”。
 2. 在控制台中键入这些命令：
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.Fluent
     Install-Package WindowsAzure.Storage
     ```
@@ -168,7 +169,7 @@ ms.locfileid: "56665986"
 
 若要为模板中定义的资源参数指定值，请创建包含值的参数文件。
 
-1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 Parameters.json，然后单击“添加”。
+1. 在解决方案资源管理器中，右键单击*myDotnetProject* >  **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 Parameters.json，然后单击“添加”。
 2. 将此 JSON 代码添加到创建的文件中：
 
     ```json
@@ -188,7 +189,7 @@ ms.locfileid: "56665986"
 
 在部署模板之前，请先确保能够访问 [Active Directory 服务主体](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)。 从服务主体中，会获取对 Azure Resource Manager 请求进行身份验证的令牌。 还应记录授权文件中所需的应用程序 ID、身份验证密钥和租户 ID。
 
-1. 在解决方案资源管理器中，右键单击*myDotnetProject* > **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
+1. 在解决方案资源管理器中，右键单击*myDotnetProject* >  **，单击“添加** > **新建项**，然后在**Visual C# 项**中选择*文本文件*。 将文件命名为 azureauth.properties，然后单击“添加”。
 2. 添加这些授权属性：
 
     ```
@@ -207,7 +208,7 @@ ms.locfileid: "56665986"
 3. 保存 azureauth.properties 文件。
 4. 在 Windows 中设置名为 AZURE_AUTH_LOCATION 的环境变量，其中包含创建的授权文件的完整路径，例如可以使用以下 PowerShell 命令：
 
-    ```
+    ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
@@ -215,7 +216,7 @@ ms.locfileid: "56665986"
 
 1. 为所创建的项目打开 Program.cs 文件，然后将这些 using 语句添加到文件顶部的现有语句：
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -227,7 +228,7 @@ ms.locfileid: "56665986"
 
 2. 若要创建管理客户端，请将以下代码添加到 Main 方法：
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -242,7 +243,7 @@ ms.locfileid: "56665986"
 
 若要指定应用程序的值，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var location = Region.USWest;
 
@@ -257,7 +258,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 若要创建帐户，请将此代码添加到 Main 方法：
 
-```
+```csharp
 string storageAccountName = SdkContext.RandomResourceName("st", 10);
 
 Console.WriteLine("Creating storage account...");
@@ -297,7 +298,7 @@ paramblob.UploadFromFileAsync("..\\..\\Parameters.json").Result();
 
 若要部署模板，请将此代码添加到 Main 方法：
 
-```
+```csharp
 var templatePath = "https://" + storageAccountName + ".blob.core.chinacloudapi.cn/templates/CreateVMTemplate.json";
 var paramPath = "https://" + storageAccountName + ".blob.core.chinacloudapi.cn/templates/Parameters.json";
 var deployment = azure.Deployments.Define("myDeployment")
@@ -316,7 +317,7 @@ Console.ReadLine();
 
 若要删除资源组，请将以下代码添加到 Main 方法：
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -329,6 +330,7 @@ azure.ResourceGroups.DeleteByName(groupName);
 2. 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 单击部署状态以查看有关部署的信息。
 
 ## <a name="next-steps"></a>后续步骤
+
 * 如果部署出现问题，后续措施是参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../resource-manager-common-deployment-errors.md)。
 * 若要了解如何部署虚拟机及其支持的资源，请查看[使用 C# 部署 Azure 虚拟机](csharp.md)。
 

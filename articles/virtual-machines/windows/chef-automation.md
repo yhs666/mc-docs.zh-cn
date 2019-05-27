@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 05/30/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: bb8f5c6b30cbbefecbac81f9bcd76334cf1ca0dd
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 25f7bcbdd58a796411cd9cfcc7e48af5de4851fd
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003970"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004150"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -135,7 +135,9 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
 将以下信息添加到 knife.rb：
 
-validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
+    validation_client_name   "myorg-validator"
+
+    validation_key           "#{current_dir}/myorg.pem"
 
 另外，请添加以下行，反映 Azure 发布设置文件的名称。
 

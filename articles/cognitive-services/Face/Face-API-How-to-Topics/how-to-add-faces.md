@@ -1,39 +1,37 @@
 ---
-title: 示例：添加人脸 - 人脸 API
+title: 示例：向 PersonGroup 添加人脸 - 人脸 API
 titleSuffix: Azure Cognitive Services
 description: 使用人脸 API 添加图像中的人脸。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
-origin.date: 03/01/2018
-ms.date: 10/23/2018
+origin.date: 04/10/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
-ms.openlocfilehash: 85db3b41e262cfa3f8d67c21dc6e77ebdf4cf5e9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4f65f5599cb49f9595c809273083fedae26c422d
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644908"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668967"
 ---
-# <a name="example-how-to-add-faces"></a>示例：如何添加人脸
+# <a name="how-to-add-faces-to-a-persongroup"></a>如何向 PersonGroup 添加人脸
 
-本指南介绍了将大量人员和人脸添加到 PersonGroup 的最佳做法。
-相同的策略也适用于 FaceList 和 LargePersonGroup。
-示例在 C# 中使用人脸 API 客户端库编写。
+本指南介绍了将大量人员和人脸添加到 PersonGroup 对象的最佳做法。 相同的策略也适用于 LargePersonGroup、FaceList 和 LargeFaceList。 此示例是使用人脸 API .NET 客户端库以 C# 语言编写的。
 
-## <a name="step-1-initialization"></a>第 1 步：初始化
+## <a name="step-1-initialization"></a>步骤 1：初始化
 
-声明了几个变量，并实现了用于计划请求的帮助程序函数。
+以下代码声明多个变量并实现帮助程序函数，以便对人脸添加请求进行计划。
 
 - `PersonCount` 是人员总数。
 - `CallLimitPerSecond` 是与订阅层相关的每秒最大调用次数。
 - `_timeStampQueue` 是一个队列，用于记录请求时间戳。
-- `await WaitCallLimitPerSecondAsync()` 会等到发送下一个请求是有效的。
+- `await WaitCallLimitPerSecondAsync()` 将会等到能够有效地将发送下一个请求。
 
-```CSharp
+```csharp
 const int PersonCount = 10000;
 const int CallLimitPerSecond = 10;
 static Queue<DateTime> _timeStampQueue = new Queue<DateTime>(CallLimitPerSecond);
@@ -61,33 +59,33 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>第 2 步：授权 API 调用
+## <a name="step-2-authorize-the-api-call"></a>步骤 2：授权 API 调用
 
-使用客户端库时，订阅密钥通过 FaceServiceClient 类的构造函数传入。 例如：
+使用客户端库时，必须将订阅密钥传递给 FaceServiceClient 类的构造函数。 例如：
 
-```CSharp
+```csharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
 在 [Azure 门户](https://portal.azure.cn)中创建认知服务后，可以获取订阅密钥。
 
-## <a name="step-3-create-the-persongroup"></a>第 3 步：创建 PersonGroup
+## <a name="step-3-create-the-persongroup"></a>步骤 3：创建 PersonGroup
 
 创建用于保存人员的 PersonGroup，命名为“MyPersonGroup”。
 为了确保整体验证，请求时间排入 `_timeStampQueue` 队列。
 
-```CSharp
+```csharp
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>第 4 步：创建添加到 PersonGroup 中的人员
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>步骤 4：创建添加到 PersonGroup 中的人员
 
-可同时创建所有人员。为避免超出调用限制，还会应用 `await WaitCallLimitPerSecondAsync()`。
+以并发方式创建人员，另外还要应用 `await WaitCallLimitPerSecondAsync()` 以避免超出调用限制。
 
-```CSharp
+```csharp
 CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
@@ -98,12 +96,12 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step-5-add-faces-to-the-persons"></a>第 5 步：向人员添加人脸
+## <a name="step-5-add-faces-to-the-persons"></a>步骤 5：向人员添加人脸
 
 虽然可同时处理向不同人员添加人脸，但对于某个人来说，处理则是依序的。
 同样，为了确保请求频率在限制范围内，还会调用 `await WaitCallLimitPerSecondAsync()`。
 
-```CSharp
+```csharp
 Parallel.For(0, PersonCount, async i =>
 {
     Guid personId = persons[i].PersonId;
@@ -142,3 +140,4 @@ Parallel.For(0, PersonCount, async i =>
 - [如何检测图像中的人脸](HowtoDetectFacesinImage.md)
 - [如何使用大规模功能](how-to-use-large-scale.md)
 
+<!-- Update_Description: wording update -->

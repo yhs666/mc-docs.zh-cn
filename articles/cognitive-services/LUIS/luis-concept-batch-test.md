@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 845dce36e2f94d31056f263d020d75f1d90f1484
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 1863ad9dfcd028f6bd5b3692c11700e5fc399505
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557045"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65997317"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>对 LUIS 门户中的 1000 个话语执行批处理测试
 
@@ -75,6 +75,8 @@ ms.locfileid: "65557045"
 ```
 
 批处理文件使用 startPos 和 endPos 属性来记录实体的开始和结束。 值从零开始，不得以空格开始或结束。 这与使用 startIndex 和 endIndex 属性的查询日志不同。 
+
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
 ## <a name="batch-syntax-template-for-intents-without-entities"></a>不使用实体的意向的批处理语法模板
 

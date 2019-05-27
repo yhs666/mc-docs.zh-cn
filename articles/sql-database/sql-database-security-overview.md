@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
-origin.date: 04/11/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 6c94fee662c7cadf39124eedc332ea13a43084f0
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 04/26/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 6c9df7fbef3fb6e53ec3c99585f38fe5aed24c7e
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854728"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629230"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 
@@ -61,19 +61,17 @@ IP 防火墙规则基于每个请求的起始 IP 地址授予对数据库的访�
 
     其他可用的 Azure AD 身份验证选项包括[适用于 SQL Server Management Studio 的 Active Directory 通用身份验证](sql-database-ssms-mfa-authentication.md)连接，例如[多重身份验证](../active-directory/authentication/concept-mfa-howitworks.md)。
 
-授权是指在 Azure SQL 数据库中分配给用户的权限，并决定允许用户执行的操作。 权限控制通过将用户帐户添加到定义数据库级权限的[数据库角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)或授予用户特定的[对象级权限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)来实现。 有关详细信息，请参阅[登录和用户](sql-database-manage-logins.md)
+## <a name="authorization"></a>授权
 
-最佳做法是，将用户添加到具有完成其作业功能所需的最低权限的角色中。 服务器管理帐户是 db_owner 角色的成员，该角色具有广泛权限，应谨慎授予用户。 通过 Azure SQL 数据库使用应用程序时，使用具有有限权限的[应用程序角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles)。 这可确保连接到数据库的应用程序具有应用程序所需的最低权限。
+授权是指在 Azure SQL 数据库中分配给用户的权限，并决定允许用户执行的操作。 权限控制通过将用户帐户添加到[数据库角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)并向这些角色分配数据库级权限来实现，也可以通过授予用户特定的[对象级权限](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)来实现。 有关详细信息，请参阅[登录和用户](sql-database-manage-logins.md)
+
+最佳做法是根据需要创建自定义角色。 将用户添加到具有完成其作业功能所需的最低权限的角色中。 请勿直接将权限分配给用户。 服务器管理员帐户是内置的 db_owner 角色的成员，该角色具有广泛权限，只应将其授予部分具有管理职责的用户。 对于 Azure SQL 数据库应用程序，请使用 [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-clause-transact-sql) 来指定被调用模块的执行上下文，或者使用权限受限的[应用程序角色](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles)。 此做法可确保连接到数据库的应用程序具有应用程序所需的最低权限。 按这些最佳做法操作也有助于职责分离。
 
 ### <a name="row-level-security"></a>行级别安全性
 
-行级别安全性使客户能够根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 有关详细信息，请参阅[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)。
+行级别安全性使客户能够根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 行级别安全性也可用于实现基于自定义标签的安全概念。 有关详细信息，请参阅[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)。
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
-
-  此身份验证方法使用用户名和密码。 
-
-有关 Azure SQL 数据库中的权限概述，请参阅[登录和用户](sql-database-manage-logins.md#permissions)
 
 ## <a name="threat-protection"></a>威胁防护
 
@@ -102,7 +100,7 @@ SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确�
 例如，使用 ADO.NET 驱动程序时，可以通过 **Encrypt=True** 和 **TrustServerCertificate=False** 实现此目的。如果从 Azure 门户获取连接字符串，其中会包含正确的设置。
 
 > [!IMPORTANT]
-> 请注意，某些非 Azure 驱动程序默认可能不使用 TLS，或者依赖于旧版 TLS (<2.0) 来正常运行。 在这种情况下，SQL Server 仍允许连接到数据库。 但是，我们建议评估允许此类驱动程序和应用程序连接到 SQL 数据库所带来的安全风险，尤其是存储敏感数据时。 
+> 请注意，某些非 Azure 驱动程序默认可能不使用 TLS，或者依赖于旧版 TLS (<1.2) 来正常运行。 在这种情况下，SQL Server 仍允许连接到数据库。 但是，我们建议评估允许此类驱动程序和应用程序连接到 SQL 数据库所带来的安全风险，尤其是存储敏感数据时。 
 >
 > 有关 TLS 和连接的更多信息，请参阅 [TLS 注意事项](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)。
 

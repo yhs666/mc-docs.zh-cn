@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-origin.date: 04/17/2018
-ms.date: 04/01/2019
+origin.date: 05/10/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 0d69b4bad25495f2a88009afd66b8c675af852bd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c95b5fc9a87560c666afce971fa956412a4ab11d
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625346"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828830"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计 PolyBase 数据加载策略
 
@@ -32,7 +32,7 @@ ms.locfileid: "58625346"
 2. 将数据移入 Azure Blob 存储中。
    <!-- Not Available on Azure Data Lake Store-->
 3. 准备要加载的数据。
-4. 使用 PolyBase 将数据载入 SQL 数据仓库临时表。
+4. 使用 PolyBase 将数据载入 SQL 数据仓库临时表。 
 5. 转换数据。
 6. 将数据插入生产表。
 
@@ -50,6 +50,28 @@ ms.locfileid: "58625346"
 
 PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 除了带分隔符的文本文件以外，它还可以从 Hadoop 文件格式（RC 文件、ORC 和 Parquet）加载数据。 PolyBase 还可以从 Gzip 和 Snappy 压缩文件加载数据。 PolyBase 目前不支持扩展的 ASCII、固定宽度格式以及 WinZip、JSON 和 XML 等嵌套格式。 如果是从 SQL Server 导出，则可使用 [bcp 命令行工具](/sql/tools/bcp-utility)将数据导出到带分隔符的文本文件中。
 
+| **Parquet 数据类型** |                      **SQL 数据类型**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        布尔值        |                             bit                              |
+|        Double         |                            float                             |
+|         float         |                             real                             |
+|        Double         |                            money                             |
+|        Double         |                          smallmoney                          |
+|        字符串         |                            nchar                             |
+|        字符串         |                           nvarchar                           |
+|        字符串         |                             char                             |
+|        字符串         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          varbinary                           |
+|       timestamp       |                             date                             |
+|       timestamp       |                        smalldatetime                         |
+|       timestamp       |                          datetime2                           |
+|       timestamp       |                           datetime                           |
+|       timestamp       |                             time                             |
 
 ## <a name="2-land-the-data-into-azure-blob-storage"></a>2.将数据移入 Azure Blob 存储中
 
@@ -96,6 +118,11 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 
 - 如果数据位于 Azure Blob 存储中，则 [PolyBase 与 T-SQL](load-data-from-azure-blob-storage-using-polybase.md) 可以发挥作用。 使用此方法可以获得加载过程的最大控制度，不过同时需要定义外部数据对象。 其他方法在你将源表映射到目标表时，在幕后定义这些对象。  若要安排 T-SQL 加载，可以使用 SSIS。 
 - 如果源数据位于本地 SQL Server 或云中的 SQL Server，则 [PolyBase 与 SSIS](https://docs.microsoft.com/sql/integration-services/load-data-to-sql-data-warehouse) 可以发挥作用。 SSIS 定义源到目标表的映射，同时可协调负载。 如果已有 SSIS 包，可将这些包修改为使用新的数据仓库目标。 
+
+### <a name="non-polybase-loading-options"></a>非 PolyBase 加载选项
+
+如果数据与 PolyBase 不兼容，可以使用 [bcp](https://docs.microsoft.com/sql/tools/bcp-utility) 或 [SQLBulkCopy API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx)。 bcp 将数据直接加载到 SQL 数据仓库，而无需经过 Azure Blob 存储，但只适用于小规模的加载。 请注意，这些选项的加载性能明显低于 PolyBase。 
+
 
 ## <a name="5-transform-the-data"></a>5.转换数据
 

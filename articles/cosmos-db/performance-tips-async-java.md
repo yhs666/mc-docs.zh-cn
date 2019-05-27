@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-origin.date: 03/27/2018
-ms.date: 01/21/2019
+origin.date: 05/01/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0a608632a089997b3b0f1ae44c547aae666bb01d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: b837818c93bdde9119de96c9263ce239a8a6113f
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309164"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668923"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>适用于 Azure Cosmos DB 和 Async Java 的性能提示
 
@@ -130,7 +130,9 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     org.apache.log4j.Logger.getLogger("io.netty").setLevel(org.apache.log4j.Level.OFF);
     ```
 
-11. **OS 打开文件资源限制** 某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：<!-- Notice: Replace the Red Hat with CentOS-->
+11. **OS 打开文件资源限制** 某些 Linux 系统（例如 CentOS）对打开的文件数和连接总数施加上限。 运行以下命令以查看当前限制：
+    
+    <!-- Notice: Replace the Red Hat with CentOS-->
     
     ```bash
     ulimit -a
@@ -163,12 +165,14 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```
 
-对于其他平台（CentOS、Windows、Mac 等），请参阅这些说明 https://netty.io/wiki/forked-tomcat-native.html <!-- Notice: Replace the Red Hat with CentOS-->
+对于其他平台（CentOS、Windows、Mac 等），请参阅这些说明 https://netty.io/wiki/forked-tomcat-native.html
+
+<!-- Notice: Replace the Red Hat with CentOS-->
 
 ## <a name="indexing-policy"></a>索引策略
 

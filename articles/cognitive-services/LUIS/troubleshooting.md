@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: bfa4d4f8f5d6ab793151b2c11b992d96e2ef2b2e
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 3555dc9e4c6b801353580eacef037b5a4422ee47
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555532"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828537"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -282,27 +282,19 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 是，如果具有计量使用情况的必要连接，则可以为这些方案使用 LUIS [容器](luis-container-howto.md)。 
 
-### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>在 Build 2018 大会上，我了解到一项语言理解功能或演示，但我不记得它的名称了，它叫什么呢？
+## <a name="migrating-to-the-next-version"></a>迁移到下一版本
 
-以下功能是在 Build 2018 大会上发布的：
+### <a name="how-do-i-migrate-to-preview-v3-api"></a>如何迁移到预览版 V3 API？ 
 
-|Name|内容|
-|--|--|
-|增强功能|[正则表达式](luis-concept-data-extraction.md##regular-expression-entity-data)实体和[关键短语](luis-concept-data-extraction.md#key-phrase-extraction-entity-data)实体
-|模式|模式[概念](luis-concept-patterns.md)、[教程](luis-tutorial-pattern.md)、[操作方法](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) 实体概念，包括用作例外的[显式列表](luis-concept-patterns.md#explicit-lists)<br>[角色](luis-concept-roles.md)概念|
-|集成|[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)集成（集成了[情绪分析](luis-how-to-publish-app.md#enable-sentiment-analysis)）<br>[语音](https://docs.microsoft.com/azure/cognitive-services/speech)集成（集成了语音启动和[语音 SDK](https://aka.ms/SpeechSDK)）|
-|Dispatch 工具|Dispatch 命令行[工具](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps)是 [BotBuilder-tools](https://github.com/Microsoft/botbuilder-tools) 的一部分，可以将多个 LUIS 应用和 QnA Maker 应用组合成单个 LUIS 应用，以便增强机器人中的意向识别功能
+请参阅[适用于 LUIS 应用的 API v2 到 v3 迁移指南](luis-migration-api-v3.md)
 
-此外还包括其他创作 [API 路由](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md)。
+## <a name="build-2019-conference-announcements"></a>Build 2019 大会公告
 
-视频：
-* [Build 2018 中的 Azure Friday：认知服务 - 语言 (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)（Build 2018 AI 演示 - 语言理解服务的新增功能）
-* [Build 2018 会议 - 机器人智能、语音功能和 NLU 最佳做法](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player)（Build 2018 - LUIS 更新）
+以下功能是在 Build 2019 大会上发布的：
 
-项目：
-* [Contoso 咖啡店机器人](https://github.com/botbuilderbuild2018/build2018demo)演示 - GitHub 上的源代码
+* [V3 API 预览版迁移指南](luis-migration-api-v3.md)
+* [改进的分析仪表板](luis-how-to-use-dashboard.md)
+* [改进的预生成域](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>后续步骤
 

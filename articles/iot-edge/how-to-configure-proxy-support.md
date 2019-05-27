@@ -5,16 +5,16 @@ author: kgremban
 manager: ''
 ms.author: v-yiso
 origin.date: 03/20/2019
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 59a8cd5cbecfee05d5067fa0435187a4769ae2bc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6fa765a2e4280cdc947fd88a5110d9caa1e14fdc
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626362"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829398"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -43,19 +43,25 @@ IoT Edge 设备将发送 HTTPS 请求以与 IoT 中心进行通信。 如果设�
 
 若要在 Linux 设备上安装 IoT Edge 运行时，请将包管理器配置为通过代理服务器访问安装包。 例如，[设置 apt-get 以使用 http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy)。 配置包管理器后，请按照[在 Linux (ARM32v7/armhf) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux-arm.md)或[在 Linux (x64) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux.md)中的说明照常进行操作。 
 
-若要在 Windows 设备上安装 IoT Edge 运行时，需要两次通过代理服务器执行操作。 第一个连接用于下载安装程序脚本文件，第二个连接用于在安装过程中下载必需的组件。 可以在 Windows 设置中配置代理信息，或直接在安装脚本中包含代理信息。 以下 powershell 脚本是使用 `-proxy` 参数安装 Windows 的示例：
+若要在 Windows 设备上安装 IoT Edge 运行时，需要两次通过代理服务器执行操作。 第一个连接用于下载安装程序脚本文件，第二个连接用于在安装过程中下载必需的组件。 可以在 Windows 设置中配置代理信息，或直接在 PowerShell 命令中包含代理信息。 以下步骤演示使用 `-proxy` 参数安装 Windows 的示例：
 
-```powershell
-. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -proxy <proxy URL>
-```
+1. Invoke-WebRequest 命令需要获得代理信息才能访问安装程序脚本。 然后，Deploy-IoTEdge 命令需要获得代理信息才能下载安装文件。 
 
-如果拥有不能包含在 URL 中的复杂代理服务器凭据，请使用 `-InvokeWebRequestParameters` 中的 `-ProxyCredential` 参数。 例如，
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
+   ```
+
+2. Initialize-IoTEdge 命令不需经过代理服务器，因此第二步仅需 Invoke-WebRequest 的代理信息。
+
+   ```powershell
+   . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
+
+If you have complicated credentials for the proxy server that can't be included in the URL, use the `-ProxyCredential` parameter within `-InvokeWebRequestParameters`. For example,
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
 . {Invoke-WebRequest -proxy <proxy URL> -ProxyCredential $proxyCredential -useb aka.ms/iotedge-win} | Invoke-Expression; `
-Install-SecurityDaemon -Manual -ContainerOs Windows -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
+Deploy-IoTEdge -InvokeWebRequestParameters @{ '-Proxy' = '<proxy URL>'; '-ProxyCredential' = $proxyCredential }
 ```
 
 有关代理参数的详细信息，请参阅 [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest)。 有关安装选项的详细信息，请参阅[在 Windows 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-windows.md)。

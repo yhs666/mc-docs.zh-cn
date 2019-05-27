@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 origin.date: 01/09/2019
-ms.date: 03/25/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 62579482b1a4a9b659712e359e6d9c25a26531d8
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: bf6ddb42e8017450a0655e3852dd1438d8d1b239
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348060"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195395"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>快速入门：创建服务器 - PowerShell
 
@@ -82,4 +82,4 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 > [!div class="nextstepaction"]
 > [教程：将示例模型添加到服务器](analysis-services-create-sample-model.md)
 
-<!--Update_Description: update meta properties, update link-->
+<!--Update_Description: update meta properties-->

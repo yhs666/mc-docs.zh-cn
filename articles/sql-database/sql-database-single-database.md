@@ -12,17 +12,17 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 04/08/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: ce953658af702cd768d1b884d5779414c7b619e2
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/20/2019
+ms.openlocfilehash: 8800fe00940a8378133dc14f18c2d0401efb6697
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529383"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629216"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什么是 Azure SQL 数据库中的单一数据库
 
-单一数据库部署选项使用自己的资源集在 Azure SQL 数据库中创建数据库，并通过 SQL 数据库服务器进行管理。 使用单一数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层，并具备有保证的计算大小。
+单一数据库部署选项使用自己的资源集在 Azure SQL 数据库中创建数据库，并通过 SQL 数据库服务器进行管理。 使用单一数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层级，并具备有保证的计算大小。
 
 > [!IMPORTANT]
 > 单一数据库是用于 Azure SQL 数据库的两个部署选项之一。 另一个是[弹性池](sql-database-elastic-pool.md)。
@@ -31,7 +31,7 @@ ms.locfileid: "59529383"
 
 ## <a name="dynamic-scalability"></a>动态可伸缩性
 
-可以在小型单一数据库中构建你的第一个应用，每个月只需在低性价比服务层中花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式将[服务层更改为](sql-database-single-database-scale.md)较高性价比服务层。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
+可以在无服务器（预览版）计算层级中以低成本构建第一个基于小型单一数据库的应用，或者在预配的计算层级中构建小型计算大小。 可以根据解决方案的需要，随时以手动或编程方式更改[计算或服务层级](sql-database-single-database-scale.md)。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
 
 ## <a name="single-databases-and-elastic-pools"></a>单一数据库和弹性池
 

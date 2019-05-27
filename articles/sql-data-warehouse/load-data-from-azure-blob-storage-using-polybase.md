@@ -1,22 +1,22 @@
 ---
 title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 教程使用 Azure 门户和 SQL Server Management Studio 将北京市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 09/12/2018
-ms.date: 11/12/2018
+ms.subservice: implement
+origin.date: 04/26/2019
+ms.date: 05/20/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ddcaab297f5dbc31845f45bd1530bb1272284894
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 504b64bb76befe5ba854804ad2f61e296ddfd5fe
+ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626005"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828839"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -81,7 +81,7 @@ ms.locfileid: "58626005"
 
 6. 单击“性能级别”，指定数据仓库是 Gen1 还是 Gen2，以及数据仓库单位的数量。 
 
-7. 针对本教程，请选择 SQL 数据仓库的“Gen1”。 滑块默认设置为“DW1000c”。  请尝试上下移动滑块，以查看其工作原理。 
+7. 对于本教程，请选择 SQL 数据仓库的“Gen2”。 滑块默认设置为“DW1000c”。  请尝试上下移动滑块，以查看其工作原理。 
 
     ![配置性能](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -270,9 +270,9 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 6. 运行以下 [CREATE SCHEMA](https://docs.microsoft.com/sql/t-sql/statements/create-schema-transact-sql) 语句，创建外部文件格式的架构。 该架构提供组织即将创建的外部表的方法。
 
-   ```sql
-   CREATE SCHEMA ext;
-   ```
+    ```sql
+    CREATE SCHEMA ext;
+    ```
 
 7. 创建外部表。 表定义存储在 SQL 数据仓库中，但表引用数据存储在 Azure Blob 存储中。 运行以下 T-SQL 命令以创建若干外部表，这些表都指向我们之前在外部数据源中定义的 Azure blob。
 
@@ -562,6 +562,49 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
     ![查看已加载的表](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
+## <a name="authenticate-using-managed-identities-to-load-optional"></a>使用托管标识进行身份验证，以便进行加载（可选）
+使用 PolyBase 进行加载和通过托管标识进行身份验证是最安全的机制，可以让你通过 Azure 存储来利用 VNet 服务终结点。 
+
+### <a name="prerequisites"></a>先决条件
+1.  按照此[指南](https://docs.microsoft.com/powershell/azure/install-az-ps)安装 Azure PowerShell。
+2.  如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户升级到常规用途 v2 帐户。
+3.  必须在 Azure 存储帐户的“防火墙和虚拟网络”设置菜单下启用“允许受信任的 Microsoft 服务访问此存储帐户”。 有关详细信息，请参阅此[指南](/storage/common/storage-network-security#exceptions)。
+
+#### <a name="steps"></a>步骤
+1. 在 PowerShell 中，向 Azure Active Directory (AAD) 注册 SQL 数据库服务器：
+
+   ```powershell
+   Connect-AzAccount -Environment AzureChinaCloud
+   Select-AzSubscription -SubscriptionId your-subscriptionId
+   Set-AzSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
+   ```
+    
+   1. 按照此[指南](/storage/common/storage-quickstart-create-account)创建**常规用途 v2 存储帐户**。
+
+   > [!NOTE]
+   > - 如果有常规用途 v1 或 Blob 存储帐户，则必须先按照此[指南](/storage/common/storage-account-upgrade)将该帐户**升级到 v2** 帐户。
+    
+1. 在存储帐户下导航到“访问控制(标识和访问管理)”，然后单击“添加角色分配”。 向 SQL 数据库服务器分配“存储 Blob 数据参与者”RBAC 角色。
+
+   > [!NOTE] 
+   > 只有具有“所有者”特权的成员能够执行此步骤。 若要了解 Azure 资源的各种内置角色，请参阅此[指南](/role-based-access-control/built-in-roles)。
+  
+1. **通过 Polybase 连接到 Azure 存储帐户：**
+    
+   1. 使用 **IDENTITY = '托管服务标识'** 创建数据库范围的凭据：
+
+       ```SQL
+       CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+       ```
+       > [!NOTE] 
+       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用托管标识。
+       > - 使用 Azure 存储帐户时，IDENTITY 名称应该为 **'托管服务标识'**，以便通过 PolyBase 进行连接。
+    
+   1. 创建外部数据源，使用托管服务标识指定数据库范围的凭据。
+        
+   1. 使用[外部表](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql)进行正常查询。
+
+若要为 SQL 数据仓库设置虚拟网络服务终结点，请参阅以下[文档] (/sql-database/sql-database-vnet-service-endpoint-rule-overview)。 
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -602,4 +645,3 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 > [!div class="nextstepaction"]
 >[了解如何将现有数据库迁移到 SQL 数据仓库](sql-data-warehouse-overview-migrate.md)
-<!-- Update_Description: update meta properties, wording update -->

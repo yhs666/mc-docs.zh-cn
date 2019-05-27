@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: e62fdd092c7fcb17984508ae20d25cd1bc649e6e
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/27/2019
+ms.openlocfilehash: b11216c458789607db56a98127e6fce6412c82ef
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529410"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829143"
 ---
 # <a name="api-management-access-restriction-policies"></a>API 管理访问限制策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](http://go.microsoft.com/fwlink/?LinkID=398186)。  
@@ -63,14 +63,14 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |check-header|根元素。|是|  
 |value|允许的 HTTP 标头值。 指定了多个值元素时，如果任何一个值匹配，则可认为检查成功。|否|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|在标头不存在或其值无效的情况下，需要在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|是|不适用|  
 |failed-check-httpcode|在标头不存在或其值无效时需返回的 HTTP 状态代码。|是|不适用|  
@@ -92,6 +92,9 @@ ms.locfileid: "59529410"
 >   
 >  [策略表达式](./api-management-policy-expressions.md)不能用于此策略的任何策略属性。  
   
+> [!CAUTION]
+> 由于限制体系结构的分布式性质，速率限制永远不可能完全准确。 允许的请求的配置数字和实际数字之间的差异因请求量和速度、后端延迟以及其他因素而异。
+
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
@@ -118,7 +121,7 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
 |api|添加一个或多个此类元素，对产品中的 API 施加调用速率限制。 产品和 API 的调用速率限制是各自独立应用的。 可以通过 `name` 或 `id` 引用 API。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
@@ -126,7 +129,7 @@ ms.locfileid: "59529410"
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |name|要对其应用速率限制的 API 的名称。|是|不适用|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|是|不适用|  
@@ -144,6 +147,9 @@ ms.locfileid: "59529410"
   
  有关此策略的详细信息和示例，请参阅[使用 Azure API 管理进行高级请求限制](./api-management-sample-flexible-throttling.md)。  
   
+> [!CAUTION]
+> 由于限制体系结构的分布式性质，速率限制永远不可能完全准确。 允许的请求的配置数字和实际数字之间的差异因请求量和速度、后端延迟以及其他因素而异。
+
 ### <a name="policy-statement"></a>策略语句  
   
 ```xml  
@@ -174,13 +180,13 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-limit|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|是|不适用|  
 |counter-key|用于速率限制策略的密钥。|是|不适用|  
@@ -219,7 +225,7 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |ip-filter|根元素。|是|  
 |address|指定要对其进行筛选的单个 IP 地址。|至少一个 `address` 或 `address-range` 元素是必需的。|  
@@ -227,7 +233,7 @@ ms.locfileid: "59529410"
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|允许或拒绝其访问的某个 IP 地址范围。|使用 `address-range` 元素时必需。|不适用|  
 |ip-filter action="allow &#124; forbid"|指定是否应允许指定的 IP 地址和范围执行调用。|是|不适用|  
@@ -273,7 +279,7 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
 |api|添加一个或多个此类元素，对产品中的 API 设置调用配额。 产品和 API 的调用配额是分别应用的。 可以通过 `name` 或 `id` 引用 API。 如果同时提供了这两个属性，则将使用 `id` 并忽略 `name`。|否|  
@@ -281,7 +287,7 @@ ms.locfileid: "59529410"
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |name|要向其应用配额的 API 或操作的名称。|是|不适用|  
 |bandwidth|在 `renewal-period` 所指定的时间间隔内允许的最大总字节数（千字节）。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
@@ -332,13 +338,13 @@ ms.locfileid: "59529410"
   
 ### <a name="elements"></a>元素  
   
-|名称|说明|必需|  
+|Name|说明|必须|  
 |----------|-----------------|--------------|  
 |quota|根元素。|是|  
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |bandwidth|在 `renewal-period` 所指定的时间间隔内允许的最大总字节数（千字节）。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
 |calls|在 `renewal-period` 所指定的时间间隔内允许的最大总调用数。|必须指定 `calls` 和/或 `bandwidth`。|不适用|  
@@ -371,11 +377,12 @@ ms.locfileid: "59529410"
     token-value="expression returning JWT token as a string"
     require-expiration-time="true|false"
     require-scheme="scheme"
-    require-signed-tokens="true|false"   
-    clock-skew="allowed clock skew in seconds">  
-  <issuer-signing-keys>  
-    <key>base64 encoded signing key</key>  
-    <!-- if there are multiple keys, then add additional key elements -->  
+    require-signed-tokens="true|false"
+    clock-skew="allowed clock skew in seconds"
+    output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
+  <issuer-signing-keys>
+    <key>base64 encoded signing key</key>
+    <!-- if there are multiple keys, then add additional key elements -->
   </issuer-signing-keys>
   <decryption-keys>
     <key>base64 encoded signing key</key>  
@@ -500,7 +507,7 @@ ms.locfileid: "59529410"
 ```
 ### <a name="elements"></a>元素  
   
-|元素|说明|必需|  
+|元素|说明|必须|  
 |-------------|-----------------|--------------|  
 |validate-jwt|根元素。|是|  
 |audiences|包含一系列可接受且可存在于令牌上的受众声明。 如果存在多个受众值，则会对每个值进行尝试，直到所有值都试完（这种情况表明验证失败），或者直到有一个值成功。 必须指定至少一个受众。|否|  
@@ -513,7 +520,7 @@ ms.locfileid: "59529410"
   
 ### <a name="attributes"></a>属性  
   
-|名称|说明|必需|默认|  
+|Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|时间跨度。 用于指定令牌颁发者的系统时钟与 API 管理实例之间的最大预期时间差。|否|0 秒|  
 |failed-validation-error-message|JWT 未通过验证时会在 HTTP 响应正文中返回的错误消息。 此消息必须对任何特殊字符正确地进行转义。|否|默认错误消息取决于验证问题，例如“JWT 不存在”。|  

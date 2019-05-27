@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: b3022c5c2ba856436b2f11e8fdebde91ab2dfa13
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 7499d86399318dd4612ad8bb891c350095586efa
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556965"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828547"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>将实体添加到示例话语 
 
@@ -89,22 +89,11 @@ Are there any SQL server jobs?
 
     ![显示了复合实体的“意向详细信息”页的屏幕截图](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>添加分层的实体
+## <a name="add-entitys-role-to-utterance"></a>将实体的角色添加到话语
 
-分层实体是根据上下文学习的一类概念相关实体。 在以下示例中，该实体包含出发地和目的地。 
+角色是实体命名子类型，取决于话语的上下文。 可以将话语中的某个实体标记为该实体，或者选择该实体中的一个角色。 任何实体，包括自定义实体，都可以有通过机器学习到的角色（简单实体和复合实体），以及不通过机器学习到的角色（预生成实体、正则表达式实体、列表实体）。 
 
-在表述 `Move John Smith from Seattle to Cairo` 中，Seattle 是出发地，Cairo 是目的地。 每个位置因上下文而异，是从表述中的单词顺序和单词选择学习到的。
-
-1. 在“意向”页上的话语中选择 `Seattle`，输入实体名称 `Location`，然后按 Enter 键。
-
-1. 在“要创建哪种类型的实体?”弹出框中，选择“分层”作为“实体类型”，添加 `Origin` 和 `Destination` 作为子项，然后选择“完成”。
-
-    ![“意向详细信息”页的屏幕截图，突出显示了“ToLocation”实体](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. 表述中的单词已用父分层实体标记。 需将单词分配给子实体。 返回到“意向详细信息”页上的话语。 选择单词，然后从下拉列表中选择所创建的实体名称，再按照右侧菜单的提示选择正确的子实体。
-
-    >[!CAUTION]
-    >子实体名称在单个应用的所有实体中必须唯一。 两个不同的分层实体不得包含同一名称的子实体。 
+通过手动操作教程了解[如何标记包含实体角色的话语](tutorial-entity-roles.md)。 
 
 ## <a name="entity-status-predictions"></a>实体状态预测
 
@@ -136,9 +125,6 @@ Are there any SQL server jobs?
 |正确标记的文本|蓝色实体突出显示，带红色下划线|错误的预测|在各种位置和用法中提供包含正确标记的实体的更多话语。 当前话语不足，无法告知 LUIS 此实体是或者类似于同一上下文中显示的实体。 类似实体应组合成单个实体，以免给 LUIS 造成混淆。 另一种解决方法是添加一个短语列表，以提升单词的重要性。 |
 |错误标记的文本|蓝色实体突出显示，带红色下划线|正确的预测| 在各种位置和用法中提供包含正确标记的实体的更多话语。 
 
-> [!Note]
-> 如果示例话语的行中标记的意向周围出现了红色框，则发生了[意向预测错误](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors)。 你需要更正它。 
-
 ## <a name="other-actions"></a>其他操作
 
 可以针对示例话语（选定组或单个项的形式）执行操作。 选定的示例话语组会更改列表上方的上下文菜单。 单个项可以使用列表上方的上下文菜单，以及每个话语行末尾的相应上下文省略号。 
@@ -151,11 +137,11 @@ Are there any SQL server jobs?
 
 ### <a name="add-prebuilt-entity-label"></a>添加预置实体标签
 
-向 LUIS 应用添加预生成实体时，无需通过这些实体来标记话语。 若要详细了解预置实体以及添加它们的方法，请参阅[添加实体](luis-how-to-add-entities.md#add-prebuilt-entity)。
+向 LUIS 应用添加预生成实体时，无需通过这些实体来标记话语。 若要详细了解预置实体以及添加它们的方法，请参阅[添加实体](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)。
 
 ### <a name="add-regular-expression-entity-label"></a>添加正则表达式实体标签
 
-如果向 LUIS 应用添加正则表达式实体，则不需要通过这些实体来标记话语。 若要详细了解正则表达式实体以及添加它们的方法，请参阅[添加实体](luis-how-to-add-entities.md#add-regular-expression-entities)。
+如果向 LUIS 应用添加正则表达式实体，则不需要通过这些实体来标记话语。 若要详细了解正则表达式实体以及添加它们的方法，请参阅[添加实体](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts)。
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>通过表述创建模式

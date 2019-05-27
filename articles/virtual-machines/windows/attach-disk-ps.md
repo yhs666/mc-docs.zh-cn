@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 6f988d09c4d1129398319d9fc516019e862acf4a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8034304759b61fb1ce94043dfe7069b391b9526b
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003794"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004271"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -35,9 +35,9 @@ ms.locfileid: "59003794"
 
 <!-- Not Available on GS-series -->
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-<!--Not Available [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
+<!--Not Available [!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)-->
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>将空数据磁盘添加到虚拟机
 

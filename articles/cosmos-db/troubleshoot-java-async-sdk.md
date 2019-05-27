@@ -4,18 +4,18 @@ description: 使用客户端日志记录等功能和其他第三方工具来确�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: troubleshooting
-origin.date: 10/28/2018
-ms.date: 01/21/2019
+origin.date: 04/30/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6b6d59a376803d71d3b2d22ac2d9a6b3151fe8b9
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 221a6ab84129ad6752a7daf709494773331cd5ef
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309169"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668865"
 ---
 # <a name="troubleshoot-issues-when-you-use-the-java-async-sdk-with-azure-cosmos-db-sql-api-accounts"></a>排查将 Java 异步 SDK 与 Azure Cosmos DB SQL API 帐户配合使用时出现的问题
 本文介绍了将 [Java 异步 SDK](sql-api-sdk-async-java.md) 与 Azure Cosmos DB SQL API 帐户配合使用时的常见问题、解决方法、诊断步骤和工具。
@@ -55,12 +55,23 @@ ulimit -a
 
 如果应用部署在没有公共 IP 地址的 Azure 虚拟机上，则默认情况下，[Azure SNAT 端口](/load-balancer/load-balancer-outbound-connections#preallocatedports)用于建立与 VM 外部任何终结点的连接。 从 VM 到 Azure Cosmos DB 终结点，允许的连接数受 [Azure SNAT 配置](/load-balancer/load-balancer-outbound-connections#preallocatedports)的限制。
 
- 仅当 VM 具有专用 IP 地址且来自 VM 的进程尝试连接到公共 IP 地址时，才会使用 Azure SNAT 端口。 有两种解决方法可以避免 Azure SNAT 限制：
+仅当 VM 具有专用 IP 地址且来自 VM 的进程尝试连接到公共 IP 地址时，才会使用 Azure SNAT 端口。 有两种解决方法可以避免 Azure SNAT 限制：
 
 * 向 Azure 虚拟机虚拟网络的子网添加 Azure Cosmos DB 服务终结点。 有关详细信息，请参阅 [Azure 虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)。 
 
     启用服务终结点后，不再从公共 IP 向 Azure Cosmos DB 发送请求， 而是发送虚拟网络和子网标识。 如果仅允许公共 IP，则此更改可能会导致防火墙丢失。 如果使用防火墙，则在启用服务终结点后，请使用[虚拟网络 ACL](/virtual-network/virtual-networks-acl) 将子网添加到防火墙。
 * 将公共 IP 分配给 Azure VM。
+
+<a name="cant-connect"></a>
+##### <a name="cant-reach-the-service---firewall"></a>不能访问服务 - 防火墙
+``ConnectTimeoutException`` 指示 SDK 不能访问服务。
+使用直接模式时，可能会出现如下所示的故障：
+```
+GoneException{error=null, resourceAddress='https://cdb-ms-prod-chinanorth-fd4.documents.azure.cn:14940/apps/e41242a5-2d71-5acb-2e00-5e5f744b12de/services/d8aa21a5-340b-21d4-b1a2-4a5333e7ed8a/partitions/ed028254-b613-4c2a-bf3c-14bd5eb64500/replicas/131298754052060051p//', statusCode=410, message=Message: The requested resource is no longer available at the server., getCauseInfo=[class: class io.netty.channel.ConnectTimeoutException, message: connection timed out: cdb-ms-prod-chinanorth-fd4.documents.azure.cn/101.13.12.5:14940]
+```
+
+如果应用计算机上有防火墙运行，请打开 10,000 到 20,000 这一端口范围，该范围由直接模式使用。
+另请按[主机上的连接限制](#connection-limit-on-host)中的说明操作。
 
 #### <a name="http-proxy"></a>HTTP 代理
 
@@ -155,6 +166,40 @@ createObservable
 
 Azure Cosmos DB 仿真器 HTTPS 证书是自签名证书。 若要将 SDK 与仿真器配合使用，请将仿真器证书导入 Java TrustStore。 有关详细信息，请参阅[导出 Azure Cosmos DB 仿真器证书](local-emulator-export-ssl-certificates.md)。
 
+### <a name="dependency-conflict-issues"></a>依赖项冲突问题
+
+```console
+Exception in thread "main" java.lang.NoSuchMethodError: rx.Observable.toSingle()Lrx/Single;
+```
+
+上述异常表明在旧版 RxJava 库（例如 1.2.2）上有依赖项。 我们的 SDK 依赖于 RxJava 1.3.8，该版本的 API 在更早版的 RxJava 中不可用。 
+
+此类问题的解决方案是确定 RxJava-1.2.2 中引入了哪个其他的依赖项，排除 RxJava-1.2.2 上的可传递依赖项，并允许 CosmosDB SDK 引入更新的版本。
+
+若要确定 RxJava-1.2.2 中引入了哪个库，请在项目 pom.xml 文件旁白运行以下命令：
+```bash
+mvn dependency:tree
+```
+有关详细信息，请参阅 [maven 依赖项树指南](https://maven.apache.org/plugins/maven-dependency-plugin/examples/resolving-conflicts-using-the-dependency-tree.html)。
+
+确定 RxJava-1.2.2 是项目的哪个其他依赖项的传递依赖项以后，即可在 pom 文件中修改该库的依赖项，排除 RxJava 传递依赖项：
+
+```xml
+<dependency>
+  <groupId>${groupid-of-lib-which-brings-in-rxjava1.2.2}</groupId>
+  <artifactId>${artifactId-of-lib-which-brings-in-rxjava1.2.2}</artifactId>
+  <version>${version-of-lib-which-brings-in-rxjava1.2.2}</version>
+  <exclusions>
+    <exclusion>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </exclusion>
+  </exclusions>
+</dependency>
+```
+
+有关详细信息，请参阅[排除传递依赖项指南](https://maven.apache.org/guides/introduction/introduction-to-optional-and-excludes-dependencies.html)。
+
 <a name="enable-client-sice-logging"></a>
 ## <a name="enable-client-sdk-logging"></a>启用客户端 SDK 日志记录
 
@@ -215,4 +260,4 @@ netstat -nap
 [主机上的连接限制]: #connection-limit-on-host
 [Azure SNAT (PAT) 端口耗尽]: #snat
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

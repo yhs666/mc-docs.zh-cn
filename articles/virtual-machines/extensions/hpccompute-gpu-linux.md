@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 驱动程序扩展 - Azure Linux VM | Azure
+title: 适用于 Linux 的 NVIDIA GPU 驱动程序扩展 | Azure
 description: 用于在运行 Linux 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/11/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89acdddc48652423d7b116a6ca55913460319aed
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7f30243058614a74041dbe382b68931711a43e35
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627119"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835595"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
 ## <a name="overview"></a>概述
 
-此扩展在 Linux N 系列 VM 上安装 NVIDIA GPU 驱动程序。 根据 VM 系列，此扩展安装 CUDA 驱动程序。 使用此扩展安装 NVIDIA 驱动程序时，即表示你接受并同意 [NVIDIA 最终用户许可协议](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf)的条款。 在安装过程中，VM 可能会重新启动以完成驱动程序安装。
+此扩展在 Linux N 系列 VM 上安装 NVIDIA GPU 驱动程序。 根据 VM 系列，此扩展安装 CUDA 驱动程序。 使用此扩展安装 NVIDIA 驱动程序时，即表示你接受并同意 [NVIDIA 最终用户许可协议](https://go.microsoft.com/fwlink/?linkid=874330)的条款。 在安装过程中，VM 可能会重新启动以完成驱动程序安装。
 
 <!--Not Available on or GRID-->
 
@@ -77,7 +77,7 @@ ms.locfileid: "58627119"
 
 | Name | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
+| apiVersion | 2015-06-15 | date |
 | 发布者 | Microsoft.HpcCompute | 字符串 |
 | type | NvidiaGpuDriverLinux | 字符串 |
 | typeHandlerVersion | 1.2 | int |
@@ -192,7 +192,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Linux 的虚拟机扩展和功能](features-linux.md)。

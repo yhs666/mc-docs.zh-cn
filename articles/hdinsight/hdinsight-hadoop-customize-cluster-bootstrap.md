@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 05/20/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: d582f18a17432f2b6027eef50e579fe43f200ba0
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 3f3fa3e9b8b6d5f81028199b84223ec35558abe6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520808"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829395"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -63,7 +63,7 @@ Bootstrap 脚本允许你以编程方式在 Azure HDInsight 中安装和配置�
 以下 PowerShell 代码将自定义 [Apache Hive](https://hive.apache.org/) 配置：
 
 > [!IMPORTANT]  
-> 参数 `Spark2Defaults` 可能需要与 [Add-AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalues) 一起使用。 你可以向参数传递空值，如以下代码示例中所示。
+> 参数 `Spark2Defaults` 可能需要与 [Add-AzHDInsightConfigValues](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue) 一起使用。 你可以向参数传递空值，如以下代码示例中所示。
 
 
 ```powershell
@@ -74,7 +74,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

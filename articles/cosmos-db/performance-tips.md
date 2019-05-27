@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 01/24/2018
-ms.date: 03/18/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: a07606618f5ccc8f481d59030999ccaa862ab5ff
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 64d53bb993d1025063338c0585711151cf6ef9d5
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626526"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668921"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -34,24 +34,24 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接模式和连接协议。  两种可用模式：
 
-   * 网关模式（默认）
+    * 网关模式（默认）
 
-       网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境（例如在使用 Azure Functions 或正在使用消耗计划时）中运行应用程序时，也建议使用网关连接模式。 
+        网关模式受所有 SDK 平台的支持并已配置为默认设置。 如果应用程序在有严格防火墙限制的企业网络中运行，则网关模式是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次读取或写入 Azure Cosmos DB 数据时，网关模式都涉及到额外的网络跃点。 因此，直接模式因为网络跃点较少，可以提供更好的性能。 在套接字连接数量有限的环境（例如在使用 Azure Functions 或正在使用消耗计划时）中运行应用程序时，也建议使用网关连接模式。 
 
-   * 直接模式
+    * 直接模式
 
-       直接模式支持通过 TCP 和 HTTPS 协议的连接。 如果使用最新版的 .Net SDK，则 .NET Standard 2.0 和 .Net Framework 中支持直接连接模式。 使用直接模式时，有两个可用的协议选项：
+        直接模式支持通过 TCP 和 HTTPS 协议的连接。 如果使用最新版的 .Net SDK，则 .NET Standard 2.0 和 .Net Framework 中支持直接连接模式。 使用直接模式时，有两个可用的协议选项：
 
-     * TCP
-     * HTTPS
+        * TCP
+        * HTTPS
 
-       如果使用网关模式，Cosmos DB 在使用 Azure Cosmos DB 的 API for MongoDB 时使用端口 443 和端口 10250、10255 和 10256。 10250 端口映射到没有异地复制功能的默认 MongoDB 实例，10255/10256 端口映射到具有异地复制功能的 MongoDB 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
+    如果使用网关模式，Cosmos DB 在使用 Azure Cosmos DB 的 API for MongoDB 时使用端口 443 和端口 10250、10255 和 10256。 10250 端口映射到没有异地复制功能的默认 MongoDB 实例，10255/10256 端口映射到具有异地复制功能的 MongoDB 实例。 在直接模式下使用时 TCP 时，除了网关端口外，还需确保端口 10000 到 20000 范围之间的端口处于打开状态，因为 Azure Cosmos DB 使用动态 TCP 端口。 如果这些端口未处于打开状态，则会在尝试使用 TCP 时收到“503 服务不可用”错误。 下表显示可用于不同 API 的连接模式以及每个 API 的服务端口用户：
 
-       |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
-       |---------|---------|---------|---------|
-       |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
-       |直接    |    HTTPS     |  .Net 和 Java SDK    |   10,000-20,000 范围内的端口    |
-       |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
+    |连接模式  |支持的协议  |支持的 SDK  |API/服务端口  |
+    |---------|---------|---------|---------|
+    |网关  |   HTTPS    |  所有 SDK    |   SQL(443)、Mongo(10250, 10255, 10256)、Table(443)、Cassandra(10350)、Graph(443)    |
+    |直接    |    HTTPS     |  .NET 和 Java SDK    |   10,000-20,000 范围内的端口    |
+    |直接    |     TCP    |  .NET SDK    | 10,000-20,000 范围内的端口 |
 
      Azure Cosmos DB 提供基于 HTTPS 的简单开放 RESTful 编程模型。 此外，它提供高效的 TCP 协议，该协议在其通信模型中也是 RESTful，可通过 .NET 客户端 SDK 获得。 直接 TCP 和 HTTPS 都使用 SSL 进行初始身份验证和加密流量。 为了获得最佳性能，请尽可能使用 TCP 协议。
 
@@ -59,12 +59,12 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = new "your authKey from the Azure portal";
+     var authKey = "your authKey from the Azure portal";
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-       ConnectionMode = ConnectionMode.Direct,
-       ConnectionProtocol = Protocol.Tcp
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
      });
      ```
 
@@ -77,7 +77,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     默认情况下，第一个请求因为必须提取地址路由表而有较高的延迟。 为了避免首次请求时的这种启动延迟，应该在初始化期间调用 OpenAsync() 一次，如下所示。
 
         await client.OpenAsync();
-   <a name="same-region"></a>
+    <a name="same-region"></a>
 3. **将客户端并置在同一 Azure 区域中以提高性能**
 
     如果可能，请将任何调用 Azure Cosmos DB 的应用程序放在与 Azure Cosmos DB 数据库所在的相同区域中。  根据请求采用的路由，各项请求从客户端传递到 Azure 数据中心边界时的此类延迟可能有所不同。 通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure Regions](https://www.azure.cn/support/service-dashboard/#services)（Azure 区域）。
@@ -91,6 +91,10 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     由于对 Cosmos DB 的调用是通过网络执行的，因此可能需要改变请求的并行度，以便最大程度地减少客户端应用程序等待请求的时间。 例如，如果使用的是 .NET 的[任务并行库](https://msdn.microsoft.com//library/dd460717.aspx)，请创建大约数百个读取或写入 Azure Cosmos DB 的任务。
 
+5. **启用加速网络**
+
+    为了降低延迟和 CPU 抖动情况，建议为客户端虚拟机启用加速网络。 请参阅[创建具有加速网络的 Windows 虚拟机](../virtual-network/create-vm-accelerated-networking-powershell.md)或[创建具有加速网络的 Linux 虚拟机](../virtual-network/create-vm-accelerated-networking-cli.md)一文，了解如何启用加速网络。
+
 ## <a name="sdk-usage"></a>SDK 用法
 1. **安装最新的 SDK**
 
@@ -99,13 +103,13 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     每个 DocumentClient 实例都是线程安全的，在直接模式下运行时可执行高效的连接管理和地址缓存。 若要通过 DocumentClient 获得高效的连接管理和更好的性能，建议在应用程序生存期内对每个 AppDomain 使用单个 DocumentClient 实例。
 
-   <a name="max-connection"></a>
+    <a name="max-connection"></a>
 3. **在使用“网关”模式时增加每台主机的 System.Net MaxConnections**
 
     使用“网关”模式时，Azure Cosmos DB 请求是通过 HTTPS/REST 发出的，并且受制于每个主机名或 IP 地址的默认连接限制。 可能需要将 MaxConnections 设置为较大的值 (100-1000)，以便客户端库能够同时利用多个连接来访问 Azure Cosmos DB。 在 .NET SDK 1.8.0 和更高版本中，[ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) 的默认值为 50，要更改此值，可将 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) 设置为更大的值。   
 4. **优化分区集合的并行查询。**
 
-     SQL .NET SDK 版本 1.9.0 和更高版本支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。 并行查询提供两个参数，用户可以调整来适应自身的需求 (a) MaxDegreeOfParallelism：控制并行中运行的最大分区数 (b) MaxBufferedItemCount：控制预提取结果的数量。
+    SQL .NET SDK 版本 1.9.0 和更高版本支持并行查询，使你能够并行查询分区集合。 有关详细信息，请参阅与使用这些 SDK 相关的[代码示例](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)。 并行查询旨改善查询延迟和串行配对物上的吞吐量。 并行查询提供两个参数，用户可以调整来适应自身的需求 (a) MaxDegreeOfParallelism：控制并行中运行的最大分区数 (b) MaxBufferedItemCount：控制预提取结果的数量。
 
     (a) ***优化 MaxDegreeOfParallelism\:*** 并行查询通过并行查询多个分区来工作。 但对于查询，按顺序提取单独分区集合的数据。 因此，要将 MaxDegreeOfParallelism 设置为分区数，必须实现大多数性能查询的最大机会，假设所有其他系统前提条件保持不变。 如果不知道分区数，可将 MaxDegreeOfParallelism 设置为较高的数值，系统会选择最小值（分区的数量，用户输入）作为 MaxDegreeOfParallelism。
 

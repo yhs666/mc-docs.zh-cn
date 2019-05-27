@@ -6,25 +6,45 @@ author: lingliw
 ms.author: v-lingwu
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/19
-ms.openlocfilehash: 98bf58df12621a3b57adcc3fdf141f7b089f9e74
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.date: 5/2/2019
+ms.openlocfilehash: dbf96079a2cc70e3e8b1b705f5b29183b35e74c4
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63824388"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609872"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
-兼容性级别是指 Azure 流分析服务特定于版本的行为。 Azure 流分析是托管的服务，会定期进行功能更新和性能改进。 通常情况下，更新自动提供给最终用户。 但是，某些新功能可能会引入重大更改，例如，更改现有作业的行为、更改使用这些作业的数据的进程，等等。兼容性级别用于表示在流分析中引入的重大更改。 重大更改始终随新的兼容性级别一起引入。 
+本文介绍 Azure 流分析中的兼容性级别选项。 流分析是一个托管服务，它会定期进行功能更新和性能改进。 该服务的大多数运行时更新会自动提供给最终用户。 
 
-兼容性级别可确保现有作业运行而不会有任何失败。 创建新的流分析作业时，最佳做法是使用最新的兼容性级别来创建它。 
- 
-## <a name="set-a-compatibility-level"></a>设置兼容性级别 
+但是，该服务中的某些新功能可能会引入重大更改，例如，现有作业的行为更改，或正在运行的作业中使用数据的方式更改。 可以通过降低兼容性级别设置，使现有流分析作业保持运行状态而不会发生重大更改。 如果已准备使用最新的运行时行为，可以选择提高兼容性级别。 
 
-兼容性级别控制流分析作业的运行时行为。 可以通过门户或通过[创建作业 REST API 调用](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。 Azure 流分析目前支持两种兼容性级别 -“1.0”和“1.1”。 默认情况下，兼容性级别设置为“1.0”，这是在 Azure 流分析公开发行期间引入的。 若要更新默认值，请导航到现有的流分析作业 > 在“配置”部分选择“兼容性级别”选项，然后更改该值。 
+## <a name="choose-a-compatibility-level"></a>选择兼容性级别
 
-请确保在更新兼容性级别之前停止作业。 如果作业处于运行状态，则无法更新兼容性级别。 
+兼容性级别控制流分析作业的运行时行为。 
+
+Azure 流分析目前支持三种兼容性级别：
+
+* 1.0 - 以前的行为
+* 1.1 - 默认行为
+* 1.2（预览版）- 最新的行为，提供最新的改进措施供评估
+
+最初的 1.0 兼容性级别是多年前在正式推出 Azure 流分析期间引入的。
+
+创建新的流分析作业时，最佳做法是使用最新的兼容性级别来创建它。 依赖于最新的行为着手作业设计，以免将来添加更改和增大复杂性。
+
+## <a name="set-the-compatibility-level"></a>设置兼容性级别
+
+可以使用 Azure 门户或[创建作业 REST API 调用](/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。
+
+若要在 Azure 门户中更新作业的兼容性级别：
+
+1. 使用 [Azure 门户](https://portal.azure.com)定位到你的流分析作业。
+2. **停止**该作业，然后更新兼容性级别。 如果作业处于正在运行状态，则无法更新兼容性级别。
+3. 在“配置”标题下，选择“兼容性级别”。
+4. 选择所需的兼容性级别值。
+5. 选择页面底部的“保存”。
 
 ![Azure 门户中的流分析兼容性级别](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
@@ -62,7 +82,7 @@ Azure 流分析支持地理空间参考数据索引编制。 可为包含地理�
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>写入到 SQL 输出时的 DateTimeOffset
 
-**以前的版本：**[DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 类型已调整为 UTC。
+**以前的版本：** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) 类型已调整为 UTC。
 
 **当前版本：** 不再调整 DateTimeOffset。
 

@@ -1,22 +1,22 @@
 ---
 title: 导入和导出 Azure IoT 中心设备标识
 description: 如何使用 Azure IoT 服务 SDK 针对标识注册表执行批量操作，以导入和导出设备标识。 借助导入操作，可批量创建、更新和删除设备标识。
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 07/03/2017
+origin.date: 05/11/2019
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 345ea2f724112d0fab5393d717f52ab6a5ce3c30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/27/2019
+ms.openlocfilehash: 6ff8bef26a161a8c1978455b7e5aa6c8eb946638
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657401"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829330"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>批量管理 IoT 中心设备标识
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
 每个 IoT 中心都有一个标识注册表，可以使用该注册表在服务中创建每设备资源。 设备标识注册表还可控制对面向设备的终结点的访问。 本文介绍如何从标识注册表批量导入和导出设备标识。
 
@@ -79,6 +79,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>设备导入/导出作业限制
+
+所有 IoT 中心层级一次只允许 1 个活动的设备导入或导出作业。 IoT 中心也限制作业操作的速率。 若要了解详细信息，请参阅[参考 - IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
 ## <a name="export-devices"></a>导出设备
 
@@ -410,12 +414,15 @@ static string GetContainerSasUri(CloudBlobContainer container)
 在本文中，已学习如何对 IoT 中心内的标识注册表执行批量操作。 若要了解有关如何管理 Azure IoT 中心的详细信息，请参阅以下链接：
 
 * [IoT 中心指标](iot-hub-metrics.md)
-* [操作监视](iot-hub-operations-monitoring.md)
+* [IoT 中心日志](iot-hub-monitor-resource-health.md)
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
 * [IoT 中心开发人员指南](iot-hub-devguide.md)
-* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge] 若要了解如何使用 IoT 中心设备预配服务启用零接触实时预配，请参阅： 
+
+* [Azure IoT 中心设备预配服务](/iot-dps)
+
 
 [lnk-metrics]: ./iot-hub-metrics.md
 [lnk-monitor]: ./iot-hub-operations-monitoring.md

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/18/2017
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: e67a921886f15e9cfaaf3b6f47ac3992839ea275
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fdbbfb4a95f2dfd6fd9a4e7852dd785a105302c8
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626989"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004188"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>将通用化 VHD 上传到 Azure 以创建新 VM
 
@@ -32,7 +32,7 @@ ms.locfileid: "58626989"
 
 本主题介绍如何使用存储帐户，但建议客户转到改用托管磁盘。 有关如何使用托管磁盘准备、上传和创建新 VM 的完整演练，请参阅[使用托管磁盘从上传到 Azure 的通用化 VHD 创建新 VM](upload-generalized-managed.md)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-the-vm"></a>准备 VM
 
@@ -55,7 +55,7 @@ ms.locfileid: "58626989"
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
 3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
 4. 在“关机选项”中选择“关机”。
-5. 单击 **“确定”**。
+5. 单击 **“确定”** 。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 
@@ -173,7 +173,7 @@ $imageURI = "https://mystorageaccount.blob.core.chinacloudapi.cn/mycontainer/myV
 2. 创建虚拟网络。 以下示例在**中国北部**位置创建具有 **10.0.0.0/16** 地址前缀的、名为 **myVnet** 的虚拟网络。  
 
     ```powershell
-    $location = "China North"
+    $location = "ChinaNorth"
     $vnetName = "myVnet"
     $vnet = New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $rgName -Location $location `
         -AddressPrefix 10.0.0.0/16 -Subnet $singleSubnet
@@ -226,55 +226,55 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 
 ```powershell
 # Enter a new user name and password to use as the local administrator account 
-    # for remotely accessing the VM.
-    $cred = Get-Credential
+# for remotely accessing the VM.
+$cred = Get-Credential
 
-    # Name of the storage account where the VHD is located. This example sets the 
-    # storage account name as "myStorageAccount"
-    $storageAccName = "myStorageAccount"
+# Name of the storage account where the VHD is located. This example sets the 
+# storage account name as "myStorageAccount"
+$storageAccName = "myStorageAccount"
 
-    # Name of the virtual machine. This example sets the VM name as "myVM".
-    $vmName = "myVM"
+# Name of the virtual machine. This example sets the VM name as "myVM".
+$vmName = "myVM"
 
-    # Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
-    # See the VM sizes documentation for more information: 
-    # https://docs.azure.cn/virtual-machines/windows/sizes/
-    $vmSize = "Standard_D2_v2"
+# Size of the virtual machine. This example creates "Standard_D2_v2" sized VM. 
+# See the VM sizes documentation for more information: 
+# https://docs.azure.cn/virtual-machines/windows/sizes/
+$vmSize = "Standard_D2_v2"
 
-    # Computer name for the VM. This examples sets the computer name as "myComputer".
-    $computerName = "myComputer"
+# Computer name for the VM. This examples sets the computer name as "myComputer".
+$computerName = "myComputer"
 
-    # Name of the disk that holds the OS. This example sets the 
-    # OS disk name as "myOsDisk"
-    $osDiskName = "myOsDisk"
+# Name of the disk that holds the OS. This example sets the 
+# OS disk name as "myOsDisk"
+$osDiskName = "myOsDisk"
 
-    # Assign a SKU name. This example sets the SKU name as "Standard_LRS"
-    # Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant
-    # storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage,
-    # Premium_LRS - premium locally redundant storage. 
-    $skuName = "Standard_LRS"
+# Assign a SKU name. This example sets the SKU name as "Standard_LRS"
+# Valid values for -SkuName are: Standard_LRS - locally redundant storage, Standard_ZRS - zone redundant
+# storage, Standard_GRS - geo redundant storage, Standard_RAGRS - read access geo redundant storage,
+# Premium_LRS - premium locally redundant storage. 
+$skuName = "Standard_LRS"
 
-    # Get the storage account where the uploaded image is stored
-    $storageAcc = Get-AzStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
+# Get the storage account where the uploaded image is stored
+$storageAcc = Get-AzStorageAccount -ResourceGroupName $rgName -AccountName $storageAccName
 
-    # Set the VM name and size
-    $vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
+# Set the VM name and size
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize $vmSize
 
-    #Set the Windows operating system configuration and add the NIC
-    $vm = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
-        -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    $vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
+#Set the Windows operating system configuration and add the NIC
+$vm = Set-AzVMOperatingSystem -VM $vmConfig -Windows -ComputerName $computerName `
+    -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
+$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic.Id
 
-    # Create the OS disk URI
-    $osDiskUri = '{0}vhds/{1}-{2}.vhd' `
-        -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
+# Create the OS disk URI
+$osDiskUri = '{0}vhds/{1}-{2}.vhd' `
+    -f $storageAcc.PrimaryEndpoints.Blob.ToString(), $vmName.ToLower(), $osDiskName
 
-    # Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
-    $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
-        -CreateOption fromImage -SourceImageUri $imageURI -Windows
+# Configure the OS disk to be created from the existing VHD image (-CreateOption fromImage).
+$vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri `
+    -CreateOption fromImage -SourceImageUri $imageURI -Windows
 
-    # Create the new VM
-    New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
+# Create the new VM
+New-AzVM -ResourceGroupName $rgName -Location $location -VM $vm
 ```
 
 ## <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM

@@ -2,20 +2,21 @@
 title: 使用 Azure IoT 中心设备预配服务预配设备 (.NET) | Microsoft Docs
 description: 使用 Azure IoT 中心设备预配服务将设备预配到单个 IoT 中心 (.NET)
 author: wesmc7777
-ms.author: wesmc
-ms.date: 09/05/2017
+ms.author: v-yiso
+origin.date: 09/05/2017
+ms.date: 06/03/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: bf2362477b36ce120f662d568a95f7bf2e18e11f
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: d663864a312b938095a883abfd2db6f2ba2c4279
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988435"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195027"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>使用 Azure IoT 中心设备预配服务客户端将设备登记到 IoT 中心 (.NET)
 
@@ -30,7 +31,7 @@ ms.locfileid: "57988435"
 
 继续之前，请确保已配置设备及其“硬件安全模块”（按[使用 Azure IoT 中心设备预配服务设置设备以进行预配](./tutorial-set-up-device.md)教程所述）。
 
-* Visual Studio 2015 或 Visual Studio 2017
+* Visual Studio
 
 > [!NOTE]
 > 不需要 Visual Studio。 只需安装 [.NET](https://www.microsoft.com/net) 便已足够，开发人员可以在 Windows 或 Linux 上使用其偏好的编辑器。  

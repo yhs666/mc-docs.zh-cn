@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 05/20/2019
+ms.date: 05/27/2019
 ms.author: v-jay
+ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 54a648e48e262430a8584a67e727575c86000cee
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 69cb970ee5b68126c45e996f9015516cf8635c4f
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549919"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004053"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 简介
 
@@ -38,7 +39,7 @@ Data Lake Storage Gen2 的一个基本部分是向 Blob 存储添加[分层命�
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Data Lake Storage Gen2 的主要功能
 
--   Hadoop 兼容访问：使用 Data Lake Storage Gen2，可以像使用 [Hadoop 分布式文件系统 (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 新的 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 环境中使用，以访问 Data Lake Storage Gen2 中存储的数据。
+-   Hadoop 兼容访问：使用 Data Lake Storage Gen2，可以像使用 [Hadoop 分布式文件系统 (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html) 一样管理和访问数据。 新的 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)可在所有 Apache Hadoop 环境中使用，包括 [Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/index)，以访问 Data Lake Storage Gen2 中存储的数据。
 
 -   **POSIX 权限的超集**：Data Lake Gen2 的安全模型支持 ACL 和 POSIX 权限，以及特定于 Data Lake Storage Gen2 的一些额外粒度。 可以通过存储资源管理器或 Hive 和 Spark 等框架来配置设置。
 
@@ -76,9 +77,10 @@ Data Lake Storage Gen2 是用于大数据分析的附加功能，基于 Azure Bl
 
 | 平台 |  支持的版本 | 更多信息 |
 | --- | --- | --- |
+| [HDInsight](/hdinsight/) | 3.6+ | [HDInsight 提供了哪些 Apache Hadoop 组件和版本？](/hdinsight/hdinsight-component-versioning?toc=%2Fen-us%2Fhdinsight%2Fstorm%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
 | [Hadoop](https://hadoop.apache.org/) | 3.2+ | [Apache Hadoop 版本存档](https://hadoop.apache.org/release.html) |
 | [Cloudera](https://www.cloudera.com/) | 6.1+ | [Cloudera Enterprise 6.x 发行说明](https://www.cloudera.com/documentation/enterprise/6/release-notes/topics/rg_cdh_6_release_notes.html) |
-|[HortonWorks](https://hortonworks.com/)| 3.1.x++ | [配置云数据访问](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
+| [HortonWorks](https://hortonworks.com/)| 3.1.x++ | [配置云数据访问](https://docs.hortonworks.com/HDPDocuments/Cloudbreak/Cloudbreak-2.9.0/cloud-data-access/content/cb_configuring-access-to-adls2.html) |
 
 ## <a name="next-steps"></a>后续步骤
 

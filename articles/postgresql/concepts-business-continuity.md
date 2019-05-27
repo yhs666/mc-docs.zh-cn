@@ -1,20 +1,20 @@
 ---
-title: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
+title: 有关使用 Azure Database for PostgreSQL - 单一服务器确保业务连续性的概述
 description: 有关使用 Azure Database for PostgreSQL 确保业务连续性的概述。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
-ms.topic: article
-origin.date: 02/28/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: 292587c9f4fd7f863e4fe5f6c35c806c7fab38fb
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.topic: conceptual
+origin.date: 05/06/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 9f5384cb4ef2a12428daf29e9c7e138df49f275c
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303043"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731948"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>有关使用 Azure Database for PostgreSQL 确保业务连续性的概述
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>有关使用 Azure Database for PostgreSQL - 单一服务器确保业务连续性的概述
 
 本概述介绍了 Azure Database for PostgreSQL 针对业务连续性和灾难恢复所提供的功能。 了解在发生破坏性事件后用于进行恢复的选项，破坏性事件可能导致数据丢失或者数据库和应用程序无法使用。 了解对一些情况的处理方式，包括用户或应用程序错误影响数据完整性、Azure 区域发生服务中断，或者应用程序需要维护。
 

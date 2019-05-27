@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/27/2019
-ms.date: 04/22/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 8d0a9f4de3c938680abe98e39126330a02849ef2
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 1efb7b6ce114f761a8b1f9def4561ad91cb6c6ee
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854479"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598910"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 cURL 生成缩略图
 
@@ -28,7 +28,7 @@ ms.locfileid: "64854479"
 ## <a name="prerequisites"></a>先决条件
 
 - 必须具有 [cURL](https://curl.haxx.se/windows)。
-- 必须具有计算机视觉的订阅密钥。 要获取订阅密钥，请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+- 必须具有计算机视觉的订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 ## <a name="get-thumbnail-request"></a>获取缩略图请求
 

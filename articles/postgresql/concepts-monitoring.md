@@ -1,24 +1,24 @@
 ---
-title: 在 Azure Database for PostgreSQL 中进行监视
-description: 本文介绍 Azure Database for PostgreSQL 中的监视功能。
+title: Azure Database for PostgreSQL - 单一服务器中的监视
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器中的监视功能。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 11/05/2018
-ms.date: 04/01/2019
-ms.openlocfilehash: d21a9f84b6cf0620af2bc93e97fc52087120a049
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 99f5c328cdcfad30e345baf4a8cad87088fedab7
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503646"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731911"
 ---
 # <a name="monitor"></a>监视
 监视服务器的相关数据有助于排查工作负荷故障及优化工作负荷。 Azure Database for PostgreSQL 提供各种监视选项，帮助用户深入了解服务器的行为。
 
 ## <a name="metrics"></a>指标
-Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解为 PostgreSQL 服务器提供支持的资源的行为。 每项指标以一分钟为频率发出，历史记录长达 30 天。 可以设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
+Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解为 PostgreSQL 服务器提供支持的资源的行为。 每项指标以一分钟为频率发出，历史记录长达 30 天。 可针对指标配置警报。 有关分步指南，请参阅[如何设置警报](howto-alert-on-metric.md)。 其他任务包括设置自动操作、执行高级分析和存档历史记录。 有关详细信息，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。
 
 ### <a name="list-of-metrics"></a>指标列表
 这些指标适用于 Azure Database for PostgreSQL：
@@ -47,4 +47,5 @@ Azure Database for PostgreSQL 提供了各种指标来帮助用户深入了解�
 [查询存储](concepts-query-store.md)是一项公共预览功能，可以随着时间的推移跟踪查询性能，包括查询运行时统计信息和等待事件。 此功能将查询运行时性能信息保留在 query_store 架构下名为 azure_sys 的一个系统数据库中。 你可以通过各种配置旋钮控制数据的收集和存储。
 
 ## <a name="next-steps"></a>后续步骤
+- 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-on-metric.md)。
 - 若要深入了解如何使用 Azure 门户、REST API 或 CLI 访问和导出指标，请参阅 [Azure 指标概述](../monitoring-and-diagnostics/monitoring-overview-metrics.md)。

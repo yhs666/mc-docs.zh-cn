@@ -1,20 +1,20 @@
 ---
-title: 优化 Azure Database for PostgreSQL 服务器中的批量插入
-description: 本文介绍如何优化 Azure Database for PostgreSQL 服务器中的批量插入操作。
+title: 优化 Azure Database for PostgreSQL - 单一服务器中的批量插入
+description: 本文介绍了如何优化 Azure Database for PostgreSQL - 单一服务器中的批量插入操作。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: f074ef230d84ead17968ac402d86f5caa3eceb3f
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: e4a2ab23d6ebe4bbd5617423c687831f610c7032
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836911"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732008"
 ---
-# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql-server"></a>优化 Azure Database for PostgreSQL 服务器中的批量插入和使用瞬态数据 
+# <a name="optimize-bulk-inserts-and-use-transient-data-on-an-azure-database-for-postgresql---single-server"></a>优化 Azure Database for PostgreSQL - 单一服务器中的批量插入和使用瞬态数据 
 本文介绍如何优化 Azure Database for PostgreSQL 服务器中的批量插入操作以及使用瞬态数据。
 
 ## <a name="use-unlogged-tables"></a>使用无日志记录表

@@ -1,7 +1,7 @@
 ---
 title: 数据提取
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: 了解可以从语言理解智能服务 (LUIS) 中提取什么类型的数据
+description: 从包含意向和实体的话语文本中提取数据。 了解可以从语言理解智能服务 (LUIS) 中提取什么类型的数据。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 09434dc6060f0024eee146f25ab17e18df32488d
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: c4000a9b570ef181ed2820583db0d20c0c9015b3
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557012"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828510"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>从意向和实体中提取数据
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
 
 最难提取的数据是机器学习的数据，因为它不是确切的文本匹配。 机器学习[实体](luis-concept-entity-types.md)的数据提取需要作为[创作周期](luis-concept-app-iteration.md)的一部分，直到你确信已接收到所需的数据。
@@ -170,33 +170,7 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |数据对象|实体名称|Value|
 |--|--|--|
-|简单实体|"Customer"|"bob jones"|
-
-## <a name="hierarchical-entity-data"></a>分层实体数据
-
-[分层](luis-concept-entity-types.md)实体是机器学习的，并且可包括单词或短语。 子级通过上下文进行标识。 如果想要查找具备确切文本匹配的父子关系，请使用[列表](#list-entity-data)实体。
-
-`book 2 tickets to paris`
-
-在之前的陈述中，`paris` 被标记为 `Location` 分层实体的 `Location::ToLocation` 子级。
-
-从终结点返回的数据包括实体名称和子级名称、从陈述中发现的文本、所发现文本的位置，以及评分：
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|数据对象|父级|子|Value|
-|--|--|--|--|
-|分层实体|位置|ToLocation|"paris"|
+|简单实体|`Customer`|`bob jones`|
 
 ## <a name="composite-entity-data"></a>复合实体数据
 [复合](luis-concept-entity-types.md)实体是机器学习的，并且可包括单词或短语。 例如，考虑一个预构建的 `number` 和 `Location::ToLocation` 的复合实体，其具有以下陈述：
@@ -210,53 +184,54 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 复合实体返回在 `compositeEntities` 数组中，且该复合中的所有实体也都返回在 `entities` 数组中：
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |数据对象|实体名称|Value|
 |--|--|--|
 |预构建实体 - 数量|"builtin.number"|"2"|
-|分层实体 - 位置|"Location::ToLocation"|"paris"|
+|预生成实体 - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>列表实体数据
 
@@ -266,8 +241,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |列表项|项同义词|
 |---|---|
-|西雅图|sea-tac、sea、98101、206、+1 |
-|巴黎|cdg、roissy、ory、75001、1、+33|
+|`Seattle`|`sea-tac`、`sea`、`98101`、`206`、`+1` |
+|`Paris`|`cdg`、`roissy`、`ory`、`75001`、`1`、`+33`|
 
 `book 2 tickets to paris`
 
@@ -432,10 +407,14 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 [PersonName](luis-reference-prebuilt-person.md) 和 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 实体在某些[语言区域性](luis-reference-prebuilt-entities.md)中可用。 
 
 ### <a name="names-of-people"></a>人的姓名
-人的姓名可能会带有些许格式，具体取决于语言和区域性。 使用分层实体将姓氏和名字作为子级，或者使用简单实体将姓氏和名字作为角色。 请确保给出的示例在陈述的不同部分、在不同长度的陈述中以及在所有意向（包括“None”意向）的陈述中使用姓氏和名字。 定期[查看](luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。
+
+人的姓名可能会带有些许格式，具体取决于语言和区域性。 将预生成的 **[personName](luis-reference-prebuilt-person.md)** 实体或**[简单实体](luis-concept-entity-types.md#simple-entity)** 与包含姓和名的[角色](luis-concept-roles.md)配合使用。 
+
+如果使用简单实体，请确保给出的示例在话语的不同部分、在不同长度的话语中以及在所有意向（包括“None”意向）的话语中使用姓氏和名字。
 
 ### <a name="names-of-places"></a>地名
-地名是固定且已知的，例如市、县、州、省和国家/地区。 如果应用采用已知的地名集合，请考虑使用列表实体。 如果需要找到所有地名，请创建一个简单实体，并提供各种示例。 添加地名短语列表，以使地名在应用中更易认出。 定期[查看](luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。
+
+地名是固定且已知的，例如市、县、州、省和国家/地区。 使用预生成的实体 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 提取位置信息。
 
 ### <a name="new-and-emerging-names"></a>新出现的名称
 一些应用需要能够找到新出现的名称，例如产品或公司。 这些类型的名称是最难提取的数据类型。 首先从简单实体开始，添加一个短语列表。 定期[查看](luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/22/2019
-ms.date: 03/20/2019
+ms.date: 05/21/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e5b929539b3dd48375fe6b9ab44226b4e8c3f232
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: ea2651ffa8e747622d2018911c6b6f1b5c3f2ce6
+ms.sourcegitcommit: 932a335a0e5526ea70be496c393484702722f900
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318910"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65997331"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure 资源的自定义角色
 
@@ -107,9 +107,9 @@ ms.locfileid: "58318910"
 
 | 任务 | 操作 | 说明 |
 | --- | --- | --- |
-| 创建/删除自定义角色 | `Microsoft.Authorization/ roleDefinition/write` | 在自定义角色的所有 `AssignableScopes` 上被允许此操作的用户可以创建（或删除）用于这些范围的自定义角色。 例如，订阅、资源组和资源的[所有者](built-in-roles.md#owner)和[用户访问管理员](built-in-roles.md#user-access-administrator)。 |
-| 更新自定义角色 | `Microsoft.Authorization/ roleDefinition/write` | 被授权在自定义角色的所有 `AssignableScopes` 上执行此操作的用户可以更新这些范围中的自定义角色。 例如，订阅、资源组和资源的[所有者](built-in-roles.md#owner)和[用户访问管理员](built-in-roles.md#user-access-administrator)。 |
-| 查看自定义角色 | `Microsoft.Authorization/ roleDefinition/read` | 在某个范围内被允许此操作的用户可以查看可在该范围内分配的自定义角色。 所有内置角色都允许自定义角色可用于分配。 |
+| 创建/删除自定义角色 | `Microsoft.Authorization/ roleDefinitions/write` | 在自定义角色的所有 `AssignableScopes` 上被允许此操作的用户可以创建（或删除）用于这些范围的自定义角色。 例如，订阅、资源组和资源的[所有者](built-in-roles.md#owner)和[用户访问管理员](built-in-roles.md#user-access-administrator)。 |
+| 更新自定义角色 | `Microsoft.Authorization/ roleDefinitions/write` | 被授权在自定义角色的所有 `AssignableScopes` 上执行此操作的用户可以更新这些范围中的自定义角色。 例如，订阅、资源组和资源的[所有者](built-in-roles.md#owner)和[用户访问管理员](built-in-roles.md#user-access-administrator)。 |
+| 查看自定义角色 | `Microsoft.Authorization/ roleDefinitions/read` | 在某个范围内被允许此操作的用户可以查看可在该范围内分配的自定义角色。 所有内置角色都允许自定义角色可用于分配。 |
 
 ## <a name="next-steps"></a>后续步骤
 - [使用 Azure PowerShell 为 Azure 资源创建自定义角色](custom-roles-powershell.md)

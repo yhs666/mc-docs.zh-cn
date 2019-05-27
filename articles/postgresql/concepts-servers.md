@@ -1,26 +1,24 @@
 ---
-title: Azure Database for PostgreSQL 中的服务器概念
-description: 本文提供配置和管理 Azure Database for PostgreSQL 服务器的注意事项和指南。
-services: postgresql
+title: Azure Database for PostgreSQL（单一服务器）中的服务器概念
+description: 本文提供配置和管理 Azure Database for PostgreSQL（单一服务器）的注意事项和指南。
 author: WenJason
 ms.author: v-jay
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 11/07/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 28684c18e614df5e7a6ad03b33fc724416d4b7b1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: a1bc5c43cedc9501ca2a031f82420eeeba525d44
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675163"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731916"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Azure Database for PostgreSQL 服务器
-本文提供使用 Azure Database for PostgreSQL 服务器的注意事项和指南。
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器
+本文提供使用 Azure Database for PostgreSQL（单一服务器）的注意事项和指南。
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>什么是 Azure Database for PostgreSQL 服务器？
-Azure Database for PostgreSQL 服务器是多个数据库的中心管理点。 它的 PostgreSQL 服务器构造与本地环境中用户可能比较熟悉的构造相同。 具体而言，PostgreSQL 服务是托管的服务，它提供性能保证、公开服务器级访问权限和功能。
+Azure Database for PostgreSQL（单一服务器）部署选项中的服务器是多个数据库的中心管理点。 它的 PostgreSQL 服务器构造与本地环境中用户可能比较熟悉的构造相同。 具体而言，PostgreSQL 服务是托管的服务，它提供性能保证、公开服务器级访问权限和功能。
 
 Azure Database for PostgreSQL 服务器：
 
@@ -67,6 +65,6 @@ PostgreSQL 服务器参数可确定服务器的配置。 在 Azure Database for 
 
 ## <a name="next-steps"></a>后续步骤
 - 有关该服务的概述，请参阅  [Azure Database for PostgreSQL 概述](overview.md)。
-- 有关基于服务层 **** 的具体资源配额和限制的信息，请参阅 [服务层](concepts-pricing-tiers.md)。
+- 有关基于服务层级 **** 的具体资源配额和限制的信息，请参阅 [服务层级](concepts-pricing-tiers.md)。
 - 有关连接到服务的信息，请参阅  [Azure Database for PostgreSQL 的连接库](concepts-connection-libraries.md)。
 - 通过 [Azure 门户](howto-configure-server-parameters-using-portal.md)或 [Azure CLI](howto-configure-server-parameters-using-cli.md) 查看和编辑服务器参数。

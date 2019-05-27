@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
 ms.service: cognitive-services
-ms.openlocfilehash: 6a7aa2d1794b2572b942ff41831971de57c47081
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 4bbc2010c26928397e38d1e3411b59f00eb0d99f
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556940"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828539"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>添加意向以确定用户的话语意向
 
@@ -42,16 +42,25 @@ ms.locfileid: "65556940"
 
     LUIS 会将所有话语转换为小写，并在连字符等标记的两侧添加空格。
 
-## <a name="intent-prediction-discrepancy-errors"></a>意向预测偏差错误 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-意向中的话语可能在所选意向和预测分数之间存在意向预测偏差。 LUIS 通过用红框围住示例话语行上的“已标记意向”来指示这种偏差。 
+## <a name="intent-prediction-errors"></a>意向预测错误 
 
-![意向详细信息页的屏幕截图，其中包含表述预测差异错误](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+意向中的示例话语可能会在示例话语当前表现出的意向和在训练过程中确定的预测意向之间存在意向预测错误。 
 
-在顶部导航栏中，选择“训练”。 预测偏差现已消失。
+若要找出并修复话语预测错误，请将“筛选器”选项的“评估”选项“不正确”和“不清楚”与“视图”选项“详细视图”配合使用。 
 
-> [!Note]
-> 如果示例话语中的单词或短语下方有红线，则发生了[实体预测错误](luis-how-to-add-example-utterances.md#entity-status-predictions)。 你需要更正它。 
+![若要找出并修复话语预测错误，请使用“筛选器”选项。](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。
+
+![![应用筛选器和视图以后，如果示例话语出现错误，则示例话语列表会显示话语和问题。](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+每一行会显示当前训练的示例话语预测分数、最接近的对手的分数，以及这两个分数之间的差异。 
+
+### <a name="fixing-intents"></a>修复意向
+
+若要了解如何修复意向预测错误，请使用[摘要仪表板](luis-how-to-use-dashboard.md)。 摘要仪表板提供对活动版本的上一次训练的分析，并提供排名靠前的建议，用于修复模型。  
 
 ## <a name="add-a-custom-entity"></a>添加自定义实体
 
@@ -69,7 +78,7 @@ ms.locfileid: "65556940"
 
 ## <a name="add-a-prebuilt-entity"></a>添加预构建实体
 
-有关信息，请参阅[预生成实体](luis-how-to-add-entities.md#add-prebuilt-entity)。
+有关信息，请参阅[预生成实体](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app)。
 
 ## <a name="using-the-contextual-toolbar"></a>使用上下文工具栏
 

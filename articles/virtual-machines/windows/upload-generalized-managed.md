@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08e32fdf9d7d381cd495ef74edb9cc5d3b39b509
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2c6d270c48619cdb014e92654233a762098d0a97
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627128"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004097"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
@@ -34,7 +34,7 @@ ms.locfileid: "58627128"
 - 将任何 VHD 上传到 Azure 之前，应该遵循[准备要上传到 Azure 的 Windows VHD 或 VHDX](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的步骤操作。
 - 开始迁移到[托管磁盘](managed-disks-overview.md)之前，请先查看[规划迁移到托管磁盘](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks)。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>使用 Sysprep 通用化源 VM
 
@@ -70,7 +70,7 @@ Get-AzStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 *myVHD.vhd* 从 <em>C:\Users\Public\Documents\Virtual hard disks\* 上传到 *myResourceGroup* 资源组中名为 *mystorageaccount</em> 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
+使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 myVHD.vhd 从 C:\Users\Public\Documents\Virtual hard disks\\ 上传到 myResourceGroup 资源组中名为 mystorageaccount 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -107,7 +107,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
     导入/导出可用于复制到标准存储帐户。 需要使用 AzCopy 等工具从标准存储复制到高级存储帐户。
 
 > [!IMPORTANT]
-> 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [**/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
+> 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [ **/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 > 
 > 
 

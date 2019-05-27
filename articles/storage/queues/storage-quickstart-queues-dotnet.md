@@ -7,14 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 02/06/2018
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: d3ceabbeb9011f593c8becdce78b8a75f29fabb2
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.reviewer: cbrooks
+ms.openlocfilehash: 612cb75b1b701285bcfebfccb10c12c053f57674
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665766"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004002"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入门：使用 .NET 在 Azure 存储中创建队列
 
@@ -145,7 +146,7 @@ Press any key to delete the sample queue.
 
 ### <a name="try-parsing-the-connection-string"></a>尝试分析连接字符串
 
-该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 对象。 该示例使用 [TryParse](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
+该示例首先检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 对象。 该示例使用 [TryParse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法检查连接字符串是否有效。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored
@@ -164,7 +165,7 @@ else
 {
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
 }
 ```

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 12/20/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: afbff3515294e3ae6d0267bf74355fade75e7a70
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9df230820982b7a1a63f10a8ea44bcb0a31847fd
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666656"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003977"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 
@@ -38,6 +38,8 @@ Azure Windows VM 需要连接到 Azure KMS 服务器才能激活 Windows。 激�
 
 若要解决此问题，请使用 Azure 自定义路由，将激活流量路由到 Azure KMS 服务器。
 
+<!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
+
 Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名称是 kms.core.windows.net。 如果使用其他 Azure 平台（如 Azure China Cloud），则必须使用相应 KMS 服务器的 IP 地址。 有关详细信息，请参阅下表：
 
 <!--MOONCAKE CUSTOMIZE: GLOBAL for kms.core.windows.net-->
@@ -53,7 +55,7 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 
 ### <a name="for-resource-manager-vms"></a>对于资源管理器 VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 1. 打开 Azure PowerShell，然后[登录到 Azure 订阅](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
 2. 运行以下命令：
@@ -71,7 +73,7 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 
     Set-AzRouteTable -RouteTable $RouteTable
     ```
-3. 请转到存在激活问题的 VM。 使用 [PsPing](/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
+3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
 
         psping kms.core.chinacloudapi.cn:1688
 
@@ -97,7 +99,7 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
     -RouteTableName "VNet-DM-KmsRouteTable"
     ```
 
-3. 请转到存在激活问题的 VM。 使用 [PsPing](/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
+3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
 
         psping kms.core.chinacloudapi.cn:1688
 
@@ -108,5 +110,5 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 - [KMS 客户端安装密钥](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys)
 - [查看并选择激活方法](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj134256(v=ws.11))
 
-<!--Update_Description: new articles on custom routes enable kms activation -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update -->
+

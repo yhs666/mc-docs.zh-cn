@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 11cb1da2cca1365c2f282cd955ccdab823568949
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: ceceabfa0f6f13820d866778bde118b0a9f3cadb
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004068"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004190"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -30,7 +30,7 @@ ms.locfileid: "59004068"
 
 本文说明如何通过 Azure PowerShell 使用存储帐户创建通用化 Azure VM 的映像。 然后可以使用该映像来创建另一个 VM。 该映像包含 OS 磁盘和附加到虚拟机的数据磁盘。 该映像不包含虚拟网络资源，因此，创建新 VM 时需要设置这些资源。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="generalize-the-vm"></a>通用化 VM 
 本部分说明如何通用化可用作映像的 Windows 虚拟机。 通用化 VM 会删除所有个人帐户信息及其他某些数据，并准备好要用作映像的计算机。 有关 Sysprep 的详细信息，请参阅[如何使用 Sysprep：简介](https://technet.microsoft.com/library/bb457073.aspx)。
@@ -48,7 +48,7 @@ ms.locfileid: "59004068"
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
 3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
 4. 在“关机选项”中选择“关机”。
-5. 单击 **“确定”**。
+5. 单击 **“确定”** 。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 
@@ -192,7 +192,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ### <a name="create-the-vm"></a>创建 VM
 以下 PowerShell 脚本完成虚拟机配置，并使用非托管映像作为新安装的源。
 
-</br>
+<br />
 
 ```powershell
     # Enter a new user name and password to use as the local administrator account 

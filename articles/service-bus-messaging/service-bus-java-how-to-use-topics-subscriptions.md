@@ -13,79 +13,31 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 origin.date: 09/17/2018
-ms.date: 11/26/2018
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6482e85595a647145bf0d010af4622a864d9f579
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fa087578604aeda33ec75d21a97a134730ab3871
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626094"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609856"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>如何通过 Java 使用服务总线主题和订阅
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-在本快速入门中，你将执行以下步骤： 
-
-- 使用 Azure 门户创建一个主题
-- 使用 Azure 门户中创建该主题的三个订阅
-- 编写 Java 代码来向该主题发送消息
-- 编写 Java 代码来从订阅接收消息
+在本快速入门中，先编写 Java 代码，将消息发送到某个服务总线主题，然后从该主题的订阅中接收消息。 
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- [Azure SDK for Java][Azure SDK for Java]。 
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以[激活 Visual Studio 或 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或者注册[免费试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[快速入门：使用 Azure 门户创建服务总线主题和主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来执行以下任务：
+    1. 创建一个服务总线**命名空间**。
+    2. 获取**连接字符串**。
+    3. 在此命名空间中创建一个**主题**。
+    4. 在此命名空间中创建对此主题的**三个订阅**。
+3. [Azure SDK for Java][Azure SDK for Java]。
 
-## <a name="what-are-service-bus-topics-and-subscriptions"></a>什么是服务总线主题和订阅？
-服务总线主题和订阅支持 *发布/订阅* 消息通信模型。 在使用主题和订阅时，分布式应用程序的组件不会直接相互通信，而是通过充当中介的主题交换消息。
-
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-与每条消息都由单个使用方处理的服务总线队列相比，主题和订阅通过发布/订阅模式提供一对多通信方式。 可向一个主题注册多个订阅。 当消息发送到主题时，每个订阅会分别对该消息进行处理。 主题订阅类似于接收发送至该主题的消息副本的虚拟队列。 可以选择基于每个订阅注册主题的筛选规则，这样就可以筛选或限制哪些主题订阅接收发送至某个主题的哪些消息。
-
-利用服务总线主题和订阅，可以进行扩展以处理跨大量用户和应用程序的许多消息。
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
-
-1. 在门户的左侧导航窗格中，依次单击“+ 创建资源”、“企业集成”和“服务总线”。
-2. 在“创建命名空间”  对话框中，输入命名空间名称。 系统会立即检查该名称是否可用。
-3. 在确保命名空间名称可用后，请选择定价层（标准或高级）。
-4. 在“订阅”  字段中，选择要创建命名空间的 Azure 订阅。
-5. 在“资源组”字段中，选择将存放命名空间的现有资源组，或者创建一个新资源组。      
-6. 在“位置” 中，选择应在其中托管该命名空间的国家或地区。
-7. 单击**创建**。 系统现已创建命名空间并已将其启用。 可能需要等待几分钟，因为系统会为你的帐户配置资源。
-
-   ![命名空间](./media/service-bus-tutorial-topics-subscriptions-portal/create-namespace.png)
-
-### <a name="obtain-the-management-credentials"></a>获取管理凭据
-
-创建新的命名空间时，会自动生成一项初始的共享访问签名 (SAS) 规则，将一对主密钥和辅助密钥关联到一起，向每个密钥授予对命名空间的所有资产的完全控制权限。 若要复制初始规则，请执行以下步骤：
-
-1. 单击“所有资源”，然后单击新创建的命名空间名称。
-2. 在命名空间窗口中，单击“共享访问策略”。
-3. 在“共享访问策略”屏幕中，单击“RootManageSharedAccessKey”。
-4. 在“策略: RootManageSharedAccessKey”窗口中，单击“主连接字符串”旁边的“复制”按钮，将连接字符串复制到剪贴板供以后使用。 将此值粘贴到记事本或其他某个临时位置。
-
-    ![连接字符串](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
-5. 重复上述步骤，将**主键**的值复制和粘贴到临时位置，供以后使用。
-
-## <a name="create-a-topic"></a>创建主题 
-若要创建服务总线主题，请指定要在其中创建该主题的命名空间。 以下示例演示如何在门户中创建主题：
-
-1. 在门户左侧的导航窗格中，单击“服务总线”（如果未看到“服务总线”，请单击“所有服务”）。
-2. 单击要在其中创建主题的命名空间。
-3. 在命名空间窗口中单击“主题”，然后在“主题”窗口中单击“+ 主题”。
-4. 输入 **BasicTopic** 作为主题**名称**，并将其他值保留默认值。
-5. 在窗口底部，单击“创建”。
-
-## <a name="create-subscriptions-for-the-topic"></a>创建主题的订阅
-1. 选择你创建的主题。
-2. 单击“+ 订阅”，输入订阅名称 **Subscription1**，将所有其他值保留默认值。
-3. 再重复上述步骤两次，创建名为 **Subscription2** 和 **Subscription3** 的订阅。
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
 在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，可以将 **Azure Libraries for Java** 添加到项目：

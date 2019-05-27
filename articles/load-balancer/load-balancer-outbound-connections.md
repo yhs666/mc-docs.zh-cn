@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/01/2018
-ms.date: 03/04/2019
+origin.date: 05/02/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 430ddb849b8ce960d6f1ca1af91bd8dd8edea6f7
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 094943184f0610c3eddc5d11e21c3171072a2f76
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836988"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731975"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure 中的出站连接
 
@@ -177,13 +177,13 @@ SNAT 端口分配特定于 IP 传输协议（TCP 和 UDP 是分别维护的）�
 
 ### <a name="tcp-snat-port-release"></a>TCP SNAT 端口释放
 
-- 如果两个服务器/客户端均发送 FIN/ACK，则 SNAT 端口在 240 秒后释放。
+- 如果服务器/客户端均发送 FINACK，则 SNAT 端口在 240 秒后释放。
 - 如果出现 RST，则 SNAT 端口在 15 秒后释放。
-- 已达到空闲超时
+- 如果已达到空闲超时，则会释放端口。
 
 ### <a name="udp-snat-port-release"></a>UDP SNAT 端口释放
 
-- 已达到空闲超时
+- 如果已达到空闲超时，则会释放端口。
 
 ## <a name="problemsolving"></a>解决问题 
 

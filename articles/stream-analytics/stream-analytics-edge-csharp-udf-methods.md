@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 11/06/18
-ms.openlocfilehash: 94498b63c67045388f912f1563b2bf05727f8e4d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 12/06/2018
+ms.custom: seodec18
+ms.openlocfilehash: 78151e16a00ebe3716b138592c00c98188ceeb65
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626785"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609873"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
 
@@ -36,16 +36,16 @@ Azure 流分析的 Visual Studio 工具可用于轻松编写 UDF、在本地（�
 
 ## <a name="supported-types-and-mapping"></a>支持的类型和映射
 
-|     **UDF 类型 (C#)**      | **Azure 流分析类型** |
-|----------------------------|---------------------------------|
-|            long            |             bigint              |
-|           Double           |             Double              |
-|           字符串           |          nvarchar(max)          |
-|          dateTime          |            dateTime             |
-|           struct           |             IRecord             |
-|           object           |             IRecord             |
-|       Array<object>        |             IArray              |
-| dictionary<string, object> |             IRecord             |
+|**UDF 类型 (C#)**  |**Azure 流分析类型**  |
+|---------|---------|
+|long  |  bigint   |
+|Double  |  Double   |
+|string  |  nvarchar(max)   |
+|dateTime  |  dateTime   |
+|struct  |  IRecord   |
+|object  |  IRecord   |
+|Array\<object>  |  IArray   |
+|dictionary<string, object>  |  IRecord   |
 
 ## <a name="codebehind"></a>CodeBehind
 可以在 Script.sql CodeBehind 中编写用户定义的函数。 Visual Studio 工具会自动将 CodeBehind 文件编译为程序集文件。 将作业提交到 Azure 时，程序集将打包为 zip 文件并上传到存储帐户。 可以根据[流分析 Edge 作业的 UDF](stream-analytics-edge-csharp-udf.md) 教程执行操作，了解如何使用 CodeBehind 编写 C# UDF。 
@@ -83,15 +83,15 @@ Azure 流分析的 Visual Studio 工具可用于轻松编写 UDF、在本地（�
 
 4. 你会在“解决方案资源管理器”中看到“引用”下方列出的 UDFTest。
 
-   ![在 Azure 流分析 Edge 解决方案资源管理器中查看用户定义的函数引用](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
+   ![在解决方案资源管理器中查看用户定义的函数引用](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-added-reference.png)
 
 5. 右键单击“Functions”文件夹，然后选择“新项”。
 
-   ![在 Visual Studio 的 Azure 流分析 Edge 解决方案中向 Functions 添加新项](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
+   ![在 Azure 流分析 Edge 解决方案中向 Functions 添加新项](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function.png)
 
 6. 将 C# 函数“SquareFunction.json”添加到 Azure 流分析项目中。
 
-   ![从 Visual Studio 的流分析 Edge 项列表中选择 C Sharp 函数](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
+   ![从 Visual Studio 的流分析 Edge 项选择 CSharp 函数](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-csharp-function-2.png)
 
 7. 双击“解决方案资源管理器”中的函数，以打开配置对话框。
 
@@ -114,7 +114,7 @@ Azure 流分析的 Visual Studio 工具可用于轻松编写 UDF、在本地（�
  |**设置**  |**建议的值**  |
  |---------|---------|
  |程序集源  | 云中的现有程序集包    |
- |资源  |  选择当前帐户中的数据   |
+ |Resource  |  选择当前帐户中的数据   |
  |订阅  |  选择订阅。   |
  |存储帐户  |  选择存储帐户。   |
  |容器  |  选择在存储帐户中创建的容器。   |

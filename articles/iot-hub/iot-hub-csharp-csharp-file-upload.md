@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 07/04/2017
-ms.date: 12/03/2018
+ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: 53283f9aa1c7f98e82b8b8d915d1a72c24450b62
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bc60d73a65d66b3b61fd2dd2bd9264b27b36400f
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675289"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194988"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>通过 .NET 使用 IoT 中心将文件从设备上传到云
 
@@ -46,7 +46,7 @@ ms.locfileid: "52675289"
 
 要完成本教程，需要以下各项：
 
-* Visual Studio 2017
+* Visual Studio
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

@@ -1,21 +1,21 @@
 ---
-title: 使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点和规则
-description: 本文介绍如何使用 Azure CLI 命令行创建和管理 Azure Database for PostgreSQL VNet 服务终结点和规则。
+title: 使用 Azure CLI 为 Azure Database for PostgreSQL（单一服务器）创建并管理 VNet 服务终结点和规则
+description: 本文介绍如何使用 Azure CLI 命令行创建和管理 Azure Database for PostgreSQL 的 VNet 服务终结点和规则。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-origin.date: 10/23/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: 1b6a54fbac6e788976554a0ba30fa773e4c5ed6a
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: c354e11f96ba7e4e5d2428db8b384d8df2b5091c
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56837009"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732014"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-using-azure-cli"></a>使用 Azure CLI 创建和管理 Azure Database for PostgreSQL VNet 服务终结点
+# <a name="create-and-manage-vnet-service-endpoints-for-azure-database-for-postgresql---single-server-using-azure-cli"></a>使用 Azure CLI 为 Azure Database for PostgreSQL（单一服务器）创建并管理 VNet 服务终结点
 虚拟网络 (VNet) 服务终结点和规则将虚拟网络的专用地址空间扩展到你的 Azure Database for PostgreSQL 服务器。 使用便捷的 Azure 命令行接口 (CLI) 命令，可创建、更新、删除、列出和显示 VNet 服务终结点和规则，用于管理服务器。 有关 Azure Database for PostgreSQL VNet 服务终结点（包括限制）的概述，请参阅 [Azure Database for PostgreSQL Server VNet 服务终结点](concepts-data-access-and-security-vnet.md)。 在 Azure Database for PostgreSQL 的所有支持区域中，VNet 服务终结点均可用。
 
 ## <a name="prerequisites"></a>先决条件

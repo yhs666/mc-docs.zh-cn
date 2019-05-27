@@ -4,7 +4,7 @@ description: 了解如何向现有 Azure 虚拟机规模集模板添加自定义
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,23 +13,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2017
-ms.date: 11/30/2018
+origin.date: 04/26/2018
+ms.date: 05/16/2019
 ms.author: v-junlch
-ms.openlocfilehash: a34d26b076b4caa942092da33936303d66932be7
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9dd0f16e4b51bbb650d0ecd8ab2dddb9f73bb8c6
+ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52673121"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65917461"
 ---
-# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>向 Azure 规模集模板添加自定义映像
+# <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>将自定义映像添加到 Azure 规模集模板
 
-本文介绍了如何修改[最小可行规模集模板](./virtual-machine-scale-sets-mvss-start.md)，以便通过自定义映像进行部署。
+本文介绍了如何修改[基本规模集模板](virtual-machine-scale-sets-mvss-start.md)，以便通过自定义映像进行部署。
 
 ## <a name="change-the-template-definition"></a>更改模板定义
-
-可在[此处](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json)查看最小可行规模集模板，可在[此处](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json)查看用于从自定义映像部署规模集的模板。 让我们逐一查看创建此模板 (`git diff minimum-viable-scale-set custom-image`) 时使用的差异内容：
+在[此前的文章](virtual-machine-scale-sets-mvss-start.md)中，我们创建了基本的规模集模板。 我们现在将使用这个此前的模板并对其进行修改，以便创建一个模板来从自定义映像部署规模集。  
 
 ### <a name="creating-a-managed-disk-image"></a>创建托管磁盘映像
 
@@ -59,7 +58,7 @@ ms.locfileid: "52673121"
    "resources": [
      {
 +      "type": "Microsoft.Compute/images",
-+      "apiVersion": "2016-04-30-preview",
++      "apiVersion": "2019-03-01",
 +      "name": "myCustomImage",
 +      "location": "[resourceGroup().location]",
 +      "properties": {
@@ -84,7 +83,7 @@ ms.locfileid: "52673121"
 
 ```diff
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01-preview",
        "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 +        "Microsoft.Network/virtualNetworks/myVnet",
@@ -120,4 +119,4 @@ ms.locfileid: "52673121"
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

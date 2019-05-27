@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 3785eb85991bec4514f8fe3fbb5f055ffd3a427e
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 693b78752016e0c474ebca416629f97ed737eaea
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615171"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668932"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 
@@ -84,7 +84,9 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)。
 
-<!--Not Available on Other questions can be submitted to the team at [Azure Support][Azure Support](https://www.azure.cn/support/contact/); however this isn't a technical support alias.-->
+其他问题可以通过 [Azure 支持](https://www.azure.cn/support/contact/)提交给团队。
+
+<!--Not Available on however this isn't a technical support alias-->
 
 <a name="try-cosmos-db"></a>
 
@@ -222,10 +224,10 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 
 除了常见的 MongoDB 错误代码外，Azure Cosmos DB 的用于 MongoDB 的 API 还有自己的特定错误代码：
 
-|        错误        | 代码  |                                                             说明                                                              |                                                                                                                                                                                                                        解决方案                                                                                                                                                                                                                         |
-|---------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   TooManyRequests   | 16500 | 使用的请求单位总数超过了集合的预配请求单位率，已达到限制。 |                                                                                                                                                                考虑从 Azure 门户中对分配给一个容器或一组容器的吞吐量进行缩放，或者重试。                                                                                                                                                                 |
-| ExceededMemoryLimit | 16501 |                        作为一种多租户服务，操作已超出客户端的内存配额。                         | 通过限制性更强的查询条件缩小操作的作用域，或者通过 [Azure 门户](https://support.azure.cn/zh-cn/support/support-azure/)联系技术支持。 <br><br>示例：<em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:"Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
+| 错误               | 代码  | 说明  | 解决方案  |
+|---------------------|-------|--------------|-----------|
+| TooManyRequests     | 16500 | 使用的请求单位总数超过了集合的预配请求单位率，已达到限制。 | 考虑从 Azure 门户中对分配给一个容器或一组容器的吞吐量进行缩放，或者重试。 |
+| ExceededMemoryLimit | 16501 | 作为一种多租户服务，操作已超出客户端的内存配额。 | 通过限制性更强的查询条件缩小操作的作用域，或者通过 [Azure 门户](https://support.azure.cn/zh-cn/support/support-azure/)联系技术支持。 <br /><br />示例：<em>&nbsp;&nbsp;&nbsp;&nbsp;db.getCollection('users').aggregate([<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name:"Andy"}}, <br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age: -1}}<br />&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
 
 ### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmos-dbs-api-for-mongodb"></a>是否支持将 MongoDB 的 Simba 驱动程序与 Azure CosmosDB 的用于 MongoDB 的 API 一起使用？
 
@@ -260,12 +262,12 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 
 对于 REST API，有大量的终结点/查询选项不受 Azure Cosmos DB 表 API 的支持：
 
-| REST 方法 |    REST 终结点/查询选项     |                                                                                                               文档 URL                                                                                                                |                                                                                                          说明                                                                                                           |
-|----------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    GET、PUT    | /?restype=service@comp=properties | [设置表服务属性](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties)和[获取表服务属性](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | 此终结点用于设置 CORS 规则、存储分析配置和日志记录设置。 CORS 目前不受支持，Azure Cosmos DB 与 Azure 存储表中以不同的方式处理分析和日志记录 |
-|    OPTIONS     |      /<table-resource-name>       |                                                             [预检 CORS 表请求](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request)                                                              |                                                                             这是 Azure Cosmos DB 目前不支持的 CORS 部分。                                                                              |
-|      GET       |   /?restype=service@comp=stats    |                                                                [获取表服务统计信息](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats)                                                                 |                                   提供有关主节点与辅助节点之间的数据复制速度的信息。 由于复制是写入的一部分，因此在 Cosmos DB 中不需要此选项。                                   |
-|    GET、PUT    |         /mytable?comp=acl         |                               [获取表 ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) 和[设置表 ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl)                               |                                  获取和设置用于管理共享访问签名 (SAS) 的存储访问策略。 尽管支持 SAS，但其设置和管理方式不同。                                  |
+| REST 方法 | REST 终结点/查询选项 | 文档 URL | 说明 |
+| ------------| ------------- | ---------- | ----------- |
+| GET、PUT | /?restype=service@comp=properties| [设置表服务属性](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties)和[获取表服务属性](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | 此终结点用于设置 CORS 规则、存储分析配置和日志记录设置。 CORS 目前不受支持，Azure Cosmos DB 与 Azure 存储表中以不同的方式处理分析和日志记录 |
+| OPTIONS | /\<table-resource-name> | [预检 CORS 表请求](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | 这是 Azure Cosmos DB 目前不支持的 CORS 部分。 |
+| GET | /?restype=service@comp=stats | [获取表服务统计信息](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | 提供有关主节点与辅助节点之间的数据复制速度的信息。 由于复制是写入的一部分，因此在 Cosmos DB 中不需要此选项。 |
+| GET、PUT | /mytable?comp=acl | [获取表 ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) 和[设置表 ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | 获取和设置用于管理共享访问签名 (SAS) 的存储访问策略。 尽管支持 SAS，但其设置和管理方式不同。 |
 
 此外，Azure Cosmos DB 表 API 仅支持 JSON 格式，而不支持 ATOM。
 
@@ -638,7 +640,7 @@ g.V('mary').out('knows').executionProfile()
 上述配置文件的输出显示了获取顶点对象、边对象所花费的时间量，以及工作数据集的大小。 这与 Azure Cosmos DB 查询的标准成本度量相关。
 
 <a name="cassandra"></a>
-##  <a name="cassandra-api"></a>Cassandra API
+## <a name="cassandra-api"></a>Cassandra API
 
 ### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Azure Cosmso DB Cassandra API 支持哪个协议版本？ 是否打算支持其他协议？
 
@@ -706,9 +708,7 @@ Azure Cosmos DB 是资源调控的系统，适用于数据和控制平面活动�
 
 ### <a name="what-is-maximum-number-of-tables-that-can-be-created"></a>最多可以创建几个表？
 
-表数目没有物理限制，如果需要创建数量很多（远远超过平常的数十个或数百个）的表（其中，稳定的总大小超过 10 TB 数据），请联系 [Azure 支持部门](https://www.azure.cn/support/support-azure/)。
-
-<!--MOONCAKE: CORRECT ON [MSDN Azure and CSDN Azure](https://www.azure.cn/support/support-azure/)-->
+表数目没有物理限制，如果需要创建数量很多（远远超过平常的数十个或数百个）的表（其中，稳定的总大小超过 10 TB 数据），请联系 [Azure 支持部门](https://support.azure.cn/zh-cn/support/support-azure/)。
 
 ### <a name="what-is-the-maximum--of-keyspace-that-we-can-create"></a>最多可以创建多少个键空间？
 
@@ -758,7 +758,7 @@ Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程�
 
 ### <a name="can-an-on-premises-cassandra-cluster-be-paired-with-azure-cosmos-dbs-apache-cassandra-api"></a>本地 Cassandra 群集是否可与 Azure Cosmos DB 的 Apache Cassandra API 配对？
 
-目前，Azure Cosmos DB 针对云环境提供了优化的体验，且不产生操作开销。 如果需要配对，请联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/support-azure/) 并提供方案说明。
+目前，Azure Cosmos DB 针对云环境提供了优化的体验，且不产生操作开销。 如果需要配对，请联系 [Azure 支持](https://www.azure.cn/support/support-azure/)并提供方案说明。
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API 是否提供完整备份？
 

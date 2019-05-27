@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 10/12/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2a8cca3854948f451b2f5adc76ff6d7e8b687aed
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 61c31ef737ecfcd5ab7258ffb53c00a56e977daa
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004105"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004255"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
@@ -66,7 +66,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-如果收到一条错误，指出**主体 <guid> 不存在于目录中**，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
+如果收到一条错误，指出“主体 \<guid> 不存在于目录中”，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 

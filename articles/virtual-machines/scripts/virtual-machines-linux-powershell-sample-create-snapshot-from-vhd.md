@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89bedfc9476fc410fd9c585477dad327c65b1e42
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 0b5d324c4548f2e5c7941c5ef95dbe146600b832
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004248"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003879"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 
@@ -31,11 +31,14 @@ ms.locfileid: "59004248"
 
 <!--[!INCLUDE [cloud-shell-powershell](../../../includes/cloud-shell-powershell.md)]-->
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 #Provide the subscription Id where snapshot will be created
 $subscriptionId = 'yourSubscriptionId'
 
@@ -89,5 +92,4 @@ New-AzSnapshot -Snapshot $snapshotConfig -ResourceGroupName $resourceGroupName -
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties, udpate powershell az cmdlet -->
-<!-- ms.date: 04/01/2018 -->
+<!-- Update_Description: update meta properties -->

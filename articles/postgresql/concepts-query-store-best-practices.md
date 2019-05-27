@@ -1,26 +1,22 @@
 ---
-title: Azure Database for PostgreSQL 中的查询存储最佳做法
-description: 本文介绍了 Azure Database for PostgreSQL 中查询存储的最佳做法。
+title: Azure Database for PostgreSQL - 单一服务器中的查询存储最佳做法
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器中的查询存储的最佳做法。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/26/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: b4f4c33757ea43e09585f0f369a82226cdd721c7
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 5ed09015e88ebcda895689c33c88ae194fcc6260
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990165"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731906"
 ---
 # <a name="best-practices-for-query-store"></a>查询存储的最佳做法
 
-**适用于：** Azure Database for PostgreSQL 9.6 和 10
-
-> [!IMPORTANT]
-> 查询存储功能目前以公共预览版提供。
-
+**适用于：** Azure Database for PostgreSQL - 单一服务器 9.6 和 10
 
 本文概述了在 Azure Database for PostgreSQL 中使用查询存储的最佳做法。
 

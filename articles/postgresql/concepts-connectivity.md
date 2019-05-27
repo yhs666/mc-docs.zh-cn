@@ -1,26 +1,23 @@
 ---
-title: 处理 Azure Database for PostgreSQL 的暂时性连接错误 | Microsoft Docs
-description: 了解如何处理 Azure Database for PostgreSQL 的暂时性连接错误。
+title: 处理 Azure Database for PostgreSQL - 单一服务器的暂时性连接错误
+description: 了解如何处理 Azure Database for PostgreSQL - 单一服务器的暂时性连接错误。
 keywords: postgresql 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 11/09/2018
-ms.date: 12/03/2018
-ms.openlocfilehash: 304fd442748d5d67f33ab340d821698166dc2153
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 13858d4785433eeba0aa73f37394adc21ed3f2bb
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676521"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731938"
 ---
-# <a name="handling-of-transient-connectivity-errors-for-azure-database-for-postgresql"></a>处理 Azure Database for PostgreSQL 的暂时性连接错误
+# <a name="handling-transient-connectivity-errors-for-azure-database-for-postgresql---single-server"></a>处理 Azure Database for PostgreSQL - 单一服务器的暂时性连接错误
 
-本文介绍如何处理 Azure Database for PostgreSQL 的暂时性连接错误。
+本文介绍了如何处理 Azure Database for PostgreSQL 的暂时性连接错误。
 
 ## <a name="transient-errors"></a>暂时性错误
 

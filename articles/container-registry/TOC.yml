@@ -1,95 +1,90 @@
-items:
 - name: Azure 容器注册表
   href: ./index.yml
 - name: 概述
   items:
-  - name: 关于容器注册表
-    href: container-registry-intro.md
+    - name: 关于容器注册表
+      href: container-registry-intro.md
 - name: 快速入门
-  items:
-  - name: 创建容器注册表 - CLI
-    href: container-registry-get-started-azure-cli.md
-  - name: 创建容器注册表 - 门户
-    href: container-registry-get-started-portal.md
-  - name: 创建容器注册表 - PowerShell
-    href: container-registry-get-started-powershell.md
   expanded: true
+  items:
+    - name: 创建容器注册表 - CLI
+      href: container-registry-get-started-azure-cli.md
+    - name: 创建容器注册表 - 门户
+      href: container-registry-get-started-portal.md
+    - name: 创建容器注册表 - PowerShell
+      href: container-registry-get-started-powershell.md
 - name: 概念
   items:
-  - name: 容器注册表 SKU
-    href: container-registry-skus.md
-  - name: 图像存储
-    href: container-registry-storage.md
-  - name: 内容格式
-    href: container-registry-image-formats.md
-  - name: 角色和权限
-    href: container-registry-roles.md
-  - name: 注册最佳做法
-    href: container-registry-best-practices.md
+    - name: 容器注册表 SKU
+      href: container-registry-skus.md
+    - name: 图像存储
+      href: container-registry-storage.md
+    - name: 内容格式
+      href: container-registry-image-formats.md
+    - name: 异地复制
+      href: container-registry-geo-replication.md
+    - name: 角色和权限
+      href: container-registry-roles.md
+    - name: 注册最佳做法
+      href: container-registry-best-practices.md
 - name: 操作指南
   items:
-  - name: 注册表操作
-    items:
-    - name: 推送和拉取映像
-      href: container-registry-get-started-docker-cli.md
-    - name: 查看存储库
-      href: container-registry-repositories.md
-    - name: 导入容器映像
-      href: container-registry-import-images.md
-    - name: 锁定容器映像
-      href: container-registry-image-lock.md
-    - name: 删除容器映像
-      href: container-registry-delete.md
-    - name: 升级经典注册表
-      href: container-registry-upgrade.md
-    - name: 使用 ACR webhook
-      href: container-registry-webhook.md
-    - name: Helm 图表存储库（预览版）
-      href: container-registry-helm-repos.md
-  - name: 安全性和身份验证
-    items:
-    - name: 身份验证概述
-      href: container-registry-authentication.md
+    - name: 注册表操作
       items:
-      - name: 服务主体身份验证
-        href: container-registry-auth-service-principal.md
-      - name: 托管标识身份验证
-        href: container-registry-authentication-managed-identity.md
-  - name: 注册表和其他 Azure 服务
-    items:
-    - name: Azure Kubernetes 服务 (AKS)
-      href: ../aks/tutorial-kubernetes-prepare-app.md
+        - name: 推送和拉取映像
+          href: container-registry-get-started-docker-cli.md
+        - name: 查看存储库
+          href: container-registry-repositories.md
+        - name: 导入容器映像
+          href: container-registry-import-images.md
+        - name: 锁定容器映像
+          href: container-registry-image-lock.md
+        - name: 删除容器映像
+          href: container-registry-delete.md
+        - name: 升级经典注册表
+          href: container-registry-upgrade.md
+        - name: 使用 ACR webhook
+          href: container-registry-webhook.md
+        - name: Helm 图表存储库（预览版）
+          href: container-registry-helm-repos.md
+    - name: 安全性和身份验证
+      items:
+        - name: 身份验证概述
+          href: container-registry-authentication.md
+          items:
+            - name: 服务主体身份验证
+              href: container-registry-auth-service-principal.md
+            - name: 托管标识身份验证
+              href: container-registry-authentication-managed-identity.md
+    - name: 注册表和其他 Azure 服务
+      items:
+        - name: Azure Kubernetes 服务 (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 参考
   items:
-  - name: Azure CLI
-    href: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
-  - name: REST
-    href: https://docs.microsoft.com/rest/api/containerregistry
-  - name: PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.containerregistry
-  - name: .NET
-    href: https://docs.azure.cn/zh-cn/dotnet/api/overview/containerregistry
-  - name: Python
-    href: https://docs.microsoft.com/python/api/overview/azure/container-registry
-  - name: Java
-    href: https://docs.microsoft.com/java/api/overview/azure/containerregistry
-  - name: Node.js
-    href: http://docs.microsoft.com/javascript/api/overview/azure/container-registry
-  - name: Webhook 架构
-    href: container-registry-webhook-reference.md
+    - name: Azure CLI
+      href: 'https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest'
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/containerregistry'
+    - name: PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.containerregistry'
+    - name: .NET
+      href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/containerregistry'
+    - name: Python
+      href: 'https://docs.microsoft.com/python/api/overview/azure/container-registry'
+    - name: Java
+      href: 'https://docs.microsoft.com/java/api/overview/azure/containerregistry'
+    - name: Node.js
+      href: 'http://docs.microsoft.com/javascript/api/overview/azure/container-registry'
+    - name: Webhook 架构
+      href: container-registry-webhook-reference.md
 - name: 资源
   items:
-  - name: 上市区域
-    href: https://www.azure.cn/support/service-dashboard/
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/container-registry/
-  - name: 提供产品反馈
-    href: https://www.azure.cn/support/contact/
-  - name: 视频
-    href: https://www.azure.cn/video-center/&sort=newest
-ms.openlocfilehash: 6662fecddbee019096ef0511d351369ca8192b04
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529366"
+    - name: 上市区域
+      href: 'https://www.azure.cn/support/service-dashboard/'
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/container-registry/'
+    - name: 提供产品反馈
+      href: 'https://www.azure.cn/support/contact/'
+    - name: 视频
+      href: 'https://www.azure.cn/video-center/&sort=newest'

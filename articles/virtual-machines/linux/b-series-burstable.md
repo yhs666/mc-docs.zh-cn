@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/07/2017
-ms.date: 09/24/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 384c5a2efdf31513aaf506b13d93f11fbecfb7b1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c3759926852d4b98ce3c46a45bf455fa3bb50f2d
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649626"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835749"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -31,9 +31,9 @@ ms.locfileid: "52649626"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+    <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
 - [GPU 优化](sizes-gpu.md)
 
-<!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
 <!-- Not Available on - [High performance compute](sizes-hpc.md) -->
 
 ## <a name="next-steps"></a>后续步骤

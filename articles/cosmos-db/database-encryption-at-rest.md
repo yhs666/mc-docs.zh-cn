@@ -5,21 +5,21 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 03/04/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 2f2651fc7db8137a7cf060d1a3097ca42ac7f7ea
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 0970fa85c883ba4fd91c0479864f2b2c6f5a42a3
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987941"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668937"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据加密 
 
 “静态加密”这个短语通常指非易失性存储设备（例如固态硬盘 (SSD) 和机械硬盘 (HDD)）上的数据的加密。 Cosmos DB 将其主数据库存储在 SSD 上。 其媒体附件和备份存储在通常由 HDD 备份的 Azure Blob 存储中。 随着 Cosmos DB 的静态加密功能的发布，所有数据库、媒体附件以及备份都是加密的。 现在数据在传输中（通过网络）以及在静态时（非易失性存储）都处于加密状态，从而实现端到端加密。
 
-作为一种 PaaS 服务，Cosmos DB 非常易于使用。 由于 Cosmos DB 中存储的所有用户数据都会进行静态加密和传输中加密，因此你无需采取任何措施。 实现这一理念的另一方式是默认“开启”静态加密。 没有任何控件可以关闭或打开它。 我们在提供此功能的同时也会遵守[可用性和性能 SLA](https://www.azure.cn/support/sla/cosmos-db)。
+作为一种 PaaS 服务，Cosmos DB 非常易于使用。 由于 Cosmos DB 中存储的所有用户数据都会进行静态加密和传输中加密，因此你无需采取任何措施。 实现这一理念的另一方式是默认“开启”静态加密。 没有任何控件可以关闭或打开它。 Azure Cosmos DB 在运行帐户的所有区域中使用 AES-256 加密。 我们在提供此功能的同时也会遵守[可用性和性能 SLA](https://www.azure.cn/support/sla/cosmos-db)。
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>实现针对 Azure Cosmos DB 的静态加密
 

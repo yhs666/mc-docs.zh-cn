@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: reference
-origin.date: 03/21/2019
-ms.date: 03/27/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 017ea2585330c77451c3a9348714415da4d83949
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: cb01f8b489e322cfc929a8ee7d439a6c3c72c816
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505434"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598906"
 ---
-# <a name="86-category-taxonomy"></a>86 个类别分类
+# <a name="computer-vision-86-category-taxonomy"></a>计算机视觉 86 类别分类
 
 abstract_
 

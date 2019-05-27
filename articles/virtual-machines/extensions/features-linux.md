@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 11/26/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5eba9829c3551ebf235ddf0a89235e6e73da8b5f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0aecb2c26fb0c690a2bf354f0be42b7e047611e0
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627268"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835598"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>适用于 Linux 的虚拟机扩展和功能
 
@@ -332,7 +332,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. 若要查看 Linux 代理日志，请在 /var/log/waagent.log 中查看预配扩展时的活动
 
-2. 在 /var/log/azure/<extensionName> 中查看实际扩展日志，获取详细信息
+2. 在 */var/log/azure/\<extensionName>* 中查看实际扩展日志，以便获取详细信息
 
 3. 查看特定扩展文档中有关错误代码和已知问题等的故障排除部分。
 

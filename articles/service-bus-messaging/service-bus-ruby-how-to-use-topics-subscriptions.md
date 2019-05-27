@@ -12,24 +12,34 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/28/19
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9d775ad9b2facba8893bb0d09c21ed4310b6529b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 411dbb997aad211580bc7dd2f86cda50f91dcfce
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627269"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609860"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-本文介绍如何从 Ruby 应用程序使用服务总线主题和订阅。 涉及的应用场景包括**创建主题和订阅、创建订阅筛选器、将消息发送**到主题、**从订阅接收消息**以及**删除主题和订阅**。 有关主题和订阅的详细信息，请参阅 [后续步骤](#next-steps) 部分。
+本文介绍如何从 Ruby 应用程序使用服务总线主题和订阅。 涉及的方案包括：
 
-[!INCLUDE [howto-service-bus-topics](../../includes/howto-service-bus-topics.md)]
+- 创建主题和订阅 
+- 创建订阅筛选器 
+- 将消息发送到主题 
+- 从订阅接收消息
+- 删除主题和订阅
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="prerequisites"></a>先决条件
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以[激活 Visual Studio 或 MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)或者注册[免费试用帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+2. 按照[快速入门：使用 Azure 门户创建一个服务总线主题和对此主题的订阅](service-bus-quickstart-topics-subscriptions-portal.md)来创建服务总线**命名空间**并获取**连接字符串**。 
+
+    > [!NOTE]
+    > 在本快速入门中，你将使用 **Ruby** 创建一个**主题**和对此主题的**订阅**。 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
@@ -56,7 +66,6 @@ topic = azure_service_bus_service.create_topic(topic)
 ```
 
 ## <a name="create-subscriptions"></a>创建订阅
-
 主题订阅也是使用 **Azure::ServiceBusService** 对象创建的。 订阅已命名，并且具有一个限制传递到订阅的虚拟队列的消息集的可选筛选器。
 
 订阅是永久性的。 除非删除它或与之相关的主题，否则订阅将继续存在。 如果应用程序包含创建订阅的逻辑，则它应首先使用 getSubscription 方法检查该订阅是否已经存在。

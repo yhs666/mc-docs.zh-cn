@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines-windows
 ms.topic: include
 origin.date: 11/01/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 09509b93304405af21ff5d131540957fc8f5f089
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: acdb15029e289545503fa5703889cacc91b7d3b2
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004204"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004254"
 ---
 创建 Azure 虚拟机 (VM) 时，必须创建[虚拟网络](../articles/virtual-network/virtual-networks-overview.md) (VNet) 或使用现有的 VNet。 此外，还需要确定如何在 VNet 上访问 VM。 [在创建资源之前必须做好规划](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md)，确保了解[网络资源的限制](../articles/azure-subscription-service-limits.md#networking-limits)。
 
@@ -32,6 +32,8 @@ ms.locfileid: "59004204"
 
 - 网络安全组
 - 负载均衡器 
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="network-interfaces"></a>网络接口
 

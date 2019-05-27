@@ -13,15 +13,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/08/2018
-ms.date: 02/04/2019
+origin.date: 04/03/2019
+ms.date: 05/27/2019
 ms.author: maxluk
-ms.openlocfilehash: f94595e1080d3741ebb1824e30aeb5094f4d60ff
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: b59defef326e9827051ac5205370a822789371c0
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906021"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829324"
 ---
 # <a name="optimize-apache-spark-jobs"></a>优化 Apache Spark 作业
 
@@ -67,7 +67,8 @@ Spark 支持多种格式，比如 csv、json、xml、parquet、orc 和 avro。 S
 
 | 存储类型 | 文件系统 | Speed | 暂时性 | 用例 |
 | --- | --- | --- | --- | --- |
-| Azure Blob 存储 | **wasb:**//url/ | **标准** | 是 | 暂时性群集 |
+| Azure Blob 存储 | **wasb[s]:**//url/ | **标准** | 是 | 暂时性群集 |
+| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **较快** | 是 | 暂时性群集 |
 | 本地 HDFS | **hdfs:**//url/ | **最快** | 否 | 全天候交互型群集 |
 
 ## <a name="use-the-cache"></a>使用缓存

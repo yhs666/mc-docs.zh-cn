@@ -1,20 +1,20 @@
 ---
-title: 在 Azure Database for PostgreSQL 服务器中优化 autovacuum
-description: 本文介绍如何在 Azure Database for PostgreSQL 服务器中优化 autovacuum。
+title: 在 Azure Database for PostgreSQL - 单一服务器中优化 autovacuum
+description: 本文介绍了如何在 Azure Database for PostgreSQL - 单一服务器中优化 autovacuum
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: ac85c7fa643e6dedcfdcccc8b450b64a1d9454f5
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 3e1717f2cc28b765b98712a0d45ec186cda1cd83
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732011"
 ---
-# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql-server"></a>在 Azure Database for PostgreSQL 服务器中优化 autovacuum 
+# <a name="optimize-autovacuum-on-an-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中优化 autovacuum
 本文介绍如何在 Azure Database for PostgreSQL 服务器中有效优化 autovacuum。
 
 ## <a name="overview-of-autovacuum"></a>Autovacuum 概述

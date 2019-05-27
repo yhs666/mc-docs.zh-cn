@@ -1,10 +1,10 @@
 ---
-title: Azure 中继常见问题解答
+title: Azure 中继常见问题解答 | Azure Docs
 description: 获取 Azure 中继的某些常见问题的解答。
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 886d2c7f-838f-4938-bd23-466662fb1c8e
 ms.service: service-bus-relay
@@ -12,37 +12,38 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 05/21/2018
-ms.author: v-yiso
-ms.date: 06/04/2018
-ms.openlocfilehash: ed2443eb00a436b7dfeca440a77901b9bbba9824
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 04/12/19
+ms.author: v-lingwu
+ms.openlocfilehash: a6c41f6573842e454359bbaddb2763f589033f4c
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651191"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609859"
 ---
 # <a name="azure-relay-faqs"></a>Azure 中继常见问题解答
 
 本文解答一些关于 [Azure 中继](/service-bus-messaging/)的常见问题 (FAQ)。 若要了解一般的 Azure 定价和支持信息，请参阅 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)。
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>一般问题
 ### <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 [Azure 中继服务](relay-what-is-it.md)可以帮助你以更安全的方式将企业网络中驻留的服务公开给公有云，从而改进混合应用程序的使用。 可以在不打开防火墙连接的情况下公开服务，不需对企业网络基础结构进行干预性更改。
 
 ### <a name="what-is-a-relay-namespace"></a>什么是中继命名空间？
-[命名空间](./relay-create-namespace-portal.md)是一个范围容器，可用于对应用程序中的中继资源进行寻址。 必须创建命名空间才能使用中继。 这是入门的开始步骤之一。
+[命名空间](relay-create-namespace-portal.md)是一个范围容器，可用于对应用程序中的中继资源进行寻址。 必须创建命名空间才能使用中继。 这是入门的开始步骤之一。
 
 ### <a name="what-happened-to-service-bus-relay-service"></a>服务总线中继服务发生了什么情况？
 以前命名的服务总线中继服务现在称为 [WCF 中继](relay-wcf-dotnet-get-started.md)。 可以继续照常使用此服务。 混合连接功能是一种更新版的服务，从 Azure BizTalk 服务移植过来。 将继续支持 WCF 中继和混合连接。
 
 ## <a name="pricing"></a>定价
-本部分回答了一些关于中继定价结构的常见问题。 若要了解一般的 Azure 定价信息，还可以参阅 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)。 有关中继定价的完整信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
+本部分回答了一些关于中继定价结构的常见问题。 若要了解一般的 Azure 定价信息，还可以参阅 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)。 有关中继定价的完整信息，请参阅[服务总线定价详细信息][Pricing overview]。
 
 ### <a name="how-do-you-charge-for-hybrid-connections-and-wcf-relay"></a>如何对混合连接和 WCF 中继收费？
 有关中继定价的完整信息，请参阅服务总线定价详细信息页上的[混合连接和 WCF 中继][Pricing overview]表。 除该页上标示的价格外，还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
 
-<!-- pay attention to the pricing unit-->
 ### <a name="how-am-i-billed-for-hybrid-connections"></a>使用混合连接时怎样计费？
 以下是三种示例计费方案，适用于混合连接：
 
@@ -64,7 +65,7 @@ ms.locfileid: "52651191"
 
 ### <a name="how-are-hours-calculated-for-relay"></a>如何计算中继小时数？
 
-WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接配额](../service-bus-messaging/service-bus-quotas.md)保持不变。 这意味着中继将继续根据消息数（而不是操作数）和中继小时数计费。 有关详细信息，请参阅定价详细信息页上的[混合连接和 WCF 中继](https://www.azure.cn/pricing/details/messaging/)表。
+WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接配额](../service-bus-messaging/service-bus-quotas.md)保持不变。 这意味着中继将继续根据消息数（而不是操作数）和中继小时数计费。 有关详细信息，请参阅定价详细信息页上的[混合连接和 WCF 中继](https://www.azure.cn/pricing/details/service-bus/)表。
 
 ### <a name="what-if-i-have-more-than-one-listener-connected-to-a-specific-relay"></a>如果将多个侦听器连接到特定中继，会怎么样？
 在某些情况下，单个中继可能会有多个连接的侦听器。 当至少有一个中继侦听器连接到中继时，该中继都就会被视为“打开”状态。 将侦听器添加到打开的中继时，会增加中继小时数。 连接到中继的中继发送方（调用消息或将消息发送至中继的客户端）数量不会对中继小时数的计算产生影响。
@@ -79,7 +80,7 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 使用 **netTCPRelay** WCF 绑定打开的中继不将消息视为单条消息，而视为流经系统的数据流。 使用此绑定时，只有发送方和侦听器可以识别发送和接收的单条分帧消息。 对于使用 **netTCPRelay** 绑定的中继，所有数据都会被视为用于计算可计费消息的数据流。 在这种情况下，服务总线每隔 5 分钟计算一次通过单个中继发送或接收的数据总量。 然后会将该数据总量除以 64 KB，得出该中继在该时段的计费消息数。
 
 ## <a name="quotas"></a>配额
-| 配额名称 | 作用域 |  说明 | 值 |
+| 配额名称 | 作用域 |  说明 | Value |
 | --- | --- | --- | --- |
 | 中继上的并发侦听器数 |实体 |系统会拒绝后续的附加连接请求，且调用代码会收到异常。 |25 |
 | 服务命名空间中所有中继终结点的并发中继连接数 |命名空间 |- |5,000 |
@@ -88,7 +89,7 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 | [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) 和 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 中继的消息大小 |命名空间 |对消息大小没有限制。 |无限制 |
 
 ### <a name="does-relay-have-any-usage-quotas"></a>中继是否具有任何使用率配额？
-默认情况下，对于任何云服务，Microsoft 设置聚合的每月使用配额，通过对所有的客户订阅计算得到。 我们了解，有时候，你的需求可能会超过这些限制。 你可以随时联系客户服务人员，以便我们了解你的需求并相应地调整这些限制。 对于服务总线，聚合的使用率配额为如下所示：
+默认情况下，对于任何云服务，Azure 都会设置一个聚合的每月使用率配额，此配额基于客户的所有订阅进行计算。 我们了解，有时候，你的需求可能会超过这些限制。 你可以随时联系客户服务人员，以便我们了解你的需求并相应地调整这些限制。 对于服务总线，聚合的使用率配额为如下所示：
 
 * 50 亿条消息
 * 200 万个中继小时
@@ -113,13 +114,13 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 
 ```powershell
 # Create a new resource group in the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'China East'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'China East'
 
 # Move the namespace from the source subscription to the target subscription.
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="troubleshooting"></a>故障排除
@@ -133,10 +134,10 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 是的。 中继客户端使用完全限定的域名连接到 Azure 中继服务。 客户可以在支持 DNS 允许列表的防火墙上为 `*.servicebus.windows.net` 添加一个条目。
 
 ## <a name="next-steps"></a>后续步骤
-* [创建命名空间](./relay-create-namespace-portal.md)
-* [.NET 入门](./relay-hybrid-connections-dotnet-get-started.md)
-* [节点入门](./relay-hybrid-connections-node-get-started.md)
+* [创建命名空间](relay-create-namespace-portal.md)
+* [.NET 入门](relay-hybrid-connections-dotnet-get-started.md)
+* [节点入门](relay-hybrid-connections-node-get-started.md)
 
-[Pricing overview]: https://www.azure.cn/pricing/details/messaging/
-[Relay exceptions]: ./relay-exceptions.md
+[Pricing overview]: https://www.azure.cn/pricing/details/service-bus/
+[Relay exceptions]: relay-exceptions.md
 [Shared Access Signatures]: ../service-bus-messaging/service-bus-sas.md

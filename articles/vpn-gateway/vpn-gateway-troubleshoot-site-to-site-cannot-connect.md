@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/30/2018
-ms.date: 03/04/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 5ecc4ca496bc5f893bbaf5da7dfee2ffc0d453c6
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: cedc705bbf50fd112b9ded11ed1adc5f5cd6b89b
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833168"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195029"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>故障排除：Azure 站点到站点 VPN 连接无法建立连接并停止工作
 
@@ -103,7 +103,10 @@ ms.locfileid: "56833168"
 2. 单击证书警告。
 3. 如果收到响应，则可认为 VPN 网关正常。 如果未收到响应，则可能表示网关不正常，或者网关子网上的某个 NSG 导致出现问题。 以下文本是示例响应：
 
-    &lt;?xml version="1.0"?>  <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance:GatewayTenantWorker_IN_1 GatewayTenantVersion:14.7.24.6</string&gt;
+    ```xml
+    <?xml version="1.0"?>
+    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">Primary Instance: GatewayTenantWorker_IN_1 GatewayTenantVersion: 14.7.24.6</string>
+    ```
 
 ### <a name="step-8-check-whether-the-on-premises-vpn-device-has-the-perfect-forward-secrecy-feature-enabled"></a>步骤 8。 检查本地 VPN 设备是否已启用完全向前保密功能
 
@@ -113,4 +116,3 @@ ms.locfileid: "56833168"
 
 -   [配置与虚拟网络的站点到站点连接](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [配置站点到站点 VPN 连接的 IPsec/IKE 策略](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-<!-- Update_Description: update metedata properties -->

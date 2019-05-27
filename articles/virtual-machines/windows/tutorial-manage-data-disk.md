@@ -14,16 +14,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/29/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: cd3305cb6ae656019b6a0071ace9e03ba72fa2d5
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8f1f959a6aba32756535d0558dae09a56c191259
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003831"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004095"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>教程 - 使用 Azure PowerShell 管理 Azure 磁盘
 
@@ -50,7 +50,7 @@ Azure 虚拟机使用磁盘来存储 VM 操作系统、应用程序和数据。 
 
 ## <a name="azure-data-disks"></a>Azure 数据磁盘
 
-可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 每个数据磁盘的最大容量为 4 TB。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
+可添加额外的数据磁盘，用于安装应用程序和存储数据。 在任何需要持久和灵敏数据存储的情况下，都应使用数据磁盘。 虚拟机的大小决定可附加到 VM 的数据磁盘数。 对于每个 VM vCPU，都可以附加四个数据磁盘。
 
 ## <a name="vm-disk-types"></a>VM 磁盘类型
 
@@ -176,7 +176,7 @@ VirtualHardDisk :
 转到下一教程，了解如何自动配置 VM。
 
 > [!div class="nextstepaction"]
-> [自动执行 VM 配置](./tutorial-automate-vm-deployment.md)
+> [自动配置 VM](./tutorial-automate-vm-deployment.md)
 
 <!--Update_Description: update meta properties, wording update, update link -->
 

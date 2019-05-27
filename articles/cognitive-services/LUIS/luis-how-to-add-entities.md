@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2cc5b5f11158543d50cfa3189c180bf4d4ddcde4
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 0920c9f9875e126c3ca2327ff6d804fc509db67b
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556947"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828570"
 ---
 # <a name="create-entities-without-utterances"></a>创建不包含话语的实体
 
@@ -66,29 +66,6 @@ ms.locfileid: "65556947"
 
     此正则表达式与文本字符 `hrf-` 匹配，后接 6 位数来表示“人力资源”表单的表单编号。
 
-## <a name="add-hierarchical-entities"></a>添加分层实体
-
-分层实体是根据上下文学习的一类概念相关实体。 在以下示例中，该实体包含出发地和目的地。 
-
-在表述 `Move John Smith from Seattle to Cairo` 中，Seattle 是出发地，Cairo 是目的地。 每个位置因上下文而异，是从表述中的单词顺序和单词选择学习到的。
-
-若要添加分层实体，请完成以下步骤： 
-
-1. 在应用中，从左侧导航栏选择“实体”，然后选择“创建新实体”。
-
-1. 在弹出对话框中，在“实体名称”框中键入 `Location`，然后从“实体类型”列表选择“分层”。
-
-    ![添加分层的实体](./media/add-entities/hier-location-entity-creation.png)
-
-1. 选择“添加子级”，然后在“子级 #1”框中输入 `Origin`。 
-
-1. 选择“添加子级”，然后在“子级 #2”框中输入 `Destination`。 选择“完成” 。
-
-    >[!CAUTION]
-    >子实体名称在单个应用的所有实体中必须唯一。 两个不同的分层实体不得包含同一名称的子实体。 
-
-    创建此实体后，转到包含该实体的示例话语所在的所有意向。 选择示例话语中的文本，并将文本标记为实体。 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>添加复合实体以分组到父子关系中
@@ -135,11 +112,9 @@ ms.locfileid: "65556947"
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>添加角色以区分不同的上下文
 
-角色是基于上下文的实体命名子类型。 它相当于[分层](#add-hierarchical-entities)实体，但是角色仅在[模式](luis-how-to-model-intent-pattern.md)中使用。 
+角色是基于上下文的命名子类型。 它在所有实体中提供，包括预生成的和非机器学习到的实体。 
 
-使用出发地和目的地城市的分层实体的相同示例，区别在于角色是命名的出发地，而不是分层子级。 
-
-角色的语法为 **{Entityname:Rolename}**，即，实体名称后接冒号再后接角色名称。 例如，`Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
+角色的语法为 **`{Entityname:Rolename}`**，即，实体名称后接冒号再后接角色名称。 例如，`Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`。
 
 1. 在“生成”部分的左侧面板中选择“实体”。
 

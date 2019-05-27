@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-origin.date: 02/11/2019
-ms.date: 03/27/2019
+origin.date: 04/17/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: a5d1003c0c4b51f9efc425c55196f7169362b3c7
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 85e494ddbadec9ce44dc09126343d821d7c197bc
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505443"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598880"
 ---
-# <a name="categorize-images"></a>对图像进行分类
+# <a name="categorize-images-by-subject-matter"></a>按主题对图像进行分类
 
 除了标记和说明以外，计算机视觉还返回图像中检测到的基于分类的类别。 不同于标记，类别是在父/子继承层次结构中组织的，并且数量更少（86 个，与数千个标记截然相反）。 所有类别名称均采用英语。 它可以单独完成分类，也可以与新的标记模型共同完成。
 
@@ -54,7 +54,7 @@ ms.locfileid: "58505443"
 
 下表说明了典型的图像集以及计算机视觉为每个图像返回的类别。
 
-| 映像 | 类别 |
+| 映像 | Category |
 |-------|----------|
 | ![四个人一起摆出一家人的姿势](./Images/family_photo.png) | people_group |
 | ![一只小狗坐在草地上](./Images/cute_dog.png) | animal_dog |

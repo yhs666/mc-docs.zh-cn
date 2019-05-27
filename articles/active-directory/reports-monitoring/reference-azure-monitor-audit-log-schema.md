@@ -1,10 +1,10 @@
 ---
-title: 解释 Azure Monitor（预览版）中的 Azure Active Directory 审核日志架构 | Microsoft Docs
-description: 介绍在 Azure Monitor（预览版）中使用的 Azure AD 审核日志架构
+title: 解释 Azure Monitor 中的 Azure Active Directory 审核日志架构 | Microsoft Docs
+description: 介绍了在 Azure Monitor 中使用的 Azure AD 审核日志架构
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -12,17 +12,18 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-origin.date: 12/14/2018
-ms.date: 01/03/2019
+ms.subservice: report-monitor
+origin.date: 04/18/2019
+ms.date: 05/13/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 1b36505afa2719cc1e9df5ef0f09050cb31efc71
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: decfd6890616d6b8c741868c899b6de0b13b5f24
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996318"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598786"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>解释 Azure Monitor 中的 Azure AD 审核日志架构（预览版）
 
@@ -180,4 +181,4 @@ ms.locfileid: "53996318"
 
 - [Azure 诊断日志](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

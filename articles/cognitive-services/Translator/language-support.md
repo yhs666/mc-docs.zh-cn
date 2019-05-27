@@ -3,20 +3,20 @@ title: 语言支持 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 文本翻译 API 支持的自然语言列表。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6ee14107b0ae4a3c7459c0237ddc7c725e4dfe11
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 712d058676ffad089dcd44c7e24945a422fcceff
+ms.sourcegitcommit: 2312c8153c559ed1a235d029c7522283d9c92864
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964475"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65730992"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>文本翻译 API 的语言和区域支持
 
@@ -176,79 +176,10 @@ Transliterate 方法支持以下语言。 在“音译方向”中，“<-->”�
 | 越南语      | `vi`          |
 | 威尔士语      | `cy`          |
 
-## <a name="detect"></a>Detect
+## <a name="detect"></a>检测
 
-Detect 方法支持以下语言。 Detect 可能会识别 Microsoft Translator 无法翻译的语言。
+翻译工具文本 API 检测可用于翻译和音译的所有语言。
 
-| 语言    |
-|:----------- |
-| 南非荷兰语 |
-| 阿尔巴尼亚语 |
-| 阿拉伯语 |
-| 巴斯克语 |
-| 白俄罗斯语 |
-| 保加利亚语 |
-| 加泰罗尼亚语 |
-| 中文 |
-| 中文(简体) |
-| 中文(繁体) |
-| 克罗地亚语 |
-| 捷克语 |
-| 丹麦语 |
-| 荷兰语 |
-| 英语 |
-| 世界语 |
-| 爱沙尼亚语 |
-| 芬兰语 |
-| 法语 |
-| 加利西亚语 |
-| 德语 |
-| 希腊语 |
-| 海地克里奥尔语 |
-| 希伯来语 |
-| 印地语 |
-| 匈牙利语 |
-| 冰岛语 |
-| 印度尼西亚语 |
-| 爱尔兰语 |
-| 意大利语 |
-| 日语 |
-| 韩语 |
-| 库尔德语(阿拉伯语) |
-| 库尔德语(拉丁语) |
-| 拉丁语 |
-| 拉脱维亚语 |
-| 立陶宛语 |
-| 马其顿语 |
-| 马来语 |
-| 马耳他语 |
-| 挪威语 |
-| 挪威语(尼诺斯克语) |
-| 普什图语 |
-| 波斯语 |
-| 波兰语 |
-| 葡萄牙语 |
-| 罗马尼亚语 |
-| 俄语 |
-| 塞尔维亚语(西里尔文) |
-| 塞尔维亚语(拉丁语系) |
-| 斯洛伐克语 |
-| 斯洛文尼亚语 |
-| 索马里语 |
-| 西班牙语 |
-| 斯瓦希里语 |
-| 瑞典语 |
-| 他加禄语 |
-| 泰卢固语 |
-| 泰语 |
-| 土耳其语 |
-| 乌克兰语 |
-| 乌尔都语 |
-| 乌兹别克语(西里尔文) |
-| 乌兹别克语(拉丁语) |
-| 越南语 |
-| 威尔士语 |
-| 意第绪语 |
 
 ## <a name="access-the-translator-text-api-language-list-programmatically"></a>以编程方式访问文本翻译 API 语言列表
 
@@ -263,3 +194,4 @@ Detect 方法支持以下语言。 Detect 可能会识别 Microsoft Translator �
 
 [查看语言列表](https://www.microsoft.com/translator/languages.aspx)
 
+<!-- Update_Description: wording update -->

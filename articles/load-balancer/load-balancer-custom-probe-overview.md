@@ -5,21 +5,22 @@ description: 了解如何使用运行状况探测来监视负载均衡器后的�
 services: load-balancer
 documentationcenter: na
 author: WenJason
+manager: digimobile
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/14/2018
-ms.date: 12/31/2018
+origin.date: 05/07/2019
+ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 46632e0fa17851b334c2d1b013dddfa1e77bf38a
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 1caa0dba41b6ce2adab39cddf30d58da495541fd
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806192"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731969"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -30,7 +31,7 @@ Azure 负载均衡器提供可与负载均衡规则配合使用的运行状况�
 | | 标准 SKU | 基本 SKU |
 | --- | --- | --- |
 | [探测类型](#types) | TCP、HTTP、HTTPS | TCP、HTTP |
-| [探测停止行为](#probedown) | 所有探测停止，所有 TCP 流继续。 | 所有探测停止，所有 TCP 流终止。 | 
+| [探测停止行为](#probedown) | 所有探测停止，所有 TCP 流继续。 | 所有探测停止，所有 TCP 流过期。 | 
 
 > [!IMPORTANT]
 > 负载均衡器运行状况探测源自 IP 地址 168.63.129.16，要使探测将实例标记为运行，不得阻止这些探测。  有关详细信息，请查看[探测源 IP 地址](#probesource)。
@@ -119,7 +120,7 @@ HTTP 和 HTTPS 探测构建在 TCP 探测的基础之上，发出包含指定路
 
 ### <a name="guestagent"></a>来宾代理探测（仅限经典模式）
 
-云服务角色默认使用来宾代理进行探测监视。  来宾代理探测是最后一道配置。  请始终对 TCP 或 HTTP 探测显式使用运行状况探测。 对于大多数应用程序方案而言，来宾代理探测的有效性不如显式定义的探测。
+云服务角色（辅助角色和 Web 角色）默认使用来宾代理进行探测监视。  来宾代理探测是最后一道配置。  请始终对 TCP 或 HTTP 探测显式使用运行状况探测。 对于大多数应用程序方案而言，来宾代理探测的有效性不如显式定义的探测。
 
 来宾代理探测是对 VM 中来宾代理执行的检查。 仅当实例处于“就绪”状态时，负载均衡器才侦听并响应“HTTP 200 正常”响应。 （其他状态包括“繁忙”、“正在回收”或“正在停止”。）
 
@@ -178,7 +179,7 @@ UDP 是无连接的，并且系统不会跟踪 UDP 的流状态。 如果后端�
 
 AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-overview.md)中标识此源 IP 地址，默认允许运行状况探测流量。
 
-除了负载均衡器运行状况探测外，以下操作也使用此 IP 地址：
+除了负载均衡器运行状况探测外，[以下操作也使用此 IP 地址](../virtual-network/what-is-ip-address-168-63-129-16.md)：
 
 - 使 VM 代理能够与平台通信，以表明它处于“就绪”状态
 - 启用与 DNS 虚拟服务器的通信，以便为未定义自定义 DNS 服务器的客户提供筛选的名称解析。  此筛选可确保客户只能解析其部署的主机名。

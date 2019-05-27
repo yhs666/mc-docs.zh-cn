@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: 2e17858123e5bdeec52fe2792c3941b5587684eb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 05/27/2019
+ms.openlocfilehash: ff55b89c11bb3610f8bf703b6d46bcbc6b94f0bb
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650432"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829194"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -72,10 +72,11 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 
 ## <a name="message-feedback"></a>消息反馈
 
-发送云到设备的消息时，服务可以请求传送每条消息的反馈（关于该消息的最终状态）。
+发送云到设备的消息时，服务可以请求传送每条消息的反馈（关于该消息的最终状态）。 这是通过在发送的 C2D 消息中将 `iothub-ack` 应用程序属性设置为下列值之一实现的：
 
-| Ack 属性 | 行为 |
+| Ack 属性值 | 行为 |
 | ------------ | -------- |
+| **无**     | IoT 中心不生成反馈消息（默认行为）。 |
 | positive | 如果云到设备的消息达到“已完成”状态，IoT 中心将生成反馈消息。 |
 | negative | 如果云到设备的消息达到“死信”状态，IoT 中心将生成反馈消息。 |
 | full     | IoT 中心在任一情况下都会生成反馈消息。 |
@@ -129,7 +130,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 | 属性                  | 说明 | 范围和默认值 |
 | ------------------------- | ----------- | ----------------- |
 | defaultTtlAsIso8601       | 云到设备消息的默认 TTL。 | ISO_8601 间隔高达 2D（最小为 1 分钟）。 默认值：1 小时。 |
-| maxDeliveryCount          | 每个设备队列的云到设备最大传送计数。 | 1 到 100。 默认值：10。 |
+| maxDeliveryCount          | 每个设备队列的云到设备最大传送计数。 | 1 到 100。 默认值：10. |
 | feedback.ttlAsIso8601     | 服务绑定反馈消息的保留时间。 | ISO_8601 间隔高达 2D（最小为 1 分钟）。 默认值：1 小时。 |
 | feedback.maxDeliveryCount |反馈队列的最大传送计数。 | 1 到 100。 默认值：100。 |
 

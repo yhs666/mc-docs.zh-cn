@@ -6,15 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 10/09/2018
-ms.date: 10/29/2018
+origin.date: 05/06/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: d8a5c86356670d9641dce55a84a652b2f9c85846
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4320834e7b0ae0545fe2b756f20ddf42ae643657
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648820"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829329"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>在多个设备上计划作业
 
@@ -43,12 +43,10 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleDirectMethod",
+    "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "<methodName>",
         "payload": <payload>,
@@ -69,6 +67,38 @@ User-Agent: <sdk-name>/<sdk-version>
 ```
 [IoT 中心查询语言][lnk-query] 格外详细地介绍了 IoT 中心查询语言。
 
+以下代码片段演示了特定作业的请求和响应，该作业计划在 contoso-hub-1 的所有设备上调用名为 testMethod 的直接方法：
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job01?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=68iv------------------------------------v8Hxalg%3D&se=1556849884&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 317
+
+{
+    "jobId": "job01",
+    "type": "scheduleDeviceMethod",
+    "cloudToDeviceMethod": {
+        "methodName": "testMethod",
+        "payload": {},
+        "responseTimeoutInSeconds": 30
+    },
+    "queryCondition": "*", 
+    "startTime": "2019-05-04T15:53:00.077Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 65
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 01:46:18 GMT
+
+{"jobId":"job01","type":"scheduleDeviceMethod","status":"queued"}
+```
+
 ## <a name="jobs-to-update-device-twin-properties"></a>用于更新设备孪生属性的作业
 以下代码片段显示了使用作业更新设备克隆属性的 HTTPS 1.1 请求详细信息：
 
@@ -77,17 +107,53 @@ PUT /jobs/v2/<jobId>?api-version=2018-06-30
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleTwinUpdate",
+    "type": "scheduleUpdateTwin",
     "updateTwin": <patch>                 // Valid JSON object
     "queryCondition": "<queryOrDevices>", // query condition
     "startTime": <jobStartTime>,          // as an ISO-8601 date string
     "maxExecutionTimeInSeconds": <maxExecutionTimeInSeconds>
 }
+```
+
+> [!NOTE]
+> *updateTwin* 属性要求有效的 etag 匹配，例如 `etag="*"`。
+
+以下代码片段演示了特定作业的请求和响应，该作业计划在 contoso-hub-1 上更新 test-device 的设备孪生属性：
+
+```
+PUT https://contoso-hub-1.azure-devices.net/jobs/v2/job02?api-version=2018-06-30 HTTP/1.1
+Authorization: SharedAccessSignature sr=contoso-hub-1.azure-devices.net&sig=BN0U-------------------------------------RuA%3D&se=1556925787&skn=iothubowner
+Content-Type: application/json; charset=utf-8
+Host: contoso-hub-1.azure-devices.net
+Content-Length: 339
+
+{
+    "jobId": "job02",
+    "type": "scheduleUpdateTwin",
+    "updateTwin": {
+      "properties": {
+        "desired": {
+          "test1": "value1"
+        }
+      },
+     "etag": "*"
+     },
+    "queryCondition": "deviceId = 'test-device'",
+    "startTime": "2019-05-08T12:19:56.868Z",
+    "maxExecutionTimeInSeconds": 20
+}
+
+HTTP/1.1 200 OK
+Content-Length: 63
+Content-Type: application/json; charset=utf-8
+Vary: Origin
+Server: Microsoft-HTTPAPI/2.0
+Date: Fri, 03 May 2019 22:45:13 GMT
+
+{"jobId":"job02","type":"scheduleUpdateTwin","status":"queued"}
 ```
 
 ## <a name="querying-for-progress-on-jobs"></a>查询作业的进度
@@ -98,8 +164,6 @@ GET /jobs/v2/query?api-version=2018-06-30[&jobType=<jobType>][&jobStatus=<jobSta
 
 Authorization: <config.sharedAccessSignature>
 Content-Type: application/json; charset=utf-8
-Request-Id: <guid>
-User-Agent: <sdk-name>/<sdk-version>
 ```
 
 从响应提供 continuationToken。  
@@ -115,13 +179,13 @@ User-Agent: <sdk-name>/<sdk-version>
 | **startTime** |应用程序提供的作业开始时间(ISO-8601)。 |
 | **endTime** |IoT 中心提供的作业完成时的日期(ISO-8601)。 只有在作业达到“完成”状态后才有效。 |
 | **type** |作业的类型： |
-| | **scheduledUpdateTwin**：用于更新一组所需属性或标记的作业。 |
-| | **scheduledDeviceMethod**：用于对一组设备孪生调用设备方法的作业。 |
+| | **scheduleUpdateTwin**：用于更新一组所需属性或标记的作业。 |
+| | **scheduleDeviceMethod**：用于对一组设备孪生调用设备方法的作业。 |
 | **status** |作业的当前状态。 可能的状态值： |
 | | **挂起**：已计划并等待作业服务选取。 |
-| | **已计划**：计划在将来某个时间。 |
+| | **已计划**：计划将来的某个时间。 |
 | | **正在运行**：当前活动的作业。 |
-| | **已取消**：已取消作业。 |
+| | **已取消**：作业已取消。 |
 | | **失败**：作业失败。 |
 | | **完成**：作业已完成。 |
 | **deviceJobStatistics** |有关作业执行的统计信息。 |

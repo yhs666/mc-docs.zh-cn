@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 01/24/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: ac6beecedd9c01098d86bcf99f046c276324c9a7
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 05/20/2019
+ms.openlocfilehash: 09dc9ef21d020632336a4cf8520b34043c58c308
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663711"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731978"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -81,6 +81,13 @@ mysqli_real_connect($conn, 'mydemoserver.mysql.database.chinacloudapi.cn', 'myad
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
+```
+### <a name="php-using-pdo"></a>PHP（使用 PDO）
+```phppdo
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'
+);
+$db = new PDO('mysql:host=mydemoserver.mysql.database.chinacloudapi.cn;port=3306;dbname=databasename', 'username@mydemoserver', 'yourpassword', $options);
 ```
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
@@ -176,6 +183,23 @@ url = String.format("jdbc:mariadb://%s/%s?useSSL=true&trustServerCertificate=tru
 properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
+```
+
+### <a name="net-mysqlconnector"></a>.NET (MySqlConnector)
+```csharp
+var builder = new MySqlConnectionStringBuilder
+{
+    Server = "mydemoserver.mysql.database.chinacloudapi.cn",
+    UserID = "myadmin@mydemoserver",
+    Password = "yourpassword",
+    Database = "quickstartdb",
+    SslMode = MySqlSslMode.VerifyCA,
+    CACertificateFile = "C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem",
+};
+using (var connection = new MySqlConnection(builder.ConnectionString))
+{
+    connection.Open();
+}
 ```
 
 ## <a name="next-steps"></a>后续步骤

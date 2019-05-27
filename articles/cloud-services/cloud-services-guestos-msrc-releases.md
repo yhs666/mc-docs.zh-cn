@@ -11,18 +11,48 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 03/26/2019
+origin.date: 05/08/2019
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 8e787e5990138362d5c5bf41525a9ad55dd94255
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 05/27/2019
+ms.openlocfilehash: 6893a8655056e3467e7ac77edbbe7e1656f1d5df
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529267"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829218"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="april-2019-guest-os"></a>2019 年 4 月来宾 OS
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+| Rel 19-04 | [4493509] | Windows 10 安全性 | 6.6 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493470] | Windows 10 安全性 | 5.30 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493467] | Windows 安全性 | 4.65 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493450] | Windows 安全性 | 3.72 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493448] | Windows 安全性 | 2.85 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493478] | Flash | 3.72、4.65、5.30、6.6 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493435] | Internet Explorer | 2.85、3.72、4.65 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [KB4490628] | 服务堆栈更新 | 2.85 | 2019 年 3 月 12 日 |
+| Rel 19-04 | [KB4474419] | SHA2 支持 | 2.85 | 2019 年 3 月 12 日 |
+| Rel 19-04 | [KB4489878] | 3 月非安全性汇总 | 2.85 | 2019 年 3 月 12 日 |
+| Rel 19-04 | [KB4489891] | 3 月非安全性汇总 | 3.72 | 2019 年 3 月 12 日 |
+| Rel 19-04 | [KB4489881] | 3 月非安全性汇总 | 4.65 | 2019 年 3 月 12 日 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>2019 年 3 月来宾 OS
 

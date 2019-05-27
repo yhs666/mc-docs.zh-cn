@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 210576d77cfcd87ba83140744173bd73f30e5b29
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 2b607fa3fcd1f47f72d68c9cca39091c6824f3cc
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665910"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004233"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 
@@ -36,7 +36,7 @@ Azure 计算请求可能会根据订阅和区域进行限制，以便优化服�
 | 标头                            | 值格式                           | 示例                               | 说明                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | 限制策略（涵盖资源 Bucket 或操作组，包括此请求的目标）的剩余 API 调用计数                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | 针对相应策略的限制计入的此 HTTP 请求的调用计数。 这通常为 1。 针对特殊情况（例如针对虚拟机规模集的缩放）的批请求可以有多个计数。 |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | 针对相应策略的限制计入的此 HTTP 请求的调用计数。 这通常为 1。 针对特殊情况（例如针对虚拟机规模集的缩放）的批请求可以有多个计数。 |
 
 请注意，一个 API 请求可能受多个限制策略的约束。 每个策略会有单独的 `x-ms-ratelimit-remaining-resource` 标头。 
 
@@ -79,8 +79,8 @@ Content-Type: application/json; charset=utf-8
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>API 调用速率和限制错误分析器
 针对计算资源提供程序的 API 提供了故障排除功能的一个预览版版本。 这些 PowerShell cmdlet 按时间间隔按操作提供有关 API 请求速率的统计信息并且按操作组（策略）提供限制违规统计信息：
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
+- [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+- [Export-AzLogAnalyticThrottledRequests](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequests)
 
 使用此 API 调用统计信息可以很好地洞察订阅的客户端的行为，并轻松识别导致限制的调用模式。
 
@@ -95,7 +95,7 @@ PowerShell cmdlet 使用 REST 服务 API，客户端可以轻松直接调用该 
 - 跟踪异步操作时，请遵循 Retry-After 标头提示。 
 - 如果客户端代码需要特定虚拟机的信息，请直接查询该 VM，不需先列出包含资源组或整个订阅中的所有 VM，然后选取客户端的所需 VM。 
 - 如果客户端代码需要特定 Azure 位置的 VM、磁盘和快照，请使用基于位置的查询形式，不需先查询所有订阅 VM，然后在客户端按位置进行筛选：`GET /subscriptions/<subId>/providers/Microsoft.Compute/locations/<location>/virtualMachines?api-version=2017-03-30` 查询针对计算资源提供程序区域终结点。 
--   创建或更新 API 资源（尤其是 VM 和虚拟机规模集）时，跟踪返回的异步操作直至完成比针对资源 URL 本身进行轮询（基于 `provisioningState`）要有效得多。
+- 创建或更新 API 资源（尤其是 VM 和虚拟机规模集）时，跟踪返回的异步操作直至完成比针对资源 URL 本身进行轮询（基于 `provisioningState`）要有效得多。
 
 <!--Not Available on ## Next steps-->
 <!--Not Available on [Retry guidance for specific services](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific)-->

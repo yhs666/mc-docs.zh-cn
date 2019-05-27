@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2018
-ms.date: 09/17/2018
+ms.date: 05/27/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8810523d2dad391684b5fb1e9bb17ba3cef44650
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.openlocfilehash: fb0d45bfad13842f7b1dc70aa6d63767aefef07f
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736688"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829151"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>结合 Azure Active Directory 和 API 管理使用 OAuth 2.0 保护 API
 
@@ -45,7 +45,7 @@ ms.locfileid: "53736688"
 
 若要使用 Azure AD 保护 API，首先需要在 Azure AD 中注册一个表示该 API 的应用程序。 
 
-1. 浏览到 Azure AD 租户，然后浏览到“应用注册”。
+1. 浏览到你的 Azure AD 租户，然后浏览到“应用注册(旧版)”。
 
 2. 选择“新建应用程序注册”。 
 
@@ -63,7 +63,7 @@ ms.locfileid: "53736688"
 
 需要调用该 API 的每个客户端应用程序也必须注册到 Azure AD 中。 在本示例中，示例客户端应用程序是 API 管理开发人员门户中的开发人员控制台。 下面介绍如何在 Azure AD 中注册另一个应用程序用于表示开发人员控制台。
 
-1. 选择“新建应用程序注册”。 
+1. 选择“应用注册(旧版)”，然后选择“新建应用程序注册”。 
 
 2. 提供应用程序的名称。 （本示例使用名称 `client-app`。）
 
@@ -87,7 +87,7 @@ ms.locfileid: "53736688"
 
 注册用于表示 API 和开发人员控制台的两个应用程序之后，需要授予权限，使客户端应用能够调用后端应用。  
 
-1. 浏览到“应用程序注册”。 
+1. 浏览到“应用程序注册(旧版)”。 
 
 2. 选择 `client-app` 并转到“设置”。
 

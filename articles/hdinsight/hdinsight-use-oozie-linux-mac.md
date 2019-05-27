@@ -5,15 +5,15 @@ services: hdinsight
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/01/2019
+origin.date: 05/06/2019
+ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 10798569ec53ece0499900faf1e886e553c600ba
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1f73bcad186476c025c83275725dce1c030b81f1
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625707"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829310"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -34,13 +34,8 @@ ms.locfileid: "58625707"
 
 * **Azure SQL 数据库**。  请参阅[在 Azure 门户中创建 Azure SQL 数据库](../sql-database/sql-database-get-started.md)。  本文使用名为 `oozietest` 的数据库。
 
-* **对存储配置所做的可能更改。**  如果使用 `BlobStorage` 类型的存储帐户，请参阅[存储配置](#storage-configuration)。
+* 群集主存储的 [URI 方案](./hdinsight-hadoop-linux-information.md#URI-and-scheme)。 对于 Azure 存储，此值为 `wasb://`；对于Azure Data Lake Storage Gen2，此值为 `abfs://`；对于 Azure Data Lake Storage Gen1，此值为 `adl://`。 如果为 Azure 存储或 Data Lake Storage Gen2 启用了安全传输，则 URI 将是 `wasbs://` 或 `abfss://`。另请参阅[安全传输](../storage/common/storage-require-secure-transfer.md)。
 
-## <a name="storage-configuration"></a>存储配置
-如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/mapreducestaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/mapreducestaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/mapreducestaging`。  可以通过 [Ambari UI](hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息：`Page blob is not supported for this account type.`
-
-> [!NOTE]  
-> 本文中使用的存储帐户已启用[安全传输](../storage/common/storage-require-secure-transfer.md)，因此，本文通篇使用 `wasbs` 而不是 `wasb`。
 
 ## <a name="example-workflow"></a>示例工作流
 
@@ -758,8 +753,8 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

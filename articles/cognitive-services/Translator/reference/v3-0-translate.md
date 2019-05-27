@@ -3,20 +3,20 @@ title: 文本翻译 API 翻译方法
 titleSuffix: Azure Cognitive Services
 description: 使用文本翻译 API 翻译方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: v-junlch
-ms.openlocfilehash: ca3d03cb1980b415dc051ce8a9b24c514a3c5d90
-ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
+ms.openlocfilehash: 119477ba23390556565e7ffe72cd5563d9b3b4b9
+ms.sourcegitcommit: 2312c8153c559ed1a235d029c7522283d9c92864
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529045"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65730988"
 ---
 # <a name="translator-text-api-30-translate"></a>文本翻译 API 3.0：Translate
 
@@ -43,11 +43,11 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>可选参数。<br/>指定输入文本的语言。 可以使用 <code>translation</code> 范围来查找<a href="./v3-0-languages.md" data-raw-source="[supported languages](./v3-0-languages.md)">支持的语言</a>，了解哪些语言可以翻译。 如果未指定 <code>from</code> 参数，则会应用自动语言检测来确定源语言。</td>
+    <td>可选参数。<br/>指定输入文本的语言。 可以使用 <code>translation</code> 范围来查找<a href="./v3-0-languages.md">支持的语言</a>，了解哪些语言可以翻译。 如果未指定 <code>from</code> 参数，则会应用自动语言检测来确定源语言。</td>
   </tr>
   <tr>
     <td>to</td>
-    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 <code>translation</code> 范围中包含的<a href="./v3-0-languages.md" data-raw-source="[supported languages](./v3-0-languages.md)">支持的语言</a>之一。 例如，若要翻译为德语，请使用 <code>to=de</code>。<br/>可以在查询字符串中重复使用此参数，这样就可以同时翻译为多种语言。 例如，若要翻译为德语和意大利语，请使用 <code>to=de&amp;to=it</code>。</td>
+    <td>必需参数。<br/>指定输出文本的语言。 目标语言必须是 <code>translation</code> 范围中包含的<a href="./v3-0-languages.md">支持的语言</a>之一。 例如，若要翻译为德语，请使用 <code>to=de</code>。<br/>可以在查询字符串中重复使用此参数，这样就可以同时翻译为多种语言。 例如，若要翻译为德语和意大利语，请使用 <code>to=de&to=it</code>。</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -59,11 +59,11 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td>可选参数。<br/>指定在翻译时应如何处理不雅内容。 可能的值为 <code>NoAction</code>（默认）<code>Marked</code> 或 <code>Deleted</code>。 若要了解处理不雅内容的方式，请参阅<a href="#handle-profanity" data-raw-source="[Profanity handling](#handle-profanity)">处理不雅内容</a>。</td>
+    <td>可选参数。<br/>指定在翻译时应如何处理不雅内容。 可能的值为 <code>NoAction</code>（默认）<code>Marked</code> 或 <code>Deleted</code>。 若要了解处理不雅内容的方式，请参阅<a href="#handle-profanity">处理不雅内容</a>。</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td>可选参数。<br/>指定在翻译时应如何标记不雅内容。 可能的值为 <code>Asterisk</code>（默认）<code>Tag</code>。 若要了解处理不雅内容的方式，请参阅<a href="#handle-profanity" data-raw-source="[Profanity handling](#handle-profanity)">处理不雅内容</a>。</td>
+    <td>可选参数。<br/>指定在翻译时应如何标记不雅内容。 可能的值为 <code>Asterisk</code>（默认）<code>Tag</code>。 若要了解处理不雅内容的方式，请参阅<a href="#handle-profanity">处理不雅内容</a>。</td>
   </tr>
   <tr>
     <td>includeAlignment</td>
@@ -87,7 +87,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
   <tr>
     <td>allowFallback</td>
-    <td>可选参数。<br/>指定当自定义系统不存在时允许服务回退到一个常规系统。 可能的值为 <code>true</code>（默认）<code>false</code>。<br/><br/><code>allowFallback=false</code> 指定翻译只应使用针对 <code>category</code>（由请求指定）训练的系统。 如果将语言 X 翻译成语言 Y 需要通过枢轴语言 E 进行链接，那么此链中的所有系统（X-&gt;E 和 E-&gt;Y）需要进行自定义并且需要具有相同的类别。 如果未通过特定类别找到任何系统，此请求会返回 400 状态代码。 <code>allowFallback=true</code> 指定当自定义系统不存在时允许服务回退到一个常规系统。
+    <td>可选参数。<br/>指定当自定义系统不存在时允许服务回退到一个常规系统。 可能的值为 <code>true</code>（默认）<code>false</code>。<br/><br/><code>allowFallback=false</code> 指定翻译只应使用针对 <code>category</code>（由请求指定）训练的系统。 如果将语言 X 翻译成语言 Y 需要通过枢轴语言 E 进行链接，那么此链中的所有系统（X->E 和 E->Y）需要进行自定义并且需要具有相同的类别。 如果未通过特定类别找到任何系统，此请求会返回 400 状态代码。 <code>allowFallback=true</code> 指定当自定义系统不存在时允许服务回退到一个常规系统。
 </td>
   </tr>
 </table> 
@@ -98,8 +98,8 @@ https://api.translator.azure.cn/translate?api-version=3.0
   <th width="20%">标头</th>
   <th>说明</th>
   <tr>
-    <td><em>授权</em><br/><em>headers</em></td>
-    <td>必需的请求标头。<br/>请参阅<a href="./v3-0-reference.md#authentication" data-raw-source="[available options for authentication](./v3-0-reference.md#authentication)">用于身份验证的可用选项</a>。</td>
+    <td>身份验证标头</td>
+    <td>必需的请求标头。<br/>请参阅<a href="/cognitive-services/translator/reference/v3-0-reference#authentication">用于身份验证的可用选项</a>。</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -395,7 +395,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
     <td>不雅词语会在输出中使用标记进行替换。 标记取决于 <code>ProfanityMarker</code> 参数。<br/><br/>
 如果 <code>ProfanityMarker=Asterisk</code>，不雅词语会被替换为 <code>***</code>：<br/>
     <strong>示例源（日语）</strong>：彼はジャッカスです。<br/>
-    <strong>示例翻译（中文）</strong>：他是一个 ***。<br/><br/>
+    <strong>示例翻译（中文）</strong>：他是一个 \*\*\*。<br/><br/>
 如果 <code>ProfanityMarker=Tag</code>，则不雅词语会被括在 XML 标记 &lt;profanity&gt; 和 &lt;/profanity&gt; 中：<br/>
     <strong>示例源（日语）</strong>：彼はジャッカスです。<br/>
     <strong>示例翻译（中文）</strong>：他是一个 &lt;profanity&gt;笨蛋&lt;/profanity&gt;。
@@ -407,7 +407,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
@@ -429,7 +429,7 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
-curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Ocp-Apim-Subscription-Region: your-region" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
@@ -578,4 +578,4 @@ curl -X POST "https://api.translator.azure.cn/translate?api-version=3.0&from=en&
 
 
 
-
+<!-- Update_Description: wording update -->

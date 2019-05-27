@@ -1,19 +1,18 @@
 ---
-title: 使用 TOAST 表存储策略优化 Azure Database for PostgreSQL 服务器上的查询时间
-description: 本文介绍如何使用 TOAST 表存储策略优化 Azure Database for PostgreSQL 服务器中的查询时间。
+title: 在 Azure Database for PostgreSQL - 单一服务器中使用 TOAST 表存储策略优化查询时间
+description: 本文介绍了如何使用 TOAST 表存储策略优化 Azure Database for PostgreSQL - 单一服务器中的查询时间。
 author: WenJason
 ms.author: v-jay
-editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 10/22/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: d13a51aeebecf8f609d2805e072d0fe54af9f058
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 632bb74b9de95d4ddc0303f9f5d903fcfa4259cd
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302902"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732007"
 ---
 # <a name="optimize-query-time-with-the-toast-table-storage-strategy"></a>使用 TOAST 表存储策略优化查询时间 
 本文介绍如何使用超大属性存储技术 (TOAST) 表存储策略优化查询时间。

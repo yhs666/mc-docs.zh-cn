@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8ed443d8af36833e9b8664c8cdacb2194688bb6b
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 69246f136de983f20508a851efc204fe1a5a57bf
+ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557003"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65828528"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>LUIS 应用中的短语列表特征
 
@@ -93,7 +93,7 @@ ms.locfileid: "65557003"
 ### <a name="use-a-phrase-list"></a>使用短语列表
 有了短语列表，LUIS 仍可以考虑上下文并进行归纳，从而标识与列表项相似但并非完全匹配的项。 如果需要 LUIS 应用能够归纳和识别分类中的新项，请使用短语列表。 
 
-如果想要能够识别实体的新实例（例如：应识别新联系人姓名的会议计划程序、应识别新产品的库存应用），请使用另一类型的机器学习实体，例如简单或分层实体。 然后，创建字词和短语的短语列表，有助于 LUIS 查找与实体相似的其他字词。 此列表通过增加这些字词的价值来指导 LUIS 识别实体的示例。 
+如果想要能够识别实体的新实例（例如：应识别新联系人姓名的会议计划程序、应识别新产品的库存应用），请使用另一类型的机器学习到的实体，例如简单实体。 然后，创建字词和短语的短语列表，有助于 LUIS 查找与实体相似的其他字词。 此列表通过增加这些字词的价值来指导 LUIS 识别实体的示例。 
 
 短语列表就像特定域的词汇表，有助于提高意向和实体的理解质量。 短语列表的常见用法是专有名词，例如城市名。 城市名称可以是包括连字符或撇号的多个字词。
  

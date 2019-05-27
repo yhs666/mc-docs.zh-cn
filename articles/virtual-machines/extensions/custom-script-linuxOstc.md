@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: aee4c618236bc1549c19db06c03e6ee8849a8453
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 75315122b0e007efa751dafe67e5d240f93ec56b
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626110"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835619"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -123,7 +123,7 @@ ms.locfileid: "58626110"
 
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 日期 |
+| apiVersion | 2015-06-15 | date |
 | 发布者 | Microsoft.OSTCExtensions | 字符串 |
 | type | CustomScriptForLinux | 字符串 |
 | typeHandlerVersion | 1.5 | int |
@@ -298,7 +298,7 @@ az vm extension set
 
 1. Enable 表示该命令何时开始运行。
 1. Download 涉及下载 Azure 中的 CustomScript 扩展包，而非 fileUris 中指定的脚本文件。
-1. 还可查看其写出到的日志文件 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. 还可查看它写出到 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log` 的日志文件
 
 下一步是查看以下格式的日志文件：
 

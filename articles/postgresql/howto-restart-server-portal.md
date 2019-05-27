@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 门户重启 Azure Database for PostgreSQL 服务器
-description: 本文介绍如何使用 Azure 门户重启 Azure Database for PostgreSQL 服务器。
+title: 使用 Azure 门户重启 Azure Database for PostgreSQL - 单一服务器
+description: 本文介绍了如何使用 Azure 门户重启 Azure Database for PostgreSQL - 单一服务器。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 3/18/2019
-ms.date: 04/01/2019
-ms.openlocfilehash: 6452bddc5179068b66bfd7c1a4ced6a82ad0d97d
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: dab34f732ce3e56f89a3403007fe6d88f2584c9d
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503561"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732019"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-portal"></a>使用 Azure 门户重启 Azure Database for PostgreSQL 服务器
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>使用 Azure 门户重启 Azure Database for PostgreSQL - 单一服务器
 本主题介绍如何重启 Azure Database for PostgreSQL 服务器。 出于维护原因，可能需要重启服务器，这会在服务器执行操作时导致短暂中断。
 
 如果服务处于繁忙状态，则会阻止重启服务器。 例如，服务可能在处理缩放 vCore 等先前请求的操作。
@@ -23,7 +23,7 @@ ms.locfileid: "58503561"
 
 ## <a name="prerequisites"></a>先决条件
 若要完成本操作指南，需要：
-- [Azure Database for PostgreSQL 服务器和数据库](quickstart-create-server-database-portal.md)
+- [Azure Database for PostgreSQL 服务器](quickstart-create-server-database-portal.md)
 
 ## <a name="perform-server-restart"></a>执行服务器重启
 

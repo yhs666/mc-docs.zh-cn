@@ -12,21 +12,26 @@ ms.devlang: dotnet
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/20/2017
-ms.date: 10/15/2018
+origin.date: 04/22/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 54b68d86a75628875368a38b4de88ef4eff23d8f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 83044b8feca0d29acca743703dc095fe71458f11
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644126"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195481"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
 
 <!-- Not Available Channel9 video href="https://aka.ms/servicefabricvideo" -->
+
+## <a name="compliance"></a>合规性
+Azure Service Fabric 资源提供程序在所有 Azure 区域中都可用，并符合 Azure 所具有的所有合规性证书；这包括以下内容：SOC、ISO、PCI DSS、HIPAA 和 GDRP。 请查看以下内容以获取合规性证书的完整列表：[合规性产品](https://www.trustcenter.cn/zh-cn/compliance/default.html)
+
+<!--MOONCAKE: correct on https://www.trustcenter.cn/zh-cn/compliance/default.html-->
 
 ## <a name="applications-composed-of-microservices"></a>由微服务组成的应用程序 
 利用 Service Fabric，可以生成和管理可缩放的可靠应用程序，其中包括在计算机的共享池（称为“群集”）中高密度运行的微服务。 它提供了复杂的轻型运行时，用于生成在容器中运行且可缩放的无状态和有状态分布式微服务。 它还提供了全面的应用程序管理功能，用于预配、部署、监视、升级/修补和删除已部署的应用程序（包括容器化服务）。
@@ -49,7 +54,7 @@ Service Fabric 可以在所有环境中运行。 可在许多环境（包括在 
 
 ![Service Fabric 平台][Image1]
 
-对于 Windows 开发，Service Fabric .NET SDK 与 Visual Studio 和 Powershell 集成。 请参阅[在 Windows 上准备开发环境](service-fabric-get-started.md)。 对于 Linux 开发，Service Fabric Java SDK 与 Eclipse 集成，Yeoman 用于为 Java、.NET Core 和容器应用程序生成模板。 请参阅[在 Linux 上准备开发环境](service-fabric-get-started.md)
+对于 Windows 开发，Service Fabric .NET SDK 与 Visual Studio 和 Powershell 集成。 请参阅[在 Windows 上准备开发环境](service-fabric-get-started.md)。 对于 Linux 开发，Service Fabric Java SDK 与 Eclipse 集成，Yeoman 用于为 Java、.NET Core 和容器应用程序生成模板。 请参阅[在 Linux 上准备开发环境](service-fabric-get-started-linux.md)
 
 有关创建群集的详细信息，请阅读[在 Windows Server 或 Linux 上创建群集](service-fabric-deploy-anywhere.md)；有关创建 Azure 群集的详细信息，请阅读[通过 Azure 门户创建群集](service-fabric-cluster-creation-via-portal.md)。
 
@@ -85,10 +90,11 @@ Service Fabric 与 [Azure Pipelines](https://www.visualstudio.com/team-services/
 * 观察资源均衡器如何跨群集安排重新分发应用程序。 Service Fabric 可从故障中恢复，并基于可用资源优化负载分布。
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 ## <a name="next-steps"></a>后续步骤
 * 更多相关信息：
-  * [为什么通过微服务的方法构建应用程序？](service-fabric-overview-microservices.md)
-  * [术语概述](service-fabric-technical-overview.md)
+    * [为什么通过微服务的方法构建应用程序？](service-fabric-overview-microservices.md)
+    * [术语概述](service-fabric-technical-overview.md)
 * 设置 [Windows 开发环境](service-fabric-get-started.md)  
 * 设置 [Linux 开发环境](service-fabric-get-started-linux.md)
 * 了解 [Service Fabric 支持选项](service-fabric-support.md)

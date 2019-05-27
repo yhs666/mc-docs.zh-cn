@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 01/21/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad645655c6ab0a0a4e5d21b8e145217a31c2f739
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: baf6aa2da266cbe9367f11c38553ba69af6c4890
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626925"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195370"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 2. 将 Service Fabric 存储库添加到源列表。
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. 将 `dotnet` 存储库添加到源列表。
@@ -108,7 +108,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
+    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. 根据新添加的存储库刷新包列表。
@@ -175,19 +175,20 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 1. 在计算机上安装 Node.js 和 npm。
 
     ```bash
-    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
-    nvm install node
+    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo apt-get update
+    sudo apt-get install nodejs
     ```
-2. 通过 npm 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器。
+2. 通过 npm 在计算机上安装 [Yeoman](https://yeoman.io/) 模板生成器。
 
     ```bash
-    npm install -g yo
+    sudo npm install -g yo
     ```
 3. 通过 npm 安装 Service Fabric Yeo 容器生成器和来宾可执行文件生成器。
 
     ```bash
-    npm install -g generator-azuresfcontainer  # for Service Fabric container application
-    npm install -g generator-azuresfguest      # for Service Fabric guest executable application
+    sudo npm install -g generator-azuresfcontainer  # for Service Fabric container application
+    sudo npm install -g generator-azuresfguest      # for Service Fabric guest executable application
     ```
 
 安装生成器后，可通过运行 `yo azuresfguest` 或 `yo azuresfcontainer` 分别创建来宾可执行文件或容器服务。
@@ -227,7 +228,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 2. 若要安装 Service Fabric 插件，请选择“帮助” > “安装新软件”。
 
-3. 在“使用”框中，输入 **http://dl.microsoft.com/eclipse**。
+3. 在“使用”框中，输入 **https://dl.microsoft.com/eclipse**。
 
 4. 选择“设置” （应用程序对象和服务主体对象）。
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/29/2017
-ms.date: 01/07/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ac6ec7940c2900af49b800b544542db42baf834
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 994ba50c8f16e383411b0320c51c1feae62426ae
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083689"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195440"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Reliable Service Remoting 的诊断和性能监视
 Reliable ServiceRemoting 运行时会发出[性能计数器](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx)。 这些有助于深入了解 ServiceRemoting 的运行状况以及进行故障排除和性能监视。
@@ -28,7 +28,7 @@ Reliable ServiceRemoting 运行时会发出[性能计数器](https://msdn.micros
 ## <a name="performance-counters"></a>性能计数器
 Reliable ServiceRemoting 运行时定义以下性能计数器类别：
 
-| 类别 | 说明 |
+| Category | 说明 |
 | --- | --- |
 | Service Fabric 服务 |特定于 Azure Service Fabric Service Remoting 的计数器，例如，处理请求所需的平均时间 |
 | Service Fabric 服务方法 |特定于 Service Fabric Remoting Service 所实现方法的计数器，例如，调用服务方法的频率 |
@@ -100,7 +100,9 @@ Reliable Service 运行时发布与执行服务方法相关的下列性能计数
 | Service Fabric 服务 |序列化响应的平均毫秒数 |将响应发送到客户端之前，在服务中序列化服务响应消息所用的时间（以毫秒为单位） |
 
 ## <a name="next-steps"></a>后续步骤
+
 <!-- Not Available on * [Sample code](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)-->
+
 * [PerfView 中的 EventSource 提供程序](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
 
 <!-- Update_Description: update meta properties, wording update -->

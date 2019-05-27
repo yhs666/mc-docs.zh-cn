@@ -1,23 +1,20 @@
 ---
-title: 如何在 Azure Database for PostgreSQL 中还原服务器
-description: 本文介绍如何使用 Azure 门户在 Azure Database for PostgreSQL 中还原服务器。
-services: postgresql
+title: 如何在 Azure Database for PostgreSQL（单一服务器）中还原服务器
+description: 本文介绍如何使用 Azure 门户在 Azure Database for PostgreSQL（单一服务器）中还原服务器。
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 04/01/2018
-ms.date: 08/27/2018
-ms.openlocfilehash: 9ba4e2a1c05f1acb72f2a63c651baf4cf40b21ea
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 52959b55fac43cec2e153ff58be316096d672caa
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625234"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731939"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for PostgreSQL 中备份和还原服务器
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for PostgreSQL（单一服务器）中备份和还原服务器
 
 ## <a name="backup-happens-automatically"></a>自动进行备份
 Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功能。 通过此功能，用户可将服务器及其所有数据库还原到新服务器上的某个较早时间点。
@@ -61,7 +58,7 @@ Azure Database for PostgreSQL 服务器定期进行备份以便启用还原功�
 
 3. 使用必需信息填写“还原”窗体：
 
-   ![Azure Database for PostgreSQL - 还原信息 ](./media/howto-restore-server-portal/3-restore.png)
+   ![Azure Database for PostgreSQL - 还原信息](./media/howto-restore-server-portal/3-restore.png)
    - **还原点**：选择要还原到的时间点。
    - **目标服务器**：提供新服务器的名称。
    - **位置**：不可选择区域。 默认情况下，此值与源服务器相同。

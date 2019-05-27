@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2016
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cfb81334de142eaa86a6ade10f24bffe83eae1a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 76830135d1aa7783cb5a1d8386c2e472c536c238
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004177"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004270"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>如何在 Azure 中标记 Windows 虚拟机
 本文介绍了在 Azure 中通过 Resource Manager 部署模型标记 Windows 虚拟机的不同方式。 标记是用户定义的键/值对，可直接放置在资源或资源组中。 针对每个资源和资源组，Azure 当前支持最多 15 个标记。 标记可以在创建时放置在资源中或添加到现有资源中。 请注意，只有通过 Resource Manager 部署模型创建的资源支持标记。 如果想要标记 Linux 虚拟机，请参阅[如何在 Azure 中标记 Linux 虚拟机](../linux/tag.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
@@ -31,7 +31,7 @@ ms.locfileid: "59004177"
 ## <a name="tagging-with-powershell"></a>使用 PowerShell 进行标记
 若要通过 PowerShell 创建、添加和删除标记，首先需要[使用 Azure Resource Manager 设置 PowerShell 环境][PowerShell environment with Azure Resource Manager]。 一旦完成设置后，就可以在创建计算、网络和存储资源时或创建之后通过 PowerShell 将标记放置在这些资源中。 本文章将重点说明如何查看/编辑虚拟机上放置的标记。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 首先，通过 `Get-AzVM`cmdlet 导航到虚拟机。
 

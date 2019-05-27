@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e70bdf19a0eb86dbcbe21e0774a45a5709e4119
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 4a1cae09dccacd088571e22a93b3dfaf140fbaf9
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004185"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004114"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>在运行 Windows 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序 
 
@@ -64,7 +64,7 @@ ms.locfileid: "59004185"
 <!--Notice: NCV3 is valid on chinaeast2 and chinanorth2-->
 
 若要在“中国北部 2”区域中名为 myVM 且支持 RDMA 的现有 VM 上安装最新版本 1.1 HpcVMDrivers 扩展，请执行以下命令：
-  ```PowerShell
+  ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "chinanorth2" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
   有关详细信息，请参阅[适用于 Windows 的虚拟机扩展和功能](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。

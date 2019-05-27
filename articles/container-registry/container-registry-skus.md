@@ -1,23 +1,23 @@
 ---
 title: Azure 容器注册表 SKU
-description: 比较 Azure 容器注册表中的不同服务层。
+description: 比较 Azure 容器注册表中的不同服务层级。
 services: container-registry
 author: rockboyfor
 ms.service: container-registry
 ms.topic: article
-origin.date: 03/26/2019
-ms.date: 04/15/2019
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe1b349b5e99ba38190e643b7eabd7e62fd604e4
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 7f6c6ace6b32c6ec56aa3a7077f67c49b562fa3c
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529408"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195450"
 ---
 # <a name="azure-container-registry-skus"></a>Azure 容器注册表 SKU
 
-Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些 SKU 提供可预测的定价和多个选项，用来适应你在 Azure 中的专用 Docker 注册表的容量和使用模式。
+Azure 容器注册表 (ACR) 分为多个服务层级（称为“SKU”）。 这些 SKU 提供可预测的定价和多个选项，用来适应你在 Azure 中的专用 Docker 注册表的容量和使用模式。
 
 | SKU | 托管 | 说明 |
 | --- | :-------: | ----------- |
@@ -25,6 +25,7 @@ Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些
 | **标准** | 是 | 标准注册表的功能与基本注册表相同。不同之处在于，前者附带更多的存储和映像吞吐量。 标准注册表应能够满足大部分生产方案的需求。 |
 | **高级** | 是 | 高级注册表附带的存储和并发操作数最多，支持大容量方案。 |
 |  经典（*在 2019 年 4 月后不可用*） | 否 | 此 SKU 在 Azure 中启用了初始版 Azure 容器注册表服务。 经典注册表由 Azure 在订阅中创建的存储帐户提供支持，这会限制 ACR 提供更高级功能，例如，增大的吞吐量。 |
+
 
 <!--Not Available on Line 23 Premium adds features like [geo-replication][container-registry-geo-replication]-->
 <!--Not Available on [content trust (preview)](container-registry-content-trust.md)-->
@@ -35,11 +36,11 @@ Azure 容器注册表 (ACR) 分为多个服务层（称为“SKU”）。 这些
 > [!IMPORTANT]
 > 经典注册表 SKU 即将**弃用**，**2019 年 4 月**之后将不可用。 对于所有新的注册表，建议使用基本、标准或高级 SKU。 应在 2019 年 4 月之前升级所有现有的经典注册表。 有关升级信息，请参阅[升级经典注册表][container-registry-upgrade]。
 
-基本、标准和高级 SKU（统称为“托管注册表”）全都提供相同的编程功能。 它们也全都可以从完全由 Azure 托管的[映像存储][container-registry-storage]受益。 选择的 SKU 级别越高，性能和可缩放性就越高。 使用多个服务层，你可以从基本层开始，然后随着注册表使用量增长转换到标准和高级层。
+基本、标准和高级 SKU（统称为“托管注册表”）全都提供相同的编程功能。 它们也全都可以从完全由 Azure 托管的[映像存储][container-registry-storage]受益。 选择的 SKU 级别越高，性能和可缩放性就越高。 使用多个服务层级，你可以从“基本”层级开始，然后随着注册表使用量增长转换到“标准”和“高级”层级。
 
 ## <a name="sku-feature-matrix"></a>SKU 功能矩阵
 
-下表详细介绍了基本、标准和高级服务层的功能和限制。
+下表详细介绍了“基本”、“标准”和“高级”服务层级的功能和限制。
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 

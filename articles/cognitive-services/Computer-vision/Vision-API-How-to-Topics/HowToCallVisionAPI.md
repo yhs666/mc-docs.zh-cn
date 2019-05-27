@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 origin.date: 03/21/2019
-ms.date: 03/27/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: f4ee31de99fc2759ebc4daf643a4495cce6dd9d3
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 7fd288ce95b8fb6edd24f23ed4c5544a693875b2
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505457"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598873"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>示例：如何调用计算机视觉 API
 
@@ -48,8 +48,7 @@ ms.locfileid: "58505457"
 
 每次调用计算机视觉 API 都需要提供订阅密钥。 需通过查询字符串参数传递此密钥，或者在请求标头中指定此密钥。
 
-若要获取订阅密钥，请参阅[如何获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md
-)。
+你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 
 1. 若要通过查询字符串传递订阅密钥，请参阅下面的计算机视觉 API 示例：
 
@@ -168,13 +167,13 @@ POST https://api.cognitive.azure.cn/vision/v2.0/analyze?details=celebrities
 
 字段 | 类型 | 内容
 ------|------|------|
-标记  | object | 标记数组的顶级对象
-tags[].Name | 字符串    | 标记分类器中的关键字
-tags[].Score    | number    | 置信度，介于 0 和 1 之间。
-说明  | object   | 说明的顶级对象。
-description.tags[] |    字符串  | 标记列表。  如果因置信度不够而无法生成标题，则调用方能够获得的唯一信息可能就是标记。
-description.captions[].text | 字符串    | 描述图像的短语。
-description.captions[].confidence   | number    | 短语的置信度。
+Tags  | `object` | 标记数组的顶级对象
+tags[].Name | `string`  | 标记分类器中的关键字
+tags[].Score    | `number`  | 置信度，介于 0 和 1 之间。
+说明  | `object` | 说明的顶级对象。
+description.tags[] |    `string`    | 标记列表。  如果因置信度不够而无法生成标题，则调用方能够获得的唯一信息可能就是标记。
+description.captions[].text | `string`  | 描述图像的短语。
+description.captions[].confidence   | `number`  | 短语的置信度。
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>检索并了解特定于域的模型的 JSON 输出
 
@@ -230,14 +229,14 @@ description.captions[].confidence   | number    | 短语的置信度。
 
 字段   | 类型  | 内容
 ------|------|------|
-Categories | object | 顶级对象
-categories[].name    | 字符串   | “86 类”分类中的名称
-categories[].score  | number    | 置信度，介于 0 和 1 之间
-categories[].detail  | 对象？      | 可选详细信息对象
+Categories | `object`   | 顶级对象
+categories[].name    | `string` | “86 类”分类中的名称
+categories[].score  | `number`  | 置信度，介于 0 和 1 之间
+categories[].detail  | `object?`      | 可选详细信息对象
 
 请注意，如果多个类别匹配（例如，当 model=celebrities 时，“86 类”分类器返回了一个针对 people_ 和 people_young 的置信度），则会将详细信息附加到最广泛级别的匹配（即该示例中的 people_）。
 
-### <a name="Errors">错误响应</a>
+## <a name="errors-responses"></a>错误响应
 
 这些内容与 vision.analyze 相同，但增加了 NotSupportedModel 错误 (HTTP 400)，该错误可能会在使用“选项一”和“选项二”的情况下返回。 对于“选项二(强化分析)”，如果无法识别详细指定的任何模型，则 API 会返回 NotSupportedModel，即使其中的一个或多个是有效的。  用户可以调用 listModels，了解哪些模型受支持。
 

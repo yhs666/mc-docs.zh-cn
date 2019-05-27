@@ -7,15 +7,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 04/04/2019
-ms.date: 04/15/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 5d7da3dd224494a07e49d7eb9452ce63c4e02031
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: c424c469ccba1fc8bd72cfe170d5de6d326f8a53
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503409"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668830"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>在 Azure 自动化中计划 Runbook
 
@@ -63,7 +63,7 @@ ms.locfileid: "59503409"
 
 ### <a name="to-create-a-new-schedule-with-powershell"></a>使用 PowerShell 创建新计划
 
-可使用 [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 创建计划。 必须指定计划的开始时间以及运行频率。
+可使用 [New-AzureRmAutomationSchedule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet 创建计划。 必须指定计划的开始时间以及运行频率。 以下示例展示了如何创建许多不同的计划方案。
 
 #### <a name="create-a-one-time-schedule"></a>创建一次性计划
 

@@ -11,31 +11,32 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 08/31/2018
-ms.date: 04/01/2019
+origin.date: 03/25/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: a03fd8d351a8f2fdee30f87fad4171b7234de24f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: bae2d2dc4d0119a0bc53c6ce935f996f51efd6fa
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003930"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003976"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 启动错误
 
  本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能遇到的 BitLocker 错误。
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptom"></a>症状
 
- Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗口中的屏幕截图时，看到以下错误消息之一：
+Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗口中的屏幕截图时，看到以下错误消息之一：
 
 - 插入含 BitLocker 密钥的 USB 驱动程序
 
 - 你被锁定！ 输入恢复密钥，以便再次开始操作（键盘布局：美式键盘）错误登录信息输入次数过多，因此，你的 PC 被锁定以保护你的隐私。 若要检索恢复密钥，请从另一电脑或移动设备转到 https://windows.microsoft.com/recoverykeyfaq。 如果需要，密钥 ID 为 XXXXXXX。 或者，可以重置电脑。
 
 - 输入密码以解锁此驱动器 [ ] 按 Insert 键在键入时查看密码。
+
 - 输入恢复密钥 从 USB 设备加载恢复密钥。
 
 ## <a name="cause"></a>原因
@@ -168,9 +169,9 @@ ms.locfileid: "59003930"
             [string] 
             $adTenant
             )
-    # Load ADAL Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
+    # Load ADAL Assemblies. The following script assumes that the Azure PowerShell version you installed is 1.0.0. 
+    $adal = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
+    $adalforms = "${env:ProgramFiles}\WindowsPowerShell\Modules\Az.Accounts\1.0.0\PreloadAssemblies\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll"
     [System.Reflection.Assembly]::LoadFrom($adal)
     [System.Reflection.Assembly]::LoadFrom($adalforms)
 
@@ -185,7 +186,7 @@ ms.locfileid: "59003930"
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $authResult = $authContext.AcquireToken($resourceAppIdURI, $clientId, $redirectUri, "Auto")
+    $authResult = $authContext.AcquireTokenAsync($resourceAppIdURI, $clientId, $redirectUri, $platformParameters).result
     # Generate auth header 
     $authHeader = $authResult.CreateAuthorizationHeader()
     # Set HTTP request headers to include Authorization header
@@ -238,8 +239,8 @@ ms.locfileid: "59003930"
 
         GAC    Version        Location                                                                              
         ---    -------        --------                                                                              
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
-        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\AzureRM.profile\4.0.0\Microsoft.Identity...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
+        False  v4.0.30319     C:\Program Files\WindowsPowerShell\Modules\Az.Accounts\...
 
     脚本完成后，将看到以下输出：
 

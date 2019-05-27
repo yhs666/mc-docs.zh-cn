@@ -1,24 +1,21 @@
 ---
-title: 使用 Azure Database for PostgreSQL 中的导入和导出功能迁移数据库
+title: 在 Azure Database for PostgreSQL - 单一服务器中使用导入和导出功能迁移数据库
 description: 介绍了如何将 PostgreSQL 数据库解压到脚本文件，以及如何将数据从该文件导入目标数据库。
-services: postgresql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: postgresql
-ms.topic: article
-origin.date: 06/01/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 0e4275d958f1260affbbcce8647f3c2e54a7d9a5
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.topic: conceptual
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 2e07b20d6de4687e78b3d1189e088a85212dac9e
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396916"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732009"
 ---
 # <a name="migrate-your-postgresql-database-using-export-and-import"></a>使用导入和导出功能迁移 PostgreSQL 数据库
-可以使用 [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 将数据从该文件导入目标数据库。
+可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 将 PostgreSQL 数据库解压到脚本文件，并使用 [psql](https://www.postgresql.org/docs/current/static/app-psql.html) 将数据从该文件导入目标数据库。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
@@ -50,4 +47,4 @@ psql --file=testdb.sql --host=mydemoserver.postgres.database.chinacloudapi.cn --
 
 ## <a name="next-steps"></a>后续步骤
 - 若要通过转储和还原迁移 PostgreSQL 数据库，请参阅[通过转储和还原迁移 PostgreSQL 数据库](howto-migrate-using-dump-and-restore.md)。
-- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](http://aka.ms/datamigration)。 
+- 有关将数据库迁移到 Azure Database for PostgreSQL 的详细信息，请参阅[数据库迁移指南](https://aka.ms/datamigration)。 

@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 04/19/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: bc26505e9fe691d9f35fd2180815f85cfff26a37
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 05/20/2019
+ms.openlocfilehash: 0093e52e303d66175a22d0d0b317104c7d2a401c
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855331"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629179"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用只读副本对只读的查询工作负荷进行负载均衡
 
@@ -26,15 +26,15 @@ ms.locfileid: "64855331"
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
-作为[高可用性体系结构](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分，“高级”或“业务关键”服务层级中的每个数据库会自动预配有一个主要副本和多个次要副本。 为次要副本预配的计算大小与主要副本相同。 **读取扩展**功能允许使用一个只读副本的容量而不是共享读写副本，对 SQL 数据库只读工作负载进行负载均衡。 这样，只读工作负荷将与主要的读写工作负荷相隔离，不会影响其性能。 该功能适用于包含逻辑隔离的只读工作负荷（例如分析）的应用程序。 这些应用程序可以在不增大成本的情况下使用此额外容量来获得性能优势。
+作为[高可用性体系结构](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分，“高级”、“业务关键”或“超大规模”服务层级中的每个数据库会自动预配有一个主要副本和多个次要副本。 为次要副本预配的计算大小与主要副本相同。 **读取扩展**功能允许使用一个只读副本的容量而不是共享读写副本，对 SQL 数据库只读工作负载进行负载均衡。 这样，只读工作负荷将与主要的读写工作负荷相隔离，不会影响其性能。 该功能适用于包含逻辑隔离的只读工作负荷（例如分析）的应用程序。 这些应用程序可以在不增大成本的情况下使用此额外容量来获得性能优势。
 
 下图演示了使用“业务关键”数据库的应用程序。
 
 ![只读副本](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-新的“高级”和“业务关键”数据库中默认已启用读取扩展功能。 如果在 SQL 连接字符串中配置了 `ApplicationIntent=ReadOnly`，则网关会将应用程序重定向到该数据库的只读副本。 有关如何使用 `ApplicationIntent` 属性的信息，请参阅[指定应用程序意向](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
+新的“高级”、“业务关键”和“超大规模”数据库中默认已启用读取扩展功能。 如果在 SQL 连接字符串中配置了 `ApplicationIntent=ReadOnly`，则网关会将应用程序重定向到该数据库的只读副本。 有关如何使用 `ApplicationIntent` 属性的信息，请参阅[指定应用程序意向](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)。
 
-如果你希望确保应用程序始终连接到主要副本，而不管 SQL 连接字符串中的 `ApplicationIntent` 设置如何，则必须在创建数据库或更改其配置时显式禁用读取扩展。 例如，如果将数据库从“标准”或“常规用途”层级升级到“高级”或“业务关键”层级，并想要确保所有连接继续定向到主要副本，请禁用读取扩展。有关如何禁用读取扩展的详细信息，请参阅[启用和禁用读取扩展](#enable-and-disable-read-scale-out)。
+如果你希望确保应用程序始终连接到主要副本，而不管 SQL 连接字符串中的 `ApplicationIntent` 设置如何，则必须在创建数据库或更改其配置时显式禁用读取扩展。 例如，如果将数据库从“标准”或“常规用途”层级升级到“高级”、“业务关键”或“超大规模”层级，并想要确保所有连接继续定向到主要副本，请禁用读取扩展。有关如何禁用读取扩展的详细信息，请参阅[启用和禁用读取扩展](#enable-and-disable-read-scale-out)。
 
 > [!NOTE]
 > 只读副本不支持查询数据存储、扩展事件、SQL Profiler 和审核功能。 
@@ -85,7 +85,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="enable-and-disable-read-scale-out"></a>启用和禁用读取扩展
 
-“高级”和“业务关键”服务层级中默认已启用读取扩展。 无法在“基本”、“标准”或“常规用途”服务层级中启用读取扩展。
+“高级”、“业务关键”和“超大规模”服务层级中默认已启用读取扩展。 无法在“基本”、“标准”或“常规用途”服务层级中启用读取扩展。 “读取扩展”在配置了 0 个副本的“超大规模”数据库上自动禁用。 
 
 可以使用以下方法，对“高级”或“业务关键”服务层级中的单一数据库和弹性池数据库禁用和重新启用读取扩展。
 
@@ -148,3 +148,6 @@ TempDB 数据库不会复制到只读副本。 每个副本具有自身的 TempD
 > [!NOTE]
 > 不支持在辅助数据库的本地副本之间执行轮循机制或任何其他负载均衡路由。
 
+## <a name="next-steps"></a>后续步骤
+
+- 若要了解 SQL 数据库的“超大规模”套餐，请参阅[“超大规模”服务层级](./sql-database-service-tier-hyperscale.md)。

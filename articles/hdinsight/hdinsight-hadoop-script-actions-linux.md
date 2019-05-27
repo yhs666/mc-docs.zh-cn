@@ -10,19 +10,16 @@ ms.topic: conceptual
 origin.date: 02/15/2019
 ms.date: 05/20/2019
 ms.author: v-yiso
-ms.openlocfilehash: 77e55134f8f17dc1a59561cc0261a0aff729a42f
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 0d7e80e5ffafbb6ff246921a15148b4105045bbd
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520809"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829163"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
 了解如何使用 Bash 脚本自定义 HDInsight 群集。 在创建群集期间和之后，可以通过脚本操作自定义 HDInsight。
-
-> [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="what-are-script-actions"></a>什么是脚本操作
 
@@ -62,13 +59,28 @@ ms.locfileid: "65520809"
 
 不同版本的 HDInsight 有不同版本的 Hadoop 服务和已安装的组件。 如果脚本需要特定版本的服务或组件，你应该只在包含所需组件的 HDInsight 版本中使用该脚本。 可以使用 [HDInsight 组件版本控制](hdinsight-component-versioning.md)文档来查找 HDInsight 随附组件版本的相关信息。
 
-### <a name="bps10"></a> 选择目标 OS 版本
+### <a name="checking-the-operating-system-version"></a>检查操作系统版本
+
+不同版本的 HDInsight 依赖于特定版本的 Ubuntu。 不同 OS 版本之间存在不同，必须在脚本中检查。 例如，可能需要安装与 Ubuntu 版本相关的二进制文件。
+
+若要检查 OS 版本，请使用 `lsb_release`。 例如，以下脚本演示如何根据 OS 版本引用特定的 tar 文件：
+
+```bash
+OS_VERSION=$(lsb_release -sr)
+if [[ $OS_VERSION == 14* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
+    HUE_TARFILE=hue-binaries-14-04.tgz
+elif [[ $OS_VERSION == 16* ]]; then
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
+    HUE_TARFILE=hue-binaries-16-04.tgz
+fi
+```
+
+### <a name="bps10"></a> 确定针对的操作系统版本
 
 基于 Linux 的 HDInsight 取决于 Ubuntu Linux 分发版。 不同版本的 HDInsight 依赖不同版本的 Ubuntu，这可能会改变脚本的行为方式。 例如，HDInsight 3.4 及更低版本基于使用 Upstart 的 Ubuntu 版本。 版本 3.5 和更高版本取决于使用 Systemd 的 Ubuntu 16.04。 Systemd 和 Upstart 采用不同的命令，因此，编写的脚本应能与这两者配合使用。
 
-HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指向 Java 8。
-
-可通过使用 `lsb_release`检查 OS 版本。 以下代码演示如何确定脚本是在 Ubuntu 14 还是 16 上运行：
+HDInsight 3.4 和 3.5 的另一个重要区别在于 `JAVA_HOME` 现在能够指向 Java 8。 以下代码演示如何确定脚本是在 Ubuntu 14 还是 16 上运行：
 
 ```bash
 OS_VERSION=$(lsb_release -sr)
@@ -137,10 +149,10 @@ fi
 
 在群集上安装的组件可能具有使用 Apache Hadoop 分布式文件系统 (HDFS) 存储的默认配置。 HDInsight 使用 Azure 存储作为默认存储。 两者可以提供与 HDFS 兼容的文件系统，即使删除了群集，也能保存数据。 可能需要将安装的组件配置为使用 WASB 或 ADL，而不是 HDFS。
 
-对于大多数操作，不需要指定文件系统。 例如，以下脚本将 giraph-examples.jar 文件从本地文件系统复制到群集存储：
+对于大多数操作，不需要指定文件系统。 例如，以下脚本将 hadoop-common.jar 文件从本地文件系统复制到群集存储：
 
 ```bash
-hdfs dfs -put /usr/hdp/current/giraph/giraph-examples.jar /example/jars/
+hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
 ```
 
 在此示例中，`hdfs` 命令以透明方式使用默认群集存储。 对于某些操作，可能需要指定 URI。 例如，为 Data Lake Storage Gen2 指定 `abfs:///example/jars`，或者为 Azure 存储指定 `wasb:///example/jars`。

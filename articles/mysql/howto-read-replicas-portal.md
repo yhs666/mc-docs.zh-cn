@@ -5,21 +5,24 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 02/26/2019
-ms.date: 03/18/2019
-ms.openlocfilehash: 1319fd7cb037d1f060bc8a84d761c83976c4923f
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+origin.date: 04/29/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 198f47cd4a5e6f3bac19a1a5d1d5a229d53cffe9
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990136"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732016"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>如何使用 Azure 门户在 Azure Database for MySQL 中创建和管理只读副本
 
 > [!NOTE] 
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-在本文中，将了解如何使用 Azure 门户在与 Azure Database for MySQL 服务中的主服务器相同的 Azure 区域内创建和管理只读副本。 此功能目前处于公开预览状态。
+本文介绍如何使用 Azure 门户在 Azure Database for MySQL 服务中创建和管理只读副本。
+
+> [!IMPORTANT]
+> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 跨区域复制目前为公共预览版。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,9 +45,15 @@ ms.locfileid: "57990136"
 
    ![Azure Database for MySQL - 复制](./media/howto-read-replica-portal/add-replica.png)
 
-5. 输入副本服务器的名称，然后单击“确定”以确认创建副本。
+5. 输入副本服务器的名称。
 
-   ![Azure Database for MySQL - 创建副本](./media/howto-read-replica-portal/create-replica.png)
+    ![Azure Database for MySQL - 副本名称](./media/howto-read-replica-portal/replica-name.png)
+
+6. 选择副本服务器的位置。 可以在任何 Azure 区域中创建副本。 默认位置与主服务器的位置相同
+
+    ![Azure Database for MySQL - 副本位置](./media/howto-read-replica-portal/replica-location.png)
+
+7. 选择“确定”以确认创建该副本。
 
 > [!NOTE]
 > 只读副本使用与主服务器相同的服务器配置创建。 副本服务器配置在创建后可以更改。 建议副本服务器的配置应保持在与主服务器相同或更大的值，以确保副本能够跟上主服务器。
@@ -119,7 +128,7 @@ ms.locfileid: "57990136"
 
 2. 在边栏的“监视”部分，选择“指标”：
 
-3. 从可用指标的下拉列表中选择“复制延迟(秒)”。 
+3. 从可用指标的下拉列表中选择“复制延迟(秒)”。
 
    ![选择复制延迟时间](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
 

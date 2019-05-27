@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 manager: digimobile
 origin.date: 12/04/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: d33211c3efbffe3c9d8ffa84080b5331ed0ab17b
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.date: 05/20/2019
+ms.openlocfilehash: eb8968396e33bda45a7bb933d22a03bc9a37c226
+ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806382"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65629251"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>确定管理终结点 IP 地址
 
@@ -33,7 +33,6 @@ Azure SQL 数据库托管实例虚拟群集包含一个管理终结点，可供 
 现在，针对突出显示的名称运行另一个 `nslookup` 命令，删除 `.vnet.` 段。 执行此命令后，你将得到公用 IP 地址。
 
 ![解析公用 IP 地址](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
-
 
 ## <a name="next-steps"></a>后续步骤
 

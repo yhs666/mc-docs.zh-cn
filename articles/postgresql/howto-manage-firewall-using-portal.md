@@ -1,20 +1,20 @@
 ---
-title: 在 Azure Database for PostgreSQL 中创建和管理防火墙规则
-description: 使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则
+title: 在 Azure Database for PostgreSQL - 单一服务器中创建和管理防火墙规则
+description: 使用 Azure 门户在 Azure Database for PostgreSQL - 单一服务器中创建和管理防火墙规则
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/09/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 2319320cff0e2e7249d438681d147adb30cbcfc1
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: a3c9e003d714a51b6f5235828a811b4be8ebf867
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855374"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65732022"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for PostgreSQL 防火墙规则
+# <a name="create-and-manage-firewall-rules-for-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>使用 Azure 门户在 Azure Database for PostgreSQL - 单一服务器中创建和管理防火墙规则
 可以使用服务器级防火墙规则，管理从指定的 IP 地址或某个范围的 IP 地址对 Azure Database for PostgreSQL 服务器的访问。
 
 也可使用虚拟网络 (VNet) 规则来保护对服务器进行的访问。 详细了解如何[使用 Azure 门户创建和管理虚拟网络服务终结点和规则](howto-manage-vnet-using-portal.md)。

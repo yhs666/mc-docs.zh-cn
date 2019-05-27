@@ -4,27 +4,53 @@ description: 使用本文了解 Azure IoT Edge 的标准诊断技能，例如检
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 02/26/2019
-ms.date: 04/22/2019
+origin.date: 04/26/2019
+ms.date: 05/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 227464ae51982d3109dcf89724020e9936cae432
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 6de1431e35c6583f3dae6c44a2c68932718bb2f6
+ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529242"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65829158"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
 如果在你的环境中运行 Azure IoT Edge 时遇到问题，请使用本文作为指南来进行疑难解答并解决问题。 
 
-## <a name="standard-diagnostic-steps"></a>标准诊断步骤 
+## <a name="run-the-iotedge-check-command"></a>运行 iotedge 的“check”命令
 
-遇到问题时，请通过查看容器日志和传递到设备以及来自设备的消息来详细了解 IoT Edge 设备的状态。 可以使用本部分中的命令和工具来收集信息。 
+排查 IoT Edge 问题时，第一步应该是使用 `check` 命令，针对常见问题执行一系列配置和连接性测试。 `check` 命令在[版本 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 及更高版本中提供。
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>检查 IoT Edge 安全管理器的状态及其日志：
+可以运行 `check` 命令（如下所示），也可以包括 `--help` 标志，以便查看选项的完整列表：
+
+* 在 Linux 上：
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* 在 Windows 上：
+
+  ```powershell
+  iotedge check
+  ```
+
+此工具运行的检查类型可以分类为：
+
+* 配置检查：检查妨碍 Edge 设备连接到云的详细情况，包括 *config.yaml* 和容器引擎出现的问题。
+* 连接检查：验证 IoT Edge 运行时能否访问主机设备上的端口，以及所有 IoT Edge 组件能否连接到 IoT 中心。
+* 生产就绪性检查：查找建议的生产最佳做法，例如设备证书颁发机构 (CA) 证书的状态以及模块日志文件配置。
+
+如需诊断检查的完整列表，请参阅[内置的故障排除功能](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)。
+
+## <a name="standard-diagnostic-steps"></a>标准诊断步骤
+
+如果遇到问题，可以通过查看容器日志和传递到设备以及来自设备的消息来详细了解 IoT Edge 设备的状态。 可以使用本部分中的命令和工具来收集信息。
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>检查 IoT Edge 安全管理器的状态及其日志
 
 在 Linux 上：
 - 若要查看 IoT Edge 安全管理器的状态，请执行以下命令：
@@ -72,14 +98,7 @@ ms.locfileid: "59529242"
 - 若要查看 IoT Edge 安全管理器的日志，请执行以下命令：
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>如果 IoT Edge 安全管理器未运行，请验证 yaml 配置文件
@@ -150,7 +169,7 @@ IoT Edge 安全守护程序运行后，请查看容器日志以检测问题。 �
 还可以检查在 IoT 中心与 IoT Edge 设备之间发送的消息。 使用用于 Visual Studio Code 的 [Azure IoT 中心工具包](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)扩展（以前称为 Azure IoT 工具包扩展）来查看这些消息。 有关详细信息，请参阅 [Handy tool when you develop with Azure IoT](https://blogs.msdn.microsoft.com/iotdev/2017/09/01/handy-tool-when-you-develop-with-azure-iot/)（通过 Azure IoT 进行开发时的顺手工具）。
 
 ### <a name="restart-containers"></a>重启容器
-在调查日志和消息获得信息后，可以尝试重启容器：
+在为了解信息而调查日志和消息后，可以尝试重启容器：
 
 ```
 iotedge restart <container name>

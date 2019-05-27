@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
 origin.date: 02/11/2019
-ms.date: 03/04/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 4762992ccb8c133b5baacde5dc7015d0edf3dbea
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 5e5e8b12a47476a3c6c3792c964c9cddce63ae97
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833206"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195028"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教程：使用 PowerShell 创建和管理 VPN 网关
 
@@ -115,7 +115,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 
 ## <a name="view-the-gateway-public-ip-address"></a>查看网关公共 IP 地址
 
-如果知道公共 IP 地址的名称，可使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=azurermps-6.8.1) 来显示分配给网关的公共 IP 地址。
+如果知道公共 IP 地址的名称，可使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 来显示分配给网关的公共 IP 地址。
 
 如果会话超时，请将本教程开头的常用网络参数复制到新会话中，然后继续操作。
 

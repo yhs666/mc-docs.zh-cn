@@ -6,18 +6,20 @@ author: lingliw
 manager: digimobile
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7ca04411dfc25fbc6a6438ab42d754b64df31957
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: c6b70979842bc61808f421c1350087601df6cb46
+ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544826"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65609802"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
 本文讨论了一些关于世纪互联 Azure 服务总线的常见问题解答。 还可以访问 [Azure 支持常见问题解答](https://www.azure.cn/support/faq/)了解常规的 Azure 定价和支持信息。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>关于 Azure 服务总线的一般问题
 ### <a name="what-is-azure-service-bus"></a>什么是 Azure 服务总线？
@@ -38,6 +40,48 @@ ms.locfileid: "58544826"
 使用分区实体时不保证排序。 如果某个分区不可用，仍可从其他分区发送和接收消息。
 
  [高级 SKU](service-bus-premium-messaging.md) 中不再支持分区实体。 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火墙上打开哪些端口？ 
+可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
+
+- 高级消息队列协议 (AMQP)
+- 服务总线消息传送协议 (SBMP)
+- HTTP
+
+请查看下表，了解需要打开哪些出站端口，以便使用这些协议与 Azure 事件中心通信。 
+
+| 协议 | 端口 | 详细信息 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 到 9354 | 请参阅[连接模式](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP、HTTPS | 80、443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要将哪些 IP 地址加入允许列表？
+若要找到适合加入连接的允许列表的 IP 地址，请执行以下步骤：
+
+1. 从命令提示符处运行以下命令： 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.chinacloudapi.cn
+    ```
+2. 记下在 `Non-authoritative answer` 中返回的 IP 地址。 此 IP 地址是静态的。 只有在你将命名空间还原到另一群集时，它才会更改。
+
+如果对命名空间使用区域冗余，则需执行一些额外的步骤： 
+
+1. 首先，在命名空间中运行 nslookup。
+
+    ```
+    nslookup <yournamespace>.servicebus.chinacloudapi.cn
+    ```
+2. 记下“非权威回答”部分中的名称，该名称采用下述格式之一： 
+
+    ```
+    <name>-s1.servicebus.chinacloudapi.cn
+    <name>-s2.servicebus.chinacloudapi.cn
+    <name>-s3.servicebus.chinacloudapi.cn
+    ```
+3. 为每一个运行 nslookup，使用后缀 s1、s2 和 s3 获取所有三个在三个可用性区域中运行的实例的 IP 地址。 
+
 
 ## <a name="best-practices"></a>最佳实践
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Azure 服务总线的最佳实践有哪些？
@@ -106,13 +150,13 @@ Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，�
 
 ```powershell
 # Create a new resource group in target subscription
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'China East'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'China East'
 
 # Move namespace from source subscription to target subscription
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## <a name="next-steps"></a>后续步骤

@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 03/31/2019
-ms.date: 04/15/2019
+origin.date: 05/06/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: b7dd73d5122dc60653662d30ca43f96f2b258014
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: be3b02d2c5bf77598b0f2d8ffa01a307d1b90eb0
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615211"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668890"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Azure Cosmos DB SQL 语言参考 
 
@@ -32,7 +32,8 @@ Azure Cosmos DB 支持使用熟悉的 SQL（结构化查询语言）风格的语
 SELECT <select_specification>   
     [ FROM <from_specification>]   
     [ WHERE <filter_condition> ]  
-    [ ORDER BY <sort_specification> ]  
+    [ ORDER BY <sort_specification> ] 
+    [ OFFSET <offset_amount> LIMIT <limit_amount>]
 ```  
 
  **备注**  
@@ -43,17 +44,19 @@ SELECT <select_specification>
 -   [FROM 子句](#bk_from_clause)    
 -   [WHERE 子句](#bk_where_clause)    
 -   [ORDER BY 子句](#bk_orderby_clause)  
+-   [OFFSET LIMIT 子句](#bk_offsetlimit_clause)
 
-SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。  
+SELECT 语句中的子句必须采用上面显示的顺序。 任何可选子句都可以省略。 但是，如果使用可选子句，则它们必须以正确的顺序出现。  
 
 ### <a name="logical-processing-order-of-the-select-statement"></a>SELECT 语句的逻辑处理顺序  
 
 各个子句的处理顺序如下所示：  
 
-1.  [FROM 子句](#bk_from_clause)  
-2.  [WHERE 子句](#bk_where_clause)  
-3.  [ORDER BY 子句](#bk_orderby_clause)  
-4.  [SELECT 子句](#bk_select_query)  
+1. [FROM 子句](#bk_from_clause)  
+2. [WHERE 子句](#bk_where_clause)  
+3. [ORDER BY 子句](#bk_orderby_clause)  
+4. [SELECT 子句](#bk_select_query)
+5. [OFFSET LIMIT 子句](#bk_offsetlimit_clause)
 
 请注意，这不同于它们在语法中的出现顺序。 这样安排顺序是为了使所处理的子句引入的所有新符号都可见并且可以在后面处理的子句中使用。 例如，可以在 WHERE 和 SELECT 子句中访问在 FROM 子句中声明的别名。  
 
@@ -65,7 +68,7 @@ SELECT 语句中的子句必须按照以上所示进行排序。 任何可选子
 
 -   SQL 语句 `-- comment text [newline]`  
 
-虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: - 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。  
+虽然空格字符和注释在语法中没有任何意义，但必须使用它们来分隔标记。 例如：`-1e5` 是一个单一数字标记，而 `: - 1 e5` 是一个减号标记，后跟数字 1 和标识符 e5。 
 
 <a name="bk_select_query"></a>
 ## <a name="select-clause"></a>SELECT 子句  
@@ -78,8 +81,8 @@ SELECT <select_specification>
 
 <select_specification> ::=   
       '*'   
-      | <object_property_list>   
-      | VALUE <scalar_expression> [[ AS ] value_alias]  
+      | [DISTINCT] <object_property_list>   
+      | [DISTINCT] VALUE <scalar_expression> [[ AS ] value_alias]  
 
 <object_property_list> ::=   
 { <scalar_expression> [ [ AS ] property_alias ] } [ ,...n ]  
@@ -103,6 +106,10 @@ SELECT <select_specification>
 - `VALUE`  
 
     指定应当检索 JSON 值而非整个 JSON 对象。 不同于 `<property_list>`，这不会将投影的值包装在对象中。  
+
+- `DISTINCT`
+
+    指定应删除投影属性的重复项。  
 
 - `<scalar_expression>`  
 
@@ -231,7 +238,7 @@ FROM <from_specification>
 
 请看下面的 FROM 子句：`<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
 
- 让每个源定义 `input_alias1, input_alias2, …, input_aliasN`。 此 FROM 子句返回一个 N 元组集（包含 N 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有容器别名所产生的值。  
+让每个源定义 `input_alias1, input_alias2, …, input_aliasN`。 此 FROM 子句返回一个 N 元组集（包含 N 个值的元组）。 每个元组拥有通过对它们相应的集遍历所有容器别名所产生的值。  
 
 示例 1 - 2 个源  
 
@@ -313,9 +320,9 @@ FROM <from_specification>
 
 <a name="bk_where_clause"></a>
 ## <a name="where-clause"></a>WHERE 子句  
- 指定查询返回的文档的搜索条件。 有关示例，请参阅 [WHERE 子句示例](how-to-sql-query.md#WhereClause)
+指定查询返回的文档的搜索条件。 有关示例，请参阅 [WHERE 子句示例](how-to-sql-query.md#WhereClause)
 
- **语法**  
+**语法**  
 
 ```sql  
 WHERE <filter_condition>  
@@ -323,66 +330,90 @@ WHERE <filter_condition>
 
 ```  
 
- **参数**  
+**参数**  
 
 - `<filter_condition>`  
 
-   指定需要满足什么条件才会返回文档。  
+    指定需要满足什么条件才会返回文档。  
 
 - `<scalar_expression>`  
 
-   表示待计算值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
+    表示待计算值的表达式。 请参阅[标量表达式](#bk_scalar_expressions)部分，了解详细信息。  
 
-  **备注**  
+**备注**  
 
-  指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
+指定为筛选条件的表达式的求值结果必须为 true，才会返回文档。 只有当布尔值为 true 才可以满足条件，任何其他值：未定义、null、false、数字、数组或对象均不满足条件。  
 
 <a name="bk_orderby_clause"></a>
 ## <a name="order-by-clause"></a>ORDER BY 子句  
- 指定查询返回的结果的排序顺序。 有关示例，请参阅 [ORDER BY 子句示例](how-to-sql-query.md#OrderByClause)
+指定查询返回的结果的排序顺序。 有关示例，请参阅 [ORDER BY 子句示例](how-to-sql-query.md#OrderByClause)
 
- **语法**  
+**语法**  
 
 ```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
-<sort_expression> ::= <scalar_expression> [ASC | DESC]  
+<sort_expression> ::= {<scalar_expression> [ASC | DESC]} [ ,...n ]  
 
 ```  
 
- **参数**  
+**参数**  
 
 - `<sort_specification>`  
 
-   指定对查询结果集进行排序时要依据的属性或表达式。 可以通过名称或列别名指定排序列。  
+    指定对查询结果集进行排序时要依据的属性或表达式。 可将排序列指定为名称或属性别名。  
 
-   可以指定多个排序列。 列名称必须唯一。 ORDER BY 子句中排序列的顺序定义了排序结果集的组织。 也就是说，结果集首先按第一个属性排序，然后该有序列表按第二个属性排序，依此类推。  
+    可以指定多个属性。 属性名称必须唯一。 ORDER BY 子句中排序属性的顺序定义了排序结果集的组织方式。 也就是说，结果集首先按第一个属性排序，然后该有序列表按第二个属性排序，依此类推。  
 
-   ORDER BY 子句中引用的列名称必须与 select 列表中的列或者与在 FROM 子句中指定的表中的列相对应，且没有任何多义性。  
+    ORDER BY 子句中引用的属性名称必须与 select 列表中的某个属性或者与在 FROM 子句中指定的集合中定义的某个属性相对应，且不存在任何多义性。  
 
 - `<sort_expression>`  
 
-   指定对查询结果集进行排序时要依据的单个属性或表达式。  
+    指定一个或多个属性或表达式用作排序查询结果集的依据。  
 
 - `<scalar_expression>`  
 
-   有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
+    有关详细信息，请参阅[标量表达式](#bk_scalar_expressions)部分。  
 
 - `ASC | DESC`  
 
-   指定应当按升序或降序对指定列中的值进行排序。 ASC 将按照从最低值到最高值的顺序进行排序。 DESC 将按照从最高值到最低值的顺序进行排序。 ASC 是默认排序顺序。 Null 值被视为最低的可能值。  
+    指定应当按升序或降序对指定列中的值进行排序。 ASC 将按照从最低值到最高值的顺序进行排序。 DESC 将按照从最高值到最低值的顺序进行排序。 ASC 是默认排序顺序。 Null 值被视为最低的可能值。  
 
-  **备注**  
+**备注**  
 
-  虽然查询语法支持多个排序依据属性，但 Cosmos DB 查询运行时支持仅按单个属性排序，以及仅按属性名称排序（不支持按计算属性排序）。 排序还要求索引策略针对该属性和指定类型包括具有最高精度的范围索引。 有关详细信息，请参阅索引策略文档。  
+ORDER BY 子句要求索引策略包含所要排序的字段的索引。 Azure Cosmos DB 查询运行时支持根据属性名称排序，而不支持根据计算的属性排序。 Azure Cosmos DB 支持多个 ORDER BY 属性。 若要运行包含多个 ORDER BY 属性的查询，应在所要排序的字段中定义[组合索引](index-policy.md#composite-indexes)。
+
+##  <a name=bk_offsetlimit_clause></a>OFFSET LIMIT 子句
+
+指定跳过的项数以及返回的项数。 有关示例，请参阅 [OFFSET LIMIT 子句示例](how-to-sql-query.md#OffsetLimitClause)
+
+**语法**  
+
+```sql  
+OFFSET <offset_amount> LIMIT <limit_amount>
+```  
+
+**参数**  
+
+- `<offset_amount>`
+
+    指定查询结果应跳过的项数（整数）。
+
+- `<limit_amount>`
+
+    指定查询结果应包含的项数（整数）
+
+**备注**  
+
+必须在 OFFSET LIMIT 子句中同时指定 OFFSET 计数和 LIMIT 计数。 如果使用可选的 `ORDER BY` 子句，将会通过跳过排序值来生成结果集。 否则，查询将返回固定顺序的值。
 
 <a name="bk_scalar_expressions"></a>
 ## <a name="scalar-expressions"></a>标量表达式  
- 标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。 有关示例，请参阅[标量表达式示例](how-to-sql-query.md#scalar-expressions)
+标量表达式是符号和运算符的组合，可以对该组合进行计算来获得单个值。 简单表达式可以是常量、属性引用、数组元素引用、别名引用或函数调用。 可以使用运算符将简单表达式组合成复杂表达式。 有关示例，请参阅[标量表达式示例](how-to-sql-query.md#scalar-expressions)
 
- 有关标量表达式可能包含的值的详细信息，请参阅[常数](#bk_constants)部分。  
+有关标量表达式可能包含的值的详细信息，请参阅[常数](#bk_constants)部分。  
 
- **语法**  
+**语法**  
 
 ```sql  
 <scalar_expression> ::=  
@@ -411,72 +442,72 @@ ORDER BY <sort_specification>
 
 ```  
 
- **参数**  
+**参数**  
 
 - `<constant>`  
 
-   返回一个常量值。 有关详细信息，请参阅[常量](#bk_constants)部分。  
+    返回一个常量值。 有关详细信息，请参阅[常量](#bk_constants)部分。  
 
 - `input_alias`  
 
-   表示由 `FROM` 子句中引入的 `input_alias` 定义的值。  
-  此值可以保证不是**未定义的** -- 将跳过输入中的**未定义**值。  
+    表示由 `FROM` 子句中引入的 `input_alias` 定义的值。  
+    此值可以保证不是**未定义的** -- 将跳过输入中的**未定义**值。  
 
 - `<scalar_expression>.property_name`  
 
-   表示对象的该属性的值。 如果该属性不存在，或者在不是对象的值上引用了该属性，则表达式的求值结果将是 **undefined** 值。  
+    表示对象的该属性的值。 如果该属性不存在，或者在不是对象的值上引用了该属性，则表达式的求值结果将是 **undefined** 值。  
 
 - `<scalar_expression>'['"property_name"|array_index']'`  
 
-   表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果不存在属性/数组索引，或对非对象/数组的值引用了属性/数组索引，则表达式的求值结果为未定义值。  
+    表示名为 `property_name` 的属性的值或对象/数组中索引为 `array_index` 的数组元素的值。 如果不存在属性/数组索引，或对非对象/数组的值引用了属性/数组索引，则表达式的求值结果为未定义值。  
 
 - `unary_operator <scalar_expression>`  
 
-   表示应用于单个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
+    表示应用于单个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
 
 - `<scalar_expression> binary_operator <scalar_expression>`  
 
-   表示应用于两个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
+    表示应用于两个值的运算符。 有关详细信息，请参阅[运算符](#bk_operators)部分。  
 
 - `<scalar_function_expression>`  
 
-   表示由函数调用的结果定义的值。  
+    表示由函数调用的结果定义的值。  
 
 - `udf_scalar_function`  
 
-   用户定义的标量函数的名称。  
+    用户定义的标量函数的名称。  
 
 - `builtin_scalar_function`  
 
-   内置标量函数的名称。  
+    内置标量函数的名称。  
 
 - `<create_object_expression>`  
 
-   表示通过使用指定属性及其值创建新对象而获得的值。  
+    表示通过使用指定属性及其值创建新对象而获得的值。  
 
 - `<create_array_expression>`  
 
-   表示通过创建以指定值为元素的新数组而获得的值  
+    表示通过创建以指定值为元素的新数组而获得的值  
 
 - `parameter_name`  
 
-   表示指定的参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
+    表示指定的参数名称的值。 参数名称必须以单个 \@ 作为第一个字符。  
 
-  **备注**  
+**备注**  
 
-  调用内置或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
+调用内置或用户定义的标量函数时，必须定义所有参数。 如果有任何参数未定义，则不会调用函数，并且结果将是 undefined。  
 
-  在创建对象时，将跳过任何分配有 undefined 值的属性并且不会将其包括在创建的对象中。  
+在创建对象时，将跳过任何分配有 undefined 值的属性并且不会将其包括在创建的对象中。  
 
-  在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
+在创建数组时，将跳过任何分配有 **undefined** 值的元素值并且不会将其包括在创建的对象中。 这将导致下一个已定义元素取代其位置，这样，创建的数组将不会具有跳过的索引。  
 
 <a name="bk_operators"></a>
 ## <a name="operators"></a>运算符  
- 本部分介绍了支持的运算符。 每个运算符都只能分配到一个类别。  
+本部分介绍了支持的运算符。 每个运算符都只能分配到一个类别。  
 
- 有关如何处理 **undefined** 值、对输入值的类型要求以及如何处理类型不匹配的值等方面的详细信息，请参阅**运算符类别**。  
+有关如何处理 **undefined** 值、对输入值的类型要求以及如何处理类型不匹配的值等方面的详细信息，请参阅**运算符类别**。  
 
- **运算符类别：**  
+**运算符类别：**  
 
 |**类别**|**详细信息**|  
 |-|-|  
@@ -486,7 +517,7 @@ ORDER BY <sort_specification>
 |**比较**|运算符要求输入具有相同的类型，且不能未定义。 输出是布尔值。<br /><br /> 如果有任何输入**未定义**或者输入具有不同的类型，则结果将是 **undefined**。<br /><br /> 有关值排序的详细信息，请参阅**进行比较的值的排序**表。|  
 |**字符串**|运算符要求输入为字符串。 输出也是字符串。<br />如果有任何输入**未定义**或者是字符串之外的类型，则结果将是 **undefined**。|  
 
- **一元运算符：**  
+**一元运算符：**  
 
 |**名称**|**运算符**|**详细信息**|  
 |-|-|-|  
@@ -494,7 +525,7 @@ ORDER BY <sort_specification>
 |**按位**|~|求补数。 返回数字值的补数。|  
 |**逻辑**|**NOT**|求反。 返回求反后的布尔值。|  
 
- **二元运算符：**  
+**二元运算符：**  
 
 |**名称**|**运算符**|**详细信息**|  
 |-|-|-|  
@@ -504,13 +535,13 @@ ORDER BY <sort_specification>
 |**比较**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|等于。 如果参数相等，则返回 **true**，否则返回 **false**。<br /><br /> 不等于。 如果参数不相等，则返回 **true**，否则返回 **false**。<br /><br /> 大于。 如果第一个参数大于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 大于或等于。 如果第一个参数大于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于。 如果第一个参数小于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 小于或等于。 如果第一个参数小于或等于第二个参数，则返回 **true**，否则返回 **false**。<br /><br /> 联合。 如果第一个参数是一个**未定义的**值，则返回第二个参数。|  
 |**字符串**|**&#124;&#124;**|串联。 返回两个参数的串联。|  
 
- **三元运算符：**  
+**三元运算符：**  
 
 |**名称**|**运算符**|**详细信息**| 
 |-|-|-|  
 |三元运算符|?|如果第一个参数的求值结果为 **true**，则返回第二个参数，否则返回第三个参数。|  
 
- **进行比较的值的排序**  
+**进行比较的值的排序**  
 
 |**类型**|**值顺序**|  
 |-|-|  
@@ -521,25 +552,25 @@ ORDER BY <sort_specification>
 |**数组**|不排序，但可比较是否相等。|  
 |**Object**|不排序，但可比较是否相等。|  
 
- **备注**  
+**备注**  
 
- 在 Cosmos DB 中，通常在数据库中检索到值时，才知道其类型。 为了支持查询的高效执行，大多数运算符具有严格的类型要求。 另外，运算符本身不执行隐式转换。  
+在 Cosmos DB 中，通常在数据库中检索到值时，才知道其类型。 为了支持查询的高效执行，大多数运算符具有严格的类型要求。 另外，运算符本身不执行隐式转换。  
 
- 这意味着：SELECT * FROM ROOT r WHERE r.Age = 21 之类的查询仅返回属性 Age 等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这样可以更好地利用索引，因为查找特定值（例如数字 21）比搜索不确定个数的可能匹配项（数字 21 或字符串 "21"、"021"、"21.0"...）更快。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
+这意味着：SELECT * FROM ROOT r WHERE r.Age = 21 之类的查询仅返回属性 Age 等于数字 21 的文档。 Age 属性等于字符串 "21" 或字符串 "0021" 的文档将不会匹配，因为表达式 "21" = 21 的求值结果是 undefined。 这样可以更好地利用索引，因为查找特定值（例如数字 21）比搜索不确定个数的可能匹配项（数字 21 或字符串 "21"、"021"、"21.0"...）更快。 这与 JavaScript 针对不同类型的值采用运算符进行计算时的方式不同。  
 
- **数组和对象的相等和比较**  
+**数组和对象的相等和比较**  
 
- 使用范围运算符（>、>=、<、<=）对数组或对象值进行比较将导致 undefined，因为没有为对象或数组值定义顺序。 但是，支持使用等于/不等于运算符（=、!=、<>），并且可以在结构上对值进行比较。  
+使用范围运算符（>、>=、<、<=）对数组或对象值进行比较将导致 undefined，因为没有为对象或数组值定义顺序。 但是，支持使用等于/不等于运算符（=、!=、<>），并且可以在结构上对值进行比较。  
 
- 如果两个数组具有相同数目的元素并且在匹配位置的元素也相等，则这两个数组相等。 如果对任何元素对进行比较时导致 undefined，则数组比较结果为 undefined。  
+如果两个数组具有相同数目的元素并且在匹配位置的元素也相等，则这两个数组相等。 如果对任何元素对进行比较时导致 undefined，则数组比较结果为 undefined。  
 
- 如果两个对象定义了相同的属性并且匹配属性的值也相等，则这两个对象相等。 如果对任何属性值对进行比较时导致 undefined，则对象比较结果为 undefined。  
+如果两个对象定义了相同的属性并且匹配属性的值也相等，则这两个对象相等。 如果对任何属性值对进行比较时导致 undefined，则对象比较结果为 undefined。  
 
 <a name="bk_constants"></a>
 ## <a name="constants"></a>常量  
- 常量也称为文本或标量值，是一个表示特定数据值的符号。 常量的格式取决于它表示的值的数据类型。  
+常量也称为文本或标量值，是一个表示特定数据值的符号。 常量的格式取决于它表示的值的数据类型。  
 
- **支持的标量数据类型：**  
+**支持的标量数据类型：**  
 
 |**类型**|**值顺序**|  
 |-|-|  
@@ -551,7 +582,7 @@ ORDER BY <sort_specification>
 |**数组**|由零个或多个元素构成的序列。 每个元素可以是任何标量数据类型（Undefined 除外）的值。|  
 |**对象**|由零个或多个名称/值对构成的无序集。 名称是一个 Unicode 字符串，值可以是任何标量数据类型，但 **Undefined** 除外。|  
 
- **语法**  
+**语法**  
 
 ```sql  
 <constant> ::=  
@@ -581,49 +612,49 @@ ORDER BY <sort_specification>
 
 ```  
 
- **参数**  
+**参数**  
 
 * `<undefined_constant>; undefined`  
 
-  表示类型为 Undefined 的未定义值。  
+    表示类型为 Undefined 的未定义值。  
 
 * `<null_constant>; null`  
 
-  表示类型为 **Null** 的 **null** 值。  
+    表示类型为 **Null** 的 **null** 值。  
 
 * `<boolean_constant>`  
 
-  表示类型为 Boolean 的常量。  
+    表示类型为 Boolean 的常量。  
 
 * `false`  
 
-  表示类型为 Boolean 的 **false** 值。  
+    表示类型为 Boolean 的 **false** 值。  
 
 * `true`  
 
-  表示类型为 Boolean 的 **true** 值。  
+    表示类型为 Boolean 的 **true** 值。  
 
 * `<number_constant>`  
 
-  表示一个常量。  
+    表示一个常量。  
 
 * `decimal_literal`  
 
-  十进制文本是使用十进制表示法或科学记数法表示的数字。  
+    十进制文本是使用十进制表示法或科学记数法表示的数字。  
 
 * `hexadecimal_literal`  
 
-  十六进制文本是使用前缀“0x”和后跟的一个或多个十六进制数位表示的数字。  
+    十六进制文本是使用前缀“0x”和后跟的一个或多个十六进制数位表示的数字。  
 
 * `<string_constant>`  
 
-  表示类型为 String 的常量。  
+    表示类型为 String 的常量。  
 
 * `string _literal`  
 
-  字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号 (') 或双引号 (") 中。  
+    字符串文本是以零个或多个 Unicode 字符序列或转义符序列表示的 Unicode 字符串。 字符串文本括在单引号 (') 或双引号 (") 中。  
 
-  允许以下转义序列：  
+    允许以下转义序列：  
 
 |**转义序列**|**说明**|**Unicode 字符**|  
 |-|-|-|  
@@ -640,9 +671,9 @@ ORDER BY <sort_specification>
 
 <a name="bk_query_perf_guidelines"></a>
 ## <a name="query-performance-guidelines"></a>查询性能准则  
- 为了能够对大型容器高效地执行查询，应使用可通过由一个或多个索引服务的筛选器。  
+为了能够对大型容器高效地执行查询，应使用可通过由一个或多个索引服务的筛选器。  
 
- 对于索引查找，将考虑以下筛选器：  
+对于索引查找，将考虑以下筛选器：  
 
 - 对文档路径表达式和常量使用等于运算符 ( = )。  
 
@@ -650,21 +681,21 @@ ORDER BY <sort_specification>
 
 - 文档路径表达式代表任何可从引用的数据库容器识别文档中常量路径的表达式。  
 
-  **文档路径表达式**  
+**文档路径表达式**  
 
-  文档路径表达式代表属性或数组索引器评估者在数据库容器文档中的一个文档当中的路径。 此路径可用于直接在数据库容器中的文档内识别筛选器中引用的值的位置。  
+文档路径表达式代表属性或数组索引器评估者在数据库容器文档中的一个文档当中的路径。 此路径可用于直接在数据库容器中的文档内识别筛选器中引用的值的位置。  
 
-  若要将表达式视为文档路径表达式，它应当：  
+若要将表达式视为文档路径表达式，它应当：  
 
-1.  直接引用容器根。  
+1. 直接引用容器根。  
 
-2.  引用某个文档路径表达式的属性或常量数组索引器  
+2. 引用某个文档路径表达式的属性或常量数组索引器  
 
-3.  引用表示某个文档路径表达式的别名。  
+3. 引用表示某个文档路径表达式的别名。  
 
-     **语法约定**  
+    **语法约定**  
 
-     下表介绍了以下 SQL 参考中用来描述语法的约定。  
+    下表介绍了以下 SQL 参考中用来描述语法的约定。  
 
     |**约定**|**用于**|  
     |-|-|    
@@ -682,7 +713,7 @@ ORDER BY <sort_specification>
     |[ ...n ]|表示上述项可重复 n 次。 各个实例以空格分隔。|  
 
 <a name="bk_built_in_functions"></a>
-##  <a name="built-in-functions"></a>内置函数  
+## <a name="built-in-functions"></a>内置函数  
  Cosmos DB 提供多个内置 SQL 函数。 下面列出了内置函数的类别。  
 
 |函数|说明|  
@@ -690,12 +721,13 @@ ORDER BY <sort_specification>
 |[数学函数](#bk_mathematical_functions)|每个数学函数均执行一个计算，通常基于作为参数提供的输出值，并返回数值。|  
 |[类型检查函数](#bk_type_checking_functions)|类型检查函数允许检查 SQL 查询内表达式的类型。|  
 |[字符串函数](#bk_string_functions)|字符串函数对字符串输入值执行运算，并返回字符串、数值或布尔值。|  
-|[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|  
+|[数组函数](#bk_array_functions)|该数组函数对数组输入值执行操作，并返回数值、布尔值或数组值。|
+|[日期和时间函数](#bk_date_and_time_functions)|使用日期和时间函数可以获取采用以下两种格式的当前 UTC 日期和时间：一个时间戳，其值为以毫秒为单位的 Unix 纪元；一个符合 ISO 8601 格式的字符串。|
 |[空间函数](#bk_spatial_functions)|该空间函数对控件对象输入值执行操作，并返回数值或布尔值。|  
 
 <a name="bk_mathematical_functions"></a>
-###  <a name="mathematical-functions"></a>数学函数  
- 以下函数每个均执行一个计算（通常基于作为参数提供的输入值）并返回数值。  
+### <a name="mathematical-functions"></a>数学函数
+以下函数每个均执行一个计算（通常基于作为参数提供的输入值）并返回数值。  
 
 ||||  
 |-|-|-|  
@@ -710,33 +742,33 @@ ORDER BY <sort_specification>
 
 <a name="bk_abs"></a>
 #### <a name="abs"></a>ABS  
- 返回指定数值表达式的绝对（正）值。  
+返回指定数值表达式的绝对（正）值。  
 
- **语法**  
+**语法**  
 
 ```  
 ABS (<numeric_expression>)  
 ```  
 
- **参数**  
+**参数**  
 
 - `numeric_expression`  
 
-   是一个数值表达式。  
+    是一个数值表达式。  
 
-  返回类型  
+返回类型  
 
-  返回数值表达式。  
+返回数值表达式。  
 
-  **示例**  
+**示例**  
 
-  以下示例显示了对三个不同数字使用 ABS 函数的结果。  
+以下示例显示了对三个不同数字使用 ABS 函数的结果。  
 
-```  
+```
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 
-```  
+```
 
- 下面是结果集。  
+下面是结果集。  
 
 ```  
 [{abs1: 1, abs2: 0, abs3: 1}]  
@@ -744,33 +776,33 @@ SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3
 
 <a name="bk_acos"></a>
 #### <a name="acos"></a>ACOS  
- 返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。  
+返回角度（弧度），其余弦是指定的数值表达式；也被称为反余弦。  
 
- **语法**  
+**语法**  
 
 ```  
 ACOS(<numeric_expression>)  
 ```  
 
- **参数**  
+**参数**  
 
 - `numeric_expression`  
 
-   是一个数值表达式。  
+    是一个数值表达式。  
 
-  返回类型  
+返回类型  
 
-  返回数值表达式。  
+返回数值表达式。  
 
-  **示例**  
+**示例**  
 
-  以下示例返回 -1 的 ACOS。  
+以下示例返回 -1 的 ACOS。  
 
 ```  
 SELECT ACOS(-1) AS acos 
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```  
 [{"acos": 3.1415926535897931}]  
@@ -778,27 +810,27 @@ SELECT ACOS(-1) AS acos
 
 <a name="bk_asin"></a>
 #### <a name="asin"></a>ASIN  
- 返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。  
+返回角度（弧度），其正弦是指定的数值表达式。 也被称为反正弦。  
 
- **语法**  
+**语法**  
 
 ```  
 ASIN(<numeric_expression>)  
 ```  
 
- **参数**  
+**参数**  
 
 - `numeric_expression`  
 
-   是一个数值表达式。  
+    是一个数值表达式。  
 
-  返回类型  
+返回类型  
 
-  返回数值表达式。  
+返回数值表达式。  
 
-  **示例**  
+**示例**  
 
-  以下示例返回 -1 的 ASIN。  
+以下示例返回 -1 的 ASIN。  
 
 ```  
 SELECT ASIN(-1) AS asin  
@@ -2421,13 +2453,13 @@ SELECT
     StringToArray('[1,2,3, "[4,5,6]",[7,8]]') AS a5
 ```
 
- 下面是结果集。
+下面是结果集。
 
 ```
 [{"a1": [], "a2": [1,2,3], "a3": ["str",2,3], "a4": [["5","6","7"],["8"],["9"]], "a5": [1,2,3,"[4,5,6]",[7,8]]}]
 ```
 
- 下面是输入无效的示例。 
+下面是输入无效的示例。 
 
  在数组中使用单引号不是有效的 JSON。
 即使它们在查询中有效，系统也不会将其解析为有效数组。 必须将数组字符串中的字符串转义为 "[\\"\\"]"，否则其引号必须为单个 '[""]'。
@@ -2437,13 +2469,13 @@ SELECT
     StringToArray("['5','6','7']")
 ```
 
- 下面是结果集。
+下面是结果集。
 
 ```
 [{}]
 ```
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
  传递的表达式将会解析为 JSON 数组；下面的示例不会计算为类型数组，因此返回未定义。
 
@@ -2456,7 +2488,7 @@ SELECT
     StringToArray(undefined)
 ```
 
- 下面是结果集。
+下面是结果集。
 
 ```
 [{}]
@@ -2488,7 +2520,7 @@ StringToBoolean(<expr>)
 
  下面是输入有效的示例。
 
- 只能在 "true"/"false" 之前或之后使用空格。
+只能在 "true"/"false" 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2503,7 +2535,7 @@ SELECT
 [{"b1": true, "b2": false, "b3": false}]
 ```  
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
  布尔值区分大小写，必须全用小写字符（即 "true" 和 "false"）来表示。
 
@@ -2513,15 +2545,15 @@ SELECT
     StringToBoolean("False")
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```  
 [{}]
 ``` 
 
- 传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
+传递的表达式将会解析为布尔表达式；以下输入不会计算为布尔类型，因此会返回未定义。
 
- ```  
+```  
 SELECT 
     StringToBoolean("null"),
     StringToBoolean(undefined),
@@ -2530,7 +2562,7 @@ SELECT
     StringToBoolean(true)
 ```  
 
- 下面是结果集。  
+下面是结果集。  
 
 ```  
 [{}]
@@ -2560,7 +2592,7 @@ StringToNull(<expr>)
 
   以下示例演示 StringToNull 在不同类型中的行为方式。 
 
- 下面是输入有效的示例。
+下面是输入有效的示例。
 
  只能在 "null" 之前或之后使用空格。
 
@@ -2577,9 +2609,9 @@ SELECT
 [{"n1": null, "n2": null, "n3": true}]
 ```  
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
- Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
+Null 值区分大小写，必须全用小写字符（即 "null"）来表示。
 
 ```  
 SELECT    
@@ -2593,7 +2625,7 @@ SELECT
 [{}]
 ```  
 
- 传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
+传递的表达式将会解析为 null 表达式；以下输入不会计算为 null 类型，因此会返回未定义。
 
 ```  
 SELECT    
@@ -2633,7 +2665,7 @@ StringToNumber(<expr>)
 
   以下示例演示 StringToNumber 在不同类型中的行为方式。 
 
- 只能在 Number 之前或之后使用空格。
+只能在 Number 之前或之后使用空格。
 
 ```  
 SELECT 
@@ -2649,7 +2681,7 @@ SELECT
 {{"num1": 1, "num2": 3.14, "num3": 60, "num4": -1.79769e+308}}
 ```  
 
- 在 JSON 中，有效的 Number 必须是整数或浮点数。
+在 JSON 中，有效的 Number 必须是整数或浮点数。
 
 ```  
 SELECT   
@@ -2662,7 +2694,7 @@ SELECT
 {{}}
 ```  
 
- 传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
+传递的表达式将会解析为 Number 表达式；以下输入不会计算为 Number 类型，因此会返回未定义。 
 
 ```  
 SELECT 
@@ -2714,7 +2746,7 @@ SELECT
     StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
 ``` 
 
- 下面是结果集。
+下面是结果集。
 
 ```
 [{"obj1": {}, 
@@ -2726,33 +2758,33 @@ SELECT
  下面是输入无效的示例。
 即使它们在查询中有效，系统也不会将其解析为有效对象。 必须将对象字符串中的字符串转义为 "{\\"a\\":\\"str\\"}"，否则其引号必须为单个 '{"a": "str"}'。
 
- 属性名称的单引号不是有效的 JSON。
+属性名称的单引号不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{'a':[1,2,3]}")
 ```
 
- 下面是结果集。
+下面是结果集。
 
 ```  
 [{}]
 ```  
 
- 没有引号的属性名称不是有效的 JSON。
+没有引号的属性名称不是有效的 JSON。
 
 ``` 
 SELECT 
     StringToObject("{a:[1,2,3]}")
 ```
 
- 下面是结果集。
+下面是结果集。
 
 ```  
 [{}]
 ``` 
 
- 下面是输入无效的示例。
+下面是输入无效的示例。
 
  传递的表达式将会解析为 JSON 对象；以下输入不会计算为对象类型，因此会返回未定义。
 
@@ -2773,7 +2805,7 @@ SELECT
 ```
 
 <a name="bk_substring"></a>
-####  <a name="substring"></a>SUBSTRING  
+#### <a name="substring"></a>SUBSTRING  
  返回字符串表达式的部分内容，该内容起于指定字符从零开始的位置，继续到指定长度或字符串结尾。  
 
  **语法**  
@@ -3157,15 +3189,113 @@ SELECT
 }]  
 ```  
 
+<a name="bk_date_and_time_functions"></a>
+### <a name="date-and-time-functions"></a>日期和时间函数
+使用以下标量函数可以获取采用以下两种格式的当前 UTC 日期和时间：一个时间戳，其值为以毫秒为单位的 Unix 纪元；一个符合 ISO 8601 格式的字符串。 
+
+|||
+|-|-|
+|[GetCurrentDateTime](#bk_get_current_date_time)|[GetCurrentTimestamp](#bk_get_current_timestamp)||
+
+<a name="bk_get_current_date_time"></a>
+#### <a name="getcurrentdatetime"></a>GetCurrentDateTime
+以 ISO 8601 字符串形式返回当前 UTC 日期和时间。
+
+**语法**
+
+```
+GetCurrentDateTime ()
+```
+
+  **返回类型**
+
+  以 ISO 8601 字符串值形式返回当前 UTC 日期和时间。 
+
+  此值以 YYYY-MM-DDThh:mm:ss.sssZ 格式表示，其中：
+
+  |||
+  |-|-|
+  |YYYY|四位数的年份|
+  |MM|两位数的月份（01 = 1 月，依此类推。）|
+  |DD|两位数的月份日期（01 到 31）|
+  |T|时间元素开头的符号|
+  |hh|两位数小时（00 到 23）|
+  |MM|两位数分钟（00 到 59）|
+  |ss|两位数秒（00 到 59）|
+  |.sss|三位数的秒小数部分|
+  |Z|UTC（协调世界时）指示符||
+
+  有关 ISO 8601 格式的更多详细信息，请参阅 [ISO_8601](https://en.wikipedia.org/wiki/ISO_8601)
+
+  **备注**
+
+  GetCurrentDateTime 是非确定性的函数。 
+
+  返回的结果采用 UTC（协调世界时）格式。
+
+  **示例**  
+
+  以下示例演示如何使用 GetCurrentDateTime 内置函数获取当前 UTC 日期时间。
+
+```  
+SELECT GetCurrentDateTime() AS currentUtcDateTime
+```  
+
+ 下面是示例结果集。
+
+```  
+[{
+  "currentUtcDateTime": "2019-05-03T20:36:17.784Z"
+}]  
+```  
+
+<a name="bk_get_current_timestamp"></a>
+#### <a name="getcurrenttimestamp"></a>GetCurrentTimestamp
+ 返回自 1970 年 1 月 1 日星期四 00:00:00 开始消逝的毫秒数。 
+
+ **语法**  
+
+```  
+GetCurrentTimestamp ()  
+```  
+
+  **返回类型**  
+
+  返回一个数字值，表示自 Unix 纪元开始消逝的秒数，即自 1970 年 1 月 1 日星期四 00:00:00 开始消逝的毫秒数。
+
+  **备注**
+
+  GetCurrentTimestamp 是非确定性的函数。 
+
+  返回的结果采用 UTC（协调世界时）格式。
+
+  **示例**  
+
+  以下示例演示如何使用 GetCurrentTimestamp 内置函数获取当前时间戳。
+
+```  
+SELECT GetCurrentTimestamp() AS currentUtcTimestamp
+```  
+
+ 下面是示例结果集。
+
+```  
+[{
+  "currentUtcTimestamp": 1556916469065
+}]  
+```  
+
 <a name="bk_spatial_functions"></a>
 ### <a name="spatial-functions"></a>空间函数  
  以下标量函数对标量对象输入值执行操作，并返回数值或布尔值。  
 
-
-|                                              |                            |                                    |                            | |----------------------------------------------|----------------------------|------------------------------------|--------------------    ----| |        [ST_DISTANCE](#bk_st_distance)        | [ST_WITHIN](#bk_st_within) | [ST_INTERSECTS](#bk_st_intersects) |[ST_ISVALID](#bk_st_isvalid)| | [ST_ISVALIDDETAILED](#bk_st_isvaliddetailed) |                            |                                    |                            |
+|||||
+|-|-|-|-|
+|[ST_DISTANCE](#bk_st_distance)|[ST_WITHIN](#bk_st_within)|[ST_INTERSECTS](#bk_st_intersects)|[ST_ISVALID](#bk_st_isvalid)|
+|[ST_ISVALIDDETAILED](#bk_st_isvaliddetailed)||||
 
 <a name="bk_st_distance"></a>
-####  <a name="stdistance"></a>ST_DISTANCE  
+#### <a name="stdistance"></a>ST_DISTANCE  
  返回两个 GeoJSON 点、多边形或 LineString 表达式之间的距离。  
 
  **语法**  

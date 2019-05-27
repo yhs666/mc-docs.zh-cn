@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 12/11/2018
-ms.date: 04/15/2019
+ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab11b08476f919267459d1668f9358262974104d
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 26399d6f289463f7b0dd1dc87156b7ef39e943a5
+ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615263"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65668789"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中编写存储过程、触发器和用户定义的函数
 
@@ -51,7 +51,7 @@ var helloWorldStoredProc = {
 <a name="create-an-item"></a>
 ### <a name="create-an-item-using-stored-procedure"></a>使用存储过程创建项
 
-使用存储过程创建某个项时，该项将会插入到 Azure Cosmos DB 容器，并返回新建项的 ID。 创建项是一种异步操作，依赖于 JavaScript 回调函数。 回调函数包含两个参数 - 一个参数用于操作失败时返回的错误对象，另一个参数用于返回值（在本例中为创建的对象）。 在回调内部，可以处理异常或引发错误。 如果未提供回调并出现错误，则 Azure Cosmos DB 运行时将引发错误。 
+使用存储过程创建某个项时，会将该项插入到 Azure Cosmos DB 容器中，并返回新建项的 ID。 创建项是一种异步操作，依赖于 JavaScript 回调函数。 回调函数包含两个参数 - 一个参数用于操作失败时返回的错误对象，另一个参数用于返回值（在本例中为创建的对象）。 在回调内部，可以处理异常或引发错误。 如果未提供回调并出现错误，则 Azure Cosmos DB 运行时将引发错误。 
 
 存储过程还包含一个用于设置说明的参数（一个布尔值）。 如果该参数设置为 true，同时缺少说明，则存储过程将引发异常。 否则，存储过程的剩余部分将继续运行。
 

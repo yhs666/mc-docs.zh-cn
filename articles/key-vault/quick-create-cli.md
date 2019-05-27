@@ -1,25 +1,22 @@
 ---
-title: Azure 快速入门 - 使用 Azure CLI 在 Key Vault 中设置和检索机密
+title: Azure 快速入门 - 使用 Azure CLI 在 Key Vault 中设置和检索机密 | Azure Docs
 description: 快速入门介绍如何使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 services: key-vault
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 4acc894f-fee0-4c2f-988e-bc0eceea5eda
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 03/11/2019
+ms.date: 05/27/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8886ed8a9f2a0e19113b3b661c4393f5580d0397
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 60fe9f5c6feb8fc2be592a35c2c8213d3550c502
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903133"
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628777"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 
@@ -27,7 +24,7 @@ Azure Key Vault 是一项云服务，用作安全的机密存储。 可以安全
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
 
-如果选择在本地安装并使用 CLI，本快速入门要求 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本快速入门要求 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。
 
 若要使用 CLI 登录到 Azure，可以键入：
 

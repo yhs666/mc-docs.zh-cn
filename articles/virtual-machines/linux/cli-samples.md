@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2019
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ca49e739d1526b587ad14f8f98a1d20d50fa7ac1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cb9c8cd1fef9267f8f721af6c20ff0c00ce76fa8
+ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625335"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835627"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure CLI 示例
 
@@ -49,10 +49,12 @@ ms.locfileid: "58625335"
 | [保护虚拟机之间的网络流量](./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建两个虚拟机、所有相关资源以及内部和外部网络安全组 (NSG)。 |
 |**保护虚拟机**||
 | [加密 VM 和数据磁盘](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
+|**监视虚拟机**||
+| [使用 Azure Monitor 日志监视 VM](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，安装 Log Analytics 代理，并在 Log Analytics 工作区中注册该 VM。  |
 |**对虚拟机进行故障排除**||
 | [对 VM 操作系统磁盘进行故障排除](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 将一个 VM 中的操作系统磁盘作为数据磁盘装载到第二个 VM 中。 |
 | | |
 
-<!--Not Available on virtual-machines-linux-cli-sample-create-vm-oms.md-->
+<!--Pending on virtual-machines-linux-cli-sample-create-vm-oms.md-->
 
 <!--Update_Description: update meta properties -->

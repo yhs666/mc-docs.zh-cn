@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/11/2019
-ms.date: 03/26/2019
+origin.date: 04/15/2019
+ms.date: 05/14/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: dc26160773e3ca35c3a964177d633ff4ae9bc6a8
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 0bf12a9f32b5812dd2ecb5f955bded8698b52ebe
+ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505606"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65598861"
 ---
 # <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>快速入门：使用计算机视觉 SDK 和 C# 分析图像
 
@@ -25,7 +25,7 @@ ms.locfileid: "58505606"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 若要使用计算机视觉，需要一个订阅密钥；请参阅[获取订阅密钥](../Vision-API-How-to-Topics/HowToSubscribe.md)。
+* 计算机视觉订阅密钥。 你可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅计算机视觉并获取密钥。
 * 任何版本的 [Visual Studio 2015 或 2017](https://www.visualstudio.com/downloads/)。
 * [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) 客户端库 NuGet 包。 不需下载程序包。 下面提供了安装说明。
 
@@ -38,7 +38,7 @@ ms.locfileid: "58505606"
     1. 在菜单上，单击“工具”，然后依次选择“NuGet 包管理器”、“管理解决方案的 NuGet 包”。
     1. 单击“浏览”选项卡，在“搜索”框中键入“Microsoft.Azure.CognitiveServices.Vision.ComputerVision”。
     1. 选择显示的 **Microsoft.Azure.CognitiveServices.Vision.ComputerVision**，单击项目名称旁边的复选框，然后单击“安装”。
-1. 将 *Program.cs* 的内容替换为以下代码。 `AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法分别为远程图像和本地图像包装[分析图像 REST API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)。 
+1. 将 *Program.cs* 的内容替换为以下代码。 `AnalyzeImageAsync` 和 `AnalyzeImageInStreamAsync` 方法分别为远程图像和本地图像包装[分析图像 REST API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)。
 
     ```csharp
     using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
@@ -127,7 +127,14 @@ ms.locfileid: "58505606"
             private static void DisplayResults(ImageAnalysis analysis, string imageUri)
             {
                 Console.WriteLine(imageUri);
-                Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                if (analysis.Description.Captions.Count != 0)
+                {
+                    Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+                }
+                else
+                {
+                    Console.WriteLine("No description generated.");
+                }
             }
         }
     }
@@ -145,7 +152,7 @@ ms.locfileid: "58505606"
 
 原始 JSON 输出的示例，请参阅 [API 快速入门：使用 C# 分析本地图像](../QuickStarts/CSharp-analyze.md#examine-the-response)。
 
-```
+```console
 https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
@@ -157,3 +164,4 @@ a large waterfall over a rocky cliff
 > [!div class="nextstepaction"]
 > [探索计算机视觉 API](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44)
 
+<!-- Update_Description: wording update -->

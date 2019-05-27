@@ -6,15 +6,15 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
 origin.date: 02/11/2019
-ms.date: 03/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: cb89b3d91c967e0a6b756e60649451172164943e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: de19b1a4805f9f4babf34e97e1dcb13c2973519c
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348040"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195026"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>教程：使用 PowerShell 创建和管理 S2S VPN 连接
 
@@ -81,7 +81,7 @@ $Connection1 = "VNet1ToSite1"
 * 本地地址空间
 * （可选）BGP 属性（BGP 对等机 IP 地址和 AS 编号）
 
-使用 [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway?view=azurermps-6.8.1) 命令创建本地网关。
+使用 [New-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/new-azlocalnetworkgateway) 命令创建本地网关。
 
 ```azurepowershell
 New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -90,7 +90,7 @@ New-AzLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>创建 S2S VPN 连接
 
-接下来，请使用 [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 在虚拟网关和 VPN 设备之间创建站点到站点 VPN 连接。 请注意，站点到站点 VPN 的“-ConnectionType”为 *IPsec*。
+接下来，请使用 [New-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) 在虚拟网关和 VPN 设备之间创建站点到站点 VPN 连接。 请注意，站点到站点 VPN 的“-ConnectionType”为 *IPsec*。
 
 ```azurepowershell
 $vng1 = Get-AzVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -101,13 +101,13 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1
   -ConnectionType IPsec -SharedKey "Azure@!b2C3"
 ```
 
-若要使用 BGP，请添加可选的“**-EnableBGP $True**”属性，以便为连接启用 BGP。 此项默认禁用。
+若要使用 BGP，请添加可选的“ **-EnableBGP $True**”属性，以便为连接启用 BGP。 此项默认禁用。
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>更新 VPN 连接预共享密钥、BGP 和 IPsec/IKE 策略
 
 ### <a name="view-and-update-your-pre-shared-key"></a>查看和更新预共享密钥
 
-Azure S2S VPN 连接使用预共享密钥（机密）在本地 VPN 设备和 Azure VPN 网关之间进行身份验证。 可以使用 [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 和 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) 查看和更新连接的预共享密钥。
+Azure S2S VPN 连接使用预共享密钥（机密）在本地 VPN 设备和 Azure VPN 网关之间进行身份验证。 可以使用 [Get-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetworkgatewayconnectionsharedkey) 和 [Set-AzVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnectionsharedkey) 查看和更新连接的预共享密钥。
 
 > [!IMPORTANT]
 > 预共享密钥是一个由**可打印 ASCII 字符**组成的字符串，长度不得超出 128 个字符。
@@ -119,7 +119,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-执行上面的示例时，输出将为“**Azure@!b2C3**”。 使用以下命令可以将预共享密钥值更改为“**Azure@!_b2=C3**”：
+执行上面的示例时，输出将为“Azure\@!b2C3”。 使用以下命令可以将预共享密钥值更改为“Azure\@!_b2=C3”：
 
 ```azurepowershell
 Set-AzVirtualNetworkGatewayConnectionSharedKey `
@@ -135,7 +135,7 @@ Azure VPN 网关支持 BGP 动态路由协议。 可以在每个单独的连接�
 * 本地网关 ASN
 * 本地网关 BGP 对等机 IP 地址
 
-如果尚未配置 BGP 属性，请使用以下命令将这些属性添加到 VPN 网关和本地网关：[Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway?view=azurermps-6.8.1) 和 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway?view=azurermps-6.8.1)。
+如果尚未配置 BGP 属性，请使用以下命令将这些属性添加到 VPN 网关和本地网关：[Set-AzVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgateway) 和 [Set-AzLocalNetworkGateway](https://docs.microsoft.com/powershell/module/az.network/set-azlocalnetworkgateway)。
 
 使用以下示例配置 BGP 属性：
 
@@ -148,7 +148,7 @@ Set-AzLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-使用 [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 启用 BGP。
+使用 [Set-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworkgatewayconnection) 启用 BGP。
 
 ```azurepowershell
 $connection = Get-AzVirtualNetworkGatewayConnection `
@@ -211,7 +211,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
 
 ## <a name="delete-a-s2s-vpn-connection"></a>删除 S2S VPN 连接
 
-使用 [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection?view=azurermps-6.8.1) 删除 S2S VPN 连接。
+使用 [Remove-AzVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetworkgatewayconnection) 删除 S2S VPN 连接。
 
 ```azurepowershell
 Remove-AzVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1

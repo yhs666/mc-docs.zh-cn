@@ -1,20 +1,20 @@
 ---
-title: Azure Database for PostgreSQL 中的服务器日志
-description: 本文介绍 Azure Database for PostgreSQL 如何生成查询和错误日志，以及配置多长时间的保留期。
+title: Azure Database for PostgreSQL - 单一服务器中的服务器日志
+description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器如何生成查询和错误日志，以及配置多长时间的保留期。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/01/2019
-ms.openlocfilehash: 1b04811a6852bdf313e7e9f0d2e3e3f12da3c09b
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+origin.date: 5/6/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 4e1e829a735eb0d68bb93f56bbb6211aef73c76a
+ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503658"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65731928"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL 中的服务器日志 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的服务器日志
 Azure Database for PostgreSQL 生成查询和错误日志。 查询和错误日志可用于识别、排除和修复配置错误和性能不佳问题。 （不包括访问事务日志）。 
 
 ## <a name="configure-logging"></a>配置日志记录 
@@ -47,11 +47,11 @@ Azure Database for PostgreSQL 集成了 Azure Monitor 诊断日志。 在 Postgr
 | ResourceProvider | 资源提供程序的名称。 始终是 `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | 资源 URI |
-| 资源 | 服务器的名称 |
-| 类别 | `PostgreSQLLogs` |
+| Resource | 服务器的名称 |
+| Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | 日志记录级别，例如：LOG, ERROR, NOTICE |
-| 消息 | 主要日志消息 | 
+| Message | 主要日志消息 | 
 | 域 | 服务器版本，示例：postgres-10 |
 | 详细信息 | 辅助日志消息（如果适用） |
 | ColumnName | 列名称（如果适用） |
@@ -61,5 +61,5 @@ Azure Database for PostgreSQL 集成了 Azure Monitor 诊断日志。 在 Postgr
 | _ResourceId | 资源 URI |
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解如何从 [Azure 门户](howto-configure-server-logs-in-portal.md)或 [Azure CLI](howto-configure-server-logs-using-cli.md) 访问日志。
+- 详细了解如何通过 [Azure 门户](howto-configure-server-logs-in-portal.md)或 [Azure CLI](howto-configure-server-logs-using-cli.md) 访问日志。
 - 详细了解 [Azure Monitor 定价](https://azure.cn/pricing/details/monitor/)。

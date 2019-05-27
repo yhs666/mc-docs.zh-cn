@@ -4,23 +4,21 @@ description: 演示如何应用标记来组织 Azure 资源进行计费和管理
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/11/2019
-ms.date: 03/18/2019
+origin.date: 04/26/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 85ed57a891fe1cbc743c4e423b21473a5abda5e2
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 69f4c27aede207cf00e18b18153b94d3cfc985cc
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348026"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195478"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -285,4 +283,4 @@ Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://
 * 并非所有资源类型都支持标记。 若要确定是否可以将标记应用到资源类型，请参阅 [Azure 资源的标记支持](tag-support.md)。
 * 有关使用门户的说明，请参阅[使用 Azure 门户管理 Azure 资源](manage-resource-groups-portal.md)。
 
-<!--Update_Description: update meta properties, wording update, update link, udpate powershell az cmdlet -->
+<!--Update_Description: update meta properties, wording update -->
