@@ -10,19 +10,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/04/2019
-ms.date: 04/15/2019
+origin.date: 04/25/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4df734ed427ca14c0c82163355b08948d909b659
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 119f01d6dbfdd9ea9a163e3ecd40e38eda1ae5d1
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529439"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195392"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>将资源移到新资源组或订阅中
 
-本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。 若要完成教程，请参阅[教程：将 Azure 资源移到另一个资源组或订阅](./resource-manager-tutorial-move-resources.md)。
+本文说明了如何将 Azure 资源移动到另一 Azure 订阅，或移动到同一订阅下的另一资源组。 可以使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API 移动资源。
 
 在移动操作过程中，源组和目标组都会锁定。 在完成移动之前，将阻止对资源组执行写入和删除操作。 此锁意味着将无法添加、更新或删除资源组中的资源，但并不意味着资源已被冻结。 例如，如果将 SQL Server 及其数据库移到新的资源组中，使用数据库的应用程序体验不到停机， 仍可读取和写入到数据库。
 
@@ -31,7 +31,7 @@ ms.locfileid: "59529439"
 > [!NOTE]
 > 本文介绍如何在现有 Azure 订阅之间移动资源。 如果确实想要升级 Azure 订阅（例如从免费切换到标准的预先支付套餐），则需要转换订阅。
 > 
-> * 如果无法转换订阅，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”作为问题类型。
+> * 如果无法转换订阅，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”  作为问题类型。
 
 <!-- Not Available on [Upgrade your Trial or Azure Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md)-->
 <!-- Not Available on [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md) -->
@@ -74,7 +74,7 @@ ms.locfileid: "59529439"
 * CDN
 * 云服务 - 请参阅 [经典部署限制](#classic-deployment-limitations)
 * 认知服务
-* 容器注册表 - 启用异地复制后无法移动容器注册表。
+* 容器注册表
 * 内容审查器   <!-- Not Available * Cost Management-->
     <!-- Not Available * Customer Insights-->
     <!-- Not Available * Data Catalog-->
@@ -89,7 +89,6 @@ ms.locfileid: "59529439"
 * IoT 中心
 * Key Vault - 用于磁盘加密的 Key Vault 不能移动到同一订阅中的资源组，也不能跨订阅移动。
 * 负载均衡器 - 可以移动基本 SKU 负载均衡器。 不能移动标准 SKU 负载均衡器。
-    <!-- Not Available * Log Analytics-->
 * 逻辑应用   <!-- Not Available * Machine Learning - Machine Learning Studio web services can be moved to a resource group in the same subscription, but not a different subscription. Other Machine Learning resources can be moved across subscriptions.-->
     <!-- Not Available * Managed Disks - see [Virtual Machines limitations for constraints](#virtual-machines-limitations)-->
     <!-- Not Available * Managed Identity - user-assigned-->
@@ -163,9 +162,6 @@ ms.locfileid: "59529439"
 以下方案尚不受支持：
 
 * 证书存储在 Key Vault 中的虚拟机可以移动到同一订阅中的新资源组，但无法跨订阅进行移动。
-
-<!--Not Availabl on Availability Zones-->
-
 * 无法移动具有标准 SKU 负载均衡器或标准 SKU 公共 IP 的虚拟机规模集。
 * 无法跨资源组或订阅移动基于附加了计划的市场资源创建的虚拟机。 在当前订阅中取消预配虚拟机，并在新的订阅中重新部署虚拟机。
 
@@ -217,6 +213,26 @@ _在订阅之间_移动 Web 应用时存在以下限制：
     - 应用服务环境
 - 资源组中的所有应用服务资源必须一起移动。
 - 只能从最初创建应用服务资源的资源组中移动它们。 如果某个应用服务资源不再位于其原始资源组中，则必须首先将其移动回该原始资源组，然后才能将其在订阅之间移动。
+
+<!--Pending for verify after tranlation-->
+
+如果忘记了原始资源组，可以通过诊断来查找。 对于 Web 应用，请选择“诊断和解决问题”  。 然后，选择“配置和管理”。 
+
+![选择诊断](./media/resource-group-move-resources/select-diagnostics.png)
+
+选择“迁移选项”  。
+
+![选择迁移选项](./media/resource-group-move-resources/select-migration.png)
+
+选择通过建议的步骤来移动 Web 应用的选项。
+
+![选择建议的步骤](./media/resource-group-move-resources/recommended-steps.png)
+
+可以看到在移动资源之前需采取的建议操作。 该信息包含 Web 应用的原始资源组。
+
+![建议](./media/resource-group-move-resources/recommendations.png)
+
+<!--Pending for verify after tranlation-->
 
 ### <a name="app-service-certificate-limitations"></a>应用服务证书限制
 
@@ -341,9 +357,9 @@ _在订阅之间_移动 Web 应用时存在以下限制：
 
 移动资源之前需执行的一些重要步骤。 验证这些条件可以避免错误。
 
-1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”作为问题类型。
+1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”  作为问题类型。
 
-2. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
+1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
    对于 Azure PowerShell，请使用：
 
@@ -363,7 +379,7 @@ _在订阅之间_移动 Web 应用时存在以下限制：
    <!--Not Available on [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md)-->
    <!--Not Available on [How to associate or add an Azure subscription to Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
 
-3. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
+1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：
 
@@ -391,16 +407,16 @@ _在订阅之间_移动 Web 应用时存在以下限制：
     az provider register --namespace Microsoft.Batch
     ```
 
-4. 移动资源的帐户至少需要具备下列权限：
+1. 移动资源的帐户至少需要具备下列权限：
 
-    * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action 权限。
-    * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write 权限。
+    * 源资源组上的 Microsoft.Resources/subscriptions/resourceGroups/moveResources/action  权限。
+    * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write  权限。
 
-5. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+1. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-6. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中有 800 多项资源时，资源管理器会立即返回错误。 但是，移动 800 项以下的资源也可能因超时而失败。
+1. 在可能的情况下，将大型移动分为单独的移动操作。 在一次操作中有 800 多项资源时，资源管理器会立即返回错误。 但是，移动 800 项以下的资源也可能因超时而失败。
 
-7. 服务必须支持移动资源的功能。 若要确定移动是否会成功，[验证你的移动请求](#validate-move)。 请参阅本文中的以下部分，了解[支持对资源进行移动的服务](#services-that-can-be-moved)和[不支持对资源进行移动的服务](#services-that-cannot-be-moved)。
+1. 服务必须支持移动资源的功能。 若要确定移动是否会成功，[验证你的移动请求](#validate-move)。 请参阅本文中的以下部分，了解[支持对资源进行移动的服务](#services-that-can-be-moved)和[不支持对资源进行移动的服务](#services-that-cannot-be-moved)。
 
 ## <a name="validate-move"></a>验证移动
 
@@ -459,17 +475,17 @@ Authorization: Bearer <access-token>
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />使用 Azure 门户
 
-若要移动资源，请选择包含这些资源的资源组，然后选择“移动”按钮。
+若要移动资源，请选择包含这些资源的资源组，然后选择“移动”  按钮。
 
 ![移动资源](./media/resource-group-move-resources/select-move.png)
 
 选择是要将资源移到新资源组还是新订阅。
 
-选择要移动的资源和目标资源组。 确认需要更新这些资源的脚本，选择“确定” 。 如果在上一步中已选择“编辑订阅”图标，则还必须选择目标订阅。
+选择要移动的资源和目标资源组。 确认需要更新这些资源的脚本，选择“确定”  。 如果在上一步中已选择“编辑订阅”图标，则还必须选择目标订阅。
 
 ![选择目标](./media/resource-group-move-resources/select-destination.png)
 
-在“通知” 中，可以看到移动操作正在运行。
+在“通知”  中，可以看到移动操作正在运行。
 
 ![显示移动状态](./media/resource-group-move-resources/show-status.png)
 

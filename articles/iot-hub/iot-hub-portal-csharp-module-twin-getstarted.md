@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 00fb8131c88a24b1af1cf372d7f0254e35758836
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 75556f04ac2aaf6900aee9f1894ad80148b543f7
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665457"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195040"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>使用门户和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -28,7 +28,8 @@ ms.locfileid: "56665457"
 
 本教程介绍：
 
-1. 如何在门户中创建模块标识。 
+1. 如何在门户中创建模块标识。
+
 2. 如何使用 .NET 设备 SDK 更新设备的模块孪生。
 
 > [!NOTE]
@@ -37,7 +38,7 @@ ms.locfileid: "56665457"
 
 要完成本教程，需要以下各项：
 
-* Visual Studio 2015 或 Visual Studio 2017。
+* Visual Studio。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -54,7 +55,7 @@ ms.locfileid: "56665457"
 
 ## <a name="create-a-module-identity-in-the-portal"></a>在门户中创建模块标识
 
-在一个设备标识中，最多可以创建 20 个模块标识。 单击顶部的“添加模块标识”按钮创建第一个模块标识，名为“myFirstModule”。 
+在一个设备标识中，最多可以创建 20 个模块标识。 单击顶部的“添加模块标识”按钮创建第一个模块标识，名为“myFirstModule”   。 
 
 ![设备详细信息][9]
 
@@ -68,7 +69,7 @@ ms.locfileid: "56665457"
 
 ## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
-在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 版本为 4.6.1 或更高。 将项目命名为“UpdateModuleTwinReportedProperties”。
+在 Visual Studio 中，使用“控制台应用(.NET Framework)”  项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 版本为 4.6.1 或更高。 将项目命名为“UpdateModuleTwinReportedProperties”  。
 
   ![创建 Visual Studio 项目][13]
 
@@ -163,7 +164,7 @@ ms.locfileid: "56665457"
 
 ## <a name="run-the-apps"></a>运行应用
 
-现在，已准备就绪，可以运行应用。 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”。 选择“多个启动项目”，然后选择“启动”作为控制台应用的操作。 然后按 F5 启动这两个应用，使其运行。 
+现在，已准备就绪，可以运行应用。 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”  。 选择“多个启动项目”，然后选择“启动”作为控制台应用的操作   。 然后按 F5 启动这两个应用，使其运行。 
 
 ## <a name="next-steps"></a>后续步骤
 

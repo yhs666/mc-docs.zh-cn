@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 01/11/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0975f34d1c9b8e97361496e66df59822287f0489
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: bc3c54296109173d974b4d12a3e3a64951050708
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004093"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004236"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -40,13 +40,13 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* 必须在位于同一 VNET 中的计算机上运行该命令。
->* 可以使用 DIP 或主机名来替换 <computer>。
+>* 可以使用 DIP 或主机名来替换 \<computer>。
 >* -s 参数确保使用系统帐户（管理员权限）调用命令。
 >* PsExec 使用 TCP 端口 135 和 445。 因此，需要在防火墙中打开这两个端口。
 
-<!-- Not Available on ## Run Commands-->
+## <a name="run-commands"></a>运行命令
 
-<!-- Not Available on [Run PowerShell scripts in your Windows VM with Run Command](../windows/run-command.md)-->
+有关如何使用“运行命令”功能在 VM 上运行脚本的详细信息，请参阅[使用“运行命令”在 Windows VM 中运行 PowerShell 脚本](../windows/run-command.md)。
 
 ## <a name="customer-script-extension"></a>自定义脚本扩展
 
@@ -92,7 +92,7 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### <a name="for-v2-vms"></a>对于 V2 VM
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 #Setup the basic variables
@@ -133,7 +133,7 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 1. 在同一 VNET 中的另一个 VM 上，打开注册表编辑器 (regedit.exe)。
 
-2. 选择“文件” >“连接网络注册表”。
+2. 选择“文件” >“连接网络注册表”。  
 
    ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
@@ -156,9 +156,9 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 1. 在同一 VNET 中的另一个 VM 上，打开 **Services.msc** 的实例。
 
-2. 右键单击“服务(本地)”。
+2. 右键单击“服务(本地)”。 
 
-3. 选择“连接到另一台计算机”。
+3. 选择“连接到另一台计算机”。 
 
    ![远程服务](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
@@ -172,10 +172,10 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx)
 
-[使用经典部署模型完成的适用于 Windows 的自定义脚本扩展](../extensions/custom-script-classic.md)
+[适用于 Windows 的自定义脚本扩展（使用经典部署模型）](../extensions/custom-script-classic.md)
 
 PsExec 包含在 [PSTools Suite](https://download.sysinternals.com/files/PSTools.zip) 中。
 
-有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](/sysinternals/downloads/pstools)。
+有关 PSTools Suite 的详细信息，请参阅 [PSTools Suite](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
 
 <!-- Update_Description: wording update  -->

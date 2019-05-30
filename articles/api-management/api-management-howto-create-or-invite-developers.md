@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 02/13/2018
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: 8b859e6acc2240af250a94e2cec0087447fb4d00
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/03/2019
+ms.openlocfilehash: 84db02869ae8eeb2aa2a3e6fda078f568bd491ca
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829378"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194998"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>如何在 Azure API 管理中管理用户帐户
 
@@ -37,20 +37,20 @@ ms.locfileid: "65829378"
 
 若要添加新用户，请执行本部分中的步骤：
 
-1. 选择屏幕左侧的“用户”选项卡。
-2. 按“+添加”。
+1. 选择屏幕左侧的“用户”  选项卡。
+2. 按“+添加”  。
 3. 输入用户的相应信息。
-4. 按“添加”。
+4. 按“添加”  。
 
     ![添加新用户](./media/api-management-howto-create-or-invite-developers/api-management-create-developer.png)
 
-默认情况下，新创建的开发人员帐户处于“活动”状态，并且与“开发人员”组相关联。 处于“活动”状态的开发人员帐户可用于访问他们具有订阅的所有 API。 要将新创建的开发人员与其他组相关联，请参阅[如何将组与开发人员关联][How to associate groups with developers]。
+默认情况下，新创建的开发人员帐户处于“活动”  状态，并且与“开发人员”  组相关联。 处于“活动”  状态的开发人员帐户可用于访问他们具有订阅的所有 API。 要将新创建的开发人员与其他组相关联，请参阅[如何将组与开发人员关联][How to associate groups with developers]。
 
 ## <a name="invite-developer"> </a>邀请开发人员
 若要邀请开发人员，请执行本部分中的步骤：
 
-1. 选择屏幕左侧的“用户”选项卡。
-2. 按“+邀请”。
+1. 选择屏幕左侧的“用户”  选项卡。
+2. 按“+邀请”  。
 
 将显示一条确认消息，但新受邀请的开发人员不会出现在列表中，直到他们接受邀请。 
 
@@ -60,17 +60,17 @@ ms.locfileid: "65829378"
 
 ## <a name="block-developer"> </a> 停用或重新激活开发人员帐户
 
-默认情况下，新创建或受邀请的开发人员帐户处于“活动”状态。 若要停用开发人员帐户，请单击“阻止”。 若要重新激活阻止的开发人员帐户，请单击“激活”。 阻止的开发人员帐户不能访问开发人员门户或调用任何 API。 若要删除用户帐户，请单击“删除”。
+默认情况下，新创建或受邀请的开发人员帐户处于“活动”  状态。 若要停用开发人员帐户，请单击“阻止”  。 若要重新激活阻止的开发人员帐户，请单击“激活”  。 阻止的开发人员帐户不能访问开发人员门户或调用任何 API。 若要删除用户帐户，请单击“删除”  。
 
 若要阻止用户，请执行以下步骤。
 
-1. 选择屏幕左侧的“用户”选项卡。
+1. 选择屏幕左侧的“用户”  选项卡。
 2. 单击想要阻止的用户。
-3. 按“阻止”。
+3. 按“阻止”  。
 
 ## <a name="reset-a-user-password"></a>重置用户密码
 
-若要以编程方式处理用户帐户，请参阅 [API 管理 REST](https://docs.microsoft.com/rest/api/apimanagement/) 参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/user)文档。 要将用户帐户密码重置为特定值，可使用[更新用户](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser)操作并指定所需密码。
+若要以编程方式处理用户帐户，请参阅 [API 管理 REST API](https://docs.microsoft.com/rest/api/apimanagement/) 参考中的[用户实体](https://docs.microsoft.com/rest/api/apimanagement/user)文档。 要将用户帐户密码重置为特定值，可使用[更新用户](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser)操作并指定所需密码。
 
 ## <a name="next-steps"></a>后续步骤
 创建开发人员帐户后，可以将其与角色相关联，并为其订阅产品和 API。 有关详细信息，请参阅[如何创建和使用组][How to create and use groups]。

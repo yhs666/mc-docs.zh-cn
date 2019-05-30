@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 12/03/2018
+ms.date: 06/03/2018
 ms.author: v-yiso
-ms.openlocfilehash: 8bf466021f66613c970b725d96e5ac8a526324d0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 240e0eaec31711d4905996020ea50d4970079571
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625962"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194981"
 ---
 # <a name="get-started-with-device-twins-node"></a>设备孪生入门 (Node)
 
@@ -24,7 +24,7 @@ ms.locfileid: "58625962"
 在本教程结束时，你将拥有两个 Node.js 控制台应用：
 
 * **AddTagsAndQuery.js**（Node.js 后端应用），用于添加标记和查询设备孪生。
-* TwinSimulatedDevice.js（Node.js 应用），用于模拟使用早先创建的设备标识连接到 IoT 中心的设备，并报告其连接状况。
+*  TwinSimulatedDevice.js（Node.js 应用），用于模拟使用早先创建的设备标识连接到 IoT 中心的设备，并报告其连接状况。
 
 > [!NOTE]
 > [Azure IoT SDK][lnk-hub-sdks] 文章介绍了可用于构建设备和后端应用的 Azure IoT SDK。
@@ -33,7 +33,7 @@ ms.locfileid: "58625962"
 
 若要完成本教程，需要满足以下条件：
 
-* Node.js 版本 4.0.x 或更高版本。
+* Node.js 版本 10.0.x 或更高版本。
 
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
@@ -62,7 +62,8 @@ ms.locfileid: "58625962"
     ```
 3. 使用文本编辑器，在 **addtagsandqueryapp** 文件夹中创建一个新的 **AddTagsAndQuery.js** 文件。
 4. 将以下代码添加到 **AddTagsAndQuery.js** 文件，并将 **{iot hub connection string}** 占位符替换为创建中心时复制的 IoT 中心连接字符串：
-   
+
+   ``` javascript
         'use strict';
         var iothub = require('azure-iothub');
         var connectionString = '{iot hub connection string}';
@@ -91,12 +92,14 @@ ms.locfileid: "58625962"
                 });
             }
         });
-   
+   ```
+
     **Registry** 对象公开从服务与设备孪生进行交互所需的所有方法。 前面的代码首先初始化 **Registry** 对象，然后检索 **myDeviceId** 的设备孪生，最后使用所需位置信息更新其标记。
    
-    更新标记后，它将调用 queryTwins 函数。
+    更新标记后，它将调用 queryTwins 函数  。
 5. 在 **AddTagsAndQuery.js** 末尾添加以下代码以实现 **queryTwins** 函数：
-   
+
+   ```javascript
         var queryTwins = function() {
             var query = registry.createQuery("SELECT * FROM devices WHERE tags.location.plant = 'Redmond43'", 100);
             query.nextAsTwin(function(err, results) {
@@ -116,10 +119,11 @@ ms.locfileid: "58625962"
                 }
             });
         };
-   
+   ```
+
     前面的代码执行两个查询：第一个只选择位于 **Redmond43** 工厂中的设备的设备孪生，第二个会优化查询以只选择还通过手机网络连接的设备。
    
-    上面的代码创建 query 对象时，会指定返回的最大文档数。 **query** 对象包含 **hasMoreResults** 布尔值属性，可以使用它多次调用 **nextAsTwin** 方法来检索所有结果。 名为 next 的方法可用于非设备孪生的结果（例如聚合查询的结果）。
+    上面的代码创建 query 对象时，会指定返回的最大文档数  。 **query** 对象包含 **hasMoreResults** 布尔值属性，可以使用它多次调用 **nextAsTwin** 方法来检索所有结果。 名为 next 的方法可用于非设备孪生的结果（例如聚合查询的结果）  。
 6. 使用以下内容运行应用程序：
    
         node AddTagsAndQuery.js
@@ -205,6 +209,7 @@ ms.locfileid: "58625962"
 * 通过 [Get started with IoT Hub][lnk-iothub-getstarted] （IoT 中心入门）教程学习如何从设备发送遥测；
 * 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备；
 * 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
+
 
 <!-- images -->
 [1]: ./media/iot-hub-node-node-twin-getstarted/service1.png

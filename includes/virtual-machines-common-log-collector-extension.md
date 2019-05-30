@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: fb5eba17caba02c001e6489fd41441000f213b36
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: dbe630514a8cfcb1e83ba152c0e5a3abe1fe043a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004538"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66039220"
 ---
 若要诊断 Azure 云服务的问题，需要在问题发生时收集虚拟机上该服务的日志文件。 可以使用 AzureLogCollector 扩展按需从一个或多个云服务 VM（通过 Web 角色和辅助角色）执行一次性日志收集，并将收集到的文件传输到 Azure 存储帐户 - 所有这些操作都无需远程登录到任何 VM。
 
@@ -21,13 +21,13 @@ ms.locfileid: "59004538"
 
 有两种收集模式，其使用取决于要收集的文件的类型。
 
-* **仅 Azure 来宾代理日志 (GA)**。 此收集模式包括与 Azure 来宾代理以及其他 Azure 组件相关的所有日志。
-* **所有日志（完整）**。 此收集模式会收集 GA 模式下的所有文件以及：
+* **仅 Azure 来宾代理日志 (GA)** 。 此收集模式包括与 Azure 来宾代理以及其他 Azure 组件相关的所有日志。
+* **所有日志（完整）** 。 此收集模式会收集 GA 模式下的所有文件以及：
 
     * 系统和应用程序事件日志
     * HTTP 错误日志
-    * IIS Logs
-    * 安装日志
+    * IIS 日志
+    * 安装程序日志
     * 其他系统日志
 
 在两种收集模式下，均可使用以下结构的集合来指定额外的数据收集文件夹：
@@ -38,8 +38,11 @@ ms.locfileid: "59004538"
 * **Recursive**：如果要收集的文件以递归方式列于指定位置下。
 
 ## <a name="prerequisites"></a>先决条件
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
+
 * 有一个用于扩展的存储帐户，保存生成的 zip 文件。
-* 使用 Azure PowerShell Cmdlet v0.8.0 或更高版本。 有关详细信息，请参阅 [Azure 下载](https://www.azure.cn/downloads/)。
+* Azure PowerShell。 有关安装说明，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 ## <a name="add-the-extension"></a>添加扩展
 可以使用 [Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 或[服务管理 REST API](https://msdn.microsoft.com/library/ee460799.aspx) 添加 AzureLogCollector 扩展。
@@ -137,7 +140,7 @@ ms.locfileid: "59004538"
     $StorageAccountKey  = 'YourStorageAccountKey'
     ```
 
-5. 按如下所示调用 SetAzureServiceLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在  下找到上传的文件 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs`
+5. 按如下所示调用 SetAzureServiceLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs` 下找到上传的文件
 
     ```powershell
     .\SetAzureServiceLogCollector.ps1 -ServiceName YourCloudServiceName  -Roles $roles  -Instances $instances -Mode $mode -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey -AdditionDataLocationList $AdditionalDataList
@@ -229,7 +232,7 @@ param (
     $StorageAccountKey  = 'YourStorageAccountKey'
     ```
 
-3. 按如下所示调用 SetAzureVMLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在  下找到上传的文件 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs`
+3. 按如下所示调用 SetAzureVMLogCollector.ps1（本文末尾提供），以便为云服务启用 AzureLogCollector 扩展。 执行完以后，可以在 `https://YourStorageAccountName.blob.core.chinacloudapi.cn/vmlogs` 下找到上传的文件
 
 下面是传递给脚本的参数的定义。 （也在下面复制。）
 
@@ -266,10 +269,10 @@ param (
 
     ```
     {
-    String Name,
-    String Location,
-    String SearchPattern,
-    Bool   Recursive
+      String Name,
+      String Location,
+      String SearchPattern,
+      Bool   Recursive
     }
     ```
 
@@ -333,18 +336,18 @@ else
 #
 #we need to get the Sasuri from StorageAccount and containers
 #
-$context = New-AzureStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$context = New-AzStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 $ContainerName = "azurelogcollectordata"
-$existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
+$existingContainer = Get-AzStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
 if ($existingContainer -eq $null)
 {
   "Container ($ContainerName) doesn't exist. Creating it now.."
-  New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
+  New-AzStorageContainer -Context $context -Name $ContainerName -Permission off
 }
 
 $ExpiryTime =  [DateTime]::Now.AddMinutes(120).ToString("o")
-$SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
+$SasUri = New-AzStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
 $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
 #
@@ -423,18 +426,18 @@ else
 #
 #we need to get the Sasuri from StorageAccount and containers
 #
-$context = New-AzureStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+$context = New-AzStorageContext -Environment AzureChinaCloud -Protocol https -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 $ContainerName = "azurelogcollectordata"
-$existingContainer = Get-AzureStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
+$existingContainer = Get-AzStorageContainer -Context $context |  Where-Object { $_.Name -like $ContainerName}
 if ($existingContainer -eq $null)
 {
     "Container ($ContainerName) doesn't exist. Creating it now.."
-    New-AzureStorageContainer -Context $context -Name $ContainerName -Permission off
+    New-AzStorageContainer -Context $context -Name $ContainerName -Permission off
 }
 
 $ExpiryTime =  [DateTime]::Now.AddMinutes(90).ToString("o")
-$SasUri = New-AzureStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
+$SasUri = New-AzStorageContainerSASToken -ExpiryTime $ExpiryTime -FullUri -Name $ContainerName -Permission rwl -Context $context
 $publicConfig | Add-Member -MemberType NoteProperty -Name "SasUri" -Value $SasUri
 
 #
@@ -499,7 +502,7 @@ if ($VMName -ne $null )
                         # This is an optional step:  For easier access to the file, we can generate a read-only SasUri directly to the file
                           #
                           $ExpiryTimeRead =  [DateTime]::Now.AddMinutes(120).ToString("o")
-                          $ReadSasUri = New-AzureStorageBlobSASToken -ExpiryTime $ExpiryTimeRead  -FullUri  -Blob  $blob.name -Container $blob.Container.Name -Permission r -Context $context
+                          $ReadSasUri = New-AzStorageBlobSASToken -ExpiryTime $ExpiryTimeRead  -FullUri  -Blob  $blob.name -Container $blob.Container.Name -Permission r -Context $context
 
                         Write-Output "The uploaded file can be accessed using this link: $ReadSasUri"
 

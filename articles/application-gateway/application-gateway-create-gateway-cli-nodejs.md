@@ -1,45 +1,27 @@
 ---
-title: 创建 Azure 应用程序网关 - Azure 经典 CLI | Microsoft Docs
+title: 创建 Azure 应用程序网关 - Azure 经典 CLI
 description: 了解如何在资源管理器中使用 Azure 经典 CLI 创建应用程序网关
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-origin.date: 07/31/2017
-ms.date: 10/17/2018
+ms.topic: conceptual
+origin.date: 04/15/2019
+ms.date: 05/20/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7f313f9503a05fe9025103df46326d87616709a1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 21fc7be865378de5e086a1c0eb4c8e583b758635
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663032"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960885"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>使用 Azure CLI 创建应用程序网关
 
-> [!div class="op_single_selector"]
-> * [Azure 门户](application-gateway-create-gateway-portal.md)
-> * [Azure 资源管理器 PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure 经典 PowerShell](application-gateway-create-gateway.md)
-> * [Azure Resource Manager 模板](application-gateway-create-gateway-arm-template.md)
-> * [Azure 经典 CLI](application-gateway-create-gateway-cli.md)
-> * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
-
-Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。 应用程序网关具有以下应用程序传递功能：HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测，以及多站点支持。
+Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。 应用程序网关具有下述与应用程序传送功能：HTTP 负载均衡、基于 Cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测，以及多站点支持。
 
 ## <a name="prerequisite-install-the-azure-cli"></a>先决条件：安装 Azure CLI
 
-若要执行本文中的步骤，需[安装 Azure CLI](../xplat-cli-install.md) 并[登录到 Azure](/cli/authenticate-azure-cli)。 
+若要执行本文中的步骤，需[安装 Azure CLI](../xplat-cli-install.md) 并[登录 Azure](/cli/authenticate-azure-cli)。 
 
 > [!NOTE]
 > 如果没有 Azure 帐户，则需要注册一个。 请[在此处注册试用版](../active-directory/fundamentals/sign-up-organization.md)。
@@ -50,9 +32,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 此方案将：
 
-- 创建包含两个实例的中型应用程序网关。
-- 创建名为“ContosoVNET”且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
-- 创建名为 subnet01 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
+* 创建包含两个实例的中型应用程序网关。
+* 创建名为“ContosoVNET”且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
+* 创建名为 subnet01 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
 
 > [!NOTE]
 > 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
@@ -61,9 +43,9 @@ Azure 应用程序网关是第 7 层负载均衡器。 它在不同服务器之�
 
 Azure 应用程序网关需要自己的子网。 在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。 将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
 
-## <a name="log-in-to-azure"></a>登录 Azure
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-打开 **Azure 命令提示符**，并登录。 
+打开 **Azure 命令提示符**并登录。
 
 ```azurecli
 azure login -e AzureChinaCloud

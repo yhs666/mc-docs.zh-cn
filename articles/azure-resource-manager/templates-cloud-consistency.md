@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/09/2018
-ms.date: 04/15/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: fe33df45c7b68eed8a1b3a343ef8ede42d18ceb0
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 32fb6f124a739ced5a47f628a25914b512234204
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529423"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195463"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -61,9 +61,9 @@ Azure 资源管理器的功能始终会首先引入到全球 Azure。 使用以�
 
 1. 克隆 GitHub 存储库：[https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions)
 
-2. 本地克隆存储库后，使用 PowerShell 连接到目标的 Azure 资源管理器。
+1. 本地克隆存储库后，使用 PowerShell 连接到目标的 Azure 资源管理器。
 
-3. 导入 psm1 模块并执行 Test-AzureRmTemplateFunctions cmdlet：
+1. 导入 psm1 模块并执行 Test-AzureRmTemplateFunctions cmdlet：
 
    ```powershell
    # Import the module
@@ -304,7 +304,7 @@ Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty Re
 
 ### <a name="track-versions-using-api-profiles"></a>使用 API 配置文件跟踪版本
 
-跟踪所有可用资源提供程序和 Azure Stack 中存在的相关 API 版本非常具有挑战性。 例如，在撰写本文时，Azure 中 Microsoft.Compute/availabilitySets 的最新 API 版本为 `2018-04-01`，而 Azure 和 Azure Stack 的通用 API 版本为 `2016-03-30`。 在所有 Azure 和 Azure Stack 位置之间共享的 Microsoft.Storage/storageAccounts 的通用 API 版本为 `2016-01-01`，而在 Azure 中的最新 API 版本为 `2018-02-01`。
+跟踪所有可用资源提供程序和 Azure Stack 中存在的相关 API 版本非常具有挑战性。 例如，在撰写本文时，Azure 中 Microsoft.Compute/availabilitySets 的最新 API 版本为 `2018-04-01`，而 Azure 和 Azure Stack 的通用 API 版本为 `2016-03-30`  。 在所有 Azure 和 Azure Stack 位置之间共享的 Microsoft.Storage/storageAccounts 的通用 API 版本为 `2016-01-01`，而在 Azure 中的最新 API 版本为 `2018-02-01`  。
 
 为此，资源管理器在模板中引入了 API 配置文件的概念。 使用 API 配置文件，模板中的每个资源都配置了 `apiVersion` 元素，用于描述该特定资源的 API 版本。
 
@@ -452,9 +452,9 @@ API 配置文件可确保 API 版本可跨位置使用，因此不需要手动�
 
 一般情况下，请避免在模板中使用硬编码终结点。 最佳做法是使用引用模板函数动态检索终结点。 例如，最常进行硬编码的终结点是存储帐户的终结点命名空间。 每个存储帐户均有唯一的 FQDN，它通过连接存储帐户的名称与终结点命名空间来构造。 名为 mystorageaccount1 的 blob 存储帐户会因为云的不同而产生不同的 FQDN：
 
-* 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net。
+* 在全球 Azure 云上创建时会产生 mystorageaccount1.blob.core.windows.net  。
     <!--Notice: Global Azure Cloud should be mystorageaccount1.blob.core.windows.net-->
-* 在 Azure 中国云中创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn。
+* 在 Azure 中国云中创建时会产生 mystorageaccount1.blob.core.chinacloudapi.cn  。
 
 以下引用模板函数从存储资源提供程序中检索终结点命名空间：
 
@@ -623,7 +623,7 @@ Get-AzureRmVmImagePublisher -Location 'chinanorth' | Get-AzureRmVMExtensionImage
 
 VM 扩展资源的 API 版本必须存在于你模板中计划的所有目标位置。 位置依赖关系的作用类似于之前在“验证所有资源类型的版本”部分讨论的资源提供程序 API 版本的可用性。
 
-要检索 VM 扩展资源的可用 API 版本列表，请将 [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider) cmdlet 与 Microsoft.Compute 资源提供程序结合使用，如下所示：
+要检索 VM 扩展资源的可用 API 版本列表，请将 [Get-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider) cmdlet 与 Microsoft.Compute 资源提供程序结合使用，如下所示  ：
 
 ```powershell
 Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
@@ -653,7 +653,7 @@ Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Obje
         ...   
 ```
 
-要检索特定 VM 扩展的可用版本列表，请使用 [Get AzureRmVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage) cmdlet。 以下示例从 myLocation 检索 PowerShell DSC（所需状态配置）VM 扩展的可用版本：
+要检索特定 VM 扩展的可用版本列表，请使用 [Get AzureRmVMExtensionImage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmextensionimage) cmdlet。 以下示例从 myLocation 检索 PowerShell DSC（所需状态配置）VM 扩展的可用版本  ：
 
 ```powershell
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
@@ -680,6 +680,7 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 资源管理器模板注意事项](../azure-stack/user/azure-stack-develop-templates.md)
+    <!--MOONCAKE: correct on azure-stack/user/azure-stack-develop-templates.md-->
 * [Azure 资源管理器模板的最佳做法](resource-group-authoring-templates.md)
 
 <!--Update_Description: wording update, update link  -->

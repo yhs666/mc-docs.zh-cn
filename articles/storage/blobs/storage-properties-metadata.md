@@ -5,34 +5,33 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 07/16/2017
-ms.date: 09/10/2017
+origin.date: 04/03/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 6edb948ef32fb7d8165ca30ac11ce440ec6cb838
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e1b90e4d6c8ea0fecd48efe428c0606d38236087
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656975"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004321"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>设置和检索属性与元数据
 
 除 Azure 存储中的对象包含的数据外，它们还支持系统属性和用户定义的元数据。 本文介绍如何使用[用于 .NET 的 Azure 存储客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)管理系统属性和用户定义元数据。
 
-* 系统属性：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库将保留这些属性。
+* **系统属性**：系统属性存在于每个存储资源上。 其中一些属性是可以读取或设置的，而另一些属性是只读的。 事实上，有些系统属性与某些标准 HTTP 标头对应。 Azure 存储客户端库将保留这些属性。
 
 * **用户定义的元数据**：用户定义元数据包含一个或多个你为 Azure 存储资源指定的名称/值对对。 可以使用元数据存储资源的其他值。 元数据值仅用于你自己的目的，不会影响资源的行为方式。
 
-检索资源的属性和元数据值的过程分为两步。 必须先通过调用 FetchAttributes 或 FetchAttributesAsync 方法显式提取这些值，然后才能读取。 对资源调用 Exists 或 ExistsAsync 方法是例外情况。 调用以上一种方法时，Azure 存储将在调用 Exists 方法时以隐藏方式调用相应的 FetchAttributes 方法。
+检索资源的属性和元数据值的过程分为两步。 必须先通过调用 FetchAttributes 或 FetchAttributesAsync 方法显式提取这些值，然后才能读取   。 对资源调用 Exists 或 ExistsAsync 方法是例外情况   。 调用以上一种方法时，Azure 存储将在调用 Exists 方法时以隐藏方式调用相应的 FetchAttributes 方法   。
 
 > [!IMPORTANT]
-> 如果发现尚未填充存储资源的属性或元数据值，请检查代码是否调用了 FetchAttributes 或 FetchAttributesAsync 方法。
+> 如果发现尚未填充存储资源的属性或元数据值，请检查代码是否调用了 FetchAttributes 或 FetchAttributesAsync 方法   。
 >
-> 元数据名称/值对仅可包含 ASCII 字符。 元数据名称/值对是有效的 HTTP 标头，因此必须遵循所有控制 HTTP 标头的限制。 对于包含非 ASCII 字符的名称和值，建议使用 URL 编码或 Base64 编码。
->
+> 元数据名称/值对是有效的 HTTP 标头，因此应当遵循所有控制 HTTP 标头的限制。 元数据名称必须是有效的 HTTP 标头名称和有效的 C# 标识符，只能包含 ASCII 字符，并且应当区分大小写。 包含非 ASCII 字符的元数据值应当是 Base64 编码的或 URL 编码的。
 
 ## <a name="setting-and-retrieving-properties"></a>设置和检索属性
-要检索属性值，请对 blob 或容器调用 FetchAttributesAsync 方法来填充这些属性，然后读取它们的值。
+要检索属性值，请对 blob 或容器调用 FetchAttributesAsync  方法来填充这些属性，然后读取它们的值。
 
 如果要在对象上设置属性，请指定属性值，并调用 **SetProperties** 方法。
 
@@ -61,7 +60,7 @@ Console.WriteLine();
 ```
 
 ## <a name="setting-and-retrieving-metadata"></a>设置和检索元数据
-可将元数据指定为 Blob 或容器资源上的一个或多个名称/值对。 要设置元数据，请将名称/值对添加到资源上的 Metadata 集合，然后调用 SetMetadata 或 SetMetadataAsync 方法以将值保存到服务。
+可将元数据指定为 Blob 或容器资源上的一个或多个名称/值对。 要设置元数据，请将名称/值对添加到资源上的 Metadata 集合，然后调用 SetMetadata 或 SetMetadataAsync 方法以将值保存到服务    。
 
 > [!NOTE]
 > 元数据的名称必须符合 C# 标识符命名约定。
@@ -82,7 +81,7 @@ public static async Task AddContainerMetadataAsync(CloudBlobContainer container)
 }
 ```
 
-要检索元数据，请对 blob 或容器调用 FetchAttributes 或 FetchAttributesAsync 方法以填充 Metadata 集合，然后读取值，如下面的示例所示。
+要检索元数据，请对 blob 或容器调用 FetchAttributes 或 FetchAttributesAsync 方法以填充 Metadata 集合，然后读取值，如下面的示例所示    。
 
 ```csharp
 public static async Task ListContainerMetadataAsync(CloudBlobContainer container)

@@ -12,18 +12,18 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 12/11/2018
-ms.date: 03/04/2019
+origin.date: 04/10/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 002a7506440c1f5d5baaac7b356ca63e44d73aa4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ecf6a60ac2f03dd4fcd82a55b0316c9c3df0434d
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625837"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195484"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
-本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json 文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
+本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json  文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
 
 <!--Not Available on [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md)-->
 
@@ -41,7 +41,7 @@ ms.locfileid: "58625837"
 | --- | --- | --- | --- |
 |ApplicationCertificateValidationPolicy|string，默认值为“None”|静态| 不会验证服务器证书；请求成功。 请参阅配置 ServiceCertificateThumbprints，获取反向代理可以信任的远程证书的指纹列表（以逗号分隔）。 请参阅配置 ServiceCommonNameAndIssuer，获取反向代理可以信任的远程证书的使用者名称和证书颁发者指纹。 若要了解详细信息，请参阅[反向代理安全连接](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services)。 |
 |BodyChunkSize |Uint，默认值为 16384 |动态| 提供用于读取正文的区块大小（以字节为单位）。 |
-|CrlCheckingFlag|uint，默认值为 0x40000000 |动态| 应用程序/服务证书链验证的标记；例如 CRL 检查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 设置为 0 会禁用 CRL 检查，支持值的完整列表由 CertGetCertificateChain 的 dwFlags 记录： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
+|CrlCheckingFlag|uint，默认值为 0x40000000 |动态| 应用程序/服务证书链验证的标记；例如 CRL 检查 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 设置为 0 会禁用 CRL 检查，支持值的完整列表由 CertGetCertificateChain 的 dwFlags 记录： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |以秒为单位的时间。 默认值为 120 |动态|指定以秒为单位的时间跨度。  提供用于 http 应用网关中正在处理的 http 请求的默认请求超时时间。 |
 |ForwardClientCertificate|bool，默认值为 FALSE|动态|如果设置为 false，反向代理不会请求客户端证书。如果设置为 true，反向代理将在 SSL 握手期间请求客户端证书，并将 base64 编码的 PEM 格式字符串转发到名为 X-Client-Certificate 的标头中的服务。检查证书数据后，服务可能无法处理请求，并返回相应的状态代码。 如果此参数为 true 并且客户端不提供证书，反向代理将转发空标头，并让服务处理该情况。 反向代理将充当透明层。 若要了解详细信息，请参阅[设置客户端证书身份验证](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy)。 |
 |GatewayAuthCredentialType |string，默认值为“None” |静态| 指示在 http 应用网关终结点处使用的安全凭据的类型，有效值为“None/X509”。 |
@@ -90,7 +90,7 @@ ms.locfileid: "58625837"
 |MaxDataMigrationTimeout |以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间跨度。 发生结构升级后，数据迁移恢复操作的最大超时时间。 |
 |MaxOperationRetryDelay |以秒为单位的时间，默认值为 5|动态| 指定以秒为单位的时间跨度。 遇到故障时，内部重试的最大延迟时间。 |
 |MaxOperationTimeout |以秒为单位的时间，默认值为 MaxValue |动态| 指定以秒为单位的时间跨度。 用于内部处理 ClusterManager 上的操作的最大全局超时时间。 |
-|MaxTimeoutRetryBuffer | 以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间跨度。 因超时导致内部重试时，最大操作超时时间是 <Original Time out> + <MaxTimeoutRetryBuffer>。 以 MinOperationTimeout 为增量添加额外超时时间。 |
+|MaxTimeoutRetryBuffer | 以秒为单位的时间，默认值为 600 |动态|指定以秒为单位的时间跨度。 因超时导致内部重试时，最大操作超时时间是 `<Original Time out> + <MaxTimeoutRetryBuffer>`。 以 MinOperationTimeout 为增量添加额外超时时间。 |
 |MinOperationTimeout | 以秒为单位的时间，默认值为 60 |动态|指定以秒为单位的时间跨度。 用于内部处理 ClusterManager 上的操作的最小全局超时时间。 |
 |MinReplicaSetSize |Int，默认值为 3 |不允许|ClusterManager 的 MinReplicaSetSize。 |
 |PlacementConstraints | string，默认值为“” |不允许|ClusterManager 的 PlacementConstraints。 |
@@ -110,19 +110,16 @@ ms.locfileid: "58625837"
 |PerfMonitorInterval |以秒为单位的时间，默认值为 1 |动态|指定以秒为单位的时间跨度。 性能监视时间间隔。 设置为 0 或负值会禁用监视。 |
 
 ## <a name="defragmentationemptynodedistributionpolicy"></a>DefragmentationEmptyNodeDistributionPolicy
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap，默认值为 None|动态|指定清空节点时遵循的策略碎片整理。 对于某个给定指标，0 表示 SF 应尝试在 UD 和 FD 间对节点进行均匀的碎片整理，1 仅指表示必须对节点进行碎片整理 |
 
 ## <a name="defragmentationmetrics"></a>DefragmentationMetrics
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyBoolValueMap，默认值为 None|动态|确定应用于碎片整理而不用于负载均衡的指标组。 |
 
 ## <a name="defragmentationmetricspercentornumberofemptynodestriggeringthreshold"></a>DefragmentationMetricsPercentOrNumberOfEmptyNodesTriggeringThreshold
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|通过在范围 [0.0 - 1.0) 中指定百分比或将空节点数指定为 >= 1.0 的数，确定需考虑进行群集碎片整理的可用节点数 |
@@ -133,7 +130,7 @@ ms.locfileid: "58625837"
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |Bool，默认值为 true | 动态 |代表应用程序访问诊断存储时是否需要模拟。 |
 |AppEtwTraceDeletionAgeInDays |Int，默认值为 3 | 动态 |在多少天后删除包含应用程序 ETW 跟踪的旧 ETL 文件。 |
-|ApplicationLogsFormatVersion |Int，默认值为 0 | 动态 |应用程序日志格式的版本。 支持的值为 0 和 1。 版本 1 比版本 0 包含更多 ETW 事件记录的字段。 |
+|ApplicationLogsFormatVersion |Int，默认值为 0 | 动态 |用于应用程序日志格式的版本。 支持的值为 0 和 1。 版本 1 比版本 0 包含更多 ETW 事件记录的字段。 |
 |ClusterId |String | 动态 |群集的唯一 ID。 在创建群集时生成。 |
 |ConsumerInstances |String | 动态 |DCA 使用者实例列表。 |
 |DiskFullSafetySpaceInMB |Int，默认值为 1024 | 动态 |要避免被 DCA 使用的剩余磁盘空间（以 MB 为单位）。 |
@@ -143,7 +140,6 @@ ms.locfileid: "58625837"
 |ProducerInstances |String | 动态 |DCA 生成者实例列表。 |
 
 ## <a name="dnsservice"></a>DnsService
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |EnablePartitionedQuery|bool，默认值为 FALSE|静态|用于启用对分区服务 DNS 查询的支持的标志。 默认情况下，此功能处于关闭状态。 有关详细信息，请参阅 [Service Fabric DNS 服务](service-fabric-dnsservice.md)。|
@@ -166,7 +162,7 @@ ms.locfileid: "58625837"
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |以秒为单位的时间，默认值为 2 |动态|指定以秒为单位的时间跨度。 每次客户端尝试打开网关连接时的连接超时间隔。|
 |HealthOperationTimeout |以秒为单位的时间，默认值为 120 |动态|指定以秒为单位的时间跨度。 报告消息发送至运行状况管理器的超时时间。 |
-|HealthReportRetrySendInterval |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间跨度。 报告组件将累积的运行状况报告重新发送至运行状况管理器的时间间隔。 |
+|HealthReportRetrySendInterval |以秒为单位的时间，默认值为 30，最小值为 1 |动态|指定以秒为单位的时间跨度。 报告组件将累积的运行状况报告重新发送至运行状况管理器的时间间隔。 |
 |HealthReportSendInterval |以秒为单位的时间，默认值为 30 |动态|指定以秒为单位的时间跨度。 报告组件将累积的运行状况报告发送至运行状况管理器的时间间隔。 |
 |KeepAliveIntervalInSeconds |Int，默认值为 20 |静态|FabricClient 传输向网关发送保持连接消息的时间间隔。 值为 0，表示禁用 keepAlive。 必须是正值。 |
 |MaxFileSenderThreads |Uint，默认值为 10 |静态|并行传输的最大文件数。 |
@@ -361,7 +357,7 @@ ms.locfileid: "58625837"
 |NTLMAuthenticationPasswordSecret|SecureString，默认值为 Common::SecureString("")|静态|用于生成 NTLM 用户的密码的加密方式。 如果 NTLMAuthenticationEnabled 为 true，则必须设置。 由部署器进行验证。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshInterval|TimeSpan，默认值为 Common::TimeSpan::FromMinutes(3)|动态|指定以秒为单位的时间跨度。 特定于环境的设置，主机以此定期时间间隔进行扫描，查找用于 FileStoreService NTLM 配置的新证书。 |
 |NTLMSecurityUsersByX509CommonNamesRefreshTimeout|TimeSpan，默认值为 Common::TimeSpan::FromMinutes(4)|动态| 指定以秒为单位的时间跨度。 使用证书公用名称配置 NTLM 用户的超时时间。 FileStoreService 共享需要 NTLM 用户。 |
-|PruneContainerImages|bool，默认值为 FALSE|动态| 从节点中删除未使用的应用程序容器映像。 当从 Service Fabric 群集中注销某个 ApplicationType 时，此应用程序使用的容器映像将从 Service Fabric 将其下载到的节点上删除。 此修剪每小时运行一次，因此，从群集中删除映像可能需要花费长达一小时（加上修剪映像的时间）。<br>Service Fabric 从不下载或删除与应用程序无关的映像。  必须显式删除已手动下载的或通过其他方式下载的无关映像。<br>可以在 ContainerImagesToSkip 参数中指定不应删除的映像。| 
+|PruneContainerImages|bool，默认值为 FALSE|动态| 从节点中删除未使用的应用程序容器映像。 当从 Service Fabric 群集中注销某个 ApplicationType 时，此应用程序使用的容器映像将从 Service Fabric 将其下载到的节点上删除。 此修剪每小时运行一次，因此，从群集中删除映像可能需要花费长达一小时（加上修剪映像的时间）。<br />Service Fabric 从不下载或删除与应用程序无关的映像。  必须显式删除已手动下载的或通过其他方式下载的无关映像。<br />可以在 ContainerImagesToSkip 参数中指定不应删除的映像。| 
 |RegisterCodePackageHostTimeout|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(120)|动态| 指定以秒为单位的时间跨度。 FabricRegisterCodePackageHost 同步调用的超时时间值。 这仅适用于多代码包应用程序主机，如 FWP |
 |RequestTimeout|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(30)|动态| 指定以秒为单位的时间跨度。 这表示用户的应用程序主机与各种托管的相关操作（如中心注册、运行时注册）的 Fabric 进程之间的通信超时时间。 |
 |RunAsPolicyEnabled| bool，默认值为 FALSE|静态| 允许以运行结构进程的用户以外的本地用户身份运行代码包。 为启用此策略，必须以 SYSTEM 或具有 SeAssignPrimaryTokenPrivilege 的用户的身份运行 Fabric。 |
@@ -410,24 +406,25 @@ ms.locfileid: "58625837"
 
 | **参数** | **允许的值** | **升级策略** | **指导或简短说明** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan，默认值为 Common::TimeSpan::FromMinutes(5)|动态|指定以秒为单位的时间跨度。 清理时间间隔，可以在自动进行的应用程序类型清理过程中用于注销应用程序类型。|
 |AzureStorageMaxConnections | Int，默认值为 5000 |动态|最大并发 Azure 存储连接数。 |
 |AzureStorageMaxWorkerThreads | Int，默认值为 25 |动态|最大并行工作线程数。 |
 |AzureStorageOperationTimeout | 以秒为单位的时间，默认值为 6000 |动态|指定以秒为单位的时间跨度。 完成 xstore 操作的超时时间。 |
-|CleanupApplicationPackageOnProvisionSuccess|bool，默认值为 FALSE |动态|此配置启用或禁用成功预配的应用程序包自动清理。 |
+|CleanupApplicationPackageOnProvisionSuccess|bool，默认值为 FALSE |动态|启用或禁用在成功预配后自动清理应用程序包的功能。 |
+|CleanupUnusedApplicationTypes|布尔值，默认为 FALSE |动态|此配置在启用的情况下允许自动注销未使用的应用程序类型版本，跳过最新的三个未使用的版本，因此可以修整映像存储占用的磁盘空间。 对于该特定的应用类型，自动清理会在成功预配结束时触发；对于所有应用程序类型，自动清理也会定期运行（每天一次）。 可以使用参数“MaxUnusedAppTypeVersionsToKeep”配置要跳过的未使用版本的数目。 |
 |DisableChecksumValidation | Bool，默认值为 false |静态| 通过此配置可在应用程序预配过程中启用或禁用校验和验证。 |
 |DisableServerSideCopy | Bool，默认值为 false |静态|此配置可以在应用程序预配过程中启用或禁用 ImageStore 上应用程序包的服务器端副本。 |
 |ImageCachingEnabled | Bool，默认值为 true |静态|通过此配置可启用或禁用缓存。 |
 |ImageStoreConnectionString |SecureString |静态|ImageStore 的根的连接字符串。 |
 |ImageStoreMinimumTransferBPS | Int，默认值为 1024 |动态|群集和 ImageStore 之间的最小传输速率。 此值用于确定访问外部 ImageStore 时的超时时间。 仅当群集和 ImageStore 之间的延迟较高时可更改此值，以允许群集获得更多的时间从外部 ImageStore 进行下载。 |
+|MaxUnusedAppTypeVersionsToKeep | Int，默认值为 3 |动态|此配置定义要在清理时跳过的未使用应用程序类型版本的数目。 只有在启用参数 CleanupUnusedApplicationTypes 的情况下，此参数才适用。 |
 
 ## <a name="metricactivitythresholds"></a>MetricActivityThresholds
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyIntegerValueMap，默认值为 None|动态|为群集中的指标确定一组 MetricActivityThresholds。 如果 maxNodeLoad 大于 MetricActivityThresholds，则均衡会起作用。 定义碎片整理指标的负载量，等于或低于此值 Service Fabric 将认为该节点为空 |
 
 ## <a name="metricbalancingthresholds"></a>MetricBalancingThresholds
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|为群集中的指标确定一组 MetricBalancingThresholds。 如果 maxNodeLoad/minNodeLoad 大于 MetricBalancingThresholds，则均衡会起作用。 如果至少一个 FD 或 UD 上的 maxNodeLoad/minNodeLoad 小于 MetricBalancingThresholds，则碎片整理会起作用。 |
@@ -456,7 +453,6 @@ ms.locfileid: "58625837"
 |TargetReplicaSetSize |Int，默认值为 7 |不允许|命名服务存储的每个分区的副本集数量。 增加副本集的数量会增加命名服务存储中信息的可靠性水平；减少此更改会导致信息由于节点故障而丢失；其代价是增加 Windows Fabric 上的负载以及对命名数据执行更新所花费的时间。|
 
 ## <a name="nodebufferpercentage"></a>NodeBufferPercentage
-
 | **参数** | **允许的值** |**升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap，默认值为 None|动态|每个指标名称的节点容量百分比；用作缓冲区，以便在故障转移的情况下在节点上保留一些可用空间。 |
@@ -568,7 +564,6 @@ ms.locfileid: "58625837"
 |ServiceReconfigurationApiHealthDuration | 以秒为单位的时间，默认值为 30 |动态| 指定以秒为单位的时间跨度。 ServiceReconfigurationApiHealthDuration 定义在报告运行不正常之前，等待服务 API 运行的时间。 这适用于影响可用性的 API 调用。|
 
 ## <a name="replication"></a>复制
-
 | **参数** | **允许的值** | **升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |BatchAcknowledgementInterval|TimeSpan，默认值为 Common::TimeSpan::FromMilliseconds(15)|静态|指定以秒为单位的时间跨度。 确定接收到操作后到发送回确认之前，复制器等待的时间。 在该时间段期间接收的其他操作将通过一条消息发送回其确认 -> 减少网络流量，同时可能降低复制器的吞吐量。|
@@ -586,7 +581,6 @@ ms.locfileid: "58625837"
 |RetryInterval|TimeSpan，默认值为 Common::TimeSpan::FromSeconds(5)|静态|指定以秒为单位的时间跨度。 丢失或拒绝操作时，此计时器确定复制器重试发送该操作的频率。|
 
 ## <a name="resourcemonitorservice"></a>ResourceMonitorService
-
 | **参数** | **允许的值** | **升级策略**| **指导或简短说明** |
 | --- | --- | --- | --- |
 |IsEnabled|bool，默认值为 FALSE |静态|控制是否在群集中启用该服务。 |
@@ -627,18 +621,18 @@ ms.locfileid: "58625837"
 
 |             **参数**             |                      **允许的值**                       | **升级策略** |                                                                                                                                                                                                                                                  **指导或简短说明**                                                                                                                                                                                                                                                  |
 |---------------------------------------|---------------------------------------------------------------|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|         AADCertEndpointFormat         |                     string，默认值为“”                     |       静态       |                                                                                                                                                             AAD 证书终结点格式，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https://login.chinacloudapi.cn/{0}/federationmetadata/2007-06/federationmetadata.xml”                                                                                                                                                              |
+|         AADCertEndpointFormat         |                     string，默认值为“”                     |       静态       |                                                                                                                                                             AAD 证书终结点格式，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https:\//login.chinacloudapi.cn/{0}/federationmetadata/2007-06/federationmetadata.xml”                                                                                                                                                             |
 |         AADClientApplication          |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                                                                  表示 Fabric 客户端的本机客户端应用程序名称或 ID                                                                                                                                                                                                                                   |
 |         AADClusterApplication         |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                                                                       表示群集的 Web API 应用程序名称或 ID                                                                                                                                                                                                                                       |
-|           AADLoginEndpoint            |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                          AAD 登录终结点，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“<https://login.chinacloudapi.cn>”                                                                                                                                                                                           |
+|           AADLoginEndpoint            |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                          AAD 登录终结点，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https:\//login.chinacloudapi.cn”                                                                                                                                                                                            |
 |              AADTenantId              |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                                                                                          租户 ID (GUID)                                                                                                                                                                                                                                                           |
 |      AdminClientCertThumbprints       |                     string，默认值为“”                     |      动态       |                                                                                                                                                                                                                    管理员角色客户端使用的证书的指纹。 该参数是以逗号分隔的名称列表。                                                                                                                                                                                                                    |
-|        AADTokenEndpointFormat         |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                         AAD 令牌终结点，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https://login.chinacloudapi.cn/{0}”                                                                                                                                                                                          |
+|        AADTokenEndpointFormat         |                     string，默认值为“”                     |       静态       |                                                                                                                                                                                         AAD 令牌终结点，默认为“Azure 商业版”，为非默认环境指定，例如 Azure 中国云“https:\//login.chinacloudapi.cn/{0}”                                                                                                                                                                                         |
 |           AdminClientClaims           |                     string，默认值为“”                     |      动态       |                                                                                                                                                                     管理员客户端所需的所有可能的声明；其格式与 ClientClaims 相同；此列表会从内部添加到 ClientClaims；所以不需要另外将相同的条目添加到 ClientClaims。                                                                                                                                                                     |
 |         AdminClientIdentities         |                     string，默认值为“”                     |      动态       |                                                                                                        管理员角色结构客户端的 Windows 标识；用于授权特权结构操作。 该参数是以逗号分隔的列表；每个条目是域帐户名或组名称。 为方便起见，自动向运行 fabric.exe 的帐户分配管理员角色；组 ServiceFabricAdministrators 也是这样。                                                                                                        |
 |    AppRunAsAccountGroupX509Folder     |          字符串，默认为 /home/sfuser/sfusercerts          |       静态       |                                                                                                                                                                                                                          AppRunAsAccountGroup X509 证书和私钥所在的文件夹                                                                                                                                                                                                                           |
 |     CertificateExpirySafetyMargin     |   TimeSpan，默认值为 Common::TimeSpan::FromMinutes(43200)   |       静态       |                                                                                                                                                                     指定以秒为单位的时间跨度。 证书过期的安全宽限期；过期日期接近此时间值时证书运行状况报告状态从“OK”更改为“警告”。 默认值为 30 天。                                                                                                                                                                     |
-|  CertificateHealthReportingInterval   | 时间跨度，默认值为 Common::TimeSpan::FromSeconds(3600 \* 8) |       静态       |                                                                                                                                                                                       指定以秒为单位的时间跨度。 指定证书运行状况报告的时间间隔；默认值为 8 小时；设置为 0 会禁用证书运行状况报告                                                                                                                                                                                        |
+|  CertificateHealthReportingInterval   | TimeSpan，默认值为 Common::TimeSpan::FromSeconds(3600 * 8)  |       静态       |                                                                                                                                                                                       指定以秒为单位的时间跨度。 指定证书运行状况报告的时间间隔；默认值为 8 小时；设置为 0 会禁用证书运行状况报告                                                                                                                                                                                        |
 |         ClientCertThumbprints         |                     string，默认值为“”                     |      动态       |                                                                                                                                                                                       客户端用于与群集通信的证书的指纹；群集使用此指纹授权传入连接。 该参数是以逗号分隔的名称列表。                                                                                                                                                                                       |
 |        ClientClaimAuthEnabled         |                    bool，默认值为 FALSE                     |       静态       |                                                                                                                                                                                                         指示是否对客户端启用基于声明的身份验证；将此参数设置 true 会隐式设置 ClientRoleEnabled。                                                                                                                                                                                                         |
 |             ClientClaims              |                     string，默认值为“”                     |      动态       |                                                                                                                                       客户端连接到网关所需的所有可能的声明。 这是一个 'OR' 列表：ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry ... 每个 ClaimsEntry 均为 "AND" 列表：ClaimType=ClaimValue && ClaimType=ClaimValue && ClaimType=ClaimValue ...                                                                                                                                        |
@@ -648,7 +642,7 @@ ms.locfileid: "58625837"
 |         ClusterCredentialType         |                   string，默认值为“None”                   |    不允许     |                                                                                                                                                                                                       指示为保护群集安全而使用的安全凭据的类型。 有效值为 "None/X509/Windows"                                                                                                                                                                                                        |
 |           ClusterIdentities           |                     string，默认值为“”                     |      动态       |                                                                                                                                                                                   群集节点的 Windows 标识；用于群集成员身份授权。 该参数是以逗号分隔的列表；每个条目是域帐户名或组名称                                                                                                                                                                                   |
 |              ClusterSpn               |                     string，默认值为“”                     |    不允许     |                                              群集的服务主体名称；结构以单个域用户（gMSA/域用户帐户）运行。 该参数是租用侦听器和 fabric.exe 中的侦听器的 SPN：联合侦听器、内部复制侦听器、运行时服务侦听器和命名网关侦听器。 结构以计算机帐户运行时该参数应留空；在这种情况下从侦听器传输地址连接端计算侦听器 SPN。                                              |
-|            CrlCheckingFlag            |                  uint，默认值为 0x40000000                  |      动态       | 默认证书链验证标记；可能被特定于组件的标记重写；例如 Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 设置为 0 会禁用 CRL 检查，支持值的完整列表由 CertGetCertificateChain 的 dwFlags 记录： http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx |
+|            CrlCheckingFlag            |                  uint，默认值为 0x40000000                  |      动态       | 默认证书链验证标记；可能被特定于组件的标记重写；例如 Federation/X509CertChainFlags 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY 设置为 0 会禁用 CRL 检查，支持值的完整列表由 CertGetCertificateChain 的 dwFlags 记录： https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx|
 |           CrlDisablePeriod            |    TimeSpan，默认值为 Common::TimeSpan::FromMinutes(15)     |      动态       |                                                                                                                                                                                    指定以秒为单位的时间跨度。 遇到脱机错误后给定证书的 CRL 检查的禁用时间；是否可以忽略 CRL 脱机错误。                                                                                                                                                                                    |
 |       CrlOfflineHealthReportTtl       |   TimeSpan，默认值为 Common::TimeSpan::FromMinutes(1440)    |      动态       |                                                                                                                                                                                                                                                    指定以秒为单位的时间跨度。                                                                                                                                                                                                                                                     |
 |  DisableFirewallRuleForDomainProfile  |                     bool，默认值为 TRUE                     |       静态       |                                                                                                                                                                                                                                 指示是否不应对域配置文件启用防火墙规则                                                                                                                                                                                                                                 |
@@ -720,7 +714,7 @@ ms.locfileid: "58625837"
 |InvokeInfrastructureCommand |string，默认值为“Admin” |动态| 用于基础结构任务管理命令的安全配置。 |
 |InvokeInfrastructureQuery |string，默认值为“Admin\|\|User” | 动态|用于查询基础结构任务的安全配置。 |
 |列出 |string，默认值为“Admin\|\|User” | 动态|用于映像存储客户端文件列表操作的安全配置。 |
-|MoveNextFabricUpgradeDomain |string，默认值为“Admin” |动态| 用于使用显式升级域恢复群集升级的安全配置。 |
+|MoveNextFabricUpgradeDomain |string，默认值为“Admin” |动态| 用于通过显式升级域恢复群集升级的安全配置。 |
 |MoveNextUpgradeDomain |string，默认值为“Admin” |动态| 用于使用显式升级域恢复应用程序升级的安全配置。 |
 |MoveReplicaControl |string，默认值为“Admin” | 动态|移动副本。 |
 |NameExists |string，默认值为“Admin\|\|User” | 动态|用于检查是否存在命名 URI 的安全配置。 |
@@ -814,7 +808,7 @@ ms.locfileid: "58625837"
 |ContainerNetworkName|string，默认值为“”| 静态 |设置容器网络时要使用的网络名称。|
 |ContainerNetworkSetup|bool，默认值为 FALSE| 静态 |是否设置容器网络。|
 |FabricDataRoot |String | 不允许 |Service Fabric 数据根目录。 Azure 默认位置为 d:\svcfab |
-|FabricLogRoot |String | 不允许 |Service Fabric 日志根目录。 这是 SF 日志和跟踪的放置位置。 |
+|FabricLogRoot |String | 不允许 |Service Fabric 日志根目录。 这是放置 SF 日志和跟踪信息的位置。 |
 |NodesToBeRemoved|string，默认值为“”| 动态 |应在配置升级过程中删除的节点。 （仅适用于独立部署）|
 |ServiceRunAsAccountName |String | 不允许 |运行结构主机服务的帐户名。 |
 |SkipContainerNetworkResetOnReboot|bool，默认值为 FALSE|NotAllowed|是否在重启时跳过容器网络重置。|
@@ -846,7 +840,6 @@ ms.locfileid: "58625837"
 |ReplicatorAddress |string，默认值为“localhost:0” | 静态 | 采用字符串形式 -'IP:Port' 的终结点，Windows Fabric 复制器将其用于与其他副本建立连接以发送/接收操作。 |
 
 ## <a name="transport"></a>传输
-
 | **参数** | **允许的值** |**升级策略** |**指导或简短说明** |
 | --- | --- | --- | --- |
 |ConnectionOpenTimeout|时间跨度，默认值是 Common::TimeSpan::FromSeconds(60)|静态|指定以秒为单位的时间跨度。 正在传入和正在接收的端（包括安全模式下的安全协商）上连接设置的超时时间 |
@@ -890,7 +883,6 @@ ms.locfileid: "58625837"
 |X509StoreName | string，默认值为“My”|动态|UpgradeService 的 X509StoreName。 |
 
 ## <a name="next-steps"></a>后续步骤
-
 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
 
 <!--Not Available on [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md)-->

@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 03/26/2019
-ms.date: 04/15/2019
+origin.date: 04/17/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 90b925e2351f506d5b7a02f6314d212b7df91a2e
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: e98b1af9d470193bd37ec8a1823481d9c93c746e
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529158"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195437"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services 中支持的数据源
 
@@ -63,48 +63,49 @@ ms.locfileid: "59529158"
 
 ### <a name="in-memory-only"></a>仅限内存中
 
-|                   数据源                    |
-|-------------------------------------------------|
-|                 Access 数据库                 |
-|    Active Directory<sup>[1](#tab1400b)</sup>    |
-|                Analysis Services                |
-|            分析平台系统            |
-|                    CSV 文件                     |
-|      Dynamics CRM<sup>[1](#tab1400b)</sup>      |
-|                 Excel 工作簿                  |
-|        Exchange<sup>[1](#tab1400b)</sup>        |
-|         文件夹<sup>[1](#tab1400b)</sup>         |
-|  IBM Informix<sup>[1](#tab1400b)</sup>（beta 版本）   |
-|     JSON 文档<sup>[1](#tab1400b)</sup>      |
-|   二进制文件中的行<sup>[1](#tab1400b)</sup>    |
-|                 MySQL 数据库                  |
-|       OData 源<sup>[1](#tab1400b)</sup>       |
-|                   ODBC 查询                    |
-|                     OLE DB                      |
-|  Postgre SQL 数据库<sup>[1](#tab1400b)</sup>  |
-|   Salesforce 对象<sup>[1](#tab1400b)</sup>   |
-|   Salesforce 报表<sup>[1](#tab1400b)</sup>   |
-|        SAP HANA<sup>[1](#tab1400b)</sup>        |
-| SAP Business Warehouse<sup>[1](#tab1400b)</sup> |
-|       SharePoint<sup>[1](#tab1400b)</sup>       |
-|                 Sybase 数据库                 |
-|                     TXT 文件                    |
-|       XML 表<sup>[1](#tab1400b)</sup>        |
-|                                                 |
+|                   数据源                                        |
+|---------------------------------------------------------------------|
+|                 Access 数据库                                     |
+|    Active Directory<sup>[1](#tab1400b)</sup>                        |
+|                Analysis Services                                    |
+|            分析平台系统                                |
+|                    CSV 文件                                         |
+|      Dynamics CRM<sup>[1](#tab1400b)</sup>                          |
+|                 Excel 工作簿                                      |
+|        Exchange<sup>[1](#tab1400b)</sup>                            |
+|         文件夹<sup>[1](#tab1400b)</sup>                             |
+|  IBM Informix<sup>[1](#tab1400b)</sup>（beta 版本）                       |
+|     JSON 文档<sup>[1](#tab1400b)</sup>                          |
+|   二进制文件中的行<sup>[1](#tab1400b)</sup>                        |
+|                 MySQL 数据库                                      |
+|       OData 源<sup>[1](#tab1400b)</sup>                           |
+|                   ODBC 查询                                        |
+|                     OLE DB                                          |
+|  Postgre SQL 数据库<sup>[1](#tab1400b)</sup>                      |
+|   Salesforce 对象<sup>[1](#tab1400b)</sup>                       |
+|   Salesforce 报表<sup>[1](#tab1400b)</sup>                       |
+|        SAP HANA<sup>[1](#tab1400b)</sup>                            |
+| SAP Business Warehouse<sup>[1](#tab1400b)</sup>                     |
+|SharePoint 列表<sup>[1](#tab1400b)</sup>、<sup>[2](#filesSP)</sup>   |   
+|                 Sybase 数据库                                     |
+|                     TXT 文件                                        |
+|       XML 表<sup>[1](#tab1400b)</sup>                            |
+|                                                                     |
 
-<a name="tab1400b">1</a> 仅限表格 1400 和更高模型。
+<a name="tab1400b">1</a> - 仅限表格 1400 和更高模型。   
+<a name="filesSP">2</a> - 不支持本地 SharePoint 中的文件。
 
 ## <a name="specifying-a-different-provider"></a>指定不同的提供程序
 
-连接到某些数据源时，Azure Analysis Services 中的数据模型可能需要不同的数据提供程序。 在某些情况下，使用本机提供程序（如 SQL Server Native Client (SQLNCLI11)）连接到数据源的表格模型可能返回错误。 如果使用 SQLOLEDB 之外的本机提供程序，则可能会看到错误消息：**未注册提供程序“SQLNCLI11.1”**。 或者，在某个 DirectQuery 模型连接到本地数据源时，如果使用了本机提供程序，则可能会看到错误消息：**创建 OLE DB 行集时出错。“LIMIT”附近的语法不正确**。
+连接到某些数据源时，Azure Analysis Services 中的数据模型可能需要不同的数据提供程序。 在某些情况下，使用本机提供程序（如 SQL Server Native Client (SQLNCLI11)）连接到数据源的表格模型可能返回错误。 如果使用 SQLOLEDB 之外的本机提供程序，则可能会看到错误消息：**未注册提供程序“SQLNCLI11.1”** 。 或者，在某个 DirectQuery 模型连接到本地数据源时，如果使用了本机提供程序，则可能会看到错误消息：**创建 OLE DB 行集时出错。“LIMIT”附近的语法不正确**。
 
 将本地 SQL Server Analysis Services 表格模型迁移到 Azure Analysis Services 时，可能需要更改提供程序。
 
 **指定提供程序**
 
-1. 在 SSDT >“表格模型浏览器” > “数据源”中，右键单击数据源连接，并单击“编辑数据源”。
-2. 在“编辑连接”中，单击“高级”，打开“高级属性”窗口。
-3. 在“设置高级属性” > “提供程序”中，选择适当的提供程序。
+1. 在 SSDT >“表格模型浏览器”   > “数据源”  中，右键单击数据源连接，并单击“编辑数据源”  。
+2. 在“编辑连接”  中，单击“高级”  ，打开“高级属性”窗口。
+3. 在“设置高级属性”   > “提供程序”  中，选择适当的提供程序。
 
 ## <a name="impersonation"></a>模拟
 某些情况下可能需要指定其他模拟帐户。 可在 Visual Studio (SSDT) 或 SSMS 中指定模拟帐户。
@@ -122,4 +123,4 @@ ms.locfileid: "59529158"
 [本地网关](analysis-services-gateway.md)   
 [管理服务器](analysis-services-manage.md)
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties, wording update -->

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/15/2019
-ms.date: 04/15/2019
+origin.date: 05/01/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 24d5aa7a7bb37d32770120cee63927a78cbe1ab1
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 2c72b21ead6bb039b2341eb27a77c563312cb02d
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529414"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195385"
 ---
 # <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
 
@@ -116,7 +116,7 @@ ms.locfileid: "59529414"
 
 默认情况下，资源管理器并行创建资源。 不会保证它们的创建顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
 
-若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
+若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量  。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
 例如，若要按顺序一次部署两个存储帐户，请使用：
 
@@ -148,6 +148,8 @@ ms.locfileid: "59529414"
 ```
 
 mode 属性也接受 **parallel**（它是默认值）。
+
+有关将副本与嵌套的模板配合使用的信息，请参阅[使用副本](resource-group-linked-templates.md#using-copy)。
 
 ## <a name="property-iteration"></a>属性迭代
 
@@ -500,7 +502,6 @@ copy 元素是一个数组，因此，可以为资源指定多个属性。 为�
 ## <a name="next-steps"></a>后续步骤
 
 * 要查看教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
-
 * 若要了解有关模板区段的信息，请参阅[创作 Azure Resource Manager 模板](resource-group-authoring-templates.md)。
 * 若要了解如何部署模板，请参阅 [使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 

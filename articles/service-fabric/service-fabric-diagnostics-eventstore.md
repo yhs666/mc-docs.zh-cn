@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 65ca464f2125a2641d024c9347cc065b7b201f26
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 9b7b97d57a3e5b4549cfffb371700362ee82357b
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204115"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195366"
 ---
 # <a name="eventstore-service-overview"></a>事件存储服务概述
 
@@ -73,7 +73,7 @@ EventStore 服务还能够将群集中的事件相关联。 通过查看在同�
 
 ### <a name="azure-cluster"></a>Azure 群集
 
-在群集的 Azure 模板中，可以通过执行群集配置升级并添加以下代码来启用 EventStore 服务。 `upgradeDescription` 部分配置配置升级，以触发节点上的重新启动。 可以在其他更新中删除该部分。
+在群集的 Azure 资源管理器模板中，你可以通过执行群集配置升级并添加以下代码来启用 EventStore 服务，可以使用 PlacementConstraints 将 EventStore 服务的副本放置在特定的 NodeType（例如系统服务专用的 NodeType）上。 `upgradeDescription` 部分配置配置升级，以触发节点上的重新启动。 可以在其他更新中删除该部分。
 
 <!--Not Available on [cluster config upgrade](service-fabric-cluster-config-upgrade-azure.md)-->
 ```json
@@ -91,6 +91,10 @@ EventStore 服务还能够将群集中的事件相关联。 通过查看在同�
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              },
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

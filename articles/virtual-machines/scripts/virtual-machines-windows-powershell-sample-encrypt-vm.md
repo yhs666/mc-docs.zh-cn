@@ -14,28 +14,29 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: f9207315c66d0ca87acce28b4fa2eadb74e00de6
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: ac1557d4e9de313af75fed68fc304c1af4dcd64b
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003923"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003979"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 
 此脚本创建安全的 Azure Key Vault、加密密钥、Azure Active Directory 服务主体和 Windows 虚拟机 (VM)。 然后使用来自 Key Vault 和服务主体凭据的加密密钥对 VM 进行加密。
 
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
-
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
+# Sign-in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 # Edit these global variables with you unique Key Vault name, resource group name and location
 #Name of the Key Vault
 $keyVaultName = "myKeyVault00"
@@ -122,15 +123,17 @@ Set-AzVMDiskEncryptionExtension `
 
 # View encryption status
 Get-AzVmDiskEncryptionStatus  -ResourceGroupName $rgName -VMName $vmName
+
 <#
 #clean up
 Remove-AzResourceGroup -Name $rgName
 #removes all of the Azure AD Applications you created w/ the same name
 Remove-AzADApplication -ObjectId $app.ObjectId -Force
 #>
+
 ```
 
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 

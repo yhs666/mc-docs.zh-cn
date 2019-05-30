@@ -13,11 +13,11 @@ origin.date: 10/06/2017
 ms.date: 10/29/2018
 ms.author: v-yiso
 ms.openlocfilehash: 92b5494fc7d1501990cf26bf37e6230226c7ba96
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674458"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "66195019"
 ---
 # <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
 
@@ -40,14 +40,14 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 本教程演示如何：
 
-* 创建一个具有直接方法的 Node.js 模拟设备应用，启用可由解决方案后端进行调用的 lockDoor。
+* 创建一个具有直接方法的 Node.js 模拟设备应用，启用可由解决方案后端进行调用的 lockDoor  。
 * 创建一个 Node.js 控制台应用，该应用使用作业调用模拟设备应用中的 **lockDoor** 直接方法，并使用设备作业更新所需属性。
 
 在本教程结束时，会创建两个 Node.js 应用：
 
 **simDevice.js**，它使用设备标识连接到 IoT 中心，并接收 **lockDoor** 直接方法。
 
-scheduleJobService.js，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性。
+scheduleJobService.js，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性  。
 
 要完成本教程，需要以下各项：
 
@@ -65,7 +65,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
-本部分将创建一个 Node.js 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法。
+本部分将创建一个 Node.js 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法  。
 
 1. 新建名为 **simDevice**的空文件夹。  在 **simDevice** 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
@@ -136,7 +136,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
     ```
     npm init
     ```
-2. 在 scheduleJobService 文件夹的命令提示符处，运行以下命令安装 azure-iothub 设备 SDK 包和 azure-iot-device-mqtt 包：
+2. 在 scheduleJobService  文件夹的命令提示符处，运行以下命令安装 azure-iothub  设备 SDK 包和 azure-iot-device-mqtt  包：
    
     ```
     npm install azure-iothub uuid --save
@@ -248,7 +248,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 ## <a name="run-the-applications"></a>运行应用程序
 现在，已准备就绪，可以运行应用程序了。
 
-1. 在 simDevice 文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
+1. 在 simDevice  文件夹的命令提示符处，运行以下命令以开始侦听重启直接方法。
    
     ```
     node simDevice.js
@@ -265,7 +265,7 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
-[教程：如何进行固件更新][lnk-fwupdate]
+[教程：固件更新方法][lnk-fwupdate]
 
 若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
 

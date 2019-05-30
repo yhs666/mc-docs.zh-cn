@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/01/2017
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: d99f4895431257410d60b69bf3b1edad3d6f4f3f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 995a6278a2a4fddb7da45c873d9dc1c8d033c294
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004193"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004274"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 
@@ -141,17 +141,17 @@ New-AzureStorageAccount -StorageAccountName $newstorageaccountname -Location "Ch
     Get-AzureVM -ServiceName <servicename> -Name <vmname> | Get-AzureDataDisk
     ```
 
-2. 记下 DiskName 和 LUN。
+1. 记下 DiskName 和 LUN。
 
     ![DisknameAndLUN][2]
-3. 通过远程桌面连接到 VM。 然后依次转到“计算机管理” | “设备管理器” | “磁盘驱动器”。 查看每个 Microsoft 虚拟磁盘的属性
+1. 通过远程桌面连接到 VM。 然后依次转到“计算机管理”   | “设备管理器”   | “磁盘驱动器”  。 查看每个 Microsoft 虚拟磁盘的属性
 
     ![VirtualDiskProperties][3]
-4. 此处的 LUN 编号是对将 VHD 附加到 VM 时指定的 LUN 编号的引用。
-5. 对于“Microsoft 虚拟磁盘”，转到“详细信息”选项卡，然后在“属性”列表中转到“驱动程序键”。 在“值”中，注意“偏移量”，该项在下面的屏幕截图中为 0002。 0002 表示存储池引用的 PhysicalDisk2。
+1. 此处的 LUN 编号是对将 VHD 附加到 VM 时指定的 LUN 编号的引用。
+1. 对于“Microsoft 虚拟磁盘”，转到“详细信息”  选项卡，然后在“属性”  列表中转到“驱动程序键”  。 在“值”  中，注意“偏移量”  ，该项在下面的屏幕截图中为 0002。 0002 表示存储池引用的 PhysicalDisk2。
 
     ![VirtualDiskPropertyDetails][4]
-6. 转储每个存储池关联的磁盘：
+1. 转储每个存储池关联的磁盘：
 
     ```powershell
     Get-StoragePool -FriendlyName AMS1pooldata | Get-PhysicalDisk
@@ -320,6 +320,8 @@ New-AzureService $destcloudsvc -Location $location
 
 可以使用现有映像， 也可以[创建现有虚拟机的映像](../classic/capture-image-classic.md?toc=%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)。 请注意，执行映像的计算器不一定要是 DS* 计算机。 获得映像后，以下步骤演示如何使用 **Start-AzureStorageBlobCopy** PowerShell commandlet 将其复制到高级存储帐户。
 
+<!--MOONCAKE: classic should be add Add-AzureAccount-->
+
 ```powershell
 Add-AzureAccount -Environment AzureChinaCloud
 #Get storage account keys:
@@ -435,8 +437,8 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 
 可通过两种策略迁移允许停机一段时间的 AlwaysOn 部署：
 
-1. **将更多辅助副本添加到现有 Always On 群集**
-2. **迁移到新的 Always On 群集**
+1. **将更多辅助副本添加到现有 AlwaysOn 群集**
+2. **迁移到新的 AlwaysOn 群集**
 
 #### <a name="1-add-more-secondary-replicas-to-an-existing-always-on-cluster"></a>1.将更多辅助副本添加到现有 Always On 群集
 
@@ -473,7 +475,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 7. 将新节点添加到群集并运行完整验证。
 8. 成功验证后，启动所有 SQL Server 服务。
 9. 备份事务日志并还原用户数据库。
-10. 将新节点添加到 AlwaysOn 可用性组中，并将复制置为“同步” 。
+10. 将新节点添加到 AlwaysOn 可用性组中，并将复制置为“同步”  。
 11. 根据 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)中的多站点示例，通过 PowerShell 为 AlwaysOn 添加新云服务 ILB/ELB 的 IP 地址资源。 在 Windows 群集中，将 **IP 地址**资源的**可能所有者**设置为新节点 old。 请参阅 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
 12. 故障转移到新节点之一。
 13. 将新节点设为“自动故障转移伙伴”并测试故障转移。
@@ -534,7 +536,7 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * 如果选择使 AlwaysOn 群集组脱机以提取 IP 地址，则停机时间会增加。 可对添加的 IP 地址资源使用 OR 依赖关系和可能的所有者，进而避免出现这种情况。 请参阅 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
 
 > [!NOTE]
-> 如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。 运行 Add-AzureEndpoint 命令来执行此操作时，当前连接保持断开，但在更新负载均衡器之后，才能建立到侦听器的新连接。 在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
+> 如果想让添加的节点用作 AlwaysOn 故障转移伙伴，需要添加引用负载均衡集的 Azure 终结点。 运行 Add-AzureEndpoint 命令来执行此操作时，当前连接保持断开，但在更新负载均衡器之后，才能建立到侦听器的新连接  。 在测试时，此现像持续了 90 到 120 秒，应该对此进行测试。
 
 ##### <a name="advantages"></a>优点
 
@@ -682,7 +684,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步骤 2：在资源上增加允许的故障 <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>步骤 2：在资源上增加允许的故障 \<可选>
 
 在 AlwaysOn 可用性组中包含的某些资源上，限定了在群集服务尝试重启资源组的固定时间内可出现的失败数。 在执行此过程时，建议增加此限制，因为如果未手动故障转移或通过关闭计算机来触发故障转移，则可能会接近此限制。
 
@@ -692,7 +694,7 @@ New-AzureService $destcloudsvc -Location $location
 
 将最大故障数更改为 6。
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步骤 3：为群集组添加 IP 地址资源 <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>步骤 3：为群集组添加 IP 地址资源 \<可选>
 
 如果群集组只有一个 IP 地址，而此地址分配给了云子网，则请注意，如果意外地使此玩过上云端的所有群集脱机，群集 IP 资源和群集网络名称将无法再联机。 此情况下，这会阻止更新到其他群集资源。
 

@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 05/27/2019
+ms.date: 06/03/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1df718fe75c5b4940c1ef9db97f45f1b09a3bc0b
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: af453a8f1b4d00357084ab2a40be179700335767
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829249"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194952"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C IoT Edge 模块
 
@@ -40,10 +40,10 @@ ms.locfileid: "65829249"
 
 使用下表了解用于开发 C 模块并将其部署到 Linux 的选项： 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![使用 VS Code 开发 Linux AMD64 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![使用 VS 2017 开发 Linux AMD64 上的 C 模块](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![使用 VS Code 开发 Linux ARM32 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![使用 VS 2017 开发 Linux ARM32 上的 C 模块](./media/tutorial-c-module/green-check.png) |
+| C | Visual Studio Code | Visual Studio | 
+| - | ------------------ | ------------- |
+| **Linux AMD64** | ![使用 VS Code 开发 Linux AMD64 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![在 Linux AMD64 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![使用 VS Code 开发 Linux ARM32 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![在 Linux ARM32 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -67,7 +67,7 @@ ms.locfileid: "65829249"
 
 创建可以使用自己的代码进行自定义的 C 解决方案模板。
 
-1. 选择“视图” > “命令面板”，打开 VS Code 命令面板。 
+1. 选择“视图”   >   “命令面板”，打开 VS Code 命令面板。 
 
 2. 在命令面板中，键入并运行 **`Azure: Sign in`** 命令，然后按说明登录 Azure 帐户。 如果已登录，则可跳过此步骤。
 
@@ -77,7 +77,7 @@ ms.locfileid: "65829249"
    | ----- | ----- |
    | 选择文件夹 | 在适用于 VS Code 的开发计算机上选择用于创建解决方案文件的位置。 |
    | 提供解决方案名称 | 输入解决方案的描述性名称，或者接受默认的 **EdgeSolution**。 |
-   | 选择模块模板 | 选择“C 模块”。 |
+   | 选择模块模板 | 选择“C 模块”。  |
    | 提供模块名称 | 将模块命名为 **CModule**。 |
    | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.cn/cmodule。 |
  
@@ -107,7 +107,7 @@ ms.locfileid: "65829249"
 
    1. 下载 [Parson Github 存储库](https://github.com/kgabis/parson)。 将 **parson.c** 和 **parson.h** 文件复制到 **CModule** 文件夹中。
 
-   2. 打开“模块” > “CModule” > “CMakeLists.txt”。 在文件顶部，导入名为 **my_parson** 的充当库的 Parson 文件。
+   2. 打开“模块”   > “CModule”   >   “CMakeLists.txt”。 在文件顶部，导入名为 **my_parson** 的充当库的 Parson 文件。
 
       ```
       add_library(my_parson
@@ -120,7 +120,7 @@ ms.locfileid: "65829249"
 
    4. 保存 **CMakeLists.txt** 文件。
 
-   5. 打开“模块” > “CModule” > “main.c”。 在 include 语句的列表底部，添加一个新的语句，以便包括适用于 JSON 支持的 `parson.h`：
+   5. 打开“模块”   > “CModule”   >   “main.c”。 在 include 语句的列表底部，添加一个新的语句，以便包括适用于 JSON 支持的 `parson.h`：
 
       ```c
       #include "parson.h"
@@ -282,9 +282,9 @@ ms.locfileid: "65829249"
 
 在上一部分，你已经创建了一个 IoT Edge 解决方案并将代码添加到了 CModule，该函数会筛选出其中报告的计算机温度处于可接受限制范围内的消息。 现在需将解决方案生成为容器映像并将其推送到容器注册表。
 
-1. 选择“视图” > “终端”打开 VS Code 终端。
+1. 选择“视图” > “终端”打开 VS Code 终端。  
 
-1. 在终端中输入以下命令，以登录到 Docker。 使用 Azure 容器注册表中的用户名、密码和登录服务器登录。 可以在 Azure 门户中从注册表的“访问密钥”部分检索这些值。
+1. 在终端中输入以下命令，以登录到 Docker。 使用 Azure 容器注册表中的用户名、密码和登录服务器登录。 可以在 Azure 门户中从注册表的“访问密钥”部分检索这些值。 
      
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -292,7 +292,7 @@ ms.locfileid: "65829249"
 
    可能会出现一条安全警告，其中建议使用 `--password-stdin`。 这条最佳做法是针对生产场景建议的，这超出了本教程的范畴。 有关详细信息，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) 参考。
 
-2. 在 VS Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。
+2. 在 VS Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。  
 
    “生成并推送”命令会启动三项操作。 首先，它在解决方案中创建名为 **config** 的新文件夹，用于保存基于部署模板和其他解决方案文件中的信息生成的完整部署清单。 其次，它会运行 `docker build`，以基于目标体系结构的相应 dockerfile 生成容器映像。 然后，它会运行 `docker push`，以将映像存储库推送到容器注册表。
 
@@ -302,11 +302,11 @@ ms.locfileid: "65829249"
 
 请确保 IoT Edge 设备已启动并正在运行。 
 
-1. 在 Visual Studio Code 资源管理器中展开“Azure IoT 中心设备”部分，查看 IoT 设备的列表。
+1. 在 Visual Studio Code 资源管理器中展开“Azure IoT 中心设备”部分，查看 IoT 设备的列表。 
 
-2. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。
+2. 右键单击 IoT Edge 设备的名称，然后选择“为单个设备创建部署”。 
 
-3. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。 不要使用 deployment.template.json 文件。
+3. 选择 **config** 文件夹中的 **deployment.json** 文件，然后单击“选择 Edge 部署清单”。  不要使用 deployment.template.json 文件。
 
 4. 单击“刷新”按钮。 此时会看到新的 **CModule** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。
 
@@ -314,11 +314,11 @@ ms.locfileid: "65829249"
 
 将部署清单应用到 IoT Edge 设备以后，设备上的 IoT Edge 运行时就会收集新的部署信息并开始在其上执行操作。 在设备上运行的未包括在部署清单中的任何模块都会停止。 设备中缺失的任何模块都会启动。
 
-可以通过 Visual Studio Code 资源管理器的“Azure IoT 中心设备”部分查看 IoT Edge 设备的状态。 展开设备的详细信息，可以看到已部署的正在运行的模块的列表。
+可以通过 Visual Studio Code 资源管理器的“Azure IoT 中心设备”部分查看 IoT Edge 设备的状态  。 展开设备的详细信息，可以看到已部署的正在运行的模块的列表。
 
-1. 在 Visual Studio Code 资源管理器中右键单击 IoT Edge 设备的名称，选择“开始监视 D2C 消息”。
+1. 在 Visual Studio Code 资源管理器中右键单击 IoT Edge 设备的名称，选择“开始监视 D2C 消息”。 
 
-2. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为 IoT Edge 设备必须接收其新部署并启动所有模块。 然后，在发送消息之前我们对 CModule 代码所做的更改需等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。 
+2. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为 IoT Edge 设备必须接收其新部署并启动所有模块。 然后，在发送消息之前我们对 CModule 代码所做的更改需等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。  
 
    ![查看抵达 IoT 中心的消息](./media/tutorial-c-module/view-d2c-message.png)
 
@@ -328,13 +328,13 @@ ms.locfileid: "65829249"
 
 1. 在 Visual Studio Code 中，展开 IoT Edge 设备下的详细信息以查看正在运行的模块。 
 
-2. 右键单击“CModule”并选择“编辑模块孪生”。 
+2. 右键单击“CModule”并选择“编辑模块孪生”。   
 
 3. 在所需属性中找到 **TemperatureThreshold**。 将其值更改为比上次报告的温度高出 5 到 10 度的新温度。 
 
 4. 保存模块孪生文件。
 
-5. 右键单击模块孪生编辑窗格中的任意位置，然后选择“更新模块孪生”。 
+5. 右键单击模块孪生编辑窗格中的任意位置，然后选择“更新模块孪生”。  
 
 5. 监视传入的设备到云消息。 应会看到，在达到新的温度阈值之前，消息会停止发送。 
 

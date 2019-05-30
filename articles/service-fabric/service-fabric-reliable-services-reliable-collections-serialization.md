@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/08/2017
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4b6b1eb12f0f4bf9d33f490ad610173d8991462d
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 2ea1cc644dd17f12f2ab9faf3319907e36c437d6
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463666"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195419"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 对象序列化
 Reliable Collections 通过复制和保留项目，确保这些项目在机器故障和电力中断时能够持久。
@@ -97,7 +97,7 @@ public class OrderKey : IComparable<OrderKey>, IEquatable<OrderKey>
 }
 ```
 
-以下是 IStateSerializer<OrderKey> 的实现示例。
+下面是 IStateSerializer\<OrderKey> 的一个实现示例。
 请注意，接受 baseValue 的读取和写入重载调用各自的重载来实现向前兼容。
 
 ```csharp

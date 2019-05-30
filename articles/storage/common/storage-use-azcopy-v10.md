@@ -1,24 +1,25 @@
 ---
-title: 使用 AzCopy v10（预览版）将数据复制或移到 Azure 存储 | Microsoft Docs
-description: 使用 AzCopy v10（预览版）命令行实用工具向/从 blob、Data Lake 和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
+title: 使用 AzCopy v10 将数据复制或移到 Azure 存储 | Microsoft Docs
+description: 使用 AzCopy 命令行实用程序向/从 blob、Data Lake 和文件内容移动或复制数据。 从本地文件将数据复制到 Azure 存储，或者在存储帐户中或存储帐户之间复制数据。 轻松地将数据迁移到 Azure 存储。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 02/24/2019
-ms.date: 04/08/2019
+origin.date: 04/23/2019
+ms.date: 05/27/2019
 ms.author: v-jay
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 7d234a58480877553966480110024ab252da803a
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 1e2347c5ace9858082c56baee36906817ddf310c
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890182"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004010"
 ---
-# <a name="transfer-data-with-azcopy-v10-preview"></a>使用 AzCopy v10（预览版）传输数据
+# <a name="transfer-data-with-azcopy-v10"></a>使用 AzCopy v10 传输数据
 
-AzCopy v10（预览版）是用于向/从 Azure Blob 和文件存储复制数据的命令行实用工具。 AzCopy v10 提供经过重新设计的命令行接口和全新体系结构来实现可靠的数据传输。 使用 AzCopy 可在文件系统与存储帐户之间或者在存储帐户之间复制数据。
+AzCopy 是用于向/从 Azure Blob 和文件存储复制数据的命令行实用程序。 AzCopy 提供经过重新设计的命令行接口和全新体系结构来实现可靠的数据传输。 使用 AzCopy 可在文件系统与存储帐户之间或者在存储帐户之间复制数据。
 
 ## <a name="whats-new-in-azcopy-v10"></a>AzCopy v10 中的新增功能
 
@@ -32,28 +33,24 @@ AzCopy v10（预览版）是用于向/从 Azure Blob 和文件存储复制数据
 
 ## <a name="download-and-install-azcopy"></a>下载并安装 AzCopy
 
-### <a name="latest-preview-version-v10"></a>最新预览版本 (v10)
+### <a name="latest-production-version-v10"></a>最新生产版本 (v10)
 
-下载 AzCopy 的最新预览版：
+下载最新版本的 AzCopy：
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-### <a name="latest-production-version-v81"></a>最新生产版本 (v8.1)
-
-下载 [AzCopy for Windows 的最新生产版](https://aka.ms/downloadazcopy)。
-
-### <a name="azcopy-supporting-table-storage-service-v73"></a>支持表存储服务的 AzCopy (v7.3)
+### <a name="latest-azcopy-supporting-table-storage-service-v73"></a>支持表存储服务的最新 AzCopy (v7.3)
 
 下载[支持向/从 Microsoft Azure 表存储服务复制数据的 AzCopy v7.3](https://aka.ms/downloadazcopynet)。
 
 ## <a name="post-installation-steps"></a>安装后的步骤
 
-AzCopy v10 不需要安装。 只需打开首选的命令行应用程序，并浏览到 `azcopy.exe` 所在的文件夹。 如果需要，可将 AzCopy 文件夹位置添加到系统路径以方便使用。
+AzCopy 不需要安装。 只需打开首选的命令行应用程序，并浏览到 `azcopy.exe` 所在的文件夹。 如果需要，可将 AzCopy 文件夹位置添加到系统路径以方便使用。
 
 ## <a name="authentication-options"></a>身份验证选项
 
-使用 Azure 存储进行身份验证时，AzCopy v10 支持以下选项：**共享访问签名令牌 [支持 Blob 和文件服务]**。 在命令行中将共享访问签名 (SAS) 令牌追加到 Blob 路径即可使用该令牌。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选的其他工具生成 SAS 令牌。 有关详细信息，请参阅[示例](/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
+使用 Azure 存储进行身份验证时，AzCopy 支持以下选项：**共享访问签名令牌 [支持 Blob 和文件服务]** 。 在命令行中将共享访问签名 (SAS) 令牌追加到 Blob 路径即可使用该令牌。 可以使用 Azure 门户、[存储资源管理器](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)、[PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageblobsastoken) 或所选的其他工具生成 SAS 令牌。 有关详细信息，请参阅[示例](/storage/blobs/storage-dotnet-shared-access-signature-part-2)。
 
 ## <a name="getting-started"></a>入门
 
@@ -62,7 +59,7 @@ AzCopy v10 不需要安装。 只需打开首选的命令行应用程序，并�
 >
 > 在可以简化 Azure 存储数据管理的桌面客户端 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)中，可以使用 AzCopy 来加速与 Azure 存储之间进行的数据传输。
 >
-> 在存储资源管理器中的“预览”菜单下启用 AzCopy。
+> 在存储资源管理器中的“预览”菜单下启用 AzCopy。 
 > ![在 Azure 存储资源管理器中启用 AzCopy 作为传输引擎](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
 
 AzCopy v10 具有简单的自记录语法。 常规语法如下所示：
@@ -103,16 +100,16 @@ AzCopy v10 具有简单的自记录语法。 常规语法如下所示：
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-以下命令以递归方式将文件夹 `C:\local\path` 下的所有文件上传到容器 `mycontainer1`，并在该容器中创建 `path` 目录：
+以下命令以递归方式将文件夹 `C:\local\path` 下的所有文件上传到容器 `mycontainer1`，并在该容器中创建 `path` 目录。 如果提供了 `--put-md5` 标志，则AzCopy 会计算每个文件的 md5 哈希并将其存储在相应的 Blob 的 `Content-md5` 属性中，供以后使用。
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.chinacloudapi.cn/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.chinacloudapi.cn/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 以下命令将文件夹 `C:\local\path` 下的所有文件上传到容器 `mycontainer1`（不递归到子目录中）：
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.chinacloudapi.cn/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.chinacloudapi.cn/mycontainer1<sastoken>" --put-md5
 ```
 
 若要查找更多示例，请使用以下命令：
@@ -121,21 +118,27 @@ AzCopy v10 具有简单的自记录语法。 常规语法如下所示：
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>在两个存储帐户之间复制数据
+## <a name="copy-blob-data-between-two-storage-accounts"></a>在两个存储帐户之间复制 Blob 数据
 
 在两个存储帐户之间复制数据使用的是[从 URL 放置块](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API，而不使用客户端计算机的网络带宽。 直接在两个 Azure 存储服务器之间复制数据，而 AzCopy 只是协调复制操作。 此选项目前仅适用于 Blob 存储。
 
-若要在两个存储帐户之间复制数据，请使用以下命令：
+若要在两个存储帐户之间复制所有 Blob 数据，请使用以下命令：
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.chinacloudapi.cn/<sastoken>" "https://myotheraccount.blob.core.chinacloudapi.cn/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> 此命令将枚举所有 Blob 容器并将其复制到目标帐户。 目前，AzCopy v10 仅支持在两个存储帐户之间复制块 Blob。 它会跳过其他所有存储帐户对象（例如，追加 Blob、页 Blob、文件、表和队列）。
+如有将一个 Blob 容器复制到另一个 Blob 容器，请使用以下命令：
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.chinacloudapi.cn/mycontainer/<sastoken>" "https://myotheraccount.blob.core.chinacloudapi.cn/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>将 VHD 映像复制到存储帐户
 
-默认情况下，AzCopy v10 将数据上传到块 blob 中。 但是，如果源文件的扩展名为 `.vhd`，则 AzCopy v10 默认会将其上传到页 Blob。 目前，此操作不可配置。
+默认情况下，AzCopy 将数据上传到块 Blob 中。 若要将文件作为追加 Blob 或页 Blob 上传，请使用 `--blob-type=[BlockBlob|PageBlob|AppendBlob]` 标志。
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.chinacloudapi.cn/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>同步：增量复制和删除（仅适用于 Blob 存储）
 
@@ -143,7 +146,7 @@ sync 命令通过比较文件名和上次修改时间戳将源目录的内容同
 
 > [!NOTE] 
 > 请谨慎使用 `--delete-destination` 标志。 在同步操作中启用删除行为之前，请启用[软删除](/storage/blobs/storage-blob-soft-delete)功能，防止帐户中发生意外删除。
-
+>
 > 将 `--delete-destination` 设置为 true 时，AzCopy 会在不提示用户的情况下，从目标中删除源中不存在的文件。 如果希望系统提示确认，请使用 `--delete-destination=prompt`。
 
 若要将本地文件系统同步到存储帐户，请使用以下命令：
@@ -158,7 +161,7 @@ sync 命令通过比较文件名和上次修改时间戳将源目录的内容同
 .\azcopy sync "https://account.blob.core.chinacloudapi.cn/mycontainer<sastoken>" "C:\local\path" --recursive=true
 ```
 
-此命令根据上次修改时间戳以增量方式将源同步到目标。 如果在源中添加或删除文件，AzCopy v10 将在目标中执行相同的操作。 在删除之前，AzCopy 会提示确认。
+此命令根据上次修改时间戳以增量方式将源同步到目标。 如果在源中添加或删除文件，AzCopy 将在目标中执行相同的操作。 在删除之前，AzCopy 会提示确认。
 
 ## <a name="advanced-configuration"></a>高级配置
 
@@ -210,7 +213,7 @@ export AZCOPY_LOG_LOCATION=<value>
 
 AzCopy 日志级别默认设置为 INFO。 如果想要降低日志详细程度以节省磁盘空间，请使用 ``--log-level`` 选项覆盖该设置。 可用日志级别为：DEBUG、INFO、WARNING、ERROR、PANIC 和 FATAL。
 
-### <a name="review-the-logs-for-errors"></a>查看错误日志
+### <a name="review-the-logs-for-errors"></a>查看日志中的错误
 
 以下命令将从 04dc9ca9-158f-7945-5933-564021086c79 日志中获取状态为 UPLOADFAILED 的所有错误：
 
@@ -219,7 +222,7 @@ cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
 ## <a name="troubleshooting"></a>故障排除
 
-AzCopy v10 为每个作业创建日志文件和计划文件。 可以使用日志调查并解决任何潜在问题。 日志包含失败状态（UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED）、完整路径以及失败原因。 作业日志和计划文件在 Windows 上位于 %USERPROFILE\\.azcopy 文件夹中，在 Mac 和 Linux 上位于 $HOME\\.azcopy 文件夹中。
+AzCopy 为每个作业创建日志文件和计划文件。 可以使用日志调查并解决任何潜在问题。 日志包含失败状态（UPLOADFAILED、COPYFAILED 和 DOWNLOADFAILED）、完整路径以及失败原因。 作业日志和计划文件在 Windows 上位于 %USERPROFILE\\.azcopy 文件夹中，在 Mac 和 Linux 上位于 $HOME\\.azcopy 文件夹中。
 
 > [!IMPORTANT]
 > 向 Azure 支持部门提交请求时（或者排查涉及第三方的问题时），请共享想要执行的命令的编校版本。 这可以确保不会意外地与任何人共享 SAS。 可以在日志文件的开头找到经修订的版本。
@@ -244,14 +247,15 @@ AzCopy v10 为每个作业创建日志文件和计划文件。 可以使用日�
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-使用以下命令恢复失败/取消的作业。 此命令使用该作业的标识符以及 SAS 令牌。 出于安全原因，此令牌不是持久性的：
+使用以下命令恢复失败/取消的作业。 此命令使用该作业的标识符以及 SAS 令牌，因为它不是持久性的（出于安全方面的原因）：
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-如有任何疑问、问题或一般反馈，请通过 [GitHub](https://github.com/Azure/azure-storage-azcopy.) 提交。
+如有任何疑问、问题或一般反馈，请通过 [GitHub](https://github.com/Azure/azure-storage-azcopy) 提交。
 
 

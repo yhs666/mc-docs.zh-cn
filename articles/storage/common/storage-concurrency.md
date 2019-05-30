@@ -2,25 +2,20 @@
 title: 在 Azure 存储中管理并发
 description: 如何管理 Blob、队列、表和文件服务的并发
 services: storage
-documentationcenter: ''
-author: jasontang501
-manager: tadb
-editor: tysonn
-ms.assetid: cc6429c4-23ee-46e3-b22d-50dd68bd4680
+author: WenJason
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 05/11/2017
-ms.date: 08/28/2017
-ms.author: v-haiqya
-ms.openlocfilehash: 83d91a39aabb3a3c9af01556fb2c7d90fc8b8f03
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 05/27/2019
+ms.author: v-jay
+ms.subservice: common
+ms.openlocfilehash: 64a66da1e861a77a3ca6dfea9be4666ac4199342
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028903"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004037"
 ---
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述
@@ -199,7 +194,7 @@ catch (StorageException ex)
 
 * [Specifying Conditional Headers for Blob Service Operations](https://msdn.microsoft.com/library/azure/dd179371.aspx)（为 Blob 服务操作指定条件标头）
 * [Lease Container](https://msdn.microsoft.com/library/azure/jj159103.aspx)（租赁容器）
-* [Lease Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)（租用 Blob）
+* [租用 Blob](https://msdn.microsoft.com/library/azure/ee691972.aspx)
 
 ## <a name="managing-concurrency-in-the-table-service"></a>在表服务中管理并发
 处理实体时，表服务使用乐观并发检查作为默认行为，而 Blob 服务不同，必须明确选择执行乐观并发检查。 表服务与 Blob 服务之间的另一个区别在于，使用表服务，只能管理实体的并发行为，而使用 Blob 服务，既可以管理容器的并发，又可以管理 Blob 的并发。  
@@ -251,7 +246,7 @@ customer.ETag = "*";
 | 插入或替换实体 |是 |否 |
 | 插入或合并实体 |是 |否 |
 
-请注意，**插入或替换实体**和**插入或合并实体**操作不可以执行任何并发检查，因为这些操作不会将 ETag 值发送到表服务。  
+请注意，**插入或替换实体**和**插入或合并实体**操作不可以执行任何并发检查，因为这些操作不会  将 ETag 值发送到表服务。  
 
 一般情况下，使用表的开发人员应依靠乐观并发来开发可伸缩的应用程序。 如果需要悲观锁定，则开发人员在访问表时可采用的一种方法是，为每个表分配指定的 Blob，并在对该表执行操作前获取 Blob 中的租约。 这种方法要求应用程序确保在对表执行操作前，所有数据访问路径都获得租约。 还应注意，最短租赁时间为 15 秒，这要求慎重考虑可伸缩性。  
 
@@ -290,5 +285,5 @@ customer.ETag = "*";
 * [Azure 存储主页](https://www.azure.cn/home/features/storage/)
 * [Azure 存储简介](storage-introduction.md)
 * [Blob](../blobs/storage-dotnet-how-to-use-blobs.md)、[表](../../cosmos-db/table-storage-how-to-use-dotnet.md)、[队列](../storage-dotnet-how-to-use-queues.md)和[文件](../storage-dotnet-how-to-use-files.md)的存储使用入门
-* 存储体系结构 - [Azure 存储：具有高度一致性的高可用云存储服务](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
-<!--Update_Description: update link-->
+* 存储体系结构 - [Azure 存储：具有高度一致性的高可用云存储服务](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+

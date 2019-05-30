@@ -6,21 +6,25 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/26/2018
-ms.date: 03/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 47cc464d8d63b821e2bc88ab2df59c83f4a59b7c
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 13a7cd4be6999c9de754712ec89b26d6bfa135f8
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253926"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004009"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>使用 Linux 上的 AzCopy 传输数据
 
 AzCopy 是一个命令行实用程序，专用于通过旨在实现最佳性能的简单命令将数据复制到 Azure Blob 和文件存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
+> [!IMPORTANT]
+> 本文介绍了较旧版本的 AzCopy。
+>若要安装最新版本的 AzCopy，请参阅 [AzCopy v10](storage-use-azcopy-v10.md)。
+
+如果你选择安装较旧版本的 AzCopy (AzCopy v8.1)，则有多个版本的 AzCopy v8.1 可供下载。 AzCopy on Linux 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 [AzCopy on Windows](../storage-use-azcopy.md) 提供 Windows 样式的命令行选项。 本文介绍 Linux 上的 AzCopy。 
 
 > [!NOTE]  
 > 从 AzCopy 7.2 版本开始，.NET Core 依赖项随 AzCopy 包打包在一起。 如果使用的是 7.2 版或更高版本，则安装 .NET Core 不再是先决条件。
@@ -54,7 +58,7 @@ sudo ./install.sh
 
 ### <a name="alternative-installation-on-ubuntu"></a>Ubuntu 上的其他安装
 
-Ubuntu 14.04
+Ubuntu 14.04 
 
 为 Microsoft Linux 产品存储库添加 apt 源并安装 AzCopy：
 
@@ -103,7 +107,7 @@ azcopy \
     --source-key <key> 
 ```
 
-如果文件夹 `/mnt/myfiles` 不存在，AzCopy 会创建该文件夹并将 `abc.txt ` 下载到新文件夹中。 
+如果文件夹 `/mnt/myfiles` 不存在，AzCopy 会创建该文件夹并将 `abc.txt` 下载到新文件夹中。 
 
 ### <a name="download-single-blob-from-secondary-region"></a>从次要区域下载单个 blob
 
@@ -233,7 +237,7 @@ azcopy \
     --dest-key <key>
 ```
 
-如果指定的虚拟目录不存在，AzCopy 将上传文件以在其 blob 名称中包括虚拟目录（例如，上述示例中的 `vd/abc.txt`）。
+如果指定的虚拟目录不存在，AzCopy 将上传文件以在其 blob 名称中包括虚拟目录（例如  ，上述示例中的 `vd/abc.txt`）。
 
 ### <a name="redirect-from-stdin"></a>从 stdin 重定向
 
@@ -431,7 +435,7 @@ azcopy \
     --source-key <key>
 ```
 
-如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如 `abc.txt`）以下载单个文件，或者指定选项 `--recursive` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `--recursive` 会导致错误。
+如果指定的源是 Azure 文件共享，则必须指定确切的文件名（例如  `abc.txt`）以下载单个文件，或者指定选项 `--recursive` 以递归方式下载该共享中的所有文件。 尝试同时指定文件模式和选项 `--recursive` 会导致错误。
 
 ### <a name="download-all-files"></a>下载所有文件
 

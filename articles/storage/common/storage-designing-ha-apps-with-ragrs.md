@@ -7,15 +7,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/17/2019
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: d508a24433e67019b39766f094b95dc1bd4ab21d
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 935c2364d5e7d3376d8b1c62edb3805332de9ce8
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665718"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004038"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -36,7 +37,7 @@ ms.locfileid: "56665718"
 
 * 只读副本与主要区域中的数据 [最终一致](https://en.wikipedia.org/wiki/Eventual_consistency) 。
 
-* 对于 blob、表和队列，可以从次要区域查询上次同步时间的值，了解上次从主要区域复制到次要区域的时间。 （Azure 文件不支持此操作，因为其目前不具有 RA-GRS 冗余。）
+* 对于 blob、表和队列，可以从次要区域查询上次同步时间  的值，了解上次从主要区域复制到次要区域的时间。 （Azure 文件不支持此操作，因为其目前不具有 RA-GRS 冗余。）
 
 * 可以使用存储客户端库与主要或次要区域中的数据进行交互。 如果到主要区域的读取请求超时，还可将读取请求自动重定向到次要区域。
 
@@ -144,7 +145,7 @@ ms.locfileid: "56665718"
 
 可使用三个主要选项监视主要区域中的重试频率，以便确定何时切换到次要区域并将应用程序更改为在只读模式下运行。
 
-*   为传递到存储请求的 [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) 对象上的[**重试**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
+*   为传递到存储请求的 [**OperationContext**](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) 对象上的[**重试**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying)事件添加处理程序 - 这是本文演示的方法，且在随附的示例中使用了该方法。 每当客户端重试请求时都会触发这些事件，以便跟踪客户端在主终结点上遇到可重试错误的频率。
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -155,7 +156,7 @@ ms.locfileid: "56665718"
     };
     ```
 
-*   在自定义重试策略的 [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) 方法中，每次重试时均可运行自定义代码。 除了在重试时进行记录外，还可利用此操作修改重试行为。
+*   在自定义重试策略的 [**Evaluate**](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) 方法中，每次重试时均可运行自定义代码。 除了在重试时进行记录外，还可利用此操作修改重试行为。
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,
@@ -213,7 +214,7 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 
 当应用程序遇到可重试错误时，请务必测试应用程序的行为是否与预期一致。 例如，需要测试应用程序在检测到问题时会切换到辅助数据库和只读模式，并在主要区域可用时再次切换回去。 若要执行此操作，需以某种方式模拟可重试错误并控制其出现的频率。
 
-可以使用 [Fiddler](http://www.telerik.com/fiddler) 在脚本中截获和修改 HTTP 响应。 此脚本可以标识来自主终结点的响应，并将 HTTP 状态代码更改为存储客户端库识别为可重试错误的代码。 此代码片段显示 Fiddler 脚本的简单示例，此脚本截获响应以读取对 **employeedata** 表的读取请求，并返回 502 状态：
+可以使用 [Fiddler](https://www.telerik.com/fiddler) 在脚本中截获和修改 HTTP 响应。 此脚本可以标识来自主终结点的响应，并将 HTTP 状态代码更改为存储客户端库识别为可重试错误的代码。 此代码片段显示 Fiddler 脚本的简单示例，此脚本截获响应以读取对 **employeedata** 表的读取请求，并返回 502 状态：
 
 ```java
 static function OnBeforeResponse(oSession: Session) {
@@ -225,7 +226,7 @@ static function OnBeforeResponse(oSession: Session) {
 }
 ```
 
-可使用此示例对范围更广的请求进行截获，并更改其中一些请求的 **responseCode** 以更好地模拟真实方案。 有关自定义 Fiddler 脚本的详细信息，请参阅 Fiddler 文档中的 [Modifying a Request or Response](http://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) （修改请求或响应）。
+可使用此示例对范围更广的请求进行截获，并更改其中一些请求的 **responseCode** 以更好地模拟真实方案。 有关自定义 Fiddler 脚本的详细信息，请参阅 Fiddler 文档中的 [Modifying a Request or Response](https://docs.telerik.com/fiddler/KnowledgeBase/FiddlerScript/ModifyRequestOrResponse) （修改请求或响应）。
 
 如果已将用于将应用程序切换到只读模式的阈值设置为可配置，则可轻松使用非生产事务量测试行为。
 

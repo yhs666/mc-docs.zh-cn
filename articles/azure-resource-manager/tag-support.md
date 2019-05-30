@@ -4,15 +4,15 @@ description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 02/13/2019
-ms.date: 03/18/2019
+origin.date: 04/26/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 222b18600c5fa8c551fb62e0b63f33a67d6cb6f9
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 89894a2bef0c1d480c3db91addb4bf70aaeec43f
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348167"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195477"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。
@@ -88,8 +88,11 @@ ms.locfileid: "58348167"
 | automationAccounts/webhooks | 否 | 
 
 <!--Not Avaialble on ## Microsoft.Azure.Geneva-->
-<!--Not Avaialble on ## Microsoft.AzureActiveDirectory-->
 
+## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
+| 资源类型 | 支持标记 |
+| ------------- | ----------- |
+| b2cDirectories | 是 | 
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 | 资源类型 | 支持标记 |
@@ -472,7 +475,7 @@ ms.locfileid: "58348167"
 | dnszones/SOA | 否 | 
 | dnszones/SRV | 否 | 
 | dnszones/TXT | 否 | 
-| expressRouteCircuits | 是 | 
+| expressRouteCircuits | 是（标记值当前不显示在成本报表中） | 
 | expressRouteServiceProviders | 否 | 
 | frontdoors | 是 | 
 | frontdoorWebApplicationFirewallPolicies | 是 | 
@@ -486,7 +489,7 @@ ms.locfileid: "58348167"
 | networkInterfaces | 是 | 
 | networkProfiles | 是 | 
 | networkSecurityGroups | 是 | 
-| networkWatchers | 是 | 
+| networkWatchers | 是（标记值当前不显示在成本报表中） | 
 | networkWatchers/connectionMonitors | 是 | 
 | networkWatchers/lenses | 是 | 
 | networkWatchers/pingMeshes | 是 | 
@@ -502,9 +505,10 @@ ms.locfileid: "58348167"
 | virtualHubs | 是 | 
 | virtualNetworkGateways | 是 | 
 | virtualNetworks | 是 | 
+| virtualNetworks/subnets | 否 | 
 | virtualNetworkTaps | 是 | 
 | virtualWans | 是 | 
-| vpnGateways | 是 | 
+| vpnGateways | 是（标记值当前不显示在成本报表中） | 
 | vpnSites | 是 | 
 | webApplicationFirewallPolicies | 是 | 
 

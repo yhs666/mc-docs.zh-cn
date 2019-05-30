@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/28/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f519a7705dc5c3c46f1425fb4a28406e3922870
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 6f8e825bea0f788b6d666986595791c195f46f97
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003979"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004252"
 ---
 <!--Notice: Verify successfully on bash cmdlet-->
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
@@ -29,13 +29,13 @@ ms.locfileid: "59003979"
 
 文件存储使用标准 SMB 协议在云中提供文件共享。 可以从支持 SMB 3.0 的任何 OS 装载文件共享。 在 Linux 上使用 SMB 装载时，可轻松备份到 SLA 支持的可靠、永久的存档存储位置。
 
-将文件从 VM 移至托管在文件存储上的 SMB 装载，可以很轻松地调试日志。 同一 SMB 共享可以通过本地方式装载到 Mac、Linux 或 Windows 工作站。 SMB 不会是实时流式处理 Linux 或应用程序日志的最佳解决方案，因为 SMB 协议并非为处理那样重的日志记录任务而构建。 专用统一的日志记录层工具（如 Fluentd）会是 SMB 之上的更好选择，可收集 Linux 和应用程序日志记录输出。
+将文件从 VM 移至托管在文件存储上的 SMB 装载，可以很轻松地调试日志。 同一 SMB 共享可以通过本地方式装载到 Mac、Linux 或 Windows 工作站。 SMB 不会是实时流式传输 Linux 或应用程序日志的最佳解决方案，因为 SMB 协议并非为处理那样重的日志记录任务而构建。 专用统一的日志记录层工具（如 Fluentd）会是 SMB 之上的更好选择，可收集 Linux 和应用程序日志记录输出。
 
 本指南需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-在“中国东部”位置创建名为 *myResourceGroup* 的资源组。
+在“中国东部”位置创建名为 *myResourceGroup* 的资源组。 
 
 ```bash
 az group create --name myResourceGroup --location chinaeast
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 在创建的资源组中创建一个新存储帐户。 此示例创建名为 *mySTORAGEACCT<random number>* 的存储帐户，然后将该存储帐户的名称置于变量 **STORAGEACCT** 中。 存储帐户名称必须唯一，请使用 `$RANDOM` 将一个数字追加到名称末尾，使之变得唯一。
+使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 在创建的资源组中创建一个新存储帐户。 此示例创建一个名为 *mySTORAGEACCT\<random number>* 的存储帐户，然后将该存储帐户的名称置于变量 **STORAGEACCT** 中。 存储帐户名称必须唯一，请使用 `$RANDOM` 将一个数字追加到名称末尾，使之变得唯一。
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -86,7 +86,7 @@ az storage share create --name myshare \
 
 若要在 Linux 计算机上装载 Azure 文件共享，需要确保已安装 **cifs-utils** 包。 有关安装说明，请参阅[安装适用于 Linux 发行版的 cifs-utils 包](../../storage/files/storage-how-to-use-files-linux.md#install-cifs-utils)。
 
-Azure 文件使用通过 TCP 端口 445 进行通信的 SMB 协议。  如果无法装载 Azure 文件共享，请确保防火墙未阻止 TCP 端口 445。
+Azure 文件使用通过 TCP 端口 445 进行通信的 SMB 协议。 如果无法装载 Azure 文件共享，请确保防火墙未阻止 TCP 端口 445。
 
 ```bash
 mkdir -p /mnt/MyAzureFileShare

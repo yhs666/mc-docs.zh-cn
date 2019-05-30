@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 01/02/2019
-ms.date: 04/08/2019
+ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: c6b5c03b146af505c138cca218aaf28bdf2b4591
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: e71450d446b76a87afa1af74d6680cdfed7fdbcc
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890224"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004034"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -23,7 +23,7 @@ Azure 存储是 Microsoft 提供的适用于现代数据存储场景的云存储
 - **持久且具有高可用性。** 冗余可确保数据在发生短暂的硬件故障时是安全的。 还可以选择在各个数据中心或地理区域之间复制数据，从而在发生本地灾难或自然灾害时提供额外的保护。 以此方式复制的数据在发生意外中断时将保持高可用性。 
 - **安全。** 该服务将对写入到 Azure 存储的所有数据进行加密。 Azure 存储可以精细地控制谁可以访问你的数据。
 - **可缩放。** Azure 存储设计为可大规模缩放以满足当今的应用程序在数据存储和性能方面的需求。 
-- **已托管。** Azure 为你处理硬件维护、更新和关键问题。
+- **托管的。** Azure 为你处理硬件维护、更新和关键问题。
 - **易访问。** 可以通过 HTTP 或 HTTPS 从世界上的任何位置访问 Azure 存储中的数据。 Microsoft 以各种语言（NET、Java、Node.js、Python、PHP、Ruby、Go 和其他语言）提供了适用于 Azure 存储的 SDK 以及成熟的 REST API。 Azure 存储支持通过 Azure PowerShell 或 Azure CLI 运行脚本。 而且，Azure 门户和 Azure 存储资源管理器提供了用于处理数据的简单可视化解决方案。  
 
 ## <a name="azure-storage-services"></a>Azure 存储服务
@@ -94,23 +94,14 @@ Azure 存储还包括虚拟机使用的托管和非托管磁盘功能。 有关�
 
 有关存储帐户类型的详细信息，请参阅 [Azure 存储帐户概述](storage-account-overview.md)。 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>访问 Blob、文件和队列
+## <a name="securing-access-to-storage-accounts"></a>确保对存储帐户进行安全访问
 
-每个存储帐户都有两个身份验证密钥，任何一个都可以用于任何操作。 由于有两个密钥，因此可以不定期地对其滚动更新以增强安全性。 确保密钥安全至关重要，因为使用密钥和帐户名即可对存储帐户中的所有数据进行无限制的访问。
+对 Azure 存储的每个请求必须获得授权。 Azure 存储支持以下授权方法：
 
-本部分探讨如何通过两种方式来确保存储帐户及其数据的安全性。 若要详细了解如何确保存储帐户及其数据的安全性，请参阅 [Azure 存储安全指南](storage-security-guide.md)。
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>使用 Azure AD 确保对存储帐户进行安全访问
-
-若要确保对存储数据进行安全访问，一种方式是控制对存储帐户密钥的访问。 使用资源管理器基于角色的访问控制 (RBAC) 时，可以向用户、组或应用程序分配角色。 这些角色与特定的一组允许的或禁止的操作绑定。 通过 RBAC 授予对存储帐户的访问权限只是对该存储帐户的管理操作（例如更改访问层）进行的处理。 不能使用 RBAC 授予对数据对象（例如特定容器或文件共享）的访问权限。 但是，可以使用 RBAC 授予对存储帐户密钥的访问权限，然后即可使用这些密钥读取数据对象。
-
-### <a name="securing-access-using-shared-access-signatures"></a>使用共享访问签名来确保访问安全性
-
-可以使用共享访问签名和存储的访问策略来确保数据对象的安全性。 共享访问签名 (SAS) 是一个字符串，包含可附加到资产的 URI 的安全令牌，用于委派特定存储对象的访问权限，以及指定访问的权限和日期/时间范围等限制。 此功能用途很广。 有关详细信息，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
-
-### <a name="public-access-to-blobs"></a>公开访问 Blob
-
-可以通过 Blob 服务提供对容器及其 Blob 或特定 Blob 的公开访问权限。 指定某个容器或 Blob 为公用的时，任何人都可以匿名读取它，不需要进行身份验证。 举例来说，如果你的网站使用 Blob 存储中的图像、视频或文档，则需这样做。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
+- **用于 Blob 和队列数据的 Azure Active Directory (Azure AD) 集成。** Azure 存储支持通过基于角色的访问控制 (RBAC) 使用 Azure AD 凭据为 Blob 和队列服务进行身份验证和授权。 建议使用 Azure AD 进行授权请求，以确保极高的安全性和易用性。 有关详细信息，请参阅[使用 Azure Active Directory 对 Azure blob 和队列访问进行身份验证](storage-auth-aad.md)。
+- **通过共享密钥进行授权。** Azure 存储 Blob、队列和表服务以及 Azure 文件存储支持使用共享密钥进行授权。使用共享密钥授权的客户端会随使用存储帐户访问密钥签名的每个请求传递一个标头。 有关详细信息，请参阅[通过共享密钥进行授权](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key)。
+- **使用共享访问签名 (SAS) 进行授权。** 共享访问签名 (SAS) 是一个字符串，其中包含的安全令牌可以追加到存储资源的 URI。 安全令牌封装了各种约束，例如权限、访问时间间隔。 有关详细信息，请参阅[使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)。
+- **对容器和 Blob 的匿名访问。** 容器及其 Blob 也许可以公开使用。 指定某个容器或 Blob 为公用的时，任何人都可以匿名读取它，不需要进行身份验证。 有关详细信息，请参阅[管理对容器和 Blob 的匿名读取访问](../blobs/storage-manage-access-to-resources.md)。
 
 ## <a name="encryption"></a>Encryption
 
@@ -141,7 +132,7 @@ SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azur
 
 ## <a name="transferring-data-to-and-from-azure-storage"></a>将数据传输到和移出 Azure 存储
 
-有多个选项用于将数据移入或移出 Azure 存储。 选择哪个选项取决于数据集的大小和网络带宽。
+有多个选项用于将数据移入或移出 Azure 存储。 选择哪个选项取决于数据集的大小和网络带宽。 有关详细信息，请参阅[选择 Azure 数据传输解决方案](storage-choose-data-transfer-solution.md)。
 
 ## <a name="pricing"></a>定价
 
@@ -153,17 +144,17 @@ Azure 存储资源可以通过任何发出 HTTP/HTTPS 请求的语言来进行�
 ### <a name="azure-storage-data-api-and-library-references"></a>Azure 存储数据 API 和库参考
 * [存储服务 REST API](https://docs.microsoft.com/rest/api/storageservices/)
 * [适用于 .NET 的存储客户端库](https://docs.azure.cn/zh-cn/dotnet/api/overview/storage)
-* [适用于 Java/Android 的存储客户端库](https://docs.azure.cn/zh-cn/java/api/overview/storage)
-* [适用于 Node.js 的存储客户端库](https://docs.microsoft.com/javascript/api/azure-storage)
-* [适用于 Python 的存储客户端库](https://github.com/Azure/azure-storage-python)
-* [适用于 PHP 的存储客户端库](https://github.com/Azure/azure-storage-php)
-* [适用于 Ruby 的存储客户端库](https://github.com/Azure/azure-storage-ruby)
+* [适用于 Java/Android 的存储空间客户端库](https://docs.azure.cn/zh-cn/java/api/overview/storage)
+* [适用于 Node.js 的存储空间客户端库](https://docs.microsoft.com/javascript/api/azure-storage)
+* [适用于 Python 的存储空间客户端库](https://github.com/Azure/azure-storage-python)
+* [适用于 PHP 的存储空间客户端库](https://github.com/Azure/azure-storage-php)
+* [适用于 Ruby 的存储空间客户端库](https://github.com/Azure/azure-storage-ruby)
 * [适用于 C++ 的存储客户端库](https://github.com/Azure/azure-storage-cpp)
 
 ### <a name="azure-storage-management-api-and-library-references"></a>Azure 存储管理 API 和库参考
 * [存储资源提供程序 REST API](https://docs.microsoft.com/rest/api/storagerp/)
 * [适用于 .NET 的存储资源提供程序客户端库](https://docs.azure.cn/dotnet/api/overview/storage/management)
-* [存储服务管理 REST API（经典）](https://msdn.microsoft.com/library/azure/ee460790.aspx)
+* [存储服务管理 REST API (Classic)](https://msdn.microsoft.com/library/azure/ee460790.aspx)
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure 存储数据移动 API 和库参考
 * [存储导入/导出服务 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: c11f3cc32d8a03de90a237973a5fc52723836711
-ms.sourcegitcommit: 3fa6f4e8948d83d1133517a42a0a7eae58e43f63
+ms.openlocfilehash: e82d4c1eae065bb5d9ec19c3c17d6c6f7789dd0b
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65066156"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004268"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure 中 Windows VM 的时间同步
 
@@ -33,13 +33,14 @@ Azure 现在受运行 Windows Server 2016 的基础设施的支持。 Windows Se
 > 有关详细信息，请参阅 [Windows Server 2016 的准确时间](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)。 
 
 <!--Not Avaialble on [high-level overview video](https://aka.ms/WS2016TimeVideo)-->
+
 ## <a name="overview"></a>概述
 
 计算机时钟的准确性根据计算机时钟与协调世界时 (UTC) 时间标准的接近程度来测量。 UTC 通过精确原子钟的跨国样本来定义，此类原子钟 300 年的偏差只有 1 秒。 但是，直接读取 UTC 需要专用硬件。 而时间服务器与 UTC 同步，可以从其他计算机访问，因此具备可伸缩性和可靠性。 每个计算机都有时间同步服务运行，该服务知道使用什么时间服务器，并定期检查计算机时钟是否需纠正，然后根据需要调整时间。 
 
-Azure 主机与内部 Azure 时间服务器同步，后者从 Microsoft 拥有的带 GPS 天线的第 1 层设备获取其时间。 Azure 中的虚拟机可以依赖其主机来获取准确的时间（主机时间），也可以直接从时间服务器获取时间，或者同时采用这两种方法。 
+Azure 主机与内部 Azure 时间服务器同步，后者从 Azure 拥有的带 GPS 天线的第 1 层设备获取其时间。 Azure 中的虚拟机可以依赖其主机来获取准确的时间（主机时间）  ，也可以直接从时间服务器获取时间，或者同时采用这两种方法。 
 
-虚拟机与主机的交互也可能影响时钟。 在[内存保留维护](maintenance-and-updates.md)期间，VM 会暂停最多 30 秒的时间。 例如，在维护开始之前，VM 时钟显示上午 10:00:00，这种状态会持续 28 秒。 在 VM 恢复后，VM 上的时钟仍显示上午 10:00:00，这样就造成 28 秒的偏差。 为了进行纠正，VMICTimeSync 服务会监视主机上发生的情况，并会提示用户在 VM 上进行更改以纠正时间偏差。
+虚拟机与主机的交互也可能影响时钟。 在[内存保留维护](maintenance-and-updates.md#maintenance-not-requiring-a-reboot)期间，VM 会暂停最多 30 秒的时间。 例如，在维护开始之前，VM 时钟显示上午 10:00:00，这种状态会持续 28 秒。 在 VM 恢复后，VM 上的时钟仍显示上午 10:00:00，这样就造成 28 秒的偏差。 为了进行纠正，VMICTimeSync 服务会监视主机上发生的情况，并会提示用户在 VM 上进行更改以纠正时间偏差。
 
 <!-- Not Available on Anchor #memory-preserving-maintenance-->
 
@@ -66,7 +67,7 @@ VMICTimeSync 服务以采样或同步模式运行，只会影响时钟前进。 
 默认情况下，Windows OS VM 映像配置为允许 w32time 与两个源同步： 
 
 - NtpClient 提供程序，从 time.windows.com 获取信息。
-- VMICTimeSync 服务，用于将主机时间传递给 VM，并在 VM 因维护而暂停后进行纠正。 Azure 主机使用 Microsoft 拥有的第 1 层设备来确保时间的准确性。
+- VMICTimeSync 服务，用于将主机时间传递给 VM，并在 VM 因维护而暂停后进行纠正。 Azure 主机使用 Azure 拥有的第 1 层设备来确保时间的准确性。
 
 w32time 会按以下优先级顺序来首选时间提供程序：层次级别、根延迟、根分散、时间偏差。 大多数情况下，w32time 会首选 time.windows.com 而不是主机，因为 time.windows.com 报告的层次较低。 
 
@@ -121,13 +122,13 @@ w32tm /query /source
 
 - **time.windows.com** - 在默认配置中，w32time 会从 time.windows.com 获取时间。 时间同步质量取决于到它的 Internet 连接，受数据包延迟的影响。 这是默认设置的常规输出。
 - **VM IC 时间同步提供程序** - VM 与主机同步时间。 这通常是你选择启用“仅主机”时间同步或 NtpServer 目前不可用的结果。 
-- 你的域服务器 - 当前计算机位于某个域中，该域定义时间同步层次结构。
-- 某个其他的服务器 - w32time 已显式配置为从该服务器获取时间。 时间同步质量取决于该时间服务器质量。
+-  你的域服务器 - 当前计算机位于某个域中，该域定义时间同步层次结构。
+-  某个其他的服务器 - w32time 已显式配置为从该服务器获取时间。 时间同步质量取决于该时间服务器质量。
 - **本地 CMOS 时钟** - 时钟未同步。 如果 w32time 在重启后还没有足够的时间启动，或者所有配置的时间源均不可用，则可能获得此输出。
 
 ## <a name="opt-in-for-host-only-time-sync"></a>选择启用“仅主机”时间同步
 
-Azure 始终致力于改进主机上的时间同步，确保所有时间同步基础设施并置在 Microsoft 拥有的数据中心。 如果首选使用 time.windows.com 作为主时间源的默认设置有时间同步问题，可通过以下命令来选择启用“仅主机”时间同步。
+Azure 始终致力于改进主机上的时间同步，确保所有时间同步基础设施并置在 Azure 拥有的数据中心。 如果首选使用 time.windows.com 作为主时间源的默认设置有时间同步问题，可通过以下命令来选择启用“仅主机”时间同步。
 
 将 VMIC 提供程序标记为“已启用”。 
 

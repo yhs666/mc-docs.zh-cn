@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 07/06/2018
-ms.date: 12/24/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: c6dd489a99618e5f604ace038a8df2c5a6aac7f1
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 6922487fdb8b9b4d23cfed18981cb21d5694c9c2
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736214"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004314"
 ---
 内存优化 VM 大小提供适用于关系数据库服务器、中到大型规模的缓存和内存中分析的高内存 CPU 比率。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数、存储吞吐量及网络带宽的相关信息。 
 
@@ -95,6 +95,7 @@ ACU：160-180 <sup>1</sup>
 写入加速器：[支持](/virtual-machines/windows/how-to-enable-write-accelerator)
 
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
+
 | 大小            | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数/预期网络带宽 (MBps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M8ms&nbsp;<sup>3</sup>    | 8  | 218.75 | 256  | 8  | 10,000 / 100 (793)  | 5,000 / 125 | 4 / 2,000 |
@@ -105,7 +106,7 @@ ACU：160-180 <sup>1</sup>
 | Standard_M64s  | 64 | 1,024   | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
 | Standard_M64ls  | 64 | 512    | 2,048 | 64 | 80,000 / 800 (6,348) | 40,000 / 1,000 | 8 / 16,000 |
 | Standard_M64ms&nbsp;<sup>3</sup>  | 64   | 1,792 | 2,048 | 64 | 80,000 / 800 (6,348)| 40,000 / 1,000 | 8 / 16,000          |
-| Standard_M128s&nbsp;<sup>2,&nbsp;3</sup> | 128  | 2,048        | 4,096  | 64 | 160,000/1,600 (12,696) | 80,000 / 2,000                            | 8 / 30,000          |
+| Standard_M128s&nbsp;<sup>2</sup> | 128  | 2,048        | 4,096  | 64 | 160,000/1,600 (12,696) | 80,000 / 2,000                            | 8 / 30,000          |
 | Standard_M128ms&nbsp;<sup>2,&nbsp;3,&nbsp;4</sup> | 128  | 3,892  | 4,096 | 64 | 160,000/1,600 (12,696) | 80,000 / 2,000                            | 8 / 30,000          |
 | Standard_M64   | 64  | 1,024 | 7,168  | 64 | 80,000 / 800 (1,228) | 40,000 / 1,000 | 8 / 16,000 |
 | Standard_M64m  | 64  | 1,792 | 7,168  | 64 | 80,000 / 800 (1,228) | 40,000 / 1,000 | 8 / 16,000 |
@@ -119,7 +120,7 @@ ACU：160-180 <sup>1</sup>
 <sup>3</sup> 受约束的可用核心大小。
 
 <sup>4</sup> 实例与专用于单个客户的硬件隔离。
-<br>
+<br />
 
 <!-- Not Available on ## GS-series-->
 
@@ -146,15 +147,12 @@ ACU：210 - 250 <sup>1</sup>
 
 <!-- Please acknowledge that DSv2 Max Disk Count are 8,16,32,64,64 -->
 
-<sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[高级存储：适用于 Azure 虚拟机工作负荷的高性能存储](../articles/virtual-machines/windows/premium-storage.md)。
+<sup>1</sup> DSv2 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](../articles/virtual-machines/windows/premium-storage-performance.md)。  
+<sup>2</sup> 实例对于专用于单个客户的硬件独立。  
+<sup>3</sup> 受约束的可用核心大小。  
+<sup>4</sup> 25000 Mbps，具有加速网络。 
 
-<sup>2</sup> 实例对于专用于单个客户的硬件独立。
-
-<sup>3</sup> 受约束的可用核心大小。
-
-<sup>4</sup> 25000 Mbps，具有加速网络。
-
-<br>
+<br />
 
 ## <a name="dv2-series-11-15"></a>Dv2 系列 11-15
 
@@ -174,11 +172,8 @@ ACU：210 - 250
 
 <!-- Please acknowledge that Dv2 Max Disk Count are 8,16,32,64,64 -->
 
-<sup>1</sup> 实例对于专用于单个客户的硬件独立。 
-
+<sup>1</sup> 实例对于专用于单个客户的硬件独立。  
 <sup>2</sup> 25000 Mbps，具有加速网络。
-
-<br>
 
 <!-- Update_Description: update meta properties, wording update -->
 

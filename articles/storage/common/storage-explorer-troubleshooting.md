@@ -6,14 +6,14 @@ author: WenJason
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 04/08/2019
+ms.date: 05/25/2019
 ms.author: v-jay
-ms.openlocfilehash: c90a11c7770471479e79d27ed0286749cfa6833b
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 45b3313a80fc143d6e328cc72022435c9bda516a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890215"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004036"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -23,7 +23,7 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 ## <a name="role-based-access-control-permission-issues"></a>基于角色的访问控制权限问题
 
-[基于角色的访问控制 (RBAC)](/role-based-access-control/overview) 是通过将权限集组合成“角色”，来提供对 Azure 资源的精细访问管理。 可遵循以下建议在存储资源管理器中正常运行 RBAC。
+[基于角色的访问控制 (RBAC)](/role-based-access-control/overview) 是通过将权限集组合成“角色”，来提供对 Azure 资源的精细访问管理。  可遵循以下建议在存储资源管理器中正常运行 RBAC。
 
 ### <a name="what-do-i-need-to-see-my-resources-in-storage-explorer"></a>需要满足哪些条件才能在存储资源管理器中查看我的资源？
 
@@ -48,7 +48,7 @@ Azure 存储资源管理器是一款独立应用，可用于在 Windows、macOS 
 
 ### <a name="why-do-i-need-a-management-layer-role-to-see-my-resources-in-storage-explorer"></a>为何需要管理层角色才能在存储资源管理器中查看我的资源？
 
-Azure 存储提供两个访问层：“管理”和“数据”。 订阅和存储帐户是通过管理层访问的。 容器、Blob 和其他数据资源是通过数据层访问的。 例如，若要从 Azure 获取存储帐户的列表，应向管理终结点发送请求。 若要列出帐户中的 Blob 容器，应向相应的服务终结点发送请求。
+Azure 存储提供两个访问层：“管理”和“数据”。   订阅和存储帐户是通过管理层访问的。 容器、Blob 和其他数据资源是通过数据层访问的。 例如，若要从 Azure 获取存储帐户的列表，应向管理终结点发送请求。 若要列出帐户中的 Blob 容器，应向相应的服务终结点发送请求。
 
 RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读取者”角色授予对管理层资源的只读访问权限。
 
@@ -72,7 +72,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 当存储资源管理器看到自签名或不受信任的证书时，无法再判断收到的 HTTPS 消息是否被更改。 如果拥有自签名证书的副本，可通过执行以下步骤，让存储资源管理器信任它：
 
 1. 获取证书的 Base-64 编码 X.509 (.cer) 副本
-2. 单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择和打开 .cer 文件
+2. 单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择和打开 .cer 文件   
 
 此问题还有可能是由于存在多个证书（根证书和中间证书）造成的。 必须添加这两个证书才能解决错误。
 
@@ -82,12 +82,12 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
     * [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任何精简版本均可）
     * Mac 和 Linux：应包含在操作系统中
 2. 运行 Open SSL
-    * Windows：打开安装目录，单击“/bin/”，然后双击“openssl.exe”。
-    * Mac 和 Linux：从终端运行 penssl。
+    * Windows：打开安装目录，单击“/bin/”，然后双击“openssl.exe”   。
+    * Mac 和 Linux：从终端运行 penssl  。
 3. 执行 `s_client -showcerts -connect microsoft.com:443`
 4. 查找自签名证书。 如果不确定哪些证书是自签名证书，请查看使用者 `("s:")` 和证书颁发者 `("i:")` 相同的任意位置。
-5. 找到任何自签名证书时，对于每个证书，将从“-----BEGIN CERTIFICATE-----”到“-----END CERTIFICATE-----”在内的所有内容复制并粘贴到新的 .cer 文件。
-6. 打开存储资源管理器，单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择并打开已创建的 .cer 文件。
+5. 找到任何自签名证书时，对于每个证书，将从“-----BEGIN CERTIFICATE-----”到“-----END CERTIFICATE-----”在内的所有内容复制并粘贴到新的 .cer 文件   。
+6. 打开存储资源管理器，单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择并打开已创建的 .cer 文件    。
 
 如果通过上述步骤无法找到任何自签名证书，请通过反馈工具联系我们以获取更多帮助。 或者，可以选择通过命令行使用 `--ignore-certificate-errors` 标志启动存储资源管理器。 使用此标志启动后，存储资源管理器将忽略证书错误。
 
@@ -97,7 +97,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解决此问题，可以尝试使用设备代码流进行登录。 为此，请执行以下步骤：
 
-1. “转到预览”->“使用设备代码登录”。
+1. 菜单：“预览”->“使用设备代码登录”。
 2. 打开“连接”对话框（通过左侧垂直栏上的插头图标或“帐户”面板上的“添加帐户”）。
 3. 选择要登录到的环境。
 4. 单击“登录”按钮。
@@ -128,7 +128,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
     ![图像](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. 启动存储资源管理器。
-6. 应出现一个弹出窗口，其中显示“服务中心想要访问密钥链”。 如果是这样，请输入 Mac 管理员帐户密码，然后单击“始终允许”（如果“始终允许”不可用，则单击“允许”）。
+6. 应出现一个弹出窗口，其中显示“服务中心想要访问密钥链”。 如果是这样，请输入 Mac 管理员帐户密码，然后单击“始终允许”  （如果“始终允许”  不可用，则单击“允许”  ）。
 7. 请尝试登录。
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>常规登录故障排除步骤
@@ -155,9 +155,9 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 如果无法通过 UI 删除附加的帐户或存储资源，可以通过删除以下文件夹来手动删除所有附加的资源：
 
-* Windows: `%AppData%/StorageExplorer`
-* macOS： `/Users/<your_name>/Library/Application Support/StorageExplorer`
-* Linux： `~/.config/StorageExplorer`
+* Windows： `%AppData%/StorageExplorer`
+* macOS：`/Users/<your_name>/Library/Application Support/StorageExplorer`
+* Linux：`~/.config/StorageExplorer`
 
 > [!NOTE]
 > 在删除上述文件夹之前关闭存储资源管理器。
@@ -232,7 +232,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
 
-* [.NET Core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) 注意：存储资源管理器 1.7.0 及更低版本需要 .NET Core 2.0。 如果安装了更高版本的 .NET Core，则需修补存储资源管理器（见下）。 如果运行存储资源管理器 1.8.0 或更高版本，则最高应该能使用 .NET Core 2.2。 高于 2.2 的版本目前尚未验证其使用情况。
 * `libgnome-keyring-common` 和 `libgnome-keyring-dev`
 * `libgconf-2-4`
 
@@ -240,20 +240,20 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 Ubuntu 18.04、16.04 和 14.04 正式支持存储资源管理器。 全新计算机上的安装步骤如下：
 
-# [<a name="ubuntu-1804"></a>Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. 下载存储资源管理器
 2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
 3. 运行 `sudo apt-get install libgconf-2-4`
 4. 运行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
 
-# [<a name="ubuntu-1604"></a>Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. 下载存储资源管理器
 2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
 3. 运行 `sudo apt install libgnome-keyring-dev`
 
-# [<a name="ubuntu-1404"></a>Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404tab1404"></a>Ubuntu 14.04[](#tab/1404)
 
 1. 下载存储资源管理器
 2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）

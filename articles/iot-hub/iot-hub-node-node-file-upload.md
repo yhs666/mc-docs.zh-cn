@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: 77226b2f6d915b5a352790bb39dfd7299bd126af
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: db17bc4697c15ae69e06a08703e40fd9547ef0af
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665666"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194937"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -45,7 +45,7 @@ ms.locfileid: "56665666"
 
 要完成本教程，需要以下各项：
 
-* Node.js 版本 4.0.x 或更高版本。
+* Node.js 版本 10.0.x 或更高版本。
 * 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户](http://www.azure.cn/pricing/1rmb-trial/)。）
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
@@ -60,13 +60,13 @@ ms.locfileid: "56665666"
     npm init
     ```
 
-1. 在 ```simulateddevice``` 文件夹的命令提示符处，运行下述命令以安装 azure-iot-device 设备 SDK 包和 azure-iot-device-mqtt 包：
+1. 在 ```simulateddevice``` 文件夹的命令提示符处，运行下述命令以安装  azure-iot-device 设备 SDK 包和  azure-iot-device-mqtt 包：
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. 在 ```simulateddevice``` 文件夹中，利用文本编辑器创建 SimulatedDevice.js 文件。
+1. 在 ```simulateddevice``` 文件夹中，利用文本编辑器创建  SimulatedDevice.js 文件。
 
 1. 在 **SimulatedDevice.js** 文件的开头添加以下 ```require``` 语句：
 
@@ -78,7 +78,7 @@ ms.locfileid: "56665666"
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. 添加 ```deviceconnectionstring``` 变量，并使用它创建一个客户端实例。  将 ```{deviceconnectionstring}``` 替换为在“创建 IoT 中心”部分中创建的设备的名称。
+1. 添加 ```deviceconnectionstring``` 变量，并使用它创建一个客户端  实例。  将 ```{deviceconnectionstring}``` 替换为在  “创建 IoT 中心”部分中创建的设备的名称。
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -119,7 +119,7 @@ ms.locfileid: "56665666"
 
 本部分中的操作将会创建一个 Node.js 控制台应用，用于接收来自 IoT 中心的文件上传通知消息。
 
-可以使用 IoT 中心的 **iothubowner** 的连接字符串完成本部分的操作。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。
+可以使用 IoT 中心的 **iothubowner** 的连接字符串完成本部分的操作。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。 
 
 1. 创建名为 ```fileuploadnotification``` 的空文件夹。  在 ```fileuploadnotification``` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
@@ -143,7 +143,7 @@ ms.locfileid: "56665666"
     var Client = require('azure-iothub').Client;
     ```
 
-1. 添加 ```iothubconnectionstring``` 变量，并使用它创建一个客户端实例。  将 ```{iothubconnectionstring}``` 替换为在“创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
+1. 添加 ```iothubconnectionstring``` 变量，并使用它创建一个客户端  实例。  将 ```{iothubconnectionstring}``` 替换为在  “创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

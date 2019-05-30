@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 12/10/2018
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 21beaea8bff5bd41565508d50b79e31b8c784a36
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: b6c0df965242633804d5cf8cd2603621ab83b30d
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901132"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195483"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
-本文介绍可使用 ClusterConfig.json 文件设置的独立 Azure Service Fabric 群集的配置设置。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。  更改或添加配置设置后，可以[创建一个独立的群集](service-fabric-cluster-creation-for-windows-server.md)，也可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
+本文介绍可使用 ClusterConfig.json  文件设置的独立 Azure Service Fabric 群集的配置设置。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。  更改或添加配置设置后，可以[创建一个独立的群集](service-fabric-cluster-creation-for-windows-server.md)，也可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
 
 [下载独立的 Service Fabric 包](service-fabric-cluster-creation-for-windows-server.md#downloadpackage)时还会附带 ClusterConfig.json 示例。 名称中包含“DevCluster”的示例可使用逻辑节点创建所有三个节点都在同一台计算机上的群集。 在这些节点中，必须至少将一个节点标记为主节点。 此群集类型可用于开发或测试环境。 不支持将它用作生产群集。 名称中包含“MultiMachine”的示例可帮助创建生产等级群集，其中的每个节点位于不同的计算机上。 这些群集的主节点数取决于群集的[可靠性级别](#reliability)。 在版本 5.7 API 版本 05-2017 中，我们删除了可靠性级别属性。 取而代之的是，我们的代码将计算群集的最优可靠性级别。 请勿尝试在版本 5.7 及以上版本中设置此属性的值。
 
@@ -101,7 +101,7 @@ reliabilityLevel 的概念定义可在群集的主节点上运行的 Service Fab
 }
 ```
 
-metadata 用于描述群集诊断，可以根据具体的情况进行设置。 这些变量用于收集 ETW 跟踪日志、故障转储和性能计数器。 有关 ETW 跟踪日志的详细信息，请阅读 [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) 和 [ETW 跟踪](https://msdn.microsoft.com/library/ms751538.aspx)。 可将包含[故障转储](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/)和[性能计数器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)的所有日志定向到计算机上的 connectionString 文件夹。 还可以使用 AzureStorage 来存储诊断信息。 请参阅以下示例代码片段：
+metadata 用于描述群集诊断，可以根据具体的情况进行设置。 这些变量有助于收集 ETW 跟踪日志、故障转储和性能计数器。 有关 ETW 跟踪日志的详细信息，请阅读 [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) 和 [ETW 跟踪](https://msdn.microsoft.com/library/ms751538.aspx)。 可将所有日志（包含[故障转储](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/)和[性能计数器](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx)）定向到计算机上的 connectionString 文件夹。 还可以使用 AzureStorage 来存储诊断信息。 请参阅以下示例代码片段：
 
 ```json
 "diagnosticsStore": {
@@ -125,7 +125,7 @@ metadata 用于描述群集诊断，可以根据具体的情况进行设置。 �
 }
 ```
 
-metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 可将这两项设置为 *X509* 来实现基于证书的安全性，或者设置为 *Windows* 来实现基于 Azure Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
+metadata 用于描述安全群集，可根据具体的情况进行设置。 ClusterCredentialType 和 ServerCredentialType 确定群集与节点将要实现的安全类型。 可将这两项设置为 *X509* 来实现基于证书的安全性，或者设置为 *Windows* 来实现基于 Active Directory 的安全性。 security 节的余下设置基于安全类型。 若要了解如何填充 security 节的余下设置，请参阅[独立群集中基于证书的安全性](service-fabric-windows-cluster-x509-security.md)，或[独立群集中的 Windows 安全性](service-fabric-windows-cluster-windows-security.md)。
 
 <a name="nodetypes"></a>
 ### <a name="node-types"></a>节点类型
@@ -211,7 +211,7 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
 若要为 Windows Server 容器和独立群集的 Hyper-V 容器启用容器支持，必须启用 DnsService 附加功能。
 
 ## <a name="next-steps"></a>后续步骤
-根据独立群集设置配置一个完整的 ClusterConfig.json 文件后，即可可部署群集。 请遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)中所述的步骤。 
+根据独立群集设置配置一个完整的 ClusterConfig.json 文件后，即可可部署群集  。 请遵循[创建独立 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)中所述的步骤。 
 
 如果已部署了独立群集，还可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。 
 

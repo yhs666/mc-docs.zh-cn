@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/24/2018
-ms.date: 12/10/2018
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 210715046d0afabb25be30f5b51442ca36951752
-ms.sourcegitcommit: 33421c72ac57a412a1717a5607498ef3d8a95edd
+ms.openlocfilehash: f1cb0839b8cc6c2e67fd14fe4f832c02bc66c7cb
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785177"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195487"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -36,8 +36,13 @@ ms.locfileid: "53785177"
 了解有关以下方面的详细信息：
 
 - [世纪互联对 Azure 的支持](https://www.azure.cn/support/plans/)。
+    <!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier)-->
 
-<!--Not Available on - [Microsoft premier support](https://support.microsoft.com/premier).-->
+> [!Note]
+> 在青铜级可靠性层级上运行的群集只能用来运行测试性工作负荷。 如果你遇到在青铜可靠性级别运行的群集的问题，Azure 支持团队会协助你解决问题，但不会进行根本原因分析。 请参阅[群集的可靠性特征](/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)以获取更多详细信息。
+>
+> 若要详细了解生产就绪性群集的必要信息，请参阅[生产就绪性核对清单](/service-fabric/service-fabric-production-readiness-checklist)。
+
 <a name="getlivesitesupportonprem"></a>
 
 ## <a name="report-production-issues-or-request-paid-support-for-standalone-service-fabric-clusters"></a>报告生产问题，或者请求独立 Service Fabric 群集的付费支持
@@ -56,9 +61,9 @@ ms.locfileid: "53785177"
 
 在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此存储库报告实时站点问题**。
 
-### <a name="stackoverflow-and-msdn-forums"></a>StackOverflow 和 MSDN 论坛
+###  <a name="msdn-forums"></a>MSDN 论坛
 
-[StackOverflow 上的 Service Fabric 标记][stackoverflow]和 [MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
+[MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
 
 <!-- Not Available on ### Azure Feedback forum-->
 
@@ -74,8 +79,12 @@ ms.locfileid: "53785177"
 
 <!--references-->
 [msdn-forum]: https://www.azure.cn/support/contact/
-[stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
+
+<!--Not Available on [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric-->
+
 [uservoice-forum]: https://support.azure.cn/zh-cn/support/support-azure/
-<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml--> [sample-repos]: http://aka.ms/servicefabricsampless
+
+<!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml-->
+<!-- Not Referenced on [sample-repos]: http://aka.ms/servicefabricsamples-->
 
 <!--Update_Description: update meta properties, wording update-->

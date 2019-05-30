@@ -6,32 +6,38 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 01/21/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 8d1919826cf2bec51067d0c5b90e4aceba6d80fa
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.subservice: common
+ms.openlocfilehash: 4ca3a74dcb0b1fe6eae277192bccc8752d0b45a8
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627275"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004001"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>使用 Windows 上的 AzCopy 传输数据
+
 AzCopy 是一个命令行实用程序，专用于使用旨在实现最佳性能的简单命令将数据复制到 Microsoft Azure Blob、文件和表存储以及从这些位置复制数据。 可在文件系统和存储帐户之间或在存储帐户之间复制数据。  
 
-有两个版本的 AzCopy 可下载。 AzCopy on Windows 提供 Windows 样式的命令行选项。 [AzCopy on Linux](storage-use-azcopy-linux.md) 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 本文介绍 Windows 上的 AzCopy。
+> [!IMPORTANT]
+> 本文介绍了较旧版本的 AzCopy。
+>若要安装最新版本的 AzCopy，请参阅 [AzCopy v10](storage-use-azcopy-v10.md)。
 
-## <a name="download-and-install-azcopy-on-windows"></a>下载并安装 AzCopy on Windows
+如果你选择安装较旧版本的 AzCopy (AzCopy v8.1)，则有多个版本可供下载。 AzCopy on Windows 提供 Windows 样式的命令行选项。 [AzCopy on Linux](storage-use-azcopy-linux.md) 面向 Linux 平台，它提供 POSIX 样式的命令行选项。 本文介绍 Windows 上的 AzCopy。
 
-### <a name="latest-version-v81"></a>最新版本 (v8.1)
-下载 [Windows 上的 AzCopy 最新版](https://aka.ms/downloadazcopy)。
+## <a name="download-and-install-azcopy-v81-on-windows"></a>下载并安装 AzCopy (v8.1) on Windows
+
+下载 [AzCopy (v8.1) on Windows](https://aka.ms/downloadazcopy)。
 
 #### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy on Windows 8.1 发行说明
+
 - 最新版本不再支持表服务。 如果使用表导出功能，请下载 AzCopy 7.3 版本。
 - 使用 .NET Core 2.1 构建，现在所有 .NET Core 依赖项都打包在安装中。
 - 添加了 OAuth 身份验证支持。 使用 ```azcopy login``` 通过 Azure Active Directory 登录。
 
 ### <a name="azcopy-with-table-support-v73"></a>带表支持的 Azcopy (v7.3)
+
 下载[带表支持的 AzCopy 7.3](https://aka.ms/downloadazcopynet)。
 
 ### <a name="post-installation-step"></a>安装后步骤
@@ -58,7 +64,7 @@ AzCopy /Source:<source> /Dest:<destination> [Options]
 AzCopy /Source:https://myaccount.blob.core.chinacloudapi.cn/mycontainer /Dest:C:\myfolder /SourceKey:key /Pattern:"abc.txt"
 ```
 
-请注意，如果文件夹 `C:\myfolder` 不存在，AzCopy 会创建该文件夹并将 `abc.txt ` 下载到新文件夹中。
+请注意，如果文件夹 `C:\myfolder` 不存在，AzCopy 会创建该文件夹并将 `abc.txt` 下载到新文件夹中。
 
 ### <a name="download-a-single-blob-from-the-secondary-region"></a>从次要区域下载单个 Blob
 
@@ -151,7 +157,7 @@ AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/my
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.chinacloudapi.cn/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
-如果指定的虚拟目录不存在，AzCopy 将上传文件以在 Blob 名称中包含虚拟目录（例如上例中的 `vd/abc.txt`）。
+如果指定的虚拟目录不存在，AzCopy 将上传文件以在 Blob 名称中包含虚拟目录（例如上例中的 `vd/abc.txt`）。 
 
 ### <a name="upload-all-blobs-in-a-folder"></a>上传文件夹中的所有 Blob
 
@@ -978,7 +984,7 @@ AzCopy 默认情况下使用服务器端的异步复制。 指定此选项以执
 * 如果值为 True（默认值），AzCopy 会使用 .NET MD5 实现。
 * 如果值为 False，AzCopy 会使用 FIPS 兼容的 MD5 算法。
 
-Windows 中默认已禁用 FIPS 兼容的算法。 可在计算机上更改此策略设置。 在“运行”窗口（按 Windows 键 + R 键）中键入 secpol.msc 打开“本地安全策略”窗口。 在“安全设置”窗口中，导航到“安全设置” > “本地策略” > “安全选项”。 找到“**系统加密:将 FIPS 兼容算法用于加密、哈希和签名”策略。** 双击该策略，查看“安全设置”列中显示的值。 
+Windows 中默认已禁用 FIPS 兼容的算法。 可在计算机上更改此策略设置。 在“运行”窗口（按 Windows 键 + R 键）中键入 secpol.msc 打开“本地安全策略”窗口。  在“安全设置”窗口中，导航到“安全设置” > “本地策略” > “安全选项”。     找到“**系统加密:将 FIPS 兼容算法用于加密、哈希和签名”策略。** 双击该策略，查看“安全设置”列中显示的值。  
 
 ## <a name="next-steps"></a>后续步骤
 

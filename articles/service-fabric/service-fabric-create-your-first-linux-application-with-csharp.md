@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8ca879f596d664093d1884d749decbc93392fbee
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: d32d09bd9cfe7477916c94d786e002039b80888b
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204190"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195454"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -41,13 +41,14 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 
 1. 在计算机上安装 nodejs 和 NPM
 
-   ```bash
-   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
-   nvm install node 
-   ```
+    ```bash
+    curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+    nvm install node 
+    ```
    
     <!-- Not Avaiable on Red Hat Enterprise Linux 7.4 (Service Fabric preview support) -->
-2. 通过 NPM 在计算机上安装 [Yeoman](http://yeoman.io/) 模板生成器
+    
+2. 通过 NPM 在计算机上安装 [Yeoman](https://yeoman.io/) 模板生成器
 
     ```bash
     npm install -g yo
@@ -59,7 +60,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
     ```
 
 ## <a name="create-the-application"></a>创建应用程序
-Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 用于 C# 的 Service Fabric [Yeoman](http://yeoman.io/) 生成器是在上一步安装的，利用它可以轻松地创建第一个服务，以及在以后添加其他服务。 让我们使用 Yeoman 创建包含单个服务的应用程序。
+Service Fabric 应用程序可以包含一个或多个服务，每个服务都在提供应用程序功能时具有特定角色。 用于 C# 的 Service Fabric [Yeoman](https://yeoman.io/) 生成器是在上一步安装的，利用它可以轻松地创建第一个服务，以及在以后添加其他服务。 让我们使用 Yeoman 创建包含单个服务的应用程序。
 
 1. 在终端中，键入以下命令开始构建基架： `yo azuresfcsharp`
 2. 为应用程序命名。
@@ -75,10 +76,10 @@ Service Fabric 应用程序可以包含一个或多个服务，每个服务都�
 ## <a name="build-the-application"></a>构建应用程序
 Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用程序（在导航到应用程序文件夹后）。
 
-  ```sh
- cd myapp
- ./build.sh
-  ```
+```sh
+cd myapp
+./build.sh
+```
 
 ## <a name="deploy-the-application"></a>部署应用程序
 
@@ -100,7 +101,7 @@ Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用�
 
 这些命令的参数可以在应用程序包内的生成清单中找到。
 
-应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。 然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
+应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。 然后，展开“应用程序”  节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
 
 > [!IMPORTANT]
 > 必须将证书配置为向 Service Fabric 运行时验证应用程序，才能将应用程序部署到 Azure 中的安全 Linux 群集。 这样做可允许 Reliable Services 服务与基础 Service Fabric 运行时 API 通信。 若要了解详细信息，请参阅[将 Reliable Services 应用程序配置为在 Linux 群集上运行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
@@ -111,7 +112,7 @@ Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用�
 
 1. 使用监视实用工具运行脚本，查看执行组件服务的输出。
 
-   对于 MAC OS X，你需要通过运行以下附加命令将 myactorsvcTestClient 文件夹复制到容器内的某个位置。
+    对于 MAC OS X，你需要通过运行以下附加命令将 myactorsvcTestClient 文件夹复制到容器内的同一位置。
 
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home
@@ -126,7 +127,7 @@ Service Fabric Yeoman 模板包含构建脚本，可用于从终端构建应用�
 2. 在 Service Fabric Explorer 中，找到托管执行组件服务主副本的节点。 在以下屏幕截图中，该节点是节点 3。
 
     ![在 Service Fabric Explorer 中查找主副本][sfx-primary]
-3. 单击上一步找到的节点，并在“操作”菜单中选择“停用(重启)”。 此操作在本地群集中重新启动一个节点，从而强制故障转移到在另一个节点上运行的一个辅助副本。 在执行此操作时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但是计数器仍将继续递增。
+3. 单击上一步找到的节点，并在“操作”菜单中选择“停用(重启)”  。 此操作在本地群集中重新启动一个节点，从而强制故障转移到在另一个节点上运行的一个辅助副本。 在执行此操作时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但是计数器仍将继续递增。
 
 ## <a name="adding-more-services-to-an-existing-application"></a>将更多服务添加到现有应用程序
 

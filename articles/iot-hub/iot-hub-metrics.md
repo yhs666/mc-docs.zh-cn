@@ -5,15 +5,15 @@ author: nberdy
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 08/25/2017
-ms.date: 12/03/2018
+origin.date: 04/24/2019
+ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: 412431c1970b0d6ecabc7d4c93cfa5491eec7612
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: c8622431af676d2e99adb4b7d7497dd8016a6b05
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674805"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194956"
 ---
 # <a name="understand-iot-hub-metrics"></a>了解 IoT 中心指标
 IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure IoT 资源状态。 通过 IoT 中心度量值，可评估 IoT 中心服务及其所连接的设备的总体运行状况。 面向用户的统计信息非常重要，因为它们可以帮助了解 IoT 中心的情况，并可以帮助在不联系 Azure 支持人员的情况下解决根本问题。
@@ -24,7 +24,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
 
 1. 创建 IoT 中心。 可以在[从设备向 IoT 中心发送遥测数据](quickstart-send-telemetry-dotnet.md)指南中找到有关如何创建 IoT 中心的说明。
 
-2. 打开 IoT 中心的边栏选项卡。 在此处单击“度量值” 。
+2. 打开 IoT 中心的边栏选项卡。 在此处单击“度量值”  。
    
     ![显示指标选项在 IoT 中心资源页中位置的屏幕截图](./media/iot-hub-metrics/enable-metrics-1.png)
 
@@ -32,7 +32,7 @@ IoT 中心度量值提供更棒的数据，清晰显示 Azure 订阅中的 Azure
    
     ![显示 IoT 中心的指标页的屏幕截图](./media/iot-hub-metrics/enable-metrics-2.png)
     
-4. 可以选择将指标数据发送到事件中心终结点还是 Azure 存储帐户，方法是单击“诊断设置”，然后单击“添加诊断设置”
+4. 可以选择将指标数据发送到事件中心终结点还是 Azure 存储帐户，方法是单击“诊断设置”  ，然后单击“添加诊断设置” 
 
    ![显示“诊断设置”按钮所在位置的屏幕截图](./media/iot-hub-metrics/enable-metrics-3.png)
 
@@ -65,6 +65,8 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 |d2c<br>.endpoints<br>.latency<br>.storage|路由：存储的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入存储终结点之间的平均延迟（毫秒）。|无维度|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.bytes|路由：传送到存储的数据量|字节|总计|IoT 中心路由传送到存储终结点的数据量（字节）。|无维度|
 |d2c<br>.endpoints<br>.egress<br>.storage<br>.blobs|路由：将 Blob 传送到存储的次数|计数|总计|IoT 中心路由将 Blob 传送到存储终结点的次数。|无维度|
+|EventGridDeliveries|事件网格传送（预览版）|计数|总计|请求 IoT 中心将事件发出到事件网格的数目。 此数目包括成功的和失败的请求。 针对不同类型的响应数使用 Result 维度。 若要查看请求来自何处，请使用 EventType 维度。|Result、EventType|
+|EventGridLatency|事件网格延迟（预览）|毫秒|平均值|事件进入 IoT 中心与进入事件网格之间的平均延迟（毫秒）。 此数值是所有事件类型的平均。 若要查看特定事件类型的延迟，请使用 EventType 维度。|EventType|
 |d2c<br>.twin<br>.read<br>.success|设备的成功孪生读取数|计数|总计|由设备发起的所有成功孪生读取的计数。|无维度|
 |d2c<br>.twin<br>.read<br>.failure|设备的失败孪生读取数|计数|总计|由设备发起的所有失败孪生读取的计数。|无维度|
 |d2c<br>.twin<br>.read<br>.size|设备的孪生读取的响应大小|字节|平均值|由设备发起的所有成功的孪生读取的平均、最小和最大大小。|无维度|
@@ -98,8 +100,7 @@ IoT 中心提供多个度量值，帮助你大致了解中心的运行状况以�
 |jobs<br>.failed|失败的作业数|计数|总计|所有失败的作业的计数。|无维度|
 |d2c<br>.telemetry<br>.ingress<br>.sendThrottle|限制错误数|计数|总计|由于设备吞吐量限制而导致的限制错误数|无维度|
 |dailyMessage<br>QuotaUsed|已使用的消息总数|计数|平均值|今天使用的消息总数。 这是累积值，每日 00:00 UTC 重置为零。|无维度|
-|deviceDataUsage|设备数据使用总量（已弃用）|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
-|deviceDataUsageV2|设备数据用量总计（预览）|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
+|deviceDataUsage|设备数据用量总计|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
 |totalDeviceCount|设备总数（预览）|计数|平均值|已注册到 IoT 中心的设备数目|无维度|
 |已连接<br>设备数|连接设备数（预览）|计数|平均值|已连接到 IoT 中心的设备数目|无维度|
 |配置|配置指标|计数|总计|配置操作的指标|无维度|

@@ -7,14 +7,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 origin.date: 12/06/2018
-ms.date: 02/25/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: b4d5f9067b1f4bb3dc46d46e2383177e3c47db05
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.reviewer: sachins
+ms.openlocfilehash: 17f40e486b08801db683508ed3992cb1ba7ec15a
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665533"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003881"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -40,7 +41,7 @@ Azure Active Directory 服务主体通常可供服务用来访问 Data Lake Stor
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>启用 Data Lake Storage Gen2 防火墙，允许 Azure 服务访问
 
-Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以在 Azure 门户的存储帐户上启用防火墙，方法是单击“防火墙和虚拟网络”>“允许来自所有网络的访问”。
+Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问的选项。如果需要限制外部攻击途径，建议使用这一选项。 可以在 Azure 门户的存储帐户上启用防火墙，方法是单击“防火墙和虚拟网络”  >“允许来自所有网络的访问”。 
 
 ## <a name="resiliency-considerations"></a>复原注意事项
 
@@ -53,6 +54,12 @@ Data Lake Storage Gen2 支持启用防火墙并仅限 Azure 服务进行访问�
 在 DR 策略中，为了应对某个区域发生灾难性故障这种不太可能的事件，必须使用 GRS 或 RA-GRS 复制选项将数据复制到其他区域，这也很重要。 此外，还必须考虑到在出现数据损坏这样的极端例子时的要求，因此需要创建可供回退的定期快照。 根据数据的重要性和大小，可以考虑每隔 1 小时、6 小时、24 小时创建滚动性的增量快照，具体取决于风险承受能力。
 
 考虑到 Data Lake Storage Gen2 的数据复原能力，建议通过符合 HA/DR 要求的 GRS 或 RA-GRS 异地复制数据。 另外，还应考虑通过各种方式让使用 Data Lake Storage Gen2 的应用程序能够自动故障转移到次要区域：可以监视触发器或失败尝试的时长，或者至少应向管理员发送通知，让其进行人工干预。 请注意，是进行故障转移，还是等待服务重新联机？这需要进行慎重的权衡。
+
+### <a name="use-distcp-for-data-movement-between-two-locations"></a>使用 Distcp 在两个位置之间进行数据移动
+
+DistCp 是 distributed copy（分布式复制）的简称，是 Hadoop 随附的一个 Linux 命令行工具，适用于在两个位置之间进行分布式数据移动。 这两个位置可以是 Data Lake Storage Gen2、HDFS 或 S3。 此工具使用 Hadoop 群集（例如 HDInsight）上的 MapReduce 作业在所有节点上进行横向扩展。 Distcp 被认为是在没有特殊网络压缩设备的情况下移动大数据的最快方式。 Distcp 还提供了在两个位置之间仅更新增量数据的选项，可以处理自动重试，并且可以对计算进行动态缩放。 如果需要复制 Hive/Spark 表之类的内容（在单个目录中有许多大型文件），而且只需要对修改的数据进行复制，则此方法相当有效。 由于这些原因，在大数据存储之间复制数据时，最建议使用的工具是 Distcp。
+
+复制作业可以通过使用频率或数据触发器的 Apache Oozie 工作流触发，也可以通过 Linux cron 作业触发。 对于密集型复制作业，建议启动一个单独的 HDInsight Hadoop 群集，该群集可以专门针对复制作业进行调整和缩放。 这样可确保复制作业不会干扰关键作业。 如果运行复制的频率足够宽，甚至可以在每次作业之间关闭群集。 如果故障转移到次要区域，请确保在次要区域也启动另一群集，以便在主要的 Data Lake Storage Gen2 帐户恢复后将新数据复制回该帐户。 有关如何使用 Distcp 的示例，请参阅[使用 Distcp 在 Azure 存储 Blob 和 Data Lake Storage Gen2 之间复制数据](../blobs/data-lake-storage-use-distcp.md)。
 
 ## <a name="monitoring-considerations"></a>监视注意事项
 
@@ -78,7 +85,7 @@ Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门�
 
 概括地讲，在批处理中，常用的方法是先将数据置于“in”目录中。 然后，当数据处理完以后，再将新数据置于“out”目录中，供下游进程使用。 有的作业需要对单个文件进行处理，但可能不需要对大型数据集进行大规模并行处理。对于这种作业，有时候会使用此目录结构。 与上面建议的 IoT 结构一样，好的目录结构会设置父级目录，用于存储区域和主题之类的内容（例如，组织、产品/制造者）。 此结构有助于确保组织数据的安全，并可更好地管理工作负荷中的数据。 另外，可以考虑在结构中添加日期和时间，以便更好地在处理过程中进行组织和筛选式搜索，增强安全性并提高自动化程度。 日期结构的粒度级别取决于上传或处理数据的时间间隔，例如每小时、每天甚至每月。
 
-有时候，数据损坏或格式异常会导致文件处理失败。 在这种情况下，可以将这些文件移到 **/bad** 文件夹中进一步进行检查，这样的目录结构更有效。 还可以通过批处理作业将这些损坏的文件报告或通知给相关人员，要求其进行人工干预。 请考虑以下模板结构：
+有时候，数据损坏或格式异常会导致文件处理失败。 在这种情况下，可以将这些文件移到 **/bad** 文件夹中进一步进行检查，这样的目录结构更有效。 还可以通过批处理作业将这些损坏的文件报告或通知给相关人员，要求其进行人工干预。  请考虑以下模板结构：
 
     {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/

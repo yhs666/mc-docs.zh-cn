@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中扩展 Windows VM 的 OS 驱动器 | Azure
+title: 如何扩展虚拟机的 OS 驱动器 | Azure
 description: 在 Resource Manager 部署模型中，使用 Azure Powershell 增加虚拟机的 OS 驱动器大小。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/05/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: b11da59edddf816ed32eae620930bb6b69ea73dd
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 93b43d464871411c9f8da91c29c54967f8cd3c64
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666215"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004121"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>如何扩展虚拟机的 OS 驱动器
 
@@ -37,7 +37,7 @@ ms.locfileid: "56666215"
 > 扩展磁盘后，需要[扩展 OS 中的卷](#expand-the-volume-within-the-os)才能使用更大的磁盘。
 > 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="resize-a-managed-disk"></a>调整托管磁盘的大小
 
@@ -45,21 +45,21 @@ ms.locfileid: "56666215"
 
 1. 在资源管理模式下登录 Azure 帐户，然后选择订阅，如下所示：
 
-   ```powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   Select-AzSubscription -SubscriptionName 'my-subscription-name'
-   ```
+    ```powershell
+    Connect-AzAccount -Environment AzureChinaCloud
+    Select-AzSubscription -SubscriptionName 'my-subscription-name'
+    ```
 2. 设置资源组名称和 VM 名称，如下所示：
 
-   ```powershell
-   $rgName = 'my-resource-group-name'
-   $vmName = 'my-vm-name'
-   ```
+    ```powershell
+    $rgName = 'my-resource-group-name'
+    $vmName = 'my-vm-name'
+    ```
 3. 获取对 VM 的引用，如下所示：
 
-   ```powershell
-   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```powershell
+    $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 4. 在调整磁盘大小之前停止 VM，如下所示：
 
     ```Powershell
@@ -67,20 +67,20 @@ ms.locfileid: "56666215"
     ```
 5. 获取对托管 OS 磁盘的引用。 将托管 OS 磁盘的大小设置为所需值，并更新磁盘，如下所示：
 
-   ```Powershell
-   $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
-   $disk.DiskSizeGB = 1023
-   Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
-   ```   
-   > [!WARNING]
-   > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2048 GB。 （可以扩展 VHD Blob，使之超出该大小，但 OS 只能使用空间的头 2048 GB。）
-   > 
-   > 
+    ```Powershell
+    $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+    $disk.DiskSizeGB = 1023
+    Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+    ```   
+    > [!WARNING]
+    > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2048 GB。 （可以扩展 VHD Blob，使之超出该大小，但 OS 只能使用空间的头 2048 GB。）
+    > 
+    > 
 6. 更新 VM 可能需要几秒钟时间。 命令完成执行后，请重新启动 VM，如下所示：
 
-   ```Powershell
-   Start-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```Powershell
+    Start-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 
 大功告成！ 现在，请通过 RDP 访问 VM，打开“计算机管理”（或“磁盘管理”），然后使用刚刚分配的空间扩展驱动器。
 
@@ -90,21 +90,21 @@ ms.locfileid: "56666215"
 
 1. 在资源管理模式下登录 Azure 帐户，然后选择订阅，如下所示：
 
-   ```Powershell
-   Connect-AzAccount -Environment AzureChinaCloud
-   Select-AzSubscription -SubscriptionName 'my-subscription-name'
-   ```
+    ```Powershell
+    Connect-AzAccount -Environment AzureChinaCloud
+    Select-AzSubscription -SubscriptionName 'my-subscription-name'
+    ```
 2. 设置资源组名称和 VM 名称，如下所示：
 
-   ```Powershell
-   $rgName = 'my-resource-group-name'
-   $vmName = 'my-vm-name'
-   ```
+    ```Powershell
+    $rgName = 'my-resource-group-name'
+    $vmName = 'my-vm-name'
+    ```
 3. 获取对 VM 的引用，如下所示：
 
-   ```Powershell
-   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```Powershell
+    $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 4. 在调整磁盘大小之前停止 VM，如下所示：
 
     ```Powershell
@@ -112,21 +112,21 @@ ms.locfileid: "56666215"
     ```
 5. 将非托管 OS 磁盘的大小设置为所需值，并更新 VM，如下所示：
 
-   ```Powershell
-   $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-   Update-AzVM -ResourceGroupName $rgName -VM $vm
-   ```
+    ```Powershell
+    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
+    Update-AzVM -ResourceGroupName $rgName -VM $vm
+    ```
 
-   > [!WARNING]
-   > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2048 GB。 （可以扩展 VHD Blob，使之超出该大小，但 OS 只能使用空间的头 2048 GB。）
-   > 
-   > 
+    > [!WARNING]
+    > 新大小应该大于现有磁盘大小。 对于 OS 磁盘来说，允许的最大值为 2048 GB。 （可以扩展 VHD Blob，使之超出该大小，但 OS 只能使用空间的头 2048 GB。）
+    > 
+    > 
 
 6. 更新 VM 可能需要几秒钟时间。 命令完成执行后，请重新启动 VM，如下所示：
 
-   ```Powershell
-   Start-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```Powershell
+    Start-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 
 ## <a name="scripts-for-os-disk"></a>OS 磁盘的脚本
 
@@ -178,7 +178,7 @@ $disk.DiskSizeGB = 1023
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
 
-同样，如上所示使用索引或磁盘的“名称属性”可以引用附加到 VM 的其他数据磁盘：
+同样，如上所示使用索引或磁盘的“名称属性”可以引用附加到 VM 的其他数据磁盘  ：
 
 **托管磁盘**
 
@@ -194,17 +194,17 @@ $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 
 ## <a name="expand-the-volume-within-the-os"></a>扩展 OS 中的卷
 
-展开 VM 的磁盘后，需要转到 OS 并展开卷以包含新的空间。 以下几种方法可用于扩展分区。 本部分介绍了如何使用 RDP 连接来连接 VM 以使用 DiskPart 展开分区。
+展开 VM 的磁盘后，需要转到 OS 并展开卷以包含新的空间。 以下几种方法可用于扩展分区。 本部分介绍了如何使用 RDP 连接来连接 VM 以使用 DiskPart 展开分区  。
 
 1. 打开与 VM 的 RDP 连接。
 
-2.  打开命令提示符并键入 diskpart
+2. 打开命令提示符并键入 diskpart 
 
-2.  在 DISKPART 提示符处，键入 `list volume`。 记下要扩展的卷。
+2. 在 DISKPART 提示符处，键入 `list volume`  。 记下要扩展的卷。
 
-3.  在 DISKPART 提示符处，键入 `select volume <volumenumber>`。 这将选择将扩展到同一磁盘上的连续可用空间的卷 volumenumber。
+3. 在 DISKPART 提示符处，键入 `select volume <volumenumber>`  。 这将选择将扩展到同一磁盘上的连续可用空间的卷 volumenumber  。
 
-4.  在 DISKPART 提示符处，键入 `extend [size=<size>]`。 这将按大小（MB）扩展所选的卷。
+4. 在 DISKPART 提示符处，键入 `extend [size=<size>]`  。 这将按大小（MB）扩展所选的卷  。
 
 ## <a name="next-steps"></a>后续步骤
 

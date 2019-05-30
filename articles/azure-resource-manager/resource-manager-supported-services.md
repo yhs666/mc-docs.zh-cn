@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/25/2019
-ms.date: 04/15/2019
+origin.date: 04/19/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5435c57f9ece6b7b3eba1928da65426c5c897457
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 3151e42506332bbaa370f6551feff0b20443a41d
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529416"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195470"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
@@ -33,35 +33,37 @@ ms.locfileid: "59529416"
 
 可以通过 Azure 门户、Azure PowerShell 或 Azure CLI 执行这些步骤。
 
+有关将资源提供程序映射到 Azure 服务的列表，请参阅 [Azure 服务的资源提供程序](azure-services-resource-providers.md)。
+
 ## <a name="azure-portal"></a>Azure 门户
 
 查看所有资源提供程序和订阅的注册状态：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“所有服务”。
+2. 选择“所有服务”  。
 
     ![选择订阅](./media/resource-manager-supported-services/select-subscriptions.png)
-3. 在“所有服务”框中，输入“订阅”，然后选择“订阅”。
+3. 在“所有服务”  框中，输入“订阅”  ，然后选择“订阅”  。
 4. 从订阅列表中选择订阅进行查看。
-5. 选择“资源提供程序”并查看可用的资源提供程序列表。
+5. 选择“资源提供程序”并查看可用的资源提供程序列表。 
 
     ![显示资源提供程序](./media/resource-manager-supported-services/show-resource-providers.png)
     
     <!--MOONCAKE CUSTOMIZED: Microsoft.Batch to replace Microsoft.Blueprint--> 
     
-6. 通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。 若要注册资源提供程序，请选择“注册”。 在上一屏幕截图中，针对 **Microsoft.Batch** 突出显示了“注册”链接。
+6. 通过注册资源提供程序，将订阅配置为使用资源提供程序。 注册的作用域始终是订阅。 默认情况下，将自动注册许多资源提供程序。 但可能需要手动注册某些资源提供程序。 若要注册资源提供程序，必须具备为资源提供程序执行 `/register/action` 操作的权限。 此操作包含在“参与者”和“所有者”角色中。 若要注册资源提供程序，请选择“注册”。  在上一屏幕截图中，针对 **Microsoft.Batch** 突出显示了“注册”  链接。
 
     当订阅中仍有某个资源提供程序的资源类型时，不能注销该资源提供程序。
 
 查看特定资源提供程序的信息：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“所有服务”。
+2. 选择“所有服务”  。
 
     ![选择“所有服务”](./media/resource-manager-supported-services/more-services.png)
 
-3. 在“所有服务”框中，输入“资源浏览器”，然后选择“资源浏览器”。
-4. 通过选择向右箭头来展开“提供程序”。
+3. 在“所有服务”  框中，输入“资源浏览器”  ，然后选择“资源浏览器”  。
+4. 通过选择向右箭头来展开“提供程序”  。
 
     ![选择提供程序](./media/resource-manager-supported-services/select-providers.png)
 
@@ -295,7 +297,7 @@ China North 2
 
 <!--Not Available on [Template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 
-* 若要了解如何部署资源，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
+* 有关将资源提供程序映射到 Azure 服务的列表，请参阅 [Azure 服务的资源提供程序](azure-services-resource-providers.md)。
 * 若要查看资源提供程序的操作，请参阅 [Azure REST API](https://docs.microsoft.com/rest/api/)。
 
 <!--Update_Description: update meta properties, wording update -->

@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 10/24/2017
-ms.date: 01/21/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 3466e394d078d03dd8486302311fbd6c11cf0f29
-ms.sourcegitcommit: 317ea7e3b2d307569d3bf7777bd3077013ae4df6
+ms.subservice: common
+ms.openlocfilehash: 4f784ddb6972e843cfbd6862eefa07ea08fded3c
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334485"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004030"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
@@ -30,7 +30,7 @@ ms.locfileid: "54334485"
 
 若要在某个独立云中使用 Azure 存储，需要连接到该云而不是 Azure 公有云。 若要使用某个独立云而不是 Azure 公有云，需要：
 
-* 指定要连接到的环境。
+* 指定要连接到的环境。 
 * 确定并使用可用的区域。
 * 使用正确的终结点后缀，它不同于 Azure 公有云。
 
@@ -69,7 +69,7 @@ Get-AzLocation | select Location, DisplayName
 
 ## <a name="endpoint-suffix"></a>终结点后缀
 
-其中每个环境的终结点后缀不同于 Azure 公有云终结点。 例如，Azure 公有云的 Blob 终结点后缀为 **blob.core.windows.net**。 对于中国云，Blob 终结点后缀为 **core.chinacloudapi.cn**。 
+其中每个环境的终结点后缀不同于 Azure 公有云终结点。 例如，Azure 公有云的 Blob 终结点后缀为 **blob.core.windows.net**。 对于中国云，Blob 终结点后缀为 **blob.core.chinacloudapi.cn**。 
 
 ### <a name="get-endpoint-using-get-azenvironment"></a>使用 Get-AzEnvironment 获取终结点 
 
@@ -90,7 +90,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 | AzureGermanCloud | core.cloudapi.de|
 | AzureUSGovernment | core.usgovcloudapi.net |
 
-若要检索指定环境的所有属性，请调用 Get-AzEnvironment 并指定云名称。 此代码片段返回属性列表；请在列表中查找 **StorageEndpointSuffix**。 以下示例适用于中国云。
+若要检索指定环境的所有属性，请调用 Get-AzEnvironment 并指定云名称  。 此代码片段返回属性列表；请在列表中查找 **StorageEndpointSuffix**。 以下示例适用于中国云。
 
 ```powershell
 Get-AzEnvironment -Name AzureChinaCloud 
@@ -98,7 +98,7 @@ Get-AzEnvironment -Name AzureChinaCloud
 
 结果如下所示：
 
-|属性名称|值|
+|属性名称|Value|
 |----|----|
 | Name | AzureChinaCloud |
 | EnableAdfsAuthentication | False |

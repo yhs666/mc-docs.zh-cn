@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 11/26/2018
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: dcd9a04e5b2b7c1f29841dfc3c97d37e2f217d43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c9c06ad240f11e29d9856d51790cf3b51ccc56ed
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627225"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004250"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>为 Azure 准备 Oracle Linux 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -31,15 +31,14 @@ ms.locfileid: "58627225"
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 安装说明
 * 另请参阅[常规 Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 的提示。
-* Hyper-V 和 Azure 同时支持 Oracle 的兼容内核及其 UEK3（坚不可摧企业内核）。 为了获得最佳结果，请务必在准备 Oracle Linux VHD 时更新到最新内核。
-  <!-- Not Avaiable on Red Hat -->
+* Hyper-V 和 Azure 同时支持 Oracle 的 Red Hat 兼容内核及其 UEK3（坚不可摧企业内核）。 为了获得最佳结果，请务必在准备 Oracle Linux VHD 时更新到最新内核。
 * Hyper-V 和 Azure 不支持 Oracle 的 UEK2，因为它不包括所需的驱动程序。
 * Azure 不支持 VHDX 格式，仅支持 **固定大小的 VHD**。  可使用 Hyper-V 管理器或 convert-vhd cmdlet 将磁盘转换为 VHD 格式。
 * 在安装 Linux 系统时，建议使用标准分区而不是 LVM（通常是许多安装的默认值）。 这会避免 LVM 与克隆 VM 发生名称冲突，特别是在 OS 磁盘需要连接到另一台 VM 以进行故障排除的情况下。 如果需要，可以在数据磁盘上使用 [LVM](configure-lvm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或 [RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 * 由于低于 2.6.37 的 Linux 内核版本中的 bug，因此大型 VM 不支持 NUMA。 此问题主要会对使用上游 Red Hat 2.6.32 内核的发行版产生影响。 手动安装的 Azure Linux 代理 (waagent) 将自动在 Linux 内核的 GRUB 配置中禁用 NUMA。 可以在下面的步骤中找到有关此内容的详细信息。
 * 不要在操作系统磁盘上配置交换分区。 可以配置 Linux 代理，以在临时资源磁盘上创建交换文件。  可以在下面的步骤中找到有关此内容的详细信息。
 * Azure 上的所有 VHD 必须已将虚拟大小调整为 1MB。 从原始磁盘转换为 VHD 时，必须确保在转换前原始磁盘大小是 1MB 的倍数。 有关详细信息，请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)。
-* 请确保已启用 `Addons` 存储库。 编辑文件 `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux)，并在此文件中 **[ol6_addons]** 或 **[ol7_addons]** 下将行 `enabled=0` 更改为 `enabled=1`。
+* 请确保已启用 `Addons` 存储库。 编辑文件 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 或 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7)，并在此文件中 **[ol6_addons]** 或 **[ol7_addons]** 下将行 `enabled=0` 更改为 `enabled=1`。
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 你必须在操作系统中完成特定的配置步骤才能使虚拟机在 Azure 中运行。
@@ -78,16 +77,15 @@ ms.locfileid: "58627225"
 
         console=ttyS0 earlyprintk=ttyS0 rootdelay=300 numa=off
 
-   这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 由于 Oracle 的兼容内核中的一个 Bug，这会禁用 NUMA。
-   <!-- Not Availabl on Red Hat -->
+    这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 由于 Oracle 的 Red Hat 兼容内核中的一个 bug，这将禁用 NUMA。
    
-   除此之外，建议 *删除* 以下参数：
+    除此之外，建议 *删除* 以下参数：
 
         rhgb quiet crashkernel=auto
 
-   图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。
+    图形界面式引导和安静引导在云环境中不适用，在云环境中，我们希望所有日志都发送到串行端口。
 
-   根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在小型虚拟机上可能会出现问题。
+    根据需要可以配置 `crashkernel` 选项，但请注意此参数会使虚拟机中的可用内存量减少 128MB 或更多，这在小型虚拟机上可能会出现问题。
 10. 请确保已安装 SSH 服务器且将其配置为在引导时启动。  这通常是默认设置。
 11. 通过运行以下命令安装 Azure Linux 代理。 最新版本为 2.0.15。
 
@@ -108,7 +106,7 @@ ms.locfileid: "58627225"
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-14. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
+14. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 现在，准备将 Linux VHD 上传到 Azure。
 
 - - -
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
@@ -116,8 +114,7 @@ ms.locfileid: "58627225"
 
 为 Azure 准备 Oracle Linux 7 虚拟机非常类似于 Oracle Linux 6，但有几个值得注意的重要区别：
 
-* Azure 支持 Oracle 的 UEK3。  建议使用 UEK3 内核。
-  <!-- Not Avaiable on  Red Hat 兼容内核 -->
+* 在 Azure 中同时支持 Red Hat 兼容内核和 Oracle 的 UEK3。  建议使用 UEK3 内核。
 * NetworkManager 包不再与 Azure Linux 代理冲突。 默认会安装此包，建议不要删除。
 * GRUB2 现在用作默认引导加载程序，因此编辑内核参数的过程已更改（见下文）。
 * XFS 现在是默认文件系统。 如果需要，仍可以使用 ext4 文件系统。
@@ -156,13 +153,13 @@ ms.locfileid: "58627225"
 
         GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
 
-   这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 OEL 7 命名约定。 除此之外，建议*删除*以下参数：
+    这还可以确保所有控制台消息都发送到第一个串行端口，从而可以协助 Azure 支持人员调试问题。 此外，还会关闭 NIC 的新 OEL 7 命名约定。 除此之外，建议*删除*以下参数：
 
        rhgb quiet crashkernel=auto
 
-   图形引导和无人参与引导不适用于云环境，在该环境中我们想要将所有日志都发送到串行端口。
+    图形界面式引导和安静引导在云环境中不适用，在云环境中，我们希望所有日志都发送到串行端口。
 
-   根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
+    根据需要可以配置 `crashkernel` 选项，但请注意此参数会使 VM 中的可用内存量减少 128 MB 或更多，这在较小的 VM 上可能会出现问题。
 10. 完成后，请按照上面所示编辑“/etc/default/grub”，运行以下命令重新生成 grub 配置：
 
         # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
@@ -185,7 +182,7 @@ ms.locfileid: "58627225"
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-15. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
+15. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤
 现在，你已准备就绪，可以使用 Oracle Linux .vhd 在 Azure 中创建新的虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。

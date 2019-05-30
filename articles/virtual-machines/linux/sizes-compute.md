@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: fad61197f137a6de047dc2ff95412e5615cf4145
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: de105519d40f4926a1bcd286d2c6675f4aabf49e
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003681"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004319"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -32,11 +32,10 @@ ms.locfileid: "59003681"
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [内存优化](sizes-memory.md)
+    <!--Not Available - [Storage optimized](sizes-storage.md)-->
 - [GPU](sizes-gpu.md)
+    <!--Not Available - [High performance compute](sizes-hpc.md)-->
 - [前几代](sizes-previous-gen.md)
-<!--Not Available - [Storage optimized](sizes-storage.md)-->
-
-<!--Not Available - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。

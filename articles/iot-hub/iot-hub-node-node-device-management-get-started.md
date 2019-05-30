@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 08/25/2017
-ms.date: 01/28/2019
+ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: aafbc9c67ed925c9d4967aeb99ad96390fbc49f0
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 6d37fcf6d5259cfa4ac3dc7423191671c810c29d
+ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396774"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66194982"
 ---
 # <a name="get-started-with-device-management-node"></a>设备管理入门 (Node)
 
@@ -34,7 +34,7 @@ ms.locfileid: "54396774"
 
 要完成本教程，需要以下各项：
 
-* Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 10.0.x 或更高版本。 <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -48,7 +48,8 @@ ms.locfileid: "54396774"
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
-在本部分，用户需
+
+在本部分中，你将执行以下步骤：
 
 * 创建一个 Node.js 控制台应用，用于响应通过云调用的直接方法
 * 触发模拟的设备重启

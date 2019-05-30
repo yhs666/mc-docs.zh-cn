@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 12/10/2017
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 65750ba050cfbc981fe1579a8230411a2f0d5a23
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 5c9a943a012974df39f7e47763ea75f7ce3f7106
+ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463627"
+ms.lasthandoff: 05/24/2019
+ms.locfileid: "66195421"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
 本部分提供有关使用可靠状态管理器和 Reliable Collections 的指导原则。 目的是帮助用户避免常见错误。
@@ -33,6 +33,7 @@ ms.locfileid: "57463627"
 * 切勿在已提交、中止或释放一个事务之后使用该事务。
 * 切勿在对其创建的事务范围之外使用枚举。
 * 切勿在另一个事务的 `using` 语句内创建事务，因为它可能会导致死锁。
+* 不要通过 `IReliableStateManager.GetOrAddAsync` 创建可靠状态，请在同一事务中使用可靠状态。 这会导致 InvalidOperationException。
 * 务必确保 `IComparable<TKey>` 实现正确。 系统依赖 `IComparable<TKey>` 进行检查点和行的合并。
 * 意图更新某项而读取该项时，切勿更新锁以防止出现某类死锁。
 * 请考虑将每个分区的可靠集合数保持在 1000 以下。 建议在可靠集合中包含较多项，而不是使用较多可靠集合且在每个集合中包含较少项。
@@ -48,20 +49,20 @@ ms.locfileid: "57463627"
 * 可靠字典的键类型参数 (*TKey*) 必须正确实现 `GetHashCode()` 和 `Equals()`。 键必须不可变。
 * 若要实现 Reliable Collections 的高可用性，每个服务应至少有一个目标，并且最小副本集大小必须为 3。
 * 针对辅助副本的读取操作可能会读取未提交仲裁的版本。
-  这意味着从单个辅助副本读取的数据版本可能被错误处理。
-  从主副本读取的数据始终是可靠的，绝不会被错误处理。
+    这意味着从单个辅助副本读取的数据版本可能被错误处理。
+    从主副本读取的数据始终是可靠的，绝不会被错误处理。
 * 应用程序在可靠集合中保留的数据的安全性/隐私性是用户决定，并受到存储管理的保护；即 操作系统磁盘加密可用于保护静态数据。  
 
 ### <a name="next-steps"></a>后续步骤
 * [使用 Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 管理数据
-  * [备份和还原](service-fabric-reliable-services-backup-restore.md)
-  * [通知](service-fabric-reliable-services-notifications.md)
-  * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
-  * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
+    * [备份和还原](service-fabric-reliable-services-backup-restore.md)
+    * [通知](service-fabric-reliable-services-notifications.md)
+    * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
+    * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
 * 其他
-  * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
-  * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+    * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
+    * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
 
 <!-- Update_Description: update meta properties -->

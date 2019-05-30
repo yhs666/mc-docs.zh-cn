@@ -12,15 +12,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 07/02/2018
-ms.date: 04/01/2019
+origin.date: 04/30/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: abac82ed0b6920f05f934ba395fa3a93079bde08
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: bee0434644c4723f8c1597f58e6d0e42e83b010c
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004047"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004244"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>处理 Windows 虚拟机的计划内维护通知
 
@@ -33,8 +33,8 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 需要重新启动的计划内维护是按批进行计划的。 每个批具有不同的作用域（区域）。
 
 - 一个批从向客户发送通知开始。 默认情况下，向订阅所有者和共同所有者发送通知。 可以使用 Azure [活动日志警报](../../azure-monitor/platform/activity-logs-overview.md)，向通知添加更多收件人和消息传送选项（如电子邮件、短信和 Webhook）。  
-- 在通知时会提供自助时段。 可以在此时段内找到包含在此批中的虚拟机，开始按照自己的计划主动进行维护。
-- 自助时段过后，就会开始计划内维护时段。 在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于虚拟机。 
+- 在通知时会提供自助时段。  在此期间内（通常为四周），你可以找到包含在此批中的虚拟机，开始按照自己的计划主动进行维护。
+- 自助时段过后，就会开始计划内维护时段。  在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于虚拟机。 
 
 设置这两个时段的目的是，在了解 Azure 何时将自动启动维护时，提供足够的时间来启动维护和重新启动虚拟机。
 
@@ -45,7 +45,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 可以先阅读以下指南，然后再决定是否使用此功能按自己的时间来启动维护。
 
 > [!NOTE] 
-> 自助维护不一定适用于所有 VM。 若要确定是否可以对 VM 进行主动重新部署，请在维护状态中查找“立即启动”。 自助维护目前不适用于云服务（Web/辅助角色）和 Service Fabric。
+> 自助维护不一定适用于所有 VM。 若要确定是否可以对 VM 进行主动重新部署，请在维护状态中查找“立即启动”。  自助维护目前不适用于云服务（Web/辅助角色）和 Service Fabric。
 
 使用**可用性集**进行部署时，不建议进行自助维护，因为这些可用性集是高度可用的设置，在任何给定的时间都只会影响一个更新域。 
 - 让 Azure 触发维护。 对于需要重启的维护，请注意：维护会一个更新域接着一个更新域地进行；更新域不一定按顺序获得维护；两个更新域之间会有 30 分钟的暂停。 
@@ -76,7 +76,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 仅当有计划内维护时，才会返回维护信息。 如果未计划任何影响 VM 的维护，该 cmdlet 不返回任何维护信息。 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
@@ -84,7 +84,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 在 MaintenanceRedeployStatus 下返回以下属性： 
 
-| 值 | 说明   |
+| Value | 说明   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护 |
 | PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点 |
@@ -166,7 +166,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **答:** 一次计划内维护是通过将计划设置到一个或多个 Azure 区域启动的。 不久以后，电子邮件通知将发送到订阅所有者（每个订阅一封电子邮件）。 可以使用活动日志警报配置此通知的其他通道和收件人。 如果将虚拟机部署到已安排计划内维护的区域，将不会收到通知，而是需要检查 VM 的维护状态。
 
-**问：我在门户、Powershell 或 CLI 中看不到计划内维护的任何指示。 出了什么问题？**
+**问：我在门户、Powershell 或 CLI 中看不到计划内维护的任何指示。出了什么问题？**
 
 **答:** 一次计划内维护期间，与计划内维护相关的信息仅适用于将受到一次计划内维护影响的 VM。 换而言之，如果你看不到数据，则可能是这次维护已完成（或未启动）或虚拟机已在更新的服务器中托管。
 
@@ -174,7 +174,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **答:** 设置计划时，我们定义了长达几天的时间窗口。 但是，服务器（和 VM）在此时间窗口内的确切排序是未知的。 想要知道其 VM 确切时间的客户可以使用[计划事件](scheduled-events.md)并从虚拟机中进行查询，这样就会在 VM 重启前 15 分钟收到通知。
 
-**问：重启虚拟机需要多长时间？**
+**问：重新启动虚拟机需要多长时间？**
 
 **答:** 根据 VM 的大小，在自助维护时段内，重启最多可能需要几分钟时间。 当 Azure 在计划性维护时段内启动重启时，重启通常需要 25 分钟左右。 请注意，如果使用云服务（Web/辅助角色）、虚拟机规模集或可用性集，则在计划性维护时段内每组 VM (UD) 之间有 30 分钟的可用时间。 
 
@@ -186,20 +186,20 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **答:** 虽然这些平台会受到计划内维护的影响，但使用这些平台的客户可以安全地进行操作，因为在任何给定的时间，只有单个升级域 (UD) 中的 VM 受影响。 自助维护目前不适用于云服务（Web/辅助角色）和 Service Fabric。
 
-**问：我在 VM 上看不到任何维护信息， 是哪里出错了？**
+**问：我在 VM 上看不到任何维护信息，是哪里出错了？**
 
 **答:** 有很多原因会导致在 VM 上看不到任何维护信息：
-1.  使用的是标记为“Azure 内部”的订阅。
-2.  VM 未计划进行维护。 可能是这次维护已结束、已取消或已改变计划，因此你的 VM 不再受其影响。
-3.  你没有将“维护”列添加到 VM 列表视图。 虽然我们已向默认视图添加此列，但配置为查看非默认列的客户必须手动将“维护”列添加到其 VM 列表视图。
+1. 使用的是标记为“Azure 内部”的订阅。
+2. VM 未计划进行维护。 可能是这次维护已结束、已取消或已改变计划，因此你的 VM 不再受其影响。
+3. 你没有将“维护”列添加到 VM 列表视图。  虽然我们已向默认视图添加此列，但配置为查看非默认列的客户必须手动将“维护”  列添加到其 VM 列表视图。
 
-**问：我的 VM 已计划进行第二次维护， 为什么？**
+**问：我的 VM 已计划进行第二次维护，为什么？**
 
 **答:** 多种用例都会看到在完成维护性重新部署后，VM 仍进行计划性维护：
-1.  我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
-2.  由于硬件故障，已在另一个节点上对 VM 进行服务修复
-3.  选择了停止（解除分配）VM 并将其重启
-4.  已经为 VM 启用了**自动关闭**
+1. 我们已取消这次维护，并使用不同的有效负载重新启动它。 可能是我们已检测到出错的有效负载，只需部署其他有效负载。
+2. 由于硬件故障，已在另一个节点上对 VM 进行服务修复 
+3. 选择了停止（解除分配）VM 并将其重启
+4. 已经为 VM 启用了**自动关闭**
 
 ## <a name="next-steps"></a>后续步骤
 

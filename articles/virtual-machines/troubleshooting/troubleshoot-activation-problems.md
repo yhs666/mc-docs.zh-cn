@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure 中的 Windows 虚拟机激活问题 | Azure
+title: 排查 Azure Windows 虚拟机激活问题 | Azure
 description: 介绍用于修复 Azure 中的 Windows 虚拟机激活问题的疑难解答步骤
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -13,39 +13,43 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/15/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1089a3e2a40911e5ff3ee0e6065277363ae59583
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: d839727de106ef52369c434ff1f73ed0e54dc4a3
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003796"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003975"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
 如果无法激活通过自定义映像创建的 Azure Windows 虚拟机 (VM)，可以参照本文档中介绍的信息来排查此问题。 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>了解用于对 Azure 虚拟机进行 Windows 产品激活的 Azure KMS 终结点
+
 Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的云区域。 使用本故障排除指南时，请使用适用于你所在区域的相应 KMS 终结点。
+
+<!--MOONCAKE: correct for public cloud on kms.core.windows.net:1688-->
 
 * Azure 公有云区域：kms.core.windows.net:1688
 * Azure 中国世纪互联国家云区域：kms.core.chinacloudapi.cn:1688
 * Azure 德国国家云区域：kms.core.cloudapi.de:1688
 * Azure US Gov 国家云区域：kms.core.usgovcloudapi.net:1688
 
-<!--Notice on Line 28: Azure public cloud regions is correct on  core.windows.net -->
+<!--MOONCAKE: on Line 30: Azure public cloud regions is correct on  core.windows.net -->
 
 ## <a name="symptom"></a>症状
 
 尝试激活 Azure Windows VM 时，会收到类似于以下示例的错误消息：
 
-**错误：0xC004F074 软件授权服务报告无法激活计算机。 无法联系任何密钥管理服务(KMS)。 有关其他信息，请参阅应用程序事件日志。**
+**错误：0xC004F074 软件授权服务报告无法激活计算机。无法联系任何密钥管理服务(KMS)。有关其他信息，请参阅应用程序事件日志。**
 
 ## <a name="cause"></a>原因
+
 通常情况下，如果未使用相应的 KMS 客户端安装密钥配置 Windows VM，或 Windows VM 与 Azure KMS 服务（kms.core.chinacloudapi.cn，端口 1688）的连接出现问题，便会出现 Azure VM 激活问题。 
 
-<!--Notice: Port shold be 1688 -->
+<!--MOONCAKE: Port shold be 1688 -->
 
 ## <a name="solution"></a>解决方案
 
@@ -90,9 +94,10 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 3. 请确保 VM 已配置为使用正确的 Azure KMS 服务器。 为此，请运行以下命令：
 
+    ```powershell
+    Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.chinacloudapi.cn:1688"
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.chinacloudapi.cn:1688"
-    ```
+
     该命令应当返回以下内容：密钥管理服务计算机名称已成功设置为 kms.core.chinacloudapi.cn:1688。
 
 4. 使用 Psping 验证是否已连接到 KMS 服务器。 切换到将 Pstools.zip 下载内容提取到的文件夹，再运行以下命令：
@@ -111,14 +116,13 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 1. 验证成功连接到 kms.core.chinacloudapi.cn 后，在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
 
-    ```
-    1..12 | % { iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
+    ```powershell
+    1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
 如果激活成功，会返回如下信息：
 
-**正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) …
-产品。**
+正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) … 产品。 
 
 ## <a name="faq"></a>常见问题 
 
@@ -135,6 +139,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 如果宽限期已过期且 Windows 仍未激活，Windows Server 2008 R2 及更高版本的 Windows 会显示有关激活的其他通知。 桌面壁纸会保持黑色不变，并且 Windows 更新会仅安装安全更新程序和关键更新，而不安装可选更新。 请参阅[授权条件](https://technet.microsoft.com/library/ff793403.aspx)页底部的“通知”部分。   
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
+
 如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
 
 <!--Update_Description: update meta properties, wording update -->

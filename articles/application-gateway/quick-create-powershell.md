@@ -6,21 +6,21 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/11/2019
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 4d81b5455971cfd9ca1a6a03680ee1ef99d6df33
-ms.sourcegitcommit: d750a61a0e52a41cff5607149e33b6be189075d4
+ms.openlocfilehash: 193973c7a7fb0eb6b2791df175a3a1be07d561ca
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57788748"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960892"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
 
-本快速入门介绍如何使用 Azure 门户快速创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
+本快速入门介绍如何使用 Azure PowerShell 快速创建应用程序网关。  创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为方便演示，本文使用了一种简单的设置，其中包括一个公共前端 IP、一个用于在此应用程序网关上托管单个站点的基本侦听器、两个用于后端池的虚拟机，以及一个基本请求路由规则。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -31,7 +31,7 @@ ms.locfileid: "57788748"
 如果选择在本地安装并使用 Azure PowerShell，则本教程需要安装 Azure PowerShell 模块 1.0.0 或更高版本。
 
 1. 若要查找版本，请运行 `Get-Module -ListAvailable Az`。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 
-2. 若要创建与 Azure 的连接，请运行 `Login-AzAccount -Environment AzureChinaCloud`。
+2. 若要创建与 Azure 的连接，请运行 `Connect-AzAccount -Environment AzureChinaCloud`。
 
 ### <a name="resource-group"></a>资源组
 
@@ -150,7 +150,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 ### <a name="create-the-backend-pool"></a>创建后端池
 
 1. 使用 [New-AzApplicationGatewayBackendAddressPool](https://docs.microsoft.com/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) 为应用程序网关创建后端池。 
-2. 使用 [New-AzApplicationGatewayBackendHttpSettings](https://docs.microsoft.com/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsettings) 配置后端池的设置。
+2. 使用 `New-AzApplicationGatewayBackendHttpSettings` 配置后端池的设置。
 
 ```azurepowershell
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -243,4 +243,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [通过 Azure PowerShell 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-powershell.md)
 
 
-<!-- Update_Description: code and links update -->
+<!-- Update_Description: wording update -->

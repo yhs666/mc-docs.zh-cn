@@ -1,5 +1,5 @@
 ---
-title: 教程 - 在 Azure 中使用 SSL 证书保护 Linux Web 服务器 | Azure
+title: 教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Linux 虚拟机上的 Web 服务器 | Azure
 description: 本教程介绍如何通过 Azure CLI 使用 Azure Key Vault 中存储的 SSL 证书来保护运行 NGINX Web 服务器的 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/30/2018
-ms.date: 02/18/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 31dd25bbbefd8b707abba7fc00f8eaf8d83291e7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4f1447f4d41d7a5fc35c10dd6c4b7a9ee60f9702
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626527"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004251"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Linux 虚拟机上的 Web 服务器
 若要保护 Web 服务器，可以使用安全套接字层 (SSL) 证书来加密 Web 流量。 这些 SSL 证书可存储在 Azure Key Vault 中，并可安全部署到 Azure 中的 Linux 虚拟机 (VM)。 本教程介绍如何执行下列操作：
@@ -43,13 +43,13 @@ Azure Key Vault 保护加密密钥和机密，例如证书或密码。 Key Vault
 无需使用包含植入证书的自定义 VM 映像，而可将证书直接注入正在运行的 VM。 此过程可确保在部署过程中，在 Web 服务器上安装最新的证书。 如果续订或替换了证书，也不需要创建新的自定义 VM 映像。 创建附加的 VM 时，会自动注入最新证书。 在整个过程中，证书永远不会离开 Azure 平台，也不会在脚本、命令行历史记录或模板中公开。
 
 ## <a name="create-an-azure-key-vault"></a>创建 Azure Key Vault
-创建 Key Vault 和证书之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为 *myResourceGroupSecureWeb* 的资源组：
+创建 Key Vault 和证书之前，需使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为 *myResourceGroupSecureWeb* 的资源组：
 
 ```azurecli 
 az group create --name myResourceGroupSecureWeb --location chinaeast
 ```
 
-接下来，使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 <mykeyvault> 替换为自己唯一的 Key Vault 名称：
+接下来，使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 创建 Key Vault，并在部署 VM 时启用该 Key Vault。 每个 Key Vault 均需具备唯一名称且全部小写。 将下例中的 *\<mykeyvault>* 替换为自己唯一的 Key Vault 名称：
 
 ```azurecli 
 keyvault_name=<mykeyvault>
@@ -83,7 +83,7 @@ vm_secret=$(az vm secret format --secrets "$secret")
 ### <a name="create-a-cloud-init-config-to-secure-nginx"></a>创建 cloud-init 配置以保护 NGINX
 [Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 在初始启动期间运行 cloud-init 时，无需额外的步骤和代理即可应用配置。
 
-创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/ 目录中。 若要自动将证书添加到 VM 并配置 Web 服务器，请使用 cloud-init。 本示例中将安装并配置 NGINX Web 服务器。 可以使用相同的过程来安装和配置 Apache。 
+创建 VM 时，证书和密钥都将存储在受保护的 /var/lib/waagent/  目录中。 若要自动将证书添加到 VM 并配置 Web 服务器，请使用 cloud-init。 本示例中将安装并配置 NGINX Web 服务器。 可以使用相同的过程来安装和配置 Apache。 
 
 创建名为 *cloud-init-web-server.txt* 的文件并粘贴以下配置：
 
@@ -135,7 +135,7 @@ az vm open-port \
 ```
 
 ### <a name="test-the-secure-web-app"></a>测试 Web 应用是否安全
-现在可以打开 Web 浏览器，在地址栏中输入“https://<publicIpAddress>”。 在 VM 创建过程中提供自己的公共 IP 地址。 若使用自签名的证书，请接受安全警告：
+现在可以打开 Web 浏览器，并在地址栏中输入 *https://\<publicIpAddress>* 。 在 VM 创建过程中提供自己的公共 IP 地址。 若使用自签名的证书，请接受安全警告：
 
 ![接受 Web 浏览器安全警告](./media/tutorial-secure-web-server/browser-warning.png)
 

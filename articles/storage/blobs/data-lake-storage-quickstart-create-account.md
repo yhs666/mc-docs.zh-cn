@@ -1,20 +1,21 @@
 ---
 title: 创建 Azure Data Lake Storage Gen2 存储帐户 | Microsoft Docs
-description: 快速学习使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建能够访问 Data Lake Storage Gen2 的新存储帐户
+description: 快速学习使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建能够访问 Data Lake Storage Gen2 的新存储帐户。
 services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 origin.date: 12/06/2018
-ms.date: 05/20/2019
+ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 065cdcebebc5f306342a5baac8f53ababef952a5
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.reviewer: jamesbak
+ms.openlocfilehash: 741577cc7474f7bc9cb778383c5014828014ead4
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549918"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004117"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 存储帐户
 
@@ -29,7 +30,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 |           | 先决条件 |
 |-----------|--------------|
 |门户     | 无         |
-|PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以外的版本，则必须升级 powershell 模块。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
+|PowerShell | 本快速入门需要 PowerShell 模块 Az.Storage 0.7 或更高版本  。 若要查找当前版本，请运行 `Get-Module -ListAvailable Az.Storage` 命令。 如果在运行此命令后，没有显示任何结果，或者如果出现 0.7 以外的版本，则必须升级 powershell 模块  。 请参阅本指南的[升级 powershell 模块](#upgrade-your-powershell-module)部分。
 |CLI        | 可以安装 CLI 并在本地运行 CLI 命令。|
 
 ### <a name="install-the-cli-locally"></a>在本地安装 CLI
@@ -58,8 +59,8 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 
 若要在 Azure 门户中创建资源组，请执行以下步骤：
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”。
-2. 单击“添加”按钮添加新的资源组。
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”。 
+2.  单击“添加”按钮添加新的资源组。
 3. 输入新资源组的名称。
 4. 选择要在其中创建新资源组的订阅。
 5. 选择资源组的位置。
@@ -74,16 +75,16 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 > [!NOTE]
 > 分层命名空间目前在所有公共区域中提供。
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。 然后向下滚动到“存储”，接着选择“存储帐户”。 在显示的“存储帐户”窗口中，选择“添加”。
-2. 选择之前创建的订阅和资源组。
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“所有服务”。  然后向下滚动到“存储”  ，接着选择“存储帐户”  。 在显示的“存储帐户”窗口中，选择“添加”。  
+2. 选择之前创建的订阅和资源组   。
 3. 输入存储帐户的名称。
-4. 将“位置”设置为“中国东部”
-5. 将这些字段保留设置为其默认值：性能、帐户类型、复制、访问层。
+4. 将“位置”设置为“中国东部”  
+5. 将这些字段保留设置为其默认值：性能、帐户类型、复制、访问层     。
 6. 选择要在其中创建存储帐户的订阅。
-7. 选择“下一步:高级 >”
-8. 将“SECURITY”和“VIRTUAL NETWORKS”字段下的值设置为默认值。
-9. 在“Data Lake Storage Gen2”部分中，将“分层命名空间”设置为“已启用”。
-10. 单击“查看 + 创建”以创建存储帐户。
+7. 选择“下一步:  高级 >”
+8. 将“SECURITY”和“VIRTUAL NETWORKS”字段下的值设置为默认值   。
+9. 在“Data Lake Storage Gen2”  部分中，将“分层命名空间”设置为“已启用”。  
+10. 单击“查看 + 创建”以创建存储帐户  。
 
     ![显示 Azure 门户中存储帐户创建情况的屏幕截图](./media/data-lake-storage-quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
@@ -93,9 +94,9 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 
 若要使用 Azure 门户删除资源组，请执行以下操作：
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。
-2. 找到要删除的资源组，右键单击列表右侧的“更多”按钮 (**...**)。
-3. 选择“删除资源组”并进行确认。
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
+2. 找到要删除的资源组，右键单击列表右侧的“更多”按钮 ( **...** )。 
+3. 选择“删除资源组”并进行确认。 
 
 ## <a name="create-an-account-using-powershell"></a>使用 PowerShell 创建帐户
 
@@ -107,7 +108,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-若要使用 PowerShell 与 Data Lake Storage Gen2 交互，需要安装模块 Az.Storage 0.7 或更高版本。
+若要使用 PowerShell 与 Data Lake Storage Gen2 交互，需要安装模块 Az.Storage 0.7 或更高版本  。
 
 首先使用提升的权限打开 PowerShell 会话。
 

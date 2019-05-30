@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 09/24/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8ade16187c328ae3ed1cee8281e6d86d23551197
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 51d9724e58deb4f02dd781708925aded89e37b50
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004199"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004196"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
 
@@ -46,7 +46,7 @@ ms.locfileid: "59004199"
 
 ## <a name="iops"></a>IOPS
 
-IOPS，或每秒输入/输出操作，是指应用程序在一秒内发送到存储磁盘的请求数。 可以按顺序或随机读取或写入输入/输出操作。 联机事务处理 (OLTP) 应用程序（例如在线零售网站）需要即时处理多个并发用户请求。 用户请求是插入和更新操作密集型数据库事务，必须通过应用程序进行快速处理。 因此，OLTP 应用程序需要很高的 IOPS。 此类应用程序处理数百万个小型和随机的 IO 请求。 如果应用程序是这样的，则必须在设计应用程序基础结构时针对 IOPS 进行优化。 在后面的“优化应用程序性能”部分，我们会详细讨论获取高 IOPS 必须考虑的所有因素。
+IOPS，或每秒输入/输出操作，是指应用程序在一秒内发送到存储磁盘的请求数。 可以按顺序或随机读取或写入输入/输出操作。 联机事务处理 (OLTP) 应用程序（例如在线零售网站）需要即时处理多个并发用户请求。 用户请求是插入和更新操作密集型数据库事务，必须通过应用程序进行快速处理。 因此，OLTP 应用程序需要很高的 IOPS。 此类应用程序处理数百万个小型和随机的 IO 请求。 如果应用程序是这样的，则必须在设计应用程序基础结构时针对 IOPS 进行优化。 在后面的“优化应用程序性能”部分，我们会详细讨论获取高 IOPS 必须考虑的所有因素。 
 
 将高级存储磁盘连接到大型 VM 时，Azure 会根据磁盘规格预配保障数目的 IOPS。 例如，P50 磁盘预配 7500 IOPS。 每个大型 VM 还存在一个其所能承受的特定 IOPS 限制。
 
@@ -64,11 +64,11 @@ IOPS，或每秒输入/输出操作，是指应用程序在一秒内发送到存
 
 ![IOPS 和吞吐量的关系](../articles/virtual-machines/linux/media/premium-storage-performance/image1.png)
 
-因此，必须确定应用程序所需的最佳吞吐量和 IOPS 值。 尝试优化其中一个值时，另一个值也会受影响。 在后面的“优化应用程序性能”部分，我们会更详细地讨论如何优化 IOPS 和吞吐量。
+因此，必须确定应用程序所需的最佳吞吐量和 IOPS 值。 尝试优化其中一个值时，另一个值也会受影响。 在后面的“优化应用程序性能”部分，我们会更详细地讨论如何优化 IOPS 和吞吐量。 
 
 ## <a name="latency"></a>延迟
 
-延迟是指应用程序接收单个请求，将其发送到存储磁盘，然后又将响应发送到客户端所花的时间。 这是除 IOPS 和吞吐量之外的针对应用程序性能的关键度量。 高级存储磁盘的延迟是指该磁盘检索请求的信息并将其发送回应用程序所花的时间。 高级存储提供持续一致的低延迟服务。 高级磁盘旨在为大多数 IO 操作提供个位数的毫秒级延迟。 如果在高级存储磁盘上启用 ReadOnly 主机缓存，则可获得相当低的读取延迟。 在后面的“优化应用程序性能”部分，我们将更详细地讨论磁盘缓存。
+延迟是指应用程序接收单个请求，将其发送到存储磁盘，然后又将响应发送到客户端所花的时间。 这是除 IOPS 和吞吐量之外的针对应用程序性能的关键度量。 高级存储磁盘的延迟是指该磁盘检索请求的信息并将其发送回应用程序所花的时间。 高级存储提供持续一致的低延迟服务。 高级磁盘旨在为大多数 IO 操作提供个位数的毫秒级延迟。 如果在高级存储磁盘上启用 ReadOnly 主机缓存，则可获得相当低的读取延迟。 在后面的“优化应用程序性能”部分，我们将更详细地讨论磁盘缓存。 
 
 对应用程序进行优化以获取更高的 IOPS 和吞吐量时，应用程序的延迟就会受到影响。 在优化应用程序性能以后，应始终评估应用程序的延迟，以免出现意外的高延迟行为。
 
@@ -111,7 +111,7 @@ IOPS，或每秒输入/输出操作，是指应用程序在一秒内发送到存
 > [!NOTE]
 > 应该根据应用程序未来的预期增长情况，来考虑对这些数字进行缩放。 最好是预先对增长情况进行计划，因为以后可能更难通过更改基础结构来提高性能。
 
-如果存在现有应用程序而想改用高级存储，请首先为现有应用程序构建上述清单。 然后，在高级存储上生成应用程序的原型，根据本文档后面部分的“优化应用程序性能”中描述的准则设计应用程序。 下一篇文章说明那些可以用来收集性能度量的工具。
+如果存在现有应用程序而想改用高级存储，请首先为现有应用程序构建上述清单。 然后，在高级存储上生成应用程序的原型，根据本文档后面部分的“优化应用程序性能”  中描述的准则设计应用程序。 下一篇文章说明那些可以用来收集性能度量的工具。
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>用于衡量应用程序性能要求的计数器
 
@@ -121,14 +121,14 @@ PerfMon 计数器适用于处理器、内存以及服务器的每个逻辑磁盘
 
 | 计数器 | 说明 | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS 或每秒事务数** |每秒发送到存储磁盘的 I/O 请求数。 |磁盘读取数/秒 <br> 磁盘写入数/秒 |tps <br> r/s <br> w/s |
-| **磁盘读取数和写入数** |在磁盘上执行的读取和写入操作的百分比。 |磁盘读取时间百分比 <br> 磁盘写入时间百分比 |r/s <br> w/s |
-| **吞吐量** |每秒从磁盘读取或向磁盘写入的数据量。 |磁盘读取字节数/秒 <br> 磁盘写入字节数/秒 |kB_read/s <br> kB_wrtn/s |
-| **延迟** |完成磁盘 IO 请求的总时间。 |平均磁盘秒数/读取 <br> 平均磁盘秒数/写入 |await <br> svctm |
-| **IO 大小** |向存储磁盘发出的 I/O 请求的大小。 |平均磁盘字节数/读取 <br> 平均磁盘字节数/写入 |avgrq-sz |
+| **IOPS 或每秒事务数** |每秒发送到存储磁盘的 I/O 请求数。 |磁盘读取数/秒 <br /> 磁盘写入数/秒 |tps <br /> r/s <br /> w/s |
+| **磁盘读取数和写入数** |在磁盘上执行的读取和写入操作的百分比。 |磁盘读取时间百分比 <br /> 磁盘写入时间百分比 |r/s <br /> w/s |
+| **吞吐量** |每秒从磁盘读取或向磁盘写入的数据量。 |磁盘读取字节数/秒 <br /> 磁盘写入字节数/秒 |kB_read/s <br /> kB_wrtn/s |
+| **延迟** |完成磁盘 IO 请求的总时间。 |平均磁盘秒数/读取 <br /> 平均磁盘秒数/写入 |await <br /> svctm |
+| **IO 大小** |向存储磁盘发出的 I/O 请求的大小。 |平均磁盘字节数/读取 <br /> 平均磁盘字节数/写入 |avgrq-sz |
 | **队列深度** |等待从存储磁盘读取或等待向存储磁盘写入的待处理 I/O 请求的数目。 |当前的磁盘队列长度 |avgqu-sz |
-| **最大 内存** |顺利运行应用程序所需的内存量 |提交的在用字节数百分比 |使用 vmstat |
-| **最大 CPU** |顺利运行应用程序所需的 CPU 速度 |处理器时间百分比 |%util |
+| **最大内存** |顺利运行应用程序所需的内存量 |提交的在用字节数百分比 |使用 vmstat |
+| **最大CPU** |顺利运行应用程序所需的 CPU 速度 |处理器时间百分比 |%util |
 
 详细了解 [iostat](https://linux.die.net/man/1/iostat) 和 [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx)。
 
@@ -205,7 +205,7 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 
 | VM 大小 | CPU 核心数 | 内存 | VM 磁盘大小 | 最大 数据磁盘 | 缓存大小 | IOPS | 带宽缓存 IO 限制 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> 本地 SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB/秒 |4,000 IOPS，33 MB/秒 |
+| Standard_DS14 |16 |112 GB |OS = 1023 GB <br /> 本地 SSD = 224 GB |32 |576 GB |50,000 IOPS <br /> 512 MB/秒 |4,000 IOPS，33 MB/秒 |
 
 <!-- Not Available on | Standard_GS5 |32-->
 
@@ -220,6 +220,7 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 在许多情况下，使用高级存储的总体运行成本可能会低于使用标准存储。
 
 <!--MOONCAKE CUSTOMIZE: NO UPDATE ON Price change to CNY-->
+
 例如，以需要 16,000 IOPS 的应用程序为考虑对象。 若要达到此性能，需要使用 Standard\_D14 Azure IaaS VM，该 VM 可以使用 32 个标准存储 1TB 磁盘来实现 16,000 的最大 IOPS。 每个 1 TB 标准存储磁盘最多可以实现 500 IOPS。 此 VM 每月的估计成本将是 CNY10,171。 32 个标准存储磁盘每月的成本将是 CNY8,847。 每月估计的总成本将是 CNY19,018。
 
 但是，如果将同一应用程序置于高级存储上，则所需 VM 大小和高级存储磁盘数都会减少，从而降低总体成本。 Standard\_DS13 VM 可以使用 4 个 P30 磁盘来满足 16,000 IOPS 的要求。 DS13 VM 的最大 IOPS 为 25,600，每个 P30 磁盘的最大 IOPS 为 5,000。 总起来说，此配置可以达到 5,000 x 4 = 20,000 的 IOPS。 此 VM 每月的估计成本将是 CNY5,081。 4 个 P30 高级存储磁盘每月的成本是 CNY3,625。 每月估计的总成本将是 CNY8,706。
@@ -237,26 +238,27 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 | **每月成本总计** |CNY19,018.84 |CNY8706.68 |
 
 <!--MOONCAKE CUSTOMIZE: NO UPDATE ON Price change to CNY-->
+
 *Linux 发行版*  
 
-使用 Azure 高级存储，可以让运行 Windows 和 Linux 的 VM 获得相同的性能级别。 支持多种 Linux 发行版，可在[此处](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)查看完整列表。 请务必注意，不同的发行版适用于不同类型的工作负荷。 根据运行工作负荷的发行版，所见性能级别会有所不同。 使用应用程序测试各种 Linux 发行版，选择最适合的。
+使用 Azure 高级存储，可以让运行 Windows 和 Linux 的 VM 获得相同级别的性能。 支持多种 Linux 发行版，可在[此处](../articles/virtual-machines/linux/endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)查看完整列表。 请务必注意，不同的发行版适用于不同类型的工作负荷。 根据运行工作负荷的发行版，所见性能级别会有所不同。 使用应用程序测试各种 Linux 发行版，选择最适合的。
 
 使用高级存储运行 Linux 时，请查看与所需驱动程序相关的最新更新，确保实现高性能。
 
 ## <a name="premium-storage-disk-sizes"></a>高级存储磁盘大小
 
-Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对 IOPS、带宽和存储空间设置了不同规格的限制。 选择正确的高级存储磁盘大小，具体取决于应用程序要求和高规格 VM 大小。 下表显示了八种磁盘大小及其功能。 目前，仅托管磁盘支持 P4、P6 和 P15 大小。
+Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小对 IOPS、带宽和存储空间设置了不同规格的限制。 选择正确的高级存储磁盘大小，具体取决于应用程序要求和高规格 VM 大小。 下表显示了 11 种磁盘大小及其功能。 目前，仅托管磁盘支持 P4、P6、P15、P60、P70 和 P80 大小。
 
 <!--Not Available on and three disk sizes which are in preview-->
 <!--Not Available 11 disk size, actually is 8 disk size-->
 <!--Correct on offers eight GA disk, Not Available on preview P60,P70,P80-->
 <!--Not Available on preview P60,P70,P80-->
 
-| 高级磁盘类型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|
-| 磁盘大小           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GiB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    |
-| 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              |
-| 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 |
+| 高级磁盘类型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
+| 磁盘大小           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GiB            | 1,024 GiB (1 TiB)    | 2,048 GiB (2 TiB)    | 4,095 GiB (4 TiB)    | 8,192 GiB (8 TiB)    | 16,384 GiB (16 TiB)    | 32,767 GiB (32 TiB)    |
+| 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
+| 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 750 MiB/秒 | 750 MiB/秒 |
 
 <!--Not Available on preview P60,P70,P80-->
 
@@ -282,7 +284,8 @@ Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对
 利用 Azure 高级存储的高规格 VM 使用名为 BlobCache 的多层缓存技术。 BlobCache 使用虚拟机 RAM 和本地 SSD 的组合进行缓存。 此缓存适用于高级存储的永久性磁盘和 VM 本地磁盘。 默认情况下，此缓存设置已设置为允许对 OS 磁盘进行读/写操作，允许对托管在高级存储中的数据磁盘进行只读操作。 在高级存储磁盘上启用磁盘缓存后，高规格 VM 可以达到相当高的性能级别，超出基础磁盘性能。
 
 > [!WARNING]
-> 磁盘缓存仅支持最大为 4 TiB 的磁盘大小。
+> 如果磁盘大于 4 TiB，则不支持磁盘缓存。 如果将多个磁盘附加到 VM，则每个 4 TiB 或更小的磁盘都会支持缓存。
+>
 > 更改 Azure 磁盘的缓存设置可分离和重新附加目标磁盘。 如果它是操作系统磁盘，则重启 VM。 更改磁盘缓存设置前，停止所有可能受此中断影响的应用程序/服务。
 
 若要详细了解 BlobCache 的工作方式，请参阅内部的 [Azure 高级存储](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) 博客文章。
@@ -303,7 +306,7 @@ Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对
 | ReadWrite |如果应用程序可以在需要时将缓存数据正确写入永久性磁盘，则可将 host-cache 配置为 ReadWrite。 |
 
 *ReadOnly*  
-通过在高级存储数据磁盘上配置 ReadOnly 缓存，可以为应用程序实现较低的读取延迟，并获得极高的读取 IOPS 和吞吐量。 这有两个原因。
+在高级存储数据磁盘上配置 ReadOnly 缓存，可以为应用程序实现较低的读取延迟，并获得极高的读取 IOPS 和吞吐量。 这有两个原因。
 
 1. 通过缓存执行的读取操作发生在 VM 内存和本地 SSD 上，其速度要大大快于从数据磁盘进行的读取操作，后者发生在 Azure Blob 存储上。  
 1. 高级存储不会将从缓存提供的读取操作计入磁盘 IOPS 和吞吐量。 因此，应用程序能够实现更高的总 IOPS 和吞吐量。
@@ -319,9 +322,11 @@ Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对
 1. 在托管日志文件的高级存储磁盘上将缓存配置为“无”。  
    a.  日志文件主要是进行频繁的写入操作。 因此，将缓存设置为 ReadOnly 对其无用。
 
-### <a name="optimize-performance-on-linux-vms"></a>优化 Linux Vm 的性能
+## <a name="optimize-performance-on-linux-vms"></a>优化 Linux Vm 的性能
 
-对于缓存设置为 ReadOnly 或 None 的所有高级存储 SSD，必须在装入文件系统时禁用“屏障”。 在此方案中不需要屏障，因为写入高级存储磁盘对于这些缓存设置是持久性的。 成功完成写入请求时，数据已写入持久存储。 若要禁用“屏障”，请使用以下方法之一： 选择适用于文件系统的方法：
+对于缓存设置为 ReadOnly 或 None 的所有高级存储 SSD，必须在装入文件系统时禁用“屏障”   。 在此方案中不需要屏障，因为写入高级存储磁盘对于这些缓存设置是持久性的。 成功完成写入请求时，数据已写入持久存储。 若要禁用“屏障”，请使用以下方法之一： 选择适用于文件系统的方法：
+
+<!--Not Available on ultra disks-->
 
 * 对于 **reiserFS**，请使用 `barrier=none` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=flush`。）
 * 对于 **ext3/ext4**，请使用 `barrier=0` 装入选项来禁用屏障。 （若要启用屏障，请使用 `barrier=1`。）
@@ -338,18 +343,18 @@ Azure 高级存储目前提供了八种 GA 磁盘大小。 每种磁盘大小对
 | Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
 | Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
 | Debian | 7.x、8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
+| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br /> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [需要 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *请参阅下一部分中的注释* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [建议使用 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *请参阅下一部分中的注释* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [需要 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br /> *请参阅下一部分中的注释* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [建议使用 LIS4](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br /> *请参阅下一部分中的注释* |
 
 <!--Not Available on | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |-->
 <!--Not Available on | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |-->
 <!--Not Available on | Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |-->
 <!--Not Available on | Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |-->
 
-## <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS 的 LIS 驱动程序
+### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS 的 LIS 驱动程序
 
 运行 OpenLogic CentOS VM 时，请运行以下命令来安装最新的驱动程序：
 
@@ -420,7 +425,7 @@ Azure 将高级存储平台设计为可以进行大规模并行处理。 因此�
 不应随意地将队列深度配置为某个很高的值，而应将其配置为最佳值，该值可以确保应用程序实现足够高的 IOPS，但又不会影响延迟。 例如，如果应用程序延迟需要设置为 1 毫秒，则要实现 5,000 IOPS，所需队列深度为：QD = 5000 x 0.001 = 5。
 
 *条带化卷的队列深度*  
-条带化卷应保持足够高的队列深度，使得每个磁盘都有各自的高峰队列深度。 例如，以某个应用程序为考虑对象，该应用程序所推送的队列深度为 2，条带中有 4 个磁盘。 两个 IO 请求会发送到两个磁盘中，剩下两个磁盘会处于空闲状态。 因此，请将队列深度配置为让所有磁盘都能够处于繁忙状态。 下面的公式说明了如何确定条带化卷的队列深度。  
+条带化卷应保持足够高的队列深度，使得每个磁盘都有各自的高峰队列深度。 例如，以某个应用程序为考虑对象，该应用程序所推送的队列深度为 2，条带中有四个磁盘。 两个 IO 请求会发送到两个磁盘中，剩下两个磁盘会处于空闲状态。 因此，请将队列深度配置为让所有磁盘都能够处于繁忙状态。 下面的公式说明了如何确定条带化卷的队列深度。  
     ![](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>限制

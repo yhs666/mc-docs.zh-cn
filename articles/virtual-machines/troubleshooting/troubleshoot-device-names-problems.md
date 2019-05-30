@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 04/01/2019
+ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: a838ea640d5e954b033637991ad1ed79933c5c57
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 257f1cbf0a22a9b95d9ef947758d1e4aaa764a7f
+ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004142"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66004130"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
@@ -37,15 +37,17 @@ ms.locfileid: "59004142"
 
 不保证 Linux 中的设备路径在重启后保持一致。 设备名由主要编号（字母）和次要编号组成。 当 Linux 存储设备驱动程序检测到新设备时，驱动程序会将可用范围内的主要和次要设备编号分配给该设备。 移除某个设备后，其设备编号将被释放，供重复使用。
 
-之所以发生该问题，是因为 Linux 中的设备扫描由 SCSI 子系统计划以异步方式进行。 因此，设备路径名称会在重启后发生变化。 
+之所以发生该问题，是因为 Linux 中的设备扫描由 SCSI 子系统计划以异步方式进行。 因此，设备路径名称会在重启后发生变化。
 
 ## <a name="solution"></a>解决方案
 
-若要解决此问题，请使用持久命名。 有四个方法可使用持久命名：按文件系统标签、按 UUID、按 ID 或按路径。 我们建议对 Azure Linux VM 使用文件系统标签或 UUID。 
+若要解决此问题，请使用持久命名。 有四个方法可使用持久命名：按文件系统标签、按 UUID、按 ID 或按路径。 我们建议对 Azure Linux VM 使用文件系统标签或 UUID。
 
-大多数分发都提供 `fstab` nofail 或 nobootwait 参数。 在启动时若无法装载磁盘，这些参数可使系统启动。 有关这些参数的详细信息，请查看分发文档。 有关在添加数据磁盘时如何将 Linux VM 配置为使用 UUID 的信息，请参阅[连接到 Linux VM 以装载新磁盘](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)。 
+大多数分发都提供 `fstab` nofail 或 nobootwait 参数   。 在启动时若无法装载磁盘，这些参数可使系统启动。 有关这些参数的详细信息，请查看分发文档。 有关在添加数据磁盘时如何将 Linux VM 配置为使用 UUID 的信息，请参阅[连接到 Linux VM 以装载新磁盘](../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk)。
 
 在 VM 上安装 Azure Linux 代理后，该代理使用 Udev 规则在 /dev/disk/azure 路径下构造一组符号链接。 应用程序和脚本使用 Udev 规则来识别附加到 VM 的磁盘，以及磁盘类型和磁盘 LUN。
+
+<!--Not Available on [VM Serial Console](./serial-console-linux.md)-->
 
 ### <a name="identify-disk-luns"></a>识别磁盘 LUN
 
@@ -64,7 +66,7 @@ ms.locfileid: "59004142"
         ├── lun1 -> ../../../sdd
         ├── lun1-part1 -> ../../../sdd1
         ├── lun1-part2 -> ../../../sdd2
-        └── lun1-part3 -> ../../../sdd3                                    
+        └── lun1-part3 -> ../../../sdd3
 
 Linux 来宾帐户中的 LUN 信息通过使用 `lsscsi` 或类似工具进行检索：
 
@@ -151,8 +153,8 @@ Azure Linux 代理 Udev 规则在 /dev/disk/azure 路径下构造一组符号链
 有关详细信息，请参阅以下文章：
 
 - [Ubuntu：使用 UUID](https://help.ubuntu.com/community/UsingUUID)
+    <!-- Not Avaiable on Line 150- [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 - [Linux：UUID 有什么作用](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev：新式 Linux 系统中的设备管理简介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 
-<!-- Not Avaiable on Line 150- [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
 <!--Update_Description: update meta properties，update link -->
