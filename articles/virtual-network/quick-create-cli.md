@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/12/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1db8266235386c8a62865e3408d129d4c3676006
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 048c5e23ab3a6ebe557398a010e803607ae7af7d
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306077"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250391"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建虚拟网络
 
@@ -33,13 +33,13 @@ ms.locfileid: "56306077"
 
 ## <a name="create-a-resource-group-and-a-virtual-network"></a>创建资源组和虚拟网络
 
-在创建虚拟网络之前，必须创建一个资源组用于托管该虚拟网络。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 此示例在 chinaeast 位置创建一个名为 myResourceGroup 的资源组：
+在创建虚拟网络之前，必须创建一个资源组用于托管该虚拟网络。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 此示例在 chinaeast 位置创建一个名为 myResourceGroup 的资源组   ：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 此示例创建名为 myVirtualNetwork 的默认虚拟网络，它具有一个名为 default 的子网：
+使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 此示例创建名为 myVirtualNetwork 的默认虚拟网络，它具有一个名为 default 的子网   ：
 
 ```azurecli
 az network vnet create \
@@ -54,7 +54,7 @@ az network vnet create \
 
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 `--no-wait` 选项会在后台创建 VM，因此可继续执行下一步。 此示例创建名为 myVm1 的 VM：
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。 `--no-wait` 选项会在后台创建 VM，因此可继续执行下一步。 此示例创建名为 myVm1 的 VM  ：
 
 ```azurecli
 az vm create \
@@ -67,7 +67,7 @@ az vm create \
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
-由于已在上一步骤中使用了 `--no-wait` 选项，因此可以继续并创建名为 myVm2 的第二个 VM。
+由于已在上一步骤中使用了 `--no-wait` 选项，因此可以继续并创建名为 myVm2 的第二个 VM  。
 
 ```azurecli
 az vm create \
@@ -91,14 +91,15 @@ az vm create \
   "privateIpAddress": "10.0.0.5",
   "publicIpAddress": "40.68.254.142",
   "resourceGroup": "myResourceGroup"
+  "zones": ""
 }
 ```
 
-记下 publicIpAddress。 在下一步中，此地址将用于从 Internet 连接到 VM。
+记下 publicIpAddress。  在下一步中，此地址将用于从 Internet 连接到 VM。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-在此命令中，将 `<publicIpAddress>` 替换为 myVm2 VM 的公用 IP 地址：
+在此命令中，将 `<publicIpAddress>` 替换为 myVm2 VM 的公用 IP 地址  ：
 
 ```bash
 ssh <publicIpAddress>
@@ -106,13 +107,13 @@ ssh <publicIpAddress>
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-若要确认 myVm2 VM 和 myVm1 VM 之间的私下通信，请输入此命令：
+若要确认 myVm2 VM 和 myVm1 VM 之间的私下通信，请输入此命令   ：
 
 ```bash
 ping myVm1 -c 4
 ```
 
-将从 10.0.0.4 收到四条回复。
+将从 10.0.0.4 收到四条回复  。
 
 退出与 *myVm2* VM 的 SSH 会话。
 

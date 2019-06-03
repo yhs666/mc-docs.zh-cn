@@ -2,23 +2,20 @@
 title: 教程 - 将 Azure Key Vault 与通过 Python 编写的 Windows 虚拟机配合使用 | Azure Docs
 description: 本教程介绍如何将 ASP.NET Core 应用程序配置为从 Key Vault 读取机密。
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 04/01/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 988ee3dff20c7b8146ab6831f3dbd248b47d50a7
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 0f4693fdb8f9011040b4f9315bec3980272810e6
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135508"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296698"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>教程：将 Azure Key Vault 与通过 Python 编写的 Windows 虚拟机配合使用
 
@@ -48,7 +45,7 @@ Azure Key Vault 可以帮助保护机密，例如访问应用程序、服务和 
 
 ## <a name="about-managed-service-identity"></a>关于托管服务标识
 
-Azure Key Vault 可以安全地存储凭据，因此不需要在代码中显示凭据。 但是，需要对 Azure Key Vault 进行身份验证才能检索密钥。 若要对 Key Vault 进行身份验证，需要提供凭据。 因此，在启动过程中，这是一个难以兼顾的典型问题。 托管服务标识 (MSI) 提供简化该过程的启动标识，可以解决此问题。
+Azure Key Vault 可以安全地存储凭据，因此不需要在代码中显示凭据。 但是，需要对 Azure Key Vault 进行身份验证才能检索密钥。 若要对 Key Vault 进行身份验证，需要提供凭据。 因此，在启动过程中，这是一个难以兼顾的典型问题。 托管服务标识 (MSI) 提供简化该过程的启动标识，可以解决此问题。 
 
 为 Azure 服务（例如 Azure 虚拟机、Azure 应用服务或 Azure Functions）启用 MSI 时，Azure 会创建一个[服务主体](key-vault-whatis.md#basic-concepts)。 MSI 针对 Azure Active Directory (Azure AD) 中的服务实例提供启动标识，并将服务主体凭据注入该实例。 
 
@@ -143,7 +140,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-a-sample-python-app"></a>创建并运行示例 Python 应用
 
-下面是一个名为“Sample.py”的示例文件。 下一部分演示名为 *Sample.py* 的示例文件。 该文件使用 [requests](http://docs.python-requests.org/en/master/) 库发出 HTTP GET 调用。
+下一部分演示名为 *Sample.py* 的示例文件。 该文件使用 [requests](http://docs.python-requests.org/en/master/) 库发出 HTTP GET 调用。
 
 ## <a name="edit-samplepy"></a>编辑 Sample.py
 

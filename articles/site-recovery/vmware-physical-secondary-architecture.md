@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 12/31/2018
-ms.date: 01/21/2019
+origin.date: 04/08/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: f20df8086d541f67c32664bbe8821273a0362066
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f348aba4f32fa695db46125acb25e9bf0977955f
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363545"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390821"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>将 VMware/物理服务器复制到辅助本地站点的体系结构
 
@@ -32,7 +32,7 @@ ms.locfileid: "54363545"
 **VMware ESX/ESXi 和 vCenter 服务器** |  VM 托管在 ESX/ESXi 主机上。 主机是通过 vCenter 服务器管理的 | 需要使用 VMware 基础结构来复制 VMware VM。
 **VM/物理服务器** |  安装在要复制的 VMware VM 和物理服务器上的统一代理。 | 该代理充当所有组件之间的通信提供程序。
 
-### <a name="replication-process"></a>复制过程
+## <a name="replication-process"></a>复制过程
 
 1. 在每个站点（配置、进程、主目标）中设置组件服务器，并在要复制的计算机上安装统一代理。
 2. 初始复制之后，每台计算机上的代理将增量复制更改发送到进程服务器。

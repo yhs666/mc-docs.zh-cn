@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 03/20/2018
-ms.date: 04/22/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29030623c81d5233e8f6408765f9b553d5441542
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 9c96afbf5330db54c108418359afe2b448fe6864
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65835790"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250473"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>将两个虚拟网络脚本示例对等互连
 

@@ -3,7 +3,7 @@ title: 将 Blob 从存储帐户复制到 Azure 媒体服务资产中 | Microsoft
 description: 本主题说明如何将现有 blob 复制到媒体服务资产中。 示例使用 Azure 媒体服务 .NET SDK 扩展。
 services: media-services
 documentationcenter: ''
-author: yunan2016
+author: WenJason
 manager: digimobile
 editor: ''
 ms.service: media-services
@@ -11,28 +11,26 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-origin.date: 12/09/2017
-ms.date: 12/25/2017
-ms.author: v-nany
-ms.openlocfilehash: 7b797d2b123d6b959c13f3d36584231ad7253477
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/18/2019
+ms.date: 06/03/2019
+ms.author: v-jay
+ms.openlocfilehash: dce74f73832198a2527e29c774f56ce83f0f53b5
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647772"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390851"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>将现有 Blob 复制到媒体服务资产
 本文说明了如何使用 [Azure 媒体服务 .NET SDK 扩展](https://github.com/Azure/azure-sdk-for-media-services-extensions/)将 Blob 从存储帐户复制到新的 Azure 媒体服务 (AMS) 资产中。
+
+在不使用媒体服务 API 的情况下，不应该尝试更改媒体服务生成的 blob 容器内容。
 
 扩展方法适用于：
 
 - 常规资产。
 - 实时存档资产（FragBlob 格式）。
 - 属于不同媒体服务帐户（甚至跨不同数据中心）的源和目标资产。 但是，这样做可能会产生费用。 有关定价的详细信息，请参阅[数据传输](https://www.azure.cn/pricing/details/data-transfer/)。
-
-> [!NOTE]
-> 在不使用媒体服务 API 的情况下，不应该尝试更改媒体服务生成的 blob 容器内容。
-> 
 
 本文展示了两个代码示例：
 

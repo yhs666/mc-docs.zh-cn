@@ -2,20 +2,20 @@
 title: 教程 - 使用 Linux 虚拟机和 Python 应用程序在 Azure Key Vault 中存储机密 | Azure Docs
 description: 在本教程中，你会了解如何配置一个 Python 应用程序，以便从 Azure Key Vault 读取机密。
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 05/27/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: b3931c10722cd9a0b6bba37daffc59e8017ec1bb
-ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+ms.openlocfilehash: 78fdee9ca7af4a0bff986f5e3428d8992fddff40
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65628774"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296710"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 Python 应用在 Azure 密钥保管库中存储机密
 
@@ -90,7 +90,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 我们将添加机密以帮助说明这是如何工作的。 可能要存储 SQL 连接字符串，或者需要保持安全并可供应用程序使用的其他任何信息。
 
-键入以下命令，在名为 *AppSecret* 的密钥保管库中创建机密。 此机密将存储值“MySecret”。
+键入以下命令，在名为 *AppSecret* 的密钥保管库中创建机密。 此机密将存储值“MySecret”。 
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -100,7 +100,7 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 使用 `az vm create` 命令创建 VM。
 
-以下示例创建一个名为 **myVM** 的 VM 并添加一个名为 **azureuser** 的用户帐户。 `--generate-ssh-keys` 参数自动生成一个 SSH 密钥，并将其放置在默认密钥位置 (**~/.ssh**) 中。 若要改为创建一组特定的密钥，请使用 `--ssh-key-value` 选项。
+以下示例创建一个名为 **myVM** 的 VM 并添加一个名为 **azureuser** 的用户帐户。 `--generate-ssh-keys` 参数自动生成一个 SSH 密钥，并将其放置在默认密钥位置 ( **~/.ssh**) 中。 若要改为创建一组特定的密钥，请使用 `--ssh-key-value` 选项。
 
 ```azurecli
 az vm create \
@@ -169,7 +169,7 @@ ssh azureuser@<PublicIpAddress>
 
 ## <a name="create-edit-and-run-the-sample-python-app"></a>创建、编辑并运行示例 Python 应用
 
-创建名为 Sample.py 的 Python 文件。
+创建名为 Sample.py  的 Python 文件。
 
 打开 Sample.py 并编辑它以包含以下代码：
 
@@ -208,7 +208,7 @@ python Sample.py
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请选择适用于 VM 的资源组，然后选择“删除”。
+不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请选择适用于 VM 的资源组，然后选择“删除”。 
 
 使用 `az keyvault delete` 命令删除密钥保管库：
 

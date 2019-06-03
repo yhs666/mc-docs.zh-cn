@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 05/20/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: a3f5d39286b68f85f449d288be942f113905a78c
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: d1fd7d526ee84fbc9274e6f5dd02d9655d3c119a
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549965"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390747"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API  
 
@@ -36,7 +36,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 
 若要让 Azure 媒体 REST 请求成功，对于尝试访问的媒体服务帐户，调用用户必须具有参与者或所有者角色。  
 只有具有所有者角色的用户，才能向新用户或应用程序授予媒体资源（帐户）访问权限。 参与者角色只能访问媒体资源。
-未授权的请求失败，状态代码为 401。 如果看到此错误代码，请检查用户是否具有针对用户媒体服务帐户分配的参与者或所有者角色。 可以在 Azure 门户中检查角色分配。 搜索媒体帐户，再单击“访问控制”选项卡。 
+未授权的请求失败，状态代码为 401。 如果看到此错误代码，请检查用户是否具有针对用户媒体服务帐户分配的参与者或所有者角色。 可以在 Azure 门户中检查角色分配。 搜索媒体帐户，再单击“访问控制”  选项卡。 
 
 ![“访问控制”选项卡](./media/media-services-use-aad-auth-to-access-ams-api/media-services-access-control.png)
 
@@ -148,6 +148,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 下面的文章概述了 Azure AD 身份验证概念： 
 
 - [Azure AD 解决的身份验证方案](../../active-directory/develop/authentication-scenarios.md)
+- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/quickstart-register-app.md)
 - [使用 PowerShell 配置和管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>后续步骤

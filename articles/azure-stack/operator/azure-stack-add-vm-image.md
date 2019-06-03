@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
 origin.date: 04/02/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: d9a92be71a3fd98728bf5eb921bba26436d31ec9
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 18e2320d0e92dc69af4bfa3f46b29979babced40
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529788"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381905"
 ---
 # <a name="add-a-vm-image-to-offer-in-azure-stack"></a>添加要在 Azure Stack 中提供的 VM 映像
 
@@ -45,23 +45,23 @@ ms.locfileid: "64529788"
 
    - 将映像上传到 Azure Stack Blob 存储比上传到 Azure Blob 存储更高效，因为将映像推送到 Azure Stack 映像存储库的时间更短。
 
-   - 上传 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)时，请确保将“登录到 Azure”步骤替换为[配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)步骤。  
+   - 上传 [Windows VM 映像](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/)时，请确保将“登录到 Azure”步骤替换为  [配置 Azure Stack 操作员的 PowerShell 环境](azure-stack-powershell-configure-admin.md)步骤。  
 
-   - 记下在其中上传映像的 Blob 存储 URI。 Blob 存储 URI 的格式如下：*&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;*.vhd。
+   - 记下在其中上传映像的 Blob 存储 URI。 Blob 存储 URI 的格式如下： *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* .vhd。
 
-   - 若要使 Blob 可供匿名访问，请转到已在其中上传了 VM 映像 VHD 的存储帐户 Blob 容器。 选择“Blob”，然后选择“访问策略”。 也可生成容器的共享访问签名，然后将其作为 Blob URI 的一部分包括进去。 此步骤确保 blob 可用于将该项添加为映像。 如果 blob 不可匿名访问，则 VM 映像创建将处于失败状态。
+   - 若要使 Blob 可供匿名访问，请转到已在其中上传了 VM 映像 VHD 的存储帐户 Blob 容器。 选择“Blob”  ，然后选择“访问策略”  。 也可生成容器的共享访问签名，然后将其作为 Blob URI 的一部分包括进去。 此步骤确保 blob 可用于将该项添加为映像。 如果 blob 不可匿名访问，则 VM 映像创建将处于失败状态。
 
      ![转到存储帐户 Blob](./media/azure-stack-add-vm-image/image1.png)
 
      ![将 Blob 访问权限设置为公共](./media/azure-stack-add-vm-image/image2.png)
 
-2. 以操作员身份登录到 Azure Stack。 在菜单中的**计算** > “添加”下，选择“所有服务” > “映像”。
+2. 以操作员身份登录到 Azure Stack。 在菜单中的**计算** >   “添加”下，选择“所有服务”   >   “映像”。
 
-3. 在“创建映像”下，输入名称、订阅、资源组、位置、OS 磁盘、OS 类型、存储 Blob URI、帐户类型和主机缓存。 然后选择“创建”，开始创建 VM 映像。
+3. 在“创建映像”下，  输入名称、订阅、资源组、位置、OS 磁盘、OS 类型、存储 Blob URI、帐户类型和主机缓存。 然后选择“创建”，开始创建 VM 映像。 
 
    ![开始创建映像](./media/azure-stack-add-vm-image/image4.png)
 
-   成功创建映像后，VM 映像状态会更改为“已成功”。
+   成功创建映像后，VM 映像状态会更改为“已成功”。 
 
 4. 为了方便用户在 UI 中使用虚拟机映像，可以[创建市场项](azure-stack-create-and-publish-marketplace-item.md)。
 
@@ -69,9 +69,9 @@ ms.locfileid: "64529788"
 
 1. 打开管理门户（[https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)）。
 
-2. 选择“市场管理”，然后选择要删除的 VM。
+2. 选择“市场管理”  ，然后选择要删除的 VM。
 
-3. 单击“删除” 。
+3. 单击“删除”  。
 
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>使用 PowerShell 将 VM 映像添加到市场
 
@@ -88,7 +88,7 @@ ms.locfileid: "64529788"
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
-      -version "<#.#.#>” `
+      -version "<#.#.#>" `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
    ```
@@ -171,7 +171,7 @@ ms.locfileid: "64529788"
 7. 使用权限提升的提示符打开 PowerShell，并运行：
 
    ```powershell
-    Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
+    Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>" -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
     有关 Add-AzsPlatformimage cmdlet 和 New-DataDiskObject cmdlet 的详细信息，请参阅 Microsoft PowerShell [Azure Stack 操作员模块文档](https://docs.microsoft.com/powershell/module/)。

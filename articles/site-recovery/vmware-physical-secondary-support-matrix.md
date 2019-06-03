@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-origin.date: 12/31/2018
-ms.date: 03/04/2019
+origin.date: 04/08/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: eff473a67c064358376f67f903ffcb02b42bddcf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 02b9ee0e53bf1ccd5cab8ec8a237d936baa372c8
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626300"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390815"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>将 VMware VM 和物理服务器灾难恢复到辅助站点时的支持矩阵
 
@@ -43,6 +43,7 @@ Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Li
 
 <!-- Not Available on Red Hat Enterprise Linux: 5.2 to 5.11, 6.1 to 6.9, 7.0 to 7.4<br/><br/> -->
 <!-- Not Available on Oracle Enterprise Linux 6.4, 6.5, 6.8 running the Red Hat compatible kernel, or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> -->
+
 ## <a name="linux-machine-storage"></a>Linux 计算机存储
 
 仅有以下存储的 Linux 计算机可以复制：
@@ -72,7 +73,7 @@ Linux | Centos 6.5、6.6、6.7、6.8、6.9、7.0、7.1、7.2 <br/><br/>  SUSE Li
 
 ### <a name="host-storage"></a>主机存储
 
-存储（主机） | **支持** 
+存储（主机）  | **支持** 
 --- | --- 
 NFS | 是 
 SMB 3.0 | 不适用 
@@ -113,7 +114,7 @@ RDM | 是
 
 |    **更新**     |                                                                                                                                                  **详细信息**                                                                                                                                                   |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|   Scout 更新   |                                                                                                  [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新                                                                                                   |
+|   Scout 更新   |                                       Scout 更新是累积更新。 <br/><br/> [了解和下载](vmware-physical-secondary-disaster-recovery.md#updates)最新的 Scout 更新                                                                                                                     |
 | 组件更新 | Scout 更新包括所有组件的更新，包括 RX 服务器、配置服务器、进程和主目标服务器，vContinuum 服务器和要保护的源服务器。<br/><br/> [了解详细信息](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates)。 |
 
 <!-- Notice: Archor should be (vmware-physical-secondary-disaster-recovery.md#updates)-->

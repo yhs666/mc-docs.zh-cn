@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/23/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 9c684002f3300efad4b27728e22821cc503aeed1
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: c3ed1e7aaedb711084b9b3ff2761dbc21acee2b7
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529563"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381914"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>在 Azure Stack 中管理租户注册
 
@@ -45,7 +45,7 @@ ms.locfileid: "64529563"
 
 注册 cmdlet 要求你在运行 PowerShell 时指定一个 API 配置文件。 API 配置文件表示一组 Azure 资源提供程序及其 API 版本。 当与多个 Azure 云进行交互时，它们可帮助你使用 API 的正确版本。 例如，在使用全球 Azure 和 Azure Stack 时，可以使用多个云。 配置文件指定与其发布日期匹配的名称。 你将需要使用 **2017-09-03** 配置文件。
 
-有关 Azure Stack 和 API 配置文件的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](../user/azure-stack-version-profiles.md)。 有关通过 PowerShell 启动和运行 API 配置文件的说明，请参阅[在 Azure Stack 中使用适用于 PowerShell 的 API 版本配置文件](../user/azure-stack-version-profiles-powershell.md)。
+有关 Azure Stack 和 API 配置文件的详细信息，请参阅[在 Azure Stack 中管理 API 版本配置文件](../user/azure-stack-version-profiles.md)。
 
 ### <a name="parameters"></a>parameters
 

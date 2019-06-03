@@ -10,14 +10,14 @@ ms.custom: hdinsightactive,
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 12/17/2018
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: c5860eb8fae012652961f044bf9d9e520a944e6a
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 3a1cd023d2d1b0865b07166c182885ae8d21c5a5
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029225"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424615"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Apache Hive 数据
 
@@ -36,7 +36,7 @@ ms.locfileid: "54029225"
 在开始阅读本文前，必须具备以下项：
 
 * **HDInsight 群集**。 该群集可以是包含 Hive 的 HDInsight 群集，也可以是新发布的交互式查询群集。 有关创建群集的信息，请参阅[创建群集](apache-hadoop-linux-tutorial-get-started.md#create-cluster)。
-* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)**。 可从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=45331)下载副本。
+* **[Microsoft Power BI Desktop](https://powerbi.microsoft.com/desktop/)** 。 可从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=45331)下载副本。
 
 ## <a name="create-hive-odbc-data-source"></a>创建 Hive ODBC 数据源
 
@@ -47,18 +47,18 @@ ms.locfileid: "54029225"
 所有 HDInsight 群集都随附了 hivesampletable Hive 表。
 
 1. 登录 Power BI Desktop。
-2. 单击“主页”选项卡，从“外部数据”功能区中单击“获取数据”，然后选择“更多”。
+2. 单击“主页”  选项卡，从“外部数据”  功能区中单击“获取数据”  ，然后选择“更多”  。
 
     ![HDInsight Power BI 开放数据](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
-3. 在“获取数据”窗格中，单击左侧的“其他”，单击右侧的 **ODBC**，然后单击底部的“连接”。
-4. 在“从 ODBC”窗格中，选择在上一部分中创建的数据源名称，然后单击“确定”。
-5. 在“导航器”窗格中，依次展开“ODBC”->“ HIVE”->“默认”，选择 **hivesampletable**，然后单击“加载”。
+3. 在“获取数据”  窗格中，单击左侧的“其他”  ，单击右侧的 **ODBC**，然后单击底部的“连接”  。
+4. 在“从 ODBC”窗格中，选择在上一部分中创建的数据源名称，然后单击“确定”   。
+5. 在“导航器”  窗格中，依次展开“ODBC”->“ HIVE”->“默认”  ，选择 **hivesampletable**，然后单击“加载”  。
 
 ## <a name="visualize-data"></a>可视化数据
 
 从上一过程继续进行。
 
-1. 在“可视化”窗格中，选择“地图”。  它是一个地球图标。
+1. 在“可视化”窗格中，选择“地图”  。  它是一个地球图标。
 
     ![HDInsight Power BI 自定义报表](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
 2. 在“字段”窗格中，选择 **country** 和 **devicemake**。 可以在地图上看到绘制的数据。
@@ -67,7 +67,7 @@ ms.locfileid: "54029225"
 ## <a name="next-steps"></a>后续步骤
 本文介绍了如何使用 Power BI 直观显示 HDInsight 中的数据。  要了解更多信息，请参阅下列文章：
 
-* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](../interactive-query/hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](./apache-hadoop-connect-excel-hive-odbc-driver.md)。
 * [使用 Power Query 将 Excel 连接到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
 * [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。

@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 12/03/2018
+origin.date: 03/18/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 7a94bed295a75bb4dd8f19c428c9c30560574ada
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 9c47fdb37bc8a53c55f6291ac780bfb4d05d8bc5
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672988"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390722"
 ---
 # <a name="encoding-error-codes"></a>编码错误代码
 
@@ -38,6 +38,8 @@ ms.locfileid: "52672988"
 | ErrorUploadingOutputAsset |上传输出资产时的错误类别 |
 | ErrorCancelingTask |涵盖尝试取消任务时失败的错误类别 |
 | TransientError |包含暂时性问题的错误类别（例如 Azure 存储的临时网络问题） |
+
+若要获得**媒体服务**团队的帮助，请打开[支持票证](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ## <a name="related-articles"></a>相关文章
 * [通过自定义 Media Encoder Standard 预设执行高级编码任务](media-services-custom-mes-presets-with-dotnet.md)

@@ -3,8 +3,8 @@ title: 针对 Azure Stack 的验证报表 | Microsoft Docs
 description: 使用 Azure Stack 就绪性检查器报表查看验证结果。
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,16 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: sethm
+origin.date: 04/01/2019
+ms.date: 04/29/2019
+ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/23/2018
-ms.openlocfilehash: 8ee4ccae01a1d44ce61fb9655f121b8751ff547e
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 83eeb9f62f4d478b7c18fb02790943feb3f564d3
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529818"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248594"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack 验证报表
 
@@ -67,9 +68,9 @@ Azure Registration Validation results not available.
 
 Test                          : ServiceAdministrator
 Result                        : OK
-AAD Service Admin             : admin@contoso.onmicrosoft.com
-Azure Environment             : AzureCloud
-Azure Active Directory Tenant : contoso.onmicrosoft.com
+AAD Service Admin             : admin@contoso.partner.onmschina.cn
+Azure Environment             : AzureChinaCloud
+Azure Active Directory Tenant : contoso.partner.onmschina.cn
 Error Details                 : 
 
 ############### Azure Identity Validation Summary ###############

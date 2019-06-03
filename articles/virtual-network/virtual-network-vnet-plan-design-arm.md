@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/16/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 26b3578259339bb4a74d41175249092d2404ab21
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 12d1ec8c3bf3b5920d7870967453e1170ec7dc00
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625930"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250447"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -38,9 +38,9 @@ ms.locfileid: "58625930"
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
-  <!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
+    <!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
 - 是否需要在部署资源的相同 Azure 区域内跨 Azure 可用性区域提供复原能力？ 可将资源（如虚拟机 (VM)）部署到相同虚拟网络中的不同可用性区域。 但并非所有 Azure 区域都支持可用性区域。
-  <!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
+    <!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="subscriptions"></a>订阅
 
@@ -124,7 +124,7 @@ Azure 对资源使用[基于角色的访问控制](../role-based-access-control/
 
 通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，使资源符合组织标准和服务级别协议。 Azure 策略对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义并应用只允许在特定资源组或区域中创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
 
-策略将应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure Policy](../azure-policy/azure-policy-introduction.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
+策略将应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure Policy](../governance/policy/overview.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 

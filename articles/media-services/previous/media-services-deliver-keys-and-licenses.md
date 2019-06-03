@@ -12,17 +12,21 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 710b1261f11c827313070157c9db741081294a05
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 43eaf9d11d006e2aa27f2f972d2b7c9798f8c3f7
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833379"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390849"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用媒体服务传送 DRM 许可证或 AES 密钥 
+
+> [!NOTE]
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+>
 
 Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
 
@@ -42,7 +46,7 @@ Azure 媒体服务可引入、编码、添加内容保护，以及流式传输�
 
 1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。
 
-2. 将以下元素添加到 app.config 文件中定义的 appSettings：
+2. 将以下元素添加到 app.config 文件中定义的  appSettings：
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>

@@ -12,12 +12,12 @@ ms.workload: big-data
 origin.date: 02/14/2019
 ms.date: 03/18/2019
 ms.author: v-yiso
-ms.openlocfilehash: 12b817298e07d4753c6f99994dff7e99b7a3ad68
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8db0b51cb4b0fc8b37afc1ff517c5083b5ff2962
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626801"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424618"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
@@ -74,11 +74,11 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
     scp sshuser@CLUSTERNAME-ssh.azurehdinsight.net:/usr/hdp/current/hive-client/lib/libthrift-*.jar .
     ```
 
-3. 启动 SQuirreL SQL 应用程序。 在窗口左侧中，选择“驱动程序”。
+3. 启动 SQuirreL SQL 应用程序。 在窗口左侧中，选择“驱动程序”  。
 
     ![窗口左侧的“驱动程序”选项卡](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
 
-4. 从“驱动程序”对话框顶部的图标中，选择 **+** 图标创建驱动程序。
+4. 从“驱动程序”  对话框顶部的图标中，选择 **+** 图标创建驱动程序。
 
     ![驱动程序图标](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
 
@@ -91,13 +91,13 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
 
    ![添加驱动程序对话框](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
-   选择“确定”保存这些设置。
+   选择“确定”  保存这些设置。
 
-6. 在 SQuirreL SQL 窗口左侧，选择“别名”。 然后选择 **+** 图标来创建连接别名。
+6. 在 SQuirreL SQL 窗口左侧，选择“别名”  。 然后选择 **+** 图标来创建连接别名。
 
     ![添加新的别名](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
-7. 将以下值用于“添加别名”对话框。
+7. 将以下值用于“添加别名”  对话框。
 
     * **名称**：Hive on HDInsight
 
@@ -114,15 +114,15 @@ SQuirreL SQL 是一个 JDBC 客户端，可用于通过 HDInsight 群集远程�
    ![添加别名对话框](./media/apache-hadoop-connect-hive-jdbc-driver/addalias.png)
 
     > [!IMPORTANT] 
-    > 使用“测试”按钮验证连接是否有效。 出现“连接到: Hive on HDInsight”对话框时，选择“连接”进行测试。 如果测试成功，将会显示“连接成功”对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
+    > 使用“测试”  按钮验证连接是否有效。 出现“连接到:  Hive on HDInsight”对话框时，选择“连接”  进行测试。 如果测试成功，将会显示“连接成功”  对话框。 如果发生错误，请参阅[故障排除](#troubleshooting)。
 
-    若要保存连接别名，请使用“添加别名”对话框底部的“确定”按钮。
+    若要保存连接别名，请使用“添加别名”  对话框底部的“确定”  按钮。
 
-8. 在 SQuirreL SQL 顶部的“连接到”下拉列表中，选择“Hive on HDInsight”。 出现提示时，选择“连接”。
+8. 在 SQuirreL SQL 顶部的“连接到”  下拉列表中，选择“Hive on HDInsight”  。 出现提示时，选择“连接”  。
 
     ![连接对话框](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. 连接后，在 SQL 查询对话框中输入以下查询，然后选择“运行”图标（一个正在跑步的人）。 结果区域会显示查询的结果。
+9. 连接后，在 SQL 查询对话框中输入以下查询，然后选择“运行”  图标（一个正在跑步的人）。 结果区域会显示查询的结果。
 
     ```hql
     select * from hivesampletable limit 10;
@@ -165,7 +165,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 * [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](apache-hadoop-connect-hive-power-bi.md)。
 * [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Hive 数据](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./../hdinsight-connect-hive-zeppelin.md)。
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](../interactive-query/hdinsight-connect-hive-zeppelin.md)。
 * [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](apache-hadoop-connect-excel-hive-odbc-driver.md)。
 * [使用 Power Query 将 Excel 连接到 Apache Hadoop](apache-hadoop-connect-excel-power-query.md)。
 * [使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](apache-hadoop-visual-studio-tools-get-started.md)。

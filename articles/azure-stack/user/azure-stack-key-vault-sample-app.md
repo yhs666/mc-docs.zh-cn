@@ -16,12 +16,12 @@ origin.date: 04/08/2019
 ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: cf807647e907fb44e93f0ac47cd457a97e54fd9e
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 40fbe55455904e2c0461d9d8a0fd212fabc34a1f
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855363"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248531"
 ---
 # <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>使用密钥保管库中存储的密钥和机密的示例应用程序
 
@@ -73,7 +73,7 @@ Write-Host 'Please log into your Azure Stack user environment' -foregroundcolor 
 $tenantARM = "https://management.local.azurestack.external"
 $aadTenantName = "FILL THIS IN WITH YOUR AAD TENANT NAME. FOR EXAMPLE: myazurestack.partner.onmschina.cn"
 
-# Configure the Azure Stack operator’s PowerShell environment.
+# Configure the Azure Stack operator's PowerShell environment.
 Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM

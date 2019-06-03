@@ -121,6 +121,8 @@
                   href: media-services-dotnet-generate-thumbnail-with-mes.md
                 - name: 使用 Media Encoder Standard 裁剪视频
                   href: media-services-crop-video.md
+                - name: 生成缩略图子画面
+                  href: generate-thumbnail-sprite.md
             - name: MES 架构
               items:
                 - name: Media Encoder Standard 架构
@@ -394,7 +396,7 @@
   items:
     - name: Azure PowerShell（资源管理器）
       href: 'https://docs.microsoft.com/powershell/module/az.media'
-    - name: Azure PowerShell（服务管理）
+    - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0'
     - name: .NET
       href: /dotnet/api/microsoft.windowsazure.mediaservices.client

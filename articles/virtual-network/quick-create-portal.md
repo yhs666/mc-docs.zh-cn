@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 225b8039bbe642dbce2679d13d3b19d09e00193f
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 1b728f03e620031630e94214725601a8302b05c9
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306157"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250417"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -34,21 +34,21 @@ ms.locfileid: "56306157"
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-1. 在屏幕的左上方，选择“创建资源” > “网络” > “虚拟网络”。
+1. 在屏幕的左上方，选择“创建资源” > “网络” > “虚拟网络”    。
 
-1. 在“创建虚拟网络”中，输入或选择以下信息：
+1. 在“创建虚拟网络”  中，输入或选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入 myVirtualNetwork。 |
-    | 地址空间 | 输入 10.1.0.0/16。 |
+    | Name | 输入 myVirtualNetwork  。 |
+    | 地址空间 | 输入 10.1.0.0/16  。 |
     | 订阅 | 选择订阅。|
-    | 资源组 | 选择“新建”，输入 myResourceGroup，然后选择“确定”。 |
-    | 位置 | 选择“中国东部”。|
-    | 子网 - 名称 | 输入 myVirtualSubnet。 |
-    | 子网 - 地址范围 | 输入 10.1.0.0/24。 |
+    | 资源组 | 选择“新建”，输入 myResourceGroup，然后选择“确定”    。 |
+    | 位置 | 选择“中国东部”。 |
+    | 子网 - 名称 | 输入 myVirtualSubnet  。 |
+    | 子网 - 地址范围 | 输入 10.1.0.0/24  。 |
 
-1. 将剩余的字段保留默认设置，然后选择“创建”。
+1. 将剩余的字段保留默认设置，然后选择 **“创建”** 。
 
 ## <a name="create-virtual-machines"></a>创建虚拟机
 
@@ -58,108 +58,108 @@ ms.locfileid: "56306157"
 
 <!--MOONCAKE: Customize Virtual Machines to suit with Mooncake-->
 
-1. 在屏幕的左上方，选择“创建资源” > “虚拟机” > “Windows Server 2016 Datacenter”。
+1. 在屏幕的左上方，选择“创建资源” > “虚拟机” > “Windows Server 2016 Datacenter”。   
 
-1. 在“创建虚拟机 - 基本信息”中，输入或选择以下信息：
+1. 在“创建虚拟机 - 基本信息”  中，输入或选择以下信息：
 
-    | 设置 | 值 |
+    | 设置 | Value |
     | ------- | ----- |
     | **项目详细信息** | |
     | 订阅 | 选择订阅。 |
-    | 资源组 | 选择 MyResourceGroup。 已在上一部分创建。 |
+    | 资源组 | 选择 MyResourceGroup  。 已在上一部分创建。 |
     | **实例详细信息** |  |
-    | 虚拟机名称 | 输入 myVm1。 |
-    | 区域 | 选择“中国东部”。 |
-    | 可用性选项 | 保留默认值“不需要基础结构冗余”。 |
-    | 映像 | 保留默认值“Microsoft Windows Server 2016 Datacenter”。 |
-    | 大小 | 保留默认值“标准 DS1 v2”。 |
+    | 虚拟机名称 | 输入 myVm1  。 |
+    | 区域 | 选择“中国东部”。  |
+    | 可用性选项 | 保留默认值“不需要基础结构冗余”  。 |
+    | 映像 | 保留默认值“Microsoft Windows Server 2016 Datacenter”  。 |
+    | 大小 | 保留默认值“标准 DS1 v2”  。 |
     | **管理员帐户** |  |
     | 用户名 | 输入所选用户名。 |
     | 密码 | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     | 确认密码 | 重新输入密码。 |
     | **入站端口规则** |  |
-    | 公共入站端口 | 保留默认值“无”。 |
+    | 公共入站端口 | 保留默认值“无”  。 |
     | **节省资金** |  |
-    | 已有 Windows 许可证？ | 保留默认值“否”。 |
+    | 已有 Windows 许可证？ | 保留默认值“否”  。 |
 
-1. 选择“下一步:磁盘”**。
+1. 选择“下一步:**磁盘”** 。
 
-1. 在“创建虚拟机 - 磁盘”中，保留默认设置，然后选择“下一步:网络”**。
+1. 在“**创建虚拟机 - 磁盘**”中，保留默认设置，**然后选择“下一步:网络”** 。
 
-1. 在“创建虚拟机 - 基本信息”中，选择以下信息：
-
-    | 设置 | 值 |
-    | ------- | ----- |
-    | 虚拟网络 | 保留默认值“myVirtualNetwork”。 |
-    | 子网 | 保留默认值“myVirtualSubnet (10.1.0.0/24)”。 |
-    | 公共 IP | 保留默认值“(new) myVm-ip”。 |
-    | 网络安全端口 | 选择“允许所选端口”。 |
-    | 选择入站端口 | 选择 HTTP 和 RDP。
-
-1. 选择“下一步:管理”**。
-
-1. 在“创建虚拟机 - 管理”中，为“诊断存储帐户”选择“新建”。
-
-1. 在“创建存储帐户”中，输入或选择以下信息：
+1. 在“创建虚拟机 - 基本信息”  中，选择以下信息：
 
     | 设置 | 值 |
     | ------- | ----- |
-    | Name | 输入 myvmstorageaccount。 |
-    | 帐户类型 | 保留默认值“存储(常规用途 v1)”。 |
-    | 性能 | 保留默认值“标准”。 |
-    | 复制 | 保留默认值“本地冗余存储(LRS)”。 |
+    | 虚拟网络 | 保留默认值“myVirtualNetwork”  。 |
+    | 子网 | 保留默认值“myVirtualSubnet (10.1.0.0/24)”  。 |
+    | 公共 IP | 保留默认值“(new) myVm-ip”  。 |
+    | 网络安全端口 | 选择“允许所选端口”  。 |
+    | 选择入站端口 | 选择 HTTP 和 RDP   。
 
-1. 选择“确定”
+1. **选择“下一步:管理”** 。
 
-1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将验证配置。
+1. 在“创建虚拟机 - 管理”中，为“诊断存储帐户”选择“新建”    。
 
-1. 看到“验证通过”时，选择“创建”。
+1. 在“创建存储帐户”中，输入或选择以下信息  ：
+
+    | 设置 | 值 |
+    | ------- | ----- |
+    | Name | 输入 myvmstorageaccount  。 |
+    | 帐户类型 | 保留默认值“存储(常规用途 v1)”  。 |
+    | 性能 | 保留默认值“标准”  。 |
+    | 复制 | 保留默认值“本地冗余存储(LRS)”  。 |
+
+1. 选择“确定” 
+
+1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将验证配置  。
+
+1. 看到“验证通过”时，选择“创建”   。
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
 1. 完成前面的步骤 1 和 9。
 
     > [!NOTE]
-    > 在步骤 2 中，对于“虚拟机名称”，请输入 myVm2。
+    > 在步骤 2 中，对于“虚拟机名称”，请输入 myVm2   。
     >
-    > 在步骤 7 中，对于“诊断存储帐户”，请确保选择 myvmstorageaccount。
+    > 在步骤 7 中，对于“诊断存储帐户”，请确保选择 myvmstorageaccount   。
 
-1. 选择“查看 + 创建”。 随后你会转到“查看 + 创建”页，Azure 将验证配置。
+1. 选择“查看 + 创建”  。 随后你会转到“查看 + 创建”页，Azure 将验证配置  。
 
-1. 看到“验证通过”时，选择“创建”。
+1. 看到“验证通过”时，选择“创建”   。
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>从 Internet 连接到 VM
 
-创建 myVm1 后，通过 Internet 连接到它。
+创建 myVm1 后，通过 Internet 连接到它  。
 
-1. 在门户的搜索栏中，输入 myVm1。
+1. 在门户的搜索栏中，输入 myVm1  。
 
-1. 选择“连接”按钮。
+1. 选择“连接”按钮。 
 
     ![连接到虚拟机](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-    选择“连接”按钮后，“连接到虚拟机”随即打开。
+    选择“连接”按钮后，“连接到虚拟机”随即打开   。
 
-1. 选择“下载 RDP 文件”。 Azure 创建远程桌面协议 (.rdp) 文件，并下载到计算机。
+1. 选择“下载 RDP 文件”  。 Azure 创建远程桌面协议 (.rdp) 文件，并下载到计算机  。
 
 1. 打开下载的 *.rdp* 文件。
 
-    1. 出现提示时，选择“连接”。
+    1. 出现提示时，选择“连接”  。
 
     1. 输入在创建 VM 时指定的用户名和密码。
 
         > [!NOTE]
-        > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据。
+        > 可能需要选择“更多选择” > “使用其他帐户”，以指定在创建 VM 时输入的凭据   。
 
-1. 选择“确定” 。
+1. 选择“确定”  。
 
-1. 在登录过程中可能会收到证书警告。 如果收到证书警告，请选择“确定”或“继续”。
+1. 在登录过程中可能会收到证书警告。 如果收到证书警告，请选择“确定”或“继续”   。
 
 1. VM 桌面出现后，将其最小化以返回到本地桌面。
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-1. 在 myVm1 远程桌面中，打开 PowerShell。
+1. 在 myVm1 远程桌面中，打开 PowerShell  。
 
 1. 输入 `ping myVm2`。
 
@@ -178,7 +178,7 @@ ms.locfileid: "56306157"
 
     由于 `ping` 使用 Internet 控制消息协议 (ICMP)，`ping` 失败。 默认情况下，不允许 ICMP 通过 Windows 防火墙。
 
-1. 要允许 myVm2 在后面的步骤中对 myVm1 执行 ping 操作，请输入以下命令：
+1. 要允许 myVm2  在后面的步骤中对 myVm1 执行 ping 操作  ，请输入以下命令：
 
     ```powershell
     New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -215,13 +215,13 @@ ms.locfileid: "56306157"
 
 使用虚拟网络和 VM 之后，请删除资源组和其包含的所有资源：
 
-1. 在门户顶部的“搜索”框中输入“myResourceGroup”。
+1. 在门户顶部的“搜索”框中输入“myResourceGroup”   。
 
-1. 当在搜索结果中看到“myResourceGroup”时，将其选中。
+1. 当在搜索结果中看到“myResourceGroup”时，将其选中。 
 
-1. 选择“删除资源组”。
+1. 选择“删除资源组”  。
 
-1. 对于“键入资源组名称”，请输入“myResourceGroup”，然后选择“删除”。
+1. 对于“键入资源组名称”，请输入“myResourceGroup”，然后选择“删除”    。
 
 ## <a name="next-steps"></a>后续步骤
 

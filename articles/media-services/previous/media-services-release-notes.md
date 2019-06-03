@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 473a75a6e93bdfbea06caa3f212ffe34f8f41779
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 11084dc8a26f30c46fa305ec75e736e33f3498a1
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549953"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390754"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -34,7 +34,7 @@ ms.locfileid: "65549953"
 | --- | --- |
 | REST API 中未提供几种常见的 HTTP 标头。 |如果使用 REST API 来开发媒体服务应用程序，将发现一些常见的 HTTP 标头字段（包括 CLIENT-REQUEST-ID、REQUEST-ID 和 RETURN-CLIENT-REQUEST-ID）不受支持。 未来的更新会增加这些标头。 |
 | 不允许使用百分号编码。 |为流内容构建 URL 时，媒体服务使用 IAssetFile.Name 属性的值（例如，`http://{AMSAccount}.origin.mediaservices.chinacloudapi.cn/{GUID}/{IAssetFile.Name}/streamingParameters`）。 出于这个原因，不允许使用百分号编码。 Name 属性的值不能含有任何以下[百分号编码保留字符](http://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)：!* '();:@&=+$,/?%#[]"。 此外，文件扩展名中只能含有一个“.”。 |
-| Azure 存储 SDK 版本 3.x 中的 ListBlobs 方法将失败。 |媒体服务基于 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本生成 SAS URI。 如果希望使用存储 SDK 来列出 BLOB 容器中的 BLOB，请使用存储 SDK 版本 2.x 中的 [CloudBlobContainer.ListBlobs](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.listblobs.aspx) 方法。 |
+| Azure 存储 SDK 版本 3.x 中的 ListBlobs 方法将失败。 |媒体服务基于 [2012-02-12](https://docs.microsoft.com/rest/api/storageservices/Version-2012-02-12) 版本生成 SAS URI。 如果希望使用存储 SDK 来列出 BLOB 容器中的 BLOB，请使用存储 SDK 版本 2.x 中的 [CloudBlobContainer.ListBlobs](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobs) 方法。 |
 | 媒体服务限制机制会限制那些发出过多服务请求的应用程序的资源使用情况。 该服务可能返回“服务不可用” 503 HTTP 状态代码。 |有关详细信息，请参阅[媒体服务错误代码](media-services-encoding-error-codes.md)中的 503 HTTP 状态代码说明。 |
 | 查询实体时，一次返回的实体数限制为 1,000 个，因为公共 REST 第 2 版将查询结果数限制为 1,000 个。 |使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 |
 | 某些客户端可能会在平滑流式处理清单中碰到重复标记问题。 |有关详细信息，请参阅[此部分](media-services-deliver-content-overview.md#known-issues)。 |
@@ -52,6 +52,10 @@ Azure 媒体服务的 Media Hyperlapse 预览功能即将停用。 从 2018 年 
 ### <a name="cmaf-support"></a>CMAF 支持
 
 CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DASH 播放器。
+
+### <a name="web-vtt-thumbnail-sprites"></a>Web VTT 缩略图子画面
+
+可以使用媒体服务生成使用 v2 API 的 Web VTT 缩略图子画面。 有关详细信息，请参阅[生成缩略图子画面](generate-thumbnail-sprite.md)。
 
 ## <a name="july-2018"></a>2018 年 7 月
 
@@ -182,8 +186,8 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 有关详细信息，请参阅：
 
 * 以下[代码示例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
-  * vodworkflow_aes.php：此 PHP 文件演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
-  * scale_encoding_units.php：此 PHP 文件演示如何缩放编码预留单位。
+  * vodworkflow_aes.php  ：此 PHP 文件演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
+  * scale_encoding_units.php  ：此 PHP 文件演示如何缩放编码预留单位。
 
 
 ## <a id="oct_changes_15"></a>2015 年 10 月版本
@@ -301,10 +305,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 * 当前，无法通过 SSL 连接摄取 RTMP 实时流。
 * 仅当要从中传送内容的流式处理终结点是在 2014 年 9 月 10 日之后创建的情况下，才可通过 SSL 流式传输内容。 如果流式处理 URL 基于 2014 年 9 月 10 日之后创建的流式处理终结点，则 URL 会包含“streaming.mediaservices.chinacloudapi.cn”（新格式）。 包含“origin.mediaservices.chinacloudapi.cn”（旧格式）的流式处理 URL 不支持 SSL。 如果 URL 采用旧格式，并且希望通过 SSL 流式传输内容，请[创建新的流式处理终结点](media-services-portal-manage-streaming-endpoints.md)。 若要通过 SSL 流式传输内容，请使用基于新流式处理终结点的 URL。
 
-## <a id="october_changes_14"></a>2014 年 10 月版本
-### <a id="new_encoder_release"></a>媒体服务编码器版本
- 宣布推出新版媒体服务 Azure 媒体编码器。 使用最新 Media Encoder，仅针对输出 GB 数进行收费。 除此之外，新版编码器的功能与旧版编码器兼容。 有关详细信息，请参阅[媒体服务定价详细信息]。
-
 ### <a id="oct_sdk"></a>媒体服务 .NET SDK
 适用于 .NET 的媒体服务 SDK 扩展当前版本为 2.0.0.3。
 
@@ -377,14 +377,6 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 有关详细信息，请参阅[适用于 .NET 的媒体服务 SDK 中的重试逻辑]。
 
-## <a id="april_changes_14"></a>2014 年 4 月编码器版本
-### <a name="april_14_enocer_changes"></a>媒体服务编码器更新
-* 添加了对引入使用 Grass Valley EDIUS 非线性编辑器创作的 AVI 文件的支持。 在此过程中，使用 Grass Valley HQ/HQX 编解码器轻微压缩了视频。 有关详细信息，请参阅 [Grass Valley 宣布通过云对 EDIUS 7 进行流式处理]。
-*  添加了对指定媒体服务编码器所生成文件命名约定的支持。 有关详细信息，请参阅[控制媒体服务编码器输出文件名](media-services-advanced-encoding-with-mes.md)。
-*  增加了对视频和/或音频覆盖的支持。 有关详细信息，请参阅[创建覆盖层](media-services-advanced-encoding-with-mes.md)。
-*  增加了对拼接多个视频片段的支持。 有关详细信息，请参阅[拼结视频片段](media-services-advanced-encoding-with-mes.md)。
-* 修复了与转码 MP4 时以 MPEG-1 音频层 3（也称为 MP3）格式编码音频相关的 bug。
-
 ## <a id="jan_feb_changes_14"></a>2014 年 1/2 月版本
 ### <a name="jan_fab_14_donnet_changes"></a>媒体服务 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
 3.0.0.1 和 3.0.0.2 中的更改包括：
@@ -397,7 +389,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 版本 3.0.0.3 中进行了以下更改：
 
 * Azure 存储依赖项已升级为使用版本 3.0.3.0。
-* 修复了 3.0.*.* 的后向兼容性问题 版本的向后兼容性问题。
+* 修复了 3.0. *.* 的后向兼容性问题 版本的向后兼容性问题。
 
 ## <a id="december_changes_13"></a>2013 年 12 月版本
 ### <a name="dec_13_donnet_changes"></a>媒体服务 .NET SDK 3.0.0.0
@@ -494,7 +486,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 * 资产
   
-    * IAsset.Create(assetName) 是唯一的资产创建函数。 IAsset.Create 不再在方法调用中上传文件。 使用 IAssetFile 上传。
+    * IAsset.Create(assetName) 是唯一的资产创建函数。  IAsset.Create 不再在方法调用中上传文件。 使用 IAssetFile 上传。
     * IAsset.Publish 方法和 AssetState.Publish 枚举值已从媒体服务 SDK 中删除。 必须重写依赖于此值的任何代码。
 * FileInfo
   
@@ -533,7 +525,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 <!--- URLs. --->
 [Azure 媒体服务 MSDN 论坛]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Azure 媒体服务 REST API 参考]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[媒体服务定价详细信息]: https://www.azure.cn/pricing/details/media-services/
+[Media Services pricing details]: https://www.azure.cn/pricing/details/media-services/
 [输入元数据]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [输出元数据]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -548,7 +540,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 [Nick Drouin's blog]: http://blog-ndrouin.chinacloudsites.cn/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: ./media-services-static-packaging.md
 [适用于 .NET 的媒体服务 SDK 中的重试逻辑]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grass Valley 宣布通过云对 EDIUS 7 进行流式处理]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: media-services-advanced-encoding-with-mes.md
 [Create overlays]: media-services-advanced-encoding-with-mes.md
 [Stitch video segments]: media-services-advanced-encoding-with-mes.md

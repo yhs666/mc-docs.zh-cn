@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/19/2019
-ms.date: 04/29/2019
+origin.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: f8ea91306a4ab9b11876fdaee04ca695cf8fd74c
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: a48d726b2ed081e85374913d09394916531bada4
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855479"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248548"
 ---
 # <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>配置站点到站点 VPN 连接的 IPsec/IKE 策略
 
@@ -39,9 +39,9 @@ IPsec 和 IKE 协议标准支持采用各种组合的各种加密算法。 若�
 
 使用这些策略时，请注意以下重要事项：
 
-- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。
+- IPsec/IKE 策略仅适用于“标准”和“高性能”（基于路由）网关 SKU。  
 
-- 一个给定的连接只能指定一个策略组合。
+- 一个给定的连接只能指定一个策略组合。 
 
 - 必须指定 IKE（主模式）和 IPsec（快速模式）的所有算法和参数。 不允许指定部分策略。
 
@@ -240,7 +240,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupNam
 3. 删除连接的 IPsec/IKE 策略
 
 > [!NOTE]
-> IPsec/IKE 策略仅受基于路由的标准 VPN 网关和高性能 VPN 网关支持。 它不适用于“基本”网关 SKU。
+> IPsec/IKE 策略仅受基于路由的标准 VPN 网关和高性能 VPN 网关支持   。 它不适用于“基本”网关 SKU。 
 
 ### <a name="1-show-the-ipsecike-policy-of-a-connection"></a>1.显示连接的 IPsec/IKE 策略
 
@@ -312,7 +312,7 @@ PfsGroup : None
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
 $connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
-$connection6.SharedKey = “AzS123”
+$connection6.SharedKey = "AzS123"
 $currentpolicy = $connection6.IpsecPolicies[0]
 $connection6.IpsecPolicies.Remove($currentpolicy)
 

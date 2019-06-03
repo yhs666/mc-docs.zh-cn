@@ -3,7 +3,7 @@ title: 使用 Azure 门户配置内容保护策略 | Microsoft Docs
 description: 本文演示如何使用 Azure 门户配置内容保护策略。 本文还说明如何为资产启用动态加密。
 services: media-services
 documentationcenter: ''
-author: forester123
+author: WenJason
 manager: digimobile
 editor: ''
 ms.assetid: 270b3272-7411-40a9-ad42-5acdbba31154
@@ -12,17 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/25/2017
-ms.date: 1/22/2018
-ms.author: v-johch
-ms.openlocfilehash: 0f5a00c156093609e606236f2bd8085667e53f3b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 03/19/2019
+ms.date: 06/03/2019
+ms.author: v-jay
+ms.openlocfilehash: 171722ca1377770f293a66897bc9aa7c3a1ff0c8
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660880"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390763"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 门户配置内容保护策略
+
+> [!NOTE]
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+>
+
  使用 Azure 媒体服务，可以在媒体从离开计算机到存储、处理和传送的整个过程中确保其安全。 可以通过媒体服务传送按高级加密标准 (AES)（使用 128 位加密密钥）动态加密的内容。 也可借助 PlayReady 和/或 Widevine 数字版权管理 (DRM) 以及 Apple FairPlay，将其与通用加密 (CENC) 配合使用。 
 
 媒体服务提供用于向已授权客户端传送 DRM 许可证和 AES 明文密钥的服务。 可以使用 Azure 门户创建一个适用于所有类型的加密的密钥/许可证授权策略。
@@ -34,7 +39,7 @@ ms.locfileid: "52660880"
 
 1. 在[门户](https://portal.azure.cn/)中选择媒体服务帐户。
 
-2. 选择“设置” > “内容保护”。
+2. 选择“设置”   > “内容保护”  。
 
     ![内容保护](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
@@ -68,7 +73,7 @@ PlayReady 许可证模板设置在 PlayReady 许可证上启用的功能。 有�
 
 
 ## <a name="fairplay-configuration"></a>FairPlay 配置
-若要启用 FairPlay 加密，请选择“FairPlay 配置”。 然后选择“应用证书”并输入**应用程序机密密钥**。 有关 FairPlay 配置和要求的详细信息，请参阅[使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-FairPlay.md)。
+若要启用 FairPlay 加密，请选择“FairPlay 配置”  。 然后选择“应用证书”并输入**应用程序机密密钥**。  有关 FairPlay 配置和要求的详细信息，请参阅[使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容](media-services-protect-hls-with-FairPlay.md)。
 
 ![FairPlay 配置](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
@@ -76,29 +81,29 @@ PlayReady 许可证模板设置在 PlayReady 许可证上启用的功能。 有�
 若要利用动态加密，请将源文件编码为一组自适应比特率 MP4 文件。
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>选择想要加密的资产
-若要查看所有资产，选择“设置” > “资产”。
+若要查看所有资产，选择“设置”   > “资产”  。
 
 ![“资产”选项](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
 ### <a name="encrypt-with-aes-or-drm"></a>使用 AES 或 DRM 加密
-针对资产选择“加密”时，会看到两个选择：**AES** 或 **DRM**。 
+针对资产选择“加密”时，会看到两个选择  ：“AES”或“DRM”   。 
 
 #### <a name="aes"></a>AES
-对所有流式处理协议启用 AES 明文密钥加密：平滑流式处理、HLS 和 MPEG DASH。
+对所有流式处理协议启用 AES 明文密钥加密：平滑流式处理、HLS 和 MPEG-DASH。
 
 ![加密配置](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-1. 选择“DRM”后，会看到不同的内容保护策略（必须通过此点进行配置）和一组流式处理协议：
+1. 选择“DRM”后，会看到不同的内容保护策略（必须通过此点进行配置）和一组流式处理协议： 
 
 * **仅将 PlayReady 应用于平滑流式处理、HLS 和 MPEG-DASH** 即可通过 PlayReady DRM 动态加密平滑流式处理、HLS 和 MPEG-DASH 流。
 * **仅将 FairPlay 应用于 HLS** 即可通过 FairPlay 动态加密 HLS 流。
 
-2. 若要启用 FairPlay 加密，请在“内容保护全局设置”边栏选项卡上选择“FairPlay 配置”。 然后选择“应用证书”并输入**应用程序机密密钥**。
+2. 若要启用 FairPlay 加密，请在“内容保护全局设置”边栏选项卡上选择“FairPlay 配置”。   然后选择“应用证书”并输入**应用程序机密密钥**。 
 
     ![加密类型](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. 进行加密选择后，选择“应用”。
+3. 进行加密选择后，选择“应用”  。
 
 >[!NOTE] 
 >如果打算在 Safari 中播放 AES 加密的 HLS，请参阅博客文章：[Safari 中加密的 HLS](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/)。

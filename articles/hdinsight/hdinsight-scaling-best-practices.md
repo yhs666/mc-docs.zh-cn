@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 02/26/2018
-ms.date: 04/15/2019
+origin.date: 05/13/2019
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7d4c796e862d5d0e0dc54c9f5afb460e8ece14cb
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 4a485d2e46db27c47464534735d1c91addd9d82b
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003906"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424658"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -23,17 +23,20 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
 
 例如，如果要每隔一天或每隔一个月执行某种批处理一次，则可以在该计划事件之前的几分钟扩展 HDInsight 群集，以便有足够的内存和 CPU 计算能力。  在完成处理并且用量再次下降后，可将 HDInsight 群集缩减为更少的工作节点。
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="utilities-to-scale-clusters"></a>用来缩放群集的实用程序
 
 Microsoft 提供以下实用程序来缩放群集：
 
 |实用程序 | 说明|
 |---|---|
-|[PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
-|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm/overview) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
+|[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
+|[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
 |[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
-|[Azure 经典 CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数>|
-|[Azure 门户](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。|  
+|[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数> |
+|[Azure 门户](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。 |  
 
     ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -54,10 +57,10 @@ Microsoft 提供以下实用程序来缩放群集：
 若要查看挂起的和正在运行的作业列表，可以遵循以下步骤使用 YARN ResourceManager UI：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧导航到“所有服务” > “分析” > “HDInsight 群集”，然后选择群集。
-3. 在主视图中，导航到“群集仪表板” > “Ambari 主页”。 输入群集登录凭据。
-4. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。  
-5. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。
+2. 在左侧导航到“所有服务” > “分析” > “HDInsight 群集”，然后选择群集。   
+3. 在主视图中，导航到“群集仪表板”   >   “Ambari 主页”。 输入群集登录凭据。
+4. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。   
+5. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。  
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -101,7 +104,7 @@ yarn application -kill "application_1499348398273_0003"
 
 如果将群集缩减到最少量的（一个）工作节点，则在由于修补而重新启动工作节点时，Apache HDFS 可能会停滞在安全模式，或者在执行缩放操作后立即发生这种情况。
 
-发生此问题的主要原因是 Hive 使用一些 `scratchdir` 文件，并且默认预期每个块有三个副本，但是，如果缩减到最少量的（一个）工作节点，则只会有一个副本。 因此，`scratchdir` 中的文件复制数量不足。 在完成缩放操作后重启服务时，这可能导致 HDFS 保留在安全模式。
+发生此问题的主要原因是 Hive 使用一些 `scratchdir` 文件，并且默认预期每个块有三个副本，但是，如果缩减到最少量的（一个）工作节点，则只会有一个副本。 因此，`scratchdir` 中的文件复制数量不足。  在完成缩放操作后重启服务时，这可能导致 HDFS 保留在安全模式。
 
 在尝试缩减时，HDInsight 依赖于 Apache Ambari 管理接口来先解除额外的多余工作节点，以将其 HDFS 块复制到其他联机工作节点，然后安全缩减群集。 HDFS 在维护时段进入安全模式，在完成缩放后应会退出此模式。 此时，HDFS 可能会停滞在安全模式。
 
@@ -117,13 +120,13 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 
 ### <a name="example-errors-when-safe-mode-is-turned-on"></a>启用安全模式时的错误示例
 
-* H070 无法打开 Hive 会话。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 名称节点处于安全模式。 报告的块数为 75，需要额外的 12 个块才能达到总块数 87 的阈值 0.9900。 实时数据节点数 10 已达到最小数字 0。 达到阈值后，安全模式会自动禁用。
+* H070 无法打开 Hive 会话。 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/819c215c-6d87-4311-97c8-4f0b9d2adcf0。 名称节点处于安全模式。  报告的块数为 75，需要额外的 12 个块才能达到总块数 87 的阈值 0.9900。 实时数据节点数 10 已达到最小数字 0。 达到阈值后，安全模式会自动禁用。
 
 * H100 无法提交语句 show databases: org.apache.thrift.transport.TTransportException: org.apache.http.conn.HttpHostConnectException:连接到 hn0-clustername.servername.internal.cloudapp.net:10001 [hn0-clustername.servername. internal.cloudapp.net/1.1.1.1] 失败:**连接被拒绝**
 
 * H020 无法建立到 hn0-hdisrv.servername.bx.internal.cloudapp.net:10001 的连接: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.cloudapp.net:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] 失败:连接被拒绝: org.apache.thrift.transport.TTransportException:无法创建到 http://hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001/ 的 http 连接。 org.apache.http.conn.HttpHostConnectException:连接到 hn0-hdisrv.servername.bx.internal.chinacloudapp.cn:10001 [hn0-hdisrv.servername.bx.internal.chinacloudapp.cn/10.0.0.28] 失败:**连接被拒绝**
 
-* 从 Hive 日志中：警告 [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在 attempt 21 上启动 HiveServer2 时出错，将在 60 秒内重试 java.lang.RuntimeException:在 hive 配置上应用授权策略时出错: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 名称节点处于安全模式。
+* 从 Hive 日志中：警告 [main]: server.HiveServer2 (HiveServer2.java:startHiveServer2(442)) – 在 attempt 21 上启动 HiveServer2 时出错，将在 60 秒内重试 java.lang.RuntimeException:在 hive 配置上应用授权策略时出错: org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.ipc.RetriableException): org.apache.hadoop.hdfs.server.namenode.SafeModeException:**无法创建目录** /tmp/hive/hive/70a42b8a-9437-466e-acbe-da90b1614374。 名称节点处于安全模式。 
     报告的块数为 0，需要额外的 9 个块才能达到总块数 9 的阈值 0.9900。
     实时数据节点数 10 已达到最小数字 0。 **达到阈值后，安全模式会自动禁用**。
     at org.apache.hadoop.hdfs.server.namenode.FSNamesystem.checkNameNodeSafeMode(FSNamesystem.java:1324)
@@ -237,7 +240,7 @@ FSCK ended at Thu Jul 06 20:13:58 UTC 2017 in 28 milliseconds
 The filesystem under path '/tmp/hive/hive' is CORRUPT
 ```
 
-也可以在 Ambari UI 中（选择左侧的“HDFS”服务）或使用 `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary` 查看 HDFS 状态。
+也可以在 Ambari UI 中（选择左侧的“HDFS”服务）或使用 `https://<HDInsightClusterName>.azurehdinsight.net/#/main/services/HDFS/summary` 查看 HDFS 状态。 
 
 ![Ambari HDFS 状态](./media/hdinsight-scaling-best-practices/ambari-hdfs.png)
 

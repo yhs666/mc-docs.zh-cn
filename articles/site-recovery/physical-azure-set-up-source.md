@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 03/04/2019
+origin.date: 04/14/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1289e88f659d4246b8d197abf1f59d0dfc5d69c
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: a2fdba3b9b5ce26ba32473a7f984a54ca1a75e9e
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463644"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390837"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>设置配置服务器，以便将物理服务器灾难恢复到 Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "57463644"
 ## <a name="prerequisites"></a>先决条件
 
 本文假设已有：
-- [Azure 门户](http://portal.azure.cn "Azure 门户")中的恢复服务保管库。
+- [Azure 门户](https://portal.azure.cn "Azure 门户")中的恢复服务保管库。
 - 要在其上安装配置服务器的物理计算机。
 - 如果已在要安装配置服务器的计算机上禁用了 TLS 1.0，请确保该计算机上已启用 TLS 1.2 并已安装 .NET Framework 4.6 或更高版本（已禁用强加密）。 [了解详细信息](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
 
@@ -36,20 +36,20 @@ ms.locfileid: "57463644"
 
 ## <a name="choose-your-protection-goals"></a>选择保护目标
 
-1. 在 Azure 门户中，转到“恢复服务保管库”边栏选项卡，然后选择保管库。
-2. 在保管库的“资源”菜单中，单击“开始使用” > “Site Recovery” > “步骤 1: 准备基础结构” > “保护目标”。
+1. 在 Azure 门户中，转到“恢复服务保管库”  边栏选项卡，然后选择保管库。
+2. 在保管库的“资源”  菜单中，单击“开始使用”   > “Site Recovery”   > “步骤 1:  准备基础结构” > “保护目标”  。
 
     ![选择目标](./media/physical-azure-set-up-source/choose-goals.png)
-3. 在“保护目标”中，依次选择“到 Azure”和“未虚拟化/其他”，并单击“确定”。
+3. 在“保护目标”  中，依次选择“到 Azure”  和“未虚拟化/其他”  ，并单击“确定”  。
 
     ![选择目标](./media/physical-azure-set-up-source/physical-protection-goal.png)
 
 ## <a name="set-up-the-source-environment"></a>设置源环境
 
-1. 如果没有配置服务器，请在“准备源”中单击“+配置服务器”添加一个。
+1. 如果没有配置服务器，请在“准备源”中单击“+配置服务器”添加一个。  
 
     ![设置源](./media/physical-azure-set-up-source/plus-config-srv.png)
-2. 在“添加服务器”边栏选项卡中，检查“配置服务器”是否已出现在“服务器类型”中。
+2. 在“添加服务器”边栏选项卡中，检查“配置服务器”是否已出现在“服务器类型”中。   
 4. 下载站点恢复统一安装程序安装文件。
 5. 下载保管库注册密钥。 运行统一安装程序时，需要注册密钥。 生成的密钥有效期为 5 天。
 
@@ -74,4 +74,4 @@ ms.locfileid: "57463644"
 
 下一步涉及在 Azure 中[设置目标环境](physical-azure-set-up-target.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

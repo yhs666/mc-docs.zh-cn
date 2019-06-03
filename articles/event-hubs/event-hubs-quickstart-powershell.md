@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
 origin.date: 08/16/2018
-ms.date: 05/06/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
-ms.openlocfilehash: a3b18eefcea0558c0100137fb76c9980600606b9
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ed10b0b0af77462deab624cba13309690dc098ac
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854790"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296713"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -32,10 +32,9 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 若要完成本教程，请确保做好以下准备：
 
 - Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户][]。
-- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
+- [Visual Studio 2019](https://www.visualstudio.com/vs)。
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
-[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.azure.cn/zh-cn/powershell-install-configure)。
 
@@ -61,6 +60,7 @@ New-AzEventHubNamespace -ResourceGroupName myResourceGroup -NamespaceName namesp
 
 创建事件中心命名空间后，在该命名空间中创建事件中心：  
 `MessageRetentionInDays` 的允许期限为 1 到 7 天。
+
 ```PowerShell
 New-AzEventHub -ResourceGroupName myResourceGroup -NamespaceName namespace_name -EventHubName eventhub_name -MessageRetentionInDays 3
 ```

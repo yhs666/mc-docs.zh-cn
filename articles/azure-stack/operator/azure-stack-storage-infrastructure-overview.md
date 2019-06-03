@@ -10,18 +10,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ''
-ms.topic: ''
+ms.topic: article
 origin.date: 03/11/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 647c9692d7770f60e14f479505a2ae82791c4137
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 847d94d40da226ee6ef3fb59478c101e1fcc73d2
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530043"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381896"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 
@@ -56,7 +56,7 @@ Azure Stack 集成式系统合作伙伴提供众多的解决方案版本，包�
 
 ### <a name="volumes"></a>卷
 
-存储服务将可用的存储分区成独立的卷，这些卷可分配用于保存系统数据和租户数据。 卷将驱动器合并到存储池中，带来存储空间直通的容错、可伸缩性和性能优势。
+存储服务将可用的存储分区成独立的卷，这些卷可分配用于保存系统数据和租户数据。  卷将驱动器合并到存储池中，带来存储空间直通的容错、可伸缩性和性能优势。
 
 ![Azure Stack 存储基础结构](media/azure-stack-storage-infrastructure-overview/image4.png)
 

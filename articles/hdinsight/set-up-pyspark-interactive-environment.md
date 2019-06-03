@@ -15,20 +15,20 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: 55a67367e5e8ed34e1795c3b217aa7b41342fe9c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ef858aa3af6c605801cfa19f304a6767a3e2763f
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625277"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424700"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>为 Visual Studio Code 设置 PySpark 交互式环境
 
 以下步骤显示如何在 VS Code 中设置 PySpark 交互环境。
 
-我们使用 python/pip 命令在 Home 路径中生成虚拟环境。 如果要使用其他版本，则需要手动更改默认版的 python/pip 命令。 有关详细信息，请参阅[更新替代项](https://linux.die.net/man/8/update-alternatives)。
+我们使用 python/pip 命令在 Home 路径中生成虚拟环境  。 如果要使用其他版本，则需要手动更改默认版的 python/pip 命令  。 有关详细信息，请参阅[更新替代项](https://linux.die.net/man/8/update-alternatives)。
 
 1. 安装 [Python](https://www.python.org/downloads/) 和 [pip](https://pip.pypa.io/en/stable/installing/).
    
@@ -42,7 +42,7 @@ ms.locfileid: "58625277"
      > 建议手动而不是使用 MacOS 默认版本安装 Python。
 
 
-2. 通过运行以下命令，安装 virtualenv。
+2. 通过运行以下命令，安装 virtualenv  。
    
    ```
    pip install virtualenv
@@ -60,7 +60,7 @@ ms.locfileid: "58625277"
    sudo apt-get install python-dev
    ```
 
-4. 重启 VS Code 并回到运行以下命令的脚本编辑器：“HDInsight: PySpark Interactive”。
+4. 重启 VS Code 并回到运行以下命令的脚本编辑器：“HDInsight:  PySpark Interactive”。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -79,4 +79,4 @@ ms.locfileid: "58625277"
 * [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](spark/apache-spark-jupyter-notebook-use-external-packages.md)
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](spark/apache-spark-jupyter-notebook-install-locally.md)
 * [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](hadoop/apache-hadoop-connect-hive-power-bi.md)
-* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](hdinsight-connect-hive-zeppelin.md)
+* [在 Azure HDInsight 中使用 Apache Zeppelin 运行 Apache Hive 查询](./interactive-query/hdinsight-connect-hive-zeppelin.md)

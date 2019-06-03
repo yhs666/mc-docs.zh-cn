@@ -6,21 +6,20 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-origin.date: 12/31/2018
-ms.date: 01/21/2019
+origin.date: 03/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 44754b6962dcf43c48282bb059797e29a1202072
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 89163d605fcc16532fe283a704f70cdf3e5f62e4
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625832"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390782"
 ---
 # <a name="configuration-server-requirements-for-vmware-disaster-recovery-to-azure"></a>VMware 到 Azure 的灾难恢复的配置服务器要求
 
 使用 [Azure Site Recovery](site-recovery-overview.md) 进行 VMware VM 和物理服务器到 Azure 的灾难恢复时，需要部署本地配置服务器。
 
-- 配置服务器协调本地 VMware 与 Azure 之间的通信。 它还管理数据复制。
 - 配置服务器协调本地 VMware 与 Azure 之间的通信。 它还管理数据复制。
 - [详细了解](vmware-azure-architecture.md)配置服务器组件和流程。
 
@@ -47,19 +46,19 @@ RAM | 16 GB
 
 **组件** | **要求** 
 --- | ---
-操作系统 | Windows Server 2012 R2 <br> Windows Server 2016
+操作系统 | Windows Server 2012 R2 <br /> Windows Server 2016
 操作系统区域设置 | 美国英语
-Windows Server 角色 | 请勿启用以下角色： <br> - Active Directory 域服务 <br>- Internet Information Services <br> - Hyper-V 
-组策略 | 请勿启用以下组策略： <br> - 阻止访问命令提示符。 <br> - 阻止访问注册表编辑工具。 <br> - 信任文件附件的逻辑。 <br> - 打开脚本执行。 <br> [了解详细信息](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | - 无预先存在的默认网站 <br> - 端口 443 上没有预先存在的网站/应用程序侦听 <br>- 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置 
+Windows Server 角色 | 请勿启用以下角色： <br /> - Active Directory 域服务 <br />- Internet Information Services <br /> - Hyper-V 
+组策略 | 请勿启用以下组策略： <br /> - 阻止访问命令提示符。 <br /> - 阻止访问注册表编辑工具。 <br /> - 信任文件附件的逻辑。 <br /> - 打开脚本执行。 <br /> [了解详细信息](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - 无预先存在的默认网站 <br /> - 端口 443 上没有预先存在的网站/应用程序侦听 <br />- 启用[匿名身份验证](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br /> - 启用 [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 设置 
 
 ## <a name="network-requirements"></a>网络要求
 
 **组件** | **要求** 
 --- | --- 
 IP 地址类型 | 静态 
-Internet 访问 | 服务器需要访问这些 URL（直接或通过代理）： <br> - \*.accesscontrol.chinacloudapi.cn<br> - \*.backup.windowsazure.cn <br>- \*.store.core.chinacloudapi.cn<br> - \*.blob.core.chinacloudapi.cn<br> - \*.hypervrecoverymanager.windowsazure.cn  <br> - https:\//management.chinacloudapi.cn <br> - *.services.visualstudio.com <br> - time.nist.gov <br> - time.windows.com <br> OVF 还需要访问以下 URL： <br> - https:\//login.chinacloudapi.cn <br> - https:\//secure.aadcdn.microsoftonline-p.com <br> - https:\//login.live.com  <br> - https:\//auth.gfx.ms <br> - https:\//graph.chinacloudapi.cn <br> - https:\//login.chinacloudapi.cn <br> - https:\//www.live.com <br> - https:\//www.microsoft.com <br> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
-端口 | 443（控制通道协调）<br>9443（数据传输） 
+Internet 访问 | 服务器需要访问这些 URL（直接或通过代理）： <br /> - \*.accesscontrol.chinacloudapi.cn<br /> - \*.backup.windowsazure.cn <br />- \*.store.core.chinacloudapi.cn<br /> - \*.blob.core.chinacloudapi.cn<br /> - \*.hypervrecoverymanager.windowsazure.cn  <br /> - https:\//management.chinacloudapi.cn <br /> - *.services.visualstudio.com <br /> - time.nist.gov <br /> - time.windows.com <br /> OVF 还需要访问以下 URL： <br /> - https:\//login.chinacloudapi.cn <br /> - https:\//secure.aadcdn.microsoftonline-p.com <br /> - https:\//login.live.com  <br /> - https:\//auth.gfx.ms <br /> - https:\//graph.chinacloudapi.cn <br /> - https:\//login.chinacloudapi.cn <br /> - https:\//www.live.com <br /> - https:\//www.microsoft.com <br /> - https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi 
+端口 | 443（控制通道协调）<br />9443（数据传输） 
 NIC 类型 | VMXNET3（如果配置服务器是 VMware VM）
 
 ## <a name="required-software"></a>所需软件
@@ -74,15 +73,15 @@ MYSQL | 应安装 MySQL。 可以手动安装，或者让 Site Recovery 进行�
 下表汇总了配置服务器的容器要求。 如果要复制多个 VMware VM，则应查看[容量规划注意事项](site-recovery-plan-capacity-vmware.md)然后运行用于 VMWare 复制的 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)工具。 
 
 
-|                   **组件**                   | **要求** |
-|---------------------------------------------------|-----------------|
-|                      **CPU**                      |   **内存**    |
-|                        ---                        |       ---       |
-| 8 个 vCPU<br/><br/> 2 个插槽 \* 4 个核心 \@ 2.5 GHz |      16 GB      |
-| 12 个 vCPU<br/><br/> 2 个插槽 \* 6 个核心 \@ 2.5 GHz |      18 GB      |
-| 16 个 vCPU<br/><br/> 2 个插槽 \* 8 个核心 \@ 2.5 GHz |      32 GB      |
+|**组件**                                     | **要求**                                                              |
+|--------------------------------------------------| -----------------------------------------------------------------------------|
+| **CPU**                                          | 内存  | 缓存磁盘  | 数据更改率  | 复制的计算机  |
+| -------------------------------------------------| ---------- | -------------- | -------------------- | ----------------------- |
+| 8 个 vCPU<br/><br/> 2 个插槽 * 4 个核心 \@ 2.5 GHz | 16 GB      | 300 GB         | 500 GB 或更少       | 少于 100 台计算机   |
+| 12 个 vCPU<br/><br/> 2 个插槽 * 6 个核心 \@ 2.5 GHz | 18 GB      | 600 GB         | 500 GB-1 TB          | 100 到 150 台计算机     |
+| 16 个 vCPU<br/><br/> 2 个插槽 * 8 个核心 \@ 2.5 GHz | 32 GB      | 1 TB           | 1-2 TB               | 150 到 200 台计算机        | 
 
 ## <a name="next-steps"></a>后续步骤
 设置 [VMware VM](vmware-azure-tutorial.md) 到 Azure 的灾难恢复。
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update-->

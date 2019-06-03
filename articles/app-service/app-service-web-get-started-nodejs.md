@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 04/08/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: c53e980d9dd37f3c466a4905728d762f5163d916
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 13c406c59a08ddea3fe2e1e58e876f266270f377
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505440"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296715"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -63,7 +63,7 @@ npm start
 
 打开 Web 浏览器并导航到 `http://localhost:1337` 处的示例应用。
 
-页面中会显示该示例应用发出的 Hello World 消息。
+页面中会显示该示例应用发出的 Hello World  消息。
 
 ![在本地运行的示例应用](media/app-service-web-get-started-nodejs-poc/localhost-hello-world-in-browser.png)
 
@@ -72,8 +72,19 @@ npm start
 > [!NOTE]
 > 在 Azure 应用服务中，此应用在 IIS 中使用 [iisnode](https://github.com/Azure/iisnode) 运行。 为了让应用能够使用 iisnode 运行，根应用目录包含一个 web.config 文件。 此文件可以由 IIS 读取，与 iisnode 相关的设置记录在 [iisnode GitHub 存储库](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config)中。
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>创建一个项目 zip 文件
 
+在一个终端窗口中，导航到示例 Node.js 项目的**根目录**（包含 _index.js_ 的目录）。 创建一个包含项目所有内容的 zip 文件。 以下命令使用您终端中的默认工具执行操作：
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+命令执行完后将此 ZIP 文件上传到 Azure 并将其部署到应用服务。
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
@@ -150,7 +161,7 @@ Node.js 示例代码正在 Azure 应用服务 Web 应用中运行。
 response.end("Hello Azure!");
 ```
 
-在本地终端窗口中，导航到应用程序的根目录，为更新的项目创建新的 ZIP 文件。
+在本地终端窗口中，导航到你的应用程序的**根目录**（包含 _index.js_ 的目录），为更新后的项目创建新的 ZIP 文件。
 
 ```
 # Bash
@@ -162,7 +173,7 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 将此新的 ZIP 文件部署到应用服务，使用的步骤与[部署 ZIP 文件](#deploy-zip-file)中的步骤相同。
 
-切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
+切换回在“浏览到应用”  步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
@@ -170,7 +181,7 @@ Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用程序服务”，然后单击 Azure 应用的名称。
+在左侧菜单中单击“应用程序服务”  ，然后单击 Azure 应用的名称。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

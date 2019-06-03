@@ -6,12 +6,12 @@ description: 了解如何使用 Azure 云服务构建和管理功能强大的应
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: db4206e5f65514b6dbb3897baf65b1335ca1de2e
-ms.sourcegitcommit: 731da97453f3bd6b333dc2ec1058b9b91031d240
+ms.openlocfilehash: 841aecd2c616e552eef4a86c0a0700e0f6ab3b5e
+ms.sourcegitcommit: e0cf6fc68ecf5ed370b62c3c80a3e38f5593d963
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64871507"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381942"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -891,6 +891,12 @@ Azure PowerShell </a>
                                             <a href="/multi-factor-authentication/">
                                                 <img src="media/index/MultiFactorAuthentication.svg" alt="" />
                                                 <p>多重身份验证</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/active-directory-b2c">
+                                                <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                <p>Azure Active Directory B2C</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2483,6 +2489,25 @@ Azure PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory</h3>
                                                     <p>同步本地目录并启用单一登录</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/active-directory-b2c/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ActiveDirectory.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Active Directory B2C</h3>
+                                                    <p>云中的使用者标识和访问管理</p>
                                                 </div>
                                             </div>
                                         </div>

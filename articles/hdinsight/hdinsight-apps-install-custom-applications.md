@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/14/2018
-ms.date: 01/21/2019
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: a7518bc8768c14adcd8c9ee4c99499d2652a5927
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: 0e84c9722a3ffa2b3425c7308821366e3358435d
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216222"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424665"
 ---
 # <a name="install-custom-apache-hadoop-applications-on-azure-hdinsight"></a>在 Azure HDInsight 上安装自定义 Apache Hadoop 应用程序
 
@@ -60,9 +60,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 
    * **ClusterName**：输入要安装应用程序的群集的名称。 此群集必须是现有的群集。
 3. 单击“确定”  保存参数。
-4. 在“自定义部署”边栏选项卡中输入“资源组”。  资源组是对群集、依赖存储帐户和其他资源进行分组的容器。 必须使用与群集相同的资源组。
-5. 单击“法律条款”，并单击“创建”。
-6. 确认已选中“固定到仪表板”复选框，并单击“创建”。 可以从固定到门户仪表板的磁贴和门户通知查看安装状态（单击门户顶部的铃铛图标）。  安装此应用程序大约需要 10 分钟。
+4. 在“自定义部署”边栏选项卡中输入“资源组”。    资源组是对群集、依赖存储帐户和其他资源进行分组的容器。 必须使用与群集相同的资源组。
+5. 单击“法律条款”  ，并单击“创建”  。
+6. 确认已选中“固定到仪表板”复选框，并单击“创建”。   可以从固定到门户仪表板的磁贴和门户通知查看安装状态（单击门户顶部的铃铛图标）。  安装此应用程序大约需要 10 分钟。
 
 **若要创建群集的同时安装色调**
 
@@ -84,9 +84,9 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 **打开 Hue 门户**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中单击“HDInsight 群集”  。  如果未看到，请单击“浏览”，并单击“HDInsight 群集”。
+2. 在左侧菜单中单击“HDInsight 群集”  。  如果未看到，请单击“浏览”，并单击“HDInsight 群集”。  
 3. 单击已安装应用程序的群集。
-4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。 应会显示出“已安装的应用”边栏选项卡中列出了“hue”。
+4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。    应会显示出“已安装的应用”边栏选项卡中列出了“hue”。  
 5. 单击列表中的“hue”  列出属性。  
 6. 单击网页链接以验证网站；在浏览器中打开 HTTP 终结点以验证 Hue Web UI，并使用 SSH 打开 SSH 终结点。 有关信息，请参阅[将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -116,19 +116,19 @@ HDInsight 应用程序是用户可以在基于 Linux 的 HDInsight 群集上安�
 **使用门户删除应用程序**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中单击“HDInsight 群集”  。  如果未看到，请单击“浏览”，并单击“HDInsight 群集”。
+2. 在左侧菜单中单击“HDInsight 群集”  。  如果未看到，请单击“浏览”，并单击“HDInsight 群集”。  
 3. 单击已安装应用程序的群集。
-4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。 你会看到已安装的应用程序列表。 在本教程中，“hue”列在“已安装的应用”边栏选项卡中。
-5. 右键单击想要删除的应用程序，并单击“删除” 。
-6. 单击“是”确认。
+4. 在“设置”边栏选项卡中，单击“常规”类别下的“应用程序”。    你会看到已安装的应用程序列表。 在本教程中，“hue”列在“已安装的应用”边栏选项卡中。  
+5. 右键单击想要删除的应用程序，并单击“删除”  。
+6. 单击“是”  确认。
 
 在门户中，还可以删除群集，或删除包含应用程序的资源组。
 
 ### <a name="use-azure-powershell"></a>使用 Azure PowerShell
 使用 Azure PowerShell 可以删除群集或删除资源组。 请参阅 [使用 Azure PowerShell 删除群集](hdinsight-administer-use-powershell.md#delete-clusters)。
 
-### <a name="use-azure-classic-cli"></a>使用 Azure 经典 CLI
-使用 Azure 经典 CLI 可以删除群集或删除资源组。 请参阅[使用 Azure 经典 CLI 删除群集](hdinsight-administer-use-command-line.md#delete-clusters)。
+### <a name="use-azure-cli"></a>使用 Azure CLI
+使用 Azure CLI 可以删除群集或删除资源组。 请参阅 [使用 Azure CLI 删除群集](hdinsight-administer-use-command-line.md#delete-clusters)。
 
 ## <a name="next-steps"></a>后续步骤
 * [MSDN：安装 HDInsight 应用程序](https://msdn.microsoft.com/library/mt706515.aspx)：了解如何开发用于部署 HDInsight 应用程序的资源管理器模板。

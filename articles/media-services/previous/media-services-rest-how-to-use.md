@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: d7ea42b16157ade42a7d4cd9fa1f5670068f14af
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3da60e82d950e72ff8fda8f573808ee26f115ad7
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625524"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390746"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>媒体服务操作 REST API 概述 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 **媒体服务操作 REST** API 用于在媒体服务帐户中创建作业、资产、实时频道和其他资源。 有关详细信息，请参阅 [Media Services Operations REST API reference](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)（媒体服务操作 REST API 参考）。
 
@@ -35,8 +34,8 @@ ms.locfileid: "58625524"
 
 使用 REST 时需考虑下列事项：
 
-* 查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 需要使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)。 
-* 使用 JSON 并指定在请求中使用 **__metadata** 关键字（例如，为了引用某个链接对象）时，必须将 **Accept** 标头设置为 [JSON 详细格式](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（参阅以下示例）。 Odata 并不了解请求中的 __metadata 属性，除非将其设置为 verbose。  
+* 查询实体时，一次返回的实体数限制为 1000 个，因为公共 REST v2 将查询结果数限制为 1000 个。 需要使用[此 .NET 示例](media-services-dotnet-manage-entities.md#enumerating-through-large-collections-of-entities)和[此 REST API 示例](media-services-rest-manage-entities.md#enumerating-through-large-collections-of-entities)中所述的 Skip 和 Take (.NET)/ top (REST)    。 
+* 使用 JSON 并指定在请求中使用 **__metadata** 关键字（例如，为了引用某个链接对象）时，必须将 **Accept** 标头设置为 [JSON 详细格式](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)（参阅以下示例）。 Odata 并不了解请求中的 __metadata 属性，除非将其设置为 verbose  。  
   
         POST https://media.chinacloudapi.cn/API/Jobs HTTP/1.1
         Content-Type: application/json;odata=verbose
@@ -56,7 +55,7 @@ ms.locfileid: "58625524"
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>媒体服务支持的标准 HTTP 请求标头
 每次调用媒体服务时，都必须在请求中包括一组必需标头，并且还可以根据需要包括一组可选标头。 下表列出了必需的标头：
 
-| 标头 | 类型 | 值 |
+| 标头 | 类型 | Value |
 | --- | --- | --- |
 | 授权 |持有者 |持有者是唯一接受的授权机制。 该值还必须包括由 Azure Active Directory 提供的访问令牌。 |
 | x-ms-version |小数 |2.17（或最新版本）|
@@ -70,7 +69,7 @@ ms.locfileid: "58625524"
 
 以下是一组可选标头：
 
-| 标头 | 类型 | 值 |
+| 标头 | 类型 | Value |
 | --- | --- | --- |
 | 日期 |RFC 1123 日期 |请求的时间戳 |
 | Accept |内容类型 |响应的请求内容类型，如下所示：<p> -application/json;odata=verbose<p> - application/atom+xml<p> 响应可能会有不同的内容类型，例如 Blob 提取，成功的响应会在其中包含 Blob 流作为有效负载。 |
@@ -79,12 +78,12 @@ ms.locfileid: "58625524"
 | Accept-Charset |字符集类型，如“UTF-8” |默认值为 UTF-8。 |
 | X-HTTP-Method |HTTP 方法 |允许不支持 HTTP 方法（例如 PUT 或 DELETE）的客户端或防火墙使用这些通过 GET 调用隧道化的方法。 |
 | Content-Type |内容类型 |PUT 或 POST 请求中请求正文的内容类型。 |
-| client-request-id |String |调用方定义的值，用于标识给定请求。 如果指定，此值会包含在响应消息中，作为一种映射请求的方法。 <p><p>重要说明<p>值的上限应为 2096b (2k)。 |
+| client-request-id |String |调用方定义的值，用于标识给定请求。 如果指定，此值会包含在响应消息中，作为一种映射请求的方法。 <p><p>重要说明 <p>值的上限应为 2096b (2k)。 |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>媒体服务支持的标准 HTTP 响应标头
 下面是可以根据所请求的资源以及要执行的操作返回的一组标头。
 
-| 标头 | 类型 | 值 |
+| 标头 | 类型 | Value |
 | --- | --- | --- |
 | request-id |String |当前操作的唯一标识符，由服务生成。 |
 | client-request-id |String |调用方在原始请求（如果存在）中指定的标识符。 |

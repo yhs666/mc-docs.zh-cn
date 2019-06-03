@@ -15,15 +15,6 @@ ms.date: 04/04/2019
 ms.author: v-junlch
 abstract:
   description: Azure Active Directory (Azure AD) B2C 是一项标识管理服务，用于自定义和控制客户在使用应用程序时的注册、登录和管理配置文件的方式。 此类应用程序包括为 iOS、Android、 .NET 等系统开发的应用程序。 有了 Azure AD B2C，就可以在执行这些操作的同时保护客户的标识。 通过我们的快速入门、教程和示例了解如何使用 Azure AD B2C。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: ./media/index/active-directory-b2c-video.PNG
-      width: 250
-    title: '使用 Azure AD B2C 进行客户标识管理 (20:56)'
-    href: 'https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C'
-    width: 250
 sections:
   - items:
       - type: list

@@ -11,15 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 12/31/2018
+origin.date: 03/11/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: c3986d770e31cbe3d036019c1eab25bda8b71b3e
-ms.sourcegitcommit: 7423174d7ae73e8e0394740b765d492735349aca
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: 038105945e21dafaf15ff638dda0a9e6f78c8d91
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814648"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248561"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Azure Stack 上的 Azure Monitor 支持的指标
 

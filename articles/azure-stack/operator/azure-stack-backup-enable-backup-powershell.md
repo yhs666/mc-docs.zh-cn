@@ -3,24 +3,25 @@ title: 使用 PowerShell 为 Azure Stack 启用备份 | Microsoft Docs
 description: 使用 Windows PowerShell 启用基础结构备份服务，以便出现故障时可以还原 Azure Stack。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
-ms.author: mabrigg
+origin.date: 04/25/2019
+ms.date: 06/03/2019
+ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: 8ef57973664af8f5b7f63ee97621a7c284d1b896
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: fca82e0e50a7bb5db867c473e8cf94a8fe08783e
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529588"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381904"
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>使用 PowerShell 为 Azure Stack 启用备份
 

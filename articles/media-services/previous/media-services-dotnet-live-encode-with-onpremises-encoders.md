@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 031dfec7ffe1e2cc296bd933dfd10f66f04e8d0e
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: e0fa554de288f5795dc8573b0394197d45114401
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624116"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390731"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>如何使用 .NET 通过本地编码器执行实时传送视频流
 > [!div class="op_single_selector"]
@@ -35,7 +35,8 @@ ms.locfileid: "58624116"
 以下是完成本教程所需具备的条件：
 
 * 一个 Azure 帐户。
-* 一个媒体服务帐户。    若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 一个媒体服务帐户。 若要创建媒体服务帐户，请参阅 [如何创建媒体服务帐户](media-services-portal-create-account.md)。
+* 确保要从中流式传输内容的流式处理终结点处于“正在运行”状态  。 
 * 设置开发环境。 有关详细信息，请参阅[设置环境](media-services-set-up-computer.md)。
 * 网络摄像机。 例如， [Telestream Wirecast 编码器](https://www.telestream.net/wirecast/overview.htm)。
 
@@ -49,6 +50,7 @@ ms.locfileid: "58624116"
 设置开发环境，并在 app.config 文件中填充连接信息，如[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述。 
 
 ## <a name="example"></a>示例
+
 下面的代码示例演示如何完成以下任务：
 
 * 连接到媒体服务
@@ -61,9 +63,6 @@ ms.locfileid: "58624116"
 * 创建并启动 StreamingEndpoint
 * 更新流式处理终结点
 * 关闭资源
-
->[!IMPORTANT]
->确保要从中流式传输内容的流式处理终结点处于“正在运行”状态。 
     
 >[!NOTE]
 >不同 AMS 策略的策略限制为 1,000,000 个（例如，对于定位器策略或 ContentKeyAuthorizationPolicy）。 如果始终使用相同的日期/访问权限，则应使用相同的策略 ID，例如，用于要长期就地保留的定位符的策略（非上传策略）。 有关详细信息，请参阅[本文](media-services-dotnet-manage-entities.md#limit-access-policies)。
@@ -398,5 +397,3 @@ namespace AMSLiveTest
 }
 ```
 
-
-<!--Update_Description: update code to use AAD token instead of ACS-->

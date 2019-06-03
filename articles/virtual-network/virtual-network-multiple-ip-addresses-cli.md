@@ -5,20 +5,21 @@ description: 了解如何使用 Azure 命令行接口 (CLI) 将多个 IP 地址�
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
+manager: digimobile
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/17/2016
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5fdb9ed4166e0e5b858293cc9b292b8918968832
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 702d3ca189999514cf62799f651fca99c2e547ed
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306253"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250462"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>使用 Azure CLI 将多个 IP 地址分配给虚拟机
 
@@ -39,121 +40,125 @@ ms.locfileid: "56306253"
 3. 从命令行界面使用命令 `az login` 登录，并选择要使用的订阅。
 4. 通过在 Linux 或 Mac 计算机上执行以下脚本创建 VM。 该脚本创建一个资源组、一个虚拟网络 (VNet)、一个具有三个 IP 配置的 NIC 和一个附加有两个 NIC 的 VM。 NIC、公共 IP 地址、虚拟网络和 VM 资源均必须位于同一位置和订阅。 虽然资源不必都存在于同一资源组中，但是在以下脚本中资源都存在于同一资源组中。
 
-```bash
+    ```bash
 
-#!/bin/sh
+    #!/bin/sh
 
-RgName="myResourceGroup"
-Location="chinaeast"
-az group create --name $RgName --location $Location
+    # Sign in the Azure China Cloud
+    az cloud set -n AzureChinaCloud
+    az login 
 
-# Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
-# do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP adresses unique to each Azure region. Download and view the file from
-# https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062 that lists the ranges for each region.
+    RgName="myResourceGroup"
+    Location="chinaeast"
+    az group create --name $RgName --location $Location
 
-PipName="myPublicIP"
+    # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
+    # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
+    # of IP addresses unique to each Azure region. Download and view the file from
+    # https://www.microsoft.com/download/confirmation.aspx?id=57062 that lists the ranges for each region.
 
-# This name must be unique within an Azure location.
-DnsName="myDNSName"
+    PipName="myPublicIP"
 
-az network public-ip create \
---name $PipName \
---resource-group $RgName \
---location $Location \
---dns-name $DnsName\
---allocation-method Static
+    # This name must be unique within an Azure location.
+    DnsName="myDNSName"
 
-# Create a virtual network with one subnet
+    az network public-ip create \
+    --name $PipName \
+    --resource-group $RgName \
+    --location $Location \
+    --dns-name $DnsName\
+    --allocation-method Static
 
-VnetName="myVnet"
-VnetPrefix="10.0.0.0/16"
-VnetSubnetName="mySubnet"
-VnetSubnetPrefix="10.0.0.0/24"
+    # Create a virtual network with one subnet
 
-az network vnet create \
---name $VnetName \
---resource-group $RgName \
---location $Location \
---address-prefix $VnetPrefix \
---subnet-name $VnetSubnetName \
---subnet-prefix $VnetSubnetPrefix
+    VnetName="myVnet"
+    VnetPrefix="10.0.0.0/16"
+    VnetSubnetName="mySubnet"
+    VnetSubnetPrefix="10.0.0.0/24"
 
-# Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
-# first IP configuration with a static private IP address and will associate the public IP address resource to it.
+    az network vnet create \
+    --name $VnetName \
+    --resource-group $RgName \
+    --location $Location \
+    --address-prefix $VnetPrefix \
+    --subnet-name $VnetSubnetName \
+    --subnet-prefix $VnetSubnetPrefix
 
-NicName="MyNic1"
-az network nic create \
---name $NicName \
---resource-group $RgName \
---location $Location \
---subnet $VnetSubnet1Name \
---private-ip-address 10.0.0.4
---vnet-name $VnetName \
---public-ip-address $PipName
+    # Create a network interface connected to the subnet and associate the public IP address to it. Azure will create the
+    # first IP configuration with a static private IP address and will associate the public IP address resource to it.
 
-# Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
-# static public IP address and a static private IP address.
+    NicName="MyNic1"
+    az network nic create \
+    --name $NicName \
+    --resource-group $RgName \
+    --location $Location \
+    --subnet $VnetSubnet1Name \
+    --private-ip-address 10.0.0.4
+    --vnet-name $VnetName \
+    --public-ip-address $PipName
 
-az network public-ip create \
---resource-group $RgName \
---location $Location \
---name myPublicIP2 \
---dns-name mypublicdns2 \
---allocation-method Static
+    # Create a second public IP address, a second IP configuration, and associate it to the NIC. This configuration has a
+    # static public IP address and a static private IP address.
 
-az network nic ip-config create \
---resource-group $RgName \
---nic-name $NicName \
---name IPConfig-2 \
---private-ip-address 10.0.0.5 \
---public-ip-name myPublicIP2
+    az network public-ip create \
+    --resource-group $RgName \
+    --location $Location \
+    --name myPublicIP2 \
+    --dns-name mypublicdns2 \
+    --allocation-method Static
 
-# Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
+    az network nic ip-config create \
+    --resource-group $RgName \
+    --nic-name $NicName \
+    --name IPConfig-2 \
+    --private-ip-address 10.0.0.5 \
+    --public-ip-name myPublicIP2
 
-az network nic ip-config create \
---resource-group $RgName \
---nic-name $NicName \
---private-ip-address 10.0.0.6 \
---name IPConfig-3
+    # Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and   # no public IP address.
 
-# Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
-# to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
-# article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli.
+    az network nic ip-config create \
+    --resource-group $RgName \
+    --nic-name $NicName \
+    --private-ip-address 10.0.0.6 \
+    --name IPConfig-3
 
-# Create a VM and attach the NIC.
+    # Note: Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations
+    # to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs 
+    # article: https://docs.azure.cn/virtual-network/virtual-network-deploy-multinic-arm-cli.
 
-VmName="myVm"
+    # Create a VM and attach the NIC.
 
-# Replace the value for the following **VmSize** variable with a value from the
-# https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
-# of VMs in China East, for example.
+    VmName="myVm"
 
-VmSize="Standard_DS1"
+    # Replace the value for the following **VmSize** variable with a value from the
+    # https://docs.azure.cn/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+    # is not supported in the location you select. Run the `azure vm sizes --location chinaeast` command to get a full list
+    # of VMs in China East, for example.
 
-# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
-# `az vm image list` command.
+    VmSize="Standard_DS1"
 
-OsImage="credativ:Debian:8:latest"
+    # Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
+    # `az vm image list` command.
 
-Username="adminuser"
+    OsImage="credativ:Debian:8:latest"
 
-# Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
-# line and you'll be prompted for the password you want to configure for the VM.
+    Username="adminuser"
 
-SshKeyValue="~/.ssh/id_rsa.pub"
+    # Replace the following value with the path to your public key file. If you're creating a Windows VM, remove the following
+    # line and you'll be prompted for the password you want to configure for the VM.
 
-az vm create \
---name $VmName \
---resource-group $RgName \
---image $OsImage \
---location $Location \
---size $VmSize \
---nics $NicName \
---admin-username $Username \
---ssh-key-value $SshKeyValue
-```
+    SshKeyValue="~/.ssh/id_rsa.pub"
+
+    az vm create \
+    --name $VmName \
+    --resource-group $RgName \
+    --image $OsImage \
+    --location $Location \
+    --size $VmSize \
+    --nics $NicName \
+    --admin-username $Username \
+    --ssh-key-value $SshKeyValue
+    ```
 
 除了创建具有附带 3 个 IP 配置的 NIC 的 VM，该脚本还创建：
 
@@ -207,7 +212,7 @@ az vm create \
         --dns-name mypublicdns3
         ```
 
-         若要新建具有静态专用 IP 地址和关联的 myPublicIP3 公共 IP 地址资源的 IP 配置，请输入下面的命令：
+         若要新建具有静态专用 IP 地址和关联的 myPublicIP3  公共 IP 地址资源的 IP 配置，请输入下面的命令：
 
         ```bash
         az network nic ip-config create \
@@ -265,7 +270,7 @@ az vm create \
     --query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
     ```
 
-    返回的输出： <br>
+    返回的输出： <br />
 
         Name        PrivateIpAddress    PrivateIpAllocationMethod   PublicIpAddressId
 

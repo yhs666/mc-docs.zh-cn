@@ -1,23 +1,22 @@
 ---
 title: 使用 .NET 创建 Hadoop 群集 - Azure HDInsight | Azure
-description: 了解如何使用 HDInsight .NET SDK 在 Linux 中为 HDInsight 创建 Hadoop、HBase、Storm 或 Spark 群集。
-services: hdinsight
+description: 了解如何使用 HDInsight .NET SDK 在 Linux for HDInsight 上创建 Apache Hadoop、Apache HBase、Apache Storm 或 Apache Spark 群集。
 author: mamccrea
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/16/2018
-ms.date: 01/21/2019
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: 68211d34b6c9ce4ecd5a4c66910f8f746df8d2b6
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: e2e7d096cc4ee2587616a9086ad45769c558f6e6
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985616"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424657"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -37,13 +36,13 @@ ms.locfileid: "55985616"
 
 * **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
 * **一个 Azure 存储帐户**。 请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
-* **Visual Studio 2013、Visual Studio 2015 或 Visual Studio 2017**。
+* **Visual Studio**。
 
 ## <a name="create-clusters"></a>创建群集
 
-1. 打开 Visual Studio 2017。
+1. 打开 Visual Studio。
 2. 创建新的 Visual C# 控制台应用程序。
-3. 在“工具”菜单中，单击“NuGet 包管理器”，并单击“包管理器控制台”。
+3. 在“工具”  菜单中，单击“NuGet 包管理器”  ，并单击“包管理器控制台”  。
 4. 在控制台中运行下列命令以安装程序包：
 
     ```powershell
@@ -194,9 +193,9 @@ ms.locfileid: "55985616"
 
 ## <a name="use-bootstrap"></a>使用 bootstrap
 
-使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [Customize HDInsight clusters using Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md)（使用 Bootstrap 自定义 HDInsight 群集）。
+使用 bootstrap，可以在群集创建过程中配置添加设置。  有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集 ](hdinsight-hadoop-customize-cluster-bootstrap.md)。
 
-修改[创建群集]()中的示例以配置 Hive 设置：
+修改[创建群集]()中的示例以配置 Apache Hive 设置：
 
 ```csharp
 static void Main(string[] args)
@@ -400,5 +399,5 @@ static void Main(string[] args)
 * [使用 .NET SDK 在 HDInsight 中运行 Apache Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中运行 Apache Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中运行 Apache Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
-* [在 HDInsight 中运行 Apache Oozie 作业](hdinsight-use-oozie.md)
+* [在 HDInsight 中运行 Apache Oozie 作业](hdinsight-use-oozie-linux-mac.md)
 

@@ -1,6 +1,6 @@
 - name: Azure HDInsight 文档
   href: /hdinsight
-- name: HDInsight 上的交互式查询
+- name: 概述
   items:
     - name: HDInsight 上的 Apache Hadoop 组件
       href: ../hdinsight-component-versioning.md
@@ -8,6 +8,10 @@
     - name: HDInsight 4.0
       href: ../hdinsight-version-release.md
       maintainContext: true
+- name: 快速入门
+  items:
+    - name: 执行 Apache Hive 查询 - Apache Zeppelin
+      href: ./hdinsight-connect-hive-zeppelin.md
 - name: 入门
   items:
     - name: 从交互式查询开始
@@ -25,7 +29,7 @@
         - name: 使用 Azure 存储
           href: ../hdinsight-hadoop-use-blob-storage.md
           maintainContext: true
-    - name: 将 Hadoop 用于交互式查询
+    - name: 将 Apache Hadoop 用于交互式查询
       items:
         - name: 将 Apache Hive 与 Apache Spark 配合使用
           href: apache-hive-warehouse-connector.md
@@ -34,9 +38,6 @@
           href: ../hadoop/hdinsight-use-hive.md
           maintainContext: true
           items:
-            - name: 使用 Apache Zeppelin
-              href: ../hdinsight-connect-hive-zeppelin.md
-              maintainContext: true
             - name: 适用于 Visual Studio 的工具
               href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
               maintainContext: true
@@ -103,9 +104,6 @@
         - name: 使用 Apache Hive JDBC 驱动程序进行连接
           href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
           maintainContext: true
-        - name: 分析存储的传感器数据
-          href: ../hadoop/apache-hive-analyze-sensor-data.md
-          maintainContext: true
         - name: 分析航班延误数据
           href: ../hdinsight-analyze-flight-delay-data-linux.md
           maintainContext: true
@@ -170,7 +168,7 @@
             - name: 使用 cURL 和 Azure REST API
               href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
               maintainContext: true
-            - name: 使用 Azure 经典 CLI
+            - name: 使用 Azure CLI
               href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
               maintainContext: true
         - name: 管理 HDInsight 群集
@@ -182,7 +180,7 @@
             - name: 使用 Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: 使用 Azure 经典 CLI
+            - name: 使用 Azure CLI
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: 使用 Apache Ambari Web UI 管理群集
@@ -287,17 +285,22 @@
     - name: Azure PowerShell
       href: /powershell/module/az.hdinsight
     - name: 用于 .NET 的 SDK
-      href: /dotnet/api/overview/hdinsight?view=azure-dotnet
+      href: 'https://docs.azure.cn/zh-cn//dotnet/api/overview/hdinsight?view=azure-dotnet'
     - name: 用于 Python 的 SDK
       href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
     - name: 用于 Java 的 SDK
-      href: /java/api/overview/hdinsight?view=azure-java-stable
+      href: 'https://docs.microsoft.com/java/api/overview/hdinsight?view=azure-java-stable'
+    - name: 用于 Go 的 SDK
+      href: ../hdinsight-go-sdk-overview.md
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: REST
-      href: /rest/api/hdinsight/
+      href: 'https://docs.microsoft.com/rest/api/hdinsight/'
     - name: REST (Apache Spark)
-      href: /rest/api/hdinsightspark/
+      href: 'https://docs.microsoft.com/rest/api/hdinsightspark/'
+    - name: Resource Manager 模板
+      displayName: 'resource manager template, arm template, resource manager group'
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.hdinsight/allversions'
 - name: 资源
   items:
     - name: 发行说明

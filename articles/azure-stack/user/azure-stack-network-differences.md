@@ -6,18 +6,18 @@ keywords: ''
 author: WenJason
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 02/18/2019
+ms.date: 06/03/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 47e67a9017b6551cbfbb2bc9e1289a2cb1198818
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.openlocfilehash: 67b386384b3309ebe71b273e5b05cb3c0979114c
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218295"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248515"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Azure Stack 网络注意事项
 
@@ -42,7 +42,7 @@ Azure Stack 网络具有许多由 Azure 网络提供的功能。 但是，在部
 |  | 规模集 IP 配置 | 支持 | 尚不支持。 |
 |  | 专用访问服务（子网） | 支持 | 尚不支持。 |
 |  | 服务终结点 | 支持 Azure 服务的内部（非Internet）连接。 | 尚不支持。 |
-| 仅支持 IPv4。 | 服务终结点策略 | 支持 | 尚不支持。 |
+|  | 服务终结点策略 | 支持 | 尚不支持。 |
 |  | 服务隧道 | 支持 | 尚不支持。  |
 | 网络安全组 | 扩充式安全规则 | 支持 | 尚不支持。 |
 |  | 有效安全规则 | 支持 | 尚不支持。 |

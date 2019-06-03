@@ -4,18 +4,18 @@ description: 创建 Azure Policy 的自定义策略定义以强制实施自定�
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 02/08/2019
-ms.date: 04/22/2019
+ms.date: 06/10/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0f589935aa70799bbe64cc15a344759bafefc993
-ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+ms.openlocfilehash: da6769e5d6e918e62937a3f7f8e4cb09a3e68b7a
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471985"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296720"
 ---
-# <a name="create-a-custom-policy-definition"></a>创建自定义策略定义
+# <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
 客户可以通过自定义策略定义来定义自己的 Azure 使用规则。 这些规则通常强制实施：
 
@@ -70,7 +70,7 @@ ms.locfileid: "59471985"
 #### <a name="existing-resource-in-the-portal"></a>门户中的现有资源
 
 查找属性的最简单方法是查找相同类型的现有资源。 已使用所要强制实施的设置配置的资源也会提供用于比较的值。
-在 Azure 门户中，找到该特定资源的“自动化脚本”页（在“设置”下）。
+在 Azure 门户中，找到该特定资源的“自动化脚本”页（在“设置”下）。  
 
 ![现有资源上的“导出模板”页](../media/create-custom-policy-definition/automation-script.png)
 
@@ -116,14 +116,14 @@ ms.locfileid: "59471985"
 ...
 ```
 
-“属性”下面提供了名为 **supportsHttpsTrafficOnly**、设置为 **false** 的值。 此属性似乎是我们所要查找的属性。 此外，该资源的**类型**为 **Microsoft.Storage/storageAccounts**。 该类型告知我们，要将策略限定于此类型的资源。
+“属性”下面提供了名为 **supportsHttpsTrafficOnly**、设置为 **false** 的值。  此属性似乎是我们所要查找的属性。 此外，该资源的**类型**为 **Microsoft.Storage/storageAccounts**。 该类型告知我们，要将策略限定于此类型的资源。
 
 #### <a name="create-a-resource-in-the-portal"></a>在门户中创建资源
 
-另一种方式是通过门户中的资源创建体验。 通过门户创建存储帐户时，“高级”选项卡下会提供“需要安全传输”选项。
-此属性具有“已禁用”和“已启用”选项。 信息图标包含附加文本，确认此选项可能是我们所需的属性。 但是，门户不会在此屏幕上显示属性名称。
+另一种方式是通过门户中的资源创建体验。 通过门户创建存储帐户时，“高级”选项卡下会提供“需要安全传输”选项。  
+此属性具有“已禁用”和“已启用”选项。   信息图标包含附加文本，确认此选项可能是我们所需的属性。 但是，门户不会在此屏幕上显示属性名称。
 
-在“查看 + 创建”选项卡上，页面底部提供了“下载自动化模板”链接。 选择该链接会打开用于创建所配置的资源的模板。 在这种情况下，我们会看到两段重要信息：
+在“查看 + 创建”选项卡上，页面底部提供了“下载自动化模板”链接。   选择该链接会打开用于创建所配置的资源的模板。 在这种情况下，我们会看到两段重要信息：
 
 ```json
 ...

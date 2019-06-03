@@ -15,20 +15,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 08/16/2018
-ms.date: 09/10/2018
+ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 76dbe6394783b11277538d395915b3069d91850e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3db03a0e243d22bfd62de40045e3f4cd859f5918
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627222"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250480"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
-可以使用虚拟网络对等互连将虚拟网络互相连接。 这些虚拟网络应位于同一区域。 将虚拟网络对等互连后，两个虚拟网络中的资源将能够以相同的延迟和带宽相互通信，就像这些资源位于同一个虚拟网络中一样。 本教程介绍如何执行下列操作：
-<!-- Not Available on Global VNet peering -->
+可以使用虚拟网络对等互连将虚拟网络互相连接。 这些虚拟网络可以位于相同区域或不同区域中（也称为全局 VNet 对等互连）。 将虚拟网络对等互连后，两个虚拟网络中的资源将能够以相同的延迟和带宽相互通信，就像这些资源位于同一个虚拟网络中一样。 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
 > * 创建两个虚拟网络
@@ -46,17 +45,17 @@ ms.locfileid: "58627222"
 
 ## <a name="create-virtual-networks"></a>创建虚拟网络
 
-1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“网络”，然后选择“虚拟网络”。
-3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
+1. 选择 Azure 门户左上角的“+ 创建资源”  。
+2. 选择“网络”，然后选择“虚拟网络”   。
+3. 输入或选择以下信息，接受剩下的默认设置，然后选择“创建”  ：
 
     |设置|值|
     |---|---|
     |Name|myVirtualNetwork1|
     |地址空间|10.0.0.0/16|
     |订阅| 选择订阅。|
-    |资源组| 选择“新建”，并输入 myResourceGroup|
-    |位置| 选择“中国东部”。|
+    |资源组| 选择“新建”，并输入 myResourceGroup  |
+    |位置| 选择“中国东部”。 |
     |子网名称|Subnet1|
     |子网地址范围|10.0.0.0/24|
 
@@ -68,42 +67,41 @@ ms.locfileid: "58627222"
     |---|---|
     |Name|myVirtualNetwork2|
     |地址空间|10.1.0.0/16|
-    |资源组| 选择“使用现有”，然后选择“myResourceGroup”。|
+    |资源组| 选择“使用现有”，然后选择“myResourceGroup”   。|
     |子网地址范围|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>将虚拟网络对等互连
 
-1. 在 Azure 门户顶部的“搜索”框中，开始键入“MyVirtualNetwork1”。 当“myVirtualNetwork1”出现在搜索结果中时，将其选中。
-2. 在“设置”下选择“对等互连”，然后选择“+ 添加”，如下图所示：
+1. 在 Azure 门户顶部的“搜索”  框中，开始键入“MyVirtualNetwork1”。 当“myVirtualNetwork1”出现在搜索结果中时，将其选中。 
+2. 在“设置”下选择“对等互连”，然后选择“+ 添加”，如下图所示：   
 
     ![创建对等互连](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
-3. 输入或选择以下信息，接受剩下的默认设置，然后选择“确定”。
+3. 输入或选择以下信息，接受剩下的默认设置，然后选择“确定”  。
 
     |设置|值|
     |---|---|
     |Name|myVirtualNetwork1-myVirtualNetwork2|
     |订阅| 选择订阅。|
-    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2”。 可以在相同区域中选择虚拟网络。|
-    <!-- Not Available on different region-->
+    |虚拟网络|myVirtualNetwork2 - 若要选择 *myVirtualNetwork2* 虚拟网络，请依次选择“虚拟网络”、“myVirtualNetwork2”   。 可以在相同区域或不同区域中选择虚拟网络。|
 
     ![对等互连设置](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
-    “对等互连状态”为“已启动”，如下图所示：
+    “对等互连状态”为“已启动”，如下图所示：  
 
     ![对等互连状态](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
 
     如果看不到状态，请刷新浏览器。
 
-4. 在 Azure 门户顶部的“搜索”框中，开始键入“MyVirtualNetwork2”。 当“myVirtualNetwork2”出现在搜索结果中时，将其选中。
-5. 再次完成步骤 2-3，并做出以下更改，然后选择“确定”：
+4. 在 Azure 门户顶部的“搜索”  框中，开始键入“MyVirtualNetwork2”  。 当“myVirtualNetwork2”出现在搜索结果中时，将其选中。 
+5. 再次完成步骤 2-3，并做出以下更改，然后选择“确定”  ：
 
     |设置|值|
     |---|---|
     |Name|myVirtualNetwork2-myVirtualNetwork1|
     |虚拟网络|myVirtualNetwork1|
 
-    “对等互连状态”为“已连接”。 Azure 还将 *myVirtualNetwork2-myVirtualNetwork1* 对等互连的对等互连状态从“已启动”更改为“已连接”。 直到两个虚拟网络的对等互连状态均为“已连接”时，虚拟网络对等互连才完全建立。 
+    “对等互连状态”为“已连接”   。 Azure 还将 *myVirtualNetwork2-myVirtualNetwork1* 对等互连的对等互连状态从“已启动”更改为“已连接”   。 直到两个虚拟网络的对等互连状态均为“已连接”时，虚拟网络对等互连才完全建立  。 
 
 ## <a name="create-virtual-machines"></a>创建虚拟机
 
@@ -111,31 +109,31 @@ ms.locfileid: "58627222"
 
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
-1. 选择 Azure 门户左上角的“+ 创建资源”。
-2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。 可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。 
-3. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”：
+1. 选择 Azure 门户左上角的“+ 创建资源”  。
+2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。   可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。  
+3. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”   ：
 
 
-   |    设置     |                                                                                                                              值                                                                                                                              |
-   |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   |      Name      |                                                                                                                              myVM1                                                                                                                              |
-   |   用户名    |                                                                                                               输入所选用户名。                                                                                                               |
-   |    密码    | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 |
-   | 资源组 |                                                                                                  选择“使用现有”，然后选择“myResourceGroup”。                                                                                                   |
-   |    位置    |                                                                                                                     选择“中国东部”。                                                                                                                      |
+    |    设置     |                                                                                                                              值                                                                                                                              |
+    |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    |      Name      |                                                                                                                              myVM1                                                                                                                              |
+    |   用户名    |                                                                                                               输入所选用户名。                                                                                                               |
+    |    密码    | 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。 |
+    | 资源组 |                                                                                                  选择“使用现有”，然后选择“myResourceGroup”   。                                                                                                   |
+    |    位置    |                                                                                                                     选择“中国东部”。                                                                                                                       |
 
 
-4. 在“选择大小”下选择 VM 大小。
-5. 对于“设置”选择以下值，然后选择“确定”：
+4. 在“选择大小”下选择 VM 大小  。
+5. 对于“设置”  选择以下值，然后选择“确定”  ：
 
     |设置|值|
     |---|---|
-    |虚拟网络| myVirtualNetwork1 - 如果尚未选择它，请选择“虚拟网络”，然后在“选择虚拟网络”下选择“myVirtualNetwork1”。|
-    |子网| Subnet1 - 如果尚未选择它，请选择“子网”，然后在“选择子网”下选择“Subnet1”。|
+    |虚拟网络| myVirtualNetwork1 - 如果尚未选择它，请选择“虚拟网络”，然后在“选择虚拟网络”下选择“myVirtualNetwork1”。   |
+    |子网| Subnet1 - 如果尚未选择它，请选择“子网”  ，然后在“选择子网”  下选择“Subnet1”  。|
 
     ![虚拟机设置](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
 
-6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署。
+6. 在“摘要”中的“创建”下，选择“创建”以启动 VM 部署    。
 
 ### <a name="create-the-second-vm"></a>创建第二个 VM
 
@@ -150,14 +148,14 @@ ms.locfileid: "58627222"
 
 ## <a name="communicate-between-vms"></a>VM 之间进行通信
 
-1. 在门户顶部的“搜索”框中，开始键入“myVm1”。 当“myVm1”出现在搜索结果中时，请选择它。
-2. 通过选择“连接”创建到 *myVm1* VM 的远程桌面连接，如下图中所示：
+1. 在门户顶部的“搜索”  框中，开始键入“myVm1”。  当“myVm1”出现在搜索结果中时，请选择它。 
+2. 通过选择“连接”创建到 *myVm1* VM 的远程桌面连接  ，如下图中所示：
 
     ![连接到虚拟机](./media/tutorial-connect-virtual-networks-portal/connect-to-virtual-machine.png)  
 
-3. 若要连接到 VM，请打开已下载的 RDP 文件。 出现提示时，选择“连接”。
-4. 输入在创建 VM 时指定的用户名和密码（可能需要选择“更多选择”，然后选择“使用其他帐户”，以便指定在创建 VM 时输入的凭据），然后选择“确定”。
-5. 你可能会在登录过程中收到证书警告。 选择“是”以继续进行连接。
+3. 若要连接到 VM，请打开已下载的 RDP 文件。 出现提示时，选择“连接”  。
+4. 输入在创建 VM 时指定的用户名和密码（可能需要选择“更多选择”，然后选择“使用其他帐户”，以便指定在创建 VM 时输入的凭据），然后选择“确定”。   
+5. 你可能会在登录过程中收到证书警告。 选择“是”以继续进行连接。 
 6. 在后面的步骤中，将使用 ping 从 *myVm1* VM 与 *myVm2* VM 进行通信。 Ping 使用 Internet 控制消息协议 (ICMP)，默认情况下会拒绝 ICMP 通过 Windows 防火墙。 在 *myVm1* VM 上，允许 ICMP 穿过 Windows 防火墙，以便在稍后的步骤中可以使用 PowerShell 从 *myVm2* 对此 VM 执行 ping 命令：
 
     ```powershell
@@ -184,14 +182,14 @@ ms.locfileid: "58627222"
 
 不再需要资源组时，可将资源组及其包含的所有资源一并删除： 
 
-1. 在门户顶部的“搜索”框中输入“myResourceGroup”。 当在搜索结果中看到“myResourceGroup”时，将其选中。
-2. 选择“删除资源组”。
-3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。
+1. 在门户顶部的“搜索”框中输入“myResourceGroup”   。 当在搜索结果中看到“myResourceGroup”时，将其选中。 
+2. 选择“删除资源组”。 
+3. 对于“键入资源组名称:”，输入“myResourceGroup”，然后选择“删除”。   
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将[不同的 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
-<!--Not Available on Cross region peering -->
+本教程介绍了如何使用虚拟网络对等互连来连接同一 Azure 区域中的两个网络。 还可以将不同的[受支持区域](virtual-network-manage-peering.md#cross-region)和[不同的 Azure 订阅](create-peering-different-subscriptions.md#portal)中的虚拟网络对等互连。 若要详细了解虚拟网络对等互连，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)和[管理虚拟网络对等互连](virtual-network-manage-peering.md)。
+
 <!--Not Available on [hub and spoke network designs](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#vnet-peering)-->
 
 若要通过 VPN 将自己的计算机连接到虚拟网络，并与虚拟网络或对等互连的虚拟网络中的资源进行交互，请参阅[将计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)。

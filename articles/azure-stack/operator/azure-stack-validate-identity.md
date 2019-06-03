@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 697f9bd971abbd11560e02bc0a0d529861a80702
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: e2ffb5569def29cce859ec4a08a13a960b26212f
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529742"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248601"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
@@ -46,7 +46,7 @@ ms.locfileid: "64529742"
 **运行该工具的计算机：**
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
 
   ```powershell
   $PSVersionTable.PSVersion
@@ -84,7 +84,7 @@ ms.locfileid: "64529742"
    Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.partner.onmschina.cn`
    ```
 
-4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”。 成功的验证如下图所示：
+4. 运行该工具后，查看输出。 对于安装要求，确认状态为“正常”  。 成功的验证如下图所示：
 
    ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
@@ -169,7 +169,7 @@ Invoke-AzsAzureIdentityValidation Completed
 **解决方法** - 确认帐户对指定的 Azure 环境有效。 在 PowerShell 中运行以下命令，验证帐户对特定环境是否有效：
 
 ```powershell
-Login-AzureRmAccount –EnvironmentName AzureChinaCloud
+Login-AzureRmAccount -EnvironmentName AzureChinaCloud
 ```
 
 ### <a name="account-is-not-an-administrator"></a>帐户不是管理员
@@ -192,7 +192,7 @@ Invoke-AzsAzureIdentityValidation Completed
 
 **原因** - 虽然帐户可以成功登录，但帐户不是 Azure Active Directory (**AADDirectoryTenantName**) 的管理员。  
 
-**解决方法** - 以帐户所有者身份登录到 [Azure 门户](https://portal.azure.cn)，转到“Azure Active Directory”、“用户”，单击“选择用户”、“目录角色”，然后确保该用户为**全局管理员**。 如果帐户是“用户”，请转到“Azure Active Directory” > “自定义域名”，并确认你为 **AADDirectoryTenantName** 提供的名称已标记为此目录的主域名。 在本例中，它是 **contoso.partner.onmschina.cn**。
+**解决方法** - 以帐户所有者身份登录到 [Azure 门户](https://portal.azure.cn)，转到“Azure Active Directory”、“用户”，单击“选择用户”、“目录角色”，然后确保该用户为**全局管理员**。     如果帐户是“用户”，请转到“Azure Active Directory” > “自定义域名”，并确认你为 **AADDirectoryTenantName** 提供的名称已标记为此目录的主域名。    在本例中，它是 **contoso.partner.onmschina.cn**。
 
 Azure Stack 要求域名是主域名。
 

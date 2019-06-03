@@ -4,6 +4,7 @@ description: 了解 Azure 虚拟网络概念和功能。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
+manager: digimobile
 tags: azure-resource-manager
 Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
@@ -12,14 +13,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/12/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: b1719549f7454d7f48e7390f448f6334d5e4b891
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 7c5ae3fa4d30966103744b9cc7bc2d26fc5a762c
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306245"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250439"
 ---
 # <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 
@@ -51,10 +52,7 @@ Azure 虚拟网络提供以下重要功能：
 
 Azure 资源采用下述某种方式安全地相互通信：
 
-- **通过虚拟网络**：可以部署 VM，并将多个其他类型的 Azure 资源（例如 Azure 应用服务环境和 Azure 虚拟机规模集）部署到虚拟网络。 若要查看可部署到虚拟网络的 Azure 资源的完整列表，请参阅[虚拟网络服务集成](virtual-network-for-azure-services.md)。 
-
-<!-- Not Avialable on the Azure Kubernetes Service (AKS)-->
-
+- **通过虚拟网络**：可以将 VM 和多个其他类型的 Azure 资源部署到虚拟网络，如 Azure 应用服务环境、Azure Kubernetes 服务 (AKS) 和 Azure 虚拟机规模集。 若要查看可部署到虚拟网络的 Azure 资源的完整列表，请参阅[虚拟网络服务集成](virtual-network-for-azure-services.md)。 
 - **通过虚拟网络服务终结点**：通过直接连接将虚拟网络专用地址空间和虚拟网络的标识扩展到 Azure 服务资源，例如 Azure 存储帐户和 Azure SQL 数据库。 使用服务终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 有关详细信息，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。
 
 <a name="connect-on-premises"></a>

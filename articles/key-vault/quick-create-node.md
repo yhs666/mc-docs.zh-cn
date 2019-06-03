@@ -2,22 +2,20 @@
 title: 快速入门 - 使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 | Azure Docs
 description: 在本快速入门中，你将使用 Node Web 应用在 Azure Key Vault 中设置和检索机密
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: msmbaldwin
 manager: sumedhb
 ms.service: key-vault
-ms.workload: identity
 ms.topic: quickstart
 origin.date: 08/08/2018
-ms.date: 04/01/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 849df8657f9e75d8c02e226345b20271199e2729
-ms.sourcegitcommit: fe0258161a3633407e2ce407a4c9fe638e5afb37
+ms.openlocfilehash: 33e2d8f90c673fc233ca7224f0e3a843a6c6d2f8
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58135487"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296719"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>快速入门：使用 Node Web 应用在 Azure Key Vault 中设置和检索机密 
 
@@ -53,7 +51,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](/cli/azure/group#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 选择一个资源组名称，然后将其填充在占位符中。
 以下示例在“中国北部”位置创建一个资源组。
@@ -83,7 +81,7 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 
 我们将添加机密以帮助说明这是如何工作的。 可以存储需要安全保存的，但同时也要提供给应用程序使用的 SQL 连接字符串或其他任何信息。 在本教程中，密码名为 **AppSecret**，将在其中存储 **MySecret** 的值。
 
-键入以下命令，在名为 **AppSecret** 的密钥保管库中创建机密。 此机密将存储值“MySecret”。
+键入以下命令，在名为 **AppSecret** 的密钥保管库中创建机密。 此机密将存储值“MySecret”。 
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
@@ -168,7 +166,7 @@ npm install
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-此命令等同于转到门户并在 Web 应用程序属性中将“标识/系统分配”设置切换为“打开”。
+此命令等同于转到门户并在 Web 应用程序属性中将“标识/系统分配”设置切换为“打开”   。
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>为应用程序分配从 Key Vault 读取机密的权限
 
