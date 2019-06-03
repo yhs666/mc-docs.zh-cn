@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 03/04/2019
+origin.date: 04/08/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: efdad534c0f54de49697c512aaf63d30c51081d3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 85eaa964b64eba916d18caf253c6338b64f8421e
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625210"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390858"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -91,13 +91,13 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 - **分支 VNet**。 应用部署在两个分支 vNet 中：
     - **源 vNet1**：10.1.0.0/24。
     - **源 vNet2**：10.2.0.0/24。
-    - 每个分支虚拟网络都连接到“中心 vNet”。
+    - 每个分支虚拟网络都连接到“中心 vNet”  。
 - **中心 vNet**。 有一个中心 vNet **源中心 vNet**：10.10.10.0/24。
-  - 此中心 vNet 充当网关守卫。
-  - 跨子网的所有通信都通过此中心进行。
-    - **中心 vNet 子网**。 中心 vNet 具有两个子网：
-    - **NVA 子网**：10.10.10.0/25。 此子网包含 NVA (10.10.10.10)。
-    - **网关子网**：10.10.10.128/25。 此子网包含连接到 ExpressRoute 连接的 ExpressRoute 网关，该连接通过专用对等互连路由域路由到本地站点。
+    - 此中心 vNet 充当网关守卫。
+    - 跨子网的所有通信都通过此中心进行。
+        - **中心 vNet 子网**。 中心 vNet 具有两个子网：
+        - **NVA 子网**：10.10.10.0/25。 此子网包含 NVA (10.10.10.10)。
+        - **网关子网**：10.10.10.128/25。 此子网包含连接到 ExpressRoute 连接的 ExpressRoute 网关，该连接通过专用对等互连路由域路由到本地站点。
 - 本地数据中心通过广州的合作伙伴边缘建立了 ExpressRoute 线路连接。
 - 所有路由都通过 Azure 路由表 (UDR) 进行控制。
 - vNet 之间或流向本地数据中心的所有出站流量都经过 NVA 路由。
@@ -139,9 +139,9 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
 ## <a name="fail-over-azure-vms-when-using-expressroute"></a>在使用 ExpressRoute 时对 Azure VM 进行故障转移
 
-在使用 Site Recovery 将 Azure VM 故障转移到目标 Azure 区域后，可以使用 ExpressRoute [专用对等互连](../expressroute/expressroute-circuit-peerings.md#private-peering)对其进行访问。
+在使用 Site Recovery 将 Azure VM 故障转移到目标 Azure 区域后，可以使用 ExpressRoute [专用对等互连](../expressroute/expressroute-circuit-peerings.md#privatepeering)对其进行访问。
 
-<!--MOONCAKE: Anchor is correct on private-peering-->
+<!--MOONCAKE: Anchor is correct on privatepeering-->
 
 - 需要使用新连接将 ExpressRoute 连接到目标 vNet。 现有的 ExpressRoute 连接不会自动传输。
 - 将 ExpressRoute 连接设置为目标 vNet 的方式取决于 ExpressRoute 拓扑。
@@ -163,7 +163,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
 - 可以从本地数据中心同时使用主要线路连接到源 vNEt 和使用次要线路连接到目标 vNet。
 - 在同时连接到主要和目标 vNet 时，请确保本地路由仅在故障转移后才使用次要线路和连接。
--   如果在同一对等互连位置创建了两条线路，则无法将这两条线路连接到同一 vNet。
+- 如果在同一对等互连位置创建了两条线路，则无法将这两条线路连接到同一 vNet。
 
 ### <a name="access-with-a-single-circuit"></a>使用单条线路进行访问
 
@@ -176,7 +176,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
         - 如果在目标区域中创建了连接，并且主要区域稍后已恢复，在同时连接尝试连接到同一地址空间的情况下，可能会出现丢包的情况。
         - 若要防止发生此情况，请立即终止主要连接。
         - 在 VM 故障回复到主要区域后，可以在断开次要连接后再次建立主要连接。
--   如果在目标 vNet 上使用不同的地址空间，则可以从同一 ExpressRoute 线路同时连接到源和目标 vNet。
+- 如果在目标 vNet 上使用不同的地址空间，则可以从同一 ExpressRoute 线路同时连接到源和目标 vNet。
 
 ## <a name="failover-example"></a>故障转移示例
 

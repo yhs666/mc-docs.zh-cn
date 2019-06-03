@@ -11,18 +11,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 02/11/2019
-ms.date: 03/04/2019
-ms.author: v-jay
+ms.topic: conceptual
+origin.date: 05/09/2019
+ms.date: 06/03/2019
+ms.author: patricka
 ms.reviewer: fiseraci
-ms.lastreviewed: 02/11/2019
-ms.openlocfilehash: 3f9bdcc7a4b6f355ea3e08556effac7716819043
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: b925839fa070e56540caf10821f18317f90ca54c
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529772"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381925"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Azure Stack 的标识体系结构
 
@@ -42,7 +42,7 @@ ms.locfileid: "64529772"
 |支持 Azure CLI、Visual Studio 和 PowerShell 等工具  |是 |是|
 |通过 Azure 门户创建服务主体     |是 |否|
 |使用证书创建服务主体      |是 |是|
-|使用机密（密钥）创建服务主体    |是 |否|
+|使用机密（密钥）创建服务主体    |是 |是|
 |应用程序可以使用 Graph 服务           |是 |否|
 |应用程序可以将标识提供程序用于登录 |是 |是的。 要求应用程序与本地 AD FS 实例联合。 |
 
@@ -101,4 +101,3 @@ ms.locfileid: "64529772"
 ## <a name="next-steps"></a>后续步骤
 - [标识概述](azure-stack-identity-overview.md)   
 - [数据中心集成 - 标识](azure-stack-integrate-identity.md)
-<!-- Update_Description: link update -->
