@@ -1,4 +1,4 @@
-## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>APIM 代理服务器在 TLS 握手中如何通过 SSL 证书进行响应
+## <a name="how-apim-proxy-server-responds-with-ssl-certificates-in-the-tls-handshake"></a>APIM 代理服务器在 TLS 握手中如何通过 SSL 证书进行响应 <!--test-->
 
 ### <a name="clients-calling-with-sni-header"></a>调用时使用 SNI 标头的客户端
 如果客户为代理配置了一个或多个自定义域，则 APIM 可以响应来自自定义域（例如 contoso.com）以及默认域（例如 apim-service-name.azure-api.cn）的 HTTPS 请求。 APIM 根据服务器名称指示 (SNI) 标头中的信息使用合适的服务器证书进行响应。
