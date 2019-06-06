@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 01/14/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: c40f0d1b1d9fc0137fd6a24a0f86634ebf21cb37
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: f4ede0a6877cd36ed95dc423b0f8651dab4acdc2
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854623"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248559"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Linux 服务器虚拟机
 
@@ -41,7 +41,7 @@ ms.locfileid: "64854623"
 
 * Azure Stack 需要使用特定版本的 Azure CLI 来创建和管理资源。 如果尚未针对 Azure Stack 配置 Azure CLI，请登录到[开发工具包](../asdk/asdk-connect.md#connect-to-azure-stack-using-rdp)，或登录到基于 Windows 的外部客户端（如果[已通过 VPN 建立了连接](../asdk/asdk-connect.md#connect-to-azure-stack-using-vpn)），按照相应的步骤[安装并配置 Azure CLI](azure-stack-version-profiles-azurecli2.md)。
 
-* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](/virtual-machines/linux/ssh-from-windows)。
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

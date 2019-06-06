@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 11/27/2018
-ms.date: 03/04/2019
+origin.date: 03/29/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7001a05f2e7904c07b92bb1d9ee3a472252cef5a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 72e3fa40926e1a218b660463bbba31590d8e471e
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625607"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390884"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -45,10 +45,10 @@ ms.locfileid: "58625607"
 
 **URL** | **详细信息**  
 --- | ---
-*.blob.core.chinacloudapi.cn | 必需，以便从 VM 将数据写入到源区域中的缓存存储帐户。
+*.blob.core.chinacloudapi.cn | 必需，以便从 VM 将数据写入到源区域中的缓存存储帐户。 如果你知道 VM 的所有缓存存储帐户，则可以将特定存储帐户 URL（例如：cache1.blob.core.chinacloudapi.cn 和 cache2.blob.core.chinacloudapi.cn）而不是 *.blob.core.chinacloudapi.cn 加入允许列表
 login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验证而言是必需的。
-*.hypervrecoverymanager.windowsazure.cn | 必需，以便从 VM 进行 Site Recovery 服务通信。
-*.servicebus.chinacloudapi.cn | 必需，以便从 VM 写入 Site Recovery 监视和诊断数据。
+*.hypervrecoverymanager.windowsazure.cn | 必需，以便从 VM 进行 Site Recovery 服务通信。 如果防火墙代理支持 IP，则可以使用相应的“Site Recovery IP”。
+*.servicebus.chinacloudapi.cn | 必需，以便从 VM 写入 Site Recovery 监视和诊断数据。 如果防火墙代理支持 IP，则可以使用相应的“Site Recovery 监视 IP”。
 
 <a name="outbound-connectivity-for-azure-site-recovery-ip-ranges"></a>
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 地址范围的出站连接
@@ -84,15 +84,15 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an outbound HTTPS (443) security rule for "Storage" on the NSG as shown in the screenshot below.
     
-    <!--Current only Storage endpoint without chinaeast
+    <!--Current only Storage endpoint without chinaeast-->
     
-    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)-->
+    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
 
-1. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
+2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
 
     ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-2. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
+3. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
 
     **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
     --- | --- | ---
@@ -114,7 +114,7 @@ This example shows how to configure NSG rules for a VM to replicate.
     --- | --- | ---
     中国北部 | 13.82.88.226 | 104.45.147.24
 
--->
+    等待 PM 答复时不可用 -->
 
 ## <a name="network-virtual-appliance-configuration"></a>网络虚拟设备配置
 
@@ -143,4 +143,3 @@ This example shows how to configure NSG rules for a VM to replicate.
 - 详细了解[使用 ExpressRoute 的 Azure 虚拟机](azure-vm-disaster-recovery-with-expressroute.md)的灾难恢复。
 
 <!--Update_Description: update meta properties, wording update  -->
-

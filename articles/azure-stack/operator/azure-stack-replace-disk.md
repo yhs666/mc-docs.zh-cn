@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/22/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 35e25d70a892d8694904fd88d19052e0ec4f8a2f
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 5798d21f38d185d7420b4e45c67af5f1c30cde3a
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530005"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381789"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>更换 Azure Stack 中的物理磁盘
 

@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.lastreviewed: 04/04/2019
 ms.reviewer: justini
-ms.openlocfilehash: 8eac464f75bf8ddf04b05a0f31610f10158205c8
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: bd170dcafbb4a3a0871ca90fb13f3eb491991c8c
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529505"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381863"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>在 Azure Stack 中管理更新概述
 
 *适用于：Azure Stack 集成系统*
 
-Azure Stack 集成系统的 Azure 更新包通常大约在每月的第四个星期二发布。 有关原始设备制造商 (OEM) 为确保更新通知到达你的组织而采取的具体通知流程，请咨询原始设备制造商。 还可以查看位于“概述” > “发行说明”下的此文档库来了解有关处于有效支持状态的发行版的信息。 
+Azure Stack 集成系统的 Azure 更新包通常大约在每月的第四个星期二发布。 有关原始设备制造商 (OEM) 为确保更新通知到达你的组织而采取的具体通知流程，请咨询原始设备制造商。 还可以查看位于“概述” > “发行说明”下的此文档库来了解有关处于有效支持状态的发行版的信息。   
 
 每次发布的 Azure 软件更新均打包为单个更新包。 Azure Stack 操作员可以从管理员门户导入和安装这些更新包，并监视这些更新包的安装进度。 
 
@@ -68,7 +68,7 @@ Azure Stack 包含用于处理 Azure 软件更新应用程序的更新资源提�
 可以在“更新”磁贴中查看 Azure Stack 的当前版本。 若要打开该磁贴：
 
 1. 请打开 Azure Stack 管理门户。
-2. 选择“仪表板”。 “更新”磁贴中会列出当前版本。 
+2. 选择“仪表板”。  “更新”磁贴中会列出当前版本。  
 
     ![默认仪表板上的“更新”磁贴](./media/azure-stack-updates/image1.png)
 
@@ -78,22 +78,22 @@ Azure Stack 包含用于处理 Azure 软件更新应用程序的更新资源提�
 
 
 1. 请打开 Azure Stack 管理门户。
-2. 选择“仪表板”。 选择“更新”磁贴。
-3. 选择“立即更新”。
+2. 选择“仪表板”。  选择“更新”磁贴。
+3. 选择“立即更新”。 
 
     ![Azure Stack 更新运行详细信息](media/azure-stack-updates/azure-stack-update-button.png)
 
 4.  可以查看当更新进程循环访问 Azure Stack 中的各个子系统时的概要状态。 示例子系统包括物理主机、Service Fabric、基础结构虚拟机，以及提供管理员用户和用户门户的服务。 在整个更新过程中，“更新”资源提供程序会报告有关更新的其他详细信息，例如成功的步骤数，以及正在进行的步骤数。
 
-5. 在“更新运行详细信息”边栏选项卡中选择“下载完整日志”以下载完整日志。
+5. 在“更新运行详细信息”边栏选项卡中选择“下载完整日志”以下载完整日志。 
 
     ![Azure Stack 更新运行详细信息](media/azure-stack-updates/update-run-details.png)
 
-6. 完成后，“更新”资源提供程序会提供“成功”确认，告知更新过程已完成，以及更新所花费的时间。 在此处，可以使用筛选器查看有关所有更新、可用更新或已安装更新的信息。
+6. 完成后，“更新”资源提供程序会提供“成功”确认，告知更新过程已完成，以及更新所花费的时间。  在此处，可以使用筛选器查看有关所有更新、可用更新或已安装更新的信息。
 
     ![Azure Stack 更新运行详细信息 - 成功](media/azure-stack-updates/update-success.png)
 
-   如果更新失败，“更新”磁贴会报告“需要注意”。 使用“下载完整日志”来获取更新失败的位置的概要状态。 Azure Stack 日志收集有助于简化诊断和故障排除。
+   如果更新失败，“更新”磁贴会报告“需要注意”。  使用“下载完整日志”来获取更新失败的位置的概要状态。  Azure Stack 日志收集有助于简化诊断和故障排除。
 
 ## <a name="next-steps"></a>后续步骤
 

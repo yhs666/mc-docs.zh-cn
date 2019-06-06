@@ -15,19 +15,19 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: dec20e1a3320e6082d9572e9c7c603f13dd1d12d
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 836d7e8d78a8dd072796e4fc08edfc3d1830a718
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306229"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250336"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>使用 Azure CLI 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
-通过虚拟网络服务终结点，可以将某些 Azure 服务资源限制为仅允许某个虚拟网络子网通过网络进行访问。 还可以删除对资源的 Internet 访问。 服务终结点提供从虚拟网络到受支持 Azure 服务的直接连接，使你能够使用虚拟网络的专用地址空间访问 Azure 服务。 通过服务终结点发往 Azure 资源的流量始终保留在 Azure 主干网络上。 在本文中，学习如何：
+通过虚拟网络服务终结点，可将某些 Azure 服务资源限制为仅允许某个虚拟网络子网通过网络进行访问。 还可以删除对资源的 Internet 访问。 服务终结点提供从虚拟网络到受支持 Azure 服务的直接连接，使你能够使用虚拟网络的专用地址空间访问 Azure 服务。 通过服务终结点发往 Azure 资源的流量始终保留在 Azure 主干网络上。 在本文中，学习如何：
 
 * 创建包含一个子网的虚拟网络
 * 添加子网并启用服务终结点
@@ -44,7 +44,7 @@ ms.locfileid: "56306229"
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli
 az group create \
@@ -119,9 +119,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+每个网络安全组包含多个[默认安全规则](security-overview.md#default-security-rules)。 以下规则将替代允许对所有公共 IP 地址进行出站访问的默认安全规则。 `destination-address-prefix "Internet"` 选项拒绝对所有公共 IP 地址进行出站访问。 上一个规则将替代此规则，因为它的优先级更高，上一个规则允许对 Azure 存储的公用 IP 地址进行访问。
 
+```azurecli
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -134,9 +136,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
-The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+以下规则允许 SSH 流量从任何位置入站到子网。 该规则将替代拒绝来自 Internet 的所有入站流量的默认安全规则。 允许通过 SSH 访问子网，以便在稍后的步骤中测试连接。
 
+```azurecli
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -224,7 +228,7 @@ az storage account network-rule add \
 
 ### <a name="create-the-first-virtual-machine"></a>创建第一个虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在公共子网中创建一个 VM。 如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
+使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 在公共子网中创建一个 VM。  如果默认密钥位置中尚不存在 SSH 密钥，该命令会创建它们。 若要使用特定的一组密钥，请使用 `--ssh-key-value` 选项。
 
 ```azurecli
 az vm create \
@@ -269,7 +273,7 @@ az vm create \
 
 ## <a name="confirm-access-to-storage-account"></a>确认对存储帐户的访问
 
-通过 SSH 登录到 *myVmPrivate* VM。 将 *<publicIpAddress>* 替换为 *myVmPrivate* VM 的公用 IP 地址。
+通过 SSH 登录到 *myVmPrivate* VM。 将 \<publicIpAddress>  替换为 myVmPrivate  VM 的公共 IP 地址。
 
 ```bash 
 ssh <publicIpAddress>
@@ -331,7 +335,7 @@ az storage share list \
   --account-key <account-key>
 ```
 
-访问被拒绝，你将收到“此请求无权执行此操作” 错误，因为你的计算机不在 *MyVirtualNetwork* 虚拟网络的 *Private* 子网中。
+访问被拒绝，你将收到“此请求无权执行此操作”  错误，因为你的计算机不在 *MyVirtualNetwork* 虚拟网络的 *Private* 子网中。
 
 ## <a name="clean-up-resources"></a>清理资源
 

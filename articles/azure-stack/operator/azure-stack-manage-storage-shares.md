@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
 origin.date: 03/29/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 6323358ccbd005a69eab96ab550558e7cfc8db16
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 03fc0334b248744c755e9401b183e95c48cb0736
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530063"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381890"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量 
 
@@ -43,7 +43,7 @@ ms.locfileid: "64530063"
 
 ## <a name="understand-volumes-and-shares-containers-and-disks"></a>了解卷、共享、容器和磁盘
 ### <a name="volumes-and-shares"></a>卷和共享
-存储服务将可用的存储分区成相等的独立卷，这些卷分配用于保存租户数据。 卷的数目等于 Azure Stack 部署中的节点数目：
+存储服务将可用的存储分区成相等的独立卷，这些卷分配用于保存租户数据。  卷的数目等于 Azure Stack 部署中的节点数目：
 
 - 在包含四个节点的部署中，有四个卷。 每个卷有单个共享。 在多节点部署中，如果某个节点被删除或出现故障，共享数目不会减少。
 - 如果使用 Azure Stack 开发人员包，则会创建包含单个共享的单个卷。
@@ -62,7 +62,7 @@ ms.locfileid: "64530063"
 
 将 Blob 置于容器中后，该 Blob 可以增长以使用更多空间。 随着新 Blob 的添加和现有 Blob 的增长，卷中保存该容器的可用空间会不断缩减。  
 
-容器不限于单个共享。 当容器中合并的 Blob 数据增长为使用 80% 或更多可用空间时，容器将进入溢出模式。 在溢出模式下，在该容器中创建的任何新 Blob 将分配到具有足够空间的其他卷。 一段时间后，处于溢出模式的容器可将 Blob 分布到多个卷。
+容器不限于单个共享。 当容器中合并的 Blob 数据增长为使用 80% 或更多可用空间时，容器将进入溢出模式。  在溢出模式下，在该容器中创建的任何新 Blob 将分配到具有足够空间的其他卷。 一段时间后，处于溢出模式的容器可将 Blob 分布到多个卷。
 
 达到卷中 80% 到 90% 的可用空间时，系统会在 Azure Stack 管理员门户中引发警报。 云操作员应查看可用的存储容量，并规划重新均衡内容。 到达磁盘的 100% 容量时，存储服务将停止运行，但不会引发其他警报。
 
@@ -82,19 +82,19 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 云操作员可以使用 PowerShell **Get-AzsStorageShare** cmdlet 来监视共享的存储容量。 Get-AzsStorageShare cmdlet 返回每个共享中总计、已分配和可用的空间（以字节为单位）。   
 ![示例：返回共享的可用空间](media/azure-stack-manage-storage-shares/free-space.png)
 
-- “容量总计”是共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
-- “已用容量”是存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
+- “容量总计”是共享中可用的总空间（以字节为单位）。  此空间用于存储服务维护的数据和元数据。
+- “已用容量”是存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。 
 
 ### <a name="use-the-administrator-portal"></a>使用管理员门户
 云操作员可以使用管理员门户来查看所有共享的存储容量。
 
 1. 登录到[管理员门户](https://adminportal.local.azurestack.external)。
-2. 选择“所有服务” > “存储” > “文件共享”以打开文件共享列表，可以在其中查看使用情况信息。 
+2. 选择“所有服务”   > “存储”   > “文件共享”  以打开文件共享列表，可以在其中查看使用情况信息。 
 
     ![示例：存储文件共享](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-   - “总计”是共享中可用的总空间（以字节为单位）。 此空间用于存储服务维护的数据和元数据。
-   - “已用”是存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。
+   - “总计”是共享中可用的总空间（以字节为单位）。  此空间用于存储服务维护的数据和元数据。
+   - “已用”是存储租户数据和相关元数据的文件中所有盘区使用的数据量（以字节为单位）。 
 
 ### <a name="storage-space-alerts"></a>存储空间警报
 使用管理员门户时，会收到有关共享空间不足的警报。
@@ -102,10 +102,10 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 > [!IMPORTANT]
 > 云操作员可以避免共享达到用完状态。 当共享利用率达到 100% 时，不再能够针对该共享运行存储服务。 若要在共享利用率达到 100% 时恢复可用空间和执行还原操作，必须联系 Azure 支持部门。
 
-警告：当文件共享利用率超过 80% 时，管理门户中会显示“警告”警报：![示例：警告警报](media/azure-stack-manage-storage-shares/alert-warning.png)
+警告  ：当文件共享利用率超过 80% 时，管理门户中会显示“警告”警报  ：![示例：警告警报](media/azure-stack-manage-storage-shares/alert-warning.png)
 
 
-**严重**：当文件共享利用率超过 90% 时，管理门户中会显示“严重”警报：![示例：严重警报](media/azure-stack-manage-storage-shares/alert-critical.png)
+**严重**：当文件共享利用率超过 90% 时，管理门户中会显示“严重”警报  ：![示例：严重警报](media/azure-stack-manage-storage-shares/alert-critical.png)
 
 **查看详细信息**：在管理门户中，可以打开警报详细信息来查看缓解选项：![示例：查看警报详细信息](media/azure-stack-manage-storage-shares/alert-details.png)
 
@@ -125,7 +125,7 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 
 由于租户使用模式方面的原因，某些租户共享使用的空间比其他共享要多。 结果可能是，某个共享在其他相对用得极少的共享之前就遇到了空间不足的情况。
 
-可将某些 Blob 容器手动迁移到不同的共享，尝试在过度使用的共享中释放空间。 可将多个较小容器迁移到单个共享，前提是该共享可以提供足够的容量来保存所有这些容器。 可以使用迁移操作来移动可用容器。 可用容器是不包含 VM 磁盘的容器。   
+可将某些 Blob 容器手动迁移到不同的共享，尝试在过度使用的共享中释放空间。 可将多个较小容器迁移到单个共享，前提是该共享可以提供足够的容量来保存所有这些容器。 可以使用迁移操作来移动可用容器。  可用容器是不包含 VM 磁盘的容器。   
 
 迁移过程会整合新共享中的所有容器 Blob。
 

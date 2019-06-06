@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2019
-ms.date: 04/29/2019
+origin.date: 05/10/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: adepue
-ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 8c9edceb556a41271f4f3e843c56a32923e7b140
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 141fe857f426694aa81e3b2b7a38666fd34f0dca
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530087"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381868"
 ---
 # <a name="azure-stack-1902-update"></a>Azure Stack 1902 更新
 
@@ -50,8 +50,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ### <a name="azure-stack-hotfixes"></a>Azure Stack 修补程序
 
-- **1901**：[KB 4500636 – Azure Stack 修补程序 1.1901.5.109](https://support.microsoft.com/help/4500636)
-- **1902**：[KB 4500637 – Azure Stack 修补程序 1.1902.3.75](https://support.microsoft.com/help/4500637)
+- **1901**：[KB 4500636 - Azure Stack 修补程序 1.1901.5.109](https://support.microsoft.com/help/4500636)
+- **1902**：[KB 4500637 - Azure Stack 修补程序 1.1902.3.75](https://support.microsoft.com/help/4500637)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -64,11 +64,11 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
-  如果在执行 **Test-AzureStack** 时包含 `AzsControlPlane` 参数，**Test-AzureStack** 输出中会显示以下失败：“失败: Azure Stack 控制平面网站摘要”。 可以放心忽略此特定错误。
+  如果在执行 **Test-AzureStack** 时包含 `AzsControlPlane` 参数，**Test-AzureStack** 输出中会显示以下失败：“失败: Azure Stack 控制平面网站摘要”。  可以放心忽略此特定错误。
 
 - 通过 System Center Operations Manager (SCOM) 管理 Azure Stack 时，请务必在应用 1902 之前将[适用于 Azure Stack 的管理包](https://www.microsoft.com/download/details.aspx?id=55184)更新到版本 1.0.3.11。
 
-- 从版本 1902 开始，Azure Stack 更新包的格式已从 **.bin/.exe/.xml** 更改为 **.zip/.xml**。 使用联网 Azure Stack 缩放单元的客户将在门户中看到“有可用更新”消息。 未建立连接的客户现在只需下载并导入包含相应 .xml 的 .zip 文件即可。
+- 从版本 1902 开始，Azure Stack 更新包的格式已从 **.bin/.exe/.xml** 更改为 **.zip/.xml**。 使用联网 Azure Stack 缩放单元的客户将在门户中看到“有可用更新”消息。  未建立连接的客户现在只需下载并导入包含相应 .xml 的 .zip 文件即可。
 
 <!-- ## New features -->
 
@@ -118,15 +118,18 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 改进了 Test-AzureStack 在进行机密轮换就绪性测试时的可靠性。
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- 通过改进提高了 AD Graph 在与客户的 Active Directory 环境通信时的可靠性。
+- 通过改进提高了 AD Graph 在与客户的 Active Directory 环境通信时的可靠性
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
 - 改进了 Get-AzureStackStampInformation 中的硬件库存收集。
 
 - 为了改进 ERCS 基础结构上运行的操作的可靠性，每个 ERCS 实例的内存已从 8 GB 增加到 12 GB。 在 Azure Stack 集成系统安装中，这会导致内存总量增大 12 GB。
 
+<!-- 110303935 IcM Reported by HKEX -->
+- 1902 修复了网络控制器 VSwitch 服务中的一个问题，即特定节点上的所有 VM 都脱机。  此问题导致它陷入主实例丢失状态，即无法联系主实例，但角色尚未故障转移到另一个正常的实例，只有通过联系 Azure 支持服务才能解决此问题。
+
 > [!IMPORTANT]
-> 为了确保修补升级过程尽可能地减少租户停机时间，请在“容量”边栏选项卡中确认 Azure Stack 阵列是否可提供 12 GB 以上的可用空间。 成功安装更新后，“容量”边栏选项卡中会反映内存增大。
+> 为了确保修补升级过程尽可能地减少租户停机时间，请在“容量”边栏选项卡中确认 Azure Stack 阵列是否可提供 12 GB 以上的可用空间。  成功安装更新后，“容量”边栏选项卡中会反映内存增大。 
 
 ## <a name="common-vulnerabilities-and-exposures"></a>常见漏洞和风险
 
@@ -166,9 +169,11 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 ## <a name="known-issues-with-the-update-process"></a>更新过程的已知问题
 
+- 尝试安装 Azure Stack 更新时，更新状态可能会显示失败并更改为 **PreparationFailed**。 这是因为更新资源提供程序 (URP) 无法正确将文件从存储容器传输到内部基础结构共享进行处理。 从版本 1901 (1.1901.0.95) 开始，可以通过再次单击“立即更新”（而不是“恢复”）来解决此问题。   然后，URP 会清理上次尝试更新时下载的文件，并重新开始下载。
+
 - 运行 [Test-AzureStack](azure-stack-diagnostic-test.md) 时，会显示基板管理控制器 (BMC) 中的一条警告消息。 可以放心地忽略此警告。
 
-- <!-- 2468613 - IS --> 在安装此更新的过程中，可能会看到标题为 `Error – Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
+- <!-- 2468613 - IS --> 在安装此更新的过程中，可能会看到标题为 `Error - Template for FaultType UserAccounts.New is missing.` 的警报。可以放心忽略这些警报。 完成此更新的安装后，这些警报会自动关闭。
 
 ## <a name="post-update-steps"></a>更新后步骤
 
@@ -185,11 +190,11 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- 2930820 - IS ASDK --> 
 - 在管理员门户和用户门户中，如果搜索“Docker”，则此项无法正确返回。 它在 Azure Stack 中不可用。 如果尝试创建它，则会显示一个边栏选项卡，其中包含表明存在错误的内容。 
 
-<!-- 2931230 – IS  ASDK --> 
+<!-- 2931230 - IS  ASDK --> 
 - 即使从用户订阅中删除计划，也无法删除作为附加计划添加到用户订阅的计划。 该计划将一直保留，直到引用附加计划的订阅也被删除。 
 
 <!-- TBD - IS ASDK --> 
-- 不应使用版本 1804 中引入的两种管理订阅类型。 这两种订阅类型为“计量订阅”和“消耗订阅”。 从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。
+- 不应使用版本 1804 中引入的两种管理订阅类型。 这两种订阅类型为“计量订阅”和“消耗订阅”。   从版本 1804 开始，这些订阅类型会在新的 Azure Stack 环境中显示，但尚不可用。 请继续使用“默认提供程序”订阅类型。 
 
 <!-- 3557860 - IS ASDK --> 
 - 删除用户订阅生成孤立的资源。 解决方法是先删除用户资源或整个资源组，然后再删除用户订阅。
@@ -197,7 +202,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 <!-- 1663805 - IS ASDK --> 
 - 无法使用 Azure Stack 门户查看订阅的权限。 解决方法是[使用 PowerShell 验证权限](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan)。
 
-- 在用户门户上导航到存储帐户中的某个 Blob 并尝试从导航树中打开“访问策略”时，后续的窗口无法加载。 若要解决此问题，可以分别使用以下 PowerShell cmdlet 来创建、检索、设置和删除访问策略：
+<!-- Daniel 3/28 -->
+- 在用户门户上导航到存储帐户中的某个 Blob 并尝试从导航树中打开“访问策略”时，后续的窗口无法加载。  若要解决此问题，可以分别使用以下 PowerShell cmdlet 来创建、检索、设置和删除访问策略：
 
   - [New-AzureStorageContainerStoredAccessPolicy](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
   - [Get-AzureStorageContainerStoredAccessPolicy](https://docs.microsoft.com/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
@@ -221,11 +227,13 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 应用 1902 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：
 
    - 如果订阅是在 1808 更新之前创建的，则部署具有托管磁盘的 VM 可能会失败并出现内部错误消息。 若要解决此错误，请针对每个订阅执行以下步骤：
-      1. 在租户门户中转到“订阅”，找到相应订阅。 依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+      1. 在租户门户中转到“订阅”，找到相应订阅。  依次选择“资源提供程序”、“Microsoft.Compute”、“重新注册”。   
+      2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。  
    - 如果已配置多租户环境，在与来宾目录相关联的订阅中部署 VM 可能会失败并出现内部错误消息。 若要解决错误，请执行[此文章](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤来重新配置每个来宾目录。
 
 - 如果使用创建时已启用 SSH 授权的 Ubuntu 18.04 VM，则无法使用 SSH 密钥登录。 若要解决此问题，请在预配后使用针对 Linux 扩展的 VM 访问权限来实现 SSH 密钥，或者使用基于密码的身份验证。
+
+- 无法从“虚拟机规模集”边栏选项卡中删除规模集。  解决方法是，选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
 
 ### <a name="networking"></a>网络  
 
@@ -237,13 +245,13 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
     可以放心忽略此消息；即使 VM 实例未重启，IP 地址也会更改。
 
 <!-- 3632798 - IS, ASDK -->
-- 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。 在 Azure Stack 中有效的选项仅限以下几个：
+- 在门户中，如果添加入站安全规则并选择“服务标记”作为源，“服务标记”列表中会显示多个不适用于 Azure Stack 的选项。   在 Azure Stack 中有效的选项仅限以下几个：
 
   - **Internet**
   - **VirtualNetwork**
   - **AzureLoadBalancer**
   
-  在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。 仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。
+  在 Azure Stack 中，不支持将其他选项用作源标记。 同样，如果添加出站安全规则并选择“服务标记”作为目标，则显示与“源标记”相同的选项列表。   仅有的有效选项与“源标记”的有效选项相同，如以上列表中所述。 
 
 - 网络安全组 (NSG) 无法像在全球 Azure 中一样在 Azure Stack 中运行。 在 Azure 中，可以在一个 NSG 规则中设置多个端口（使用门户、PowerShell 和资源管理器模板）。 但是，在 Azure Stack 中，无法通过门户在一个 NSG 规则中设置多个端口。 若要解决此问题，请使用资源管理器模板或 PowerShell 设置这些附加的规则。
 

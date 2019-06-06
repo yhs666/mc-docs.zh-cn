@@ -11,20 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/10/2018
-ms.date: 10/15/2018
+origin.date: 01/14/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.openlocfilehash: 5c3fd20b9789bc90d371d1e20b86f99d9479f2d8
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: efbc03f01f9823b49e6c14c45bfa9508567dc1f7
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529924"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381895"
 ---
 # <a name="tenant-resource-usage-api"></a>租户资源用量 API
 
-租户可以使用租户 API 来查看租户的资源用量数据。 此 API 与 Azure 用量 API（目前以个人预览版提供）一致。
+租户可以使用租户 API 来查看租户自己的资源用量数据。 此 API 与 Azure 用量 API（目前以个人预览版提供）一致。
 
 可以像在 Azure 中一样，使用 Windows PowerShell cmdlet **Get-UsageAggregates** 获取用量数据。
 
@@ -41,7 +42,7 @@ ms.locfileid: "64529924"
 | --- | --- |
 | *Armendpoint* |Azure Stack 环境的 Azure 资源管理器终结点。 按 Azure Stack 约定，Azure 资源管理器终结点名称的格式为 `https://management.{domain-name}`。 例如，对于开发工具包，如果域名为 local.azurestack.external，则资源管理器终结点是 `https://management.local.azurestack.external`。 |
 | *subId* |正在发出调用的用户的订阅 ID。 只能使用此 API 查询单个订阅的用量。 提供程序可以使用提供程序资源用量 API 查询所有租户的用量。 |
-| *reportedStartTime* |查询的开始时间。 *DateTime* 值应以 UTC 格式及小时开始时的时间呈现，例如 13:00。 对于每日聚合，请将此值设置为 UTC 午夜。 格式是转义的 ISO 8601，例如 2015-06-16T18%3a53%3a11%2b00%3a00Z，其中冒号转义为 %3a 而加号转义为 %2b，使其符合 URI 规范。 |
+| *reportedStartTime* |查询的开始时间。 *DateTime* 值应以 UTC 格式及小时开始时的时间呈现，例如 13:00。 对于每日聚合，请将此值设置为 UTC 午夜。 格式是转义的 ISO 8601，例如 2015-06-16T18%3a53%3a11%2b00%3a00Z，其中冒号转义为 %3a 而加号转义为 %2b，使其符合 URI 规范。  |
 | *reportedEndTime* |查询的结束时间。 适用于 *reportedStartTime* 的约束也适用于此参数。 *reportedEndTime* 的值不能是将来的时间。 |
 | *aggregationGranularity* |这是可选参数，它有两个截然不同的可能值：daily 和 hourly。 如同以上两个值所暗示，一个会每日返回数据，另一个则会每小时返回数据。 默认值为 daily 选项。 |
 | *api-version* |用于发出此请求的协议版本。 必须使用 2015-06-01-preview。 |
@@ -71,7 +72,7 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 }
 },
 
-…
+. . .
 ```
 
 ### <a name="response-details"></a>响应详细信息

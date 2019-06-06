@@ -6,19 +6,20 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 03/04/2019
-ms.date: 04/29/2019
+origin.date: 05/10/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 8057228ce0edcdf8c511870f8398a6177bea2e23
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/10/2019
+ms.openlocfilehash: f0f406524004c6a76394b81ec4e27ae304b8e972
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529633"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381846"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
+
 可以使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来部署 Azure Stack。 必须在部署 Azure Stack 之前做出选择。 在连接的情况下，可以选择 Azure AD 或 AD FS。 在断开连接的情况下，只支持 AD FS。
 
 > [!IMPORTANT]
@@ -102,6 +103,13 @@ Graph 仅支持与单个 Active Directory 林集成。 如果存在多个林，�
 
    > [!IMPORTANT]
    > 等待凭据弹出（特权终结点不支持 Get-Credential），然后输入 Graph 服务帐户凭据。
+
+3. **Register-DirectoryService** cmdlet 具有可选参数，你可以在现有 Active Directory 验证失败的某些情况下使用这些参数。 执行此 cmdlet 时，它将验证提供的域是否为根域，是否可以访问全局编录服务器，并且提供的帐户授予读取访问权限。
+
+   |参数|说明|
+   |---------|---------|
+   |`-SkipRootDomainValidation`|指定必须使用子域，而不是建议的根域。|
+   |`-Force`|绕过所有验证检查。|
 
 #### <a name="graph-protocols-and-ports"></a>Graph 协议和端口
 

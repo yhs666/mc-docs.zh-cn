@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
-ms.openlocfilehash: cb7ab9c99f935f2af857515ba126bd423f8b02b4
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 69aed3be76d17aa28019175387f9b3a4cd959ec4
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530033"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381785"
 ---
 # <a name="provider-resource-usage-api"></a>提供商资源使用情况 API
 
-“提供者”一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
+“提供者”  一词适用于服务管理员和任何委派的提供者。 Azure Stack 操作员和委派的提供者可使用提供者使用情况 API，查看其直接租户的使用情况。 例如，如图中所示，P0 可以调用提供者 API，以获取 P1 和 P2 直接使用的使用情况信息；而 P1 可以调用以获取 P3 和 P4 的使用情况信息。
 
 ![提供者层次结构的概念模型](media/azure-stack-provider-resource-api/image1.png)
 
@@ -78,7 +78,7 @@ meterID1",
 }
 },
 
-…
+. . .
 ```
 
 ### <a name="response-details"></a>响应详细信息

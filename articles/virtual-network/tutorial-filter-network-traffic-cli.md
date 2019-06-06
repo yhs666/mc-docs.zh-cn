@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: efee334471b69b357335a0da1240273e79bd8cac
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 216eb5d97da163504d76d321a174cb77de245ffe
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306251"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250335"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-the-azure-cli"></a>在 Azure CLI 中使用网络安全组筛选网络流量
 
@@ -46,7 +46,7 @@ ms.locfileid: "56306251"
 
 ### <a name="create-application-security-groups"></a>创建应用程序安全组
 
-首先使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 针对本文中创建的所有资源创建一个资源组。 以下示例在“chinaeast”位置创建一个资源组： 
+首先使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 针对本文中创建的所有资源创建一个资源组。 以下示例在“chinaeast”  位置创建一个资源组： 
 
 ```azurecli
 az group create \
@@ -177,7 +177,7 @@ az vm create \
 }
 ```
 
-记下 publicIpAddress。 在后面的步骤中会使用此地址通过 Internet 访问 VM。  创建充当管理服务器的 VM：
+记下 publicIpAddress。  在后面的步骤中会使用此地址通过 Internet 访问 VM。  创建充当管理服务器的 VM：
 
 ```azurecli
 az vm create \
@@ -196,7 +196,7 @@ az vm create \
 
 ## <a name="test-traffic-filters"></a>测试流量筛选器
 
-使用以下命令来与 *myVmMgmt* VM 建立 SSH 会话。 将 *<publicIpAddress>* 替换为 VM 的公共 IP 地址。 在上面的示例中，IP 地址为 *13.90.242.231*。
+使用以下命令来与 *myVmMgmt* VM 建立 SSH 会话。 将 \<publicIpAddress>  替换为 VM 的公共 IP 地址。 在上面的示例中，IP 地址为 *13.90.242.231*。
 
 ```bash 
 ssh azureuser@<publicIpAddress>

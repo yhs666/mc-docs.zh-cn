@@ -5,22 +5,20 @@ services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/11/2017
-ms.date: 09/11/2017
+origin.date: 03/22/2017
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f637732d757ba12c93dde2059f17db3f245f01c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1c3d64096b44f5c4ed32dbb6cd5cd8ae5c8f4768
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52647718"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390835"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理器将国家/地区层次结构用于地理流量路由方法
 
@@ -68,14 +66,6 @@ ms.locfileid: "52647718"
 
         - GB(英国)
 
-            - GB-ENG(英格兰)
-
-            - GB NIR(北爱尔兰)
-
-            - GB-SCT(苏格兰)
-
-            - GB-WLS(威尔士)
-
         - GG(根西岛)
 
         - GI(直布罗陀)
@@ -110,7 +100,7 @@ ms.locfileid: "52647718"
 
         - ME(黑山)
 
-        - MK(前南斯拉夫马其顿共和国)
+        - MK(北马其顿)
 
         - MT(马耳他)
 
@@ -139,6 +129,7 @@ ms.locfileid: "52647718"
         - SM(圣马力诺)
 
         - UA(乌克兰)
+            - 克里米亚区域
 
         - VA(梵蒂冈城)
 
@@ -491,8 +482,6 @@ ms.locfileid: "52647718"
         - CD(刚果(金))
 
         - CF(中非共和国)
-
-        - CG(刚果(布))
 
         - CI(科特迪瓦)
 

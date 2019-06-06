@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 04/14/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ebfa1314da93cbe85f5d62e050f23fe7c1f572b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b0704adeeb1799b2395a8e9b849950b67839dee6
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625134"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390775"
 ---
 <a name="set-up-the-source-environment"></a>
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>设置源环境以便从 VMware 复制到 Azure
@@ -26,16 +26,16 @@ ms.locfileid: "58625134"
 本文假设已完成以下操作：
 
 - 借助 [Azure Site Recovery 部署规划器](site-recovery-deployment-planner.md)规划了你的部署。 这可以帮助你根据每日数据更改率分配足够的带宽以满足你需要的恢复点目标 (RPO)。
-- 在 [Azure 门户](http://portal.azure.cn)中[设置资源](tutorial-prepare-azure.md)。
+- 在 [Azure 门户](https://portal.azure.cn)中[设置资源](tutorial-prepare-azure.md)。
 - [设置本地 VMware](vmware-azure-tutorial-prepare-on-premises.md)，包括用于自动发现的专用帐户。
 
 ## <a name="choose-your-protection-goals"></a>选择保护目标
 
-1. 在“恢复服务保管库”中，选择保管库名称。 我们在此方案中使用 **ContosoVMVault**。
-2. 在“入门”中，选择“Site Recovery”， 然后选择“准备基础结构”。
-3. 在“保护目标” > “计算机所在位置”中，选择“本地”。
-4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”。
-5. 在“计算机是否已虚拟化”中，选择“是，已使用 VMware vSphere 虚拟机监控程序虚拟化”。 然后选择“确定”。
+1. 在“恢复服务保管库”  中，选择保管库名称。 我们在此方案中使用 **ContosoVMVault**。
+2. 在“入门”中，选择“Site Recovery”  ， 然后选择“准备基础结构”  。
+3. 在“保护目标” > “计算机所在位置”中，选择“本地”    。
+4. 在“要将计算机复制到何处?”中，选择“复制到 Azure”   。
+5. 在“计算机是否已虚拟化”中，选择  “是，已使用 VMware vSphere 虚拟机监控程序虚拟化”。  然后选择“确定”。 
 
 ## <a name="set-up-the-configuration-server"></a>设置配置服务器
 
@@ -56,34 +56,34 @@ ms.locfileid: "58625134"
 
 为了平稳进行复制并避免出现连接问题，请从防病毒软件中排除以下文件夹
 
-- C:\Program Files\Azure Recovery Services Agent。
-- C:\Program Files\Azure Site Recovery Provider
-- C:\Program Files\Azure Site Recovery Configuration Manager 
-- C:\Program Files\Azure Site Recovery Error Collection Tool 
+- C:\Program Files\Microsoft Azure Recovery Services Agent
+- C:\Program Files\Microsoft Azure Site Recovery Provider
+- C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
+- C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
   - C:\thirdparty
   - C:\Temp
   - C:\strawberry
   - C:\ProgramData\MySQL
   - C:\Program Files (x86)\MySQL
   - C:\ProgramData\ASR
-  - C:\ProgramData\Azure Site Recovery
+  - C:\ProgramData\Microsoft Azure Site Recovery
   - C:\ProgramData\ASRLogs
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR 服务器安装目录。 例如：E:\Program Files (x86)\Azure Site Recovery
+  - ASR 服务器安装目录。 例如：E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### <a name="if-antivirus-software-is-active-on-scale-out-process-servermaster-target"></a>如果防病毒软件在横向扩展流程服务器/主目标上处于活动状态
 
 请从防病毒软件中排除以下文件夹
 
-1. C:\Program Files\Azure Recovery Services Agent
+1. C:\Program Files\Microsoft Azure Recovery Services Agent
 2. C:\ProgramData\ASR
 3. C:\ProgramData\ASRLogs
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
-6. C:\ProgramData\Azure Site Recovery
-7. ASR 负载均衡的进程服务器安装目录，示例：C:\Program Files (x86)\Azure Site Recovery
+6. C:\ProgramData\Microsoft Azure Site Recovery
+7. ASR 负载均衡进程服务器安装目录，示例：C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ## <a name="next-steps"></a>后续步骤
 [设置目标环境](./vmware-azure-set-up-target.md)

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/28/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: jerskine
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: e0fc31aaa39ed2c8c12b30e3e9d4210b773a9efb
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 3fc89cdcfc5a62c3c18f3137971b80adb1cd7b5a
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529743"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381855"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>验证 Azure Stack 的 Graph 集成
 
@@ -31,7 +31,7 @@ ms.locfileid: "64529743"
 就绪性检查器会验证下列项：
 
 * 为 Graph 集成创建的服务帐户的凭据具有相应的权限，可以查询 Active Directory。
-* 全局目录可以解析并可访问。
+* 全局目录可以解析并可访问。 
 * KDC 可以解析并可访问。
 * 已建立必要的网络连接。
 
@@ -48,7 +48,7 @@ ms.locfileid: "64529743"
 **运行该工具的计算机：**
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
    > `$PSVersionTable.PSVersion`
 * Active Directory PowerShell 模块。
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。

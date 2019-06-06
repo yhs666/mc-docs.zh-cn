@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/31/2018
-ms.date: 01/21/2019
+origin.date: 04/16/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: c1d0cc3e18346c2bf6e99a1cc7080f9a7c36e4f9
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 3a0184fe97ea39bd59d22e3f9f6be13193058469
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363549"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390813"
 ---
 # <a name="physical-server-to-azure-disaster-recovery-architecture"></a>物理服务器到 Azure 的灾难恢复体系结构
 
@@ -25,7 +25,7 @@ ms.locfileid: "54363549"
 
 **组件** | **要求** | **详细信息**
 --- | --- | ---
-**Azure** | Azure 订阅、Azure 存储帐户和 Azure 网络。 | 从本地 VM 复制的数据存储在存储帐户中。 运行从本地到 Azure 的故障转移时，将使用复制的数据创建 Azure VM。 创建 Azure VM 后，它们将连接到 Azure 虚拟网络。
+**Azure** | Azure 订阅和 Azure 网络。 | 从本地物理计算机器复制的数据存储在 Azure 托管磁盘中。 运行从本地到 Azure 的故障转移时，将使用复制的数据创建 Azure VM。 创建 Azure VM 后，它们将连接到 Azure 虚拟网络。
 **配置服务器** | 需要部署单台本地物理机或 VMware VM 来运行所有非本地 Site Recovery 组件。 VM 运行配置服务器、进程服务器和主目标服务器。 | 配置服务器在本地与 Azure 之间协调通信并管理数据复制。
  **进程服务器**：  | 默认与配置服务器安装在一起。 | 充当复制网关。 接收复制数据，通过缓存、压缩和加密对其进行优化，然后将数据发送到 Azure 存储。<br/><br/> 进程服务器还在要复制的服务器上安装移动服务。<br/><br/> 随着部署扩大，可以另外添加单独的进程服务器来处理更大的复制流量。
  **主目标服务器** | 默认与配置服务器安装在一起。 | 处理从 Azure 进行故障回复期间产生的复制数据。<br/><br/> 对于大型部署，可以另外添加一个单独的主目标服务器用于故障回复。
@@ -45,7 +45,7 @@ ms.locfileid: "54363549"
     - 配置服务器通过 HTTPS 443 出站端口来与 Azure 协调复制管理。
     - 进程服务器从源计算机接收数据、优化和加密数据，并通过 443 出站端口将其发送到 Azure 存储。
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。 如果将多台计算机分组到复制组，并且这些组在故障转移时共享崩溃一致且应用一致的恢复点，请使用多 VM 方案。 如果计算机运行相同的工作负荷并需要保持一致，这种做法非常有用。
-4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#public-peering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
+4. 流量通过 Internet 复制到 Azure 存储公共终结点。 或者，可以使用 Azure ExpressRoute [公共对等互连](../expressroute/expressroute-circuit-peerings.md#publicpeering)。 不支持通过站点到站点 VPN 将流量从本地站点复制到 Azure。
     
     <!-- Sync late on azure-public-peering -->
     
@@ -82,4 +82,4 @@ ms.locfileid: "54363549"
 
 根据[此教程](physical-azure-disaster-recovery.md)启用物理服务器到 Azure 复制。
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties， wording update  -->

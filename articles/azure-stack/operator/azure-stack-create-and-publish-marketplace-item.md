@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/08/2019
-ms.date: 04/29/2019
+origin.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: avishwan
-ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: da0bc1a625c77b430a47c250929b051a66822a08
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: e89dd79c0be4670a2df14ec1eaa1fd9d0d5ded7b
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529737"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381917"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>创建和发布市场项目
 
@@ -43,7 +43,7 @@ ms.locfileid: "64529737"
 
 3. [创建一个 Azure 资源管理器模板](/azure-resource-manager/resource-group-authoring-templates)或从 GitHub 中选择一个模板。 市场项使用此模板来创建资源。
 
-    > [!Note]  
+    > [!NOTE]  
     > 切勿对 Azure 资源管理器模板中的任何机密（例如产品密钥、密码或任何客户身份信息）进行硬编码。 将模板 JSON 文件发布到库中后，无法身份验证即可访问这些文件。 将所有机密存储在 [Key Vault](/azure-resource-manager/resource-manager-keyvault-parameter) 中，然后从模板内部调用它们。
 
 4. 为确保资源可以成功部署，请使用 Azure Stack API 测试此模板。
@@ -55,6 +55,7 @@ ms.locfileid: "64529737"
    > 为正确生成市场项，需要全部四个图标大小（small、medium、large、wide）。
    >
    >
+
 8. 在 **Manifest.json** 文件中，将 **name** 更改为你的市场项的名称。 另外，将 **publisher** 更改为你的公司的名称。
 9. 在 **artifacts** 下，将 **name** 和 **path** 更改为你包括的 Azure 资源管理器模板的正确信息：
 
@@ -85,7 +86,7 @@ ms.locfileid: "64529737"
     ```
 
     > [!NOTE]
-    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 C:\MarketPlaceItem 必须存在。
+    > 输出包的完整路径必须存在。 例如，如果输出路径为 C:\MarketPlaceItem\yourpackage.azpkg，则文件夹 **C:\MarketPlaceItem** 必须存在。
     >
     >
 
@@ -109,7 +110,8 @@ ms.locfileid: "64529737"
 4. 转到门户。 你现在可以作为操作员或用户在门户中查看市场项。 包可能需要过几分钟才会出现。
 
 5. 你的市场项现在已保存到 Azure Stack 市场。 你可以选择从 Blob 存储位置中将其删除。
-    > [!Caution]  
+
+    > [!CAUTION]  
     > 现在，无需身份验证，即可通过以下 URL 访问所有默认的库项目和自定义库项目：  
 `https://adminportal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
 `https://portal.[Region].[external FQDN]:30015/artifact/20161101/[Template Name]/DeploymentTemplates/Template.json`
@@ -122,7 +124,7 @@ ms.locfileid: "64529737"
    ```
 
    > [!NOTE]
-   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”。 然后，在“门户自定义”下选择“放弃修改”。
+   > 删除某个项后，市场 UI 可能会显示错误。 若要修复此错误，请在门户中单击“设置”  。 然后，在“门户自定义”下选择“放弃修改”。  
    >
    >
 
@@ -140,12 +142,12 @@ ms.locfileid: "64529737"
 
 | Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法美观地显示项名称。 |
-| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法美观地显示发布者名称。 |
+| DisplayName |X |String |建议不要超过 80 个字符 |如果长度超过 80 个字符，门户可能无法正确地显示项名称。 |
+| PublisherDisplayName |X |String |建议不要超过 30 个字符 |如果长度超过 30 个字符，门户可能无法正确地显示发布者名称。 |
 | PublisherLegalName |X |String |最多 256 个字符 | |
 | 摘要 |X |String |60 到 100 个字符 | |
 | LongSummary |X |String |140 到 256 个字符 |在 Azure Stack 中尚不适用。 |
-| 说明 |X |[HTML](https://auxdocs.chinacloudsites.cn/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 到 5,000 个字符 | |
+| 说明 |X |[HTML](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization) |500 到 5,000 个字符 | |
 
 ### <a name="images"></a>映像
 
@@ -161,7 +163,7 @@ ms.locfileid: "64529737"
 
 ### <a name="categories"></a>Categories
 
-应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个。
+应当为每个市场项标记一个类别，该类别标识在门户 UI 中的何处显示该项。 可以选择 Azure Stack 中的现有类别之一（计算、数据 + 存储，等等），也可以选择新建一个   。
 
 ### <a name="links"></a>链接
 
@@ -169,7 +171,7 @@ ms.locfileid: "64529737"
 
 | Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多 64 个字符 | |
+| DisplayName |X |String |最多 64 个字符。 | |
 | Uri |X |URI | | |
 
 ### <a name="additional-properties"></a>其他属性
@@ -178,12 +180,12 @@ ms.locfileid: "64529737"
 
 | Name | 必须 | 类型 | 约束 | 说明 |
 | --- | --- | --- | --- | --- |
-| DisplayName |X |String |最多 25 个字符 | |
-| Value |X |String |最多 30 个字符 | |
+| DisplayName |X |String |最多 25 个字符。 | |
+| Value |X |String |最多 30 个字符。 | |
 
 ### <a name="html-sanitization"></a>HTML 清理
 
-对于允许使用 HTML 的任何字段，将允许使用以下元素和属性：
+对于允许使用 HTML 的任何字段，将[允许使用以下元素和属性](https://github.com/Azure/portaldocs/blob/master/gallery-sdk/generated/index-gallery.md#gallery-item-metadata-html-sanitization)：
 
 `h1, h2, h3, h4, h5, p, ol, ul, li, a[target|href], br, strong, em, b, i`
 
@@ -198,3 +200,8 @@ ms.locfileid: "64529737"
 ### <a name="marketplace-item-details-blade"></a>市场项详细信息边栏选项卡
 
 ![市场项详细信息边栏选项卡](media/azure-stack-create-and-publish-marketplace-item/image3.png)
+
+## <a name="next-steps"></a>后续步骤
+
+* [Azure Stack 市场概述](azure-stack-marketplace.md)
+* [下载市场项](azure-stack-download-azure-marketplace-item.md)

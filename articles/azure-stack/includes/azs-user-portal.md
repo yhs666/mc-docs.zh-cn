@@ -3,14 +3,14 @@ author: WenJason
 ms.service: azure-stack
 ms.topic: include
 origin.date: 10/23/2018
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 46fca924c4273d47d0ab281582739864fd6c0d52
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: c559edcf88c3177e142b7242a79367e5a1635366
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529447"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381782"
 ---
 登录到用户门户：
     - 对于集成系统部署，门户地址将根据解决方案的区域和外部域名而有所不同。 它将采用格式： https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。

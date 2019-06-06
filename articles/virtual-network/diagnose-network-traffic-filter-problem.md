@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5301c3b311018b56db3e0412f91c413147abda6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f96a7b7e64ede6f2466cfac6c0b8468e4293300d
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626266"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250465"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>诊断虚拟机网络流量筛选器问题
 
@@ -33,30 +33,30 @@ ms.locfileid: "58626266"
 
 尝试通过端口 80 从 Internet 连接到 VM，但连接失败。 若要确定为何无法从 Internet 访问端口 80，可以使用 Azure [门户](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 或 [Azure CLI](#diagnose-using-azure-cli) 查看网络接口的有效安全规则。
 
-以下步骤假设有一个要查看其有效安全规则的现有 VM。 如果没有 VM，请先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM 以完成本文中的任务。 本文中的示例适用于名为 *myVM* 的 VM，其中包含名为 *myVMVMNic* 的网络接口。 VM 和网络接口位于名为 *myResourceGroup* 的资源组中，并位于“中国东部”区域中。 针对想要诊断其问题的 VM，相应地更改步骤中的值。
+以下步骤假设有一个要查看其有效安全规则的现有 VM。 如果没有 VM，请先部署 [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fvirtual-network%2ftoc.json) VM 以完成本文中的任务。 本文中的示例适用于名为 *myVM* 的 VM，其中包含名为 *myVMVMNic* 的网络接口。 VM 和网络接口位于名为 *myResourceGroup* 的资源组中，并位于“中国东部”  区域中。 针对想要诊断其问题的 VM，相应地更改步骤中的值。
 
 ## <a name="diagnose-using-azure-portal"></a>使用 Azure 门户诊断
 
 1. 使用拥有[所需权限](virtual-network-network-interface.md#permissions)的 Azure 帐户登录到 Azure [门户](https://portal.azure.cn)。
 2. 在 Azure 门户顶部的搜索框中输入 VM 的名称。 当 VM 名称显示在搜索结果中时，请选择它。
-3. 如下图所示，在“设置”下选择“网络”：
+3. 如下图所示，在“设置”下选择“网络”：  
 
     ![查看安全规则](./media/diagnose-network-traffic-filter-problem/view-security-rules.png)
 
-    上图中列出的规则适用于名为 **myVMVMNic** 的网络接口。 可以看到两个不同网络安全组中网络接口的“入站端口规则”：
+    上图中列出的规则适用于名为 **myVMVMNic** 的网络接口。 可以看到两个不同网络安全组中网络接口的“入站端口规则”： 
 
-   - **mySubnetNSG**：已关联到网络接口所在的子网。
-   - **myVMNSG**：已关联到 VM 中名为 **myVMVMNic** 的网络接口。
+    - **mySubnetNSG**：已关联到网络接口所在的子网。
+    - **myVMNSG**：已关联到 VM 中名为 **myVMVMNic** 的网络接口。
 
-     如[场景](#scenario)中所述，名为 **DenyAllInBound** 的规则阻止端口 80 从 Internet 与 VM 进行入站通信。 规则中为“源”列出了 *0.0.0.0/0*，其中包括 Internet。 其他更高优先级（较小的数字）的规则都不允许端口 80 入站通信。 若要允许通过端口 80 从 Internet 与 VM 进行入站通信，请参阅[解决问题](#resolve-a-problem)。 若要详细了解安全规则以及 Azure 如何应用这些规则，请参阅[网络安全组](security-overview.md)。
+     如[场景](#scenario)中所述，名为 **DenyAllInBound** 的规则阻止端口 80 从 Internet 与 VM 进行入站通信。 规则中为“源”列出了 *0.0.0.0/0*，其中包括 Internet。  其他更高优先级（较小的数字）的规则都不允许端口 80 入站通信。 若要允许通过端口 80 从 Internet 与 VM 进行入站通信，请参阅[解决问题](#resolve-a-problem)。 若要详细了解安全规则以及 Azure 如何应用这些规则，请参阅[网络安全组](security-overview.md)。
 
-     在图片底部，还可以看到“出站端口规则”。 其下面是网络接口的出站端口规则。 尽管图片中仅显示了每个 NSG 的四个入站规则，但 NSG 包含的规则可能远远超过四个。 在图片中“源”和“目标”下面可以看到“VirtualNetwork”，在“源”下面可以看到“AzureLoadBalancer”。 **VirtualNetwork** 和 **AzureLoadBalancer** 是[服务标记](security-overview.md#service-tags)。 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。
+     在图片底部，还可以看到“出站端口规则”。  其下面是网络接口的出站端口规则。 尽管图片中仅显示了每个 NSG 的四个入站规则，但 NSG 包含的规则可能远远超过四个。 在图片中“源”和“目标”下面可以看到“VirtualNetwork”，在“源”下面可以看到“AzureLoadBalancer”。      **VirtualNetwork** 和 **AzureLoadBalancer** 是[服务标记](security-overview.md#service-tags)。 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。
 
-4. 确保 VM 处于运行状态，然后如上图所示选择“有效安全规则”，以查看下图所示的有效安全规则：
+4. 确保 VM 处于运行状态，然后如上图所示选择“有效安全规则”，以查看下图所示的有效安全规则： 
 
     ![查看有效的安全规则](./media/diagnose-network-traffic-filter-problem/view-effective-security-rules.png)
 
-    列出的规则与步骤 3 中相同，不过，与网络接口和子网关联的 NSG 有不同的选项卡。 图片中只显示了前 50 个规则。 若要下载包含所有规则的 .csv 文件，请选择“下载”。
+    列出的规则与步骤 3 中相同，不过，与网络接口和子网关联的 NSG 有不同的选项卡。 图片中只显示了前 50 个规则。 若要下载包含所有规则的 .csv 文件，请选择“下载”。 
 
     若要查看每个服务标记表示的前缀，请选择一个规则，例如名为 **AllowAzureLoadBalancerInbound** 的规则。 下图显示 **AzureLoadBalancer** 服务标记的前缀：
 
@@ -78,15 +78,17 @@ ms.locfileid: "58626266"
 
 ## <a name="diagnose-using-powershell"></a>使用 PowerShell 诊断
 
-可以通过从计算机运行 PowerShell 来运行命令。 如果在计算机上运行 PowerShell，需要 *AzureRM* PowerShell 模块 6.0.1 或更高版本。 在计算机上运行 `Get-Module -ListAvailable AzureRM`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Login-AzureRmAccount -Environment AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+可以通过从计算机运行 PowerShell 来运行命令。  如果在计算机上运行 PowerShell，需要 Azure PowerShell 模块 1.0.0 或更高版本。 在计算机上运行 `Get-Module -ListAvailable Az`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需要运行 `Connect-AzAccount -Environment AzureChinaCloud`，以使用拥有[所需权限](virtual-network-network-interface.md#permissions)的帐户登录到 Azure。
 
 <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 
-使用 [Get-AzureRmEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup) 获取网络接口的有效安全规则。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效安全规则：
+使用 [Get-AzEffectiveNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/get-azeffectivenetworksecuritygroup) 获取网络接口的有效安全规则。 以下示例获取资源组 *myResourceGroup* 中名为 *myVMVMNic* 的网络接口的有效安全规则：
 
-```azurepowershell
-Get-AzureRmEffectiveNetworkSecurityGroup `
-  -NetworkInterfaceName myVMVMNic interface `
+```powershell
+Get-AzEffectiveNetworkSecurityGroup `
+  -NetworkInterfaceName myVMVMNic `
   -ResourceGroupName myResourceGroup
 ```
 
@@ -97,8 +99,8 @@ Get-AzureRmEffectiveNetworkSecurityGroup `
 
 如果不知道网络接口的名称，但知道网络接口所附加到的 VM 的名称，则运行以下命令会返回附加到 VM 的所有网络接口的 ID：
 
-```azurepowershell
-$VM = Get-AzureRmVM -Name myVM -ResourceGroupName myResourceGroup
+```powershell
+$VM = Get-AzVM -Name myVM -ResourceGroupName myResourceGroup
 $VM.NetworkProfile
 ```
 
@@ -171,9 +173,9 @@ az vm show \
 
 无论使用 Azure [门户](#diagnose-using-azure-portal)、[PowerShell](#diagnose-using-powershell) 还是 [Azure CLI](#diagnose-using-azure-cli) 来诊断本文[场景](#scenario)中所述的问题，解决方法都是创建具有以下属性的网络安全规则：
 
-| 属性                | 值                                                                              |
+| 属性                | Value                                                                              |
 |---------                |---------                                                                           |
-| 源                  | 任意                                                                                |
+| Source                  | 任意                                                                                |
 | 源端口范围      | 任意                                                                                |
 | 目标             | VM 的 IP 地址、IP 地址范围，或子网中的所有地址。 |
 | 目标端口范围 | 80                                                                                 |
@@ -211,4 +213,3 @@ az vm show \
 - 了解 VM 的[默认安全规则](security-overview.md#default-security-rules)、[服务标记](security-overview.md#service-tags)，以及 [Azure 如何处理入站和出站流量的安全规则](security-overview.md#network-security-groups)。
 
 <!-- Update_Description: wording update, update link -->
-

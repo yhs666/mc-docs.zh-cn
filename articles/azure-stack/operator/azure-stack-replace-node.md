@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/14/2019
+origin.date: 03/11/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 31107b3710f70998040be27dec7ba4abdd56a321
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: 387d1348814e5a06e3058eaecb08d0c55a478016
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529963"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248647"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 
@@ -46,7 +47,7 @@ ms.locfileid: "64529963"
 
 ![缩放单元节点关闭的警报列表](media/azure-stack-replace-node/nodedownalerts.png)
 
-如果开启“缩放单元节点已脱机”警报，警报说明会包含不可访问的缩放单元节点。 也可能会在硬件生命周期主机上运行的 OEM 特定的监视解决方案中收到其他警报。
+如果开启“缩放单元节点已脱机”  警报，警报说明会包含不可访问的缩放单元节点。 也可能会在硬件生命周期主机上运行的 OEM 特定的监视解决方案中收到其他警报。
 
 ![节点脱机警报的详细信息](media/azure-stack-replace-node/nodeoffline.png)
 

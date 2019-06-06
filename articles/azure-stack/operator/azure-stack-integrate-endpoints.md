@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/06/2019
-ms.date: 04/29/2019
+origin.date: 05/02/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: b19de5f393ef972c8a32ff74274603d3424a4530
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 2be92d7b0f922cb33eee16927f18a4601e8ff42c
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529646"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381906"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -29,7 +29,7 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 ## <a name="ports-and-protocols-inbound"></a>端口和协议（入站）
 
-将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。 “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
+将 Azure Stack 终结点发布到外部网络需要一组基础结构 VIP。  “终结点 (VIP)”表显示了每个终结点、所需的端口和协议。 请参阅特定资源提供程序部署文档，了解需要其他资源提供程序（例如 SQL 资源提供程序）的终结点。
 
 此处未列出内部基础结构 VIP，因为发布 Azure Stack 时不需要这些 VIP。
 
@@ -41,27 +41,27 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 
 |终结点 (VIP)|DNS 主机 A 记录|协议|端口|
 |---------|---------|---------|---------|
-|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|门户（管理员）|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|AD FS|Adfs. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（管理员）|Adminportal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Adminhosting | *.adminhosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Azure 资源管理器（管理员）|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|门户（用户）|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Azure 资源管理器（用户）|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|证书吊销列表|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
-|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
+|Azure 资源管理器（管理员）|Adminmanagement. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|门户（用户）|Portal. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Azure 资源管理器（用户）|Management. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Graph|Graph. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|证书吊销列表|Crl. *&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;. *&lt;region>.&lt;fqdn>*|TCP 和 UDP|53|
 |Hosting | *.hosting.\<region>.\<fqdn> | HTTPS | 443 |
-|Key Vault（用户）|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|Key Vault（管理员）|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
-|存储队列|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|存储表|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|存储 Blob|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
-|SQL 资源提供程序|sqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|MySQL 资源提供程序|mysqladapter.dbadapter.*&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
-|应用服务|&#42;.appservice.*&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
-|  |&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
-|  |api.appservice.*&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
-|  |ftp.appservice.*&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
+|Key Vault（用户）|&#42;.vault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Key Vault（管理员）|&#42;.adminvault. *&lt;region>.&lt;fqdn>*|HTTPS|443|
+|存储队列|&#42;.queue. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|存储表|&#42;.table. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|存储 Blob|&#42;.blob. *&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|SQL 资源提供程序|sqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|MySQL 资源提供程序|mysqladapter.dbadapter. *&lt;region>.&lt;fqdn>*|HTTPS|44300-44304|
+|应用服务|&#42;.appservice. *&lt;region>.&lt;fqdn>*|TCP|80 (HTTP)<br>443 (HTTPS)<br>8172 (MSDeploy)|
+|  |&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)|
+|  |api.appservice. *&lt;region>.&lt;fqdn>*|TCP|443 (HTTPS)<br>44300（Azure 资源管理器）|
+|  |ftp.appservice. *&lt;region>.&lt;fqdn>*|TCP、UDP|21、1021、10001-10100 (FTP)<br>990 (FTPS)|
 |VPN 网关|     |     |[请参阅 VPN 网关常见问题解答](/vpn-gateway/vpn-gateway-vpn-faq#can-i-traverse-proxies-and-firewalls-using-point-to-site-capability)。|
 |     |     |     |     |
 
@@ -76,7 +76,7 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |---------|---------|---------|---------|---------|
 |标识|login.chinacloudapi.cn<br>login.partner.microsoftonline.cn<br>graph.chinacloudapi.cn<br>https:\//secure.aadcdn.microsoftonline-p.com<br>office.com|HTTP<br>HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
 |市场联合|https:\//management.chinacloudapi.cn<br>https://&#42;.blob.core.chinacloudapi.cn<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|公共 VIP - /27|
-|修补程序和更新|https://&#42;.azureedge.net|HTTPS|443|公共 VIP - /27|
+|修补程序和更新|https://&#42;.azureedge.net<br>https:\//aka.ms/azurestackautomaticupdate|HTTPS|443|公共 VIP - /27|
 |注册|https:\//management.chinacloudapi.cn|HTTPS|443|公共 VIP - /27|
 |使用情况|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.cn|HTTPS|443|公共 VIP - /27|
 |Windows Defender|\*.wdcp.microsoft.com<br>\*.wdcpalt.microsoft.com<br>\*.wd.microsoft.com<br>\*.update.microsoft.com<br>\*.download.microsoft.com<br>https:\//www.microsoft.com/pkiops/crl<br>https:\//www.microsoft.com/pkiops/certs<br>https:\//crl.microsoft.com/pki/crl/products<br>https:\//www.microsoft.com/pki/certs<br>https:\//secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|公共 VIP - /27<br>公共基础结构网络|
@@ -96,4 +96,3 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack PKI 要求](azure-stack-pki-certs.md)
-<!-- Update_Description: wording update -->

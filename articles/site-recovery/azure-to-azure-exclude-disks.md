@@ -1,54 +1,56 @@
 ---
 title: Azure Site Recovery - 在复制 Azure 虚拟机时使用 Azure PowerShell 排除磁盘 | Azure
-description: 了解如何通过 Azure Site Recovery 使用 Azure PowerShell 为 Azure 虚拟机排除磁盘。
+description: 了解如何使用 Azure PowerShell 在 Azure Site Recovery 过程中排除 Azure 虚拟机的磁盘。
 services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: cab8ee1003b1ff78a3596e62fedf4c8c63c170ef
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 4dd2994d7d99aa731b3e67316ac943703241a87a
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463710"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390860"
 ---
-# <a name="exclude-disks-from-replication-of-azure-vms-to-azure-using-azure-powershell"></a>将磁盘从 Azure VM 复制到 Azure 时使用 Azure PowerShell 排除磁盘
+# <a name="exclude-disks-from-powershell-replication-of-azure-vms"></a>对 Azure VM 进行 PowerShell 复制时排除磁盘
 
-本文介绍如何在复制 Azure VM 时排除磁盘。 这种排除可以优化消耗的复制带宽，或者优化此类磁盘利用的目标端资源。 目前，仅通过 Azure PowerShell 公开此功能。
+本文介绍如何在复制 Azure VM 时排除磁盘。 可以通过排除磁盘来优化消耗的复制带宽，或者优化此类磁盘使用的目标端资源。 目前，仅通过 Azure PowerShell 提供此功能。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 开始之前：
 
-- 请确保了解[方案体系结构和组件](azure-to-azure-architecture.md)。
+- 请确保了解[灾难恢复体系结构和组件](azure-to-azure-architecture.md)。
 - 查看所有组件的[支持要求](azure-to-azure-support-matrix.md)。
-- 拥有 5.7.0 或更高版本的 AzureRm PowerShell 模块。 如需安装或升级 Azure PowerShell，请参阅 [Azure PowerShell 安装和配置指南](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
-- 已创建恢复服务保管库，并且至少已对虚拟机进行了一次保护。 如果没有，请使用[此处](azure-to-azure-powershell.md)提到的文档进行操作 
+- 确保有 AzureRm PowerShell 的“Az”模块。 若要安装或更新 PowerShell，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+- 确保已经创建恢复服务保管库并对虚拟机进行了至少一次保护。 如果尚未做这些事，请按[使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复](azure-to-azure-powershell.md)中介绍的过程操作。
 
-## <a name="why-exclude-disks-from-replication"></a>为什么要从复制中排除磁盘？
-从复制中排除磁盘通常因以下原因而有必要：
+## <a name="why-exclude-disks-from-replication"></a>为什么要从复制中排除磁盘
+需要从复制中排除磁盘可能是因为：
 
-- 虚拟机已达到 [Azure Site Recovery 对数据更改复制速率的限制](/site-recovery/azure-to-azure-support-matrix#azure-site-recovery-limits-to-replicate-data-change-rates)
+- 虚拟机已达到 [Azure Site Recovery 对数据更改复制速率的限制](/site-recovery/azure-to-azure-support-matrix)。
 
 - 排除的磁盘上改动的数据不重要或不需要复制。
 
-- 用户需要节省存储和网络资源，因此不复制此改动。
+- 需要节省存储和网络资源，因此不复制此数据。
 
-## <a name="how-to-exclude-disks-from-replication"></a>如何从复制中排除磁盘？
+## <a name="how-to-exclude-disks-from-replication"></a>如何从复制中排除磁盘
 
-在本文的示例中，中国东部地区中拥有 1 个 OS 和 3 个数据磁盘的虚拟机将被复制到中国北部区域。 本示例中使用的虚拟机名称为 AzureDemoVM。 并且我们将排除磁盘 1 并保留磁盘 2 和 3
+在示例中，我们将中国东部区域中拥有一个 OS 和三个数据磁盘的虚拟机复制到中国北部区域。 虚拟机的名称为“AzureDemoVM”  。 我们排除磁盘 1，保留磁盘 2 和 3。
 
 <!--MOONCAKE: should be China North region-->
 
-## <a name="get-details-of-the-virtual-machines-to-be-replicated"></a>获取要复制的虚拟机的详细信息
+## <a name="get-details-of-the-virtual-machines-to-replicate"></a>获取要复制的虚拟机的详细信息
 
 ```azurepowershell
 # Get details of the virtual machine
-$VM = Get-AzureRmVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
+$VM = Get-AzVM -ResourceGroupName "A2AdemoRG" -Name "AzureDemoVM"
 
 Write-Output $VM     
 ```
@@ -69,45 +71,45 @@ ProvisioningState  : Succeeded
 StorageProfile     : {ImageReference, OsDisk, DataDisks}
 ```
 
-获取虚拟机磁盘的详细信息。 稍后在开始复制虚拟机时，将使用磁盘详细信息。
+获取虚拟机的磁盘的详细信息。 此信息会在以后启动 VM 复制时用到。
 
 ```azurepowershell
 $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
 $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```
 
-## <a name="replicate-azure-virtual-machine"></a>复制 Azure 虚拟机
+## <a name="replicate-an-azure-virtual-machine"></a>复制 Azure 虚拟机
 
-在下面的示例中，我们假设已有缓存存储帐户、复制策略和映射。 如果没有，请使用[此处](azure-to-azure-powershell.md)提到的文档进行操作 
+对于以下示例，我们假设你已有缓存存储帐户、复制策略和映射。 如果没有这些项目，请按[使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复](azure-to-azure-powershell.md)中介绍的过程操作。
 
-复制包含**托管磁盘**的 Azure 虚拟机。
+复制包含*托管磁盘*的 Azure 虚拟机。
 
 <!--MOONCAKE: should be China North region-->
 
 ```azurepowershell
 
 #Get the resource group that the virtual machine must be created in when failed over.
-$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "China North"
+$RecoveryRG = Get-AzResourceGroup -Name "a2ademorecoveryrg" -Location "China North"
 
-#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration).
 
 #OsDisk
 $OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
 $RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
 
-$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $ChinaEastCacheStorageAccount.Id `
+$OSDiskReplicationConfig = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $ChinaEastCacheStorageAccount.Id `
          -DiskId $OSdiskId -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryOSDiskAccountType
 
-# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded so we will provide it during the time of replication 
+# Data Disk 1 i.e StorageProfile.DataDisks[0] is excluded, so we will provide it during the time of replication. 
 
 # Data disk 2
 $datadiskId2  = $vm.StorageProfile.DataDisks[1].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[1]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[1]. StorageAccountType
 
-$DataDisk2ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+$DataDisk2ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId2 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
@@ -117,7 +119,7 @@ $datadiskId3  = $vm.StorageProfile.DataDisks[2].ManagedDisk.id
 $RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[2]. StorageAccountType
 $RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[2]. StorageAccountType
 
-$DataDisk3ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
+$DataDisk3ReplicationConfig  = New-AzRecoveryServicesAsrAzureToAzureDiskReplicationConfig -ManagedDisk -LogStorageAccountId $CacheStorageAccount.Id `
          -DiskId $datadiskId3 -RecoveryResourceGroupId  $RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
          -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
 
@@ -125,20 +127,20 @@ $DataDisk3ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskRep
 $diskconfigs = @()
 $diskconfigs += $OSDiskReplicationConfig, $DataDisk2ReplicationConfig, $DataDisk3ReplicationConfig
 
-#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+#Start replication by creating a replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
 
-成功启动复制操作后，虚拟机数据将复制到恢复区域。
+启动复制操作成功后，VM 数据将复制到恢复区域。
 
-你可以转到 Azure 门户，在复制的项下方，可以看到正在复制的虚拟机。
-复制过程首先在恢复区域中初始植入虚拟机复制磁盘的副本。 此阶段中称为初始复制阶段。
+转到 Azure 门户即可看到复制的 VM 位于“复制的项”下。
 
-初始复制完成后，复制过程将转移到差异同步阶段。 此时，虚拟机受到保护。 单击受保护的虚拟机 > 磁盘以查看是否排除了磁盘。
+复制过程首先在恢复区域中植入虚拟机复制磁盘的副本。 此阶段中称为初始复制阶段。
+
+初始复制完成后，复制过程进入差异同步阶段。 此时，虚拟机受到保护。 选择受保护的虚拟机，看是否排除了任何磁盘。
 
 ## <a name="next-steps"></a>后续步骤
 
-[详细了解](site-recovery-test-failover-to-azure.md)如何运行测试故障转移。
+了解如何[运行测试性故障转移](site-recovery-test-failover-to-azure.md)。
 
-<!--Update_Description: new articles on azure to azure exclude disks -->
-<!--ms.date: 03/11/2019-->
+<!--Update_Description: wording update-->

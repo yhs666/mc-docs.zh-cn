@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 02/25/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
-ms.openlocfilehash: 8438813fca5457892111d8f548cf8bd7c5734fec
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: bda2cadec64d839b400b0c0188308440dadaf15b
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222574"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296718"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Azure 通知中心的安全模型
 
@@ -51,3 +51,5 @@ ms.locfileid: "56222574"
 | 管理  | 通知中心的 CRUD（包括更新 PNS 凭据和安全密钥），以及基于标记读取注册 |创建/更新/读取/删除通知中心<br><br>按标记读取注册 |
 
 通知中心接受 Azure 访问控制令牌所授予的声明，并接受签名令牌（使用在通知中心直接配置的共享密钥生成）所授予的声明。
+不能向多个命名空间发送通知。 命名空间是通知中心的逻辑容器，不参与发送通知。
+命名空间级别的访问策略（凭据）可用于命名空间级别的操作，例如：列出通知中心、创建或删除通知中心等。只有中心级别访问策略才允许你发送通知。

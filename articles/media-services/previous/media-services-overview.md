@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 05/20/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 93d8031018b90c44bc29a659c3af0e0d4e4b48db
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: dbcd2aa3c6d1854f31273c6f68d1005b2d40f499
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550013"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390767"
 ---
 # <a name="azure-media-services-overview"></a>Azure 媒体服务概述 
 
@@ -44,7 +44,10 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 
 * [媒体服务 REST API](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference)
 * 可用的客户端 SDK 之一：
-    * [适用于 .NET 的 Azure 媒体服务 SDK](https://github.com/Azure/azure-sdk-for-media-services)、
+    * 适用于 .NET 的 Azure 媒体服务 SDK
+    
+        * [NuGet 包](https://www.nuget.org/packages/windowsazure.mediaservices/)
+        * [Github 源代码](https://github.com/Azure/azure-sdk-for-media-services)
     * [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java)，
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php)，
     * [适用于 Node.js 的 Azure 媒体服务](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js)（这是 Node.js SDK 的非 Microsoft 版本。 它由社区维护，当前未包括所有的 AMS API）。
@@ -58,7 +61,7 @@ Azure 媒体服务 (AMS) 是一个可扩展的基于云的平台，可供开发�
 
 ## <a name="code-samples"></a>代码示例
 
-在“Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
+在  “Azure 代码示例”库中查找多个代码示例：[Azure 媒体服务代码示例](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0)。
 
 ## <a name="concepts"></a>概念
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/16/2019
-ms.date: 04/29/2019
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 72fa1c2885beafbdb3d5fa40ae9a4ed80a08f916
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 68d5c3307e5e26981e088dbf00810948ae63a65c
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855600"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381930"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack 注册
 可将 Azure Stack 开发工具包 (ASDK) 安装注册到 Azure，以便从 Azure 下载市场项，并设置向 Azure 报告商务数据的功能。 需要注册才能支持完整的 Azure Stack 功能，包括市场联合。 需要注册才能测试重要的 Azure Stack 功能，如市场联合和使用情况报告。 注册 Azure Stack 之后，使用情况将报告给 Azure 商业组件。 用于注册的订阅下会显示此信息。 但是，ASDK 用户无需付费，不管他们报告的用量是多少。
 
-如果未注册 ASDK，则可能会看到“需要激活”警告警报，建议注册 Azure Stack 开发工具包。 这是预期的行为。
+如果未注册 ASDK，则可能会看到“需要激活”  警告警报，建议注册 Azure Stack 开发工具包。 这是预期的行为。
 
 ## <a name="prerequisites"></a>先决条件
 在遵照这些说明将 ASDK 注册到 Azure 之前，请确保已安装 Azure Stack PowerShell，并已下载[部署后配置](asdk-post-deploy.md)一文中所述的 Azure Stack 工具。
@@ -39,7 +39,7 @@ $ExecutionContext.SessionState.LanguageMode
 
 确保输出返回的是 **FullLanguageMode**。 如果返回了其他任何语言模式，则需要在另一台计算机上运行注册，或者将语言模式设置为 **FullLanguageMode**，然后才能继续。
 
-用于注册的 Azure AD 帐户需要有权访问 Azure 订阅，并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。 我们建议通过[创建用于注册的服务帐户](../azure-stack-registration-role.md)以使用最低特权管理将 Azure Stack 注册到 Azure，而不要使用全局管理员凭据。
+用于注册的 Azure AD 帐户需要有权访问 Azure 订阅，并且有权在与该订阅关联的目录中创建标识应用程序和服务主体。 我们建议通过[创建用于注册的服务帐户](../operator/azure-stack-registration-role.md)以使用最低特权管理将 Azure Stack 注册到 Azure，而不要使用全局管理员凭据。
 
 ## <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 遵循以下步骤将 ASDK 注册到 Azure。
@@ -76,7 +76,7 @@ $ExecutionContext.SessionState.LanguageMode
     -RegistrationName $RegistrationName `
     -UsageReportingEnabled:$true
     ```
-3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。
+3. 该脚本完成后，会显示以下消息：“现已使用提供的参数注册并激活环境”。 
 
     ![环境现已注册](media/asdk-register/1.PNG)
 
@@ -209,18 +209,18 @@ $ExecutionContext.SessionState.LanguageMode
 
 ## <a name="verify-the-registration-was-successful"></a>验证注册是否成功
 
-可以使用“区域管理”磁贴，验证 Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
+可以使用“区域管理”磁贴，验证  Azure Stack 注册是否成功。 可在管理员门户的默认仪表板上使用此磁贴。
 
 1. 登录到 [Azure Stack 管理门户](https://adminportal.local.azurestack.external)。
 
-2. 在“仪表板”中，选择“区域管理”。
+2. 在“仪表板”中，选择“区域管理”。 
 
     [![“区域管理”磁贴](media/asdk-register/admin1sm.png "“区域管理”磁贴")](media/asdk-register/admin1.png#lightbox)
 
-3. 选择“属性”。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。 如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
+3. 选择“属性”  。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。   如果是已注册，则还会显示用于注册 Azure Stack 的 Azure 订阅 ID，以及注册资源组和名称。
 
 ## <a name="move-a-registration-resource"></a>移动注册资源
-支持在同一订阅下的资源组之间移动注册资源。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.azure.cn/azure-resource-manager/resource-group-move-resources)。
+支持在同一订阅下的资源组之间移动注册资源  。 有关将资源移到新的资源组的详细信息，请参阅[将资源移到新的资源组或订阅](https://docs.azure.cn/azure-resource-manager/resource-group-move-resources)。
 
 
 ## <a name="next-steps"></a>后续步骤

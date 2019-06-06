@@ -1,5 +1,5 @@
 ---
-title: 创建在移动应用中使用的通用 Windows 平台 (UWP)
+title: 创建使用 Azure 移动应用的通用 Windows 平台 (UWP) | Azure Docs
 description: 按照本教程进行操作，开始使用 C#、Visual Basic 或 JavaScript 通过 Azure 移动应用后端进行通用 Windows 平台 (UWP) 应用开发。
 services: app-service\mobile
 documentationcenter: windows
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 08/17/2018
-ms.date: 09/03/2018
-ms.author: v-yiso
-ms.openlocfilehash: 7cc3ab1d77f6691edd77e67b5fa7c5b1a506d32a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 06/10/2019
+ms.author: v-biyu
+ms.openlocfilehash: c0696268745b289a47fe32763f8e650a5a3545e9
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626829"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296708"
 ---
 # <a name="create-a-windows-app"></a>创建 Windows 应用
 
@@ -39,10 +39,12 @@ ms.locfileid: "58626829"
 要完成本教程，需要以下各项：
 
 * 有效的 Azure 帐户。 如果没有帐户，可以注册 Azure 试用版并获取多达 10 个免费的移动应用，即使在试用期结束之后仍可继续使用这些应用。 有关详细信息，请参阅 [Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-
-* [Visual Studio Community 2017]。
+* Windows 10。
+* [Visual Studio Community]。
+* 熟悉 UWP 应用开发。 访问 [UWP 文档](https://docs.microsoft.com/windows/uwp/)，了解如何[进行设置](https://docs.microsoft.com/windows/uwp/get-started/get-set-up)，以便生成 UWP 应用。
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
+
 按照下列步骤创建新的移动应用后端。
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -57,28 +59,26 @@ ms.locfileid: "58626829"
 
 配置移动应用后端后，可以创建新的客户端应用或修改现有应用以连接到 Azure。 在此部分中，将下载已自定义以连接到移动应用后端的 UWP 示例应用项目。
 
-1. 返回移动应用后端的“快速入门”边栏选项卡，单击“创建新应用” > “下载”，然后将压缩的项目文件提取到本地计算机上。
+1. 返回移动应用后端的“快速入门”  边栏选项卡，单击“创建新应用”   > “下载”  ，然后将压缩的项目文件提取到本地计算机上。
 
     ![下载 Windows 快速入门项目](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
 
 2. 打开 UWP 项目并按 F5 键以部署并运行该应用。
-3. 在应用的“插入待办事项”文本框中键入有意义的文本（例如“完成教程”），然后单击“保存”。
+3. 在应用的“插入待办事项”  文本框中键入有意义的文本（例如“完成教程”  ），然后单击“保存”  。
 
     ![Windows 快速入门完整桌面](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     这样可向 Azure 中托管的新移动应用后端发送 POST 请求。
 
 > [!TIP]
-> 如果使用的是 .NET 后端，可以将 UWP 应用项目添加到服务器项目所在的解决方案中。 这样更易于调试和测试同一 Visual Studio 解决方案中的应用和后端。 若要将 UWP 应用项目添加到后端解决方案，必须使用 Visual Studio 2017。
+> 如果使用的是 .NET 后端，可以将 UWP 应用项目添加到服务器项目所在的解决方案中。 这样更易于调试和测试同一 Visual Studio 解决方案中的应用和后端。 若要将 UWP 应用项目添加到后端解决方案，必须使用 Visual Studio 2017 或更高版本。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [向应用添加身份验证](./app-service-mobile-windows-store-dotnet-get-started-users.md)  
   了解如何使用标识提供者对应用程序的用户进行身份验证。
-
 * [向应用添加推送通知](./app-service-mobile-windows-store-dotnet-get-started-push.md)  
   了解如何为应用添加推送通知支持，以及如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
-
 * [为应用启用脱机同步](./app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
   了解如何使用移动应用后端向应用添加脱机支持。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/11/2019
-ms.date: 02/18/2019
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: db412b2672943fae90b65e87b1f67fb796bd4ae8
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 8c6ad9353ed754918f6933962beff238ce041cf4
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529903"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381888"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>SQL 资源提供程序维护操作
 
@@ -33,13 +33,13 @@ SQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操作
 
 ### <a name="provider-virtual-machine"></a>提供程序虚拟机
 
-由于资源提供程序在用户虚拟机上运行，因此需要应用已发布的修补升级。 可以使用修补升级周期提供的 Windows 更新包将更新应用到 VM。
+由于资源提供程序在用户虚拟机上运行，因此需要应用已发布的修补升级。  可以使用修补升级周期提供的 Windows 更新包将更新应用到 VM。
 
 ## <a name="updating-sql-credentials"></a>更新 SQL 凭据
 
 你需要负责在 SQL 服务器上创建和维护 sysadmin 帐户。 资源提供程序需要拥有这些特权的帐户才能代表用户管理数据库，但无需访问用户的数据。 如果需要更新 SQL 服务器上的 sysadmin 密码，可以使用资源提供程序的管理员界面来更改存储的密码。 这些密码存储在 Azure Stack 实例上的 Key Vault 中。
 
-若要修改设置，请选择“浏览”&gt;“管理资源”&gt;“SQL 宿主服务器”&gt;“SQL 登录”并选择用户名。 必须先在 SQL 实例上（必要时还需要在任何副本上）进行更改。在“设置”下，选择“密码”。
+若要修改设置，请选择“浏览”&gt;“管理资源”&gt;“SQL 宿主服务器”&gt;“SQL 登录”并选择用户名。     必须先在 SQL 实例上（必要时还需要在任何副本上）进行更改。在“设置”下，选择“密码”。  
 
 ![更新管理密码](./media/azure-stack-sql-rp-deploy/sqlrp-update-password.PNG)
 

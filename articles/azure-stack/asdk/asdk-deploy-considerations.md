@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/12/2018
-ms.date: 04/29/2019
+origin.date: 05/06/2018
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 90e4f6d16c1b50f4b9722335861f0f81ce6002cd
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 2e676b4223bbcc5703758af0e58698a731e426e9
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855555"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381831"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -68,7 +68,7 @@ ms.locfileid: "64855555"
 ## <a name="operating-system"></a>操作系统
 |  | **要求** |
 | --- | --- |
-| **OS 版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本不是很重要，因为你会将主机启动到 VHD 中，而该 VHD 已包括在 Azure Stack 安装中。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥来激活在开发工具包中使用的任何 Windows Server 实例。 |
+| **OS 版本** |Windows Server 2016 或更高版本。 在部署开始之前，操作系统版本不是很重要，因为你会将主计算机启动到 VHD 中，而该 VHD 已包括在 Azure Stack 安装中。 操作系统和所有必需的修补程序已集成到映像中。 请勿使用任何密钥来激活在开发工具包中使用的任何 Windows Server 实例。 |
 
 > [!TIP]
 > 安装操作系统后，可以使用[适用于 Azure Stack 的部署检查器](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b)来确认硬件是否满足所有要求。
@@ -91,12 +91,12 @@ ms.locfileid: "64855555"
    
    | **Azure Active Directory 帐户** | **支持？** |
    | --- | --- |
-   | 具有有效的公共 Azure 订阅的工作或学校帐户 |是 |
-   | 具有有效的公共 Azure 订阅的 Microsoft 帐户 |是 |
+   | 具有有效的全局 Azure 订阅的工作或学校帐户 |是 |
+   | 具有有效的全局 Azure 订阅的 Microsoft 帐户 |是 |
    | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
    | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
-部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
+部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 
 ## <a name="network"></a>网络
 ### <a name="switch"></a>Switch

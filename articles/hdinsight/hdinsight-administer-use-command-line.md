@@ -1,92 +1,92 @@
 ---
 title: 使用 Azure 经典 CLI 管理 Apache Hadoop 群集 - Azure HDInsight
-description: 了解如何使用 Azure 经典 CLI 管理 Azure HDInsight 中的 Apache Hadoop 群集。
-services: hdinsight
+description: 了解如何使用 Azure CLI 管理 Azure HDInsight 群集。 群集类型包括 ApacheHadoop、Spark、HBase、Storm、Kafka、交互式查询和 ML Services。
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 04/15/2019
+origin.date: 05/13/2019
+ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: ba8a6d6e8f011716992c186e5110569ce857e47b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b743789ac2f444616b7c8f458f1492cef452c43b
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003985"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424660"
 ---
-# <a name="manage-apache-hadoop-clusters-in-hdinsight-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 管理 HDInsight 中的 Apache Hadoop 群集
+# <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>使用 Azure CLI 管理 Azure HDInsight 群集
+
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-了解如何使用 [Azure 经典 CLI](../cli-install-nodejs.md) 管理 Azure HDInsight 中的 Apache Hadoop 群集。 经典 CLI 是以 Node.js 实现的。 可以在支持 Node.js 的任意平台（包括 Windows、Mac 和 Linux）上使用它。
+了解如何使用 [Azure CLI](/cli/?view=azure-cli-latest) 管理 Azure HDInsight 群集。 Azure 命令行接口 (CLI) 是用于管理 Azure 资源的 Microsoft 跨平台命令行体验。
 
-[!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
-在开始阅读本文前，必须具有：
 
-* **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* Azure 经典 CLI - 有关安装和配置信息，请参阅[安装和配置 Azure 经典 CLI](../cli-install-nodejs.md)。
-* 使用以下命令**连接到 Azure**：
+* Azure CLI。 如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli) 来了解步骤。
 
-    ```cli
-    azure login  -e AzureChinaCloud
-    ```
-  
-    有关使用公司或学校帐户进行身份验证的详细信息，请参阅 [从 Azure 经典 CLI 连接到 Azure 订阅](/cli/authenticate-azure-cli)。
-* 使用以下命令**切换到 Azure Resource Manager 模式**：
-  
-    ```cli
-    azure config mode arm
-    ```
+* HDInsight 中的 Apache Hadoop 群集。 请参阅 [Linux 上的 HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)。
 
-若要获得帮助，请使用 **-h** 开关。  例如：
+## <a name="connect-to-azure"></a>连接到 Azure
 
-```cli
-azure hdinsight cluster create -h
+登录到 Azure 订阅。 输入以下命令：
+
+```azurecli
+az login
+
+# If you have multiple subscriptions, set the one to use
+# az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## <a name="create-clusters-with-the-cli"></a>使用 CLI 创建群集
-请参阅[使用 Azure 经典 CLI 在 HDInsight 中创建群集](hdinsight-hadoop-create-linux-clusters-azure-cli.md)。
+## <a name="list-clusters"></a>列出群集
 
-## <a name="list-and-show-cluster-details"></a>列出并显示群集详细信息
-使用以下命令列出并显示群集详细信息：
+使用 [az hdinsight list](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-list) 列出群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 替换为资源组的名称，然后输入命令：
 
-```cli
-azure hdinsight cluster list
-azure hdinsight cluster show <Cluster Name>
+```azurecli
+# List all clusters in the current subscription
+az hdinsight list
+
+# List only cluster name and its resource group
+az hdinsight list --query "[].{Cluster:name, ResourceGroup:resourceGroup}" --output table
+
+# List all cluster for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME
+
+# List all cluster names for your resource group
+az hdinsight list --resource-group RESOURCE_GROUP_NAME --query "[].{clusterName:name}" --output table
 ```
 
-![群集列表的命令行视图][image-cli-clusterlisting]
+## <a name="show-cluster"></a>显示群集
+
+使用 [az hdinsight show](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-show) 显示指定群集的信息。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
+
+```azurecli
+az hdinsight show --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
+```
 
 ## <a name="delete-clusters"></a>删除群集
-使用以下命令来删除群集：
 
-```cli
-azure hdinsight cluster delete <Cluster Name>
+使用 [az hdinsight delete](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-delete) 删除指定的群集。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息，然后输入命令：
+
+```azurecli
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME
 ```
 
 还可以通过删除包含群集的资源组来删除群集。 请注意，这会删除包括默认存储帐户的组中的所有资源。
 
-```cli
-azure group delete <Resource Group Name>
+```azurecli
+az group delete --name RESOURCE_GROUP_NAME
 ```
 
 ## <a name="scale-clusters"></a>缩放群集
-若要更改 Apache Hadoop 群集大小，请执行以下命令：
 
-```cli
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
+使用 [az hdinsight resize](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 将指定的 HDInsight 群集调整为指定大小。 编辑以下命令，将 `RESOURCE_GROUP_NAME` 和 `CLUSTER_NAME` 替换为相关信息。 将 `TARGET_INSTANCE_COUNT` 替换为群集所需的工作器节点数。 有关缩放群集的详细信息，请参阅[缩放 HDInsight 群集](./hdinsight-scaling-best-practices.md)。 输入以下命令：
 
-
-## <a name="enabledisable-http-access-for-a-cluster"></a>启用/禁用对群集的 HTTP 访问
-
-```cli
-azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
-azure hdinsight cluster disable-http-access [options] <Cluster Name>
+```azurecli
+az hdinsight delete --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
 ```
 
 ## <a name="next-steps"></a>后续步骤

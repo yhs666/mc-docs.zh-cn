@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: scottnap
-ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 414e67bf5658a2cfad2d0b7536f5ae77f70f009a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 02/28/2019
+ms.openlocfilehash: 2a534914afe79ab6c589f3b66ff1d497d3989323
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529676"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381907"
 ---
 # <a name="add-public-ip-addresses"></a>添加公共 IP 地址
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  

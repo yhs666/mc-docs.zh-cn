@@ -10,16 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/05/2018
-ms.date: 12/17/2018
+origin.date: 03/11/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.openlocfilehash: eedf9a0f01db414126bca97b1e646c18282c54d9
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 28d070158b80b50796ba6ccd4b485fac5c930b1d
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529527"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381781"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>使用特权终结点监视 Azure Stack 中的更新
 
@@ -36,11 +37,11 @@ Azure Stack 集成系统 1710 更新版中包含以下用于更新管理的新 P
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>验证 cmdlet 是否可用
-由于 cmdlet 是适用于 Azure Stack 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。 具体来说，cmdlet 更新发生在**步骤：正在运行步骤 2.6 - 更新 PrivilegedEndpoint 允许列表**期间。
+由于 cmdlet 是适用于 Azure Stack 1710 更新包中的新功能，因此 1710 更新过程需要运行到特定的步骤，才能使用监视功能。 一般而言，如果管理员门户中的状态指示 1710 更新正在执行“重启存储主机”步骤，则可以使用 cmdlet。  具体来说，cmdlet 更新发生在**步骤：正在运行步骤 2.6 - 更新 PrivilegedEndpoint 允许列表**期间。
 
 也可以通过从特权终结点查询命令列表，来确定是否可以编程方式使用  cmdlet。 为此，请从硬件生命周期主机或特权访问工作站运行以下命令。 此外，请确保特权终结点是受信任的主机。 有关详细信息，请参阅[访问特权终结点](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint)的步骤 1。 
 
-1. 在 Azure Stack 环境中的任何 ERCS 虚拟机（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 *Prefix* 替换为环境特定的虚拟机前缀字符串。
+1. 在 Azure Stack 环境中的任何 ERCS 虚拟机（*Prefix*-ERCS01、*Prefix*-ERCS02 或 *Prefix*-ERCS03）上创建 PowerShell 会话。 将 Prefix  替换为环境特定的虚拟机前缀字符串。
 
    ```powershell
    $cred = Get-Credential

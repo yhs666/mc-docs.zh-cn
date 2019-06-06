@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 41cfe7c37b3eaa3b6b5b09aa6366e07b01df9163
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 93cab29fe11bd7e2e3db61896c53bfc7475cac9b
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529551"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381909"
 ---
 # <a name="network-connectivity"></a>网络连接
 本文提供 Azure Stack 网络基础架构信息，可帮助你确定如何以最佳方式将 Azure Stack 集成到现有的网络环境。 
@@ -79,7 +79,7 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 此 /29（6 个主机 IP）网络专用于连接交换机的管理端口。 其允许带外访问，以完成部署、管理和故障排除。 它是从上述交换机基础结构网络计算而来的。
 
 ## <a name="publish-azure-stack-services"></a>发布 Azure Stack 服务
-需将 Azure Stack 服务提供给 Azure Stack 外部的用户使用。 Azure Stack 将为其基础结构角色设置不同的终结点。 这些终结点是公共 IP 地址池中分配的 VIP。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal.*&lt;region>.&lt;fqdn>*。
+需将 Azure Stack 服务提供给 Azure Stack 外部的用户使用。 Azure Stack 将为其基础结构角色设置不同的终结点。 这些终结点是公共 IP 地址池中分配的 VIP。 将会根据部署时的指定，针对外部 DNS 区域中的每个终结点创建一个 DNS 条目。 例如，将为用户门户分配 DNS 主机条目 portal. *&lt;region>.&lt;fqdn>* 。
 
 ### <a name="ports-and-urls"></a>端口和 URL
 若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。

@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/08/2019
-ms.openlocfilehash: 0d0b479c4c7522ab419314f26a5f2d6ef0d81a31
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 7a108961fea338b931a08aea3444ebff3959df30
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529744"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381852"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>验证 Azure Stack PKI 证书
 
@@ -153,7 +153,7 @@ Invoke-AzsCertificateValidation Completed
 
 **症状**：跳过了测试
 
-**原因**：如果不符合依赖关系，AzsReadinessChecker 会跳过某些测试：
+**原因：** 如果不符合依赖关系，AzsReadinessChecker 会跳过某些测试：
 
  - 如果证书链出错，则会跳过其他证书。
 

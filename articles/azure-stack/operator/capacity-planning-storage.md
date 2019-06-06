@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 02/20/2019
-ms.openlocfilehash: e139965d9e7fce4b2411150b1bdc4c987951c54d
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: e92a86ccfc6281ba291a2c03e543b507f0b53d13
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529787"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381861"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack 存储容量规划
 以下部分提供 Azure Stack 存储容量规划信息，帮助你针对解决方案的存储需求进行规划。
@@ -31,7 +31,7 @@ ms.locfileid: "64529787"
 Azure Stack 的超聚合配置允许共享物理存储设备。 可用存储的三个主要部分包括：基础结构存储、租户虚拟机的临时存储，以及为 Azure 一致存储 (ACS) 服务的 Blob、表和队列提供支持的存储。
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>空间直通缓存和容量层
-存储容量可以用于操作系统、本地日志记录、转储和其他临时基础结构存储需求。 此本地存储容量独立于受存储空间直通配置管理的存储设备（设备和容量独立）。 其余存储设备置于单个存储容量池中，不管在缩放单元中的服务器数量为多少。 这些设备分为两种类型：缓存设备和容量设备。  缓存设备用于缓存。 空间直通将使用这些设备来写回和读取缓存。 这些缓存设备的容量在使用时，并不局限于已格式化虚拟磁盘的格式化“可见”容量。 容量设备用于此目的，为存储空间管理的数据提供“主目录位置”。
+存储容量可以用于操作系统、本地日志记录、转储和其他临时基础结构存储需求。 此本地存储容量独立于受存储空间直通配置管理的存储设备（设备和容量独立）。 其余存储设备置于单个存储容量池中，不管在缩放单元中的服务器数量为多少。 这些设备分为两种类型：缓存设备和容量设备。  缓存设备只是缓存。 空间直通将使用这些设备来写回和读取缓存。 这些缓存设备的容量在使用时，并不局限于已格式化虚拟磁盘的格式化“可见”容量。 容量设备用于此目的，并为存储空间管理的数据提供“主目录位置”。
 
 所有存储容量都由 Azure Stack 基础结构进行直接分配和管理。 进行容量扩展时，操作员需选择配置或分配，或者对选择进行处理。 进行这些设计决策需遵循解决方案要求，是在初始安装/部署过程中或容量扩展过程中自动完成的。 有关复原的详细信息、为重新生成保留的容量以及其他详细信息视为设计的一部分。 
 
@@ -73,7 +73,7 @@ Azure Stack 的超聚合配置允许共享物理存储设备。 可用存储的�
       TempVirtualDiskSize = (TotalAvailableCapacity * 0.1) / NumberOfServers
 ```
 
-<sup>3</sup> 创建的供 ACS 使用的虚拟磁盘对剩余容量进行了简单的划分。 如前所述，所有虚拟磁盘是一个三向镜像，一个容量驱动器的相当于一个服务器的容量已取消分配。 上面枚举的各种虚拟磁盘会先进行分配，剩余容量随后用于 ACS 虚拟磁盘。
+<sup>3</sup> 创建的供 ACS 使用的虚拟磁盘对剩余容量进行了简单的划分。 如前所述，所有虚拟磁盘都是一个三向镜像，每个服务器的一个容量驱动器的容量值是未分配的。 上面枚举的各种虚拟磁盘会先进行分配，剩余容量随后用于 ACS 虚拟磁盘。
 
 ## <a name="next-steps"></a>后续步骤
 [了解 Azure Stack 容量规划电子表格](capacity-planning-spreadsheet.md)

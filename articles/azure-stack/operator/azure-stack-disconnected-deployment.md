@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 12/11/2018
-ms.openlocfilehash: d1de4c2136480f35bb629b8f78346a62ee124cda
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: cce7f2ff6034281dbddf1a5c1923a939f064bfd7
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529561"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381910"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 断开连接部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -35,12 +35,12 @@ ms.locfileid: "64529561"
 - 如果希望单纯将 Azure Stack 用作部署到公司 Intranet 的私有云解决方案，并且不考虑在混合方案中使用。
 
 > [!TIP]
-> 有时候，这种类型的环境也称为“潜艇方案”。
+> 有时候，这种类型的环境也称为“潜艇方案”  。
 
 离线部署不会限制你以后将 Azure Stack 实例连接到 Azure 以实现混合租户 VM 方案。 它只意味着在部署期间不连接到 Azure，或者不希望使用 Azure AD 作为标识存储。
 
 ## <a name="features-that-are-impaired-or-unavailable-in-disconnected-deployments"></a>在断开连接部署中被削弱或不可用的功能 
-Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务必注意，在断开连接模式下，有些功能被削弱或完全不可用。 
+Azure Stack 设计为在连接到 Azure 的情况下功能最佳，因此请务必注意，在离线模式下，有些功能被损坏或完全不可用。 
 
 |功能|断开连接模式的影响|
 |-----|-----|

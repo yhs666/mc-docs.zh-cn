@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ffd7096c57eb426b18ff8b845b2fd1c52903b2bf
-ms.sourcegitcommit: 780fa3d8b5538d324d3e13051abe6f5bd52208e2
+ms.openlocfilehash: 322e3d09d255a73c674e1e00d26dba9a92e03d0d
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58812641"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250407"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -49,6 +49,7 @@ ms.locfileid: "58812641"
 - [Azure Cosmos DB](#azure-cosmos-db-limits)
 - [Azure Database for MySQL](#azure-database-for-mysql)
 - [Azure Database for PostgreSQL](#azure-database-for-postgresql)
+* [Azure Kubernetes 服务](#azure-kubernetes-service-limits)
 - [Azure Monitor](#monitor-limits)
 - [Azure Policy](#azure-policy-limits)
 - [Azure Redis 缓存](#azure-redis-cache-limits)
@@ -108,9 +109,12 @@ ms.locfileid: "58812641"
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
 
 ### <a name="container-registry-limits"></a>容器注册表限制
-下表详细介绍了基本、标准和高级[服务层](./container-registry/container-registry-skus.md)的功能和限制。
+下表详细介绍了“基本”、“标准”和“高级”[服务层级](./container-registry/container-registry-skus.md)的功能和限制。
 
 [!INCLUDE [container-registry-limits](../includes/container-registry-limits.md)]
+
+### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 服务限制
+[!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
 ### <a name="networking-limits"></a>网络限制
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
@@ -249,7 +253,7 @@ Azure Cosmos DB 是全局缩放数据库，可对吞吐量和存储进行缩放�
 [!INCLUDE [role-based-access-control-limits](../includes/role-based-access-control-limits.md)]
 
 ### <a name="sql-database-limits"></a>SQL 数据库限制
-对于 SQL 数据库限制，请参阅[单一数据库的 SQL 数据库资源限制](sql-database/sql-database-vcore-resource-limits-single-databases.md)和[弹性池和入池数据库的 SQL 数据库资源限制](sql-database/sql-database-vcore-resource-limits-elastic-pools.md)。
+对于 SQL 数据库限制，请参阅[单一数据库的 SQL 数据库资源限制](sql-database/sql-database-vcore-resource-limits-single-databases.md)和[弹性池和共用数据库的 SQL 数据库资源限制](sql-database/sql-database-vcore-resource-limits-elastic-pools.md)。
 
 ### <a name="sql-data-warehouse-limits"></a>SQL 数据仓库限制
 有关 SQL 数据仓库限制，请参阅 [SQL 数据仓库资源限制](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)。

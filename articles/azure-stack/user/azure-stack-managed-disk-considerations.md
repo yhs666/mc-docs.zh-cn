@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/23/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 005443d7323cbcd3bbf937f8dfaababed1ee620e
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: cc3fe55f29d1449aff5f789383607fd8e1db95b8
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854644"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248525"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
@@ -41,7 +41,7 @@ ms.locfileid: "64854644"
 |映像          | 支持托管自定义映像 |支持|
 |备份选项 |支持 Azure 备份服务 |尚不支持 |
 |灾难恢复选项 |支持 Azure Site Recovery |尚不支持|
-|磁盘类型     |高级 SSD、标准 SSD（预览版）和标准 HDD。 |高级 SSD、标准 HDD |
+|磁盘类型     |高级 SSD、标准 SSD 和标准 HDD |高级 SSD、标准 HDD |
 |高级磁盘  |完全支持 |可部署，但无性能限制或保证  |
 |高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
 |高级磁盘吞吐量 |取决于磁盘大小 |每个磁盘 145 MB/秒 |
@@ -134,7 +134,7 @@ New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Locatio
 
 ## <a name="managed-images"></a>托管映像
 
-Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管的 VM）上创建托管映像对象，以后只能创建托管磁盘 VM。 托管映像可实现以下两种方案：
+Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管的 VM）上创建托管映像对象，以后只能创建托管磁盘 VM。  托管映像可实现以下两种方案：
 
 - 你有通用化的非托管 VM，后来想要使用托管磁盘。
 - 你有通用化的托管 VM，并想要创建多个类似的托管 VM。
@@ -223,8 +223,8 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 应用 1808 或更高版本的更新后，必须先执行以下配置才能使用托管磁盘：
 
 - 如果订阅是在应用 1808 更新之前创建的，请遵循以下步骤来更新订阅。 否则，在此订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器发生内部错误。”
-   1. 在租户门户中转到“订阅”，找到相应订阅。 依次单击“资源提供程序”、“Microsoft.Compute”、“重新注册”。
-   2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。
+   1. 在租户门户中转到“订阅”，找到相应订阅。  依次单击“资源提供程序”、“Microsoft.Compute”  、“重新注册”  。 
+   2. 在同一订阅下，转到“访问控制(标识和访问管理)”，验证“Azure Stack - 托管磁盘”是否已列出。  
 - 如果使用多租户环境，请让云操作员（可以是组织内部或来自服务提供商的操作员）根据[此文](../operator/azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory)中的步骤重新配置每个来宾目录。 否则，在与该来宾目录关联的订阅中部署 VM 可能会失败，并出现错误消息“磁盘管理器中发生内部错误。”
 
 ## <a name="next-steps"></a>后续步骤

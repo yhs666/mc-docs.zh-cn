@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/28/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: jerskine
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: ff14fb0a9b1a43063e24bb8d37d0836867a12f1b
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 7ed6e556a978ef570cc057e83e0c80d3f210fee6
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529484"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381794"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>验证 Azure Stack 的 AD FS 集成
 
@@ -30,9 +30,9 @@ ms.locfileid: "64529484"
 
 就绪性检查器会验证下列项：
 
-* 联合元数据包含用于联合身份验证的有效 XML 元素。
-* 可以检索 AD FS SSL 证书，并可以生成信任链。 堆栈上的 AD FS 必须信任 SSL 证书链。 证书必须由签署 Azure Stack 部署证书的同一证书颁发机构签名，或者由受信任的根颁发机构合作伙伴签名。 有关受信任根颁发机构合作伙伴的完整列表，请参阅 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
-* AD FS 签名证书受信任且不会在近期过期。
+* 联合元数据包含用于联合身份验证的有效 XML 元素。 
+* 可以检索 AD FS SSL 证书，并可以生成信任链。  堆栈上的 AD FS 必须信任 SSL 证书链。 证书必须由签署 Azure Stack 部署证书的同一证书颁发机构  签名，或者由受信任的根颁发机构合作伙伴签名。 有关受信任根颁发机构合作伙伴的完整列表，请参阅 [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)。
+* AD FS 签名证书受信任且不会在近期过期。 
 
 有关 Azure Stack 数据中心集成的详细信息，请参阅 [Azure Stack 数据中心集成 - 标识](azure-stack-integrate-identity.md)。
 
@@ -47,7 +47,7 @@ ms.locfileid: "64529484"
 **运行该工具的计算机：**
 
 * 已建立域连接的 Windows 10 或 Windows Server 2016。
-* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：  
+* PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell 命令，然后查看主要版本和次要版本：    
    > `$PSVersionTable.PSVersion`
 * 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
@@ -91,7 +91,7 @@ ms.locfileid: "64529484"
     Invoke-AzsADFSValidation Completed
     ```
 
-在生产环境中，从操作员工作站测试证书信任链无法完全指示 Azure Stack 基础结构中的 PKI 信任状态。 Azure Stack 堆栈的公共 VIP 网络需要与 PKI 基础结构的 CRL 建立连接。
+在生产环境中，从操作员工作站测试证书信任链无法完全指示 Azure Stack 基础结构中的 PKI 信任状态。 Azure Stack 标记的公共 VIP 网络需要与 PKI 基础结构的 CRL 建立连接。
 
 ## <a name="report-and-log-file"></a>报表和日志文件
 

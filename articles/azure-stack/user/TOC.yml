@@ -25,7 +25,8 @@
       items:
         - name: 订阅产品
           href: azure-stack-subscribe-services.md
-    - name: 混合云模式
+    - name: 混合云应用
+      href: azure-stack-hybrid-cloud-patterns.md
       items:
         - name: 配置混合云标识
           href: azure-stack-solution-hybrid-identity.md
@@ -137,15 +138,26 @@
         - name: 为 Azure Stack 进行开发
           href: azure-stack-developer.md
         - name: 设置开发环境
+          href: azure-stack-dev-start.md
           items:
+            - name: Azure Stack PowerShell 概述
+              href: azure-stack-powershell-overview.md
             - name: 安装 Azure Stack PowerShell
               href: /azure-stack/operator/azure-stack-powershell-install?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
             - name: 使用 PowerShell 连接
               href: azure-stack-powershell-configure-user.md
             - name: 下载 Azure Stack 工具
               href: /azure-stack/operator/azure-stack-powershell-download?toc=/azure-stack/user/toc.json&bc=/azure-stack/breadcrumb/toc.json
+              maintainContext: true
+            - name: 使用 Docker 运行 PowerShell
+              href: azure-stack-powershell-user-docker.md
             - name: 安装 Visual Studio
               href: azure-stack-install-visual-studio.md
+            - name: 使用 SSH 公钥
+              href: azure-stack-dev-start-howto-ssh-public-key.md
+            - name: 为 Web 应用部署 Linux VM
+              href: azure-stack-dev-start-howto-deploy-linux.md
             - name: 使用 API 版本配置文件
               href: azure-stack-version-profiles.md
               items:
@@ -153,8 +165,6 @@
                   href: azure-stack-version-profiles-net.md
                 - name: Java
                   href: azure-stack-version-profiles-java.md
-                - name: PowerShell
-                  href: azure-stack-version-profiles-powershell.md
                 - name: Azure CLI
                   href: azure-stack-version-profiles-azurecli2.md
                 - name: Go
@@ -165,6 +175,21 @@
                   href: azure-stack-version-profiles-python.md
                 - name: 配置文件支持的资源提供程序 API
                   href: azure-stack-profiles-azure-resource-manager-versions.md
+        - name: 适用于 Azure Stack 的常见部署
+          href: azure-stack-dev-start-deploy-app.md
+          items:
+            - name: '将 .Net Core (C#) 部署到 VM'
+              href: azure-stack-dev-start-howto-vm-dotnet.md
+            - name: 将 Java 部署到 VM
+              href: azure-stack-dev-start-howto-vm-java.md
+            - name: 将 Go 部署到 VM
+              href: azure-stack-dev-start-howto-vm-go.md
+            - name: 将 Ruby 部署到 VM
+              href: azure-stack-dev-start-howto-vm-ruby.md
+            - name: 将 Python 部署到 VM
+              href: azure-stack-dev-start-howto-vm-python.md
+            - name: 将 NodeJS 部署到 VM
+              href: azure-stack-dev-start-howto-vm-nodejs.md
         - name: 使用 Azure Stack 策略模块
           href: azure-stack-policy-module.md
         - name: 使用模板
@@ -179,6 +204,8 @@
               href: azure-stack-deploy-template-portal.md
             - name: 使用 PowerShell 进行部署
               href: azure-stack-deploy-template-powershell.md
+            - name: 使用 CLI 进行部署
+              href: azure-stack-deploy-template-command-line.md
             - name: 使用 Visual Studio 进行部署
               href: azure-stack-deploy-template-visual-studio.md
     - name: 启用云服务提供商

@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e9ff0c2f75ce66b79cc6c320d557bace4908d637
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ccfe477deb8a5dd112b8efb74be93c2220cafd04
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855412"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248558"
 ---
 # <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>用于优化 Azure Stack 性能的 SQL Server 最佳做法
 
@@ -33,7 +33,7 @@ ms.locfileid: "64855412"
 > [!NOTE]  
 > 虽然本文介绍的是如何使用全球 Azure 门户预配 SQL Server 虚拟机，但相关指南也适用于 Azure Stack，只是存在以下差异：SSD 不适用于操作系统磁盘；托管磁盘不可用；存储配置存在微小差异。
 
-本文重点介绍如何在 Azure Stack 虚拟机上获取 SQL Server 的最佳性能。 如果工作负荷要求较低，可能不需要每项建议的优化。 评估这些建议时应考虑性能需求和工作负荷模式。
+本文重点介绍如何在 Azure Stack 虚拟机上获取 SQL Server 的最佳性能。  如果工作负荷要求较低，可能不需要每项建议的优化。 评估这些建议时应考虑性能需求和工作负荷模式。
 
 > [!NOTE]  
 > 如需 Azure 虚拟机中 SQL Server 的性能指南，请参阅[此文](/virtual-machines/windows/sql/virtual-machines-windows-sql-performance)。
@@ -52,7 +52,7 @@ ms.locfileid: "64855412"
 |特定于功能|直接备份到 Blob 存储（如果受正在使用的 SQL Server 版本支持）。|
 |||
 
-有关如何和为何进行这些优化的详细信息，请参阅以下部分提供的详细信息与指南。
+有关  如何和  为何进行这些优化的详细信息，请参阅以下部分提供的详细信息与指南。
 
 ## <a name="virtual-machine-size-guidance"></a>虚拟机大小指南
 
@@ -118,7 +118,7 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
-       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple –UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
+       New-StoragePool -FriendlyName "DataFiles" -StorageSubsystemFriendlyName "Storage Spaces*" -PhysicalDisks $PhysicalDisks | New-VirtualDisk -FriendlyName "DataFiles" -Interleave 65536 -NumberOfColumns 2 -ResiliencySettingName simple -UseMaximumSize |Initialize-Disk -PartitionStyle GPT -PassThru |New-Partition -AssignDriveLetter -UseMaximumSize |Format-Volume -FileSystem NTFS -NewFileSystemLabel "DataDisks" -AllocationUnitSize 65536 -Confirm:$false
        ```
 
 - 根据负载预期确定与你的存储池相关联的磁盘数。 请记住，不同的虚拟机大小允许不同数量的附加数据磁盘。 有关详细信息，请参阅 [Azure Stack 中支持的虚拟机大小](azure-stack-vm-sizes.md)。
@@ -131,8 +131,8 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
 
 ## <a name="io-guidance"></a>I/O 指导原则
 
-- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”安全策略。 如果使用的是用于 Azure 的 SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到“执行卷维护任务”安全策略。 换而言之，SQL Server Azure 平台映像中不会启用即时文件初始化。 将 SQL Server 服务帐户添加到“执行卷维护任务”安全策略后，请重启 SQL Server 服务。 使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
-- **自动增长**是非预期增长的偶发情况。 请勿使用自动增长来管理数据和日志每天的增长。 如果使用自动增长，请使用“大小”开关预先增长文件。
+- 请考虑启用即时文件初始化以减少初始文件分配所需的时间。 若要利用即时文件初始化，请将 **SE_MANAGE_VOLUME_NAME** 授予 SQL Server (MSSQLSERVER) 服务帐户并将其添加到“执行卷维护任务”  安全策略。 如果使用的是用于 Azure 的 SQL Server 平台映像，默认服务帐户 (**NT Service\MSSQLSERVER**) 不会添加到“执行卷维护任务”安全策略。  换而言之，SQL Server Azure 平台映像中不会启用即时文件初始化。 将 SQL Server 服务帐户添加到“执行卷维护任务”安全策略后，请重启 SQL Server 服务。  使用此功能可能有一些安全注意事项。 有关详细信息，请参阅[数据库文件初始化](https://msdn.microsoft.com/library/ms175935.aspx)。
+- **自动增长**是非预期增长的偶发情况。 请勿使用自动增长来管理数据和日志每天的增长。 如果使用自动增长，请使用“大小”开关预先增长文件。 
 - 请确保禁用 **自动收缩** 以避免可能对性能产生负面影响的不必要开销。
 - 设置默认的备份和数据库文件位置。 使用本文中的建议，并在“服务器属性”窗口中进行更改。 有关说明，请参阅 [View or Change the Default Locations for Data and Log Files (SQL Server Management Studio)](https://msdn.microsoft.com/library/dd206993.aspx)（查看或更改数据和日志文件的默认位置 (SQL Server Management Studio)）。 以下屏幕截图演示了在哪些位置进行这些更改：
 
@@ -157,7 +157,7 @@ Azure Stack 虚拟机上有三种主要磁盘类型：
     ![SQL Server 备份](./media/sql-server-vm-considerations/image3.png)
 
     > [!NOTE]  
-    > 共享访问签名是 Azure Stack 门户中的 SAS 令牌，在字符串中没有前导的 “?”。 如果使用门户中的复制功能，则需删除前导的“?”， 然后令牌才能在 SQL Server 中使用。
+    > 共享访问签名是 Azure Stack 门户中的 SAS 令牌，在字符串中没有前导“?”。 如果使用门户中的复制功能，则需删除前导“?”，才能使令牌在 SQL Server 中正常工作。
 
     在 SQL Server 中设置并配置备份目标以后，即可备份到 Azure Stack Blob 存储。
 

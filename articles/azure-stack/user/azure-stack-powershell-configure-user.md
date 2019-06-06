@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/09/2019
-ms.date: 04/29/2019
+origin.date: 04/26/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: 9f9bc7023449decc7792b8903e000f0006c76365
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 9e8304ce2e18ddbefef102244e71b4ff8a578354
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855456"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248562"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-a-user"></a>以用户身份使用 PowerShell 连接到 Azure Stack
 
@@ -81,7 +81,7 @@ ms.locfileid: "64855456"
 foreach($s in (Get-AzureRmSubscription)) {
         Select-AzureRmSubscription -SubscriptionId $s.SubscriptionId | Out-Null
         Write-Progress $($s.SubscriptionId + " : " + $s.SubscriptionName)
-Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -Force
+Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider
     }
 ```
 

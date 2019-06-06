@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/29/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 656fb5414c65e3ee5d1de7c2a8b80478aeb2a53a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 03910b087f82717ae32a79e2fc75f676e7ba9b78
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529458"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381929"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -128,7 +128,7 @@ Azure Stack 操作员可以提供各种服务和应用程序，例如[虚拟机]
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 可以使用基于角色的访问控制 (RBAC) 向已获授权的用户、组和服务授予系统访问权限：在订阅、资源组或单个资源的级别为其分配角色即可。 每个角色定义了用户、组或服务对 Azure Stack 资源拥有的访问级别。
 
-Azure Stack RBAC 有三种适用于所有资源类型的基本角色：所有者、参与者和读者。 “所有者”拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 “参与者”可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。 “读取者”只能查看现有资源。 其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例如，“虚拟机参与者”角色允许创建和管理虚拟机，但不允许管理虚拟机连接到的虚拟网络或子网。
+Azure Stack RBAC 有三种适用于所有资源类型的基本角色：所有者、参与者和读者。 “所有者”拥有对所有资源的完全访问权限，包括将访问权限委派给其他用户的权限。 参与者可以创建和管理所有类型的 Azure 资源，但不能将访问权限授予其他用户。 “读取者”只能查看现有资源。 其他 RBAC 角色允许对特定的 Azure 资源进行管理。 例如，“虚拟机参与者”角色允许创建和管理虚拟机，但不允许管理虚拟机连接到的虚拟网络或子网。
 
 > 有关详细信息，请参阅[管理基于角色的访问控制](azure-stack-manage-permissions.md)。 
 

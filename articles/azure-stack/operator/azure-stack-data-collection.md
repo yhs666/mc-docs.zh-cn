@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/14/2019
-ms.date: 03/04/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: chengwei
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: e5cfdbff678bc7026556784b875e71ca46d685b9
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 04a12ea04f7b418fd6f54a35f287c75e93611d99
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529548"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381913"
 ---
 # <a name="azure-stack-log-and-customer-data-handling"></a>Azure Stack 日志和客户数据处理 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*  
 
-由于 Azure 是 Azure Stack 相关个人数据的处理方或辅助处理方，Azure 对所有客户承诺，(a) [联机服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0)的“保护数据条款”部分中的“个人数据的处理；GDPR”条款和 (b) [联机服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0)附件 4 中的“欧盟一般数据保护条例条款”从 2018 年 5 月 25 日开始生效。 
+在某种程度上 Azure 是 Azure Stack 相关个人数据的处理方或辅助处理方，Azure 对所有客户承诺，(a) [联机服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551078818&sdata=cpWsfZTBHpqEFr50DWQOryq342U8shgeFgMXVPQz5ug%3D&reserved=0)的“保护数据条款”部分中的“个人数据的处理；GDPR”条款和 (b) [联机服务条款](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fwww.microsoftvolumelicensing.com%2FDocumentSearch.aspx%3FMode%3D3%26DocumentTypeId%3D31&data=02%7C01%7Ccomartin%40microsoft.com%7Ce2ce478261764c79c3f308d68df01136%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636852459551088813&sdata=bv1CBiaCnYmjiv6S0dFCbWEd4fNCkPBjBwgylNa%2FNt0%3D&reserved=0)附件 4 中的“欧盟一般数据保护条例条款”从 2018 年 5 月 25 日开始生效。 
 
 由于 Azure Stack 驻留在客户数据中心，因此，对于通过[诊断](azure-stack-diagnostics.md)、[遥测](azure-stack-telemetry.md)和[计费](azure-stack-usage-reporting.md)与 Azure 共享的数据，Azure 是唯一的数据控制方。  
 
@@ -59,7 +59,7 @@ Azure 为客户提供所需的工具和脚本用于收集及上传请求的诊�
 Azure 无意收集敏感数据，例如信用卡号、用户名和密码、电子邮件地址或类似的敏感信息。 如果我们确定敏感信息是无意中收集到的，我们会予以删除。 
 
 ## <a name="billing-data"></a>账单数据
-[Azure Stack 计费](azure-stack-usage-reporting.md)利用 Azure 的计费和用量管道，因此遵循 Azure 合规指导原则。
+[Azure Stack 计费](azure-stack-usage-reporting.md)利用 Azure 的计费和用量管道，因此遵循 Azure 合规性准则。
 
 Azure Stack 操作员可以配置 Azure Stack，以将用量信息转发到 Azure 进行计费。 选择即用即付计费模型的多节点 Azure Stack 客户一定要这样做。 用量报告通过遥测单独进行控制，选择容量模式的多节点 Azure Stack 客户或 Azure Stack 开发工具包用户无需使用此功能。 对于上述方案，可以使用[注册脚本](azure-stack-usage-reporting.md)来禁用用量报告。
 

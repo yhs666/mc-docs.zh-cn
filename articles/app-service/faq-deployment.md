@@ -14,15 +14,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 origin.date: 05/11/2018
-ms.date: 12/31/2018
+ms.date: 06/10/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 9e057bb0ba477f45a1958517711a2492b76fc624
-ms.sourcegitcommit: 80c59ae1174d71509b4aa64a28a98670307a5b38
+ms.openlocfilehash: 8246b1f25c11466e3c57d6645ed29ec654e1fbcb
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53735199"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296701"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -34,12 +34,12 @@ ms.locfileid: "53735199"
 
 可通过以下几种方式发布 Web 应用代码：
 
-*   使用 Visual Studio 进行部署。 如果具有 Visual Studio 解决方案，则右键单击 Web 应用程序项目，然后选择“发布”。
+*   使用 Visual Studio 进行部署。 如果具有 Visual Studio 解决方案，则右键单击 Web 应用程序项目，然后选择“发布”  。
 *   使用 FTP 客户端进行部署。 在 Azure 门户中，下载要向其部署代码的 Web 应用的发布配置文件。 然后，使用相同的发布配置文件 FTP 凭据将文件上传到 \site\wwwroot。
 
 有关详细信息，请参阅[将应用部署到应用服务](deploy-local-git.md)。
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>尝试从 Visual Studio 进行部署时，收到了一条错误消息。 如何解决此问题？
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>尝试从 Visual Studio 进行部署时，收到了一条错误消息。 如何解决此错误？
 
 如果看到以下消息，则可能使用的是旧版本的 SDK：“在资源组 'YourResourceGroup' 中部署资源 'YourResourceName' 时出错: MissingRegistrationForLocation: 订阅未在 '中国北部' 位置注册资源类型 'components'。 若要访问此位置，请重新注册此提供程序。” 
 
@@ -48,7 +48,7 @@ ms.locfileid: "53735199"
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>如何将 ASP.NET 应用程序从 Visual Studio 部署到应用服务？
 <a id="deployasp"></a>
 
-教程[五分钟内在 Azure 中创建第一个 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)演示如何使用 Visual Studio 2017 将 ASP.NET Web 应用程序部署到应用服务中的 Web 应用。
+教程[五分钟内在 Azure 中创建第一个 ASP.NET Web 应用](app-service-web-get-started-dotnet.md)演示如何使用 Visual Studio 将 ASP.NET Web 应用程序部署到应用服务中的 Web 应用。
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>有哪些不同类型的部署凭据？
 
@@ -60,7 +60,7 @@ ms.locfileid: "53735199"
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>尝试通过 FTP 传输文件时出现“FTP 错误 550 - 磁盘空间不足”，应如何解决？
 
-如果看到此消息，磁盘空间可能即将达到 Web 应用服务计划中的磁盘配额。 可能需要根据磁盘空间需求扩展到更高的服务层。 有关定价计划和资源限制的详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
+如果看到此消息，磁盘空间可能即将达到 Web 应用服务计划中的磁盘配额。 可能需要基于磁盘空间需求提升到较高服务层级。 有关定价计划和资源限制的详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何为应用服务 Web 应用设置连续部署？
 
@@ -70,7 +70,7 @@ ms.locfileid: "53735199"
 
 若要帮助调查从 GitHub 或 Bitbucket 进行持续部署的问题，请参阅[调查持续部署](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)。
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>我无法通过 FTP 传输到我的站点并发布代码。 如何解决此问题？
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>无法通过 FTP 传输到我的站点并发布代码。 如何解决此问题？
 
 若要解决 FTP 问题，请执行以下步骤：
 
@@ -81,7 +81,7 @@ ms.locfileid: "53735199"
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>如何将代码发布到应用服务？
 
-Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署应用。 若要使用快速入门，请在 Azure 门户中转到应用服务，在“部署”下，选择“快速入门”。
+Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署应用。 若要使用快速入门，请在 Azure 门户中转到应用服务，在“部署”  下，选择“快速入门”  。
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>为什么应用有时会在部署到应用服务后重启？
 
@@ -91,7 +91,7 @@ Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署�
 
 有两个选项可用于将持续部署与 Azure DevOps 一起使用：
 
-*   使用 Git 项目。 使用该存储库的部署选项，通过应用服务进行连接。
+*   使用 Git 项目。 使用部署中心通过应用服务进行连接。
 *   使用 Team Foundation 版本控制 (TFVC) 项目。 通过对应用服务使用生成代理来进行部署。
 
 这两个选项的持续代码部署都依赖于现有开发人员工作流和签入过程。 有关详细信息，请参阅以下文章： 
@@ -102,5 +102,3 @@ Azure 快速入门旨在帮助用户使用所选的部署堆栈和方法部署�
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>如何使用 FTP 或 FTPS 将应用部署到应用服务？
 
 有关如何使用 FTP 或 FTPS 将 Web 应用部署到应用服务的信息，请参阅[使用 FTP/S 将应用部署到应用服务](deploy-ftp.md)。
-
-<!--Update_Description: update meta data-->

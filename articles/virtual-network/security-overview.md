@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/26/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 62d254d2b1255cb7ef915b7b73462953e5804ac2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 54f52300b031303ea9f7f1e97368e716f447430e
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625572"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250470"
 ---
 # <a name="security-groups"></a>安全组
 <a name="network-security-groups"></a>
@@ -38,7 +38,7 @@ ms.locfileid: "58625572"
 |Name|网络安全组中的唯一名称。|
 |Priority | 介于 100 和 4096 之间的数字。 规则按优先顺序进行处理。先处理编号较小的规则，因为编号越小，优先级越高。 一旦流量与某个规则匹配，处理即会停止。 因此，不会处理优先级较低（编号较大）的、其属性与高优先级规则相同的所有规则。|
 |源或目标| 可以是任何值，也可以是单个 IP 地址、无类别域际路由 (CIDR) 块（例如 10.0.0.0/24）、[服务标记](#service-tags)或[应用程序安全组](#application-security-groups)。 如果为 Azure 资源指定一个地址，请指定分配给该资源的专用 IP 地址。 在 Azure 针对入站流量将公共 IP 地址转换为专用 IP 地址后，系统会处理网络安全组，然后由 Azure 针对出站流量将专用 IP 地址转换为公共 IP 地址。 详细了解 Azure [IP 地址](virtual-network-ip-addresses-overview-arm.md)。 指定范围、服务标记或应用程序安全组可以减少创建的安全规则数。 在一个规则中指定多个单独的 IP 地址和范围（不能指定多个服务标记或应用程序组）的功能称为[扩充式安全规则](#augmented-security-rules)。 只能在通过资源管理器部署模型创建的网络安全组中创建扩充式安全规则。 在通过经典部署模型创建的网络安全组中，不能指定多个 IP 地址和 IP 地址范围。 详细了解 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。|
-|协议     | TCP、UDP 或“任何”，包括 TCP、UDP 和 ICMP。 不能仅指定 ICMP，因此，如果需要 ICMP，请使用“任何”。 |
+|协议     | TCP、UDP 或“任何”，包括（但不限于）TCP、UDP 和 ICMP。 不能仅指定 ICMP，因此，如果需要 ICMP，请使用“任何”。 |
 |方向| 该规则是应用到入站还是出站流量。|
 |端口范围     |可以指定单个端口或端口范围。 例如，可以指定 80 或 10000-10005。 指定范围可以减少创建的安全规则数。 只能在通过资源管理器部署模型创建的网络安全组中创建扩充式安全规则。 在通过经典部署模型创建的网络安全组中，不能在同一个安全规则中指定多个端口或端口范围。   |
 |操作     | 允许或拒绝        |
@@ -54,26 +54,44 @@ ms.locfileid: "58625572"
 
 ## <a name="service-tags"></a>服务标记
 
- 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。 无法创建自己的服务标记，也无法指定要将哪些 IP 地址包含在标记中。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 
+服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。 无法创建自己的服务标记，也无法指定要将哪些 IP 地址包含在标记中。 Azure 会管理服务标记包含的地址前缀，并会在地址发生更改时自动更新服务标记。 创建安全规则时，可以使用服务标记代替特定的 IP 地址。 
 
  可下载服务标记列表并将其与本地防火墙集成，其中包含针对 Azure [中国云](https://www.microsoft.com/download/confirmation.aspx?id=57062)的以下每周发布的前缀详细信息。
 
- 可在安全规则定义中使用以下服务标记。 服务标记的名称根据 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)的不同而略有不同。
+可在安全规则定义中使用以下服务标记。 服务标记的名称根据 [Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)的不同而略有不同。
 
+<!--MOONCAKE: 05/27/2019 Confirm  Not Available on Regional service tags are not supported on national clouds, only in global format, e.g. Storage, Sql.-->
 
-<!-- Not Available on * **AzureCloud** (Resource Manager only): -->
-* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure 存储服务，但不能表示特定的 Azure 存储帐户。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。 
-* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。 标记表示服务而不是服务的特定实例。 例如，标记可表示 Azure SQL 数据库服务，但不能表示特定的 SQL 数据库或服务器。 由此标记表示的所有地址前缀也由 **Internet** 标记表示。 
-<!-- Not Available on * **AzureCosmosDB** (Resource Manager only):-->
-<!-- Not Available on * **EventHub** (Resource Manager only):-->
-<!-- Not Available on * **ServiceBus** (Resource Manager only):-->
-<!-- Not Available on * **AzureDataLake** (Resource Manager only):-->
-<!-- Not Available on * **CorpNetSAW** (Resource Manager only):-->
+* **VirtualNetwork**（资源管理器）（如果是经典部署模型，则为 **VIRTUAL_NETWORK**）：此标记包括虚拟网络地址空间（为虚拟网络定义的所有 CIDR 范围）、所有连接的本地地址空间，以及[对等互连](virtual-network-peering-overview.md)的虚拟网络，或已连接到[虚拟网络网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)的虚拟网络，以及在[用户定义的路由](virtual-networks-udr-overview.md)上使用的地址前缀。
+* **AzureLoadBalancer**（资源管理器）（如果是经典部署模型，则为 **AZURE_LOADBALANCER**）：此标记表示 Azure 的基础结构负载均衡器。 此标记将转换为[主机的虚拟 IP 地址](security-overview.md#azure-platform-considerations) (168.63.129.16)，Azure 的运行状况探测源于该 IP。 如果不使用 Azure 负载均衡器，则可替代此规则。
+* **Internet**（资源管理器）（如果是经典部署模型，则为 **INTERNET**）：此标记表示虚拟网络外部的 IP 地址空间，可以通过公共 Internet 进行访问。 地址范围包括 [Azure 拥有的公共 IP 地址空间](https://www.microsoft.com/download/confirmation.aspx?id=57062)。
+* **AzureCloud**（仅限资源管理器）：此标记表示 Azure 的 IP 地址空间，包括所有[数据中心公共 IP 地址](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 如果指定 AzureCloud 作为值，则会允许或拒绝发往 Azure 中国公共 IP 地址的流量  。
+* **AzureTrafficManager**（仅限资源管理器）：此标记表示 Azure 流量管理器探测 IP 地址的 IP 地址空间。 有关流量管理器探测 IP 地址的详细信息，请参阅 [Azure 流量管理器常见问题解答](/traffic-manager/traffic-manager-faqs)。 
+* **Storage**（仅限资源管理器）：此标记表示 Azure 存储服务的 IP 地址空间。 如果指定 *Storage* 作为值，则会允许或拒绝发往存储的流量。
+* **Sql**（仅限资源管理器）：此标记表示 Azure SQL 数据库、Azure Database for MySQL、Azure Database for PostgreSQL 和 Azure SQL 数据仓库服务的地址前缀。 如果指定 *Sql* 作为值，则会允许或拒绝发往 Sql 的流量。
+* **AzureCosmosDB**（仅限资源管理器）：此标记表示 Azure Cosmos 数据库服务的地址前缀。 如果指定 *AzureCosmosDB* 作为值，则会允许或拒绝发往 AzureCosmosDB 的流量。
+* **AzureKeyVault**（仅限资源管理器）：此标记表示 Azure KeyVault 服务的地址前缀。 如果指定 *AzureKeyVault* 作为值，则会允许或拒绝发往 AzureKeyVault 的流量。
+* **EventHub**（仅限资源管理器）：此标记表示 Azure 事件中心服务的地址前缀。 如果指定 EventHub 作为值，则会允许或拒绝发往 EventHub 的流量  。 
+* **ServiceBus**（仅限资源管理器）：此标记表示使用高级服务层的 Azure ServiceBus 服务的地址前缀。 如果指定 ServiceBus 作为值，则会允许或拒绝发往 ServiceBus 的流量  。
+* **MicrosoftContainerRegistry**（仅限资源管理器）：此标记表示 Azure 容器注册表服务的地址前缀。 如果指定 MicrosoftContainerRegistry 作为值，则会允许或拒绝发往 MicrosoftContainerRegistry 的流量  。
+* **AzureContainerRegistry**（仅限资源管理器）：此标记表示 Azure 容器注册表服务的地址前缀。 如果指定 AzureContainerRegistry 作为值，则会允许或拒绝发往 AzureContainerRegistry 的流量  。 
+* **AppService**（仅限资源管理器）：此标记表示“Azure 应用服务”服务的地址前缀。 如果指定 AppService 作为值，则会允许或拒绝发往 AppService 的流量  。 
+* **AppServiceManagement**（仅限资源管理器）：此标记表示 Azure 应用服务管理服务的地址前缀。 如果指定 AppServiceManagement 作为值，则会允许或拒绝发往 AppServiceManagement 的流量  。 
+* **ApiManagement**（仅限资源管理器）：此标记表示 Azure API 管理服务的地址前缀。 如果指定 ApiManagement 作为值，则会允许或拒绝发往 ApiManagement 的流量  。  
+* **AzureConnectors**（仅限资源管理器）：此标记表示 Azure 连接器服务的地址前缀。 如果指定 AzureConnectors 作为值，则会允许或拒绝发往 AzureConnectors 的流量  。
+* **GatewayManager**（仅限资源管理器）：此标记表示 Azure 网关管理器服务的地址前缀。 如果指定 GatewayManager 作为值，则会允许或拒绝发往 GatewayManager 的流量  。  
+* **AzureActiveDirectory**（仅限资源管理器）：此标记表示 AzureActiveDirectory 服务的地址前缀。 如果指定 AzureActiveDirectory 作为值，则会允许或拒绝发往 AzureActiveDirectory 的流量  。  
+* **AzureMonitor**（仅限资源管理器）：此标记表示 AzureMonitor 服务的地址前缀。 如果指定 AzureMonitor 作为值，则会允许或拒绝发往 AzureMonitor 的流量  。 
+* **ServiceFabric**（仅限资源管理器）：此标记表示 ServiceFabric 服务的地址前缀。 如果指定 ServiceFabric 作为值，则会允许或拒绝发往 ServiceFabric 的流量  。 
+* **BatchNodeManagement**（仅限资源管理器）：此标记表示 Azure BatchNodeManagement 服务的地址前缀。 如果为值指定 *BatchNodeManagement*，则允许或拒绝从 Batch 服务到计算节点的流量。
+
+<!--Not Available on AzureDataLake-->
+<!--Not Available on AzureMachineLearning-->
 
 > [!NOTE]
 > Azure 服务的服务标记表示来自所使用的特定云的地址前缀。 
 
-<!-- Notice: Not Available on Regional service tags are not supported on national clouds, only in global format, e.g. Storage, Sql.-->
+<!--MOONCAKE: 05/27/2019 Confirm  Not Available on Regional service tags are not supported on national clouds, only in global format, e.g. Storage, Sql.-->
 
 > [!NOTE]
 > 如果为某个服务（例如 Azure 存储或 Azure SQL 数据库）实现了[虚拟网络服务终结点](virtual-network-service-endpoints-overview.md)，Azure 会将[路由](virtual-networks-udr-overview.md#optional-default-routes)添加到该服务的虚拟网络子网。 路由中的地址前缀与相应服务标记的地址前缀或 CIDR 范围相同。
@@ -86,19 +104,19 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 #### <a name="allowvnetinbound"></a>AllowVNetInBound
 
-|Priority|源|源端口|目标|目标端口|协议|访问|
+|Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65000|VirtualNetwork|0-65535|VirtualNetwork|0-65535|全部|允许|
 
 #### <a name="allowazureloadbalancerinbound"></a>AllowAzureLoadBalancerInBound
 
-|Priority|源|源端口|目标|目标端口|协议|访问|
+|Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65001|AzureLoadBalancer|0-65535|0.0.0.0/0|0-65535|全部|允许|
 
 #### <a name="denyallinbound"></a>DenyAllInbound
 
-|Priority|源|源端口|目标|目标端口|协议|访问|
+|Priority|Source|源端口|目标|目标端口|协议|访问|
 |---|---|---|---|---|---|---|
 |65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|全部|拒绝|
 
@@ -106,23 +124,23 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 #### <a name="allowvnetoutbound"></a>AllowVnetOutBound
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65000 | VirtualNetwork | 0-65535 | VirtualNetwork | 0-65535 | 全部 | 允许 |
 
 #### <a name="allowinternetoutbound"></a>AllowInternetOutBound
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65001 | 0.0.0.0/0 | 0-65535 | Internet | 0-65535 | 全部 | 允许 |
 
 #### <a name="denyalloutbound"></a>DenyAllOutBound
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | 全部 | 拒绝 |
 
-在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](#service-tags)，而不是 IP 地址。 在“协议”列中，“所有”包含 TCP、UDP 和 ICMP。 创建规则时，可以指定 TCP、UDP 或“所有”，但不能仅指定 ICMP。 因此，如果规则需要 ICMP，请为协议选择“所有”。 “源”和“目标”列中的“0.0.0.0/0”表示所有地址。
+在“源”和“目标”列表中，“VirtualNetwork”、“AzureLoadBalancer”和“Internet”是[服务标记](#service-tags)，而不是 IP 地址。      在“协议”列中，“所有”包含 TCP、UDP 和 ICMP。  创建规则时，可以指定 TCP、UDP 或“所有”，但不能仅指定 ICMP。 因此，如果规则需要 ICMP，请为协议选择“所有”。  “源”和“目标”列中的“0.0.0.0/0”表示所有地址。    Azure 门户、Azure CLI 或 Powershell 等客户端可以使用 * 或任何字符来表示此表达式。
 
 不能删除默认规则，但可以通过创建更高优先级的规则来替代默认规则。
 
@@ -138,7 +156,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 若要让流量从 Internet 流到 Web 服务器，此规则是必需的。 由于来自 Internet 的入站流量被 [DenyAllInbound](#denyallinbound) 默认安全规则拒绝，因此 *AsgLogic* 或 *AsgDb* 应用程序安全组不需更多规则。
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 100 | Internet | * | AsgWeb | 80 | TCP | 允许 |
 
@@ -146,7 +164,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 由于 [AllowVNetInBound](#allowvnetinbound) 默认安全规则允许在同一虚拟网络中的资源之间进行的所有通信，因此需要使用此规则来拒绝来自所有资源的流量。
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 120 | * | * | AsgDb | 1433 | 全部 | 拒绝 |
 
@@ -154,7 +172,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 
 此规则允许从 *AsgLogic* 应用程序安全组到 *AsgDb* 应用程序安全组的流量。 此规则的优先级高于 *Deny-Database-All* 规则的优先级。 因此，此规则在 *Deny-Database-All* 规则之前处理，这样系统就会允许来自 *AsgLogic* 应用程序安全组的流量，而阻止所有其他流量。
 
-|Priority|源|源端口| 目标 | 目标端口 | 协议 | 访问 |
+|Priority|Source|源端口| 目标 | 目标端口 | 协议 | 访问 |
 |---|---|---|---|---|---|---|
 | 110 | AsgLogic | * | AsgDb | 1433 | TCP | 允许 |
 
@@ -201,7 +219,7 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 可以通过查看网络接口的[有效安全规则](virtual-network-network-interface.md#view-effective-security-rules)，轻松查看已应用到网络接口的聚合规则。 还可以使用 Azure 网络观察程序中的 [IP 流验证](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fvirtual-network%2ftoc.json)功能来确定是否允许发往或发自网络接口的通信。 IP 流验证会告知你系统是允许还是拒绝通信，以及哪条网络安全规则允许或拒绝该流量。
 
 > [!NOTE]
-> 网络安全组关联到子网或关联到部署在经典部署模型中的虚拟机和云服务，而不是关联到资源管理器部署模型中的网络接口。 若要详细了解 Azure 部署模型，请参阅[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。
+> 网络安全组关联到子网或关联到部署在经典部署模型中的虚拟机和云服务，以及关联到资源管理器部署模型中的子网或网络接口。 若要详细了解 Azure 部署模型，请参阅[了解 Azure 部署模型](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fvirtual-network%2ftoc.json)。
 
 > [!TIP]
 > 建议将网络安全组关联到子网或网络接口，但不要二者都关联，除非你有特定的理由来这样做。 由于关联到子网的网络安全组中的规则可能与关联到网络接口的网络安全组中的规则冲突，因此可能会出现意外的必须进行故障排除的通信问题。
@@ -209,19 +227,20 @@ Azure 在你所创建的每个网络安全组中创建以下默认规则：
 ## <a name="azure-platform-considerations"></a>Azure 平台注意事项
 
 - **主机节点的虚拟 IP**：基本的基础结构服务（例如 DHCP、DNS、IMDS和运行状况监视）是通过虚拟化主机 IP 地址 168.63.129.16 和 169.254.169.254 提供的。 这些 IP 地址属于 Azure，是仅有的用于所有区域的虚拟化 IP 地址，没有其他用途。
-- **许可（密钥管理服务）**：在虚拟机中运行的 Windows 映像必须获得许可。 为了确保许可，会向处理此类查询的密钥管理服务主机服务器发送请求。 该请求是通过端口 1688 以出站方式提出的。 对于使用[默认路由 0.0.0.0/0](virtual-networks-udr-overview.md#default-route) 配置的部署，此平台规则会被禁用。
+- **许可（密钥管理服务）** ：在虚拟机中运行的 Windows 映像必须获得许可。 为了确保许可，会向处理此类查询的密钥管理服务主机服务器发送请求。 该请求是通过端口 1688 以出站方式提出的。 对于使用[默认路由 0.0.0.0/0](virtual-networks-udr-overview.md#default-route) 配置的部署，此平台规则会被禁用。
 - **负载均衡池中的虚拟机**：应用的源端口和地址范围来自源计算机，而不是来自负载均衡器。 目标端口和地址范围是目标计算机的，而不是负载均衡器的。
 - **Azure 服务实例**：在虚拟网络子网中部署了多个 Azure 服务的实例，例如 HDInsight、应用程序服务环境和虚拟机规模集。 有关可部署到虚拟网络的服务的完整列表，请参阅 [Azure 服务的虚拟网络](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network)。 在将网络安全组应用到部署了资源的子网之前，请确保熟悉每个服务的端口要求。 如果拒绝服务所需的端口，服务将无法正常工作。
 - **发送出站电子邮件**：Azure 建议利用经过身份验证的 SMTP 中继服务（通常通过 TCP 端口 587 进行连接，但也经常使用其他端口）从 Azure 虚拟机发送电子邮件。 SMTP 中继服务特别重视发件人信誉，尽量降低第三方电子邮件提供商拒绝邮件的可能性。 此类 SMTP 中继服务包括但不限于：Exchange Online Protection 和 SendGrid。 在 Azure 中使用 SMTP 中继服务绝不会受限制，不管订阅类型如何。 
 
-  如果是在 2017 年 11 月 15 日之前创建的 Azure 订阅，则除了能够使用 SMTP 中继服务，还可以直接通过 TCP 端口 25 发送电子邮件。 如果是在 2017 年 11 月 15 日之后创建的订阅，则可能无法直接通过端口 25 发送电子邮件。 经端口 25 的出站通信行为取决于订阅类型，如下所示：
+    如果是在 2017 年 11 月 15 日之前创建的 Azure 订阅，则除了能够使用 SMTP 中继服务，还可以直接通过 TCP 端口 25 发送电子邮件。 如果是在 2017 年 11 月 15 日之后创建的订阅，则可能无法直接通过端口 25 发送电子邮件。 经端口 25 的出站通信行为取决于订阅类型，如下所示：
 
-  - **企业协议**：允许端口 25 的出站通信。 可以将出站电子邮件直接从虚拟机发送到外部电子邮件提供商，不受 Azure 平台的限制。 
-  - **即用即付**：阻止所有资源通过端口 25 进行出站通信。 如需将电子邮件从虚拟机直接发送到外部电子邮件提供商（不使用经身份验证的 SMTP 中继），可以请求去除该限制。 21Vianet 会自行审核和批准此类请求，并且只在进行防欺诈检查后授予相关权限。 若要提交请求，请建立一个问题类型为“技术”、“虚拟网络连接”、“无法发送电子邮件（SMTP/端口 25）”的支持案例。 在支持案例中，请详细说明为何你的订阅需要将电子邮件直接发送到邮件提供商，而不经过经身份验证的 SMTP 中继。 如果订阅得到豁免，则只有在豁免日期之后创建的虚拟机能够经端口 25 进行出站通信。
-  - **MSDN、Azure Pass、Azure 开放许可、教育、BizSpark 和试用版**：阻止所有资源通过端口 25 进行出站通信。 不能请求去除该限制，因为不会针对请求授予相关权限。 若需从虚拟机发送电子邮件，则需使用 SMTP 中继服务。
-  - **云服务提供商**：如果无法使用安全的 SMTP 中继，通过云服务提供商消耗 Azure 资源的客户可以通过其云服务提供商创建支持案例，并请求提供商代表他们创建取消阻止案例。
+        - **Enterprise Agreement**: Outbound port 25 communication is allowed. You are able to send outbound email directly from virtual machines to external email providers, with no restrictions from the Azure platform. 
+        - **Standard Pay-in-Advance Offer:** Outbound port 25 communication is blocked from all resources. If you need to send email from a virtual machine directly to external email providers (not using an authenticated SMTP relay), you can make a request to remove the restriction. Requests are reviewed and approved at 21Vianet's discretion and are only granted after anti-fraud checks are performed. To make a request, open a support case with the issue type *Technical*, *Virtual Network Connectivity*, *Cannot send e-mail (SMTP/Port 25)*. In your support case, include details about why your subscription needs to send email directly to mail providers, instead of going through an authenticated SMTP relay. If your subscription is exempted, only virtual machines created after the exemption date are able to communicate outbound over port 25.
+        - **MSDN, Azure Pass, Azure in Open, Education, BizSpark, and trial**: Outbound port 25 communication is blocked from all resources. No requests to remove the restriction can be made, because requests are not granted. If you need to send email from your virtual machine, you have to use an SMTP relay service.
+        - **Cloud service provider**: Customers that are consuming Azure resources via a cloud service provider can create a support case with their cloud service provider, and request that the provider create an unblock case on their behalf, if a secure SMTP relay cannot be used.
      
-    <!-- Convert Microsoft to 21Vianet -->
+        <!-- Convert Microsoft to 21Vianet -->
+        
     即使 Azure 允许经端口 25 发送电子邮件，Azure 也不能保证电子邮件提供商会接受来自你的虚拟机的入站电子邮件。 如果特定的提供商拒绝了来自你的虚拟机的邮件，请直接与该提供商协商解决邮件传送问题或垃圾邮件过滤问题，否则只能使用经身份验证的 SMTP 中继服务。
 
 ## <a name="next-steps"></a>后续步骤

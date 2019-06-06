@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 02/05/2019
-ms.date: 03/04/2019
+origin.date: 04/25/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 40fa469fb14cd945966030187c3674f536ec336e
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 3907d712b79956aeea0dde37925f1e8d0daa89ab
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463707"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390809"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服务更新
 组织需确定在发生计划内和计划外中断时，如何维护数据的安全，以及如何确保应用/工作负荷处于运行状态。 Azure Site Recovery 可以在站点出现故障时让应用始终在 VM 上运行并使物理服务器保持可用，以此帮助实现 BCDR 策略。 Site Recovery 可以复制在 VM 和物理服务器上运行的工作负荷，因此当主站点不可用时，始终可以在次要位置使用这些工作负荷。 当主站点重新启动并运行时，它会将工作负荷恢复到主站点。
@@ -64,11 +64,11 @@ Azure Site Recovery 定期发布服务更新 - 包括添加新功能、改进支
 2. 在 Azure 门户中转到“恢复服务保管库”对应的“已复制的项”窗格。
 3. 单击屏幕顶部的以下通知：
 
-    “有新的 Site Recovery 复制代理更新可用。
+    “有新的 Site Recovery 复制代理更新可用。 
 
-    请单击此处安装 ->”
+    请单击此处安装 ->” 
 
-4. 选择要将更新应用到的 VM，然后单击“确定”。
+4. 选择要将更新应用到的 VM，然后单击“确定”。 
 
 ## <a name="between-two-on-premises-vmm-sites"></a>在两个本地 VMM 站点之间
 1. 下载 Azure Site Recovery 提供程序的最新更新汇总。
@@ -100,14 +100,14 @@ Azure Site Recovery 定期发布服务更新 - 包括添加新功能、改进支
 
 1. 根据当前版本和上面提供的支持声明，按照[此处](vmware-azure-deploy-configuration-server.md#upgrade-the-configuration-server)提供的准则，先在本地管理服务器上安装更新。 这是具有配置服务器和进程服务器角色的服务器。
 2. 如果横向扩展了进程服务器，接下来请按照[此处](vmware-azure-manage-process-server.md#upgrade-a-process-server)提供的准则更新这些服务器。
-3. 接下来，若要对每个受保护的项更新移动代理，请转到 Azure 门户，然后转到“受保护的项” > “复制的项”页面。 在此页上选择一个 VM。 选择页面底部显示的、每个 VM 对应的“更新代理”按钮。 这会更新所有受保护 VM 上的移动服务代理。
+3. 接下来，若要对每个受保护的项更新移动代理，请转到 Azure 门户，然后转到“受保护的项”   > “复制的项”  页面。 在此页上选择一个 VM。 选择页面底部显示的、每个 VM 对应的“更新代理”按钮。  这会更新所有受保护 VM 上的移动服务代理。
 
 ### <a name="reboot-of-source-machine-after-mobility-agent-upgrade"></a>移动代理升级之后重新启动源计算机
 
 建议在每次升级移动代理后重新启动，以确保在源计算机上加载所有最新更改。 不过，重新启动**不是必需的**操作。 如果上次重新启动时的代理版本与当前版本之间的差大于 4，则必须重新启动。 请参考下表中的详细说明。
 
 |**上次重新启动时的代理版本** | **升级到** | **是否必须重新启动？**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | 不是必需的|
 |9.16 | 9.19 | 不是必需的|
 | 9.16 | 9.20 | 不是必需的
@@ -117,16 +117,21 @@ Azure Site Recovery 定期发布服务更新 - 包括添加新功能、改进支
 
 |更新汇总  |提供程序  |统一安装程序| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[更新汇总 36](https://support.microsoft.com/en-in/help/4503156)     |   5.1.4150.0  |  9.24.5211.1   |  5.1.4150.0  | 2.0.9160.0
+|[更新汇总 35](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[更新汇总 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) - 修补程序     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[更新汇总 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[更新汇总 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[更新汇总 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[更新汇总 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[更新汇总 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [更新汇总 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
+
+*发行说明正在编写中。 请参阅相应的升级文档升级 Site Recovery 组件。
 
 ## <a name="previous-update-rollups"></a>以前的更新汇总
+
+- [更新汇总 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [更新汇总 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [更新汇总 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [更新汇总 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [更新汇总 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 
@@ -135,5 +140,5 @@ Azure Site Recovery 定期发布服务更新 - 包括添加新功能、改进支
 - [更新汇总 20](https://support.microsoft.com/help/4041105/update-rollup-20-for-azure-site-recovery) 
 - [更新汇总 19](https://support.microsoft.com/help/4034599/update-rollup-19-for-azure-site-recovery)
 
-<!--Update_Description: new articles on site recovery service updates how to -->
-<!--ms.date: 03/11/2019-->
+<!--Update_Description: update link, wording update -->
+

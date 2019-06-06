@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 03/04/2019
+origin.date: 04/08/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: ace75792d58c03d8453035f557e888d5056c6458
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: afee1d11c0e7f333e31eb4458d7d8228e9d99902
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463608"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390862"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 灾难恢复到辅助站点时的支持矩阵
 
@@ -34,7 +34,7 @@ Windows Server 2016 |  目前不支持混合使用 Windows Server 2016 和 2012 
 
 下表总结了通过 Site Recovery 完成复制的计算机的操作系统支持。 支持的操作系统上可运行任何工作负荷。
 
-**Windows 版本** | Hyper-V（有 VMM）
+**Windows 版本** | Hyper-V（有 VMM） 
 --- | ---
 Windows Server 2016 | Windows Server 2016 上的[Hyper-V 支持](https://docs.microsoft.com/windows-server/virtualization/hyper-v/Supported-Windows-guest-operating-systems-for-Hyper-V-on-Windows)的所有来宾操作系统 
 Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://docs.microsoft.com/zh-cn/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn792027%28v%3dws.11%29)的所有来宾操作系统
@@ -68,7 +68,7 @@ Windows Server 2012 R2 | Windows Server 2012 R2 上的[Hyper-V 支持](https://d
 
 ### <a name="host-storage"></a>主机存储
 
-存储（主机） | **支持**
+存储（主机）  | **支持**
 --- | --- 
 NFS | 不适用
 SMB 3.0 |  是
@@ -107,7 +107,7 @@ RDM | 不适用
 该提供程序协调 VMM 服务器之间的通信。 
 
 **最新** | **更新**
---- | --- | --- | --- | ---
+--- | --- 
 5.1.19（[可从门户获取](https://aka.ms/downloaddra)） | [最新功能和修复](https://support.microsoft.com/kb/3155002)
 
 ## <a name="next-steps"></a>后续步骤

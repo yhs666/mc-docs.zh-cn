@@ -7,15 +7,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 03/04/2019
+origin.date: 04/09/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd3676078c73f30f3fe7813beeaf8a6c40063185
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 945686cc9f236ee931e5f4d6deab8c81246b0de2
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463493"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390812"
 ---
 # <a name="set-up-disaster-recovery-for-active-directory-and-dns"></a>为 Active Directory 和 DNS 设置灾难恢复
 
@@ -49,7 +49,7 @@ ms.locfileid: "57463493"
 2. 域控制器应为测试故障转移期间所需角色的 FSMO 角色所有者。 否则，故障转移之后需要[获取](https://aka.ms/ad_seize_fsmo)这些角色。
 
 ### <a name="configure-vm-network-settings"></a>配置 VM 网络设置
-对于托管域控制器或 DNS 的虚拟机，请在 Site Recovery 中在复制的虚拟机的“计算和网络”设置下配置网络设置。 这可确保故障转移后虚拟机附加到正确的网络。
+对于托管域控制器或 DNS 的虚拟机，请在 Site Recovery 中在复制的虚拟机的“计算和网络”  设置下配置网络设置。 这可确保故障转移后虚拟机附加到正确的网络。
 
 ## <a name="protect-active-directory"></a>保护 Active Directory
 
@@ -76,12 +76,12 @@ ms.locfileid: "57463493"
 
 1. 使用 Site Recovery [复制](vmware-azure-tutorial.md)托管域控制器或 DNS 的虚拟机。
 2. 创建独立的网络。 默认情况下，在 Azure 中创建的任何虚拟网络均独立于其他网络。 建议对此网络使用与生产网络相同的 IP 地址范围。 不要在此网络上启用站点到站点连接。
-3. 在独立网络中提供 DNS IP 地址。 使用 DNS 虚拟机预计应会获取的 IP 地址。 如果要复制到 Azure，请提供用于故障转移的虚拟机的 IP 地址。 若要输入 IP 地址，请在复制的虚拟机的“计算和网络”设置中，选择“目标 IP”设置。
+3. 在独立网络中提供 DNS IP 地址。 使用 DNS 虚拟机预计应会获取的 IP 地址。 如果要复制到 Azure，请提供用于故障转移的虚拟机的 IP 地址。 若要输入 IP 地址，请在复制的虚拟机的“计算和网络”  设置中，选择“目标 IP”  设置。
 
     ![Azure 测试网络](./media/site-recovery-active-directory/azure-test-network.png)
 
     > [!TIP]
-    > Site Recovery 尝试在名称相同的子网中创建测试虚拟机，并使用虚拟机的“计算与网络”设置中提供的同一 IP 地址。 如果为测试故障转移提供的 Azure 虚拟网络中没有名称相同的子网，则会按字母顺序在第一个子网中创建测试虚拟机。
+    > Site Recovery 尝试在名称相同的子网中创建测试虚拟机，并使用虚拟机的“计算与网络”  设置中提供的同一 IP 地址。 如果为测试故障转移提供的 Azure 虚拟网络中没有名称相同的子网，则会按字母顺序在第一个子网中创建测试虚拟机。
     >
     > 如果目标 IP 地址归属于所选子网，则 Site Recovery 会尝试使用该目标 IP 地址创建测试故障转移虚拟机。 如果目标 IP 不属于所选子网，则会使用所选子网中下一个可用 IP 创建测试故障转移虚拟机。
     >
@@ -90,9 +90,9 @@ ms.locfileid: "57463493"
 ### <a name="test-failover-to-a-secondary-site"></a>测试故障转移至辅助站点
 
 1. 如果要复制到其他本地站点并使用 DHCP，请[针对测试故障转移设置 DNS 和 DHCP](hyper-v-vmm-test-failover.md#prepare-dhcp)。
-2. 对隔离网络中运行的域控制器虚拟机执行测试故障转移。 使用域控制器虚拟机最新可用的应用程序一致恢复点来执行测试故障转移。
+2. 对隔离网络中运行的域控制器虚拟机执行测试故障转移。 使用域控制器虚拟机最新可用的应用程序一致  恢复点来执行测试故障转移。
 3. 针对包含虚拟机（应用程序在其中运行）的恢复计划运行测试故障转移。
-4. 测试完成后，请在域控制器虚拟机上清理测试故障转移。 此步骤会删除为测试性故障转移创建的域控制器。
+4. 测试完成后，请在域控制器虚拟机上清理测试故障转移  。 此步骤会删除为测试性故障转移创建的域控制器。
 
 ### <a name="remove-references-to-other-domain-controllers"></a>删除对其他域控制器的引用
 进行测试故障转移时，不需要将所有域控制器都引入测试网络中。 若要删除生产环境中存在的对其他域控制器的引用，可能需要为缺失的域控制器[获取 FSMO Active Directory 角色](https://aka.ms/ad_seize_fsmo)并执行[元数据清理](https://technet.microsoft.com/library/cc816907.aspx)。
@@ -104,13 +104,13 @@ ms.locfileid: "57463493"
 >
 >
 
-从 Windows Server 2012 开始，[Active Directory 域服务 (AD DS) 中内置了额外的安全措施](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。 如果底层虚拟机监控程序平台支持 VM-GenerationID，这些安全措施就可以防止虚拟化域控制器出现 USN 回退。 Azure 支持 VM-GenerationID。 因此，在 Azure 虚拟机上运行 Windows Server 2012 或更高版本的域控制器具有额外的安全防护措施。
+从 Windows Server 2012 开始，[Active Directory 域服务 (AD DS) 中内置了额外的安全措施](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。 如果底层虚拟机监控程序平台支持 VM-GenerationID  ，这些安全措施就可以防止虚拟化域控制器出现 USN 回退。 Azure 支持 VM-GenerationID  。 因此，在 Azure 虚拟机上运行 Windows Server 2012 或更高版本的域控制器具有额外的安全防护措施。
 
-重置 VM-GenerationID 时，AD DS 数据库的 InvocationID 值也会被重置。 除此之外，还放弃了 RID 池，将 SYSVOL 标记为非授权。 有关详细信息，请参阅 [Active Directory 域服务虚拟化简介](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)和[安全虚拟化 DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)。
+重置 VM-GenerationID  时，AD DS 数据库的 InvocationID  值也会被重置。 除此之外，还放弃了 RID 池，将 sysvol 文件夹标记为非权威。 有关详细信息，请参阅 [Active Directory 域服务虚拟化简介](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)和[安全虚拟化 DFSR](https://blogs.technet.microsoft.com/filecab/2013/04/05/safely-virtualizing-dfsr/)。
 
-故障转移到 Azure 可能会导致 VM-GenerationID重置。 域控制器虚拟机在 Azure 中启动时，重置 VM-GenerationID会触发额外的安全措施。 尝试登录域控制器虚拟机时，这可能会导致严重的延迟。
+故障转移到 Azure 可能会导致 VM-GenerationID  重置。 域控制器虚拟机在 Azure 中启动时，重置 VM-GenerationID  会触发额外的安全措施。 尝试登录域控制器虚拟机时，这可能会导致严重延迟  。
 
-由于该域控制器仅用于测试故障转移，因此不需要实施虚拟化安全措施。 要确保域控制器虚拟机的 VM-GenerationID 值不改变，可在本地域控制器中将下述 DWORD 的值更改为 4：
+由于该域控制器仅用于测试故障转移，因此不需要实施虚拟化安全措施。 要确保域控制器虚拟机的 VM-GenerationID  值不改变，可在本地域控制器中将下述 DWORD 的值更改为 4  ：
 
 `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\gencounter\Start`
 
@@ -118,19 +118,19 @@ ms.locfileid: "57463493"
 
 如果在测试故障转移后触发了虚拟化安全措施，则可能会看到下述一项或多项症状：  
 
-* GenerationID 值发生变化。
+* GenerationID  值发生变化。
 
     ![生成 ID 发生更改](./media/site-recovery-active-directory/Event2170.png)
 
-* InvocationID 值发生变化。
+* InvocationID  值发生变化。
 
     ![调用 ID 发生更改](./media/site-recovery-active-directory/Event1109.png)
 
-* SYSVOL 和 NETLOGON 共享不可用。
+* Sysvol 文件夹和 NETLOGON 共享不可用。
 
-    ![SYSVOL 共享](./media/site-recovery-active-directory/sysvolshare.png)
+    ![Sysvol 文件夹共享](./media/site-recovery-active-directory/sysvolshare.png)
 
-    ![NtFrs SYSVOL](./media/site-recovery-active-directory/Event13565.png)
+    ![NtFrs sysvol 文件夹](./media/site-recovery-active-directory/Event13565.png)
 
 * DFSR 数据库被删除。
 
@@ -143,7 +143,7 @@ ms.locfileid: "57463493"
 >
 >
 
-1. 在命令提示符处运行以下命令，检查是否已共享 SYSVOL 和 NETLOGON 文件夹：
+1. 在命令提示符处运行以下命令，检查 sysvol 文件夹和 NETLOGON 文件夹是否已共享：
 
     `NET SHARE`
 
@@ -163,17 +163,17 @@ ms.locfileid: "57463493"
     * 虽然不推荐 [FRS 复制](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs/)，但如果使用了 FRS 复制，请按照步骤执行授权还原。 [使用 BurFlags 注册表项重新初始化文件复制服务](https://support.microsoft.com/kb/290762)中介绍了该过程。
 
         有关 BurFlags 的详细信息，请参阅博客文章 [D2 和 D4：它的作用是什么？](https://blogs.technet.microsoft.com/janelewis/2006/09/18/d2-and-d4-what-is-it-for/)。
-    * 如果使用 DFSR 复制，请完成授权还原步骤。 [强制进行 DFSR 复制的 SYSVOL（如 FRS 的“D4/D2”）的授权和非授权同步](https://support.microsoft.com/kb/2218556)中介绍了该过程。
+    * 如果使用 DFSR 复制，请完成授权还原步骤。 [强制对 DFSR 复制的 sysvol 文件夹进行权威和非权威同步（如 FRS 的“D4/D2”）](https://support.microsoft.com/kb/2218556)中介绍了该过程。
 
         还可以使用 PowerShell 函数。 有关详细信息，请参阅 [DFSR-SYSVOL 授权/非授权还原 PowerShell 函数](https://blogs.technet.microsoft.com/thbouche/2013/08/28/dfsr-sysvol-authoritative-non-authoritative-restore-powershell-functions/)。
 
-2. 在本地域控制器中将以下注册表项设置为 0，绕过初始同步要求。 如果 DWORD 不存在，可在“Parameters”节点下创建。
+2. 在本地域控制器中将以下注册表项设置为 0  ，绕过初始同步要求。 如果 DWORD 不存在，可在“Parameters”  节点下创建。
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\NTDS\Parameters\Repl Perform Initial Synchronizations`
 
     有关详细信息，请参阅[排查 DNS 事件 ID 4013：DNS 服务器无法加载 AD 集成的 DNS 区域](https://support.microsoft.com/kb/2001093)。
 
-3. 禁用需要全局编录服务器才能验证用户登录的要求。 为此，请在本地域控制器中，将以下注册表项设置为 1。 如果 DWORD 不存在，可在“Lsa”节点下创建。
+3. 禁用需要全局编录服务器才能验证用户登录的要求。 为此，请在本地域控制器中，将以下注册表项设置为 1  。 如果 DWORD 不存在，可在“Lsa”  节点下创建。
 
     `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\IgnoreGCFailures`
 
@@ -208,4 +208,4 @@ ms.locfileid: "57463493"
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Azure Site Recovery 保护企业工作负荷](site-recovery-workload.md)。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

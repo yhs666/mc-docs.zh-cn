@@ -11,16 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/16/2018
-ms.date: 12/17/2018
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: quying
-ms.openlocfilehash: 53b41ddeab0871c453859115a49be7704239f3aa
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: 0b743208661cce77c3bac74c2cc477bf96e5f5c9
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529517"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381805"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>MySQL 资源提供程序维护操作
 
@@ -28,7 +29,7 @@ MySQL 资源提供程序在锁定的虚拟机上运行。 若要启用维护操�
 
 ## <a name="update-the-virtual-machine-operating-system"></a>更新虚拟机操作系统
 
-由于资源提供程序在用户虚拟机上运行，因此需要应用已发布的修补升级。 可以使用修补升级周期提供的 Windows 更新包将更新应用到 VM。
+由于资源提供程序在用户虚拟机上运行，因此需要应用已发布的修补升级。  可以使用修补升级周期提供的 Windows 更新包将更新应用到 VM。
 
 使用以下方法之一更新提供程序虚拟机：
 

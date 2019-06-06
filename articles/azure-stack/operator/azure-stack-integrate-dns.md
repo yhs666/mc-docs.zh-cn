@@ -6,23 +6,25 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 05/09/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: wfayed
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 05/09/2019
 keywords: ''
-ms.openlocfilehash: f80b2f952328e886d7ea3dc88b21d9959a2020f7
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 36aaecba9fc796e038b58c9e647b7296cb77aac6
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529623"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381840"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack 数据中心集成 - DNS
+
 若要能够从 Azure Stack 外部访问 Azure Stack 终结点（**门户**、**adminportal**、**管理**、**adminmanagement** 等），需将 Azure Stack DNS 服务与托管 DNS 区域（要在 Azure Stack 中使用）的 DNS 服务器集成。
 
 ## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS 命名空间
+
 部署 Azure Stack 时，必须提供与 DNS 相关的一些重要信息。
 
 
@@ -52,6 +54,19 @@ Azure Stack 部署和终结点的完全限定域名 (FQDN) 是区域参数和外
 
 若要从 Azure Stack 外部解析 Azure Stack 终结点和实例的 DNS 名称，需将为 Azure Stack 托管外部 DNS 区域的 DNS 服务器与托管需要使用的父区域的 DNS 服务器集成。
 
+### <a name="dns-name-labels"></a>DNS 名称标签
+
+Azure Stack 支持向公共 IP 地址添加 DNS 名称标签，以允许对公共 IP 地址进行名称解析。 这是一种方便用户通过名称访问 Azure Stack 中托管的应用程序和服务的方法。 DNS 名称标签使用的命名空间与基础结构终结点略有不同。 按照前面的示例命名空间，DNS 名称标签的命名空间如下所示：
+
+`*.east.cloudapp.cloud.fabrikam.com`
+
+因此，如果租户在公共 IP 地址资源的 DNS 名称标签字段中指定值 **Myapp**，则会在 Azure Stack 外部 DNS 服务器上的 **east.cloudapp.cloud.fabrikam.com** 区域中为 **myapp** 创建一条 A 记录。 生成的完全限定域名如下所示：
+
+`myapp.east.cloudapp.cloud.fabrikam.com`
+
+如果要利用此功能并使用此命名空间，则必须将托管 Azure Stack 的外部 DNS 区域的 DNS 服务器与托管也要使用的父区域的 DNS 服务器集成。 这是一个与 Azure Stack 服务终结点的命名空间不同的命名空间，因此你必须创建一个额外的委派或条件转发规则。
+
+有关 DNS 名称标签的工作原理的详细信息，请参阅[在 Azure Stack 中使用 DNS](../user/azure-stack-dns.md)。
 
 ## <a name="resolution-and-delegation"></a>解析和委托
 
@@ -143,4 +158,3 @@ Azure Stack DNS 服务器的 FQDN 具有以下格式：
 ## <a name="next-steps"></a>后续步骤
 
 [防火墙集成](azure-stack-firewall.md)
-<!-- Update_Description: update metedata properties -->

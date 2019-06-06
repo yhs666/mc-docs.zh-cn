@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 04/29/2019
+origin.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 44d9e8d20b7f24a4707f38c06d877b2c18643b57
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/07/2019
+ms.openlocfilehash: 9f871149bb7a60bb4d0f87bee75164fb63692e24
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529642"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381918"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -33,10 +33,12 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 下图演示了 CSP 需要执行哪些步骤才能让新客户使用 Azure Stack，并针对客户设置用量跟踪。 添加最终用户还可以管理 Azure Stack 中的资源。 可通过两个选项来管理这些资源：
 
-1. 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
-2. 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
+- 可以保留最终客户，并向最终客户提供本地 Azure Stack 订阅的凭据。  
+- 最终客户可以在本地使用其订阅，并将 CSP 添加为拥有所有者权限的来宾。  
 
-## <a name="steps-to-add-an-end-customer"></a>添加最终客户的步骤
+## <a name="add-an-end-customer"></a>添加最终客户
+
+执行以下步骤以添加最终客户，如下图所示：
 
 ![设置云服务提供程序以进行用量跟踪，以及管理最终客户帐户](media/azure-stack-csp-enable-billing-usage-tracking/process-csp-enable-billing.png)
 
@@ -50,14 +52,14 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 然后，最终用户将会添加来宾，并将来宾权限提升为 Azure Stack CSP 帐户的**所有者**。
+如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 然后，最终用户将添加来宾，并将来宾权限提升为 Azure Stack CSP 帐户的**所有者**。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
-更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户的用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
+更新在最终客户订阅中的注册 Azure 将使用合作伙伴中心的客户标识来报告客户用量。 此步骤可确保在每个客户的个人 CSP 订阅下报告该客户的用量。 这样可以简化用户用量跟踪和计费。
 
 > [!NOTE]  
-> 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md )。
+> 若要执行此步骤，必须[注册 Azure Stack](azure-stack-registration.md)。
 
 1. 使用权限提升的提示符打开 Windows PowerShell，并运行：  
     `Add-AzureRmAccount -EnvironmentName AzureChinaCloud`

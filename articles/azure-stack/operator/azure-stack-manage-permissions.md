@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/14/2019
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: abee493e48ceee8e5a148733fef032e996104a9a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: fd5253084885af05a0d40897042291574a5b0bdc
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529570"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381838"
 ---
 # <a name="manage-role-based-access-control"></a>管理基于角色的访问控制
 
@@ -36,9 +36,9 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 ## <a name="set-access-permissions-for-a-user"></a>设置用户的访问权限
 
 1. 使用对要管理的资源具有所有者权限的帐户登录。
-2. 在“资源”边栏选项卡中，单击“访问”图标 ![](media/azure-stack-manage-permissions/image1.png)。
-3. 在“用户”边栏选项卡中，单击“角色”。
-4. 在“角色”边栏选项卡中，单击“添加”即可添加用户的权限。
+2. 在“资源”边栏选项卡中，单击“访问”  图标 ![](media/azure-stack-manage-permissions/image1.png)。
+3. 在“用户”  边栏选项卡中，单击“角色”  。
+4. 在“角色”  边栏选项卡中，单击“添加”  即可添加用户的权限。
 
 ## <a name="set-access-permissions-for-a-universal-group"></a>设置通用组的访问权限 
 
@@ -46,9 +46,9 @@ Azure Stack 中的用户可以是订阅、资源组或服务的每个实例的�
 > 仅适用于 Active Directory 联合身份验证服务 (AD FS)。
 
 1. 使用对要管理的资源具有所有者权限的帐户登录。
-2. 在“资源”边栏选项卡中，单击“访问”图标 ![](media/azure-stack-manage-permissions/image1.png)。
-3. 在“用户”边栏选项卡中，单击“角色”。
-4. 在“角色”边栏选项卡中，单击“添加”即可添加通用组 Active Directory 组的权限。
+2. 在“资源”边栏选项卡中，单击“访问”  图标 ![](media/azure-stack-manage-permissions/image1.png)。
+3. 在“用户”  边栏选项卡中，单击“角色”  。
+4. 在“角色”  边栏选项卡中，单击“添加”  即可添加通用组 Active Directory 组的权限。
 
 ## <a name="next-steps"></a>后续步骤
 [添加 Azure Stack 租户](azure-stack-add-new-user-aad.md)

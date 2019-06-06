@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/01/2019
 ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2bd6191bf3f0fe417859ccfbbc1f786994633770
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 104e70ede8ef4a0a8eacd28c0e0d3e3bf1e8c991
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829144"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424611"
 ---
 # <a name="setup-secure-sockets-layer-ssl-encryption-and-authentication-for-apache-kafka-in-azure-hdinsight"></a>为 Azure HDInsight 中的 Apache Kafka 设置安全套接字层 (SSL) 加密和身份验证
 
@@ -120,13 +120,13 @@ Kafka SSL 代理设置按以下方式使用四个 HDInsight 群集 VM：
 若要完成配置修改，请按照以下步骤操作：
 
 1. 登录到 Azure 门户，并选择你的 Azure HDInsight Apache Kafka 群集。
-1. 单击**群集仪表板**下面的“Ambari 主页”转到 Ambari UI。
-1. 在“Kafka 代理”下，将 **listeners** 属性设置为 `PLAINTEXT://localhost:9092,SSL://localhost:9093`
-1. 在“高级 kafka-broker”下，将 **security.inter.broker.protocol** 属性设置为 `SSL`
+1. 单击**群集仪表板**下面的“Ambari 主页”转到 Ambari UI。 
+1. 在“Kafka 代理”下，将 **listeners** 属性设置为 `PLAINTEXT://localhost:9092,SSL://localhost:9093` 
+1. 在“高级 kafka-broker”下，将 **security.inter.broker.protocol** 属性设置为 `SSL` 
 
     ![在 Ambari 中编辑 Kafka ssl 配置属性](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari.png)
 
-1. 在“自定义 kafka-broker”下，将 **ssl.client.auth** 属性设置为 `required`。 仅当同时设置了身份验证和加密时，才需要执行此步骤。
+1. 在“自定义 kafka-broker”下，将 **ssl.client.auth** 属性设置为 `required`。  仅当同时设置了身份验证和加密时，才需要执行此步骤。
 
     ![在 Ambari 中编辑 kafka ssl 配置属性](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
@@ -172,34 +172,34 @@ Kafka SSL 代理设置按以下方式使用四个 HDInsight 群集 VM：
 
 ```bash
 cd ssl
+```
 
-# Create a java keystore and get a signed certificate for the broker. Then copy the certificate to the VM where the CA is running.
+# <a name="create-a-java-keystore-and-get-a-signed-certificate-for-the-broker-then-copy-the-certificate-to-the-vm-where-the-ca-is-running"></a>创建 Java 密钥存储并获取代理的已签名证书。 然后将该证书复制到运行 CA 的 VM。
 
 keytool -genkey -keystore kafka.client.keystore.jks -validity 365 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -dname "CN=mylaptop1" -alias my-local-pc1 -storetype pkcs12
 
 keytool -keystore kafka.client.keystore.jks -certreq -file client-cert-sign-request -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123"
 
-# Copy the cert to the CA
+# <a name="copy-the-cert-to-the-ca"></a>将证书复制到 CA
 scp client-cert-sign-request3 sshuser@HeadNode0_Name:~/tmp1/client-cert-sign-request
 
-# Switch to the CA machine (hn0) to sign the client certificate.
-cd ssl
-openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
+# <a name="switch-to-the-ca-machine-hn0-to-sign-the-client-certificate"></a>切换到 CA 计算机 (hn0)，为客户端证书签名。
+cd ssl openssl x509 -req -CA ca-cert -CAkey ca-key -in /tmp1/client-cert-sign-request -out /tmp1/client-cert-signed -days 365 -CAcreateserial -passin pass:MyServerPassword123
 
-# Return to the client machine (hn1), navigate to ~/ssl folder and copy signed cert from the CA (hn0) to client machine
+# <a name="return-to-the-client-machine-hn1-navigate-to-ssl-folder-and-copy-signed-cert-from-the-ca-hn0-to-client-machine"></a>返回到客户端计算机 (hn1)，导航到 ~/ssl 文件夹并从 CA (hn0) 将已签名的证书复制到客户端计算机
 scp -i ~/kafka-security.pem sshuser@HeadNode0_Name:/tmp1/client-cert-signed
 
-# Import CA cert to trust store
+# <a name="import-ca-cert-to-trust-store"></a>将 CA 证书导入到信任存储
 keytool -keystore kafka.client.truststore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
-# Import CA cert to key store
+# <a name="import-ca-cert-to-key-store"></a>将 CA 证书导入到密钥存储
 keytool -keystore kafka.client.keystore.jks -alias CARoot -import -file ca-cert -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 
-# Import signed client (cert client-cert-signed1) to keystore
+# <a name="import-signed-client-cert-client-cert-signed1-to-keystore"></a>将已签名的客户端证书 (client-cert-signed1) 导入到密钥存储
 keytool -keystore kafka.client.keystore.jks -import -file client-cert-signed -alias my-local-pc1 -storepass "MyClientPassword123" -keypass "MyClientPassword123" -noprompt
 ```
 
-最后，运行命令 `cat client-ssl-auth.properties`，以查看文件 `client-ssl-auth.properties`。 该文件应包含以下行：
+Lastly, view the file `client-ssl-auth.properties` with the command `cat client-ssl-auth.properties`. It should have the following lines:
 
 ```bash
 security.protocol=SSL

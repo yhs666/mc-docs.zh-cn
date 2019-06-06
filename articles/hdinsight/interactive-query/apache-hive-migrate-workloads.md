@@ -8,13 +8,13 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 04/24/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 515f1b7f89fa4357d11e6935cf9c67d7dc37dcb7
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/10/2019
+ms.openlocfilehash: db16f18e0e737b3e2812b68e162749bff16dbfa3
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829369"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424691"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>将 Azure HDInsight 3.6 Hive 工作负荷迁移到 HDInsight 4.0
 
@@ -31,8 +31,8 @@ ms.locfileid: "65829369"
 
 Hive 的一项优势是能够将元数据导出到外部数据库（也称为 Hive 元存储）。 **Hive 元存储**负责存储表统计信息，包括表存储位置、列名称和表索引信息。 元存储数据库架构根据 Hive 版本的不同而异。 执行以下操作以升级 HDInsight 3.6 Hive 元存储，使之与 HDInsight 4.0 兼容。
 
-1. 创建外部元存储的新副本。 HDInsight 3.6 和 HDInsight 4.0 需要不同的元存储架构，并且不能共享单个元存储。
-2. 使用“头节点”作为执行的节点类型，针对 HDInsight 3.6 群集启动某个脚本操作。 将以下 URI 粘贴到标有“Bash 脚本 URI”的文本框中： https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh。在标记为“参数”的文本框中，针对**复制的** Hive 元存储输入使用空格分隔的服务器名、数据库、用户名和密码。 在指定服务器名时，请勿包含“.database.windows.net”。
+1. 创建外部元存储的新副本。 HDInsight 3.6 和 HDInsight 4.0 需要不同的元存储架构，并且不能共享单个元存储。 请参阅[在 Azure HDInsight 中使用外部元数据存储](../hdinsight-use-external-metadata-stores.md)，以详细了解如何将外部元存储附加到 HDInsight 群集。 
+2. 使用“头节点”作为执行的节点类型，针对 HDI 3.6 群集启动某个脚本操作。 将以下 URI 粘贴到标有“Bash 脚本 URI”的文本框中： https://hdiconfigactions.blob.core.chinacloudapi.cn/hivemetastoreschemaupgrade/launch-schema-upgrade.sh。在标记为“参数”的文本框中，针对**复制的** Hive 元存储输入使用空格分隔的服务器名、数据库、用户名和密码。 在指定服务器名时，请勿包含“.database.chinacloudapi.cn”。
 
 > [!Warning]
 > 将 HDInsight 3.6 元数据架构转换为 HDInsight 4.0 架构的升级过程不可逆。
@@ -88,7 +88,7 @@ alter table myacidtable compact 'major';
 1. 在 HDInsight 3.6 群集中导航到 Ranger 服务管理器面板。
 2. 导航到名为 **HIVE** 的策略，并将该策略导出到某个 JSON 文件。
 3. 确保导出的策略 JSON 中引用的所有用户都存在于新群集中。 如果该策略 JSON 中引用的某个用户不存在于新群集中，请将该用户添加到新群集，或者从策略中删除引用。
-4. 在 HDInsight 4.0 群集中导航到“Ranger 服务管理器”面板。
+4. 在 HDInsight 4.0 群集中导航到“Ranger 服务管理器”面板。 
 5. 导航到名为 **HIVE** 的策略，并导入步骤 2 中导出的 Ranger 策略 JSON。
 
 ## <a name="query-execution-across-hdinsight-versions"></a>跨 HDInsight 版本执行查询

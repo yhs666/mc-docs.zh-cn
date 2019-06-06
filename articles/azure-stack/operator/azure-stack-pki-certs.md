@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/30/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: d219531f09170dab6ae1c56cbe3f5fd641906ba7
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: fa50cf315936fc82d403856bb46c8b844438cb7c
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529453"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381928"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack 公钥基础结构证书要求
 
@@ -62,7 +62,7 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 ## <a name="mandatory-certificates"></a>必需的证书
 本部分中的表格描述部署 Azure AD 和 AD FS Azure Stack 时所需的 Azure Stack 公共终结点 PKI 证书。 证书要求已根据区域以及所用命名空间和每个命名空间所需的证书分组。 此表格还描述了解决方案提供程序将每个公共终结点的不同证书所复制到的文件夹。 
 
-需要使用每个 Azure Stack 公共基础结构终结点的、具有适当 DNS 名称的证书。 每个终结点的 DNS 名称使用以下格式表示：*&lt;prefix>.&lt;region>.&lt;fqdn>*。 
+需要使用每个 Azure Stack 公共基础结构终结点的、具有适当 DNS 名称的证书。 每个终结点的 DNS 名称使用以下格式表示：&lt;prefix>.&lt;region>.&lt;fqdn>  。 
 
 对于部署，[region] 和 [externalfqdn] 值必须与针对 Azure Stack 系统选择的区域和外部域名相匹配。 例如，如果区域名称为 *Redmond*，外部域名为 *contoso.com*，则 DNS 名称的格式为 *&lt;prefix>.redmond.contoso.com*。 *&lt;prefix>* 值由 Microsoft 预先指定，描述证书保护的终结点。 此外，外部基础结构终结点的 *&lt;prefix>* 值取决于使用特定终结点的 Azure Stack 服务。 
 
@@ -87,8 +87,8 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 
 |部署文件夹|所需的证书使用者和使用者可选名称 (SAN)|范围（按区域）|子域命名空间|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>（SSL 证书）|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>（SSL 证书）|Graph|*&lt;region>.&lt;fqdn>*|
+|ADFS|adfs. *&lt;region>.&lt;fqdn>*<br>（SSL 证书）|ADFS|*&lt;region>.&lt;fqdn>*|
+|Graph|graph. *&lt;region>.&lt;fqdn>*<br>（SSL 证书）|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]
@@ -104,15 +104,15 @@ Azure Stack 有一个公共基础结构网络，该网络使用分配给少量 A
 
 |范围（按区域）|证书|所需的证书使用者和使用者可选名称 (SAN)|子域命名空间|
 |-----|-----|-----|-----|
-|SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter.*&lt;region>.&lt;fqdn>*|
-|应用服务|Web 流量默认 SSL 证书|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>（多域通配符 SSL 证书<sup>1</sup>）|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|应用服务|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|应用服务|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
-|应用服务|SSO|sso.appservice.*&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
+|SQL、MySQL|SQL 和 MySQL|&#42;.dbadapter. *&lt;region>.&lt;fqdn>*<br>（通配符 SSL 证书）|dbadapter. *&lt;region>.&lt;fqdn>*|
+|应用服务|Web 流量默认 SSL 证书|&#42;.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice. *&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice. *&lt;region>.&lt;fqdn>*<br>（多域通配符 SSL 证书<sup>1</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|应用服务|API|api.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|应用服务|FTP|ftp.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
+|应用服务|SSO|sso.appservice. *&lt;region>.&lt;fqdn>*<br>（SSL 证书<sup>2</sup>）|appservice. *&lt;region>.&lt;fqdn>*<br>scm.appservice. *&lt;region>.&lt;fqdn>*|
 
 <sup>1</sup> 需要一个包含多个通配符使用者可选名称的证书。 并非所有公共证书颁发机构都支持在单个证书中包含多个通配符 SAN 
 
-<sup>2</sup> 不能使用 &#42;.appservice.*&lt;region>.&lt;fqdn>* 通配符证书来取代这三个证书（api.appservice.*&lt;region>.&lt;fqdn>*、ftp.appservice.*&lt;region>.&lt;fqdn>* 和 sso.appservice.*&lt;region>.&lt;fqdn>*）。 应用服务明确要求对这些终结点使用不同的证书。 
+<sup>2</sup> 不能使用 &#42;.appservice. *&lt;region>.&lt;fqdn>* 通配符证书来取代这三个证书（api.appservice. *&lt;region>.&lt;fqdn>* 、ftp.appservice. *&lt;region>.&lt;fqdn>* 和 sso.appservice. *&lt;region>.&lt;fqdn>* ）。 应用服务明确要求对这些终结点使用不同的证书。 
 
 ## <a name="learn-more"></a>了解详细信息
 了解如何[为 Azure Stack 部署生成 PKI 证书](azure-stack-get-pki-certs.md)。 

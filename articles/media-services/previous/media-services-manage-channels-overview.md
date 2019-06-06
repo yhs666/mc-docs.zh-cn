@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 954a8fc03048313b1fb16a7adbc9e46d0f6ef37d
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 94e29fdf28743a6f465af0dd94e4b02835891d61
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624192"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390776"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒体服务实时传送视频流概述
-
-> [!NOTE]
-> 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。
 
 ## <a name="overview"></a>概述
 
@@ -43,15 +40,20 @@ ms.locfileid: "58624192"
   * 记录和存储引入的内容，以便稍后进行流式处理（视频点播）
   * 直接通过常用流式处理协议（例如 MPEG DASH、Smooth、HLS）将内容传递给客户，或传递到内容分发网络 (CDN) 以供进一步分发。
 
-Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传送视频流内容的功能。
+Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传送视频流内容的功能  。
 
-将内容传送给客户时，目标是将优质视频传送到处于不同网络条件下的各种设备。 为此，可使用实时编码器将流编码为多比特率（自适应比特率）视频流。  为满足不同设备的流式处理要求，使用媒体服务[动态打包](media-services-dynamic-packaging-overview.md)将流动态地重新打包为不同的协议。 媒体服务支持以下自适应比特率流式处理技术的传送：HTTP Live Streaming (HLS)、平滑流式处理、MPEG DASH。
+借助媒体服务，可以利用[动态打包](media-services-dynamic-packaging-overview.md)，以便广播正在发送到服务的贡献源中采用 MPEG DASH、HLS 和平滑流式处理格式的实时传送流。 观看者可以使用任何与 HLS、DASH 或平滑流式处理兼容的播放器播放实时流。 可以使用 Web 应用程序或移动应用程序中的 Azure Media Player 传送采用上述任何协议的流。
 
-在 Azure 媒体服务中，“频道”、“程序”和“流式处理终结点”处理所有实时传送视频流功能，包括引入、格式化、DVR、安全性、可伸缩性和冗余。
+> [!NOTE]
+> 自 2018 年 5 月 12 日起，实时频道将不再支持 RTP/MPEG-2 传输流引入协议。 请从 RTP/MPEG-2 迁移到 RTMP 或分段 MP4（平滑流式处理）引入协议。
+
+## <a name="streaming-endpoints-channels-programs"></a>流式处理终结点、频道、节目
+
+在 Azure 媒体服务中，“频道”、“程序”和“流式处理终结点”处理所有实时传送视频流功能，包括引入、格式化、DVR、安全性、可伸缩性和冗余    。
 
 **通道** 表示用于处理实时流内容的管道。 通道可以通过以下方式接收实时输入流：
 
-* 本地实时编码器将多比特率 RTMP 或平滑流式处理（零碎的 MP4）发送到经配置可以进行直通传送的频道。 直通传送是指引入的流将会直接通过频道，而不会经过任何进一步的处理。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 转码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
+* 本地实时编码器将多比特率 RTMP 或平滑流式处理（零碎的 MP4）发送到经配置可以进行直通传送的频道    。 直通传送是指引入的流将会直接通过频道，而不会经过任何进一步的处理   。 可以使用以下输出多比特率平滑流的实时编码器：MediaExcel、Ateme、Imagine Communications、Envivio、Cisco 和 Elemental。 以下实时编码器输出 RTMP：Adobe Flash Media Live Encoder (FMLE)、Telestream Wirecast、Haivision、Teradek 和 Tricaster 转码器。  实时编码器也可将单比特率流发送到并未启用实时编码的通道，但不建议这样做。 收到请求时，媒体服务会将该流传送给客户。
 
   > [!NOTE]
   > 需要长时间处理多个事件，并且已经在本地编码器上进行了投入时，可以使用直通这种最经济的方法来实时传送视频流。 请参阅[定价](https://www.azure.cn/pricing/details/media-services/)详细信息。
@@ -61,7 +63,7 @@ Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和
 
 从媒体服务2.10 发行版开始，创建通道时，可以指定希望通道接收输入流的方式，以及是否希望通道对流执行实时编码。 可以使用两个选项：
 
-* 无（直通） - 如果打算使用输出多比特率流（直通流）的本地实时编码器，请指定此值。 在这种情况下，传入流将传递到输出，而不会进行任何编码。 这是 2.10 发行版以前的通道行为。  
+* 无（直通） - 如果打算使用输出多比特率流（直通流）的本地实时编码器，请指定此值  。 在这种情况下，传入流将传递到输出，而不会进行任何编码。 这是 2.10 发行版以前的通道行为。  
 * **标准** - 如果打算使用媒体服务将单比特率实时流编码为多比特率流，请选择此值。 若要针对不频繁发生的事件快速地向上缩放，此方法可以节省资金。 请注意，实时编码会影响计费，应记住，将实时编码频道保持为“正在运行”状态会产生费用。  建议在实时流式处理事件完成之后立即停止正在运行的通道，以避免产生额外的小时费用。
 
 ## <a name="comparison-of-channel-types"></a>通道类型的比较

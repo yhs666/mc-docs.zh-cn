@@ -14,28 +14,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: c2a2ce8b641806cd871f87757abc6083e279da41
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: cea3e30ac05fb1ad3900151b51207f7548e01749
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306307"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250403"
 ---
 # <a name="public-ip-address-prefix"></a>公共 IP 地址前缀
 
 公共 IP 地址前缀是预留供 Azure 中的公共终结点使用的 IP 地址范围。 Azure 根据指定的地址数为订阅分配连续的地址范围。 如果不熟悉公共地址，请参阅[公共 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
 
-公共 IP 地址是从各 Azure 区域的地址池分配的。 可[下载](https://www.microsoft.com/download/confirmation.aspx?id=57062) Azure 在每个区域使用的范围列表。 例如，40.121.0.0/16 是 Azure 在中国东部区域中使用的 100 多个范围之一。 该范围包括从 40.121.0.1 到 40.121.255.254 的可用地址。
+<!--MOONCAKE: CUSTOMIZE-->
+
+公共 IP 地址是从各 Azure 区域的地址池分配的。 可[下载](https://www.microsoft.com/download/confirmation.aspx?id=57062) Azure 在每个区域使用的范围列表。 例如，40.72.128.0/18 是 Azure 在中国东部区域中使用的 100 多个范围之一。 该范围包括从 40.72.128.1 到 40.72.191.254 的可用地址。
+
+<!--MOONCAKE correct on 40.72.128.0/18-->
+<!--MOONCAKE correct on 40.72.128.1 - 40.72.191.254-->
 
 可通过指定一个名称和希望前缀包括的地址数，在 Azure 区域和订阅中创建公共 IP 地址前缀。 例如，如果创建一个公共 IP 地址前缀 /28，则 Azure 会从其范围之一为你分配 16 个地址。 除非创建范围，否则你不会知道 Azure 将分配哪个范围给你，但这些地址是连续的。 公共 IP 地址前缀会产生费用。 有关详细信息，请参阅[公共 IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)。
 
-> [!IMPORTANT]
-> 公共 IP 前缀在有限区域中以公共预览版提供。 有关更新的区域列表，请访问 [Azure 更新](https://www.azure.cn/what-is-new/)。
-
-<!--Not Available on [learn what it means to be in preview](https://www.azure.cn/support/legal/preview-supplemental-terms/)-->
-<!--Not Available on Public IP prefix is currently available in: XXXXXX -->
 ## <a name="why-create-a-public-ip-address-prefix"></a>为什么要创建公共 IP 地址前缀？
 
 创建公共 IP 地址资源时，Azure 将从某个区域中使用的任何一个范围分配可用的公共 IP 地址。 Azure 分配地址后，你就会知道是哪一个地址，但在 Azure 分配地址之前，你并不知道可能会分配哪个地址。 有时这可能会是一个问题，例如，你或你的业务合作伙伴设置防火墙规则，允许使用特定 IP 地址。 每当向资源分配新的公共 IP 地址时，必需将该地址添加到防火墙规则。 当从公共 IP 地址前缀向资源分配地址时，无需在每次分配一个地址时都更新防火墙规则，因为可以将整个范围添加到规则。
@@ -52,7 +52,7 @@ ms.locfileid: "56306307"
 ## <a name="scenarios"></a>方案
 可将以下资源关联到来自前缀的静态公共 IP 地址：
 
-|资源|方案|步骤|
+|Resource|方案|步骤|
 |---|---|---|
 |虚拟机| 将来自某个前缀的公共 IP 关联到 Azure 中的虚拟机可降低在防火墙中创建允许列表 IP 所产生的管理开销。 可使用单个防火墙规则简化创建整个前缀允许列表的过程。 缩放 Azure 中的虚拟机时，可关联来自同一前缀的 IP，从而节省成本、时间和管理开销。| 将来自某个前缀的 IP 关联到虚拟机：1. [创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. [将 IP 关联到虚拟机网络接口。](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | 负载均衡器 | 将来自某个前缀的公共 IP 关联到负载均衡器的前端 IP 配置或出站规则可确保简化 Azure 公共 IP 地址空间。 可以通过整理源由公共 IP 前缀定义的连续 IP 地址范围的出站连接来简化你的方案。 | 将来自某个前缀的 IP 关联到负载均衡器：1. [创建前缀。](manage-public-ip-address-prefix.md) 2. [从前缀创建 IP。](manage-public-ip-address-prefix.md) 3. 创建负载均衡器时，选择或更新在前面第 2 步中创建的 IP 作为负载均衡器的前端 IP。 |
@@ -64,6 +64,7 @@ ms.locfileid: "56306307"
 ## <a name="constraints"></a>约束
 
 - 不能指定前缀的 IP 地址。 Azure 将根据指定的大小分配前缀的 IP 地址。
+- 前缀的默认大小为 /28 或 16 个公共 IP 地址。
 - 创建前缀后，无法更改该范围。
 - 该范围仅适用于 IPv4 地址。 该范围不包含 IPv6 地址。
 - 仅使用标准 SKU 创建的静态公共 IP 地址可从前缀范围进行分配。 若要详细了解公用 IP 地址 SKU，请参阅[公用 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
@@ -75,5 +76,4 @@ ms.locfileid: "56306307"
 
 - [创建](manage-public-ip-address-prefix.md)公共 IP 地址前缀
 
-<!--Update_Description: new articles on public ip address prefix -->
-<!--ms.date: 02/18/2019-->
+<!--Update_Description: wording update -->

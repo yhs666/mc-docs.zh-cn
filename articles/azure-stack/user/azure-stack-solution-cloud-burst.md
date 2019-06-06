@@ -16,16 +16,16 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 95b34b1ed9b6a9b8a8a4c42e80e30d89bb458133
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: d74066769d278b2aa362d8695b73527b1d00ea81
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855501"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248533"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>教程：在 Azure 中创建跨云缩放解决方案
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 了解如何创建可提供手动触发过程的跨云解决方案，以通过流量管理器使用自动缩放功能从 Azure Stack 托管的 Web 应用切换到 Azure 托管的 Web 应用，以此确保云实用工具在承受负载时保持灵活性和可伸缩性。
 
@@ -117,7 +117,7 @@ Azure Repos
 
 ### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为这两个云中的应用服务创建独立的 Web 应用部署
 
-1.  编辑 **WebApplication.csproj** 文件。 选择“Runtimeidentifier”并添加 **win10-x64**。 （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。） 
+1.  编辑 **WebApplication.csproj** 文件。 选择“Runtimeidentifier”并添加 **win10-x64**。  （请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。） 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image3.png)
 
@@ -147,7 +147,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 ![Alt text](media/azure-stack-solution-cloud-burst/image5.png)
 
-1.  在 VSO 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮添加新的发布。
+1.  在 VSO 的“生成和发布”页的“发布”选项卡下，选择**加号**按钮添加新的发布。 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image6.png)
 
@@ -159,7 +159,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image8.png)
 
-4. 在“管道”选项卡下选择环境的“阶段和任务”链接，并设置 Azure 云环境值。
+4. 在“管道”选项卡下选择环境的“阶段和任务”链接，并设置 Azure 云环境值。 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image9.png)
 
@@ -175,7 +175,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image12.png)
 
-8. 在“部署 Azure 应用服务”菜单中，为环境选择有效的**包或文件夹**。 选择**文件夹位置**旁边的“确定”。
+8. 在“部署 Azure 应用服务”菜单中，为环境选择有效的**包或文件夹**。 选择**文件夹位置**旁边的“确定”。 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image13.png)
 
@@ -197,7 +197,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image18.png)
 
-13. 在“任务”选项卡下找到 Azure Stack 环境。
+13. 在“任务”选项卡下找到 Azure Stack 环境。 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image19.png)
 
@@ -213,7 +213,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image22.png)
 
-17. 在“部署 Azure 应用服务”部分下，为环境选择有效的**包或文件夹**。 选择文件夹位置旁边的“确定”。
+17. 在“部署 Azure 应用服务”部分下，为环境选择有效的**包或文件夹**。 选择文件夹位置旁边的“确定”。 
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image23.png)
 
@@ -223,11 +223,11 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image25.png)
 
-19. 选择两个项目中的“持续”部署触发器图标，并启用“持续”部署触发器。
+19. 选择两个项目中的“持续”部署触发器图标，并启用“持续”部署触发器。  
 
     ![Alt text](media/azure-stack-solution-cloud-burst/image26.png)
 
-20. 选择 Azure Stack 环境中的“部署前”条件图标，并将触发器设置为“发布后”。
+20. 选择 Azure Stack 环境中的“部署前”条件图标，并将触发器设置为“发布后”。  
 
 21. 保存所有更改。
 
@@ -240,23 +240,23 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 1.  登录到 VSTO，然后导航到应用设置页。
 
-2.  在“设置”中，选择“安全性”。
+2.  在“设置”中，选择“安全性”。  
 
-3.  在“VSTS 组”中，选择“终结点创建者”。
+3.  在“VSTS 组”中，选择“终结点创建者”。  
 
-4.  在“成员”选项卡上，选择“添加”。
+4.  在“成员”选项卡上，选择“添加”。  
 
-5.  在“添加用户和组”中输入用户名，然后从用户列表中选择该用户。
+5.  在“添加用户和组”中输入用户名，然后从用户列表中选择该用户。 
 
-6.  选择“保存更改”。
+6.  选择“保存更改”。 
 
-7.  在“VSTS 组”列表中，选择“终结点管理员”。
+7.  在“VSTS 组”列表中，选择“终结点管理员”。  
 
-8.  在“成员”选项卡上，选择“添加”。
+8.  在“成员”选项卡上，选择“添加”。  
 
-9.  在“添加用户和组”中输入用户名，然后从用户列表中选择该用户。
+9.  在“添加用户和组”中输入用户名，然后从用户列表中选择该用户。 
 
-10. 选择“保存更改”。
+10. 选择“保存更改”。 
 
 有了终结点信息以后，就可以使用 Azure Pipelines 到 Azure Stack 的连接了。 Azure Stack 中的生成代理会从 Azure Pipelines 获取指令，然后，此代理会传达与 Azure Stack 通信所需的终结点信息。
 
@@ -267,7 +267,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 使用 [Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/)（例如 Azure Repos 中的 Web 应用代码）将内容部署到这两个云。
 
-### <a name="add-code-to-a-azure-repos-project"></a>向 Azure Repos 项目添加代码
+### <a name="add-code-to-an-azure-repos-project"></a>向 Azure Repos 项目添加代码
 
 1.  使用在 Azure Stack 上拥有项目创建权限的帐户登录到 Azure Repos。 下一屏幕捕获显示如何连接到 HybridCICD 项目。
 
@@ -275,7 +275,7 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 #### <a name="create-self-contained-web-app-deployment-for-app-services-in-both-clouds"></a>为这两个云中的应用服务创建独立的 Web 应用部署
 
-1.  编辑 **WebApplication.csproj** 文件：选择“Runtimeidentifier”并添加 win10-x64。 有关详细信息，请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
+1.  编辑 **WebApplication.csproj** 文件：选择“Runtimeidentifier”并添加 win10-x64。  有关详细信息，请参阅[独立部署](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)文档。
 
 2.  使用团队资源管理器将代码签入 Azure Repos。
 
@@ -285,9 +285,9 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 1.  使用可以创建生成定义的帐户登录到 Azure Pipelines。
 
-2.  导航到项目的“生成 Web 应用程序”页。
+2.  导航到项目的“生成 Web 应用程序”页。 
 
-3.  在“参数”中，添加 **-r win10-x64** 代码。 在 .NET Core 中触发独立部署时需要此代码。
+3.  在“参数”中，  添加 **-r win10-x64** 代码。 在 .NET Core 中触发独立部署时需要此代码。
 
 4.  运行生成。 [独立部署生成](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)过程将发布可在 Azure 和 Azure Stack 上运行的项目。
 
@@ -303,49 +303,49 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 创建发布定义是应用程序生成过程中的最后一步。 此发布定义用于创建一个发布并部署一个生成。
 
-1.  登录到 Azure Pipelines，然后导航到项目的“生成和发布”。
+1.  登录到 Azure Pipelines，然后导航到项目的“生成和发布”。 
 
-2.  在“发布”选项卡上选择“[ + ]”，然后选择“创建发布定义”。
+2.  在“发布”选项卡上选择“[ + ]”，然后选择“创建发布定义”。   
 
-3.  在“选择模板”上选择“Azure 应用服务部署”，然后选择“应用”。
+3.  在“选择模板”上选择“Azure 应用服务部署”，然后选择“应用”。   
 
-4.  在“添加项目”的“源(生成定义)”中，选择“Azure 云生成应用”。
+4.  在“添加项目”的“源(生成定义)”中，选择“Azure 云生成应用”。  
 
-5.  在“管道”选项卡上选择“1 阶段，1 任务”链接，以便**查看环境任务**。
+5.  在“管道”选项卡上选择“1 阶段，1 任务”链接，以便**查看环境任务**。   
 
-6.  在“任务”选项卡上输入 Azure 作为“环境名称”，然后从“Azure 订阅”列表中选择“AzureChinaCloud Traders-Web EP”。
+6.  在“任务”选项卡上输入 Azure 作为“环境名称”，然后从“Azure 订阅”列表中选择“AzureChinaCloud Traders-Web EP”。   
 
 7.  输入 **Azure 应用服务名称**，即下一屏幕截图中的 `northwindtraders`。
 
-8.  从“代理队列”列表中选择“托管的 VS2017”作为“代理阶段”。
+8.  从“代理队列”列表中选择“托管的 VS2017”作为“代理阶段”   。
 
-9.  在“部署 Azure 应用服务”中，为环境选择有效的**包或文件夹**。
+9.  在“部署 Azure 应用服务”中，为环境选择有效的**包或文件夹**。 
 
-10. 确认“选择文件或文件夹”中的“Location”后，选择“确定”。
+10. 确认“选择文件或文件夹”中的“Location”后，选择“确定”。   
 
-11. 保存所有更改后，回到“管道”。
+11. 保存所有更改后，回到“管道”  。
 
-12. 在“管道”选项卡上选择“添加项目”，然后从“源(生成定义)”列表中选择“NorthwindCloud Traders-Vessel”。
+12. 在“管道”选项卡上选择“添加项目”，然后从“源(生成定义)”列表中选择“NorthwindCloud Traders-Vessel”。    
 
-13. 在“选择模板”中添加另一环境。 选取“Azure 应用服务部署”，然后选择“应用”。
+13. 在“选择模板”中添加另一环境。  选取“Azure 应用服务部署”，然后选择“应用”。  
 
-14. 输入 `Azure Stack` 作为“环境名称”。
+14. 输入 `Azure Stack` 作为“环境名称”。 
 
-15. 在“任务”选项卡上，找到并选择“Azure Stack”。
+15. 在“任务”选项卡上，找到并选择“Azure Stack”。 
 
-16. 从“Azure 订阅”列表中选择“AzureStack Traders-Vessel EP”作为“Azure Stack 终结点”。
+16. 从“Azure 订阅”列表中选择“AzureStack Traders-Vessel EP”作为“Azure Stack 终结点”   。
 
 17. 输入 Azure Stack Web 应用名称作为**应用服务名称**。
 
-18. 从“代理选择”下的“代理队列”列表中选取“AzureStack -b Douglas Fir”。
+18. 从“代理选择”下的“代理队列”列表中选取“AzureStack -b Douglas Fir”    。
 
-19. 至于“部署 Azure 应用服务”，请为环境选择有效的**包或文件夹**。 确认“选择文件或文件夹”中的“Location”文件夹后，选择“确定”。
+19. 至于“部署 Azure 应用服务”，请为环境选择有效的**包或文件夹**。  确认“选择文件或文件夹”中的“Location”文件夹后，选择“确定”。   
 
-20. 在“变量”选项卡上，找到名为 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的变量。 将变量值设置为 **true**，将其范围设置为 **Azure Stack**。
+20. 在“变量”选项卡上，找到名为 `VSTS\_ARM\_REST\_IGNORE\_SSL\_ERRORS` 的变量。  将变量值设置为 **true**，将其范围设置为 **Azure Stack**。
 
-21. 在“管道”选项卡上，选择 NorthwindCloud Traders-Web 项目对应的“持续部署触发器”图标，然后将“持续部署触发器”设置为“启用”。 针对“NorthwindCloud Traders-Vessel”项目执行相同的操作。
+21. 在“管道”选项卡上，选择 NorthwindCloud Traders-Web 项目对应的“持续部署触发器”图标，然后将“持续部署触发器”设置为“启用”。     针对“NorthwindCloud Traders-Vessel”项目执行相同的操作。 
 
-22. 至于 Azure Stack 环境，请选择“部署前条件”图标，并将触发器设置为“发布后”。
+22. 至于 Azure Stack 环境，请选择“部署前条件”图标，并将触发器设置为“发布后”。  
 
 23. 保存所有更改。
 
@@ -354,23 +354,23 @@ Azure Pipelines 和 Azure DevOps Server 提供高度可配置、可管理的管�
 
 ## <a name="create-a-release"></a>创建发布
 
-1.  在“管道”选项卡上打开“发布”列表，然后选择“创建发布”。
+1.  在“管道”选项卡上打开“发布”列表，然后选择“创建发布”。   
 
-2.  输入发布的说明，查看是否选择了正确的项目，然后选择“创建”。 片刻之后，将会出现一个横幅，指出已创建新的发布，发布名称以链接形式显示。 选择该链接，查看发布摘要页。
+2.  输入发布的说明，查看是否选择了正确的项目，然后选择“创建”。  片刻之后，将会出现一个横幅，指出已创建新的发布，发布名称以链接形式显示。 选择该链接，查看发布摘要页。
 
-3.  发布摘要页显示发布详细信息。 在下面的针对“Release-2”的屏幕捕获中，“环境”部分显示 Azure 的“部署状态”为“正在进行”，Azure Stack的状态为“成功”。 当 Azure 环境的部署状态变为“成功”以后，会显示一个横幅，指示可以审批发布了。 如果部署挂起或失败，则会显示一个蓝色的 **(i)** 信息图标。 将鼠标悬停在图标上方即可看到一个弹出窗口，其中包含延迟或失败的原因。
+3.  发布摘要页显示发布详细信息。 在下面的针对“Release-2”的屏幕捕获中，“环境”部分  显示  Azure 的“部署状态”为“正在进行”，Azure Stack的状态为“成功”。 当 Azure 环境的部署状态变为“成功”以后，会显示一个横幅，指示可以审批发布了。 如果部署挂起或失败，则会显示一个蓝色的 **(i)** 信息图标。 将鼠标悬停在图标上方即可看到一个弹出窗口，其中包含延迟或失败的原因。
 
 4.  其他视图（例如发布列表）也会显示一个图标，指示正在等待审批。 此图标的弹出窗口会显示环境名称以及与部署相关的更多详细信息。 管理员可以很容易地查看发布的总体进度以及哪些发布正在等待审批。
 
 ## <a name="monitor-and-track-deployments"></a>监视和跟踪部署
 
-1.  在“Release-2”摘要页中选择“日志”。 部署期间，此页显示代理的实时日志。 左窗格显示每个环境的部署过程中每个操作的状态。
+1.  在“Release-2”摘要页中选择“日志”   。 部署期间，此页显示代理的实时日志。 左窗格显示每个环境的部署过程中每个操作的状态。
 
-2.  选择部署前或部署后审批活动的“操作”列中的人员图标，查看部署批准者（或拒绝者）及其提供的消息。
+2.  选择部署前或部署后审批活动的“操作”列中的人员图标，查看部署批准者（或拒绝者）及其提供的消息。 
 
-3.  部署完成后，整个日志文件会显示在右窗格中。 选择左窗格中的任何**步骤**以查看单个步骤（例如“初始化作业”）的日志文件。 有了查看单个日志的功能，就可以更轻松地跟踪和调试整体部署的部件。 **保存**某个步骤的日志文件，或者**以 Zip 格式下载所有日志**。
+3.  部署完成后，整个日志文件会显示在右窗格中。 选择左窗格中的任何**步骤**以查看单个步骤（例如“初始化作业”）的日志文件。  有了查看单个日志的功能，就可以更轻松地跟踪和调试整体部署的部件。 **保存**某个步骤的日志文件，或者**以 Zip 格式下载所有日志**。
 
-4.  打开“摘要”选项卡，查看有关该发布的常规信息。 此视图详细显示了该发布所部署到的生成和环境、部署状态，以及有关该发布的其他信息。
+4.  打开“摘要”选项卡，查看有关该发布的常规信息。  此视图详细显示了该发布所部署到的生成和环境、部署状态，以及有关该发布的其他信息。
 
 5.  选择环境链接（**Azure** 或 **Azure Stack**），查看部署到特定环境的现有部署和待定部署的相关信息。 使用这些视图快速验证同一个生成是否已部署到这两个环境。
 

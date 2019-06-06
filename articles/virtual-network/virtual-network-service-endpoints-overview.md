@@ -7,19 +7,19 @@ documentationcenter: na
 author: rockboyfor
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: aa489f1e7ea4578cef311fc70a5de0d2007ebb3a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 46d5975ab7e880afda72483d6b47a7a79d65fc8a
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627019"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250450"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -29,9 +29,14 @@ ms.locfileid: "58627019"
 
 **正式发布版**
 
-- **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)**：在所有 Azure 区域已推出正式版。
-- **[Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)**：在所有 Azure 区域正式发布。
-- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)**：在所有 Azure 区域已推出正式版。
+- **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** ：在所有 Azure 区域已推出正式版。
+- **[Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域正式发布。
+- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+- **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+- **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** ：在所有 Azure 区域已推出正式版。
+- **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+
+<!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)**: Generally available in all Azure regions.-->
 <!-- Not Available on - XXXXXX Generally Available in all Azure public cloud regions -->
 
 有关最新通知，请查看 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。
@@ -52,8 +57,8 @@ ms.locfileid: "58627019"
 - 终结点在 Azure 虚拟网络中配置的子网上启用。 终结点不可用于从本地发往 Azure 服务的流量。 有关详细信息，请参阅[保护从本地进行的 Azure 服务访问](#securing-azure-services-to-virtual-networks)
 - 对于 Azure SQL，服务终结点仅适用于虚拟网络区域中的 Azure 服务流量。 对于 Azure 存储，为了支持 RA-GRS 和 GRS 流量，终结点还进行扩展以包括虚拟网络所部署到的配对区域。
 
-<!-- Not Available on [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fvirtual-network%2ftoc.json#what-are-paired-regions) -->
-<!--Not Available on For ADLS Gen 1(Azure Data Lake Store Gen 1)-->
+    <!-- Not Available on [Azure paired regions.](../best-practices-availability-paired-regions.md?toc=%2fvirtual-network%2ftoc.json#what-are-paired-regions) -->
+    <!--Not Available on For ADLS Gen 1(Azure Data Lake Store Gen 1)-->
 
 ## <a name="securing-azure-services-to-virtual-networks"></a>在虚拟网络中保护 Azure 服务
 
@@ -65,11 +70,11 @@ ms.locfileid: "58627019"
 
 - __保护从本地进行的 Azure 服务访问__：
 
-  默认情况下，无法从本地网络访问在虚拟网络中保护的 Azure 服务资源。 若要允许来自本地的流量，还必须允许来自本地或 ExpressRoute 的公共（通常为 NAT）IP 地址。 可通过 Azure 服务资源的 IP 防火墙配置添加这些 IP 地址。
+    默认情况下，无法从本地网络访问在虚拟网络中保护的 Azure 服务资源。 要允许来自本地的流量，还必须允许来自本地或 ExpressRoute 的公共（通常为 NAT）IP 地址。 可通过 Azure 服务资源的 IP 防火墙配置添加这些 IP 地址。
 
-  ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json)，则在进行公共对等互连或 Azure 对等互连时，需标识所用的 NAT IP 地址。 进行公共对等互连时，每条 ExpressRoute 线路默认情况下会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 进行 Azure 对等互连时，所用 NAT IP 地址由客户或服务提供商提供。 若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这些公共 IP 地址。 若要查找公共对等互连 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。
+    ExpressRoute：如果在本地使用 [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json)，则在进行公共对等互连或 Azure 对等互连时，需标识所用的 NAT IP 地址。 进行公共对等互连时，每条 ExpressRoute 线路默认情况下会使用两个 NAT IP 地址。当流量进入 Azure 网络主干时，会向 Azure 服务流量应用这些地址。 进行 Azure 对等互连时，所用 NAT IP 地址由客户或服务提供商提供。 若要允许访问服务资源，必须在资源 IP 防火墙设置中允许这些公共 IP 地址。 若要查找公共对等互连 ExpressRoute 线路 IP 地址，请通过 Azure 门户[开具 ExpressRoute 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)。
   
-   <!-- Not Available on [NAT for ExpressRoute public and Azure peering.](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)-->
+    <!-- Not Available on [NAT for ExpressRoute public and Azure peering.](../expressroute/expressroute-nat.md?toc=%2fvirtual-network%2ftoc.json#nat-requirements-for-azure-public-peering)-->
 
 ![在虚拟网络中保护 Azure 服务](./media/virtual-network-service-endpoints-overview/VNet_Service_Endpoints_Overview.png)
 
@@ -78,19 +83,19 @@ ms.locfileid: "58627019"
 - 服务终结点在虚拟网络中的子网上配置。 终结点可以处理该子网中运行的任何类型的计算实例。
 - 可以针对子网中的所有受支持 Azure 服务（例如 Azure 存储或 Azure SQL 数据库）配置多个服务终结点。
 - 对于 Azure SQL 数据库，虚拟网络必须与 Azure 服务资源位于同一区域。 如果使用 GRS 和 RA-GRS Azure 存储帐户，则主帐户必须与虚拟网络位于同一区域。 对于所有其他服务，可在任何区域的虚拟网络中保护 Azure 服务资源。 
-- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#Provisioning)。
+- 配置了终结点的虚拟网络可与 Azure 服务资源位于相同或不同的订阅中。 有关设置终结点和保护 Azure 服务时所需的权限的详细信息，请参阅[预配](#provisioning)。
 - 对于受支持的服务，可以使用服务终结点在虚拟网络中保护新的或现有的资源。
 
 ### <a name="considerations"></a>注意事项
 
 - 启用服务终结点后，与子网中的服务通信时，该子网中虚拟机的源 IP 地址将从公共 IPv4 地址改为专用 IPv4 地址。 在进行这种切换的过程中，与服务建立的所有现有打开的 TCP 连接将会关闭。 针对子网的服务启用或禁用服务终结点时，请确保未运行任何关键任务。 此外，请确保在完成 IP 地址切换后，应用程序可以自动连接到 Azure 服务。
 
-  IP 地址切换只会影响自己的虚拟网络发出的服务流量， 而不会影响到发往或发自分配给虚拟机的公共 IPv4 地址的其他任何流量。 对于 Azure 服务，如果现有的防火墙规则使用 Azure 公共 IP 地址，这些规则会阻止切换到虚拟网络专用地址。
+    IP 地址切换只会影响自己的虚拟网络发出的服务流量， 而不会影响到发往或发自分配给虚拟机的公共 IPv4 地址的其他任何流量。 对于 Azure 服务，如果现有的防火墙规则使用 Azure 公共 IP 地址，这些规则会阻止切换到虚拟网络专用地址。
 - 使用服务终结点时，Azure 服务的 DNS 条目会保持不变，继续解析为分配给 Azure 服务的公共 IP 地址。
 
 - 使用服务终结点的网络安全组 (NSG)：
-  - 默认情况下，NSG 允许出站 Internet 流量，因此，也允许来自 VNet 的流量发往 Azure 服务。 使用服务终结点时，处理方式仍旧如此。 
-  - 如果想要拒绝所有出站 Internet 流量并只允许发往特定 Azure 服务的流量，可以在 NSG 中使用[服务标记](security-overview.md#service-tags)。 可以在 NSG 规则中将受支持的 Azure 服务指定为目标，每个标记下面的 IP 地址的维护由 Azure 提供。 有关详细信息，请参阅 [NSG 的 Azure 服务标记](security-overview.md#service-tags)。 
+    - 默认情况下，NSG 允许出站 Internet 流量，因此，也允许来自 VNet 的流量发往 Azure 服务。 使用服务终结点时，处理方式仍旧如此。 
+    - 如果想要拒绝所有出站 Internet 流量并只允许发往特定 Azure 服务的流量，可以在 NSG 中使用[服务标记](security-overview.md#service-tags)。 可以在 NSG 规则中将受支持的 Azure 服务指定为目标，每个标记下面的 IP 地址的维护由 Azure 提供。 有关详细信息，请参阅 [NSG 的 Azure 服务标记](security-overview.md#service-tags)。 
 
 ### <a name="scenarios"></a>方案
 
@@ -126,9 +131,9 @@ ms.locfileid: "58627019"
 
 虚拟网络中的服务终结点总数没有限制。
 
-对于 Azure 服务资源（例如 Azure 存储帐户），服务可能会对用于保护资源的子网数目施加限制。 有关详细信息，请参阅[后续步骤](#next-steps)中所述的各种服务的文档。
+某些 Azure 服务（例如 Azure 存储帐户）可能会对用于保护资源的子网数目施加限制。 有关详细信息，请参阅[后续步骤](#next-steps)中所述的各种服务的文档。
 
-<!--Not Available on ## Virtual Network Service Endpoint Policies (Preview on WestCentralUS, WestUS2 -->
+<!--Not Available on ## Virtual Network Service Endpoint Policies (Preview on WestCentralUS, WestUS2) -->
 ## <a name="faqs"></a>常见问题
 
 有关常见问题，请查看[虚拟网络服务终结点常见问题解答](/virtual-network/virtual-networks-faq#virtual-network-service-endpoints)
@@ -140,7 +145,7 @@ ms.locfileid: "58627019"
 - 了解如何[在虚拟网络中保护 Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)
 - 了解如何[在虚拟网络中保护 Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
-  <!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
+    <!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
 - 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

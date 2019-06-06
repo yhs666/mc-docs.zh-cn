@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f77db615e66c7370e3a4a9b158ccc3faf12897e2
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 68bfc76833859b6f1b94383e5b9765d0f7ca3149
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855450"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248553"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>适用于 Azure Stack 的 iDNS 简介
 

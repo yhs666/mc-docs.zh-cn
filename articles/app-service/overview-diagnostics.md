@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/10/2017
-ms.date: 01/21/2019
+ms.date: 06/10/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1f5fad5f4cf85f0d72ff6cc55f6c2fc36c7c9950
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: f71388d2f1e10aa131cd7ed510826fb02b995ae0
+ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083934"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66296700"
 ---
-# <a name="azure-app-service-diagnostics-overview"></a>Azure 应用服务诊断概述 
+# <a name="azure-app-service-diagnostics-overview"></a>Azure 应用服务诊断概述
 
-运行 Web 应用程序时，我们希望能够对出现的各种问题做好准备，例如，出现 500 错误，或者用户反映站点已关闭。 应用服务诊断是智能的交互式体验，可帮助我们排查 Web 应用的问题，且无需配置。 如果 Web 应用确实出现问题，应用服务诊断会指出问题所在，并引导我们获取适当的信息，以便更轻松快速地排查和解决问题。 
- 
-尽管此体验在 Web 应用过去 24 小时内出现问题时可发挥最大的作用，但是，我们随时可以使用所有诊断图形进行分析。 在右栏中可以找到其他故障排除工具，以及有用文档和论坛的链接。
+运行 Web 应用程序时，我们希望能够对出现的各种问题做好准备，例如，出现 500 错误，或者用户反映站点已关闭。 应用服务诊断是智能的交互式体验，可帮助你排查应用的问题，且无需配置。 如果应用确实出现问题，应用服务诊断会指出问题所在，并引导你获取适当的信息，以便更轻松快速地排查和解决问题。
+
+尽管此体验在应用过去 24 小时内出现问题时可发挥最大的作用，但是，你始终可以使用所有诊断图形进行分析。
 
 
 
@@ -34,7 +34,7 @@ ms.locfileid: "54083934"
 
 若要访问应用服务诊断，请在 [Azure 门户](https://portal.azure.cn)中导航到自己的应用服务 Web 应用。 
 
-对于 Azure Functions，请导航到你的函数应用，在顶部的导航栏中，单击“平台功能”并从“监视”部分中选择“诊断并解决问题”。 
+对于 Azure Functions，请导航到你的函数应用，在顶部的导航栏中，单击“平台功能”  并从“监视”部分中选择“诊断并解决问题”。   
 
 ![主页](./media/app-service-diagnostics/Homepage1.png)
 

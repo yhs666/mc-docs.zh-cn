@@ -6,29 +6,28 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 9584177f-4af3-4834-864d-930b09ae0995
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: CLI
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 02/18/2019
+origin.date: 05/09/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 80d98dfc31ea6d83bde671e1cc8b4ca30e47f807
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: 3c0e3412f2a97ac2aac0e5e533ec70ceb825800e
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218302"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248544"
 ---
 # <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令行在 Azure Stack 中部署模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用命令行可将 Azure 资源管理器模板部署到 Azure Stack 开发工具包环境中。 Azure 资源管理器 模板可通过单个协调操作部署和预配应用程序的所有资源。
+使用 Azure 命令行接口 (CLI) 在 Azure Stack 中部署 Azure 资源管理器模板。 Azure 资源管理器模板可通过单个协调操作部署和预配应用的资源。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -57,6 +56,4 @@ az storage account list
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要了解有关部署模板的详细信息，请参阅：
-
-[通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+详细了解如何[使用 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)。

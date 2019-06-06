@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 03/18/2019
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: jiahan
-ms.lastreviewed: 1/09/2019
-ms.openlocfilehash: 8fbe36b355bcafb56f161e7993ef77683f168d9b
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 01/09/2019
+ms.openlocfilehash: e2e69fb2b71860db51e2a32c7d59b40a68aba8da
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529869"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381897"
 ---
 # <a name="sql-resource-provider-11300-release-notes"></a>SQL 资源提供程序 1.1.30.0 发行说明
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 本发行说明介绍 SQL 资源提供程序 1.1.30.0 版中的改进和已知问题。
 

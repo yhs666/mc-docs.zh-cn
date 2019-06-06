@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 12/19/2018
-ms.openlocfilehash: a9150c43fbda2d7d0b0e803b383f22c40fdfbb1b
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 3a9fcee5ed6adb3d4184b43ef72800876d6dd570
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854952"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248555"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>在 Azure Stack 中使用虚拟机时的注意事项
 
@@ -100,7 +100,7 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace -Expand ResourceTypes | `
   Select * -Expand ApiVersions | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
-  where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
+  where-Object {$_.ProviderNamespace -like "Microsoft.compute"}
 ```
 
 如果云运营商将 Azure Stack 环境更新为较新版本，则支持的资源类型和 API 版本列表可能有所不同。

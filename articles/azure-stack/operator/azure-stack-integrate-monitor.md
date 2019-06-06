@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 373eac04ec09567f4e5bd52959ed810be846144c
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 516830e286ee4bc2dd108a8b4313af1245093a18
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529755"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248700"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>将外部监视解决方案与 Azure Stack 集成
 
@@ -78,7 +78,7 @@ Nagios 监视插件是与合作伙伴 Cloudbase 解决方案一起开发的，�
 
 ### <a name="plugin-parameters"></a>插件参数
 
-使用以下参数来配置插件文件“Azurestack_plugin.py”：
+使用以下参数配置插件文件“Azurestack_plugin.py”：
 
 | 参数 | 说明 | 示例 |
 |---------|---------|---------|

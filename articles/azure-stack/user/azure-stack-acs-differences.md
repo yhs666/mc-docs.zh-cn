@@ -10,18 +10,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 01/30/2019
-ms.date: 03/18/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviwer: xiaofmao
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: c4ff084fe6b16305128f9a76d575afa45988518f
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: fd5d49b9c114e2c237363e1e4b068f3f4ba53110
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63858158"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248546"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack 存储：差异和注意事项
 
@@ -36,10 +36,10 @@ Azure Stack 存储是 Azure Stack 中的一组存储云服务。 Azure Stack 存
 | 功能 | Azure（中国） | Azure Stack |
 | --- | --- | --- |
 |文件存储|支持基于云的 SMB 文件共享|尚不支持
-|静态数据的 Azure 存储服务加密|256 位 AES 加密。 支持在密钥保管库中使用客户管理的密钥进行加密。|BitLocker 128 位 AES 加密。 不支持使用客户托管密钥的加密。
+|静态数据的 Azure 存储服务加密|256 位 AES 加密。 支持在密钥保管库中使用客户管理的密钥进行加密。|BitLocker 128 位 AES 加密。 不支持使用客户托管密钥进行加密。
 |存储帐户类型|常规用途 V1、V2 和 Blob 存储帐户|仅常规用途 V1。
 |复制选项|本地冗余存储、异地冗余存储和读取访问异地冗余存储|本地冗余存储。
-|高级存储|完全支持|可预配，但无性能限制或保证。
+|高级存储|提供高性能和低延迟存储。 仅支持高级存储帐户中的页 blob。|可预配，但无性能限制或保证。 不会在高级存储帐户中阻止使用块 blob、追加 blob、表和队列。
 |托管磁盘|支持高级和标准版|使用版本 1808 或更高版本时支持。
 |Blob 名称|1024 个字符（2048 个字节）|880 个字符（1,760 字节）
 |块 Blob 大小上限|4.75 TB（100 MB X 50,000 块）|4.75 TB（100 MB x 50,000 块），适用于 1802 更新或更高版本。 50,000 X 4 MB（约 195 GB），适用于以前的版本。

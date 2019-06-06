@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/12/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: 1dd1e9acdbe0d4c727831341a5d00399b9ee81df
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 22d563cd820d060c923c8c8c74f979c42c294cf2
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529518"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381880"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教程：将虚拟机提供给 Azure Stack 用户使用
 
@@ -48,51 +48,51 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
 套餐是提供者提供给用户购买或订阅的一个或多个计划的组合。 套餐的创建过程包括多个步骤。 首先，系统会依次提示创建套餐、计划和配额。
 
-1. 以云管理员身份[登录](../asdk/asdk-connect.md)到门户，选择“+ 创建资源” > “套餐 + 计划” > “套餐”。
+1. 以云管理员身份[登录](../asdk/asdk-connect.md)到门户，选择“+ 创建资源” > “套餐 + 计划” > “套餐”。   
 
    ![新产品/服务](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. 在“新建套餐”中，输入“显示名称”和“资源名称”，然后选择新的或现有的**资源组**。 “显示名称”是套餐的友好名称。 只有云操作员可以看到资源名称，管理员可以使用该名称将套餐作为 Azure 资源管理器资源处理。
+1. 在“新建套餐”中，输入“显示名称”和“资源名称”，然后选择新的或现有的**资源组**。    “显示名称”是套餐的友好名称。 只有云操作员可以看到资源名称，管理员可以使用该名称将套餐作为 Azure 资源管理器资源处理。
 
    ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
-1. 选择“基本计划”，在“计划”部分选择“添加”，将新计划添加到套餐。
+1. 选择“基本计划”，在“计划”部分选择“添加”，将新计划添加到套餐。   
 
    ![添加计划](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. 在“新建计划”部分中，填写“显示名称”和“资源名称”。 显示名称是用户可以看到的计划友好名称。 只有云操作员可以看到资源名称，云操作员可以使用该名称将计划作为 Azure 资源管理器资源处理。
+1. 在“新建计划”部分中，填写“显示名称”和“资源名称”。    显示名称是用户可以看到的计划友好名称。 只有云操作员可以看到资源名称，云操作员可以使用该名称将计划作为 Azure 资源管理器资源处理。
 
    ![计划显示名称](media/azure-stack-tutorial-tenant-vm/image04.png)
 
-1. 选择“服务”。 在“服务”列表中，选择“Microsoft.Compute”、“Microsoft.Network”和“Microsoft.Storage”。 选择“选择”，将这些服务添加到计划。
+1. 选择“服务”。  在“服务”列表中，选择“Microsoft.Compute”、“Microsoft.Network”和“Microsoft.Storage”。    选择“选择”，将这些服务添加到计划。 
 
    ![计划服务](media/azure-stack-tutorial-tenant-vm/image05.png)
 
-1. 选择“配额”，然后选择要为其创建配额的第一个服务。 对于 IaaS 配额，请使用以下示例作为指导，配置“计算”、“网络”和“存储服务”的配额。
+1. 选择“配额”，然后选择要为其创建配额的第一个服务。  对于 IaaS 配额，请使用以下示例作为指导，配置“计算”、“网络”和“存储服务”的配额。
 
-   - 首先为“计算”服务创建配额。 在命名空间列表中，选择“Microsoft.Compute”，然后选择“创建新配额”。
+   - 首先为“计算”服务创建配额。 在命名空间列表中，选择“Microsoft.Compute”，然后选择“创建新配额”。  
 
      ![创建新配额](media/azure-stack-tutorial-tenant-vm/image06.png)
 
-   - 在“创建配额”中，输入配额的名称。 对于所要创建的配额，可以更改或接受显示的配额值。 在此示例中，我们接受默认设置，并选择“确定”。
+   - 在“创建配额”中，输入配额的名称。  对于所要创建的配额，可以更改或接受显示的配额值。 在此示例中，我们接受默认设置，并选择“确定”。 
 
      ![配额名称](media/azure-stack-tutorial-tenant-vm/image07.png)
 
-   - 在命名空间列表中选择“Microsoft.Compute”，然后选择创建的配额。 这会将该配额链接到“计算”服务。
+   - 在命名空间列表中选择“Microsoft.Compute”，然后选择创建的配额。  这会将该配额链接到“计算”服务。
 
      ![选择配额](media/azure-stack-tutorial-tenant-vm/image08.png)
 
-      针对“网络”和“存储”服务重复上述步骤。 完成后，在“配额”中选择“确定”以保存所有配额。
+      针对“网络”和“存储”服务重复上述步骤。 完成后，在“配额”中选择“确定”以保存所有配额。  
 
-1. 在“新建计划”中，选择“确定”。
+1. 在“新建计划”中，选择“确定”。  
 
-1. 在“计划”下面选择新计划，然后选择“选择”。
+1. 在“计划”下面选择新计划，然后选择“选择”。  
 
-1. 在“新建套餐”中，选择“创建”。 创建套餐后，会看到通知。
+1. 在“新建套餐”中，选择“创建”。   创建套餐后，会看到通知。
 
-1. 在仪表板菜单中选择“套餐”，然后选择创建的套餐。
+1. 在仪表板菜单中选择“套餐”，然后选择创建的套餐。 
 
-1. 依次选择“更改状态”、“公共”。
+1. 依次选择“更改状态”、“公共”。  
 
     ![公共状态](media/azure-stack-tutorial-tenant-vm/image09.png)
 
@@ -106,21 +106,21 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
 ## <a name="test-the-offer"></a>测试产品/服务
 
-创建套餐后，可对其进行测试。 以用户身份登录并订阅该套餐，然后添加虚拟机。
+创建产品/服务后，可对其进行测试。 以用户身份登录并订阅该套餐，然后添加虚拟机。
 
 1. **订阅套餐**
 
-   a. 使用用户帐户登录到用户门户，然后选择“获取订阅”磁贴。
+   a. 使用用户帐户登录到用户门户，然后选择“获取订阅”磁贴。 
    - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
-   - 如果使用 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
+   - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
 
    ![获取订阅](media/azure-stack-tutorial-tenant-vm/image10.png)
 
-   b. 在“获取订阅”中的“显示名称”字段内输入订阅的名称。 选择“套餐”，然后在“选择套餐”列表中选择一个套餐。 选择“创建” 。
+   b. 在“获取订阅”中的“显示名称”字段内输入订阅的名称。   选择“套餐”，然后在“选择套餐”列表中选择一个套餐。   选择“创建”  。
 
    ![创建产品](media/azure-stack-tutorial-tenant-vm/image11.png)
 
-   c. 若要查看订阅，请选择“所有服务”，然后在“常规”类别下选择“订阅”。 选择新订阅，以查看其中包含的服务。
+   c. 若要查看订阅，请选择“所有服务”  ，然后在“常规”  类别下选择“订阅”  。 选择新订阅，以查看其中包含的服务。
 
    >[!NOTE]
    >订阅套餐之后，可能需要刷新门户才能看到哪些服务包含在新订阅中。
@@ -131,31 +131,31 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
    a. 使用用户帐户登录到用户门户。
    - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
-     - 如果使用 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
+     - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
 
-   b.  在仪表板上，选择“+创建资源” > “计算” > “Windows Server 2016 Datacenter Eval”，然后选择“创建”。
+   b.  在仪表板上，选择“+创建资源” > “计算” > “Windows Server 2016 Datacenter Eval”，然后选择“创建”。    
 
-   c. 在“基本信息”中提供以下信息：
+   c. 在“基本信息”中提供以下信息： 
       - 输入**名称**
       - 输入**用户名**
       - 输入**密码**
       - 选择**订阅**
       - 创建**资源组**（或选择现有的资源组）。 
-      - 选择“确定”保存此信息。
+      - 选择“确定”保存此信息。 
 
-   d. 在“选择大小”中，选择“A1 标准”，然后选择“选择”。  
+   d. 在“选择大小”中，选择“A1 标准”，然后选择“选择”    。  
 
-   e. 在“设置”中，选择“虚拟网络”。
+   e. 在“设置”中，选择“虚拟网络”。  
 
-   f. 在“选择虚拟网络”中，选择“新建”。
+   f. 在“选择虚拟网络”中，选择“新建”。  
 
-   g. 在“创建虚拟网络”中接受所有默认值，然后选择“确定”。
+   g. 在“创建虚拟网络”中接受所有默认值，然后选择“确定”。  
 
-   h.如果该值不存在，请单击“添加行”。 在“设置”中选择“确定”，以保存网络配置。
+   h.如果该值不存在，请单击“添加行”。 在“设置”中选择“确定”，以保存网络配置。  
 
-      i. 在“摘要”中，选择“确定”创建虚拟机。  
+      i. 在“摘要”中，选择“确定”创建虚拟机。    
 
-   j. 若要查看新虚拟机，请选择“所有资源”。 搜索该虚拟机，然后从搜索结果中选择其名称。
+   j. 若要查看新虚拟机，请选择“所有资源”。  搜索该虚拟机，然后从搜索结果中选择其名称。
 
    
 ## <a name="next-steps"></a>后续步骤
@@ -170,4 +170,3 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 转到下一教程，了解如何执行以下操作：
 > [!div class="nextstepaction"]
 > [将 SQL 数据库提供给 Azure Stack 用户使用](azure-stack-tutorial-sql-server.md)
-<!-- Update_Description: wording update -->

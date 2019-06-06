@@ -11,17 +11,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 10/22/2018
+origin.date: 03/19/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: c655a9a793bb14fdede44410621dcaf3b6983999
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f618d466c0ff4f7b19dfae96a138bcd6eca43e8e
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658930"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390759"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
+
+> [!NOTE]
+> 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+>
+
 使用 Azure 媒体服务，可使用以下格式动态加密 HTTP Live Streaming (HLS) 内容：  
 
 * **AES-128 信封明文密钥**
@@ -51,7 +56,7 @@ ms.locfileid: "52658930"
 
 必须在媒体服务密钥传送端上设置以下各项：
 
-  * 应用证书 (AC)：这是一个包含私钥的 .pfx 文件。 创建此文件，并使用密码对其进行加密。
+  * **应用证书 (AC)** ：这是一个包含私钥的 .pfx 文件。 创建此文件，并使用密码对其进行加密。
 
        配置密钥传送策略时，必须提供该密码和 Base64 格式的 .pfx 文件。
 
@@ -66,15 +71,15 @@ ms.locfileid: "52658930"
     3. 从命令行运行以下命令。 这会将 .pem 文件转换为包含私钥的 .pfx 文件。 然后， OpenSSL 会要求提供 .pfx 文件的密码。
 
         "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
-  * 应用证书密码：用于创建 .pfx 文件的密码。
-  * 应用证书密码 ID：必须上传密码，其方式与上传其他媒体服务密钥类似。 使用 ContentKeyType.FairPlayPfxPassword 枚举值获取媒体服务 ID。 需要在密钥传送策略选项中使用此 ID。
-  * iv：这是 16 字节的随机值。 该值必须与资产传送策略中的 iv 相匹配。 生成 iv 并将其放入以下两个位置：资产传送策略和密钥传送策略选项。
-  * ASK：使用 Apple 开发人员门户生成证书时会收到此密钥。 每个开发团队都会收到唯一的 ASK。 请保存一份 ASK 副本，并将其存储在安全位置。 稍后需要将 ASK 作为 FairPlayAsk 配置到媒体服务。
-  * ASK ID：将 ASK 上传到媒体服务中时，将获取此 ID。 必须使用 ContentKeyType.FairPlayAsk 枚举值上传 ASK。 因此，将返回媒体服务 ID，在设置密钥传送策略选项时应使用此 ID。
+  * **应用证书密码**：用于创建 .pfx 文件的密码。
+  * **应用证书密码 ID**：必须上传密码，其方式与上传其他媒体服务密钥类似。 使用  ContentKeyType.FairPlayPfxPassword 枚举值获取媒体服务 ID。 需要在密钥传送策略选项中使用此 ID。
+  * **iv**：这是 16 字节的随机值。 该值必须与资产传送策略中的 iv 相匹配。 生成 iv 并将其放入以下两个位置：资产传送策略和密钥传送策略选项。
+  * **ASK**：使用 Apple 开发人员门户生成证书时会收到此密钥。 每个开发团队都会收到唯一的 ASK。 请保存一份 ASK 副本，并将其存储在安全位置。 稍后需要将 ASK 作为 FairPlayAsk 配置到媒体服务。
+  * **ASK ID**：将 ASK 上传到媒体服务中时，将获取此 ID。 必须使用  ContentKeyType.FairPlayAsk 枚举值上传 ASK。 因此，将返回媒体服务 ID，在设置密钥传送策略选项时应使用此 ID。
 
 以下事项必须通过 FPS 客户端来设置：
 
-  * **应用证书 (AC)**：这是一个包含公钥的 .cer/.der 文件，操作系统使用它来加密某些负载。 媒体服务需要了解它，因为播放器需要它。 密钥传送服务使用相应的私钥对其进行解密。
+  * **应用证书 (AC)** ：这是一个包含公钥的 .cer/.der 文件，操作系统使用它来加密某些有效负载。 媒体服务需要了解它，因为播放器需要它。 密钥传送服务使用相应的私钥对其进行解密。
 
 若要播放 FairPlay 加密的流，需要先获取实际 ASK，然后生成实际证书。 该过程将创建所有三个部分：
 
@@ -82,7 +87,7 @@ ms.locfileid: "52658930"
   * .pfx 文件
   * .pfx 的密码
 
-以下客户端支持使用 AES-128 CBC 加密的 HLS：OS X 上的 Safari、Apple TV、iOS。
+以下客户端支持使用 AES-128 CBC 加密的 HLS  ：OS X 上的 Safari、Apple TV、iOS。
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>配置 FairPlay 动态加密和许可证传送服务
 下面是使用 FairPlay 保护资产的常规步骤，这些步骤使用媒体服务许可证传送服务，也使用动态加密。
@@ -135,14 +140,14 @@ ms.locfileid: "52658930"
 * 如果资产仅应用了一种加密，则无需在 URL 中指定加密类型。
 * 加密类型不区分大小写。
 * 可以指定以下加密类型：  
-  * cenc：通用加密 (PlayReady)
-  * cbcs-aapl：Fairplay
+  * **cenc**：通用加密 (PlayReady)
+  * **cbcs-aapl**：FairPlay
   * **cbc**：AES 信封加密
 
 ## <a name="create-and-configure-a-visual-studio-project"></a>创建和配置 Visual Studio 项目
 
 1. 设置开发环境，并根据[使用 .NET 进行媒体服务开发](media-services-dotnet-how-to-use.md)中所述，在 app.config 文件中填充连接信息。 
-2. 将以下元素添加到 app.config 文件中定义的 appSettings：
+2. 将以下元素添加到 app.config 文件中定义的  appSettings：
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/14/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: dc8b62d882c5e468a6daf46ebc74334692893a24
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 632a5d95c1da57c4d7c48faa43b765ef72b488b3
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529785"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381924"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 
@@ -46,9 +46,9 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 ### <a name="directory-tenants-and-organizations"></a>目录租户和组织
 
-目录是保留用户、应用程序、组和服务主体相关信息的容器。
+目录是保留用户、应用程序、组和服务主体相关信息的容器。    
 
-目录租户是一个组织，例如 Microsoft 或你自己的公司。
+目录租户是一个组织，例如 Microsoft 或你自己的公司。 
 
 - Azure AD 支持多个租户并可支持多个组织（各自位于自身的目录中）。 如果使用 Azure AD 并且有多个租户，则可以授权应用程序和用户从一个租户访问同一目录中的其他租户。
 - AD FS 仅支持单个租户，因此仅支持单个组织。
@@ -106,7 +106,7 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 ### <a name="service-principals"></a>服务主体
 
-服务主体是应用程序或服务的一组凭据，可授予 Azure Stack 中资源的访问权限。 使用服务主体可将应用程序权限与应用程序用户权限区分开来。
+服务主体是应用程序或服务的一组凭据，可授予 Azure Stack 中资源的访问权限。  使用服务主体可将应用程序权限与应用程序用户权限区分开来。
 
 服务主体是在使用应用程序的每个租户中创建的。 服务主体建立的标识用于登录和访问受该租户保护的资源（例如用户）。
 
@@ -144,8 +144,8 @@ Azure Stack 的标识包括用户帐户、组和服务主体。
 
 |层    |各层之间的身份验证  |
 |---------|---------|
-|工具与客户端，例如管理门户     | 为了访问或修改 Azure Stack 中的资源，工具和客户端将使用 [JSON Web 令牌](/active-directory/develop/active-directory-token-and-claims)来调用 Azure 资源管理器。 <br>Azure 资源管理器验证 JSON Web 令牌并扫视所颁发令牌中的声明，以评估用户或服务主体在 Azure Stack 中的授权级别。 |
-|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates)使用直接命令式调用或声明式调用。|
+|工具与客户端，例如管理门户     | 为了访问或修改 Azure Stack 中的资源，工具和客户端将使用 [JSON Web 令牌](/active-directory/develop/active-directory-token-and-claims)来调用 Azure 资源管理器。 <br>Azure 资源管理器验证 JSON Web 令牌并扫视所颁发令牌中的声明，以评估用户或服务主体在 Azure Stack 中的授权级别。  |
+|Azure 资源管理器及其核心服务     |Azure 资源管理器与资源提供程序通信，以传输用户的通信。 <br> 传输通过 [Azure 资源管理器模板](/azure-stack/user/azure-stack-arm-templates)使用直接命令式调用或声明式调用。  |
 |资源提供程序     |传递给资源提供程序的调用通过基于证书的身份验证进行保护。 <br>随后，Azure 资源管理器和资源提供程序持续通过 API 通信。 对于从 Azure 资源管理器 收到的每个调用，资源提供程序使用该证书来验证调用。|
 |基础结构和业务逻辑     |资源提供程序使用所选的身份验证模式与业务逻辑和基础结构通信。 Azure Stack 随附的默认资源提供程序使用 Windows 身份验证来保护此通信。|
 
@@ -179,7 +179,7 @@ Azure Stack 的标识包括用户帐户、组和服务主体。
 ![令牌交换协议示意图](media/azure-stack-identity-overview/token-exchange.png)
 
 > [!NOTE]
-> 部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是*默认提供程序订阅*的所有者。
+> 部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户，该帐户是默认提供程序订阅  的所有者。
 
 ### <a name="use-role-based-access-control"></a>使用基于角色的访问控制
 

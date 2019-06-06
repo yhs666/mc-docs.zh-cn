@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/18/2018
-ms.date: 02/18/2019
+origin.date: 02/26/2019
+ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1b1c4ab3f6ac9bff1b487e12981cef4c46dd36a1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 159349a17f4ff4ad592419119b42ca82e8a0e8db
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625933"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390845"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -147,9 +147,9 @@ The country/region hierarchy that is used by Traffic Manager can be found [here]
 
 ### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>使用子网路由时如何指定 IP 地址？
 可以通过两种方式指定与终结点相关联的 IP 地址。 首先，可以使用带有起始和结束地址的四分点十进制八位字节表示法来指定范围（例如，1.2.3.4-5.6.7.8 或 3.4.5.6-3.4.5.6）。 其次，可以使用 CIDR 表示法来指定范围（例如 1.2.3.0/24）。 可以指定多个范围，并且可以在范围集中使用这两种表示法类型。 存在一些限制。
--   由于每个 IP 必须映射到单个终结点，因此地址范围不能重叠
--   起始地址不能超过结束地址
--   在 CIDR 表示法的情况下，“/”之前的 IP 地址应该是该范围的起始地址（例如 1.2.3.0/24 有效但 1.2.3.4.4/24 无效）
+- 由于每个 IP 必须映射到单个终结点，因此地址范围不能重叠
+- 起始地址不能超过结束地址
+- 在 CIDR 表示法的情况下，“/”之前的 IP 地址应该是该范围的起始地址（例如 1.2.3.0/24 有效但 1.2.3.4.4/24 无效）
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>使用子网路由时如何指定回退终结点？
 在具有子网路由的配置文件中，如果没有子网映射到某个终结点，则所有与其他终结点不匹配的请求都将定向到此终结点。 强烈建议在配置文件中配置这样一个回退终结点，因为如果请求进入并且未映射到任何终结点或者如果它映射到终结点但该终结点存在问题，流量管理器将返回 NXDOMAIN 响应。
@@ -216,7 +216,7 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>如何确定每个终结点的当前运行状况？
 
-除了总体配置文件，每个终结点的当前监视状态也显示在 Azure 门户中。 此信息也可通过流量监视器 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 获取。
+除了总体配置文件，每个终结点的当前监视状态也显示在 Azure 门户中。 此信息也可通过流量监视器 [REST API](https://msdn.microsoft.com/library/azure/mt163667.aspx)、[PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.trafficmanager) 和[跨平台 Azure CLI](../cli-install-nodejs.md) 获取。
 
 可以使用 Azure Monitor 来跟踪终结点的运行状况，并查看其可视表示形式。 有关使用 Azure Monitor 的详细信息，请参阅 [Azure 监视文档](/monitoring-and-diagnostics/monitoring-overview-metrics)。
 
@@ -227,11 +227,11 @@ Azure Resource Manager 要求所有资源组指定一个位置，这决定了部
 流量管理器无法提供任何证书验证，包括：
 
 * 不验证服务器端证书
-* 不支持 SNI 服务器端证书
+* 不验证 SNI 服务器端证书
 * 不支持客户端证书
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>添加终结点时是否使用 IP 地址或 DNS 名称？
-流量管理器支持使用三种方式添加终结点：DNS 名称、IPv4 地址和 IPv6 地址。 如果将终结点添加为 IPv4 或 IPv6 地址，查询响应将分别为记录类型 A 或 AAAA。 如果终结点已添加为 DNS 名称，则查询响应将为记录类型 CNAME。 仅在终结点的类型为“外部”时，才允许将终结点添加为 IPv4 或 IPv6 地址。
+流量管理器支持使用三种方式添加终结点：DNS 名称、IPv4 地址和 IPv6 地址。 如果将终结点添加为 IPv4 或 IPv6 地址，查询响应将分别为记录类型 A 或 AAAA。 如果终结点已添加为 DNS 名称，则查询响应将为记录类型 CNAME。 仅在终结点的类型为“外部”时，才允许将终结点添加为 IPv4 或 IPv6 地址。 
 三种终结点寻址类型支持所有路由方法和监视设置。
 
 ### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>添加终结点时可以使用哪些类型的 IP 地址？

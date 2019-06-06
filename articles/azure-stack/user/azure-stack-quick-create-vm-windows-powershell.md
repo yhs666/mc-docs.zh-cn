@@ -17,12 +17,12 @@ ms.author: v-jay
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3ae4213204ec5365ecce36c1faef802ae53b57c9
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 40cc4510eb1eedcc489d349a2d4bb54632174ecb
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854606"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248557"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机
 
@@ -39,7 +39,7 @@ ms.locfileid: "64854606"
 
 ## <a name="prerequisites-for-windows-server-vm"></a>Windows Server VM 的先决条件
 
-* 确保 Azure Stack 操作员已将“Windows Server 2016”映像添加到 Azure Stack 市场。
+* 确保 Azure Stack 操作员已将“Windows Server 2016”  映像添加到 Azure Stack 市场。
 
 * Azure Stack 需要使用特定版本的 Azure PowerShell 来创建和管理资源。 如果未针对 Azure Stack 配置 PowerShell，请遵循[安装](../operator/azure-stack-powershell-install.md) PowerShell 的步骤。
 

@@ -5,20 +5,21 @@ description: 有关 Azure 虚拟网络的常见问题的解答。
 services: virtual-network
 documentationcenter: na
 author: rockboyfor
+manager: digimobile
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2019
-ms.date: 04/22/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4014eb368e55b3132e1d4b56af8215d9e0ac34db
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 8fc09d42af480a4b10b06de857b0e5d62e24a2f3
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520793"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250436"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -67,7 +68,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
-是的。 Azure 会保留每个子网中的某些 IP 地址。 每个子网的第一个和最后一个 IP 地址将为协议一致性而保留，每个子网的 x.x.x.1-x.x.x.3 地址用于 Azure 服务。
+是的。 Azure 在每个子网中保留 5 个 IP 地址。 每个子网的第一个和最后一个 IP 地址将为协议一致性而保留，每个子网的 x.x.x.1-x.x.x.3 地址用于 Azure 服务。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子网的最小和最大容量是多少？
 支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
@@ -108,7 +109,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 <!-- Not Available on IPV6 -->
 
 ### <a name="can-a-vnet-span-regions"></a>VNet 是否可以跨区域？
-否。 一个 VNet 限制为单个区域。
+否。 一个 VNet 限制为单个区域。 可以通过虚拟网络对等互连来连接不同区域中的虚拟网络。 有关详细信息，请参阅[虚拟网络对等互连概述](virtual-network-peering-overview.md)
 
 <!-- Not Available on availability-zones -->
 
@@ -185,8 +186,10 @@ Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此�
 是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，则所有 Web 应用都可以安全地连接和访问 VNet 中的资源。 有关详细信息，请参阅以下文章：
 
 <!-- Not Available on [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fvirtual-network%2ftoc.json) -->
+
 * [将应用与 Azure 虚拟网络进行集成](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
 * [将 VNet 集成和混合连接用于 Web 应用](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
+
 <!-- Not Avaialble hybrid-connections-and-app-service-environments-->
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
@@ -246,10 +249,8 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 - Redis 缓存 
 - 应用程序网关 (v1) SKU
 - Service Fabric
-- SQL Always-on
 - SQL MI
-- API 管理
-- ADDS
+- API 管理   <!--Not Available on - Active Directory Domain Service (ADDS)-->
 - Logic Apps
 - HD Insight
 - Azure Batch
@@ -258,15 +259,17 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 
 你可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
+<!--MOONCAKE: difference AAD tenant not support peering -->
+
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>如果虚拟网络所属的订阅位于不同的 Azure Active Directory 租户中，能否启用 VNet 对等互连？
 否。 在 Azure 中国，如果虚拟网络属于不同 Azure Active Directory 租户中的订阅，则当前不支持 Vnet 对等互连。 
 
 <!--MOONCAKE: difference AAD tenant not support peering -->
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 对等互连连接处于“已启动”状态，为什么我不能连接？
-如果对等互连连接处于“已启动”状态，则意味着只创建了一个链接。 必须创建双向链接才能成功建立连接。 例如，若要从 VNet A 对等互连到 VNet B，必须创建从 VNetA 到 VNetB 以及从 VNetB 到 VNetA 的链接。 创建两个链接后，状态会更改为“已连接”。
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>我的 VNet 对等互连连接处于“已启动”状态，为什么我不能连接？ 
+如果对等互连连接处于“已启动”状态，则意味着只创建了一个链接。 必须创建双向链接才能成功建立连接。 例如，若要从 VNet A 对等互连到 VNet B，必须创建从 VNetA 到 VNetB 以及从 VNetB 到 VNetA 的链接。 创建两个链接后，状态会更改为“已连接”。 
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>我的 VNet 对等互连连接处于“已断开连接”状态，为什么我无法创建对等互连连接？
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>我的 VNet 对等互连连接处于“已断开连接”状态，为什么我无法创建对等互连连接  ？
 VNet 对等互连连接处于“已断开连接”状态意味着创建的某个链接已被删除。 若要重新建立对等互连连接，需要删除该链接并重新创建。
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>是否可以将我的 VNet 与另一订阅中的 VNet 对等互连？
@@ -282,7 +285,7 @@ VNet 对等互连连接处于“已断开连接”状态意味着创建的某个
 否。 对等互连 VNet 中的资源之间的流量是专用的，处于隔离状态。 它完全局限在 Azure 主干上。
 
 ### <a name="why-is-my-peering-connection-in-a-disconnected-state"></a>为什么我的对等互连连接处于已断开状态？
-删除某个 VNet 对等互连链接时，VNet 对等互连连接就会进入“已断开”状态。 必须删除两个链接才能重新建立成功的对等互连连接。
+ 删除某个 VNet 对等互连链接时，VNet 对等互连连接就会进入“已断开”状态。 必须删除两个链接才能重新建立成功的对等互连连接。
 
 ### <a name="if-i-peer-vneta-to-vnetb-and-i-peer-vnetb-to-vnetc-does-that-mean-vneta-and-vnetc-are-peered"></a>如果我从 VNetA 对等互连到 VNetB，然后又从 VNetB 对等互连到 VNetC，这是否意味着 VNetA 和 VNetC 已对等互连？
 否。 不支持可传递对等互连。 必须单独将 VNetA 和 VNetC 对等互连。
@@ -290,8 +293,30 @@ VNet 对等互连连接处于“已断开连接”状态意味着创建的某个
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>对等互连连接是否存在带宽限制？
 否。 VNet 对等互连不会施加任何带宽限制。 带宽仅受 VM 或计算资源的限制。
 
-<!-- Not Available on ## Virtual network TAP-->
-<!--Update_Description: wording update -->
+<!--Pending for verify-->
+
+## <a name="virtual-network-tap"></a>虚拟网络 TAP
+
+### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>可以在哪些 Azure 区域使用虚拟网络 TAP？
+虚拟网络 TAP 预览版在所有 Azure 区域中都可用。 受监视的网络接口、虚拟网络 TAP 资源和收集器或分析解决方案必须部署在同一区域中。
+
+### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>虚拟网络 TAP 是否支持对镜像数据包使用任何筛选功能？
+虚拟网络 TAP 预览版不支持筛选功能。 当 TAP 配置被添加到网络接口后，此网络接口上所有入口和出口流量的一个深层副本会被流式传输到 TAP 目标。
+
+### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>是否可以向受监视的网络接口添加多个 TAP 配置？
+受监视的网络接口仅能拥有一个 TAP 配置。 查看单个[合作伙伴解决方案](virtual-network-tap-overview.md#virtual-network-tap-partner-solutions)，寻找将 TAP 流量的多个副本流式传输到你所选择的分析工具的功能。
+
+### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>同一虚拟网络 TAP 资源是否可以聚合多个虚拟网络中来自受监视的网络接口的流量？
+是的。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
+
+### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>如果我在网络接口上启用虚拟网络 TAP 配置，是否需要考虑生产流量的性能问题？
+虚拟网络 TAP 现为预览版。 在预览版期间，没有服务级别协议。 容量不应用于生产工作负荷。 使用 TAP 配置启用虚拟网络接口后，Azure 主机上分配给虚拟机以发送生产流量的相同资源将用于执行镜像功能并发送镜像数据包。 选择正确的 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机大小，确保有足够的资源可用于虚拟机以发送生产流量和镜像流量。
+
+### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>虚拟网络 TAP 是否支持适用于 [Linux](create-vm-accelerated-networking-cli.md) 或 [Windows](create-vm-accelerated-networking-powershell.md) 的加速网络？
+你将能够在附加到已启用加速网络的虚拟机的网络接口上添加 TAP 配置。 但是，通过添加 TAP 配置将使虚拟机上的性能和延迟情况受到影响，因为 Azure 加速网络目前不支持卸载镜像流量。
+
+<!--Pending for verify-->
+
 ## <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
 ### <a name="what-is-the-right-sequence-of-operations-to-set-up-service-endpoints-to-an-azure-service"></a>为 Azure 服务设置服务终结点的正确操作顺序是什么？
@@ -304,7 +329,7 @@ VNet 对等互连连接处于“已断开连接”状态意味着创建的某个
 >[!NOTE]
 > 必须先完成上述两个操作，然后才能限制 Azure 服务对允许的 VNet 和子网的访问。 只有打开网络端 Azure 服务的服务终结点才能提供有限的访问权限。 此外，还必须在 Azure 服务端设置 VNet acl。
 
-某些服务（如 SQL）允许通过“IgnoreMissingVnetServiceEndpoint”标志对上述序列进行异常处理。 一旦将标志设置为“True”，就可在网络端设置服务终结点之前，在 Azure 服务端设置 VNet ACL。 Azure 服务提供此标志以帮助客户在 Azure 服务上配置特定的 IP 防火墙，由于源 IP 从公共 IPv4 地址更改为专用地址，因此打开网络端的服务终结点会导致连接性下降。 在网络端设置服务终结点之前，在 Azure 服务端设置 VNet ACL 可帮助避免连接性下降。
+某些服务（如 SQL）允许通过“IgnoreMissingVnetServiceEndpoint”标志对上述序列进行异常处理  。 一旦将标志设置为“True”，就可在网络端设置服务终结点之前，在 Azure 服务端设置 VNet ACL  。 Azure 服务提供此标志以帮助客户在 Azure 服务上配置特定的 IP 防火墙，由于源 IP 从公共 IPv4 地址更改为专用地址，因此打开网络端的服务终结点会导致连接性下降。 在网络端设置服务终结点之前，在 Azure 服务端设置 VNet ACL 可帮助避免连接性下降。
 
 <!--Not Available on , and CosmosDB-->
 
@@ -321,7 +346,6 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 不会，使用 VNet 服务终结点不会产生额外的成本。
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-subscriptions"></a>如果虚拟网络和 Azure 服务资源属于不同的订阅，是否可打开 VNet 服务终结点并设置 VNet ACL？
-
 是，可以这样做。 虚拟网络和 Azure 服务资源也可以位于相同或不同的订阅中。 唯一的要求是虚拟网络和 Azure 服务资源必须位于相同的 Active Directory (AD) 租户之下。
 
 ### <a name="can-i-turn-on-vnet-service-endpoints-and-set-up-vnet-acls-if-the-virtual-network-and-the-azure-service-resources-belong-to-different-ad-tenants"></a>如果虚拟网络和 Azure 服务资源属于不同的 AD 租户，是否可打开 VNet 服务终结点并设置 VNet ACL？
@@ -362,10 +386,7 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>设置服务终结点需要哪些权限？
 对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有 **Microsoft.Network/JoinServicetoaSubnet** 权限。 此权限默认包含在内置的服务管理员角色中，可通过创建自定义角色进行修改。 详细了解内置角色以及如何将特定的权限分配到[自定义角色](/role-based-access-control/custom-roles?toc=%2fvirtual-network%2ftoc.json)。
 
-### <a name="can-i-filter-virtual-network-traffic-to-azure-services-allowing-only-specific-azure-service-resources-over-vnet-service-endpoints"></a>我是否可以通过 VNet 服务终结点筛选发往 Azure 服务的虚拟网络流量，以便仅允许特定的 Azure 服务资源？ 
-
-使用虚拟网络 (VNet) 服务终结点策略可以通过服务终结点筛选发往 Azure 服务的虚拟网络流量，以便仅允许特定的 Azure 服务资源。 终结点策略从发往 Azure 服务的虚拟网络流量提供精细的访问控制。 
-
+<!--Not Available on ### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? -->
 <!--Not Available on  [here](virtual-network-service-endpoint-policies-overview.md)-->
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>对于我可以从 VNet 中设置多少个 VNet 服务终结点有什么限制吗？
@@ -383,5 +404,6 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 <!--Not Available on|Azure Event Hub|   128|-->
 <!--Not Available on|Azure Service Bus| 128|-->
 <!--Not Available on |Azure Data Lake Store V1| 100|-->
+
 >[!NOTE]
 > Azure 服务自行决定是否对这些限制进行更改。 有关服务详细信息，请参阅相应的服务文档。

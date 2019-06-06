@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 01/14/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7f7889cc32852a79067cac7023d4a83d24a96ff7
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 07d4ee9f560b5d9223948e6b1c7cc839efa403f5
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854692"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248547"
 ---
 # <a name="connect-to-azure-stack"></a>连接到 Azure Stack
 
@@ -35,7 +35,7 @@ ms.locfileid: "64854692"
 
 1. 打开远程桌面连接并连接到开发工具包。 输入 **AzureStack\AzureStackAdmin** 作为用户名，并输入设置 Azure Stack 期间提供的管理密码。  
 
-2. 在开发工具包计算机上打开服务器管理器，单击“本地服务器”，关闭“Internet Explorer 增强的安全性”，然后关闭服务器管理器。
+2. 在开发工具包计算机上打开服务器管理器，单击“本地服务器”，关闭“Internet Explorer 增强的安全性”，然后关闭服务器管理器。 
 
 3. 若要打开门户，请导航到 https://portal.local.azurestack.external/)，并使用用户凭据登录。
 
@@ -65,7 +65,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module
 Import-Module .\Connect\AzureStack.Connect.psm1 
 
-# Add the development kit computer’s host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
+# Add the development kit computer's host IP address & certificate authority (CA) to the list of trusted hosts. Make sure to update the IP address and password values for your environment. 
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -102,7 +102,7 @@ Add-AzsVpnConnection `
 
   出现提示时，信任 Azure Stack 主机，并将 **AzureStackCertificateAuthority** 提供的证书安装到本地计算机的证书存储。 （该提示可能被 PowerShell 会话窗口覆盖。） 
 
-* 在本地计算机上，单击“网络设置” > “VPN”>“azurestack” > “连接”。 在登录提示符下，输入用户名 (AzureStack\AzureStackAdmin) 和密码。
+* 打开本地计算机的“网络设置” > “VPN”，单击“azurestack” > “连接”。     在登录提示符下，输入用户名 (AzureStack\AzureStackAdmin) 和密码。
 
 ### <a name="test-the-vpn-connectivity"></a>测试 VPN 连接
 

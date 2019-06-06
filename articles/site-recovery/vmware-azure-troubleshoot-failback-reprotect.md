@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4f59b9f9d10398f3a7a2691f3e7d77758496867f
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 2e4947321312ee0d6d224263b5f15e92fcb22ffd
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363330"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390692"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>排查从 Azure 到本地的故障回复问题
 
@@ -27,7 +27,7 @@ ms.locfileid: "54363330"
 
 ### <a name="error-code-95226"></a>错误代码 95226
 
-重新保护失败，因为 Azure 虚拟机无法访问本地配置服务器。
+重新保护失败，因为 Azure 虚拟机无法访问本地配置服务器  。
 
 在下述情况中会发生此错误：
 
@@ -37,7 +37,7 @@ ms.locfileid: "54363330"
 若要解决此问题，请执行以下操作：
 
 * 检查 Azure VM 网络是否允许 Azure VM 与本地配置服务器进行通信。 可以设置本地数据中心的站点到站点 VPN，或在 Azure VM 的虚拟网络上配置具有专用对等互连的 Azure ExpressRoute 连接。
-* 如果 VM 可以与本地配置服务器通信，请登录到 VM。 然后检查 InMage Scout 应用程序服务。 如果看到该服务未运行，请手动启动该服务。 检查服务启动类型是否已设置为“自动”。
+* 如果 VM 可以与本地配置服务器通信，请登录到 VM。 然后检查 InMage Scout 应用程序服务。 如果看到该服务未运行，请手动启动该服务。 检查服务启动类型是否已设置为“自动”  。
 
 ### <a name="error-code-78052"></a>错误代码 78052
 
@@ -52,18 +52,18 @@ ms.locfileid: "54363330"
 
 ### <a name="error-code-78093"></a>错误代码 78093
 
-VM 未运行，它处于挂起状态或无法访问。
+VM 未运行，它处于挂起状态或无法访问  。
 
 若要解决此问题，请执行以下操作：
 
-若要重新保护已故障转移的 VM，必须运行 Azure VM，以便移动服务向本地配置服务器注册，并通过与进程服务器通信来启动复制。 如果计算机位于错误的网络中或者未在运行（处于挂起或关闭状态），则配置服务器将无法访问 VM 中的移动服务，从而无法开始重新保护。
+若要重新保护已故障转移的 VM，必须运行 Azure VM，以便移动服务向本地配置服务器注册，并通过与进程服务器通信来启动复制。 如果计算机位于错误的网络中或者未在运行（无响应或关机），则配置服务器将无法访问 VM 中的出行服务，从而无法开始重新保护。
 
 * 重新启动 VM，使其重新与本地通信。
 * 启动 Azure 虚拟机后，重启重新保护作业。
 
 ### <a name="error-code-8061"></a>错误代码 8061
 
-无法通过 ESXi 主机访问数据存储。
+无法通过 ESXi 主机访问数据存储  。
 
 针对故障回复检查[主目标先决条件和支持的数据存储](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)。
 

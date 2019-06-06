@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ca2c9b8bf126105fff74a721694cd409d5776384
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: de3438d04274a417c8fa93dbc0531d4dadf18fc1
+ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65830046"
+ms.lasthandoff: 05/31/2019
+ms.locfileid: "66424689"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C IoT Edge 模块
 
@@ -63,9 +63,9 @@ ms.locfileid: "65830046"
 
 1. 以管理员身份运行 Visual Studio。
 
-2. 选择“文件” > “新建” > “项目”。 
+2. 选择“文件” > “新建” > “项目”    。 
 
-3. 在“新建项目”窗口中选择“Azure IoT”项目类型，然后选择“Azure IoT Edge”项目。 重命名项目和解决方案，使名称具有描述性，例如 **CTutorialApp**。 选择“确定”创建该项目。 
+3. 在“新建项目”窗口中选择“Azure IoT”项目类型，然后选择“Azure IoT Edge”项目。   重命名项目和解决方案，使名称具有描述性，例如 **CTutorialApp**。 选择“确定”创建该项目。  
 
    ![创建新的 Azure IoT Edge 项目](./media/tutorial-c-module-windows/new-project.png)
 
@@ -73,18 +73,18 @@ ms.locfileid: "65830046"
 
    | 字段 | Value |
    | ----- | ----- |
-   | 应用程序平台 | 取消选中“Linux Amd64”，选中“WindowsAmd64”。 |
-   | 选择模板 | 选择“C 模块”。 | 
+   | 应用程序平台 | 取消选中“Linux Amd64”，选中“WindowsAmd64”。   |
+   | 选择模板 | 选择“C 模块”。  | 
    | 模块项目名称 | 将模块命名为 **CModule**。 | 
    | Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 系统已基于模块项目名称值预先填充容器映像。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/cmodule。 |
 
    ![配置目标设备、模块类型和容器注册表的项目](./media/tutorial-c-module-windows/add-application-and-module.png)
 
-5. 选择“确定”以应用更改。 
+5. 选择“确定”以应用更改。  
 
 ### <a name="add-your-registry-credentials"></a>添加注册表凭据
 
-部署清单与 IoT Edge 运行时共享容器注册表的凭据。 此运行时需要这些凭据才能将专用映像拉取到 IoT Edge 设备中。 使用 Azure 容器注册表的“访问密钥”部分提供的凭据。 
+部署清单与 IoT Edge 运行时共享容器注册表的凭据。 此运行时需要这些凭据才能将专用映像拉取到 IoT Edge 设备中。 使用 Azure 容器注册表的“访问密钥”部分提供的凭据。  
 
 1. 在 Visual Studio 解决方案资源管理器中打开 **deployment.template.json** 文件。 
 
@@ -100,29 +100,33 @@ ms.locfileid: "65830046"
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-4. Save the deployment.template.json file. 
+4. 保存 deployment.template.json 文件。 
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>使用自定义代码更新模块
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+默认模块代码接收输入队列中的消息，然后通过输出队列传递这些消息。 让我们添加一些附加的代码，使模块在将消息转发到 IoT 中心之前，先在边缘上对其进行处理。 更新模块，使其分析每条消息中的温度数据，并仅在温度超过特定的阈值时，才将消息发送到 IoT 中心。 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. 在此场景中，来自传感器的数据采用 JSON 格式。 若要筛选 JSON 格式的消息，请导入用于 C 的 JSON 库。本教程使用 Parson。
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. 下载 [Parson GitHub 存储库](https://github.com/kgabis/parson)。 将 **parson.c** 和 **parson.h** 文件复制到 **CModule** 项目中。
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. 在 Visual Studio 中，从 CModule 项目文件夹打开 **CMakeLists.txt** 文件。 在文件顶部，导入名为 **my_parson** 的充当库的 Parson 文件。
 
       ```
-      add_library(my_parson        parson.c        parson.h    )
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add **my_parson** to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. 将 **my_parson** 添加到 CMakeLists.txt 文件的 **target_link_libraries** 节中的库列表。
 
-   4. Save the **CMakeLists.txt** file.
+   4. 保存 **CMakeLists.txt** 文件。
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. 打开“CModule”   > “main.c”  。 在 include 语句的列表底部，添加一个新的语句，以便包括适用于 JSON 支持的 `parson.h`：
 
       ```c
       #include "parson.h"
@@ -287,7 +291,7 @@ The default module code receives messages on an input queue and passes them alon
 
 在上一部分，你已经创建了一个 IoT Edge 解决方案并将代码添加到了 **CModule**，该函数会筛选出其中报告的计算机温度低于可接受阈值的消息。 现在需将解决方案生成为容器映像并将其推送到容器注册表。 
 
-1. 在开发计算机上使用以下命令登录到 Docker。 使用 Azure 容器注册表中的用户名、密码和登录服务器登录。 可以在 Azure 门户中从注册表的“访问密钥”部分检索这些值。
+1. 在开发计算机上使用以下命令登录到 Docker。 使用 Azure 容器注册表中的用户名、密码和登录服务器登录。 可以在 Azure 门户中从注册表的“访问密钥”部分检索这些值。 
 
    ```cmd
    docker login -u <ACR username> -p <ACR password> <ACR login server>
@@ -297,7 +301,7 @@ The default module code receives messages on an input queue and passes them alon
 
 2. 在 Visual Studio 解决方案资源管理器中，右键单击要生成的项目名称。 默认名称为 **AzureIotEdgeApp1**；由于生成的是 Windows 模块，因此扩展名应是 **Windows.Amd64**。 
 
-3. 选择“生成并推送 IoT Edge 模块”。 
+3. 选择“生成并推送 IoT Edge 模块”。  
 
    “生成并推送”命令会启动三项操作。 首先，它在解决方案中创建名为 **config** 的新文件夹，用于保存基于部署模板和其他解决方案文件中的信息生成的完整部署清单。 其次，它会运行 `docker build`，以基于目标体系结构的相应 dockerfile 生成容器映像。 然后，它会运行 `docker push`，以将映像存储库推送到容器注册表。 
 
@@ -311,7 +315,7 @@ The default module code receives messages on an input queue and passes them alon
 
 2. 右键单击要接收部署的 IoT Edge 设备的名称。 
 
-3. 选择“创建部署”。
+3. 选择“创建部署”。 
 
 4. 在文件资源管理器中，选择解决方案的 config 文件夹中的 **deployment.windows-amd64** 文件。 
 
@@ -326,9 +330,9 @@ The default module code receives messages on an input queue and passes them alon
 
 1. 在 Visual Studio Cloud Explorer 中，选择 IoT Edge 设备的名称。 
 
-2. 在“操作”列表中，选择“开始监视 D2C 消息”。 
+2. 在“操作”列表中，选择“开始监视 D2C 消息”。   
 
-3. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为 IoT Edge 设备必须接收其新部署并启动所有模块。 然后，在发送消息之前我们对 CModule 代码所做的更改需等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。 
+3. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为 IoT Edge 设备必须接收其新部署并启动所有模块。 然后，在发送消息之前我们对 CModule 代码所做的更改需等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。  
 
    ![查看抵达 IoT 中心的消息](./media/tutorial-c-module-windows/view-d2c-message.png)
 
@@ -336,7 +340,7 @@ The default module code receives messages on an input queue and passes them alon
 
 我们已使用 CModule 模块孪生将温度阈值设置为 25 度。 可以使用模块孪生来更改功能，而无需更新模块代码。
 
-1. 在 Visual Studio 中打开 **deployment.windows-amd64.json** 文件。 （不是 deployment.template 文件。 如果在解决方案资源管理器中的 config 文件内未看到部署清单，请在 Cloud Explorer 工具栏中选择“显示所有文件”图标。）
+1. 在 Visual Studio 中打开 **deployment.windows-amd64.json** 文件。 （不是 deployment.template 文件。 如果在解决方案资源管理器中的 config 文件内未看到部署清单，请在 Cloud Explorer 工具栏中选择“显示所有文件”图标。） 
 
 2. 找到 CModule 孪生，将 **temperatureThreshold** 参数的值更改为比上次报告的温度高出 5 到 10 度的新温度。 
 

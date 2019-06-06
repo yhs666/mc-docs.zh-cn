@@ -6,20 +6,22 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 923f7025652e1e076fbf6107d7888488506dd2c5
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b65695389d10e7744c99ec8a4f82c65245ea4626
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003856"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390856"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
 [Azure Site Recovery](site-recovery-overview.md) 有助于业务连续性和灾难恢复 (BCDR) 策略，因为它可以协调 Azure 虚拟机 (VM)、本地 VM 和物理服务器的复制、故障转移和恢复。
 
 本文介绍如何结合使用 Windows PowerShell 和 Azure 资源管理器将 Hyper-V VM 复制到 Azure。 本文中使用的示例演示如何将在 Hyper-V 主机上运行的单个 VM 复制到 Azure。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -33,9 +35,8 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 ## <a name="before-you-start"></a>开始之前
 确保已满足以下先决条件：
 
-* 一个 [Azure](https://www.azure.cn/) 帐户。 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。 此外，还可以参阅 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
-* Azure PowerShell 1.0。 若要深入了解此版本及其安装方法，请参阅 [Azure PowerShell 1.0。](https://www.azure.cn/)
-* [AzureRM.SiteRecovery](https://www.powershellgallery.com/packages/AzureRM.SiteRecovery/) 和 [AzureRM.RecoveryServices](https://www.powershellgallery.com/packages/AzureRM.RecoveryServices/) 模块。 可以从 [PowerShell 库](https://www.powershellgallery.com/)
+* 一个 [Azure](https://www.azure.cn/) 帐户。 你可以从[试用版](https://www.azure.cn/pricing/1rmb-trial/)开始。 此外，可以阅读 [Azure Site Recovery Manager 定价](https://www.azure.cn/pricing/details/site-recovery/)。
+* Azure PowerShell。 若要深入了解此版本及其安装方法，请参阅[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 此外，本文中提及的特定示例要求满足以下先决条件：
 
@@ -44,38 +45,38 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>步骤 1：登录到 Azure 帐户
 
-1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 此 cmdlet 会打开一个网页，提示输入帐户凭据：**Connect-AzureRmAccount -Environment AzureChinaCloud**。
-    - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzureRmAccount -Environment AzureChinaCloud** cmdlet 中。
+1. 打开 PowerShell 控制台，并运行以下命令以登录到 Azure 帐户。 此 cmdlet 会打开一个网页，提示输入帐户凭据：**Connect-AzAccount -Environment AzureChinaCloud**。
+    - 也可使用 **-Credential** 参数将帐户凭据作为参数包含在 **Connect-AzAccount -Environment AzureChinaCloud** cmdlet 中。
     
     <!-- Not Available on CSP partner working on behalf of a tenant -->
 2. 由于一个帐户可以有多个订阅，因此请将要使用的订阅与帐户关联在一起：
 
-    `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
+    `Select-AzSubscription -SubscriptionName $SubscriptionName`
 
 3. 使用以下命令验证订阅是否已注册，以便将 Azure 提供程序用于恢复服务和 Site Recovery：
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-4. 验证命令输出中是否将“RegistrationState”设置为“已注册”，如果是，则可继续执行步骤 2。 否则，需要通过运行以下命令注册订阅中缺失的提供程序：
+4. 验证命令输出中是否将“RegistrationState”设置为“已注册”，如果是，则可继续执行步骤 2   。 否则，需要通过运行以下命令注册订阅中缺失的提供程序：
 
-    `Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
+    `Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices`
 
 5. 使用以下命令验证提供程序是否已成功注册：
 
-    `Get-AzureRmResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
+    `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
 ## <a name="step-2-set-up-the-vault"></a>步骤 2：设置保管库
 
 1. 创建一个可在其中创建保管库的 Azure 资源管理器资源组，或者使用现有资源组。 创建新资源组，如下所示。 $ResourceGroupName 变量包含需要创建的资源组的名称，$Geo 变量包含要在其中创建资源组的 Azure 区域（例如“中国北部”）。
 
-    `New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Geo` 
+    `New-AzResourceGroup -Name $ResourceGroupName -Location $Geo` 
 
-2. 若要获取订阅中的资源组列表，请运行 Get-AzureRmResourceGroup cmdlet。
+2. 若要获取订阅中的资源组列表，请运行 **Get-AzResourceGroup** cmdlet。
 2. 创建如下所示的新的 Azure 恢复服务保管库：
 
-        $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
+        $vault = New-AzRecoveryServicesVault -Name <string> -ResourceGroupName <string> -Location <string>
 
-    可使用 Get-AzureRmRecoveryServicesVault cmdlet 检索现有保管库的列表。
+    可使用 **Get-AzRecoveryServicesVault** cmdlet 检索现有保管库的列表。
 
 ## <a name="step-3-set-the-recovery-services-vault-context"></a>步骤 3：设置恢复服务保管库上下文
 
@@ -96,7 +97,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 
     ```
     $SiteIdentifier = Get-AsrFabric -Name $sitename | Select -ExpandProperty SiteIdentifier
-    $path = Get-AzureRmRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
+    $path = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteIdentifier $SiteIdentifier -SiteFriendlyName $sitename
     ```
 
 5. 将已下载的密钥复制到 Hyper-V 主机。 你需要通过该密钥将 Hyper-V 主机注册到站点。
@@ -120,7 +121,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
         $ReplicationFrequencyInSeconds = "300";        #options are 30,300,900
         $PolicyName = "replicapolicy"
         $Recoverypoints = 6                    #specify the number of recovery points
-        $storageaccountID = Get-AzureRmStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
+        $storageaccountID = Get-AzStorageAccount -Name "mystorea" -ResourceGroupName "MyRG" | Select -ExpandProperty Id
 
         $PolicyResult = New-AsrPolicy -Name $PolicyName -ReplicationProvider "HyperVReplicaAzure" -ReplicationFrequencyInSeconds $ReplicationFrequencyInSeconds  -RecoveryPoints $Recoverypoints -ApplicationConsistentSnapshotFrequencyInHours 1 -RecoveryAzureStorageAccountId $storageaccountID
 
@@ -131,8 +132,8 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
         $protectionContainer = Get-AsrProtectionContainer
 3. 将保护容器与复制策略相关联，如下所示：
 
-         $Policy = Get-AsrPolicy -FriendlyName $PolicyName
-         $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 
 4. 等待关联作业成功完成。
 
@@ -158,7 +159,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
         Completed
 4. 更新各种恢复属性（例如 VM 角色大小），以及进行故障转移后需要将 VM NIC 连接到的 Azure 网络。
 
-        PS C:\> $nw1 = Get-AzureRmVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
+        PS C:\> $nw1 = Get-AzVirtualNetwork -Name "FailoverNw" -ResourceGroupName "MyRG"
 
         PS C:\> $VMFriendlyName = "Fabrikam-App"
 
@@ -176,7 +177,7 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 ## <a name="step-8-run-a-test-failover"></a>步骤 8：运行测试故障转移
 1. 按如下所述运行测试故障转移：
 
-        $nw = Get-AzureRmVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
+        $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group
 
         $rpi = Get-AsrReplicationProtectedItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 
@@ -187,6 +188,6 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
         $TFjob = Start-AsrTestFailoverCleanupJob -ReplicationProtectedItem $rpi -Comment "TFO done"
 
 ## <a name="next-steps"></a>后续步骤
-[详细了解](https://docs.microsoft.com/powershell/module/azurerm.siterecovery) Azure Site Recovery 和 Azure 资源管理器 PowerShell cmdlet。
+[详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices) Azure Site Recovery 和 Azure 资源管理器 PowerShell cmdlet。
 
 <!-- Update_Description: update meta properties, wording update -->

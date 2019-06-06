@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: a9bc9b39dbdfde23092fa7cfbf9eac7c3210dfdf
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 14542dd66af6d53c1cba6e3b2f77d643c264a95d
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854730"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248554"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -151,7 +151,7 @@ Azure PowerShell 是一个模块，它提供的 cmdlet 用于管理 Azure 和 Az
 
 1. 安装 [Azure Stack 兼容的 Azure PowerShell 模块](../operator/azure-stack-powershell-install.md)。
 2. 下载[使用 Azure Stack 所需的工具](../operator/azure-stack-powershell-download.md)。
-3. 打开 **Windows PowerShell ISE**，选择“以管理员身份运行”，然后单击“文件” > “新建”以创建新的脚本文件。
+3. 打开 **Windows PowerShell ISE**，选择“以管理员身份运行”，  然后单击“文件”   >   “新建”以创建新的脚本文件。
 4. 复制下面的脚本并将其粘贴到新的脚本文件。
 5. 根据配置设置更新脚本变量。
    > [!NOTE]
@@ -263,7 +263,7 @@ Azure Stack 需要 Azure CLI 2.0 版或更高版本。 若要详细了解如何�
 
 1. 打开偏好的文本编辑器，将前面的脚本复制并粘贴到编辑器中。
 2. 更新脚本的变量，使之反映配置设置。
-3. 更新所需的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh。
+3. 更新所需的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh  。
 4. 如有必要，将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
 5. 执行该脚本。 例如，在 Bash 中： `./my_storage_sample.sh`
 

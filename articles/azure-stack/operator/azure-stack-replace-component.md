@@ -11,15 +11,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/06/2018
-ms.date: 01/14/2019
+origin.date: 03/11/2019
+ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 0cf2fe185b2d3e7c6fa5eed532d8f85783b76fc0
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 12/06/2018
+ms.openlocfilehash: 5bc87428968ea226205174639f05dd7ab4bbb733
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529923"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381801"
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>更换 Azure Stack 缩放单元节点上的硬件组件
 

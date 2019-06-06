@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 76779253eb7b7d9806fb65643581d6d5a04dab2b
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 802355455237ca30edb3757557231b93b7599ac1
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529833"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381912"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解有关部署的重要规划注意事项，及系统如何适应数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -96,7 +96,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 ## <a name="certificate-requirements"></a>证书要求
 
-针对部署，需要为公开终结点提供安全套接字层 (SSL) 证书。 概括而言，证书具有以下要求：
+针对部署，需要为面向公众的终结点提供安全套接字层 (SSL) 证书。 概括而言，证书具有以下要求：
 
 - 可以使用单个通配符证书或使用一组专用证书，并只对终结点（例如存储和 Key Vault）使用通配符。
 - 证书可以由公众信任的证书颁发机构 (CA) 或客户管理的 CA 颁发。
@@ -123,7 +123,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 对于混合连接，必须考虑提供哪种部署及其部署位置。 需要考虑是否隔离每个租户的网络流量，以及是否要进行 Intranet 或 Internet 部署。
 
-- **单租户 Azure Stack**。 Azure Stack 部署看起来像是一个租户，至少从网络角度来看是这样的。 可能存在许多租户订阅，但如同任何 Intranet 服务一样，所有流量通过相同的网络传输。 一个订阅与另一个订阅通过相同的网络连接传输网络流量，无需通过加密的隧道进行隔离。
+- **单租户 Azure Stack**。 至少从网络角度看，这种 Azure Stack 部署看起来就像是一个租户。 可能存在许多租户订阅，但如同任何 Intranet 服务一样，所有流量通过相同的网络传输。 来自一个订阅的网络流量通过与另一个订阅相同的网络连接传输，不需要通过加密隧道进行隔离。
 
 - **多租户 Azure Stack**。 在这种 Azure Stack 部署中，每个租户订阅的、发往 Azure Stack 外部网络的流量必须与其他租户的网络流量相隔离。
  

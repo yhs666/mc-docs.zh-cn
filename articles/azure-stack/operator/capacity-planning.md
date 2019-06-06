@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: c92d6c3d851a1b8f613c2b6161a3c2da2d4b0e91
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 88aa316b8d24bdac78abed2e505c8ccdde5093f9
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529739"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381853"
 ---
 # <a name="azure-stack-capacity-planning"></a>Azure Stack 容量规划
 评估 Azure Stack 解决方案时，必须在硬件配置方面做出选择，因为它直接影响到 Azure Stack 云的总体容量。 这些是有关 CPU、内存密度、存储配置和总体解决方案规模或服务器数目的常规选择。 不同于传统的虚拟化解决方案，简单地评估这些组件并不能很好地确定可用的容量。 这方面的第一个原因是 Azure Stack 构建为在解决方案自身内部托管基础结构或管理组件。 第二个原因是解决方案的某些容量保留用于支持复原；更新解决方案的软件时，必须将租户工作负荷的中断降到最低程度。

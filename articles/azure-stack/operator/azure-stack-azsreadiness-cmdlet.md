@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/30/2018
-ms.date: 04/29/2019
+origin.date: 05/09/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
-ms.lastreviewed: 12/04/2018
-ms.openlocfilehash: 0de0afc93c2bd4a7b59b81740421b91c9e124583
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/09/2019
+ms.openlocfilehash: c44d92d9aa9a4b5a9bc7f461b5bdd5434ce34fcc
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529618"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381903"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet 参考
 
@@ -210,7 +210,7 @@ $PaaSCertificates = @{
     'PaaSFTPCert' = @{'pfxPath' = '<Path to FTP PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
     'PaaSSSOCert' = @{'pfxPath' = '<Path to SSO PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
 }
-Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates – RegionName east -FQDN azurestack.contoso.com
+Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com
 ```
 
 此示例使用每个 PaaS 证书的路径和密码构造了哈希表。 可以省略证书。 `Start-AzsReadinessChecker` 检查每个 PFX 路径是否存在，并使用区域 **east** 和外部 FQDN **azurestack.contoso.com** 验证这些路径。
@@ -242,9 +242,9 @@ Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -Azur
 
 ### <a name="example-validate-azure-identity-with-deployment-data-deployment-support"></a>示例：使用部署数据验证 Azure 标识（部署支持）
 
-```PowerSHell
+```PowerShell
 $serviceAdminCredential = Get-Credential -Message "Enter Credentials for Service Administrator of Azure Active Directory Tenant e.g. serviceadmin@contoso.partner.onmschina.cn"
-Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-depploymentdata.json
+Start-AzsReadinessChecker -AADServiceAdministrator $serviceAdminCredential -DeploymentDataJSONPath .\contoso-deploymentdata.json
 ```
 
 在此示例中，出于安全性需要输入服务管理员帐户凭据，`Start-AzsReadinessChecker` 检查 Azure 帐户和 Azure Active Directory 是否适用于其 **AzureChinaCloud** 和 **TenantName** 都是从针对部署生成的部署数据 JSON 文件中读取的 AAD 部署。
@@ -277,9 +277,9 @@ $password = Read-Host -Prompt "Enter PFX Password" -AsSecureString
 Start-AzsReadinessChecker -PfxPassword $password -PfxPath .\certificates\ssl.pfx -ExportPFXPath .\certificates\ssl_new.pfx
 ```
 
-在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证以标志形式指出私钥中未设置“本地计算机”属性、证书链中断、PFX 中存在不相关的证书，或证书链顺序错误等时，将使用此过程。
+在此示例中，出于安全性需要输入 PFX 密码。 Ssl.pfx 文件 将导入到本地计算机证书存储，然后以相同的密码重新导出，并保存为 Ssl_new.pfx。 当证书验证以标志形式指出私钥中未设置“本地计算机”属性、证书链中断、PFX 中存在不相关的证书，或证书链顺序错误等时，将使用此过程。 
 
-### <a name="example-view-validation-report-deployment-support"></a>示例：查看验证报告（部署支持）
+### <a name="example-view-validation-report-deployment-and-support"></a>示例：查看验证报告（部署和支持）
 
 ```powershell
 Start-AzsReadinessChecker -ReportPath Contoso-AzsReadinessReport.json

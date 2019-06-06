@@ -2,39 +2,41 @@
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: include
-origin.date: 08/06/2018
-ms.date: 09/17/2018
+origin.date: 04/28/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff38bba3f745fd143b9d96a955c77b36c788705a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4bf7c4c4130edc8e6640c5f676fa2cb4777d7ab1
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643534"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390710"
 ---
-注销进程服务器的步骤各不相同，具体取决于其与配置服务器的连接状态。
+根据你的具体情况执行以下步骤。
 
-### <a name="unregister-a-process-server-that-is-in-a-connected-state"></a>注销处于“已连接”状态的进程服务器
+### <a name="unregister-a-connected-process-server"></a>注销已连接的进程服务器
 
-1. 以管理员身份远程进入进程服务器。
-2. 启动“控制面板”，然后打开“程序”>“卸载程序”
-3. 卸载名为“Azure Site Recovery 配置/进程服务器”的程序
-4. 步骤 3 完成后，可以卸载 **Azure Site Recovery 配置/进程服务器依赖项**
+1. 以管理员身份与进程服务器建立远程连接。
+2. 在“控制面板”  中，打开“程序”>“卸载程序”  。
+3. 卸载程序“Azure Site Recovery 出行服务/主目标服务器”  。
+4. 卸载程序“Azure Site Recovery 配置/进程服务器”  。
+5. 卸载步骤 3 和步骤 4 中的程序后，卸载“Azure Site Recovery 配置/进程服务器依赖项”  。
 
-### <a name="unregister-a-process-server-that-is-in-a-disconnected-state"></a>注销处于“已断开连接 ”状态的进程服务器
+### <a name="unregister-a-disconnected-process-server"></a>注销已断开连接的进程服务器
 
-> [!WARNING]
-> 如果无法恢复安装了进程服务器的虚拟机，则应使用以下步骤。
+仅当无法恢复安装了进程服务器的计算机时，才使用这些步骤。
 
-1. 以管理员身份登录到配置服务器。
-2. 打开管理命令提示符，并浏览到目录 `%ProgramData%\ASR\home\svsystems\bin`。
-3. 现在，运行命令。
+1. 以管理员身份登录配置服务器。
+2. 打开管理命令提示符，并浏览到 `%ProgramData%\ASR\home\svsystems\bin`。
+3. 运行此命令以获取一个或多个进程服务器的列表。
 
     ```
     perl Unregister-ASRComponent.pl -IPAddress <IP_of_Process_Server> -Component PS
     ```
-4. 上面的命令将为进程服务器列表（在条目重复的情况下，进程服务器可能为多个）提供序列号（简称 S.No）、IP 地址（简称 IP）、部署进程服务器时所在 VM 的名称（简称“名称”）、VM 的检测信号（简称“检测信号”），如下所示。
+    - 序列 号：进程服务器序列号。
+    - IP/名称：运行进程服务器的计算机的 IP 地址和名称。
+    - 检测信号：进程服务器计算机发出的上一个检测信号。
     ![Unregister-cmd](media/site-recovery-vmware-unregister-process-server/Unregister-cmd.PNG)
-5. 现在，请输入要注销的进程服务器的序列号。
-6. 此时会清除系统提供的进程服务器的详细信息，并会显示消息：**成功注销了 server-name> (server-IP-address)**
-<!--Update_Description: wording update-->
+
+4. 指定要注销的进程服务器的序列号。
+5. 注销进程服务器将从系统中删除其所有详细信息，并显示消息：**已成功注销服务器名称> (服务器 IP 地址)**

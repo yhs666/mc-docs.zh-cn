@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: azure-stack
 ms.topic: article
-origin.date: 01/28/2019
-ms.date: 03/04/2019
+origin.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/28/2019
+ms.lastreviewed: 04/23/2019
 keywords: ''
-ms.openlocfilehash: 59c3e1c4c1a1f9092464edf49f6bbd06fde0bb59
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 28bf81b57a51c1224e1cd6b517de5e43bf91c2b4
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529630"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381887"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Azure Stack 数据中心集成 - Syslog 转发
 
@@ -56,7 +56,7 @@ Set-SyslogServer [-ServerName <String>] [-ServerPort <String>] [-NoEncryption] [
 
 ### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
-Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] 
+Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] [-OutputSeverity]
 ```
 #### <a name="cmdlets-parameters"></a>cmdlet 参数
 
@@ -79,7 +79,7 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 | *pfxBinary* | pfx 文件，其中包含的证书可供客户端用作对 Syslog 服务器进行身份验证的标识  | Byte[] |
 | *CertPassword* |  密码，用于导入与 pfx 文件关联的私钥 | SecureString |
 |*RemoveCertificate* | 从客户端删除证书 | 标志|
-
+| *OutputSeverity* | 输出日志记录的级别。 值为 **Default** 或 **Verbose**。 Default 包括严重性级别“警告”、“严重”或“错误”。 Verbose 包括所有严重性级别 -“详细”、“信息”、“警告”、“严重”或“错误”  | String |
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>使用 TCP、相互身份验证和 TLS 1.2 加密配置 Syslog 转发
 
 在此配置中，Azure Stack 中的 Syslog 客户端使用 TLS 1.2 加密将消息通过 TCP 转发到 Syslog 服务器。 在初次握手期间，客户端会验证服务器是否提供了有效且可信的证书；类似地，客户端也会向服务器提供证书来证明其身份。 此配置是最安全的，因为它对客户端和服务器的标识都进行了完整的验证，且消息也是通过加密的通道发送。 
@@ -105,13 +105,13 @@ Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, pa
 
 $ErcsNodeName = "<yourPEP>"
 $password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
-
+ 
 $cloudAdmin = "<your cloudAdmin account name>"
 $CloudAdminCred = New-Object System.Management.Automation.PSCredential ($cloudAdmin, $password)
-
+ 
 $certPassword = $password
 $certContent = Get-Content -Path C:\cert\<yourClientCertificate>.pfx -Encoding Byte
-
+ 
 $params = @{ 
     ComputerName = $ErcsNodeName 
     Credential = $CloudAdminCred 
@@ -119,7 +119,7 @@ $params = @{
 }
 
 $session = New-PSSession @params
-
+ 
 $params = @{ 
     Session = $session 
     ArgumentList = @($certContent, $certPassword) 
@@ -186,13 +186,13 @@ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -ServerPort <
 
 **从客户端删除 Syslog 服务器配置**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **从客户端删除客户端证书**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -202,13 +202,13 @@ Set-SyslogClient -RemoveCertificate
 
 **验证 Syslog 客户端中的服务器配置**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **验证 Syslog 客户端中的证书设置**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

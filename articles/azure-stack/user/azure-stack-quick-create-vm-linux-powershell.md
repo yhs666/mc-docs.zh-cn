@@ -12,16 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 03/11/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 53585f82dd35a386360c0abec713dedb6adbce0b
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: d3ff3f567d35cab5c8ab8d86c438b5e89d9b5057
+ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854829"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248524"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Linux 服务器虚拟机
 
@@ -43,7 +43,7 @@ ms.locfileid: "64854829"
 
 * 设置 Azure Stack PowerShell 后，将需要连接到 Azure Stack 环境。 有关说明，请参阅[以用户身份使用 PowerShell 连接到 Azure Stack](azure-stack-powershell-configure-user.md)。
 
-* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[在 Windows 上创建 SSH 密钥](/virtual-machines/linux/ssh-from-windows)。
+* Windows 用户配置文件的 .ssh 目录中保存的名为 id_rsa.pub 的 SSH 公钥。 有关创建 SSH 密钥的详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

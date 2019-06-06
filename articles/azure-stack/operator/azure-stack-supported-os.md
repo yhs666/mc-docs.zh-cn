@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/17/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 8e38432ad1ee17563ec60dd797f3d7f9528a5197
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: fcdbe4f4b0dca234c76285366c861fc33aac4da2
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529929"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381894"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Azure Stack 支持的来宾操作系统
 
@@ -66,7 +66,7 @@ Datacenter 版本可在市场中下载；客户可以自带包含其他版本的
 | 容器 Linux |  64 位 | CoreOS | Stable |
 | Debian 8 "Jessie" | 64 位 | credativ |  是 |
 | Debian 9“Stretch” | 64 位 | credativ | 是 |
-| Red Hat Enterprise Linux 7.x | 64 位 | Red Hat |自带映像 |
+| Red Hat Enterprise Linux 7.1（及更高版本） | 64 位 | Red Hat |自带映像 |
 | SLES 11SP4 | 64 位 | SUSE | 是 |
 | SLES 12SP3 | 64 位 | SUSE | 是 |
 | Ubuntu 14.04-LTS | 64 位 | Canonical | 是 |

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 04/29/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 151cf05facfc7c9ec8e700c3c29df1d2ad367fa9
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 8ea1fd511d4d3b0b1eda50050215f53e0f7908ac
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529450"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381901"
 ---
 # <a name="overview-of-offering-services-in-azure-stack"></a>在 Azure Stack 中提供服务概述
 

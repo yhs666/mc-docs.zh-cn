@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 02/18/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3b1cd948b40f832a5a2c400b8c1dcc38c2bb86c7
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: a5284ab1d9646224e2da4fc86a04d5aba837eae9
+ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306124"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66250457"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>为 Azure 网络接口添加、更改或删除 IP 地址
 
@@ -32,11 +32,13 @@ ms.locfileid: "56306124"
 <a name="before"></a>
 ## <a name="before-you-begin"></a>准备阶段
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
-- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 5.7.0 或更高版本。 运行 `Get-Module -ListAvailable AzureRM` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzureRmAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
+- 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[网络接口权限](virtual-network-network-interface.md#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -50,65 +52,65 @@ ms.locfileid: "56306124"
 
 <!-- Not Avaiable on IPV6 -->
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 当“网络接口”出现在搜索结果中时，请选择它。
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 从列表中选择要为其添加 IPv4 地址的网络接口。
-3. 在“设置”下选择“IP 配置”。
-4. 在“IP 配置”下选择“+ 添加”。
-5. 指定以下内容，然后选择“确定”：
+3. 在“设置”  下选择“IP 配置”  。
+4. 在“IP 配置”  下选择“+ 添加”  。
+5. 指定以下内容，然后选择“确定”  ：
 
     |设置|必需？|详细信息|
     |---|---|---|
     |Name|是|对于网络接口必须是唯一的|
-    |类型|是|由于要将 IP 配置添加到现有网络接口，并且每个网络接口都必须有一个[主要](#primary) IP 配置，因此，你的唯一选项是“辅助”。|
+    |类型|是|由于要将 IP 配置添加到现有网络接口，并且每个网络接口都必须有一个[主要](#primary) IP 配置，因此，你的唯一选项是“辅助”。 |
     |专用 IP 地址分配方法|是|[**动态**](#dynamic)：Azure 为在其中部署网络接口的子网地址范围分配下一可用地址。 [**静态**](#static)：为在其中部署网络接口的子网地址范围分配未使用的地址。|
     |公共 IP 地址|否|**禁用：** 当前没有公共 IP 地址资源关联到 IP 配置。 **启用：** 选择现有的 IPv4 公共 IP 地址，或新建一个。 若要了解如何创建公共 IP 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md#create-a-public-ip-address)一文。|
 6. 可以遵循[将多个 IP 地址分配到虚拟机操作系统](virtual-network-multiple-ip-addresses-portal.md#os-config)一文中的说明，手动将辅助专用 IP 地址添加到虚拟机操作系统。 在手动向虚拟机操作系统添加 IP 地址之前，请参阅[专用](#private) IP 地址以了解特殊注意事项。 请不要向虚拟机操作系统添加任何公共 IP 地址。
 
-命令
+ 命令
 
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create)|
-|PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 <a name="change-ip-config"></a>
 ## <a name="change-ip-address-settings"></a>更改 IP 地址设置
 
 你可能需要更改 IPv4 地址的分配方法、更改静态 IPv4 地址，或者更改分配给网络接口的公共 IP 地址。 如果要更改与虚拟机中的辅助网络接口关联的辅助 IP 配置的专用 IPv4 地址（有关详细信息，请参阅[主要网络接口和辅助网络接口](virtual-network-network-interface-vm.md)），请将该虚拟机置于“已停止”（“已解除分配”）状态，并完成以下步骤：
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 当“网络接口”出现在搜索结果中时，请选择它。
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 从列表中选择要查看或更改 IP 网络设置的网络接口。
-3. 在“设置”下选择“IP 配置”。
+3. 在“设置”  下选择“IP 配置”  。
 4. 从列表中选择想要修改的 IP 配置。
 5. 使用有关[添加 IP 配置](#add-ip-addresses)的步骤 5 中的设置的信息，根据需要更改设置。
-6. 选择“其他安全性验证” 。
+6. 选择“其他安全性验证”  。
 
 >[!NOTE]
 >在 Windows 中，如果主要网络接口有多个 IP 配置，并且主要 IP 配置的专用 IP 地址已更改，则必须手动将主要 IP 地址和辅助 IP 地址重新分配给网络接口（在 Linux 中不需要执行此操作）。 若要手动向操作系统中的网络接口分配 IP 地址，请参阅[将多个 IP 地址分配到虚拟机](virtual-network-multiple-ip-addresses-portal.md#os-config)。 有关在手动向虚拟机操作系统添加 IP 地址的特别注意事项，请参阅[专用](#private) IP 地址。 请不要向虚拟机操作系统添加任何公共 IP 地址。
 
-命令
+ 命令
 
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update)|
-|PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Set-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 <a name="delete-ip-config"></a>
 ## <a name="remove-ip-addresses"></a>删除 IP 地址
 
 可以从网络接口中删除[专用](#private)和[公共](#public) IP 地址，但网络接口必须始终至少有一个分配给它的专用 IPv4 地址。
 
-1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。 当“网络接口”出现在搜索结果中时，请选择它。
+1. 在 Azure 门户顶部包含“搜索资源”文本的框中，键入“网络接口”。   当“网络接口”出现在搜索结果中时，请选择它。 
 2. 从列表中选择要移除 IP 地址的网络接口。
-3. 在“设置”下选择“IP 配置”。
-4. 右键单击以选择要删除的[辅助](#secondary) IP 配置（无法删除[主要](#primary)配置），单击“删除”，然后选择“是”确认删除。 如果该配置关联了公共 IP 地址资源，则该资源将从 IP 配置中分离，但不会被删除。
+3. 在“设置”  下选择“IP 配置”  。
+4. 右键单击以选择要删除的[辅助](#secondary) IP 配置（无法删除[主要](#primary)配置），单击“删除”，然后选择“是”确认删除   。 如果该配置关联了公共 IP 地址资源，则该资源将从 IP 配置中分离，但不会被删除。
 
-命令
+ 命令
 
 |工具|命令|
 |---|---|
 |CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-delete)|
-|PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
+|PowerShell|[Remove-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP 配置
 
@@ -120,11 +122,11 @@ ms.locfileid: "56306124"
 
 - 具有分配给它的[专用](#private) [IPv4](#ipv4) 地址。
 
-<!-- Not Available on IPv6 -->
+    <!-- Not Available on IPv6 -->
 
 - 还可能具有分配给它的[公共](#public) IPv4 地址。 
 
-<!-- Not Available on IPv6 -->
+    <!-- Not Available on IPv6 -->
 
 ### <a name="secondary"></a>次要
 
@@ -136,7 +138,7 @@ ms.locfileid: "56306124"
     - 虚拟机充当网络虚拟设备，例如防火墙或负载均衡器。
     - 可将任何网络接口的任何专用 IPv4 地址添加到 Azure 负载均衡器后端池。 过去，只能将主要网络接口的主要 IPv4 地址添加到后端池。 若要详细了解如何对多个 IPv4 配置进行负载均衡，请参阅[对多个 IP 配置进行负载均衡](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json)一文。 
 
-    <!-- Not Available on IPv6 -->
+        <!-- Not Available on IPv6 -->
 
 ## <a name="address-types"></a>地址类型
 
@@ -184,19 +186,19 @@ ms.locfileid: "56306124"
 
 - **仅公共**：Azure 从特定于每个 Azure 区域的范围分配地址。 若要了解向每个区域分配了哪些范围，请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)。 如果在停止（解除分配）虚拟机后又重新启动，则地址可能会更改。 
 
-<!-- Not Available on IPv6 -->
+    <!-- Not Available on IPv6 -->
 
 - **仅专用**：Azure 保留每个子网地址范围中的前四个地址，不分配这些地址。 Azure 将下一个可用的地址分配给子网地址范围中的资源。 例如，如果子网的地址范围为 10.0.0.0/16，且地址 10.0.0.0.4-10.0.0.14 已分配（.0-.3 为保留地址），则 Azure 会将 10.0.0.15 分配给资源。 动态方法是默认的分配方法。 动态 IP 地址在分配后，仅在以下情况下才会释放：网络接口已删除、已分配到同一虚拟网络中的另一子网，或者分配方法已更改为静态，这种情况下会指定另一 IP 地址。 默认情况下，当分配方法从动态更改为静态时，Azure 会将以前的动态分配的地址作为静态地址分配。
 
-<!-- Not Available on IPv6 -->
+    <!-- Not Available on IPv6 -->
 
 ### <a name="static"></a>静态
 
-（可选）可为 IP 配置分配公共或专用静态 IPv4 地址。 若要详细了解 Azure 如何分配静态公共 IPv4 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md)一文。
+（可选）可为 IP 配置分配公共或专用静态 IPv4 地址。 若要详细了解 Azure 如何分配静态公用 IPv4 地址，请参阅[公用 IP 地址](virtual-network-public-ip-address.md)。
 
 <!-- Not Available on IPv6 -->
 
-- **仅公共**：Azure 从特定于每个 Azure 区域的范围分配地址。 可以下载 Azure [中国](https://www.microsoft.com/download/details.aspx?id=57062)云的范围（前缀）列表。  该地址不会更改，除非其所分配到的公共 IP 地址资源已删除，或者分配方法已更改为动态。 如果将公共 IP 地址资源关联到某个 IP 配置，则必须取消其与 IP 配置的关联，然后才能更改其分配方法。
+- **仅公共**：Azure 从特定于每个 Azure 区域的范围分配地址。 可以下载 Azure [中国](https://www.microsoft.com/download/confirmation.aspx?id=57062)云的范围（前缀）列表。  该地址不会更改，除非其所分配到的公共 IP 地址资源已删除，或者分配方法已更改为动态。 如果将公共 IP 地址资源关联到某个 IP 配置，则必须取消其与 IP 配置的关联，然后才能更改其分配方法。
 - **仅专用**：由你选择并分配子网地址范围中的地址。 分配的地址可以是子网地址范围中的任何地址，前提是该地址不是子网地址范围中的头四个地址，也不是当前已分配给子网中任何其他资源的地址。 只有在删除网络接口之后，静态地址才会释放。 如果将分配方法更改为静态，Azure 会动态地将以前分配的静态 IP 地址作为动态地址分配，即使该地址不是子网地址范围内的下一个可用地址。 如果将网络接口分配给同一虚拟网络中的另一子网，则该地址也会更改。但是，若要将网络接口分配给另一子网，必须先将分配方法从静态更改为动态。 将网络接口分配给另一子网以后，即可将分配方法改回为静态，并根据新子网的地址范围分配 IP 地址。
 
 ## <a name="ip-address-versions"></a>IP 地址版本

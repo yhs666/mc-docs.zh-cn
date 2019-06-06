@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 05/06/2019
+ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: knithinc
 ms.lastreviewed: 10/25/2018
-ms.openlocfilehash: 0b5a9c26f2184bbe73e4a088b10cb07472133453
-ms.sourcegitcommit: bf3656072dcd9133025677582e8888598c4d48de
+ms.openlocfilehash: 1743c406977e92a657b4d8ff5e35bf24bae1d359
+ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56905248"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66381839"
 ---
 # <a name="connect-to-the-asdk"></a>连接到 ASDK
 
@@ -41,7 +41,7 @@ ms.locfileid: "56905248"
 
 1. 打开远程桌面连接 (mstc.exe)，然后使用有权远程登录到 ASDK 主机的帐户连接到开发工具包主机 IP 地址。 默认情况下，**AzureStack\AzureStackAdmin** 有权远程登录到 ASDK 主机。  
 
-2. 在开发工具包主机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。
+2. 在开发工具包主机上，打开服务器管理器 (ServerManager.exe)。 选择“本地服务器”，禁用“IE 增强的安全配置”，然后关闭服务器管理器。  
 
 3. 以 **AzureStack\CloudAdmin** 身份或使用其他 Azure Stack 操作员凭据登录到管理门户。 ASDK 管理门户地址为 [https://adminportal.local.azurestack.external](https://adminportal.local.azurestack.external)。
 
@@ -58,7 +58,7 @@ ms.locfileid: "56905248"
 Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都支持 VPN 连接。
 
 > [!NOTE]
-> 使用 VPN 无法连接到 Azure Stack VM。 通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
+> 使用 VPN 无法连接到 Azure Stack VM。  通过 VPN 建立连接时，无法使用 RDP 连接到 Azure Stack VM。
 
 ### <a name="prerequisites"></a>先决条件
 在设置 ASDK 的 VPN 连接之前，请确保符合以下先决条件。
@@ -70,7 +70,7 @@ Azure AD 部署和 Active Directory 联合身份验证服务 (AD FS) 部署都�
 
 若要与 ASDK 建立 VPN 连接，请在基于 Windows 的本地计算机上，以管理员身份打开 PowerShell。 然后，运行以下脚本（更新环境的 IP 地址和密码值）：
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -82,7 +82,7 @@ Set-ExecutionPolicy RemoteSigned
 # Import the Connect module.
 Import-Module .\Connect\AzureStack.Connect.psm1
 
-# Add the development kit host computer’s IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
+# Add the development kit host computer's IP address as the ASDK certificate authority (CA) to the list of trusted hosts. Make sure you update the IP address and password values for your environment.
 
 $hostIP = "<Azure Stack host IP address>"
 
@@ -102,7 +102,7 @@ Add-AzsVpnConnection `
 
 ```
 
-如果设置成功，**azurestack** 将出现在 VPN 连接列表中。
+如果设置成功，**Azure Stack** 将出现在 VPN 连接列表中。
 
 ![网络连接](media/asdk-connect/vpn.png)  
 
@@ -110,16 +110,16 @@ Add-AzsVpnConnection `
 
   使用以下方法之一连接到 Azure Stack 实例：  
 
-  * 使用 `Connect-AzsVpn ` 命令：
+  * 使用 `Connect-AzsVpn` 命令：
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```
 
-  * 在本地计算机上，选择“网络设置” > “VPN” > “azurestack” > “连接”。 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
+  * 在本地计算机上，选择“网络设置”   > “VPN”   > “Azure Stack”   > “连接”  。 在登录提示符下，输入用户名 (**AzureStack\AzureStackAdmin**) 和密码。
 
-首次连接时，系统会提示在本地计算机的证书存储中安装来自 **AzureStackCertificateAuthority** 的 Azure Stack 根证书。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。
+首次连接时，系统会提示在本地计算机的证书存储中安装来自 **AzureStackCertificateAuthority** 的 Azure Stack 根证书。 此步骤将 ASDK 证书颁发机构 (CA) 添加到受信任的主机列表。 单击“是”以安装证书。 
 
 ![根证书](media/asdk-connect/cert.png)  
   
