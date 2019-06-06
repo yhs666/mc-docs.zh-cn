@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 01/28/2019
-ms.date: 03/04/2019
+origin.date: 04/30/2019
+ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ced7789d8e567d8184e603355932286a27df825
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 4a1d28bcca5486d16e0044c3a9b5a674435338a1
+ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463727"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390787"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -21,73 +21,242 @@ ms.locfileid: "57463727"
 
 如果有关于 Site Recovery 功能的建议，请[提供反馈](https://www.azure.cn/support/contact/)。
 
-## <a name="q1-2019"></a>2019 年第 1 季度
+## <a name="updates-march-2019"></a>更新（2019 年 3 月）
 
-### <a name="linux-support"></a>Linux 支持
+### <a name="update-rollup-35"></a>更新汇总 35
 
-[更新汇总 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) 提供 Site Recovery 代理和提供程序的更新。 这些更新增加了对 Linux 的支持，如下所示：
+[更新汇总 35](https://support.microsoft.com/help/4494485/update-rollup-35-for-azure-site-recovery) 提供以下更新。
 
-- **Azure VM 的灾难恢复**：RedHat 工作站 6/7；适用于 Ubuntu、Debian 和 SUSE 的新内核版本。
-- **VMware VM/物理服务器到 Azure 的灾难恢复**：RedHat Enterprise Linux 7.6；RedHat 工作站 6/7；Oracle Linux 6.10/7.6；Ubuntu、Debian 和 SUSE 的新内核版本。
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）
 
-## <a name="q4-2018"></a>2018 年第 4 季度
+#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/物理服务器灾难恢复
+更新中添加了新的功能。
 
-## <a name="pricing-calculator-for-azure-vm-disaster-recovery"></a>针对 Azure VM 灾难恢复的价格计算器
+**功能** | **详细信息**
+--- | ---
+**托管磁盘** | 现在可将本地 VMware VM 和物理服务器直接复制到 Azure 中的托管磁盘。 本地数据将发送到 Azure 中的缓存存储帐户，恢复点将在目标位置的托管磁盘中创建。 这可确保无需管理多个目标存储帐户。
+**配置服务器** | Site Recovery 现在支持具有多个 NIC 的配置服务器。 必须先将附加的适配器添加到配置服务器 VM，然后在保管库中注册配置服务器。 如果在注册之后再添加，则需要在保管库中重新注册服务器。
 
-进行 Azure VM 的灾难恢复需支付 VM 许可费用以及网络和存储费用。 Azure 提供[定价计算器](https://aka.ms/a2a-cost-estimator)，用于计算这些费用。 Site Recovery 现在提供[定价估算](https://aka.ms/a2a-cost-estimator)功能，可以根据三层应用的情况对示例部署定价。该应用使用 6 个 VM，其中包含 12 个标准 HDD 磁盘和 6 个高级 SSD 磁盘。 此示例假设标准磁盘的数据更改率为每天 10 GB，高级磁盘的数据更改率为每天 20 GB。 对于特定的部署，可以更改变量来估算费用。 可以指定 VM 的数目、托管磁盘的数目和类型，以及预期的跨 VM 总数据更改率。 另外，可以通过应用一个压缩因素来估算带宽费用。 [阅读](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)公告。
+## <a name="updates-february-2019"></a>更新（2019 年 2 月）
 
-<!--Not Available on ### Support for Azure VMs in zones-->
-<!--Not Available on Availability zones-->
+### <a name="update-rollup-34"></a>更新汇总 34 
 
-<!--Not Available on ### Disaster recovery for encrypted VMs-->
+[更新汇总 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) 提供以下更新。
 
-### <a name="disaster-recovery-for-vms-using-accelerated-networking"></a>使用加速网络针对 VM 进行的灾难恢复
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
 
-使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，提升网络性能。 为 Azure VM 启用复制时，Site Recovery 会检测是否启用了加速网络。 如果启用了加速网络，Site Recovery 会在故障转移后自动在目标副本 Azure VM 上针对 [Windows](/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) 和 [Linux](/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms) 配置加速网络。 [了解详细信息](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+### <a name="update-rollup-33"></a>更新汇总 33 
 
-### <a name="automatic-updates-for-the-mobility-service-extension"></a>针对移动服务扩展进行的自动更新
+[更新汇总 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) 提供以下更新。
 
-Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动更新。 移动服务扩展安装在每个通过 Site Recovery 复制的 Azure VM 上。 启用复制时，请选择是否允许 Site Recovery 管理对扩展的更新。 更新不需 VM 重启，且不影响复制。
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
+
+#### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复 
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**网络映射** | 对于 Azure VM 灾难恢复，现在可以在启用复制时使用任何可用的目标网络。 
+**标准 SSD** | 现在可以使用[标准 SSD 磁盘](/virtual-machines/windows/disks-standard-ssd)对 Azure VM 设置灾难恢复。
+**存储空间直通** | 可以使用[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)对 Azure VM 应用中运行的应用设置灾难恢复，以实现高可用性。  将存储空间直通 (S2D) 与 Site Recovery 结合使用可为 Azure VM 工作负荷提供全面的保护。 使用 S2D 可在 Azure 中托管来宾群集。 当 VM 托管了关键应用程序（例如 SAP ASCS 层、SQL Server 或横向扩展文件服务器）时，此功能特别有用。
+
+#### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/物理服务器灾难恢复
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux BRTFS 文件系统** | Site Recovery 现在支持复制采用使用 BRTFS 文件系统的 VMware VM。 如果存在以下情况，则不支持复制：<br/><br/>- 启用复制后 BTRFS 文件系统子卷发生更改。<br/><br/>- 文件系统分散在多个磁盘中。<br/><br/>- BTRFS 文件系统支持 RAID。
+**Windows Server 2019** | 添加了对运行 Windows Server 2019 的计算机的支持。
+
+## <a name="updates-january-2019"></a>更新（2019 年 1 月）
+
+### <a name="accelerated-networking-azure-vms"></a>加速网络 (Azure VM)
+
+使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，提升网络性能。 为 Azure VM 启用复制时，Site Recovery 会检测是否启用了加速网络。 如果启用了加速网络，Site Recovery 会在故障转移后自动在目标副本 Azure VM 上针对 [Windows](/virtual-network/create-vm-accelerated-networking-powershell#enable-accelerated-networking-on-existing-vms) 和 [Linux](/virtual-network/create-vm-accelerated-networking-cli#enable-accelerated-networking-on-existing-vms) 配置加速网络。
+
+[了解详细信息](azure-vm-disaster-recovery-with-accelerated-networking.md)。
+
+### <a name="update-rollup-32"></a>更新汇总 32 
+
+[更新汇总 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) 提供以下更新。
+
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
+
+#### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复
+
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Ubuntu、Debian 和 SUSE 新内核版本的支持。
+**存储空间直通** | Site Recovery 支持使用存储空间直通 (S2D) 的 Azure VM。
+
+<!--Not Available on RedHat Workstation 6/7-->
+
+#### <a name="vmware-vmsphysical-servers-replication"></a>VMware VM/物理服务器复制 
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Ubuntu、Debian 和 SUSE 新内核版本的支持。
+
+<!--Not Available on Redhat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6-->
+
+### <a name="update-rollup-31"></a>更新汇总 31 
+
+[更新汇总 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) 提供以下更新。
+
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
+
+#### <a name="vmware-vmsphysical-servers-replication"></a>VMware VM/物理服务器复制 
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Oracle Linux 6.8 和 6.9/7.0 以及 UEK5 内核的支持。
+**LVM** | 添加了对 LVM 和 LVM2 卷的支持。<br/><br/> 现在支持磁盘分区和 LVM 卷上的 /boot 目录。
+**Directories** | 添加了对这些设置为独立分区的目录，或不在同一系统磁盘中的文件系统的支持：<br/><br/> /(root)、/boot、/usr、/usr/local、/var、/etc。
+**Windows Server 2008** | 添加了对动态磁盘的支持。
+**故障转移** | 改进了 storvsc 和 vsbus 不是启动驱动程序的 VMware VM 的故障转移时间。
+**UEFI 支持** | Azure VM 不支持 UEFI 启动类型。 现在可以通过 Site Recovery 将使用 UEFI 的本地物理服务器迁移到 Azure。 Site Recovery 在迁移服务器之前会将启动类型转换为 BIOS。 Site Recovery 以前仅支持对 VM 执行此转换。 该项支持适用于运行 Windows Server 2012 或更高版本的物理服务器。
+
+#### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Oracle Linux 6.8 和 6.9/7.0 以及 UEK5 内核的支持。
+**Linux BRTFS 文件系统** | 支持对 Azure VM 使用。
+**已启用防火墙的存储（门户/PowerShell）** | 添加了对[已启用防火墙的存储帐户](/storage/common/storage-network-security)的支持。<br/><br/> 可将已启用防火墙的存储帐户中使用非托管磁盘的 Azure VM 复制到另一个 Azure 区域，以实现灾难恢复。<br/><br/> 可将已启用防火墙的存储帐户用作非托管磁盘的目标存储帐户。<br/><br/> 支持在门户和 PowerShell 中使用。
+
+<!--Not Available on **Azure VMs in availability zones** | You can enable replication to another region for Azure VMs deployed in availability zones. You can now enable replication for an Azure VM, and set the target for failover to a single VM instance, a VM in an availability set, or a VM in an availability zone. The setting doesn't impact replication. [Read](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) the announcement.-->
+
+## <a name="updates-december-2018"></a>更新（2018 年 12 月）
+
+### <a name="automatic-updates-for-the-mobility-service-azure-vms"></a>移动服务的自动更新 (Azure VM)
+
+Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动更新。 移动服务扩展安装在每个通过 Site Recovery 复制的 Azure VM 上。 启用复制时，请选择是否允许 Site Recovery 管理对扩展的更新。
+
+更新不需 VM 重启，且不影响复制。
 
 <!--Not Available on  [Learn more](azure-to-azure-autoupdate.md)-->
 
-### <a name="support-for-standard-ssd-disks"></a>支持标准 SSD 磁盘
+### <a name="pricing-calculator-for-azure-vm-disaster-recovery"></a>针对 Azure VM 灾难恢复的价格计算器
 
-Azure 引入了[标准固态硬盘 (SSD)](/virtual-machines/windows/disks-standard-ssd) 磁盘，可以为特定应用（例如需要一致的性能但磁盘 IOPS 不高的 Web 服务器）提供经济有效的存储解决方案。 它们组合了高级 SSD 和标准 HDD 磁盘的元素。 Site Recovery 为使用标准 SSD 磁盘的 Azure VM 提供灾难恢复。 默认情况下，在故障转移到目标区域以后，磁盘类型会保留。
+进行 Azure VM 的灾难恢复需支付 VM 许可费用以及网络和存储费用。 Azure 提供[定价计算器](https://www.azure.cn/zh-cn/pricing/calculator/)，用于计算这些费用。 Site Recovery 现在提供[定价估算](https://www.azure.cn/zh-cn/pricing/calculator/)功能，可以根据三层应用的情况对示例部署定价。该应用使用 6 个 VM，其中包含 12 个标准 HDD 磁盘和 6 个高级 SSD 磁盘。
 
-### <a name="support-for-azure-storage-firewall"></a>支持 Azure 存储防火墙
+- 此示例假设标准磁盘的数据更改率为每天 10 GB，高级磁盘的数据更改率为每天 20 GB。
+- 对于特定的部署，可以更改变量来估算费用。
+- 可以指定 VM 的数目、托管磁盘的数目和类型，以及预期的跨 VM 总数据更改率。
+- 另外，可以通过应用一个压缩因素来估算带宽费用。
 
-可以为帐户启用防火墙规则，将 Azure 存储帐户的访问范围限定于特定的一组网络。 请配置存储帐户，使之默认拒绝来自内部网络和 Internet 的流量，然后将访问权限授予来自特定 VNet 的流量。 在启用防火墙的存储帐户上，Site Recovery 支持将非托管磁盘所在 VM 上的内容复制到次要区域。 在目标区域中，对于非托管磁盘，可以选择启用了防火墙的存储帐户。 也可将网络访问局限于源 VM 所在的网络，从而将访问范围局限于缓存存储帐户。 请注意，对于受信任的 Azure 服务，必须[允许访问](/storage/common/storage-network-security#exceptions)。
+[阅读](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/)公告。
 
-## <a name="q3-2018"></a>2018 年第 3 季度 
+## <a name="updates-october-2018"></a>更新（2018 年 10 月）
 
-### <a name="linux-support"></a>Linux 支持
+### <a name="update-rollup-30"></a>更新汇总 30 
 
-#### <a name="update-rollup-28"></a>更新汇总 28
+[更新汇总 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) 提供以下更新。
 
-[更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) 提供 Site Recovery 代理和提供程序的更新。 这些更新增加了对 Linux 的支持，如下所示：
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
 
-- **Azure VM 的灾难恢复**：现在支持 RedHat Enterprise Linux 6.10、CentOS 6.10、基于 Linux 且在旧式 BIOS 兼容模式中使用 GUID 分区表 (GPT) 分区类型的 VM。
-- **VMware VM/物理服务器到 Azure 的灾难恢复**：现在支持 RedHat Enterprise Linux 6.10、CentOS 6.10、基于 Linux 且在旧式 BIOS 兼容模式中使用 GUID 分区表 (GPT) 分区类型的 VM。
+#### <a name="azure-vm-disaster-recovery"></a>Azure VM 灾难恢复
+更新中添加了新的功能。
 
-#### <a name="update-rollup-27"></a>更新汇总 27
+**功能** | **详细信息**
+--- | ---
+**区域支持** | 添加了对中国中部 1 区和中国中部 2 区的 Site Recovery 支持。
+**磁盘加密支持** | 添加了对在 Azure AD 应用中使用 Azure 磁盘加密 (ADE) 进行加密的 Azure VM 进行灾难恢复的支持。 [了解详细信息](azure-to-azure-how-to-enable-replication-ade-vms.md)。
+**磁盘排除** | 现在，在 Azure VM 复制期间会自动排除未初始化的磁盘。
+**已启用防火墙的存储 (PowerShell)** | 添加了对[已启用防火墙的存储帐户](/storage/common/storage-network-security)的支持。<br/><br/> 可将已启用防火墙的存储帐户中使用非托管磁盘的 Azure VM 复制到另一个 Azure 区域，以实现灾难恢复。<br/><br/> 可将已启用防火墙的存储帐户用作非托管磁盘的目标存储帐户。<br/><br/> 仅支持在 PowerShell 中使用。
 
-[更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) 提供 Site Recovery 代理和提供程序的更新。 这些更新增加了对 Linux 的支持，如下所示：
+### <a name="update-rollup-29"></a>更新汇总 29 
 
-- **Azure VM 的灾难恢复**：Red Hat Enterprise Linux 7.5
-- **VMware VM/物理服务器到 Azure 的灾难恢复**：SUSE Linux Enterprise Server 12、Red Hat Enterprise Linux 7.5
+[更新汇总 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) 提供以下更新。
 
-### <a name="support-for-azure-vms-running-on-windows-server-2016"></a>支持在 Windows Server 2016 上运行的 Azure VM
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
 
-在 Windows Server 2016 上运行的 Azure VM 可以跨 Azure Site Recovery 所在的 Azure 区域复制。
+## <a name="updates-august-2018"></a>更新（2018 年 8 月）
 
-### <a name="support-for-azure-vms-running-storage-spaces-direct"></a>支持运行存储空间直通的 Azure VM
+### <a name="update-rollup-28"></a>更新汇总 28 
 
-[存储空间直通](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview)（从 Windows Server 2016 开始提供）将驱动器组合在一起，形成一个存储池，然后使用该池的容量创建存储空间。 存储空间可以在独立 VM 上使用，可以在[包含 Azure VM 的来宾群集](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-in-vm)上使用（该 VM 在每个群集节点上使用本地存储），也可以在跨群集的共享存储上使用。
+[更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) 提供以下更新。
 
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
+
+#### <a name="azure-vms-disaster-recovery"></a>Azure VM 灾难恢复 
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/>
+**云支持** | 添加了对德国云中 Azure VM 灾难恢复的支持。
+**跨订阅灾难恢复** | 支持将一个区域中的 Azure VM 复制到同一 Azure Active Directory 租户中不同订阅内的另一个区域。 [了解详细信息](https://aka.ms/cross-sub-blog)。
+
+<!--Not Available on RedHat Enterprise Linux 6.10;-->
+
+#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/物理服务器灾难恢复 
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/> 现在支持基于 Linux 且在旧式 BIOS 兼容模式下使用 GUID 分区表 (GPT) 分区样式的 VM。 有关详细信息，请查看 [Azure VM 常见问题解答](/virtual-machines/linux/faq-for-disks)。 
+**迁移后的 VM 灾难恢复** | 支持将已迁移到 Azure 的本地 VMware VM 灾难恢复到次要区域，启用复制之前无需在 VM 上卸载移动服务。
+**Windows Server 2008** | 支持迁移运行 Windows Server 2008 R2/2008 64 位和 32 位的计算机。<br/><br/> 仅限迁移（复制和故障转移）。 不支持故障回复。
+
+<!--Not Available on RedHat Enterprise Linux 6.10,-->
+
+## <a name="updates-july-2018"></a>更新（2018 年 7 月）
+
+### <a name="update-rollup-27-july-2018"></a>更新汇总 27（2018 年 7 月）
+
+[更新汇总 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery) 提供以下更新。
+
+**更新** | **详细信息**
+--- | ---
+**提供程序和代理** | 对 Site Recovery 代理和提供程序的更新（参阅汇总中的详述）。
+**问题修复/改进** | 已做出多项修复和改进（参阅汇总中的详述）。
+
+#### <a name="azure-vms-disaster-recovery"></a>Azure VM 灾难恢复 
+
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Red Hat Enterprise Linux 7.5 的支持。
+
+#### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/物理服务器灾难恢复 
+
+更新中添加了新的功能。
+
+**功能** | **详细信息**
+--- | ---
+**Linux 支持** | 添加了对 Red Hat Enterprise Linux 7.5、SUSE Linux Enterprise Server 12 的支持。
 ## <a name="next-steps"></a>后续步骤
 
 在 [Azure 更新](https://www.azure.cn/what-is-new/)页上时刻了解更新。
 
-<!--Update_Description: new articles on site recovery whats new -->
+<!--Update_Description: wording update -->
 <!--ms.date: 03/11/2019-->
