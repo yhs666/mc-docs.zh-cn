@@ -10,14 +10,14 @@ ms.reviewer: estfan, LADocs
 manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: 006c63dad3844e800638ddf20f82e413f39a113d
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 05/22/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: 0b58d94390157567e31c3fc1c9a81bd5cb16f551
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529226"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732580"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure 逻辑应用的定价模型
 
@@ -53,12 +53,12 @@ Azure 逻辑应用连接器通过提供[触发器](#triggers)和/或[操作](#ac
 
 * **Webhook 触发器**：此触发器等待客户端向特定的终结点发送请求。 发送到 webhook 终结点的每个请求都会计为操作执行。 例如，请求和 HTTP Webhook 触发器都是 Webhook 触发器。
 
-* 重复周期触发器：此触发器基于在触发器中设置的重复间隔创建逻辑应用实例。 例如，可以设置每隔三天运行的，或者根据更复杂的计划运行的定期触发器。
+* 重复周期触发器：  此触发器基于在触发器中设置的重复间隔创建逻辑应用实例。 例如，可以设置每隔三天运行的，或者根据更复杂的计划运行的定期触发器。
 
 <a name="actions"></a>
 ## <a name="actions"></a>操作
 
-Azure 逻辑应用将 HTTP 等“内置”操作作为本机操作进行计量。 例如，内置操作包括 HTTP 调用、来自 Azure Functions 或 API 管理的调用，以及条件、循环和开关语句等控制流步骤。 每个操作具有自身的操作类型。 例如，调用[连接器](https://docs.microsoft.com/connectors)的操作为“ApiConnection”类型。 这些连接器分类为“标准”或“企业”连接器，根据各自的[定价](https://azure.microsoft.com/pricing/details/logic-apps)进行计量。 预览版的企业连接器按标准连接器计费。
+Azure 逻辑应用将 HTTP 等“内置”操作作为本机操作进行计量。 例如，内置操作包括 HTTP 调用、来自 Azure Functions 或 API 管理的调用，以及条件、循环和开关语句等控制流步骤。 每个操作具有自身的操作类型。 例如，调用[连接器](/connectors)的操作为“ApiConnection”类型。 这些连接器分类为“标准”或“企业”连接器，根据各自的[定价](https://www.azure.cn/pricing/details/logic-apps)进行计量。 预览版的企业连接器按标准连接器计费。 
 
 Azure 逻辑应用将所有成功和不成功的操作作为执行进行计量。 但是，逻辑应用不会计量以下操作：
 
@@ -71,11 +71,6 @@ Azure 逻辑应用将所有成功和不成功的操作作为执行进行计量�
 
 禁用的逻辑应用在禁用期间不会产生费用，因为它们无法创建新实例。
 禁用逻辑应用后，当前正在运行的实例可能需要在一段时间之后才会完全停止。
-
-> [!NOTE]
-> 禁用逻辑应用后，当前正在运行的实例可能需要在一段时间之后才会完全停止。
-
-对于在循环内运行的操作，逻辑应用会对循环中每个周期的每个操作进行计数。 例如，假设有一个处理列表的“每个”循环。 逻辑应用通过将列表项的数量乘以循环中的操作数来计量该循环中的操作，并加上启动循环的操作。 10 个项列表的计算公式是 (10 * 1) + 1，即 11 个操作执行。
 
 
 ## <a name="next-steps"></a>后续步骤

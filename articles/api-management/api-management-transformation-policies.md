@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: b2b1810f085beba6c829d330574e5d47eb1fd839
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/17/2019
+ms.openlocfilehash: 811b99bb739be6ca039ae778e97342c9ace459bf
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829193"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732741"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -216,7 +216,7 @@ ms.locfileid: "65829193"
 ```
 
 > [!NOTE]
-> 后端实体可以通过管理 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。
+> 后端实体可以通过管理 [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) 和[PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。
 
 ### <a name="example"></a>示例  
   
@@ -271,7 +271,7 @@ ms.locfileid: "65829193"
 |Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
 |base-url|新的后端服务基 URL。|必须存在 `base-url` 或 `backend-id` 中的一个。|不适用|
-|backend-id|要路由到的后端标识符。 （后端实体通过 [API](https://docs.microsoft.com/en-us/rest/api/apimanagement/backend) 和 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。）|必须存在 `base-url` 或 `backend-id` 中的一个。|不适用|
+|backend-id|要路由到的后端标识符。 （后端实体通过 [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) 和 [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement) 进行管理。）|必须存在 `base-url` 或 `backend-id` 中的一个。|不适用|
 |sf-partition-key|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 用于从名称解析服务中解析特定分区。|否|不适用|  
 |sf-replica-type|只有在后端为 Service Fabric 服务且使用“backend-id”指定时才适用。 控制请求是否应转到分区的主要副本或次要副本。 |否|不适用|    
 |sf-resolve-condition|只有在后端为 Service Fabric 服务时才适用。 确定对 Service Fabric 后端的调用是否针对新解析重复进行的条件。|否|不适用|    
@@ -406,7 +406,7 @@ ms.locfileid: "65829193"
   
 |Name|说明|必须|默认|  
 |----------|-----------------|--------------|-------------|  
-|template|用于更改设置正文策略运行的模板模式。 目前唯一支持的值是：<br /><br />- Liquid - 设置正文策略会使用 Liquid 模板引擎 |否|Liquid|  
+|template|用于更改设置正文策略运行的模板模式。 目前唯一支持的值是：<br /><br />- Liquid - 设置正文策略会使用 Liquid 模板引擎 |否||
 
 对于访问请求和响应信息，Liquid 模板可绑定到具有以下属性的上下文对象： <br />
 <pre>context.

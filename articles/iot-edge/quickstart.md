@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 03/19/2019
-ms.date: 05/27/2019
+ms.date: 06/17/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: de0cda81253260dfec7e183f11ceee86d956dd85
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: a19e32ba63125cee7df8202b76d29b787c6294f0
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829284"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732729"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>快速入门：将你的第一个 IoT Edge 模块从 Azure 门户部署到 Windows 设备
 
@@ -40,7 +40,7 @@ ms.locfileid: "65829284"
 
 将 Azure IoT 扩展添加到 Cloud Shell 实例。
 
-   ```azurecli-interactive
+   ```azurecli
    az extension add --name azure-cli-iot-ext
    ```
 
@@ -50,13 +50,13 @@ ms.locfileid: "65829284"
 
 * 一个资源组，用于管理在本快速入门中使用的所有资源。 
 
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
+   ```azurecli
+   az group create --name IoTEdgeResources --location chinaeast
    ```
 
 IoT Edge 设备： 
 
-* 充当 IoT Edge 设备的 Windows 虚拟机。 可使用以下命令创建此虚拟机，并将 {password} 替换为安全密码：
+* 充当 IoT Edge 设备的 Windows 虚拟机。 可使用以下命令创建此虚拟机，并将 {password} 替换为安全密码  ：
 
   ```azurecli
   az vm create --resource-group IoTEdgeResources --name EdgeVM --image MicrosoftWindowsDesktop:Windows-10:rs5-pro:latest --admin-username azureuser --admin-password {password} --size Standard_DS1_v2
@@ -65,8 +65,8 @@ IoT Edge 设备：
   可能需要几分钟才能创建并启动新的虚拟机。 然后，在连接到虚拟机时下载 RDP 文件进行使用：
 
   1. 导航到 Azure 门户中新的 Windows 虚拟机。
-  1. 选择“连接” 。
-  1. 在“RDP”选项卡上，选择“下载 RDP 文件”。
+  1. 选择“连接”  。
+  1. 在“RDP”选项卡上，选择“下载 RDP 文件”   。
 
   使用远程桌面连接打开此文件，以通过用 `az vm create` 指定的管理员姓名和密码连接到 Windows 虚拟机。
 
@@ -82,9 +82,9 @@ IoT Edge 设备：
 
 免费级的 IoT 中心适用于此快速入门。 如果曾经用过 IoT 中心并且已创建免费的中心，则可使用该 IoT 中心。 每个订阅仅能有一个免费 IoT 中心。 
 
-以下代码在资源组“IoTEdgeResources”中创建免费的“F1”中心。 将 *{hub_name}* 替换为 IoT 中心的唯一名称。
+以下代码在资源组“IoTEdgeResources”中创建免费的“F1”中心   。 将 *{hub_name}* 替换为 IoT 中心的唯一名称。
 
-   ```azurecli-interactive
+   ```azurecli
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
 
@@ -101,7 +101,7 @@ IoT Edge 设备：
 
 1. 在 Azure Cloud Shell 中输入以下命令，以便在中心创建名为 **myEdgeDevice** 的设备。
 
-   ```azurecli-interactive
+   ```azurecli
    az iot hub device-identity create --device-id myEdgeDevice --hub-name {hub_name} --edge-enabled
    ```
 
@@ -109,7 +109,7 @@ IoT Edge 设备：
 
 2. 检索设备的连接字符串，该字符串将物理设备与其在 IoT 中心的标识链接在一起。
 
-   ```azurecli-interactive
+   ```azurecli
    az iot hub device-identity show-connection-string --device-id myEdgeDevice --hub-name {hub_name}
    ```
 
@@ -140,7 +140,14 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 2. 以管理员身份运行 PowerShell。
 
-3. Deploy-IoTEdge 命令执行以下检查：Windows 计算机使用受支持版本、启用容器功能、下载 moby 运行时并下载 IoT Edge 运行时。
+   >[!NOTE]
+   >使用 PowerShell 的 AMD64 会话安装 IoT Edge，不要使用 PowerShell (x86)。 如果不确定您使用的是什么会话类型，请运行以下命令：
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
+3. Deploy-IoTEdge 命令执行以下检查：Windows 计算机使用受支持版本、启用容器功能、下载 moby 运行时并下载 IoT Edge 运行时  。
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
@@ -151,7 +158,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 5. 再次以管理员身份运行 PowerShell。
 
-6. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时。 该命令默认为使用 Windows 容器手动预配。 
+6. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 该命令默认为使用 Windows 容器手动预配。 
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `

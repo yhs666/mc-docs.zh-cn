@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 63dbdf25d2a485593d6eeb77b457483b1d6f739b
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 5864d98b8dc8b65d4e1fb2cb1e056dd6c8d2b3d3
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686450"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731451"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
-通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 本文末尾提供了这些属性到 [Azure 诊断日志架构](./diagnostic-logs-schema.md)的映射。
+通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件  。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 
 
 ## <a name="administrative"></a>管理
 此类别包含对通过资源管理器执行的所有创建、更新、删除和操作的记录。 此类别中的事件类型的示例包括“创建虚拟机”和“删除网络安全组”。用户或应用程序通过资源管理器所进行的每一个操作都会作为特定资源类型上的操作建模。 如果操作类型为“写入”、“删除”或“操作”，则该操作的开始、成功或失败记录都会记录在管理类别中。 管理类别还包括任何对订阅中基于角色的访问控制进行的更改。
@@ -31,13 +31,13 @@ ms.locfileid: "59686450"
     "caller": "rob@contoso.com",
     "channels": "Operation",
     "claims": {
-        "aud": "https://management.core.windows.net/",
-        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "aud": "https://management.core.chinacloudapi.cn/",
+        "iss": "https://sts.chinacloudapi.cn/1114444b-7467-4144-a616-e3a5d63e147b/",
         "iat": "1234567890",
         "nbf": "1234567890",
         "exp": "1234567890",
         "_claim_names": "{\"groups\":\"src1\"}",
-        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
+        "_claim_sources": "{\"src1\":{\"endpoint\":\"https://graph.chinacloudapi.cn/1114444b-7467-4144-a616-e3a5d63e147b/users/f409edeb-4d29-44b5-9763-ee9348ad91bb/getMemberObjects\"}}",
         "http://schemas.microsoft.com/claims/authnclassreference": "1",
         "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
         "http://schemas.microsoft.com/claims/authnmethodsreferences": "rsa,mfa",
@@ -575,7 +575,7 @@ ms.locfileid: "59686450"
 | subscriptionId |Azure 订阅 ID。 |
 
 ## <a name="recommendation"></a>建议
-此类别包含为服务生成的任何新建议的记录。 建议的示例将为“使用可用性集提高容错能力”。 可以生成 4 种类型的建议事件：高可用性、性能、安全性和成本优化。 
+此类别包含为服务生成的任何新建议的记录。 建议的示例将为“使用可用性集提高容错能力”。 可以生成以下四种类型的“建议”事件：高可用性、性能、安全性和成本优化。 
 
 ### <a name="sample-event"></a>示例事件
 ```json
@@ -656,7 +656,7 @@ ms.locfileid: "59686450"
 
 ## <a name="policy"></a>策略
 
-此类别包含 [Azure Policy](../../governance/policy/overview.md) 执行的所有效果操作的记录。 在此类别中看到的事件类型示例包括“审核”和“拒绝”。 Policy 执行的每个操作建模为对资源执行的操作。
+此类别包含 [Azure Policy](../../governance/policy/overview.md) 执行的所有效果操作的记录。 在此类别中看到的事件类型示例包括“审核”和“拒绝”。   Policy 执行的每个操作建模为对资源执行的操作。
 
 ### <a name="sample-policy-event"></a>示例 Policy 事件
 
@@ -670,14 +670,14 @@ ms.locfileid: "59686450"
     "channels": "Operation",
     "claims": {
         "aud": "https://management.chinacloudapi.cn/",
-        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iss": "https://sts.chinacloudapi.cn/1114444b-7467-4144-a616-e3a5d63e147b/",
         "iat": "1234567890",
         "nbf": "1234567890",
         "exp": "1234567890",
         "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
         "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
         "appidacr": "2",
-        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.chinacloudapi.cn/1114444b-7467-4144-a616-e3a5d63e147b/",
         "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
         "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
         "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
@@ -773,7 +773,7 @@ ms.locfileid: "59686450"
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>映射到诊断日志架构
 
-将 Azure 活动日志流式传输到存储帐户或事件中心命名空间时，数据将遵循 [Azure 诊断日志架构](./diagnostic-logs-schema.md)。 以下是从上述架构到诊断日志架构的属性映射：
+以下是从上述架构到诊断日志架构的属性映射：
 
 | 诊断日志架构属性 | 活动日志 REST API 架构属性 | 注释 |
 | --- | --- | --- |
@@ -789,7 +789,7 @@ ms.locfileid: "59686450"
 | correlationId | correlationId |  |
 | identity | 声明和授权属性 |  |
 | 级别 | 级别 |  |
-| location | 不适用 | 处理事件的位置。 这不是资源所在位置，而是处理事件的位置。未来更新中将删除此属性。 |
+| location | 不适用 | 处理事件的位置。 这不是资源所在位置，而是处理事件的位置。  未来更新中将删除此属性。 |
 | 属性 | properties.eventProperties |  |
 | properties.eventCategory | category | 如果不存在 properties.eventCategory，则 category 是“管理” |
 | properties.eventName | eventName |  |

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: d625ce11067f665d058b07c41a5524064324c463
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/17/2019
+ms.openlocfilehash: 4fd3295830c938b3a643f7af35961dbf6d085e8c
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829153"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732490"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 可以通过委派使用现有网站处理开发人员的登录/注册和产品订阅事项，不需使用开发人员门户中的内置功能。 这样就可以让网站拥有用户数据，并通过自定义方式对这些步骤进行验证。
@@ -37,14 +37,14 @@ ms.locfileid: "65829153"
 3. 委派终结点反过来会重定向到 UI 或呈现该 UI，要求用户登录或注册
 4. 成功后，用户会重定向回一开始使用的 API 管理开发人员门户页
 
-一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 API 管理发布者门户中单击“安全”，并单击“委派”选项卡。单击用于启用“委派登录和注册”的复选框。
+一开始需先将 API 管理设置为通过委派终结点来路由请求。 在 API 管理发布者门户中单击“安全”  ，并单击“委派”  选项卡。单击用于启用“委派登录和注册”的复选框。
 
 ![“委派”页][api-management-delegation-signin-up]
 
-* 确定特殊委派终结点的 URL，将其输入到“委派终结点 URL”字段中。 
-* 在”委派身份验证密钥”字段中输入一个密钥，该密钥用于计算提供给用户进行验证的签名，确保请求确实来自 Azure API 管理。 可以单击“生成”按钮让 API 管理随机生成一个密钥。
+* 确定特殊委派终结点的 URL，将其输入到“委派终结点 URL”字段中。  
+* 在”委派身份验证密钥”字段中输入一个密钥，该密钥用于计算提供给用户进行验证的签名，确保请求确实来自 Azure API 管理。 可以单击“生成”按钮让 API 管理随机生成一个密钥。 
 
-现在需创建“委派终结点”。 该终结点需执行多项操作：
+现在需创建“委派终结点”。  该终结点需执行多项操作：
 
 1. 接收以下形式的请求：
    
@@ -100,7 +100,7 @@ ms.locfileid: "65829153"
 2. 浏览器将重定向到委托终结点。
 3. 委托终结点执行所需的产品订阅步骤。 具体的步骤由你设计。 步骤可以包括重定向到另一个用于请求计费信息的页面、提出更多提问，或者只是存储信息而不要求执行任何用户操作
 
-若要启用此功能，请在“委派”页上单击“委派产品订阅”。
+若要启用此功能，请在“委派”页上单击“委派产品订阅”。  
 
 接下来，确保委托终结点执行以下操作：
 
@@ -137,7 +137,7 @@ ms.locfileid: "65829153"
 
 这些代码示例演示如何：
 
-* 提取发布者门户的“委托”屏幕中设置的委托验证密钥
+* 提取发布者门户的“委托”屏幕中设置的委托验证密钥 
 * 创建 HMAC，随后它将用于验证签名，以证实所传递的 returnUrl 的有效性。
 
 同样的代码也适用于 productId 和 userId，只需进行轻微修改。
@@ -179,9 +179,9 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[创建用户]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[调用订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
+[请求单一登录 (SSO) 令牌]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/User/GenerateSsoUrl
+[创建用户]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user/createorupdate
+[调用订阅 REST API]: https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription/createorupdate
 [Next steps]: #next-steps
 [下文提供了示例代码]: #delegate-example-code
 

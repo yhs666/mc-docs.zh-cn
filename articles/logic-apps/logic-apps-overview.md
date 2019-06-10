@@ -1,6 +1,6 @@
 ---
 title: 与 Azure 逻辑应用的企业集成 | Microsoft Docs
-description: 本概述介绍了如何通过自动执行对整个企业和组织中的应用、数据、服务和系统进行集成的任务、工作流和业务流程来构建企业集成解决方案。 创建适用于数据集成、系统集成、企业应用程序集成 (EAI) 和业务流程方案的解决方案。
+description: 有关如何通过自动执行和协调跨企业和组织集成应用、数据、服务和系统的任务、工作流和业务流程来构建企业集成解决方案的概述。 创建适用于数据集成、系统集成、企业应用程序集成 (EAI) 和业务流程方案的解决方案。
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -9,17 +9,17 @@ manager: jeconnoc
 ms.topic: overview
 ms.custom: mvc
 origin.date: 06/29/2018
-ms.date: 09/03/2018
-ms.openlocfilehash: 7e17e9e19cb4c9cdf2971427be673cd28b309d46
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.date: 06/17/2018
+ms.openlocfilehash: 7025e9eec03268e6266cf1ed702fe0e61089c97a
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029108"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732585"
 ---
 # <a name="what-is-azure-logic-apps"></a>什么是 Azure 逻辑应用？
 
-[Azure 逻辑应用](/logic-apps)是一种云服务，可以在你需要对整个企业或组织中的应用、数据、系统和服务进行集成时帮助你自动执行并协调任务、业务流程和[工作流](#logic-app-concepts)。 逻辑应用可简化可缩放解决方案的设计和构建方式，适用于应用集成、数据集成、系统集成、企业应用程序集成 (EAI) 和企业到企业 (B2B) 通信，不管是在云中还是在本地。
+[Azure 逻辑应用](/logic-apps)是一项云服务，用于在需要跨企业或组织集成应用、数据、系统和服务时计划、自动执行和协调任务、业务流程和[工作流](#logic-app-concepts)。 逻辑应用可简化可缩放解决方案的设计和构建方式，适用于应用集成、数据集成、系统集成、企业应用程序集成 (EAI) 和企业到企业 (B2B) 通信，不管是在云中还是在本地。
 
 例如，下面就是一些可以通过逻辑应用自动完成的工作负荷：
 
@@ -28,7 +28,7 @@ ms.locfileid: "53029108"
 * 将上传的文件从 SFTP 或 FTP 服务器移至 Azure 存储。 
 * 监视推文中的特定主题，分析观点，针对需要查看的项目创建警报或任务。
 
-若要使用 Azure 逻辑应用构建企业集成解决方案，可以从一个不断扩充的库中进行选择。该库包含 [200 多个连接器](../connectors/apis-list.md)，包括诸如 Azure 服务总线、Functions、存储、SQL、Office 365、Dynamics、Salesforce、SAP、Oracle DB 和 文件共享之类的服务。 [连接器](#logic-app-concepts)提供[触发器](#logic-app-concepts)和/或[操作](#logic-app-concepts)，所创建的逻辑应用可以安全地对数据进行实时访问和处理。
+若要使用 Azure 逻辑应用生成企业集成解决方案，可以从一个不断扩充的库中进行选择。该库包含 [200 多个连接器](../connectors/apis-list.md)，包括各种服务，例如 Azure 服务总线、Functions、存储；SQL、Office 365、Dynamics、Salesforce、BizTalk、SAP、Oracle DB、文件共享，等等。 [连接器](#logic-app-concepts)提供[触发器](#logic-app-concepts)和/或[操作](#logic-app-concepts)，所创建的逻辑应用可以安全地对数据进行实时访问和处理。
 
 
 ## <a name="how-does-logic-apps-work"></a>逻辑应用的工作原理 
@@ -45,7 +45,7 @@ ms.locfileid: "53029108"
 
 随着企业逐渐转向数字化，逻辑应用应运而生。它可以提供预生成的 API 作为 Microsoft 托管的连接器，从而可以更轻松快捷地连接旧式、新式和前沿的系统。 因此，你可以专注于应用的业务逻辑和功能， 不需担心应用的生成、托管、缩放、管理、维护和监视。 逻辑应用为你解决这一切。 另外，只需根据使用情况付费，具体取决于使用量[定价模型](../logic-apps/logic-apps-pricing.md)。 
 
-在许多情况下，无需编写代码。 但如果必须编写一些代码，则可使用 [Azure Functions](../azure-functions/functions-overview.md) 创建代码片段，然后通过逻辑应用按需运行该代码。 此外，如果逻辑应用需要与来自 Azure 服务、自定义应用或其他解决方案的事件进行交互。
+在许多情况下，无需编写代码。 但如果必须编写一些代码，则可使用 [Azure Functions](../azure-functions/functions-overview.md) 创建代码片段，然后通过逻辑应用按需运行该代码。 另外，如果逻辑应用需要与来自 Azure 服务、自定义应用或其他解决方案的事件交互，则可将 [Azure 事件网格](../event-grid/overview.md)与逻辑应用配合使用，以便进行事件监视、路由和发布。
 
 逻辑应用、Functions 和事件网格由 Azure 全权托管，因此不必担心解决方案的生成、托管、缩放、管理、监视和维护。 由于能够创建[“无服务器”应用和解决方案](../logic-apps/logic-apps-serverless-overview.md)，因此只需关注业务逻辑。 这些服务可以按需自动缩放，加快集成速度，使用最少的代码生成可靠的云应用。 另外，只需根据使用情况付费，具体取决于使用量[定价模型](../logic-apps/logic-apps-pricing.md)。 
 
@@ -102,11 +102,6 @@ ms.locfileid: "53029108"
 逻辑应用是托管在 Microsoft Azure 上的许多服务之一。 因此在开始之前，你需要一个 Azure 订阅。 如果没有订阅，可以<a href="https://www.azure.cn/pricing/1rmb-trial" target="_blank">注册 Azure 试用帐户</a>。 
 
 如果有 Azure 订阅，可以尝试此[创建第一个逻辑应用的快速入门](../logic-apps/quickstart-create-first-logic-app-workflow.md)。该逻辑应用通过 RSS 源监视网站上的新内容，在新内容出现时发送电子邮件。
-
-## <a name="support-and-feedback"></a>支持和反馈
-
-* 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

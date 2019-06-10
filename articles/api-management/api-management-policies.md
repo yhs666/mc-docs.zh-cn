@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 06/03/2018
-ms.openlocfilehash: 7530b8928a02f0275d23bd234bcb271907f739b1
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.date: 06/17/2018
+ms.openlocfilehash: 9fdee6a299340b818904ecd8e80e4feaa973a384
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195044"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732492"
 ---
 # <a name="api-management-policies"></a>API 管理策略
 本部分提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](./api-management-howto-policies.md)。  
@@ -51,9 +51,9 @@ ms.locfileid: "66195044"
     -   [控制流](./api-management-advanced-policies.md#choose) - 根据布尔表达式的求值，有条件地应用策略语句。  
   
     -   [转发请求](./api-management-advanced-policies.md#ForwardRequest) - 将请求转发到后端服务。  
-  
+    -   [限制并发](./api-management-advanced-policies.md#LimitConcurrency) - 阻止括住的策略一次执行超过指定数量的请求。
     -   [记录到事件中心](./api-management-advanced-policies.md#log-to-eventhub) - 将指定格式的消息发送到记录器实体定义的消息目标。  
-  
+    -   [模拟响应](./api-management-advanced-policies.md#mock-response) - 中止管道执行，将模拟的响应直接返回给调用方。
     -   [重试](./api-management-advanced-policies.md#Retry) - 重试执行括住的策略语句，直到符合条件为止。 系统会按指定的时间间隔重复执行，直到达到指定的重试计数为止。  
   
     -   [返回响应](./api-management-advanced-policies.md#ReturnResponse) - 中止管道执行，将指定的响应直接返回给调用方。  
@@ -61,7 +61,7 @@ ms.locfileid: "66195044"
     -   [发送单向请求](./api-management-advanced-policies.md#SendOneWayRequest) - 将请求发送到指定的 URL，无需等待响应。  
   
     -   [发送请求](./api-management-advanced-policies.md#SendRequest) - 将请求发送到指定的 URL。  
-  
+    -   [设置 HTTP 代理](./api-management-advanced-policies.md#SetHttpProxy) - 允许通过 HTTP 代理路由转发请求。
     -   [设置变量](./api-management-advanced-policies.md#set-variable) - 保存命名上下文变量中的值供以后访问。  
   
     -   [设置请求方法](./api-management-advanced-policies.md#SetRequestMethod) - 允许更改请求的 HTTP 方法。  

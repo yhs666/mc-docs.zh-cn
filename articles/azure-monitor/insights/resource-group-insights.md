@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 6d3e6b88d555bccdf927a2b4b2428533a6c03cbf
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 8842da5e4cd82b7b854882646e6a70dd3c7d8ede
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141764"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731209"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure Monitor（预览版）监视资源组
 
@@ -24,9 +24,9 @@ ms.locfileid: "54141764"
 
 ## <a name="access-insights-for-resource-groups"></a>资源组的访问见解
 
-1. 在左侧的导航栏中选择“资源组”。
+1. 在左侧的导航栏中选择“资源组”  。
 2. 选择其中一个要浏览的资源组。 （如果拥有大量资源组，则按订阅筛选有时会很有用。）
-3. 若要访问资源组的见解，单击任意资源组的左侧菜单中的“见解”。
+3. 若要访问资源组的见解，单击任意资源组的左侧菜单中的“见解”  。
 
 ![资源组见解概述页的屏幕截图](./media/resource-group-insights/0001-overview.png)
 
@@ -38,11 +38,11 @@ ms.locfileid: "54141764"
 
 ### <a name="azure-resource-health"></a>Azure 资源运行状况
 
-若要显示 Azure 资源运行状况，选中表格上方的“显示 Azure 资源运行状况”。 默认情况下隐藏此列，以快速加载页面。
+若要显示 Azure 资源运行状况，选中表格上方的“显示 Azure 资源运行状况”  。 默认情况下隐藏此列，以快速加载页面。
 
 ![添加了资源运行状况图的屏幕截图](./media/resource-group-insights/0003-overview.png)
 
-默认情况下，按照应用层和资源类型对资源进行分组。 应用层是资源类型的简单分类，仅存在于资源组见解概述页的上下文中。 存在与应用程序代码、计算基础结构、网络、存储 + 数据库相关的资源类型。 管理工具具有自己的应用层，每个其他资源都归类为属于“其他”应用层。 此分组可以帮助快速查看应用程序的哪些子系统运行正常，哪些子系统运行不正常。
+默认情况下，按照应用层和资源类型对资源进行分组。 应用层是资源类型的简单分类，仅存在于资源组见解概述页的上下文中  。 存在与应用程序代码、计算基础结构、网络、存储 + 数据库相关的资源类型。 管理工具具有自己的应用层，每个其他资源都归类为属于“其他”应用层  。 此分组可以帮助快速查看应用程序的哪些子系统运行正常，哪些子系统运行不正常。
 
 ## <a name="diagnose-issues-in-your-resource-group"></a>诊断资源组中的问题
 
@@ -50,22 +50,22 @@ ms.locfileid: "54141764"
 
    |         |          |
    | ---------------- |:-----|
-   | [**警报**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  查看、创建和管理警报。 |
-   | [**指标**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | 可视化并浏览基于指标的数据。    |
-   | [**活动日志**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Azure 中已发生的订阅级别事件。  |
+   | [**警报**](../../azure-monitor/platform/alerts-overview.md)      |  查看、创建和管理警报。 |
+   | [**指标**](../../azure-monitor/platform/data-platform.md) | 可视化并浏览基于指标的数据。    |
+   | [**活动日志**](../../azure-monitor/platform/activity-logs-overview.md) | Azure 中已发生的订阅级别事件。  |
    | [**应用程序映射**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | 浏览分布式应用程序的拓扑，以识别性能瓶颈或故障作用点。 |
 
 ## <a name="failures-and-performance"></a>故障和性能
 
 如果发现应用程序运行缓慢或用户报告了错误，该怎么办？ 搜索所有资源以隔离问题是非常耗时的。
 
-“性能”和“故障”选项卡通过结合使用许多常见资源类型的性能和故障诊断视图，简化了此过程。
+“性能”和“故障”选项卡通过结合使用许多常见资源类型的性能和故障诊断视图，简化了此过程   。
 
 大多数资源类型将打开 Azure Monitor 工作簿模板库。 可以自定义、保存、与团队共享创建的每个工作簿，并在将来重新用于诊断类似问题。
 
 ### <a name="investigate-failures"></a>调查故障
 
-若要测试“故障”选项卡，选择左侧菜单中“调查”下的“故障”。
+若要测试“故障”选项卡，选择左侧菜单中“调查”下的“故障”   。
 
 选择完成后，左侧菜单栏会发生更改，提供新选项。
 
@@ -85,11 +85,11 @@ ms.locfileid: "54141764"
 
 工作簿将创建自定义报告和可视化效果的困难工作抽象化为易于使用的格式。 虽然一些用户可能只想调整预生成的参数，但工作簿是完全可自定义的。
 
-若要了解此工作簿是如何在内部运作的，选择顶栏的“编辑”。
+若要了解此工作簿是如何在内部运作的，选择顶栏的“编辑”  。
 
 ![其他编辑选项的屏幕截图](./media/resource-group-insights/0008-failure-edit.png)
 
-许多“编辑”框将显示在工作簿的各种元素周围。 选择操作表下方的“编辑”框。
+许多“编辑”框将显示在工作簿的各种元素周围  。 选择操作表下方的“编辑”框  。
 
 ![编辑框的屏幕截图](./media/resource-group-insights/0009-failure-edit-graph.png)
 
@@ -117,10 +117,10 @@ ms.locfileid: "54141764"
 
 适用于资源组的 Azure Monitor 依赖于 Azure Monitor 警报管理系统来检索警报状态。 默认情况下没有为每个资源组和订阅配置“警报管理”，它只能由具有“所有者”或“参与者”角色的某人来启用。 可以通过以下任一方式启用它：
 * 为订阅中的任何资源组打开适用于资源组的 Azure Monitor。
-* 或者，转到订阅，单击“资源提供程序”，然后单击“注册 Alerts.Management”。
+* 或者，转到订阅，单击“资源提供程序”  ，然后单击“注册 Alerts.Management”。 
 
 ## <a name="next-steps"></a>后续步骤
 
 - [Azure Monitor 工作簿](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 - [Azure 资源运行状况](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Azure Monitor 警报](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Azure Monitor 警报](../../azure-monitor/platform/alerts-overview.md)

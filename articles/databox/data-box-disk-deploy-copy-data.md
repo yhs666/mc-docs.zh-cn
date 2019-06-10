@@ -1,21 +1,21 @@
 ---
-title: 将数据复制到 Azure Data Box 磁盘 | Microsoft Docs
+title: 有关将数据复制到 Azure Data Box Disk 的教程| Microsoft Docs
 description: 通过本教程了解如何将数据复制到 Azure Data Box 磁盘
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-origin.date: 02/26/2019
-ms.date: 03/18/2019
+origin.date: 04/16/2019
+ms.date: 06/10/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ca84b19375e5a1a60463c92976a96b4bdce6b090
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a21d79979601ab4989586a155f0b7e09524eb1e1
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627714"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726535"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教程：将数据复制到 Azure Data Box Disk 并进行验证
 
@@ -45,7 +45,8 @@ ms.locfileid: "58627714"
 - 复制数据时，请确保数据大小符合 [Azure 存储和 Data Box 磁盘限制](data-box-disk-limits.md)中所述的大小限制。
 - 如果 Data Box 磁盘正在上传的数据同时已由 Data Box 磁盘外部的其他应用程序上传，则可能会导致上传作业失败和数据损坏。
 
-如果按顺序指定了托管磁盘，请查看以下附加注意事项：
+   > [!IMPORTANT]
+   >  如果已在创建订单的过程中将托管磁盘指定为存储目标之一，那么以下部分就是适用的。
 
 - 在一个资源组的所有预先创建的文件夹和所有 Data Box Disk 中，只能包含一个具有给定名称的托管磁盘。 这意味着，上传到预先创建的文件夹的 VHD 应具有唯一的名称。 确保给定的名称与资源组中现有的托管磁盘不匹配。 如果有多个 VHD 同名，只会将一个 VHD 转换为使用该名称的托管磁盘。 其他 VHD 会作为页 Blob 上传到临时存储帐户中。
 - 始终将 VHD 复制到某个预先创建的文件夹中。 如果将 VHD 复制到这些文件夹以外或者复制到你自己创建的文件夹中，则 VHD 将作为页 Blob 而不是托管磁盘上传到 Azure 存储帐户中。
@@ -67,7 +68,7 @@ ms.locfileid: "58627714"
     订单的示例屏幕截图，其中指定了 GPv2 存储帐户，如下所示：
 
     ![磁盘驱动器的内容](media/data-box-disk-deploy-copy-data/data-box-disk-content.png)
-
+ 
 2. 将需要作为块 Blob 导入的数据复制到 *BlockBlob* 文件夹中。 同理，将 VHD/VHDX 等数据复制到 *PageBlob* 或 *AzureFile* 文件夹中。
 
     在 Azure 存储帐户中，为 BlockBlob 和 PageBlob 文件夹下的每个子文件夹创建一个容器。 BlockBlob 和 PageBlob 文件夹下的所有文件将复制到 Azure 存储帐户下的默认容器 `$root` 中。 `$root` 容器中的所有文件始终作为块 Blob 上传。
@@ -83,22 +84,21 @@ ms.locfileid: "58627714"
 4. 可以使用文件资源管理器中的拖放操作复制数据。 也可以使用与 SMB 兼容的任何文件复制工具（例如 Robocopy）复制数据。 可以使用以下 Robocopy 命令启动多个复制作业：
 
     `Robocopy <source> <destination>  * /MT:64 /E /R:1 /W:1 /NFL /NDL /FFT /Log:c:\RobocopyLog.txt` 
-
+    
     下面以表格形式列出了命令的参数和选项：
-
-
-   | 参数/选项 |                                                       说明                                                       |
-   |--------------------|-------------------------------------------------------------------------------------------------------------------------|
-   |       源       |                                       指定源目录的路径。                                       |
-   |    目标     |                                    指定目标目录的路径。                                     |
-   |         /E         |                                   复制包括空目录的子目录。                                    |
-   |      /MT[:N]       | 使用 N 个线程创建多线程副本，其中 N 是介于 1 和 128 之间的整数。 <br>N 的默认值为 8。 |
-   |      /R: <N>       |      指定复制失败时的重试次数。 N 的默认值为 1,000,000（100 万次重试）。       |
-   |      /W: <N>       |        指定等待重试的间隔时间，以秒为单位。 N 的默认值为的 30（等待 30 秒）。        |
-   |        /NFL        |                                     指定不记录文件名。                                     |
-   |        /NDL        |                                  指定不记录目录名。                                   |
-   |        /FFT        |                                     采用 FAT 文件时间（精度为两秒）。                                      |
-   |  /Log:<Log File>   |                      将状态输出写入到日志文件（覆盖现有的日志文件）。                       |
+    
+    |参数/选项  |说明 |
+    |--------------------|------------|
+    |Source            | 指定源目录的路径。        |
+    |目标       | 指定目标目录的路径。        |
+    |/E                  | 复制包括空目录的子目录。 |
+    |/MT[:N]             | 使用 N 个线程创建多线程副本，其中 N 是介于 1 和 128 之间的整数。 <br>N 的默认值为 8。        |
+    |/R:\<N>             | 指定复制失败时的重试次数。 N 的默认值为 1,000,000（100 万次重试）。        |
+    |/W:\<N>             | 指定等待重试的间隔时间，以秒为单位。 N 的默认值为的 30（等待 30 秒）。        |
+    |/NFL                | 指定不记录文件名。        |
+    |/NDL                | 指定不记录目录名。        |
+    |/FFT                | 采用 FAT 文件时间（精度为两秒）。        |
+    |/Log:\<Log File>     | 将状态输出写入到日志文件（覆盖现有的日志文件）。         |
 
     可以配合每个磁盘上运行的多个作业一起使用多个磁盘。
 
@@ -109,33 +109,33 @@ ms.locfileid: "58627714"
         -------------------------------------------------------------------------------
        ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
-
+    
       Started : Thursday, March 8, 2018 2:34:53 PM
            Simple Usage :: ROBOCOPY source destination /MIR
-
+    
                  source :: Source Directory (drive:\path or \\server\share\path).
             destination :: Destination Dir  (drive:\path or \\server\share\path).
                    /MIR :: Mirror a complete directory tree.
-
+    
         For more usage information run ROBOCOPY /?    
-
+    
     ****  /MIR can DELETE files as well as copy them !
-
+    
     C:\Users>Robocopy C:\Git\azure-docs-pr\contributor-guide \\10.126.76.172\devicemanagertest1_AzFile\templates /MT:64 /E /R:1 /W:1 /FFT 
     -------------------------------------------------------------------------------
        ROBOCOPY     ::     Robust File Copy for Windows
     -------------------------------------------------------------------------------
-
+    
       Started : Thursday, March 8, 2018 2:34:58 PM
        Source : C:\Git\azure-docs-pr\contributor-guide\
          Dest : \\10.126.76.172\devicemanagertest1_AzFile\templates\
-
+    
         Files : *.*
-
+    
       Options : *.* /DCOPY:DA /COPY:DAT /MT:8 /R:1000000 /W:30
-
+    
     ------------------------------------------------------------------------------
-
+    
     100%        New File                 206        C:\Git\azure-docs-pr\contributor-guide\article-metadata.md
     100%        New File                 209        C:\Git\azure-docs-pr\contributor-guide\content-channel-guidance.md
     100%        New File                 732        C:\Git\azure-docs-pr\contributor-guide\contributor-guide-index.md
@@ -154,36 +154,35 @@ ms.locfileid: "58627714"
     100%        New File                 212        C:\Git\azure-docs-pr\contributor-guide\syntax-highlighting-markdown.md
     100%        New File                 207        C:\Git\azure-docs-pr\contributor-guide\tools-and-setup.md
     ------------------------------------------------------------------------------
-
+    
                    Total    Copied   Skipped  Mismatch    FAILED    Extras
         Dirs :         1         1         1         0         0         0
        Files :        17        17         0         0         0         0
        Bytes :     3.9 k     3.9 k         0         0         0         0
        Times :   0:00:05   0:00:00                       0:00:00   0:00:00
-
+        
        Speed :                5620 Bytes/sec.
        Speed :               0.321 MegaBytes/min.
        Ended : Thursday, March 8, 2018 2:34:59 PM
-
+        
     C:\Users>
     ```
-
+ 
     若要优化性能，请在复制数据时使用以下 robocopy 参数。
 
-
-   |   平台    |            大多为小于 512 KB 的小型文件             |          大多为 512 KB-1 MB 的中型文件          |             大多为 1 MB 以上的大型文件              |
-   |---------------|----------------------------------------------------|----------------------------------------------------|----------------------------------------------------|
-   | Data Box Disk | 4 个 Robocopy 会话\* <br> 每个会话 16 个线程 | 2 个 Robocopy 会话\* <br> 每个会话 16 个线程 | 2 个 Robocopy 会话\* <br> 每个会话 16 个线程 |
-
+    |    平台    |    大多为小于 512 KB 的小型文件                           |    大多为 512 KB-1 MB 的中型文件                      |    大多为 1 MB 以上的大型文件                             |   
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 个 Robocopy 会话* <br> 每个会话 16 个线程    |    2 个 Robocopy 会话* <br> 每个会话 16 个线程    |    2 个 Robocopy 会话* <br> 每个会话 16 个线程    |
+    
     **每个 Robocopy 会话最多可包含 7,000 个目录和 1.5 亿个文件。*
-
+    
     >[!NOTE]
     > 上面建议的参数基于内部测试中使用的环境。
-
+    
     有关 Robocopy 命令的详细信息，请转到 [Robocopy 和几个示例](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx)。
 
 6. 打开目标文件夹，查看并验证复制的文件。 如果复制过程中遇到任何错误，请下载用于故障排除的日志文件。 日志文件位于 robocopy 命令中指定的位置。
-
+ 
 ### <a name="split-and-copy-data-to-disks"></a>拆分数据并将其复制到磁盘
 
 如果使用多个磁盘，并且需要拆分大型数据集并将其复制到所有磁盘中，则可以使用此可选过程。 借助 Data Box 拆分复制工具可以在 Windows 计算机上拆分和复制数据。
@@ -196,7 +195,7 @@ ms.locfileid: "58627714"
 2. 打开文件资源管理器。 记下分配给 Data Box Disk 的数据源驱动器和驱动器号。 
 
      ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-1.png)
-
+ 
 3. 标识要复制的源数据。 例如，在本例中：
     - 标识了以下块 Blob 数据。
 
@@ -205,13 +204,13 @@ ms.locfileid: "58627714"
     - 标识了以下页 Blob 数据。
 
          ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-3.png)
-
+ 
 4. 转到该软件已提取到的文件夹。 在该文件夹中找到 `SampleConfig.json` 文件。 这是一个可以修改和保存的只读文件。
 
    ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-4.png)
-
+ 
 5. 修改 `SampleConfig.json` 文件。
-
+ 
    - 提供作业名称。 这会在 Data Box Disk 中创建一个文件夹，该文件夹最终将成为与这些磁盘关联的 Azure 存储帐户中的容器。 作业名称必须遵循 Azure 容器命名约定。 
    - 在 `SampleConfigFile.json` 中提供源路径并记下路径格式。 
    - 输入对应于目标磁盘的驱动器号。 数据取自源路径，并在多个磁盘之间复制。
@@ -222,7 +221,7 @@ ms.locfileid: "58627714"
 6. 若要验证文件格式，请转到 `JSONlint`。 将文件另存为 `ConfigFile.json`。 
 
      ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-6.png)
-
+ 
 7. 打开“命令提示”窗口。 
 
 8. 运行 `DataBoxDiskSplitCopy.exe`。 类型
@@ -230,22 +229,22 @@ ms.locfileid: "58627714"
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
      ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-7.png)
-
+ 
 9. 按 Enter 继续运行脚本。
 
     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-8.png)
-
+  
 10. 拆分并复制数据集后，会显示拆分复制工具的复制会话摘要。 下面显示了示例输出。
 
     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-9.png)
-
+ 
 11. 验证是否在目标磁盘之间拆分了数据。 
-
+ 
     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-10.png)
     ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-11.png)
-
+     
     如果进一步检查 `n:` 驱动器的内容，将会看到已创建了对应于块 Blob 和页 Blob 格式数据的两个子文件夹。
-
+    
      ![拆分复制数据](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. 如果复制会话失败，可使用以下命令予以恢复：
@@ -260,7 +259,7 @@ ms.locfileid: "58627714"
 如果未使用拆分复制工具复制数据，则需要验证数据。 若要验证数据，请执行以下步骤。
 
 1. 运行 `DataBoxDiskValidation.cmd` 以在驱动器的 *DataBoxDiskImport* 文件夹中进行校验和验证。
-
+    
     ![Data Box Disk 验证工具输出](media/data-box-disk-deploy-copy-data/data-box-disk-validation-tool-output.png)
 
 2. 选择合适的选项。 **建议你始终选择选项 2 来验证文件并生成校验和**。 根据具体的数据大小，此步骤可能需要一段时间。 在脚本完成后，退出命令窗口。 如果在验证和校验和生成过程中出现任何错误，则会向你发送通知并提供指向错误日志的链接。
