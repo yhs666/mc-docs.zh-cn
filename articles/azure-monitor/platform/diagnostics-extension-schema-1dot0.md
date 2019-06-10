@@ -6,15 +6,15 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 07d30f39625360b666a56b0aeab465f03b84975d
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 8d9cf8e129d8204971fe1a57323ba25d91c54993
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686391"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731311"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Azure 诊断 1.0 配置架构
 > [!NOTE]
@@ -116,7 +116,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |属性|类型|说明|  
 |---------|----|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|可选。 指定可用于存储指定数据的文件系统存储最大容量。<br /><br /> 默认值为 0。|  
-|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”。 其他可能的值为“详细”、“信息”、“警告”、“错误”和“严重”。|  
+|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”  。 其他可能的值为“详细”  、“信息”  、“警告”  、“错误”  和“严重”  。|  
 |**scheduledTransferPeriod**|duration|可选。 指定计划的数据传输之间的时间间隔，向上舍入为最接近的分钟数。<br /><br /> 默认是 PT0S。|  
 
 ## <a name="logs-element"></a>Logs 元素  
@@ -129,7 +129,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |属性|类型|说明|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|可选。 指定可用于存储指定数据的文件系统存储最大容量。<br /><br /> 默认值为 0。|  
-|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”。 其他可能的值为“详细”、“信息”、“警告”、“错误”和“严重”。|  
+|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”  。 其他可能的值为“详细”  、“信息”  、“警告”  、“错误”  和“严重”  。|  
 |**scheduledTransferPeriod**|duration|可选。 指定计划的数据传输之间的时间间隔，向上舍入为最接近的分钟数。<br /><br /> 默认是 PT0S。|  
 
 ## <a name="directories-element"></a>Directories 元素  
@@ -257,7 +257,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |属性|类型|说明|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|unsignedInt|可选。 指定可用于存储指定数据的文件系统存储最大容量。<br /><br /> 默认值为 0。|  
-|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”。 其他可能的值为“详细”、“信息”、“警告”、“错误”和“严重”。|  
+|**scheduledTransferLogLevelFilter**|字符串|可选。 指定传输的日志条目的最低严重级别。 默认值为“未定义”  。 其他可能的值为“详细”  、“信息”  、“警告”  、“错误”  和“严重”  。|  
 |**scheduledTransferPeriod**|duration|可选。 指定计划的数据传输之间的时间间隔，向上舍入为最接近的分钟数。<br /><br /> 默认是 PT0S。|  
 
 ## <a name="datasource-element"></a>DataSource 元素  

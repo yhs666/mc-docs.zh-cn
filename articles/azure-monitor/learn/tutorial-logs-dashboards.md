@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: b7ec72e089b43e8734ff9e26c136c21366635fa7
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: cdcbda1ad0473e1572b5cf5b1cd928fe7e98124a
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544795"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731352"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>创建和共享 Log Analytics 数据的仪表板
 
@@ -34,7 +34,7 @@ Log Analytics 仪表板可直观显示所有已保存的日志搜索，使你能
 要完成本教程中的示例，必须将现有虚拟机[连接到 Log Analytics 工作区](../../azure-monitor/learn/quick-collect-azurevm.md)。  
  
 ## <a name="log-in-to-azure-portal"></a>登录到 Azure 门户
-通过 [https://portal.azure.com](https://portal.azure.com) 登录到 Azure 门户。 
+通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。 
 
 ## <a name="create-a-shared-dashboard"></a>创建共享仪表板
 
@@ -44,11 +44,11 @@ Log Analytics 仪表板可直观显示所有已保存的日志搜索，使你能
 
 若要创建仪表板，请选择当前仪表板名称旁边的“新建仪表板”  按钮。<br> ![在 Azure 门户中新建仪表板](media/tutorial-logs-dashboards/log-analytics-create-dashboard-01.png)
 
-此操作会创建全新的专用空仪表板，并进入自定义模式，可在此模式下命名仪表板以及添加或重新排列磁贴。 编辑仪表板名称，针对此教程指定“示例仪表板”，然后选择“完成自定义”。<br><br> ![保存自定义的 Azure 仪表板](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
+此操作会创建全新的专用空仪表板，并进入自定义模式，可在此模式下命名仪表板以及添加或重新排列磁贴。 编辑仪表板名称，针对此教程指定“示例仪表板”，然后选择“完成自定义”   。<br><br> ![保存自定义的 Azure 仪表板](media/tutorial-logs-dashboards/log-analytics-create-dashboard-02.png)
 
 创建仪表板时，默认该仪表板是专用的，这意味着只有你才可以看到它。 若要让其对其他人可见，请使用与其他仪表板命令一起出现的“共享”  按钮。<br> ![在 Azure 门户中共享新的仪表板](media/tutorial-logs-dashboards/log-analytics-share-dashboard.png) 
 
-系统会要求选择可将仪表板发布到的订阅和资源组。 为方便起见，门户的发布体验会引导完成将仪表板放在名为**仪表板**的资源组中的模式。  验证所选订阅，然后单击“发布”。  通过 [Azure 基于资源的访问控制](../../role-based-access-control/role-assignments-portal.md)来控制对仪表板中所显示信息的访问。   
+系统会要求选择可将仪表板发布到的订阅和资源组。 为方便起见，门户的发布体验会引导完成将仪表板放在名为**仪表板**的资源组中的模式。  验证所选订阅，然后单击“发布”  。  通过 [Azure 基于资源的访问控制](../../role-based-access-control/role-assignments-portal.md)来控制对仪表板中所显示信息的访问。   
 
 ## <a name="visualize-a-log-search"></a>可视化日志搜索
 
@@ -64,9 +64,9 @@ Log Analytics 仪表板可直观显示所有已保存的日志搜索，使你能
 Perf | where CounterName == "% Processor Time" and ObjectName == "Processor" and InstanceName == "_Total" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 1m), Computer | render timechart
 ```
 
-选择右上角的“保存查询”按钮，保存查询。<br> ![从高级分析门户保存查询](media/tutorial-logs-dashboards/log-analytics-advancedportal-02.png)<br><br> 在“保存查询”控制面板中提供一个名称（例如“Azure VM - 处理器利用率”），然后单击“保存”。  这样一来，即可创建一个常见查询库，以便进行搜索或修改，而无需完全重新写入。  最后，从页面右上角中间位置选择“将图表固定到 Azure 仪表板”按钮，将其固定到之前创建的共享仪表板。  
+选择右上角的“保存查询”按钮，保存查询  。<br> ![从高级分析门户保存查询](media/tutorial-logs-dashboards/log-analytics-advancedportal-02.png)<br><br> 在“保存查询”控制面板中提供一个名称（例如“Azure VM - 处理器利用率”），然后单击“保存”    。  这样一来，即可创建一个常见查询库，以便进行搜索或修改，而无需完全重新写入。  最后，从页面右上角中间位置选择“将图表固定到 Azure 仪表板”按钮，将其固定到之前创建的共享仪表板  。  
 
-将查询固定到仪表板之后，可发现该查询下方有一个通用标题和注释。<br> ![Azure 仪表板示例](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  应将其重命名为查看者易于理解的、富有意义的名称。  右键单击该磁贴，然后选择“编辑磁贴”。  完成自定义该磁贴的标题和副标题后，单击“更新”。  随即会出现询问你是发布更改还是放弃的横幅。  单击“发布更改”，然后关闭“编辑磁贴”控制窗格。  
+将查询固定到仪表板之后，可发现该查询下方有一个通用标题和注释。<br> ![Azure 仪表板示例](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-01.png)<br><br>  应将其重命名为查看者易于理解的、富有意义的名称。  右键单击该磁贴，然后选择“编辑磁贴”  。  完成自定义该磁贴的标题和副标题后，单击“更新”  。  随即会出现询问你是发布更改还是放弃的横幅。  单击“发布更改”，然后关闭“编辑磁贴”控制窗格   。  
 
 ![已完成的示例仪表板配置](media/tutorial-logs-dashboards/log-analytics-modify-dashboard-02.png)
 

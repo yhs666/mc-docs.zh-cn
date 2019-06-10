@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 16d0b496fc22690a2212704f3fa0eca347dd4587
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: ae8b0c54fbb2ef03448a97dc309a24fecfdf58f4
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566358"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731204"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>如何为容器载入 Azure Monitor  
 本文介绍如何为容器设置 Azure Monitor，以监视部署到 Kubernetes 环境和在 [Azure Kubernetes 服务](https://docs.microsoft.com/azure/aks/)中托管的工作负荷的性能。
@@ -35,13 +35,13 @@ ms.locfileid: "59566358"
 
 - **Log Analytics 工作区。** 可以在对新 AKS 群集启用监视时创建该工作区，或者让载入体验在 AKS 群集订阅的默认资源组中创建默认的工作区。 如果选择自行创建工作区，可以通过 [Azure 资源管理器](../../azure-monitor/platform/template-workspace-configuration.md)、[PowerShell](../scripts/powershell-sample-create-workspace.md) 或在 [Azure 门户](../../azure-monitor/learn/quick-create-workspace.md)来创建。
 - 需要成为 **Log Analytics 参与者角色**的成员才能启用容器监视。 有关如何控制对 Log Analytics 工作区的访问的详细信息，请参阅[管理工作区](../../azure-monitor/platform/manage-access.md)。
-- 在 AKS 群集资源上，你是**[所有者](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** 角色的成员。 
+- 在 AKS 群集资源上，你是 **[所有者](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** 角色的成员。 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 ## <a name="components"></a>组件 
 
-监视性能的能力依赖于 Linux 容器化 Log Analytics 代理，该代理专门针对用于容器的 Azure Monitor 开发而来。 此专用代理可从群集中的所有节点处收集性能和事件数据，并且在部署期间，会自动部署该代理，并注册指定 Log Analytics 工作区。 该代理的版本为 microsoft/oms:ciprod04202018 或更高版本，并由采用以下格式的日期表示：mmddyyyy。 
+监视性能的能力依赖于 Linux 容器化 Log Analytics 代理，该代理专门针对用于容器的 Azure Monitor 开发而来。 此专用代理可从群集中的所有节点处收集性能和事件数据，并且在部署期间，会自动部署该代理，并注册指定 Log Analytics 工作区。 该代理的版本为 microsoft/oms:ciprod04202018 或更高版本，并由采用以下格式的日期表示：mmddyyyy  。 
 
 当该代理的新版本发布时，会在承载于 Azure Kubernetes 服务 (AKS) 上的托管 Kubernetes 群集上自动升级该代理。 要关注发布的版本，请参阅[代理发布公告](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)。 
 
@@ -49,10 +49,10 @@ ms.locfileid: "59566358"
 >如果已部署 AKS 群集，可使用 Azure CLI 或提供的 Azure 资源管理器模板启用监视，如后文所示。 不能使用 `kubectl` 升级、删除、重新部署或部署代理。 模板需要部署在群集所在的资源组中。”
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
-登录到 [Azure 门户](https://portal.azure.com)。 
+登录到 [Azure 门户](https://portal.azure.cn)。 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>启用对新群集的监视
-在部署期间，可以在 Azure 门户中、通过 Azure CLI 或 Terraform 对新 AKS 群集启用监控。  若要通过门户来启用，请执行快速入门文章[部署 Azure Kubernetes 服务 (AKS) 群集](../../aks/kubernetes-walkthrough-portal.md)中的步骤，以及执行“监视运行状况和日志”部分下面的步骤。  
+在部署期间，可以在 Azure 门户中、通过 Azure CLI 或 Terraform 对新 AKS 群集启用监控。  
 
 >[!NOTE]
 >按快速入门文章中的步骤操作，以便通过门户启用对 AKS 群集的监视时，系统会提示你选择一个现有的 Log Analytics 工作区，或者创建一个新的。 
@@ -70,12 +70,12 @@ ms.locfileid: "59566358"
 >[!NOTE]
 >如果选择使用 Terraform，则必须运行 Terraform Azure RM 提供程序 1.17.0 版或更高版本。
 
-要将用于容器的 Azure Monitor 添加到工作区，请参阅 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)，并通过纳入 [addon_profile](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile)，以及指定 oms_agent，完成配置文件。 
+要将用于容器的 Azure Monitor 添加到工作区，请参阅 [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html)，并通过纳入 [addon_profile](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile)，以及指定 oms_agent，完成配置文件   。 
 
 启用监视并成功完成所有配置任务后，可通过两种方法监视群集性能：
 
-* 直接在 AKS 群集中从左侧窗格选择“运行状况”。
-* 在选定群集的 AKS 群集页面中选择“监视容器见解”磁贴。 在 Azure Monitor 中，从左侧窗格选择“运行状况”。 
+* 直接在 AKS 群集中从左侧窗格选择“运行状况”  。
+* 在选定群集的 AKS 群集页面中选择“监视容器见解”磁贴  。 在 Azure Monitor 中，从左侧窗格选择“运行状况”  。 
 
   ![用于在 AKS 中为容器选择 Azure Monitor 的选项](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
@@ -90,7 +90,7 @@ ms.locfileid: "59566358"
 * 通过 Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 来使用[提供的 Azure 资源管理器模板](#enable-using-an-azure-resource-manager-template)，或者使用 Azure CLI。 
 
 ### <a name="enable-using-azure-cli"></a>启用 Azure CLI
-以下步骤使用 Azure CLI 对 AKS 群集启用监视。 在此示例中，不需要预先创建或指定现有的工作区。 如果区域中尚不存在默认的工作区，此命令可以简化在 AKS 群集订阅的默认资源组中创建默认工作区的过程。  创建的默认工作区的格式类似于 *DefaultWorkspace-\<GUID>-\<Region>*。  
+以下步骤使用 Azure CLI 对 AKS 群集启用监视。 在此示例中，不需要预先创建或指定现有的工作区。 如果区域中尚不存在默认的工作区，此命令可以简化在 AKS 群集订阅的默认资源组中创建默认工作区的过程。  创建的默认工作区的格式类似于 *DefaultWorkspace-\<GUID>-\<Region>* 。  
 
 ```azurecli
 az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
@@ -115,7 +115,7 @@ provisioningState       : Succeeded
 ```
 
 ### <a name="enable-using-terraform"></a>使用 Terraform
-1. 将 oms_agent 附加配置文件添加到现有 [azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile) 资源
+1. 将 oms_agent 附加配置文件添加到现有 [azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile) 资源 
 
    ```
    addon_profile {
@@ -131,11 +131,11 @@ provisioningState       : Succeeded
 ### <a name="enable-from-azure-monitor-in-the-portal"></a>在门户中通过 Azure Monitor 来启用 
 要启用 Azure Monitor 对 Azure 门户中的 AKS 群集的监视，请执行以下操作：
 
-1. 在 Azure 门户中选择“监视”。 
-2. 从列表中选择容器。
-3. 在“监视 - 容器”页上，选择“非监视群集”。
-4. 从非监视群集的列表中找到容器，然后单击“启用”。   
-5. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区。  
+1. 在 Azure 门户中选择“监视”。  
+2. 从列表中选择容器  。
+3. 在“监视 - 容器”页上，选择“非监视群集”   。
+4. 从非监视群集的列表中找到容器，然后单击“启用”  。   
+5. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。  
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。 
 
     ![启用 AKS 容器见解监视](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
@@ -148,16 +148,16 @@ provisioningState       : Succeeded
 ### <a name="enable-directly-from-aks-cluster-in-the-portal"></a>在门户中直接使用 AKS 群集来启用
 若要在 Azure 门户中直接使用某个 AKS 群集来启用监视，请执行以下操作：
 
-1. 在 Azure 门户中，选择“所有服务”。 
-2. 在资源列表中，开始键入“Containers”。  
+1. 在 Azure 门户中，选择“所有服务”。  
+2. 在资源列表中，开始键入“Containers”  。  
     列表会根据输入的内容进行筛选。 
-3. 选择“Kubernetes 服务”。  
+3. 选择“Kubernetes 服务”  。  
 
     ![Kubernetes 服务链接](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. 在容器列表中，选择一个容器。
-5. 在容器概述页面中，选择“监视容器”。  
-6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区。  
+5. 在容器概述页面中，选择“监视容器”  。  
+6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。  
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。 
 
     ![启用 AKS 容器运行状况监视](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
@@ -237,7 +237,7 @@ provisioningState       : Succeeded
     }
     ```
 
-2. 将此文件以“existingClusterOnboarding.json”文件名保存到本地文件夹。
+2. 将此文件以“existingClusterOnboarding.json”文件名保存到本地文件夹  。
 3. 将以下 JSON 语法粘贴到文件中：
 
     ```json
@@ -258,8 +258,8 @@ provisioningState       : Succeeded
     }
     ```
 
-4. 使用 AKS 群集的“AKS 概述”页面中的值，编辑 **aksResourceId** 和 **aksResourceLocation** 的值。 **workspaceResourceId** 的值是 Log Analytics 工作区的完整资源 ID，其中包含工作区名称。 
-5. 将此文件以“existingClusterParam.json”文件名保存到本地文件夹。
+4. 使用 AKS 群集的“AKS 概述”页面中的值，编辑 **aksResourceId** 和 **aksResourceLocation** 的值  。 **workspaceResourceId** 的值是 Log Analytics 工作区的完整资源 ID，其中包含工作区名称。 
+5. 将此文件以“existingClusterParam.json”文件名保存到本地文件夹  。
 6. 已做好部署此模板的准备。 
 
    * 若要使用 Azure PowerShell 进行部署，请在包含模板的文件夹中使用以下命令：
@@ -322,7 +322,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>代理版本低于 06072018
 
-若要验证 06072018 之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：  
+若要验证 06072018  之前发布的 Log Analytics 代理版本是否已正确部署，请运行以下命令：  
 
 ```
 kubectl get ds omsagent --namespace=kube-system

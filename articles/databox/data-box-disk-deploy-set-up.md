@@ -1,5 +1,5 @@
 ---
-title: 设置 Microsoft Azure Data Box 磁盘 | Microsoft Docs
+title: 教程：打开包装、连接和解锁 Azure Data Box Disk | Microsoft Docs
 description: 通过本教程了解如何设置 Azure Data Box 磁盘
 services: databox
 author: WenJason
@@ -7,15 +7,15 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 10/31/2018
-ms.date: 02/25/2019
+ms.date: 06/10/2019
 ms.author: v-jay
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f05364f5a767c527ed1654144447effe56aeade9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4f876dcb21877fd3ea31bc5107a51d447c284ee9
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627030"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726475"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教程：打开包装、连接和解锁 Azure Data Box 磁盘
 
@@ -34,7 +34,7 @@ ms.locfileid: "58627030"
 在开始之前，请确保：
 
 1. 已完成[教程：订购 Azure Data Box Disk](data-box-disk-deploy-ordered.md)。
-2. 已收到磁盘，并且门户中的作业状态已更新为“已交付”。
+2. 已收到磁盘，并且门户中的作业状态已更新为“已交付”。 
 3. 有一台可以安装 Data Box Disk 解锁工具的客户端计算机。 客户端计算机必须：
     - 运行[支持的操作系统](data-box-disk-system-requirements.md#supported-operating-systems-for-clients)。
     - 已安装其他[所需软件](data-box-disk-system-requirements.md#other-required-software-for-windows-clients)（如果是 Windows 客户端）。  
@@ -60,7 +60,7 @@ ms.locfileid: "58627030"
 
     ![Data Box 磁盘连接](media/data-box-disk-deploy-set-up/data-box-disk-connect-unlock.png)    
     
-2. 在 Azure 门户中，转到“常规”>“设备详细信息”。 使用复制图标复制支持密钥。 此支持密钥用于解锁磁盘。
+2. 在 Azure 门户中，转到“常规”>“设备详细信息”。  使用复制图标复制支持密钥。 此支持密钥用于解锁磁盘。
 
     ![Data Box Disk 解锁支持密钥](media/data-box-disk-deploy-set-up/data-box-disk-get-passkey.png) 
 
@@ -70,7 +70,7 @@ ms.locfileid: "58627030"
 
 执行以下步骤，以连接并解锁磁盘。
      
-1. 在 Azure 门户中，转到“常规”>“设备详细信息”。 
+1. 在 Azure 门户中，转到“常规”>“设备详细信息”。  
 2. 下载对应于 Windows 客户端的 Data Box Disk 工具集。 此工具集包含 3 个工具：Data Box Disk 解锁工具、Data Box Disk 验证工具和 Data Box Disk 拆分复制工具。 
 
     在此过程中，将仅使用 Data Box Disk 解锁工具。 其他两个工具将在以后使用。
@@ -91,7 +91,7 @@ ms.locfileid: "58627030"
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. 运行 `DataBoxDiskUnlock.exe`，并提供在[连接到磁盘并获取支持密钥](#Connect-to-disks-and-get-the-passkey)中获取的支持密钥。 此时会显示分配给磁盘的驱动器号。 下面显示了示例输出。
+6. 运行 `DataBoxDiskUnlock.exe`，并提供在[连接到磁盘并获取支持密钥](#connect-to-disks-and-get-the-passkey)中获取的支持密钥。 此时会显示分配给磁盘的驱动器号。 下面显示了示例输出。
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -128,7 +128,7 @@ ms.locfileid: "58627030"
 
 ## <a name="unlock-disks-on-linux-client"></a>在 Linux 客户端上解锁磁盘
 
-1. 在 Azure 门户中，转到“常规”>“设备详细信息”。 
+1. 在 Azure 门户中，转到“常规”>“设备详细信息”。  
 2. 下载对应于 Linux 客户端的 Data Box Disk 工具集。  
 
     > [!div class="nextstepaction"]
@@ -205,16 +205,16 @@ ms.locfileid: "58627030"
      OpenSSL is already installed.
      ```
 
-6. 运行 Data Box Disk 解锁工具。 在 Azure 门户中提供在[连接到磁盘并获取支持密钥](#Connect-to-disks-and-get-the-passkey)中获取的支持密钥。 （可选）指定要解锁 BitLocker 加密卷列表。 应在单引号中指定支持密钥和卷列表。 
+6. 运行 Data Box Disk 解锁工具。 在 Azure 门户中提供在[连接到磁盘并获取支持密钥](#connect-to-disks-and-get-the-passkey)中获取的支持密钥。 （可选）指定要解锁 BitLocker 加密卷列表。 应在单引号中指定支持密钥和卷列表。 
 
     键入以下命令。
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     下面显示了示例输出。 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

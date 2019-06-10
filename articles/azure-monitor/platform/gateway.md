@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 56136792bdbe2b6fe615a23f47d0daa7523c6e4b
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: b5e790ff8a0b783e27e4a3cc7cce40ff034bf491
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586874"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731333"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 网关连接无法访问 Internet 的计算机
 
@@ -111,30 +111,30 @@ Log Analytics 网关仅支持传输层安全性 (TLS) 1.0、1.1 和 1.2。  它�
 
 若要从 Azure 门户获取 Log Analytics 网关，请执行以下步骤：
 
-1. 浏览服务列表，并选择“Log Analytics”。 
+1. 浏览服务列表，并选择“Log Analytics”。  
 1. 选择工作区。
-1. 在工作区边栏选项卡中的“常规”下面，选择“快速启动”。 
-1. 在“选择要连接到工作区的数据源”下面，选择“计算机”。
-1. 在“直接代理”边栏选项卡中，选择“下载 Log Analytics 网关”。
+1. 在工作区边栏选项卡中的“常规”下面，选择“快速启动”。   
+1. 在“选择要连接到工作区的数据源”下面，选择“计算机”。  
+1. 在“直接代理”  边栏选项卡中，选择“下载 Log Analytics 网关”  。
  
    ![下载 Log Analytics 网关的步骤屏幕截图](./media/gateway/download-gateway.png)
 
 或 
 
-1. 在工作区边栏选项卡中的“设置”下方，选择“高级设置”。
-1. 转到“连接的源” > “Windows 服务器”，然后选择“下载 Log Analytics 网关”。
+1. 在工作区边栏选项卡中的“设置”  下方，选择“高级设置”  。
+1. 转到“连接的源”   > “Windows 服务器”  ，然后选择“下载 Log Analytics 网关”  。
 
 ## <a name="install-log-analytics-gateway-using-setup-wizard"></a>使用安装向导安装 Log Analytics 网关
 
 若要使用安装向导安装网关，请执行以下步骤。 
 
-1. 在目标文件夹中，双击“Log Analytics gateway.msi”。
-1. 在“欢迎”页上，选择“下一步”。
+1. 在目标文件夹中，双击“Log Analytics gateway.msi”。 
+1. 在“欢迎”页上，选择“下一步”。  
 
    ![网关安装向导中的“欢迎”页屏幕截图](./media/gateway/gateway-wizard01.png)
 
-1. 在“许可协议”页上，选择“我接受许可协议中的条款”表示同意 Microsoft 软件许可条款，然后选择“下一步”。
-1. 在“端口和代理地址”页上执行以下操作：
+1. 在“许可协议”页上，选择“我接受许可协议中的条款”表示同意 Microsoft 软件许可条款，然后选择“下一步”。   
+1. 在“端口和代理地址”页上执行以下操作： 
 
    a. 输入网关使用的 TCP 端口号。 安装程序会使用此端口号在 Windows 防火墙中配置一个入站规则。  默认值为 8080。
       端口号的有效范围为 1 至 65535。 如果输入的端口号不在此范围内，会出现一条错误消息。
@@ -145,10 +145,10 @@ Log Analytics 网关仅支持传输层安全性 (TLS) 1.0、1.1 和 1.2。  它�
 
    ![网关代理配置的屏幕截图](./media/gateway/gateway-wizard02.png)
 
-1. 如果尚未启用 Microsoft 更新，会显示“Microsoft 更新”页，可以在其中选择启用 Microsoft 更新。 做出选择，并选择“下一步”。 否则，继续执行下一步。
-1. 在“目标文件夹”页上，保留默认文件夹 C:\Program Files\OMS Gateway，或输入网关的安装位置。 然后，选择“下一步”。
-1. 在“准备安装”页上，选择“安装”。 如果用户帐户控制请求提供安装权限，请选择“是”。
-1. 安装完成后，选择“完成”。 若要验证该服务是否正在运行，请打开 services.msc 管理单元，并检查服务列表中是否出现“OMS 网关”并且其状态为“正在运行”。
+1. 如果尚未启用 Microsoft 更新，会显示“Microsoft 更新”页，可以在其中选择启用 Microsoft 更新。 做出选择，并选择“下一步”。  否则，继续执行下一步。
+1. 在“目标文件夹”页上，保留默认文件夹 C:\Program Files\OMS Gateway，或输入网关的安装位置。  然后，选择“下一步”  。
+1. 在“准备安装”页上，选择“安装”。   如果用户帐户控制请求提供安装权限，请选择“是”。 
+1. 安装完成后，选择“完成”。  若要验证该服务是否正在运行，请打开 services.msc 管理单元，并检查服务列表中是否出现“OMS 网关”并且其状态为“正在运行”。  
 
    ![本地服务的屏幕截图，其中显示 OMS 网关正在运行](./media/gateway/gateway-service.png)
 
@@ -194,8 +194,8 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 若要了解如何设计和部署 Windows Server 2016 网络负载均衡群集，请参阅[网络负载均衡](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing)。 以下步骤介绍如何配置 Microsoft 网络负载均衡群集。  
 
 1. 使用管理帐户登录到属于 NLB 群集的 Windows 服务器。  
-2. 在服务器管理器中打开网络负载均衡管理器，单击“工具”，并单击“网络负载均衡管理器”。
-3. 要连接装有 Microsoft Monitoring Agent 的 Log Analytics 网关服务器，请右键单击群集的 IP 地址，然后单击“将主机添加到群集”。 
+2. 在服务器管理器中打开网络负载均衡管理器，单击“工具”，并单击“网络负载均衡管理器”。  
+3. 要连接装有 Microsoft Monitoring Agent 的 Log Analytics 网关服务器，请右键单击群集的 IP 地址，然后单击“将主机添加到群集”。  
 
     ![网络负载均衡管理器 – 将主机添加到群集](./media/gateway/nlb02.png)
  
@@ -204,7 +204,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
     ![网络负载均衡管理器 – 将主机添加到群集：连接](./media/gateway/nlb03.png) 
 
 ### <a name="azure-load-balancer"></a>Azure 负载均衡器
-若要了解如何设计和部署 Azure 负载均衡器，请参阅[什么是 Azure 负载均衡器？](../../load-balancer/load-balancer-overview.md)。 若要部署基本负载均衡器，请遵循此[快速入门](../../load-balancer/quickstart-create-basic-load-balancer-portal.md)中所述的步骤，但不要遵循“创建后端服务器”部分所述的步骤。   
+若要了解如何设计和部署 Azure 负载均衡器，请参阅[什么是 Azure 负载均衡器？](../../load-balancer/load-balancer-overview.md)。 若要部署基本负载均衡器，请遵循此[快速入门](../../load-balancer/quickstart-create-basic-load-balancer-portal.md)中所述的步骤，但不要遵循“创建后端服务器”部分所述的步骤。    
 
 > [!NOTE]
 > 使用**基本 SKU** 配置 Azure 负载均衡器需要 Azure 虚拟机属于某个可用性集。 若要详细了解可用性集，请参阅[在 Azure 中管理 Windows 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md)。 若要将现有的虚拟机添加到可用性集，请参阅[设置 Azure 资源管理器 VM 可用性集](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)。
@@ -250,25 +250,25 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 1. 打开权限提升的命令提示符：
 
-   a. 选择“启动”并输入 **cmd**。  
+   a. 选择“启动”并输入 **cmd**。   
 
-   b. 右键单击“命令提示符”并选择“以管理员身份运行”。  
+   b. 右键单击“命令提示符”并选择“以管理员身份运行”。    
 
 1. 输入以下命令：
 
    `netsh winhttp set proxy <proxy>:<port>`
 
-完成与 Log Analytics 的集成后，请运行 `netsh winhttp reset proxy` 删除更改。 然后在操作控制台中，使用“配置代理服务器”选项来指定 Log Analytics 网关服务器。 
+完成与 Log Analytics 的集成后，请运行 `netsh winhttp reset proxy` 删除更改。 然后在操作控制台中，使用“配置代理服务器”选项来指定 Log Analytics 网关服务器。  
 
-1. 在 Operations Manager 控制台的“Operations Management Suite”下面，依次选择“连接”、“配置代理服务器”。
+1. 在 Operations Manager 控制台的“Operations Management Suite”下面，依次选择“连接”、“配置代理服务器”。   
 
    ![Operations Manager 的屏幕截图，其中显示了“配置代理服务器”选项](./media/gateway/scom01.png)
 
-1. 选择“使用代理服务器访问 Operations Management Suite”，然后输入 Log Analytics 网关服务器的 IP 地址或负载均衡器的虚拟 IP 地址。 请注意需要以前缀 `http://` 开头。
+1. 选择“使用代理服务器访问 Operations Management Suite”，然后输入 Log Analytics 网关服务器的 IP 地址或负载均衡器的虚拟 IP 地址。  请注意需要以前缀 `http://` 开头。
 
    ![Operations Manager 的屏幕截图，其中显示了代理服务器地址](./media/gateway/scom02.png)
 
-1. 选择“完成”。 Operations Manager 管理组现已配置为通过网关服务器与 Log Analytics 服务通信。
+1. 选择“完成”。  Operations Manager 管理组现已配置为通过网关服务器与 Log Analytics 服务通信。
 
 ### <a name="configure-operations-manager-where-specific-agents-use-a-proxy-server"></a>配置 Operations Manager，其中的特定代理使用代理服务器
 在大型或复杂环境中，你可能只希望特定的服务器（或组）使用 Log Analytics 网关服务器。  对于这些服务器，无法直接更新 Operations Manager 代理，因为此值会被管理组的全局值覆盖。  应该重写用于推送这些值的规则。  
@@ -279,30 +279,30 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 若要将特定的服务器或组配置为使用 Log Analytics 网关服务器： 
 
-1. 打开 Operations Manager 控制台并选择“创作”工作区。  
-1. 在“创作”工作区中选择“规则”。 
-1. 在 Operations Manager 工具栏上，选择“范围”按钮。 如果此按钮不可用，请确保已在“监视”窗格中选择了一个对象而不是文件夹。 “范围管理包对象”对话框显示了通用目标类、组或对象的列表。 
-1. 在“查找”字段中输入“运行状况服务”，并从列表中选择该服务。 选择“确定” 。  
-1. 搜索“顾问代理设置规则”。 
-1. 在 Operations Manager 工具栏上选择“重写”，指向“重写规则\针对类的特定对象:运行状况服务”，然后从列表中选择一个对象。  或者，创建一个自定义组并在其中包含要将此重写应用到的服务器的运行状况服务对象。 然后应用对自定义组的重写。
-1. 在“重写属性”对话框中，勾选“WebProxyAddress”参数旁边的“重写”列。  在“重写值”字段中，输入 Log Analytics 网关服务器的 URL。 请注意需要以前缀 `http://` 开头。  
+1. 打开 Operations Manager 控制台并选择“创作”工作区。   
+1. 在“创作”工作区中选择“规则”。  
+1. 在 Operations Manager 工具栏上，选择“范围”按钮。  如果此按钮不可用，请确保已在“监视”窗格中选择了一个对象而不是文件夹。  “范围管理包对象”对话框显示了通用目标类、组或对象的列表。  
+1. 在“查找”字段中输入“运行状况服务”，并从列表中选择该服务。   选择“确定”  。  
+1. 搜索“顾问代理设置规则”。  
+1. 在 Operations Manager 工具栏上选择“重写”，指向“重写规则\针对类的特定对象:   运行状况服务”，然后从列表中选择一个对象。  或者，创建一个自定义组并在其中包含要将此重写应用到的服务器的运行状况服务对象。 然后应用对自定义组的重写。
+1. 在“重写属性”对话框中，勾选“WebProxyAddress”参数旁边的“重写”列。     在“重写值”  字段中，输入 Log Analytics 网关服务器的 URL。 请注意需要以前缀 `http://` 开头。  
 
     >[!NOTE]
     > 不需要启用该规则。 面向 Microsoft System Center 顾问监视服务器组的 Microsoft System Center 顾问安全引用重写管理包中的某个重写会自动管理该规则。
     > 
 
-1. 从“选择目标管理包”列表中选择一个管理包，或选择“新建”创建新的未密封管理包。 
-1. 完成后，选择“确定”。 
+1. 从“选择目标管理包”列表中选择一个管理包，或选择“新建”创建新的未密封管理包。   
+1. 完成后，选择“确定”。  
 
 ### <a name="configure-for-automation-hybrid-runbook-workers"></a>配置自动化混合 Runbook 辅助角色
 如果在环境中使用自动化混合 Runbook 辅助角色，请遵循以下步骤，通过手动的临时解决方法将 OMS 网关配置为支持这些辅助角色。
 
 若要遵循本部分所述的步骤，需要知道自动化帐户所在的 Azure 区域。 若要查找该位置：
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 选择 Azure 自动化服务。
 1. 选择相应的 Azure 自动化帐户。
-1. 在“位置”下面即可查看该帐户所在的区域。
+1. 在“位置”下面即可查看该帐户所在的区域。 
 
    ![Azure 门户中自动化帐户位置的屏幕截图](./media/gateway/location.png)
 
@@ -414,7 +414,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 
 ## <a name="assistance"></a>帮助
 登录到 Azure 门户后，可以获取 Log Analytics 网关或其他任何 Azure 服务或功能的帮助。
-若要取得帮助，请选择门户右上角的问号图标，然后选择“新建支持请求”。 接下来，填写新建支持请求的表单。
+若要取得帮助，请选择门户右上角的问号图标，然后选择“新建支持请求”。  接下来，填写新建支持请求的表单。
 
 ![新支持请求的屏幕截图](./media/gateway/support.png)
 

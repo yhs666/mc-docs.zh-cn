@@ -1,20 +1,20 @@
 ---
-title: 设置 Azure Data Box| Microsoft Docs
+title: Azure Data Box 设置教程 | Microsoft Docs
 description: 了解如何为 Azure Data Box 连接电缆并连接到它
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-origin.date: 02/08/2019
-ms.date: 03/18/2019
+origin.date: 05/14/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: 750b8c4c61da7c76b60dfa9ab4fea242b6381227
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 9744112d0f717b9a384786e1f32c66f6f85a32d0
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625278"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726482"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>教程：为 Azure Data Box 连接电缆并连接到它
 
@@ -31,7 +31,7 @@ ms.locfileid: "58625278"
 在开始之前，请确保：
 
 1. 已完成[教程：订购 Azure Data Box](data-box-deploy-ordered.md)。
-2. 已收到 Data Box，并且门户中的订单状态为“已送达”。 
+2. 已收到 Data Box，并且门户中的订单状态为“已送达”。  
     - 透明袋中有一个发货标签贴在当前标签下的设备上。 请确保此标签安全，因为将使用它退回货物。
     - 欧洲的某些区域收到的设备可能会带包装盒。 请确保拆除设备的包装，并保留包装盒供回寄使用。
 3. 已看完 [Data Box 安全准则](data-box-safety.md)。
@@ -41,7 +41,7 @@ ms.locfileid: "58625278"
     - 连接到高速网络。 强烈建议你至少建立一个 10-GbE 连接。 如果 10-GbE 连接不可用，则可使用 1-GbE 数据链路，但复制速度会受影响。 
 6. 必须找到一个可以放置 Data Box 的平面。 如需将设备置于标准的机架上，则需要数据中心机架中的一个 7U 槽。 可以将设备平放或直放在机架中。
 7. 你已经采购了以下电缆，用于将 Data Box 连接到主机。
-    - 一根或多根 10-GbE SFP+ Twinax 铜线或 SFP+ 光纤电缆（用于 DATA 1、DATA 2 网络接口）。 Data Box 使用带 PCI Express 3.0 网络接口的 Mellanox ConnectX®-3 Pro EN 双端口 10GBASE-T 适配器，因此与该接口兼容的电缆都可以用。 例如，使用 CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 电缆进行内部测试。 有关详细信息，请参阅 [Mellanox 提供的支持的电缆和交换机的列表](http://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
+    - 一根或多根 10-GbE SFP+ Twinax 铜线或 SFP+ 光纤电缆（用于 DATA 1、DATA 2 网络接口）。 Data Box 使用带 PCI Express 3.0 网络接口的 Mellanox ConnectX®-3 Pro EN 双端口 10GBASE-T 适配器，因此与该接口兼容的电缆都可以用。 例如，使用 CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M 电缆进行内部测试。 有关详细信息，请参阅 [Mellanox 提供的支持的电缆和交换机的列表](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)。
     - 一根 RJ-45 CAT 6 网线（用于 MGMT 网络接口）
     - 一根 RJ-45 CAT 6A 网线或一根 RJ-45 CAT 6 网线（用于 DATA 3 网络接口，分别配置为 10 Gbps 或 1 Gbps）
 
@@ -71,21 +71,21 @@ ms.locfileid: "58625278"
 
 1. 在使用的笔记本上配置以太网适配器以通过静态 IP 地址 192.168.100.5 和子网 255.255.255.0 连接到设备。 
 2. 连接到设备的 MGMT 端口并访问其位于 https\://192.168.100.10 的本地 Web UI。 从打开设备算起，进行此连接可能需要长达 5 分钟的时间。
-3. 单击“详细信息”，然后单击“转到网页”。
+3. 单击“详细信息”  ，然后单击“转到网页”  。
 
    ![连接到本地 Web UI](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
 
-4. 此时将显示本地 Web UI 的“登录”页面。 确保设备序列号在门户 UI 和本地 Web UI 中匹配。 设备此时处于锁定状态。
+4. 此时将显示本地 Web UI 的“登录”  页面。 确保设备序列号在门户 UI 和本地 Web UI 中匹配。 设备此时处于锁定状态。
 5. 登录到 [Azure 门户](https://portal.azure.cn)。
-6. 从门户下载设备凭据。 转到“常规”>“设备详细信息”。 复制**设备密码**。 设备密码绑定到门户中的特定订单。 
+6. 从门户下载设备凭据。 转到“常规”>“设备详细信息”。  复制**设备密码**。 设备密码绑定到门户中的特定订单。 
 
     ![获取设备凭据](media/data-box-deploy-set-up/data-box-device-credentials.png)
     
     
-7. 提供你在上一步骤中从 Azure 门户获取的设备密码来登录到设备的本地 Web UI。 单击“登录” 。
-8. 在“仪表板”上，确保已配置了网络接口。 
+7. 提供你在上一步骤中从 Azure 门户获取的设备密码来登录到设备的本地 Web UI。 单击“登录”  。
+8. 在“仪表板”  上，确保已配置了网络接口。 
    - 如果你的环境中启用了 DHCP，则会自动配置网络接口。 
-   - 如果未启用 DHCP，请转到“设置网络接口”，并根据需要分配静态 IP。
+   - 如果未启用 DHCP，请转到“设置网络接口”  ，并根据需要分配静态 IP。
 
      ![设备仪表板](media/data-box-deploy-set-up/data-box-dashboard-1.png)
 

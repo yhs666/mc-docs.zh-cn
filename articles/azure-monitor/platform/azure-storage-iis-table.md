@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 385ecb4663fe491cea6401bb74eefc997a9f33ce
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: ece4738ca63e2ded09eb85344cd11e6440c3736e
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686344"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731271"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>将适用于 IIS 的 Azure Blob 存储和适用于事件的 Azure 表存储与 Azure Monitor 配合使用
 
@@ -59,17 +59,17 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 ### <a name="to-enable-azure-diagnostics-in-a-virtual-machine-with-the-azure-portal"></a>使用 Azure 门户在虚拟机中启用 Azure 诊断
 1. 创建虚拟机时安装 VM 代理。 如果虚拟机已存在，请验证 VM 代理是否已安装。
 
-   * 在 Azure 门户中，导航到虚拟机、选择“可选配置”、选择“诊断”，然后将“状态”设置为“开”。
+   * 在 Azure 门户中，导航到虚拟机、选择“可选配置”  、选择“诊断”  ，然后将“状态”  设置为“开”  。
 
      完成后，VM 已安装 Azure 诊断扩展，并且该扩展正在运行。 此扩展将负责收集诊断数据。
 2. 在现有 VM 中启用监视，并配置事件日志记录。 可以启用 VM 级别的诊断。 若要启用诊断并配置事件日志记录，请执行以下步骤：
 
    1. 选择 VM。
-   2. 单击“监视”。
-   3. 单击“诊断”。
-   4. 将“状态”设置为“开”。
+   2. 单击“监视”  。
+   3. 单击“诊断”  。
+   4. 将“状态”  设置为“开”  。
    5. 选择想要收集的每个诊断日志。
-   6. 单击 **“确定”**。
+   6. 单击 **“确定”** 。
 
 ## <a name="enable-azure-diagnostics-in-a-web-role-for-iis-log-and-event-collection"></a>在 Web 角色中为 IIS 日志和事件收集启用 Azure 诊断
 有关启用 Azure 诊断的常规步骤，请参阅[如何在云服务中启用诊断](../../cloud-services/cloud-services-dotnet-diagnostics.md)。 下面的说明使用此信息并进行自定义以用于 Log Analytics。
@@ -128,8 +128,8 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 在 Azure 门户中，导航到 Log Analytics 工作区，并执行以下任务：
 
-1. 单击“存储帐户日志”
-2. 单击“添加”任务
+1. 单击“存储帐户日志” 
+2. 单击“添加”  任务
 3. 选择包含诊断日志的存储帐户
    * 此帐户可以是经典存储帐户或 Azure 资源管理器存储帐户
 4. 选择要收集的日志的数据类型
@@ -164,7 +164,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 ```powershell
     #Connect to Azure
-    Add-AzureAccount
+    Add-AzureAccount -Environment AzureChinaCloud
 
     # settings to change:
     $wad_storage_account_name = "myStorageAccount"

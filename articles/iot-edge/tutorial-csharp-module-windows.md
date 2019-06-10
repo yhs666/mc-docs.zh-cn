@@ -4,17 +4,18 @@ description: 本教程介绍如何使用 C# 代码创建 IoT Edge 模块并将�
 services: iot-edge
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 04/23/2019
+ms.author: v-yiso
+origin.date: 04/23/2019
+ms.date: 06/17/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4832e6b21f0b0fb1d05ae9aa42da43887dc5f728
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 5af9867dce3d2aab6611e3a9d0982030914e8dc7
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424686"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732727"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C# IoT Edge 模块
 
@@ -34,11 +35,11 @@ ms.locfileid: "66424686"
 
 ## <a name="solution-scope"></a>解决方案范围
 
-本教程演示如何使用 **Visual Studio 2017** 以 **C#** 开发模块，以及如何将其部署到 **Windows 设备**。 若要开发适用于 Linux 设备的模块，请转到[开发适用于 Linux 设备的 C# IoT Edge 模块](tutorial-csharp-module.md)。 
+本教程演示如何使用 **Visual Studio 2019** 以 **C#** 开发模块，以及如何将其部署到 **Windows 设备**。 若要开发适用于 Linux 设备的模块，请转到[开发适用于 Linux 设备的 C# IoT Edge 模块](tutorial-csharp-module.md)。 
 
 使用下表了解开发 C 模块并将其部署到 Windows 设备的选项： 
 
-| C# | Visual Studio Code | Visual Studio 2017 | 
+| C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64 开发** | ![在 VS Code 中开发 WinAMD64 的 C# 模块](./media/tutorial-c-module/green-check.png) | ![在 Visual Studio 中开发 WinAMD64 的 C# 模块](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64 调试** |   | ![在 Visual Studio 中调试 WinAMD64 的 C# 模块](./media/tutorial-c-module/green-check.png) |
@@ -50,8 +51,11 @@ ms.locfileid: "66424686"
 * Azure 中的免费或标准层 [IoT 中心](../iot-hub/iot-hub-create-through-portal.md)。
 * 一个[运行 Azure IoT Edge 的 Windows 设备](quickstart.md)。
 * 一个容器注册表，例如 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
-* 配置了 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) 扩展的 [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) 版本 15.7 或更高。
+* 配置了 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 扩展的 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
 * 配置为运行 Windows 容器的 [Docker CE](https://docs.docker.com/install/)。
+
+> [!TIP]
+> 如果使用的是 Visual Studio 2017（15.7 或更高版本），请从 Visual Studio 市场下载并安装适用于 VS 2017 的 [Azure IoT Edge Tools（预览版）](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
 
 ## <a name="create-a-module-project"></a>创建模块项目
 
@@ -59,21 +63,22 @@ ms.locfileid: "66424686"
 
 ### <a name="create-a-new-project"></a>创建新项目
 
-Azure IoT Tools 扩展为 Visual Studio 2017 中支持的所有 IoT Edge 模块语言提供项目模板。 这些模板包含将工作模块部署到测试 IoT Edge 所需的所有文件和代码，或者提供一个起点让你使用自己的业务逻辑自定义模板。 
+Azure IoT Edge Tools 为 Visual Studio 中支持的所有 IoT Edge 模块语言提供项目模板。 这些模板包含将工作模块部署到测试 IoT Edge 所需的所有文件和代码，或者提供一个起点让你使用自己的业务逻辑自定义模板。 
 
-1. 以管理员身份运行 Visual Studio。
+1. 启动 Visual Studio 2019 并选择“创建新项目”  。
 
-2. 选择“文件” > “新建” > “项目”    。 
-
-3. 在“新建项目”窗口中选择“Azure IoT”项目类型，然后选择“Azure IoT Edge”项目。   重命名项目和解决方案，使名称具有描述性，例如 **CSharpTutorialApp**。 选择“确定”创建该项目。  
+2. 在“新建项目”窗口中，搜索“IoT Edge”  项目，然后选择“Azure IoT Edge (Windows amd64)”  项目。 单击“下一步”  。 
 
    ![创建新的 Azure IoT Edge 项目](./media/tutorial-csharp-module-windows/new-project.png)
+
+3. 在“配置新项目”窗口中，重命名项目和解决方案，使名称具有描述性，例如 **CSharpTutorialApp**。 单击“创建”以创建项目。  
+
+   ![配置新的 Azure IoT Edge 项目](./media/tutorial-csharp-module-windows/configure-project.png)
 
 4. 在 IoT Edge 应用程序和模块窗口中，使用以下值配置项目： 
 
    | 字段 | Value |
    | ----- | ----- |
-   | 应用程序平台 | 取消选中“Linux Amd64”，选中“WindowsAmd64”。   |
    | 选择模板 | 选择“C# 模块”。  | 
    | 模块项目名称 | 将模块命名为 **CSharpModule**。 | 
    | Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 系统已基于模块项目名称值预先填充容器映像。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/csharpmodule。 |
@@ -323,7 +328,7 @@ Azure IoT Tools 扩展为 Visual Studio 2017 中支持的所有 IoT Edge 模块�
 
 1. 在 Visual Studio Cloud Explorer 中，选择 IoT Edge 设备的名称。 
 
-2. 在“操作”列表中，选择“开始监视 D2C 消息”。   
+2. 在“操作”列表中，选择“开始监视内置事件终结点”。   
 
 3. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为在发送消息之前，对 CSharpModule 代码所做的更改需要等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。  
 

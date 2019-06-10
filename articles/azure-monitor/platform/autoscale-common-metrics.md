@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: b79bf0c0f7682aff62b232b4d3f1d40073b5cb38
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 03fda4c9b3476bd508b330f827ea0e792801fd1a
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586863"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731279"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
 
@@ -21,7 +21,7 @@ ms.locfileid: "65586863"
 
 利用 Azure 监视器自动缩放，可以根据遥测数据（指标）增加或减少正在运行的实例数。 本文档介绍了你可能想要使用的常用指标。 在 Azure 门户中，可以选择要作为缩放依据的资源指标。 不过，也可以选择其他资源的任何指标来作为缩放依据。
 
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[云服务](https://azure.microsoft.com/services/cloud-services/)、[应用服务 - Web 应用](https://azure.microsoft.com/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。 其他 Azure 服务使用不同的缩放方法。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/services/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](/api-management/api-management-key-concepts)。 其他 Azure 服务使用不同的缩放方法。
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>基于 Resource Manager 的 VM 的计算指标
 默认情况下，基于 Resource Manager 的虚拟机和虚拟机规模集发出基本（主机级）指标。 此外，为 Azure VM 和 VMSS 配置诊断数据集合时，Azure 诊断扩展也会发出来宾 OS性能计数器（通常称为“来宾 OS 指标”）。  可在自动缩放规则中使用所有这些指标。
@@ -157,7 +157,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 ## <a name="commonly-used-storage-metrics"></a>常用的存储指标
 可以将存储队列长度作为缩放依据，它是存储队列中的消息数目。 存储队列长度是一个特殊指标，阈值是每个实例的消息数。 例如，如果有两个实例并且阈值设置为 100，则当队列中的消息总数为 200 时会进行缩放。 这两个实例的消息数可能各为 100，或分别为 120 和 80，或者为其他相加大于等于 200 的数字组合。
 
-在 Azure 门户的“设置”边栏选项卡中配置此配置。 若使用 VM 规模集，可以将 Resource Manager 模板中的“自动缩放”设置更新为将 metricName 用作 ApproximateMessageCount，并传递存储队列的 ID 作为 metricResourceUri。
+在 Azure 门户的“设置”  边栏选项卡中配置此配置。 若使用 VM 规模集，可以将 Resource Manager 模板中的“自动缩放”设置更新为将 metricName  用作 ApproximateMessageCount  ，并传递存储队列的 ID 作为 metricResourceUri  。
 
 例如，对于经典存储帐户，自动缩放设置 metricTrigger 将包括：
 
@@ -178,7 +178,7 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 ## <a name="commonly-used-service-bus-metrics"></a>常用的服务总线指标
 可以按服务总线队列的长度进行缩放，该长度是服务总线队列中的消息数量。 服务总线队列长度是一个特殊指标，阈值是每个实例的消息数。 例如，如果有两个实例并且阈值设置为 100，则当队列中的消息总数为 200 时会进行缩放。 这两个实例的消息数可能各为 100，或分别为 120 和 80，或者为其他相加大于等于 200 的数字组合。
 
-若使用 VM 规模集，可以将 Resource Manager 模板中的“自动缩放”设置更新为将 metricName 用作 ApproximateMessageCount，并传递存储队列的 ID 作为 metricResourceUri。
+若使用 VM 规模集，可以将 Resource Manager 模板中的“自动缩放”设置更新为将 metricName  用作 ApproximateMessageCount  ，并传递存储队列的 ID 作为 metricResourceUri  。
 
 ```
 "metricName": "MessageCount",

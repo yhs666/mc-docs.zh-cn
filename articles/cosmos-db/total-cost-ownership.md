@@ -8,12 +8,12 @@ origin.date: 11/20/2018
 ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 22e255c07e0c6c253bc5374244b70ee0553792aa
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: bfa0803dcbd242f73ebdd890b0a5a51126b6d056
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615209"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491280"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB 的总拥有成本 (TCO)
 
@@ -31,7 +31,7 @@ Azure Cosmos DB 的无服务器预配模型消除了过度预配数据库基础�
 
 * **无需进行 NoSQL DevOps 管理：** 使用 Azure Cosmos DB 时无需采用 DevOps 来管理部署以及执行维护、缩放或修补。 可以像对本地或云基础结构中托管的 OSS NoSQL 群集所做的那样来执行所有工作负荷。
 
-![Azure Cosmos DB 拥有成本](./media/total-cost-ownership/tco.png)
+    ![Azure Cosmos DB 拥有成本](./media/total-cost-ownership/tco.png)
 
 * **可以弹性缩放：** 可以扩展和缩减 Azure Cosmos DB 吞吐量，从而在非高峰期降低拥有成本。 云基础结构中部署的 OSS NoSQL 群集提供有限的弹性，而本地部署在定义上不提供弹性。 在 Azure Cosmos DB 中，如果预配更高的吞吐量，则可以保证吞吐量呈线性扩展。 这一保证附带 SLA 的经济保障，在任何部署规模都能在 99% 的时间提供这种保证。
 

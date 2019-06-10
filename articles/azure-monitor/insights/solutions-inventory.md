@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/21/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3de353db52afcacf9bb97abacbdafe1671098d7
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: cbbb8f0c04d8f08ca6541c89a39ce49af872e312
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440579"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731455"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中的管理解决方案的数据收集详细信息
 本文包括了 Azure 提供的[管理解决方案](solutions.md)的列表以及指向其详细文档的链接。  它还提供了这些解决方案将数据收集到 Azure Monitor 中时采用的方法和频率的相关信息。  可以使用本文中的信息来了解可用的各种解决方案，并了解各种管理解决方案的数据流和连接要求。 
@@ -40,7 +40,7 @@ ms.locfileid: "56440579"
 
 
 
-| **管理解决方案** | 平台 | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
+| **管理解决方案** | 平台  | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [活动日志分析](../../azure-monitor/platform/collect-activity-logs.md) | Azure | | | | | | 通知时 |
 | [AD 评估](../../azure-monitor/insights/ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
@@ -50,14 +50,14 @@ ms.locfileid: "56440579"
 | [警报管理](../../azure-monitor/platform/alert-management-solution.md) (Zabbix) |Linux |&#8226; | | | | |1 分钟 |
 | [警报管理](../../azure-monitor/platform/alert-management-solution.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 分钟 |
 | [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | 不适用 |
-| **管理解决方案** | 平台 | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
+| **管理解决方案** | 平台  | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
 | [Azure SQL Analytics（预览版）](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 分钟 |
 | [备份](https://www.azure.cn/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 通知时 |
 | [容量和性能（预览版）](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |到达时 |
 | [密钥保管库分析](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |通知时 |
 | [网络性能监视器](../../azure-monitor/insights/network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | 每隔 5 秒钟进行 TCP 握手，每隔 3 分钟发送数据 |
 | [Office 365 分析（预览版）](solution-office-365.md) |Windows | | | | | |通知时 |
-| **管理解决方案** | 平台 | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
+| **管理解决方案** | 平台  | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
 | [服务地图](../../azure-monitor/insights/service-map.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 15 秒 |
 | [SQL 评估](../../azure-monitor/insights/sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 天 |
 | [SurfaceHub](../../azure-monitor/insights/surface-hubs.md) |Windows |&#8226; | | | | |到达时 |

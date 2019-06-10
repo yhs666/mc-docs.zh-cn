@@ -10,20 +10,20 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 01/16/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: cac76db3132579e6b2b391ff3f6c69cd214f09de
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: 48f09364e074849b4a33fa38a8da5fdd48940348
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334196"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491489"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>使用 C\# 创建你的第一个持久函数
 
 *Durable Functions* 是 [Azure Functions](../functions-overview.md) 的一个扩展，可用于在无服务器环境中编写有状态函数。 该扩展可用于管理状态、检查点和重启。
 
-本文介绍了如何使用 Azure Functions 的 Visual Studio 2017 工具在本地创建并测试“hello world”持久函数。  此函数将协调对其他函数的调用并将其链接在一起。 然后将函数代码发布到 Azure。 Visual Studio 2017 中的 Azure 开发工作负荷已随附这些工具。
+本文介绍了如何使用 Azure Functions 的 Visual Studio 2019 工具在本地创建并测试“hello world”持久函数。  此函数将协调对其他函数的调用并将其链接在一起。 然后将函数代码发布到 Azure。 Visual Studio 2019 中的 Azure 开发工作负荷已随附这些工具。
 
 ![在 Azure 中运行持久函数](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -31,11 +31,11 @@ ms.locfileid: "54334196"
 
 完成本教程：
 
-- 安装 [Visual Studio 2017](/downloads/)。 确保还安装了 **Azure 开发**工作负荷。
+* 安装 [Visual Studio 2019](/downloads/)。 确保还安装了 **Azure 开发**工作负荷。
 
-- 请确保你有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
+* 请确保你有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
 
-- 验证 [Azure 存储模拟器](../../storage/common/storage-use-emulator.md)是否已安装且正在运行。
+* 验证 [Azure 存储模拟器](../../storage/common/storage-use-emulator.md)是否已安装且正在运行。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -43,9 +43,9 @@ ms.locfileid: "54334196"
 
 Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函数应用。 函数应用可将函数分组为一个逻辑单元，以用于管理、部署和共享资源。
 
-1. 在 Visual Studio 中，从“文件”菜单中选择“新建” > “项目”。
+1. 在 Visual Studio 中，从“文件”  菜单中选择“新建”   > “项目”  。
 
-2. 在“新建项目”对话框中，选择“已安装”，展开“Visual C#” > “云”，选择“Azure Functions”，键入项目的“名称”，然后单击“确定”。 函数应用名称必须可以充当 C# 命名空间，因此请勿使用下划线、连字符或任何其他的非字母数字字符。
+2. 在“新建项目”  对话框中，选择“已安装”  ，展开“Visual C#”   > “云”  ，选择“Azure Functions”  ，键入项目的“名称”  ，然后单击“确定”  。 函数应用名称必须可以充当 C# 命名空间，因此请勿使用下划线、连字符或任何其他的非字母数字字符。
 
     ![“新建项目”对话框，用于在 Visual Studio 中创建函数](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
@@ -59,19 +59,19 @@ Azure Functions 模板创建一个项目，该项目可发布到 Azure 中的函
     | **模板** | 空 | 创建一个空的函数应用。 |
     | **存储帐户**  | 存储模拟器 | 要进行持久函数状态管理，需要一个存储帐户。 |
 
-4. 单击“确定”以创建一个空的函数项目。 此项目具有运行函数所需的基本配置文件。
+4. 单击“确定”  以创建一个空的函数项目。 此项目具有运行函数所需的基本配置文件。
 
 ## <a name="add-functions-to-the-app"></a>向应用中添加函数
 
 以下步骤使用模板在项目中创建持久函数代码。
 
-1. 在 Visual Studio 中右键单击该项目并选择“添加” > “新建 Azure 函数”。
+1. 在 Visual Studio 中右键单击该项目并选择“添加” > “新建 Azure 函数”。  
 
     ![添加新函数](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. 在添加菜单中确认选择“Azure 函数”，并为你的 C# 文件提供一个名称。  按“添加”。
+2. 在添加菜单中确认选择“Azure 函数”  ，并为你的 C# 文件提供一个名称。  按“添加”  。
 
-3. 选择“Durable Functions 业务流程”模板并单击“确定”
+3. 选择“Durable Functions 业务流程”  模板并单击“确定” 
 
     ![选择持久模板](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

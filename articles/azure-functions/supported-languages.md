@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 08/02/2018
-ms.date: 12/27/2018
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 19ed76099ff5bc01a364998fc3eb974d2f7545e0
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: c39111d19946c7c8411db494ece30079617d3e86
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806488"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491431"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions 中支持的语言
 
@@ -26,9 +26,9 @@ ms.locfileid: "53806488"
 
 有三个支持级别：
 
-- **正式发布 (GA)** - 完全支持并获得批准在生产中使用。
-- **预览** - 尚不支持，但将来应达到 GA 状态。
-- **实验性** - 不支持，将来可能会弃用；不保证最终达到预览或 GA 状态。
+* **正式发布 (GA)** - 完全支持并获得批准在生产中使用。
+* **预览** - 尚不支持，但将来应达到 GA 状态。
+* **实验性** - 不支持，将来可能会弃用；不保证最终达到预览或 GA 状态。
 
 ## <a name="languages-in-runtime-1x-and-2x"></a>运行时 1.x 和 2.x 中的语言
 
@@ -38,7 +38,7 @@ ms.locfileid: "53806488"
 
 ### <a name="experimental-languages"></a>实验性语言
 
-1.x 版中的实验性语言扩展性不好，并且不支持所有绑定。 例如，对 1.x PowerShell 的实验支持仅限于 5.1 版，因为运行函数应用的 VM 上只默认安装了该版本。 如果要运行 PowerShell 脚本，请考虑 [Azure 自动化](https://www.azure.cn/home/features/automation/)。
+1.x 版中的实验性语言扩展性不好，并且不支持所有绑定。
 
 不要对所依赖的任何内容使用实验性功能，因为对其没有官方支持。 不应针对实验性语言的问题开启支持案例。 
 

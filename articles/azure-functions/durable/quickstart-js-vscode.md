@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 11/07/2018
-ms.date: 02/21/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: 91afe38b502393c2205d7f294db241de5eadd5a2
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c4945a8082a2b031099538a5e6a66e31866db155
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625523"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491512"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>使用 JavaScript 创建你的第一个持久函数
 
@@ -31,13 +31,13 @@ ms.locfileid: "58625523"
 
 完成本教程：
 
-- 安装 [Visual Studio Code](https://code.visualstudio.com/download)。
+* 安装 [Visual Studio Code](https://code.visualstudio.com/download)。
 
-- 请确保你有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
+* 请确保你有[最新的 Azure Functions 工具](../functions-develop-vs.md#check-your-tools-version)。
 
-- 在 Windows 计算机上，验证 [Azure 存储模拟器](../../storage/common/storage-use-emulator.md)是否已安装且正在运行。 在 Mac 或 Linux 计算机上，必须使用实际的 Azure 存储帐户。
+* 在 Windows 计算机上，验证 [Azure 存储模拟器](../../storage/common/storage-use-emulator.md)是否已安装且正在运行。 在 Mac 或 Linux 计算机上，必须使用实际的 Azure 存储帐户。
 
-- 请确保安装 8.0 版或更高版本的 [Node.js](https://nodejs.org/)。
+* 请确保安装 8.0 版或更高版本的 [Node.js](https://nodejs.org/)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -57,11 +57,11 @@ ms.locfileid: "58625523"
 
     ![创建函数](./media/quickstart-js-vscode/create-function.png)
 
-2. 选择包含函数应用项目的文件夹，然后选择“HTTP 触发器”函数模板。
+2. 选择包含函数应用项目的文件夹，然后选择“HTTP 触发器”  函数模板。
 
     ![选择 HTTP 触发器模板](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. 键入 `HttpStart` 作为函数名称，然后按 Enter，然后选择“匿名”身份验证。
+3. 键入 `HttpStart` 作为函数名称，然后按 Enter，然后选择“匿名”  身份验证。
 
     ![选择匿名身份验证](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 
@@ -176,14 +176,16 @@ ms.locfileid: "58625523"
 
 使用 Azure Functions Core Tools 可以在本地开发计算机上运行 Azure Functions 项目。 首次从 Visual Studio Code 启动某个函数时，系统会提示你安装这些工具。  
 
-1. 在 Windows 计算机上，启动 Azure 存储模拟器并确保将 local.settings.json 的 **AzureWebJobsStorage** 属性设置为 `UseDevelopmentStorage=true`。 在 Mac 或 Linux 计算机上，必须将 **AzureWebJobsStorage** 属性设置为现有 Azure 存储帐户的连接字符串。 本文中稍后将创建一个存储帐户。
+1. 在 Windows 计算机上，启动 Azure 存储模拟器并确保将 local.settings.json 的 **AzureWebJobsStorage** 属性设置为 `UseDevelopmentStorage=true`。 
 
-2. 若要测试函数，请在函数代码中设置断点并按 F5 启动函数应用项目。 来自 Core Tools 的输出会显示在“终端”面板中。 如果这是你首次使用 Durable Functions，则会安装 Durable Functions 扩展并且生成可能需要几秒钟时间。
+    对于存储模拟器 5.8，请确保将 local.settings.json 的 **AzureWebJobsSecretStorageType** 属性设置为 `files`。 在 Mac 或 Linux 计算机上，必须将 **AzureWebJobsStorage** 属性设置为现有 Azure 存储帐户的连接字符串。 本文中稍后将创建一个存储帐户。
+
+2. 若要测试函数，请在函数代码中设置断点并按 F5 启动函数应用项目。 来自 Core Tools 的输出会显示在“终端”  面板中。 如果这是你首次使用 Durable Functions，则会安装 Durable Functions 扩展并且生成可能需要几秒钟时间。
 
     > [!NOTE]
-    > JavaScript Durable Functions 需要 1.7.0 版或更高版本的 Microsoft.Azure.WebJobs.Extensions.DurableTask 扩展。 验证 `extensions.csproj` 文件中 Durable Functions 扩展的版本是否满足此要求。 如果不满足要求，请停止函数应用，更改版本，然后按 F5 重启函数应用。
+    > JavaScript Durable Functions 需要 1.7.0 版或更高版本的 Microsoft.Azure.WebJobs.Extensions.DurableTask 扩展   。 从你的 Azure Functions 应用的根文件夹运行以下命令来安装 Durable Functions 扩展 `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
-3. 在“终端”面板中，复制 HTTP 触发的函数的 URL 终结点。
+3. 在“终端”  面板中，复制 HTTP 触发的函数的 URL 终结点。
 
     ![Azure 本地输出](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
@@ -191,7 +193,29 @@ ms.locfileid: "58625523"
 
 5. 使用 [Postman](https://www.getpostman.com/) 或 [cURL](https://curl.haxx.se/) 之类的工具向 URL 终结点发送一个 HTTP POST 请求。
 
-6. 若要停止调试，请在 VS Code 中按 Shift + F1。
+   响应是来自 HTTP 函数的初始结果，让我们知道持久业务流程已成功启动。 它还不是业务流程的最终结果。 响应中包括了几个有用的 URL。 现在，让我们查询业务流程的状态。
+
+6. 复制 `statusQueryGetUri` 的 URL 值，将其粘贴到浏览器的地址栏中并执行请求。 或者也可以继续使用 Postman 发出 GET 请求。
+
+   请求将查询业务流程实例的状态。 你应该会得到一个最终响应，它显示实例已经完成，并包含持久函数的输出或结果。 输出如下所示： 
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. 若要停止调试，请在 VS Code 中按 **Shift + F5**。
 
 确认该函数可以在本地计算机上正确运行以后，即可将项目发布到 Azure。
 
@@ -201,7 +225,7 @@ ms.locfileid: "58625523"
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中测试函数
 
-1. 从“输出”面板复制 HTTP 触发器的 URL。 调用 HTTP 触发的函数的 URL 应采用以下格式：
+1. 从“输出”  面板复制 HTTP 触发器的 URL。 调用 HTTP 触发的函数的 URL 应采用以下格式：
 
         http://<functionappname>.chinacloudsites.cn/orchestrators/<functionname>
 

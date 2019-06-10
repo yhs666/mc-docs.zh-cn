@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 14f1c0f6633456b7fc26a75b3f1dd28020b912b3
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 4cd8d8af7d6c2da988d5853f9b43a2298d3321f7
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686316"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731341"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
@@ -110,7 +110,7 @@ Azure Monitor 现在支持[新型指标警报类型](../../azure-monitor/platfor
       "resourceName": "diag500",
       "resourceType": "Microsoft.Storage/storageAccounts",
       "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+      "portalLink": "https://portal.azure.cn/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
     },
     "properties": {
       "key1": "value1",

@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: d270457446906aabbe8903817c0499cccf883b37
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 36e503e42875dfd629452669245adb8ab9d586ca
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566348"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731208"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -26,34 +26,34 @@ ms.locfileid: "59566348"
 ## <a name="prerequisites"></a>先决条件
 若要完成本快速入门教程，需先执行以下操作：
 
-- 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用以下工作负荷安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 开发
     - Azure 开发
 
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/free/)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="enable-application-insights"></a>启用 Application Insights
 
-1. 在 Visual Studio 2017 中打开项目。
-2. 从“项目”菜单中选择“配置 Application Insights”。 Visual Studio 会将 Application Insights SDK 添加到应用程序。
+1. 在 Visual Studio 2019 中打开你的项目。
+2. 从“项目”菜单中选择“配置 Application Insights”  。 Visual Studio 会将 Application Insights SDK 添加到应用程序。
 
     > [!IMPORTANT]
-    > 添加 Application Insights 的过程因 ASP.NET 模板类型而异。 若要使用“空”或“Azure 移动应用”模板，请选择“项目” > “添加 Application Insights 遥测”。 有关所有其他 ASP.NET 模板，请参阅上述步骤中的说明。 
+    > 添加 Application Insights 的过程因 ASP.NET 模板类型而异。 若要使用“空”或“Azure 移动应用”模板，   请选择“项目”   >   “添加 Application Insights 遥测”。 有关所有其他 ASP.NET 模板，请参阅上述步骤中的说明。 
 
-3. 单击“开始使用”（早期版本的 Visual Studio 会改为使用“免费开始”按钮）。
+3. 单击“开始使用”  （早期版本的 Visual Studio 会改为使用“免费开始”  按钮）。
 
     ![将 Application Insights 添加到 Visual Studio](./media/quick-monitor-portal/add-application-insights-b.png)
 
-4. 选择订阅并单击“注册”。
+4. 选择订阅并单击“注册”  。
 
-5. 通过从“调试”菜单中选择“启动调试”或通过按 F5 键来运行应用程序。
+5. 通过从“调试”  菜单中选择“启动调试”  或通过按 F5 键来运行应用程序。
 
 ## <a name="confirm-app-configuration"></a>确认应用配置
 
 Application Insights 收集应用程序的遥测数据，而不考虑应用程序在何处运行。 按照以下步骤开始查看此数据。
 
-1. 通过单击“查看” -> “其他 Windows” -> “Application Insights 搜索”打开 Application Insights。  从当前会话查看遥测数据。<BR><br>![Visual Studio 中的遥测](./media/quick-monitor-portal/telemetry-in-vs.png)
+1. 通过单击“查看”   -> “其他 Windows”   -> “Application Insights 搜索”  打开 Application Insights。  从当前会话查看遥测数据。<BR><br>![Visual Studio 中的遥测](./media/quick-monitor-portal/telemetry-in-vs.png)
 
 2. 单击列表中的第一个请求（在此示例中为“获取主页/索引”）查看请求详细信息。 请注意，包含状态代码和响应时间以及有关请求的其他重要信息。<br><br>![Visual Studio 中的响应详细信息](media/quick-monitor-portal/request-details.png)
 
@@ -61,19 +61,19 @@ Application Insights 收集应用程序的遥测数据，而不考虑应用程�
 
 现在可以在 Azure 门户中打开 Application Insights，查看有关正在运行的应用程序的各种详细信息。
 
-1. 在解决方案资源管理器中展开“连接的服务”文件夹（云和插头图标），然后右键单击 **Application Insights** 文件夹，单击“打开 Application Insights 门户”。  可以看到有关应用程序的一些信息和各种选项。
+1. 在解决方案资源管理器中展开“连接的服务”文件夹  （云和插头图标），然后右键单击 **Application Insights** 文件夹，单击“打开 Application Insights 门户”。   可以看到有关应用程序的一些信息和各种选项。
 
     ![应用程序地图](media/quick-monitor-portal/4overview.png)
 
-2. 单击“应用程序映射”以获取应用程序组件之间依赖关系的可视布局。  每个组件均显示 KPI，如负载、性能、失败和警报。
+2. 单击“应用程序映射”  以获取应用程序组件之间依赖关系的可视布局。  每个组件均显示 KPI，如负载、性能、失败和警报。
 
     ![应用程序地图](media/quick-monitor-portal/5appmap.png)
 
-3. 单击应用程序组件之一上的“应用分析”图标 ![应用程序映射](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中查看**。 这将打开“Application Insights Analytics”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。  在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
+3. 单击应用程序组件之一上的“应用分析”  图标 ![应用程序映射](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中查看**。 这将打开“Application Insights Analytics”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。  在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
     ![分析](media/quick-monitor-portal/6viewanalytics.png)
 
-4. 在“调查”下，单击左侧的“实时指标流”。 这将显示有关正在运行的应用程序的实时统计信息。 这包括传入请求数、这些请求的持续时间和发生的任何故障等信息。 还可以检查处理器和内存等关键性能指标。
+4. 在“调查”下，单击左侧的“实时指标流”。  这将显示有关正在运行的应用程序的实时统计信息。 这包括传入请求数、这些请求的持续时间和发生的任何故障等信息。 还可以检查处理器和内存等关键性能指标。
 
     ![实时流](media/quick-monitor-portal/7livemetrics.png)
 

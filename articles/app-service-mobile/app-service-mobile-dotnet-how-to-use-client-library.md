@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/04/2017
 ms.author: v-biyu
 ms.date: 01/07/2019
-ms.openlocfilehash: 0dcdd5b8aa6db62204950e0ecc4311d6f5699c44
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 003d36c265fb0bf11bcd5bf2988f9d881c31e9a9
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627731"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687463"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 
@@ -68,13 +68,13 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 用于定义客户端字段与表字段之间的 *PropertyName* 映射。
 
-若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。 如果已在 Azure 门户中使用快速入门项目创建移动应用后端，则也可以在 [Azure 门户]中使用“简易表”设置。
+若要了解如何在移动应用后端中创建表，请参阅 [.NET 服务器 SDK 主题][7]或 [Node.js 服务器 SDK 主题][8]。 如果已在 Azure 门户中使用快速入门项目创建移动应用后端，则也可以在 [Azure 门户]中使用“简易表”  设置。
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>如何：安装托管客户端 SDK 包
 使用以下方法之一从 [NuGet][9] 安装移动应用的托管客户端 SDK 包：
 
-* **Visual Studio** 右键单击项目，单击“管理 NuGet 包”，搜索 `Microsoft.Azure.Mobile.Client` 包，并单击“安装”。
-* **Xamarin Studio** 右键单击项目，单击“添加”>“添加 NuGet 包”，搜索 `Microsoft.Azure.Mobile.Client ` 包，并单击“添加包”。
+* **Visual Studio** 右键单击项目，单击“管理 NuGet 包”  ，搜索 `Microsoft.Azure.Mobile.Client` 包，并单击“安装”  。
+* **Xamarin Studio** 右键单击项目，单击“添加”>“添加 NuGet 包”，搜索 `Microsoft.Azure.Mobile.Client ` 包，并单击“添加包”    。
 
 在主活动文件中，请记得添加以下 **using** 语句：
 
@@ -109,7 +109,7 @@ var client = new MobileServiceClient("MOBILE_APP_URL");
 * [按 ID 查找记录](#lookingup)
 * [处理非类型化查询](#untypedqueries)
 * [插入数据](#inserting)
-* [更新数据](#updating)
+* 更新数据
 * [删除数据](#deleting)
 * [冲突解决和乐观并发](#optimisticconcurrency)
 * [绑定到 Windows 用户界面](#binding)
@@ -523,13 +523,13 @@ PullOptions pullOptions = new PullOptions
 ## <a name="#offlinesync"></a>使用脱机表
 脱机表使用本地 SQLite 存储来存储数据，供脱机时使用。  所有表操作都针对本地 SQLite 存储（而不是远程服务器存储）完成。  若要创建脱机表，首先应准备项目：
 
-1. 在 Visual Studio 中，右键单击解决方案，再单击“管理解决方案的 NuGet 包…”，然后在解决方案的所有项目中搜索并安装 Microsoft.Azure.Mobile.Client.SQLiteStore NuGet 包。
+1. 在 Visual Studio 中，右键单击解决方案，再单击“管理解决方案的 NuGet 包…”  ，然后在解决方案的所有项目中搜索并安装 Microsoft.Azure.Mobile.Client.SQLiteStore  NuGet 包。
 2. （可选）若要支持 Windows 设备，请安装以下 SQLite 运行时包之一：
 
    * **Windows 8.1 运行时：** 安装 [SQLite for Windows 8.1][3]。
    * **Windows Phone 8.1：** 安装 [SQLite for Windows Phone 8.1][4]。
    * **通用 Windows 平台** 安装 [适用于通用 Windows 的 SQLite][5]。
-3. （可选）。 对于 Windows 设备，单击“引用” > “添加引用...”，展开 “Windows”文件夹 >“扩展”，然后启用相应的 SQLite for Windows SDK 和 Visual C++ 2013 Runtime for Windows SDK。
+3. （可选）。 对于 Windows 设备，单击“引用”   > “添加引用...”  ，展开  “Windows”文件夹 >“扩展”  ，然后启用相应的 SQLite for Windows  SDK 和 Visual C++ 2013 Runtime for Windows  SDK。
     每个 Windows 平台的 SQLite SDK 名称略有不同。
 
 创建表引用前，必须先准备本地存储：
@@ -632,7 +632,7 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 ## <a name="authentication"></a>对用户进行身份验证
 移动应用支持使用各种外部标识提供者对应用用户进行身份验证和授权：Facebook、Google、Microsoft Account、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [向应用程序添加身份验证]教程。
 
-支持两种身份验证流：client-managed 和 server-managed 流。 服务器托管的流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
+支持两种身份验证流：client-managed 和 server-managed 流   。 服务器托管的流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端托管流依赖于提供者和设备特定的 SDK，因此允许与设备特定的功能进行更深入的集成。
 
 > [!NOTE]
 > 建议在生产应用中使用客户端托管流。
@@ -661,10 +661,10 @@ InvokeApiAsync() 方法在想要调用的 API 前附加“/api/”，除非 API 
 3. 根据使用的平台，将以下代码添加到应用程序。 在每条代码中进行以下替换：
 
     * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
-    * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
+    * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”  下面的“高级”  选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done*。
+   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done* 。
 
      每个平台所需的代码如下：
 
@@ -890,7 +890,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("MicrosoftAccount", client.currentUser.UserId));
 ```
 
-Xamarin 应用使用 [Xamarin.Auth] API 将凭据安全存储在 Account 对象中。 有关使用这些 API 的示例，请参阅 [ContosoMoments 照片分享示例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 代码文件。
+Xamarin 应用使用 [Xamarin.Auth] API 将凭据安全存储在 Account  对象中。 有关使用这些 API 的示例，请参阅 [ContosoMoments 照片分享示例](https://github.com/azure-appservice-samples/ContosoMoments)中的 [AuthStore.cs] 代码文件。
 
 使用客户端托管的身份验证时，也可以缓存从提供者（例如 MicrosoftAccount）获取的访问令牌。 可以提供此令牌，从后端请求新的身份验证令牌，如下所示：
 
@@ -928,18 +928,18 @@ private async void InitNotificationsAsync()
 如果要推送到 WNS，必须 [获取 Windows 应用商店包 SID](#package-sid)。  有关 Windows 应用的详细信息，包括如何注册模板，请参阅[向应用添加推送通知]。
 
 不支持从客户端请求标记。  注册时将静默删除标记请求。
-如果想要使用标记注册设备，请创建自定义 API，使用通知中心 API 自动执行注册。  [调用自定义 API](#customapi) 而不是 `RegisterNativeAsync()` 方法。
+如果想要使用标记注册设备，请创建自定义 API，使用通知中心 API 自动执行注册。  调用自定义 API 而不是 `RegisterNativeAsync()` 方法。
 
 ### <a name="package-sid"></a>如何：获取 Windows 应用商店包 SID
 在 Windows 应用商店应用中启用推送通知需有包 SID。  若要接收包 SID，请向 Windows 应用商店注册应用程序。
 
 若要获取此值，请执行以下操作：
 
-1. 在“Visual Studio 解决方案资源管理器”中，右键单击 Windows 应用商店应用项目，再单击“应用商店” > “将应用与应用商店关联...”。
-2. 在向导中，单击“下一步”，使用 Microsoft 帐户登录，在“保留新应用名称”中键入应用的名称，然后单击“保留”。
-3. 成功创建应用注册后，选择应用名称，再依次单击“下一步”和“关联”。
-4. 使用 Microsoft 帐户登录到 [Windows 开发人员中心]。 在“我的应用”下面，单击创建的应用注册。
-5. 单击“应用管理” > “应用标识”，然后向下滚动找到“包 SID”。
+1. 在“Visual Studio 解决方案资源管理器”中，右键单击 Windows 应用商店应用项目，再单击“应用商店”   > “将应用与应用商店关联...”  。
+2. 在向导中，单击“下一步”  ，使用 Microsoft 帐户登录，在“保留新应用名称”  中键入应用的名称，然后单击“保留”  。
+3. 成功创建应用注册后，选择应用名称，再依次单击“下一步”  和“关联”  。
+4. 使用 Microsoft 帐户登录到 [Windows 开发人员中心]。 在“我的应用”  下面，单击创建的应用注册。
+5. 单击“应用管理”   > “应用标识”  ，然后向下滚动找到“包 SID”  。
 
 包 SID 的许多用法将其视为 URI，在这种情况下，需要使用 *ms-app://* 作为方案。 记下包 SID 的版本，其中串联了此值作为前缀。
 
@@ -981,7 +981,7 @@ Xamarin 应用需要一些额外的代码才能注册 iOS 或 Android 平台上�
     }
 ```
 
-方法 RegisterAsync() 也接受辅助磁贴：
+方法 RegisterAsync()  也接受辅助磁贴：
 
 ```
     MobileService.GetPush().RegisterAsync(string channelUri, JObject templates, JObject secondaryTiles);

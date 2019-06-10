@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 02/25/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: d33922675b6bf53442d3dd5c512573f06c2df623
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f3aad9d1ec9355cb4485675503c09e0d4ccc7a0c
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625539"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726514"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 安全性和数据保护
 
@@ -33,6 +33,8 @@ Azure Data Box 解决方案由四个彼此交互的主要组件构成：
 
 ![Data Box 安全性](media/data-box-security/data-box-security-2.png)
 
+在数据流经此解决方案时，将会记录事件并生成日志。 有关详细信息，请转到 [Azure Data Box 的跟踪和事件日志记录](data-box-logs.md)。
+
 ## <a name="security-features"></a>安全功能
 
 Data Box 确保只有经过授权的实体能够查看、修改或删除你的数据，为数据保护提供安全的解决方案。 此解决方案的安全功能适用于该磁盘，以及用于确保磁盘中存储的数据安全性的关联服务。 
@@ -47,15 +49,15 @@ Data Box 设备由以下功能提供保护：
 - 仅运行 Data Box 特定的软件。
 - 在锁定状态下启动。
 - 通过设备解锁密码控制设备访问。
-- 访问凭据，用于将数据复制到和复制出设备。
+- 访问凭据，用于将数据复制到和复制出设备。 对 Azure 门户中的“设备凭据”  页面的所有访问都将记录在[活动日志](data-box-logs.md#query-activity-logs-during-setup)中。
 
 ### <a name="data-box-data-protection"></a>Data Box 数据保护
 
 流入和流出 Data Box 的数据由以下功能提供保护：
 
-- 用于静态数据的 AES 256 位加密。 
+- 用于静态数据的 AES 256 位加密。
 - 可以为传输中数据使用加密的协议。
-- 将数据上传到 Azure 后，从设备中安全擦除数据。 数据擦除根据 NIST 800-88r1 标准进行。
+- 将数据上传到 Azure 后，从设备中安全擦除数据。 数据擦除根据 NIST 800-88r1 标准进行。 数据擦除事件将记录在[订单历史记录](data-box-logs.md#download-order-history)中。
 
 ### <a name="data-box-service-protection"></a>Data Box 服务保护
 
@@ -63,8 +65,9 @@ Data Box 服务受以下功能的保护。
 
 - 访问 Data Box 服务要求组织具备包含 Data Box 在内的 Azure 订阅。 订阅决定可以在 Azure 门户中访问的功能。
 - 由于 Data Box 服务在 Azure 中托管，因此受 Azure 安全功能的保护。 有关 Azure 提供的安全功能的详细信息，请转到 [Azure 信任中心](https://www.trustcenter.cn/)。 
-- Data Box 服务会存储用来解锁服务中的设备的解锁密码。 
-- Data box 服务在服务中存储订单详细信息和状态。 删除订单会删除这些信息。 
+- 可以通过使用基于角色的访问控制 (RBAC) 角色来控制对 Data Box 订单的访问。 有关详细信息，请参阅[设置对 Data Box 订单的访问控制](data-box-logs.md#set-up-access-control-on-the-order)
+- Data Box 服务会存储用来解锁服务中的设备的解锁密码。
+- Data box 服务在服务中存储订单详细信息和状态。 删除订单会删除这些信息。
 
 ## <a name="managing-personal-data"></a>管理个人数据
 
@@ -98,11 +101,11 @@ Data Box 中实现了以下安全准则：
 
 |准则   |说明   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | 防水防尘保护         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | 防水防尘保护         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | 对不利运输条件的承受力          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 安全的固件更新         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | 安全的固件更新         |
 |[FIPS 140-2 级别 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | 数据保护         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 数据清理         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | 数据清理         |
 
 ## <a name="next-steps"></a>后续步骤
 

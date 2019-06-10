@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 3b505f2849d8ac8425e0449f37df4b019b27a570
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 9ec66381e1de8e63fb4d244282866a194d794586
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586645"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731290"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)（称为“WAD”或“诊断”）支持从作为虚拟机、云服务或 Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）中收集指标和日志。 该扩展可将遥测数据发送到[许多不同的位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
+Azure Monitor [诊断扩展](../../azure-monitor/platform/diagnostics-extension-overview.md)（称为“WAD”或“诊断”）支持从作为虚拟机、云服务或 Service Fabric 群集的一部分运行的来宾操作系统（来宾 OS）中收集指标和日志。 该扩展可将遥测数据发送到[许多不同的位置](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)。
 
 本文介绍将 Windows 虚拟机（经典）的来宾 OS 性能指标发送到 Azure Monitor 指标存储的过程。 自诊断版本 1.11 版起，可将指标直接写入已收集标准平台指标的 Azure Monitor 指标存储。 
 
@@ -40,7 +40,7 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 
 1. 创建此 VM 时，请选择创建新经典存储帐户的选项。 我们会在后面的步骤中使用此存储帐户。
 
-1. 在 Azure 门户中，转到“存储帐户”资源边栏选项卡。 选择“密钥”，并记下存储帐户名称和存储帐户密钥。 在后续步骤中需要使用此信息。
+1. 在 Azure 门户中，转到“存储帐户”资源边栏选项卡。  选择“密钥”，并记下存储帐户名称和存储帐户密钥。  在后续步骤中需要使用此信息。
    ![存储访问密钥](./media/collect-custom-metrics-guestos-vm-classic/storage-access-keys.png)
 
 ## <a name="create-a-service-principal"></a>创建服务主体
@@ -185,17 +185,17 @@ Azure Monitor [诊断扩展](https://docs.microsoft.com/azure/monitoring-and-dia
 
 1.  转到 Azure 门户。 
 
-1.  在左侧菜单中，选择“监视”。
+1.  在左侧菜单中，选择“监视”  。
 
-1.  在“监视”边栏选项卡上选择“指标”。
+1.  在“监视”边栏选项卡上选择“指标”   。
 
     ![导航指标](./media/collect-custom-metrics-guestos-vm-classic/navigate-metrics.png)
 
 1. 在资源下拉菜单中，选择你的经典 VM。
 
-1. 在命名空间下拉菜单中，选择“azure.vm.windows.guest”。
+1. 在命名空间下拉菜单中，选择“azure.vm.windows.guest”。 
 
-1. 在指标下拉菜单中，选择“内存\已提交的使用字节数”。
+1. 在指标下拉菜单中，选择“内存\已提交的使用字节数”。 
    ![绘制指标图表](./media/collect-custom-metrics-guestos-vm-classic/plot-metrics.png)
 
 

@@ -5,19 +5,19 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 2e77826c021c57ca8db07ccf88dcaefa744911af
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 147464f408c2ea1c824a2758e055432f061b805a
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686418"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731478"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
-Azure Monitor 提供了获取 Azure 环境中所有监视数据访问权限的单一管道，让你能够轻松设置合作伙伴 SIEM 和监视工具以使用该数据。 本文将演练如何将 Azure 环境中的不同数据层设置为发送到单个事件中心命名空间或事件中心，以便由外部工具收集。
+本文将演练如何将 Azure 环境中的不同数据层设置为发送到单个事件中心命名空间或事件中心，以便由外部工具收集。
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -26,6 +26,7 @@ Azure Monitor 提供了获取 Azure 环境中所有监视数据访问权限的�
 在 Azure 环境中，有多“层”监视数据，访问每层数据的方法略有不同。 通常情况下，这些层可描述为：
 
 - **应用程序监视数据：** 有关已编写并在 Azure 上运行的代码的性能和功能的数据。 应用程序监视数据的示例包括性能跟踪、应用程序日志及用户遥测数据。 通常以下列的一种方式收集应用程序监视数据：
+  - 用 [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md) 等 SDK 检测代码。
    - 运行一个监视代理（如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)），以便侦听运行应用程序的计算机上的新应用程序日志。
 - **来宾 OS 监视数据：** 有关运行应用程序的操作系统的数据。 来宾 OS 监视数据的示例有 Linux syslog 或 Windows 系统日志。 若要收集此类型的数据，需安装代理，如[ Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
 - **Azure 资源监视数据：** 有关 Azure 资源操作的数据。 对于某些 Azure 资源类型（如虚拟机），该 Azure 服务中会监视来宾 OS 和应用程序。 对于其他 Azure 资源（如网络安全组），资源监视数据是可用数据的最高层（因为没有 来宾 OS 或应用程序在这些资源中运行）。 可以使用[资源诊断设置](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)收集这些数据。
@@ -95,6 +96,13 @@ Azure 资源将发出两种类型的监视数据：
 > [!NOTE]
 > 不能在门户中将来宾 OS 监视数据设置为流式传输到事件中心。 相反，必须手动编辑配置文件。
 
+## <a name="application-monitoring-data"></a>应用程序监视数据
+
+应用程序监视数据要求代码经过 SDK 检测，因此没有将应用程序监视数据路由到 Azure 中事件中心的通用解决方案。 但是，[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 是一项可用于收集 Azure 应用程序级数据的服务。 如果使用 Application Insights，可通过执行以下操作，将监视数据流式传输到事件中心：
+
+1. 将 Application Insights 数据[设置为连续导出](../../azure-monitor/app/export-telemetry.md)到存储帐户。
+
+2. 设置计时器触发逻辑应用，[从 blob 存储拉取数据](../../connectors/connectors-create-api-azureblobstorage.md#add-action)并[将其作为消息推送到事件中心](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)。
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>可对发送到事件中心的监视数据执行什么操作？
 

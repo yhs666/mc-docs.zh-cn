@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 7417081abd344c90e60d243ba5d71624a5fcdfaa
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 4891c06ad9153f42471c919b6a681a6b6ecbda1f
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586857"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731281"
 ---
 # <a name="archive-the-azure-activity-log"></a>存档 Azure 活动日志
-本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)存档到存储帐户中。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
+本文介绍如何使用 Azure 门户、PowerShell Cmdlet 或跨平台 CLI 将 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)存档到存储帐户中  。 此选项适用于对保留时长超过 90 天的活动日志进行审核、静态分析或备份（对保留策略具备完全控制权限）。 如果只需将事件保留 90 天或更短的时间，则不需设置到存储帐户的存档，因为在不启用存档的情况下，活动日志事件保留在 Azure 平台中的时间是 90 天。
 
 ## <a name="prerequisites"></a>先决条件
 在开始之前，需要[创建存储帐户](../../storage/common/storage-quickstart-create-account.md)，将活动日志存档到其中。 强烈建议用户不要使用其中存储了其他非监视数据的现有存储帐户，以便更好地控制监视数据所需的访问权限。 但是，如果还要将诊断日志和指标存档到存储帐户，则也可将该存储帐户用于活动日志，使得所有监视数据都位于一个中心位置。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必位于发出日志的的订阅中。
@@ -25,17 +25,17 @@ ms.locfileid: "65586857"
 若要使用下述任意方法存档活动日志，可为订阅设置 **日志配置文件** 。 日志配置文件定义已存储或流式传输的事件的类型，以及输出 - 存储帐户和/或事件中心。 它还定义存储在存储帐户中的事件的保留策略（需保留的天数）。 如果将保留策略设置为零，事件将无限期存储。 如果不想让事件无限期存储，可将保留策略设置为 1 到 365 之间的任何值。 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。 [可在此处了解日志配置文件的详细信息](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。 
 
 ## <a name="archive-the-activity-log-using-the-portal"></a>使用门户存档活动日志
-1. 在门户中，单击左侧导航中的“活动日志”链接。 如果看不到活动日志的链接，请先单击“所有服务”链接。
+1. 在门户中，单击左侧导航中的“活动日志”链接  。 如果看不到活动日志的链接，请先单击“所有服务”  链接。
    
     ![导航到“活动日志”边栏选项卡](media/archive-activity-log/activity-logs-portal-navigate-v2.png)
-2. 在边栏选项卡顶部单击“导出到事件中心”。
+2. 在边栏选项卡顶部单击“导出到事件中心”。 
    
     ![单击“导出”按钮](media/archive-activity-log/activity-logs-portal-export-v2.png)
-3. 在显示的边栏选项卡中，选中与“导出到存储帐户”相对应的框，然后选择存储帐户。
+3. 在显示的边栏选项卡中，选中与“导出到存储帐户”相对应的框，然后选择存储帐户  。
    
     ![设置存储帐户](media/archive-activity-log/act-log-portal-export-blade.png)
 4. 使用滑块或文本框，定义活动日志事件在存储帐户中的保留天数（0 至 365 天）。 要让数据无限期保留在存储帐户中，可将此数值设置为零。 如果需要输入大于 365 的天数，请使用 PowerShell 或 CLI 方法，如下所述。
-5. 单击“保存” 。
+5. 单击“保存”  。
 
 ## <a name="archive-the-activity-log-via-powershell"></a>通过 PowerShell 存档活动日志
 
@@ -117,8 +117,8 @@ insights-operational-logs/name=default/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0
                     }
                 },
                 "claims": {
-                    "aud": "https://management.core.windows.net/",
-                    "iss": "https://sts.windows.net/72f988bf-86f1-41af-91ab-2d7cd011db47/",
+                    "aud": "https://management.core.chinacloudapi.cn/",
+                    "iss": "https://sts.chinacloudapi.cn/72f988bf-86f1-41af-91ab-2d7cd011db47/",
                     "iat": "1421876371",
                     "nbf": "1421876371",
                     "exp": "1421880271",

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 03193188567647c64c44e8859cf3f83380b200e8
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: fd92cb48d8c52134e99af4c37175d90a4eb3279c
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544736"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731453"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 
@@ -35,14 +35,14 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 * [从混合 Linux 计算机收集数据](../learn/quick-collect-linux-computer.md)
 * [从混合 Windows 计算机收集数据](quick-collect-windows-computer.md)
 
-如果没有 Azure 订阅，请在开始前创建[一个试用帐户](https://www.azure.cn/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建[一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-workspace"></a>创建工作区
-使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus 位置的资源组 Lab中创建名为 TestWorkspace 的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 也可以将模板存储在 Azure 存储帐户中，以便在组织中共享访问。 有关使用模板的更多信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus  位置的资源组 Lab  中创建名为 TestWorkspace  的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 也可以将模板存储在 Azure 存储帐户中，以便在组织中共享访问。 有关使用模板的更多信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 以下参数设置默认值：
 
@@ -126,7 +126,7 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 ## <a name="next-steps"></a>后续步骤
 现在，你已有可用的工作区，可以配置监视遥测收集、运行日志搜索分析该数据，以及添加管理解决方案以提供其他数据和分析见解。  
 
-* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[在 Log Analytics 中收集要使用的 Azure 服务日志和指标](../platform/collect-azure-metrics-logs.md)。  
+* 若要启用通过 Azure 诊断或 Azure 存储从 Azure 资源收集数据，请参阅[收集要在 Log Analytics 中使用的 Azure 服务日志和指标](../platform/collect-azure-metrics-logs.md)。  
 * [将 System Center Operations Manager 添加为数据源](../platform/om-agents.md)以从报告 Operations Manager 管理组的代理收集数据并将其存储在 Log Analytics 工作区中。  
 * 连接 [Configuration Manager](../platform/collect-sccm.md) 以导入作为层次结构中集合成员的计算机。  
 

@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 09/07/2018
-ms.date: 01/15/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d9edb8f0e32cc7b945a26581d633361f12be5f67
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: ed8148702b38b6e59972cf30b6eab811c2c40e65
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334202"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491442"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>使用 Visual Studio Code 创建你的第一个函数
 
@@ -34,11 +34,11 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 若要完成本快速入门教程，需先执行以下操作：
 
-- 在某一[受支持的平台](https://code.visualstudio.com/docs/supporting/requirements#_platforms)上安装 [Visual Studio Code](https://code.visualstudio.com/)。 本文是在运行 macOS (High Sierra) 的设备上开发并测试的。
+* 在某一[受支持的平台](https://code.visualstudio.com/docs/supporting/requirements#_platforms)上安装 [Visual Studio Code](https://code.visualstudio.com/)。 本文是在运行 macOS (High Sierra) 的设备上开发并测试的。
 
-- 安装 [Azure Functions Core Tools](functions-run-local.md#v2) 的 2.x 版（仍为预览版）。
+* 安装 [Azure Functions Core Tools](functions-run-local.md#v2) 的 2.x 版（仍为预览版）。
 
-- 针对所选语言安装特定必需组件：
+* 针对所选语言安装特定必需组件：
 
     | 语言 | 分机 |
     | -------- | --------- |
@@ -60,11 +60,11 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
     ![创建函数](./media/functions-create-first-function-vs-code/create-function.png)
 
-1. 选择包含函数应用项目的文件夹，然后选择“HTTP 触发器”函数模板。
+1. 选择包含函数应用项目的文件夹，然后选择“HTTP 触发器”  函数模板。
 
     ![选择 HTTP 触发器模板](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
 
-1. 键入 `HTTPTrigger` 作为函数名称，然后按 Enter，然后选择“匿名”身份验证。
+1. 键入 `HTTPTrigger` 作为函数名称，然后按 Enter，然后选择“匿名”  身份验证。
 
     ![选择匿名身份验证](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
 
@@ -80,9 +80,9 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 使用 Azure Functions Core Tools 可以在本地开发计算机上运行 Azure Functions 项目。 首次从 Visual Studio Code 启动某个函数时，系统会提示你安装这些工具。  
 
-1. 若要测试函数，请在函数代码中设置断点并按 F5 启动函数应用项目。 来自 Core Tools 的输出会显示在“终端”面板中。
+1. 若要测试函数，请在函数代码中设置断点并按 F5 启动函数应用项目。 来自 Core Tools 的输出会显示在“终端”  面板中。
 
-1. 在“终端”面板中，复制 HTTP 触发的函数的 URL 终结点。
+1. 在“终端”  面板中，复制 HTTP 触发的函数的 URL 终结点。
 
     ![Azure 本地输出](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
@@ -104,7 +104,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="test-your-function-in-azure"></a>在 Azure 中测试函数
 
-1. 从“输出”面板复制 HTTP 触发器的 URL。 与前面一样，请确保将查询字符串 `?name=<yourname>` 添加到此 URL 的末尾并执行请求。
+1. 从“输出”  面板复制 HTTP 触发器的 URL。 与前面一样，请确保将查询字符串 `?name=<yourname>` 添加到此 URL 的末尾并执行请求。
 
     调用 HTTP 触发的函数的 URL 应采用以下格式：
 
@@ -116,12 +116,8 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="next-steps"></a>后续步骤
 
-你已使用 Visual Studio Code 通过简单的 HTTP 触发函数创建了函数应用。 若要了解有关以特定语言开发函数的详细信息，请参阅 [JavaScript](functions-reference-node.md)、[.NET](functions-dotnet-class-library.md) 或[Java](functions-reference-java.md) 的语言参考指南。
+你已使用 Visual Studio Code 通过简单的 HTTP 触发函数创建了函数应用。 你还可能想要了解有关使用 Azure Functions Core Tools [从终端或命令提示符进行本地测试和调试](functions-run-local.md)的详细信息。
 
-接下来你可能想要了解有关使用 Azure Functions Core Tools 从终端或命令提示符下进行本地测试和调试的详细信息。
-
-> [!div class="nextstepaction"]
-> [在本地编写代码并测试](functions-run-local.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [适用于 Visual Studio Code 的 Azure Functions 扩展]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

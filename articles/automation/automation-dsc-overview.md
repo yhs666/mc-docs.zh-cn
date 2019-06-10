@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 03/18/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 50a85499745bc62872f4c45a1c916571d48750a0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 6a696955c6245b64f1e1c4bc504cf2f24d238a20
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57988091"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726472"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -70,7 +70,7 @@ Ubuntu  | 18.04
 
 ### <a name="dsc-requirements"></a>DSC 要求
 
-对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/wmf/5.1/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
+对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
 
 对于在 Azure 中运行的所有 Linux 节点，[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 将在载入时安装。
 

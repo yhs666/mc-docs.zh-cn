@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 142a1512c70f9d76e3c3a72c9e52507c2d2822a1
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 3afe071a625868fa137233bc9fc462a042725d67
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586877"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731286"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
 
@@ -29,41 +29,41 @@ ms.locfileid: "65586877"
 
 在本教程中，我们将部署运行 Ubuntu 16.04 LTS 操作系统的 Linux VM。 大多数 Linux 操作系统支持 Telegraf 代理。 [InfluxData 下载门户](https://portal.influxdata.com/downloads)提供了 Debian 和 RPM 包以及未打包的 Linux 二进制文件。 有关其他安装说明和选项，请参阅此 [Telegraf 安装指南](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/)。 
 
-登录到 [Azure 门户](https://portal.azure.com)。
+登录到 [Azure 门户](https://portal.azure.cn)。
 
 创建新的 Linux VM： 
 
-1. 在左侧导航窗格中选择“创建资源”选项。 ****  
-1. 搜索“虚拟机”。  
-1. 选择“Ubuntu 16.04 LTS”，然后选择“创建”。 
+1. 在左侧导航窗格中选择“创建资源”选项。 ****   
+1. 搜索“虚拟机”。   
+1. 选择“Ubuntu 16.04 LTS”  ，然后选择“创建”。  
 1. 提供一个 VM 名称，例如  **MyTelegrafVM**。  
-1. 将磁盘类型保留为“SSD”。 然后提供**用户名**，例如  **azureuser**。 
-1. 对于“身份验证类型”，请选择“密码”。 **** **** 然后输入一个密码，稍后将使用该密码通过 SSH 连接到此 VM。 
+1. 将磁盘类型保留为“SSD”。  然后提供**用户名**，例如  **azureuser**。 
+1. 对于“身份验证类型”，请选择“密码”。 ****  **** 然后输入一个密码，稍后将使用该密码通过 SSH 连接到此 VM。 
 1. 选择“创建新的资源组”。 **** 然后提供一个名称，例如  **myResourceGroup**。 选择自己所在的 **位置**。 然后选择“确定”。 **** 
 
     ![创建 Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. 为 VM 选择大小。 例如，可按“计算类型”或“磁盘类型”进行筛选。 ****  **** 
+1. 为 VM 选择大小。 例如，可按“计算类型”或“磁盘类型”进行筛选。 ****   **** 
 
     ![虚拟机大小 Telegraph 代理概述](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. 在“设置”页上的“网络”>“网络安全组”>“选择公共入站端口”中，选择“HTTP”和“SSH (22)”。 ****  ****  ****  **** ****  **** 将剩余的字段保留默认设置，然后选择 **确定**。 
+1. 在“设置”页上的“网络”>“网络安全组”>“选择公共入站端口”中，选择“HTTP”和“SSH (22)”。 ****   ****   ****   ****  ****   **** 将剩余的字段保留默认设置，然后选择 **确定**。 
 
-1. 在摘要页上，选择“创建”以启动 VM 部署。 ****  
+1. 在摘要页上，选择“创建”以启动 VM 部署。 ****   
 
 1. VM 将固定到 Azure 门户仪表板。 完成部署后，VM 摘要会自动打开。 
 
-1. 在 VM 窗格中，导航到“标识”选项卡。确保 VM 的系统分配标识设置为“打开”。 
+1. 在 VM 窗格中，导航到“标识”选项卡。  确保 VM 的系统分配标识设置为“打开”。  
  
     ![Telegraf VM 标识预览](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
 ## <a name="connect-to-the-vm"></a>连接到 VM 
 
-创建与 VM 的 SSH 连接。 选择 VM 的概览页上的“连接”按钮。 ****  
+创建与 VM 的 SSH 连接。 选择 VM 的概览页上的“连接”按钮。 ****   
 
 ![Telegraf VM 概述页](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-在“连接到虚拟机”页中保留默认选项，以使用 DNS 名称通过端口 22 进行连接。 ****  在“使用 VM 本地帐户登录”中，会显示一个连接命令。 **** 选择相应的按钮来复制该命令。 下面的示例展示了 SSH 连接命令的样式： 
+在“连接到虚拟机”页中保留默认选项，以使用 DNS 名称通过端口 22 进行连接。 ****   在“使用 VM 本地帐户登录”中，会显示一个连接命令。 **** 选择相应的按钮来复制该命令。 下面的示例展示了 SSH 连接命令的样式： 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -108,7 +108,7 @@ sudo systemctl start telegraf
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。 
 
-1. 导航到新的“监视”选项卡。 ****  然后选择“指标”。 ****  
+1. 导航到新的“监视”选项卡。 ****   然后选择“指标”。 ****  
 
      ![监视 - 指标（预览）](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 

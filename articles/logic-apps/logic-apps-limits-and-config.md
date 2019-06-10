@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-origin.date: 05/10/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: 9192307242e83d587c6ec4d07e0492ddd2c46c69
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+origin.date: 05/23/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: a6350f5d4da8ef0156172d1403c35e662160bd78
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195032"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732586"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure 逻辑应用的限制和配置信息
 
@@ -155,9 +155,9 @@ ms.locfileid: "66195032"
 
 ## <a name="managed-identities"></a>托管标识
 
-| Name | 限制 | 
-| ---- | ----- | 
-| 每个 Azure 订阅中具有系统分配的托管标识的逻辑应用数量 | 10 个 | 
+| Name | 限制 |
+| ---- | ----- |
+| 每个 Azure 订阅中具有系统分配的托管标识的逻辑应用数量 | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -175,11 +175,11 @@ ms.locfileid: "66195032"
 
 | 项目 | 免费 | 基本 | 标准 |
 |----------|------|-------|----------|
-| EDI 贸易协议 | 10 个 | 1 | 500 |
-| EDI 参与方 | 25 | 2 | 500 |
+| EDI 贸易协议 | 10 个 | 1 | 1,000 |
+| EDI 参与方 | 25 | 2 | 1,000 |
 | 地图 | 25 | 500 | 1,000 |
 | 架构 | 25 | 500 | 1,000 |
-| 程序集 | 10 个 | 25 | 50 |
+| 程序集 | 10 个 | 25 | 1,000 |
 | 证书 | 25 | 2 | 500 |
 | 批处理配置 | 5 | 1 | 50 |
 ||||

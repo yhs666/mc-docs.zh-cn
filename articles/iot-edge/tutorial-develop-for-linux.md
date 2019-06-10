@@ -3,18 +3,19 @@ title: 开发适用于 Linux 设备的模块 - Azure IoT Edge | Microsoft Docs
 description: 本教程逐步介绍如何设置开发计算机和云资源，以使用适用于 Linux 设备的 Linux 容器开发 IoT Edge 模块
 author: kgremban
 manager: philmea
-ms.author: kgremban
-ms.date: 04/26/2019
+ms.author: v-yiso
+origin.date: 04/26/2019
+ms.date: 06/17/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ff08bec0bdf540f12d7cc416297504d1e1736f75
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: dc8154201e639aa299bb4cc34a0adb157b2ead87
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65830263"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732722"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -38,22 +39,22 @@ ms.locfileid: "65830263"
 
 ## <a name="key-concepts"></a>关键概念
 
-本教程将逐步讲解 IoT Edge 模块的开发。 IoT Edge 模块（有时简称为“模块”）是包含可执行代码的容器。 可将一个或多个模块部署到 IoT Edge 设备。 模块执行特定的任务，例如，从传感器引入数据、执行数据分析或数据清理操作，或者将消息发送到 IoT 中心。 有关详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)。
+本教程将逐步讲解 IoT Edge 模块的开发。 IoT Edge 模块（有时简称为“模块”）是包含可执行代码的容器。   可将一个或多个模块部署到 IoT Edge 设备。 模块执行特定的任务，例如，从传感器引入数据、执行数据分析或数据清理操作，或者将消息发送到 IoT 中心。 有关详细信息，请参阅[了解 Azure IoT Edge 模块](iot-edge-modules.md)。
 
-开发 IoT Edge 模块时，必须了解开发计算机与该模块最终要部署到的目标 IoT Edge 设备之间的差异。 生成的用于保存模块代码的容器必须与目标设备的操作系统 (OS) 相匹配。 例如，最常见的情形是在 Windows 计算机上开发面向运行 IoT Edge 的 Linux 设备的模块。 在这种情况下，容器操作系统将是 Linux。 在学习本教程的过程中，请注意开发计算机 OS 与容器 OS 之间的差异。
+开发 IoT Edge 模块时，必须了解开发计算机与该模块最终要部署到的目标 IoT Edge 设备之间的差异。 生成的用于保存模块代码的容器必须与目标设备的操作系统 (OS) 相匹配。  例如，最常见的情形是在 Windows 计算机上开发面向运行 IoT Edge 的 Linux 设备的模块。 在这种情况下，容器操作系统将是 Linux。 在学习本教程的过程中，请注意开发计算机 OS 与容器 OS 之间的差异。  
 
-本教程面向运行 IoT Edge 的 Linux 设备。 只要开发计算机可以运行 Linux 容器，则你就可以使用首选的开发计算机操作系统。 我们建议使用 Visual Studio Code 对 Linux 设备进行开发，而本教程也正是使用此工具。 也可以使用 Visual Studio 2017，不过，这两个工具之间存在支持方面的差异。
+本教程面向运行 IoT Edge 的 Linux 设备。 只要开发计算机可以运行 Linux 容器，则你就可以使用首选的开发计算机操作系统。 我们建议使用 Visual Studio Code 对 Linux 设备进行开发，而本教程也正是使用此工具。 还可以使用 Visual Studio，但这两个工具提供的支持存在差异。
 
-下表列出了 Visual Studio Code 和 Visual Studio 2017 支持的 **Linux 容器**开发方案。
+下表列出了 Visual Studio Code 和 Visual Studio 支持的 **Linux 容器**开发方案。
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Linux 设备体系结构** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure 服务** | Azure Functions <br> Azure 流分析 <br> Azure 机器学习 |   |
 | **语言** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **详细信息** | [适用于 Visual Studio Code 的 Azure IoT Edge](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [适用于 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **详细信息** | [适用于 Visual Studio Code 的 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [适用于 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)、[适用于 Visual Studio 2019 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-本教程将会讲解 Visual Studio Code 的开发步骤。 如果你偏向于使用 Visual Studio 2017，请参阅[使用 Visual Studio 2017 开发和调试 Azure IoT Edge 的模块](how-to-visual-studio-develop-module.md)中的说明。
+本教程将会讲解 Visual Studio Code 的开发步骤。 如果想要使用 Visual Studio，请参阅[使用 Visual Studio 2019 为 Azure IoT Edge 开发和调试模块](how-to-visual-studio-develop-module.md)中的说明。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -92,21 +93,21 @@ IoT Edge 模块打包为容器，因此，需要在开发计算机上安装一�
 
 1. 在开发计算机上安装 [Visual Studio Code](https://code.visualstudio.com/)。 
 
-2. 安装完成后，选择“视图” > “扩展”。 
+2. 安装完成后，选择“视图” > “扩展”。   
 
 3. 搜索 **Azure IoT Tools**，它实际上是一系列的扩展，可帮助你与 IoT 中心和 IoT 设备交互，以及开发 IoT Edge 模块。 
 
-4. 选择“安装”。 包含的每个扩展会单独安装。 
+4. 选择“安装”  。 包含的每个扩展会单独安装。 
 
-5. 扩展安装完成后，选择“视图” > “命令面板”打开命令面板。 
+5. 扩展安装完成后，选择“视图” > “命令面板”打开命令面板。   
 
 6. 在命令面板中，搜索并选择 **Azure:Sign in** 命令。 根据提示登录到 Azure 帐户。 
 
 7. 返回命令面板，搜索并选择 **Azure IoT Hub:Select IoT Hub** 命令。 遵照提示选择 Azure 订阅和 IoT 中心。 
 
-7. 打开 Visual Studio Code 的“资源管理器”部分：在左侧的活动栏中选择相应的图标，或选择“视图” > “资源管理器”。 
+7. 打开 Visual Studio Code 的“资源管理器”部分：在左侧的活动栏中选择相应的图标，或选择“视图” > “资源管理器”。   
 
-8. 在“资源管理器”部分的底部，展开已折叠的“Azure IoT 中心设备”菜单。 应会看到上述设备，以及与通过命令面板选择的 IoT 中心相关联的 IoT Edge 设备。 
+8. 在“资源管理器”部分的底部，展开已折叠的“Azure IoT 中心设备”菜单。  应会看到上述设备，以及与通过命令面板选择的 IoT 中心相关联的 IoT Edge 设备。 
 
    ![在 IoT 中心查看设备](./media/tutorial-develop-for-linux/view-iot-hub-devices.png)
 
@@ -126,8 +127,8 @@ Azure IoT Tools 扩展为 Visual Studio Code 中支持的所有 IoT Edge 模块�
    | ----- | ----- |
    | 选择文件夹 | 在适用于 VS Code 的开发计算机上选择用于创建解决方案文件的位置。 |
    | 提供解决方案名称 | 输入解决方案的描述性名称，或者接受默认的 **EdgeSolution**。 |
-   | 选择模块模板 | 选择“C 模块”。 |
-   | 提供模块名称 | 接受默认值“SampleModule”。 |
+   | 选择模块模板 | 选择“C 模块”。  |
+   | 提供模块名称 | 接受默认值“SampleModule”。  |
    | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/samplemodule。 |
  
    ![提供 Docker 映像存储库](./media/tutorial-develop-for-linux/image-repository.png)
@@ -137,7 +138,7 @@ Azure IoT Tools 扩展为 Visual Studio Code 中支持的所有 IoT Edge 模块�
 * **.vscode** 文件夹包含用于调试模块的名为 **launch.json** 的文件。
 * **modules** 文件夹针对解决方案中的每个模块包含一个文件夹。 目前，应该只存在 **SampleModule**（或为模块指定的任何名称）文件夹。 SampleModule 文件夹包含主要程序代码、模块元数据和多个 Docker 文件。 
 * **.env** 文件保存容器注册表的凭据。 这些凭据与 IoT Edge 设备共享，使该设备有权提取容器映像。 
-* **deployment.debug.template.json** 文件和 **deployment.template.json** 文件是帮助你创建部署清单的模板。 部署清单文件确切地定义要在设备上部署的模块、模块的配置方式，以及它们如何相互通信以及与云通信。 模板文件使用某些值的指针。 将模板转换为真实的部署清单时，指针将替换为取自其他解决方案文件的值。 在部署模板中找到两个常见的占位符： 
+* **deployment.debug.template.json** 文件和 **deployment.template.json** 文件是帮助你创建部署清单的模板。 部署清单文件确切地定义要在设备上部署的模块、模块的配置方式，以及它们如何相互通信以及与云通信。  模板文件使用某些值的指针。 将模板转换为真实的部署清单时，指针将替换为取自其他解决方案文件的值。 在部署模板中找到两个常见的占位符： 
 
   * 在注册表凭据节中，地址是根据你在创建解决方案时提供的信息自动填充的。 但是，用户名和密码引用 .env 文件中存储的变量。 这是出于安全目的，因为 git 会忽略 .env 文件，但不会忽略部署模板。 
   * 在 SampleModule 节中，即使创建解决方案时提供了映像存储库，也不会填充容器映像。 此占位符指向 SampleModule 文件夹中的 **module.json** 文件。 如果转到该文件，将会看到映像字段中确实包含了存储库，但同时还有一个由容器版本和平台构成的标记值。 可以在开发周期中手动迭代版本，并使用本部分稍后将会介绍的切换器来选择容器平台。 
@@ -166,7 +167,7 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 创建的解决方案模板包含 IoT Edge 模块的示例代码。 此示例模块只会接收然后传递消息。 管道功能演示了 IoT Edge 中的一个与模块相互通信方式相关的重要概念。
 
-每个模块可以在其代码中声明多个输入和输出队列。 设备上运行的 IoT Edge 中心将消息从一个模块的输出路由到一个或多个模块的输入。 用于声明输入和输出的具体语言各不相同，但在所有模块中的概念是相同的。 有关模块间路由的详细信息，请参阅[声明路由](module-composition.md#declare-routes)。
+每个模块可以在其代码中声明多个输入和输出队列。   设备上运行的 IoT Edge 中心将消息从一个模块的输出路由到一个或多个模块的输入。 用于声明输入和输出的具体语言各不相同，但在所有模块中的概念是相同的。 有关模块间路由的详细信息，请参阅[声明路由](module-composition.md#declare-routes)。
 
 1. 打开 **modules/SampleModules/** 文件夹中的 **main.c** 文件。 
 
@@ -202,7 +203,7 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 为 Docker 提供容器注册表凭据，使其可以推送要存储在注册表中的容器映像。 
 
-1. 选择“视图” > “终端”，打开 Visual Studio Code 集成终端。
+1. 选择“视图” > “终端”，打开 Visual Studio Code 集成终端。  
 
 2. 使用创建注册表后保存的 Azure 容器注册表凭据登录到 Docker。 
 
@@ -216,7 +217,7 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 Visual Studio Code 现在有权访问你的容器注册表。接下来，可将解决方案代码转换为容器映像。 
 
-1. 在 Visual Studio Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。 
+1. 在 Visual Studio Code 资源管理器中右键单击“deployment.template.json”文件，然后选择“生成并推送 IoT Edge 解决方案”。   
 
    ![生成并推送 IoT Edge 模块](./media/tutorial-develop-for-linux/build-and-push-modules.png)
 
@@ -237,13 +238,13 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 6. 保存对 module.json 文件所做的更改。
 
-7. 再次右键单击“deployment.template.json”文件，并选择“生成并推送 IoT Edge 解决方案”。
+7. 再次右键单击“deployment.template.json”文件，并选择“生成并推送 IoT Edge 解决方案”。  
 
 8. 再次打开 **deployment.amd64.json** 文件。 请注意，再次运行“生成并推送”命令时未创建新文件， 而是更新了同一文件以反映更改。 SampleModule 映像现在指向容器的版本 0.0.2。 
 
 9. 若要进一步验证“生成并推送”命令执行了哪些操作，请转到 [Azure 门户](https://portal.azure.com)并导航到你的容器注册表。 
 
-10. 在该容器注册表中，依次选择“存储库”、“samplemodule”。 验证映像的两个版本是否已推送到注册表。
+10. 在该容器注册表中，依次选择“存储库”、“samplemodule”。   验证映像的两个版本是否已推送到注册表。
 
    ![查看容器注册表中的两个映像版本](./media/tutorial-develop-for-linux/view-repository-versions.png)
 
@@ -264,7 +265,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 1. 在 Visual Studio Code 资源管理器中，展开“Azure IoT 中心设备”部分。 
 
-2. 右键单击要部署到的 IoT Edge 设备，然后选择“为单个设备创建部署”。 
+2. 右键单击要部署到的 IoT Edge 设备，然后选择“为单个设备创建部署”。  
 
    ![为单个设备创建部署](./media/tutorial-develop-for-linux/create-deployment.png)
 
@@ -272,7 +273,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
    不要使用 deployment.template.json 文件，因为其中不包含容器注册表凭据或模块映像值。 如果面向 Linux ARM32 设备，则部署清单将命名为 deployment.arm32v7.json。 
 
-4. 展开 IoT Edge 设备的详细信息，然后展开设备的“模块”列表。 
+4. 展开 IoT Edge 设备的详细信息，然后展开设备的“模块”列表。  
 
 5. 使用刷新按钮更新设备视图，直到看到 tempSensor 和 SampleModule 模块在设备上运行。 
 
@@ -284,7 +285,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 SampleModule 代码通过其输入队列接收消息，然后通过其输出队列传递消息。 部署清单声明了从 tempSensor 向 SampleModule 传递消息，然后从 SampleModule 向 IoT 中心转发消息的路由。 使用适用于 Visual Studio Code 的 Azure IoT Tools 可以查看单个设备发出的已抵达 IoT 中心的消息。 
 
-1. 在 Visual Studio Code 资源管理器中，右键单击要监视的 IoT Edge 设备，然后选择“开始监视 D2C 消息”。 
+1. 在 Visual Studio Code 资源管理器中，右键单击想要监视的 IoT Edge 设备，然后选择“开始监视内置事件终结点”  。 
 
 2. 观察 Visual Studio Code 中的输出窗口，以查看抵达 IoT 中心的消息。 
 
@@ -294,7 +295,7 @@ SampleModule 代码通过其输入队列接收消息，然后通过其输出队�
 
 若要查看设备本身上发生的情况，请使用本部分所述的命令来检查设备上运行的 IoT Edge 运行时和模块。 
 
-本部分所述的命令适用于 IoT Edge 设备，而不适用于开发计算机。 如果对 IoT Edge 设备使用了虚拟机，现在请连接到该虚拟机。 在 Azure 中，转到该虚拟机的概述页，并选择“连接”以访问安全外壳连接。 
+本部分所述的命令适用于 IoT Edge 设备，而不适用于开发计算机。 如果对 IoT Edge 设备使用了虚拟机，现在请连接到该虚拟机。 在 Azure 中，转到该虚拟机的概述页，并选择“连接”以访问安全外壳连接。  
 
 * 查看已部署到设备的所有模块，并检查其状态：
 

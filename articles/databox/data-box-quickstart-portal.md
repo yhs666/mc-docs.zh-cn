@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-origin.date: 01/09/2019
-ms.date: 02/25/2019
+origin.date: 03/12/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: 906cb23e7c5d9cbe8657f8c23a0b517a4eeb8972
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 32ac85153fd306f047f8eded61c626b38eaf84fe
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666579"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726516"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Data Box
 
@@ -44,15 +44,15 @@ ms.locfileid: "56666579"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 [http://portal.azure.cn](http://portal.azure.cn) 中登录 Azure 门户。
+在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 
 ## <a name="order"></a>顺序
 
 此步骤大约需要 5 分钟。
 
 1. 在 Azure 门户中创建新的 Azure Data Box 资源。
-2. 选择为此服务启用的现有订阅，然后选择“导入”作为传输类型。 提供数据所在的**来源国家/地区**，以及数据要传输到的 **Azure 目标区域**。
-3. 选择“Data Box”。 最大可用容量为 80 TB；如果数据大小更大，则可创建多个订单。
+2. 选择为此服务启用的现有订阅，然后选择“导入”作为传输类型。  提供数据所在的**来源国家/地区**，以及数据要传输到的 **Azure 目标区域**。
+3. 选择“Data Box”。  最大可用容量为 80 TB；如果数据大小更大，则可创建多个订单。
 4. 输入订单详细信息和发货信息。 如果该服务在你所在的区域中可用，请提供通知电子邮件地址、查看摘要，然后创建订单。
 
 创建订单后，Microsoft 会准备需发货的设备。
@@ -75,7 +75,7 @@ ms.locfileid: "56666579"
     
 4. 进行设备布线，如下所示。  
 
-    ![布线后的 Data Box](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![已连接了电缆的 Data Box 设备底板](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. 将电源线连接到设备。
     2. 使用 RJ-45 CAT 6 网线将主机连接到设备上的管理端口 (MGMT)。 
@@ -87,7 +87,7 @@ ms.locfileid: "56666579"
 
 此步骤大约需要 5-7 分钟才能完成。
 
-1. 若要获取设备密码，请在 [Azure 门户](http://portal.azure.cn)中转到“常规”>“设备详细信息”。
+1. 若要获取设备密码，请在 [Azure 门户](https://portal.azure.cn)中转到“常规”>“设备详细信息”。 
 2. 在用于连接到 Data Box 的计算机上，将静态 IP 地址 192.168.100.5 和子网 255.255.255.0 分配给以太网适配器。 通过 `https://192.168.100.10` 访问设备的本地 Web UI。 打开设备后，进行连接可能需要长达 5 分钟的时间。 
 3. 从 Azure 门户使用密码登录。 此时会出现一个错误，指出网站的安全证书有问题。 按照特定于浏览器的说明转到该网页。
 4. 默认情况下，10 Gbps（或 1 Gbps）数据接口的网络设置被配置为 DHCP。 如果需要，可以将该接口配置为静态，并提供一个 IP 地址。 
@@ -97,14 +97,14 @@ ms.locfileid: "56666579"
 完成此操作所需的时间取决于数据大小和网络速度。
  
 1. 如果使用 Windows 主机，请使用兼容 SMB 的文件复制工具（如 Robocopy）。 对于 NFS 主机，请使用 `cp` 命令或 `rsync` 来复制数据。 将工具连接到设备，并开始将数据复制到共享。 若要详细了解如何使用 Robocopy 来复制数据，请参阅 [Robocopy](https://technet.microsoft.com/library/ee851678.aspx)。
-2. 使用路径 `\\<IP address of your device>\ShareName` 连接到共享。 若要获取共享访问凭据，请在 Data Box 的本地 Web UI 中转到“连接和复制”页面。
+2. 使用路径 `\\<IP address of your device>\ShareName` 连接到共享。 若要获取共享访问凭据，请在 Data Box 的本地 Web UI 中转到“连接和复制”页面。 
 3. 请确保共享和文件夹名称以及数据遵循 [Azure 存储和 Data Box 服务限制](data-box-limits.md)中描述的准则。
 
 ## <a name="ship-to-azure"></a>寄送到 Azure 
 
 此操作大约需要 10-15 分钟来完成。
 
-1. 在本地 Web UI 中转到“准备交付”页面，开始发货准备。 
+1. 在本地 Web UI 中转到“准备交付”页面，开始发货准备。  
 2. 通过本地 Web UI 关闭设备。 移除设备的电缆。 
 3. 退货标签应该在电子墨水显示器上可见。 如果电子墨水显示器不显示此标签，请从 Azure 门户下载退货标签，然后将其插入附加到设备的透明套袋中。
 4. 封好包裹并邮寄给 Microsoft。 
@@ -116,16 +116,16 @@ ms.locfileid: "56666579"
 1. 将 Data Box 设备连接到 Azure 数据中心网络后，数据会自动开始上传到 Azure。 
 2. Azure Data Box 服务会通过 Azure 门户通知数据复制已完成。 
 
-    1. 检查错误日志中是否包含任何错误，如有则采取相应的措施。
+    1. 检查错误日志中是否包含任何错误，并采取相应的措施。
     2. 从源中删除数据之前，请确认数据已存储在存储帐户中。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 此步骤需要 2-3 分钟才能完成。
 
-- 在订单尚未处理的情况下，可以在 Azure 门户中取消 Data Box 订单。 订单处理后，无法取消订单。 订单处理会不断进行，直到完成。 若要取消订单，请转到“概况”，然后在命令栏中单击“取消”。
+- 在订单尚未处理的情况下，可以在 Azure 门户中取消 Data Box 订单。 订单处理后，无法取消订单。 订单处理会不断进行，直到完成。 若要取消订单，请转到“概况”，然后在命令栏中单击“取消”。  
 
-- 在 Azure 门户中的状态显示为“已完成”或“已取消”后，即可删除订单。 若要删除订单，请转到“概况”，然后在命令栏中单击“删除”。
+- 在 Azure 门户中的状态显示为“已完成”或“已取消”后，即可删除订单。   若要删除订单，请转到“概况”，然后在命令栏中单击“删除”。  
 
 ## <a name="next-steps"></a>后续步骤
 

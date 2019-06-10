@@ -11,21 +11,21 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 10/17/2018
-ms.date: 11/22/2018
+ms.date: 06/03/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 0ab3fd4f6cf4c573b7fec37ab530e6692e15dd90
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
+ms.openlocfilehash: 71c3c07d8378cbc7f5bc5f44406e3ad551312171
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672783"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491411"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>使用 Visual Studio 创建你的第一个函数
 
 Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/serverless/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。
 
-本文介绍如何使用 Azure Functions 的 Visual Studio 2017 工具在本地创建并测试“hello world”函数。 然后将函数代码发布到 Azure。 Visual Studio 2017 中的 Azure 开发工作负荷已随附这些工具。
+在本文中，你将了解如何使用 Azure Functions 的 Visual Studio 2019 工具在本地创建并测试“hello world”函数。 然后将函数代码发布到 Azure。 Visual Studio 2019 中的 Azure 开发工作负荷已随附这些工具。
 
 ![浏览器中的函数 localhost 响应](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
@@ -34,9 +34,9 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 完成本教程：
 
-- 安装 [Visual Studio 2017](/downloads/)，并确保还安装了 **Azure 开发**工作负荷。
+* 安装 [Visual Studio 2019](/downloads/)，并确保还安装了 **Azure 开发**工作负荷。
 
-- 请确保你有[最新的 Azure Functions 工具](functions-develop-vs.md#check-your-tools-version)。
+* 请确保你有[最新的 Azure Functions 工具](functions-develop-vs.md#check-your-tools-version)。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -88,7 +88,7 @@ Visual Studio 将创建一个项目，并在该项目中创建一个包含所选
 
 你已使用简单的 HTTP 触发函数通过 Visual Studio 创建和发布 C# 函数应用。
 
-- [了解如何添加与其他服务集成的输入和输出绑定。](functions-develop-vs.md#add-bindings)
-- [详细了解如何将函数开发为 .NET 类库](functions-dotnet-class-library.md)。
+* [了解如何添加与其他服务集成的输入和输出绑定。](functions-develop-vs.md#add-bindings)
+* [详细了解如何将函数开发为 .NET 类库](functions-dotnet-class-library.md)。
 
 <!-- Update_Description: wording update -->

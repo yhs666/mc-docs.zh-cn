@@ -57,6 +57,8 @@
       href: event-hubs-dedicated-overview.md
     - name: 身份验证和安全模型概述
       href: event-hubs-authentication-and-security-model-overview.md
+    - name: 安全属性
+      href: event-hubs-security-attributes.md
     - name: 可用性和一致性
       href: event-hubs-availability-and-consistency.md
     - name: AMQP 1.0 协议指南

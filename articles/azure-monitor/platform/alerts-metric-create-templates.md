@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 9b02e8210d0a512be62c38d69766f3a3672097d4
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: a48751130f1ff310dc4ca4a75d5fb71a7f7d9266
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65583878"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731342"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -237,7 +237,7 @@ ms.locfileid: "65583878"
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
@@ -495,7 +495,7 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
@@ -712,7 +712,7 @@ az group deployment create \
 
 使用 Azure PowerShell
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  
@@ -913,7 +913,7 @@ az group deployment create \
 
 使用 Azure PowerShell
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
 
 Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
  

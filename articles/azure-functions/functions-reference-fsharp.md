@@ -11,14 +11,14 @@ ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
 origin.date: 10/09/2018
-ms.date: 03/04/2019
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8c3c49a8879fb8a208474b7ab732a3327af6a9c7
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 162ab27492c36d9346f8ea23766cd191ac34e1af
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254045"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491397"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 开发人员参考
 
@@ -55,7 +55,7 @@ FunctionsProject
 
 有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都有自己的代码文件 (.fsx) 和绑定配置文件 (function.json)。
 
-[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
+[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
 
 ## <a name="binding-to-arguments"></a>绑定到参数
 对于每个绑定支持某些参数，请参阅 [Azure 函数触发器和绑定开发人员参考](functions-triggers-bindings.md)。 例如，blob 触发器支持的其中一个参数绑定是 POCO，可以使用 F # 记录来表示。 例如：
@@ -97,7 +97,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>日志记录
-若要记录以 F # 输出传送到 [流式传输日志](../app-service/troubleshoot-diagnostic-logs.md) 中，函数应采取 `ILogger` 参数。 为了保持一致，我们建议参数名为 `log`。 例如：
+若要使用 F# 将输出记录到[流式处理日志](../app-service/troubleshoot-diagnostic-logs.md)中，函数应带有 `ILogger` 类型的参数。 为了保持一致，我们建议参数名为 `log`。 例如：
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -141,14 +141,14 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 自动打开以下命名空间：
 
-- `System`
-- `System.Collections.Generic`
-- `System.IO`
-- `System.Linq`
-- `System.Net.Http`
-- `System.Threading.Tasks`
-- `Microsoft.Azure.WebJobs`
-- `Microsoft.Azure.WebJobs.Host`。
+* `System`
+* `System.Collections.Generic`
+* `System.IO`
+* `System.Linq`
+* `System.Net.Http`
+* `System.Threading.Tasks`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`。
 
 ## <a name="referencing-external-assemblies"></a>引用外部程序集
 与此类似，可以使用 `#r "AssemblyName"` 指令添加框架程序集引用。
@@ -167,24 +167,24 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 由 Azure 函数主机环境自动添加以下程序集：
 
-- `mscorlib`,
-- `System`
-- `System.Core`
-- `System.Xml`
-- `System.Net.Http`
-- `Microsoft.Azure.WebJobs`
-- `Microsoft.Azure.WebJobs.Host`
-- `Microsoft.Azure.WebJobs.Extensions`
-- `System.Web.Http`
-- `System.Net.Http.Formatting`。
+* `mscorlib`,
+* `System`
+* `System.Core`
+* `System.Xml`
+* `System.Net.Http`
+* `Microsoft.Azure.WebJobs`
+* `Microsoft.Azure.WebJobs.Host`
+* `Microsoft.Azure.WebJobs.Extensions`
+* `System.Web.Http`
+* `System.Net.Http.Formatting`。
 
 此外，以下程序集比较特殊，可能由 simplename 引用 (例如 `#r "AssemblyName"`)：
 
-- `Newtonsoft.Json`
-- `Microsoft.WindowsAzure.Storage`
-- `Microsoft.ServiceBus`
-- `Microsoft.AspNet.WebHooks.Receivers`
-- `Microsoft.AspNEt.WebHooks.Common`。
+* `Newtonsoft.Json`
+* `Microsoft.WindowsAzure.Storage`
+* `Microsoft.ServiceBus`
+* `Microsoft.AspNet.WebHooks.Receivers`
+* `Microsoft.AspNEt.WebHooks.Common`。
 
 如果需要引用私有程序集，可以将程序集文件上传到  `bin` 与功能相关的文件，并通过使用文件名（例如`#r "MyAssembly.dll"`）来引用它. 有关如何将文件上传到函数文件夹的信息，请参阅下一部分中有关程序包管理的信息。
 
@@ -231,7 +231,7 @@ Azure 函数执行代码时，它可以处理带有 `COMPILED` 定义的源，�
 可能希望会自动引用程序集放入编辑器 prelude，以提高编辑器与 F # 编译服务的交互。
 
 ### <a name="how-to-add-a-projectjson-file-to-your-azure-function"></a>如何添加 `project.json` 文件到 Azure 函数
-1. 首先，确保函数应用程序正在运行，可以通过在 Azure 门户中打开函数来执行此操作。 通过此操作，还可以访问显示程序包安装输出位置的流式日志日志。
+1. 首先，确保函数应用程序正在运行，可以通过在 Azure 门户中打开函数来执行此操作。 通过此操作，还可以访问将要显示程序包安装输出位置的流式传输日志。
 2. 若要上传  `project.json`文件，请使用如何更新函数应用程序文件 中描述的其中一[种方法](functions-reference.md#fileupdate)。 
 3. 添加 `project.json` 文件后，将看到类似于函数流式日志中的实例的输出：
 
@@ -285,21 +285,21 @@ let mylog(log: ILogger, text: string) =
 
 提供给 `#load` 指令的路径与`.fsx` 文件位置相关。
 
-- `#load "logger.fsx"` 加载函数文件夹中的文件。
-- `#load "package\logger.fsx"` 加载文件 `package` 函数文件夹中的文件夹。
-- `#load "..\shared\mylogger.fsx"` 在同一级别（即 `wwwroot` 的正下方）加载 `shared` 文件夹中的文件，使其成为函数文件夹。
+* `#load "logger.fsx"` 加载函数文件夹中的文件。
+* `#load "package\logger.fsx"` 加载文件 `package` 函数文件夹中的文件夹。
+* `#load "..\shared\mylogger.fsx"` 在同一级别（即 `wwwroot` 的正下方）加载 `shared` 文件夹中的文件，使其成为函数文件夹。
 
 `#load` 指令只适用于 `.fsx`（F # 脚本）文件，而不适用于 `.fs` 文件。
 
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅以下资源：
 
-- [F # 指南](https://docs.microsoft.com/en-us/dotnet/fsharp/index)
-- [Azure Functions 最佳实践](functions-best-practices.md)
-- [Azure Functions 开发人员参考](functions-reference.md)
-- [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
-- [ Azure Functions 测试](functions-test-a-function.md)
-- [Azure Functions 缩放](functions-scale.md)
+* [F # 指南](https://docs.microsoft.com/en-us/dotnet/fsharp/index)
+* [Azure Functions 最佳实践](functions-best-practices.md)
+* [Azure Functions 开发人员参考](functions-reference.md)
+* [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+* [ Azure Functions 测试](functions-test-a-function.md)
+* [Azure Functions 缩放](functions-scale.md)
 
 
 <!-- Update_Description: link update -->

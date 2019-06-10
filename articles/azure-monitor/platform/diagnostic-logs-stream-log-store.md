@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 2328de6e5195eba598c59e805b18c51254980aae
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 7fb1666dceb063343cf09d02cfa87a40ba82fa53
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586887"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731477"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>将 Azure 诊断日志流式传输到 Azure Monitor 中的 Log Analytics 工作区
 
@@ -29,19 +29,19 @@ Azure Monitor 提供灵活的日志查询和分析工具让你深入了解从 Az
 
 ## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>启用向 Log Analytics 工作区流式传输诊断日志
 
-可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 以编程方式启用诊断日志的流式处理。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定 Log Analytics 工作区，以及要发送到该工作区的日志类别和指标。 诊断日志类别是一类可由资源提供的日志。
+可以通过门户或使用 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings) 以编程方式启用诊断日志的流式处理。 无论采用哪种方式，都可以创建一个诊断设置并在其中指定 Log Analytics 工作区，以及要发送到该工作区的日志类别和指标。 诊断日志类别  是一类可由资源提供的日志。
 
 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，Log Analytics 工作区就不必位于发出日志的资源所在的订阅中。
 
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。
 >
-> 例如：可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
+> 例如：  可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
 >
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用门户流式传输诊断日志
-1. 在门户中，导航到“Azure Monitor”并单击“设置”菜单中的“诊断设置”。
+1. 在门户中，导航到“Azure Monitor”并单击“设置”菜单中的“诊断设置”   。
 
 
 2. （可选）按资源组或资源类型筛选列表，并单击要为其设置诊断设置的资源。
@@ -54,11 +54,11 @@ Azure Monitor 提供灵活的日志查询和分析工具让你深入了解从 Az
 
    ![添加诊断设置 - 现有的设置](media/diagnostic-logs-stream-log-store/diagnostic-settings-multiple.png)
 
-3. 为设置提供名称，并选中“发送到 Log Analytics”框，然后选择 Log Analytics 工作区。
+3. 为设置提供名称，并选中“发送到 Log Analytics”  框，然后选择 Log Analytics 工作区。
 
    ![添加诊断设置 - 现有的设置](media/diagnostic-logs-stream-log-store/diagnostic-settings-configure.png)
 
-4. 单击“保存” 。
+4. 单击“保存”  。
 
 几分钟后，新设置会显示在此资源的设置列表中，只要生成新的事件数据，就会立即将诊断日志流式传输到该工作区。 请注意，发出事件后可能需要最多 15 分钟的时间该事件才会出现在 Log Analytics 中。
 
@@ -129,7 +129,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 #### <a name="workarounds"></a>解决方法
 从短期来看，在重新定义 500 个列的限制之前，我们建议将详细数据类型隔离到独立的工作区，以减少达到该限制的可能性。
  
-从长远来看，Azure 诊断将从统一的稀疏架构过渡到为每种数据类型提供单独的表的方案；配合对动态类型的支持，这可以大大提高通过 Azure 诊断机制传入 Azure 日志的数据的可用性。 传输某些 Azure 资源类型时已经体现了这种优势，例如 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) 或 [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) 日志。 请在 [Azure 更新](https://www.azure.cn/updates/)博客中查看有关 Azure 中支持这些重新编排的日志的新资源类型的消息！
+从长远来看，Azure 诊断将从统一的稀疏架构过渡到为每种数据类型提供单独的表的方案；配合对动态类型的支持，这可以大大提高通过 Azure 诊断机制传入 Azure 日志的数据的可用性。 传输某些 Azure 资源类型时已经体现了这种优势，例如 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics) 或 [Intune](https://docs.microsoft.com/intune/review-logs-using-azure-monitor) 日志。 请在 [Azure 更新](/what-is-new/)博客中查看有关 Azure 中支持这些重新编排的日志的新资源类型的消息！
 
 
 ## <a name="next-steps"></a>后续步骤

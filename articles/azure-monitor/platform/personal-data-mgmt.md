@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 50d3178866c702e0471ef31355f7c07fc9d78430
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 53b9c2614c34d78234665867503667c89eb2823a
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627114"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731462"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>存储在 Log Analytics 和 Application Insights 中的个人数据指南
 
@@ -67,7 +67,7 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
     | summarize numNonObfuscatedIPs_24h = count() by $table
     ```
 * *用户 ID*：默认情况下，Application Insights 会使用为用户随机生成的 ID，以便进行会话跟踪。 不过，这些字段常常会被替代，改为存储与应用程序更相关的 ID。 例如：用户名、AAD GUID 等。这些 ID 通常会被视为范围内的个人数据，因此应处理得当。 我们的建议始终是尝试对这些 ID 进行混淆或匿名处理。 通常可以在其中发现这些值的字段包括：session_Id、user_Id、user_AuthenticatedId、user_AccountId、customDimensions。
-* *自定义数据*：Application Insights 允许向任何数据类型追加一组自定义维度。 这些维度可以是任何数据。 使用以下查询来确定在过去 24 小时内收集的任何自定义维度：
+* *自定义数据*：Application Insights 允许向任何数据类型追加一组自定义维度。 这些维度可以是任何数据。  使用以下查询来确定在过去 24 小时内收集的任何自定义维度：
     ```
     search * 
     | where isnotempty(customDimensions)
@@ -124,6 +124,7 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
 
 ## <a name="next-steps"></a>后续步骤
 - 若要详细了解如何收集、处理和保护 Log Analytics 数据，请参阅 [Log Analytics 数据安全性](../../azure-monitor/platform/data-security.md)。
+- 若要详细了解如何收集、处理和保护 Application Insights 数据，请参阅 [Application Insights 数据安全性](../../azure-monitor/app/data-retention-privacy.md)。
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Data Box 从 VHD 导入数据以及将数据复制到托管磁盘 | Microsoft Docs
+title: 教程：使用 Azure Data Box 将数据从 VHD 复制到托管磁盘 | Microsoft Docs
 description: 了解如何将本地 VM 工作负荷上的 VHD 中的数据复制到 Azure Data Box
 services: databox
 author: WenJason
@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 02/27/2019
-ms.date: 03/18/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: b84965b6fbcaf50a1273d9f17ab059441313ebec
-ms.sourcegitcommit: f4bb35711c8ce60e44094ef022d9d59d8f5fc169
+ms.openlocfilehash: d818972adf39031ab4d3fa4a7a60033999119e51
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57990197"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726506"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>教程：使用 Data Box 将数据导入为 Azure 中的托管磁盘
 
@@ -33,7 +33,7 @@ ms.locfileid: "57990197"
 在开始之前，请确保：
 
 1. 已完成[教程：设置 Azure Data Box](data-box-deploy-set-up.md)。
-2. 已收到 Data Box，并且门户中的订单状态为“已送达”。
+2. 已收到 Data Box，并且门户中的订单状态为“已送达”。 
 3. 已连接到高速网络。 强烈建议你至少建立一个 10-GbE 连接。 如果 10-GbE 连接不可用，可以使用 1-GbE 数据链路，但复制速度会受影响。
 4. 已查看：
 
@@ -47,7 +47,7 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-在每个共享中，将创建对应于存储帐户中的容器的以下四个文件夹。
+在每个共享中，将创建对应于存储帐户中的容器的以下三个文件夹。
 
 - 高级·SSD
 - 标准 HDD
@@ -69,14 +69,14 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
 
 如果使用 Windows Server 主机，请按照以下步骤连接到 Data Box。
 
-1. 第一步是进行身份验证并启动会话。 转到“连接和复制”。 单击“获取凭据”，获取与资源组关联的共享的访问凭据。 也可以从 Azure 门户中的“设备详细信息”获取访问凭据。
+1. 第一步是进行身份验证并启动会话。 转到“连接和复制”。  单击“获取凭据”，获取与资源组关联的共享的访问凭据。  也可以从 Azure 门户中的“设备详细信息”获取访问凭据。 
 
     > [!NOTE]
     > 托管磁盘的所有共享的凭据都是相同的。
 
     ![获取共享凭据 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials1.png)
 
-2. 在“访问共享并复制数据”对话框中，复制共享的“用户名”和“密码”。 单击 **“确定”**。
+2. 在“访问共享并复制数据”对话框中，复制共享的“用户名”和“密码”。   单击 **“确定”** 。
     
     ![获取共享凭据 1](media/data-box-deploy-copy-data-from-vhds/get-share-credentials2.png)
 
@@ -98,7 +98,7 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
     C: \>
     ```
 
-4. 按 Windows+R。在“运行”窗口中指定 `\\<device IP address>\<ShareName>`。 单击“确定”打开文件资源管理器。
+4. 按 Windows+R。在“运行”窗口中指定 `\\<device IP address>\<ShareName>`。  单击“确定”打开文件资源管理器  。
     
     ![通过文件资源管理器连接到共享 2](media/data-box-deploy-copy-data-from-vhds/connect-shares-file-explorer1.png)
 
@@ -111,11 +111,11 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
 
 如果使用 Linux 主机，请执行以下步骤将 Data Box 配置为允许 NFS 客户端访问。
 
-1. 提供允许访问共享的客户端的 IP 地址。 在本地 Web UI 中，转到“连接和复制”页。 在“NFS 设置”下，单击“NFS 客户端访问”。
+1. 提供允许访问共享的客户端的 IP 地址。 在本地 Web UI 中，转到“连接和复制”页。  在“NFS 设置”下，单击“NFS 客户端访问”。  
 
     ![配置 NFS 客户端访问 1](media/data-box-deploy-copy-data-from-vhds/nfs-client-access1.png)
 
-2. 提供 NFS 客户端的 IP 地址，然后单击“添加”。 可以重复此步骤为多个 NFS 客户端配置访问。 单击 **“确定”**。
+2. 提供 NFS 客户端的 IP 地址，然后单击“添加”。  可以重复此步骤为多个 NFS 客户端配置访问。 单击 **“确定”** 。
 
     ![配置 NFS 客户端访问 2](media/data-box-deploy-copy-data-from-vhds/nfs-client-access2.png)
 
@@ -150,11 +150,11 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
 
 ![“连接并复制”页上未显示错误](media/data-box-deploy-copy-data-from-vhds/verify-no-errors-connect-and-copy.png)
 
-如果复制过程中出错，请从“连接和复制”页下载日志。
+如果复制过程中出错，请从“连接和复制”页下载日志。 
 
-- 如果复制的文件未经过 512 字节对齐，该文件不会作为页 Blob 上传到临时存储帐户。 日志中会出现错误。 请删除该文件，并复制经过 512 字节对齐的文件。
+- 如果复制的文件未经过 512 字节对齐，该文件不会作为页 Blob 上传到临时存储帐户。 日志中会显示一条错误。 请删除该文件，并复制经过 512 字节对齐的文件。
 
-- 如果复制的 VHDX（不支持这些文件）使用很长的名称，日志中会出现错误。
+- 如果复制的 VHDX（不支持这些文件）使用很长的名称，日志中会显示一条错误。
 
     ![“连接和复制”页上的日志中的错误](media/data-box-deploy-copy-data-from-vhds/errors-connect-and-copy.png)
 
@@ -164,7 +164,7 @@ Data Box 根据指定的资源组为每个关联的资源组创建一个共享�
     
 ![在仪表板上检查可用空间和已用空间](media/data-box-deploy-copy-data-from-vhds/verify-used-space-dashboard.png)
 
-复制作业完成后，可以转到“准备交付”。
+复制作业完成后，可以转到“准备交付”。 
 
 
 ## <a name="next-steps"></a>后续步骤

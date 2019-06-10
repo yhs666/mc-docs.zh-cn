@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: e9fe300a7526d6dc1b5ab442b38ab41335179a51
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: ca3b2553b93287dbd1bc7992894e8f0f55729375
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586868"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731407"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>使用 Azure 门户查看服务运行状况通知
 
@@ -45,16 +45,16 @@ submissionTimestamp | 事件可供查询的时间戳。
 subscriptionId | 记录此事件的 Azure 订阅。
 状态 | 描述操作状态的字符串。 一些常见值如下：**Started**、**In Progress**、**Succeeded**、**Failed**、**Active** 和 **Resolved**。
 operationName | 操作的名称。
-category | 此属性始终为 ServiceHealth。
+category | 此属性始终为 ServiceHealth  。
 ResourceId | 受影响的资源的资源 ID。
 Properties.title | 此通信的本地化标题。 默认为英语。
 Properties.communication | 带 HTML 标记的通信的经过本地化的详细信息。 默认为英语。
-Properties.incidentType | 以下值之一：ActionRequired、Informational、Incident、Maintenance 或 Security。
+Properties.incidentType | 以下值之一：ActionRequired、Informational、Incident、Maintenance 或 Security      。
 Properties.trackingId | 与此事件关联的事件。 使用此属性将与某一事件相关的事件关联起来。
-Properties.impactedServices | 转义 JSON blob，描述受事件影响的服务和区域。 属性包括服务列表，每个服务具有一个 ServiceName，以及一个 受影响区域的列表，其中每个区域具有一个 RegionName。
+Properties.impactedServices | 转义 JSON blob，描述受事件影响的服务和区域。 属性包括服务列表，每个服务具有一个 ServiceName，以及一个 受影响区域的列表，其中每个区域具有一个 RegionName   。
 Properties.defaultLanguageTitle | 英语通信。
 Properties.defaultLanguageContent | HTML 标记或纯文本格式的英语通信。
-Properties.stage | **Incident** 和 **Security** 的可能值为 **Active**、**Resolved** 或 **RCA**。 对于 ActionRequired 或 Informational，唯一的值为 Active。 对于 **Maintenance**，可能的值为：**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
+Properties.stage | **Incident** 和 **Security** 的可能值为 **Active**、**Resolved** 或 **RCA**。 对于 ActionRequired 或 Informational，唯一的值为 Active    。 对于 **Maintenance**，可能的值为：**Active**、**Planned**、**InProgress**、**Canceled**、**Rescheduled**、**Resolved** 或 **Complete**。
 Properties.communicationId | 与此事件关联的通信。
 
 ### <a name="details-on-service-health-level-information"></a>服务运行状况级别信息的详细信息
@@ -81,16 +81,16 @@ Properties.communicationId | 与此事件关联的通信。
 
 
 ## <a name="view-your-service-health-notifications-in-the-azure-portal"></a>在 Azure 门户中查看服务运行状况通知
-1.  在 [Azure 门户](https://portal.azure.com)中，选择“监视”。
+1.  在 [Azure 门户](https://portal.azure.cn)中，选择“监视”  。
 
     ![Azure 门户菜单的屏幕快照，其中“监视器”处于选中状态](./media/service-notifications/home-monitor.png)
 
-    Azure Monitor 将所有监视设置和数据汇聚到一个合并视图中。 首次打开的是“活动日志”部分。
+    Azure Monitor 将所有监视设置和数据汇聚到一个合并视图中。 首次打开的是“活动日志”  部分。
 
 3.  选择“**警报**”。
 
     ![监视活动日志的屏幕快照，其中“警报”处于选中状态](./media/service-notifications/service-health-summary.png)
-4. 选择“+添加活动日志警报”并设置警报，以确保以后可收到服务通知。 有关详细信息，请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+4. 选择“+添加活动日志警报”  并设置警报，以确保以后可收到服务通知。 有关详细信息，请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
 
 ## <a name="next-steps"></a>后续步骤
 每当[发布服务运行状况通知时接收警报通知](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  

@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 02/23/2017
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46aa3176b948cc6616e93331527934c3f97edc64
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 801d31465ff8fa3e9b9d533a8c103cc30d97e6f1
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615188"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491297"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>构建使用 Azure Cosmos DB 的 Python Flask Web 应用程序
 
@@ -46,12 +46,12 @@ ms.locfileid: "59615188"
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* 已启用 **Azure 开发**和 **Python 开发**的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。 可以检查是否已安装这些必备组件，并在本地打开“Visual Studio 安装程序”进行安装。   
+* 已启用 **Azure 开发**和 **Python 开发**的 [Visual Studio 2017](https://www.visualstudio.com/downloads/)。 可以检查是否已安装这些必备组件，并在本地打开“Visual Studio 安装程序”进行安装。    
 * [Azure SDK for Python 2.7](https://www.azure.cn/downloads/)。 
 * [Python 2.7](https://www.python.org/downloads/windows/)。 可以使用 32 位或 64 位安装。
 
 > [!IMPORTANT]
-> 如果首次安装 Python 2.7，请确保在自定义 Python 2.7.13 屏幕中，选择“向路径添加 python.exe”。
+> 如果首次安装 Python 2.7，请确保在自定义 Python 2.7.13 屏幕中，选择“向路径添加 python.exe”  。
 > 
 > ![自定义 Python 2.7.11 屏幕的屏幕截图，需要在该屏幕中选择“向路径添加 python.exe”](./media/sql-api-python-application/cosmos-db-python-install.png)
 > 
@@ -68,19 +68,19 @@ ms.locfileid: "59615188"
 现在，我们演练如何从头开始新建 Python Flask Web 应用程序。
 
 ## <a name="step-2-create-a-new-python-flask-web-application"></a>步骤 2：新建 Python Flask Web 应用程序
-1. 在 Visual Studio 的“文件”菜单中，指向“新建”，并单击“项目”。
+1. 在 Visual Studio 的“文件”菜单中，指向“新建”，并单击“项目”。   
 
     会显示“新建项目”对话框  。
-2. 在左窗格中，依次展开“模板”、“Python”，并单击“Web”。 
-3. 在中心窗格中选择“Flask Web 项目”，在“名称”框中键入“tutorial”，并单击“确定”。 请记住，Python 包的名称应全部为小写，如 [Style Guide for Python Code（Python 代码风格指南）](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)中所述。
+2. 在左窗格中，依次展开“模板”、“Python”，并单击“Web”。    
+3. 在中心窗格中选择“Flask Web 项目”，在“名称”框中键入“tutorial”，并单击“确定”。     请记住，Python 包的名称应全部为小写，如 [Style Guide for Python Code（Python 代码风格指南）](https://www.python.org/dev/peps/pep-0008/#package-and-module-names)中所述。
 
     对于新接触 Python Flask 的人员，它是一个 Web 应用程序开发框架，可帮助更快地在 Python 中构建 Web 应用程序。
 
     ![Visual Studio 中“新建项目”窗口的屏幕截图，截图上包括左侧突出显示的 Python、中间已选中的 Python Flask Web 项目以及“名称”框中的名称“教程”](./media/sql-api-python-application/image9.png)
-4. 在“Python Tools for Visual Studio”窗口中，单击“安装到虚拟环境中”。 
+4. 在“Python Tools for Visual Studio”窗口中，单击“安装到虚拟环境中”。   
 
     ![数据库教程 -“针对 Visual Studio 的 Python 工具”窗口的屏幕截图](./media/sql-api-python-application/python-install-virtual-environment.png)
-5. 在“添加虚拟环境”窗口中选择“Python 2.7”或“Python 3.5”，在“选择解释器”框中接受其他默认值，并单击“创建”。 此操作将设置项目所需的 Python 虚拟环境。
+5. 在“添加虚拟环境”窗口中选择“Python 2.7”或“Python 3.5”，在“选择解释器”框中接受其他默认值，并单击“创建”。   此操作将设置项目所需的 Python 虚拟环境。
 
     ![数据库教程 -“针对 Visual Studio 的 Python 工具”窗口的屏幕截图](./media/sql-api-python-application/image10_A.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "59615188"
         flup
         pydocumentdb>=1.0.0
 2. 保存 **requirements.txt** 文件。 
-3. 在解决方案资源管理器中，右键单击“env”，并单击“使用 requirements.txt 安装”。
+3. 在解决方案资源管理器中，右键单击“env”，并单击“使用 requirements.txt 安装”。  
 
     ![显示 env (Python 2.7) 已选中的屏幕截图，其中突出显示了列表中的“使用 requirements.txt 安装”](./media/sql-api-python-application/cosmos-db-python-install-from-requirements.png)
 
@@ -129,7 +129,7 @@ ms.locfileid: "59615188"
 ### <a name="create-database-collection-and-document-definitions"></a>创建数据库、集合和文档定义
 现在，通过添加新文件并更新其他文件来创建投票应用程序。
 
-1. 在解决方案资源管理器中，右键单击“教程”项目，并依次单击“添加”、“新建项”。 选择“空 Python 文件”并将该文件命名为 **forms.py**。  
+1. 在解决方案资源管理器中，右键单击“教程”项目，并依次单击“添加”、“新建项”。    选择“空 Python 文件”并将该文件命名为 **forms.py**。   
 2. 将以下代码添加到 forms.py 文件，然后保存该文件。
 
 ```python
@@ -156,94 +156,94 @@ class VoteForm(Form):
 ### <a name="create-database-collection-and-document"></a>创建数据库、集合和文档
 * 还是在 **views.py**中，将以下代码添加到文件末尾。 这会创建窗体使用的数据库。 不要删除 **views.py**中任何现有的代码。 仅将其追加到末尾。
 
-```python
-@app.route('/create')
-def create():
-    """Renders the contact page."""
-    client = document_client.DocumentClient(config_cosmos.COSMOSDB_HOST, {'masterKey': config_cosmos.COSMOSDB_KEY})
+    ```python
+    @app.route('/create')
+    def create():
+        """Renders the contact page."""
+        client = document_client.DocumentClient(config_cosmos.COSMOSDB_HOST, {'masterKey': config_cosmos.COSMOSDB_KEY})
 
-    # Attempt to delete the database.  This allows this to be used to recreate as well as create
-    try:
-        db = next((data for data in client.ReadDatabases() if data['id'] == config_cosmos.COSMOSDB_DATABASE))
-        client.DeleteDatabase(db['_self'])
-    except:
-        pass
+        # Attempt to delete the database.  This allows this to be used to recreate as well as create
+        try:
+            db = next((data for data in client.ReadDatabases() if data['id'] == config_cosmos.COSMOSDB_DATABASE))
+            client.DeleteDatabase(db['_self'])
+        except:
+            pass
 
-    # Create database
-    db = client.CreateDatabase({ 'id': config_cosmos.COSMOSDB_DATABASE })
+        # Create database
+        db = client.CreateDatabase({ 'id': config_cosmos.COSMOSDB_DATABASE })
 
-    # Create collection
-    collection = client.CreateCollection(db['_self'],{ 'id': config_cosmos.COSMOSDB_COLLECTION })
+        # Create collection
+        collection = client.CreateCollection(db['_self'],{ 'id': config_cosmos.COSMOSDB_COLLECTION })
 
-    # Create document
-    document = client.CreateDocument(collection['_self'],
-        { 'id': config_cosmos.COSMOSDB_DOCUMENT,
-          'Web Site': 0,
-          'Cloud Service': 0,
-          'Virtual Machine': 0,
-          'name': config_cosmos.COSMOSDB_DOCUMENT 
-        })
+        # Create document
+        document = client.CreateDocument(collection['_self'],
+            { 'id': config_cosmos.COSMOSDB_DOCUMENT,
+              'Web Site': 0,
+              'Cloud Service': 0,
+              'Virtual Machine': 0,
+              'name': config_cosmos.COSMOSDB_DOCUMENT 
+            })
 
-    return render_template(
-       'create.html',
-        title='Create Page',
-        year=datetime.now().year,
-        message='You just created a new database, collection, and document.  Your old votes have been deleted')
-```
+        return render_template(
+           'create.html',
+            title='Create Page',
+            year=datetime.now().year,
+            message='You just created a new database, collection, and document.  Your old votes have been deleted')
+    ```
 
 ### <a name="read-database-collection-document-and-submit-form"></a>读取数据库、集合、文档，并提交窗体
 * 还是在 **views.py**中，将以下代码添加到文件末尾。 这会设置窗体、读取数据库、集合和文档。 不要删除 **views.py**中任何现有的代码。 仅将其追加到末尾。
 
-```python
-@app.route('/vote', methods=['GET', 'POST'])
-def vote(): 
-    form = VoteForm()
-    replaced_document ={}
-    if form.validate_on_submit(): # is user submitted vote  
-        client = document_client.DocumentClient(config_cosmos.COSMOSDB_HOST, {'masterKey': config_cosmos.COSMOSDB_KEY})
+    ```python
+    @app.route('/vote', methods=['GET', 'POST'])
+    def vote(): 
+        form = VoteForm()
+        replaced_document ={}
+        if form.validate_on_submit(): # is user submitted vote  
+            client = document_client.DocumentClient(config_cosmos.COSMOSDB_HOST, {'masterKey': config_cosmos.COSMOSDB_KEY})
 
-        # Read databases and take first since id should not be duplicated.
-        db = next((data for data in client.ReadDatabases() if data['id'] == config_cosmos.COSMOSDB_DATABASE))
+            # Read databases and take first since id should not be duplicated.
+            db = next((data for data in client.ReadDatabases() if data['id'] == config_cosmos.COSMOSDB_DATABASE))
 
-        # Read collections and take first since id should not be duplicated.
-        coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config_cosmos.COSMOSDB_COLLECTION))
+            # Read collections and take first since id should not be duplicated.
+            coll = next((coll for coll in client.ReadCollections(db['_self']) if coll['id'] == config_cosmos.COSMOSDB_COLLECTION))
 
-        # Read documents and take first since id should not be duplicated.
-        doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config_cosmos.COSMOSDB_DOCUMENT))
+            # Read documents and take first since id should not be duplicated.
+            doc = next((doc for doc in client.ReadDocuments(coll['_self']) if doc['id'] == config_cosmos.COSMOSDB_DOCUMENT))
 
-        # Take the data from the deploy_preference and increment our database
-        doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
-        replaced_document = client.ReplaceDocument(doc['_self'], doc)
+            # Take the data from the deploy_preference and increment our database
+            doc[form.deploy_preference.data] = doc[form.deploy_preference.data] + 1
+            replaced_document = client.ReplaceDocument(doc['_self'], doc)
 
-        # Create a model to pass to results.html
-        class VoteObject:
-            choices = dict()
-            total_votes = 0
+            # Create a model to pass to results.html
+            class VoteObject:
+                choices = dict()
+                total_votes = 0
 
-        vote_object = VoteObject()
-        vote_object.choices = {
-            "Web Site" : doc['Web Site'],
-            "Cloud Service" : doc['Cloud Service'],
-            "Virtual Machine" : doc['Virtual Machine']
-        }
-        vote_object.total_votes = sum(vote_object.choices.values())
+            vote_object = VoteObject()
+            vote_object.choices = {
+                "Web Site" : doc['Web Site'],
+                "Cloud Service" : doc['Cloud Service'],
+                "Virtual Machine" : doc['Virtual Machine']
+            }
+            vote_object.total_votes = sum(vote_object.choices.values())
 
-        return render_template(
-            'results.html', 
-            year=datetime.now().year, 
-            vote_object = vote_object)
+            return render_template(
+                'results.html', 
+                year=datetime.now().year, 
+                vote_object = vote_object)
 
-    else :
-        return render_template(
-            'vote.html', 
-            title = 'Vote',
-            year=datetime.now().year,
-            form = form)
-```
+        else :
+            return render_template(
+                'vote.html', 
+                title = 'Vote',
+                year=datetime.now().year,
+                form = form)
+    ```
 
 ### <a name="create-the-html-files"></a>创建 HTML 文件
-1. 在解决方案资源管理器中的 **tutorial** 文件夹中，右键单击 **templates** 文件夹，并依次单击“添加”、“新建项”。 
-2. 选择“HTML 页”，并在名称框中键入 **create.html**。 
+1. 在解决方案资源管理器中的 **tutorial** 文件夹中，右键单击 **templates** 文件夹，并依次单击“添加”、“新建项”。   
+2. 选择“HTML 页”，并在名称框中键入 **create.html**。  
 3. 重复步骤 1 和步骤 2，以创建另外两个 HTML 文件：results.html 和 vote.html。
 4. 将以下代码添加到 `<body>` 元素中的 **create.html**。 它会显示一条消息，说明我们创建了新的数据库、集合和文档。
 
@@ -306,7 +306,7 @@ def vote():
     ```
 
 ### <a name="add-a-configuration-file-and-change-the-initpy"></a>添加配置文件并更改 \_\_init\_\_.py
-1. 在解决方案资源管理器中，右键单击 **tutorial** 项目，单击“添加”，再单击“新建项”，选择“空 Python 文件”，然后将该文件命名为 **config_cosmos.py**。 Flask 中的窗体需要此配置文件。 也可将其用于提供机密密钥。 但此教程不需要此密钥。
+1. 在解决方案资源管理器中，右键单击 **tutorial** 项目，单击“添加”，再单击“新建项”，选择“空 Python 文件”，然后将该文件命名为 **config_cosmos.py**。    Flask 中的窗体需要此配置文件。 也可将其用于提供机密密钥。 但此教程不需要此密钥。
 2. 将以下代码添加到 config_cosmos.py，需要在下一步更改 **COSMOSDB\_HOST** 和 **COSMOSDB\_KEY** 的值。
 
     ```python
@@ -320,8 +320,8 @@ def vote():
     COSMOSDB_COLLECTION = 'voting collection'
     COSMOSDB_DOCUMENT = 'voting document'
     ```
-3. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“浏览”、“Azure Cosmos DB 帐户”导航到“密钥”页，双击要使用的帐户名，并单击“概要”区域中的“密钥”按钮。 在“密钥”页中，复制“URI”值并将其粘贴到“config.py”文件中，作为 COSMOSDB\_HOST 属性的值。 
-4. 返回到 Azure 门户，在“密钥”页中，复制“主密钥”或“辅助密钥”的值，并将其粘贴到“config_cosmos.py”文件，作为 COSMOSDB\_KEY 属性的值。
+3. 在 [Azure 门户](https://portal.azure.cn/)中，依次单击“浏览”、“Azure Cosmos DB 帐户”导航到“密钥”页，双击要使用的帐户名，并单击“概要”区域中的“密钥”按钮。      在“密钥”页中，复制“URI”值并将其粘贴到“config.py”  文件中，作为 COSMOSDB\_HOST  属性的值   。 
+4. 返回到 Azure 门户，在“密钥”页中，复制“主密钥”或“辅助密钥”的值，并将其粘贴到“config_cosmos.py”  文件，作为 COSMOSDB\_KEY  属性的值    。
 5. 在 **\_\_init\_\_.py** 文件中，添加以下行以包括配置文件读取和一些基本日志记录功能： 
 
         app.config.from_object('config_cosmos')
@@ -352,7 +352,7 @@ def vote():
 3. 单击“创建/清除投票数据库”  以生成数据库。
 
     ![Web 应用程序的创建页面 - 开发详细信息的屏幕截图](./media/sql-api-python-application/cosmos-db-python-run-create-page.png)
-4. 然后，单击“投票”并选择选项。
+4. 然后，单击“投票”  并选择选项。
 
     ![提出了一个投票问题的 Web 应用程序的屏幕截图](./media/sql-api-python-application/cosmos-db-vote.png)
 5. 对于所投的每一票，它都增加了相应的计数器。
@@ -363,7 +363,7 @@ def vote():
 ## <a name="step-5-deploy-the-web-application-to-azure"></a>步骤 5：将 Web 应用程序部署到 Azure
 创建可在本地针对 Azure Cosmos DB 正常工作的完整应用程序后，我们要创建一个 web.config 文件，将服务器上的文件更新为与本地环境匹配，然后在 Azure 中查看已完成的应用。 此过程只能在 Visual Studio 2017 中执行。 如果使用其他 Visual Studio 版本，请参阅[发布到 Azure 应用服务](https://docs.microsoft.com/zh-cn/visualstudio/python/publishing-to-azure)。
 
-1. 在 Visual Studio 的“解决方案资源管理器”中，右键单击项目，并选择“添加”>“新建项...”。在显示的对话框中，选择“Azure web.config (Fast CGI)”模板，再选择“确定”。 随后会在项目根目录中创建一个 `web.config` 文件。 
+1. 在 Visual Studio 的“解决方案资源管理器”中，右键单击项目，并选择“添加”>“新建项...”。   在显示的对话框中，选择“Azure web.config (Fast CGI)”模板，再选择“确定”。   随后会在项目根目录中创建一个 `web.config` 文件。 
 
 2. 修改 `web.config` 中的 `<system.webServer>` 节，使路径与 Python 安装匹配。 例如，对于 Python 2.7 x64，该条目应如下所示：
 
@@ -382,22 +382,22 @@ def vote():
     <add key="WSGI_HANDLER" value="tutorial.app"/>
     ```
 
-4. 在 Visual Studio 的“解决方案资源管理器”中，展开 **tutorial** 文件夹，右键单击 `static` 文件夹，并依次选择“添加”>“新建项...”、“Azure 静态文件 web.config”模板、“确定”。 此操作会在 `static` 中创建另一个 `web.config`，用于针对该文件夹禁用 Python 处理。 此配置会将静态文件的请求发送到默认的 Web 服务器，而不使用 Python 应用程序。
+4. 在 Visual Studio 的“解决方案资源管理器”中，展开 **tutorial** 文件夹，右键单击 `static` 文件夹，并依次选择“添加”>“新建项...”、“Azure 静态文件 web.config”模板、“确定”。    此操作会在 `static` 中创建另一个 `web.config`，用于针对该文件夹禁用 Python 处理。 此配置会将静态文件的请求发送到默认的 Web 服务器，而不使用 Python 应用程序。
 
-5. 保存文件，右键单击解决方案资源管理器中的项目（确保不要在本地运行它），并选择“发布”。  
+5. 保存文件，右键单击解决方案资源管理器中的项目（确保不要在本地运行它），并选择“发布”  。  
 
      ![解决方案资源管理器中选中的教程的屏幕截图，其中突出显示了“发布”选项](./media/sql-api-python-application/image20.png)
-6. 在“发布”对话框中，依次选择“Azure 应用服务”和“新建”，然后单击“发布”。
+6. 在“发布”  对话框中，依次选择“Azure 应用服务”  和“新建”  ，然后单击“发布”  。
 
     ![“发布 Web 窗口”的屏幕截图，其中突出显示了“Azure 应用服务”](./media/sql-api-python-application/cosmos-db-python-publish.png)
-7. 在“创建应用服务”对话框中，输入 Web 应用名称、订阅、资源组和应用服务计划，然后单击“创建”。
+7. 在“创建应用服务”  对话框中，输入 Web 应用名称、订阅、资源组和应用服务计划，然后单击“创建”     。
 
     ![“Azure Web 应用窗口”窗口的屏幕截图](./media/sql-api-python-application/cosmos-db-python-create-app-service.png)
 8. 几秒钟后，Visual Studio 会完成将文件复制到服务器的过程，并 在 `http://<your app service>.chinacloudsites.cn/` 页上显示“由于发生内部服务器错误，无法显示该页”。
 
-9. 在 Azure 门户中打开新的应用服务帐户，在导航菜单中向下滚动到“开发工具”部分，选择“扩展”，并单击“+ 添加”。
+9. 在 Azure 门户中打开新的应用服务帐户，在导航菜单中向下滚动到“开发工具”部分，选择“扩展”，并单击“+ 添加”。   
 
-10. 在“选择扩展”页上，向下滚动到最近的 Python 2.7 安装并选择 x86 或 x64 位选项，然后单击“确定”接受法律条款。  
+10. 在“选择扩展”页上，向下滚动到最近的 Python 2.7 安装并选择 x86 或 x64 位选项，然后单击“确定”接受法律条款。    
 
 11. 使用 Kudu 控制台（可通过 `https://<your app service name>.scm.chinacloudsites.cn/DebugConsole` 访问）安装应用的 `requirements.txt` 文件中所列的包。 为此，请在 Kudu 诊断控制台中导航到 Python 文件夹 `D:\home\Python27`，并根据 [Kudu 控制台](https://docs.microsoft.com/zh-cn/visualstudio/python/managing-python-on-azure-app-service#azure-app-service-kudu-console)部分中所述运行以下命令：
 
@@ -405,7 +405,7 @@ def vote():
     D:\home\Python27>python -m pip install --upgrade -r /home/site/wwwroot/requirements.txt
     ```          
 
-12. 安装新包后，按“重启”按钮在 Azure 门户中重启应用服务。 
+12. 安装新包后，按“重启”按钮在 Azure 门户中重启应用服务。  
 
     > [!Tip] 
     > 如果对应用的 `requirements.txt` 文件做了任何更改，请务必重新使用 Kudu 控制台来安装该文件中现已列出的所有包。 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1cbebc937a2294de5f0b58314984f5ec864315b0
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 77b2efc02f5abdf96b5bd4d033bae5cc7422e29c
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686287"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731197"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Azure Monitor 中的数据的来源
 本文介绍了由 Azure Monitor 收集的用于监视资源及其上运行的应用程序的运行状况和性能的数据的来源。 这些资源可能在 Azure 中，在其他云中或在本地。  有关此数据如何存储以及如何查看它的详细信息，请参阅 [Azure Monitor 收集的数据](data-platform.md)。
@@ -46,14 +46,14 @@ Azure 中的监视数据来自各种来源，这些来源可以组织为层，�
 [Azure 服务运行状况](service-notifications.md)提供订阅中应用程序和资源所依赖的 Azure 服务的运行状况信息。 可以根据当前的以及预期的可能会影响应用程序的关键问题创建警报，以便到时获得通知。 服务运行状况记录存储在 [Azure 活动日志](activity-logs-overview.md)中，因此你可以在活动日志资源管理器中查看它们，并将其复制到 Azure Monitor 日志中。
 
 ### <a name="azure-activity-log"></a>Azure 活动日志
-[Azure 活动日志](activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其外部视图。 活动日志中记录的具体类型在 [Azure 活动日志事件架构](activity-log-schema.md)中介绍。
+[Azure 活动日志](activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其外部视图。  活动日志中记录的具体类型在 [Azure 活动日志事件架构](activity-log-schema.md)中介绍。
 
 可以在 Azure 门户中特定资源的页面上查看其活动日志，或在[活动日志资源管理器](activity-logs-overview.md)中查看来自多个资源的日志。 可以将日志项目复制到 Azure Monitor 中，与其他监视数据组合在一起，这特别有用。 也可使用[事件中心](activity-logs-stream-event-hubs.md)将其发送到其他位置。
 
 
 
 ## <a name="azure-services"></a>Azure 服务
-指标和资源级诊断日志提供 Azure 资源的内部操作的信息。 这些适用于大多数 Azure 服务。管理解决方案提供特定服务的更多见解。
+指标和资源级诊断日志提供  Azure 资源的内部操作的信息。 这些适用于大多数 Azure 服务。管理解决方案提供特定服务的更多见解。
 
 ![Azure 资源收集](media/data-sources/azure-resource-collection.png)
 
@@ -64,6 +64,7 @@ Azure 中的监视数据来自各种来源，这些来源可以组织为层，�
 
 ### <a name="resource-diagnostic-logs"></a>资源诊断日志
 活动日志提供在 Azure 资源上执行的操作的信息，而资源级[诊断日志](diagnostic-logs-overview.md)则提供有关资源本身的操作的见解。
+
 不能直接在 Azure 门户中查看诊断日志，但可以[将它们发送到 Azure 存储进行存档](archive-diagnostic-logs.md)，然后将它们导出到[事件中心](../../event-hubs/event-hubs-about.md)以便重定向到其他服务，或者导出[到 Azure Monitor](diagnostic-logs-stream-log-store.md) 进行分析。 某些资源可以直接写入到 Azure Monitor 中，而另一些资源则只能先写入到存储帐户，然后再[导入 Log Analytics 中](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)。
 
 ### <a name="monitoring-solutions"></a>监视解决方案

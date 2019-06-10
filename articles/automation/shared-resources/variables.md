@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
-origin.date: 04/01/2019
-ms.date: 04/15/2019
+origin.date: 05/04/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 6ee7ea5773aa7554c9cd6dc3993de59e189bc6f8
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 0d55d8ba70fd7de2487b3d0ce04761209dd06501
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59503410"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726471"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -36,7 +36,7 @@ ms.locfileid: "59503410"
 
 ## <a name="variable-types"></a>变量类型
 
-当使用 Azure 门户创建变量时，必须通过下拉列表指定一个数据类型，以便门户可以显示用于输入变量值的相应控件。 该变量并不局限于此数据类型。 如果想要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指定为“未定义”，则该变量的值将设置为 **$null**，并且必须使用 [Set-AzureRMAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) cmdlet 或 **Set-AutomationVariable** 活动来设置该值。 无法在该门户中创建或更改复杂变量类型的值，但可以使用 Windows PowerShell 提供任何类型的值。 复杂类型将作为 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject)返回。
+当使用 Azure 门户创建变量时，必须通过下拉列表指定一个数据类型，以便门户可以显示用于输入变量值的相应控件。 该变量并不局限于此数据类型。 如果想要指定不同类型的值，则必须使用 Windows PowerShell 设置该变量。 如果指定为“未定义”  ，则该变量的值将设置为 **$null**，并且必须使用 [Set-AzureRMAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Set-AzureRmAutomationVariable) cmdlet 或 **Set-AutomationVariable** 活动来设置该值。 无法在该门户中创建或更改复杂变量类型的值，但可以使用 Windows PowerShell 提供任何类型的值。 复杂类型将作为 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject)返回。
 
 可以通过创建一个数组或哈希表并将其保存到变量，来将多个值存储到单一变量。
 
@@ -85,9 +85,9 @@ ms.locfileid: "59503410"
 
 ### <a name="to-create-a-new-variable-with-the-azure-portal"></a>使用 Azure 门户创建新变量
 
-1. 在自动化帐户中，单击“资产”磁贴，然后在“资产”边栏选项卡中选择“变量”。
-2. 在“变量”磁贴中，选择“添加变量”。
-3. 完成“新建变量”边栏选项卡上的选项，然后单击“创建”保存新变量。
+1. 在自动化帐户中，单击“资产”  磁贴，然后在“资产”  边栏选项卡中选择“变量”  。
+2. 在“变量”  磁贴中，选择“添加变量”  。
+3. 完成“新建变量”  边栏选项卡上的选项，然后单击“创建”  保存新变量。
 
 ### <a name="to-create-a-new-variable-with-windows-powershell"></a>使用 Windows PowerShell 创建新变量
 
@@ -117,7 +117,7 @@ $vmIpAddress = $vmValue.IpAddress
 
 ## <a name="using-a-variable-in-a-runbook-or-dsc-configuration"></a>使用 Runbook 或 DSC 配置中的变量
 
-使用 Set-AutomationVariable 活动设置 PowerShell Runbook 或 DSC 配置中自动化变量的值，并使用 Get-AutomationVariable 来检索该值。 不应在 Runbook 或 DSC 配置中使用 Set-AzureRMAutomationVariable 或 Get-AzureRMAutomationVariable cmdlet，因为它们的效率低于工作流活动。 也不能使用 Get-AzureRMAutomationVariable 来检索安全变量的值。 从 Runbook 或 DSC 配置中创建新变量的唯一方法是使用 [New-AzureRMAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) cmdlet。
+使用 Set-AutomationVariable  活动设置 PowerShell Runbook 或 DSC 配置中自动化变量的值，并使用 Get-AutomationVariable  来检索该值。 不应在 Runbook 或 DSC 配置中使用 Set-AzureRMAutomationVariable  或 Get-AzureRMAutomationVariable  cmdlet，因为它们的效率低于工作流活动。 也不能使用 Get-AzureRMAutomationVariable  来检索安全变量的值。 从 Runbook 或 DSC 配置中创建新变量的唯一方法是使用 [New-AzureRMAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable) cmdlet。
 
 ### <a name="textual-runbook-samples"></a>文本 Runbook 示例
 
@@ -136,45 +136,6 @@ for ($i = 1; $i -le $NumberOfIterations; $i++) {
     Write-Output "$i`: $SampleMessage"
 }
 Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
-```
-
-#### <a name="setting-and-retrieving-a-complex-object-in-a-variable"></a>设置和检索变量中的复杂对象
-
-下面的示例代码演示如何更新文本 Runbook 中具有复杂值的变量。 在此示例中，使用 **Get-AzureVM** 检索到一个 Azure 虚拟机并保存到一个现有的自动化变量。  如 [变量类型](#variable-types)中所述，该对象存储为一个 PSCustomObject。
-
-```powershell
-$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
-```
-
-在下面的代码中，从该变量检索值并将其用于启动虚拟机。
-
-```powershell
-$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-if ($vmObject.PowerState -eq 'Stopped') {
-    Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-}
-```
-
-#### <a name="setting-and-retrieving-a-collection-in-a-variable"></a>设置和检索变量中的集合
-
-下面的示例代码演示如何使用文本 Runbook 中包含一组复杂值的变量。 在此示例中，使用 **Get-AzureVM** 检索到多个 Azure 虚拟机并保存到一个现有的自动化变量。 如 [变量类型](#variable-types)中所述，变量存储为一组 PSCustomObject。
-
-```powershell
-$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}
-Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
-```
-
-在下面的代码中，从该变量检索此集合并将其用于启动每个虚拟机。
-
-```powershell
-$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-ForEach ($vmValue in $vmValues)
-{
-    if ($vmValue.PowerState -eq 'Stopped') {
-        Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-    }
-}
 ```
 
 #### <a name="setting-and-retrieving-a-variable-in-python2"></a>在 Python2 中设置和检索变量

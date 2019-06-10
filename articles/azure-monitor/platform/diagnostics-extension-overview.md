@@ -4,15 +4,15 @@ description: 使用 Azure 诊断在云服务、虚拟机和 Service Fabric 中�
 author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.component: diagnostic-extension
-ms.openlocfilehash: 20e3f2265715f358d345e95e183ed2f6b015271e
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: cc472aca4b333be02623f993130da21867f7a34d
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586882"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731263"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](../../azure-monitor/overview.md)。
@@ -28,7 +28,7 @@ Azure 诊断扩展可收集以下类型的数据：
 | 性能计数器指标 |操作系统和自定义性能计数器 |
 | 应用程序日志 |应用程序写入的跟踪消息 |
 | Windows 事件日志 |发送到 Windows 事件日志记录系统的信息 |
-| .NET 事件源 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 类的代码编写事件  |
+| .NET EventSource 日志 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 类的代码编写事件 |
 | IIS 日志 |有关 IIS 网站的信息 |
 | 基于清单的 ETW |由任何进程生成的 Windows 事件的事件跟踪。(1) |
 | 故障转储 |有关应用程序崩溃时进程状态的信息 |
@@ -40,9 +40,8 @@ Azure 诊断扩展可收集以下类型的数据：
 ## <a name="data-storage"></a>数据存储
 该扩展将其数据存储在你指定的 [Azure 存储帐户](diagnostics-extension-to-storage.md)中。
 
-还可将其流式传输到[事件中心](../../event-hubs/event-hubs-about.md)，然后就可将其发送到非 Azure 监控服务。
+还可将其流式传输到[事件中心](../../event-hubs/event-hubs-about.md)，然后就可将其发送到非 Azure 监视服务。
 
-### <a name="azure-monitor"></a>Azure Monitor
 还可以选择将数据发送到 Azure Monitor 指标时序数据库。 此时，该接收器仅适用于性能计数器。 它使你能够以自定义指标的形式发送性能计数器。 此功能以预览版提供。 Azure Monitor 接收器支持：
 * 通过 [Azure Monitor 指标 API](https://docs.microsoft.com/rest/api/monitor/) 检索发送到 Azure Monitor 的所有性能计数器。
 * 通过 Azure Monitor 中的[指标警报](../../azure-monitor/platform/alerts-overview.md)针对发送到 Azure Monitor 的所有性能计数器发出警报

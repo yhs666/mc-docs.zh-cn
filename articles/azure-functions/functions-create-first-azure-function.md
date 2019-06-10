@@ -1,5 +1,5 @@
 ---
-title: 通过 Azure 门户创建第一个函数 | Microsoft Docs
+title: 通过 Azure 门户创建你的第一个函数 | Microsoft Docs
 description: 了解如何使用 Azure 门户创建第一个可无服务器执行的 Azure Function。
 services: functions
 documentationcenter: na
@@ -10,26 +10,26 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 03/28/2018
-ms.date: 12/26/2018
+ms.date: 06/03/2019
 ms.author: v-junlch
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 0c54b3f63d947182858ae5444f5d4028d23ec35e
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 0bf5d1e4e21b7eedb740e4ec8cb8f1bc93eee95f
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806526"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491472"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>在 Azure 门户中创建第一个函数
 
-Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/serverless/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。 在本主题中，了解如何使用 Functions 在 Azure 门户中创建“hello world”函数。
+Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/serverless/)环境中执行代码，无需先创建 VM 或发布 Web 应用程序。 在本文中，你将了解如何使用 Functions 在 Azure 门户中创建“hello world”函数。
 
 ![在 Azure 门户中创建 Function App](./media/functions-create-first-azure-function/function-app-in-portal-editor.png)
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 > [!NOTE]
-> C# 开发人员应考虑[在 Visual Studio 2017 中创建第一个函数](functions-create-your-first-function-visual-studio.md)，而不要在门户中这样做。 
+> C# 开发人员应考虑[在 Visual Studio 2019 中创建第一个函数](functions-create-your-first-function-visual-studio.md)，而不要在门户中这样做。 
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 
@@ -45,11 +45,11 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="create-function"></a>创建 HTTP 触发的函数
 
-1. 展开新的函数应用，然后选择 **Functions** 旁边的 **+** 按钮，选择“门户中”，然后选择“继续”。
+1. 展开新的函数应用，然后选择 **Functions** 旁边的 **+** 按钮，选择“门户中”  ，然后选择“继续”  。
 
-    ![Functions 快速入门选择平台。](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
+    ![有关选择平台的 Functions 快速入门。](./media/functions-create-first-azure-function/function-app-quickstart-choose-portal.png)
 
-1. 选择“WebHook + API”，然后选择“创建”。
+1. 选择“WebHook + API”  ，然后选择“创建”  。
 
     ![Azure 门户中的函数快速入门。](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
@@ -59,7 +59,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="test-the-function"></a>测试函数
 
-1. 在新函数中，单击右上角的“</> 获取函数 URL”，选择“默认(函数密钥)”，然后单击“复制”。 
+1. 在新函数中，单击右上角的“</> 获取函数 URL”，选择“默认(函数密钥)”，然后单击“复制”    。 
 
     ![从 Azure 门户复制函数 URL](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
@@ -71,7 +71,7 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
     请求 URL 包含通过 HTTP 访问函数默认所需的密钥。
 
-3. 运行函数时，会在日志中写入跟踪信息。 若要查看上次执行的跟踪输出，请返回到门户中的函数，并单击屏幕底部的箭头以展开“日志”。
+3. 运行函数时，会在日志中写入跟踪信息。 若要查看上次执行的跟踪输出，请返回到门户中的函数，并单击屏幕底部的箭头以展开“日志”  。
 
    ![Azure 门户中的“函数日志”查看器。](./media/functions-create-first-azure-function/function-view-logs.png)
 
@@ -81,10 +81,10 @@ Azure Functions 用于在[无服务器](https://azure.microsoft.com/solutions/se
 
 ## <a name="next-steps"></a>后续步骤
 
-已使用简单的 HTTP 触发函数创建 Function App。  
+你已使用 HTTP 触发的简单函数创建了一个函数应用。  
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 有关详细信息，请参阅 [Azure Functions HTTP 绑定](functions-bindings-http-webhook.md)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

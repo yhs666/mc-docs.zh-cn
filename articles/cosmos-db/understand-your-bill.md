@@ -8,12 +8,12 @@ origin.date: 12/07/2018
 ms.date: 04/15/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6650e86c58bc7f6210aee809db16454d5fe9e0bc
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: ef8e3cc106a1424d61503a3afcb02ea577c22c3b
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615306"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491294"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
 
@@ -71,7 +71,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 
 * 假设一个月为 744 小时（24 小时 * 31 天），如果 500 小时的预配吞吐量为 1,200 RU/秒，其余 220 小时的预配吞吐量为 22,200 RU/秒，则月度帐单将显示：500 x 0.984 元/小时 + 244 x 18.21 元/小时 = 13402.56 元/月。
 
-<!--Not Available on ![Dedicated throughput bill example](./media/understand-your-bill/bill-example1.png)-->
+    <!--Not Available on ![Dedicated throughput bill example](./media/understand-your-bill/bill-example1.png)-->
 
 ### <a name="billing-example-containers-with-shared-throughput-mode"></a>计费示例：具有共享吞吐量模式的容器
 
@@ -85,7 +85,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 
 * 假设一个月为 744 小时，如果 300 小时的预配吞吐量为 120K RU/秒，其余 420 小时的预配吞吐量为 155K RU/秒，则月度帐单将显示：300 x 98.4 元/小时 + 444 x 127.1 元/小时 = 29,520 元 + 56,433 元 = 85,953 元/月。 
 
-![共享吞吐量计费示例](./media/understand-your-bill/bill-example2.png)
+    <!--Not Available on ![Shared throughput bill example](./media/understand-your-bill/bill-example2.png)-->
 
 ## <a name="billing-examples-with-geo-replication-and-multi-master"></a>采用异地复制和多主数据库的计费示例  
 
@@ -103,7 +103,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 |3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2.576 元/GB  |1,932 元|
 |**总计**     |     |  |**26,980 元**|
 
-此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部和中国东部。则需要按数据传输速率为导出部分付费。
+此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部和中国东部。  则需要按数据传输速率为导出部分付费。
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-multi-region-writes"></a>计费示例：多区域 Azure Cosmos 帐户，多个区域写入
 
@@ -118,7 +118,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 |3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2.576 元/GB  |1,932 元|
 |**总计**     |     |  |**40,520.2 元**|
 
-此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部 2 和中国东部 2。则需要按数据传输速率为导出部分付费。
+此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部 2 和中国东部 2。  则需要按数据传输速率为导出部分付费。
 
 <!--Not Available on ### Billing example: Azure Cosmos account with multi-master, database-level throughput including dedicated throughput mode for some containers-->
 
@@ -148,7 +148,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 
 月度总成本 = 月度存储成本 + 月度吞吐量成本；月度总成本 = 257.6 元 + 549.1 元 = 806.7 元
 
-区域不同定价可能有所不同。有关最新定价，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。
+区域不同定价可能有所不同。  有关最新定价，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。
 
 <!--Not Available on ## Billing with Azure Cosmos DB reserved capacity-->
 

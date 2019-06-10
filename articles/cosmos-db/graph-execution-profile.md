@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 03/27/2019
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4c070137f9e4bcc4e733809ab7c97b618671d519
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: b1205f5f01c04cbe4607992126304a771b6ca58a
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615314"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491296"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何使用执行配置文件步骤来评估 Gremlin 查询
 
@@ -132,12 +132,12 @@ ms.locfileid: "59615314"
 ## <a name="execution-profile-response-objects"></a>执行配置文件响应对象
 
 executionProfile() 函数的响应将生成采用以下结构的 JSON 对象层次结构：
-  - **Gremlin 操作对象**：表示已执行的整个 Gremlin 操作。 包含以下属性。
+- **Gremlin 操作对象**：表示已执行的整个 Gremlin 操作。 包含以下属性。
     - `gremlin`：已执行的显式 Gremlin 语句。
     - `totalTime`：执行该步骤所花费的时间（以毫秒为单位）。 
     - `metrics`：一个数组，其中包含为了完成查询而执行的每个 Cosmos DB 运行时运算符。 此列表已按执行顺序排序。
 
-  - **Cosmos DB 运行时运算符**：表示整个 Gremlin 操作的每个组件。 此列表已按执行顺序排序。 每个对象包含以下属性：
+- **Cosmos DB 运行时运算符**：表示整个 Gremlin 操作的每个组件。 此列表已按执行顺序排序。 每个对象包含以下属性：
     - `name`：运算符的名称。 这是已评估和执行的步骤的类型。 请在下表中了解详细信息。
     - `time`：给定的运算符所花费的时间（以毫秒为单位）。
     - `annotations`：包含特定于已执行的运算符的其他信息。
@@ -165,8 +165,8 @@ Cosmos DB Gremlin 运行时运算符|说明
 ## <a name="examples-on-how-to-analyze-an-execution-profile-response"></a>有关如何分析执行配置文件响应的示例
 
 下面是可以使用执行配置文件响应发现的常用优化方法示例：
-  - 盲目扇出查询。
-  - 未筛选的查询。
+- 盲目扇出查询。
+- 未筛选的查询。
 
 ### <a name="blind-fan-out-query-patterns"></a>盲目扇出查询模式
 

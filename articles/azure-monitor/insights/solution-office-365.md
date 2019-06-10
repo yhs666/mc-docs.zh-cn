@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: f9599ef8c41b1c303d480b7af8d8c0a04945b2ae
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 5bc18f61bed6a61227c6bf9a66ead65d92fe64c2
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566279"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731474"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -67,53 +67,53 @@ ms.locfileid: "59566279"
 第一步是在 Azure Active Directory 中创建管理解决方案将用来访问 Office 365 解决方案的应用程序。
 
 1. 通过 [https://portal.azure.cn](https://portal.azure.cn/) 登录到 Azure 门户。
-1. 依次选择“Azure Active Directory”和“应用注册”。
-1. 单击“新建应用程序注册”。
+1. 依次选择“Azure Active Directory”和“应用注册”   。
+1. 单击“新建应用程序注册”  。
 
     ![添加应用注册](media/solution-office-365/add-app-registration.png)
-1. 输入应用程序名称和登录 URL。  名称应是描述性的。  使用 _http://localhost_ 作为 URL，将“应用程序类型”保留为“Web 应用/ API”
+1. 输入应用程序名称和登录 URL   。  名称应是描述性的。  使用 _http://localhost_ 作为 URL，将“应用程序类型”保留为“Web 应用/ API”  
 
     ![创建应用程序](media/solution-office-365/create-application.png)
-1. 单击“创建”并验证应用程序信息。
+1. 单击“创建”并验证应用程序信息  。
 
     ![已注册的应用](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>为 Office 365 配置应用程序
 
-1. 单击“设置”以打开“设置”菜单。
-2. 选择“属性”。 将“多租户”更改为“是”。
+1. 单击“设置”以打开“设置”菜单   。
+2. 选择“属性”  。 将“多租户”更改为“是”   。
 
     ![设置多租户](media/solution-office-365/settings-multitenant.png)
 
-3. 在“设置”菜单中选择“所需权限”，然后单击“添加”。
-4. 单击“选择 API”，然后单击“Office 365 管理 API”。 单击“Office 365 管理 API”。 单击“选择”。
+3. 在“设置”菜单中选择“所需权限”，然后单击“添加”    。
+4. 单击“选择 API”，然后单击“Office 365 管理 API”   。 单击“Office 365 管理 API”  。 单击“选择”  。
 
     ![选择 API](media/solution-office-365/select-api.png)
 
-5. 在“选择权限”下，为“应用程序权限”和“委派的权限”选择以下选项：
+5. 在“选择权限”下，为“应用程序权限”和“委派的权限”选择以下选项    ：
    - 读取组织的服务运行状况信息
    - 读取组织的活动数据
    - 读取组织的活动报表
 
      ![选择 API](media/solution-office-365/select-permissions.png)
 
-6. 依次单击“选择”、“完成”。
-7. 单击“授予权限”，然后在要求确认时单击“是”。
+6. 依次单击“选择”、“完成”   。
+7. 单击“授予权限”，然后在要求确认时单击“是”   。
 
     ![授予权限](media/solution-office-365/grant-permissions.png)
 
 ### <a name="add-a-key-for-the-application"></a>为应用程序添加密钥
 
-1. 在“设置”窗口中选择“密钥”。
-1. 键入新密钥的说明和持续时间。
-1. 单击“保存”，然后复制生成的值。
+1. 在“设置”窗口中选择“密钥”   。
+1. 键入新密钥的说明和持续时间   。
+1. 单击“保存”，然后复制生成的值   。
 
     ![密钥](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>添加管理员同意
 若要首次启用管理帐户，必须为应用程序提供管理同意。 可以使用 PowerShell 脚本执行此操作。 
 
-1. 将以下脚本保存为 office365_consent.ps1。
+1. 将以下脚本保存为 office365_consent.ps1  。
 
     ```powershell
     param (
@@ -134,7 +134,7 @@ ms.locfileid: "59566279"
 
     Function AdminConsent{
 
-    $domain='login.microsoftonline.com'
+    $domain='login.partner.microsoftonline.cn'
     switch ($WorkspaceLocation.Replace(" ","").ToLower()) {
            "eastus"   {$OfficeAppClientId="d7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westeurope"   {$OfficeAppClientId="c9005da2-023d-40f1-a17a-2b7d91af4ede"; break}
@@ -170,14 +170,14 @@ ms.locfileid: "59566279"
     .\office365_consent.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631- yyyyyyyyyyyy'
     ```
 
-1. 将会显示类似于以下窗口的窗口。 单击“接受”。
+1. 将会显示类似于以下窗口的窗口。 单击“接受”  。
 
     ![管理员同意](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>订阅 Log Analytics 工作区
 最后一步是让应用程序订阅 Log Analytics 工作区。 也是使用 PowerShell 脚本执行此操作。
 
-1. 将以下脚本保存为 office365_subscription.ps1。
+1. 将以下脚本保存为 office365_subscription.ps1  。
 
     ```powershell
     param (
@@ -380,7 +380,7 @@ At line:12 char:18
 
 可以使用[删除管理解决方案](solutions.md#remove-a-monitoring-solution)中的过程删除 Office 365 管理解决方案。 但是，这不会停止将数据从 Office 365 收集到 Azure Monitor 中。 请按照下面的过程来取消订阅 Office 365 并停止收集数据。
 
-1. 将以下脚本保存为 office365_unsubscribe.ps1。
+1. 将以下脚本保存为 office365_unsubscribe.ps1  。
 
     ```powershell
     param (
@@ -488,10 +488,10 @@ Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-向 Log Analytics 工作区添加 Office 365 解决方案时，“Office 365”磁贴将添加到你的仪表板。 此磁贴显示环境中计算机数量及其更新符合性的计数和图形表示形式。<br><br>
+向 Log Analytics 工作区添加 Office 365 解决方案时，“Office 365”磁贴将添加到你的仪表板  。 此磁贴显示环境中计算机数量及其更新符合性的计数和图形表示形式。<br><br>
 ![Office 365 摘要磁贴](media/solution-office-365/tile.png)  
 
-单击“Office 365”磁贴，打开“Office 365”仪表板。
+单击“Office 365”磁贴，打开“Office 365”仪表板   。
 
 ![Office 365 仪表板](media/solution-office-365/dashboard.png)  
 
@@ -509,14 +509,14 @@ Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 日志记录
 
-对于 Office 365 解决方案在 Azure Monitor 中的 Log Analytics 工作区中创建的所有记录，其类型都是 **OfficeActivity**。  OfficeWorkload 属性确定记录所指的 Office 365 服务 - Exchange、AzureActiveDirectory、SharePoint 或 OneDrive。  RecordType 属性指定操作的类型。  每种操作类型的属性都不同，详情请见下表。
+对于 Office 365 解决方案在 Azure Monitor 中的 Log Analytics 工作区中创建的所有记录，其类型都是 **OfficeActivity**。   OfficeWorkload 属性确定记录所指的 Office 365 服务 - Exchange、AzureActiveDirectory、SharePoint 或 OneDrive  。  RecordType 属性指定操作的类型  。  每种操作类型的属性都不同，详情请见下表。
 
 ### <a name="common-properties"></a>通用属性
 以下属性对于所有 Office 365 记录通用。
 
 | 属性 | 说明 |
 |:--- |:--- |
-| Type | OfficeActivity |
+| Type | OfficeActivity  |
 | ClientIP | 记录活动时使用的设备的 IP 地址。 IP 地址以 IPv4 或 IPv6 地址格式显示。 |
 | OfficeWorkload | 记录所指的 Office 365 服务。<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operation | 用户或管理员活动的名称。  |

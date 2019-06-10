@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 origin.date: 09/24/2018
 ms.date: 04/15/2019
-ms.openlocfilehash: 37a50f03cb28e8dc754ac75a7529f90af1c50bc2
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: d6b01aa8cb992bdad7c4e0124ab1a5900a18bdb9
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615228"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491281"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
 
@@ -24,7 +24,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="cassandra-protocol"></a>Cassandra 协议 
 
-Azure Cosmos DB Cassandra API 与 CQL 版本 v4 兼容。 下面列出了支持的 CQL 命令、工具、限制和例外。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB Cassandra API。
+Azure Cosmos DB Cassandra API 与 CQL 版本 v4  兼容。 下面列出了支持的 CQL 命令、工具、限制和例外。 任何理解这些协议的客户端驱动程序应该都能够连接到 Azure Cosmos DB Cassandra API。
 
 ## <a name="cassandra-driver"></a>Cassandra 驱动程序
 
@@ -76,20 +76,20 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 函数：
 
 * 令牌  
 * Blob 转换函数 
-  * typeAsBlob(value)  
-  * blobAsType(value)
+    * typeAsBlob(value)  
+    * blobAsType(value)
 * UUID 和 timeuuid 函数 
-  * dateOf()  
-  * now()  
-  * minTimeuuid()  
-  * unixTimestampOf()  
-  * toDate(timeuuid)  
-  * toTimestamp(timeuuid)  
-  * toUnixTimestamp(timeuuid)  
-  * toDate(timestamp)  
-  * toUnixTimestamp(timestamp)  
-  * toTimestamp(date)  
-  * toUnixTimestamp(date)  
+    * dateOf()  
+    * now()  
+    * minTimeuuid()  
+    * unixTimestampOf()  
+    * toDate(timeuuid)  
+    * toTimestamp(timeuuid)  
+    * toUnixTimestamp(timeuuid)  
+    * toDate(timestamp)  
+    * toUnixTimestamp(timestamp)  
+    * toTimestamp(date)  
+    * toUnixTimestamp(date)  
 
 ## <a name="cassandra-query-language-limits"></a>Cassandra 查询语言限制
 
@@ -140,17 +140,17 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 通过 CQLV4 兼容的 SDK 执行的所有 crud 操作都会返回有关错误、使用的请求单位、活动 ID 等的额外信息。 删除和更新命令在使用时需考虑资源调控，以避免过度使用预配的资源。 
 * 请注意：如果指定，gc_grace_seconds 值必须为零。
 
-```csharp
-var tableInsertStatement = table.Insert(sampleEntity); 
-var insertResult = await tableInsertStatement.ExecuteAsync(); 
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity); 
+    var insertResult = await tableInsertStatement.ExecuteAsync(); 
 
-foreach (string key in insertResult.Info.IncomingPayload) 
-        { 
-            byte[] valueInBytes = customPayload[key]; 
-            double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
-        } 
-```
+    foreach (string key in insertResult.Info.IncomingPayload) 
+            { 
+                byte[] valueInBytes = customPayload[key]; 
+                double value = Encoding.UTF8.GetString(valueInBytes); 
+                Console.WriteLine($"CustomPayload:  {key}: {value}"); 
+            } 
+    ```
 
 ## <a name="consistency-mapping"></a>一致性映射 
 

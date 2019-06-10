@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 10a8ffdf4f805de48dfa18d99a6a8b9dc6816bb5
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: e2944a70a381a6bc196cfbb9570902ed1b6a9612
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566238"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731390"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>开始监视 Node.js Web 应用程序
 
@@ -31,7 +31,7 @@ ms.locfileid: "59566238"
 
 如果没有 Node.js Web 应用程序，则可以按照[创建 Node.js Web 应用快速入门](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-nodejs)创建一个。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -41,7 +41,7 @@ ms.locfileid: "59566238"
 
 Application Insights 可以从任何连接 Internet 的应用程序收集遥测数据，而不考虑它是在本地运行还是在云中运行。 按照以下步骤开始查看此数据。
 
-1. 选择“创建资源” > “开发人员工具” > “Application Insights”。
+1. 选择“创建资源”   >   “开发人员工具” >   “Application Insights”。
 
    ![添加 Application Insights 资源](./media/nodejs-quick-start/1createresourseappinsights.png)
 
@@ -50,7 +50,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
    此时会显示配置对话框，请使用下表填写输入字段。
 
-    | 设置        | 值           | 说明  |
+    | 设置        | Value           | 说明  |
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **应用程序类型** | Node.js 应用程序 | 所监视的应用的类型 |
@@ -61,7 +61,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 ## <a name="configure-app-insights-sdk"></a>配置 App Insights SDK
 
-1. 选择“概述”，然后复制应用程序的**检测密钥**。
+1. 选择“概述”，然后复制应用程序的**检测密钥**。 
 
    ![“新建 App Insights 资源”窗体](./media/nodejs-quick-start/3key.png)
 
@@ -85,23 +85,23 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>开始在 Azure 门户中监视
 
-1. 现在可以在 Azure 门户中重新打开 Application Insights“概述”页（已在其中检索到检测密钥），查看有关当前正在运行的应用程序的详细信息。
+1. 现在可以在 Azure 门户中重新打开 Application Insights“概述”  页（已在其中检索到检测密钥），查看有关当前正在运行的应用程序的详细信息。
 
    ![Application Insights 概述菜单](./media/nodejs-quick-start/4overview.png)
 
-2. 单击“应用程序映射”以获取应用程序组件之间依赖关系的可视布局。 每个组件均显示 KPI，如负载、性能、失败和警报。
+2. 单击“应用程序映射”  以获取应用程序组件之间依赖关系的可视布局。 每个组件均显示 KPI，如负载、性能、失败和警报。
 
    ![应用程序地图](./media/nodejs-quick-start/5appmap.png)
 
-3. 单击“应用分析”图标 ![“应用程序映射”图标](./media/nodejs-quick-start/006.png) “在 Analytics 中查看”。  这将打开“Application Insights Analytics”，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
+3. 单击“应用分析”  图标 ![“应用程序映射”图标](./media/nodejs-quick-start/006.png)  “在 Analytics 中查看”。  这将打开“Application Insights Analytics”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
    ![一段时间内用户请求的分析图](./media/nodejs-quick-start/6analytics.png)
 
-4. 返回到“概述”页并检查 KPI 图形。  此仪表板提供有关应用程序运行状况的统计信息，包括传入请求数、这些请求的持续时间，以及发生的任何故障。
+4. 返回到“概述”  页并检查 KPI 图形。  此仪表板提供有关应用程序运行状况的统计信息，包括传入请求数、这些请求的持续时间，以及发生的任何故障。
 
    ![“运行状况概述时间线”图](./media/nodejs-quick-start/7kpidashboards.png)
 
-   若要启用“页面视图加载时间”图表以填充“客户端遥测”数据，请将此脚本添加到要跟踪的每一页：
+   若要启用“页面视图加载时间”  图表以填充“客户端遥测”  数据，请将此脚本添加到要跟踪的每一页：
 
    ```HTML
    <!-- 
@@ -123,17 +123,18 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    </script>
    ```
 
-5. 在左侧单击“指标”。 使用指标资源管理器调查资源的运行状况和利用率。 可以单击“添加新图表”创建其他自定义视图，或者选择“编辑”修改现有的图表类型、高度、调色板、分组和指标。 例如，可以制作一个图表来显示浏览器页面的平均加载时间，只需从指标下拉列表中选取“浏览器页面加载时间”并从聚合中选择“平均”即可。 
+5. 在左侧单击“指标”  。 使用指标资源管理器调查资源的运行状况和利用率。 可以单击“添加新图表”  创建其他自定义视图，或者选择“编辑”  修改现有的图表类型、高度、调色板、分组和指标。 例如，可以制作一个图表来显示浏览器页面的平均加载时间，只需从指标下拉列表中选取“浏览器页面加载时间”并从聚合中选择“平均”即可。 
 
    ![“服务器指标”图](./media/nodejs-quick-start/8metrics.png)
 
+若要了解有关监视 Node.js 的详细信息，请查看[其他 App Insights Node.js 文档](../../azure-monitor/app/nodejs.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 完成测试后，即可删除资源组和所有相关的资源。 为此，请执行以下步骤。
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击“myResourceGroup”。
-2. 在资源组页上单击“删除”，在文本框中键入 **myResourceGroup**，然后单击“删除”。
+1. 在 Azure 门户的左侧菜单中，单击“资源组”  ，然后单击“myResourceGroup”  。
+2. 在资源组页上单击“删除”  ，在文本框中键入 **myResourceGroup**，然后单击“删除”  。
 
 ## <a name="next-steps"></a>后续步骤
 

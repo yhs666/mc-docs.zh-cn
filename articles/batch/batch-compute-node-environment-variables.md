@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a5c5758ce6fa6df2b99305a42938d3e30d9d648e
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 37af10e0fe5b6e2b17a03780da550d7581f48a81
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586841"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731196"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Azure Batch 计算节点环境变量
 
@@ -58,7 +58,7 @@ ms.locfileid: "65586841"
 | AZ_BATCH_JOB_PREP_WORKING_DIR   | 节点上的作业准备[任务工作目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
 | AZ_BATCH_MASTER_NODE            | 在其上运行[多实例任务][multi_instance]的主要任务的计算节点的 IP 地址和端口。 | 多实例主要和子任务。 | `10.0.0.4:6000` |
 | AZ_BATCH_NODE_ID                | 任务分配到的节点的 ID。 | 所有任务。 | tvm-1219235766_3-20160919t172711z |
-| AZ_BATCH_NODE_IS_DEDICATED      | 如果为 `true`，则当前节点是一个专用节点。 如果为 `false`，则它是[低优先级节点](batch-low-pri-vms.md)。 | 所有任务。 | `true` |
+| AZ_BATCH_NODE_IS_DEDICATED      | 如果为 `true`，则当前节点是一个专用节点。 | 所有任务。 | `true` |
 | AZ_BATCH_NODE_LIST              | 使用 `nodeIP;nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4;10.0.0.5` |
 | AZ_BATCH_NODE_ROOT_DIR          | 节点上所有[批处理目录][files_dirs]的根目录的完整路径。 | 所有任务。 | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | 节点上[共享目录][files_dirs]的完整路径。 节点上执行的所有任务具有此目录的读取/写入权限。 在其他节点上执行的任务没有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 所有任务。 | C:\user\tasks\shared |

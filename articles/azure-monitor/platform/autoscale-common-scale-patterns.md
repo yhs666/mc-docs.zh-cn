@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 59da1a9bdf16be60621dd7fc8403a5a50e99999a
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 9e8d8027e898f24545105cb58c88ded689c60bcc
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586832"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731277"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常见自动缩放模式的概述
 本文介绍一些常见模式，这些模式可在 Azure 中缩放资源。
 
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[云服务](https://azure.microsoft.com/services/cloud-services/)、[应用服务 - Web 应用](https://azure.microsoft.com/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](/api-management/api-management-key-concepts)。
 
 ## <a name="lets-get-started"></a>入门
 

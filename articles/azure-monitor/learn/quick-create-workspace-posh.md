@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 629cd223f17c2051d7b60b4bf876250081dd903b
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 6ce238d23c3c5995ca96fac071c7149f7e26ade9
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566302"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731381"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>使用 Azure PowerShell 创建 Log Analytics 工作区
 
@@ -35,7 +35,7 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 * [从混合 Linux 计算机收集数据](../learn/quick-collect-linux-computer.md)
 * [从混合 Windows 计算机收集数据](quick-collect-windows-computer.md)
 
-如果没有 Azure 订阅，请在开始前创建[一个试用帐户](https://www.azure.cn/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建[一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -44,9 +44,9 @@ Azure PowerShell 模块用于从 PowerShell 命令行或脚本创建和管理 Az
 如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell Az 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 来创建与 Azure 的连接。
 
 ## <a name="create-a-workspace"></a>创建工作区
-使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus 位置的资源组 Lab中创建名为 TestWorkspace 的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 
+使用 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus  位置的资源组 Lab  中创建名为 TestWorkspace  的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 
 
-若要了解支持的区域，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)，然后在“搜索产品”字段中搜索 Azure Monitor。 
+若要了解支持的区域，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)，然后在“搜索产品”字段中搜索 Azure Monitor。  
 
 以下参数设置默认值：
 

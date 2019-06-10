@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 2c21877e0c7b11626de63bb211a4d70e7995ff6f
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: a971e278e2de2ef2ed26cda85246a67f9cbd2d72
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141739"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731274"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>使用自动缩放操作在 Azure 监视器中发送电子邮件和 webhook 警报通知
 本文演示如何设置触发器，以便可以在 Azure 中基于自动缩放操作调用特定 Web URL 或发送电子邮件。  
@@ -27,7 +27,7 @@ ms.locfileid: "54141739"
 ## <a name="cloud-services-and-web-apps"></a>云服务和 Web 应用
 可以从 Azure 门户选择加入云服务和服务器场 (Web 应用)。
 
-* 选择“缩放依据”指标。
+* 选择“缩放依据”  指标。
 
 ![缩放依据](./media/autoscale-webhook-email/insights-autoscale-notify.png)
 
@@ -90,7 +90,7 @@ webhook 可使用基于令牌的身份验证进行身份验证：将具有令牌
                 "resourceName": "MyCSRole",
                 "resourceType": "microsoft.classiccompute/domainnames/slots/roles",
                 "resourceId": "/subscriptions/s1/resourceGroups/rg1/providers/microsoft.classicCompute/domainNames/myCloudService/slots/Production/roles/MyCSRole",
-                "portalLink": "https://portal.azure.com/#resource/subscriptions/s1/resourceGroups/rg1/providers/microsoft.classicCompute/domainNames/myCloudService",
+                "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/rg1/providers/microsoft.classicCompute/domainNames/myCloudService",
                 "oldCapacity": "3",
                 "newCapacity": "2"
         },

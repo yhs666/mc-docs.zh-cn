@@ -2,27 +2,25 @@
 title: Azure Functions 运行时概述 | Microsoft Docs
 description: Azure Functions 运行时预览版概述
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 origin.date: 11/28/2017
-ms.date: 07/23/2018
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: db4dffe16b96cac77ca06ef508d88f712e7d8e7b
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 07fbccc161e13a007dab24d7697577422acb2af9
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662325"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491402"
 ---
 # <a name="azure-functions-runtime-overview-preview"></a>Azure Functions 运行时概述（预览版）
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Azure Functions 运行时（预览版）提供了一种新方法供你用来在本地利用 Azure Functions 编程模型的简单性和灵活性。 Azure Functions 运行时基于与 Azure Functions 相同的开源代码根而构建，并且部署在本地来提供与云服务几乎完全相同的部署体验。
 
@@ -32,16 +30,16 @@ Azure Functions 运行时提供了一种方法供你用来在提交到云之前�
 
 Azure Functions 运行时由两部分组成：
 
-- Azure Functions 运行时管理角色
-- Azure Functions 运行时辅助角色
+* Azure Functions 运行时管理角色
+* Azure Functions 运行时辅助角色
 
 ## <a name="azure-functions-management-role"></a>Azure Functions 管理角色
 
 Azure Functions 管理角色提供了用于管理本地 Functions 的宿主。 此角色执行以下任务：
 
-- 托管 Azure Functions 管理门户，该门户与你在 [Azure 门户](https://portal.azure.cn)中看到的是同一个。 该门户提供一致的体验，可让你以在 Azure 门户中的相同方式来开发函数。
-- 将函数分布到多个 Functions 辅助角色中。
-- 提供发布终结点，以便可以直接通过下载和导入发布配置文件从 Microsoft Visual Studio 发布函数。
+* 托管 Azure Functions 管理门户，该门户与你在 [Azure 门户](https://portal.azure.cn)中看到的是同一个。 该门户提供一致的体验，可让你以在 Azure 门户中的相同方式来开发函数。
+* 将函数分布到多个 Functions 辅助角色中。
+* 提供发布终结点，以便可以直接通过下载和导入发布配置文件从 Microsoft Visual Studio 发布函数。
 
 ## <a name="azure-functions-worker-role"></a>Azure Functions 辅助角色
 

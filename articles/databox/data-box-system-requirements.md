@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 01/23/2019
-ms.date: 02/25/2019
+origin.date: 05/22/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: 0555ef2ea3563083cbd1202fce39ae11c1511b2f
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7646468c80588aca9509b77324b4942ac7afd462
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666705"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726510"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box 系统要求
 
@@ -32,68 +32,28 @@ ms.locfileid: "56666705"
 
 ### <a name="supported-operating-systems-for-clients"></a>客户端支持的操作系统
 
-下面是通过连接到 Data Box 设备的客户端进行数据复制操作所支持的操作系统列表。
-
-| **操作系统** | **版本** | 
-| --- | --- | 
-| Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 | 
-| Windows |7, 8, 10 | 
-|Linux    |         |
+[!INCLUDE [data-box-supported-os-clients](../../includes/data-box-supported-os-clients.md)]
 
 ### <a name="supported-file-systems-for-linux-clients"></a>Linux 客户端支持的文件系统
 
-| **协议** | **版本** | 
-| --- | --- | 
-| SMB |2.X 和更高版本 |
-| NFS | 所有版本（直至并包括 4.1）|
+[!INCLUDE [data-box-supported-file-systems-clients](../../includes/data-box-supported-file-systems-clients.md)]
 
 ### <a name="supported-storage-accounts"></a>支持的存储帐户
 
-下面是 Data Box 设备支持的存储帐户和存储类型的列表。 有关所有不同类型的存储帐户及其完整功能的完整列表，请参阅[存储帐户类型](/storage/common/storage-account-overview#types-of-storage-accounts)。
-
-| **存储帐户/支持的存储类型** | **块 blob** |**页 blob*** |**Azure 文件** |**说明**|
-| --- | --- | -- | -- | -- |
-| 经典标准 | Y | Y | Y |
-| 常规用途 v1 标准  | Y | Y | Y | 支持热和冷。|
-| 常规用途 v1 高级  |  | Y| | |
-| 常规用途 v2 标准  | Y | Y | Y | 支持热和冷。|
-| 常规用途 v2 高级  |  |Y | | |
-| Blob 存储标准 |Y | | |支持热和冷。 |
-
-\* *- 上传到页 blob 的数据必须是 512 字节对齐，例如 vhds。*
-
->[!NOTE]
-> 不支持 Azure Data Lake Storage Gen 2 帐户。
-
+[!INCLUDE [data-box-supported-storage-accounts](../../includes/data-box-supported-storage-accounts.md)]
 
 ### <a name="supported-storage-types"></a>支持的存储类型
 
-下面是 Data Box 设备支持的存储类型列表。
-
-| **文件格式** | **说明** |
-| --- | --- |
-| Azure 块 blob | |
-| Azure 页 blob  | 数据应为 512 字节对齐。|
-| Azure 文件 | |
-
+[!INCLUDE [data-box-supported-storage-types](../../includes/data-box-supported-storage-types.md)]
 
 ### <a name="supported-web-browsers"></a>受支持的 Web 浏览器
 
-下面是本地 Web UI 支持的 Web 浏览器列表。
-
-| **浏览器** | **版本** | **其他要求/说明** |
-| --- | --- | --- |
-| Google Chrome |最新版本 |已使用 Chrome 测试|
-| Microsoft Edge |最新版本 | |
-| FireFox | 最新版本 | 已使用 FireFox 测试|
-| Internet Explorer |最新版本 |如果无法登录，请检查是否已启用 Cookie 和 Javascript。 若要启用 UI 访问，请将设备 IP 添加到“隐私操作”，以便设备可以访问 Cookie。 |
-
+[!INCLUDE [data-box-supported-web-browsers](../../includes/data-box-supported-web-browsers.md)]
 
 ## <a name="networking-requirements"></a>网络要求
 
 数据中心需要有高速网络。 强烈建议你至少建立一个 10-GbE 连接。 如果 10-GbE 连接不可用，则可使用 1-GbE 数据链路复制数据，但复制速度会受影响。
 
-## <a name="next-step"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 * [部署 Azure Data Box](data-box-deploy-ordered.md)
-

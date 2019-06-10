@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 56b36e171ef08b8935212422ed4d62c43894e489
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 007b54b49e91dc27ae510268a75a3a750a857c08
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586861"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731312"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>在 Log Analytics 中通过 REST API 创建和管理警报规则
 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。
@@ -217,7 +217,7 @@ Log Analytics 允许你将警报归类到各个类别，以便更轻松地进行
 #### <a name="suppress"></a>取消
 每次达到或超过阈值时，都会触发基于 Log Analytics 的查询警报。 根据查询中隐含的逻辑，这可能会导致警报在一系列时间间隔触发，进而导致通知不断发送。 为了防止这种情况发生，用户可以设置“取消”选项，以指示 Log Analytics 在根据预警规则第二次发送通知之前等待规定的时间。 所以，如果“取消”设置为 30 分钟，那么警报在第一次触发时发送配置的通知。 不过，在根据预警规则再次发送通知之前，需要先等待 30 分钟。 在过渡期间，预警规则会继续运行，Log Analytics 在指定时间仅取消通知，无论在此期间内预警规则触发了多少次，也不例外。
 
-Log Analytics 预警规则的“取消”属性是使用 Throttling 值指定，取消时间段是使用 DurationInMinutes 值指定。
+Log Analytics 预警规则的“取消”属性是使用 Throttling  值指定，取消时间段是使用 DurationInMinutes  值指定。
 
 下面的示例展示了仅包含“阈值”、“严重性”和“取消”属性的操作响应
 
@@ -473,7 +473,7 @@ Webhook 操作没有阈值，但应添加到具有带阈值的警报操作的计
                 "properties": {
                     "Type": "Webhook",
                     "Name": "My Webhook Action",
-                    "WebhookUri": "https://oaaswebhookdf.cloudapp.net/webhooks?token=VfkYTIlpk%2fc%2bJBP",
+                    "WebhookUri": "https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VfkYTIlpk%2fc%2bJBP",
                     "CustomPayload": "{\"fielld1\":\"value1\",\"field2\":\"value2\"}",
                     "Version": 1
                 }
@@ -500,12 +500,12 @@ Webhook 操作没有阈值，但应添加到具有带阈值的警报操作的计
     $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
 
-    $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
+    $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 结合使用 Put 方法和现有操作 ID 修改计划的 Webhook 操作。  请求正文必须包含操作的 etag。
 
-    $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.cloudapp.net/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
+    $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
 
 

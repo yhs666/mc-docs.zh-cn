@@ -6,15 +6,15 @@ author: lingliw
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f0de9698f2e075aa6d1c10c4890b0901fb83804a
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: e01f421356acb9531fb3ad45f0cce55ab1f61b2b
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686324"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731262"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -126,13 +126,13 @@ ms.locfileid: "59686324"
           </Channels>   
         </Sink>   
         <Sink name="EventHub"> <!-- Added in 1.7 -->
-          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+          <EventHub Url="https://myeventhub-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
         </Sink>
         <Sink name="secondaryEventHub"> <!-- Added in 1.7 -->
-          <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
+          <EventHub Url="https://myeventhub-ns.servicebus.chinacloudapi.cn/secondarydiageventhub" SharedAccessKeyName="SendRule" usePublisherId="false" />
         </Sink>
         <Sink name="secondaryStorageAccount"> <!-- Added in 1.7 -->
-          <StorageAccount name="secondarydiagstorageaccount" endpoint="https://core.windows.net" />
+          <StorageAccount name="secondarydiagstorageaccount" endpoint="https://core.chinacloudapi.cn" />
         </Sink>
    </SinksConfig>
 
@@ -144,7 +144,7 @@ ms.locfileid: "59686324"
 
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
-    <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+    <EventHub Url="https://myeventhub-ns.servicebus.chinacloudapi.cn/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
 
     <AzureMonitorAccount>
         <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
@@ -154,11 +154,11 @@ ms.locfileid: "59686324"
     </AzureMonitorAccount>
 
     <SecondaryStorageAccounts>
-       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
+       <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.chinacloudapi.cn" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
 
     <SecondaryEventHubs>
-       <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
+       <EventHub Url="https://myeventhub-ns.servicebus.chinacloudapi.cn/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
 
   </PrivateConfig>  
@@ -322,7 +322,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
                 {
                     "name": "EventHub",
                     "EventHub": {
-                        "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
+                        "Url": "https://myeventhub-ns.servicebus.chinacloudapi.cn/diageventhub",
                         "SharedAccessKeyName": "SendRule",
                         "usePublisherId": false
                     }
@@ -330,7 +330,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
                 {
                     "name": "secondaryEventHub",
                     "EventHub": {
-                        "Url": "https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub",
+                        "Url": "https://myeventhub-ns.servicebus.chinacloudapi.cn/secondarydiageventhub",
                         "SharedAccessKeyName": "SendRule",
                         "usePublisherId": false
                     }
@@ -339,7 +339,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
                     "name": "secondaryStorageAccount",
                     "StorageAccount": {
                         "name": "secondarydiagstorageaccount",
-                        "endpoint": "https://core.windows.net"
+                        "endpoint": "https://core.chinacloudapi.cn"
                     }
                 }
             ]
@@ -359,10 +359,10 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
     "storageAccountKey": "{base64 encoded key}",
-    "storageAccountEndPoint": "https://core.windows.net",
+    "storageAccountEndPoint": "https://core.chinacloudapi.cn",
     "storageAccountSasToken": "{sas token}",
     "EventHub": {
-        "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
+        "Url": "https://myeventhub-ns.servicebus.chinacloudapi.cn/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
     },
@@ -377,7 +377,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
             {
                 "name": "secondarydiagstorageaccount",
                 "key": "{base64 encoded key}",
-                "endpoint": "https://core.windows.net",
+                "endpoint": "https://core.chinacloudapi.cn",
                 "sasToken": "{sas token}"
             }
         ]
@@ -385,7 +385,7 @@ PublicConfig 和 PrivateConfig 是分开的，因为在大多数使用案例中�
     "SecondaryEventHubs": {
         "EventHub": [
             {
-                "Url": "https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub",
+                "Url": "https://myeventhub-ns.servicebus.chinacloudapi.cn/secondarydiageventhub",
                 "SharedAccessKeyName": "SendRule",
                 "SharedAccessKey": "{base64 encoded key}"
             }
@@ -564,7 +564,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  可以生成针对快速查询进行优化的性能计数器表。 在 **PerformanceCounters** 元素中定义的每个性能计数器除存储在性能计数器表内外，还存储在度量值表中。  
 
- 必需 **resourceId** 属性。  要在其中部署 Azure 诊断的虚拟机或虚拟机规模集的资源 ID。 从 [Azure 门户](https://portal.azure.com)获取 **resourceID**。 选择“浏览” -> “资源组” -> “<名称\>”。 单击“属性”磁贴，并从“ID”字段复制值。  
+ 必需 **resourceId** 属性。  要在其中部署 Azure 诊断的虚拟机或虚拟机规模集的资源 ID。 从 [Azure 门户](https://portal.azure.cn)获取 **resourceID**。 选择“浏览”   -> “资源组”   -> “<名称\>”  。 单击“属性”  磁贴，并从“ID”  字段复制值。  
 
 |子元素|说明|  
 |--------------------|-----------------|  
@@ -613,7 +613,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |属性|类型|说明|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|可选。 指定可用于存储指定数据的文件系统存储最大容量。<br /><br /> 默认值为 0。|  
-|**scheduledTransferLogLevelFilter**|**字符串**|可选。 指定传输的日志条目的最低严重级别。 默认值是“未定义”，这会传输所有日志。 其他可能的值是（按信息严重级别从高到低排序）“详细”、“信息”、“警告”、“错误”和“严重”。|  
+|**scheduledTransferLogLevelFilter**|**字符串**|可选。 指定传输的日志条目的最低严重级别。 默认值是“未定义”  ，这会传输所有日志。 其他可能的值是（按信息严重级别从高到低排序）“详细”  、“信息”  、“警告”  、“错误”  和“严重”  。|  
 |**scheduledTransferPeriod**|**duration**|可选。 指定计划的数据传输之间的时间间隔，向上舍入为最接近的分钟数。<br /><br /> 默认是 PT0S。|  
 |**sinks** |**字符串**| 在 1.5 中添加。 可选。 指向同时要发送诊断数据的接收器位置。 例如，Application Insights 或事件中心。|  
 
@@ -671,7 +671,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |属性|类型|说明|  
 |----------------|----------|-----------------|  
-|**logLevel**|**字符串**|指定传输的日志条目的最低严重级别。 默认值是“未定义”，这会传输所有日志。 其他可能的值是（按信息严重级别从高到低排序）“详细”、“信息”、“警告”、“错误”和“严重”。|  
+|**logLevel**|**字符串**|指定传输的日志条目的最低严重级别。 默认值是“未定义”  ，这会传输所有日志。 其他可能的值是（按信息严重级别从高到低排序）“详细”  、“信息”  、“警告”  、“错误”  和“严重”  。|  
 |**name**|**字符串**|要引用的通道的唯一名称|  
 
 

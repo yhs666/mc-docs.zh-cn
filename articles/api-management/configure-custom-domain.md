@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-origin.date: 12/14/2017
-ms.date: 03/11/2019
+origin.date: 05/29/2019
+ms.date: 06/17/2019
 ms.author: v-yiso
-ms.openlocfilehash: dedd649356f7eff002ae362d2215bafa3ccefafa
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ae4c9bf0c2ed189115278688549658d598b64d28
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625619"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732740"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 
@@ -39,12 +39,10 @@ ms.locfileid: "58625619"
 + 一个由你拥有的自定义域名。 必须单独获取要使用的自定义域名并将其托管在 DNS 服务器上。 本主题没有说明如何托管自定义域名。
 + 必须具有有效的带有公钥和私钥 (.PFX) 的证书。 使用者或使用者可选名称 (SAN) 必须与域名匹配（这使得 APIM 可以通过 SSL 安全地公开 URL）。
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name"></a>使用 Azure 门户设置自定义域名
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到你的 APIM 实例。
-2. 选择“自定义域和 SSL”。
+2. 选择“自定义域和 SSL”  。
     
     可以为许多终结点分配自定义域名。 当前有以下终结点可用： 
    + **代理**（默认值为：`<apim-service-name>.azure-api.cn`）， 
@@ -56,13 +54,13 @@ ms.locfileid: "58625619"
      > 可以更新所有终结点或者更新其中的一部分。 通常情况下，客户会更新**代理**（此 URL 用来调用通过 API 管理公开的 API）和**门户**（开发人员门户 URL）。 **管理**和 **SCM** 终结点由 APIM 客户在内部使用，因此很少会为其分配自定义域名。
     
 3. 选择要更新的终结点。 
-4. 在右侧窗口中，单击“自定义”。
+4. 在右侧窗口中，单击“自定义”  。
 
-   + 在“自定义域名”中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
+   + 在“自定义域名”  中，指定要使用的名称。 例如，`api.contoso.com`。 还支持通配符域名（例如 *.domain.com）。
    + 在**证书**中，从密钥保管库中选择证书。 如果证书受密码保护，你还可以上传有效的 .PFX 文件并提供其**密码**。
 
      > [!TIP]
-     > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
+     > 如果使用 Azure 密钥保管库来管理自定义域 SSL 证书，请确保该证书[作为证书  ](https://docs.microsoft.com/rest/api/keyvault/CreateCertificate/CreateCertificate)而不是机密  插入到密钥保管库中。 如果证书设置为“自动轮换”，API 管理会自动选取最新版本。
 
 5. 单击“应用”。
 

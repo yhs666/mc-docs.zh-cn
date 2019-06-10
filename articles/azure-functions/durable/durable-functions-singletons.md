@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 01/16/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2331402fe5e8d1dd21da7bae9aa34639ee0bc0c7
-ms.sourcegitcommit: 026af15decb2738dabe1103c05dd0993942352f5
+ms.openlocfilehash: a7be8a23ceee92a1f4b1c106906355a1aa3db15c
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334217"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491478"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Durable Functions 中的单一实例业务流程协调程序 (Azure Functions)
 
@@ -59,14 +59,41 @@ public static async Task<HttpResponseMessage> RunSingle(
 
 ### <a name="javascript-functions-2x-only"></a>JavaScript（仅限 Functions 2.x）
 
+function.json 文件如下所示：
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "route": "orchestrators/{functionName}/{instanceId}",
+      "methods": ["post"]
+    },
+    {
+      "name": "starter",
+      "type": "orchestrationClient",
+      "direction": "in"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+JavaScript 代码如下所示：
 ```javascript
 const df = require("durable-functions");
 
-modules.exports = async function(context, req) {
+module.exports = async function(context, req) {
     const client = df.getClient(context);
 
     const instanceId = req.params.instanceId;
-    const functionName = req.params.functionsName;
+    const functionName = req.params.functionName;
 
     // Check if an instance with the specified ID already exists.
     const existingInstance = await client.getStatus(instanceId);
@@ -101,4 +128,4 @@ modules.exports = async function(context, req) {
 > [!div class="nextstepaction"]
 > [了解如何调用子业务流程](durable-functions-sub-orchestrations.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

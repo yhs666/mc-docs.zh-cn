@@ -5,15 +5,15 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: bcac0f5ea68dd23e6ecc49b39c339479ce23a977
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: e3a185042435abb3ff2bc84166baaeab9fea394e
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686321"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731412"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 

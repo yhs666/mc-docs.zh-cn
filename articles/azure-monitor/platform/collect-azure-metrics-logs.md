@@ -11,28 +11,28 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d76d8e0f2caf3d6fe56c4decebbc71a41855c2aa
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 64ec7073d77806199f6d8c99d9b96b2b02eb4226
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686457"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731270"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>将 Azure 服务日志和指标收集到 Azure Monitor 的 Log Analytics 工作区中
 
 有四种不同方式可收集 Azure 服务的日志和指标：
 
-1. 将 Azure 诊断定向到 Azure Monitor 的 Log Analytics 工作区（下表中的“诊断”）
-2. 从 Azure 诊断到 Azure 存储，再到 Azure Monitor 的 Log Analytics 工作区（下表中的“存储”）
+1. 将 Azure 诊断定向到 Azure Monitor 的 Log Analytics 工作区（下表中的“诊断”） 
+2. 从 Azure 诊断到 Azure 存储，再到 Azure Monitor 的 Log Analytics 工作区（下表中的“存储”） 
 3. Azure 服务的连接器（下表中的*连接器*）
 4. 使用脚本收集，然后将数据发布到 Azure Monitor 的 Log Analytics 工作区中（下表中的空白，用于未列出的服务）
 
 
 | 服务                 | 资源类型                           | 日志        | 指标     | 解决方案 |
 | --- | --- | --- | --- | --- |
-| 应用程序网关    | Microsoft.Network/applicationGateways   | 诊断 | 诊断 | [Azure 应用程序网关分析](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
+| 应用程序网关    | Microsoft.Network/applicationGateways   | 诊断 | 诊断 | Azure 应用程序网关分析 |
 | Application insights    |                                         | 连接器   | 连接器   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)（预览版） |
 | 自动化帐户     | Microsoft.Automation/AutomationAccounts | 诊断 |             | [详细信息](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | 批处理帐户          | Microsoft.Batch/batchAccounts           | 诊断 | 诊断 | |
@@ -45,7 +45,7 @@ ms.locfileid: "59686457"
 | 密钥保管库               | Microsoft.KeyVault/vaults               | 诊断 |             | [密钥保管库分析](../insights/azure-key-vault.md) |
 | 负载均衡器          | Microsoft.Network/loadBalancers         | 诊断 |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | 诊断 | 诊断 | |
-| 网络安全组 | Microsoft.Network/networksecuritygroups | 诊断 |             | [Azure 网络安全组分析](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
+| 网络安全组 | Microsoft.Network/networksecuritygroups | 诊断 |             | Azure 网络安全组分析 |
 | 恢复保管库         | Microsoft.RecoveryServices/vaults       |             |             | [Azure 恢复服务分析（预览版）](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | 搜索服务         | Microsoft.Search/searchServices         | 诊断 | 诊断 | |
 | 服务总线命名空间   | Microsoft.ServiceBus/namespaces         | 诊断 | 诊断 | [Service Fabric 分析（预览版）](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
@@ -70,12 +70,11 @@ ms.locfileid: "59686457"
 > [!NOTE]
 > 当前不支持通过诊断设置将多维指标发送到 Log Analytics 工作区。 多维指标将按平展后的单维指标导出，并跨维值聚合。
 >
-> 例如：可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
+> 例如：  可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
 >
 >
 
 * 有关可用指标的详细信息，请参阅 [Azure 监视器支持的指标](../../azure-monitor/platform/metrics-supported.md)。
-* 有关可用日志的详细信息，请参阅[诊断日志支持的服务和架构](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ### <a name="enable-diagnostics-with-powershell"></a>使用 PowerShell 启用诊断
 
@@ -128,7 +127,7 @@ Set-AzDiagnosticSetting -ResourceId $ResourceId  -WorkspaceId $workspaceId -Enab
 
 Azure Monitor 可使用此方法从 Azure 存储收集以下资源和日志的诊断信息：
 
-| 资源 | 日志 |
+| Resource | 日志 |
 | --- | --- |
 | Service Fabric |ETWEvent <br> 操作事件 <br> 可靠角色事件 <br> 可靠服务事件 |
 | 虚拟机 |Linux Syslog <br> Windows 事件 <br> IIS 日志 <br> Windows ETWEvent |

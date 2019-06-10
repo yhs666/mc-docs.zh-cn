@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: dbd4c5b1c47d972246918c3f5a11e47de09bc9c6
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 17b48f97a0d42cf2918e40b724363f4610720f3e
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586880"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731269"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 
@@ -24,7 +24,7 @@ ms.locfileid: "65586880"
 
 ## <a name="what-is-changing"></a>有什么变化
 
-Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送到 Azure 存储帐户、事件中心命名空间或 Azure Monitor 中的 Log Analytics 工作区。 为解决系统性能问题，发送到 blob 存储的日志数据格式将于 2018 年 11 月 1 日凌晨 12 点 (UTC) 发生更改。 如果工具从 blob 存储中读取数据，则需要更新工具以了解新的数据格式。
+Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送到 Azure 存储帐户、事件中心命名空间或 Azure Monitor 中的 Log Analytics 工作区。 为解决系统性能问题，发送到 blob 存储的日志数据格式将于 2018 年 11 月 1 日凌晨 12 点 (UTC) 发生更改  。 如果工具从 blob 存储中读取数据，则需要更新工具以了解新的数据格式。
 
 * Blob 格式将于 2018 年 11 月 1 日星期四凌晨 12 点 (UTC) 更改为 [JSON Lines](http://jsonlines.org/)。 这意味着每个记录将由换行符分隔，JSON 记录之间没有外部记录数组和逗号。
 * 将同时更改所有订阅中所有诊断设置的 blob 格式。 11 月 1 日发出的第一个 PT1H.json 文件将使用此新格式。 Blob 和容器名称保持不变。
@@ -45,7 +45,7 @@ Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送
 1. 使用资源诊断设置将日志数据发送到 Azure 存储帐户，以及
 2. 拥有依赖于存储中这些日志的 JSON 结构的工具。
  
-若要确定是否具有将数据发送到 Azure 存储帐户的资源诊断设置，可导航到门户的“监视”部分，单击“诊断设置”，并识别所有将“诊断状态”设置为“已启用”的资源：
+若要确定是否具有将数据发送到 Azure 存储帐户的资源诊断设置，可导航到门户的“监视”部分，单击“诊断设置”，并识别所有将“诊断状态”设置为“已启用”的资源     ：
 
 ![“Azure Monitor 诊断设置”边栏选项卡](./media/diagnostic-logs-append-blobs/portal-diag-settings.png)
 
@@ -84,7 +84,7 @@ Azure blob 存储中 PT1H.json 文件的当前格式使用 JSON 数组记录。 
             "properties": {
                 "clientInfo": "azure-resource-manager/2.0",
                 "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
-                "id": "https://contosokeyvault.vault.azure.net/",
+                "id": "https://contosokeyvault.vault.azure.cn/",
                 "httpStatusCode": 200
             }
         },
@@ -110,7 +110,7 @@ Azure blob 存储中 PT1H.json 文件的当前格式使用 JSON 数组记录。 
             "properties": {
                 "clientInfo": "azure-resource-manager/2.0",
                 "requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01",
-                "id": "https://contosokeyvault.vault.azure.net/",
+                "id": "https://contosokeyvault.vault.azure.cn/",
                 "httpStatusCode": 200
             }
         }
@@ -121,8 +121,8 @@ Azure blob 存储中 PT1H.json 文件的当前格式使用 JSON 数组记录。 
 新格式使用 [JSON lines](http://jsonlines.org/)，其中每个事件都是一行，换行符表示新事件。 以下是更改后以上示例在 PT1H.json 文件中的外观：
 
 ```json
-{"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
-{"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
+{"time": "2016-01-05T01:32:01.2691226Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "78","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.cn/","httpStatusCode": 200}}
+{"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.cn/","httpStatusCode": 200}}
 ```
 
 通过此新格式，Azure Monitor 能够使用[追加 blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) 来推送日志文件，这对于连续追加新事件数据更加高效。

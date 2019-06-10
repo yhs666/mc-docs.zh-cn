@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: af453a8f1b4d00357084ab2a40be179700335767
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 43d99b443d66cdf2d441a0c24dee920b1c20356b
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194952"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732723"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C IoT Edge 模块
 
@@ -42,8 +42,8 @@ ms.locfileid: "66194952"
 
 | C | Visual Studio Code | Visual Studio | 
 | - | ------------------ | ------------- |
-| **Linux AMD64** | ![使用 VS Code 开发 Linux AMD64 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![在 Linux AMD64 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32** | ![使用 VS Code 开发 Linux ARM32 上的 C 模块](./media/tutorial-c-module/green-check.png) | ![在 Linux ARM32 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
+| **Linux AMD64** | ![在 Linux AMD64 上使用适用于 C 模块的 VS Code](./media/tutorial-c-module/green-check.png) | ![在 Linux AMD64 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![在 Linux ARM32 上使用适用于 C 模块的 VS Code](./media/tutorial-c-module/green-check.png) | ![在 Linux ARM32 上使用适用于 C 模块的 VS](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -316,7 +316,7 @@ ms.locfileid: "66194952"
 
 可以通过 Visual Studio Code 资源管理器的“Azure IoT 中心设备”部分查看 IoT Edge 设备的状态  。 展开设备的详细信息，可以看到已部署的正在运行的模块的列表。
 
-1. 在 Visual Studio Code 资源管理器中右键单击 IoT Edge 设备的名称，选择“开始监视 D2C 消息”。 
+1. 在 Visual Studio Code 资源管理器中右键单击 IoT Edge 设备的名称，选择“开始监视内置事件终结点”。 
 
 2. 查看抵达 IoT 中心的消息。 消息可能需要在一段时间后才会抵达，因为 IoT Edge 设备必须接收其新部署并启动所有模块。 然后，在发送消息之前我们对 CModule 代码所做的更改需等到机器温度达到 25 度才会生效。 IoT 中心还会将消息类型“警报”添加到达到该温度阈值的任何消息。  
 

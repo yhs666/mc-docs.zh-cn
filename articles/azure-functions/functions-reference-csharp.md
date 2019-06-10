@@ -10,20 +10,20 @@ ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 12/12/2017
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8d262659e12e8cb9e1f431f99f96ac9295d6afcd
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 6c183a48fe6347ad89caef23a5542703add2f048
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408310"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491453"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C# 脚本 (.csx) 开发人员参考
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-dotnet-class-library.md -->
 
-本文介绍了如何使用 C# 脚本 (*.csx*) 开发 Azure Functions。
+本文介绍了如何使用 C# 脚本 ( *.csx*) 开发 Azure Functions。
 
 Azure Functions 支持 C# 和 C# 脚本编程语言。 如需[在 Visual Studio 类库项目中使用 C#](functions-develop-vs.md) 方面的指南，请参阅 [C# 开发人员参考](functions-dotnet-class-library.md)。
 
@@ -58,7 +58,7 @@ FunctionsProject
 
 有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都具有自己的代码文件 (.csx) 和绑定配置文件 (function.json)。
 
-[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
+[2.x 版](functions-versions.md) Functions 运行时中所需的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须[注册绑定扩展](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 在 Azure 门户中开发函数时，系统将为你完成此注册。
 
 ## <a name="binding-to-arguments"></a>绑定到参数
 
@@ -123,7 +123,7 @@ POCO 类必须为每个属性定义 getter 和 setter。
 
 ## <a name="reusing-csx-code"></a>重用.csx 代码
 
-可以在 *run.csx* 文件中使用其他 *run.csx* 文件中定义的类和方法。 为此，需使用 run.csx 文件中的 `#load` 指令。 在下面的实例中，在 myLogger.csx 中共享了名为 `MyLogger` 的日志记录例程，并使用 `#load` 指令将其加载到 run.csx：
+可以在 *run.csx* 文件中使用其他 *run.csx* 文件中定义的类和方法。 为此，需使用 run.csx  文件中的 `#load` 指令。 在下面的实例中，在 myLogger.csx  中共享了名为 `MyLogger` 的日志记录例程，并使用 `#load` 指令将其加载到 run.csx  ：
 
 示例 *run.csx*：
 
@@ -148,9 +148,9 @@ public static void MyLogger(ILogger log, string logtext)
 }
 ```
 
-若要使用 POCO 对象强类型化在函数间传递的数据，常见模式是使用共享的 .csx 文件。 在下面的简化示例中，一个 HTTP 触发器和队列触发器共享名为 `Order` 的 POCO 对象以强类型化顺序数据：
+若要使用 POCO 对象强类型化在函数间传递的数据，常见模式是使用共享的 .csx  文件。 在下面的简化示例中，一个 HTTP 触发器和队列触发器共享名为 `Order` 的 POCO 对象以强类型化顺序数据：
 
-HTTP 触发器的示例 run.csx：
+HTTP 触发器的示例 run.csx  ：
 
 ```cs
 #load "..\shared\order.csx"
@@ -176,7 +176,7 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
 }
 ```
 
-队列触发器的示例 run.csx：
+队列触发器的示例 run.csx  ：
 
 ```cs
 #load "..\shared\order.csx"
@@ -193,7 +193,7 @@ public static void Run(Order myQueueItem, out Order outputQueueItem, ILogger log
 }
 ```
 
-示例 order.csx：
+示例 order.csx  ：
 
 ```cs
 public class Order
@@ -245,7 +245,7 @@ public static void Run(ICollector<string> myQueue, ILogger log)
 
 ## <a name="logging"></a>日志记录
 
-若要使用 C# 将输出记录到流式处理日志中，请包括 `ILogger` 类型的参数。 建议将其命名为 `log`。 避免在 Azure Functions 中使用 `Console.Write`。
+若要使用 C# 将输出记录到流式传输日志中，请包括 `ILogger` 类型的参数。 建议将其命名为 `log`。 避免在 Azure Functions 中使用 `Console.Write`。
 
 ```csharp
 public static void Run(string myBlob, ILogger log)
@@ -361,7 +361,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 
 ## <a name="referencing-custom-assemblies"></a>引用自定义程序集
 
-若要引用自定义程序集，可使用共享程序集或私有程序集：
+若要引用自定义程序集，可使用共享程序集或私有程序集   ：
 
 * 共享程序集在函数应用内的所有函数中共享。 若要引用自定义程序集，请将程序集上传到[函数应用根文件夹`bin` (wwwroot) 中名为 ](functions-reference.md#folder-structure) 的文件夹。
 
@@ -374,7 +374,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 自动监视包含函数脚本文件的目录的程序集更改。 若要监视其他目录中的程序集更改，请将其添加到 [host.json](functions-host-json.md) 中的 `watchDirectories` 列表中。
 
 ## <a name="using-nuget-packages"></a>使用 NuGet 包
-若要在 2.x C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 下面是示例 *function.proj* 文件，它添加了对 Microsoft.ProjectOxford.Face 1.1.0 版的引用：
+若要在 2.x C# 函数中使用 NuGet 包，请将 *function.proj* 文件上传到函数应用的文件系统中的函数文件夹。 下面是示例 *function.proj* 文件，它添加了对 Microsoft.ProjectOxford.Face 1.1.0 版的引用   ：
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -388,7 +388,7 @@ public static Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log)
 </Project>
 ```
 
-若要使用自定义 NuGet 源，请在 Function App 根中指定“Nuget.Config”文件中的源。 有关详细信息，请参阅[配置 NuGet 行为](https://docs.microsoft.com/nuget/consume-packages/configuring-nuget-behavior)。
+若要使用自定义 NuGet 源，请在 Function App 根中指定“Nuget.Config”文件中的源  。 有关详细信息，请参阅[配置 NuGet 行为](https://docs.microsoft.com/nuget/consume-packages/configuring-nuget-behavior)。
 
 > [!NOTE]
 > 在 1.x C# 函数中，NuGet 包是通过 *project.json* 文件而非 *function.proj* 文件引用的。
@@ -452,7 +452,7 @@ public static string GetEnvironmentVariable(string name)
 
 如下所示定义命令性绑定：
 
-- 对于所需的命令性绑定，**不要**包含 function.json 中的条目。
+- 对于所需的命令性绑定，**不要**包含 function.json  中的条目。
 - 传递输入参数 [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 或 [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IBinder.cs)。
 - 使用下面的 C# 模式执行数据绑定。
 
@@ -529,4 +529,4 @@ public static async Task Run(string input, Binder binder)
 > [!div class="nextstepaction"]
 > [详细了解有关 Azure Functions 的最佳做法](functions-best-practices.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

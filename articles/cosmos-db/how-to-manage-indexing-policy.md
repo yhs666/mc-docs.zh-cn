@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 05/06/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: d277480b990633fad1892bb25d04e6cbfa5b83bb
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: f8d0f6528dbe8e1ab9ef9631b195e689b767ed1e
+ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668837"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491285"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
@@ -32,15 +32,15 @@ Azure Cosmos 容器将其索引策略存储为 JSON 文档，可以在 Azure 门
 
 1. 创建新的 Azure Cosmos 帐户或选择现有的帐户。
 
-1. 打开“数据资源管理器”窗格，选择要使用的容器。
+1. 打开“数据资源管理器”窗格，选择要使用的容器。 
 
-1. 单击“缩放设置”。
+1. 单击“缩放设置”。 
 
 1. 修改索引策略 JSON 文档（请参阅[下文](#indexing-policy-examples)中的示例）
 
-1. 完成后，单击“保存”。
+1. 完成后，单击“保存”。 
 
-![使用 Azure 门户管理索引编制](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
+    ![使用 Azure 门户管理索引编制](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 

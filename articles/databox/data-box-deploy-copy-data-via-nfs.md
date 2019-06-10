@@ -1,20 +1,20 @@
 ---
-title: 通过 NFS 将数据复制到 Azure Data Box | Microsoft Docs
+title: 有关通过 NFS 将数据复制到 Azure Data Box 的教程| Microsoft Docs
 description: 了解如何通过 NFS 将数据复制到 Azure Data Box
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-origin.date: 01/28/2019
-ms.date: 03/18/2019
+origin.date: 05/15/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: b8521eba271de45e2160e1ceac75bdf829a9570c
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 9e6d3fbad6d61c2778c9cd107fa96532bb47e801
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990181"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726502"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教程：通过 NFS 将数据复制到 Azure Data Box
 
@@ -32,7 +32,7 @@ ms.locfileid: "57990181"
 在开始之前，请确保：
 
 1. 已完成[教程：设置 Azure Data Box](data-box-deploy-set-up.md)。
-2. 已收到 Data Box，并且门户中的订单状态为“已送达”。
+2. 已收到 Data Box，并且门户中的订单状态为“已送达”。 
 3. 你有一台主机，其中的数据需复制到 Data Box。 该主机必须
     - 运行[支持的操作系统](data-box-system-requirements.md)。
     - 连接到高速网络。 强烈建议你至少建立一个 10-GbE 连接。 如果 10-GbE 连接不可用，可以使用 1-GbE 数据链路，但复制速度会受影响。 
@@ -56,11 +56,11 @@ ms.locfileid: "57990181"
 
 如果使用 Linux 主机，请执行以下步骤将 Data Box 配置为允许 NFS 客户端访问。
 
-1. 提供允许访问共享的客户端的 IP 地址。 在本地 Web UI 中，转到“连接和复制”页。 在“NFS 设置”下，单击“NFS 客户端访问”。 
+1. 提供允许访问共享的客户端的 IP 地址。 在本地 Web UI 中，转到“连接和复制”页。  在“NFS 设置”下，单击“NFS 客户端访问”。   
 
     ![配置 NFS 客户端访问 1](media/data-box-deploy-copy-data/nfs-client-access.png)
 
-2. 提供 NFS 客户端的 IP 地址，然后单击“添加”。 可以重复此步骤为多个 NFS 客户端配置访问。 单击 **“确定”**。
+2. 提供 NFS 客户端的 IP 地址，然后单击“添加”。  可以重复此步骤为多个 NFS 客户端配置访问。 单击 **“确定”** 。
 
     ![配置 NFS 客户端访问 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
@@ -78,7 +78,7 @@ ms.locfileid: "57990181"
     
     `sudo mount -t nfs -o sec=sys,resvport 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
+    **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹  。
 
 ## <a name="copy-data-to-data-box"></a>将数据复制到 Data Box
 
@@ -88,7 +88,7 @@ ms.locfileid: "57990181"
 -  复制数据时，请确保数据大小符合 [Azure 存储和 Data Box 限制](data-box-limits.md)中所述的大小限制。 
 - 如果 Data Box 正在上传的数据同时已由 Data Box 外部的其他应用程序上传，则可能会导致上传作业失败和数据损坏。
 - 我们建议不要同时使用 SMB 和 NFS，也不要将相同的数据复制到 Azure 上的同一个最终目标。 在这种情况下，最终的结果不可确定。
-- **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹。
+- **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹  。
 
 如果使用 Linux 主机，请使用类似于 Robocopy 的复制实用工具。 在 Linux 中可用的一些替代工具包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 
@@ -129,9 +129,11 @@ ms.locfileid: "57990181"
      我们建议从 16 个并行副本开始，并根据可用的资源增加线程数。
 
 > [!IMPORTANT]
-> 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字、管道。 在执行“准备交付”步骤时，这些文件类型会导致故障。
+> 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字、管道。 在执行“准备交付”  步骤时，这些文件类型会导致故障。
 
-- 为确保数据完整性，复制数据时将以内联方式计算校验和。 复制完成后，检查设备上的已用空间和可用空间。
+打开目标文件夹，查看并验证复制的文件。 如果复制过程中遇到任何错误，请下载用于故障排除的错误文件。 有关详细信息，请参阅[查看将数据复制到 Data Box 期间的错误日志](data-box-logs.md#view-error-log-during-data-copy-to-data-box)。 有关数据复制期间的错误详细列表，请参阅 [Data Box 问题故障排除](data-box-troubleshoot.md)。
+
+为确保数据完整性，复制数据时将以内联方式计算校验和。 复制完成后，检查设备上的已用空间和可用空间。
     
    ![在仪表板上检查可用空间和已用空间](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

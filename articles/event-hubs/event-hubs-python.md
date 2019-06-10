@@ -16,21 +16,21 @@ ms.workload: na
 origin.date: 11/26/2018
 ms.date: 01/07/2019
 ms.author: v-biyu
-ms.openlocfilehash: db35c0980ca56daf961323f3076e821edae29fc8
-ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.openlocfilehash: b7b30ebbaa16c465af5cec6746e6007f524509e9
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/26/2018
-ms.locfileid: "53785280"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687477"
 ---
 # <a name="how-to-use-azure-event-hubs-from-a-python-application"></a>如何通过 Python 应用程序使用 Azure 事件中心
 Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关详细信息，请参阅[事件中心简介](event-hubs-what-is-event-hubs.md)。 
 
-本文提供了指向文章的链接，这些文章演示如何在使用 Python 编写的应用程序中执行以下任务：
+本文提供了指向文章的链接，这些文章演示如何在使用 Python 编写的应用程序中执行以下任务  ：
 
 - [将事件发送到事件中心](#send-events-to-event-hubs)
 - [从事件中心接收事件](#receive-events-from-event-hubs)
-- [从 Azure 存储读取捕获的事件数据](#capture-event-hubs-data)。 
+- 从 Azure 存储读取捕获的事件数据。 
 
 ## <a name="prerequisites"></a>先决条件
 - 按照以下快速入门之一创建活动中心：[Azure 门户](event-hubs-create.md)、[Azure CLI](event-hubs-quickstart-cli.md)、[Azure PowerShell](event-hubs-quickstart-powershell.md)、[Azure 资源管理器模板](event-hubs-resource-manager-namespace-event-hub.md)。 
@@ -113,7 +113,7 @@ client.stop()
 有关如何接收来自 Python 编写的应用程序事件中心的事件的完整教程，请参阅[本文](event-hubs-python-get-started-receive.md)
 
 ## <a name="read-capture-event-data-from-azure-storage"></a>从 Azure 存储读取捕获的事件数据
-下面的代码演示如何使用 Python 应用程序从 Azure Blob 存储读取捕获的事件数据：按照以下说明为事件中心启用捕获功能：[使用 Azure 门户启用事件中心捕获](event-hubs-capture-enable-through-portal.md)。 然后，在测试代码前将一些事件发送到事件中心。 
+下面的代码演示如何使用 Python 应用程序从 Azure Blob 存储读取捕获的事件数据  ：按照以下说明为事件中心启用捕获功能  ：[使用 Azure 门户启用事件中心捕获](event-hubs-capture-enable-through-portal.md)。 然后，在测试代码前将一些事件发送到事件中心。 
 
 ```python
 import os

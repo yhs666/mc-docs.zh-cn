@@ -2,21 +2,21 @@
 title: Durable Functions 中的永久业务流程 - Azure
 description: 了解如何使用 Azure Functions 的 Durable Functions 扩展实现永久业务流程。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: b8f7355945357b42cfdf57e375a4007417bbc6ed
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 241835ef0d7c53521f7436eb3a64b27cb2253ec3
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806659"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491481"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Durable Functions 中的永久业务流程 (Azure Functions)
 
@@ -33,7 +33,7 @@ ms.locfileid: "53806659"
 当调用 `ContinueAsNew` 时，实例会在其退出之前将一条消息排入其自己的队列。 该消息将使用新的输入值重启实例。 将保持同一实例 ID，但业务流程协调程序函数的历史记录实际上会被截断。
 
 > [!NOTE]
-> Durable Task Framework 会维护同一个实例 ID，但在内部会为由 `ContinueAsNew` 重置的业务流程协调程序函数创建一个新的“执行 ID”。 此执行 ID 通常不对外公开，但在调试业务流程执行时知道该 ID 可能比较有用。
+> Durable Task Framework 会维护同一个实例 ID，但在内部会为由 `ContinueAsNew` 重置的业务流程协调程序函数创建一个新的“执行 ID”。  此执行 ID 通常不对外公开，但在调试业务流程执行时知道该 ID 可能比较有用。
 
 ## <a name="periodic-work-example"></a>定期工作示例
 
@@ -67,7 +67,7 @@ module.exports = df.orchestrator(function*(context) {
 
     // sleep for one hour between cleanups
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
-    yield context.df.createTimer(nextCleanup);
+    yield context.df.createTimer(nextCleanup.toDate());
 
     context.df.continueAsNew(undefined);
 });
@@ -77,7 +77,7 @@ module.exports = df.orchestrator(function*(context) {
 
 ## <a name="exit-from-an-eternal-orchestration"></a>从永久业务流程退出
 
-如果业务流程协调程序函数需要最终完成，则你需要做的全部工作“不是”调用 `ContinueAsNew` 而是让函数退出。
+如果业务流程协调程序函数需要最终完成，则你需要做的全部工作“不是”调用 `ContinueAsNew` 而是让函数退出。 
 
 如果业务流程协调程序函数处于无限循环中并且需要停止，则使用 [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) 方法将其停止。 有关详细信息，请参阅[实例管理](durable-functions-instance-management.md)。
 
@@ -86,3 +86,4 @@ module.exports = df.orchestrator(function*(context) {
 > [!div class="nextstepaction"]
 > [了解如何实现单一实例业务流程](durable-functions-singletons.md)
 
+<!-- Update_Description: code update -->

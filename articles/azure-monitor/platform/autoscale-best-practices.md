@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 5a510b70667b7a3f7d60ad8e215db21bae250f10
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 09c00bd7bcdffa60b4971587a0639cff1ad4403f
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586846"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731280"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microsoft.com/services/virtual-machine-scale-sets/)、[云服务](https://azure.microsoft.com/services/cloud-services/)、[应用服务 - Web 应用](https://azure.microsoft.com/services/app-service/web/)和 [API 管理服务](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/services/app-service/)和 [API 管理服务](/api-management/api-management-key-concepts)。
 
 ## <a name="autoscale-concepts"></a>自动缩放概念
 * 一个资源只能具有 *一个* 自动缩放设置
@@ -41,7 +41,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](https://azure.microso
 如果仅使用组合的一个部件，则自动缩放将仅在单个方向采取操作（横向扩展或收缩），直至它达到配置文件中定义的最大或最小实例计数。 这不是最佳的，理想情况下，你希望资源在使用率过高时纵向扩展以确保可用性。 同样，当使用率过低时，你希望资源纵向收缩，以便可以实现成本节省。
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>为诊断指标选择相应统计信息
-对于诊断指标，可以选择“平均值”、“最小值”、“最大值”和“总计”作为用作缩放依据的指标。 最常见的统计信息是“平均值”。
+对于诊断指标，可以选择“平均值”  、“最小值”  、“最大值”  和“总计”  作为用作缩放依据的指标。 最常见的统计信息是“平均值”  。
 
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>认真为所有指标类型选择阈值
 我们建议基于实际情况为扩大和缩小认真选择不同阈值。

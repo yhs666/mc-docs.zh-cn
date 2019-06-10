@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: a178bb7c26281fb009dc73a4efe4b060c2b5682d
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: fa660db3942c49854fd642e6c635fa207f6dead0
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686451"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731473"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
 
