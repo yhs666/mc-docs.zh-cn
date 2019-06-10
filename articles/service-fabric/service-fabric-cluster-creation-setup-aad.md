@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/15/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fdce48a592fdcb5af6cbef58e1751752a9607c4
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: b6ef357a8f8178934f958c94e1b74e6101166615
+ms.sourcegitcommit: 7fdba97400f00af4e8c5877ab89aa055cade88b1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195408"
+ms.lasthandoff: 06/10/2019
+ms.locfileid: "66816789"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
@@ -37,7 +37,7 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 为了简化涉及到配置 Azure AD 与 Service Fabric 群集的一些步骤，我们创建了一组 Windows PowerShell 脚本。
 
 1. [将脚本下载](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)到计算机。
-2. 右键单击 zip 文件，选择“属性”，“解除阻止”复选框，并单击“应用”。
+2. 右键单击 zip 文件，选择“属性”  ，“解除阻止”  复选框，并单击“应用”  。
 3. 解压缩 zip 文件。
 
 ## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>创建 Azure AD 应用程序并为用户分配角色
@@ -45,24 +45,24 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 
 运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。  另请指定用户的用户名和密码。  例如：
 
-<!--MOONCAKE: Add -location china parameter in cmdlet-->
+<!--MOONCAKE: Add -location china parameter in $Configobj-->
 
 ```powershell
-$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -location 'china' -AddResourceAccess
+$Configobj = .\SetupApplications.ps1 -TenantId '0e3d2646-78b3-4711-b8be-74a381d9890c' -ClusterName 'mysftestcluster' -WebApplicationReplyUrl 'https://mysftestcluster.chinaeast.cloudapp.chinacloudapi.cn:19080/Explorer/index.html' -Location 'china' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
 ```
 
-<!--MOONCAKE: Add -location china parameter in cmdlet-->
+<!--MOONCAKE: Add -location china parameter in $Configobj-->
 
 > [!NOTE]
 > 对于 Azure 中国云，还应指定 `-Location` 参数。
 
-执行 PowerShell 命令 `Get-AzureSubscription`，可找到 TenantId。 执行此命令，为每个订阅显示 TenantId。
+执行 PowerShell 命令 `Get-AzureSubscription`，可找到 TenantId  。 执行此命令，为每个订阅显示 TenantId。
 
-将 ClusterName 用作脚本创建的 Azure AD 应用程序的前缀。 它不需要完全匹配实际的群集名称。 旨在更加轻松地将 Azure AD 项目映射到其配合使用的 Service Fabric 群集。
+将 ClusterName 用作脚本创建的 Azure AD 应用程序的前缀  。 它不需要完全匹配实际的群集名称。 旨在更加轻松地将 Azure AD 项目映射到其配合使用的 Service Fabric 群集。
 
-WebApplicationReplyUrl 是 Azure AD 在完成登录过程之后返回给用户的默认终结点。 将此终结点设置为群集的 Service Fabric Explorer 的终结点，默认值为：
+WebApplicationReplyUrl 是 Azure AD 在完成登录过程之后返回给用户的默认终结点  。 将此终结点设置为群集的 Service Fabric Explorer 的终结点，默认值为：
 
 https://&lt;cluster_domain&gt;:19080/Explorer
 
@@ -110,10 +110,10 @@ Azure AD 的设置和使用可能有一定难度，可以参考下面的一些�
 ![SFX 回复地址不匹配][sfx-reply-address-not-match]
 
 #### <a name="reason"></a>Reason
-代表 Service Fabric Explorer 的群集 (web) 应用程序尝试针对 Azure AD 进行身份验证，在执行请求的过程中提供了重定向返回 URL。 但是，该 URL 并未列在 Azure AD 应用程序的“回复 URL”列表中。
+代表 Service Fabric Explorer 的群集 (web) 应用程序尝试针对 Azure AD 进行身份验证，在执行请求的过程中提供了重定向返回 URL。 但是，该 URL 并未列在 Azure AD 应用程序的“回复 URL”  列表中。
 
 #### <a name="solution"></a>解决方案
-在 AAD 页中选择“应用注册”，然后选择群集应用程序，最后选择“回复 URL”按钮。 在“回复 URL”页中，将 Service Fabric Explorer 的 URL 添加到列表，或者替换列表中的某个项。 完成后，保存所做的更改。
+在 AAD 页中选择“应用注册”，然后选择群集应用程序，最后选择“回复 URL”按钮。  在“回复 URL”页中，将 Service Fabric Explorer 的 URL 添加到列表，或者替换列表中的某个项。 完成后，保存所做的更改。
 
 ![Web 应用程序回复 URL][web-application-reply-url]
 
