@@ -84,7 +84,7 @@ ms.locfileid: "66004121"
 
 大功告成！ 现在，请通过 RDP 访问 VM，打开“计算机管理”（或“磁盘管理”），然后使用刚刚分配的空间扩展驱动器。
 
-## <a name="resize-an-unmanaged-disk"></a>调整费托管磁盘的大小
+## <a name="resize-an-unmanaged-disk"></a>非托管磁盘的大小
 
 在管理模式下打开 Powershell ISE 或 Powershell 窗口，并遵循以下步骤：
 
