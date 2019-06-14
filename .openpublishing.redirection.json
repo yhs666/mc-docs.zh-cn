@@ -7529,7 +7529,12 @@
   "redirect_document_id": false
 
 },
-        {
+    {
+            "source_path": "articles/app-service-web/index.md",
+            "redirect_url": "/app-service",
+            "redirect_document_id": false
+    },
+    {
             "source_path": "articles/app-service-api/app-service-api-apps-why-best-platform.md",
             "redirect_url": "/app-service/app-service-web-overview",
             "redirect_document_id": false
