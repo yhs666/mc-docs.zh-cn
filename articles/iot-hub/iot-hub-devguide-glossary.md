@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/15/2019
 ms.author: v-yiso
 ms.date: 04/01/2019
-ms.openlocfilehash: e249ac0c010c5944d78f885d6ccc8da74943d749
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 3643f4bb54a4940a14941e676994953087af632a
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348641"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135986"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT 中心术语表
 本文列出了一些在 IoT 中心文章中使用的常用术语。
@@ -83,7 +83,7 @@ Azure IoT 中心内的自动设备管理功能可将许多复杂且重复性的�
 可在 IoT 中心创建自定义[终结点](./iot-hub-devguide-endpoints.md)来传递由[路由规则](#routing-rules)调度的消息。 自定义终结点直接连接事件中心、服务总线队列或服务总线主题。
 
 ## <a name="custom-gateway"></a>自定义网关
-网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 可以使用 [Azure IoT Edge](#azure-iot-edge) 生成自定义网关，以便使用自定义逻辑处理消息、自定义协议转换和进行边缘上的其他处理。
+网关使不能直接连接到 [IoT 中心](#iot-hub)的设备能建立连接。 可以使用 Azure IoT Edge 生成自定义网关，以便使用自定义逻辑处理消息、自定义协议转换和进行边缘上的其他处理。
 
 ## <a name="data-point-message"></a>数据点消息
 数据点消息是指[设备到云](#device-to-cloud)的消息，其中包含[遥测](#telemetry)数据（例如风速或温度）。
@@ -248,7 +248,7 @@ Azure 订阅是发生计费的地方。 用户创建的每个 Azure 资源或使
 ## <a name="system-properties"></a>系统属性
 在与[设备孪生](./iot-hub-devguide-device-twins.md)相关的语境中，系统属性为只读，其中包括与设备使用情况相关的信息，例如上次活动时间和连接状态。
 
-## <a name="tags"></a>标记
+## <a name="tags"></a>Tags
 在与[设备孪生](./iot-hub-devguide-device-twins.md)相关的语境中，标记是指由解决方案后端以 JSON 文档形式存储和检索的设备元数据。 标记对设备上的应用不可见。
 
 ## <a name="telemetry"></a>遥测

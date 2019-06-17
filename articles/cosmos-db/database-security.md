@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB 如何为数据提供数据库保护和数�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 87b174ee3530aec8e60305b32194b50effbcd42e
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 85dfbf260615cf9f6d74e07e1f380354e5968ce4
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668938"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151454"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 安全性 - 概述
 
@@ -81,8 +81,9 @@ ms.locfileid: "65668938"
 |静态加密|对存储在 Azure Cosmos DB 中的所有静态数据进行加密。 可以在 [Azure Cosmos DB 静态加密](./database-encryption-at-rest.md)中了解详细信息。|
 |修补的服务器|作为一种托管的数据库，在 Azure Cosmos DB 中无需管理和修补服务器，系统会自动完成这些操作。|
 |使用强密码的管理帐户|难以相信，我们竟然还要提到这项要求。但与我们的某些竞争产品不同，在 Azure Cosmos DB 中，不带密码的管理帐户是根本不受允许的。<br /><br /> DocumentDB 中默认融入了基于 SSL 和 HMAC 机密的身份验证安全性。|
-|安全和数据保护认证| 有关认证的最新数据列表，请参阅具有所有认证（搜索 Cosmos）的整个 [Azure 符合性站点](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)以及最新 [Azure 符合性文档](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。 如需更有针对性的阅读，请查看 2018 年 4 月 25 日的帖子 [Azure #CosmosDB:Secure, private, compliant]（Azure #CosmosDB：安全性、隐私性、符合性），其中包含 SOCS 1/2 类型 2、HITRUST、PCI DSS 1 级、ISO 27001、HIPAA、FedRAMP High 和许多其他内容。
+|安全和数据保护认证| 有关认证的最新数据列表，请参阅具有所有认证（搜索 Cosmos）的整个 [Azure 符合性站点](https://www.trustcenter.cn/zh-cn/compliance/)以及最新 [Azure 符合性文档](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)。 如需更有针对性的阅读，请查看 2018 年 4 月 25 日的帖子 [Azure #CosmosDB:Secure, private, compliant]（Azure #CosmosDB：安全性、隐私性、符合性），其中包含 SOCS 1/2 类型 2、HITRUST、PCI DSS 1 级、ISO 27001、HIPAA、FedRAMP High 和许多其他内容。
 
+<!-- MOONCAKE: CORRECT ON https://www.trustcenter.cn/zh-cn/compliance/-->
 <!-- Line: 72 Notice: 全球分布 to 多个区域分布 -->
 <!-- Line: 72 Notice  任何一个全球数据中心 to 多个数据中心之中任何一个 -->
 <!-- Line: 72 Notice  全球各地的数据 to 各个区域的数据 -->

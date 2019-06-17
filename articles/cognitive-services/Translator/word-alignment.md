@@ -3,21 +3,21 @@ title: 词对齐 - 文本翻译 API
 titlesuffix: Azure Cognitive Services
 description: 从文本翻译 API 接收词对齐信息。
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 1a714d870394238f70c2ca08711ac3ddaad798ec
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 5a03742d94d8dc743151b2aa66f7d5440c630caa
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964404"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830085"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>如何接收词对齐信息
 
