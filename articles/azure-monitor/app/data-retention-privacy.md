@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0b7f685fbdc8256336446f8090c4893372ac1adf
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 58cc3489774bb370136f4dd20b0fdcd733fc2adb
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732306"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135999"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -28,14 +28,14 @@ ms.locfileid: "66732306"
 * “按原样”运行的标准遥测模块不太可能将敏感数据发送到服务。 遥测考虑到负载、性能和使用指标、异常报告和其他诊断数据。 诊断报告中显示的主要用户数据是 URL；但是，应用在任何情况下都不应该将敏感数据以明文形式放在 URL 中。
 * 可以编写发送其他自定义遥测数据的代码，帮助进行诊断与监视使用情况。 （这种可扩展性是 Application Insights 的突出特性之一）。在编写此代码时，有可能不小心包含个人数据和其他敏感数据。 如果应用程序可处理此类数据，则应对编写的所有代码进行彻底审查。
 * 开发和测试应用时，可以轻松检查 SDK 发送的内容。 数据会显示在 IDE 和浏览器的调试输出窗口中。 
-* 数据保存在美国或欧洲的[世纪互联 Azure](https://azure.com) 服务器中。 （但应用可在任何位置运行）。Azure 有[严格的安全过程，并符合各种法规标准](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。 只有你和指定的团队可以访问数据。 Azure 工作人员只会在知情的情况下和受限的具体情况下，才对数据拥有受限的访问权限。 将对传输中的静态数据加密。
+* 数据保存在美国或欧洲的[世纪互联 Azure](https://www.azure.cn) 服务器中。 （但应用可在任何位置运行）。Azure 有[严格的安全过程，并符合各种法规标准](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。 只有你和指定的团队可以访问数据。 Azure 工作人员只会在知情的情况下和受限的具体情况下，才对数据拥有受限的访问权限。 将对传输中的静态数据加密。
 
 本文的余下部分详细阐述上述答案。 本文的内容简单直白，因此，可以将其转达给不属于直属团队的同事。
 
 ## <a name="what-is-application-insights"></a>什么是 Application Insights？
 [Azure Application Insights][start] 是 Azure 提供的一项服务，可帮助改进实时应用程序的性能和可用性。 它在应用程序运行时全程进行监视，包括测试期间以及发布或部署之后。 Application Insights 可创建图表和表格来显示多种信息，例如，一天中的哪些时间用户最多、应用的响应能力如何，以及应用依赖的任何外部服务是否顺利地为其提供服务。 如果出现崩溃、故障或性能问题，可以搜索详细的遥测数据来诊断原因。 此外，如果应用的可用性和性能有任何变化，服务会向你发送电子邮件。
 
-要获取此功能，需在应用程序中安装 Application Insights SDK，该 SDK 将成为应用程序代码的一部分。 当应用运行时，SDK 将监视其操作，并将遥测发送到 Application Insights 服务。 这是[世纪互联 Azure](https://azure.com) 托管的云服务。 （不过，Application Insights 适用于任何应用程序，而不只是 Azure 中托管的应用程序）。
+要获取此功能，需在应用程序中安装 Application Insights SDK，该 SDK 将成为应用程序代码的一部分。 当应用运行时，SDK 将监视其操作，并将遥测发送到 Application Insights 服务。 这是[世纪互联 Azure](https://www.azure.cn) 托管的云服务。 （不过，Application Insights 适用于任何应用程序，而不只是 Azure 中托管的应用程序）。
 
 Application Insights 服务存储并分析遥测数据。 若要查看分析或搜索已存储的遥测数据，可以登录到 Azure 帐户并打开应用程序的 Application Insights 资源。 还可以与团队的其他成员或指定的 Azure 订户共享数据访问权限。
 

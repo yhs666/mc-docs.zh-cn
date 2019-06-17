@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 653f770384571c41561128d1ccbe6a82385da6f1
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9a8cfdeed8dce1deca0dbb20035066a3d727f951
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732180"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135911"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 Azure Application Insights 在世纪互联 Azure 资源  中显示有关应用程序的数据。 因此创建新资源属于[设置 Application Insights 来监视新应用程序][start]的一个环节。 在许多情况下，IDE 可以自动完成资源创建。 但在某些情况下需要手动创建资源（例如，创建分别用于应用程序开发和产品构建的资源）。
@@ -27,7 +27,7 @@ Azure Application Insights 在世纪互联 Azure 资源  中显示有关应用�
 ## <a name="sign-up-to-21vianet-azure"></a>注册到世纪互联 Azure
 如果没有 [Microsoft 帐户，请立即注册一个](https://live.com)。 （如果使用 Outlook.com、OneDrive、Windows Phone 或 XBox Live 等服务，则已获得了一个 Azure 帐户。）
 
-还需要订阅[世纪互联 Azure](https://azure.com)。 如果团队或组织拥有 Azure 订阅，则所有者可以使用 Windows Live ID 你将加入其中。 仅对使用的内容收取费用。 默认基本计划允许一定量的免费试用。
+还需要订阅[世纪互联 Azure](https://www.azure.cn)。 如果团队或组织拥有 Azure 订阅，则所有者可以使用 Windows Live ID 你将加入其中。 仅对使用的内容收取费用。 默认基本计划允许一定量的免费试用。
 
 获取订阅的访问权限后，请在 [https://portal.azure.cn](https://portal.azure.cn) 中使用 Live ID 登录到 Application Insights。
 

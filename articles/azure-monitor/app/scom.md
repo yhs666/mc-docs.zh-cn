@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cd45d4b8ce969327a8fa44573a9d905e1e996691
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 5eb86f53a35895e80cfe6e3b082631cb1e7d0b4f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732358"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135896"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>为 SCOM 使用 Application Insights 的应用程序性能监视
 如果使用 System Center Operations Manager (SCOM) 管理服务器，可在 [Azure Application Insights](../../azure-monitor/app/asp-net.md) 的帮助下监视性能并诊断性能问题。 Application Insights 监视 Web 应用程序的传入请求、传出 REST 和 SQL 调用、异常和日志跟踪。 它提供带有度量值图和智能警报的仪表板，以及针对此遥测的功能强大的搜索和分析查询。 
@@ -33,7 +33,7 @@ ms.locfileid: "66732358"
 * 熟悉 SCOM，并且使用 SCOM 2012 R2 或 2016 管理 IIS Web 服务器。
 * 已在服务器上安装要使用 Application Insights 监视的 Web 应用程序。
 * 应用框架版本为 .NET 4.5 或更高版本。
-* 有权访问[世纪互联 Azure](https://azure.com) 中的订阅，并且可登录 [Azure 门户](https://portal.azure.cn)。 组织可能有订阅，并且可以将 Azure 帐户添加到它。
+* 有权访问[世纪互联 Azure](https://www.azure.cn) 中的订阅，并且可登录 [Azure 门户](https://portal.azure.cn)。 组织可能有订阅，并且可以将 Azure 帐户添加到它。
 
 （开发团队可能在 Web 应用中生成 [Application Insights SDK](../../azure-monitor/app/asp-net.md)。 此生成时检测使他们在编写自定义遥测时具有更大的灵活性。 但是，没关系：无论是否内置 SDK，都可以按照此处所述的步骤操作。）
 

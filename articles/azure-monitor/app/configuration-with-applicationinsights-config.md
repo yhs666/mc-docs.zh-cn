@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 6fbf6fcb8c125259f85fa8b9a912c27536810b0d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 351c5f49ce033a6b48f437a3fc9d599f9c51c10b
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732186"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046904"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 配置 Application Insights SDK
 Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用于将遥测数据发送到 Application Insights。 [其他包](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遥测*模块*和*初始值设定项*，用于自动从应用程序及其上下文跟踪遥测。 可以通过调整配置文件来启用或禁用遥测模块和初始值设定项并为其设置参数。
@@ -249,7 +249,7 @@ Microsoft.ApplicationInsights 包提供 SDK 的[核心 API](https://msdn.microso
 如果使用的是 SpringBoot 入门版，请将以下内容添加到配置文件（application.properties）中：
 
 ```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
+azure.application-insights.channel.local-forwarder.endpoint-address= https://dc.applicationinsights.azure.cn/v2/track
 azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
 azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
 ```

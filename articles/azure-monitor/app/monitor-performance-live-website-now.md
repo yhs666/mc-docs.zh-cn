@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6f54a0431fd33ed2b3cbd884fc65b9445d9a26f7
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e77eb5454547c47df70547f6ec83da69d034f38f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732251"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135906"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在运行时使用 Application Insights 状态监视器检测 Web 应用
 
-无需修改或重新部署代码，即可使用 Azure Application Insights 检测实时 Web 应用。 需要[世纪互联 Azure](https://azure.com) 订阅。
+无需修改或重新部署代码，即可使用 Azure Application Insights 检测实时 Web 应用。 需要[世纪互联 Azure](https://www.azure.cn) 订阅。
 
 状态监视器可用于检测托管在 IIS、本地或 VM 中的 .NET 应用程序。
 
