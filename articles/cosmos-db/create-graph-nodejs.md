@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 01/08/2018
-ms.date: 03/18/2019
+origin.date: 06/05/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: b90b2c973ab7826809c1bb1dba575432b3713fae
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 829107cd0eb588b819d6689b12f4e1cf7b03828f
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988334"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151493"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 Node.js 应用程序
@@ -92,7 +92,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
         });
     ```
 
-  配置均位于 `config.js` 中，后者可在[以下部分](#update-your-connection-string)中编辑。
+    配置均位于 `config.js` 中，后者可在[以下部分](#update-your-connection-string)中编辑。
 
 * 将定义一系列函数以执行不同 Gremlin 操作。 以下是其中一个函数：
 
@@ -139,37 +139,33 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 1. 打开 config.js 文件。 
 
-2. 在 config.js 中，使用 Azure 门户的“概述”页中的“Gremlin URI”值填写 `config.endpoint` 密钥。 
+2. 在 config.js 中，使用 Azure 门户的“概述”页中的“Gremlin URI”值填写 `config.endpoint` 密钥。   
 
-    `config.endpoint = "GRAPHENDPOINT";`
+    `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.cn:443/";`
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-graph-nodejs/gremlin-uri.png)
 
-   如果“Gremlin URI”值为空，可从门户中的“密钥”页生成值。 使用“URI”值，删除 https:// 并将 documents 更改为 gremlin.cosmosdb。 如果图形帐户是在 2017 年 12 月 20 日之前创建的，请将 documents 更改为 graphs。 
-
-   Gremlin 终结点只能是没有协议/端口号的主机名，例如 `mygraphdb.gremlin.cosmosdb.azure.cn`（不能是 `https://mygraphdb.gremlin.cosmosdb.azure.cn` 或 `mygraphdb.gremlin.cosmosdb.azure.cn:433`）。
-
-3. 在 config.js 中，使用 Azure 门户“密钥”页中的“主密钥”值填充 config.primaryKey 值。 
+3. 在 config.js 中，使用 Azure 门户“密钥”页中的“主密钥”值填充 config.primaryKey 值。   
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   ![Azure 门户“密钥”边栏选项卡](./media/create-graph-nodejs/keys.png)
+    ![Azure 门户“密钥”边栏选项卡](./media/create-graph-nodejs/keys.png)
 
 4. 输入数据库名称和图形（容器）名称作为 config.database 和 config.collection 的值。 
 
-下面举例说明了完成的 config.js 文件是什么样子：
+    下面举例说明了完成的 config.js 文件是什么样子：
 
-```javascript
-var config = {}
+    ```javascript
+    var config = {}
 
-// Note that this must not have HTTPS or the port number
-config.endpoint = "testgraphacct.gremlin.cosmosdb.azure.cn";
-config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
-config.database = "graphdb"
-config.collection = "Persons"
+    // Note that this must not have HTTPS or the port number
+    config.endpoint = "https://testgraphacct.gremlin.cosmosdb.azure.cn:443/"; 
+    config.primaryKey = "Pams6e7LEUS7LJ2Qk0fjZf3eGo65JdMWHmyn65i52w8ozPX2oxY3iP0yu05t9v1WymAHNcMwPIqNAEv3XDFsEg==";
+    config.database = "graphdb"
+    config.collection = "Persons"
 
-module.exports = config;
-```
+    module.exports = config;
+    ```
 
 ## <a name="run-the-console-app"></a>运行控制台应用
 
@@ -183,9 +179,9 @@ module.exports = config;
 
 现在可以返回到 Azure 门户中的数据资源管理器，查看、查询、修改以及使用新的图形数据。
 
-在数据资源管理器中，新数据库会显示在“图形”窗格中。 展开数据库（后跟容器），然后选择“图形”。
+在数据资源管理器中，新数据库会显示在“图形”窗格中。  展开数据库（后跟容器），然后选择“图形”。 
 
-选择“应用筛选器”时，由示例应用生成的数据会显示在“图形”选项卡的下一窗格中。
+选择“应用筛选器”时，由示例应用生成的数据会显示在“图形”选项卡的下一窗格中。  
 
 尝试使用 `.has('firstName', 'Thomas')` 来完成 `g.V()`，对筛选器进行测试。 请注意，值区分大小写。
 
@@ -204,5 +200,4 @@ module.exports = config;
 > [!div class="nextstepaction"]
 > [使用 Gremlin 查询](tutorial-query-graph.md)
 
-<!--Update_Description: new articles on create graph nodejs -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update, updte link -->

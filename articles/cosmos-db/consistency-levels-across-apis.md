@@ -5,15 +5,15 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 05/22/2019
+ms.date: 06/17/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4e8e9d692766c61be39f9ed12823794c52ea9f0a
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 516687d49f99c051e5e8374d8a741612d3c649bc
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615262"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151515"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性级别和 Azure Cosmos DB API
 

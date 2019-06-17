@@ -4,15 +4,15 @@ description: 本文介绍 Azure Cosmos DB 的定价模型，以及该模型如�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/28/2018
-ms.date: 03/04/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: c089918fc84d4f01f5f9c68be656465f8ddb01bd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8be6abb5aa3e5d184de3c83f83ad6f0e34ca1412
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627323"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151443"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Azure Cosmos DB 中的定价模型 
 
@@ -27,9 +27,8 @@ Azure Cosmos DB 的定价模型可简化成本管理和计划。 使用 Azure Co
 
 预配的吞吐量按每秒的[请求单位数](request-units.md)（即 RU/s）指定，允许从容器中读取数据或者将数据写入容器或数据库。 可以[在数据库或容器上预配吞吐量](set-throughput.md)。 根据工作负荷需求，可以随时调整吞吐量的大小。 Azure Cosmos DB 的定价是弹性的，且与数据库或容器上配置的吞吐量成正比。 最小吞吐量和存储值以及规模增量为所有客户（从小型容器到大型容器）提供全面的价格和弹性范围。 对于以 100 RU/s 为单位预配的、最少为 400 RU/s 的吞吐量和以 GB 消耗的存储，每个数据库或容器按小时计费。 不同于预配的吞吐量，存储按消耗进行计费。 也就是说，无需提前预留任何存储。 仅为所使用的存储付费。
 
-有关详细信息，请参阅 [Azure Cosmos DB 定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+有关详细信息，请参阅 [Azure Cosmos DB 定价页](https://www.azure.cn/pricing/details/cosmos-db/)和[了解 Azure Cosmos DB 帐单](understand-your-bill.md)。
 
-<!--Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
 <!--MOONCAKE CUSTOMIZE: 6 美元 to 61.01 人民币 on 100RU/s-->
 
 Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详细信息，请参阅 [Azure Cosmos DB 定价模型如何对客户而言更具经济效益](total-cost-ownership.md)。 数据库或容器需要最小吞吐量来确保 SLA，可以按每 100 RU/s 6 美元增加或减少预配的吞吐量。
@@ -50,6 +49,7 @@ Azure Cosmos DB 中的定价模型在所有 API 中都是一致的。 有关详�
 Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 
 <!--MOONCAKE CUSTOMIZE: Azure trial account-->
+
 * **Azure 试用帐户**：Azure 提供了一个[免费层](https://www.azure.cn/pricing/1rmb-trial/)，它在前 30 天为你提供了价值人民币 1500 元的 Azure 额度。
 
 <!--Not Available on For more information [Azure trial account](../billing/billing-avoid-charges-free-account.md)-->
@@ -63,13 +63,13 @@ Azure Cosmos DB 免费为开发人员提供多个选项。 这些选项包括：
 可在以下文章中了解更多关于优化 Azure Cosmos DB 资源成本的信息：
 
 * 了解[开发和测试优化](optimize-dev-test.md)
-  <!--Not Available on * Learn more about [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 详细了解[了解 Azure Cosmos DB 帐单](understand-your-bill.md)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解如何[优化多区域 Cosmos 帐户的成本](optimize-cost-regions.md)
-  <!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
+    <!--Not Available on * Learn about [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 * 了解 [Azure Cosmos DB 模拟器](local-emulator.md)
 
 <!--Update_Description: update meta properties, wording update -->

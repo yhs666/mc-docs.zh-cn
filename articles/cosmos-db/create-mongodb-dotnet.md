@@ -6,17 +6,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 12/26/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9e928b4be594ffd8bbac014f02c783a143e21ace
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 4683e8b9d492ff429b4ef14f6896416ed4ba46ac
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004714"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151474"
 ---
-# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .Net Web 应用 
+# <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 Azure Cosmos DB 的 API for MongoDB 构建 .NET Web 应用 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -35,7 +35,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 若要运行该示例，需要 [Visual Studio](https://www.visualstudio.com/downloads/) 和有效的 Azure Cosmos DB 帐户。
 
-如果没有 Visual Studio，请在使用安装程序安装 **ASP.NET 和 Web 开发** 工作负荷后，下载 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。
+如果没有 Visual Studio，请在使用安装程序安装 **ASP.NET 和 Web 开发** 工作负荷后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 
@@ -111,7 +111,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 * 创建任务并将其插入到集合
 
-   ```csharp
+    ```csharp
     public void CreateTask(MyTask task)
     {
         var collection = GetTasksCollectionForEdit();
@@ -124,36 +124,36 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
             string msg = ex.Message;
         }
     }
-   ```
-   同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
+    ```
+    同样，可以使用 [collection.UpdateOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/index.html) 和 [collection.DeleteOne()](https://docs.mongodb.com/stitch/mongodb/actions/collection.deleteOne/index.html) 方法更新和删除文档。 
 
 ## <a name="update-your-connection-string"></a>更新连接字符串
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)上的 Cosmos 帐户中，在左侧导航栏中单击“连接字符串”，然后单击“读写密钥”。 使用屏幕右侧的复制按钮将用户名、密码和主机复制到下一步的 Dal.cs 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)上的 Cosmos 帐户中，在左侧导航栏中单击“连接字符串”  ，然后单击“读写密钥”  。 使用屏幕右侧的复制按钮将用户名、密码和主机复制到下一步的 Dal.cs 文件中。
 
 2. 打开 **DAL** 目录中的 **Dal.cs** 文件。 
 
-3. 从门户中复制“用户名”值（使用“复制”按钮），并在 **Dal.cs** 文件中将其设为“用户名”的值。 
+3. 从门户中复制“用户名”  值（使用“复制”按钮），并在 **Dal.cs** 文件中将其设为“用户名”  的值。 
 
-4. 然后从门户复制“主机”值，并在 **Dal.cs** 文件中将其设为“主机”的值。 
+4. 然后从门户复制“主机”  值，并在 **Dal.cs** 文件中将其设为“主机”  的值。 
 
-5. 最后从门户复制“密码”值，并在 **Dal.cs** 文件中将其设为“密码”的值。 
+5. 最后从门户复制“密码”  值，并在 **Dal.cs** 文件中将其设为“密码”  的值。 
 
 现在，你已在应用中更新了全部所需信息，它可以与 Cosmos DB 进行通信。 
 
 ## <a name="run-the-web-app"></a>运行 Web 应用
 
-1. 在 Visual Studio 中，右键单击解决方案资源管理器中的项目，并单击“管理 NuGet 包”。 
+1. 在 Visual Studio 中，右键单击解决方案资源管理器  中的项目，并单击“管理 NuGet 包”  。 
 
-2. 在 NuGet“浏览”框中，键入 *MongoDB.Driver*。
+2. 在 NuGet“浏览”  框中，键入 *MongoDB.Driver*。
 
-3. 从结果中安装“MongoDB.Driver”库。 这会安装 MongoDB.Driver 包以及所有依赖项。
+3. 从结果中安装“MongoDB.Driver”  库。 这会安装 MongoDB.Driver 包以及所有依赖项。
 
 4. 单击 Ctrl+F5 运行应用程序。 应用会显示在浏览器中。 
 
-5. 在浏览器中单击“创建”，并在“任务列表”应用中创建一些新任务。
+5. 在浏览器中单击“创建”  ，并在“任务列表”应用中创建一些新任务。
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 

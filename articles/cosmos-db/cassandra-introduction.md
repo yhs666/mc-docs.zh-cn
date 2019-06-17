@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
-origin.date: 09/24/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 9368741adb4711caa3e6b3be3e7c001b54592112
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 651a0f1dc0b8c55c7fa074f54b8e14f5b62544a5
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988349"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151520"
 ---
 <!--Verify successfully-->
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 简介
@@ -56,5 +56,4 @@ Azure Cosmos DB Cassandra API 可以充当为 [Apache Cassandra](https://cassand
 
 * 阅读[常见问题解答](faq.md#cassandra)。
 
-<!--Update_Description: new articles on cassandra introduction -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

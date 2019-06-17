@@ -1,18 +1,18 @@
 ---
 title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 MongoDB API 的 RU/秒
-author: markjbrown
+author: rockboyfor
 ms.service: cosmos-db
 ms.topic: samples
 origin.date: 05/18/2019
-ms.date: ''
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2034d357ccf45477c99fbc57993b55f2c00b0328
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 64bffa6b06f85ae8e842d9f6996b3c3472fd9b95
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424302"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151367"
 ---
 # <a name="update-rus-for-a-database-or-collection-for-azure-cosmos-db---mongodb-api"></a>更新 Azure Cosmos DB 的数据库或集合的 RU/秒 - MongoDB API
 

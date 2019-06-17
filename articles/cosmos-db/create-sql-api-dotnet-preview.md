@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 12/01/2018
-ms.date: 04/15/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7fd5d3f0c5debacbbd48c27eb41189d5c36532be
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: e5958d68b6f2ff671f85e82fcad4853e1cca2eba
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615150"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151469"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 ASP.NET Web 应用
 
@@ -38,18 +38,18 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式高可用性多模型�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”工作负荷。
+如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”工作负荷  。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a name="create-account"></a>
-## <a name="create-a-database-account"></a>创建数据库帐户
+## <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
 
 [!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 <a name="create-collection"></a>
-## <a name="add-a-collection"></a>添加集合
+## <a name="add-a-container"></a>添加容器
 
 [!INCLUDE [cosmos-db-create-collection-preview](../../includes/cosmos-db-create-collection-preview.md)]
 
@@ -117,11 +117,11 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式高可用性多模型�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”，然后选择“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”  ，然后选择“读写密钥”  。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 web.config 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
-2. 在 Visual Studio 2017 中，打开 **web.config** 文件。 
+2. 在 Visual Studio 中，打开 **web.config** 文件。 
 
 3. 从门户中复制 URI 值（使用复制按钮），并在 web.config 中将其设为 ``endpoint`` 密钥的值。 
 
@@ -139,20 +139,20 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式高可用性多模型�
 
 ## <a name="run-the-web-app"></a>运行 Web 应用
 
-1. 在“解决方案资源管理器”中，右键单击 Visual Studio 解决方案下方的新控制台应用程序项目，并单击“管理 NuGet 包...”
+1. 在“解决方案资源管理器”  中，右键单击 Visual Studio 解决方案下方的新控制台应用程序项目，并单击“管理 NuGet 包...” 
 
     ![项目的右键菜单的屏幕截图](./media/create-sql-api-dotnet/manage-nuget-package.png)
-1. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **Microsoft.Azure.Cosmos**。
-1. 在结果中找到“Microsoft.Azure.Cosmos”，并单击“安装”。
+1. 在“NuGet”选项卡上，单击“浏览”，并在搜索框中键入 **Microsoft.Azure.Cosmos**。  
+1. 在结果中找到“Microsoft.Azure.Cosmos”  ，并单击“安装”  。
     Azure Cosmos DB SQL API 客户端库的包 ID 是 [Azure Cosmos DB 客户端库](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/)。
 
     ![用于查找 Azure Cosmos DB 客户端 SDK 的 NuGet 菜单的屏幕截图](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
-    如果收到有关查看解决方案更改的消息，请单击“确定”。 如果获得有关接受许可证的消息，请单击“我接受”。
+    如果收到有关查看解决方案更改的消息，请单击“确定”  。 如果获得有关接受许可证的消息，请单击“我接受”。 
 
 1. 选择 CTRL + F5 以运行应用程序。 应用会显示在浏览器中。 
 
-1. 在浏览器中选择“新建”，并在“待办事项”应用中创建一些新任务。 此外还会看到在[添加示例数据](#add-sample-data)中创建的任务
+1. 在浏览器中选择“新建”  ，并在“待办事项”应用中创建一些新任务。 此外还会看到在[添加示例数据](#add-sample-data)中创建的任务
 
     ![包含示例数据的“待办事项”应用](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
 

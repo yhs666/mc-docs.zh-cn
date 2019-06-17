@@ -5,17 +5,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
-origin.date: 12/03/2018
-ms.date: 03/18/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: a22a74239f60624a33ec95f376ff52e875cb1927
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 34893093d3cd53e16e2f476e58633741820ad073
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988443"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151523"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>教程：将示例数据加载到 Azure Cosmos DB 中的 Cassandra API 表
@@ -97,5 +97,4 @@ java -cp target/cosmosdb-cassandra-examples.jar com.azure.cosmosdb.cassandra.exa
 > [!div class="nextstepaction"]
 > [从 Cassandra API 帐户查询数据](cassandra-api-query-data.md)
 
-<!--Update_Description: new articles on cassandra api load data -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: update meta properties -->

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 09/24/2018
-ms.date: 03/04/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 068f53844f0be6c4157c3bb25497082cf8d33d0e
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 402773bfcf7bce5f777826a8ba185e7af72aa52f
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65668946"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151467"
 ---
 # <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 Node.js 应用
 
@@ -27,11 +27,7 @@ ms.locfileid: "65668946"
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
-
-<!-- NOTICE: 全球分布 TO 多区域分布 -->
-<!-- NOTICE: globally TO multiple-region  -->
-<!-- Not Available on Graph databases -->
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和容器， 然后生成并运行基于 [SQL JavaScript SDK](sql-api-sdk-node.md) 的控制台应用。 本快速入门使用 2.0 版的 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos)。
 
@@ -48,7 +44,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>添加集合
+## <a name="add-a-container"></a>添加容器
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -86,9 +82,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看以下代码片段。 否则，可以直接跳转到[更新连接字符串](#update-your-connection-string)。 
 
-注意，如果你熟悉旧版 JavaScript SDK，则可能习惯于看到术语“集合”和“文档”。 由于 Azure Cosmos DB 支持[多 API 模型](/cosmos-db/introduction)，因此 2.0+ 版的 JavaScript SDK 使用通用术语“容器”（可能为集合），并使用“项”来描述容器的内容。
-
-<!-- Not Available on graph, or table-->
+注意，如果你熟悉旧版 JavaScript SDK，则可能习惯于看到术语“集合”和“文档”。 由于 Azure Cosmos DB 支持[多 API 模型](/cosmos-db/introduction)，因此 2.0+ 版的 JavaScript SDK 使用通用术语“容器”（可能为集合、图形或表），并使用“项”来描述容器的内容。
 
 以下代码片段全部摘自 **app.js** 文件。
 
@@ -140,7 +134,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“密钥”，并单击“读写密钥”。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 `config.js` 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos 帐户的左侧导航栏中，单击“密钥”  ，并单击“读写密钥”  。 使用屏幕右侧的复制按钮将 URI 和主密钥复制到下一步的 `config.js` 文件中。
 
     ![在 Azure 门户的“密钥”边栏选项卡中查看并复制访问密钥](./media/create-sql-api-dotnet/keys.png)
 
@@ -171,7 +165,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门教程中，已了解如何创建 Azure Cosmos DB 帐户、使用数据资源管理器创建集合和运行应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
+本快速入门介绍了如何创建 Azure Cosmos 帐户、如何使用数据资源管理器创建容器，以及如何运行应用。 现在可以将其他数据导入 Cosmos DB 帐户。 
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)

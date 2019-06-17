@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-origin.date: 03/31/2019
-ms.date: 04/15/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ec9c3f7f1329444781ad0f6b681bc735be2dcbdd
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 35e72617ab510243383d69ebb5661b991746da3d
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615201"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151529"
 ---
 # <a name="work-with-azure-cosmos-account"></a>使用 Azure Cosmos 帐户
 

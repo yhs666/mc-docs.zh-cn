@@ -5,16 +5,16 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 05/13/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 06067834799551fef2af281bfee506f0c39a21a5
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 3673979d072c2c06f2469a44f3f5790ca6029ad9
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668918"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151524"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的更改源 - 概述
 
@@ -79,7 +79,7 @@ _etag 属于内部格式，请不要依赖它，因为它随时可能更改。 _
 
 * 接收和存储设备、传感器、基础架构和应用程序发出的事件数据，并实时处理这些事件（例如，使用 [Spark](../hdinsight/spark/apache-spark-overview.md)）。  下图显示了如何通过更改源使用 Azure Cosmos DB 实现 lambda 体系结构：
 
-![用于引入和查询的基于 Azure Cosmos DB 的 lambda 管道](./media/change-feed/lambda.png)
+    ![用于引入和查询的基于 Azure Cosmos DB 的 lambda 管道](./media/change-feed/lambda.png)
 
 ### <a name="scenarios"></a>方案
 

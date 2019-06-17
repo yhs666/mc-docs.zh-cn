@@ -4,15 +4,15 @@ description: 了解如何查找针对 Azure Cosmos 容器执行的任何操作�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 04/15/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 55dbf3564a8644b978deb53b9297f56c525cf859
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: cd2666f9fa4d43db8d4b04dfbdf7d1dcb381ef47
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668936"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151448"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查找请求单位费用
 
@@ -30,13 +30,13 @@ ms.locfileid: "65668936"
 
 1. [创建新的 Azure Cosmos 帐户](create-sql-api-dotnet.md#create-account)并在其中植入数据，或选择一个已包含数据的现有 Azure Cosmos 帐户。
 
-1. 转到“数据资源管理器”窗格，然后选择要处理的容器。
+1. 转到“数据资源管理器”窗格，然后选择要处理的容器。 
 
-1. 选择“新建 SQL 查询”。
+1. 选择“新建 SQL 查询”。 
 
-1. 输入有效的查询，然后选择“执行查询”。
+1. 输入有效的查询，然后选择“执行查询”  。
 
-1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。
+1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。 
 
     ![Azure 门户中的 SQL 查询请求费用屏幕截图](./media/find-request-unit-charge/portal-sql-query.png)
 
@@ -168,13 +168,13 @@ RU 费用由名为 `getLastRequestStatistics` 的自定义[数据库命令](http
 
 1. [创建新的 Azure Cosmos 帐户](create-mongodb-dotnet.md#create-a-database-account)并在其中植入数据，或选择一个已包含数据的现有帐户。
 
-1. 转到“数据资源管理器”窗格，然后选择要处理的集合。
+1. 转到“数据资源管理器”窗格，然后选择要处理的集合。 
 
-1. 选择“新建查询”。
+1. 选择“新建查询”  。
 
-1. 输入有效的查询，然后选择“执行查询”。
+1. 输入有效的查询，然后选择“执行查询”  。
 
-1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。
+1. 选择“查询统计信息”，以显示执行的请求的实际请求费用。 
 
     ![Azure 门户中的 MongoDB 查询请求费用屏幕截图](./media/find-request-unit-charge/portal-mongodb-query.png)
 
@@ -199,7 +199,7 @@ double requestCharge = (double)stats["RequestCharge"];
 
 ### <a name="use-the-mongodb-java-driver"></a>使用 MongoDB Java 驱动程序
 
-使用[官方 MongoDB Java 驱动程序](http://mongodb.github.io/mongo-java-driver/)时，可以通过对 `MongoDatabase` 对象调用 `runCommand` 方法来执行命令：
+使用[官方 MongoDB Java 驱动程序](https://mongodb.github.io/mongo-java-driver/)时，可以通过对 `MongoDatabase` 对象调用 `runCommand` 方法来执行命令：
 
 ```java
 Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
@@ -231,7 +231,7 @@ db.command({ getLastRequestStatistics: 1 }, function(err, result) {
 
 ```csharp
 RowSet rowSet = session.Execute("SELECT table_name FROM system_schema.tables;");
-double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"], 0);
+double requestCharge = BitConverter.ToDouble(rowSet.Info.IncomingPayload["RequestCharge"].Reverse().ToArray(), 0);
 ```
 
 有关详细信息，请参阅[快速入门：使用 .NET SDK 和 Azure Cosmos DB 生成 Cassandra 应用](create-cassandra-dotnet.md)。

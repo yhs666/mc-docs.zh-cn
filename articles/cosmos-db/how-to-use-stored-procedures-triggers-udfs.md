@@ -4,15 +4,15 @@ description: 了解如何使用 Azure Cosmos DB SDK 注册和调用存储过程�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 12/08/2018
-ms.date: 05/13/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: b5a07b02524758559303fbd7f94206854a9bff44
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 88a92f79f6d2d5ae8a9a33b996c00173a47a873c
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668969"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151392"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
 
@@ -192,7 +192,7 @@ Trigger trigger = new Trigger
     TriggerOperation = TriggerOperation.Create,
     TriggerType = TriggerType.Pre
 };
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateTriggerAsync(containerUri, trigger);
 ```
 
@@ -207,7 +207,7 @@ dynamic newItem = new
     isComplete = false
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 RequestOptions requestOptions = new RequestOptions { PreTriggerInclude = new List<string> { "trgPreValidateToDoItemTimestamp" } };
 await client.CreateDocumentAsync(containerUri, newItem, requestOptions);
 ```
@@ -435,7 +435,7 @@ var udfTax = new UserDefinedFunction
     Body = File.ReadAllText($@"..\js\{udfId}.js"),
 };
 
-containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
+Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.CreateUserDefinedFunctionAsync(containerUri, udfTax);
 
 ```

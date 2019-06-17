@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的索引策略
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: f8d0f6528dbe8e1ab9ef9631b195e689b767ed1e
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 4c50e53fef8a95574689eb77cf86e8996f5815ce
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491285"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151400"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
@@ -23,6 +23,9 @@ ms.locfileid: "66491285"
 - 使用某个 SDK
 
 [索引策略更新](index-policy.md#modifying-the-indexing-policy)会触发索引转换。 还可以通过 SDK 跟踪此转换的进度。
+
+> [!NOTE]
+> 作为 SDK 和门户升级的一部分，我们正在升级索引策略来适应我们已在新容器中采用的新索引布局。 使用此新的布局，所有基元数据类型都将作为全精度 (-1) 范围编制索引。 因此，索引种类和精度不再向用户公开。 将来，用户只需要将路径添加到 includedPaths 部分，并忽略 indexKinds 和 precision。 此更改对性能没有影响，你可以继续使用同一语法来更新索引编制策略。 你可以继续使用我们现有文档中的所有示例来更新索引策略。
 
 ## <a name="use-the-azure-portal"></a>使用 Azure 门户
 
@@ -165,7 +168,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>用以有选择地排除某些属性路径的选择退出策略
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -199,7 +202,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>用以有选择地包括某些属性路径的选择加入策略
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -233,7 +236,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>仅在特定属性路径上使用空间索引
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -278,7 +281,7 @@ response = client.ReplaceContainer(containerPath, container)
 ### <a name="no-indexing"></a>无索引
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 

@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 01/08/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f9d1d23405c273f2f4215295c309b5de7c724f6
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 9f66f7fe193b4ea36b7254a7aaf35f38da2ed599
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988516"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151504"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 .NET Framework 或 Core 应用程序
@@ -34,7 +34,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 
 如果已安装 Visual Studio 2017，请确保安装 [Visual Studio 2017 Update 3](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) 及更高版本。
 
@@ -158,15 +158,15 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 从 [Azure 门户](https://portal.azure.cn/)中，导航到你的图形数据库帐户。 在“概述”选项卡中，可以看到两个终结点： 
+1. 从 [Azure 门户](https://portal.azure.cn/)中，导航到你的图形数据库帐户。 在“概述”  选项卡中，可以看到两个终结点： 
 
-   **.Net SDK URI** - 使用 Microsoft.Azure.Graphs 库连接到图形帐户时将使用此值。 
+    **.NET SDK URI** - 使用 Microsoft.Azure.Graphs 库连接到图形帐户时将使用此值。 
 
-   **Gremlin 终结点** - 使用 Gremlin.Net 库连接到图形帐户时将使用此值。
+    **Gremlin 终结点** - 使用 Gremlin.Net 库连接到图形帐户时将使用此值。
 
     ![复制终结点](./media/create-graph-dotnet/endpoint.png)
 
-   若要运行此示例，请复制 **Gremlin 终结点**值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.cn`
+    若要运行此示例，请复制 **Gremlin 终结点**值，删除末尾的端口号，也就是说，URI 将变为 `https://<your cosmos db account name>.gremlin.cosmosdb.azure.cn`
 
 2. 在 Program.cs 中粘贴该值，使之覆盖第 19 行的 `hostname` 变量中的 `your-endpoint`。 
 
@@ -176,7 +176,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     `"private static string hostname = "testgraphacct.gremlin.cosmosdb.azure.cn";`
 
-3. 接下来，从门户中导航到“密钥”选项卡并复制“主密钥”值，将其粘贴到 `authkey` 变量中，替换第 21 行中的 `"your-authentication-key"` 占位符。 
+3. 接下来，从门户中导航到“密钥”选项卡并复制“主密钥”值，将其粘贴到 `authkey` 变量中，替换第 21 行中的 `"your-authentication-key"` 占位符。   
 
     `private static string authKey = "your-authentication-key";`
 
@@ -196,15 +196,15 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 单击 Ctrl+F5 运行应用程序。 应用程序会在控制台中列显 Gremlin 查询命令和结果。
 
-   控制台窗口会显示所添加到图形的顶点及边缘。 完成脚本后，按 ENTER 关闭控制台窗口。
+控制台窗口会显示所添加到图形的顶点及边缘。 完成脚本后，按 ENTER 关闭控制台窗口。
 
 ## <a name="browse-using-the-data-explorer"></a>使用数据资源管理器浏览
 
 现在可以返回到 Azure 门户中的数据资源管理器，浏览和查询新的图形数据。
 
-1. 在数据资源管理器中，新数据库会显示在“图形”窗格中。 展开数据库和容器节点，然后单击“图形”。
+1. 在数据资源管理器中，新数据库会显示在“图形”窗格中。 展开数据库和容器节点，然后单击“图形”。 
 
-2. 单击“应用筛选器”按钮，使用默认查询来查看图形中的所有顶点。 示例应用生成的数据会显示在“图形”窗格中。
+2. 单击“应用筛选器”按钮，使用默认查询来查看图形中的所有顶点。  示例应用生成的数据会显示在“图形”窗格中。
 
     可以放大和缩小图形，可以扩展图形显示空间，可以添加其他顶点，还可以在显示图面移动顶点。
 
@@ -225,5 +225,5 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [使用 Gremlin 查询](tutorial-query-graph.md)
 
-<!--Update_Description: new articles on create graph dotnet -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->
+

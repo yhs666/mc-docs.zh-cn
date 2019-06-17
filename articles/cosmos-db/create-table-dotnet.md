@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-origin.date: 03/11/2019
-ms.date: 05/13/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6c4f0ac865b946ec8da0292dea7f22740649df54
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: e0a54f01d1f9574721b16e571d7505694baa8204
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668940"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151461"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 生成表 API 应用 
@@ -30,7 +30,7 @@ ms.locfileid: "65668940"
 
 ## <a name="prerequisites"></a>先决条件
 
-如果尚未安装 Visual Studio 2017，可以下载并使用免费的 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。
+如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,9 +67,10 @@ ms.locfileid: "65668940"
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
     ```
+
 ## <a name="open-the-sample-application-in-visual-studio"></a>在 Visual Studio 中打开示例应用程序
 
-1. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。 
+1. 在 Visual Studio 的“文件”菜单中选择“打开”，然后选择“项目/解决方案”。    
 
    ![打开解决方案](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
 
@@ -79,19 +80,19 @@ ms.locfileid: "65668940"
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 这样，应用程序就可以与托管的数据库进行通信。 
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“连接字符串”。 使用窗口右侧的复制按钮复制“主连接字符串”。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“连接字符串”  。 使用窗口右侧的复制按钮复制“主连接字符串”。 
 
     ![在“连接字符串”窗格中查看并复制“主连接字符串”](./media/create-table-dotnet/connection-string.png)
 
 2. 在 Visual Studio 中打开 **Settings.json** 文件。 
 
-3. 将门户中的“主连接字符串”粘贴到 StorageConnectionString 值中。 粘贴引号内的字符串。
+3. 将门户中的“主连接字符串”粘贴到 StorageConnectionString 值中。  粘贴引号内的字符串。
 
-   ```csharp
-   {
+    ```csharp
+    {
       "StorageConnectionString": "<Primary connection string from Azure portal>"
-   }
-   ```
+    }
+    ```
 
 4. 按 CTRL+S 保存 **Settings.json** 文件。
 
@@ -99,25 +100,25 @@ ms.locfileid: "65668940"
 
 ## <a name="build-and-deploy-the-app"></a>生成并部署应用
 
-1. 在 Visual Studio 中，右键单击“解决方案资源管理器”中的“CosmosTableSamples”项目，然后单击“管理 NuGet 包”。 
+1. 在 Visual Studio 中，右键单击“解决方案资源管理器”中的“CosmosTableSamples”项目，然后单击“管理 NuGet 包”。    
 
     ![管理 NuGet 包](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
-2. 在 NuGet 的“浏览”框中，键入 Microsoft.Azure.Cosmos.Table。 这样会查找 Cosmos DB 表 API 客户端库。 请注意，此库目前仅适用于 .NET Framework 和 .NET Standard。 
+2. 在 NuGet 的“浏览”框中，键入 Microsoft.Azure.Cosmos.Table。  这样会查找 Cosmos DB 表 API 客户端库。 请注意，此库目前仅适用于 .NET Framework 和 .NET Standard。 
 
     ![NuGet 的“浏览”选项卡](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 
-3. 单击“安装”以安装 **Microsoft.Azure.Cosmos.Table** 库。 这会安装 Azure Cosmos DB 表 API 包和所有依赖项。
+3. 单击“安装”以安装 **Microsoft.Azure.Cosmos.Table** 库。  这会安装 Azure Cosmos DB 表 API 包和所有依赖项。
 
-4. 运行整个应用时，示例数据将插入到表实体中，运行结束时会删除这些数据，因此，如果运行整个示例，你将看不到插入的任何数据。 但是，可以插入一些断点来查看数据。 打开 BasicSamples.cs 文件并右键单击第 52 行，选择“断点”，然后选择“插入断点”。 在第 55 行中插入另一个断点。
+4. 运行整个应用时，示例数据将插入到表实体中，运行结束时会删除这些数据，因此，如果运行整个示例，你将看不到插入的任何数据。 但是，可以插入一些断点来查看数据。 打开 BasicSamples.cs 文件并右键单击第 52 行，选择“断点”，然后选择“插入断点”。   在第 55 行中插入另一个断点。
 
-   ![添加断点](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+    ![添加断点](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
 
 5. 按 F5 运行应用程序。 控制台窗口会显示 Azure Cosmos DB 中新的表数据库的名称（在本例中为 demoa13b1）。 
 
     ![控制台输出](media/create-table-dotnet/azure-cosmosdb-console.png)
 
-    点击第一个断点后，返回到 Azure 门户中的数据资源管理器。 单击“刷新”按钮，展开 demo* 表，然后单击“实体”。 右侧的“实体”选项卡将显示为 Walter Harp 添加的新实体。 请注意，新实体的电话号码为 425-555-0101。
+    点击第一个断点后，返回到 Azure 门户中的数据资源管理器。 单击“刷新”按钮，  展开 demo* 表，然后单击“实体”。  右侧的“实体”  选项卡将显示为 Walter Harp 添加的新实体。 请注意，新实体的电话号码为 425-555-0101。
 
     ![新建实体](media/create-table-dotnet/azure-cosmosdb-entity.png)
 
@@ -131,15 +132,15 @@ ms.locfileid: "65668940"
      </ItemGroup>
     ```
 
-6. 关闭数据资源管理器中的“实体”选项卡。
+6. 关闭数据资源管理器中的“实体”选项卡。 
 
 7. 按 F5，运行应用到下一个断点。 
 
-    点击该断点后，切换回 Azure 门户，再次单击“实体”以打开“实体”选项卡，请注意该电话号码已更新为 425-555-0105。
+    点击该断点后，切换回 Azure 门户，再次单击“实体”以打开“实体”选项卡，请注意该电话号码已更新为 425-555-0105。  
 
 8. 按 F5 运行该应用。 
 
-   该应用添加的实体可在表 API 目前不支持的高级示例应用中使用。 该应用然后会删除示例应用创建的表。
+    该应用添加的实体可在表 API 目前不支持的高级示例应用中使用。 该应用然后会删除示例应用创建的表。
 
 9. 在控制台窗口中，按 Enter 结束应用的执行。 
 
@@ -158,5 +159,4 @@ ms.locfileid: "65668940"
 > [!div class="nextstepaction"]
 > [将表数据导入表 API](table-import.md)
 
-<!--Update_Description: new articles on create table dotnet -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

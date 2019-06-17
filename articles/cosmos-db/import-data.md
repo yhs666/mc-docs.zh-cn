@@ -4,15 +4,15 @@ description: 了解如何使用开源 Azure Cosmos DB 数据迁移工具从各�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 02/22/2019
-ms.date: 03/18/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 24652252932c42da835461ad1ed17e4ea9100a9c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: acec23be2062c32dfd4a1e357e25122dd8be99e0
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627715"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151436"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
@@ -90,6 +90,19 @@ ms.locfileid: "58627715"
 借助 JSON 文件源导入程序选项，可以导入一个或多个只包含单个文档的 JSON 文件或者每个都包含一组 JSON 文档的 JSON 文件。 添加包含 JSON 文件的文件夹以供导入时，可以选择递归搜索子文件夹中的文件。
 
 ![JSON 文件源选项的屏幕截图 - 数据库迁移工具](./media/import-data/jsonsource.png)
+
+连接字符串采用以下格式：
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* `<CosmosDB Endpoint>` 是终结点 URI。 可从 Azure 门户获取此值。 导航到 Azure Cosmos 帐户。 打开“概述”窗格并复制 URI 值   。
+* `<AccountKey>` 是“密码”或“主要密钥”  。 可从 Azure 门户获取此值。 导航到 Azure Cosmos 帐户。 打开“连接字符串”或“密钥”窗格，然后复制“密码”或“主要密钥”值    。
+* `<CosmosDB Database>` 是 CosmosDB 数据库名称。
+
+示例： `AccountEndpoint=https://myCosmosDBName.documents.azure.cn:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> 使用“验证”命令来确保可以访问在连接字符串字段中指定的 Cosmos DB 帐户。
 
 下面是一些导入 JSON 文件的命令行示例：
 
@@ -204,7 +217,7 @@ CSV 文件源导入程序选项可用于导入一个或多个 CSV 文件。 添�
 
 请注意 DomainInfo.Domain_Name 和 RedirectInfo.Redirecting 等别名。 通过指定嵌套分隔符“.”，导入工具会在导入过程中创建 DomainInfo 和 RedirectInfo 子文档。 下面是在 Azure Cosmos DB 中生成文档的示例：
 
-<em>{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }</em>
+*{ "DomainInfo": { "Domain_Name":"ACUS.GOV", "Domain_Name_Address": "https:\//www.ACUS.GOV" }, "Federal Agency":"Administrative Conference of the United States", "RedirectInfo": { "Redirecting":"0", "Redirect_Destination": "" }, "id":"9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 导入工具会尝试针对 CSV 文件中不带引号的值推断类型信息（带引号的值始终作为字符串处理）。  按以下顺序标识类型︰数值、日期时间、布尔值。  
 
@@ -242,11 +255,11 @@ Azure 表存储连接字符串的格式为：
 Azure 表存储源导入程序选项具有下列附加选项︰
 
 1. 包括内部字段
-   1. 所有 - 包括所有内部字段（PartitionKey、RowKey 和 Timestamp）
-   2. 无 - 排除所有内部字段
-   3. RowKey - 仅包括 RowKey 字段
+    1. 所有 - 包括所有内部字段（PartitionKey、RowKey 和 Timestamp）
+    2. 无 - 排除所有内部字段
+    3. RowKey - 仅包括 RowKey 字段
 2. 选择列
-   1. Azure 表存储筛选器不支持投影。 如果想要仅导入特定的 Azure 表实体属性，请将它们添加到“选择列”列表中。 将忽略其他所有实体属性。
+    1. Azure 表存储筛选器不支持投影。 如果想要仅导入特定的 Azure 表实体属性，请将它们添加到“选择列”列表中。 将忽略其他所有实体属性。
 
 下面是一个用于从 Azure 表存储导入的命令行示例：
 
@@ -412,7 +425,7 @@ Azure Cosmos DB 帐户连接字符串可从 Azure 门户的“密钥”页中检
 
 Azure Cosmos DB 批量导入程序具有下列高级附加选项：
 
-1. 批大小：工具默认将批大小设置为 50。  如果要导入的文档很大，请考虑减小批大小。 如果要导入的文档很小，请考虑增大批大小。
+1. 批大小：工具默认将批大小设置为 50。 如果要导入的文档很大，请考虑减小批大小。 如果要导入的文档很小，请考虑增大批大小。
 2. 最大脚本大小（字节）：工具默认设置为 512 KB 的最大脚本大小。
 3. 禁用自动生成 ID：如果要导入的每个文档都包含一个 ID 字段，则选择此选项可以提高性能。 不会导入缺少唯一 ID 字段的文档。
 4. 更新现有文档：工具将默认设置为不替换存在 ID 冲突的现有文档。 选择此选项可以覆盖具有匹配 ID 的现有文档。 此功能可用于更新现有文档的计划内数据迁移。
@@ -573,7 +586,7 @@ dt.exe /ErrorDetails:All /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<Cos
 
     ![摘要屏幕的屏幕截图](./media/import-data/summarycommand.png)
 
-2. 对源和目标选项满意后，单击“导入”。 在导入过程中，已用时间、传输计数和失败信息（如果未在“高级”配置中提供文件名）将会更新。 完成后，可以导出结果（例如，用于处理所有导入失败结果）。
+2. 对源和目标选项满意后，单击“导入”  。 在导入过程中，已用时间、传输计数和失败信息（如果未在“高级”配置中提供文件名）将会更新。 完成后，可以导出结果（例如，用于处理所有导入失败结果）。
 
     ![Azure Cosmos DB JSON 导出选项的屏幕截图](./media/import-data/viewresults.png)
 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 03/18/2019
-ms.date: 05/13/2019
-ms.openlocfilehash: aa04839763bfdac32448e96ce2e9604ffef704a9
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+origin.date: 05/20/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: b0906e53b69edad7693158b04f52f39e7d9649c2
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668933"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151452"
 ---
 # <a name="multiple-region-data-distribution-with-azure-cosmos-db---overview"></a>使用 Azure Cosmos DB 多区域分配数据 - 概述
 

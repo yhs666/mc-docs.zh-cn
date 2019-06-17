@@ -4,15 +4,15 @@ description: 本文档介绍为 Azure Cosmos DB 设置虚拟网络服务终结�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 04/15/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: fbced92a6f60b06ae521a0656de47b99004b4b53
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 1df72d1897d7df1a1625b1dc44f934d8ca37b87e
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491295"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151439"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>配置从虚拟网络 (VNet) 访问
 
@@ -85,7 +85,7 @@ ms.locfileid: "66491295"
 
     ![删除虚拟网络](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
 
-4.  单击“保存”应用所做的更改。 
+4. 单击“保存”应用所做的更改。 
 
 <a name="configure-using-powershell"></a>
 ## <a name="configure-a-service-endpoint-by-using-azure-powershell"></a>使用 Azure PowerShell 配置服务终结点
@@ -285,9 +285,9 @@ ms.locfileid: "66491295"
 
 1. 针对从子网访问的所有 Azure Cosmos DB 帐户重复步骤 1-3。
 
-1.  等待 15 分钟，然后更新子网以启用服务终结点。
+1. 等待 15 分钟，然后更新子网以启用服务终结点。
 
-1.  为虚拟网络的现有子网启用服务终结点。
+1. 为虚拟网络的现有子网启用服务终结点。
 
     ```powershell
     $rgname= "<Resource group name>"

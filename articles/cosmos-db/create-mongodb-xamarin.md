@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 06/20/2018
-ms.date: 03/04/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2690e2ca513a791d873a28c88c5df046210e7b8e
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 2700658c6ded314c5aed3c8873958eb73e2312b5
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987970"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151466"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 的 API for MongoDB 构建 Xamarin.Forms 应用
 
@@ -27,9 +27,7 @@ ms.locfileid: "56987970"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
-
-<!-- Not Available on key/value, and graph-->
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 
 本快速入门演示了如何使用 Azure 门户[创建 Cosmos 帐户并为其配置 Azure Cosmos DB 的用于 MongoDB 的 API](mongodb-introduction.md)、文档数据库和集合。 然后，使用 [MongoDB.NET 驱动程序](https://docs.mongodb.com/ecosystem/drivers/csharp/)构建 Xamarin.Forms 待办事项应用。
 
@@ -37,7 +35,7 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 若要运行该示例，需要 [Visual Studio](https://www.visualstudio.com/downloads/) 或 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 和有效的 Azure CosmosDB 帐户。
 
-如果没有 Visual Studio，请在使用安装程序安装**具有 .NET 的移动开发**后，下载 [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。
+如果没有 Visual Studio，请在使用安装程序安装**具有 .NET 的移动开发**后，下载 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。
 
 如果想要使用 Mac，请下载 [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) 并运行安装程序。
 
@@ -157,24 +155,24 @@ Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“连接字符串”，并单击“读写密钥”。 在后续步骤中，将使用屏幕右侧的复制按钮复制“主连接字符串”。
+1. 在 [Azure 门户](https://portal.azure.cn/)的 Azure Cosmos DB 帐户的左侧导航栏中，单击“连接字符串”  ，并单击“读写密钥”  。 在后续步骤中，将使用屏幕右侧的复制按钮复制“主连接字符串”。
 
 2. 打开 **TaskList.Core** 项目的 **Helpers** 目录中的 **APIKeys.cs** 文件。
 
-3. 从门户复制“主连接字符串”值（使用复制按钮），并将其设置为 **APIKeys.cs** 文件中 **ConnectionString** 字段的值。
+3. 从门户复制“主连接字符串”值（使用复制按钮），并将其设置为 **APIKeys.cs** 文件中 **ConnectionString** 字段的值。 
 
 现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。
 
-## <a name="run-the-app"></a>运行应用
+## <a name="run-the-app"></a>运行应用程序
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. 在 Visual Studio 中，右键单击解决方案资源管理器中的每个项目，并单击“管理 NuGet 包”。
-2. 单击“还原所有 NuGet 包”。
-3. 右键单击“TaskList.Android”，并选择“设为启动项目”。
+1. 在 Visual Studio 中，右键单击解决方案资源管理器  中的每个项目，并单击“管理 NuGet 包”  。
+2. 单击“还原所有 NuGet 包”  。
+3. 右键单击“TaskList.Android”，并选择“设为启动项目”。  
 4. 按 F5 开始调试应用程序。
 5. 如果想要在 iOS 上运行，首先请将计算机连接到 Mac（参阅操作[说明](https://docs.microsoft.com/zh-cn/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio)）。
-6. 右键单击“TaskList.iOS”项目，并选择“设为启动项目”。
+6. 右键单击“TaskList.iOS”项目，并选择“设为启动项目”。  
 7. 单击 F5 开始调试应用程序。
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac

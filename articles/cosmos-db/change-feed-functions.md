@@ -4,16 +4,16 @@ description: 将 Azure Cosmos DB 更改源与 Azure Functions 配合使用
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/12/2019
-ms.date: 05/13/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a90f8e46b81a7bce06e5aed85e615e5652ccbfae
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 74e82bd706983105945bd7f127a61a3a0e80b5e8
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668916"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151521"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 和 Azure Functions 的基于事件的无服务器体系结构
 
@@ -57,4 +57,4 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 * [如何使用更改源处理器库](change-feed-processor.md)
 * [使用 Azure Cosmos DB 和 Azure Functions 进行无服务器数据库计算](serverless-computing-database.md)
 
-<!-- Update_Description: update meta properties, wording update, update link -->
+<!-- Update_Description: update meta properties, wording update -->

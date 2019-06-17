@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 04/10/2018
-ms.date: 03/18/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9893ef5ec8cbc32b7017dbe066dd42df833c68cc
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 9256becd0dff4e32b9d9c60168930117338135cc
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988520"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151459"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>快速入门：使用 Java 和 Azure Cosmos DB 生成表 API 应用
@@ -37,8 +37,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 此外： 
 
-* [Java 开发工具包 (JDK) 1.7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
-    * 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。
+* [Java 开发工具包 (JDK) 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
     * 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
 * [下载](https://maven.apache.org/download.cgi)和[安装](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二进制存档
     * 在 Ubuntu 上，可以通过运行 `apt-get install maven` 来安装 Maven。
@@ -87,9 +86,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 这样，应用程序就可以与托管的数据库进行通信。 
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“连接字符串”。 
+1. 在 [Azure 门户](https://portal.azure.cn/)中，单击“连接字符串”  。 
 
-   ![在“连接字符串”窗格中查看并复制所需的连接字符串信息](./media/create-table-java/connection-string.png)
+    ![在“连接字符串”窗格中查看并复制所需的连接字符串信息](./media/create-table-java/connection-string.png)
 
 2. 使用右侧的复制按钮，复制主连接字符串。
 
@@ -145,5 +144,4 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [将表数据导入表 API](table-import.md)
 
-<!--Update_Description: new articles on create table java -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

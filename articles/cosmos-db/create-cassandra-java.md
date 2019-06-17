@@ -8,13 +8,13 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 03/18/2019
-ms.openlocfilehash: 44ffed0bca80ecdfb647ecea189c4c5eab29cdbc
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.date: 06/17/2019
+ms.openlocfilehash: 0ac8cb3193d80a77a9b2eeadba6b7112e6a858c2
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988552"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151509"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-java-sdk-and-azure-cosmos-db"></a>快速入门：使用 Java SDK 和 Azure Cosmos DB 生成 Cassandra
@@ -38,8 +38,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 此外，还需要：
 
-* [Java 开发工具包 (JDK) 1.7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
-    * 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。
+* [Java 开发工具包 (JDK) 版本 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
     * 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
 * [下载](https://maven.apache.org/download.cgi)和[安装](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二进制存档
     * 在 Ubuntu 上，可以通过运行 `apt-get install maven` 来安装 Maven。
@@ -80,9 +79,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 * 已设置 Cassandra 主机、端口、用户名、密码和 SSL 选项。 连接字符串信息来自 Azure 门户中的连接字符串页。
 
-   ```java
-   cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
-   ```
+    ```java
+    cluster = Cluster.builder().addContactPoint(cassandraHost).withPort(cassandraPort).withCredentials(cassandraUsername, cassandraPassword).withSSL(sslOptions).build();
+    ```
 
 * `cluster` 连接到 Azure Cosmos DB Cassandra API 并返回可供访问的会话。
 
@@ -90,7 +89,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
     return cluster.connect();
     ```
 
-以下代码片段摘自于 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 文件。
+    以下代码片段摘自于 `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` 文件。
 
 * 创建新密钥空间。
 
@@ -104,13 +103,13 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 * 创建新表。
 
-   ```java
-   public void createTable() {
+    ```java
+    public void createTable() {
         final String query = "CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)";
         session.execute(query);
         LOGGER.info("Created table 'user'");
-   }
-   ```
+    }
+    ```
 
 * 使用准备的语句对象插入用户实体。
 
@@ -129,7 +128,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 * 通过查询获取所有用户信息。
 
     ```java
-   public void selectAllUsers() {
+    public void selectAllUsers() {
         final String query = "SELECT * FROM uprofile.user";
         List<Row> rows = session.execute(query).all();
 
@@ -154,7 +153,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串详细信息使应用能够与托管数据库进行通信。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”。 
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”  。 
 
     ![在 Azure 门户的“连接字符串”页面中查看并复制用户名](./media/create-cassandra-java/keys.png)
 
@@ -210,7 +209,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     按 CTRL + C 停止执行程序并关闭控制台窗口。
 
-4. 在 Azure 门户中，打开数据资源管理器，以查询、修改和处理这些新数据。 
+4. 在 Azure 门户中，打开数据资源管理器  ，以查询、修改和处理这些新数据。 
 
     ![在数据资源管理器中查看数据](./media/create-cassandra-java/data-explorer.png)
 
@@ -229,5 +228,5 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 Cassandra 数据导入 Azure Cosmos DB](cassandra-import-data.md)
 
-<!--Update_Description: new articles on create cassandra java -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->
+

@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的冲突
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 84b7912874a3fba4cc9a202487b7a4eb5dc40ba4
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: cef22db8dbd84f2462a4dab113e437d9e59ce03d
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668896"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151401"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 

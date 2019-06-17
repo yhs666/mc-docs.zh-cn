@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
-origin.date: 12/06/2018
-ms.date: 03/04/2019
-ms.openlocfilehash: 6c0f38ea597ba8bed62873a3ad5bc775a9abecfa
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+origin.date: 05/21/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: 5a4bfbfdfaa9ff8dcd54743d6071998733cfeb10
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987999"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151471"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
@@ -27,10 +27,7 @@ ms.locfileid: "56987999"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB 是 21Vianet 提供的多区域分布式多模型数据库服务。 可快速创建和查询文档数据库，这些数据库受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
-
-<!-- Not Available on Key/Value and Graph -->
-<!-- Notice: globally TO multiple-region -->
+Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Cosmos DB 核心的多区域分布和水平缩放功能。 
 
 本快速入门演示如何使用以 Node.js 编写的现有 MongoDB 应用，并将其连接到支持 MongoDB 客户端的 Cosmos 数据库。 换言之，应用程序完全知道数据存储在 Cosmos 数据库中。
 
@@ -211,7 +208,7 @@ npm start
 
 此时应会显示一条控制台消息，告知开发环境已启动且正在运行。 
 
-在浏览器中导航至 `http://localhost:3000` 。 在顶部菜单中单击“注册”，并尝试创建两个虚构的用户。 
+在浏览器中导航至 `http://localhost:3000` 。 在顶部菜单中单击“注册”，并尝试创建两个虚构的用户。  
 
 MEAN.js 示例应用程序将用户数据存储在数据库中。 如果上述操作成功并且 MEAN.js 可自动登录到已创建的用户，则表示 Azure Cosmos DB 连接可正常工作。 
 

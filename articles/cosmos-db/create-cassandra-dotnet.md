@@ -8,13 +8,13 @@ ms.author: v-yeche
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 04/15/2019
-ms.openlocfilehash: 5765077a1217c02aa134e241aacf3586891e94fb
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.date: 06/17/2019
+ms.openlocfilehash: 2dbf9251dc60973ec67d46a11375d78e62f8c5aa
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491287"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151513"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -32,12 +32,12 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 <!-- Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) -->
 
 此外，还需要： 
-* 如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
+* 如果尚未安装 Visual Studio 2019，可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 * 安装 [Git](https://www.git-scm.com/) 以克隆示例。
 
 <a name="create-account"></a>
@@ -125,7 +125,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     ![在 Azure 门户的“连接字符串”页面中查看并复制访问密钥](./media/create-cassandra-dotnet/keys.png)
 
-2. 在 Visual Studio 2017 中，打开 Program.cs 文件。 
+2. 在 Visual Studio 中，打开 Program.cs 文件。 
 
 3. 粘贴门户中的“用户名”值，并覆盖第 13 行中的 `<FILLME>`。
 

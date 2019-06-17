@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中查询容器
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 11/06/2018
-ms.date: 03/18/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a1b60d5f1ea6c2fe8c413148d51318d2f73974e
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: a0e13e2bbf945339ab795f1597b1dc54baf483f9
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004565"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151396"
 ---
 # <a name="query-an-azure-cosmos-container"></a>查询 Azure Cosmos 容器
 

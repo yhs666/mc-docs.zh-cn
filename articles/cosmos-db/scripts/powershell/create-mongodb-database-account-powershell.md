@@ -7,15 +7,15 @@ ms.author: v-yeche
 ms.devlang: PowerShell
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-origin.date: 05/29/2018
-ms.date: 05/20/2019
+origin.date: 05/29/2019
+ms.date: 06/17/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c9f105c7b5f205462591210cc785998a2aea21c3
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 1cd8ea62805f8ce5a9601bdf5e048401a3243f78
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669019"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151385"
 ---
 # <a name="create-an-azure-cosmos-db-account-with-azure-cosmos-dbs-api-for-mongodb-using-powershell"></a>使用 PowerShell 通过 Azure Cosmos DB 的 API for MongoDB 创建 Azure Cosmos DB 帐户
 

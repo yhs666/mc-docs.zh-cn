@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 10/24/2018
-ms.date: 03/04/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e374d9c234dcbbc0f457b3adc97c91830eceac7
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 04d7c8fe6f2042cc65d1161f9a4bc4593a579428
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "65668966"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151462"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户构建 Java 应用程序
 
@@ -26,7 +26,7 @@ ms.locfileid: "65668966"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-本快速入门介绍如何使用 Java 应用程序创建和管理 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户的资源。 首先，请使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户，使用 [SQL Java SDK](sql-api-sdk-async-java.md) 创建 Java 应用，使用 Java 应用程序将资源添加到 Cosmos DB 帐户。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 完成本快速入门以后，你就会熟悉如何通过 UI 或编程方式（以首选方式为准）创建和修改 Cosmos DB 数据库和集合。
+本快速入门介绍如何使用 Java 应用程序创建和管理 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户的资源。 首先，请使用 Azure 门户创建 Azure Cosmos DB SQL API 帐户，使用 [SQL Java SDK](sql-api-sdk-async-java.md) 创建 Java 应用，使用 Java 应用程序将资源添加到 Cosmos DB 帐户。 本快速入门中的说明适用于任何能够运行 Java 的操作系统。 完成本快速入门以后，你就会熟悉如何通过 UI 或编程方式（以首选方式为准）创建和修改 Cosmos DB 数据库和容器。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -35,8 +35,7 @@ ms.locfileid: "65668966"
 
 此外： 
 
-* [Java 开发工具包 (JDK) 1.8+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
-    * 在 Ubuntu 上运行 `apt-get install default-jdk`，以便安装 JDK。
+* [Java 开发工具包 (JDK) 版本 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
     * 请确保设置 JAVA_HOME 环境变量，使之指向在其中安装了 JDK 的文件夹。
 * [下载](https://maven.apache.org/download.cgi)和[安装](https://maven.apache.org/install.html) [Maven](https://maven.apache.org/) 二进制存档
     * 在 Ubuntu 上，可以通过运行 `apt-get install maven` 来安装 Maven。
@@ -49,7 +48,7 @@ ms.locfileid: "65668966"
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-collection"></a>添加集合
+## <a name="add-a-container"></a>添加容器
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
@@ -76,7 +75,7 @@ ms.locfileid: "65668966"
 
 此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看以下代码片段。 否则，可以跳到[运行应用](#run-the-app)。 
 
-* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) 为 Azure Cosmos DB 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
+* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) 为 Azure Cosmos 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -203,7 +202,7 @@ ms.locfileid: "65668966"
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用数据资源管理器创建 Azure Cosmos DB 帐户、文档数据库和集合，以及如何通过运行应用以编程方式执行同一操作。 现在可以将其他数据导入 Azure Cosmos DB 集合。 
+本快速入门介绍了如何使用数据资源管理器创建 Azure Cosmos 帐户、文档数据库和容器，以及如何通过运行应用以编程方式执行同一操作。 现在可以将其他数据导入 Azure Cosmos 容器。 
 
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)

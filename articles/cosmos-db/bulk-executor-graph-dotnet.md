@@ -5,16 +5,16 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-origin.date: 08/14/2018
-ms.date: 03/18/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: e0a68f1833c853401bdf819f18e86f0c1dbd9131
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: ba143cfe32a073275c1a8a29b3a945b31fb38bd7
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988360"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151526"
 ---
 <!--Verify sucessfully-->
 # <a name="using-the-graph-bulkexecutor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>使用图形 BulkExecutor .NET 库在 Azure Cosmos DB Gremlin API 中执行批量操作
@@ -116,7 +116,7 @@ e.AddProperty("customProperty", "value");
 ## <a name="sample-application"></a>示例应用程序
 
 ### <a name="prerequisites"></a>先决条件
-* 包含 Azure 开发工作负荷的 Visual Studio 2017。 一开始可以使用免费的 [Visual Studio 2017 Community Edition](https://visualstudio.microsoft.com/downloads/)。
+* 包含 Azure 开发工作负荷的 Visual Studio 2019。 一开始可以使用免费的 [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/)。
 * Azure 订阅。 可以[在此创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
      <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 * 包含**不受限集合**的 Azure Cosmos DB Gremlin API 数据库。 本指南介绍了如何开始使用 [.NET 中的 Azure Cosmos DB Gremlin API](/cosmos-db/create-graph-dotnet)。
@@ -162,5 +162,4 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 * 请查看[性能提示](/cosmos-db/bulk-executor-dot-net#performance-tips)，以便进一步优化 BulkExecutor 的使用。
 * 请查看 [BulkExecutor.Graph 参考文章](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet)，以便更详细地了解在此命名空间中定义的类和方法。
 
-<!--Update_Description: new articles on bulk executor graph dotnet -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update-->

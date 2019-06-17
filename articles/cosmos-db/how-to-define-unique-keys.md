@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/23/2019
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: d9e7354b280fb9244bc0ad13094da6446901d65f
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: b9ed12a04ce057616a4522b4a5d4b2c48953eca1
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424250"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151403"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>为 Azure Cosmos 容器定义唯一键
 
@@ -34,7 +34,7 @@ ms.locfileid: "66424250"
 
 1. 如果需要，可通过单击“+ 添加唯一键”，添加更多唯一键条目 
 
-![Azure 门户中唯一键约束条目的屏幕截图](./media/how-to-define-unique-keys/unique-keys-portal.png)
+    ![Azure 门户中唯一键约束条目的屏幕截图](./media/how-to-define-unique-keys/unique-keys-portal.png)
 
 ## <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
 
@@ -124,5 +124,5 @@ client.CreateContainer('dbs/' + config['DATABASE'], {
 - 了解有关[分区](partition-data.md)的详细信息
 - 探索[索引编制的工作原理](index-overview.md)
 
-<!--Update_Description: new articles on how to define unique keys -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->
+

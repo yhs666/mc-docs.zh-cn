@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 05/13/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 0280f0479fba6dd5cb6a19355dbd704c5cb40c0d
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: a113faa67c79a20d674f0ef69fdc52c42b5d291f
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668898"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151525"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>使用 Bulk Executor Java 库针对 Azure Cosmos DB 数据执行批量操作
 

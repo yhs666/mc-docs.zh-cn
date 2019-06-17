@@ -4,16 +4,16 @@ description: 了解 Azure Cosmos DB 如何提供静态数据加密及其实现�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 0970fa85c883ba4fd91c0479864f2b2c6f5a42a3
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 5a0a5825a0d44736be1bdf9990a1a8f70c9a69e8
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668937"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151455"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据加密 
 

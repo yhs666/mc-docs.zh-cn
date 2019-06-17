@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
-origin.date: 01/08/2018
-ms.date: 05/13/2019
+origin.date: 01/08/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb7c0d8b3c0e46f507ebbb113f0ca0ba3f05eac9
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: ef2dd7560b769d5c4363154307eaa28806240ce5
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668815"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151503"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>快速入门：使用 Gremlin 控制台创建、查询和遍历 Azure Cosmos DB 图形数据库
@@ -65,9 +65,9 @@ Gremlin 控制台基于 Groovy/Java，在 Linux、Mac 和 Windows 上运行。 �
     connectionPool|{enableSsl: true}|SSL 的连接池设置。
     serializer|{ className: org.apache.tinkerpop.gremlin.<br />driver.ser.GraphSONMessageSerializerV1d0,<br /> config: { serializeResultToString: true }}|请设置为此值，并在粘贴此值时删除所有 `\n` 换行符。
 
-    对于 Hosts 值，请从“概览”页复制“Gremlin URI”值：![在 Azure 门户的“概览”页上查看和复制 Gremlin URI 值](./media/create-graph-gremlin-console/gremlin-uri.png)
+    对于 Hosts 值，请从“概览”页复制“Gremlin URI”值   ：![在 Azure 门户的“概览”页上查看和复制 Gremlin URI 值](./media/create-graph-gremlin-console/gremlin-uri.png)
 
-    对于密码值，请从“密钥”页复制“主密钥”：![在 Azure 门户的“密钥”页中查看和复制主密钥](./media/create-graph-gremlin-console/keys.png)
+    对于密码值，请从“密钥”页复制“主密钥”   ：![在 Azure 门户的“密钥”页中查看和复制主密钥](./media/create-graph-gremlin-console/keys.png)
 
     remote-secure.yaml 文件应如下所示：
 
@@ -105,7 +105,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>创建顶点和边缘
 
-首先为 Thomas、Mary Kay、Robin、Ben 和 Jack 添加五个人员顶点。
+首先为 Thomas、Mary Kay、Robin、Ben 和 Jack 添加五个人员顶点      。
 
 输入 (Thomas)：
 
@@ -318,5 +318,5 @@ g.V().drop()
 > [!div class="nextstepaction"]
 > [使用 Gremlin 查询](tutorial-query-graph.md)
 
-<!--Update_Description: new articles on create graph gremlin console -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->
+

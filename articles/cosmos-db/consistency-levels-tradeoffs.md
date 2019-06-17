@@ -4,16 +4,16 @@ description: Azure Cosmos DB 中各种一致性级别的可用性和性能利弊
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 44d9c4351e9900d0786c64a22fd33eae96e3f3ad
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 252306889fa5e6a98317dbb22938c26ef2e2ebbf
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615240"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151512"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>一致性、可用性和性能权衡 
 
@@ -57,13 +57,13 @@ Azure Cosmos DB 通过某种选择范围来实现数据一致性。 此方法包
 |1|单主或多主数据库|任何一致性级别|< 240 分钟|<1 周|
 |>1|单主数据库|会话、一致的前缀或最终|< 15 分钟|< 15 分钟|
 |>1|单主数据库|有限过期|*K* & *T*|< 15 分钟|
+|>1|单主数据库|强|0|< 15 分钟|
 |>1|多主数据库|会话、一致的前缀或最终|< 15 分钟|0|
 |>1|多主数据库|有限过期|*K* & *T*|0|
-|>1|单主或多主数据库|强|0|< 15 分钟|
 
-*K* = 某个项的“K”版本（即更新）的数目。
+*K* = 某个项的“K”版本（即更新）的数目。 
 
-*T* = 自上次更新以来的时间间隔“T”。
+*T* = 自上次更新以来的时间间隔“T”。 
 
 ## <a name="next-steps"></a>后续步骤
 
