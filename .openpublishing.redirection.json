@@ -15122,7 +15122,43 @@
       "source_path": "azure-stack/user/azure-stack-version-profiles-powershell.md",
       "redirect_url": "/azure-stack/operator/azure-stack-powershell-install",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-code.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-data.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-migrate-schema.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-migrate.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-develop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-portal.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-powershell.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore",
+      "redirect_document_id": false
     }
+
 
 
 
