@@ -1,28 +1,28 @@
 ---
-title: 教程 - 基于 URL 对 Web 流量进行路由 - Azure CLI
-description: 本教程介绍如何使用 Azure CLI 基于 URL 将 Web 流量路由到特定的可缩放服务器池。
+title: 基于 URL 对 Web 流量进行路由 - Azure CLI
+description: 本文介绍如何使用 Azure CLI 基于 URL 将 Web 流量路由到特定的可缩放服务器池。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-origin.date: 10/25/2018
-ms.date: 04/17/2019
+origin.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 79cd0b6d274e6a2b9f61c85ff11c78eba5482c47
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 32d8080dad8172f61138e5a2202b2284868fc2aa
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686390"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027402"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>教程：使用 Azure CLI 基于 URL 对 Web 流量进行路由
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>使用 Azure CLI 基于 URL 对 Web 流量进行路由
 
-作为管理 Web 流量的 IT 管理员，你希望帮助客户或用户尽快获取其需要的信息。 若要优化其体验，一种方法是将不同类型的 Web 流量路由到不同的服务器资源。 本教程介绍如何使用 Azure CLI 为应用程序中的不同类型的流量设置和配置应用程序网关路由。 然后，路由会根据 URL 将流量定向到不同的服务器池。
+作为管理 Web 流量的 IT 管理员，你希望帮助客户或用户尽快获取其需要的信息。 若要优化其体验，一种方法是将不同类型的 Web 流量路由到不同的服务器资源。 本文介绍如何使用 Azure CLI 为应用程序中的不同类型的流量设置和配置应用程序网关路由。 然后，路由会根据 URL 将流量定向到不同的服务器池。
 
 ![URL 路由示例](./media/tutorial-url-route-cli/scenario.png)
 
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 为所需的网络资源创建资源组
@@ -32,17 +32,17 @@ ms.locfileid: "59686390"
 > * 为每个池创建一个规模集，使池可以自动缩放
 > * 运行测试，以便验证不同类型的流量是否进入正确的池
 
-如果你愿意，可以使用 [Azure PowerShell](tutorial-url-route-powershell.md) 或 [Azure 门户](create-url-route-portal.md)完成本教程中的步骤。
+如果你愿意，可以使用 [Azure PowerShell](tutorial-url-route-powershell.md) 或 [Azure 门户](create-url-route-portal.md)完成本过程中的步骤。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+根据本文的要求，如果选择在本地安装并使用 CLI，则需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 `az group create` 创建资源组。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroupAG”  的资源组。
 
 ```azurecli
 az group create --name myResourceGroupAG --location chinanorth
@@ -181,7 +181,7 @@ az network application-gateway rule create `
 
 ## <a name="create-vm-scale-sets"></a>创建 VM 规模集
 
-在本教程中，你将创建三个虚拟机规模集以支持所创建的三个后端池。 你将创建名为 *myvmss1*、*myvmss2* 和 *myvmss3* 的规模集。 每个规模集都包含两个虚拟机实例，将在其上安装 NGINX。
+在本文中，你将创建三个虚拟机规模集以支持所创建的三个后端池。 你将创建名为 *myvmss1*、*myvmss2* 和 *myvmss3* 的规模集。 每个规模集都包含两个虚拟机实例，将在其上安装 NGINX。
 
 ```azurecli
 for i in `seq 1 3`; do
@@ -263,7 +263,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
+* [创建支持基于 URL 路径进行重定向的应用程序网关](./tutorial-url-redirect-cli.md)
 
 <!-- Update_Description: wording update -->

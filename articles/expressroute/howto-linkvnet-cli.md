@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 12/07/2018
+origin.date: 05/21/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: 2cd70b7b72d2b04ec7b2cb1392988dbfb006d898
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 06/24/2019
+ms.openlocfilehash: 2d63548a1a9679b60547c6d8d3cc0db501fa23aa
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348564"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135868"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 将虚拟网络连接到 ExpressRoute 线路
 
@@ -144,6 +144,19 @@ az network vpn-connection create --name ERConnection --resource-group ExpressRou
 **释放连接授权**
 
 可以通过删除 ExpressRoute 线路与虚拟网络之间的连接释放授权。
+
+## <a name="modify-a-virtual-network-connection"></a>修改虚拟网络连接
+可以更新虚拟网络连接的某些属性。 
+
+**更新连接权重**
+
+虚拟网络可以连接到多条 ExpressRoute 线路。 可以从多条 ExpressRoute 线路收到相同的前缀。 若要选择使用哪个连接发送目标为此前缀的流量，可以更改连接的 *RoutingWeight*。 会在具有最高 *RoutingWeight* 的连接上发送流量。
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --routing-weight 100
+```
+
+*RoutingWeight* 的范围是 0 到 32000。 默认值为 0。
 
 ## <a name="next-steps"></a>后续步骤
 

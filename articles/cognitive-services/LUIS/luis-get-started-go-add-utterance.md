@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8898b5f4370f940181cd37d5da628419d8a4ea97
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: f308755a1431c96cdb036070cb0d5cc52c57a6dc
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555481"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135975"
 ---
 # <a name="quickstart-change-model-using-go"></a>快速入门：使用 Go 更改模型
 
@@ -97,8 +97,8 @@ ms.locfileid: "65555481"
         fmt.Println(string(exampleUtterancesAsBytes))
 
 
-        // NOTE: region is westus
-        var authoringUrl = fmt.Sprintf("https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/%s/versions/%s/examples", appID, version)
+        // NOTE: region is chinaeast2
+        var authoringUrl = fmt.Sprintf("https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/%s/versions/%s/examples", appID, version)
 
         httpRequest("POST", authoringUrl, authoringKey, (string(exampleUtterancesAsBytes)))
     }
@@ -113,7 +113,7 @@ ms.locfileid: "65555481"
     }
     func trainApp(httpVerb string, authoringKey string, appID string,  version string){
 
-        var authoringUrl = fmt.Sprintf("https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/%s/versions/%s/train", appID, version)
+        var authoringUrl = fmt.Sprintf("https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/%s/versions/%s/train", appID, version)
 
         httpRequest(httpVerb,authoringUrl, authoringKey, "")
     }
@@ -163,7 +163,7 @@ ms.locfileid: "65555481"
 2. 通过在命令提示符下输入以下文本从命令行运行 Go 应用程序： 
 
     ```console
-    add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region westus -utteranceFile utterances.json
+    add-utterances -appID <your-app-id> -authoringKey <add-your-authoring-key> -version <your-version-id> -region chinaeast -utteranceFile utterances.json
 
     ```
 

@@ -6,20 +6,20 @@ documentationcenter: na
 author: ggailey777
 manager: cfowler
 keywords: Azure Functions, 函数, 事件处理, 动态计算, 无服务体系结构, python
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: python
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 03/04/2019
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: cb2c7db533b3a9bb7d432ed7289a420cd588842d
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: b3681508b56d03742f0933950eea9dc7f630933f
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254033"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491435"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -29,7 +29,7 @@ ms.locfileid: "57254033"
 
 ## <a name="programming-model"></a>编程模型
 
-Azure 函数应是 Python 脚本中处理输入并生成输出的无状态方法。 默认情况下，运行时期望此函数在 `__init__.py` 文件中作为名为 `main()` 的全局方法实现。
+Azure 函数应是 Python 脚本中处理输入并生成输出的无状态方法。 默认情况下，运行时期望此方法在 `__init__.py` 文件中作为名为 `main()` 的全局方法实现。
 
 可以通过在 `function.json` 文件中指定 `scriptFile` 和 `entryPoint` 属性来更改默认配置。 例如，下面的 _function.json_ 指示运行时使用 _main.py_ 文件中的 _customentry()_ 方法作为 Azure 函数的入口点。
 
@@ -110,15 +110,16 @@ Python 函数项目的文件夹结构如下所示：
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须使用 Azure Functions Core Tools [注册绑定扩展](./functions-bindings-register.md#local-development-azure-functions-core-tools)。 
+Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须使用 Azure Functions Core Tools [注册绑定扩展](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 
 
 在 Azure 中将 Functions 项目部署到函数应用时，FunctionApp 文件夹的整个内容应包含在包中，但不包含该文件夹本身。
 
-## <a name="inputs"></a>输入
+## <a name="triggers-and-inputs"></a>触发器和输入
 
-在 Azure Functions 中，输入分为两种类别：触发器输入和附加输入。 虽然它们在 `function.json` 中并不相同，但它们在 Python 代码中的使用方法却是相同的。 请看以下代码片段示例：
+在 Azure Functions 中，输入分为两种类别：触发器输入和附加输入。 虽然它们在 `function.json` 中并不相同，但它们在 Python 代码中的使用方法却是相同的。  触发器和输入源的连接字符串应映射到本地 `local.settings.json` 文件中的值，以及在 Azure 中运行时的应用程序设置。 请看以下代码片段示例：
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -140,7 +141,19 @@ Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义�
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -150,7 +163,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-调用函数时，HTTP 请求作为 `req` 传递给函数。 将基于路由 URL 中的 _id_ 从 Azure Blob 存储检索一个条目，并在函数体中用作 `obj`。
+调用函数时，HTTP 请求作为 `req` 传递给函数。 将基于路由 URL 中的 _ID_ 从 Azure Blob 存储检索一个条目，并在函数体中将其用作 `obj`。  在这里，指定的存储帐户是在 `AzureWebJobsStorage` 中找到的连接字符串，它与函数应用使用的存储帐户相同。
+
 
 ## <a name="outputs"></a>Outputs
 
@@ -308,35 +322,6 @@ func azure functionapp publish <app name> --build-native-deps
 > 如果继续遇到问题，请通过[建立问题](https://github.com/Azure/azure-functions-core-tools/issues/new)并包含问题描述来告知我们。 
 
 
-若要使用持续集成 (CI) 和持续交付 (CD) 系统生成依赖项并进行发布，可以使用 [Travis CI 自定义脚本](https://docs.travis-ci.com/user/deployment/script/)。 
-
-下面是生成和发布过程的示例 `.travis.yaml` 脚本。
-
-```yml
-sudo: required
-
-language: node_js
-
-node_js:
-  - "8"
-
-services:
-  - docker
-
-before_install:
-  - echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ wheezy main" | sudo tee /etc/apt/sources.list.d/azure-cli.list
-  - curl -L https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-  - sudo apt-get install -y apt-transport-https
-  - sudo apt-get update && sudo apt-get install -y azure-cli
-  - npm i -g azure-functions-core-tools --unsafe-perm true
-
-
-script:
-  - az login --service-principal --username "$APP_ID" --password "$PASSWORD" --tenant "$TENANT_ID"
-  - az account get-access-token --query "accessToken" | func azure functionapp publish $APP_NAME --build-native-deps
-
-```
-
 ## <a name="known-issues-and-faq"></a>已知问题和常见问题解答
 
 所有已知问题和功能请求都使用 [GitHub 问题](https://github.com/Azure/azure-functions-python-worker/issues)列表进行跟踪。 如果遇到 GitHub 中未列出的问题，请打开“新问题”并提供问题的详细说明。
@@ -345,11 +330,11 @@ script:
 
 有关详细信息，请参阅以下资源：
 
-- [Azure Functions 最佳实践](functions-best-practices.md)
-- [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
-- [Blob 存储绑定](functions-bindings-storage-blob.md)
-- [HTTP 和 Webhook 绑定](functions-bindings-http-webhook.md)
-- [存储绑定](functions-bindings-storage-queue.md)
-- [计时器触发器](functions-bindings-timer.md)
+* [Azure Functions 最佳实践](functions-best-practices.md)
+* [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
+* [Blob 存储绑定](functions-bindings-storage-blob.md)
+* [HTTP 和 Webhook 绑定](functions-bindings-http-webhook.md)
+* [存储绑定](functions-bindings-storage-queue.md)
+* [计时器触发器](functions-bindings-timer.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

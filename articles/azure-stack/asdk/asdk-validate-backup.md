@@ -12,12 +12,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 02/15/2019
-ms.openlocfilehash: 63d68fd229fe672b2fcfc022a65a85cfa8e5a508
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 98330139fef8d59bb5ee543879ffa5d28533ea04
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855204"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135432"
 ---
 # <a name="use-the-asdk-to-validate-an-azure-stack-backup"></a>使用 ASDK 验证 Azure Stack 备份
 在部署 Azure Stack 并预配用户资源（例如套餐、计划、配额、订阅）以后，应[启用 Azure Stack 基础结构备份](../operator/azure-stack-backup-enable-backup-console.md)。 计划并运行定期基础结构备份可确保在硬件或服务出现灾难性故障时基础结构管理数据不会丢失。
@@ -60,7 +60,6 @@ Azure Stack 基础结构备份包含有关云的重要数据，这些数据可�
 |时间服务器 IP|有效的时间服务器 IP（例如 132.163.97.2）是 Azure Stack 部署所需的。|
 |外部证书密码|Azure Stack 使用的外部证书的密码。 CA 备份包含外部证书，这些证书需使用此密码来还原。|
 |备份加密密钥|如果已升级到 Azure Stack 1901 版或更高版本，且仍以加密密钥配置了备份设置，则必须提供加密密钥。 1901 版将开始弃用加密密钥。 安装程序至少支持 3 个版本的后向兼容性模式下的加密密钥。 将备份设置更新为使用证书后，请参阅下表了解所需的信息。|
-
 |     |     | 
 
 **PowerShell 安装程序要求**
@@ -115,19 +114,19 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
     ![ASDK 安装程序脚本](media/asdk-validate-backup/1.PNG) 
 
-3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”。
+3. 在标识提供者和凭据页上，输入 Azure AD 目录信息（可选）和 ASDK 主机的本地管理员密码。 单击“下一步”  。
 
     ![标识和凭据页](media/asdk-validate-backup/2.PNG) 
 
-4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。 在 ASDK 安装期间，将禁用其他所有网络接口。 
+4. 选择 ASDK 主机使用的网络适配器，然后单击“下一步”。  在 ASDK 安装期间，将禁用其他所有网络接口。 
 
     ![网络适配器接口](media/asdk-validate-backup/3.PNG) 
 
-5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”。
+5. 在“网络配置”页上，提供有效的时间服务器和 DNS 转发站 IP 地址。 单击“下一步”  。
 
     ![“网络配置”页](media/asdk-validate-backup/4.PNG) 
 
-6. 检查网络接口卡的属性后，单击“下一步”。 
+6. 检查网络接口卡的属性后，单击“下一步”。  
 
     ![网卡设置检查](media/asdk-validate-backup/5.PNG) 
 
@@ -135,7 +134,7 @@ New-SmbShare -Path $azsbackupshare.FullName -FullAccess ($env:computername + "\A
 
    ![“备份设置”页](media/asdk-validate-backup/6.PNG) 
 
-8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。 
+8. 在“摘要”页上查看用于部署 ASDK 的部署脚本。 单击“部署”以开始部署。  
 
     ![“摘要”页](media/asdk-validate-backup/7.PNG) 
 

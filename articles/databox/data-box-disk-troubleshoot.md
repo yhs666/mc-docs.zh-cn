@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-origin.date: 02/06/2019
-ms.date: 03/18/2019
+origin.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: c5a24a57709f3949c2855f69ac224434aaf982c5
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: ef44afd92cc141570f99731d677fa3733c938a0d
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990170"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726498"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>排查 Azure Data Box Disk 中的问题
 
@@ -37,14 +37,14 @@ ms.locfileid: "57990170"
 
 若要导航到复制日志的路径，请转到与 Data Box 订单关联的存储帐户。 
 
-1.  转到“常规”>“订单详细信息”，记下与订单关联的存储帐户。
+1.  转到“常规”>“订单详细信息”，记下与订单关联的存储帐户。 
  
 
-2.  转到“所有资源”，搜索在上一步骤中识别的存储帐户。 选择并单击该存储帐户。
+2.  转到“所有资源”，搜索在上一步骤中识别的存储帐户。  选择并单击该存储帐户。
 
     ![复制日志 1](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs1.png)
 
-3.  转到“Blob 服务”>“浏览 Blob”，查找对应于该存储帐户的 Blob。 转到“diagnosticslogcontainer”>“waies”。 
+3.  转到“Blob 服务”>“浏览 Blob”，查找对应于该存储帐户的 Blob。  转到“diagnosticslogcontainer”>“waies”。  
 
     ![复制日志 2](./media/data-box-disk-troubleshoot/data-box-disk-copy-logs2.png)
 
@@ -52,15 +52,15 @@ ms.locfileid: "57990170"
 
 ## <a name="query-activity-logs"></a>查询活动日志
 
-使用活动日志可在故障排除时查找错误，或者监视组织内用户对资源的修改。 通过活动日志，可以确定：
+使用活动日志可在故障排除时查找错误，或者监视组织内的用户如何对资源进行修改。 通过活动日志，可以确定：
 
 - 对订阅中的资源执行了什么操作。
-- 谁启动了该操作。 
+- 谁启动了该操作。
 - 操作何时发生。
 - 操作状态。
 - 其他可能有助于调查操作的属性值。
 
-活动日志包含针对资源执行的所有写入操作（例如 PUT、POST、DELETE），但不包含读取操作（例如 GET）。 
+活动日志包含针对资源执行的所有写入操作（例如 PUT、POST、DELETE），但不包含读取操作（例如 GET）。
 
 活动日志将保留 90 天。 可以查询任何日期范围，只要开始日期不早于过去 90 天。 此外，还可以根据 Insights 中的某个内置查询进行筛选。 例如，单击某个错误，然后选择并单击特定的失败以了解根本原因。
 
@@ -80,7 +80,7 @@ ms.locfileid: "57990170"
 
 |错误消息/警告  |建议 |
 |---------|---------|
-|[信息] 正在检索卷 m: 的 bitlocker 密码 <br>[错误] 检索卷 m: 的 bitlocker 密钥时捕获到异常<br> 序列未包含任何元素。|如果目标 Data Box 磁盘处于脱机状态，则会引发此错误。 <br> 使用 `diskmgmt.msc` 工具将磁盘联机。|
+|[信息] 正在检索卷: m 的 BitLocker 密码 <br>[错误] 检索卷 m: 的 BitLocker 密钥时捕获到异常<br> 序列未包含任何元素。|如果目标 Data Box 磁盘处于脱机状态，则会引发此错误。 <br> 使用 `diskmgmt.msc` 工具将磁盘联机。|
 |[错误]引发异常：WMI 操作失败：<br> Method=UnlockWithNumericalPassword，ReturnValue=2150694965， <br>Win32Message=所提供的恢复密码的格式无效。 <br>BitLocker 恢复密码有 48 位。 <br>请验证恢复密码的格式是否正确，然后重试。|使用 Data Box 磁盘解锁工具首先解锁磁盘，然后重试该命令。 有关详细信息，请转到 <li> [为 Windows 客户端解锁 Data Box 磁盘。](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) </li><li> [为 Linux 客户端解锁 Data Box 磁盘。](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client) </li>|
 |[错误]引发异常：目标驱动器上存在 DriveManifest.xml 文件。 <br> 这表明可能已使用不同的日志文件准备了目标驱动器。 <br>若要向同一驱动器添加更多数据，请使用之前的日志文件。 若要删除现有数据并将目标驱动器重复用于新的导入作业，请删除驱动器上的 DriveManifest.xml。 使用新的日志文件重新运行此命令。| 当尝试将同一组驱动器用于多个导入会话时会收到此错误。 <br> 将一组驱动器仅用于一个拆分和复制会话。|
 |[错误]引发异常：CopySessionId importdata-sept-test-1 引用了以前的复制会话，无法将其重复用于新的复制会话。|当尝试为新作业使用与以前成功完成的作业相同的名称时，会报告此错误。<br> 为新作业分配唯一的名称。|
@@ -97,7 +97,7 @@ ms.locfileid: "57990170"
 
 这可能是由于文件系统不干净造成。 
 
-将驱动器重新装载为读写不适用于 Data Box Disk。 dislocker 解密的驱动器不支持此方案。 你可能已使用以下命令成功重新装载设备： 
+将驱动器重新装载为读写不适用于 Data Box Disk。 dislocker 解密的驱动器不支持此方案。 你可能已使用以下命令成功重新装载设备：
 
     `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
 
@@ -105,15 +105,37 @@ ms.locfileid: "57990170"
 
 **解决方法**
 
-如果看到上述错误，可以尝试以下某个解决方案：
+在 Linux 系统上执行以下步骤：
 
-- 安装 [`ntfsfix`](https://linux.die.net/man/8/ntfsfix)（可用于 `ntfsprogs` 包中）并针对相关分区运行它。
+1. 为 ntfsfix 实用程序安装 `ntfsprogs` 包。
+2. 卸载解锁工具为驱动器提供的装入点。 装入点的数量因驱动器而异。
 
-- 如果有权访问 Windows 系统
+    ```
+    unmount /mnt/DataBoxDisk/mountVol1
+    ```
 
-    - 请将驱动器加载到 Windows 系统中。
-    - 使用管理员权限打开命令提示符。 在卷上运行 `chkdsk`。
-    - 安全地删除该卷，然后重试。
+3. 在相应的路径上运行 `ntfsfix`。 突出显示的数目应与步骤 2 相同。
+
+    ```
+    ntfsfix /mnt/DataBoxDisk/bitlockerVol1/dislocker-file
+    ```
+
+4. 运行以下命令以删除可能导致装载问题的休眠元数据。
+
+    ```
+    ntfs-3g -o remove_hiberfile /mnt/DataBoxDisk/bitlockerVol1/dislocker-file /mnt/DataBoxDisk/mountVol1
+    ```
+
+5. 执行干净卸载。
+
+    ```
+    ./DataBoxDiskUnlock_x86_64 /unmount
+    ```
+
+6. 执行干净解锁和装载。
+7. 通过写入文件来测试装入点。
+8. 卸载并重新装载以验证文件持久性。
+9. 继续复制数据。
  
 ### <a name="issue-error-with-data-not-persisting-after-copy"></a>问题：复制后数据不存在时出错
  

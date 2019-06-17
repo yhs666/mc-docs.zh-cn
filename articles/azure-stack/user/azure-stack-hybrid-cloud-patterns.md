@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: d60e3bdf6886307d561770d9403fed2c25cf05e2
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 87c5972616b7973a2270374a9140d1c2ff44e52c
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249143"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135479"
 ---
 # <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 创建混合云应用
 
@@ -42,9 +42,6 @@ Azure 是一致的混合云。 Azure 允许你重用在 Azure 中开发的代码
 - [将应用部署到 Azure Stack 和 Azure](azure-stack-solution-hybrid-identity.md)
 - [使用 Azure 和 Azure Stack 应用配置混合云标识](azure-stack-solution-hybrid-connectivity.md)
 - [使用 Azure 和 Azure Stack 配置混合云连接](azure-stack-solution-staged-data-analytics.md)
-- [使用 Azure 和 Azure Stack 创建临时数据分析解决方案](azure-stack-solution-cloud-burst.md)
-- [使用 Azure 创建跨云缩放解决方案](azure-stack-solution-cloud-burst.md)
-- [使用 Azure 和 Azure Stack 创建异地分布式应用解决方案](azure-stack-solution-geo-distributed.md)
 - [使用 Azure 和 Azure Stack 部署混合云解决方案](azure-stack-solution-hybrid-cloud.md)
 
 ## <a name="next-steps"></a>后续步骤

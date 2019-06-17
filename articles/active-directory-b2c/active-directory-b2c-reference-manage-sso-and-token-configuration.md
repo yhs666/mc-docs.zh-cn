@@ -3,20 +3,20 @@ title: 在 Azure Active Directory B2C 中使用自定义策略管理 SSO 和令�
 description: 了解在 Azure Active Directory B2C 中使用自定义策略管理 SSO 和令牌自定义。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 10/09/2018
-ms.date: 04/01/2019
+ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 3339e4536b11cbc4bc9dcd54f31f0448273353cf
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 197d09d12faab4fa61859ce87a017752d7f10cb9
+ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004303"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687607"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略管理 SSO 和令牌自定义
 
@@ -24,7 +24,11 @@ ms.locfileid: "59004303"
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>令牌生存期和声明配置
 
-若要更改令牌生存期的设置，需要在想要影响的策略的信赖方文件中添加 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子代。 在该元素中，需要放置影响令牌生存期的信息。 XML 如以下示例所示：
+若要更改令牌生存期的设置，需要在想要影响的策略的信赖方文件中添加 [ClaimsProviders](claimsproviders.md) 元素。  **ClaimsProviders** 元素是 [TrustFrameworkPolicy](trustframeworkpolicy.md) 元素的子代。 
+
+在信赖方文件的 BasePolicy 元素和 RelyingParty 元素之间插入 ClaimsProviders 元素。
+
+在该元素中，需要放置影响令牌生存期的信息。 XML 如以下示例所示：
 
 ```XML
 <ClaimsProviders>
@@ -55,7 +59,7 @@ ms.locfileid: "59004303"
 - **颁发者 (iss) 声明** - 颁发者 (iss) 声明是通过 **IssuanceClaimPattern** 元数据项设置的。 适用的值为 `AuthorityAndTenantGuid` 和 `AuthorityWithTfp`。
 - **设置声明表示策略 ID** - 用于设置此值的选项为 `TFP`（信任框架策略）和 `ACR`（身份验证上下文引用）。 `TFP` 是建议使用的值。 将 **AuthenticationContextReferenceClaimPattern** 设置为值 `None`。 
 
-    在 ClaimsSchema 元素中，添加此元素： 
+    在 ClaimsSchema 元素中，添加此元素  ： 
     
     ```XML
     <ClaimType Id="trustFrameworkPolicy">
@@ -64,7 +68,7 @@ ms.locfileid: "59004303"
     </ClaimType>
     ```
     
-    在 OutputClaims 元素中，添加此元素：
+    在 OutputClaims 元素中，添加此元素  ：
     
     ```XML
     <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
@@ -99,6 +103,7 @@ ms.locfileid: "59004303"
 上一示例中配置了以下值：
 
 - **单一登录 (SSO)** - 单一登录是通过 **SingleSignOn** 配置的。 适用的值为 `Tenant`、`Application`、`Policy` 和 `Suppressed`。 
-- **Web 应用会话生存期（分钟）**- Web 应用会话生存期是通过 **SessionExpiryInSeconds** 元素设置的。 默认值为 86400 秒（1440 分钟）。
+- **Web 应用会话生存期（分钟）** - Web 应用会话生存期是通过 **SessionExpiryInSeconds** 元素设置的。 默认值为 86400 秒（1440 分钟）。
 - **Web 应用会话超时** - Web 应用会话超时是通过 **SessionExpiryType** 元素设置的。 适用的值为 `Absolute` 和 `Rolling`。
 
+<!-- Update_Description: wording update -->

@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e2ffb5569def29cce859ec4a08a13a960b26212f
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: f5ed0ffbed472025941404adf2c04fdc973c5ccb
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248601"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135413"
 ---
 # <a name="validate-azure-identity"></a>验证 Azure 标识
 
@@ -53,7 +53,7 @@ ms.locfileid: "66248601"
   ```
 
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
+- 最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 **Azure Active Directory 环境：**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 461088da6f4da655d2a30a779a3660230d6fe8a0
-ms.sourcegitcommit: 42766e267c2016d12977c24be394e8496f08e8fb
+ms.openlocfilehash: 75174706b8f62891f17818e242ede38bdd030af8
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250292"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135991"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 安全中心常见问题 (FAQ)
 本常见问题解答文章解答有关 Azure 安全中心的问题。Azure 安全中心可帮助预防、检测和响应威胁，同时增加世纪互联 Azure 资源的可见性和安全方面的可控性。
@@ -34,7 +34,7 @@ ms.locfileid: "66250292"
 Azure 安全中心有助于预防、检测和响应威胁，同时增加 Azure 资源的可见性和安全可控性。 该服务提供订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
 
 ### <a name="how-do-i-get-azure-security-center"></a>如何获取Azure 安全中心？
-Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](https://www.azure.cn/features/azure-portal/)访问。 （[登录到门户](https://portal.azure.com)，选“浏览”  ，并滚动到“安全中心”  ）。  
+Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](https://www.azure.cn/features/azure-portal/)访问。 （[登录到门户](https://portal.azure.cn)，选“浏览”  ，并滚动到“安全中心”  ）。  
 
 ## <a name="billing"></a>计费
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure 安全中心如何计费？
@@ -198,10 +198,10 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 ### <a name="how-do-i-disable-data-collection"></a>如何禁用数据收集？
 默认情况下自动设置处于关闭状态。 可以随时禁用安全策略中的此设置，禁用资源的自动设置。 强烈建议使用自动设置，以获取有关系统更新、OS 漏洞和终结点保护的安全警报和建议。
 
-若要禁用数据收集，请[登录到 Azure 门户](https://portal.azure.com)，依次选择“浏览”、“安全中心”和“策略”    。 选择希望禁用自动设置的订阅。 选择订阅时，“安全策略 - 数据收集”将打开  。 在“自动设置”下，选择“关闭”   。
+若要禁用数据收集，请[登录到 Azure 门户](https://portal.azure.cn)，依次选择“浏览”、“安全中心”和“策略”    。 选择希望禁用自动设置的订阅。 选择订阅时，“安全策略 - 数据收集”将打开  。 在“自动设置”下，选择“关闭”   。
 
 ### <a name="how-do-i-enable-data-collection"></a>如何启用数据收集？
-可在安全中心策略中对 Azure 订阅启用数据收集。 启用数据收集。 [登录到 Azure 门户](https://portal.azure.com)，依次选择“浏览”、“安全中心”和“策略”    。 选择希望启用自动设置的订阅。 选择订阅时，“安全策略 - 数据收集”将打开  。 在“自动设置”下，选择“打开”   。
+可在安全中心策略中对 Azure 订阅启用数据收集。 启用数据收集。 [登录到 Azure 门户](https://portal.azure.cn)，依次选择“浏览”、“安全中心”和“策略”    。 选择希望启用自动设置的订阅。 选择订阅时，“安全策略 - 数据收集”将打开  。 在“自动设置”下，选择“打开”   。
 
 ### <a name="what-happens-when-data-collection-is-enabled"></a>启用数据收集之后会发生什么？
 启动自动设置后，安全中心可在所有受支持的 Azure VM 以及任何新建的 Azure VM 中预配 Azure Monitoring Agent。 强烈建议进行自动预配，但也可以手动代理安装。 [了解如何安装 Azure Monitoring Agent 扩展](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)。 

@@ -3,20 +3,20 @@ title: 文本翻译 API 字典查找方法
 titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API 字典查找方法。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 03/29/2018
-ms.date: 05/15/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: f763d9807218751ee2b65e5e2fec8691d7da848b
-ms.sourcegitcommit: 2312c8153c559ed1a235d029c7522283d9c92864
+ms.openlocfilehash: 22b2a91524a3ac9aba3cacf54eab6b79e3a63e16
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65730989"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830101"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>文本翻译 API 3.0：字典查找
 
@@ -212,5 +212,4 @@ curl -X POST "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&
 ]
 ```
 
-<!-- Update_Description: wording update -->
-
+<!-- Update_Description: update metedata properties -->

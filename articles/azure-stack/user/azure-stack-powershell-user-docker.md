@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: c87ec1f7e1b700ed9d7602638b5731815b9d9136
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 751a15fd45767ae75c1400aef600b48b34109d4c
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249141"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135462"
 ---
 # <a name="use-docker-to-run-powershell"></a>使用 Docker 运行 PowerShell
 
@@ -90,7 +90,7 @@ Dockerfile 打开 Microsoft 映像 microsoft/windowsservercore，其中已安装
     ```PowerShell  
     Account    SubscriptionName    TenantId    Environment
     -------    ----------------    --------    -----------
-    <AccountID>    <SubName>       <TenantID>  AzureCloud
+    <AccountID>    <SubName>       <TenantID>  AzureChinaCloud
     ```
 
 7. 通过在 Azure Stack 中创建资源组，测试连接性。

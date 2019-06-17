@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 83bd8035d3c03944d5e0ea0a5777b3cf79d46c5c
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: ffc986eb4a4e343570e190ecdf6afbb15e23149f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555489"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135926"
 ---
 # <a name="quickstart-get-intent-using-go"></a>快速入门：使用 Go 获取意向
 
@@ -70,7 +70,7 @@ ms.locfileid: "65555489"
         */
         func endpointPrediction(appID string, endpointKey string, region string, utterance string) {
 
-            var endpointUrl = fmt.Sprintf("https://%s.api.cognitive.microsoft.com/luis/v2.0/apps/%s?subscription-key=%s&verbose=false&q=%s", region, appID, endpointKey, url.QueryEscape(utterance))
+            var endpointUrl = fmt.Sprintf("https://%s.api.cognitive.azure.cn/luis/v2.0/apps/%s?subscription-key=%s&verbose=false&q=%s", region, appID, endpointKey, url.QueryEscape(utterance))
             
             response, err := http.Get(endpointUrl)
 
@@ -117,7 +117,7 @@ ms.locfileid: "65555489"
 3. 通过在命令提示符下输入以下文本从命令行运行 Go 应用程序： 
 
     ```CMD
-    go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region westus
+    go run endpoint.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey <add-your-key> -region chinaeast2
     ```
     
     将 `<add-your-key>` 替换为你的密钥的值。  
@@ -127,7 +127,7 @@ ms.locfileid: "65555489"
     ```CMD
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
     endpointKey has value xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-    region has value westus
+    region has value chinaeast2
     utterance has value turn on the bedroom light
     response
     {

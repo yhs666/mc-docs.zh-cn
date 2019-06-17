@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/12/2019
-ms.date: 03/04/2019
+ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 953dd7a873898872574ca8fc1cb6fc83ee85b18a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 87bc83443631b13266596842a4769f8e20bad16e
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529576"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135446"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Azure Stack 集成系统的 Azure 连接型部署计划决策
 在决定[如何将 Azure Stack 集成到混合云环境](azure-stack-connection-models.md)后，可以完成 Azure Stack 部署决策。
@@ -48,7 +48,7 @@ ms.locfileid: "64529576"
 如果需要将自己的标识存储（例如公司 Active Directory）用于服务管理员帐户，请选择此选项。  
 
 ## <a name="choose-a-billing-model"></a>选择计费模型
-可以选择“即用即付”或“容量”计费模型。 即用即付计费模型部署必须能够通过到 Azure 的连接报告使用情况，每 30 天至少报告一次。 因此，即用即付计费模型仅适用于连接型部署。  
+可以选择“即用即付”或“容量”计费模型。   即用即付计费模型部署必须能够通过到 Azure 的连接报告使用情况，每 30 天至少报告一次。 因此，即用即付计费模型仅适用于连接型部署。  
 
 ### <a name="pay-as-you-use"></a>即用即付
 使用即用即付计费模型时，使用费用计到 Azure 订阅中。 只有在使用 Azure Stack 服务时才需付费。 如果这是决定要用的模型，则需一个 Azure 订阅，以及与该订阅相关联的帐户 ID（例如，serviceadmin@contoso.partner.onmschina.cn）。 支持 EA、CSP、CSL 订阅。 使用情况报告在 [Azure Stack 注册](azure-stack-registration.md)期间配置。
@@ -71,7 +71,6 @@ ms.locfileid: "64529576"
 ## <a name="learn-more"></a>了解详细信息
 - 有关用例、购买、合作伙伴和 OEM 硬件供应商的信息，请参阅 [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) 产品页。
 - 有关 Azure Stack 集成系统的路线图和上市区域的信息，请参阅白皮书：[Azure Stack：Azure 的扩展](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)。 
-- 若要了解有关 Azure Stack 打包和定价的详细信息，请[下载此 .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。 
 
 ## <a name="next-steps"></a>后续步骤
 [数据中心网络集成](azure-stack-network.md)

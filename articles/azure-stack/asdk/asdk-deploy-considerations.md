@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/06/2018
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 2e676b4223bbcc5703758af0e58698a731e426e9
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: fbd4df6870d739f629d696e68e917c794c577abe
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381831"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135433"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack 部署规划注意事项
 在部署 Azure Stack 开发工具包 (ASDK) 之前，请确保开发工具包主机满足本文中所述的要求。
@@ -91,10 +91,7 @@ ms.locfileid: "66381831"
    
    | **Azure Active Directory 帐户** | **支持？** |
    | --- | --- |
-   | 具有有效的全局 Azure 订阅的工作或学校帐户 |是 |
-   | 具有有效的全局 Azure 订阅的 Microsoft 帐户 |是 |
    | 具有有效的中国区 Azure 订阅的工作或学校帐户 |是 |
-   | 具有有效的美国政府版 Azure 订阅的工作或学校帐户 |是 |
 
 部署后，不需要 Azure Active Directory 全局管理员权限。 但是，某些操作可能需要全局管理员凭据。 例如，资源提供程序安装程序脚本或需要授予权限的新功能。 可以临时复原帐户的全局管理员权限，也可以使用单独的全局管理员帐户（该帐户应是*默认提供程序订阅*的所有者）。
 

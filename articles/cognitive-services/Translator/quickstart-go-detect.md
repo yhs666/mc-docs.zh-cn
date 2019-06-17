@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/25/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 25365b9bb2286ad8dee9eaa1de8a8bfc832c591a
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 71551b05e9131fc611ac1d285b1602221d77dbdc
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502555"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830129"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>快速入门：使用文本翻译 API 通过 Go 来检测文本语言
 

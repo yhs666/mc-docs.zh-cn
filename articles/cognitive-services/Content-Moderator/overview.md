@@ -9,18 +9,18 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
 origin.date: 02/20/2019
-ms.date: 04/22/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8c8057daf9858158d2d45f1d9c5993035feab7ca
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: cdf7ecc2632848f327eda20584807d8c3bc388cf
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855268"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830118"
 ---
 # <a name="what-is-azure-content-moderator"></a>什么是 Azure 内容审查器？
 
-Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、危险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。 请参阅[内容审查器 API](#content-moderator-apis) 部分，详细了解不同内容标记表示的意思。
+Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和视频中是否存在可能的冒犯性内容、危险内容或其他令人不适的内容。 找到此类内容时，此服务会将相应的标签（标记）应用到该内容。 然后，应用会处理标记的内容，使之符合法规的要求，或者为用户维持一个理想的环境。 请参阅[审查 API](#moderation-apis) 部分，详细了解不同内容标记表示的意思。
 
 ## <a name="where-it-is-used"></a>使用位置
 
@@ -36,9 +36,13 @@ Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和
 
 内容审查器服务包含多个可以通过 REST 调用和 .NET SDK 使用的 Web 服务 API。 
 
-### <a name="content-moderator-apis"></a>内容审查器 API
+## <a name="moderation-apis"></a>审查 API
 
-内容审查器服务包括适用于以下方案的 API。
+内容审查器服务包括了审查 API，这些 API 检查内容中是否存在可能不适当或令人反感的材料。
+
+![内容审查器审查 API 的框图](images/content-moderator-mod-api.png)
+
+下表介绍了各种类型的审查 API。
 
 | API 组 | 说明 |
 | ------ | ----------- |

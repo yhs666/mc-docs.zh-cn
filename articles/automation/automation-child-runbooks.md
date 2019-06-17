@@ -10,12 +10,12 @@ origin.date: 01/17/2019
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3d62795ad06a364e94e0e0a9b968e66408759878
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 16830c09cbbabe5e9b08a51c81a0617d47bb65b7
+ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503586"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135566"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -66,7 +66,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > 如果结合 `-Wait` 开关使用 `Start-AzureRmAutomationRunbook` cmdlet 调用子 Runbook，并且子 Runbook 的结果是一个对象，则你可能会遇到错误。 若要解决此错误，请参阅[使用对象输出的子 Runbook](troubleshoot/runbooks.md#child-runbook-object)，以了解如何实现相关逻辑来轮询结果并使用 [Get-AzureRmAutomationJobOutputRecord](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutputrecord)
 
-可以根据[使用 Windows PowerShell 启动 Runbook](start-runbooks.md#start-a-runbook-with-powershell) 中所述，使用 [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet 来启动 Runbook。 使用此 cmdlet 的模式有两种。  在第一个模式中，cmdlet 会在子 Runbook 的子作业创建时返回作业 ID。  在第二个模式（通过指定 **-wait** 参数启用）中，cmdlet 会等待子作业完成，并且会返回子 Runbook 的输出。
+可以根据[使用 Windows PowerShell 启动 Runbook](start-runbooks.md#start-a-runbook-with-powershell) 中所述，使用 [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) cmdlet 来启动 Runbook。 使用此 cmdlet 的模式有两种。  在第一个模式中，cmdlet 会在子 Runbook 的子作业创建时返回作业 ID。  在第二个模式（通过指定 **-wait** 参数启用）中，cmdlet 会等待子作业完成，并且会返回子 Runbook 的输出。
 
 使用 cmdlet 启动的子 Runbook 的作业会在父 Runbook 的某个独立作业中运行。 此行为会导致比启动内联 Runbook 更多的作业，并使这些作业更难以跟踪。不过，父级可以异步启动多个子 Runbook，而无需等待每个子 Runbook 完成。 对于调用内联子 Runbook 的同一种并行执行，父 Runbook 需要使用[并行关键字](automation-powershell-workflow.md#parallel-processing)。
 
@@ -114,8 +114,8 @@ Start-AzureRmAutomationRunbook `
 |  | 内联 | Cmdlet |
 |:--- |:--- |:--- |
 | 作业 |子 Runbook 在父级所在的同一个作业中运行。 |为子 Runbook 创建单独的作业。 |
-| 执行 |父 Runbook 等待子 Runbook 完成，然后继续。 |父 Runbook 会在子 Runbook 启动后立刻继续运行，或父 Runbook 会等待子作业完成。 |
-| 输出 |父 Runbook 可以直接从子 Runbook 获取输出。 |父 Runbook 必须检索子 Runbook 作业的输出，或父 Runbook 可以直接从子 Runbook 获取输出。 |
+| 执行 |父 Runbook 等待子 Runbook 完成，然后继续。 |父 Runbook 会在子 Runbook 启动后立刻继续运行，或  父 Runbook 会等待子作业完成。 |
+| 输出 |父 Runbook 可以直接从子 Runbook 获取输出。 |父 Runbook 必须检索子 Runbook 作业的输出，或  父 Runbook 可以直接从子 Runbook 获取输出。 |
 | parameters |子 Runbook 参数的值需单独指定，并且可以使用任意数据类型。 |子 Runbook 参数的值必须组合成单个哈希表。 此哈希表只能包含简单数据类型、数组和利用 JSON 序列化的对象数据类型。 |
 | 自动化帐户 |父 Runbook 只能使用同一自动化帐户中的子 Runbook。 |父 Runbook 可以使用同一 Azure 订阅甚至（已连接的）不同订阅中的任何自动化帐户内的子 Runbook。 |
 | 发布 |在发布父 Runbook 之前必须先发布子 Runbook。 |必须在启动父 Runbook 前的任意时间发布子 Runbook。 |

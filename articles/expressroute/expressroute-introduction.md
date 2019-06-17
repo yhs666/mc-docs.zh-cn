@@ -1,19 +1,19 @@
 ---
-title: ExpressRoute 概述：通过专用连接将本地网络扩展到 Azure | Azure
+title: 通过专用连接将本地网络扩展到 Azure - ExpressRoute 概述：Azure | Microsoft Docs
 description: 此 ExpressRoute 技术概述介绍了如何使用 ExpressRoute 连接，以便用户通过专用连接将本地网络扩展到 Azure。
 services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-origin.date: 10/18/2018
+origin.date: 05/20/2019
 ms.author: v-yiso
-ms.date: 12/10/2018
-ms.openlocfilehash: b17e68bbe49d5e8045ebd6dd44b3696be7f99140
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 06/24/2019
+ms.openlocfilehash: 461951e1b4f34d6bd55d5f4daa1e22ea5b845d1f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627082"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135872"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 概述
 使用 Azure ExpressRoute 可通过连接服务提供商所提供的专用连接，将本地网络扩展到 Microsoft 云。 使用 ExpressRoute 可与 Microsoft Azure、Office 365 和 Dynamics 365 等 Microsoft 云服务建立连接。
@@ -61,9 +61,11 @@ Microsoft 使用 BGP（一种行业标准动态路由协议），在本地网络
 
 例如，如果在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则能访问在北欧和西欧托管的所有 Microsoft 云服务。 有关地缘政治区域、关联的 Microsoft 云区域和对应的 ExpressRoute 对等位置的概述，请参阅 [ExpressRoute 合作伙伴和对等位置](expressroute-locations.md)一文。
 
-### <a name="global-connectivity-with-expressroute-premium-add-on"></a>使用 ExpressRoute 高级版附加组件建立全球连接
-可以启用 ExpressRoute 高级版附加功能，将连接扩展为跨越地缘政治边界。 例如，如果在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则能访问全球所有区域托管的所有 Microsoft 云服务（不包括国家/地区云）。 就像访问北欧和西欧区域一样，还可以访问部署在南美洲或澳大利亚的服务。
+### <a name="global-connectivity-with-expressroute-premium"></a>使用 ExpressRoute 高级版建立全球连接
+你可以启用 [ExpressRoute 高级版](expressroute-faqs.md)，将连接扩展为跨越地缘政治边界。 例如，如果在阿姆斯特丹通过 ExpressRoute 连接到 Microsoft，则能访问全球所有区域托管的所有 Microsoft 云服务（不包括国家/地区云）。 就像访问北欧和西欧区域一样，还可以访问部署在南美洲或澳大利亚的服务。
 
+### <a name="local-connectivity-with-expressroute-local"></a>使用 ExpressRoute Local 建立本地连接
+如果你可以将你的数据带到靠近所需 Azure区域的 ExpressRoute 位置，则可以通过启用[本地 SKU](expressroute-faqs.md) 来经济高效地传输数据。 使用 ExpressRoute Local 时，ExpressRoute 端口费用中包括了数据传输。 
 
 ### <a name="rich-connectivity-partner-ecosystem"></a>丰富的连接合作伙伴生态系统
 ExpressRoute 的连接服务提供商和系统集成商合作伙伴生态系统不断发展。 有关最新信息，请参阅 [ExpressRoute 合作伙伴和对等互连位置](expressroute-locations.md)。
@@ -121,3 +123,4 @@ ExpressRoute Direct 提供的主要功能包括但不限于：
   * [创建和修改 ExpressRoute 线路](expressroute-howto-circuit-portal-resource-manager.md)
   * [创建和修改 ExpressRoute 线路的对等互连](expressroute-howto-routing-portal-resource-manager.md)
   * [将虚拟网络连接到 ExpressRoute 线路](expressroute-howto-linkvnet-portal-resource-manager.md)
+* 了解 Azure 的部分其他关键[网络功能](../networking/networking-overview.md)。

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.author: v-yiso
-ms.openlocfilehash: ae49699e8b86f475ae538d5bad74eb70c8be2a6b
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: f223869a009d2bb5df6a1a350d48e6b499eaadf5
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194997"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732641"
 ---
 # <a name="feature-based-comparison-of-the-azure-api-management-tiers"></a>Azure API 管理层的基于功能的比较
 
@@ -42,6 +42,6 @@ ms.locfileid: "66194997"
 | 直接管理 API                                                                        | 是            | 是            | 是            | 是            |
 | Azure Monitor 日志和指标                                                               | 是            | 是            | 是            | 是            |
 
-<sup>1</sup> 允许使用 Azure AD 作为标识提供者，以用于开发人员门户上的用户登录。<br/>
+<sup>1</sup> 允许使用 Azure AD（和 Azure AD B2C）作为标识提供者，以用于开发人员门户上的用户登录。<br/>
 <sup>2</sup> 包括相关功能，例如用户、组、问题、应用程序和电子邮件模板以及通知。<br/>
 

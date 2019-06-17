@@ -13,16 +13,16 @@ ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 07/07/2017
-ms.date: 01/29/2018
-ms.author: v-yiso
-ms.openlocfilehash: 75c85cae1bfdc53717df570a6bca483ca54563f0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 06/17/2019
+ms.author: v-biyu
+ms.openlocfilehash: 3efd300c05b5a77a73088b67bcb9c35b770c42f3
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666616"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687468"
 ---
 # <a name="create-an-apache-cordova-app"></a>创建 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -44,41 +44,13 @@ ms.locfileid: "52666616"
 ## <a name="create-an-azure-mobile-app-backend"></a>创建 Azure 移动应用后端
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-[观看显示类似步骤的视频](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
-
-## <a name="configure-the-server-project"></a>配置服务器项目
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>创建数据库连接并配置客户端和服务器项目
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-apache-cordova-app"></a>下载并运行 Apache Cordova 应用
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
-
-## <a name="next-steps"></a>后续步骤
-完成本快速入门教程后，请继续学习下列教程之一：
-
-* [将脱机数据添加](./app-service-mobile-cordova-get-started-offline-data.md)到 Apache Cordova 应用。
-* [将身份验证](./app-service-mobile-cordova-get-started-users.md)添加到 Apache Cordova 应用。
-
-详细了解 Azure 应用服务的重要概念。
-
-* [脱机数据]
-* [身份验证]
-* [推送通知]
-
-了解如何使用 SDK。
-
-* [Apache Cordova SDK]
-* [ASP.NET Server SDK]
-* [Node.js Server SDK]
-
-<!-- Images. -->
-
 <!-- URLs -->
-[Azure portal]: https://portal.azure.cn/
+[Azure 门户]： https://portal.azure.cn/
+
 [Visual Studio Community 2017]: http://www.visualstudio.com/
 [用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/features/cordova-vs.aspx
-[脱机数据]: ./app-service-mobile-offline-data-sync.md
-[身份验证]: ./app-service-mobile-auth.md
-[推送通知]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[Apache Cordova SDK]: ./app-service-mobile-cordova-how-to-use-client-library.md
-[ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md

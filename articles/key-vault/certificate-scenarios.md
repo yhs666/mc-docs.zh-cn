@@ -2,24 +2,20 @@
 title: Key Vault 证书入门
 description: 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
 services: key-vault
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: a788b958-3acb-4bb6-9c94-4776852aeea1
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 04/29/2019
+ms.date: 06/17/2019
 ms.author: v-biyu
-ms.openlocfilehash: 463df85709a302371e25d897b9121862ef9a29f4
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 24edc502f8524d5342cf32e882eaaf3299617767
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63859039"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687476"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Key Vault 证书入门
 以下方案概述了 Key Vault 的证书管理服务的多种主要使用方式，包括在密钥保管库中创建第一个证书所需的其他步骤。
@@ -44,8 +40,7 @@ ms.locfileid: "63859039"
 -   对于任何给定公司（例如 Contoso）来说，以 IT 管理员、PKI 管理员或任何可以使用 CA 来管理帐户的人员的身份加入 是使用 Key Vault 证书的先决条件。  
     以下 CA 是目前可以与 Key Vault 配合使用的提供者：  
     -   DigiCert - Key Vault 提供 DigiCert 的 OV SSL 证书。  
-    -   GlobalSign - Key Vault 提供 GlobalSign 的 OV SSL 证书  
-    -   WoSign - Key Vault 根据客户在 WoSign 门户的 WoSign 帐户中配置的设置提供 WoSign 的 OV SSL 或 EV SSL 证书。  
+    -   Globaltrust - Key Vault 提供 Globaltrust 的 OV SSL 证书。  
 
 **步骤 2** - CA 提供者的帐户管理员创建可供 Key Vault 使用的凭据，以便通过 Key Vault 注册、续订和使用 SSL 证书。
 
@@ -56,7 +51,7 @@ ms.locfileid: "63859039"
     -   提供程序  
     -   凭据 - CA 帐户凭据。 每个 CA 都有其自身的特定数据。  
 
-    若要详细了解如何通过 CA 提供者来创建帐户，请参阅 [Key Vault 博客](http://aka.ms/kvcertsblog)上的相关文章。  
+    若要详细了解如何通过 CA 提供者来创建帐户，请参阅 [Key Vault 博客](https://aka.ms/kvcertsblog)上的相关文章。  
 
 **步骤 3.1** - 设置用于接收通知的[证书联系人](https://docs.microsoft.com/rest/api/keyvault/setcertificatecontacts)。 这是 Key Vault 用户的联系人。 Key Vault 不强制执行此步骤。  
 

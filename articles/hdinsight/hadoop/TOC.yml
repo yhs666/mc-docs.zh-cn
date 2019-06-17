@@ -25,6 +25,9 @@
     - name: 执行 ETL 操作
       href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
+    - name: 使用 Ambari 和 Azure Monitor 日志监视群集可用性
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
 - name: 示例
   items:
     - name: .NET 示例
@@ -108,8 +111,6 @@
         - name: 使用空边缘节点
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: 开发 Python 流式处理程序
-          href: apache-hadoop-streaming-python.md
         - name: 处理和分析 JSON 文档
           href: using-json-in-hive.md
         - name: '使用 C# 用户定义的函数'
@@ -241,7 +242,9 @@
               maintainContext: true
             - name: 使用 Azure CLI
               href: ../hdinsight-administer-use-command-line.md
-              maintainContext: true
+        - name: 删除群集
+          href: ../hdinsight-delete-cluster.md
+          maintainContext: true
         - name: 手动缩放群集
           href: ../hdinsight-scaling-best-practices.md
           maintainContext: true
@@ -335,12 +338,23 @@
       maintainContext: true
     - name: 网络访问
       items:
+        - name: HDInsight 虚拟网络体系结构
+          href: ../hdinsight-virtual-network-architecture.md
+        - name: 使用防火墙限制出站流量
+          href: ../hdinsight-restrict-outbound-traffic.md
         - name: Azure VNet 中的 HDInsight
           href: ../hdinsight-extend-hadoop-virtual-network.md
           maintainContext: true
         - name: 将 HDInsight 与本地网络相连
           href: ../connect-on-premises-network.md
           maintainContext: true
+    - name: 使用 Azure Monitor 日志进行监视
+      items:
+        - name: 监视群集性能
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
+        - name: 分析 Apache Hadoop 日志
+          href: apache-hadoop-debug-jobs.md
 - name: 参考
   items:
     - name: 代码示例
@@ -353,6 +367,8 @@
       href: 'https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python'
     - name: 用于 Java 的 SDK
       href: /java/api/overview/hdinsight?view=azure-java-stable
+    - name: 用于 Go 的 SDK
+      href: ../hdinsight-go-sdk-overview.md
     - name: .NET (Apache HBase)
       href: 'https://www.nuget.org/packages/Microsoft.HBase.Client/'
     - name: REST

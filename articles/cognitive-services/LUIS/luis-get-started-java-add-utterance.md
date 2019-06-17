@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: dfe85a2ac741b435335604effa211b29006ae7b6
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: e67fc2496087ca2a2e43f37e361c50af5e5a89da
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555480"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135925"
 ---
 # <a name="quickstart-change-model-using-java"></a>快速入门：使用 Java 更改模型 
 
@@ -61,8 +61,8 @@ ms.locfileid: "65555480"
     static final String LUIS_APP_VERSION = "0.1";
     static final String LUIS_AUTHORING_ID  = "YOUR-AUTHORING-KEY";
 
-    // Update the host if your LUIS subscription is not in the West US region
-    static final String LUIS_BASE        = "https://westus.api.cognitive.microsoft.com";
+    // Update the host if your LUIS subscription is not in the China East region
+    static final String LUIS_BASE        = "https://chinaeast2.api.cognitive.azure.cn";
 
     // File names for utterance and result files
     static final String UTTERANCE_FILE   = "./utterances.json";

@@ -13,13 +13,13 @@ ms.devlang: dotnet
 ms.topic: hero-article
 origin.date: 05/25/2018
 ms.author: v-biyu
-ms.date: 06/10/2019
-ms.openlocfilehash: e1b9098cfd88ea1be109558bdb72247734012463
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.date: 06/17/2019
+ms.openlocfilehash: 53d58a2f028548e83521a579d7762c4d101f248c
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296703"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687462"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -40,26 +40,18 @@ ms.locfileid: "66296703"
 * （可选）若要生成 iOS 应用，必须使用装有 Xcode 9.0 或更高版本的 Mac。 可以使用 Visual Studio for Mac 来开发 iOS 应用，也可以使用 Visual Studio 2017 或更高版本（前提是 Mac 在网络上可用）。
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>创建新的移动应用后端
-
-若要创建新的移动应用后端，请执行以下操作：
-
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-现在已设置可供移动应用程序使用的移动应用后端。 接下来，为简单的待办事项列表后端下载服务器项目，然后将其发布到 Azure。
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>创建数据库连接并配置客户端和服务器项目
+[!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="configure-the-server-project"></a>配置服务器项目
-
-若要将服务器项目配置为使用 Node.js 或 .NET 后端，请执行以下操作：
-
-[!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
-
-## <a name="download-and-run-the-xamarinforms-solution"></a>下载并运行 Xamarin.Forms 解决方案
+## <a name="run-the-xamarinforms-solution"></a>运行 Xamarin.Forms 解决方案
 
 必须使用用于 Xamarin 的 Visual Studio Tools 来打开解决方案，详见 [Xamarin 安装说明][Install Xamarin]。 如果该工具已安装，请按以下步骤来下载并打开解决方案：
 
 ### <a name="visual-studio"></a>Visual Studio
 
-1. 转到 [Azure 门户]。
+1. 转到 [Azure 门户](https://portal.azure.cn/)。
 
 2. 在移动应用的设置边栏选项卡上，单击“快速入门”（在“部署”下）>“Xamarin.Forms”   。 在步骤 3 下，单击“创建新应用”  （如果尚未选择它）。  接下来，单击“下载”  按钮。
 
@@ -67,25 +59,23 @@ ms.locfileid: "66296703"
 
 3. 解压缩下载的项目，然后在 Visual Studio 中打开它。
 
-   ![在 Visual Studio 中解压缩的项目][8]
-
 4. 按照下面的说明运行 Android 或 Windows 项目；如果有联网的 Mac 计算机可用，则运行 iOS 项目。
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
 
-1. 转到 [Azure 门户]。
+1. 转到 [Azure 门户](https://portal.azure.cn/)，并导航到已创建的移动应用。 在 `Overview` 边栏选项卡上，查找作为移动应用公共终结点的 URL。 示例 - 我的应用名称“test123”的站点名将为 https://test123.azurewebsites.net 。
 
-2. 在移动应用的设置边栏选项卡上，单击“快速入门”（在“部署”下）>“Xamarin.Forms”   。 在步骤 3 下，单击“创建新应用”  （如果尚未选择它）。  接下来，单击“下载”  按钮。
+2. 打开此文件夹（xamarin.forms/ZUMOAPPNAME）中的文件 `Constants.cs`。 应用程序名称为 `ZUMOAPPNAME`。
 
-   此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
+3. 在 `Constants.cs` 类中，将 `ZUMOAPPURL` 变量替换为上面的公共终结点。
 
-3. 解压缩下载的项目，然后在 Visual Studio for Mac 中打开它。
+    `public static string ApplicationURL = @"ZUMOAPPURL";`
 
-   ![Visual Studio for Mac 中的解压缩项目][9]
+    变为
 
-4. 按照下面的说明运行 Android 或 iOS 项目。
-
-
+    `public static string ApplicationURL = @"https://test123.chinacloudsites.cn";`
+    
+4. 按照下面的说明运行 Android 或 Windows 项目；如果有联网的 Mac 计算机可用，则运行 iOS 项目。
 
 ## <a name="optional-run-the-android-project"></a>（可选）运行 Android 项目
 
@@ -106,8 +96,6 @@ ms.locfileid: "66296703"
 1. 右键单击 Android 项目，然后选择“设为启动项目”  。
 
 2. 若要生成项目，并在 Android 模拟器中启动应用，请选择“运行”菜单，然后选择“开始调试”   。
-
-
 
 在应用中键入有意义的文本（例如“Learn Xamarin”  ），然后选择加号 (+  )。
 
@@ -139,8 +127,6 @@ ms.locfileid: "66296703"
 
 2. 在“运行”菜单上，选择“开始调试”以生成项目，并在 iPhone 模拟器中启动应用   。
 
-
-
 在应用中键入有意义的文本（例如“Learn Xamarin”  ），然后选择加号 (+  )。
 
 ![iOS 待办事项应用][10]
@@ -168,8 +154,6 @@ ms.locfileid: "66296703"
 > [!NOTE]
 > Windows 项目不能在 macOS 上运行。
 
-
-
 在应用中键入有意义的文本（例如“Learn Xamarin”  ），然后选择加号 (+  )。
 
 此操作向在 Azure 中托管的新移动应用后端发送 post 请求。 来自请求的数据插入到 TodoItem 表。 存储在表中的项由移动应用后端返回，数据显示在列表中。
@@ -186,30 +170,10 @@ ms.locfileid: "66296703"
 
 请注意，在 Android 项目中引用的所有支持包必须都具有相同的版本。 对于 Android 平台，[Azure 移动应用 NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/)具有 `Xamarin.Android.Support.CustomTabs` 依赖项，因此，如果你的项目使用较新的支持包，则你需要直接安装具有所需版本的此包以避免冲突。
 
-## <a name="next-steps"></a>后续步骤
-
-* [向应用添加身份验证](app-service-mobile-xamarin-forms-get-started-users.md) 了解如何使用标识提供者对应用用户进行身份验证。
-
-* [向应用添加推送通知](app-service-mobile-xamarin-forms-get-started-push.md) 了解如何为应用添加推送通知支持，以及如何将移动应用后端配置为使用 Azure 通知中心发送推送通知。
-
-* [为应用启用脱机同步](app-service-mobile-xamarin-forms-get-started-offline-data.md) 了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步时，即使没有网络连接，也可以查看、添加或修改移动应用的数据。
-
-* [使用适用于移动应用的托管客户端](app-service-mobile-dotnet-how-to-use-client-library.md) 了解如何在 Xamarin 应用中使用托管客户端 SDK。
-
-<!-- Anchors. -->
-[Get started with Mobile Apps back ends]:#getting-started
-[Create a new Mobile Apps back end]:#create-new-service
-[Next steps]:#next-steps
-
 <!-- Images. -->
-[6]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart.png
-[8]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-vs.png
-[9]: ./media/app-service-mobile-xamarin-forms-get-started/xamarin-forms-quickstart-xs.png
 [10]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-ios.png
 [11]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-android.png
 [12]: ./media/app-service-mobile-xamarin-forms-get-started/mobile-quickstart-startup-windows.png
 
 <!-- URLs. -->
 [Install Xamarin]: https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/
-[Mobile app SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
-[Azure 门户]: https://portal.azure.cn/

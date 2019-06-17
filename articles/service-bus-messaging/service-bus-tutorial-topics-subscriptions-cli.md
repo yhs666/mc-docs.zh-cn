@@ -9,12 +9,12 @@ ms.date: 01/28/19
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: ad0a71db44acd4b1290d1e46ed942467acb914f5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1bfc0eeb3dc04fd9c38d631d8f64c6b3ea413e39
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625520"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046954"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
@@ -57,6 +57,7 @@ ms.locfileid: "58625520"
 1. 如果在本地使用 Azure CLI，请运行以下命令来登录到 Azure。 如果在 Cloud Shell 中运行这些命令，则此登录步骤不是必需的：
 
    ```azurecli
+   az cloud set -n AzureChinaCloud
    az login
    ```
 

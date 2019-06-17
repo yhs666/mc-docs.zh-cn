@@ -5,16 +5,16 @@ services: automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/24/2019
-ms.date: 03/04/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: e4a3739dbdf3e0b1389a6b5e888f6380626ceaab
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0b12305b052fd3c1205d75e2a7215280931be793
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627630"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726470"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
@@ -27,7 +27,7 @@ ms.locfileid: "58627630"
 使用 `Add-AzureAccount` 或 `Connect-AzureRmAccount` cmdlet 时收到以下错误
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -39,7 +39,7 @@ Unknown_user_type: Unknown User Type
 
 要确定具体错误，请执行以下步骤：  
 
-1. 请确保没有包含任何特殊字符。 这些字符包括用于连接 Azure 的自动化凭据资产名称中的 @ 字符。  
+1. 请确保没有包含任何特殊字符。 这些字符包括用于连接 Azure 的自动化凭据资产名称中的 \@ 字符  。  
 2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 可以通过在 PowerShell ISE 中运行以下 cmdlet 来检查用户名和密码是否正确：  
 
    ```powershell
@@ -83,7 +83,7 @@ Unknown_user_type: Unknown User Type
 
 使用 `Select-AzureSubscription` 或 `Select-AzureRmSubscription` cmdlet 时收到以下错误：
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -121,7 +121,7 @@ The subscription named <subscription name> cannot be found.
 
 使用 Azure 用户名和密码向 Azure 进行身份验证时收到以下错误：
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -139,9 +139,9 @@ Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is re
 
 #### <a name="issue"></a>问题
 
-使用 `-Wait` 开关调用 childrunbook 并且输出流包含对象时，会收到以下错误：
+使用 `-Wait` 开关调用子 runbook 并且输出流包含对象时，会收到以下错误：
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -221,7 +221,7 @@ Start-AzureRmAutomationRunbook `
 
 Runbook 失败，出现类似于以下示例的错误：
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -244,7 +244,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 Runbook 失败并显示错误：
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -260,11 +260,15 @@ The job was tried three times but it failed
 
 4. Runbook 尝试调用在 Azure 沙盒中运行的 Runbook 中的可执行文件或子过程。 Azure 沙盒不支持此方案。
 
+5. runbook 尝试向输出流写入太多异常数据。
+
 #### <a name="resolution"></a>解决方法
 
 下述解决方案中的任何一种都可以解决此问题：
 
 * 在内存限制内工作的建议方法是拆分多个 runbook 之间的工作负载，不作为内存中的诸多数据进行处理，不写入不必要的 runbook 输出，或考虑在 PowerShell 工作流 runbook 中写入多少个检查点。 可以使用 clear 方法（例如 `$myVar.clear()`）清除变量并使用 `[GC]::Collect()` 立即运行垃圾回收。 这将减少运行时期间 runbook 的内存占用情况。
+
+* 作业输出流限制为 1MB。 请确保在 try/catch 块中包含对可执行文件或子进程的调用。 如果这些调用引发异常，请将该异常中的消息写入自动化变量中。 这将防止将其写入作业输出流中。
 
 ### <a name="fails-deserialized-object"></a>场景：Runbook 因反序列化的对象而失败
 
@@ -272,7 +276,7 @@ The job was tried three times but it failed
 
 Runbook 失败并显示错误：
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -322,7 +326,7 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 Runbook 作业失败并显示错误：
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -336,8 +340,8 @@ The quota for the monthly total job run time has been reached for this subscript
 
 1. 登录到 Azure 订阅  
 2. 选择要升级的自动化帐户  
-3. 单击“设置” > “定价”。
-4. 单击页面底部的“启用”，以将帐户升级到“基本”层。
+3. 单击“设置” > “定价”   。
+4. 单击页面底部的“启用”  ，以将帐户升级到“基本”  层。
 
 ### <a name="cmdlet-not-recognized"></a>场景：在执行 Runbook 时无法识别 cmdlet
 
@@ -345,7 +349,7 @@ The quota for the monthly total job run time has been reached for this subscript
 
 Runbook 作业失败并显示错误：
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -359,19 +363,19 @@ Runbook 作业失败并显示错误：
 
 * 检查输入的 cmdlet 名称是否正确。  
 * 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 runbook 中的有效参数集。  
-* 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName。  
+* 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName  。  
 
 ### <a name="long-running-runbook"></a>场景：长时间运行的 Runbook 无法完成
 
 #### <a name="issue"></a>问题
 
-运行 3 小时后，runbook 将显示处于“已停止”状态。 可能还会收到错误：
+运行 3 小时后，runbook 将显示处于“已停止”状态  。 可能还会收到错误：
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-此行为是 Azure 沙盒的设计使然，因为 Azure 自动化中会对进程进行“公平份额”监视。 “公平份额”会自动停止执行时间超过 3 小时的 Runbook。 超过公平份额时间限制的 runbook 的状态因 runbook 类型而异。 PowerShell 和 Python runbook 设置为“已停止”状态。 PowerShell 工作流 runbook 设置为“失败”。
+此行为是 Azure 沙盒的设计使然，因为 Azure 自动化中会对进程进行“公平份额”监视。 “公平份额”会自动停止执行时间超过 3 小时的 Runbook。 超过公平份额时间限制的 runbook 的状态因 runbook 类型而异。 PowerShell 和 Python runbook 设置为“已停止”状态  。 PowerShell 工作流 runbook 设置为“失败”  。
 
 #### <a name="cause"></a>原因
 
@@ -411,7 +415,7 @@ Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 
 在运行 `Get-AzureRmAutomationJobOutput` cmdlet 时收到以下错误消息：
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 
@@ -430,4 +434,4 @@ Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 
 如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
 
-* 如需更多帮助，可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/)并选择“获取支持”。
+* 如需更多帮助，可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/)并选择“获取支持”。 

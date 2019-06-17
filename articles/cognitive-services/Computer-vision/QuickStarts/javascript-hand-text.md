@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 03/04/2019
-ms.date: 05/14/2019
+ms.date: 06/06/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: cc0cca092425c72749b6aca28fa208ed261ff9ac
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 1192bad807498f95aabdf9a1f6b3bb4ed11cf2e8
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598896"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830116"
 ---
 # <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 JavaScript 提取手写文本
 
@@ -44,7 +44,7 @@ ms.locfileid: "65598896"
 1. 将代码保存为以 `.html` 为扩展名的文件。 例如，`get-handwriting.html`。
 1. 打开一个浏览器窗口。
 1. 在浏览器中，将文件拖放到浏览器窗口。
-1. 在浏览器中显示网页时，选择“读取图像”按钮。
+1. 在浏览器中显示网页时，选择“读取图像”按钮  。
 
 ```html
 <!DOCTYPE html>
@@ -67,11 +67,6 @@ ms.locfileid: "65598896"
         var uriBase =
             "https://api.cognitive.azure.cn/vision/v2.0/read/core/asyncBatchAnalyze";
 
-        // Request parameter.
-        var params = {
-            "mode": "Handwritten",
-        };
-
         // Display the image.
         var sourceImageUrl = document.getElementById("inputImage").value;
         document.querySelector("#sourceImage").src = sourceImageUrl;
@@ -81,7 +76,7 @@ ms.locfileid: "65598896"
         //
         // Make the first REST API call to submit the image for processing.
         $.ajax({
-            url: uriBase + "?" + $.param(params),
+            url: uriBase,
 
             // Request headers.
             beforeSend: function(jqXHR){
@@ -299,3 +294,4 @@ Image to read:
 > [!div class="nextstepaction"]
 > [计算机视觉 API JavaScript 教程](../Tutorials/javascript-tutorial.md)
 
+<!-- Update_Description: code update -->

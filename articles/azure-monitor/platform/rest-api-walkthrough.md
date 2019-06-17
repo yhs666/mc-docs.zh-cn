@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: cef35641d018db3a3404adec9f34f826460a2e43
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: ff70d43242536a3a6264c936c09c18551deb6bd9
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731480"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135984"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -624,7 +624,7 @@ Type           : Microsoft.Logic/workflows
 Location       : centralus
 ChangedTime    : 8/21/2017 6:58:57 PM
 CreatedTime    : 8/18/2017 7:54:21 PM
-AccessEndpoint : https://prod-08.centralus.logic.azure.com:443/workflows/f3a91b352fcc47e6bff989b85446c5db
+AccessEndpoint : https://prod-08.centralus.logic.chinacloudapi.cn:443/workflows/f3a91b352fcc47e6bff989b85446c5db
 State          : Enabled
 Definition     : {$schema, contentVersion, parameters, triggers...}
 Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}

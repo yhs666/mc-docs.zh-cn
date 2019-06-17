@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: f89bedadd0510492c4684c8e7a6aec7d6fa7e763
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 3415c7ff8f3ab408cdafa7fc9cd4f65ec50957a8
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248738"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135450"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
 
@@ -44,8 +44,8 @@ ms.locfileid: "66248738"
 
    - **名称（必填）。** 新用户的名字和姓氏。 例如，Mary Parker。
    - **用户名（必填）。** 新用户的用户名。 例如，mary@contoso.com。
-       用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名]((/active-directory/fundamentals/add-custom-domain)。
-   - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 若要详细了解如何添加用户信息，请参阅[如何添加或更改用户个人资料信息]((/azure/active-directory/fundamentals/active-directory-users-profile-azure-portal)。
+       用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名](/active-directory/fundamentals/add-custom-domain)。
+   - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](/active-directory/fundamentals/active-directory-users-profile-azure-portal)。
    - **目录角色。**  选择“用户”  。
 
 5. 选中“显示密码”  并复制“密码”  框中提供的自动生成的密码。 在初始登录过程中需要此密码。
@@ -60,9 +60,6 @@ ms.locfileid: "66248738"
 ## <a name="create-an-azure-stack-user-account-using-powershell"></a>使用 PowerShell 创建 Azure Stack 用户帐户
 
 如果没有 Azure 订阅，则无法使用 Azure 门户添加租户用户帐户。 在这种情况下，可以改用适用于 Windows PowerShell 的 Azure Active Directory 模块。
-
-> [!NOTE]
-> 如果使用 Microsoft 帐户 (Live ID) 部署 Azure Stack 开发工具包，则无法使用 AAD PowerShell 创建租户帐户。 
 
 1. 安装[适用于 IT 专业人员 RTW 的 Microsoft Online Services 登录助手](https://www.microsoft.com/en-us/download/details.aspx?id=41950)。
 2. 安装[适用于 Windows PowerShell 的 Azure Active Directory 模块（64 位版本）](https://go.microsoft.com/fwlink/p/?linkid=236297)并将其打开。

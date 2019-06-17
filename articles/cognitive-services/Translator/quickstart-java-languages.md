@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/07/2019
-ms.date: 03/25/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 06f6a70d898f4d7e86aa9af810028acf87e70cfa
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 6ebc3e0d5929443cdc72445a288e937f0b73b136
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505526"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830137"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-java"></a>快速入门：使用 Java 通过文本翻译 API 获取受支持语言的列表
 

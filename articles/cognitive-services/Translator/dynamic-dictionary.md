@@ -3,20 +3,20 @@ title: 动态字典 - 文本翻译 API
 titlesuffix: Azure Cognitive Services
 description: 如何使用文本翻译 API 的动态字典功能。
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 02/21/2019
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 386c8cea9d459c7273d08f9749f99ccfd5bd69e3
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8a093c0af666c5c231618812d29102aa2ca8772d
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964439"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830114"
 ---
 # <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>如何使用文本翻译 API 的动态字典功能
 
@@ -36,3 +36,4 @@ ms.locfileid: "57964439"
 
 应尽量少使用此功能。
 
+<!-- Update_Description: update metedata properties -->

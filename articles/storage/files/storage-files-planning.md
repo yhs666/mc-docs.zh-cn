@@ -9,12 +9,12 @@ origin.date: 03/25/2019
 ms.date: 04/22/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: f481fdfb572f7d0887952f51dc29a06d49cf1fda
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: aef9927659fc049852b05ce2cc520b9cfbc969b2
+ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63859977"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687649"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 
@@ -74,9 +74,7 @@ Azure 文件提供可确保数据安全的几个内置选项：
 
 ## <a name="file-share-redundancy"></a>文件共享冗余
 
-Azure 文件标准共享支持三个数据冗余选项：本地冗余存储 (LRS) 和异地冗余存储 (GRS)。
-
-Azure 文件高级共享仅支持本地冗余存储 (LRS)。
+Azure 文件标准共享支持两个数据冗余选项：本地冗余存储 (LRS) 和异地冗余存储 (GRS)。
 
 以下部分介绍了不同的冗余选项之间的差异：
 
@@ -109,9 +107,9 @@ GRS 将数据复制到次要区域中的另一个数据中心，但仅当 Azure 
 
 可通过多种简单的选项将数据从现有文件共享（例如本地文件共享）批量传输到 Azure 文件。 几种常用选项包括（非详尽列表）：
 
-* **[Azure 导入/导出](../common/storage-import-export-service.md?toc=%2fstorage%2ffiles%2ftoc.json)**：使用 Azure 导入/导出服务，可将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure 文件共享。 
-* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)**：Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Robocopy 可用于将数据传输到 Azure 文件，方法是在本地装载文件共享，然后使用装载位置作为 Robocopy 命令的目标位置。
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**：AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 适用于 Windows 和 Linux。
+* **[Azure 导入/导出](../common/storage-import-export-service.md?toc=%2fstorage%2ffiles%2ftoc.json)** ：使用 Azure 导入/导出服务，可将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure 文件共享。 
+* **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Robocopy 可用于将数据传输到 Azure 文件，方法是在本地装载文件共享，然后使用装载位置作为 Robocopy 命令的目标位置。
+* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** ：AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 适用于 Windows 和 Linux。
 
 ## <a name="next-steps"></a>后续步骤
 * [部署 Azure 文件](storage-files-deployment-guide.md)

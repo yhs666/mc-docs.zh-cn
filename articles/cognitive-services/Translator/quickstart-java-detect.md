@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/25/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 997147f3320e799d3dd0a94aa8a1a1abaa1de88f
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: ba9bb4a87c3a995716797ed4d90889b9de5a5116
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502578"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830128"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>快速入门：使用文本翻译 API 通过 Java 来检测文本语言
 
@@ -221,7 +221,7 @@ gradle run
 
 * [翻译文本](quickstart-java-translate.md)
 * [直译文本](quickstart-java-transliterate.md)
-* [根据输入确定语言](quickstart-java-detect.md)
+* [按输入确定语言](quickstart-java-detect.md)
 * [获取备用翻译](quickstart-java-dictionary.md)
 * [获取支持的语言的列表](quickstart-java-languages.md)
 * [根据输入确定句子长度](quickstart-java-sentences.md)

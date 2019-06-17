@@ -120,6 +120,8 @@
         - name: 高级存储性能
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
+        - name: 临时 OS 磁盘
+          href: ephemeral-os-disks.md
         - name: 磁盘的可伸缩性目标
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -191,10 +193,12 @@
               href: virtual-machine-scale-sets-manage-powershell.md
         - name: 修改规模集
           href: virtual-machine-scale-sets-upgrade-scale-set.md
-        - name: 使用 DSC 和规模集
-          href: virtual-machine-scale-sets-dsc.md
         - name: 规模集网络
           href: virtual-machine-scale-sets-networking.md
+        - name: 实例保护（预览版）
+          href: virtual-machine-scale-sets-instance-protection.md
+        - name: 使用 DSC 和规模集
+          href: virtual-machine-scale-sets-dsc.md
         - name: 将模板转换为托管磁盘
           href: virtual-machine-scale-sets-convert-template-to-md.md
         - name: 计划内维护

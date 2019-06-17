@@ -11,15 +11,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 03/27/2019
-ms.date: 04/26/2019
+ms.date: 06/04/2019
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 847faf90e6d699e545ac6be8b91d1775a84c09ab
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 750128fbf56687c08eaf2be2b4669c69758a1612
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855283"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491440"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -28,7 +28,7 @@ ms.locfileid: "64855283"
 
 如果不熟悉 Azure Functions，请参阅 [Azure Functions 概述](functions-overview.md)。
 
-创建函数应用时，要为应用中的函数选择托管计划。 Azure Functions 主机的实例在任一计划中均可执行函数。 计划类型可控制：
+创建函数应用时，要为应用中的函数选择托管计划。 Azure Functions 主机的实例在任一计划中均可执行函数  。 计划类型可控制：
 
 * 主机实例的扩展方式。
 * 可供每个主机使用的资源。
@@ -63,13 +63,13 @@ ms.locfileid: "64855283"
 
 ### <a name="always-on"></a> Always On
 
-如果在应用服务计划上运行，应启用 AlwaysOn 设置，使函数应用能正常运行。 在应用服务计划中，如果函数运行时处于不活动状态，几分钟后就会进入空闲状态，因此只有 HTTP 触发器才能“唤醒”函数。 只能对应用服务计划使用始终可用。 在消耗计划中，平台会自动激活函数应用。
+如果在应用服务计划上运行，应启用 AlwaysOn 设置，使函数应用能正常运行  。 在应用服务计划中，如果函数运行时处于不活动状态，几分钟后就会进入空闲状态，因此只有 HTTP 触发器才能“唤醒”函数。 只能对应用服务计划使用始终可用。 在消耗计划中，平台会自动激活函数应用。
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>我采用了哪种托管计划
 
-要确定你的函数应用所使用的托管计划，请在 [Azure 门户](https://portal.azure.cn)中参阅函数应用的“概览”选项卡中的“应用服务计划/定价层”。 对于应用服务计划，还指明了定价层。 
+要确定你的函数应用所使用的托管计划，请在 [Azure 门户](https://portal.azure.cn)中参阅函数应用的“概览”选项卡中的“应用服务计划/定价层”   。 对于应用服务计划，还指明了定价层。 
 
 ![在门户中查看缩放计划](./media/functions-scale/function-app-overview-portal.png)
 
@@ -80,13 +80,13 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-此命令的输出为 `dynamic` 时，函数应用采用消耗量计划。 此命令的输出为 `ElasticPremium` 时，函数应用采用高级计划。  所有其他值均表示应用服务计划的层。
+此命令的输出为 `dynamic` 时，函数应用采用消耗量计划。 所有其他值均表示应用服务计划的层。
 
 即使启用了 AlwaysOn，各函数的执行超时也由 [host.json](functions-host-json.md#functiontimeout) 项目文件中的 `functionTimeout` 设置控制。
 
 ## <a name="storage-account-requirements"></a>存储帐户要求
 
-在任何计划中，函数应用需要一个支持 Azure Blob、队列、文件和表存储的常规 Azure 存储帐户。 这是因为 Functions 依赖于 Azure 存储来执行管理触发器和记录函数执行等操作，但某些存储帐户不支持队列和表。 这些帐户包括仅限 Blob 的存储帐户（包括高级存储），会在创建函数应用时从现有的“存储帐户”选项中过滤掉。
+在任何计划中，函数应用需要一个支持 Azure Blob、队列、文件和表存储的常规 Azure 存储帐户。 这是因为 Functions 依赖于 Azure 存储来执行管理触发器和记录函数执行等操作，但某些存储帐户不支持队列和表。 这些帐户包括仅限 Blob 的存储帐户（包括高级存储），会在创建函数应用时从现有的“存储帐户”选项中过滤掉  。
 
 <!-- JH: Does using a Premium Storage account improve perf? -->
 
@@ -103,7 +103,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 ### <a name="runtime-scaling"></a>运行时缩放
 
-Azure Functions 使用名为“缩放控制器”的组件来监视事件率以及确定是要扩大或缩小。 缩放控制器针对每种触发器类型使用试探法。 例如，使用 Azure 队列存储触发器时，它会根据队列长度和最旧队列消息的期限进行缩放。
+Azure Functions 使用名为“缩放控制器”的组件来监视事件率以及确定是要扩大或缩小。  缩放控制器针对每种触发器类型使用试探法。 例如，使用 Azure 队列存储触发器时，它会根据队列长度和最旧队列消息的期限进行缩放。
 
 缩放单位是 Function App。 横向扩展函数应用时，将分配额外的资源来运行 Azure Functions 主机的多个实例。 相反，计算需求下降时，扩展控制器将删除函数主机实例。 实例数最终会缩减为零，此时 Function App 中没有任何函数运行。
 
@@ -129,8 +129,15 @@ Azure Functions 使用名为“缩放控制器”的组件来监视事件率以�
 
 消耗量计划的计费在 [Azure Functions 定价页]中有详细介绍。 使用量在 Function App 级别聚合，只会统计函数代码的执行时间。 以下是计费单位：
 
-* 以千兆字节/秒 (GB-s) 计量的资源消耗量。 根据内存大小和函数应用中所有函数的执行时间组合计算得出。 
+* 以千兆字节/秒 (GB-s) 计量的资源消耗量  。 根据内存大小和函数应用中所有函数的执行时间组合计算得出。 
 * **执行**。 每次为响应事件触发而执行函数时记为一次。
 
 [Azure Functions 定价页]: https://www.azure.cn/pricing/details/azure-functions
 
+## <a name="service-limits"></a>服务限制
+
+下表指示了在各种托管计划中运行时适用于函数应用的限制：
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]
+
+<!-- Update_Description: wording update -->

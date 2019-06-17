@@ -1,30 +1,30 @@
 ---
-title: 工作流定义语言的函数引用 - Azure 逻辑应用 | Microsoft Docs
-description: 了解 Azure 逻辑应用的工作流定义语言函数
+title: 工作流定义语言中的函数引用 - Azure 逻辑应用和 Microsoft Flow
+description: 使用工作流定义语言为 Azure 逻辑应用和 Microsoft Flow 创建的表达式中的函数引用指南
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: v-yiso
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: ''
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.reviewer: klam, LADocs
 ms.topic: reference
 origin.date: 08/15/2018
-ms.date: 02/04/2019
-ms.openlocfilehash: 26968ea91c5da92a2a31ecf21cc888d55ee33a07
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.date: 06/17/2019
+ms.openlocfilehash: 79e4abbb3af22879f15c0170bbdb5d302dbf6159
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906176"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732572"
 ---
-# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Azure 逻辑应用中工作流定义语言的函数引用
+# <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure 逻辑应用和 Microsoft Flow 中工作流定义语言的函数引用
 
-[Azure 逻辑应用](../logic-apps/logic-apps-overview.md)中的某些[表达式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)从运行时操作中获取其值，而这些操作在逻辑应用工作流定义开始运行时可能尚不存在。 若要在表达式中引用或处理这些值，可以使用[工作流定义语言](../logic-apps/logic-apps-workflow-definition-language.md)提供的函数。 可以使用数学函数进行计算。例如，[add()](../logic-apps/workflow-definition-language-functions-reference.md#add) 函数会从整数或浮点数返回总和。 下面是可以使用函数执行的另外几个示例任务：
+就 [Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和 [Microsoft Flow](https://docs.microsoft.com/flow/getting-started) 中的工作流定义来说，某些[表达式](../logic-apps/logic-apps-workflow-definition-language.md#expressions)获取的值来自运行时操作，而这些运行时操作在你的工作流开始运行时可能尚未存在。 若要在这些表达式中引用或处理这些值，可以使用[工作流定义语言](../logic-apps/logic-apps-workflow-definition-language.md)提供的函数  。 
+
+> [!NOTE]
+> 此引用页面适用于 Azure 逻辑应用和 Microsoft Flow，但会显示在 Azure 逻辑应用文档中。 虽然此页面专门引用逻辑应用，但这些函数适用于流和逻辑应用。 有关 Microsoft Flow 中函数和表达式的详细信息，请参阅[在条件中使用表达式](https://docs.microsoft.com/flow/use-expressions-in-conditions)。
+
+例如，在需要根据整数或浮点数求和时，可以使用数学函数（例如 [add() 函数](../logic-apps/workflow-definition-language-functions-reference.md#add)）来计算值。 下面是可以使用函数执行的几个其他的示例任务：
 
 | 任务 | 函数语法 | 结果 | 
 | ---- | --------------- | ------ | 
@@ -32,8 +32,7 @@ ms.locfileid: "54906176"
 | 返回全局唯一标识符 (GUID)。 | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
 
-本文介绍了在创建逻辑应用定义时可以使用的函数。
-若要[基于函数的常规用途](#ordered-by-purpose)查找函数，请继续查看以下各表。 若要了解每个函数的详细信息，请参阅[按字母顺序排序的列表](#alphabetical-list)。 
+若要[基于函数的常规用途](#ordered-by-purpose)查找函数，请查看以下各表。 若要了解每个函数的详细信息，请参阅[按字母顺序排序的列表](#alphabetical-list)。
 
 > [!NOTE]
 > 在参数定义的语法中，参数后显示的问号 (?) 表示参数是可选的。 有关示例，请参阅 [getFutureTime()](#getFutureTime)。
@@ -106,14 +105,14 @@ ms.locfileid: "54906176"
 | [contains](../logic-apps/workflow-definition-language-functions-reference.md#contains) | 检查集合是否包含某个特定项。 |
 | [empty](../logic-apps/workflow-definition-language-functions-reference.md#empty) | 检查集合是否为空。 | 
 | [first](../logic-apps/workflow-definition-language-functions-reference.md#first) | 返回集合中的第一个项。 | 
-| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 返回其中仅包含指定集合的共有项的一个集合。 | 
+| [intersection](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | 返回其中仅包含指定集合的共有项的一个集合。  | 
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 位于针对数组的重复操作中时，返回在操作的当前迭代过程中数组中的当前项。 | 
-| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 返回一个字符串，其中包含某个数组中的所有项并以指定的分隔符分隔每个项。 | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | 返回一个字符串，其中包含某个数组中的所有项并以指定的分隔符分隔每个项。  | 
 | [last](../logic-apps/workflow-definition-language-functions-reference.md#last) | 返回集合中的最后一个项。 | 
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | 返回字符串或数组中的项数。 | 
-| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 删除集合开头的项，并返回所有其他项。 | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | 删除集合开头的项，并返回所有其他项。  | 
 | [take](../logic-apps/workflow-definition-language-functions-reference.md#take) | 返回集合开头的项。 | 
-| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 返回一个集合，其中包含指定集合中的所有项。 | 
+| [union](../logic-apps/workflow-definition-language-functions-reference.md#union) | 返回一个集合，其中包含指定集合中的所有项。  | 
 ||| 
 
 <a name="comparison-functions"></a>
@@ -139,7 +138,7 @@ ms.locfileid: "54906176"
 
 ## <a name="conversion-functions"></a>转换函数
 
-若要更改值的类型或格式，可以使用这些转换函数。 例如，可将值从布尔值更改为整数。 若要了解逻辑应用在转换期间如何处理内容类型，请参阅[处理内容类型](../logic-apps/logic-apps-content-type.md)。 有关每个函数的完整参考，请参阅[按字母顺序排序的列表](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
+若要更改值的类型或格式，可以使用这些转换函数。 例如，可将值从布尔值更改为整数。 若要详细了解逻辑应用在转换期间如何处理内容类型，请参阅[处理内容类型](../logic-apps/logic-apps-content-type.md)。 有关每个函数的完整参考，请参阅[按字母顺序排序的列表](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
 
 | 转换函数 | 任务 | 
 | ------------------- | ---- | 
@@ -223,8 +222,8 @@ ms.locfileid: "54906176"
 
 这些工作流函数有助于：
 
-* 在运行时获取有关工作流实例的详细信息。 
-* 使用用于实例化逻辑应用的输入。
+* 在运行时获取有关工作流实例的详细信息。
+* 使用用于实例化逻辑应用或流的输入。
 * 引用触发器和操作的输出。
 
 例如，可以引用一个操作的输出，并在后面的操作中使用该数据。 有关每个函数的完整参考，请参阅[按字母顺序排序的列表](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list)。
@@ -236,18 +235,19 @@ ms.locfileid: "54906176"
 | [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | 返回操作在运行时的输出。 请参阅 [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions)。 | 
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | 返回操作在运行时的输出，或者来自其他 JSON 名称和值对的值。 另请参阅 [action](../logic-apps/workflow-definition-language-functions-reference.md#action)。  | 
 | [body](#body) | 返回操作在运行时的 `body` 输出。 另请参阅 [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody)。 | 
-| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | 创建一个数组，其中包含与表单数据或表单编码操作输出中某个键名匹配的值。 | 
-| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 返回与操作的表单数据或表单编码输出中的键名称匹配的单个值。 | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | 创建一个数组，其中包含与表单数据或表单编码操作输出中某个键名匹配的值。   | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | 返回与操作的表单数据或表单编码输出中的键名称匹配的单个值。   | 
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | 位于针对数组的重复操作中时，返回在操作的当前迭代过程中数组中的当前项。 | 
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | 位于 for-each 或 do-until-loop 中时，返回指定循环中的当前项。| 
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | 位于 Foreach 或 Until 循环中时，返回指定循环中的当前项。|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | 位于 Until 循环中时，返回当前迭代的索引值。 可以在嵌套式的 Until 循环中使用该函数。 |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | 返回调用某个触发器或操作的“回调 URL”。 | 
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 返回具有多个部分的操作输出中某个特定部分的正文。 | 
-| [参数](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 返回逻辑应用定义中描述的参数的值。 | 
+| [参数](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 返回工作流定义中描述的参数的值。 |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 返回触发器在运行时的输出，或者来自其他 JSON 名称和值对的输出。 另请参阅 [triggerOutputs](#triggerOutputs) 和 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)。 | 
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 返回触发器在运行时的 `body` 输出。 请参阅 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 | 
-| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 返回与表单数据或表单编码触发器输出中某个键名匹配的单个值。 | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | 返回与表单数据或表单编码触发器输出中某个键名匹配的单个值。   | 
 | [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | 返回触发器多部分输出中特定部分的正文。 | 
-| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | 创建一个数组，该数组的值与表单数据或表单编码触发器输出中某个键名匹配。 | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | 创建一个数组，该数组的值与表单数据或表单编码触发器输出中某个键名匹配。   | 
 | [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | 返回触发器在运行时的输出，或者来自其他 JSON 名称和值对的值。 请参阅 [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger)。 | 
 | [variables](../logic-apps/workflow-definition-language-functions-reference.md#variables) | 返回指定变量的值。 | 
 | [workflow](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | 返回有关运行时期间工作流本身的所有详细信息。 | 
@@ -289,7 +289,7 @@ ms.locfileid: "54906176"
 
 ### <a name="action"></a>action
 
-返回“当前”操作在运行时的输出，或者来自其他 JSON 名称和值对的值，可以将其分配给表达式。 默认情况下，此函数引用整个操作对象，但是也可以指定你需要其值的属性。 另请参阅 [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions)。
+返回“当前”  操作在运行时的输出，或者来自其他 JSON 名称和值对的值，可以将其分配给表达式。 默认情况下，此函数引用整个操作对象，但是也可以指定你需要其值的属性。 另请参阅 [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions)。
 
 只能在以下位置使用 `action()` 函数： 
 
@@ -419,6 +419,8 @@ actionOutputs('Get_user')
   }
 }
 ```
+
+## <a name="all-functions---alphabaetical-list"></a>所有函数 - 字母列表
 
 <a name="actions"></a>
 
@@ -697,7 +699,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
 | <*间隔*> | 是 | Integer | 要添加的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
+| <*timeUnit*> | 是 | String | 间隔  使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 |
 ||||| 
 
@@ -1064,7 +1066,7 @@ concat('<text1>', '<text2>', ...)
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| <*text1text2...*> | String | 基于组合后的输入字符串创建的字符串 | 
+| <*text1text2...* > | String | 基于组合后的输入字符串创建的字符串 | 
 |||| 
 
 *示例*
@@ -1090,9 +1092,9 @@ contains([<collection>], '<value>')
 
 具体而言，此函数对以下集合类型起作用： 
 
-* 字符串，在其中查找子字符串
-* 数组，在其中查找值
-* 字典，在其中查找键
+* 字符串  ，在其中查找子字符串 
+* 数组  ，在其中查找值 
+* 字典  ，在其中查找键 
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
@@ -1312,7 +1314,9 @@ dataUri('hello')
 
 ### <a name="datauritobinary"></a>dataUriToBinary
 
-返回数据统一资源标识符 (URI) 的二进制版本。 请使用此函数而非 [decodeDataUri()](#decodeDataUri)。 虽然这两个函数的工作方式相同，但首选 `decodeDataUri()`。
+返回数据统一资源标识符 (URI) 的二进制版本。
+请使用此函数而非 [decodeDataUri()](#decodeDataUri)。
+虽然这两个函数的工作方式相同，但首选 `dataUriBinary()`。
 
 ```
 dataUriToBinary('<value>')
@@ -1769,7 +1773,8 @@ first(createArray(0, 1, 2))
 
 ### <a name="float"></a>float
 
-将浮点数的字符串版本转换为实际的浮点数。 仅当将自定义参数传递给应用（例如，逻辑应用）时，才使用此函数。
+将浮点数的字符串版本转换为实际的浮点数。
+仅当将自定义参数传递给应用（例如，逻辑应用或流）时，才使用此函数。
 
 ```
 float('<value>')
@@ -1830,7 +1835,7 @@ formatDateTime('03/15/2018 12:00:00', 'yyyy-MM-ddTHH:mm:ss')
 
 ### <a name="formdatamultivalues"></a>formDataMultiValues
 
-返回与操作的“表单数据”或“表单编码”输出中的键名称匹配的值组成的数组。 
+返回与操作的“表单数据”或“表单编码”输出中的键名称匹配的值组成的数组。   
 
 ```
 formDataMultiValues('<actionName>', '<key>')
@@ -1861,7 +1866,7 @@ formDataMultiValues('Send_an_email', 'Subject')
 
 ### <a name="formdatavalue"></a>formDataValue
 
-返回与操作的“表单数据”或“表单编码”输出中的键名称匹配的单个值。 如果此函数找到多个匹配项，此函数将引发错误。
+返回与操作的“表单数据”或“表单编码”输出中的键名称匹配的单个值。   如果此函数找到多个匹配项，此函数将引发错误。
 
 ```
 formDataValue('<actionName>', '<key>')
@@ -1901,7 +1906,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
+| <*timeUnit*> | 是 | String | 间隔  使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -1943,7 +1948,7 @@ getPastTime(<interval>, <timeUnit>, <format>?)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
+| <*timeUnit*> | 是 | String | 间隔  使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -2223,6 +2228,96 @@ items('<loopName>')
 items('myForEachLoopName')
 ```
 
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+位于 Until 循环中时，返回当前迭代的索引值。 可以在嵌套式的 Until 循环中使用该函数。 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| 参数 | 必须 | 类型 | 说明 | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | 是 | String | Until 循环的名称 | 
+||||| 
+
+| 返回值 | 类型 | 说明 | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | 指定的 Until 循环中当前迭代的索引值 | 
+|||| 
+
+*示例* 
+
+此示例创建一个计数器变量，在 Until 循环中每迭代一次该变量就会递增 1，直至计数器值达到 5。 此示例还创建一个变量，用于跟踪每次迭代的当前索引。 在 Until 循环中，在每次迭代时，此示例会递增计数器，然后将计数器值指定给当前索引值，然后再递增计数器。 任何时候都可以通过检索当前索引值来确定当前迭代数。
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
+```
+
 <a name="json"></a>
 
 ### <a name="json"></a>json
@@ -2296,7 +2391,7 @@ json(xml('<?xml version="1.0"?> <root> <person id='1'> <name>Sophia Owen</name> 
 
 ### <a name="intersection"></a>intersection
 
-返回其中仅包含指定集合的共有项的一个集合。 某个项必须出现在传递给此函数的所有集合中才会出现在结果中。 如果一个或多个项具有相同的名称，则具有该名称的最后一项将出现在结果中。
+返回其中仅包含指定集合的共有项的一个集合。  某个项必须出现在传递给此函数的所有集合中才会出现在结果中。 如果一个或多个项具有相同的名称，则具有该名称的最后一项将出现在结果中。
 
 ```
 intersection([<collection1>], [<collection2>], ...)
@@ -2305,7 +2400,7 @@ intersection('<collection1>', '<collection2>', ...)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*collection1*>, <*collection2*>, ... | 是 | 数组或对象，但不能为两者 | 仅需从中获取共有项的各个集合 | 
+| <*collection1*>, <*collection2*>, ... | 是 | 数组或对象，但不能为两者 | 仅需从中获取共有项的各个集合  | 
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
@@ -2321,13 +2416,13 @@ intersection('<collection1>', '<collection2>', ...)
 intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
-并返回“仅”包含这些项的数组：`[1, 2]`
+并返回“仅”  包含这些项的数组：`[1, 2]`
 
 <a name="join"></a>
 
 ### <a name="join"></a>join
 
-返回一个字符串，它包含某个数组中的所有项并且以分隔符分隔每个字符。
+返回一个字符串，它包含某个数组中的所有项并且以分隔符分隔每个字符。 
 
 ```
 join([<collection>], '<delimiter>')
@@ -2706,7 +2801,7 @@ multipartBody('<actionName>', <index>)
 
 检查表达式是否为 false。 当表达式为 false 时返回 true，当表达式为 true 时返回 false。
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2724,7 +2819,7 @@ not(<expression>)
 
 这些示例检查指定的表达式是否为 false： 
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2738,7 +2833,7 @@ not(true)
 
 这些示例检查指定的表达式是否为 false： 
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2772,7 +2867,7 @@ or(<expression1>, <expression2>, ...)
 
 这些示例检查是否至少一个表达式为 true：
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2786,7 +2881,7 @@ or(false, false)
 
 这些示例检查是否至少一个表达式为 true：
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2800,7 +2895,7 @@ or(equals(1, 2), equals(1, 3))
 
 ### <a name="parameters"></a>参数
 
-返回逻辑应用定义中描述的参数的值。 
+返回工作流定义中描述的参数的值。
 
 ```
 parameters('<parameterName>')
@@ -2875,11 +2970,11 @@ rand(1, 5)
 range(<startIndex>, <count>)
 ```
 
-| 参数 | 必须 | 类型 | 说明 | 
-| --------- | -------- | ---- | ----------- | 
-| <*startIndex*> | 是 | Integer | 作为数组开头的第一项的整数值 | 
-| <*count*> | 是 | Integer | 数组中的整数个数 | 
-||||| 
+| 参数 | 必须 | 类型 | 说明 |
+| --------- | -------- | ---- | ----------- |
+| <*startIndex*> | 是 | Integer | 作为数组开头的第一项的整数值 |
+| <*count*> | 是 | Integer | 数组中的整数个数 |
+|||||
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
@@ -2991,7 +3086,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 ### <a name="skip"></a>skip
 
-删除集合开头的项，并返回所有其他项。
+删除集合开头的项，并返回所有其他项。 
 
 ```
 skip([<collection>], <count>)
@@ -3022,7 +3117,7 @@ skip(createArray(0, 1, 2, 3), 1)
 
 ### <a name="split"></a>split
 
-根据原始字符串中指定的分隔符字符，返回一个包含子字符串（以逗号分隔）的数组。 
+根据原始字符串中指定的分隔符字符，返回一个包含子字符串（以逗号分隔）的数组。
 
 ```
 split('<text>', '<delimiter>')
@@ -3267,7 +3362,7 @@ substring('<text>', <startIndex>, <length>)
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
 | <*text*> | 是 | String | 所需字符所在的字符串 | 
-| <*startIndex*> | 是 | Integer | 表示起始位置或索引值的一个正数 | 
+| <*startIndex*> | 是 | Integer | 一个等于或大于 0 的正数，需将其用作起始位置或索引值 |
 | <*length*> | 是 | Integer | 希望子字符串中具有的字符数（正数） | 
 ||||| 
 
@@ -3300,7 +3395,7 @@ subtractFromTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 | --------- | -------- | ---- | ----------- | 
 | <*timestamp*> | 是 | String | 包含时间戳的字符串 | 
 | <*间隔*> | 是 | Integer | 要减去的指定时间单位数 | 
-| <*timeUnit*> | 是 | String | 间隔使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
+| <*timeUnit*> | 是 | String | 间隔  使用的时间单位：“秒”、“分钟”、“小时”、“日”、“周”、“月”、“年” | 
 | <*format*> | 否 | String | [单一格式的说明符](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式的模式](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 时间戳的默认格式为[“o”](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddT:mm:ss:fffffffK)，这符合 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 标准并保留了时区信息。 | 
 ||||| 
 
@@ -3369,7 +3464,7 @@ take(createArray(0, 1, 2, 3, 4), 3)
 
 ### <a name="ticks"></a>ticks
 
-返回指定时间戳的 `ticks` 属性值。 一个“时钟周期”是 100 纳秒时间间隔。
+返回指定时间戳的 `ticks` 属性值。 一个“时钟周期”  是 100 纳秒时间间隔。
 
 ```
 ticks('<timestamp>')
@@ -3485,7 +3580,7 @@ triggerBody()
 
 ### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
-返回与触发器的“表单数据”或“表单编码”输出中的键名称匹配的值组成的数组。 
+返回与触发器的“表单数据”或“表单编码”输出中的键名称匹配的值组成的数组。   
 
 ```
 triggerFormDataMultiValues('<key>')
@@ -3515,7 +3610,7 @@ triggerFormDataMultiValues('feedUrl')
 
 ### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
-返回一个字符串，其中包含与触发器的“表单数据”或“表单编码”输出中的键名称匹配的单个值。 如果此函数找到多个匹配项，此函数将引发错误。
+返回一个字符串，其中包含与触发器的“表单数据”或“表单编码”输出中的键名称匹配的单个值。   如果此函数找到多个匹配项，此函数将引发错误。
 
 ```
 triggerFormDataValue('<key>')
@@ -3610,7 +3705,7 @@ trim(' Hello World  ')
 
 ### <a name="union"></a>union
 
-返回一个集合，其中包含指定集合中的所有项。 某个项只要出现在传递给此函数的任一集合中便会出现在结果中。 如果一个或多个项具有相同的名称，则具有该名称的最后一项将出现在结果中。 
+返回一个集合，其中包含指定集合中的所有项。  某个项只要出现在传递给此函数的任一集合中便会出现在结果中。 如果一个或多个项具有相同的名称，则具有该名称的最后一项将出现在结果中。 
 
 ```
 union('<collection1>', '<collection2>', ...)
@@ -3619,7 +3714,7 @@ union([<collection1>], [<collection2>], ...)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*collection1*>, <*collection2*>, ...  | 是 | 数组或对象，但不能为两者 | 需要从中获取所有项的各个集合 | 
+| <*collection1*>, <*collection2*>, ...  | 是 | 数组或对象，但不能为两者 | 需要从中获取所有项的各个集合  | 
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
@@ -3629,7 +3724,7 @@ union([<collection1>], [<collection2>], ...)
 
 *示例* 
 
-此示例获取以下集合中的“所有”项： 
+此示例获取以下集合中的“所有”  项： 
 
 ```
 union(createArray(1, 2, 3), createArray(1, 2, 10, 101))

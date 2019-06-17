@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 02/21/2019
-ms.date: 03/25/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: f2fa13291392c743ef1eb5943bf83b7ea475be79
-ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
+ms.openlocfilehash: a2e6d05ac027ece036ab614f7a60adc580dcbe89
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529036"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830132"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>快速入门：使用文本翻译 API 通过 C# 来检测文本语言
 
@@ -211,4 +211,4 @@ dotnet run
 * [获取支持的语言的列表](quickstart-csharp-languages.md)
 * [根据输入确定句子长度](quickstart-csharp-sentences.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

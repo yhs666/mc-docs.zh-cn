@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7318bb86bd8851a87a4d4c741e5224327e117fb7
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 42390f18a3b8520a4c05c5c0354853c373a16837
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555658"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136015"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询预测终结点
 
@@ -49,7 +49,7 @@ az cognitiveservices account create \
     -g my-cog-serv-resource-group \
     --kind CognitiveServices \
     --sku S0 \
-    -l WestEurope \ 
+    -l ChinaNorth \ 
     --yes
 ```
 
@@ -58,14 +58,14 @@ az cognitiveservices account create \
 在 Visual Studio Community 2017 中创建 .NET Core 控制台项目。
 
 1. 打开 Visual Studio Community 2017。
-1. 创建新项目，从“Visual C#”部分选择“控制台应用(.NET Core)”。
-1. 输入项目名称 `QueryPrediction`，保留剩余的默认值，然后选择“确定”。
+1. 创建新项目，从“Visual C#”部分选择“控制台应用(.NET Core)”。  
+1. 输入项目名称 `QueryPrediction`，保留剩余的默认值，然后选择“确定”。 
     这样会使用名为 **Program.cs** 的主代码文件创建简单的项目。
 
 ## <a name="add-sdk-with-nuget"></a>添加包含 NuGet 的 SDK
 
-1. 在**解决方案资源管理器**的名为 **QueryPrediction** 的树视图中选择“项目”，然后进行右键单击。 在菜单中选择“管理 NuGet 包...”。
-1. 选择“浏览”，然后输入 `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`。 显示包信息以后，选择“安装”，将包安装到项目中。 
+1. 在**解决方案资源管理器**的名为 **QueryPrediction** 的树视图中选择“项目”，然后进行右键单击。 在菜单中选择“管理 NuGet 包...”。 
+1. 选择“浏览”，然后输入 `Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime`。  显示包信息以后，选择“安装”，将包安装到项目中。  
 1. 将以下 _using_ 语句添加到 **Program.cs** 顶部。 请勿删除 `System` 的现有 _using_ 语句。 
 
 ```csharp
@@ -101,11 +101,11 @@ var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
 
 在 `GetPrediction` 方法中，在上述代码后面添加下述使用新凭据所需的代码，创建 [`LUISRuntimeClient`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) 客户端对象。 
 
-将 `<REPLACE-WITH-YOUR-KEY-REGION>` 替换为密钥的区域，例如 `westus`。 密钥区域位于 [Azure 门户](https://portal.azure.cn)中该资源的“概览”页上。
+将 `<REPLACE-WITH-YOUR-KEY-REGION>` 替换为密钥的区域，例如 `chinaeast`。 密钥区域位于 [Azure 门户](https://portal.azure.cn)中该资源的“概览”页上。
 
 ```csharp
 // Create Luis client and set endpoint
-// region of endpoint must match key's region, for example `westus`
+// region of endpoint must match key's region, for example `chinaeast`
 var luisClient = new LUISRuntimeClient(credentials, new System.Net.Http.DelegatingHandler[] { });
 luisClient.Endpoint = "https://<REPLACE-WITH-YOUR-KEY-REGION>.api.cognitive.microsoft.com";
 ```

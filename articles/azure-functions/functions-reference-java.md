@@ -10,14 +10,14 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
 origin.date: 09/14/2018
-ms.date: 03/25/2019
+ms.date: 06/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 15e119eea2332a2ff0d99122ce8c0e00aca594ef
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 73e4246eca3f02fed027170abd1d8a3cd5a52055
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58408282"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491439"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 开发人员指南
 
@@ -113,6 +113,37 @@ public class Function {
 从 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) 下载和使用[适用于 Azure 的 Azul Zulu Enterprise](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDK，以进行本地 Java 函数应用开发。 将函数应用部署到云时，Azure Functions 使用 Azul Java 8 JDK 运行时。
 
 对于 JDK 和函数应用的问题，[Azure 支持](https://www.azure.cn/support/)可通过[限定的支持计划](https://www.azure.cn/support/plans/)获得。
+
+## <a name="customize-jvm"></a>自定义 JVM
+
+Functions 函数允许你自定义用于执行 Java 函数的 Java 虚拟机 (JVM)。 默认情况下使用[以下 JVM 选项](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7)：
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+可以在名为 `JAVA_OPTS` 的应用设置中提供其他参数。 可以通过以下方式之一将应用设置添加到部署到 Azure 的函数应用中：
+
+### <a name="azure-portal"></a>Azure 门户
+
+在 [Azure 门户](https://portal.azure.cn)中，使用[“应用程序设置”选项卡](functions-how-to-use-azure-function-app-settings.md#settings)添加 `JAVA_OPTS` 设置。
+
+### <a name="azure-cli"></a>Azure CLI
+
+[az functionapp config appsettings set](/cli/functionapp/config/appsettings) 命令可用于设置 `JAVA_OPTS`，如下例所示：
+
+```azurecli
+az functionapp config appsettings set --name <APP_NAME> \
+--resource-group <RESOURCE_GROUP> \
+--settings "JAVA_OPTS=-Djava.awt.headless=true"
+```
+此示例将启用无外设模式。 将 `<APP_NAME>` 替换为函数应用的名称，将 `<RESOURCE_GROUP> ` 替换为资源组的名称。
+
+> [!WARNING]  
+> 在[消耗计划](functions-scale.md#consumption-plan)中运行时，必须添加值为 `0` 的 `WEBSITE_USE_PLACEHOLDER` 设置。  
+此设置确实可增加 Java 函数的冷启动时间。
 
 ## <a name="third-party-libraries"></a>第三方库 
 
@@ -264,7 +295,7 @@ public class Function {
     }
 ```
 
-针对 HttpRequest 调用上述函数，并将多个值写入 Azure 队列
+针对 HttpRequest 调用此函数，并将多个值写入 Azure 队列。
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage 和 HttpResponseMessage
 

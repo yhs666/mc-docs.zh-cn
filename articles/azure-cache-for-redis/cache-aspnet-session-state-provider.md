@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/01/2017
-ms.date: 04/17/2019
+ms.date: 06/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5a8564d5cdd3454e487bb155465df3fb78c11605
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 7b6d39d15b001b814ff73b4a21b3a44f61483ee9
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686300"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046944"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Azure Redis 缓存的 ASP.NET 会话状态提供程序
 
@@ -30,7 +30,7 @@ Azure Redis 缓存提供了一个会话状态提供程序，可使用该提供�
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>在缓存中存储 ASP.NET 会话状态
 
-要使用 Azure Redis 缓存会话状态 NuGet 包在 Visual Studio 中配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”。
+要使用 Azure Redis 缓存会话状态 NuGet 包在 Visual Studio 中配置客户端应用程序，请在“工具”菜单中依次单击“NuGet 包管理器”和“包管理器控制台”    。
 
 从 `Package Manager Console` 窗口运行以下命令。
     
@@ -82,6 +82,7 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
          host=""
          accessKey=""
          ssl="true" />
+  </providers>
 </sessionState>
 ```
 
@@ -138,4 +139,4 @@ NuGet 包会下载并添加所需的程序集引用，并将以下节添加到 w
 
 请查看[用于 Azure Redis 缓存的 ASP.NET 输出缓存提供程序](cache-aspnet-output-cache-provider.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

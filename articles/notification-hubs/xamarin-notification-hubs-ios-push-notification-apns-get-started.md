@@ -4,8 +4,8 @@ description: 本教程介绍如何使用 Azure 通知中心将推送通知发送
 services: notification-hubs
 keywords: ios 推送通知, 推送消息, 推送通知, 推送消息
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -15,14 +15,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 08/23/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6daa74f7981207c73e5862b500b5e5a3ac34bb61
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 06/24/2019
+ms.author: v-biyu
+ms.openlocfilehash: cb28b5fe117e5be3a3e8831e8fa58f8496d4a156
+ms.sourcegitcommit: b3434f6e7ee50a7f84e6b0868f418480aadb1368
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650917"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66829507"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
 
@@ -66,10 +66,10 @@ ms.locfileid: "52650917"
 
 ### <a name="configure-ios-settings-for-the-notification-hub"></a>针对 iOS 设置配置通知中心
 
-1. 在“通知设置”组中选择“Apple (APNS)”。
-2. 选择“证书”，单击文件图标，然后选择此前导出的 **.p12** 文件。
-3. 指定证书的密码。
-4. 选择“沙盒”模式。 仅当希望将推送通知发送给从应用商店购买应用的用户时，才应使用“生产”模式。
+1. 在“通知设置”组中选择“Apple (APNS)”。  
+2. 选择“证书”，单击文件图标，然后选择此前导出的 **.p12** 文件。  
+3. 指定证书的密码。 
+4. 选择“沙盒”  模式。 仅当希望将推送通知发送给从应用商店购买应用的用户时，才应使用“生产”模式。 
 
     ![在 Azure 门户中配置 APNs][6]
 
@@ -81,23 +81,23 @@ ms.locfileid: "52650917"
 
 ### <a name="create-a-new-project"></a>创建新项目
 
-1. 在 Visual Studio 中创建新的 iOS 项目并选择“单视图应用”模板，然后单击“下一步”
+1. 在 Visual Studio 中创建新的 iOS 项目并选择“单视图应用”模板，然后单击“下一步”  
 
      ![Visual Studio - 选择应用程序类型][31]
 
-2. 输入应用名称和组织标识符，然后点击“下一步”和“创建”。
+2. 输入应用名称和组织标识符，然后单击“下一步”和“创建”。  
 
-3. 在“解决方案”视图中双击“Info.plist”，确保“标识”下的捆绑标识符与创建预配配置文件时使用的相符。 在“签名”下，确保选中开发人员帐户；在“团队”下，确保选中“自动管理签名”。这样就会自动选中签名证书和预配配置文件。
+3. 在“解决方案”视图中双击“Info.plist”，  确保“标识”下  的捆绑标识符与创建预配配置文件时使用的相符。 在“签名”下，确保  选中开发人员帐户；在“团队”下，确保选中“自动管理签名”。这样就会自动选中签名证书和预配配置文件。 
 
     ![Visual Studio- iOS 应用配置][32]
 
-4. 在“解决方案”视图中双击“Entitlements.plist”，确保选中“启用推送通知”。"**
+4. 在“解决方案”视图中双击 `Entitlements.plist`，确保选中“启用推送通知”。 
 
     ![Visual Studio - iOS 授权配置][33]
 
-5. 添加 Azure 消息传送包。 在“解决方案”视图中右键单击项目，然后选择“添加” > “添加 NuGet 包”。 搜索 **Xamarin.Azure.NotificationHubs.iOS**，向项目添加该包。
+5. 添加 Azure 消息传送包。 在“解决方案”视图中右键单击项目，然后选择“添加”   >   “添加 NuGet 包”。 搜索 **Xamarin.Azure.NotificationHubs.iOS**，向项目添加该包。
 
-6. 向类添加新文件，将其命名为 **Constants.cs**，然后添加以下变量，将字符串文本占位符替换为此前记下的中心名称和 *DefaultListenSharedAccessSignature*。
+6. 向类添加新文件，将其命名为 `Constants.cs`，然后添加以下变量，将字符串文本占位符替换为此前记下的 `hubname` 和 `DefaultListenSharedAccessSignature`。
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -105,19 +105,20 @@ ms.locfileid: "52650917"
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. 在 **AppDelegate.cs**中，添加以下 using 语句：
+7. 在 `AppDelegate.cs` 中添加以下 using 语句：
 
     ```csharp
     using WindowsAzure.Messaging;
+    using UserNotifications
     ```
 
-8. 声明 **SBNotificationHub**的实例：
+8. 声明 `SBNotificationHub` 的实例：
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. 在 **AppDelegate.cs** 中，更新 **FinishedLaunching()** 以匹配以下代码：
+9. 在 `AppDelegate.cs` 中更新 `FinishedLaunching()`，使之与以下代码匹配：
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -146,7 +147,7 @@ ms.locfileid: "52650917"
     }
     ```
 
-10. 重写 AppDelegate.cs 中的 RegisteredForRemoteNotifications() 方法：
+10. 在 `AppDelegate.cs` 中重写 `RegisteredForRemoteNotifications()` 方法：
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -169,7 +170,7 @@ ms.locfileid: "52650917"
     }
     ```
 
-11. 重写 AppDelegate.cs 中的 ReceivedRemoteNotification() 方法：
+11. 在 `AppDelegate.cs` 中重写 `ReceivedRemoteNotification()` 方法：
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -178,7 +179,7 @@ ms.locfileid: "52650917"
     }
     ```
 
-12. 在 AppDelegate.cs 中创建以下 ProcessNotification() 方法：
+12. 在 `AppDelegate.cs` 中创建 `ProcessNotification()` 方法：
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -217,13 +218,13 @@ ms.locfileid: "52650917"
     ```
 
     > [!NOTE]
-    > 可选择覆盖 FailedToRegisterForRemoteNotifications() 以处理无网络连接等情况。 如果用户可能会在脱机模式（例如飞行模式）下启动应用程序，并且你想要处理应用特定的推送消息传送方案，则此操作特别重要。
+    > 可以选择重写 `FailedToRegisterForRemoteNotifications()` 以处理无网络连接等情况。 如果用户可能会在脱机模式（例如飞行模式）下启动应用程序，并且你想要处理应用特定的推送消息传送方案，则此操作特别重要。
 
 13. 在设备上运行应用程序。
 
 ## <a name="send-test-push-notifications"></a>发送测试推送通知
 
-可以在 [Azure 门户]中使用“测试性发送”选项，在应用中测试通知的发送。 它会向设备发送测试性的推送通知。
+ 可以在 [Azure 门户]中使用“测试性发送”选项，在应用中测试通知的发送。 它会向设备发送测试性的推送通知。
 
 ![Azure 门户 - 测试性发送][30]
 
@@ -240,26 +241,19 @@ ms.locfileid: "52650917"
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
-[iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
+[iOS Provisioning Portal]: https://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio for Mac]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
-[Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
+[Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure 门户]: https://portal.azure.cn
-
-<!-- Update_Description: wording update -->

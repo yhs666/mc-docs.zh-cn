@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 6ae3d26866f48f054f4f9fd1e2fefa6b49e97e5c
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 007aec262da1a675296bab70cfbdbb49b31be827
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561727"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135923"
 ---
 # <a name="quickstart-get-intent-using-java"></a>快速入门：使用 Java 获取意向
 
@@ -83,7 +83,7 @@ ms.locfileid: "65561727"
                 String EndpointKey = "YOUR-KEY";
 
                 // Begin endpoint URL string building
-                URIBuilder endpointURLbuilder = new URIBuilder("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + AppId + "?");
+                URIBuilder endpointURLbuilder = new URIBuilder("https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/" + AppId + "?");
 
                 // query text
                 endpointURLbuilder.setParameter("q", "turn on the left light");

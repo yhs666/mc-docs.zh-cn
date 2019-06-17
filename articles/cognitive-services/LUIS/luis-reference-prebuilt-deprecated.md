@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: cec8d100151400f8b2d7c909cf73dc6c05ebadb9
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: a1aeee9a4f7559e4e2fae77cedcbb3673a3804e9
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555618"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135719"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 应用中已弃用的预生成实体
 以下预构建实体已被弃用，不能添加到新的 LUIS 应用中。
 
-* **Datetime**：使用 datetime 的现有 LUIS 应用应当迁移到 datetimeV2，虽然 datetime 实体在使用它的现存应用中可以继续工作。
-* **Geography**：使用 geography 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
-* **Encyclopedia**：使用 encyclopedia 的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
+* **Datetime**：使用 datetime  的现有 LUIS 应用应当迁移到 datetimeV2  ，虽然 datetime 实体在使用它的现存应用中可以继续工作。
+* **Geography**：使用 geography  的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
+* **Encyclopedia**：使用 encyclopedia  的现有 LUIS 应用在 2018 年 12 月之前一直受支持。
 
 ## <a name="geography-culture"></a>Geography 语言区域
 **Geography** 仅在 `en-us` 区域设置中可用。
@@ -32,12 +32,8 @@ ms.locfileid: "65555618"
 
 预构建实体   |   示例陈述   |   JSON
 ------|------|------|
-`builtin.geography.city`   |  `seattle`    |`{ "type": "builtin.geography.city", "entity": "seattle" }`|
-`builtin.geography.city`   |  `paris`    |`{ "type": "builtin.geography.city", "entity": "paris" }`|
-`builtin.geography.country`|  `australia`    |`{ "type": "builtin.geography.country", "entity": "australia" }`|
-`builtin.geography.country`|  `japan`    |`{ "type": "builtin.geography.country", "entity": "japan" }`|
-`builtin.geography.pointOfInterest`   |   `amazon river` |`{ "type": "builtin.geography.pointOfInterest", "entity": "amazon river" }`|
-`builtin.geography.pointOfInterest`   |   `sahara desert`|`{ "type": "builtin.geography.pointOfInterest", "entity": "sahara desert" }`|
+`builtin.geography.country`|  `china`    |`{ "type": "builtin.geography.country", "entity": "china" }`|
+
 
 ## <a name="encyclopedia-culture"></a>Encyclopedia 语言区域
 **Encyclopedia** 仅在 `en-US` 区域设置中可用。
@@ -144,9 +140,9 @@ Encyclopedia 内置实体包括下表中的 100 多个子类型：此外，encyc
 `builtin.encyclopedia.radio.radio_program`| `builtin.encyclopedia.radio.radio_program`| `grand ole opry`|
 `builtin.encyclopedia.film.film`| `builtin.encyclopedia.film.film`| `alice in wonderland`|
 `builtin.encyclopedia.cricket.tournament`| `builtin.encyclopedia.cricket.tournament`| `cricket world cup`|
-`builtin.encyclopedia.government.government`| `builtin.encyclopedia.government.government`| `european commission`|
+`builtin.encyclopedia.government.government`| `builtin.encyclopedia.government.government`| `china commission`|
 `builtin.encyclopedia.sports.team_owner`| `builtin.encyclopedia.sports.team_owner`| `bob castellini`|
-`builtin.encyclopedia.music.genre`| `builtin.encyclopedia.music.genre`| `eastern europe`|
+`builtin.encyclopedia.music.genre`| `builtin.encyclopedia.music.genre`| `eastern china`|
 `builtin.encyclopedia.ice_hockey.division`| `builtin.encyclopedia.ice_hockey.division`| `hockeyallsvenskan`|
 `builtin.encyclopedia.architecture.style`| `builtin.encyclopedia.architecture.style`| `spanish colonial revival architecture`|
 `builtin.encyclopedia.broadcast.producer`| `builtin.encyclopedia.broadcast.producer`| `columbia tristar television`|

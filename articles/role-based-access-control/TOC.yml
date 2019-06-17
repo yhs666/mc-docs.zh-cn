@@ -17,6 +17,9 @@
       href: quickstart-assign-role-user-portal.md
     - name: 授予用户访问权限 - PowerShell
       href: tutorial-role-assignments-user-powershell.md
+    - name: 授予用户访问权限 - 资源管理器模板
+      displayName: 'ARM, resource manager template'
+      href: tutorial-role-assignments-user-template.md
     - name: 授予组访问权限 - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: 创建自定义角色 - PowerShell
@@ -53,8 +56,6 @@
       href: change-history-report.md
     - name: 提升访问权限来管理所有订阅
       href: elevate-access-global-admin.md
-    - name: 管理外部用户的访问权限
-      href: role-assignments-external-users.md
     - name: 经典管理员
       href: classic-administrators.md
     - name: 故障排除
@@ -74,6 +75,7 @@
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/authorization/'
     - name: Resource Manager 模板
+      displayName: ARM
       items:
         - name: 角色分配
           href: 'https://docs.microsoft.com/azure/templates/microsoft.authorization/roleassignments'

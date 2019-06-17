@@ -2,25 +2,20 @@
 title: 证书创建方法
 description: 在 Key Vault 中创建证书的方法。
 services: key-vault
-documentationcenter: ''
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/09/2018
-ms.date: 10/22/2018
+ms.date: 06/17/2019
 ms.author: v-biyu
-ms.openlocfilehash: 7178166bbdb98670ca54a6b8348341c7ef8c087c
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 52c458e8c35f05f6c92740d73b84a799f94c71c3
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63829051"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687479"
 ---
 # <a name="certificate-creation-methods"></a>证书创建方法
 
@@ -37,7 +32,7 @@ ms.locfileid: "63829051"
 1. 上图中，通过在密钥保管库中创建密钥，应用程序可从内部开始创建证书。
 2. Key Vault 将证书签名请求 (CSR) 返回给应用程序
 3. 应用程序将 CSR 传递给所选 CA。
-4. 所选 CA 使用 X509 证书进行响应。
+4. 所选 CA 以 X509 证书进行响应。
 5. 应用程序通过合并 CA 中的 X509 证书来完成新证书创建过程。
 
 -   **使用已知的证书颁发者提供程序创建证书：** 此方法要求你执行一项一次性任务，即创建一个证书颁发者对象。 在密钥保管库中创建证书颁发者对象以后，即可在 KV 证书的策略中引用其名称。 请求创建此类 KV 证书时，将在保管库中创建一个密钥对，并使用所引用的证书颁发者对象中的信息与证书颁发者提供者服务通信，以便获取 x509 证书。 从证书颁发者服务中检索 x509 证书并将其与密钥对合并以完成 KV 证书创建过程。  
@@ -88,7 +83,7 @@ KV 证书创建是一个异步过程。 此操作会创建 KV 证书请求并返
 |提供程序|证书类型|  
 |--------------|----------------------|  
 |DigiCert|Key Vault 提供 DigiCert 的 OV 或 EV SSL 证书|
-|GlobalCert|Key Vault 提供 GlobalSign 的 OV 或 EV SSL 证书|
+|GlobalCert|Key Vault 提供 Globaltrust 的 OV 或 EV SSL 证书 |
 
  证书颁发者是 Azure Key Vault (KV) 中表示为 CertificateIssuer 资源的实体。 它用于提供有关 KV 证书来源的信息，例如颁发者名称、提供者、凭据和其他管理详细信息。
 
@@ -96,7 +91,6 @@ KV 证书创建是一个异步过程。 此操作会创建 KV 证书请求并返
 
  Authorization:需要证书/创建权限。
 
- ## <a name="see-also"></a>另请参阅
+## <a name="see-also"></a>另请参阅
  - [关于密钥、机密和证书](about-keys-secrets-and-certificates.md)
  - [监视和管理证书创建](create-certificate-scenarios.md)
-

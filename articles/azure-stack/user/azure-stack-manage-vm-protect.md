@@ -17,12 +17,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: hectorl
 ms.lastreviewed: 3/19/2018
-ms.openlocfilehash: 2a0cb44f0e3d0a75d706038cd6bda7028c80f16b
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 61d3aceb6f99b45be6671e1f46110ea0fba4b46d
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248532"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135464"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>保护在 Azure Stack 上部署的虚拟机
 
@@ -45,7 +45,7 @@ Azure Stack 基础结构服务的恢复计划**不**包括恢复用户 VM、存�
 Azure Stack 云的操作员负责创建针对底层 Azure Stack 基础结构和服务的恢复计划。 若要进行详细了解，请阅读[从灾难性数据丢失中恢复](../operator/azure-stack-backup-recover-data.md)一文。
 
 ## <a name="considerations-for-iaas-vms"></a>有关 IaaS VM 的注意事项
-安装在 IaaS VM 中的操作系统会进行限制，确保只有特定的产品可以用来保护其所包含的数据。 对于基于 Windows 的 IaaS VMs，可以使用 Azure 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS VM，唯一的选择是使用合作伙伴产品。 请参阅[此数据表，了解其产品适用于 Azure Stack 的所有 BC/DR 合作伙伴](https://aka.ms/azurestackbcdrpartners)。
+安装在 IaaS VM 中的操作系统会进行限制，确保只有特定的产品可以用来保护其所包含的数据。 对于基于 Windows 的 IaaS VMs，可以使用 Azure 和合作伙伴产品来保护数据。 对于基于 Linux 的 IaaS VM，唯一的选择是使用合作伙伴产品。
 
 ## <a name="sourcetarget-combinations"></a>源/目标组合
 

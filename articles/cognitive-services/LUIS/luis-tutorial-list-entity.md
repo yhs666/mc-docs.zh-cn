@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: c1efe5a61b9c2bbe648f148adff9ef7541a98017
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: a93c858fc9e376ebf9803cc7c0d5c5ea4220b3d5
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555581"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135990"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用列表实体提升实体检测 
 本教程展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
@@ -31,7 +31,7 @@ ms.locfileid: "65555581"
 
 > [!div class="checklist"]
 > * 最新版 [Node.js](https://nodejs.org)
-> * [HomeAutomation LUIS 应用](luis-get-started-create-app.md)。 如果未创建主自动化应用，请新建一个，并添加预生成的域 HomeAutomation。 定型并发布应用。 
+> * [HomeAutomation LUIS 应用](luis-get-started-create-app.md)。 如果未创建主自动化应用，请新建一个，并添加预生成的域 HomeAutomation  。 定型并发布应用。 
 > * LUIS 应用的 [AuthoringKey](luis-concept-keys.md#authoring-key)、[EndpointKey](luis-concept-keys.md#endpoint-key)（若要多次查询的话）、应用 ID、版本 ID 和[区域](luis-reference-regions.md)。
 
 > [!Tip]
@@ -44,7 +44,7 @@ ms.locfileid: "65555581"
 
 一种跨不同文化和受众有多个名称的系统就是恒温调节器。 恒温调节器可以控制房屋或建筑物的供热制冷系统。
 
-理想情况下，以下陈述应当会解析为预生成实体 HomeAutomation.Device：
+理想情况下，以下陈述应当会解析为预生成实体 HomeAutomation.Device  ：
 
 |#|陈述|标识的实体|score|
 |--|--|--|--|
@@ -57,7 +57,7 @@ ms.locfileid: "65555581"
 ## <a name="use-a-list-entity"></a>使用列表实体
 HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有名称变体的设备。 对于办公楼或校园，设备名称有很多，HomeAutomation.Device 实体就不适用了。 
 
-在这种情况下，列表实体很适用，因为办公楼或校园中设备的术语集是已知的，即使这个集合很大，也不例外。 使用列表实体，LUIS 可以接收恒温调节器术语集中的任何可取值，并将它解析为同一个设备“恒温调节器”。 
+在这种情况下，列表实体  很适用，因为办公楼或校园中设备的术语集是已知的，即使这个集合很大，也不例外。 使用列表实体，LUIS 可以接收恒温调节器术语集中的任何可取值，并将它解析为同一个设备“恒温调节器”。 
 
 本教程将创建包含恒温调节器的实体列表。 在本教程中，恒温调节器的可选名称包括： 
 
@@ -90,7 +90,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
 
     // To run this sample, change these constants.
 
-    // Authoring/starter key, available in www.luis.ai under Account Settings
+    // Authoring/starter key, available in docs.azure.cn under Account Settings
     const authoringKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
     // ID of your LUIS app to which you want to add an utterance
@@ -100,7 +100,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     const versionId = "0.1";
 
     // Region of app
-    const region = "westus";
+    const region = "chinaeast";
 
     // Construct HTTP uri
     const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
@@ -178,7 +178,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
 
     // To run this sample, change these constants.
 
-    // Authoring/starter key, available in www.luis.ai under Account Settings
+    // Authoring/starter key, available in docs.azure.cn under Account Settings
     const authoringKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
     // ID of your LUIS app to which you want to add an utterance
@@ -188,7 +188,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     const versionId = "0.1";
 
     // Region of app
-    const region = "westus";
+    const region = "chinaeast";
 
     // Construct HTTP uri
     const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
@@ -278,7 +278,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
 
   // To run this sample, change these constants.
 
-  // Authoring/starter key, available in www.luis.ai under Account Settings
+  // Authoring/starter key, available in docs.azure.cn under Account Settings
   const authoringKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
 
   // ID of your LUIS app to which you want to add an utterance
@@ -288,7 +288,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
   const versionId = "0.1";
 
   // Region of app
-  const region = "westus";
+  const region = "chinaeast";
 
   // Construct HTTP uri
   const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/publish`;
@@ -302,7 +302,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
           var body = {
               "versionId": "0.1",
               "isStaging": false,
-              "region": "westus"
+              "region": "chinaeast"
           };
 
           // HTTP request
@@ -343,10 +343,10 @@ node publish.js
 { 
   versionId: null,
   isStaging: false,
-  endpointUrl: 'https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>',
+  endpointUrl: 'https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/<appID>',
   region: null,
   assignedEndpointKey: null,
-  endpointRegion: 'westus',
+  endpointRegion: 'chinaeast',
   publishedDateTime: '2018-01-29T22:17:38Z' }
 }
 ```
@@ -377,7 +377,7 @@ node publish.js
   const appId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" || argv.appId;
 
   // Region of app
-  const region = "westus" || argv.region;
+  const region = "chinaeast" || argv.region;
 
   // Get query from command line
   // you do NOT need to add quotes around query phrase
@@ -385,7 +385,7 @@ node publish.js
   // q: "turn on the lights"
   // verbose: true means results return all intents, not just top intent
   const q = argv._.join(" ");
-  const uri= `https://${region}.api.cognitive.microsoft.com/luis/v2.0/apps/${appId}?q=${q}&verbose=true`;
+  const uri= `https://${region}.api.cognitive.azure.cn/luis/v2.0/apps/${appId}?q=${q}&verbose=true`;
 
   // query endpoint with endpoint key
   var query = async () => {
@@ -422,7 +422,7 @@ node publish.js
 node train.js
 ```
 
-输出的是查询结果。 因为此代码向查询字符串添加详细名称/值对，所以输出包括所有意向及其分数：
+输出的是查询结果。 因为此代码向查询字符串添加详细  名称/值对，所以输出包括所有意向及其分数：
 
 ```json
 {
@@ -468,7 +468,7 @@ node train.js
 }
 ```
 
-特定设备“恒温调节器”是通过面向结果的“turn up the heat（打开供热）”查询进行标识。 由于应用中仍有原始 HomeAutomation.Device 实体，因此还可以看到它的结果。 
+特定设备“恒温调节器”  是通过面向结果的“turn up the heat（打开供热）”查询进行标识。 由于应用中仍有原始 HomeAutomation.Device 实体，因此还可以看到它的结果。 
 
 尝试其他两个陈述，看看它们是否也作为“恒温调节器”返回。 
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: b9acd1068bcd33d587f323e8b60d7c2efebcc5cc
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 11634dde5165ca25dd48687ece9c0cc05c408c16
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646362"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135770"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 
@@ -39,7 +39,7 @@ Microsoft Azure 提供越来越多的服务，可以将这些服务提供给客�
 Microsoft 为 CSP 提供管理 Azure 客户订阅所需的 API，允许通过编程方式与自己的服务管理系统集成。 如需支持的管理功能，可单击 [此处](https://msdn.microsoft.com/zh-cn/library/partnercenter/dn974944.aspx)。
 
 ## <a name="azure-resource-management"></a>Azure 资源管理
-订阅管理方式将取决于你与客户签署的协定。 可以由 CSP 直接管理资源的创建和维护，也可以始终由客户对 Microsoft Azure 订阅进行控制，并根据需要来创建 Azure 资源。 如果客户在其 Microsoft Azure 订阅中管理资源的创建，他们会使用以下两种模型之一：“Connect-Through”模型或“Direct-To”模型。 会在下面各节中详细介绍这些模型。  
+订阅管理方式将取决于你与客户签署的协定。 可以由 CSP 直接管理资源的创建和维护，也可以始终由客户对 Microsoft Azure 订阅进行控制，并根据需要来创建 Azure 资源。 如果客户在其 Microsoft Azure 订阅中管理资源的创建，他们会使用以下两种模型之一：“Connect-Through”模型或“Direct-To”模型。   会在下面各节中详细介绍这些模型。  
 
 ### <a name="connect-through-model"></a>Connect-Through 模型
 
@@ -69,7 +69,7 @@ Microsoft 为 CSP 提供管理 Azure 客户订阅所需的 API，允许通过编
 ![替换文字](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 如何选择这两种模式取决于客户的需求，以及目前提供 Azure 服务的具体需要。 有关这些模型的详细信息以及关联的基于角色的访问控制、网络和标识设计模式在以下链接中有详尽介绍：
-- 基于角色的访问控制 (RBAC) – RBAC 基于 Azure Active Directory。  有关 Azure RBAC 的更多详细信息，请参阅[此处](../active-directory/role-based-access-control-configure.md)。
+- 基于角色的访问控制 (RBAC)  – RBAC 基于 Azure Active Directory。  有关 Azure RBAC 的更多详细信息，请参阅[此处](../active-directory/role-based-access-control-configure.md)。
 - **网络** – 介绍有关 Azure 中网络的各种主题。
 - **Azure Active Directory (Azure AD)** – Azure AD 提供针对 Microsoft Azure 和第三方 SaaS 应用程序的标识管理。 有关 Azure AD 的更多详细信息，请参阅[此处](https://azure.microsoft.com/documentation/services/active-directory/)。  
 
@@ -84,7 +84,7 @@ ExpressRoute 支持的网络速度其范围为 50 Mb/秒到 10Gb/秒。 因此�
 ExpressRoute 支持将多个 vNet 连接到单个 ExpressRoute 线路，以便更好地利用速度更高的连接。 单个 ExpressRoute 线路可以在同一客户拥有的多个 Azure 订阅之间共享。
 
 ## <a name="configuring-expressroute"></a>配置 ExpressRoute
-可以在单个 ExpressRoute 线路上配置 ExpressRoute 来支持三种类型的流量（[路由域](#ExpressRoute-routing-domains)）。 该流量可分成 Microsoft 对等互连、Azure 公共对等互连和专用对等互连。 可以选择一种类型的或所有类型的需通过单个 ExpressRoute 线路发送的流量，也可以使用多个 ExpressRoute 线路，具体取决于 ExpressRoute 线路的大小以及客户的隔离要求。 客户所面临的安全状况可能不允许公共流量和专用流量经过相同的线路。
+可以在单个 ExpressRoute 线路上配置 ExpressRoute 来支持三种类型的流量（[路由域](#expressRoute-routing-domains)）。 该流量可分成 Microsoft 对等互连、Azure 公共对等互连和专用对等互连。 可以选择一种类型的或所有类型的需通过单个 ExpressRoute 线路发送的流量，也可以使用多个 ExpressRoute 线路，具体取决于 ExpressRoute 线路的大小以及客户的隔离要求。 客户所面临的安全状况可能不允许公共流量和专用流量经过相同的线路。
 
 ### <a name="connect-through-model"></a>Connect-Through 模型
 在 Connect-Through 配置中，需要负责所有网络基础结构，确保将客户数据中心资源连接到 Azure 中托管的订阅。 每个想要使用 Azure 功能的客户都需要建立自己的 ExpressRoute 连接，这些连接由你来管理。 随后你使用客户所用的相同方法来采购 ExpressRoute 线路。 按照适用于线路预配和线路状态的 [ExpressRoute 工作流](./expressroute-workflows.md)一文中概述的相同步骤进行操作。 然后配置边界网关协议 (BGP) 路由，控制在本地网络和 Azure vNet 之间的流量。
@@ -127,10 +127,10 @@ ExpressRoute 通过 Azure 虚拟网络网关连接到 Azure 网络。 网络网�
 根据所用的模型（Connect-To 或 Connect-Through），客户可在其 vNet 中定义安全策略，或者向 CSP 提供针对其 vNet 进行定义时的安全策略要求。 可以定义以下安全标准：
 
 1. **客户隔离** - Azure 平台将客户 ID 和 vNet 信息存储在安全的数据库中，以便将每个客户的流量封装在 GRE 隧道中，从而实现客户隔离。
-2. 网络安全组 (NSG) 规则用于在 Azure 的 Vnet 中定义允许进出子网的流量。 默认情况下，NSG 包含的“阻止”规则阻止从 Internet 到 vNet 的流量，包含的“允许”规则允许 vNet 内部的流量。 有关网络安全组的详细信息，请单击 [此处](https://azure.microsoft.com/blog/network-security-groups/)。
+2. 网络安全组 (NSG)  规则用于在 Azure 的 Vnet 中定义允许进出子网的流量。 默认情况下，NSG 包含的“阻止”规则阻止从 Internet 到 vNet 的流量，包含的“允许”规则允许 vNet 内部的流量。 有关网络安全组的详细信息，请单击 [此处](https://azure.microsoft.com/blog/network-security-groups/)。
 3. **强制隧道** - 此选项可将源自 Azure 的面向 Internet 的流量通过 ExpressRoute 连接重定向到本地数据中心。 有关强制隧道的更多详细信息，请查看[此处](./expressroute-routing.md#advertising-default-routes)。  
 
-4. **加密** - 虽然 ExpressRoute 线路是特定客户专用的，但也存在网络提供商被攻破的可能，这会让入侵者可以查看数据包流量。 若要解决这种可能性，客户或 CSP 可以通过定义 IPSec 隧道模式策略对连接进行加密，该策略针对本地资源和 Azure 资源的所有流量（请参阅图 5 中的客户 1 的可选隧道模式 IPSec：ExpressRoute 安全性）。 第二个选项是在 ExpressRoute 线路的每个终结点处使用防火墙设备。 这需要在两端安装其他的第三方防火墙 VM/设备，以便加密 ExpressRoute 线路上的流量。
+4. **加密** - 虽然 ExpressRoute 线路是特定客户专用的，但也存在网络提供商被攻破的可能，这会让入侵者可以查看数据包流量。 为了解决这种可能存在的问题，可以让客户或 CSP 加密连接中的流量，即为本地资源和 Azure 资源之间的所有流量定义 IPSec 隧道模式策略（请参阅图 5 上方针对客户 1 的可选“隧道”模式 IPSec：ExpressRoute 安全性）。 第二个选项是在 ExpressRoute 线路的每个终结点处使用防火墙设备。 这需要在两端安装其他的第三方防火墙 VM/设备，以便加密 ExpressRoute 线路上的流量。
 
 ![替换文字](./media/expressroute-for-cloud-solution-providers/expressroute-security.png)  
 

@@ -11,12 +11,12 @@ ms.service: azure-stack
 manager: digimobile
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 14e469d07b4c337c6147de7bb02fa5ac483ac05e
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: ca62176f1b6b81981f8b07268fa56406bf568be4
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248556"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135434"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Azure Stack 存储开发工具入门
 
@@ -182,7 +182,6 @@ EndpointSuffix=local.azurestack.external
 * [如何通过 Java 使用 Blob 存储](/storage/blobs/storage-java-how-to-use-blob-storage)
 * [如何通过 Node.js 使用 Blob 存储](/storage/blobs/storage-nodejs-how-to-use-blob-storage)
 * [如何通过 C++ 使用 Blob 存储](/storage/blobs/storage-c-plus-plus-how-to-use-blobs)
-* [如何通过 PHP 使用 Blob 存储](/storage/blobs/storage-php-how-to-use-blobs)
 * [如何通过 Python 使用 Azure Blob 存储](/storage/blobs/storage-python-how-to-use-blob-storage)
 * [如何通过 Ruby 使用 Blob 存储](/storage/blobs/storage-ruby-how-to-use-blob-storage)
 

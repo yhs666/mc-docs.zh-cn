@@ -6,19 +6,19 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 02/05/2019
-ms.date: 02/25/2019
+origin.date: 04/19/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: 752270408526fcc23e74332ed1a928a02f584f45
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 43befadcc10991277ea45398be3586205702a9dd
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625972"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726507"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Azure Data Box Blob 存储要求
 
-本文列出了 Data Box Blob 存储支持的 Azure API、SDK 和工具的版本。 Data Box Blob 存储提供具有 Azure 一致语义的 blob 管理功能。 本文还总结了 Azure 存储服务中已知的 Azure Data Box Blob 存储差异。
+本文列出了 Data Box Blob 存储支持的 Azure API、Azure 客户端库和工具的版本。 Data Box Blob 存储提供具有 Azure 一致语义的 blob 管理功能。 本文还总结了 Azure 存储服务中已知的 Azure Data Box Blob 存储差异。
 
 建议在连接到 Data Box Blob 存储之前仔细查看这些信息，然后再根据需要重新参阅。
 
@@ -39,7 +39,7 @@ ms.locfileid: "58625972"
 
 Data Box Blob 存储支持以下版本的 Azure 存储服务 API：
 
-公共预览版本（Azure Data Box 1.8 及更高版本）
+Azure Data Box 1.8 及更高版本
 
 - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
@@ -49,18 +49,6 @@ Data Box Blob 存储支持以下版本的 Azure 存储服务 API：
 - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
-## <a name="supported-sdk-versions"></a>支持的 SDK 版本
-
-|     客户端库     |     Data Box Blob 存储支持的版本     |     链接             |     终结点规范         |
-|------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
-|    .NET                |    从 6.2.0 至 8.7.0。                         |    Nuget 包： https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub 版本： https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config 文件                 |
-|    Java                |    从 4.1.0 至 6.1.0                          |    Maven 包： http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub 版本： https://github.com/Azure/azure-storage-java/releases                                                      |    连接字符串设置         |
-|    Node.js             |    从 1.1.0 至 2.7.0                          |    NPM 链接： https://www.npmjs.com/package/azure-storage（例如：运行“npm install azure-storage@2.7.0”）   <br>GitHub 版本： https://github.com/Azure/azure-storage-node/releases                            |    服务实例声明    |
-|    C++                 |    从 2.4.0 至 3.1.0                          |    Nuget 包： https://www.nuget.org/packages/wastorage.v140/   <br>GitHub 版本： https://github.com/Azure/azure-storage-cpp/releases                                                                            |    连接字符串设置         |
-|    PHP                 |    从 0.15.0 至 1.0.0                         |    GitHub 版本： https://github.com/Azure/azure-storage-php/releases   <br>通过 Composer 安装（请参阅下面的详细信息）                                                                                                   |    连接字符串设置         |
-|    Python              |    从 0.30.0 至 1.0.0                         |    GitHub 版本： https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    服务实例声明    |
-|    Ruby                |    从 0.12.1 至 1.0.1                         |    RubyGems 包：<br>通用： https://rubygems.org/gems/azure-storage-common/   <br>Blob： https://rubygems.org/gems/azure-storage-blob/      <br>GitHub 版本： https://github.com/Azure/azure-storage-ruby/releases    |                                   |
-
 ## <a name="supported-azure-client-libraries"></a>支持的 Azure 客户端库
 
 对于 Data Box Blob 存储，需要提供特定的客户端库和特定的终结点后缀。 Data Box Blob 存储终结点与最新版本的 Azure Blob 存储 REST API 不完全相同，请参阅 [Azure Data Box 1.8 及更高版本支持的版本](#supported-api-versions)。 对于存储客户端库，需要知道与 REST API 兼容的版本。
@@ -69,12 +57,12 @@ Data Box Blob 存储支持以下版本的 Azure 存储服务 API：
 
 | 客户端库     |Data Box Blob 存储支持的版本     | 链接   |     终结点规范      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    8.7.0                                           |    Nuget 包： https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub 版本： https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config 文件                 |
-|    Java                |    6.1.0                                           |    Maven 包： http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 版本： https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    连接字符串设置         |
-|    Node.js             |    2.7.0                                           |    NPM 链接： https://www.npmjs.com/package/azure-storage（运行：npm install azure-storage@2.7.0）   <br>GitHub 版本： https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    服务实例声明    |
-|    C++                 |    3.1.0                                           |    Nuget 包： https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>GitHub 版本： https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    连接字符串设置         |
-|    PHP                 |    1.0.0                                           |    GitHub 版本：<br>通用： https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob： https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>通过 Composer 安装（请参阅下面的详细信息）。                                                                                                             |    连接字符串设置         |
-|    Python              |    1.0.0                                           |    GitHub 版本：<br>通用： https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob： https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    服务实例声明    |
+|    .NET                |    9.2.0                                           |    Nuget 包： https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>GitHub 版本： https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    app.config 文件                 |
+|    Java                |    7.0.0                                           |    Maven 包： https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub 版本： https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    连接字符串设置         |
+|    Node.js             |    2.8.3                                           |    NPM 链接： https://www.npmjs.com/package/azure-storage （运行：`npm install azure-storage@2.7.0` ）   <br>GitHub 版本： https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    服务实例声明    |
+|    C++                 |    5.2.0                                           |    Nuget 包： https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub 版本： https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    连接字符串设置         |
+|    PHP                 |    1.2.0                                           |    GitHub 版本：<br>通用： https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob： https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>通过 Composer 安装（请参阅下面的详细信息）。                                                                                                             |    连接字符串设置         |
+|    Python              |    1.1.0                                           |    GitHub 版本：<br>通用： https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob： https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    服务实例声明    |
 |    Ruby                |    1.0.1                                           |    RubyGems 包：<br>通用： https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob： https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub 版本：<br>通用： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob： https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    连接字符串设置         |
 
 
@@ -82,22 +70,22 @@ Data Box Blob 存储支持以下版本的 Azure 存储服务 API：
 ### <a name="install-php-client-via-composer---current"></a>通过 Composer 安装 PHP 客户端 - 当前
 
 通过 Composer 安装：（以 blob 为例）。
-使用以下代码在项目的根目录中创建名为 composer.json 的文件：
+1. 使用以下代码在项目的根目录中创建名为 composer.json 的文件：
 
-```
- {
-   "require": {
-   "Microsoft/azure-storage-blob":"1.0.0"
-   }
-```
+    ```
+    {
+    "require": {
+    "Microsoft/azure-storage-blob":"1.2.0"
+    }
+    ```
 
-将 `composer.phar` 下载到项目根目录。
+2. 将 `composer.phar` 下载到项目根目录。
 
-运行：php composer.phar 安装。
+3. 运行：php composer.phar 安装。
 
 ### <a name="endpoint-declaration"></a>终结点声明
 
-Azure Data Box Blob 存储终结点包括两部分：区域名称和 Data Box 域。 在 Data Box Blob 存储 SDK 中，默认终结点为 \<设备的序列号\>.microsoftdatabox.com。  有关 blob 服务终结点的更多信息，请转至[通过 Data Box Blob 存储连接](data-box-deploy-copy-data-via-rest.md)。
+Azure Data Box Blob 存储终结点包括两部分：区域名称和 Data Box 域。 在 Data Box Blob 存储 SDK 中，默认终结点为 `\<serial no. of the device>.microsoftdatabox.com`。  有关 blob 服务终结点的更多信息，请转至[通过 Data Box Blob 存储连接](data-box-deploy-copy-data-via-rest.md)。
  
 ## <a name="examples"></a>示例
 

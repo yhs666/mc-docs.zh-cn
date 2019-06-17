@@ -3,34 +3,24 @@ title: 启用 Web 应用程序防火墙 - Azure CLI
 description: 了解如何通过 Azure CLI 在应用程序网关上使用 Web 应用程序防火墙限制 Web 流量。
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-origin.date: 07/14/2018
-ms.date: 04/17/2019
+origin.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 363de6773ae1ac93ee3592dc346c2295f49885f4
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 87fba89e75cbfe88ee62d20096fe955fcdfa7ce6
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686267"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027411"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>使用 Azure CLI 启用 Web 应用程序防火墙
 
-> [!div class="op_single_selector"]
->
-> - [Azure 门户](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+在[应用程序网关](overview.md)上使用 [Web 应用程序防火墙](waf-overview.md) (WAF) 限制流量。 WAF 使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 规则保护应用程序。 这些规则包括针对各种攻击（例如 SQL 注入、跨站点脚本攻击和会话劫持）的保护。
 
-在[应用程序网关](overview.md)上使用 [Web 应用程序防火墙](waf-overview.md) (WAF) 限制流量。 WAF 使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 规则保护应用程序。 这些规则包括针对各种攻击（例如 SQL 注入、跨站点脚本攻击和会话劫持）的保护。 
-
-本教程介绍如何执行下列操作：
+在本文中，学习如何：
 
 > [!div class="checklist"]
 > * 设置网络
@@ -40,11 +30,11 @@ ms.locfileid: "59686267"
 
 ![Web 应用程序防火墙示例](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-如果需要，可以使用 [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) 完成本教程中的步骤。
+如果需要，可以使用 [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) 完成此过程。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -147,18 +137,18 @@ az vmss extension set `
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>创建存储帐户和配置诊断
 
-在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Azure Monitor 日志或事件中心来记录数据。 
+在本文中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Azure Monitor 日志或事件中心来记录数据。 
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
 使用 [az storage account create](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 创建名为 *myagstore1* 的存储帐户。
 
 ```azurecli
-az storage account create \
-  --name myagstore1 \
-  --resource-group myResourceGroupAG \
-  --location chinanorth \
-  --sku Standard_LRS \
+az storage account create `
+  --name myagstore1 `
+  --resource-group myResourceGroupAG `
+  --location chinanorth `
+  --sku Standard_LRS `
   --encryption blob
 ```
 
@@ -200,15 +190,6 @@ az group delete --name myResourceGroupAG --location chinanorth
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
-
-> [!div class="checklist"]
-> * 设置网络
-> * 创建启用 WAF 的应用程序网关
-> * 创建虚拟机规模集
-> * 创建存储帐户和配置诊断
-
-> [!div class="nextstepaction"]
-> [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
+* [使用 SSL 终端创建应用程序网关](./tutorial-ssl-cli.md)
 
 <!-- Update_Description: wording update -->

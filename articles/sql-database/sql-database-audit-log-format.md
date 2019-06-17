@@ -13,12 +13,12 @@ ms.reviewer: vanto
 manager: digimobile
 origin.date: 01/03/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 3e5b2ff86b07f6b5a4b349ea2ee1abd3ed94d734
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 894a03b2f9db0dbc0f2495717f6962a30aee1c3c
+ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626241"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135571"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL 数据库审核日志格式
 
@@ -38,8 +38,8 @@ Blob 存储中存储的审核日志存储在 Azure 存储帐户中名为 `sqldba
 
 |          名称 (Blob)           |                                                                                                                                                 说明                                                                                                                                                 |                            Blob 类型                            |
 |--------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-|           action_id            |                                                                                                                                                                                                                                                                                                             |                        操作的 ID                         |
-|          action_name           |                                                                                                                                                                                                                                                                                                             |                       操作的名称                        |
+|           action_id            |                                                                                                                                                                                                                                                                                                             |                        操作的 ID                         | varchar(4) |
+|          action_name           |                                                                                                                                                                                                                                                                                                             |                       操作的名称                        | 不适用 |
 |     additional_information     |                                                                                                                          有关事件的任何附加信息，以 XML 形式存储                                                                                                                          |                         nvarchar(4000)                          |
 |         affected_rows          |                                                                                                                                    查询影响的行数                                                                                                                                     |                             bigint                              |
 |        application_name        |                                                                                                                                         客户端应用程序的名称                                                                                                                                          |                          nvarchar(128)                          |
@@ -50,7 +50,7 @@ Blob 存储中存储的审核日志存储在 Azure 存储帐户中名为 `sqldba
 |         connection_id          |                                                                                                                                     服务器中的连接的 ID                                                                                                                                      |                              GUID                               |
 |  data_sensitivity_information  |                             受审核查询根据数据库中分类的列返回的信息类型和敏感度标签。 详细了解 [Azure SQL 数据库数据发现和分类](sql-database-data-discovery-and-classification.md)                              |                         nvarchar(4000)                          |
 |         database_name          |                                                                                                                              在其中执行操作的数据库上下文                                                                                                                              |                             sysname                             |
-|     database_principal_id      |                                                                                                                                           database_principal_id_d                                                                                                                                           | 在其中执行操作的数据库用户上下文的 ID |
+|     database_principal_id      |                                                                                                                                           database_principal_id_d                                                                                                                                           | 在其中执行操作的数据库用户上下文的 ID | int |
 |    database_principal_name     |                                                                                                                     在其中执行操作的数据库用户上下文的名称                                                                                                                      |                             sysname                             |
 |     duration_milliseconds      |                                                                                                                                  查询执行持续时间，以毫秒为单位                                                                                                                                   |                             bigint                              |
 |           event_time           |                                                                                                                              激发可审核操作的日期和时间                                                                                                                               |                            datetime2                            |

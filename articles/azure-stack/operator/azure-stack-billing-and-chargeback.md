@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 04/29/2019
+ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 03/21/2019
-ms.openlocfilehash: 4c2f7c221eb33eec594db0097fa71e7a4315984b
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 3205192f6526f55ecda4f180f4c478d918ea2c13
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529658"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135487"
 ---
 # <a name="usage-and-billing-in-azure-stack"></a>Azure Stack 中的使用情况和计费
 
@@ -48,7 +48,7 @@ Azure Stack 资源提供程序（例如计算、存储和网络）每隔一小�
 在收集使用情况数据后，它将[报告给 Azure](azure-stack-usage-reporting.md)来生成帐单，可以通过 Azure 计费门户查看账单。
 
 > [!NOTE]  
-> 对于 Azure Stack 开发工具包 (ASDK) 和在容量模型下许可的 Azure Stack 集成系统用户，不需要进行使用情况数据报告。 若要详细了解 Azure Stack 中的许可，请参阅[打包和定价数据表](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
+> 对于 Azure Stack 开发工具包 (ASDK) 和在容量模型下许可的 Azure Stack 集成系统用户，不需要进行使用情况数据报告。
 
 Azure 计费门户显示应计费资源的使用情况数据。 除了应计费资源之外，Azure Stack 还会捕获更广范围内资源的使用情况数据，可以通过 REST API 或 PowerShell cmdlet 在 Azure Stack 环境中访问这些数据。 Azure Stack 操作员可以获取所有用户订阅的使用情况数据。 单个用户只能获取自己的详细使用情况。
 

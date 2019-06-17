@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5efa4197d4dc6e57100c1b93c5ae185a31e8e738
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 5c385f408f561925ffd607f853c49f209dc7f1bf
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556891"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135915"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS API 服务时可能遇到的术语。
@@ -77,7 +77,7 @@ ms.locfileid: "65556891"
 <a name="domain"></a>
 ## <a name="domain"></a>域
 
-在 LUIS 上下文中，域是一个知识领域。 域特定于应用的知识领域。 这可以是一个宽泛领域，例如旅行代理应用。 旅行代理应用还可特定于公司的信息领域，例如特定的地理位置、语言和服务。
+在 LUIS 上下文中，域是一个知识领域  。 域特定于应用的知识领域。 这可以是一个宽泛领域，例如旅行代理应用。 旅行代理应用还可特定于公司的信息领域，例如特定的地理位置、语言和服务。
 
 <a name="endpoint"></a>
 ## <a name="endpoint"></a>终结点
@@ -86,7 +86,7 @@ ms.locfileid: "65556891"
 
 以下是一个终结点示例：
 
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
+`https://<region>.api.cognitive.azure.cn/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
 
 |QueryString 参数|说明|
 |--|--|
@@ -209,7 +209,7 @@ LUIS 配额是 [Azure 订阅层](https://aka.ms/luis-price-tier)的限制。 可
 <a name="subscription-key"></a>
 ## <a name="subscription-key"></a>订阅密钥
 
-订阅密钥是与 [Azure 中创建](luis-how-to-azure-subscription.md)的 LUIS 服务关联的“终结点”密钥。 此密钥不是[创作密钥](#programmatic-key)。 如果有终结点密钥，则应为所有终结点请求使用该密钥，而非创作密钥。 可在 [LUIS](luis-reference-regions.md) 网站中的[“密钥和终结点”页](luis-how-to-azure-subscription.md)底部的终结点 URL 内看到当前的终结点密钥。 它是“subscription-key”名称/值对的值。
+订阅密钥是与 [Azure 中创建](luis-how-to-azure-subscription.md)的 LUIS 服务关联的“终结点”密钥  。 此密钥不是[创作密钥](#programmatic-key)。 如果有终结点密钥，则应为所有终结点请求使用该密钥，而非创作密钥。 可在 [LUIS](luis-reference-regions.md) 网站中的[“密钥和终结点”页](luis-how-to-azure-subscription.md)底部的终结点 URL 内看到当前的终结点密钥  。 它是“subscription-key”名称/值对的值  。
 
 <a name="test"></a>
 ## <a name="test"></a>测试

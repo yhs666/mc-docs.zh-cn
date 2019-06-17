@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: 836932566f123f774dbc9d68388ffaee4ed31460
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 06/17/2019
+ms.openlocfilehash: 9ed2f8cf6bb968a4e542976362b055c5d20790d8
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348557"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732540"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -22,7 +22,7 @@ ms.locfileid: "58348557"
 
 ## <a name="iot-hub-names"></a>IoT 中心名称
 
-可在中心的“概述”页上找到在门户中托管终结点的 IoT 中心的主机名。 默认情况下，IoT 中心的 DNS 名称如下所示：`{your iot hub name}.azure-devices.cn`。
+可在中心的“概述”页上找到在门户中托管终结点的 IoT 中心的主机名  。 默认情况下，IoT 中心的 DNS 名称如下所示：`{your iot hub name}.azure-devices.cn`。
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>内置 IoT 中心终结点列表
 Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下图显示了 IoT 中心公开的各种终结点。
 
@@ -50,7 +50,7 @@ Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下
 
   * *接收直接方法请求*。 设备使用此终结点侦听[直接方法](iot-hub-devguide-direct-methods.md)的请求。
 
-    这些终结点使用 [MQTT v3.1.1](http://mqtt.org/)、HTTPS 1.1 和 [AMQP 1.0](https://www.amqp.org/) 协议进行公开。 还可通过端口 443 上的 [WebSocket](https://tools.ietf.org/html/rfc6455) 来实现 AMQP。
+    这些终结点使用 [MQTT v3.1.1](https://mqtt.org/)、HTTPS 1.1 和 [AMQP 1.0](https://www.amqp.org/) 协议进行公开。 还可通过端口 443 上的 [WebSocket](https://tools.ietf.org/html/rfc6455) 来实现 AMQP。
 
 * **服务终结点**。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP](https://www.amqp.org/) 协议进行公开。 方法调用终结点通过 HTTPS 协议进行公开。
   
@@ -81,7 +81,7 @@ IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 
 有关可添加的终结点的数量限制，请参阅[配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
-可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 当终结点运行状况为故障或不正常时，建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来标识并调试错误。
+可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 我们建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来识别和调试终结点运行状况不佳或运行不正常时的错误，因为我们预计当终结点处于其中一种状态时，延迟会更高。
 
 |运行状况状态|说明|
 |---|---|

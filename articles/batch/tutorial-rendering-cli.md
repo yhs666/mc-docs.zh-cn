@@ -10,12 +10,12 @@ origin.date: 10/24/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 226d6983a4508ad0648a7384f5ba5432468979ff
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: 6b513728b6a0eb3c0b18e89cd84fff3f1f2e0810
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987030"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731449"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -40,7 +40,7 @@ Azure Batch 提供云规模的渲染功能，按使用付费。 Azure Batch 支�
 
 在订阅中创建资源组、Batch 帐户和链接存储帐户（如果尚未这样做）。 
 
-使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组。
+使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 以下示例在“chinanorth”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli 
 az group create \
@@ -135,7 +135,7 @@ az storage blob upload-batch \
   "enableInterNodeCommunication": false 
 }
 ```
-Batch 支持专用节点和[低优先级](batch-low-pri-vms.md)节点。可以在池中使用这其中的一种，或者两种都使用。 专用节点为池保留。 低优先级节点在 Azure 有剩余 VM 容量时以优惠价提供。 如果 Azure 没有足够的容量，低优先级节点会变得不可用。 
+Batch 支持专用节点和低优先级节点。可以在池中使用这其中的一种，或者两种都使用。 专用节点为池保留。 低优先级节点在 Azure 有剩余 VM 容量时以优惠价提供。 如果 Azure 没有足够的容量，低优先级节点会变得不可用。 
 
 指定的池包含单个运行 Windows Server 映像的低优先级节点，所装软件适用于 Batch 渲染服务。 该池已获得使用 3ds Max 和 Arnold 进行渲染的许可。 在后面的步骤中，请扩展该池，增加节点数。
 

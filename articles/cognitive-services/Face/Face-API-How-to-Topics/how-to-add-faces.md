@@ -9,27 +9,27 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 04/10/2019
-ms.date: 05/14/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4f65f5599cb49f9595c809273083fedae26c422d
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 4a7673d3d0d688024e7aa5cecfdaaf37f5c5bc0b
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668967"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830122"
 ---
-# <a name="how-to-add-faces-to-a-persongroup"></a>如何向 PersonGroup 添加人脸
+# <a name="add-faces-to-a-persongroup"></a>将人脸添加到 PersonGroup
 
-本指南介绍了将大量人员和人脸添加到 PersonGroup 对象的最佳做法。 相同的策略也适用于 LargePersonGroup、FaceList 和 LargeFaceList。 此示例是使用人脸 API .NET 客户端库以 C# 语言编写的。
+本指南演示了如何将大量人员和人脸添加到 PersonGroup 对象。 此同一策略还适用于 LargePersonGroup、FaceList 和 LargeFaceList 对象。 此示例是通过 C# 使用 Azure 认知服务人脸 API .NET 客户端库编写的。
 
 ## <a name="step-1-initialization"></a>步骤 1：初始化
 
-以下代码声明多个变量并实现帮助程序函数，以便对人脸添加请求进行计划。
+下面的代码声明了多个变量并实现了一个帮助程序函数来调度人脸添加请求：
 
 - `PersonCount` 是人员总数。
 - `CallLimitPerSecond` 是与订阅层相关的每秒最大调用次数。
 - `_timeStampQueue` 是一个队列，用于记录请求时间戳。
-- `await WaitCallLimitPerSecondAsync()` 将会等到能够有效地将发送下一个请求。
+- `await WaitCallLimitPerSecondAsync()` 将等待，直至可以发送下一请求。
 
 ```csharp
 const int PersonCount = 10000;
@@ -61,7 +61,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>步骤 2：授权 API 调用
 
-使用客户端库时，必须将订阅密钥传递给 FaceServiceClient 类的构造函数。 例如：
+使用客户端库时，必须将你的订阅密钥传递给 FaceServiceClient 类的构造函数。 例如：
 
 ```csharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
@@ -81,9 +81,9 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step-4-create-the-persons-to-the-persongroup"></a>步骤 4：创建添加到 PersonGroup 中的人员
+## <a name="step-4-create-the-persons-for-the-persongroup"></a>步骤 4：为 PersonGroup 创建人员
 
-以并发方式创建人员，另外还要应用 `await WaitCallLimitPerSecondAsync()` 以避免超出调用限制。
+可同时创建所有人员，为避免超出调用限制，还会应用 `await WaitCallLimitPerSecondAsync()`。
 
 ```csharp
 CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
@@ -98,7 +98,7 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="step-5-add-faces-to-the-persons"></a>步骤 5：向人员添加人脸
 
-虽然可同时处理向不同人员添加人脸，但对于某个人来说，处理则是依序的。
+添加到不同人员的人脸是并发处理的。 为单个特定人员添加的人脸是按顺序处理的。
 同样，为了确保请求频率在限制范围内，还会调用 `await WaitCallLimitPerSecondAsync()`。
 
 ```csharp
@@ -121,23 +121,23 @@ Parallel.For(0, PersonCount, async i =>
 
 ## <a name="summary"></a>摘要
 
-本指南介绍了如何创建包含大量人员和人脸的 PersonGroup。 请注意以下几点：
+在本指南中，你已学习了如何创建包含大量人员和人脸的 PersonGroup。 几条提醒事项：
 
-- 此策略也适用于 FaceList 和 LargePersonGroup。
-- 可同时处理在 LargePersonGroup 中添加/删除不同 FaceList 或 Person 的人脸。
-- 应依序完成对 LargePersonGroup 中某个 FaceList 或 Person 执行的一些操作。
-- 为简单起见，本指南省略了潜在异常处理。 如果想要增强可靠性，应该应用适当的重试策略。
+- 此策略也适用于 FaceLists 和 LargePersonGroups。
+- 为 LargePersonGroups 中的不同 FaceLists 或人员添加或删除人脸是并发处理的。
+- 为 LargePersonGroup 中的某个特定 FaceList 或人员添加或删除人脸是按顺序处理的。
+- 为简单起见，本指南省略了如何处理潜在的异常。 若要提高可靠性，请应用适当的重试策略。
 
-下面快速提示了之前介绍和展示的功能：
+其中解释并演示了以下功能：
 
-- 使用 [PersonGroup - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API 创建 PersonGroup
-- 使用 [PersonGroup 人员 - 创建](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API 创建人员
-- 使用 [PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 向人员添加人脸
+- 使用 [PersonGroup - Create](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API 创建 PersonGroup。
+- 使用 [PersonGroup Person - Create](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API 创建人员。
+- 使用 [PersonGroup 人员 - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API 向人员添加人脸。
 
 ## <a name="related-topics"></a>相关主题
 
-- [如何识别图像中的人脸](HowtoIdentifyFacesinImage.md)
-- [如何检测图像中的人脸](HowtoDetectFacesinImage.md)
-- [如何使用大规模功能](how-to-use-large-scale.md)
+- [识别图像中的人脸](HowtoIdentifyFacesinImage.md)
+- [检测图像中的人脸](HowtoDetectFacesinImage.md)
+- [使用大规模功能](how-to-use-large-scale.md)
 
 <!-- Update_Description: wording update -->

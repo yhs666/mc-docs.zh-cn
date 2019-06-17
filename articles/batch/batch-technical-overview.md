@@ -16,12 +16,12 @@ origin.date: 01/19/2018
 ms.date: 04/09/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: f787ece125740cde74c3f7f8f4ac76936ff0da3e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 39c7bc4a948cf7c7e4392fb6b6adfee631e6be63
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654319"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731266"
 ---
 # <a name="what-is-azure-batch"></a>什么是 Azure Batch？
 
@@ -66,7 +66,7 @@ Batch 的常用方案涉及在计算节点池中横向扩展本质并行工作�
 |步骤  |说明  |
 |---------|---------|
 |1.将**输入文件**和处理这些文件的**应用程序**上传到 Azure 存储帐户。     |输入文件可以是应用程序处理的任何数据，例如财务建模数据或要转码的视频文件。 应用程序文件可以包含处理数据的脚本或应用程序，例如媒体转码器。|
-|2.创建一个包含 Batch 帐户中的计算节点的 Batch **池**、一个用于在池中运行工作负荷的**作业**，以及作业中的**任务**。     | 池节点是执行任务的 VM。 指定属性，例如节点的数目和大小、Windows 或 Linux VM 映像，以及在节点加入池时要安装的应用程序。 管理池的成本和大小，方法是：使用[低优先级 VM](batch-low-pri-vms.md)，或者在工作负荷变化时[自动缩放](batch-automatic-scaling.md)节点数。 <br/><br/>当你将任务添加到作业时，Batch 服务自动计划任务在池中的计算节点上执行。 每项任务使用上传的应用程序来处理输入文件。 |
+|2.创建一个包含 Batch 帐户中的计算节点的 Batch **池**、一个用于在池中运行工作负荷的**作业**，以及作业中的**任务**。     | 池节点是执行任务的 VM。 指定属性，例如节点的数目和大小、Windows 或 Linux VM 映像，以及在节点加入池时要安装的应用程序。 管理池的成本和大小，方法是：在工作负荷变化时[自动缩放](batch-automatic-scaling.md)节点数。 <br/><br/>当你将任务添加到作业时，Batch 服务自动计划任务在池中的计算节点上执行。 每项任务使用上传的应用程序来处理输入文件。 |
 |3.将**输入文件**和**应用程序**下载到 Batch     |每个任务都可以在执行之前将要处理的输入数据下载到所分配的计算节点。 如果应用程序尚未安装在池节点上，可以改从此处下载它。 完成从 Azure 存储进行的下载以后，任务就会在分配的节点上执行。|
 |4.监视**任务执行情况**     |可以在运行任务时查询 Batch，以便监视作业及其任务的进度。 客户端应用程序或服务通过 HTTPS 与 Batch 服务通信。 由于监视的任务可能成千上万，而这些任务又运行在成千上万的计算节点上，因此请确保[高效查询批处理服务](batch-efficient-list-queries.md)。|
 |5.上传**任务输出**     |当任务完成时，它们可以将其输出数据上传到 Azure 存储。 也可直接从计算节点上的文件系统检索文件。|

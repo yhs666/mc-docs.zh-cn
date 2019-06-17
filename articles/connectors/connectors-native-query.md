@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/20/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: b76320d029ce2e624556a099430d75345edb5045
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 06/24/2019
+ms.openlocfilehash: 578f809ba146259ac64d64f76359998164ccb105
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645098"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135805"
 ---
 # <a name="get-started-with-the-query-action"></a>查询操作入门
 通过使用查询操作，可使用批处理和数组完成工作流，以便：
@@ -32,15 +32,16 @@ ms.locfileid: "52645098"
 若要开始在逻辑应用中使用查询操作，请参阅[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-query-action"></a>使用查询操作
-操作是由在逻辑应用中定义的工作流执行的操作。 [了解有关操作的详细信息](connectors-overview.md)。  
+操作是由在逻辑应用中定义的工作流执行的操作。 
+[了解有关操作的详细信息](../connectors/apis-list.md)。  
 
 查询操作当前具有一个在设计器中公开的操作，称为筛选数组。 这允许查询数组并返回一组已筛选的结果。
 
 下面是在逻辑应用中添加它的方法：
 
-1. 选择“新步骤”按钮。
-2. 选择“添加操作”。
-3. 在操作搜索框中，键入“筛选”列出“筛选数组”操作。
+1. 选择“新步骤”  按钮。
+2. 选择“添加操作”  。
+3. 在操作搜索框中，键入“筛选”  列出“筛选数组”  操作。
    
     ![选择查询操作](./media/connectors-native-query/using-action-1.png)
 4. 选择要筛选的数组。 （以下屏幕截图显示来自 Twitter 搜索的结果数组。）
@@ -65,9 +66,9 @@ ms.locfileid: "52645098"
 
 ### <a name="filter-array"></a>筛选数组
 下面是操作的输入字段，该操作发出 HTTP 出站请求。
-* 表示它是必填字段。
+\* 表示它是必填字段。
 
-| 显示名称 | 属性名称 | 说明 |
+| Display name | 属性名称 | 说明 |
 | --- | --- | --- |
 | 来自* |from |要筛选的数组 |
 | 条件* |其中 |要为每个项目评估的条件 |

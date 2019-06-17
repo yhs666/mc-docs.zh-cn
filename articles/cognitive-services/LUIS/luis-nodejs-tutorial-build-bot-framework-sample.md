@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 85aead3515e585e9974e08543070033de0336ff0
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: cbe44a0c49390aa2a3e04861b3b33f003d2b79b3
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555690"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135729"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>使用 Bot Framework 3.x 和 Azure Web 应用机器人的 Node.js 中的 LUIS 机器人
 
@@ -36,46 +36,46 @@ ms.locfileid: "65555690"
 
 ## <a name="create-a-language-understanding-bot-with-bot-service"></a>使用机器人服务创建语言理解机器人
 
-1. 在 [Azure 门户](https://portal.azure.cn)的菜单边栏选项卡中，选择“创建新资源”，并选择“查看全部”。
+1. 在 [Azure 门户](https://portal.azure.cn)的菜单边栏选项卡中，选择“创建新资源”，并选择“查看全部”   。
 
     ![查看 Azure 门户中的所有资源](./media/luis-tutorial-node-bot/bot-service-creation.png)
 
-2. 在搜索框中，搜索“Web 应用机器人”。 
+2. 在搜索框中，搜索“Web 应用机器人”  。 
 
     ![选择 Web 应用机器人以开始资源创建过程](./media/luis-tutorial-node-bot/bot-service-selection.png)
 
-3. 在“机器人服务边栏选项卡”中，提供所需信息，然后选择“创建”。 此操作可创建机器人服务和 LUIS 应用并将其部署到 Azure。 如果想要使用[语音启动](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，请在创建机器人前查看[区域要求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)。 
-   * 将“应用名称”设置为机器人名称。 将机器人部署到云（例如，mynotesbot.azurewebsites.net）时，该名称用作子域。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
+3. 在“机器人服务边栏选项卡”中，提供所需信息，然后选择“创建”   。 此操作可创建机器人服务和 LUIS 应用并将其部署到 Azure。 如果想要使用[语音启动](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)，请在创建机器人前查看[区域要求](troubleshooting.md#what-luis-regions-support-bot-framework-speech-priming)。 
+   * 将“应用名称”设置为机器人名称  。 将机器人部署到云（例如，mynotesbot.azurewebsites.net）时，该名称用作子域。 <!-- This name is also used as the name of the LUIS app associated with your bot. Copy it to use later, to find the LUIS app associated with the bot. -->
    * 选择“订阅”、“[资源组](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)”、“应用服务计划”和“[位置](https://www.azure.cn/support/service-dashboard/)”。
-   * 对于“机器人模板”，请选择：
+   * 对于“机器人模板”，请选择  ：
        * **SDK v3**
        * **Node.js**
        * **语言理解**
-   * 选择“LUIS 应用位置”。 这是创建应用的创作[区域][LUIS]。
+   * 选择“LUIS 应用位置”  。 这是创建应用的创作[区域][LUIS]。
    * 勾选法律声明的确认复选框。 法律声明条款在该复选框下方。
 
      ![“机器人服务”边栏选项卡](./media/luis-tutorial-node-bot/bot-service-setting-callout-template.png)
 
 
 4. 确认已部署机器人服务。
-    * 选择“通知”（钟形图标，位于 Azure 门户的上边缘）。 通知将从“部署已开始”更改为“部署已成功”。
-    * 通知更改为“部署已成功”后，选择该通知上的“转到资源”。
+    * 选择“通知”（钟形图标，位于 Azure 门户的上边缘）。 通知将从“部署已开始”更改为“部署已成功”   。
+    * 通知更改为“部署已成功”后，选择该通知上的“转到资源”   。
 
 ## <a name="try-the-default-bot"></a>尝试使用默认机器人
 
-查看“通知”，确认已部署机器人。 通知将从“正在进行部署...”更改为“部署已成功”。 选择“转到资源”按钮，打开机器人的资源边栏选项卡。
+查看“通知”，确认已部署机器人  。 通知将从“正在进行部署...”更改为“部署已成功”   。 选择“转到资源”按钮，打开机器人的资源边栏选项卡  。
 
 <!-- this step isn't supposed to be necessary -->
 ## <a name="install-npm-resources"></a>安装 NPM 资源
 按以下步骤安装 NPM 包：
 
-1. 从 Web 应用机器人的“机器人管理”部分选择“生成”。 
+1. 从 Web 应用机器人的“机器人管理”部分选择“生成”   。 
 
-2. 随即打开一个新的浏览器窗口。 选择“打开联机代码编辑器”。
+2. 随即打开一个新的浏览器窗口。 选择“打开联机代码编辑器”  。
 
 3. 在顶部导航栏中，选择 Web 应用机器人名称 `homeautomationluisbot`。 
 
-4. 在下拉列表中，选择“打开 Kudu 控制台”。
+4. 在下拉列表中，选择“打开 Kudu 控制台”  。
 
 5. 新的浏览器窗口将打开。 在控制台中输入以下命令：
 
@@ -86,7 +86,7 @@ ms.locfileid: "65555690"
     等待安装过程结束。 返回到第一个浏览器窗口。 
 
 ## <a name="test-in-web-chat"></a>通过网上聊天执行测试
-注册机器人后，选择“通过网上聊天执行测试”，打开“网上聊天”窗格。 在网上聊天中键入“你好”。
+注册机器人后，选择“通过网上聊天执行测试”，打开“网上聊天”窗格  。 在网上聊天中键入“你好”。
 
   ![通过网上聊天测试机器人](./media/luis-tutorial-node-bot/bot-service-web-chat.png)
 
@@ -94,23 +94,23 @@ ms.locfileid: "65555690"
 
 ## <a name="connect-your-luis-app-to-the-bot"></a>将 LUIS 应用连接到机器人
 
-在第一个浏览器窗口中打开“应用程序设置”，然后编辑“LuisAppId”字段，以包含 LUIS 应用的应用程序 ID。
+在第一个浏览器窗口中打开“应用程序设置”，然后编辑“LuisAppId”字段，以包含 LUIS 应用的应用程序 ID   。
 
   ![更新 Azure 中的 LUIS 应用 ID](./media/luis-tutorial-node-bot/bot-service-app-id.png)
 
-如果没有 LUIS 应用 ID，请使用登录 Azure 所用的同一帐户登录到 [LUIS](luis-reference-regions.md) 网站。 选择“我的应用”。 
+如果没有 LUIS 应用 ID，请使用登录 Azure 所用的同一帐户登录到 [LUIS](luis-reference-regions.md) 网站。 选择“我的应用”  。 
 
 1. 查找之前创建的 LUIS 应用，该应用包含 HomeAutomation 域中的意向和实体。
 
-2. 在 LUIS 应用的“设置”页上，查找并复制应用 ID。
+2. 在 LUIS 应用的“设置”页上，查找并复制应用 ID  。
 
-3. 如果尚未训练应用，请选择右上角的“训练”按钮来训练应用。
+3. 如果尚未训练应用，请选择右上角的“训练”按钮来训练应用  。
 
-4. 如果尚未发布应用，请选择顶部导航栏中的“发布”，打开“发布”页。 选择“生产”槽和“发布”按钮。
+4. 如果尚未发布应用，请选择顶部导航栏中的“发布”，打开“发布”页   。 选择“生产”槽和“发布”按钮  。
 
 ## <a name="modify-the-bot-code"></a>修改机器人代码
 
-转到第二个浏览器窗口（如果该窗口仍处于打开状态），或在第一个浏览器窗口中，选择“生成”，然后选择“打开联机代码编辑器”。
+转到第二个浏览器窗口（如果该窗口仍处于打开状态），或在第一个浏览器窗口中，选择“生成”，然后选择“打开联机代码编辑器”   。
 
    ![打开联机代码编辑器](./media/luis-tutorial-node-bot/bot-service-build.png)
 
@@ -163,7 +163,7 @@ bot.set('storage', tableStorage);
 // Make sure you add code to validate these fields
 var luisAppId = process.env.LuisAppId;
 var luisAPIKey = process.env.LuisAPIKey;
-var luisAPIHostName = process.env.LuisAPIHostName || 'westus.api.cognitive.microsoft.com';
+var luisAPIHostName = process.env.LuisAPIHostName || 'chinaeast2.api.cognitive.azure.cn';
 
 const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v2.0/apps/' + luisAppId + '?subscription-key=' + luisAPIKey;
 
@@ -236,11 +236,11 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>测试机器人
 
-在 Azure 门户中，选择“通过网上聊天执行测试”以测试机器人。 请尝试键入“开灯”和“关掉加热器”等消息，以调用添加到其中的意向。
+在 Azure 门户中，选择“通过网上聊天执行测试”以测试机器人  。 请尝试键入“开灯”和“关掉加热器”等消息，以调用添加到其中的意向。
    ![在网上聊天中测试 HomeAutomation 机器人](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]
-> 如果发现机器人并未能始终识别正确意向或实体，请提供更多示例陈述对其进行训练，从而提高 LUIS 应用的性能。 无需对机器人代码进行任何修改即可重新训练 LUIS 应用。 请参阅[添加示例陈述](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances)和[训练和测试 LUIS 应用](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test)。
+> 如果发现机器人并未能始终识别正确意向或实体，请提供更多示例陈述对其进行训练，从而提高 LUIS 应用的性能。 无需对机器人代码进行任何修改即可重新训练 LUIS 应用。 请参阅[添加示例陈述](https://docs.azure.cn/cognitive-services/LUIS/add-example-utterances)和[训练和测试 LUIS 应用](https://docs.azure.cn/cognitive-services/LUIS/luis-interactive-test)。
 
 ## <a name="learn-more-about-bot-framework"></a>深入了解 Bot Framework
 深入了解 [Bot Framework](https://dev.botframework.com/) 以及 [3.x](https://github.com/Microsoft/BotBuilder) 和 [4.x](https://github.com/Microsoft/botbuilder-js) SDK。
@@ -264,7 +264,7 @@ bot.dialog('TurnOff',
 [matches]: https://docs.botframework.com/en-us/node/builder/chat-reference/interfaces/_botbuilder_d_.itriggeractionoptions.html#matches
 
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions
+[LUIS]: https://docs.azure.cn/cognitive-services/LUIS/luis-reference-regions
 
 
 

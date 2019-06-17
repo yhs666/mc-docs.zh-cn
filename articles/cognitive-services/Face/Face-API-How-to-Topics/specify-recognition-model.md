@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.component: face-api
 ms.topic: conceptual
 origin.date: 03/28/2019
-ms.date: 04/23/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c8fd6a157bed14478174cf345c0cffd4f8e1ba38
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: b0e00f621937963612ffc0d3b320a6812c833607
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852074"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830120"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定人脸识别模型
 
@@ -53,7 +53,7 @@ ms.locfileid: "63852074"
 如果不分配该值，将使用默认模型版本 (_recognition_01_)。 请查看适用于 .NET 客户端库的以下代码示例。
 
 ```csharp
-string imageUrl = "http://news.microsoft.com/ceo/assets/photos/06_web.jpg";
+string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
 var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
@@ -124,3 +124,4 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 [FaceList - Get]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
 [LargeFaceList - Create]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
 
+<!-- Update_Description: link update -->

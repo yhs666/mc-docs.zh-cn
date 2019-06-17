@@ -1,39 +1,42 @@
 ---
-title: 用于 Azure Active Directory B2C 中的 JavaScript 示例 | Microsoft Docs
+title: JavaScript 示例 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中使用 JavaScript。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 12/05/2018
-ms.date: 04/04/2019
+origin.date: 04/25/2019
+ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c7702223c6041cc16b23ff8615b7a1d541e3c501
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: d1d4e442280bd14fba664fb318aaeadce2d50622
+ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004486"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687625"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>用于 Azure Active Directory B2C 中的 JavaScript 示例
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-可以向 Azure Active Directory (Azure AD) B2C 应用程序添加自己的 JavaScript 客户端代码。 本文介绍如何更改[用户流](user-flow-javascript-overview.md)或[自定义策略](active-directory-b2c-overview-custom.md)以启用脚本执行。
+可以向 Azure Active Directory (Azure AD) B2C 应用程序添加自己的 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加元素，选择[页面协定](page-contract.md)，并在请求中使用 [b2clogin.com](b2clogin.md)。 本文介绍如何更改自定义策略以启用脚本执行。
+
+> [!NOTE]
+> 如果要为用户流启用 JavaScript，请参阅 [Azure Active Directory B2C 中的 JavaScript 和页面协定版本](user-flow-javascript-overview.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
-为应用程序的用户界面元素选择[页协定](page-contract.md)。 如果打算使用 JavaScript，需要为用户流或自定义策略中的所有内容定义定义一个页协定版本。
+为应用程序的用户界面元素选择页面协定。 如果打算使用 JavaScript，需要为自定义策略中所有的内容定义定义一个页协定版本。
 
 ## <a name="add-the-scriptexecution-element"></a>添加 ScriptExecution 元素
 
-通过向 [RelyingParty](relyingparty.md)元素添加 ScriptExecution 元素来启用脚本执行。
+通过向 [RelyingParty](relyingparty.md)元素添加 ScriptExecution 元素来启用脚本执行  。
 
-1. 打开自定义策略文件。 例如，SignUpOrSignin.xml。
-2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素：
+1. 打开自定义策略文件。 例如，SignUpOrSignin.xml  。
+2. 向 RelyingParty 的 UserJourneyBehaviors 元素添加 ScriptExecution 元素    ：
 
     ```XML
     <RelyingParty>
@@ -70,7 +73,7 @@ ms.locfileid: "59004486"
 
 ### <a name="show-or-hide-a-password"></a>显示或隐藏密码
 
-帮助客户成功注册的一种常见的方式是：允许他们查看他们作为密码输入的内容。 该选项使用户能够根据需要轻松查看和更正密码，从而帮助用户登录。 任何密码类型的字段都有一个带有“显示密码”标签的复选框。  这使用户能够看到纯文本形式的密码。 使自断言页面的注册或登录模板中包括以下代码片段：
+帮助客户成功注册的一种常见的方式是：允许他们查看他们作为密码输入的内容。 该选项使用户能够根据需要轻松查看和更正密码，从而帮助用户登录。 任何密码类型的字段都有一个带有“显示密码”标签的复选框  。  这使用户能够看到纯文本形式的密码。 使自断言页面的注册或登录模板中包括以下代码片段：
 
 ```Javascript
 function makePwdToggler(pwd){
@@ -116,7 +119,7 @@ setupPwdTogglers();
 
 ### <a name="add-terms-of-use"></a>添加使用条款
 
-使需要包含“使用条款”复选框的页面中含有以下代码。 本地帐户注册和社交帐户注册页面中通常需要该复选框。
+使需要包含“使用条款”复选框的页面中含有以下代码  。 本地帐户注册和社交帐户注册页面中通常需要该复选框。
 
 ```Javascript
 function addTermsOfUseLink() {
@@ -141,7 +144,7 @@ function addTermsOfUseLink() {
 }
 ```
 
-在代码中，将 `terms-of-use-url` 替换使用条款协议的链接。 为目录创建一个名为“termsOfUse”的属性，然后将它作为用户工作流的用户属性。
+在代码中，将 `termsOfUseUrl` 替换使用条款协议的链接。 对于你的目录，创建一个名为 **termsOfUse** 的新用户属性，然后包括 **termsOfUse** 作为用户属性。
 
 
-
+<!-- Update_Description: wording update -->

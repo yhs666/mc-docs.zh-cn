@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: ead57e0f2b7f020ffe4f536630f149fefafed20d
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 861f1046ded549c56759cd271617b303062fcd5d
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561726"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135725"
 ---
 # <a name="tutorial-luis-bot-in-nodejs-with-the-bot-framework-4x-and-the-azure-web-app-bot"></a>教程：使用 Bot Framework 4.x 和 Azure Web 应用机器人的 Node.js 中的 LUIS 机器人
 使用 Node.js 可以生成与语言理解 (LUIS) 相集成的聊天机器人。 此机器人使用 HomeAutomation 应用来实现机器人解决方案。 此机器人是使用 Azure [Web 应用机器人](https://docs.microsoft.com/azure/bot-service/)和 [Bot Framework 版本](https://github.com/Microsoft/botbuilder-js) v4 构建的。
@@ -39,24 +39,24 @@ ms.locfileid: "65561726"
 
 ## <a name="create-web-app-bot"></a>创建 Web 应用机器人
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，选择“创建新资源”。
+1. 在 [Azure 门户](https://portal.azure.cn)中，选择“创建新资源”  。
 
-2. 在搜索框中，搜索并选择“Web 应用机器人”。 选择“创建” 。
+2. 在搜索框中，搜索并选择“Web 应用机器人”  。 选择“创建”  。
 
-3. 在“机器人服务”中提供所需的信息：
+3. 在“机器人服务”  中提供所需的信息：
 
     |设置|目的|建议的设置|
     |--|--|--|
     |机器人名称|资源名称|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
     |订阅|要在其中创建机器人的订阅。|你的主要订阅。
     |资源组|Azure 资源的逻辑组|创建一个新组用于存储此机器人使用的所有资源，并将该组命名为 `luis-nodejs-bot-resource-group`。|
-    |位置|Azure 区域 - 不一定要与 LUIS 创作或发布区域相同。|`westus`|
+    |位置|Azure 区域 - 不一定要与 LUIS 创作或发布区域相同。|`chinaeast`|
     |定价层|用于服务请求限制和计费。|`F0` 是免费层。
     |应用程序名称|将机器人部署到云（例如，humanresourcesbot.azurewebsites.net）时，该名称用作子域。|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
     |机器人模板|机器人框架设置 - 参阅下表|
-    |LUIS 应用位置|必须与 LUIS 资源区域相同|`westus`|
+    |LUIS 应用位置|必须与 LUIS 资源区域相同|`chinaeast`|
 
-4. 在“机器人模板设置”中选择以下选项，然后选择这些设置下面的“选择”按钮：
+4. 在“机器人模板设置”中选择以下选项，然后选择这些设置下面的“选择”按钮：  
 
     |设置|目的|选项|
     |--|--|--|
@@ -64,7 +64,7 @@ ms.locfileid: "65561726"
     |SDK 语言|机器人的编程语言|**Node.js**|
     |聊天/基础机器人|机器人类型|**基础机器人**|
     
-5. 选择“创建” 。 随即会创建机器人服务并将其部署到 Azure。 在此过程中，会创建名为 `luis-nodejs-bot-XXXX` 的 LUIS 应用。 此名称基于上一部分所述的机器人名称和应用名称。
+5. 选择“创建”  。 随即会创建机器人服务并将其部署到 Azure。 在此过程中，会创建名为 `luis-nodejs-bot-XXXX` 的 LUIS 应用。 此名称基于上一部分所述的机器人名称和应用名称。
 
     [![创建 Web 应用机器人](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
@@ -82,13 +82,13 @@ ms.locfileid: "65561726"
 
 将预生成的 HomeAutomation 应用添加到模型以处理类似于 `Turn off the living room lights` 的话语
 
-1. 转到 [LUIS](https://www.luis.ai) 门户并登录。
-2. 在“我的应用”页上，选择“创建日期”列以按应用创建日期排序。 Azure 机器人服务在上一部分已创建一个新应用。 该应用的名称为 `luis-nodejs-bot-` + `<your-name>` + 4 个随机字符。
-3. 打开该应用，并在顶部导航栏中选择“生成”部分。
-4. 在左侧导航栏中选择“预生成域”。
-5. 通过选择相应卡片上的“添加域”来选择“HomeAutomation”域。
-6. 在右上侧菜单中选择“训练”。
-7. 在右上侧菜单中选择“发布”。 
+1. 转到 [LUIS](https://docs.azure.cn) 门户并登录。
+2. 在“我的应用”页上，选择“创建日期”列以按应用创建日期排序。   Azure 机器人服务在上一部分已创建一个新应用。 该应用的名称为 `luis-nodejs-bot-` + `<your-name>` + 4 个随机字符。
+3. 打开该应用，并在顶部导航栏中选择“生成”部分。 
+4. 在左侧导航栏中选择“预生成域”。 
+5. 通过选择相应卡片上的“添加域”来选择“HomeAutomation”域。  
+6. 在右上侧菜单中选择“训练”  。
+7. 在右上侧菜单中选择“发布”  。 
 
     现在，Azure 机器人服务创建的应用包含新的意向：
 
@@ -100,11 +100,11 @@ ms.locfileid: "65561726"
 ## <a name="download-the-web-app-bot"></a>下载 Web 应用机器人 
 若要开发 Web 应用机器人代码，请下载该代码并在本地计算机上使用。 
 
-1. 在 Azure 门户中，仍在 Web 应用机器人资源上选择“应用程序设置”，并复制“botFilePath”和“botFileSecret”的值。 稍后需将这些值添加到环境文件。 
+1. 在 Azure 门户中，仍在 Web 应用机器人资源上选择“应用程序设置”，并复制“botFilePath”和“botFileSecret”的值。    稍后需将这些值添加到环境文件。 
 
-2. 在 Azure 门户中，从“机器人管理”部分选择“生成”。 
+2. 在 Azure 门户中，从“机器人管理”部分选择“生成”   。 
 
-3. 选择“下载机器人源代码”。 
+3. 选择“下载机器人源代码”。  
 
     [![下载基础机器人的 Web 应用机器人源代码](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 

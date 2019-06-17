@@ -10,18 +10,18 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 03/05/2019
-ms.date: 03/20/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: d5fae6a2235a93cdb8d5a0a54a00ca9e76b3001c
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: d58ab31f04d84c59bd2f66e04e56833302c019f5
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256387"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491476"
 ---
 # <a name="azure-iot-hub-bindings-for-azure-functions"></a>适用于 Azure Functions 的 Azure IoT 中心绑定
 
-本文介绍如何使用 IoT 中心的 Azure Functions 绑定。 IoT 中心支持基于 Azure 事件中心绑定。
+本文介绍如何使用 IoT 中心的 Azure Functions 绑定。 IoT 中心支持基于 [Azure 事件中心绑定](functions-bindings-event-hubs.md)。
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -47,3 +47,4 @@ ms.locfileid: "58256387"
 > [!div class="nextstepaction"]
 > [详细了解 Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 
+<!-- Update_Description: link update -->

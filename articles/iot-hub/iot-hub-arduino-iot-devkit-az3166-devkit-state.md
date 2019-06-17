@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 04/04/2018
 ms.date: 09/10/2018
 ms.author: v-yiso
-ms.openlocfilehash: d34f79cc2e9d86529caac9f9250cc9412b8e99cb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c9a9041453820ee867f1be60f05954cbf1c8c363
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666517"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136011"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -39,42 +39,42 @@ ms.locfileid: "52666517"
 
 ## <a name="provision-azure-services"></a>预配 Azure 服务
 
-1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “cloud-provision”。
-2. “欢迎”面板的“终端”选项卡下会显示进度。
-3. 出现“要选择哪个订阅”提示消息时，请选择一个订阅。
+1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “cloud-provision”。   
+2. “欢迎”面板的“终端”选项卡下会显示进度。  
+3. 出现“要选择哪个订阅”提示消息时，请选择一个订阅。 
 4. 选择一个资源组。 
  
    > [!NOTE]
    > 如果已有一个免费的 IoT 中心，则可以跳过此步骤。
 
-5. 出现“要选择哪个 IoT 中心”提示消息时，请选择或创建一个 IoT 中心。
-6. 随后会显示类似于“函数应用: 函数应用名称: xxx”的内容。 记下函数应用名称，因为在后续步骤中需要用到。
-7. 等待 Azure 资源管理器模板部署完成。显示“资源管理器模板部署: 完成”消息即表示部署完成。
+5. 出现“要选择哪个 IoT 中心”提示消息时，请选择或创建一个 IoT 中心。 
+6. 随后会显示类似于“函数应用: 函数应用名称: xxx”的内容。  记下函数应用名称，因为在后续步骤中需要用到。
+7. 等待 Azure 资源管理器模板部署完成，  显示“资源管理器模板部署: 完成”消息即表示部署完成。
 
 ## <a name="deploy-function-app"></a>部署函数应用
 
-1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “cloud-deploy”。
-2. 等待函数应用代码上传过程完成；此时会显示“函数应用部署: 完成”消息。
+1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “cloud-deploy”。   
+2. 等待函数应用代码上传过程完成，  显示“资源管理器模板部署: 完成”消息即表示部署完成。
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>在 DevKit 中配置 IoT 中心设备连接字符串
 
 1. 将 MXChip IoT DevKit 连接到计算机。
-2. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “config-device-connection”
-3. 在 MXChip IoT DevKit 上，按住按钮 **A**，按下“重置”按钮，然后松开按钮 **A**，使 DekKit 进入配置模式。
+2. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行任务...” - “config-device-connection”   
+3. 在 MXChip IoT DevKit 上，按住按钮 **A**，按下“重置”按钮，然后松开按钮 **A**，使 DekKit 进入配置模式。 
 4. 等待连接字符串配置过程完成。
 
 ## <a name="upload-arduino-code-to-devkit"></a>将 Arduino 代码上传到 DevKit
 
 在 MXChip IoT DevKit 已连接到计算机的情况下：
-1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行生成任务...”随即会编译 Arduino 草案并将其上传到 DevKit。
-2. 成功上传草案后，会显示“生成和上传草案: 成功”消息。
+1. 在 Visual Studio Code 中单击“任务”下拉菜单，并选择“运行生成任务...”   随即会编译 Arduino 草案并将其上传到 DevKit。
+2. 成功上传草案后，会显示“生成和上传草案: 成功”消息。 
 
 ## <a name="monitor-devkit-state-in-browser"></a>在浏览器中监视 DevKit 状态
 
-1. 在 Web 浏览器中，打开在执行[所需条件](#whatyouneed)步骤时创建的 `DevKitState\web\index.html` 文件。
+1. 在 Web 浏览器中，打开在执行[所需条件](#what-you-need)步骤时创建的 `DevKitState\web\index.html` 文件。
 2. 将显示以下网页：![指定函数应用名称。](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
 1. 输入前面记下的函数应用名称。
-2. 单击“连接”按钮
+2. 单击“连接”按钮 
 3. 在几秒钟内，页面将会刷新，并显示 DevKit 的 WiFi 连接状态，以及每个板载传感器的状态。
 
 ## <a name="control-the-devkits-user-led"></a>控制 DevKit 的用户 LED
@@ -88,7 +88,7 @@ ms.locfileid: "52666517"
 ![示例测试过程](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> 可以在 Azure 门户中查看设备孪生的原始数据：“IoT 中心”-\>“IoT 设备” -\>*\<你的设备\>* -\>“设备孪生”。
+> 可以看见 Azure 门户中的设备孪生的原始数据：IoT 中心 -\> IoT 设备 -\> \<设备\> -\> 设备孪生  。
 
 ## <a name="next-steps"></a>后续步骤
 

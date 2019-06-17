@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5ee0603b4c13a0860faecac2a1e65b96bef13f2a
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: e993cb6eff16da9f9f1bcb55e978f81f97796f2b
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556995"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135930"
 ---
 # <a name="quickstart-change-model-using-c"></a>快速入门：使用 C# 更改模型
 
@@ -43,13 +43,13 @@ ms.locfileid: "65556995"
 
 ### <a name="add-the-systemweb-dependency"></a>添加 System.Web 依赖项
 
-Visual Studio 项目需要 **System.Web**。 在解决方案资源管理器中，右键单击“引用”并从“程序集”部分中选择“添加引用”。
+Visual Studio 项目需要 **System.Web**。 在解决方案资源管理器中，右键单击“引用”并从“程序集”部分中选择“添加引用”。  
 
 ![添加 System.web 引用](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
 ### <a name="add-other-dependencies"></a>添加其他依赖项
 
-Visual Studio 项目需要 **JsonFormatterPlus** 和 **CommandLineParser**。 在“解决方案资源管理器”中，右键单击“引用”，并选择“管理 NuGet 包...”。浏览并添加这两个包中的每一个包。 
+Visual Studio 项目需要 **JsonFormatterPlus** 和 **CommandLineParser**。 在“解决方案资源管理器”中，右键单击“引用”，并选择“管理 NuGet 包...”   。浏览并添加这两个包中的每一个包。 
 
 ![添加第三方依赖项](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
@@ -103,8 +103,8 @@ namespace ConsoleApp1
       // NOTE: Replace this example LUIS authoring key with a valid key.
       static string authoringKey = "YOUR-AUTHORING-KEY";
 
-      // Uses westus region
-      static string host = "https://westus.api.cognitive.microsoft.com";
+      // Uses chinaeast region
+      static string host = "https://chinaeast2.api.cognitive.azure.cn";
       static string path = "/luis/api/v2.0/apps/" + appID + "/versions/" + appVersion + "/";
 ```
 
@@ -250,7 +250,7 @@ namespace ConsoleApp1
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>将 utterances.json 复制到输出目录
 
-在解决方案资源管理器中，通过右键单击解决方案资源管理器的项目名称，然后依次选择“添加”、“现有项”，添加 `utterances.json`。 选择 `utterances.json` 文件。 这会将文件添加到项目。 然后需要将它添加到输出方向。 右键单击 `utterances.json` 并选择“属性”。 在属性窗口中，标记 `Content` 的“生成操作”，并标记 `Copy Always` 的“复制到输出目录”。  
+在解决方案资源管理器中，通过右键单击解决方案资源管理器的项目名称，然后依次选择“添加”  、“现有项”  ，添加 `utterances.json`。 选择 `utterances.json` 文件。 这会将文件添加到项目。 然后需要将它添加到输出方向。 右键单击 `utterances.json` 并选择“属性”  。 在属性窗口中，标记 `Content` 的“生成操作”，并标记 `Copy Always` 的“复制到输出目录”。    
 
 ![将 JSON 文件标记为内容](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

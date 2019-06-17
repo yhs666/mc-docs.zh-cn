@@ -3,28 +3,28 @@ title: RelyingParty - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 中指定自定义策略的 RelyingParty 元素。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 01/25/2019
-ms.date: 04/04/2019
+ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 593b4d9927bdec58d166f5bf8c6dc0284dd9756a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 0f89b5e7088649f7ecf5d953b262e40d338c69e0
+ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004228"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687645"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-RelyingParty 元素指定用户旅程，以执行当前对 Azure Active Directory (Azure AD) B2C 的请求。 它还指定依赖方 (RP) 应用程序需要作为已颁发令牌一部分的声明列表。 RP 应用程序（例如 Web、移动或桌面应用程序）调用 RP 策略文件。 RP 策略文件执行特定任务，例如登录、重置密码，或编辑配置文件。 多个应用程序可以使用相同的 RP 策略，单个应用程序可以使用多个策略。 所有 RP 应用程序都接收具有相同声明的令牌，用户会经历相同的用户旅程。
+RelyingParty  元素指定用户旅程，以执行当前对 Azure Active Directory (Azure AD) B2C 的请求。 它还指定依赖方 (RP) 应用程序需要作为已颁发令牌一部分的声明列表。 RP 应用程序（例如 Web、移动或桌面应用程序）调用 RP 策略文件。 RP 策略文件执行特定任务，例如登录、重置密码，或编辑配置文件。 多个应用程序可以使用相同的 RP 策略，单个应用程序可以使用多个策略。 所有 RP 应用程序都接收具有相同声明的令牌，用户会经历相同的用户旅程。
 
-下面的示例演示 B2C_1A_signup_signin 策略文件中的 RelyingParty 元素：
+下面的示例演示 B2C_1A_signup_signin  策略文件中的 RelyingParty  元素：
 
 ```XML
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -72,7 +72,7 @@ RelyingParty 元素指定用户旅程，以执行当前对 Azure Active Director
   ...
 ```
 
-可选 RelyingParty 元素包含下列元素：
+可选 RelyingParty  元素包含下列元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -82,9 +82,9 @@ RelyingParty 元素指定用户旅程，以执行当前对 Azure Active Director
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
-`DefaultUserJourney` 元素指定对通常在基本或扩展策略中定义的用户旅程标识符的引用。 下面的示例演示在 RelyingParty 元素中指定的注册或登录用户旅程：
+`DefaultUserJourney` 元素指定对通常在基本或扩展策略中定义的用户旅程标识符的引用。 下面的示例演示在 RelyingParty  元素中指定的注册或登录用户旅程：
 
-B2C_1A_signup_signin 策略：
+B2C_1A_signup_signin  策略：
 
 ```XML
 <RelyingParty>
@@ -92,7 +92,7 @@ B2C_1A_signup_signin 策略：
   ...
 ```
 
-B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
+B2C_1A_TrustFrameWorkBase  或 B2C_1A_TrustFrameworkExtensionPolicy  ：
 
 ```XML
 <UserJourneys>
@@ -100,7 +100,7 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
   ...
 ```
 
-DefaultUserJourney 元素包含以下属性：
+DefaultUserJourney  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -108,7 +108,7 @@ DefaultUserJourney 元素包含以下属性：
 
 ## <a name="userjourneybehaviors"></a>UserJourneyBehaviors
 
-UserJourneyBehaviors 元素包含下列元素：
+UserJourneyBehaviors  元素包含下列元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -119,7 +119,7 @@ UserJourneyBehaviors 元素包含下列元素：
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-SingleSignOn 元素包含在以下属性中：
+SingleSignOn  元素包含在以下属性中：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -134,13 +134,13 @@ SingleSignOn 元素包含在以下属性中：
 
 `https://login.microsoft.com/contoso.partner.onmschina.cn/oauth2/v2.0/authorize?pB2C_1A_signup_signin&client_id=a415078a-0402-4ce3-a9c6-ec1947fcfb3f&nonce=defaultNonce&redirect_uri=http%3A%2F%2Fjwt.io%2F&scope=openid&response_type=id_token&prompt=login&campaignId=hawaii`
 
-ContentDefinitionParameters 元素包含以下元素：
+ContentDefinitionParameters  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
 | ContentDefinitionParameter | 0:n | 一个字符串，包含追加到内容定义负载 URI 查询字符串的键值对。 |
 
-ContentDefinitionParameters 元素包含以下属性：
+ContentDefinitionParameters  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -161,11 +161,11 @@ ContentDefinitionParameters 元素包含以下属性：
 | DisplayName | 0:1 | 一个字符串，其中包含向用户显示的技术配置文件的名称。 |
 | 说明 | 0:1 | 一个字符串，其中包含向用户显示的技术配置文件的说明。 |
 | 协议 | 1:1 | 用于联合的协议。 |
-| Metadata | 0:1 | 一个键/值对项集合，由协议在事务过程中与终结点进行通信，以配置依赖方与其他社区参与者之间的交互。 |
-| OutputClaims | 0:1 | 作为技术配置文件中的输出的声明类型列表。 这些元素中的每一个都包含对已在 ClaimsSchema 部分或策略文件继承自的策略中定义的 ClaimType。 |
+| Metadata | 0:1 | 一个键/值对项  集合，由协议在事务过程中与终结点进行通信，以配置依赖方与其他社区参与者之间的交互。 |
+| OutputClaims | 0:1 | 作为技术配置文件中的输出的声明类型列表。 这些元素中的每一个都包含对已在 ClaimsSchema  部分或策略文件继承自的策略中定义的 ClaimType  。 |
 | SubjectNamingInfo | 0:1 | 在令牌中使用的使用者名称。 |
 
-Protocol 元素包含以下属性：
+Protocol  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
@@ -173,31 +173,31 @@ Protocol 元素包含以下属性：
 
 ## <a name="outputclaims"></a>OutputClaims
 
-OutputClaims 元素包含以下元素：
+OutputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 信赖方订阅的策略中受支持列表的预期声明类型的名称。 此声明可作为技术配置文件输出。 |
 
-OutputClaim 元素包含以下属性：
+OutputClaim  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 是 | 对在策略文件的 ClaimsSchema 部分定义的 ClaimType 的引用。 |
+| ClaimTypeReferenceId | 是 | 对在策略文件的 ClaimsSchema  部分定义的 ClaimType  的引用。 |
 | DefaultValue | 否 | 一个默认值，如果声明值为空，则可以使用该值。 |
 | PartnerClaimType | 否 | 按照 ClaimType 定义中配置的不同名称发送声明。 |
 
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
-使用 SubjectNameingInfo 元素，可以控制令牌使用者的值：
-- JTW 令牌 - `sub` 声明。 这是令牌针对其断言信息的主体，例如应用程序的用户。 此值固定不变，无法重新分配或重复使用。 可使用它安全地执行授权检查，例如，使用令牌访问资源时。 默认情况下，将使用目录中用户的对象 ID 填充使用者声明。 有关详细信息，请参阅[令牌、会话和单一登录配置](active-directory-b2c-token-session-sso.md)。
-- SAML 令牌 - 标识使用者元素的 `<Subject><NameID>` 元素。
+使用 SubjectNameingInfo  元素，可以控制令牌使用者的值：
+- **JWT 令牌** - `sub` 声明。 这是令牌针对其断言信息的主体，例如应用程序的用户。 此值固定不变，无法重新分配或重复使用。 可使用它安全地执行授权检查，例如，使用令牌访问资源时。 默认情况下，将使用目录中用户的对象 ID 填充使用者声明。 有关详细信息，请参阅[令牌、会话和单一登录配置](active-directory-b2c-token-session-sso.md)。
+- SAML 令牌  - 标识使用者元素的 `<Subject><NameID>` 元素。
 
-SubjectNamingInfo 元素包含以下属性：
+SubjectNamingInfo  元素包含以下属性：
 
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| ClaimType | 是 | 对输出声明的 PartnerClaimType 的引用。 输出声明必须在信赖方策略 OutputClaims 集合中定义。 |
+| ClaimType | 是 | 对输出声明的 PartnerClaimType  的引用。 输出声明必须在信赖方策略 OutputClaims  集合中定义。 |
 
 下面的示例演示如何定义 OpenId Connect 信赖方。 使用者名称信息配置为 `objectId`：
 

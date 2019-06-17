@@ -6,15 +6,15 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
 origin.date: 01/11/2019
-ms.date: 05/20/2019
+ms.date: 06/12/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 193973c7a7fb0eb6b2791df175a3a1be07d561ca
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: b7406a802a3555b2303a050cde26c6fc7f34fe88
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960892"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027438"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
 
@@ -78,7 +78,7 @@ New-AzPublicIpAddress `
 2. 使用 [New-AzVMConfig](https://docs.microsoft.com/powershell/module/Az.compute/new-Azvmconfig) 创建虚拟机配置。
 3. 使用 [New-AzVM](https://docs.microsoft.com/powershell/module/Az.compute/new-Azvm) 创建虚拟机。
 
-运行以下代码示例来创建虚拟机时，Azure 会提示你输入凭据。 输入*azureuser* 作为用户名，输入 *Azure123456!*  作为密码：
+运行以下代码示例来创建虚拟机时，Azure 会提示你输入凭据。 输入*azureuser* 作为用户名，输入 *Azure123456!* 作为密码：
     
 ```azurepowershell
 $vnet   = Get-AzVirtualNetwork -ResourceGroupName myResourceGroupAG -Name myVNet
@@ -150,7 +150,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 ### <a name="create-the-backend-pool"></a>创建后端池
 
 1. 使用 [New-AzApplicationGatewayBackendAddressPool](https://docs.microsoft.com/powershell/module/Az.network/new-Azapplicationgatewaybackendaddresspool) 为应用程序网关创建后端池。 
-2. 使用 `New-AzApplicationGatewayBackendHttpSettings` 配置后端池的设置。
+2. 使用 [New-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/Az.network/new-Azapplicationgatewaybackendhttpsetting) 配置后端池的设置。
 
 ```azurepowershell
 $address1 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name myNic1
@@ -158,7 +158,7 @@ $address2 = Get-AzNetworkInterface -ResourceGroupName myResourceGroupAG -Name my
 $backendPool = New-AzApplicationGatewayBackendAddressPool `
   -Name myAGBackendPool `
   -BackendIPAddresses $address1.ipconfigurations[0].privateipaddress, $address2.ipconfigurations[0].privateipaddress
-$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSetting `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -243,4 +243,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 > [通过 Azure PowerShell 使用应用程序网关管理 Web 流量](./tutorial-manage-web-traffic-powershell.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code and link update -->

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 004a507e0092106de5a159a5cf59bc4cfd061f1d
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 8815c1f9bc41c6f053dc1f7474d1ec9217a7a377
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004498"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135987"
 ---
 # <a name="custom-alert-rules-in-azure-security-center-preview"></a>Azure 安全中心的自定义警报规则（预览版）
 本文档介绍了如何在 Azure 安全中心创建自定义警报规则。
@@ -34,7 +34,7 @@ ms.locfileid: "66004498"
 - 使用一键式加入功能来启用 [Azure Sentinel](https://www.azure.cn/services/azure-sentinel/)，以自动迁移其现有警报和创建新的警报
 - 使用 Azure Monitor 日志警报重新创建警报
                                      
-若要保留现有的警报并将其迁移到 Azure Sentinel，请[启动 Azure Sentinel](https://portal.azure.com/#create/Microsoft.ASI/preview)。 第一步是选择存储自定义警报的工作区，然后选择“分析”菜单项以自动迁移警报。
+若要保留现有的警报并将其迁移到 Azure Sentinel，请[启动 Azure Sentinel](https://portal.azure.cn/#create/Microsoft.ASI/preview)。 第一步是选择存储自定义警报的工作区，然后选择“分析”菜单项以自动迁移警报。
 
 > [!NOTE]
 > 将自定义警报迁移到 Azure Sentinel 会一次性迁移所选工作区中的所有自定义警报。 完成迁移后，无法通过 Azure 安全中心访问该所选工作区的自定义警报。
@@ -102,7 +102,6 @@ ms.locfileid: "66004498"
 本文档介绍了如何在 Azure 安全中心创建自定义警报规则。 若要了解更多有关 Azure 安全中心的详细信息，请参阅以下内容：
 
 * [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)（管理和响应 Azure 安全中心的安全警报）。 了解如何管理警报并响应安全中心的安全事件。
-* [Security health monitoring in Azure Security Center](security-center-monitoring.md)（在 Azure 安全中心进行安全运行状况监视）。 了解如何监视 Azure 资源的运行状况。
 * [了解 Azure 安全中心中的安全警报](https://docs.microsoft.com/azure/security-center/security-center-alerts-type)。 了解不同类型的安全警报。
 * [Azure 安全中心故障排除指南](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide)。 了解如何排查安全中心的常见问题。
 * [Azure Security Center FAQ](security-center-faq.md)（Azure 安全中心常见问题）。 查找有关如何使用服务的常见问题。

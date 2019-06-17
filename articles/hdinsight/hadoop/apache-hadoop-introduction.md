@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/28/2019
-ms.date: 04/01/2019
+origin.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: 02c2eabc1734688344131216c05a4cbe59e593a1
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: b83906012bac44bde099f9a6e147187932fa6199
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348658"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135988"
 ---
-# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Apache Hadoop 技术堆栈
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Apache Hadoop 技术堆栈？
 
-本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用开源框架，例如 Hadoop、Apache Spark、Apache Hive、LLAP、Apache Kafka、Apache Storm、R 等等。 
+本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是云中适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用开源框架，例如 Hadoop、Apache Spark、Apache Hive、LLAP、Apache Kafka、Apache Storm、R 等等。 
 
 
 ## <a name="what-is-hdinsight-and-the-hadoop-technology-stack"></a>什么是 HDInsight 和 Hadoop 技术堆栈？
@@ -86,15 +86,14 @@ Azure HDInsight 适用于各种方案的大数据处理。 大数据可以是历
 ## <a name="cluster-types-in-hdinsight"></a>HDInsight 中的群集类型
 HDInsight 包括特定的群集类型和群集自定义功能，例如添加组件、实用程序和语言的功能。 HDInsight 提供以下群集类型：
 
-* **[Apache Hadoop](https://wiki.apache.org/hadoop)**：一个框架，使用 HDFS、YARN 资源管理和简单的 MapReduce 编程模型并行处理和分析批处理数据。
-
-* **[Apache Spark](https://spark.apache.org/)**：一种开源并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 请参阅[什么是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)
-
-* **[Apache HBase](https://hbase.apache.org/)**：构建于 Hadoop 上的 NoSQL 数据库，用于为大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）提供随机访问和高度一致性。 请参阅[什么是 HBase on HDInsight？](../hbase/apache-hbase-overview.md)
-* **[Apache Storm](https://storm.incubator.apache.org/)**：分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](../storm/apache-storm-sensor-data-analysis.md)。
-* **[Apache 交互式查询预览（AKA：Live Long and Process）](https://cwiki.apache.org/confluence/display/Hive/LLAP)**：用于实现更快的交互式 Hive 查询的内存中缓存。 请参阅[在 HDInsight 中使用交互式查询](../interactive-query/apache-interactive-query-get-started.md)。
-
-* **[Apache Kafka](https://kafka.apache.org/)**：一种开源平台，用于生成流式处理的数据管道和应用程序。 Kafka 还提供了消息队列功能，可用于发布和订阅数据流。 请参阅 [Apache Kafka on HDInsight 简介](../kafka/apache-kafka-introduction.md)。
+|群集类型 | 说明 |
+|---|---|
+|[Apache Hadoop](https://wiki.apache.org/hadoop)|一个框架，使用 HDFS、YARN 资源管理和简单的 MapReduce 编程模型并行处理和分析批处理数据。|
+|[Apache Spark](https://spark.apache.org/)|一种开源并行处理框架，支持使用内存中处理来提升大数据分析应用程序的性能。 请参阅[什么是 HDInsight 中的 Apache Spark？](../spark/apache-spark-overview.md)|
+|[Apache HBase](https://hbase.apache.org/)|构建于 Hadoop 上的 NoSQL 数据库，用于为大量非结构化和半结构化数据（可能为数十亿行乘以数百万列）提供随机访问和高度一致性。 请参阅[什么是 HBase on HDInsight？](../hbase/apache-hbase-overview.md)|
+|[Apache Storm](https://storm.incubator.apache.org/)|分布式实时计算系统，用于快速处理大型数据流。 Storm 以 HDInsight 中的托管群集形式提供。 请参阅 [使用 Storm 和 Hadoop 分析实时传感器数据](../storm/apache-storm-sensor-data-analysis.md)。|
+|[Apache 交互式查询](https://cwiki.apache.org/confluence/display/Hive/LLAP)|用于实现更快的交互式 Hive 查询的内存中缓存。 请参阅[在 HDInsight 中使用交互式查询](../interactive-query/apache-interactive-query-get-started.md)。|
+|[Apache Kafka](https://kafka.apache.org/)|一种开源平台，用于生成流式处理的数据管道和应用程序。 Kafka 还提供了消息队列功能，可用于发布和订阅数据流。 请参阅 [Apache Kafka on HDInsight 简介](../kafka/apache-kafka-introduction.md)。|
 
 ## <a name="open-source-components-in-hdinsight"></a>HDInsight 中的开源组件
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bf3e5c8f48060527599788461884806c80e9f78a
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 193aeaa9cd498090bed74d320b124b899cf9f57a
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555452"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135989"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>在创建 Azure VM 时启用备份
 
@@ -26,18 +26,18 @@ ms.locfileid: "65555452"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-如果尚未登录到你的帐户，请先登录到 [Azure 门户](https://portal.azure.com)。
+如果尚未登录到你的帐户，请先登录到 [Azure 门户](https://portal.azure.cn)。
  
 ## <a name="create-a-vm-with-backup-configured"></a>创建配置了备份的 VM
 
-1. 在 Azure 门户中，单击“创建资源”。
+1. 在 Azure 门户中，单击“创建资源”  。
 
-2. 在 Azure 市场中，单击“计算”，然后选择一个 VM 映像。
+2. 在 Azure 市场中，单击“计算”  ，然后选择一个 VM 映像。
 
 3. 根据适用于 [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) 或 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) 的说明设置 VM。
 
-4. 在“管理”选项卡上，在“启用备份”中，单击“开启”。
-5. Azure 备份将备份到恢复服务保管库。 如果没有现有的保管库，请单击“新建”。
+4. 在“管理”  选项卡上，在“启用备份”  中，单击“开启”  。
+5. Azure 备份将备份到恢复服务保管库。 如果没有现有的保管库，请单击“新建”  。
 6. 接受建议的保管库名称或自己指定名称。
 7. 指定或创建保管库将位于其中的资源组。 资源组保管库可以不同于 VM 资源组。
 
@@ -59,8 +59,8 @@ ms.locfileid: "65555452"
 
 创建 VM 后，请执行以下操作：
 
-1. 在 VM 属性中，单击“备份”。 VM 状态将保持为“初始备份挂起”，直到初始备份运行
-2. 单击“立即备份”来运行按需备份。
+1. 在 VM 属性中，单击“备份”。  VM 状态将保持为“初始备份挂起”，直到初始备份运行
+2. 单击“立即备份”  来运行按需备份。
 
     ![运行按需备份](./media/backup-during-vm-creation/run-backup.png) 
 

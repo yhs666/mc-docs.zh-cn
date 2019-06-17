@@ -9,20 +9,19 @@ ms.service: monitoring
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a5ed912076bc5b5c1058ce95ed241e800ec20588
-ms.sourcegitcommit: 42766e267c2016d12977c24be394e8496f08e8fb
+ms.openlocfilehash: f8b59d35e92809223b38e1ca0073bb5a67f995d6
+ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250263"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66731268"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor 中的指标
 
 > [!NOTE]
 > Azure Monitor 数据平台基于两种基本数据类型：指标和日志。 本文介绍指标。 有关日志的详细介绍，请参阅 [Azure Monitor 中的日志](data-platform-logs.md)；有关日志与指标的比较，请参阅 [Azure Monitor 数据平台](data-platform.md)。
-
 
 Azure Monitor 中的指标是能够为近实时方案提供支持的轻型数据，因此，它们特别适合用于警报和快速检测问题。 本文将介绍指标的构建方式、可对指标执行哪些操作，以及如何识别需要在指标中存储数据的不同数据源。
 
@@ -35,7 +34,7 @@ Azure Monitor 中的指标是能够为近实时方案提供支持的轻型数据
 |  |  |
 |:---|:---|
 | 分析 | 使用[指标资源管理器](metrics-charts.md)可以在图表中分析收集的指标，并比较来自不同资源的指标。 |
-| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个工作簿用于在交互式报表中合并多个数据集。将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。 |
+| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)用于在交互式报表中合并多个数据集。将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。 |
 | 警报 | 配置指标[警报规则](alerts-metric.md)，以便在指标值超过阈值时发送通知或执行[自动化操作](action-groups.md)。 |
 | 自动化 |  根据超过阈值的指标值，使用[自动缩放](autoscale-overview.md)来增加或减少资源。 |
 | 导出 | [将指标路由到日志](diagnostic-logs-stream-log-store.md)，以连同 Azure Monitor 日志中的数据一起分析 Azure Monitor 指标中的数据，并将指标值存储 93 天以上。<br>将指标流式传输到[事件中心](stream-monitoring-data-event-hubs.md)，以将其路由到外部系统。 |
@@ -97,12 +96,12 @@ Azure Monitor 从三个基本源收集指标。 在 Azure Monitor 指标数据�
 
 **应用程序指标**由 Application Insights 为受监视的应用程序创建，可帮助检测性能问题，以及跟踪应用程序的用法趋势。 此类指标包括“服务器响应时间”和“浏览器异常”等值。  
 
-**自定义指标**是在自动提供的标准指标之外定义的指标。 可以在受 Application Insights 监视的应用程序中定义自定义指标，或者使用[自定义指标 API](metrics-store-custom-rest-api.md) 为 Azure 服务创建自定义指标。
+**自定义指标**是在自动提供的标准指标之外定义的指标。 可以在受 Application Insights 监视的[应用程序中定义自定义指标](../app/api-custom-events-metrics.md)，或者使用[自定义指标 API](metrics-store-custom-rest-api.md) 为 Azure 服务创建自定义指标。
 
 ## <a name="retention-of-metrics"></a>指标的保留期
 对于 Azure 中的大多数资源，指标存储 93 天。 有一些例外情况：
   * **经典来宾 OS 指标**。 经典来宾 OS 指标会保留 14 天。 若要保留期更长，我们建议使用新的来宾 OS 指标，这些指标使用 [Windows 诊断扩展 (WAD)](../platform/diagnostics-extension-overview.md) 收集，并用于具有 [InfluxData Telegraf 代理](https://www.influxdata.com/time-series-platform/telegraf/)的 Linux 虚拟机。
-  * **Application Insights 基于日志的指标**。 其保留期与基础日志中事件的保留期相匹配。 对于 Application Insights 资源，日志存储 90 天。 
+  * **Application Insights 基于日志的指标**。 在后台，[基于日志的指标](../app/pre-aggregated-metrics-log-metrics.md)将转换为日志查询。 其保留期与基础日志中事件的保留期相匹配。 对于 Application Insights 资源，日志存储 90 天。 
 
 > [!NOTE]
 > 可[将 Azure Monitor 资源的平台指标发送到 Log Analytics 工作区](diagnostic-logs-stream-log-store.md)以分析长期趋势。

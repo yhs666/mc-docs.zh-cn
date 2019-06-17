@@ -1,5 +1,5 @@
 ---
-title: Azure API 管理的常见安全属性
+title: Azure API 管理的安全属性
 description: 用于评估 API 管理的常见安全属性的清单
 services: api-management
 documentationcenter: ''
@@ -7,18 +7,19 @@ author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 04/16/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 7304bf739fffbd232c9f019c8f138372a77383e3
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+origin.date: 04/16/2019
+ms.date: 06/17/2019
+ms.author: v-yiso
+ms.openlocfilehash: a677a416d0336840d3f8f1d6024ffa65f9c08f09
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65830032"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732488"
 ---
-# <a name="common-security-attributes-for-api-management"></a>API 管理的常见安全属性
+# <a name="security-attributes-for-api-management"></a>API 管理的安全属性
 
-安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 API 管理中的常见安全特性。
+本文记录了内置到 API 管理中的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

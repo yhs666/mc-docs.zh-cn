@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
 origin.date: 03/27/2019
-ms.date: 04/22/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 37003e21c034599c97cee45b965b40f19688e6f4
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ff94ef243943e8cc03822952b125c141fae918b2
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854500"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830121"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入门：使用人脸 REST API 和 Python 检测图像中的人脸
 
@@ -52,6 +52,7 @@ ms.locfileid: "64854500"
 
 ```python
 import requests
+import json
 
 subscription_key = None
 assert subscription_key
@@ -262,4 +263,4 @@ print(json.dumps(response.json()))
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

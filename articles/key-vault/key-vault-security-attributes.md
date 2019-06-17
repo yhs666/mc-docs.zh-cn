@@ -7,18 +7,18 @@ manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 01/31/2019
-ms.date: 05/27/2019
+ms.date: 06/17/2019
 ms.author: v-biyu
-ms.openlocfilehash: afbd6fdb78f90f118e0f5bbc0c39024335f228c1
-ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+ms.openlocfilehash: 5c5d73a54123998401caa256d7f194aa24ca4ef1
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65628745"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687473"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Azure Key Vault 的常见安全特性
+# <a name="security-attributes-for-azure-key-vault"></a>Azure Key Vault 的安全特性
 
-安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 Azure Key Vault 中的常见安全特性。 
+本文记录了内置到 Azure Key Vault 中的安全特性。 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "65628745"
 
 ## <a name="network-segmentation"></a>网络分段
 
-| 安全属性 | 是/否 | 注释 |
+| 安全属性 | Yes/No | 注释 |
 |---|---|--|
 | 服务终结点支持| 是 | 使用虚拟网络 (VNet) 服务终结点。 |
 | VNet 注入支持| 否 |  |
@@ -50,8 +50,8 @@ ms.locfileid: "65628745"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| 访问管理 - 身份验证| 是 | 身份验证通过 Azure Active Directory 来进行。 |
-| 访问管理 - 授权| 是 | 使用密钥保管库访问策略。 |
+| 身份验证| 是 | 身份验证通过 Azure Active Directory 来进行。 |
+| 授权| 是 | 使用密钥保管库访问策略。 |
 
 
 ## <a name="audit-trail"></a>审核线索

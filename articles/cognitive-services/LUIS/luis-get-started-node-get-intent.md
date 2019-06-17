@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: a647237fee9fafdb9a2dade13523fd867bf37040
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 434c74dc3c6e89cbf421a78a8b3e3ea369146a5a
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556954"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135921"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>快速入门：使用 Node.js 获取意向
 
@@ -64,7 +64,7 @@ ms.locfileid: "65556954"
 
         // endpoint URL
         var endpoint =
-            "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/";
+            "https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/";
 
         // Set the LUIS_APP_ID environment variable 
         // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID

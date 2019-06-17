@@ -10,12 +10,12 @@ origin.date: 03/13/2019
 ms.date: 04/01/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 627bd7f44a8727e75ff3f2862443311b6224e8a0
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: 433c05494fbf003518ddc3164246b864ad67f598
+ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503685"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135570"
 ---
 # <a name="manage-modules-in-azure-automation"></a>在 Azure 自动化中管理模块
 
@@ -38,11 +38,11 @@ New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -Reso
 
 ### <a name="azure-portal"></a>Azure 门户
 
-在 Azure 门户中导航到你的自动化帐户，然后选择“共享资源”下的“模块”。 单击“+ 添加模块”。 选择包含你的模块的 **.zip** 文件，然后单击“确定”开始执行导入过程。
+在 Azure 门户中导航到你的自动化帐户，然后选择“共享资源”下的“模块”。   单击“+ 添加模块”。  选择包含你的模块的 **.zip** 文件，然后单击“确定”开始执行导入过程。 
 
 ## <a name="internal-cmdlets"></a>内部 cmdlet
 
-下面是导入到每个自动化帐户的内部 `Orchestrator.AssetManagement.Cmdlets` 模块中的 cmdlet 列表。 可在 Runbook 和 DSC 配置中访问这些 cmdlet，使用它们可与自动化帐户中的资产进行交互。 此外，使用内部 cmdlet 还可以从加密的“变量”值、“凭据”和加密的“连接”字段中检索机密。 Azure PowerShell cmdlet 无法检索这些机密。 无需隐式连接到 Azure 即可使用这些 cmdlet。 如果需要使用某个连接（例如运行方式帐户）在 Azure 中进行身份验证，则这些内部 cmdlet 就非常有利。
+下面是导入到每个自动化帐户的内部 `Orchestrator.AssetManagement.Cmdlets` 模块中的 cmdlet 列表。 可在 Runbook 和 DSC 配置中访问这些 cmdlet，使用它们可与自动化帐户中的资产进行交互。 此外，使用内部 cmdlet 还可以从加密的“变量”值、“凭据”和加密的“连接”字段中检索机密。    Azure PowerShell cmdlet 无法检索这些机密。 无需隐式连接到 Azure 即可使用这些 cmdlet。 如果需要使用某个连接（例如运行方式帐户）在 Azure 中进行身份验证，则这些内部 cmdlet 就非常有利。
 
 |Name|说明|
 |---|---|
@@ -53,35 +53,6 @@ New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -Reso
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
 |Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
 |Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
-
-## <a name="add-a-connection-type-to-your-module"></a>将连接类型添加到模块
-
-可以通过将一个可选文件添加到模块来提供自定义的[连接类型](../automation-connections.md)，以便在自动化帐户中使用。 此文件是一个元数据文件，用于指定要在自动化帐户中配合模块 cmdlet 使用的 Azure 自动化连接类型。 若要实现此目的，首先必须知道如何创作 PowerShell 模块。 有关模块创作的详细信息，请参阅[如何编写 PowerShell 脚本模块](https://docs.microsoft.com/powershell/developer/module/how-to-write-a-powershell-script-module)。
-
-![在 Azure 门户中使用自定义连接](../media/modules/connection-create-new.png)
-
-若要添加 Azure 自动化连接类型，模块必须包含用于指定连接类型属性的名为 `<ModuleName>-Automation.json` 的文件。 这是一个 json 文件，它位于 .zip 压缩文件的 module 文件夹中。 此文件包含连接到模块所代表的系统或服务所需的连接的字段。 此配置最终会在 Azure 自动化中创建一个连接类型。 可以使用此文件为模块的连接类型设置字段名称、类型，以及这些字段是否应加密或可选。 以下示例是一个采用 JSON 文件格式的模板，用于定义用户名和密码属性：
-
-```json
-{
-   "ConnectionFields": [
-   {
-      "IsEncrypted":  false,
-      "IsOptional":  true,
-      "Name":  "Username",
-      "TypeName":  "System.String"
-   },
-   {
-      "IsEncrypted":  true,
-      "IsOptional":  false,
-      "Name":  "Password",
-      "TypeName":  "System.String"
-   }
-   ],
-   "ConnectionTypeName":  "MyModuleConnection",
-   "IntegrationModuleName":  "MyModule"
-}
-```
 
 ## <a name="module-best-practices"></a>模块最佳做法
 
@@ -133,32 +104,9 @@ PowerShell 模块可导入到 Azure 自动化中，这样其 cmdlet 就可以在
 
   ![集成模块帮助](../media/modules/module-activity-description.png)
 
-* 如果模块连接到外部服务，则它应该包含一个[连接类型](#add-a-connection-type-to-your-module)。 模块中的每个 cmdlet 都应能够使用连接对象（该连接类型的实例）作为参数。 这让用户能够在每次调用 cmdlet 时将连接资产的参数映射到 cmdlet 的相应参数。 根据上面的 Runbook 示例，该模块使用名为 ContosoConnection 的示例 Contoso 连接资产来访问 Contoso 资源，并从外部服务返回数据。
-
-  在以下示例中，字段将映射到 `PSCredential` 对象的 UserName 和 Password 属性，然后传递给 cmdlet。
-
-  ```powershell
-  $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
-
-  $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $contosoConnection.UserName, $contosoConnection.Password
-  Connect-Contoso -Credential $cred
-  }
-  ```
-
-  实现此行为的更轻松且更好的方法是直接将连接对象传递给 cmdlet：
-
-  ```powershell
-  $contosoConnection = Get-AutomationConnection -Name 'ContosoConnection'
-
-  Connect-Contoso -Connection $contosoConnection
-  }
-  ```
-
-  若要启用 cmdlet 的类似上述示例的行为，可以允许 cmdlet 以参数的形式直接接受连接对象，而不是只接受连接字段作为参数。 通常情况下，需要为每个 cmdlet 提供一个参数集，这样不使用 Azure 自动化的用户在调用 cmdlet 时就不需要构造一个哈希表来充当连接对象。 参数集 `UserAccount` 用于传递连接字段属性。 `ConnectionObject` 用于一直传递连接。
-
 * 在模块中定义所有 cmdlet 的输出类型。 定义 cmdlet 的输出类型以后，就可以利用设计时 IntelliSense 来确定 cmdlet 的输出属性，供创作时使用。 这在自动化 runbook 的图形创作过程中特别有用，这种创作过程要求掌握一定程度的设计时知识，以改进用户对模块的使用体验。
 
-  可以通过添加 `[OutputType([<MyOutputType>])]`（其中，MyOutputType 是有效类型）来实现此目的。 若要详细了解 OutputType，请参阅[关于函数 OutputTypeAttribute](/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute)。 以下代码示例演示如何将 `OutputType` 添加到 cmdlet：
+  可以通过添加 `[OutputType([<MyOutputType>])]`（其中，MyOutputType 是有效类型）来实现此目的。 若要详细了解 OutputType，请参阅[关于函数 OutputTypeAttribute](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_functions_outputtypeattribute)。 以下代码示例演示如何将 `OutputType` 添加到 cmdlet：
 
   ```powershell
   function Get-ContosoUser {
@@ -197,7 +145,7 @@ PowerShell 模块可导入到 Azure 自动化中，这样其 cmdlet 就可以在
 
 * 该模块应完全包含在能够进行 xcopy 操作的包中。 需要执行 Runbook 时，Azure 自动化模块将分发到自动化沙盒中。 这些模块需要独立于它们在其上运行的​​主机工作。 你应能够压缩并移动模块包，并在导入到其他主机的 PowerShell 环境时使其正常运行。 为了实现这一点，模块不应该依赖于模块文件夹以外的任何文件。 此文件夹是将模块导入 Azure 自动化时压缩的文件夹。 该模块还不应依赖于主机上的任何唯一注册表设置，例如安装产品时设置的那些设置。 该模块中所有文件的路径长度应小于 140 个字符。 长度超过 140 个字符的任何路径将导致导入 Runbook 时出现问题。 如果不遵循此最佳做法，则无法在 Azure 自动化中使用该模块。  
 
-* 如果在模块中引用 [Azure Powershell Az 模块](/powershell/azure/new-azureps-module-az?view=azps-1.1.0)，请确保没有同时引用 `AzureRM`。 `Az` 模块不能与 `AzureRM` 模块一起使用。 Runbook 支持 `Az`，但默认情况下不会导入。
+* 如果在模块中引用 [Azure Powershell Az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0)，请确保没有同时引用 `AzureRM`。 `Az` 模块不能与 `AzureRM` 模块一起使用。 Runbook 支持 `Az`，但默认情况下不会导入。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 05/14/2019
+ms.date: 06/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 52e9d960e546083532ea3b2ccdfadf476c0d77a0
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 4179036d360247dc49619cee6db4f9d89edfbf19
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598845"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830058"
 ---
 # <a name="azure-cognitive-services-computer-vision-sdk-for-python"></a>适用于 Python 的 Azure 认知服务计算机视觉 SDK
 
@@ -44,7 +44,7 @@ ms.locfileid: "65598845"
 
 ### <a name="if-you-have-an-azure-subscription"></a>如果你拥有 Azure 订阅
 
-在订阅中创建资源的最简单方法是使用以下 [Azure CLI][azure_cli] 命令。 这样会创建一个认知服务密钥，该密钥可以在许多认知服务中使用。 需要选择现有的资源组名称（例如“my-cogserv-group”）和新的计算机视觉资源名称（例如“my-computer-vision-resource”）。
+在订阅中创建资源的最简单方法是使用以下 [Azure CLI][azure_cli] 命令。 这样会创建一个认知服务密钥，该密钥可以在许多认知服务中使用。 需要选择现有的资源组名称（例如“my-cogserv-group”）和新的计算机视觉资源名称（例如“my-computer-vision-resource”）。 
 
 ```Bash
 RES_REGION=chinanorth
@@ -213,18 +213,16 @@ for caption in analysis.captions:
 
 ```Python
 # import models
-from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
 import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
-mode = TextRecognitionMode.handwritten
 raw = True
 custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -250,7 +248,7 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 可以使用 [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail] 生成图像的缩略图 (JPG)。 缩略图的比例不需要与原始图像相同。
 
-安装 Pillow 以使用此示例：
+安装 Pillow 以使用  此示例：
 
 ```bash
 pip install Pillow
@@ -325,8 +323,6 @@ except HTTPFailure as e:
 [venv]: https://docs.python.org/3/library/venv.html
 [virtualenv]: https://virtualenv.pypa.io
 
-[source_code]: https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-vision-computervision
-
 [pypi_computervision]:https://pypi.org/project/azure-cognitiveservices-vision-computervision/
 [pypi_pillow]:https://pypi.org/project/Pillow/
 
@@ -360,4 +356,4 @@ except HTTPFailure as e:
 
 [computervision_request_units]:https://www.azure.cn/pricing/details/cognitive-services/
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

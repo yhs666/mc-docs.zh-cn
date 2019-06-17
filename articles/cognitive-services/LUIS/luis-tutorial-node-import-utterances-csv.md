@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2d23a2b57d278defecd0cc90850bee03b4107010
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: fdfc989c27cd85e8e62ee76759e6b1a6935d7288
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555591"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135973"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以编程方式生成 LUIS 应用
 
@@ -37,7 +37,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
 
 ![预先存在数据的 CSV 文件](./media/luis-tutorial-node-import-utterances-csv/csv.png) 
 
-可以看到“RequestType”列可能是意向，“Request”列显示了一个示例陈述。 如果其他字段出现在陈述中，则可能是实体。 由于有意向、实体和示例陈述，因此需要一个简单的示例应用。
+可以看到“RequestType”列可能是意向，“Request”列显示了一个示例陈述   。 如果其他字段出现在陈述中，则可能是实体。 由于有意向、实体和示例陈述，因此需要一个简单的示例应用。
 
 ## <a name="steps-to-generate-a-luis-app-from-non-luis-data"></a>从非 LUIS 数据生成 LUIS 应用的步骤
 若要从源文件生成新的 LUIS 应用，首先分析 CSV 文件中的数据并将此数据转换为可以使用 Authoring API 将其上传到 LUIS 的格式。 从已分析的数据，收集存在的意向和实体的信息。 然后进行 API 调用，以创建应用，并添加从已分析的数据收集的意向和实体。 创建 LUIS 应用后，可以从已分析的数据中添加示例陈述。 可以在下面的代码的最后一部分看到此流程。 复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/index.js)此代码并将其保存在 `index.js`。
@@ -74,7 +74,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         inFile: path.join(__dirname, uploadFile),
         batchSize: 100,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
+        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
     };
 
     /* create app parameters */
@@ -83,7 +83,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         appName: LUIS_appName,
         culture: LUIS_appCulture,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/"
+        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/"
     };
 
     /* add intents parameters */
@@ -92,7 +92,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         intentList: intents,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
+        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
     };
 
     /* add entities parameters */
@@ -101,7 +101,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         entityList: entities,
-        uri: "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
+        uri: "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
     };
 
     /* input and output files for parsing CSV */
@@ -168,7 +168,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         }
 ```
 
-在此示例中，`intentName` 来自 CSV 文件中“Request”列标题下的用户请求，`entityName` 来自具有密钥信息的其他列。 例如，如果有“操作”或“设备”条目，并且该字符串也出现在实际请求中，则可将其标记为实体。 下面的代码演示此分析过程。 可以复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js)它并将其保存在 `_parse.js`。
+在此示例中，`intentName` 来自 CSV 文件中“Request”列标题下的用户请求，`entityName` 来自具有密钥信息的其他列  。 例如，如果有“操作”或“设备”条目，并且该字符串也出现在实际请求中，则可将其标记为实体   。 下面的代码演示此分析过程。 可以复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_parse.js)它并将其保存在 `_parse.js`。
 
 ```
 // node 7.x
@@ -592,7 +592,7 @@ var upload = async (config) => {
 
         // load up promise array
         pages.forEach(page => {
-            config.uri = "https://westus.api.cognitive.microsoft.com/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId)
+            config.uri = "https://chinaeast2.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples".replace("{appId}", config.LUIS_appId).replace("{versionId}", config.LUIS_versionId)
             var pagePromise = sendBatchToApi({
                 url: config.uri,
                 fullResponse: false,
@@ -736,7 +736,7 @@ upload done
 
 
 ## <a name="open-the-luis-app"></a>打开 LUIS 应用
-该脚本完成后，可以登录 [LUIS](luis-reference-regions.md)，查看“我的应用”下创建的 LUIS 应用。 应该能够看到在 TurnOn、TurnOff 和 None 意向下添加的陈述。
+该脚本完成后，可以登录 [LUIS](luis-reference-regions.md)，查看“我的应用”下创建的 LUIS 应用  。 应该能够看到在 TurnOn、TurnOff 和 None 意向下添加的陈述    。
 
 ![TurnOn 意向](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
 

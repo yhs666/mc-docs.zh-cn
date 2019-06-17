@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 7c0f11583faa10f88abe0e796a1b96dddfb19322
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 4712de9f1feba3b6fe683f6220685592a464dff3
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248527"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135445"
 ---
 # <a name="tutorial-deploy-a-hybrid-cloud-solution-with-azure-and-azure-stack"></a>教程：使用 Azure 和 Azure Stack 部署混合云解决方案
 
@@ -44,8 +44,6 @@ ms.locfileid: "66248527"
 > - 为跨云缩放配置 SSL 证书。
 > - 配置并部署 Web 应用程序。
 > - 创建流量管理器配置文件，并根据跨云缩放对其进行配置。
-> - 针对增大的流量设置 Application Insights 监视和警报。
-> - 配置全球 Azure 与 Azure Stack 之间的自动流量切换。
 
 ### <a name="assumptions"></a>假设
 

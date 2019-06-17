@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 9d2a4dac903ba4e3227ea72aa061bf4668abe3ef
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 45ea6e5bbd8efba053d06fa04b996d00282e1e53
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556925"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135920"
 ---
 # <a name="quickstart-change-model-using-python"></a>快速入门：使用 Python 更改模型
 
@@ -44,7 +44,7 @@ ms.locfileid: "65556925"
 
    import http.client, sys, os.path, json
 
-   # Authoring key, available in luis.ai under Account Settings
+   # Authoring key, available in https://luis.azure.cn under Account Settings
    LUIS_authoringKey  = "YOUR-AUTHORING-KEY"
 
    # ID of your LUIS app to which you want to add an utterance
@@ -53,8 +53,8 @@ ms.locfileid: "65556925"
    # The version number of your LUIS app
    LUIS_APP_VERSION = "0.1"
 
-   # Update the host if your LUIS subscription is not in the West US region
-   LUIS_HOST       = "westus.api.cognitive.microsoft.com"
+   # Update the host if your LUIS subscription is not in the China East region
+   LUIS_HOST       = "chinaeast2.api.cognitive.azure.cn"
 
    # uploadFile is the file containing JSON for utterance(s) to add to the LUIS app.
    # The contents of the file must be in this format described at: https://aka.ms/add-utterance-json-format

@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: article
 origin.date: 09/24/2018
-ms.date: 02/25/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: eb3cf36b09ac8e2ccb6921f9558ab28093dbaad3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fb730d9e6fd8dc4b653cead2a8db30a0c99794b4
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626454"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726515"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>安全安装和运行 Azure Data Box
 ![警告图标](./media/data-box-safety/warning_icon.png)
@@ -41,7 +41,7 @@ ms.locfileid: "58626454"
 
 ![警告图标](./media/data-box-safety/warning_icon.png)![电击图标](./media/data-box-safety/electrical_shock_hazard_icon.png)![无用户可维修部件图标](./media/data-box-safety/no_user_serviceable_parts_icon.png)**小心** 
 
-* 检查收到的原始设备是否有损坏。 如果设备机箱受损，请联系 Azure 支持部门获取更换件。 请勿尝试操作设备。 
+* 检查收到的原始设备是否有损坏。  如果设备机箱受损，请联系 Azure 支持部门获取更换件。 请勿尝试操作设备。 
 * 设备上配备了防篡改螺丝。 如果怀疑设备不正常，请联系 Azure 支持部门获取更换件。 请勿尝试自行维修设备。 
 * 设备不包含任何用户可维修部件。 内有危险电压、电流和能量。 请勿拆开机箱。 请将设备退回到 Azure 进行检修。
 
@@ -143,7 +143,7 @@ Azure Corporation, One Microsoft Way, Redmond, WA 98052, USA.
 
 ![电池处置图标](./media/data-box-safety/battery_disposal_icon.png)
 
-本产品、其电池或包装上的此符号表示本产品包含的任何电池不可当作家庭垃圾进行处置。 你需要负责将此废弃物递送到适当的电池以及电力和电子设备回收点。 由于电池以及电力和电子设备中可能包含有害物质，这种独立的回收和循环利用有助于保护自然资源，并防止不当的处置可能对人类健康和环境造成的不利后果。 有关电池以及电力和电子废弃物投放点的详细信息，请联系当地的市政办公室、家庭垃圾处置服务部门，或销售本产品的商店。 联系 <em>erecycle@microsoft.com</em> 获取有关 WEEE 的更多信息。
+本产品、其电池或包装上的此符号表示本产品包含的任何电池不可当作家庭垃圾进行处置。 你需要负责将此废弃物递送到适当的电池以及电力和电子设备回收点。 由于电池以及电力和电子设备中可能包含有害物质，这种独立的回收和循环利用有助于保护自然资源，并防止不当的处置可能对人类健康和环境造成的不利后果。 有关电池以及电力和电子废弃物投放点的详细信息，请联系当地的市政办公室、家庭垃圾处置服务部门，或销售本产品的商店。 有关 WEEE 的其他信息，请与 erecycle\@microsoft.com  联系。
 
 本产品包含钮扣电池。
 

@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/05/2019
-ms.date: 05/20/2019
+ms.date: 06/10/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 1fd15fb8ef17a3b1a494e91cee560d905936857a
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: b63b82e27be3bce05d2eb1d8c03500c9b35868e9
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668841"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726473"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>将作业状态和作业流从自动化转发到 Azure Monitor 日志
 
@@ -52,11 +52,11 @@ Get-AzResource -ResourceType "Microsoft.OperationalInsights/workspaces"
 
 如果有多个自动化帐户或工作区，请在上述命令的输出中找到需要配置的*名称*，并复制 *ResourceId* 的值。
 
-要查找自动化帐户的名称，请在 Azure 门户中，从“自动化帐户”边栏选项卡选择自动化帐户，并选择“所有设置”。 在“所有设置”边栏选项卡中，选择“帐户设置”下面的“属性”。  在“属性”边栏选项卡中，可以记下这些值。<br> ![自动化帐户属性](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)（Log Analytics 入门）。
+要查找自动化帐户的名称  ，请在 Azure 门户中，从“自动化帐户”  边栏选项卡选择自动化帐户，并选择“所有设置”  。 在“所有设置”边栏选项卡中，选择“帐户设置”下面的“属性”    。  在“属性”边栏选项卡中，可以记下这些值  。<br> ![自动化帐户属性](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png)（Log Analytics 入门）。
 
 ## <a name="set-up-integration-with-azure-monitor-logs"></a>设置与 Azure Monitor 日志的集成
 
-1. 在计算机上，从“开始”屏幕启动 **Windows PowerShell**。
+1. 在计算机上，从“开始”  屏幕启动 **Windows PowerShell**。
 2. 运行以下 PowerShell，并使用前面步骤中获得的值编辑 `[your resource id]` 和 `[resource id of the log analytics workspace]` 的值。
 
    ```powershell
@@ -96,7 +96,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | Caller_s |谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。 |
 | Tenant_g | GUID，用于为 Caller 标识租户。 |
 | JobId_g |用作 Runbook 作业 ID 的 GUID。 |
-| ResultType |Runbook 作业的状态。 可能的值包括：<br>- New（新）<br>- Started（已启动）<br>- Stopped（已停止）<br>- Suspended（已暂停）<br>- Failed（失败）<br>- Completed（已完成） |
+| ResultType |Runbook 作业的状态。 可能的值包括：<br>- New（新）<br>- Created（已创建）<br>- Started（已启动）<br>- Stopped（已停止）<br>- Suspended（已暂停）<br>- Failed（失败）<br>- Completed（已完成） |
 | Category | 数据类型的分类。 对于自动化，该值为 JobLogs。 |
 | OperationName | 指定在 Azure 中执行的操作类型。 对于自动化，该值为 Job。 |
 | Resource | 自动化帐户的名称 |
@@ -116,7 +116,7 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 | TimeGenerated |执行 Runbook 作业的日期和时间。 |
 | RunbookName_s |Runbook 的名称。 |
 | Caller_s |谁启动了该操作。 可能的值为电子邮件地址或计划作业的系统。 |
-| StreamType_s |作业流的类型。 可能的值包括：<br>- Progress（进度）<br>- Output（输出）<br>- Warning（警告）<br>- Error（错误）<br>- Debug（调试）<br>- Verbose |
+| StreamType_s |作业流的类型。 可能的值包括：<br>\- Progress（进度）<br>- Output（输出）<br>- Warning（警告）<br>- Error（错误）<br>- Debug（调试）<br>- Verbose |
 | Tenant_g | GUID，用于为 Caller 标识租户。 |
 | JobId_g |用作 Runbook 作业 ID 的 GUID。 |
 | ResultType |Runbook 作业的状态。 可能的值包括：<br>- InProgress |
@@ -141,8 +141,8 @@ Get-AzDiagnosticSetting -ResourceId $automationAccountId
 ### <a name="find-all-jobs-that-have-completed-with-errors"></a>查找已完成但出错的所有作业
 还可以发现 Runbook 作业何时发生非终止错误。 在这些情况下，PowerShell 会生成一个错误流，但非终止错误不会导致作业暂停或失败。    
 
-1. 在 Log Analytics 工作区中单击“日志”。
-2. 在“查询”字段中键入 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`，然后单击“搜索”。
+1. 在 Log Analytics 工作区中单击“日志”  。
+2. 在“查询”字段中键入 `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobStreams" and StreamType_s == "Error" | summarize AggregatedValue = count() by JobId_g`，然后单击“搜索”  。
 
 ### <a name="view-job-streams-for-a-job"></a>查看作业的作业流
 调试作业时，你可能还希望深入查看作业流。 以下查询会显示 GUID 为 2ebd22ea-e05e-4eb9-9d76-d73cbd4356e0 的单个作业的所有流：   

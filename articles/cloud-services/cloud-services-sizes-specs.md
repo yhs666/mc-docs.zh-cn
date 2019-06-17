@@ -15,12 +15,12 @@ ms.workload: tbd
 origin.date: 07/18/2017
 ms.author: v-yiso
 ms.date: 12/17/2018
-ms.openlocfilehash: 42adee6eced69a7c8b157465cc672bae9189e0c2
-ms.sourcegitcommit: b64a6decfbb33d82a8d7ff9525726c90f3540d4e
+ms.openlocfilehash: 6cb99bc686f1430796041d003a916944abd8b641
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53569251"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135717"
 ---
 # <a name="sizes-for-cloud-services"></a>云服务的大小
 
@@ -44,7 +44,7 @@ Azure 上有多个标准大小可供选择。 其中某些大小的注意事项�
 以下注意事项可能有助于确定大小：
 
 * Dv3 系列、Dv2 系列和 D 系列是要求有更快速的 CPU、更好的本地磁盘性能，或更高内存的应用程序的理想选择。 它们为许多企业级应用程序提供强大的组合。
-* Azure 数据中心内的一些物理主机可能不支持更大的虚拟机大小，例如 A5 - A7。 因此，在以下情况下，可能会显示错误消息“未能配置虚拟机 {虚拟机名称}”或“未能创建虚拟机 {虚拟机名称}”：将现有虚拟机的大小调整为新的大小时；在 2013 年 4 月 16 日之前创建的虚拟网络中创建新的虚拟机时；或者向现有的云服务中添加新的虚拟机时。 有关每个部署方案的解决方法，请参阅支持论坛上的[错误：“无法配置虚拟机”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)。
+* Azure 数据中心内的一些物理主机可能不支持更大的虚拟机大小，例如 A5 - A7。 因此，在以下情况下，可能会显示错误消息“未能配置虚拟机 {虚拟机名称}”或“未能创建虚拟机 {虚拟机名称}”：将现有虚拟机的大小调整为新的大小时；在 2013 年 4 月 16 日之前创建的虚拟网络中创建新的虚拟机时；或者向现有的云服务中添加新的虚拟机时   。 有关每个部署方案的解决方法，请参阅支持论坛上的[错误：“无法配置虚拟机”](https://social.msdn.microsoft.com/Forums/9693f56c-fcd3-4d42-850e-5e3b56c7d6be/error-failed-to-configure-virtual-machine-with-a5-a6-or-a7-vm-size?forum=WAVirtualMachinesforWindows)。
 * 订阅也可能会限制某些大小系列中可部署的核心数。 若要增加配额，请联系 Azure 支持。
 
 ## <a name="performance-considerations"></a>性能注意事项
@@ -155,7 +155,7 @@ ACU 标有 *使用 Intel® Turbo 技术来增加 CPU 频率，并提升性能。
 
 可指定角色实例的虚拟机大小作为[服务定义文件](./cloud-services-model-and-package.md#csdef)描述的服务模型的一部分。 角色大小确定了 CPU 核心数目、内存容量，以及分配给正在运行的实例的本地文件系统大小。 根据应用程序的资源要求选择角色大小。
 
-下面是一个将 Web 角色实例的角色大小设置为 [Standard_D2](#general-purpose-d) 的示例：
+下面是将 Web 角色实例的角色大小设置为 Standard_D2 的示例：
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: d6be3db48b3b110667c16ff6711edb4a3cb124ce
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: ff9f94ab190629c6b6468f7b23ab1331e819c67b
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556963"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135993"
 ---
 # <a name="quickstart-get-intent-using-python"></a>快速入门：使用 Python 获取意向
 在本快速入门中，你将向 LUIS 终结点传递话语并返回意向和实体。
@@ -64,8 +64,8 @@ ms.locfileid: "65556963"
 
     # HTTP Request
     try:
-        # LUIS endpoint HOST for westus region
-        conn = httplib.HTTPSConnection('westus.api.cognitive.microsoft.com')
+        # LUIS endpoint HOST for chinaeast region
+        conn = httplib.HTTPSConnection('chinaeast.api.cognitive.microsoft.com')
 
         # LUIS endpoint path
         # includes public app ID
@@ -103,7 +103,7 @@ ms.locfileid: "65556963"
     }
 
     try:
-        r = requests.get('https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2',headers=headers, params=params)
+        r = requests.get('https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2',headers=headers, params=params)
         print(r.json())
 
     except Exception as e:

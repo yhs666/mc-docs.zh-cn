@@ -1,31 +1,31 @@
 ---
-title: 在 Azure Active Directory B2C 中选择页面协定 | Microsoft Docs
+title: 选择页面协定 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中选择页面协定。
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/04/2019
+origin.date: 04/25/2019
+ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d0f0b385aab8f8e4b8766e87dbba072178d3199f
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: d2ceb584645fd71dcf44a540cf878fc615d4aca8
+ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004490"
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687646"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>使用自定义策略在 Azure Active Directory B2C 中选择页面协定
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-无论你使用的是用户流还是自定义策略，都可以在你的 Azure Active Directory (Azure AD) B2C 策略中启用 JavaScript 客户端代码。 本文讨论了如何通过在[自定义策略](active-directory-b2c-overview-custom.md)中配置页面协定来在 Azure AD B2C 中选择页面协定。 页面协定是 Azure AD B2C 提供的元素与你提供的内容之间的关联。 如果打算使用 [Javascript](javascript-samples.md)，需要为自定义策略中所有的内容定义定义一个页协定版本。
+无论你使用的是用户流还是自定义策略，都可以在你的 Azure Active Directory (Azure AD) B2C 策略中启用 JavaScript 客户端代码。 若要为应用程序启用 JavaScript，必须在[自定义策略](active-directory-b2c-overview-custom.md)中添加元素，选择页面协定，并在请求中使用 [b2clogin.com](b2clogin.md)。 页面协定是 Azure AD B2C 提供的元素与你提供的内容之间的关联。 本文讨论了如何通过在自定义策略中配置页面协定来在 Azure AD B2C 中选择页面协定。
 
 > [!NOTE]
-> 如果想要为用户流启用 JavaScript，请参阅[关于在用户流中使用 JavaScript 和页面协定版本](user-flow-javascript-overview.md)。
+> 如果要为用户流启用 JavaScript，请参阅 [Azure Active Directory B2C 中的 JavaScript 和页面协定版本](user-flow-javascript-overview.md)。
 
 ## <a name="replace-datauri-values"></a>替换 DataUri 值
 
@@ -62,6 +62,6 @@ ms.locfileid: "59004490"
 | urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0 | urn:com:microsoft:aad:b2c:elements:contract:globalexception:1.1.0 |
 
 
-
+<!-- Update_Description: wording update -->
 
 

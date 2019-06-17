@@ -1,31 +1,31 @@
 ---
-title: Azure Data Box 门户管理员指南 | Microsoft Docs
-description: 介绍如何使用 Azure 门户管理 Azure Data Box。
+title: 通过 Azure 门户管理 Azure Data Box、Azure Data Box Heavy | Microsoft Docs
+description: 介绍如何使用 Azure 门户管理 Azure Data Box 和 Azure Data Box Heavy。
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
-origin.date: 10/19/2018
-ms.date: 02/25/2019
+ms.topic: article
+origin.date: 05/30/2019
+ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: 6f6e2a4d2df586fe9c315deb72c1e0a8d53a1291
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 78a0b3665f706350efe7365a7708320d45237094
+ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627427"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66726518"
 ---
-# <a name="use-the-azure-portal-to-administer-your-data-box"></a>使用 Azure 门户管理 Data Box
+# <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>使用 Azure 门户管理 Azure Data Box 和 Azure Data Box Heavy
 
-本文介绍了可对 Data Box 执行的一些复杂工作流和管理任务。 你可以通过 Azure 门户和本地 Web UI 管理 Data Box。 
+本文同时适用于 Azure Data Box 和 Azure Data Box Heavy。 本文介绍了可对 Azure Data Box 设备执行的一些复杂工作流和管理任务。 可以通过 Azure 门户或本地 Web UI 管理 Data Box 设备。
 
-本文重点介绍可以使用 Azure 门户执行的任务。 使用 Azure 门户可以管理订单、管理 Data Box，以及跟踪订单在从头到尾的处理过程中的状态。
+本文重点介绍可以使用 Azure 门户执行的任务。 使用 Azure 门户可以管理订单、管理 Data Box 设备，以及跟踪订单在从头到尾的处理过程中的状态。
 
 
 ## <a name="cancel-an-order"></a>取消订单
 
-下达订单后，你可能会出于各种原因需要取消订单。 只能在订单处理之前取消订单。 一旦订单已处理并且已准备好 Data Box，就不能取消订单。 
+下达订单后，你可能会出于各种原因需要取消订单。 只能在订单处理之前取消订单。 一旦订单已处理并且已准备好 Data Box 设备，就不能取消订单。
 
 可以执行以下步骤来取消订单。
 
@@ -41,11 +41,11 @@ ms.locfileid: "58627427"
 
 ## <a name="clone-an-order"></a>克隆订单
 
-克隆操作在某些情况下很有用。 例如，用户已使用 Data Box 传输了一些数据。 随着生成的数据越来越多，需要使用 Data Box 将这些数据传输到 Azure。 在这种情况下，只需克隆同一份订单即可。
+克隆操作在某些情况下很有用。 例如，用户已使用 Data Box 传输了一些数据。 随着生成的数据越来越多，需要使用另一个 Data Box 设备将这些数据传输到 Azure。 在这种情况下，只需克隆同一份订单即可。
 
 执行以下步骤来克隆订单。
 
-1.  转到“概况”>“克隆”。 
+1.  转到“概况”>“克隆”。  
 
     ![克隆订单 1](media/data-box-portal-admin/clone-order1.png)
 
@@ -60,21 +60,21 @@ ms.locfileid: "58627427"
 
 只能删除已完成或已取消的订单。 执行以下步骤删除订单。
 
-1. 转到“所有资源”。 搜索订单。
+1. 转到“所有资源”  。 搜索订单。
 
-2. 单击要删除的订单，并转到“概况”。 在命令栏中，单击“删除”。
+2. 单击要删除的订单，并转到“概况”。  在命令栏中，单击“删除”  。
 
     ![删除 Data Box 订单 1](media/data-box-portal-admin/delete-order1.png)
 
-3. 当系统提示确认删除订单时，请输入订单名称。 单击“删除” 。
+3. 当系统提示确认删除订单时，请输入订单名称。 单击“删除”  。
 
 ## <a name="download-shipping-label"></a>下载发货标签
 
-如果 Data Box 的电子墨水显示屏不工作并且没有返回发货标签，则你可能需要下载发货标签。 
+如果 Data Box 的电子墨水显示屏不工作并且没有返回发货标签，则你可能需要下载发货标签。 由于 Data Box Heavy 上没有电子墨水显示屏，因此此工作流程不适用于 Data Box Heavy。
 
 执行以下步骤下载发货标签。
 
-1.  转到“概况”>“下载发货标签”。 只有在设备已发货后，此选项才可用。 
+1.  转到“概况”>“下载发货标签”。  只有在设备已发货后，此选项才可用。 
 
     ![下载发货标签](media/data-box-portal-admin/download-shipping-label.png)
 
@@ -88,7 +88,7 @@ ms.locfileid: "58627427"
 
 执行以下步骤编辑订单。
 
-1. 转到“订单详细信息”>“编辑寄送地址”。
+1. 转到“订单详细信息”>“编辑寄送地址”。 
 
     ![编辑寄送地址 1](media/data-box-portal-admin/edit-shipping-address1.png)
 
@@ -102,7 +102,7 @@ ms.locfileid: "58627427"
 
 执行以下步骤编辑通知详细信息。
 
-1. 转到“订单详细信息”>“编辑通知详细信息”。
+1. 转到“订单详细信息”>“编辑通知详细信息”。 
 
     ![编辑通知详细信息 1](media/data-box-portal-admin/edit-notification-details1.png)
 
@@ -117,11 +117,11 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 若要下载订单历史记录，请执行以下步骤。
 
-1. 在 Data Box 订单中，转到“概览”。 请确保订单完整。 如果订单完整且设备清理已完成，则请转到“订单详细信息”。 “下载订单历史记录”选项可用。
+1. 在 Data Box 订单中，转到“概览”。  请确保订单完整。 如果订单完整且设备清理已完成，则请转到“订单详细信息”。  “下载订单历史记录”选项可用。 
 
     ![下载订单历史记录](media/data-box-portal-admin/download-order-history-1.png)
 
-2. 单击“下载订单历史记录”。 在下载的历史记录中，会看到一个有关承运人跟踪日志的记录。 如果向下滚动到该日志的底部，则可看到以下内容的链接：
+2. 单击“下载订单历史记录”。  在下载的历史记录中，会看到一个有关承运人跟踪日志的记录。 将有两组日志对应于 Data Box Heavy 上的两个节点。 如果向下滚动到该日志的底部，则可看到以下内容的链接：
     
    - **复制日志** - 包含一个文件列表，其中的文件是在将数据从 Data Box 复制到 Azure 存储帐户的过程中出错的。
    - **审核日志** - 包含有关 Data Box 启动的信息，以及当它位于 Azure 数据中心外部时在其上共享访问权限的信息。
@@ -131,54 +131,66 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
        -------------------------------
        Microsoft Data Box Order Report
        -------------------------------
-        
-       Name                                               : eastusdryrun                                      
-       StartTime(UTC)                                     : 9/6/2018 12:54:47 PM +00:00                       
-       DeviceType                                         : ImolaPod                                          
-        
+       Name                                               : DataBoxTestOrder                              
+       StartTime(UTC)                                     : 10/31/2018 8:49:23 AM +00:00                       
+       DeviceType                                         : DataBox                                           
        -------------------
        Data Box Activities
        -------------------
-        
-       Time(UTC)             | Activity                       | Status          | Description                                                                                                                                           
-        
-       9/6/2018 12:54:51 PM  | OrderCreated         | Completed  |                                                                                                                              
-       9/11/2018 8:57:38 PM  | DevicePrepared       | Completed  |                                                                                                                                                       
-       9/12/2018 7:28:15 PM  | ShippingToCustomer   | InProgress | Pickup Scan. Local Time : 9/12/2018 2:52:31 PM at Chantilly                                                                                           
-       9/13/2018 2:33:04 AM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/12/2018 9:00:00 PM at Chantilly                                                                                                                                                                                                                                                              
-       9/13/2018 12:40:31 PM | ShippingToCustomer   | InProgress | Arrival Scan. Local Time : 9/13/2018 5:00:00 AM at Oakland                                                                                            
-       9/13/2018 2:42:10 PM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/13/2018 6:08:00 AM at Oakland                                                                                          
-       9/13/2018 3:42:12 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:14:08 AM at Sunnyvale                                                                                      
-       9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:56:54 AM at Sunnyvale                                                                                      
-       9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Out For Delivery Today. Local Time : 9/13/2018 9:11:21 AM at Sunnyvale                                                                                
-       9/13/2018 5:43:07 PM  | ShippingToCustomer   | Completed  | Delivered. Local Time : 9/13/2018 9:44:17 AM at SUNNYVALE                                                                                             
-       9/14/2018 11:48:35 PM | ShippingToDataCenter | InProgress | Pickup Scan. Local Time : 9/14/2018 3:55:37 PM at Sunnyvale                                                                                                                                                                                 
-       9/15/2018 1:52:35 AM  | ShippingToDataCenter | InProgress | Arrival Scan. Local Time : 9/14/2018 6:31:00 PM at San Jose                                                                                           
-       9/15/2018 2:52:39 AM  | ShippingToDataCenter | InProgress | Departure Scan. Local Time : 9/14/2018 7:17:00 PM at San Jose                                                                                                                                                                             
-       9/17/2018 8:23:31 AM  | ShippingToDataCenter | InProgress | Destination Scan. Local Time : 9/17/2018 4:14:37 AM at Chantilly                                                                                      
-       9/17/2018 12:24:42 PM | ShippingToDataCenter | InProgress | Loaded on Delivery Vehicle. Local Time : 9/17/2018 7:45:36 AM at Chantilly                                                                            
-       9/17/2018 1:25:11 PM  | ShippingToDataCenter | InProgress | Out For Delivery Today. Local Time : 9/17/2018 8:27:11 AM at Chantilly                                                                                
-       9/17/2018 2:25:51 PM  | ShippingToDataCenter | Completed | Delivered. Local Time : 9/17/2018 9:56:32 AM at STERLING                                                                                              
-       9/18/2018 9:55:41 PM  | DeviceBoot           | Completed | Appliance booted up successfully                                                                                                                      
-       9/18/2018 11:00:25 PM | DataCopy             | Started   |                                                                                                                                                       
-       9/18/2018 11:01:33 PM | DataCopy             | Completed | Copy Completed.                                                                                                                                       
-       9/18/2018 11:20:58 PM | SecureErase          | Started   |                                                                                                                                                       
-       9/18/2018 11:28:46 PM | SecureErase          | Completed | Azure Data Box:BY506B4B616700 has been sanitized according to NIST 800 -88 Rev 1.                                                                     
-        
-       ----------------------
-       Data Box Job Log Links
-       ----------------------
-        
-       Account Name         : eastusdryrun                                         
-       Copy Logs Path       : copylog/copylogd695869a2a294396b7b903296c208388.xml                                                                                                                                                     
-       Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
-       BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
+       Time(UTC)                 | Activity                       | Status          | Description  
+       
+       10/31/2018 8:49:26 AM     | OrderCreated                   | Completed       |                                                   
+       11/2/2018 7:32:53 AM      | DevicePrepared                 | Completed       |                                                   
+       11/3/2018 1:36:43 PM      | ShippingToCustomer             | InProgress      | Shipment picked up. Local Time : 11/3/2018 1:36:43        PM at AMSTERDAM-NLD                                                                                
+       11/4/2018 8:23:30 PM      | ShippingToCustomer             | InProgress      | Processed at AMSTERDAM-NLD. Local Time : 11/4/2018        8:23:30 PM at AMSTERDAM-NLD                                                                        
+       11/4/2018 11:43:34 PM     | ShippingToCustomer             | InProgress      | Departed Facility in AMSTERDAM-NLD. Local Time :          11/4/2018 11:43:34 PM at AMSTERDAM-NLD                                                               
+       11/5/2018 1:38:20 AM      | ShippingToCustomer             | InProgress      | Arrived at Sort Facility LEIPZIG-DEU. Local Time :        11/5/2018 1:38:20 AM at LEIPZIG-DEU                                                                
+       11/5/2018 2:31:07 AM      | ShippingToCustomer             | InProgress      | Processed at LEIPZIG-DEU. Local Time : 11/5/2018          2:31:07 AM at LEIPZIG-DEU                                                                            
+       11/5/2018 4:05:58 AM      | ShippingToCustomer             | InProgress      | Departed Facility in LEIPZIG-DEU. Local Time :            11/5/2018 4:05:58 AM at LEIPZIG-DEU                                                                    
+       11/5/2018 4:35:43 AM      | ShippingToCustomer             | InProgress      | Transferred through LUTON-GBR. Local Time :              11/5/2018 4:35:43 AM at LUTON-GBR                                                                         
+       11/5/2018 4:52:15 AM      | ShippingToCustomer             | InProgress      | Departed Facility in LUTON-GBR. Local Time :              11/5/2018 4:52:15 AM at LUTON-GBR                                                                        
+       11/5/2018 5:47:58 AM      | ShippingToCustomer             | InProgress      | Arrived at Sort Facility LONDON-HEATHROW-GBR.            Local Time : 10/5/2018 5:47:58 AM at LONDON-HEATHROW-GBR                                                
+       11/5/2018 6:27:37 AM      | ShippingToCustomer             | InProgress      | Processed at LONDON-HEATHROW-GBR. Local Time :            11/5/2018 6:27:37 AM at LONDON-HEATHROW-GBR                                                            
+       11/5/2018 6:39:40 AM      | ShippingToCustomer             | InProgress      | Departed Facility in LONDON-HEATHROW-GBR. Local          Time : 11/5/2018 6:39:40 AM at LONDON-HEATHROW-GBR                                                    
+       11/5/2018 8:13:49 AM      | ShippingToCustomer             | InProgress      | Arrived at Delivery Facility in LAMBETH-GBR. Local        Time : 11/5/2018 8:13:49 AM at LAMBETH-GBR                                                         
+       11/5/2018 9:13:24 AM      | ShippingToCustomer             | InProgress      | With delivery courier. Local Time : 11/5/2018            9:13:24 AM at LAMBETH-GBR                                                                               
+       11/5/2018 12:03:04 PM     | ShippingToCustomer             | Completed       | Delivered - Signed for by. Local Time : 11/5/2018        12:03:04 PM at LAMBETH-GBR                                                                          
+       1/25/2019 3:19:25 PM      | ShippingToDataCenter           | InProgress      | Shipment picked up. Local Time : 1/25/2019 3:19:25        PM at LAMBETH-GBR                                                                                       
+       1/25/2019 8:03:55 PM      | ShippingToDataCenter           | InProgress      | Processed at LAMBETH-GBR. Local Time : 1/25/2019          8:03:55 PM at LAMBETH-GBR                                                                            
+       1/25/2019 8:04:58 PM      | ShippingToDataCenter           | InProgress      | Departed Facility in LAMBETH-GBR. Local Time :            1/25/2019 8:04:58 PM at LAMBETH-GBR                                                                    
+       1/25/2019 9:06:09 PM      | ShippingToDataCenter           | InProgress      | Arrived at Sort Facility LONDON-HEATHROW-GBR.            Local Time : 1/25/2019 9:06:09 PM at LONDON-HEATHROW-GBR                                                
+       1/25/2019 9:48:54 PM      | ShippingToDataCenter           | InProgress      | Processed at LONDON-HEATHROW-GBR. Local Time :            1/25/2019 9:48:54 PM at LONDON-HEATHROW-GBR                                                            
+       1/25/2019 10:30:20 PM     | ShippingToDataCenter           | InProgress      | Departed Facility in LONDON-HEATHROW-GBR. Local          Time : 1/25/2019 10:30:20 PM at LONDON-HEATHROW-GBR                                                   
+       1/26/2019 2:17:10 PM      | ShippingToDataCenter           | InProgress      | Arrived at Sort Facility BRUSSELS-BEL. Local Time        : 1/26/2019 2:17:10 PM at BRUSSELS-BEL                                                              
+       1/26/2019 2:31:57 PM      | ShippingToDataCenter           | InProgress      | Processed at BRUSSELS-BEL. Local Time : 1/26/2019        2:31:57 PM at BRUSSELS-BEL                                                                          
+       1/26/2019 3:37:53 PM      | ShippingToDataCenter           | InProgress      | Processed at BRUSSELS-BEL. Local Time : 1/26/2019        3:37:53 PM at BRUSSELS-BEL                                                                          
+       1/27/2019 11:01:45 AM     | ShippingToDataCenter           | InProgress      | Departed Facility in BRUSSELS-BEL. Local Time :          1/27/2019 11:01:45 AM at BRUSSELS-BEL                                                                 
+       1/28/2019 7:11:35 AM      | ShippingToDataCenter           | InProgress      | Arrived at Delivery Facility in AMSTERDAM-NLD.            Local Time : 1/28/2019 7:11:35 AM at AMSTERDAM-NLD                                                     
+       1/28/2019 9:07:57 AM      | ShippingToDataCenter           | InProgress      | With delivery courier. Local Time : 1/28/2019            9:07:57 AM at AMSTERDAM-NLD                                                                             
+       1/28/2019 1:35:56 PM      | ShippingToDataCenter           | InProgress      | Scheduled for delivery. Local Time : 1/28/2019            1:35:56 PM at AMSTERDAM-NLD                                                                            
+       1/28/2019 2:57:48 PM      | ShippingToDataCenter           | Completed       | Delivered - Signed for by. Local Time : 1/28/2019        2:57:48 PM at AMSTERDAM-NLD                                                                         
+       1/29/2019 2:18:43 PM      | PhysicalVerification           | Completed       |                                              
+       1/29/2019 3:49:50 PM      | DeviceBoot                     | Completed       | Appliance booted up successfully                  
+       1/29/2019 3:49:51 PM      | AnomalyDetection               | Completed       | No anomaly detected.                               
+       1/29/2019 4:55:00 PM      | DataCopy                       | Started         |                                                 
+       2/2/2019 7:07:34 PM       | DataCopy                       | Completed       | Copy Completed.                                   
+       2/4/2019 7:47:32 PM       | SecureErase                    | Started         |                                                  
+       2/4/2019 8:01:10 PM      | SecureErase                    | Completed       | Azure Data Box:DEVICESERIALNO has been sanitized          according to NIST 800-88 Rev 1.                                                                       
+
+       ------------------
+       Data Box Log Links
+       ------------------
+
+       Account Name         : Gus                                                       
+       Copy Logs Path       : databoxcopylog/DataBoxTestOrder_CHC533180024_CopyLog_73a81b2d613547a28ecb7b1612fe93ca.xml
+       Audit Logs Path      : azuredatabox-chainofcustodylogs\7fc6cac9-9cd6-4dd8-ae22-1ce479666282\chc533180024
+       BOM Files Path       : azuredatabox-chainofcustodylogs\7fc6cac9-9cd6-4dd8-ae22-1ce479666282\chc533180024      
        ```
      然后，可以转到存储帐户并查看复制日志。
 
 ![登录存储帐户](media/data-box-portal-admin/logs-in-storage-acct-2.png)
 
-也可查看包含审核日志和 BOM 文件的监管日志链。
+也可查看包含审核日志和 BOM 文件的一系列监管日志。
 
 ![登录存储帐户](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
@@ -204,4 +216,4 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[排查 Data Box 问题](data-box-faq.md)。
+- 了解如何[排查 Data Box 和 Data Box Heavy 问题](data-box-troubleshoot.md)。

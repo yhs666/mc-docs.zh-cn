@@ -9,15 +9,15 @@ ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 03/28/2018
-ms.date: 04/26/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 63977ce35653e18b4c305e99fc01c6fbb71c04ff
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 23e80c945e70756f68a26da8b283630018f9c5e5
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854489"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491413"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 
@@ -25,40 +25,31 @@ ms.locfileid: "64854489"
 
 要开始，请转到 [Azure 门户](https://portal.azure.cn)，并使用 Azure 帐户登录。 在门户顶端的搜索栏中，键入函数应用的名称，并从列表中将其选中。 选择 Function App 后，将看到以下页面：
 
-![Azure 门户中 Function App 的概述](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+![Azure 门户中 Function App 的概述](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main0.png)
 
-## <a name="favorite"></a>门户中的收藏函数 
+![Azure 门户中 Function App 的概述](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main1.png)
 
-有时，在 [Azure 门户]中查找资源可能很难。 为了更轻松地找到你创建的函数应用，请将函数应用添加到你在门户中的收藏夹。 
+可以从概述页导航到管理函数应用所需的所有内容，特别是 **[应用程序设置](#settings)** 和 **[平台功能](#platform-features)** 。
 
-1. 登录到 [Azure 门户]。
+## <a name="settings"></a>应用程序设置
 
-2. 单击左下角的箭头以展开所有服务，在“筛选器”字段中键入 `Functions`，并单击“Function App”旁边的星形。  
- 
-    ![在 Azure 门户中创建 Function App](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
+“应用程序设置”  选项卡维护函数应用使用的设置。
 
-    这会在门户左侧的菜单中添加“函数”图标。
+![Azure 门户中的函数应用设置。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-3. 关闭菜单，向下滚动到底部才能看到“函数”图标。 单击该图标可查看所有 Function App 的列表。 单击 Function App 以在此应用中使用函数。 
- 
-    ![收藏夹中的函数应用](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
- 
-[Azure 门户]: https://portal.azure.cn/
+这些设置是加密存储的，必须选择“显示值”  才能查看门户中的值。
 
-## <a name="manage-app-service-settings"></a>Function App 设置边栏选项卡
+若要添加设置，请选择“新建应用程序设置”  并添加新的键值对。
 
-![Azure 门户中 Function App 的概述。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
-可在“设置”选项卡中更新 Function App 使用的 Functions 运行时版本。 也可在其中管理用于限制对 Function App 托管的所有函数的 HTTP 访问的主机密钥。
+在本地开发函数应用时，这些值将保留在 local.setings.json 项目文件中。
 
-Functions 支持消耗托管计划和应用服务托管计划。 有关详细信息，请参阅[为 Azure Functions 选择正确的服务计划](functions-scale.md)。 为获得消耗计划更好的预测性，Functions 允许通过设置每日使用配额（以千兆字节/秒为单位），从而限制平台使用。 一旦达到每日使用配额，Function App 就会停止运行。 可在设置每日支出配额的同一上下文中重新启用因达到支出配额而停止的 Function App。 有关计费的详细信息，请参阅 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions)。
-
-
-## <a name="platform-features-tab"></a>平台功能选项卡
+## <a name="platform-features"></a>平台功能
 
 ![Function App 平台功能选项卡。](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
-Function App 运行于 Azure 应用服务平台，并由该平台维护。 在这种情况下，Function App 有权访问 Azure 核心 Web 托管平台的大多数功能。 可在“平台功能”选项卡中访问应用服务平台中许多可用于 Function App 的功能。 
+Function App 运行于 Azure 应用服务平台，并由该平台维护。 在这种情况下，Function App 有权访问 Azure 核心 Web 托管平台的大多数功能。 可在“平台功能”  选项卡中访问应用服务平台中许多可用于 Function App 的功能。 
 
 > [!NOTE]
 > Function App 运行于消耗托管计划中时，并非所有应用服务功能均可用。
@@ -66,7 +57,6 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 本主题的其余部分侧重于 Azure 门户中以下可用于 Functions 的应用服务功能：
 
 + [应用服务编辑器](#editor)
-+ [应用程序设置](#settings) 
 + [Console](#console)
 + [高级工具 (Kudu)](#kudu)
 + [部署选项](#deployment)
@@ -84,14 +74,6 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 ![应用服务编辑器](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
-### <a name="settings"></a>应用程序设置
-
-| | |
-|-|-|
-| ![Function App 应用程序设置。](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | 可在应用服务“应用程序设置”边栏选项卡中配置和管理框架版本、远程调试、应用设置和连接字符串。 将 Function App 与其他 Azure 和第三方服务集成时，可在此处修改这些设置。 若要删除设置，请滚动至右侧，并选择该行右端的 **X** 图标（未显示在下图中）。
-
-![配置应用程序设置](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
-
 ### <a name="console"></a>控制台
 
 | | |
@@ -104,7 +86,7 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 | | |
 |-|-|
-| ![Azure 门户中的 Function App Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | 应用服务的高级工具（也称为 Kudu）提供对 Function App 高级管理功能的访问。 从 Kudu 中，可以管理系统信息、应用设置、环境变量、站点扩展、HTTP 头和服务器变量。 也可以通过浏览到 Function App 的 SCM 终结点（如 `https://<myfunctionapp>.scm.chinacloudsites.cn/`），启动 Kudu |
+| ![Azure 门户中的 Function App Kudu](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | 应用服务的高级工具（也称为 Kudu）提供对 Function App 高级管理功能的访问。 从 Kudu 中，可以管理系统信息、应用设置、环境变量、站点扩展、HTTP 头和服务器变量。 也可以通过浏览到 Function App 的 SCM 终结点（如 `https://<myfunctionapp>.scm.chinacloudsites.cn/`），启动 Kudu  |
 
 ![配置 Kudu](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -128,7 +110,7 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 | | |
 |-|-|
-| ![Azure 门户中的 Function App 身份验证](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | 函数使用 HTTP 触发器时，可以要求首先对调用进行身份验证。 应用服务支持 Azure Active Directory 身份验证和使用社交提供程序（如 Microsoft）登录。 有关配置特定身份验证提供程序的详细信息，请参阅 [Azure 应用服务身份验证概述](../app-service/app-service-authentication-overview.md)。 |
+| ![Azure 门户中的 Function App 身份验证](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | 函数使用 HTTP 触发器时，可以要求首先对调用进行身份验证。 应用服务支持 Azure Active Directory 身份验证和使用社交提供程序（如 Microsoft）登录。 有关配置特定身份验证提供程序的详细信息，请参阅 [Azure 应用服务身份验证概述](../app-service/overview-authentication-authorization.md)。 |
 
 ![配置 Function App 的身份验证](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
@@ -150,4 +132,4 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

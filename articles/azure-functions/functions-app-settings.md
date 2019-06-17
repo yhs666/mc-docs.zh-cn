@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 04/26/2019
+ms.date: 06/03/2019
 ms.author: v-junlch
-ms.openlocfilehash: e261105c0c1156c22e3343492e16ea9b561b8bc5
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 685caa4149d65329d01fc2f0a25a6289252dc213
+ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854939"
+ms.lasthandoff: 06/04/2019
+ms.locfileid: "66491492"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -29,7 +29,7 @@ ms.locfileid: "64854939"
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-用于存储日志并在门户上的“监视”选项卡中显示这些日志的可选存储帐户连接字符串。 存储帐户必须是支持 Blob、队列和表的通用帐户。 请参阅[存储帐户](functions-infrastructure-as-code.md#storage-account)和[存储帐户要求](functions-create-function-app-portal.md#storage-account-requirements)。
+用于存储日志并在门户上的“监视”选项卡中显示这些日志的可选存储帐户连接字符串。  存储帐户必须是支持 Blob、队列和表的通用帐户。 请参阅[存储帐户](functions-infrastructure-as-code.md#storage-account)和[存储帐户要求](functions-create-function-app-portal.md#storage-account-requirements)。
 
 |键|示例值|
 |---|------------|
@@ -97,7 +97,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 ## <a name="functionappeditmode"></a>FUNCTION\_APP\_EDIT\_MODE
 
-有效值为“readwrite”和“readonly”。
+指示是否在 Azure 门户中启用了编辑。 有效值为“readwrite”和“readonly”。
 
 |键|示例值|
 |---|------------|
@@ -208,7 +208,7 @@ Azure Functions 运行时针对除 HTTP 触发的函数以外的其他所有函�
 
 ## <a name="next-steps"></a>后续步骤
 
-[了解如何更新应用设置](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[了解如何更新应用设置](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [查看 host.json 文件中的全局设置](functions-host-json.md)
 

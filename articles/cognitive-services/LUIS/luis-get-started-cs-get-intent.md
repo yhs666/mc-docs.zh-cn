@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 01a082cd79cf9fcba3bddc65275553d8bc443ab3
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 817a284e3f62f7977bd046d0a72982648b71c032
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555498"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135927"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入门：使用 C# 获取意向
 
@@ -49,7 +49,7 @@ ms.locfileid: "65555498"
 
     ![在 Visual Studio 中创建新的控制台应用程序](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
 
-2. 在 Visual Studio 项目中，在解决方案资源管理器中，选择“添加引用”，然后从“程序集”选项卡中选择“System.Web”。
+2. 在 Visual Studio 项目中，在解决方案资源管理器中，选择“添加引用”，然后从“程序集”选项卡中选择“System.Web”。  
 
     ![选择“添加”引用，然后从“程序集”选项卡中选择 System.Web](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
 
@@ -99,7 +99,7 @@ namespace ConsoleLuisEndpointSample
             queryString["spellCheck"] = "false";
             queryString["staging"] = "false";
 
-            var endpointUri = "https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + luisAppId + "?" + queryString;
+            var endpointUri = "https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/" + luisAppId + "?" + queryString;
             var response = await client.GetAsync(endpointUri);
 
             var strResponseContent = await response.Content.ReadAsStringAsync();

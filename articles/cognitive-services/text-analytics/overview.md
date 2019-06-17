@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
 origin.date: 04/03/2019
-ms.date: 05/15/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 75a8551d17c5e1cf8e351cdd2364cdd86b8c161e
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 1f20bf6395a3038c88fbcd8eb0a94da62d66694e
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668907"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830076"
 ---
 # <a name="what-is-text-analytics-api"></a>什么是文本分析 API？
 
@@ -35,7 +35,7 @@ ms.locfileid: "65668907"
 自动[提取关键短语](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速识别要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 可以使用此处的 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API，也可以使用 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
 
 ## <a name="language-detection"></a>语言检测
-可以针对多达 120 种语言[检测输入文本是使用哪种语言编写的](how-tos/text-analytics-how-to-language-detection.md)，并报告请求中提交的每个文档的单个语言代码。 语言代码与表示评分强度的评分相搭配。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+可以[检测输入文本是用哪种语言编写的](how-tos/text-analytics-how-to-language-detection.md)，并以多种语言、变体、方言和一些区域/文化语言报告请求中提交的每个文档的单一语言代码。 语言代码与表示评分强度的评分相搭配。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
 
 ## <a name="named-entity-recognition"></a>命名实体识别
 在文本中[识别实体并将其分类](how-tos/text-analytics-how-to-entity-linking.md)为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API。
@@ -81,7 +81,7 @@ ms.locfileid: "65668907"
 
 ## <a name="data-limits"></a>数据限制
 
-所有的文本分析 API 终结点都接受原始文本数据。 当前限制为每个文档最多包含 5,120 个字符；如果需要分析更大的文档，可将它们分解成较小的区块。 
+所有的文本分析 API 终结点都接受原始文本数据。 当前限制为每个文档最多包含 5,120 个字符；如果需要分析更大的文档，可将它们分解成较小的区块。 如果仍然需要提高限制，请[联系我们](https://azure.microsoft.com/overview/sales-number/)讨论具体要求。
 
 | 限制 | Value |
 |------------------------|---------------|

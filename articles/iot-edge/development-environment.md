@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 01/04/2019
-ms.date: 01/28/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 840aa4d1e2e417a54ec1ec57e9d237393cef0ec9
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: d624aa75db47820fecc68f09bc58666d5c522f5e
+ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396767"
+ms.lasthandoff: 06/06/2019
+ms.locfileid: "66732742"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>为 IoT Edge 准备开发和测试环境
 
@@ -63,9 +63,9 @@ Visual Studio 和 Visual Studio Code 都具有附加扩展，可帮助开发 IoT
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js 模块生成器](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
-### <a name="visual-studio-2017-extension"></a>Visual Studio 2017 扩展
+### <a name="visual-studio-20172019-extension"></a>Visual Studio 2017/2019 扩展
 
-适用于 Visual Studio 的 Azure IoT Edge 工具提供了基于 C# 构建的 IoT Edge 模块模板。 
+适用于 Visual Studio 的 Azure IoT Edge 工具提供了基于 C# 和 C 构建的 IoT Edge 模块模板。 
 
 有关详细信息和下载，请参阅[适用于 Visual Studio 2017 的 Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)。
 
@@ -110,7 +110,7 @@ Azure IoT Edge 开发容器是一个 Docker 容器，具有 IoT Edge 开发所�
 
 ### <a name="iot-edge-device-container"></a>IoT Edge 设备容器
 
-IoT Edge 设备容器是一个完整的 IoT Edge 设备，可以在任何带有容器引擎的计算机上启动。 设备容器包括 IoT Edge 运行时和容器引擎本身。 容器的每个实例都是功能完备的自我预配 IoT Edge 设备。 只要存在到模块的网络路由，设备容器就支持模块的远程调试。 设备容器适用于快速创建大量 IoT Edge 设备以测试大规模方案或 DevOps 管道。 该设备容器还支持通过 helm 部署到 kubernetes。 
+IoT Edge 设备容器是一个完整的 IoT Edge 设备，可以在任何带有容器引擎的计算机上启动。 设备容器包括 IoT Edge 运行时和容器引擎本身。 容器的每个实例都是功能完备的自我预配 IoT Edge 设备。 只要存在到模块的网络路由，设备容器就支持模块的远程调试。 设备容器适用于快速创建大量 IoT Edge 设备以测试大规模方案或 Azure Pipelines。 该设备容器还支持通过 helm 部署到 kubernetes。 
 
 有关详细信息，请参阅 [Azure IoT Edge 设备容器](https://github.com/toolboc/azure-iot-edge-device-container)。
 
