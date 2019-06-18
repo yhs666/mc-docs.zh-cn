@@ -47,7 +47,7 @@
     {
       "path_to_root": "_repo.en-us",
       "url": "https://github.com/wacn/mc-docs-pr.en-us",
-      "branch": "live",
+      "branch": "master",
       "branch_mapping": {
         "live": "live",
         "master": "master"
