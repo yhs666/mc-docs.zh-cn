@@ -17,12 +17,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 632a5d95c1da57c4d7c48faa43b765ef72b488b3
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 8a0c3f3918aafb3217578e52c5326575ed7ed2be
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381924"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135457"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 
@@ -48,7 +48,7 @@ Azure Stack 要求使用 Active Directory 所支持的 Azure Active Directory (A
 
 目录是保留用户、应用程序、组和服务主体相关信息的容器。    
 
-目录租户是一个组织，例如 Microsoft 或你自己的公司。 
+目录租户是一个组织，例如 Azure 或你自己的公司。 
 
 - Azure AD 支持多个租户并可支持多个组织（各自位于自身的目录中）。 如果使用 Azure AD 并且有多个租户，则可以授权应用程序和用户从一个租户访问同一目录中的其他租户。
 - AD FS 仅支持单个租户，因此仅支持单个组织。

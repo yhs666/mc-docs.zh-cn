@@ -9,14 +9,14 @@ ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.topic: article
 origin.date: 05/21/2018
-ms.date: 12/03/2018
+ms.date: 06/24/2019
 tags: connectors
-ms.openlocfilehash: 3c87eb4688bb62a05cae44fea5fda0070b6326eb
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fc5738519e8b51c2b6b8f891e316bf0bda8be87e
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674187"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135783"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>使用 Azure 逻辑应用在 Azure Blob 存储中创建和管理 Blob
 
@@ -25,8 +25,10 @@ ms.locfileid: "52674187"
 假定你有一个在 Azure 网站上进行更新的工具。 它充当逻辑应用的触发器。 当此事件发生时，可以让逻辑应用更新 Blob 存储容器中的某些文件，这是逻辑应用中的一项操作。 
 
 > [!NOTE]
-> 逻辑应用不支持通过防火墙直接连接到 Azure 存储帐户。 若要访问这些存储帐户，请使用以下选项： 
-> 
+> 逻辑应用不支持通过防火墙直接连接到 Azure 存储帐户。 若要访问这些存储帐户，请使用以下任一选项：
+>
+> * 创建[集成服务环境](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)，该环境可以连接到 Azure 虚拟网络中的资源。
+>
 > * 如果已使用 API 管理，可以将该服务用于此方案。 有关详细信息，请参阅[简单的企业集成体系结构](https://aka.ms/aisarch)。
 
 如果不熟悉逻辑应用，请查看[什么是 Azure 逻辑应用](../logic-apps/logic-apps-overview.md)和[快速入门：创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
@@ -45,7 +47,7 @@ ms.locfileid: "52674187"
 
 在 Azure 逻辑应用中，每个逻辑应用都必须从[触发器](../logic-apps/logic-apps-overview.md#logic-app-concepts)开始，该触发器在发生特定事件或特定条件得到满足的情况下触发。 每当触发器触发时，逻辑应用引擎就会创建一个逻辑应用实例并开始运行应用的工作流。
 
-此示例演示了如何在存储容器中添加或更新 Blob 的属性时，使用“Azure Blob 存储 - 添加或修改 Blob 时(仅属性)”触发器来启动逻辑应用工作流。 
+此示例演示了如何在存储容器中添加或更新 Blob 的属性时，使用“Azure Blob 存储 - 添加或修改 Blob 时(仅属性)”  触发器来启动逻辑应用工作流。 
 
 1. 在 Azure 门户或 Visual Studio 中创建一个空白的逻辑应用，以便打开逻辑应用设计器。 此示例使用 Azure 门户。
 
@@ -59,7 +61,7 @@ ms.locfileid: "52674187"
 
    对于此示例，请选择要监视的容器和文件夹。
 
-   1. 在“容器”框中，选择文件夹图标。
+   1. 在“容器”框中，选择文件夹图标。 
 
    2. 在文件夹列表中选择右尖括号 ( **>** )，然后以浏览方式查找并选择所需的文件夹。 
 
@@ -67,7 +69,7 @@ ms.locfileid: "52674187"
 
    3. 选择你希望触发器以多大时间间隔和频率来检查文件夹中的更改。
 
-4. 完成后，请在设计器工具栏上选择“保存”。
+4. 完成后，请在设计器工具栏上选择“保存”  。
 
 5. 现在请继续向逻辑应用添加一个或多个操作，以便完成需对触发器结果执行的任务。
 
@@ -79,16 +81,16 @@ ms.locfileid: "52674187"
 
 1. 在 Azure 门户或 Visual Studio 的逻辑应用设计器中打开逻辑应用。 此示例使用 Azure 门户。
 
-2. 在逻辑应用设计器的触发器或操作下，选择“新建步骤” > “添加操作”。
+2. 在逻辑应用设计器的触发器或操作下，选择“新建步骤” > “添加操作”。  
 
    ![添加操作](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
    若要在现有步骤之间添加操作，请将鼠标移到连接箭头上方。 
-   选择出现的加号 (**+**)，然后选择“添加操作”。
+   选择出现的加号 ( **+** )，然后选择“添加操作”。 
 
 3. 在搜索框中，输入“azure blob”作为筛选器。 从操作列表中选择所需的操作。
 
-   此示例使用此操作：**Azure Blob 存储 - 获取 Blob 内容**
+   此示例使用以下操作：**Azure Blob 存储 - 获取 blob 内容**
 
    ![选择操作](./media/connectors-create-api-azureblobstorage/azure-blob-action.png) 
 
@@ -96,13 +98,13 @@ ms.locfileid: "52674187"
 
    对于此示例，请选择所需的文件。
 
-   1. 从“Blob”框中选择文件夹图标。
+   1. 从“Blob”框中选择文件夹图标。 
   
       ![选择文件夹](./media/connectors-create-api-azureblobstorage/action-select-folder.png)
 
    2. 根据 Blob 的 **ID** 号查找并选择所需的文件。 可以在 Blob 的元数据中找到此 **ID** 号，该元数据是由前述 Blob 存储触发器返回的。
 
-5. 完成后，请在设计器工具栏上选择“保存”。
+5. 完成后，请在设计器工具栏上选择“保存”  。
 若要测试逻辑应用，请确保所选文件夹包含一个 Blob。
 
 此示例仅获取 Blob 的内容。 若要查看这些内容，请使用另一连接器添加另一操作，以便创建包含此 Blob 的文件。 例如，添加一个 OneDrive 操作，以便根据 Blob 内容创建文件。
@@ -117,7 +119,7 @@ ms.locfileid: "52674187"
 
 ## <a name="connector-reference"></a>连接器参考
 
-如需技术详细信息（例如触发器、操作和限制，如连接器的 Swagger 文件所述），请查看[连接器的参考页](/connectors/azureblobconnector/)。 
+如需技术详细信息（例如触发器、操作和限制，如连接器的 Open API（以前为 Swagger）文件所述），请参阅[连接器的参考页](/connectors/azureblobconnector/)。
 
 ## <a name="get-support"></a>获取支持
 

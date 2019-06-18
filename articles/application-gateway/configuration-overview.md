@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 04/30/2019
-ms.date: 05/20/2019
+origin.date: 06/01/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7e64725505b2063a0c96471e65ff9de456da3087
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: a499857bc7c77926edc32035ecfd9ac5e6e617cd
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960875"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027441"
 ---
 # <a name="application-gateway-configuration-overview"></a>应用程序网关配置概述
 
@@ -58,7 +58,7 @@ Azure 应用程序网关由多个组件构成，可根据不同的方案以不�
 
 - 必须允许来自 **AzureLoadBalancer** 标记的流量。
 
-##### <a name="whitelist-application-gateway-access-to-a-few-source-ips"></a>将应用程序网关列入白名单以便能够访问一些源 IP
+##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>允许应用程序网关访问一些源 IP
 
 对于此方案，请在应用程序网关子网中使用 NSG。 按以下优先顺序对子网施加以下限制：
 

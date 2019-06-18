@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 05/15/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c5f167deae794c00a1c5bc30ee4da2e0618afdbe
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 22e2ae82d11f0d6cc6e0d75de1b8cb3694e23264
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668976"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830073"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -64,7 +64,7 @@ ms.locfileid: "65668976"
 | URL           | 暂无\*         | "https:\//www.bing.com"    |
 | Email         | 暂无\*         | "support@contoso.com" |
 
-\*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。
+\*一些实体可能会省略 `SubType`，具体视输入和已提取的实体而定。  列出的所有受支持的实体类型仅适用于英文、简体中文、法文、德文和西班牙文。
 
 
 
@@ -93,7 +93,7 @@ ms.locfileid: "65668976"
 
 有关请求定义的详细信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
 
-+ 创建 POST 请求。 查看此请求的 API 文档：[实体链接 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
++ 创建 POST 请求  。 查看此请求的 API 文档：[实体链接 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
 + 设置用于实体提取的 HTTP 终结点。 它必须包含 `/entities` 资源：`https://[your-region].api.cognitive.azure.cn/text/analytics/v2.1/entities`
 
@@ -102,7 +102,7 @@ ms.locfileid: "65668976"
 + 在请求正文中，提供为此分析准备的 JSON 文档集合
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)中的“API 测试控制台”来构造请求并将其 POST 到该服务。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)中的“API 测试控制台”来构造请求并将其 POST 到该服务  。
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 

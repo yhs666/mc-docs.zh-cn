@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 01/29/2019
-ms.date: 06/10/2019
+origin.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: 25ad6462ac7b548a500f100c8b95c10ddd3e732a
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: c759c2671b37f2167e598a7b389db571d3060625
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424617"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135866"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Apache Hadoop
 
@@ -60,16 +60,15 @@ Microsoft 的大数据解决方案可将 Microsoft 商业智能 (BI) 组件与�
    | 属性 | 说明 |
    | --- | --- |
    |  数据源名称 |为数据源提供名称 |
-   |  主机 |输入 &lt;HDInsightClusterName&gt;.azurehdinsight.cn。 例如，myHDICluster.azurehdinsight.net |
-   |  端口 |使用 <strong>443</strong>。 （此端口已从 563 更改为 443。） |
-   |  数据库 |使用“默认”。 |
-   |  机制 |选择“Azure HDInsight 服务” |
-   |  用户名 |输入 HDInsight 群集 HTTP 用户的用户名。 默认的用户名为 <strong>admin</strong>。 |
-   |  密码 |输入 HDInsight 群集用户的密码。 |
+   |  主机 |输入 `HDInsightClusterName.azurehdinsight.net`。 例如： `myHDICluster.azurehdinsight.net` |
+   |  端口 |使用 **443**。 （此端口已从 563 更改为 443。） |
+   |  数据库 |使用“默认”  。 |
+   |  机制 |选择“Windows Azure HDInsight 服务”  |
+   |  用户名 |输入 HDInsight 群集 HTTP 用户的用户名。 默认的用户名为 **admin**。 |
+   |  密码 |输入 HDInsight 群集用户的密码。 选中复选框“保存密码(加密)”  。|
 
-   
-5. 可选：选择“高级选项...”   
-   
+1. 可选：选择“高级选项...”   
+
    | 参数 | 说明 |
    | --- | --- |
    |  使用本机查询 |选择此项时，ODBC 驱动程序不会尝试将 TSQL 转换为 HiveQL。 只应在 100% 确定提交的是纯 HiveQL 语句时使用此项。 连接 SQL Server 或 Azure SQL 数据库时，应将此项保留为未选中状态。 |
@@ -97,7 +96,7 @@ Microsoft 的大数据解决方案可将 Microsoft 商业智能 (BI) 组件与�
 
 3. 在下拉列表中，选择在上一部分中创建的数据源名称，然后选择“确定”  。
 
-4. 输入 Hadoop 用户名（默认名称为 admin）和密码，然后选择“连接”，打开“导航器”窗口   。
+4. 第一次使用时，将打开“ODBC 驱动程序”  对话框。 从左侧菜单中选择 **Windows**。 然后选择“连接”  以打开“导航器”  窗口。
 
 5. 在“导航器”中，导航到“HIVE” > “默认” > “hivesampletable”，然后选择“加载”      。 需要一段时间才能将数据导入到 Excel 中。
 

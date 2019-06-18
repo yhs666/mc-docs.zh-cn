@@ -2,16 +2,16 @@
 author: rockboyfor
 ms.topic: include
 origin.date: 01/30/2019
+ms.date: 06/17/2019
 ms.service: azure-powershell
-ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: e533c678669911e87698ff946bfb6a2705b6c86e
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 9fd7c237b73c805cdadf4a2c77eae7fcbb4fd41f
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66039214"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151366"
 ---
-本示例需要 Azure PowerShell。 运行 `Get-Module -ListAvailable Az` 以查看是否已安装。 如果需要安装，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
+本示例需要 Azure PowerShell Az 1.0 或更高版本。 运行 `Get-Module -ListAvailable Az`，查看已安装哪些版本。 如果需要安装，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
 
-运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 中国云的连接。
+运行 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 登录到 Azure 中国云。

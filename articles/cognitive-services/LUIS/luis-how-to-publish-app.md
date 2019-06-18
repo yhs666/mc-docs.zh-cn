@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: ae47984ad2894c93b47ce5dff0e82039e276b7f5
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: ecabd4d881aa7d9d4c4fef3554c9180d00a74f3f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557055"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135867"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>将活动的已训练应用发布到过渡或生产终结点
 
@@ -26,13 +26,13 @@ ms.locfileid: "65557055"
 
 ## <a name="publishing"></a>发布
 
-若要发布到终结点，请在右上方的面板中选择“发布”。 
+若要发布到终结点，请在右上方的面板中选择“发布”  。 
 
 ![右上方的导航栏](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
 
 当显示弹出窗口时选择正确的槽：过渡或生产。 使用两个发布槽，可以对已发布的终结点使用两个不同的版本，或者在两个不同的终结点上使用同一版本。 
 
-该应用将发布到与 LUIS 门户中添加的 LUIS 资源关联的所有区域。 例如，对于在 [www.luis.ai](https://www.luis.ai) 上创建的应用，如果你在 **westus** 中创建 LUIS 资源并将其作为资源添加到该应用，则该应用将发布到此区域中。 有关 LUIS 区域的详细信息，请参阅[区域](luis-reference-regions.md)。
+该应用将发布到与 LUIS 门户中添加的 LUIS 资源关联的所有区域。 例如，对于在 [docs.azure.cn](https://docs.azure.cn) 上创建的应用，如果你在 **chinaeast** 中创建 LUIS 资源并将其作为资源添加到该应用，则该应用将发布到此区域中。 有关 LUIS 区域的详细信息，请参阅[区域](luis-reference-regions.md)。
  
 ![“发布”弹出窗口](./media/luis-how-to-publish-app/publish-pop-up.png)
 
@@ -40,11 +40,11 @@ ms.locfileid: "65557055"
 
 ![“发布”弹出窗口，其中包含指向终结点的链接](./media/luis-how-to-publish-app/publish-success.png)
 
-如果需要终结点 URL，请选择该链接。 还可以通过在顶部菜单中选择“管理”，然后在左侧菜单中选择“密钥和终结点”来访问终结点 URL。 
+如果需要终结点 URL，请选择该链接。 还可以通过在顶部菜单中选择“管理”  ，然后在左侧菜单中选择“密钥和终结点”来访问终结点 URL  。 
 
 ## <a name="configuring-publish-settings"></a>配置发布设置
 
-通过在右上方导航栏中选择“管理”，然后选择“发布设置”来配置发布设置。 
+通过在右上方导航栏中选择“管理”  ，然后选择“发布设置”  来配置发布设置。 
 
 ![发布设置](./media/luis-how-to-publish-app/publish-settings.png)
 

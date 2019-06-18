@@ -17,16 +17,16 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 3e9ac54c259a2152396ae06a388e1e11ce0aef3d
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: a88e675245a0ad2c961747a78967949e3f378d5d
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381926"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135448"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack 遥测
 
-Azure Stack 系统数据或遥测数据通过互连用户体验自动上传到 Microsoft。 Microsoft 团队主要使用从 Azure Stack 遥测收集的数据来改善客户体验，以及进行安全、运行状况、质量和性能方面的分析。
+Azure Stack 系统数据或遥测数据通过互连用户体验自动上传到 Azure。 Azure 团队主要使用从 Azure Stack 遥测收集的数据来改善客户体验，以及进行安全、运行状况、质量和性能方面的分析。
 
 遥测可为 Azure Stack 操作员提供宝贵的见解来让他们洞察企业部署，并提供有助于构思 Azure Stack 新版本的看法。
 
@@ -36,12 +36,12 @@ Azure Stack 系统数据或遥测数据通过互连用户体验自动上传到 M
 Azure Stack 遥测基于 Windows Server 2016 互连用户体验与遥测组件，该组件使用 [Windows 事件跟踪 (ETW)](https://msdn.microsoft.com/library/dn904632(v=vs.85).aspx) 跟踪日志记录技术来收集和存储遥测事件与数据。 Azure Stack 组件使用相同的日志记录技术，发布使用公共操作系统事件日志记录和跟踪 API 收集的事件与数据。 Azure Stack 组件的示例包括网络资源提供程序、存储资源提供程序、监视资源提供程序和更新资源提供程序。 互连用户体验与遥测组件使用 SSL 加密数据，并使用证书关联通过 HTTPS 将遥测数据传输到 Microsoft 数据管理服务。
 
 > [!NOTE]
-> 若要支持遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com）。 互连用户体验与遥测组件还连接到 https://settings-win.data.microsoft.com 来下载配置信息。
+> 若要支持遥测数据流，必须在网络中开放端口 443 (HTTPS)。 互连用户体验与遥测组件连接到 Microsoft 数据管理服务（位于 https://v10.vortex-win.data.microsoft.com ）。 互连用户体验与遥测组件还连接到 https://settings-win.data.microsoft.com 来下载配置信息。
 
 ## <a name="privacy-considerations"></a>隐私注意事项
-ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Microsoft 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Azure Stack 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的受限目的，否则 Microsoft 不会与第三方共享客户个人数据。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Microsoft 内部团队（包括隐私、法律和数据管理利益干系人）做出。
+ETW 服务将遥测数据发回到受保护的云存储。 最小特权原则支配遥测数据的访问。 只有具有有效业务需求的 Azure 人员才能访问遥测数据。 除非客户自行要求，或者符合 [Azure Stack 隐私声明](https://privacy.microsoft.com/PrivacyStatement)中所述的受限目的，否则 Azure 不会与第三方共享客户个人数据。 我们与 OEM 和合作伙伴共享业务报告，其中包含匿名的聚合遥测信息。 数据共享决策由 Azure 内部团队（包括隐私、法律和数据管理利益干系人）做出。
 
-Microsoft 相信并实践信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
+Azure 相信并实行信息最小化。 我们尽量只收集所需的信息，并且只在服务所需或进行分析时才存储这些信息。 许多有关 Azure Stack 系统和 Azure 服务工作原则的信息在六个月内删除。 汇总或聚合的数据保留更长一段时间。
 
 我们了解客户信息的隐私和安全都很重要。 我们采用深思熟虑的综合方法，通过 Azure Stack 保护客户隐私和客户数据。 IT 管理员随时可以控制功能和隐私的自定义设置。 我们对于透明度和信任的承诺很明确：
 - 我们向客户公开我们收集的数据类型。
@@ -50,19 +50,19 @@ Microsoft 相信并实践信息最小化。 我们尽量只收集所需的信息
 - 我们以公开透明的方式使用遥测。
 - 我们使用遥测来改善客户体验。
 
-Microsoft 无意收集敏感信息，例如信用卡号、用户名和密码、电子邮件地址或其他同样敏感的信息。 如果我们确定敏感信息是无意中收集到的，我们会予以删除。
+Azure 无意收集敏感信息，例如信用卡号、用户名和密码、电子邮件地址或其他同样敏感的信息。 如果我们确定敏感信息是无意中收集到的，我们会予以删除。
 
-## <a name="examples-of-how-microsoft-uses-the-telemetry-data"></a>Microsoft 如何使用遥测数据的示例
+## <a name="examples-of-how-azure-uses-the-telemetry-data"></a>Azure 如何使用遥测数据的示例
 遥测起着重要作用，可帮助我们快速找到并解决客户部署和配置的严重可靠性问题。 洞察我们收集的遥测数据可帮助我们快速找到服务或硬件配置的问题。 Azure 从客户那里获取此数据以及推动生态系统改进的能力，有助于提高我们的集成式 Azure Stack 解决方案的质量。
 
 遥测还能帮助 Azure 进一步了解客户如何部署组件、使用功能以及使用服务来实现业务目标。 从数据获取见解可帮助我们在直接影响客户体验和工作负荷的领域中指定工程投资的优先级。
 
-示例包括：与 Azure Stack 角色关联的容器、存储用量和网络配置的客户用量。 我们还使用见解来推动某些管理和监视解决方案的改善与智能化。 这可以帮助客户诊断质量问题，减少向 Microsoft 拨打支持电话的次数，从而节省资金。
+示例包括：与 Azure Stack 角色关联的容器、存储用量和网络配置的客户用量。 我们还使用见解来推动某些管理和监视解决方案的改善与智能化。 这可以帮助客户诊断质量问题，减少向 Azure 拨打支持电话的次数，从而节省资金。
 
 ## <a name="manage-telemetry-collection"></a>管理遥测数据的收集
 我们不建议在组织中关闭遥测，因为遥测可以提供推动产品功能和稳定性改进的数据。 但我们认识到，在某些情况下有必要关闭遥测。
 
-在这种情况下，可以使用部署前的注册表设置或使用部署后的遥测终结点，配置发送给 Microsoft 的遥测级别。
+在这些情况下，可以使用部署前的注册表设置或使用部署后的遥测终结点，配置发送给 Azure 的遥测级别。
 
 ### <a name="set-telemetry-level-in-the-windows-registry"></a>在 Windows 注册表中设置遥测级别
 在部署 Azure Stack 之前，可以使用 Windows 注册表编辑器在物理主计算机上手动设置遥测级别。 如果管理策略（例如组策略）已存在，它会覆盖此注册表设置。
@@ -92,7 +92,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
   - 处理器和内存属性，例如核心数、内存大小。
   - 存储属性，例如驱动器数目、类型和大小。
 - **遥测功能**，包括已上传事件、已删除事件的百分比，以及上次上传时间。
-- **质量相关的信息**，帮助 Microsoft 初步了解 Azure Stack 的运行情况。 示例是针对特定硬件配置发出的严重警报计数。
+- **质量相关信息**，帮助 Azure 基本了解 Azure Stack 的运行情况。 示例是针对特定硬件配置发出的严重警报计数。
 - **兼容性数据**，帮助了解系统和虚拟机上已安装哪些资源提供程序，以及识别潜在的兼容性问题。
 
 **2（增强）** 。 其他见解，包括：操作系统和其他 Azure Stack 服务的用法、工作原理、高级可靠性数据，以及来自“基本”和“安全”级别的数据。
@@ -105,7 +105,7 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 关闭 Windows 和 Azure Stack 遥测会禁用 SQL 遥测。 有关 Windows Server 遥测设置的含义的详细信息，请参阅 [Windows 遥测白皮书](https://aka.ms/winservtelemetry)。
 
 > [!IMPORTANT]
-> 这些遥测级别只适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Microsoft 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。
+> 这些遥测级别只适用于 Microsoft Azure Stack 组件。 Azure Stack 硬件合作伙伴在硬件生命周期主机中运行的非 Azure 软件组件和服务可能与这些遥测级别以外的云服务通信。 应该咨询 Azure Stack 硬件解决方案提供商，以了解其遥测策略，以及如何启用或禁用。
 
 ### <a name="enable-or-disable-telemetry-after-deployment"></a>在部署后启用或禁用遥测
 

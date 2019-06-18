@@ -6,19 +6,21 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-origin.date: 04/30/2019
-ms.date: 05/20/2019
+origin.date: 06/01/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: ca32145bd8116fb44bf50c7bff36404e8be7cf42
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: 9e14d2ebe250dafb936e42e55f82d2cafa249a98
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960893"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027443"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+以下是有关 Azure 应用程序网关的常见问题。
 
 ## <a name="general"></a>常规
 
@@ -180,9 +182,9 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 在应用程序网关上配置了多站点的情况下，Host 字段指定要将探测发送到的名称。 否则使用“127.0.0.1”。 此值不同于虚拟机主机名。 其格式为 \<协议\>://\<主机\>:\<端口\>\<路径\>。
 
-### <a name="can-i-whitelist-application-gateway-access-to-only-a-few-source-ips"></a>是否只能将某些源 IP 加入应用程序网关可访问的白名单？
+### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>能否仅允许应用程序网关访问几个源 IP 地址？
 
-是的。 请参阅[限制对特定源 IP 的访问](/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips)。
+是的。 请参阅[限制对特定源 IP 的访问](/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips)。
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>能否同时对公共和专用侦听器使用同一个端口？
 

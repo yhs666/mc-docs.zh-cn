@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mazhar
 ms.author: v-lingwu
-ms.openlocfilehash: 569312bdb99fb563f09ca2fcfa1d37525274867d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 5ecb887a77170e0bde8b98889105749d6d0d319f
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732362"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135918"
 ---
 # <a name="walkthrough-enabling-telemetry-for-azure-dynamics-crm-online-using-application-insights"></a>演练：使用 Application Insights 为 Azure Dynamics CRM Online 启用遥测
 本文演示如何使用 [Azure Application Insights](https://www.azure.cn/services/application-insights/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。
@@ -32,7 +32,7 @@ ms.locfileid: "66732362"
 要监视应用程序，则将 Application Insights SDK 添加到应用程序。 SDK 会将遥测发送到 [Application Insights 门户](https://portal.azure.cn)，可以在其中使用我们功能强大的分析和诊断工具，或将数据导出到存储。
 
 ### <a name="create-an-application-insights-resource-in-azure"></a>在 Azure 中创建 Application Insights 资源
-1. 获取[世纪互联 Azure 中的帐户](https://azure.com/pricing)。 
+1. 获取[世纪互联 Azure 中的帐户](https://www.azure.cn/zh-cn/pricing/ 。 
 2. 登录到 [Azure 门户](https://portal.azure.cn)，并添加新的 Application Insights 资源。 这是将处理和显示数据的位置。
 
     ![依次单击“+”、“开发人员服务”、“Application Insights”。](./media/sample-mscrm/01.png)

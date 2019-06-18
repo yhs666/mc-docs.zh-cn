@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 07/05/2017
-ms.date: 02/27/2019
+ms.date: 06/13/2019
 ms.author: v-junlch
-ms.openlocfilehash: d6dfde9581a9195012f5ab144faf8a9315a8598a
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 8a64ca080b2cdecb471911835417cb1a3a8d0681
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903077"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046942"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Redis 缓存高级层简介
 Azure Redis 缓存是一种分布式托管缓存，可提供对数据的超快访问，有助于生成高度可缩放且响应速度快的应用程序。 
@@ -42,7 +42,7 @@ Azure Redis 缓存是一种分布式托管缓存，可提供对数据的超快�
 ## <a name="redis-cluster"></a>Redis 群集
 如果想要创建大于 53 GB 的缓存，或者想要将数据通过分片的方式分散到多个 Redis 节点中，则可以使用在高级层中提供的 Redis 群集功能。 每个节点都包含一个由 Azure 管理的主/副缓存对，目的是提高可用性。 
 
-Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片（节点）的数量会导致吞吐量线性提高。 例如 如果创建了一个包含 10 个分片的 P4 群集，则可用吞吐量为 250K * 10 = 每秒 250 万个请求。 有关高级缓存大小、吞吐量和带宽的更多详细信息，请参阅 [Azure Redis 缓存常见问题](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)。
+Redis 群集可提供最大的缩放能力和吞吐量  。 增加群集中分片（节点）的数量会导致吞吐量线性提高。 例如 如果创建了一个包含 10 个分片的 P4 群集，则可用吞吐量为 250K * 10 = 每秒 250 万个请求。 有关高级缓存大小、吞吐量和带宽的更多详细信息，请参阅 [Azure Redis 缓存常见问题](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)。
 
 若要开始使用群集，请参阅[如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)。
 
@@ -63,10 +63,10 @@ Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片�
 ## <a name="reboot"></a>重新启动
 可以根据需要通过高级层重新启动缓存的一个或多个节点。 这可以测试应用程序在故障时的还原能力。 可以重新启动下列节点。
 
-- 缓存的主节点
-- 缓存的从节点
-- 缓存的主节点和从节点
-- 使用高级缓存来执行群集功能时，可以针对缓存中的各个分片重新启动主节点和/或从节点
+* 缓存的主节点
+* 缓存的辅助节点
+* 缓存的主节点和辅助节点
+* 使用高级缓存来执行群集功能时，可以针对缓存中的各个分片重新启动主节点和/或辅助节点
 
 有关详细信息，请参阅[重新启动](cache-administration.md#reboot)和[重新启动常见问题解答](cache-administration.md#reboot-faq)。
 
@@ -87,22 +87,22 @@ Redis 群集可提供最大的缩放能力和吞吐量。 增加群集中分片�
 
 ## <a name="geo-replication"></a>异地复制
 
-“异地复制”提供一种用于链接两个高级层 Azure Redis 缓存实例的机制。 一个缓存指定为主链接缓存，另一个缓存指定为辅助链接缓存。 辅助链接缓存将变为只读，写入主缓存的数据将复制到辅助链接缓存。 此功能可用于跨 Azure 区域复制缓存。
+“异地复制”提供一种用于链接两个高级层 Azure Redis 缓存实例的机制  。 一个缓存指定为主链接缓存，另一个缓存指定为辅助链接缓存。 辅助链接缓存将变为只读，写入主缓存的数据将复制到辅助链接缓存。 此功能可用于跨 Azure 区域复制缓存。
 
 有关详细信息，请参阅[如何为 Azure Redis 缓存配置异地复制功能](cache-how-to-geo-replication.md)。
 
 
 ## <a name="to-scale-to-the-premium-tier"></a>伸缩到高级层
-若要伸缩到高级层，请直接在“更改定价层”边栏选项卡中选择一个高级层。 也可使用 PowerShell 和 CLI 将缓存伸缩到高级层。 有关分步说明，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)和[如何自动执行缩放操作](cache-how-to-scale.md#how-to-automate-a-scaling-operation)。
+若要伸缩到高级层，请直接在“更改定价层”边栏选项卡中选择一个高级层  。 也可使用 PowerShell 和 CLI 将缓存伸缩到高级层。 有关分步说明，请参阅[如何缩放 Azure Redis 缓存](cache-how-to-scale.md)和[如何自动执行缩放操作](cache-how-to-scale.md#how-to-automate-a-scaling-operation)。
 
 ## <a name="next-steps"></a>后续步骤
 创建缓存并探索高级层的新功能。
 
-- [如何为高级 Azure Redis 缓存配置暂留](cache-how-to-premium-persistence.md)
-- [如何为高级 Azure Redis 缓存配置虚拟网络支持](cache-how-to-premium-vnet.md)
-- [如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)
-- [如何在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)
-- [如何管理 Azure Redis 缓存](cache-administration.md)
+* [如何为高级 Azure Redis 缓存配置暂留](cache-how-to-premium-persistence.md)
+* [如何为高级 Azure Redis 缓存配置虚拟网络支持](cache-how-to-premium-vnet.md)
+* [如何为高级 Azure Redis 缓存配置群集功能](cache-how-to-premium-clustering.md)
+* [如何在 Azure Redis 缓存中导入和导出数据](cache-how-to-import-export-data.md)
+* [如何管理 Azure Redis 缓存](cache-administration.md)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->
 

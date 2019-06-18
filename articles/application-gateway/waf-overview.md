@@ -4,16 +4,16 @@ description: 本文概述应用程序网关的 Web 应用程序防火墙 (WAF)
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-origin.date: 02/22/2019
-ms.date: 05/20/2019
+origin.date: 05/22/2019
+ms.date: 06/12/2019
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: f409a81a2162000dfee1efdacd82513ef63d0e9e
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: 57370e717f700ddf16354adb25dc30e3198771ba
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960894"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027401"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Azure 应用程序网关的 Web 应用程序防火墙
 
@@ -122,12 +122,19 @@ CRS 2.2.9 包含下表中所示的 10 个规则组。 每个组包含多个可�
 * **防护模式**：阻止规则检测到的入侵和攻击。 攻击者会收到“403 未授权的访问”异常，且连接会终止。 防护模式会在 WAF 日志中记录此类攻击。
 
 ### <a name="anomaly-scoring-mode"></a>异常评分模式
- 
+
 OWASP 使用两种模式来确定是否阻止流量：传统模式和异常评分模式。
 
 在传统模式下，将独立评估与任何规则匹配的流量，无论是否也匹配其他规则。 此模式很容易理解。 但是，它也存在一种限制：不知道有多少个规则与特定的请求相匹配。 因此，我们引入了异常评分模式。 这是 OWASP 3.*x* 中的默认模式。
 
 在异常评分模式下，当防火墙处于防护模式时，不会立即阻止与任何规则匹配的流量。 规则采用特定的严重性：“严重”、“错误”、“警告”或“通知”。     该严重性会影响请求的数值（称为“异常评分”）。 例如，出现一个“警告”规则匹配项会生成评分值 3。  出现一个“严重”规则匹配项会生成评分值 5。 
+
+|严重性  |Value  |
+|---------|---------|
+|关键     |5|
+|错误        |4|
+|警告      |3|
+|通知       |2|
 
 异常评分的阈值为 5，超过该阈值的流量将被阻止。 因此，出现一个“严重”规则匹配项就足以让应用程序网关 WAF 阻止请求，即使 WAF 处于防护模式。  但是，出现一个“警告”规则匹配项只会将异常评分增加 3，这并不足以阻止流量。 
 

@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 12/04/2018
-ms.date: 01/21/2019
+origin.date: 05/23/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: e5e19d3e9e4a32fcc5847dbd8c51242118d28db8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f497d19cd5d60d095fe189503ceb7edf483e798a
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625165"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135757"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -67,13 +67,13 @@ Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#s
 
 ## <a name="choose-a-cluster-type"></a>选择群集类型
 
-群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 Hadoop、Storm、Kafka 或 Spark。 有关可用群集类型的详细说明，请参阅 [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
+群集类型确定 HDInsight 群集配置为运行的工作负荷，例如 [Apache Hadoop](https://hadoop.apache.org/)、[Apache Storm](https://storm.apache.org/)、[Apache Kafka](https://kafka.apache.org/) 或 [Apache Spark](https://spark.apache.org/)。 有关可用群集类型的详细说明，请参阅 [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight)。 每个群集类型具有一个特定的部署拓扑，该拓扑附带大小和节点数方面的要求。
 
 ## <a name="choose-the-vm-size-and-type"></a>选择 VM 大小和类型
 
 每个群集类型具有一组节点类型，每个节点类型在 VM 大小和类型方面提供特定的选项。
 
-若要确定应用程序的最佳群集大小，可以建立群集容量基准，并根据指示增加大小。 例如，可以使用模拟工作负荷或“canary 查询”。 使用模拟工作负荷时，可在不同大小的群集上运行预期的工作负荷，并逐渐增加大小，直到达到所需的性能。 可在其他生产查询之间定期插入 canary 查询，以显示群集是否有足够的资源。
+若要确定应用程序的最佳群集大小，可以建立群集容量基准，并根据指示增加大小。 例如，可以使用模拟工作负荷或“canary 查询”。  使用模拟工作负荷时，可在不同大小的群集上运行预期的工作负荷，并逐渐增加大小，直到达到所需的性能。 可在其他生产查询之间定期插入 canary 查询，以显示群集是否有足够的资源。
 
 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
@@ -101,7 +101,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 ### <a name="isolate-cluster-job-errors"></a>查明群集作业错误
 
-有时，多节点群集上多个映射和化简组件的并行执行可能导致出错。 为了帮助查明问题，可以通过在单节点群集上运行多个并发作业来尝试执行分布式测试，然后延伸这种方法，在包含多个节点的群集上并发运行多个作业。 若要在 Azure 中创建单节点 HDInsight 群集，请使用高级选项。
+有时，多节点群集上多个映射和化简组件的并行执行可能导致出错。 为了帮助查明问题，可以通过在单节点群集上运行多个并发作业来尝试执行分布式测试，然后延伸这种方法，在包含多个节点的群集上并发运行多个作业。 若要在 Azure 中创建单节点 HDInsight 群集，请使用高级选项。 
 
 也可以在本地计算机上安装单节点开发环境，并在该环境中测试解决方案。 Hortonworks 为基于 Hadoop 的解决方案提供单节点本地开发环境，非常有利于初始开发、概念证明和测试。 有关详细信息，请参阅 [Hortonworks 沙盒](https://hortonworks.com/products/hortonworks-sandbox/)。
 
@@ -111,21 +111,27 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 确定目标群集 VM 大小、规模和类型之后，请检查订阅的当前配额容量限制。 达到配额限制时，可能无法部署新群集，或通过添加更多工作节点来横向扩展现有群集。 唯一存在配额限制的是每个订阅的区域级别的 CPU 核心配额。 例如，订阅可能会在美国东部区域有 30 个核心的限制。 如果需要请求增加配额，请执行以下操作：
 
-1. 转到 Azure 门户
-2. 单击页面左下方的“帮助和支持”。
-3. 单击“新建支持请求”。
-4. 在“新建支持请求”页面的“基本信息”选项卡下，选择以下选项：
-   - “问题类型”：“服务和订阅限制(配额)”
-   - “订阅”：想要修改的订阅
-   - “配额类型”：**HDInsight**
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+1. 选择页面左下方的“帮助 + 支持”  。
+1. 选择“新建支持请求”  。
+1. 在“新建支持请求”页面的“基本信息”选项卡下，选择以下选项   ：
+   - “问题类型”  ：“服务和订阅限制(配额)” 
+   - “订阅”  ：想要修改的订阅
+   - “配额类型”  ：**HDInsight**
     
      ![创建支持请求来增加 HDInsight 核心配额](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-5. 单击“下一步”。
-6. 在“详细信息”页面，输入问题的说明，然后选择问题的严重性和首选联系方法。
-7. 单击“下一步:查看 + 创建”。
-8. 在“查看 + 创建”选项卡中，单击“创建”。
-   但是，存在一些固定的配额限制，例如，单个 Azure 订阅最多只能有 10,000 个核心。 有关这些限制的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager)。
+1. 在完成时选择“下一步:  解决方案 >>”。
+1. 在“详细信息”页上，输入问题的说明，选择问题的严重性、首选联系方法和其他必需字段  。
+1. 在完成时选择“下一步:  查看 + 创建 >>”。
+1. 在“查看 + 创建”选项卡中，选择“创建”。  
+
+> [!NOTE]  
+> 如果需要增加专用区域中的 HDInsight 核心配额，请[提交允许列表请求](https://aka.ms/canaryintwhitelist)。
+
+可以[联系支持部门来请求提高配额](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)。
+
+但是，存在一些固定的配额限制，例如，单个 Azure 订阅最多只能有 10,000 个核心。 有关这些限制的详细信息，请参阅 [Azure 订阅和服务限制、配额与约束](https://docs.microsoft.com/azure/azure-subscription-service-limits)。
 
 ## <a name="next-steps"></a>后续步骤
 

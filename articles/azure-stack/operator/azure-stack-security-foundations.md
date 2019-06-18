@@ -16,12 +16,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3a58306c868dadbeb43524cc5816ba5f6b0f939b
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: d6fd72c24ce924ff1c32c8e03a18f3bfa3f80aa7
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529870"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135470"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -36,11 +36,11 @@ ms.locfileid: "64529870"
 Azure Stack 的安全局势功能旨在防范新式威胁，为符合主要合规标准的要求而构建。 因此，Azure Stack 基础结构的安全局势构建在两个支柱之上：
 
  - **假想入侵**  
-我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。 
+我们从假设系统已被入侵的情况出发，将重点放在检测入侵并限制其影响上，而不只是尽量防止攻击。  
  - **默认强化**  
-由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack 会在默认情况下启用、配置和验证所有安全功能。
+由于基础结构在妥善定义的硬件和软件中运行，因此 Azure Stack 会在默认情况下启用、配置和验证所有安全功能。 
 
-由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Microsoft 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
+由于 Azure Stack 是以集成系统的形式交付的，因此 Azure Stack 基础结构的安全局势由 Azure 定义。 如同在 Azure 中一样，租户需负责定义其租户工作负荷的安全局势。 本文档提供有关 Azure Stack 基础结构安全局势的基础知识。
 
 ## <a name="data-at-rest-encryption"></a>静态数据加密
 所有 Azure Stack 基础结构和租户数据都使用 Bitlocker 进行静态加密。 这种加密可以防范 Azure Stack 存储组件的实物遗失或失窃。 有关详细信息，请参阅 [Azure Stack 中的静态数据加密](azure-stack-security-bitlocker.md)。
@@ -50,7 +50,7 @@ Azure Stack 基础结构组件使用以 TLS 1.2 加密的通道进行通信。 �
 
 所有外部基础结构终结点（例如 REST 终结点或 Azure Stack 门户）都支持使用 TLS 1.2 进行安全通信。 对于这些终结点，必须提供来自第三方或企业证书颁发机构的加密证书。 
 
-尽管可对这些外部终结点使用自签名证书，但 Microsoft 强烈建议不要使用此类证书。 
+尽管可对这些外部终结点使用自签名证书，但 Azure 强烈建议不要使用此类证书。 
 
 ## <a name="secret-management"></a>机密管理
 Azure Stack 基础结构使用许多机密（例如密码）来运行。 其中的大多数机密会自动轮换，因为它们是每隔 24 小时轮换一次的组托管服务帐户。
@@ -60,7 +60,7 @@ Azure Stack 基础结构使用许多机密（例如密码）来运行。 其中�
 ## <a name="code-integrity"></a>代码完整性
 Azure Stack 使用最新的 Windows Server 2016 安全功能。 其中一个功能是 Windows Defender Device Guard，它提供应用程序允许列表功能，确保只有经过授权的代码能在 Azure Stack 基础结构中运行。 
 
-经授权的代码是由 Azure 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Microsoft 定义的策略中指定的允许的软件列表中。 换而言之，只能执行已批准在 Azure Stack 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成审核。
+经授权的代码是由 Azure 或 OEM 合作伙伴签名的。 已签名的经授权代码包括在由 Azure 定义的策略中指定的允许软件列表中。 换而言之，只能执行已批准在 Azure Stack 基础结构中运行的软件。 系统会阻止任何执行未经授权代码的企图并生成审核。
 
 Device Guard 策略也会阻止第三方代理或软件在 Azure Stack 基础结构中运行。
 
@@ -96,10 +96,6 @@ Azure Stack 已通过了由第三方独立的审核公司执行的正式评估�
 - [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) 是跨多个标准的综合性映射，这些标准包括 FedRAMP Moderate、ISO27001、HIPAA、HITRUST、ITAR、NIST SP800-53 和其他标准。
 - [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) 适用于政府客户。
 
-可以在 [Microsoft 服务信任门户](https://servicetrust.microsoft.com/ViewPage/Blueprint)上找到符合性文档。 符合性指南是受保护的资源并且要求你使用 Azure 云服务凭据进行登录。
-
 ## <a name="next-steps"></a>后续步骤
 
 - [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)
-- [适用于 Azure Stack 的 PCI-DSS 和 CSA-CCM 文档](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
-- [适用于 Azure Stack 的 DoD 和 NIST 文档](https://servicetrust.microsoft.com/ViewPage/Blueprint)

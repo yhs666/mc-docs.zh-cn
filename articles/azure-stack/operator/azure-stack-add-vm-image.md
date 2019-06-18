@@ -12,22 +12,22 @@ ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
 origin.date: 04/02/2019
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
-ms.openlocfilehash: 18e2320d0e92dc69af4bfa3f46b29979babced40
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 73c87825b960e0e9d6c6f75541e905566dfb4b16
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381905"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135419"
 ---
 # <a name="add-a-vm-image-to-offer-in-azure-stack"></a>添加要在 Azure Stack 中提供的 VM 映像
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 可以使用 Azure Stack 的 Azure 资源管理器模板添加 VM 映像。 还可以将 VM 映像作为市场项添加到 Azure 市场 UI。 可以使用来自全球 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。 你可以使用管理门户或 Windows PowerShell 添加 VM 映像。
+在 Azure Stack 中，你可以向市场中添加虚拟机 (VM) 映像来将其提供给用户。 可以使用 Azure Stack 的 Azure 资源管理器模板添加 VM 映像。 还可以将 VM 映像作为市场项添加到 Azure 市场 UI。 可以使用来自 Azure 市场的映像，也可以使用你自己的自定义 VM 映像。 你可以使用管理门户或 Windows PowerShell 添加 VM 映像。
 
 ## <a name="add-a-vm-image-through-the-portal"></a>通过门户添加 VM 映像
 

@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 05/20/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3cedbdbc03b449e6182100d1ede9cf18e5ed65e5
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: a64b2d06a27d57851110eaa4f157fbe58f1ea459
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960921"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027445"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>排查 Azure 应用程序网关会话相关性问题
 
@@ -54,7 +54,7 @@ ms.locfileid: "65960921"
 
 也可以使用以下方法之一，检查“backendHttpSettingsCollection”下的“CookieBasedAffinity”值是否设置为“Enabled”：   
 
-- 在 PowerShell 中运行 `Get-AzApplicationGatewayBackendHttpSettings`
+- 在 PowerShell 中运行 [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting)
 - 使用 Azure 资源管理器模板通查 JSON 文件
 
 ```
@@ -210,4 +210,4 @@ Fiddler 之类的 Web 调试工具可以捕获 Internet 与测试计算机之间
 
 如果上述步骤无法解决问题，请开具[支持票证](https://www.azure.cn/support/contact/)。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1b3b0d7fcf15987999fef3670e1cb5772d408ebe
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: b5129fe0b7182e92f0e63ec5d479d86968ef5e4c
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556977"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135977"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在认知服务中的语言理解 (LUIS) 中导出和删除客户数据
 
@@ -61,7 +61,7 @@ LUIS 用户具有完全控制权限可在门户上查看数据，但是，若要
 
 ### <a name="china"></a>中国
 
-[au.luis.ai](https://au.luis.ai) 门户和中国创作（也称为编程 API）托管在 Azure 的中国地理区域中。 au.luis.ai 门户和中国创作（也称为编程 API）支持将终结点部署到以下 Azure 地理区域：
+[luis.azure.cn](https://luis.azure.cn) 门户和中国创作（也称为编程 API）托管在 Azure 的中国地理区域中。 https://luis.azure.cn 门户和中国创作（也称为编程 API）支持将终结点部署到以下 Azure 地理区域：
 
 * 中国
 

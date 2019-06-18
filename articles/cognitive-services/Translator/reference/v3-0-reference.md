@@ -3,20 +3,20 @@ title: 文本翻译 API V3.0 参考
 titlesuffix: Azure Cognitive Services
 description: 文本翻译 API v3.0 参考文档。
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 03/29/2018
-ms.date: 03/12/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7c0d0262286a6d236bd99c62fc197fc989ac7514
-ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
+ms.openlocfilehash: cf35c445d0f44f05c7c01e7dbf409ffca1e98f09
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529040"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830105"
 ---
 # <a name="translator-text-api-v30"></a>文本翻译 API v3.0
 
@@ -48,12 +48,12 @@ Microsoft Translator 位于多个数据中心位置之外。 目前位于 2 个 
 
 订阅文本翻译 API 并使用订阅密钥（Azure 门户中提供）进行身份验证。 
 
-有两个标头可用于对订阅进行身份验证。 下表介绍了每个标头的使用方式：
+有三个标头可用于对你的订阅进行身份验证。 下表介绍了每个标头的使用方式：
 
 |标头|说明|
 |:----|:----|
-|Ocp-Apim-Subscription-Key|如果要传递密钥，请与认知服务订阅一起使用。<br/>该值是文本翻译 API 订阅的 Azure 密钥。|
-|授权|如果要传递身份验证令牌，请与认知服务订阅一起使用。<br/>该值是持有者令牌：`Bearer <token>`。|
+|Ocp-Apim-Subscription-Key|如果要传递密钥，请与认知服务订阅一起使用  。<br/>该值是文本翻译 API 订阅的 Azure 密钥。|
+|授权|如果要传递身份验证令牌，请与认知服务订阅一起使用  。<br/>该值是持有者令牌：`Bearer <token>`。|
 |Ocp-Apim-Subscription-Region|在调用 api.translator.azure.cn endpoint 并直接传递机密密钥时所需的请求标头。 指定你的订阅所在的区域（例如 ` Chinanorth` 或 `Chinaeast2`）。|
 
 ###  <a name="secret-key"></a>密钥
@@ -64,16 +64,16 @@ Microsoft Translator 位于多个数据中心位置之外。 目前位于 2 个 
 
 | 环境     | 身份验证服务 URL                                |
 |-----------------|-----------------------------------------------------------|
-| Azure           | `https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken` |
+| Azure 中国     | `https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken` |
 
 以下是根据给定密钥获取令牌的示例请求：
 
 ```
 // Pass secret key using header
-curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken'
+curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken'
 
 // Pass secret key using query string parameter
-curl --data "" 'https://<your region>.api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
+curl --data "" 'https://<your region>.api.cognitive.azure.cn/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
 成功的请求会在响应正文中将编码的访问令牌作为纯文本返回。 有效的令牌在授权中作为持有者令牌传递给翻译服务。
@@ -93,7 +93,7 @@ Authorization: Bearer <Base64-access_token>
 
   * `message`：一个提供人类可读的错误表示形式的字符串。
 
-例如，拥有免费试用版订阅的客户会在免费配额用尽后收到以下错误：
+例如，拥有试用版订阅的客户会在免费配额用尽后收到以下错误：
 
 ```
 {
@@ -123,7 +123,7 @@ Authorization: Bearer <Base64-access_token>
 | 400036| 目标语言（“To”字段）缺失或无效。|
 | 400042| 指定的某个选项（“Options”字段）无效。|
 | 400043| 客户端跟踪 ID（ClientTraceId 字段或 X-ClientTranceId 标头）缺失或无效。|
-| 400050| 输入文本过长。|
+| 400050| 输入文本过长。 查看[请求限制](../request-limits.md)。|
 | 400064| “translation”参数缺失或无效。|
 | 400070| 目标脚本（ToScript 参数）的数目与目标语言（To 参数）的数目不匹配。|
 | 400071| TextType 的值无效。|
@@ -131,17 +131,19 @@ Authorization: Bearer <Base64-access_token>
 | 400073| 脚本参数无效。|
 | 400074| 请求正文是无效的 JSON。|
 | 400075| 语言对和类别组合无效。|
-| 400077| 超过了最大请求大小。|
+| 400077| 超过了最大请求大小。 查看[请求限制](../request-limits.md)。|
 | 400079| 请求用于在源语言与目标语言之间进行翻译的自定义系统不存在。|
 | 401000| 由于凭据缺失或无效，请求未授权。|
 | 401015| “提供的凭据适用于语音 API。 此请求需要文本 API 的凭据。 请使用文本翻译 API 的订阅。”|
 | 403000| 不允许该操作。|
 | 403001| 由于订阅已超过其免费配额，因此不允许该操作。|
 | 405000| 请求的资源不支持该请求方法。|
-| 408001| 请求的自定义翻译系统尚不可用。 请在几分钟内重试。|
+| 408001| 正在准备所请求的翻译系统。 请在几分钟内重试。|
+| 408002| 等待传入流时请求超时。 客户端没有在服务器准备等待的时间内生成请求。 客户端可以在以后的任何时间重复该请求，而不做任何修改。|
 | 415000| Content-Type 标头缺失或无效。|
-| 429000、429001、429002| 由于客户端发送的请求过多，服务器拒绝了请求。 请降低请求频率，以避免发生限制。|
+| 429000、429001、429002| 由于客户端已超出请求限制，服务器拒绝了请求。|
 | 500000| 发生了意外错误。 如果该错误持续出现，请报告发生错误的日期/时间、响应标头 X-RequestId 中的请求标识符，以及请求标头 X-ClientTraceId 中的客户端标识符。|
 | 503000| 服务暂时不可用。 请重试。 如果该错误持续出现，请报告发生错误的日期/时间、响应标头 X-RequestId 中的请求标识符，以及请求标头 X-ClientTraceId 中的客户端标识符。|
 
 
+<!-- Update_Description: wording update -->

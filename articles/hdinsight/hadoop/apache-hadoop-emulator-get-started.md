@@ -15,17 +15,17 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/11/2017
-ms.date: 01/14/2019
+origin.date: 05/29/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: 95ba501f46ce5ed9eaaca397878b33a8f8e843d8
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 5fd455fe37f6eb4c7ec000b01374089bc2da1f68
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029180"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135755"
 ---
-# <a name="get-started-with-a-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Apache Hadoop 沙盒，它是虚拟机上的模拟器
+# <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>开始使用 Apache Hadoop 沙盒，它是虚拟机上的模拟器
 
 了解如何在虚拟机上安装 Hortonworks 提供的 Apache Hadoop 沙盒，以了解 Hadoop 生态系统。 该沙盒提供一个本地开发环境，让用户了解 Hadoop、Hadoop 分布式文件系统 (HDFS) 和作业提交内容。 熟悉 Hadoop 之后，便可以开始在 Azure 中使用 Hadoop 创建 HDInsight 群集。 有关如何入门的详细信息，请参阅[在 HDInsight 中开始使用 Hadoop](apache-hadoop-linux-tutorial-get-started.md)。
 
@@ -35,30 +35,28 @@ ms.locfileid: "54029180"
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>下载并安装虚拟机
-1. 浏览到 [Hortonworks 下载](http://hortonworks.com/downloads/#sandbox)。
+1. 浏览到 [Cloudera 下载](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html)。
 
-2. 单击“下载 VIRTUALBOX”，将最新的 Hortonworks 沙盒下载到 VM 上。 开始下载之前，网站会提示在 Hortonworks 上注册。 下载需要一到两个小时，具体取决于网络速度。
-   
-    ![用于下载 Hortonworks Sandbox for VirtualBox 的链接图像](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. 在同一网页上，单击“在 Virtual Box 上导入”  链接，下载包含虚拟机安装说明的 PDF。
+2. 单击“选择安装类型”  下的 **VIRTUALBOX**，在 VM 上下载最新的 Hortonworks 沙盒。 登录或填写产品兴趣表。
 
-若要下载较旧的 HDP 版本沙盒，请展开存档：
+1. 单击按钮“HDP 沙盒(最新)”  开始下载。
 
-![Hortonworks 沙盒存档](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+有关设置沙盒的说明，请参阅[沙盒部署和安装指南](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/)。
 
+若要下载旧版本的 HDP 沙盒，请参阅“旧版本”  下的链接。
 
 ## <a name="start-the-virtual-machine"></a>启动虚拟机
 
 1. 打开 Oracle VM VirtualBox。
-2. 在“文件”菜单上，单击“导入设备”，然后指定 Hortonworks 沙盒映像。
-1. 选择 Hortonworks 沙盒，依次单击“启动”、“正常启动”。 虚拟机完成启动过程后，显示登录说明。
+2. 在“文件”菜单上，单击“导入设备”，然后指定 Hortonworks 沙盒映像   。
+1. 选择 Hortonworks 沙盒，依次单击“启动”  、“正常启动”  。 虚拟机完成启动过程后，显示登录说明。
    
     ![正常启动](./media/apache-hadoop-emulator-get-started/normal-start.png)
 2. 打开 Web 浏览器并导航到显示的 URL（通常是 http://127.0.0.1:8888) 。
 
 ## <a name="set-sandbox-passwords"></a>设置沙盒密码
 
-1. 在“Hortonworks 沙盒”页的“开始”步骤中，选择“查看高级选项”。 使用此页上的信息通过 SSH 登录到沙盒。 使用提供的名称和密码。
+1. 在“Hortonworks 沙盒”页的“开始”  步骤中，选择“查看高级选项”  。 使用此页上的信息通过 SSH 登录到沙盒。 使用提供的名称和密码。
 
    > [!NOTE]
    > 如果未安装 SSH 客户端，可以使用虚拟机在 **http://localhost:4200/** 上提供的基于 Web 的 SSH。

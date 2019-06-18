@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 951ab955983ed6c026264e792fe8c7ddab2e9f09
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 4f3087ed3ff07a98fe8029b1f332920c2fe60cfd
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529490"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135456"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
@@ -322,7 +322,7 @@ ms.locfileid: "64529490"
 **计量 ID**：190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **计量名称**：应用服务  
 **单元**：虚拟核心小时数  
-**注释**：用于运行应用服务的虚拟核心数。 注意：Microsoft 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
+**注释**：用于运行应用服务的虚拟核心数。 注意：Azure 使用此计量对基于 Azure Stack 的应用服务收费。 云服务提供商可能使用其他应用服务计量（见下）来计算其租户的用量。  
   
 **计量 ID**：67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **计量名称**：Functions 请求  
@@ -361,7 +361,7 @@ ms.locfileid: "64529490"
   
 ### <a name="custom-worker-tiers"></a>自定义辅助角色层   
   
-**计量 ID**：自定义辅助角色层  
+**计量 ID**：  自定义辅助角色层  
 **计量名称**：自定义辅助角色层  
 **单元**：小时  
 **注释**：确定性计量 ID 根据 SKU 和自定义辅助角色层名称来创建。 此计量 ID 对每个自定义辅助角色层来说都是唯一的。  
@@ -395,10 +395,10 @@ ms.locfileid: "64529490"
 
 你可能会发现，特定用量事件的“使用时间”与“报告时间”值有差异。 在任何环境中，延迟可能长达数小时。
 
-目前，只能按“报告时间”查询。
+目前，只能按“报告时间”查询。 
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
-| **HTTP 状态代码** | 错误代码 | **说明** |
+| **HTTP 状态代码** | 错误代码  | **说明** |
 | --- | --- | --- |
 | 400/错误的请求 |*NoApiVersion* |未提供 *api-version* 查询参数。 |
 | 400/错误的请求 |*InvalidProperty* |属性缺失或使用了无效值。 响应正文中错误代码内的消息指示缺少属性。 |

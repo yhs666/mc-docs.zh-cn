@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 06/03/2019
+ms.date: 06/13/2019
 ms.author: v-jay
 ms.reviewer: wfayed
 ms.lastreviewed: 09/12/2018
-ms.openlocfilehash: 802355455237ca30edb3757557231b93b7599ac1
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 03fbde213bdd43c596d5cebef463b9098d41e39d
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381912"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135468"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>有关 Azure Stack 集成系统的数据中心集成注意事项
 如果你对 Azure Stack 集成系统感兴趣，应了解有关部署的重要规划注意事项，及系统如何适应数据中心。 本文提供这些注意事项的综合概述，帮助你在 Azure Stack 多节点系统方面做出重要的基础结构决策。 配合 OEM 硬件供应商将 Azure Stack 部署到数据中心时，了解这些注意事项会有所帮助。  
@@ -39,7 +39,7 @@ ms.locfileid: "66381912"
 
 [Azure Stack 容量规划程序电子表格](https://aka.ms/azstackcapacityplanner)通过两种方法帮助你在规划容量时做出明智的决策：选择硬件产品/服务并尝试符合资源组合，或定义 Azure Stack 要运行的工作负荷，以查看可支持此操作的可用硬件 SKU。 最后，可以参考该电子表格做出 Azure Stack 规划和配置方面的决策。 
 
-该电子表格不能取代你自己的调查和分析。  Microsoft 对于该电子表格中提供的信息不做任何明示或暗示的声明或保证。
+该电子表格不能取代你自己的调查和分析。  Azure 对于该电子表格中提供的信息不做任何明示或暗示的声明或保证。
 
 
 
@@ -48,7 +48,7 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 
 在日常管理与操作期间，管理员可以不受限制地访问基础结构。 Azure Stack 操作员必须通过管理员门户或 Azure 资源管理器（通过 PowerShell 或 REST API）管理系统。 无法通过其他管理工具（例如 Hyper-V 管理器或故障转移群集管理器）访问系统。 为了帮助保护系统，不能在 Azure Stack 基础结构组件中安装第三方软件（例如代理）。 通过 PowerShell 或 REST API 可与外部管理与安全软件建立互操作性。
 
-需要较高级别的访问权限来排查无法通过警报中介步骤解决的问题时，必须咨询 Microsoft 支持部门。 支持人员会提供暂时性的完整管理员访问权限，让你通过某种方法访问系统，以执行更高级的操作。 
+需要较高级别的访问权限来排查无法通过警报中介步骤解决的问题时，必须咨询 Azure 支持部门。 支持人员会提供暂时性的完整管理员访问权限，让你通过某种方法访问系统，以执行更高级的操作。 
 
 ## <a name="identity-considerations"></a>标识注意事项
 
@@ -71,9 +71,6 @@ Azure Stack 是一个密封的系统，从权限和网络角度来看，其基�
 必须确定要使用哪个许可模式。 可用的选项取决于是否要部署连接到 Internet 的 Azure Stack：
 - 对于[连接的部署](azure-stack-connected-deployment.md)，可以选择即用即付或基于容量的许可模式。 即用即付模式需要连接到 Azure 来报告用量，并通过 Azure 商务系统计费。 
 - 如果部署与 Internet [断开连接](azure-stack-disconnected-deployment.md)的 Azure Stack，只能使用基于容量的许可模式。 
-
-有关许可模式的详细信息，请参阅 [Microsoft Azure Stack 打包和定价](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf)。
-
 
 ## <a name="naming-decisions"></a>命名决策
 

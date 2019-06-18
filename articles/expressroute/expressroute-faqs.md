@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-origin.date: 05/12/2019
+origin.date: 05/20/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: 93effc35501606db9e330f0e12ee8470bdfe4120
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/24/2019
+ms.openlocfilehash: 76b8583b489428fbaa4f6492e71840c8689a883d
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829282"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136014"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute 常见问题
 
@@ -39,7 +39,7 @@ ExpressRoute 连接不通过公共 Internet 。 与通过 Internet 的典型连�
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>如果我购买了具有给定带宽的 ExpressRoute 线路，是否可以根据需要提升到更高的速度？
 
-是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询服务提供商，确定他们是否支持此功能。
+是的。 ExpressRoute 线路的配置允许免费将速度提升到所购带宽限制的两倍。 请咨询服务提供商，确定他们是否支持此功能。 此功能不会持续一段时间，也不会得到保证。 
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>能否同时与虚拟网络和其他 Azure 服务使用同一专用网络连接？
 
@@ -74,8 +74,8 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Azure DevOps Services 负载测试
-* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br>不支持以下服务：
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)（Azure 全球服务社区）
+* 支持大多数 Azure 服务。 请直接对要使用的服务进行确认来验证是否支持。<br><br>**不支持以下服务**：
     * CDN
     * 多重身份验证
     * 流量管理器
@@ -200,9 +200,6 @@ ExpressRoute 支持 [三种路由域](expressroute-circuit-peerings.md) ，适�
 
 是的。 对于专用对等互连，我们最多接受 4000 个路由前缀；对于 Microsoft 对等互连，接受 200 个。 如果启用 ExpressRoute 高级功能，可以将专用对等互连的此限制提高为 10,000 个路由。
 
-### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>对可以通过 BGP 会话播发的 IP 地址范围是否有限制？
-
-对于 Microsoft 对等 BGP 会话中，不接受私有前缀 (RFC1918)。
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>如果超过 BGP 限制，会发生什么情况？
 会将 BGP 会话删除。 当前缀计数低于限制后，将重置这些会话。

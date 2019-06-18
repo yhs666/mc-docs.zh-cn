@@ -4,15 +4,15 @@ description: 了解如何使用 Azure Cosmos DB 和 SQL API 创建、索引和�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/01/2017
-ms.date: 03/04/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: a14087b15faae2c887bd030b3eac78f270b9b1da
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 54b4a40ec9dff319f0cad82a2f45915b48ddc137
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988022"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151446"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>在 Azure Cosmos DB SQL API 帐户中使用地理空间和 GeoJSON 位置数据
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 支持对使用 [GeoJSON 规范](https://tools.ietf.org/html/rfc
 ### <a name="points-linestrings-and-polygons"></a>点、线串和多边形
 **点** 代表空间中的单一位置。 在地理空间数据中，某个点所代表的确切位置可能是杂货店、电话亭、汽车或城市的街道地址。  点使用其坐标对或经纬度，以 GeoJSON 格式（和 Azure Cosmos DB）表示。 以下是点的 JSON 示例。
 
-Azure Cosmos DB 中的点
+Azure Cosmos DB 中的点 
 
 ```json
 {
@@ -51,7 +51,7 @@ Azure Cosmos DB 中的点
 
 如下面包含位置数据的用户配置文件示例所示，此数据可以嵌入 Azure Cosmos DB 文档中：
 
-存储在 Azure Cosmos DB 中包含位置的用户配置文件
+存储在 Azure Cosmos DB 中包含位置的用户配置文件 
 
 ```json
 {
@@ -68,7 +68,7 @@ Azure Cosmos DB 中的点
 
 除了点之外，GeoJSON 也支持 LineString 和多边形。 **LineString** 表示空间中一连串的点（两个或更多个）以及连接这些点的线段。 在地理空间数据中，LineString 通常用来表示高速公路或河流。 **多边形** 是形成闭合的 LineString 的相连接的点的边界。 多边形通常用来表示自然构成物（例如湖泊），或表示政治管辖权（例如省/市/自治区）。 以下是 Azure Cosmos DB 中多边形的示例。 
 
-GeoJSON 中的多边形
+GeoJSON 中的多边形 
 
 ```json
 {
@@ -254,7 +254,7 @@ SQL .NET SDK 还提供存根方法 `Distance()` 和 `Within()`，供用户在 LI
 **LINQ 距离查询**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

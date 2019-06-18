@@ -4,18 +4,19 @@ description: 使用 Excel Online REST API 和 Azure 逻辑应用管理数据
 ms.service: logic-apps
 services: logic-apps
 author: ecfan
-ms.author: estfan
+ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
 ms.topic: article
-ms.date: 08/23/2018
-ms.openlocfilehash: 65d8d0c892d2713f5adf649eb015575eba9bc662
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+origin.date: 08/23/2018
+ms.date: 06/24/2019
+ms.openlocfilehash: e2e02a9876801a5c1eff3f5dcea8cc6f02c28ec5
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675369"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135776"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>使用 Azure 逻辑应用管理 Excel Online 数据
 
@@ -43,17 +44,17 @@ ms.locfileid: "52675369"
 
 * 有关[如何创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)的基本知识
 
-* 要在其中访问 Excel Online 数据的逻辑应用。 此连接器仅提供操作，因此，若要启动逻辑应用，请选择单独的触发器（例如“重复”触发器）。
+* 要在其中访问 Excel Online 数据的逻辑应用。 此连接器仅提供操作，因此，若要启动逻辑应用，请选择单独的触发器（例如“重复”触发器）。 
 
 ## <a name="add-excel-action"></a>添加 Excel 操作
 
 1. 在 [Azure 门户](https://portal.azure.com)中，在逻辑应用设计器中打开你的逻辑应用（如果尚未打开）。
 
-1. 在触发器下，选择“新建步骤”。
+1. 在触发器下，选择“新建步骤”。 
 
 1. 在搜索框中，输入“excel”作为筛选器。 在操作列表下，选择所需的操作。
 
-1. 如果系统提示登录到 Office 365 帐户，请选择“登录”。 
+1. 如果系统提示登录到 Office 365 帐户，请选择“登录”  。 
 
    你的凭据授权逻辑应用创建与 Excel Online 的连接并访问你的数据。
 
@@ -61,7 +62,7 @@ ms.locfileid: "52675369"
 
 ## <a name="connector-reference"></a>连接器参考
 
-有关技术详细信息（例如操作和限制，如连接器的 Swagger 文件所述），请查看以下连接器参考页：
+如需技术详细信息（例如触发器、操作和限制，如连接器的 OpenAPI（以前为 Swagger）文件所述），请参阅以下连接器参考页：
 
 * [Excel Online for Business](/connectors/excelonlinebusiness/) 
 * [Excel Online for OneDrive](/connectors/excelonline/) 
@@ -69,7 +70,7 @@ ms.locfileid: "52675369"
 ## <a name="get-support"></a>获取支持
 
 * 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](http://aka.ms/logicapps-wish)。
+* 若要提交功能建议或对功能建议进行投票，请访问[逻辑应用用户反馈网站](https://aka.ms/logicapps-wish)。
 
 ## <a name="next-steps"></a>后续步骤
 

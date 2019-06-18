@@ -10,12 +10,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 86e56f13497929eac4f1906f2549b6151ee5d211
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 6ff19d7e8c24ad6b189a197557a574e927cca43e
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249150"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135467"
 ---
 # <a name="how-to-deploy-a-c-aspnet-web-app-to-a-vm-in-azure-stack"></a>如何将 C# ASP.net Web 应用程序部署到 Azure Stack 中的 VM
 
@@ -89,7 +89,7 @@ C# 是一种通用的多模式编程语言，其中包括强类型化、词法�
 可以使用你自己的 Web 应用，或使用[使用 Visual Studio 将 ASP.NET Core 应用发布到 Azure](https://docs.microsoft.com/aspnet/core/tutorials/razor-pages/razor-pages-start?view=aspnetcore-2.2&tabs=visual-studio
 ) 中的示例。
 
-本文将介绍如何使用 Visual Studio 2017 中的 Microsoft Azure 虚拟机发布功能，创建一个 ASP.NET Web 应用程序并将其发布到 Azure 虚拟机 (VM)。 安装应用并确保它在本地运行后，将发布目标更新为 Azure Stack 中的 Windows VM。
+本文将介绍如何使用 Visual Studio 2017 中的 Azure 虚拟机发布功能，创建一个 ASP.NET Web 应用程序并将其发布到 Azure 虚拟机 (VM)。 安装应用并确保它在本地运行后，将发布目标更新为 Azure Stack 中的 Windows VM。
 
 ## <a name="deploy-and-run-the-app"></a>部署和运行应用
 

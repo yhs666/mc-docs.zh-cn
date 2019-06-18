@@ -3,20 +3,20 @@ title: 文本翻译 API 语言方法
 titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API 语言方法。
 services: cognitive-services
-author: Jann-Skotdal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 03/26/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5f3c1df9cb9978887cfec8c976ed8cfba6feaa43
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 24e93cb7e963cddbeb8b804efa282af56d7bd6ac
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625240"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830100"
 ---
 # <a name="translator-text-api-30-languages"></a>文本翻译 API 3.0：语言
 
@@ -264,7 +264,7 @@ https://api.translator.azure.cn/languages?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>调用方发送的请求过多。</td>
+    <td>由于客户端已超出请求限制，服务器拒绝了请求。</td>
   </tr>
   <tr>
     <td>500</td>
@@ -290,4 +290,4 @@ curl "https://api.translator.azure.cn/languages?api-version=3.0&scope=translatio
 
 ---
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

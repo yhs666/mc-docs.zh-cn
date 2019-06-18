@@ -11,17 +11,17 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 04/25/2019
-ms.date: 05/21/2019
+origin.date: 05/16/2019
+ms.date: 06/13/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 092fde1c97848bb28def2b954baade47a72efd5e
-ms.sourcegitcommit: 932a335a0e5526ea70be496c393484702722f900
+ms.openlocfilehash: f55bf2f443a6adea7bd9ba54fb5ad051b1a64a6c
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "65997327"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046959"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -72,6 +72,7 @@ ms.locfileid: "65997327"
 | [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 |
 | [认知服务用户](#cognitive-services-user) | 允许读取和列出认知服务的密钥。 |
 | [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) | 可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。 |
+| [Cosmos DB 操作员](#cosmos-db-operator) | 可以管理 Azure Cosmos DB 帐户，但不能访问其中的数据。 阻止访问帐户密钥和连接字符串。 |
 | [CosmosBackupOperator](#cosmosbackupoperator) | 可以为帐户提交 Cosmos DB 数据库或容器的还原请求 |
 | [成本管理参与者](#cost-management-contributor) | 可以查看成本和管理成本配置（例如预算、导出） |
 | [成本管理读者](#cost-management-reader) | 可以查看成本数据和配置（例如预算、导出） |
@@ -106,6 +107,7 @@ ms.locfileid: "65997327"
 | [安全管理员](#security-admin) | 仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议 |
 | [安全管理器（旧版）](#security-manager-legacy) | 这是旧角色。 请改用安全管理员角色 |
 | [安全读取者](#security-reader) | 仅在安全中心内：可以查看建议和警报、查看安全策略、查看安全状态，但不能进行更改 |
+| [服务总线数据所有者](#service-bus-data-owner) | 允许完全访问 Azure 服务总线资源 |
 | [Site Recovery 参与者](#site-recovery-contributor) | 允许管理除保管库创建和角色分配外的 Site Recovery 服务 |
 | [Site Recovery 操作员](#site-recovery-operator) | 允许进行故障转移和故障回复，但不允许执行其他 Site Recovery 管理操作 |
 | [Site Recovery 读取者](#site-recovery-reader) | 允许查看 Site Recovery 状态，但不允许执行其他管理操作 |
@@ -1013,6 +1015,30 @@ ms.locfileid: "65997327"
 > | **NotDataActions** |  |
 > | *无* |  |
 
+## <a name="cosmos-db-operator"></a>Cosmos DB 操作员
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 可以管理 Azure Cosmos DB 帐户，但不能访问其中的数据。 阻止访问帐户密钥和连接字符串。 |
+> | Id  | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | **操作** |  |
+> | Microsoft.DocumentDb/databaseAccounts/* |  |
+> | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
+> | Microsoft.Resources/deployments/* | 创建和管理资源组部署 |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
+> | Microsoft.Support/* | 创建和管理支持票证 |
+> | **不操作** |  |
+> | Microsoft.DocumentDB/databaseAccounts/readonlyKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/regenerateKey/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listKeys/* |  |
+> | Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/* |  |
+> | **DataActions** |  |
+> | *无* |  |
+> | **NotDataActions** |  |
+> | *无* |  |
+
 ## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1042,6 +1068,8 @@ ms.locfileid: "65997327"
 > | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
+> | Microsoft.Advisor/configurations/read | 获取配置 |
+> | Microsoft.Advisor/recommendations/read | 读取建议 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -1062,6 +1090,8 @@ ms.locfileid: "65997327"
 > | Microsoft.Resources/subscriptions/read | 获取订阅的列表。 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
+> | Microsoft.Advisor/configurations/read | 获取配置 |
+> | Microsoft.Advisor/recommendations/read | 读取建议 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |
@@ -1101,6 +1131,7 @@ ms.locfileid: "65997327"
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | 列出与订单相关的未加密凭据。 |
 > | Microsoft.Databox/locations/availableSkus/action | 此方法返回可用 SKU 列表。 |
+> | Microsoft.Databox/locations/validateAddress/action | 验证送货地址，并提供备用地址（如有）。 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | **不操作** |  |
@@ -1166,6 +1197,7 @@ ms.locfileid: "65997327"
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 获取或列出资源组。 |
 > | Microsoft.Resources/deployments/operations/read | 获取或列出部署操作。 |
 > | Microsoft.Insights/alertRules/* | 创建和管理 Insights 警报规则 |
+> | Microsoft.Authorization/*/read | 读取角色和角色分配 |
 > | Microsoft.Support/* | 创建和管理支持票证 |
 > | **不操作** |  |
 > | *无* |  |
@@ -1714,6 +1746,22 @@ ms.locfileid: "65997327"
 > | **NotDataActions** |  |
 > | *无* |  |
 
+## <a name="service-bus-data-owner"></a>服务总线数据所有者
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **说明** | 允许完全访问 Azure 服务总线资源。 |
+> | Id  | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **操作** |  |
+> | Microsoft.ServiceBus/* | 允许对服务总线命名空间进行完全管理访问 |
+> | **不操作** |  |
+> | *无* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | 允许对服务总线命名空间进行完全数据访问 |
+> | **NotDataActions** |  |
+> | *无* |  |
+
 ## <a name="site-recovery-contributor"></a>Site Recovery 参与者
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2177,7 +2225,7 @@ ms.locfileid: "65997327"
 > | **说明** | 提供对 Azure 存储 blob 容器和数据的完全访问权限，包括分配 POSIX 访问控制。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations)。 |
 > | Id  | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **操作** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 对容器的完全权限。  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | 对容器的完全权限。 |
 > | **不操作** |  |
 > | *无* |  |
 > | **DataActions** |  |

@@ -4,22 +4,22 @@ description: 本文介绍了 Azure Cosmos DB 合规性产品的认证覆盖范�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/15/2018
-ms.date: 03/04/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 4f481c4d7d547a9c6aa6124d7ee630e4b850d937
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 14be28793ccc1d8b712c3edad7a64d0f216287aa
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988036"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151519"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
 
-Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国提供 Azure 中国云环境：
+Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户提供 Azure 中国云环境：
 
-* Microsoft 与中国最大的 Internet 提供商世纪互联展开独特合作，推出了 Azure 中国。
+* Microsoft 与中国最大的 Internet 提供商世纪互联展开独特合作，推出了 **Azure 中国世纪互联**。
 
 <!--Correct on Microsoft and 21Vianet-->
 
@@ -37,6 +37,7 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国提供 A
 若要了解有关 Azure 合规性认证的详细信息，请参阅以下文章：
 
 <!--Not Available on  [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)-->
+
 * 有关 Azure Cosmos DB 安全性的概述以及最新改进，请参阅 [Azure Cosmos DB 数据库安全性](database-security.md)一文。
 
 * 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。

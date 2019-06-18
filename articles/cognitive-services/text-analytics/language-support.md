@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
 origin.date: 02/13/2019
-ms.date: 05/15/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c79aa96d0f82a66433b66c6f3650f38e41b99cd4
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 96971afa1aad05fd7e63d57b98338107d0ad7812
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668919"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830031"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文本分析 API 的语言和区域支持
 
@@ -24,7 +24,11 @@ ms.locfileid: "65668919"
 
 ## <a name="language-detection"></a>语言检测
 
-文本分析 API 可以检测多达 120 种不同的语言。 语言检测返回一种语言的“脚本”。 例如，对于短语“I have a dog”，它将返回 `en` 而非 `en-US`。 唯一的特例是中文，对于中文，如果语言检测功能可以确定所提供的文本的脚本，则它将返回 `zh_CHS` 或 `zh_CHT`。 当无法识别中文文档的具体脚本时，它将简单地返回 `zh`。
+文本分析 API 可以检测多种语言、变体、方言和一些区域/文化语言。  语言检测返回一种语言的“脚本”。 例如，对于短语“I have a dog”，它将返回 `en` 而非 `en-US`。 唯一的特例是中文，对于中文，如果语言检测功能可以确定所提供的文本的脚本，则它将返回 `zh_CHS` 或 `zh_CHT`。 当无法识别中文文档的具体脚本时，它将简单地返回 `zh`。
+
+我们不会发布此功能的确切语言列表，但它可以检测各种语言、变体、方言和一些区域/文化语言。 
+
+如果内容是用较少使用的语言表示的，则可以尝试“语言检测”来查看它是否返回代码。 无法检测的语言的响应为 `unknown`。
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情绪分析、关键短语提取和命名的实体识别
 

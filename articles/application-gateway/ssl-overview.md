@@ -6,14 +6,14 @@ author: amsriva
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/17/2019
+ms.date: 06/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: aaf5121e1c308e8ccb11bf3fdec0a24124be7f26
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 2eaf4a8016b5daf0e2ef1cf9a1a5105cd2fa2c9b
+ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686322"
+ms.lasthandoff: 06/12/2019
+ms.locfileid: "67027430"
 ---
 # <a name="overview-of-ssl-termination-and-end-to-end-ssl-with-application-gateway"></a>应用程序网关的 SSL 终止和端到端 SSL 概述
 
@@ -50,6 +50,9 @@ ms.locfileid: "59686322"
 
 有关详细信息，请参阅[配置应用程序网关的 SSL 终止](/application-gateway/create-ssl-portal)。
 
+### <a name="size-of-the-certificate"></a>证书大小
+查看[应用程序网关限制](/azure-subscription-service-limits#application-gateway-limits)部分，了解支持的最大 SSL 证书大小。
+
 ## <a name="end-to-end-ssl-encryption"></a>端到端 SSL 加密
 
 某些客户可能不希望与后端服务器进行未加密的通信。 这可能是因为安全要求、符合性要求，或者应用程序可能仅接受安全连接。 对于此类应用程序，应用程序网关支持端到端 SSL 加密。
@@ -70,7 +73,7 @@ SSL 策略将应用到前端和后端流量。 在前端上，应用程序网关
 
 > [!NOTE] 
 >
-> 添加到“后端 HTTP 设置”中的、用于对后端服务器进行身份验证的证书，可以是添加到**侦听器**的、用于在应用程序网关上实现 SSL 终止的同一个证书；为了增强安全性，两者也可以不同。
+> 添加到“后端 HTTP 设置”中的、用于对后端服务器进行身份验证的证书，可以是添加到**侦听器**的、用于在应用程序网关上实现 SSL 终止的同一个证书；为了增强安全性，两者也可以不同。 
 
 ![端到端 ssl 方案][1]
 
@@ -91,3 +94,4 @@ SSL 策略将应用到前端和后端流量。 在前端上，应用程序网关
 
 [1]: ./media/ssl-overview/scenario.png
 
+<!-- Update_Description: wording update -->

@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: c588fe30326d51861987ace52b7ece1bcc74e92a
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 7e39c95d06750f579c971e10c9ab9ad8c469cf9c
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855480"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135425"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 .NET 配合使用
 
@@ -62,7 +62,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 4.  若要安装 Visual Studio Code 的正确 NuGet 包，请查看此下载链接：[NuGet 包管理器说明][]。
 
-5.  如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建套餐的订阅][]。
+5.  如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的说明，请参阅[在 Azure Stack 中创建产品/服务的订阅][]。
 
 6.  创建服务主体并保存客户端 ID 和客户端机密。 有关如何为 Azure Stack 创建服务主体的说明，请参阅[提供对 Azure Stack 的应用程序访问权限][]。 创建服务主体时的客户端 ID 也称为应用程序 ID。
 
@@ -74,11 +74,11 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 | Value                     | 环境变量   | 说明                                                                                                             |
 |---------------------------|-------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| 租户 ID                 | AZURE_TENANT_ID       | Azure Stack [租户 ID][] 的值。                                                                          |
+| 租户 ID                 | AZURE_TENANT_ID       | Azure Stack [租户 ID  ][] 的值。                                                                          |
 | 客户端 ID                 | AZURE_CLIENT_ID       | 在本文上一部分创建服务主体时保存的服务主体应用程序 ID。 |
-| 订阅 ID           | AZURE_SUBSCRIPTION_ID | [订阅 ID][] 用于访问 Azure Stack 中的套餐。                                                      |
+| 订阅 ID           | AZURE_SUBSCRIPTION_ID | [订阅 ID  ][] 用于访问 Azure Stack 中的产品/服务。                                                      |
 | 客户端机密             | AZURE_CLIENT_SECRET   | 创建服务主体时保存的服务主体应用程序机密。                                      |
-| 资源管理器终结点 | ARM_ENDPOINT           | 请参阅 [*Azure Stack 资源管理器终结点*][]。                                                                    |
+| 资源管理器终结点 | ARM_ENDPOINT           | 请参阅 [Azure Stack 资源管理器终结点  ][]。                                                                    |
 | 位置                  | RESOURCE_LOCATION     | Azure Stack 的位置。
 
 若要查找 Azure Stack 的租户 ID，请按[此处](../operator/azure-stack-csp-ref-operations.md)提供的说明操作。 若要设置环境变量，请执行以下步骤：
@@ -203,15 +203,3 @@ public static ActiveDirectoryServiceSettings getActiveDirectoryServiceSettings(s
 - [在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)
 - [配置文件支持的资源提供程序 API 版本](azure-stack-profiles-azure-resource-manager-versions.md)
 
-  [入门 - 安装 Git]: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-  [查找和安装包]: https://docs.microsoft.com/nuget/tools/package-manager-ui
-  [NuGet 包管理器说明]: https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
-  [在 Azure Stack 中创建套餐的订阅]: ../operator/azure-stack-subscribe-plan-provision-vm.md
-  [提供对 Azure Stack 的应用程序访问权限]: ../operator/azure-stack-create-service-principals.md
-  [**租户 ID]: ../operator/azure-stack-identity-overview.md
-  [**订阅 ID]: ../operator/azure-stack-plan-offer-quota-overview.md#subscriptions
-  [Azure Stack 资源管理器终结点**]: ../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint
-  [API 配置文件的摘要]: ../user/azure-stack-version-profiles.md#summary-of-api-profiles
-  [Test Project to Virtual Machine, vNet, resource groups, and storage account]: https://github.com/seyadava/azure-sdk-for-net-samples/tree/master/TestProject
-  [Use Azure PowerShell to create a service principal with a certificate]: ../operator/azure-stack-create-service-principals.md
-  [Run unit tests with Test Explorer.]: https://docs.microsoft.com/visualstudio/test/run-unit-tests-with-test-explorer?view=vs-2017

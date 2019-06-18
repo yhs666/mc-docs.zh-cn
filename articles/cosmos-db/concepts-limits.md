@@ -6,13 +6,13 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/19/2019
-ms.date: 06/03/2019
-ms.openlocfilehash: ce07d3b7164f65b60e7ea994126de5e52835e719
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.date: 06/17/2019
+ms.openlocfilehash: b1d595d990b2a2ed26afbe0227a5445769590c75
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424266"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151518"
 ---
 # <a name="limits-in-azure-cosmos-db"></a>Azure Cosmos DB 中的限制
 
@@ -24,8 +24,8 @@ ms.locfileid: "66424266"
 
 | Resource | 默认限制 |
 | --- | --- |
-| 每个容器的最大 RU 数（[专用吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可通过 [咨询 Cosmos DB][Azure 支持](https://www.azure.cn/support/contact/) 联系我们提高此限制 |
-| 每个数据库的最大 RU 数（[共享吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可通过 [咨询 Cosmos DB][Azure 支持](https://www.azure.cn/support/contact/) 联系我们提高此限制 |
+| 每个容器的最大 RU 数（[专用吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[提交 Azure 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)或通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们来提高此限制 |
+| 每个数据库的最大 RU 数（[共享吞吐量预配模式](databases-containers-items.md#azure-cosmos-containers)） | 默认为 1,000,000。 可以通过[提交 Azure 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)或通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们来提高此限制 |
 | 每个（逻辑）分区键的最大 RU 数 | 10,000 |
 | 每个（逻辑）分区键的所有项的最大存储| 10 GB |
 | 最大相异（逻辑）分区键数目 | 无限制 |
@@ -61,8 +61,8 @@ Cosmos DB 支持通过 SDK 或门户弹性缩放每个容器或数据库的吞�
 
 | Resource | 默认限制 |
 | --- | --- |
-| 每个订阅的最大数据库帐户数 | 默认为 50。 可通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们提高此限制|
-| 最大区域故障转移次数 | 默认为每小时 1 次。 可通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们提高此限制|
+| 每个订阅的最大数据库帐户数 | 默认为 50。 可以通过[提交 Azure 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)或通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们来提高此限制|
+| 最大区域故障转移次数 | 默认为每小时 1 次。 可以通过[提交 Azure 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)或通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们来提高此限制|
 
 <!--MOONCAKE: Not Available on [filing an Azure support ticket](/azure-supportability/how-to-create-azure-support-request)-->
 
@@ -122,7 +122,7 @@ Cosmos DB 使用 HMAC 进行授权。 可以使用主密钥或[资源令牌](sec
 | --- | --- |
 | 主令牌最长过期时间 | 15 分钟  |
 | 资源令牌最短过期时间 | 10 分钟  |
-| 资源令牌最长过期时间 | 默认为 24 小时。 可通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们提高此限制|
+| 资源令牌最长过期时间 | 默认为 24 小时。 可以通过[提交 Azure 支持票证](https://support.azure.cn/zh-cn/support/support-azure/)或通过 [Azure 支持](https://www.azure.cn/support/contact/)联系我们来提高此限制|
 | 令牌授权的最大时钟偏差| 15 分钟 |
 
 Cosmos DB 支持在写入期间执行触发器。 对于每个写入操作，服务最多支持一个前触发器和一个后触发器。 
@@ -171,5 +171,5 @@ Cosmos DB 支持针为 MongoDB 编写的应用程序使用 MongoDB 线路协议�
 
 <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
-<!--Update_Description: new articles on concept limits -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update, update link -->
+

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: df78781c9fdeca47a66972db87286b3c6db07059
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 1618c8005a92bfadd1c417bfcb3b8c24d0d8e5b9
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731411"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135974"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>将 Operations Manager 连接到 Azure Monitor
 
@@ -67,23 +67,23 @@ ms.locfileid: "66731411"
 |Resource | 端口号| 绕过 HTTP 检查|  
 |---------|------|-----------------------|  
 |**代理**|||  
-|\*.ods.opinsights.azure.com| 443 |是|  
-|\*.oms.opinsights.azure.com| 443|是|  
-|\*.blob.core.windows.net| 443|是|  
+|\*.ods.opinsights.chinacloudapi.cn| 443 |是|  
+|\*.oms.opinsights.chinacloudapi.cn| 443|是|  
+|\*.blob.core.chinacloudapi.cn| 443|是|  
 |\*.azure-automation.net| 443|是|  
 |**管理服务器**|||  
-|\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| 是|  
-|\*.ods.opinsights.azure.com| 443| 是|  
+|\*.service.opinsights.chinacloudapi.cn| 443||  
+|\*.blob.core.chinacloudapi.cn| 443| 是|  
+|\*.ods.opinsights.chinacloudapi.cn| 443| 是|  
 |*.azure-automation.net | 443| 是|  
 |**Operations Manager 控制台到 Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
-|\*.service.opinsights.azure.com| 443||  
+|\*.service.opinsights.chinacloudapi.cn| 443||  
 |\*.live.com| 80 和 443||  
 |\*.microsoft.com| 80 和 443||  
-|\*.microsoftonline.com| 80 和 443||  
+|\*.partner.microsoftonline.cn| 80 和 443||  
 |\*.mms.microsoft.com| 80 和 443||  
-|login.windows.net| 80 和 443||  
+|login.chinacloudapi.cn| 80 和 443||  
 |portal.loganalytics.io| 80 和 443||
 |api.loganalytics.io| 80 和 443||
 |docs.loganalytics.io| 80 和 443||  

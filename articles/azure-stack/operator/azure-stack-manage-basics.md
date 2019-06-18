@@ -3,8 +3,8 @@ title: Azure Stack 管理基础知识 | Microsoft Docs
 description: 了解对 Azure Stack 进行管理需要知道哪些知识。
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
@@ -12,15 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
-ms.author: mabrigg
+origin.date: 02/12/2019
+ms.date: 06/13/2019
+ms.author: v-jay
 ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: ac7378ff2108e7438fc0c5eb4f591d0714ca1ea0
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: a71cf6b7d27c14ae73361865742cdfd164553ead
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529542"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135461"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
 如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本文概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。
@@ -131,17 +132,17 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 ### <a name="integrated-systems"></a>集成系统
 
-对于集成系统，Microsoft 和其原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
+对于集成系统，Azure 和我们的原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Microsoft 客户支持服务 (CSS) 寻求支持。 单击管理员门户右上角的“帮助和支持”图标（问号），再单击“新建支持请求”，则会打开一个网站，然后就可以在其中直接提出支持请求。
+如果存在云服务问题，请通过 Azure 客户支持服务 (CSS) 寻求支持。 单击管理员门户右上角的“帮助和支持”图标（问号），再单击“新建支持请求”，则会打开一个网站，然后就可以在其中直接提出支持请求。 
 
 如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
 
-至于其他问题，请联系 Microsoft CSS。
+至于其他问题，请联系 Azure 支持。
 
 ### <a name="development-kit"></a>开发工具包
 
-至于开发工具包，可以在 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)中提出与支持相关的问题。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。 我们会定期关注这些论坛。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
+对于开发工具包，可以在[论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurestack)中提出与支持相关的问题。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。  我们会定期关注这些论坛。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 03/29/2019
-ms.date: 06/10/2019
+origin.date: 05/28/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: c0b84d21bc5f77027581b0afbc8de7a8e34173a1
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 13e6c075c5b8d6b323fc4a1edc15ab272a7af711
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424655"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135754"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -217,41 +217,39 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 ## <a id="networktraffic"></a> 控制网络流量
 
+### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>控制 HDInsight 群集的入站流量
+
 可以使用以下方法控制 Azure 虚拟网络中的网络流量：
 
 *  网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
 
-    > [!WARNING]
-    > HDInsight 不支持限制出站流量。 应当允许所有出站流量。
-
-*  用户定义路由 (UDR)：定义流量在网络中的资源之间的流动方式。 有关详细信息，请参阅[用户定义路由和 IP 转发](../virtual-network/virtual-networks-udr-overview.md)文档。
-
 *  网络虚拟设备：复制设备（例如防火墙和路由器）的功能。 有关详细信息，请参阅[网络设备](https://azure.microsoft.com/solutions/network-appliances)文档。
 
-作为托管服务，对于从 VNET 传入和传出的流量，HDInsight 都需要对 HDinsight 运行状况和管理服务具有不受限制的访问权限。 使用 NSG 和 UDR 时，必须确保这些服务仍然可以与 HDInsight 进行通信。
+作为托管服务，HDInsight 需要对 HDInsight 运行状况和管理服务具有不受限制的访问权限，以处理从 VNET 传入和传出的流量。 使用 NSG 时，必须确保这些服务仍然可以与 HDInsight 群集进行通信。
 
-### <a id="hdinsight-ip"></a> HDInsight 与网络安全组和用户定义路由
+![在 Azure 自定义 VNET 中创建的 HDInsight 实体的关系图](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-如果计划使用网络安全组或用户定义路由来控制网络流量，请在安装 HDInsight 之前执行以下操作：  
+### <a id="hdinsight-ip"></a> 使用网络安全组的 HDInsight
+
+如果计划使用**网络安全组**来控制网络流量，请在安装 HDInsight 之前执行以下操作：
 
 1. 确定计划用于 HDInsight 的 Azure 区域。
 
 2. 确定 HDInsight 所需的 IP 地址。 有关详细信息，请参阅 [HDInsight 所需的 IP 地址](#hdinsight-ip)部分。
 
-3. 为计划将 HDInsight 安装到其中的子网创建或修改网络安全组或用户定义路由。
+3. 为计划将 HDInsight 安装到其中的子网创建或修改网络安全组。
 
-    *  网络安全组：在端口 443 上允许来自 IP 地址的入站流量。   这将确保 HDI 管理服务可以从 VNET 外部访问群集。
-    * __用户定义路由__：如果计划使用 UDR，请创建每个 IP 地址的路由并将“下一跃点类型”  设置为“Internet”  。 你还应当无限制地允许来自 VNET 的任何其他出站流量。 例如，可以将所有其他流量路由到你的 Azure 防火墙或网络虚拟设备（托管在 Azure 中）以便进行监视，但不应当阻止传出流量。
+    *  网络安全组：在端口 443 上允许来自 IP 地址的入站流量。   这将确保 HDInsight 管理服务可以从虚拟网络外部访问群集。
 
-有关网络安全组或用户定义路由的详细信息，请参阅以下文档：
+有关网络安全组的详细信息，请参阅[网络安全组概述](../virtual-network/security-overview.md)。
 
-* [网络安全组](../virtual-network/security-overview.md)
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>控制 HDInsight 群集的出站流量
 
-* [用户定义路由](../virtual-network/virtual-networks-udr-overview.md)
+有关控制 HDInsight 群集的出站流量的详细信息，请参阅[配置 Azure HDInsight 群集的出站网络流量限制](hdinsight-restrict-outbound-traffic.md)。
 
 #### <a name="forced-tunneling-to-on-premise"></a>到本地的强制隧道
 
-强制隧道是用户定义的路由配置，用于将子网中的所有流量强制流向特定的网络或位置，例如本地网络。 HDInsight 不  支持到本地网络的强制隧道。 如果使用托管在 Azure 中的 Azure 防火墙或网络虚拟设备，则可以使用 UDR 将流量路由到它以便进行监视并允许所有传出流量。
+强制隧道是用户定义的路由配置，用于将子网中的所有流量强制流向特定的网络或位置，例如本地网络。 HDInsight 不  支持将流量通过强制隧道传输到本地网络。 
 
 ## <a id="hdinsight-ip"></a> 所需 IP 地址
 
@@ -458,7 +456,7 @@ $vnet | Set-AzVirtualNetwork
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
 
-    如果没有得到预期的结果，请在命令中的 ID两侧使用双引号。
+    如果没有得到预期的结果，请在命令中 `id` 的两侧使用双引号。
 
 4. 使用以下命令将网络安全组应用于子网。 将 `GUID` 和 `RESOURCEGROUP` 值替换为从上一步骤中返回的值。 将 `VNETNAME` 和 `SUBNETNAME` 替换为要创建的虚拟网络名称和子网名称。
 

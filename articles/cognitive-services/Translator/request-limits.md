@@ -9,37 +9,49 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 origin.date: 02/21/2019
-ms.date: 03/25/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 91ec95f259155fbbe45e2665afa7415d8f36373d
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 435c29c44fabde383ad03b82ab884776dd4e353b
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505470"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830088"
 ---
 # <a name="request-limits-for-translator-text"></a>文本翻译的请求限制
 
 本文提供了文本翻译 API 的限制。 服务包括翻译、音译、句子长度检测、语言检测和备用翻译。
 
-## <a name="character-limits-per-request"></a>每个请求的字符限制
+## <a name="character-and-array-limits-per-request"></a>每个请求的字符和数组限制
 
-每个请求限制为 5,000 个字符。 按字符收费，而不是按请求数收费。 建议发送更短的请求，并在任何给定时间提出一些未完成的请求。
+每个翻译请求限制为 5,000 个字符。 按字符收费，而不是按请求数收费。 建议发送较短的请求。
 
-对文本翻译 API 的未完成请求数量没有限制。
+下表列出了文本翻译 API 的每个操作的数组元素和字符限制。
+
+| 操作 | 数组元素的最大大小 | 最大数组元素数 | 最大请求大小（字符数） |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10 个    | 5,000 |
+| Detect | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 5,0000 |
+| 字典查找| 100 |  10 个  | 1,000 |
+| 字典示例 | 100 个用于文本，100 个用于翻译（总共 200 个）| 10 个|   2,000 |
 
 ## <a name="character-limits-per-hour"></a>每小时的字符限制
 
-每小时的字符限制取决于文本翻译订阅层。 如果达到或超过这些限制，则可能会收到超出配额响应：
+每小时的字符限制取决于文本翻译订阅层。 每小时配额应在一小时内均匀使用。 如果你达到或超过这些限制，或在短时间内发送过大部分配额，则可能会收到超出配额响应。 
 
 | 层 | 字符限制 |
 |------|-----------------|
 | F0 | 每小时 200 万个字符 |
 | S1 | 每小时 4000 万个字符 |
-| S2 | 每小时 4000 万个字符 |
-| S3 | 每小时 1.2 亿个字符 |
-| S4 | 每小时 2 亿个字符 |
+| S2/C2 | 每小时 4000 万个字符 |
+| S3/C3 | 每小时 1.2 亿个字符 |
+| S4/C4 | 每小时 2 亿个字符 |
 
+[多服务订阅](/cognitive-services/translator/reference/v3-0-reference#authentication)的限制与 S1 层相同。
+
+这些限制仅限于 Microsoft 的标准翻译模型。
 
 ## <a name="latency"></a>延迟
 

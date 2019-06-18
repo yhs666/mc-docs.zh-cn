@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/24/2019
-ms.date: 04/24/2019
+origin.date: 05/13/2019
+ms.date: 06/13/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 25ae0b652cf9d69acbb386264d7b24503ef880d4
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ad51dc628a9eb8ad0bfe1fc8563da96ee511acd0
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854470"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046946"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
@@ -29,7 +29,7 @@ ms.locfileid: "64854470"
 
 ## <a name="problems-with-rbac-role-assignments"></a>RBAC 角色分配出现问题
 
-- 如果你因为“添加” > “添加角色分配”选项被禁用或者因为收到权限错误“具有此对象 id 的客户端无权执行操作”而无法在 Azure 门户中的“访问控制(IAM)”上添加角色分配，请检查你当前登录时使用的用户是否为在你尝试分配角色的范围中具有 `Microsoft.Authorization/roleAssignments/write` 权限的角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
+- 如果你因为  “添加” > “添加角色分配”  选项被禁用或者因为收到权限错误“具有此对象 id 的客户端无权执行操作”而无法在 Azure 门户中的“访问控制(IAM)”  上添加角色分配，请检查你当前登录时使用的用户是否为在你尝试分配角色的范围中具有 `Microsoft.Authorization/roleAssignments/write` 权限的角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
 - 如果尝试分配角色时收到错误消息“无法创建更多的角色分配(代码:RoleAssignmentLimitExceeded)”，请尝试通过改为将角色分配给组来减少角色分配数。 Azure 对于每个订阅最多支持 **2000** 个角色分配。
 
 ## <a name="problems-with-custom-roles"></a>自定义角色出现问题
@@ -37,14 +37,14 @@ ms.locfileid: "64854470"
 - 如果需要了解有关如何创建自定义角色的步骤，请参阅使用 [Azure PowerShell](tutorial-custom-role-powershell.md) 或 [Azure CLI](tutorial-custom-role-cli.md) 自定义角色的教程。
 - 如果你无法更新现有的自定义角色，请检查你当前登录时使用的用户是否分配有具有 `Microsoft.Authorization/roleDefinition/write` 权限的角色，例如[所有者](built-in-roles.md#owner)或[用户访问管理员](built-in-roles.md#user-access-administrator)。
 - 如果你无法删除自定义角色并且收到错误消息“已存在引用此角色的角色分配(代码:RoleDefinitionHasAssignments)”，则表明存在仍然使用此自定义角色的角色分配。 请删除这些角色分配，然后再次尝试删除自定义角色。
-- 如果尝试创建新的自定义角色时收到错误消息“角色定义超限。 无法创建更多的角色定义(代码:RoleDefinitionLimitExceeded)”，请删除未在使用的任何自定义角色。 Azure 在一个租户中最多支持 **2000** 个自定义角色。
+- 如果尝试创建新的自定义角色时收到错误消息“角色定义超限。 无法创建更多的角色定义(代码:RoleDefinitionLimitExceeded)”，请删除未在使用的任何自定义角色。 Azure 在一个租户中最多支持 **5000** 个自定义角色。 （对于 Azure 中国世纪互联等专用云，限制为 2000 个自定义角色。）
 - 如果尝试更新自定义角色时收到类似于“客户端具有在范围 '/subscriptions/{subscriptionid}' 上执行操作 'Microsoft.Authorization/roleDefinitions/write' 的权限，但是未找到链接的订阅”的错误，请检查是否已在租户中删除了一个或多个[可分配的范围](role-definitions.md#assignablescopes)。 如果删除了作用域，请创建一个支持票证，因为目前没有自助服务解决方案可用。
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>在租户之间移动订阅时恢复 RBAC
 
 - 如果你需要了解将订阅转让给其他 Azure AD 租户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](../billing/billing-subscription-transfer.md)。
 - 如果将订阅转让给其他 Azure AD 租户，所有角色分配都将从源 Azure AD 租户中永久删除，而不会迁移到目标 Azure AD 租户。 必须在目标租户中重新创建角色分配。
-- 如果你是 Azure AD 全局管理员并且在租户之间移动某个订阅后对其没有访问权限，请使用“Azure 资源的访问权限管理”开关暂时[提升你的访问权限](elevate-access-global-admin.md)来获取对订阅的访问权限。
+- 如果你是 Azure AD 全局管理员并且在租户之间移动某个订阅后对其没有访问权限，请使用“Azure 资源的访问权限管理”  开关暂时[提升你的访问权限](elevate-access-global-admin.md)来获取对订阅的访问权限。
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>服务管理员或共同管理员出现问题
 
@@ -84,7 +84,7 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 因此，如果只授予某人对 Web 应用的访问权限，则 Azure 门户中的网站边栏选项卡上的很多功能将被禁用。
 
-这些项需要对与网站对应的应用服务计划具有写入权限：  
+这些项需要对与网站对应的应用服务计划具有写入权限：    
 
 * 查看 Web 应用的定价层（“免费”或“标准”）  
 * 规模配置（实例数、虚拟机大小、自动缩放设置）  
@@ -103,14 +103,14 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 虚拟机与域名、虚拟网络、存储帐户和警报规则相关。
 
-这些项需要对虚拟机具有写入权限：
+这些项需要对虚拟机具有写入权限：  
 
 * 终结点  
 * IP 地址  
 * 磁盘  
 * 扩展  
 
-这些项需要对虚拟机和其所在的资源组（以及域名）具有写入权限：  
+这些项需要对虚拟机和其所在的资源组（以及域名）具有写入权限：     
 
 * 可用性集  
 * 负载均衡集  
@@ -120,11 +120,11 @@ Azure 资源管理器有时会缓存配置和数据以提高性能。 创建或�
 
 ## <a name="azure-functions-and-write-access"></a>Azure Functions 和写访问权限
 
-[Azure Functions](../azure-functions/functions-overview.md) 的某些功能需要写入权限。 例如，如果给用户分配读者角色，他们将无法查看函数应用中的函数。 门户将显示 (无访问权限)。
+[Azure Functions](../azure-functions/functions-overview.md) 的某些功能需要写入权限。 例如，如果给用户分配读者角色，他们将无法查看函数应用中的函数。 门户将显示 (无访问权限)  。
 
 ![函数应用无访问权限](./media/troubleshooting/functionapps-noaccess.png)
 
-读者可单击“平台功能”选项卡，然后单击“所有设置”查看与函数应用（类似于 Web 应用）相关的一些设置，但无法修改任何这些设置。
+读者可单击“平台功能”选项卡，然后单击“所有设置”查看与函数应用（类似于 Web 应用）相关的一些设置，但无法修改任何这些设置   。
 
 ## <a name="next-steps"></a>后续步骤
 * [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)

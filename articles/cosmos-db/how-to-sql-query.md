@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB 的 SQL 语法、数据库概念和 SQL 查�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1e30a9364dc8667dcacae248f924249fc9726b73
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 941128865ffcb15a3dad3c68c5528c7a039b172b
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668913"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151395"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>用于 Azure Cosmos DB 的 SQL 查询示例
 
@@ -140,7 +140,7 @@ Azure Cosmos DB SQL API 帐户支持使用 结构化查询语言 (SQL) 作为 JS
     }]
 ```
 
-以下查询返回 `id` 与按居住城市排序的 `WakefieldFamily` 匹配的家庭中所有子女的给定名称。
+以下查询返回家庭中 `id` 匹配 `WakefieldFamily` 的所有孩子的名字，按城市排序。
 
 ```sql
     SELECT c.givenName
@@ -359,7 +359,7 @@ FROM Families f
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
-FROM f
+FROM Families f
 ```
 
 此查询投影包含每个孩子的 givenName 的数组，并删除了重复项。 此数组的别名为 ChildNames，并在外部查询中投影。
@@ -729,7 +729,7 @@ TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法�
     ]
 ```
 
-以下查询按项的创建日期检索家庭 `id`。 项 `creationDate` 是一个数字，表示纪元时间，或者自 1970 年 1 月 1 日开始消逝的时间（以秒为单位）。
+以下查询按项的创建日期检索家庭 `id`。 项 `creationDate` 是一个数字，表示纪元时间，或者自 1970 年 1 月 1 日开始消逝的时间（以秒为单位）。 
 
 ```sql
     SELECT f.id, f.creationDate
@@ -765,7 +765,7 @@ TOP 关键字以未定义的顺序返回前 `N` 个查询结果。 最佳做法�
 <a name="OffsetLimitClause"></a>
 ## <a name="offset-limit-clause"></a>OFFSET LIMIT 子句
 
-OFFSET LIMIT 是一个可选子句，它会跳过然后提取查询中特定数目的值。 必须在 OFFSET LIMIT 子句中指定 OFFSET 计数和 LIMIT 计数。
+OFFSET LIMIT 是一个可选子句，它会跳过然后提取查询中特定数目的值。 必须在 OFFSET LIMIT 子句中指定 OFFSET 计数和 LIMIT 计数。 目前，只有单个分区中的查询支持此子句，跨分区查询尚不支持它。 
 
 将 OFFSET LIMIT 与 ORDER BY 子句结合使用时，将通过跳过然后提取排序值来生成结果集。 如果不使用 ORDER BY 子句，则会生成值的确定顺序。
 
@@ -870,6 +870,13 @@ SQL API 的一个重要功能是创建数组和对象。 以上示例创建了�
         ]
       }
     ]
+```
+
+以下 SQL 查询是在子查询中使用数组的另一个示例。 此查询获取数组中孩子的所有非重复名字。
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM Families f
 ```
 
 <a name="Iteration"></a>
@@ -979,7 +986,7 @@ SQL API 支持循环访问 JSON 数组，它可以通过 FROM 源中的 IN 关�
 <a name="Joins"></a>
 ## <a name="joins"></a>联接
 
-在关系数据库中，跨表联接是设计规范化架构的逻辑定理。 相比之下，SQL API 使用无架构项的反规范化数据模型，这在逻辑上等效于自联接。
+在关系数据库中，跨表联接是设计规范化架构的逻辑定理。 相比之下，SQL API 使用无架构项的反规范化数据模型，这在逻辑上等效于自联接。 
 
 该语言支持语法 `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`。 此查询返回一组包含 `N` 值的元组。 每个元组拥有通过对它们相应的集遍历所有容器别名所产生的值。 换言之，此查询是参与联接的集的完整叉积。
 
@@ -1625,7 +1632,7 @@ Cosmos DB 是一个 JSON 数据库，在 JavaScript 运算符和评估语义方�
 <a name="RestAPI"></a>
 ### <a name="rest-api"></a>REST API
 
-Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 资源模型由 Azure 订阅预配的数据库帐户下的一组资源组成。 该数据库帐户由一组数据库组成，其中的每个数据库可以包含多个容器，而每个容器又可以包含项、UDF 和其他资源类型。 可以使用稳定的逻辑 URI 对每个 Cosmos DB 资源进行寻址。 一组资源称作一个源。 
+Cosmos DB 通过 HTTP 提供开放的 RESTful 编程模型。 资源模型由 Azure 订阅预配的数据库帐户下的一组资源组成。 该数据库帐户由一组数据库组成，其中的每个数据库可以包含多个容器，而每个容器又可以包含项、UDF 和其他资源类型    。 可以使用稳定的逻辑 URI 对每个 Cosmos DB 资源进行寻址。 一组资源称作一个源。  
 
 这些资源的基本交互模型是通过 HTTP 谓词 `GET`、`PUT`、`POST` 和 `DELETE` 及其标准解释实现的。 使用 `POST` 可以创建新的资源、执行存储过程或发出 Cosmos DB 查询。 查询始终为只读操作，且无任何副作用。
 
@@ -2299,9 +2306,9 @@ SQL .NET SDK 随附的 LINQ 提供程序支持以下运算符：
 - [JSON](https://json.org/)
 - [Javascript 规范](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](https://docs.microsoft.com/zh-cn/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
-- Graefe, Goetz。 [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611)（适用于大型数据库的查询评估技术） 《ACM 计算调查》第 25 期 第 2 卷 (1993)。
-- Graefe, G。“用于优化查询的 Cascades 框架”。 《IEEE 数据工程期刊》 第 18 期 第 3 卷 (1995)。
-- Lu、Ooi、Tan。 “并行关系数据库系统中的查询处理”。 《IEEE 计算机协会期刊》(1994)。
+- Graefe, Goetz。 [Query evaluation techniques for large databases](https://dl.acm.org/citation.cfm?id=152611)（适用于大型数据库的查询评估技术） 《ACM 计算调查》第 25 期  第 2 卷 (1993)。
+- Graefe, G。“用于优化查询的 Cascades 框架”。 《IEEE 数据工程  期刊》 第 18 期 第 3 卷 (1995)。
+- Lu、Ooi、Tan。 “并行关系数据库系统中的查询处理”。 《IEEE 计算机协会期刊》(1994)。 
 - Olston、Christopher、Benjamin Reed、Utkarsh Srivastava、Ravi Kumar 和 Andrew Tomkins。 “Pig Latin：并不是很难懂的数据处理语言”。 *SIGMOD* (2008)。
 
 ## <a name="next-steps"></a>后续步骤

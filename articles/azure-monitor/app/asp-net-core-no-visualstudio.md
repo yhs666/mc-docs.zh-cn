@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f2d9124748ecaab4eeffc2b02bc1062a998b604f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 83b119ae252cad26562123f2311515bfbde8bc1b
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732230"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046940"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
-本文介绍了在不使用 Visual Studio IDE 的情况下，为 [ASP.NET Core](https://docs.microsoft.com/aspnet/core/?view=aspnetcore-2.2) 应用程序启用 Application Insights 的步骤。 如果已安装 Visual Studio IDE，请参阅[此文档](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)中的具体 Visual Studio 操作说明。 完成本文中所述的步骤后，Application Insights 将开始从 ASP.NET Core 应用程序收集请求、依赖项、异常、性能计数器、检测信号和日志。 所用的示例应用程序是一个面向 `netcoreapp2.2` 的 [MVC 应用程序](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2)，但本文中的说明适用于所有 ASP.NET Core 应用程序。 适用时，本文会将例外情况标注出来。
+本文介绍了在不使用 Visual Studio IDE 的情况下，为 [ASP.NET Core](/dotnet/?view=azure-dotnet) 应用程序启用 Application Insights 的步骤。 如果已安装 Visual Studio IDE，请参阅[此文档](asp-net-core.md)中的具体 Visual Studio 操作说明。 完成本文中所述的步骤后，Application Insights 将开始从 ASP.NET Core 应用程序收集请求、依赖项、异常、性能计数器、检测信号和日志。 所用的示例应用程序是一个面向 `netcoreapp2.2` 的 [MVC 应用程序](https://docs.microsoft.com/aspnet/core/tutorials/first-mvc-app/?view=aspnetcore-2.2)，但本文中的说明适用于所有 ASP.NET Core 应用程序。 适用时，本文会将例外情况标注出来。
 
 ## <a name="supported-scenarios"></a>支持的方案
 
@@ -30,7 +30,7 @@ ms.locfileid: "66732230"
 ## <a name="prerequisites"></a>先决条件
 
 - 一个正常运行的 ASP.NET Core 应用程序。 如果需要，请遵循[此指南](https://docs.microsoft.com/aspnet/core/getting-started/)创建一个 ASP.NET Core 应用程序。
-- 将任何遥测数据发送到 Application Insights 服务时所需的有效 Application Insights 检测密钥。 如果需要，请遵照[这些说明](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)创建新的 Application Insights 资源并获取检测密钥。
+- 将任何遥测数据发送到 Application Insights 服务时所需的有效 Application Insights 检测密钥。 如果需要，请遵照[这些说明](create-new-resource.md)创建新的 Application Insights 资源并获取检测密钥。
 
 ## <a name="enabling-application-insights-server-side-telemetry"></a>启用 Application Insights 服务器端遥测
 
@@ -44,18 +44,19 @@ ms.locfileid: "66732230"
     </ItemGroup>
 ```
 
-2. 将 `services.AddApplicationInsightsTelemetry();` 添加到 `Startup` 类中的 `ConfigureServices()` 方法。 下面是完整示例。
+2. 在 `Startup.cs` 文件的 `ConfigureServices` 方法中进行以下更改。 下面是完整示例。
 
 ```csharp
-    // This method gets called by the runtime. Use this method to add services to the container.
-    public void ConfigureServices(IServiceCollection services)
-    {
-        // The following line enables Application Insights telemetry collection.
-        services.AddApplicationInsightsTelemetry();
+    using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
+    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
 
-        // code adding other services for your application
-        services.AddMvc();
-    }
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+    services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+    services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+
+        //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
 ```
 
 3. 设置检测密钥。
@@ -65,7 +66,9 @@ ms.locfileid: "66732230"
 ```json
     {
       "ApplicationInsights": {
-        "InstrumentationKey": "putinstrumentationkeyhere"
+        "InstrumentationKey": "instrumentationkey",
+        "TelemetryChannel": {
+            "EndpointAddress": "https://dc.applicationinsights.azure.cn/v2/track"
       },
       "Logging": {
         "LogLevel": {
@@ -100,25 +103,25 @@ ms.locfileid: "66732230"
              \* 仅当使用 HTTP/HTTPS 时，才会自动跟踪 Azure Cosmos DB。 Application Insights 不会捕获 TCP 模式。
 
 
-    1. [性能计数器](https://www.azure.cn/documentation/articles/app-insights-web-monitor-performance/)
+    1. [性能计数器](web-monitor-performance.md)
         1. 对 ASP.NET Core 中的性能计数器的支持限制如下：
             1. 如果应用程序在 Azure Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
             1. 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.0-beta3 和更高版本将收集性能计数器。
             1. 对于面向完整 .NET Framework 的应用程序，所有版本的 SDK 都支持性能计数器。
 
             在 Linux 中添加性能计数器支持后，本文档将会更新。
-    1. [实时指标](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)
-    1. 自动从 SDK 2.7.0-beta3 或更高版本中捕获 `Warning` 或更高严重性的 `ILogger` 日志。 在[此处](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)了解详细信息。
+    1. [实时指标](live-stream.md)
+    1. 自动从 SDK 2.7.0-beta3 或更高版本中捕获 `Warning` 或更高严重性的 `ILogger` 日志。 在[此处](ilogger.md)了解详细信息。
 
-可能需要在几分钟后，遥测数据才开始显示在门户中。 若要快速检查是否一切正常，最好是在向运行中的应用程序发出请求时使用[实时指标](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)。
+可能需要在几分钟后，遥测数据才开始显示在门户中。 若要快速检查是否一切正常，最好是在向运行中的应用程序发出请求时使用[实时指标](live-stream.md)。
 
 ## <a name="send-ilogger-logs-to-application-insights"></a>将 ILogger 日志发送到 Application Insights
 
-Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此处](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)的完整文档。
+Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此处](ilogger.md)的完整文档。
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>为 Web 应用程序启用客户端遥测
 
-上述步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循以下步骤开始从这些组件收集[使用情况遥测数据](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)。
+上述步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循以下步骤开始从这些组件收集[使用情况遥测数据](ilogger.md)。
 
 1. 在 _ViewImports.cshtml 中添加注入代码：
 
@@ -144,9 +147,11 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
 
 ### <a name="configuring-using-applicationinsightsserviceoptions"></a>使用 ApplicationInsightsServiceOptions 进行配置
 
-可以通过向 `services.AddApplicationInsightsTelemetry();` 传递 `ApplicationInsightsServiceOptions` 来修改某些通用设置。 下面显示了一个示例。
+下面显示了一个示例。
 
 ```csharp
+    using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
+    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; 
     public void ConfigureServices(IServiceCollection services)
     {
         Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions aiOptions
@@ -156,7 +161,12 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
 
         // Disables QuickPulse (Live Metrics stream).
         aiOptions.EnableQuickPulseMetricStream = false;
-        services.AddApplicationInsightsTelemetry(aiOptions);
+    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+    services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+    services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+
     }
 ```
 
@@ -179,12 +189,17 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
 
 ### <a name="removing-telemetryinitializers"></a>删除 TelemetryInitializer
 
-若要删除默认存在的所有或特定 TelemetryInitializer，请在调用 `AddApplicationInsightsTelemetry()` **之后**使用以下示例代码。
+若要删除默认存在的所有或特定 TelemetryInitializer，请在调用 `ConfigureTelemetryModule()` **之后**使用以下示例代码。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddApplicationInsightsTelemetry();
+        services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+        services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+        services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+
 
         // Remove a specific built-in TelemetryInitializer
         var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
@@ -208,7 +223,11 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
     public void ConfigureServices(IServiceCollection services)
     {
         // ...
-        services.AddApplicationInsightsTelemetry();
+        services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+        services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+        services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
         services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
 
         // If you have more processors:
@@ -232,7 +251,12 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddApplicationInsightsTelemetry();
+        services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+        services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+        services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+        //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
 
         // The following configures DependencyTrackingTelemetryModule.
         // Similarly, any other default modules can be configured.
@@ -260,9 +284,12 @@ Application Insights 支持捕获通过 ILogger 发送的日志。 请阅读[此
     {
         // use the following to replace the default channel with InMemoryChannel.
         // this can also be applied to ServerTelemetryChannel as well.
-        services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
+        services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
 
-        services.AddApplicationInsightsTelemetry();
+        services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+        services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+        //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
     }
 ```
 
@@ -291,7 +318,7 @@ public class HomeController : Controller
     }
 ```
 
- 有关 Application Insights 中自定义数据报告的说明，请参阅 [Application Insights 自定义指标 API 参考](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/)。
+ 有关 Application Insights 中自定义数据报告的说明，请参阅 [Application Insights 自定义指标 API 参考](api-custom-events-metrics.md)。
 
 *2.某些 Visual Studio 模板使用 IWebHostBuilder 中的 UseApplicationInsights() 扩展方法来启用 Application Insights。这种用法是否仍然有效？*
 
@@ -311,7 +338,7 @@ public class HomeController : Controller
 
 *4.是否可以使用状态监视器之类的工具来启用 Application Insights 监视？*
 
-* 否。 [状态监视器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)及其即将推出的替代服务 [IISConfigurator](https://github.com/Microsoft/ApplicationInsights-Announcements/issues/21) 目前仅支持 ASP.NET。 推出对 ASP.NET Core 应用程序的支持后，本文档将会更新。
+* 否。 [状态监视器](monitor-performance-live-website-now.md)及其即将推出的替代服务 [IISConfigurator](https://github.com/Microsoft/ApplicationInsights-Announcements/issues/21) 目前仅支持 ASP.NET。 推出对 ASP.NET Core 应用程序的支持后，本文档将会更新。
 
 *5.我有一个 ASP.NET Core 2.0 应用程序。系统是否会自动为该应用程序启用 Application Insights，而我不需要执行任何操作？*
 
@@ -330,9 +357,13 @@ public class HomeController : Controller
         // store telemetry items during network or application insights server issues.
         // User should ensure that the given folder already exists,
         // and that application has read/write permissions.
-        services.AddSingleton(typeof(ITelemetryChannel),
-                                new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-        services.AddApplicationInsightsTelemetry();
+
+        services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
+
+        services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
+
+        services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
+        //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
     }
 ```
 

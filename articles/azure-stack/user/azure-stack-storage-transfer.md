@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 14542dd66af6d53c1cba6e3b2f77d643c264a95d
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 4871b2822ce614358e180d60926b451b46bfa044
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248554"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135430"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>使用 Azure Stack 存储的数据传输工具
 
@@ -42,7 +42,7 @@ Azure Stack 提供了一组存储服务，适用于磁盘、Blob、表、队列�
 
     一种开源的跨平台工具，提供了一组适用于 Azure 和 Azure Stack 平台的命令。
 
-* [Microsoft 存储资源管理器](#azure-storage-explorer)
+* [存储资源管理器](#azure-storage-explorer)
 
     一个易于使用的独立应用，带有用户界面。
 
@@ -302,7 +302,7 @@ echo "Done"
 
 ## <a name="azure-storage-explorer"></a>Azure 存储资源管理器
 
-Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来在 Windows、macOS 和 Linux 计算机上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，请考虑使用 Microsoft Azure 存储资源管理器。
+Azure 存储资源管理器是 Microsoft 提供的独立应用， 它可用来在 Windows、macOS 和 Linux 计算机上轻松处理 Azure 存储和 Azure Stack 存储数据。 如果希望通过某种方式轻松管理 Azure Stack 存储数据，请考虑使用 Azure 存储资源管理器。
 
 * 若要详细了解如何配置 Azure 存储资源管理器，使之能够用于 Azure Stack，请参阅[将存储资源管理器连接到 Azure Stack 订阅](azure-stack-storage-connect-se.md)。
 * 若要详细了解 Azure 存储资源管理器，请参阅[存储资源管理器入门](/vs-azure-tools-storage-manage-with-storage-explorer)

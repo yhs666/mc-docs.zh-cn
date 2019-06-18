@@ -11,18 +11,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 05/08/2019
+origin.date: 5/23/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: 6893a8655056e3467e7ac77edbbe7e1656f1d5df
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 06/24/2019
+ms.openlocfilehash: 11f597928061354cc122b88ccd41f839946a982a
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829218"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135976"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
+
+## <a name="may-2019-guest-os"></a>2019 年 5 月来宾 OS
+
+>[!NOTE]
+>目前，我们正在将 5 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 5 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-05   |  [4498206 ]  |  5 月 IE 汇总   |  2,86、3.73、4.66  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4505050 ]  |  5 月 IE 汇总   |  2,86、3.73、4.66  |  2019 年 5 月 18 日  |
+|  Rel 19-05   |  [4497932 ]  |  5 月闪存更新   |  3.73、4.66、5.31  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4499175 ]  |  5 月安全性汇总   |  2.86  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495612 ]  |  5 月安全性汇总 .NET 3.5   |  2.86  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495593 ]  |  5 月安全性汇总 .NET 4.5.2   |  2.86  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4499158 ]  |  5 月安全性汇总   |  3.73  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495607 ]  |  5 月安全性汇总 .NET 3.5   |  3.73  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495591 ]  |  5 月安全性汇总 .NET 4.5.2   |  3.73  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4492872 ]  |  IE 汇总   |  3.73  |  2019 年 4 月 16 日  |
+|  Rel 19-05   |  [4499165 ]  |  3 月安全性汇总   |  4.66  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495615 ]  |  5 月安全性汇总 .NET 3.5   |  4.66  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495589 ]  |  5 月安全性汇总 .NET 4.5.2   |  4.66  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4498947 ]  |  5 月 SSU   |  5.31  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4494175 ]  |  5 月微代码更新   |  5.31  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4505052 ]  |  5 月安全性汇总   |  5.31  |  2019 年 5 月 19 日  |
+|  Rel 19-05   |  [4499728 ]  |  5 月 SSU   |  6.7  |  2019 年 5 月 19 日  |
+|  Rel 19-05   |  [4505056 ]  |  5 月安全性汇总   |  6.7  |  2019 年 5 月 19 日  |
+|  Rel 19-05   |  [4494174 ]  |  5 月微代码更新   |  6.7  |  2019 年 5 月 14 日  |
+|  Rel 19-05   |  [4495590 ]  |  5 月安全性汇总 .NET   |  6.7  |  2019 年 5 月 14 日  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="april-2019-guest-os"></a>2019 年 4 月来宾 OS
 
@@ -33,7 +82,7 @@ ms.locfileid: "65829218"
 | Rel 19-04 | [4493467] | Windows 安全性 | 4.65 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [4493450] | Windows 安全性 | 3.72 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [4493448] | Windows 安全性 | 2.85 | 2019 年 4 月 9 日 |
-| Rel 19-04 | [4493478] | Flash | 3.72、4.65、5.30、6.6 | 2019 年 4 月 9 日 |
+| Rel 19-04 | [4493478] | 闪烁 | 3.72、4.65、5.30、6.6 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [4493435] | Internet Explorer | 2.85、3.72、4.65 | 2019 年 4 月 9 日 |
 | Rel 19-04 | [KB4490628] | 服务堆栈更新 | 2.85 | 2019 年 3 月 12 日 |
 | Rel 19-04 | [KB4474419] | SHA2 支持 | 2.85 | 2019 年 3 月 12 日 |
@@ -1669,36 +1718,36 @@ ms.locfileid: "65829218"
 [3002657]: https://support.microsoft.com/kb/3002657
 [3035126]: https://support.microsoft.com/kb/3035126
 
-[3049563]:https://support.microsoft.com/kb/3049563
-[3057110]:https://support.microsoft.com/kb/3057110
-[3046002]:https://support.microsoft.com/kb/3046002
-[3057134]:https://support.microsoft.com/kb/3057134
-[3055642]:https://support.microsoft.com/kb/3055642
-[3057191]:https://support.microsoft.com/kb/3057191
-[3050514]:https://support.microsoft.com/kb/3050514
-[3057263]:https://support.microsoft.com/kb/3057263
-[3051768]:https://support.microsoft.com/kb/3051768
-[3061518]:https://support.microsoft.com/kb/3061518
+[3049563]: https://support.microsoft.com/kb/3049563
+[3057110]: https://support.microsoft.com/kb/3057110
+[3046002]: https://support.microsoft.com/kb/3046002
+[3057134]: https://support.microsoft.com/kb/3057134
+[3055642]: https://support.microsoft.com/kb/3055642
+[3057191]: https://support.microsoft.com/kb/3057191
+[3050514]: https://support.microsoft.com/kb/3050514
+[3057263]: https://support.microsoft.com/kb/3057263
+[3051768]: https://support.microsoft.com/kb/3051768
+[3061518]: https://support.microsoft.com/kb/3061518
 
-[3038314]:https://support.microsoft.com/kb/3038314
-[3042553]:https://support.microsoft.com/kb/3042553
-[3046306]:https://support.microsoft.com/kb/3046306
-[3046269]:https://support.microsoft.com/kb/3046269
-[3049576]:https://support.microsoft.com/kb/3049576
-[3046482]:https://support.microsoft.com/kb/3046482
-[3045711]:https://support.microsoft.com/kb/3045711
-[3048010]:https://support.microsoft.com/kb/3048010
-[3047234]:https://support.microsoft.com/kb/3047234
-[3045755]:https://support.microsoft.com/kb/3045755
-[3030377]:https://support.microsoft.com/kb/3030377
-[3039976]:https://support.microsoft.com/kb/3039976
+[3038314]: https://support.microsoft.com/kb/3038314
+[3042553]: https://support.microsoft.com/kb/3042553
+[3046306]: https://support.microsoft.com/kb/3046306
+[3046269]: https://support.microsoft.com/kb/3046269
+[3049576]: https://support.microsoft.com/kb/3049576
+[3046482]: https://support.microsoft.com/kb/3046482
+[3045711]: https://support.microsoft.com/kb/3045711
+[3048010]: https://support.microsoft.com/kb/3048010
+[3047234]: https://support.microsoft.com/kb/3047234
+[3045755]: https://support.microsoft.com/kb/3045755
+[3030377]: https://support.microsoft.com/kb/3030377
+[3039976]: https://support.microsoft.com/kb/3039976
 
-[3058515]:https://support.microsoft.com/kb/3058515
-[3033890]:https://support.microsoft.com/kb/3033890
-[3059317]:https://support.microsoft.com/kb/3059317
-[3057839]:https://support.microsoft.com/kb/3057839
-[3062577]:https://support.microsoft.com/kb/3062577
-[3063858]:https://support.microsoft.com/kb/3063858
+[3058515]: https://support.microsoft.com/kb/3058515
+[3033890]: https://support.microsoft.com/kb/3033890
+[3059317]: https://support.microsoft.com/kb/3059317
+[3057839]: https://support.microsoft.com/kb/3057839
+[3062577]: https://support.microsoft.com/kb/3062577
+[3063858]: https://support.microsoft.com/kb/3063858
 
 [archive]: https://msdn.microsoft.com/zh-cn/library/azure/dn391773.aspx
 [family-explain]:./cloud-services-guestos-update-matrix.md#guest-os-family-version-explanation

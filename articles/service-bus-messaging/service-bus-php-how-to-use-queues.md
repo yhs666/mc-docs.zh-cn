@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dd610dc7ca8635fb1f2ca351195962bcc10215d5
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: d78edae53f58d39536728e6003d2b1d6b1310e6a
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609876"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046967"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "65609876"
 本教程介绍如何创建 PHP 应用程序，以便向服务总线队列发送消息以及从中接收消息。 
 
 ## <a name="prerequisites"></a>先决条件
-1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+1. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)或注册[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 2. 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。
     1. 阅读服务总线**队列**的快速**概述**。 
     2. 创建一个服务总线**命名空间**。 
@@ -81,12 +81,12 @@ use WindowsAzure\Common\ServicesBuilder;
 Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]
 ```
 
-其中，Endpoint 的格式通常为 `[yourNamespace].servicebus.chinacloudapi.cn`。
+其中，Endpoint 的格式通常为 `[yourNamespace].servicebus.chinacloudapi.cn`。 
 
 若要创建任何 Azure 服务客户端，必须使用 `ServicesBuilder` 类。 方法：
 
 * 将连接字符串直接传递给它。
-* 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串：
+* 使用 CloudConfigurationManager (CCM) 检查多个外部源以获取连接字符串： 
   * 默认情况下，它附带了对一个外部源的支持 - 环境变量
   * 可通过扩展 `ConnectionStringSource` 类来添加新源
 

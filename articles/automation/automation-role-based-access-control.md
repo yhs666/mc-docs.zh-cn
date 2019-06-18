@@ -11,12 +11,12 @@ origin.date: 05/17/2018
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 8f643355c7dc1a2c03f80155f55d8cd14a7a2d0c
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: bb9c552af37fbbd3c46e6a8daa3bec216ef7db1c
+ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668840"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135567"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -216,27 +216,27 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 ### <a name="configure-rbac-using-the-azure-portal"></a>使用 Azure 门户配置 RBAC
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)，然后从“自动化帐户”页打开自动化帐户。  
-2. 单击右上角的“访问控制(IAM)”控件。 此时会打开“访问控制(IAM)”页，可以在其中添加新的用户、组和应用程序，以便管理自动化帐户并查看可以为自动化帐户配置的现有角色。
-3. 单击“角色分配”选项卡。
+2. 单击右上角的“访问控制(IAM)”控件  。 此时会打开“访问控制(IAM)”页，可以在其中添加新的用户、组和应用程序，以便管理自动化帐户并查看可以为自动化帐户配置的现有角色  。
+3. 单击“角色分配”  选项卡。
 
    ![访问按钮](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>添加新用户并分配角色
 
-1. 在“访问控制(IAM)”页中，单击“+ 添加角色分配”打开“添加角色分配”页，以便添加用户、组或应用程序并向其分配角色。
+1. 在“访问控制(IAM)”页中，单击“+ 添加角色分配”打开“添加角色分配”页，以便添加用户、组或应用程序并向其分配角色    。
 
 2. 从可用角色列表中选择一个角色。 可以选择自动化帐户所支持的任何可用的内置角色，或者定义的任何自定义角色。
 
-3. 在“选择”字段中键入要对其授予权限的用户的用户名。 从列表中选择用户，然后单击“保存”。
+3. 在“选择”字段中键入要对其授予权限的用户的用户名  。 从列表中选择用户，然后单击“保存”  。
 
    ![添加用户](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   现在，应当会看到该用户已添加到“用户”页并且分配有所选角色
+   现在，应当会看到该用户已添加到“用户”  页并且分配有所选角色
 
    ![列出用户](media/automation-role-based-access-control/automation-05-list-users.png)
 
-   也可以通过“角色”页向用户分配角色。
-4. 单击“访问控制(IAM)”页中的“角色”打开“角色”页。 在这里，可以查看角色的名称以及分配给该角色的用户和组的数目。
+   也可以通过“角色”页向用户分配角色  。
+4. 单击“访问控制(IAM)”页中的“角色”打开“角色”页    。 在这里，可以查看角色的名称以及分配给该角色的用户和组的数目。
 
     ![从用户页分配角色](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
@@ -247,8 +247,8 @@ Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置
 
 可以删除不管理自动化帐户或不再为组织工作的用户的访问权限。 下面是删除用户的步骤：
 
-1. 在“访问控制 (IAM)”页中，选择要删除的用户，然后单击“删除”。
-2. 单击“分配详细信息”页中的“删除”按钮。
+1. 在“访问控制 (IAM)”页中，选择要删除的用户，然后单击“删除”   。
+2. 单击“分配详细信息”页中的“删除”按钮  。
 3. 单击“是”以确认删除  。
 
    ![删除用户](media/automation-role-based-access-control/automation-08-remove-users.png)
@@ -329,7 +329,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>自动化操作员角色的用户体验 - 自动化帐户
 
-在“自动化帐户”范围内分配了“自动化操作员”角色的用户在查看被分配到的自动化帐户时，只能查看在自动化帐户中创建的 Runbook、Runbook 作业和计划的列表，而不能查看其定义。 该用户可以启动、停止、暂停、恢复或计划 Runbook 作业。 该用户无法访问其他自动化资源，例如配置、混合辅助角色组或 DSC 节点。
+在“自动化帐户”范围内分配了“自动化操作员”角色的用户在查看被分配到的自动化帐户时，只能查看在自动化帐户中创建的 Runbook、Runbook 作业和计划的列表，而不能查看其定义。 该用户可以启动、停止、暂停、恢复或计划 Runbook 作业。 该用户无法访问其他自动化资源，例如配置或 DSC 节点。
 
 ![对资源无访问权限](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
@@ -356,7 +356,7 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job 
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-一旦运行，用户可以登录到 Azure 门户并查看“所有资源”。 在列表中，他们会看到他们在其中被添加为“自动化 Runbook 操作员”的 Runbook。
+一旦运行，用户可以登录到 Azure 门户并查看“所有资源”  。 在列表中，他们会看到他们在其中被添加为“自动化 Runbook 操作员”  的 Runbook。
 
 ![门户中的 Runbook RBAC](./media/automation-role-based-access-control/runbook-rbac.png)
 

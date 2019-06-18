@@ -10,12 +10,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 5e4b2e59721b5fafd9988fd1ea11d52caf966f1b
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 4fb6bda666f5990885d123350c89d0aea37c1ef7
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249151"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135483"
 ---
 # <a name="deploy-a-linux-vm-to-host-a-web-app-in-azure-stack"></a>在 Azure Stack 中部署用于托管 Web 应用的 Linux VM
 
@@ -79,71 +79,72 @@ Place any version specific calls outs. The procedure will contain steps for the 
             ---- BEGIN SSH2 PUBLIC KEY ----
             Comment: "rsa-key-20190207"
             <Your key block>
-            ---- END SSH2 PUBLIC KEY ----```
-    1. Select your Azure Stack subscription.
-    1. Create a new **Resource group** or use an existing depending on how you want to organize the resources for your app.
-    1. Select your location. The ASDK is usually in a **local** region. The location will depend on your Azure Stack.
-1. For **2. Size** type:
-    - Select the size of data and RAM for your VM that is available in your Azure Stack.
-    - You can either browse the list or filter for the size of your VM by **Compute type**, **CPUs**, and storage space.
-    - Prices presented are estimates in your local currency that include only Azure infrastructure costs and any discounts for the subscription and location. The prices don't include any applicable software costs. Recommended sizes are determined by the publisher of the selected image based on hardware and software requirements.
-    - Using a standard disk rather than a premium disk could impact operating system performance.
+            ---- END SSH2 PUBLIC KEY ----
+       ```
+    1. 选择你的 Azure Stack 订阅。
+    1. 根据要为应用组织资源的方式，创建新的**资源组**或使用现有的资源组。
+    1. 选择你的位置。 ASDK 通常位于**本地**区域。 具体的位置取决于你的 Azure Stack。
+1. 对于“2.  大小”，请键入：
+    - 针对可在 Azure Stack 中使用的 VM，选择数据大小和 RAM。
+    - 可以浏览列表，或根据“计算类型”、“CPU”和存储空间筛选 VM 的大小。  
+    - 显示的价格是以当地货币估算的价格，其中仅包括 Azure 基础结构费用以及适用于相应订阅和位置的任何折扣。 这些价格不包括任何适用的软件费用。 建议的大小根据硬件和软件要求，由所选映像的发布者确定。
+    - 使用标准磁盘而不是高级磁盘可能会影响操作系统的性能。
 
-1. in **3. Configure optional** features type:
-    1. For **High availability,** you can select an availability set. To provide redundancy to your application, you can group two or more virtual machines in an availability set. This configuration ensures that during a planned or unplanned maintenance event, at least one virtual machine will be available and meet the 99.95% Azure SLA. The availability set of a virtual machine can't be changed after it is created.
-    1. For **Storage** select **Premium disks (SSD)** or **Standard disks (HDD)**. Premium disks (SSD) are backed by solid-state drives and offer consistent, low-latency performance. They provide the best balance between price and performance, and are ideal for I/O-intensive applications and production workloads. Standard disks (HDD) are backed by magnetic drives and are preferable for applications where data is accessed infrequently.
-    1. You can select **Use managed disks**. Enable this feature to have Azure automatically manage the availability of disks to provide data redundancy and fault tolerance, without creating and managing storage accounts on your own. Managed disks may not be available in all regions. For more information, see [Introduction to Azure managed disks](/virtual-machines/windows/managed-disks-overview).
-    1. Select **virtual network** to configure your network. Virtual networks are logically isolated from each other in Azure. You can configure their IP address ranges, subnets, route tables, gateways, and security settings, much like a traditional network in your data center. Virtual machines in the same virtual network can access each other by default. 
-    1. Select **subnet** to configure your subnet. A subnet is a range of IP addresses in your virtual network, which can be used to isolate virtual machines from each other or from the Internet. 
-    1. Select **Public IP address** to configure access to your VM or services running on your VM. Use a public IP address if you want to communicate with the virtual machine from outside the virtual network. 
-    1. Select **Network Security Group**, **Basic, or **Advanced**. Set rules that allow or deny network traffic to the VM 
-    1. Select **public inbound ports** to set access for common or custom protocols to your VM. The service specifies the destination protocol and port range for this rule. You can choose a predefined service, like RDP or SSH, or provide a custom port range.  
-        For the  web server, you are going to want to HTTP (80), HTTPS (443), and SSH (22) open. If you plan on managing the machine with an RDP connection, open port 3389.
-    1. Select **Extensions** if you would like to add Extension to your VM. Extensions add new features, like configuration management or antivirus protection, to your virtual machine using extensions. 
-    1. Disable or enable **Monitoring**. Capture serial console output and screenshots of the virtual machine running on a host to help diagnose startup issues. 
-    1. Select **diagnostics storage account** to specify the storage account holding your metrics. Metrics are written to a storage account so you can analyze them with your own tools. . 
-    1. Select **OK**.
-1. Review **4. Summary**:
-    - The portal validates your settings.
-    - You can download the Azure Resource Manager template for your VM if you would like to reuse your settings with an Azure Resource Manager workflow.
-    - Press **OK** when the validation has passed. The deployment of the VM takes several minutes.
+1. 在“3.  配置可选功能”中，键入：
+    1. 对于“高可用性”，可以选择一个可用性集。  若要为应用程序提供冗余，可将两个或更多个虚拟机组合到一个可用性集中。 这种配置可以确保在发生计划内或计划外维护事件时，至少有一个虚拟机可用，并满足 99.95% 的 Azure SLA 要求。 创建虚拟机后无法更改虚拟机的可用性集。
+    1. 对于“存储”，请选择“高级磁盘(SSD)”或“标准磁盘(HDD)”。    高级磁盘 (SSD) 基于固态硬盘，提供一致的低延迟性能。 高级磁盘可在价格与性能之间实现最佳平衡，非常适合用于 I/O 密集型应用程序和生产工作负荷。 标准磁盘 (HDD) 基于磁驱动器，适用于不经常访问数据的应用程序。
+    1. 可以选择“使用托管磁盘”。  启用此功能可让 Azure 自动管理磁盘的可用性，以提供数据冗余和容错能力，而无需自行创建和管理存储帐户。 托管磁盘并非在所有区域中均可用。 有关详细信息，请参阅 [Azure 托管磁盘简介](/virtual-machines/windows/managed-disks-overview)。
+    1. 选择“虚拟网络”以配置网络。  虚拟网络以逻辑方式在 Azure 中相互隔离。 虚拟网络与数据中心内的传统网络非常类似，可以配置其 IP 地址范围、子网、路由表、网关和安全设置。 默认情况下，同一虚拟网络中的虚拟机可以相互访问。 
+    1. 选择“子网”以配置子网。  子网是虚拟网络中的某个 IP 地址范围，可用于相互隔离虚拟机，或者将虚拟机与 Internet 相隔离。 
+    1. 选择“公共 IP 地址”，以配置对 VM 或 VM 上运行的服务的访问。  若要与虚拟网络外部的虚拟机通信，请使用公共 IP 地址。 
+    1. 选择“基本”或“高级”**网络安全组**。  设置允许或拒绝发往 VM 的网络流量的规则。 
+    1. 选择“公共入站端口”，以设置使用常用或自定义协议对 VM 设置的访问。  该服务会指定此规则的目标协议和端口范围。 可以选择预定义的服务（例如 RDP 或 SSH），或提供自定义端口范围。  
+        对于 Web 服务器，需要打开 HTTP (80)、HTTPS (443) 和 SSH (22)。 如果你打算使用 RDP 连接来管理计算机，请打开端口 3389。
+    1. 若要将扩展添加到 VM，请选择“扩展”。  扩展可将新功能（例如配置管理或防病毒保护）添加到虚拟机。 
+    1. 禁用或启用“监视”。  捕获主机上运行的虚拟机的串行控制台输出和屏幕截图有助于诊断启动问题。 
+    1. 选择“诊断存储帐户”，以指定用于保存指标的存储帐户。  指标将写入存储帐户，因此你可以使用自己的工具对其进行分析。 上获取。 
+    1. 选择“确定”  。
+1. 复查“4.  摘要”：
+    - 门户将验证你的设置。
+    - 若要将设置重复用于 Azure 资源管理器工作流，可以下载适用于你的 VM 的 Azure 资源管理器模板。
+    - 通过验证后，按“确定”。  部署 VM 需要几分钟时间。
 
-### Specify the open ports and DNS name
+### <a name="specify-the-open-ports-and-dns-name"></a>指定打开的端口和 DNS 名称
 
-You will want to make your web app accessible to users on your network by opening the ports used to connect to the machine and adding a friendly DNS name such as `mywebapp.local.cloudapp.azurestack.external` that users can use in their web browsers.
+你希望网络中的用户可以通过打开用于连接计算机的端口，并添加可在其 Web 浏览器中使用的 DNS 易记名称（例如 `mywebapp.local.cloudapp.azurestack.external`），来访问你的 Web 应用。
 
-#### Open inbound ports
+#### <a name="open-inbound-ports"></a>打开入站端口
 
-You can modify the destination protocol and port range for predefined service, like RDP or SSH or provide a custom port range. For example, you may want to work with the port range of your web framework. GO, for instance, communicates on port 3000.
+可以修改预定义服务（例如 RDP 或 SSH）的目标协议和端口范围，或提供自定义端口范围。 例如，你可能想要使用 Web 框架的端口范围。 例如，GO 在端口 3000 上通信。
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Networking** in your VM blade.
-1. Select **Add inbound port** rule to open a port.
-1. For Source, leave the default to **Any**.
-1. For Source port range, leave the wildcard (*).
-1. For Destination port range, add the port you would like to open, such as `3000`.
-1. For **Protocol** leave **Any**.
-1. For **Action** set to **Allow**.
-1. For **Priority** leave for the default.
-1. Type a **Name** and **Description** to help you remember why the port is open.
-1. Select **Add**.
+1. 打开租户的 Azure Stack 门户。
+1. 找到你的 VM。 你可能已将 VM 固定到仪表板；或者，可以在“搜索资源”框中搜索该 VM。 
+1. 在 VM 边栏选项卡中选择“网络”。 
+1. 选择“添加入站端口”规则以打开一个端口。 
+1. 对于“源”，请保留默认设置“任何”。 
+1. 对于“源端口范围”，请保留通配符 (*)。
+1. 对于“目标端口范围”，请添加要打开的端口，例如 `3000`。
+1. 对于“协议”，请保留“任何”。  
+1. 将“操作”设置为“允许”。  
+1. 对于“优先级”，请保留默认设置。 
+1. 键入**名称**和**说明**，以帮助记住打开端口的原因。
+1. 选择“设置”  （应用程序对象和服务主体对象）。
 
-#### Add a DNS name for your server
+#### <a name="add-a-dns-name-for-your-server"></a>添加服务器的 DNS 名称
 
-In addition, you can create a DNS name for your server, and then users can connect to your web site using a URL.
+此外，可以创建服务器的 DNS 名称，然后，用户可以使用 URL 连接到你的网站。
 
-1. Open the Azure Stack portal for your tenant.
-1. Find your VM. You may have pinned the VM to your dashboard, or you can search for the VM in the **Search resources** box.
-1. Select **Overview**.
-1. Select **Configure** under VM.
-1. Select **Dynamic** for **Assignment**.
-1. Type the DNS name label such as `mywebapp` so that your full URL will be: `mywebapp.local.cloudapp.azurestack.external` (for an ASDK app).
+1. 打开租户的 Azure Stack 门户。
+1. 找到你的 VM。 你可能已将 VM 固定到仪表板；或者，可以在“搜索资源”框中搜索该 VM。 
+1. 选择“概述”。 
+1. 选择 VM 下的“配置”  。
+1. 为“分配”选择“动态”。  
+1. 键入 DNS 名称标签（例如 `mywebapp`），使完整的 URL 变成：`mywebapp.local.cloudapp.azurestack.external`（适用于 ASDK 应用）。
 
-### Connect via SSH to update your VM
+### <a name="connect-via-ssh-to-update-your-vm"></a>通过 SSH 进行连接以更新 VM
 
-1. On the same network as your Azure Stack, open your SSH client. For more information, see [How to use an SSH public key](azure-stack-dev-start-howto-ssh-public-key.md).
-1. Type:
+1. 在 Azure Stack 所在的同一网络中打开 SSH 客户端。 有关详细信息，请参阅[如何使用 SSH 公钥](azure-stack-dev-start-howto-ssh-public-key.md)。
+1. 键入：
     ```bash  
         sudo apt-get update
         sudo apt-get -y upgrade

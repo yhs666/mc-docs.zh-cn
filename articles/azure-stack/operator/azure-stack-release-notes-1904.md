@@ -17,12 +17,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: ''
 ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: ce03d118b296543e48e59580df59f7e53d6cfe86
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: f2a026508f63a884be3865a3bc2331f4b8bb5b04
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249158"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135486"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -107,9 +107,9 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 <!-- Task ## 3748423  -->
 - 更改了操作员门户中的更新安装体验。 为了帮助 Azure Stack 操作员对更新问题做出适当的响应，门户现在会根据缩放单元的运行状况来提供更具体的建议（通过运行 **Test-AzureStack** 并分析结果来自动派生）。 它会根据结果告知操作员采取以下两项措施之一：
 
-  - 门户中会显示一条“软性”警告警报，指出“最近的更新需要引以注意。 Microsoft 建议在正常营业时间提出服务请求。 在更新过程中，会执行 Test-AzureStack，我们会根据输出生成最适当的警报。 在此情况下，Test-AzureStack 将会通过。”
+  - 门户中会显示一条“软性”警告警报，指出“最近的更新需要引以注意。 Azure 建议在正常营业时间提出服务请求。 在更新过程中，会执行 Test-AzureStack，我们会根据输出生成最适当的警报。 在此情况下，Test-AzureStack 将会通过。”
 
-  - 门户中会显示一条“硬性”关键警报，指出“最近的更新失败。 Microsoft 建议尽快提出服务请求。 在更新过程中，会执行 Test-AzureStack，我们会根据输出生成最适当的警报。 在此情况下，Test-AzureStack 也会失败。”
+  - 门户中会显示一条“硬性”关键警报，指出“最近的更新失败。 Azure 建议尽快提出服务请求。 在更新过程中，会执行 Test-AzureStack，我们会根据输出生成最适当的警报。 在此情况下，Test-AzureStack 也会失败。”
 
 - 已更新 Azure Linux Agent 版本 2.2.38.0。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。
 

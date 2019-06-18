@@ -13,16 +13,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/25/2019
-ms.date: 05/16/2019
+origin.date: 05/24/2019
+ms.date: 06/13/2019
 ms.author: v-junlch
 ms.custom: na
-ms.openlocfilehash: 420a76a402340d733f6723b30ff22bdd6801bfe5
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: f3cf45b79d7988eef53e864cb0ea9446440c8fc3
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65917445"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046972"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure 虚拟机规模集常见问题解答
 
@@ -257,7 +257,7 @@ Windows 远程管理 (WinRM) 证书引用必须在 OS 配置文件的 Secrets �
 
 ### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>如果将机密添加到现有虚拟机规模集，机密会注入到现有 VM 中，还是仅注入到新 VM 中？
 
-证书将添加到所有 VM，包括现有的 VM。 如果虚拟机规模集的 upgradePolicy 属性设置为“手动”，对 VM 执行手动更新时，证书会添加到该 VM。
+证书将添加到所有 VM，包括现有的 VM。 如果虚拟机规模集的 upgradePolicy 属性设置为“手动”  ，对 VM 执行手动更新时，证书会添加到该 VM。
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>在 Linux VM 上，证书放在哪个位置？
 
@@ -351,11 +351,11 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 如果更新策略设置为**自动**，使用新扩展属性重新部署模板可更新所有 VM。
 
-如果更新策略设置为“手动”，先更新扩展，并手动更新 VM 中的所有实例。
+如果更新策略设置为“手动”  ，先更新扩展，并手动更新 VM 中的所有实例。
 
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected"></a>如果更新与现有虚拟机规模集关联的扩展，是否会影响现有的 VM？
 
-如果更新虚拟机规模集模型中的扩展定义，且将 upgradePolicy 属性设置为“自动”，则会更新 VM。 如果 upgradePolicy 属性设置为“手动”，扩展会标记为不匹配模型。
+如果更新虚拟机规模集模型中的扩展定义，且将 upgradePolicy 属性设置为“自动”  ，则会更新 VM。 如果 upgradePolicy 属性设置为“手动”  ，扩展会标记为不匹配模型。
 
 ### <a name="are-extensions-run-again-when-an-existing-machine-is-service-healed-or-reimaged"></a>对现有的计算机进行服务修复或重置映像时，是否会再次运行扩展？
 
@@ -532,7 +532,7 @@ IP 地址是从指定的子网中选择的。
 
 ### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>如何将规模集配置为向每个 VM 分配公共 IP 地址？
 
-要创建向每个 VM 分配公共 IP 地址的虚拟机规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本为 2017-03-30，并将 publicipaddressconfiguration JSON 数据包添加到规模集的 ipConfigurations 部分中。 示例：
+要创建向每个 VM 分配公共 IP 地址的虚拟机规模集，请确保 Microsoft.Compute/virtualMachineScaleSets 资源的 API 版本为 2017-03-30，并将 publicipaddressconfiguration  JSON 数据包添加到规模集的 ipConfigurations 部分中。 示例：
 
 ```json
     "publicipaddressconfiguration": {
@@ -604,13 +604,13 @@ IP 地址是从指定的子网中选择的。
 
 ## <a name="patching-and-operations"></a>修补和操作
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>如何在现有资源组中创建规模集？
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>能否在现有资源组中创建规模集？
 
-尚不能通过 Azure 门户在现有资源组中创建规模集，但从 Azure Resource Manager 模板部署规模集时，可以指定现有资源组。 也可以在使用 Azure PowerShell 或 CLI 创建规模集时指定现有资源组。
+能，可以在现有资源组中创建规模集。
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>可以将规模集移至另一个资源组吗？
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>能否将规模集移到其他资源组？
 
-可以，可以将规模集资源移至新的订阅或资源组。
+是的，可以将规模集资源移到新订阅或资源组。
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>如何将虚拟机规模集更新为新映像？ 如何管理修补？
 
@@ -629,7 +629,7 @@ az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.Ente
 可在 Azure 门户的 Log Analytics 工作区中查找所需的 workspaceId 和 workspaceKey。 在“概述”页面上，单击“设置”磁贴。 单击顶部的“相连的源”选项卡。
 
 > [!NOTE]
-> 如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”。
+> 如果规模集 _upgradePolicy_ 设置为“手动”，则需要通过对 VM 调用升级将扩展应用到集中的所有 VM。 在 CLI 中，这将为“az vmss update-instances”  。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

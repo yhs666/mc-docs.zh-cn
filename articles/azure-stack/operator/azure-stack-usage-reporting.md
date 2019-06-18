@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 72d5bf809804a0a1b446163b000e226392ccbb23
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 6d396534baeffcf048602df2a325f8702aefe40c
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381856"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135473"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>向 Azure 报告 Azure Stack 用量数据
 
@@ -32,11 +32,11 @@ ms.locfileid: "66381856"
 > [!IMPORTANT]
 > 所有工作负荷都[必须部署在租户订阅](#are-users-charged-for-the-infrastructure-vms)下，才符合 Azure Stack 的许可条款。
 
-根据即用即付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
+根据预支付付费模式购买许可证的 Azure Stack 多节点用户必须配置用量数据报告。 对于根据容量计费模式购买许可证的客户而言，用量数据报告是可选的（请参阅[购买方式](https://azure.microsoft.com/overview/azure-stack/how-to-buy/)页）。 对于 Azure Stack 开发工具包用户，Azure Stack 操作员可以报告用量数据并测试此功能。 但是，用户无需为产生的任何用量付费。
 
 ![计费流](media/azure-stack-usage-reporting/billing-flow.png)
 
-用量数据通过 Azure Bridge 从 Azure Stack 发送到 Azure。 在 Azure 中，商务系统会处理用量数据并生成帐单。 生成帐单之后，Azure 订阅所有者可以从 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)查看和下载帐单。 若要了解 Azure Stack 的许可方式，请参阅 [Azure Stack 打包和定价文档](https://go.microsoft.com/fwlink/?LinkId=842847)。
+用量数据通过 Azure Bridge 从 Azure Stack 发送到 Azure。 在 Azure 中，商务系统会处理用量数据并生成帐单。 生成帐单之后，Azure 订阅所有者可以从 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)查看和下载帐单。
 
 ## <a name="set-up-usage-data-reporting"></a>设置用量数据报告
 
@@ -67,7 +67,7 @@ ms.locfileid: "66381856"
 
 ## <a name="view-usage---other-subscriptions"></a>查看用量 - 其他订阅
 
-如果已使用其他任何订阅类型（例如，即用即付订阅）注册 Azure Stack，则可以在 Azure 帐户中心查看用量和费用。 以 Azure 帐户管理员身份登录到 [Azure 帐户中心](https://account.windowsazure.com/subscriptions)，选择用于注册 Azure Stack 的 Azure 订阅。 可以查看 Azure Stack 用量数据，以及针对使用的每个资源收取的费用，如下图所示：
+如果已使用其他任何订阅类型（例如，即用即付订阅）注册 Azure Stack，则可以在 Azure 帐户中心查看用量和费用。 以 Azure 帐户管理员身份登录到 [Azure 帐户中心](https://account.windowsazure.cn/subscriptions)，选择用于注册 Azure Stack 的 Azure 订阅。 可以查看 Azure Stack 用量数据，以及针对使用的每个资源收取的费用，如下图所示：
 
 ![计费流](media/azure-stack-usage-reporting/pricing-details.png)
 

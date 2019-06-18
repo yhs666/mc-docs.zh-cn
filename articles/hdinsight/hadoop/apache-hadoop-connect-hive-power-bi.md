@@ -9,24 +9,24 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 06/10/2019
+origin.date: 05/21/2019
+ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3a1cd023d2d1b0865b07166c182885ae8d21c5a5
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 31e32874f338a380f864fae26875112c2025d45d
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424615"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135731"
 ---
 # <a name="visualize-apache-hive-data-with-microsoft-power-bi-using-odbc-in-azure-hdinsight"></a>在 Azure HDInsight 中通过 Microsoft Power BI 使用 ODBC 直观显示 Apache Hive 数据
 
-了解如何使用 ODBC 将 Microsoft Power BI 连接到 Azure HDInsight 并直观显示 Apache Hive 数据。 
+了解如何使用 ODBC 将 Microsoft Power BI Desktop 连接到 Azure HDInsight 并直观显示 Apache Hive 数据。
 
 >[!IMPORTANT]
 > 可以利用 Hive ODBC 驱动程序，通过 Power BI Desktop 中的通用 ODBC 连接器执行导入操作。 但是，鉴于 Hive 查询引擎的非交互性质，不建议对 BI 工作负荷执行此操作。 出于性能考量，[HDInsight 交互式查询连接器](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md)和 [HDInsight Spark 连接器](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)是更好的选择。
 
-在本教程中，从 hivesampletable Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
+在本教程中，从 `hivesampletable` Hive 表将数据加载到 Power BI 中。 Hive 表包含一些移动电话使用情况数据。 然后在世界地图上绘制使用情况数据：
 
 ![HDInsight Power BI 地图报表](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -46,13 +46,19 @@ ms.locfileid: "66424615"
 
 所有 HDInsight 群集都随附了 hivesampletable Hive 表。
 
-1. 登录 Power BI Desktop。
-2. 单击“主页”  选项卡，从“外部数据”  功能区中单击“获取数据”  ，然后选择“更多”  。
+1. 启动 Power BI Desktop。
+
+2. 在顶部菜单中，导航到“主页” > “获取数据” > “更多...”。   
 
     ![HDInsight Power BI 开放数据](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
-3. 在“获取数据”  窗格中，单击左侧的“其他”  ，单击右侧的 **ODBC**，然后单击底部的“连接”  。
-4. 在“从 ODBC”窗格中，选择在上一部分中创建的数据源名称，然后单击“确定”   。
-5. 在“导航器”  窗格中，依次展开“ODBC”->“ HIVE”->“默认”  ，选择 **hivesampletable**，然后单击“加载”  。
+
+3. 在“获取数据”  对话框中，选择左侧的“其他”  ，选择右侧的 **ODBC**，然后选择底部的“连接”  。
+
+4. 在“从 ODBC”  对话框中，从下拉列表中选择在上一部分中创建的数据源名称，然后选择“确定”  。
+
+5. 在“导航器”  对话框中，依次展开“ODBC”>“HIVE”>“默认”  ，选择 **hivesampletable**，然后选择“加载”  。
+
+6. 在“ODBC 驱动程序”  对话框中，选择“默认或自定义”  ，然后选择“连接”  。
 
 ## <a name="visualize-data"></a>可视化数据
 
@@ -61,7 +67,7 @@ ms.locfileid: "66424615"
 1. 在“可视化”窗格中，选择“地图”  。  它是一个地球图标。
 
     ![HDInsight Power BI 自定义报表](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-customize.png)
-2. 在“字段”窗格中，选择 **country** 和 **devicemake**。 可以在地图上看到绘制的数据。
+2. 在“字段”  窗格中，选择 **country** 和 **devicemake**。 可以在地图上看到绘制的数据。
 3. 展开地图。
 
 ## <a name="next-steps"></a>后续步骤

@@ -4,20 +4,20 @@ description: 本文介绍如何从备份还原 Azure Cosmos DB 数据，如何�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/15/2018
-ms.date: 03/18/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: bd73ed6b82a498c723023ac5428fc0fec89794b7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1702a01fb495294eccbc114524338a8f4844b9e8
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627316"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151441"
 ---
 # <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中从备份还原数据 
 
-如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/zh-cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如**标准**计划、<strong>开发人员计划以及更高级别的计划）。Azure 支持不适用于基本</strong>计划。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
+如果意外删除了数据库或容器，可以[提交支持票证]( https://support.azure.cn/zh-cn/support/support-azure/)或[联系 Azure 支持]( https://www.azure.cn/support/contact/)，以便从自动联机备份中还原数据。 Azure 支持仅适用于选定计划（例如**标准**计划、**开发人员**计划以及更高级别的计划）。 不适用于基本计划  。 若要了解不同的支持方案，请参阅 [Azure 支持计划](https://www.azure.cn/support/plans/)页。 
 
 若要还原备份的特定快照，Azure Cosmos DB 要求在该快照的备份周期的持续时间内可用。
 
@@ -40,7 +40,7 @@ ms.locfileid: "58627316"
     * 如果意外删除了数据库或容器，请提交一个严重性级别为 B 或 C 的 Azure 支持案例。 
     * 如果意外删除或损坏了容器中的某些文档，请提交一个严重性级别为 A 的支持案例。 
 
-发生数据损坏时，如果容器中的文档遭到修改或删除，请尽快删除容器。 这样就可以避免 Azure Cosmos DB 覆盖备份。 如果因某种原因而无法删除，应尽快提交票证。 除了 Azure Cosmos 帐户名、数据库名、集合名以外，还应指定数据可以恢复到的时间点。 务必尽量精确，因为这有助于我们确定当时可用的最佳备份。 指定 UTC 时间也很重要。 
+发生数据损坏时，如果容器中的文档遭到修改或删除，请尽快删除容器  。 这样就可以避免 Azure Cosmos DB 覆盖备份。 如果因某种原因而无法删除，应尽快提交票证。 除了 Azure Cosmos 帐户名、数据库名、集合名以外，还应指定数据可以恢复到的时间点。 务必尽量精确，因为这有助于我们确定当时可用的最佳备份。 指定 UTC 时间也很重要。 
 
 <!--MOONCAKE CUSTOMIZE on SUPPORT RREQUEST-->
 

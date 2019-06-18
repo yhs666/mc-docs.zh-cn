@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 32ac7e6f9d0f5c401f7b4d36a649577a2b70ecaa
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 3d69fdebbf8971adec0c655a4f637353cb2deff5
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586840"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135716"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理收集日志数据
 
@@ -81,10 +81,10 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 
 |代理资源|端口 |方向 |绕过 HTTPS 检查|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |端口 443 |出站|是 |  
-|*.oms.opinsights.azure.com |端口 443 |出站|是 |  
+|*.ods.opinsights.chinacloudapi.cn |端口 443 |出站|是 |  
+|*.oms.opinsights.chinacloudapi.cn|端口 443 |出站|是 |  
 |*.blob.core.chinacloudapi.cn |端口 443 |出站|是 |  
-|* .azure-automation.net |端口 443 |出站|是 |  
+|\* .azure-automation.net |端口 443 |出站|是 |  
 
 
 如果计划使用 Azure 自动化混合 Runbook 辅助角色连接到自动化服务并在其中注册以在环境中使用 Runbook，则它必须可以访问“针对混合 Runbook 辅助角色配置网络”中所述的端口号和 URL。 

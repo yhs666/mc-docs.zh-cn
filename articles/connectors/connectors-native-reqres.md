@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/18/2016
 ms.author: v-yiso
-ms.date: 03/26/2018
-ms.openlocfilehash: 28ac4f76452f86c6c63f1419865658c93e576585
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 06/24/2019
+ms.openlocfilehash: 68cea320b619254dd2abf4990d468d4a5b13e549
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653096"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135884"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>请求和响应组件入门
 借助逻辑应用中的请求和响应组件，可以实时响应事件。
@@ -35,11 +35,12 @@ ms.locfileid: "52653096"
 若要开始在逻辑应用中使用请求和响应操作，请参阅[创建逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 
 ## <a name="use-the-http-request-trigger"></a>使用 HTTP 请求触发器
-触发器是可用于启动在逻辑应用中定义的工作流的事件。 [了解有关触发器的详细信息](connectors-overview.md)。
+触发器是可用于启动在逻辑应用中定义的工作流的事件。 
+[了解有关触发器的详细信息](../connectors/apis-list.md)。
 
 下面是如何在逻辑应用设计器中设置 HTTP 请求的示例序列。
 
-1. 在逻辑应用中添加触发器“请求 - 收到 HTTP 请求时”。 可以选择为请求正文提供 JSON 架构（通过使用 [JSONSchema.net](http://jsonschema.net) 之类的工具）。 这允许设计器为 HTTP 请求中的属性生成令牌。
+1. 在逻辑应用中添加触发器“请求 - 收到 HTTP 请求时”  。 可以选择为请求正文提供 JSON 架构（通过使用 [JSONSchema.net](https://jsonschema.net) 之类的工具）。 这允许设计器为 HTTP 请求中的属性生成令牌。
 2. 添加另一个操作，以便保存逻辑应用。
 3. 保存逻辑应用后，可以从请求卡获取 HTTP 请求 URL。
 4. 对该 URL 的 HTTP POST（可使用 [Postman](https://www.getpostman.com/) 之类的工具）触发逻辑应用。
@@ -56,8 +57,8 @@ HTTP 请求操作仅在用于由 HTTP 请求触发的工作流中时才有效。
 
 下面是添加 HTTP 响应操作的方法：
 
-1. 选择“新步骤”按钮。
-2. 选择“添加操作”。
+1. 选择“新步骤”  按钮。
+2. 选择“添加操作”  。
 3. 在操作搜索框中，键入**响应**列出响应操作。
    
     ![选择响应操作](./media/connectors-native-reqres/using-action-1.png)
@@ -86,7 +87,7 @@ HTTP 请求操作仅在用于由 HTTP 请求触发的工作流中时才有效。
 #### <a name="request-trigger"></a>请求触发器
 下面是来自传入 HTTP 请求的触发器的输入字段。
 
-| 显示名称 | 属性名称 | 说明 |
+| Display name | 属性名称 | 说明 |
 | --- | --- | --- |
 | JSON 架构 |schema |HTTP 请求正文的 JSON 架构 |
 
@@ -102,9 +103,9 @@ HTTP 请求操作仅在用于由 HTTP 请求触发的工作流中时才有效。
 | 正文 |object |请求对象 |
 
 #### <a name="response-action"></a>Response 操作
-下面是 HTTP 请求操作的输入字段。 * 表示它是必填字段。
+下面是 HTTP 请求操作的输入字段。 \* 表示它是必填字段。
 
-| 显示名称 | 属性名称 | 说明 |
+| Display name | 属性名称 | 说明 |
 | --- | --- | --- |
 | 状态代码* |statusCode |HTTP 状态代码 |
 | 标头 |headers |要包含的任何响应标头的 JSON 对象 |

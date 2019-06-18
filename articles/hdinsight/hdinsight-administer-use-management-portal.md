@@ -11,12 +11,12 @@ origin.date: 05/25/2017
 ms.date: 03/03/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: e773142239824d797bc93f154b5978c5cd7452c4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3037484da93d0c59fc03791048cc207e677aeb61
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627549"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135727"
 ---
 # <a name="manage-windows-based-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户在 HDInsight 中管理基于 Windows 的 Apache Hadoop 群集
 
@@ -37,14 +37,14 @@ ms.locfileid: "58627549"
 1. 登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 2. 打开门户之后，可以：
 
-   * 单击左侧菜单中的“创建资源”以创建新的群集：
+   * 单击左侧菜单中的“创建资源”  以创建新的群集：
 
        ![新建 HDInsight 群集按钮](./media/hdinsight-administer-use-management-portal/azure-portal-new-button.png)
-   * 单击左侧菜单中的“HDInsight 群集”。
+   * 单击左侧菜单中的“HDInsight 群集”  。
 
        ![Azure 门户中的 HDInsight 群集按钮](./media/hdinsight-administer-use-management-portal/azure-portal-hdinsight-button.png)
 
-     如果左侧菜单中未显示“HDInsight”，请单击“浏览”。
+     如果左侧菜单中未显示“HDInsight”，请单击“浏览”   。
 
      ![Azure 门户中的浏览群集按钮](./media/hdinsight-administer-use-management-portal/azure-portal-browse-button.png)
 
@@ -68,7 +68,7 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
 
 ## <a name="list-and-show-clusters"></a>列出并显示群集
 1. 登录到 [https://portal.azure.cn](https://portal.azure.cn)。
-2. 单击左侧菜单中的“HDInsight 群集”。
+2. 单击左侧菜单中的“HDInsight 群集”  。
 3. 单击群集名称。 如果群集列表很长，可以使用页面顶部的筛选器。
 4. 双击列表中的群集可显示详细信息。
 
@@ -76,9 +76,9 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
 
     ![Azure 门户 HDInsight 群集概要](./media/hdinsight-administer-use-management-portal/hdinsight-essentials.png)
 
-   * 如果要自定义菜单，请右键单击菜单中的任意位置，并单击“自定义” 。
-   * “设置”和“所有设置”：显示该群集的“设置”边栏选项卡，用于访问该群集的详细配置信息。
-   * “仪表板”、“群集仪表板”和**“URL”：这些是访问群集仪表板（即可用于基于 Linux 群集的 Ambari Web）的所有途径。
+   * 如果要自定义菜单，请右键单击菜单中的任意位置，并单击“自定义”  。
+   * “设置”和“所有设置”：   显示该群集的“设置”边栏选项卡，用于访问该群集的详细配置信息。 
+   * “仪表板”、“群集仪表板”和**“URL”：   这些是访问群集仪表板（即可用于基于 Linux 群集的 Ambari Web）的所有途径。
      - **安全外壳**：显示使用安全 Shell (SSH) 连接与群集建立连接的说明。
    * **缩放群集**：可更改此群集的工作节点数。
    * **删除**：删除群集。
@@ -86,7 +86,7 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
    * <em>*用户：用于设置 Azure 订阅上其他用户对此群集的 *门户管理权限</em>。
 
      > [!IMPORTANT]
-     > 这只会影响在 Azure 门户中对此群集的访问和权限，对于连接到 HDInsight 群集或将作业提交到其上的用户并没有影响。
+     > 这只会影响在 Azure 门户中对此群集的访问和权限，对于连接到 HDInsight 群集或将作业提交到其上的用户并没有影响  。
      >
      >
    * **标记**：标记用于设置键/值对，以定义云服务的自定义分类。 例如，用户可以创建名为 **project**的键，并对与特定项目关联的所有服务使用一个公用值。
@@ -98,7 +98,7 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
      **使用情况**：
 
      ![Azure 门户 HDInsight 群集使用情况](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
-5. 单击“设置”。
+5. 单击“设置”  。
 
     ![Azure 门户 HDInsight 群集使用情况](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
@@ -122,9 +122,9 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
    * **主机名**：群集名称。
    * **群集 URL**。
    * **状态**：包括 Aborted、Accepted、ClusterStorageProvisioned、AzureVMConfiguration、HDInsightConfiguration、Running、Error、Deleting、Deleted、Timedout、DeleteQueued、DeleteTimedout、DeleteError、PatchQueued、CertRolloverQueued、ResizeQueued、ClusterCustomization
-   * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“区域”下拉列表框。
+   * **区域**：Azure 位置。 有关受支持的 Azure 位置的列表，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)中的“区域”  下拉列表框。
    * **已创建的数据**。
-   * **操作系统**：“Windows”或“Linux”。
+   * **操作系统**：“Windows”或“Linux”。  
    * **类型**：Hadoop、HBase、Storm、Spark。
    * **版本**。 请参阅 [HDInsight 版本](hdinsight-component-versioning.md)
    * **订阅**：订阅名称。
@@ -137,8 +137,8 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
 删除群集不会删除默认的存储帐户或任何链接的存储帐户。 可以使用相同的存储帐户和相同的元存储来重新创建群集。
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 单击顶部菜单中的“删除”，并按照说明操作。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 单击顶部菜单中的“删除”  ，并按照说明操作。
 
 另请参阅[暂停/关闭群集](#pauseshut-down-clusters)。
 
@@ -191,8 +191,8 @@ HDInsight 使用各种 Apache Hadoop 组件。 有关已获得验证和支持的
 **缩放群集**
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，然后单击“缩放群集”。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 从顶部菜单中单击“设置”，然后单击“缩放群集”   。
 4. 输入**辅助角色节点数**。 Azure 订阅中的群集节点数量限制有所不同。 要增加限制，可联系计费支持人员。  成本信息将反映对节点数所做的更改。
 
     ![HDInsight Hadoop HBase Storm Spark 缩放](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
@@ -215,10 +215,10 @@ HDInsight 群集可以有两个用户帐户。 HDInsight 群集用户帐户在�
 **更改 HDInsight 群集用户名和密码**
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，然后单击“群集登录”。
-4. 如果已启用“群集登录”，则必须先单击“禁用”，然后再单击“启用”才能更改用户名和密码。
-5. 更改“群集登录名”和/或“群集登录密码”，然后单击“保存”。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 从顶部菜单中单击“设置”，然后单击“群集登录”   。
+4. 如果已启用“群集登录”，则必须先单击“禁用”，然后再单击“启用”才能更改用户名和密码    。
+5. 更改“群集登录名”和/或“群集登录密码”，然后单击“保存”    。
 
     ![HDInsight 更改群集用户的用户名密码 http 用户](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
@@ -241,22 +241,22 @@ HDInsight 群集提供以下 HTTP Web 服务（所有这些服务都有 REST 样
 **授予/撤消 HTTP Web 服务访问权限**
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，然后单击“群集登录”。
-4. 如果已启用“群集登录”，则必须先单击“禁用”，然后再单击“启用”才能更改用户名和密码。
-5. 对于“群集登录用户名”和“群集登录密码”，请分别输入群集的新用户名和密码。
-6. 单击“保存”。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 从顶部菜单中单击“设置”，然后单击“群集登录”   。
+4. 如果已启用“群集登录”，则必须先单击“禁用”，然后再单击“启用”才能更改用户名和密码    。
+5. 对于“群集登录用户名”和“群集登录密码”，请分别输入群集的新用户名和密码   。
+6. 单击“保存”  。
 
     ![HDInsight 授权删除 http Web 服务访问权限](./media/hdinsight-administer-use-management-portal/hdinsight.portal.change.username.password.png)
 
 ## <a name="find-the-default-storage-account"></a>查找默认存储帐户
-每个 HDInsight 群集都有默认存储帐户。 群集的默认存储帐户及其密钥显示在“设置”/“属性”/“Azure 存储密钥”下。 请参阅[列出和显示群集](#list-and-show-clusters)。
+每个 HDInsight 群集都有默认存储帐户。 群集的默认存储帐户及其密钥显示在“设置”/“属性”/“Azure 存储密钥”下    。 请参阅[列出和显示群集](#list-and-show-clusters)。
 
 ## <a name="find-the-resource-group"></a>查找资源组
 在 Azure Resource Manager 模式下，每个 HDInsight 群集都是使用 Azure 资源组创建的。 群集所属的 Azure 资源组显示在以下位置：
 
-* 群集列表包含“资源组”列。
-* 群集“概要”磁贴。  
+* 群集列表包含“资源组”  列。
+* 群集“概要”  磁贴。  
 
 请参阅[列出和显示群集](#list-and-show-clusters)。
 
@@ -270,69 +270,69 @@ HDInsight 查询控制台包括下列功能：
 
     ![HDInsight 门户作业历史记录](./media/hdinsight-administer-use-management-portal/hdinsight-job-history.png)
 
-    单击“查询名称”显示详细信息，其中包括“作业属性”、“作业查询”和“**作业输出”。 还可将查询和输出下载到工作站。
+    单击“查询名称”显示详细信息，其中包括“作业属性”、“作业查询”和“**作业输出”   。 还可将查询和输出下载到工作站。
 * **文件浏览器**：浏览默认存储帐户和链接存储帐户。
 
     ![HDInsight 门户文件浏览器浏览](./media/hdinsight-administer-use-management-portal/hdinsight-file-browser.png)
 
-    在屏幕截图中，<Account> 类型表示该项为 Azure 存储帐户。  单击帐户名称以浏览文件。
+    在屏幕截图中，<Account> 类型表示该项为 Azure 存储帐户  。  单击帐户名称以浏览文件。
 * **Hadoop UI**。
 
     ![HDInsight 门户 Hadoop UI](./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-ui.png)
 
-    可通过 *Hadoop UI 浏览文件和查看日志。
+    可通过 *Hadoop UI 浏览文件和查看日志  。
 * **Yarn UI**。
 
     ![HDInsight 门户 YARN UI](./media/hdinsight-administer-use-management-portal/hdinsight-yarn-ui.png)
 
 ## <a name="run-hive-queries"></a>运行 Hive 查询
-若要从门户运行 Hive 作业，请单击 HDInsight 查询控制台中的“Hive 编辑器”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要从门户运行 Hive 作业，请单击 HDInsight 查询控制台中的“Hive 编辑器”  。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
 ## <a name="monitor-jobs"></a>监视作业
-若要从门户监视作业，请单击 HDInsight 查询控制台中的“作业历史记录”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要从门户监视作业，请单击 HDInsight 查询控制台中的“作业历史记录”  。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
 ## <a name="browse-files"></a>浏览文件
-若要浏览存储在默认存储帐户和链接的存储帐户中的文件，请单击 HDInsight 查询控制台中的“文件浏览器”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要浏览存储在默认存储帐户和链接的存储帐户中的文件，请单击 HDInsight 查询控制台中的“文件浏览器”  。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
-还可使用 HDInsight 控制台的 Hadoop UI 中的“浏览文件系统”实用程序。  请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+还可使用 HDInsight 控制台的 Hadoop UI 中的“浏览文件系统”实用程序   。  请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
 ## <a name="monitor-cluster-usage"></a>监视群集使用情况
-HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息，方便了解订阅中可以用于 HDInsight 的核心数、分配给此群集的核心数，以及这些核心是如何分配给此群集中的节点的。 请参阅[列出和显示群集](#list-and-show-clusters)。
+HDInsight 群集边栏选项卡的“使用情况”  部分会显示相关信息，方便了解订阅中可以用于 HDInsight 的核心数、分配给此群集的核心数，以及这些核心是如何分配给此群集中的节点的。 请参阅[列出和显示群集](#list-and-show-clusters)。
 
 > [!IMPORTANT]  
 > 若要监视 HDInsight 群集提供的服务，必须使用 Ambari Web 或 Ambari REST API。 有关如何使用 Ambari 的详细信息，请参阅[使用 Apache Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 
 ## <a name="open-hadoop-ui"></a>打开 Hadoop UI
-若要监视群集、浏览文件系统和查看日志，请单击 HDInsight 查询控制台中的“Hadoop UI”。 请参阅[打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要监视群集、浏览文件系统和查看日志，请单击 HDInsight 查询控制台中的“Hadoop UI”  。 请参阅[打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
 ## <a name="open-yarn-ui"></a>打开 Yarn UI
-若要使用 Yarn 用户界面，请单击 HDInsight 查询控制台中的“Yarn UI”。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
+若要使用 Yarn 用户界面，请单击 HDInsight 查询控制台中的“Yarn UI”  。 请参阅 [打开 HDInsight 查询控制台](#open-hdinsight-query-console)。
 
-## <a name="connect-to-clusters-using-rdp"></a>使用 RDP 连接到群集
+## <a name="connect-to-hdinsight-clusters-by-using-rdp"></a>使用 RDP 连接到群集
 通过创建群集时提供的凭据，可以访问群集上的服务，但无法通过远程桌面访问群集本身。 在预配群集时或在预配群集后，可以启用“远程桌面访问”。 有关在创建时启用远程桌面的说明，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 **启用远程桌面**
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，然后单击“远程桌面”。
-4. 输入“到期日期”、“远程桌面用户名”和“远程桌面密码”，然后单击“启用”。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 从顶部菜单中单击“设置”，然后单击“远程桌面”   。
+4. 输入“到期日期”、“远程桌面用户名”和“远程桌面密码”，然后单击“启用”     。
 
     ![HDInsight 启用/禁用配置远程桌面](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     “到期日期”的默认值为“一周”。
 
    > [!NOTE]
-   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://go.microsoft.com/fwlink/?LinkId=529017)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
+   > 也可以使用 HDInsight .NET SDK 在群集上启用远程桌面。 按以下方式使用 HDInsight 客户端对象上的 EnableRdp方法：client.EnableRdp(clustername, location, "rdpuser", "rdppassword", DateTime.Now.AddDays(6))   。 同样，若要在群集上禁用远程桌面，可以使用 client.DisableRdp(clustername, location)  。 有关这些方法的详细信息，请参阅 [HDInsight .NET SDK 参考](https://go.microsoft.com/fwlink/?LinkId=529017)。 这仅适用于在 Windows 上运行的 HDInsight 群集。
    >
    >
 
 **使用 RDP 连接到群集**
 
 1. 登录到[门户][azure-portal]。
-2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称。
-3. 从顶部菜单中单击“设置”，并单击“远程桌面”。
-4. 单击“连接”，并按照说明进行操作。 如果禁用“连接”，必须首先启用它。 请确保使用远程桌面用户的用户名和密码。  不能使用群集用户凭据。
+2. 从左侧菜单中依次单击“浏览全部”、“HDInsight 群集”和群集名称   。
+3. 从顶部菜单中单击“设置”  ，并单击“远程桌面”  。
+4. 单击“连接”  ，并按照说明进行操作。 如果禁用“连接”，必须首先启用它。 请确保使用远程桌面用户的用户名和密码。  不能使用群集用户凭据。
 
 ## <a name="open-hadoop-command-line"></a>打开 Hadoop 命令行
 要使用远程桌面连接到群集并使用 Hadoop 命令行，首先必须对群集启用远程桌面访问，如上一节所述。
@@ -340,7 +340,7 @@ HDInsight 群集边栏选项卡的“使用情况”部分会显示相关信息�
 **打开 Hadoop 命令行**
 
 1. 使用“远程桌面”连接到群集。
-2. 从桌面上双击“Hadoop 命令行” 。
+2. 从桌面上双击“Hadoop 命令行”  。
 
     ![HDI.HadoopCommandLine][image-hadoopcommandline]
 

@@ -11,12 +11,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 05/10/2019
-ms.openlocfilehash: f0f406524004c6a76394b81ec4e27ae304b8e972
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: de8b443be0b036ae9db2ed8a61e805acf9e6434d
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381846"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135481"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Azure Stack 数据中心集成 - 标识
 
@@ -37,7 +37,7 @@ ms.locfileid: "66381846"
 
 在现有 AD FS 中，必须配置信赖方信任。 此步骤不是由自动化执行的，而必须由操作员配置。 可以使用 `https://adfs.<Region>.<ExternalFQDN>/` 模式创建适用于 AD FS 的 Azure Stack VIP 终结点。
 
-配置信赖方信任还需要配置 Microsoft 提供的声明转换规则。
+配置信赖方信任还需要配置 Azure 提供的声明转换规则。
 
 对于 Graph 配置，必须提供在现有 Active Directory 中拥有“读取”权限的服务帐户。 自动化需要使用此帐户作为输入来启用 RBAC 方案。
 

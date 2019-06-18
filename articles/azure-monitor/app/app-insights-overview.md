@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b0abffeb28caf645bedf319376dea8f80d62453f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: f33995a7cd0b58ff3980355232945a881fff5a42
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732232"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135932"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -100,7 +100,7 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 * 使下一个开发周期基于遥测的硬性证据。
 
 ## <a name="get-started"></a>入门
-Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥测会发送到此处进行分析和展示。 因此在执行任何其他操作之前，需要订阅[世纪互联 Azure](https://azure.com)。 可免费注册该订阅，如果选择 Application Insights 的基本[pricing plan](https://www.azure.cn/pricing/details/application-insights/)（定价计划），不会产生费用，但如果应用的使用量大幅增加，会产生费用。 如果组织已有订阅，则组织可向其中添加 Azure 帐户。
+Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥测会发送到此处进行分析和展示。 因此在执行任何其他操作之前，需要订阅[世纪互联 Azure](https://portal.azure.cn)。 可用 1 元人民币注册该订阅，如果选择 Application Insights 的基本[定价计划](https://www.azure.cn/pricing/details/azure-monitor/)，不会产生费用，但如果应用程序的使用量大幅增加，会产生费用。 如果组织已有订阅，则组织可向其中添加 Azure 帐户。
 
 可通过多种方法开始使用。 可从最适合方法开始。 可在以后添加其他方法。
 
@@ -133,7 +133,7 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
   * [MSDN 论坛](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * 用户建议：
-  * [UserVoice](https://www.azure.cn/support/contact//forums/357324-application-insights/filters/top)
+  * [UserVoice](https://azure.microsoft.com/support/contact//forums/357324-application-insights/filters/top)
 * 博客：
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)（Application Insights 博客）
 

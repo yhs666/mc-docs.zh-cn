@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: f5b14d431b0ba811ea260e1f59227d203380cb2b
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: d2e361ef9dd5473ba23716c16f5548edb699541e
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381915"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135475"
 ---
 # <a name="usage-reporting-infrastructure-for-cloud-service-providers"></a>适用于云服务提供商的使用情况报告基础结构
 
@@ -29,7 +29,7 @@ Azure Stack 包括实时跟踪使用情况所需的基础结构，因此会将�
 
 某些概念在全球版 Azure 与 Azure Stack 中是一致的。 Azure Stack 有本地订阅，其履行的角色类似于 Azure 订阅。 本地订阅仅在本地适用。 将使用情况转发到 Azure 时，本地订阅会映射到 Azure 订阅。
 
-Azure Stack 有本地使用情况计量。 本地使用情况将映射到在 Azure Commerce 中使用的计量。 但是，计量 ID 是不同的。 在本地使用的计量多余 Microsoft 用于计费的计量。
+Azure Stack 有本地使用情况计量。 本地使用情况将映射到在 Azure Commerce 中使用的计量。 但是，计量 ID 是不同的。 在本地可用的计量多于 Azure 用于计费的计量。
 
 Azure Stack 和 Azure 中的服务计价方式有一些差异。 例如，在 Azure Stack 中，只根据 vcore/小时对 VM 收费，对所有 VM 系列的费率是相同的，这不同于 Azure。 原因是，在全球版 Azure 中，不同的价格反映了不同的硬件。 在 Azure Stack 中，由客户提供硬件，因此没有理由根据不同的 VM 类实施不同的费率。
 

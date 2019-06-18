@@ -16,12 +16,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 3ea16f2347f7ee6cd74eed1bf2e9af3989296e54
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 6e8e65b077584149ccd75a0a8f04964f6341739e
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529752"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135474"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
@@ -37,11 +37,11 @@ ms.locfileid: "64529752"
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server 市场映像有哪些许可选项？
 
-Microsoft 通过 Azure Stack 市场提供两种版本的 Windows Server 映像：
+Azure 通过 Azure Stack 市场提供两种版本的 Windows Server 映像：
 
-- **即用即付**：这些映像运行全价 Windows 计量器。
-   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。
-- **自带许可证 (BYOL)**：这些映像运行基本计量器。
+- **预支付**：这些映像运行全价 Windows 计量器。
+   适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。 
+- **自带许可证 (BYOL)** ：这些映像运行基本计量器。
    适合对象：具有 Windows Server 许可证的 EA 客户、使用 SPLA 许可的 CSP。
 
 Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模型获取许可证的客户必须使用 BYOL 映像。 如果你正在使用 Azure Stack 开发工具包 (ASDK) 进行测试，则可以使用上述任一选项。

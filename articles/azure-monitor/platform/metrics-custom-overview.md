@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 26a08d65ec10f588828492d58ce81b8fe09dd056
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 7ff064e8db48b9c40c81d4fca94d9d5ec843ac22
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731448"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135982"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor 中的自定义指标
 
@@ -25,9 +25,8 @@ ms.locfileid: "66731448"
 - 使用 Azure Application Insights SDK 检测应用程序并将自定义遥测数据发送到 Azure Monitor。 
 - 在 [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md)、[虚拟机规模集](collect-custom-metrics-guestos-resource-manager-vmss.md)、[经典 VM](collect-custom-metrics-guestos-vm-classic.md) 或[经典云服务](collect-custom-metrics-guestos-vm-cloud-service-classic.md)上安装 Windows Azure 诊断 (WAD) 扩展，并将性能计数器发送到 Azure Monitor。 
 - 在 Azure Linux VM 上安装 [InfluxData Telegraf 代理](collect-custom-metrics-linux-telegraf.md)，并使用 Azure Monitor 输出插件发送指标。
-- 将自定义指标[直接发送到 Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)：`https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`。
-
-将自定义指标发送到 Azure Monitor 时，报告的每个数据点或值必须包括以下信息。
+- 将自定义指标[直接发送到 Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)：`https://<azureregion>.monitoring.chinacloudapi.cn/<AzureResourceID>/metrics`。
+chinacloudapi.cn 将自定义指标发送到 Azure Monitor 时，报告的每个数据点或值必须包括以下信息。
 
 ### <a name="authentication"></a>身份验证
 若要将自定义指标提交到 Azure Monitor，提交指标的实体需在请求的 **Bearer** 标头中提供有效的 Azure Active Directory (Azure AD) 令牌。 可通过几种支持的方法获取有效的持有者令牌：
@@ -171,13 +170,7 @@ Azure Monitor 以一分钟粒度间隔存储所有指标。 我们知道，在�
 
 |   Azure 区域   |           区域终结点前缀           |
 |------------------|----------------------------------------------|
-|     美国东部      |     https://eastus.monitoring.azure.com/     |
-| 美国中南部 | https://southcentralus.monitoring.azure.com/ |
-| 美国中西部  | https://westcentralus.monitoring.azure.com/  |
-|    美国西部 2     |    https://westus2.monitoring.azure.com/     |
-|  东南亚  | https://southeastasia.monitoring.azure.com/  |
-|   北欧   |  https://northeurope.monitoring.azure.com/   |
-|   西欧    |   https://westeurope.monitoring.azure.com/   |
+|   中国北部    |   https://westeurope.monitoring.azure.cn/   |
 
 ## <a name="quotas-and-limits"></a>配额和限制
 Azure Monitor 针对自定义指标实施以下用量限制：

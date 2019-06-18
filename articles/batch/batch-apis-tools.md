@@ -9,12 +9,12 @@ ms.topic: get-started-article
 origin.date: 06/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 3e7c48fb74e71eab476a7d9ce39130dfe11d6ba5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d6d3b316de31e11cd0e5b63ab90d6e7dcdc7c7bf
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625595"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135907"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -38,23 +38,23 @@ ms.locfileid: "58625595"
 
 | API | API 参考 | 下载 | 教程 | 代码示例 | 更多信息 |
 | --- | --- | --- | --- | --- | --- |
-| **批处理 REST** |[docs.microsoft.com][batch_rest] |不适用 |- |- | [支持的版本](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] | 教程 |[GitHub][api_sample_net] | [发行说明](http://aka.ms/batch-net-dataplane-changelog) |
-| **Batch Python** |[docs.microsoft.com][api_python] |[PyPI][api_python_pypi] | 教程 |[GitHub][api_sample_python] | [自述文件](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
-| **批处理 Node.js** |[docs.microsoft.com][api_nodejs] |[npm][api_nodejs_npm] |[教程](batch-nodejs-get-started.md) |- | [自述文件](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
-| **批处理 Java** |[docs.microsoft.com][api_java] |[Maven][api_java_jar] |- |[自述文件][api_sample_java] | [自述文件](https://github.com/Azure/azure-batch-sdk-for-java)|
+| **批处理 REST** |[docs.azure.cn][batch_rest] |不适用 |- |- | [支持的版本](https://docs.microsoft.com/rest/api/batchservice/batch-service-rest-api-versioning) |
+| **Batch .NET** |[docs.azure.cn][api_net] |[NuGet ][api_net_nuget] | 教程 |[GitHub][api_sample_net] | [发行说明](http://aka.ms/batch-net-dataplane-changelog) |
+| **Batch Python** |[docs.azure.cn][api_python] |[PyPI][api_python_pypi] | 教程 |[GitHub][api_sample_python] | [自述文件](https://github.com/Azure/azure-sdk-for-python/blob/master/doc/batch.rst) |
+| **批处理 Node.js** |[docs.azure.cn][api_nodejs] |[npm][api_nodejs_npm] |[教程](batch-nodejs-get-started.md) |- | [自述文件](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/batch) |
+| **批处理 Java** |[docs.azure.cn][api_java] |[Maven][api_java_jar] |- |[自述文件][api_sample_java] | [自述文件](https://github.com/Azure/azure-batch-sdk-for-java)|
 
-## <a name="batch-management-apis"></a>批处理管理 API
+## 批处理管理 API <a name="batch-development-apis"></a>
 
 通过用于 Batch 的 Azure Resource Manager API，可以编程方式访问批处理帐户。 可以使用这些 API 通过 Microsoft.Batch 提供程序以编程方式管理 Batch 帐户、配额、应用程序包和其他资源。  
 
 
 |             API              |             API 参考             |           下载           |                教程                |                                 代码示例                                  |
 |------------------------------|---------------------------------------|------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
-|  **批次管理 REST**   |  [docs.microsoft.com][api_rest_mgmt]  |             不适用              |                   -                    | [GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
-|  **Batch Management .NET**   |  [docs.microsoft.com][api_net_mgmt]   | [NuGet ][api_net_mgmt_nuget] | [教程](batch-management-dotnet.md) |                           [GitHub][api_sample_net]                            |
-| **批次管理 Python**  | [docs.microsoft.com][api_python_mgmt] | [PyPI][api_python_mgmt_pypi] |                   -                    |                                       -                                       |
-| **批次管理 Node.js** | [docs.microsoft.com][api_nodejs_mgmt] |  [npm][api_nodejs_mgmt_npm]  |                   -                    |                                       -                                       |
+|  **批次管理 REST**   |  [docs.azure.cn][api_rest_mgmt]  |             不适用              |                   -                    | [GitHub](https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts) |
+|  **Batch Management .NET**   |  [docs.azure.cn][api_net_mgmt]   | [NuGet ][api_net_mgmt_nuget] | [教程](batch-management-dotnet.md) |                           [GitHub][api_sample_net]                            |
+| **批次管理 Python**  | [docs.azure.cn][api_python_mgmt] | [PyPI][api_python_mgmt_pypi] |                   -                    |                                       -                                       |
+| **批次管理 Node.js** | [docs.azure.cn][api_nodejs_mgmt] |  [npm][api_nodejs_mgmt_npm]  |                   -                    |                                       -                                       |
 |  **批次管理 Java**   |                   -                   |  [Maven][api_java_mgmt_jar]  |                   -                    |                                       -                                       |
 
 ## <a name="batch-command-line-tools"></a>批处理命令行工具
@@ -107,7 +107,7 @@ ms.locfileid: "58625595"
 [api_sample_java]: https://github.com/Azure/azure-batch-samples/tree/master/Java/
 [batch_ps]: https://docs.microsoft.com/powershell/module/azurerm.batch/
 [batch_rest]: https://docs.microsoft.com/rest/api/batchservice/
-[free_account]: https://www.azure.cn/pricing/1rmb-trial/
+[free_account]: https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [batch_labs]: https://azure.github.io/BatchExplorer/
 [storage_explorer]: http://storageexplorer.com/

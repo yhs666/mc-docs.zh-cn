@@ -17,12 +17,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: e108ac3df366f2d7fc143c8319c52242ec5cb3a5
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 588aa04cd577001e0200d2ca3043e50278cc92cc
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529750"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135482"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
@@ -44,14 +44,14 @@ ms.locfileid: "64529750"
 **运行该工具的计算机：**
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要版本和次要版本：  
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要  版本和次要  版本：  
 
   ```powershell
   $PSVersionTable.PSVersion
   ```
 
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
-- 最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)。  
+- 最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)。  
 
 **Azure Active Directory 环境：**
 

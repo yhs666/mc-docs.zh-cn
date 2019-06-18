@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5cf43b0ae1feeda77ad71878fa95f5bdedc75724
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: e34b5a3b948d706edccfa68d0c346d6f232ca056
+ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609805"
+ms.lasthandoff: 06/13/2019
+ms.locfileid: "67046964"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
@@ -30,8 +30,7 @@ ms.locfileid: "65609805"
 
 1. [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
-2. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 你可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或注册[试用帐户](https://www.azure.cn/en-us/pricing/1rmb-trial-full/?form-type=identityauth
-)。
+2. Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)或注册[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 3. 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。
     1. 阅读服务总线**队列**的快速**概述**。 
     2. 创建一个服务总线**命名空间**。 
@@ -48,8 +47,8 @@ ms.locfileid: "65609805"
 
 ### <a name="add-the-service-bus-nuget-package"></a>添加服务总线 NuGet 包
 
-1. 右键单击新创建的项目，并选择“管理 NuGet 包” 。
-2. 单击“浏览”选项卡，搜索 [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)，然后选择“Microsoft.Azure.ServiceBus”项。 单击“安装”以完成安装，并关闭此对话框。
+1. 右键单击新创建的项目，并选择“管理 NuGet 包”  。
+2. 单击“浏览”  选项卡，搜索 [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/)，然后选择“Microsoft.Azure.ServiceBus”   项。 单击“安装”  以完成安装，并关闭此对话框。
    
     ![选择 NuGet 包][nuget-pkg]
 
@@ -192,7 +191,7 @@ ms.locfileid: "65609805"
         }
     }
     ```
-7. 运行该程序并检查 Azure 门户：在命名空间“概览”窗口中单击队列的名称。 此时会显示队列的“基本信息”屏幕。 请注意，队列的“活动消息计数”值现在为 **10**。 每次运行发件人应用程序而没有检索消息（如下一部分所述）时，该值会增加 10。 另请注意，每次该应用将消息添加到队列，队列的当前大小就会递增，增量为“基本信息”窗口中的“当前”值。
+7. 运行该程序并检查 Azure 门户：在命名空间“概览”窗口中单击队列的名称。  此时会显示队列的“基本信息”屏幕。  请注意，队列的“活动消息计数”  值现在为 **10**。 每次运行发件人应用程序而没有检索消息（如下一部分所述）时，该值会增加 10。 另请注意，每次该应用将消息添加到队列，队列的当前大小就会递增，增量为“基本信息”窗口中的“当前”值。  
    
       ![消息大小][queue-message]
 
@@ -385,7 +384,7 @@ ms.locfileid: "65609805"
         }
     }
     ```
-4. 运行该程序，并再次检查门户。 请注意，“活动消息计数”和“当前”值现在为 **0**。
+4. 运行该程序，并再次检查门户。 请注意，“活动消息计数”和“当前”值现在为 **0**。  
    
     ![队列长度][queue-message-receive]
 

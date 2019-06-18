@@ -4,16 +4,17 @@ description: 了解如何配置 Azure HDInsight 群集的出站网络流量限�
 services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
-ms.author: hrasheed
+ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 05/13/2019
-ms.openlocfilehash: c37a28dc030f054647f0d3851f5c404c37cf311e
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+origin.date: 05/30/2019
+ms.date: 06/24/2019
+ms.openlocfilehash: 3d4f5ad8c7fd160e25b24a84ed5e157f53cedc1b
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425232"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136006"
 ---
 # <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>配置 Azure HDInsight 群集的出站网络流量限制（预览）
 
@@ -32,38 +33,23 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 ## <a name="configuring-azure-firewall-with-hdinsight"></a>在 HDInsight 中配置 Azure 防火墙
 
 使用 Azure 防火墙锁定现有 HDInsight 的传出流量的步骤摘要如下：
-1. 启用服务终结点。
 1. 创建防火墙。
 1. 将应用程序规则添加到防火墙
 1. 将网络规则添加到防火墙。
 1. 创建一个路由表。
 
-### <a name="enable-service-endpoints"></a>启用服务终结点
-
-若要绕过防火墙（例如，为了节省数据传输费用），可以针对 HDInsight 子网中的 SQL 和存储启用服务终结点。 为 Azure SQL 启用服务终结点后，还必须为群集的所有 Azure SQL 依赖项配置服务终结点。
-
-若要启用正确的服务终结点，请完成以下步骤：
-
-1. 登录到 Azure 门户并选择部署了 HDInsight 群集的虚拟网络。
-1. 在“设置”下选择“子网”。  
-1. 选择部署了该群集的子网。
-1. 在用于编辑子网设置的屏幕上，单击“服务终结点” > “服务”下拉框中的“Microsoft.SQL”和/或“Microsoft.Storage”。    
-1. 如果使用 ESP 群集，则还必须选择“Microsoft.AzureActiveDirectory”服务终结点。 
-1. 单击“保存”  。
-
 ### <a name="create-a-new-firewall-for-your-cluster"></a>为群集创建新的防火墙
 
 1. 在群集所在的虚拟网络中创建名为 **AzureFirewallSubnet** 的子网。 
 1. 创建新防火墙 **Test-FW01**。
-1. 在 Azure 门户中选择该新防火墙。 单击“设置” > “应用程序规则集合” > “添加应用程序规则集合”下的“规则”。    
-
-    ![标题：添加应用程序规则集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 ### <a name="configure-the-firewall-with-application-rules"></a>使用应用程序规则配置防火墙
 
 创建一个应用程序规则集合，以允许群集发送和接收重要通信。
 
 在 Azure 门户中选择新防火墙 **Test-FW01**。 单击“设置” > “应用程序规则集合” > “添加应用程序规则集合”下的“规则”。    
+
+![标题：添加应用程序规则集合](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
 在“添加应用程序规则集合”屏幕上完成以下步骤： 
 
@@ -75,12 +61,9 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
     1. 一个允许 Windows 登录活动的规则：
         1. 在“目标 FQDN”部分提供**名称**，并将“源地址”设置为 `*`。  
         1. 在“协议:端口”下输入 `https:443`，在“目标 FQDN”下输入 `login.windows.net`。  
-    1. 一个允许 SQM 遥测数据的规则：
-        1. 在“目标 FQDN”部分提供**名称**，并将“源地址”设置为 `*`。  
-        1. 在“协议:端口”下输入 `https:443`，在“目标 FQDN”下输入 `sqm.telemetry.microsoft.com`。  
     1. 如果群集由 WASB 提供支持并且你未使用上述服务终结点，请为 WASB 添加一个规则：
         1. 在“目标 FQDN”部分提供**名称**，并将“源地址”设置为 `*`。  
-        1. 在“协议:端口”下输入 `wasb`，在“目标 FQDN”下输入 `*`。  
+        1. 输入 `http` 或 [https]，具体取决于你在“协议:端口”  下使用 wasb:// 还是 wasbs://，并在“目标 FQDNS”  下输入存储帐户 URL。 格式将类似于 <storage_account_name.blob.core.chinacloudapi.cn>。
 1. 单击“添加”  。
 
 ![标题：输入应用程序规则集合详细信息](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -89,41 +72,27 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 
 创建网络规则以正确配置 HDInsight 群集。
 
-> [!Important]
-> 可以选择使用防火墙（使用本部分所述的网络规则）中的 SQL 服务标记，或使用[有关服务终结点的部分](#enable-service-endpoints)所述的 SQL 服务终结点。 如果选择使用网络规则中的 SQL 标记，则可以记录和审核 SQL 流量。 使用服务终结点会使 SQL 流量绕过防火墙。
-
 1. 在 Azure 门户中选择新防火墙 **Test-FW01**。
 1. 单击“设置” > “网络规则集合” > “添加网络规则集合”下的“规则”。    
 1. 在“添加网络规则集合”屏幕上输入**名称**和**优先级**，然后单击“操作”下拉菜单中的“允许”。   
 1. 创建以下规则：
-    1. 一个允许群集使用 NTP 执行时钟同步的网络规则。
-        1. 在“规则”部分提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
+    1. “IP 地址”部分中的网络规则，允许群集使用 NTP 执行时钟同步。
+        1. 在“规则”部分中提供**名称**，然后从“协议”下拉列表中选择“UDP”。   
         1. 将“源地址”和“目标地址”设置为 `*`。  
         1. 将“目标端口”设置为 123。 
-    1. 如果你正在使用企业安全性套餐 (ESP)，请添加一个允许与 ESP 群集的 AAD-DS 通信的网络规则。
-        1. 确定域控制器的两个 IP 地址。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
-        1. 将“源地址”设置为 `*`。 
-        1. 在“目标地址”中输入域控制器的所有 IP 地址并以逗号分隔。 
-        1. 将“目标端口”设置为 `*`。 
-    1. 如果你正在使用 Azure Data Lake Storage，则可以添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会记录并且可审核。
+    1. 如果正在使用 Azure Data Lake Storage，则可以在“IP 地址”部分中添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会记录并且可审核。
         1. 确定 Data Lake Storage 帐户的 IP 地址。 可以使用 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` 等 PowerShell 命令将 FQDN 解析成 IP 地址。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
+        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
         1. 将“源地址”设置为 `*`。 
         1. 在“目标地址”中输入存储帐户的 IP 地址。 
         1. 将“目标端口”设置为 `*`。 
-    1. 一个实现与 Windows 激活密钥管理服务通信的网络规则。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
-        1. 将“源地址”设置为 `*`。 
-        1. 将“目标地址”设置为 `*`。 
-        1. 将“目标端口”设置为 `1688`。 
-    1. 如果你正在使用 Log Analytics，请创建一个网络规则以实现与 Log Analytics 工作区的通信。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
+    1. （可选）如果正在使用 Log Analytics，请在“IP 地址”部分中创建一个网络规则以实现与 Log Analytics 工作区的通信。
+        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
         1. 将“源地址”设置为 `*`。 
         1. 将“目标地址”设置为 `*`。 
         1. 将“目标端口”设置为 `12000`。 
-    1. 为 SQL 配置一个服务标记，以便能够记录和审核 SQL 流量。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉菜单中选择“任何”。   
+    1. 在 SQL 的“服务标记”部分中配置允许你记录和审核 SQL 流量的网络规则，除非你在 HDInsight 子网中为 SQL Server 配置了服务终结点。
+        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
         1. 将“源地址”设置为 `*`。 
         1. 将“目标地址”设置为 `*`。 
         1. 从“服务标记”下拉列表中选择“SQL”。  
@@ -139,7 +108,7 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 1. [此所需 HDInsight 管理 IP 地址列表](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)中的七个地址，其下一跃点为“Internet”： 
     1. 所有区域中所有群集的四个 IP 地址
     1. 特定于创建群集的区域的两个 IP 地址
-    1. Azure 递归解析程序的一个 IP 地址
+    1. Azure 递归解析程序的一个 IP 地址和检查运行状况的负载均衡器源 IP 地址
 1. IP 地址 0.0.0.0/0 的一个虚拟设备路由，其下一跃点为 Azure 防火墙专用 IP 地址。
 
 例如，若要为“美国中部”区域创建的群集配置路由表，请使用以下步骤:
@@ -161,15 +130,11 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 | 168.63.129.16 | 168.63.129.16/32 | Internet | 不可用 |
 | 0.0.0.0 | 0.0.0.0/0 | 虚拟设备 | 10.1.1.4 |
 
-![标题：创建路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-route-table.png)
-
 完成路由表配置：
 
 1. 单击“设置”下的“子网”，然后单击“关联”，将创建的路由表分配到 HDInsight 子网。   
-1. 在“关联子网”屏幕上，选择创建了群集的虚拟网络，以及创建的要与防火墙配合使用的“AzureFirewallSubnet”。  
+1. 在“关联子网”  屏幕上，选择已创建群集的虚拟网络以及用于 HDInsight 群集的 **HDInsight 子网**。
 1. 单击 **“确定”** 。
-
-![标题：创建路由表](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-route-table-associate-subnet.png)
 
 ## <a name="edge-node-application-traffic"></a>边缘节点应用程序流量
 

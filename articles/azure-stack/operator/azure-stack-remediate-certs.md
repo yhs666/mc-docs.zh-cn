@@ -17,12 +17,12 @@ ms.date: 03/04/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 11/19/2018
-ms.openlocfilehash: cb774c7dd291ed572b3c20dd0a170eace52d37d6
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 350027e9cd72b5456961509faa9ed7009766cf54
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529890"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135440"
 ---
 # <a name="remediate-common-issues-for-azure-stack-pki-certificates"></a>修复 Azure Stack PKI 证书的常见问题
 
@@ -38,7 +38,7 @@ ms.locfileid: "64529890"
 
 **警告** - 密码仅保护证书中的私密信息。  
 
-**补救措施** - 使用可选设置“启用证书隐私”来导出 PFX 文件。  
+**补救措施** - 使用可选设置“启用证书隐私”来导出 PFX 文件。   
 
 **失败** - PFX 文件无效。  
 
@@ -60,11 +60,11 @@ ms.locfileid: "64529890"
 
 **失败** - 证书链不完整。  
 
-**修复** - 证书应包含完整的证书链。 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。
+**修复** - 证书应包含完整的证书链。 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。 
 
 ## <a name="dns-names"></a>DNS 名称
 
-**失败** - 证书上的 DNSNameList 不包含 Azure Stack 服务终结点名称或有效的通配符匹配项。 通配符匹配项仅适用于 DNS 名称最左侧的命名空间。 例如，_*.region.domain.com_ 仅适用于 *portal.region.domain.com*，不适用于 _*.table.region.domain.com_。
+**失败** - 证书上的 DNSNameList 不包含 Azure Stack 服务终结点名称或有效的通配符匹配项。 通配符匹配项仅适用于 DNS 名称最左侧的命名空间。 例如， _*.region.domain.com_ 仅适用于 *portal.region.domain.com*，不适用于 _*.table.region.domain.com_。
 
 **修复** - 执行“生成 Azure Stack 证书签名请求”中的步骤，以便使用为 Azure Stack 终结点提供支持所需的正确 DNS 名称重新生成 CSR。 将 CSR 重新提交给证书颁发机构，然后执行[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤，以便从生成了 CSR 的计算机导出证书。  
 
@@ -84,21 +84,21 @@ ms.locfileid: "64529890"
 
 **失败** - 证书链的顺序不正确。  
 
-**补救措施** - 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。 确保仅选择分支证书进行导出。
+**补救措施** - 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。  确保仅选择分支证书进行导出。
 
 ## <a name="other-certificates"></a>其他证书
 
 **失败** - PFX 包包含的证书不是分支证书，也不是证书链的一部分。  
 
-**补救措施** - 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。 确保仅选择分支证书进行导出。
+**补救措施** - 使用[准备用于部署的 Azure Stack PKI 证书](azure-stack-prepare-pki-certs.md#prepare-certificates-for-deployment)中的步骤重新导出证书，然后选择选项“包括证书路径中的所有证书(如果可能)”。  确保仅选择分支证书进行导出。
 
 ## <a name="fix-common-packaging-issues"></a>修复常见的打包问题
 
 **AzsReadinessChecker** 包含名为 `Repair-AzsPfxCertificate` 的帮助程序 cmdlet，它可以通过导入和导出 PFX 文件来修复常见的打包问题，其中包括：
 
 - *PFX 加密*不是 TripleDES-SHA1。
-- 私钥缺少本地计算机属性。
-- 证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
+-  私钥缺少本地计算机属性。
+-  证书链不完整或错误。 如果 PFX 包不包含证书链，则本地计算机必须包含。
 - *其他证书*
 
 如果需要生成新的 CSR 并重新颁发证书，则 `Repair-AzsPfxCertificate` 无用。
@@ -108,14 +108,14 @@ ms.locfileid: "64529890"
 在运行此工具的计算机上，必须满足以下先决条件：
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
-- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要版本和次要版本：
+- PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要  版本和次要  版本：
 
    ```powershell
    $PSVersionTable.PSVersion
    ```
 
 - 配置[适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
-- 下载最新版本的 [Microsoft Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
+- 下载最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)工具。
 
 ### <a name="import-and-export-an-existing-pfx-file"></a>导入和导出现有的 PFX 文件
 

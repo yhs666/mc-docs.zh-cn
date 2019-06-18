@@ -8,14 +8,22 @@
       items:
         - name: 最新更新
           href: azure-stack-servicing-policy.md
+        - name: 应用更新的清单
+          href: azure-stack-release-notes-checklist.md
+        - name: 安全更新
+          href: azure-stack-release-notes-security-updates-1904.md
+        - name: 1904 更新
+          items:
+            - name: 发行说明
+              href: azure-stack-release-notes-1904.md
+            - name: 已知问题
+              href: azure-stack-release-notes-known-issues-1904.md
         - name: 1903 更新
           href: azure-stack-update-1903.md
         - name: 1902 更新
           href: azure-stack-update-1902.md
         - name: 1901 更新
           href: azure-stack-update-1901.md
-        - name: 1811 更新
-          href: azure-stack-update-1811.md
 - name: 快速入门
   expanded: true
   items:
@@ -321,6 +329,8 @@
           href: azure-stack-create-offer.md
         - name: 订阅产品
           href: azure-stack-subscribe-plan-provision-vm.md
+        - name: 删除产品/服务
+          href: azure-stack-delete-offer.md
         - name: 在 Azure Stack 中委托套餐
           href: azure-stack-delegated-provider.md
         - name: 配额类型
@@ -384,5 +394,3 @@
   items:
     - name: Azure Stack MSDN 论坛
       href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=AzureStack'
-    - name: 培训和认证
-      href: azure-stack-train-and-cert.md

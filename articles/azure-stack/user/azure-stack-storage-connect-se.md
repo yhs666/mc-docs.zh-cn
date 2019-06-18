@@ -15,12 +15,12 @@ ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/14/2019
-ms.openlocfilehash: dcf58a6bfe5e9f1f8939b1d32e2e519bf815196c
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 796ba407d2cd94a25507454004e070f2924239bc
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248530"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135455"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>将存储资源管理器连接到 Azure Stack 订阅或存储帐户
 
@@ -79,7 +79,7 @@ ms.locfileid: "66248530"
 使用以下步骤将存储资源管理器连接到属于 Azure Active Directory (Azure AD) 帐户的 Azure Stack 订阅。
 
 1. 在存储资源管理器的左窗格中，选择“管理帐户”。  
-    此时会显示你登录的所有 Microsoft 订阅。
+    此时会显示你登录的所有 Azure 订阅。
 
 2. 若要连接到 Azure Stack 订阅，请选择“添加帐户”  。
 
@@ -103,7 +103,7 @@ ms.locfileid: "66248530"
 > Azure 联合身份验证服务 (AD FS) 登录体验支持存储资源管理器 1.2.0，或装有 Azure Stack 1804 或更高更新版的更高存储资源管理器版本。
 使用以下步骤将存储资源管理器连接到属于 AD FS 帐户的 Azure Stack 订阅。
 
-1. 选择“管理帐户”。  资源管理器会列出你登录到的 Microsoft 订阅。
+1. 选择“管理帐户”。  资源管理器会列出你登录到的 Azure 订阅。
 2. 选择“添加帐户”连接到 Azure Stack 订阅  。
 
     ![添加帐户](media/azure-stack-storage-connect-se/add-an-account.png)
@@ -139,7 +139,7 @@ ms.locfileid: "66248530"
 
 还可以使用存储帐户名称和密钥对连接到 Azure Stack 存储帐户。
 
-1. 在存储资源管理器的左窗格中，选择“管理帐户”。 此时会显示你登录的所有 Microsoft 帐户。
+1. 在存储资源管理器的左窗格中，选择“管理帐户”。 此时会显示你登录的所有 Azure 帐户。
 
     ![添加帐户](./media/azure-stack-storage-connect-se/azure-stack-sub-add-an-account.png)
 
@@ -162,6 +162,6 @@ ms.locfileid: "66248530"
 
 ## <a name="next-steps"></a>后续步骤
 
-* [存储资源管理器入门](/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+* [存储资源管理器入门](/vs-azure-tools-storage-manage-with-storage-explorer)
 * [Azure Stack 存储：差异和注意事项](azure-stack-acs-differences.md)
 * 若要了解有关 Azure 存储的详细信息，请参阅 [Azure 存储简介](/storage/common/storage-introduction)

@@ -16,12 +16,12 @@ ms.date: 06/03/2019
 ms.reviewer: ppacent
 ms.author: v-jay
 ms.lastreviewed: 04/15/2019
-ms.openlocfilehash: e8234dd25850295f3324c960d1669bb65507838b
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: ffa3000ce33371c91114d5de172141627e3cb30e
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381902"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135411"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -131,7 +131,7 @@ Azure Stack 使用各种机密来维持 Azure Stack 基础结构资源与服务�
 > ```
 >
 > 可以看到，错误消息指出访问文件共享时出现问题，但实际上它是此处强制实施的文件夹结构。
-> 在 Microsoft AzureStack 就绪状态检查器 - [PublicCertHelper 模块](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)中可以找到详细信息
+> 在 AzureStack 就绪性检查器 - [PublicCertHelper 模块](https://www.powershellgallery.com/packages/Microsoft.AzureStack.ReadinessChecker/1.1811.1101.1/Content/CertificateValidation%5CPublicCertHelper.psm1)中可以找到详细信息
 >
 > 同样重要的是，文件共享文件夹结构以 **Certificates** 文件夹开头，否则验证时也会失败。
 > 文件共享装入点应该类似于 **\\\\\<IP 地址>\\\<共享名称>\\** ，并且应该包含文件夹 **Certificates\AAD** 或 **Certificates\ADFS**。
@@ -254,8 +254,8 @@ Remove-PSSession -Session $PEPSession
 3. 等待机密完成轮换。
 
 机密轮换成功完成后，控制台会显示“总体操作状态: 成功”。 
-    > [!Note]
-    > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **-Internal** and **-ReRun** parameters.  
+> [!Note]
+> 如果机密轮换失败，请按照错误消息中的说明操作，并使用 **-Internal** 和  **-ReRun** 参数重新运行 **Start-SecretRotation**。  
 
 ```powershell
 Start-SecretRotation -Internal -ReRun

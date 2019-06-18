@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
 origin.date: 04/17/2019
-ms.date: 05/14/2019
+ms.date: 06/10/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 9ba56fbac5aa0daabee32314e098698bd55b4f12
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 4d7495cd18cfdfd9571379763dce4235964f50b9
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598871"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830083"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>识别打印文本和手写文本
 
@@ -25,12 +25,12 @@ ms.locfileid: "65598871"
 
 ## <a name="read-api"></a>读取 API
 
-读取 API 使用我们最新的识别模型检测图像中的文本内容，并将已识别的文本转换为机器可读的字符流。 该 API 已针对包含大量文本的图像（例如，数码扫描的文档）以及包含大量视觉噪点的图像进行优化。 该 API 以异步方式执行，因为处理较大文档时，可能需要花费好几分钟才能返回结果。
+读取 API 使用我们最新的识别模型检测图像中的文本内容，并将已识别的文本转换为机器可读的字符流。 该 API 已针对包含大量文本的图像（例如，数码扫描的文档）以及包含大量视觉噪点的图像进行优化。 它将确定用于每行文本的识别模型，并支持包含印刷文本和手写文本的图像。 读取 API 以异步方式执行，因为处理较大文档时，可能需要花费好几分钟才能返回结果。
 
 “读取”操作会在其输出中保留已识别字的原始行分组。 每一行附带边框坐标，行中的每个字也有其自身的坐标。 如果某个字的识别置信度较低，该结果中也会反映该信息。 有关详细信息，请参阅[阅读 API 参考文档](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb)。
 
 > [!NOTE]
-> 此功能目前以预览版提供，仅适用于英语文本。
+> 此功能仅适用于英语文本。
 
 ### <a name="image-requirements"></a>图像要求
 
@@ -81,7 +81,7 @@ OCR API 可以处理符合以下要求的图像：
 - 图像的尺寸必须介于 50 x 50 和 4200 x 4200 像素之间。
 - 图像的文件大小必须小于 4 MB。
 
-## <a name="improve-results"></a>改善结果
+## <a name="limitations"></a>限制
 
 文本识别操作的准确度取决于图像的质量。 以下因素可能导致读取结果不准确：
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5017627bf5efe2bdb018ffd2d98ba248908afd0a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b4acd4d5a9507b1e53f3f9c0c262a15bab17e791
+ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731267"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67136000"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor
 本文介绍如何使用 HTTP 数据收集器 API 从 REST API 客户端将日志数据发送到 Azure Monitor。  其中说明了对于脚本或应用程序收集的数据，如何设置其格式、将其包含在请求中，并由 Azure Monitor 授权该请求。  将针对 PowerShell、C# 和 Python 提供示例。
@@ -45,7 +45,7 @@ Log Analytics 工作区中的所有数据都存储为具有某种特定记录类
 | 属性 | 属性 |
 |:--- |:--- |
 | 方法 |POST |
-| URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
+| URI |https://\<CustomerId\>.ods.opinsights.chinacloudapi.cn/api/logs?api-version=2016-04-01 |
 | 内容类型 |application/json |
 
 ### <a name="request-uri-parameters"></a>请求 URI 参数
@@ -285,7 +285,7 @@ Function Post-LogAnalyticsData($customerId, $sharedKey, $body, $logType)
         -method $method `
         -contentType $contentType `
         -resource $resource
-    $uri = "https://" + $customerId + ".ods.opinsights.azure.com" + $resource + "?api-version=2016-04-01"
+    $uri = "https://" + $customerId + ".ods.opinsights.chinacloudapi.cn" + $resource + "?api-version=2016-04-01"
 
     $headers = @{
         "Authorization" = $signature;

@@ -4,16 +4,16 @@ description: 通过批量执行程序库提供的批量导入和批量更新 API
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 10/16/2018
-ms.date: 01/21/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 7304996a379ddb93cb340da80f88a949aeeabe8d
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 4eda42d3d3bf472733038a9d456d626bdcb6ebdf
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309104"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151527"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Azure Cosmos DB 批量执行程序库概述
 
@@ -25,9 +25,8 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 批量执行程序库可助你利用这个极大的吞吐量和存储。 批量执行程序库允许通过批量导入和批量更新 API 在 Azure Cosmos DB 中执行批量操作。 可在以下部分中详细了解批量执行程序库的功能。 
 
 > [!NOTE] 
-> 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 帐户支持。
+> 目前，批量执行程序库支持导入和更新操作，但该库仅受 Azure Cosmos DB SQL API 和 Gremlin API 帐户支持。
 
-<!--Not Available on Gremlin API-->
 ## <a name="key-features-of-the-bulk-executor-library"></a>批量执行程序库的主要功能  
 
 * 它可以显著减少使分配给容器的吞吐量达到饱和所需的客户端计算资源。 在客户端计算机的 CPU 已饱和的情况下，使用批量导入 API 来写入数据的单线程应用程序实现的写入吞吐量是以并行方式写入数据的多线程应用程序的 10 倍。  
@@ -52,9 +51,7 @@ Azure Cosmos DB 是一种快速且灵活的多区域分布式数据库服务，�
 
 * 若要进行详细了解，请试用那些在 [.NET](bulk-executor-dot-net.md) 和 [Java](bulk-executor-java.md) 中使用批量执行程序库的示例应用程序。  
 * 在 [.NET](sql-api-sdk-bulk-executor-dot-net.md) 和 [Java](sql-api-sdk-bulk-executor-java.md) 中查看批量执行程序 SDK 信息和发行说明。
+* 批量执行程序库已集成到 Cosmos DB Spark 连接器中。若要进行详细的了解，请参阅 [Azure Cosmos DB Spark 连接器](spark-connector.md)一文。  
 
-<!--Not Available on Line  [Azure Cosmos DB Spark connector](spark-connector.md)-->
-
-* 批量执行程序库也已集成到新版 [Azure Cosmos DB 连接器](https://aka.ms/bulkexecutor-adf-v2)中，可供 Azure 数据工厂复制数据。
-
+<!--Not Available on [Azure Cosmos DB connector](https://aka.ms/bulkexecutor-adf-v2)-->
 <!-- Update_Description: update meta properties -->

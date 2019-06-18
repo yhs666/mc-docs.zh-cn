@@ -4,16 +4,16 @@ description: 本文介绍 Azure Cosmos DB 中的数据库事务和乐观并发�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 6be8d9e1422d7c6cdb400aaeac5034e6fa3aa8b7
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: bd632ca4504478d443d526d1b8ea6da708ecf585
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615255"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151451"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>事务和乐观并发控制
 

@@ -3,20 +3,20 @@ title: 文本翻译 API Transliterate 方法
 titlesuffix: Azure Cognitive Services
 description: 使用文本翻译 API Transliterate 方法。
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 05/15/2019
+ms.date: 06/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: d88fd8062605cb93306a9750dd2c65f29f32cf38
-ms.sourcegitcommit: 2312c8153c559ed1a235d029c7522283d9c92864
+ms.openlocfilehash: dfe15cc268b3c1bf149c1fcc95611743d6bba755
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65730986"
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830096"
 ---
 # <a name="translator-text-api-30-transliterate"></a>文本翻译 API 3.0：Transliterate
 
@@ -148,7 +148,7 @@ https://api.translator.azure.cn/transliterate?api-version=3.0
   </tr>
   <tr>
     <td>429</td>
-    <td>调用方发送的请求过多。</td>
+    <td>由于客户端已超出请求限制，服务器拒绝了请求。</td>
   </tr>
   <tr>
     <td>500</td>

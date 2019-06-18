@@ -16,12 +16,12 @@ origin.date: 04/08/2019
 ms.date: 04/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: ef81d7d334a3ae7c222be29cfae3b465f03deb65
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 25b7da3485c0da1e2c583c0db0e8826df11f07f4
+ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854871"
+ms.lasthandoff: 06/14/2019
+ms.locfileid: "67135477"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>重要注意事项：使用 Azure Stack 的服务或开发 Azure Stack 的应用
 
@@ -49,7 +49,7 @@ Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack�
 | 区域 | Azure（中国） | Azure Stack |
 | -------- | ------------- | ----------|
 | 由谁运营？ | 世纪互联 | 你的组织或服务提供商。|
-| 寻求支持的联系对象是谁？ | Azure | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack 运营商来获取支持。<br><br>如需获取 Azure Stack 开发工具包的支持，请访问 [Microsoft 论坛](https://social.msdn.microsoft.com/Forums/home?forum=azurestack)。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft 客户支持服务 (CSS) 提供官方支持。
+| 寻求支持的联系对象是谁？ | Azure | 对于集成环境，请联系你的组织或服务提供商的 Azure Stack 运营商来获取支持。<br><br>如需获取 Azure Stack 开发工具包支持，请访问 [Azure 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home)。 由于开发工具包是一个评估环境，因此我们不会通过 Azure 客户支持服务 (CSS) 提供官方支持。
 | 可用服务 | 参阅 [Azure 产品](https://www.azure.cn/zh-cn/home/features/products-by-region)列表。 可用服务因 Azure 区域而异。 | Azure Stack 支持部分 Azure 服务。 实际服务因你的组织或服务提供商选择提供的服务而异。
 | Azure 资源管理器终结点* | https://management.chinacloudapi.cn | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的终结点。<br><br>对于开发工具包，请使用： https://management.local.azurestack.external
 | 门户 URL* | [https://portal.azure.cn](https://portal.azure.cn) | 对于 Azure Stack 集成系统，请使用 Azure Stack 运营商提供的 URL。<br><br>对于开发工具包，请使用： https://portal.local.azurestack.external
@@ -62,7 +62,7 @@ Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack�
 
 ## <a name="helpful-tools-and-best-practices"></a>有用的工具和最佳做法
 
-Microsoft 提供的工具和指导有助于 Azure Stack 方面的开发。
+Azure 提供的工具和指导有助于 Azure Stack 方面的开发。
 
 | 建议 | 参考 |
 | -------- | ------------- |
