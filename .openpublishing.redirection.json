@@ -324,26 +324,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/active-directory-manage-passwords.md",
-      "redirect_url": "/active-directory/active-directory-passwords-update-your-own-password",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-passwords-set-expiration-policy.md",
-      "redirect_url": "/active-directory/active-directory-passwords-policy",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-passwords.md",
-      "redirect_url": "/active-directory/active-directory-passwords-update-your-own-password",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/connect/index.md",
-      "redirect_url": "/active-directory/connect/active-directory-aadconnect",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/app-service/api/index.md",
       "redirect_url": "/app-service-api/",
       "redirect_document_id": false
@@ -5206,51 +5186,6 @@
       "redirect_url": "/storage/common/storage-import-export-using-the-rest-api",
       "redirect_document_id": false
     },
-    {
-      "source_path": "articles/active-directory/active-directory-add-domain.md",
-      "redirect_url": "/active-directory/add-custom-domain",
-      "redirect_document_id": false
-    },	
-	{
-      "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
-      "redirect_url": "/active-directory/add-custom-domain",
-      "redirect_document_id": false
-    },	
-    {
-      "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
-      "redirect_url": "/active-directory/active-directory-domains-manage-azure-portal",
-      "redirect_document_id": false
-    },
-	{
-      "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
-      "redirect_url": "/active-directory/add-custom-domain",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-assign-admin-roles.md",
-      "redirect_url": "/active-directory/active-directory-assign-admin-roles-azure-portal",
-      "redirect_document_id": false
-    },
-	{
-      "source_path": "articles/active-directory/active-directory-create-users.md",
-      "redirect_url": "/active-directory/add-users-azure-active-directory",
-      "redirect_document_id": false
-    },
-	{
-      "source_path": "articles/active-directory/active-directory-create-users-reset-password.md",
-      "redirect_url": "/active-directory/active-directory-users-reset-password-azure-portal",
-      "redirect_document_id": false
-    },
-	{
-      "source_path": "articles/active-directory/active-directory-editions.md",
-      "redirect_url": "/active-directory/active-directory-whatis",
-      "redirect_document_id": false
-    },
-	{
-      "source_path": "articles/active-directory/fundamentals-identity.md",
-      "redirect_url": "/active-directory/identity-fundamentals",
-      "redirect_document_id": false
-    },
 	{
       "source_path": "articles/storage/common/storage-standard-storage.md",
       "redirect_url": "/virtual-machines/windows/standard-storage",
@@ -9005,11 +8940,6 @@
         "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
-      "redirect_url": "/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/backup/backup-azure-backup-ibiza-faq.md",
       "redirect_url": "/backup/backup-azure-backup-faq",
       "redirect_document_id": false
@@ -10123,88 +10053,7 @@
         "source_path": "articles/virtual-network/virtual-network-service-endpoints-configure.md",
         "redirect_url": "/virtual-network/tutorial-restrict-network-access-to-resources",
         "redirect_document_id": "false"
-        }
-    ,
-    {
-       "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization.md",
-       "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
-       "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
-       "redirect_url": "/role-based-access-control/rbac-and-directory-admin-roles",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
-       "redirect_url": "/role-based-access-control/manage-access-to-azure-resources",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
-       "redirect_url": "/role-based-access-control/built-in-roles",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
-       "redirect_url": "/role-based-access-control/change-history-report",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-configure.md",
-       "redirect_url": "/role-based-access-control/role-assignments-portal",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md",
-       "redirect_url": "/role-based-access-control/role-assignments-external-users",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-custom-roles.md",
-       "redirect_url": "/role-based-access-control/custom-roles",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-manage-access-azure-cli.md",
-       "redirect_url": "/role-based-access-control/role-assignments-cli",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-manage-access-powershell.md",
-       "redirect_url": "/role-based-access-control/role-assignments-powershell",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-manage-access-rest.md",
-       "redirect_url": "/role-based-access-control/role-assignments-rest",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-manage-assignments.md",
-       "redirect_url": "/role-based-access-control/role-assignments-users",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
-       "redirect_url": "/role-based-access-control/resource-provider-operations",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
-       "redirect_url": "/role-based-access-control/troubleshooting",
-       "redirect_document_id": false
-    },
-    {
-       "source_path": "articles/active-directory/role-based-access-control-what-is.md",
-       "redirect_url": "/role-based-access-control/overview",
-       "redirect_document_id": false
-    },
+        },
     {
        "source_path": "articles/backup/backup-azure-arm-vms.md",
        "redirect_url": "/backup/backup-azure-vms-first-look-arm",
@@ -11445,11 +11294,6 @@
       "redirect_url": "/sql-database/sql-database-service-tiers-dtu",
       "redirect_document_id": false
   },
-  {
-     "source_path": "articles/active-directory/active-directory-passwords-policy.md",
-     "redirect_url": "/active-directory/authentication/concept-sspr-policy",
-     "redirect_document_id": true
-  },
     {
         "source_path": "articles/cosmos-db/table-storage-how-to-use-powershell.md",
         "redirect_url": "/storage/tables/table-storage-how-to-use-powershell",
@@ -12259,371 +12103,6 @@
             "redirect_document_id": false
         },
     {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-architecture.md",
-          "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-architecture",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md",
-          "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md",
-          "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-default-configuration.md",
-          "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-users-and-contacts.md",
-          "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-howto-azureadaccount.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-azureadaccount",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-azure-ad-connect-azure-ad-trust.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-azure-ad-trust",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-azure-adfs.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-azure-adfs",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-compatibility.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-compatibility",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-management.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-management",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-o365-certs.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-o365-certs",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-saml-idp.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-saml-idp",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-single-adfs-multitenant-federation.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-single-adfs-multitenant-federation",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-ssl-update.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-ssl-update",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-whatis.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-fed-whatis",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-installation-wizard.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-installation-wizard",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-automatic-upgrade",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-custom.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-custom",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-database.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-existing-database",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-tenant.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-existing-tenant",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-express.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-express",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-move-db.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-move-db",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-multiple-domains.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-multiple-domains",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-prerequisites.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-prerequisites",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-select-installation.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-select-installation",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-sql-delegation.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-install-sql-delegation",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-password-hash-synchronization",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-whats-next.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-post-installation",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-addsacct-pass.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-addsacct-pass",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-serviceacct-pass",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-the-configuration.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-the-configuration",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-configure-filtering.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-configure-filtering",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-directory-extensions.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-operations.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-operations",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-recycle-bin.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-recycle-bin",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-features",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-connectors",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvdesigner.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvdesigner",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvsearch",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-operations",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-technical-concepts.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-technical-concepts",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-whatis.md",
-          "redirect_url": "/active-directory/hybrid/how-to-connect-sync-whatis",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-upgrade-get-started.md",
-          "redirect_url": "/active-directory/hybrid/how-to-dirsync-upgrade-get-started",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-upgrade-previous-version.md",
-          "redirect_url": "/active-directory/hybrid/how-to-upgrade-previous-version",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-design-concepts.md",
-          "redirect_url": "/active-directory/hybrid/plan-connect-design-concepts",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-topologies.md",
-          "redirect_url": "/active-directory/hybrid/plan-connect-topologies",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-userprincipalname.md",
-          "redirect_url": "/active-directory/hybrid/plan-connect-userprincipalname",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-user-signin.md",
-          "redirect_url": "/active-directory/hybrid/plan-connect-user-signin",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-accounts-permissions.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-accounts-permissions",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-deprecated.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-dirsync-deprecated",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-faq.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-faq",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-instances.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-instances",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-ports.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-ports",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-attributes-synchronized.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-sync-attributes-synchronized",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-connector-version-history.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-sync-connector-version-history",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-functions-reference.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-sync-functions-reference",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-gdpr.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-user-privacy",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-version-history.md",
-          "redirect_url": "/active-directory/hybrid/reference-connect-version-history",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-connectivity",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-largeobjecterror-usercertificate.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-largeobjecterror-usercertificate",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-object-not-syncing",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-objectsync.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-objectsync",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-password-hash-synchronization",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-recover-from-localdb-10gb-limit.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-recover-from-localdb-10gb-limit",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-sync-errors",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect-tshoot-sql-connectivity.md",
-          "redirect_url": "/active-directory/hybrid/tshoot-connect-tshoot-sql-connectivity",
-          "redirect_document_id": false
-    },
-    {
-          "source_path": "articles/active-directory/connect/active-directory-aadconnect.md",
-          "redirect_url": "/active-directory/hybrid/whatis-hybrid-identity",
-          "redirect_document_id": false
-    },
-    {
         "source_path": "articles/application-gateway/application-gateway-introduction.md",
         "redirect_url": "/application-gateway/overview",
         "redirect_document_id": false
@@ -12653,84 +12132,9 @@
         "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/add-custom-domain.md",
-      "redirect_url": "/active-directory/fundamentals/add-custom-domain",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/authentication/multi-factor-authentication.md",
-      "redirect_url": "/active-directory/authentication/concept-mfa-howitworks",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/develop/reference-azure-ad-app-manifest.md",
-      "redirect_url": "/active-directory/develop/reference-app-manifest",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/add-users-azure-active-directory.md",
-      "redirect_url": "/active-directory/fundamentals/add-users-azure-active-directory",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to.md",
       "redirect_url": "/active-directory/user-help/microsoft-authenticator-app-how-to",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-assign-admin-roles-azure-portal.md",
-      "redirect_url": "/active-directory/users-groups-roles/directory-assign-admin-roles",
-      "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/active-directory-groups-create-azure-portal.md",
-        "redirect_url": "/active-directory/fundamentals/active-directory-groups-create-azure-portal",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/develop/active-directory-code-samples.md",
-        "redirect_url": "/active-directory/develop/sample-v1-code",
-        "redirect_document_id": true
-    },
-    {
-        "source_path": "articles/active-directory/develop/active-directory-authentication-scenarios.md",
-        "redirect_url": "/active-directory/develop/authentication-scenarios",
-        "redirect_document_id": true
-    },
-    {
-        "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
-        "redirect_url": "/azure-functions/functions-openapi-definition",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
-        "redirect_url": "/azure-functions/functions-bindings-cosmosdb",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/fundamentals/active-directory-administer.md",
-        "redirect_url": "/active-directory/fundamentals/active-directory-whatis",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/fundamentals/understand-azure-identity-solutions.md",
-        "redirect_url": "/active-directory/fundamentals/active-directory-whatis",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/sign-up-organization.md",
-        "redirect_url": "/active-directory/fundamentals/sign-up-organization",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/active-directory-authentication-libraries.md",
-        "redirect_url": "/active-directory/develop/active-directory-authentication-libraries",
-        "redirect_document_id": false
-    },
-    {
-        "source_path": "articles/active-directory/develop/active-directory-developers-guide.md",
-        "redirect_url": "/active-directory/develop/azure-ad-developers-guide",
-        "redirect_document_id": false
     },
     {
         "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md",
@@ -15114,7 +14518,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "azure-stack/operator/azure-stack-update-1811.md",
+      "source_path": "articles/azure-stack/operator/azure-stack-update-1811.md",
       "redirect_url": "/azure-stack/operator/azure-stack-release-notes-1904",
       "redirect_document_id": false
     },
@@ -15157,26 +14561,1492 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
       "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-version-profiles-powershell.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-powershell-install",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
+      "redirect_url": "/active-directory-b2c/tutorial-register-applications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-b2c/active-directory-b2c-get-started.md",
+      "redirect_url": "/active-directory-b2c/tutorial-create-tenant",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-manage-passwords.md",
+      "redirect_url": "/active-directory/active-directory-passwords-update-your-own-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-passwords-set-expiration-policy.md",
+      "redirect_url": "/active-directory/active-directory-passwords-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-passwords.md",
+      "redirect_url": "/active-directory/active-directory-passwords-update-your-own-password",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/connect/index.md",
+      "redirect_url": "/active-directory/connect/active-directory-aadconnect",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-add-domain.md",
+      "redirect_url": "/active-directory/add-custom-domain",
+      "redirect_document_id": false
+    },	
+	  {
+      "source_path": "articles/active-directory/active-directory-add-domain-add-users.md",
+      "redirect_url": "/active-directory/add-custom-domain",
+      "redirect_document_id": false
+    },	
+    {
+      "source_path": "articles/active-directory/active-directory-add-domain-concepts.md",
+      "redirect_url": "/active-directory/active-directory-domains-manage-azure-portal",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/active-directory/active-directory-add-domain-federated.md",
+      "redirect_url": "/active-directory/add-custom-domain",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-assign-admin-roles.md",
+      "redirect_url": "/active-directory/active-directory-assign-admin-roles-azure-portal",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/active-directory/active-directory-create-users.md",
+      "redirect_url": "/active-directory/add-users-azure-active-directory",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/active-directory/active-directory-create-users-reset-password.md",
+      "redirect_url": "/active-directory/active-directory-users-reset-password-azure-portal",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/active-directory/active-directory-editions.md",
+      "redirect_url": "/active-directory/active-directory-whatis",
+      "redirect_document_id": false
+    },
+	  {
+      "source_path": "articles/active-directory/fundamentals-identity.md",
+      "redirect_url": "/active-directory/identity-fundamentals",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapp-dotnet.md",
+      "redirect_url": "/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-synchronization.md",
+      "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-synchronization.md",
+      "redirect_url": "/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/active-directory-understanding-resource-access.md",
+      "redirect_url": "/role-based-access-control/rbac-and-directory-admin-roles",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/manage-access-to-azure-resources.md",
+      "redirect_url": "/role-based-access-control/manage-access-to-azure-resources",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-built-in-roles.md",
+      "redirect_url": "/role-based-access-control/built-in-roles",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-access-change-history-report.md",
+      "redirect_url": "/role-based-access-control/change-history-report",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-configure.md",
+      "redirect_url": "/role-based-access-control/role-assignments-portal",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-create-custom-roles-for-internal-external-users.md",
+      "redirect_url": "/role-based-access-control/role-assignments-external-users",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-custom-roles.md",
+      "redirect_url": "/role-based-access-control/custom-roles",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-manage-access-azure-cli.md",
+      "redirect_url": "/role-based-access-control/role-assignments-cli",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-manage-access-powershell.md",
+      "redirect_url": "/role-based-access-control/role-assignments-powershell",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-manage-access-rest.md",
+      "redirect_url": "/role-based-access-control/role-assignments-rest",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-manage-assignments.md",
+      "redirect_url": "/role-based-access-control/role-assignments-users",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-resource-provider-operations.md",
+      "redirect_url": "/role-based-access-control/resource-provider-operations",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-troubleshooting.md",
+      "redirect_url": "/role-based-access-control/troubleshooting",
+      "redirect_document_id": false
+   },
+   {
+      "source_path": "articles/active-directory/role-based-access-control-what-is.md",
+      "redirect_url": "/role-based-access-control/overview",
+      "redirect_document_id": false
+   },
+   {
+    "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-connector-powershell.md",
+    "redirect_url": "https://docs.microsoft.com/en-us/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-powershell",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-administer.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-administer",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-app-registration.md",
+    "redirect_url": "/active-directory/develop/active-directory-integrating-applications",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-apps-permissions-consent.md",
+    "redirect_url": "/active-directory/develop/active-directory-integrating-applications",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-architecture.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-architecture",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-assign-user-azure-portal.md",
+    "redirect_url": "/active-directory/manage-apps/assign-user-or-group-access-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-change-app-logo-user-azure-portal.md",
+    "redirect_url": "/active-directory/manage-apps/change-name-or-logo-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-disable-app-azure-portal.md",
+    "redirect_url": "/active-directory/manage-apps/disable-user-sign-in-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-hide-third-party-app.md",
+    "redirect_url": "/active-directory/manage-apps/hide-application-from-user-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-remove-assignment-azure-portal.md",
+    "redirect_url": "/active-directory/manage-apps/remove-user-or-group-access-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-coreapps-view-azure-portal.md",
+    "redirect_url": "/active-directory/manage-apps/view-applications-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-faq.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-faq",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-groups-create-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-groups-create-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-groups-members-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-groups-members-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-groups-membership-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-groups-membership-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-groups-settings-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-groups-settings-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-groups-view-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-groups-view-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-integrating-applications-getting-started.md",
+    "redirect_url": "/active-directory/manage-apps/plan-an-application-integration",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-manage-groups.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-manage-groups",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-troubleshooting.md",
+    "redirect_url": "/active-directory/fundamentals/get-started-azure-ad",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-users-assign-role-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-users-assign-role-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-users-profile-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-users-profile-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-users-reset-password-azure-portal.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-users-reset-password-azure-portal",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/active-directory-whatis.md",
+    "redirect_url": "/active-directory/fundamentals/active-directory-whatis",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/add-custom-domain.md",
+    "redirect_url": "/active-directory/fundamentals/add-custom-domain",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/add-users-azure-active-directory.md",
+    "redirect_url": "/active-directory/fundamentals/add-users-azure-active-directory",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/get-started-azure-ad.md",
+    "redirect_url": "/active-directory/fundamentals/get-started-azure-ad",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/sign-up-organization.md",
+    "redirect_url": "/active-directory/fundamentals/sign-up-organization",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/understand-azure-identity-solutions.md",
+    "redirect_url": "/active-directory/fundamentals/understand-azure-identity-solutions",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/users-default-permissions.md",
+    "redirect_url": "/active-directory/fundamentals/users-default-permissions",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsphone.md",
+    "redirect_url": "/active-directory/develop/active-directory-developers-guide",
+    "redirect_document_id": false
+ },
+ {
+    "source_path": "articles/active-directory/develop/active-directory-devquickstarts-windowsstore.md",
+    "redirect_url": "/active-directory/develop/active-directory-developers-guide",
+    "redirect_document_id": false
+ },
+ {
+  "source_path": "articles/active-directory/active-directory-passwords-policy.md",
+  "redirect_url": "/active-directory/authentication/concept-sspr-policy",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-accessmanagement-groups-settings-v2-cmdlets.md",
+  "redirect_url": "/active-directory/users-groups-roles/groups-settings-v2-cmdlets",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-access-content-map.md",
+  "redirect_url": "/active-directory/application-access-assignment-how-to-add-assignment",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-dev-config-content-map.md",
+  "redirect_url": "/active-directory/application-dev-registration-config-grant-permissions-how-to",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-dev-troubleshoot-content-map.md",
+  "redirect_url": "/active-directory/application-dev-registration-config-grant-permissions-how-to",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-management-troubleshoot-content-map.md",
+  "redirect_url": "/active-directory/application-access-assignment-how-to-add-assignment",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-sign-in-content-map.md",
+  "redirect_url": "/active-directory/application-sign-in-unexpected-user-consent-error",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-application-troubleshoot-content-map.md",
+  "redirect_url": "/active-directory/application-access-assignment-how-to-add-assignment",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-assign-admin-roles-azure-portal.md",
+  "redirect_url": "/active-directory/users-groups-roles/directory-assign-admin-roles",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-domains-manage-azure-portal.md",
+  "redirect_url": "/active-directory/users-groups-roles/domains-manage",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-passwords-reset-register.md",
+  "redirect_url": "/active-directory/user-help/active-directory-passwords-reset-register",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-passwords-update-your-own-password.md",
+  "redirect_url": "/active-directory/user-help/active-directory-passwords-update-your-own-password",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-self-service-signup.md",
+  "redirect_url": "/active-directory/users-groups-roles/directory-self-service-signup",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-service-limits-restrictions.md",
+  "redirect_url": "/active-directory/users-groups-roles/directory-service-limits-restrictions",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/directory-delete-howto.md",
+  "redirect_url": "/active-directory/users-groups-roles/directory-delete-howto",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/GuidedSetups/active-directory-aspnetwebapp-v1.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-aspnet-webapp",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-app-terms-service-privacy-statement.md",
+  "redirect_url": "/active-directory/develop/howto-add-terms-of-service-privacy-statement",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-application-manifest.md",
+  "redirect_url": "/active-directory/develop/reference-app-manifest",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-application-objects.md",
+  "redirect_url": "/active-directory/develop/app-objects-and-service-principals",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-authentication-scenarios.md",
+  "redirect_url": "/active-directory/develop/authentication-scenarios",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-branding-guidelines.md",
+  "redirect_url": "/active-directory/develop/howto-add-branding-in-azure-ad-apps",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-code-samples.md",
+  "redirect_url": "/active-directory/develop/sample-v1-code",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-dev-glossary.md",
+  "redirect_url": "/active-directory/develop/developer-glossary",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-dev-understanding-oauth2-implicit-grant.md",
+  "redirect_url": "/active-directory/develop/v1-oauth2-implicit-grant-flow",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-develop-help-support.md",
+  "redirect_url": "/active-directory/develop/developer-support-help-options",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-developers-guide.md",
+  "redirect_url": "/active-directory/develop/azure-ad-developers-guide",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
+  "redirect_url": "/active-directory/develop/howto-get-appsource-certified",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devhowto-multi-tenant-overview.md",
+  "redirect_url": "/active-directory/develop/howto-convert-app-to-be-multi-tenant",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-android.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-android",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-angular.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-angularjs-spa",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-dotnet.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-dotnet",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-ios.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-ios",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-openidconnect-nodejs.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-openid-connect-code",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapi-dotnet.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-dotnet-webapi",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-webapi-nodejs.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-nodejs-webapi",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-devquickstarts-xamarin.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-xamarin",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-federation-metadata.md",
+  "redirect_url": "/active-directory/develop/azure-ad-federation-metadata",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-howto-tenant.md",
+  "redirect_url": "/active-directory/develop/quickstart-create-new-tenant",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-integrating-applications.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-permissions.md",
+  "redirect_url": "/active-directory/develop/v1-permissions-and-consent",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-code.md",
+  "redirect_url": "/active-directory/develop/v1-protocols-oauth-code",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-on-behalf-of.md",
+  "redirect_url": "/active-directory/develop/v1-oauth2-on-behalf-of-flow",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-protocols-oauth-service-to-service.md",
+  "redirect_url": "/active-directory/develop/v1-oauth2-client-creds-grant-flow",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-protocols-openid-connect-code.md",
+  "redirect_url": "/active-directory/develop/v1-protocols-openid-connect-code",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-single-sign-on-protocol-reference.md",
+  "redirect_url": "/active-directory/develop/single-sign-on-saml-protocol",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-single-sign-out-protocol-reference.md",
+  "redirect_url": "/active-directory/develop/single-sign-out-saml-protocol",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-sso-android.md",
+  "redirect_url": "/active-directory/develop/howto-v1-enable-sso-android",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-sso-ios.md",
+  "redirect_url": "/active-directory/develop/howto-v1-enable-sso-ios",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-token-and-claims.md",
+  "redirect_url": "/active-directory/develop/v1-id-and-access-tokens",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/authentication/multi-factor-authentication.md",
+  "redirect_url": "/active-directory/authentication/concept-mfa-howitworks",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-reporting-activity-audit-logs.md",
+  "redirect_url": "/active-directory/reports-monitoring/concept-audit-logs",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-reporting-activity-audit-reference.md",
+  "redirect_url": "/active-directory/reports-monitoring/reference-audit-activities",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-reporting-azure-portal.md",
+  "redirect_url": "/active-directory/reports-monitoring/overview-reports",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-reporting-latencies-azure-portal.md",
+  "redirect_url": "/active-directory/reports-monitoring/reference-reports-latencies",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-reporting-troubleshoot-missing-audit-data.md",
+  "redirect_url": "/active-directory/reports-monitoring/troubleshoot-missing-audit-data",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-secure-passwords.md",
+  "redirect_url": "/active-directory/authentication/concept-sspr-howitworks",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-certificate-based-authentication-android.md",
+  "redirect_url": "/active-directory/authentication/active-directory-certificate-based-authentication-android",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-certificate-based-authentication-get-started.md",
+  "redirect_url": "/active-directory/authentication/active-directory-certificate-based-authentication-get-started",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-certificate-based-authentication-ios.md",
+  "redirect_url": "/active-directory/authentication/active-directory-certificate-based-authentication-ios",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-api-find-an-api-how-to.md",
+  "redirect_url": "/active-directory/develop/api-find-an-api-how-to",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-consent-framework.md",
+  "redirect_url": "/active-directory/develop/consent-framework",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-delegated-and-app-perms.md",
+  "redirect_url": "/active-directory/develop/delegated-and-app-perms",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-perms-for-given-api.md",
+  "redirect_url": "/active-directory/develop/perms-for-given-api",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-registration-config-grant-permissions-how-to.md",
+  "redirect_url": "/active-directory/develop/registration-config-grant-permissions-how-to",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-registration-config-how-to.md",
+  "redirect_url": "/active-directory/develop/registration-config-how-to",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-registration-config-specific-application-property-how-to.md",
+  "redirect_url": "/active-directory/develop/registration-config-specific-application-property-how-to",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-registration-config-sso-how-to.md",
+  "redirect_url": "/active-directory/develop/registration-config-sso-how-to",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-dev-setup-multi-tenant-app.md",
+  "redirect_url": "/active-directory/develop/setup-multi-tenant-app",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-sign-in-problem-custom-dev.md",
+  "redirect_url": "/active-directory/manage-apps/application-sign-in-problem-custom-dev",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-sign-in-problem-first-party-microsoft.md",
+  "redirect_url": "/active-directory/manage-apps/application-sign-in-problem-first-party-microsoft",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-error.md",
+  "redirect_url": "/active-directory/manage-apps/application-sign-in-unexpected-user-consent-error",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-sign-in-unexpected-user-consent-prompt.md",
+  "redirect_url": "/active-directory/manage-apps/application-sign-in-unexpected-user-consent-prompt",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-access-unexpected-application.md",
+  "redirect_url": "/active-directory/manage-apps/application-types",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-access-assignment-how-to-add-assignment.md",
+  "redirect_url": "/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/application-access-unexpected-user-assignment.md",
+  "redirect_url": "/active-directory/manage-apps/ways-users-get-assigned-to-applications",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/reference-azure-ad-app-manifest.md",
+  "redirect_url": "/active-directory/develop/reference-app-manifest",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-architecture.md",
+  "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-architecture",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning.md",
+  "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md",
+  "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-declarative-provisioning-expressions",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-default-configuration.md",
+  "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-default-configuration",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-understanding-users-and-contacts.md",
+  "redirect_url": "/active-directory/hybrid/concept-azure-ad-connect-sync-user-and-contacts",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-howto-azureadaccount.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-azureadaccount",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-azure-ad-connect-azure-ad-trust.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-azure-ad-trust",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-azure-adfs.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-azure-adfs",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-compatibility.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-compatibility",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-management.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-management",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-o365-certs.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-o365-certs",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-federation-saml-idp.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-saml-idp",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-single-adfs-multitenant-federation.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-single-adfs-multitenant-federation",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-ssl-update.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-ssl-update",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectfed-whatis.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-whatis",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-installation-wizard.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-installation-wizard",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-automatic-upgrade",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-custom.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-custom",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-database.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-existing-database",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-existing-tenant.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-existing-tenant",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-get-started-express.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-express",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-move-db.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-move-db",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-multiple-domains.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-multiple-domains",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-prerequisites.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-prerequisites",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-select-installation.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-select-installation",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-sql-delegation.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-install-sql-delegation",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-password-hash-synchronization",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-whats-next.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-post-installation",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-best-practices-changing-default-configuration.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-best-practices-changing-default-configuration",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-addsacct-pass.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-addsacct-pass",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-serviceacct-pass.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-serviceacct-pass",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-change-the-configuration.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-change-the-configuration",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-configure-filtering.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-configure-filtering",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-directory-extensions.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-directory-extensions",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-feature-scheduler.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-feature-scheduler",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-operations.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-operations",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-recycle-bin.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-recycle-bin",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-duplicate-attribute-resiliency",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-features.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-features",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-connectors",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvdesigner.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvdesigner",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-mvsearch.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-mvsearch",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-operations.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-service-manager-ui-operations",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsyncservice-shadow-attributes.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-syncservice-shadow-attributes",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-technical-concepts.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-technical-concepts",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-whatis.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-whatis",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-upgrade-get-started.md",
+  "redirect_url": "/active-directory/hybrid/how-to-dirsync-upgrade-get-started",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-upgrade-previous-version.md",
+  "redirect_url": "/active-directory/hybrid/how-to-upgrade-previous-version",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-design-concepts.md",
+  "redirect_url": "/active-directory/hybrid/plan-connect-design-concepts",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-topologies.md",
+  "redirect_url": "/active-directory/hybrid/plan-connect-topologies",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-userprincipalname.md",
+  "redirect_url": "/active-directory/hybrid/plan-connect-userprincipalname",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-user-signin.md",
+  "redirect_url": "/active-directory/hybrid/plan-connect-user-signin",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-accounts-permissions.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-accounts-permissions",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-dirsync-deprecated.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-dirsync-deprecated",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-faq.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-faq",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-instances.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-instances",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-ports.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-ports",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-attributes-synchronized.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-sync-attributes-synchronized",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-connector-version-history.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-sync-connector-version-history",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-functions-reference.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-sync-functions-reference",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-gdpr.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-user-privacy",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-version-history.md",
+  "redirect_url": "/active-directory/hybrid/reference-connect-version-history",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-connectivity",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-largeobjecterror-usercertificate.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-largeobjecterror-usercertificate",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-object-not-syncing.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-object-not-syncing",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-objectsync.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-objectsync",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-password-hash-synchronization",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-recover-from-localdb-10gb-limit.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-recover-from-localdb-10gb-limit",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-sync-errors",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect-tshoot-sql-connectivity.md",
+  "redirect_url": "/active-directory/hybrid/tshoot-connect-tshoot-sql-connectivity",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/connect/active-directory-aadconnect.md",
+  "redirect_url": "/active-directory/hybrid/whatis-hybrid-identity",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md",
+  "redirect_url": "/active-directory/develop/quickstart-v1-add-azure-ad-app",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/v1-id-and-access-tokens.md",
+  "redirect_url": "/active-directory/develop/id-tokens",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-applications-guiding-developers-assigning-users.md",
+  "redirect_url": "/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-applications-guiding-developers-requiring-user-assignment.md",
+  "redirect_url": "/active-directory/manage-apps/methods-for-assigning-users-and-groups",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-properties-area.md",
+  "redirect_url": "/active-directory/fundamentals/active-directory-properties-area",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/application-consent-experience.md",
+  "redirect_url": "/active-directory/develop/application-consent-experience",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-adfs-in-azure-with-azure-traffic-manager.md",
+  "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/active-directory-federation-sha256-guidance.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-fed-sha256-guidance",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/azure-ad-developers-guide.md",
+  "redirect_url": "/active-directory/develop",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/quickstart-v1-openid-connect-code.md",
+  "redirect_url": "https://github.com/AzureADQuickStarts/WebApp-OpenIDConnect-NodeJS",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/fundamentals/active-directory-administer.md",
+  "redirect_url": "/active-directory/fundamentals/active-directory-whatis",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/fundamentals/understand-azure-identity-solutions.md",
+  "redirect_url": "/active-directory/fundamentals/active-directory-whatis",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/hybrid/how-to-connect-fed-azure-adfs.md",
+  "redirect_url": "https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs",
+  "redirect_document_id": false
+},
+{
+     "source_path": "articles/active-directory/hybrid/reference-connect-sync-connector-version-history.md",
+     "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history",
+     "redirect_document_id" : true
+},
+{
+  "source_path": "articles/active-directory/hybrid/how-to-connect-sync-operations.md",
+  "redirect_url": "/active-directory/hybrid/how-to-connect-sync-staging-server",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/app-registration-portal-content.md",
+  "redirect_url": "/active-directory/develop/quickstart-register-app",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/quickstart-v1-add-azure-ad-app.md",
+  "redirect_url": "/active-directory/develop/quickstart-register-app",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/quickstart-v1-remove-azure-ad-app.md",
+  "redirect_url": "/active-directory/develop/quickstart-remove-app",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/quickstart-v1-update-azure-ad-app.md",
+  "redirect_url": "/active-directory/develop/quickstart-configure-app-access-web-apis",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/azure-functions/functions-api-definition-getting-started.md",
+  "redirect_url": "/azure-functions/functions-openapi-definition",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/functions-bindings-documentdb.md",
+  "redirect_url": "/azure-functions/functions-bindings-cosmosdb",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-bindings.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-bindings",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-checkpointing-and-replay.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-checkpointing-and-replay",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-cloud-backup.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-cloud-backup",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-custom-orchestration-status.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-custom-orchestration-status",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-disaster-recovery-geo-distribution.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-error-handling.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-error-handling",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-eternal-orchestrations.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-eternal-orchestrations",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-external-events.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-external-events",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-http-api.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-http-api",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-install.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-create-portal",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-instance-management.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-instance-management",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-overview.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-overview",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-perf-and-scale.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-perf-and-scale",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-sequence.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-sequence",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-singletons.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-singletons",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-sub-orchestrations.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-sub-orchestrations",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-task-hubs.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-task-hubs",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-timers.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-timers",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-types-features-overview.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-types-features-overview",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-unit-testing.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-unit-testing",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-versioning.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-versioning",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/durable-functions-webjobs-sdk.md",
+  "redirect_url": "/azure-functions/durable/durable-functions-webjobs-sdk",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/functions-create-generic-webhook-triggered-function.md",
+  "redirect_url": "/azure-functions/functions-bindings-http-webhook",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/azure-functions/functions-create-github-webhook-triggered-function.md",
+  "redirect_url": "/azure-functions/functions-bindings-http-webhook",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-administration.md",
+  "redirect_url": "/azure-cache-for-redis/cache-administration",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-aspnet-output-cache-provider.md",
+  "redirect_url": "/azure-cache-for-redis/cache-aspnet-output-cache-provider",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-aspnet-session-state-provider.md",
+  "redirect_url": "/azure-cache-for-redis/cache-aspnet-session-state-provider",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-configure.md",
+  "redirect_url": "/azure-cache-for-redis/cache-configure",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-dotnet-core-quickstart.md",
+  "redirect_url": "/azure-cache-for-redis/cache-dotnet-core-quickstart",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-dotnet-how-to-use-azure-redis-cache.md",
+  "redirect_url": "/azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-faq.md",
+  "redirect_url": "/azure-cache-for-redis/cache-faq",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-geo-replication.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-geo-replication",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-import-export-data.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-import-export-data",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-howto-manage-redis-cache-powershell.md",
+  "redirect_url": "/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-monitor.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-monitor",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-premium-clustering.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-premium-clustering",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-premium-persistence.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-premium-persistence",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-premium-vnet.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-premium-vnet",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-redis-cli-tool.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-redis-cli-tool",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-scale.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-scale",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-how-to-troubleshoot.md",
+  "redirect_url": "/azure-cache-for-redis/cache-how-to-troubleshoot",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-java-get-started.md",
+  "redirect_url": "/azure-cache-for-redis/cache-java-get-started",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-manage-cli.md",
+  "redirect_url": "/azure-cache-for-redis/cache-manage-cli",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-migrate-to-redis.md",
+  "redirect_url": "/azure-cache-for-redis/cache-migrate-to-redis",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-nodejs-get-started.md",
+  "redirect_url": "/azure-cache-for-redis/cache-nodejs-get-started",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-overview.md",
+  "redirect_url": "/azure-cache-for-redis/cache-overview",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-premium-tier-intro.md",
+  "redirect_url": "/azure-cache-for-redis/cache-premium-tier-intro",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-python-get-started.md",
+  "redirect_url": "/azure-cache-for-redis/cache-python-get-started",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-redis-cache-arm-provision.md",
+  "redirect_url": "/azure-cache-for-redis/cache-redis-cache-arm-provision",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-redis-samples.md",
+  "redirect_url": "/azure-cache-for-redis/cache-redis-samples",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-web-app-arm-with-redis-cache-provision.md",
+  "redirect_url": "/azure-cache-for-redis/cache-web-app-arm-with-redis-cache-provision",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-web-app-cache-aside-leaderboard.md",
+  "redirect_url": "/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cache-web-app-howto.md",
+  "redirect_url": "/azure-cache-for-redis/cache-web-app-howto",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/cli-samples.md",
+  "redirect_url": "/azure-cache-for-redis/cli-samples",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/scripts/cache-keys-ports.md",
+  "redirect_url": "/azure-cache-for-redis/scripts/cache-keys-ports",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/scripts/create-cache.md",
+  "redirect_url": "/azure-cache-for-redis/scripts/create-cache",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/scripts/create-premium-cache-cluster.md",
+  "redirect_url": "/azure-cache-for-redis/scripts/create-premium-cache-cluster",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/scripts/delete-cache.md",
+  "redirect_url": "/azure-cache-for-redis/scripts/delete-cache",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/scripts/show-cache.md",
+  "redirect_url": "/azure-cache-for-redis/scripts/show-cache",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/redis-cache/index.md",
+  "redirect_url": "/azure-cache-for-redis/",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-webapp-webapi-dotnet.md",
+  "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization-helper-tool.md",
+  "redirect_url": "/active-directory-b2c/tutorial-customize-ui",
+  "redirect_document_id": true
+}
 
 
 
