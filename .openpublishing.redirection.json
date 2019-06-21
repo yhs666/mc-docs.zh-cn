@@ -16046,6 +16046,21 @@
   "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization-helper-tool.md",
   "redirect_url": "/active-directory-b2c/tutorial-customize-ui",
   "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-v2-scopes.md",
+  "redirect_url": "/active-directory/develop/v2-permissions-and-consent",
+  "redirect_document_id": true
+},
+{
+  "source_path": "articles/active-directory/active-directory-appmodel-v2-overview.md",
+  "redirect_url": "/active-directory/develop/v2-overview",
+  "redirect_document_id": false
+},
+{
+  "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
+  "redirect_url": "/active-directory/develop/v2-overview",
+  "redirect_document_id": true
 }
 
 
