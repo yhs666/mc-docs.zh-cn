@@ -106,7 +106,7 @@ ms.locfileid: "65835614"
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| 发布者 | Microsoft.Compute | 字符串 |
+| publisher | Microsoft.Compute | 字符串 |
 | type | CustomScriptExtension | 字符串 |
 | typeHandlerVersion | 1.9 | int |
 | fileUris（例如） | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 数组 |
