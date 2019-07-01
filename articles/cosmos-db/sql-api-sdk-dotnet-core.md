@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 origin.date: 03/22/2018
-ms.date: 05/13/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 81e0d43725f3a0c612b595ca46b46acb68585a2b
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 264f3af34eaf0dc58dc04df59598d24e73d6f8c6
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668878"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171322"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB .NET Core SDK：发行说明和资源
 > [!div class="op_single_selector"]

@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/17/2018
-ms.date: 05/10/2019
+ms.date: 06/21/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: ea2a08dcf8527d785b4371fa5f34aa6f79d82d91
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: 5036751e1673c2c98d741d3b862b74d5420b5131
+ms.sourcegitcommit: a0f90b99b9081d25ced6fa3c4eb7903fb0904d61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960905"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307606"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>使用 Microsoft 身份验证库 (MSAL) 登录用户
 
@@ -37,24 +37,25 @@ ms.locfileid: "65960905"
             storeAuthStateInCookie: true
         }
     };
-    
+
     var graphConfig = {
         graphMeEndpoint: "https://microsoftgraph.chinacloudapi.cn/v1.0/me"
     };
 
     // this can be used for login or token request, however in more complex situations
     // this can have diverging options
-    var request = {
-        scopes: ["user.read"]
+    var requestObj = {
+        scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read"]
     };
 
     var myMSALObj = new Msal.UserAgentApplication(msalConfig);
     // Register Callbacks for redirect flow
-    myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
+    myMSALObj.handleRedirectCallback(authRedirectCallBack);
+
 
     function signIn() {
 
-        myMSALObj.loginPopup(request).then(function (loginResponse) {
+        myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
             //Login Success
             showWelcomeMessage();
             acquireTokenPopupAndCallMSGraph();
@@ -63,16 +64,16 @@ ms.locfileid: "65960905"
         });
     }
 
-
     function acquireTokenPopupAndCallMSGraph() {
-        //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-        myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+        //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+        myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
         }).catch(function (error) {
-            console.log(error.errorCode);
-            // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
+            console.log(error);
+            // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+            // Call acquireTokenPopup(popup window)
             if (requiresInteraction(error.errorCode)) {
-                myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+                myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
                     callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
                 }).catch(function (error) {
                     console.log(error);
@@ -96,31 +97,33 @@ ms.locfileid: "65960905"
     }
 
 
-   function acquireTokenRedirectAndCallMSGraph() {
-        //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-        myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
-            callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
-        }).catch(function (error) {
+    //This function can be removed if you do not need to support IE
+    function acquireTokenRedirectAndCallMSGraph() {
+         //Always start with acquireTokenSilent to obtain a token in the signed in user from cache
+         myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
+             callMSGraph(graphConfig.graphMeEndpoint, tokenResponse.accessToken, graphAPICallback);
+         }).catch(function (error) {
+             console.log(error);
+             // Upon acquireTokenSilent failure (due to consent or interaction or login required ONLY)
+             // Call acquireTokenRedirect
+             if (requiresInteraction(error.errorCode)) {
+                 myMSALObj.acquireTokenRedirect(requestObj);
+             }
+         });
+     }
+
+
+    function authRedirectCallBack(error, response) {
+        if (error) {
             console.log(error);
-            //Call acquireTokenRedirect in case of acquireToken Failure
-            if (requiresInteraction(error.errorCode)) {
-                myMSALObj.acquireTokenRedirect(request);
-            }
-        });
-    }
-
-
-    function acquireTokenRedirectCallBack(response) {
-        if (response.tokenType === "access_token") {
-            callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
-        } else {
-            console.log("token type is:" + response.tokenType);
         }
-    }
-
-
-    function  acquireTokenErrorRedirectCallBack(error) {
-        console.log(error);
+        else {
+            if (response.tokenType === "access_token") {
+                callMSGraph(graphConfig.graphEndpoint, response.accessToken, graphAPICallback);
+            } else {
+                console.log("token type is:" + response.tokenType);
+            }
+        }
     }
 
     function requiresInteraction(errorCode) {
@@ -132,6 +135,17 @@ ms.locfileid: "65960905"
             errorCode === "login_required";
     }
 
+    // Browser check variables
+    var ua = window.navigator.userAgent;
+    var msie = ua.indexOf('MSIE ');
+    var msie11 = ua.indexOf('Trident/');
+    var msedge = ua.indexOf('Edge/');
+    var isIE = msie > 0 || msie11 > 0;
+    var isEdge = msedge > 0;
+    //If you support IE, our recommendation is that you sign-in using Redirect APIs
+    //If you as a developer are testing using Edge InPrivate mode, please add "isEdge" to the if check
+    // can change this to default an experience outside browser use
+    var loginType = isIE ? "REDIRECT" : "POPUP";
 
     if (loginType === 'POPUP') {
         if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
@@ -141,7 +155,7 @@ ms.locfileid: "65960905"
     }
     else if (loginType === 'REDIRECT') {
         document.getElementById("SignIn").onclick = function () {
-            myMSALObj.loginRedirect(request);
+            myMSALObj.loginRedirect(requestObj);
         };
         if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
             showWelcomeMessage();

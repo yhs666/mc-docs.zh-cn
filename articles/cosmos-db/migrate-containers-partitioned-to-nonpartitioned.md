@@ -4,15 +4,15 @@ description: 了解如何将所有现有的未分区容器迁移到已分区的�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4eb82980159a95a1c7459be71b3cdcd31070dbb8
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 81975c0a08a92dc420275a7f2353fa83a2a3169d
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669046"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171408"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>将未分区的容器迁移到已分区的容器
 
@@ -126,5 +126,4 @@ await migratedContainer.Items.ReadItemAsync<DeviceInformationItem>(
 * [在容器和数据库上预配吞吐量](set-throughput.md)
 * [使用 Azure Cosmos 帐户](account-overview.md)
 
-<!--Update_Description: new articles on migrate continers partitionaed to noonpartitioned -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: update meta properties -->

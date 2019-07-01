@@ -10,12 +10,12 @@ ms.date: 05/27/2019
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: a8bd2229321c4e2d561de721028de7aa3f279c2f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: d45c5ab2854e4209cb88a9501bc019809d32182e
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004035"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236585"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -706,7 +706,7 @@ sqllocaldb create v11.0
 有关使用 Microsoft Message Analyzer 的详细信息，请参阅[附录 3：使用 Microsoft Message Analyzer 捕获网络流量]。
 
 ## <a name="appendices"></a>附录
-附录介绍几种在诊断和排查 Azure 存储（及其他服务）问题时可能很有用的工具。 这些工具不属于 Azure 存储，有些工具是第三方产品。 因此，这些附录中介绍的工具可能在你与 Microsoft Azure 或 Azure 存储签订的任何支持协议中均未涉及，因此，在评估过程中，应查看这些工具的提供者提供的许可和支持选项。
+附录介绍几种在诊断和排查 Azure 存储（及其他服务）问题时可能很有用的工具。 这些工具不属于 Azure 存储，有些工具是第三方产品。 因此，这些附录中介绍的工具可能在签署的有关 Azure 或 Azure 存储的任何支持协议中均未涉及，因此，在评估过程中应查看这些工具的提供者提供的许可和支持选项。
 
 ### <a name="appendix-1"></a>附录 1：使用 Fiddler 捕获 HTTP 和 HTTPS 流量
 [Fiddler](https://www.telerik.com/fiddler) 是一个有用的工具，用于分析客户端应用程序与所用的 Azure 存储服务之间的 HTTP 和 HTTPS 通信。

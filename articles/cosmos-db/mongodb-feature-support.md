@@ -4,16 +4,16 @@ description: 了解 Azure Cosmos DB 的用于 MongoDB 的 API 为 MongoDB 3.4 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-origin.date: 12/26/2018
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: ba79a0431d3948a4d7ce80f08bc95a021b3afc36
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 8bdfe89892e1fa4f41e1462b40da2a8ca17ba119
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615191"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171351"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB 的 API for MongoDB：支持的功能和语法
 
@@ -213,24 +213,24 @@ Cosmos DB 在公共预览版中支持聚合管道。 请参阅 [Azure 博客](ht
 }
 ```
 
-| 运算符 |                                      示例                                  |     |
-|----------|-------------------------------------------------------------------------------|-----|
-|   $eq    |                  ` { "Volcano Name": { $eq: "Rainier" } } `                   |  -  |
-|   $gt    |                      ` { "Elevation": { $gt: 4000 } } `                       |  -  |
-|   $gte   |                      ` { "Elevation": { $gte: 4392 } } `                      |  -  |
-|   $lt    |                      ` { "Elevation": { $lt: 5000 } } `                       |  -  |
-|   $lte   |                      ` { "Elevation": { $lte: 5000 } } `                      |  -  |
-|   $ne    |                        ` { "Elevation": { $ne: 1 } } `                        |  -  |
-|   $in    |  ` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } `   |  -  |
-|   $nin   |      ` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } `       |  -  |
-|   $or    | ` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } `  |  -  |
-|   $and   | ` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ` |  -  |
-|   $not   |                 ` { "Elevation": { $not: { $gt: 5000 } } } `                  |  -  |
-|   $nor   | ` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ` |  -  |
-| $exists  |                      ` { "Status": { $exists: true } } `                      |  -  |
-|  $type   |                     ` { "Status": { $type: "string" } } `                     |  -  |
-|   $mod   |                    ` { "Elevation": { $mod: [ 4, 0 ] } } `                    |  -  |
-|  $regex  |                  ` { "Volcano Name": { $regex: "^Rain"} } `                   |  -  |
+| 运算符 |                                      示例                                  |
+|----------|-------------------------------------------------------------------------------|
+|   $eq    |                  ` { "Volcano Name": { $eq: "Rainier" } } `                   |
+|   $gt    |                      ` { "Elevation": { $gt: 4000 } } `                       |
+|   $gte   |                      ` { "Elevation": { $gte: 4392 } } `                      |
+|   $lt    |                      ` { "Elevation": { $lt: 5000 } } `                       |
+|   $lte   |                      ` { "Elevation": { $lte: 5000 } } `                      |
+|   $ne    |                        ` { "Elevation": { $ne: 1 } } `                        |
+|   $in    |  ` { "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } } `   |
+|   $nin   |      ` { "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } } `       |
+|   $or    | ` { $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] } `  |
+|   $and   | ` { $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] } ` |
+|   $not   |                 ` { "Elevation": { $not: { $gt: 5000 } } } `                  |
+|   $nor   | ` { $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] } ` |
+| $exists  |                      ` { "Status": { $exists: true } } `                      |
+|  $type   |                     ` { "Status": { $type: "string" } } `                     |
+|   $mod   |                    ` { "Elevation": { $mod: [ 4, 0 ] } } `                    |
+|  $regex  |                  ` { "Volcano Name": { $regex: "^Rain"} } `                   |
 ### <a name="notes"></a>说明
 
 在 $regex 查询中，左定位表达式允许索引搜索。 但是，使用“i”修饰符（不区分大小写）和“m”修饰符（多行）会导致在所有表达式中进行集合扫描。

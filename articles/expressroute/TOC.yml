@@ -47,8 +47,6 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fexpressroute%2ftoc.json
         - name: 数据平面分析
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fexpressroute%2ftoc.json
-    - name: 跨网连接
-      href: cross-network-connectivity.md
 - name: 操作指南
   items:
     - name: 创建和修改线路

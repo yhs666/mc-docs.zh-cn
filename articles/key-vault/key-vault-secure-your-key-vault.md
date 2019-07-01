@@ -2,24 +2,20 @@
 title: 保护对密钥保管库的访问 - Azure 密钥保管库 | Azure Docs
 description: 管理 Azure Key Vault、密钥和机密的访问权限。 介绍 Key Vault 的身份验证和授权模型以及如何保护 Key Vault。
 services: key-vault
-documentationcenter: ''
 author: amitbapat
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: e5b4e083-4a39-4410-8e3a-2832ad6db405
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/10/2017
-ms.date: 03/11/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 7045ff166fda89587273f70aa40853da9afe1654
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: c8a1e70036fd6e754fb7df83595c3d794b80a57a
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903043"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171307"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -29,7 +25,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 
 ## <a name="access-model-overview"></a>访问模型概述
 
-可通过以下两个接口来控制对密钥保管库的访问：*管理平面*和*数据平面*。 管理平面用于管理密钥保管库本身。 此平面中的操作包括创建和删除密钥保管库、检索密钥保管库属性以及更新访问策略。 数据平面用于处理密钥保管库中存储的数据。 可以添加、删除和修改密钥、机密及证书。
+可通过以下两个接口来控制对密钥保管库的访问：**管理平面**和**数据平面**。 管理平面用于管理密钥保管库本身。 此平面中的操作包括创建和删除密钥保管库、检索密钥保管库属性以及更新访问策略。 数据平面用于处理密钥保管库中存储的数据。 可以添加、删除和修改密钥、机密及证书。
 
 若要在任一平面中访问密钥保管库，所有调用方（用户或应用程序）都必须进行适当的身份验证并拥有适当的授权。 身份验证可确定调用方的身份。 授权可确定调用方能够执行的操作。 
 
@@ -135,7 +131,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 | 审核人员 | 无 | 密钥：列出<br>机密：列出<br><br> **注意**：此权限让审核员能够检查日志中未发出的密钥和机密的属性（标记、激活日期、到期日期）。 |
 | 应用程序 | 无 | 密钥：签名<br>机密：获取 |
 
-三个团队角色需要访问其他资源的权限以及密钥保管库权限。 若要部署 VM（或 Azure 应用服务的 Web 应用功能），开发人员和操作人员需要对这些资源类型的 `Contributor` 访问权限。 审核员需要对存储密钥保管库日志的存储帐户的读取访问权限。
+三个团队角色需要访问其他资源的权限以及密钥保管库权限。 若要部署 VM（或 Azure 应用服务的 Web 应用功能），开发人员和操作人员需要对这些资源类型的 `Contributor` 访问权限。 审核员需要具有对存储密钥保管库日志的存储帐户的“读取”访问权限。
 
 有关如何以编程方式部署证书、访问密钥和机密的详细信息，请参阅以下资源：
 - 了解如何[将证书从客户托管的密钥保管库部署到 VM](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/)（博客文章）。

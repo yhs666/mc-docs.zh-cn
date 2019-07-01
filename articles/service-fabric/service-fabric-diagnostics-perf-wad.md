@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 11/21/2018
 ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9e0bb0e2ee825f78b0122f9b7b9d1e11f74e58ca
-ms.sourcegitcommit: 7fdba97400f00af4e8c5877ab89aa055cade88b1
+ms.openlocfilehash: 9cf41a951d07676e7b982f95937e29e4b5acef87
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66816786"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325779"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>使用 Windows Azure 诊断扩展进行性能监视
 
@@ -28,7 +28,7 @@ ms.locfileid: "66816786"
 
 <!--Not Available on For Linux clusters, set up the [Log Analytics agent](service-fabric-diagnostics-oms-agent.md)-->
 
- > [!NOTE]
+> [!NOTE]
 > 应针对适用于你的这些步骤在群集上部署 WAD 扩展。 如果还未设置，请查看[使用 Windows Azure 诊断的事件聚合和集合](service-fabric-diagnostics-event-aggregation-wad.md)。  
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

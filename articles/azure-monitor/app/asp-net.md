@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1fb1821c8963c91453d8444bb4c7f2b19eb697ed
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: f043a8f6d21c06771ba755cfac3b5421f11b840b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046938"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236527"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>为 ASP.NET 网站设置 Application Insights
 
@@ -155,12 +155,9 @@ Visual Studio 中会显示已记录的事件数。
 
 在门户中，单击任何磁贴或图表以查看更多详细信息。
 
-[了解有关在 Azure 门户中使用 Application Insights 的详细信息](../../azure-monitor/app/app-insights-dashboards.md)。
-
 ## <a name="step-4-publish-your-app"></a>步骤 4：发布应用
 将应用发布到 IIS 服务器或 Azure。 监视 [实时指标流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) ，确保一切平稳运行。
-
-遥测数据会在 Application Insights 门户中累积，可在此监视指标、搜索遥测数据以及设置[仪表板](../../azure-monitor/app/app-insights-dashboards.md)。 还可以使用功能强大的 [Kusto 查询语言](/azure/kusto/query/)来分析使用情况和性能，或查找特定的事件。
+还可以使用功能强大的 [Kusto 查询语言](/azure/kusto/query/)来分析使用情况和性能，或查找特定的事件。
 
 还可以继续在 [Visual Studio](../../azure-monitor/app/visual-studio.md) 中借助诊断搜索和[趋势](../../azure-monitor/app/visual-studio-trends.md)等工具来分析遥测。
 
@@ -199,7 +196,6 @@ Visual Studio 中会显示已记录的事件数。
 ### <a name="analysis"></a>分析
 
 * **[在 Visual Studio 中使用 Application Insights](../../azure-monitor/app/visual-studio.md)**<br/>包含有关使用遥测数据进行调试、诊断搜索和钻取代码的信息。
-* **[使用 Application Insights 门户](../../azure-monitor/app/app-insights-dashboards.md)**<br/> 包含有关仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和遥测数据导出功能的信息。
 * **[分析](../../azure-monitor/log-query/get-started-portal.md)** - 功能强大的查询语言。
 
 ### <a name="alerts"></a>警报

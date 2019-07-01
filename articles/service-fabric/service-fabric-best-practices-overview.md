@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 01/23/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4228aecac96aad58ea10a6308088fc8b64eaee88
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 4fe9f94b710240c7cd4c6a99fdd1144ed6e0b732
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204259"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277533"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 应用程序和群集最佳做法
 
@@ -43,9 +43,8 @@ ms.locfileid: "57204259"
 
 * [用于实现基础结构即代码的最佳做法](service-fabric-best-practices-infrastructure-as-code.md)
 
-## <a name="monitoring-and-diagnostics"></a>监视和诊断
-
-* [群集监视和诊断最佳做法](service-fabric-best-practices-monitoring.md)
+<!--Not Available on ## Monitoring and diagnostics-->
+<!--Not Available on * [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)-->
 
 ## <a name="checklist"></a>清单
 

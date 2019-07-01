@@ -17,12 +17,12 @@ origin.date: 06/01/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 995a6278a2a4fddb7da45c873d9dc1c8d033c294
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 95abdc64359fd6e96618f4599c559c08773f4644
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004274"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427823"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>将 Azure 高级存储用于虚拟机上的 SQL Server
 
@@ -565,8 +565,8 @@ $vmConfigsl2 | New-AzureVM -ServiceName $destcloudsvc -VNetName $vnet
 * 创建新的云服务并在该云服务中重新部署 SQL2 VM。 使用复制的原始操作系统 VHD 创建 VM 并附加复制的 VHD。
 * 配置 ILB/ELB 并添加终结点。
 * 通过以下任一方法更新侦听器：
-  * 使 AlwaysOn 组脱机，并使用新的 ILB/ELB IP 地址更新 AlwaysOn 侦听器。
-  * 或者通过 PowerShell 将新云服务 ILB/ELB 的 IP 地址资源添加到 Windows 群集。 然后，将 IP 地址资源的可能所有者设置为已迁移节点 SQL2，并在网络名称中将此项设置为 OR 依赖关系。 请参阅 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
+    * 使 AlwaysOn 组脱机，并使用新的 ILB/ELB IP 地址更新 AlwaysOn 侦听器。
+    * 或者通过 PowerShell 将新云服务 ILB/ELB 的 IP 地址资源添加到 Windows 群集。 然后，将 IP 地址资源的可能所有者设置为已迁移节点 SQL2，并在网络名称中将此项设置为 OR 依赖关系。 请参阅 [附录](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage)的“在同一子网中添加 IP 地址资源”部分。
 * 检查客户端的 DNS 配置/传播。
 * 迁移 SQL1 VM，并完成步骤 2 - 4。
 * 如果使用步骤 5ii，则将 SQL1 添加为已添加 IP 地址资源的可能所有者

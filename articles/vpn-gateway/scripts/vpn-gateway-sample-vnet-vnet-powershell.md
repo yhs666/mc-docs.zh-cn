@@ -10,12 +10,12 @@ ms.topic: sample
 origin.date: 04/30/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 07a779616f1d7bf8c7311555af73bb16ace7569e
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 238e0daf558840458af0e72721bd1ececbb86f0f
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833140"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236664"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>使用 PowerShell 配置 VNet 到 VNet VPN 网关连接
 
@@ -23,7 +23,7 @@ ms.locfileid: "56833140"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-```azurepowershell-interactive
+```azurepowershell
 # Declare variables for VNET 1
   $RG1 = "TestRG1"
   $VNetName1  = "VNet1"
@@ -139,7 +139,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupName $RG
 
 如果不再需要所创建的资源，请使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) 命令删除资源组。 这将删除资源组及其包含的所有资源。
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name TestRG1
 Remove-AzResourceGroup -Name TestRG2
 ```

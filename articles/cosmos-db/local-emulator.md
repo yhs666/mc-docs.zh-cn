@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: rockboyfor
 ms.author: v-yeche
-origin.date: 03/14/2019
-ms.date: 05/13/2019
-ms.openlocfilehash: 06ab4a65088e5ae7d8d3a0887e2c6c0e8bff2dd6
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+origin.date: 05/20/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: fb658ac4d600206bfe2bf05b76e19651cc8aaf17
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668859"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171432"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -62,7 +62,7 @@ Azure Cosmos 模拟器具有以下硬件和软件要求：
 
 ## <a name="running-on-windows"></a>在 Windows 上运行
 
-要启动 Azure Cosmos 模拟器，请选择“开始”按钮或按 Windows 键。 开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器。
+要启动 Azure Cosmos 模拟器，请选择“开始”按钮或按 Windows 键。 开始键入“Azure Cosmos 模拟器”，再从应用程序列表中选择该模拟器  。
 
 ![选择“开始”按钮或按 Windows 键，开始键入**Azure Cosmos DB 模拟器**，再从应用程序列表中选择该模拟器](./media/local-emulator/database-local-emulator-start.png)
 
@@ -134,10 +134,10 @@ mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mG
 在桌面上运行 Azure Cosmos 模拟器后，可使用任意受支持的 [Azure Cosmos DB 表 API SDK](table-storage-how-to-use-dotnet.md) 与模拟器进行交互。 在命令提示符处，以管理员的身份使用“/EnableTableEndpoint”启动模拟器。 接下来，运行下列代码以连接到表 API 帐户：
 
 ```csharp
-using Azure.WindowsAzure.Storage;
-using Azure.WindowsAzure.Storage.Table;
-using CloudTable = Azure.WindowsAzure.Storage.Table.CloudTable;
-using CloudTableClient = Azure.WindowsAzure.Storage.Table.CloudTableClient;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Table;
+using CloudTable = Microsoft.WindowsAzure.Storage.Table.CloudTable;
+using CloudTableClient = Microsoft.WindowsAzure.Storage.Table.CloudTableClient;
 
 string connectionString = "DefaultEndpointsProtocol=http;AccountName=localhost;AccountKey=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==;TableEndpoint=http://localhost:8902/;";
 
@@ -279,7 +279,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 <a name="set-partitioncount"></a>
 ## <a name="change-the-number-of-containers"></a>更改容器数量
 
-默认情况下，可最多创建 25 个固定大小的容器（仅支持使用 Azure Cosmos DB SDK 创建），或使用 Azure Cosmos 模拟器创建 5 个不受限容器。 通过修改 PartitionCount 值，可最多创建 250 个固定大小的容器或 50 个不受限容器，也可创建两者的任意组合（前提是总数不超过 250 个固定大小的容器，其中 1 个不受限容器 = 5 个固定大小的容器）。 但是，建议不要设置用 200 个以上固定大小的容器进行运行的模拟器。 因为这会造成磁盘 IO 操作的开销增加，导致在运行终结点 API 时出现不可预测的超时情况。
+默认情况下，可最多创建 25 个固定大小的容器（仅支持使用 Azure Cosmos DB SDK 创建），或使用 Azure Cosmos 模拟器创建 5 个不受限容器。 通过修改 PartitionCount 值，可最多创建 250 个固定大小的容器或 50 个不受限容器，也可创建两者的任意组合（前提是总数不超过 250 个固定大小的容器，其中 1 个不受限容器 = 5 个固定大小的容器）  。 但是，建议不要设置用 200 个以上固定大小的容器进行运行的模拟器。 因为这会造成磁盘 IO 操作的开销增加，导致在运行终结点 API 时出现不可预测的超时情况。
 
 如果在已超过当前分区计数后尝试创建容器，则模拟器将引发 ServiceUnavailable 异常，并收到以下消息。
 
@@ -289,9 +289,9 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 要更改 Azure Cosmos 模拟器中可用容器的数量，请执行以下步骤：
 
-1. 在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，并单击“重置数据...”，删除所有本地 Azure Cosmos 模拟器数据。
+1. 在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，并单击“重置数据...”，删除所有本地 Azure Cosmos 模拟器数据   。
 2. 删除文件夹 `%LOCALAPPDATA%\CosmosDBEmulator` 中的所有模拟器数据。
-3. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”图标，并单击“退出”，退出所有打开的实例。 退出所有实例可能需要一分钟。
+3. 通过在系统任务栏上右键单击“Azure Cosmos DB 模拟器”  图标，并单击“退出”  ，退出所有打开的实例。 退出所有实例可能需要一分钟。
 4. 安装最新版的 [Azure Cosmos 模拟器](https://aka.ms/cosmosdb-emulator)。
 5. 通过设置一个 <= 250 的值启动具有 PartitionCount 标志的模拟器。 例如：`C:\Program Files\Azure Cosmos DB Emulator> CosmosDB.Emulator.exe /PartitionCount=100`。
 
@@ -357,7 +357,7 @@ Import-Module Microsoft.Azure.CosmosDB.Emulator
 
 可在用于 Windows 的 Docker 上运行 Azure Cosmos 模拟器。 该模拟器不适合于用于 Oracle Linux 的 Docker。
 
-安装[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 后，通过右键单击工具栏上的 Docker 图标并选择“切换到 Windows 容器”切换到 Windows 容器。
+安装[用于 Windows 的 Docker](https://www.docker.com/docker-windows) 后，通过右键单击工具栏上的 Docker 图标并选择“切换到 Windows 容器”  切换到 Windows 容器。
 
 接下来，通过从你喜欢使用的 shell 运行以下命令，从 Docker 中心拉取模拟器映像。
 
@@ -400,6 +400,7 @@ Starting interactive shell
 现在，在客户端中使用来自响应的终结点和主密钥，并将 SSL 证书导入到主机中。 若要导入 SSL 证书，请从管理员命令提示符执行以下操作：
 
 通过命令行：
+
 ```cmd
 cd  %LOCALAPPDATA%\CosmosDBEmulator\bind-mount
 powershell .\importcert.ps1
@@ -433,9 +434,9 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
 - 如果遇到连接问题，请[收集跟踪文件](#trace-files)、进行压缩并将其附加到电子邮件，发送至 [Azure 支持](https://www.azure.cn/support/contact/)。
 
-- 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。 请查看是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为其网络筛选器驱动程序可能会导致该问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
+- 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。  请查看是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为其网络筛选器驱动程序可能会导致该问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
 
-- 在模拟器运行时，如果计算机进入了睡眠模式或运行了任何 OS 更新，则你可能会看到“服务当前不可用”消息。 请右键单击 Windows 通知托盘中显示的图标，再选择“重置数据”来重置模拟器的数据。
+- 在模拟器运行时，如果计算机进入了睡眠模式或运行了任何 OS 更新，则你可能会看到“服务当前不可用”  消息。 请右键单击 Windows 通知托盘中显示的图标，再选择“重置数据”来重置模拟器的数据。 
 
 <a name="trace-files"></a>
 ### <a name="collect-trace-files"></a>收集跟踪文件
@@ -443,7 +444,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 若要收集调试跟踪，请在管理命令提示符下运行以下命令：
 
 1. `cd /d "%ProgramFiles%\Azure Cosmos DB Emulator"`
-2. `CosmosDB.Emulator.exe /shutdown`。 监视系统任务栏，确保该程序已关闭，这可能需要一分钟时间。 还可仅单击 Azure Cosmos 模拟器用户界面中的“退出”。
+2. `CosmosDB.Emulator.exe /shutdown`。 监视系统任务栏，确保该程序已关闭，这可能需要一分钟时间。 还可仅单击 Azure Cosmos 模拟器用户界面中的“退出”  。
 3. `CosmosDB.Emulator.exe /starttraces`
 4. `CosmosDB.Emulator.exe`
 5. 再现问题。 如果数据资源管理器无法运行，只需等待几秒钟，待浏览器打开以捕获错误。
@@ -455,8 +456,8 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 ### <a name="uninstall-the-local-emulator"></a>卸载本地模拟器
 
 1. 通过在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，然后单击“退出”，退出所有打开的本地模拟器实例。 退出所有实例可能需要一分钟。
-2. 在 Windows 搜索框中，键入“应用和功能”，然后单击“应用和功能(系统设置)”结果。
-3. 在应用列表中，滚动到“Azure Cosmos DB 模拟器”并将其选中，单击“卸载”，然后确认并再次单击“卸载”。
+2. 在 Windows 搜索框中，键入“应用和功能”，然后单击“应用和功能(系统设置)”结果   。
+3. 在应用列表中，滚动到“Azure Cosmos DB 模拟器”并将其选中，单击“卸载”，然后确认并再次单击“卸载”    。
 4. 卸载应用后，导航到 `%LOCALAPPDATA%\CosmosDBEmulator` 并删除该文件夹。
 
 ## <a name="next-steps"></a>后续步骤

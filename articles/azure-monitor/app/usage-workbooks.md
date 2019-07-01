@@ -14,11 +14,11 @@ ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
 ms.openlocfilehash: 22b79920b3e9954f213dc5d154fe025f9de34089
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732159"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236040"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 

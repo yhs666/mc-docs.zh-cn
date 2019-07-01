@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a38e32a15de52c894fcf01f9debb194ce332ae74
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: afe6f5def291be285fef319e54ae9927e216c244
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046936"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236546"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
@@ -214,7 +214,6 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>后续步骤
 
-* [在门户中监视遥测](../../azure-monitor/app/app-insights-dashboards.md)
 * [通过遥测编写分析查询](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

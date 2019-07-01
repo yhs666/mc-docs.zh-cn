@@ -18,12 +18,12 @@ ms.date: 05/07/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 355a4d3b8452c4547186e9b4444c0a899ae61e3a
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 947b33c3d948b46abe5e74804e8c7a7c9f77e765
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517556"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151748"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -48,7 +48,7 @@ ms.locfileid: "65517556"
 > #### <a name="step-1-register-your-application"></a>步骤 1：注册应用程序
 > 若要注册应用，请执行以下操作：
 > 1. 转到新的 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs)窗格。
-> 1. 输入应用程序的名称并选择“注册”。
+> 1. 输入应用程序的名称并选择“注册”  。
 > 1. 遵照说明下载内容，并只需单击一下自动配置新应用程序。
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>选项 2：注册并手动配置应用程序和代码示例
@@ -57,9 +57,9 @@ ms.locfileid: "65517556"
 > 若要手动注册应用程序并将应用的注册信息添加到解决方案，请执行以下步骤：
 >
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
-> 1. 选择“新注册”。
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息：
->      - 在“名称”部分输入一个有意义的应用程序名称（例如 `iOSQuickstart`），当应用的用户登录或许可你的应用时，系统会向其显示该名称。
+> 1. 选择“新注册”。 
+> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+>      - 在“名称”  部分输入一个有意义的应用程序名称（例如 `iOSQuickstart`），当应用的用户登录或许可你的应用时，系统会向其显示该名称。
 >      - 跳过此页上的其他配置。 
 >      - 点击“`Register`”按钮。
 > 1. 单击“新建应用”> 转到 `Authentication` > `Add Platform` > `iOS`。    
@@ -93,7 +93,7 @@ ms.locfileid: "65517556"
 >    let kAuthority = "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Info_Here"
 >
 >    ```
-> 1. 右键单击“Info.plist”并选择“打开方式” > “源代码”。
+> 1. 右键单击“Info.plist”并选择“打开方式” > “源代码”。   
 > 1. 在 dict 根节点下，将值替换为自己的 ***捆绑 ID***：
 >
 >    ```xml
@@ -119,7 +119,7 @@ ms.locfileid: "65517556"
 >    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
 > 
 >    ```
-> 1. 右键单击“Info.plist”并选择“打开方式” > “源代码”。
+> 1. 右键单击“Info.plist”并选择“打开方式” > “源代码”。   
 > 1. 在 dict 根节点下，将值替换为自己的 ***捆绑 ID***：
 >
 >    ```xml
@@ -228,7 +228,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in /* Add yo
 
 > |其中：||
 > |---------|---------|
-> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
+> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
 
 #### <a name="acquiretokensilent-getting-an-access-token-silently"></a>acquireTokenSilent：以无提示方式获取访问令牌
 
@@ -241,7 +241,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 > |其中： ||
 > |---------|---------|
-> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
+> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
 > | `account` | 正在请求其令牌的帐户。 本快速入门是一个单帐户应用程序，若要生成多帐户应用，需要定义相应的逻辑来识别用于令牌请求的帐户 `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>后续步骤

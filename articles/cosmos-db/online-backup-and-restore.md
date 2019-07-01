@@ -4,16 +4,16 @@ description: 本文介绍了 Azure Cosmos DB 中自动联机备份和按需数�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/15/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: a0dd3692301159da2a9d4994453d2750b5e6ba75
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fe9c81812fbf7271c7d851909d2e465d61c7ee08
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626001"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171406"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
@@ -82,7 +82,9 @@ Azure Cosmos DB 每四个小时拍摄一次数据快照。 在任何给定时间
 可通过以下方式将数据迁移回原始的 Azure Cosmos 帐户：
 
 * 使用 [Cosmos DB 数据迁移工具](import-data.md)
-  <!--Not Available on * Using [Azure Data Factory]( ../data-factory/connector-azure-cosmos-db.md)-->
+    
+    <!--Not Available on * Using [Azure Data Factory]( ../data-factory/connector-azure-cosmos-db.md)-->
+    
 * 使用 Azure Cosmos DB 中的[更改源](change-feed.md) 
 * 编写自定义代码
 
@@ -95,6 +97,6 @@ Azure Cosmos DB 每四个小时拍摄一次数据快照。 在任何给定时间
 * 若要提出还原请求，请联系 Azure 支持，并[从 Azure 门户提交票证](https://support.azure.cn/zh-cn/support/support-azure/)
 * [如何从 Azure Cosmos 帐户还原数据](how-to-backup-and-restore.md)
 * [使用 Cosmos DB 更改源](change-feed.md)将数据移动到 Azure Cosmos DB。
-<!--Not Available on * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
 
+<!--Not Available on * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
 <!--Update_Description: update meta properties, wording update -->

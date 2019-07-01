@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cb384ab84a21505903a18c2706863442734394fa
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: a81adc0478c2dd4daaa2c28caa9de2398f728ebf
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687636"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235962"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在单页应用程序中启用身份验证
 
@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
     // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID>',
-        authority: "https://contoso.b2clogin.com/tfp/contoso.partner.onmschina.cn/B2C_1_signupsignin1",
+        authority: "https://contoso.b2clogin.cn/tfp/contoso.partner.onmschina.cn/B2C_1_signupsignin1",
         b2cScopes: ["https://contoso.partner.onmschina.cn/demoapi/demo.read"],
         webApi: 'https://contosohello.chinacloudsites.cn/hello',
     };

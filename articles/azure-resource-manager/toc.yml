@@ -139,8 +139,6 @@
           href: resource-group-lock-resources.md
         - name: 用于访问订阅的身份验证 API
           href: resource-manager-api-authentication.md
-        - name: 跨租户进行身份验证
-          href: authenticate-multi-tenant.md
     - name: 审核部署
       items:
         - name: 查看活动日志

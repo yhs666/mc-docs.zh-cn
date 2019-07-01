@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fa765a2e4280cdc947fd88a5110d9caa1e14fdc
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 0d7155cfb5382a4a7eb1a6b0368bb6df4586b069
+ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829398"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307570"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>将 IoT Edge 设备配置为通过代理服务器进行通信
 
@@ -55,8 +55,9 @@ IoT Edge 设备将发送 HTTPS 请求以与 IoT 中心进行通信。 如果设�
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Initialize-IoTEdge
+   ```
 
-If you have complicated credentials for the proxy server that can't be included in the URL, use the `-ProxyCredential` parameter within `-InvokeWebRequestParameters`. For example,
+如果拥有不能包含在 URL 中的复杂代理服务器凭据，请使用 `-InvokeWebRequestParameters` 中的 `-ProxyCredential` 参数。 例如，
 
 ```powershell
 $proxyCredential = (Get-Credential).GetNetworkCredential()
@@ -138,9 +139,9 @@ Restart-Service iotedge
 
 IoT Edge 代理是在任意 IoT Edge 设备上启动的第一个模块。 该代理基于 IoT Edge config.yaml 文件中的信息首次启动， IoT Edge 代理随后连接到 IoT 中心以检索部署清单，其中声明了应在设备上部署的其他模块。
 
-打开 IoT Edge 设备上的 config.yaml 文件。 在 Linux 系统上，此文件位于 /etc/iotedge/config.yaml。 在 Windows 系统上，此文件位于 C:\ProgramData\iotedge\config.yaml。 配置文件是受保护的，因此，你需要管理权限才能对其进行访问。 在 Linux 系统上，这意味着要先使用 `sudo` 命令，然后再在首选文本编辑器中打开该文件。 在 Windows 上，这意味着要以管理员身份打开文本编辑器（如记事本），然后打开该文件。 
+打开 IoT Edge 设备上的 config.yaml 文件。 在 Linux 系统上，此文件位于 /etc/iotedge/config.yaml  。 在 Windows 系统上，此文件位于 C:\ProgramData\iotedge\config.yaml  。 配置文件是受保护的，因此，你需要管理权限才能对其进行访问。 在 Linux 系统上，这意味着要先使用 `sudo` 命令，然后再在首选文本编辑器中打开该文件。 在 Windows 上，这意味着要以管理员身份打开文本编辑器（如记事本），然后打开该文件。 
 
-在 config.yaml 文件中，找到“Edge 代理模块规范”部分。 IoT Edge 代理定义包括可以在其中添加环境变量的 **env** 参数。 
+在 config.yaml 文件中，找到“Edge 代理模块规范”  部分。 IoT Edge 代理定义包括可以在其中添加环境变量的 **env** 参数。 
 
 <!--
 ![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
@@ -182,9 +183,9 @@ UpstreamProtocol: "AmqpWs"
 
 ### <a name="azure-portal"></a>Azure 门户
 
-使用“设置模块”向导为 IoT Edge 设备创建部署时，每个模块都有可用于配置代理服务器连接的“环境变量”部分。 
+使用“设置模块”  向导为 IoT Edge 设备创建部署时，每个模块都有可用于配置代理服务器连接的“环境变量”  部分。 
 
-若要配置 IoT Edge 代理和 IoT Edge 中心模块，请在向导的第一步中选择“配置 Edge 运行时高级设置”。 
+若要配置 IoT Edge 代理和 IoT Edge 中心模块，请在向导的第一步中选择“配置 Edge 运行时高级设置”  。 
 
 ![配置 Edge 运行时高级设置](./media/how-to-configure-proxy-support/configure-runtime.png)
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: f558fd28411dc525d30107c4dd16398289ae3d3c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e985ae52ab189a7e2b00be50a6535e4807a911a6
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625605"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236502"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>使用 Azure Monitor 中的 Active Directory 运行状况检查解决方案优化 Active Directory 环境
 
@@ -34,7 +34,7 @@ ms.locfileid: "58625605"
 
 可以选择对组织最重要的重点领域，并跟踪一个运行正常无风险环境的进度。
 
-在添加解决方案并完成检查后，会在环境中基础结构的“AD 运行状况检查”仪表板上显示有关重点领域的摘要信息。 以下部分介绍如何使用“AD 运行状况检查”仪表板上的信息，可以在其中查看并针对 Active Directory 服务器基础结构采取建议的操作。  
+在添加解决方案并完成检查后，会在环境中基础结构的“AD 运行状况检查”  仪表板上显示有关重点领域的摘要信息。 以下部分介绍如何使用“AD 运行状况检查”  仪表板上的信息，可以在其中查看并针对 Active Directory 服务器基础结构采取建议的操作。  
 
 ![AD 运行状况检查磁贴的图像](./media/ad-assessment/ad-healthcheck-summary-tile.png)
 
@@ -55,7 +55,6 @@ ms.locfileid: "58625605"
 
 1. 如果域控制器尚不受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视，请安装 [Microsoft Monitoring Agent (MMA)](../../azure-monitor/platform/agent-windows.md)。
 2. 如果域控制器受 System Center 2016 - Operations Manager 或 Operations Manager 2012 R2 的监视并且管理组未与 Azure Monitor 集成，则它可与 Azure Monitor 共用多个宿主，以收集数据并将其转发到服务，同时仍可由 Operations Manager 监视。  
-3. 否则，如果 Operations Manager 管理组已与服务集成，则在工作区中启用解决方案后，需要遵循[添加代理管理的计算机](../../azure-monitor/platform/om-agents.md#connecting-operations-manager-to-log-analytics)中的步骤，为数据收集服务添加域控制器。  
 
 域控制器上的代理向 Operations Manager 管理组报告、收集数据、将数据转发到为其分配的管理服务器，然后将数据从管理服务器直接发送到 Azure Monitor。  数据不会写入 Operations Manager 数据库。  
 
@@ -83,7 +82,7 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 ### <a name="how-weights-are-calculated"></a>如何计算权重
 权重是基于三个关键因素的聚合值：
 
-* 所发现的问题会导致不良后果的概率。 概率较高相当于建议的总体分数较高。
+* 所发现的问题会导致不良后果的概率  。 概率较高相当于建议的总体分数较高。
 * 问题对组织的*影响*（如果它确实会导致不良后果）。 影响较大相当于建议的总体分数更高。
 * 实施建议所需的*工作*。 工作量较大相当于建议的总体分数较低。
 
@@ -111,10 +110,10 @@ Active Directory 运行状况检查使用已启用的代理收集以下来源的
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>查看针对重点区域的建议并采取纠正措施
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-1. 在“概述”页上，单击“Active Directory 运行状况检查”磁贴。
-2. 在“运行状况检查”页上，查看某个重点区域边栏选项卡中的摘要信息，并单击其中一个查看针对该重点区域的建议。
+1. 在“概述”页上，单击“Active Directory 运行状况检查”磁贴。  
+2. 在“运行状况检查”页上，查看某个重点区域边栏选项卡中的摘要信息，并单击其中一个查看针对该重点区域的建议。 
 3. 在任何重点区域页上，均可以查看针对环境所做的优先级建议。 单击“**受影响的对象**”下的建议，以查看有关为何给出此建议的详细信息。<br><br> ![运行状况检查建议图像](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-4. 可以采取“建议的操作”中建议的纠正操作。 解决该项后，以后的评估将记录已执行的建议操作，并且合规性分数将提高。 已更正的项会显示为“通过的对象”。
+4. 可以采取“建议的操作”  中建议的纠正操作。 解决该项后，以后的评估将记录已执行的建议操作，并且合规性分数将提高。 已更正的项会显示为“通过的对象”  。
 
 ## <a name="ignore-recommendations"></a>忽略建议
 如果有要忽略的建议，可以创建 Azure Monitor 用来防止建议出现在评估结果中的文本文件。
@@ -141,7 +140,7 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
    * 在 Operations Manager 2016 管理服务器上 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>验证建议是否已被忽略
-在下一次计划运行状况检查运行后（默认情况下每隔七天运行一次），指定的建议会被标记为“已忽略”，不会在仪表板上显示。
+在下一次计划运行状况检查运行后（默认情况下每隔七天运行一次），指定的建议会被标记为“已忽略”，不会在仪表板上显示。 
 
 1. 可以使用以下日志查询列出所有已忽略的建议。
 
@@ -152,19 +151,19 @@ ADAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Co
 2. 如果以后决定想要查看已忽略的建议，请删除任何 IgnoreRecommendations.txt 文件，或者可以从中删除 RecommendationID。
 
 ## <a name="ad-health-check-solutions-faq"></a>AD 运行状况检查解决方案常见问题解答
-运行状况检查的运行频率如何？
+运行状况检查的运行频率如何？ 
 
 * 每隔七天运行检查。
 
-是否有某种方法可配置运行状况检查的运行频率？
+是否有某种方法可配置运行状况检查的运行频率？ 
 
 * 目前没有。
 
-如果添加运行状况检查解决方案后发现另一台服务器，那么它是否会被检查？
+如果添加运行状况检查解决方案后发现另一台服务器，那么它是否会被检查？ 
 
 * 是的，一经发现，会每隔七天对其进行一次检查。
 
-如果服务器已停用，何时会将其从运行状况检查中删除？
+如果服务器已停用，何时会将其从运行状况检查中删除？ 
 
 * 如果服务器 3 周未提交数据，则会被删除。
 

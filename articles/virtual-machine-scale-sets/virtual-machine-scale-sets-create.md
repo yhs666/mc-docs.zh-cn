@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 07/21/2017
 ms.date: 08/28/2017
 ms.author: v-haiqya
-ms.openlocfilehash: ec3c143c8c7a6112c116cdb6da196271df3b969a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1b7d132390ef0f767a0e0163a0cbd093570c25c2
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657023"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236469"
 ---
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>创建和部署虚拟机规模集
 使用虚拟机规模集可以轻松地将相同的虚拟机作为集来进行部署和管理。 规模集为超大规模应用程序提供高度可缩放且可自定义的计算层，并且它们支持 Windows 平台映像、Linux 平台映像、自定义映像和扩展。 有关规模集的详细信息，请参阅[虚拟机规模集](virtual-machine-scale-sets-overview.md)。
@@ -114,7 +114,7 @@ PowerShell 的用法比 Azure CLI 更复杂。 Azure CLI 为网络相关的资�
 2. Get-AzureRMVMImageOffer
 3. Get-AzureRmVMImageSku
 
-cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的“中国北部”区域的所有映像。
+cmdlet 的运行结果可以按顺序通过管道传送。 以下示例演示如何获取其发布服务器包含名称 **microsoft** 的“中国北部”  区域的所有映像。
 
 ```powershell
 Get-AzureRMVMImagePublisher -Location ChinaNorth | Where-Object PublisherName -Like *microsoft* | Get-AzureRMVMImageOffer | Get-AzureRmVMImageSku | Select-Object PublisherName, Offer, Skus
@@ -184,7 +184,7 @@ New-AzureRmVmss -ResourceGroupName $rg -Name "MyScaleSet1" -VirtualMachineScaleS
 ```
 
 ### <a name="using-a-custom-virtual-machine-image"></a>使用自定义虚拟机映像
-如果要从自己的自定义映像创建规模集，而不是从库中引用虚拟机映像，Set-AzureRmVmssStorageProfile 命令将如下所示：
+如果要从自己的自定义映像创建规模集，而不是从库中引用虚拟机映像，Set-AzureRmVmssStorageProfile 命令将如下所示： 
 ```PowerShell
 Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk PremiumLRS -OsDiskCaching "None" -OsDiskOsType Linux -ImageReferenceId (Get-AzureRmImage -ImageName $VMImage -ResourceGroupName $rg).id
 ```
@@ -196,7 +196,7 @@ Set-AzureRmVmssStorageProfile -OsDiskCreateOption FromImage -ManagedDisk Premium
 >[!NOTE]
 >若要创建自己的模板，请创建一个 JSON 文本文件。 有关如何创建和自定义模板的常规信息，请参阅 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-authoring-templates.md)。
 
-[GitHub 上](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set)提供了一个示例模板。 有关如何创建和使用该示例的详细信息，请参阅[最小的可行规模集](.\virtual-machine-scale-sets-mvss-start.md)。
+[GitHub 上](https://github.com/gatneil/mvss/tree/minimum-viable-scale-set)提供了一个示例模板。 有关如何创建和使用该示例的详细信息，请参阅[最小的可行规模集](./virtual-machine-scale-sets-mvss-start.md)。
 
 ## <a name="create-from-visual-studio"></a>从 Visual Studio 创建
 

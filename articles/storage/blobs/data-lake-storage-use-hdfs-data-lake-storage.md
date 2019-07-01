@@ -11,11 +11,11 @@ ms.author: v-jay
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
 ms.openlocfilehash: 69fec06f50fa4a5682b3a72c91afd7a2fcb2abbc
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004438"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236042"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>将 HDFS CLI 与 Data Lake Storage Gen2 配合使用
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/25/2018
 ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 9704011fc13a5c137da30e080997fed98df74200
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 92f9f0edbb5b4f01e3434696190eeb8869079a9c
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195042"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236531"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>如何使用 CLI 在 Azure VPN 网关上配置 BGP
 
@@ -223,8 +223,6 @@ eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your 
 ### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>步骤 1：创建 TestVNet2 和 VPN 网关
 
 必须确保新虚拟网络的 IP 地址空间 TestVNet2 不与任何 VNet 范围重叠。
-
-在此示例中，虚拟网络属于同一订阅。 可在不同订阅之间设置 VNet 到 VNet 连接。 若要了解详细信息，请参阅[配置 VNet 到 VNet 的连接](vpn-gateway-howto-vnet-vnet-cli.md)。 请确保在创建连接时添加 `-EnableBgp $True`，以启用 BGP。
 
 #### <a name="1-create-a-new-resource-group"></a>1.创建新的资源组
 

@@ -11,12 +11,12 @@ origin.date: 04/11/2019
 ms.date: 04/29/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 252272c3938127bfac1b267f4fa642510709314c
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 430c3062f8db6ba200e4d8f26a47d09e3088564d
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854493"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151761"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -105,7 +105,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 
 
 ## <a name="create-a-data-warehouse"></a>创建数据仓库
-此示例使用以前定义的变量创建数据仓库。  它将服务目标指定为 DW100，这是针对数据仓库的低成本起点。 
+此示例使用以前定义的变量创建数据仓库。  它将服务目标指定为 DW100c，这是针对数据仓库的低成本起点。 
 
 ```Powershell
 New-AzSqlDatabase `
@@ -113,7 +113,7 @@ New-AzSqlDatabase `
     -ServerName $servername `
     -DatabaseName $databasename `
     -Edition "DataWarehouse" `
-    -RequestedServiceObjectiveName "DW100" `
+    -RequestedServiceObjectiveName "DW100c" `
     -CollationName "SQL_Latin1_General_CP1_CI_AS" `
     -MaxSizeBytes 10995116277760
 ```

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4e9251a27c2f3c1c71f281e4986ecedfb4e766fe
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 12f1af224a76a4352985b51f97247ba69e9c1e91
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731181"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236385"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 
@@ -96,7 +96,6 @@ Azure Monitor 可从 Azure 和本地资源中的各种源收集日志数据。 �
 |:---|:---|
 |  代理数据源 | 从 [Windows](agent-windows.md) 和 [Linux](../learn/quick-collect-linux-computer.md) 代理收集的数据源包括事件、性能数据和自定义日志。 有关数据源列表和配置详细信息，请参阅 [Azure Monitor 中的代理数据源](data-sources.md)。 |
 | 监视解决方案 | 监视解决方案将其从代理收集的数据写入其 Log Analytics 工作区。 有关解决方案的列表，请参阅 [Azure 中的管理解决方案的数据收集详细信息](../insights/solutions-inventory.md)。 有关安装和使用解决方案的详细信息，请参阅 [Azure Monitor 中的监视解决方案](../insights/solutions.md)。 |
-| System Center Operations Manager | 将 Operations Manager 管理组连接到 Azure Monitor 可将本地代理中的事件和性能数据收集到日志中。 有关此配置的详细信息，请参阅[将 Operations Manager 连接到 Log Analytics](om-agents.md)。 |
 
 
 ### <a name="applications"></a>应用程序

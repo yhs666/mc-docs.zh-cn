@@ -11,12 +11,12 @@ origin.date: 02/19/2019
 ms.date: 04/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: d31aa5a2b4fdd644c1899791f7160e1ee06e4905
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 33529408a5c7f9c7b92f6c2405597a4ed9e325b0
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004333"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235956"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -39,7 +39,7 @@ Azure AD B2C 扩展了标准 OAuth 2.0 流，使其功能远远超出了简单�
 
 ### <a name="use-a-sign-in-user-flow"></a>使用登录用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -51,7 +51,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-user-flow"></a>使用注册用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -63,7 +63,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-user-flow"></a>使用编辑配置文件用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code
 &redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob
@@ -81,7 +81,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | scope |必须 |范围的空格分隔列表。 一个范围值可向 Azure Active Directory (Azure AD) 指示正在请求的两个权限。 使用客户端 ID 作为范围表示，应用需要可对自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。  `offline_access` 范围表示应用需要刷新令牌才能获取对资源的长生存期访问权限。 还可使用 `openid` 范围从 Azure AD B2C 请求 ID 令牌。 |
 | response_mode |建议 |用于将生成的授权代码发回应用的方法。 可以是 `query`、`form_post` 或 `fragment`。 |
 | state |建议 |请求中包含的值，可以是要使用的任何内容的字符串。 随机生成的唯一值通常用于防止跨网站请求伪造攻击。 它还可用于在身份验证请求发生前，对有关用户在应用中的状态信息进行编码。 例如，用户所处的页面或要执行的用户流。 |
-| p |必须 |执行的用户流。 它是在 Azure AD B2C 目录中创建的用户流的名称。 用户流名称值应以 b2c\_1\_ 开头。 若要了解有关用户流的详细信息，请参阅 [Azure AD B2C 用户流](active-directory-b2c-reference-policies.md)。 |
+| p |必须 |执行的用户流。 它是在 Azure AD B2C 目录中创建的用户流的名称。 用户流名称值应以 b2c\_1\_ 开头  。 若要了解有关用户流的详细信息，请参阅 [Azure AD B2C 用户流](active-directory-b2c-reference-policies.md)。 |
 | prompt |可选 |需要的用户交互类型。 目前，唯一有效的值为 `login`，这会强制用户在该请求中输入其凭据。 单一登录不会生效。 |
 
 此时，要求用户完成用户流的工作流。 这可能涉及用户输入其用户名和密码、使用社交标识登录、注册目录，或任何其他步骤。 用户操作取决于用户流是如何定义的。
@@ -121,7 +121,7 @@ error=access_denied
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+Host: https://fabrikamb2c.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -186,7 +186,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+Host: https://fabrikamb2c.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_secret=JqQX2PNo9bpM0uEihUPzyrh&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob

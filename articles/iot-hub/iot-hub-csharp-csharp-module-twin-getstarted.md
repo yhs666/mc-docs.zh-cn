@@ -11,12 +11,12 @@ origin.date: 04/26/2018
 ms.date: 06/03/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a87d919c185242fb1c654c3843c140cfd48d086c
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: d8ba1d44941908e1b13c07d2f41c80eb136d6e55
+ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195004"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307569"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>使用 .NET 后端和 .NET 设备创建 IoT 中心模块标识和模块孪生入门
 
@@ -35,7 +35,7 @@ ms.locfileid: "66195004"
 
 * Visual Studio。
 
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
@@ -53,7 +53,7 @@ ms.locfileid: "66195004"
 
 在本节中，将在更新模块孪生报告属性的模拟设备上创建 .NET 控制台应用。
 
-1. **创建 Visual Studio 项目** - 在 Visual Studio 中，使用“控制台应用 (.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案。 确保 .NET Framework 为 4.6.1 或更高版本。 将项目命名为“UpdateModuleTwinReportedProperties”。
+1. **创建 Visual Studio 项目** - 在 Visual Studio 中，使用“控制台应用 (.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到现有解决方案  。 确保 .NET Framework 为 4.6.1 或更高版本。 将项目命名为“UpdateModuleTwinReportedProperties”  。
 
     ![创建 Visual Studio 项目](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
@@ -65,100 +65,101 @@ ms.locfileid: "66195004"
 
     ![Azure 门户模块详细信息](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
-4. **创建 UpdateModuleTwinReportedProperties 控制台应用** 在“Program.cs”文件顶部添加以下 `using` 语句：
+4. **创建 UpdateModuleTwinReportedProperties 控制台应用** 在“Program.cs”文件顶部添加以下 `using` 语句  ：
 
-    ```csharp
-    using Microsoft.Azure.Devices.Client;
-    using Microsoft.Azure.Devices.Shared;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    ```
+```csharp
+using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Shared;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+```
 
-    将以下字段添加到 **Program** 类。 将占位符值替换为模块连接字符串。
+将以下字段添加到 **Program** 类。 将占位符值替换为模块连接字符串。
 
-    ```csharp
-    private const string ModuleConnectionString = 
-      "<Your module connection string>";
-    private static ModuleClient Client = null;
-    static void ConnectionStatusChangeHandler(ConnectionStatus status, 
-      ConnectionStatusChangeReason reason)
+```csharp
+private const string ModuleConnectionString = 
+  "<Your module connection string>";
+private static ModuleClient Client = null;
+static void ConnectionStatusChangeHandler(ConnectionStatus status, 
+  ConnectionStatusChangeReason reason)
+{
+    Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", 
+      status, reason);
+}
+```
+
+将以下方法“OnDesiredPropertyChanged”添加到“Program”类   ：
+
+```csharp
+private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
+  object userContext)
     {
-        Console.WriteLine("Connection Status Changed to {0}; the reason is {1}", 
-          status, reason);
-    }
-    ```
-
-    将以下方法“OnDesiredPropertyChanged”添加到“Program”类：
-
-    ```csharp
-    private static async Task OnDesiredPropertyChanged(TwinCollection desiredProperties, 
-      object userContext)
+        Console.WriteLine("desired property change:");
+        Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
+        Console.WriteLine("Sending current time as reported property");
+        TwinCollection reportedProperties = new TwinCollection
         {
-            Console.WriteLine("desired property change:");
-            Console.WriteLine(JsonConvert.SerializeObject(desiredProperties));
-            Console.WriteLine("Sending current time as reported property");
-            TwinCollection reportedProperties = new TwinCollection
-            {
-                ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
-            };
+            ["DateTimeLastDesiredPropertyChangeReceived"] = DateTime.Now
+        };
 
-            await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
-        }
-    ```
+        await Client.UpdateReportedPropertiesAsync(reportedProperties).ConfigureAwait(false);
+    }
+```
 
-    最后，在 **Main** 方法中添加以下行：
+最后，在 **Main** 方法中添加以下行：
 
-    ```csharp
-    static void Main(string[] args)
+```csharp
+static void Main(string[] args)
+{
+    Microsoft.Azure.Devices.Client.TransportType transport = 
+      Microsoft.Azure.Devices.Client.TransportType.Amqp;
+
+    try
     {
-        Microsoft.Azure.Devices.Client.TransportType transport = 
-          Microsoft.Azure.Devices.Client.TransportType.Amqp;
+        Client = 
+        ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
+        Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
+        Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
 
-        try
-        {
-            Client = 
-              ModuleClient.CreateFromConnectionString(ModuleConnectionString, transport);
-            Client.SetConnectionStatusChangesHandler(ConnectionStatusChangeHandler);
-            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
+        Console.WriteLine("Retrieving twin");
+        var twinTask = Client.GetTwinAsync();
+        twinTask.Wait();
+        var twin = twinTask.Result;
+        Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
 
-            Console.WriteLine("Retrieving twin");
-            var twinTask = Client.GetTwinAsync();
-            twinTask.Wait();
-            var twin = twinTask.Result;
-            Console.WriteLine(JsonConvert.SerializeObject(twin.Properties)); 
+        Console.WriteLine("Sending app start time as reported property");
+        TwinCollection reportedProperties = new TwinCollection();
+        reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
 
-            Console.WriteLine("Sending app start time as reported property");
-            TwinCollection reportedProperties = new TwinCollection();
-            reportedProperties["DateTimeLastAppLaunch"] = DateTime.Now;
-
-            Client.UpdateReportedPropertiesAsync(reportedProperties);
-        }
-        catch (AggregateException ex)
-        {
-            Console.WriteLine("Error in sample: {0}", ex);
-        }
-
-        Console.WriteLine("Waiting for Events.  Press enter to exit...");
-        Console.ReadLine();
-        Client.CloseAsync().Wait();
+        Client.UpdateReportedPropertiesAsync(reportedProperties);
     }
-    ```
+    catch (AggregateException ex)
+    {
+        Console.WriteLine("Error in sample: {0}", ex);
+    }
 
-    此代码示例演示如何检索模块孪生和借助 AMQP 协议更新报告属性。 在公开预览版中，我们仅支持通过 AMQP 进行模块孪生操作。
+    Console.WriteLine("Waiting for Events.  Press enter to exit...");
+    Console.ReadLine();
+    Client.CloseAsync().Wait();
+}
+```
 
-5. 除上述“Main”方法外，还可添加以下代码块将事件从模块发送到 IoT 中心：
-    ```csharp
-    Byte[] bytes = new Byte[2];
-    bytes[0] = 0;
-    bytes[1] = 1;
-    var sendEventsTask = Client.SendEventAsync(new Message(bytes));
-    sendEventsTask.Wait();
-    Console.WriteLine("Event sent to IoT Hub.");
-    ```
+此代码示例演示如何检索模块孪生和借助 AMQP 协议更新报告属性。 在公开预览版中，我们仅支持通过 AMQP 进行模块孪生操作。
+
+1. 除上述“Main”方法外，还可添加以下代码块将事件从模块发送到 IoT 中心  ：
+   
+```csharp
+Byte[] bytes = new Byte[2];
+bytes[0] = 0;
+bytes[1] = 1;
+var sendEventsTask = Client.SendEventAsync(new Message(bytes));
+sendEventsTask.Wait();
+Console.WriteLine("Event sent to IoT Hub.");
+```
 
 ## <a name="run-the-apps"></a>运行应用
 
-现在，已准备就绪，可以运行应用。 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”。 选择“多个启动项目”，然后选择“启动”作为控制台应用的操作。 然后按 F5 启动应用。 
+现在，已准备就绪，可以运行应用。 在 Visual Studio 的“解决方案资源管理器”中右键单击解决方案，并单击“设置启动项目”  。 选择“多个启动项目”，然后选择“启动”作为控制台应用的操作   。 然后按 F5 启动应用。 
 
 ## <a name="next-steps"></a>后续步骤
 

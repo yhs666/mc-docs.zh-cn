@@ -9,12 +9,12 @@ origin.date: 04/11/2018
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: tables
-ms.openlocfilehash: 21805e6e888b272d51f2b05e923bf24f2050a2ba
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 18710e440407f0827c0639bfb6d5ec1cc72dc64c
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029096"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236589"
 ---
 # <a name="encrypt-table-data"></a>对表数据进行加密
 .NET Azure 存储客户端库支持对插入和替换操作的字符串实体属性进行加密。 加密的字符串作为二进制属性存储在服务中，并在解密之后转换回字符串。    
@@ -25,7 +25,7 @@ ms.locfileid: "53029096"
 
 当前不支持合并。 由于一部分属性可能以前已使用不同的密钥加密，因此只合并新属性和更新元数据会导致数据丢失。 合并需要进行额外的服务调用以从服务中读取预先存在的实体，或者需要为属性使用一个新密钥，由于性能方面的原因，这两种方案都不适用。     
 
-若要了解如何加密表数据，请参阅 [Microsoft Azure 存储的客户端加密和 Azure 密钥保管库](../common/storage-client-side-encryption.md)。  
+有关对表数据进行加密的信息，请参阅 [Azure 存储的客户端加密和 Azure Key Vault](../common/storage-client-side-encryption.md)。  
 
 ## <a name="next-steps"></a>后续步骤
 

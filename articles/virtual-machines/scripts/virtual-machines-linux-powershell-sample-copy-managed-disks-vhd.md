@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 09/17/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4c8b0235bee481722a797bf5ff3e63cd142aed16
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0de279e72a44c449d216d50a44bca4a1117049e2
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004311"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325780"
 ---
 # <a name="exportcopy-the-vhd-of-a-managed-disk-to-a-storage-account-in-different-region-with-powershell"></a>使用 PowerShell 将托管磁盘的 VHD 导出/复制到不同区域中的存储帐户
 
@@ -84,7 +84,7 @@ Start-AzStorageBlobCopy -AbsoluteUri $sas.AccessSAS -DestContainer $storageConta
 | 命令 | 注释 |
 |---|---|
 | [Grant-AzDiskAccess](https://docs.microsoft.com/powershell/module/az.compute/grant-azdiskaccess) | 为托管磁盘生成 SAS URI，该 SAS URI 用于将基础 VHD 复制到存储帐户。 |
-| [New-AzureStorageContext -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext -Environment AzureChinaCloud) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |
+| [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/New-AzureStorageContext) | 使用帐户名和密钥创建存储帐户上下文。 此上下文可用于对存储帐户执行读/写操作。 |
 | [Start-AzureStorageBlobCopy](https://docs.microsoft.com/powershell/module/azure.storage/Start-AzureStorageBlobCopy) | 将快照的基础 VHD 复制到存储帐户 |
 
 ## <a name="next-steps"></a>后续步骤

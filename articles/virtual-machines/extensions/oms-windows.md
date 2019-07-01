@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/29/2019
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29b98262103ee7d620ec4d05aa44d2932e76ef33
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 3a6149610513a272944d9bc07b8a4629bb0fd37c
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835825"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276456"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Azure Monitor 虚拟机扩展
 
@@ -90,7 +90,9 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 可以在 Azure 资源管理器模板中使用上一部分中详细介绍的 JSON 架构，以便在 Azure 资源管理器模板部署过程中运行 Log Analytics 代理扩展。 包含 Log Analytics 代理 VM 扩展的示例模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)中找到。 
 
 >[!NOTE]
->需要将代理配置为向多个工作区报告时，此模板不支持指定多个工作区 ID 和工作区密钥。 若要将代理配置为向多个工作区报告，请参阅[添加或删除工作区](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
+>需要将代理配置为向多个工作区报告时，此模板不支持指定多个工作区 ID 和工作区密钥。
+
+<!--Not Available on  To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)-->
 
 虚拟机扩展的 JSON 可以嵌套在虚拟机资源内，或放置在 Resource Manager JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 有关详细信息，请参阅[设置子资源的名称和类型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
 

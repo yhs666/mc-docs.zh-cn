@@ -19,12 +19,12 @@ ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1611c198468f165e2a871a6a85a780abafaccf2f
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 9dc8101e45eafe7cf6d49d8f746d735fae51173b
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517544"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151745"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 标识平台和 OAuth 2.0 代理流
 
@@ -39,7 +39,7 @@ OAuth 2.0 代理流 (OBO) 适用于这样的用例：应用程序调用某个服
 
 ## <a name="protocol-diagram"></a>协议图
 
-假定已在应用程序中使用 [OAuth 2.0 授权代码授权流](v2-oauth2-auth-code-flow.md)对用户进行身份验证。 此时，应用程序已获得 API A 的访问令牌（令牌 A），其中包含用户对访问中间层 Web API (API A) 的声明和许可。 现在，API A 需要向下游 Web API (API B) 发出身份验证请求。
+假定已在应用程序中使用 [OAuth 2.0 授权代码授权流](v2-oauth2-auth-code-flow.md)对用户进行身份验证。 此时，应用程序已获得 API A  的访问令牌（令牌 A），其中包含用户对访问中间层 Web API (API A) 的声明和许可。 现在，API A 需要向下游 Web API (API B) 发出身份验证请求。
 
 所遵循的步骤构成 OBO 流，并借助以下关系图进行说明。
 
@@ -79,7 +79,7 @@ https://login.partner.microsoftonline.cn/<tenant>/oauth2/v2.0/token
 
 #### <a name="example"></a>示例
 
-以下 HTTP POST 通过 `user.read` 作用域请求 https://microsoftgraph.chinacloudapi.cn Web API 的访问令牌和刷新令牌。
+以下 HTTP POST 通过 `https://microsoftgraph.chinacloudapi.cn/user.read` 作用域请求 https://microsoftgraph.chinacloudapi.cn Web API 的访问令牌和刷新令牌。
 
 ```
 //line breaks for legibility only
@@ -114,7 +114,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 #### <a name="example"></a>示例
 
-以下 HTTP POST 通过 `user.read` 作用域请求具有证书的 https://microsoftgraph.chinacloudapi.cn Web API 的访问令牌。
+以下 HTTP POST 通过 `https://microsoftgraph.chinacloudapi.cn/user.read` 作用域请求具有证书的 https://microsoftgraph.chinacloudapi.cn Web API 的访问令牌。
 
 ```
 // line breaks for legibility only

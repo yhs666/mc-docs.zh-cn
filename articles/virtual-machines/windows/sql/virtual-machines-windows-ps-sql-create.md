@@ -17,12 +17,12 @@ origin.date: 12/21/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 9a5e50a63af649ef6f2d39b0c5a2afce3089f13c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: baff7c9706a14c807957d57cfab26deb31acf5b5
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003897"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427815"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>如何使用 Azure PowerShell 预配 SQL Server 虚拟机
 
@@ -390,6 +390,9 @@ $PublisherName = "MicrosoftSQLServer"
 $OfferName = "SQL2017-WS2016"
 $Sku = "SQLDEV"
 $Version = "latest"
+
+# Sign in 
+Connect-AzAccount -Environment AzureChinaCloud
 
 # Resource Group
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location

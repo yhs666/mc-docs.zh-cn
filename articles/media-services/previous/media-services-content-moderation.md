@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/14/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 757679223c18de80b8f61c7153aa5655ceb45268
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 1566a53c9119315e773525a53f2832432f19c045
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624222"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236563"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>使用 Azure 媒体内容审查器检测可能的成人和猥亵内容 
 
@@ -157,16 +157,16 @@ ms.locfileid: "58624222"
 
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
+```
+有关完整的源代码和 Visual Studio 项目，请查看[内容审查器视频快速入门](../../cognitive-services/Content-Moderator/video-moderation-api.md)。
 
-For the full source code and the Visual Studio project, check out the [Content Moderator video quickstart](../../cognitive-services/Content-Moderator/video-moderation-api.md).
+### <a name="json-output"></a>JSON 输出
 
-### JSON output
-
-The following example of a Content Moderator JSON output was truncated.
+以下内容审查器 JSON 输出示例已被截断。
 
 > [!NOTE]
-> Location of a keyframe in seconds = timestamp/timescale
-
+> 以秒数表示的关键帧位置 = 时间戳/时间刻度
+```
     {
     "version": 2,
     "timescale": 90000,

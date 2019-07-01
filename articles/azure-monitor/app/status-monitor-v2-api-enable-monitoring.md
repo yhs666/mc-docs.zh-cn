@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 66f4fa05efd3830973e3cf47297f41b1671c00d3
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 92c8a7da43d8ef9b094f09b39ff2b7697f1d732d
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732247"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236511"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>状态监视器 v2 API：Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
@@ -26,7 +26,7 @@ ms.locfileid: "66732247"
 > [!IMPORTANT]
 > 状态监视器 v2 目前以公共预览版提供。
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)。
+> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)
 
 ## <a name="description"></a>说明
 
@@ -156,7 +156,6 @@ Successfully enabled Application Insights Status Monitor
  - [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
 - [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题
 - [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
-- [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
  
  添加更多遥测：
  - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。

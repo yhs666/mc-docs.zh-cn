@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-origin.date: 08/22/2017
-ms.date: 05/13/2019
+origin.date: 12/22/2018
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 60fae10c700059cd09a21dff037f329b423f1842
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: d24fb59d34e5bf32e2b7ffc522af199adb24af41
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491298"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171375"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
@@ -52,7 +52,7 @@ ms.locfileid: "66491298"
 * [Eclipse IDE for Java EE Developers。](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
 * [已启用 Java 运行时环境（例如 Tomcat 或 Jetty）的 Azure 网站。](../app-service/app-service-web-get-started-java.md)
 
-如果是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](https://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文的“快速入门”部分提供的安装过程进行演练。
+如果是首次安装这些工具，那么可以参考 coreservlets.com 网站的[教程：安装 TomCat7 并将其与 Eclipse 一起使用](http://www.coreservlets.com/Apache-Tomcat-Tutorial/tomcat-7-with-eclipse.html)一文的“快速入门”部分提供的安装过程进行演练。
 
 <a name="CreateDB"></a>
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>步骤 1：创建 Azure Cosmos DB 帐户
@@ -729,9 +729,9 @@ ms.locfileid: "66491298"
 1. 要将应用程序导出为 WAR 文件，请在“项目资源管理器”中右键单击项目，然后依次单击“导出”和“WAR 文件”。   
 2. 在“WAR 导出”  窗口中，执行以下操作：
 
-   * 在“Web 项目”框中，输入 azure-documentdb-java-sample。
-   * 在“目标”框中，选择一个目标以保存 WAR 文件。
-   * 单击“完成”  。
+    * 在“Web 项目”框中，输入 azure-documentdb-java-sample。
+    * 在“目标”框中，选择一个目标以保存 WAR 文件。
+    * 单击“完成”  。
 3. 现在已经具有 WAR 文件，只需将它上传到 Azure 网站的 **webapps** 目录。 有关上传此文件的说明，请参阅[将 Java 应用程序添加到 Azure 应用服务 Web 应用](../app-service/app-service-web-get-started-java.md)。
     <!--URL direct to app-service-web-get-started-java.md-->
     将 WAR 文件上传到 webapps 目录之后，运行时环境将检测到已经添加了此文件，并会自动加载它。
@@ -746,7 +746,7 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 3. 在 Eclipse 中，在“文件”菜单上单击“导入”   。
 4. 在“导入”窗口中，依次单击“Git”、“来自 Git 的项目”和“下一步”     。
 5. 在“选择存储库源”屏幕上，单击“克隆 URI”。  
-6. 在“源 Git 存储库”屏幕上的“URI”框中，输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git，然后单击“下一步”    。
+6. 在“源 Git 存储库”屏幕上的“URI”框中，输入 https://github.com/Azure-Samples/documentdb-java-todo-app.git ，然后单击“下一步”    。
 7. 在“分支选择”屏幕上，确保已选择“master”，并单击“下一步”。   
 8. 在“本地目标”屏幕上，单击“浏览”选择要将存储库复制到的文件夹，并单击“下一步”    。
 9. 在“选择要用于导入项目的向导”屏幕上，确保已选择“导入现有项目”，并单击“下一步”。   

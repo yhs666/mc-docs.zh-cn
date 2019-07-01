@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e77eb5454547c47df70547f6ec83da69d034f38f
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 2cf6fb353ddb7f792b5cede09596aea5c5561c59
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135906"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236559"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在运行时使用 Application Insights 状态监视器检测 Web 应用
 
@@ -321,7 +321,6 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 * [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
 * [搜索事件和日志][diagnostic]，以便诊断问题
 * [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
-* [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
 
 添加更多遥测：
 

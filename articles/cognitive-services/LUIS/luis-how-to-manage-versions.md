@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: fd0131da10edd6ec2b9b12fade11579118420d56
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 16209a5e15e297d99082913753ebab0e433923f0
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828534"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236349"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本进行编辑和测试，而不会影响暂存应用或生产应用
 
 版本允许你构建和发布不同的模型。 较好的做法是在对模型进行更改之前将当前的活动模型复制到一个不同的应用[版本](luis-concept-version.md)。 
 
-若要处理版本，请在“我的应用”页面上通过选择你的应用名称来将其打开，在顶栏中选择“管理”，然后在左侧导航栏中选择“版本”。 
+若要处理版本，请在“我的应用”  页面上通过选择你的应用名称来将其打开，在顶栏中选择“管理”  ，然后在左侧导航栏中选择“版本”  。 
 
 版本列表显示哪些版本已发布，它们发布在何处，以及哪个版本当前处于活动状态。 
 
@@ -30,9 +30,9 @@ ms.locfileid: "65828534"
 
 ## <a name="clone-a-version"></a>克隆版本
 
-1. 选择要克隆的版本，然后从工具栏中选择“克隆”。 
+1. 选择要克隆的版本，然后从工具栏中选择“克隆”。  
 
-2. 在“克隆版本”对话框中，键入新版本的名称，如“0.2”。
+2. 在“克隆版本”  对话框中，键入新版本的名称，如“0.2”。
 
    ![“克隆版本”对话框](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
@@ -43,15 +43,15 @@ ms.locfileid: "65828534"
 
 ## <a name="set-active-version"></a>设置活动版本
 
-从列表中选择一个版本，然后从工具栏中选择“激活”。 
+从列表中选择一个版本，然后从工具栏中选择“激活”  。 
 
 [![在“管理”部分的“版本”页，执行版本操作](./media/luis-how-to-manage-versions/versions-other.png "在“管理”部分的“版本”页，执行版本操作")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>导入版本
 
-1. 从工具栏中选择“导入版本”。 
+1. 从工具栏中选择“导入版本”  。 
 
-2. 在“导入新版本”弹出窗口中，输入新的由十个字符构成的版本名称。 仅当应用中已有 JSON 文件中的版本时，才需要设置版本 ID。
+2. 在“导入新版本”  弹出窗口中，输入新的由十个字符构成的版本名称。 仅当应用中已有 JSON 文件中的版本时，才需要设置版本 ID。
 
     ![在“管理”部分的“版本”页，导入新版本](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
@@ -59,15 +59,15 @@ ms.locfileid: "65828534"
 
 ### <a name="import-errors"></a>导入错误
 
-* Tokenizer 错误：如果在导入时收到 **tokenizer 错误**，则表示你尝试导入的版本使用的 [tokenizer](luis-language-support.md#custom-tokenizer-versions) 与应用当前使用的不同。 若要解决此问题，请参阅[在 tokenizer 版本之间迁移](luis-language-support.md#migrating-between-tokenizer-versions)。
+* Tokenizer 错误：如果在导入时收到 **tokenizer 错误**，则表示你尝试导入的版本使用的 [tokenizer](luis-language-support.md) 与应用当前使用的不同。 若要解决此问题，请参阅[在 tokenizer 版本之间迁移](luis-language-support.md#migrating-between-tokenizer-versions)。
 
 <a name = "export-version"></a>
 
 ## <a name="other-actions"></a>其他操作
 
-* 若要**删除**某个版本，请从列表中选择一个版本，然后从工具栏中选择“删除”。 选择“确定”。 
-* 若要**重命名**某个版本，请从列表中选择一个版本，然后从工具栏中选择“重命名”。 输入新名称并选择“完成”。 
-* 若要**导出**某个版本，请从列表中选择一个版本，然后从工具栏中选择“导出应用”。 文件将下载到本地计算机。 
+* 若要**删除**某个版本，请从列表中选择一个版本，然后从工具栏中选择“删除”。  选择“确定”。  
+* 若要**重命名**某个版本，请从列表中选择一个版本，然后从工具栏中选择“重命名”。  输入新名称并选择“完成”  。 
+* 若要**导出**某个版本，请从列表中选择一个版本，然后从工具栏中选择“导出应用”。  文件将下载到本地计算机。 
 
 
 

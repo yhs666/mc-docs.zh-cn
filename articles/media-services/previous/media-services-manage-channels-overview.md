@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/18/2019
 ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: 94e29fdf28743a6f465af0dd94e4b02835891d61
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 07a8e9c0327cad40da2fb1564d5b6729e86605c7
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390776"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236637"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>使用媒体服务实时传送视频流概述
 
@@ -40,7 +40,7 @@ ms.locfileid: "66390776"
   * 记录和存储引入的内容，以便稍后进行流式处理（视频点播）
   * 直接通过常用流式处理协议（例如 MPEG DASH、Smooth、HLS）将内容传递给客户，或传递到内容分发网络 (CDN) 以供进一步分发。
 
-Microsoft Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传送视频流内容的功能  。
+Azure 媒体服务 (AMS) 提供了引入、编码、预览、存储和实时传送视频流内容的功能  。
 
 借助媒体服务，可以利用[动态打包](media-services-dynamic-packaging-overview.md)，以便广播正在发送到服务的贡献源中采用 MPEG DASH、HLS 和平滑流式处理格式的实时传送流。 观看者可以使用任何与 HLS、DASH 或平滑流式处理兼容的播放器播放实时流。 可以使用 Web 应用程序或移动应用程序中的 Azure Media Player 传送采用上述任何协议的流。
 

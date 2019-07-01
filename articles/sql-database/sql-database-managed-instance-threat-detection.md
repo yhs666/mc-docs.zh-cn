@@ -13,12 +13,12 @@ ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/04/2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 75d68539c014aedaaacd1d565aec18152fe8c2dd
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: e8a481f2f167495aa495fc5354931a46d2016cd4
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529349"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277011"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中配置威胁检测（预览版）
 
@@ -31,12 +31,12 @@ ms.locfileid: "59529349"
 ## <a name="set-up-threat-detection-for-your-managed-instance-in-the-azure-portal"></a>在 Azure 门户中为托管实例设置威胁检测
 
 1. 在 [https://portal.azure.cn](https://portal.azure.cn) 中启动 Azure 门户。
-2. 导航到要保护的托管实例的配置页。 在“设置”页中，选择“威胁检测”。
+2. 导航到要保护的托管实例的配置页。 在“设置”页中，选择“威胁检测”   。
 3. 在威胁检测配置页中
-   - 将威胁检测设置为“打开”。
+   - 将威胁检测设置为“打开”  。
    - 配置在检测到异常数据库活动时需要接收安全警报的**电子邮件列表**。
    - 选择保存异常的威胁审核记录的 **Azure 存储帐户**。
-4. 单击“保存”以保存新的或更新的威胁检测策略。
+4. 单击“保存”  以保存新的或更新的威胁检测策略。
 
    ![威胁检测](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
@@ -45,5 +45,4 @@ ms.locfileid: "59529349"
 - 详细了解[威胁检测](sql-database-threat-detection-overview.md)。
 - 如需了解有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)。
 - 详细了解[单一数据库中的威胁检测](sql-database-threat-detection.md)。
-- 详细了解[托管实例审核](https://go.microsoft.com/fwlink/?linkid=869430)。
-- 详细了解 [Azure 安全中心](https://docs.microsoft.com/azure/security-center/security-center-intro)。
+- 详细了解[托管实例审核](/sql-database/sql-database-managed-instance-auditing)。

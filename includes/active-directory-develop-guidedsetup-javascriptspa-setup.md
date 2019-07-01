@@ -12,15 +12,15 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/17/2018
-ms.date: 05/10/2019
+ms.date: 06/21/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: fe2384b6500d32d1ef850041f830aea74550d3a7
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 892cee65440e003e1818b8e222a9c69fe3371b0a
+ms.sourcegitcommit: a0f90b99b9081d25ced6fa3c4eb7903fb0904d61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65960906"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307601"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>设置 Web 服务器或项目
 
@@ -49,13 +49,13 @@ ms.locfileid: "65960906"
 
 > ### <a name="option-2-visual-studio"></a>选项 2：Visual Studio
 > 如果正在使用 Visual Studio 创建新项目，请按照以下步骤创建新的 Visual Studio 解决方案：
-> 1.    在 Visual Studio 中：“文件”>“新建”>“项目”
-> 2.    在 Visual C#\Web 下，选择“ASP.NET Web 应用程序(.NET Framework)”
-> 3.    输入应用程序的名称并选择“确定”
-> 4.    在“新建 ASP.NET Web 应用程序”下，选择“空”
+> 1.    在 Visual Studio 中：  “文件”>“新建”>“项目”
+> 2.    在 Visual C#\Web 下，选择“ASP.NET Web 应用程序(.NET Framework)”  
+> 3.    输入应用程序的名称并选择“确定” 
+> 4.    在“新建 ASP.NET Web 应用程序”  下，选择“空” 
 
 ## <a name="create-your-single-page-applications-ui"></a>创建单页应用程序的 UI
-1. 为 JavaScript SPA 创建 `index.html` 文件。 如果使用 Visual Studio，请选择项目（项目根文件夹），然后右键单击并选择：“添加”>“新建项”>“HTML 页”并将其命名为 index.html。
+1. 为 JavaScript SPA 创建 `index.html` 文件。 如果使用 Visual Studio，请选择项目（项目根文件夹），然后右键单击并选择：“添加”>“新建项”>“HTML 页”并将其命名为 index.html  。
 
 2. 将以下代码添加到页面：
    ```html
@@ -64,7 +64,7 @@ ms.locfileid: "65960906"
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.parter.microsoftonline-p.cn/lib/1.0.0-preview.4/js/msal.js"></script>
+       <script src="https://secure.aadcdn.parter.microsoftonline-p.cn/lib/1.0.0/js/msal.js"></script>
    </head>
    <body>
        <h2>Welcome to MSAL.js Quickstart</h2><br/>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2228eaaea21fd75c2f9642cdbfa88972a3af83d2
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: aa1dbb7fe4c98f458916273db94f2dc60428e02f
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732166"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236516"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 概述仪表板
 
@@ -65,7 +65,6 @@ Application Insights 一直都有一个总览窗格，可让用户快速、直�
 - [漏斗图](../../azure-monitor/app/usage-funnels.md)
 - [保留](../../azure-monitor/app/usage-retention.md)
 - [用户流](../../azure-monitor/app/usage-flows.md)
-- [仪表板](../../azure-monitor/app/app-insights-dashboards.md)
 
 
 

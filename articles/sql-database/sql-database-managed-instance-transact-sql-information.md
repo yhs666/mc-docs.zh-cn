@@ -13,12 +13,12 @@ manager: digimobile
 origin.date: 03/13/2019
 ms.date: 05/20/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 8c78832e28b7df1bd59d14dbdd6a52e71db32b9e
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 7183fac19f36f9749f10e462e831c6855915cf8d
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629187"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277013"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
 
@@ -158,7 +158,7 @@ WITH PRIVATE KEY (<private_key_options>)
   - 托管实例的 Active Directory 管理员限制：
 
     - 用于设置托管实例的 Azure AD 管理员不可用于在托管实例中创建 Azure AD 服务器主体（登录名）。 必须使用充当 `sysadmin` 角色的 SQL Server 帐户创建第一个 Azure AD 服务器主体（登录名）。 Azure AD 服务器主体（登录名）的正式版推出后，即会去除这种暂时性限制。 如果尝试使用 Azure AD 管理员帐户创建登录名，将会看到以下错误：`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - 目前，在 master 数据库中创建的第一个 Azure AD 登录名必须由充当 `sysadmin` 角色的标准 SQL Server 帐户（非 Azure AD）使用 [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER 创建。 正式版推出后，将去除此限制。 然后，可以使用托管实例的 Active Directory 管理员身份创建初始的 Azure AD 登录名。
+      - 目前，在 master 数据库中创建的第一个 Azure AD 登录名必须由充当 `sysadmin` 角色的标准 SQL Server 帐户（非 Azure AD）使用 [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER 创建。 正式版推出后，将去除此限制。 然后，可以使用托管实例的 Active Directory 管理员身份创建初始的 Azure AD 登录名。
     - 与 SQL Server Management Studio 或 SqlPackage 配合使用的 DacFx（导出/导入）不支持 Azure AD 登录名。 Azure AD 服务器主体（登录名）的正式版推出后，即会去除这种限制。
     - 将 Azure AD 服务器主体（登录名）与 SQL Server Management Studio 配合使用：
 
@@ -493,7 +493,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 在此示例中，只要未添加新文件，现有数据库就会继续工作并且可以毫无问题地增长。 由于没有足够的空间用于新磁盘驱动器，因此无法创建或还原新数据库，即使所有数据库的总大小未达到实例大小限制也是如此。 这种情况下返回的错误并不明确。
 
-可以使用系统视图[识别剩余文件的数目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)。 如果即将达到此限制，请尝试[使用 DBCC SHRINKFILE 语句清空并删除一些小型文件](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或者切换到[没有此限制的“业务关键”层级](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
+可以使用系统视图[识别剩余文件的数目](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1)。 如果即将达到此限制，请尝试[使用 DBCC SHRINKFILE 语句清空并删除一些小型文件](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file)，或者切换到[没有此限制的“业务关键”层级](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 
 ### <a name="incorrect-configuration-of-the-sas-key-during-database-restore"></a>在还原数据库期间不正确地配置了 SAS 密钥
 
@@ -570,7 +570,7 @@ using (var scope = new TransactionScope())
 
 不能在使用服务托管透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服务托管的 TDE 强制使用内部 TDE 密钥对备份进行加密。 无法导出该密钥，因此无法还原备份。
 
-**解决方法：** 使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)。 也可以在数据库上禁用加密。
+**解决方法：** 使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)。 也可以在数据库上禁用加密。
 
 ## <a name="next-steps"></a>后续步骤
 

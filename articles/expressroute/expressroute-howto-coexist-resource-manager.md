@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 02/21/2019
 ms.author: v-yiso
 ms.date: 04/08/2019
-ms.openlocfilehash: 0208b85706ac71844cba589458e99b4a11d2f367
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: eb49c5c204f7ce808f8c49f81f342c16e2d94b63
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627018"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236031"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 和站点到站点共存连接
 > [!div class="op_single_selector"]
@@ -87,7 +87,6 @@ ms.locfileid: "58627018"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 
 ## <a name="new"></a>创建新的虚拟网络和并存连接

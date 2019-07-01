@@ -19,15 +19,6 @@ metadata:
   ms.author: v-jay
 abstract:
   description: Azure SQL 数据库中的托管实例是承载在 Azure 云中的一个完全托管的 SQL Server 数据库引擎实例。 这是将 SQL Server 数据库迁移到云的最佳 PaaS 选项。 使用快速入门、教程和示例，了解如何创建和使用托管实例。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/sql-database-managed-instance-index/intro.png
-      width: 250
-    title: 'Azure SQL 数据库中的托管实例简介 (5:38)'
-    href: 'https://www.youtube.com/watch?v=W8feSZXm2Ec'
-    width: 250
 sections:
   - items:
       - type: list
@@ -148,11 +139,10 @@ sections:
           - html: 了解<a href="/sql-database/sql-database-managed-instance-resource-limits">硬件特征和限制</a>、<a href="/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL 语言差异</a>和<a href="/sql-database/sql-database-managed-instance-create-manage">用于配置托管实例的 Transact-SQL、PowerShell、Azure CLI API<a/>。
           - html: '<a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">配置</a>将在其中部署托管实例的 Azure VNet。'
           - html: '<a href="/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">验证</a>现有的 Azure VNet 可以用于部署托管实例。'
-          - html: '使用<a href="sql-database-managed-instance-public-endpoint-securely">公共 IP 终结点</a>、<a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虚拟机</a>、<a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">点到站点连接</a>或<a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">应用程序</a>连接到实例。'
+          - html: '使用<a href="sql-database-managed-instance-public-endpoint-securely">公共 IP 终结点</a>、<a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure 虚拟机</a>、<a href="/sql-database/sql-database-managed-instance-configure-p2s">点到站点连接</a>或<a href="/sql-database/sql-database-managed-instance-connect-app">应用程序</a>连接到实例。'
           - html: '验证可以使用<a href="https://www.microsoft.com/download/details.aspx?id=53595">数据迁移助手</a>或<a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">数据库实验助手</a>迁移数据库。'
           - html: 使用<a href="/sql-database/sql-database-managed-instance-get-started-restore">本机还原</a>将数据库移动到托管实例。
           - html: '了解<a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">“常规用途”层级</a>中的存储层以及应用<a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">针对“常规用途”服务层级的存储性能最佳做法和注意事项</a>。'
-          - html: '找到<a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">保护实例</a>的最佳做法和建议。'
           - html: 查找可以帮助你配置托管实例的更多<a href="sql-database-howto-managed-instance.md">操作指南</a>。
   - title: 参考
     items:

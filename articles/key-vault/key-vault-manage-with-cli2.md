@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 06/22/2018
 ms.date: 03/11/2019
 ms.author: v-biyu
-ms.openlocfilehash: ee433e6acfd8d8a93928216d7de96af22d61b0a6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4efae76b428a4a452eebe1cbd3449a7be0c732cf
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627412"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171241"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>使用 Azure CLI 管理密钥保管库 
 
@@ -123,7 +123,7 @@ az provider register -n Microsoft.KeyVault
 
 使用 `az keyvault create` 命令来创建密钥保管库。 此脚本包含三个必需参数：资源组名称、密钥保管库名称和地理位置。
 
-若要在位于“中国北部”位置的资源组 **ContosoResourceGroup** 中创建名为 **ContosoKeyVault** 的新保管库，请键入： 
+若要在位于“中国北部”位置的资源组 **ContosoResourceGroup** 中创建名为 **ContosoKeyVault** 的新保管库，请键入：  
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "China North"
@@ -132,7 +132,7 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 此命令的输出会显示创建的 Key Vault 的属性。 两个最重要的属性是：
 
 - **name**：在本示例中，名称为 ContosoKeyVault。 将在其他 Key Vault 命令中使用此名称。
-- **vaultUri**：在本示例中，URI 为 https://contosokeyvault.vault.azure.cn。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **vaultUri**：在本示例中，URI 为 https://contosokeyvault.vault.azure.cn 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 Azure 帐户现已获取在此密钥保管库上执行任何作业的授权。 到目前为止，尚未授权其他任何人。
 
@@ -150,7 +150,7 @@ az keyvault key create --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey>** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如，**<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87>**。 
+现在，可以通过使用密钥的 URI，引用已创建或上传到 Azure 密钥保管库的密钥。 使用 **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey>** 始终会获取当前版本。 使用 https://[keyvault-name].vault.azure.cn/keys/[keyname]/[key-unique-id] 获取此特定版本。 例如， **<https://ContosoKeyVault.vault.azure.cn/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87>** 。 
 
 将机密（名为 SQLPassword 的密码，其值为“hVFkk965BuUv”）添加到 Azure 密钥保管库。 
 
@@ -158,7 +158,7 @@ az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" -
 az keyvault secret set --vault-name "ContosoKeyVault" --name "SQLPassword" --value "hVFkk965BuUv "
 ```
 
-使用此密码的 URI 引用此密码。 使用 **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword>** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如，**<https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d>**。
+使用此密码的 URI 引用此密码。 使用 **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword>** 始终会获取当前版本，使用 https://[keyvault-name].vault.azure.cn/secret/[secret-name]/[secret-unique-id] 会获取此特定版本。 例如， **<https://ContosoVault.vault.azure.cn/secrets/SQLPassword/90018dbb96a84117a0d2847ef8e7189d>** 。
 
 使用 .pem 或 .pfx 将证书导入保管库。
 
@@ -197,7 +197,7 @@ az keyvault certificate list --vault-name "ContosoKeyVault"
 
 应用程序必须向 Azure Active Directory 提供这两个值才能获取令牌。 如何将应用程序配置为获取令牌取决于应用程序。 对于 [Key Vault 示例应用程序](https://www.microsoft.com/download/details.aspx?id=45343)，应用程序所有者会在 app.config 文件中设置这些值。
 
-有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
+有关将应用程序注册到 Azure Active Directory 的详细步骤，请参阅文章[将应用程序与 Azure Active Directory 集成](../active-directory/develop/quickstart-register-app.md)、[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](../azure-resource-manager/resource-group-create-service-principal-portal.md)以及[使用 Azure CLI 2.0 创建 Azure 服务主体](/cli/create-an-azure-service-principal-azure-cli)。
 
 在 Azure Active Directory 中注册应用程序：
 

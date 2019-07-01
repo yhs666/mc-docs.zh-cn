@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 03/13/2019
-ms.date: 05/13/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: f10d3425ceadb4c25da8fa2318f577bf8e1724d0
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: e8bc00b349774c20000132e505f08c57588bd266
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668877"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171309"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ SQL API Java SDK 支持同步操作。 如需异步支持，请使用 [SQL API A
 |**参与 SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
 |**入门**|[Java SDK 入门](sql-api-java-get-started.md)|
 |**Web 应用教程**|[使用 Azure Cosmos DB 开发 Web 应用程序](sql-api-java-application.md)|
-|受支持的最小运行时|[Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)|
+|受支持的最小运行时 |[Java 开发工具包 (JDK) 7+](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)|
 
 <!-- Not Available on ## Release Notes -->
 <!-- Not Available on ## Release & Retirement Dates -->

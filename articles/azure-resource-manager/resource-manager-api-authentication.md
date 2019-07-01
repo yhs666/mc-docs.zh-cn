@@ -13,12 +13,12 @@ ms.workload: identity
 origin.date: 04/05/2019
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3e5e4e1302762943e33c562d5a196d35b506549b
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 07f31191c2ac99116916a6bac0d4bbb794c09f36
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529237"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276436"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 
@@ -106,7 +106,9 @@ Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留�
 ## <a name="get-user--app-access-token"></a>获取用户和应用访问令牌
 应用程序使用 OAuth 2.0 授权请求将用户重定向到 Azure AD - 以验证用户的凭据并取回授权代码。 应用程序使用授权代码来访问 Resource Manager 的令牌。 [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) 方法创建授权请求。
 
-本问说明用于对用户进行身份验证的 REST API 请求。 也可以使用帮助库在代码中执行身份验证。 有关这些库的详细信息，请参阅 [Azure Active Directory 身份验证库](../active-directory/active-directory-authentication-libraries.md)。 若要通过指南了解如何在应用程序中集成标识管理，请参阅 [Azure Active Directory 开发人员指南](../active-directory/develop/v1-overview.md)。
+本问说明用于对用户进行身份验证的 REST API 请求。 也可以使用帮助库在代码中执行身份验证。 有关这些库的详细信息，请参阅 [Azure Active Directory 身份验证库](../active-directory/develop/active-directory-authentication-libraries.md)。 若要通过指南了解如何在应用程序中集成标识管理，请参阅 [Azure Active Directory 开发人员指南](../active-directory/develop/v1-overview.md)。
+
+<!--MOONCAKE: CORRECT ON active-directory/develop/active-directory-authentication-libraries.md-->
 
 ### <a name="auth-request-oauth-20"></a>授权请求 (OAuth 2.0)
 将 Open ID Connect/OAuth2.0 授权请求发送到 Azure AD 授权终结点：

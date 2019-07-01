@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.openlocfilehash: d3055b1819695d82d2a8a9b915284f515348921c
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732244"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236020"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中设置警报
 当 Web 应用中的性能或用法指标发生变化时，[Azure Application Insights][start] 可发出警报。 

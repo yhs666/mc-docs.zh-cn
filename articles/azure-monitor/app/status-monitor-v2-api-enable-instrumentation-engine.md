@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a8e3be279957e3dba64f6a035eb0ab78cce2ec7c
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 3491e3ce889a0b506ecd7141045282118fa4b2a5
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732443"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236544"
 ---
 # <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>状态监视器 v2 API：Enable-InstrumentationEngine (v0.2.1-alpha)
 
@@ -58,7 +58,7 @@ PS C:\> Enable-InstrumentationEngine
 ## <a name="parameters"></a>parameters 
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**可选。** 使用此开关接受无外设安装中的许可证和隐私声明。
+**可选。** 使用此开关可在无外设安装中接受许可条款和隐私声明。
 
 ### <a name="-verbose"></a>-Verbose
 **通用参数。** 使用此开关输出详细的日志。
@@ -77,9 +77,8 @@ Configuring registry for instrumentation engine...
 
   查看遥测：
  - [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
-- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)，以便诊断问题
+- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题
 - [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
-- [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
  
  添加更多遥测：
  - [创建 Web 测试](monitor-web-app-availability.md)，以确保站点保持活动状态。
@@ -88,7 +87,7 @@ Configuring registry for instrumentation engine...
  
  使用状态监视器 v2 执行更多操作：
  - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
- - [获取配置](status-monitor-v2-api-get-config.md)以确认你的设置已正确记录。
+ - [获取配置](status-monitor-v2-api-get-config.md)以确认是否正确记录了你的设置。
  - [获取状态](status-monitor-v2-api-get-status.md)以检查监视。
 
 

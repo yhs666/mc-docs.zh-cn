@@ -15,12 +15,12 @@ ms.workload: big-compute
 origin.date: 12/08/2016
 ms.date: 06/04/2018
 ms.author: v-yeche
-ms.openlocfilehash: ef4bbb41025d9a09b065265d0f2b59f94696a1cc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4fd8dc421a5e6f7cba363fc246775c6544a7e85b
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625691"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276469"
 ---
 # <a name="automatically-grow-and-shrink-the-hpc-pack-cluster-resources-in-azure-according-to-the-cluster-workload"></a>在 Azure 中根据群集工作负荷自动扩展和收缩 HPC Pack 群集资源
 如果在 HPC Pack 群集中部署 Azure“突发”节点，或者在 Azure VM 中创建 HPC Pack 群集，可能需要借助某种方法根据群集上的工作负荷自动扩展或收缩群集资源（例如节点或核心）。 以这种方法缩放群集资源可以更有效地使用 Azure 资源并控制其成本。
@@ -82,7 +82,7 @@ ms.locfileid: "58625691"
 
      **CertificateThumbprint** - 步骤 1 中在头节点上安装的证书的指纹。
 
-     **TenantId** - Azure Active Directory 的租户 ID。 可以从 Azure Active Directory 门户“属性”页获取租户 ID。
+     **TenantId** - Azure Active Directory 的租户 ID。 可以从 Azure Active Directory 门户“属性”  页获取租户 ID。
 
      如需 **ConfigARMAutoGrowShrinkCert.ps1** 的详细信息，请运行 `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`。
 
@@ -139,6 +139,7 @@ Set-HpcClusterProperty -ExcludeNodeGroups <group1,group2,group3>
 > 从 HPC Pack 2016 开始支持此参数
 >
 
+<a name="AutoGrowShrink-parameters"></a>
 ### <a name="autogrowshrink-parameters"></a>AutoGrowShrink 参数
 下面是可以使用 **Set-HpcClusterProperty** 命令修改的 AutoGrowShrink 参数。
 
@@ -227,7 +228,7 @@ AzureAutoGrowShrink.ps1 -UseLastConfigurations [-ArgFile <String>] [-LogFilePref
 * **NumOfQueuedJobsToGrowThreshold** - 要开始增加流程的已排队作业的阈值数量。
 * **NumOfActiveQueuedTasksPerNodeToGrow** - 要增加一个节点所需的活动已排队任务数量。 如果 **NumOfQueuedJobsPerNodeToGrow** 指定为大于 0 的值，则忽略此参数。
 * **NumOfActiveQueuedTasksToGrowThreshold** - 要开始增加流程的活动已排队任务的阈值数量。
-* **NumOfInitialNodesToGrow**：当范围内的所有节点都处于“未部署”或“已停止(已释放)”状态时，要扩展节点的初始最小数量。
+* **NumOfInitialNodesToGrow**：当范围内的所有节点都处于“未部署”  或“已停止(已释放)”  状态时，要扩展节点的初始最小数量。
 * **GrowCheckIntervalMins** - 要增加检查之间的间隔（单位为分钟）。
 * **ShrinkCheckIntervalMins** - 要减少检查之间的间隔（单位为分钟）。
 * **ShrinkCheckIdleTimes**：在指示节点处于空闲状态之前，连续收缩检查（由 **ShrinkCheckIntervalMins** 分隔）的次数。

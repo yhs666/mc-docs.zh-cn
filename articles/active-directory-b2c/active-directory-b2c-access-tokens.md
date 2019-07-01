@@ -11,12 +11,12 @@ origin.date: 04/16/2019
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: fddb6fbc7629e4225434ce1da1ef854e30483b2c
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 101c574a27b26a0120ccbd154af512f32820aeb3
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687602"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235960"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中请求访问令牌
 
@@ -69,7 +69,7 @@ scope=https%3A%2F%2Fcontoso.partner.onmschina.cn%2Fapi%2Fread%20openid%20offline
 - `<redirect-uri>` - 注册客户端应用程序时输入的重定向 URI  。
 
 ```
-GET https://<tenant-name>.b2clogin.com/tfp/<tenant-name>.partner.onmschina.cn/<policy-name>/oauth2/v2.0/authorize?
+GET https://<tenant-name>.b2clogin.cn/tfp/<tenant-name>.partner.onmschina.cn/<policy-name>/oauth2/v2.0/authorize?
 client_id=<application-ID>
 &nonce=anyRandomValue
 &redirect_uri=https://jwt.ms
@@ -87,7 +87,7 @@ https://jwt.ms/?code=eyJraWQiOiJjcGltY29yZV8wOTI1MjAxNSIsInZlciI6IjEuMC...
 
 ```
 POST <tenant-name>.partner.onmschina.cn/oauth2/v2.0/token?p=<policy-name> HTTP/1.1
-Host: https://<tenant-name>.b2clogin.com
+Host: https://<tenant-name>.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code
@@ -120,7 +120,7 @@ grant_type=authorization_code
   "alg": "RS256",
   "kid": "X5eXk4xyojNFum1kl2Ytv8dl..."
 }.{
-  "iss": "https://contoso0926tenant.b2clogin.com/c64a4f7d-3091-4c73-a7.../v2.0/",
+  "iss": "https://contoso0926tenant.b2clogin.cn/c64a4f7d-3091-4c73-a7.../v2.0/",
   "exp": 1549651031,
   "nbf": 1549647431,
   "aud": "f2a76e08-93f2-4350-833c-965...",

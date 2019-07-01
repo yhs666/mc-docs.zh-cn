@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 408ecf576b35822c85dcacc2f53a3a63c1b6699d
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2961a7ec1ca0c29c4dea7619dab9c0707aa1f02b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004472"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236581"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>在 Azure 安全中心自定义 OS 安全配置（预览）
 
 本演练演示如何在 Azure 安全中心自定义 OS 安全配置评估。
 
 > [!NOTE]
-> 自定义 OS 安全配置的功能将在 2019 年 7 月 31 日停用。 有关详细信息和备用服务，请参阅用[安全中心功能的停用（2019 年 7 月）](security-center-features-retirement-july2019.md#menu_securityconfigurations)。
+> 自定义 OS 安全配置的功能将在 2019 年 7 月 31 日停用。
 
 ## <a name="what-are-os-security-configurations"></a>什么是 OS 安全配置？
 
@@ -319,6 +319,5 @@ Azure 安全中心应用 [150 多种建议的规则](https://gallery.technet.mic
 
 - [安全中心的常见配置标识符和基线规则](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335)。
 - 安全中心使用通用配置枚举 (CCE) 将唯一标识符分配到配置规则。 有关详细信息，请参阅 [CCE](https://nvd.nist.gov/config/cce/index)。
-- [补救安全配置](security-center-remediate-os-vulnerabilities.md)介绍了当 OS 配置与建议的安全配置规则不匹配时如何解决漏洞。
 
 

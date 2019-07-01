@@ -17,13 +17,14 @@ origin.date: 02/27/2017
 ms.date: 05/15/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 22c5ffca9b181d8b9077f74dae148e9b2f31abbc
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 17935ef598ef659ceb6d5f5b97b1bdfded29cbd0
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835806"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427827"
 ---
+<!--Verify successfully-->
 # <a name="monitor-a-vm-with-azure-monitor"></a>使用 Azure Monitor 监视 VM
 
 此脚本创建一个 Azure 虚拟机，安装 Log Analytics 代理，并将系统注册到 Log Analytics 工作区。 运行脚本后，该虚拟机会显示在控制台中。

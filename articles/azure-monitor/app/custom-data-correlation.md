@@ -14,11 +14,11 @@ ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
 ms.openlocfilehash: 53e29adcfdaa1044d4795c14ea8f42c5c47b05ac
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732257"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235994"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>将 Application Insights 数据与自定义数据源相关联
 

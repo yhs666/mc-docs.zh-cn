@@ -13,18 +13,16 @@ ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 12/14/2018
 ms.date: 04/29/2019
-ms.openlocfilehash: c56c7d1541aa1b7b9746848ba3b707c12750597d
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 50bc59b3b0f73f55c12541522074817cdbbd1718
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855491"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277020"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入门：将数据库还原到托管实例
 
 本快速入门介绍如何使用 SQL Server Management Studio (SSMS) 将某个数据库（Wide World Importers - Standard 备份文件）从 Azure Blob 存储还原到 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。
-
-> [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
 > 有关各种迁移方法的详细信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例](sql-database-managed-instance-migrate.md)。
@@ -47,7 +45,7 @@ ms.locfileid: "64855491"
 在 SSMS 中，遵循以下步骤将 Wide World Importers 数据库还原到托管实例。 数据库备份文件存储在预配置的 Azure Blob 存储帐户中。
 
 1. 打开 SMSS 并连接到托管实例。
-2. 在左侧菜单中右键单击托管实例，然后选择“新建查询”，打开新的查询窗口。
+2. 在左侧菜单中右键单击托管实例，然后选择“新建查询”，打开新的查询窗口。 
 3. 运行以下 SQL 脚本。该脚本使用预配置的存储帐户和 SAS 密钥在托管实例中[创建凭据](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql)。
 
    ```sql

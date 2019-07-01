@@ -10,12 +10,12 @@ ms.author: v-lingwu
 ms.reviewer: carlrab
 manager: digimobile
 ms.date: 04/12/19
-ms.openlocfilehash: 0f182006bf89e937c8ee1c1a0a3788fe8cf4a4a6
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 8c780e3bf87095f81ee38a6a942218479443ed13
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566362"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236538"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL Analytics（预览版）监视 Azure SQL 数据库
 
@@ -34,7 +34,6 @@ Azure SQL Analytics 是一种仅限云的监视解决方案，支持流式传输
 | [Azure 诊断](../platform/collect-azure-metrics-logs.md) | **是** | Azure 指标和日志数据由 Azure 直接发送到 Log Analytics。 |
 | [Azure 存储帐户](../platform/collect-azure-metrics-logs.md) | 否 | Log Analytics 不从存储帐户中读取数据。 |
 | [Windows 代理](../platform/agent-windows.md) | 否 | 该解决方案不使用直接 Windows 代理。 |
-| [System Center Operations Manager 管理组](../platform/om-agents.md) | 否 | 此解决方案不使用从 Operations Manager 代理到 Log Analytics 的直接连接。 |
 
 ## <a name="configuration"></a>配置
 使用[从解决方案库中添加 Azure Monitor 解决方案](../../azure-monitor/insights/solutions.md)中所述的流程，将 Azure SQL Analytics（预览）解决方案添加到 Log Analytics 工作区。

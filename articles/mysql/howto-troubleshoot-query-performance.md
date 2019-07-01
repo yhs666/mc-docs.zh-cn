@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/16/2018
-ms.openlocfilehash: ea302aedf1246b0b6d7af031ac8dc672e598d64e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 652829a1295cd26fa7136854317d1911d866f9a6
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645492"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236594"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>如何使用 EXPLAIN 分析 Azure Database for MySQL 中的查询性能
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 **EXPLAIN** 是一个可用来优化查询的易用工具。 可以使用 EXPLAIN 语句来获取有关 SQL 语句执行情况的信息。 下面的输出显示了 EXPLAIN 语句的一个执行示例。
 
@@ -146,7 +146,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MySQL 执行“文件排序”操作时非常缓慢，尤其是必须对大量行进行排序时。 若要优化此查询，可以基于要排序的两个列创建一个组合索引。
+MySQL 执行“文件排序”操作时非常缓慢，尤其是必须对大量行进行排序时。  若要优化此查询，可以基于要排序的两个列创建一个组合索引。
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);

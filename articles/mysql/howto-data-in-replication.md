@@ -10,12 +10,12 @@ ms.service: mysql
 ms.topic: article
 origin.date: 08/31/2018
 ms.date: 10/22/2018
-ms.openlocfilehash: 93844cfe405768b42ff341642055787a68c0fc14
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 1497aa354834d075113b723ce383570f39aa1ad9
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645725"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236641"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>如何配置 Azure Database for MySQL 的数据传入复制
 
@@ -91,15 +91,15 @@ ms.locfileid: "52645725"
 
    **MySQL Workbench**
 
-   若要在 MySQL Workbench 中创建复制角色，请从“管理”面板打开“用户和特权”面板。 然后单击“添加帐户”。 
+   若要在 MySQL Workbench 中创建复制角色，请从“管理”面板打开“用户和特权”面板。   然后单击“添加帐户”  。 
  
    ![用户和特权](./media/howto-data-in-replication/users_privileges.png)
 
-   在“登录名”字段中键入用户名。 
+   在“登录名”字段中键入用户名。  
 
    ![同步用户](./media/howto-data-in-replication/syncuser.png)
  
-   单击“管理角色”面板，然后从“全局特权”列表中选择“复制从属角色”。 然后单击“应用”，创建复制角色。
+   单击“管理角色”面板，然后从“全局特权”列表中选择“复制从属角色”。    然后单击“应用”  ，创建复制角色。
 
    ![复制从属实例](./media/howto-data-in-replication/replicationslave.png)
 
@@ -164,7 +164,7 @@ ms.locfileid: "52645725"
        - 建议以变量形式传入此参数。 有关详细信息，请参阅以下示例。
 
 > [!NOTE]
-> 如果主服务器托管在 Azure VM 中，请将“允许访问 Azure 服务”设置为“启用”，以允许主服务器和副本服务器相互通信。 从“连接安全性”选项可更改此设置。 请参阅[使用门户管理防火墙规则](howto-manage-firewall-using-portal.md)获取详细信息。
+> 如果主服务器托管在 Azure VM 中，请将“允许访问 Azure 服务”设置为“启用”，以允许主服务器和副本服务器相互通信。 从“连接安全性”选项可更改此设置  。 请参阅[使用门户管理防火墙规则](howto-manage-firewall-using-portal.md)获取详细信息。
 
    **示例**
 
@@ -181,14 +181,14 @@ ms.locfileid: "52645725"
    在域“companya.com”中托管的主服务器与 Azure Database for MySQL 中托管的副本服务器之间设置了使用 SSL 进行复制。 将在副本上运行此存储过程。 
 
    ```sql
-   CALL mysql.az_replication_change_master('master.mysql.database.chinacloudapi.cn', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *不使用 SSL 复制*
 
    在域“companya.com”中托管的主服务器与 Azure Database for MySQL 中托管的副本服务器之间设置了不使用 SSL 进行复制。 将在副本上运行此存储过程。
 
    ```sql
-   CALL mysql.az_replication_change_master('master.mysql.database.chinacloudapi.cn', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. 启动复制

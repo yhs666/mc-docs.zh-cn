@@ -12,19 +12,19 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/10/2019
-ms.date: 05/10/2019
+ms.date: 06/21/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: be831d8b970fa65ec1ac4d0b06c6209e0c1b1ac1
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 230ba12b11ca6427e803863baf172bb50f9fe0b9
+ms.sourcegitcommit: a0f90b99b9081d25ced6fa3c4eb7903fb0904d61
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517631"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307604"
 ---
 ## <a name="set-up-your-project"></a>设置项目
 
-本部分将创建新项目，用于演示如何将 Windows 桌面 .NET 应用程序 (XAML) 与“使用 Microsoft 登录”集成，使该应用程序能查询需要令牌的 Web API。
+本部分将创建新项目，用于演示如何将 Windows 桌面 .NET 应用程序 (XAML) 与“使用 Microsoft 登录”集成，使该应用程序能查询需要令牌的 Web API  。
 
 使用本指南创建的应用程序将显示一个用于调用图的按钮、一个用于在屏幕上显示结果的区域和一个注销按钮。
 
@@ -34,13 +34,13 @@ ms.locfileid: "65517631"
 
 若要创建应用程序，请执行以下操作：
 
-1. 在 Visual Studio 中，选择“文件” > “新建” > “项目”。
-2. 在“模板”下，选择“Visual C#”。
-3. 选择“WPF 应用(.NET Framework)”，具体取决于所使用的 Visual Studio 版本。
+1. 在 Visual Studio 中，选择“文件”   > “新建”   > “项目”  。
+2. 在“模板”下，选择“Visual C#”   。
+3. 选择“WPF 应用(.NET Framework)”  ，具体取决于所使用的 Visual Studio 版本。
 
 ## <a name="add-msal-to-your-project"></a>将 MSAL 添加到项目
 
-1. 在 Visual Studio 中，选择“工具” > “NuGet 包管理器”> “包管理器控制台”。
+1. 在 Visual Studio 中，选择“工具” > “NuGet 包管理器”> “包管理器控制台”    。
 2. 在“包管理器控制台”窗口中，粘贴以下 Azure PowerShell 命令：
 
     ```powershell
@@ -77,7 +77,7 @@ ms.locfileid: "65517631"
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
+        // - the content of Tenant by the information about the accounts allowed to sign-in in your application:
         //   - For Work or School account in your org, use your tenant ID, or domain
         //   - for any Work or School accounts, use `organizations`
         //   - for any Work or School accounts, or Microsoft personal account, use `common`

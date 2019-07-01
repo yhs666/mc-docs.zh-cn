@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 31a83064d4889da08a0983f5e18148d6c80c4f8e
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+ms.openlocfilehash: 98b672820fda8ace452536526a6dfb936bfc7297
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545271"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236450"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Active Directory 基于角色的访问控制（预览版）
 
@@ -49,7 +49,7 @@ ms.locfileid: "58545271"
 
 接下来，在支持 RBAC 预览版的以下 Azure 区域之一中[创建服务总线消息命名空间](service-bus-create-namespace-portal.md)：**中国东部**、**中国东部 2** 或**中国北部**。 
 
-在创建命名空间后，在门户上导航到其“访问控制(IAM)”页面，然后单击“添加角色分配”将 Azure AD 用户帐户添加到“所有者”角色。 如果你使用自己的用户帐户并且已创建了命名空间，则已获得“所有者”角色。 若要向角色添加一个不同的帐户，请在“添加权限”面板的“选择”字段中搜索 Web 应用程序的名称，然后单击该条目。 然后单击“保存” 。
+在创建命名空间后，在门户上导航到其“访问控制(IAM)”  页面，然后单击“添加角色分配”  将 Azure AD 用户帐户添加到“所有者”角色。 如果你使用自己的用户帐户并且已创建了命名空间，则已获得“所有者”角色。 若要向角色添加一个不同的帐户，请在“添加权限”  面板的“选择”  字段中搜索 Web 应用程序的名称，然后单击该条目。 然后单击“保存”  。
 
 用户帐户现在已具有对服务总线命名空间和对之前创建的队列的访问权限。
  
@@ -59,15 +59,13 @@ ms.locfileid: "58545271"
 
 因为示例应用程序是一个控制台应用程序，因此你必须注册一个本机应用程序并将 **Microsoft.ServiceBus** 的 API 权限添加到“必需的权限”集。 本机应用程序在 Azure AD 中还需要有一个充当标识符的 **redirect-URI**，该 URI 不需要是网络目的地。 对于此示例请使用 `http://servicebus.microsoft.com`，因为示例代码已使用了该 URI。
 
-[此教程](../active-directory/develop/quickstart-v1-add-azure-ad-app.md)中介绍了详细的注册步骤。 请按照那些步骤注册一个**本机**应用，然后按照更新说明将 **Microsoft.ServiceBus** API 添加到必需的权限。 执行那些步骤时，请记下 **TenantId** 和 **ApplicationId**，因为到时要使用这些值来运行应用程序。
-
 ### <a name="run-the-app"></a>运行应用程序
 
 在可以运行示例前，请编辑 App.config 文件并根据方案设置以下值：
 
 - `tenantId`：设置为 **TenantId** 值。
 - `clientId`：设置为 **ApplicationId** 值。 
-- `clientSecret`：如果希望使用客户端机密进行登录，请在 Azure AD 中创建它。 此外，请使用 Web 应用或 API 而非本机应用。 另外，请在之前创建的命名空间中将该应用添加到“访问控制(IAM)”下。
+- `clientSecret`：如果希望使用客户端机密进行登录，请在 Azure AD 中创建它。 此外，请使用 Web 应用或 API 而非本机应用。 另外，请在之前创建的命名空间中将该应用添加到“访问控制(IAM)”  下。
 - `serviceBusNamespaceFQDN`：设置为新创建的服务总线命名空间的完整 DNS 名称，例如 `example.servicebus.chinacloudapi.cn`。
 - `queueName`：设置为所创建的队列的名称。
 - 执行前面的步骤时在应用中指定的重定向 URI。

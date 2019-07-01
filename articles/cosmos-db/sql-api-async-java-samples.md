@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: sample
-origin.date: 06/18/2018
-ms.date: 04/15/2019
+origin.date: 12/03/2018
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4f584549dec4c4f3d8e8b066a40eca22cf9e7524
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: c564e78fb9baeb44377608b16c4df059b42e7b1e
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615246"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171328"
 ---
 # <a name="azure-cosmos-db-async-java-examples-for-the-sql-api"></a>Azure Cosmos DB：SQL API 的异步 Java 示例
 
@@ -82,10 +82,10 @@ $ cd azure-cosmosdb-java
     mvn test -DACCOUNT_HOST=<Fill your Azure Cosmos DB account name> -DACCOUNT_KEY=<Fill your Azure Cosmos DB primary key>
     ```
 
-   > [!NOTE]
-   > 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 这些示例对 [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.createcollection) 发出多个调用。 每当执行此操作时，即会根据所创建的集合的性能层，对订阅收取使用 1 小时的费用。 
-   > 
-   > 
+    > [!NOTE]
+    > 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 这些示例对 [DocumentClient.createCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.createcollection) 发出多个调用。 每当执行此操作时，即会根据所创建的集合的性能层，对订阅收取使用 1 小时的费用。 
+    > 
+    > 
 
 ## <a name="database-examples"></a>数据库示例
 [DatabaseCrudAsyncAPITest](https://github.com/Azure/azure-cosmosdb-java/blob/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples/DatabaseCRUDAsyncAPITest.java) 文件展示了如何执行以下任务。 若要在运行以下示例之前了解 Azure Cosmos 数据库，请参阅概念文章：[使用数据库、容器和项](databases-containers-items.md)。 

@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46fba4b63b7741a40709a1229a3204de39daa37f
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: c17351c3dafb9eb35a2cfff26b93c5a0d72fc6f8
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424262"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171391"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db---cassandra-api"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例 - Cassandra API
 
@@ -28,5 +28,5 @@ ms.locfileid: "66424262"
 |[帐户密钥和连接字符串任务](scripts/powershell/common/ps-account-keys-connection-strings.md)| 获取 Azure Cosmos 帐户的连接字符串。 获取 Azure Cosmos 帐户的主密钥和辅助密钥。 重新生成帐户密钥。 |
 |||
 
-<!--Update_Description: new articles on powershell samples cassandra -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->
+

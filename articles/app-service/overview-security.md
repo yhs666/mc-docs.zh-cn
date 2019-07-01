@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/24/2018
-ms.date: 01/21/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: e91dc18349c6db296146ebc8399a219e6a131429
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 4a0e900fb0cc50a4886dfd3bc52aa2e565741332
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906046"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171346"
 ---
 # <a name="security-in-azure-app-service"></a>Azure 应用服务中的安全性
 
@@ -70,7 +70,7 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 在向后端服务进行身份验证时，应用服务根据你的需要提供两种不同的机制：
 
 - **服务标识**：使用应用本身的标识登录到远程资源。 通过应用服务可轻松创建[托管标识](overview-managed-identity.md)，在向 [Azure SQL 数据库](/azure/sql-database/)或 [Azure Key Vault](/azure/key-vault/) 等其他服务进行身份验证时可使用该标识。 有关此方法的端到端教程，请参阅[使用托管标识确保从应用服务进行的 Azure SQL 数据库连接安全](app-service-web-tutorial-connect-msi.md)。
-- **代表 (OBO)**：代表用户对远程资源进行委托访问。 使用 Azure Active Directory 作为验证提供程序时，应用服务应用可以执行远程服务（例如 [Azure Active Directory 图形 API](../active-directory/develop/active-directory-graph-api.md) 或应用服务中的远程 API 应用）委托登录。
+- **代表 (OBO)** ：代表用户对远程资源进行委托访问。 使用 Azure Active Directory 作为验证提供程序时，应用服务应用可以执行远程服务（例如 [Azure Active Directory 图形 API](../active-directory/develop/active-directory-graph-api.md) 或应用服务中的远程 API 应用）委托登录。
 
 ## <a name="connectivity-to-remote-resources"></a>远程资源连接
 
@@ -107,6 +107,5 @@ Azure 应用服务提供用户或客户端应用的统包身份验证和授权�
 
 除了**独立**定价层，所有层都在应用服务的共享网络基础结构上运行应用。 例如，公共 IP 地址和前端负载均衡器将与其他租户共享。应用服务环境在你自己的 [Azure 虚拟网络](/azure/virtual-network/)实例中运行。 它允许： 
 
-- 使用[网络安全组](../virtual-network/virtual-networks-dmz-nsg.md)限制网络访问权限。 
 - 通过专用的公共终结点为应用提供专用前端。
 - 使用内部负载均衡器 (ILB) 为内部应用程序提供服务，该内部负载均衡器仅允许从 Azure 虚拟网络内部进行访问。 ILB 有一个来自专用子网的 IP 地址，它可以让应用与 Internet 完全隔离。

@@ -10,11 +10,11 @@ origin.date: 02/12/2019
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.openlocfilehash: 92bef4cc3ab2af1410fd9f59b06795c36a12b492
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004563"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236052"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 

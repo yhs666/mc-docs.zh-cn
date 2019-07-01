@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cbbb8f0c04d8f08ca6541c89a39ce49af872e312
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: c0e4439515c617e24454820a284e9917eb8b287b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731455"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236420"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Azure 中的管理解决方案的数据收集详细信息
 本文包括了 Azure 提供的[管理解决方案](solutions.md)的列表以及指向其详细文档的链接。  它还提供了这些解决方案将数据收集到 Azure Monitor 中时采用的方法和频率的相关信息。  可以使用本文中的信息来了解可用的各种解决方案，并了解各种管理解决方案的数据流和连接要求。 
@@ -32,10 +32,10 @@ ms.locfileid: "66731455"
 各个列的说明如下：
 
 - **Microsoft Monitoring Agent** - Windows 和 Linux 上用来运行来自 SCOM 的管理包和来自 Azure 的管理解决方案的代理。 在此配置中，代理直接连接到 Azure Monitor，无需连接到 Operations Manager 管理组。 
-- **Operations Manager** - 与 Azure Monitoring Agent 相同的代理。 在此配置中，它[连接到已连接到 Azure Monitor 的 Operations Manager 管理组](../../azure-monitor/platform/om-agents.md)。 
+- **Operations Manager** - 与 Azure Monitoring Agent 相同的代理。
 -  **Azure 存储** - 此解决方案从 Azure 存储帐户收集数据。 
 - **是否需要 Operations Manager？** - 管理解决方案进行数据收集时需要一个已连接的 Operations Manager 管理组。 
-- **通过管理组发送 Operations Manager 代理数据** - 如果代理[连接到 SCOM 管理组](../../azure-monitor/platform/om-agents.md)，则数据将从管理服务器发送到 Azure Monitor。 在这种情况下，代理不需要直接连接到 Azure Monitor。 如果未选中此框，则数据将从代理直接发送到 Azure Monitor，即使代理已连接到一个 SCOM 管理组。 它还需要能够通过 [Log Analytics 网关](../../azure-monitor/platform/gateway.md)与 Azure Monitor 进行通信。
+- **通过管理组发送 Operations Manager 代理数据**
 - **收集频率** - 指定管理解决方案收集数据时采用的频率。 
 
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
 origin.date: 09/12/2017
-ms.date: 06/17/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 9652e7afa3c406dee07ab57b7563cbb6d8a59933
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: c57784ea70d75262db3b04946dc11b3023a3ef6b
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687421"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171378"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 
@@ -93,7 +93,7 @@ ms.locfileid: "66687421"
 
 如果使用的是 Visual Studio 2015，请安装[用于 .NET 的 Azure SDK (Visual Studio 2015)](https://azure.microsoft.com/downloads/)。
 
-如果使用的是 Visual Studio 2019，请安装 [Azure 开发工作负荷](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---select-workloads)。
+如果使用的是 Visual Studio 2019，请安装 [Azure 开发工作负荷](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads)。
 
 ### <a id="convert"></a> 为现有控制台应用程序项目启用 WebJobs 部署
 

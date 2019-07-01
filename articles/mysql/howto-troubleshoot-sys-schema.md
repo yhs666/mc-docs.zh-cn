@@ -10,17 +10,17 @@ ms.service: mysql
 ms.topic: article
 origin.date: 08/01/2018
 ms.date: 08/27/2018
-ms.openlocfilehash: 1ee3a535c2f7fcb8b3fe691c34d080761af66741
-ms.sourcegitcommit: c3f2948c7350c71dd66228ccf10332e21b686030
+ms.openlocfilehash: 33a81e775fd3dde53bb19bfb61d6aad18e7548a5
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396914"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236595"
 ---
 # <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>如何在 Azure Database for MySQL 中使用 sys_schema 进行性能优化和数据库维护
 
 > [!NOTE]
-> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql/)。
+> 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
 MySQL performance_schema 首先在 MySQL 5.5 中推出，针对许多关键服务器资源提供检测数据，例如内存分配、存储的程序、元数据锁定，等等。但是，performance_schema 包含超过 80 多个表，获取必要的信息通常需要联接 performance_schema 和 information_schema 中的表。 sys_schema 在 performance_schema 和 information_schema 的基础上构建，在一个只读的数据库中提供[用户友好视图](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html)的强大集合，并且完全在 Azure Database for MySQL 版本 5.7 中启用。
 
@@ -36,7 +36,7 @@ sys_schema 中有 52 个视图，每个视图具有以下前缀之一：
 - 用户：按用户分组和消耗的资源。 示例包括文件 I/O、连接和内存。
 - 等待：等待按主机或用户分组的事件。
 
-现在，让我们来了解 sys_schema 的一些常见使用模式。 首先，我们将使用模式分为两类：“性能调优”和“数据库维护”。
+现在，让我们来了解 sys_schema 的一些常见使用模式。 首先，我们将使用模式分为两类：“性能调优”和“数据库维护”   。
 
 ## <a name="performance-tuning"></a>性能调优
 

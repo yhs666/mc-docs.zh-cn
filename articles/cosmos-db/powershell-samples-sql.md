@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 252e3599dad340ced45b1823b36c087a031f8e07
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: ce1c3fe4088d7fb064fb5270a60785f01f20ce1a
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424301"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171392"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-sql-core-api"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例 - SQL (Core) API
 

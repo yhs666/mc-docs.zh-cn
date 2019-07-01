@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 04/15/2019
-ms.date: 05/13/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: f7826fec95b8c8084d4a7f1a6fe1bdbdc65b7d1d
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 36885487fa7eef94a685bada91774de4d07766f2
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668882"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171377"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
 
@@ -44,7 +44,7 @@ ms.locfileid: "65668882"
 > - 删除文档
 > - 删除数据库
 
-## <a name="#prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
 已安装包含 Azure 开发工作流的 Visual Studio 2017：
 - 可以下载并使用**免费的** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。  
@@ -99,7 +99,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户：
 
     ![用于查找 Azure Cosmos DB 客户端 SDK 的 NuGet 菜单的屏幕截图](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
-    如果收到有关预览解决方案更改的消息，请选择“确定”  。 如果收到有关接受许可证的消息，请选择“我接受”  。
+    如果收到有关查看解决方案更改的消息，请选择“确定”  。 如果收到有关接受许可证的消息，请选择“我接受”  。
 
 <a name="Connect"></a>
 ## <a name="connect-to-the-azure-cosmos-db-account"></a>连接到 Azure Cosmos DB 帐户
@@ -126,7 +126,7 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户：
       private DocumentClient client;
     ```
 
-1. 终结点 URL 和主密钥让应用可以连接到 Azure Cosmos DB 帐户，并让 Azure Cosmos DB 帐户信任该连接。 从 [Azure 门户](https://portal.azure.cn)复制密钥，并将其粘贴到代码中。 
+1. 终结点 URL 和主密钥允许应用连接到 Azure Cosmos DB 帐户，并允许 Azure Cosmos DB 帐户信任该连接。 从 [Azure 门户](https://portal.azure.cn)复制密钥，并将其粘贴到代码中。 
 
     1. 在 Azure Cosmos DB 帐户的左侧导航栏中，选择“密钥”。 
 
@@ -147,6 +147,20 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户：
     {
         client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey);
     }
+    ```
+
+    如果要使用代理对象连接到 Azure Cosmos DB，则应改用以下代码块创建 DocumentClient 对象。 本文档中的示例不使用代理对象，因此下面的示例仅供参考：
+
+    ```csharp
+    HttpClientHandler handler = new HttpClientHandler()
+    {
+     Proxy = proxyObject
+     UseProxy = true,
+    };
+
+    //Pass handler to the constructor of DocumentClient.
+    DocumentClient client = new DocumentClient(new Uri(EndpointUrl), PrimaryKey, handler);
+
     ```
 
 1. 将以下代码添加到 `Main` 方法中，以运行 `GetStartedDemo` 任务。 `Main` 方法可捕获异常并将它们写入控制台。
@@ -214,7 +228,7 @@ Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases
 集合是 JSON 文档和相关联的 JavaScript 应用程序逻辑的容器。 使用 `DocumentClient` 类的 [CreateDocumentCollectionIfNotExistsAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentcollectionifnotexistsasync?view=azure-dotnet#overloads) 方法可创建集合。 
 
 > [!IMPORTANT]
-> CreateDocumentCollectionIfNotExistsAsync 可创建一个具有保留吞吐量的新集合，这种方式牵涉定价  。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
+> CreateDocumentCollectionIfNotExistsAsync 可创建一个具有保留吞吐量的新集合，它牵涉定价  。 有关详细信息，请访问[定价页](https://www.azure.cn/pricing/details/cosmos-db/)。
 > 
 
 1. 复制以下代码并将其粘贴到 `GetStartedDemo` 方法的 `await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB" });` 行之后。 此代码会创建一个名为 `FamilyCollection` 的文档集合。

@@ -4,16 +4,16 @@ description: 本文说明了 Azure Cosmos DB 存在的区域以及不同云环�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 03/31/2019
-ms.date: 04/15/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 04865db277b8d1427e9383b03c332b1e991d4ea9
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: a772dd2d74d5179b19cf28b8aa06e3eb66df58d2
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615207"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171284"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Azure Cosmos DB 的区域可用性
 
@@ -22,12 +22,13 @@ Azure Cosmos DB 是 Azure 中的一项基础服务，默认情况下，在所有
 <!--Not Available on ![Azure Cosmos DB regional availability](./media/regional-presence/regional-presence.png)-->
 Cosmos DB 在提供给客户的 Azure 中国云环境中均可使用：
 
-* Microsoft 与中国最大的 Internet 提供商世纪互联展开独特合作，推出了 Azure 中国世纪互联。
+* Microsoft 与中国最大的 Internet 提供商世纪互联展开独特合作，推出了 Azure 中国世纪互联  。
 
 
 ## <a name="regional-presence-with-multiple-region-distribution"></a>采用多区域分布的区域覆盖
 
 Azure Cosmos DB 公开的所有 API（包括 SQL、MongoDB、Cassandra、Gremlin 和表）默认情况下在所有 Azure 中国区域均可用。 例如，所有 Azure 中国区域中的 Azure Cosmos DB 可以公开 MongoDB 和 Cassandra API。
+
 <!-- Not Available on Cassandra, Gremlin, and Azure Table storage-->
 <!-- Not Available on Germany, Government, and Department of Defense (DoD) regions-->
 

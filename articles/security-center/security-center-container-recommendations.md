@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bdeff6665d0ade97cd6b04bf253368bcc7031306
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 683206dc5f5e751813f811e42e77cb91d1e302cf
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004496"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236583"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>了解 Azure 安全中心容器建议
 
@@ -48,18 +48,10 @@ Azure 安全中心提供以下功能来帮助保护容器：
 |修复容器安全配置中的漏洞 |根据配置的最佳做法修复容器安全配置中的漏洞。| 修复容器安全配置中的漏洞：<br>1.查看失败规则列表。<br>2.根据指定的说明修复每个规则。|
 
 
-## <a name="next-steps"></a>后续步骤
-若要了解有关适用于其他 Azure 资源类型的建议的详细信息，请参阅以下内容：
-
-* [在 Azure 安全中心监视标识和访问](security-center-identity-access.md)
-* [保护 Azure 安全中心中的网络](security-center-network-recommendations.md)
-* [保护 Azure 安全中心中的 Azure SQL 服务](security-center-sql-service-recommendations.md)
-
 若要了解有关安全中心的详细信息，请参阅以下文章：
 
 * [在 Azure 安全中心保护计算机和应用程序](security-center-virtual-machine-protection.md)
 * [在 Azure 安全中心中设置安全策略](tutorial-security-policy.md) - 了解如何配置 Azure 订阅和资源组的安全策略。
-* [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) -- 了解如何管理和响应安全警报。
 * [Azure 安全中心常见问题解答](security-center-faq.md) - 查找有关使用服务的常见问题。
 
 

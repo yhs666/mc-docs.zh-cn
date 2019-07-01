@@ -17,13 +17,14 @@ origin.date: 12/12/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 755fd3f8ba1d491b35eebfe2e298790b20978ec8
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 8393a691e083e214e750f4d8a1672d25239f29e1
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003981"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427817"
 ---
+<!--Verify successfully-->
 # <a name="create-an-azure-monitor-vm-with-powershell"></a>使用 PowerShell 创建 Azure Monitor VM 
 
 此脚本创建一个 Azure 虚拟机，安装 Log Analytics 代理，并将系统注册到 Log Analytics 工作区。 运行脚本后，该虚拟机会显示在 Azure Monitor 中。 此外，需更新 Log Analytics 工作区 ID 和工作区密钥。

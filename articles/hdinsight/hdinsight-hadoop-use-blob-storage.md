@@ -11,12 +11,12 @@ ms.devlang: na
 origin.date: 04/08/2019
 ms.date: 04/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: c70674d72be0708d08bdd4d0acfde48ea45b620c
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 1739a18a3ef642adc5cc8977337f7fe32f80a742
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829165"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236057"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>将 Azure 存储与 Azure HDInsight 群集配合使用
 
@@ -44,7 +44,7 @@ Azure 存储是一种稳健、通用的存储解决方案，它与 HDInsight 无
  > [!NOTE]  
  > 存档访问层是一个离线层，具有几小时的检索延迟，不建议与 HDInsight 一起使用。 有关详细信息，请参阅<a href="https://docs.azure.cn/zh-cn/storage/blobs/storage-blob-storage-tiers#archive-access-tier">存档访问层</a>。
 
-如果选择在“选定网络”上通过“防火墙和虚拟网络”限制来保护存储帐户的安全，请务必启用例外“允许受信任的 Microsoft 服务...”，这样 HDInsight 就能访问存储帐户。
+如果选择在“选定网络”上通过“防火墙和虚拟网络”限制来保护存储帐户的安全，   请务必启用例外“允许受信任的 Microsoft 服务...”，  这样 HDInsight 就能访问存储帐户。
 
 ## <a name="hdinsight-storage-architecture"></a>HDInsight 存储体系结构
 下图提供了使用 Azure 存储的 HDInsight 存储体系结构的抽象视图：
@@ -165,7 +165,6 @@ Microsoft 提供以下用于操作 Azure 存储的工具：
 有关详细信息，请参阅：
 
 * [Azure HDInsight 入门][hdinsight-get-started]
-* [Azure Data Lake Storage 入门](../data-lake-store/data-lake-store-get-started-portal.md)
 * [将数据上传到 HDInsight][hdinsight-upload-data]
 * [将 Apache Hive 和 HDInsight 配合使用][hdinsight-use-hive]
 * [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]

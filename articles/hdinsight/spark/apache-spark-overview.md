@@ -8,15 +8,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: overview
-origin.date: 01/28/2019
-ms.date: 02/25/2019
+origin.date: 05/28/2019
+ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 661779b995e4e685a8b5f20ffd90aabd0da33169
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: 353f3d64b7336b98652efe78ff4a561edea201f7
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303045"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235980"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>Azure HDInsight 中的 Apache Spark 是什么
 

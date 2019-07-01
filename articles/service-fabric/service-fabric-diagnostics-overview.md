@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5465167bf63044ef682b217cf6bed02be7df3217
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: bd94636be70a1b523f3d7d43530a26c4377630f0
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625296"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277535"
 ---
 # <a name="monitoring-and-diagnostics-for-azure-service-fabric"></a>Azure Service Fabric 的监视和诊断
 
@@ -50,7 +50,9 @@ Service Fabric 提供了一组现成的综合事件。 可以通过 EventStore �
 
 诊断以一系列现成的全面的事件集的形式提供。 这些 [Service Fabric 事件](service-fabric-diagnostics-events.md)说明了平台在节点、应用程序、服务、分区等不同实体上执行的操作。在上述最后一个场景中，如果节点发生故障，平台将发出 `NodeDown` 事件，可以立即通过所选的监控工具通知你。 故障转移期间，其他常见示例包括 `ApplicationUpgradeRollbackStarted` 或 `PartitionReconfigured`。 **Windows 和 Linux 群集上都有相同的事件。**
 
-事件通过 Windows 和 Linux 上的标准通道发送，并且可以由任何支持这些事件的监视工具读取。 Azure Monitor 解决方案是 Log Analytics。 请随时阅读有关 [Log Analytics 集成](service-fabric-diagnostics-event-analysis-oms.md)的更多信息，其中包括针对群集的自定义操作仪表板以及可以从中创建警报的一些示例查询。 [平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)提供了更多群集监视概念。
+事件通过 Windows 和 Linux 上的标准通道发送，并且可以由任何支持这些事件的监视工具读取。 [平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)提供了更多群集监视概念。
+
+<!--Not Available on The Azure Monitor solution is Log Analytics. Feel free to read more about our [Log Analytics integration](service-fabric-diagnostics-event-analysis-oms.md) which includes a custom operational dashboard for your cluster and some sample queries from which you can create alerts.-->
 
 ### <a name="health-monitoring"></a>运行状况监视
 Service Fabric 平台包含运行状况模型，针对群集中的实体状态提供可扩展的运行状况报告。 每个节点、应用程序、服务、分区、副本或实例都具有持续可更新的运行状况。 运行状况可能是“正常”、“警告”或“错误”。 将 Service Fabric 事件视为群集对各种实体所做的动词，将运行状况视为每个实体的形容词。 每次特定实体的运行状况转换时，也会发出事件。 这样，就可以在所选监视工具中为运行状况事件设置查询和警报，就像任何其他事件一样。 
@@ -72,22 +74,24 @@ Service Fabric 平台包含运行状况模型，针对群集中的实体状态�
 
 Service Fabric 还为 Reliable Services 和 Reliable Actors 编程模型提供了一组性能计数器。 如果使用其中的任一模型，这些性能计数器可以提供信息，以帮助确保执行组件正常启动和停止，或者以足够快的速度处理可靠服务请求。 有关详细信息，请参阅 [Reliable Services 远程处理的监视](service-fabric-reliable-serviceremoting-diagnostics.md#performance-counters)和 [Reliable Actors 的性能监视](service-fabric-reliable-actors-diagnostics.md#performance-counters)。 
 
-用于收集这些内容的 Azure Monitor 解决方案是 Log Analytics，就像平台级别监控一样。 应使用 [Log Analytics 代理](service-fabric-diagnostics-oms-agent.md)以收集相应的性能计数器，并在 Log Analytics 中查看它们。
+<!--Not Available on The Azure Monitor solution to collect these is Log Analytics just like platform level monitoring. You should use the [Log Analytics agent](service-fabric-diagnostics-oms-agent.md) to collect the appropriate performance counters, and view them in Log Analytics.-->
 
 ## <a name="recommended-setup"></a>建议的安装程序
 现已了解监视和示例场景的每个区域，以下是 Azure 监视工具的摘要以及监视上述所有区域所需的设置。 
 
 <!-- Not Available on [Application Insights](service-fabric-tutorial-monitoring-aspnet.md)-->
 
-* 使用[诊断代理](service-fabric-diagnostics-event-aggregation-wad.md)和 [Log Analytics](service-fabric-diagnostics-oms-setup.md) 监视的群集
-* 使用 [Log Analytics](service-fabric-diagnostics-oms-agent.md) 监视的基础结构
+* 使用[诊断代理](service-fabric-diagnostics-event-aggregation-wad.md)进行的群集监视
 
-此外，还可使用并修改位于[此处](service-fabric-diagnostics-oms-setup.md#deploy-log-analytics-with-azure-resource-manager)的示例 ARM 模板以自动部署所有必要的资源和代理。 
+<!-- Not Available on [Azure Monitor logs](service-fabric-diagnostics-oms-setup.md)-->
+<!-- Not Available on * Infrastructure monitoring with [Azure Monitor logs](service-fabric-diagnostics-oms-agent.md)-->
+<!-- Not Available on [here](service-fabric-diagnostics-oms-setup.md#deploy-log-analytics-with-azure-resource-manager)-->
 
 ## <a name="other-logging-solutions"></a>其他日志记录解决方案
 
-尽管我们推荐的一个解决方案 [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md) 内置集成了 Service Fabric，但许多事件会通过 ETW 提供程序写出，并且可随其他日志记录解决方案一起扩展。 此外，还应考虑 [Elastic Stack](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Dynatrace](https://www.dynatrace.com/) 或其他任何偏好的平台。 我们在[此处](service-fabric-diagnostics-partners.md)提供了一个可用的集成合作伙伴列表。
+许多事件会通过 ETW 提供程序写出，并且可随其他日志记录解决方案一起扩展。 此外，还应考虑 [Elastic Stack](https://www.elastic.co/products)（尤其是考虑在脱机环境中运行群集时）、[Dynatrace](https://www.dynatrace.com/) 或其他任何偏好的平台。 我们在[此处](service-fabric-diagnostics-partners.md)提供了一个可用的集成合作伙伴列表。
 
+<!-- Not Available on [Azure Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)-->
 <!-- Not Available on [Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)-->
 
 选择任何平台时都应考虑的关键点包括：用户界面的舒适度、查询功能的舒适度、可用的自定义可视化效果和仪表板、平台提供的用于增强监视体验的其他工具。 
@@ -95,12 +99,17 @@ Service Fabric 还为 Reliable Services 和 Reliable Actors 编程模型提供�
 ## <a name="next-steps"></a>后续步骤
 
 * 若要开始检测应用程序，请参阅[应用程序级别事件和日志生成](service-fabric-diagnostics-event-generation-app.md)。
-  <!-- Not Avaiable on * Go through the steps to set up Application Insights for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)-->
+
+    <!-- Not Avaiable on * Go through the steps to set up Application Insights for your application with [Monitor and diagnose an ASP.NET Core application on Service Fabric](service-fabric-tutorial-monitoring-aspnet.md)-->
+
 * 在[平台级别事件和日志生成](service-fabric-diagnostics-event-generation-infra.md)中详细了解如何监视平台以及 Service Fabric 提供的事件。
-* 在[为群集设置 Log Analytics](service-fabric-diagnostics-oms-setup.md) 中使用 Service Fabric 配置 Log Analytics 集成
-* 了解如何为监视容器设置 Log Analytics - [在 Azure Service Fabric 上监视和诊断 Windows 容器](service-fabric-tutorial-monitoring-wincontainers.md)。
-* 在[诊断常见方案](service-fabric-diagnostics-common-scenarios.md)中查看 Service Fabric 的示例诊断问题和解决方案
+
+    <!-- Not Avaiable on [Set up Azure Monitor logs for a cluster](service-fabric-diagnostics-oms-setup.md)-->
+    <!-- Not Avaiable on [Monitoring and Diagnostics for Windows Containers in Azure Service Fabric](service-fabric-tutorial-monitoring-wincontainers.md)-->
+    <!-- Not Avaiable on [diagnosing common scenarios](service-fabric-diagnostics-common-scenarios.md)-->
+
 * 在 [Service Fabric 诊断合作伙伴](service-fabric-diagnostics-partners.md)中查看与 Service Fabric 集成的其他诊断产品
-* 了解适用于 Azure 资源的一般性监视建议 - [最佳做法 - 监视和诊断](https://docs.microsoft.com/azure/architecture/best-practices/monitoring)。
+
+    <!-- Not Avaiable on (https://docs.microsoft.com/azure/architecture/best-practices/monitoring)-->
 
 <!--Update_Description: update meta properties, wording update, update link  -->

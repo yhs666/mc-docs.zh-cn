@@ -147,8 +147,6 @@
                   href: platform/log-analytics-agent.md
                 - name: Windows 代理
                   href: platform/agent-windows.md
-                - name: Operations Manager
-                  href: platform/om-agents.md
                 - name: Log Analytics 网关
                   href: platform/gateway.md
                 - name: 代理管理

@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中为工作编制索引。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: d6b94cc1cc8aae5a3bacc7cd13a7f380a24ef5ea
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 8f5b9fc077fc974842a51d749cba9013772eb563
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668911"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171438"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 中的索引 - 概述
 
@@ -127,7 +127,7 @@ Azure Cosmos DB 目前支持两种类型的索引：
 ![匹配树中的特定路径](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> 按单个属性排序的 `ORDER BY` 子句始终需要一个范围索引，如果它引用的路径不包含范围索引，则会失败。 同样，多 `ORDER BY` 查询始终需要组合索引。
+> 按单个属性排序的 `ORDER BY` 子句始终需要一个范围索引，如果它引用的路径不包含范围索引，则会失败。  同样，多 `ORDER BY` 查询始终需要组合索引。 
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 322e3d09d255a73c674e1e00d26dba9a92e03d0d
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 569593b7df13e00473d9b58cd9d4ee9351ecb280
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250407"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236378"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 订阅和服务限制、配额和约束
 本文列出了一些最常见的 Azure 限制，有时也称为配额。 本文当前并不涵盖所有 Azure 服务。 随着时间的推移，此列表将进行扩展和更新，以涵盖更多平台。
@@ -57,7 +57,6 @@ ms.locfileid: "66250407"
 - [批处理](#batch-limits)
 - [云服务](#cloud-services-limits)
 - [容器注册表](#container-registry-limits)
-- [数据库迁移服务](#database-migration-service-limits)
 - [事件中心](#event-hubs-limits)
 - [IoT 中心](#iot-hub-limits)
 - [IoT 中心设备预配服务](#iot-hub-device-provisioning-service-limits)

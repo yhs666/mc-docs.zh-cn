@@ -38,6 +38,8 @@
       href: load-balancer-standard-overview.md
     - name: 运行状况探测
       href: load-balancer-custom-probe-overview.md
+    - name: 高可用性端口
+      href: load-balancer-ha-ports-overview.md
     - name: 多个前端
       href: load-balancer-multivip-overview.md
     - name: 出站连接
@@ -77,6 +79,8 @@
           href: load-balancer-multiple-ip-powershell.md
     - name: 使用 REST 获取负载均衡器指标
       href: load-balancer-query-metrics-rest-api.md
+    - name: 为内部负载均衡器配置高可用性端口
+      href: load-balancer-configure-ha-ports.md
     - name: 故障排除
       items:
         - name: 对 Azure 负载均衡器进行故障排除
@@ -85,23 +89,23 @@
       items:
         - name: 出站连接（经典）
           href: load-balancer-outbound-connections-classic.md
-    - name: 为云服务配置多个 VIP
-      href: load-balancer-multivip.md
-      items:
-        - name: 为云服务配置内部负载均衡器
-          href: load-balancer-get-started-ilb-classic-cloud.md
+        - name: 为云服务配置多个 VIP
+          href: load-balancer-multivip.md
           items:
-            - name: 为云服务配置内部负载均衡器 (PowerShell)
-              href: load-balancer-get-started-ilb-classic-ps.md
-            - name: 为云服务配置内部负载均衡器 (CLI)
-              href: load-balancer-get-started-ilb-classic-cli.md
-        - name: 配置公共负载均衡器（经典 PowerShell）
-          href: load-balancer-get-started-internet-classic-ps.md
-          items:
-            - name: 配置公共负载均衡器（经典云）
-              href: load-balancer-get-started-internet-classic-cloud.md
-            - name: 配置公共负载均衡器（经典 CLI）
-              href: load-balancer-get-started-internet-classic-cli.md
+            - name: 为云服务配置内部负载均衡器
+              href: load-balancer-get-started-ilb-classic-cloud.md
+              items:
+                - name: 为云服务配置内部负载均衡器 (PowerShell)
+                  href: load-balancer-get-started-ilb-classic-ps.md
+                - name: 为云服务配置内部负载均衡器 (CLI)
+                  href: load-balancer-get-started-ilb-classic-cli.md
+            - name: 配置公共负载均衡器（经典 PowerShell）
+              href: load-balancer-get-started-internet-classic-ps.md
+              items:
+                - name: 配置公共负载均衡器（经典云）
+                  href: load-balancer-get-started-internet-classic-cloud.md
+                - name: 配置公共负载均衡器（经典 CLI）
+                  href: load-balancer-get-started-internet-classic-cli.md
 - name: 参考
   items:
     - name: 代码示例

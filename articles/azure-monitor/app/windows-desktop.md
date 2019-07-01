@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8cc7ef33b3ce1d7df5c867366675adb65a85f496
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 62623efad037a91c86eb248c70bc93742a61058d
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732148"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236500"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>监视经典 Windows 桌面应用中的使用情况和性能
 
@@ -78,7 +78,6 @@ ms.locfileid: "66732148"
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
 * [诊断搜索](../../azure-monitor/app/diagnostic-search.md)
 * [探索指标](../../azure-monitor/app/metrics-explorer.md)
 * [编写分析查询](../../azure-monitor/app/analytics.md)

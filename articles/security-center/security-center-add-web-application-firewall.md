@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3cc30c2da78e096d21e4ce0722ed767ef491dba7
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 6ea75ef1147665e8c84be9a74452dcd3aeb3ad9f
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004518"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236588"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 安全中心中添加 web 应用程序防火墙
 为保护 web 应用程序，Azure 安全中心可能会建议从 Azure 合作伙伴添加 web 应用程序防火墙 (WAF)。 本文档将举例说明如何应用此建议。
 
 为任何面向公众的 IP（实例级 IP 或负载均衡 IP）显示 WAF 建议，该 IP 具有与开放入站 Web 端口 (80,443) 关联的网络安全组。
 
-安全中心建议预配 WAF，以帮助防范针对虚拟机和在[独立](https://www.azure.cn/pricing/details/app-service/windows/)服务计划下部署的外部应用服务环境 (ASE) 上 Web 应用程序的攻击。 独立计划在私有专用 Azure 环境中托管应用，对于需要与本地网络或其他性能和规模安全连接的应用而言，这是理想选择。 除应用需要处于独立环境，应用还需要有外部 IP 地址负载均衡器。 若要了解有关 ASE 的详细信息，请参阅[应用服务环境文档](../app-service/environment/intro.md)。
+安全中心建议预配 WAF，以帮助防范针对虚拟机和在[独立](https://www.azure.cn/pricing/details/app-service/windows/)服务计划下部署的外部应用服务环境 (ASE) 上 Web 应用程序的攻击。 独立计划在私有专用 Azure 环境中托管应用，对于需要与本地网络或其他性能和规模安全连接的应用而言，这是理想选择。 除应用需要处于独立环境，应用还需要有外部 IP 地址负载均衡器。
 
 > [!NOTE]
 > 本文档将使用示例部署介绍该服务。  本文档不是一份分步指南。
@@ -71,13 +71,9 @@ ms.locfileid: "66004518"
 ## <a name="next-steps"></a>后续步骤
 本文档演示了如何实现安全中心建议“添加 web 应用程序”。 若要了解有关配置 web 应用程序防火墙的详细信息，请参阅以下内容：
 
-* [为应用服务环境配置 Web 应用程序防火墙 (WAF)](../app-service/environment/app-service-app-service-environment-web-application-firewall.md)
-
 若要了解有关安全中心的详细信息，请参阅以下文章：
 
-* [在 Azure 安全中心中设置安全策略](tutorial-security-policy.md)了解如何配置 Azure 订阅和资源组的安全策略。
-* [Azure 安全中心的安全性运行状况监视](security-center-monitoring.md) -- 了解如何监视 Azure 资源的运行状况。
-* [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) -- 了解如何管理和响应安全警报。
+* [在 Azure 安全中心中设置安全策略](tutorial-security-policy.md) - 了解如何配置 Azure 订阅和资源组的安全策略。
 * [在 Azure 安全中心中管理安全建议](security-center-recommendations.md) -- 了解建议如何帮助保护 Azure 资源。
 * [Azure 安全中心常见问题](security-center-faq.md) - 查找有关使用服务的常见问题。
 * [Azure 安全性博客](https://blogs.msdn.com/b/azuresecurity/) - 查找关于 Azure 安全性及合规性的博客文章。

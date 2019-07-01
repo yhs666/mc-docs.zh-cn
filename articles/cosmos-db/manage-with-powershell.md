@@ -4,16 +4,16 @@ description: 使用 Azure Powershell 管理 Azure Cosmos DB 帐户、数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: samples
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: e676a72d27248e8cb3d2d3cda3065d8a5319d290
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: e6e5db79a6ec64fcba7ce97b244950b93dda9dd1
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669053"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171423"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB SQL API 资源
 
@@ -636,5 +636,4 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 
-<!--Update_Description: new articles on manage with powershell -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: update meta properties -->

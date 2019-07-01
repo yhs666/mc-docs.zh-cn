@@ -10,11 +10,11 @@ ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: a6b82c2631dcd73b604d99054155ee9ca04c0bd8
-ms.sourcegitcommit: 7fdba97400f00af4e8c5877ab89aa055cade88b1
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66817114"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235985"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 

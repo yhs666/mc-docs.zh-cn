@@ -11,18 +11,18 @@ origin.date: 09/10/2018
 ms.date: 04/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 03d057c57289c1aac48f9eb59caafcef42c15a3d
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: fe6a603987805e5d93e40c8b288b1c89d48b418f
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004233"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171251"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-ClaimsTransformations 元素包含一个可在用户旅程中用作[自定义策略](active-directory-b2c-overview-custom.md)的一部分的声明转换函数列表。 声明转换可以将给定声明转换为另一个声明。 在声明转换中，指定转换方法，例如将项添加到一个字符串集合或更改字符串的大小写。
+ClaimsTransformations  元素包含一个可在用户旅程中用作[自定义策略](active-directory-b2c-overview-custom.md)的一部分的声明转换函数列表。 声明转换可以将给定声明转换为另一个声明。 在声明转换中，指定转换方法，例如将项添加到一个字符串集合或更改字符串的大小写。
 
 若要包含可在用户旅程中使用的声明转换函数的列表，必须在策略的 BuildingBlocks 部分下声明 ClaimsTransformations XML 元素。
 
@@ -34,7 +34,7 @@ ClaimsTransformations 元素包含一个可在用户旅程中用作[自定义策
 </ClaimsTransformations>
 ```
 
-ClaimsTransformation 元素包含以下属性：
+ClaimsTransformation  元素包含以下属性：
 
 | 属性 |必须 | 说明 |
 | --------- |-------- | ----------- |
@@ -43,7 +43,7 @@ ClaimsTransformation 元素包含以下属性：
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
-ClaimsTransformation 元素包含以下元素：
+ClaimsTransformation  元素包含以下元素：
 
 ```xml
 <ClaimsTransformation Id="<identifier>" TransformationMethod="<method>">
@@ -62,13 +62,13 @@ ClaimsTransformation 元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | -------- | ----------- |
-| InputClaims | 0:1 | InputClaim 元素列表，这些元素用于指定被看作声明转换输入的声明类型。 每个元素都包含对在策略的 ClaimsSchema 部分定义的 ClaimType 的引用。 |
-| InputParameters | 0:1 | InputParameter 元素列表，这些元素作为声明转换输入提供。  
-| OutputClaims | 0:1 | OutputClaim 元素列表，这些元素用于指定在调用 ClaimsTransformation 后生成的声明类型。 每个元素都包含对在 ClaimsSchema 部分定义的 ClaimType 的引用。 |
+| InputClaims | 0:1 | InputClaim  元素列表，这些元素用于指定被看作声明转换输入的声明类型。 每个元素都包含对在策略的 ClaimsSchema 部分定义的 ClaimType 的引用。 |
+| InputParameters | 0:1 | InputParameter  元素列表，这些元素作为声明转换输入提供。  
+| OutputClaims | 0:1 | OutputClaim  元素列表，这些元素用于指定在调用 ClaimsTransformation 后生成的声明类型。 每个元素都包含对在 ClaimsSchema 部分定义的 ClaimType 的引用。 |
 
 ### <a name="inputclaims"></a>InputClaims
 
-InputClaims 元素包含以下元素：
+InputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -76,7 +76,7 @@ InputClaims 元素包含以下元素：
 
 #### <a name="inputclaim"></a>InputClaim
 
-InputClaim 元素包含以下属性：
+InputClaim  元素包含以下属性：
 
 | 属性 |必须 | 说明 |
 | --------- | ----------- | ----------- |
@@ -85,7 +85,7 @@ InputClaim 元素包含以下属性：
 
 ### <a name="inputparameters"></a>InputParameters
 
-InputParameters 元素包含以下元素：
+InputParameters  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -97,11 +97,11 @@ InputParameters 元素包含以下元素：
 | --------- | ----------- |----------- |
 | ID | 是 | 是对声明转换方法的参数的引用的标识符。 每个声明转换方法都有其自己的值。 有关可用值的完整列表，请参阅声明转换表。 |
 | 数据类型 | 是 | 参数的数据类型，例如根据自定义策略 XML 架构中的 DataType 枚举的字符串、布尔值、Int 或 DateTime。 此类型用于正确执行算术操作。 每个声明转换都有其自己的值。 有关可用值的完整列表，请参阅[声明转换引用](#Claims-transformations-reference)。 |
-| 值 | 是 | 将逐字字符串传递到传递的一个值。 某些值是任意的，某些值是从声明转换方法中选择的。 |
+| Value | 是 | 将逐字字符串传递到传递的一个值。 某些值是任意的，某些值是从声明转换方法中选择的。 |
 
 ### <a name="outputclaims"></a>OutputClaims
 
-OutputClaims 元素包含以下元素：
+OutputClaims  元素包含以下元素：
 
 | 元素 | 出现次数 | 说明 |
 | ------- | ----------- | ----------- |
@@ -109,7 +109,7 @@ OutputClaims 元素包含以下元素：
 
 #### <a name="outputclaim"></a>OutputClaim 
 
-OutputClaim 元素包含以下属性：
+OutputClaim  元素包含以下属性：
 
 | 属性 |必须 | 说明 |
 | --------- | ----------- |----------- |
@@ -120,7 +120,7 @@ OutputClaim 元素包含以下属性：
 
 ## <a name="example"></a>示例
 
-例如，可能会存储用户接受的上一版本的服务条款。 更新服务条款时，可以请求用户接受新版本。 在以下示例中，HasTOSVersionChanged 声明将 TOSVersion 声明的值与 LastTOSAcceptedVersion 声明的值进行比较，然后返回布尔 TOSVersionChanged 声明。
+例如，可能会存储用户接受的上一版本的服务条款。 更新服务条款时，可以请求用户接受新版本。 在以下示例中，HasTOSVersionChanged  声明将 TOSVersion  声明的值与 LastTOSAcceptedVersion  声明的值进行比较，然后返回布尔 TOSVersionChanged  声明。
 
 ```XML
 <BuildingBlocks>
@@ -160,13 +160,12 @@ OutputClaim 元素包含以下属性：
 
 有关声明转换的示例，请参阅以下引用页：
 
-- [布尔](boolean-transformations.md)
+- [布尔值](boolean-transformations.md)
 - [日期](date-transformations.md)
-- [Integer](integer-transformations.md)
+- [整数](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [常规](general-transformations.md)
-- [社交帐户](social-transformations.md)
-- [String](string-transformations.md)
+- [字符串](string-transformations.md)
 - [StringCollection](stringcollection-transformations.md)
 
 

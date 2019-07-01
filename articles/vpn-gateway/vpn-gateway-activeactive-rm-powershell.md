@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 07/24/2018
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 35521693026a9046c2fb165ed0121ed31fa3d4c0
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: c5bd6f8b7d2e23b6b94f3fefc63a54e2177d6458
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63844462"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236635"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>配置与 Azure VPN 网关的主动-主动 S2S VPN 连接
 
@@ -279,8 +279,6 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection152 -ResourceGroupName $R
 
 ### <a name="step-1---create-testvnet2-and-the-vpn-gateway"></a>步骤 1 - 创建 TestVNet2 和 VPN 网关
 必须确保新虚拟网络的 IP 地址空间 TestVNet2 不与任何 VNet 范围重叠。
-
-在本示例中，虚拟网络属于同一订阅。 可以在不同订阅之间设置 VNet 到 VNet 连接，若要了解更多详细信息，请参阅[配置 VNet 到 VNet 连接](vpn-gateway-vnet-vnet-rm-ps.md)。 请确保在创建连接时添加“-EnableBgp $True”，以启用 BGP。
 
 #### <a name="1-declare-your-variables"></a>1.声明变量
 请务必将值替换为要用于配置的值。

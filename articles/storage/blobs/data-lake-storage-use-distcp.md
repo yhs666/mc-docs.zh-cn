@@ -11,11 +11,11 @@ ms.date: 05/27/2019
 ms.author: v-jay
 ms.reviewer: seguler
 ms.openlocfilehash: 048718183ee03e44c2905769237b225f5d53a492
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004364"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236041"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>使用 DistCp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 之间复制数据
 
@@ -53,17 +53,17 @@ HDInsight 群集附带 DistCp 实用工具，该实用工具可用于从不同�
 
         hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.chinacloudapi.cn/myfolder
 
-    该命令会将 Blob 存储中 /example/data/gutenberg/ 文件夹的内容复制到 Data Lake Storage 帐户中的 /myfolder。
+    该命令会将 Blob 存储中 /example/data/gutenberg/ 文件夹的内容复制到 Data Lake Storage 帐户中的 /myfolder   。
 
 5. 同样，使用 DistCp 从 Data Lake Storage 帐户将数据复制到 Blob 存储 (WASB)。
 
         hadoop distcp abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.chinacloudapi.cn/myfolder wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/example/data/gutenberg
 
-    该命令会将 Data Lake Store 帐户中 /myfolder 的内容复制到 WASB 中的 /example/data/gutenberg/ 文件夹。
+    该命令会将 Data Lake Store 帐户中 /myfolder 的内容复制到 WASB 中的 /example/data/gutenberg/ 文件夹   。
 
 ## <a name="performance-considerations-while-using-distcp"></a>使用 DistCp 时的性能注意事项
 
-由于 DistCp 的最小粒度是单个文件，设置同步复制的最大数目是针对 Data Lake Storage 对其进行优化的最重要参数。 同步复制的数目等于命令行上的映射器数 (m) 参数。 此参数指定用于复制数据的映射器的最大数目。 默认值为 20。
+由于 DistCp 的最小粒度是单个文件，设置同步复制的最大数目是针对 Data Lake Storage 对其进行优化的最重要参数。 同步复制的数目等于命令行上的映射器数 (m  ) 参数。 此参数指定用于复制数据的映射器的最大数目。 默认值为 20。
 
 **示例**
 

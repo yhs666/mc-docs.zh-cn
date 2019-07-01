@@ -13,18 +13,28 @@
   items:
     - name: 单一数据库快速入门指南
       href: sql-database-single-database-quickstart-guide.md
+    - name: 托管实例快速入门指南
+      href: sql-database-managed-instance-quickstart-guide.md
     - name: 创建
       items:
         - name: 单一数据库 - 门户
           href: sql-database-single-database-get-started.md
+        - name: 托管实例
+          href: sql-database-managed-instance-get-started.md
     - name: 配置
       items:
         - name: 服务器级别 IP 防火墙规则
           href: sql-database-server-level-firewall-rule.md
+        - name: 与托管实例的客户端 VM 连接
+          href: sql-database-managed-instance-configure-vm.md
+        - name: 与托管实例的点到站点连接
+          href: sql-database-managed-instance-configure-p2s.md
     - name: 加载数据
       items:
         - name: 将 BACPAC 导入到新的数据库
           href: sql-database-import.md
+        - name: 将数据库备份还原到托管实例
+          href: sql-database-managed-instance-get-started-restore.md
     - name: 查询
       href: sql-database-connect-query.md
       items:
@@ -64,6 +74,8 @@
       items:
         - name: 单一数据库和共用数据库安全性
           href: sql-database-security-tutorial.md
+        - name: 托管实例安全性
+          href: sql-database-managed-instance-aad-security-tutorial.md
     - name: 实现地理分散的数据库
       href: sql-database-implement-geo-distributed-database.md
     - name: 设置 Azure SQL 数据同步
@@ -144,6 +156,24 @@
               href: sql-database-elastic-pool-scale.md
         - name: 管理池资源
           href: sql-database-elastic-pool-manage.md
+    - name: 托管实例
+      items:
+        - name: 托管实例概述
+          href: sql-database-managed-instance-index.yml
+        - name: 托管实例功能
+          href: sql-database-managed-instance.md
+        - name: 管理 API 参考
+          href: sql-database-managed-instance-create-manage.md
+        - name: 资源限制
+          href: sql-database-managed-instance-resource-limits.md
+        - name: 连接体系结构
+          href: sql-database-managed-instance-connectivity-architecture.md
+        - name: T-SQL 的差异
+          href: sql-database-managed-instance-transact-sql-information.md
+        - name: 托管实例中的时区
+          href: sql-database-managed-instance-timezone.md
+        - name: 保护托管实例中的公共终结点
+          href: sql-database-managed-instance-public-endpoint-securely.md
     - name: 平台即服务
       items:
         - name: “平台即服务”概述
@@ -293,6 +323,8 @@
           href: sql-database-multi-model-features.md
         - name: 内存中
           href: sql-database-in-memory.md
+        - name: 事务复制
+          href: sql-database-managed-instance-transactional-replication.md
         - name: SQL 数据同步
           href: sql-database-sync-data.md
         - name: 临时表
@@ -303,7 +335,7 @@
   items:
     - name: 概述
       href: sql-database-howto.md
-    - name: 单一数据库
+    - name: 单一数据库和弹性池
       items:
         - name: 概述
           href: sql-database-howto-single-database.md
@@ -379,6 +411,38 @@
               href: elastic-jobs-powershell.md
             - name: 创建和管理 (T-SQL)
               href: elastic-jobs-tsql.md
+    - name: 托管实例
+      items:
+        - name: 概述
+          href: sql-database-howto-managed-instance.md
+        - name: 迁移到托管实例
+          href: sql-database-managed-instance-migrate.md
+        - name: 将 TDE 证书迁移到托管实例
+          href: sql-database-managed-instance-migrate-tde-certificate.md
+        - name: 确定托管实例子网的大小
+          href: sql-database-managed-instance-determine-size-vnet-subnet.md
+        - name: 为托管实例创建新的 VNet 和子网
+          href: sql-database-managed-instance-create-vnet-subnet.md
+        - name: 为托管实例配置现有 VNet 和子网
+          href: sql-database-managed-instance-configure-vnet-subnet.md
+        - name: 在删除托管实例后删除子网
+          href: sql-database-managed-instance-delete-virtual-cluster.md
+        - name: 配置自定义 DNS
+          href: sql-database-managed-instance-custom-dns.md
+        - name: 同步网络配置
+          href: sql-database-managed-instance-sync-network-configuration.md
+        - name: 查找管理终结点 IP 地址
+          href: sql-database-managed-instance-find-management-endpoint-ip-address.md
+        - name: 验证内置防火墙保护
+          href: sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md
+        - name: 事务复制
+          href: replication-with-sql-database-managed-instance.md
+        - name: 配置威胁检测
+          href: sql-database-managed-instance-threat-detection.md
+        - name: 连接应用程序
+          href: sql-database-managed-instance-connect-app.md
+        - name: 配置公共终结点
+          href: sql-database-managed-instance-public-endpoint-configure.md
     - name: 加载和移动数据
       items:
         - name: 在 Azure 中复制数据库

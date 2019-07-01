@@ -4,21 +4,21 @@ description: 了解如何配置和更改默认索引策略，以便自动编制�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 05/13/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08ac46e7590791da318b2ab51fa19f7fe59d5d1c
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: fd6e8d47a886338e7c6090f92c06ca61d3c8fd55
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668908"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171437"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB 中的索引策略
 
 在 Azure Cosmos DB 中，每个容器都有一个确定了如何为容器项编制索引的索引策略。 新建容器的默认索引策略会对每个项的每个属性编制索引，对任何字符串或数字强制使用范围索引，对 Point 类型的任何 GeoJSON 对象强制使用空间索引。 这样，无需提前考虑索引和索引管理，就能获得较高的查询性能。
 
-在某些情况下，你可能想要替代此自动行为，以便更好地满足自己的要求。 可以通过设置容器索引策略的索引模式来自定义该策略，并可以包含或排除属性路径。
+在某些情况下，你可能想要替代此自动行为，以便更好地满足自己的要求。 可以通过设置容器索引策略的索引模式来自定义该策略，并可以包含或排除属性路径。  
 
 ## <a name="indexing-mode"></a>索引模式
 
@@ -95,7 +95,7 @@ Azure Cosmos DB 支持两种索引模式：
 
 | **组合索引**           | **示例 `ORDER BY` 查询**         | **受索引支持？** |
 | ----------------------------- | ----------------------------------- | ----------------------- |
-| ```(a asc, b asc)```          | ```ORDER BY  a asc, bcasc```        | ```Yes```            |
+| ```(a asc, b asc)```          | ```ORDER BY  a asc, b asc```        | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  b asc, a asc```        | ```No```             |
 | ```(a asc, b asc)```          | ```ORDER BY  a desc, b desc```      | ```Yes```            |
 | ```(a asc, b asc)```          | ```ORDER BY  a asc, b desc```       | ```No```             |
@@ -141,4 +141,4 @@ Azure Cosmos DB 支持两种索引模式：
 - [索引概述](index-overview.md)
 - [如何管理索引策略](how-to-manage-indexing-policy.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

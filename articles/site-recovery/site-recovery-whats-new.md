@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/30/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4a1d28bcca5486d16e0044c3a9b5a674435338a1
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 858af4d36e8164e03a63b91c21bf2e991425e607
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390787"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276427"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -181,10 +181,12 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 
 **功能** | **详细信息**
 --- | ---
-**区域支持** | 添加了对中国中部 1 区和中国中部 2 区的 Site Recovery 支持。
-**磁盘加密支持** | 添加了对在 Azure AD 应用中使用 Azure 磁盘加密 (ADE) 进行加密的 Azure VM 进行灾难恢复的支持。 [了解详细信息](azure-to-azure-how-to-enable-replication-ade-vms.md)。
+**磁盘加密支持** | 添加了对在 Azure AD 应用中使用 Azure 磁盘加密 (ADE) 进行加密的 Azure VM 进行灾难恢复的支持。
 **磁盘排除** | 现在，在 Azure VM 复制期间会自动排除未初始化的磁盘。
 **已启用防火墙的存储 (PowerShell)** | 添加了对[已启用防火墙的存储帐户](/storage/common/storage-network-security)的支持。<br/><br/> 可将已启用防火墙的存储帐户中使用非托管磁盘的 Azure VM 复制到另一个 Azure 区域，以实现灾难恢复。<br/><br/> 可将已启用防火墙的存储帐户用作非托管磁盘的目标存储帐户。<br/><br/> 仅支持在 PowerShell 中使用。
+
+<!--Not Available on **Region support** | Site Recovery support added for Austrial Central 1 and Austrial Central 2.-->
+<!--Not Available on  [了解详细信息](azure-to-azure-how-to-enable-replication-ade-vms.md)-->
 
 ### <a name="update-rollup-29"></a>更新汇总 29 
 
@@ -212,9 +214,9 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 **功能** | **详细信息**
 --- | ---
 **Linux 支持** | 添加了对 CentOS 6.10 的支持。<br/><br/>
-**云支持** | 添加了对德国云中 Azure VM 灾难恢复的支持。
 **跨订阅灾难恢复** | 支持将一个区域中的 Azure VM 复制到同一 Azure Active Directory 租户中不同订阅内的另一个区域。 [了解详细信息](https://aka.ms/cross-sub-blog)。
 
+<!--Not Available on **Cloud support** | Supported disaster recovery for Azure VMs in the Germany cloud.-->
 <!--Not Available on RedHat Enterprise Linux 6.10;-->
 
 #### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware VM/物理服务器灾难恢复 

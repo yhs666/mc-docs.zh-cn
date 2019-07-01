@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 03/25/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: cbd34aea2f5a5cc1743b95a42c7aaf658e51541e
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 821a66d65a8b716cae72e28e3acfef9f00060d6c
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348070"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151749"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL 数据仓库 - 大规模并行处理 (MPP) 体系结构
 了解 Azure SQL 数据仓库如何将大规模并行处理 (MPP) 与 Azure 存储结合，实现高性能和可伸缩性。 
@@ -36,7 +36,7 @@ SQL 数据仓库使用基于节点的体系结构。 应用程序将 T-SQL 命�
 * 在操作期间恢复计算容量。
 
 ### <a name="azure-storage"></a>Azure 存储
-SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azure 存储进行存储和管理，因此 SQL 数据仓库对存储消耗单独收费。 将数据本身分片到“分布区”中来优化系统性能。 可选择在定义表时用于分布数据的分片模式。 SQL 数据仓库支持以下分片模式：
+SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azure 存储进行存储和管理，因此 SQL 数据仓库对存储消耗单独收费。 将数据本身分片到“分布区”中来优化系统性能  。 可选择在定义表时用于分布数据的分片模式。 SQL 数据仓库支持以下分片模式：
 
 * 哈希
 * 轮循机制
@@ -105,9 +105,9 @@ SQL 数据仓库使用 Azure 存储保护用户数据。  由于数据通过 Azu
 [1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
 
 <!--Article references-->
-<!-- Not Available [Create support ticket]: ./sql-data-warehouse-get-started-create-support-ticket.md-->
+<!-- Not Available [Create support ticket]:./sql-data-warehouse-get-started-create-support-ticket.md-->
 [加载示例数据]: ./sql-data-warehouse-load-sample-databases.md [创建 SQL 数据仓库]: ./sql-data-warehouse-get-started-provision.md [迁移文档]: ./sql-data-warehouse-overview-migrate.md
-<!-- Not Avaialble on [SQL Data Warehouse solution partners]: ./sql-data-warehouse-partner-business-intelligence.md -->
+<!-- Not Avaialble on [SQL Data Warehouse solution partners]:./sql-data-warehouse-partner-business-intelligence.md -->
 [集成工具概述]: ./sql-data-warehouse-overview-integrate.md [备份和还原概述]: ./sql-data-warehouse-restore-database-overview.md [Azure 词汇表]: ../azure-glossary-cloud-terminology.md
 
 <!--MSDN references-->

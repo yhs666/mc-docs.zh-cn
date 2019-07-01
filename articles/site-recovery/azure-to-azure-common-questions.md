@@ -8,12 +8,12 @@ origin.date: 04/29/2019
 ms.date: 06/10/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 4661815c02d1fb2dc2b97e67995b33bab2c0bc2b
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 5882e6d80601dbe7bf8e9838b85ada3908e291b7
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390859"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276459"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常见问题：Azure 到 Azure 的灾难恢复
 
@@ -45,8 +45,10 @@ Site Recovery 团队会与 Azure 容量管理团队合作，规划足够的基�
 <a name="replication"></a>
 ## <a name="replication"></a>复制
 
-### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>是否可以复制通过 Azure 磁盘加密启用的 VM？
-是的，可以复制此类 VM。 请参阅[将启用了 Azure 磁盘加密的虚拟机复制到另一个 Azure 区域](azure-to-azure-how-to-enable-replication-ade-vms.md)。 目前，Azure Site Recovery 仅支持运行 Windows OS 且已使用 Azure Active Directory (Azure AD) 应用启用加密的 Azure VM。
+<!--Pending on verify 
+### Can I replicate VMs enabled through Azure disk encryption?
+Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
+-->
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>是否可将 VM 复制到另一个订阅？
 是的，可将 Azure VM 复制到同一 Azure AD 租户中的不同订阅。

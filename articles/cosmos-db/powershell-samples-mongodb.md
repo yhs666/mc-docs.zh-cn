@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: f78c092b6ce1bab3baf8d13d85e135712dad6890
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 7f10d7d9c6fddd194b47912eec20a78f451c151b
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424263"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171389"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>适用于 Azure Cosmos DB 的 Azure PowerShell 示例 - MongoDB API
 
@@ -28,5 +28,4 @@ ms.locfileid: "66424263"
 |[帐户密钥和连接字符串任务](scripts/powershell/common/ps-account-keys-connection-strings.md)| 获取 Azure Cosmos 帐户的连接字符串。 获取 Azure Cosmos 帐户的主密钥和辅助密钥。 重新生成帐户密钥。 |
 |||
 
-<!--Update_Description: new articles on powershell smaples mongodb-->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

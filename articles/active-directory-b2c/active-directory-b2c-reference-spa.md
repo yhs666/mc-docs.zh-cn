@@ -11,12 +11,12 @@ origin.date: 04/16/2019
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7438964cf694365bb7affb117a0c57e55f6709b3
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 6997b42537d5a1afb9c52b0224125b117a2a7181
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687612"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235949"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 中的 OAuth 2.0 隐式流的单页登录
 
@@ -43,7 +43,7 @@ Azure AD B2C 扩展了标准 OAuth 2.0 隐式流，使其功能远远超出了�
 ### <a name="use-a-sign-in-user-flow"></a>使用登录用户流
 
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -56,7 +56,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-user-flow"></a>使用注册用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -69,7 +69,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-user-flow"></a>使用编辑配置文件用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -80,7 +80,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &p=b2c_1_edit_profile
 ```
 
-| 参数 | 必需 | 说明 |
+| 参数 | 必须 | 说明 |
 | --------- | -------- | ----------- |
 | client_id | 是 | [Azure 门户](https://portal.azure.cn/)分配给应用程序的应用程序 ID。 |
 | response_type | 是 | 必须包含 OpenID Connect 登录的 `id_token` 。 也可以包含响应类型 `token`。 如果使用 `token`，则应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。  如果使用 `token` 响应类型，`scope` 参数必须包含一个范围，以指出要对哪个资源发出令牌。 |
@@ -142,11 +142,11 @@ error=access_denied
 
 Azure AD B2C 具有 OpenID Connect 元数据终结点。 应用可以使用终结点在运行时提取 Azure AD B2C 的相关信息。 此信息包括终结点、令牌内容和令牌签名密钥。 Azure AD B2C 租户中的每个用户流都有一个 JSON 元数据文档。 例如，fabrikamb2c.partner.onmschina.cn 租户中的 b2c_1_sign_in 用户流的元数据文档位于以下位置：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 此配置文档的其中一个属性是 `jwks_uri`。 相同用户流的值是：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 若要确定对 ID 令牌签名所用的用户流（以及提取元数据的位置），共有两个选择。 第一种方法，用户流名称包含在 `id_token` 的 `acr` 声明中。 有关如何从 ID 令牌中分析声明的信息，请参阅 [Azure AD B2C 令牌参考](active-directory-b2c-reference-tokens.md)。 另一个方法是在发出请求时在 `state` 参数的值中对用户流进行编码。 然后对 `state` 参数进行解码以确定所使用的用户流。 任意一种方法均有效。
 
@@ -178,7 +178,7 @@ Azure AD B2C 具有 OpenID Connect 元数据终结点。 应用可以使用终�
 
 ```
 
-https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -194,16 +194,16 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
-| client_id |必需 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
-| response_type |必需 |必须包含 OpenID Connect 登录的 `id_token` 。  也可能包含响应类型 `token`。 如果在此处使用 `token`，应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。 如果使用 `token` 响应类型，`scope` 参数必须包含一个范围，以指出要对哪个资源发出令牌。 |
+| client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
+| response_type |必须 |必须包含 OpenID Connect 登录的 `id_token` 。  也可能包含响应类型 `token`。 如果在此处使用 `token`，应用能够立即从授权终结点接收访问令牌，而无需向授权终结点发出第二次请求。 如果使用 `token` 响应类型，`scope` 参数必须包含一个范围，以指出要对哪个资源发出令牌。 |
 | redirect_uri |建议 |应用的重定向 URI，应用可在其中发送和接收身份验证响应。 它必须与门户中注册的其中一个重定向 URI 完全匹配，否则必须经过 URL 编码。 |
-| scope |必需 |范围的空格分隔列表。  若要获取令牌，请包含相应资源所需的所有范围。 |
+| scope |必须 |范围的空格分隔列表。  若要获取令牌，请包含相应资源所需的所有范围。 |
 | response_mode |建议 |指定用于将生成的令牌送回到应用的方法。  可以是 `query`、`form_post` 或 `fragment`。 |
 | state |建议 |随令牌响应返回的请求中所包含的值。  它可以是你想要使用的任何内容的字符串。  随机生成的唯一值通常用于防止跨站点请求伪造攻击。  它还可用于在身份验证请求发生前，对有关用户在应用中的状态信息进行编码。 例如，用户之前所在的页面或视图。 |
-| nonce |必需 |由应用生成且包含在请求中的值，以声明方式包含在生成的 ID 令牌 中。  应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机产生的唯一字符串，可识别请求的来源。 |
-| prompt |必需 |若要刷新并获取隐藏的 iframe 中的令牌，请使用 `prompt=none` 以确保 iframe 会立即返回，而不会停滞在登录页面上。 |
-| login_hint |必需 |若要刷新并获取隐藏的 iframe 中的令牌，请在此提示中加入用户的用户名，以便区分用户在给定时间内可能具有的多个会话。 可以使用 `preferred_username` 声明从以前的登录中提取用户名。 |
-| domain_hint |必需 |可以是 `consumers` 或 `organizations`。  若要刷新并获取隐藏的 iframe 中的令牌，请在请求中包含 `domain_hint` 值。  从以前登录的 ID 令牌提取 `tid` 声明，以确定要使用哪个值。  如果 `tid` 声明值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，请使用 `domain_hint=consumers`。  否则使用 `domain_hint=organizations`。 |
+| nonce |必须 |由应用生成且包含在请求中的值，以声明方式包含在生成的 ID 令牌 中。  应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机产生的唯一字符串，可识别请求的来源。 |
+| prompt |必须 |若要刷新并获取隐藏的 iframe 中的令牌，请使用 `prompt=none` 以确保 iframe 会立即返回，而不会停滞在登录页面上。 |
+| login_hint |必须 |若要刷新并获取隐藏的 iframe 中的令牌，请在此提示中加入用户的用户名，以便区分用户在给定时间内可能具有的多个会话。 可以使用 `preferred_username` 声明从以前的登录中提取用户名。 |
+| domain_hint |必须 |可以是 `consumers` 或 `organizations`。  若要刷新并获取隐藏的 iframe 中的令牌，请在请求中包含 `domain_hint` 值。  从以前登录的 ID 令牌提取 `tid` 声明，以确定要使用哪个值。  如果 `tid` 声明值是 `9188040d-6c67-4c5b-b112-36a304b66dad`，请使用 `domain_hint=consumers`。  否则使用 `domain_hint=organizations`。 |
 
 通过设置 `prompt=none` 参数，此请求会立即成功或立即失败，并返回到应用程序。  成功的响应会通过 `response_mode` 参数中指定的方法，发送到位于所指示的重定向 URI 的应用。
 
@@ -252,14 +252,14 @@ ID 令牌和访问令牌在较短时间后都会过期。 应用必须准备好�
 只需将用户重定向到[验证 ID 令牌](#validate-the-id-token)中所述的相同 OpenID Connect 元数据文档中列出的 `end_session_endpoint`。 例如：
 
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
 ```
 
 | 参数 | 必需？ | 说明 |
 | --- | --- | --- |
-| p |必需 |要用于从应用程序中注销用户的策略。 |
+| p |必须 |要用于从应用程序中注销用户的策略。 |
 | post_logout_redirect_uri |建议 |用户在成功注销后应重定向到的 URL。如果未包含此参数，Azure AD B2C 会向用户显示一条常规消息。 |
 
 > [!NOTE]

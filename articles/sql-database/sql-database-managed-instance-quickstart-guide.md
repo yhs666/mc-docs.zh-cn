@@ -13,12 +13,12 @@ ms.reviewer: carlr
 manager: digimobile
 origin.date: 02/18/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: e8989754d2f62aaff810dfa5263bb69a62b599e9
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 762236ca2771c0943c61c18deca493323fc4d48e
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629183"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277018"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例入门
 
@@ -33,7 +33,7 @@ ms.locfileid: "65629183"
 作为第一步，你需要使用将放置托管实例的网络环境创建第一个托管实例，并启用从要执行查询的计算机或虚拟机到托管实例的连接。 可以使用下列指南：
 
 - [使用 Azure 门户创建托管实例](sql-database-managed-instance-get-started.md)。 在 Azure 门户中配置所需的参数（用户名/密码、核心数、最大存储量），并自动创建 Azure 网络环境，而无需了解网络详细信息和基础结构要求。 只需确保有一个当前允许创建托管实例的[订阅类型](sql-database-managed-instance-resource-limits.md#supported-subscription-types)即可。 若要使用自己的网络，或者要自定义网络，请参阅[为 Azure SQL 数据库托管实例配置现有虚拟网络](sql-database-managed-instance-configure-vnet-subnet.md)或[为 Azure SQL 数据库托管实例创建虚拟网络](sql-database-managed-instance-create-vnet-subnet.md)。
-- 托管实例在其自身的不带公共终结点的 VNet 中创建。 若要进行客户端应用程序访问，可“在同一 VNet（不同子网）中创建 VM”，或参考以下快速入门之一“从客户端计算机与 VNet 建立点到站点 VPN 连接”：
+- 托管实例在其自身的不带公共终结点的 VNet 中创建。 若要进行客户端应用程序访问，可“在同一 VNet（不同子网）中创建 VM”，或参考以下快速入门之一“从客户端计算机与 VNet 建立点到站点 VPN 连接”   ：
 
   - [在托管实例 VNet 中创建 Azure 虚拟机](sql-database-managed-instance-configure-vm.md)以建立客户端应用程序（包括 SQL Server Management Studio）连接。
   - 从装有 SQL Server Management Studio 和其他客户端连接应用程序的客户端计算机[与托管实例建立点到站点 VPN 连接](sql-database-managed-instance-configure-p2s.md)。 这是与托管实例及其 VNet 建立连接的两种方法之一。
@@ -72,7 +72,7 @@ ms.locfileid: "65629183"
 
 ## <a name="migrating-to-a-managed-instance-with-minimal-downtime"></a>在尽量缩短停机时间的情况下迁移到托管实例
 
-参考这些快速入门中的文章可以快速设置托管实例，以及使用本机 `RESTORE` 功能移动数据库。 但是，使用本机 `RESTORE` 时，必须等待数据库完成还原（并复制到 Azure Blob 存储，如果尚未存储在其中）。 这会导致应用程序出现一段停机时间，尤其是数据库较大时。 若要移动生产数据库，请使用[数据迁移服务 (DMS)](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json)，它可以在尽量缩短停机时间的情况下迁移数据库。 为实现这种迁移，DMS 会以增量方式将源数据库中发生的更改推送到所要还原的托管实例数据库。 这样，便可以在尽量缩短停机时间的前提下，快速将应用程序从源数据库切换到目标数据库。
+参考这些快速入门中的文章可以快速设置托管实例，以及使用本机 `RESTORE` 功能移动数据库。 但是，使用本机 `RESTORE` 时，必须等待数据库完成还原（并复制到 Azure Blob 存储，如果尚未存储在其中）。 这会导致应用程序出现一段停机时间，尤其是数据库较大时。
 
 ## <a name="next-steps"></a>后续步骤
 

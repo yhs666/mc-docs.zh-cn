@@ -1,6 +1,6 @@
 ---
 title: 快速入门：创建工作负荷分类器 - T-SQL | Microsoft Docs
-description: 使用 T-SQL 创建具有较高重要性的工作负荷分类器
+description: 使用 T-SQL 创建具有较高重要性的工作负荷分类器。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
 origin.date: 05/01/2019
-ms.date: 05/20/2019
+ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2081c375a5d66ba81003932c192692b80b34c75
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: f5b06f0a65dcba98bc338625832dadc8813b6c90
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828834"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151757"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入门：使用 T-SQL 创建工作负荷分类器
 
@@ -31,7 +31,7 @@ ms.locfileid: "65828834"
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假设读者已有一个 SQL 数据仓库，并且拥有“控制数据库”权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库。
+本快速入门假设读者已有一个 SQL 数据仓库，并且拥有“控制数据库”权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
@@ -98,16 +98,15 @@ DROP USER [TheCEO]
 
     ![清理资源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. 若要暂停计算，请选择“暂停”按钮。 暂停数据仓库后，可看到“启动”按钮。  若要恢复计算，请选择“启动”。
+2. 若要暂停计算，请选择“暂停”  按钮。 暂停数据仓库后，可看到“启动”  按钮。  若要恢复计算，请选择“启动”  。
 
-3. 若要删除数据仓库以免产生计算或存储费用，请选择“删除”。
+3. 若要删除数据仓库以免产生计算或存储费用，请选择“删除”  。
 
-4. 若要删除所创建的 SQL 服务器，请选择上图中的“mynewserver-20180430.database.chinacloudapi.cn”，然后选择“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
+4. 若要删除所创建的 SQL 服务器，请选择上图中的“mynewserver-20180430.database.chinacloudapi.cn”，然后选择“删除”   。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
-5. 若要删除资源组，请选择“myResourceGroup”，然后选择“删除资源组”。
+5. 若要删除资源组，请选择“myResourceGroup”  ，然后选择“删除资源组”  。
 
 ## <a name="next-steps"></a>后续步骤
 
-现已创建一个工作负荷分类器。 以 TheCEO 身份运行一些查询，以查看该分类器的执行情况。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
-
-有关 SQL 数据仓库工作负荷管理的详细信息，请参阅 [SQL 数据仓库工作负荷重要性](sql-data-warehouse-workload-importance.md)和 [SQL 数据仓库工作负荷分类](sql-data-warehouse-workload-classification.md)。
+- 现已创建一个工作负荷分类器。 以 TheCEO 身份运行一些查询，以查看该分类器的执行情况。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
+- 有关 Azure SQL 数据仓库工作负荷管理的详细信息，请参阅[工作负荷重要性](sql-data-warehouse-workload-importance.md)和[工作负荷分类](sql-data-warehouse-workload-classification.md)。

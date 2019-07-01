@@ -185,5 +185,3 @@
       href: 'https://docs.microsoft.com/azure/templates/microsoft.batch/batchaccounts'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-batch'
-    - name: 视频
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=batch'

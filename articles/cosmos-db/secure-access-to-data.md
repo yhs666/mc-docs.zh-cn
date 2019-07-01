@@ -4,15 +4,15 @@ description: 了解有关 Azure Cosmos DB 中的访问控制概念，包括主�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 08/19/2018
-ms.date: 03/04/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2766bfbd778e9d63e4224539da3040a7beae74e4
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 575a68fe571516b8cc279371cbfdd9e876a23ad9
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987931"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171348"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -179,19 +179,17 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 若要将 Azure Cosmos DB 帐户读者访问权限添加到用户帐户，请让订阅所有者在 Azure 门户执行以下步骤。
 
 1. 打开 Azure 门户，并选择 Azure Cosmos DB 帐户。
-2. 单击“访问控制(IAM)”选项卡，然后单击“+ 添加角色分配”。
-3. 在“添加角色分配”窗格中的“角色”框中，选择“Cosmos DB 帐户读者角色”。
-4. 在“分配其访问权限”框中，选择“Azure AD 用户、组或应用程序”。
+2. 单击“访问控制(IAM)”  选项卡，然后单击“+ 添加角色分配”  。
+3. 在“添加角色分配”  窗格中的“角色”  框中，选择“Cosmos DB 帐户读者角色”  。
+4. 在“分配其访问权限”  框中，选择“Azure AD 用户、组或应用程序”  。
 5. 在你想要授予访问权限的目录中选择用户、组或应用程序。  可以通过显示名称、电子邮件地址或对象标识符搜索目录。
     所选用户、组或应用程序会显示在所选成员列表中。
-6. 单击“保存” 。
+6. 单击“保存”  。
 
 实体现在便可以读取 Azure Cosmos DB 资源。
 
 ## <a name="delete-or-export-user-data"></a>删除或导出用户数据
-用户可使用 Azure Cosmos DB 搜索、选择、修改和删除数据库或集合中的任何个人数据。 Azure Cosmos DB 提供用于查找和删除个人数据的 API，但用户应负责使用该 API 并定义擦除个人数据必需的逻辑。 每个多模型 API（SQL、MongoDB）都提供不同的语言 SDK，其中包含用于搜索和删除个人数据的方法。 还可启用[生存时间 (TTL)](time-to-live.md)功能在指定时间段后自动删除数据，不会产生任何额外费用。
-
-<!--Not Available on Gremlin API, Cassandra API, Table API-->
+用户可使用 Azure Cosmos DB 搜索、选择、修改和删除数据库或集合中的任何个人数据。 Azure Cosmos DB 提供用于查找和删除个人数据的 API，但用户应负责使用该 API 并定义擦除个人数据必需的逻辑。 每个多模型 API（SQL、MongoDB、Gremlin、Cassandra、表）都包含不同的语言 SDK，这些 SDK 提供了各种用于搜索和删除个人数据的方法。 还可启用[生存时间 (TTL)](time-to-live.md)功能在指定时间段后自动删除数据，不会产生任何额外费用。
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

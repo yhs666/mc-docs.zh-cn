@@ -12,12 +12,12 @@ origin.date: 08/12/2017
 ms.date: 11/13/2018
 ms.author: v-junlch
 ms.reviewer: librown
-ms.openlocfilehash: 02ee83287cc088181e82f5d8095cbe49579b3c6a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 116013e2492a2a54d1693104876e066e0dc73571
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643646"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236456"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>使用手机而不是密码登录
 在你输入密码后，Microsoft Authenticator 应用不仅可以通过执行双重验证来帮助保护帐户的安全，而且现在它还能完全取代 Microsoft 帐户密码。
@@ -34,7 +34,7 @@ ms.locfileid: "52643646"
 
 - **如果手机上有此图标 ![表明你已进行了设置的图标](./media/microsoft-authenticator-app-phone-signin-faq/icon.png)。** 这表示已设置手机登录。 系统可能要求你升级帐户以添加推送通知，以便在从应用外部发送身份验证请求时，可以收到通知。 
 
-- **如果已使用 Microsoft Authenticator 应用进行双重验证。** 请转到应用的“帐户”屏幕，选择工作或学校帐户旁边的下拉箭头，然后选择“启用手机登录”。 
+- **如果已使用 Microsoft Authenticator 应用进行双重验证。** 请转到应用的“帐户”屏幕，选择工作或学校帐户旁边的下拉箭头，然后选择“启用手机登录”。  
 
 - **如果为个人帐户使用了 Microsoft Authenticator 应用，但没有为工作或学校帐户使用该应用。** 请遵照组织的双重验证说明，然后启用手机登录。 有关详细信息，请参阅 [Microsoft Authenticator 应用入门](microsoft-authenticator-app-how-to.md)。
 
@@ -42,15 +42,15 @@ ms.locfileid: "52643646"
 
 1. 像平时一样登录到工作或学校帐户。 
 
-    键入用户名后，会看到一个页面，其中包含一个两位数的数字，并要求通过 Microsoft Authenticator 应用批准登录。 如果不想要使用此登录方法，可以选择“改用密码”，并使用密码登录。
+    键入用户名后，会看到一个页面，其中包含一个两位数的数字，并要求通过 Microsoft Authenticator 应用批准登录。 如果不想要使用此登录方法，可以选择“改用密码”，并使用密码登录。 
 
-    ![“批准登录”框](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+    ![“批准登录”框](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
 
-2. Microsoft 身份验证应用程序中会显示一条通知，要求你**批准登录**。 如果你认可这次登录，请选择“批准”。 否则请选择“拒绝”。 
+2. Microsoft 身份验证应用程序中会显示一条通知，要求你**批准登录**。 如果你认可这次登录，请选择“批准”。  否则请选择“拒绝”  。 
 
-3. 点击“批准登录”屏幕上显示的同一数字。 使用手机的 PIN 或生物识别密钥完成身份验证。
+3. 点击“批准登录”屏幕上显示的同一数字。  使用手机的 PIN 或生物识别密钥完成身份验证。
 
-    ![带有待选择的数字的“批准登录”框](media\microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    ![带有待选择的数字的“批准登录”框](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
 ## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>为个人帐户启用手机登录 
 可为个人 Microsoft 帐户（例如，用来登录 Outlook.com、Xbox、或 Skype 的帐户）启用手机登录。
@@ -61,14 +61,14 @@ ms.locfileid: "52643646"
 
     新帐户会自动启用，因此你可以立即开始使用手机登录。 
 
-- **如果已使用 Microsoft Authenticator 应用进行双重验证。** 请转到应用的“帐户”屏幕，选择工作或学校帐户旁边的下拉箭头，然后选择“启用手机登录”。
+- **如果已使用 Microsoft Authenticator 应用进行双重验证。** 请转到应用的“帐户”屏幕，选择工作或学校帐户旁边的下拉箭头，然后选择“启用手机登录”。  
 
     >[!NOTE]
     >为帮助保护帐户，该应用要求在设备上设置 PIN 或生物识别锁。 如果将手机保持解锁状态，该应用会要求在启用手机登录之前设置安全锁。
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>使用手机登录方法登录到个人帐户 
 
-1. 转到个人 Microsoft 帐户登录页，然后选择“改用 Microsoft Authenticator 应用”链接，而不要键入密码。 
+1. 转到个人 Microsoft 帐户登录页，然后选择“改用 Microsoft Authenticator 应用”链接，而不要键入密码  。 
 
     Microsoft 向手机发送通知。 
 
@@ -77,12 +77,12 @@ ms.locfileid: "52643646"
 ## <a name="phone-sign-in-faq"></a>手机登录常见问题解答
 |**问题**|**解决方案**|
 |--------------|-------------|
-|**为何使用手机登录比键入密码更安全？**|当今，大部分人都是使用用户名和密码登录到网站或应用。 遗憾的是，密码可能会丢失、被盗或被黑客猜出。<br><br>安装 Microsoft Authenticator 应用后，该应用会在手机上创建一个密钥，用于解锁受手机 PIN 或生物识别锁保护的帐户。 登录时，可以使用此密钥来证明自己的身份。<br><br>重要说明<br>你的数据仅用于在本地保护你的密钥。 这些数据永远不会发送到或者存储在云中。|
+|**为何使用手机登录比键入密码更安全？**|当今，大部分人都是使用用户名和密码登录到网站或应用。 遗憾的是，密码可能会丢失、被盗或被黑客猜出。<br><br>安装 Microsoft Authenticator 应用后，该应用会在手机上创建一个密钥，用于解锁受手机 PIN 或生物识别锁保护的帐户。 登录时，可以使用此密钥来证明自己的身份。<br><br>重要说明 <br>你的数据仅用于在本地保护你的密钥。 这些数据永远不会发送到或者存储在云中。|
 |**这是否会取代双重验证？是否应将其关闭？**| 我们正努力扩展手机登录的适用范围，但目前在 Microsoft 生态系统中仍有不支持它的情景。 在这些场合中，仍需要使用双重验证进行安全登录。 因此，不应关闭帐户的双重验证。|
 |**如果为帐户保持启用双重验证，是否必须批准两个通知？**| 否。 使用手机登录到 Microsoft 帐户也算作双重验证，因此不需要再次批准。|
-|**如果手机遗失或未随身携带，如何访问我的帐户？**| 始终可以在登录页中选择“改用密码”链接，重新改用密码登录。 但是，如果使用双重验证，则仍需要使用第二种方法来验证身份。<br><br>重要说明<br>强烈建议确保有多个最新的验证方法与你的帐户相关联。<br><br>如果无法管理验证方法，则必须与管理员联系。|
-|**如何停用此功能，并重新改用密码登录？**|对于个人帐户，请在登录期间选择“改用密码”链接。 系统会记住你最近的选择，并在下次登录时默认提供此选项。 如果想要改用手机登录，请在登录期间选择“改用应用”链接。<br><br>对于工作或学校帐户，必须删除帐户：打开 Microsoft Authenticator 应用，选择“编辑帐户”菜单，然后删除帐户。|
-|**为何不能使用多个工作或学校帐户进行手机登录？**| 一部手机只能注册到单个工作或学校帐户。 如果想要为不同的工作或学校帐户启用手机登录，必须先通过“设置”页取消注册旧设备。|
+|**如果手机遗失或未随身携带，如何访问我的帐户？**| 始终可以在登录页中选择“改用密码”链接，重新改用密码登录。 但是，如果使用双重验证，则仍需要使用第二种方法来验证身份。<br><br>重要说明 <br>强烈建议确保有多个最新的验证方法与你的帐户相关联。<br><br>如果无法管理验证方法，则必须与管理员联系。|
+|**如何停用此功能，并重新改用密码登录？**|对于个人帐户，请在登录期间选择“改用密码”链接。  系统会记住你最近的选择，并在下次登录时默认提供此选项。 如果想要改用手机登录，请在登录期间选择“改用应用”链接。 <br><br>对于工作或学校帐户，必须删除帐户：打开 Microsoft Authenticator 应用，选择“编辑帐户”菜单，然后删除帐户。 |
+|**为何不能使用多个工作或学校帐户进行手机登录？**| 一部手机只能注册到单个工作或学校帐户。 如果想要为不同的工作或学校帐户启用手机登录，必须先通过“设置”页取消注册旧设备。 |
 |**是否可以使用手机登录到电脑？**| 我们建议使用 Windows 10 上的 Windows Hello 登录到电脑。 Windows Hello 允许使用人脸、指纹或 PIN 登录。|
 |**是否可以在 Windows Phone 上使用手机登录？**| 否。 Windows Phone 上的 Microsoft Authenticator 应用不支持此功能。|
 

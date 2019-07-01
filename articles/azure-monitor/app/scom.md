@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5eb86f53a35895e80cfe6e3b082631cb1e7d0b4f
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 28eccd07b0682bb58b25ca7f0e81f4dec417b14b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135896"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236517"
 ---
 # <a name="application-performance-monitoring-using-application-insights-for-scom"></a>为 SCOM 使用 Application Insights 的应用程序性能监视
 如果使用 System Center Operations Manager (SCOM) 管理服务器，可在 [Azure Application Insights](../../azure-monitor/app/asp-net.md) 的帮助下监视性能并诊断性能问题。 Application Insights 监视 Web 应用程序的传入请求、传出 REST 和 SQL 调用、异常和日志跟踪。 它提供带有度量值图和智能警报的仪表板，以及针对此遥测的功能强大的搜索和分析查询。 
@@ -92,10 +92,9 @@ ms.locfileid: "67135896"
 ![在“监视”中，打开“Application Insights”](./media/scom/100.png)
 
 ## <a name="view-telemetry-in-application-insights"></a>在 Application Insights 中查看遥测
-在 [Azure 门户](https://portal.azure.cn)中，浏览到应用的资源。 从应用[查看显示遥测的图表](../../azure-monitor/app/app-insights-dashboards.md)。 （如果它尚未显示在主页上，请单击“实时指标流”。)
+在 [Azure 门户](https://portal.azure.cn)中，浏览到应用的资源。 （如果它尚未显示在主页上，请单击“实时指标流”。)
 
 ## <a name="next-steps"></a>后续步骤
-* [设置仪表板](../../azure-monitor/app/app-insights-dashboards.md)以将监视此应用和其他应用的重要图表汇总在一起。
 * [了解指标](../../azure-monitor/app/metrics-explorer.md)
 * [设置警报](../../azure-monitor/app/alerts.md)
 * [诊断性能问题](../../azure-monitor/app/detect-triage-diagnose.md)

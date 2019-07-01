@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3e0ace6d610f31d997eadfb247629a6baa52cd3a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 2e722005772cb44ecc14e16981c21bd0f5734709
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732437"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236514"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>状态监视器 v2 入门
 
@@ -82,9 +82,8 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
  查看遥测：
 
 - [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
-- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)，以便诊断问题
+- [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题
 - [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
-- [创建仪表板](../../azure-monitor/app/app-insights-dashboards.md)
 
  添加更多遥测：
 

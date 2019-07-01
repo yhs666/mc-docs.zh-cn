@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 01/25/2019
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1d548d1b13ab37f7d2e037e9058fe49bb390665c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 4324ae2a04c184ee1a2b47c16ce742c89bda27ac
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004229"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427811"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像
 
@@ -65,6 +65,7 @@ ms.locfileid: "66004229"
 1. 列出发布者：
 
     ```powershell
+    Connect-AzAccount -Environment AzureChinaCloud
     $locName="<Azure location, such as China North>"
     Get-AzVMImagePublisher -Location $locName | Select PublisherName
     ```
@@ -128,7 +129,7 @@ Canonical
 
 <!--MOONCCAKE: CUSTOMIZE-->
 
-对于“MicrosoftWindowsServer”发布者：
+对于“MicrosoftWindowsServer”  发布者：
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
@@ -148,7 +149,7 @@ WindowsServerSemiAnnual
 
 <!--MOONCAKE CUSTOMIZE: invalid on Windows-HUB-->
 
-对于“WindowsServer”产品/服务：
+对于“WindowsServer”  产品/服务：
 
 ```powershell
 $offerName="WindowsServer"

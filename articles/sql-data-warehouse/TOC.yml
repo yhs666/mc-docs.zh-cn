@@ -18,18 +18,22 @@
       href: sql-data-warehouse-overview-faq.md
 - name: 发行说明
   items:
-    - name: 2018 年 9 月
-      href: release-notes-september-2018.md
-    - name: 2018 年 8 月
-      href: release-notes-august-2018.md
-    - name: 2018 年 7 月
-      href: release-notes-july-2018.md
-    - name: 2018 年 6 月
-      href: release-notes-june-2018.md
-    - name: 2018 年 5 月
-      href: release-notes-may-2018.md
-    - name: 2018 年 4 月
-      href: release-notes-april-2018.md
+    - name: 最新版本
+      href: release-notes-10-0-10106-0.md
+    - name: 已存档的发行说明
+      items:
+        - name: 2018 年 9 月
+          href: release-notes-september-2018.md
+        - name: 2018 年 8 月
+          href: release-notes-august-2018.md
+        - name: 2018 年 7 月
+          href: release-notes-july-2018.md
+        - name: 2018 年 6 月
+          href: release-notes-june-2018.md
+        - name: 2018 年 5 月
+          href: release-notes-may-2018.md
+        - name: 2018 年 4 月
+          href: release-notes-april-2018.md
 - name: 快速入门
   expanded: true
   items:
@@ -237,7 +241,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: 安装 Visual Studio
           href: sql-data-warehouse-install-visual-studio.md
-    - name: 管理工作负荷
+    - name: 工作负荷管理
       items:
         - name: 分析工作负荷
           href: analyze-your-workload.md
@@ -283,10 +287,6 @@
       href: sql-data-warehouse-manage-compute-rest-api.md
 - name: 资源
   items:
-    - name: Azure 路线图
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/sql-data-warehouse/'
     - name: 定价计算器
@@ -295,5 +295,3 @@
       href: 'https://www.azure.cn/support/forums/'
     - name: 服务更新
       href: 'https://www.azure.cn/what-is-new/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'

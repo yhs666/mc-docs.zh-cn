@@ -9,12 +9,12 @@ ms.topic: overview
 origin.date: 02/22/2019
 ms.date: 03/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 7f2a5c6ab4a696a4730c7c93daec55ebb73f39ed
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: ce531bb3b08feddbc2b59123026635430cb08ee1
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348110"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236636"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 
@@ -22,7 +22,7 @@ VPN 网关是特定类型的虚拟网关，用于跨公共 Internet 在 Azure �
 
 ## <a name="whatis"></a>什么是虚拟网关？
 
-虚拟网关由两个或更多虚拟机组成，这些虚拟机会部署到所创建的名为“网关子网”的特定子网。 创建虚拟网关时，将创建位于网关子网中的 VM。 虚拟网络网关 VM 配置为包含特定于该网关的路由表和网关服务。 无法直接配置属于虚拟网关的 VM，且绝不应该将其他资源部署到网关子网。
+虚拟网关由两个或更多虚拟机组成，这些虚拟机会部署到所创建的名为“网关子网”的特定子网。  创建虚拟网关时，将创建位于网关子网中的 VM。 虚拟网络网关 VM 配置为包含特定于该网关的路由表和网关服务。 无法直接配置属于虚拟网关的 VM，且绝不应该将其他资源部署到网关子网。
 
 创建虚拟网关可能需要多达 45 分钟才能完成。 创建虚拟网关时，会将网关 VM 部署到网关子网，并使用指定的设置进行配置。 配置的设置之一是网关类型。 网关类型“vpn”指定创建的虚拟网关类型为 VPN 网关。 在创建 VPN 网关以后，即在一个 VPN 网关和另一个 VPN 网关之间（VNet 到 VNet）创建 IPsec/IKE VPN 隧道连接，或者在 VPN 网关和本地 VPN 设备（站点到站点）之间创建跨界 IPsec/IKE VPN 隧道连接。 也可创建点到站点 VPN 连接（基于 IKEv2 或 SSTP 的 VPN），以便从远程位置（例如从会议或家）连接到虚拟网络。
 
@@ -84,7 +84,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 [!INCLUDE [site-to-site and multi-site table](../../includes/vpn-gateway-table-site-to-site-include.md)]
 
-## <a name="P2S"></a>点到站点（基于 IKEv2 或 SSTP 的 VPN）
+## <a name="P2S"></a>点到站点 VPN
 
 点到站点 (P2S) VPN 网关连接用于创建从单个客户端计算机到虚拟网络的安全连接。 可通过从客户端计算机启动连接来建立 P2S 连接。 对于要从远程位置（例如从家里或会议室）连接到 Azure VNet 的远程工作者，此解决方案很有用。 如果只有一些客户端需要连接到 VNet，则还可以使用 P2S VPN 这一解决方案来代替 S2S VPN。
 
@@ -104,7 +104,6 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 连接的 VNet 可以：
 
 * 在相同或不同的区域中
-* 在相同或不同订阅中 
 * 在相同或不同部署模型中
 
 ![Azure VPN 网关 VNet 到 VNet 连接示例](./media/vpn-gateway-about-vpngateways/vpngateway-vnet-to-vnet-connection-diagram.png)

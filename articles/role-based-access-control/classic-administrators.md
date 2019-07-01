@@ -15,12 +15,12 @@ origin.date: 02/19/2019
 ms.date: 03/20/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 0782239302d33564a5cf7687ca8c8d1baf7ddae8
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 67606ed4911fac0be8391527e07924264565589b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318967"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236576"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 经典订阅管理员
 
@@ -39,17 +39,17 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
     只能在订阅范围分配共同管理员。
 
-1. 单击“访问控制(IAM)”。
+1. 单击“访问控制(IAM)”  。
 
-1. 单击“经典管理员”选项卡。
+1. 单击“经典管理员”选项卡。 
 
     ![打开经典管理员的屏幕截图](./media/classic-administrators/classic-administrators.png)
 
-1. 单击“添加” > “添加共同管理员”打开“添加共同管理员”窗格。
+1. 单击“添加” > “添加共同管理员”打开“添加共同管理员”窗格。  
 
     如果“添加共同管理员”选项已禁用，则表示你没有相应的权限。
 
-1. 选择要添加的用户，然后单击“添加”。
+1. 选择要添加的用户，然后单击“添加”。 
 
     ![添加协同管理员的屏幕截图](./media/classic-administrators/add-coadmin.png)
 
@@ -72,15 +72,15 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
-1. 单击“访问控制(IAM)”。
+1. 单击“访问控制(IAM)”  。
 
-1. 单击“经典管理员”选项卡。
+1. 单击“经典管理员”选项卡。 
 
 1. 勾选要删除的共同管理员。
 
-1. 单击“删除”。
+1. 单击“删除”。 
 
-1. 在出现的消息框中单击“是”。
+1. 在出现的消息框中单击“是”  。
 
     ![删除协同管理员的屏幕截图](./media/classic-administrators/remove-coadmin.png)
 
@@ -98,19 +98,19 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
-1. 单击“属性”。
+1. 单击“属性”。 
 
     ![显示帐户管理员的屏幕截图](./media/classic-administrators/account-admin.png)
 
-1. 在顶部单击“服务管理员”打开“服务管理”窗格。
+1. 在顶部单击“服务管理员”打开“服务管理”窗格。 
 
     如果“服务管理员”按钮已禁用，则表示你没有相应的权限。 只有充当帐户管理员的用户可以更改服务管理员。
 
-1. 选择新的服务管理员，然后单击“保存”。
+1. 选择新的服务管理员，然后单击“保存”。 
 
 ### <a name="limitations-for-changing-the-service-administrator"></a>服务管理员变更限制
 
-每个订阅都与一个 Azure AD 目录相关联。 若要查找与订阅关联的目录，请在 Azure 门户中打开“订阅”，然后选择一个订阅以查看目录。
+每个订阅都与一个 Azure AD 目录相关联。 若要查找与订阅关联的目录，请在 Azure 门户中打开“订阅”，然后选择一个订阅以查看目录。 
 
 如果已使用工作或学校帐户登录，则可将组织中的其他帐户添加为服务管理员。 例如，abby@contoso.com 可以添加 bob@contoso.com 作为服务管理员，但不能添加 john@notcontoso.com，除非 john@notcontoso.com 位于 contoso.com 目录中。 使用工作或学校帐户登录的用户可以继续将 Microsoft 帐户用户添加为服务管理员。
 
@@ -121,7 +121,7 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 ## <a name="view-the-account-administrator"></a>查看帐户管理员
 
-帐户管理员是最初注册 Azure 订阅的用户，充当订阅的账单所有者。 若要更改订阅的账户管理员，请参阅[将 Azure 订阅所有权转让给其他帐户](../billing/billing-subscription-transfer.md)。
+帐户管理员是最初注册 Azure 订阅的用户，充当订阅的账单所有者。 若要更改订阅的账户管理员，请参阅[将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer)。
 
 遵循以下步骤查看帐户管理员：
 
@@ -129,9 +129,9 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
-1. 单击“属性”。
+1. 单击“属性”。 
 
-    订阅的帐户管理员会显示在“帐户管理员”框中。
+    订阅的帐户管理员会显示在“帐户管理员”框中。 
 
     ![显示帐户管理员的屏幕截图](./media/classic-administrators/account-admin.png)
 

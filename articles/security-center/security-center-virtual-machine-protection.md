@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08d04954563f47953d8bffb840e6c5b78b58b94c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f6050fc8d21d312e28f42092f9d28d0d141a339a
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004497"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236658"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>在 Azure 安全中心保护计算机和应用程序
 Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的安全状态。 在安全中心识别潜在的安全漏洞时，它会创建一些建议，这些建议会指导完成配置所需控件的过程。 建议适用于以下 Azure 资源类型：虚拟机 (VM) 和计算机、应用程序、网络、SQL，以及“标识和访问”。
@@ -57,8 +57,6 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
 除了已安装的本地代理，还可以在未受监视的 VM 或计算机上安装该扩展。 对两个代理进行相同的配置，将二者连接到同一工作区。 这样，安全中心就能与 Azure Monitoring Agent 扩展交互并收集数据。 请参阅[启用 VM 扩展](../azure-monitor/learn/quick-collect-azurevm.md)，获取如何安装 Azure Monitoring Agent 扩展的说明。
 
-请参阅[监视代理运行状况问题](security-center-troubleshooting-guide.md#mon-agent)，详细了解安全中心无法成功监视那些已针对自动预配初始化的 VM 和计算机的原因。
-
 ### <a name="recommendations"></a>建议
 此部分包含安全中心监视的每个 VM 和计算机、Web 和辅助角色、Azure 应用服务 Web 应用以及 Azure 应用服务环境适用的一系列建议。 第一列列出了建议。 第二列显示受该建议影响的资源总数。 第三列显示问题的严重性。
 
@@ -67,7 +65,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 “应用系统更新”  以图形格式汇总了关键更新，分别适用于 Windows 和 Linux。 第二部分有一个表，其中包含以下信息：
 
 - **名称**：所缺更新的名称。
--  VM 和和计算机的数量**：缺少此更新的 VM 和计算机的总数。
+- **VM 和和计算机的数量**：缺少此更新的 VM 和计算机的总数。
 - **更新严重性**：描述该特定建议的严重性：
 
     - **严重**：重要资源（应用程序、虚拟机或网络安全组）存在漏洞，需要引起注意。
@@ -166,7 +164,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 若要安装 Azure Monitoring Agent，请执行以下操作： 
 
 1. 选择建议“在虚拟机规模集上安装监视代理”。  你会获得未收监视的规模集的列表。
-2. 选择不正常的规模集。 按照说明操作，使用现有的已填充工作区或新建的工作区安装监视代理。 确保设置工作区[定价层](security-center-pricing.md)（如果尚未设置）。
+2. 选择不正常的规模集。
 
    ![安装 MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
@@ -242,14 +240,12 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
 
 * [了解虚拟机的 Azure 安全中心建议](security-center-virtual-machine-recommendations.md)
-* [在 Azure 安全中心监视标识和访问](security-center-identity-access.md)
-* [保护 Azure 安全中心中的网络](security-center-network-recommendations.md)
-* [保护 Azure 安全中心中的 Azure SQL 服务](security-center-sql-service-recommendations.md)
+
 
 若要了解有关安全中心的详细信息，请参阅以下文章：
 
 * [在 Azure 安全中心中设置安全策略](tutorial-security-policy.md) - 了解如何配置 Azure 订阅和资源组的安全策略。
-* [管理和响应 Azure 安全中心的安全警报](security-center-managing-and-responding-alerts.md) -- 了解如何管理和响应安全警报。
+
 * [Azure 安全中心常见问题解答](security-center-faq.md) - 查找有关使用服务的常见问题。
 
 

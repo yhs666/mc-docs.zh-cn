@@ -15,12 +15,12 @@ ms.workload: NA
 origin.date: 02/25/2019
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bfa1c0dd09e24b10c4d1b5c5d189162bf531824
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: a5724a1e6a073dc00443f697862b7bb75fa3bbf5
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204173"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277536"
 ---
 # <a name="event-aggregation-and-collection-using-eventflow"></a>使用 EventFlow 聚合和收集事件
 
@@ -32,7 +32,7 @@ EventFlow 二进制文件以一组 NuGet 包的形式提供。 如果要将 Even
 
 ![Visual Studio NuGet 包管理器 UI 中的 EventFlow NuGet 包](./media/service-fabric-diagnostics-event-aggregation-eventflow/eventflow-nuget.png)
 
-将显示一个不同包的列表，带有“输入”和“输出”标记。 EventFlow 支持不同日志提供程序和分析器。 托管 EventFlow 的服务应该根据应用程序日志的源和目标包含相应的包。 除核心 ServiceFabric 包外，至少还需配置一个输入和输出。 例如，可添加下列包将 EventSource 事件发送到 Application Insights：
+将显示一个不同包的列表，带有“输入”和“输出”标记。 EventFlow 支持不同日志提供程序和分析器。 托管 EventFlow 的服务应包括相应的包，具体取决于应用程序日志的源和目标。 除核心 ServiceFabric 包外，至少还需配置一个输入和输出。 例如，可添加下列包将 EventSource 事件发送到 Application Insights：
 
 * `Microsoft.Diagnostics.EventFlow.Inputs.EventSource`（从该服务的 EventSource 类和标准 EventSource 捕获数据，例如 *Microsoft-ServiceFabric-Services* 和 *Microsoft-ServiceFabric-Actors*）
 * `Microsoft.Diagnostics.EventFlow.Outputs.ApplicationInsights`（我们会将日志发送到 Azure Application Insights 资源）
@@ -139,7 +139,7 @@ namespace Stateless1
 }
 ```
 
-作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体的名称。 如果 EventFlow 遇到错误并通过 Service Fabric 运行状况子系统报告此错误，则使用此名称。
+作为 `ServiceFabricDiagnosticsPipelineFactory` 中 `CreatePipeline` 方法的参数传递的名称是表示 EventFlow 日志收集管道的运行状况实体  的名称。 如果 EventFlow 遇到错误并通过 Service Fabric 运行状况子系统报告此错误，则使用此名称。
 
 ### <a name="use-service-fabric-settings-and-application-parameters-in-eventflowconfig"></a>在 eventFlowConfig 中使用 Service Fabric 设置和应用程序参数
 
@@ -158,8 +158,8 @@ servicefabric:/<section-name>/<setting-name>
 ## <a name="next-steps"></a>后续步骤
 
 <!-- Not Available on * * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md) -->
+<!-- Not Available on * [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)-->
 
-* [使用 Log Analytics 进行事件分析和可视化](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow 文档](https://github.com/Azure/diagnostics-eventflow)
 
 <!--Update_Description: update meta properties  -->

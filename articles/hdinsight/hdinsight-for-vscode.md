@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 02/04/2019
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: e514aa7fc0a4b23aee066d4f87de98bd3b12bc4a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: bd2c49fa3a2c257648db77b63f38862d3bfe4dc4
+ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004194"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307592"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -47,24 +47,24 @@ ms.locfileid: "59004194"
 
 1. 打开 Visual Studio Code。
 
-2. 在菜单栏中，导航到“视图” > “扩展”。
+2. 在菜单栏中，导航到“视图” > “扩展”。  
 
 3. 在搜索框中输入 **HDInsight**。
 
-4. 从搜索结果中选择“Azure HDInsight 工具”，然后选择“安装”。  
+4. 从搜索结果中选择“Azure HDInsight 工具”，然后选择“安装”。    
 
    ![用于 Visual Studio Code 的 HDInsight - Python 安装](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-5. 选择“重载”以激活安装的“Azure HDInsight 工具”扩展。
+5. 选择“重载”以激活安装的“Azure HDInsight 工具”扩展。  
 
 
 ## <a name="open-hdinsight-work-folder"></a>打开 HDInsight 工作文件夹
 
 完成以下步骤打开工作文件夹，并在 Visual Studio Code 中创建一个文件：
 
-1. 在菜单栏中，导航到“文件” > “打开文件夹...” > “C:\HD\HDexample”，然后选择“选择文件夹”按钮。 该文件夹将显示在左侧的“资源管理器”视图中。
+1. 在菜单栏中，导航到“文件” > “打开文件夹...” > “C:\HD\HDexample”，然后选择“选择文件夹”按钮。     该文件夹将显示在左侧的“资源管理器”视图中。 
 
-2. 在“资源管理器”视图中选择文件夹“HDexample”，然后选择工作文件夹旁边的“新建文件”图标。
+2. 在“资源管理器”视图中选择文件夹“HDexample”，然后选择工作文件夹旁边的“新建文件”图标。   
 
    ![新建文件](./media/hdinsight-for-vscode/new-file.png)
 
@@ -74,13 +74,13 @@ ms.locfileid: "59004194"
 
 将脚本从 Visual Studio Code 提交到 HDInsight 群集之前，需要连接到 Azure 帐户，或链接群集（使用 Ambari 用户名/密码或已加入域的帐户）。  完成以下步骤以连接到 Azure：
 
-1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:** Login”。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   **Login”。
 
     ![用于 Visual Studio Code 的 HDInsight 工具 - 登录](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
-2. 遵照“输出”窗格中的登录说明操作。
+2. 遵照“输出”窗格中的登录说明操作。 
  
-        ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
+    ![针对其他环境的登录说明](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
    连接后，Visual Studio Code 窗口左下角的状态栏上会显示 Azure 帐户名称。  
   
@@ -89,11 +89,11 @@ ms.locfileid: "59004194"
 
 可以使用 [Apache Ambari](https://ambari.apache.org/) 管理的用户名链接标准群集，也可以使用域用户名（例如：user1@contoso.com）链接 Enterprise Security Pack 安全 Hadoop 群集。
 
-1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:** 链接群集”。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   **链接群集”。
 
    ![链接群集命令](./media/hdinsight-for-vscode/link-cluster-command.png)
 
-2. 选择链接的群集类型“Azure HDInsight”。
+2. 选择链接的群集类型“Azure HDInsight”。 
 
 3. 输入 HDInsight 群集 URL。
 
@@ -103,7 +103,7 @@ ms.locfileid: "59004194"
 
 6. 选择群集类型。
 
-7. 查看“输出”视图以进行验证。
+7. 查看“输出”视图以进行验证。 
 
    > [!NOTE]  
    > 如果群集已登录到 Azure 订阅中并且已链接群集，则使用链接用户名和密码。  
@@ -111,25 +111,25 @@ ms.locfileid: "59004194"
 
 ## <a name="create-link-generic-livy-endpoint"></a>创建链接：通用 Livy 终结点
 
-1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:** 链接群集”。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   **链接群集”。
 
-2. 选择链接的群集类型“通用 Livy 终结点”。
+2. 选择链接的群集类型“通用 Livy 终结点”。 
 
 3. 输入通用 Livy 终结点，例如 http\://10.172.41.42:18080。
 
-4. 选择授权类型“基本”或“无”。  如果选择“基本”，则：  
+4. 选择授权类型“基本”或“无”。    如果选择“基本”，则：   
     &emsp;a. 输入 Ambari 用户名，默认为 **admin**。  
     &emsp;b. 输入 Ambari 密码。
 
-5. 查看“输出”视图以进行验证。
+5. 查看“输出”视图以进行验证。 
 
 ## <a name="list-hdinsight-clusters"></a>列出 HDInsight 群集
 
-1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:List Cluster**。
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   List Cluster**。
 
 2. 选择所需的订阅。
 
-3. 查看“输出”视图。  该视图将显示链接的群集，以及 Azure 订阅下的所有群集。
+3. 查看“输出”视图。   该视图将显示链接的群集，以及 Azure 订阅下的所有群集。
 
     ![设置默认群集配置](./media/hdinsight-for-vscode/list-cluster-result.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "59004194"
 
 3. [连接](#connect-to-hdinsight-cluster)到 Azure 帐户（如果尚未这样做）。
 
-4. 右键单击脚本编辑器并选择“HDInsight:设置默认群集”。  
+4. 右键单击脚本编辑器并选择“HDInsight:  设置默认群集”。  
 
 5. 选择一个群集作为当前脚本文件的默认群集。 工具将自动更新配置文件 **.VSCode\settings.json**。 
 
@@ -151,7 +151,7 @@ ms.locfileid: "59004194"
 
 1. [连接](#connect-to-hdinsight-cluster)到 Azure 帐户（如果尚未这样做）。
 
-2. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:** 设置 Azure 环境”。
+2. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   **设置 Azure 环境”。
 
 3. 选择一个环境作为默认登录入口。
 
@@ -174,15 +174,15 @@ ms.locfileid: "59004194"
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-4. 右键单击脚本编辑器，选择“HDInsight:Hive 交互式”提交查询，或使用快捷方式 Ctrl + Alt + I。选择“HDInsight:Hive 批处理”以提交脚本，或使用快捷键 Ctrl + Alt + H。 
+4. 右键单击脚本编辑器，选择“HDInsight:  Hive 交互式”提交查询，或使用快捷方式 Ctrl + Alt + I  。选择“HDInsight:  Hive 批处理”以提交脚本，或使用快捷键 Ctrl + Alt + H  。 
 
 5. 如果尚未指定默认群集，请选择群集。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 过了一会儿，查询结果将显示在新选项卡中。
 
    ![交互式 Hive 结果](./media/hdinsight-for-vscode/interactive-hive-result.png)
 
-    - “结果”面板：可以将整个结果作为 CSV、JSON、Excel 保存到本地路径，也可以只选择多个行。
+    - “结果”  面板：可以将整个结果作为 CSV、JSON、Excel 保存到本地路径，也可以只选择多个行。
 
-    - “消息”面板：选择“行”号会跳转到运行的脚本的第一行。
+    - “消息”  面板：选择“行”  号会跳转到运行的脚本的第一行。
 
 ## <a name="submit-interactive-pyspark-queries"></a>提交交互式 PySpark 查询
 
@@ -211,14 +211,14 @@ ms.locfileid: "59004194"
         print(sortedCollection[i])
    ```
 
-6. 右键单击脚本编辑器，选择“HDInsight:PySpark Interactive”提交查询，或使用快捷键 **Ctrl + Alt + I**。  
+6. 右键单击脚本编辑器，选择“HDInsight:  PySpark Interactive”提交查询，或使用快捷键 **Ctrl + Alt + I**。  
 
 7. 如果尚未指定默认群集，请选择群集。 工具还允许使用上下文菜单提交代码块而非整个脚本文件。 不久之后，查询结果将显示在新选项卡中。
 
    ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
 8. 工具还支持查询 **SQL 子句**查询。
 
-   ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) 运行查询时，提交状态将显示在底部状态栏的左侧。 当状态为“PySpark 内核(忙)”时，请不要提交其他查询。 
+   ![提交 python 作业结果](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png)运行查询时，提交状态将显示在底部状态栏的左侧。 当状态为“PySpark 内核(忙)”时，请不要提交其他查询。  
 
 >[!NOTE]
 >群集可以保留会话信息。 定义的变量、函数和相应值将保留在会话中，因此，可在针对同一群集发出的多个服务调用中引用这些信息。 
@@ -269,13 +269,13 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight:PySpark 批处理”，或使用快捷键 Ctrl + Alt + H。 
+4. 右键单击脚本编辑器，然后从上下文菜单中选择“HDInsight:  PySpark 批处理”，或使用快捷键 Ctrl + Alt + H  。 
 
 5. 选择要将 PySpark 作业提交到的群集。 
 
    ![提交 python 作业结果](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
 
-提交 Python 作业后，提交日志会显示在 Visual Studio Code 的“输出”窗口中。 同时还会显示 **Spark UI URL** 和 **Yarn UI URL**。 可以在 Web 浏览器中打开 URL 来跟踪作业状态。
+提交 Python 作业后，提交日志会显示在 Visual Studio Code 的“输出”窗口中。  同时还会显示 **Spark UI URL** 和 **Yarn UI URL**。 可以在 Web 浏览器中打开 URL 来跟踪作业状态。
 
 ## <a name="apache-livy-configuration"></a>Apache Livy 配置
 
@@ -284,9 +284,9 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
 <a id="triggerlivyconf"></a>**如何触发 livy 配置**
 
 方法 1  
-1. 在菜单栏中，导航到“文件” > “首选项” > “设置”。  
-2. 在“搜索设置”文本框中，输入“HDInsight 作业提交：Livy 配置”。  
-3. 在相关搜索结果中选择“在 settings.json 中编辑”。
+1. 在菜单栏中，导航到“文件” > “首选项” > “设置”。     
+2. 在“搜索设置”文本框中，输入“HDInsight 作业提交：   Livy 配置”。  
+3. 在相关搜索结果中选择“在 settings.json 中编辑”。 
 
 方法 2   
 提交一个文件，然后观察 .vscode 文件夹是否已自动添加到工作文件夹。 可以通过单击 **.vscode\settings.json** 来查找 livy 配置。
@@ -306,20 +306,20 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
     | name | 说明 | type | 
     | :- | :- | :- | 
     | file | 包含要执行的应用程序的文件 | path（必需） | 
-    | proxyUser | 运行作业时要模拟的用户 | 字符串 | 
-    | className | 应用程序 Java/Spark main 类 | 字符串 |
+    | proxyUser | 运行作业时要模拟的用户 | string | 
+    | className | 应用程序 Java/Spark main 类 | string |
     | args | 应用程序的命令行参数 | 字符串列表 | 
     | jars | 此会话中要使用的 jars | 字符串列表 | 
     | pyFiles | 此会话中要使用的 Python 文件 | 字符串列表 |
     | 文件 | 此会话中要使用的文件 | 字符串列表 |
-    | driverMemory | 要用于驱动程序进程的内存量 | 字符串 |
+    | driverMemory | 要用于驱动程序进程的内存量 | string |
     | driverCores | 要用于驱动程序进程的内核数 | int |
-    | executorMemory | 每个执行程序进程要使用的内存量 | 字符串 |
+    | executorMemory | 每个执行程序进程要使用的内存量 | string |
     | executorCores | 用于每个执行程序的内核数 | int |
     | numExecutors | 为此会话启动的执行程序数量 | int |
     | archives | 此会话中要使用的存档 | 字符串列表 |
-    | 队列 | 要提交的 YARN 队列的名称 | 字符串 |
-    | name | 此会话的名称 | 字符串 |
+    | 队列 | 要提交的 YARN 队列的名称 | string |
+    | name | 此会话的名称 | string |
     | conf | Spark 配置属性 | key=val 的映射 |
 
     响应正文   
@@ -331,7 +331,7 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
     | appId | 此会话的应用程序 id |  String |
     | appInfo | 应用程序详细信息 | key=val 的映射 |
     | log | 日志行 | 字符串列表 |
-    | state |   批处理状态 | 字符串 |
+    | state |   批处理状态 | string |
 
 >[!NOTE]
 >当提交脚本时，已分配的 livy 配置将显示在输出窗格中。
@@ -342,9 +342,9 @@ Spark 2.2 群集和 Spark2.3 群集不再支持 PySpark3，Python 仅支持“Py
 
 1. [连接](#connect-to-hdinsight-cluster)到 Azure 帐户（如果尚未这样做）。
 
-2. 在菜单栏中，导航到“视图” > “资源管理器”。
+2. 在菜单栏中，导航到“视图” > “资源管理器”。  
 
-3. 在左窗格中，展开“AZURE HDINSIGHT”。  将列出可用的订阅和群集（支持 Spark、Hadoop 和 HBase）。 
+3. 在左窗格中，展开“AZURE HDINSIGHT”。   将列出可用的订阅和群集（支持 Spark、Hadoop 和 HBase）。 
 
    ![Azure HDInsight 订阅](./media/hdinsight-for-vscode/hdi-azure-hdinsight-subscription.png)
 
@@ -367,16 +367,16 @@ Visual Studio Code 的 HDInsight 支持以下功能：
 
 ## <a name="unlink-cluster"></a>取消链接群集
 
-1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:Unlink a Cluster**。  
+1. 在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   Unlink a Cluster**。  
 
 2. 选择要取消链接的群集。  
 
-3. 查看“输出”视图以进行验证。  
+3. 查看“输出”视图以进行验证。   
 
 
 ## <a name="logout"></a>注销  
 
-在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:Logout** 命令。  右下角会弹出一个窗口，指出“注销成功!”。
+在菜单栏中，导航到“视图” > “命令面板...”，然后输入 **HDInsight:   Logout** 命令。  右下角会弹出一个窗口，指出“注销成功!”。 
 
 
 ## <a name="next-steps"></a>后续步骤

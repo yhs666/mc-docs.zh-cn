@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 04/25/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 15949d545fc7f35e67f9654d949c6111f9e58caf
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 184cd17dcc26d6070ff1b759a9e7c4a645347a9a
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195495"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276425"
 ---
 <!--Verify sucessfully-->
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
@@ -53,7 +53,6 @@ ms.locfileid: "66195495"
 | Microsoft.ImportExport | [Azure 导入/导出](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [密钥保管库](../key-vault/index.yml) |
-| Microsoft.Kusto | [Azure 数据资源管理器](../data-explorer/index.yml) |
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [逻辑应用](../logic-apps/index.yml) |
 | Microsoft.ManagedIdentity | Azure 资源的托管标识 |
@@ -79,6 +78,8 @@ ms.locfileid: "66195495"
 | Microsoft.Storage | [存储](../storage/index.yml) |
 | Microsoft.StreamAnalytics | [流分析](../stream-analytics/index.yml) |
 | Microsoft.Web | [应用服务](../app-service/index.yml)<br />[函数](../azure-functions/index.yml) |
+
+<!--Not Available on | Microsoft.Kusto | [Azure Data Explorer](../data-explorer/index.yml) |-->
 
 ## <a name="next-steps"></a>后续步骤
 

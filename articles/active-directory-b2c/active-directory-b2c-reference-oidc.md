@@ -11,12 +11,12 @@ origin.date: 04/16/2019
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: af41a53b03cc38a95cc2cdfead3de00fd65eb3d1
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: f9504161f458a9d59a990eef95c71024240ff638
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687600"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235952"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -32,11 +32,11 @@ Azure AD B2C 扩展了标准 OpenID Connect 协议，使其功能远远超出了
 
 当 Web 应用程序需要对用户进行身份验证并运行用户流时，它可以将用户定向到 `/authorize` 终结点。 用户可以根据用户流执行操作。
 
-在此请求中，客户端指示在 `scope` 参数中需要从用户获取的权限以及要在 `p` 参数中运行的用户流。 以下部分中提供了三个示例（带换行符以便阅读），每个示例使用不同的用户流。 要了解每个请求的工作原理，请尝试将请求粘贴到浏览器并运行它。 如果你有一个租户并已创建用户流，则可将 `fabrikamb2c` 替换为租户的名称。
+在此请求中，客户端指示在 `scope` 参数中需要从用户获取的权限以及要在 `p` 参数中运行的用户流。 以下部分中提供了三个示例（带换行符以便阅读），每个示例使用不同的用户流。 要了解每个请求的工作原理，请尝试将请求粘贴到浏览器并运行它。 如果你有一个租户并已创建了用户流，则可将 `fabrikamb2c` 替换为该租户的名称。
 
 #### <a name="use-a-sign-in-user-flow"></a>使用登录用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-a-sign-up-user-flow"></a>使用注册用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -62,7 +62,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-an-edit-profile-user-flow"></a>使用编辑配置文件用户流
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
@@ -75,7 +75,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 | 参数 | 必须 | 说明 |
 | --------- | -------- | ----------- |
-| client_id | 是 | Azure 门户分配给应用程序的[应用程序 ID](https://portal.azure.cn/) 。 |
+| client_id | 是 | [Azure 门户](https://portal.azure.cn/)分配给应用程序的应用程序 ID。 |
 | response_type | 是 | 必须包含 OpenID Connect 的 ID 令牌。 如果 Web 应用程序还需要使用令牌来调用 Web API，则可以使用 `code+id_token`。 |
 | redirect_uri | 否 | 应用程序的 `redirect_uri` 参数，应用程序可在此发送及接收身份验证响应。 它必须完全匹配在 Azure 门户中注册的其中一个 `redirect_uri` 参数，但必须经过 URL 编码。 |
 | scope | 是 | 范围的空格分隔列表。 `openid` 作用域表示允许使用 ID 令牌的形式使用户登录并获取有关用户的数据。 `offline_access` 范围对 Web 应用程序是可选的。 它表示应用程序需要使用刷新令牌来长期访问资源  。 |
@@ -125,11 +125,11 @@ error=access_denied
 
 Azure AD B2C 具有 OpenID Connect 元数据终结点，允许应用程序在运行时获取有关 Azure AD B2C 的信息。 此信息包括终结点、令牌内容和令牌签名密钥。 B2C 租户中的每个用户流都有一个 JSON 元数据文档。 例如，`fabrikamb2c.partner.onmschina.cn` 中 `b2c_1_sign_in` 用户流的元数据文档位于：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 此配置文档的一个属性为 `jwks_uri`，对于相同用户流，该属性的值为：
 
-`https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/discovery/v2.0/keys?p=b2c_1_sign_in`。
+`https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/discovery/v2.0/keys?p=b2c_1_sign_in`。
 
 若要确定对 ID 令牌进行签名所使用的用户流（以及从何处获取元数据），可以使用两种方法。 第一种方法，用户流名称包含在 ID 令牌的 `acr` 声明中。 另一个方法是在发出请求时在 `state` 参数的值中对用户流进行编码，然后对其进行解码以确定使用的用户流。 任意一种方法均有效。
 
@@ -157,7 +157,7 @@ Azure AD B2C 具有 OpenID Connect 元数据终结点，允许应用程序在运
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+Host: https://fabrikamb2c.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -224,7 +224,7 @@ ID 令牌在短时间内即会过期。 在它们过期后，请刷新令牌以�
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://fabrikamb2c.b2clogin.com
+Host: https://fabrikamb2c.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -282,7 +282,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 只需将用户重定向到前面所述的 OpenID Connect 元数据文档中列出的 `end_session` 终结点：
 
 ```
-GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.cn/fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.chinacloudsites.cn%2F
 ```

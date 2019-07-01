@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/01/2019
 ms.date: 05/27/2019
-ms.openlocfilehash: 360950be60d00b9b14ec36d1407973fa10b961be
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 98b148a5deb0a7750bca9dfe463cffe34c46a116
+ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829167"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307595"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
 
@@ -42,33 +42,33 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 在左侧菜单中，导航到“+ 创建资源” > “Analytics” > “HDInsight”。
+2. 在左侧菜单中，导航到“+ 创建资源” > “Analytics” > “HDInsight”    。
    
     ![创建 HDInsight 群集](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. 在“基本信息”中，输入或选择以下信息：
+2. 在“基本信息”中，输入或选择以下信息  ：
 
     | 设置 | 值 |
     | --- | --- |
     | 群集名称 | HDInsight Spark 群集的唯一名称。 |
     | 订阅 | 选择订阅。 |
     
-   选择“群集类型”，以显示“群集配置”。
+   选择“群集类型”，以显示“群集配置”   。
    
    ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-4. 从“群集配置”中选择以下值：
+4. 从“群集配置”中选择以下值  ：
 
     | 设置 | 值 |
     | --- | --- |
     | 群集类型 | Kafka |
     | 版本 | Kafka 1.1.0 (HDI 3.6) |
 
-    选择“选择”以保存群集类型设置，然后返回到“基本信息”。
+    选择“选择”以保存群集类型设置，然后返回到“基本信息”   。
 
     ![选择群集类型](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-4. 在“基本信息”中，输入或选择以下信息：
+4. 在“基本信息”中，输入或选择以下信息  ：
 
     | 设置 | Value |
     | --- | --- |
@@ -81,31 +81,31 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
     > [!TIP]
     > 每个 Azure 区域（位置）均提供_容错域_。 容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 在 HDInsight 群集中实现节点的虚拟机和托管磁盘跨这些容错域分布。 此体系结构可限制物理硬件故障造成的潜在影响。
     >
-    > 为实现数据的高可用性，请选择包含三个容错域的区域（位置）。 有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
+    > 为实现数据的高可用性，请选择包含三个容错域的区域（位置）  。 有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
     ![选择订阅](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    选择“下一步”，完成基本配置。
+    选择“下一步”，完成基本配置。 
 
 
-6. 在“存储”中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
+6. 在“存储”  中选择或创建存储帐户。 对于本文档中的步骤，请让其他字段保留默认值。 使用“下一步”  按钮保存存储配置。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
     ![设置 HDInsight 的存储帐户设置](./media/apache-kafka-get-started/storage-configuration.png)
 
-6. 在“应用程序(可选)”中，选择“下一步”以使用默认设置继续。
+6. 在“应用程序(可选)”中，选择“下一步”以使用默认设置继续   。
 
-7. 在“群集大小”中，选择“下一步”以使用默认设置继续。
+7. 在“群集大小”中，选择“下一步”以使用默认设置继续   。
 
     > [!IMPORTANT]
-    > 若要确保 Apache Kafka on HDInsight 的可用性，辅助角色节点数条目必须设置为 3 或以上。 默认值为 4。
+    > 若要确保 Apache Kafka on HDInsight 的可用性，辅助角色节点数条目必须设置为 3 或以上  。 默认值为 4。
     
     > [!TIP]
-    > “每个工作节点的磁盘数”条目配置 Apache Kafka on HDInsight 的可伸缩性。 Apache Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Apache Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 磁盘类型取决于辅助角色节点（Apache Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
+    > “每个工作节点的磁盘数”条目配置 Apache Kafka on HDInsight 的可伸缩性。  Apache Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Apache Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Apache Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
    ![设置 Apache Kafka 群集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-8. 在“高级设置”中，选择“下一步”以使用默认设置继续。
+8. 在“高级设置”中，选择“下一步”以使用默认设置继续   。
 
-9. 在“摘要”中，查看群集的配置。 使用“编辑”链接更改不正确的设置。 最后，使用“创建”按钮创建群集。
+9. 在“摘要”  中，查看群集的配置。 使用“编辑”  链接更改不正确的设置。 最后，使用“创建”按钮创建群集。
    
     ![群集配置摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
@@ -120,7 +120,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
     ssh sshuser@mykafka-ssh.azurehdinsight.net
     ```
 
-2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表。
+2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表   。
 
 3. 出现提示时，请输入 SSH 用户名密码。
 
@@ -150,7 +150,7 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a id="getkafkainfo"></a>获取 Apache Zookeeper 主机和代理主机信息
 
-使用 Kafka 时，必须了解 Apache Zookeeper 和代理主机。 这些主机配合 Apache Kafka API 和 Kafka 随附的许多实用程序一起使用。
+使用 Kafka 时，必须了解 Apache Zookeeper 和代理主机   。 这些主机配合 Apache Kafka API 和 Kafka 随附的许多实用程序一起使用。
 
 在本部分中，可以从群集上的 Apache Ambari REST API 获取主机信息。
 
@@ -214,39 +214,39 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a name="manage-apache-kafka-topics"></a>管理 Apache Kafka 主题
 
-Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具来管理主题。
+Kafka 在主题中存储数据流  。 可以使用 `kafka-topics.sh` 实用工具来管理主题。
 
-* 若要创建主题，请在 SSH 连接中使用以下命令：
+* 若要创建主题，请在 SSH 连接中使用以下命令  ：
 
 ```bash
 /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
 ```
 
-    This command connects to Zookeeper using the host information stored in `$KAFKAZKHOSTS`. It then creates an Apache  Kafka topic named **test**. 
+此命令使用存储在 `$KAFKAZKHOSTS` 中的主机信息连接到 Zookeeper， 然后创建名为 **test** 的 Apache Kafka 主题。 
 
-    * 本主题中存储的数据已分区到八个分区。
+* 本主题中存储的数据已分区到八个分区。
 
-    * 每个分区在群集中的三个辅助角色节点上进行复制。
+* 每个分区在群集中的三个辅助角色节点上进行复制。
 
-        > [!IMPORTANT]
-        > 如果在 Azure 区域中已创建提供三个容错域的群集，则复制因子使用 3。 否则，复制因子使用 4.
+    > [!IMPORTANT]
+    > 如果在 Azure 区域中已创建提供三个容错域的群集，则复制因子使用 3。 否则，复制因子使用 4.
         
-        在具有三个容错域的区域中，复制因子为 3 可让副本分布在容错域中。 在具有两个容错域的区域中，复制因子为 4 可将副本均匀分布在域中。
+    在具有三个容错域的区域中，复制因子为 3 可让副本分布在容错域中。 在具有两个容错域的区域中，复制因子为 4 可将副本均匀分布在域中。
         
-        有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
+    有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
-        > [!IMPORTANT] 
-        > Apache Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
+    > [!IMPORTANT] 
+    > Apache Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
 
-        若要确保高可用性，请使用 [Apache Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Apache Kafka 群集的头节点。
+    若要确保高可用性，请使用 [Apache Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Apache Kafka 群集的头节点。
 
-        为确保 Apache Kafka 数据的最高可用性，应在出现以下情况时为主题重新均衡分区副本：
+    为确保 Apache Kafka 数据的最高可用性，应在出现以下情况时为主题重新均衡分区副本：
 
-        * 创建新主题或分区
+    * 创建新主题或分区
 
-        * 纵向扩展群集
+    * 纵向扩展群集
 
-* 若要列出主题，请使用以下命令：
+* 若要列出主题，请使用以下命令  ：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -254,7 +254,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
     此命令列出 Apache Kafka 群集上可用的主题。
 
-* 若要删除主题，使用以下命令：
+* 若要删除主题，使用以下命令  ：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -273,7 +273,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
 ## <a name="produce-and-consume-records"></a>生成和使用记录
 
-Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使用。 生产者与使用者通过 Kafka 代理服务通信。 HDInsight 群集中的每个工作节点都是 Apache Kafka 代理主机。
+Kafka 将记录  存储在主题中。 记录由生成者  生成，由使用者  使用。 生产者与使用者通过 Kafka 代理服务通信  。 HDInsight 群集中的每个工作节点都是 Apache Kafka 代理主机。
 
 若要将记录存储到之前创建的测试主题，并通过使用者对其进行读取，请使用以下步骤：
 
@@ -308,9 +308,9 @@ Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使�
 
 若要使用 Azure 门户删除资源组，请执行以下操作：
 
-1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。
-2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。
-3. 选择“删除资源组”，然后进行确认。
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
+2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。 
+3. 选择“删除资源组”，然后进行确认。 
 
 > [!WARNING]
 > 创建群集后便开始 HDInsight 群集计费，删除群集后停止计费。 HDInsight 群集按分钟收费，因此不再需要使用群集时，应将其删除。

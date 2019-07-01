@@ -12,16 +12,16 @@ origin.date: 02/21/2019
 ms.date: 03/12/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: e6dd65168f5a7f835459a5d1c3e45487325cc2fc
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 6dca9d9d83cc5a1974ee78e0d22feaa5cdcc56a3
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964486"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236346"
 ---
 # <a name="what-is-translator-text-api"></a>什么是文本翻译 API？
 
-文本翻译 API 可以轻松地集成到应用程序、网站、工具和解决方案中。 它允许你使用 [60 多种语言](languages.md)添加多语言用户体验，可以在任何硬件平台上使用，以及在任何操作系统中使用，用于文本到文本语言翻译。
+文本翻译 API 可以轻松地集成到应用程序、网站、工具和解决方案中。 它允许你使用 [60 多种语言](language-support.md)添加多语言用户体验，可以在任何硬件平台上使用，以及在任何操作系统中使用，用于文本到文本语言翻译。
 
 文本翻译 API 是云中机器学习和 AI 算法的 Azure [认知服务 API](https://docs.microsoft.com/azure/#pivot=products&panel=ai) 集合的一部分，可随时在开发项目中使用。
 

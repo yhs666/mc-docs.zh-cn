@@ -6,21 +6,21 @@ author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
 origin.date: 08/16/2018
-ms.date: 06/17/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 4755536b2a0079c36d42e1822c45e8057acbfc6f
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 343fe5d3c786231dc2ef55cd8d8904c256659325
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689114"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67173646"
 ---
 Azure Policy 的每个对象类型都有一个最大计数。 _作用域_条目是指订阅或[管理组](../articles/governance/management-groups/index.md)。
 
 | Where | 对象 | 最大计数 |
 |---|---|---|
-| 作用域 | 策略定义 | 250 |
+| 作用域 | 策略定义 | 500 |
 | 作用域 | 计划定义 | 100 |
 | 租户 | 计划定义 | 1,000 |
 | 作用域 | 策略或计划分配 | 100 |

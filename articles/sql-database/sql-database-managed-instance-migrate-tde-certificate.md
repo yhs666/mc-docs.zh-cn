@@ -13,12 +13,12 @@ ms.reviewer: carlrab, jovanpop
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 39f5259d78a8a67965c4f1fd634fc9a5093441e0
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: ab6299695e26bcd60026670f9e383cc70bec5e4e
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629248"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277021"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 
@@ -121,7 +121,7 @@ ms.locfileid: "65629248"
    # Import the module into the PowerShell session
    Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzAccount
+   Connect-AzAccount -EnvironmentName AzureChinaCloud
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)

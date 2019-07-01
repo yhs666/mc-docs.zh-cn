@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-origin.date: 05/22/2017
-ms.date: 03/18/2019
+origin.date: 12/22/2018
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f6c35697925a663c54218f4d534caf5149f84e0
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 59da25e189e9ebd1484428ee3ff1d6532eb6d332
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004717"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171373"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 
@@ -82,7 +82,7 @@ ms.locfileid: "58004717"
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a>步骤 3：连接到 Azure Cosmos DB 帐户
 接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”  。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
 
     this.client = new DocumentClient(
         "https://FILLME.documents.azure.cn",

@@ -11,11 +11,11 @@ ms.date: 05/27/2019
 ms.author: v-jay
 ms.reviewer: stewu
 ms.openlocfilehash: 895045402de2b102667682182575bc313df5ff1d
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004365"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236048"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 

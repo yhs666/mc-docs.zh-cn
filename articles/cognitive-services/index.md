@@ -10,6 +10,12 @@ ms.author: v-junlch
 origin.date: 02/21/2019
 ms.date: 03/27/2019
 ms.topic: hub-page
+ms.openlocfilehash: 3b70cf036b208bd2e0ab5e3b0cf09d93175e3c47
+ms.sourcegitcommit: 704fc1a146407c9c6b055f961c81fa4b6ed23a94
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/24/2019
+ms.locfileid: "67333885"
 ---
 <div id="main" class="v2">
 <h1>Azure 认知服务文档</h1>
@@ -70,6 +76,26 @@ ms.topic: hub-page
                         <p><a href="/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">使用 C#</a></p>
                         <p><a href="/cognitive-services/Computer-vision/Quickstarts/node-analyze">使用 Node.js</a></p>
                         <p><a href="/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">使用 Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>使用 LUIS 获取意向</h3>
+                        <p><a href="/cognitive-services/luis/luis-get-started-cs-get-intent">使用 C#</a></p>
+                        <p><a href="/cognitive-services/luis/luis-get-started-java-get-intent">使用 Java</a></p>
+                        <p><a href="/cognitive-services/luis/luis-get-started-node-get-intent">使用 Node.js</a></p>
+                        <p><a href="/cognitive-services/luis/luis-get-started-python-get-intent">使用 Python</a></p>
                     </div>
                 </div>
             </div>

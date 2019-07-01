@@ -8,21 +8,21 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 11/06/2018
-ms.date: 04/01/2019
+origin.date: 05/24/2019
+ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 45282b6dfc0d84ccdbe614f437ba18fbab8572fa
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: ae5e2db2b3c6cc46cc87d09d41eafedcead5e44d
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348687"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236030"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Apache Spark 机器学习应用程序 
 
 本教程介绍如何使用 [Jupyter Notebook](https://jupyter.org/) 生成适用于 Azure HDInsight 的 [Apache Spark](https://spark.apache.org/) 机器学习应用程序。 
 
-[MLib](https://spark.apache.org/docs/1.1.0/mllib-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用程序（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
+[MLlib](https://spark.apache.org/docs/latest/ml-guide.html) 是 Spark 的可缩放机器学习库，由常见学习算法和实用工具（包括分类、回归、聚集、协作筛选、维数约简以及底层优化基元）组成。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -30,15 +30,15 @@ ms.locfileid: "58348687"
 
 如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="prerequisites"></a>先决条件：
+## <a name="prerequisites"></a>先决条件
 
-必须具备以下项：
+* HDInsight 上的 Apache Spark 群集。 请参阅[创建 Apache Spark 群集](./apache-spark-jupyter-spark-sql-use-portal.md)。
 
-* 完成[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
+* 熟悉 Jupyter Notebook 和 Spark on HDInsight 的结合使用。 有关详细信息，请参阅[使用 Apache Spark on HDInsight 加载数据并运行查询](./apache-spark-load-data-run-query.md)。
 
 ## <a name="understand-the-data-set"></a>了解数据集
 
-应用程序默认使用所有群集提供的 HVAC.csv 数据示例。 该文件位于 \HdiSamples\HdiSamples\SensorSampleData\hvac。 数据显示了安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，可使用这些数据来预测建筑物的温度比目标温度高还是低。
+应用程序默认使用所有群集提供的 HVAC.csv 数据示例。 该文件位于 `\HdiSamples\HdiSamples\SensorSampleData\hvac`。 数据显示了安装有 HVAC 系统的一些建筑物的目标温度和实际温度。 **System** 列代表系统 ID，**SystemAge** 列代表建筑物安装 HVAC 系统的年数。 在指定系统 ID 和系统年数的情况下，可使用这些数据来预测建筑物的温度比目标温度高还是低。
 
 ![用于 Spark 机器学习示例的数据的快照](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-understand-data.png "用于 Spark 机器学习示例的数据的快照")
 
@@ -99,7 +99,7 @@ ms.locfileid: "58348687"
     pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
     ```
 
-    有关管道及其工作原理的详细信息，请参阅 <a href="https://spark.apache.org/docs/latest/ml-guide.html#how-it-works" target="_blank">Apache Spark 机器学习管道</a>。
+    有关管道及其工作原理的详细信息，请参阅 [Apache Spark 机器学习管道](https://spark.apache.org/docs/latest/ml-pipeline.html)。
 
 5. 将管道拟合到培训文档中。
    
@@ -183,18 +183,14 @@ ms.locfileid: "58348687"
     ```
    
    从预测中的第一行可以看出，对于 ID 为 20 且系统年数为 25 的 HVAC 系统，建筑物处于高温状态 (**prediction=1.0**)。 DenseVector (0.49999) 的第一个值对应于预测 0.0，第二个值 (0.5001) 对应于预测 1.0。 在输出中，即使第二个值仅稍微偏高，模型仍显示 **prediction=1.0**。
-10. 关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中选择“关闭并停止”。 此操作会关闭 Notebook。
+10. 关闭 Notebook 以释放资源。 为此，请在 Notebook 的“文件”菜单中选择“关闭并停止”   。 此操作会关闭 Notebook。
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>将 Anaconda scikit-learn 库用于 Spark 机器学习
-HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
+HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库  。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已学习了如何执行以下操作：
-
-* 开发 Apache Spark 机器学习应用程序
-
-继续学习下一教程，了解如何将 IntelliJ IDEA 用于 Spark 作业。 
+本教程介绍如何使用 Jupyter Notebook 生成适用于 Azure HDInsight 的 Apache Spark 机器学习应用程序。 继续学习下一教程，了解如何将 IntelliJ IDEA 用于 Spark 作业。 
 
 > [!div class="nextstepaction"]
 > [使用 IntelliJ 创建 Scala Maven 应用程序](./apache-spark-create-standalone-application.md)

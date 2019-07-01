@@ -11,12 +11,12 @@ origin.date: 02/07/2019
 ms.date: 04/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a73174fe419a895815671ffc12ee5b5aff4e6494
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 4c0fb05d801f1cf58ce3cad7401443314bea9072
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004505"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236452"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的用户界面自定义
 
@@ -26,7 +26,6 @@ ms.locfileid: "59004505"
 
 - 如果使用[用户流](active-directory-b2c-reference-policies.md)在应用程序中提供注册或登录、密码重置或配置文件编辑体验，则可使用 [Azure 门户来自定义 UI](tutorial-customize-ui.md)。
 - 如果使用的是 v2 用户流，则可以使用[页面布局模板](#page-layout-templates)来更改用户流页面的外观，无需进一步进行自定义。 例如，可以在用户流中的所有页面中应用海蓝或石板灰主题。
-- 如果提供仅登录、其伴随的密码重置页面和验证电子邮件，请使用与 [Azure AD 登录页面](../active-directory/fundamentals/customize-branding.md)相同的自定义步骤。
 - 如果客户在登录前尝试编辑其个人资料，则会将其重定向到使用与自定义 Azure AD 登录页面相同的步骤进行自定义的页面。
 - 如果需要根据客户的决策提供动态内容，则可使用可根据查询字符串中发送的参数更改页面内容的自定义策略。 例如，可以基于从 Web 或移动应用程序传递的参数，更改 Azure AD B2C 注册或登录页面上的背景图像。
 - 可以在 Azure AD B2C [用户流](user-flow-javascript-overview.md)或[自定义策略](page-contract.md)中启用 JavaScript 客户端代码。
@@ -48,15 +47,15 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 对于 v2 用户流，你可以选择一个预先设计的模板，它为你的默认页面提供更好的外观，并用作你的自定义的良好基础。
 
-在左侧菜单中，在“自定义”下选择“页面布局”。 然后，选择“模板(预览版)”。
+在左侧菜单中，在“自定义”下选择“页面布局”。   然后，选择“模板(预览版)”  。
 
 ![选择一个页面布局模板](./media/customize-ui-overview/template.png)
 
-从列表中选择一个模板。 例如，“海蓝”模板向用户流页面应用以下布局：
+从列表中选择一个模板。 例如，“海蓝”  模板向用户流页面应用以下布局：
 
 ![“海蓝”模板](./media/customize-ui-overview/ocean-blue.png)
 
-选择某个模板时，选定的布局将应用于用户流中的所有页面，并且每个页面的 URI 将显示在“自定义页面 URI”字段中。
+选择某个模板时，选定的布局将应用于用户流中的所有页面，并且每个页面的 URI 将显示在“自定义页面 URI”  字段中。
 
 ## <a name="where-do-i-store-ui-content"></a>在何处存储 UI 内容？
 
@@ -126,7 +125,7 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 可通过在 Azure AD B2C 租户中启用[语言自定义](active-directory-b2c-reference-language-customization.md)来本地化 HTML 内容。 启用此功能可让 Azure AD B2C 将 OpenID Connect 参数 `ui-locales` 转发到终结点。 内容服务器可使用此参数提供特定语言的 HTML 页。
 
-可以基于所用的区域设置从不同位置拉取内容。 在已启用 CORS 的终结点中，可以设置文件夹结构以托管特定语言的内容。 如果使用通配符值 {Culture:RFC5646}，则会调用正确的语言。 例如，自定义的页面 URI 可能类似于以下内容：`https://contoso.blob.core.chinacloudapi.cn/{Culture:RFC5646}/myHTML/unified.html`。 可以加载法语页面，拉取的内容来自 `https://contoso.blob.core.chinacloudapi.cn/fr/myHTML/unified.html`
+可以基于所用的区域设置从不同位置拉取内容。 在已启用 CORS 的终结点中，可以设置文件夹结构以托管特定语言的内容。 如果使用通配符值 {Culture:RFC5646}，则会调用正确的语言。 例如，自定义的页面 URI 可能类似于以下内容：`https://contoso.blob.core.chinacloudapi.cn/{Culture:RFC5646}/myHTML/unified.html`。 可通过从 `https://contoso.blob.core.chinacloudapi.cn/fr/myHTML/unified.html` 提取内容来加载法语页面
 
 ## <a name="examples"></a>示例
 

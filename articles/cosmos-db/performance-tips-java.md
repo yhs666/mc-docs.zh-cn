@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-origin.date: 01/02/2018
-ms.date: 03/04/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7f38a385d7fc0ba89cb9a46913b6fa7bf633366
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2e032184b3bfb8e14fbab09e5662cfe99305fa0d
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626137"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171394"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-java"></a>适用于 Azure Cosmos DB 和 Java 的性能提示
 
@@ -34,30 +34,30 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有一个密钥配置设置可用于配置客户端 [ConnectionPolicy](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionpolicy) - [ConnectionMode](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)。  有两种可用 ConnectionMode：
 
-   1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
-   2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
+    1. [网关（默认值）](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
+    2. [DirectHttps](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.connectionmode)
     
-      <!-- URL is valid on ._connection_mode without gateay and directhttps -->
+        <!-- URL is valid on ._connection_mode without gateay and directhttps -->
     
-      网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
+        网关模式受所有 SDK 平台的支持并已配置为默认设置。  如果应用程序在有严格防火墙限制的企业网络中运行，则网关是最佳选择，因为它使用标准 HTTPS 端口与单个终结点。 但是，对于性能的影响是每次在 Azure Cosmos DB 中读取或写入数据时，网关模式都涉及到额外的网络跃点。 因此，DirectHttps 模式因为网络跃点较少，可以提供更好的性能。 
 
-      Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
+        Java SDK 使用 HTTPS 作为传输协议。 HTTPS 使用 SSL 进行初始身份验证和加密通信。 使用 Java SDK 时，只需打开 HTTPS 端口 443。 
 
-      ConnectionMode 是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 
+        ConnectionMode 是在构造 DocumentClient 实例期间使用 ConnectionPolicy 参数配置的。 
 
-      ```Java
-      public ConnectionPolicy getConnectionPolicy() {
-       ConnectionPolicy policy = new ConnectionPolicy();
-       policy.setConnectionMode(ConnectionMode.DirectHttps);
-       policy.setMaxPoolSize(1000);
-       return policy;
-      }
+        ```Java
+        public ConnectionPolicy getConnectionPolicy() {
+        ConnectionPolicy policy = new ConnectionPolicy();
+        policy.setConnectionMode(ConnectionMode.DirectHttps);
+        policy.setMaxPoolSize(1000);
+        return policy;
+        }
 
-      ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-      DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-      ```
+        ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+        DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+        ```
 
-      ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
+        ![Azure Cosmos DB 连接策略演示](./media/performance-tips-java/connection-policy.png)
 
    <a name="same-region"></a>
 2. **将客户端并置在同一 Azure 区域中以提高性能**

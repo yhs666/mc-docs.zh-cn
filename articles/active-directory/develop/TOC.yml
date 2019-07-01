@@ -282,8 +282,6 @@
               href: v2-oauth2-on-behalf-of-flow.md
             - name: OAuth 2.0 客户端凭据授予
               href: v2-oauth2-client-creds-grant-flow.md
-            - name: OAuth 2.0 设备代码流
-              href: v2-oauth2-device-code.md
             - name: OAuth 2.0 资源所有者密码凭据授予
               href: v2-oauth-ropc.md
             - name: 签名密钥滚动更新

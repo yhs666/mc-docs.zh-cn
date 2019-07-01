@@ -4,16 +4,16 @@ description: 本文介绍了有关使用 JavaScript 语言集成式查询 API �
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/08/2018
-ms.date: 03/04/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 80ff8c3648f3d1cd9863c07871063274af4c02e8
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 74b821d0958839d5c468afe912172cb84febee0f
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988003"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171433"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB 中的 JavaScript 查询 API
 
@@ -54,12 +54,12 @@ ms.locfileid: "56988003"
 
 |**SQL**|**JavaScript 查询 API**|**说明**|
 |---|---|---|
-|SELECT *<br>FROM docs| __.map(function(doc) { <br>&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br>});|结果为所有文档（使用延续令牌分页）保持原样。|
-|SELECT <br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg,<br>&nbsp;&nbsp;&nbsp;docs.actions <br>FROM docs|__.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br>&nbsp;&nbsp;&nbsp;&nbsp;};<br>});|从所有文档投影 ID、消息（别名为 msg）和操作。|
-|SELECT *<br>FROM docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>});|查询具有此谓词的文档：id = "X998_Y998"。|
-|SELECT *<br>FROM docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br>&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags && x.Tags.indexOf(123) > -1;<br>});|查询具有 Tags 属性且 Tags 为一个包含值 123 的数组的文档。|
-|SELECT<br>&nbsp;&nbsp;&nbsp;docs.id,<br>&nbsp;&nbsp;&nbsp;docs.message AS msg<br>FROM docs<br>WHERE<br>&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>.value();|查询具有谓词 id = "X998_Y998" 的文档，并投影 ID 和消息（别名为 msg）。|
-|SELECT VALUE tag<br>FROM docs<br>JOIN tag IN docs.Tags<br>ORDER BY docs._ts|__.chain()<br>&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.Tags && Array.isArray(doc.Tags);<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc._ts;<br>&nbsp;&nbsp;&nbsp;&nbsp;})<br>&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br>&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br>&nbsp;&nbsp;&nbsp;&nbsp;.value()|筛选具有数组属性 Tags 的文档，按 _ts 时间戳系统属性对结果文档进行排序，并投影并平展 Tags 数组。|
+|SELECT *<br />FROM docs| __.map(function(doc) { <br />&nbsp;&nbsp;&nbsp;&nbsp;return doc;<br />});|结果为所有文档（使用延续令牌分页）保持原样。|
+|SELECT <br />&nbsp;&nbsp;&nbsp;docs.id,<br />&nbsp;&nbsp;&nbsp;docs.message AS msg,<br />&nbsp;&nbsp;&nbsp;docs.actions <br />FROM docs|__.map(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;return {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;actions:doc.actions<br />&nbsp;&nbsp;&nbsp;&nbsp;};<br />});|从所有文档投影 ID、消息（别名为 msg）和操作。|
+|SELECT *<br />FROM docs<br />WHERE<br />&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.filter(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br />});|查询具有此谓词的文档：id = "X998_Y998"。|
+|SELECT *<br />FROM docs<br />WHERE<br />&nbsp;&nbsp;&nbsp;ARRAY_CONTAINS(docs.Tags, 123)|__.filter(function(x) {<br />&nbsp;&nbsp;&nbsp;&nbsp;return x.Tags && x.Tags.indexOf(123) > -1;<br />});|查询具有 Tags 属性且 Tags 为一个包含值 123 的数组的文档。|
+|SELECT<br />&nbsp;&nbsp;&nbsp;docs.id,<br />&nbsp;&nbsp;&nbsp;docs.message AS msg<br />FROM docs<br />WHERE<br />&nbsp;&nbsp;&nbsp;docs.id="X998_Y998"|__.chain()<br />&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.id ==="X998_Y998";<br />&nbsp;&nbsp;&nbsp;&nbsp;})<br />&nbsp;&nbsp;&nbsp;&nbsp;.map(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id: doc.id,<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg: doc.message<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />&nbsp;&nbsp;&nbsp;&nbsp;})<br />.value();|查询具有谓词 id = "X998_Y998" 的文档，并投影 ID 和消息（别名为 msg）。|
+|SELECT VALUE tag<br />FROM docs<br />JOIN tag IN docs.Tags<br />ORDER BY docs._ts|__.chain()<br />&nbsp;&nbsp;&nbsp;&nbsp;.filter(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc.Tags && Array.isArray(doc.Tags);<br />&nbsp;&nbsp;&nbsp;&nbsp;})<br />&nbsp;&nbsp;&nbsp;&nbsp;.sortBy(function(doc) {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return doc._ts;<br />&nbsp;&nbsp;&nbsp;&nbsp;})<br />&nbsp;&nbsp;&nbsp;&nbsp;.pluck("Tags")<br />&nbsp;&nbsp;&nbsp;&nbsp;.flatten()<br />&nbsp;&nbsp;&nbsp;&nbsp;.value()|筛选具有数组属性 Tags 的文档，按 _ts 时间戳系统属性对结果文档进行排序，并投影并平展 Tags 数组。|
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -71,4 +71,4 @@ ms.locfileid: "56988003"
 - [Azure Cosmos DB JavaScript 服务器端 API 参考](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

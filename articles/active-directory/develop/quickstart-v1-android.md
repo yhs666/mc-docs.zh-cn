@@ -18,12 +18,12 @@ ms.date: 01/02/2019
 ms.author: v-junlch
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 8f05244de2fc6e42ef0196d39f032f85737039f0
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.openlocfilehash: adec8224b2ad23d8f15e961a1a511fbe04dabdd0
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996209"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151741"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
@@ -86,17 +86,17 @@ mAuthResult.getAccessToken()
     - 选择“Azure Active Directory” > “应用注册”。
 
 2. 创建应用程序
-    - 选择“新建应用程序注册”。
-    - 在“名称”字段中输入应用名称。
-    - 在“应用程序类型”中选择“本机”。
-    - 在“重定向 URI”中输入 `http://localhost`。
+    - 选择“新建应用程序注册”  。
+    - 在“名称”字段中输入应用名称  。
+    - 在“应用程序类型”中选择“本机”   。
+    - 在“重定向 URI”中输入 `http://localhost`  。
 
 3. 配置 Microsoft Graph
-    - 选择“设置”>“所需权限”。
-    - 选择“添加”，在“选择 API”中选择“Microsoft Graph”。
-    - 选择“登录并读取用户配置文件”权限，然后按“选择”进行保存。
-        - 此权限映射到 `User.Read` 作用域。
-    - 可选：在“所需权限”>“Azure Active Directory”内删除选定权限“登录并读取用户配置文件”。 这将避免用户同意页面两次列出该权限。
+    - 选择“设置”>“所需权限”  。
+    - 选择“添加”，在“选择 API”中选择“Microsoft Graph”   。
+    - 选择“登录并读取用户配置文件”权限，然后按“选择”进行保存   。
+        - 此权限映射到 `https://microsoftgraph.chinacloudapi.cn/user.read` 作用域。
+    - 可选：在“所需权限”>“Azure Active Directory”内删除选定权限“登录并读取用户配置文件”   。 这将避免用户同意页面两次列出该权限。
 
 4. 恭喜！ 应用已配置成功。 在下一部分中，你需要：
     - `Application ID`
@@ -109,7 +109,7 @@ mAuthResult.getAccessToken()
     git clone https://github.com/Azure-Samples/active-directory-android
     ```
 2. 在 Android Studio 中打开示例。
-    - 选择“打开现有 Android Studio 项目”。
+    - 选择“打开现有 Android Studio 项目”  。
 
 ## <a name="step-3-configure-your-code"></a>步骤 3：配置代码
 
@@ -120,8 +120,8 @@ mAuthResult.getAccessToken()
 
 ## <a name="step-4-run-the-sample"></a>步骤 4：运行示例
 
-1. 选择“生成”>“清理项目”。
-2. 选择“运行”>“运行应用”。
+1. 选择“生成”>“清理项目”  。
+2. 选择“运行”>“运行应用”  。
 3. 该应用应生成并显示一些基本的 UX。 单击 `Call Graph API` 按钮时，它将提示登录，然后自动使用新令牌调用 Microsoft Graph API。
 
 ## <a name="next-steps"></a>后续步骤

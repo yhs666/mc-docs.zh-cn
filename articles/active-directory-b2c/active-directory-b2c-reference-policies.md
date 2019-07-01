@@ -11,16 +11,16 @@ origin.date: 11/30/2018
 ms.date: 04/02/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c1e92ae35ca1fd3abbdfd4a215d0823ad33307ce
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a8c9ab74da20c3d3d6c66a4cff54760bb7ba9d1a
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004244"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235954"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的用户流
 
-Azure Active Directory (Azure AD) B2C可扩展的策略框架是服务的核心优势。 策略充分描述了标识体验，例如注册、登录或配置文件编辑。 若要帮助设置最常见的标识任务，Azure AD B2C 门户应包括名为“用户流”的预定义且可配置的策略。 
+Azure Active Directory (Azure AD) B2C可扩展的策略框架是服务的核心优势。 策略充分描述了标识体验，例如注册、登录或配置文件编辑。 若要帮助设置最常见的标识任务，Azure AD B2C 门户应包括名为“用户流”  的预定义且可配置的策略。 
 
 ## <a name="what-are-user-flows"></a>什么是用户流？
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) B2C可扩展的策略框架是服务的核心�
 以下示例演示了指定要使用的用户流的“p”查询字符串参数：
 
 ```
-https://contosob2c.b2clogin.com/contosob2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.cn/contosob2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -49,7 +49,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 ```
 
 ```
-https://contosob2c.b2clogin.com/contosob2c.partner.onmschina.cn/oauth2/v2.0/authorize?
+https://contosob2c.b2clogin.cn/contosob2c.partner.onmschina.cn/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
 &response_mode=form_post                            // 'query', 'form_post' or 'fragment'
@@ -62,7 +62,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>用户流版本
 
-Azure 门户中一直在添加[新版本的用户流](user-flow-versions.md)。 当你开始使用 Azure AD B2C 时，系统会建议使用经过测试的用户流。 创建新用户流时，可从“建议”选项卡中选择所需的用户流。
+Azure 门户中一直在添加[新版本的用户流](user-flow-versions.md)。 当你开始使用 Azure AD B2C 时，系统会建议使用经过测试的用户流。 创建新用户流时，可从“建议”选项卡中选择所需的用户流。 
 
 目前建议使用以下用户流：
 
@@ -72,7 +72,7 @@ Azure 门户中一直在添加[新版本的用户流](user-flow-versions.md)。 
 
 ## <a name="linking-user-flows"></a>链接用户流
 
-使用本地帐户的**注册或登录**用户流在体验的第一个页面上包含“忘记了密码?”链接。 单击此链接不会自动触发密码重置用户流。 
+使用本地帐户的**注册或登录**用户流在体验的第一个页面上包含“忘记了密码?”链接  。 单击此链接不会自动触发密码重置用户流。 
 
 而是将错误代码 `AADB2C90118` 返回给应用程序。 应用程序需要通过运行一个可重置密码的特定用户流来处理此错误代码。 有关示例，请查看演示用户流链接方法的[简单 ASP.NET 示例](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI)。
 

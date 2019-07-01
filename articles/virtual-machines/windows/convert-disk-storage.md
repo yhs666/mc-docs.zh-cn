@@ -17,12 +17,12 @@ origin.date: 02/22/2019
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: b729e81a9afbaf47822d76fed7e1f87a77dfe223
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: a3c5dac11d52c83663d6953cdb87e2d2355786e1
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004082"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427809"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新托管磁盘的存储类型
 
@@ -40,6 +40,9 @@ Azure 托管磁盘有三个选项：高级 SSD、标准 SSD 和标准 HDD。 可
 此示例演示如何将 VM 的所有磁盘从标准存储转换为高级存储，或者从高级存储转换为标准存储。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还切换到了支持高级存储的大小：
 
 ```powershell
+# Sign in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 # Name of the resource group that contains the VM
 $rgName = 'yourResourceGroup'
 
@@ -85,6 +88,8 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 对于开发/测试工作负荷，可以混合使用标准磁盘和高级磁盘来降低成本。 可以选择仅升级需要更高性能的磁盘。 此示例演示如何将单个 VM 磁盘从标准存储转换为高级存储，或者从高级存储转换为标准存储。 若要使用高级托管磁盘，VM 必须使用支持高级存储的 [VM 大小](sizes.md)。 此示例还展示了如何切换到支持高级存储的大小：
 
 ```powershell
+# Sign in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
 
 $diskName = 'yourDiskName'
 # resource group that contains the managed disk
@@ -124,13 +129,13 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 执行以下步骤：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在门户上的“虚拟机”列表中选择 VM。
-3. 如果该 VM 未停止，请在 VM“概述”窗格的顶部选择“停止”，然后等待该 VM 停止。
-3. 在 VM 对应的窗格中，从菜单中选择“磁盘”。
+2. 在门户上的“虚拟机”列表中选择 VM。 
+3. 如果该 VM 未停止，请在 VM“概述”窗格的顶部选择“停止”，然后等待该 VM 停止。  
+3. 在 VM 对应的窗格中，从菜单中选择“磁盘”  。
 4. 选择要转换的磁盘。
-5. 在菜单中选择“配置”。
-6. 将“帐户类型”从“标准 HDD”更改为“高级 SSD”。
-7. 单击“保存”并关闭磁盘窗格。
+5. 在菜单中选择“配置”  。
+6. 将“帐户类型”从“标准 HDD”更改为“高级 SSD”。   
+7. 单击“保存”并关闭磁盘窗格。 
 
 磁盘类型转换会瞬间完成。 转换后，可以重启 VM。
 
@@ -139,7 +144,6 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 此示例演示如何将单个 VM 磁盘从标准 HDD 转换为标准 SSD，或者从标准 SSD 转换为标准 HDD：
 
 ```powershell
-
 # Sign in the Azure China Cloud
 Connect-AzAccount -Environment AzureChinaCloud
 

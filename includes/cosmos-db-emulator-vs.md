@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 12/31/2018
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: e9e2cf116947fb99817377ed6ddfdea4468ed963
-ms.sourcegitcommit: 54ddd3dc2452d7af3a6fa66dae908ad0c4ef99dc
+ms.openlocfilehash: e1966cff9e8b624133d3d6205f0a69f466befd2b
+ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/29/2018
-ms.locfileid: "53814841"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151811"
 ---
-如果尚未安装 Visual Studio 2017，可以下载并使用**免费的** 
-[Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”工作负荷。
+下载和使用**免费** 
+的 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”工作负荷  。

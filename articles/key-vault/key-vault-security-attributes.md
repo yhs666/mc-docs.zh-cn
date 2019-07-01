@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/31/2019
 ms.date: 06/17/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5c5d73a54123998401caa256d7f194aa24ca4ef1
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: da2d19b4e7c41afa3d83bf1088ca15369a5e7dc4
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687473"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277543"
 ---
 # <a name="security-attributes-for-azure-key-vault"></a>Azure Key Vault 的安全特性
 
@@ -28,8 +28,8 @@ ms.locfileid: "66687473"
 |---|---|--|
 | 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>| 是 | 加密所有对象。 |
 | 传输中加密：<ul><li>快速路由加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 是 | 所有通信都通过加密的 API 调用进行 |
-
-| 列级加密（Azure 数据服务）| 不适用 |  | | 加密 API 调用| 是 | 使用 HTTPS。 |
+| 列级加密（Azure 数据服务）| 不适用 |  |
+| 加密的 API 调用| 是 | 使用 HTTPS。 |
 
 ## <a name="network-segmentation"></a>网络分段
 

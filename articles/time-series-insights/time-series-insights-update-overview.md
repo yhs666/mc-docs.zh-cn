@@ -11,22 +11,20 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/05/2018
 ms.custom: seodec18
-ms.openlocfilehash: 097668832b15002f2eb35a3df7ac63257820a315
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: ff825a25c85a3ec70bde4c64a71667e1c5091477
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63803001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456495"
 ---
-# <a name="azure-time-series-insights-preview-overview"></a>Azure 时序见解预览版概述
+# <a name="azure-time-series-insights-preview"></a>Azure 时序见解预览版
 
-Azure 时序见解预览版是一种端到端的平台即服务产品/服务。 它用于引入、处理、存储和查询高度情景化且优化了时序的 IoT 规模的数据。 时序见解是即席数据浏览和运营分析的理想选择。 时序见解是唯一可扩展且自定义的服务产品/服务，满足行业 IoT 部署的广泛需求。
+Azure 时序见解预览版是一种端到端的平台即服务 (PaaS) 产品/服务。 它用于收集、处理、分析和查询高度情景化且优化了时序的 IoT 规模的数据。 时序见解是即席数据浏览和运营分析的理想选择。 时序见解是唯一可扩展且自定义的服务产品/服务，满足行业 IoT 部署的广泛需求。
 
-## <a name="video"></a>视频
+> [!TIP]
+> 有关正式版 (GA) 中的功能，请阅读 [Azure 时序见解 GA 概述](time-series-insights-overview.md)。
 
-在本视频中，我们概述了 Azure 时序见解预览版（一种基于云的 IoT 分析平台）。
-
-> [!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Time-Series-Insights-e2e-solution-for-industrial-IoT-analytics/player]
 
 ## <a name="define-iot-data"></a>定义 IoT 数据
 

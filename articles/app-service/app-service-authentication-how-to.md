@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 03/14/2018
-ms.date: 02/25/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: a8aa40710c242a1d283e909bc75cf8bcf951bd58
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 9c8cab709a6f407364d8fc9de9a4fad131d7bb2e
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222602"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171357"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -36,11 +36,11 @@ ms.locfileid: "56222602"
 
 门户配置不会提供向用户显示多个登录提供程序的统包方式。 但是，将此功能添加到 Web 应用并不困难。 步骤概括如下：
 
-首先，在 Azure 门户中的“身份验证/授权”页上，配置想要启用的每个标识提供者。
+首先，在 Azure 门户中的“身份验证/授权”页上，配置想要启用的每个标识提供者。 
 
-在“请求未经身份验证时需执行的操作”中，选择“允许匿名请求(无操作)”。
+在“请求未经身份验证时需执行的操作”中，选择“允许匿名请求(无操作)”。  
 
-在登录页、导航栏或 Web 应用的其他任何位置中，将一个登录链接添加到已启用的每个提供程序 (`/.auth/login/<provider>`)。 例如：
+在登录页、导航栏或应用的其他任何位置中，将一个登录链接添加到已启用的每个提供程序 (`/.auth/login/<provider>`)。 例如：
 
 ```HTML
 <a href="/.auth/login/aad">Log in with Azure AD</a>
@@ -171,16 +171,16 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 - **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，执行以下步骤：
-    1. 在页面顶部，选择“读/写”。
-    2. 在左侧浏览器中，导航到 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
-    3. 单击“编辑”。
+    1. 在页面顶部，选择“读/写”。 
+    2. 在左侧浏览器中，导航到 **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>** _ > **config** > **authsettings**。 
+    3. 单击“编辑”。 
     4. 修改以下属性。 将 _\<app\_id>_ 替换为要访问的服务的 Azure Active Directory 应用程序 ID。
 
         ```json
         "additionalLoginParams": ["response_type=code id_token", "resource=<app_id>"]
         ```
 
-    5. 单击“放置”。 
+    5. 单击“放置”。  
 
 配置提供程序以后，即可在令牌存储中[找到访问令牌的刷新令牌和过期时间](#retrieve-tokens-in-app-code)。 
 
@@ -197,7 +197,7 @@ function refreshTokens() {
 }
 ```
 
-如果用户撤销了授予应用的权限，对 `/.auth/me` 的调用可能会失败并返回 `403 Forbidden` 响应。 若要诊断错误，请检查应用程序日志了解详细信息。
+如果用户撤销了授予应用的权限，对 `/.auth/me` 的调用可能会失败并返回 `403 Forbidden` 响应。 若要诊断错误，请查看应用程序日志了解详细信息。
 
 ## <a name="extend-session-token-expiration-grace-period"></a>延长会话令牌过期宽限期
 
@@ -219,9 +219,9 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 
 Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如，Microsoft 帐户允许 _outlook.com_、_live.com_ 和 _hotmail.com_ 帐户。 Azure Active Directory 允许对登录帐户使用任意数量的自定义域。 对于内部应用，此行为可能不符合需要，因为你不希望具有 _outlook.com_ 帐户的任何人都拥有访问权限。 若要限制登录帐户的域名，请执行以下步骤。
 
-在 [https://resources.azure.com](https://resources.azure.com) 中，导航到 **subscriptions** > **_\<subscription\_name_** > **resourceGroups** > _**\<resource\_group\_name>**_ > **providers** > **Microsoft.Web** > **sites** > _**\<app\_name>**_ > **config** > **authsettings**。 
+在 [https://resources.azure.com](https://resources.azure.com) 中，导航到 **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>** _ > **config** > **authsettings**。 
 
-单击“编辑”，修改以下属性，然后单击“放置”。 请务必将 _\<domain\_name>_ 替换为所需的域。
+单击“编辑”，修改以下属性，然后单击“放置”。   请务必将 _\<domain\_name>_ 替换为所需的域。
 
 ```json
 "additionalLoginParams": ["domain_hint=<domain_name>"]

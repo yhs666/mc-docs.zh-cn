@@ -9,12 +9,12 @@ origin.date: 10/08/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b830365ff4109049c5d6ee0409af8d9fcb98cd6f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: acc27f835f046ad0579dc4d3556f18384e4f4897
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004180"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67305251"
 ---
 <!-- NOTICE: 最大 NIC 数/预期网络带宽 (Mbps) SHOULD BE (Mbps) -->
 常规用途 VM 大小提供均衡的 CPU 与内存之比。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 本文介绍了此分组中各个大小的 vCPU 数、数据磁盘数、NIC 数和存储吞吐量。 
@@ -52,6 +52,7 @@ ms.locfileid: "66004180"
 
 <!--Not Available on Standard_B1ls-->
 
+<a name="dsv3-series-1"></a>
 ## <a name="dsv3-series-sup1sup"></a>Dsv3 系列 <sup>1</sup>
 
 ACU：160-190
@@ -73,6 +74,7 @@ Dsv3 系列大小基于 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) 处理器或�
 
 <sup>1</sup> Dsv3 系列 VM 的 Intel® 超线程技术功能
 
+<a name="dv3-series-1"></a>
 ## <a name="dv3-series-sup1sup"></a>Dv3 系列 <sup>1</sup>
 
 ACU：160-190

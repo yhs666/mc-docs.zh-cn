@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 74ea290b67dcb887c875fbd256820a84422daff5
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 1bc99f4c69c1d247b4b168a4e320f3de34fae37d
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686440"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236391"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor 中的代理数据源
 Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  来自代理的数据存储为包含记录集的[日志数据](data-collection.md)。  每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。
@@ -38,11 +38,11 @@ Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  �
 
 
 ## <a name="configuring-data-sources"></a>配置数据源
-可以从工作区“高级设置”中的“数据”菜单配置数据源。  任何配置都将传送到工作区中所有已连接的数据源。  当前不能从此配置中排除任何代理。
+可以从工作区“高级设置”  中的“数据”  菜单配置数据源。  任何配置都将传送到工作区中所有已连接的数据源。  当前不能从此配置中排除任何代理。
 
 ![配置 Windows 事件](media/agent-data-sources/configure-events.png)
 
-1. 在 Azure 门户中，选择“Log Analytics 工作区”> 你的工作区 >“高级设置”。
+1. 在 Azure 门户中，选择“Log Analytics 工作区”> 你的工作区 >“高级设置”   。
 2. 选择“**数据**”。
 3. 单击要配置的数据源。
 4. 按照上表中每个数据源链接到的文档，了解有关其配置的详细信息。
@@ -51,7 +51,7 @@ Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  �
 ## <a name="data-collection"></a>数据收集
 数据源配置会在几分钟内传送到与 Azure Monitor 直接连接的各个代理。  指定的数据从代理收集，并按特定于每个数据源的时间间隔直接传送到 Azure Monitor。  请参阅每个数据源的文档以了解详情。
 
-对于已连接管理组中的 System Center Operations Manager 代理，数据源配置默认以每 5 分钟的间隔转换成管理包并传送到管理组。  代理会下载任何其他的管理包，并收集指定的数据。 根据数据源的不同，数据或者被发送到管理服务器，再由管理服务器转发到 Azure Monitor；或者不通过管理服务器，由代理将数据发送到 Azure Monitor。 有关详细信息，请参阅 [Azure 中的监视解决方案的数据收集详细信息](../insights/solutions-inventory.md)。  可以在[配置与 System Center Operations Manager 的集成](om-agents.md)中阅读有关连接 Operations Manager 和 Azure Monitor 以及修改配置传送频率的详细信息。
+对于已连接管理组中的 System Center Operations Manager 代理，数据源配置默认以每 5 分钟的间隔转换成管理包并传送到管理组。  代理会下载任何其他的管理包，并收集指定的数据。 根据数据源的不同，数据或者被发送到管理服务器，再由管理服务器转发到 Azure Monitor；或者不通过管理服务器，由代理将数据发送到 Azure Monitor。 有关详细信息，请参阅 [Azure 中的监视解决方案的数据收集详细信息](../insights/solutions-inventory.md)。
 
 如果代理无法连接到 Azure Monitor 或 Operations Manager，将继续收集在建立连接时传送的数据。  如果数据量达到客户端的最大缓存大小，或者如果代理无法在 24 小时内建立连接，则可能会丢失数据。
 

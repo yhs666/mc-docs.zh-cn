@@ -50,6 +50,11 @@ sections:
             image:
               src: media/index/i_elasticpool.svg
             title: 弹性池
+          - href: /sql-database/sql-database-managed-instance-index
+            html: <p>使用托管实例可使完全托管的 SQL Server 数据库引擎实例托管在 Azure 云中，而无需为从本地数据库进行迁移做出任何数据库代码更改或只需做出极少的数据库代码更改。</p>
+            image:
+              src: media/index/i_mi.svg
+            title: 托管实例
           - href: /sql-database/sql-database-paas
             html: <p>内置的高可用性、自动备份和异地复制将防止维护操作、基础结构或硬件故障停止你的业务。</p>
             image:
@@ -97,6 +102,12 @@ sections:
               - href: /sql-database/scripts/sql-database-move-database-between-pools-cli
               - href: /sql-database/scripts/sql-database-move-database-between-pools-powershell
               - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create'
+          - title: 创建托管实例
+            values:
+              - href: /sql-database/sql-database-managed-instance-get-started
+              - href: null
+              - href: /sql-database/scripts/sql-database-create-configure-managed-instance-powershell
+              - href: 'https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet'
   - title: 分步教程
     items:
       - type: paragraph

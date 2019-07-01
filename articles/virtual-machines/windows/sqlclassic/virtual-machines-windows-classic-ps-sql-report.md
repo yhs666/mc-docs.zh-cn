@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 01/11/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 833fd1d4869798623039754b5b5e4b2084db4919
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f1181499f29bb9eff5f2c31a9480aafa6860279f
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004102"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427819"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>使用 PowerShell 创建运行本机模式报表服务器的 Azure VM
 > [!IMPORTANT] 
@@ -468,7 +468,7 @@ ms.locfileid: "66004102"
 
         输出与以下内容类似： 例如，如果该脚本返回一个空白行，则尚未为 VM 配置证书，请参阅[使用虚拟机自签名证书](#to-use-the-virtual-machines-self-signed-certificate)部分。
 
-    OR
+    或 
     * 在 VM 上运行 mmc.exe，然后添加“证书”  管理单元。
     * 在“受信任的根证书颁发机构”  节点下，双击证书名称。 **chinacloudapp.cn**结尾。
     * 单击“详细信息”  选项卡。

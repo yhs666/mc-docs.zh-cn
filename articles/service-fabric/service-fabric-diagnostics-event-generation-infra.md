@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/21/2018
-ms.date: 01/07/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2d95417d683943274c17c17595429ef30327f6f9
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: cff254f3da704fa2cc532d13718ba14e18557c08
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083722"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277534"
 ---
 # <a name="monitoring-the-cluster"></a>监视群集
 
@@ -33,28 +33,28 @@ Service Fabric 通过 EventStore 和各种现成的日志通道将多个结构�
 * **可操作**：由 Service Fabric 和群集执行的高级操作，包括出现节点事件、部署新应用程序或升级回滚等。可在[此处](service-fabric-diagnostics-event-generation-operational.md)查看事件的完整列表。  
 
 * **可操作 - 详细信息**  
-运行状况报告和负载均衡决策。
+    运行状况报告和负载均衡决策。
 
 可通过各种方式访问操作通道，包括 ETW/Windows 事件日志、[EventStore](service-fabric-diagnostics-eventstore.md)（适用于 Windows 群集的 Windows 版本 6.2 及更高版本上可用）。 使用 EventStore 可以按实体（实体包括群集、节点、应用程序、服务、分区、副本和容器）访问群集的事件，并通过 REST API 和 Service Fabric 客户端库将其公开。 使用 EventStore 监视开发/测试群集，并获取生产群集状态的时间点了解。
 
 * **数据和消息**  
-消息（当前仅限 ReverseProxy）和数据路径（可靠的服务模型）中生成的关键日志和事件。
+    消息（当前仅限 ReverseProxy）和数据路径（可靠的服务模型）中生成的关键日志和事件。
 
 * **数据和消息 - 详细信息**  
-包含群集中的数据和消息提供的所有非关键日志的详细通道（此通道的事件量非常大）。
+    包含群集中的数据和消息提供的所有非关键日志的详细通道（此通道的事件量非常大）。
 
-除此之外，还提供了两个结构化的 EventSource 通道以及为支持目的而收集的日志。
+除了这些之外，还提供了两个结构化的 EventSource 通道以及为支持目的而收集的日志。
 
 * [Reliable Services 事件](service-fabric-reliable-services-diagnostics.md)  
-特定于编程模型的事件。
+    特定于编程模型的事件。
 
 * [Reliable Actors 事件](service-fabric-reliable-actors-diagnostics.md)  
-特定于编程模型的事件和性能计数器。
+    特定于编程模型的事件和性能计数器。
 
 * 支持日志  
-Service Fabric 生成的系统日志，仅当我们提供支持时使用。
+    Service Fabric 生成的系统日志，仅供我们提供支持时使用。
 
-这些不同的通道涵盖了大部分推荐的平台级别日志记录。 若要改进平台级别日志记录，建议更好地了解运行状况模型和添加自定义运行状况报表，并添加自定义性能计数器，以实时了解服务和应用程序对群集的影响。
+这些不同的通道涵盖了大部分推荐的平台级别日志记录。 若要改进平台级别日志记录，建议更好地了解运行状况模型和添加自定义运行状况报表，并添加自定义性能计数器，以实时了解服务和应用程序对群集的影响  。
 
 为了利用这些日志，强烈建议在 Azure 门户中创建群集期间启用“诊断”。 如果开启诊断，部署群集时，Windows Azure 诊断就可确认运行 Operational、Reliable Services 和 Reliable Actors 通道，并按照[通过 Azure 诊断聚合事件](service-fabric-diagnostics-event-aggregation-wad.md)中所述存储数据。
 
@@ -76,7 +76,7 @@ Service Fabric 具有自身的运行状况模型，以下文章对此做了详�
 > [!TIP]
 > 不要使用过多的加权指标， 否则可能难以了解服务实例为何会出于均衡目的而被移动， 并且某些指标可能会持续很长时间！
 
-可以指明应用程序的运行状况和性能的任何信息都是指标和运行状况报告的候选项。 CPU 性能计数器可以告知节点的利用情况，但不会指明特定的服务是否正常，因为单个节点上可能运行了多个服务。 但是，RPS、已处理的项数和请求延迟等指标都可以指明特定服务的运行状况。
+可以指明应用程序的运行状况和性能的任何信息都是指标和运行状况报告的候选项。 CPU 性能计数器可以告知节点的利用情况，但不会指明特定的服务是否正常，因为单个节点上可能运行了多个服务  。 但是，RPS、已处理的项数和请求延迟等指标都可以指明特定服务的运行状况。
 
 ## <a name="service-fabric-support-logs"></a>Service Fabric 支持日志
 
@@ -84,23 +84,26 @@ Service Fabric 具有自身的运行状况模型，以下文章对此做了详�
 
 ## <a name="measuring-performance"></a>测量性能
 
-测量群集性能有助于了解它如何处理负载以及如何做出关于缩放群集的决策（请参阅有关[在 Azure 上](service-fabric-cluster-scale-up-down.md)或[在本地](service-fabric-cluster-windows-server-add-remove-nodes.md)缩放群集的详细信息）。 以后分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 
+测量群集性能有助于了解它如何处理负载以及如何做出关于缩放群集的决策（请参阅有关[在 Azure 上](service-fabric-cluster-scale-up-down.md)或[在本地](service-fabric-cluster-windows-server-add-remove-nodes.md)缩放群集的详细信息）。 将来分析日志时，性能数据还可用于比较你或你的应用程序和服务可能执行的操作。 
 
 有关使用 Service Fabric 时要收集的性能计数器的列表，请参阅 [Service Fabric 中的性能计数器](service-fabric-diagnostics-event-generation-perf.md)
 
 以下是设置群集收集性能数据的两种常见方式：
 
 * **使用代理**  
-这是从计算机中收集性能的首选方法，因为代理通常有可以收集的可能性能指标列表，并且选择要收集或更改的指标是一个相对简单的过程。 
+    这是从计算机中收集性能的首选方法，因为代理通常有可以收集的可能性能指标列表，并且选择要收集或更改的指标是一个相对简单的过程。 
 
-<!-- Not Available on  [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) -->
-<!-- Not Available [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) -->
+    <!-- Not Available on  [how to configure the OMS for Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) -->
+    <!-- Not Available [Setting up the OMS Windows Agent](../log-analytics/log-analytics-windows-agents.md) -->
+    
 * **性能计数器到 Azure 表存储**  
-还可将性能指标发送到与事件相同的表存储。 此操作需要更改 Azure 诊断配置以从群集中的 VM 读取适当的性能计数器，如果要部署任何容器，也能使其读取 Docker 统计数据。 阅读有关在 Service Fabric 中配置 [WAD 中的性能计数器](service-fabric-diagnostics-event-aggregation-wad.md)的文章，设置性能计数器集合。
+    还可将性能指标发送到与事件相同的表存储。 此操作需要更改 Azure 诊断配置以从群集中的 VM 读取适当的性能计数器，如果要部署任何容器，也能使其读取 Docker 统计数据。 阅读有关在 Service Fabric 中配置 [WAD 中的性能计数器](service-fabric-diagnostics-event-aggregation-wad.md)的文章，设置性能计数器集合。
 
 ## <a name="next-steps"></a>后续步骤
+
 <!--Not Available on [Log Analytics integration](service-fabric-diagnostics-event-analysis-oms.md)-->
 
 * 了解 Service Fabric 内置诊断体验：[EventStore](service-fabric-diagnostics-eventstore.md)
+
 <!--Not Available on [common diagnostic scenarios](service-fabric-diagnostics-common-scenarios.md)-->
 <!--Update_Description: update meta properties, wording updte, update link -->

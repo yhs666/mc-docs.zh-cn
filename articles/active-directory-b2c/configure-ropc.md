@@ -11,12 +11,12 @@ origin.date: 11/30/2018
 ms.date: 04/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 698f8711024a61a15c4800efb4bf2a735c258949
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9f349ad8ea4592022ee5199f97da6e44e72702e1
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004457"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235967"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中配置资源所有者密码凭据流
 
@@ -39,25 +39,25 @@ ms.locfileid: "59004457"
 
 1. 以 Azure AD B2C 租户的全局管理员身份登录 Azure 门户。
 2. 若要切换到 Azure AD B2C 租户，请在门户右上角选择 B2C 目录。
-3. 单击“用户流”，然后选择“新建用户流”。
-4. 单击“全部”选项卡，然后选择“使用 ROPC 登录”。
-5. 提供用户流名称，例如 ROPC_Auth。
-6. 在“应用程序声明”下，单击“显示更多”。
+3. 单击“用户流”  ，然后选择“新建用户流”  。
+4. 单击“全部”  选项卡，然后选择“使用 ROPC 登录”  。
+5. 提供用户流名称，例如 ROPC_Auth  。
+6. 在“应用程序声明”  下，单击“显示更多”  。
 7. 选择应用程序所需的应用程序声明，例如“显示名称”、“电子邮件”和“标识提供者”。
-8. 选择“确定”，然后选择“创建”。
-9. 单击“运行用户流”。
+8. 选择“确定”，然后选择“创建”   。
+9. 单击“运行用户流”  。
 
    你随后会看到一个终结点，如以下示例所示：
 
-   `https://yourtenant.b2clogin.com/yourtenant.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.cn/yourtenant.partner.onmschina.cn/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>注册应用程序
 
-1. 在 B2C 设置中，选择“应用程序”，然后选择“添加”。
+1. 在 B2C 设置中，选择“应用程序”，然后选择“添加”。  
 2. 输入应用程序名称，例如 *ROPC_Auth_app*。
-3. 对“Web 应用/Web API”选择“否”，然后对“本机客户端”选择“是”。
-4. 保留所有其他值不变，然后选择“创建”。
+3. 对“Web 应用/Web API”选择“否”，然后对“本机客户端”选择“是”     。
+4. 保留所有其他值不变，然后选择“创建”  。
 5. 选择新应用程序，并记下应用程序 ID 供以后使用。
 
 ## <a name="test-the-user-flow"></a>测试用户流
@@ -67,9 +67,9 @@ ms.locfileid: "59004457"
 - 将 *\<B2C_1A_ROPC_Auth>* 替换为资源所有者密码凭据策略的全名。
 - 将 *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3>* 替换为注册时提供的应用程序 ID。
 
-`https://yourtenant.b2clogin.com/<yourtenant.partner.onmschina.cn>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.cn/<yourtenant.partner.onmschina.cn>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 键 | 值 |
+| 键 | Value |
 | --- | ----- |
 | username | leadiocl@outlook.com |
 | password | Passxword1 |
@@ -84,7 +84,7 @@ ms.locfileid: "59004457"
 
 ```
 POST /yourtenant.partner.onmschina.cn/oauth2/v2.0/token?p=B2C_1_ROPC_Auth HTTP/1.1
-Host: yourtenant.b2clogin.com
+Host: yourtenant.b2clogin.cn
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -107,9 +107,9 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
 
 使用下表中的信息构造如此处所示的 POST 调用作为请求的正文：
 
-`https://yourtenant.b2clogin.com/<yourtenant.partner.onmschina.cn>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.cn/<yourtenant.partner.onmschina.cn>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 键 | 值 |
+| 键 | Value |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

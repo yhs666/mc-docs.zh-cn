@@ -4,16 +4,16 @@ description: 了解如何执行 Azure Cosmos DB 缩放和性能测试。 然后�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/07/2017
-ms.date: 01/21/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: dd75dc9c2315339c21076712cc1be1e9c449adab
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 4683a3e9765203a3924b48d4a2f7ada8852583d0
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309312"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171395"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 执行性能和规模测试
 
@@ -90,6 +90,7 @@ ms.locfileid: "54309312"
     Press any key to exit...
 
 **步骤 4（如有必要）：** 工具报告的吞吐量（RU/秒）应该等于或大于为某个集合或一组集合预配的吞吐量。 如果情况并非如此，以较小的增量提高 DegreeOfParallelism 可帮助达到该限制。 如果客户端应用的吞吐量达到持平状态，请在其他客户端计算机上启动多个应用实例。 如需此步骤的帮助，请通过 [Azure 支持](https://support.azure.cn/zh-cn/support/support-azure/)创建支持票证。
+
 <!-- Support ticket in [Azure Support](https://support.azure.cn/zh-cn/support/support-azure/) -->
 
 应用处于运行状态后，可以尝试不同的[编制索引策略](index-policy.md)和[一致性级别](consistency-levels.md)，以了解它们对吞吐量和延迟的影响。 用户也可以查看源代码，并在自己的测试套件或生产应用程序中实施类似的配置。

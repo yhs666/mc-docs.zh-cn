@@ -11,12 +11,12 @@ origin.date: 10/30/2018
 ms.date: 04/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c5652dda4e02404cb71ac9bf52313077bfe9b7a6
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 6a884fabfca40c052724c4cc6db2e3090fc021f4
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004310"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235968"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 JWT 令牌颁发者的技术配置文件
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) B2C 在每个身份验证流的处理过程中
 
 ## <a name="protocol"></a>协议
 
-“Protocol”元素的“Name”属性必须设置为 `None`。 将 **OutputTokenFormat** 元素设置为 `JWT`。
+“Protocol”  元素的“Name”  属性必须设置为 `None`。 将 **OutputTokenFormat** 元素设置为 `JWT`。
 
 以下示例演示了 `JwtIssuer` 的技术配置文件：
 
@@ -54,7 +54,7 @@ Azure Active Directory (Azure AD) B2C 在每个身份验证流的处理过程中
 | refresh_token_lifetime_secs | 否 | 刷新令牌生存期。 在应用程序已获取 offline_access 范围的情况下，可以使用某个刷新令牌获取新访问令牌之前所要经过的最长时间段。 默认值为 120,9600 秒（14 天）。 最小值为 86,400 秒（24 小时）（含）。 最大值为 7,776,000 秒（90 天）（含）。 | 
 | rolling_refresh_token_lifetime_secs | 否 | 刷新令牌滑动窗口生存期。 此时间段过后，会强制用户重新进行身份验证，不考虑该应用程序获取的最近刷新令牌的有效期。 如果不想要实施滑动窗口生存期，请将 allow_infinite_rolling_refresh_token 的值设置为 `true`。 默认值为 7,776,000 秒（90 天）。 最小值为 86,400 秒（24 小时）（含）。 最大值为 31,536,000 秒（365 天）（含）。 | 
 | allow_infinite_rolling_refresh_token | 否 | 如果设置为 `true`，则刷新令牌滑动窗口生存期永不过期。 |
-| IssuanceClaimPattern | 是 | 控制颁发者 (iss) 声明。 值为下列其中一项：<ul><li>AuthorityAndTenantGuid - iss 声明包含域名（例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`）和租户标识符 https://login.partner.microsoftonline.cn/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - iss 声明包含域名（例如 `login.microsoftonline` 或 `tenant-name.b2clogin.com`）、租户标识符和信赖方策略名称。 https://login.partner.microsoftonline.cn/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
+| IssuanceClaimPattern | 是 | 控制颁发者 (iss) 声明。 值为下列其中一项：<ul><li>AuthorityAndTenantGuid - iss 声明包含域名（例如 `login.microsoftonline` 或 `tenant-name.b2clogin.cn`）和租户标识符 https://login.partner.microsoftonline.cn/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - iss 声明包含域名（例如 `login.microsoftonline` 或 `tenant-name.b2clogin.cn`）、租户标识符和信赖方策略名称。 https://login.partner.microsoftonline.cn/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | 否 | 控制 `acr` 声明值。<ul><li>None - Azure AD B2C 不发出 acr 声明</li><li>PolicyId - `acr` 声明包含策略名称</li></ul>用于设置此值的选项为 TFP（信任框架策略）和 ACR（身份验证上下文引用）。 建议将此值设置为 TFP，若要设置值，请确保存在包含 `Key="AuthenticationContextReferenceClaimPattern"` 的 `<Item>`，且值为 `None`。 在信赖方策略中，添加 <OutputClaims> 项和此元素 `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`。 另请确保策略包含声明类型 `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
 ## <a name="cryptographic-keys"></a>加密密钥

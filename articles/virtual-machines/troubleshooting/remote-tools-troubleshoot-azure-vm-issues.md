@@ -15,12 +15,12 @@ ms.devlang: azurecli
 origin.date: 01/11/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: bc3c54296109173d974b4d12a3e3a64951050708
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 13898f2ac8ba022f8c6401cd317d602810ff5e8c
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004236"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427822"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>使用远程工具排查 Azure VM 问题
 
@@ -35,8 +35,10 @@ ms.locfileid: "66004236"
 下载 [PsExec](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psexec)。 运行以下命令连接到 VM：
 
 ```cmd
-psexec \\<computer>-u user -s cmd
+psexec \\<computer> -u user -s cmd
 ```
+
+<!--MOONCAKE: Correct on \\<computer> -u-->
 
 >[!Note]
 >* 必须在位于同一 VNET 中的计算机上运行该命令。
@@ -58,7 +60,7 @@ psexec \\<computer>-u user -s cmd
 
 * 未事先在 VM 上安装该扩展。
 
-  该扩展仅在首次使用时才注入脚本。 如果以后再使用此功能，该扩展将识别到它已被用过，因此不会上传新脚本。
+    该扩展仅在首次使用时才注入脚本。 如果以后再使用此功能，该扩展将识别到它已被用过，因此不会上传新脚本。
 
 必须将脚本上传到存储帐户，并生成该帐户自身的容器。 然后，在已连接到 VM 的计算机上的 Azure PowerShell 中运行以下脚本。
 
@@ -135,11 +137,11 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 2. 选择“文件” >“连接网络注册表”。  
 
-   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
+    ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
 3. 在“输入要选择的对象名称”框中输入目标 VM 的**主机名**或**动态 IP**（首选），以找到该 VM。
 
-   ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
+    ![远程选项](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
 
 4. 输入目标 VM 的凭据。
 
@@ -160,11 +162,11 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 
 3. 选择“连接到另一台计算机”。 
 
-   ![远程服务](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
+    ![远程服务](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
 4. 输入目标 VM 的动态 IP。
 
-   ![输入 DIP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
+    ![输入 DIP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
 
 5. 对服务进行任何必要的更改。
 

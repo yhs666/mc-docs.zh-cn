@@ -17,12 +17,12 @@ ms.workload: iaas-sql-server
 origin.date: 06/11/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: c30d9e617c1fcddb626a923adefc071635006ef3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: bdcf95ff972afdcf32785ad931f0fdfd9523e628
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004116"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427820"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 
@@ -188,8 +188,9 @@ S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述
     这两个虚拟机至少需要两个数据磁盘。
 
     附加原始磁盘 - 非 NTFS 格式化磁盘。
-      >[!NOTE]
-      >如果附加 NTFS 格式化的磁盘，只能启用不带磁盘合格性检查的 S2D。  
+    
+    >[!NOTE]
+    >如果附加 NTFS 格式化的磁盘，只能启用不带磁盘合格性检查的 S2D。  
 
     将至少两个高级 SSD 附加到每个 VM。 建议至少附加 P30 (1 TB) 磁盘。
 

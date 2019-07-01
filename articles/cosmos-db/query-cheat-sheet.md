@@ -4,18 +4,19 @@ description: 可打印的 PDF 备忘单，借助该备忘录可使用 Azure Cosm
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ce69943b9b3f68dc96fd3793fcaecf2a08e9c61
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 701f8bef52e6d7be82e3fba8eabb9511a2debf36
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005147"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171301"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB 查询备忘单
 
-Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示常见的数据查询、操作、函数和运算符帮助快速编写数据查询。 备忘单包含 SQL API、MongoDB API、表 API 和 Gremlin API 的参考信息。 
+Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示常见的数据查询、操作、函数和运算符帮助快速编写数据查询  。 备忘单包含 SQL API、MongoDB API、表 API 和 Gremlin API 的参考信息。 
 
 选择以信纸尺寸或 A3 尺寸下载。 
 
@@ -36,3 +37,5 @@ Azure Cosmos DB 查询备忘单通过在易于打印的 PDF 参考单中显示�
 * 有关 MongoDB 查询，请参阅[使用 Azure Cosmos DB 的 API for MongoDB 进行查询](tutorial-query-mongodb.md)和 [Azure Cosmos DB 的 API for MongoDB 功能支持和语法](mongodb-feature-support.md)
 * 有关 Gremlin API 查询，请参阅[使用 Gremlin API 的查询](tutorial-query-graph.md)和 [Azure Cosmos DB Gremlin 图形支持](gremlin-support.md)
 * 有关表 API 查询，请参阅[使用表 API 的查询](tutorial-query-table.md)
+
+<!--Update_Description: update meta properties  -->

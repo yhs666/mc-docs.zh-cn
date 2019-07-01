@@ -12,12 +12,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 04/25/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 33aa315630591e1a78635020cf222be1af6b888e
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: d3b3ab108dddc47c02e71c138ed25b5873951d14
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629186"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277016"
 ---
 # <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Azure SQL 数据库托管实例中的时区（预览版）
 
@@ -50,7 +50,7 @@ ms.locfileid: "65629186"
 
 ### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 
-创建实例期间，在[资源管理器模板](https://aka.ms/sql-mi-create-arm-posh)中指定 timezoneId 属性来设置时区。
+创建实例期间，在[资源管理器模板](/sql-database/scripts/sql-managed-instance-create-powershell-azure-resource-manager-template)中指定 timezoneId 属性来设置时区。
 
 ```json
 "properties": {

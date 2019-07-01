@@ -16,12 +16,12 @@ ms.date: 06/13/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: ad51dc628a9eb8ad0bfe1fc8563da96ee511acd0
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 35daf9af50972f17f44f52488350c804f2425ab8
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046946"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236342"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
@@ -42,7 +42,7 @@ ms.locfileid: "67046946"
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>在租户之间移动订阅时恢复 RBAC
 
-- 如果你需要了解将订阅转让给其他 Azure AD 租户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](../billing/billing-subscription-transfer.md)。
+- 如果你需要了解将订阅转让给其他 Azure AD 租户的步骤，请参阅[将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer)。
 - 如果将订阅转让给其他 Azure AD 租户，所有角色分配都将从源 Azure AD 租户中永久删除，而不会迁移到目标 Azure AD 租户。 必须在目标租户中重新创建角色分配。
 - 如果你是 Azure AD 全局管理员并且在租户之间移动某个订阅后对其没有访问权限，请使用“Azure 资源的访问权限管理”  开关暂时[提升你的访问权限](elevate-access-global-admin.md)来获取对订阅的访问权限。
 

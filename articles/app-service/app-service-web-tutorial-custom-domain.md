@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/18/2018
-ms.date: 03/18/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 78026e285b0adf7a9f41af9f019cc8c168c47768
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 324bd71917f45a4be774b10f40703593c5298349
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626792"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171361"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 
@@ -50,7 +50,7 @@ ms.locfileid: "58626792"
 
 ## <a name="prepare-the-app"></a>准备应用
 
-若要将自定义 DNS 名称映射到 Web 应用，Web 应用的[应用服务计划](https://www.azure.cn/pricing/details/app-service/)必须位于付费层（“共享”、“基本”、“标准”或“高级”）。 在此步骤中，需确保应用服务计划位于受支持的定价层。
+若要将自定义 DNS 名称映射到 Web 应用，Web 应用的[应用服务计划](https://www.azure.cn/pricing/details/app-service/)必须位于付费层（“共享”、“基本”、“标准”或“高级”）。     在此步骤中，需确保应用服务计划位于受支持的定价层。
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -60,7 +60,7 @@ ms.locfileid: "58626792"
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>在 Azure 门户中导航到应用
 
-从左侧菜单中选择“应用服务”，然后选择应用的名称。
+从左侧菜单中选择“应用服务”，然后选择应用的名称。 
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -70,7 +70,7 @@ ms.locfileid: "58626792"
 
 ### <a name="check-the-pricing-tier"></a>检查定价层
 
-在应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“扩展(应用服务计划)”。
+在应用页面的左侧导航窗格中，向下滚动到“设置”部分，然后选择“扩展(应用服务计划)”。  
 
 ![扩展菜单](./media/app-service-web-tutorial-custom-domain/scale-up-menu.png)
 
@@ -78,15 +78,15 @@ ms.locfileid: "58626792"
 
 ![检查定价层](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
-如果应用服务计划不在 **F1** 层中，请关闭“纵向扩展”页并跳转到[映射 CNAME记录](#cname)。
+如果应用服务计划不在 **F1** 层中，请关闭“纵向扩展”  页并跳转到[映射 CNAME记录](#cname)。
 
 <a name="scaleup"></a>
 
 ### <a name="scale-up-the-app-service-plan"></a>扩展应用服务计划
 
-选择任何非免费层（**D1**、**B1**、**B2**、**B3**，或“生产”类别中的任何层）。 有关其他选项，请单击“查看其他选项”。
+选择任何非免费层（**D1**、**B1**、**B2**、**B3**，或“生产”  类别中的任何层）。 有关其他选项，请单击“查看其他选项”  。
 
-单击“应用” 。
+单击“应用”  。
 
 ![检查定价层](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -127,29 +127,29 @@ ms.locfileid: "58626792"
 
 #### <a name="enable-the-cname-record-mapping-in-azure"></a>在 Azure 中启用 CNAME 记录映射
 
-在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。 
+在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。  
 
 ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在应用的“自定义域”页面中，将完全限定的自定义 DNS 名称 (`www.contoso.com`) 添加到列表。
+在应用的“自定义域”页面中，将完全限定的自定义 DNS 名称 (`www.contoso.com`) 添加到列表。 
 
-单击“添加主机名”旁边的 **+** 图标。
+单击“添加主机名”旁边的 **+** 图标。 
 
 ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
 键入你为其添加了 CNAME 记录的完全限定的域名，例如 `www.contoso.com`。 
 
-选择“验证”。
+选择“验证”。 
 
-此时会显示“添加主机名”页。 
+此时会显示“添加主机名”页。  
 
-确保“主机名记录类型”设置为“CNAME（www.example.com 或任何子域）”。
+确保“主机名记录类型”设置为“CNAME（www.example.com 或任何子域）”。  
 
-选择“添加主机名”。
+选择“添加主机名”  。
 
 ![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname.png)
 
-新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。  请尝试刷新浏览器来更新数据。
 
 ![已添加 CNAME 记录](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
@@ -170,13 +170,13 @@ ms.locfileid: "58626792"
 
 #### <a name="copy-the-apps-ip-address"></a>复制应用的 IP 地址
 
-若要映射 A 记录，需要具有应用的外部 IP 地址。 在 Azure 门户中，可以在应用的“自定义域”页面中找到此 IP 地址。
+若要映射 A 记录，需要具有应用的外部 IP 地址。 在 Azure 门户中，可以在应用的“自定义域”页面中找到此 IP 地址。 
 
-在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”。 
+在 Azure 门户中的应用页左侧导航窗格中，选择“自定义域”  。 
 
 ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在“自定义域”页面中，复制应用的 IP 地址。
+在“自定义域”页面中，复制应用的 IP 地址。 
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
@@ -193,7 +193,7 @@ ms.locfileid: "58626792"
 
 对于 `contoso.com` 域示例，根据下表创建 A 和 TXT 记录（`@` 通常表示根域）。 
 
-| 记录类型 | 主机 | 值 |
+| 记录类型 | 主机 | Value |
 | - | - | - |
 | A | `@` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
 | TXT | `@` | `<app_name>.chinacloudsites.cn` |
@@ -201,7 +201,7 @@ ms.locfileid: "58626792"
 > [!NOTE]
 > 若要使用 A 记录（而不是建议的 [CNAME 记录](#map-a-cname-record)）添加子域（如 `www.contoso.com`），A 记录和 TXT 记录应改为类似于下表：
 >
-> | 记录类型 | 主机 | 值 |
+> | 记录类型 | 主机 | Value |
 > | - | - | - |
 > | A | `www` | 通过[复制应用的 IP 地址](#info)获得的 IP 地址 |
 > | TXT | `www` | `<app_name>.chinacloudsites.cn` |
@@ -215,25 +215,25 @@ ms.locfileid: "58626792"
 
 #### <a name="enable-the-a-record-mapping-in-the-app"></a>在应用中启用 A 记录映射
 
-在 Azure 门户中，返回到应用的“自定义域”页面，将完全限定的自定义 DNS 名称（例如 `contoso.com`）添加到列表。
+在 Azure 门户中，返回到应用的“自定义域”页面，将完全限定的自定义 DNS 名称（例如 `contoso.com`）添加到列表。 
 
-单击“添加主机名”旁边的 **+** 图标。
+单击“添加主机名”旁边的 **+** 图标。 
 
 ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name.png)
 
 键入你为其配置了 A 记录的完全限定的域名，例如 `contoso.com`。
 
-选择“验证”。
+选择“验证”。 
 
-此时会显示“添加主机名”页。 
+此时会显示“添加主机名”页。  
 
-确保“主机名记录类型”设置为“A 记录 (example.com)”。
+确保“主机名记录类型”设置为“A 记录 (example.com)”。  
 
-选择“添加主机名”。
+选择“添加主机名”  。
 
 ![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name.png)
 
-新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。  请尝试刷新浏览器来更新数据。
 
 ![已添加 A 记录](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
@@ -268,25 +268,25 @@ ms.locfileid: "58626792"
 
 现在，可以向应用中添加与通配符名称匹配的任何子域了（例如，`sub1.contoso.com` 和 `sub2.contoso.com` 与 `*.contoso.com` 匹配）。 
 
-在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。 
+在 Azure 门户中，在应用页面的左侧导航窗格中，选择“自定义域”。  
 
 ![自定义域菜单](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-单击“添加主机名”旁边的 **+** 图标。
+单击“添加主机名”旁边的 **+** 图标。 
 
 ![添加主机名](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-键入与通配符域匹配的完全限定的域名（例如 `sub1.contoso.com`），然后选择“验证”。
+键入与通配符域匹配的完全限定的域名（例如 `sub1.contoso.com`），然后选择“验证”。 
 
-“添加主机名”按钮会被激活。 
+“添加主机名”按钮会被激活。  
 
-确保“主机名记录类型”设置为“CNAME 记录（www.example.com 或任何子域）”。
+确保“主机名记录类型”设置为“CNAME 记录（www.example.com 或任何子域）”。  
 
-选择“添加主机名”。
+选择“添加主机名”  。
 
 ![将 DNS 名称添加到应用](./media/app-service-web-tutorial-custom-domain/validate-domain-name-cname-wildcard.png)
 
-新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。 请尝试刷新浏览器来更新数据。
+新主机名可能需要经过一段时间后才会反映在应用的“自定义域”页中。  请尝试刷新浏览器来更新数据。
 
 再次选择 **+** 图标来添加与通配符域匹配的另一主机名。 例如，添加 `sub2.contoso.com`。
 
@@ -301,7 +301,7 @@ ms.locfileid: "58626792"
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-custom-domain/app-with-custom-dns.png)
 
-## <a name="resolve-404-not-found"></a>解决“404 未找到”问题
+## <a name="resolve-404-not-found"></a>解决 404“未找到”错误
 
 如果在浏览到自定义域的 URL 时收到 HTTP 404（未找到）错误，请验证域是否使用 <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a> 对应用的 IP 地址进行解析。 如果没有，则可能是以下原因之一造成的：
 
@@ -318,13 +318,13 @@ ms.locfileid: "58626792"
 
 默认情况下，应用服务将 Web 请求定向到应用代码的根目录下。 但是，某些 Web 框架不在根目录下启动。 例如，[Laravel](https://laravel.com/) 在 `public` 子目录中启动。 若要继续 `contoso.com` DNS 示例，此类应用应可在 `http://contoso.com/public` 中访问，但你实际上想要将 `http://contoso.com` 直接定向到 `public` 目录。 此步骤不涉及 DNS 解析，但涉及到自定义虚拟目录。
 
-若要执行此操作，请选择 Web 应用页左侧导航窗格中的“应用程序设置”。 
+若要执行此操作，请选择 Web 应用页左侧导航窗格中的“应用程序设置”  。 
 
 在页面底部，根虚拟目录 `/` 默认指向 `site\wwwroot`，这是应用代码的根目录。 将其改为指向例如 `site\wwwroot\public`，并保存所做的更改。 
 
 ![自定义虚拟目录](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-操作完成后，应用会返回根路径的正确页面（例如， http://contoso.com)。
+操作完成后，应用会返回根路径的正确页面（例如， http://contoso.com) 。
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
@@ -337,19 +337,19 @@ ms.locfileid: "58626792"
 ```bash 
 az webapp config hostname add \
     --webapp-name <app_name> \
-    --resource-group <resource_group_name> \ 
-    --hostname <fully_qualified_domain_name> 
+    --resource-group <resource_group_name> \
+    --hostname <fully_qualified_domain_name>
 ``` 
 
-有关详细信息，请参阅[将自定义域映射到 Web 应用](scripts/cli-configure-custom-domain.md)。 
+有关详细信息，请参阅[将自定义域映射到 Web 应用](scripts/cli-configure-custom-domain.md)。
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-以下命令将配置的自定义 DNS 名称添加到应用服务应用。 
+以下命令将配置的自定义 DNS 名称添加到应用服务应用。
 
-```PowerShell  
+```powershell  
 Set-AzWebApp `
     -Name <app_name> `
     -ResourceGroupName <resource_group_name> ` 

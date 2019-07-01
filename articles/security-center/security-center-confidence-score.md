@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 05293646388d8832c1e2b120df004e24c87ad771
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 63c5569741e50e147ee76af948d51ae7969c26c1
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004494"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236584"
 ---
 # <a name="alert-confidence-score"></a>警报置信度分数 
 
@@ -54,7 +54,6 @@ ms.locfileid: "66004494"
 本文介绍了如何使用置信度评分来设定警报调查的优先级。 若要了解有关安全中心的详细信息，请参阅以下文章：
 
 * [Azure 安全中心常见问题解答](security-center-faq.md)-- 查找有关使用服务的常见问题。
-* [Azure 安全中心的安全性运行状况监视](security-center-monitoring.md) - 了解如何监视 Azure 资源的运行状况。
 
 
 

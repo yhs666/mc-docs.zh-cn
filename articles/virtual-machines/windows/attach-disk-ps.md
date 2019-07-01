@@ -17,12 +17,12 @@ origin.date: 10/16/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 8034304759b61fb1ce94043dfe7069b391b9526b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 70e91e4722d5b5c0d2d31a15e56694355e7b2cf1
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004271"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427813"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 
@@ -67,29 +67,29 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 添加空磁盘后，需要对其进行初始化。 要初始化该磁盘，可以登录到一个 VM，并使用磁盘管理进行初始化。 如果在创建 VM 时在其上启用了 [WinRM](https://docs.microsoft.com/zh-cn/windows/desktop/WinRM/portal) 和证书，则可以使用远程 PowerShell 初始化该磁盘。 还可以使用自定义脚本扩展：
 
 ```powershell
-    $location = "location-name"
-    $scriptName = "script-name"
-    $fileName = "script-file-name"
-    Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
+$location = "location-name"
+$scriptName = "script-name"
+$fileName = "script-file-name"
+Set-AzVMCustomScriptExtension -ResourceGroupName $rgName -Location $locName -VMName $vmName -Name $scriptName -TypeHandlerVersion "1.4" -StorageAccountName "mystore1" -StorageAccountKey "primary-key" -FileName $fileName -ContainerName "scripts"
 ```
 
 脚本文件可以包含用来初始化磁盘的代码，例如：
 
 ```powershell
-    $disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
+$disks = Get-Disk | Where partitionstyle -eq 'raw' | sort number
 
-    $letters = 70..89 | ForEach-Object { [char]$_ }
-    $count = 0
-    $labels = "data1","data2"
+$letters = 70..89 | ForEach-Object { [char]$_ }
+$count = 0
+$labels = "data1","data2"
 
-    foreach ($disk in $disks) {
-        $driveLetter = $letters[$count].ToString()
-        $disk | 
-        Initialize-Disk -PartitionStyle MBR -PassThru |
-        New-Partition -UseMaximumSize -DriveLetter $driveLetter |
-        Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
+foreach ($disk in $disks) {
+    $driveLetter = $letters[$count].ToString()
+    $disk | 
+    Initialize-Disk -PartitionStyle MBR -PassThru |
+    New-Partition -UseMaximumSize -DriveLetter $driveLetter |
+    Format-Volume -FileSystem NTFS -NewFileSystemLabel $labels[$count] -Confirm:$false -Force
     $count++
-    }
+}
 ```
 
 ## <a name="attach-an-existing-data-disk-to-a-vm"></a>将现有数据磁盘附加到 VM

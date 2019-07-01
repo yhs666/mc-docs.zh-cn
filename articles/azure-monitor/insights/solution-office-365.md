@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5bc18f61bed6a61227c6bf9a66ead65d92fe64c2
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9c75ca01dc4a093cd6242c893673ac3a318218c6
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731474"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236446"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -39,10 +39,6 @@ ms.locfileid: "66731474"
 - 组织的 Office 365 订阅。
 - 作为全局管理员的用户帐户的凭据。
 - 若要接收审核数据，必须在 Office 365 订阅中[配置审核](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin)。  请注意，[邮箱审核](https://technet.microsoft.com/library/dn879651.aspx)单独配置。  若未配置审核，仍可安装解决方案和收集其他数据。
-
-
-## <a name="management-packs"></a>管理包
-此解决方案不会在[连接的管理组](../platform/om-agents.md)中安装任何管理包。
 
 ## <a name="install-and-configure"></a>安装和配置
 首先，[将 Office 365 解决方案添加到你的订阅](solutions.md#install-a-monitoring-solution)。 添加后，必须执行本部分中的配置步骤来向其授予对你的 Office 365 订阅的访问权限。

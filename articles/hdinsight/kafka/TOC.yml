@@ -5,6 +5,7 @@
     - name: 什么是 HDInsight 中的 Apache Kafka？
       href: apache-kafka-introduction.md
 - name: 快速入门
+  expanded: true
   items:
     - name: 创建 Apache Kafka 群集 - 门户
       href: apache-kafka-get-started.md
