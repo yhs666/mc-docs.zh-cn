@@ -21,7 +21,7 @@ ms.locfileid: "67235939"
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过微信帐户注册与登录
 
 > [!NOTE]
-> 此功能为预览版。
+> 此功能为预览版。中国区暂不支持 Google, Facebook, Twitter 作为标识提供者。
 > 
 
 ## <a name="create-a-wechat-application"></a>创建 WeChat 应用程序
