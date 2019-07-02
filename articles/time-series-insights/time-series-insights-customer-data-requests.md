@@ -4,17 +4,17 @@ description: Azure 时序见解客户数据请求功能摘要。
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 032d82941c8e09a954107b1629bed799e68976b4
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: e0bc2637aa7acbc0c8f35edb2deb38dee441fbc4
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349172"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456471"
 ---
 # <a name="summary-of-customer-data-request-features"></a>客户数据请求功能摘要
 
@@ -54,9 +54,9 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 
 个人数据可能会进入时序见解存储，这种情况与用户和管理员数据有所不同。 如果认为存储在时序见解中的数据是个人数据，则可使用以下步骤导出和删除该数据：
 
-**查看和导出数据** 
+**查看和导出数据**
 
-若要查看和导出存储在时序见解中的数据，需要搜索该数据。 可使用时序见解资源管理器或时序见解查询 API 来查看和导出数据。 若要使用时序见解资源管理器查看和导出数据，请先进行搜索，找到有问题的用户数据。 搜索后，右键单击图表并选择“浏览事件”。 事件网格显示并提供将数据导出为 CSV 和 JSON 的选项。
+若要查看和导出存储在时序见解中的数据，需要搜索该数据。 可使用时序见解资源管理器或时序见解查询 API 来查看和导出数据。 若要使用时序见解资源管理器查看和导出数据，请先进行搜索，找到有问题的用户数据。 搜索后，右键单击图表并选择“浏览事件”  。 事件网格显示并提供将数据导出为 CSV 和 JSON 的选项。
 
 有关详细信息，请参阅 [Azure 时序见解资源管理器](time-series-insights-explorer.md)。
 
@@ -65,3 +65,11 @@ Azure 时序见解将个人数据视为与时序见解的管理员和用户相�
 目前，时序见解不支持数据的粒度删除。 但是，通过配置保留策略，时序见解能够删除存储在时序见解中的客户数据。 可将整个时序见解环境的保持期调整为任意天数以支持删除需求。
 
 有关详细信息，请参阅[配置时序见解中的保留期](time-series-insights-how-to-configure-retention.md)。
+
+## <a name="next-steps"></a>后续步骤
+
+* 详细了解如何[授予对 TSI 环境的数据访问权限](./time-series-insights-data-access.md)。
+
+* 查看 [Azure 时序见解资源管理器](time-series-insights-explorer.md)。
+
+* 了解如何[在时序见解中配置保留期](time-series-insights-how-to-configure-retention.md)。

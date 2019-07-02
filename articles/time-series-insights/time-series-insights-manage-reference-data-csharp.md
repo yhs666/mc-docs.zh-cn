@@ -10,16 +10,16 @@ ms.reviewer: jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 03/23/2018
+ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 646e8accf50f8c3fb04bf215422976b3f2b868f1
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: adfdfd738ab48261ee214ef191eb01c1f90b70a6
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349125"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456422"
 ---
-# <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 管理 Azure 时序见解环境的引用数据
+# <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>使用 C# 管理 Azure 时序见解正式版环境的参考数据
 
 本文介绍可以进行编译以管理 Azure 时序见解环境参考数据的 C# 示例项目。
 
@@ -31,12 +31,14 @@ ms.locfileid: "58349125"
  
    有关如何设置非交互式应用程序的信息，请参阅[身份验证和授权](time-series-insights-authentication-and-authorization.md)。
 
-3. 编辑示例代码，以替换在代码开始处的 #DUMMY# 中指定的示例常数。 
+3. 编辑示例代码，以替换在代码开始处的 #DUMMY#  中指定的示例常数。 
 
-还可在 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights) 中找到本示例代码
+> [!NOTE]
+> 查看 [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample) 中的正式版示例代码。
 
-## <a name="project-references"></a>项目引用
-为本示例添加 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json` NuGet 程序包。 
+## <a name="project-dependencies"></a>项目依赖项
+
+为本示例添加 `Microsoft.IdentityModel.Clients.ActiveDirectory` 和 `Newtonsoft.Json` NuGet 程序包。
 
 ## <a name="c-sample-code"></a>C# 示例代码 
 ```csharp
@@ -63,7 +65,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
         // For automated execution under application identity,
         // use application created in Active Directory.
         // To create the application in AAD, follow the steps provided here:
-        // https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization
+        // https://docs.azure.cn/time-series-insights/time-series-insights-authentication-and-authorization
 
         // SET the application ID of application registered in your Azure Active Directory
         private static string ApplicationClientId = "#DUMMY#";
@@ -163,7 +165,7 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
             if (ApplicationClientId == "#DUMMY#" || ApplicationClientSecret == "#DUMMY#" || Tenant.StartsWith("#DUMMY#"))
             {
                 throw new Exception(
-                    $"Use the link {"https://docs.microsoft.com/azure/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
+                    $"Use the link {"https://docs.azure.cn/time-series-insights/time-series-insights-authentication-and-authorization"} to update the values of 'ApplicationClientId', 'ApplicationClientSecret' and 'Tenant'.");
             }
 
             var authenticationContext = new AuthenticationContext(
@@ -241,4 +243,5 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>后续步骤
-[参考数据 API](/rest/api/time-series-insights/ga-reference-data-api)
+
+- 阅读[参考数据 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)。

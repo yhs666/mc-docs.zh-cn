@@ -4,22 +4,23 @@ description: 本文介绍如何监视、诊断并减少导致 Azure 时序见解
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8b3838b08d1f024ed99de43e2725c526dc30e43
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 42db64130f8565060fd2ae16d9556bd4e93dd732
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349001"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456455"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>监视并缩减限制，以减少 Azure 时序见解中的延迟
+
 传入数据量超过环境配置时，Azure 时序见解中可能会出现延迟或限制。
 
 可以根据要分析的数据量，适当地配置环境，从而避免延迟和限制。
@@ -31,54 +32,51 @@ ms.locfileid: "58349001"
 - 将大量历史事件推送到一个事件源，导致延迟（时序见解需要追赶）。
 - 将引用数据和遥测结合，导致事件大小较大。  从限制的角度看，数据包大小为 32 KB 的入口数据包视为 32 个事件，每个事件大小为 1 KB。 允许的最大事件大小为 32 KB；大于 32 KB 的数据包会被截断。
 
-## <a name="video"></a>视频： 
-
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>在本视频中，我们将介绍时序见解数据引入行为以及如何规划它。</br>
-
-> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>使用警报监视延迟和限制
 
-警报有助于诊断并缓解环境导致的延迟问题。 
+警报有助于诊断并缓解环境导致的延迟问题。
 
-1. 在 Azure 门户中，单击“指标”。 
+1. 在 Azure 门户中选择“指标”  。
 
-   ![指标](media/environment-mitigate-latency/add-metrics.png)
+   [![指标](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. 单击“添加指标警报”。  
+1. 选择“添加指标警报”。   
 
-    ![添加指标警报](media/environment-mitigate-latency/add-metric-alert.png)
+   [![添加指标警报](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 在此处，可以使用以下指标配置警报：
 
 |指标  |说明  |
 |---------|---------|
-|入口收到的字节数     | 从事件源读取的原始字节数。 原始计数通常包括属性名称和值。  |  
-|入口收到的无效消息数     | 从所有 Azure 事件中心或 Azure IoT 中心事件源读取的无效消息的计数。      |
-|入口收到的消息数   | 从所有事件中心或 IoT 中心事件源读取的消息的计数。        |
-|入口存储的字节数     | 已存储且可用于查询的事件的总大小。 仅根据属性值计算大小。        |
+|入口收到的字节数      | 从事件源读取的原始字节数。 原始计数通常包括属性名称和值。  |  
+|入口收到的无效消息数      | 从所有 Azure 事件中心或 Azure IoT 中心事件源读取的无效消息的计数。      |
+|入口收到的消息数    | 从所有事件中心或 IoT 中心事件源读取的消息的计数。        |
+|入口存储的字节数      | 已存储且可用于查询的事件的总大小。 仅根据属性值计算大小。        |
 |**入口存储的事件数**     |   已存储并可供查询的平展事件计数。      |
 |**入口收到消息时间延迟**    |  消息在事件源中排队的时间与消息在入口中处理之间的时间差（以秒为单位）。      |
 |**入口收到消息计数延迟**    |  上次排队的消息在事件源分区中的序列号与在入口中进行处理的消息的序列号之间的差异。      |
 
-
 ![延迟](media/environment-mitigate-latency/latency.png)
 
-如果受到限制，则会看到入口收到消息时间延迟的值，该值告知你 TSI 落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。  入口收到消息计数延迟也应该有一个值，用于确定你在消息数方面落后多少。  若要赶上来，最容易的方式是增加环境的容量，使之达到能够克服此差异的规模。  
+* 如果受到限制，则会看到“入口收到消息时间延迟”  的值，该值告知你 TSI 落后于消息命中事件源时的实际时间多少秒（不计索引时间，该时间大约为 30-60 秒）。   入口收到消息计数延迟也应该有一个值，用于确定你在消息数方面落后多少。  若要赶上来，最容易的方式是增加环境的容量，使之达到能够克服此差异的规模。  
 
-例如，如果你的 S1 环境是一个单元的，在计数方面滞后五百万条消息，则可增加环境的大小，使之达到六个单元，则大约一天就可以赶上来。  甚至可以增加更多，这样追赶速度会更快。  在一开始预配某个环境时，尤其是在将其连接到某个事件源，而该事件源中已经有事件时，或者在批量上传大量历史数据时，追赶期是常见的现象。
+  例如，如果你的 S1 环境是一个单元的，在计数方面滞后 5,000,000 条消息，则可增加环境的大小，使之达到六个单元，则大约一天就可以赶上来。  甚至可以增加更多，这样追赶速度会更快。 在一开始预配某个环境时，尤其是在将其连接到某个事件源，而该事件源中已经有事件时，或者在批量上传大量历史数据时，追赶期是常见的现象。
 
-另一种方法是将“入口已存储事件”警报设置为在 2 小时的时间内 >= 略低于总环境容量的阈值。  此警报有助于了解是否持续达到容量要求，指示很可能存在延迟。  
+* 另一种方法是将“入口已存储事件”警报设置为在 2 小时的时间内 >= 略低于总环境容量的阈值  。  此警报有助于了解是否持续达到容量要求，指示很可能存在延迟。 
 
-例如，如果预配了三个 S1 单位（或每分钟入口容量为 2100 个事件），则可以将“入口存储的事件数”警报设置为 2 小时 >= 1900 个事件。 如果因不断超过该阈值而触发警报，很可能是由于预配不足。  
+  例如，如果预配了三个 S1 单位（或每分钟入口容量为 2100 个事件），则可以将“入口存储的事件数”警报设置为 2 小时 >= 1900 个事件  。 如果因不断超过该阈值而触发警报，很可能是由于预配不足。  
 
-此外，如果怀疑受到限制，可以将“入口收到的消息数”和事件源的出口消息数相比较。  如果传入事件中心的消息数大于“入口收到的消息数”，时序见解很可能受到了限制。
+* 如果怀疑受到限制，可以将“入口收到的消息数”和事件源的出口消息数相比较  。  如果传入事件中心的消息数大于“入口收到的消息数”，时序见解很可能受到了限制  。
 
-## <a name="improving-performance"></a>改善性能 
-要减少限制和延迟，最佳的更正方法是增加环境容量。 
+## <a name="improving-performance"></a>改善性能
+
+要减少限制和延迟，最佳的更正方法是增加环境容量。
 
 可以根据要分析的数据量，适当地配置环境，从而避免延迟和限制。 有关如何向环境增加容量的更多信息，请参阅[缩放环境](time-series-insights-how-to-scale-your-environment.md)。
 
 ## <a name="next-steps"></a>后续步骤
+
 - 有关其他疑难解答步骤，请参阅[在时序见解环境中诊断并解决问题](time-series-insights-diagnose-and-solve-problems.md)。
-- 有关其他帮助，请在 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 中展开交流。 也可以联系 [Azure 支持](https://azure.microsoft.com/support/options/)，获取辅助支持选项。
+
+- 有关其他帮助，请在 [MSDN 论坛](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights)或 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights) 中展开交流。 也可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)，获取辅助支持选项。

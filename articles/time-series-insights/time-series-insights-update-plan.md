@@ -8,36 +8,40 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+origin.date: 04/30/2019
+ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d48d01bd6634d96fad1fcd1c4bc2a4ea82bd9a9
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 50031ce3332a79490ec9c39ea8155da4690959bf
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63802975"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456509"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>计划 Azure 时序见解预览版环境
 
-本指南介绍有关快速计划和开始使用 Azure 时序见解预览版的最佳做法。
+本文介绍有关快速计划和开始使用 Azure 时序见解预览版的最佳做法。
+
+> [!NOTE]
+> 有关规划正式版时序见解实例的最佳做法，请参阅[规划 Azure 时序见解正式版环境](time-series-insights-environment-planning.md)。
 
 ## <a name="best-practices-for-planning-and-preparation"></a>有关计划和准备的最佳实践
 
 若要开始使用时序见解，最好是了解：
 
-* 在预配时序见解预览版环境时获得的功能。
-* 时序 ID 和时间戳属性是什么。
-* 新时序模型是什么，以及如何生成自己的模型。
-* 如何在 JSON 中高效地发送事件。 
-* 时序见解业务灾难恢复选项。
+* 在[预配时序见解预览版环境](#the-preview-environment)时可用的功能。
+* [时序 ID 和时间戳属性](#configure-time-series-ids-and-timestamp-properties)是什么。
+* [新时序模型](#understand-the-time-series-model)是什么，以及如何生成自己的模型。
+* 如何[在 JSON 中高效地发送事件](#shape-your-events)。
+* 时序见解[业务灾难恢复选项](#business-disaster-recovery)。
 
-时序见解采用即用即付业务模型。 有关费用和容量的详细信息，请参阅[时序见解定价](https://azure.microsoft.com/pricing/details/time-series-insights/)。
+Azure 时序见解采用即用即付业务模型。 有关费用和容量的详细信息，请参阅[时序见解定价](https://www.azure.cn/pricing/details/time-series-insights/)。
 
-## <a name="the-time-series-insights-preview-environment"></a>时序见解预览版环境
+## <a name="the-preview-environment"></a>预览版环境
 
 预配 Azure 时序见解预览版环境时，会创建两个 Azure 资源：
 
-* 时序见解预览版环境
+* Azure 时序见解预览版环境
 * Azure 存储常规用途 V1 帐户
 
 若要开始，需要三个附加项：
@@ -46,21 +50,21 @@ ms.locfileid: "63802975"
 - [连接到时序见解的事件源](./time-series-insights-how-to-add-an-event-source-iothub.md) 
 - [事件源的事件](./time-series-insights-send-events.md)它们映射到模型并且采用有效 JSON 格式 
 
-## <a name="configure-your-time-series-ids-and-timestamp-properties"></a>配置时序 ID 和时间戳属性
+## <a name="configure-time-series-ids-and-timestamp-properties"></a>配置时序 ID 和时间戳属性
 
 若要创建新的时序见解环境，请选择时序 ID。 此操作用作数据的逻辑分区。 如前所述，请确保时序 ID 已准备就绪。
 
 > [!IMPORTANT]
-> 时序 ID 不可变并且以后无法更改。 在进行最终选择和首次使用之前验证每个 ID。
+> 时序 ID 不可变  并且以后无法更改  。 在进行最终选择和首次使用之前验证每个 ID。
 
-可以选择最多三 (3) 个键以唯一地区分资源。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)和[存储和入口](./time-series-insights-update-storage-ingress.md)。
+可以选择最多三个键以唯一区分资源。 有关详细信息，请阅读[选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)和[存储和入口](./time-series-insights-update-storage-ingress.md)。
 
 时间戳属性也十分重要。 可以在添加事件源时指定此属性。 每个事件源都有一个可选的时间戳属性，它用于随时间推移跟踪事件源。 时间戳值区分大小写，并且必须按照每个事件源的单独规范设置格式。
 
 > [!TIP]
 > 验证事件源的格式设置和分析要求。
 
-如果留空，则事件源的事件排队时间会用作事件时间戳。 如果发送历史数据或批处理事件，则自定义时间戳属性比默认事件排队时间更有帮助。 有关详细信息，请阅读[如何在 IoT 中心中添加事件源](./time-series-insights-how-to-add-an-event-source-iothub.md)。 
+如果留空，则事件源的事件排队时间会用作事件时间戳。 如果发送历史数据或批处理事件，则自定义时间戳属性比默认事件排队时间更有帮助。 有关详细信息，请阅读如何[在 Azure IoT 中心中添加事件源](./time-series-insights-how-to-add-an-event-source-iothub.md)。
 
 ## <a name="understand-the-time-series-model"></a>了解时序模型
 
@@ -76,46 +80,17 @@ ms.locfileid: "63802975"
 
 一个好的经验法则是：
 
-* 将元数据存储在时序模型中
-* 时序模式、实例字段和事件仅包括必要信息，例如：
-  * 时序 ID
-  * Timestamp
+* 将元数据存储在时序模型中。
+* 时序模式、实例字段和事件仅包括必要信息，例如：时序 ID 或时间戳。
 
 有关详细信息，请参[塑造事件](./time-series-insights-send-events.md#json)。
 
-## <a name="business-disaster-recovery"></a>业务灾难恢复
-
-时序见解是在 Azure 区域级别使用冗余的高可用性服务。 无需配置即可使用这些固有的功能。 此外，Microsoft Azure 平台还包含了相关功能来帮助你构建提供灾难恢复功能或跨区域可用性的解决方案。 若要为设备或用户提供全局性的跨区域高可用性，请利用这些 Azure 灾难恢复功能。 
-
-有关 Azure 中用于业务连续性和灾难恢复 (BCDR) 的内置功能的信息，请参阅 [Azure 业务连续性技术指南](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance)。 有关 Azure 应用程序的高可用性和灾难恢复实现策略的体系结构指南，请参阅 [Azure 应用程序的灾难恢复和高可用性](https://docs.microsoft.com/azure/architecture/resiliency/index)一文。
-
-> [!NOTE]
-> 
->  时序见解没有内置 BCDR。
-> 默认情况下，Azure 存储、Azure IoT 中心和 Azure 事件中心具有内置恢复功能。
-
-若要了解详细信息，请阅读：
-
-* [Azure 存储冗余](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-* [IoT 中心高可用性灾难恢复](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
-* [事件中心策略](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
-
-如果需要 BCDR，则仍然可以实现恢复策略。 在备份 Azure 区域中创建第二个时序见解环境。 从主要事件源将事件发送到此辅助环境。 使用另一个专用使用者组和该事件源的 BCDR 指南。
-
-按照以下步骤来创建和使用辅助时序见解环境。
-
-1. 在另一个区域中创建环境。 有关详细信息，请参阅[时序见解环境](./time-series-insights-get-started.md)。
-1. 为事件源创建另一个专用使用者组。 将该事件源连接到新环境。 请务必指定第二个专用使用者组。 若要了解详细信息，请参阅 [IoT 中心文档](./time-series-insights-how-to-add-an-event-source-iothub.md)或[事件中心文档](./time-series-insights-data-access.md)。
-1. 如果主要区域在灾难事件期间受到影响，请将操作重新路由到备用时序见解环境。
-
-> [!IMPORTANT]
-> * 请注意，可能会进行故障转移时遇到延迟。
-> * 故障转移还可能会导致消息处理中出现短暂峰值，因为在重新路由操作。
-> * 有关详细信息，请参阅[缓解时序见解中的延迟](./time-series-insights-environment-mitigate-latency.md)。
+[!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## <a name="next-steps"></a>后续步骤
 
-若要了解详细信息，请阅读：
+- 若要规划业务恢复配置选项，请查看 [Azure 顾问](../advisor/advisor-overview.md)。
 
-- [Azure 时序见解预览版存储和入口](./time-series-insights-update-storage-ingress.md)
-- [数据建模](./time-series-insights-update-tsm.md)
+- 详细了解时序见解预览版中的[存储和流入量](./time-series-insights-update-storage-ingress.md)。
+
+- 了解时序见解预览版中的[数据建模](./time-series-insights-update-tsm.md)。

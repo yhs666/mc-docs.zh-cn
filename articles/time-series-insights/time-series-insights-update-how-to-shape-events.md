@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 40cd1cf4865537931895e5ed3df54712e3060da7
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: efa1d977ab13d62be4af960c6eb052c7736284ab
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349126"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456470"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>使用 Azure 时序见解预览版塑造事件
 
@@ -38,7 +38,7 @@ ms.locfileid: "58349126"
 
 ## <a name="example"></a>示例
 
-以下示例基于至少两个设备发送度量值或信号的场景。 度量值或信号可能包括“流速”、“引擎油压”、“温度”和“湿度”。
+以下示例基于至少两个设备发送度量值或信号的场景。 度量值或信号可能包括“流速”、“引擎油压”、“温度”和“湿度”。    
 
 以下示例提到单个 IoT 中心消息，其中的外部数组包含通用维度值的共享节。 该外部数组使用时序实例数据来提高消息的效率。 时序实例包含设备元数据，这些数据不会根据每个事件变化，但提供适用于数据分析的属性。 若要减少通过网络发送的字节数并提高消息的效率，可以考虑批处理通用维度值并采用时序实例元数据。
 
@@ -65,7 +65,7 @@ ms.locfileid: "58349126"
         "timestamp": "2018-01-17T01:18:00Z",
         "series": [
             {
-                "Flow Rate psi": 0.58015072345733643,
+                "Flow Rate ft3/s": 0.58015072345733643,
                 "Engine Oil Pressure psi ": 22.2
             }
         ]
@@ -108,18 +108,18 @@ ms.locfileid: "58349126"
   },
 ```
 
-时序见解预览版会在查询时联接一个表（平展后）。 此表包含其他列，例如“类型”。 以下示例演示如何才能[塑造](./time-series-insights-send-events.md#json)遥测数据：
+时序见解预览版会在查询时联接一个表（平展后）。 此表包含其他列，例如“类型”。  以下示例演示如何才能[塑造](./time-series-insights-send-events.md#json)遥测数据。
 
 | deviceId  | 类型 | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| `FXXX` | Default_Type | REVOLT SIMULATOR | 电池系统 | 2018-01-17T01:17:00Z |    1.0172575712203979 |    34.7 |
-| `FXXX` | LINE_DATA    REVOLT | SIMULATOR |    电池系统 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
+| `FXXX` | Default_Type | SIMULATOR | 电池系统 | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
+| `FXXX` | Default_Type | SIMULATOR |   电池系统 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
 | `FYYY` | LINE_DATA    COMMON | SIMULATOR |    电池系统 |    2018-01-17T01:18:00Z | 0.58015072345733643 |    22.2 |
 
 在上一示例中，请注意以下几点：
 
 * 静态属性存储在时序见解预览版中，这样可以优化通过网络发送的数据。
-* 时序见解预览版数据在查询时通过在实例中定义的 *timeSeriesId* 进行联接。
+* 时序见解预览版数据在查询时通过在实例中定义的时序 ID 进行联接。
 * 使用了两个嵌套层，这是时序见解预览版支持的最大嵌套数量。 必须避免深层嵌套的数组。
 * 由于度量很少，因此将其作为单独的属性在同一对象中发送。 在此示例中，**series.Flow Rate psi**、**series.Engine Oil Pressure psi** 和 **series.Flow Rate ft3/s** 是唯一的列。
 

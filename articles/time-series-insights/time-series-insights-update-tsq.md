@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1af9ba98fa16d041a714b3ce7f8863d85b958d0a
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 18bdcf9393c526137e3bcce007265329e639daae
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63858353"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456474"
 ---
 # <a name="data-querying"></a>数据查询
 
@@ -35,9 +35,9 @@ Azure 时序见解预览版允许通过公共 Surface API 对存储在环境中�
 
 支持以下核心 API。
 
-![tsq][1]
+[![时序查询概述](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
-### <a name="environment-apis"></a>环境 API
+## <a name="environment-apis"></a>环境 API
 
 提供以下环境 API：
 
@@ -45,7 +45,7 @@ Azure 时序见解预览版允许通过公共 Surface API 对存储在环境中�
 * [获取环境可用性 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api)：返回事件时间戳 `$ts` 中事件计数的分布。 此 API 通过返回事件计数（如果存在）来帮助确定时间戳中是否有任何事件。
 * [获取事件架构 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api)：返回给定搜索范围的事件架构元数据。 此 API 可帮助检索给定搜索范围的架构中可用的所有元数据和属性。
 
-### <a name="time-series-model-query-tsm-q-apis"></a>时序模型-查询 (TSM-Q) API
+## <a name="time-series-model-query-tsm-q-apis"></a>时序模型-查询 (TSM-Q) API
 
 提供以下时序模型-查询 API：
 
@@ -54,7 +54,7 @@ Azure 时序见解预览版允许通过公共 Surface API 对存储在环境中�
 * [层次结构 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)：允许对时序层次结构及其关联的字段路径执行 CRUD。
 * [实例 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api)：允许对时序实例及其关联的实例字段执行 CRUD。
 
-### <a name="time-series-query-tsq-apis"></a>时序查询 (TSQ) API
+## <a name="time-series-query-tsq-apis"></a>时序查询 (TSQ) API
 
 提供以下时序查询 API：
 
@@ -75,11 +75,10 @@ Azure 时序见解预览版允许通过公共 Surface API 对存储在环境中�
 
 ## <a name="next-steps"></a>后续步骤
 
-了解：
+- 详细了解 Azure 时序见解预览版中的[存储和流入量](./time-series-insights-update-storage-ingress.md)。
 
-- [Azure 时序见解预览版存储和入口](./time-series-insights-update-storage-ingress.md)
-- [数据建模](./time-series-insights-update-tsm.md)
-- [选择时序 ID 时的最佳做法](./time-series-insights-update-how-to-id.md)
+- 阅读 Azure 时序见解预览版[数据建模](./time-series-insights-update-tsm.md)一文。
 
+- 找到[有关选择时序 ID 的最佳做法](./time-series-insights-update-how-to-id.md)。
 <!-- Images -->
 [1]: media/v2-update-tsq/tsq.png

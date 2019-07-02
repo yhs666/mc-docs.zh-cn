@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/15/2017
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: eb314b35ac62684a7472f7ca0a2218212a44a792
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 442a7fdf170006a95b8b15994bb58d162526fd13
+ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626883"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67456385"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>在 Azure 门户中创建新的时序见解环境
 本文介绍如何使用 Azure 门户创建新的时序见解环境。
@@ -26,15 +26,15 @@ ms.locfileid: "58626883"
 ## <a name="steps-to-create-the-environment"></a>创建环境的步骤
 遵循以下步骤创建环境：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
-2. 选择“+ 新建”按钮。
+2. 选择“+ 新建”按钮。 
 
-3. 选择“物联网”类别，再选择“时序见解”。
+3. 选择“物联网”类别，再选择“时序见解”。  
 
    ![创建时序见解环境](media/time-series-insights-get-started/1-new-tsi.png)
 
-4. 在“时序见解”页上，选择“创建”。
+4. 在“时序见解”页上，选择“创建”。  
 
 5. 填写必需的参数。 下表解释了每个参数：
 
@@ -51,17 +51,17 @@ ms.locfileid: "58626883"
    |     容量     |              1               |                  容量是应用于入口速率、存储容量和所选 SKU 相关成本的乘数。  可以在创建环境后更改其容量。 若要尽量降低费用，请选择 1 个单位的容量。                   |
 
 
-6. 选中“固定到仪表板”，以便将来轻松访问时序见解环境。
+1. 选中“固定到仪表板”，以便将来轻松访问时序见解环境。 
 
    ![创建时序见解 固定到仪表板](media/time-series-insights-get-started/3-pin-create.png)
 
-7. 选择“创建”开始执行预配过程。 这可能需要几分钟时间才能完成。
+7. 选择“创建”开始执行预配过程。  这可能需要几分钟时间才能完成。
 
-8. 若要监视部署过程，请选择“通知”符号（钟形图标）。
+8. 若要监视部署过程，请选择“通知”符号（钟形图标）。 
 
    ![监视通知](media/time-series-insights-get-started/4-notifications.png)
 
-部署成功后，可以选择“转到资源”配置其他属性、设置数据访问策略的安全性、添加事件源，以及执行其他操作。
+部署成功后，可以选择“转到资源”配置其他属性、设置数据访问策略的安全性、添加事件源，以及执行其他操作。 
 
 ## <a name="next-steps"></a>后续步骤
 * [定义数据访问策略](time-series-insights-data-access.md)来保护环境。
