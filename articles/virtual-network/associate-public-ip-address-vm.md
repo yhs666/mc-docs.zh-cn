@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 02/21/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1a6d0f20026e4f066e4278a3d87d7fb1bda8e30d
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 11571465be3229ccf0e97d9a101b9aa9efa0ce42
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250478"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427825"
 ---
 <!--Verified successfully-->
 # <a name="associate-a-public-ip-address-to-a-virtual-machine"></a>将公共 IP 地址关联到虚拟机
@@ -63,7 +63,13 @@ ms.locfileid: "66250478"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)，或使用 Azure 本地 Shell。 Azure 本地 Shell 是可直接在 Azure 门户中运行的免费 Bash shell。 它预安装有 Azure CLI 并将其配置为与你的帐户一起使用。 在随后的 CLI 命令中选择“尝试”按钮。  选择“尝试”会调用一个可用于登录到 Azure 帐户的 Cloud Shell。 
+安装并使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest)。
+
+<!--Not Available on , or use the Azure local Shell-->
+<!--Not Available on Azure 本地 Shell 是可直接在 Azure 门户中运行的免费 shell。-->
+<!--Not Available on The Azure local Shell is a free shell that you can run directly within the Azure portal.-->
+<!--Not Available on 在随后的 PowerShell 命令中选择“尝试”按钮。 -->
+<!--Not Available on 选择“尝试”会调用一个可用于登录到 Azure 帐户的 Cloud Shell。-->
 
 1. 如果在 Bash 本地使用 CLI，请使用 `az login` 登录到 Azure。
 2. 公共 IP 地址将关联到 VM 上附加的网络接口的 IP 配置。 使用 [az network nic-ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) 命令将公共 IP 地址关联到 IP 配置。 以下示例将现有公共 IP 地址 *myVMPublicIP* 关联到资源组 *myResourceGroup* 中现有网络接口 *myVMVMNic* 的 IP 配置 *ipconfigmyVM*。
@@ -118,7 +124,13 @@ ms.locfileid: "66250478"
 
 ## <a name="powershell"></a>PowerShell
 
-安装 [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)，或使用 Azure 本地 Shell。 Azure 本地 Shell 是可直接在 Azure 门户中运行的免费 shell。 它预安装有 PowerShell，并配置为与帐户一起使用。 在随后的 PowerShell 命令中选择“尝试”按钮。  选择“尝试”会调用一个可用于登录到 Azure 帐户的 Cloud Shell。 
+安装并使用 [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+
+<!--Not Available on , or use the Azure local Shell-->
+<!--Not Available on Azure 本地 Shell 是可直接在 Azure 门户中运行的免费 shell。-->
+<!--Not Available on The Azure local Shell is a free shell that you can run directly within the Azure portal.-->
+<!--Not Available on 在随后的 PowerShell 命令中选择“尝试”按钮。 -->
+<!--Not Available on 选择“尝试”会调用一个可用于登录到 Azure 帐户的 Cloud Shell。-->
 
 1. 如果在本地使用 PowerShell，请使用 `Connect-AzAccount -Environment AzureChinaCloud` 登录到 Azure。
 2. 公共 IP 地址将关联到 VM 上附加的网络接口的 IP 配置。 使用 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzVirtualNetwork) 和 [Get-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzVirtualNetworkSubnetConfig) 命令获取网络接口所在的虚拟网络和子网。 接下来，使用 [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface) 命令获取网络接口，并使用 [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 命令获取现有的公共 IP 地址。 然后使用 [Set-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/Az.Network/Set-AzNetworkInterfaceIpConfig) 命令将公共 IP 地址关联到 IP 配置，并使用 [Set-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Set-AzNetworkInterface) 命令将新 IP 配置写入到网络接口。
