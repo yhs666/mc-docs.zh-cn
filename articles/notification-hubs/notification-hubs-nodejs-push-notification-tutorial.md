@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 02/25/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: d7da7b62c0925e91f9c6b543fa5435ab15972f18
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: c548a6884ead044c529318d63e81670402ae3658
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222589"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171379"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 
@@ -55,7 +55,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
 
-1. 使用 PowerShell (Windows)、Terminal (Mac) 或 Bash (Linux) 等命令行接口导航到在其中创建了空白应用程序的文件夹。
+1. 使用 PowerShell (Windows)、Terminal (Mac) 或 Bash (Linux) 等命令行接口导航到在其中创建了空白应用程序的文件夹    。
 2. 在命令窗口中执行 `npm install azure-sb`。
 3. 可以手动运行 `ls` 或 `dir` 命令来验证是否创建了 `node_modules` 文件夹。
 4. 在该文件夹中，找到 **azure** 包，其中包含访问通知中心所需的库。
@@ -64,11 +64,10 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 > 可以在官方 [NPM 博客](http://blog.npmjs.org/post/85484771375/how-to-install-npm)中了解有关安装 NPM 的详细信息。
 
 ### <a name="import-the-module"></a>导入模块
-
 使用文本编辑器将以下内容添加到应用程序的 `server.js` 文件的顶部：
 
     ```javascript
-    var azure = require('azure');
+    var azure = require('azure-sb');
     ```
 
 ### <a name="set-up-an-azure-notification-hub-connection"></a>设置 Azure 通知中心连接
@@ -81,15 +80,15 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 通过执行以下步骤从 [Azure 门户] 获取连接 `connectionstring` 值：
 
-1. 在左侧导航窗格中，单击“浏览” 。
-2. 选择“通知中心” ，并找到要用于示例的中心。 如果在创建新通知中心时需要获得帮助，可以参阅 [Windows 应用商店入门教程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
+1. 在左侧导航窗格中，单击“浏览”  。
+2. 选择“通知中心”  ，并找到要用于示例的中心。 如果在创建新通知中心时需要帮助，可以参阅 [Windows 应用商店入门教程](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)。
 3. Select <bpt id="p1">**</bpt>Settings<ept id="p1">**</ept>.
-4. 单击“访问策略” 。 会看到共享连接字符串和完全访问连接字符串。
+4. 单击“访问策略”  。 会看到共享连接字符串和完全访问连接字符串。
 
 ![Azure 门户 — 通知中心](./media/notification-hubs-nodejs-how-to-use-notification-hubs/notification-hubs-portal.png)
 
 > [!NOTE]
-> 还可以使用 [Azure PowerShell](/powershell-install-configure) 提供的 Get-AzureSbNamespace cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](../cli-install-nodejs.md) 中使用 azure sb namespace show 命令检索连接字符串。
+> 还可以使用 [Azure PowerShell](/powershell-install-configure) 提供的 Get-AzureSbNamespace cmdlet 或者在 [Azure 命令行接口 (Azure CLI)](../cli-install-nodejs.md) 中使用 azure sb namespace show 命令检索连接字符串   。
 
 ## <a name="general-architecture"></a>一般体系结构
 
@@ -107,7 +106,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 - **Payload** - 消息的 JSON 或字符串的有效负载。
 - **Callback** - 回调函数。
 
-有关有效负载格式的详细信息，请参阅 [Local and Push Notification Programming Guide](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html)（本地通知和推送通知编程指南）文档中的通知有效负载部分。
+有关有效负载格式的详细信息，请参阅 [Local and Push Notification Programming Guide](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html)（本地通知和推送通知编程指南）文档中的通知有效负载部分  。
 
 以下代码使用由 `NotificationHubService` 公开的 `ApnsService` 实例将警报消息发送给所有客户端：
 
@@ -128,8 +127,8 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 - **Tags** - 标记标识符。 如果没有提供任何标记，通知会发送给所有客户端。
 - **Payload** - 消息的 XML 有效负载。
-- TargetName - `toast` 用于 toast 通知。 `token` 表示磁贴通知。
-- **NotificationClass** - 通知的优先级。 有关该参数的有效值，请参阅 [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx)（从服务器推送通知）文档中的 HTTP Header Elements（HTTP 标头元素）部分。
+- TargetName - `toast` 用于 toast 通知  。 `token` 表示磁贴通知。
+- **NotificationClass** - 通知的优先级。 有关该参数的有效值，请参阅 [Push notifications from a server](https://msdn.microsoft.com/library/hh221551.aspx)（从服务器推送通知）文档中的 HTTP Header Elements（HTTP 标头元素）部分  。
 - **Options** - 可选的请求标头。
 - **Callback** - 回调函数。
 

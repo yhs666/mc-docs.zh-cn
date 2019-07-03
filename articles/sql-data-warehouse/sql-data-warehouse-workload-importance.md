@@ -1,5 +1,5 @@
 ---
-title: 工作负荷重要性 | Microsoft Docs
+title: Azure SQL 数据仓库工作负荷重要性 | Microsoft Docs
 description: 有关为 Azure SQL 数据仓库中的查询设置重要性的指导。
 services: sql-data-warehouse
 author: WenJason
@@ -8,17 +8,17 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
 origin.date: 05/01/2019
-ms.date: 05/20/2019
+ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: e117ba772106edd05a126d8bd493128cb1b21768
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: 49255f7fbbb43405ffa44132ebdb3b01cc616dc8
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828837"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151751"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>SQL 数据仓库工作负荷重要性
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL 数据仓库工作负荷重要性
 
 本文介绍工作负荷重要性如何影响 SQL 数据仓库请求的执行顺序。
 

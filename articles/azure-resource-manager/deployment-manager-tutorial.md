@@ -14,16 +14,18 @@ origin.date: 03/05/2019
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 7c681281f05c3acc30d237c38282c53402649e7d
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: dc8dd9179f57df643c62fde97b6b18b240b1b696
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58005156"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276458"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>教程：将 Azure 部署管理器与资源管理器模板配合使用（个人预览版）
 
-了解如何使用 [Azure 部署管理器](./deployment-manager-overview.md)跨多个区域部署应用程序。 若要使用部署管理器，需要创建两个模板：
+了解如何使用 Azure 部署管理器跨多个区域部署应用程序。 若要使用部署管理器，需要创建两个模板：
+
+<!--Pending on to verify [Azure Deployment Manager](./deployment-manager-overview.md)-->
 
 * **拓扑模板**：描述构成应用程序的 Azure 资源以及这些资源的部署位置。
 * **实施模板**：描述部署应用程序时要执行的步骤。
@@ -132,7 +134,7 @@ ms.locfileid: "58005156"
       </body>
     </html>
     ```
-    html 显示位置和版本信息。 1.0.0.1 文件夹中的二进制文件显示“Version 1.0.0.1”。 部署服务后，可以浏览到这些页面。
+    html 显示位置和版本信息。 1\.0.0.1 文件夹中的二进制文件显示“Version 1.0.0.1”。 部署服务后，可以浏览到这些页面。
 5. 签出其他项目文件。 这有助于更好地了解方案。
 
 模板项目由服务拓扑模板使用，二进制项目由实施模板使用。 拓扑模板和实施模板都定义一个项目源 Azure 资源，该资源用于将资源管理器指向部署中使用的模板和二进制项目。 为了简化本教程，将使用一个存储帐户来存储模板项目和二进制项目。 这两个项目源指向同一个存储帐户。
@@ -143,9 +145,9 @@ ms.locfileid: "58005156"
 4. 遵照以下说明获取容器的 SAS 位置：
 
     1. 在 Azure 存储资源管理器中，导航到 Blob 容器。
-    2. 在左窗格中右键单击 Blob 容器，然后选择“获取共享访问签名”。
-    3. 配置“开始时间”和“过期时间”。
-    4. 选择“创建”。
+    2. 在左窗格中右键单击 Blob 容器，然后选择“获取共享访问签名”。 
+    3. 配置“开始时间”和“过期时间”。  
+    4. 选择“创建”  。
     5. 复制 URL。 需使用此 URL 来填充两个参数文件（[拓扑参数文件](#topology-parameters-file)和[实施参数文件](#rollout-parameters-file)）中的字段。
 
 ## <a name="create-the-user-assigned-managed-identity"></a>创建用户分配的托管标识
@@ -158,17 +160,18 @@ ms.locfileid: "58005156"
 > 用户分配的托管标识必须与[实施](#create-the-rollout-template)项目位于同一位置。 目前，只能在中国北部或中国东部 2 区域中创建部署管理器资源，包括实施。 但是，这仅适用于部署管理器资源（例如服务拓扑、服务、服务单元、推出和步骤）。 可以将目标资源部署到任何支持的 Azure 区域。 例如，在本教程中，部署管理器资源部署到中国北部，但服务部署到中国东部和中国北部。 此限制将来会取消。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 创建[用户分配的托管标识](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)。
-3. 在门户的左侧菜单中选择“订阅”，然后选择自己的订阅。
-4. 依次选择“访问控制(IAM)”、“添加角色分配”
+2. 创建用户分配的托管标识。
+    <!--Pending on [user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)-->
+3. 在门户的左侧菜单中选择“订阅”，然后选择自己的订阅。 
+4. 依次选择“访问控制(IAM)”、“添加角色分配”  
 5. 输入或选择下列值：
 
     ![Azure 部署管理器教程 - 用户分配的托管标识访问控制](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-access-control.png)
 
-    - **角色**：授予足够的权限以完成项目部署（Web 应用程序和存储帐户）。 对于本教程，请选择“参与者”。 在实践中，最好是将权限限制为最低权限。
-    - **已将访问权限分配到**：选择“用户分配的托管标识”。
+    - **角色**：授予足够的权限以完成项目部署（Web 应用程序和存储帐户）。 对于本教程，请选择“参与者”。  在实践中，最好是将权限限制为最低权限。
+    - **已将访问权限分配到**：选择“用户分配的托管标识”。 
     - 选择在本教程前面创建的用户分配的托管标识。
-6. 选择“保存”。
+6. 选择“保存”。 
 
 ## <a name="create-the-service-topology-template"></a>创建服务拓扑模板
 
@@ -181,14 +184,14 @@ ms.locfileid: "58005156"
 ![Azure 部署管理器教程 - 拓扑模板参数](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-parameters.png)
 
 - **namePrefix**：此前缀用于创建部署管理器资源的名称。 例如，如果使用“jdoe”前缀，则服务拓扑名称为 **jdoe**ServiceTopology。  资源名称在此模板的 variables 节中定义。
-- **azureResourcelocation**：为了简化教程，除非另行指定，否则所有资源共享此位置。 目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。
+- **azureResourcelocation**：为了简化教程，除非另行指定，否则所有资源共享此位置。 目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。  
 - **artifactSourceSASLocation**：存储要部署的服务单元模板和参数文件的 Blob 容器的 SAS URI。  请参阅[准备项目](#prepare-the-artifacts)。
 - **templateArtifactRoot**：与存储模板和参数的 Blob 容器之间的偏移路径。 默认值为 **templates/1.0.0.0**。 除非你要更改[准备项目](#prepare-the-artifacts)中所述的文件夹结构，否则请不要更改此值。 本教程使用相对路径。  完整路径是通过连接 **artifactSourceSASLocation**、**templateArtifactRoot** 和 **templateArtifactSourceRelativePath**（或 **parametersArtifactSourceRelativePath**）来构造的。
 - **targetSubscriptionID**：部署管理器资源要部署到的并从中计费的订阅 ID。 本教程使用你的订阅 ID。
 
 ### <a name="the-variables"></a>变量
 
-variables 节定义资源的名称、“WUS 服务”和“EUS 服务”这两个服务的 Azure 位置，以及项目路径：
+variables 节定义资源的名称、“WUS 服务”和“EUS 服务”这两个服务的 Azure 位置，以及项目路径：  
 
 ![Azure 部署管理器教程 - 拓扑模板变量](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
@@ -196,7 +199,7 @@ variables 节定义资源的名称、“WUS 服务”和“EUS 服务”这两�
 
 ### <a name="the-resources"></a>资源
 
-在根级别定义了两个资源：项目源和服务拓扑。
+在根级别定义了两个资源：项目源和服务拓扑。  
 
 项目源定义为：
 
@@ -237,7 +240,7 @@ variables 节定义资源的名称、“WUS 服务”和“EUS 服务”这两�
 ![Azure 部署管理器教程 - 实施模板参数](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 - **namePrefix**：此前缀用于创建部署管理器资源的名称。 例如，如果使用“jdoe”前缀，则实施名称为 **jdoe**Rollout。  名称在模板的 variables 节中定义。
-- **azureResourcelocation**：为了简化教程，除非另行指定，否则所有部署管理器资源共享此位置。 目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。
+- **azureResourcelocation**：为了简化教程，除非另行指定，否则所有部署管理器资源共享此位置。 目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。  
 - **artifactSourceSASLocation**：存储要部署的服务单元模板和参数文件的根目录（Blob 容器）的 SAS URI。  请参阅[准备项目](#prepare-the-artifacts)。
 - **binaryArtifactRoot**：默认值为 **binaries/1.0.0.0**。 除非你要更改[准备项目](#prepare-the-artifacts)中所述的文件夹结构，否则请不要更改此值。 本教程使用相对路径。  完整路径是通过连接 CreateWebApplicationParameters.json 中指定的 **artifactSourceSASLocation**、**binaryArtifactRoot** 和 **deployPackageUri** 来构造的。  请参阅[准备项目](#prepare-the-artifacts)。
 - **managedIdentityID**：用户分配的托管标识，用于执行部署操作。 请参阅[创建用户分配的托管标识](#create-the-user-assigned-managed-identity)。
@@ -279,7 +282,7 @@ variables 节定义资源的名称。 请确保服务拓扑名称、服务名称
 2. 填充参数值：
 
     - **namePrefix**：输入包含 4-5 个字符的字符串。 此前缀用于创建唯一的 Azure 资源名称。
-    - **azureResourceLocation**：目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。
+    - **azureResourceLocation**：目前，只能在“中国北部”或“中国东部 2”区域中创建 Azure 部署管理器资源。  
     - **artifactSourceSASLocation**：输入用于存储要部署的服务单元模板和参数文件的根目录（Blob 容器）的 SAS URI。  请参阅[准备项目](#prepare-the-artifacts)。
     - **binaryArtifactRoot**：除非你要更改项目的文件夹结构，否则请在本教程中使用 **binaries/1.0.0.0**。
     - **managedIdentityID**：输入用户分配的托管标识。 请参阅[创建用户分配的托管标识](#create-the-user-assigned-managed-identity)。 语法为：
@@ -316,7 +319,7 @@ variables 节定义资源的名称。 请确保服务拓扑名称、服务名称
 
     ![Azure 部署管理器教程 - 已部署服务拓扑资源](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
-    必须选择“显示隐藏的类型”才能查看资源。
+    必须选择“显示隐藏的类型”才能查看资源。 
 
 3. <a name="deploy-the-rollout-template"></a>部署推出模板：
 
@@ -420,15 +423,15 @@ variables 节定义资源的名称。 请确保服务拓扑名称、服务名称
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 使用“按名称筛选”字段来缩小本教程创建的资源组的范围。 应有 3-4 个资源组：
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 使用“按名称筛选”字段来缩小本教程创建的资源组的范围。  应有 3-4 个资源组：
 
     - **&lt;namePrefix>rg**：包含部署管理器资源。
     - **&lt;namePrefix>ServiceWUSrg**：包含 ServiceWUS 定义的资源。
     - **&lt;namePrefix>ServiceEUSrg**：包含 ServiceEUS 定义的资源。
     - 用户定义的托管标识的资源组。
 3. 选择资源组名称。  
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 5. 重复最后两个步骤，以删除本教程创建的其他资源组。
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,26 +1,22 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 在 Key Vault 中设置和检索机密
+title: Azure 快速入门 - 使用 PowerShell 在 Key Vault 中设置和检索机密 | Azure Docs
 description: ''
 services: key-vault
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 1126f665-2e6c-4cca-897e-7d61842e8334
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: powershell
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 05/10/2018
-ms.date: 03/11/2018
+ms.date: China North
 ms.author: v-biyu
-ms.openlocfilehash: 57f068e2c6eeea81a001ddcb8abf52eef937af63
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: f34737c988b805d33d13c7cd4f4ff2dd4ac85747
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63854396"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171245"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>快速入门：使用 PowerShell 在 Azure Key Vault 中设置和检索机密
 
@@ -61,7 +57,7 @@ New-AzKeyVault -Name 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' 
 此 cmdlet 的输出显示新创建的密钥保管库的属性。 请记下下面列出的两个属性：
 
 * **保管库名称**：在本示例中为 **Contoso-Vault2**。 将在其他密钥保管库 cmdlet 中使用此名称。
-* **保管库 URI**：在本示例中为 https://contosokeyvault.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+* **保管库 URI**：在本示例中为 https://contosokeyvault.vault.azure.cn/ 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 创建保管库以后，你的 Azure 帐户是唯一能够对这个新的保管库执行任何操作的帐户。
 

@@ -1,5 +1,5 @@
 ---
-title: SQL 数据仓库分类 | Microsoft Docs
+title: Azure SQL 数据仓库分类 | Microsoft Docs
 description: 有关使用分类管理 Azure SQL 数据仓库中查询的并发性、重要性和计算资源的指导。
 services: sql-data-warehouse
 author: WenJason
@@ -8,17 +8,17 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
 origin.date: 05/10/2019
-ms.date: 05/20/2019
+ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: f7df01723e4896eec567140d1c199e19e446a03b
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: 04bab33a2788dd3e7ccfa42c347a03162a892fc8
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828813"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151763"
 ---
-# <a name="sql-data-warehouse-workload-classification"></a>SQL 数据仓库工作负荷分类
+# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL 数据仓库工作负荷分类
 
 本文介绍用于向传入请求分配资源类和重要性的 SQL 数据仓库工作负荷分类过程。
 
@@ -80,4 +80,5 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>后续步骤
 
-若要开始创建分类器，请参阅 [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  有关 SQL 数据仓库工作负荷分类和重要性的详细信息，请参阅[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)和 [SQL 数据仓库重要性](sql-data-warehouse-workload-importance.md)。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
+- 若要详细了解如何创建分类器，请参阅 [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  
+- 有关如何创建工作负荷分类器的信息，请参阅快速入门[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。

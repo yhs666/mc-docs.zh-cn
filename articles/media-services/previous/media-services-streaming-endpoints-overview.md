@@ -15,25 +15,22 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: aa8ffe38305926421b56554f0abba09a30011677
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 281da57b625e17654b6ba0674bc17c924e1395e9
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390751"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236466"
 ---
 # <a name="streaming-endpoints-overview"></a>流式处理终结点概述  
 
 
-在 Azure 媒体服务 (AMS)中，**流式处理终结点**代表一个流服务，它可以直接将内容分发给客户端播放器应用程序，也可以传递给内容分发网络 (CDN) 以进一步分发。 媒体服务还提供无缝 Azure CDN 集成。 StreamingEndpoint 服务的出站流可以是实时流、视频点播，也可以是媒体服务帐户中进行的渐进式资产下载。 每个 Azure 媒体服务帐户包括一个默认的 StreamingEndpoint。 可以在该帐户下创建其他 StreamingEndpoint。 StreamingEndpoint 有两个版本：1.0 和 2.0。 从 2017 年 1 月 10 日开始，任何新创建的 AMS 帐户都会包括 2.0 版的 **默认** StreamingEndpoint。 添加到该帐户的其他流式处理终结点也会是 2.0 版。 此更改不会影响现有帐户；现有的 StreamingEndpoint 会是 1.0 版，但可以升级到 2.0 版。 此更改将导致行为、计费和功能更改（有关详细信息，请参阅下面所述的**流式处理类型和版本**部分）。
+在 Azure 媒体服务 (AMS) 中，**流式处理终结点**代表一个流服务，它可以直接将内容分发给客户端播放器应用程序。 StreamingEndpoint 服务的出站流可以是实时流、视频点播，也可以是媒体服务帐户中进行的渐进式资产下载。 每个 Azure 媒体服务帐户包括一个默认的 StreamingEndpoint。 可以在该帐户下创建其他 StreamingEndpoint。 StreamingEndpoint 有两个版本：1.0 和 2.0。 从 2017 年 1 月 10 日开始，任何新创建的 AMS 帐户都会包括 2.0 版的 **默认** StreamingEndpoint。 添加到该帐户的其他流式处理终结点也会是 2.0 版。 此更改不会影响现有帐户；现有的 StreamingEndpoint 会是 1.0 版，但可以升级到 2.0 版。 此更改将导致行为、计费和功能更改（有关详细信息，请参阅下面所述的**流式处理类型和版本**部分）。
 
-Azure 媒体服务将以下属性添加到流式处理终结点实体：**CdnProvider**、**CdnProfile**、**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+Azure 媒体服务将以下属性添加到流式处理终结点实体：**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 用户创建 Azure 媒体服务帐户时，将为用户创建一个处于“已停止”  状态的默认标准流式处理终结点。 无法删除默认流式处理终结点。  
                 
-> [!NOTE]
-> 可以在启动流式处理终结点之前禁用 Azure CDN 集成。
-
 本主题概述流式处理终结点提供的主要功能。
 
 ## <a name="naming-conventions"></a>命名约定
@@ -72,12 +69,12 @@ Azure 媒体服务将以下属性添加到流式处理终结点实体：**CdnPro
 
 ### <a name="versions"></a>版本
 
-|类型|StreamingEndpointVersion|ScaleUnits|CDN|计费|
-|--------------|----------|-----------------|-----------------|-----------------|
-|经典|1.0|0|不可用|免费|
-|标准流式处理终结点（预览版）|2.0|0|是|付费|
-|高级流式处理单元|1.0|>0|是|付费|
-|高级流式处理单元|2.0|>0|是|付费|
+|类型|StreamingEndpointVersion|ScaleUnits|计费|
+|--------------|----------|-----------------|-----------------|
+|经典|1.0|0|免费|
+|标准流式处理终结点（预览版）|2.0|0|付费|
+|高级流式处理单元|1.0|>0|付费|
+|高级流式处理单元|2.0|>0|付费|
 
 ### <a name="features"></a>功能
 

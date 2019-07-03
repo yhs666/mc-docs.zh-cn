@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/16/2019
 ms.date: 05/27/2019
 ms.author: v-jay
-ms.openlocfilehash: 18cd759cf3abd42118cceb46c6399361c53779e8
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 772268e78867c1a14c94031cf97f5699cb3ca9c7
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004016"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236464"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Azure 存储的常见安全属性
 
@@ -46,7 +46,7 @@ ms.locfileid: "66004016"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| Azure 监视支持（Log Analytics、App Insights 等）| 是 | Azure Monitor 指标现已发布，日志开始推出预览版 |
+| Azure 监视支持（Log Analytics 等）| 是 | Azure Monitor 指标现已发布，日志开始推出预览版 |
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
 

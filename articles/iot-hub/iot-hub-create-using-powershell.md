@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/29/2018
 ms.author: v-yiso
 ms.date: 03/18/2019
-ms.openlocfilehash: 1b0bc18aad62383b9f0b9642e7b157a0aab6cd30
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 1d6deb132005188e5ade89a1e359769c2e195d9f
+ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560447"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67307568"
 ---
 # <a name="create-an-iot-hub-using-the-new-aziothub-cmdlet"></a>使用 New-AzIotHub cmdlet 创建 IoT 中心
 
@@ -26,7 +26,7 @@ ms.locfileid: "57560447"
 
 可以使用 Azure PowerShell cmdlet 创建和管理 Azure IoT 中心。 本教程介绍如何使用 PowerShell 创建 IoT 中心。
 
-若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，请在开始前[创建一个试用帐户][lnk-free-trial]。
+若要完成本操作说明，需要 Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户][lnk-free-trial]。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -43,7 +43,7 @@ Login-AzAccount -Environment AzureChinaCloud
 
 需要一个资源组来部署 IoT 中心。 可以使用现有资源组，也可以创建新组。
 
-若要为 IoT 中心创建资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 命令。 此示例在“中国东部”区域中创建名为 **MyIoTRG1** 的资源组：
+若要为 IoT 中心创建资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 命令。 此示例在“中国东部”  区域中创建名为 **MyIoTRG1** 的资源组：
 
 ```powershell
 New-AzResourceGroup -Name MyIoTRG1 -Location "China East"
@@ -51,7 +51,7 @@ New-AzResourceGroup -Name MyIoTRG1 -Location "China East"
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-若要在上一步创建的资源组中创建 IoT 中心，请使用 [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 命令。 此示例在“中国东部”区域中创建名为 **MyTestIoTHub** 的 **S1** 中心：
+若要在上一步创建的资源组中创建 IoT 中心，请使用 [New-AzIotHub](https://docs.microsoft.com/powershell/module/az.IotHub/New-azIotHub) 命令。 此示例在“中国东部”  区域中创建名为 **MyTestIoTHub** 的 **S1** 中心：
 
 ```powershell
 New-AzIotHub `
@@ -76,11 +76,13 @@ Get-AzIotHub
 
 可以使用 [Remove-AzIotHub](https://docs.microsoft.com/powershell/module/az.iothub/remove-aziothub) 命令删除 IoT 中心：
 
+```
 Remove-AzIotHub `
-    -ResourceGroupName MyIoTRG1 ` -Name MyTestIoTHub
+    -ResourceGroupName MyIoTRG1 `
+    -Name MyTestIoTHub
 ```
 
-Alternatively, you can remove a resource group and all the resources it contains using the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) command:
+或者，可以使用 [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/Remove-azResourceGroup) 命令删除资源组及其包含的所有资源：
 
 
 ```powershell

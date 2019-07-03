@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/05/2018
-ms.date: 01/21/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 54e9de484207dec3b70e50f9ecd0a263a4581e6f
-ms.sourcegitcommit: b8aa5d05ef46f1db2df4f2653cdd8d150e847113
+ms.openlocfilehash: d2ed0596cb78e75d2fab491a15f18736f2027a58
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906267"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171360"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -43,7 +43,8 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>通过 Kudu 生成从本地 Git 部署
+
+## <a name="deploy-with-kudu-builds"></a>通过 Kudu 生成部署
 
 使用 Kudu 生成服务器为应用启用本地 Git 部署的最简单方法是使用命令外壳。
 
@@ -56,40 +57,31 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 若要使用 Kudu 生成服务器为应用启用本地 Git 部署，请运行 [`az webapp deployment source config-local-git`](/cli/webapp/deployment/source?view=azure-cli-latest#az_webapp_deployment_source_config_local_git)。
 
 ```azurecli
-az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
+az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
 ```
 
 要创建启用 Git 的应用，请结合 `--deployment-local-git` 参数运行 [`az webapp create`](/cli/webapp?view=azure-cli-latest#az_webapp_create)。
 
 ```azurecli
-az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
-```
-
-`az webapp create` 命令的输出应如下所示：
-
-```json
-Local git is configured with url of 'https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git'
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.chinacloudsites.cn",
-  "deploymentLocalGitUrl": "https://<username>@<app_name>.scm.chinacloudsites.cn/<app_name>.git",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
+az webapp create --name <app-name> --resource-group <group-name> --plan <plan-name> --deployment-local-git
 ```
 
 ### <a name="deploy-your-project"></a>部署项目
 
-回到本地终端窗口，将 Azure 远程功能添加到本地 Git 存储库。 使用从[启用应用的 Git](#enable-local-git-with-kudu)中获取的 Git 远程 URL 替换 \<url>。
+回到本地终端窗口  ，将 Azure 远程功能添加到本地 Git 存储库。 将 \<username>  替换为[配置部署用户](#configure-a-deployment-user)中的部署用户，将 \<app-name>  替换为[为应用启用 Git](#enable-local-git-with-kudu) 中的应用名称。
 
 ```bash
-git remote add azure <url>
+git remote add azure https://<username>@<app-name>.scm..chinacloudsites.cn/<app-name>.git
 ```
+
+> [!NOTE]
+> 若要改用应用级凭据进行部署，请在本地终端窗口中运行以下命令，以获取特定于应用的凭据：
+>
+> ```azurecli-interactive
+> az webapp deployment list-publishing-credentials -n <app-name> -g <group-name> --query scmUri --output tsv
+> ```
+>
+> 然后像上面那样使用命令输出来运行 `git remote add azure <url>`。
 
 使用以下命令推送到 Azure 远程功能以部署应用。 提示输入密码时，请确保输入在[配置部署用户](#configure-a-deployment-user)中创建的密码，而不是用于登录到 Azure 门户的密码。
 
@@ -101,38 +93,36 @@ git push azure master
 
 浏览到应用以验证内容已部署。
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>使用 Azure DevOps Services 内部版本从本地 Git 进行部署
+## <a name="deploy-with-azure-devops-builds"></a>通过 Azure DevOps 生成部署
 
 > [!NOTE]
-> 要让应用服务在 Azure DevOps Services 组织中创建必要的 Azure 管道，Azure 帐户必须在 Azure 订阅中具有“所有者”角色。
+> 要让应用服务在 Azure DevOps Services 组织中创建必要的 Azure 管道，Azure 帐户必须在 Azure 订阅中具有“所有者”  角色。
 >
 
 若要使用 Kudu 生成服务器为应用启用本地 Git 部署，请在 [Azure 门户](https://portal.azure.cn)中导航至应用。
 
-在应用页的左侧导航栏中，单击“部署中心” > “本地 Git” > “继续”。 
+在应用页的左侧导航栏中，单击“部署中心”   > “本地 Git”   > “继续”  。
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-单击“Azure DevOps Services 持续交付” > “继续”。
+单击“Azure DevOps Services 持续交付”   > “继续”  。
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-在“配置”页中，配置新的 Azure DevOps Services 组织，或指定现有组织。 完成后，单击“继续”。
+在“配置”  页中，配置新的 Azure DevOps 组织，或指定现有组织。 完成后，单击“继续”。 
 
 > [!NOTE]
-> 如果要使用未列出的现有 Azure DevOps Services 组织，则需要[将 Azure DevOps Services 组织链接到 Azure 订阅](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
+> 如果要使用未列出的现有 Azure DevOps 组织，则需要[将 Azure DevOps Services 组织链接到 Azure 订阅](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)。
 
-在“测试”页面中，选择是否要启用负载测试，然后单击“继续”。
+根据应用服务计划的[定价层](/pricing/details/app-service/plans/)，可能还会看到“部署到过渡环境”  页。 选择是否要启用部署槽位，然后单击“继续”  。
 
-根据应用服务计划的[定价层](/pricing/details/app-service/plans/)，可能还会看到“部署到过渡环境”页。 选择是否要启用部署槽位，然后单击“继续”。
-
-在“摘要”页中，确认选项，然后单击“完成”。
+在“摘要”  页中，确认选项，然后单击“完成”  。
 
 Azure DevOps Services 组织需要几分钟才能准备就绪。 准备就绪后，在部署中心复制 Git 存储库 URL。
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
-回到本地终端窗口，将 Azure 远程功能添加到本地 Git 存储库。 将 _\<url>_ 替换为从上一步获得的 URL。
+回到本地终端窗口  ，将 Azure 远程功能添加到本地 Git 存储库。 将 _\<url>_ 替换为从上一步获得的 URL。
 
 ```bash
 git remote add vsts <url>
@@ -204,7 +194,7 @@ git config --global http.postBuffer 524288000
 ---
 **症状**：`Error - Changes committed to remote repository but your web app not updated.`
 
-**原因**：如果部署 Node.js 应用时使用的 package.json 文件指定了其他所需模块，则会发生该错误。
+**原因**：如果部署 Node.js 应用时使用的 package.json 文件指定了其他所需模块，则会发生该错误  。
 
 **解决方法**：应在发生此错误之前记录包含“npm ERR!” 的其他消息，这些消息可提供有关失败的其他上下文。 以下是该错误的已知原因和相应的“npm ERR!” 消息:
 

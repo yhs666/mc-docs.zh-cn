@@ -4,15 +4,15 @@ description: 了解如何为 Azure Cosmos 容器和数据库设置预配的吞�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 03/31/2019
-ms.date: 05/13/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: efe07e0c6ea0214dd393ef3d8a2672741b9260e2
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: ab18f37ec175bc75ff82b03c6f8119f851bae3e9
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668879"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171342"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和数据库上预配吞吐量
 
@@ -61,7 +61,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 如果逻辑分区上的工作负荷消耗的吞吐量超过了分配给特定逻辑分区的吞吐量，操作将受到速率限制。 出现速率限制时，可以增大整个数据库的吞吐量，或重试操作。 有关分区的详细信息，请参阅[逻辑分区](partition-data.md)。
 
-可在单个物理分区中托管多个属于不同容器的逻辑分区，这些容器共享预配给数据库的吞吐量。 尽管容器的单个逻辑分区始终划归到物理分区，但可以在“R”物理分区中映射和托管“C”容器中共享数据库预配吞吐量的“L”逻辑分区。 
+可在单个物理分区中托管多个属于不同容器的逻辑分区，这些容器共享预配给数据库的吞吐量。 尽管容器的单个逻辑分区始终划归到物理分区，但可以在“R”物理分区中映射和托管“C”容器中共享数据库预配吞吐量的“L”逻辑分区。    
 
 下图显示了物理分区如何托管属于数据库中不同容器的一个或多个逻辑分区：
 
@@ -71,11 +71,10 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 可以合并两个模型。 同时对数据库和容器预配吞吐量。 以下示例演示如何对 Azure Cosmos 数据库和容器预配吞吐量：
 
-* 可以创建预配吞吐量为“K”RU 的名为“Z”的 Azure Cosmos 数据库。 
-* 接下来，在该数据库中创建名为 A、B、C、D、E 的五个容器。
-* 可在名为 B 的容器上显式配置“P”RU 的预配吞吐量。
-* “K”RU 吞吐量在 A、C、D、E 这四个容器之间共享。提供给 A、C、D 或 E 的确切吞吐量各不相同。 每个容器的吞吐量没有 SLA。
-* 保证名为 B 的容器始终可以获得“P”RU 吞吐量。 该容器有 SLA 的保障。
+* 可以创建预配吞吐量为“K”RU 的名为“Z”的 Azure Cosmos 数据库。   
+* 接下来，在该数据库中创建名为 A、B、C、D、E 的五个容器。      创建容器 B 时，请确保启用“为此容器预配专用吞吐量”  选项，并在此容器上显式配置“P”  个 RU 的预配吞吐量。 请注意，只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 
+* “K”RU 吞吐量在 A、C、D、E 这四个容器之间共享。      提供给 A、C、D 或 E 的确切吞吐量各不相同。     每个容器的吞吐量没有 SLA。
+* 保证名为 B 的容器始终可以获得“P”RU 吞吐量。   该容器有 SLA 的保障。
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>在数据库或容器上更新吞吐量
 

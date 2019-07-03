@@ -12,12 +12,12 @@ ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 05/08/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 5c67df0181dba09b004ac319954a79d0cf0bce6f
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 8f0e4819c93a36d7acbc382651acdb5d94c5bc67
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629188"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277015"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>在公共终结点中安全使用 Azure SQL 数据库托管实例
 
@@ -37,7 +37,7 @@ SQL 数据库托管实例提供专用终结点用于从其虚拟网络内部启�
 
 ## <a name="secure-data-in-motion"></a>保护动态数据
 
-如果客户端驱动程序支持加密，则始终加密托管实例数据流量。 在托管实例与其他 Azure 虚拟机或 Azure 服务之间发送的数据永远不会离开 Azure 主干网络。 如果托管实例与本地网络之间已建立连接，则我们建议配合使用 Azure ExpressRoute 和 Microsoft 对等互连。 ExpressRoute 有助于避免通过公共 Internet 移动数据。 对于托管实例专用连接，只能使用专用对等互连。
+如果客户端驱动程序支持加密，则始终加密托管实例数据流量。 在托管实例与其他 Azure 虚拟机或 Azure 服务之间发送的数据永远不会离开 Azure 主干网络。 如果托管实例与本地网络之间已建立连接，则我们建议配合使用 Azure ExpressRoute 和 Azure 对等互连。 ExpressRoute 有助于避免通过公共 Internet 移动数据。 对于托管实例专用连接，只能使用专用对等互连。
 
 ## <a name="lock-down-inbound-and-outbound-connectivity"></a>锁定入站和出站连接
 

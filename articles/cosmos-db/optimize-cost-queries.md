@@ -4,15 +4,15 @@ description: 了解如何评估查询的请求单位费用，并在查询性能�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: d921bc26c9a4d72781bde147a8e852076c682dee
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ee198c43e5ba409c073c1a4f8c909ccd2e1f8f02
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626151"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171405"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>优化 Azure Cosmos DB 中的查询成本
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 中的查询通常按吞吐量从最快/最高效到较慢/效�
 
 将一些数据存储在 Azure Cosmos 容器中后，可以使用 Azure 门户中的数据资源管理器来构建和运行查询。 此外可以通过使用数据资源管理器获取查询的成本。 此方法使你了解系统支持的典型查询和操作所涉及的实际费用。
 
-此外可以使用 SDK 以编程方式获取查询的成本。 要测量任何操作（如创建、更新或删除）的开销，请在使用 REST API 时检查 `x-ms-request-charge` 标头。 如果使用的是 .Net 或 Java SDK，则 `RequestCharge` 属性是获取请求费用的等效属性，并且此属性存在于 ResourceResponse 或 FeedResponse 中。
+此外可以使用 SDK 以编程方式获取查询的成本。 要测量任何操作（如创建、更新或删除）的开销，请在使用 REST API 时检查 `x-ms-request-charge` 标头。 如果使用的是 .NET 或 Java SDK，则 `RequestCharge` 属性是获取请求费用的等效属性，并且此属性存在于 ResourceResponse 或 FeedResponse 中。
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -60,7 +60,7 @@ while (queryable.HasMoreResults)
 
 ## <a name="metrics-for-troubleshooting"></a>故障排除的指标
 
-查询、用户定义的函数 (UDF) 所使用的性能和吞吐量主要取决于函数本身。 查找 UDF 中查询执行花费的时间和使用的 RU 数量的最简单方法是启用查询指标。 如果使用的是 .Net SDK，则以下是 SDK 返回的示例查询指标：
+查询、用户定义的函数 (UDF) 所使用的性能和吞吐量主要取决于函数本身。 查找 UDF 中查询执行花费的时间和使用的 RU 数量的最简单方法是启用查询指标。 如果使用的是 .NET SDK，则以下是 SDK 返回的示例查询指标：
 
 ```bash
 Retrieved Document Count                 :               1              
@@ -106,11 +106,11 @@ Total Query Execution Time               :   �
 
 * 详细了解 [Azure Cosmos 定价的原理](how-pricing-works.md)
 * 详细了解[开发和测试优化](optimize-dev-test.md)
-  <!-- Not Available on [Understanding your Azure Cosmos DB bill](understand-your-bill.md)-->
+* 详细了解[了解 Azure Cosmos DB 帐单](understand-your-bill.md)
 * 详细了解如何[优化吞吐量成本](optimize-cost-throughput.md)
 * 详细了解如何[优化存储成本](optimize-cost-storage.md)
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
-  <!-- Not Available on [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 
+<!-- Not Available on [Azure Cosmos DB reserved capacity](cosmos-db-reserved-capacity.md)-->
 <!-- Update_Description: update meta properties  -->

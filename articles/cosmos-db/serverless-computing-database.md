@@ -4,22 +4,20 @@ description: 了解 Azure Cosmos DB 和 Azure Functions 如何一起使用，以
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 03/26/2018
-ms.date: 03/18/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 83d2e455e6f43f09718232ce7f8205334fdf7ffd
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4324eb0dd043f33fcd01d5a767862565a3dcb1fa
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626798"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171344"
 ---
 <!--Verify sucessfully-->
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>使用 Azure Cosmos DB 和 Azure Functions 的无服务器数据库计算
 
-无服务器计算涉及关注可重复和无状态的各部分逻辑的功能。 这些部分无需基础结构管理，并且仅消耗几秒或几毫秒运行占用的资源。 无服务器计算移动的核心是函数，这些函数在 Azure 生态系统中通过 [Azure Functions](https://www.azure.cn/home/features/azure-functions/) 使用。 若要了解 Azure 中的其他无服务器执行环境，请参阅 [Azure 中的无服务器产品/服务](https://azure.microsoft.com/solutions/serverless/)页面。
-
-<!--MOONCAKE : Correct on https://azure.microsoft.com/solutions/serverless/-->
+无服务器计算涉及关注可重复和无状态的各部分逻辑的功能。 这些部分无需基础结构管理，并且仅消耗几秒或几毫秒运行占用的资源。 无服务器计算移动的核心是函数，这些函数在 Azure 生态系统中通过 [Azure Functions](https://www.azure.cn/home/features/azure-functions/) 使用。 若要了解 Azure 中的其他无服务器执行环境，请参阅 [Azure 中的无服务器产品/服务](https://azure.microsoft.com/solutions/serverless/)页面。 
 
 借助 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 和 Azure Functions 的本机集成，可以直接在 Azure Cosmos DB 帐户中创建数据库触发器、输入绑定和输出绑定。 通过使用 Azure Functions 和 Azure Cosmos DB，可以创建和部署事件驱动的无服务器应用，并可使多区域用户群低延迟访问丰富的数据。
 
@@ -28,8 +26,8 @@ ms.locfileid: "58626798"
 Azure Cosmos DB 和 Azure Functions 支持采用以下方式集成数据库和无服务器应用：
 
 * 在 Azure Function 中创建事件驱动的 **Azure Cosmos DB 触发器**。 此触发器依靠[更改源](change-feed.md)流监视 Azure Cosmos DB 容器的更改情况。 当对容器进行任何更改时，更改源流将发送到可调用 Azure Function 的触发器。
-* 或者，使用“输入绑定”将 Azure Function 绑定到 Azure Cosmos DB 容器。 执行某个函数时，输入绑定将从容器中读取函数。
-* 使用“输出绑定”将函数绑定到 Azure Cosmos DB 容器。 当函数执行完成时，输出绑定会将数据写入容器。
+* 或者，使用“输入绑定”将 Azure Function 绑定到 Azure Cosmos DB 容器  。 执行某个函数时，输入绑定将从容器中读取函数。
+* 使用“输出绑定”将函数绑定到 Azure Cosmos DB 容器  。 当函数执行完成时，输出绑定会将数据写入容器。
 
 > [!NOTE]
 > 目前，Azure Cosmos DB 触发器、输入绑定和输出绑定仅支持与 SQL API 一起使用。 对于所有其他的 Azure Cosmos DB API，应使用适用于 API 的静态客户端通过函数来访问数据库。
@@ -59,7 +57,7 @@ Azure Cosmos DB 触发器、输入绑定和输出绑定可在以下组合中使�
 4. 每当传感器数据集合发生数据更改时都会调用触发器，因为所有更改均通过更改源流式传输。
 5. 在函数中使用阈值条件以将传感器数据发送到保修部门。
 6. 如果温度也超过特定值，也会向所有者发送警报。
-7. 函数中的“输出绑定”更新其他 Azure Cosmos DB 容器中的汽车记录，以存储关于检查引擎事件的信息。
+7. 函数中的“输出绑定”更新其他 Azure Cosmos DB 容器中的汽车记录，以存储关于检查引擎事件的信息  。
 
 下图显示在 Azure 门户中为此触发器编写的代码。
 
@@ -71,7 +69,7 @@ Azure Cosmos DB 触发器、输入绑定和输出绑定可在以下组合中使�
 
 **实现：** 使用 Azure Cosmos DB 输入绑定的计时器触发器
 
-1. 通过使用 [计时器触发器](../azure-functions/functions-bindings-timer.md)，可以使用“输入绑定”每隔一定时间检索存储在 Azure Cosmos DB 容器中的银行帐户余额信息。
+1. 通过使用 [计时器触发器](../azure-functions/functions-bindings-timer.md)，可以使用“输入绑定”  每隔一定时间检索存储在 Azure Cosmos DB 容器中的银行帐户余额信息。
 2. 如果余额低于用户设置的低余额阈值，则采取 Azure Function 中的某个措施。
 3. 输出绑定可以是 [SendGrid 集成](../azure-functions/functions-bindings-sendgrid.md)，它可将电子邮件从服务帐户发送到为每个低余额帐户标识的电子邮件地址。
 
@@ -88,7 +86,7 @@ Azure Cosmos DB 触发器、输入绑定和输出绑定可在以下组合中使�
 **实现：** 使用 Azure Cosmos DB 触发器和输出绑定
 
 1. 通过使用 Azure Cosmos DB [图形数据库](graph-introduction.md)存储所有用户，可以使用 Azure Cosmos DB 触发器创建新函数。 
-2. 每当插入新用户时，都将调用该函数，然后使用“输出绑定”存储结果。
+2. 每当插入新用户时，都将调用该函数，然后使用“输出绑定”  存储结果。
 3. 该函数将查询图形数据库，以搜索与新用户直接相关的所有用户，并将该数据集返回到函数。
 4. 随后，此数据存储在 Azure Cosmos DB 表数据库中，并且这些键值对可由任何前端应用程序（向新用户显示有联系的好友）轻松检索。
 
@@ -100,23 +98,23 @@ Azure Cosmos DB 触发器、输入绑定和输出绑定可在以下组合中使�
 
 1. 通过将 Azure Cosmos DB 触发器添加到每个 Azure Functions 可以创建多个 Azure Functions，它们全部都侦听购物车数据的同一更改源。 请注意，当多个函数侦听同一更改源时，需要为每个函数提供新的租用集合。 有关租约集合的详细信息，请参阅[了解更改源处理器库](change-feed-processor.md)。
 2. 每当新商品添加到用户的购物车时，更改源都将从购物车容器中独立调用每个函数。
-   * 一个函数可能使用当前购物篮的内容更改用户可能有兴趣的其他商品的显示内容。
-   * 另一个函数可能更新库存总数。
-   * 另一个函数可能将某些产品的客户信息发送到营销部门，该部门将向它们发送促销邮件程序。 
+    * 一个函数可能使用当前购物篮的内容更改用户可能有兴趣的其他商品的显示内容。
+    * 另一个函数可能更新库存总数。
+    * 另一个函数可能将某些产品的客户信息发送到营销部门，该部门将向它们发送促销邮件程序。 
 
-     任何部门通过侦听更改源都可以创建 Azure Cosmos DB 触发器，并可确保它们在此过程中不会延迟关键的订单处理事件。
+        任何部门通过侦听更改源都可以创建 Azure Cosmos DB 触发器，并可确保它们在此过程中不会延迟关键的订单处理事件。
 
 在所有这些用例中，由于函数本身已分离应用，所以无需一直启动新应用实例。 相反，Azure Functions 会在需要时启动个别函数以完成离散进程。
 
 ## <a name="tooling"></a>工具
 
-在 Azure 门户和 Visual Studio 2017 中可以本机集成 Azure Cosmos DB 和 Azure Functions。
+在 Azure 门户和 Visual Studio 2019 中可以本机集成 Azure Cosmos DB 和 Azure Functions。
 
 * 在 Azure Functions 门户中，可以创建 Azure Cosmos DB 触发器。 有关快速入门说明，请参阅[在 Azure 门户中创建 Azure Cosmos DB 触发器](/azure-functions/functions-create-cosmos-db-triggered-function)。
 * 在 Azure Cosmos DB 门户中，可以将 Azure Cosmos DB 触发器添加到同一资源组中的现有 Azure Function 应用。
-* 在 Visual Studio 2017 中，可以使用[用于 Visual Studio 2017 的 Azure Functions 工具](../azure-functions/functions-develop-vs.md)创建 Azure Cosmos DB 触发器：
+* 在 Visual Studio 2019 中，可以使用 [Azure Functions 工具](../azure-functions/functions-develop-vs.md)创建 Azure Cosmos DB 触发器：
 
-    >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]
+    <!--Not Available on >[!VIDEO https://www.youtube.com/embed/iprndNsUeeg]-->
 
 ## <a name="why-choose-azure-functions-integration-for-serverless-computing"></a>为什么为无服务器计算选择 Azure Functions 集成？
 
@@ -153,5 +151,4 @@ Azure Functions 的优点：
 * [Azure Cosmos DB 绑定和触发器](../azure-functions/functions-bindings-cosmosdb.md)
 
 <!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

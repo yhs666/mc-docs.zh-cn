@@ -16,12 +16,12 @@ origin.date: 09/26/2018
 ms.date: 06/03/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3e864ad95716ee9e450c931a4085db6b1b024917
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: b9dce59c4d625cce343dedbf027438664927b208
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195486"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276433"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>教程：删除在 Azure 中运行的 Service Fabric 群集
 
@@ -36,10 +36,11 @@ ms.locfileid: "66195486"
 在此系列教程中，你将学习如何：
 > [!div class="checklist"]
 > * 使用模板在 Azure 上创建安全 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-> * [监视群集](service-fabric-tutorial-monitor-cluster.md)
 > * [缩小或扩大群集](service-fabric-tutorial-scale-cluster.md)
 > * [升级群集的运行时](service-fabric-tutorial-upgrade-cluster.md)
 > * 删除群集
+
+<!--Not Available on > * [Monitor a cluster](service-fabric-tutorial-monitor-cluster.md)-->
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -120,6 +121,8 @@ az resource delete --name "<name of the Resource>" --resource-type "Microsoft.Se
 现在你已完成了本教程，请尝试执行以下任务：
 * 了解如何使用 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 检查和管理 Service Fabric 群集。
 * 了解如何为群集节点[修补 Windows 操作系统](service-fabric-patch-orchestration-application.md)。
-* 了解如何为 [Windows 群集](service-fabric-diagnostics-event-aggregation-wad.md)聚合和收集事件以及如何[设置 Log Analytics](service-fabric-diagnostics-oms-setup.md) 来监视群集事件。
+* 了解如何为 [Windows 群集](service-fabric-diagnostics-event-aggregation-wad.md)聚合和收集事件以监视群集事件。
+
+<!--Not Availabel on and [setup Log Analytics](service-fabric-diagnostics-oms-setup.md)-->
 
 <!-- Update_Description: wording update -->

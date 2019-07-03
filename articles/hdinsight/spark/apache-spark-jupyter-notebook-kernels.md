@@ -15,15 +15,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/22/2018
-ms.date: 04/15/2019
+origin.date: 05/27/2019
+ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: d36cafee42c1daf41882ea055d0b25a3c01eeae7
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 01264bdc581495a5f9c9dac005aa2c92c5bb2f78
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003897"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236029"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 群集上的 Jupyter notebook 的内核 
 
@@ -41,14 +41,12 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>在 Spark HDInsight 上创建 Jupyter Notebook
 
-1. 从 [Azure 门户网站](https://portal.azure.cn/)打开群集。  有关说明，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。 将在新的门户边栏选项卡中打开群集。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Spark 群集。  有关说明，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#showClusters)。 此时将打开“概述”  视图。
 
-2. 在“快速链接”部分中，单击“群集仪表板”打开“群集仪表板”边栏选项卡。  如果没有看到“快速链接”，请从边栏选项卡上的左侧菜单中单击“概述”。
+2. 在“概述”  视图的“群集仪表板”  框中，选择 **Jupyter Notebook**。 出现提示时，请输入群集的管理员凭据。
 
-    ![Spark 中的 Jupyter Notebook](./media/apache-spark-jupyter-notebook-kernels/hdinsight-jupyter-notebook-on-spark.png "Spark 中的 Jupyter Notebook") 
-
-3. 单击“Jupyter 笔记本” 。 出现提示时，请输入群集的管理员凭据。
-
+    ![Spark 中的 Jupyter Notebook](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Spark 中的 Jupyter Notebook") 
+  
    > [!NOTE]
    > 也可以在浏览器中打开以下 URL 来访问 Spark 群集中的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
    >
@@ -56,7 +54,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
    > 
    > 
 
-3. 单击“新建”，然后单击“Pyspark”、“PySpark3”或“Spark”创建 Notebook。 使用适用于 Scala 应用程序的 Spark 内核、适用于 Python2 应用程序的 PySpark 内核，以及适用于 Python3 应用程序的 PySpark3 内核。
+3. 选择“新建”，然后选择“Pyspark”、“PySpark3”或“Spark”创建 Notebook。     使用适用于 Scala 应用程序的 Spark 内核、适用于 Python2 应用程序的 PySpark 内核，以及适用于 Python3 应用程序的 PySpark3 内核。
    
     ![Spark 中 Jupyter Notebook 的内核](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Spark 中 Jupyter Notebook 的内核") 
 
@@ -80,8 +78,8 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
     可以直接在应用程序中使用预设上下文。
 
-- **单元 magic**。 PySpark 内核提供一些预定义的“magic”，这是可以结合 `%%` 调用的特殊命令（例如 `%%MAGIC` <args>）。 magic 命令必须是代码单元中的第一个字，并且允许多行内容。 magic 一字应该是单元中的第一个字。 在 magic 前面添加任何内容（即使是注释）都会导致错误。     有关 magic 的详细信息，请参阅 [此文](http://ipython.readthedocs.org/en/stable/interactive/magics.html)。
-
+- **单元 magic**。 PySpark 内核提供一些预定义的“magic”，这是可以结合 `%%` 调用的特殊命令（例如 `%%MAGIC` `<args>`）。 magic 命令必须是代码单元中的第一个字，并且允许多行内容。 magic 一字应该是单元中的第一个字。 在 magic 前面添加任何内容（即使是注释）都会导致错误。     有关 magic 的详细信息，请参阅 [此文](https://ipython.readthedocs.org/en/stable/interactive/magics.html)。
+   
     下表列出了可通过内核提供的不同 magic。
 
    | Magic | 示例 | 说明 |
@@ -89,8 +87,8 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
    | help |`%%help` |生成所有可用 magic 的表，其中包含示例和说明 |
    | info |`%%info` |输出当前 Livy 终结点的会话信息 |
    | 配置 |`%%configure -f`<br>`{"executorMemory": "1000M"`,<br>`"executorCores": 4`} |配置用于创建会话的参数。 如果已创建会话，则必须指定 force 标志 (-f)，确保删除再重新创建该会话。 有关有效参数的列表，请查看 [Livy's POST /sessions Request Body](https://github.com/cloudera/livy#request-body) （Livy 的 POST /sessions 请求正文）。 参数必须以 JSON 字符串传入，并且必须位于 magic 后面的下一行，如示例列中所示。 |
-   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果传递了 `-o` 参数，则查询的结果以 [Pandas](http://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 |
-   | local |`%%local`<br>`a=1` |后续行中的所有代码在本地执行。 代码必须是有效的 Python2 代码，即使不考虑所使用的内核。 因此，即使在创建 Notebook 时选择了“PySpark3”或“Spark”，但如果在单元中使用 `%%local` magic，该单元也只能包含有效的 Python2 代码。 |
+   | sql |`%%sql -o <variable name>`<br> `SHOW TABLES` |针对 sqlContext 执行 Hive 查询。 如果传递了 `-o` 参数，则查询的结果以 [Pandas](https://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 |
+   | local |`%%local`<br>`a=1` |后续行中的所有代码在本地执行。 代码必须是有效的 Python2 代码，即使不考虑所使用的内核。 因此，即使在创建 Notebook 时选择了“PySpark3”或“Spark”，但如果在单元中使用 `%%local` magic，该单元也只能包含有效的 Python2 代码。   |
    | 日志 |`%%logs` |输出当前 Livy 会话的日志。 |
    | 删除 |`%%delete -f -s <session number>` |删除当前 Livy 终结点的特定会话。 无法删除针对内核本身启动的会话。 |
    | cleanup |`%%cleanup -f` |删除当前 Livy 终结点的所有会话，包括此笔记本的会话。 force 标志 -f 是必需的。 |
@@ -99,6 +97,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
    > 除了 PySpark 内核添加的 magic 以外，还可以使用[内置的 IPython magic](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)（包括 `%%sh`）。 可以使用 `%%sh` magic 在群集头节点上运行脚本和代码块。
    >
    >
+   
 - **自动可视化**。 **Pyspark** 内核自动将 Hive 和 SQL 查询的输出可视化。 可以选择多种不同类型的视觉效果，包括表、饼图、折线图、分区图和条形图。
 
 ## <a name="parameters-supported-with-the-sql-magic"></a>%%sql magic 支持的参数
@@ -106,7 +105,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 | 参数 | 示例 | 说明 |
 | --- | --- | --- |
-| -o |`-o <VARIABLE NAME>` |使用此参数将查询结果以 [Pandas](http://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 数据帧变量的名称是指定的变量名称。 |
+| -o |`-o <VARIABLE NAME>` |使用此参数将查询结果以 [Pandas](https://pandas.pydata.org/) 数据帧的形式保存在 %%local Python 上下文中。 数据帧变量的名称是指定的变量名称。 |
 | -q |`-q` |使用此参数可关闭单元可视化。 如果不想自动将单元内容可视化，而只想将它作为数据帧捕获，可以使用 `-q -o <VARIABLE>`。 如果想要关闭可视化而不捕获结果（例如，运行诸如 `CREATE TABLE` 语句的 SQL 查询），请使用不带 `-o` 参数的 `-q`。 |
 | -m |`-m <METHOD>` |其中，**METHOD** 是 **take** 或 **sample**（默认为 **take**）。 如果方法为 **take**，内核将从 MAXROWS 指定的结果数据集顶部选择元素（如此表中稍后所述）。 如果方法为 **sample**，内核将根据 `-r` 参数进行数据集的元素随机采样，如此表中稍后所述。 |
 | -r |`-r <FRACTION>` |此处的 **FRACTION** 是介于 0.0 与 1.0 之间的浮点数。 如果 SQL 查询的示例方法为 `sample`，则内核会随机地对结果集的指定部分元素取样。 例如，如果使用参数 `-m sample -r 0.01`运行 SQL 查询，则 1% 的结果行是随机取样的。 |
@@ -121,21 +120,12 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 * 从 **hivesampletable**中选择所有记录。
 * 由于使用了 -q，因此将关闭自动可视化。
-* 由于使用了 `-m sample -r 0.1 -n 500`，因此将从 hivesampletable 的行中随机采样 10%，并将结果集的大小限制为 500 行。
+* 由于使用了 `-m sample -r 0.1 -n 500` ，因此将从 hivesampletable 的行中随机采样 10%，并将结果集的大小限制为 500 行。
 * 最后，由于使用了 `-o query2` ，因此将输出保存到名为 **query2**的数据帧中。
 
 ## <a name="considerations-while-using-the-new-kernels"></a>使用新内核时的注意事项
 
-不管使用哪种内核，使 Notebook 一直保持运行都会消耗群集资源。  使用这些内核时，由于上下文是预设的，仅退出 Notebook 并不会终止上下文，因此会继续占用群集资源。 合理的做法是在使用完 Notebook 后，使用 Notebook “文件”菜单中的“关闭并停止”选项来终止上下文，然后退出 Notebook。     
-
-## <a name="show-me-some-examples"></a>举例说明
-
-打开 Jupyter 笔记本时，可以在根级别看到两个文件夹。
-
-* **PySpark** 文件夹包含使用新 **Python** 内核的示例 Notebook。
-* **Scala** 文件夹包含使用新 **Spark** 内核的示例 Notebook。
-
-可从 **PySpark** 或 **Spark** 文件夹打开 **00 - [READ ME FIRST] Spark Magic Kernel Features** Notebook，了解各种可用的 magic。 也可以使用这两个文件夹下面提供的其他笔记本示例，了解如何在 HDInsight Spark 群集上实现不同的 Jupyter 笔记本使用方案。
+不管使用哪种内核，使 Notebook 一直保持运行都会消耗群集资源。  使用这些内核时，由于上下文是预设的，仅退出 Notebook 并不会终止上下文，因此会继续占用群集资源。 合理的做法是在使用完 Notebook 后，使用 Notebook “文件”菜单中的“关闭并停止”选项来终止上下文，然后退出 Notebook。       
 
 ## <a name="where-are-the-notebooks-stored"></a>Notebook 存储在何处？
 
@@ -157,15 +147,16 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 
 ## <a name="feedback"></a>反馈
-新内核正处于发展阶段，一段时间后将变得成熟。 这可能也意味着，API 可随着这些内核的成熟而改变。 如果在使用这些新内核时有任何反馈，我们将不胜感激。 这对于内核最终版本的定调会很有帮助。 可以在本文末尾的**意见**部分下面填写意见/反馈。
+
+新内核正处于发展阶段，一段时间后将变得成熟。 这可能也意味着，API 可随着这些内核的成熟而改变。 如果在使用这些新内核时有任何反馈，我们将不胜感激。 这对于内核最终版本的定调会很有帮助。 可以在本文末尾的“反馈”  部分下面留下意见/反馈。
 
 ## <a name="seealso"></a>另请参阅
 * [概述：Azure HDInsight 上的 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>方案
-* [Apache Spark 与 BI：使用 HDInsight 中的 Spark 和 BI 工具执行交互式数据分析](apache-spark-use-bi-tools.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 结合 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检查结果](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark 与 BI：将 HDInsight 中的 Spark 与 BI 工具配合使用来执行交互式数据分析](apache-spark-use-bi-tools.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 来通过 HVAC 数据分析建筑物温度](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark 与机器学习：使用 HDInsight 中的 Spark 预测食品检验结果](apache-spark-machine-learning-mllib-ipython.md)
 * [使用 HDInsight 中的 Apache Spark 分析网站日志](apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>创建和运行应用程序
@@ -176,9 +167,9 @@ Google Chrome 仅支持 Spark HDInsight 群集中的 Jupyter Notebook。
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件创建和提交 Spark Scala 应用程序](apache-spark-intellij-tool-plugin.md)
 * [使用适用于 IntelliJ IDEA 的 HDInsight 工具插件远程调试 Apache Spark 应用程序](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [在 HDInsight 上的 Apache Spark 群集中使用 Apache Zeppelin 笔记本](apache-spark-zeppelin-notebook.md)
-* [将外部包与 Jupyter 笔记本配合使用](apache-spark-jupyter-notebook-use-external-packages.md)
-* [在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集](apache-spark-jupyter-notebook-install-locally.md)
+* [Use external packages with Jupyter notebooks（将外部包与 Jupyter 笔记本配合使用）](apache-spark-jupyter-notebook-use-external-packages.md)
+* [Install Jupyter on your computer and connect to an HDInsight Spark cluster（在计算机上安装 Jupyter 并连接到 HDInsight Spark 群集）](apache-spark-jupyter-notebook-install-locally.md)
 
 ### <a name="manage-resources"></a>管理资源
 * [管理 Azure HDInsight 中 Apache Spark 群集的资源](apache-spark-resource-manager.md)
-* [跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业](apache-spark-job-debugging.md)
+* [Track and debug jobs running on an Apache Spark cluster in HDInsight（跟踪和调试 HDInsight 中的 Apache Spark 群集上运行的作业）](apache-spark-job-debugging.md)

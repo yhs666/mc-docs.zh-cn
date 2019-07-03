@@ -4,22 +4,23 @@ description: 了解 Azure Cosmos DB 在用作键/值存储时执行简单写入�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 01/21/2019
+origin.date: 05/23/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 45f211e6c802ba4339cf4a61ed1ed2fff2074489
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 7a892a4a61ec7b387e18ad3b6b8e79d3e045ee73
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309330"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171430"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 
 Azure Cosmos DB 是一个多区域分布式多模型数据库服务，用于轻松构建高度可用的大规模应用程序。 默认情况下，Azure Cosmos DB 会自动为其引入的所有数据高效编制索引。 因此，可针对任何类型的数据执行快速一致的 [SQL](how-to-sql-query.md)（和 [JavaScript](stored-procedures-triggers-udfs.md)）查询。 
 
-<!-- Notice: 全球 to 多个区域 --> 本文介绍使用 Azure Cosmos DB 作为键/值存储执行简单写入和读取操作时产生的成本。 写入操作包括文档的插入、替换、删除和更新插入。 除了针对所有采用宽松一致性的单区域帐户和多区域帐户提供有保证的 99.99% 可用性 SLA，针对所有多区域数据库帐户提供 99.999% 读取可用性以外，Azure Cosmos DB 还保证读取延迟小于 10 毫秒，（索引）写入延迟小于 15 毫秒，SLA 高达 99%。 
+<!-- Notice: 全球 to 多个区域 -->
+本文介绍使用 Azure Cosmos DB 作为键/值存储执行简单写入和读取操作时产生的成本。 写入操作包括文档的插入、替换、删除和更新插入。 除了针对所有采用宽松一致性的单区域帐户和多区域帐户提供有保证的 99.99% 可用性 SLA，针对所有多区域数据库帐户提供 99.999% 读取可用性以外，Azure Cosmos DB 还保证读取延迟小于 10 毫秒，（索引）写入延迟小于 15 毫秒，SLA 高达 99%。 
 
 ## <a name="why-we-use-request-units-rus"></a>为何使用请求单位 (RU)
 
@@ -27,7 +28,8 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 
 作为一种多区域分布式数据库系统，Cosmos DB 是唯一除提供高可用性外还在延迟、吞吐量和一致性方面提供 SLA 的 Azure 服务。 预配的吞吐量应用到与 Cosmos DB 数据库帐户关联的每个区域。 对于读取，Cosmos DB 提供多个妥善定义的[一致性级别](consistency-levels.md)供用户选择。 
 
-<!-- Notice: 全球 to 多个区域 --> 下表显示基于 1 KB 和 100 KB 文档大小执行读取和写入事务所需的 RU 数量。
+<!-- Notice: 全球 to 多个区域 -->
+下表显示基于 1 KB 和 100 KB 自定义文档大小执行读取和写入事务所需的 RU 数量。
 
 |项大小|1 次读取|1 次写入|
 |-------------|------|-------|
@@ -42,8 +44,8 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 
 |项大小|百万次读取|百万次写入|
 |-------------|-------|--------|
-|1 KB|0.228 元|1.14 元|
-|100 KB|2.28 元|11.4 元|
+|1 KB|0\.228 元|1\.14 元|
+|100 KB|2\.28 元|11.4 元|
 
 <!--Notice: $0.08 against CNY0.82 for Azure China-->
 

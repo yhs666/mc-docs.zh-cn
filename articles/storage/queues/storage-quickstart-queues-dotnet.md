@@ -10,12 +10,12 @@ origin.date: 02/06/2018
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
-ms.openlocfilehash: 612cb75b1b701285bcfebfccb10c12c053f57674
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 82d347f2fd7fc295e7d51121408aace92c90ed90
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004002"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236656"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入门：使用 .NET 在 Azure 存储中创建队列
 
@@ -54,7 +54,7 @@ ms.locfileid: "66004002"
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 *storage-queues-dotnet-quickstart* 文件夹并将其打开，然后双击“storage-queues-dotnet-quickstart.sln”。 
+此命令会将存储库克隆到本地 git 文件夹。 若要打开 Visual Studio 解决方案，请找到 *storage-queues-dotnet-quickstart* 文件夹并将其打开，然后双击“storage-queues-dotnet-quickstart.sln”。  
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -188,7 +188,7 @@ Console.WriteLine();
 
 接下来，该示例将消息添加到队列的后部。 
 
-消息必须采用可包含在 XML 请求中的 UTF-8 编码格式，大小不能超过 64 KB。 如果消息包含二进制数据，则 Microsoft 建议对消息进行 Base64 编码。
+消息必须采用可包含在 XML 请求中的 UTF-8 编码格式，大小不能超过 64 KB。 如果消息包含二进制数据，则 Azure 建议对消息进行 Base64 编码。
 
 消息的最大生存时间默认设置为 7 天。 可为消息生存时间指定任何正数，-1 表示该消息不会过期。
 

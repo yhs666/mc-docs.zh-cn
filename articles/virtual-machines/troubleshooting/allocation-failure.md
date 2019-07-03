@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 origin.date: 04/13/2018
 ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ca304add2b5e009d8f0bd1e03012d742904c351
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: dafb175db218b5bbe35b35713e1c9477bb052fb8
+ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003729"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277524"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>在 Azure 中创建、重启 VM 或重设其大小时排查分配失败
 
@@ -30,7 +30,7 @@ ms.locfileid: "59003729"
 
 本文说明一些常见分配故障的原因，并建议可能的补救方法。
 
-如果本文未解决你的 Azure 问题，请访问 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)。 此外，还可以在 [Azure 支持](https://support.windowsazure.cn/support/support-azure)站点上发出 Azure 支持请求。
+如果本文未解决你的 Azure 问题，请访问 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)。 此外，还可以在 [Azure 支持](https://support.windowsazure.cn/support/support-azure)站点上发出 Azure 支持请求。
 
 <!--Not Available on You can post your issue on these forums or to @AzureSupport on Twitter.-->
 

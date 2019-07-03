@@ -7,21 +7,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-origin.date: 02/26/2018
-ms.date: 01/21/2019
-ms.openlocfilehash: 8f5f85d9dbda3dfccba98d0fc70665455df10f74
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+origin.date: 02/26/2019
+ms.date: 06/17/2019
+ms.openlocfilehash: 7cdc0628438964d6cafe062f07d6cd220ce8da06
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309222"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171363"
 ---
-# <a name="how-to-multiple-region-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的用于 MongoDB 的 API 在多个区域分配读取操作
+# <a name="how-to-multiple-regionally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>如何使用 Azure Cosmos DB 的 API for MongoDB 在多个区域中分配读取操作
 
-本文介绍如何通过 Azure Cosmos DB 的用于 MongoDB 的 API 使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置在多个区域分配读取操作。
+本文介绍如何通过 Azure Cosmos DB 的 API for MongoDB 使用 [MongoDB 读取首选项](https://docs.mongodb.com/manual/core/read-preference/)设置在多个区域中分配读取操作。
 
 ## <a name="prerequisites"></a>先决条件 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
+
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
 请参阅此[快速入门](tutorial-global-distribution-mongodb.md)文章，了解如何使用 Azure 门户设置进行多区域分发的 Cosmos 帐户，然后连接到它。
@@ -54,6 +55,7 @@ node index.js
 应用程序会尝试连接到 MongoDB 源，但连接会失败，因为连接字符串无效。 遵循自述文件中的步骤更新连接字符串 `url`。 此外，将 `readFromRegion` 更新为 Cosmos 帐户中的读取区域。 以下说明摘自 NodeJS 示例：
 
 ```
+
 * Next, substitute the `url`, `readFromRegion` in App.Config with your Cosmos account's values. 
 ```
 
@@ -144,7 +146,9 @@ MongoClient.connect(url, function(err, client) {
       }
 ```
 
-因此，MongoClient 可以结合区域名称使用 `region` 标记将读取操作定向到特定的区域。 对于 Cosmos 帐户，可以在 Azure 门户中左侧的“设置”->“全局副本数据”下面找到区域名称。 此设置可用于实现**读取隔离** - 可让客户端应用程序将读取操作定向到特定的区域。 此设置非常适合用于在后台运行的，并且不属于生产关键型服务的非生产/分析型方案。
+因此，MongoClient 可以结合区域名称使用 `region` 标记将读取操作定向到特定的区域。 对于 Cosmos 帐户，可以在 Azure 门户中左侧的“设置”->“全局副本数据”下面找到区域名称。  此设置可用于实现**读取隔离** - 可让客户端应用程序将读取操作定向到特定的区域。 此设置非常适合用于在后台运行的，并且不属于生产关键型服务的非生产/分析型方案。
+
+<!--Correct on Settings->Replica data globally-->
 
 示例应用程序中的以下代码片段演示如何在 NodeJS 中使用标记配置读取首选项：
 
@@ -159,19 +163,19 @@ MongoClient.connect(url, function(err, client) {
 
 请参阅其他平台（例如 [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) 和 [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)）的相应示例应用程序存储库。
 
-本文介绍了如何在 Azure Cosmos DB 的用于 MongoDB 的 API 中使用读取首选项在多个区域分配读取操作。
+本文介绍了如何通过 Azure Cosmos DB 的 API for MongoDB 使用读取首选项在多个区域中分配读取操作。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果不打算继续使用此应用，请删除本文在 Azure 门户中创建的所有资源，步骤如下：
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。 
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。  
+2. 在资源组页上单击“删除”  ，在文本框中键入要删除的资源的名称，并单击“删除”  。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
-* [使用 Azure Cosmos DB 的用于 MongoDB 的 API 设置多区域分布式数据库](tutorial-global-distribution-mongodb.md)
+* [使用 Azure Cosmos DB 的 API for MongoDB 设置多区域分布式数据库](tutorial-global-distribution-mongodb.md)
 * [使用 Azure Cosmos DB 模拟器在本地进行开发](local-emulator.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/22/2018
-ms.date: 04/15/2019
+origin.date: 05/27/2019
+ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: eb94ec5f7d43658b2381535ee9006687115b50e7
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: fe46d6c0ae00e69389574c3401a785819203cb2d
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003853"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235945"
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>HDInsight 中的 Apache HBase 入门示例
 
@@ -28,36 +28,38 @@ ms.locfileid: "59003853"
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>先决条件
-开始使用本 HBase 示例前，必须具有以下项目：
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-* **一个 Azure 订阅**。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
-* [安全外壳 (SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 
-* [curl](https://curl.haxx.se/download.html)。
+## <a name="prerequisites"></a>先决条件
+
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+
+* Bash。 本文中的示例使用 Windows 10 上的 Bash shell 来执行 curl 命令。 有关安装步骤，请参阅[适用于 Linux 的 Windows 子系统安装指南 - Windows 10](https://docs.microsoft.com/windows/wsl/install-win10)。  也可以使用其他 [Unix shell](https://www.gnu.org/software/bash/)。  这些 curl 示例在经过轻微的修改后，可在 Windows 命令提示符下运行。  或者，可以使用 Windows PowerShell cmdlet [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-restmethod)。
+
 
 ## <a name="create-apache-hbase-cluster"></a>创建 Apache HBase 群集
 以下过程使用 Azure 资源管理器模板创建 HBase 群集以及相关的默认 Azure 存储帐户。 若要了解该过程与其他群集创建方法中使用的参数，请参阅 [在 HDInsight 中创建基于 Linux 的 Hadoop 群集](../hdinsight-hadoop-provision-linux-clusters.md)。 有关使用 Data Lake Storage Gen2 的详细信息，请参阅[快速入门：在 HDInsight 中设置群集](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)。
 
-1. 单击下面的图像可在 Azure 门户中打开模板。 该模板位于 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中。
+1. 选择下面的图像可在 Azure 门户中打开模板。 模板位于 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/)中。
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    >[!NOTE]
-    > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载的模板，以适应 Azure 中国云环境。 例如，替换一些终结点 - 将“blob.core.chinacloudapi.cn”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”；将允许的位置更改为“中国北部”和“中国东部”；将 HDInsight Linux 版本更改为 Azure 中国区支持的版本：3.5。
-
 2. 在“自定义部署”  边栏选项卡中，输入以下信息：
 
-   * **订阅**：选择用于创建群集的 Azure 订阅。
-   * **资源组**：创建 Azure 资源管理组，或使用现有的组。
-   * **位置**：指定资源组的位置。 
-   * **ClusterName**：输入 HBase 群集的名称。
-   * **群集登录名和密码**：默认登录名为“admin”。
-   * **SSH 用户名和密码**：默认用户名为“sshuser”。  可以重命名它。
+    |属性 |说明 |
+    |---|---|
+    |订阅|选择用于创建群集的 Azure 订阅。|
+    |资源组|创建 Azure 资源管理组，或使用现有的组。|
+    |位置|指定资源组的位置。 |
+    |ClusterName|输入 HBase 群集的名称。|
+    |群集登录名和密码|默认登录名为“admin”  。|
+    |SSH 用户名和密码|默认用户名为“sshuser”  。|
 
      其他参数是可选的。  
 
-     每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据将保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
-3. 选择“我同意上述条款和条件”，并单击“购买”。 创建群集大约需要 20 分钟时间。
+    每个群集都有一个 Azure 存储帐户依赖项。 删除群集后，数据将保留在存储帐户中。 群集的默认存储帐户名为群集名称后接“store”。 该名称已在模板 variables 节中硬编码。
+
+3. 选择“我同意上述条款和条件”，并选择“购买”。   创建群集大约需要 20 分钟时间。
 
 > [!NOTE]
 > 删除 HBase 群集后，可使用同一默认 Blob 容器创建另一 HBase 群集。 新群集会选取在原始群集中创建的 HBase 表。 为了避免不一致，建议在删除群集之前先禁用 HBase 表。
@@ -77,39 +79,58 @@ ms.locfileid: "59003853"
 
 **使用 HBase shell**
 
-1. 从 SSH 运行以下 HBase 命令：
+1. 使用 `ssh` 命令连接到 HBase 群集。 通过将 `CLUSTERNAME` 替换为群集的名称来编辑以下命令，然后输入该命令：
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```
+
+1. 使用 `hbase shell` 命令来启动 HBase 交互式 shell。 在 SSH 连接中输入以下命令。
 
     ```bash
     hbase shell
     ```
 
-2. 创建包含两个列系列的 HBase：
+1. 使用 `create` 命令，创建包含双列系列的 HBase 表。 表名和列名区分大小写。 输入以下命令：
 
     ```hbaseshell   
     create 'Contacts', 'Personal', 'Office'
+    ```
+
+1. 使用 `list` 命令，列出 HBase 中的所有表。 输入以下命令：
+
+    ```hbase
     list
     ```
-3. 插入一些数据：
+
+1. 使用 `put` 命令，将指定列中的值插入特定表中的指定行。 输入以下命令：
 
     ```hbaseshell   
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
     put 'Contacts', '1000', 'Personal:Phone', '1-425-000-0001'
     put 'Contacts', '1000', 'Office:Phone', '1-425-000-0002'
     put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
+    ```
+
+1. 使用 `scan` 命令扫描并返回 `Contacts` 表数据。 输入以下命令：
+
+    ```hbase
     scan 'Contacts'
     ```
 
-    ![HDInsight Hadoop HBase shell][img-hbase-shell]
-4. 获取单个行
+    ![HDInsight Hadoop HBase shell](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png)
+
+1. 使用 `get` 命令提取某个行的内容。 输入以下命令：
 
     ```hbaseshell
     get 'Contacts', '1000'
     ```
 
-    将会看到与使用扫描命令相同的结果，因为只有一个行。
-   
-    有关 HBase 表架构的详细信息，请参阅 [Apache HBase 架构设计简介][hbase-schema]。 有关 HBase 命令的详细信息，请参阅 [Apache HBase 参考指南][hbase-quick-start]。
-5. 退出 shell
+    看到的结果与使用 `scan` 命令的结果类似，因为只有一个行。
+
+    有关 HBase 表架构的详细信息，请参阅 [Apache HBase 架构设计简介](http://0b4af6cdc2f0c5998459-c0245c5c937c5dedcca3f1764ecc9b2f.r43.cf2.rackcdn.com/9353-login1210_khurana.pdf)。 有关 HBase 命令的详细信息，请参阅 [Apache HBase 参考指南](https://hbase.apache.org/book.html#quickstart)。
+
+1. 使用 `exit` 命令来停止 HBase 交互式 shell。 输入以下命令：
 
     ```hbaseshell
     exit
@@ -137,7 +158,7 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
 > [!NOTE]
 > 此过程使用在上一个过程中创建的“联系人”HBase 表。
 
-1. 从 SSH 运行以下命令，将数据文件转换成 StoreFiles 并将其存储在 Dimporttsv.bulk.output 指定的相对路径。  如果在 HBase Shell 中操作，请使用退出命令退出。
+1. 通过打开的 ssh 连接运行以下命令，将数据文件转换成 StoreFiles 并将其存储在 `Dimporttsv.bulk.output` 指定的相对路径。
 
     ```bash   
     hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name,Personal:Phone,Office:Phone,Office:Address" -Dimporttsv.bulk.output="/example/data/storeDataFileOutput" Contacts wasb://hbasecontacts@hditutorialdata.blob.core.chinacloudapi.cn/contacts.txt
@@ -149,14 +170,13 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
     hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /example/data/storeDataFileOutput Contacts
     ```
 
-3. 可以打开 HBase Shell，并使用扫描命令来列出表内容。
+3. 可以打开 HBase shell，并使用 `scan` 命令来列出表内容。
 
 ## <a name="use-apache-hive-to-query-apache-hbase"></a>使用 Apache Hive 查询 Apache HBase
 
 可以使用 [Apache Hive](https://hive.apache.org/) 查询 HBase 表中的数据。 本部分将创建要映射到 HBase 表的 Hive 表，并使用该表来查询 HBase 表中的数据。
 
-1. 打开 **PuTTY**并连接到群集。  参阅前一过程中的说明。
-2. 在 SSH 会话中，使用以下命令启动 Beeline：
+1. 通过打开的 ssh 连接，使用以下命令启动 Beeline：
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -n admin
@@ -173,28 +193,39 @@ HBase 提供了多种方法用于将数据载入表中。  有关详细信息，
     TBLPROPERTIES ('hbase.table.name' = 'Contacts');
     ```
 
-4. 运行以下 HiveQL 脚本，以查询 HBase 表中的数据：
+1. 运行以下 HiveQL 脚本，以查询 HBase 表中的数据：
 
-    ```hiveql   
-    SELECT count(rowkey) FROM hbasecontacts;
+    ```hiveql
+    SELECT count(rowkey) AS rk_count FROM hbasecontacts;
     ```
+
+1. 若要退出 Beeline，请使用 `!exit`。
+
+1. 若要退出 ssh 连接，请使用 `exit`。
 
 ## <a name="use-hbase-rest-apis-using-curl"></a>通过 Curl 使用 HBase REST API
 
 REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 始终应该使用安全 HTTP (HTTPS) 来发出请求，确保安全地将凭据发送到服务器。
 
-2. 使用以下命令列出现有的 HBase 表：
+1. 启动环境变量以便于使用。 通过将 `MYPASSWORD` 替换为群集登录密码来编辑以下命令。 将 `MYCLUSTERNAME` 替换为 HBase 群集的名称。 然后输入命令。
 
     ```bash
-    curl -u <UserName>:<Password> \
-    -G https://<ClusterName>.azurehdinsight.cn/hbaserest/
+    export password='MYPASSWORD'
+    export clustername=MYCLUSTERNAME
     ```
 
-3. 使用以下命令创建包含两个列系列的新 HBase 表：
+1. 使用以下命令列出现有的 HBase 表：
 
-    ```bash   
-    curl -u <UserName>:<Password> \
-    -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/schema" \
+    ```bash
+    curl -u admin:$password \
+    -G https://$clustername.azurehdinsight.cn/hbaserest/
+    ```
+
+1. 使用以下命令创建包含两个列系列的新 HBase 表：
+
+    ```bash
+    curl -u admin:$password \
+    -X PUT "https://$clustername.azurehdinsight.cn/hbaserest/Contacts1/schema" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"@name\":\"Contact1\",\"ColumnSchema\":[{\"name\":\"Personal\"},{\"name\":\"Office\"}]}" \
@@ -202,11 +233,11 @@ REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_
     ```
 
     架构以 JSON 格式提供。
-4. 使用以下命令插入一些数据：
+1. 使用以下命令插入一些数据：
 
-    ```bash   
-    curl -u <UserName>:<Password> \
-    -X PUT "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/false-row-key" \
+    ```bash
+    curl -u admin:$password \
+    -X PUT "https://$clustername.azurehdinsight.cn/hbaserest/Contacts1/false-row-key" \
     -H "Accept: application/json" \
     -H "Content-Type: application/json" \
     -d "{\"Row\":[{\"key\":\"MTAwMA==\",\"Cell\": [{\"column\":\"UGVyc29uYWw6TmFtZQ==\", \"$\":\"Sm9obiBEb2xl\"}]}]}" \
@@ -220,11 +251,12 @@ REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_
    * Sm9obiBEb2xl:John Dole
 
      [false-row-key](https://hbase.apache.org/apidocs/org/apache/hadoop/hbase/rest/package-summary.html#operation_cell_store_single) 允许插入多个（批处理）值。
-5. 使用以下命令获取行：
 
-    ```bash 
-    curl -u <UserName>:<Password> \
-    -X GET "https://<ClusterName>.azurehdinsight.cn/hbaserest/Contacts1/1000" \
+1. 使用以下命令获取行：
+
+    ```bash
+    curl -u admin:$password \
+    GET "https://$clustername.azurehdinsight.cn/hbaserest/Contacts1/1000" \
     -H "Accept: application/json" \
     -v
     ```
@@ -249,9 +281,9 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 **访问 HBase Master UI**
 
-1. 通过 https://&lt;群集名称>.azurehdinsight.cn 登录到 Ambari Web UI。
+1. 通过 https://&lt;Clustername>.azurehdinsight.cn 登录到 Ambari Web UI。
 2. 在左侧菜单中，单击“HBase”  。
-3. 在页面顶部单击“快速链接”，指向活动 Zookeeper 节点链接，并单击“HBase Master UI”。  该 UI 会在另一个浏览器标签页中打开：
+3. 在页面顶部单击“快速链接”  ，指向活动 Zookeeper 节点链接，并单击“HBase Master UI”  。  该 UI 会在另一个浏览器标签页中打开：
 
    ![HDInsight HBase HMaster UI](./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
@@ -270,7 +302,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 ## <a name="troubleshoot"></a>故障排除
 
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](../hdinsight-hadoop-create-linux-clusters-portal.md)。
+如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](../hdinsight-hadoop-customize-cluster-linux.md#access-control)。
 
 ## <a name="next-steps"></a>后续步骤
 本文已介绍如何创建 Apache HBase 群集、如何创建表以及如何从 HBase shell 查看这些表中的数据。 此外，学习了如何对 HBase 表中的数据使用 Hive 查询，以及如何使用 HBase C# REST API 创建 HBase 表并从该表中检索数据。

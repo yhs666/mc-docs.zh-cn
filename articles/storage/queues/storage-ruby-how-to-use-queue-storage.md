@@ -11,12 +11,12 @@ origin.date: 12/08/2016
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: queues
-ms.openlocfilehash: d15443a6cefc4b5d0f7db12f1619b93ecf1bb70c
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 02d0d9e0275d3ebd28d867b5f6e9eb324e4163ab
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028283"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236653"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>如何通过 Ruby 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "53028283"
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>概述
-本指南演示了如何使用 Microsoft Azure 队列存储服务执行常见方案。 相关示例是使用 Ruby Azure API 编写的。
+本指南演示如何使用 Azure 队列存储服务执行常见方案。 相关示例是使用 Ruby Azure API 编写的。
 介绍的方案包括**插入**、**扫视**、**获取**和**删除**队列消息以及**创建和删除队列**。
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -60,7 +60,7 @@ Azure.config.storage_access_key = "<your Azure storage access key>"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到要使用的存储帐户。
-3. 在右侧的“设置”边栏选项卡中，单击“访问密钥” 。
+3. 在右侧的“设置”边栏选项卡中，单击“访问密钥”  。
 4. 在显示的“访问密钥”边栏选项卡中，可看到访问密钥 1 和访问密钥 2。 可以使用其中任意一个密钥。 
 5. 单击复制图标以将密钥复制到剪贴板。 
 
@@ -100,9 +100,9 @@ result = azure_queue_service.peek_messages("test-queue",
 可通过两个步骤从队列中删除消息。
 
 1. 在调用 **list\_messages()** 时，默认情况下会获取队列中的下一条消息。 也可以指定要获取的消息数。 从 **list\_messages()** 返回的消息变得对从此队列读取消息的任何其他代码不可见。 以参数形式传入可见性超时秒数。
-2. 还必须调用 **delete_message()**，才能完成队列消息删除操作。
+2. 还必须调用 **delete_message()** ，才能完成队列消息删除操作。
 
-此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 代码在处理消息后会立即调用 **delete\_message()**。
+此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 代码在处理消息后会立即调用 **delete\_message()** 。
 
 ```ruby
 messages = azure_queue_service.list_messages("test-queue", 30)

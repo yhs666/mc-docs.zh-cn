@@ -6,29 +6,27 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 04/08/2019
+ms.date: 06/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1ec272aedca0e250b7f1e59defe452567d8d0f1a
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: ba023b7bcfb8fbedd1f4498e1844123f5ba51325
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835722"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325772"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 磁盘手动创建并使用卷
 
 基于容器的应用程序通常需要访问数据并将数据保存在外部数据卷中。 如果单个 Pod 需要访问存储，则可以使用 Azure 磁盘来提供本机卷供应用程序使用。 本文介绍了如何手动创建 Azure 磁盘并将其附加到 AKS 中的 Pod。
 
 > [!NOTE]
-> Azure 磁盘一次只能装载到单个 Pod 中。 如果需要在多个 Pod 之间共享永久性卷，请使用 [Azure 文件][azure-files-volume]。
+> Azure 磁盘一次只能装载到单个 Pod 中。 如果需要在多个 Pod 之间共享永久性卷，请使用 [Azure 文件存储][azure-files-volume]。
 
 有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
-
-<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -36,7 +34,7 @@ ms.locfileid: "65835722"
 
 创建用于 AKS 的 Azure 磁盘时，可以在**节点**资源组中创建磁盘资源。 此方法允许 AKS 群集访问和管理磁盘资源。 如果想要在单独的资源组中创建磁盘，则必须向群集的 Azure Kubernetes 服务 (AKS) 服务主体授予磁盘的资源组的 `Contributor` 角色。
 
-对于本文，请在节点资源组中创建磁盘。 首先，使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取名为 myResourceGroup 的资源组中 AKS 群集名称 myAKSCluster 的节点资源组：
+对于本文，请在节点资源组中创建磁盘。 首先，使用 [az aks show][az-aks-show] 命令获取资源组名称并添加 `--query nodeResourceGroup` 查询参数。 以下示例获取名为 myResourceGroup  的资源组中 AKS 群集名称 myAKSCluster  的节点资源组：
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -44,12 +42,14 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_chinaeast2
 ```
 
-现在，使用 [az disk create][az-disk-create] 命令创建磁盘。 指定在上一命令中获取的节点资源组名称，然后指定磁盘资源的名称，例如 *myAKSDisk*。 以下示例创建一个 *20*GiB 的磁盘，并且在创建后输出磁盘的 ID：
+现在，使用 [az disk create][az-disk-create] 命令创建磁盘。 指定在上一命令中获取的节点资源组名称，然后指定磁盘资源的名称，例如 *myAKSDisk*。 以下示例创建一个 *20*GiB 的磁盘，并且在创建后输出磁盘的 ID。
+
+<!--Not Available on If you need to create a disk for use with Windows Server containers (currently in preview in AKS)-->
 
 ```azurecli
 az disk create \
   --resource-group MC_myResourceGroup_myAKSCluster_chinaeast2 \
-  --name myAKSDisk  \
+  --name myAKSDisk \
   --size-gb 20 \
   --query id --output tsv
 ```
@@ -68,6 +68,8 @@ az disk create \
 ## <a name="mount-disk-as-volume"></a>装载磁盘作为卷
 
 若要将 Azure 磁盘装载到 Pod 中，请在容器规范中配置卷。使用以下内容创建名为 `azure-disk-pod.yaml` 的新文件。 将 `diskName` 更新为在上一步骤中创建的磁盘的名称，将 `diskURI` 更新为在磁盘创建命令的输出中显示的磁盘 ID。 如果需要，请更新 `mountPath`，这是 Azure 磁盘在 Pod 中的装载路径。
+
+<!--Not Available on For Windows Server containers (currently in preview in AKS)-->
 
 ```yaml
 apiVersion: v1
@@ -146,9 +148,7 @@ Events:
 [az-group-list]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-list
 [az-resource-show]: https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-
-<!--Not Avaialble on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
-
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [azure-files-volume]: azure-files-volume.md

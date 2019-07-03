@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 11084dc8a26f30c46fa305ec75e736e33f3498a1
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 4c98ef8d55a71efd5f82e298f76aa7b35592f707
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390754"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236471"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
@@ -159,15 +159,6 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
 ### <a name="apple-fairplay-preview"></a>Apple FairPlay（预览版）
 现可使用 Azure 媒体服务，通过 Apple FairPlay 动态加密 HTTP Live Streaming (HLS) 内容。 还可使用媒体服务许可证传送服务，将 FairPlay 许可证传送到客户端。 有关详细信息，请参阅“使用 Azure 媒体服务流式传输受 Apple FairPlay 保护的 HLS 内容”。
 
-## <a id="feb_changes16"></a>2016 年 2 月版本
-适用于 .NET 的媒体服务 SDK 最新版本 (3.5.3) 包含 Google Widevine 相关的 bug 修复程序。 之前无法对 Widevine 加密的多个资产重复使用 AssetDeliveryPolicy。 为了修复此 bug，SDK 中添加了以下属性：WidevineBaseLicenseAcquisitionUrl。
-
-    Dictionary<AssetDeliveryPolicyConfigurationKey, string> assetDeliveryPolicyConfiguration =
-        new Dictionary<AssetDeliveryPolicyConfigurationKey, string>
-    {
-        {AssetDeliveryPolicyConfigurationKey.WidevineBaseLicenseAcquisitionUrl,"http://testurl"},
-
-    };
 
 ## <a id="jan_changes_16"></a>2016 年 1 月版本
 编码预留单位已重命名，以减少与编码器名称的混淆。
@@ -181,33 +172,13 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
  将在 Media Encoder Standard 发布后大约 12 个月内开始弃用媒体编码器。
 
 ### <a name="azure-sdk-for-php"></a>用于 PHP 的 Azure SDK
-Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 包，其中包含媒体服务的更新与新功能。 具体而言，适用于 PHP 的媒体服务 SDK 现支持最新[内容保护](media-services-content-protection-overview.md)功能。 使用 AES 和 DRM（PlayReady 和 Widevine）对这些功能进行动态加密（可以使用也可不使用标记限制）。 还支持缩放[编码单位](media-services-dotnet-encoding-units.md)。
+Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azure-sdk-for-php) 包，其中包含媒体服务的更新与新功能。 具体而言，适用于 PHP 的媒体服务 SDK 现支持最新[内容保护](media-services-content-protection-overview.md)功能。 使用 AES 和 DRM (PlayReady) 对这些功能进行动态加密（可以使用也可不使用令牌限制）。 还支持缩放[编码单位](media-services-dotnet-encoding-units.md)。
 
 有关详细信息，请参阅：
 
 * 以下[代码示例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
   * vodworkflow_aes.php  ：此 PHP 文件演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
   * scale_encoding_units.php  ：此 PHP 文件演示如何缩放编码预留单位。
-
-
-## <a id="oct_changes_15"></a>2015 年 10 月版本
-媒体服务现在位于以下数据中心：巴西南部、印度西部、印度南部和印度中部。 现在可以使用 Azure 门户[创建媒体服务帐户](media-services-portal-create-account.md)，以及执行[媒体服务文档网页](https://azure.microsoft.com/documentation/services/media-services/)中所述的各项任务。 这些数据中心未启用实时编码。 此外，并非所有类型的编码预留单位都可用于这些数据中心。
-
-* 巴西南部：                                        只可以使用标准和基本编码保留单位。
-* 印度西部、印度南部和印度中部：           只可以使用基本编码保留单位。
-
-## <a id="september_changes_15"></a>2015 年 9 月版本
-可以通过[媒体服务 .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)（从版本 3.5.1 开始）或 REST API 来配置 AssetDeliveryConfiguration 以使用 Widevine。 
-* 媒体服务增加了对 Apple ProRes 视频的支持。 现可上传使用 Apple ProRes 或其他编解码器的 QuickTime 源视频文件。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/announcing-support-for-apple-prores-videos-in-azure-media-services/)。
-* 现可使用 Media Encoder Standard 来执行子剪辑和实时存档提取操作。 有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/sub-clipping-and-live-archive-extraction-with-media-encoder-standard/)。
-* 在筛选方面做了以下更新： 
-  
-  * 现可使用通过“仅音频”筛选器使用 Apple HLS 格式。 通过此更新，可在 URL 中指定 (audio-only=false) 来删除仅音频曲目。
-  * 为资产定义筛选器时，现在可以将多个（最多 3 个）筛选器组合到一个 URL 中。
-    
-    有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
-* 媒体服务现在支持 HLS 第 4 版格式的 I-frame。 I-frame 支持优化快进和倒带操作。 默认情况下，所有 HLS 第 4 版输出包括 I-frame 播放列表 (EXT-X-I-FRAME-STREAM-INF)。
-有关详细信息，请参阅[此博客](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
 * 现已推出用于 Java 0.8.0 版的媒体服务 SDK 和新示例。 有关详细信息，请参阅：
@@ -379,7 +350,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 ## <a id="jan_feb_changes_14"></a>2014 年 1/2 月版本
 ### <a name="jan_fab_14_donnet_changes"></a>媒体服务 .NET SDK 3.0.0.1、3.0.0.2 和 3.0.0.3
-3.0.0.1 和 3.0.0.2 中的更改包括：
+3\.0.0.1 和 3.0.0.2 中的更改包括：
 
 * 修复了与具有 OrderBy 语句的 LINQ 查询的使用相关的问题。
 * 将 [GitHub] 中的测试解决方案拆分为了基于单位的测试和基于方案的测试。
@@ -394,7 +365,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 ## <a id="december_changes_13"></a>2013 年 12 月版本
 ### <a name="dec_13_donnet_changes"></a>媒体服务 .NET SDK 3.0.0.0
 > [!NOTE]
-> 3.0.x.x 版本不后向兼容 2.4.x.x 版本。
+> 3\.0.x.x 版本不后向兼容 2.4.x.x 版本。
 > 
 > 
 

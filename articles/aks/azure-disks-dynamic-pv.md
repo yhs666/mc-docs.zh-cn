@@ -6,29 +6,27 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 04/08/2019
+ms.date: 06/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: 409e40ffd452e3721ae7bf3c4708a74f7a0c3a12
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 9e6d1d02bd70fc65f08720bfd5376a355fe510e2
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835715"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325775"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 
 永久性卷表示已经过预配可以用于 Kubernetes Pod 的存储块。 永久性卷可供一个或多个 Pod 使用，并可动态或静态预配。 本文介绍如何使用 Azure 磁盘动态创建永久性卷，以供 Azure Kubernetes 服务 (AKS) 群集中的单个 Pod 使用。
 
 > [!NOTE]
-> Azure 磁盘只能使用“访问模式”类型 ReadWriteOnce 装载，这使其只可供 AKS 中的单个 Pod 使用。 如果需要在多个 Pod 之间共享永久性卷，请使用 [Azure 文件][azure-files-pvc]。
+> Azure 磁盘只能使用“访问模式”  类型 ReadWriteOnce  装载，这使其只可供 AKS 中的单个 Pod 使用。 如果需要在多个 Pod 之间共享永久性卷，请使用 [Azure 文件存储][azure-files-pvc]。
 
 有关 Kubernetes 卷的详细信息，请参阅 [AKS 中应用程序的存储选项][concepts-storage]。
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
-
-<!-- Not Available [using the Azure portal][aks-quickstart-portal]-->
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
 
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
@@ -38,10 +36,12 @@ ms.locfileid: "65835715"
 
 每个 AKS 群集包含两个预先创建的存储类，两者均配置为使用 Azure 磁盘：
 
-* default 存储类可预配标准 Azure 磁盘。
+* default  存储类可预配标准 Azure 磁盘。
     * 标准存储受 HDD 支持，可以在确保性能的同时提供经济高效的存储。 标准磁盘适用于经济高效的开发和测试工作负荷。
-* managed-premium 存储类可预配高级 Azure 磁盘。
-    * 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 如果群集中的 AKS 节点使用高级存储，请选择 managed-premium 类。
+* managed-premium  存储类可预配高级 Azure 磁盘。
+    * 高级磁盘由基于 SSD 的高性能、低延迟磁盘提供支持。 完美适用于运行生产工作负荷的 VM。 如果群集中的 AKS 节点使用高级存储，请选择 managed-premium  类。
+
+这些默认存储类不允许你在创建卷后更新卷大小。 若要启用此功能，请将 *allowVolumeExpansion: true* 行添加到其中一个默认存储类，或创建你自己的自定义存储类。 可以使用 `kubectl edit sc` 命令编辑现有存储类。 有关存储类和创建自己的存储类的详细信息，请参阅 [AKS 中应用程序的存储选项][storage-class-concepts]。
 
 使用 [kubectl get sc][kubectl-get] 命令查看预先创建的存储类。 以下示例显示了 AKS 群集中可用的预先创建存储类：
 
@@ -81,7 +81,7 @@ spec:
 > [!TIP]
 > 若要创建使用标准存储的磁盘，请使用 `storageClassName: default` 而不是 *managed-premium*。
 
-使用 [kubectl apply][kubectl-apply] 命令创建永久性卷声明，并指定 azure-premium.yaml 文件：
+使用 [kubectl apply][kubectl-apply] 命令创建永久性卷声明，并指定 azure-premium.yaml  文件：
 
 ```console
 $ kubectl apply -f azure-premium.yaml
@@ -92,6 +92,8 @@ persistentvolumeclaim/azure-managed-disk created
 ## <a name="use-the-persistent-volume"></a>使用永久性卷
 
 创建永久性卷声明并成功预配磁盘以后，即可创建可以访问磁盘的 Pod。 以下清单创建的基本 NGINX Pod 使用名为 *azure-managed-disk* 的永久性卷声明将 Azure 磁盘装载到 `/mnt/azure` 路径。
+
+<!--Not Available on For Windows Server containers (currently in preview in AKS)-->
 
 创建名为 `azure-pvc-disk.yaml` 的文件，并将其复制到以下清单中。
 
@@ -288,9 +290,10 @@ Volumes:
 [az-disk-create]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create
 [az-disk-show]: https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-show
 [aks-quickstart-cli]: kubernetes-walkthrough.md
-
-<!-- Not Available[aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
-
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[storage-class-concepts]: concepts-storage.md#storage-classes
+
+<!--Update_Description: wording update-->

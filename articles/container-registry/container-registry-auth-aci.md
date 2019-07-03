@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 04/23/2018
 ms.date: 03/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 37a22feb42299b28653905090084512b3fb9a7f5
-ms.sourcegitcommit: 96e151a40adadc7d77a1fd2f82de49204a81a302
+ms.openlocfilehash: 92cf63b09da3c8ce5fef145813c2f3d6955c38e5
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352512"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276450"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>使用 Azure 容器注册表从 Azure 容器实例进行身份验证
 
@@ -25,7 +25,9 @@ ms.locfileid: "58352512"
 
 在**无外设方案**中（如在自动或以其他无人参与方式创建容器实例的应用程序或服务中），应使用服务主体从 ACI 进行身份验证。
 
-例如，如果你有一个在夜间自动运行的脚本，并创建了一个[基于任务的容器实例](../container-instances/container-instances-restart-policy.md)来处理一些数据，则它可以使用具有“仅拉取”权限的服务主体对注册表进行身份验证。 然后可以轮换服务主体的凭据或完全撤消其访问权限，而不会影响其他服务和应用程序。
+例如，如果你有一个在夜间自动运行的脚本，并创建了一个基于任务的容器实例来处理一些数据，则它可以使用具有“仅拉取”权限的服务主体对注册表进行身份验证。 然后可以轮换服务主体的凭据或完全撤消其访问权限，而不会影响其他服务和应用程序。
+
+<!--Not Available on [task-based container instance](../container-instances/container-instances-restart-policy.md)-->
 
 在禁用了注册表[管理员用户](container-registry-authentication.md#admin-account)时，也应使用服务主体。
 

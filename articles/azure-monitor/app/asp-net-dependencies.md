@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1e1b3032c914ac83ccfb2a57bbb1ebc996404c0c
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 6511a46f5dcfabec7f2ce38ea5a37d347270a19a
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046939"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236558"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>设置 Application Insights：依赖项跟踪
 *依赖项*是应用调用的外部组件。 它通常是使用 HTTP、数据库或文件系统调用的服务。 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以度量应用程序等待依赖项的时长以及依赖项调用失败的频率。 可以调查特定的调用，并将其与请求和异常相关联。
@@ -60,7 +60,7 @@ ms.locfileid: "67046939"
 ![应用程序地图](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **在框中导航**到相关依赖项和其他图表。
-* **将地图固定**到[仪表板](../../azure-monitor/app/app-insights-dashboards.md)，在这里它将完全发挥效用。
+* **将地图固定**到仪表板，在这里它将完全发挥效用。
 
 [了解详细信息](../../azure-monitor/app/app-map.md)。
 

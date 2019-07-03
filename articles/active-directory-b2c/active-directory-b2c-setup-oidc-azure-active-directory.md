@@ -11,12 +11,12 @@ origin.date: 05/14/2018
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 13beb14f2ca8cfeb431781864bde9d85ef7b0662
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: a134be2398ab692c36bf2555746a80695ec1ff9f
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687605"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235942"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中设置登录特定 Azure Active Directory 组织
 
@@ -35,13 +35,13 @@ ms.locfileid: "66687605"
 4. 选择“新注册”。 
 5. 输入应用程序的名称。 例如，`Azure AD B2C App`。
 6. 对于此应用程序，接受选择“仅此组织目录中的帐户”  。
-7. 对于“重定向 URI”  ，接受值 **Web**，并以全小写字母输入以下 URL，其中 `your-B2C-tenant-name` 将替换为 Azure AD B2C 租户的名称。 例如，`https://fabrikam.b2clogin.com/fabrikam.partner.onmschina.cn/oauth2/authresp`：
+7. 对于“重定向 URI”  ，接受值 **Web**，并以全小写字母输入以下 URL，其中 `your-B2C-tenant-name` 将替换为 Azure AD B2C 租户的名称。 例如，`https://fabrikam.b2clogin.cn/fabrikam.partner.onmschina.cn/oauth2/authresp`：
 
     ```
-    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.partner.onmschina.cn/oauth2/authresp
+    https://your--B2C-tenant-name.b2clogin.cn/your-B2C-tenant-name.partner.onmschina.cn/oauth2/authresp
     ```
 
-    现在，所有 URL 都应使用 [b2clogin.com](b2clogin.md)。
+    现在，所有 URL 都应使用 [b2clogin.cn](b2clogin.md)。
 
 8. 单击“注册”  。 复制“应用程序(客户端) ID”供以后使用  。
 9. 在应用程序菜单中依次选择“证书和机密”、“新建客户端机密”。  

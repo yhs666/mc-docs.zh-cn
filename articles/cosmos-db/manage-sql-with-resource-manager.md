@@ -1,25 +1,29 @@
 ---
-title: Azure Cosmos DB 的 Azure 资源管理器模板
-description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB。
+title: 使用 Azure 资源管理器模板创建和管理 Azure Cosmos DB
+description: 使用 Azure 资源管理器模板创建和配置 Azure Cosmos DB for SQL (Core) API
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/08/2019
-ms.date: 05/13/2019
+origin.date: 05/24/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 681f9c03ea82e439f2df20ef9aeeebf44bdc6c9f
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: e8c0206d940f56294188945d74d56c5d8f178b82
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669043"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171427"
 ---
 <!--Verify successfully-->
-# <a name="create-azure-cosmos-db-core-sql-api-resources-from-a-resource-manager-template"></a>从资源管理器模板创建 Azure Cosmos DB Core (SQL) API 资源
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB SQL (Core) API 资源
 
-了解如何使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 以下示例通过 [Azure 快速入门模板](https://aka.ms/sql-arm-qs)创建 Azure Cosmos DB 帐户。 此模板将创建 Azure Cosmos 帐户，所使用的两个容器在数据库级别共享 400 RU/秒的吞吐量。
+<a name="create-resource"></a>
+## <a name="create-an-azure-cosmos-account-database-and-container"></a>创建 Azure Cosmos 帐户、数据库和容器 
 
-下面是该模板的副本：
+使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建 Azure Cosmos 帐户，所使用的两个容器在数据库级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+> [!NOTE]
+> 当前，无法使用资源管理器模板部署用户定义函数 (UDF)、存储过程和触发器。 
 
 ```json
 {
@@ -267,13 +271,14 @@ ms.locfileid: "65669043"
 }
 ```
 
-## <a name="deploy-via-powershell"></a>通过 PowerShell 部署
+### <a name="deploy-via-powershell"></a>通过 PowerShell 部署
 
 若要部署资源管理器模板，请使用 PowerShell。
 
 <!--Not Available on  **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 $accountName = Read-Host -Prompt "Enter the account name"
@@ -288,6 +293,8 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
     -primaryRegion $primaryRegion `
     -secondaryRegion $secondaryRegion `
     -databaseName $databaseName `
@@ -301,9 +308,7 @@ New-AzResourceGroupDeployment `
 
 <!--MOONCAKE: Not available on instead of using CloudShell-->
 
-在前面的示例中，引用了 GitHub 中存储的一个模板。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
-
-## <a name="deploy-via-azure-cli"></a>通过 Azure CLI 部署
+### <a name="deploy-via-azure-cli"></a>通过 Azure CLI 部署
 
 使用 Azure 本地 CLI 部署资源管理器模板。
 
@@ -332,13 +337,186 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name $accountName --output tsv
 ```
 
-<!--MOONCAKE: parameter correct on --name $accountName-->
+`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 
 
-`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 如果选择使用本地安装的 Azure CLI 版本，请参阅 [Azure 命令行界面 (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 一文。
+<!--Not Available on If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) article.-->
 
-<!--MOONCAKE: Not available on instead of using CloudShell-->
+## 更新数据库的吞吐量（RU/秒）<a name="database-ru-update"></a>
 
-在前面的示例中，引用了 GitHub 中存储的一个模板。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+以下模板将更新数据库的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql-database-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cosmos account name"
+            }
+        },
+        "databaseName": {
+            "type": "string",
+            "metadata": {
+                "description": "Database name"
+            }
+        },
+        "throughput": {
+            "type": "int",
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Updated throughput"
+            }           
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases/settings",
+            "name": "[concat(variables('accountName'), '/sql/', parameters('databaseName'), '/throughput')]",
+            "apiVersion": "2016-03-31",
+            "properties": {
+                "resource": {
+                  "throughput": "[parameters('throughput')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="deploy-database-template-via-powershell"></a>通过 PowerShell 部署数据库模板
+
+若要使用 PowerShell 部署资源管理器模板，请**复制**脚本并选择“试用”  以打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$throughput = Read-Host -Prompt "Enter new throughput for database"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -databaseName $databaseName `
+    -throughput $throughput
+```
+
+### <a name="deploy-database-template-via-azure-cli"></a>通过 Azure CLI 部署数据库模板
+
+若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+
+```azurecli
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+<a name="container-ru-update"></a>
+
+## <a name="update-throughput-rus-on-a-container"></a>更新容器的吞吐量（RU/秒）
+
+以下模板将更新容器的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql-container-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cosmos account name"
+            }
+        },
+        "databaseName": {
+            "type": "string",
+            "metadata": {
+                "description": "SQL database name"
+            }
+        },
+        "containerName": {
+            "type": "string",
+            "metadata": {
+                "description": "SQL container name"
+            }
+        },
+        "throughput": {
+            "type": "int",
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Updated throughput amount"
+            }           
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/databases/containers/settings",
+            "name": "[concat(variables('accountName'), '/sql/', parameters('databaseName'), '/', parameters('containerName'), '/throughput')]",
+            "apiVersion": "2016-03-31",
+            "properties": {
+                "resource": {
+                  "throughput": "[parameters('throughput')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="deploy-container-template-via-powershell"></a>通过 PowerShell 部署容器模板
+
+若要部署资源管理器模板，请使用 PowerShell。
+
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+$throughput = Read-Host -Prompt "Enter new throughput for container"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -databaseName $databaseName `
+    -containerName $containerName `
+    -throughput $throughput
+```
+
+### <a name="deploy-container-template-via-azure-cli"></a>通过 Azure CLI 部署容器模板
+
+使用 Azure CLI 部署资源管理器模板
+
+<!--Not Available on  select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
+
+```azurecli
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName containerName=$containerName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -349,5 +527,4 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
-<!--Update_Description: new articles on manage sql with resource manager -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: wording update -->

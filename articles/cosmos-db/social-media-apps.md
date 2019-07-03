@@ -4,19 +4,19 @@ description: 利用 Azure Cosmos DB 的存储灵活性和其他 Azure 服务了�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 02/11/2019
-ms.date: 03/04/2019
+origin.date: 05/28/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: b51ca6c952c3212ad01bc86825888c7a02524389
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 523c69828e00f5906a5e02e7e1d4e262b9610b8f
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988015"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171332"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
-生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
+生活在大规模互连的社会中，这意味着有时候你也成了社交网络中的一部分  。 使用社交网络与朋友、同事和家人保持联系，有时还会与有共同兴趣的人分享我们的激情。
 
 作为工程师或开发人员，你可能想知道这些网络如何存储和互连数据。 或者，你甚至可能承担着为特定利基市场创建或构建新社交网络的任务。 这时就会产生一个大问题：所有这些数据是如何存储的？
 
@@ -38,9 +38,7 @@ ms.locfileid: "56988015"
 
 ## <a name="the-nosql-road"></a>NoSQL 加载
 
-本文将指导你使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 经济高效地对社交平台的数据进行建模。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
-
-<!--Not Available on [Gremlin API](../cosmos-db/graph-introduction.md)-->
+本文将指导你使用 Azure 的 NoSQL 数据库 [Azure Cosmos DB](https://www.azure.cn/home/features/cosmos-db/) 经济高效地对社交平台的数据进行建模。 还将介绍如何使用其他 Azure Cosmos DB 功能，如 [Gremlin API](../cosmos-db/graph-introduction.md)。 使用 [NoSQL](https://en.wikipedia.org/wiki/NoSQL) 方法以 JSON 格式存储数据并应用[非规范化](https://en.wikipedia.org/wiki/Denormalization)，就可以将以前的复杂帖子转换为单个[文档](https://en.wikipedia.org/wiki/Document-oriented_database)：
 
     {
         "id":"ew12-res2-234e-544f",
@@ -130,9 +128,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
         "totalPoints":11342
     }
 
-<!--Not Available on Azure Cosmos DB Gremlin API -->
-
-<!--Not Availble on [Gremlin API](../cosmos-db/graph-introduction.md)-->
+可以使用 Azure Cosmos DB [Gremlin API](../cosmos-db/graph-introduction.md) 存储实际的关注者图形，以创建每位用户的[顶点](http://mathworld.wolfram.com/GraphVertex.html)和[边缘](http://mathworld.wolfram.com/GraphEdge.html)，从中反映出“A 关注 B”关系。 使用 Gremlin API 不仅可以获取某位用户的关注者，而且还能创建更复杂的查询以推荐具有共同点的用户。 如果在图形中添加用户喜欢或感兴趣的内容类别，就可以开始布置智能内容发现、推荐关注用户感兴趣的内容和查找具有共同点的用户等体验。
 
 仍然可以使用用户统计信息文档在 UI 或快速配置文件预览中创建卡片。
 
@@ -221,15 +217,15 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
 
 ## <a name="a-multiple-region-scalesocial-experience"></a>多区域缩放社交体验
 
-最后，还必须说明一个非常重要的项目：可伸缩性。 设计体系结构时，每个组件都应该自行缩放。 你最终将需要处理更多数据，或者希望拥有更大的地理覆盖范围。 幸运的是，使用 Cosmos DB 完成这两项任务是一种统包体验。
+最后，还必须说明一个非常重要的项目：可伸缩性  。 设计体系结构时，每个组件都应该自行缩放。 你最终将需要处理更多数据，或者希望拥有更大的地理覆盖范围。 幸运的是，使用 Cosmos DB 完成这两项任务是一种统包体验  。
 
-Cosmos DB 支持现成的动态分区。 它会根据给定的分区键自动创建分区，分区键在文档中定义为属性。 定义正确的分区键操作必须在设计时完成。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partitioning-overview.md)。
+Cosmos DB 支持现成的动态分区。 它会根据给定的分区键自动创建分区，分区键在文档中定义为属性  。 定义正确的分区键操作必须在设计时完成。 有关详细信息，请参阅 [Azure Cosmos DB 分区](partitioning-overview.md)。
 
 对于社交体验，必须将分区策略与查询和写入方式保持一致。 （例如，推荐在同一分区内进行读取，并通过在多个分区上分散写入来避免“热点”。）某些选项为：基于临时键的分区（日/月/周）、按内容类别、按地理区域，或按用户。 这一切都取决于查询数据并在社交体验中显示数据的方式。
 
 Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)），因此无需在数据增长过程中添加任何逻辑。
 
-一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群体的增长，你将更频繁地进行读取和写入操作。 用户群体将开始创建和阅读更多内容。 因此，缩放吞吐量的能力至关重要。 增加 RU 非常容易。 可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)来实现。
+一段时间后，最终流量会增加，资源消耗（通过 [RU](request-units.md) 即“请求单位”进行度量）也会增加。 随着用户群体的增长，你将更频繁地进行读取和写入操作。 用户群体将开始创建和阅读更多内容。 因此，缩放吞吐量的能力至关重要  。 增加 RU 非常容易。 可以通过在 Azure 门户中单击几次或[通过 API 发出命令](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer)来实现。
 
 ![扩展和定义分区键](./media/social-media-apps/social-media-apps-scaling.png)
 
@@ -237,7 +233,7 @@ Cosmos DB 以透明方式在所有分区中运行查询（包括[聚合](https:/
 
 可是等等！ 你很快就会发现他们使用平台的体验并不是最佳体验。 他们距离你的运营区域太远，会出现非常严重的延迟情况。 你显然不希望他们放弃使用。 如果有一种简单的方法可以**扩展多区域覆盖范围**就好了。 确实有！
 
-通过 Cosmos DB，只需单击数次即可通过透明方式[全局复制数据](../cosmos-db/tutorial-global-distribution-sql-api.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-sql-api.md)中自动选择可用区域。 此进程还意味着可以拥有[多个故障转移区域](high-availability.md)。
+通过 Cosmos DB，只需单击数次即可通过透明方式[多区域复制数据](../cosmos-db/tutorial-global-distribution-sql-api.md)，并从[客户端代码](../cosmos-db/tutorial-global-distribution-sql-api.md)中自动选择可用区域。 此进程还意味着可以拥有[多个故障转移区域](high-availability.md)。
 
 将数据复制到多个区域时，需确保客户端可以利用该数据。 如果要使用 Web 前端或从移动客户端访问 API，则可以部署 [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)并在所有所需区域克隆 Azure 应用服务（方法是使用某个性能配置来支持扩展的多区域覆盖范围）。 客户端访问前端或 API 时，将被路由到最近的应用服务，而该应用服务将连接到本地的 Cosmos DB 副本。
 

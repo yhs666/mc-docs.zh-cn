@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 01/21/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: c0a50d5b0392de9f793e935481274793ef2f4c88
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: f429a8ef025aac005ce58e4925b786ee56f35c60
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083593"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171311"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
@@ -29,7 +29,7 @@ ms.locfileid: "54083593"
 <a id="tiers"></a>
 
 ## <a name="app-service-plan-tiers"></a>应用服务计划层
-应用服务在多租户托管环境中运行客户应用。 部署在“免费”和“共享”层中的应用在共享虚拟机上的辅助进程中运行，而部署在“标准”和“高级”层中的应用在专用于与单个客户关联的应用的虚拟机上运行。
+应用服务在多租户托管环境中运行客户应用。 部署在“免费”和“共享”层中的应用在共享虚拟机上的辅助进程中运行，而部署在“标准”和“高级”层中的应用在专用于与单个客户关联的应用的虚拟机上运行。    
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -62,7 +62,7 @@ ms.locfileid: "54083593"
 
 - 应用可能会引发错误，指示磁盘上没有足够的空间。
 - 浏览到 Kudu 控制台时，可能会看到磁盘错误。
-- 从 VSTS 或 Visual Studio 进行部署可能会失败并显示 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`。
+- 从 Azure DevOps 或 Visual Studio 进行部署可能会失败并显示 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`。
 - 你的应用可能会出现性能下降。
 
 <a id="NetworkDrives"></a>
@@ -117,7 +117,7 @@ ms.locfileid: "54083593"
 
 在类似情况下，还可以使用 .NET 跟踪和诊断基础结构将来自 .NET 应用的实时诊断信息记入日志，并且可以选择是将跟踪信息写入应用的网络共享还是写入 blob 存储位置。
 
-诊断日志记录和跟踪中不可用于应用的领域是 Windows ETW 事件以及常见的 Windows 事件日志（例如系统、应用程序和安全事件日志）。 因为 ETW 跟踪信息可能在计算机范围中是可查看的（具有正确的 ACL），所以，将阻止对 ETW 事件的读写访问。 开发人员可能会注意到，对读取和写入 ETW 事件和常见 Windows 事件日志的 API 调用好像在起作用，这是因为应用服务在“伪装”这些调用，让它们看起来很成功。 实际上，应用程序代码对于此事件数据没有访问权限。
+诊断日志记录和跟踪中不可用于应用的领域是 Windows ETW 事件以及常见的 Windows 事件日志（例如系统、应用程序和安全事件日志）。 因为 ETW 跟踪信息可能在计算机范围中是可查看的（具有正确的 ACL），所以，将阻止对 ETW 事件的读写访问。 开发人员可能会注意到，用于读取和写入 ETW 事件和常见 Windows 事件日志的 API 调用好像在起作用，但这是因为应用服务在“伪装”这些调用，让它们看起来很成功。 实际上，应用程序代码对于此事件数据没有访问权限。
 
 <a id="RegistryAccess"></a>
 
@@ -125,6 +125,10 @@ ms.locfileid: "54083593"
 应用对于它们在其上运行的虚拟机的注册表的大部分内容（尽管不是全部内容）具有只读访问权限。 实际上，这意味着应用可以访问允许对本地用户组进行只读访问的注册表项。 注册表中当前不支持读写访问的一个区域是 HKEY\_CURRENT\_USER Hive。
 
 对注册表的写访问被阻止，包括对任何按用户注册表项的访问。 从应用角度来说，对注册表的写访问永远不应依赖于 Azure 环境，因为应用可以（并且也是这样做的）跨不同虚拟机进行迁移。 应用可依赖的唯一持久可写入存储是在应用服务 UNC 共享上存储的按应用内容目录结构。 
+
+## <a name="remote-desktop-access"></a>远程桌面访问
+
+应用服务不提供对 VM 实例的远程桌面访问。
 
 ## <a name="more-information"></a>详细信息
 

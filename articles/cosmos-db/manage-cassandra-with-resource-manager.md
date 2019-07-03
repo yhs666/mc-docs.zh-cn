@@ -5,21 +5,21 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 05/13/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: d35adea275114b40b7854280f2b12189edc53836
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 11fcfb7cef4c7586d33f6596bb6ea40ebc82c58e
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669045"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171429"
 ---
 <!--Verify successfully-->
-# <a name="create-azure-cosmos-db-cassandra-api-resources-from-a-resource-manager-template"></a>从资源管理器模板创建 Azure Cosmos DB Cassandra API 资源
+# <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Cassandra API 资源
 
-了解如何使用 Azure 资源管理器模板创建用于 Cassandra API 的 Azure Cosmos 帐户。 以下示例通过 [Azure 快速入门模板](https://aka.ms/cassandra-arm-qs)创建 Azure Cosmos DB Cassandra API 帐户。 此模板将创建一个适用于 Cassandra API 的 Azure Cosmos 帐户，所使用的两个表在密钥空间级别共享 400 RU/秒的吞吐量。 
+## 创建 Azure Cosmos 帐户、密钥空间和表 <a name="create-resource"></a>
 
-下面是该模板的副本：
+使用 Azure 资源管理器模板创建 Azure Cosmos DB 资源。 此模板将创建一个适用于 Cassandra API 的 Azure Cosmos 帐户，所使用的两个表在密钥空间级别共享 400 RU/秒的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-cassandra/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
 
 ```json
 {
@@ -278,10 +278,144 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 <!--MOONCAKE: parameter correct on keyspaceName-->
 <!--MOONCAKE: parameter correct on --name $accountName-->
 
-`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。 如果选择使用本地安装的 Azure CLI 版本，请参阅 [Azure 命令行界面 (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) 一文。
+`az cosmosdb show` 命令显示预配后的新建 Azure Cosmos 帐户。
 
-<!--MOONCAKE: Not available on instead of using CloudShell-->
-在前面的示例中，引用了 GitHub 中存储的一个模板。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+<!--Not Available on  If you choose to use a locally installed version of Azure CLI instead of using CloudShell, see [Azure Command-Line Interface (CLI)](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest) article.-->
+
+## 更新密钥空间的吞吐量（RU/秒）<a name="keyspace-ru-update"></a>
+
+以下模板将更新密钥空间的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-cassandra-keyspace-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cosmos account name"
+            }
+        },
+        "keyspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Keyspace name"
+            }
+        },
+        "throughput": {
+            "type": "int",
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Updated throughput"
+            }           
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/settings",
+            "name": "[concat(variables('accountName'), '/cassandra/', parameters('keyspaceName'), '/throughput')]",
+            "apiVersion": "2016-03-31",
+            "properties": {
+                "resource": {
+                  "throughput": "[parameters('throughput')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="deploy-keyspace-template-via-azure-cli"></a>通过 Azure CLI 部署密钥空间模板
+
+若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+
+```azurecli
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-keyspace-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName throughput=$throughput
+```
+
+## 更新表的吞吐量（RU/秒）<a name="table-ru-update"></a>
+
+以下模板将更新表的吞吐量。 复制模板并按如下所示进行部署，或者访问 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-cassandra-table-ru-update/)，然后从 Azure 门户进行部署。 还可以将模板下载到本地计算机，或者创建新模板并使用 `--template-file` 参数指定本地路径。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "accountName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cosmos account name"
+            }
+        },
+        "keyspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cassandra Keyspace name"
+            }
+        },
+        "tableName": {
+            "type": "string",
+            "metadata": {
+                "description": "Cassandra Table name"
+            }
+        },
+        "throughput": {
+            "type": "int",
+            "minValue": 400,
+            "maxValue": 1000000,
+            "metadata": {
+                "description": "Updated throughput"
+            }           
+        }
+    },
+    "variables": {
+        "accountName": "[toLower(parameters('accountName'))]"
+    },
+    "resources": 
+    [
+        {
+            "type": "Microsoft.DocumentDB/databaseAccounts/apis/keyspaces/tables/settings",
+            "name": "[concat(variables('accountName'), '/cassandra/', parameters('keyspaceName'), '/', parameters('tableName'), '/throughput')]",
+            "apiVersion": "2016-03-31",
+            "properties": {
+                "resource": {
+                  "throughput": "[parameters('throughput')]"
+                }
+            }
+        }
+    ]
+}
+```
+
+### <a name="deploy-table-template-via-azure-cli"></a>通过 Azure CLI 部署表模板
+
+若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+
+```azurecli
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the keyspace name: ' keyspaceName
+read -p 'Enter the table name: ' tableName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-cassandra-table-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName keyspaceName=$keyspaceName tableName=$tableName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -292,5 +426,5 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 - [Azure Cosmos DB 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.DocumentDB&pageNumber=1&sort=Popular)
 - [排查常见的 Azure 资源管理器部署错误](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
-<!--Update_Description: new articles on manage cassandra with resource manager -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: wording update -->
+

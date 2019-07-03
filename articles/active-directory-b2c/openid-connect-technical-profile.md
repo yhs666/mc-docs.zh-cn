@@ -11,12 +11,12 @@ origin.date: 09/10/2018
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7d41c60c472ba7f466558d5e9f843a00ae419c41
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 4f5aae4f53fdc208d3c174503ee6df100fd05005
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687647"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235978"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 OpenId Connect 技术配置文件
 
@@ -72,7 +72,7 @@ Azure Active Directory (Azure AD) B2C 为 [OpenId Connect](https://openid.net/20
 | scope | 否 | 根据 OpenID Connect Core 1.0 规范定义的请求的范围。 例如 `openid`、`profile` 和 `email`。 |
 | HttpBinding | 否 | 预期的 HTTP 绑定，绑定到访问令牌和声明令牌终结点。 可能的值：`GET` 或 `POST`。  |
 | ValidTokenIssuerPrefixes | 否 | 一个密钥，可以在使用多租户标识提供者（例如 Azure Active Directory）时用于登录到每个租户。 |
-| UsePolicyInRedirectUri | 否 | 指示在构造重定向 URI 时是否要使用策略。 在标识提供者中配置应用程序时，需指定重定向 URI。 重定向 URI 指向 Azure AD B2C `https://login.partner.microsoftonline.cn/te/{tenant}/oauth2/authresp`（login.partner.microsoftonline.cn 可能会变为 your-tenant-name.b2clogin.com）。  如果指定 `false`，需为每个使用的策略添加重定向 URI。 例如：`https://login.partner.microsoftonline.cn/te/{tenant}/{policy}/oauth2/authresp`。 |
+| UsePolicyInRedirectUri | 否 | 指示在构造重定向 URI 时是否要使用策略。 在标识提供者中配置应用程序时，需指定重定向 URI。 重定向 URI 指向 Azure AD B2C `https://login.partner.microsoftonline.cn/te/{tenant}/oauth2/authresp`（login.partner.microsoftonline.cn 可能会随 your-tenant-name.b2clogin.cn 改变）。  如果指定 `false`，需为每个使用的策略添加重定向 URI。 例如：`https://login.partner.microsoftonline.cn/te/{tenant}/{policy}/oauth2/authresp`。 |
 | MarkAsFailureOnStatusCode5xx | 否 | 指示在 Http 状态代码处于 5xx 范围内的情况下，是否应将对外部服务的请求标记为失败。 默认为 `false`。 |
 | DiscoverMetadataByTokenIssuer | 否 | 指示是否应使用 JWT 令牌中的颁发者来发现 OIDC 元数据。 |
 
@@ -88,7 +88,7 @@ Azure Active Directory (Azure AD) B2C 为 [OpenId Connect](https://openid.net/20
  
 配置标识提供者的重定向 URI 时，请输入 `https://login.partner.microsoftonline.cn/te/tenant/oauth2/authresp`。 确保将 **tenant** 替换为租户名称（例如 contosob2c.partner.onmschina.cn）或租户 ID。 重定向 URI 需要采用全小写形式。
 
-如果使用 **b2clogin.com** 域而不是 **login.partner.microsoftonline.cn**，请确保使用 b2clogin.com 而不是 login.partner.microsoftonline.cn。
+如果使用的是 **b2clogin.cn** 域而不是 **login.partner.microsoftonline.cn**，请确保使用 b2clogin.cn 而不是 login.partner.microsoftonline.cn。
 
 
 <!-- Update_Description: wording update -->

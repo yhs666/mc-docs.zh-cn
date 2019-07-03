@@ -17,15 +17,15 @@ origin.date: 12/12/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3c635046c6892cdacd8d703ea07e603ec7911abb
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 020ff1433a1b80a6a6cdb1df151a931a58776207
+ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835823"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67427816"
 ---
 <!--Verify Successfully-->
-# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-cloud-shell"></a>在 Cloud Shell 中使用简化的 New-AzVM cmdlet 创建 Windows 虚拟机 
+# <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-local-shell"></a>在本地 Shell 中使用简化的 New-AzVM cmdlet 创建 Windows 虚拟机 
 
 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 已添加了一组简化的参数，用于使用 PowerShell 创建新的 VM。 本主题演示如何通过 Azure 本地 Shell 中的 PowerShell，使用预安装的最新版本 New-AzureVM cmdlet 创建新的 VM。 我们将使用简化的参数集，以使用智能默认设置自动创建所有必需的资源。 
 
@@ -39,7 +39,7 @@ ms.locfileid: "65835823"
 
 可以使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 创建具有智能默认设置（包括使用 Azure 市场中的 Windows Server 2016 Datacenter 映像）的 VM。 可以将 New-AzVM 仅与 **-Name** 参数配合使用，它会将该值用于所有资源名称。 在本示例中，我们将设置 **-Name** 参数设置为 *myVM*。 
 
-请确保在 Cloud Shell 中选择 **PowerShell** 并键入：
+确保在本地 Shell 中以管理员权限运行 **PowerShell** 并键入：
 
 ```powershell
 New-AzVm -Name myVM

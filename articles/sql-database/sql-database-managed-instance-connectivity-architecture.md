@@ -13,12 +13,12 @@ ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 04/16/2019
 ms.date: 04/29/2019
-ms.openlocfilehash: cf5c94911394d6d3bda857cb3429df5909f3d2d0
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 9ae8201a94cb6cf2fee4160ecdee63bb8c6d5a1d
+ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629146"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67277017"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -37,7 +37,7 @@ SQL 数据库托管实例放置在专用于托管实例的 Azure 虚拟网络和
 
 ![连接体系结构中的实体](./media/managed-instance-connectivity-architecture/connectivityarch001.png)
 
-托管实例属于平台即服务 (PaaS)。 Microsoft 使用自动化代理（管理、部署和维护）基于遥测数据流管理此服务。 由于管理工作由 Microsoft 负责，客户无法通过远程桌面协议 (RDP) 访问托管实例的虚拟群集计算机。
+托管实例属于平台即服务 (PaaS)。 Azure 使用自动化代理（管理、部署和维护）基于遥测数据流管理此服务。 由于管理工作由 Azure 负责，客户无法通过远程桌面协议 (RDP) 访问托管实例的虚拟群集计算机。
 
 由最终用户或应用程序启动的某些 SQL Server 操作可能需要使用托管实例来与平台交互。 一种情况是创建托管实例数据库。 此资源是通过 Azure 门户、PowerShell、Azure CLI 和 REST API 公开的。
 
@@ -72,7 +72,7 @@ Azure 管理和部署服务在虚拟网络外部运行。 托管实例和 Azure 
 
 此专用 IP 地址属于托管实例的内部负载均衡器。 该负载均衡器将流量定向到托管实例网关。 由于多个托管实例可能在同一群集中运行，因此网关使用托管实例主机名来将流量重新定向到正确的 SQL 引擎服务。
 
-管理和部署服务使用映射到外部负载均衡器的[管理终结点](#management-endpoint)连接到托管实例。 仅当流量是在一组专用于托管实例管理组件的预定义端口上收到的时，才将流量路由到节点。 节点上的内置防火墙设置为只允许来自 Microsoft IP 范围的流量。 证书将对管理组件与管理平面之间的所有通信进行相互身份验证。
+管理和部署服务使用映射到外部负载均衡器的[管理终结点](#management-endpoint)连接到托管实例。 仅当流量是在一组专用于托管实例管理组件的预定义端口上收到的时，才将流量路由到节点。 节点上的内置防火墙设置为只允许来自 Azure IP 范围的流量。 证书将对管理组件与管理平面之间的所有通信进行相互身份验证。
 
 ## <a name="management-endpoint"></a>管理终结点
 
@@ -88,7 +88,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 在虚拟网络中的专用子网内部署托管实例。 该子网必须具有以下特征：
 
 - **专用子网：** 托管实例的子网不能包含其他任何关联的云服务，且不能是网关子网。 该子网不能包含除该托管实例以外的其他任何资源，以后无法在该子网中添加其他类型的资源。
-- **网络安全组 (NSG)**：与虚拟网络关联的 NSG 必须在其他任何规则的前面定义[入站安全规则](#mandatory-inbound-security-rules)和[出站安全规则](#mandatory-outbound-security-rules)。 当托管实例配置为使用重定向连接时，可以使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对托管实例数据终结点的访问。
+- **网络安全组 (NSG)** ：与虚拟网络关联的 NSG 必须在其他任何规则的前面定义[入站安全规则](#mandatory-inbound-security-rules)和[出站安全规则](#mandatory-outbound-security-rules)。 当托管实例配置为使用重定向连接时，可以使用某个 NSG 通过筛选端口 1433 和端口 11000-11999 上的流量，来控制对托管实例数据终结点的访问。
 - **用户定义的路由 (UDR) 表：** 与虚拟网络关联的 UDR 表必须包含特定的[条目](#user-defined-routes)。
 - **没有服务终结点：** 不应将任何服务终结点与托管实例的子网相关联。 创建虚拟网络时，请务必禁用“服务终结点”选项。
 - **足够的 IP 地址：** 托管实例子网必须至少有 16 个 IP 地址。 建议的最少数目为 32 个 IP 地址。 有关详细信息，请参阅[确定托管实例的子网大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。 根据[托管实例的网络要求](#network-requirements)配置托管实例后，可将其部署在[现有网络](sql-database-managed-instance-configure-vnet-subnet.md)中。 否则，请创建[新的网络和子网](sql-database-managed-instance-create-vnet-subnet.md)。
@@ -108,7 +108,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 
 | Name       |端口          |协议|Source           |目标|操作|
 |------------|--------------|--------|-----------------|-----------|------|
-|管理  |80、443、12000|TCP     |MI SUBNET        |AzureCloud |允许 |
+|管理  |80、443、12000|TCP     |MI SUBNET        |AzureChinaCloud |允许 |
 |mi_subnet   |任意           |任意     |MI SUBNET        |MI SUBNET  |允许 |
 
 > [!IMPORTANT]
@@ -117,7 +117,7 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 \* MI SUBNET 是指子网的 IP 地址范围，采用 10.x.x.x/y 格式。 可以在 Azure 门户上的子网属性中找到此信息。
 
 > [!IMPORTANT]
-> 尽管所需的入站安全规则允许来自端口 9000、9003、1438、1440 和 1452 上的任意资源的流量，但这些端口受内置防火墙的保护。 有关详细信息，请参阅[确定管理终结点地址](sql-database-managed-instance-find-management-endpoint-ip-address.md)。
+> 尽管所需的入站安全规则允许来自端口 9000、9003、1438、1440 和 1452 上的任意资源的流量，但这些端口受内置防火墙的保护  。 有关详细信息，请参阅[确定管理终结点地址](sql-database-managed-instance-find-management-endpoint-ip-address.md)。
 > [!NOTE]
 > 如果在托管实例中使用事务复制，并使用任何实例数据库作为发布方或分发方，请在子网的安全规则中打开端口 445（TCP 出站）。 此端口允许访问 Azure 文件共享。
 

@@ -1,30 +1,31 @@
 ---
-title: 适用于 VMware 到 Azure 部署的 Azure Site Recovery Deployment Planner | Azure
-description: 本文为 Azure Site Recovery Deployment Planner 用户指南。
-services: site-recovery
-documentationcenter: ''
+title: 在 Azure Site Recovery 部署规划器中查看成本估算报告 | Azure
+description: 本文介绍如何在 Azure Site Recovery 部署规划器中查看针对从 VMware 到 Azure 灾难恢复的成本估算报告。
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: hero-article
-origin.date: 07/06/2018
-ms.date: 07/23/2018
+ms.topic: conceptual
+origin.date: 03/14/2019
+ms.date: 04/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: ea07f400c33cb6ec74dfce4541b4b446db78c169
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f6a53fa679ac1f2d526fabf3477a9541e4ae9770
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627687"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276441"
 ---
-# <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Azure Site Recovery 部署规划器成本估算报表  
+# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>在 Site Recovery 部署规划器中查看针对从 VMware 灾难恢复到 Azure 的成本估算报告
 
 部署规划器报表以[建议](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)表的形式提供成本估算摘要，以“成本估算”表的形式提供详细的成本分析。 它按 VM 提供详细的成本分析。 
+
+>[!Note]
+>当前版本的部署规划器工具不能为复制到托管磁盘的 VM 提供成本估算。
+>* 当“计算和网络”边栏选项卡上的“使用托管磁盘”参数设置为“是”时，存储帐户和托管磁盘的 DR 演练成本估算是相同的。
+>* 若要获得复制的大约年度成本估算，请在**成本估算**工作表上进行以下临时设置：
+>    * 将“设置”  表中的“成本持续时间”参数设置为“年”
+>    * 在“详细成本分析”  表中，将“一年中的 DR 演练数”列设置为 12，将“每次 DR 演练持续时间(天)”设置为 30 
+>    * 复制成本将类似于“R”列中填充的成本，即“每年的 DR 演练成本”  子部分中的每年 DR 演练存储成本。
 
 ### <a name="cost-estimation-summary"></a>成本估算摘要 
 下图显示的摘要视图包含灾难恢复 (DR) 到所选目标区域的 Azure 时的总估算成本，以及生成报表时所用的指定货币。
@@ -34,7 +35,10 @@ ms.locfileid: "58627687"
 
 可以通过此摘要了解在使用 Azure Site Recovery 将所有兼容的 VM 转移到 Azure 进行保护时，需要支付的存储、计算、网络和许可证成本。 计算成本时，只针对兼容的 VM，不针对所有受分析的 VM。  
 
-可以按月或按年查看成本。 详细了解[支持的目标区域](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)和[支持的货币](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)。
+可以按月或按年查看成本。
+
+<!--Not Available on [supported target regions](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions)-->
+<!--Not Available on [supported currencies](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)-->
 
 **按组件成本**：总 DR 成本分为四个部分：计算成本、存储成本、网络成本和 Site Recovery 许可证成本。 成本计算基于在复制时和 DR 演练时上述四个部分（计算、存储（高级和标准）、在本地站点和 Azure 之间配置的 ExpressRoute/VPN，以及 Azure Site Recovery 许可证）所对应的使用量。
 
@@ -47,7 +51,7 @@ ms.locfileid: "58627687"
 **每月/年的 Azure 存储成本**：表示针对高级和标准存储进行复制和 DR 演练时产生的总存储成本。
 
 ## <a name="detailed-cost-analysis"></a>详细成本分析
-计算、存储、网络等方面的 Azure 价格因 Azure 区域而异。 可以根据订阅、与订阅相关联的套餐、指定的目标 Azure 区域和指定的货币，使用最新的 Azure 价格生成成本估算报表。 默认情况下，此工具使用“中国北部 2”Azure 区域和美元 (USD) 货币。 如果使用了任何其他区域和货币，则下一次在不使用订阅 ID、套餐 ID、目标区域和货币的情况下生成报表时，该报表会使用上次使用的目标区域和上次使用的货币所对应的价格进行成本估算。
+计算、存储、网络等方面的 Azure 价格因 Azure 区域而异。 可以根据订阅、与订阅相关联的套餐、指定的目标 Azure 区域和指定的货币，使用最新的 Azure 价格生成成本估算报表。 默认情况下，此工具使用“中国北部”Azure 区域和中国人民币 (CNY) 货币。 如果使用了任何其他区域和货币，则下一次在不使用订阅 ID、套餐 ID、目标区域和货币的情况下生成报表时，该报表会使用上次使用的目标区域和上次使用的货币所对应的价格进行成本估算。
 此部分显示用于生成报表的订阅 ID 和套餐 ID。  如果某项未使用过，则为空白。
 
 在整个报表中，标为灰色的单元格为只读。 白色的单元格可以根据要求修改。
@@ -122,18 +126,17 @@ ms.locfileid: "58627687"
 
 **VM 数**：与配置相符的 VM 数。 可以更新现有 VM 的数目，前提是不对类似的配置 VM 进行分析，而会对其进行保护。
 
-**IaaS 大小（建议）**：此工具建议的兼容 VM 的 VM 角色大小。 
+**IaaS 大小（建议）** ：此工具建议的兼容 VM 的 VM 角色大小。 
 
-**IaaS 大小（你的选择）**：默认情况下与建议的 VM 角色大小相同。 可以根据需要更改角色。 计算成本取决于所选 VM 角色大小。
+**IaaS 大小（你的选择）** ：默认情况下与建议的 VM 角色大小相同。 可以根据需要更改角色。 计算成本取决于所选 VM 角色大小。
 
 **存储类型**：VM 使用的存储类型。 可以是标准存储或高级存储。
 
-**VM 总存储大小 (GB)**：VM 的总存储。
+**VM 总存储大小 (GB)** ：VM 的总存储。
 
 **一年的 DR 演练次数**：一年中进行 DR 演练的次数。 默认为一年 4 次。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。  
 
-**每次 DR 演练的持续时间（天）**：每次 DR 演练的持续时间。 默认情况下，根据[灾难恢复软件保障权益](https://www.azure.cn/pricing/details/site-recovery/)的规定，每 90 天演练一次，每次演练的持续时间为 7 天。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。
-<!-- URL is Correct on https://www.azure.cn/pricing/details/site-recovery/ -->
+**每次 DR 演练的持续时间（天）** ：每次 DR 演练的持续时间。 默认情况下，根据[灾难恢复软件保障权益](https://www.azure.cn/pricing/details/site-recovery/)的规定，每 90 天演练一次，每次演练的持续时间为 7 天。 可以修改特定 VM 的持续时间或将新值应用到所有 VM，只需在顶部行中输入新值，然后单击“应用到所有项”按钮即可。 可以根据一年的 DR 演练次数和每次 DR 演练的持续时间来计算总 DR 演练成本。
 
 **OS 类型**：VM 的 OS 类型。 可以是 Windows 或 Linux。 如果 OS 类型为 Windows，则可将 Azure 混合使用权益应用到该 VM。 
 
@@ -145,14 +148,19 @@ ms.locfileid: "58627687"
 
 **稳定状态复制成本**：包括复制的存储成本。
 
-**总 DR 演练成本（平均值）**：包括 DR 演练的计算和存储成本。
+**总 DR 演练成本（平均值）** ：包括 DR 演练的计算和存储成本。
 
 **ASR 许可证成本**：Azure Site Recovery 许可证成本。
 
+<a name="<a name="supported-target-regions"></a>
+
 <!-- Not Available on ## Supported target regions -->
+
+<a name="supported-currencies"></a>
 
 <!-- Not Available on ## Supported currencies -->
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[使用 Azure Site Recovery 将 VMware VM 转移到 Azure 进行保护](/site-recovery/tutorial-vmware-to-azure)。
+
 <!-- Update_Description: update meta properties, wording update -->

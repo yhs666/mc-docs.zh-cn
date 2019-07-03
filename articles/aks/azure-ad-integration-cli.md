@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 05/13/2019
+ms.date: 06/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: 137fbe1167f67f69b0b06785c2ad74dea9bcc585
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 3d04084a2a70d6965984f4846023406e769faeeb
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520817"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325777"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成
 
@@ -21,12 +21,11 @@ ms.locfileid: "65520817"
 
 本文介绍如何创建所需的 Azure AD 组件，然后部署支持 Azure AD 的群集并在 AKS 群集中创建一个基本的 RBAC 角色。 也可以[使用 Azure 门户完成这些步骤][azure-ad-portal]。
 
-有关本文中使用的完整示例脚本，请参阅 [Azure CLI 示例 - Azure AD 与 AKS 集成][complete-script]。
+有关本文中使用的完整示例脚本，请参阅 [Azure CLI 示例 - AKS 与 Azure AD 集成][complete-script]。
 
 以下限制适用：
 
 - 只有在创建新的启用 RBAC 的群集时，才能启用 Azure AD。 不能在现有 AKS 群集上启用 Azure AD。
-- 不支持 Azure AD 中的来宾用户，例如，从其他目录使用联合登录。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -51,7 +50,7 @@ aksname="myakscluster"
 
 若要与 AKS 集成，请创建并使用充当标识请求终结点的 Azure AD 应用程序。 所需的第一个 Azure AD 应用程序获取用户的 Azure AD 组成员身份。
 
-使用 [az ad app create][az-ad-app-create] 命令创建服务器应用程序组件，然后使用 [az ad app update][az-ad-app-update] 命令更新组成员身份声明。 以下示例使用[开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
+使用 [az ad app create][az-ad-app-create]command, then update the group membership claims using the [az ad app update][az-ad-app-update] 命令创建服务器应用程序组件。 以下示例使用[开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
 
 ```azurecli
 # Create the Azure AD application
@@ -64,7 +63,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-现在，使用 [az ad sp create][az-ad-sp-create] 命令创建服务器应用的服务主体。 此服务主体用于在 Azure 平台中对自身进行身份验证。 然后，使用 [az ad sp credential reset][az-ad-sp-credential-reset] 命令获取服务主体机密，并将其分配到名为 *serverApplicationSecret* 的变量，以便在以下步骤之一中使用：
+现在，使用 [az ad sp create][az-ad-sp-create]command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] 命令为服务器应用创建服务主体，并将其分配给名为“serverApplicationSecret”  的变量，以便在以下步骤之一中使用：
 
 ```azurecli
 # Create a service principal for the Azure AD application
@@ -91,7 +90,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-最后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予在上一步骤中为服务器应用程序分配的权限。 如果当前帐户不是租户管理员，此步骤将会失败。还需要添加对 Azure AD 应用程序的权限来请求信息，否则可能需要使用 [az ad app permission admin-consent][az-ad-app-permission-admin-consent] 来请求管理许可：
+最后，使用 [az ad app permission grant][az-ad-app-permission-grant]command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent] 授予在上一步骤中为服务器应用程序分配的权限：
 
 <!--The following cli cmdlet run failed due to not the administration priviledge-->
 
@@ -124,7 +123,7 @@ az ad sp create --id $clientApplicationId
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-使用 [az ad app permission add][az-ad-app-permission-add] 命令添加对客户端应用程序和服务器应用程序组件的权限，以使用 oAuth2 通信流。 然后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予客户端应用程序与服务器应用程序通信的权限：
+使用 [az ad app permission add][az-ad-app-permission-add]command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] 命令添加对客户端应用程序和服务器应用程序组件的权限，以使用 oAuth2 通信流：
 
 ```azurecli
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -141,7 +140,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 az group create --name myResourceGroup --location ChinaEast
 ```
 
-使用 [az account show][az-account-show] 命令获取 Azure 订阅的租户 ID。 然后使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 用于创建 AKS 群集的命令可提供服务器和客户端应用程序 ID、服务器应用程序服务主体机密和租户 ID：
+使用 [az account show][az-account-show]command. Then, create the AKS cluster using the [az aks create][az-aks-create] 命令获取 Azure 订阅的租户 ID。 用于创建 AKS 群集的命令可提供服务器和客户端应用程序 ID、服务器应用程序服务主体机密和租户 ID：
 
 ```azurecli
 tenantId=$(az account show --query tenantId -o tsv)
@@ -157,7 +156,7 @@ az aks create \
     --aad-tenant-id $tenantId
 ```
 
-最后，使用 [az aks get-credentials][az-aks-get-credentials] 命令获取群集管理员凭据。 在以下步骤之一中，你将获取普通用户群集凭据，以查看 Azure AD 身份验证流的运作方式。
+最后，使用 [az aks get-credentials][az-aks-get-credentials] 命令获取群集管理员凭据。 在以下步骤之一中，你将获取普通用户群集凭据，以查看 Azure AD 身份验证流的运作方式。 
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
@@ -165,7 +164,7 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 ## <a name="create-rbac-binding"></a>创建 RBAC 绑定
 
-在对 AKS 群集使用 Azure Active Directory 帐户之前，需要创建角色绑定或群集角色绑定。 “角色”定义要授予的权限，“绑定”将这些权限应用于目标用户。 这些分配可应用于特定命名空间或整个群集。 有关详细信息，请参阅[使用 RBAC 授权][rbac-authorization]。
+在对 AKS 群集使用 Azure Active Directory 帐户之前，需要创建角色绑定或群集角色绑定。 “角色”定义要授予的权限，“绑定”将这些权限应用于目标用户   。 这些分配可应用于特定命名空间或整个群集。 有关详细信息，请参阅[使用 RBAC 授权][rbac-authorization]。
 
 使用 [az ad signed-in-user show][az-ad-signed-in-user-show] 命令获取用户当前登录用户的用户主体名称 (UPN)。 在下一步骤中，将为 Azure AD 集成启用此用户帐户。
 
@@ -207,7 +206,7 @@ kubectl apply -f basic-azure-ad-binding.yaml
 az aks get-credentials --resource-group myResourceGroup --name $aksname --overwrite-existing
 ```
 
-现在，使用 [kubectl get pods][kubectl-get] 命令查看所有命名空间中的 pod。
+现在，使用 [kubectl get pods][kubectl-get] 命令查看所有命名空间中的 pod：
 
 ```console
 kubectl get pods --all-namespaces
@@ -240,8 +239,9 @@ kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0       
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* 登录的用户在 Azure AD 实例中不是以来宾身份登录的（在使用来自不同目录中的联合登录时，通常会出现此情况）。
+* 你定义了适当的对象 ID 或 UPN，具体取决于用户帐户是否在同一 Azure AD 租户中。
 * 用户不是 200 多个组的成员。
+* 服务器应用程序注册中定义的机密与使用 `--aad-server-app-secret` 配置的值相匹配
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -254,7 +254,7 @@ error: You must be logged in to the server (Unauthorized)
 有关标识和资源控制的最佳做法，请参阅[有关 AKS 中的身份验证和授权的最佳做法][operator-best-practices-identity]。
 
 <!-- LINKS - external -->
-[kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
+[kubernetes-webhook]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [complete-script]: https://github.com/Azure-Samples/azure-cli-samples/tree/master/aks/azure-ad-integration/azure-ad-integration.sh
@@ -276,12 +276,10 @@ error: You must be logged in to the server (Unauthorized)
 [az-account-show]: https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show
 [az-ad-signed-in-user-show]: https://docs.azure.cn/zh-cn/cli/ad/signed-in-user?view=azure-cli-latest#az-ad-signed-in-user-show
 [azure-ad-portal]: azure-ad-integration.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli
-?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 
 <!--Update_Description: new articles on azure ad intergration cli -->
-<!--ms.date: 005/13/2019-->

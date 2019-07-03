@@ -10,16 +10,16 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 origin.date: 05/25/2018
 ms.author: v-biyu
-ms.date: 06/17/2019
-ms.openlocfilehash: 53d58a2f028548e83521a579d7762c4d101f248c
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.date: 07/01/2019
+ms.openlocfilehash: 076ed4e46b89d1a36688bdef27c59f9b8862f9d1
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687462"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171352"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
@@ -49,19 +49,7 @@ ms.locfileid: "66687462"
 
 必须使用用于 Xamarin 的 Visual Studio Tools 来打开解决方案，详见 [Xamarin 安装说明][Install Xamarin]。 如果该工具已安装，请按以下步骤来下载并打开解决方案：
 
-### <a name="visual-studio"></a>Visual Studio
-
-1. 转到 [Azure 门户](https://portal.azure.cn/)。
-
-2. 在移动应用的设置边栏选项卡上，单击“快速入门”（在“部署”下）>“Xamarin.Forms”   。 在步骤 3 下，单击“创建新应用”  （如果尚未选择它）。  接下来，单击“下载”  按钮。
-
-   此操作下载一个项目，其中包含连接到移动应用的客户端应用程序。 将压缩的项目文件保存到本地计算机，并记下保存位置。
-
-3. 解压缩下载的项目，然后在 Visual Studio 中打开它。
-
-4. 按照下面的说明运行 Android 或 Windows 项目；如果有联网的 Mac 计算机可用，则运行 iOS 项目。
-
-### <a name="visual-studio-for-mac"></a>Visual Studio for Mac
+### <a name="visual-studio-windows-and-mac"></a>Visual Studio（Windows 和 Mac）
 
 1. 转到 [Azure 门户](https://portal.azure.cn/)，并导航到已创建的移动应用。 在 `Overview` 边栏选项卡上，查找作为移动应用公共终结点的 URL。 示例 - 我的应用名称“test123”的站点名将为 https://test123.azurewebsites.net 。
 

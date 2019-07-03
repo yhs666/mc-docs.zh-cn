@@ -14,14 +14,14 @@ ms.devlang: Java
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 05/27/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 7f10cf550fc5e721255cefdccc7538e35e23f0f2
-ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+ms.openlocfilehash: 21abc5a5b28b301497fed9c4910c526d8f0bb16a
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65628763"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171371"
 ---
 # <a name="get-started-with-notification-hubs-for-kindle-apps"></a>通知中心入门（Kindle 应用）
 
@@ -49,38 +49,49 @@ ms.locfileid: "65628763"
 ## <a name="add-a-new-app-to-the-developer-portal"></a>向开发人员门户添加新应用程序
 
 1. 登录到 [Amazon 开发人员门户](https://developer.amazon.com/apps-and-games/console/apps/list.html)。
-2. 依次选择“添加新应用”、“Android”。  
+2. 依次选择“添加新应用”、“Android”。    
 
     ![“添加新应用”按钮](./media/notification-hubs-kindle-get-started/add-new-app-button.png)
-1. 在“新建应用提交内容”页上，执行以下步骤获取**应用程序密钥**：
-    1. 输入“应用标题”的名称。
+1. 在“新建应用提交内容”页上，执行以下步骤获取**应用程序密钥**： 
+    1. 输入“应用标题”的名称。 
     2. 选择任一**类别**（例如“教育”）
-    4. 在“客户支持电子邮件地址”字段中输入电子邮件地址。 
-    5. 选择“其他安全性验证” 。
+    4. 在“客户支持电子邮件地址”字段中输入电子邮件地址。  
+    5. 选择“其他安全性验证”  。
 
         ![“新建应用提交内容”页](./media/notification-hubs-kindle-get-started/new-app-submission-page.png) 
-2.  在顶部切换到“手机广告”选项卡，然后执行以下步骤： 
-    1. 指定你的应用是否主要面向 13 岁以下的儿童。 对于本教程，请选择“否”。
-    2. 选择“提交”。 
+2.  在顶部，切换到“应用程序服务”  标签页。
+
+    ![“应用程序服务”标签页](./media/notification-hubs-kindle-get-started/app-services-tab.png)
+1. 在“应用程序服务”标签页  上，向下滚动，然后在“手机广告”  部分中选择“查看手机广告”  。 将在 Web 浏览器的新标签页中看到“手机广告”  页。 
+
+    ![“手机广告”部分 -“查看手机广告”链接](./media/notification-hubs-kindle-get-started/view-mobile-ads-link.png)
+1. 在“手机广告”  页上，执行以下步骤： 
+    1. 指定你的应用是否主要面向 13 岁以下的儿童。 对于本教程，请选择“否”。 
+    1. 选择“提交”。  
 
         ![“手动广告”页](./media/notification-hubs-kindle-get-started/mobile-ads-page.png)
-    3. 复制“手机广告”页中的**应用程序密钥**。 
+    3. 复制“手机广告”页中的**应用程序密钥**。  
 
         ![应用程序密钥](./media/notification-hubs-kindle-get-started/application-key.png)
-3.  选择顶部的“应用和服务”菜单，然后在列表中选择你的应用程序。 
+3.  现在，切换到包含打开的“应用程序服务”  标签页的 Web 浏览器标签页，然后执行以下步骤：
+    1. 滚动到“设备消息传送”  部分。     
+    1. 展开“选择现有安全配置文件或新建安全配置文件”  ，然后选择“创建安全配置文件”  。 
 
-    ![从列表中选择你的应用](./media/notification-hubs-kindle-get-started/all-apps-select.png)
-4. 切换到“设备消息传送”选项卡，然后执行以下步骤： 
-    1. 选择“创建新的安全配置文件”。
-    2. 输入安全配置文件的**名称**。 
-    3. 输入安全配置文件的**说明**。 
-    4. 选择“其他安全性验证” 。 
-    5. 在结果页上选择“查看安全配置文件”。 
-5. 现在，请在“安全配置文件”页上执行以下步骤： 
-    1. 切换到“Web 设置”选项卡，并复制“客户端 ID”和“客户端机密”值供稍后使用。 
+        ![“创建安全配置文件”按钮](./media/notification-hubs-kindle-get-started/create-security-profile-button.png)
+    1. 输入安全配置文件的**名称**。 
+    2. 输入安全配置文件的**说明**。 
+    3. 选择“其他安全性验证”  。 
+
+        ![保存安全配置文件](./media/notification-hubs-kindle-get-started/save-security-profile.png)
+    1. 选择“启用设备消息传送”  以在此安全配置文件上启用设备消息传送。 
+
+        ![启用设备消息传送](./media/notification-hubs-kindle-get-started/enable-device-messaging.png)
+    1. 然后，在结果页上选择“查看安全配置文件”  。 
+1. 现在，请在“安全配置文件”页上执行以下步骤：  
+    1. 切换到“Web 设置”选项卡，并复制“客户端 ID”和“客户端机密”值供稍后使用。    
 
         ![获取客户端 ID 和机密](./media/notification-hubs-kindle-get-started/client-id-secret.png) 
-    2. 切换到“Android/Kindle 设置”页，并使该页保持打开状态。 将在下一部分输入这些值。 
+    2. 切换到“Android/Kindle 设置”页，并使该页保持打开状态。  将在下一部分输入这些值。 
 
 ## <a name="create-an-api-key"></a>创建 API 密钥
 1. 使用管理员特权打开命令提示符。
@@ -90,54 +101,54 @@ ms.locfileid: "65628763"
     ```shell
     keytool -list -v -alias androiddebugkey -keystore ./debug.keystore
     ```
-4. 对于“密钥存储”密码，请键入 android。
-5. 复制“MD5”和“SHA256”指纹。 
-6. 返回开发人员门户，在“Android/Kindle 设置”选项卡上执行以下步骤： 
+4. 对于“密钥存储”密码，请键入 android   。
+5. 复制“MD5”和“SHA256”指纹。   
+6. 返回开发人员门户，在“Android/Kindle 设置”选项卡上执行以下步骤：  
     1. 输入 **API 密钥的名称**。 
-    2. 输入应用的**包名称**（例如 **com.fabrikam.mykindleapp**）和“MD5”值。
+    2. 输入应用的**包名称**（例如 **com.fabrikam.mykindleapp**）和“MD5”值。 
         
         >[!IMPORTANT]
         > 在 Android Studio 中创建应用时，将使用此处指定的包名称。 
     1. 粘贴前面复制的 **MD5 签名**。 
     2. 粘贴前面复制的 **SHA256 签名**。  
-    3. 选择“生成新密钥”。
+    3. 选择“生成新密钥”。 
 
         ![Android/Kindle 设置 - 生成密钥](./media/notification-hubs-kindle-get-started/android-kindle-settings.png)
-    4. 现在，请在列表中选择“显示”以查看 API 密钥。 
+    4. 现在，请在列表中选择“显示”以查看 API 密钥。  
 
         ![Android/Kindle 设置 - 显示 API 密钥](./media/notification-hubs-kindle-get-started/show-api-key-button.png) 
-    5. 在“API 密钥详细信息”窗口中，复制 API 密钥并将其保存到某个位置。 然后，选择右上角的“X”以关闭窗口。 
+    5. 在“API 密钥详细信息”窗口中，复制 API 密钥并将其保存到某个位置。  然后，选择右上角的“X”以关闭窗口。  
 
 
 ## <a name="create-and-configure-a-notification-hub"></a>创建并配置通知中心
 
 1. 遵循[在 Azure 门户中创建 Azure 通知中心](create-notification-hub-portal.md)一文中的步骤创建通知中心。 
-2. 在“设置”菜单下选择“Amazon (ADM)”。
+2. 在“设置”菜单下选择“Amazon (ADM)”。  
 3. 粘贴前面保存的**客户端 ID** 和**客户端机密**。 
-4. 在工具栏上选择“保存”。 
+4. 在工具栏上选择“保存”。  
 
     ![配置通知中心的 ADM 设置](./media/notification-hubs-kindle-get-started/configure-notification-hub.png)
-5. 在左侧菜单中选择“访问策略”，然后选择 **DefaultListenSharedAccessSignature** 策略的连接字符串对应的“复制”按钮。 将其保存在某个位置。 稍后将在源代码中使用它。 
+5. 在左侧菜单中选择“访问策略”，然后选择 **DefaultListenSharedAccessSignature** 策略的连接字符串对应的“复制”按钮。   将其保存在某个位置。 稍后将在源代码中使用它。 
 
     ![通知中心 - 侦听连接字符串](./media/notification-hubs-kindle-get-started/event-hub-listen-connection-string.png)    
 
 ## <a name="set-up-your-application"></a>设置应用程序
 
 1. 启动 Android Studio。 
-2. 选择“文件”，指向“新建”，然后选择“新建项目”。 
-3. 在“选择项目”窗口中的“手机和平板电脑”选项卡上，依次选择“空活动”、“下一步”。 
-4. 在“配置项目”窗口中执行以下步骤：
+2. 选择“文件”，指向“新建”，然后选择“新建项目”。    
+3. 在“选择项目”窗口中的“手机和平板电脑”选项卡上，依次选择“空活动”、“下一步”。     
+4. 在“配置项目”窗口中执行以下步骤： 
     1. 输入**应用程序的名称**。 建议使用与在 Amazon 开发人员门户中创建的应用程序名称匹配的名称。 
     2. 输入**包的名称**。 
         
         >[!IMPORTANT]
         >该包名称必须与在 Amazon 开发人员门户中指定的包名称相匹配。
     3. 查看剩余的值并相应地更新。 
-    4. 选择“完成”。 
+    4. 选择“完成”。  
 
         ![配置 Android 项目](./media/notification-hubs-kindle-get-started/new-android-studio-project.png)
 5. 将[适用于 Android 的 Amazon 开发人员 SDK](https://developer.amazon.com/sdk-download) 库下载到硬盘。 解压缩 SDK zip 文件。
-6. 在 Android Studio 中，如果文件夹结构尚未设置为“项目”，请将其从“Android”更改为“项目”。 
+6. 在 Android Studio 中，如果文件夹结构尚未设置为“项目”，请将其从“Android”更改为“项目”。    
 
     ![Android Studio - 切换到项目结构](./media/notification-hubs-kindle-get-started/android-studio-project-view.png)
 7. 在树视图中展开 **app** 以查看 **libs** 文件夹。     
@@ -145,7 +156,7 @@ ms.locfileid: "65628763"
 9. 按住 **CTRL** 并将 **amazon-device-messaging-1.0.1.jar** 文件拖放到树视图中的 **lib** 节点。 
 
     ![Android Studio - 添加 Amazon Device Messaging JAR](./media/notification-hubs-kindle-get-started/drag-drop-amazon-device-messaging-jar.png)
-9. 在“复制”窗口中选择“确定”。 如果看到的是“移动”窗口而不是“复制”窗口，请将其关闭，然后在按住 **CTRL** 按钮的同时重试拖放操作。 
+9. 在“复制”窗口中选择“确定”。   如果看到的是“移动”窗口而不是“复制”窗口，请将其关闭，然后在按住 **CTRL** 按钮的同时重试拖放操作。   
 
     ![Android Studio - 复制 JAR](./media/notification-hubs-kindle-get-started/copy-jar-window.png)
 10. 将以下语句添加到**应用的 build.gradle** 文件中的 **dependencies** 节：`implementation files('libs/amazon-device-messaging-1.0.1.jar')`。 
@@ -166,7 +177,7 @@ ms.locfileid: "65628763"
         }
     }
     ```
-13. 在**应用**的 **build.gradle** 文件的编辑器中，选择工具栏上的“立即同步”。 
+13. 在**应用**的 **build.gradle** 文件的编辑器中，选择工具栏上的“立即同步”。  
 
     ![Android Studio - 同步应用的 build.gradle](./media/notification-hubs-kindle-get-started/gradle-sync-now.png)
 14. 切换回到树视图中的 Android 结构。  在根清单元素中添加 Amazon 命名空间：
@@ -315,28 +326,58 @@ ms.locfileid: "65628763"
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
     }
     ```
+## <a name="create-an-adm-object"></a>创建 ADM 对象
+1 在 `MainActivity.java` 文件中，添加以下 import 语句：
+
+    ```java
+    import android.os.AsyncTask;
+    import android.util.Log;
+    import com.amazon.device.messaging.ADM;
+    ```
+2. 在 `OnCreate` 方法的末尾添加以下代码：
+
+    ```java
+    final ADM adm = new ADM(this);
+    if (adm.getRegistrationId() == null)
+    {
+        adm.startRegister();
+    } else {
+        new AsyncTask() {
+                @Override
+                protected Object doInBackground(Object... params) {
+                    try {                         MyADMMessageHandler.getNotificationHub(getApplicationContext()).register(adm.getRegistrationId());
+                    } catch (Exception e) {
+                        Log.e("com.wa.hellokindlefire", "Failed registration with hub", e);
+                        return e;
+                    }
+                    return null;
+                }
+            }.execute(null, null, null);
+    }
+    ```
+
 
 ## <a name="add-your-api-key-to-your-app"></a>将 API 密钥添加到应用
 1. 遵循以下步骤将 assets 文件夹添加到项目。 
-    1. 切换到“项目”视图。 
-    2. 右键单击“app”。
-    3. 选择“新建”。
-    4. 选择“文件夹”。 
-    5. 然后选择“Assets 文件夹”。 
+    1. 切换到“项目”视图。  
+    2. 右键单击“app”。 
+    3. 选择“新建”  。
+    4. 选择“文件夹”。  
+    5. 然后选择“Assets 文件夹”。  
 
         ![添加 assets 文件夹菜单](./media/notification-hubs-kindle-get-started/add-assets-folder-menu.png)    
-    6. 在“配置组件”页上执行以下步骤：
-        1. 选择“更改文件夹位置”
+    6. 在“配置组件”页上执行以下步骤： 
+        1. 选择“更改文件夹位置” 
         2. 确认文件夹已设置为：`src/main/assets`。
-        3. 选择“完成”。 
+        3. 选择“完成”。  
         
             ![配置 assets 文件夹](./media/notification-hubs-kindle-get-started/configure-asset-folder.png)
-2. 将名为 **api_key.txt** 的文件添加到 **assets** 文件夹。 在树视图中，依次展开“app”、“src”、“main”，右键单击“assets”，指向“新建”，然后选择“文件”。 输入 **api_key.txt** 作为文件名。 3. 
+2. 将名为 **api_key.txt** 的文件添加到 **assets** 文件夹。 在树视图中，依次展开“app”、“src”、“main”，右键单击“assets”，指向“新建”，然后选择“文件”。       输入 **api_key.txt** 作为文件名。 3. 
 5. 将你在 Amazon 开发人员门户中生成的 API 密钥复制到 api_key.txt 文件。 
 6. 生成项目。 
 
 ## <a name="run-the-app"></a>运行应用程序
-1. 在 Kindle 设备上，从顶部往下轻扫，单击“设置”，然后单击“我的帐户”并使用有效的 Amazon 帐户注册。
+1. 在 Kindle 设备上，从顶部往下轻扫，单击“设置”，然后单击“我的帐户”并使用有效的 Amazon 帐户注册。  
 2. 通过 Android Studio Kindle 在设备上运行该应用。 
 
 > [!NOTE]
@@ -366,7 +407,6 @@ static void Main(string[] args)
 <!-- URLs. -->
 [Amazon developer portal]: https://developer.amazon.com/home.html
 [download the SDK]: https://developer.amazon.com/public/resources/development-tools/sdk
-
 [0]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal1.png
 [1]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal2.png
 [2]: ./media/notification-hubs-kindle-get-started/notification-hub-kindle-portal3.png

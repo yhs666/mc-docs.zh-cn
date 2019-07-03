@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/06/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7d34078e9750455611ca2b2f6ddb36170c025b9
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: cdc79843dd1cd51b8d3b80b6b4a260cf7d6ea9b4
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520704"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276437"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序
 
@@ -23,7 +23,9 @@ ms.locfileid: "65520704"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
+
+<!--Not Available on [aks-quickstart-portal]-->
 
 还需要安装 Helm CLI，它是一个在开发系统上运行并且允许你使用 Helm 启动、停止和管理应用程序的客户端。 如果使用 Azure 本地 Shell，则已安装 Helm CLI。 有关本地平台上的安装说明，请参阅[安装 Helm][helm-install]。
 
@@ -86,7 +88,7 @@ helm init \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
     --service-account tiller \
-    --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0 、
+    --tiller-image gcr.azk8s.cn/kubernetes-helm/tiller:v2.13.0 \
     --stable-repo-url https://mirror.azure.cn/kubernetes/charts/
 ```
 
@@ -214,7 +216,7 @@ wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.
 
 ## <a name="clean-up-resources"></a>清理资源
 
-在部署 Helm 图表时，会创建若干 Kubernetes 资源。 这些资源包括 pod、部署和服务。 若要清理这些资源，请使用 `helm delete` 命令并指定版本名称，如上一个 `helm list` 命令中所示。 以下示例将删除名为 wishful mastiff 的版本：
+在部署 Helm 图表时，会创建若干 Kubernetes 资源。 这些资源包括 pod、部署和服务。 若要清理这些资源，请使用 `helm delete` 命令并指定版本名称，如上一个 `helm list` 命令中所示。 以下示例将删除名为 wishful mastiff 的版本  ：
 
 ```console
 $ helm delete wishful-mastiff
@@ -245,4 +247,4 @@ release "wishful-mastiff" deleted
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 <!--Not Avaialble on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]： https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest

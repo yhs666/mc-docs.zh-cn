@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 147464f408c2ea1c824a2758e055432f061b805a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: a624a237f3ffc74e69cbbd794f6a8ae2c87350cd
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731478"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236058"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -102,7 +102,7 @@ Azure 资源将发出两种类型的监视数据：
 
 1. 将 Application Insights 数据[设置为连续导出](../../azure-monitor/app/export-telemetry.md)到存储帐户。
 
-2. 设置计时器触发逻辑应用，[从 blob 存储拉取数据](../../connectors/connectors-create-api-azureblobstorage.md#add-action)并[将其作为消息推送到事件中心](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)。
+2. 设置计时器触发的逻辑应用，以便从 blob 存储拉取数据并[将其作为消息推送到事件中心](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)。
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>可对发送到事件中心的监视数据执行什么操作？
 

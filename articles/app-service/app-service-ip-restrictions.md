@@ -1,5 +1,5 @@
 ---
-title: 限制客户端 IP - Azure 应用服务 | Azure Docs
+title: 限制访问 - Azure 应用服务 | Azure Docs
 description: 如何将访问限制与 Azure 应用服务配合使用
 author: ccompy
 manager: stefsch
@@ -14,13 +14,13 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 07/30/2018
 ms.author: v-biyu
-ms.date: 04/22/2019
-ms.openlocfilehash: ce2f058217dd9c67b6dbfd35190341b917a59fac
-ms.sourcegitcommit: 418aefbdc9a12d26853ec78333b7fe37a521b398
+ms.date: 07/01/2019
+ms.openlocfilehash: 4dc05711ed1e20812a1039cd7f69a0195866f5df
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412491"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171384"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制 #
 
@@ -38,7 +38,7 @@ ms.locfileid: "65412491"
 
 ## <a name="adding-and-editing-access-restriction-rules-in-the-portal"></a>在门户中添加并编辑访问限制规则 ##
 
-若要向应用添加访问限制规则，请使用菜单打开“网络”>“访问限制”，然后单击“配置访问限制”
+若要向应用添加访问限制规则，请使用菜单打开“网络”>“访问限制”，然后单击“配置访问限制”   
 
 ![应用服务网络选项](media/app-service-ip-restrictions/access-restrictions.png)  
 
@@ -48,17 +48,25 @@ ms.locfileid: "65412491"
 
 该列表将显示应用中的所有当前限制。 如果应用中存在 VNet 限制，该表将显示是否为 Microsoft.Web 启用了服务终结点。 如果应用中未定义限制，则可以从任何位置访问应用。  
 
-可单击“[+] 添加”以添加新的访问限制规则。 规则在添加后会立即生效。 规则会从最小的数字开始往上，按优先级顺序强制执行。 即使仅添加了一个规则，一个隐式的“拒绝所有”也会立即生效。
+## <a name="adding-ip-address-rules"></a>添加 IP 地址规则
 
-![添加 IP 访问限制规则](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+可单击“[+] 添加”以添加新的访问限制规则  。 规则在添加后会立即生效。 规则会从最小的数字开始往上，按优先级顺序强制执行。 即使仅添加了一个规则，一个隐式的“拒绝所有”也会立即生效。
 
 创建规则时，必须选择“允许/拒绝”以及规则的类型。 此时，需要提供优先级值，以及要限制访问的内容。  可以选择性地添加规则的名称和说明。  
 
+![添加 IP 访问限制规则](media/app-service-ip-restrictions/access-restrictions-ip-add.png)
+
 若要设置基于 IP 地址的规则，请选择 IPv4 或 IPv6 类型。 对于 IPv4 和 IPv6 地址，必须在 CIDR 表示法中指定 IP 地址表示法。 若要指定确切的地址，可以使用类似 1.2.3.4/32 的格式，其中前四个八位字节代表自己的 IP 地址，/32 为掩码。 所有地址的 IPv4 CIDR 表示法都为 0.0.0.0/0。 要详细了解 CIDR 表示法，请阅读[无类别域际路由选择](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)。 
+
+## <a name="service-endpoints"></a>服务终结点
+
+通过服务终结点，可以限制对选定 Azure 虚拟网络子网的访问。 若要限制对特定子网的访问，请使用虚拟网络类型创建限制规则。 可以选择要允许或拒绝访问的订阅、VNet 和子网。 如果尚未为选定子网的 Microsoft.Web 启用服务终结点，系统会自动启用它，除非你选中了不再询问的相应复选框。 有关何时要在应用而不是子网中启用它，在很大程度上取决于你是否有权在子网中启用服务终结点。 如果需要让其他某人在子网中启用服务终结点，可以选中相应的复选框，在预期将来要在子网中启用服务终结点的情况下，为服务终结点配置应用。 
 
 ![添加 VNet 访问限制规则](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
-若要限制对选定子网的访问，请选择“虚拟网络”类型。 在“虚拟网络”的下面，可以选择要允许或拒绝访问的订阅、VNet 和子网。 如果尚未为选定子网的 Microsoft.Web 启用服务终结点，系统会自动启用它，除非你选中了不再询问的相应复选框。 有关何时要在应用而不是子网中启用它，在很大程度上取决于你是否有权在子网中启用服务终结点。 如果需要让其他某人在子网中启用服务终结点，可以选中相应的复选框，在预期将来要在子网中启用服务终结点的情况下，为服务终结点配置应用。 
+
+
+## <a name="managing-access-restriction-rules"></a>管理访问限制规则
 
 单击任一行，可编辑现有访问限制规则。 编辑的内容会立即生效，包括在优先级排序方面的变化。
 
@@ -68,11 +76,19 @@ ms.locfileid: "65412491"
 
 ![编辑访问限制规则](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-若要删除某个规则，请单击规则上的“...”然后单击“删除”。
+若要删除某个规则，请单击规则上的“...”然后单击“删除”   。
 
 ![删除访问限制规则](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-### <a name="scm-site"></a>SCM 站点 
+## <a name="blocking-a-single-ip-address"></a>阻止单个 IP 地址 ##
+
+添加第一个 IP 限制规则时，服务将添加优先级为 2147483647 的显式“全部拒绝”  规则。 实际上，显式“全部拒绝”  规则将是最后执行的规则，并将阻止访问使用“允许”  规则未明确允许的任何 IP 地址。
+
+如果用户希望显式阻止单个 IP 地址或 IP 地址块，但允许所有其他访问，则有必要添加一个显式的“全部允许”  规则。
+
+![阻止单个 IP 地址](media/app-service-ip-restrictions/block-single-address.png)
+
+## <a name="scm-site"></a>SCM 站点 
 
 除了能够控制对应用的访问以外，还可以限制对应用所用的 scm 站点的访问。 scm 站点是 Web 部署终结点，也是 Kudu 控制台。 对于 scm 站点，可以分配不同于应用的访问限制；也可以对应用和 scm 站点使用相同的设置。 选中相应的框来使用与应用相同的限制时，所有设置都会留空。如果取消选中该框，将应用前面针对 scm 站点指定的所有设置。 
 
@@ -84,7 +100,7 @@ ms.locfileid: "65412491"
 
 此信息在资源管理器中的位置为：
 
-management.azure.com/subscriptions/subscription ID/resourceGroups/resource groups/providers/Microsoft.Web/sites/web app name/config/web?api-version=2018-02-01
+management.azure.com/subscriptions/subscription ID/resourceGroups/resource groups/providers/Microsoft.Web/sites/web app name/config/web?api-version=2018-02-01   
 
 前面的示例的 JSON 语法为：
 

@@ -9,21 +9,21 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-origin.date: 04/17/2018
-ms.date: 04/01/2019
+origin.date: 04/05/2019
+ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 9c3b8a99e8ca28b1234cce1c9dd917918b1eecbc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a76e0822ce568ffe6de724f3eb52ec43a0cffbeb
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626928"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151753"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>安装适用于 SQL 数据仓库的 Visual Studio 和 SSDT
-若要开发 SQL 数据仓库的应用程序，建议使用最新版本的 Visual Studio，并结合最新版本的 SQL Server Data Tools (SSDT)。  向后兼容也支持装有 SSDT 的 Visual Studio 2013 Update 5。  
+使用 Visual Studio 2019 开发 SQL 数据仓库的应用程序。 目前，SQL 数据仓库不支持 Visual Studio 2019 SSDT。 
 
-通过使用带有 SSDT 的 Visual Studio，可以使用 SQL Server 对象资源管理器以可视化方式浏览 SQL 数据仓库中的表格、视图、存储过程和其他更多对象，并运行查询。
+通过使用带有 SSDT 的 Visual Studio，可以使用 SQL Server 对象资源管理器以可视化方式浏览 SQL 数据仓库中的表、视图、存储过程和其他更多对象。 它还允许你运行查询。
 
 > [!NOTE]
 > SQL 数据仓库尚不支持 Visual Studio 数据库项目。  将来的版本会添加此功能。
@@ -39,10 +39,10 @@ ms.locfileid: "58626928"
 ## <a name="step-2-install-ssdt"></a>步骤 2：安装 SSDT
 若要安装适用于 Visual Studio 的 SSDT，请先遵循以下步骤从 Visual Studio 内查找 SSDT 更新。
 
-1. 在 Visual Studio 中，单击“工具” / “扩展和更新...” / “更新”
+1. 在 Visual Studio 中，单击“工具”   / “扩展和更新...”  / “更新” 
 2. 选择“**产品更新**”，并查找“**数据库工具的 Microsoft SQL Server 更新**”
 
-如果找不到更新，则表示已安装最新版本。  如果要确认是否已安装 SSDT，请单击“**帮助**” / “**关于 Microsoft Visual Studio**”，并在列表中查找 SQL Server Data Tools。 SSDT 的最新版本是 14.0.60525.0。 如果 Visual Studio 中的安装选项不可用，也可以访问 [SSDT 下载][SSDT Download] 页面来手动下载并安装 SSDT。
+如果找不到更新，则表示已安装最新版本。 如果要确认是否已安装 SSDT，请单击“**帮助**” / “**关于 Microsoft Visual Studio**”，并在列表中查找 SQL Server Data Tools。 如果 Visual Studio 中的安装选项不可用，可以访问 [SSDT 下载][SSDT Download]页来手动下载并安装 SSDT。
 
 ## <a name="next-steps"></a>后续步骤
 安装最新版本的 SSDT 后，便可以[连接][connect]到 SQL 数据仓库。

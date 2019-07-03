@@ -174,12 +174,6 @@
       items:
         - name: Azure AD（单租户）
           href: active-directory-b2c-setup-oidc-azure-active-directory.md
-        - name: 微信
-          href: active-directory-b2c-setup-wechat-app.md
-        - name: 微博
-          href: active-directory-b2c-setup-weibo-app.md
-        - name: QQ
-          href: active-directory-b2c-setup-qq-app.md
         - name: GitHub
           href: active-directory-b2c-setup-github-app.md
         - name: LinkedIn
@@ -198,7 +192,7 @@
           href: idp-pass-through-user-flow.md
         - name: 请求访问令牌
           href: active-directory-b2c-access-tokens.md
-    - name: 使用 b2clogin.com
+    - name: 使用 b2clogin.cn
       href: b2clogin.md
     - name: 使用 Azure AD 图形 API
       href: active-directory-b2c-devquickstarts-graph-dotnet.md

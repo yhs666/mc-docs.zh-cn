@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/28/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c7b834092771d8573dd633cbd5cda767493e411
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 61792aaaade9bf7e5ac9b8b0556807854c8e7fe8
+ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520733"
+ms.lasthandoff: 06/20/2019
+ms.locfileid: "67276438"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序缩放选项
 
@@ -75,9 +75,10 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 
 若要开始缩放应用程序，请首先按照[使用 Azure CLI 创建 AKS 群集的快速入门][aks-quickstart]进行操作。 然后，可以开始手动或自动缩放 AKS 群集中的应用程序：
 
-- 手动缩放 [Pod][aks-manually-scale-pods] 或[节点][aks-manually-scale-nodes]
+- 手动缩放 [Pod][aks-manually-scale-pods] or [nodes][aks-manually-scale-nodes]
 - 使用[水平 Pod 自动缩放程序][aks-hpa]
-- 使用[群集自动缩放程序][aks-cluster-autoscaler]
+
+<!--Not Avaialble on - Use the [cluster autoscaler][aks-cluster-autoscaler]-->
 
 有关核心 Kubernetes 和 AKS 概念的详细信息，请参阅以下文章：
 
@@ -95,7 +96,9 @@ Kubernetes 使用水平 Pod 自动缩放程序 (HPA) 来监视资源需求并自
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods
 [aks-manually-scale-nodes]: tutorial-kubernetes-scale.md#manually-scale-aks-nodes
-[aks-cluster-autoscaler]: autoscaler.md
+
+<!--Not Available on [aks-cluster-autoscaler]: autoscaler.md-->
+
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-storage]: concepts-storage.md

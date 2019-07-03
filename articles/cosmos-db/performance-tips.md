@@ -4,15 +4,15 @@ description: 了解用于提高 Azure Cosmos DB 数据库性能的客户端配�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 01/24/2018
-ms.date: 05/13/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64d53bb993d1025063338c0585711151cf6ef9d5
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 91f97109c80823d900c420746670651cdf8e4be5
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668921"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171393"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>适用于 Azure Cosmos DB 和 .NET 的性能提示
 
@@ -32,7 +32,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
 1. **连接策略：使用直接连接模式**
 
-    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接模式和连接协议。  两种可用模式：
+    客户端连接到 Azure Cosmos DB 的方式对性能有重大影响（尤其在观察到的客户端延迟方面）。 有两个重要配置设置可用于配置客户端连接策略 - 连接模式  和连接协议  。  两种可用模式：
 
     * 网关模式（默认）
 
@@ -77,6 +77,7 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
     默认情况下，第一个请求因为必须提取地址路由表而有较高的延迟。 为了避免首次请求时的这种启动延迟，应该在初始化期间调用 OpenAsync() 一次，如下所示。
 
         await client.OpenAsync();
+        
     <a name="same-region"></a>
 3. **将客户端并置在同一 Azure 区域中以提高性能**
 
@@ -145,9 +146,17 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     若要减少检索所有适用结果所需的网络往返次数，可以使用 [x-ms-max-item-count](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) 请求标头将页面大小最大增加到 1000。 在只需要显示几个结果的情况下（例如，用户界面或应用程序 API 一次只返回 10 个结果），也可以将页面大小缩小为 10，以降低读取和查询所耗用的吞吐量。
 
-    也可以使用可用的 Azure Cosmos DB SDK 设置页面大小。  例如：
+    > [!NOTE] 
+    > maxItemCount 属性不应仅用于分页目的。 它的主要用途是通过减少单个页面中返回的最大项数来提高查询性能。  
 
-        IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+    也可以使用可用的 Azure Cosmos DB SDK 设置页面大小。 FeedOptions 中的 [MaxItemCount](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 属性允许你设置要在列举操作中返回的最大项数。 当 `maxItemCount` 设置为 -1 时，SDK 会根据文档大小自动查找最佳值。 例如：
+
+    ```csharp
+    IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
+    ```
+
+    执行查询时，结果数据在 TCP 数据包中发送。 如果为 `maxItemCount` 指定的值太低，则在 TCP 数据包中发送数据所需的往返次数很高，这会影响性能。 因此，如果你不确定要为 `maxItemCount` 属性设置什么值，最好将其设置为 -1，然后让 SDK 选择默认值。 
+
 10. **增加线程/任务数目**
 
     请参阅“网络”部分中的 [增加线程/任务数目](#increase-threads) 。
@@ -156,19 +165,19 @@ Azure Cosmos DB 是一个快速、弹性的分布式数据库，可以在提供�
 
     当用户使用 SQL .NET SDK 1.11.4 及更高版本时，SQL SDK 可以在 32 位主机进程中运行。 但是，如果使用跨分区查询，建议使用 64 位主机进程来提高性能。 以下类型的应用程序默认为 32 位主机进程，为了将其更改为 64 位，请根据应用程序类型执行以下步骤：
 
-    - 对于可执行应用程序，在“生成”选项卡的“项目属性”窗口中，通过取消“首选 32 位”选项可实现以上目的。
+    - 对于可执行应用程序，在“生成”  选项卡的“项目属性”  窗口中，通过取消“首选 32 位”  选项可实现以上目的。
 
-    - 对于基于 VSTest 的测试项目，可通过从“Visual Studio 测试”菜单选项中选择“测试”->“测试设置”->“默认处理器体系结构为 X64”来完成。
+    - 对于基于 VSTest 的测试项目，可通过从“Visual Studio 测试”  菜单选项中选择“测试”  ->“测试设置”  ->“默认处理器体系结构为 X64”  来完成。
 
-    - 对于本地部署的 ASP.NET Web 应用程序，可以通过在“工具”->“选项”->“项目和解决方案”->“Web 项目”下勾选“对网站和项目使用 IIS Express 的 64 位版”来完成。
+    - 对于本地部署的 ASP.NET Web 应用程序，可以通过在“工具”->“选项”->“项目和解决方案”->“Web 项目”下勾选“对网站和项目使用 IIS Express 的 64 位版”来完成。     
 
-    - 对于部署在 Azure 上的 ASP.NET Web 应用程序，可以通过在 Azure 门户上的“应用程序设置”中选择“64 位平台”来完成。
+    - 对于部署在 Azure 上的 ASP.NET Web 应用程序，可以通过在 Azure 门户上的“应用程序设置”  中选择“64 位平台”  来完成。
 
 ## <a name="indexing-policy"></a>索引策略
 
 1. **从索引中排除未使用的路径以加快写入速度**
 
-    Cosmos DB 的索引策略还允许使用索引路径（IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。  例如，以下代码演示了如何使用“*”通配符 从索引中排除文档的整个部分（也称为子树）。
+    Cosmos DB 的索引策略还允许使用索引路径（IndexingPolicy.IncludedPaths 和 IndexingPolicy.ExcludedPaths）指定要在索引中包括或排除的文档路径。 在事先知道查询模式的方案中，使用索引路径可改善写入性能并降低索引存储空间，因为索引成本与索引的唯一路径数目直接相关。  例如，以下代码演示如何使用“*”通配符从索引中排除整个文档部分（子树）。
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

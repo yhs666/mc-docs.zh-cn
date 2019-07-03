@@ -11,12 +11,12 @@ origin.date: 12/21/2018
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 5b67514d64437d4f036e54d7ed40b4258421cd76
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 0e0df5094164f35d34f398082228a861481e710b
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687644"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235975"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>定义采用 Azure Active Directory B2C 的自定义策略的 SAML 技术配置文件
 
@@ -35,12 +35,12 @@ Azure Active Directory (Azure AD) B2C 为 SAML 2.0 身份提供程序提供支�
 以下示例显示 Azure AD B2C 技术配置文件的 SAML 元数据的 URL 地址：
 
 ```
-https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.cn/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 替换以下值：
 
-- 将 **your-tenant-name** 替换为你的租户名称，例如 fabrikam.b2clogin.com。
+- 将 **your-tenant-name** 替换为你的租户名称，例如 fabrikam.b2clogin.cn。
 - 将 your-policy  替换为你的策略名称。 使用配置 SAML 提供者技术配置文件的策略或从该策略继承的策略。
 - 将 **your-technical-profile** 替换为 SAML 标识提供者技术配置文件名称。
 

@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 04/22/2019
+ms.date: 07/01/2019
 ms.author: v-biyu
-ms.openlocfilehash: 10e23675fd4bc3b9f41febc055b066936cb25ac4
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.custom: seodec18
+ms.openlocfilehash: d8775cac0d995d55fc6692841e6e8d5145b04693
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687420"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171350"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 
@@ -34,7 +35,15 @@ ms.locfileid: "66687420"
 - 删除资源组和区域组合中的最后一个应用，然后重新创建它。 
 - 在证书续订等操作期间删除现有的 SSL 绑定（请参阅[续订证书](app-service-web-tutorial-custom-ssl.md#renew-certificates)）。
 
-## <a name="get-static-inbound-ip"></a>获取静态入站 IP
+## <a name="find-the-inbound-ip"></a>找到入站 IP
+
+只需在本地终端中运行以下命令：
+
+```bash
+nslookup <app-name>.chinacloudsites.cn
+```
+
+## <a name="get-a-static-inbound-ip"></a>获取静态入站 IP
 
 有时，你可能需要对应用使用专用静态 IP 地址。 若要获取静态入站 IP 地址，需要配置[基于 IP 的 SSL 绑定](app-service-web-tutorial-custom-ssl.md)。 如果并不真正需要使用 SSL 功能来保护应用，甚至可以上传一个自签名证书来实现此绑定。 在基于 IP 的 SSL 绑定中，证书将绑定到 IP 地址本身，因此，应用服务会预配一个静态 IP 地址来实现此目的。 
 

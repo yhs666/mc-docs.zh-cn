@@ -11,12 +11,12 @@ ms.service: sql-data-warehouse
 ms.topic: article
 origin.date: 04/03/2019
 ms.date: 05/27/2019
-ms.openlocfilehash: 76ae9af5552db6399148c5ee0c972f720fbd9bee
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 319dc3d759ecc883e59d3e11ca9830f5ad6c8a7a
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195190"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151759"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>将数据仓库升级到 Gen2
 
@@ -34,9 +34,9 @@ Azure 有助于降低运行数据仓库的入门级成本。  能够处理高要
 | **区域** | **较低的 Gen2 可用** | **自动升级开始时间** |
 |:--- |:--- |:--- |
 | 中国东部 |\* |\* |
-| 中国东部 2 |\* |\* |
+| 中国东部 2 |\* |仅 Gen2 |
 | 中国北部 |\* |\* |
-| 中国北部 2 |\* |\* |
+| 中国北部 2 |可用 |仅 Gen2 |
 
 ## <a name="automatic-upgrade-process"></a>自动升级过程
 

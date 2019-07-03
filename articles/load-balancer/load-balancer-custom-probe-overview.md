@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/07/2019
 ms.date: 06/03/2019
 ms.author: v-jay
-ms.openlocfilehash: d98860628531fb5f4ee58c5c854b9a2cb7a0d542
-ms.sourcegitcommit: e85021b6bddb943d275bdaf023098caa8601b801
+ms.openlocfilehash: a4b2375f6c9b2ed9b98b4317753594a8773e7b1b
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299690"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236655"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -175,7 +175,7 @@ UDP 是无连接的，并且系统不会跟踪 UDP 的流状态。 如果后端�
 <a name="source"></a>
 ## <a name="probesource"></a>探测源 IP 地址
 
-负载均衡器对其内部运行状况模型使用分布式探测服务。 探测服务驻留在每个 VM 主机上，可按需编程，以根据客户的配置生成运行状况探测。 运行状况探测流量直接在生成运行状况探测的探测服务与客户 VM 之间传送。 所有负载均衡器运行状况探测源自 IP 地址 168.63.129.16（源）。  可以使用 VNet 中不属于 RFC1918 空间的 IP 地址空间。  使用全局保留的、由 Microsoft 拥有的 IP 地址可以减少某个 IP 地址与 VNet 中使用的 IP 地址空间发生冲突的可能性。  此 IP 地址在所有区域中相同且不会改变，不会造成安全风险，因为只有内部 Azure 平台组件可以从此 IP 地址探寻数据包。 
+负载均衡器对其内部运行状况模型使用分布式探测服务。 探测服务驻留在每个 VM 主机上，可按需编程，以根据客户的配置生成运行状况探测。 运行状况探测流量直接在生成运行状况探测的探测服务与客户 VM 之间传送。 所有负载均衡器运行状况探测源自 IP 地址 168.63.129.16（源）。  可以使用 VNet 中不属于 RFC1918 空间的 IP 地址空间。  使用全局保留的、由 Azure 拥有的 IP 地址可以减少某个 IP 地址与 VNet 中使用的 IP 地址空间发生冲突的可能性。  此 IP 地址在所有区域中相同且不会改变，不会造成安全风险，因为只有内部 Azure 平台组件可以从此 IP 地址探寻数据包。 
 
 AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-overview.md)中标识此源 IP 地址，默认允许运行状况探测流量。
 
@@ -205,7 +205,7 @@ AzureLoadBalancer 服务标记在[网络安全组](../virtual-network/security-o
 
 若要测试运行状况探测故障或者将单个实例标记为停止，可以使用[网络安全组](../virtual-network/security-overview.md)显式阻止该运行状况探测（目标端口或[源 IP](#probesource)），并模拟探测故障。
 
-不要使用包含 168.63.129.16 的、使用 Microsoft 拥有的 IP 地址范围来配置 VNet。  这种配置与运行状况探测的 IP 地址冲突，可能导致方案失败。
+不要使用 Azure 拥有的包含 168.63.129.16 的 IP 地址范围来配置 VNet。  这种配置与运行状况探测的 IP 地址冲突，可能导致方案失败。
 
 如果 VM 上有多个接口，则需要确保能够响应收到请求的接口上的探测。  可能需要根据每个接口，对 VM 中的此地址进行源网络地址转换。
 

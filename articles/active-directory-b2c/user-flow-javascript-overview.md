@@ -11,18 +11,18 @@ origin.date: 04/25/2019
 ms.date: 06/05/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 611539eb0324ab5d271fdaf753d9dbba463ac5f0
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 30a7859e3ca16fc34073f5a7725f92e26112ed34
+ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687637"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67235979"
 ---
 # <a name="javascript-and-page-contract-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 JavaScript 和页面协定版本
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C 提供一组打包的内容，其中包含的 HTML、CSS 和 JavaScript 适用于用户流中的用户界面元素和自定义策略。 若要为应用程序启用 JavaScript，必须向[自定义策略](active-directory-b2c-overview-custom.md)添加一个元素，或者在门户中为用户流启用它，选择页面协定，并在请求中使用 [b2clogin.com](b2clogin.md)。
+Azure AD B2C 提供一组打包的内容，其中包含的 HTML、CSS 和 JavaScript 适用于用户流中的用户界面元素和自定义策略。 若要为应用程序启用 JavaScript，必须向[自定义策略](active-directory-b2c-overview-custom.md)添加一个元素，或者在门户中为用户流启用它，选择页面协定，并在请求中使用 [b2clogin.cn](b2clogin.md)。
 
 如果你打算启用 [JavaScript](javascript-samples.md) 客户端代码，则需要确保 JavaScript 所基于的元素是不可变的。 否则，任何更改都可能会导致用户页上出现意外行为。 为了防止这些问题，可以强制使用页面协定，并指定页面协定版本。 这样做可以确保 JavaScript 所基于的所有内容定义不可变。 即使不打算启用 JavaScript，也可为页面指定页面协定版本。
 

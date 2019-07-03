@@ -14,16 +14,16 @@ ms.topic: article
 origin.date: 03/21/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: 6807877cd7f279c5624853a7e03243c82c5da0d2
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 8e0864415b8e1628b05154d4b9b25b36ef1eb3b7
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624114"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236632"
 ---
 # <a name="dynamic-packaging"></a>动态打包
 
-Microsoft Azure 媒体服务可用于向多种客户端技术（例如，iOS、XBOX、Silverlight、Windows 8）传送多种媒体源文件格式、媒体流格式和内容保护格式。 这些客户端可识别不同的协议，例如，iOS 需要 HTTP Live Streaming (HLS) V4 格式，Silverlight 和 Xbox 需要平滑流式处理。 如果你有一组自适应比特率（多比特率）MP4（ISO 基媒体 14496-12）文件或平滑流式处理文件要提供给了解 MPEG DASH、HLS 或平滑流式处理的客户端，则应利用媒体服务动态打包。
+Azure 媒体服务可用于向多种客户端技术（例如，iOS、XBOX、Silverlight、Windows 8）传送多种媒体源文件格式、媒体流格式和内容保护格式。 这些客户端可识别不同的协议，例如，iOS 需要 HTTP Live Streaming (HLS) V4 格式，Silverlight 和 Xbox 需要平滑流式处理。 如果你有一组自适应比特率（多比特率）MP4（ISO 基媒体 14496-12）文件或平滑流式处理文件要提供给了解 MPEG DASH、HLS 或平滑流式处理的客户端，则应利用媒体服务动态打包。
 
 使用动态打包，只需要创建一个包含一组自适应比特率 MP4 文件或自适应比特率平滑流文件的资产。 然后，点播流服务器会确保用户以选定的协议按清单或分段请求中的指定格式接收流。 因此，用户只需以单一存储格式存储文件并为其付费，媒体服务服务就会基于客户端的请求构建并提供相应响应。
 

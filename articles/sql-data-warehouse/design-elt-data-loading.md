@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: design
+ms.subservice: load data
 origin.date: 05/10/2019
-ms.date: 05/20/2019
+ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: c95b5fc9a87560c666afce971fa956412a4ab11d
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: bd181144f3161ea3958dd44870c5b3af88e311eb
+ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828830"
+ms.lasthandoff: 06/17/2019
+ms.locfileid: "67151760"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>为 Azure SQL 数据仓库设计 PolyBase 数据加载策略
 
@@ -48,7 +48,7 @@ ms.locfileid: "65828830"
 
 ### <a name="polybase-external-file-formats"></a>PolyBase 外部文件格式
 
-PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 除了带分隔符的文本文件以外，它还可以从 Hadoop 文件格式（RC 文件、ORC 和 Parquet）加载数据。 PolyBase 还可以从 Gzip 和 Snappy 压缩文件加载数据。 PolyBase 目前不支持扩展的 ASCII、固定宽度格式以及 WinZip、JSON 和 XML 等嵌套格式。 如果是从 SQL Server 导出，则可使用 [bcp 命令行工具](/sql/tools/bcp-utility)将数据导出到带分隔符的文本文件中。
+PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 除了带分隔符的文本文件以外，它还可以从 Hadoop 文件格式（RC 文件、ORC 和 Parquet）加载数据。 PolyBase 还可以从 Gzip 和 Snappy 压缩文件加载数据。 PolyBase 目前不支持扩展的 ASCII、固定宽度格式以及 WinZip、JSON 和 XML 等嵌套格式。 如果是从 SQL Server 导出，则可使用 [bcp 命令行工具](/sql/tools/bcp-utility)将数据导出到带分隔符的文本文件中。 Parquet 到 SQL DW 数据类型的映射如下：
 
 | **Parquet 数据类型** |                      **SQL 数据类型**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -61,10 +61,10 @@ PolyBase 从 UTF-8 和 UTF-16 编码的带分隔符文本文件加载数据。 �
 |         float         |                             real                             |
 |        Double         |                            money                             |
 |        Double         |                          smallmoney                          |
-|        字符串         |                            nchar                             |
-|        字符串         |                           nvarchar                           |
-|        字符串         |                             char                             |
-|        字符串         |                           varchar                            |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
 |        binary         |                            binary                            |
 |        binary         |                          varbinary                           |
 |       timestamp       |                             date                             |

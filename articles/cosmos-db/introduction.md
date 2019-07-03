@@ -4,15 +4,15 @@ description: 了解 Azure Cosmos DB。 此多区域分布式多模型数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: overview
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 05/20/2019
+ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: d422aeaaddf909ba83932eb1ef41f8fda82740ef
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: aa9ef4069a45cd035348fa423198de167ef8457b
+ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615161"
+ms.lasthandoff: 06/18/2019
+ms.locfileid: "67171435"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB
@@ -31,7 +31,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 利用 Cosmos DB，可在中国全境范围内生成具有高响应能力和可用性的应用程序。 无论用户身处何处，Cosmos DB 均可以透明方式复制数据，因此用户可以与离他们最近的数据副本进行交互。
 
-Cosmos DB 允许随时在 Cosmos 帐户中添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性。 有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
+Cosmos DB 允许随时在 Cosmos 帐户中添加或删除任何 Azure 区域，只需单击一个按钮即可。 Cosmos DB 将无缝地将数据复制到与 Cosmos 帐户相关联的所有区域，同时，得益于该服务的多导功能，应用程序将继续保持高可用性  。 有关详细信息，请参阅[多区域分布](distribute-data-globally.md)一文。
 
 ### <a name="always-on"></a>Always On
 
@@ -43,11 +43,11 @@ Cosmos DB 采用透明水平分区和多主数据库复制设计，为中国全�
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-around-china"></a>在中国境内保证 99% 时间内的低延迟
 
-使用 Cosmos DB 可以生成具有高响应能力的多区域规模应用程序。 使用新式多主数据库复制协议和无闩锁[写入优化的数据库引擎](index-policy.md)，Cosmos DB 保证在中国全境范围内，在 99% 的时间为读取和（带索引）写入操作提供 10 毫秒以下的延迟。 此功能使高响应度应用可以实现持续的数据引入和超快的查询。
+使用 Cosmos DB 可以生成具有高响应能力的多区域规模应用程序。 凭借其新颖的多主数据库复制协议和免闩锁且[优化了写入的数据库引擎](index-policy.md)，Cosmos DB 可保证全中国任意位置 99% 的情况下读取（已编入索引）和写入延迟均低于 10 毫秒。 此功能使高响应度应用可以实现持续的数据引入和超快的查询。
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>精确定义的多个一致性选项
 
-在 Cosmos DB 中构建多区域分布式应用程序时，不再需要[在一致性、可用性、延迟和吞吐量之间进行极端的权衡](consistency-levels-tradeoffs.md)。 Cosmos DB 的多主数据库复制协议经过精心设计，提供[五个妥善定义的一致性选项](consistency-levels.md) - 非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性 - 可为多区域分布式应用程序提供直观的编程模型以及低延迟和高可用性。
+在 Cosmos DB 中构建多区域分布式应用程序时，不再需要[在一致性、可用性、延迟和吞吐量之间进行极端的权衡](consistency-levels-tradeoffs.md)。 Cosmos DB 的多主数据库复制协议经过精心设计，提供[五个妥善定义的一致性选项](consistency-levels.md) - 非常一致性、有限过期一致性、会话一致性、一致前缀一致性和最终一致性 - 可为多区域分布式应用程序提供直观的编程模型以及低延迟和高可用性。     
 
 ### <a name="no-schema-or-index-management"></a>无需架构或索引管理
 
@@ -75,8 +75,10 @@ Cosmos DB 通过了[广泛的合规标准](compliance.md)认证。 此外，Cosm
 
 Cosmos DB 是第一款，也是唯一的一款提供[行业领先的全面 SLA](https://www.azure.cn/support/sla/cosmos-db/) 的服务，该 SLA 涵盖 99.999% 的高可用性、99% 的时间内为读写操作提供低延迟，保证吞吐量和一致性。
 
-<!-- Not Available on ### Apache Spark + Cosmos DB = operational analytics at multiple-region scale-->
- 
+### <a name="multiple-region-distributed-operational-analytics-with-spark"></a>使用 Spark 的多区域分布式运营分析
+
+可以在 Cosmos DB 中存储的数据上直接运行 [Spark](spark-connector.md)。 凭借该功能，你可以在多区域范围内执行低延迟的运营分析，而不会影响直接针对 Cosmos DB 进行操作的事务工作负荷。 有关详细信息，请参阅[多区域分布式运营分析](lambda-architecture.md)。
+
 ### <a name="develop-applications-on-cosmos-db-using-popular-nosql-apis"></a>使用常用的 NoSQL API 在 Cosmos DB 上开发应用程序
 
 Cosmos DB 提供多种 API 来处理存储在 Cosmos 数据库中的数据。 默认情况下，[可以使用 SQL](how-to-sql-query.md)（核心 API）来查询 Cosmos 数据库。 Cosmos DB 还实现用于 [Cassandra](cassandra-introduction.md)、[MongoDB](mongodb-introduction.md)、[Gremlin](graph-introduction.md) 和 [Azure 表存储](table-introduction.md)的 API。 可以将常用 NoSQL（例如，MongoDB、Cassandra、Gremlin）的客户端驱动程序（和工具）直接指向 Cosmos 数据库。 Cosmos DB 支持常用 NoSQL API 的网络协议，因此可用其实现以下目标：

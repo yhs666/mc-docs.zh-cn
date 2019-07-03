@@ -6,34 +6,25 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/26/2019
-ms.date: 06/10/2019
+ms.date: 06/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: 058d6bb6de3765c6597ef4c35c0424a055c72b26
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 59feba080523f2f160137fc2785f0d2ee335581a
+ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491282"
+ms.lasthandoff: 06/21/2019
+ms.locfileid: "67325774"
 ---
 <!--NOTICE: MOONCAKE HAVE RELEASE THE AAD INTERGRATION-->
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
 
 可将 Azure Kubernetes Service (AKS) 配置为使用 Azure Active Directory (AD) 进行用户身份验证。 在此配置中，可以使用自己的 Azure Active Directory 身份验证令牌登录到 AKS 群集。 此外，群集管理员可以根据用户标识或目录组成员身份来配置 Kubernetes 基于角色的访问控制 (RBAC)。
 
-<!--MOONCAKE: CUSTOMIZED great than v1.13.6-->
-
-> [!NOTE]
-> AKS 的 AAD 集成支持要求 kubectl 版本 >= v1.13.6。请从[此处](https://mirror.azure.cn/kubernetes/kubectl/v1.13.6/bin/)下载 kubectl 二进制文件。
->
-
-<!--MOONCAKE: CUSTOMIZED great than v1.14.0-->
-
 本文介绍如何使用 Azure 门户部署 AKS 和 Azure AD 的必备组件、部署支持 Azure AD 的群集，以及在 AKS 群集中创建基本的 RBAC 角色。 也可以[使用 Azure CLI 完成这些步骤][azure-ad-cli]。
 
 以下限制适用：
 
 - 只有在创建新的启用 RBAC 的群集时，才能启用 Azure AD。 不能在现有 AKS 群集上启用 Azure AD。
-- 不支持 Azure AD 中的来宾用户，例如，从其他目录使用联合登录  。
 
 ## <a name="authentication-details"></a>身份验证详细信息
 
@@ -100,7 +91,7 @@ ms.locfileid: "66491282"
 
 1. 返回到应用程序的“概览”页，并记下“应用程序(客户端) ID”。   部署支持 Azure AD 的 AKS 群集时，此值称为 `Server application ID`。
 
-   ![获取应用程序 ID](media/aad-integration/application-id.png)
+    ![获取应用程序 ID](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>创建客户端应用程序
 
@@ -127,6 +118,10 @@ ms.locfileid: "66491282"
         成功授予权限后，门户中会显示以下通知：
 
         ![权限授予成功的通知](media/aad-integration/permissions-granted.png)
+
+1. 在 Azure AD 应用程序的左侧导航栏中，选择“身份验证”。 
+
+    * 在“默认客户端类型”  下，对于“将客户端视为公共客户端”  ，选择“是”  。
 
 1. 在 Azure AD 应用程序的左侧导航栏中，记下**应用程序 ID**。 部署支持 Azure AD 的 AKS 群集时，此值称为 `Client application ID`。
 
@@ -208,7 +203,7 @@ kubectl apply -f rbac-aad-user.yaml
 
 此外，可为 Azure AD 组的所有成员创建角色绑定。 使用组对象 ID 指定 Azure AD 组，如以下示例所示。 创建一个文件（例如 *rbac-aad-group.yaml*），然后粘贴以下内容。 将组对象 ID 更新为 Azure AD 租户中的某个组对象 ID：
 
- ```yaml
+```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
@@ -255,13 +250,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 完成后，身份验证令牌将会缓存。 仅当令牌已过期或者重新创建了 Kubernetes 配置文件时，系统才会再次提示登录。
 
 如果在成功登录后看到授权错误消息，请检查是否存在以下问题：
-1. 你在 Azure AD 实例中不是以来宾用户的身份登录的（如果使用来自不同目录的联合帐户，则通常会出现此情况）。
-2. 用户不是 200 多个组的成员。
-3. 在针对服务器进行的应用程序注册中定义的机密与使用 --aad-server-app-secret 配置的值不匹配
 
-    ```console
-    error: You must be logged in to the server (Unauthorized)
-    ```
+```console
+error: You must be logged in to the server (Unauthorized)
+```
+
+1. 你定义了适当的对象 ID 或 UPN，具体取决于用户帐户是否在同一 Azure AD 租户中。
+2. 用户不是 200 多个组的成员。
+3. 服务器应用程序注册中定义的机密与使用 `--aad-server-app-secret` 配置的值相匹配
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -272,7 +268,7 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 有关标识和资源控制的最佳做法，请参阅[有关 AKS 中的身份验证和授权的最佳做法][operator-best-practices-identity]。
 
 <!-- LINKS - external -->
-[kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
+[kubernetes-webhook]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
@@ -286,4 +282,4 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
 
-<!-- Update_Description: wording update, rename article -->
+<!-- Update_Description: wording update -->
