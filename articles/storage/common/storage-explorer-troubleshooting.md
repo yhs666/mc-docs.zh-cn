@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 origin.date: 06/15/2018
 ms.date: 05/25/2019
 ms.author: v-jay
-ms.openlocfilehash: 45b3313a80fc143d6e328cc72022435c9bda516a
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: d24558e814cc8e3ffc476107d857e9539f3d900a
+ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004036"
+ms.lasthandoff: 06/19/2019
+ms.locfileid: "67236580"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -89,13 +89,13 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 5. 找到任何自签名证书时，对于每个证书，将从“-----BEGIN CERTIFICATE-----”到“-----END CERTIFICATE-----”在内的所有内容复制并粘贴到新的 .cer 文件   。
 6. 打开存储资源管理器，单击“编辑” > “SSL 证书” > “导入证书”，然后使用文件选取器查找、选择并打开已创建的 .cer 文件    。
 
-如果通过上述步骤无法找到任何自签名证书，请通过反馈工具联系我们以获取更多帮助。 或者，可以选择通过命令行使用 `--ignore-certificate-errors` 标志启动存储资源管理器。 使用此标志启动后，存储资源管理器将忽略证书错误。
+如果通过上述步骤无法找到任何自签名证书，请通过反馈工具联系我们以获取更多帮助。 也可选择通过命令行使用 `--ignore-certificate-errors` 标志启动存储资源管理器。 使用此标志启动后，存储资源管理器将忽略证书错误。
 
 ## <a name="sign-in-issues"></a>登录问题
 
 ### <a name="blank-sign-in-dialog"></a>空白登录对话框
 
-出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解决此问题，可以尝试使用设备代码流进行登录。 为此，请执行以下步骤：
+出现空白登录对话框的原因往往是 ADFS 要求存储资源管理器执行 Electron 不支持的重定向。 若要解决此问题，可以尝试使用设备代码流进行登录。 若要执行此操作，请完成以下步骤：
 
 1. 菜单：“预览”->“使用设备代码登录”。
 2. 打开“连接”对话框（通过左侧垂直栏上的插头图标或“帐户”面板上的“添加帐户”）。
@@ -110,7 +110,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 ### <a name="reauthentication-loop-or-upn-change"></a>重新验证循环或 UPN 更改
 
-如果你处于重新验证循环中，或者已更改其中一个帐户的 UPN，请尝试以下操作：
+如果你处于重新验证循环中，或者已更改其中一个帐户的 UPN，请尝试以下步骤：
 
 1. 删除所有帐户，然后关闭存储资源管理器
 2. 从计算机中删除 .IdentityService 文件夹。 在 Windows 中，该文件夹位于 `C:\users\<username>\AppData\Local`。 对于 Mac 和 Linux，可以在用户目录的根目录中找到该文件夹。
@@ -137,7 +137,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 * 重启存储资源管理器
 * 如果身份验证窗口为空，请等待至少一分钟，然后关闭身份验证对话框。
 * 确保为计算机和存储资源管理器正确配置了代理和证书设置。
-* 如果在 Windows 上操作，并且有权访问同一台计算机上的 Visual Studio 2017 且可以登录，请尝试登录到 Visual Studio 2017。 成功登录 Visual Studio 2017 后，应该可以打开存储资源管理器并在帐户面板中查看帐户。
+* 如果在 Windows 上操作，并且有权访问同一台计算机上的 Visual Studio 2019 且可以登录，请尝试登录到 Visual Studio 2019。 成功登录 Visual Studio 2019 后，则可打开存储资源管理器并在帐户面板中查看帐户。
 
 如果这些方法均不起作用，请[在 GitHub 上提出问题](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
@@ -147,11 +147,11 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 * 验证你的帐户是否有权访问所需的订阅。 可以通过登录到尝试使用的 Azure 环境的门户，来验证是否能够访问这些订阅。
 * 确保已使用正确的 Azure 环境（Azure 中国世纪互联）登录。
-* 如果使用了代理，请确保已正确配置存储资源管理器代理。
+* 如果使用代理，请确保已正确配置存储资源管理器代理。
 * 尝试删除并重新添加帐户。
 * 如果有“更多信息”链接，请查看针对失败的租户报告的错误消息。 如果不确定如何处理看到的错误消息，请随时[在 GitHub 上提出问题](https://github.com/Microsoft/AzureStorageExplorer/issues)。
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>无法删除附加的帐户或存储资源
+## <a name="cant-remove-attached-account-or-storage-resource"></a>无法删除附加的帐户或存储资源
 
 如果无法通过 UI 删除附加的帐户或存储资源，可以通过删除以下文件夹来手动删除所有附加的资源：
 
@@ -206,7 +206,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 如果通过代理连接到 Azure，请确认代理设置正确无误。 如果已获取以订阅或帐户所有者身份访问资源的权限，请验证是否对该资源拥有读取或列出权限。
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>连接字符串没有完整的配置设置
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>连接字符串没有完整的配置设置
 
 如果收到此错误消息，则表示你可能没有所需的权限来获取你的存储帐户的密钥。 若要确认是否如此，请转到门户并找到你的存储帐户。 可以通过右键单击存储帐户的节点并单击“在门户中打开”来快速执行此操作。 执行此操作后，转到“访问密钥”边栏选项卡。 如果你无权查看密钥，则会看到其中显示了消息“你没有访问权限”的页面。 若要解决此问题，可以从其他某人获取帐户密钥并结合名称和密钥附加存储帐户，或者，向某人索要存储帐户的 SAS 并使用它来附加存储帐户。
 
