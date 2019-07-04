@@ -16061,6 +16061,11 @@
   "source_path": "articles/active-directory/develop/active-directory-appmodel-v2-overview.md",
   "redirect_url": "/active-directory/develop/v2-overview",
   "redirect_document_id": true
+},
+{
+  "source_path": "articles/azure-monitor/platform/data-collection.md",
+  "redirect_url": "/azure-monitor/platform/data-platform",
+  "redirect_document_id": false
 }
 
 
