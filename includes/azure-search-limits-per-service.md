@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: af6a8455bbc88509397a461cae9fe634e5f9e1f4
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
+ms.lasthandoff: 07/05/2019
 ms.locfileid: "67236056"
 ---
 存储受磁盘空间限制，或者受索引或文档的最大数目的硬性限制，具体取决于先达到哪一项限制  。

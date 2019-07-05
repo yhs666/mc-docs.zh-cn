@@ -12,10 +12,10 @@ ms.date: 06/03/2019
 ms.author: v-biyu
 ms.custom: seodec2018
 ms.openlocfilehash: 5c40021ad8ec772eba4f9d917a7fa1b401c01b5d
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
+ms.lasthandoff: 07/05/2019
 ms.locfileid: "67236055"
 ---
 # <a name="service-limits-in-azure-search"></a>Azure 搜索中的服务限制
