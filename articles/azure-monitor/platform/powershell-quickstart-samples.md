@@ -136,7 +136,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 ## <a name="create-metric-alerts"></a>创建指标警报
 可使用 `Add-AlertRule` cmdlet 来创建、更新或禁用警报规则。
 
-可以分别使用 `New-AzAlertRuleEmail` 和 `New-AzAlertRuleWebhook` 创建电子邮件和 webhook 属性。 在警报规则 cmdlet 中，将这些属性作为操作分配给警报规则的“操作”属性。
+可以分别使用 `New-AzAlertRuleEmail` 和 `New-AzAlertRuleWebhook` 创建电子邮件和 webhook 属性。 在警报规则 cmdlet 中，将这些属性作为操作分配给警报规则的“操作”属性  。
 
 下表描述了用于使用指标创建警报的参数和值。
 
@@ -146,7 +146,7 @@ Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resou
 | 此警报规则的位置 |美国东部 |
 | resourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。有关如何检索精确指标名称的信息，请参阅 `Get-MetricDefinitions` cmdlet |
+| 创建的警报的 MetricName |\PhysicalDisk(_Total)\Disk Writes/sec。See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
 | operator |GreaterThan |
 | 阈值（此指标的计数/秒） |1 |
 | WindowSize（hh:mm:ss 格式） |00:05:00 |
@@ -379,7 +379,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-请注意，WorkspaceId 属性采用工作区的“资源 ID”。 可以使用以下命令获取 Log Analytics 工作区的资源 ID：
+请注意，WorkspaceId 属性采用  工作区的“资源 ID”。 可以使用以下命令获取 Log Analytics 工作区的资源 ID：
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId
