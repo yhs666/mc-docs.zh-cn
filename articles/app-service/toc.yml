@@ -58,16 +58,21 @@
     - name: OS 功能
       href: operating-system-functionality.md
     - name: 安全性
-      href: overview-security.md
       items:
+        - name: 建议
+          href: security-recommendations.md
         - name: 身份验证和授权
           href: overview-authentication-authorization.md
         - name: OS 和运行时修补
           href: overview-patch-os-runtime.md
         - name: 安全属性
           href: app-service-security-attributes.md
+        - name: 安全概述
+          href: overview-security.md
     - name: 入站和出站 IP
       href: overview-inbound-outbound-ips.md
+    - name: 虚拟网络集成
+      href: web-sites-integrate-with-vnet.md
     - name: 混合连接
       href: app-service-hybrid-connections.md
     - name: 流量管理器集成
@@ -86,8 +91,6 @@
           href: web-sites-php-configure.md
         - name: 配置 Java
           href: configure-language-java.md
-        - name: 连接到本地资源
-          href: web-sites-integrate-with-vnet.md
     - name: “部署到 Azure”
       items:
         - name: 部署应用

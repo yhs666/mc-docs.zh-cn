@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/11/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd54301b5f85d7c3e014368af034706b677df24f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 82080a867b05b5a36c7075e66d0d6ed8e4e230d1
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004312"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570414"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 
@@ -46,6 +46,4 @@ ms.locfileid: "66004312"
 
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!--The parent file of includes file of virtual-machines-common-sizes-previous-gen.md-->
-<!--ms.date:07/30/2018-->
 <!-- Update_Description: update meta properties -->

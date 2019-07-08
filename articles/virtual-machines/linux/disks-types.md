@@ -4,18 +4,18 @@ description: 了解 Linux 虚拟机的可用 Azure 磁盘类型，包括超级 S
 services: virtual-machines-linux,storage
 author: rockboyfor
 ms.author: v-yeche
-origin.date: 02/11/2019
-ms.date: 05/20/2019
+origin.date: 05/10/2019
+ms.date: 07/01/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: f2a5e8b80fbcab23a63484416b3469c5d511fe1f
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 834d8a6deb850eb92341ff1a2864945122dbd4ff
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835773"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570518"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

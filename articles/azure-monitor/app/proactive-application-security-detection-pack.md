@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 73cf383645070f0117292af8ed94e7fb1698d7df
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b12f9fee81add37665669a15b5ea91274be5b37d
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732135"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562673"
 ---
 # <a name="application-security-detection-pack-preview"></a>应用程序安全检测包（预览版）
 
 Application Insights 会自动分析应用程序生成的遥测数据并检测潜在的安全问题。 此功能使得你能够识别潜在的安全问题，并通过修复应用程序或采取必要的安全措施来处理这些问题。
 
-除了[配置应用来发送遥测数据](https://docs.microsoft.com/azure/application-insights/app-insights-usage-overview)之外，此功能不要求进行特殊设置。
+除了[配置应用来发送遥测数据](/azure-monitor/app/usage-overview)之外，此功能不要求进行特殊设置。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>我何时会收到此类型的智能检测通知？
 检测到的安全问题分三种类型：

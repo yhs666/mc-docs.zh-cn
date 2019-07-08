@@ -21,8 +21,6 @@
       href: quickstart-create-data-factory-rest-api.md
     - name: 创建数据工厂 - 资源管理器模板
       href: quickstart-create-data-factory-resource-manager-template.md
-    - name: 创建数据流
-      href: data-flow-create.md
 - name: 教程
   items:
     - name: 复制云中的数据
@@ -104,8 +102,6 @@
           href: tutorial-deploy-ssis-packages-azure-powershell.md
 - name: 示例
   items:
-    - name: 代码示例
-      href: 'https://azure.microsoft.com/resources/samples/?service=data-factory'
     - name: Azure PowerShell
       href: samples-powershell.md
 - name: 概念
@@ -130,6 +126,8 @@
   items:
     - name: 作者
       items:
+        - name: 直观创作数据工厂
+          href: author-visually.md
         - name: 迭代开发和调试
           href: iterative-development-debugging.md
     - name: 连接器
@@ -146,6 +144,8 @@
           href: connector-azure-cosmos-db.md
         - name: Azure Cosmos DB 的用于 MongoDB 的 API
           href: connector-azure-cosmos-db-mongodb-api.md
+        - name: Azure 数据资源管理器
+          href: connector-azure-data-explorer.md
         - name: Azure Data Lake Storage Gen2
           href: connector-azure-data-lake-storage.md
         - name: Azure Database for MariaDB
@@ -158,6 +158,8 @@
           href: connector-azure-file-storage.md
         - name: Azure SQL 数据库
           href: connector-azure-sql-database.md
+        - name: Azure SQL 数据库托管实例
+          href: connector-azure-sql-database-managed-insance.md
         - name: Azure SQL 数据仓库
           href: connector-azure-sql-data-warehouse.md
         - name: Azure 表存储
@@ -310,7 +312,6 @@
           href: copy-data-tool.md
         - name: 加载 Data Lake Storage Gen2
           href: load-azure-data-lake-storage-gen2.md
-          items: null
         - name: 加载 SQL 数据仓库
           href: load-azure-sql-data-warehouse.md
         - name: 加载 SAP BW 数据
@@ -342,12 +343,6 @@
           href: transform-data-using-spark.md
         - name: 存储过程活动
           href: transform-data-using-stored-procedure.md
-        - name: Databricks Notebook 活动
-          href: transform-data-databricks-notebook.md
-        - name: Databricks Jar 活动
-          href: transform-data-databricks-jar.md
-        - name: Databricks Python 活动
-          href: transform-data-databricks-python.md
         - name: 自定义活动
           href: transform-data-using-dotnet-custom-activity.md
         - name: 计算链接服务
@@ -358,8 +353,6 @@
           href: control-flow-append-variable-activity.md
         - name: Azure 函数活动
           href: control-flow-azure-function-activity.md
-        - name: 执行数据流活动
-          href: control-flow-execute-data-flow-activity.md
         - name: 执行管道活动
           href: control-flow-execute-pipeline-activity.md
         - name: 筛选器活动
@@ -384,44 +377,6 @@
           href: control-flow-web-activity.md
         - name: Webhook 活动
           href: control-flow-webhook-activity.md
-    - name: 数据流转换
-      items:
-        - name: 聚合
-          href: data-flow-aggregate.md
-        - name: 更改行
-          href: data-flow-alter-row.md
-        - name: 有条件拆分
-          href: data-flow-conditional-split.md
-        - name: 派生列
-          href: data-flow-derived-column.md
-        - name: Exists
-          href: data-flow-exists.md
-        - name: 筛选器
-          href: data-flow-filter.md
-        - name: Join
-          href: data-flow-join.md
-        - name: 查找
-          href: data-flow-lookup.md
-        - name: 新建分支
-          href: data-flow-new-branch.md
-        - name: 透视
-          href: data-flow-pivot.md
-        - name: 选择
-          href: data-flow-select.md
-        - name: 接收器
-          href: data-flow-sink.md
-        - name: 排序
-          href: data-flow-sort.md
-        - name: Source
-          href: data-flow-source.md
-        - name: 代理键
-          href: data-flow-surrogate-key.md
-        - name: 联合
-          href: data-flow-union.md
-        - name: 逆透视
-          href: data-flow-unpivot.md
-        - name: 窗口
-          href: data-flow-window.md
     - name: 参数化
       items:
         - name: 将链接的服务参数化
@@ -460,7 +415,7 @@
       items:
         - name: Azure 集成运行时
           href: create-azure-integration-runtime.md
-        - name: 自我托管集成运行时
+        - name: 自承载集成运行时
           href: create-self-hosted-integration-runtime.md
         - name: Azure-SSIS 集成运行时
           href: create-azure-ssis-integration-runtime.md
@@ -490,10 +445,10 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: 使用弹性数据库作业清理 SSISDB 日志
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
+        - name: 在 Azure-SSIS IR 中排查包执行问题
+          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: 创建触发器
       items:
-        - name: 创建基于事件的触发器
-          href: how-to-create-event-trigger.md
         - name: 创建计划触发器
           href: how-to-create-schedule-trigger.md
         - name: 创建翻转窗口触发器
@@ -510,37 +465,27 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: 使用控制表进行增量复制
           href: solution-template-delta-copy-with-control-table.md
-        - name: 使用 Databricks 转换数据
-          href: solution-template-databricks-notebook.md
 - name: 参考
   items:
     - name: .NET
-      href: /dotnet/api/microsoft.azure.management.datafactory
+      href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory'
     - name: PowerShell
-      href: /powershell/module/az.datafactory/
+      href: 'https://docs.microsoft.com/powershell/module/az.datafactory/'
     - name: REST API
-      href: /rest/api/datafactory
+      href: 'https://docs.microsoft.com/rest/api/datafactory'
     - name: Resource Manager 模板
-      href: /azure/templates/microsoft.datafactory/allversions
+      href: 'https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions'
     - name: Python
-      href: /python/api/overview/azure/datafactory?view=azure-python
+      href: 'https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python'
 - name: 资源
   items:
     - name: 提出问题 - MSDN 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDataFactory&filter=alltypes&sort=lastpostdesc'
-    - name: 提出问题 - Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-data-factory'
-    - name: 请求功能
-      href: 'https://feedback.azure.com/forums/270578-azure-data-factory'
+      href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home'
     - name: 常见问题
       href: frequently-asked-questions.md
     - name: 白皮书
       href: whitepapers.md
-    - name: 路线图
-      href: 'https://azure.microsoft.com/roadmap/?tag=data-factory'
     - name: 定价
-      href: 'https://azure.microsoft.com/pricing/details/data-factory/'
+      href: 'https://azure.cn/pricing/details/data-factory/'
     - name: 按区域列出的可用性
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: 支持选项
-      href: 'https://azure.microsoft.com/support/options/'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all'

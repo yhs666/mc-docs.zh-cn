@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: ad553e6cf7557876b724404f797793d4e01ecfb3
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 2ff4689c14437924cca0749701fdc35739963da1
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586883"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562373"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](diagnostic-logs-overview.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
@@ -37,7 +37,7 @@ ms.locfileid: "65586883"
     CROSS APPLY GetArrayElements(e.records) AS records
     ```
 
-* **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。 [请参阅此处提供的 Dan Rosanova 的指南，了解如何在全局规模的遥测平台中使用事件中心。](https://www.azure.cn/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
+* **生成自定义遥测和日志记录平台** – 如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入诊断日志。
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>启用诊断日志的流式处理
 
@@ -51,13 +51,13 @@ ms.locfileid: "65586883"
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。
 >
-> 例如：可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
+> 例如：  可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
 >
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>使用门户流式传输诊断日志
 
-1. 在门户中，导航到 Azure Monitor 并单击“诊断设置”
+1. 在门户中，导航到 Azure Monitor 并单击“诊断设置” 
 
     ![Azure Monitor 的“监视”部分](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-blade.png)
 
@@ -71,13 +71,13 @@ ms.locfileid: "65586883"
 
    ![添加诊断设置 - 现有的设置](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-multiple.png)
 
-3. 为设置命名，选中“流式传输到事件中心”对应的复选框，并选择一个事件中心命名空间。
+3. 为设置命名，选中“流式传输到事件中心”对应的复选框，并选择一个事件中心命名空间。 
 
    ![添加诊断设置 - 现有的设置](media/diagnostic-logs-stream-event-hubs/diagnostic-settings-configure.png)
 
    选择的命名空间将是创建事件中心的地方（如果这是用户第一次流式传输诊断日志），或者是将诊断日志流式传输到事件中心的地方（如果已有资源将日志类别流式传输到该命名空间），而策略则定义流式传输机制所具有的权限。 目前，流式传输到事件中心需要“管理”、“发送”和“侦听”权限。 在门户中针对命名空间的“配置”选项卡下，可以创建或修改事件中心命名空间的共享访问策略。 若要更新这些诊断设置的其中一个，必须在事件中心授权规则中让客户端拥有 ListKey 权限。 还可以选择指定事件中心名称。 如果指定事件中心名称，日志将被路由到该事件中心，而不是为每个日志类别新创建的事件中心。
 
-4. 单击“保存” 。
+4. 单击“保存”  。
 
 几分钟后，新设置会显示在此资源的设置列表中，只要生成新的事件数据，就会立即将诊断日志流式传输到该事件中心。
 

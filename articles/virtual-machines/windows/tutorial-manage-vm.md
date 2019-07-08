@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-origin.date: 11/28/2018
-ms.date: 04/01/2019
+origin.date: 06/06/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 293801e9f6e7ba180f8569247b867fc3cad6d417
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 4180b67869b58699b88c323a1ff08faba543bbca
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004181"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569815"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和管理 Windows VM
 
@@ -37,17 +37,19 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="create-resource-group"></a>创建资源组
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在以下示例中，在“ChinaEast”区域中创建了名为“myResourceGroupVM”的资源组：
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在以下示例中，在“ChinaEast”  区域中创建了名为“myResourceGroupVM”  的资源组：
 
 ```powershell
+# Sign in the Azure China Cloud
 Connect-AzAccount -Environment AzureChinaCloud
+
 New-AzResourceGroup `
    -ResourceGroupName "myResourceGroupVM" `
    -Location "ChinaEast"
@@ -96,7 +98,7 @@ Get-AzPublicIpAddress `
 mstsc /v:<publicIpAddress>
 ```
 
-在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 键入针对 VM 创建的用户名和密码，然后单击“确定”。
+在“Windows 安全性”  窗口中，依次选择“更多选择”  、“使用其他帐户”  。 键入针对 VM 创建的用户名和密码，然后单击“确定”。 
 
 ## <a name="understand-marketplace-images"></a>了解市场映像
 
@@ -185,16 +187,14 @@ VM 大小决定 VM 可用计算资源（如 CPU、GPU 和内存）的数量。 �
 | 类型                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)         |B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
-| [计算优化](sizes-compute.md)   | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
+| [计算优化](sizes-compute.md)   | Fsv2          | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
 | [内存优化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、Dv2  | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)          |  NCv3        | 专门针对大量图形绘制和视频编辑的 VM。       |
 
-
 <!-- Not Available on DC Series -->
-<!-- Not Available on GS, G Series -->
-<!-- Not Available on | Storage optimized       | Ls   -->
-<!-- Not Available on | GPU           | NV, NVv2, NC, NCv2, ND           -->
-<!-- Not Available on | High performance | H   -->
+<!-- Not Available on [Storage optimized](sizes-storage.md)      | Lsv2, Ls   -->
+<!-- Not Available on [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, ND            -->
+<!-- Not Available on [High performance](sizes-hpc.md) | H   -->
 
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小

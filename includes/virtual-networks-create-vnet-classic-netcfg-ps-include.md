@@ -9,12 +9,12 @@ origin.date: 04/13/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2487d657c42de15e8b86aa6b87493cece1ae6fa3
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 7d155ee5ac78244ed54b848c01a78b2b1d23ec3e
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250445"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67608081"
 ---
 ## <a name="how-to-create-a-virtual-network-using-a-network-config-file-from-powershell"></a>如何通过 PowerShell 使用网络配置文件创建虚拟网络
 Azure 使用 xml 文件定义适用于订阅的所有虚拟网络。 可以下载此文件并进行编辑，以修改或删除现有虚拟网络并创建新的虚拟网络。 通过本教程，可了解如何下载此文件（称为网络配置（或 netcgf）文件），并进行编辑，创建新的虚拟网络。 若要深入了解网络配置文件，请参阅 [Azure 虚拟网络配置架构](https://msdn.microsoft.com/library/azure/jj157100.aspx)。
@@ -24,75 +24,75 @@ Azure 使用 xml 文件定义适用于订阅的所有虚拟网络。 可以下�
 1. 如果从未用过 Azure PowerShell，请完成[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs) 一文中的步骤，然后登录 Azure 并选择订阅。
 2. 从 Azure PowerShell 控制台中，通过运行以下命令使用 Get-AzureVnetConfig  cmdlet 将网络配置文件下载到计算机上的某个目录下： 
 
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
-   ```
+    ```powershell
+    Get-AzureVNetConfig -ExportToFile c:\azure\NetworkConfig.xml
+    ```
 
-   预期输出：
+    预期输出：
 
-      ```
-      XMLConfiguration                                                                                                     
-      ----------------                                                                                                     
-      <?xml version="1.0" encoding="utf-8"?>...
-      ```
+    ```
+    XMLConfiguration                                                                                                     
+    ----------------                                                                                                     
+    <?xml version="1.0" encoding="utf-8"?>...
+    ```
 
 3. 使用任何 XML 或文本编辑器应用程序打开步骤 2 中保存的文件，并查找 \<VirtualNetworkSites>  元素。 如果已创建网络，每个网络会显示为其自身的 \<VirtualNetworkSite>  元素。
 4. 若要创建此方案中所述的虚拟网络，请在 \<VirtualNetworkSites>  元素的正下方添加以下 XML：
 
-   ```xml
-         <?xml version="1.0" encoding="utf-8"?>
-         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
-           <VirtualNetworkConfiguration>
-             <VirtualNetworkSites>
-                 <VirtualNetworkSite name="TestVNet" Location="China East">
-                   <AddressSpace>
-                     <AddressPrefix>192.168.0.0/16</AddressPrefix>
-                   </AddressSpace>
-                   <Subnets>
-                     <Subnet name="FrontEnd">
-                       <AddressPrefix>192.168.1.0/24</AddressPrefix>
-                     </Subnet>
-                     <Subnet name="BackEnd">
-                       <AddressPrefix>192.168.2.0/24</AddressPrefix>
-                     </Subnet>
-                   </Subnets>
-                 </VirtualNetworkSite>
-             </VirtualNetworkSites>
-           </VirtualNetworkConfiguration>
-         </NetworkConfiguration>
-   ```
+    ```xml
+     <?xml version="1.0" encoding="utf-8"?>
+     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+       <VirtualNetworkConfiguration>
+         <VirtualNetworkSites>
+             <VirtualNetworkSite name="TestVNet" Location="China East">
+               <AddressSpace>
+                 <AddressPrefix>192.168.0.0/16</AddressPrefix>
+               </AddressSpace>
+               <Subnets>
+                 <Subnet name="FrontEnd">
+                   <AddressPrefix>192.168.1.0/24</AddressPrefix>
+                 </Subnet>
+                 <Subnet name="BackEnd">
+                   <AddressPrefix>192.168.2.0/24</AddressPrefix>
+                 </Subnet>
+               </Subnets>
+             </VirtualNetworkSite>
+         </VirtualNetworkSites>
+       </VirtualNetworkConfiguration>
+     </NetworkConfiguration>
+    ```
 
 5. 保存网络配置文件。
 6. 从 Azure PowerShell 控制台中，通过运行以下命令使用 Set-AzureVnetConfig  cmdlet 上传网络配置文件： 
 
-   ```powershell
-   Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
-   ```
+    ```powershell
+    Set-AzureVNetConfig -ConfigurationPath c:\azure\NetworkConfig.xml
+    ```
 
-   返回的输出：
+    返回的输出：
 
-      ```
-      OperationDescription OperationId                          OperationStatus
-      -------------------- -----------                          ---------------
-      Set-AzureVNetConfig  <Id>                                 Succeeded 
-      ```
+    ```
+    OperationDescription OperationId                          OperationStatus
+    -------------------- -----------                          ---------------
+    Set-AzureVNetConfig  <Id>                                 Succeeded 
+    ```
 
-   如果 OperationStatus  在返回的输出中不是“成功”状态  ，请检查 xml 文件是否出现任何错误，并再次完成步骤 6 的操作。
+    如果 OperationStatus  在返回的输出中不是“成功”状态  ，请检查 xml 文件是否出现任何错误，并再次完成步骤 6 的操作。
 
 7. 从 Azure PowerShell 控制台中，通过运行以下命令使用 Get-AzureVnetSite  cmdlet 验证是否已添加新网络： 
 
-   ```powershell
-   Get-AzureVNetSite -VNetName TestVNet
-   ```
+    ```powershell
+    Get-AzureVNetSite -VNetName TestVNet
+    ```
 
-   返回（缩写）的输出包含以下文本：
+    返回（缩写）的输出包含以下文本：
 
-      ```
-      AddressSpacePrefixes : {192.168.0.0/16}
-      Location             : China North
-      Name                 : TestVNet
-      State                : Created
-      Subnets              : {FrontEnd, BackEnd}
-      OperationDescription : Get-AzureVNetSite
-      OperationStatus      : Succeeded
-      ```
+    ```
+    AddressSpacePrefixes : {192.168.0.0/16}
+    Location             : China North
+    Name                 : TestVNet
+    State                : Created
+    Subnets              : {FrontEnd, BackEnd}
+    OperationDescription : Get-AzureVNetSite
+    OperationStatus      : Succeeded
+    ```

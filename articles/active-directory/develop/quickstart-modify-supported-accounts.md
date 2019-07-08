@@ -3,8 +3,8 @@ title: 修改注册到 Microsoft 标识平台的应用程序支持的帐户 | Az
 description: 配置注册到 Microsoft 标识平台的应用程序，更改能够访问应用程序的人或具体帐户。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,21 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/30/2019
-ms.date: 05/07/2019
+origin.date: 05/08/2019
+ms.date: 06/25/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a2c37feb578940c3672d3ee260fb1c4134f0aa1
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 92aacb8a70356d3e4d877945ca2eea5b0369a88c
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517504"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568738"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>快速入门：修改应用程序支持的帐户
 
+在 Microsoft 标识平台中注册应用程序时，可能会希望系统只允许你组织中的用户访问你的应用程序。
 
 本快速入门介绍如何修改应用程序的配置，更改能够访问应用程序的人或具体帐户。
 
@@ -37,7 +38,6 @@ ms.locfileid: "65517504"
 * 了解支持的[权限和许可](v2-permissions-and-consent.md)，这是在生成其他用户或应用程序需要使用的应用程序时必须理解的。
 * 拥有一个其中已注册了应用程序的租户。
   * 如果尚未注册应用，请[了解如何将应用程序注册到 Microsoft 标识平台](quickstart-register-app.md)。
-* 加入预览版体验，了解如何在 Azure 门户中进行应用注册。 本快速入门中的步骤对应于新的 UI，只有在你选择加入预览版体验的情况下才适用。
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>登录到 Azure 门户，并选择应用
 
@@ -45,8 +45,8 @@ ms.locfileid: "65517504"
 
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
-1. 在左侧导航窗格中选择“Azure Active Directory”服务，然后选择“应用注册(预览版)”。
-1. 找到并选择要配置的应用程序。 选择应用以后，会看到应用程序的“概览”页或主注册页。
+1. 在左侧导航窗格中，选择“Azure Active Directory”服务  ，然后选择“应用注册”。 
+1. 找到并选择要配置的应用程序。 选择应用以后，会看到应用程序的“概览”页或主注册页。 
 1. 按步骤[更改应用程序注册以支持不同的帐户](#change-the-application-registration-to-support-different-accounts)。
 1. 如果有单页应用程序，请[启用 OAuth 2.0 隐式授权](#enable-oauth-20-implicit-grant-for-single-page-applications)。
 
@@ -55,14 +55,14 @@ ms.locfileid: "65517504"
 如果正在编写一个要供组织外部的客户或合作伙伴使用的应用程序，则需要在 Azure 门户中更新应用程序定义。
 
 > [!IMPORTANT]
-> Azure AD 要求多租户应用程序的应用程序 ID URI 全局唯一。 应用 ID URI 是在协议消息中标识应用程序的方式之一。 就单租户应用程序而言，应用 ID URI 在该租户中保持唯一便已足够。 就多租户应用程序而言，该 URI 必须全局唯一，以便 Azure AD 能够在所有租户中找到该应用程序。 系统通过要求应用 ID URI 必须具有与已验证 Azure AD 租户域匹配的主机名，来强制实施全局唯一性。 例如，如果租户的名称为 contoso.onmicrosoft.cn，则有效的应用 ID URI 为 https://contoso.partner.onmschina.cn/myapp。 如果租户具有已验证的域 contoso.com，则有效的应用 ID URI 也是 https://contoso.com/myapp。 如果应用程序 ID URI 不遵循此模式，则将应用程序设置为多租户就会失败。
+> Azure AD 要求多租户应用程序的应用程序 ID URI 全局唯一。 应用 ID URI 是在协议消息中标识应用程序的方式之一。 就单租户应用程序而言，应用 ID URI 在该租户中保持唯一便已足够。 就多租户应用程序而言，该 URI 必须全局唯一，以便 Azure AD 能够在所有租户中找到该应用程序。 系统通过要求应用 ID URI 必须具有与已验证 Azure AD 租户域匹配的主机名，来强制实施全局唯一性。 例如，如果租户的名称为 contoso.onmicrosoft.cn，则有效的应用 ID URI 为 https://contoso.partner.onmschina.cn/myapp 。 如果租户具有已验证的域 contoso.com，则有效的应用 ID URI 也是 https://contoso.com/myapp 。 如果应用程序 ID URI 不遵循此模式，则将应用程序设置为多租户就会失败。
 
 ### <a name="to-change-who-can-access-your-application"></a>更改谁能够访问你的应用程序
 
-1. 在应用的“概览”页中，选择“身份验证”部分，然后更改在“支持的帐户类型”下选择的值。
-    * 若要生成业务线 (LOB) 应用程序，请选择“仅此目录中的帐户”。 如果未在目录中注册应用程序，则此选项不可用。
-    * 若要以所有企业和教育客户为目标，请选择“任何组织目录中的帐户”。
-1. 选择“其他安全性验证” 。
+1. 在应用的“概览”页中，选择“身份验证”部分，然后更改在“支持的帐户类型”下选择的值。   
+    * 若要生成业务线 (LOB) 应用程序，请选择“仅此目录中的帐户”。  如果未在目录中注册应用程序，则此选项不可用。
+    * 若要以所有企业和教育客户为目标，请选择“任何组织目录中的帐户”。 
+1. 选择“其他安全性验证”  。
 
 ## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>为单页应用程序启用 OAuth 2.0 隐式授权
 
@@ -74,10 +74,10 @@ ms.locfileid: "65517504"
 
 ### <a name="to-enable-oauth-20-implicit-grant"></a>启用 OAuth 2.0 隐式授权
 
-1. 在应用的“概览”页中，选择“身份验证”部分。
-1. 在“高级设置”下找到“隐式授权”部分。
-1. 选择“ID 令牌”和/或“访问令牌”。
-1. 选择“其他安全性验证” 。
+1. 在应用的“概览”页中，选择“身份验证”部分。  
+1. 在“高级设置”下找到“隐式授权”部分。  
+1. 选择“ID 令牌”和/或“访问令牌”。  
+1. 选择“其他安全性验证”  。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -92,3 +92,4 @@ ms.locfileid: "65517504"
 
 深入了解使用 Azure Active Directory 开发应用程序时应使用的品牌准则，请参阅[应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)。
 
+<!-- Update_Description: wording update -->

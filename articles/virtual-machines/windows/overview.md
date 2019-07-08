@@ -14,19 +14,21 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/04/2018
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9d13e3a87290675b8bb67718305ce91871193b5a
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 47191ce3e96aea233493f204bd9e96aeea36cd82
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004100"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570508"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Azure 中的 Windows 虚拟机概述
 
-Azure 虚拟机 (VM) 是 Azure 提供的多种[可缩放按需分配计算资源](../../app-service/overview-compare.md)之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+Azure 虚拟机 (VM) 是 Azure 提供的多种可缩放按需分配计算资源之一。 通常情况下，如果需要以更大的力度（相对于其他控制选项）控制计算环境，则应选择 VM。 本文介绍创建 VM 之前的注意事项，以及 VM 的创建方法和管理方式。
+
+<!--Not Available on [on-demand, scalable computing resources](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-decision-tree)-->
 
 使用 Azure VM 可以灵活进行虚拟化，而无需购买和维护运行 VM 的物理硬件。 不过，仍然需要通过执行任务来维护 VM，例如，配置、修补和安装在 VM 上运行的软件。
 
@@ -88,7 +90,7 @@ Azure 提供许多[市场映像](https://market.azure.cn/zh-cn/marketplace/virtu
 | Azure 门户 |选择要使用的映像时，系统会自动指定值。 |
 | Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
 | REST API |[列出映像发布者](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[列出映像产品](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[列出映像 SKU](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location *location*<BR>[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location *location* --publisher *publisherName* --offer *offerName*|
+| Azure CLI |[az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers) --location *location*<br />[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) --location *location* --publisher *publisherName*<br />[az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-skus) --location *location* --publisher *publisherName* --offer *offerName*|
 
 <!--MOONCAKE CUSTOMIZE: CORRRECT on az-vm-list-skus-->
 
@@ -99,21 +101,21 @@ VM [扩展](extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
 
 可以使用扩展完成以下常见任务：
 
-* 运行自定义脚本 – 预配 VM 时，[自定义脚本扩展](extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)可以通过运行脚本，帮助在 VM 上配置工作负荷。
-* 部署和管理配置 – 可以借助 [PowerShell Desired State Configuration (DSC) 扩展](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在 VM 上设置用于管理配置和环境的 DSC。
-* 收集诊断数据 – 可以借助 [Azure 诊断扩展](extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)将 VM 配置为收集诊断数据，然后，可以使用这些数据监视应用程序的运行状况。
+* 运行自定义脚本  – 预配 VM 时，[自定义脚本扩展](extensions-customscript.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)可以通过运行脚本，帮助在 VM 上配置工作负荷。
+* 部署和管理配置  – 可以借助 [PowerShell Desired State Configuration (DSC) 扩展](extensions-dsc-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在 VM 上设置用于管理配置和环境的 DSC。
+* 收集诊断数据  – 可以借助 [Azure 诊断扩展](extensions-diagnostics-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)将 VM 配置为收集诊断数据，然后，可以使用这些数据监视应用程序的运行状况。
 
 ### <a name="related-resources"></a>相关资源
 VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则要予以创建。
 
-| 资源 | 必须 | 说明 |
+| Resource | 必须 | 说明 |
 | --- | --- | --- |
 | [资源组](../../azure-resource-manager/resource-group-overview.md) |是 |VM 必须包含在资源组中。 |
 | [存储帐户](../../storage/common/storage-create-storage-account.md) |是 |VM 需要使用存储帐户来存储其虚拟硬盘。 |
 | [虚拟网络](../../virtual-network/virtual-networks-overview.md) |是 |VM 必须是虚拟网络的成员。 |
 | [公共 IP 地址](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) |否 |可以向 VM 分配一个公共 IP 地址，以便远程访问它。 |
-| [Linux](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
-| [数据磁盘数](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
+| [网络接口](../../virtual-network/virtual-network-network-interface.md) |是 |VM 需要使用网络接口在网络中通信。 |
+| [数据磁盘](attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) |否 |VM 可以包含数据磁盘，以便扩展存储功能。 |
 
 ## <a name="how-do-i-create-my-first-vm"></a>如何创建第一个 VM？
 可以选择多种方法创建 VM。 选择哪种方法取决于所在的环境。 
@@ -139,7 +141,7 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 
 | 方法 | 说明 |
 | --- | --- |
-| Azure 门户 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。 在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监控指标。 |
+| Azure 门户 |在中心菜单中，单击“虚拟机”，然后从列表中选择 VM。  在 VM 的边栏选项卡中，可以访问概述信息、设置值以及监控指标。 |
 | Azure PowerShell |若要了解如何使用 PowerShell 管理 VM，请参阅[使用 Azure PowerShell 模块创建和管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |
 | REST API |使用[获取 VM 信息](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines-get)操作获取有关 VM 的信息。 |
 | 客户端 SDK |有关使用 C# 管理 VM 的信息，请参阅[使用 Azure Resource Manager 与 C# 来管理 Azure 虚拟机](csharp-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 |
@@ -160,4 +162,4 @@ VM 使用下表中的资源，创建 VM 时，这些资源必须存在，否则�
 * 如果打算使用 Linux VM，请查看 [Azure 和 Linux](../linux/overview.md)。
 * 若要深入了解有关设置基础结构的指导，请参阅[示例 Azure 基础结构演练](infrastructure-example.md)。
 
-<!--Update_Description: update meta properties, update link， wording update -->
+<!--Update_Description: update meta properties, wording update -->

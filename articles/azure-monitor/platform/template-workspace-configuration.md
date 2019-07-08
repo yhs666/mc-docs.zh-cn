@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 453122d41aaa65e114d80573fa8c89a164e64ad9
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: d4fc6c2f368da5dd92d3d37d651a321e0c926b68
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586870"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562275"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Log Analytics 工作区
 
@@ -59,7 +59,7 @@ ms.locfileid: "65586870"
 
 > [!NOTE]
 >如果在订阅中创建或配置 Log Analytics 工作区，而该订阅已加入 2018 年 4 月的新定价模型，则唯一有效的 Log Analytics 定价层为 **PerGB2018**。  
->如果在 [2018 年 4 月前的定价模型](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/usage-estimated-costs#new-pricing-model)中有一些订阅，则可指定“独立”定价层，并且对于 2018 年 4 月前的定价模型中的订阅和新定价中的订阅都能成功进行此操作。 至于已采用新定价模型的订阅中的工作区，定价层将设置为 PerGB2018。 
+>如果在 [2018 年 4 月前的定价模型](/azure-monitor/platform/usage-estimated-costs#new-pricing-model)中有一些订阅，则可指定“独立”定价层，并且对于 2018 年 4 月前的定价模型中的订阅和新定价中的订阅都能成功进行此操作。  至于已采用新定价模型的订阅中的工作区，定价层将设置为 PerGB2018  。 
 
 ### <a name="create-and-deploy-template"></a>创建和部署模板
 
@@ -169,8 +169,9 @@ ms.locfileid: "65586870"
         "PerNode",
         "PerGB2018"
       ],
+      "defaultValue": "PerGB2018",
       "metadata": {
-        "description": "Service Tier: Free, Standalone, PerNode, or PerGB2018"
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone or PerNode) which are not available to all customers"
     }
       },
     "dataRetention": {
@@ -179,16 +180,21 @@ ms.locfileid: "65586870"
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
+        "description": "Number of days of retention. Workspaces in the legacy Free pricing tier can only have 7 days."
+      }
+    },
+    {
+    "immediatePurgeDataOn30Days": {
+      "type": "bool",
+      "metadata": {
+        "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. This only applies when retention is being set to 30 days."
       }
     },
     "location": {
       "type": "string",
       "allowedValues": [
-        "East US",
-        "West Europe",
-        "Southeast Asia",
-        "China Southeast"
+        "China east2",
+
       ]
     },
     "applicationDiagnosticsStorageAccountName": {

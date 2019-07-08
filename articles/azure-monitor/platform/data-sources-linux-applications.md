@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 13ebd70dae99234913132fa0eeddc62ed74bf514
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 914bc91f1d21fe997d253037828dc861205e6e75
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686417"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562384"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>在 Azure Monitor 中收集 Linux 应用程序的性能计数器 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -114,7 +114,7 @@ MySQL 用户还需要对以下默认表具有 SELECT 访问权限。
 
 ### <a name="define-performance-counters"></a>定义性能计数器
 
-将适用于 Linux 的 Log Analytics 代理配置为将数据发送到 Azure Monitor 后，必须配置要收集的性能计数器。  请对下表中的计数器使用“Azure Monitor 中的 Windows 和 Linux 性能数据来源”中所述的过程。
+将适用于 Linux 的 Log Analytics 代理配置为将数据发送到 Azure Monitor 后，必须配置要收集的性能计数器。  请对下表中的计数器使用 [Azure Monitor 中的 Windows 和 Linux 性能数据来源](data-sources-performance-counters.md)中所述的过程。
 
 | 对象名称 | 计数器名称 |
 |:--|:--|
@@ -150,7 +150,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>定义性能计数器
 
-将适用于 Linux 的 Log Analytics 代理配置为将数据发送到 Azure Monitor 后，必须配置要收集的性能计数器。  请对下表中的计数器使用“Azure Monitor 中的 Windows 和 Linux 性能数据来源”中所述的过程。
+将适用于 Linux 的 Log Analytics 代理配置为将数据发送到 Azure Monitor 后，必须配置要收集的性能计数器。  请对下表中的计数器使用 [Azure Monitor 中的 Windows 和 Linux 性能数据来源](data-sources-performance-counters.md)中所述的过程。
 
 | 对象名称 | 计数器名称 |
 |:--|:--|
@@ -167,7 +167,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 
 ## <a name="next-steps"></a>后续步骤
-* 从 Linux 代理收集性能计数器。
+* 从 Linux 代理[收集性能计数器](data-sources-performance-counters.md)。
 * 了解[日志查询](../log-query/log-query-overview.md)以便分析从数据源和解决方案中收集的数据。 
 
 

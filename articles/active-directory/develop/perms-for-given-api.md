@@ -3,8 +3,8 @@ title: 如何为给定 API 选择权限 | Microsoft Docs
 description: 了解在开发应用程序时，如何针对客户端和资源应用程序进行权限请求
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 02/14/2019
+ms.date: 06/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 987e85a733514adc324642aa818cd4418825d587
-ms.sourcegitcommit: f34f65c439665607b43bb2c81df58c138d0b7417
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0cd297e465631a2653985fb526b7ae04945ce136
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56262179"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568741"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>如何为给定 API 选择权限 
 
@@ -35,4 +36,4 @@ ms.locfileid: "56262179"
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

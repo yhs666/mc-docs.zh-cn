@@ -3,8 +3,8 @@ title: 如何配置新的多租户应用程序 | Microsoft Docs
 description: 了解如何将应用程序配置为多多租户应用程序，以及多租户应用程序的工作原理
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd383d187d51b05bd47a78acf6f4789ebc5b6c11
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 928982ef558a8fcf958b0e3ffd299de3eb2e4c29
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243664"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568712"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>如何配置新的多租户应用程序
 
@@ -35,4 +35,4 @@ ms.locfileid: "59243664"
 ## <a name="next-steps"></a>后续步骤
 [AzureAD StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

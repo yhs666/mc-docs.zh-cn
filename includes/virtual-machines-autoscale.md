@@ -3,19 +3,17 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 02/18/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9a57f3f2cff33b4922a091e615a873e118fa09e7
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: f1f314225825ee57b3d5facc8268aff245bbfec1
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666477"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570055"
 ---
-<!--Verify sucessfully--> 使用[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure Monitor 的自动缩放功能](../articles/azure-monitor/platform/autoscale-overview.md)时，可以轻松[自动缩放](../articles/azure-monitor/platform/autoscale-best-practices.md)[虚拟机 (VM)](../articles/virtual-machines/windows/overview.md)。 VM 需要成为规模集的成员才能自动缩放。 本文提供了用于更好地了解如何使用自动和手动方法以纵向方式和横向方式缩放 VM 的信息。
-
-<!-- Pending on [automatically scale](../articles/azure-monitor/platform/autoscale-best-practices.md)-->
-<!-- Pending on [autoscaling feature of Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md)-->
+<!--Verify sucessfully-->
+使用[虚拟机规模集](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md)和 [Azure Monitor 的自动缩放功能](../articles/azure-monitor/platform/autoscale-overview.md)时，可以轻松[自动缩放](../articles/azure-monitor/platform/autoscale-best-practices.md)[虚拟机 (VM)](../articles/virtual-machines/windows/overview.md)。 VM 需要成为规模集的成员才能自动缩放。 本文提供了用于更好地了解如何使用自动和手动方法以纵向方式和横向方式缩放 VM 的信息。
 
 ## <a name="horizontal-or-vertical-scaling"></a>横向缩放或纵向缩放
 
@@ -42,9 +40,7 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 
 ### <a name="metrics"></a>指标
 
-使用 Azure Monitor 的自动缩放功能，可以基于指标增加或减少正在运行的 VM 数量。 默认情况下，VM 针对磁盘、网络和 CPU 使用情况提供基本的主机级别指标。 使用诊断扩展配置诊断数据收集时，额外的来宾 OS 性能计数器将可用于磁盘、CPU 和内存。
-
-<!--Pending on [metrics](../articles/azure-monitor/platform/autoscale-common-metrics.md)-->
+使用 Azure Monitor 的自动缩放功能，可以基于[指标](../articles/azure-monitor/platform/autoscale-common-metrics.md)增加或减少正在运行的 VM 数量。 默认情况下，VM 针对磁盘、网络和 CPU 使用情况提供基本的主机级别指标。 使用诊断扩展配置诊断数据收集时，额外的来宾 OS 性能计数器将可用于磁盘、CPU 和内存。
 
 ![指标条件](./media/virtual-machines-autoscale/virtual-machines-autoscale-criteria.png)
 
@@ -60,9 +56,7 @@ Azure Monitor 的自动缩放功能仅以横向方式调整资源的规模，即
 
 ### <a name="notifications"></a>通知
 
-可以设置触发器，以便基于你创建的自动缩放规则调用特定 Web URL 或发送电子邮件。 通过 webhook 可以将 Azure 警报通知路由到其他系统以便用于后处理或自定义通知。
-
-<!--Pending on [set up triggers](../articles/azure-monitor/platform/autoscale-webhook-email.md)-->
+可以[设置触发器](../articles/azure-monitor/platform/autoscale-webhook-email.md)，以便基于你创建的自动缩放规则调用特定 Web URL 或发送电子邮件。 通过 webhook 可以将 Azure 警报通知路由到其他系统以便用于后处理或自定义通知。
 
 ## <a name="manually-scale-vms-in-a-scale-set"></a>手动缩放规模集中的 VM
 

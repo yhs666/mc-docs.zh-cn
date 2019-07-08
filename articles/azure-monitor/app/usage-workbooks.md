@@ -13,16 +13,16 @@ ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 22b79920b3e9954f213dc5d154fe025f9de34089
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 137882b80f855d746f853e15c59bb8095b7693f4
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236040"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562648"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 
-工作簿可将 [分析查询](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)、Azure 指标和参数合并到丰富的交互式报表中。 有权访问相同 Azure 资源的其他团队成员都可编辑工作簿。
+工作簿可将 [分析查询](/azure-monitor/log-query/log-query-overview)、Azure 指标和参数合并到丰富的交互式报表中。 有权访问相同 Azure 资源的其他团队成员都可编辑工作簿。
 
 工作簿对以下情况非常有用，例如：
 
@@ -258,7 +258,7 @@ customEvents
 你是否创建了令人惊叹的工作簿模板，并且想要与社区共享？ 若要了解详细信息，请访问 [GitHub 存储库](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md)。
 
 ## <a name="next-steps"></a>后续步骤
-- 若要启用使用体验，请首先发送[自定义事件](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或[页面视图](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要启用使用体验，请首先发送[自定义事件](/azure-monitor/app/api-custom-events-metrics#trackevent)或[页面视图](/azure-monitor/app/api-custom-events-metrics#page-views)。
 - 如果已经发送自定义事件或页面视图，请浏览使用情况工具，了解用户如何使用服务。
     - [用户、会话、事件](../../azure-monitor/app/usage-segmentation.md)
     - [漏斗图](../../azure-monitor/app/usage-funnels.md)

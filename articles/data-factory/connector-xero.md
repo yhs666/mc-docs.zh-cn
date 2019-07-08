@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: ef953535bb61df49c9e7488ba3ff9b75369969d4
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 96f11a4176b22010965b609924c03df0479ed3f7
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732702"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570377"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>使用 Azure 数据工厂（预览版）从 Xero 复制数据
 

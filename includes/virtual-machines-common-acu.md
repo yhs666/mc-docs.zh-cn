@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 12/21/2018
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f1ca1b1bae9cb05d0243e8e58b6b3955777071bd
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9f5c3a7b760c7b645f17cf4ba0ccf197e709d925
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004534"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570339"
 ---
 Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU) 性能的方法。 这有助于轻松确定最有可能满足性能需求的 SKU。  ACU 目前在小型 (Standard_A1) VM 上标准为 100，而所有其他 SKU 表示 SKU 在运行标准基准测试时大约可以有多快。 
 
@@ -23,7 +23,7 @@ Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU
 > 
 > 
 
-<br>
+<br />
 
 | SKU 系列 | ACU\vCPU | vCPU：核心 |
 | --- | --- |---|
@@ -50,11 +50,14 @@ Azure 计算单位 (ACU) 这一概念提供一种比较 Azure SKU 的计算 (CPU
 <!-- Not Available  [G1-G5]  -->
 <!-- Not Available  [GS1-GS5]  -->
 <!-- Not Available  [H] -->
-<!-- Not Available  [L4s-L32s]  -->
+<!-- Not Available  [HB] -->
+<!-- Not Available  [HC] -->
+<!-- Not Available  [L4s - L32s]  -->
+<!-- Not Available  [L8s_v2 - L80s_v2]  -->
 
 *ACU 使用 Intel® Turbo 技术来增加 CPU 频率和提升性能。  性能提升程度可能因 VM 大小、工作负荷和同一主机上运行的其他工作负荷而有所不同。
 
-<!--Not Available on L serial on **ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.-->
+<!--Not Available on HB/L8s_v2-L80s_v2 serial on **ACUs use AMD® Boost technology to increase CPU frequency and provide a performance increase.  The amount of the performance increase can vary based on the VM size, workload, and other workloads running on the same host.-->
 
 ***超线程，能够运行嵌套虚拟化
 

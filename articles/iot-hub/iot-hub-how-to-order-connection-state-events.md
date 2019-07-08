@@ -6,14 +6,14 @@ ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 06/17/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2e4abcad61978cda8dde43e9c56343dba74d0b6e
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 6ad615621fde55e660f97c7083fe89f2fd0ac6fe
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732527"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569826"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -273,7 +273,7 @@ ms.locfileid: "66732527"
 
 6. 对于“终结点详细信息”，请选择“Webhook”作为“终结点类型”，单击所选终结点并粘贴从逻辑应用中复制的 URL，然后确认选择。  
 
-   ![选择终结点 URL](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![选择终结点 URL](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. 表单现在应类似于以下示例：
 
@@ -305,7 +305,7 @@ ms.locfileid: "66732527"
 
 ### <a name="start-raspberry-pi-simulator"></a>启动 Raspberry Pi 模拟器
 
-1. 让我们使用 Raspberry Pi Web 模拟器来模拟设备连接。
+让我们使用 Raspberry Pi Web 模拟器来模拟设备连接。
 
 [启动 Raspberry Pi 模拟器](https://azure-samples.github.io/raspberry-pi-web-simulator/#Getstarted)
 

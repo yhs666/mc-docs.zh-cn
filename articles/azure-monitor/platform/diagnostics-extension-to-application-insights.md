@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 46d4e7cbb745011a6aca0174ad5bd25c825abeea
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: badd751ae77208f00bdb52af341a49ba3142524b
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732333"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562359"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>将云服务、虚拟机或 Service Fabric 诊断数据发送到 Application Insights
 云服务、虚拟机、虚拟机规模集和 Service Fabric 都使用 Azure 诊断扩展来收集数据。  Azure 诊断将数据发送到 Azure 存储表。  但是，也可以 Azure 诊断扩展 1.5 或更高版本，通过管道将所有或一部分数据发送到其他位置。
@@ -215,9 +215,9 @@ Application Insights 接收器的示例配置：
 - **无法将 Azure 诊断扩展收集的 Blob 数据发送到 Application Insights。** 例如，*Directories* 节点下指定的任何数据。 对于故障转储，实际故障转储将发送到 Blob 存储，并只会将生成了故障转储的通知发送到 Application Insights。
 
 ## <a name="next-steps"></a>后续步骤
-* 了解如何在 Application Insights 中[查看 Azure 诊断信息](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices)。
+* 了解如何在 Application Insights 中[查看 Azure 诊断信息](/azure-monitor/app/cloudservices)。
 * 使用 [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) 为应用程序启用 Azure 诊断扩展。
-* 使用 [Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 为应用程序启用 Azure 诊断扩展。
+* 使用 [Visual Studio](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) 为应用程序启用 Azure 诊断扩展。
 
 
 

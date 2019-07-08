@@ -3,8 +3,8 @@ title: 使用 Microsoft 标识平台通过资源所有者密码凭据 (ROPC) 授
 description: 支持使用资源所有者密码凭据授予的无浏览器身份验证流。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/20/2019
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33276ac94e8c4cd9647ab4aaa3e243f0b99ccaeb
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: e0b84656b4f41f95c2355788156f94c67bf93551
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517562"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568678"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Microsoft 标识平台和 OAuth 2.0 资源所有者密码凭据
 
@@ -66,10 +66,10 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | 参数 | 条件 | 说明 |
 | --- | --- | --- |
-| `tenant` | 必需 | 一个目录租户，用户需登录到其中。 此参数可采用 GUID 或友好名称格式。 此参数不能设置为 `common` 或 `consumers`，但可以设置为 `organizations`。 |
-| `grant_type` | 必需 | 必须设置为 `password`。 |
-| `username` | 必需 | 用户的电子邮件地址。 |
-| `password` | 必需 | 用户的密码。 |
+| `tenant` | 必须 | 一个目录租户，用户需登录到其中。 此参数可采用 GUID 或友好名称格式。 此参数不能设置为 `common` 或 `consumers`，但可以设置为 `organizations`。 |
+| `grant_type` | 必须 | 必须设置为 `password`。 |
+| `username` | 必须 | 用户的电子邮件地址。 |
+| `password` | 必须 | 用户的密码。 |
 | `scope` | 建议 | 以空格分隔的[范围](v2-permissions-and-consent.md)或权限的列表，这是应用需要的。 在交互式流中，管理员或用户必须提前同意这些范围。 |
 
 ### <a name="successful-authentication-response"></a>成功的身份验证响应
@@ -113,3 +113,4 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 * 请通过[示例控制台应用程序](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)自行试用 ROPC。
 * 若要确定是否应使用 v2.0 终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。
 
+<!-- Update_Description: update metedata properties -->

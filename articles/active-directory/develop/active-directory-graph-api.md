@@ -3,8 +3,8 @@ title: Azure Active Directory 图形 API | Microsoft Docs
 description: 有关 Azure AD Graph API 的概述和快速入门指南，其中允许通过 REST API 终结点以编程方式访问 Azure AD。
 services: active-directory
 documentationcenter: ''
-author: lleonard-msft
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 03/01/2019
-ms.date: 03/18/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e7452e2d0368a71f6a8fc153914c3f6f9cb7715
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.openlocfilehash: 0bf42a2a618b02d3137b00cc646b428dd056dea5
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186651"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568551"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 图形 API
 
@@ -57,7 +57,7 @@ Azure AD 图形 API 提供以下功能：
 
 * **REST API 终结点**：Azure AD 图形 API 是一个 RESTful 服务，该服务由使用标准 HTTP 请求访问的终结点组成。 Azure AD 图形 API 支持对请求和响应使用 XML 或 Javascript 对象表示法 (JSON) 内容类型。 有关详细信息，请参阅 [Azure AD Graph REST API 参考](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)。
 * **使用 Azure AD 进行身份验证**：必须在请求的 Authorization 标头中追加 JSON Web 令牌 (JWT)，以便对向 Azure AD 图形 API 发出的每个请求进行身份验证。 可通过向 Azure AD 的令牌终结点发出请求并提供有效的凭据来获取此令牌。 可以使用 OAuth 2.0 客户端凭据流或授权代码授予流来获取调用 Graph 所需的令牌。 有关详细信息，请参阅 [Azure AD 中的 OAuth 2.0](/active-directory/develop/active-directory-protocols-oauth-code)。
-* **基于角色的授权 (RBAC)**：安全组用于在 Azure AD 图形 API 中执行 RBAC。 例如，如果要确定用户是否有权访问特定资源，应用程序可以调用[检查组成员身份(可传递)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups)操作，该操作将返回 true 或 false。
+* **基于角色的授权 (RBAC)** ：安全组用于在 Azure AD 图形 API 中执行 RBAC。 例如，如果要确定用户是否有权访问特定资源，应用程序可以调用[检查组成员身份(可传递)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups)操作，该操作将返回 true 或 false。
 * **差异查询**：如果要查看两个时间段之间对目录所做的更改，而不对 Azure AD 图形 API 进行频繁的查询，可以发出差异查询请求。 这种类型的请求将只返回在上一个差异查询请求与当前请求之间所做的更改。 有关详细信息，请参阅 [Azure AD 图形 API 差异查询](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)。
 * **目录扩展**：可将自定义属性添加到目录对象，而无需外部数据存储。 例如，如果应用程序需要每个用户的 Skype ID 属性，则可以在目录中注册新属性，即可在每个用户对象上获取该属性。 有关详细信息，请参阅 [Azure AD 图形 API 目录架构扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。
 * **受权限范围保护**：Azure AD 图形 API 公开权限范围，支持使用 OAuth 2.0 对 Azure AD 数据进行安全访问。 它支持各种客户端应用类型，包括：
@@ -72,7 +72,7 @@ Azure AD 图形 API 提供以下功能：
 Azure AD 图形 API 可实现许多应用程序方案。 以下方案最常见：
 
 * **业务线（单租户）应用程序**：在此方案中，一个企业开发人员为一个拥有 Office 365 订阅的组织工作。 开发人员将构建与 Azure AD 交互的 Web 应用程序，用于执行将许可证分配给用户等任务。 此任务需要访问 Azure AD 图形 API，因此开发人员在 Azure AD 中注册单租户应用程序，并为 Azure AD 图形 API 配置读取和写入权限。 然后，将应用程序配置为使用其自己的凭据或当前登录用户的凭据来获取调用 Azure AD 图形 API 所需的令牌。
-* **服务型软件应用程序（多租户）**：在此方案中，独立软件供应商 (ISV) 将开发一个托管多租户 Web 应用程序，该应用程序为使用 Azure AD 的其他组织提供用户管理功能。 这些功能需要访问目录对象，因此该应用程序需要调用 Azure AD 图形 API。 开发人员在 Azure AD 中注册该应用程序，将它配置为需要对 Azure AD 图形 API 的读取和写入权限，然后启用了外部访问，这样其他组织便可以同意在其目录中使用该应用程序。 当其他组织中的用户首次向该应用程序进行身份验证时，他们会看到一个同意对话框，该对话框包含应用程序请求的权限。 然后，授予许可将为该应用程序提供对用户目录中的 Azure AD 图形 API 的请求权限。 有关许可框架的详细信息，请参阅[许可框架概述](consent-framework.md)。
+* **服务型软件应用程序（多租户）** ：在此方案中，独立软件供应商 (ISV) 将开发一个托管多租户 Web 应用程序，该应用程序为使用 Azure AD 的其他组织提供用户管理功能。 这些功能需要访问目录对象，因此该应用程序需要调用 Azure AD 图形 API。 开发人员在 Azure AD 中注册该应用程序，将它配置为需要对 Azure AD 图形 API 的读取和写入权限，然后启用了外部访问，这样其他组织便可以同意在其目录中使用该应用程序。 当其他组织中的用户首次向该应用程序进行身份验证时，他们会看到一个同意对话框，该对话框包含应用程序请求的权限。 然后，授予许可将为该应用程序提供对用户目录中的 Azure AD 图形 API 的请求权限。 有关许可框架的详细信息，请参阅[许可框架概述](consent-framework.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -81,4 +81,4 @@ Azure AD 图形 API 可实现许多应用程序方案。 以下方案最常见�
 * [Azure AD 图形 API 快速入门指南](active-directory-graph-api-quickstart.md)
 * [Azure AD Graph REST 文档](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -15,12 +15,12 @@ ms.date: 6/4/2019
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 1ba367e8ea1dc523c48d0d1887df80c6476126ff
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 22b405f98f8e2f0bafd683005fdb562cfa6835b5
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236504"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562640"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>在 Visual Studio 中使用 Azure Application Insights 调试应用程序
 在 Visual Studio（2015 和更高版本）中，可以使用来自 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的遥测，在调试和生产环境中分析 ASP.NET Web 应用中的性能和诊断问题。
@@ -106,7 +106,7 @@ Application Insights 的“搜索”窗口显示已记录的事件。 （如果�
 |  |  |
 | --- | --- |
 | **[添加更多数据](../../azure-monitor/app/asp-net-more.md)**<br/>监视使用情况、可用性、依赖项、异常。 集成来自记录框架的跟踪。 编写自定义遥测。 |![Visual Studio](./media/visual-studio/64.png) |
-
+| **[使用 Application Insights 门户](../../azure-monitor/app/overview-dashboard.md)**<br/>查看仪表板、功能强大的诊断和分析工具、警报、应用程序的实时依赖项映射和导出的遥测数据。 |![Visual Studio](./media/visual-studio/62.png) |
 
 
 

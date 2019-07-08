@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/28/2017
 ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: db17bc4697c15ae69e06a08703e40fd9547ef0af
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 347f007aa177993a4564ae6c0f930d447c83468f
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194937"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570452"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -54,21 +54,21 @@ ms.locfileid: "66194937"
 
 本部分中操作将会创建可将文件上传到 IoT 中心的设备应用。
 
-1. 创建名为 ```simulateddevice``` 的空文件夹。  在 ```simulateddevice``` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
+1. 创建名为 `simulateddevice` 的空文件夹。  在 `simulateddevice` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
     ```cmd/sh
     npm init
     ```
 
-1. 在 ```simulateddevice``` 文件夹的命令提示符处，运行下述命令以安装  azure-iot-device 设备 SDK 包和  azure-iot-device-mqtt 包：
+1. 在 `simulateddevice` 文件夹的命令提示符处，运行下述命令以安装  azure-iot-device 设备 SDK 包和  azure-iot-device-mqtt 包：
 
     ```cmd/sh
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 
-1. 在 ```simulateddevice``` 文件夹中，利用文本编辑器创建  SimulatedDevice.js 文件。
+1. 在 `simulateddevice` 文件夹中，利用文本编辑器创建  SimulatedDevice.js 文件。
 
-1. 在 **SimulatedDevice.js** 文件的开头添加以下 ```require``` 语句：
+1. 在 **SimulatedDevice.js** 文件的开头添加以下 `require` 语句：
 
     ```javascript
     'use strict';
@@ -78,7 +78,7 @@ ms.locfileid: "66194937"
     var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     ```
 
-1. 添加 ```deviceconnectionstring``` 变量，并使用它创建一个客户端  实例。  将 ```{deviceconnectionstring}``` 替换为在  “创建 IoT 中心”部分中创建的设备的名称。
+1. 添加 `deviceconnectionstring` 变量，并使用它创建一个客户端  实例。  将 `{deviceconnectionstring}` 替换为在  “创建 IoT 中心”部分中创建的设备的名称。
 
     ```javascript
     var connectionString = '{deviceconnectionstring}';
@@ -121,21 +121,21 @@ ms.locfileid: "66194937"
 
 可以使用 IoT 中心的 **iothubowner** 的连接字符串完成本部分的操作。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。 
 
-1. 创建名为 ```fileuploadnotification``` 的空文件夹。  在 ```fileuploadnotification``` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
+1. 创建名为 `fileuploadnotification` 的空文件夹。  在 `fileuploadnotification` 文件夹的命令提示符处，使用以下命令创建 package.json 文件。  接受所有默认值：
 
     ```cmd/sh
     npm init
     ```
 
-1. 在 ```fileuploadnotification``` 文件夹中的命令提示符下，运行以下命令安装 **azure-iothub** SDK 包：
+1. 在 `fileuploadnotification` 文件夹中的命令提示符下，运行以下命令安装 **azure-iothub** SDK 包：
 
     ```cmd/sh
     npm install azure-iothub --save
     ```
 
-1. 使用文本编辑器在 ```fileuploadnotification``` 文件夹中创建 **FileUploadNotification.js** 文件。
+1. 使用文本编辑器在 `fileuploadnotification` 文件夹中创建 **FileUploadNotification.js** 文件。
 
-1. 在 **FileUploadNotification.js** 文件的开头添加以下 ```require``` 语句：
+1. 在 **FileUploadNotification.js** 文件的开头添加以下 `require` 语句：
 
     ```javascript
     'use strict';
@@ -143,7 +143,7 @@ ms.locfileid: "66194937"
     var Client = require('azure-iothub').Client;
     ```
 
-1. 添加 ```iothubconnectionstring``` 变量，并使用它创建一个客户端  实例。  将 ```{iothubconnectionstring}``` 替换为在  “创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
+1. 添加 `iothubconnectionstring` 变量，并使用它创建一个客户端  实例。  将 `{iothubconnectionstring}` 替换为在  “创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

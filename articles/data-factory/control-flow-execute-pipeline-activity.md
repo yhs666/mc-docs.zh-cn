@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/10/2018
-ms.date: 06/10/2019
-ms.author: shlo
-ms.openlocfilehash: c6fb38d93d6e75b19295e2fe28e7c8a6f7c71b0d
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 07/08/2019
+ms.author: v-jay
+ms.openlocfilehash: ae33797c597bb2a156a1d56c0b0d9c026ce368cb
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732693"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570374"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Execute Pipeline 活动
 Execute Pipeline 活动允许一个数据工厂管道调用另一个管道。

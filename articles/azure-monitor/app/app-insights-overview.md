@@ -13,17 +13,15 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1ce75597b75af3f400f22b550b669d82d767fd55
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: ed84d10838671e48045f3b2d5f81b1864d794d5c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236579"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562738"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
-
-[查看简介动画](https://www.youtube.com/watch?v=fX2NtGrh-Y0)。
 
 ## <a name="how-does-application-insights-work"></a>Application Insights 的工作原理是什么？
 在应用程序中安装小检测包，并在世纪互联 Azure 门户中设置 Application Insights 资源。 检测会监视应用，并将遥测数据发送到门户。 （可在任意位置运行此应用程序 - 无需在 Azure 中托管。）
@@ -67,6 +65,7 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 | [**使用情况分析**](../../azure-monitor/app/usage-overview.md)<br/>分析用户细分和保留情况。|![留存情况工具](./media/app-insights-overview/retention.png) |
 | [**实例数据的诊断搜索**](../../azure-monitor/app/diagnostic-search.md)<br/>搜索和筛选事件，例如请求、异常、依赖项调用、日志跟踪和页面视图。  |![搜索遥测](./media/app-insights-overview/search-tn.png) |
 | [**聚合数据的指标资源管理器**](../../azure-monitor/app/metrics-explorer.md)<br/>浏览、筛选和细分聚合的数据，例如请求率、故障率和异常率；响应时间、页面加载时间。 |![指标](./media/app-insights-overview/metrics-tn.png) |
+| [**仪表板**](../../azure-monitor/app/overview-dashboard.md)<br/>混合使用来自多个资源的数据并与他人共享。 对于多组件应用程序和在团队聊天室中连续显示很有用。 |![仪表板示例](./media/app-insights-overview/dashboard-tn.png) |
 | [**实时指标流**](../../azure-monitor/app/live-stream.md)<br/>部署新的生成时，观看这些准实时性能指示器，确保一切按预期工作。 |![实时指标示例](./media/app-insights-overview/live-metrics-tn.png) |
 | [**分析**](../../azure-monitor/app/analytics.md)<br/>使用此功能强大的查询语言，回答有关应用的性能和使用情况的疑难问题。 |![分析示例](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>查看代码中的性能数据。 从堆栈跟踪转到代码。|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
@@ -80,6 +79,7 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 ### <a name="monitor"></a>监视
 在应用中安装 Application Insights，设置[可用性 Web 测试](../../azure-monitor/app/monitor-web-app-availability.md)，然后：
 
+* 为团队聊天室签出默认[应用程序仪表板](../../azure-monitor/app/overview-dashboard.md)，以便监视负载、响应能力和依赖项性能、页面加载和 AJAX 调用。
 * 发现最慢和多数情况下失败的请求。
 * 在部署新版本时查看[实时流](../../azure-monitor/app/live-stream.md)，快速掌握任何降级情况。
 
@@ -98,15 +98,17 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 * 使下一个开发周期基于遥测的硬性证据。
 
 ## <a name="get-started"></a>入门
-Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥测会发送到此处进行分析和展示。 因此在执行任何其他操作之前，需要订阅[世纪互联 Azure](https://portal.azure.cn)。 可用 1 元人民币注册该订阅，如果选择 Application Insights 的基本[定价计划](https://www.azure.cn/pricing/details/azure-monitor/)，不会产生费用，但如果应用程序的使用量大幅增加，会产生费用。 如果组织已有订阅，则组织可向其中添加 Azure 帐户。
+Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥测会发送到此处进行分析和展示。 因此在执行任何其他操作之前，需要订阅[世纪互联 Azure](https://portal.azure.cn)。 可用 1 元人民币注册该订阅，如果选择 Application Insights 的基本[定价计划](https://www.azure.cn/pricing/details/monitor/)，不会产生费用，但如果应用程序的使用量大幅增加，会产生费用。 如果组织已有订阅，则组织可向其中添加 Azure 帐户。
 
 可通过多种方法开始使用。 可从最适合方法开始。 可在以后添加其他方法。
 
-* **运行时：检测服务器上的 Web 应用。** 避免任何代码更新。 需要服务器的管理员访问权限。
-  * [**本地或 VM 上的 IIS**](../../azure-monitor/app/monitor-performance-live-website-now.md)
-  * [Azure Web 应用或 VM  ](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* **开发时：将 Application Insights 添加到代码。** 可以编写自定义遥测以及检测后端和桌面应用。
-  * [Visual Studio](../../azure-monitor/app/asp-net.md) 2013 update 2 或更高版本。
+* **运行时：检测服务器上的 Web 应用。** 非常适合已部署的应用程序。 避免任何代码更新。
+  * [**在本地或 VM 的 IIS 中托管的 ASP.NET 应用程序**](../../azure-monitor/app/monitor-performance-live-website-now.md)
+  * [**在 Azure Web 应用中托管的 ASP.NET 或 ASP.NET Core 应用程序**](../../azure-monitor/app/azure-web-apps.md)
+* **开发时：将 Application Insights 添加到代码。** 可以自定义遥测数据收集和发送其他遥测数据。
+  * [ASP.NET 应用程序](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core 应用程序](../../azure-monitor/app/asp-net-core.md)
+  * [.NET 控制台应用程序](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.js](../../azure-monitor/app/nodejs.md)
   * [其他平台](../../azure-monitor/app/platforms.md)
@@ -118,10 +120,12 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
 在运行时开始使用：
 
 * [IIS 服务器](../../azure-monitor/app/monitor-performance-live-website-now.md)
+* [Azure Web 应用](../../azure-monitor/app/azure-web-apps.md)
 
 在开发时开始使用：
 
 * [ASP.NET](../../azure-monitor/app/asp-net.md)
+* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.js](../../azure-monitor/app/nodejs.md)
 
@@ -135,11 +139,6 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
 * 博客：
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)（Application Insights 博客）
 
-## <a name="videos"></a>视频
-
-[![动画简介](./media/app-insights-overview/video-front-1.png)](https://www.youtube.com/watch?v=fX2NtGrh-Y0)
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player] 
 
 <!--Link references-->
 
@@ -147,7 +146,6 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
 [azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
-[detect]: ../../azure-monitor/app/detect-triage-diagnose.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [ios]: ../../azure-monitor/learn/mobile-center-quickstart.md
 [java]: ../../azure-monitor/app/java-get-started.md

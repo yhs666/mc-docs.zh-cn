@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 12/19/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 04a435e3373186989bff7a0491231df7c590181d
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: eb87e64a320e45350fbcf80537aec71df1eef80e
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732674"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570365"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Web 活动
 Web 活动可用于从数据工厂管道调用自定义的 REST 终结点。 可以传递数据集和链接服务以供活动使用和访问。
@@ -208,7 +208,7 @@ linkedServices | 传递给终结点的链接服务列表。 | 链接服务引用
 ```json
 {
     "sqlTableName": "department",
-    "url": "https://adftes.azurewebsites.cn/api/execute/running"
+    "url": "https://adftes.chinacloudsites.cn/api/execute/running"
 }
 
 ```

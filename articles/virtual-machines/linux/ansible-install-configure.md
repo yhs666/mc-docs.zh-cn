@@ -7,14 +7,14 @@ ms.service: ansible
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
-origin.date: 04/22/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 1035eb893e1d321e0694a3cbaf50162ffdd949ca
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+origin.date: 04/30/2019
+ms.date: 07/01/2019
+ms.openlocfilehash: 928010f5fd52c33b7c860a23a7d6a038b1595e22
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835755"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570336"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>快速入门：在 Azure 中的 Linux 虚拟机上安装 Ansible
@@ -23,8 +23,8 @@ ms.locfileid: "65835755"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - **对 Linux 或 Linux 虚拟机的访问权限** - 如果没有 Linux 计算机，请创建 [Linux 虚拟机](/virtual-network/quick-create-cli)。
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>在 Azure Linux 虚拟机上安装 Ansible

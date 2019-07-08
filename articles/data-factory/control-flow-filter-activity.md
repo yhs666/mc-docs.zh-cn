@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/04/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: shlo
-ms.openlocfilehash: e88ca0f32de32e907366eac9b7815d99e949a4b1
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 9b1ab0b4edb40dc8fc70bedb9e73c7bef3218284
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732691"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570372"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Filter 活动
 可以在管道中使用 Filter 活动将筛选器表达式应用到输入数组。 

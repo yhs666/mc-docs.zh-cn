@@ -3,8 +3,8 @@ title: Azure Active Directory 中的 Web API 应用
 description: 介绍什么是 Web API 应用，以及有关此应用类型的协议流、注册和令牌到期的基础知识。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 05/09/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109f69454418af834fbd15dd595a7759472e5b85
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 9ab93fc26a61c429bf241e915ad74df96492443b
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517456"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568649"
 ---
 # <a name="web-api"></a>Web API
 
@@ -72,7 +72,7 @@ Web API 应用是需要通过 Web API 获取资源的 Web 应用。 在此方案
 
 若要向 Azure AD v1.0 终结点注册应用程序，请参阅[注册应用](quickstart-register-app.md)。
 
-* 单租户 - 对于应用程序标识和委托用户标识这两种情况，Web 应用和 Web API 都必须在 Azure AD 的同一个目录中进行注册。 可以对 Web API 进行配置以公开一组权限，并使用这些权限来限制 Web 应用程序对其资源的访问。 如果使用的是委托用户标识类型，则 Web 应用需要从 Azure 门户的“对其他应用程序的权限”下拉菜单中选择所需的权限。 如果使用的是应用程序标识类型，则不需要此步骤。
+* 单租户 - 对于应用程序标识和委托用户标识这两种情况，Web 应用和 Web API 都必须在 Azure AD 的同一个目录中进行注册。 可以对 Web API 进行配置以公开一组权限，并使用这些权限来限制 Web 应用程序对其资源的访问。 如果使用的是委托用户标识类型，则 Web 应用需要从 Azure 门户的“对其他应用程序的权限”  下拉菜单中选择所需的权限。 如果使用的是应用程序标识类型，则不需要此步骤。
 * 多租户 - 首先，Web 应用在配置后会指示它在正常运行时所需的权限。 目标目录中的用户或管理员许可应用程序的要求，使应用程序可供其组织使用时，此必需权限列表会显示在一个对话框中。 某些应用程序只需要用户级权限，组织中的任何用户都可以表示许可。 另外一些应用程序需要管理员级权限，组织中的用户无法许可。 只有目录管理员可以对需要此级别的权限的应用程序表示许可。 用户或管理员许可后，在其目录中注册 Web 应用程序和 Web API。
 
 ## <a name="token-expiration"></a>令牌过期
@@ -84,4 +84,4 @@ Web 应用程序使用其授权代码来获取 JWT 访问令牌时，它还会�
 - 详细了解其他[应用程序类型和方案](app-types.md)
 - 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -14,12 +14,12 @@ ms.date: 6/4/2019
 ms.reviewer: abgreg;mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 61f5aa125158f0d7eb6e8b80c7c07c94b83c1308
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e1d7264d18e385f6189b578ea565697c5d2dab7e
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732415"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562639"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>发送用户上下文 ID 以启用 Azure Application Insights 中的使用体验
 
@@ -27,10 +27,10 @@ ms.locfileid: "66732415"
 
 Application Insights 通过一套产品使用工具监视并跟踪用户：
 
-- [用户、会话、事件](https://docs.microsoft.com/azure/application-insights/app-insights-usage-segmentation)
-- [漏斗图](https://docs.microsoft.com/azure/application-insights/usage-funnels)
-- [保留](https://docs.microsoft.com/azure/application-insights/app-insights-usage-retention)队列
-- [工作簿](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [用户、会话、事件](/azure-monitor/app/usage-segmentation)
+- [漏斗图](/azure-monitor/app/usage-funnels)
+- [保留](/azure-monitor/app/usage-retention)队列
+- [工作簿](/azure-monitor/app/usage-workbooks)
 
 为了跟踪用户在各个时间进行的操作，Application Insights 需要每个用户或会话的 ID。 在每个自定义事件或页面视图中包含以下 ID。
 
@@ -50,11 +50,11 @@ Application Insights 通过一套产品使用工具监视并跟踪用户：
 
 ID 必须是 GUID 或另一个复杂程度足以唯一地标识每个用户的字符串。 例如，可能是一长串随机数。
 
-如果 ID 包含用户的个人标识信息，则不适合将该值作为用户 ID 发送到 Application Insights。 可以将该 ID 作为[已经过身份验证的用户 ID](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#authenticated-users) 进行发送，但是这不满足使用方案的用户 ID 要求。
+如果 ID 包含用户的个人标识信息，则不适合将该值作为用户 ID 发送到 Application Insights。 可以将该 ID 作为[已经过身份验证的用户 ID](/azure-monitor/app/api-custom-events-metrics#authenticated-users) 进行发送，但是这不满足使用方案的用户 ID 要求。
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 应用：在 ITelemetryInitializer 中设置用户上下文
 
-创建遥测初始化程序，详见[此处](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)。 通过请求遥测传递会话 ID，并设置 Context.User.Id 和 Context.Session.Id。
+创建遥测初始化程序，详见[此处](/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer)。 通过请求遥测传递会话 ID，并设置 Context.User.Id 和 Context.Session.Id。
 
 此示例将用户 ID 设置为在会话后过期的标识符。 如果可能，请使用在各会话中保留的用户 ID。
 
@@ -136,7 +136,7 @@ namespace MvcWebRole.Telemetry
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要启用使用体验，请首先发送[自定义事件](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent)或[页面视图](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views)。
+- 若要启用使用体验，请首先发送[自定义事件](/azure-monitor/app/api-custom-events-metrics#trackevent)或[页面视图](/azure-monitor/app/api-custom-events-metrics#page-views)。
 - 如果已经发送自定义事件或页面视图，请浏览使用情况工具，了解用户如何使用服务。
     - [使用情况概述](usage-overview.md)
     - [用户、会话和事件](usage-segmentation.md)

@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -13,16 +12,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/26/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c25e752dd95b336ec3411602c6a9136e8ff7cfd9
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 426fb833d4747b2b7b87a0228399ca7eee4e924a
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517553"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568706"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-app"></a>从 iOS 应用将用户登录并调用 Microsoft Graph
 
@@ -57,10 +57,10 @@ ms.locfileid: "65517553"
 
 ### <a name="create-a-new-project"></a>创建新项目
 
-1. 打开 Xcode，并选择“新建 Xcode 项目”。
-2. 选择“iOS”>“单一视图应用程序”，并选择“下一步”。
-3. 提供产品名称并选择“下一步”。
-4. 选择一个文件夹用于创建应用，然后单击“创建”。
+1. 打开 Xcode，并选择“新建 Xcode 项目”  。
+2. 选择“iOS”>“单一视图应用程序”，并选择“下一步”。  
+3. 提供产品名称并选择“下一步”  。
+4. 选择一个文件夹用于创建应用，然后单击“创建”。 
 
 ## <a name="register-your-application"></a>注册应用程序 
 
@@ -80,7 +80,7 @@ ms.locfileid: "65517553"
 
 #### <a name="cocoapods"></a>CocoaPods
 
-可以使用 [CocoaPods](http://cocoapods.org/) 来安装 `MSAL`，只需将其添加到目标下的 `Podfile` 即可：
+可以使用 [CocoaPods](https://cocoapods.org/) 来安装 `MSAL`，只需将其添加到目标下的 `Podfile` 即可：
 
 ```
 use_frameworks!
@@ -415,7 +415,7 @@ MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilently` 和 `ac
     }
 ```
 
-详细了解 [Microsoft 图形 API](https://developer.microsoft.com/zh-cn/graph)
+详细了解 [Microsoft 图形 API](https://microsoftgraph.chinacloudapi.cn)
 
 ### <a name="use-msal-for-sign-out"></a>使用 MSAL 注销
 
@@ -506,3 +506,4 @@ MSAL 公开两个主要方法用于获取令牌：`acquireTokenSilently` 和 `ac
 在学习本教程或者在使用 Microsoft 标识平台过程中遇到了任何问题？ 请参阅[帮助与支持](/active-directory/develop/developer-support-help-options)
 
 
+<!-- Update_Description: link update -->

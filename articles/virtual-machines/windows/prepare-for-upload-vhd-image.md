@@ -13,18 +13,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-origin.date: 12/13/2018
-ms.date: 04/01/2019
+origin.date: 05/11/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7838469009ec67a710bd0a47c8d3936a0903d31
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 58a738c97cda5aa347dc23f778004754a77822b8
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004032"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569823"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>准备好要上传到 Azure 的 Windows VHD 或 VHDX
 在将 Windows 虚拟机 (VM) 从本地上传到 Azure 之前，必须准备好虚拟硬盘（VHD 或 VHDX）。 Azure 仅支持采用 VHD 文件格式且具有固定大小磁盘的**第 1 代 VM**。 VHD 允许的最大大小为 1,023 GB。 可以将第 1 代 VM 从 VHDX 文件系统转换成 VHD 文件系统，以及从动态扩展磁盘转换成固定大小磁盘， 但无法更改 VM 的代次。 有关详细信息，请参阅 [Should I create a generation 1 or 2 VM in Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)（应该在 Hyper-V 中创建第 1 代还是第 2 代 VM？）。
+
+<!--Pending for [Generation 2 VMs on Azure](generation-2.md)-->
 
 有关 Azure VM 的支持策略的详细信息，请参阅 [Microsoft 服务器软件支持 Azure VM](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)。
 
@@ -37,13 +39,13 @@ ms.locfileid: "59004032"
 转换磁盘后，创建一个使用转换磁盘的 VM。 启动并登录到 VM，准备好 VM 进行上传。
 
 ### <a name="convert-disk-using-hyper-v-manager"></a>使用 Hyper-V 管理器转换磁盘
-1. 打开 Hyper-V 管理器，在左侧选择本地计算机。 在计算机列表上方的菜单中，单击“操作” > “编辑磁盘”。
-2. 在“查找虚拟硬盘”屏幕上，找到并选择虚拟磁盘。
-3. 在“选择操作”屏幕上选择“转换”，然后选择“下一步”。
-4. 如果需要从 VHDX 进行转换，请选择“VHD”，并单击“下一步”。
-5. 如果需要从动态扩展磁盘进行转换，请选择“固定大小”，并单击“下一步”。
+1. 打开 Hyper-V 管理器，在左侧选择本地计算机。 在计算机列表上方的菜单中，单击“操作” > “编辑磁盘”。  
+2. 在“查找虚拟硬盘”屏幕上，找到并选择虚拟磁盘。 
+3. 在“选择操作”  屏幕上选择“转换”  ，然后选择“下一步”  。
+4. 如果需要从 VHDX 进行转换，请选择“VHD”，并单击“下一步”。  
+5. 如果需要从动态扩展磁盘进行转换，请选择“固定大小”，并单击“下一步”。  
 6. 找到并选择新 VHD 文件的保存路径。
-7. 单击“完成” 。
+7. 单击“完成”  。
 
 >[!NOTE]
 >本文中的命令必须在提升权限的 PowerShell 会话中运行。
@@ -76,6 +78,7 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
     ```
 
     如果 VM 需要使用任何特定代理，则必须向 Azure IP 地址 ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/)) 添加代理例外，以便 VM 可以连接到 Azure：
+
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -95,19 +98,19 @@ Convert-VHD -Path c:\test\MY-VM.vhdx -DestinationPath c:\test\MY-NEW-VM.vhd -VHD
     exit   
     ```
 
-4. 为 Windows 设置协调世界时 (UTC) 时间，并将 Windows 时间 (w32time) 服务的启动类型设置为“自动”：
+4. 为 Windows 设置协调世界时 (UTC) 时间，并将 Windows 时间 (w32time) 服务的启动类型设置为“自动”  ：
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
-5. 将电源配置文件设置为“高性能”：
+5. 将电源配置文件设置为“高性能”  ：
 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. 确保将环境变量 TEMP 和 TMP 设为其默认值：
+6. 确保将环境变量 TEMP 和 TMP 设为其默认值   ：
 
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
@@ -136,7 +139,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 请确保为远程桌面连接正确配置以下设置：
 
 >[!Note] 
->在这些步骤中运行 Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;对象名称&gt; -value &lt;值&gt; 时，可能会收到错误消息。 可以放心地忽略该错误消息。 它的意思只是域未将该配置推送到组策略对象。
+>在这些步骤中运行 Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;对象名称&gt; -value &lt;值&gt; 时，可能会收到错误消息  。 可以放心地忽略该错误消息。 它的意思只是域未将该配置推送到组策略对象。
 >
 >
 
@@ -198,7 +201,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
 9. 如果 VM 会成为域的一部分，请检查以下所有设置，确保未还原以前的设置。 必须检查的策略如下：
 
-    | 目标                                     | 策略                                                                                                                                                       | 值                                                                                    |
+    | 目标                                     | 策略                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP 已启用                           | 计算机配置\策略\Windows 设置\管理模板\组件\远程桌面服务\远程桌面会话主机\连接         | 允许用户使用远程桌面进行远程连接                                  |
     | NLA 组策略                         | 设置\管理模板\组件\远程桌面服务\远程桌面会话主机\安全性                                                    | 要求使用网络级别身份验证来完成用户身份验证，以便进行远程连接 |
@@ -232,7 +235,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
    ``` 
 5. 如果 VM 会成为域的一部分，请检查以下设置，确保未还原以前的设置。 必须检查的 AD 策略如下：
 
-    | 目标                                 | 策略                                                                                                                                                  | 值                                   |
+    | 目标                                 | 策略                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | 启用 Windows 防火墙配置文件 | 计算机配置\策略\Windows 设置\管理模板\网络\网络连接\Windows 防火墙\域配置文件\Windows 防火墙   | 保护所有网络连接         |
     | 启用 RDP                           | 计算机配置\策略\Windows 设置\管理模板\网络\网络连接\Windows 防火墙\域配置文件\Windows 防火墙   | 允许入站远程桌面异常 |
@@ -295,7 +298,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
     ```
     如果存储库已损坏，请参阅 [WMI：存储库是否损坏](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)。
 
-5. 确保任何其他应用程序未使用端口 3389。 此端口用于 Azure 中的 RDP 服务。 可以通过运行 netstat -anob 来查看哪些端口在 VM 上处于使用状态：
+5. 确保任何其他应用程序未使用端口 3389。 此端口用于 Azure 中的 RDP 服务。 可以通过运行  netstat -anob 来查看哪些端口在 VM 上处于使用状态：
 
     ```PowerShell
     netstat -anob
@@ -335,7 +338,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 12. 卸载与物理组件相关的任何其他第三方软件和驱动程序，或卸载任何其他虚拟化技术。
 
 ### <a name="install-windows-updates"></a>安装 Windows 更新
-理想的配置是让计算机的修补程序级别处于最新。 如果这不可能，请确保安装以下更新：
+理想的配置是让计算机的修补程序级别处于最新  。 如果这不可能，请确保安装以下更新：
 
 | 组件               | 二进制         | Windows 7 SP1、Windows Server 2008 R2 SP1 | Windows 8、Windows Server 2012               | Windows 8.1、Windows Server 2012 R2 | Windows 10 版本 1607、Windows Server 2016 版本 1607 | Windows 10 版本 1703    | Windows 10 1709、Windows Server 2016 版本 1709 | Windows 10 1803、Windows Server 2016 版本 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
@@ -377,16 +380,15 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 
 ### 何时使用 sysprep <a name="step23"></a>    
 
-Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置系统安装，并会删除所有个人数据和重置多个组件，从而为你提供“全新安装体验”。 通常情况下，这样做的前提是，需要创建一个模板，以便通过该模板部署多个具有特定配置的其他 VM。 这称为“通用化映像”。
+Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置系统安装，并会删除所有个人数据和重置多个组件，从而为你提供“全新安装体验”。 通常情况下，这样做的前提是，需要创建一个模板，以便通过该模板部署多个具有特定配置的其他 VM。 这称为“通用化映像”  。
 
-相反，如果只需从一个磁盘创建一个 VM，则不需使用 sysprep。 这种情况下，只需从称之为“专用映像”的磁盘创建 VM 即可。
+相反，如果只需从一个磁盘创建一个 VM，则不需使用 sysprep。 这种情况下，只需从称之为“专用映像”的磁盘创建 VM 即可。 
 
 若要详细了解如何从专用磁盘创建 VM，请参阅：
 
 - [从专用磁盘创建 VM](create-vm-specialized.md)
-- [从专用 VHD 磁盘创建 VM](/virtual-machines/windows/create-vm-specialized-portal)
+- [Create a VM from a specialized VHD disk](/virtual-machines/windows/create-vm-specialized-portal)（从专用 VHD 磁盘创建 VM）
 
-<!--Notice: Replace the URL with actual create-vm-specialized-portal file-->
 若要创建通用化映像，则需运行 sysprep。 有关 Sysprep 的更多信息，请参见[如何使用 Sysprep：简介](https://technet.microsoft.com/library/bb457073.aspx)。 
 
 并非每个安装在基于 Windows 的计算机上的角色或应用程序都支持该通用化。 因此，在运行此过程之前，请参阅以下文章，确保该计算机的角色受 sysprep 的支持。 有关详细信息，请参阅 [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)（Sysprep 对服务器角色的支持）。
@@ -397,14 +399,14 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
 > 按以下步骤运行 sysprep.exe 后，请关闭 VM，在 Azure 中从其创建一个映像，然后再重新打开该 VM。
 
 1. 登录到 Windows VM。
-2. 以管理员身份运行命令提示符。 
-3. 将目录切换到 %windir%\system32\sysprep，并运行 sysprep.exe。
-3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
+2. 以管理员身份运行命令提示符。  
+3. 将目录切换到 %windir%\system32\sysprep，并运行 sysprep.exe   。
+3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。   
 
     ![系统准备工具](media/prepare-for-upload-vhd-image/syspre.png)
-4. 在“关机选项”中选择“关机”。
-5. 单击 **“确定”**。
-6. 当 Sysprep 完成后，关闭 VM。 请勿使用“重启”来关闭 VM。
+4. 在“关机选项”中选择“关机”。  
+5. 单击 **“确定”** 。
+6. 当 Sysprep 完成后，关闭 VM。 请勿使用“重启”来关闭 VM。 
 7. 现在，VHD 已准备就绪，可以上传了。 有关如何从通用化磁盘创建 VM 的详细信息，请参阅[上传通用化 VHD 并使用它在 Azure 中创建新的 VM](sa-upload-generalized.md)。
 
 >[!NOTE]
@@ -416,13 +418,13 @@ Sysprep 是一个可以在 Windows 安装过程中运行的进程，它会重置
 * 安装 [Azure VM 代理](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。 然后即可启用 VM 扩展。 VM 扩展实现了可能需要用于 VM 的大多数关键功能，例如重置密码、配置 RDP 等。 有关详细信息，请参阅 [Azure 虚拟机代理概述](../extensions/agent-windows.md)。
 * 在 Azure 中创建 VM 以后，建议将 pagefile 置于“临时驱动器”卷以改进性能。 可以将其设置如下：
 
-   ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-   ```
+    ```PowerShell
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+    ```
     如果有数据磁盘附加到了 VM，则临时驱动器卷的驱动器号通常为“D”。 此指定可能会有所不同，具体取决于可用驱动器数以及所做的设置。
 
 ## <a name="next-steps"></a>后续步骤
-* [将 Windows VM 映像上传到 Azure 以进行资源管理器部署](upload-generalized-managed.md)
+* [将 Windows VM 映像上传到 Azure 以进行 Resource Manager 部署](upload-generalized-managed.md)
 * [排查 Azure Windows 虚拟机激活问题](troubleshoot-activation-problems.md)
 
 <!--Update_Description: update meta properties, wording update, update link -->

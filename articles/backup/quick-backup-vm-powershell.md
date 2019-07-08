@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 04/12/19
+ms.date: 04/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 2a46093ca08fdcd50ed7bb4889808c8f1348afdb
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 56468f6466512cad346ddf637c8d49255ebc8fcb
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566321"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570597"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
@@ -23,7 +23,7 @@ ms.locfileid: "59566321"
 
 [Azure 备份](backup-overview.md)可备份本地计算机和应用以及 Azure VM。 本文说明如何使用 AZ 模块备份 Azure VM。 或者，可以使用 [Azure CLI](quick-backup-vm-cli.md) 或在 [Azure 门户](quick-backup-vm-portal.md)中备份 VM。
 
-参考本快速入门可在现有的 Azure VM 上备份。 如果需要创建 VM，可以[使用 Azure PowerShell 创建 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)。
+参考本快速入门可在现有的 Azure VM 上备份。 如果需要创建 VM，可以[使用 Azure PowerShell 创建 VM](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)。
 
 本快速入门需要 Azure PowerShell AZ 模块 1.0.0 版或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
@@ -50,7 +50,7 @@ ms.locfileid: "59566321"
 创建保管库时：
 
 - 对于资源组和位置，指定要备份的 VM 的资源组和位置。
-- 如果使用此[示例脚本](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md)创建了 VM，则资源组为 myResourceGroup，VM 为 *myVM，资源位于 WestEurope 区域中。
+- 如果使用此[示例脚本](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json)创建了 VM，则资源组为 myResourceGroup  ，VM 为 *myVM  ，资源位于 WestEurope  区域中。
 - Azure 备份会自动处理备份数据的存储。 默认情况下，保管库使用[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 异地冗余可确保将备份数据复制到距主区域数百英里以外的辅助 Azure 区域。
 
 现在创建保管库：
@@ -144,7 +144,7 @@ ms.locfileid: "59566321"
     ```powershell
     Get-AzRecoveryservicesBackupJob
     ```
-    输出类似于以下示例，该示例显示作业处于“正在进行”状态：
+    输出类似于以下示例，该示例显示作业处于“正在进行”  状态：
 
     ```
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
@@ -153,7 +153,7 @@ ms.locfileid: "59566321"
     myvm           ConfigureBackup   Completed    9/18/2017 9:33:18 PM   9/18/2017 9:33:51 PM   fe79c739
     ```
 
-2. 当作业状态是“已完成”时，VM 受保护并存储了完整恢复点。
+2. 当作业状态是“已完成”  时，VM 受保护并存储了完整恢复点。
 
 
 ## <a name="clean-up-the-deployment"></a>清理部署

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: ebb9fd9b81d70b84012321a7048fff774c924094
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: a1febdb47bc9cfb0492391d3ec08891d92cef8b0
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732670"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570480"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>复制活动中的架构映射
 
@@ -96,7 +96,7 @@ ms.locfileid: "66732670"
 | path     | 要提取或映射的每个字段的 JSON 路径表达式。 适用于分层数据，例如 MongoDB/REST。<br>对于根对象下的字段，JSON 路径以根 $ 开头；对于按 `collectionReference` 属性选择的数组中的字段，JSON 路径以数组元素开头。 | 否       |
 | type     | 源或接收器列的数据工厂临时数据类型。 | 否       |
 | culture  | 源或接收器列的区域性。 <br>当类型为 `Datetime` 或 `Datetimeoffset` 时应用。 默认为 `en-us`。 | 否       |
-| 格式   | 当类型为 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否       |
+| format   | 当类型为 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否       |
 
 以下属性在 `translator` -> `mappings` 下带 `source` 和 `sink` 的对象中受支持：
 
@@ -284,7 +284,7 @@ ms.locfileid: "66732670"
 
 ### <a name="supported-data-types"></a>支持的数据类型
 
-数据工厂支持以下临时数据类型：在[数据集结构](concepts-datasets-linked-services.md#dataset-structure-or-schema)配置中配置类型信息时，可以指定以下值：
+数据工厂支持以下临时数据类型：在[数据集结构](concepts-datasets-linked-services.md#dataset-structure)配置中配置类型信息时，可以指定以下值：
 
 * Byte[]
 * 布尔

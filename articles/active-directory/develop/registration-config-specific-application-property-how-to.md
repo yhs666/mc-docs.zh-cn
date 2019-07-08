@@ -3,24 +3,25 @@ title: 如何填写自定义开发应用程序的特定字段 | Microsoft Docs
 description: 有关使用 Azure AD 注册自定义开发的应用程序时如何填写特定字段的指南
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/11/2018
-ms.date: 10/08/2018
+ms.date: 07/01/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4879367624aa3ebd1b0fda818caaccd68d3efe06
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: bfe21bf69933a274b6491ff312fdbafdbda54998
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646966"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568716"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>如何填写自定义开发应用程序的特定字段
 
@@ -30,9 +31,9 @@ ms.locfileid: "52646966"
 
 -   若要注册新应用程序，请导航到 [Azure 门户](https://portal.azure.cn)。
 
--   在左侧导航窗格中，单击“Azure Active Directory”
+-   在左侧导航窗格中，单击“Azure Active Directory” 
 
--   选择“应用注册”，并单击“添加”。
+-   选择“应用注册”  ，并单击“添加”  。
 
 -   应用程序注册表单将打开。
 
@@ -46,7 +47,7 @@ ms.locfileid: "52646966"
 | |**本机**：可安装在用户的设备或计算机上的应用程序           |
 | 登录 URL      | 用户可在其中登录以使用应用程序的 URL                                  |
 
-填写上述字段后，会在 Azure 门户中注册应用程序，并重定向到应用程序页面。 应用程序窗格上的“设置”按钮将打开“设置”页，该页面包含多个用于自定义应用程序的字段。 下表介绍了“设置”页中的所有字段。 请注意，将只能看到这些字段的一个子集，具体取决于创建的是 Web 应用程序还是本机应用程序。
+填写上述字段后，会在 Azure 门户中注册应用程序，并重定向到应用程序页面。 应用程序窗格上的“设置”  按钮将打开“设置”页，该页面包含多个用于自定义应用程序的字段。 下表介绍了“设置”页中的所有字段。 请注意，将只能看到这些字段的一个子集，具体取决于创建的是 Web 应用程序还是本机应用程序。
 
 | 字段           | 说明                                                                                                                                                                                                                                                                                                     |
 |-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -60,3 +61,4 @@ ms.locfileid: "52646966"
 | 重定向 URI   | 对于本机应用程序，会在成功授权后向其中发送用户。 Azure AD 会检查应用程序在 OAuth 2.0 请求中提供的重定向 URI 是否与门户中的某个注册值相匹配。                                                            |
 | 密钥            | 可以创建密钥以编程方式访问由 Azure AD 保护的 Web API，而无需任何用户交互。 在\*\*密钥\*\*页中，输入密钥说明和到期日期并保存以生成密钥。 请确保将其保存在安全位置，不然在以后将无法访问它。             |
 
+<!-- Update_Description: update metedata properties -->

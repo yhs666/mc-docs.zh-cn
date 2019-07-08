@@ -11,16 +11,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/18/2019
-ms.date: 06/03/2019
+origin.date: 06/21/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: e5f0733914431749f0d87d705b8ff8c563adb447
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: bd8e138b13868d1ab2cd05795bf41ef384903850
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194943"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570511"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +76,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 

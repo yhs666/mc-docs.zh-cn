@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: a71434bc751fcc00502a368b787945b9aa894a4d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 0bd46acea38e8ffaacd4546155d43e1a7c85ca85
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731348"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562515"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>使用 Azure Application Insights 查找并诊断运行时异常
 
@@ -34,11 +34,11 @@ Azure Application Insights 从应用程序收集遥测数据，帮助确定和�
 
 完成本教程：
 
-- 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用以下工作负荷安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 开发
     - Azure 开发
 - 下载并安装 [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)。
-- 启用 [Visual Studio 快照调试器](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
+- 启用 [Visual Studio 快照调试器](/azure-monitor/app/snapshot-debugger)
 - 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。 
 - 本教程跟踪应用程序中异常的标识，以便在开发或测试环境中修改代码来生成异常。 
 
@@ -66,7 +66,7 @@ Application Insights 收集应用程序中出现的所有故障，让用户能�
 
     ![失败请求示例](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. 失败请求的详细信息显示了甘特图，该图显示此事务中有两个依赖项失败，这两个失败所用时间占事务总持续时间的 50% 以上。 此体验提供的所有遥测跨分布式应用程序的多个组件，这些组件与此操作 ID 相关。
+6. 失败请求的详细信息显示了甘特图，该图显示此事务中有两个依赖项失败，这两个失败所用时间占事务总持续时间的 50% 以上。 此体验提供的所有遥测跨分布式应用程序的多个组件，这些组件与此操作 ID 相关。 [详细了解此新体验](../../azure-monitor/app/transaction-diagnostics.md)。 可以选择任意项，然后即可在右侧查看其详细信息。 
 
     ![失败请求的详细信息](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -75,7 +75,7 @@ Application Insights 收集应用程序中出现的所有故障，让用户能�
     ![异常详细信息](media/tutorial-runtime-exceptions/failed-requests-exception.png)
 
 ## <a name="identify-failing-code"></a>确定故障代码
-Snapshot Debugger 收集应用程序中最频繁出现的异常的快照，帮助在生产中诊断其根本原因。  可在门户中查看调试快照，查看调用堆栈并检查每个调用堆栈帧中的变量。 之后，你可以选择通过下载快照并在 Visual Studio 2017 Enterprise 中打开它来调试源代码。
+Snapshot Debugger 收集应用程序中最频繁出现的异常的快照，帮助在生产中诊断其根本原因。  可在门户中查看调试快照，查看调用堆栈并检查每个调用堆栈帧中的变量。 之后，可以选择通过下载快照并在 Visual Studio 2019 Enterprise 中打开它来调试源代码。
 
 1. 在异常的属性中，单击“打开调试快照”  。
 2. 此时会打开“调试快照”  面板，并显示请求的调用堆栈。  单击任意方法来查看提交请求时所有局部变量的值。  从此示例的第一个方法开始，可发现局部变量没有值。
@@ -100,7 +100,7 @@ Application Insights 收集的所有数据都存储在 Azure Log Analytics 中�
 
     ![代码](media/tutorial-runtime-exceptions/codelens.png)
 
-2. 单击“分析影响”  ，打开 Application Insights Analytics。  它使用多个提供失败请求详细信息（比如受影响的用户、浏览器和区域）的查询填充。<br><br>![分析](media/tutorial-runtime-exceptions/analytics.png)<br>
+1. 单击“分析影响”  ，打开 Application Insights Analytics。  它使用多个提供失败请求详细信息（比如受影响的用户、浏览器和区域）的查询填充。<br><br>![分析](media/tutorial-runtime-exceptions/analytics.png)<br>
 
 ## <a name="add-work-item"></a>添加工作项
 如果将 Application Insights 连接到跟踪系统（比如 Azure DevOps 或 GitHub），可直接通过 Application Insights 创建工作项。

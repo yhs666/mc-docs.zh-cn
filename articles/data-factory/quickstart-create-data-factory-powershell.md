@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: quickstart
 origin.date: 01/22/2018
-ms.date: 04/22/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: f6d159ba41ca57ff55164a790c2d288e7af0ecc7
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 5d3e37700c5e4fdf96f69b16b724236bee94c697
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63854035"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570529"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>快速入门：使用 PowerShell 创建 Azure 数据工厂
 
@@ -43,7 +43,7 @@ ms.locfileid: "63854035"
 2. 运行以下命令，并输入用于登录 Azure 门户的同一 Azure 用户名和密码：
 
     ```powershell
-    Connect-AzAccount
+    Connect-AzAccount -Environment AzureChinaCloud
     ```
 
 3. 运行以下命令查看此帐户的所有订阅：
@@ -71,7 +71,7 @@ ms.locfileid: "63854035"
 2. 若要创建 Azure 资源组，请运行以下命令：
 
     ```powershell
-    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'China East'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'China East 2'
     ```
 
     如果该资源组已存在，请勿覆盖它。 为 `$ResourceGroupName` 变量分配另一个值，然后再次运行命令。
@@ -102,7 +102,7 @@ ms.locfileid: "63854035"
 
 * 若要创建数据工厂实例，用于登录到 Azure 的用户帐户必须属于**参与者**或**所有者**角色，或者是 Azure 订阅的**管理员**。
 
-* 若要查看目前提供数据工厂的 Azure 区域的列表，请在以下页面上选择感兴趣的区域，然后展开“分析”以找到“数据工厂”：[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/)。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
+* 若要查看目前提供数据工厂的 Azure 区域的列表，请在以下页面上选择感兴趣的区域，然后展开“分析”  以找到“数据工厂”  ：[各区域的产品可用性](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 数据工厂使用的数据存储（Azure 存储、Azure SQL 数据库，等等）和计算资源（HDInsight 等）可以位于其他区域中。
 
 ## <a name="create-a-linked-service"></a>创建链接服务
 
@@ -120,7 +120,7 @@ ms.locfileid: "63854035"
             "type": "AzureStorage",
             "typeProperties": {
                 "connectionString": {
-                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.windows.net",
+                    "value": "DefaultEndpointsProtocol=https;AccountName=<accountName>;AccountKey=<accountKey>;EndpointSuffix=core.chinacloudapi.cn",
                     "type": "SecureString"
                 }
             }
@@ -128,7 +128,7 @@ ms.locfileid: "63854035"
     }
     ```
 
-    如果使用记事本，请在“另存为”对话框中选择“所有文件”作为“另存为类型”字段的值。 否则，会为文件添加 `.txt` 扩展。 例如，`AzureStorageLinkedService.json.txt`。 如果先在文件资源管理器中创建该文件，然后再在记事本中将其打开，则可能看不到 `.txt` 扩展，因为系统默认设置“隐藏已知文件类型的扩展名”选项。 在执行下一步骤之前删除 `.txt` 扩展名。
+    如果使用记事本，请在“另存为”对话框中选择“所有文件”作为“另存为类型”字段的值。    否则，会为文件添加 `.txt` 扩展。 例如，`AzureStorageLinkedService.json.txt`。 如果先在文件资源管理器中创建该文件，然后再在记事本中将其打开，则可能看不到 `.txt` 扩展，因为系统默认设置“隐藏已知文件类型的扩展名”选项。  在执行下一步骤之前删除 `.txt` 扩展名。
 
 2. 在 **PowerShell** 中，切换到 **ADFv2QuickStartPSH** 文件夹。
 
@@ -342,7 +342,7 @@ ms.locfileid: "63854035"
 
         ```json
         "connectionString": {
-            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.windows.net",
+            "value": "DefaultEndpointsProtocol=https;AccountName=mystorageaccountname;AccountKey=mystorageaccountkey;EndpointSuffix=core.chinacloudapi.cn",
             "type": "SecureString"
         }
         ```

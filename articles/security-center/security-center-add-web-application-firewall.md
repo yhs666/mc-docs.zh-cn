@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ea75ef1147665e8c84be9a74452dcd3aeb3ad9f
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 40cae869719d4911174545064c4077f3d9638174
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236588"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569591"
 ---
 # <a name="add-a-web-application-firewall-in-azure-security-center"></a>在 Azure 安全中心中添加 web 应用程序防火墙
 为保护 web 应用程序，Azure 安全中心可能会建议从 Azure 合作伙伴添加 web 应用程序防火墙 (WAF)。 本文档将举例说明如何应用此建议。
 
 为任何面向公众的 IP（实例级 IP 或负载均衡 IP）显示 WAF 建议，该 IP 具有与开放入站 Web 端口 (80,443) 关联的网络安全组。
 
-安全中心建议预配 WAF，以帮助防范针对虚拟机和在[独立](https://www.azure.cn/pricing/details/app-service/windows/)服务计划下部署的外部应用服务环境 (ASE) 上 Web 应用程序的攻击。 独立计划在私有专用 Azure 环境中托管应用，对于需要与本地网络或其他性能和规模安全连接的应用而言，这是理想选择。 除应用需要处于独立环境，应用还需要有外部 IP 地址负载均衡器。
+安全中心建议预配 WAF，以帮助防范针对虚拟机和在[独立](https://www.azure.cn/pricing/details/app-service)服务计划下部署的外部应用服务环境 (ASE) 上 Web 应用程序的攻击。 独立计划在私有专用 Azure 环境中托管应用，对于需要与本地网络或其他性能和规模安全连接的应用而言，这是理想选择。 除应用需要处于独立环境，应用还需要有外部 IP 地址负载均衡器。
 
 > [!NOTE]
 > 本文档将使用示例部署介绍该服务。  本文档不是一份分步指南。

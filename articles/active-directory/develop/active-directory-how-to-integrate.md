@@ -3,8 +3,8 @@ title: 如何与 Azure Active Directory 集成 | Microsoft Docs
 description: 了解将你的应用程序与 Azure Active Directory 进行集成的优势，并获取诸如简化登录、标识管理、多重身份验证和访问控制等功能的资源。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/08/2019
-ms.date: 05/09/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7afb40dda5bf669a2ba9b0973994b77bf9266cd1
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: cd62f700791a7228250739a468b9dee3581122b2
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517496"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568549"
 ---
 # <a name="integrating-with-azure-active-directory"></a>与 Azure Active Directory 集成
 
@@ -96,4 +96,4 @@ ms.locfileid: "65517496"
 
 [使用 Microsoft 标识平台将用户登录](authentication-scenarios.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

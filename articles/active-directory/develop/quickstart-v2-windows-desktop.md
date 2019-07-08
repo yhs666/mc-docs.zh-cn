@@ -14,24 +14,22 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ad21bfd0486685ebcad7872caf66a86b683dc1
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 18448cdbc3d91f77de4afb15954c6131130dea5a
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151746"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568579"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
-
 本快速入门介绍如何编写 Windows 桌面.NET (WPF) 应用程序，该应用程序能够登录工作和学校帐户，获取访问令牌以及调用 Microsoft Graph API。
 
-![显示本快速入门生成的示例应用的工作原理](media/quickstart-v2-windows-desktop/windesktop-intro.svg)
+![显示本快速入门生成的示例应用的工作原理](./media/quickstart-v2-windows-desktop/windesktop-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>注册并下载快速入门应用
@@ -58,7 +56,8 @@ ms.locfileid: "67151746"
 >      - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。  
 >      - 选择“注册”  以创建应用程序。
 > 1. 在应用的页面列表中，选择“身份验证”。 
-> 1. 在“重定向 URI”部分，找到“建议用于公共客户端(移动、桌面)的重定向 URI”部分，然后选择“urn:ietf:wg:oauth:2.0:oob”。   
+> 1. 展开“桌面 + 设备”部分。   （如果“桌面 + 设备”不可见，首先请单击顶部的横幅，以便查看预览版身份验证体验） 
+> 1. 在“重定向 URI”部分下选择“添加 URI”。    键入 **urn:ietf:wg:oauth:2.0:oob**。
 > 1. 选择“其他安全性验证”  。
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -68,11 +67,11 @@ ms.locfileid: "67151746"
 > > [执行此更改]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已配置](media/quickstart-v2-windows-desktop/green-check.png) 应用程序已使用这些属性进行配置。
+> > ![已配置](./media/quickstart-v2-windows-desktop/green-check.png) 应用程序已使用这些属性进行配置。
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步骤 2：下载 Visual Studio 项目
 
-[下载 Visual Studio 2017 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
+[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)（[在 Github 上查看该项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/)）
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 
@@ -174,3 +173,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 > [调用 Graph API 教程](tutorial-v2-windows-desktop.md)
 
 
+<!-- Update_Description: wording update -->

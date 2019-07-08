@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/28/2017
 ms.author: v-yiso
-ms.date: 03/11/2018
-ms.openlocfilehash: 4044dfea1eff517fd7a27c4abb0dc00788c69799
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.date: 07/15/2019
+ms.openlocfilehash: 39acccff59edf512bf452c977f67cd258ce927f4
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196633"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569599"
 ---
 # <a name="api-management-cross-domain-policies"></a>API 管理跨域策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -150,7 +150,7 @@ ms.locfileid: "57196633"
   
 -   **策略节：** 入站  
   
--   **策略范围：** 全局、API、操作
+-   **策略范围：** 全局、产品、API、操作
   
 ##  <a name="JSONP"></a> JSONP  
  `jsonp` 策略向操作或 API 添加填充型 JSON (JSONP) 支持，以便从基于 JavaScript 浏览器的客户端执行跨域调用。 JSONP 是 JavaScript 程序中使用的方法，用于从不同域中的服务器请求数据。 JSONP 规避了大多数 Web 浏览器强制实施的只能在同一域中访问网页的限制。  

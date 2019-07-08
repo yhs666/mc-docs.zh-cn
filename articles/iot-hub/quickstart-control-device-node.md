@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 02/27/2019
-ms.date: 06/03/2019
+origin.date: 06/21/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: a103a04d54cc18291c3b673541f1af4f780ff736
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 92439cc5c0c960d66d43b9926a9119f1eb8e83da
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194968"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570527"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>快速入门：控制连接到 IoT 中心的设备 (Node.js)
 
@@ -99,12 +99,12 @@ az extension add --name azure-cli-iot-ext
     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
     ```azurecli
     az iot hub show-connection-string \
-      --name YourIoTHubName --output table
+      --name YourIoTHubName --policy-name service --output table
     ```
 
     记下如下所示的服务连接字符串：
 
-   `HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     稍后会在快速入门中用到此值。 服务连接字符串与设备连接字符串不同。
 

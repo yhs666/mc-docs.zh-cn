@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/18/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 396e840899d43f30d08d1f84472e705737aebc0e
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 8aea3e82ba602a3d5aabe7aedd02b5f021043393
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236366"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570467"
 ---
 # <a name="restore-system-state-to-windows-server"></a>将系统状态还原为 Windows Server
 
@@ -66,7 +66,7 @@ ms.locfileid: "67236366"
 
 9. 将恢复目标中的 WindowsImageBackup 目录复制到服务器的非关键卷中  。 通常，Windows OS 卷是关键卷。
 
-10. 恢复成功后，按照[将已恢复的系统状态文件应用到 Windows Server](backup-azure-restore-system-state.md#apply-restored-system-state-files-to-the-windows-server) 中的步骤进行操作，完成系统状态恢复过程。
+10. 恢复成功后，按照[将已恢复的系统状态文件应用到 Windows Server](#apply-restored-system-state-files-to-the-windows-server) 中的步骤进行操作，完成系统状态恢复过程。
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>将系统状态文件恢复到备用服务器
 
@@ -114,9 +114,12 @@ ms.locfileid: "67236366"
 
 12. 将 WindowsImageBackup 目录复制到服务器的非关键卷（如 D:\)）  。 通常，Windows OS 卷是关键卷。
 
-13. 若要完成恢复过程，请使用下面的[对 Windows 服务器应用已恢复的系统状态文件](#apply-restored-system-state-files-to-the-windows-server)部分。
+13. 若要完成恢复过程，请使用下面的[对 Windows 服务器应用已恢复的系统状态文件](#apply-restored-system-state-on-a-windows-server)部分。
 
-## 对 Windows Server 应用已还原的系统状态 <a name="apply-restored-system-state-files-to-the-windows-server"></a>
+
+
+
+## 对 Windows Server 应用已还原的系统状态 <a name="apply-restored-system-state-on-a-windows-server"></a>
 
 使用 Azure 恢复服务代理将系统状态还原为文件后，使用 Windows Server 备份实用工具将已恢复的系统状态应用到 Windows Server。 已在服务器上提供 Windows Server 备份实用工具。 以下步骤介绍如何应用已恢复的系统状态。
 

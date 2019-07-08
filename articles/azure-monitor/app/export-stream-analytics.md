@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 01436b19ba01d0ad64e6da0c0780daefb331a229
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 089701f6910e10d5282fdb6cb573cc58a1c5004c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732288"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562701"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用流分析处理从 Application Insights 导出的数据
 [Azure 流分析](https://www.azure.cn/services/stream-analytics/)是用于处理[从 Application Insights 导出](export-telemetry.md)的数据的理想工具。 流分析可以从各种源提取数据。 它可以转换和筛选数据，然后将其路由到各种接收器。
@@ -213,12 +213,6 @@ ms.locfileid: "66732288"
 ## <a name="no-data"></a>没有数据？
 * 请检查是否已正确地将[日期格式设置](#set-path-prefix-pattern)为 YYYY-MM-DD（包括短划线）。
 
-## <a name="video"></a>视频
-Noam Ben Zeev 演示如何使用流分析处理导出的数据。
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
-> 
-> 
 
 ## <a name="next-steps"></a>后续步骤
 * [连续导出](export-telemetry.md)

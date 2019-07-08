@@ -9,12 +9,12 @@ ms.date: 6/4/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 98f76c0c432e549de31a549d205c719dc2107067
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 44ecbef204d4e93ce48b4252c13ef0d75307ae87
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731310"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562362"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>在 Grafana 中监控 Azure 服务
 你现在可以使用 [Azure Monitor 数据源插件](https://grafana.com/plugins/grafana-azure-monitor-datasource)从 [Grafana](https://grafana.com/) 监控 Azure 服务和应用程序。 该插件收集 Azure Monitor 所收集的应用程序性能数据，包括各种日志和指标。 随后，可以在 Grafana 仪表板上显示此数据。
@@ -67,8 +67,8 @@ ms.locfileid: "66731310"
 
 3. 创建服务主体 - Grafana 使用 Azure Active Directory 服务主体连接到 Azure Monitor API 并收集数据。 必须创建新的或使用现有的服务主体，以管理对 Azure 资源的访问权限。
     * 请参阅[这些说明](../../azure-resource-manager/resource-group-create-service-principal-portal.md)以创建服务主体。 复制并保存租户 ID（目录 ID）、客户端 ID（应用程序 ID）和客户端密码（应用程序密钥值）。
-    * 请参阅[将应用程序分配到角色](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)，以向要监视的订阅、资源组或资源上的 Azure Active Directory 应用程序分配读者角色。 
-    Log Analytics API 需要 [Log Analytics 读者角色](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader)，其中包括读者角色权限并向其添加。
+    * 请参阅[将应用程序分配到角色](/azure-resource-manager/resource-group-create-service-principal-portal)，以向要监视的订阅、资源组或资源上的 Azure Active Directory 应用程序分配读者角色。 
+    Log Analytics API 需要 [Log Analytics 读者角色](/role-based-access-control/built-in-roles#log-analytics-reader)，其中包括读者角色权限并向其添加。
 
 4. 为要使用的 API 提供连接详细信息。 可以连接到所有或其中部分。 
     * 如果连接到两个指标并登录 Azure Monitor，可以通过选择“与 Azure Monitor API 相同的详细信息”重复使用相同的凭据  。
@@ -119,8 +119,6 @@ ms.locfileid: "66731310"
 
 以下为如何使用 Telegraf、InfluxDB、Prometheus 和 Docker 的优秀参考文章：
  - [如何在 Ubuntu 16.04 上使用 TICK Stack 监控系统指标](https://www.digitalocean.com/community/tutorials/how-to-monitor-system-metrics-with-the-tick-stack-on-ubuntu-16-04)
-
- - [使用 Grafana、InfluxDB 和 Telegraf 监控 Docker 资源指标](https://blog.vpetkov.net/2016/08/04/monitor-docker-resource-metrics-with-grafana-influxdb-and-telegraf/)
 
  - [用于 Docker 主机、容器和容器化服务的监视解决方案](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 

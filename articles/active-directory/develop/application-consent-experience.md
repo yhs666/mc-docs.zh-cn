@@ -3,8 +3,8 @@ title: 了解 Azure AD 应用程序许可体验 | Microsoft Docs
 description: 详细了解 Azure AD 许可体验，确定如何在管理和开发基于 Azure AD 的应用程序时使用它
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2019
-ms.date: 05/09/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5f6909296c9f1220ba7beadd533f713d19c25e9
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: f63e84e30f983e7f168fbd56459ba7a9b57e4135
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517477"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568535"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>了解 Azure AD 应用程序许可体验
 
@@ -89,4 +89,4 @@ ms.locfileid: "65517477"
 - 如需更深入的了解，请参阅[多租户应用程序如何使用许可框架](active-directory-devhowto-multi-tenant-overview.md)来实现“用户”许可和“管理员”许可，为更高级的多层应用程序模式提供支持。
 - 了解[如何配置应用的发布者域](howto-configure-publisher-domain.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

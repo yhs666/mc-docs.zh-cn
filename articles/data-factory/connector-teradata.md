@@ -11,16 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 02/07/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 97c140589a5a41dd0af50357c39645c452dfd03e
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 73efbf08ba9b130d17e63d89fe4b9d3fb193ba8b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732704"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570379"
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>使用 Azure 数据工厂从 Teradata 复制数据
+
 本文概述了如何使用 Azure 数据工厂中的复制活动从 Teradata 数据库复制数据。 它是基于概述复制活动总体的[复制活动概述](copy-activity-overview.md)一文。
 
 ## <a name="supported-capabilities"></a>支持的功能
@@ -166,7 +167,7 @@ Teradata 链接的服务支持以下属性：
 | ByteInt |Int16 |
 | Char |String |
 | Clob |String |
-| 日期 |DateTime |
+| Date |DateTime |
 | 小数 |小数 |
 | Double |Double |
 | Graphic |String |

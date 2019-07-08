@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: overview
-ms.date: 04/12/19
+ms.date: 04/24/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 2f53edf242d49ebb70d6af3c688acd96d232f752
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 7745d6aa20e4b68e3d24d1092b8c8cc430f63f2d
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555445"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570474"
 ---
 # <a name="what-is-azure-backup"></a>什么是 Azure 备份？
 
@@ -33,7 +33,7 @@ Azure 备份具有以下主要优势：
     - 如果使用 Azure 导入/导出服务执行脱机初始备份以导入大量数据，则入站数据将产生相关费用。  [了解详细信息](backup-azure-backup-import-export.md)。
 - **保护数据安全**：Azure 备份为保护传输中数据和静态数据提供解决方案。
 - **获取应用一致性备份**：应用程序一致性备份意味着恢复点包含还原备份副本所需的所有数据。 Azure 备份提供了应用程序一致性备份，确保了还原数据时无需额外的修补程序。 还原应用程序一致型数据可减少还原时间，因此可快速恢复到运行状态。
-- **保留短期和长期数据**：可将恢复服务保管库用于短期和长期数据保留。 Azure 不会限制恢复服务保管库中数据的保留时间长度。 可将数据保留任意时间。 Azure 备份的限制为每个受保护实例仅限 9999 个恢复点。 [详细了解](backup-introduction-to-azure-backup.md#backup-and-retention)此限制对备份需求的影响。
+- **保留短期和长期数据**：可将恢复服务保管库用于短期和长期数据保留。 Azure 不会限制恢复服务保管库中数据的保留时间长度。 可将数据保留任意时间。 Azure 备份的限制为每个受保护实例仅限 9999 个恢复点。 
 - **自动存储管理** - 混合环境常常需要异类存储（部分在本地，部分在云）。 通过 Azure 备份，使用本地存储设备时无需付费。 Azure 备份会自动分配和管理备份存储，且采用即用即付模型，因此，你只需为消耗的存储付费。 [详细了解](https://www.azure.cn/pricing/details/backup)定价情况。
 - **多个存储选项** - Azure 备份提供两种类型的复制来保持存储/数据的高可用性。
     - [本地冗余存储 (LRS)](../storage/common/storage-redundancy-lrs.md) 将数据中心的存储缩放单元中的数据复制三次（创建三个数据副本）。 数据的所有副本存在于同一区域。 LRS 是一个低成本选项，可在本地硬件故障时保护数据。
@@ -66,7 +66,7 @@ Azure 备份可以备份本地计算机和 Azure VM。
 
 **计算机** | **备份方案**
 --- | ---
-**本地备份** |  1) 在本地 Windows 计算机上运行 Azure 备份世纪互联 Azure 恢复服务 (MARS) 代理，以备份单个文件和系统状态。 <br/><br/>2) 将本地计算机备份到备份服务器（System Center Data Protection Manager (DPM) 或世纪互联 Azure 备份服务器 (MABS)），然后将备份服务器配置为备份到 Azure 中的 Azure 备份恢复服务保管库。
+**本地备份** |  1) 在本地 Windows 计算机上运行 Azure 备份 Microsoft Azure 恢复服务 (MARS) 代理，以备份单个文件和系统状态。 <br/><br/>2) 将本地计算机备份到备份服务器（System Center Data Protection Manager (DPM) 或 Microsoft Azure 备份服务器 (MABS)），然后将备份服务器配置为备份到 Azure 中的 Azure 备份恢复服务保管库。
 **Azure VM** | 1) 为单个 Azure VM 启用备份。 启用备份时，Azure 备份会在 VM 上运行的 Azure VM 代理中安装一个扩展。 该代理备份整个 VM。<br/><br/> 2) 在 Azure VM 上运行 MARS 代理。 若要备份 VM 上的单个文件和文件夹，此功能将十分有用。<br/><br/> 3) 将 Azure VM 备份到 Azure 中运行的 DPM 服务器或 MABS。 然后使用 Azure 备份将 DPM 服务器/MABS 备份到保管库。
 
 
@@ -78,13 +78,17 @@ Azure 备份可以备份本地计算机和 Azure VM。
 - 有更多适合运行备份的灵活性和粒度计划选项。
 - 可以管理多台计算机的备份，这些计算机已在单个控制台中集中到保护组。 当应用的分层跨越多台计算机，而你需要将它们一起进行备份时，此方法特别有用。
 
+详细了解使用备份服务器时的[备份工作原理](backup-architecture.md#architecture-back-up-to-dpmmabs)，以及备份服务器的[支持要求](backup-support-matrix-mabs-dpm.md)。
+
 ## <a name="what-can-i-back-up"></a>可以备份哪些内容？
 
 **计算机** | **备份方法** | **备份**
 --- | --- | ---
 **本地 Windows VM** | 运行 MARS 代理 | 备份文件、文件夹、系统状态。<br/><br/> 不支持 Linux 计算机。
+**本地计算机** | 备份到 DPM/MABS | 备份受 [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) 或 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 保护的任何内容，包括文件/文件夹/共享/卷以及特定于应用的数据。
 **Azure VM** | 运行 Azure VM 代理备份扩展 | 备份整个 VM
 **Azure VM** | 运行 MARS 代理 | 备份文件、文件夹、系统状态。<br/><br/> 不支持 Linux 计算机。
+**Azure VM** | 备份到 Azure 中运行的 MABS/DPM | 备份受 [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs) 或 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) 保护的任何内容，包括文件/文件夹/共享/卷以及特定于应用的数据。
 
 ## <a name="what-backup-agents-do-i-need"></a>我需要什么样的备份代理？
 
@@ -99,17 +103,43 @@ Azure 备份可以备份本地计算机和 Azure VM。
 
 **备份** | **解决方案** | **限制**
 --- | --- | ---
-**我要备份整个 Azure VM** | 为 VM 启用备份。 备份扩展会在 Windows 或 Linux Azure VM 上自动配置。 | 备份整个 VM <br/><br/> 就 Windows VM 来说，备份为应用一致性备份。 就 Linux 来说，备份为文件一致性备份。 如果需要对 Linux VM 进行应用感知的备份，则必须使用自定义脚本进行相应配置。
+**我要备份整个 Azure VM** | 为 VM 启用备份。 备份扩展会在 Windows 或 Linux Azure VM 上自动配置。 | 备份整个 VM <br/><br/> 就 Windows VM 来说，备份为应用一致性备份。 就 Linux 来说，备份为文件一致性备份。 如果需要对 Linux VM 进行应用感知，则必须使用自定义脚本进行相应配置。
 **我想要备份 Azure VM 上的特定文件/文件夹** | 在 VM 上部署 MARS 代理。
 **我想要直接备份本地 Windows 计算机** | 在计算机上安装 MARS 代理。 | 可以将文件、文件夹和系统状态备份到 Azure。 备份不是应用感知型。
-**我想要直接备份本地 Linux 计算机** | 需先部署 DPM 或 MABS，然后才能将内容备份到 Azure。
+**我想要直接备份本地 Linux 计算机** | 需先部署 DPM 或 MABS，然后才能将内容备份到 Azure。 | 不支持备份 Linux 主机，只能备份 Hyper-V 或 VMWare 上托管的 Linux 来宾计算机。
 **我想要备份本地运行的应用** | 若要进行应用感知的备份，计算机必须受 DPM 或 MABS 的保护。
 **我想要对 Azure VM 使用精细且灵活的备份和恢复设置** | 使用在 Azure 中运行的 MABS/DPM 来保护 Azure VM，这样可以在备份计划方面获得更大的灵活性，并在保护和还原文件、文件夹、卷、应用和系统状态方面获得最大的灵活性。
 
+## <a name="backup-and-retention"></a>备份和保留
+
+Azure 备份针对每个受保护实例实施 9999 个恢复点（也称为备份副本或快照）的限制。 
+
+- 受保护的实例是计算机、服务器（物理或虚拟）或配置为向 Azure 备份数据的工作负荷。 保存数据的备份副本时，将保护实例。
+- 数据的备份副本就是保障。 如果源数据丢失或损坏，备份副本可还原源数据。
+
+下表显示了每个组件的最大备份频率。备份策略配置决定了恢复点的消耗速度。 例如，如果每天创建恢复点，那么恢复点可保留 27 年才到期。如果每月创建恢复点，那么恢复点可保留 833 年才到期。备份服务不会为恢复点设置到期时间限制。
+
+|  | Azure 备份代理 | System Center DPM | Azure 备份服务器 | Azure IaaS VM 备份 |
+| --- | --- | --- | --- | --- |
+| 备份频率<br/> （到恢复服务保管库） |每天三次备份 |每天备份两次 |每天备份两次 |每天一次备份 |
+| 备份频率<br/> （到磁盘） |不适用 |SQL Server 每隔 15 分钟<br/><br/> 其他工作负荷每隔 1 小时 |SQL Server 每隔 15 分钟<br/><br/> 其他工作负荷每隔 1 小时 |不适用 |
+| 保留期选项 |每日、每周、每月、每年 |每日、每周、每月、每年 |每日、每周、每月、每年 |每日、每周、每月、每年 |
+| 每个受保护实例的最大恢复点数 |9999|9999|9999|9999|
+| 最大保留期 |取决于备份频率 |取决于备份频率 |取决于备份频率 |取决于备份频率 |
+| 本地磁盘上的恢复点 |不适用 | 对于文件服务器为 64<br/><br/> 对于应用程序服务器为 448 | 对于文件服务器为 64<br/><br/> 对于应用程序服务器为 448 |不适用 |
+| 磁带上的恢复点 |不适用 |无限制 |不适用 |不适用 |
+
+## <a name="how-does-azure-backup-work-with-encryption"></a>Azure 备份如何使用加密？
+
+**加密** | **本地备份** | **备份 Azure VM** | **在 Azure VM 上备份 SQL Server**
+--- | --- | --- | ---
+静态加密<br/> （对保留/存储的数据进行加密） | 客户指定的密码短语用于加密数据 | Azure [存储服务加密 (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 用于加密存储在保管库中的数据。<br/><br/> 备份会在存储数据之前自动加密数据。 Azure 存储会在检索数据之前解密数据。 目前不支持使用客户托管的 SSE 密钥。<br/><br/> 可以将使用 [Azure 磁盘加密 (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) 来加密 OS 和数据磁盘的 VM 进行备份。 Azure 备份支持仅使用 BEK 加密的 VM 以及同时使用 BEK 和 [ KEK ](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/) 加密的 VM。 查看[限制](backup-azure-vms-encryption.md#encryption-support)。 | Azure 备份支持备份启用了 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 的 SQL Server 数据库或服务器。 Azure 备份支持由 Azure 托管密钥的或由客户托管密钥 (BYOK) 的 TDE。<br/><br/> Azure 备份不会在备份过程中执行任何 SQL 加密。
+传输中加密<br/> （从一个位置向另一个位置移动的数据的加密） | 数据使用 AES256 加密，并通过 HTTPS 发送到 Azure 中的保管库 | 在 Azure 中，Azure 存储与保管库之间传输的数据受 HTTPS 保护。 此数据保留在 Azure 主干网络上。<br/><br/> 对于文件恢复，iSCSI 会保护保管库和 Azure VM 之间传输的数据。 安全隧道可保护 iSCSI 通道。 | 在 Azure 中，Azure 存储与保管库之间传输的数据受 HTTPS 保护。<br/><br/> 文件恢复与 SQL 无关。
 
 ## <a name="next-steps"></a>后续步骤
 
 - [查看](backup-architecture.md)不同备份方案的体系结构和组件。
+- [验证](backup-support-matrix.md)对备份和 [Azure VM 备份](backup-support-matrix-iaas.md)的支持要求和限制。
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

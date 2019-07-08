@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 8842da5e4cd82b7b854882646e6a70dd3c7d8ede
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b4e71417fcb4cc4cfa93c77b339c8d8783376125
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731209"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562599"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>使用 Azure Monitor（预览版）监视资源组
 
@@ -53,7 +53,7 @@ ms.locfileid: "66731209"
    | [**警报**](../../azure-monitor/platform/alerts-overview.md)      |  查看、创建和管理警报。 |
    | [**指标**](../../azure-monitor/platform/data-platform.md) | 可视化并浏览基于指标的数据。    |
    | [**活动日志**](../../azure-monitor/platform/activity-logs-overview.md) | Azure 中已发生的订阅级别事件。  |
-   | [**应用程序映射**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | 浏览分布式应用程序的拓扑，以识别性能瓶颈或故障作用点。 |
+   | [**应用程序映射**](/azure-monitor/app/app-map) | 浏览分布式应用程序的拓扑，以识别性能瓶颈或故障作用点。 |
 
 ## <a name="failures-and-performance"></a>故障和性能
 
@@ -93,9 +93,9 @@ ms.locfileid: "66731209"
 
 ![编辑框的屏幕截图](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-这显示了生成表的可视化效果的基础 Log Analytics 查询。
+这显示了生成表的可视化效果的底层日志查询。
 
- ![Log Analytics 查询窗口的屏幕截图](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![日志查询窗口的屏幕截图](./media/resource-group-insights/0010-failure-edit-query.png)
 
 可以直接修改查询。 还可以将其作为参考，并在设计自己的自定义参数化工作簿时从中借用。
 
@@ -121,6 +121,5 @@ ms.locfileid: "66731209"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Azure Monitor 工作簿](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
-- [Azure 资源运行状况](https://docs.microsoft.com/azure/service-health/resource-health-overview)
+- [Azure Monitor 工作簿](/azure-monitor/app/usage-workbooks)
 - [Azure Monitor 警报](../../azure-monitor/platform/alerts-overview.md)

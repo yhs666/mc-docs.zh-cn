@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 11/28/2018
-ms.date: 04/22/2019
+origin.date: 04/26/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 8bbbef099509a48549558e376965d0ba014127eb
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 2e6ea5b7256bcae1923708c5eec56eba2dbac062
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732597"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570577"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制数据
 
@@ -64,7 +64,7 @@ Dynamics 链接服务支持以下属性。
 |:--- |:--- |:--- |
 | type | 类型属性必须设置为 **Dynamics**。 | 是 |
 | deploymentType | Dynamics 实例的部署类型。 Dynamics Online 必须为 **"Online"** 。 | 是 |
-| serviceUri | 你的 Dynamics 实例的服务 URL，例如 `https://adfdynamics.crm.dynamics.cn`。 | 是 |
+| serviceUri | 你的 Dynamics 实例的服务 URL，例如 `https://adfdynamics.crm.dynamics.com`。 | 是 |
 | authenticationType | 要连接到 Dynamics 服务器的身份验证类型。 为 Dynamics Online 指定 **"Office365"** 。 | 是 |
 | username | 指定用于连接到 Dynamics 的用户名。 | 是 |
 | password | 指定为 username 指定的用户帐户的密码。 将此字段标记为 SecureString 以安全地将其存储在数据工厂中或[引用存储在 Azure Key Vault 中的机密](store-credentials-in-key-vault.md)。 | 是 |
@@ -83,9 +83,9 @@ Dynamics 链接服务支持以下属性。
         "description": "Dynamics online linked service using Office365 authentication",
         "typeProperties": {
             "deploymentType": "Online",
-            "serviceUri": "https://adfdynamics.crm.dynamics.cn",
+            "serviceUri": "https://adfdynamics.crm.dynamics.com",
             "authenticationType": "Office365",
-            "username": "test@contoso.onmicrosoft.com",
+            "username": "test@contoso.partner.onmschina.cn",
             "password": {
                 "type": "SecureString",
                 "value": "<password>"
@@ -155,7 +155,7 @@ Dynamics 链接服务支持以下属性。
 | entityName | 要检索的实体的逻辑名称。 | 源为“No”（如果指定了活动源中的“query”），接收器为“Yes” |
 
 > [!IMPORTANT]
->- 从 Dynamics 复制数据时，Dynamics 数据集中的“结构”部分是可选的但强烈建议使用，以确保确定性复制结果。 该节定义要复制的 Dynamics 数据的列名和数据类型。 有关详细信息，请参阅[数据集结构](concepts-datasets-linked-services.md#dataset-structure-or-schema)和 [Dynamics 的数据类型映射](#data-type-mapping-for-dynamics)。
+>- 从 Dynamics 复制数据时，Dynamics 数据集中的“结构”部分是可选的但强烈建议使用，以确保确定性复制结果。 该节定义要复制的 Dynamics 数据的列名和数据类型。 有关详细信息，请参阅[数据集结构](concepts-datasets-linked-services.md#dataset-structure)和 [Dynamics 的数据类型映射](#data-type-mapping-for-dynamics)。
 >- 在创作 UI 中导入架构时，ADF 通过对 Dynamics 查询结果中的前几行进行采样来初始化结构构造，将省略其中不含任何值的列。 如果没有明确的结构定义，则相同的行为也适用于复制执行。 可以根据需要查看列并将更多列添加到 Dynamics 数据集架构/结构，这将在副本运行时起作用。
 >- 向 Dynamics 复制数据时，Dynamics 数据集中的“structure”节是可选的。 要复制到哪些列由源数据架构确定。 如果源是不包含标头的 CSV 文件，请在输入数据集中指定包含列名称和数据类型的“结构”。 这些值将按顺序逐个映射到 CSV 文件中的字段。
 

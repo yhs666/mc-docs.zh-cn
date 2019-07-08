@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 79b4ebfd042783fab7e0d3f6e83f4538a9f1afba
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: a5009544b4fcb971482a403d710b670b3174afae
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555413"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570600"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -94,7 +94,7 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 MARSAgentInstaller.exe /q
 ```
 
-这会以所有默认选项安装代理。 安装在几分钟内在后台完成。 如果没有指定 /nu 选项，则安装结束时，会打开“Windows 更新”窗口，检查是否有任何更新。 安装之后，代理会显示在已安装程序列表中。
+这会以所有默认选项安装代理。 安装在几分钟内在后台完成。 如果没有指定 /nu 选项，则安装结束时，会打开“Windows 更新”窗口，检查是否有任何更新   。 安装之后，代理会显示在已安装程序列表中。
 
 若要查看已安装的程序列表，请转到“**控制面板**”“ > **程序** > ”“**程序和功能**”。
 
@@ -190,7 +190,7 @@ Server properties updated successfully.
 ## <a name="encryption-settings"></a>加密设置
 发送到 Azure 备份的备份数据会加密，以保护数据的机密性。 加密通行短语是在还原时用于解密数据的“密码”。
 
-必须在 Azure 门户的“恢复服务保管库”部分的“设置” > “属性” > “安全 PIN”下选择“生成”来生成一个安全 PIN。 然后，将其用作命令中的 `generatedPIN`：
+必须在 Azure 门户的“恢复服务保管库”  部分的“设置”   > “属性”   > “安全 PIN”  下选择“生成”  来生成一个安全 PIN。 然后，将其用作命令中的 `generatedPIN`：
 
 ```powershell
 $PassPhrase = ConvertTo-SecureString -String "Complex!123_STRING" -AsPlainText -Force
@@ -224,7 +224,7 @@ $NewPolicy = New-OBPolicy
 ### <a name="configuring-the-backup-schedule"></a>配置备份计划
 在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定两个输入参数：
 
-* 应运行备份的“星期日期”。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
+* 应运行备份的“星期日期”  。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
 * **日期时间** 。 最多可以定义一天的 3 个不同日期时间来触发备份
 
 例如，可以配置在每个星期六和星期日下午 4 点运行备份策略。
@@ -578,7 +578,7 @@ ItemLastModifiedTime :
 
 为了识别要还原的确切文件或文件夹，请以递归方式使用 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet。 这样，只需使用 `Get-OBRecoverableItem`便可浏览文件夹层次结构。
 
-在本示例中，如果我们要还原文件 finances.xls，可以使用对象 `$FilesFolders[1]` 引用该文件。
+在本示例中，如果我们要还原文件 finances.xls，可以使用对象 `$FilesFolders[1]` 引用该文件  。
 
 ```powershell
 $FilesFolders = Get-OBRecoverableItem $Rps[0]
@@ -635,7 +635,7 @@ $Item = Get-OBRecoverableItem -RecoveryPoint $Rps[0] -Location "D:\MyData" -Sear
 
 ### <a name="triggering-the-restore-process"></a>触发还原过程
 
-为了触发还原过程，首先需要指定恢复选项。 这可以使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet 来完成。 在本示例中，我们假设要将文件还原到 C:\temp。此外，我们假设要跳过目标文件夹 C:\temp 中已存在的文件。若要创建此类恢复选项，请使用以下命令：
+为了触发还原过程，首先需要指定恢复选项。 这可以使用 [New-OBRecoveryOption](https://technet.microsoft.com/library/hh770417.aspx) cmdlet 来完成。 在本示例中，我们假设要将文件还原到 C:\temp  。此外，我们假设要跳过目标文件夹 C:\temp 中已存在的文件  。若要创建此类恢复选项，请使用以下命令：
 
 ```powershell
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
@@ -675,7 +675,7 @@ The recovery operation completed successfully.
 ## <a name="remote-management"></a>远程管理
 围绕 Azure 备份代理、策略和数据源的所有管理工作都可通过 Azure PowerShell 远程完成。 要远程管理的计算机需要经过适当的准备。
 
-默认情况下，WinRM 服务已配置为手动启动。 必须将启动类型设置为“自动”，并且应该启动该服务。 若要确认 WinRM 服务正在运行，“状态”属性的值应该是“正在运行” 。
+默认情况下，WinRM 服务已配置为手动启动。 必须将启动类型设置为“自动”，并且应该启动该服务  。 若要确认 WinRM 服务正在运行，“状态”属性的值应该是“正在运行”  。
 
 ```powershell
 Get-Service -Name WinRM
@@ -719,7 +719,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅
 
-* [Azure 备份简介](backup-introduction-to-azure-backup.md)
+* [Azure 备份简介](backup-overview.md)
 * [备份 Windows Server](backup-configure-vault.md)
 
 <!-- Update_Description: code update -->

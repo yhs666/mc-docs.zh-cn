@@ -3,8 +3,8 @@ title: 通过 PowerShell 为 Azure 应用创建标识 | Microsoft Docs
 description: 介绍如何使用 Azure PowerShell 创建 Azure Active Directory 应用程序和服务主体，并通过基于角色的访问控制向其授予资源访问权限。 它演示如何使用证书对应用程序进行身份验证。
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: d2caf121-9fbe-4f00-bf9d-8f3d1f00a6ff
 ms.service: active-directory
 ms.subservice: develop
@@ -13,23 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 10/24/2018
-ms.date: 03/05/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6aac49a248f63b180381119c4dbdc6e46eeed8f2
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: a3974da0ccb30511250a250f96e4d813ab1ff861
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462377"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568479"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>如何：通过 Azure PowerShell 使用证书创建服务主体
 
 当某个应用或脚本需要访问资源时，用户可以为该应用设置一个标识，并使用其自身的凭据进行身份验证。 此标识称为服务主体。 使用此方法可实现以下目的：
 
-- 将不同于自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
-- 执行无人参与的脚本时，使用证书进行身份验证。
+* 将不同于自己的权限的权限分配给应用标识。 通常情况下，这些权限仅限于应用需执行的操作。
+* 执行无人参与的脚本时，使用证书进行身份验证。
+
+> [!IMPORTANT]
+> 请考虑使用 Azure 资源的托管标识作为应用程序标识，而不是创建服务主体。 如果代码在支持托管标识的服务上运行并访问支持 Azure Active Directory (Azure AD) 身份验证的资源，则托管标识是更好的选择。 
 
 本文演示如何创建使用证书进行身份验证的服务主体。 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
 
@@ -94,7 +97,7 @@ $ApplicationId = (Get-AzADApplication -DisplayNameStartWith exampleapp).Applicat
  Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
-  -TenantId $TenantId
+  -TenantId $TenantId `
   -Environment AzureChinaCloud
 ```
 
@@ -172,7 +175,7 @@ Param (
  Connect-AzAccount -ServicePrincipal `
   -CertificateThumbprint $Thumbprint `
   -ApplicationId $ApplicationId `
-  -TenantId $TenantId
+  -TenantId $TenantId `
   -Environment AzureChinaCloud
 ```
 
@@ -211,15 +214,15 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
 
 创建服务主体时，可能会收到以下错误：
 
-- “Authentication_Unauthorized”或“在上下文中找不到订阅”。 - 如果帐户不具有在 Azure AD 上注册应用[所需的权限](#required-permissions)，会看到此错误。 通常，当只有 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。可要求管理员分配管理员角色，或者允许用户注册应用。
+* “Authentication_Unauthorized”或“在上下文中找不到订阅”。   - 如果帐户不具有在 Azure AD 上注册应用[所需的权限](#required-permissions)，会看到此错误。 通常，当只有 Azure Active Directory 中的管理员用户可注册应用且帐户不是管理员帐户时，会看到此错误。可要求管理员分配管理员角色，或者允许用户注册应用。
 
-- 帐户“不具有对作用域‘/subscriptions/{guid}’执行操作‘Microsoft.Authorization/roleAssignments/write’的权限”。 - 当帐户不具有足够权限将角色分配给标识时，会看到此错误。 可要求订阅管理员将你添加到“用户访问管理员”角色。
+* 帐户“不具有对作用域‘/subscriptions/{guid}’执行操作‘Microsoft.Authorization/roleAssignments/write’的权限”。  - 当帐户不具有足够权限将角色分配给标识时，会看到此错误。 可要求订阅管理员将你添加到“用户访问管理员”角色。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
-- 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
-- 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](app-objects-and-service-principals.md)（应用程序对象和服务主体对象）。
-- 有关 Azure AD 身份验证的详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
+* 若要使用密码设置服务主体，请参阅[使用 Azure PowerShell 创建 Azure 服务主体](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)。
+* 有关将应用程序集成到 Azure 以管理资源的详细步骤，请参阅 [Developer's guide to authorization with the Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md)（使用 Azure 资源管理器 API 进行授权的开发人员指南）。
+* 有关应用程序和服务主体的详细说明，请参阅 [Application Objects and Service Principal Objects](app-objects-and-service-principals.md)（应用程序对象和服务主体对象）。
+* 有关 Azure AD 身份验证的详细信息，请参阅 [Azure AD 的身份验证方案](authentication-scenarios.md)。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

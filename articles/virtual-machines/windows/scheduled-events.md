@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7ce2e3bb54349f7482bc671cc783a5e78e075e2
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: dcfafbf2b140fc412501dca95ed63aa0825ed23b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390852"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570490"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -65,7 +65,7 @@ Azure 元数据服务公开在 VM 中使用可访问的 REST 终结点运行虚�
 ### <a name="version-and-region-availability"></a>版本和区域可用性
 计划事件服务受版本控制。 版本是必需的，当前版本为 `2017-11-01`。
 
-| 版本 | 发布类型 | 区域 | 发行说明 | 
+| 版本 | 发布类型 | Regions | 发行说明 | 
 | - | - | - | - |
 | 2017-08-01 | 正式版 | 全部 | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br /><li>针对所有请求强制执行元数据标头要求 | 
 | 2017-03-01 | 预览 | 全部 |<li>初始版本
@@ -106,7 +106,7 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" ",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -115,6 +115,8 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
     ]
 }
 ```
+<!--Not Avaialble on | "Preempt" -->
+
 DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查自上次查询以来事件有效负载是否已更改。
 
 ### <a name="event-properties"></a>事件属性
@@ -137,14 +139,15 @@ DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查�
 | 冻结| 15 分钟 |
 | 重新启动 | 15 分钟 |
 | 重新部署 | 10 分钟 |
-| Preempt | 30 秒 |
+
+<!--Not Available on | Preempt | 30 seconds |-->
 
 ### <a name="event-scope"></a>事件作用域     
 计划的事件传送到：
- - 独立虚拟机
- - 云服务中的所有虚拟机      
- - 可用性集中的所有虚拟机      
- - 规模集位置组中的所有虚拟机。         
+- 独立虚拟机
+- 云服务中的所有虚拟机       
+- 可用性集中的所有虚拟机       
+- 规模集位置组中的所有虚拟机。      
 
 因此，应查看事件中的 `Resources` 字段以确定将受到影响的 VM。 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4d92c24f1b5a005951fa571f06e0f4e21b25414
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 2bc93dccf9db87c78d3c8d7b061663c19bcc21cc
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236587"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570272"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教程：提高合规性
 ---
@@ -32,7 +32,7 @@ Azure 安全中心使用合规性仪表板，可以根据合规性要求简化�
 
 -   针对建议进行操作，改进符合性情况
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/free/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="prerequisites"></a>先决条件
 

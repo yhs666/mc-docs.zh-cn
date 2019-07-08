@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 11/26/2018
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7a69504487cacadd047211973a03f208cc5c89f8
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: eb989640bca73ec28ff67912fe80f8f1dcf7842c
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52676340"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569670"
 ---
 * 该转换需要重启 VM，因此请在预先存在的维护时段内计划 VM 迁移。 
 
@@ -22,8 +22,6 @@ ms.locfileid: "52676340"
 
 * 在转换期间，会解除分配 VM。 转换完成后，VM 在启动时会接收新的 IP 地址。 如果需要，可向 VM [分配静态 IP 地址](../articles/virtual-network/virtual-network-ip-addresses-overview-arm.md)。
 
-* 不会删除在转换之前由 VM 使用的原始 VHD 和存储帐户。 它们会继续产生费用。 若要避免这些项目产生的费用，请在验证转换已完成后删除原始 VHD Blob。
-
 * 查看支持转换过程所需的 Azure VM 代理最低版本。 有关如何检查和更新目标版本的信息，请参阅 [Minimum version support for VM agents in Azure](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)（对 Azure 中的 VM 代理的最低版本支持）
 
-<!-- Update_Description: update meta properties  -->
+<!-- Update_Description: update meta properties， wordin update -->

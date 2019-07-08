@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/30/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 05c0d07a2aa75f4684b929c445ffcf3082801280
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 8a9ec6b298830a4596ece093fc4126fd39ead755
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004122"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569773"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>加密 Windows VM 上的虚拟磁盘
 为了增强虚拟机 (VM) 的安全性以及符合性，可以加密 Azure 中的虚拟磁盘。 磁盘是使用 Azure Key Vault 中受保护的加密密钥加密的。 可以控制这些加密密钥，以及审核对它们的使用。 本文介绍如何使用 Azure PowerShell 加密 Windows VM 上的虚拟磁盘。 还可[使用 Azure CLI 加密 Linux VM](../linux/encrypt-disks.md)。
@@ -69,7 +69,7 @@ Windows VM 上的虚拟磁盘使用 Bitlocker 进行静态加密。 加密 Azure
 
 第一步是创建用于存储加密密钥的 Azure 密钥保管库。 Azure Key Vault 可以存储能够在应用程序和服务中安全实现的密钥、机密或密码。 对于虚拟磁盘加密，可以创建 Key Vault 来存储用于加密或解密虚拟磁盘的加密密钥。 
 
-在 Azure 订阅中使用 [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider) 启用 Azure 密钥保管库提供程序，然后使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组。
+在 Azure 订阅中使用 [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider) 启用 Azure 密钥保管库提供程序，然后使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“中国东部”位置创建名为 *myResourceGroup* 的资源组。 
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -89,7 +89,7 @@ New-AzKeyVault -Location $location `
     -EnabledForDiskEncryption
 ```
 
-可以使用软件保护来存储加密密钥。  标准 Key Vault 仅存储受软件保护的密钥。 由于我们创建的是标准密钥保管库，以下示例使用了受软件保护的密钥。 
+可以使用软件保护来存储加密密钥。 标准 Key Vault 仅存储受软件保护的密钥。 由于我们创建的是标准密钥保管库，以下示例使用了受软件保护的密钥。 
 
 <!--Not Available on  or Hardware Security Model (HSM) protection-->
 <!--Not Available on Using an HSM requires a premium Key Vault at an additional cost. To create a premium Key Vault, in the preceding step add the *-Sku "Premium"* parameter.-->
@@ -107,6 +107,7 @@ Add-AzKeyVaultKey -VaultName $keyVaultName `
 ```
 
 <!--MOONCAKE CUSTOMIZED-->
+<!--UPDATE BE CAREFULLY-->
 
 ## <a name="create-the-azure-active-directory-service-principal"></a>创建 Azure Active Directory 服务主体
 
@@ -134,9 +135,10 @@ Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName `
 ```
 
 <!--MOONCAKE CUSTOMIZED-->
+<!--UPDATE BE CAREFULLY-->
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
-若要测试加密过程，请使用 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例使用 Windows Server 2016 Datacenter 映像创建名为 myVM 的 VM。 系统提示输入凭据时，请输入用于 VM 的用户名和密码：
+若要测试加密过程，请使用 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例使用 Windows Server 2016 Datacenter  映像创建名为 myVM  的 VM。 系统提示输入凭据时，请输入用于 VM 的用户名和密码：
 
 ```powershell
 $cred = Get-Credential
@@ -156,6 +158,7 @@ New-AzVm `
 使用 Azure 密钥保管库密钥通过 [Set-AzVMDiskEncryptionExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension) 加密 VM。 以下示例检索所有密钥信息，并对名为 *myVM* 的 VM 进行加密：
 
 <!--MOONCAKE CUSTOMIZED-->
+<!--UPDATE BE CAREFULLY-->
 
 ```powershell
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
@@ -172,6 +175,7 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName $rgName `
 ```
 
 <!--MOONCAKE CUSTOMIZED-->
+<!--UPDATE BE CAREFULLY-->
 
 接受提示以继续进行 VM 加密。 此过程中将重启 VM。 加密过程完成并重启 VM 后，使用 [Get-AzVmDiskEncryptionStatus](https://docs.microsoft.com/powershell/module/az.compute/get-azvmdiskencryptionstatus) 查看加密状态：
 

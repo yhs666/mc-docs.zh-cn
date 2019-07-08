@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/09/2017
 ms.author: v-yiso
-ms.date: 12/31/2018
-ms.openlocfilehash: 99182cba719a5d792cd776816cdddc50bb6e0c9e
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 07/15/2019
+ms.openlocfilehash: 81ac11cc97da025ee4e1aebe314b738589b5b1d6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529303"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569613"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API 管理中的 API 模板
 通过 Azure API 管理，用户能够使用一组用于配置内容的模板自定义开发人员门户页的内容。 使用 [DotLiquid](http://dotliquidmarkup.org/) 语法和所选编辑器（例如 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers)），以及提供的一组本地化[字符串资源](./api-management-template-resources.md#strings)、[字形资源](./api-management-template-resources.md#glyphs)和[页面控件](./api-management-page-controls.md)，即可根据这些模板的使用需要非常灵活地配置页面内容。  
@@ -345,14 +345,14 @@ ms.locfileid: "59529303"
   
 |属性|类型|说明|  
 |--------------|----------|-----------------|  
-|`apiId`|字符串|当前 API 的 ID。|  
-|`apiName`|字符串|API 的名称。|  
-|`apiDescription`|字符串|API 的说明。|  
+|`apiId`|string|当前 API 的 ID。|  
+|`apiName`|string|API 的名称。|  
+|`apiDescription`|string|API 的说明。|  
 |`api`|[API 摘要](api-management-template-data-model-reference.md#APISummary)实体。|当前 API。|  
 |`operation`|[操作](api-management-template-data-model-reference.md#Operation)|当前显示的操作。|  
-|`sampleUrl`|字符串|当前操作的 URL。|  
+|`sampleUrl`|string|当前操作的 URL。|  
 |`operationMenu`|[操作菜单](api-management-template-data-model-reference.md#Menu)|此 API 的操作菜单。|  
-|`consoleUrl`|URI|“试用”按钮的 URI。|  
+|`consoleUrl`|URI|“试用”按钮的 URI。 |  
 |`samples`|[代码示例](api-management-template-data-model-reference.md#Sample)实体的集合。|当前操作的代码示例。|  
   
 ### <a name="sample-template-data"></a>示例模板数据  
@@ -900,7 +900,7 @@ namespace CSHttpClientSample
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```java  
 // // This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
 import java.net.URI;  
 import org.apache.http.HttpEntity;  
@@ -996,12 +996,12 @@ public class JavaSample
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```html  
 <!DOCTYPE html>  
 <html>  
 <head>  
     <title>JSSample</title>  
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>  
 </head>  
 <body>  
   
@@ -1085,7 +1085,7 @@ public class JavaSample
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```objective-c  
 #import <Foundation/Foundation.h>  
   
 int main(int argc, const char * argv[])  
@@ -1197,7 +1197,7 @@ int main(int argc, const char * argv[])
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```php  
 <?php  
 // This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
@@ -1287,7 +1287,7 @@ catch (HttpException $ex)
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```python  
 ########### Python 2.7 #############  
 import httplib, urllib, base64  
   
@@ -1405,7 +1405,7 @@ except Exception as e:
   
 #### <a name="default-template"></a>默认模板  
   
-```xml  
+```ruby  
 require 'net/http'  
   
 uri = URI('{{scheme}}://{{host}}{{path}}')  

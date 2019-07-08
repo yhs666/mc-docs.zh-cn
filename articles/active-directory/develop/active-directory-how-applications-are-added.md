@@ -3,8 +3,8 @@ title: 如何以及为何将应用程序添加到 Azure Active Directory
 description: 为何要将应用程序添加到 Azure AD，如何添加？
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2018
-ms.date: 04/08/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba6f4d32f5c4e09c708b13ab5c46d626298b5a85
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 9d2820e996f9b1c9028d5d75d7d883f8bc31fbb7
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243662"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568552"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>如何以及为何将应用程序添加到 Azure AD
 
@@ -73,7 +73,6 @@ Azure AD 中的应用程序有两种表示形式：
   * 订阅 Office 365 或开始试用时，会在目录中创建一个或多个服务主体，表示传递所有与 Office 365 关联的功能的各种服务。
   * 某些 Office 365 服务（如 SharePoint）会不断地创建服务主体，以允许在组件（包括工作流）之间进行安全通信。
 * 当管理员从应用库添加应用程序时（这也会创建基础应用对象）
-* 添加一个应用程序以使用 [Azure AD 应用程序代理](https://msdn.microsoft.com/library/azure/dn768219.aspx)
 * 通过 Azure AD 图形 API 或 PowerShell 以编程方式实现
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>如何将应用程序对象与服务主体彼此相关？
@@ -100,7 +99,7 @@ Azure AD 中的应用程序有两种表示形式：
   * 属性映射（用户预配）
 * 有关服务主体和应用程序对象的详细信息，请参阅 Azure AD 图形 REST API 参考文档：
   * [应用程序](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
-  * [Service Principal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
+  * [服务主体](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>应用程序为何要与 Azure AD 集成？
 应用程序将添加到 Azure AD，以利用 Azure AD 提供的一个或多个服务，包括：
@@ -144,4 +143,4 @@ Azure AD 中的应用程序有两种表示形式：
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: a06aa3406db34204f5c41e6db7c3a1d651012553
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: af2e0872d90c996453b630e991d738be1fa174e6
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686325"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562334"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>使用 REST API 将 Azure 资源的自定义指标发送到 Azure Monitor 指标存储
 
@@ -39,7 +39,7 @@ ms.locfileid: "59686325"
 打开一个命令提示符并运行以下命令：
 
 ```shell
-curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.com/"
+curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/token -F "grant_type=client_credentials" -F "client_id=<insert clientId from earlier step> " -F "client_secret=<insert client secret from earlier step>" -F "resource=https://monitoring.azure.cn/"
 ```
 保存响应中的访问令牌。
 
@@ -83,7 +83,7 @@ curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/toke
    - **AccessToken**。 粘贴你之前获取的令牌。
 
      ```Shell 
-     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     curl -X POST https://<azureRegion>.monitoring.azure.cn/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
      ```
 3. 更改 JSON 文件中的时间戳和值。 
 4. 多次重复前两个步骤，以便获得几分钟的数据。
@@ -102,19 +102,19 @@ curl -X POST https://login.partner.microsoftonline.cn/<yourtenantid>/oauth2/toke
 
 1. 登录到 Azure 门户。 
 
-1. 在左侧菜单中选择“监视”。 
+1. 在左侧菜单中选择“监视”  。 
 
-1. 在“监视”页上选择“指标”。 
+1. 在“监视”页上选择“指标”   。 
 
    ![选择“指标”](./media/metrics-store-custom-rest-api/metrics.png) 
 
-1. 将聚合时限更改为“过去 30 分钟”。  
+1. 将聚合时限更改为“过去 30 分钟”  。  
 
-1. 在“资源”下拉菜单中，选择你针对其发布了指标的资源。  
+1. 在“资源”  下拉菜单中，选择你针对其发布了指标的资源。  
 
-1. 在“命名空间”下拉菜单中，选择“QueueProcessing”。 
+1. 在“命名空间”  下拉菜单中，选择“QueueProcessing”  。 
 
-1. 在“指标”下拉菜单中，选择“QueueDepth”。  
+1. 在“指标”  下拉菜单中，选择“QueueDepth”  。  
 
  
 ## <a name="next-steps"></a>后续步骤

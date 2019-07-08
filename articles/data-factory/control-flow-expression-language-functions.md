@@ -11,16 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/10/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 8ecf360d878151b0d22012a4e1dcc548ec4b2792
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 3d9f48bdaffe5adecc630dd4bfc086185a5fa4d7
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732694"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570373"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
+
 本文提供了有关 Azure 数据工厂支持的表达式和函数的详细信息。 
 
 ## <a name="introduction"></a>简介
@@ -191,7 +192,7 @@ ms.locfileid: "66732694"
 ## <a name="conversion-functions"></a>转换函数  
  这些函数用于在语言中的每个本机类型之间转换：  
   
--   字符串  
+-   string  
   
 -   integer  
   
@@ -206,7 +207,7 @@ ms.locfileid: "66732694"
 |函数名称|说明|  
 |-------------------|-----------------|  
 |int|将参数转换为整数。 例如，以下表达式返回数字而不是字符串形式的 100：`int('100')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为整数的值。|  
-|字符串|将参数转换为字符串。 例如，以下表达式返回 `'10'`:`string(10)` 还可以将对象转换为字符串，例如，如果 **foo** 参数是具有一个属性 `bar : baz` 的对象，则以下项将返回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为字符串的值。|  
+|string|将参数转换为字符串。 例如，以下表达式返回 `'10'`:`string(10)` 还可以将对象转换为字符串，例如，如果 **foo** 参数是具有一个属性 `bar : baz` 的对象，则以下项将返回 `{"bar" : "baz"}` `string(pipeline().parameters.foo)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为字符串的值。|  
 |json|将参数转换为 JSON 类型值。 它与 string() 相反。 例如，以下表达式返回数组而不是字符串形式的 `[1,2,3]`：<br /><br /> `json('[1,2,3]')`<br /><br /> 同样，可以将字符串转换为对象。 例如，`json('{"bar" : "baz"}')` 返回：<br /><br /> `{ "bar" : "baz" }`<br /><br /> **参数编号**：1<br /><br /> **名称**：String<br /><br /> **说明**：必需。 要转换为本机类型值的字符串。<br /><br /> json 函数也支持 xml 输入。 例如，以下对象的参数值：<br /><br /> `<?xml version="1.0"?> <root>   <person id='1'>     <name>Alan</name>     <occupation>Engineer</occupation>   </person> </root>`<br /><br /> 被转换为以下 json：<br /><br /> `{ "?xml": { "@version": "1.0" },   "root": {     "person": [     {       "@id": "1",       "name": "Alan",       "occupation": "Engineer"     }   ]   } }`|  
 |float|将参数自变量转换为浮点数。 例如，以下表达式返回 `10.333`:  `float('10.333')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为浮点数的值。|  
 |bool|将参数转换为布尔值。 例如，以下表达式返回 `false`:  `bool(0)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为布尔值的值。|  
@@ -227,7 +228,7 @@ ms.locfileid: "66732694"
 |uriComponentToString|返回 URI 编码字符串的字符串表示形式。 例如，以下表达式返回 `You Are:Cool/Awesome`: `uriComponentToString('You+Are%3ACool%2FAwesome')`<br /><br /> **参数编号**：1<br /><br />**名称**：String<br /><br />**说明**：必需。 URI 编码的字符串。|  
 |xml|返回值的 xml 表示形式。 例如，以下表达式返回 xml 内容，表示为：`'\<name>Alan\</name>'`: `xml('\<name>Alan\</name>')`。 xml 函数也支持 JSON 对象输入。 例如，参数 `{ "abc": "xyz" }` 将转换为 xml 内容 `\<abc>xyz\</abc>`<br /><br /> **参数编号**：1<br /><br />**名称**：Value<br /><br />**说明**：必需。 要转换为 XML 的值。|  
 |xpath|返回与 xpath 表达式计算结果值的 xpath 表达式匹配的 xml 节点数组。<br /><br />  **示例 1**<br /><br /> 假设参数“p1”的值是以下 XML 的字符串表示形式：<br /><br /> `<?xml version="1.0"?> <lab>   <robot>     <parts>5</parts>     <name>R1</name>   </robot>   <robot>     <parts>8</parts>     <name>R2</name>   </robot> </lab>`<br /><br /> 1.此代码：`xpath(xml(pipeline().parameters.p1), '/lab/robot/name')`<br /><br /> 将返回<br /><br /> `[ <name>R1</name>, <name>R2</name> ]`<br /><br /> whereas<br /><br /> 2.此代码：`xpath(xml(pipeline().parameters.p1, ' sum(/lab/robot/parts)')`<br /><br /> 将返回<br /><br /> `13`<br /><br /> <br /><br /> **示例 2**<br /><br /> 假设 XML 内容如下：<br /><br /> `<?xml version="1.0"?> <File xmlns="http://foo.com">   <Location>bar</Location> </File>`<br /><br /> 1.此代码：`@xpath(xml(body('Http')), '/*[name()=\"File\"]/*[name()=\"Location\"]')`<br /><br /> 或<br /><br /> 2.此代码：`@xpath(xml(body('Http')), '/*[local-name()=\"File\" and namespace-uri()=\"http://foo.com\"]/*[local-name()=\"Location\" and namespace-uri()=\"\"]')`<br /><br /> 返回<br /><br /> `<Location xmlns="http://foo.com">bar</Location>`<br /><br /> 和<br /><br /> 3.此代码：`@xpath(xml(body('Http')), 'string(/*[name()=\"File\"]/*[name()=\"Location\"])')`<br /><br /> 返回<br /><br /> ``bar``<br /><br /> **参数编号**：1<br /><br />**名称**：Xml<br /><br />**说明**：必需。 要在其中计算 XPath 表达式的 XML。<br /><br /> **参数编号**：2<br /><br />**名称**：XPath<br /><br />**说明**：必需。 要计算的 XPath 表达式。|  
-|数组|将参数转换为数组。  例如，以下表达式返回 `["abc"]`: `array('abc')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为数组的值。|
+|array|将参数转换为数组。  例如，以下表达式返回 `["abc"]`: `array('abc')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Value<br /><br /> **说明**：必需。 要转换为数组的值。|
 |createArray|从参数创建数组。  例如，以下表达式返回 `["a", "c"]`: `createArray('a', 'c')`<br /><br /> **参数编号**：1 ... n<br /><br /> **名称**：任意 n<br /><br /> **说明**：必需。 要合并成数组的值。|
 
 ## <a name="math-functions"></a>数学函数  
@@ -254,5 +255,7 @@ ms.locfileid: "66732694"
 |addminutes|将整数分钟数添加到传入的字符串时间戳。 分钟数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如，`2015-03-15T14:00:36Z`：<br /><br /> `addminutes('2015-03-15T13:27:36Z', 33)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：分钟数<br /><br /> **说明**：必需。 要添加的分钟数。 可为负数（减去相应的分钟数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |addhours|将整数小时数添加到传入的字符串时间戳。 小时数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-03-16T01:27:36Z`：<br /><br /> `addhours('2015-03-15T13:27:36Z', 12)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：小时<br /><br /> **说明**：必需。 要添加的小时数。 可为负数（减去相应的小时数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 |adddays|将整数天数添加到传入的字符串时间戳。 天数可为正数或负数。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `adddays('2015-03-15T13:27:36Z', -20)`<br /><br /> **参数编号**：1<br /><br /> **名称**：Timestamp<br /><br /> **说明**：必需。 包含时间的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：天<br /><br /> **说明**：必需。 要添加的天数。 可为负数（减去相应的天数）。<br /><br /> **参数编号**：3<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
-|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **参数编号**：1<br /><br /> **名称**：日期<br /><br /> **说明**：必需。 包含日期的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
+|formatDateTime|返回日期格式的字符串。 默认情况下，结果是采用 ISO 8601 格式 ("o") 的字符串，除非提供了格式说明符。 例如 `2015-02-23T13:27:36Z`：<br /><br /> `formatDateTime('2015-03-15T13:27:36Z', 'o')`<br /><br /> **参数编号**：1<br /><br /> **名称**：Date<br /><br /> **说明**：必需。 包含日期的字符串。<br /><br /> **参数编号**：2<br /><br /> **名称**：格式<br /><br /> **说明**：可选。 [单个格式说明符](https://msdn.microsoft.com/library/az4se3k1%28v=vs.110%29.aspx)或[自定义格式模式](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)，指示如何设置此时间戳值的格式。 如果未提供格式，则使用 ISO 8601 格式 ("o")。|  
 
+## <a name="next-steps"></a>后续步骤
+对于可以在表达式中使用的系统变量列表，请参阅[系统变量](control-flow-system-variables.md)。

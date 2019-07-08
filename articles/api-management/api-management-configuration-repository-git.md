@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 03/12/2019
 ms.author: v-yiso
 ms.date: 04/22/2019
-ms.openlocfilehash: b5849d3cda03fac06c1d22b1969bb25f267a6ca1
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 39f76ed44ad0fca0be7b707c239a27f27a1b630b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732737"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569661"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>如何使用 Git 保存和配置 API 管理服务
 
@@ -58,7 +58,7 @@ ms.locfileid: "66732737"
 >
 >
 
-有关使用 REST API 启用或禁用 Git 访问的信息，请参阅[使用 REST API 启用或禁用 Git 访问](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)。
+有关使用 REST API 启用或禁用 Git 访问的信息，请参阅[使用 REST API 启用或禁用 Git 访问](https://docs.microsoft.com/en-us/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit)。
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>将服务配置保存到 Git 存储库
 
@@ -265,7 +265,7 @@ git push
   * [服务部署 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/module/wds)
   * [服务管理 PowerShell cmdlet 参考](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * 使用 REST API 管理服务实例
-  * [API 管理 REST API 参考](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API 管理 REST API 参考](https://docs.microsoft.com//rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

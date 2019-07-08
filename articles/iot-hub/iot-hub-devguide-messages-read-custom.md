@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/09/2018
 ms.author: v-yiso
-ms.date: 03/18/2019
-ms.openlocfilehash: 6ac4a0c613729b8524634a46762e13ffac70eacb
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.date: 07/15/2019
+ms.openlocfilehash: 2e4f8fd9d9555572b05e818db5daeda84d0e5266
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560499"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569995"
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>对设备到云的消息使用消息路由和自定义终结点
 
@@ -30,7 +30,7 @@ ms.locfileid: "57560499"
 | 属性      | 说明 |
 | ------------- | ----------- |
 | **名称**      | 用于标识查询的唯一名称。 |
-| Source    | 要处理的数据流的来源。 例如，设备遥测。 |
+| Source     | 要处理的数据流的来源。 例如，设备遥测。 |
 | **条件** | 针对消息应用程序属性、系统属性、消息正文、设备孪生标记和设备孪生属性运行的路由查询的查询表达式，用于确定该查询是否是终结点的匹配项。 要详细了解如何构造查询，请参阅[消息路由查询语法](iot-hub-devguide-routing-query-syntax.md) |
 | **终结点**  | IoT 中心将匹配查询的消息发送到的终结点的名称。 建议所选终结点与 IoT 中心位于同一区域。 |
 
@@ -40,17 +40,11 @@ ms.locfileid: "57560499"
 
 IoT 中心有一个默认的[内置终结点](iot-hub-devguide-messages-read-builtin.md)。 通过将订阅中的其他服务链接到中心，可以创建要将消息路由到的自定义终结点。 IoT 中心目前支持将 Azure 存储容器、事件中心、服务总线队列和服务总线主题用作自定义终结点。
 
-使用路由和自定义终结点时，如果消息不与任何查询匹配，则只将其传送到内置终结点。 若要将消息传递到内置终结点以及自定义终结点，请添加用于将消息发送到内置事件终结点的路由。
+使用路由和自定义终结点时，如果消息不与任何查询匹配，则只将其传送到内置终结点。 若要将消息传递到内置终结点以及自定义终结点，请添加用于将消息发送到内置事件终结点的路由  。
 
 > [!NOTE]
-> IoT 中心仅支持将数据作为 blob 写入 Azure 存储容器。
->
->
-
-
-
-> [!WARNING]
-> 不支持将已启用**会话**或**重复项检测**的服务总线队列和主题用作自定义终结点。
+> * IoT 中心仅支持将数据作为 blob 写入 Azure 存储容器。
+> * 不支持将已启用**会话**或**重复项检测**的服务总线队列和主题用作自定义终结点。
 
 有关在 IoT 中心创建自定义终结点的详细信息，请参阅 [IoT 中心终结点][lnk-devguide-endpoints]。
 

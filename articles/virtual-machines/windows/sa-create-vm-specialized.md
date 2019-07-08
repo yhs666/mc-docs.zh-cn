@@ -17,12 +17,12 @@ origin.date: 05/23/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fce8f932d8e993f2050e1770d77c98b45032e11
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: f938ad6c05be4256c97872c79943ffd5dcd907b0
+ms.sourcegitcommit: 96fd24c7297c4dacb67764cee86beb6270895766
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004189"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479402"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 
@@ -42,7 +42,7 @@ ms.locfileid: "66004189"
 ### <a name="prepare-the-vm"></a>准备 VM
 可上传使用本地 VM 创建的专用 VHD 或从另一个云导出的 VHD。 用 VHD 保留原始 VM 中的用户帐户、应用程序和其他状态数据。 如果想要使用当前 VHD 创建新 VM，请确保完成以下步骤。 
 
-* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 不要使用 Sysprep 通用化 VM。
+* [准备好要上传到 Azure 的 Windows VHD](prepare-for-upload-vhd-image.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 不要使用 Sysprep 通用化 VM  。
 * 删除 VM 上安装的所有来宾虚拟化工具和代理（例如 VMware 工具）。
 * 确保 VM 配置为通过 DHCP 来提取其 IP 地址和 DNS 设置。 这确保服务器在启动时在 VNet 中获取 IP 地址。 
 
@@ -113,42 +113,42 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 ### <a name="before-you-begin"></a>准备阶段
 请确保：
 
-* 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“所有服务”>“存储帐户”>“添加”）或使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet 创建一个存储帐户。 
+* 获取有关**源和目标存储帐户**的信息。 对于源 VM，需要具有存储帐户和容器名称。 通常，容器名称为 **vhds**。 还需要获取目标存储帐户。 如果尚未拥有存储帐户，可以使用门户（“所有服务”>“存储帐户”>“添加”）或使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet 创建一个存储帐户  。 
 * 已下载并安装 [AzCopy 工具](../../storage/common/storage-use-azcopy.md)。 
 
 ### <a name="deallocate-the-vm"></a>解除分配 VM
 解除分配 VM，释放要复制的 VHD。 
 
-* **门户**：单击“虚拟机” > “myVM”>“停止”
+* **门户**：单击“虚拟机” > “myVM”>“停止”  
 * **Powershell**：使用 [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 可停止（解除分配）资源组 **myResourceGroup** 中名为 **myVM** 的 VM。
 
-```powershell
-Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
-```
+    ```powershell
+    Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
+    ```
 
-Azure 门户中该 VM 的“状态”将从“已停止”更改为“已停止(已解除分配)”。
+Azure 门户中该 VM 的“状态”将从“已停止”更改为“已停止(已解除分配)”    。
 
 ### <a name="get-the-storage-account-urls"></a>获取存储帐户 URL
 需要源和目标存储帐户的 URL。 URL 类似于： `https://<storageaccount>.blob.core.chinacloudapi.cn/<containerName>/`。 如果已经知道了存储帐户和容器名称，则只需替换括号之间的信息即可创建 URL。 
 
 可以使用 Azure 门户或 Azure PowerShell 获取 URL：
 
-* **门户**：单击 **>** 以选择“所有服务” > “存储帐户” > “存储帐户” > “Blob”，源 VHD 文件可能在“vhds”容器中。 单击容器的“属性”并复制标记为 **URL** 的文本。 你会需要用到源和目标容器的 URL。 
+* **门户**：单击 **>** 以选择“所有服务” > “存储帐户” > “存储帐户” > “Blob”，源 VHD 文件可能在“vhds”容器中      。 单击容器的“属性”并复制标记为 **URL** 的文本。  你会需要用到源和目标容器的 URL。 
 * **Powershell**：使用 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 可获取资源组 **myResourceGroup** 中名为 **myVM** 的 VM 的信息。 在结果中，查看 **Vhd Uri** 的 **Storage profile** 部分。 URI 的第一部分是容器的 URL，最后一部分是 VM 的 OS VHD 名称。
 
-```powershell
-Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
-``` 
+    ```powershell
+    Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
+    ``` 
 
 ## <a name="get-the-storage-access-keys"></a>获取存储访问密钥
 查找源和目标存储帐户的访问密钥。 有关访问密钥的详细信息，请参阅[关于 Azure 存储帐户](../../storage/common/storage-create-storage-account.md)。
 
-* **门户**：单击“所有服务” > “存储帐户” > “存储帐户” > “访问密钥”。 复制标记为 **key1** 的密钥。
-* **Powershell**：使用 [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 可获取资源组 **myResourceGroup** 中存储帐户 **mystorageaccount** 的存储密钥。 复制标记为 key1 的密钥。
+* **门户**：单击“所有服务” > “存储帐户” > “存储帐户” > “访问密钥”     。 复制标记为 **key1** 的密钥。
+* **Powershell**：使用 [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 可获取资源组 **myResourceGroup** 中存储帐户 **mystorageaccount** 的存储密钥。 复制标记为 key1 的密钥  。
 
-```powershell
-Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
-```
+    ```powershell
+    Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
+    ```
 
 ### <a name="copy-the-vhd"></a>复制 VHD
 可以使用 AzCopy 在存储帐户之间复制文件。 对于目标容器，如果指定的容器不存在，系统会自动创建该容器。 
@@ -203,7 +203,7 @@ Elapsed time:            00.00:13:07
     $subnetName = "mySubNet"
     $singleSubnet = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. 创建 vNet。 本示例将虚拟网络名称设置为 **myVnetName**，将位置设置为“中国北部”，将虚拟网络的地址前缀设置为 **10.0.0.0/16**。 
+2. 创建 vNet。 本示例将虚拟网络名称设置为 **myVnetName**，将位置设置为“中国北部”  ，将虚拟网络的地址前缀设置为 **10.0.0.0/16**。 
 
     ```powershell
     $location = "China North"
@@ -302,7 +302,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
-在 [Azure 门户](https://portal.azure.cn)中，应当可以在“所有服务” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
+在 [Azure 门户](https://portal.azure.cn)中，应当可以在“所有服务” > “虚拟机”   下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $rgName

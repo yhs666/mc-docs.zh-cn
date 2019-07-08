@@ -1,5 +1,5 @@
 ---
-title: 自动缩放 Azure VM | Azure
+title: 自动缩放 Azure 中的虚拟机 | Azure
 description: 了解如何自动缩放 Azure 中的 Windows 和 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 origin.date: 08/21/2017
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: f0dc0c4e139c510d3f95b4325381015f933e02e1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c1459e749c64c6295dd47ccb7b7919ad54872bce
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625466"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570056"
 ---
 # <a name="automatically-scale-virtual-machines-in-azure"></a>自动缩放 Azure 中的虚拟机
 

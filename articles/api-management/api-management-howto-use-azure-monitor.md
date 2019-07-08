@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 06/15/2018
-ms.date: 05/06/2019
+ms.date: 07/15/2019
 ms.author: apimpm
-ms.openlocfilehash: e3f72a063e6e8fc7e9ad4f50c36b898c7055d802
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ea733acc88bd889ea615bd6a116458c24655c0e8
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855300"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569663"
 ---
 # <a name="monitor-published-apis"></a>监视已发布的 API
 
@@ -56,7 +56,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 访问指标：
 
-1. 在靠近页面底部的菜单中选择“指标”。
+1. 在靠近页面底部的菜单中选择“指标”。 
 
     ![指标](./media/api-management-azure-monitor/api-management-metrics-blade.png)
 
@@ -73,18 +73,18 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 配置警报：
 
-1. 在靠近页面底部的菜单栏中选择“警报”。
+1. 在靠近页面底部的菜单栏中选择“警报”。 
 
     ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. 对于此警报，请单击“新建警报规则”。
-3. 单击“添加条件”。
-4. 在“信号类型”下拉列表中选择“指标”。
-5. 选择“未经授权的网关请求”作为要监视的信号。
+2. 对于此警报，请单击“新建警报规则”。 
+3. 单击“添加条件”。 
+4. 在“信号类型”下拉列表中选择“指标”。 
+5. 选择“未经授权的网关请求”作为要监视的信号。 
 
     ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-6. 在“配置信号逻辑”视图中指定触发警报的阈值，然后单击“完成”。
+6. 在“配置信号逻辑”视图中指定触发警报的阈值，然后单击“完成”。  
 
     ![alerts](./media/api-management-azure-monitor/threshold.png)
 
@@ -93,7 +93,7 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
     ![alerts](./media/api-management-azure-monitor/action-details.png)
 
 8. 提供警报规则的名称和说明，然后选择严重级别。 
-9. 按“创建警报规则”。
+9. 按“创建警报规则”。 
 10. 现在，尝试在不使用 API 密钥的情况下调用会议 API。 将会触发警报，向管理员发送电子邮件。 
 
 ## <a name="activity-logs"></a>活动日志
@@ -110,11 +110,11 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 要查看活动日志，请执行以下操作：
 
 1. 选择 APIM 服务实例。
-2. 单击“活动日志”。
+2. 单击“活动日志”  。
 
     ![活动日志](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
 
-3. 选择所需的筛选范围，然后单击“应用”。
+3. 选择所需的筛选范围，然后单击“应用”  。
 
 ## <a name="diagnostic-logs"></a>诊断日志
 
@@ -123,11 +123,11 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 若要配置诊断日志，请执行以下操作：
 
 1. 选择 APIM 服务实例。
-2. 单击“诊断设置”。
+2. 单击“诊断设置”。 
 
     ![诊断日志](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
 
-3. 单击“启用诊断”。 可以将诊断日志与指标一起存档到存储帐户，将其流式传输到事件中心，或者将其发送到 Azure Monitor 日志。 
+3. 单击“启用诊断”  。 可以将诊断日志与指标一起存档到存储帐户，将其流式传输到事件中心，或者将其发送到 Azure Monitor 日志。 
 
 “API 管理”当前提供有关单个 API 请求的诊断日志（每小时进行批处理），其中每个条目具有以下架构：
 
@@ -178,45 +178,45 @@ API 管理每分钟发出一次指标，几乎可让你实时了解 API 的状�
 
 
 |        properties        |   类型    |                                                                       说明                                                                        |
-|------------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------- | ------------- | ------------- |
 |    isRequestSuccess    |  布尔值  |                                   如果 HTTP 请求完成时，响应状态代码在 2xx 或 3xx 范围内，则为 true                                   |
 |          time          | 日期时间 |                                                  网关接收 HTTP 请求的时间戳                                                  |
-|     operationName      |  字符串   |                                                   常量值“'Microsoft.ApiManagement/GatewayLogs”                                                   |
-|        category        |  字符串   |                                                               常量值“GatewayLogs”                                                               |
+|     operationName      |  string   |                                                   常量值“'Microsoft.ApiManagement/GatewayLogs”                                                   |
+|        category        |  string   |                                                               常量值“GatewayLogs”                                                               |
 |       durationMs       |  integer  |                          从网关收到请求到响应全部发送出去经过的时间（毫秒）                          |
-|    callerIpAddress     |  字符串   |                                             直接网关调用方（可以是中介）的 IP 地址                                              |
-|     correlationId      |  字符串   |                                                由 API 管理分配的唯一 http 请求标识符                                                 |
-|        location        |  字符串   |                                    处理请求的网关所在 Azure 区域的名称                                     |
-| httpStatusCodeCategory |  字符串   | Http 响应状态代码的类别：成功（301 或以下，或者 304 或 307）、未授权（401、403、429）、错误（400、500 到 600）、其他 |
-|       ResourceId       |  字符串   |    API 管理资源 /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> 的 ID     |
+|    callerIpAddress     |  string   |                                             直接网关调用方（可以是中介）的 IP 地址                                              |
+|     correlationId      |  string   |                                                由 API 管理分配的唯一 http 请求标识符                                                 |
+|        location        |  string   |                                    处理请求的网关所在 Azure 区域的名称                                     |
+| httpStatusCodeCategory |  string   | Http 响应状态代码的类别：成功（301 或以下，或者 304 或 307）、未授权（401、403、429）、错误（400、500 到 600）、其他 |
+| ResourceId | string | API 管理资源 /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> 的 ID |
 |       properties       |  object   |                                                            当前请求的属性                                                             |
-|         method         |  字符串   |                                                           传入请求的 HTTP 方法                                                            |
-|          url           |  字符串   |                                                               传入请求的 URL                                                                |
-|     clientProtocol     |  字符串   |                                                      传入请求的 HTTP 协议版本                                                       |
+|         method         |  string   |                                                           传入请求的 HTTP 方法                                                            |
+|          url           |  string   |                                                               传入请求的 URL                                                                |
+|     clientProtocol     |  string   |                                                      传入请求的 HTTP 协议版本                                                       |
 |      responseCode      |  integer  |                                                    发送到客户端的 HTTP 响应的状态代码                                                     |
-|     backendMethod      |  字符串   |                                                       发送到后端的请求的 HTTP 方法                                                       |
-|       backendUrl       |  字符串   |                                                           发送到后端的请求的 URL                                                           |
+|     backendMethod      |  string   |                                                       发送到后端的请求的 HTTP 方法                                                       |
+|       backendUrl       |  string   |                                                           发送到后端的请求的 URL                                                           |
 |  backendResponseCode   |  integer  |                                                    从后端收到的 HTTP 响应代码                                                     |
-|    backendProtocol     |  字符串   |                                                  发送到后端的请求的 HTTP 协议版本                                                  |
+|    backendProtocol     |  string   |                                                  发送到后端的请求的 HTTP 协议版本                                                  |
 |      requestSize       |  integer  |                                             在请求处理过程中从客户端接收的字节数                                             |
 |      responseSize      |  integer  |                                                在请求处理过程中发送到客户端的字节数                                                |
-|         cache          |  字符串   |                                 在请求处理过程中涉及的 API 管理缓存的状态（即命中、未命中、无）                                 |
+|         cache          |  string   |                                 在请求处理过程中涉及的 API 管理缓存的状态（即命中、未命中、无）                                 |
 |       cacheTime        |  integer  |                        花在整个 API 管理缓存 IO（连接、发送和接收字节）上的时间（毫秒）                        |
 |      backendTime       |  integer  |                               花在整个后端 IO（连接、发送和接收字节）上的时间（毫秒）                               |
 |       clientTime       |  integer  |                               花在整个客户端 IO（连接、发送和接收字节）上的时间（毫秒）                                |
-|         apiId          |  字符串   |                                                        当前请求的 API 实体标识符                                                         |
-|      operationId       |  字符串   |                                                     当前请求的操作实体标识符                                                      |
-|       productId        |  字符串   |                                                      当前请求的产品实体标识符                                                       |
-|         userId         |  字符串   |                                                        当前请求的用户实体标识符                                                        |
-|   apimSubscriptionId   |  字符串   |                                                    当前请求的订阅实体标识符                                                    |
-|       backendId        |  字符串   |                                                      当前请求的后端实体标识符                                                       |
+|         apiId          |  string   |                                                        当前请求的 API 实体标识符                                                         |
+|      operationId       |  string   |                                                     当前请求的操作实体标识符                                                      |
+|       productId        |  string   |                                                      当前请求的产品实体标识符                                                       |
+|         userId         |  string   |                                                        当前请求的用户实体标识符                                                        |
+|   apimSubscriptionId   |  string   |                                                    当前请求的订阅实体标识符                                                    |
+|       backendId        |  string   |                                                      当前请求的后端实体标识符                                                       |
 |       lastError        |  object   |                                                              上一个请求处理错误                                                               |
 |        elapsed         |  integer  |                               从网关收到请求到发生错误经过的时间（毫秒）                               |
-|         source         |  字符串   |                                            导致错误的策略或内部处理程序的名称                                            |
-|         scope          |  字符串   |                                         导致错误的策略所在策略文档的范围                                         |
-|        section         |  字符串   |                                        导致错误的策略所在策略文档的节                                        |
-|         reason         |  字符串   |                                                                       错误原因                                                                       |
-|        message         |  字符串   |                                                                      错误消息                                                                       |
+|         source         |  string   |                                            导致错误的策略或内部处理程序的名称                                            |
+|         scope          |  string   |                                         导致错误的策略所在策略文档的范围                                         |
+|        section         |  string   |                                        导致错误的策略所在策略文档的节                                        |
+|         reason         |  string   |                                                                       错误原因                                                                       |
+|        message         |  string   |                                                                      错误消息                                                                       |
 
 ## <a name="next-steps"></a>后续步骤
 

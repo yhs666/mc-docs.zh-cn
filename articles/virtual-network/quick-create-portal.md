@@ -15,12 +15,12 @@ ms.workload: infrastructure
 origin.date: 11/30/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1b728f03e620031630e94214725601a8302b05c9
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 739c8c70f51fe2e481cebae8514b9727cca08810
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250417"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540066"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建虚拟网络
 
@@ -164,9 +164,11 @@ ms.locfileid: "66250417"
 1. 输入 `ping myVm2`。
 
     你将看到类似于以下信息的内容：
-
+    
+    <!--MOONCAKE: CORRECT ON cloudapp.chinacloudapi.cn-->
+    
     ```powershell
-    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.clouda
+    Pinging myVm2.0v0zze1s0uiedpvtxz5z0r0cxg.bx.internal.cloudapp.chinacloudapi.cn
     Request timed out.
     Request timed out.
     Request timed out.

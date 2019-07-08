@@ -3,20 +3,21 @@ title: 什么是与 Azure AD 的密码哈希同步？ | Microsoft Docs
 description: 介绍了密码哈希同步。
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: overview
 origin.date: 12/05/2018
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.date: 07/04/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 3dfd3de7c1cfc3a6d90bd7da90fab3174dc1bd15
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 70f8438999c4490fb6a524783d34fe42569a219f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996390"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568604"
 ---
 # <a name="what-is-password-hash-synchronization-with-azure-ad"></a>什么是与 Azure AD 的密码哈希同步？
 密码哈希同步是用来实现混合标识的登录方法之一。 Azure AD Connect 将用户密码的哈希从本地 Active Directory 实例同步到基于云的 Azure AD 实例。
@@ -27,14 +28,14 @@ ms.locfileid: "53996390"
 
 密码哈希同步通过将用户需要维护的密码数目减少为一个来提供帮助。 密码哈希同步可以：
 
-- 提升用户的生产力。
-- 减少技术支持成本  
+* 提升用户的生产力。
+* 减少技术支持成本  
 
 若要在环境中使用密码哈希同步，需要：
 
-- 安装 Azure AD Connect。  
-- 配置本地 Azure Active Directory 实例与 Azure Active Directory 实例之间的目录同步。
-- 启用密码哈希同步。
+* 安装 Azure AD Connect。  
+* 配置本地 Azure Active Directory 实例与 Azure Active Directory 实例之间的目录同步。
+* 启用密码哈希同步。
 
 
 
@@ -45,7 +46,8 @@ ms.locfileid: "53996390"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [什么是混合标识？](whatis-phs.md)
+- [什么是混合标识？](whatis-hybrid-identity.md)
 - [什么是联合身份验证？](whatis-fed.md)
 - [密码哈希同步的工作原理](how-to-connect-password-hash-synchronization.md)
 
+<!-- Update_Description: link update -->

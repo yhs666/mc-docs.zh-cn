@@ -3,27 +3,27 @@ title: 从 Android 应用登录用户并调用 Microsoft Graph API | Microsoft D
 description: 了解如何从 Android 应用登录用户并调用 Microsoft Graph API。
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 09/24/2018
-ms.date: 01/02/2019
+origin.date: 05/21/2019
+ms.date: 06/25/2019
 ms.author: v-junlch
-ms.reviewer: dadobali
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: adec8224b2ad23d8f15e961a1a511fbe04dabdd0
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: afde65b21ac12f02fd2bdb238b3077823f7cfb5e
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151741"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568735"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
@@ -35,10 +35,10 @@ Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 O
 
 在本快速入门中，你将学习如何：
 
-- 获取 Microsoft Graph 的令牌
-- 刷新令牌
-- 调用 Microsoft Graph
-- 注销用户
+* 获取 Microsoft Graph 的令牌
+* 刷新令牌
+* 调用 Microsoft Graph
+* 注销用户
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -82,22 +82,21 @@ mAuthResult.getAccessToken()
 需要使用 [Azure 门户](https://portal.azure.cn)向 Microsoft 注册一个本机客户端应用程序。
 
 1. 开始注册应用
-    - 导航到 [Azure 门户](https://portal.azure.cn)。 
+    - 导航到 [Azure 门户](https://portal.azure.cn)。
     - 选择“Azure Active Directory” > “应用注册”。
 
 2. 创建应用程序
-    - 选择“新建应用程序注册”  。
+    - 选择“新注册”。 
     - 在“名称”字段中输入应用名称  。
-    - 在“应用程序类型”中选择“本机”   。
-    - 在“重定向 URI”中输入 `http://localhost`  。
+    - 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。  
+    - 另外，请从下拉列表中选择“公共客户端(移动和桌面)”并输入 `http://localhost`。  
+    - 单击“注册”  。
 
 3. 配置 Microsoft Graph
-    - 选择“设置”>“所需权限”  。
-    - 选择“添加”，在“选择 API”中选择“Microsoft Graph”   。
-    - 选择“登录并读取用户配置文件”权限，然后按“选择”进行保存   。
-        - 此权限映射到 `https://microsoftgraph.chinacloudapi.cn/user.read` 作用域。
-    - 可选：在“所需权限”>“Azure Active Directory”内删除选定权限“登录并读取用户配置文件”   。 这将避免用户同意页面两次列出该权限。
-
+    - 选择“API 权限”  。
+    - 选择“添加权限”，在“选择 API”中选择“Microsoft Graph”   。
+    - 在“委托的权限”  下，选择 **User.Read** 权限，然后点击“添加”  以保存。        
+    
 4. 恭喜！ 应用已配置成功。 在下一部分中，你需要：
     - `Application ID`
     - `Redirect URI`
@@ -128,7 +127,7 @@ mAuthResult.getAccessToken()
 
 1. 有关库机制以及如何配置新方案和功能的详细信息，请查看 [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)。
 2. 在本机方案中，应用将使用嵌入式 Web 视图，并且不会退出应用。 `Redirect URI` 可以是任意值。
-3. 发现任何问题或有任何要求？ 可以在 Stackoverflow 上使用标记 `azure-active-directory` 创建问题或发贴。
+3. 发现任何问题或有任何要求？ 可以在 Stack Overflow 上使用标记 `azure-active-directory` 创建问题或发贴。
 
 
 ### <a name="auth-telemetry"></a>身份验证遥测

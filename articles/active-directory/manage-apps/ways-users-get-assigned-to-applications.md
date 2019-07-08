@@ -3,8 +3,8 @@ title: 如何将用户分配给应用程序 | Microsoft Docs
 description: 了解如何将用户分配给租户中的应用程序
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2017
-ms.date: 02/18/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 28b278a0c89150441c50ccbd31520688cbc00bca
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 956cd1b54880ab0c74de0ee367ff961900953499
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626069"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568584"
 ---
 # <a name="how-to-assign-users-to-applications"></a>如何将用户分配给应用程序
 
@@ -50,6 +51,6 @@ ms.locfileid: "58626069"
 
 6. 通过登录应用程序，用户自己[同意使用应用程序](/active-directory/develop/active-directory-devhowto-multi-tenant-overview)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->
 
 

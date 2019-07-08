@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: a78f67e671156c13345a46fbbf53a4b2ca7bb583
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 30b3d20b2cf110dae1cd37823cf8e5d02992e849
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586756"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562405"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 
@@ -31,7 +31,7 @@ ms.locfileid: "65586756"
 
 - 你必须是 Azure 订阅的[服务管理员或共同管理员](https://docs.azure.cn/zh-cn/billing/billing-add-change-azure-subscription-administrator)。 
 
-- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)。 
+- 你的订阅必须已注册到 [Microsoft.Insights](/azure-resource-manager/resource-manager-supported-services)。 
 
 - 你需要具备任一个 [Azure PowerShell](/powershell/azure)。
 
@@ -39,19 +39,19 @@ ms.locfileid: "65586756"
 
 1. 创建并部署经典云服务 可在 [Azure 云服务和 ASP.NET 入门](../../cloud-services/cloud-services-dotnet-get-started.md)中找到经典云服务应用程序和部署示例。 
 
-2. 可以使用现有存储帐户，也可以部署新的存储帐户。 如果存储帐户与创建的经典云服务在同一区域中，那就最好了。 在 Azure 门户中，转到“存储帐户”资源边栏选项卡并选择“密钥”。 记下存储帐户名称和存储帐户密钥。 在后续步骤中需要使用此信息。
+2. 可以使用现有存储帐户，也可以部署新的存储帐户。 如果存储帐户与创建的经典云服务在同一区域中，那就最好了。 在 Azure 门户中，转到“存储帐户”资源边栏选项卡并选择“密钥”。   记下存储帐户名称和存储帐户密钥。 在后续步骤中需要使用此信息。
 
    ![存储帐户密钥](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/storage-keys.png)
 
 ## <a name="create-a-service-principal"></a>创建服务主体 
 
-遵照[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)中的说明，在 Azure Active Directory 租户中创建服务主体。 在完成此过程时请注意以下几点： 
+遵照[使用门户创建可访问资源的 Azure Active Directory 应用程序和服务主体](/active-directory/develop/howto-create-service-principal-portal)中的说明，在 Azure Active Directory 租户中创建服务主体。 在完成此过程时请注意以下几点： 
 
 - 可以输入任何 URL 作为登录 URL。  
 - 为此应用创建新的客户端机密。  
 - 保存密钥和客户端 ID，以便在后续步骤中使用。  
 
-对于在前面步骤中创建的应用，请为其授予你希望发布其指标的资源的“监视指标发布者”权限。 如果你计划使用此应用为许多资源发布自定义指标，则可以在资源组或订阅级别授予这些权限。  
+对于在前面步骤中创建的应用，请为其授予你希望发布其指标的资源的“监视指标发布者”权限。  如果你计划使用此应用为许多资源发布自定义指标，则可以在资源组或订阅级别授予这些权限。  
 
 > [!NOTE]
 > 诊断扩展使用服务主体向 Azure Monitor 证明身份，并发布云服务的指标。
@@ -174,15 +174,15 @@ Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -Sto
 
    ![指标 Azure 门户](./media/collect-custom-metrics-guestos-vm-cloud-service-classic/navigate-metrics.png)
 
-2. 在左侧菜单中，选择“监视”。
+2. 在左侧菜单中，选择“监视”  。
 
-3. 在“监视”边栏选项卡中，选择“指标预览”选项卡。
+3. 在“监视”边栏选项卡中，选择“指标预览”选项卡。  
 
 4. 在资源下拉菜单中，选择你的经典云服务。
 
-5. 在命名空间下拉菜单中，选择“azure.vm.windows.guest”。 
+5. 在命名空间下拉菜单中，选择“azure.vm.windows.guest”。  
 
-6. 在指标下拉菜单中，选择“内存\已提交的使用字节数”。 
+6. 在指标下拉菜单中，选择“内存\已提交的使用字节数”。  
 
 可以使用维度筛选和拆分功能查看特定角色或角色实例使用的总内存。 
 

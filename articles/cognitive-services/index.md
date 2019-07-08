@@ -10,12 +10,12 @@ ms.author: v-junlch
 origin.date: 02/21/2019
 ms.date: 03/27/2019
 ms.topic: hub-page
-ms.openlocfilehash: 3b70cf036b208bd2e0ab5e3b0cf09d93175e3c47
-ms.sourcegitcommit: 704fc1a146407c9c6b055f961c81fa4b6ed23a94
+ms.openlocfilehash: 9fc4027e81eb03c60fb9b0c7fb4864a97b51d0c1
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67333885"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568754"
 ---
 <div id="main" class="v2">
 <h1>Azure 认知服务文档</h1>
@@ -133,6 +133,13 @@ ms.locfileid: "67333885"
         </a>
     </li>
     <li>
+        <a class="card" href="/cognitive-services/luis/luis-quickstart-intents-only" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>生成 LUIS 应用</h3>
+            </div>
+        </a>
+    </li>
+    <li>
         <a class="card" href="/cognitive-services/Text-Analytics/tutorials/tutorial-power-bi-key-phrases" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
             <div class="cardText">
                 <h3>将文本分析与 Power BI 配合使用</h3>
@@ -175,6 +182,7 @@ ms.locfileid: "67333885"
                 <div class="card">
                     <div class="cardText">
                         <h3>语言 API</h3>
+                        <p><a href="/cognitive-services/luis/">语言理解 (LUIS)</a></p>
                         <p><a href="/cognitive-services/text-analytics/">文本分析</a></p>
                         <p><a href="/cognitive-services/translator/">文本翻译</a></p>
                     </div>

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1bef0bd0eae8bdee68f072c9a3fe560a273814c5
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 3437d9526ca3c57c09d3a49cf0534b7d3868462c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236515"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562736"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的 Analytics
 Analytics 是 [Application Insights](app-insights-overview.md) 的强大搜索和查询工具。 Analytics 是一个 Web 工具，因此不需要安装。
@@ -64,7 +64,6 @@ requests
 * 开始[编写查询](https://go.microsoft.com/fwlink/?linkid=856078)
 * 查看 [SQL-用户备忘单](https://aka.ms/sql-analytics)来了解最常用习惯用语的翻译。
 * 如果应用尚未向 Application Insights 发送数据，请在我们的[练习场](https://analytics.applicationinsights.io/demo)上体验 Analytics。
-* 观看[介绍视频](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)。
 
 
 

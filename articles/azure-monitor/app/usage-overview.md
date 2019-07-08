@@ -13,12 +13,12 @@ ms.date: 6/4/2019
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 62e63401b1f2eeff87b239664683d5e59c7868b2
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 17cb3747b3275322d087d4cb59da6778f36a6f97
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732418"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562645"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights 使用分析
 
@@ -56,7 +56,7 @@ Web 或移动应用有哪些最热门的功能？ 用户是否使用应用实现
 ## <a name="include-user-and-session-id-in-your-telemetry"></a>在遥测中包括用户和会话 ID
 若要持续跟踪用户，Application Insights 需要识别用户的方法。 事件工具是唯一不需要用户 ID 或会话 ID 的使用情况工具。
 
-开始使用[此过程](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)发送用户 ID 和会话 ID。
+开始使用[此过程](/azure-monitor/app/usage-send-user-context)发送用户 ID 和会话 ID。
 
 ## <a name="explore-usage-demographics-and-statistics"></a>浏览用户人口和统计信息
 查明人们何时使用应用，他们对哪些页面最感兴趣，用户在哪里以及他们使用什么浏览器和操作系统。 

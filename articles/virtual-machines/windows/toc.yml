@@ -72,10 +72,10 @@
           items:
             - name: 约束的 vCPU
               href: constrained-vcpu.md
-        - name: GPU 优化
-          displayName: NCv3
-          href: sizes-gpu.md
+        - name: 加速计算
           items:
+            - name: GPU 优化
+              href: sizes-gpu.md
             - name: 安装 GPU 驱动程序
               href: n-series-driver-setup.md
         - name: 前几代
@@ -168,8 +168,6 @@
               href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
             - name: 还原磁盘
               href: ../../backup/tutorial-restore-disk.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
-            - name: 还原单个文件
-              href: ../../backup/tutorial-restore-files.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
         - name: 为 VM 设置灾难恢复
           href: ../../site-recovery/site-recovery-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json
           items:

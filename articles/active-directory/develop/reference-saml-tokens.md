@@ -2,28 +2,29 @@
 title: 了解 Azure AD 支持的不同令牌和声明类型 | Microsoft Docs
 description: 本指南帮助你了解和评估 Azure Active Directory (AAD) 颁发的 SAML 2.0 令牌和 JSON Web 令牌 (JWT) 令牌中的声明。
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 06/22/2018
-ms.date: 01/02/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7c506f894106a6438a0e7a9e0ca0b051ec51c261
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 46d388e7d70cc73900ab39fbc3ea9f31605570f5
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243635"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568570"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Azure AD SAML 令牌参考
 
@@ -32,7 +33,6 @@ Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多�
 ## <a name="claims-in-saml-tokens"></a>SAML 令牌中的声明
 
 > [!div class="mx-codeBreakAll"]
-> 
 > | Name | 等效 JWT 声明 | 说明 | 示例 |
 > | --- | --- | --- | ------------|
 > |目标受众 | `aud` |令牌的目标接收方。 接收令牌的应用程序必须验证受众值是否正确，并拒绝任何以其他受众为目标的令牌。 | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
@@ -157,6 +157,7 @@ Azure Active Directory (Azure AD) 在处理每个身份验证流时会发出多�
     </t:RequestSecurityTokenResponse>
 
 ## <a name="related-content"></a>相关内容
-- 请参阅 Azure AD Graph [策略操作](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)以了解有关通过 Azure AD Graph API 管理令牌生存期策略的详细信息。
+* 请参阅 Azure AD Graph [策略操作](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations)和[策略实体](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#policy-entity)以了解有关通过 Azure AD Graph API 管理令牌生存期策略的详细信息。
+* 将[自定义和可选声明](active-directory-optional-claims.md)添加到应用程序的令牌。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -13,32 +13,31 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: e2ddab8bbfea51c705c64099c48be2e1ef5a7bf4
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 6a318f815ac739eb1d5779c3fe9e4855c137fae3
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686378"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562274"
 ---
 # <a name="azure-monitor-for-service-providers"></a>适用于服务提供商的 Azure Monitor
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。 
 
 大型企业与服务提供商有许多相似之处，特别是当有一个集中式 IT 团队负责管理许多不同业务部门的 IT 时。 为了简单起见，本文档使用术语*服务提供商*，但同样的功能也可用于企业和其他客户。
 
-对于加入[云解决方案提供商 (CSP)](https://partner.microsoft.com/Solutions/cloud-reseller-overview) 计划的合作伙伴和服务提供商，Azure Monitor 中的 Log Analytics 是 [Azure CSP 订阅](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview)中可用的 Azure 服务之一。 
 
 ## <a name="architectures-for-service-providers"></a>适用于服务提供商的体系结构
 
-借助 Log Analytics 工作区，管理员可控制日志流动和隔离，并创建满足其特定业务需求的日志体系结构。 [本文](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access)介绍有关工作区管理的一般注意事项。 服务提供商有其他注意事项。
+借助 Log Analytics 工作区，管理员可控制日志流动和隔离，并创建满足其特定业务需求的日志体系结构。 [本文](/log-analytics/log-analytics-manage-access)介绍有关工作区管理的一般注意事项。 服务提供商有其他注意事项。
 
 对于 Log Analytics 工作区，有三种可能的体系结构适用于服务提供商：
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1.分布式：日志存储在位于客户租户中的工作区内 
 
-在此体系结构中，工作区部署在客户的租户中，此租户用于该客户的所有日志。 使用 [Azure Active Directory 来宾用户 (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b) 授予服务提供商管理员访问此工作区的权限。 服务提供商管理员必须在 Azure 门户中切换到其客户的目录才能访问这些工作区。
+在此体系结构中，工作区部署在客户的租户中，此租户用于该客户的所有日志。 使用 [Azure Active Directory 来宾用户 (B2B)](/active-directory/b2b/what-is-b2b) 授予服务提供商管理员访问此工作区的权限。 服务提供商管理员必须在 Azure 门户中切换到其客户的目录才能访问这些工作区。
 
 此体系结构的优点在于：
-* 客户可以使用自己的[基于角色的访问权限](https://docs.microsoft.com/azure/role-based-access-control/overview)来管理对日志的访问。
+* 客户可以使用自己的[基于角色的访问权限](/role-based-access-control/overview)来管理对日志的访问。
 * 每个客户都可以为其工作区设置不同的设置，例如保留期和数据上限。
 * 在客户之间进行隔离以遵守监管和合规要求。
 * 每个工作区的费用将计入客户的订阅中。
@@ -72,7 +71,7 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 在中心位置实现日志有两种选择：
 
-1. 中心工作区：服务提供商可以在其租户中创建工作区，并使用利用[查询 API](https://dev.loganalytics.io/) 和[数据收集 API](../../azure-monitor/platform/data-collector-api.md) 的脚本从各个工作区将数据提取到此中心位置。 脚本之外的另一种选择是使用 [Azure 逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)。
+1. 中心工作区：服务提供商可以在其租户中创建工作区，并使用利用[查询 API](https://dev.loganalytics.io/) 和[数据收集 API](../../azure-monitor/platform/data-collector-api.md) 的脚本从各个工作区将数据提取到此中心位置。 脚本之外的另一种选择是使用 [Azure 逻辑应用](/logic-apps/logic-apps-overview)。
 
 2. 使用 Power BI 作为中心位置：当各个工作区利用 Log Analytics 工作区和 [Power BI](../../azure-monitor/platform/powerbi.md) 之间的集成将数据导出到 Power BI 时，Power BI 可以充当中心位置。 
 
@@ -81,8 +80,6 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 * 使用[Resource Manager 模板](template-workspace-configuration.md)自动执行创建和配置工作区
 * 使用 [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md) 自动创建工作区 
 * 使用[警报](../../azure-monitor/platform/alerts-overview.md)以便与现有系统集成
-* 使用 [Power BI](../../azure-monitor/platform/powerbi.md) 生成摘要报告
-* 查看[配置 Log Analytics 和 Power BI 以监视多个 CSP 客户](https://docs.microsoft.com/azure/cloud-solution-provider/support/monitor-multiple-customers)的过程
 
 
 

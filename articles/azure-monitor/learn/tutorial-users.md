@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 0dc14b356f5e91a7d198580133cc80c49ab2f33b
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 0d44db8cc89a72fb885c51475b66e16be479a127
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731456"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562535"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>使用 Azure Application Insights 了解客户对应用程序的使用情况
 
@@ -35,12 +35,13 @@ Azure Application Insights 收集使用情况信息，帮助了解用户与应�
 
 完成本教程：
 
-- 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用以下工作负荷安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 开发
     - Azure 开发
 - 下载并安装 [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger)。
 - 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。 
-- 发送[用户上下文](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context)，跟踪用户在一段时间内执行的操作及充分利用使用情况功能。
+- [从应用程序发送遥测数据](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app)，添加自定义事件/页面视图
+- 发送[用户上下文](/azure-monitor/app/usage-send-user-context)，跟踪用户在一段时间内执行的操作及充分利用使用情况功能。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。

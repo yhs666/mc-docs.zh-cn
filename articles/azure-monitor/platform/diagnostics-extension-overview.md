@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: cc472aca4b333be02623f993130da21867f7a34d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: f66dafc46b47fd7850a7625814b645e0c3c351fc
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731263"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562367"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](../../azure-monitor/overview.md)。
@@ -30,15 +30,17 @@ Azure 诊断扩展可收集以下类型的数据：
 | Windows 事件日志 |发送到 Windows 事件日志记录系统的信息 |
 | .NET EventSource 日志 |使用 .NET [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 类的代码编写事件 |
 | IIS 日志 |有关 IIS 网站的信息 |
-| 基于清单的 ETW |由任何进程生成的 Windows 事件的事件跟踪。(1) |
-| 故障转储 |有关应用程序崩溃时进程状态的信息 |
+| [基于清单的 ETW 日志](https://docs.microsoft.com/windows/desktop/etw/about-event-tracing) |由任何进程生成的 Windows 事件的事件跟踪。(1) |
+| 故障转储（日志） |有关应用程序崩溃时的进程状态的信息 |
 | 自定义错误日志 |应用程序或服务创建的日志 |
-| Azure 诊断基础结构日志 |有关诊断自身的信息 |
+| Azure 诊断基础结构日志 |有关 Azure 诊断自身的信息 |
 
 (1) 要获取 ETW 提供程序列表，在要收集信息的计算机的控制台窗口中运行 `c:\Windows\System32\logman.exe query providers`。
 
 ## <a name="data-storage"></a>数据存储
 该扩展将其数据存储在你指定的 [Azure 存储帐户](diagnostics-extension-to-storage.md)中。
+
+也可将其发送到 [Application Insights](../../azure-monitor/app/cloudservices.md)。 
 
 还可将其流式传输到[事件中心](../../event-hubs/event-hubs-about.md)，然后就可将其发送到非 Azure 监视服务。
 

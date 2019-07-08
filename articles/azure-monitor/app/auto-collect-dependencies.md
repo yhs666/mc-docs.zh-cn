@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: f88282de667c076a788a999a2a4be8d807d5098b
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: fbd6fc73b79fcb124ca828e6f6641341ad956fd2
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732212"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562719"
 ---
 # <a name="dependency-auto-collection"></a>依赖项自动收集
 
-下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这包括对通信库、存储客户端、日志记录和指标库的传出调用，以及对应用程序框架和服务器的传入调用。 这些依赖项在 Application Insights 的[应用程序映射](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)和[事务诊断](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)手动跟踪它。
+下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这包括对通信库、存储客户端、日志记录和指标库的传出调用，以及对应用程序框架和服务器的传入调用。 这些依赖项在 Application Insights 的[应用程序映射](/azure-monitor/app/app-map)和[事务诊断](/azure-monitor/app/transaction-diagnostics)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
 
 ## <a name="net"></a>.NET
 
@@ -69,7 +69,7 @@ ms.locfileid: "66732212"
 
 > [!NOTE]
 > *响应式编程支持除外。
-> <br>†需安装 [JVM 代理](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java)。
+> <br>†需安装 [JVM 代理](/azure-monitor/app/java-agent#install-the-application-insights-agent-for-java)。
 
 ## <a name="nodejs"></a>Node.js
 

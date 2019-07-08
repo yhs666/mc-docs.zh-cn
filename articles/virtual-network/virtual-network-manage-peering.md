@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/01/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: e16f25e2a8db743c52035beb26bce51a1d4bcdf3
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: b0b2317b374acbcd2024bc71fa562bb9a5266e9f
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250461"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540072"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -175,7 +175,8 @@ ms.locfileid: "66250461"
     |一个是资源管理器模型，一个是经典模型  |[相同](create-peering-different-deployment-models.md)|
     |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
-- 了解如何创建[中心辐射型网络拓扑](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)
+    <!--Not Available on - Learn how to create a [hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)-->
+
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建虚拟网络对等互连
 - 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)
 

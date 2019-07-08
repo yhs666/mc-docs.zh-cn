@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b32a6988d84ae838814ca0f722de57c434680df7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3642e55728b29553a528a0e7ca9431c0b7af51a6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625519"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570475"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>运行 Azure 备份服务器的无人参与安装
 
@@ -56,7 +56,7 @@ ms.locfileid: "58625519"
    ```
 
 可以将以下这些标志用于安装：</br>
-/f：.ini 文件路径</br>
+/f：.ini 文件路径 </br>
 **/l**：日志路径</br>
 **/i**：安装路径</br>
 **/x**：卸载路径</br>
@@ -66,7 +66,6 @@ ms.locfileid: "58625519"
 
 - [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup.md)
 - [使用备份服务器备份 VMware 服务器](backup-azure-backup-server-vmware.md)
-- [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 - [将 Modern Backup Storage 添加到备份服务器](backup-mabs-add-storage.md)
 
 <!-- Update_Description: link update -->

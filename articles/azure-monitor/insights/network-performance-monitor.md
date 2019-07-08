@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: d7a053c1d68b2e6ad3791f1869d12d4237d3526a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: bbfc40258979374ebd2a2661d76d2cac440e33c4
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236428"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562598"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -43,14 +43,8 @@ ms.locfileid: "67236428"
  
 ## <a name="supported-regions"></a>支持的区域
 NPM 可从以下任一区域托管的工作区监视世界上任何地方网络和应用程序之间的连接：
-* 西欧
-* 美国中西部
-* 美国东部
-* 日本东部
-* 东南亚
-* 中国东南部
-* 英国南部
-* 美国弗吉尼亚州政府
+* 中国东部
+
 
 可在[文档](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)中查看支持 ExpressRoute 监视器的区域列表。
 
@@ -273,7 +267,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 ## <a name="provide-feedback"></a>提供反馈 
 
-* **UserVoice**：可以发表有关希望我们开发的网络性能监视器功能的想法。 请访问 [UserVoice 页](https://www.azure.cn/support/contact//forums/267889-log-analytics/category/188146-network-monitoring)。 
+* **UserVoice**：可以发表有关希望我们开发的网络性能监视器功能的想法。 请访问 [UserVoice 页](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)。 
 
 * **加入我们的队伍**：我们总是希望一直有新客户不断加入我们的队伍。 那样，能够在早期接触到新功能并有机会帮助我们改进网络性能监视器。 如果有兴趣加入，请填写此 [快速调查](https://aka.ms/npmcohort)。 
 

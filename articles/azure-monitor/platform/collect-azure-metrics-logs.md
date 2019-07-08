@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 64ec7073d77806199f6d8c99d9b96b2b02eb4226
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 8869eb7b121cb5797d6064e680acf52c33817da6
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731270"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562411"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>将 Azure 服务日志和指标收集到 Azure Monitor 的 Log Analytics 工作区中
 
@@ -54,7 +54,7 @@ ms.locfileid: "66731270"
 | 虚拟机        | Microsoft.Compute/virtualMachines       | 分机   | 分机 <br> 诊断  | |
 | 虚拟机规模集 | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | 诊断 | |
 | Web 服务器场        | Microsoft.Web/serverfarms               |             | 诊断 | |
-| 网站               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 诊断 | [Azure Web 应用分析（预览版）](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-web-apps-analytics) |
+| 网站               | Microsoft.Web/sites <br> Microsoft.Web/sites/slots |             | 诊断 | [Azure Web 应用分析（预览版）](/azure-monitor/insights/azure-web-apps-analytics) |
 
 
 > [!NOTE]
@@ -75,6 +75,7 @@ ms.locfileid: "66731270"
 >
 
 * 有关可用指标的详细信息，请参阅 [Azure 监视器支持的指标](../../azure-monitor/platform/metrics-supported.md)。
+* 有关可用日志的详细信息，请参阅[诊断日志支持的服务和架构](diagnostic-logs-schema.md)。
 
 ### <a name="enable-diagnostics-with-powershell"></a>使用 PowerShell 启用诊断
 
@@ -150,7 +151,7 @@ Application Insights 有连接器，它允许 Application Insights 收集要发�
 
 对于未提供用于将日志和指标发送到 Log Analytics 工作区的直接方式的 Azure 服务，可以使用 Azure 自动化脚本来收集日志和指标。 然后，该脚本可以使用[数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 将数据发送到工作区
 
-Azure 模板库有[使用 Azure 自动化的示例](https://www.azure.cn/resources/templates/?term=OMS)，可从服务收集数据并将数据发送到 Azure Monitor。
+Azure 模板库有[使用 Azure 自动化的示例](https://azure.microsoft.com/resources/templates/?term=OMS)，可从服务收集数据并将数据发送到 Azure Monitor。
 
 ## <a name="next-steps"></a>后续步骤
 

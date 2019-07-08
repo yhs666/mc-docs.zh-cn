@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: sample
-ms.date: 01/21/19
+ms.date: 01/31/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 1b96f677f68b820c555ebbef825ff0d3a51ff5fe
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 4a10626e9a2fa48d9d845e0cb4bba0f43a2ed5a2
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363481"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570472"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 
@@ -31,7 +31,9 @@ ms.locfileid: "54363481"
 | [为 IaaS VM 创建每日备份策略](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | 模板创建恢复服务保管库和每日备份策略，该策略用于备份经典虚拟机和资源管理器虚拟机。|
 | [部署启用了备份的 Windows Server VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | 模板创建启用默认备份策略的 Windows Server VM 和恢复服务保管库。|
 |**监视备份作业** |  |
-| [使用 Log Analytics 监视 Azure 备份](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | 模板部署用于 Azure 备份的 Log Analytics Monitoring，后者用于监视备份和还原作业、备份警报以及在恢复服务保管库中使用的云存储。|  
+| [将 Azure Monitor 日志与 Azure Backup 配合使用](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | 模板部署用于 Azure 备份的 Azure Monitor 日志，后者用于监视备份和还原作业、备份警报以及在恢复服务保管库中使用的云存储。|  
+|**在 Azure VM 中备份 SQL Server** |  |
+| [在 Azure VM 中备份 SQL Server](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-vm-workload-backup) | 模板创建特定于恢复服务保管库和工作负荷的备份策略。 它使用 Azure 备份服务注册 VM 并在该 VM 上配置保护。 目前，它仅适用于 SQL 库映像。 |
 |   |   |
 
 

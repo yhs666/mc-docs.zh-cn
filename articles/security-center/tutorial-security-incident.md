@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ad0ee0a941b0dcd76784f7b825264d4688d7f803
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: a41ecb0ade141d0c49c8a6b0e1e1c6b6b8af2b12
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004445"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570197"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>教程：响应安全事件
 安全中心使用高级分析和威胁智能来持续分析混合云工作负荷，在存在恶意活动时发出警报。 另外，你可以将其他安全产品和服务中的警报集成到安全中心，并根据自己的指示器或智能源创建自定义警报。 生成警报后，需采取快速行动进行调查和修正。 在本教程中，将了解如何：
@@ -30,7 +30,7 @@ ms.locfileid: "66004445"
 > * 通过深入调查确定安全事件的根本原因和范围
 > * 搜索有助于调查的安全数据
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/free/)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本教程中介绍的功能，你必须位于安全中心的“标准”定价层。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。 快速入门教程“[将 Azure 订阅载入到安全中心标准版](security-center-get-started.md)”详细介绍了如何升级到标准版。
@@ -103,10 +103,4 @@ ms.locfileid: "66004445"
 > * 安全事件，其中聚合了某个资源的相关警报
 > * 调查图，以图形方式表示与某个安全警报或事件相关的实体
 > * 搜索功能，用于查找系统受损的更多证据
-
-若要详细了解安全中心的调查功能，请参阅：
-
-> [!div class="nextstepaction"]
-> [调查事件和警报](security-center-investigation.md)
-
 

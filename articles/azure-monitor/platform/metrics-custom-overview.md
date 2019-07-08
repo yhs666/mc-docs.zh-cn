@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 7ff064e8db48b9c40c81d4fca94d9d5ec843ac22
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 20660e00c843a8c78b47f393ac5f1790bb3b578d
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135982"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562325"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor 中的自定义指标
 
@@ -26,16 +26,16 @@ ms.locfileid: "67135982"
 - 在 [Azure VM](collect-custom-metrics-guestos-resource-manager-vm.md)、[虚拟机规模集](collect-custom-metrics-guestos-resource-manager-vmss.md)、[经典 VM](collect-custom-metrics-guestos-vm-classic.md) 或[经典云服务](collect-custom-metrics-guestos-vm-cloud-service-classic.md)上安装 Windows Azure 诊断 (WAD) 扩展，并将性能计数器发送到 Azure Monitor。 
 - 在 Azure Linux VM 上安装 [InfluxData Telegraf 代理](collect-custom-metrics-linux-telegraf.md)，并使用 Azure Monitor 输出插件发送指标。
 - 将自定义指标[直接发送到 Azure Monitor REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)：`https://<azureregion>.monitoring.chinacloudapi.cn/<AzureResourceID>/metrics`。
-chinacloudapi.cn 将自定义指标发送到 Azure Monitor 时，报告的每个数据点或值必须包括以下信息。
+将自定义指标发送到 Azure Monitor 时，报告的每个数据点或值必须包括以下信息。
 
 ### <a name="authentication"></a>身份验证
 若要将自定义指标提交到 Azure Monitor，提交指标的实体需在请求的 **Bearer** 标头中提供有效的 Azure Active Directory (Azure AD) 令牌。 可通过几种支持的方法获取有效的持有者令牌：
-1. [Azure 资源的托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 为 Azure 资源本身（例如 VM）提供一个标识。 托管服务标识 (MSI) 旨在授予资源权限来执行特定的操作。 例如，允许资源发出有关其自身的指标。 可为某个资源或其 MSI 授予针对另一个资源的“监视指标发布者”权限。  获取此权限后，该 MSI 也能发出其他资源的指标。
-2. [Azure AD 服务主体](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)。 在此方案中，可向某个 Azure AD 应用程序或服务分配发出有关 Azure 资源的指标的权限。
+1. [Azure 资源的托管标识](/active-directory/managed-identities-azure-resources/overview) 为 Azure 资源本身（例如 VM）提供一个标识。 托管服务标识 (MSI) 旨在授予资源权限来执行特定的操作。 例如，允许资源发出有关其自身的指标。 可为某个资源或其 MSI 授予针对另一个资源的“监视指标发布者”权限。  获取此权限后，该 MSI 也能发出其他资源的指标。
+2. [Azure AD 服务主体](/active-directory/develop/app-objects-and-service-principals)。 在此方案中，可向某个 Azure AD 应用程序或服务分配发出有关 Azure 资源的指标的权限。
 为了对请求进行身份验证，Azure Monitor 将使用 Azure AD 公钥来验证应用程序令牌。 现有的“监视指标发布者”角色已拥有此权限。  可在 Azure 门户中使用此权限。 可以根据服务主体要发出哪些资源的自定义指标，在所需的范围为该服务主体授予“监视指标发布者”角色。  范围的示例包括订阅、资源组或特定资源。
 
 > [!NOTE]  
-> 请求用于发出自定义指标的 Azure AD 令牌时，请确保请求该令牌的受众或资源是 https://monitoring.azure.com/ 。 请务必包含尾部的“/”。
+> 请求用于发出自定义指标的 Azure AD 令牌时，请确保请求该令牌的受众或资源是 https://monitoring.azure.cn/ 。 请务必包含尾部的“/”。
 
 ### <a name="subject"></a>使用者
 此属性捕获自定义指标报告的 Azure 资源 ID。 将在 API 调用的 URL 中为此信息编码。 每个 API 只能提交单个 Azure 资源的指标值。
@@ -170,17 +170,16 @@ Azure Monitor 以一分钟粒度间隔存储所有指标。 我们知道，在�
 
 |   Azure 区域   |           区域终结点前缀           |
 |------------------|----------------------------------------------|
-|   中国北部    |   https://westeurope.monitoring.azure.cn/   |
+|   中国北部    |   https://chinaeast2.monitoring.azure.cn/   |
 
 ## <a name="quotas-and-limits"></a>配额和限制
 Azure Monitor 针对自定义指标实施以下用量限制：
 
-
-|                                        Category                                         |     限制      |
-|-----------------------------------------------------------------------------------------|----------------|
-|                         活动的时序/订阅/区域                         |     50,000     |
-|                                每个指标的维度键数                                |       10 个       |
-| 指标命名空间、指标名称、维度键和维度值的字符串长度 | 256 个字符 |
+|Category|限制|
+|---|---|
+|活动的时序/订阅/区域|50,000|
+|每个指标的维度键数|10 个|
+|指标命名空间、指标名称、维度键和维度值的字符串长度|256 个字符|
 
 活动的时序定义为包含过去 12 小时内发布的指标值的指标、维度键或维度值的任意唯一组合。
 

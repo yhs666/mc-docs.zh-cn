@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 493d9e8f2699bd71dc6b4c467122c383aae3f5c6
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.date: 07/08/2019
+ms.openlocfilehash: 3ab6269d999471e57b035720901090099ea8b79b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65830143"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570082"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教程：使用 DMS 以联机方式将 PostgreSQL 迁移到 Azure Database for PostgreSQL
 
@@ -79,8 +79,8 @@ ms.locfileid: "65830143"
 * 在 postgresql.config 文件中启用逻辑复制，并设置以下参数：
 
     * wal_level = **logical**
-    * max_replication_slots = [槽数]，建议设置为“5 个槽”
-    * max_wal_senders =[并发任务数] - max_wal_senders 参数设置可以运行的并发任务数，建议设置为“10 个任务”
+    * max_replication_slots = [槽数]，建议设置为“5 个槽” 
+    * max_wal_senders =[并发任务数] - max_wal_senders 参数设置可以运行的并发任务数，建议设置为“10 个任务” 
 
 ## <a name="migrate-the-sample-schema"></a>迁移示例架构
 

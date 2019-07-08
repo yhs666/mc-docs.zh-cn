@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 05/06/2019
+ms.date: 07/15/2019
 ms.author: v-biyu
-ms.openlocfilehash: 09c270b9898e4d70be19eb8b6cd9ee79d9e9ed20
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: e0a41590dbc7062679b8b7c788ff7bb241777acf
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854810"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560298"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中心推送通知：常见问题
 
@@ -49,6 +49,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 * **批量操作**：如[注册信息导出/导入]文档中所述启用注册信息导出/导入功能。
 
 ### <a name="what-is-the-notification-hubs-sla"></a>什么是通知中心 SLA？
+
 对于基本和标准通知中心层，正确配置的应用程序可在 99.9% 的时间发送推送通知或执行注册管理操作。 若要详细了解 SLA，请访问[通知中心 SLA](https://www.azure.cn/support/sla/notification-hubs/) 页。
 
 > [!NOTE]
@@ -56,7 +57,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>如何将中心升级或降级到不同层的命名空间？
 
-转到 **[Azure 门户]** > **通知中心命名空间**或**通知中心**。 选择要更新的资源，转到“定价层”。 请注意以下要求：
+转到 **[Azure 门户]**  > **通知中心命名空间**或**通知中心**。 选择要更新的资源，转到“定价层”。  请注意以下要求：
 
 * 更新的定价层应用到正在使用的命名空间中的*所有*中心。
 * 如果设备计数超出所要降级到的层的限制，则需要删除设备才能降级。
@@ -68,9 +69,11 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 服务器 SDK 适用于 .NET、Java、Node.js、PHP 和 Python。 通知中心 API 基于 REST 接口，因此如果要处理不同的平台或不希望有其他依赖项，可以直接使用 REST API。 有关详细信息，请转到[通知中心 REST API] 页。
 
 ### <a name="which-client-platforms-do-you-support"></a>支持哪些客户端平台？
+
 [iOS](notification-hubs-ios-apple-push-notification-apns-get-started.md)、Android、[Windows Universal](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)、[Windows Phone](notification-hubs-windows-mobile-push-notifications-mpns.md)、[Kindle](notification-hubs-kindle-amazon-adm-push-notification.md)、[Android China（通过百度）](notification-hubs-baidu-china-android-notifications-get-started.md)、Xamarin ([iOS](xamarin-notification-hubs-ios-push-notification-apns-get-started.md)) 和 [Safari](https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSafari) 支持推送通知。 有关详细信息，请转到[通知中心入门教程]页。
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>是否支持短信、电子邮件或 Web 通知？
+
 通知中心主要用于将通知发送到移动应用。 它不提供电子邮件或短信功能。 但是，提供这些功能的第三方平台可与通知中心集成，使用移动应用发送原生推送通知。
 
 通知中心也不提供现成的浏览器内推送通知传递服务。 客户可以在支持的服务器端平台上使用 SignalR 实现此功能。 
@@ -80,6 +83,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 如果有现成的移动应用后端并且只想添加发送推送通知的功能，则可以使用 Azure 通知中心。 如果想要从头开始安装移动应用后端，请考虑使用 Azure 应用服务的移动应用功能。 移动应用会自动预配通知中心，方便从移动应用后端发送推送通知。 移动应用的定价包括通知中心的基本费用。 只需在超出附送的推送套餐时支付费用。 有关费用的详细信息，请转到[应用服务定价]页。
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>如果通过通知中心发送推送通知，可以支持多少个设备？
+
 有关支持的设备数目的详细信息，请参阅[通知中心定价]页。
 
 如果需要支持 1000 万台以上的已注册设备，请直接[与我们联系](https://www.azure.cn/support/contact/)，我们将帮你扩展解决方案。
@@ -121,6 +125,7 @@ PNS 对于传递通知不提供任何 SLA 保证。 但是，大多数推送通�
 > 如果中心最初的配置使用 Apple 沙盒证书，后来又使用 Apple 生产证书重新配置，则原始设备令牌会失效。 无效的令牌会导致推送失败。 请将生产和测试环境分开，针对不同的环境使用不同的中心。
 
 #### <a name="pns-credentials"></a>PNS 凭据
+
 将移动应用注册到某个平台的开发人员门户后，会发送应用标识符和安全令牌。 应用后端将这些令牌提供给平台的 PNS，以便能够将推送通知发送到设备。 安全令牌的形式可以是证书（例如，在 Apple iOS 或 Windows Phone 中）或安全密钥。 必须在通知中心内配置安全令牌。 配置通常在通知中心级别完成，但是，也可以在多租户方案中的命名空间级别完成。
 
 #### <a name="namespaces"></a>命名空间
@@ -128,6 +133,7 @@ PNS 对于传递通知不提供任何 SLA 保证。 但是，大多数推送通�
 命名空间可用于部署分组。 在多租户方案中，还可以使用命名空间来表示同一应用的所有租户的所有通知中心。
 
 #### <a name="geo-distribution"></a>地理分布
+
 在推送通知方案中，地理分布并非总是关键所在。 用于向设备传递推送通知的各个 PNS（例如 APNS）不会均匀分布。
 
 如果有一个在全球范围内使用的应用程序，可以在全球不同的 Azure 区域使用通知中心服务在命名空间中创建中心。
@@ -135,13 +141,16 @@ PNS 对于传递通知不提供任何 SLA 保证。 但是，大多数推送通�
 > [!NOTE]
 > 我们不建议采用这种做法，因为这会增大管理成本，尤其是注册成本。 仅当确实有需要时，才采用这种做法。
 
-### <a name="should-i-do-registrations-from-the-app-back-end-or-directly-through-client-devices"></a>应该从应用后端注册还是直接通过客户端设备注册？
-在创建注册之前，如果必须进行客户端身份验证，从应用后端进行注册很有用。 如果标记必须由应用后端根据应用逻辑创建或修改，这种注册方法也很有用。 有关详细信息，请转到[后端注册指南]和[后端注册指南 2] 页。
+### <a name="should-i-do-registrations-from-the-app-backend-or-directly-through-client-devices"></a>我该从应用后端注册还是直接通过客户端设备注册？
+
+在创建注册之前，如果必须对客户端进行身份验证，从应用后端进行注册很有用。 如果标记必须由应用后端根据应用逻辑创建或修改，这种注册方法也很有用。 有关详细信息，请转到[后端注册指南]和[后端注册指南 2] 页。
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>什么是推送通知传递安全模型？
+
 Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dotnet-shared-access-signature-part-1.md)的安全模型。 可以在根命名空间级别或细粒度通知中心级别使用共享访问签名令牌。 可以使用不同的授权规则（例如，发送消息权限，或侦听通知权限）设置共享访问签名令牌。 有关详细信息，请参阅[通知中心安全模型]文档。
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>如何处理推送通知中的敏感有效负载？
+
 所有通知都由平台的 PNS 传递到目标设备。 将通知发送到 Azure 通知中心后，系统会对通知进行处理并将其传递到相应的 PNS。
 
 从发送方到 Azure 通知中心、再到 PNS 的所有连接都使用 HTTPS。
@@ -152,7 +161,9 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 若要发送敏感有效负载，我们建议使用安全推送模式。 发送方将带有消息标识符的 ping 通知传递到设备，其中不包含敏感有效负载。 当设备上的应用收到该有效负载后，可直接调用安全 API 来提取消息详细信息。 有关如何实现此模式的指导，请转到[通知中心安全推送教程]页。
 
 ## <a name="operations"></a>操作
+
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>为灾难恢复提供哪种支持？
+
 我们提供元数据灾难恢复范围（通知中心名称、连接字符串和其他重要信息）。 触发灾难恢复方案后，注册数据是通知中心基础结构中丢失的*唯一片段*。 需要实施某种解决方案，将此数据重新填充到恢复后的新中心。
 
 1. 在另一个数据中心创建辅助通知中心。 我们建议一开始就创建一个辅助通知中心，以便在发生影响管理功能的灾难恢复事件时保护自己。 也可以在发生灾难恢复事件时创建一个辅助通知中心。
@@ -167,7 +178,7 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 > [!NOTE]
 > [注册信息导出/导入]文档中介绍了标准层中可用的注册信息导出/导入功能。
 
-如果你没有后端，当应用在目标设备上启动时，它们会在辅助通知中心执行新注册。 辅助通知中心最终将拥有所有已注册的活动设备。
+如果没有后端，当应用在目标设备上启动时，它们会在辅助通知中心执行新注册。 辅助通知中心最终将拥有所有已注册的活动设备。
 
 在一段时间内，包含未打开的应用的设备将收不到通知。
 
@@ -176,11 +187,16 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 是的。 所有通知中心管理操作都会更新 [Azure 门户]中公开的 Azure 活动日志。 Azure 活动日志可使用户了解对订阅中的资源执行的操作。 通过活动日志，可确定对订阅中的资源进行的任何写入操作（PUT、POST、DELETE）的内容、执行者和时间。 还可以了解操作和其他相关属性的状态。 但是， 活动日志不包括读取 (GET) 操作。
 
 ## <a name="monitoring-and-troubleshooting"></a>监视和故障排除
+
 ### <a name="what-troubleshooting-capabilities-are-available"></a>故障排除功能有哪些？
+
 Azure 通知中心提供多项可用于故障排除的功能，尤其是针对通知被删除的最常见情况。 有关详细信息，请参阅[通知中心故障排除]白皮书。
 
 ### <a name="what-telemetry-features-are-available"></a>遥测功能有哪些？
+
 Azure 通知中心允许在 [Azure 门户]中查看遥测数据。 可以在[通知中心指标]页上找到有关可用指标的详细信息。
+
+
 
 > [!NOTE]
 > 通知成功仅意味着推送通知已传递到外部 PNS。 PNS 负责将通知传递到目标设备。 PNS 通常不会向第三方公开传递指标。  

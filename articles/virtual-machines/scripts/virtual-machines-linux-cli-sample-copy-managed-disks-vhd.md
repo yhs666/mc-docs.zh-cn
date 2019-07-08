@@ -13,20 +13,20 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 09/17/2018
-ms.date: 02/18/2019
+origin.date: 05/09/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 6a684d89ae9fe645bcc6a831f430f326b028b65d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cfbdcd35a7710463886890bbd0686e9c7c1207cf
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665829"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570598"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>使用 Azure CLI 将托管磁盘导出/复制到存储帐户
 
-此脚本将托管磁盘的基础 VHD 导出到相同或不同区域中的存储帐户。 它首先生成托管磁盘的 SAS URI，然后使用该 SAS URI 将 VHD 复制到存储帐户。 使用此脚本复制托管磁盘以进行区域扩展。 
+此脚本将托管磁盘的基础 VHD 导出到相同或不同区域中的存储帐户。 它首先生成托管磁盘的 SAS URI，然后使用该 SAS URI 将 VHD 复制到存储帐户。 使用此脚本将托管磁盘复制到另一区域以进行区域扩展。 若要在 Azure 市场中发布托管磁盘的 VHD 文件，可以使用此脚本将 VHD 文件复制到存储帐户，然后生成已复制的 VHD 的 SAS URI，以便在市场中发布。   
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -58,7 +58,7 @@ storageContainerName=mystoragecontainername
 storageAccountKey=mystorageaccountkey
 
 #Provide the name of the destination VHD file to which the VHD of the managed disk will be copied.
-destinationVHDFileName=myvhdfilename
+destinationVHDFileName=myvhdfilename.vhd
 
 az account set --subscription $subscriptionId
 
@@ -87,4 +87,4 @@ az storage blob copy start --destination-blob $destinationVHDFileName --destinat
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机和托管磁盘 CLI 脚本示例。
 
-<!-- Update_Description: update link -->
+<!-- Update_Description: wording update -->
