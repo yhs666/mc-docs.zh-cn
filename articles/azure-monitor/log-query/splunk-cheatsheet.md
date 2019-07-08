@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: db26012b9174a2554deb6f6319a4106cad75e2e4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d6ceb31b62cf0db09770c84c1ae15ec8e82e54ad
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625490"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562486"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>从 Splunk 到 Azure Monitor 日志查询
 
@@ -70,7 +70,7 @@ ms.locfileid: "58625490"
 以下部分通过示例演示 Splunk 和 Azure Monitor 如何使用不同的运算符。
 
 > [!NOTE]
-> 在以下示例中，Splunk 字段 _rule_ 映射到 Azure Monitor 中的某个表，Splunk 的默认时间戳映射到 Azure Monitor 的 _ingestion_time()_ 列。
+> 在以下示例中，Splunk 字段 _rule_ 映射到 Azure Monitor 中的某个表，Splunk 的默认时间戳映射到 Logs Analytics 的 _ingestion_time()_ 列。
 
 ### <a name="search"></a>搜索
 在 Splunk 中，可以省略 `search` 关键字，并指定不带引号的字符串。 在 Azure Monitor 中，必须在每个查询的开头使用 `find`，不带引号的字符串是列名，查找值必须是带引号的字符串。 
@@ -148,7 +148,7 @@ Splunk 似乎没有类似于 `project-away` 的运算符。 可以使用 UI 来�
 
 
 ### <a name="aggregation"></a>聚合
-有关不同的聚合函数，请参阅“Azure Monitor 日志查询中的聚合”。
+有关不同的聚合函数，请参阅 [Azure Monitor 日志查询中的聚合](aggregations.md)。
 
 | |  | |
 |:---|:---|:---|
@@ -161,12 +161,13 @@ Splunk 似乎没有类似于 `project-away` 的运算符。 可以使用 UI 来�
 ### <a name="join"></a>Join
 Splunk 中的联接具有很强的限制。 子查询限制为 10000 条结果（在部署配置文件中设置），联接形式数目也有限制。
 
+| |  | |
+|:---|:---|:---|
+| Splunk | **join** |  <code>Event.Rule=120103* &#124; stats by Client.Id, Data.Alias \| join Client.Id max=0 [search earliest=-24h Event.Rule="150310.0" Data.Hresult=-2147221040]</code> |
+| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code>   |
+| | |
 
-|               |          |                                                                                                                                                                                                                                                                       |
-|:--------------|:---------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Splunk        | **join** | <code>Event.Rule=120103\* &#124; stats by Client.Id, Data.Alias                                                                                                                                                                                                       |
-| Azure Monitor | **join** | <code>cluster("OAriaPPT").database("Office PowerPoint").Office_PowerPoint_PPT_Exceptions<br>&#124; where  Data_Hresult== -2147221040<br>&#124; join kind = inner (Office_System_SystemHealthMetadata<br>&#124; summarize by Client_Id, Data_Alias)on Client_Id</code> |
-|               |          |                                                                                                                                                                                                                                                                       |
+
 
 ### <a name="sort"></a>排序
 在 Splunk 中，若要按升序排序，必须使用 `reverse` 运算符。 Azure Monitor 还支持定义 null 值的放置位置：开头或末尾。

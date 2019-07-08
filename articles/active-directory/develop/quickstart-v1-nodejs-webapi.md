@@ -3,8 +3,8 @@ title: 使用 Azure AD 保护 Web API | Microsoft Docs
 description: 了解如何生成与 Azure AD 集成、可用于身份验证的 Node.js REST Web API。
 services: active-directory
 documentationcenter: nodejs
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: 7654ab4c-4489-4ea5-aba9-d7cdc256e42a
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 03/05/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ef450117f971ebd585225b4d6a536acefcd35e6
-ms.sourcegitcommit: 20bfb04a0bcdaa6bf47f101baaefb8f600684bc9
+ms.openlocfilehash: 31a84c66344c0c0b1605e0c3bdb7ca587e15d080
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57462365"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568726"
 ---
 # <a name="quickstart-secure-a-web-api-with-azure-active-directory"></a>快速入门：使用 Azure Active Directory 保护 Web API
 
@@ -250,7 +250,7 @@ Unauthorized
 
 ## <a name="next-steps"></a>后续步骤
 
-- 必须实现一个客户端对等组件，才能连接到可处理登录、注销和管理令牌的服务器。 有关基于代码的示例，请参阅 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 和 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android) 中的客户端应用程序。
-- 有关分步教程，请参阅[使用 Azure AD 进行 Node.js Web 应用登录和注销](quickstart-v1-openid-connect-code.md)。
+* 必须实现一个客户端对等组件，才能连接到可处理登录、注销和管理令牌的服务器。 有关基于代码的示例，请参阅 [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) 和 [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android) 中的客户端应用程序。
+* 有关分步教程，请参阅[使用 Azure AD 进行 Node.js Web 应用登录和注销](quickstart-v1-openid-connect-code.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

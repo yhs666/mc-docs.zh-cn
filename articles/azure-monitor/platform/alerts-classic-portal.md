@@ -6,42 +6,42 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7cad81f5095884fc0594990b34f54ac1ef231722
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 9a01e3d37a03c04fb7c415f587f12c7d065f4fd1
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586864"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562448"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理经典指标警报
 
-Azure Monitor 中的经典指标警报提供了一种在指标超出阈值时获得通知的方法。 经典指标警报是一个较旧的功能，它仅可针对非维度指标发出警报。 有一个称为“指标警报”的较新功能，它具有比经典指标警报改进的功能。 在本文中，我们将介绍如何通过 Azure 门户、Azure CLI 和 Powershell 创建、查看和管理经典指标警报规则。
+Azure Monitor 中的经典指标警报提供了一种在指标超出阈值时获得通知的方法。 经典指标警报是一个较旧的功能，它仅可针对非维度指标发出警报。 有一个称为“指标警报”的较新功能，它具有比经典指标警报改进的功能。 可以在[指标警报概述](../../azure-monitor/platform/alerts-metric-overview.md)中了解新的指标警报功能的详细信息。 在本文中，我们将介绍如何通过 Azure 门户、Azure CLI 和 Powershell 创建、查看和管理经典指标警报规则。
 
 ## <a name="with-azure-portal"></a>使用 Azure 门户
 
 1. 在[门户](https://portal.azure.cn/)中，找到要监视的资源，然后选择它。
 
-2. 在“监视”部分中，选择“警报(经典)”。 对于不同的资源，文本和图标可能会略有不同。 如果在此处未找到“警报(经典)”，则它可能位于“警报”或“警报规则”中。
+2. 在“监视”部分中，选择“警报(经典)”   。 对于不同的资源，文本和图标可能会略有不同。 如果在此处未找到“警报(经典)”，则它可能位于“警报”或“警报规则”中    。
 
     ![监视](media/alerts-classic-portal/AlertRulesButton.png)
 
-3. 选择“添加指标警报(经典)”命令，并填写字段。
+3. 选择“添加指标警报(经典)”  命令，并填写字段。
 
     ![添加警报](media/alerts-classic-portal/AddAlertOnlyParamsPage.png)
 
-4. **命名**警报规则。 然后选择也在通知电子邮件中显示的“说明”。
+4. **命名**警报规则。 然后选择也在通知电子邮件中显示的“说明”  。
 
-5. 选择要监视的指标。 然后为该指标选择“条件”和“阈值”值。 还选择触发警报前指标规则必须满足的时间段。 例如，如果使用时间段“过去 5 分钟”，且警报针对 CPU 高于 80% 的情况，则 CPU 持续高于 80% 达到 5 分钟时将触发警报。 第一次触发后，CPU 5 分钟内持续低于 80% 时会再次触发警报。 CPU 指标度量每分钟进行一次。
+5. 选择要监视的指标  。 然后为该指标选择“条件”和“阈值”值   。 还选择触发警报前指标规则必须满足的时间段。  例如，如果使用时间段“过去 5 分钟”，且警报针对 CPU 高于 80% 的情况，则 CPU 持续高于 80% 达到 5 分钟时将触发警报。 第一次触发后，CPU 5 分钟内持续低于 80% 时会再次触发警报。 CPU 指标度量每分钟进行一次。
 
-6. 如果希望在触发警报时管理员和共同管理员收到电子邮件通知，则选择“向所有者发送电子邮件...”。
+6. 如果希望在触发警报时管理员和共同管理员收到电子邮件通知，则选择“向所有者发送电子邮件...”  。
 
 7. 如果有任何问题，请联系[支持团队](https://www.azure.cn/zh-cn/support/contact/)
 
-8. 如果希望在触发警报时调用有效的 URI，请将其放入“Webhook”字段中。
+8. 如果希望在触发警报时调用有效的 URI，请将其放入“Webhook”  字段中。
 
 9. 如果使用 Azure 自动化时，则可选择在触发警报时要运行的 Runbook。
 
-10. 选择“确定”以创建警报。
+10. 选择“确定”  以创建警报。
 
 在几分钟后，警报将如前所述激活并触发。
 
@@ -53,8 +53,7 @@ Azure Monitor 中的经典指标警报提供了一种在指标超出阈值时获
 
 ## <a name="with-azure-cli"></a>使用 Azure CLI
 
-前面几个部分介绍了如何使用 Azure 门户创建、查看和管理指标警报规则。 本部分将介绍如何使用跨平台 [Azure CLI](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest) 实现相同的结果。 开始使用 Azure CLI 的最快方式是通过 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)。
-
+前面几个部分介绍了如何使用 Azure 门户创建、查看和管理指标警报规则。 本部分将介绍如何使用跨平台 [Azure CLI](/cli/get-started-with-azure-cli?view=azure-cli-latest) 实现相同的结果。
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>获取某个资源组中的所有经典指标警报规则
 
 ```azurecli

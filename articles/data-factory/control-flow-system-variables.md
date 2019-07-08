@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/12/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: f4f05b52c9a2a140fa5d409d06b0750f9f363466
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: d4515e0908866360fc1956cef933f23926648ede
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732685"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570548"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Azure 数据工厂支持的系统变量
 本文介绍了 Azure 数据工厂支持的系统变量。 定义数据工厂实体时，可以在表达式中使用这些变量。

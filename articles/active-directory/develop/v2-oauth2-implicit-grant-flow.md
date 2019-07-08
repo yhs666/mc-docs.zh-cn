@@ -3,8 +3,8 @@ title: 使用 Microsoft 标识平台隐式流保护单页应用程序 | Azure
 description: 使用 Microsoft 标识平台隐式流实现为单页面应用生成 Web 应用。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65d63d6782eaffe920cf5ad7265c20ec89eb9c37
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: ad5f8518560061d9fca47c827104a149b4233341
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517587"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568669"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft 标识平台和隐式授权流
 
@@ -56,7 +56,7 @@ ms.locfileid: "65517587"
 最初将用户登录到应用时，可以发送 [OpenID Connect](v2-protocols-oidc.md) 身份验证请求，并从 Microsoft 标识平台终结点获取 `id_token`。
 
 > [!IMPORTANT]
-> 若要成功请求 ID 令牌，必须通过在“隐式授权”部分下选择“访问令牌”和“ID 令牌”，为 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页中的应用注册正确启用隐式授权流。 如果未启用，将返回 `unsupported_response` 错误：为输入参数“response_type”提供的值不允许用于此客户端。预期值为“code””
+> 若要成功请求 ID 令牌，必须通过在“隐式授权”部分下选择“访问令牌”和“ID 令牌”，为 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页中的应用注册正确启用隐式授权流。    如果未启用，将返回 `unsupported_response` 错误：为输入参数“response_type”提供的值不允许用于此客户端。  预期值为“code””
 
 ```
 // Line breaks for legibility only
@@ -72,7 +72,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 若要使用隐式流测试登录，请单击 <a href="https://login.partner.microsoftonline.cn/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.partner.microsoftonline.cn/common/oauth2/v2.0/authorize..</a>在登录之后，浏览器应重定向到 `https://localhost/myapp/`，并且地址栏中有一个 `id_token`。
+> 若要使用隐式流测试登录，请单击 <a href="https://login.partner.microsoftonline.cn/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.partner.microsoftonline.cn/common/oauth2/v2.0/authorize..</a>在登录之后，浏览器应重定向到 `https://localhost/myapp/` ，并且地址栏中有一个 `id_token` 。
 >
 
 | 参数 |  | 说明 |
@@ -87,9 +87,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `nonce` | 必填 |由应用程序生成且包含在请求中的值，以声明方式包含在生成的 id_token 中。 应用程序接着便可确认此值，以减少令牌重新执行攻击。 此值通常是随机的唯一字符串，可用以识别请求的来源。 只有请求 id_token 时才是必需的。 |
 | `prompt` | 可选 |表示需要的用户交互类型。 目前的有效值为“login”、“none”、“select_account”和“consent”。 `prompt=login` 将强制用户在该请求上输入凭据，取消单一登录。 `prompt=none` 则相反 - 它确保不对用户显示任何交互式提示。 如果请求无法通过单一登录静默完成，则 Microsoft 标识平台终结点将返回一个错误。 `prompt=select_account` 将用户发送到一个帐户选取器，其中将显示在会话中记住的所有帐户。 `prompt=consent` 会在用户登录之后触发 OAuth 同意对话框，要求用户向应用授予权限。 |
 | `login_hint`  |可选 |如果事先知道其用户名称，可用于预先填充用户登录页面的用户名称/电子邮件地址字段。 通常，应用会在重新身份验证期间使用此参数，并且已经使用 `preferred_username` 声明从前次登录提取用户名。|
-| `domain_hint` | 可选 |可以是 `consumers` 或 `organizations` 之一。 如果包含，它跳过用户在登录页上经历的基于电子邮件的发现过程，导致稍微更加流畅的用户体验。 通常，应用将在重新进行身份验证时使用此参数，方法是从 id_token 提取 `tid` 声明。 如果 `tid` 声明值为 `9188040d-6c67-4c5b-b112-36a304b66dad`（Microsoft 帐户使用者租户），则应使用 `domain_hint=consumers`。 否则，可以在重新进行身份验证期间使用 `domain_hint=organizations`。 |
+| `domain_hint` | 可选 |可以是 `consumers` 或 `organizations` 之一。 如果包含，它跳过用户在登录页上经历的基于电子邮件的发现过程，导致稍微更加流畅的用户体验。 通常，应用将在重新进行身份验证时使用此参数，方法是从 id_token 提取 `tid` 声明。 否则，可以在重新进行身份验证期间使用 `domain_hint=organizations`。 |
 
-此时，将请求用户输入凭据并完成身份验证。 Microsoft 标识平台终结点还会确保用户已许可 `scope` 查询参数中指定的权限。 如果用户未曾同意这些权限的任何一项，就请求用户同意请求的权限。 有关详细信息，请参阅[权限、同意和多租户应用](v2-permissions-and-consent.md)。
+此时，将请求用户输入凭据并完成身份验证。 Microsoft 标识平台终结点还会确保用户已许可 `scope` 查询参数中指定的权限。 如果用户未曾同意这些权限的任何一项，就请求用户同意请求的权限。  有关详细信息，请参阅[权限、同意和多租户应用](v2-permissions-and-consent.md)。
 
 用户经过身份验证并授予许可后，Microsoft 标识平台终结点将使用 `response_mode` 参数中指定的方法，将响应返回到位于所指示的 `redirect_uri` 的应用。
 
@@ -244,5 +244,6 @@ https://login.partner.microsoftonline.cn/{tenant}/oauth2/v2.0/logout?post_logout
 
 ## <a name="next-steps"></a>后续步骤
 
-* 重温 [MSAL JS 示例](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples)以开始编码。
+* 重温 [MSAL JS 示例](sample-v2-code.md#single-page-applications-spa)以开始编码。
 
+<!-- Update_Description: link update -->

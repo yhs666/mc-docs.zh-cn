@@ -11,12 +11,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 7827ac9c8c65726458590aa6450928c2ced58102
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: fe5d45e0365d3e25a7c83b046846e191b81768bd
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731464"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562556"
 ---
 # <a name="start-monitoring-your-java-web-application"></a>开始监视 Java Web 应用程序
 
@@ -32,7 +32,7 @@ ms.locfileid: "66731464"
 - 安装[免费 Eclipse IDE for Java EE Developers](https://www.eclipse.org/downloads/)。 本快速入门使用 Eclipse Oxygen (4.7)
 - 将需要 Azure 订阅和现有 Java 动态 Web 项目
  
-如果没有 Java 动态 Web 项目，可以使用[创建 Java Web 应用快速入门](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-java)创建一个。
+如果没有 Java 动态 Web 项目，可以使用[创建 Java Web 应用快速入门](/app-service-web/app-service-web-get-started-java)创建一个。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)帐户。
 
@@ -59,7 +59,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **应用程序类型** | Java Web 应用程序 | 所监视的应用的类型 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **位置** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 
@@ -85,7 +85,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
    ![Eclipse Azure 配置菜单](./media/java-quick-start/0007-j.png)
 
-5. 在配置 Application Insights 插件以后，需再次[发布/重新发布](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure)应用程序，然后它才能够开始发送遥测数据。
+5. 在配置 Application Insights 插件以后，需再次[发布/重新发布](/app-service/app-service-web-get-started-java#publish-the-web-app-to-azure)应用程序，然后它才能够开始发送遥测数据。
 
 > [!NOTE]
 > 用于 Java 的 Application Insights SDK 能够捕获并直观显示实时指标，但首次启用遥测数据收集时，可能需要几分钟，然后数据才开始显示在门户中。 如果此应用是一个低流量测试应用，请记住，仅当存在活动请求或操作时，才会捕获大多数指标。
@@ -146,4 +146,4 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [查找和诊断性能问题](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)
+> [查找和诊断性能问题](/azure-monitor/log-query/log-query-overview)

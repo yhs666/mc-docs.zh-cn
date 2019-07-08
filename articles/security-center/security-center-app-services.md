@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ee531cc12076a3c7ec84160ec8a8c7058e250319
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 7005f3d3bcf5669a89878b8a1c25447998702de5
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236586"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569761"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>使用 Azure 安全中心保护应用服务
 本文帮助你使用 Azure 安全中心来监视和保护在应用服务上运行的应用程序。
@@ -34,7 +34,7 @@ Azure 安全中心可以在 VM 或按需实例的沙盒中运行评估，并针�
 
 ## <a name="prerequisites"></a>先决条件
 
-若要监视和保护应用服务，必须创建一个与专用计算机关联的应用服务计划。 这些计划包括：“基本”、“标准”、“高级”、“独立”或“Linux”。 Azure 安全中心不支持“免费”、“共享”或“消耗”计划。 有关详细信息，请参阅[应用服务计划](https://www.azure.cn/pricing/details/app-service/plans/)。
+若要监视和保护应用服务，必须创建一个与专用计算机关联的应用服务计划。 这些计划包括：“基本”、“标准”、“高级”、“独立”或“Linux”。 Azure 安全中心不支持“免费”、“共享”或“消耗”计划。 有关详细信息，请参阅[应用服务计划](https://www.azure.cn/pricing/details/app-service)。
 
 ## <a name="security-center-protection"></a>安全中心保护
 

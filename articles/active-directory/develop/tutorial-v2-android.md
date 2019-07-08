@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -13,16 +12,17 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/26/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c67295e225967d230a1efbf35a552428561850f
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: bb757a677b665a35e40a7837a80c3689bacd7ffc
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517550"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568709"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>从 Android 应用将用户登录并调用 Microsoft Graph
 
@@ -57,7 +57,7 @@ ms.locfileid: "65517550"
 
 |库|说明|
 |---|---|
-|[com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft 身份验证库 (MSAL)|
+|[com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)|Microsoft 身份验证库 (MSAL)|
 
 ## <a name="set-up-your-project"></a>设置项目
 
@@ -65,10 +65,10 @@ ms.locfileid: "65517550"
 
 ### <a name="create-a-new-project"></a>创建新项目
 
-1. 打开 Android Studio，然后选择“启动新的 Android Studio 项目”。
-    - 如果 Android Studio 已打开，请选择“文件” > “新建” > “新建项目”。
-2. 将“空活动”保留原样，选择“下一步”。
-3. 为应用程序命名，将 `Minimum API level` 设置为 **API 19 或更高版本**，然后点击“完成”。
+1. 打开 Android Studio，然后选择“启动新的 Android Studio 项目”  。
+    - 如果 Android Studio 已打开，请选择“文件” > “新建” > “新建项目”。   
+2. 将“空活动”保留原样，选择“下一步”。  
+3. 为应用程序命名，将 `Minimum API level` 设置为 **API 19 或更高版本**，然后点击“完成”。 
 5. 在 `app/build.gradle` 中，将 `targetedSdkVersion` 设置为 27。 
 
 ## <a name="register-your-application"></a>注册应用程序
@@ -88,10 +88,10 @@ ms.locfileid: "65517550"
 
 ### <a name="configure-your-android-app"></a>配置 Android 应用
 
-1. 右键单击“res” > “新建” > “文件夹” > “原始资源文件夹”
-2. 在“app” > “res” > “raw”中，创建名为 `auth_config.json` 的新 JSON 文件并粘贴***MSAL 配置***。 有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
+1. 右键单击“res” > “新建” > “文件夹” > “原始资源文件夹”    
+2. 在“app” > “res” > “raw”中，创建名为 `auth_config.json` 的新 JSON 文件并粘贴***MSAL 配置***。    有关详细信息，请参阅 [MSAL 配置](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)。
    <!-- Workaround for Docs conversion bug -->
-3. 在“app” > “manifests” > “AndroidManifest.xml”中，添加以下 `BrowserTabActivity` 活动。 此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
+3. 在“app” > “manifests” > “AndroidManifest.xml”中，添加以下 `BrowserTabActivity` 活动。    此条目可让 Microsoft 在完成身份验证后回调你的应用程序：
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -121,7 +121,7 @@ ms.locfileid: "65517550"
 
 ### <a name="create-the-apps-ui"></a>创建应用的 UI
 
-1. 转到“资源” > “布局”，然后打开 **activity_main.xml**。
+1. 转到“资源” > “布局”，然后打开 **activity_main.xml**。  
 2. 将活动布局从 `android.support.constraint.ConstraintLayout` 或其他布局更改为 `LinearLayout`。
 3. 将 `android:orientation="vertical"` 属性添加到 `LinearLayout` 节点。
 4. 将以下代码粘贴到 `LinearLayout` 节点，替换当前内容：
@@ -179,8 +179,8 @@ ms.locfileid: "65517550"
 
 ### <a name="add-msal-to-your-project"></a>将 MSAL 添加到项目
 
-1. 在 Android Studio 中，选择“Gradle 脚本” > “build.gradle (模块: 应用)”。
-2. 在“依存关系”下，粘贴以下代码：
+1. 在 Android Studio 中，选择“Gradle 脚本” > “build.gradle (模块: 应用)”。  
+2. 在“依存关系”  下，粘贴以下代码：
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
@@ -525,7 +525,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 }
 ```
 
-详细了解 [Microsoft Graph API](https://developer.microsoft.com/zh-cn/graph)！
+详细了解 [Microsoft Graph API](https://microsoftgraph.chinacloudapi.cn)！
 
 #### <a name="multi-account-applications"></a>多帐户应用程序
 
@@ -547,3 +547,4 @@ private void updateGraphUI(JSONObject graphResponse) {
 
 在学习本教程或者在使用 Microsoft 标识平台过程中遇到了任何问题？ 请参阅[帮助与支持](/active-directory/develop/developer-support-help-options)
 
+<!-- Update_Description: link update -->

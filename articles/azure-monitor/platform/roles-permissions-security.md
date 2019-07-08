@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: fa660db3942c49854fd642e6c635fa207f6dead0
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 274bf584d05ad14626650876e1d9c7049697f163
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731473"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562293"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor 的角色、权限和安全入门
 
@@ -28,11 +28,11 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 拥有“监视读取者”角色的人员可以查看订阅中的所有监视数据，但无法修改任何资源或编辑与监视资源相关的任何设置。 此角色适用于组织中的用户，例如技术支持工程师或运营工程师，这些人员必须能够：
 
 * 在门户中查看监视仪表板，以及创建自己的专用监视仪表板。
-* 查看 [Azure 警报](../../azure-monitor/platform/alerts-overview.md)中定义的预警规则
-* 使用 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlet](../../azure-monitor/platform/powershell-quickstart-samples.md) 或 [跨平台 CLI](../../azure-monitor/platform/cli-samples.md) 查询指标。
+* 查看 [Azure 警报](alerts-overview.md)中定义的预警规则
+* 使用 [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx)、[PowerShell cmdlet](powershell-quickstart-samples.md) 或 [跨平台 CLI](cli-samples.md) 查询指标。
 * 使用门户、Azure Monitor REST API、PowerShell cmdlet 或跨平台 CLI 查询活动日志。
-* 查看资源的[诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。
-* 查看订阅的[日志配置文件](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。
+* 查看资源的[诊断设置](diagnostic-logs-overview.md#diagnostic-settings)。
+* 查看订阅的[日志配置文件](activity-log-export.md)。
 * 查看自动缩放设置。
 * 查看警报活动和设置。
 * 访问 Application Insights 数据，查看 AI Analytics 中的数据。
@@ -52,9 +52,9 @@ Azure 监视器的内置角色旨在帮助限制对订阅中资源的访问，�
 拥有“监视参与者”角色的人员可以查看订阅中的所有监视数据，以及创建或修改监视设置，但无法修改其他任何资源。 此角色是“监视读取者”角色的超集，适用于组织中的监视团队成员或托管服务提供商，这些人员除了上述权限外，还必须能够：
 
 * 将监视仪表板发布为共享仪表板。
-* 设置资源的[诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。\*
-* 设置订阅的[日志配置文件](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile)。\*
-* 通过 [Azure 警报](../../azure-monitor/platform/alerts-overview.md)设置预警规则活动和设置。
+* 设置资源的[诊断设置](diagnostic-logs-overview.md#diagnostic-settings)。\*
+* 设置订阅的[日志配置文件](activity-log-export.md)。\*
+* 通过 [Azure 警报](alerts-overview.md)设置预警规则活动和设置。
 * 创建 Application Insights Web 测试和组件。
 * 列出 Log Analytics 工作区的共享密钥。
 * 启用或禁用 Log Analytics 工作区中的监视包。

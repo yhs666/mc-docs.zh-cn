@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2c8a4148e6f0df106bc5961a7a6592d3e08d0a32
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 6ed562540cb2629ce7910f7b153a52df8b14930a
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732396"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562666"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>跟踪严重性比下降（预览）
 
 跟踪广泛应用于应用程序，因为它们可以告知幕后发生的事情。 出现错误时，跟踪可保证导致不理想状态事件序列的关键可见性。 虽然跟踪通常为非结构化，但通过跟踪可以具体了解到一件事情，即严重性级别。 在应用程序稳定状态下，“良好”跟踪（Info 和 Verbose）和“错误”跟踪（Warning、Error 和 Critical）之间的比率应保持稳定      。 假设情况是不管出于什么情况（例如暂时性网络故障），在一定的程度都会定期发生“错误”跟踪。 但当一个真正的问题日益严重时，这通常表现为“错误”跟踪和“良好”跟踪之间的相关比率增大。 Application Insights 智能检测自动分析应用程序记录的跟踪，并在跟踪遥测的严重性级别出现异常时发出警告。
 
-此功能需要为应用配置跟踪日志（请参见如何为 [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) 或 [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs) 配置跟踪日志侦听器），除此之外，不需要其他特殊步骤。 在应用生成足够多的异常遥测数据后，此功能会激活。
+此功能需要为应用配置跟踪日志（请参见如何为 [.NET](/azure-monitor/app/asp-net-trace-logs) 或 [Java](/azure-monitor/app/java-trace-logs) 配置跟踪日志侦听器），除此之外，不需要其他特殊步骤。 在应用生成足够多的异常遥测数据后，此功能会激活。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何时会收到此类型的智能检测通知？
 对比前面七天计算的基线，如果“良好”跟踪（跟踪级别记录为 Info 或 Verbose）和“错误”跟踪（跟踪级别记录为 Warning、Error 或 Fatal）之间的比率在某一天降低，则可能会收到此类型通知      。

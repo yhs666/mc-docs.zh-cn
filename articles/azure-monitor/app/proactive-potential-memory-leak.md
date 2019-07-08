@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1beb44387052d1b9a7a9fa79039385081c0199af
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 223ca08c462dd09fa57c2452713129eb89a8745b
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732399"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562667"
 ---
 # <a name="memory-leak-detection-preview"></a>内存泄漏检测（预览）
 
 Application Insights 自动分析应用程序中每个进程的内存消耗量，并可以就可能的内存泄漏或内存消耗量增加向你发出警告。
 
-此功能需要[配置性能计数器](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters)，除此之外，不需要其他特殊设置。 当应用生成的内存性能计数器遥测数据（例如，专用字节数）足够多时，它处于活动状态。
+此功能需要[配置性能计数器](/azure-monitor/app/performance-counters)，除此之外，不需要其他特殊设置。 当应用生成的内存性能计数器遥测数据（例如，专用字节数）足够多时，它处于活动状态。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何时会收到此类型的智能检测通知？
 在属于你应用程序的一个或多个进程和/或一个或多个计算机中，如果内存消耗量在较长的时间段内持续增加，将发出一个典型的通知。 机器学习算法用于检测与内存泄漏模式匹配的内存消耗增加。

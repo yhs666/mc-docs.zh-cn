@@ -11,16 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/25/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 5542594e50b64fa496ed151e30f5e693a4681aa3
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: fa9a9fc3943426dfbe647d61ec4ded7f289f3559
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732646"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569891"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Azure 数据工厂中的数据集
+
 本文介绍了数据集的涵义，采用 JSON 格式定义数据集的方式以及数据集在 Azure 数据工厂管道中的用法。
 
 如果对数据工厂不熟悉，请参阅 [Azure 数据工厂简介](introduction.md)了解相关概述。
@@ -68,52 +69,8 @@ ms.locfileid: "66732646"
 -------- | ----------- | -------- |
 name | 数据集名称。 请参阅 [Azure 数据工厂 - 命名规则](naming-rules.md)。 |  是 |
 type | 数据集的类型。 指定数据工厂支持的类型之一（例如：AzureBlob、AzureSqlTable）。 <br/><br/>有关详细信息，请参阅[数据集类型](#dataset-type)。 | 是 |
-structure | 数据集的架构。 有关详细信息，请参阅[数据集架构](#dataset-structure-or-schema)。 | 否 |
+structure | 数据集的架构。 有关详细信息，请参阅[数据集架构](#dataset-structure)。 | 否 |
 typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob、Azure SQL 表）。 若要详细了解受支持的类型及其属性，请参阅[数据集类型](#dataset-type)。 | 是 |
-
-### <a name="data-flow-compatible-dataset"></a>与数据流兼容的数据集
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
-
-在数据流中，数据集用于源和接收器转换。 数据集定义基本数据架构。 如果数据没有架构，可以对源和接收器使用架构偏差。 数据集中的架构表示物理数据类型和形状。
-
-通过从数据集定义架构，你将从关联的链接服务获取相关的数据类型、数据格式、文件位置和连接信息。 来自数据集的元数据在源转换中显示为源投影  。 源转换中的投影表示具有定义名称和类型的数据流数据。
-
-导入数据流数据集的架构时，请选择“导入架构”  按钮，然后选择从源或本地文件导入。 在大多数情况下，将直接从源导入架构。 但是，如果你已有本地架构文件（Parquet 文件或带标题的 CSV），则可以指示数据工厂基于该文件设置架构。
-
-
-```json
-{
-    "name": "<name of dataset>",
-    "properties": {
-        "type": "<type of dataset: AzureBlob, AzureSql etc...>",
-        "linkedServiceName": {
-                "referenceName": "<name of linked service>",
-                "type": "LinkedServiceReference",
-        },
-        "schema": [
-            {
-                "name": "<Name of the column>",
-                "type": "<Name of the type>"
-            }
-        ],
-        "typeProperties": {
-            "<type specific property>": "<value>",
-            "<type specific property 2>": "<value 2>",
-        }
-    }
-}
-```
-
-下表描述了上述 JSON 中的属性：
-
-属性 | 说明 | 必须 |
--------- | ----------- | -------- |
-name | 数据集名称。 请参阅 [Azure 数据工厂 - 命名规则](naming-rules.md)。 |  是 |
-type | 数据集的类型。 指定数据工厂支持的类型之一（例如：AzureBlob、AzureSqlTable）。 <br/><br/>有关详细信息，请参阅[数据集类型](#dataset-type)。 | 是 |
-schema | 数据集的架构。 有关详细信息，请参阅[与数据流兼容的数据集](#dataset-type)。 | 否 |
-typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob、Azure SQL 表）。 若要详细了解受支持的类型及其属性，请参阅[数据集类型](#dataset-type)。 | 是 |
-
 
 ## <a name="dataset-example"></a>数据集示例
 在以下示例中，数据集表示 SQL 数据库中名为 MyTable 的表。
@@ -170,8 +127,8 @@ typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob�
 }
 ```
 
-## <a name="dataset-structure-or-schema"></a>数据集结构或架构
-“结构”  部分或“架构”  （数据流兼容）部分数据集是可选的。 它通过包含列的名称和数据类型的集合来定义数据集架构。 使用结构部分提供用于隐藏类型以及将列从源映射到目标的类型信息。
+## <a name="dataset-structure"></a>数据集结构
+使用结构部分提供用于隐藏类型以及将列从源映射到目标的类型信息。
 
 结构中的每个列都包含以下属性：
 
@@ -180,7 +137,7 @@ typeProperties | 每种类型的类型属性各不相同（例如：Azure Blob�
 name | 列的名称。 | 是
 type | 列的数据类型。 数据工厂支持以下临时数据类型作为允许的值：**Int16、Int32、Int64、Single、Double、Decimal、Byte[]、Boolean、String、Guid、Datetime、Datetimeoffset 和 Timespan** | 否
 culture | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的基于 .NET 的区域性。 默认为 `en-us`。 | 否
-格式 | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否
+format | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的格式字符串。 请参阅[自定义日期和时间格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)，了解如何设置日期时间格式。 | 否
 
 ### <a name="example"></a>示例
 在下面的示例中，假设源 Blob 数据采用 CSV 格式，并且包含三列： userid、name 和 lastlogindate。 它们的类型分别为 Int64、String 和 Datetime，并采用使用星期几的缩写法语名称的自定义日期时间格式。
@@ -205,14 +162,6 @@ culture | 类型为 .NET 类型 `Datetime` 或 `Datetimeoffset` 时要使用的�
 
 ## <a name="create-datasets"></a>创建数据集
 可以使用以下任一工具或 SDK 创建数据集：[.NET API](quickstart-create-data-factory-dot-net.md)、[PowerShell](quickstart-create-data-factory-powershell.md)、[REST API](quickstart-create-data-factory-rest-api.md)、Azure 资源管理器模板和 Azure 门户
-
-## <a name="current-version-vs-version-1-datasets"></a>当前版本与版本 1 数据集的比较
-
-以下是数据工厂和数据工厂版本 1 数据集之间的差异：
-
-- 当前版本不支持外部属性。 它已被[触发器](concepts-pipeline-execution-triggers.md)取代。
-- 当前版本不支持策略和可用性属性。 管道的开始时间取决于[触发器](concepts-pipeline-execution-triggers.md)。
-- 当前版本不支持指定了作用域的数据集（管道中定义的数据集）。
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下教程，了解使用下列某个工具或 SDK 创建管道和数据集的分步说明。

@@ -14,6 +14,12 @@
       href: tutorial-sql-server-to-azure-sql.md
     - name: 以联机方式将 SQL Server 迁移到 Azure SQL DB
       href: tutorial-sql-server-azure-sql-online.md
+    - name: 以脱机方式将 SQL Server 迁移到 Azure SQL DB 托管实例
+      href: tutorial-sql-server-to-managed-instance.md
+    - name: 以联机方式将 SQL Server 迁移到 Azure SQL DB 托管实例
+      href: tutorial-sql-server-managed-instance-online.md
+    - name: 以联机方式将 RDS SQL Server 迁移到 Azure SQL DB 或 Azure SQL DB 托管实例
+      href: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
     - name: 以联机方式将 MySQL 迁移到 Azure DB for MySQL
       href: tutorial-mysql-azure-mysql-online.md
     - name: 以联机方式将 RDS MySQL 迁移到 Azure DB for MySQL
@@ -32,14 +38,22 @@
   items:
     - name: 使用 PowerShell 将 SQL Server 迁移到 Azure SQL DB
       href: howto-sql-server-to-azure-sql-powershell.md
+    - name: 使用 PowerShell 将 SQL Server 迁移到 Azure SQL DB MI
+      href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 监视迁移活动
       href: how-to-monitor-migration-activity.md
+    - name: 将 SSIS 包迁移到 Azure SQL 数据库
+      href: how-to-migrate-ssis-packages.md
+    - name: 将 SSIS 包迁移到 Azure SQL 数据库托管实例
+      href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 资源
   items:
     - name: 数据库迁移方案状态
       href: resource-scenario-status.md
     - name: 先决条件概述
       href: pre-reqs.md
+    - name: Azure SQL DB 托管实例迁移的网络拓扑
+      href: resource-network-topologies.md
     - name: 已知问题
       items:
         - name: 排查常见问题和错误

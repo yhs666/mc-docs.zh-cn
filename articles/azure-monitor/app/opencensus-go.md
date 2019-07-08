@@ -9,12 +9,12 @@ ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 287ada343245953aa8a2df3f6a34fa3232c7628c
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 24bbd041986d6007be6af6eeb3591da430a95164
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732174"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562681"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>从 Go（预览版）收集分布式跟踪
 
@@ -47,7 +47,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **应用程序类型** | 常规 | 所监视的应用的类型 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **位置** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 
@@ -186,7 +186,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 3. 运行 Simple Go 应用后，导航到 `http://localhost:50030`。 每次刷新浏览器都将生成文本“hello world”，并附带由本地转发器拾取的相应 span 数据。
 
-4. 若要确认**本地转发器**是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](https://docs.microsoft.com/azure/application-insights/local-forwarder)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
+4. 若要确认**本地转发器**是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](/azure-monitor/app/app-insights-overview)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
 
     在下面的日志文件图像中，可以看到在运行第二个脚本（已在其中添加了导出程序）之前，`OpenCensus input BatchesReceived` 为 0。 开始运行更新的脚本以后，`BatchesReceived` 根据我们输入的值的数目递增：
     

@@ -10,12 +10,12 @@ origin.date: 06/26/2017
 ms.date: 08/08/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d73bb8e08751bbe3dc922a9377fe1fe1dd45a8aa
-ms.sourcegitcommit: 9fd5944afd6274e096a6e790583a131642f1532d
+ms.openlocfilehash: b0a7cf7df16259a67743c98209596c8e885b76e0
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53737014"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570463"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 
@@ -34,7 +34,7 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | #AlertsCreatedInPeriod |整数 |在选定时间段内创建的警报数 |
 | %ActiveAlertsCreatedInPeriod |百分比 |所选时间段内活动警报的百分比 |
 | %CriticalAlertsCreatedInPeriod |百分比 |所选时间段内严重警报的百分比 |
-| AlertOccurrenceDate |日期 |警报的创建日期 |
+| AlertOccurrenceDate |Date |警报的创建日期 |
 | AlertSeverity |文本 |警报的严重性，例如“严重” |
 | AlertStatus |文本 |警报的状态，例如“活动” |
 | AlertType |文本 |生成的警报的类型，例如“备份” |
@@ -66,17 +66,17 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 
 | 字段 | 数据类型 | 说明 |
 | --- | --- | --- |
-| 日期 |日期 |用于筛选数据的日期 |
+| Date |Date |用于筛选数据的日期 |
 | DateKey |文本 |每个日期项的唯一键 |
 | DayDiff |十进制数 |用于筛选数据的天数差别，例如 0 表示当天的数据，-1 表示前一天的数据，0 和 -1 表示当天和前一天的数据  |
 | 月份 |文本 |用于筛选数据的月份，月份以第一天开始，在第 31 天结束 |
-| MonthDate | 日期 |月份中当月结束的日期，用于筛选数据 |
+| MonthDate | Date |月份中当月结束的日期，用于筛选数据 |
 | MonthDiff |十进制数 |用于筛选数据的月份差别，例如 0 表示本月的数据，-1 表示上个月的数据，0 和 -1 表示本月和上个月的数据 |
 | 周次 |文本 |用于筛选数据的周次，每周从星期天开始，星期六结束 |
-| WeekDate |日期 |一周结束的日期，用于筛选数据 |
+| WeekDate |Date |一周结束的日期，用于筛选数据 |
 | WeekDiff |十进制数 |用于筛选数据的周次差别，例如 0 表示本周的数据，-1 表示上一周的数据，0 和 -1 表示本周和上一周的数据 |
 | 年份 |文本 |用于筛选数据的日历年 |
-| YearDate |日期 |一年结束的日期，用于筛选数据 |
+| YearDate |Date |一年结束的日期，用于筛选数据 |
 
 ### <a name="job"></a>作业
 此表提供针对各种作业相关字段的基本字段和聚合。
@@ -85,15 +85,15 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | --- | --- | --- |
 | #JobsCreatedInPeriod |整数 |在选定时间段内创建的作业数 |
 | %FailuresForJobsCreatedInPeriod |百分比 |所选时间段内作业失败总数的百分比 |
-| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |十进制数 |所选时间段内为创建的“备用”作业转换的数据的第 80 百分位值（以 MB 计） |
+| 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |十进制数 |所选时间段内为创建的“备用”作业转换的数据的第 80 百分位值（以 MB 计）  |
 | AsOnDateTime |日期/时间 |所选行的最近刷新时间 |
-| AvgBackupDurationInMinsForJobsCreatedInPeriod |十进制数 |所选时间段内创建的“已完成备份”作业所用的平均时间（以分钟计） |
-| AvgRestoreDurationInMinsForJobsCreatedInPeriod |十进制数 |所选时间段内创建的“已完成还原”作业所用的平均时间（以分钟计） |
+| AvgBackupDurationInMinsForJobsCreatedInPeriod |十进制数 |所选时间段内创建的“已完成备份”作业所用的平均时间（以分钟计）  |
+| AvgRestoreDurationInMinsForJobsCreatedInPeriod |十进制数 |所选时间段内创建的“已完成还原”作业所用的平均时间（以分钟计）  |
 | BackupStorageDestination |文本 |备份存储目标，例如云、磁盘  |
 | EntityState |文本 |作业对象的当前状态，例如“活动”、“已删除” |
 | JobFailureCode |文本 |导致作业失败的故障代码字符串 |
 | JobOperation |文本 |为其运行作业的操作，例如备份、还原、配置备份 |
-| JobStartDate |日期 |作业开始运行的日期 |
+| JobStartDate |Date |作业开始运行的日期 |
 | JobStartTime |时间 |作业开始运行的时间 |
 | JobStatus |文本 |作业的状态，例如“已完成”、“失败” |
 | JobUniqueId |文本 |用于标识作业的唯一 ID |
@@ -160,7 +160,7 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | AsOnDateTime |日期/时间 |所选行的最近刷新时间 |
 | CloudStorageInMB |十进制数 |备份所用的云备份存储量，基于所选时间中的最新值进行计算 |
 | EntityState |文本 |对象的当前状态，例如“活动”、“已删除” |
-| LastUpdatedDate |日期 |所选行的上次更新时间 |
+| LastUpdatedDate |Date |所选行的上次更新时间 |
 
 ### <a name="time"></a>时间
 此表提供时间相关字段的详细信息。
@@ -188,11 +188,6 @@ Power BI 提供了自定义功能，可用于[通过数据模型创建报表](ht
 | VaultName |文本 |保管库的名称 |
 | VaultTags |文本 |与保管库关联的标记 |
 
-## <a name="next-steps"></a>后续步骤
-查看用于创建 Azure 备份报表的数据模型之后，请参阅以下文章，更详细地了解如何在 Power BI 中创建和查看报表。
-
-- [在 Power BI 中创建报表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-- [在 Power BI 中筛选报表](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 
 
 <!-- Update_Description: update metedata properties -->

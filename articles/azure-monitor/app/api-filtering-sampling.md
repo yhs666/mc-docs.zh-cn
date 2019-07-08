@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08413f0ec9a7f3c9f52828a0101a3806d0bda755
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: d6bc66cec10e4f1fc35541e9e87f56dc9ce3bb41
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046941"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562734"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测 | Microsoft Azure
 
@@ -255,37 +255,24 @@ public void Process(ITelemetry item)
 在 ApplicationInsights.config 中：
 
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <InstrumentationKey>ffffeeee-dddd-cccc-bbbb-aaaa99998888</InstrumentationKey>
-  <TelemetryModules>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
-  </TelemetryModules>
+<ApplicationInsights>
   <TelemetryInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+    <!-- Fully qualified type name, assembly name: -->
+    <Add Type="MvcWebRole.Telemetry.MyTelemetryInitializer, MvcWebRole"/>
+    ...
   </TelemetryInitializers>
-  <!--Add the following Channel value to modify the Endpoint address-->
-  <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
-  <EndpointAddress>https://dc.applicationinsights.azure.cn/v2/track</EndpointAddress>
-  </Channel>
 </ApplicationInsights>
 ```
 
 *或者，* 可以在代码中实例化初始值设定项，例如在 Global.aspx.cs 中：
 
 ```csharp
-    protected void Application_Start()
-    {
-        // ...
-        TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
-    }
+protected void Application_Start()
+{
+    // ...
+    TelemetryConfiguration.Active.TelemetryInitializers
+    .Add(new MyTelemetryInitializer());
+}
 ```
 
 
@@ -335,11 +322,11 @@ void initialize(Telemetry telemetry); }
             appInsights.context.addTelemetryInitializer(function (envelope) {
                 var telemetryItem = envelope.data.baseData;
 
-                // To check the telemetry item�s type - for example PageView:
-                if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
-                    // this statement removes url from all page view documents
-                    telemetryItem.url = "URL CENSORED";
-                }
+            // To check the telemetry items type - for example PageView:
+            if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
+                // this statement removes url from all page view documents
+                telemetryItem.url = "URL CENSORED";
+            }
 
                 // To set custom properties:
                 telemetryItem.properties = telemetryItem.properties || {};

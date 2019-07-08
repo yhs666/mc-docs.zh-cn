@@ -4,19 +4,19 @@ description: 了解 Azure IoT 中心。 此 IoT 服务针对可缩放数据引�
 author: nberdy
 ms.author: v-yiso
 origin.date: 07/04/2018
-ms.date: 03/25/2018
+ms.date: 07/15/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: 1457861b3a06d9f9b328190a8f34bdbb1113a20c
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: fcb7e1248f36eb32581726efddc71b7a81dd079c
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348531"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569960"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -36,6 +36,9 @@ IoT 中心为发送数据的设备提供保护信道。
 
 * 通过对每个设备进行身份验证，可以安全地将每个设备连接到 IoT 中心，并且安全地管理这些设备。
 * 可以完全控制设备访问，并可以根据每个设备的级别控制连接。
+
+* [IoT 中心设备预配服务](/iot-dps/)在设备首次启动时，自动将设备提供给正确的 IoT 中心。
+
 * 多种身份验证类型支持各种设备功能：
   * 基于 SAS 令牌的身份验证可快速启动 IoT 解决方案。
   * 单个 X.509 证书身份验证，用于安全、以标准为基础的身份验证。

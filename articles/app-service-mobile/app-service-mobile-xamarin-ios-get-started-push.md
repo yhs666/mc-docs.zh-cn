@@ -3,7 +3,7 @@ title: 使用 Azure 应用服务向 Xamarin.iOS 应用添加推送通知
 description: 了解如何使用 Azure 应用服务将推送通知发送到 Xamarin iOS 应用
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
@@ -13,37 +13,41 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/12/2016
-ms.date: 10/08/2018
-ms.author: v-yiso
-ms.openlocfilehash: 6080bbe389cb2d68f33b95c1770c5d6663c9a87b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 07/15/2019
+ms.author: v-biyu
+ms.openlocfilehash: bd1d2bd6d7ffd304c8fe53e05c2998a6a4da0662
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626447"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560280"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加推送通知
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
+
 ## <a name="overview"></a>概述
-本教程介绍如何向 [Xamarin.iOS 快速入门](./app-service-mobile-xamarin-ios-get-started.md)项目添加推送通知，以便每次插入一条记录时，向设备发送一条推送通知。
+
+本教程介绍如何向 [Xamarin.iOS 快速入门](app-service-mobile-xamarin-ios-get-started.md)项目添加推送通知，以便每次插入一条记录时，向设备发送一条推送通知。
 
 如果不使用下载的快速入门服务器项目，则需要推送通知扩展包。 有关详细信息，请参阅 [使用适用于 Azure 移动应用的 .NET 后端服务器 SDK](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) 。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 完成 [Xamarin.iOS 快速入门](./app-service-mobile-xamarin-ios-get-started.md)教程。
-
+* 完成 [Xamarin.iOS 快速入门](app-service-mobile-xamarin-ios-get-started.md)教程。
 * 物理 iOS 设备。 iOS 模拟器不支持推送通知。
 
 ## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>在 Apple 的开发人员门户上为推送通知注册应用
+
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
 ## <a name="configure-your-mobile-app-to-send-push-notifications"></a>配置移动应用以发送推送通知
+
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
 ## <a name="update-the-server-project-to-send-push-notifications"></a>更新服务器项目以发送推送通知
+
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="configure-your-xamarinios-project"></a>配置 Xamarin.iOS 项目
@@ -67,14 +71,14 @@ ms.locfileid: "58626447"
     }
     ```
 
-1. 在 **AppDelegate.cs** 文件顶部添加以下 `using` 语句。
+2. 在 **AppDelegate.cs** 文件顶部添加以下 `using` 语句。
 
     ```csharp
     using Microsoft.WindowsAzure.MobileServices;
     using Newtonsoft.Json.Linq;
     ```
 
-2. 在 **AppDelegate** 中，重写 **FinishedLaunching** 事件：
+3. 在 **AppDelegate** 中，重写 **FinishedLaunching** 事件：
 
    ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -93,7 +97,7 @@ ms.locfileid: "58626447"
     }
     ```
 
-3. 在同一文件中，重写 **RegisteredForRemoteNotifications** 事件。 在此代码中，将注册一个简单的模板通知，服务器会将此通知发送到所有支持的平台。
+4. 在同一文件中，重写 `RegisteredForRemoteNotifications` 事件。 在此代码中，将注册一个简单的模板通知，服务器会将此通知发送到所有支持的平台。
 
     有关使用通知中心的模板的详细信息，请参阅[模板](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)。
 
@@ -116,7 +120,7 @@ ms.locfileid: "58626447"
     }
     ```
 
-4. 然后，重写 **DidReceivedRemoteNotification** 事件：
+5. 然后，重写 **DidReceivedRemoteNotification** 事件：
 
    ```csharp
     public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
@@ -140,19 +144,13 @@ ms.locfileid: "58626447"
 
 ## <a name="test"></a>在应用程序中测试推送通知
 
-1. 在支持 iOS 的设备中按“运行”按钮，以生成项目并启动应用，然后单击“确定”接受推送通知。
+1. 在支持 iOS 的设备中按“运行”  按钮，以生成项目并启动应用，然后单击“确定”  接受推送通知。
 
-    > [!NOTE]
-    > 必须显式接受来自应用程序的推送通知。 此请求只会在首次运行应用程序时出现。
+   > [!NOTE]
+   > 必须显式接受来自应用程序的推送通知。 此请求只会在首次运行应用程序时出现。
 
-2. 在应用中，键入一项任务，然后单击加号 (**+**) 图标。
-
-3. 检查是否已收到通知，并单击“确定”取消通知。
-
+2. 在应用中，键入一项任务，然后单击加号 ( **+** ) 图标。
+3. 检查是否已收到通知，并单击“确定”  取消通知。
 4. 重复步骤 2 并立即关闭应用，并检查是否已显示通知。
 
 已成功完成本教程。
-
-<!-- Images. -->
-
-<!-- URLs. -->

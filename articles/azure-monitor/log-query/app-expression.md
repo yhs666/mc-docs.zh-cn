@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: e92a34cd655c6dda033b2a1370f1d83c99decd81
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: f4393abf3849d4e2d61ff12ff5f7ce7bad1ae45a
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440434"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562507"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 查询中的 app() 表达式
 
@@ -28,12 +28,12 @@ ms.locfileid: "56440434"
 
 ## <a name="syntax"></a>语法
 
-`app(`标识符`)`
+`app(`标识符`)` 
 
 
 ## <a name="arguments"></a>参数
 
-- 标识符：使用下表中的某种格式标识应用。
+- 标识符  ：使用下表中的某种格式标识应用。
 
 | 标识符 | 说明 | 示例
 |:---|:---|:---|
@@ -47,7 +47,7 @@ ms.locfileid: "56440434"
 
 * 必须具有该应用程序的读取权限。
 * 按应用程序的名称来标识应用程序，即假定该名称在所有可访问订阅中唯一。 如果拥有多个采用指定名称的应用程序，查询将因多义性而失败。 在这种情况下，必须使用一个其他的标识符。
-* 使用相关表达式 workspace 来跨 Log Analytics 工作区进行查询。
+* 使用相关表达式 [workspace](workspace-expression.md) 来跨 Log Analytics 工作区进行查询。
 * 除非使用 Application Insights 应用程序作为警报规则的资源，否则在使用 Azure 门户创建[自定义日志搜索警报规则](../platform/alerts-log.md)时，搜索查询目前不支持 app() 表达式。
 
 ## <a name="examples"></a>示例
@@ -78,6 +78,7 @@ union
 
 ## <a name="next-steps"></a>后续步骤
 
+- 参阅 [workspace 表达式](workspace-expression.md)，以引用 Log Analytics 工作区。
 - 了解 [Azure Monitor 数据是如何存储的](../../azure-monitor/log-query/log-query-overview.md)。
 - 访问有关 [Kusto 查询语言](/azure/kusto/query/)的完整文档。
 

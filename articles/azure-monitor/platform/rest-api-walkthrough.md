@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: ff70d43242536a3a6264c936c09c18551deb6bd9
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: b770ce2edfe766bcd4ecb47161cb4ccc03e4c97f
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135984"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562295"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -701,6 +701,7 @@ Invoke-RestMethod -Uri $request `
 
 ## <a name="next-steps"></a>后续步骤
 
+* 查看[监视概述](../../azure-monitor/overview.md)。
 * 查看 [Azure 监视器支持的指标](metrics-supported.md)。
 * 查看[世纪互联 Azure Monitor REST API 参考](https://msdn.microsoft.com/library/azure/dn931943.aspx)。
 * 查看 [Azure 管理库](https://msdn.microsoft.com/library/azure/mt417623.aspx)。

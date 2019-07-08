@@ -6,16 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: sample
-origin.date: 09/07/2017
-ms.date: 07/06/2018
-ms.author: v-junlch
-ms.custom: mvc
-ms.openlocfilehash: f87e257976adaab66d9fc15b48f0b3fb13146a25
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 07/02/2019
+ms.date: 01/31/2019
+ms.author: v-lingwu
+ms.openlocfilehash: f09aa8a49bd6dfdc80217280e62d16ed2903f987
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653221"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570261"
 ---
 # <a name="azure-backup-powershell-samples"></a>Azure 备份 PowerShell 示例
 

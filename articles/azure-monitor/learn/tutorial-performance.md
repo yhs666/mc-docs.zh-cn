@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: b8da30746d99aa540a5f0c854d25b7b39927fc94
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: a868d8babbbe6d15fa6dedf0fe95e5c7d88cdbfe
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731359"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562526"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>使用 Azure Application Insights 查找和诊断性能问题
 
@@ -32,10 +32,11 @@ Azure Application Insights 从应用程序收集遥测，以帮助分析操作�
 
 完成本教程：
 
-- 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+- 使用以下工作负荷安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
     - ASP.NET 和 Web 开发
     - Azure 开发
 - 将 .NET 应用程序部署到 Azure 并[启用 Application Insights SDK](../../azure-monitor/app/asp-net.md)。
+- 对应用程序[启用 Application Insights profiler](../../azure-monitor/app/profiler.md#installation)。
 
 ## <a name="log-in-to-azure"></a>登录 Azure
 通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。
@@ -60,7 +61,7 @@ Application Insights 收集应用程序中不同操作的性能详细信息。 �
 
     ![持续时间分布](media/tutorial-performance/duration-distribution.png)
 
-5.  可以大致看到，调用 Fabrikamaccount Azure 表所花的时间占了事务总持续时间的大部分。 也可看到有一个异常导致其失败。 可以单击列表中的任意项，然后就可以在右侧查看其详细信息。
+5.  可以大致看到，调用 Fabrikamaccount Azure 表所花的时间占了事务总持续时间的大部分。 也可看到有一个异常导致其失败。 可以单击列表中的任意项，然后就可以在右侧查看其详细信息。 [详细了解事务诊断体验](../../azure-monitor/app/transaction-diagnostics.md)
 
     ![操作详细信息](media/tutorial-performance/operation-details.png)
     

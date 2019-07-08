@@ -9,12 +9,12 @@ ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: f962c07696484a1ef1f245fe891dc37ff67ae176
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: c1852473d2013a4e96ba619802743de71db2d26b
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686337"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562296"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 
@@ -30,18 +30,18 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
 ## <a name="create-a-logic-app"></a>创建逻辑应用
 
-1. 单击 Azure 门户左上角的“创建资源”按钮。
+1. 单击 Azure 门户左上角的“创建资源”按钮  。
 
-2. 搜索并选择“逻辑应用”。 单击“创建”  按钮。
+2. 搜索并选择“逻辑应用”  。 单击“创建”  按钮。
 
-3. 输入名称 myLogicApp 和资源组 myResourceGroup。 使用你的订阅。  使用默认位置。 勾选“固定到仪表板”选项。  完成后，单击“创建”。 
+3. 输入名称 myLogicApp 和资源组 myResourceGroup。 使用你的订阅。  使用默认位置。 勾选“固定到仪表板”选项  。  完成后，单击“创建”。  
 
     ![在门户中输入有关逻辑应用的基本信息](./media/quick-alerts-classic-metric-portal/create-logic-app-portal.png)  
 
 
 4. 逻辑应用应固定到仪表板。 通过单击导航到逻辑应用。
 
-5. 在“逻辑应用”面板中，选择“逻辑应用设计器”
+5. 在“逻辑应用”面板中，选择“逻辑应用设计器” 
 
      ![在门户面板的逻辑应用设计器中创建重复触发器](./media/quick-alerts-classic-metric-portal/logic-app-designer.png)  
 
@@ -49,29 +49,29 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
     ![在门户面板中配置逻辑应用触发器](./media/quick-alerts-classic-metric-portal/create-logic-app-triggers.png) 
 
-7. 在设计器中，选择“重复”触发器。
+7. 在设计器中，选择“重复”  触发器。
 
 8. 设置值为 20 且频率为秒的间隔，确保逻辑应用每 20 秒触发一次。
 
-9. 单击“新建步骤”按钮，然后选择“添加操作”。
+9. 单击“新建步骤”  按钮，然后选择“添加操作”  。
 
-10. 选择“HTTP”选项，然后选择“HTTP-HTTP”。
+10. 选择“HTTP”  选项，然后选择“HTTP-HTTP”  。
 
-11. 将“方法”设置为 POST，并将“Uri”设置为所选的 Web 地址。
+11. 将“方法”  设置为 POST，并将“Uri”  设置为所选的 Web 地址。
 
-12. 单击“保存” 。
+12. 单击“保存”  。
 
 13. 可能需要长达 5 分钟的时间才会出现逻辑应用运行操作。  
 
 ## <a name="view-metrics-for-your-logic-app"></a>查看逻辑应用的指标
 
-1. 单击左侧导航窗格中的“监视”选项。
+1. 单击左侧导航窗格中的“监视”  选项。
 
-2. 选择“指标”选项卡，填写逻辑应用的“订阅”、“资源组”、“资源类型”和“资源”信息。
+2. 选择“指标”  选项卡，填写逻辑应用的“订阅”  、“资源组”  、“资源类型”  和“资源”  信息。
 
-3. 在指标列表中，选择“失败的运行数”。
+3. 在指标列表中，选择“失败的运行数”  。
 
-4. 修改图表的“时间范围”，以显示过去一小时的数据。
+4. 修改图表的“时间范围”  ，以显示过去一小时的数据。
 
 5. 此时应该可以看到一张图表，上面绘制了逻辑应用在过去一小时启动的运行总数。 如果看不到任何操作，请确保在完成上述步骤后，至少已等待 5 分钟， 然后刷新浏览器。 
 
@@ -79,13 +79,13 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
 ## <a name="create-a-metric-alert-for-your-logic-app"></a>为逻辑应用创建指标警报
 
-1.  在指标面板的右上角部分中，单击“添加指标警报”按钮。
+1.  在指标面板的右上角部分中，单击“添加指标警报”  按钮。
 
 2. 将指标警报命名为“myLogicAppAlert”，并为警报提供简短介绍。
 
-3. 将指标警报的“条件”设置为“大于”，将“阈值”设置为“10”，并将“时段”设置为“过去 5 分钟”。
+3. 将指标警报的“条件”  设置为“大于”，将“阈值”  设置为“10”，并将“时段”  设置为“过去 5 分钟”。
 
-4. 最后，在“其他管理员电子邮件”下输入你的电子邮件地址。 此警报确保当逻辑应用在 5 分钟内出现超过 10 次失败的运行时，你将收到电子邮件。
+4. 最后，在“其他管理员电子邮件”  下输入你的电子邮件地址。 此警报确保当逻辑应用在 5 分钟内出现超过 10 次失败的运行时，你将收到电子邮件。
 
     ![在门户面板中配置逻辑应用警报](./media/quick-alerts-classic-metric-portal/logic-app-metrics-alert-portal.png)
 
@@ -100,19 +100,16 @@ Azure Monitor 使指标可用于许多 Azure 资源。 这些指标传达相关�
 
 本教程系列中的其他快速入门基于本快速入门。 如果计划继续使用后续的快速入门或相关教程，请勿清除在本快速入门中创建的资源。 如果不打算继续，请在 Azure 门户中执行以下步骤来删除此快速入门创建的所有资源。
 
-1. 在 Azure 门户的左侧菜单中，单击“监视”。
+1. 在 Azure 门户的左侧菜单中，单击“监视”  。
 
-2. 选择“警报”选项卡，查找在本快速入门指南中创建的警报，然后单击它。
+2. 选择“警报”  选项卡，查找在本快速入门指南中创建的警报，然后单击它。
 
-3. 在指标警报面板中，单击“删除”。
+3. 在指标警报面板中，单击“删除”  。
 
-4. 在 Azure 门户的左侧菜单中，搜索“逻辑应用”，然后单击“逻辑应用”。
+4. 在 Azure 门户的左侧菜单中，搜索“逻辑应用”  ，然后单击“逻辑应用”  。
 
-5. 在面板上的文本框中，单击在本快速入门指南中创建的逻辑应用，然后单击“删除”。
+5. 在面板上的文本框中，单击在本快速入门指南中创建的逻辑应用，然后单击“删除”  。
 
 ## <a name="next-steps"></a>后续步骤
 
 在本快速入门中，已了解如何为资源创建指标警报。 有关指标警报的详细信息，请单击查看我们关于警报的概述。
-
-> [!div class="nextstepaction"]
-> [Azure Monitor 订阅操作警报](./../../azure-monitor/platform/quick-audit-notify-action-subscription.md )

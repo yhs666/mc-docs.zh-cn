@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/26/2019
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 72cf8c6777bd25fdce97a01f2958b549e4a25536
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b6ac392f9a0aa5264a687ef024bb30abff1f60f6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003688"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569680"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -46,13 +46,13 @@ ms.locfileid: "59003688"
 
 ## <a name="create-vm"></a>创建 VM
 
-若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroupMonitor”的资源组。
+若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroupMonitor”  的资源组。
 
 ```azurecli
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例将创建名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在于 *~/.ssh/* 中）：
+现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例将创建名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在于 *~/.ssh/* 中）：
 
 ```azurecli
 az vm create \
@@ -114,14 +114,14 @@ az vm start --resource-group myResourceGroupMonitor --name myVM
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
 ```
 
-<!--Notice: View host metrics verify successfully-->
+<!--MOONCAKE: View host metrics verify successfully-->
 
 ## <a name="view-host-metrics"></a>查看主机指标
 
 Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收集该主机的指标，可以在 Azure 门户中查看这些指标，如下所示：
 
-1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
-1. 若要查看主机 VM 的性能情况，请在 VM 窗口中选择“指标”，并选择“可用指标”下面的任一“[主机]”指标。
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。   
+1. 若要查看主机 VM 的性能情况，请在 VM 窗口中选择“指标”，并选择“可用指标”下面的任一“[主机]”指标。   
 
     ![查看主机指标](./media/tutorial-monitoring/monitor-host-metrics.png)
 
@@ -129,27 +129,27 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 
 可以使用基本的主机指标，但若要查看更详细的指标和 VM 特定的指标，需在 VM 上安装 Azure 诊断扩展。 使用 Azure 诊断扩展可从 VM 检索其他监视数据和诊断数据。 可以查看这些性能指标，并根据 VM 的性能情况创建警报。 诊断扩展是通过 Azure 门户安装的，如下所述：
 
-1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
-1. 选择“诊断设置”。 在“选取存储帐户”下拉菜单中，如果尚未选择，请选择在上一部分中创建的“mydiagdata[1234]”帐户。
-1. 选择“启用来宾级监视”按钮。
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。   
+1. 选择“诊断设置”。  在“选取存储帐户”  下拉菜单中，如果尚未选择，请选择在上一部分中创建的“mydiagdata[1234]”  帐户。
+1. 选择“启用来宾级监视”按钮。 
 
     ![查看诊断指标](./media/tutorial-monitoring/enable-diagnostics-extension.png)
 
 <!-- Not Available ## View VM metrics-->
 <!-- Not Available due to [Guest] in VM metrics-->
-<!--Verify Create alerts successfully-->
+<!--MOONCAKE: Verify Create alerts successfully-->
 ## <a name="create-alerts"></a>创建警报
 
 可以根据特定的性能指标创建警报。 例如，当平均 CPU 使用率超过特定的阈值或者可用磁盘空间低于特定的空间量时，警报可用于发出通知。 警报显示在 Azure 门户中，也可以通过电子邮件发送。 还可以触发 Azure 自动化 Runbook 或 Azure 逻辑应用来响应生成的警报。
 
 以下示例针对平均 CPU 使用率创建警报。
 
-1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。
-2. 选择“警报(经典)”，然后在警报窗口顶部选择“添加指标警报(经典)”。
+1. 在 Azure 门户中选择“资源组”，选择“myResourceGroupMonitor”，并在资源列表中选择“myVM”。   
+2. 选择“警报(经典)”  ，然后在警报窗口顶部选择“添加指标警报(经典)”  。
 3. 为警报提供**名称**，例如 *myAlertRule*
 4. 若要在 CPU 百分比持续 5 分钟超过 1.0 时触发警报，请选中其他所有默认值。
-5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。 默认操作是在门户中显示通知。
-6. 选择“确定”按钮。
+5. （可选）选中“电子邮件所有者、参与者和读者”对应的框，以便向他们发送电子邮件通知。  默认操作是在门户中显示通知。
+6. 选择“确定”  按钮。
 
 <!-- Not Avaialbel ## Manage package updates-->
 <!-- Not Avaialbel ### Enable Update management-->
@@ -166,9 +166,9 @@ Linux VM 在 Azure 中有一个与它交互的专用主机。 系统会自动收
 > * 查看启动诊断
 > * 查看主机指标
 > * 在 VM 上启用诊断扩展
+> * 查看 VM 指标
 > * 基于诊断指标创建警报
 
-<!-- Not Available on View VM metrics-->
 <!-- Not Available on Manage package updates-->
 <!-- Not Available on Monitor changes and inventory-->
 <!-- Not Available on Set up advanced monitoring-->

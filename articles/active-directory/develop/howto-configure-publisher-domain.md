@@ -3,8 +3,8 @@ title: 配置应用程序的发布者域 | Azure
 description: 了解如何配置应用程序的发布者域，以告知用户其信息将发送到何处。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/05/2019
-ms.date: 05/09/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d6ff870337db1dff81c4e6fddb6747c5a1b7cb0
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 1d4bf36004df4064de01e6e7f0d5d0ec1883d389
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517569"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568480"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain-preview"></a>如何：配置应用程序的发布者域（预览）
 
@@ -56,21 +56,21 @@ ms.locfileid: "65517569"
 1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 如果你的帐户在多个 Azure AD 租户中存在：
-   1. 从页面右上角的菜单中选择你的个人资料，然后选择“切换目录”。
+   1. 从页面右上角的菜单中选择你的个人资料，然后选择“切换目录”。 
    1. 将会话切换到要在其中创建应用程序的 Azure AD 租户。
 
 1. 导航到[“Azure Active Directory”>“应用注册”](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)，找到并选择要配置的应用。
 
-   选择应用后，会看到该应用的“概述”页。
+   选择应用后，会看到该应用的“概述”页。 
 
-1. 在应用的“概述”页中，选择“品牌”部分。
+1. 在应用的“概述”页中，选择“品牌”部分。  
 
-1. 找到“发布者域”字段并选择以下选项之一：
+1. 找到“发布者域”字段并选择以下选项之一： 
 
-   - 如果尚未配置域，请选择“配置域”。
-   - 如果已配置域，请选择“更新域”。
+   - 如果尚未配置域，请选择“配置域”。 
+   - 如果已配置域，请选择“更新域”。 
 
-如果应用已在租户中注册，则你会看到两个可供选择的选项卡：“选择已验证的域”和“验证新域”。
+如果应用已在租户中注册，则你会看到两个可供选择的选项卡：“选择已验证的域”和“验证新域”。  
 
 如果应用尚未在租户中注册，则你只会看到用来为应用程序验证新域的选项。
 
@@ -90,13 +90,13 @@ ms.locfileid: "65517569"
 
 1. 请将占位符 *{YOUR-APP-ID-HERE}* 替换为对应于应用的应用程序（客户端）ID。
 
-1. 将该文件托管在 `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` 中。 请替换占位符 *{YOUR-DOMAIN-HERE}*，使之与已验证的域相匹配。
+1. 将该文件托管在 `https://{YOUR-DOMAIN-HERE}.com/.well-known/microsoft-identity-association.json` 中。 请替换占位符 *{YOUR-DOMAIN-HERE}* ，使之与已验证的域相匹配。
 
-1. 单击“验证并保存域”按钮。
+1. 单击“验证并保存域”按钮。 
 
 ### <a name="to-select-a-verified-domain"></a>选择已验证的域
 
-- 如果租户包含已验证的域，请从“选择已验证的域”下拉列表中选择一个域。
+- 如果租户包含已验证的域，请从“选择已验证的域”下拉列表中选择一个域。 
 
 ## <a name="implications-on-the-app-consent-prompt"></a>对应用许可提示的影响
 
@@ -152,3 +152,4 @@ ms.locfileid: "65517569"
 
 目前，不支持使用 REST API 或 PowerShell 以编程方式配置发布者域。
 
+<!-- Update_Description: update metedata properties -->

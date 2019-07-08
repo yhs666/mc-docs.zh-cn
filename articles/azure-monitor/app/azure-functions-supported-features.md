@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: f507d8c3044afab09b7de667c58aa13ff3d818f3
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 2e29935fefefc2fbc8f62532785a065ac200bbcf
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732195"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562711"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>适用于 Azure Functions 的 Application Insights 支持功能
 
-Azure Functions 提供与 Application Insights 的[内置集成](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)功能（通过 ILogger Interface 可用）。 以下是当前受支持的功能列表。 有关[入门](https://github.com/Azure/Azure-Functions/wiki/App-Insights)信息，请参阅 Azure Functions 指南。
+Azure Functions 提供与 Application Insights 的[内置集成](/azure-functions/functions-monitoring)功能（通过 ILogger Interface 可用）。 以下是当前受支持的功能列表。 有关[入门](https://github.com/Azure/Azure-Functions/wiki/App-Insights)信息，请参阅 Azure Functions 指南。
 
 ## <a name="supported-features"></a>受支持的功能
 
@@ -59,11 +59,11 @@ Azure Functions 提供与 Application Insights 的[内置集成](https://docs.mi
 
 ## <a name="live-metrics--secure-control-channel"></a>实时指标和安全控制通道
 
-指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥确保通道安全。 有关说明，请参阅[确保控制通道安全](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)。
+指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥确保通道安全。 有关说明，请参阅[确保控制通道安全](/azure-monitor/app/live-stream#secure-the-control-channel)。
 
 ## <a name="sampling"></a>采样
 
-Azure Functions 默认在其配置中启用采样功能。 有关详细信息，请参阅[配置采样](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling)。
+Azure Functions 默认在其配置中启用采样功能。 有关详细信息，请参阅[配置采样](/azure-functions/functions-monitoring#configure-sampling)。
 
 如果你的项目依赖 Application Insights SDK 进行手动遥测跟踪，则当采样配置与 Functions 的采样配置不同时，可能会遇到奇怪的行为。 
 

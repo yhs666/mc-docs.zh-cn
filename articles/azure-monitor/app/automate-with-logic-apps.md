@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5fdaf6c4fdbf3c326f87dbf98e5b599cdd0954c4
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 527d8bcd53fe5f6312426b12d6d3c14b254d3720
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732204"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562722"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>使用逻辑应用自动执行 Application Insights 过程
 
@@ -24,7 +24,7 @@ ms.locfileid: "66732204"
 
 通过这种集成，无需编写任何代码就可以自动执行许多过程。 可以使用 Application Insights 连接器创建逻辑应用，快速自动执行任何 Application Insights 过程。 
 
-也可以添加其他操作。 Azure 应用服务的逻辑应用功能提供数百个操作。 例如，可使用逻辑应用在 Azure DevOps 中自动发送电子邮件通知或创建 bug。 还可使用多个可用[模板](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates)帮助加快逻辑应用的创建过程。 
+也可以添加其他操作。 Azure 应用服务的逻辑应用功能提供数百个操作。 例如，可使用逻辑应用在 Azure DevOps 中自动发送电子邮件通知或创建 bug。 还可使用多个可用[模板](/logic-apps/logic-apps-use-logic-app-templates)帮助加快逻辑应用的创建过程。 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>为 Application Insights 创建逻辑应用
 
@@ -136,7 +136,7 @@ ms.locfileid: "66732204"
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解如何创建 [Analytics 查询](../../azure-monitor/log-query/get-started-queries.md)。
-- 了解有关[逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)的详细信息。
+- 了解有关[逻辑应用](/logic-apps/logic-apps-what-are-logic-apps)的详细信息。
 
 
 

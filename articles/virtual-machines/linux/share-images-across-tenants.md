@@ -9,14 +9,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 04/05/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22b64152c8a35ec54e12fcd12a77d8593a8aafbc
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 38ff1c504b511013193d9f66d067da77b9a9b41b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835840"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569668"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>跨 Azure 租户共享库 VM 映像
 

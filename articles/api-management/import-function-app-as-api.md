@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 08/28/2018
-ms.date: 06/17/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 635d0ed39ce7783d070cff9005a3b3425cab446d
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: e2f70775806dfb10f0ed236b65ff25e2cf774f7b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732746"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569656"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>在 Azure API 管理中将 Azure Function App 作为 API 导入
 
@@ -70,7 +70,7 @@ Azure API 管理支持将 Azure Function App 作为新 API 导入或将其追加
     ![从 Function App 添加](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > 可以只导入基于 HTTP 触发器的 Functions，并将授权级别设置设为“匿名”或“函数”。   目前，不支持 Linux Function App。
+    > 可以只导入基于 HTTP 触发器的 Functions，并将授权级别设置设为“匿名”或“函数”。  
 
 7. 切换到“完整”视图并将“产品”分配到新 API   。 如果需要，请编辑预先填充的字段。
 

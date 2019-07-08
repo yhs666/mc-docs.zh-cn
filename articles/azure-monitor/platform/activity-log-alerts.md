@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: fcae29750514c149f053dbf5e55cbdec88886e5a
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.subservice: alerts
+ms.openlocfilehash: a73e35cb31cb3272bb2ef940432be97cea7bd100
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141751"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562471"
 ---
 # <a name="alerts-on-activity-log"></a>根据活动日志发出警报 
 
@@ -28,7 +28,7 @@ ms.locfileid: "54141751"
 * 对 Azure 订阅中的资源进行特定操作时，通常限于特定资源组或资源。 例如，可能会希望在删除 myProductionResourceGroup 中的任何虚拟机时接收通知。 或者，可能会希望在任何新角色分配到订阅中的用户时接收通知。
 * 发生服务运行状况事件。 服务运行状况事件包括应用于订阅中资源的事件和维护事件的通知。
 
-可以通过简单的类比来理解在活动日志上创建警报规则时可以基于的条件，那就是通过 [Azure 门户中的活动日志](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal)浏览或筛选事件。 在 Azure Monitor - 活动日志中，可以筛选或查找所需的事件，然后使用“添加活动日志警报”按钮创建警报。
+可以通过简单的类比来理解在活动日志上创建警报规则时可以基于的条件，那就是通过 [Azure 门户中的活动日志](../../azure-monitor/platform/activity-logs-overview.md)浏览或筛选事件。 在 Azure Monitor - 活动日志中，可以筛选或查找所需的事件，然后使用“添加活动日志警报”按钮创建警报  。
 
 在上述任何情况下，活动日志警报只监视在其中创建该警报的订阅中的事件。
 

@@ -10,21 +10,21 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 02/22/2019
-ms.date: 03/158/2019
+origin.date: 06/21/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 675ad4a44b666c45bc7e8dea273365c09765a2e9
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 3ffe7d0fb6bac60afb4d08a6d625f7e0723a1a36
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560473"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570434"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-java"></a>快速入门：控制连接到 IoT 中心的设备 (Java)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入云，并从云管理设备。 在本快速入门中，会使用直接方法来控制连接到 IoT 中心的模拟设备。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。
+IoT 中心是一项 Azure 服务，可将大量遥测数据从 IoT 设备引入云，并从云管理设备。 在本快速入门中，会使用直接方法来控制连接到 IoT 中心的模拟设备  。 可使用直接方法远程更改连接到 IoT 中心的设备的行为。
 
 本快速入门使用两个预先编写的 Java 应用程序：
 
@@ -54,6 +54,12 @@ java -version
 mvn --version
 ```
 
+运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IOT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
+
+```azurecli
+az extension add --name azure-cli-iot-ext
+```
+
 如果尚未进行此操作，请从 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip 下载示例 Java 项目并提取 ZIP 存档。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -68,13 +74,12 @@ mvn --version
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 Azure CLI 来注册模拟设备。
 
-1. 运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。 
+1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyJavaDevice**：所注册的设备的名称。 请按显示的方法使用 MyJavaDevice。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyJavaDevice**：所注册的设备的名称。 请按显示的方法使用 MyJavaDevice  。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyJavaDevice
     ```
@@ -98,17 +103,17 @@ mvn --version
 
 ## <a name="retrieve-the-service-connection-string"></a>检索服务连接字符串
 
-还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息。 以下命令检索 IoT 中心的服务连接字符串：
+还需一个服务连接字符串，以便后端应用程序能够连接到 IoT 中心并检索消息  。 以下命令检索 IoT 中心的服务连接字符串：
    
 **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
 ```azurecli
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
 ```
 
 记下如下所示的服务连接字符串：
 
-`HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+`HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
 稍后会在快速入门中用到此值。 服务连接字符串与设备连接字符串不同。
 
@@ -118,9 +123,9 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 1. 在本地终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\simulated-device-2** 文件夹。
 
-2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java 文件。
+2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java 文件  。
 
-    将 `connString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.java 文件。
+    将 `connString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.java 文件  。
 
 3. 在本地终端窗口中，运行以下命令以安装所需的库，并生成模拟设备应用程序：
 
@@ -144,9 +149,9 @@ az iot hub show-connection-string --hub-name YourIoTHubName --output table
 
 1. 在另一个本地终端窗口中，导航到示例 Java 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\back-end-application** 文件夹。
 
-2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java 文件。
+2. 在所选文本编辑器中打开 src/main/java/com/microsoft/docs/iothub/samples/BackEndApplication.java 文件  。
 
-    将 `iotHubConnectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.java 文件。
+    将 `iotHubConnectionString` 变量的值替换为以前记下的服务连接字符串。 然后将更改保存到 BackEndApplication.java 文件  。
 
 3. 在本地终端窗口中运行以下命令，以安装所需的库并生成后端应用程序：
 

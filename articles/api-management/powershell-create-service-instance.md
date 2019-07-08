@@ -11,14 +11,14 @@ ms.workload: integration
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 11/15/2017
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6042de0ebad6895ed572cdc180d6806b2f137cc8
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 22c72db954134dc098481d62eccc834303bd4ec5
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196611"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569644"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>创建新的 Azure API 管理服务实例
 
@@ -42,7 +42,7 @@ Azure API 管理 (APIM) 可帮助组织将 API 发布给外部、合作伙伴和
 使用 [New-AzResourceGroup](https://docs.microsoft.com/en-us//powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
+New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 ```
 
 ## <a name="create-an-api-management-service"></a>创建 API 管理服务

@@ -2,23 +2,23 @@
 title: 在 Azure Active Directory 中向企业应用分配用户或组 | Microsoft Docs
 description: 如何选择企业应用，在 Azure Active Directory 中向其分配用户或组
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 05/13/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f89d2ad80ef400ff0ed3d207629363028cf56adb
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: c854e8e013e5c40c585bb26af7e7023156833c3f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598800"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568605"
 ---
 # <a name="assign-a-user-to-an-enterprise-app-in-azure-active-directory"></a>在 Azure Active Directory 中向企业应用分配用户
 若要将用户分配到企业应用，必须具有适当的权限才能管理企业应用，并且必须是目录的全局管理员。
@@ -32,28 +32,28 @@ ms.locfileid: "65598800"
 
 ## <a name="assign-a-user-to-an-app---portal"></a>将用户分配到应用 - 门户
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
-1. 选择“所有服务”，在文本框中输入 Azure Active Directory，并选择“Enter”。
-1. 选择“企业应用程序”。
-1. 在“企业应用程序 - 所有应用程序”窗格上，你会看到你可以管理的应用的列表。 选择一个应用。
-1. 在 ***appname*** 窗格（即标题中包含所选应用的名称的窗格）中，选择“用户和组”。
-1. 在“appname - 用户和组”窗格中，选择“添加用户”。
-1. 在“添加分配”窗格中选择“用户”。
+1. 选择“所有服务”  ，在文本框中输入 Azure Active Directory，并选择“Enter”  。
+1. 选择“企业应用程序”。 
+1. 在“企业应用程序 - 所有应用程序”  窗格上，你会看到你可以管理的应用的列表。 选择一个应用。
+1. 在 ***appname*** 窗格（即标题中包含所选应用的名称的窗格）中，选择“用户和组”  。
+1. 在“appname - 用户和组”窗格中，选择“添加用户”。  
+1. 在“添加分配”窗格中选择“用户”   。
 
     ![将用户分配到应用](./media/assign-user-or-group-access-portal/assign-users.png)
-1. 在“用户”窗格的列表中选择一个或多个用户，然后选择窗格底部的“选择”按钮。
-1. 在“添加分配”窗格中选择“角色”。 然后，在“选择角色”窗格中选择一个需要应用到所选用户的角色，然后选择窗格底部的“确定”。
-1. 在“添加分配”窗格中，选择窗格底部的“分配”按钮。 已分配用户的权限将是该企业应用的选定角色所定义的权限。
+1. 在“用户”窗格的列表中选择一个或多个用户，然后选择窗格底部的“选择”按钮。  
+1. 在“添加分配”窗格中选择“角色”   。 然后，在“选择角色”窗格中选择一个需要应用到所选用户的角色，然后选择窗格底部的“确定”。  
+1. 在“添加分配”窗格中，选择窗格底部的“分配”按钮。   已分配用户的权限将是该企业应用的选定角色所定义的权限。
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>允许所有用户访问某个应用 - 门户
 允许所有用户访问某个应用程序：
 
 1. 使用目录全局管理员的帐户登录到 [Azure 门户](https://portal.azure.cn) 。
-1. 选择“所有服务”，在文本框中输入 Azure Active Directory，并选择“Enter”。
-1. 选择“企业应用程序”。
-1. 在“企业应用程序”窗格中，选择“所有应用程序”。 随后会列出你可以管理的应用。
-1. 在“企业应用程序 - 所有应用程序”窗格中，选择一个应用。
-1. 在“appname”窗格上，选择“属性”。
-1. 在“appname - 属性”窗格上，将“需要进行用户分配?”设置设置为“否”。 
+1. 选择“所有服务”  ，在文本框中输入 Azure Active Directory，并选择“Enter”  。
+1. 选择“企业应用程序”。 
+1. 在“企业应用程序”  窗格中，选择“所有应用程序”  。 随后会列出你可以管理的应用。
+1. 在“企业应用程序 - 所有应用程序”  窗格中，选择一个应用。
+1. 在“appname”窗格上，选择“属性”  。
+1. 在“appname - 属性”窗格上，将“需要进行用户分配?”设置设置为“否”    。 
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>将用户分配到应用 - PowerShell
 
@@ -127,4 +127,4 @@ ms.locfileid: "65598800"
 * [Disable user sign-ins for an enterprise app](disable-user-sign-in-portal.md)
 * [Change the name or logo of an enterprise app](change-name-or-logo-portal.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 53cd2ce3aec17abf4fdfc536f1aadb1eaa7ccb93
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 0bcb2cee8d6bfc5feee4ae1f18d37c5de10e9f40
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732292"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562698"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>在 Application Insights 中监视 Docker 应用程序（已弃用）
 
@@ -101,9 +101,6 @@ ms.locfileid: "66732292"
 
 * 在应用中安装 Application Insights SDK。 了解不同应用类型中的操作方法：[Java Web 应用](../../azure-monitor/app/java-get-started.md)、[Windows Web 应用](../../azure-monitor/app/asp-net.md)。
 
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## <a name="next-steps"></a>后续步骤
 

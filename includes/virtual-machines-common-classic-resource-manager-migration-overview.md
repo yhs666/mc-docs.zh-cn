@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/25/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: a1bb5ada3876ed5f48bcbb0c2b5f849b586d7716
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 1de39845b43b81e18f9d855eea3fe5e753d68472
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004262"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570271"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移
 本文介绍如何将基础结构即服务 (IaaS) 资源从经典部署模型迁移到资源管理器部署模型，并详细说明如何使用虚拟网络站点到站点网关连接两个在订阅中共存的两个部署模型的资源。 用户可以阅读有关 [Azure Resource Manager 功能和优点](../articles/azure-resource-manager/resource-group-overview.md)的更多内容。 
@@ -132,7 +132,6 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 | Azure HDInsight |包含 HDInsight 服务的虚拟网络 |目前不支持。 |
 | Azure 动态生命周期服务 |包含由 Dynamics Lifecycle Services 管理的虚拟机的虚拟网络 |目前不支持。 |
 | Azure AD 域服务 |包含 Azure AD 域服务的虚拟网络 |目前不支持。 |
-| Azure RemoteApp |包含 Azure RemoteApp 部署的虚拟网络 |目前不支持。 |
 | Azure API 管理 |包含 Azure API 管理部署的虚拟网络 |目前不支持。 若要迁移 IaaS VNET，则更改 API 管理部署的 VNET（该部署不会造成停机）。 |
 
 <!--Update_Description: wording update-->

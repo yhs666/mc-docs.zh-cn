@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 04f5a5cbd192df3b087c1805d0f632d1355d3aec
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: ea911099c256c3b58e67fbbbe34667c1175e4a56
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732402"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562668"
 ---
 # <a name="low-cpu-utilization-in-cloud-resources-preview"></a>云资源（预览）CPU 使用率低下
 
 Application Insights 自动分析应用程序中每个角色实例的 CPU 使用情况，并检测 CPU 使用率低下的实例。 通过此检测，用户可以通过减少每个角色使用的角色实例数，或通过减少角色数来减少 Azure 资源并降低成本。
 
-此功能需要[配置性能计数器](https://docs.microsoft.com/azure/application-insights/app-insights-performance-counters)，除此之外，不需要其他特殊设置。 当应用生成足够的 CPU 性能计数器遥测数据（处理器时间百分比）时，它处于活动状态。
+此功能需要[配置性能计数器](/azure-monitor/app/performance-counters)，除此之外，不需要其他特殊设置。 当应用生成足够的 CPU 性能计数器遥测数据（处理器时间百分比）时，它处于活动状态。
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>何时会收到此类型的智能检测通知？
 当很多 Web/辅助角色实例出现 CPU 利用率低下的情况时，系统会发出典型通知。

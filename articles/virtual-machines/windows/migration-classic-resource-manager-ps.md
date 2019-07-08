@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 03/30/2017
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cfa36b6183a393954ecee2d48898946586892be
-ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
+ms.openlocfilehash: 7d53c0c9bd71ba819318a184286a4ef483eb25c2
+ms.sourcegitcommit: 96fd24c7297c4dacb67764cee86beb6270895766
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277541"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479400"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>使用 Azure PowerShell 将 IaaS 资源从经典部署模型迁移到 Azure 资源管理器
 以下步骤演示了如何使用 Azure PowerShell 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure 资源管理器部署模型。
@@ -128,6 +128,8 @@ ms.locfileid: "67277541"
 
 ## <a name="step-5-make-sure-you-have-enough-azure-resource-manager-virtual-machine-vcpus-in-the-azure-region-of-your-current-deployment-or-vnet"></a>步骤 5：确保在当前部署或 VNET 的 Azure 区域中有足够的 Azure 资源管理器虚拟机 vCPU
 可以使用以下 PowerShell 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)。
+
+<!--MOONCAKE: CORRECT ON limits-and-the-azure-resource-manager -->
 
 此示例检查 **中国北部** 区域的可用性。 使用自己的区域名称替换示例名称。
 
@@ -301,17 +303,17 @@ Get-AzVMUsage -Location "China North"
     * **删除存储帐户中存储的 VM 映像**
 
         以下命令返回 OS 磁盘存储在存储帐户中的所有 VM 映像。
-         ```powershell
-            Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
-                                    } | Select-Object -Property ImageName, ImageLabel
-         ```
-         以下命令返回数据磁盘存储在存储帐户中的所有 VM 映像。
-         ```powershell
+        ```powershell
+        Get-AzureVmImage | Where-Object { $_.OSDiskConfiguration.MediaLink -ne $null -and $_.OSDiskConfiguration.MediaLink.Host.Contains($storageAccountName)`
+                                } | Select-Object -Property ImageName, ImageLabel
+        ```
+        以下命令返回数据磁盘存储在存储帐户中的所有 VM 映像。
+        ```powershell
 
-            Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
-                                             -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
-                                            } | Select-Object -Property ImageName, ImageLabel
-         ```
+        Get-AzureVmImage | Where-Object {$_.DataDiskConfigurations -ne $null `
+                                         -and ($_.DataDiskConfigurations | Where-Object {$_.MediaLink -ne $null -and $_.MediaLink.Host.Contains($storageAccountName)}).Count -gt 0 `
+                                        } | Select-Object -Property ImageName, ImageLabel
+        ```
         使用以下命令删除上述命令返回的所有 VM 映像：
         ```powershell
         Remove-AzureVMImage -ImageName 'yourImageName'

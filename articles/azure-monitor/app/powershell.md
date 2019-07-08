@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5d07447c693264710223ba41e0b84538e2b5cb90
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e971e0d3bef00cec018e3c42cb086256a32dc971
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732381"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562676"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>使用 PowerShell 创建 Application Insights 资源
 
@@ -82,7 +82,7 @@ ms.locfileid: "66732381"
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Basic, 2 = Enterprise"
+                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
                 }
             },
             "dailyQuota": {

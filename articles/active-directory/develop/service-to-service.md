@@ -3,26 +3,27 @@ title: Azure Active Directory 中的服务到服务应用
 description: 介绍什么是服务到服务应用，以及有关此应用类型的协议流、注册和令牌到期的基础知识。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 11/07/2018
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 20374649ec828cf9987a58d58c558c908119950f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 95191a1a69bc238b3282d1811a8a05e5720fd99f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646933"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568713"
 ---
 # <a name="service-to-service-apps"></a>服务到服务应用
 
@@ -63,8 +64,8 @@ ms.locfileid: "52646933"
 
 ## <a name="app-registration"></a>应用注册
 
-- 单租户 - 对于应用程序标识和委托用户标识这两种情况，守护程序或服务器应用程序都必须在 Azure AD 的同一个目录中进行注册。 可以对 Web API 进行配置以公开一组权限，并使用这些权限来限制后台或服务器对其资源的访问。 如果使用的是委托用户标识类型，则服务器应用程序需要从 Azure 门户的“对其他应用程序的权限”下拉菜单中选择所需的权限。 如果使用的是应用程序标识类型，则不需要此步骤。
-- 多租户 - 首先，守护程序或服务器应用程序在配置后会指示它在正常运行时所需的权限。 目标目录中的用户或管理员许可应用程序的要求，使应用程序可供其组织使用时，此必需权限列表会显示在一个对话框中。 某些应用程序只需要用户级权限，组织中的任何用户都可以表示许可。 另外一些应用程序需要管理员级权限，组织中的用户无法许可。 只有目录管理员可以对需要此级别的权限的应用程序表示许可。 当用户或管理员表示许可后，将在其目录中注册这两个 Web API。
+* 单租户 - 对于应用程序标识和委托用户标识这两种情况，守护程序或服务器应用程序都必须在 Azure AD 的同一个目录中进行注册。 可以对 Web API 进行配置以公开一组权限，并使用这些权限来限制后台或服务器对其资源的访问。 如果使用的是委托用户标识类型，则服务器应用程序需要从 Azure 门户的“对其他应用程序的权限”下拉菜单中选择所需的权限。 如果使用的是应用程序标识类型，则不需要此步骤。
+* 多租户 - 首先，守护程序或服务器应用程序在配置后会指示它在正常运行时所需的权限。 目标目录中的用户或管理员许可应用程序的要求，使应用程序可供其组织使用时，此必需权限列表会显示在一个对话框中。 某些应用程序只需要用户级权限，组织中的任何用户都可以表示许可。 另外一些应用程序需要管理员级权限，组织中的用户无法许可。 只有目录管理员可以对需要此级别的权限的应用程序表示许可。 当用户或管理员表示许可后，将在其目录中注册这两个 Web API。
 
 ## <a name="token-expiration"></a>令牌过期
 
@@ -75,3 +76,4 @@ ms.locfileid: "52646933"
 - 详细了解其他[应用程序类型和方案](app-types.md)
 - 了解 Azure AD [身份验证基础知识](authentication-scenarios.md)
 
+<!-- Update_Description: update metedata properties -->

@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/12/19
+ms.date: 05/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9c75ca01dc4a093cd6242c893673ac3a318218c6
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 30aeb0ab5a05ef358a376d6b094c3b485808dad1
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236446"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562592"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -144,7 +144,7 @@ ms.locfileid: "67236446"
            "eastus2"  {$OfficeAppClientId="7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westus2"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break} #Need to check
            "usgovvirginia" {$OfficeAppClientId="c8b41a87-f8c5-4d10-98a4-f8c11c3933fe"; 
-                             $domain='login.microsoftonline.us'; break}
+                             $domain='login.partner.microsoftonline.cn'; break}
            default {$OfficeAppClientId="55b65fb5-b825-43b5-8972-c8b6875867c1";
                     $domain='login.windows-ppe.net'; break} #Int
         }
@@ -209,7 +209,7 @@ ms.locfileid: "67236446"
 
     switch ($WorkspaceLocation) {
            "USGov Virginia" { 
-                             $domain='login.microsoftonline.us';
+                             $domain='login.partner.microsoftonline.cn';
                               $authority = "https://login.chinacloudapi.cn/$adTenant";
                               $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
            default {
@@ -409,7 +409,7 @@ At line:12 char:18
 
     switch ($WorkspaceLocation) {
            "USGov Virginia" { 
-                             $domain='login.microsoftonline.us';
+                             $domain='login.partner.microsoftonline.cn';
                               $authority = "https://login.chinacloudapi.cn/$adTenant";
                               $ARMResource ="https://management.usgovcloudapi.net/"; break} # US Gov Virginia
            default {

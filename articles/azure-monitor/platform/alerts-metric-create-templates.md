@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: a48751130f1ff310dc4ca4a75d5fb71a7f7d9266
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 5af4ae02ab9a580f18acf2cc9ff6c12f9398720e
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731342"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562436"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -119,7 +119,8 @@ ms.locfileid: "66731342"
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -237,17 +238,18 @@ ms.locfileid: "66731342"
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simplestaticmetricalert.json -TemplateParameterFile simplestaticmetricalert.parameters.json
 ```
 
 
 使用 Azure CLI
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -366,7 +368,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -495,17 +498,18 @@ az group deployment create \
 使用 Azure PowerShell
 
 ```powershell
-Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile simpledynamicmetricalert.json -TemplateParameterFile simpledynamicmetricalert.parameters.json
 ```
 
 
 使用 Azure CLI
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -712,11 +716,11 @@ az group deployment create \
 
 使用 Azure PowerShell
 ```powershell
-Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advancedstaticmetricalert.json -TemplateParameterFile advancedstaticmetricalert.parameters.json
 ```
 
@@ -724,6 +728,7 @@ New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName Reso
 
 使用 Azure CLI
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -913,11 +918,11 @@ az group deployment create \
 
 使用 Azure PowerShell
 ```powershell
-Connect-AzureRmAccoun -Environment AzureChinaCloudt -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
   -TemplateFile advanceddynamicmetricalert.json -TemplateParameterFile advanceddynamicmetricalert.parameters.json
 ```
 
@@ -925,6 +930,7 @@ New-AzureRmResourceGroupDeployment -Name AlertDeployment -ResourceGroupName Reso
 
 使用 Azure CLI
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -1062,7 +1068,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1198,6 +1205,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -1332,7 +1340,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1479,6 +1488,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -1597,7 +1607,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1730,6 +1741,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -1865,7 +1877,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2009,6 +2022,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -2127,7 +2141,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2263,6 +2278,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \
@@ -2397,7 +2413,8 @@ az group deployment create \
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2544,6 +2561,7 @@ New-AzResourceGroupDeployment -Name MultiResourceAlertDeployment -ResourceGroupN
 使用 Azure CLI
 
 ```azurecli
+az cloud set --name AzureChinaCloud
 az login
 
 az group deployment create \

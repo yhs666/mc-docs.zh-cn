@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 26d6d4dbd97688320ec38da5cfd770afb604e7c4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7fe373ec18eb8dc31c458c7e2f0373828a6cf010
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625681"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562480"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用字符串
 
@@ -49,39 +49,40 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 ## <a name="string-comparisons"></a>字符串比较
 
-|     运算符     |                          说明                           | 区分大小写 |        示例（生成 `true`）        |
-|------------------|----------------------------------------------------------------|----------------|---------------------------------------|
-|       `==`       |                             等于                             |      是       |           `"aBc" == "aBc"`            |
-|       `!=`       |                           不等于                           |      是       |           `"abc" != "ABC"`            |
-|       `=~`       |                             等于                             |       否       |           `"abc" =~ "ABC"`            |
-|       `!~`       |                           不等于                           |       否       |           `"aBc" !~ "xyz"`            |
-|      `has`       |       右侧是左侧的整个字词        |       否       |    `"North America" has "america"`    |
-|      `!has`      |      右侧不是左侧的完整字词       |       否       |     `"North America" !has "amer"`     |
-|     `has_cs`     |       右侧是左侧的整个字词        |      是       |  `"North America" has_cs "America"`   |
-|    `!has_cs`     |      右侧不是左侧的完整字词       |      是       |   `"North America" !has_cs "amer"`    |
-|   `hasprefix`    |       右侧是左侧的字词前缀       |       否       |   `"North America" hasprefix "ame"`   |
-|   `!hasprefix`   |     右侧不是左侧的字词前缀      |       否       |  `"North America" !hasprefix "mer"`   |
-|  `hasprefix_cs`  |       右侧是左侧的字词前缀       |      是       | `"North America" hasprefix_cs "Ame"`  |
-| `!hasprefix_cs`  |     右侧不是左侧的字词前缀      |      是       | `"North America" !hasprefix_cs "CA"`  |
-|   `hassuffix`    |       右侧是左侧的字词后缀       |       否       |   `"North America" hassuffix "ica"`   |
-|   `!hassuffix`   |     右侧不是左侧的字词后缀      |       否       | \`"North America" !hassuffix "americ" |
-|  `hassuffix_cs`  |       右侧是左侧的字词后缀       |      是       | `"North America" hassuffix_cs "ica"`  |
-| `!hassuffix_cs`  |     右侧不是左侧的字词后缀      |      是       | \`"North America" !hassuffix_cs "icA" |
-|    `contains`    |   右侧作为左侧的子序列出现    |       否       |     `"FabriKam" contains "BRik"`      |
-|   `!contains`    |        右侧不会在左侧出现         |       否       |     `"Fabrikam" !contains "xyz"`      |
-|  `contains_cs`   |   右侧作为左侧的子序列出现    |      是       |    `"FabriKam" contains_cs "Kam"`     |
-|  `!contains_cs`  |        右侧不会在左侧出现         |      是       |    `"Fabrikam" !contains_cs "Kam"`    |
-|   `startswith`   |  右侧是左侧的初始子序列   |       否       |     `"Fabrikam" startswith "fab"`     |
-|  `!startswith`   | 右侧不是左侧的初始子序列 |       否       |    `"Fabrikam" !startswith "kam"`     |
-| `startswith_cs`  |  右侧是左侧的初始子序列   |      是       |   `"Fabrikam" startswith_cs "Fab"`    |
-| `!startswith_cs` | 右侧不是左侧的初始子序列 |      是       |   `"Fabrikam" !startswith_cs "fab"`   |
-|    `endswith`    |   右侧是左侧的结束子序列   |       否       |      `"Fabrikam" endswith "Kam"`      |
-|   `!endswith`    | 右侧不是左侧的结束子序列  |       否       |     `"Fabrikam" !endswith "brik"`     |
-|  `endswith_cs`   |   右侧是左侧的结束子序列   |      是       |      `"Fabrikam" endswith "Kam"`      |
-|  `!endswith_cs`  | 右侧不是左侧的结束子序列  |      是       |     `"Fabrikam" !endswith "brik"`     |
-| `matches regex`  |      左侧包含右侧的匹配项       |      是       |   `"Fabrikam" matches regex "b.*k"`   |
-|       `in`       |                 等于某个元素                  |      是       |   `"abc" in ("123", "345", "abc")`    |
-|      `!in`       |               不等于任何元素                |      是       |   `"bca" !in ("123", "345", "abc")`   |
+运算符       |说明                         |区分大小写|示例（生成 `true`）
+---------------|------------------------------------|--------------|-----------------------
+`==`           |等于                              |是           |`"aBc" == "aBc"`
+`!=`           |不等于                          |是           |`"abc" != "ABC"`
+`=~`           |等于                              |否            |`"abc" =~ "ABC"`
+`!~`           |不等于                          |否            |`"aBc" !~ "xyz"`
+`has`          |右侧是左侧的整个字词 |否|`"North America" has "america"`
+`!has`         |右侧不是左侧的完整字词       |否            |`"North America" !has "amer"` 
+`has_cs`       |右侧是左侧的整个字词 |是|`"North America" has_cs "America"`
+`!has_cs`      |右侧不是左侧的完整字词       |是            |`"North America" !has_cs "amer"` 
+`hasprefix`    |右侧是左侧的字词前缀         |否            |`"North America" hasprefix "ame"`
+`!hasprefix`   |右侧不是左侧的字词前缀     |否            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |右侧是左侧的字词前缀         |是            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |右侧不是左侧的字词前缀     |是            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |右侧是左侧的字词后缀         |否            |`"North America" hassuffix "ica"`
+`!hassuffix`   |右侧不是左侧的字词后缀     |否            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |右侧是左侧的字词后缀         |是            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |右侧不是左侧的字词后缀     |是            |`"North America" !hassuffix_cs "icA"`
+`contains`     |右侧作为左侧的子序列出现  |否            |`"FabriKam" contains "BRik"`
+`!contains`    |右侧不会在左侧出现           |否            |`"Fabrikam" !contains "xyz"`
+`contains_cs`   |右侧作为左侧的子序列出现  |是           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |右侧不会在左侧出现           |是           |`"Fabrikam" !contains_cs "Kam"`
+`startswith`   |右侧是左侧的初始子序列|否            |`"Fabrikam" startswith "fab"`
+`!startswith`  |右侧不是左侧的初始子序列|否        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |右侧是左侧的初始子序列|是            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |右侧不是左侧的初始子序列|是        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |右侧是左侧的结束子序列|否             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |右侧不是左侧的结束子序列|否         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |右侧是左侧的结束子序列|是             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |右侧不是左侧的结束子序列|是         |`"Fabrikam" !endswith "brik"`
+`matches regex`|左侧包含右侧的匹配项        |是           |`"Fabrikam" matches regex "b.*k"`
+`in`           |等于某个元素       |是           |`"abc" in ("123", "345", "abc")`
+`!in`          |不等于任何元素   |是           |`"bca" !in ("123", "345", "abc")`
+
 
 ## <a name="countof"></a>countof
 
@@ -163,7 +164,7 @@ Heartbeat
 | project ComputerIP, last_octet, next_ip
 ```
 
-以下示例在字符串 *Trace* 中搜索“Duration”的定义。 匹配项强制转换为 *real* 并与时间常量 (1 s) 相乘，该常量将 Duration 强制转换为 timespan 类型。
+以下示例在字符串 *Trace* 中搜索“Duration”的定义。 匹配项强制转换为 *real* 并与时间常量 (1 s) 相乘，该常量将 Duration 强制转换为 timespan 类型。 
 ```Kusto
 let Trace="A=12, B=34, Duration=567, ...";
 print Duration = extract("Duration=([0-9.]+)", 1, Trace, typeof(real));  //result: 567

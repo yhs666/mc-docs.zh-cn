@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 03/25/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 0538df517fdc913af656580a87b895daf2b21fc4
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 3884651cd950ed1b0c7cceceab6781548b8cea39
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732684"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570546"
 ---
 # <a name="validation-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Validation 活动
 可以在管道中使用 Validation，以确保管道仅在验证附加数据集引用存在并满足指定条件或已达到超时后才继续执行。

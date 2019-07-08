@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 4993274b9e85a33d79e22e9e40d2934d3d0600ee
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: a0715eaa1f0f7913fa12b05b14a437369848dc26
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686397"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562300"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure Monitor 中的 Log Analytics 工作区
 
@@ -79,7 +79,7 @@ $ExportedSearches = @"
     {        
         "Category":  "My Saved Searches",
         "DisplayName":  "Current Disk Queue Length",
-        "Query":  "Type=Perf ObjectName=LogicalDisk InstanceName=\"C:\" CounterName=\"Current Disk Queue Length\"",
+        "Query":  "Perf | where ObjectName == "LogicalDisk" and CounterName == "Current Disk Queue Length" and InstanceName == "C:",
         "Version":  1
     }
 ]

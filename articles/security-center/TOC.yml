@@ -27,9 +27,6 @@
       href: security-center-app-services.md
     - name: 使用安全策略
       href: tutorial-security-policy.md
-      items:
-        - name: 安全配置
-          href: security-center-customize-os-security-config.md
     - name: 实施安全建议
       href: security-center-recommendations.md
       items:
@@ -45,12 +42,6 @@
           href: security-center-add-next-generation-firewall.md
         - name: 仅通过 NGFW 路由流量
           href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
-        - name: 自定义警报
-          href: security-center-custom-alert.md
-        - name: 警报置信度分数
-          href: security-center-confidence-score.md
-        - name: 调查
-          href: security-center-investigation.md
 - name: 参考
   items:
     - name: REST API

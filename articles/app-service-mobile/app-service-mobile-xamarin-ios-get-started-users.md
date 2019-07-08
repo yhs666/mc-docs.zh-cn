@@ -3,7 +3,7 @@ title: Xamarin iOS 应用中的移动应用身份验证入门
 description: 了解如何使用移动应用通过各种标识提供者（包括 AAD 和 Microsoft）对 Xamarin iOS 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 ms.assetid: 180cc61b-19c5-48bf-a16c-7181aef3eacc
@@ -14,16 +14,19 @@ ms.devlang: dotnet
 ms.topic: article
 orgin.date: 07/05/2017
 ms.author: v-biyu
-ms.date: 03/18/2019
-ms.openlocfilehash: e61a524685f45a030c92ff5c896e279636fd2a04
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 07/15/2019
+ms.openlocfilehash: 52b68c37ebfa6e4318b8c1cf4069e9116a510846
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626996"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560265"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>向 Xamarin.iOS 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+
+## <a name="overview"></a>概述
 
 本主题演示如何从客户端应用程序对应用服务移动应用的用户进行身份验证。 在本教程中，使用应用服务支持的标识提供者向 Xamarin.iOS 快速入门项目添加身份验证。 移动应用成功进行身份验证和授权后，将显示用户 ID 值，该用户能够访问受限制的表数据。
 
@@ -36,15 +39,15 @@ ms.locfileid: "58626996"
 
 安全身份验证要求为应用定义新的 URL 方案。 此方案允许在完成身份验证过程后，身份验证系统重定向到应用。 在本教程中，我们自始至终使用 URL 方案 _appname_ 。 但是，可以使用任何你所选的 URL 方案。 对于移动应用程序而言，它应是唯一的。 在服务器端启用重定向：
 
-1. 在 [Azure 门户]中，选择应用服务。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择应用服务。
 
-2. 单击“身份验证/授权”菜单选项。
+2. 单击“身份验证/授权”  菜单选项。
 
-3. 在“允许的外部重定向 URL”中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
+3. 在“允许的外部重定向 URL”  中，输入 `url_scheme_of_your_app://easyauth.callback`。  此字符串中的 **url_scheme_of_your_app** 是移动应用程序的 URL 方案。  它应该遵循协议的正常 URL 规范（仅使用字母和数字，并以字母开头）。  应记下此字符串，因为在一些地方需要使用此 URL 方案调整移动应用代码。
 
-4. 单击 **“确定”**。
+4. 单击 **“确定”** 。
 
-5. 单击“保存” 。
+5. 单击“保存”  。
 
 ## <a name="restrict-permissions-to-authenticated-users"></a>将权限限制给已经过身份验证的用户
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -75,8 +78,8 @@ ms.locfileid: "58626996"
     {
         try
         {
-                AppDelegate.ResumeWithURL = url => url.Scheme == "zumoe2etestapp" && client.ResumeWithURL(url);
-                user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccout, "{url_scheme_of_your_app}");
+            AppDelegate.ResumeWithURL = url => url.Scheme == "{url_scheme_of_your_app}" && client.ResumeWithURL(url);
+            user = await client.LoginAsync(view, MobileServiceAuthenticationProvider.MicrosoftAccout, "{url_scheme_of_your_app}");
         }
         catch (Exception ex)
         {
@@ -132,7 +135,7 @@ ms.locfileid: "58626996"
     }
     ```
 
-6. 打开 **Info.plist** 文件，导航到“高级”节中的“URL 类型”。 现在，配置 URL 类型的“标识符”和“URL 方案”，然后单击“添加 URL 类型”。 **URL 方案**应与 {url_scheme_of_your_app} 相同。
+6. 打开 **Info.plist** 文件，导航到“高级”  节中的“URL 类型”  。 现在，配置 URL 类型的“标识符”  和“URL 方案”  ，然后单击“添加 URL 类型”  。 **URL 方案**应与 {url_scheme_of_your_app} 相同。
 7. 在已连接到 Mac 主机的 Visual Studio 中或在 Visual Studio for Mac 中，针对设备或模拟器运行客户端项目。 验证应用程序是否未显示任何数据。
 
     通过向下拉动项列表来执行刷新笔势，这会导致显示登录屏幕。 成功输入有效的凭据后，应用会显示待办事项列表，用户可以对数据进行更新。

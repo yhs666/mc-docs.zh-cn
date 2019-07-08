@@ -14,12 +14,12 @@ origin.date: 08/15/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 46d5975ab7e880afda72483d6b47a7a79d65fc8a
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 4f9e92bcc17ca3a3ddcb1b6dac0e51e1deef7dbf
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250450"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540065"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -48,7 +48,7 @@ ms.locfileid: "66250450"
 - **提高 Azure 服务资源的安全性**：VNet 专用地址空间可能重叠，因此不能用于唯一标识源自 VNet 的流量。 通过将 VNet 标识扩展到服务，服务终结点可以将对 Azure 服务资源的访问限定到你的虚拟网络。 在虚拟网络中启用服务终结点后，可以通过将虚拟网络规则添加到资源，在虚拟网络中保护 Azure 服务资源。 这完全消除了通过公共 Internet 对资源进行访问的可能性，并仅允许来自自己虚拟网络的流量，从而提高了安全性。
 - **来自虚拟网络的 Azure 服务流量的最佳路由**：当前，虚拟网络中强制 Internet 流量发往本地和/或虚拟设备的任何路由（称为强制隧道）也会强制 Azure 服务流量采用与 Internet 流量相同的路由。 服务终结点为 Azure 流量提供最佳路由。 
 
-  终结点始终将直接来自虚拟网络的服务流量转发到 Azure 主干网络上的服务。 将流量保留在 Azure 主干网络上可以通过强制隧道持续审核和监视来自虚拟网络的出站 Internet 流量，而不会影响服务流量。 详细了解[用户定义的路由和强制隧道](virtual-networks-udr-overview.md)。
+    终结点始终将直接来自虚拟网络的服务流量转发到 Azure 主干网络上的服务。 将流量保留在 Azure 主干网络上可以通过强制隧道持续审核和监视来自虚拟网络的出站 Internet 流量，而不会影响服务流量。 详细了解[用户定义的路由和强制隧道](virtual-networks-udr-overview.md)。
 - **设置简单，管理开销更少**：不再需要使用虚拟网络中的保留公共 IP 地址通过 IP 防火墙保护 Azure 资源。 无需使用 NAT 或网关设备即可设置服务终结点。 只需单击一下子网，即可配置服务终结点。 不会产生与终结点维护相关的额外开销。
 
 ## <a name="limitations"></a>限制
@@ -110,9 +110,9 @@ ms.locfileid: "66250450"
 
 - 验证服务诊断中任何服务请求的源 IP 地址。 使用服务终结点的所有新请求会将请求的源 IP 地址显示为分配给从虚拟网络发出请求的客户端的虚拟网络专用地址。 如果不使用终结点，此地址是 Azure 公共 IP 地址。
 - 查看子网中任何网络接口上的有效路由。 服务的路由：
-  - 显示更具体的默认路由用于寻址每个服务的前缀范围
-  - nextHopType 为 *VirtualNetworkServiceEndpoint*
-  - 指示与任何强制隧道路由相比，它还与服务另外建立了一个有效的直接连接
+    - 显示更具体的默认路由用于寻址每个服务的前缀范围
+    - nextHopType 为 *VirtualNetworkServiceEndpoint*
+    - 指示与任何强制隧道路由相比，它还与服务另外建立了一个有效的直接连接
 
 >[!NOTE]
 > 服务终结点路由会替代与 Azure 服务匹配的地址前缀的 BGP 或 UDR 路由。 详细了解如何[排查有效路由问题](diagnose-network-routing-problem.md)
@@ -146,6 +146,6 @@ ms.locfileid: "66250450"
 - 了解如何[在虚拟网络中保护 Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fsql-data-warehouse%2ftoc.json)
 - 了解[虚拟网络中的 Azure 服务集成](virtual-network-for-azure-services.md)
     <!--Not Available on - Learn about [Virtual Network Service Endpoint Policies](/virtual-network/virtual-network-service-endpoint-policies-overview)-->
-- 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
+- 快速入门：[Azure 资源管理器模板](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vnet-2subnets-service-endpoints-storage-integration/)，用于在 VNet 的子网上设置服务终结点，并保护访问该子网的 Azure 存储帐户。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

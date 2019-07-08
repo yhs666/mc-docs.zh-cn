@@ -18,12 +18,12 @@ origin.date: 08/16/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 3db03a0e243d22bfd62de40045e3f4cd859f5918
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 9c3776da4f14915573fea925bdf8f3ec7f1d3e71
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250480"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540073"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>教程：通过 Azure 门户使用虚拟网络对等互连连接虚拟网络
 
@@ -110,7 +110,8 @@ ms.locfileid: "66250480"
 ### <a name="create-the-first-vm"></a>创建第一个 VM
 
 1. 选择 Azure 门户左上角的“+ 创建资源”  。
-2. 选择“计算”，然后选择“Windows Server 2016 Datacenter”。   可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。  
+2. 选择“虚拟机”，然后选择“Windows Server 2016 Datacenter”。   可以选择不同的操作系统，但剩余步骤假定你选择了“Windows Server 2016 Datacenter”。  
+    <!--Correct on Virtual Machines-->
 3. 对于“基本信息”输入或选择以下信息，接受剩下的默认设置，然后选择“创建”   ：
 
 

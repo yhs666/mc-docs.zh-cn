@@ -13,24 +13,22 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6351f77c38219eb81ac91dd0f0be4c6c7175e44c
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 730bdea5a355ad52f3df08c9f46a513d4b1c2708
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151747"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568724"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>快速入门：通过 JavaScript 单页应用程序 (SPA) 登录用户并获取访问令牌
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
-
 本快速入门介绍如何使用代码示例，该示例演示了 JavaScript 单页应用程序 (SPA) 登录工作和学校帐户并获取访问令牌以调用 Microsoft Graph API 或任何 Web API 的方式。
 
-![显示本快速入门生成的示例应用的工作原理](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![显示本快速入门生成的示例应用的工作原理](./media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -38,7 +36,7 @@ ms.locfileid: "67151747"
 * 若要通过 Node.js 服务器运行此项目，请执行以下操作：
     * 安装 [Node.js](https://nodejs.org/en/download/)
     * 安装 [Visual Studio Code](https://code.visualstudio.com/download)，以便编辑项目文件
-* 若要将项目作为 Visual Studio 解决方案运行，请安装 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)。
+* 若要将该项目作为 Visual Studio 解决方案运行，请安装 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>注册并下载快速入门应用程序
@@ -77,7 +75,7 @@ ms.locfileid: "67151747"
 > > [为我进行这些更改]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已配置](media/quickstart-v2-javascript/green-check.png) 应用程序已使用这些属性进行配置。
+> > ![已配置](./media/quickstart-v2-javascript/green-check.png) 应用程序已使用这些属性进行配置。
 
 #### <a name="step-2-download-the-project"></a>步骤 2：下载项目
 
@@ -153,10 +151,10 @@ MSAL 是一个库，用于用户登录和请求令牌，此类令牌用于访问
 > 可以在 [MSAL.js 版本](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases)下将上面的版本替换为最新发布的版本。
 
 
-如果已安装 Node，则也可通过 npm 下载最新预览版：
+另外，如果已安装 Node，则可通过 npm 下载最新版本：
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>MSAL 初始化
@@ -185,18 +183,18 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`cacheLocation`  | （可选）这样可以针对身份验证状态设置浏览器存储。 默认为 sessionStorage。   |
 > |`storeAuthStateInCookie`  | （可选）此库将存储身份验证请求状态，该状态是在浏览器 Cookie 中对身份验证流进行验证所需的。 这是针对 IE 和 Edge 浏览器设置的，目的是缓解某些[已知问题](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)。 |
 
- 请参阅 [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options)，详细了解提供的可配置选项。
+ 有关可用的可配置选项的更多详细信息，请阅读[初始化客户端应用程序](msal-js-initializing-client-applications.md)。
 
 ### <a name="sign-in-users"></a>用户登录
 
 以下代码片段演示如何进行用户登录：
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -205,7 +203,7 @@ myMSALObj.loginPopup(request).then(function (loginResponse) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | （可选）包含在登录时为了获得用户同意而请求的作用域。 例如：`[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 适用于 Microsoft Graph，`[ "<Application ID URL>/scope" ]` 适用于自定义 Web API（即 `api://<Application ID>/access_as_user`）。 |
+> | `scopes`   | （可选）包含在登录时为了获得用户同意而请求的作用域。 例如：`["https://microsoftgraph.chinacloudapi.cn/user.read"]` 适用于 Microsoft Graph，`[ "<Application ID URL>/scope" ]` 适用于自定义 Web API（即 `api://<Application ID>/access_as_user`）。 |
 
 > [!TIP]
 > 另外，你可能希望使用 `loginRedirect` 方法来将当前页面重定向到登录页面而非重定向到弹出窗口。
@@ -219,11 +217,11 @@ MSAL 有三种用于获取令牌的方法，即 `acquireTokenRedirect`、`acquir
 `acquireTokenSilent` 方法处理令牌获取和续订，无需进行任何用户交互。 首次执行 `loginRedirect` 或 `loginPopup` 方法后，通常使用 `acquireTokenSilent` 方法获取用于访问受保护资源的令牌，以便进行后续调用。 进行请求或续订令牌的调用时，以静默方式进行。
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -233,7 +231,7 @@ myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
 
 > |Where  |  |
 > |---------|---------|
-> | `scopes`   | 包含请求的需要在 API 的访问令牌中返回的作用域。 例如：`[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 适用于 Microsoft Graph，`[ "<Application ID URL>/scope" ]` 适用于自定义 Web API（即 `api://<Application ID>/access_as_user`）。|
+> | `scopes`   | 包含请求的需要在 API 的访问令牌中返回的作用域。 例如：`["https://microsoftgraph.chinacloudapi.cn/user.read"]` 适用于 Microsoft Graph，`[ "<Application ID URL>/scope" ]` 适用于自定义 Web API（即 `api://<Application ID>/access_as_user`）。|
 
 #### <a name="get-a-user-token-interactively"></a>以交互方式获取用户令牌
 
@@ -247,17 +245,18 @@ myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
 调用 `acquireTokenPopup` 将导致显示一个用于登录的弹出窗口（调用 `acquireTokenRedirect` 则会导致将用户重定向到 Microsoft 标识平台终结点），在这种情况下，用户需要进行交互，即确认凭据、同意所需资源或完成双重身份验证。
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
     console.log(error);
 });
 ```
+
 > [!NOTE]
 > 当使用的浏览器是 Internet Explorer 时，本快速入门使用 `loginRedirect` 和 `acquireTokenRedirect` 方法，因为存在一个与处理 Internet Explorer 的弹出窗口相关的[已知问题](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues)。
 
@@ -275,3 +274,4 @@ myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
 > [!div class="nextstepaction"]
 > [MSAL.js GitHub 存储库](https://github.com/AzureAD/microsoft-authentication-library-for-js)
 
+<!-- Update_Description: wording update -->

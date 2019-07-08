@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/08/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 6782e05f4ffc526d29d38fe054e6696dcf8eee52
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 99a4531b219a403e8fd40fbabd1ba0d1997b41fb
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732659"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569844"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -65,7 +65,7 @@ PS C:\WINDOWS\system32> Set-AzDataFactoryV2 -ResourceGroupName <resourceGroupNam
 DataFactoryName   : ADFV2DemoFactory
 DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
 ResourceGroupName : <resourceGroupName>
-Location          : China East
+Location          : China East 2
 Tags              : {}
 Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentity
 ProvisioningState : Succeeded
@@ -122,7 +122,7 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<subsID>/resourceGroups/
 ```json
 {
     "contentVersion": "1.0.0.0",
-    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "resources": [{
         "name": "<dataFactoryName>",
         "apiVersion": "2018-06-01",
@@ -154,16 +154,6 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 >[!TIP]
 > 如果看不到托管标识，请通过更新工厂来[生成托管标识](#generate-managed-identity)。
-
-### <a name="retrieve-managed-identity-using-azure-portal"></a>使用 Azure 门户检索托管标识
-
-可以通过 Azure 门户 -> 数据工厂->“属性”找到托管标识信息：
-
-- 托管标识对象 ID
-- 托管标识租户
-- **托管标识应用程序 ID** > 复制此值
-
-![检索托管标识](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>使用 PowerShell 检索托管标识
 

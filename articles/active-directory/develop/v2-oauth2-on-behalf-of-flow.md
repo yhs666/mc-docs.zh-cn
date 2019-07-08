@@ -3,8 +3,8 @@ title: Microsoft 标识平台和 OAuth2.0 代理流 | Azure
 description: 本文介绍如何使用 OAuth2.0 代理流通过 HTTP 消息实现服务到服务身份验证。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/05/2019
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8101e45eafe7cf6d49d8f746d735fae51173b
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 6735b0549677c15a76cbd5865191e7b9aa917657
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151745"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568668"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 标识平台和 OAuth 2.0 代理流
 
@@ -224,3 +224,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 * [Microsoft 标识平台中的 OAuth 2.0 代码流](v2-oauth2-auth-code-flow.md)
 * [使用 `/.default` 范围](v2-permissions-and-consent.md#the-default-scope)
 
+<!-- Update_Description: update metedata properties -->

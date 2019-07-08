@@ -7,14 +7,14 @@ ms.service: ansible
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
-origin.date: 04/22/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 2c5f8a92b2c2c4b86fb9bed64e1a7881aa139be3
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+origin.date: 04/30/2019
+ms.date: 07/01/2019
+ms.openlocfilehash: 978a4ab08b4aa9bfb28dd0b4803bd4c6d9add079
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835751"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570333"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 在 Azure 中配置 Linux 虚拟机
@@ -23,8 +23,8 @@ Ansible 使用声明性语言，适用于通过 Ansible *playbook* 来自动完�
 
 ## <a name="prerequisites"></a>先决条件
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -218,6 +218,8 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 ## <a name="run-the-sample-ansible-playbook"></a>运行示例 Ansible playbook
 
 此部分详述如何运行在本文中提供的示例 Ansible playbook。
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 

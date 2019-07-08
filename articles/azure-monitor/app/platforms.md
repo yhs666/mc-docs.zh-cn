@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: dad1e75608286c3ec7ded165a4f5fa6e117d8008
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 6969352d8fc5521e0205c7ca04c63d98efac4450
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732382"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562675"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>开发人员分析：语言、平台和集成
 这些项是我们听说过的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的实现，包括第三方的一些实现。
@@ -31,6 +31,7 @@ ms.locfileid: "66732382"
 
 ## <a name="languages---community-supported"></a>语言 - 社区支持
 * [F#](https://safe-stack.github.io/docs/template-azure-ai/)
+* [Go](https://github.com/Microsoft/ApplicationInsights-go)
 * [PHP](https://github.com/Microsoft/ApplicationInsights-PHP)
 * [Python](https://pypi.python.org/pypi/applicationinsights/0.1.0)
 * [Ruby](https://rubygems.org/gems/application_insights)
@@ -45,7 +46,7 @@ ms.locfileid: "66732382"
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Azure 应用服务](../../azure-monitor/app/azure-web-apps.md)
 * [Azure 云服务](../../azure-monitor/app/cloudservices.md)&#151;包括 Web 角色和辅助角色
-* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+* [Azure Functions](/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
@@ -62,7 +63,7 @@ ms.locfileid: "66732382"
 * [任何其他项目](#projects)
 
 ## <a name="logging-frameworks"></a>记录框架
-* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
+* [ILogger](/azure-monitor/app/ilogger)
 * [Log4Net、NLog 或 System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java、Log4J 或 Logback](../../azure-monitor/app/java-trace-logs.md)
 * [语义式日志记录 (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) - 与[语义式日志记录应用程序块](https://msdn.microsoft.com/library/dn440729.aspx)集成
@@ -81,8 +82,6 @@ ms.locfileid: "66732382"
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
 ## <a name="export-and-data-analysis"></a>导出和数据分析
-* [Alooma](https://www.alooma.com/blog/application-insights-amazon-redshift)
-* [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [流分析](../../azure-monitor/app/export-power-bi.md )
 
 <a name="projects"></a>

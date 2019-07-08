@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 3fa1003977fcc68ece814afec0e802709f5dfc68
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 4e5fd28ed04f63858b81dc7392763db034401f1b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732714"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570395"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Salesforce 复制数据
 
@@ -316,7 +316,7 @@ Salesforce 链接服务支持以下属性。
 | 自动编号 |String |
 | 复选框 |布尔 |
 | 货币 |小数 |
-| 日期 |DateTime |
+| Date |DateTime |
 | 日期/时间 |DateTime |
 | Email |String |
 | ID |String |

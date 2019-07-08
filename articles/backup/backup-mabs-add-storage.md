@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 42cfd1626302666f27406ab6dcf34ff64f7e7b09
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 21766990853a520307ed59f8924276f28629f787
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555434"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569967"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>将存储添加到 Azure 备份服务器
 
@@ -40,33 +40,33 @@ Azure 备份服务器 V2 及更高版本支持新式备份存储，后者可提�
 
 使用具有卷的备份服务器 V2 或更高版本作为磁盘存储可以帮助维护对存储的控制权。 卷可以是单个磁盘。 但是，如果要在将来扩展存储，请通过使用存储空间创建的磁盘来创建卷。 如果要为备份存储扩展卷，这可能有所帮助。 本部分提供有关使用此设置创建卷的最佳做法。
 
-1. 在“服务器管理器”中，然后选择“文件和存储服务” > “卷” > “存储池”。 在“物理磁盘”，选择“新建存储池”。
+1. 在“服务器管理器”中，然后选择“文件和存储服务”   > “卷”   > “存储池”  。 在“物理磁盘”  ，选择“新建存储池”  。
 
     ![创建新存储池](./media/backup-mabs-add-storage/mabs-add-storage-1.png)
 
-2. 在“任务”下拉框中，选择“新建虚拟磁盘”。
+2. 在“任务”  下拉框中，选择“新建虚拟磁盘”  。
 
     ![添加虚拟磁盘](./media/backup-mabs-add-storage/mabs-add-storage-2.png)
 
-3. 选择存储池，然后选择“添加物理磁盘”。
+3. 选择存储池，然后选择“添加物理磁盘”  。
 
     ![添加物理磁盘](./media/backup-mabs-add-storage/mabs-add-storage-3.png)
 
-4. 选择物理磁盘，然后选择“扩展虚拟磁盘”。
+4. 选择物理磁盘，然后选择“扩展虚拟磁盘”  。
 
     ![扩展虚拟磁盘](./media/backup-mabs-add-storage/mabs-add-storage-4.png)
 
-5. 选择虚拟磁盘，然后选择“新建卷”。
+5. 选择虚拟磁盘，然后选择“新建卷”  。
 
     ![创建新卷](./media/backup-mabs-add-storage/mabs-add-storage-5.png)
 
-6. 在“选择服务器和磁盘”对话框中，选择服务器和新磁盘。 然后，选择“下一步”。
+6. 在“选择服务器和磁盘”  对话框中，选择服务器和新磁盘。 然后，选择“下一步”  。
 
     ![选择服务器和磁盘](./media/backup-mabs-add-storage/mabs-add-storage-6.png)
 
 ## <a name="add-volumes-to-backup-server-disk-storage"></a>将卷添加到备份服务器磁盘存储
 
-若要将卷添加到备份服务器，请在“管理”窗格中，重新扫描存储，然后选择“添加”。 可用于为备份服务器存储添加的所有卷的列表随即出现。 将可用卷添加到所选卷的列表之后，可以为它们提供友好名称以帮助管理它们。 若要将这些卷格式化为 ReFS 以便备份服务器可以利用 Modern Backup Storage 的优点，请选择“确定”。
+若要将卷添加到备份服务器，请在“管理”  窗格中，重新扫描存储，然后选择“添加”  。 可用于为备份服务器存储添加的所有卷的列表随即出现。 将可用卷添加到所选卷的列表之后，可以为它们提供友好名称以帮助管理它们。 若要将这些卷格式化为 ReFS 以便备份服务器可以利用 Modern Backup Storage 的优点，请选择“确定”  。
 
 ![添加可用卷](./media/backup-mabs-add-storage/mabs-add-storage-7.png)
 
@@ -98,13 +98,13 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 可以选择更新保护组以使用 Modern Backup Storage。 若要更新保护组，请使用“保留数据”选项停止所有数据源的保护。 然后，将数据源添加到新保护组。
 
-1. 在管理员控制台中，选择“保护”功能。 在“保护组成员”列表中，右键单击成员，然后选择“停止保护成员”。
+1. 在管理员控制台中，选择“保护”  功能。 在“保护组成员”  列表中，右键单击成员，然后选择“停止保护成员”  。
 
    ![停止保护成员](https://docs.microsoft.com/zh-cn/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
-2. 在“从组中删除”对话框中，查看存储池的已用磁盘空间和可用空闲空间。 默认设置是在磁盘上保留恢复点，并让它们可以按照关联的保留策略过期。 单击 **“确定”**。
+2. 在“从组中删除”  对话框中，查看存储池的已用磁盘空间和可用空闲空间。 默认设置是在磁盘上保留恢复点，并让它们可以按照关联的保留策略过期。 单击 **“确定”** 。
 
-   如果要立即将已用磁盘空间返回到可用存储池，请选中“删除磁盘上的副本”复选框以删除与成员关联的备份数据（和恢复点）。
+   如果要立即将已用磁盘空间返回到可用存储池，请选中“删除磁盘上的副本”  复选框以删除与成员关联的备份数据（和恢复点）。
 
    ![“从组中删除”对话框](https://docs.microsoft.com/zh-cn/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
@@ -116,20 +116,20 @@ Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-Datasour
 
 添加磁盘存储：
 
-1. 在管理员控制台中，选择“管理” > “磁盘存储” > “添加”。
+1. 在管理员控制台中，选择“管理”   > “磁盘存储”   > “添加”  。
 
     ![“添加磁盘存储”对话框](https://docs.microsoft.com/zh-cn/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. 在“添加磁盘存储”对话框中，选择“添加磁盘”。
+4. 在“添加磁盘存储”  对话框中，选择“添加磁盘”  。
 
-5. 在可用磁盘的列表中，依次选择要添加的磁盘、“添加”、“确定”。
+5. 在可用磁盘的列表中，依次选择要添加的磁盘、“添加”  、“确定”  。
 
 ## <a name="next-steps"></a>后续步骤
 安装备份服务器之后，了解如何准备服务器或开始保护工作负荷。
 
 - [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup.md)
 - [使用备份服务器备份 VMware 服务器](backup-azure-backup-server-vmware.md)
-- [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
+
 
 
 <!-- Update_Description: link update -->

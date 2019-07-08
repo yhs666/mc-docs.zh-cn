@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0bf397bd28adfed09a1bc933a05a4de6c2a972ea
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: d0db104accf4eddfe7f1c2d4d12823b69359db21
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732305"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562702"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>使用 Application Insights 对 Web 应用和服务进行深度诊断
 ## <a name="why-do-i-need-application-insights"></a>为什么需要 Application Insights？
@@ -158,10 +158,6 @@ Visual Studio 和 Eclipse 提供相应的工具来为开发中的项目配置正
 * 性能 - 影响很小。 遥测数据将经过批处理。
 * [价格](../../azure-monitor/app/pricing.md) - 可以从免费版着手，如果用量不大，可以一直使用免费版。
 
-
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>后续步骤
 Application Insights 入门非常简单。 主要选项包括：

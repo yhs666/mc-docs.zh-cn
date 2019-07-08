@@ -11,20 +11,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 10/26/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 22d81c143dbb3346e6cd388d68697d7e1906a44c
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 2f54c98dc400516fed6b7a30ad66bf303d8c16b3
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732672"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570362"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Azure 数据工厂中复制活动的容错
+
 在源数据存储与接收器数据存储之间复制数据时，可通过 Azure 数据工厂中的复制活动提供的两种方式处理不兼容行：
 
 - 遇到不兼容数据时，可以中止复制活动并让其失败（默认行为）。
-- 通过添加容错并跳过不兼容数据行，可继续复制所有数据。 此外，还可将不兼容行记录在 Azure Blob 存储或 Azure Data Lake Store 中。 然后，可以检查日志了解失败原因，修复数据源上的数据，并重试复制活动。
+- 通过添加容错并跳过不兼容数据行，可继续复制所有数据。 此外，还可将不兼容行记录在 Azure Blob 存储中。 然后，可以检查日志了解失败原因，修复数据源上的数据，并重试复制活动。
 
 ## <a name="supported-scenarios"></a>支持的方案
 复制活动支持三种检测、跳过和记录不兼容数据的方案：
@@ -43,6 +44,7 @@ ms.locfileid: "66732672"
 
 >[!NOTE]
 >- 若要使用 PolyBase 将数据加载到 SQL 数据仓库中，请配置 PolyBase 的本机容错设置，方法是在复制活动中通过“[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)”指定拒绝策略。 同时，仍然可以正常启用将 PolyBase 不兼容行重定向到 Blob 或 ADLS，如下所示。
+>- 将复制活动配置为调用 [AmazonRedShift 卸载](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)时，此功能不适用。
 
 
 ## <a name="configuration"></a>配置
@@ -59,7 +61,7 @@ ms.locfileid: "66732672"
     "enableSkipIncompatibleRow": true,
     "redirectIncompatibleRowSettings": {
          "linkedServiceName": {
-              "referenceName": "<Azure Storage or Data Lake Store linked service>",
+              "referenceName": "<Azure Storage linked service>",
               "type": "LinkedServiceReference"
             },
             "path": "redirectcontainer/erroroutput"

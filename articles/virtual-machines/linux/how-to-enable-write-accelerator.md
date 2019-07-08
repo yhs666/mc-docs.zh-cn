@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 02/20/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 00ef79cb6af5799eeea9fed2ffe8fc9645ce8fa0
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: b3711127e710853b05d3400c3911e7128a2a1de7
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835572"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569917"
 ---
 [!INCLUDE [how-to-enable-write-accelerator](../../../includes/virtual-machines-common-how-to-enable-write-accelerator.md)]
 

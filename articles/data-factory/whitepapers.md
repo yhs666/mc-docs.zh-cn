@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/10/2019
-ms.openlocfilehash: 72947fc5686a38994bdd2614edbc667383c246de
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 07/08/2019
+ms.openlocfilehash: ca1c00538e00a0014c4be7a57b9771d6d6b643b3
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732771"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570260"
 ---
 # <a name="azure-data-factory-whitepapers"></a>Azure 数据工厂白皮书 
 

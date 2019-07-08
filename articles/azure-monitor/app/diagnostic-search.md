@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d6d78e516f60bf7405bde17c7d83d491e8671cad
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 95da8238d75dfcd6caf7201fe58cecf09eb7e5e9
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732299"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562703"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 搜索是 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的一项功能，可用于查找和浏览单个遥测项，例如页面视图、异常或 Web 请求。 此外，可以查看编写的日志跟踪和事件。
@@ -112,7 +112,7 @@ ms.locfileid: "66732299"
 
 搜索完整单词，而不搜索子字符串。 使用引号将特殊字符引起来。
 
-| 字符串 | *不能*使用以下项查找 | 但可使用以下项查找 |
+| string | *不能*使用以下项查找 | 但可使用以下项查找 |
 | --- | --- | --- |
 | HomeController.About |主页<br/>controller<br/>out | homecontroller<br/>about<br/>"homecontroller.about"|
 |美国|Uni<br/>ted|united<br/>states<br/>united AND states<br/>"united states"
@@ -160,9 +160,6 @@ ms.locfileid: "66732299"
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>如何查看服务器请求中的 POST 数据？
 我们不自动记录 POST 数据，但可以使用 [TrackTrace 或日志调用](../../azure-monitor/app/asp-net-trace-logs.md)。 POST 数据放在消息参数中。 无法像筛选属性一样筛选消息，但消息的大小限制更大。
 
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 <a name="add"></a>
 ## <a name="next-steps"></a>后续步骤

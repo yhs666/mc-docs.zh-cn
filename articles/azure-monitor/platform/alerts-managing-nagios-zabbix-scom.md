@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 9a1282c3caabef43469de09506c87932075d9b47
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 49c49d3b91319e2bb368377fd3dcaef964ac944a
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906076"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562438"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>在 Azure Monitor 中管理来自 SCOM、Zabbix 和 Nagios 的警报
 
-现在可以在[统一警报体验](https://aka.ms/azure-alerts-overview)中查看来自 Nagios、Zabbix 和 System Center Operations Manager 的警报。 这些警报来自 Log Analytics 与 Nagios/Zabbix 服务器或 System Center Operations Manager 的集成。 
+现在可以在[统一警报体验](/azure-monitor/platform/alerts-overview)中查看来自 Nagios、Zabbix 和 System Center Operations Manager 的警报。 这些警报来自 Log Analytics 与 Nagios/Zabbix 服务器或 System Center Operations Manager 的集成。 
 
 ## <a name="prerequisites"></a>先决条件
-Log Analytics 存储库中具有 Alert 类型的任何记录都将导入到统一警报体验中，因此必须执行收集这些记录所需的配置。
-
-
+Log Analytics 存储库中类型为 Alert 的任何记录都将导入到 Azure Monitor 中，因此，你必须执行收集这些记录所需的配置。
+1. 对于 **Nagios** 和 **Zabbix** 警报，[配置这些服务器](/azure-monitor/learn/quick-collect-linux-computer)以[将警报发送](/azure-monitor/platform/data-sources-custom-logs?toc=%2Fazure%2Fazure-monitor%2Ftoc.json)到 Log Analytics。
+1.  此后，部署来自 Azure 解决方案市场的[警报管理](/azure-monitor/platform/alert-management-solution)解决方案。 部署完成后，在 System Center Operations Manager 中创建的任何警报都将导入到 Log Analytics 中。
 
 ## <a name="view-your-alert-instances"></a>查看警报实例
 将导入配置到 Log Analytics 中后，可以开始在[统一警报体验](https://aka.ms/azure-alerts-overview)中从这些监视服务查看警报实例。 这些警报实例出现在统一警报体验中后，你就可以[管理警报实例](https://aka.ms/managing-alert-instances)、[管理基于这些警报创建的智能组](https://aka.ms/managing-smart-groups)以及[更改警报和智能组的状态](https://aka.ms/managing-alert-smart-group-states)。

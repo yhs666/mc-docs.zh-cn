@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: cd0fe8227cd4ce337cf76f9a34c6514bba838f53
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: b4f4f573c5ccfa30f3714c0d0cb7cd907c04904b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566349"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570360"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -50,7 +50,6 @@ ms.locfileid: "59566349"
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>在哪里可以找到有关 Azure VM 备份的 Azure 备份代理的常见问题？
 
 - 有关在 Azure VM 上运行的代理，请阅读此[常见问题解答](backup-azure-vm-backup-faq.md)。
-- 有关用于备份 Azure 文件夹的代理，阅读此[常见问题解答](backup-azure-file-folder-backup-faq.md)。
 
 ## <a name="vmware-and-hyper-v-backup"></a>VMware 和 Hyper-V 备份
 
@@ -95,8 +94,7 @@ ms.locfileid: "59566349"
 - 可以备份 DPM，最多一天两次。 可以将计划策略设置为每日、每周、每月或每年。
 - Azure VM 可每日备份一次。
 
-## <a name="what-operating-systems-are-supported-for-backup"></a>支持哪些操作系统进行备份？
-
+### <a name="what-operating-systems-are-supported-for-backup"></a>支持哪些操作系统进行备份？
 Azure 备份支持操作系统对文件和文件夹以及使用 Azure 备份服务器和 DPM 保护的工作负载应用程序进行备份。
 
 **OS** | **SKU** | **详细信息**
@@ -182,7 +180,7 @@ BMR/系统状态 |正在备份计算机的 BMR 或系统状态的每个副本。
 典型的长期保留点产品将备份数据存储为完整的点。
 
 - 完整点的存储 *效率不高* ，但能使还原变得更方便和快速。
-- 增量复制为高效存储，但要求还原数据链，这会影响恢复时间
+- 增量复制为高效  存储，但要求还原数据链，这会影响恢复时间
 
 Azure 备份存储体系结构在这两方面都能提供最佳性能，它以最佳方式存储数据，以便快速还原，且产生的存储成本低。 这种方法可确保提高（入口和出口）带宽使用效率。 数据存储量和恢复数据所需的时间都会尽量减少。 了解有关[增量备份](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/)的更多信息。
 
@@ -190,8 +188,8 @@ Azure 备份存储体系结构在这两方面都能提供最佳性能，它以�
 
 最多可为单个受保护实例创建 9999 个恢复点。 受保护的实例包括计算机、服务器（物理或虚拟）或备份到 Azure 的工作负载。
 
-- 了解有关[备份和保留](./backup-introduction-to-azure-backup.md#backup-and-retention)的更多信息。
-- 了解[受保护的实例](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance)？
+- 了解有关[备份和保留](./backup-overview.md#backup-and-retention)的更多信息。
+
 
 ### <a name="how-many-times-can-i-recovery-data-thats-backed-up-to-azure"></a>我可以恢复多少次备份到 Azure 的数据？
 从 Azure 备份执行恢复的次数没有限制。

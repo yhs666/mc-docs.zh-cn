@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 10/09/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: d4ae619545437a53cd479acabb7214f62e7c2aa3
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 820d8626a5a37f57110708ab38accddd97d48154
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732700"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570550"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Azure 数据工厂中的追加变量活动
 

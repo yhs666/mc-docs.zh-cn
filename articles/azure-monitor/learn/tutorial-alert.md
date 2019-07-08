@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: digimobile
-ms.openlocfilehash: 21fa206d2434c71154d203965e6d841db1707cbd
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 71d508de7f0b865f097c90a257fb232544deafe3
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731374"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562517"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>使用 Azure Application Insights 监视和警报应用程序的运行状况
 
@@ -58,7 +58,7 @@ Azure Application Insights 可用于监视应用程序，并在其不可用、�
 
     ![编辑警报](media/tutorial-alert/edit-alert-001.png)
 
-6. 将失败的位置数设置为大于或等于 3。 创建一个[操作组](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)，用于配置当达到警报阈值时向谁发出通知。
+6. 将失败的位置数设置为大于或等于 3。 创建一个[操作组](/azure-monitor/platform/action-groups)，用于配置当达到警报阈值时向谁发出通知。
 
     ![保存警报 UI](media/tutorial-alert/save-alert-001.png)
 

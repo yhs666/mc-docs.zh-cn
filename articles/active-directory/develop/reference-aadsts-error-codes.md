@@ -3,8 +3,8 @@ title: Azure Active Directory 身份验证和授权错误代码 | Microsoft Docs
 description: 了解 Azure AD 安全令牌服务 (STS) 返回的 AADSTS 错误代码。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 02/13/2019
-ms.date: 04/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1441866b202cdf565c07ea9a8415a0e08f075e5
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: c3038c37fec93a7af3c42641cf8d520377087389
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243683"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568722"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>身份验证和授权错误代码
 
@@ -202,7 +202,7 @@ ms.locfileid: "59243683"
 | AADSTS90043 | NationalCloudAuthCodeRedirection - 已禁用该功能。 |
 | AADSTS90051 | InvalidNationalCloudId - 国家云标识符包含无效的云标识符。 |
 | AADSTS90055 | TenantThrottlingError - 传入的请求过多。 此异常是针对阻止的租户引发的。 |
-| AADSTS90056 | BadResourceRequest - 若要兑换访问令牌的代码，应用应该向 `/token` 终结点发送 POST 请求。 另外，在此之前，应该提供授权代码，并在发往 `/token` 终结点的 POST 请求中发送此代码。 有关 OAuth 2.0 授权代码流的概述，请参阅此文章：[/active-directory/develop/active-directory-protocols-oauth-code](/active-directory/develop/active-directory-protocols-oauth-code)。 将用户定向到 `/authorize` 终结点，该终结点会返回 authorization_code。 通过向 `/token` 终结点发布请求，用户可以获取访问令牌。 在 Azure 门户中登录，并检查“应用注册”>“终结点”以确认是否正确配置了两个终结点。 |
+| AADSTS90056 | BadResourceRequest - 若要兑换访问令牌的代码，应用应该向 `/token` 终结点发送 POST 请求。 另外，在此之前，应该提供授权代码，并在发往 `/token` 终结点的 POST 请求中发送此代码。 有关 OAuth 2.0 授权代码流的概述，请参阅此文章：[/active-directory/develop/active-directory-protocols-oauth-code](/active-directory/develop/active-directory-protocols-oauth-code)。 将用户定向到 `/authorize` 终结点，该终结点会返回 authorization_code。 通过向 `/token` 终结点发布请求，用户可以获取访问令牌。 在 Azure 门户中登录，并检查“应用注册”>“终结点”以确认是否正确配置了两个终结点。  |
 | AADSTS90072 | PassThroughUserMfaError - 用户登录时所用的外部帐户在其登录到的租户中不存在；因此，该用户无法满足该租户的 MFA 要求。 必须先将该帐户作为外部用户添加到该租户中。 请注销并使用其他 Azure AD 用户帐户登录。 |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - 服务尝试处理 WS 联合身份验证消息时出错。 消息无效。 |
 | AADSTS90082 | OrgIdWsFederationNotSupported - 目前不支持对该请求使用所选的身份验证策略。 |
@@ -270,4 +270,4 @@ ms.locfileid: "59243683"
 
 * 遇到了问题或者找不到所需的内容？ 请创建 GitHub 问题，或查看[面向开发人员的支持和帮助选项](active-directory-develop-help-support.md)来了解其他可以获得帮助和支持的方法。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

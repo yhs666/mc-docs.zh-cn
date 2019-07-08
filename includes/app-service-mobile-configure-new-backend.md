@@ -6,15 +6,15 @@ author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 06/17/2019
+ms.date: 07/15/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 91610cc18187cf93e23265767650f132882947eb
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 033f39d0a63020ca826985eb9560387ed624e8a5
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687453"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560289"
 ---
 1. 下载以下平台的客户端 SDK 快速入门：
     
@@ -102,5 +102,3 @@ ms.locfileid: "66687453"
         4. 选择“应用服务”  作为发布目标，接着单击“选择现有”，然后单击窗口底部的“发布”按钮。  
 
         5. 首先需通过 Azure 订阅登录 Visual Studio。 选择 `Subscription`、`Resource Group`，然后选择应用的名称。 准备就绪后，单击“确定”，这样就会将本地的 .NET 服务器项目部署到应用服务后端。  部署完成后，系统会在浏览器中将你重定向到 `http://{zumoappname}.chinacloudsites.cn/`。
-        
-           ![后端已启动](./media/app-service-mobile-configure-new-backend/backend-is-up.png)

@@ -13,12 +13,12 @@ ms.workload: ns
 origin.date: 03/26/2019
 ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: f3675440b434bec844046ccaede112ad2c6f0073
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 5b04bd01bf9f2defcfc62c6937aef2894d943338
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194912"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570523"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>快速入门：控制连接到 IoT 中心的设备 (Python)
 
@@ -100,12 +100,15 @@ az extension add --name azure-cli-iot-ext
 
     **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
     ```azurecli
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string \
+      --name YourIoTHubName \
+      --policy-name service \
+      --output table
     ```
 
     记下如下所示的服务连接字符串：
 
-   `HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=iothubowner;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.cn;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
     稍后会在快速入门中用到此值。 服务连接字符串与设备连接字符串不同。
 

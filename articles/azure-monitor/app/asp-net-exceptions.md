@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 113574ccc38ca7a6062a4bd4373f1120431e79b6
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 1b740f3b73b2d9ca81b4fb639e10836cd0f5ec1c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732226"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562731"
 ---
 # <a name="diagnose-exceptions-in-your-web-apps-with-application-insights"></a>使用 Application Insights 诊断 Web 应用中的异常
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可报告实时 Web 应用中的异常。 可以将失败的请求与异常关联到客户端和服务器上的其他事件，从而快速诊断原因。
@@ -482,10 +482,6 @@ Add the attribute to the service implementations:
 .NET Framework 通过对间隔中的异常数进行计数并除以间隔长度计算异常率。
 
 这与 Application Insights 门户通过对 TrackException 报告计数计算得出的“异常”计数不同。 采样间隔不同，SDK 不会为所有经处理和未经处理的异常发送 TrackException 报告。
-
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>后续步骤
 * [监视 REST、SQL 以及其他对依赖项的调用](../../azure-monitor/app/asp-net-dependencies.md)

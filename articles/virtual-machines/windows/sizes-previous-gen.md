@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/11/2019
 ms.date: 05/20/2019
 ms.author: v-yeche
-ms.openlocfilehash: d22c14becd3fb67da916247a944bcaec42281eb3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 437cfc098256f909473ec4713df5be8076d03ad9
+ms.sourcegitcommit: 96fd24c7297c4dacb67764cee86beb6270895766
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004163"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67479403"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>前几代虚拟机大小
 
@@ -37,8 +37,9 @@ ms.locfileid: "66004163"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
+- [GPU](sizes-gpu.md)
+
 <!--Not Available on - [Storage optimized](sizes-storage.md)-->
-<!--Not Available on - [GPU](sizes-gpu.md)-->
 <!--Not Available on - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤

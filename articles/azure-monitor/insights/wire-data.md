@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0f0b829f167b90c9c907d8b61f9a07a3b8771f0c
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 891bb95da08078f7e444e7162a1eb2f4e92f1d21
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236405"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562558"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor 中的 Wire Data 2.0（预览版）解决方案
 
@@ -81,7 +81,6 @@ ms.locfileid: "67236405"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 需要 [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 解决方案产品/服务。
 - 如果正在使用以前版本的 Wire Data 解决方案，必须首先将其删除。 不过，通过原始 Wire Data 解决方案捕获的所有数据在 Wire Data 2.0 和日志搜索中仍然可用。
 - 需要管理员特权才能安装或卸载依赖关系代理。
 - 依赖关系代理必须安装在具有 64 位操作系统的计算机上。
