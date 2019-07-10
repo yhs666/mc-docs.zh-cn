@@ -16081,7 +16081,12 @@
   "source_path": "articles/backup/backup-introduction-to-azure-backup.md",
   "redirect_url": "/backup/backup-overview",
   "redirect_document_id": false
-}
+},
+    {
+      "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
+      "redirect_url": "/azure-monitor/platform/collect-azure-metrics-logs",
+      "redirect_document_id": true
+    }
 
 	  ]
 }
