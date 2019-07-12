@@ -16086,7 +16086,13 @@
       "source_path": "articles/log-analytics/log-analytics-azure-storage.md",
       "redirect_url": "/azure-monitor/platform/collect-azure-metrics-logs",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-dotnet-shared-access-signature-part-2.md",
+      "redirect_url": "/storage/common/storage-dotnet-shared-access-signature-part-1",
+      "redirect_document_id": false
     }
+
 
 	  ]
 }
