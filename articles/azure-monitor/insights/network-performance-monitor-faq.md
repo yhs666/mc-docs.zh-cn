@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: c574440defe9f85425362abeff469d7689237c9a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 3fc09b0caf128d87f0f27a38efcc32628e2610cb
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236419"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562594"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 
@@ -35,14 +35,14 @@ ms.locfileid: "67236419"
 ### <a name="what-are-the-platform-requirements-for-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM 进行监视所用的节点要满足哪些平台要求？
 下面列出了 NPM 各项功能所要满足的平台要求：
 
-- NPM 的性能监视器和服务连接监视器功能支持 Windows Server（2008 SP1 或更高版本）和 Windows 桌面/客户端操作系统（Windows 10、Windows 8.1、Windows 8 和 Windows 7）。 
+- NPM 的性能监视器和服务连接监视器功能支持 Windows Server 和 Windows 桌面/客户端操作系统。 支持的 Windows Server OS 版本为 2008 SP1 或更高版本。 支持的 Windows 桌面/客户端版本为 Windows 10、Windows 8.1、Windows 8 和 Windows 7。 
 - NPM 的 ExpressRoute 监视器功能仅支持 Windows Server（2008 SP1 或更高版本）操作系统。
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>是否可以使用 Linux 计算机作为 NPM 中的监视节点？
-使用基于 Linux 的节点监视网络的功能目前以个人预览版的形式提供。 请联系客户经理了解详细信息。 在你提供工作区 ID 后，我们会着手启用该功能。 Linux 代理仅为 NPM 的性能监视器功能提供监视功能，不适用于服务连接监视器和 ExpressRoute 监视器功能
+使用基于 Linux 的节点监视网络的功能目前以预览版的形式提供。 请联系客户经理了解详细信息。 Linux 代理仅为 NPM 的性能监视器功能提供监视功能，不适用于服务连接监视器和 ExpressRoute 监视器功能
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>NPM 进行监视所用的节点要满足哪些大小要求？
-要在节点 VM 上运行 NPM 解决方案以监视网络，节点应至少有 500 MB 内存和 1 个核心。 不需要使用单独的节点来运行 NPM。 该解决方案可以在运行了其他工作负荷的节点上运行。 在 CPU 利用率超过 5% 的情况下，该解决方案能够停止监视进程。
+要在节点 VM 上运行 NPM 解决方案以监视网络，节点应至少有 500 MB 内存和 1 个核心。 不需要使用单独的节点来运行 NPM。 该解决方案可以在运行了其他工作负荷的节点上运行。 在 CPU 使用率超过 5% 的情况下，该解决方案能够停止监视进程。
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>若要使用 NPM，是要以直接代理的形式还是通过 System Center Operations Manager 连接节点？
 性能监视器和服务连接监视器功能都支持[以直接代理形式连接](../../azure-monitor/platform/agent-windows.md)的节点。
@@ -138,13 +138,23 @@ NPM 可以监视任何 Azure 区域中的 ExpressRoute 线路。 若要载入到
 ## <a name="troubleshoot"></a>故障排除
 
 ### <a name="why-are-some-of-the-hops-marked-as-unidentified-in-the-network-topology-view"></a>网络拓扑视图中为何有些跃点标记为不可识别？
-NPM 使用跟踪路由的修改版来发现从源代理到目标的拓扑。 不可识别的跃点表示该网络跃点未响应源代理的跟踪路由请求。 如果 3 个连续的网络跃点未响应代理的跟踪路由，解决方案会将无响应的跃点标记为不可识别，且不会尝试发现其他跃点。
+NPM 使用跟踪路由的修改版来发现从源代理到目标的拓扑。 不可识别的跃点表示该网络跃点未响应源代理的跟踪路由请求。 如果三个连续的网络跃点未响应代理的跟踪路由，解决方案会将无响应的跃点标记为不可识别，且不会尝试发现其他跃点。
 
 如果存在以下一种或多种情况，跃点可能不会响应跟踪路由：
 
 * 路由器已配置为隐藏其标识。
 * 网络设备不允许 ICMP_TTL_EXCEEDED 流量。
 * 防火墙阻止了来自网络设备的 ICMP_TTL_EXCEEDED 响应。
+
+### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>为何链接显示运行不正常，而拓扑不这么显示 
+NPM 按不同的时间间隔监视端到端丢包、延迟和拓扑。 丢包和延迟每 5 秒钟度量一次，每三分钟聚合一次（适用于性能监视器和 ExpressRoute 监视器），而拓扑则使用 traceroute 每 10 分钟计算一次。 例如，在 3:44 到 4:04 之间，拓扑可能更新了三次（3:44、3:54、4:04），但丢包和延迟更新了大约七次（3:44、3:47、3:50、3:53、3:56、3:59、4:02）。 在 3:54 生成的拓扑会针对在 3:56、3:59 和 4:02 计算的丢包和延迟呈现。 假设你获得一个警报，指出你的 ER 线路在 3:59 不正常。 你登录到 NPM，尝试将拓扑时间设置为 3:59。 NPM 会呈现在 3:54 生成的拓扑。 若要了解网络的上一个已知拓扑，请 将字段 TimeProcessed（计算丢包和延迟的时间）与 TracerouteCompletedTime（计算拓扑的时间）进行比较。 
+
+### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>在 NetworkMonitoring 表中，字段 E2EMedianLatency 和 AvgHopLatencyList 的差异是什么
+E2EMedianLatency 是在聚合 tcp ping 测试的结果后每三分钟更新一次的延迟，而 AvgHopLatencyList 则根据 traceroute 每 10 分钟更新一次。 若要了解计算 E2EMedianLatency 的具体时间，请使用 TimeProcessed 字段。 若要了解完成 traceroute 并更新 AvgHopLatencyList 的具体时间，请使用 TracerouteCompletedTime 字段
+
+### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>为何逐跳延迟数不同于 HopLatencyValue 
+HopLatencyValue 是从源到终结点的。
+例如：跃点 - A、B、C。 AvgHopLatency - 10、15、20。 这意味着源到 A 的延迟为 10，源到 B 的延迟为 15，源到 C 的延迟为 20。 UI 会将拓扑中 A-B 跃点的延迟计算为 5
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>解决方案会显示 100% 的丢包率，但源与目标之间已建立连接
 如果主机防火墙或中间防火墙（网络防火墙或 Azure NSG）阻止了源代理与目标之间通过 NPM 用于监视的端口（端口默认为 8084，除非客户更改了端口）进行的通信，则可能会发生这种情况。
