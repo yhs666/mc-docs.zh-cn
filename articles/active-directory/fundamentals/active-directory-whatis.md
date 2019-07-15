@@ -18,7 +18,7 @@ ms.lasthandoff: 03/19/2019
 ms.locfileid: "58186650"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
-Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护组合到一个解决方案中，提供基于标准的平台，帮助开发人员根据集中策略和规则为其应用程序提供访问控制。
+Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护融入单个解决方案中，提供基于标准的平台，可帮助开发人员根据集中的策略和规则实现对其应用的访问控制。
 
 ![Azure AD Connect 堆栈](./media/active-directory-whatis/Azure_Active_Directory.png)
 
