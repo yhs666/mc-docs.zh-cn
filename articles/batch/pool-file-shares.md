@@ -3,8 +3,8 @@ title: Azure Batch 池的 Azure 文件共享 | Microsoft Docs
 description: 如何在 Azure Batch 中从 Linux 或 Windows 池中的计算节点装载 Azure 文件共享。
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -16,12 +16,12 @@ origin.date: 05/24/2018
 ms.date: 06/28/2018
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 2d189a948693227c48ead92b80440b4693004c8e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: ba69690206747e75e3c5ee813ad4d18e041714b2
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657896"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845151"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>将 Batch 池与 Azure 文件共享配合使用
 
@@ -52,7 +52,7 @@ Batch 原生支持通过 API 使用 Azure 存储 Blob 来读取和写入数据�
 
 例如，包含 `net use` 命令，以将文件共享装载为每个任务命令行的一部分。 若要装载文件共享，需要以下凭据：
 
-- **用户名**：AZURE\\\<存储帐户名称\>，例如 AZURE\\*mystorageaccountname*
+- **用户名**：AZURE\\\<存储帐户名称\>，例如，AZURE\\mystorageaccountname 
 - **密码**：<以 == 结尾的存储帐户密钥>，例如 *XXXXXXXXXXXXXXXXXXXXX==*
 
 以下命令在存储帐户 *mystorageaccountname* 中将文件共享 *myfileshare* 装载为 *S:* 驱动器：

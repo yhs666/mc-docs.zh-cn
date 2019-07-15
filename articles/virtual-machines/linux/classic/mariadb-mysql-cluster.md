@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 04/15/2015
 ms.date: 08/27/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3a744f1b90cf148381bad045ba1e7526f7f633b8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b1d3242f52ab602a1d7f524d9fdb127bc46e8ef2
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625521"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725214"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL) 群集：Azure 教程
 > [!IMPORTANT]
@@ -216,7 +216,7 @@ ms.locfileid: "58625521"
 
     a. 通过门户关闭计算机。
 
-    b. 单击“捕获”，然后将映像名称指定为 **mariadb-galera-image**。 提供说明并选中“我已运行 waagent”。
+    b. 单击“捕获”  ，然后将映像名称指定为 **mariadb-galera-image**。 提供说明并选中“我已运行 waagent”。
 
     ![捕获虚拟机](./media/mariadb-mysql-cluster/Capture2.PNG)
 
@@ -270,7 +270,7 @@ ms.locfileid: "58625521"
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    通过删除行首的 **#** 取消注释 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`**。
+    通过删除行首的 **#** 取消注释 **`wsrep_cluster_name`** 和 **`wsrep_cluster_address`** 。
     此外，将 **`wsrep_node_address`** 中的 **`<ServerIP>`** 和 **`wsrep_node_name`** 中的 **`<NodeName>`** 分别替换为 VM 的 IP 地址和名称，然后同样取消注释这些行。
 5. 启动 MariaDB1 上的群集，并让其在启动时运行。
 
@@ -294,15 +294,15 @@ ms.locfileid: "58625521"
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 
-CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 可在门户中任何 VM 的“终结点”下更改它。
+CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 可在门户中任何 VM 的“终结点”  下更改它。
 
 ![编辑终结点](./media/mariadb-mysql-cluster/Endpoint.PNG)
 
-选择“重新配置负载均衡集”。
+选择“重新配置负载均衡集”  。
 
 ![重新配置负载均衡集](./media/mariadb-mysql-cluster/Endpoint2.PNG)
 
-将“探测间隔”更改为 5 秒，并保存更改。
+将“探测间隔”  更改为 5 秒，并保存更改。
 
 ![更改探测时间间隔](./media/mariadb-mysql-cluster/Endpoint3.PNG)
 
@@ -340,17 +340,19 @@ CLI 将负载均衡器探测间隔设置为 15 秒，这可能有点太长。 �
 
 <!--Anchors-->
 [Architecture overview]:#architecture-overview
-[Creating the template]:#creating-the-template
-[Creating the cluster]:#creating-the-cluster
-[Load balancing the cluster]:#load-balancing-the-cluster
-[Validating the cluster]:#validating-the-cluster
+
+<!--Not Available on [Creating the template]:#creating-the-template-->
+<!--Not Available on [Creating the cluster]:#creating-the-cluster-->
+<!--Not Available on [Load balancing the cluster]:#load-balancing-the-cluster-->
+<!--Not Available on [Validating the cluster]:#validating-the-cluster-->
+
 [Next steps]:#next-steps
 
 <!--Image references-->
 
 <!--Link references-->
-[Galera]:http://galeracluster.com/products/
+[Galera]: http://galeracluster.com/products/
 [MariaDBs]:https://mariadb.org/en/about/
-[创建用于身份验证的 SSH 密钥]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[创建用于身份验证的 SSH 密钥]: http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
 <!-- Update_Description: update meta properties -->

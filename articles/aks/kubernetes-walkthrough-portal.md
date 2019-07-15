@@ -9,12 +9,12 @@ origin.date: 12/18/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a6b82c2631dcd73b604d99054155ee9ca04c0bd8
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 683f7727595173ef4dd6c85bd702b48cb2fe4b1f
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235985"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673964"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -287,7 +287,9 @@ az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 [aks-monitor]: ../monitoring/monitoring-container-health.md
 [aks-network]: ./concepts-network.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
-[http-routing]: ./http-application-routing.md
+
+<!--Not Available on [http-routing]: ./http-application-routing.md-->
+
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 <!--Not Available on [azure-dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/-->
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests [kubernetes-service]: concepts-network.md#services

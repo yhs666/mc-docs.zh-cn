@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/24/2019
-ms.date: 07/01/2019
+origin.date: 06/26/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: ae5e2db2b3c6cc46cc87d09d41eafedcead5e44d
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: ce0ef75094e425fbf3f1dc403f01dfc181568ff3
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236030"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845265"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>教程：在 HDInsight 中生成 Apache Spark 机器学习应用程序 
 
@@ -115,7 +115,7 @@ ms.locfileid: "67236030"
    
     输出类似于：
 
-    ```
+    ```output
     +----------+----------+-----+
     |BuildingID|SystemInfo|label|
     +----------+----------+-----+
@@ -173,7 +173,7 @@ ms.locfileid: "67236030"
 
     输出类似于：
 
-    ```   
+    ```output  
     Row(SystemInfo=u'20 25', prediction=1.0, probability=DenseVector([0.4999, 0.5001]))
     Row(SystemInfo=u'4 15', prediction=0.0, probability=DenseVector([0.5016, 0.4984]))
     Row(SystemInfo=u'16 9', prediction=1.0, probability=DenseVector([0.4785, 0.5215]))
@@ -187,6 +187,22 @@ ms.locfileid: "67236030"
 
 ## <a name="use-anaconda-scikit-learn-library-for-spark-machine-learning"></a>将 Anaconda scikit-learn 库用于 Spark 机器学习
 HDInsight 中的 Apache Spark 群集包含 Anaconda 库。 它还包括适用于机器学习的 scikit-learn 库  。 该库还包含可用于直接从 Jupyter notebook 生成示例应用程序的各种数据集。 有关 scikit-learn 库的用法示例，请参阅 [https://scikit-learn.org/stable/auto_examples/index.html](https://scikit-learn.org/stable/auto_examples/index.html)。
+
+## <a name="clean-up-resources"></a>清理资源
+
+如果不打算继续使用此应用程序，请使用以下步骤删除创建的群集：
+
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
+
+1. 在顶部的“搜索”框中，键入 **HDInsight**。 
+
+1. 选择“服务”下的“HDInsight 群集”   。
+
+1. 在显示的 HDInsight 群集列表中，选择为本教程创建的群集旁边的“...”。 
+
+1. 选择“删除”  。 请选择“是”。 
+
+![删除 HDInsight 群集](./media/apache-spark-ipython-notebook-machine-learning/hdinsight-azure-portal-delete-cluster.png "删除 HDInsight 群集")
 
 ## <a name="next-steps"></a>后续步骤
 

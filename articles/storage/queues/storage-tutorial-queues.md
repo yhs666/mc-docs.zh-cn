@@ -9,13 +9,13 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 origin.date: 04/24/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: e1783fbc218e685a352ff5c4178ad91a538ee98b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.date: 07/15/2019
+ms.openlocfilehash: e672a9cce623c2c66e59b1644c41d70f6104cd9f
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004907"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844518"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>教程：使用 Azure 存储队列
 
@@ -130,18 +130,19 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
 
 ## <a name="create-a-queue"></a>创建队列
 
-1. 将 **WindowsAzure.Storage** 包安装到项目（使用 `dotnet add package` 命令）。 在控制台窗口中从项目文件夹执行以下 dotnet 命令。
+1. 使用 `dotnet add package` 命令将 Microsoft.Azure.Storage.Common 和 Microsoft.Azure.Storage.Queue 包安装到项目   。 在控制台窗口中从项目文件夹执行以下 dotnet 命令。
 
    ```console
-   dotnet add package WindowsAzure.Storage
+   dotnet add package Microsoft.Azure.Storage.Common
+   dotnet add package Microsoft.Azure.Storage.Queue
    ```
 
 2. 在 **Program.cs** 文件的顶部，紧接在 `using System;` 语句的后面添加以下命名空间。 此应用将使用这些命名空间中的类型来连接 Azure 存储和使用队列。
 
    ```csharp
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
    ```
 
 3. 保存 **Program.cs** 文件。
@@ -344,8 +345,8 @@ Azure 队列存储实现基于云的队列以在分布式应用程序的组件�
    ```csharp
    using System;
    using System.Threading.Tasks;
-   using Microsoft.WindowsAzure.Storage;
-   using Microsoft.WindowsAzure.Storage.Queue;
+   using Microsoft.Azure.Storage;
+   using Microsoft.Azure.Storage.Queue;
 
    namespace QueueApp
    {

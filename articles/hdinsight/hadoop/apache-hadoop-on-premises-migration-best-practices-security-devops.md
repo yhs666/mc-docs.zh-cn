@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 01/14/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: d9fee2f49fc34ab2da3779e58ab03339fe08d5cf
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: b56be09327fa5b80366cb104496143c7aa9bf327
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029199"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845353"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 安全性和 DevOps 最佳做法
 
@@ -52,6 +52,11 @@ ms.locfileid: "54029199"
 - [Azure 存储安全指南](../../storage/common/storage-security-guide.md)
 - [Azure 存储服务静态加密](../../storage/common/storage-service-encryption.md)
 
+## <a name="use-monitoring--alerting"></a>使用监视和警报
+
+有关详细信息，请参阅文章：
+
+[Azure Monitor 概述](../../azure-monitor/overview.md)
 
 ## <a name="upgrade-clusters"></a>升级群集
 

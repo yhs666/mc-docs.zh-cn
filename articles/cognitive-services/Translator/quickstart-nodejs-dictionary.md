@@ -3,20 +3,20 @@ title: 快速入门：使用双语字典、Node.js 查找字词 - 文本翻译 A
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Node.js 和文本翻译 REST API 查找指定文本的备用翻译和用法示例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: aa6224af834f17227e144a011537075d9113385c
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: b0027be45aaaf790b475f41b020eb0d12cb76205
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502574"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844813"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>快速入门：通过 Node.js 使用双语字典查找字词
 
@@ -94,9 +94,11 @@ let options = {
 };
 ```
 
-### <a name="authentication"></a>身份验证
+若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 
 
-若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
+如果使用的是认知服务多服务订阅，则还必须在请求标头中包括 `Ocp-Apim-Subscription-Region`。 
+
+有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="make-the-request-and-print-the-response"></a>发出请求并输出响应
 
@@ -164,7 +166,7 @@ node alt-translations.js
 
 * [翻译文本](quickstart-nodejs-translate.md)
 * [直译文本](quickstart-nodejs-transliterate.md)
-* [根据输入确定语言](quickstart-nodejs-detect.md)
+* [按输入确定语言](quickstart-nodejs-detect.md)
 * [获取支持的语言的列表](quickstart-nodejs-languages.md)
 * [根据输入确定句子长度](quickstart-nodejs-sentences.md)
 

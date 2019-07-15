@@ -5,16 +5,16 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 03/25/2019
-ms.date: 04/22/2019
+origin.date: 04/25/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: aef9927659fc049852b05ce2cc520b9cfbc969b2
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: 22138f076bb44bfad4bb993b8b3168df33a6c17c
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687649"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844524"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 
@@ -109,7 +109,7 @@ GRS 将数据复制到次要区域中的另一个数据中心，但仅当 Azure 
 
 * **[Azure 导入/导出](../common/storage-import-export-service.md?toc=%2fstorage%2ffiles%2ftoc.json)** ：使用 Azure 导入/导出服务，可将硬盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure 文件共享。 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** ：Robocopy 是 Windows 和 Windows Server 自带的一款知名复制工具。 Robocopy 可用于将数据传输到 Azure 文件，方法是在本地装载文件共享，然后使用装载位置作为 Robocopy 命令的目标位置。
-* **[AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)** ：AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。 AzCopy 适用于 Windows 和 Linux。
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fstorage%2ffiles%2ftoc.json)** ：AzCopy 是一个命令行实用程序，专用于使用具有优化性能的简单命令在 Azure 文件和 Azure Blob 存储中复制/粘贴数据。
 
 ## <a name="next-steps"></a>后续步骤
 * [部署 Azure 文件](storage-files-deployment-guide.md)
