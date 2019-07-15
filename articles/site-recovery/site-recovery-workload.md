@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 12/31/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e5cc3817234c87fcfdacc6b23a89b9698944f21
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 66b1eb893f4d764ee0ddead1b23686ddc186046a
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363515"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861689"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 

@@ -3,14 +3,14 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 10/26/2018
-ms.date: 01/14/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.openlocfilehash: efa01ea63173fbf1891f9fb0a3743602a090c8ef
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.openlocfilehash: ecfa13b710a642ec8de6c1290be44b46d286350b
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193311"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850795"
 ---
 ## <a name="java-sample-code-repositories"></a>Java 示例代码存储库
 
@@ -21,4 +21,3 @@ ms.locfileid: "54193311"
 * [Getting Started with Azure File Service in Java](https://azure.microsoft.com/resources/samples/storage-file-java-getting-started/)
 * [Getting Started with Azure Queue Service in Java](https://azure.microsoft.com/resources/samples/storage-queue-java-getting-started/)
 * [Getting Started with Azure Table Service in Java](https://azure.microsoft.com/resources/samples/storage-table-java-getting-started/)
-* [Storage Java Client Library Samples](https://github.com/Azure/azure-storage-java/tree/master/microsoft-azure-storage-samples/src/com/microsoft/azure/storage)

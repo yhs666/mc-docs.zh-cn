@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 12/04/2017
-ms.date: 01/14/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3f71d4befed9d508256388abef8e10d16768cc97
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: dc819209aa7287092e5760ce96066197485ce554
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029258"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845050"
 ---
 # <a name="run-custom-mapreduce-programs"></a>运行自定义 MapReduce 程序
 
@@ -83,6 +83,5 @@ ms.locfileid: "54029258"
 
 * [在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 * [为 Apache Hadoop on HDInsight 开发 Java MapReduce 程序](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-* [为 HDInsight 开发 Python 流式处理 MapReduce 程序](apache-hadoop-streaming-python.md)
 * [使用 Azure Toolkit for Eclipse 为 HDInsight 群集创建 Apache Spark 应用程序](../spark/apache-spark-eclipse-tool-plugin.md)
 * [在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)](python-udf-hdinsight.md)

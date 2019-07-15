@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 05/09/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: seguler
-ms.openlocfilehash: a9a5c7a9b54e6e922c96a1b8f2653ab97b83dce4
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 080f3608257d50de4bce1dccfb5c7c712d036903
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004322"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844487"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>快速入门：使用 .NET 在对象存储中创建 blob
 
@@ -154,7 +154,7 @@ Press any key to delete the sample files and example container.
 
 ### <a name="try-parsing-the-connection-string"></a>尝试分析连接字符串
 
-此示例所执行的第一项操作是检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) 对象。 若要检查连接字符串是否有效，请使用 [TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 方法。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
+此示例所执行的第一项操作是检查环境变量是否包含一个连接字符串，该字符串在经过分析后可以创建一个指向存储帐户的 [CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 对象。 若要检查连接字符串是否有效，请使用 [TryParse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount.tryparse) 方法。 如果 **TryParse** 成功，它会初始化 *storageAccount* 变量并返回 **true**。
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage connection string is stored

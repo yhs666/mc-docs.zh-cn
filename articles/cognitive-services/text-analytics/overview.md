@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
 origin.date: 04/03/2019
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1f20bf6395a3038c88fbcd8eb0a94da62d66694e
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 9caf05de6c4d0fffba65b8655c2f44faf5610195
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830076"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844649"
 ---
 # <a name="what-is-text-analytics-api"></a>什么是文本分析 API？
 
@@ -89,7 +89,18 @@ ms.locfileid: "66830076"
 | 整个请求的最大大小 | 1 MB |
 | 一个请求中的文档数上限 | 1,000 个文档 |
 
-速率限制为每秒 100 个请求，每分钟 1000 个请求。 可以在单次调用中提交大量的文档（最多 1000 个文档）。
+速率限制将因定价层而异。
+
+| 层          | 每秒请求数 | 每分钟请求数 |
+|---------------|---------------------|---------------------|
+| 多服务 | 1000                | 1000                |
+| S0/F0         | 100                 | 300                 |
+| S1            | 200                 | 300                 |
+| S2            | 300                 | 300                 |
+| S3            | 500                 | 500                 |
+| S4            | 1000                | 1000                |
+
+对每个文本分析功能的请求分别进行测量。 例如，可以同时向每个功能发送定价层的最大数量的请求。      
 
 ## <a name="unicode-encoding"></a>Unicode 编码
 

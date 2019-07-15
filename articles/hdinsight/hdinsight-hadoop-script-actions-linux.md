@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 02/15/2019
-ms.date: 05/20/2019
+origin.date: 04/22/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0d7e80e5ffafbb6ff246921a15148b4105045bbd
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 5d82dc8cec92cbeec608c93b7c59f2c89001da1f
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829163"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845436"
 ---
 # <a name="script-action-development-with-hdinsight"></a>使用 HDInsight 进行脚本操作开发
 
@@ -259,7 +259,7 @@ wget -O /tmp/HDInsightUtilities-v01.sh -q https://hdiconfigactions.blob.core.win
 
 在某些情况下，脚本可能需要参数。 例如，使用 Ambari REST API 时，可能需要群集的管理员密码。
 
-传递给脚本的参数称为“位置参数”，将分配到 `$1` 作为第一个参数，分配到 `$2` 作为第二个参数，依此类推。 `$0` 包含脚本本身的名称。
+传递给脚本的参数称为“位置参数”  ，将分配到 `$1` 作为第一个参数，分配到 `$2` 作为第二个参数，依此类推。 `$0` 包含脚本本身的名称。
 
 作为参数传递给脚本的值应括在单引号 (') 中。 这样可以确保将传递的值视为文本。
 
@@ -303,23 +303,6 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 > [!NOTE]
 > 用于引用脚本的 URI 格式因所使用的服务而异。 对于与 HDInsight 群集关联的存储帐户，请使用 `wasb://` 或 `wasbs://`。 对于可公开读取的 URI，请使用 `http://` 或 `https://`。
 
-### <a name="checking-the-operating-system-version"></a>检查操作系统版本
-
-不同版本的 HDInsight 依赖于特定版本的 Ubuntu。 不同 OS 版本之间存在不同，必须在脚本中检查。 例如，可能需要安装与 Ubuntu 版本相关的二进制文件。
-
-若要检查 OS 版本，请使用 `lsb_release`。 例如，以下脚本演示如何根据 OS 版本引用特定的 tar 文件：
-
-```bash
-OS_VERSION=$(lsb_release -sr)
-if [[ $OS_VERSION == 14* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
-    HUE_TARFILE=hue-binaries-14-04.tgz
-elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
-    HUE_TARFILE=hue-binaries-16-04.tgz
-fi
-```
-
 ## <a name="deployScript"></a>有关部署脚本操作的清单
 
 下面是在准备部署脚本时执行的步骤：
@@ -351,7 +334,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 
 使用开发的脚本时可能会遇到以下错误：
 
-错误：`$'\r': command not found`。 有时后面会接着出现“ `syntax error: unexpected end of file`”。
+ 错误：`$'\r': command not found`。 有时后面会接着出现“ `syntax error: unexpected end of file`”。
 
 *原因*：此错误的原因是脚本中以 CRLF 作为行尾。 Unix 系统只允许使用 LF 作为行尾。
 
@@ -369,7 +352,7 @@ Microsoft 提供了在 HDInsight 群集上安装组件的示例脚本。 参阅�
 | `perl -pi -e 's/\r\n/\n/g' INFILE` | 直接修改文件 |
 | ```sed 's/$'"/`echo \\\r`/" INFILE > OUTFILE``` |OUTFILE 包含只带 LF 行尾的版本。 |
 
-错误：`line 1: #!/usr/bin/env: No such file or directory`。
+ 错误：`line 1: #!/usr/bin/env: No such file or directory`。
 
 *原因*：将脚本另存为包含字节顺序标记 (BOM) 的 UTF-8 时会发生此错误。
 

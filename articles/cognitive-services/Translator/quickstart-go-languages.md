@@ -3,20 +3,20 @@ title: 快速入门：获取支持的语言，Go - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Go 获取翻译、音译和字典查找支持的语言列表以及示例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: a6eec83ea996d2a6507d1894b269041cfb9eb975
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: a63c3877736f9d48aedabf47f6c36e5a1637ea23
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830127"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844831"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>快速入门：使用 Go 通过文本翻译 API 获取受支持语言的列表
 
@@ -108,6 +108,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="handle-and-print-the-response"></a>处理并输出响应
 
@@ -241,4 +243,3 @@ go run get-languages.go
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 
-<!-- Update_Description: wording update -->

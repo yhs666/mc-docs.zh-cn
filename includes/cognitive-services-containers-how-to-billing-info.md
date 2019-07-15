@@ -4,13 +4,13 @@ ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 04/16/2019
-ms.date: 06/11/2019
-ms.openlocfilehash: 071af06bca4e99c6c1f3bbb4f057ae64721b1363
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.date: 07/12/2019
+ms.openlocfilehash: 9ae857970fdec2115c0e4c30e47344069255d6bc
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830152"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844951"
 ---
 对该容器的查询在用于 `<ApiKey>` 的 Azure 资源的定价层计费。
 
@@ -22,13 +22,13 @@ ms.locfileid: "66830152"
 
 ### <a name="billing-arguments"></a>计费参数
 
-必须使用有效值指定所有以下三个选项，才能使 `docker run` 命令启动容器。
+必须使用有效值指定所有以下三个选项，才能使 `docker run` 命令启动容器：
 
 | 选项 | 说明 |
 |--------|-------------|
 | `ApiKey` | 用于跟踪计费信息的认知服务资源的 API 密钥。<br/>必须将此选项的值设置为 `Billing` 中指定的已预配资源的 API 密钥。 |
 | `Billing` | 用于跟踪计费信息的认知服务资源的终结点。<br/>必须将此选项的值设置为已预配的 Azure 资源的终结点 URI。|
-| `Eula` | 表示已接受容器的许可条款。<br/>此选项的值必须设置为 `accept`。 |
+| `Eula` | 表示已接受容器的许可条款。<br/>此选项的值必须设置为 **accept**。 |
 
 
 

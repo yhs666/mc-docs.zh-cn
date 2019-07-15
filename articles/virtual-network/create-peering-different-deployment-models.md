@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 11/15/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9279e3efdcf6323ead263677be0fdd13d154adc2
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 53c5aafeb7a5e58483e461c21884be822e20a594
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250468"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725216"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅
 
@@ -84,8 +84,8 @@ ms.locfileid: "66250468"
 <a name="cli"></a>
 ## <a name="create-peering---azure-cli"></a>创建对等互连 - Azure CLI
 
-使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 和 [CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 并运行命令来完成这些步骤。
-
+使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 和 [CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 并运行命令来完成这些步骤。
+<!-- Correct on install-classic-cli REPLACE install-cli-version-1.0-->
 <!-- Not Available on the Azure Cloud Shell-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]

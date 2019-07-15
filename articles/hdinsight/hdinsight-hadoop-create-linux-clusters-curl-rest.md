@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/02/2018
-ms.date: 11/19/2018
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 33f4a4071e867a411f9b8d70498d877608556520
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.openlocfilehash: b514f796c7f8dcc2a94e3085acef57a5b23c918e
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985620"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845447"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>使用 Azure REST API 创建 Hadoop 群集
 
@@ -31,9 +31,6 @@ ms.locfileid: "55985620"
 了解如何使用 Azure Resource Manager 模板和 Azure REST API 创建 HDInsight 群集。
 
 使用 Azure REST API，可以对托管在 Azure 平台中的服务执行管理操作，包括创建新资源（例如 HDInsight 群集）。
-
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 > [!NOTE]
 > 本文档中的步骤使用 [curl (https://curl.haxx.se/)](https://curl.haxx.se/) 实用工具与 Azure REST API 进行通信。
@@ -217,23 +214,23 @@ Azure Resource Manager 模板是描述**资源组**及其包含的所有资源�
 }
 ```
 
-本文档中的步骤使用了此示例。 将“参数”部分中的示例值替换为群集的值。
+本文档中的步骤使用了此示例。 将“参数”  部分中的示例值  替换为群集的值。
 
 > [!IMPORTANT]
 > 此模板对 HDInsight 群集使用默认数目（4 个）的辅助角色节点。 如果计划使用 32 个以上的辅助角色节点，则必须选择至少具有 8 个核心和 14 GB ram 的头节点大小。
 >
 > 有关节点大小和相关费用的详细信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/details/hdinsight/)。
 
-## <a name="log-in-to-your-azure-subscription"></a>登录到 Azure 订阅
+## <a name="sign-in-to-your-azure-subscription"></a>登录到 Azure 订阅
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-请按照 [Azure CLI 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-lastest)中所述的步骤操作，并使用 `az login` 命令连接到订阅。
+请按照 [Azure CLI 入门](https://docs.azure.cn/zh-cn/cli/get-started-with-az-cli2?view=azure-cli-lastest)中所述的步骤操作，并使用 `az login` 命令连接到订阅。
 
 ## <a name="create-a-service-principal"></a>创建服务主体
 
 > [!NOTE]
-> 这些步骤是[使用 Azure CLI 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)文档的“使用密码创建服务主体”部分的缩减版本。 这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
+> 这些步骤是[使用 Azure CLI 创建服务主体以访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)文档的“使用密码创建服务主体”  部分的缩减版本。 这些步骤创建用于向 Azure REST API 进行身份验证的服务主体。
 
 1. 从命令行使用以下命令列出 Azure 订阅。
 
@@ -363,20 +360,19 @@ curl -X "GET" "https://management.chinacloudapi.cn/subscriptions/$SUBSCRIPTIONID
 
 成功创建 HDInsight 群集后，请参考以下主题来了解如何使用群集。
 
-### <a name="hadoop-clusters"></a>Hadoop 群集
+### <a name="apache-hadoop-clusters"></a>Apache Hadoop 群集
 
-* [将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
-* [将 Pig 与 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
+* [将 Apache Hive 和 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+* [将 Apache Pig 和 HDInsight 配合使用](hadoop/hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 配合使用](hadoop/hdinsight-use-mapreduce.md)
 
-### <a name="hbase-clusters"></a>HBase 群集
+### <a name="apache-hbase-clusters"></a>Apache HBase 群集
 
-* [HBase on HDInsight 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
-* [为 HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
+* [HDInsight 中的 Apache HBase 入门](hbase/apache-hbase-tutorial-get-started-linux.md)
+* [为 Apache HBase on HDInsight 开发 Java 应用程序](hbase/apache-hbase-build-java-maven-linux.md)
 
-### <a name="storm-clusters"></a>Storm 群集
+### <a name="apache-storm-clusters"></a>Apache Storm 群集
 
-* [为 Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
-* [在 Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
-* [使用 Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)
-<!--Update_Description: update metadata-->
+* [为 Apache Storm on HDInsight 开发 Java 拓扑](storm/apache-storm-develop-java-topology.md)
+* [在 Apache Storm on HDInsight 中使用 Python 组件](storm/apache-storm-develop-python-topology.md)
+* [使用 Apache Storm on HDInsight 部署和监视拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/25/2017
-ms.date: 02/18/2019
+ms.date: 04/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: c780248e25f103a62aa2b1b356dfc615e8a0035b
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: addaac98f09ef4771ddf8af80b7f4ef71e6bf8e0
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306063"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725207"
 ---
 # <a name="virtual-network-integration-for-azure-services"></a>Azure 服务的虚拟网络集成
 
@@ -46,21 +46,20 @@ ms.locfileid: "56306063"
 
 ### <a name="services-that-can-be-deployed-into-a-virtual-network"></a>可部署到虚拟网络中的服务
 
-|类别|服务|
+|Category|服务|
 |-|-|
 | 计算 | 虚拟机：[Linux](../virtual-machines/linux/infrastructure-networking-guidelines.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/windows/infrastructure-networking-guidelines.md?toc=%2fvirtual-network%2ftoc.json)<br/>[虚拟机规模集](../virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-existing-vnet.md?toc=%2fvirtual-network%2ftoc.json)<br/>[云服务](https://msdn.microsoft.com/library/azure/jj156091)：仅限虚拟网络（经典）<br/> [Azure Batch](../batch/batch-api-basics.md?toc=%2fvirtual-network%2ftoc.json#virtual-network-vnet-and-firewall-configuration)  |
 | 网络 | [应用程序网关 - WAF](../application-gateway/application-gateway-ilb-arm.md?toc=%2fvirtual-network%2ftoc.json)<br/>[VPN 网关](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json)<br/>[网络虚拟设备](https://docs.microsoft.com/windows-server/networking/sdn/manage/use-network-virtual-appliances-on-a-vn) |
 |数据|[RedisCache](../azure-cache-for-redis/cache-how-to-premium-vnet.md?toc=%2fvirtual-network%2ftoc.json)<br/>[Azure SQL 数据库托管实例](../sql-database/sql-database-managed-instance-connectivity-architecture.md?toc=%2fvirtual-network%2ftoc.json)|
 | 分析 | [Azure HDInsight](../hdinsight/hdinsight-extend-hadoop-virtual-network.md?toc=%2fvirtual-network%2ftoc.json) |
+| 容器 | [Azure Kubernetes 服务 (AKS)](../aks/concepts-network.md?toc=%2fvirtual-network%2ftoc.json)<br/>|
 | Web | [API 管理](../api-management/api-management-using-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)<br/>[应用服务环境](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)<br/>|
 |||
 
 <!-- Not Available on [Azure Firewall](../firewall/overview.md?toc=%2fvirtual-network%2ftoc.json)-->
-<!-- Not Available on [Network Virtual Applicances](/windowsserverdocs/WindowsServerDocs/networking/sdn/manage/Use-Network-Virtual-Appliances-on-a-VN.md)-->
 <!-- Not Available on [Azure Databricks](../azure-databricks/what-is-azure-databricks.md?toc=%2fvirtual-network%2ftoc.json)-->
-<!-- Not Available on | Identity | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json) |-->
-<!-- Not Available on | Containers | [Azure Kubernetes Service (AKS)](../aks/networking-overview.md?toc=%2fvirtual-network%2ftoc.json)<br/>[Azure Container Instance (ACI)](http://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||-->
-
+<!-- Not Available on | Identity | [Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-vnet.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Available on | Containers | [Azure Container Instance (ACI)](http://www.aka.ms/acivnet)<br/>[Azure Container Service Engine](https://github.com/Azure/acs-engine) with Azure Virtual Network CNI [plug-in](https://github.com/Azure/acs-engine/tree/master/examples/vnet)||-->
 
 ## <a name="service-endpoints-for-azure-services"></a>Azure 服务的服务终结点
 

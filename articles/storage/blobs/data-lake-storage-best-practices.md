@@ -7,15 +7,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 origin.date: 12/06/2018
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: sachins
-ms.openlocfilehash: 17f40e486b08801db683508ed3992cb1ba7ec15a
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: b2d5a10e6d63e7c198c68ee35c79d511389d4421
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003881"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844393"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>使用 Azure Data Lake Storage Gen2 的最佳做法
 
@@ -61,6 +61,10 @@ DistCp 是 distributed copy（分布式复制）的简称，是 Hadoop 随附的
 
 复制作业可以通过使用频率或数据触发器的 Apache Oozie 工作流触发，也可以通过 Linux cron 作业触发。 对于密集型复制作业，建议启动一个单独的 HDInsight Hadoop 群集，该群集可以专门针对复制作业进行调整和缩放。 这样可确保复制作业不会干扰关键作业。 如果运行复制的频率足够宽，甚至可以在每次作业之间关闭群集。 如果故障转移到次要区域，请确保在次要区域也启动另一群集，以便在主要的 Data Lake Storage Gen2 帐户恢复后将新数据复制回该帐户。 有关如何使用 Distcp 的示例，请参阅[使用 Distcp 在 Azure 存储 Blob 和 Data Lake Storage Gen2 之间复制数据](../blobs/data-lake-storage-use-distcp.md)。
 
+### <a name="use-azure-data-factory-to-schedule-copy-jobs"></a>使用 Azure 数据工厂来计划复制作业
+
+Azure 数据工厂还可以用来通过复制活动对复制作业进行计划，甚至可以通过复制向导设置一个频率。 请记住，Azure 数据工厂的云数据移动单位 (DMU) 有限，因此最终会对大数据工作负荷的吞吐量/计算进行限制。 另外，Azure 数据工厂目前不提供在 Data Lake Storage Gen2 帐户之间进行增量更新的功能，因此 Hive 表之类的目录需要获得完整的副本才能进行复制。 有关如何使用数据工厂进行复制的详细信息，请参阅[数据工厂文章](../../data-factory/load-azure-data-lake-storage-gen2.md)。
+
 ## <a name="monitoring-considerations"></a>监视注意事项
 
 Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门户的 Data Lake Storage Gen2 帐户中使用，也可以在 Azure Monitor 中使用。 Data Lake Storage Gen2 的可用性显示在 Azure 门户中。 若要获取 Data Lake Storage Gen2 帐户的最新可用性，必须运行你自己的综合性测试来验证可用性。 其他指标（例如总存储使用率、读/写请求数、入口/出口）可供监视应用程序使用，还可以在超出阈值（例如平均延迟时间或每分钟错误数）时触发警报。
@@ -96,4 +100,4 @@ Data Lake Storage Gen2 提供了一些指标。这些指标可以在 Azure 门�
     NA/Extracts/ACMEPaperCo/In/2017/08/14/updates_08142017.csv
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
 
-在最常见的情况下，批量数据在处理后会直接进入 Hive 之类的数据库或传统的 SQL 数据库，不需要 **/in** 或 **/out** 文件夹，因为输出已经进入一个适用于 Hive 表或外部数据库的单独文件夹中。 例如，每日从客户处提取的数据会置于各自的文件夹中。在经过 Apache Oozie 或 Apache Airflow 之类工具的协调后，会触发一个每日 Hive 作业或 Spark 作业来处理数据，然后将数据写入 Hive 表中。
+在最常见的情况下，批量数据在处理后会直接进入 Hive 之类的数据库或传统的 SQL 数据库，不需要 **/in** 或 **/out** 文件夹，因为输出已经进入一个适用于 Hive 表或外部数据库的单独文件夹中。 例如，每日从客户处提取的数据会置于各自的文件夹中。在经过 Azure 数据工厂、Apache Oozie 或 Apache Airflow 之类工具的协调后，会触发一个每日 Hive 作业或 Spark 作业来处理数据，然后将数据写入 Hive 表中。

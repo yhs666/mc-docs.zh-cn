@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: afee1d11c0e7f333e31eb4458d7d8228e9d99902
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: e32304f2399adbebd0d1c7a48e92c3f6fca98c62
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390862"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861717"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>将 Hyper-V VM 灾难恢复到辅助站点时的支持矩阵
 

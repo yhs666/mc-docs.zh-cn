@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 671bfbd81ea7d242a186727706b16812fa924419
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: a697522c3cccc5e8c872a171dc3e5fcb18bdadf9
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363521"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861720"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>设置 IP 寻址以在故障转移后连接到辅助本地站点
 
@@ -77,12 +77,12 @@ ms.locfileid: "54363521"
 
 为 VM 启用保护后，可以使用以下示例脚本来验证分配给 VM 的地址。 此 IP 地址将被设为故障转移 IP 地址，并在故障转移期间分配给 VM：
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address 
+```
 
 ## <a name="use-a-different-ip-address"></a>使用不同 IP 地址
 

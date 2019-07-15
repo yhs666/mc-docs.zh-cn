@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 04/16/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 82d362099f5c23a96d0e53114c9c207f1b448bfd
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 618aad2a9a5fe8817da43c7ee50f5e4fa67a177d
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390872"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861665"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>为 Azure VM 设置灾难恢复
 
@@ -26,7 +26,7 @@ ms.locfileid: "66390872"
 > [!div class="checklist"]
 > * 创建恢复服务保管库
 > * 验证目标资源设置
-> * 为 VM 设置出站访问
+> * 设置 VM 的出站网络连接
 > * 为虚拟机启用复制
 
 > [!NOTE]
@@ -36,10 +36,10 @@ ms.locfileid: "66390872"
 
 完成本教程：
 
-- 请确保了解[方案体系结构和组件](concepts-azure-to-azure-architecture.md)。
+- 查看[方案体系结构和组件](concepts-azure-to-azure-architecture.md)。
 - 在开始之前，请查看[支持要求](site-recovery-support-matrix-azure-to-azure.md)。
 
-## <a name="create-a-vault"></a>创建保管库
+## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 在除了源区域之外的任意区域中创建保管库。
 
@@ -83,13 +83,13 @@ ms.locfileid: "66390872"
 
 如果想要使用 IP 地址而不是 URL 来控制出站连接，请允许将这些地址用于基于 IP 的防火墙、代理或 NSG 规则。
 
-    <!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)-->
-    <!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
+<!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)-->
+<!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
   
-    - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=42064)
-    - [Office 365 URL 和 IP 地址范围](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges-21vianet)
+- [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)
+- [Office 365 URL 和 IP 地址范围](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges-21vianet)
   
-    <!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
+<!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
 
 如果你正在使用 NSG，则可以为源区域创建存储服务标记 NSG 规则。 [了解详细信息](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。
 
@@ -112,7 +112,7 @@ Azure Site Recovery 提供了三个用于控制 Site Recovery 管理操作的内
 
 详细了解 [Azure RBAC 内置角色](../role-based-access-control/built-in-roles.md)。
 
-## <a name="enable-replication"></a>启用复制
+## <a name="enable-replication-for-a-vm"></a>为虚拟机启用复制
 
 ### <a name="select-the-source"></a>选择源
 
@@ -150,7 +150,7 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
     目标虚拟网络  | 故障转移后，目标区域中 VM 所位于的网络。<br/><br/> 默认情况下，Site Recovery 会在目标位置中创建一个带有“asr”后缀的新虚拟网络（以及子网）。
     缓存存储帐户  | Site Recovery 使用源区域中的一个存储帐户。 复制到目标位置之前，对源 VM 的更改将发送到此帐户。<br/><br/> 如果使用支持防火墙的缓存存储帐户，请确保启用“允许受信任的 Azure 服务”。  [了解详细信息。](/storage/common/storage-network-security#exceptions)
     **目标存储帐户(源 VM 使用非托管磁盘)** | 默认情况下，Site Recovery 会在目标区域中创建新存储帐户，从而形成源 VM 存储帐户的镜像。<br/><br/> 如果使用支持防火墙的缓存存储帐户，请启用“允许受信任的 Azure 服务”。 
-    **副本托管磁盘(如果源 VM 使用托管磁盘)** | 默认情况下，Site Recovery 在目标区域创建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
+    **副本托管磁盘(如果源 VM 使用托管磁盘)** | 默认情况下，Site Recovery 在目标区域创建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。 只能自定义磁盘类型 
     目标可用性集  | 默认情况下，Azure Site Recovery 会在目标区域中创建一个名称带有“asr”后缀（针对源区域中可用性集的 VM 部分）的新可用性集。 如果 Azure Site recovery 创建的可用性集已存在，则重复使用它。
     
     <!--Not Available on **Target availability zones** -->
@@ -183,9 +183,9 @@ Site Recovery 会针对目标区域创建默认设置和复制策略。 可以�
 
 2. 单击“自定义”，选择自定义密钥保管库。 
 
->[!NOTE]
->Azure Site Recovery 目前仅支持运行 Windows 操作系统且已使用 Azure AD 应用启用加密的 Azure VM。
->
+    >[!NOTE]
+    >Azure Site Recovery 目前仅支持运行 Windows 操作系统且已使用 Azure AD 应用启用加密的 Azure VM。
+    >
 
 <!--Not Available on [enabled for encryption with Azure AD app](/security/azure-security-disk-encryption-windows-aad)-->
 <!--Pending for Verify later-->

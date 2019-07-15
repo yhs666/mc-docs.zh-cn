@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/28/2017
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 9a123ccfe2c1edd5f05cd617bc6fca46f7c02f98
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 03dc65bcb6111d55af1da78d365018380b37f658
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463514"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844904"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>教程：升级 Azure 中 Service Fabric 群集的运行时
 
-本教程是系列教程的第 3 部分，介绍如何升级 Azure Service Fabric 群集上的 Service Fabric 运行时。 本教程部分是针对 Azure 上运行的 Service Fabric 群集编写的，不适用于独立 Service Fabric 群集。
+本教程是四篇系列教程中的一篇，介绍如何升级 Azure Service Fabric 群集上的 Service Fabric 运行时。 本教程部分是针对 Azure 上运行的 Service Fabric 群集编写的，不适用于独立 Service Fabric 群集。
 
 > [!WARNING]
 > 本教程部分要求使用 PowerShell。 目前尚不支持使用 Azure CLI 工具升级群集运行时。 或者，可以在门户中升级群集。 有关详细信息，请参阅[升级 Azure Service Fabric 群集](service-fabric-cluster-upgrade.md)。
@@ -41,27 +41,30 @@ ms.locfileid: "57463514"
 在此系列教程中，你将学习如何：
 > [!div class="checklist"]
 > * 使用模板在 Azure 上创建安全 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+> * [监视群集](service-fabric-tutorial-monitor-cluster.md)
 > * [缩小或扩大群集](service-fabric-tutorial-scale-cluster.md)
 > * 升级群集的运行时
 > * [删除群集](service-fabric-tutorial-delete-cluster.md)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* 安装 [Azure Powershell 模块版本 4.1 或更高版本](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps)或者 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+* 安装 [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) 或 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 * 在 Azure 上创建安全 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* 设置 Windows 开发环境。 安装 [Visual Studio 2017](https://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
+* 设置 Windows 开发环境。 安装 [Visual Studio 2019](https://www.visualstudio.com) 和 **Azure 开发**、**ASP.NET 和 Web 开发**以及 **.NET Core 跨平台开发**工作负荷。  然后设置 [.NET 开发环境](service-fabric-get-started.md)。
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
 执行 Azure 命令之前，登录到你的 Azure 帐户并选择你的订阅。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
-Get-AzureRmSubscription
-Set-AzureRmContext -SubscriptionId <guid>
+Connect-AzAccount -Environment AzureChinaCloud
+Get-AzSubscription
+Set-AzContext -SubscriptionId <guid>
 ```
 
 ## <a name="get-the-runtime-version"></a>获取运行时版本
@@ -69,14 +72,14 @@ Set-AzureRmContext -SubscriptionId <guid>
 连接到 Azure 并选择包含 Service Fabric 群集的订阅之后，可获取群集的运行时版本。
 
 ```powershell
-Get-AzureRmServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
+Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-或者，使用以下命令获取订阅中所有群集的列表：
+或者，直接使用以下示例获取订阅中所有群集的列表：
 
 ```powershell
-Get-AzureRmServiceFabricCluster | Select-Object Name, ClusterCodeVersion
+Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
 ```
 
 请注意 **ClusterCodeVersion** 值。 在下一部分需使用此值。
@@ -92,7 +95,7 @@ Get-ServiceFabricRuntimeUpgradeVersion -BaseVersion "5.7.198.9494"
 使用版本列表，可以让 Azure Service Fabric 群集升级到更新的运行时。 例如，如果可升级到版本 `6.0.219.9494`，请使用以下命令升级群集。
 
 ```powershell
-Set-AzureRmServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
+Set-AzServiceFabricUpgradeType -ResourceGroupName SFCLUSTERTUTORIALGROUP `
                                     -Name aztestcluster `
                                     -UpgradeMode Manual `
                                     -Version "6.0.219.9494"
@@ -203,5 +206,10 @@ sfctl cluster upgrade-status
 > * 获取群集运行时的版本
 > * 升级群集运行时
 > * 监视升级
+
+转到下一教程：
+
+> [!div class="nextstepaction"]
+> [删除群集](service-fabric-tutorial-delete-cluster.md)
 
 <!-- Update_Description: update meta properties, update link -->

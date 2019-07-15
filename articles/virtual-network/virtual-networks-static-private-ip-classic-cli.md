@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2016
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 15036dfea6bc0b26c9a307a8c666b588f5769c30
-ms.sourcegitcommit: 86b0cd0cd9545eb961d6f55170d9b1a0c9279fb5
+ms.openlocfilehash: ef7cb09bf910df0d0382779ea0793e7cea62d70c
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727657"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725212"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 为虚拟机（经典）配置专用 IP 地址
 
@@ -35,7 +35,10 @@ ms.locfileid: "57727657"
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>如何在创建 VM 时指定静态专用 IP 地址
 若要根据上述方案在名为 *TestService* 的新云服务中创建名为 *DNS01* 的新 VM，请按照以下步骤进行操作：
 
-1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-cli-version-1.0?view=azure-cli-latest)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
+1. 如果从未使用过 Azure CLI，请参阅 [Install and Configure the Azure CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest)（安装和配置 Azure CLI），并按照说明进行操作，直到选择 Azure 帐户和订阅。
+
+    <!--MOONCAKE CORRECT ON install-classic-cli-->
+
 2. 运行 **azure service create** 命令以创建云服务。
 
         azure service create TestService --location chinaeast
@@ -65,10 +68,10 @@ ms.locfileid: "57727657"
         info:    OK
         info:    vm create command OK
 
-   * **-l（或 --location）**。 会在其中创建 VM 的 Azure 区域。 在本方案中为 *chinaeast*。
-   * **-n（或 --vm-name）**。 要创建的 VM 的名称。
-   * **-w（或 --virtual-network-name）**。 会在其中创建 VM 的 VNet 的名称。 
-   * **-S（或 --static-ip）**。 VM 的静态专用 IP 地址。
+   * **-l（或 --location）** 。 会在其中创建 VM 的 Azure 区域。 在本方案中为 *chinaeast*。
+   * **-n（或 --vm-name）** 。 要创建的 VM 的名称。
+   * **-w（或 --virtual-network-name）** 。 会在其中创建 VM 的 VNet 的名称。 
+   * **-S（或 --static-ip）** 。 VM 的静态专用 IP 地址。
    * **TestService**。 要在其中创建 VM 的云服务的名称。
    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**。 用于创建 VM 的映像。
    * **adminuser**。 Windows VM 的本地管理员。

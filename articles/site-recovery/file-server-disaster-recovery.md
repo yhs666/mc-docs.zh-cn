@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 03/04/2019
+ms.date: 04/22/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a75c221cf4d98a9976b854b6e22ecb8404477164
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 27982b9e4d9d85fd4a7f2dce1d41c17965bab921
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627078"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725219"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -59,13 +59,13 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 |带有或不带 DFSR 的文件服务器环境|   [使用 Site Recovery 进行复制](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支持共享磁盘群集或网络附加存储 (NAS)。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Site Recovery 不支持 SMB 3.0。 仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
 |带有 DFSR 的文件服务器环境     |  [将 DFSR 扩展到 Azure IaaS 虚拟机](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 可在带宽严重不足的环境中正常工作。 此方法要求一直保持运行某个 Azure VM。 需要在规划中考虑该 VM 的成本。         |
 
-<!-- Not Available on |Azure IaaS VM     |     [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)   |     If you use File Sync in a disaster recovery scenario, during failover you must take manual actions to make sure that the file shares are accessible to the client machine in a transparent way. File Sync requires port 445 to be open from the client machine.     | -->
+<!-- Not Available on [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)-->
 <!-- URL should be replicate-an-onpremises-file-server without servers  -->
 
 ### <a name="site-recovery-support"></a>Site Recovery 支持
 由于 Site Recovery 复制不区分应用程序，因此这些建议应该也适用于以下场景。
 
-| 源    |到辅助站点    |到 Azure
+| Source    |到辅助站点    |到 Azure
 |---------|---------|---------|
 |Azure| -|是|
 |Hyper-V|   是 |是
@@ -129,10 +129,10 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 
 1. 转到 Azure 门户并选择恢复服务保管库。
 2. 选择为文件服务器环境创建的恢复计划。
-3. 选择“测试故障转移”。
+3. 选择“测试故障转移”  。
 4. 选择恢复点和 Azure 虚拟网络，启动测试故障转移过程。
 5. 辅助环境启动后，请执行验证。
-6. 完成验证后，在恢复计划中单击“清理测试故障转移”，这样即可清理测试故障转移环境。
+6. 完成验证后，在恢复计划中单击“清理测试故障转移”，这样即可清理测试故障转移环境。 
 
 有关如何执行测试故障转移的详细信息，请参阅[到 Site Recovery 的测试故障转移](site-recovery-test-failover-to-azure.md)。
 
@@ -142,7 +142,7 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 
 1. 转到 Azure 门户并选择恢复服务保管库。
 2. 选择为文件服务器环境创建的恢复计划。
-3. 选择“故障转移”。
+3. 选择“故障转移”。 
 4. 选择恢复点启动故障转移过程。
 
 有关如何执行故障转移的详细信息，请参阅 [Site Recovery 中的故障转移](site-recovery-failover.md)。

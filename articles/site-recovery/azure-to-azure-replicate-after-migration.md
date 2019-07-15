@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 04/16/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: a1f6386c24fa7204cef6a2b53a00f2d0694ab4d8
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 60d9ac7a7aa9820b85836272030e3a6c06b04171
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390873"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861671"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>设置 Azure VM 迁移到 Azure 后的灾难恢复 
 

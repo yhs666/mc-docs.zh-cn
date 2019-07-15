@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 02/06/2018
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
-ms.openlocfilehash: 82d347f2fd7fc295e7d51121408aace92c90ed90
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 0329dd8abe4e97ed09a4d43840fd55a867c33b32
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236656"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844520"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入门：使用 .NET 在 Azure 存储中创建队列
 
@@ -258,7 +258,9 @@ if (queue != null)
 
 ### <a name="binaries-and-source-code"></a>二进制文件和源代码
 
-- 下载 Azure 存储的最新版 [.NET 客户端库](https://www.nuget.org/packages/WindowsAzure.Storage/)的 NuGet 包。 
+- 下载最新版本的[适用于 .NET 的 Azure 存储客户端库](/dotnet/api/overview/storage/client)的 NuGet 包
+    - [通用](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [队列](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - 查看 GitHub 上的 [.NET 客户端库源代码](https://github.com/Azure/azure-storage-net)。
 
 ### <a name="client-library-reference-and-samples"></a>客户端库参考和示例

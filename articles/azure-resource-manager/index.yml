@@ -51,7 +51,6 @@ sections:
           - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">部署虚拟机扩展</a>。
           - html: <a href="/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">部署 SQL 扩展</a>。
           - html: <a href="/azure-resource-manager/resource-manager-tutorial-secure-artifacts">保护模板项目</a>。
-          - html: <a href="/azure-resource-manager/deployment-manager-tutorial">使用安全部署做法</a>。
           - html: <a href="/azure-resource-manager/resource-manager-tutorial-troubleshoot">排查模板部署问题</a>。
   - title: 示例
     items:

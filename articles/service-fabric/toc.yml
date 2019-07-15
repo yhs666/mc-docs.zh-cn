@@ -81,6 +81,8 @@
       href: service-fabric-best-practices-capacity-scaling.md
     - name: 基础结构即代码
       href: service-fabric-best-practices-infrastructure-as-code.md
+    - name: 应用程序设计
+      href: service-fabric-best-practices-applications.md
     - name: 生产就绪情况核对清单
       href: service-fabric-production-readiness-checklist.md
 - name: 示例
@@ -495,6 +497,8 @@
               href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
             - name: 在 Windows 上设置 Linux 群集
               href: service-fabric-local-linux-cluster-windows.md
+            - name: 将 .NET Core 应用从 VS 部署到远程 Linux 群集
+              href: service-fabric-how-to-publish-linux-app-vs.md
         - name: 在 Linux/Eclipse 开发环境中工作
           items:
             - name: 用于 Java 开发的 Eclipse 插件入门
@@ -613,8 +617,6 @@
                   href: service-fabric-cluster-upgrade-version-azure.md
                 - name: 修补群集节点 (Windows)
                   href: service-fabric-patch-orchestration-application.md
-                - name: 修补群集节点 (Linux)
-                  href: service-fabric-patch-orchestration-application-linux.md
                 - name: 设置访问控制
                   href: service-fabric-cluster-security-roles.md
                 - name: 打开负载均衡器的端口
@@ -735,7 +737,7 @@
         - name: sfctl store
           href: service-fabric-sfctl-store.md
     - name: Java API
-      href: 'https://docs.azure.cn/zh-cn/java/api/servicefabric?view=azure-java-stable'
+      href: 'https://docs.azure.cn/java/api/overview/servicefabric'
     - name: .NET
       href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/service-fabric?view=azure-dotnet'
     - name: REST
@@ -764,13 +766,11 @@
     - name: 常见问题
       href: service-fabric-common-questions.md
     - name: MSDN 论坛
-      href: 'https://www.azure.cn/support/contact/'
+      href: 'https://support.azure.cn/support/contact/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/service-fabric/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
-    - name: 疑难解答指南
-      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 代码示例
       href: 'https://aka.ms/servicefabricsamples'
     - name: 支持选项
@@ -779,5 +779,7 @@
       href: service-fabric-versions.md
     - name: 服务更新
       href: 'https://www.azure.cn/what-is-new/'
+    - name: 疑难解答指南
+      href: 'https://github.com/Azure/Service-Fabric-Troubleshooting-Guides'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'

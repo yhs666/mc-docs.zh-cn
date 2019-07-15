@@ -11,12 +11,12 @@ ms.date: 01/28/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 048d2f7ce6f8d8a0df80d4aa9fc230dfde58897d
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 4090ad62deb366f56a4478e5eb47ac4d4127883e
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396789"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845263"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 安全管理器
 
@@ -77,7 +77,7 @@ IoT Edge 安全守护程序的另一个核心原则是最大程度地减小改�
 
 #### <a name="cloud-interface"></a>云接口
 
-云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心设备预配服务 (DPS)，以便进行设备标识生命周期管理。  
+云接口允许 IoT Edge 安全守护程序访问云服务，例如提高设备安全性的云功能（如安全续订）。  例如，IoT Edge 安全守护程序当前使用此接口来访问 Azure IoT 中心[设备预配服务 (DPS)](/iot-dps/)，以便进行设备标识生命周期管理。  
 
 #### <a name="management-api"></a>管理 API
 
@@ -107,7 +107,7 @@ IoT Edge 安全守护程序的安装和更新通过操作系统的包管理系�
 
 #### <a name="versioning"></a>版本控制
 
-IoT Edge 运行时可跟踪和报告 IoT Edge 安全守护程序的版本。 系统会将该版本报告为 IoT Edge 代理模块报告的属性的 runtime.platform.version 特性。
+IoT Edge 运行时可跟踪和报告 IoT Edge 安全守护程序的版本。 系统会将该版本报告为 IoT Edge 代理模块报告的属性的 runtime.platform.version 特性  。
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>硬件安全模块平台抽象层 (HSM PAL)
 
@@ -125,6 +125,6 @@ IoT Edge 安全管理器的目标是标识并隔离能够维护 Azure IoT Edge �
 
 阅读博客 [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)（保护智能边缘）。
 
+[使用 Linux 虚拟机上的虚拟 TPM](how-to-auto-provision-simulated-device-linux.md) 创建和预配 IoT Edge 设备。
 
-<!-- Links -->
-[lnk-edge-blog]: https://azure.microsoft.com/blog/securing-the-intelligent-edge/
+在 Windows 上使用模拟的 TPM 创建和预配 [IoT Edge 设备](how-to-auto-provision-simulated-device-windows.md)。

@@ -14,12 +14,12 @@ origin.date: 08/15/2018
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 4f9e92bcc17ca3a3ddcb1b6dac0e51e1deef7dbf
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: f044496a49cb71f5c8f5ac851b243b2888aa8368
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540065"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725232"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -36,7 +36,8 @@ ms.locfileid: "67540065"
 - **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** ：在所有 Azure 区域已推出正式版。
 - **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
 
-<!--Not Available on - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)**: Generally available in all Azure regions.-->
+<!--Not Available on - **Azure Event Hubs**: Generally available in all Azure regions.-->
+<!--Not Available on - [Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)-->
 <!-- Not Available on - XXXXXX Generally Available in all Azure public cloud regions -->
 
 有关最新通知，请查看 [Azure 虚拟网络更新](https://www.azure.cn/what-is-new/)页。

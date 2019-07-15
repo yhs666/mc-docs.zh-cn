@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: ff94ef243943e8cc03822952b125c141fae918b2
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 7f708fdf623f5d418749c322c55386b964501b34
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830121"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844929"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-python"></a>快速入门：使用人脸 REST API 和 Python 检测图像中的人脸
 
@@ -61,15 +61,16 @@ face_api_url = 'https://api.cognitive.azure.cn/face/v1.0/detect'
 
 image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
 
-headers = { 'Ocp-Apim-Subscription-Key': subscription_key }
-    
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 params = {
     'returnFaceId': 'true',
     'returnFaceLandmarks': 'false',
     'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
 }
 
-response = requests.post(face_api_url, params=params, headers=headers, json={"url": image_url})
+response = requests.post(face_api_url, params=params,
+                         headers=headers, json={"url": image_url})
 print(json.dumps(response.json()))
 ```
 

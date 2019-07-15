@@ -5,15 +5,15 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 04/30/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 858af4d36e8164e03a63b91c21bf2e991425e607
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 06f5b8d545642bf9c68323d92167a8331948753c
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276427"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861693"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery 中的新增功能
 
@@ -256,6 +256,7 @@ Site Recovery 增加了一个选项，可以针对移动服务扩展进行自动
 **功能** | **详细信息**
 --- | ---
 **Linux 支持** | 添加了对 Red Hat Enterprise Linux 7.5、SUSE Linux Enterprise Server 12 的支持。
+
 ## <a name="next-steps"></a>后续步骤
 
 在 [Azure 更新](https://www.azure.cn/what-is-new/)页上时刻了解更新。

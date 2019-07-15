@@ -10,12 +10,12 @@ ms.date: 06/17/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2f096da1eb92a4615aa110207bd88cb21842f886
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: db9a71af3190f5eb298e0b56a6f7dd8ee284ae6c
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732721"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845037"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -73,10 +73,11 @@ Azure IoT Edge 可以将工作负荷从云移到边缘，让 IoT 解决方案更
    | ----- | ----- |
    | Name | 为项目提供一个名称，例如 **EdgeTreeClassifier**。 |
    | 说明 | 可选项目说明。 |
-   | 资源组 | 接受默认的“有限试用版”。  |
+   | 资源组 | 选择一个包含自定义视觉服务资源的 Azure 资源组，或者如果尚未添加 Azure 资源组，则选择“新建”  。 |
    | 项目类型 | **分类** |
-   | 分类类型 | **多类(一个图像一个标记)** | 
+   | 分类类型 | **多类(一个图像一个标记)** |
    | 域 | **常规(精简)** |
+   | 导出功能 | **基本平台（Tensorflow、CoreML、ONNX 等）** |
 
 5. 选择“创建项目”。 
 

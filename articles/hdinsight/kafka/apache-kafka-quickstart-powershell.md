@@ -12,17 +12,17 @@ ms.devlang: ''
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/02/2019
-ms.date: 05/27/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: larryfr
-ms.openlocfilehash: 9f9d5adcb4484d6818ea3ae1d793b11822887e2b
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: d7591d538e78fec281c4f55ef905516aebff3616
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829154"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845453"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Kafka 群集
 
 [Apache Kafka](https://kafka.apache.org/) 是开源分布式流式处理平台。 通常用作消息代理，因为它可提供类似于发布-订阅消息队列的功能。 
 
@@ -30,14 +30,11 @@ ms.locfileid: "65829154"
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
-> 仅可通过相同虚拟网络内的资源访问 Kafka API。 本快速入门使用 SSH 直接访问群集。 若要将其他服务、网络或虚拟机连接到 Kafka，则必须首先创建虚拟机，然后才能在网络中创建资源。
->
-> 有关详细信息，请参阅[使用虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
+仅可通过相同虚拟网络内的资源访问 Kafka API。 本快速入门使用 SSH 直接访问群集。 若要将其他服务、网络或虚拟机连接到 Kafka，则必须首先创建虚拟机，然后才能在网络中创建资源。 有关详细信息，请参阅[使用虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
-
-* Azure 订阅。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 已安装 PowerShell [Az 模块](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -144,7 +141,7 @@ New-AzHDInsightCluster `
 > [!TIP]
 > `-DisksPerWorkerNode` 参数配置 Kafka on HDInsight 的可伸缩性。 Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 
 >
-> 托管磁盘的类型可以为“标准”(HDD) 或“高级”(SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
+> 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。 可以使用 `-WorkerNodeSize` 参数设置 VM 类型。 有关参数的详细信息，请参阅 [New-AzHDInsightCluster](https://docs.microsoft.com/en-us/powershell/module/az.HDInsight/New-azHDInsightCluster) 文档。
 
 
 > [!IMPORTANT]
@@ -160,7 +157,7 @@ New-AzHDInsightCluster `
     ssh sshuser@mykafka-ssh.azurehdinsight.cn
     ```
 
-2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表。
+2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表   。
 
 3. 出现提示时，请输入 SSH 用户名密码。
 
@@ -190,7 +187,7 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a id="getkafkainfo"></a>获取 Apache Zookeeper 主机和代理主机信息
 
-使用 Kafka 时，必须了解 Apache Zookeeper 和代理主机。 Kafka API 以及 Kafka 随附的许多实用工具都使用这些主机。
+使用 Kafka 时，必须了解 Apache Zookeeper 和代理主机   。 Kafka API 以及 Kafka 随附的许多实用工具都使用这些主机。
 
 在本部分中，可以从群集上的 Apache Ambari REST API 获取主机信息。
 
@@ -208,16 +205,13 @@ ssuhuser@hn0-mykafk:~$
 
     出现提示时，请输入 Kafka 群集的名称。
 
-3. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令：
+3. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令。 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
 
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
     出现提示时，请输入群集登录帐户（不是 SSH 帐户）的密码。
-
-    > [!NOTE]
-    > 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
 
 4. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
@@ -249,9 +243,9 @@ ssuhuser@hn0-mykafk:~$
 
 ## <a name="manage-apache-kafka-topics"></a>管理 Apache Kafka 主题
 
-Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具来管理主题。
+Kafka 在主题中存储数据流  。 可以使用 `kafka-topics.sh` 实用工具来管理主题。
 
-* 若要创建主题，请在 SSH 连接中使用以下命令：
+* 若要创建主题，请在 SSH 连接中使用以下命令  ：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
@@ -281,7 +275,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
         * 纵向扩展群集
 
-* 若要列出主题，请使用以下命令：
+* 若要列出主题，请使用以下命令  ：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
@@ -289,7 +283,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
     此命令列出 Kafka 群集上可用的主题。
 
-* 若要删除主题，使用以下命令：
+* 若要删除主题，使用以下命令  ：
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
@@ -308,7 +302,7 @@ Kafka 在主题中存储数据流。 可以使用 `kafka-topics.sh` 实用工具
 
 ## <a name="produce-and-consume-records"></a>生成和使用记录
 
-Kafka 将记录存储在主题中。 记录由生成者生成，由使用者使用。 生产者与使用者通过 Kafka 代理服务通信。 HDInsight 群集中的每个工作节点都是 Kafka 代理主机。
+Kafka 将记录  存储在主题中。 记录由生成者  生成，由使用者  使用。 生产者与使用者通过 Kafka 代理服务通信  。 HDInsight 群集中的每个工作节点都是 Kafka 代理主机。
 
 若要将记录存储到之前创建的测试主题，并通过使用者对其进行读取，请使用以下步骤：
 

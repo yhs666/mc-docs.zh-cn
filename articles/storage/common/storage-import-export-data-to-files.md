@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 12/13/2018
-ms.date: 01/14/2019
+origin.date: 04/08/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: e00e631c83edb967c560b8d1f3388f95ae75c35f
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.subservice: common
+ms.openlocfilehash: ed4ee3a98a85f2261406e353449f81ec1cf3d21b
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852199"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844444"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>使用 Azure 导入/导出服务将数据导入到 Azure 文件
 
@@ -48,20 +48,23 @@ ms.locfileid: "63852199"
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
+    
        ```
    - **导入文件夹**：*MyFolder2* 下的所有文件和文件夹将以递归方式复制到该文件共享。 文件夹结构保持不变。
 
        ```
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+            
        ```
      可以在同一文件中创建与导入的文件夹或文件对应的多个条目。 
 
        ```
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
            "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
+                        
        ```
      详细了解如何[准备数据集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file)。
-
+    
 
 4. 修改工具所在的根文件夹中的 *driveset.csv* 文件。 在 *driveset.csv* 文件中添加类似于以下示例的条目。 此驱动器集文件包含磁盘列表和对应的驱动器号，因此，工具可以正确地选取要准备的磁盘列表。
 
@@ -73,7 +76,7 @@ ms.locfileid: "63852199"
        DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
        H,Format,SilentMode,Encrypt,
        ```
-
+    
    - **对于已加密的磁盘**：请指定 *AlreadyEncrypted* 并提供 BitLocker 密钥。
 
        ```
@@ -90,11 +93,11 @@ ms.locfileid: "63852199"
        ```
 
    下面显示了一个导入示例。
-
+  
        ```
        .\WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset.csv /DataSet:dataset.csv /logdir:C:\logs
        ```
-
+ 
 6. 每次运行该命令行时，都会使用通过 `/j:` 参数提供名称创建一个日志文件。 你准备的每个驱动器都有一个在创建导入作业时必须上传的日志文件。 不会处理没有日志文件的驱动器。
 
     > [!IMPORTANT]
@@ -105,18 +108,18 @@ ms.locfileid: "63852199"
 ## <a name="step-2-create-an-import-job"></a>步骤 2：创建导入作业 
 
 在 Azure 门户中执行以下步骤来创建导入作业。
-1. 登录到 https://portal.azure.cn/。
-2. 转到“所有服务”>“存储”>“导入/导出作业”。 
+1. 登录到 https://portal.azure.cn/ 。
+2. 转到“所有服务”>“存储”>“导入/导出作业”。  
 
     ![转到“导入/导出”](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. 单击“创建导入/导出作业”。
+3. 单击“创建导入/导出作业”  。
 
     ![单击导入/导出作业](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. 在“基本信息”中：
+4. 在“基本信息”  中：
 
-    - 选择“导入到 Azure”。
+    - 选择“导入到 Azure”。 
     - 输入导入作业的描述性名称。 在作业进行过程中以及作业完成后，可以使用此名称来跟踪作业。
         -  此名称只能包含小写字母、数字、连字符和下划线。
         -  此名称必须以字母开头，并且不得包含空格。 
@@ -125,15 +128,15 @@ ms.locfileid: "63852199"
 
         ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-3. 在“作业详细信息”中：
-
+3. 在“作业详细信息”中  ：
+    
     - 上传你在前面的[步骤 1：准备驱动器](#step-1-prepare-the-drives)中创建的日志文件。 
     - 选择要将数据导入到的存储帐户。 
     - 放置位置会根据选定存储帐户所属的区域自动进行填充。
-
+   
        ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-4. 在“回寄信息”中：
+4. 在“回寄信息”  中：
 
     - 从下拉列表中选择承运商。
     - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 
@@ -144,11 +147,11 @@ ms.locfileid: "63852199"
 
        ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 
-
-5. 在“摘要”中：
+   
+5. 在“摘要”  中：
 
     - 提供用来将磁盘寄回 Azure 的 Azure 数据中心送货地址。 请确保寄送标签上标明了作业名称和完整地址。
-    - 单击“确定”以完成导入作业创建。
+    - 单击“确定”以完成导入作业创建。 
 
         ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
@@ -168,7 +171,7 @@ ms.locfileid: "63852199"
 
 若要**添加更多驱动器**，请创建一个新的驱动器集文件并运行以下命令。 
 
-如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用同一日记文件名称并提供新的会话 ID。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
+如果后续复制会话中的磁盘驱动器与 *InitialDriveset .csv* 文件中指定的不同，请指定一个新的驱动器集 *.csv* 文件并将其提供为参数 `AdditionalDriveSet` 的值。 使用同一日记文件  名称并提供新的会话 ID  。 AdditionalDriveset CSV 文件的格式与 InitialDriveSet 的格式相同。
 
     ```
     WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

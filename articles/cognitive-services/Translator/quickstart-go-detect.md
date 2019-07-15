@@ -3,20 +3,20 @@ title: 快速入门：识别文本中的语言，Go - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Go 识别源文本的语言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 71551b05e9131fc611ac1d285b1602221d77dbdc
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 6df53aea966cd36050460b8c9d61951f1634c745
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830129"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844834"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-go"></a>快速入门：使用文本翻译 API 通过 Go 来检测文本语言
 
@@ -138,6 +138,8 @@ if err != nil {
     log.Fatal(err)
 }
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="handle-and-print-the-response"></a>处理并输出响应
 

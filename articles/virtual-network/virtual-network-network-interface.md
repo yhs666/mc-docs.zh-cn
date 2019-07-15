@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 07/24/2017
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 335f5b4439de9182c6afc0d7dfd72b020e05fa2b
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 6d5487c6974e8e9459aa6648b188811b8da69611
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250455"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725220"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>创建、更改或删除网络接口
 
@@ -35,7 +35,7 @@ ms.locfileid: "66250455"
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
@@ -278,7 +278,10 @@ Azure 网络观察程序的下一个跃点功能还有助于确定路由是否�
 - 使用 [Azure CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json) 或 [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json) 创建具有多个 NIC 的 VM
 - 使用 [Azure CLI](virtual-network-multiple-ip-addresses-cli.md) 或 [PowerShell](virtual-network-multiple-ip-addresses-powershell.md) 创建具有多个 IPv4 地址的单个 NIC VM
 
-    <!-- Not Available on - Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) using the [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), or [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)-->
+    <!-- Not Available on - Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer) using the Azure CLI, PowerShell, or Azure Resource Manager template-->
+    <!-- Not Available on [Azure CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json)-->
+    <!-- Not Available on [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json)-->
+    <!-- Not Available on [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 - 使用 [PowerShell](powershell-samples.md) 或 [Azure CLI](cli-samples.md) 示例脚本或使用 Azure [资源管理器模板](template-samples.md)创建网络接口
 - 为虚拟网络创建并应用 [Azure Policy](policy-samples.md)

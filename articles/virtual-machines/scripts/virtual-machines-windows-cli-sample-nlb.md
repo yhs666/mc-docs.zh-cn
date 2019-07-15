@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 02/23/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad0df5799e1be0b1d9da183e9230c17936799cf6
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9d7f6e57aea02d23baba6ceec68c7b4e17f58fbf
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003974"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725223"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>对高度可用的虚拟机之间的流量进行负载均衡
 
@@ -137,7 +137,7 @@ az group delete --name myResourceGroup --yes
 | [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) | 创建虚拟网卡并将其连接到虚拟网络、子网和 NSG。 |
 | [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建可用性集。 可用性集通过将虚拟机分布到各个物理资源上（以便发生故障时，不会影响整个集）来确保应用程序运行时间。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group/extension?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

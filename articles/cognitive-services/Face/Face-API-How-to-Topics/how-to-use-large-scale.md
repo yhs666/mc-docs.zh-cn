@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 05/01/2019
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3ddaffaa15598e45d7e3d6d91fb70886ea5324bb
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: f0706ae43ec18cf2ef375205b44bc5c9000cd922
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830123"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844658"
 ---
 # <a name="example-use-the-large-scale-feature"></a>示例：使用大规模使用的功能
 
@@ -31,13 +31,16 @@ LargePersonGroup 和 LargeFaceList 统称为大规模操作。 LargePersonGroup 
 
 ## <a name="step-1-initialize-the-client-object"></a>步骤 1：初始化客户端对象
 
-使用人脸 API 客户端库时，订阅密钥和订阅终结点将通过 FaceServiceClient 类的构造函数传入。 例如：
+使用人脸 API 客户端库时，订阅密钥和订阅终结点将通过 FaceClient 类的构造函数传入。 例如：
 
 ```CSharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
-string SubscriptionRegion = "https://api.cognitive.azure.cn/face/v1.0/";
-FaceServiceClient FaceServiceClient = new FaceServiceClient(SubscriptionKey, SubscriptionRegion);
+string SubscriptionEndpoint = "https://api.cognitive.azure.cn";
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+faceClient.Endpoint = SubscriptionEndpoint
 ```
 
 若要获取订阅密钥及其相应的终结点，请从 Azure 门户转到 Azure 市场。
@@ -95,13 +98,13 @@ private static async Task TrainLargeFaceList(
     int timeIntervalInMilliseconds = 1000)
 {
     // Trigger a train call.
-    await FaceServiceClient.TrainLargeFaceListAsync(largeFaceListId);
+    await FaceClient.LargeTrainLargeFaceListAsync(largeFaceListId);
 
     // Wait for training finish.
     while (true)
     {
         Task.Delay(timeIntervalInMilliseconds).Wait();
-        var status = await FaceServiceClient.GetLargeFaceListTrainingStatusAsync(largeFaceListId);
+        var status = await faceClient.LargeFaceList.TrainAsync(largeFaceListId);
 
         if (status.Status == Status.Running)
         {
@@ -126,7 +129,7 @@ private static async Task TrainLargeFaceList(
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateFaceListAsync(FaceListId, FaceListName).Wait();
+faceClient.FaceList.CreateAsync(FaceListId, FaceListName).Wait();
 
 // Add Faces to the FaceList.
 Parallel.ForEach(
@@ -135,7 +138,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToFaceListAsync(FaceListId, stream);
+                await faceClient.FaceList.AddFaceFromStreamAsync(FaceListId, stream);
             }
         });
 
@@ -144,10 +147,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, FaceListId, 20));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, FaceListId, 20));
     }
 }
 ```
@@ -159,7 +162,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
 const string ImageDir = @"/path/to/FaceList/images";
-FaceServiceClient.CreateLargeFaceListAsync(LargeFaceListId, LargeFaceListName).Wait();
+faceClient.LargeFaceList.CreateAsync(LargeFaceListId, LargeFaceListName).Wait();
 
 // Add Faces to the LargeFaceList.
 Parallel.ForEach(
@@ -168,7 +171,7 @@ Parallel.ForEach(
         {
             using (Stream stream = File.OpenRead(imagePath))
             {
-                await FaceServiceClient.AddFaceToLargeFaceListAsync(LargeFaceListId, stream);
+                await faceClient.LargeFaceList.AddFaceFromStreamAsync(LargeFaceListId, stream);
             }
         });
 
@@ -181,10 +184,10 @@ const string QueryImagePath = @"/path/to/query/image";
 var results = new List<SimilarPersistedFace[]>();
 using (Stream stream = File.OpenRead(QueryImagePath))
 {
-    var faces = FaceServiceClient.DetectAsync(stream).Result;
+    var faces = faceClient.Face.DetectWithStreamAsync(stream).Result;
     foreach (var face in faces)
     {
-        results.Add(await FaceServiceClient.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
+        results.Add(await faceClient.Face.FindSimilarAsync(face.FaceId, largeFaceListId: LargeFaceListId));
     }
 }
 ```
@@ -237,7 +240,7 @@ private static void Main()
     // Create a LargePersonGroup.
     const string LargePersonGroupId = "mylargepersongroupid_001";
     const string LargePersonGroupName = "MyLargePersonGroupDisplayName";
-    FaceServiceClient.CreateLargePersonGroupAsync(LargePersonGroupId, LargePersonGroupName).Wait();
+    faceClient.LargePersonGroup.CreateAsync(LargePersonGroupId, LargePersonGroupName).Wait();
 
     // Set up standalone training at regular intervals.
     const int TimeIntervalForStatus = 1000 * 60; // 1-minute interval for getting training status.
@@ -273,4 +276,4 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 - [添加人脸](how-to-add-faces.md)
 - [在图像中识别人脸](HowtoIdentifyFacesinImage.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

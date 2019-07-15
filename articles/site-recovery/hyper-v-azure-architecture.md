@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29b4b05703ec07807248764f5e26956b72ce34c3
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: eba82efbf77539516cdb08bd1117705e18f3794c
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363555"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861641"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V 到 Azure 的灾难恢复体系结构
 
@@ -62,7 +62,7 @@ ms.locfileid: "54363555"
 1. 为 Hyper-V VM 启用保护后，在 Azure 门户中或本地，**启用保护**会启动。
 2. 该作业先检查计算机是否符合先决条件，再调用 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx)，以使用用户配置的设置来设置复制。
 3. 该作业通过调用 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 方法启动初始复制，以便初始化完整的 VM 复制，并将 VM 的虚拟磁盘发送到 Azure。
-4. 可以在“作业”选项卡中监视作业。    ![作业列表](media/hyper-v-azure-architecture/image1.png) ![启用保护性向下钻取](media/hyper-v-azure-architecture/image2.png)
+4. 可以在“作业”选项卡中监视作业。  ![作业列表](media/hyper-v-azure-architecture/image1.png) ![启用保护性向下钻取](media/hyper-v-azure-architecture/image2.png)
 
 ### <a name="initial-data-replication"></a>初始数据复制
 
@@ -74,7 +74,7 @@ ms.locfileid: "54363555"
 
 ### <a name="finalize-protection-process"></a>完成保护过程
 
-1. 初始复制完成后，“在虚拟机上完成保护”作业将运行。 该作业会配置网络和其他复制后设置以便保护 VM。
+1. 初始复制完成后，“在虚拟机上完成保护”  作业将运行。 该作业会配置网络和其他复制后设置以便保护 VM。
 2. 在此阶段，可以检查 VM 设置以确保它已为故障转移做好准备。 可针对 VM 运行灾难恢复钻取（测试故障转移）来检查它是否按预期进行故障转移。 
 
 ## <a name="delta-replication"></a>增量复制
@@ -89,12 +89,12 @@ ms.locfileid: "54363555"
 1. 如果增量复制失败且完整复制因带宽或时间限制而需要大量开销，则会将 VM 标记为需要重新同步。
     - 例如，如果 .hrl 文件达到磁盘大小的 50%，系统会将 VM 标记为需要重新同步。
     -  默认情况下，重新同步安排为在非工作时间自动运行。
-1.  重新同步仅发送增量数据。
+1. 重新同步仅发送增量数据。
     - 它通过计算源 VM 和目标 VM 的校验和，最大程度地减小发送的数据量。
     - 它使用固定块区块算法，其中源文件和目标文件被分到固定区块。
     - 会针对每个区块生成校验和。 这些校验和将进行比较，以确定源文件中的哪些区块需要应用到目标文件。
 2. 重新同步完成后，应会恢复正常增量复制。
-3. 如果你不希望等待默认非工作时间的重新同步，可手动重新同步 VM。 例如，在发生中断时。 为此，请在 Azure 门户中选择“VM”>“重新同步”。
+3. 如果你不希望等待默认非工作时间的重新同步，可手动重新同步 VM。 例如，在发生中断时。 为此，请在 Azure 门户中选择“VM”>“重新同步”  。
 
     ![手动重新同步](./media/hyper-v-azure-architecture/image4-site.png)
 
@@ -104,7 +104,7 @@ ms.locfileid: "54363555"
 
 **类别** | **详细信息**
 --- | ---
-**不可恢复的错误** | 不尝试重试操作。 VM 状态将为“严重”，并且需要管理员干预。<br/><br/> 这些错误示例包括 VHD 链断裂、副本 VM 的状态无效、网络身份验证错误、授权错误以及“找不到 VM”错误（适用于独立 Hyper-V 服务器）。
+**不可恢复的错误** | 不尝试重试操作。 VM 状态将为“严重”，并且需要管理员干预。 <br/><br/> 这些错误示例包括 VHD 链断裂、副本 VM 的状态无效、网络身份验证错误、授权错误以及“找不到 VM”错误（适用于独立 Hyper-V 服务器）。
 **可恢复的错误** | 使用从首次尝试开始以 1、2、4、8 和 10 分钟幅度递增重试间隔时间的指数退避算法，在到达复制间隔时间后重试。 如果错误仍然存在，则每隔 30 分钟重试一次。 其中的一些示例包括网络错误、磁盘空间不足错误和内存不足的情况。
 
 ## <a name="failover-and-failback-process"></a>故障转移和故障回复过程
@@ -122,7 +122,7 @@ ms.locfileid: "54363555"
     - **创建 VM**：可选择故障回复到同一 VM 或备用 VM。 如果 VM 尚不存在，可指定 Site Recovery 应创建 VM。
 
 2. 初始数据同步完成后，选择完成故障转移。 该操作完成后，可以登录到本地 VM 验证一切是否按预期运行。 在 Azure 门户中，可以看到 Azure VM 均已停止。
-3.  然后，完成故障转移的提交，并重新开始从本地 VM 访问工作负载。
+3. 然后，完成故障转移的提交，并重新开始从本地 VM 访问工作负载。
 4. 在工作负载进行故障回复后，启用反向复制，以便本地 VM 重新复制到 Azure。
 
 ## <a name="next-steps"></a>后续步骤

@@ -8,15 +8,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/14/2019
-ms.date: 06/10/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: ba48807ce667a8a78d8552a90baffd316383545e
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 79e050d263014ee5c338e02572f70810d1f28b96
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424676"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845357"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中创建 Apache Hadoop 群集
 
@@ -61,10 +61,6 @@ ms.locfileid: "66424676"
 > [!NOTE]  
 > 如需其他群集创建方法或要了解本快速入门中使用的属性，请参阅[创建 HDInsight 群集](../hdinsight-hadoop-provision-linux-clusters.md)。
 
-## <a name="troubleshoot"></a>故障排除
-
-如果在创建 HDInsight 群集时遇到问题，请参阅[访问控制要求](../hdinsight-hadoop-customize-cluster-linux.md#access-control)。
-
 ## <a name="clean-up-resources"></a>清理资源
 完成本快速入门后，可以删除群集。 有了 HDInsight，便可以将数据存储在 Azure 存储中，因此可以在群集不用时安全地删除群集。 此外，还需要支付 HDInsight 群集费用，即使未使用。 由于群集费用数倍于存储空间费用，因此在群集不用时删除群集可以节省费用。
 
@@ -87,28 +83,6 @@ ms.locfileid: "66424676"
 
 在本快速入门中，你已了解了如何使用资源管理器模板在 HDInsight 中创建 Apache Hadoop 群集。 下一篇文章将介绍如何使用 Hadoop on HDInsight 执行提取、转换和加载 (ETL) 操作。
 
-> [!div class="nextstepaction"]
->[使用 Apache Hive on HDInsight 提取、转换和加载数据](../hdinsight-analyze-flight-delay-data-linux.md)
-
-如果已准备好开始处理自己的数据，并需要进一步了解 HDInsight 存储数据的方式或如何将数据导入 HDInsight，请参阅以下文章：
-
-* 有关 HDInsight 如何使用 Azure 存储的信息，请参阅[将 Azure 存储与 HDInsight 配合使用](../hdinsight-hadoop-use-blob-storage.md)。
-* 若要了解如何将数据上传到 HDInsight，请参阅[将数据上传到 HDInsight](../hdinsight-upload-data.md)。
-* [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
-
-有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
-
-* 若要详细了解如何将 Hive 与 HDInsight 配合使用（包括如何从 Visual Studio 中执行 Hive 查询），请参阅[将 Apache Hive 与 HDInsight 配合使用](hdinsight-use-hive.md)。
-* 若要了解 Pig（一种用于转换数据的语言），请参阅[将 Apache Pig 与 HDInsight 配合使用](hdinsight-use-pig.md)。
-* 若要了解 MapReduce（在 Hadoop 中处理数据的程序编写方式），请参阅[将 MapReduce 与 HDInsight 配合使用](hdinsight-use-mapreduce.md)。
-* 若要了解如何使用用于 Visual Studio 的 HDInsight 工具来分析 HDInsight 数据，请参阅 [Get started using Visual Studio Hadoop tools for HDInsight](apache-hadoop-visual-studio-tools-get-started.md)（用于 HDInsight 的 Visual Studio Hadoop 工具入门）。
-* 若要了解如何使用用于 VSCode 的 HDInsight 工具来分析 HDInsight 数据，请参阅[使用用于 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
-
-
-若要详细了解如何创建或管理 HDInsight 群集，请参阅以下文章：
-
-* 要了解如何管理基于 Linux 的 HDInsight 群集，请参阅[使用 Apache Ambari 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)。
-* 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)。
 
 
 [1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md

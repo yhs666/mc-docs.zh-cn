@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/08/2018
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: e6f98263c65952e827dd10c34266eb35b23f3c2f
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 45dc2a85158e24269d24291ebc12b1832028664a
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204092"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844744"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 
@@ -102,7 +102,8 @@ Service Fabric 提供多种容器功能，可帮助构建由容器化的微服�
 * 能够设置容器的安全凭据。
 * 容器的不同网络模式选择。
 
-有关 Azure 上的容器支持的综合概述，例如，如何使用 Azure Kubernetes 服务创建 Kubernetes 群集、如何在 Azure 容器注册表中创建专用的 Docker 注册表，等等，请参阅 [Azure 容器](/containers/)。
+<!--Not Available on For a comprehensive overview of container support on Azure, such as how to create a Kubernetes cluster with Azure Kubernetes Service, how to create a private Docker registry in Azure Container Registry, and more, see [Azure for Containers](/containers/)-->
+<!--Not Available on [Azure for Containers](/containers/)-->
 
 ## <a name="next-steps"></a>后续步骤
 

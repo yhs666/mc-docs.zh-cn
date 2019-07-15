@@ -6,15 +6,15 @@ manager: digimobile
 services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: dc5f9ed81a75cfc8472e444648b203141f3cc6a6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 74286100a5f8c0ea8bb476ada69206e043ffaf05
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627633"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861731"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
@@ -40,7 +40,7 @@ ms.locfileid: "58627633"
 - 此顺序可以确保当中间件启动并尝试连接到 SQL Server 层时，SQL Server 层已在运行。 
 - 此顺序还可帮助确保前端服务器最后启动，从而确保在所有组件已启动并运行并且应用已准备好接受请求之前，最终用户不会连接到应用 URL。
 
-若要创建此顺序，请向恢复组中添加组，然后向组中添加计算机。 
+若要创建此顺序，请向恢复组中添加组，然后向组中添加计算机。
 
 - 如果指定了顺序，则会使用序列。 操作会根据情况并行运行，从而改进应用程序恢复 RTO。
 - 单个组中的计算机将并行进行故障转移。

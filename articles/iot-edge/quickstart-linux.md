@@ -4,18 +4,18 @@ description: 本快速入门介绍如何创建 IoT Edge 设备，然后从 Azure
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 03/19/2019
-ms.date: 05/27/2019
+origin.date: 07/02/2019
+ms.date: 07/22/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 844249cef5a8e8d46450dd8e87665e47ce12ebac
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 6838423ed7e2500081503029f5f2f2d41bbf4dd2
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829399"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845040"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>快速入门：将第一个 IoT Edge 模块部署到 Linux 设备
 
@@ -59,12 +59,11 @@ IoT Edge 设备：
 * 充当 IoT Edge 设备的 Linux 设备或虚拟机。 应该使用 Microsoft 提供的 [Azure IoT Edge on Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 虚拟机，该虚拟机在设备上预先安装了运行 IoT Edge 所需的所有项。 使用以下命令创建此虚拟机：
 
    ```azurecli
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
    ```
 
-   可能需要几分钟才能创建并启动新的虚拟机。 
-   
-   此时你可能会收到 `MarketplacePurchaseEligibilityFailed` 错误。 如果发生这种情况，你需要转到 [Ubuntu 上的 Azure IoT Edge](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) 并单击 `Get It Now` 来接受条款。 请先登录并接受其中的条款，然后重试该命令。
+   可能需要几分钟才能创建并启动新的虚拟机。
 
    创建新的虚拟机时，请记下在 create 命令的输出中提供的 **publicIpAddress**。 在本快速入门中，稍后将使用此公用 IP 地址连接到虚拟机。
 
@@ -78,7 +77,7 @@ IoT Edge 设备：
 
 免费级的 IoT 中心适用于此快速入门。 如果曾经用过 IoT 中心并且已创建免费的中心，则可使用该 IoT 中心。 每个订阅仅能有一个免费 IoT 中心。 
 
-以下代码在资源组“IoTEdgeResources”中创建免费的“F1”中心。 将 *{hub_name}* 替换为 IoT 中心的唯一名称。
+以下代码在资源组“IoTEdgeResources”中创建免费的“F1”中心   。 将 *{hub_name}* 替换为 IoT 中心的唯一名称。
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
@@ -119,13 +118,13 @@ IoT Edge 设备：
 
 ![关系图 - 在设备上启动运行时](./media/quickstart-linux/start-runtime.png)
 
-IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，**IoT Edge 安全守护程序**就会启动。 **IoT Edge 代理**协助部署和监视 IoT Edge 设备（包括 IoT Edge 中心）的模块。 IoT Edge 中心管理 IoT Edge 设备模块之间以及设备和 Azure IoT 中心之间的通信。
+IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 每次 IoT Edge 设备启动并通过启动 IoT Edge 代理启动设备时，**IoT Edge 安全守护程序**就会启动。 **IoT Edge 代理**协助部署和监视 IoT Edge 设备（包括 IoT Edge 中心）的模块。 IoT Edge 中心  管理 IoT Edge 设备模块之间以及设备和 Azure IoT 中心之间的通信。
 
 在运行时配置期间，你提供设备连接字符串。 请使用从 Azure CLI 检索的字符串。 此字符串将物理设备与 Azure 中的 IoT Edge 设备标识关联在一起。 
 
 ### <a name="set-the-connection-string-on-the-iot-edge-device"></a>在 IoT Edge 设备上设置连接字符串
 
-如果使用的是先决条件中所述的 Azure IoT Edge on Ubuntu 虚拟机，则表示设备已安装 IoT Edge 运行时。 只需使用上一节中检索的设备连接字符串来配置设备即可。 可以在不连接虚拟机的情况下进行远程配置。 运行以下命令，将 {device_connection_string} 替换为自己的字符串。
+如果使用的是先决条件中所述的 Azure IoT Edge on Ubuntu 虚拟机，则表示设备已安装 IoT Edge 运行时。 只需使用上一节中检索的设备连接字符串来配置设备即可。 可以在不连接虚拟机的情况下进行远程配置。 运行以下命令，将 {device_connection_string} 替换为自己的字符串  。
 
    ```azurecli
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
@@ -135,7 +134,7 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 ### <a name="view-the-iot-edge-runtime-status"></a>查看 IoT Edge 运行时状态
 
-此快速入门中的其余命令都在 Azure IoT Edge 上完成，以便查看设备发生的情况。 如果使用的是虚拟机，请立即使用创建命令输出的公共 IP 地址连接到该虚拟机。 也可在 Azure 门户中虚拟机的概览页上找到公共 IP 地址。 使用以下命令连接到虚拟机。 如果所用用户名与先决条件中建议的用户名不同，请替换 {azureuser}。 将 **{publicIpAddress}** 替换为你的计算机的地址。 
+此快速入门中的其余命令都在 Azure IoT Edge 上完成，以便查看设备发生的情况。 如果使用的是虚拟机，请立即使用创建命令输出的公共 IP 地址连接到该虚拟机。 也可在 Azure 门户中虚拟机的概览页上找到公共 IP 地址。 使用以下命令连接到虚拟机。 如果所用用户名与先决条件中建议的用户名不同，请替换 {azureuser}  。 将 **{publicIpAddress}** 替换为你的计算机的地址。 
 
    ```azurecli
    ssh azureuser@{publicIpAddress}

@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 78c315972b01da2f6669463b96d848aa1a285d52
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: a9dcc8ec24262f7f30df6cf4d8ec6176e84cff05
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004050"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844509"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限
 
@@ -102,3 +102,4 @@ Azure Active Directory (Azure AD) 通过[基于角色的访问控制 (RBAC)](../
     - [使用 Azure PowerShell 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-powershell.md)
     - [使用 Azure CLI 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-cli.md)
     - [使用 REST API 管理基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-rest.md)
+- 若要了解如何从存储应用程序内授权访问容器和队列，请参阅[将 Azure AD 与 Azure 存储应用程序配合使用](storage-auth-aad-app.md)。

@@ -6,15 +6,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: quickstart
-origin.date: 05/08/2019
-ms.date: 06/10/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: f7ed107aca40fb6ab77b42e77572f6d594c34e6c
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: d50764f2a3c18cfc311704b5e690ebfb7a08ea47
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424664"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845239"
 ---
 # <a name="quickstart-query-apache-hbase-in-azure-hdinsight-with-apache-phoenix"></a>快速入门：使用 Apache Phoenix 在 Azure HDInsight 中查询 Apache HBase
 
@@ -127,10 +127,3 @@ curl -u admin:PASSWORD -sS -G https://CLUSTERNAME.azurehdinsight.cn/api/v1/clust
 
 > [!div class="nextstepaction"]
 > [HDInsight 中的 Apache Phoenix](../hdinsight-phoenix-in-hdinsight.md)
-
-## <a name="see-also"></a>另请参阅
-
-* [SQLLine 手册](http://sqlline.sourceforge.net/#manual)。
-* [Apache Phoenix 语法](https://phoenix.apache.org/language/index.html)。
-* [Apache Phoenix（15 分钟或更短时间）](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html)
-* [HDInsight HBase 概述](./apache-hbase-overview.md)

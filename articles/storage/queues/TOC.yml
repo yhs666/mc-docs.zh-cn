@@ -237,21 +237,21 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fqueues%2ftoc.json
     - name: NuGet 包
       items:
-        - name: 适用于 .NET 的 Azure 存储客户端库
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
-        - name: Azure 存储数据移动库
+        - name: Azure 存储公用客户端库
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Azure 队列存储客户端库
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/'
+        - name: Azure 存储数据移动客户端库
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Azure 配置管理器
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: 源代码
       items:
         - name: .NET
           items:
-            - name: Blob、队列、表和文件
+            - name: Blob、队列和文件
               href: 'https://github.com/Azure/azure-storage-net'
-            - name: 数据移动
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: 资源提供程序
+            - name: 存储资源提供程序
               href: 'https://github.com/Azure/azure-sdk-for-net'
         - name: Node.js
           href: 'https://azure.github.io/azure-storage-node/'

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 02/26/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 159349a17f4ff4ad592419119b42ca82e8a0e8db
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 06c0b74364de2d014468c0924ca630f0a7497b07
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390845"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725206"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>流量管理器常见问题解答 (FAQ)
 
@@ -86,8 +86,11 @@ ms.locfileid: "66390845"
 <!-- Not Available on Traffice Manager metric-->
 <!-- Not Available 
 ### How can I understand the volume of queries coming to my profile? 
-One of the metrics provided by Traffic Manager is the number of queries responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can set up alerts to notify you if the query response volume crosses the conditions you have set. For more details, [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md).
+One of the metrics provided by Traffic Manager is the number of queries responded by a profile. You can get this information at a profile level aggregation or you can split it up further to see the volume of queries where specific endpoints were returned. In addition, you can set up alerts to notify you if the query response volume crosses the conditions you have set. For more details, Traffic Manager metrics and alerts.
 -->
+
+<!--Not Available on [Traffic Manager metrics and alerts](traffic-manager-metrics-alerts.md)-->
+
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>流量管理器的“地理”流量路由方法
 

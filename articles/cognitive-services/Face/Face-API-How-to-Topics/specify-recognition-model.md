@@ -6,17 +6,17 @@ services: cognitive-services
 author: longl
 manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 origin.date: 03/28/2019
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: b0e00f621937963612ffc0d3b320a6812c833607
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 5f312ffa9fd085324a3545b2328fa3d3e54de89a
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830120"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844678"
 ---
 # <a name="specify-a-face-recognition-model"></a>指定人脸识别模型
 
@@ -54,7 +54,7 @@ ms.locfileid: "66830120"
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## <a name="identify-faces-with-specified-model"></a>使用指定的模型识别人脸
@@ -68,7 +68,7 @@ var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 在此代码中，创建了 ID 为 `mypersongroupid` 的 **PersonGroup**，它设置为使用 _recognition_02_ 模型提取人脸特征。
@@ -84,7 +84,7 @@ await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group 
 请查看适用于 .NET 客户端库的以下代码示例。
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 此代码使用用于提取特征的 _recognition_02_ 模型创建名为 `My face collection` 的人脸列表。 在此人脸列表中搜索与新检测到的人脸类似的人脸时，该人脸必须已使用 _recognition_02_ 模型检测到 ([Face - Detect])。 如上一部分所述，模型需要保持一致。
@@ -124,4 +124,4 @@ await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", r
 [FaceList - Get]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
 [LargeFaceList - Create]: https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: code update -->

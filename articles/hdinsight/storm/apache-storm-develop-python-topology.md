@@ -15,21 +15,21 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/30/2018
-ms.date: 01/14/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 42bc370fe1048ffb5d24ea22d9ebb93deacdabc0
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 4ec92a7ffc04d493cb1efe9c61c46bea86a7a472
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806570"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845169"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>在 HDInsight 上使用 Python 开发 Apache Storm 拓扑
 
-了解如何创建使用 Python 组件的 [Apache Storm](http://storm.apache.org/) 拓扑。 Apache Storm 支持多种语言，甚至可将多种语言的组件合并成一个拓扑。 借助 [Flux](http://storm.apache.org/releases/current/flux.html) 框架（通过 Storm 0.10.0 引入），可以轻松地创建使用 Python 组件的解决方案。
+了解如何创建使用 Python 组件的 [Apache Storm](https://storm.apache.org/) 拓扑。 Apache Storm 支持多种语言，甚至可将多种语言的组件合并成一个拓扑。 借助 [Flux](https://storm.apache.org/releases/current/flux.html) 框架（通过 Storm 0.10.0 引入），可以轻松地创建使用 Python 组件的解决方案。
 
-> [!IMPORTANT]
-> 本文档中的信息已使用 Storm on HDInsight 3.6 进行测试。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+> [!IMPORTANT]  
+> 本文档中的信息已使用 Storm on HDInsight 3.6 进行测试。 
 
 [https://github.com/Azure-Samples/hdinsight-python-storm-wordcount](https://github.com/Azure-Samples/hdinsight-python-storm-wordcount) 上提供了此项目的代码。
 
@@ -99,8 +99,8 @@ mvn clean compile package
 storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.yaml
 ```
 
-> [!NOTE]
-> 此命令要求提供本地 Storm 开发环境。 有关详细信息，请参阅[设置开发环境](http://storm.apache.org/releases/current/Setting-up-development-environment.html)
+> [!NOTE]  
+> 此命令要求提供本地 Storm 开发环境。 有关详细信息，请参阅[设置开发环境](https://storm.apache.org/releases/current/Setting-up-development-environment.html)
 
 拓扑启动后，它会向本地控制台发出类似如下文本的信息：
 
@@ -140,18 +140,17 @@ storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -l -R /topology.
     storm jar WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux -r -R /topology.yaml
     ```
 
-3. Storm UI 可以用于查看群集上的拓扑。 Storm UI 位于 https://mycluster.azurehdinsight.cn/stormui。 将 `mycluster` 替换为群集名称。
+3. Storm UI 可以用于查看群集上的拓扑。 Storm UI 位于 https://mycluster.azurehdinsight.cn/stormui 。 将 `mycluster` 替换为群集名称。
 
 > [!NOTE]
 > 启动后，Storm 拓扑会一直运行，直到被停止。 若要停止拓扑，可使用以下方法之一：
 >
 > * 从命令行运行 `storm kill TOPOLOGYNAME` 命令
-> * Storm UI 中的“终止”按钮。
+> * Storm UI 中的“终止”  按钮。
 
 ## <a name="next-steps"></a>后续步骤
 
 请参阅以下文档，了解配合使用 Python 和 HDInsight 的其他方式：
 
-* [如何使用 Python 流式处理 Apache Hadoop MapReduce 作业](../hadoop/apache-hadoop-streaming-python.md)
 * [如何在 Apache Pig 和 Apache Hive 中使用 Python 用户定义函数 (UDF)](../hadoop/python-udf-hdinsight.md)
 <!--Update_Description: wording update-->

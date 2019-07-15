@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 90d74c7c711f1fb41847b54c67f68dcf20fc606a
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0949172500b848fedf8ad967cc4b09bcc4b53b58
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363558"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861713"
 ---
 # <a name="about-migration"></a>关于迁移
 

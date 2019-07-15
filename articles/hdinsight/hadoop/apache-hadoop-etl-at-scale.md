@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2017
-ms.date: 04/15/2019
+origin.date: 06/13/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9aeec9fc1db2d51f35fad71f36047d51103355de
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 30d8cce34c0729345744d4e322e8627980016dc5
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003775"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845360"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>大规模提取、转换和加载 (ETL)
 
@@ -49,13 +49,13 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流协调系统。 Oozie 在 
 
 ## <a name="ingest-file-storage-and-result-storage"></a>提取文件存储和结果存储
 
-源数据文件通常载入 Azure 存储或 Azure Data Lake Store 中的某个位置。 文件可以是任何格式，但通常是 CSV 等平面文件。 
+源数据文件通常载入 Azure 存储或 Azure Data Lake Storage 中的某个位置。 文件可以是任何格式，但通常是 CSV 等平面文件。 
 
 ### <a name="azure-storage"></a>Azure 存储 
 
 [Azure 存储](https://docs.azure.cn/zh-cn/storage/blobs/storage-blobs-introduction)具有[特定的可伸缩性目标](../../storage/common/storage-scalability-targets.md)。  对于大多数分析节点而言，在处理许多较小的文件时，Azure 存储的可伸缩性最佳。  Azure 存储可以保证无论有多少文件或文件有多大（只要在限制范围内），都能提供相同的性能。  这意味着，可以存储 TB 量级的数据，同时获得一致的性能，无论使用的是一部分数据还是全部数据。
 
-Azure 存储包含多种不同类型的 Blob。  “追加 Blob”是存储 Web 日志或传感器数据的极佳选项。  
+Azure 存储包含多种不同类型的 Blob。  “追加 Blob”是存储 Web 日志或传感器数据的极佳选项。   
 
 尽管可以在众多服务器之间分布多个 Blob 以便扩大对其的访问权限，但只能由单个服务器为单个 Blob 提供服务。 虽然 Blob 可在 Blob 容器中进行逻辑分组，但这种分组不会对分区产生影响。
 
@@ -135,4 +135,4 @@ Apache Flume 无法与 Azure HDInsight 配合使用。  本地 Hadoop 安装可�
 
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [使用 Apache Hive 作为 ETL 工具](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
-* [配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [将 Azure Data Lake Storage Gen2 用于 Azure HDInsight 群集](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -2,23 +2,22 @@
 title: 基于自定义映像预配 Azure Batch 池 | Microsoft Docs
 description: 基于自定义映像创建 Batch 池，以预配包含应用程序所需软件和数据的计算节点。 自定义映像是配置计算节点以运行 Batch 工作负载的高效方法。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.service: batch
 ms.topic: article
-origin.date: 10/04/2018
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: v-lingli
-ms.openlocfilehash: 0923a150ac86deff5ab27a48f4d5859d7bb26e3b
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: ce35fb5b8ae5b05b0dc21089361040fd846c44da
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586834"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845205"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自定义映像创建虚拟机池 
 
-使用虚拟机配置创建 Azure Batch 池时，需指定一个虚拟机 (VM) 映像，为池中每个计算节点提供操作系统。 可以使用受支持的 Azure 市场映像或自定义映像（自行创建并配置的 VM 映像）创建虚拟机池。 自定义映像必须是 Batch 帐户所在的同一个 Azure 订阅和区域中的托管映像资源。
+使用虚拟机配置创建 Azure Batch 池时，需指定一个虚拟机 (VM) 映像，为池中每个计算节点提供操作系统。 可以使用受支持的 Azure 市场映像或自定义映像（自行创建并配置的 VM 映像）创建虚拟机池。 自定义映像必须是 Batch 帐户所在的同一个 Azure 订阅和区域中的托管映像资源。 
 
 ## <a name="benefits-of-custom-images"></a>自定义映像的优点
 
@@ -28,7 +27,7 @@ ms.locfileid: "65586834"
 
 使用根据方案配置的自定义映像可提供几个优点：
 
-- **配置操作系统 (OS)**。 可以自定义映像操作系统磁盘的配置。 
+- **配置操作系统 (OS)** 。 可以自定义映像操作系统磁盘的配置。 
 - **预安装应用程序。** 在 OS 磁盘中预装应用程序，与使用启动任务预配计算节点后再安装应用程序相比，这种方法更加高效，且不容易出错。
 - **节省 VM 上的重新启动时间。** 安装应用程序通常需要重新启动 VM，这是一个耗时的过程。 预安装应用程序可节省重新启动时间。 
 - **一次复制极大量的数据。** 将静态数据复制到托管映像的数据磁盘，使这些数据成为托管的自定义映像的一部分。 只需执行此操作一次，然后，数据可供池的每个节点使用。
@@ -47,7 +46,7 @@ ms.locfileid: "65586834"
     
 ## <a name="prepare-a-custom-image"></a>准备自定义映像
 
-在 Azure 中，可以基于 Azure VM 的 OS 和数据磁盘快照、包含托管磁盘的通用化 Azure VM 或者上传的通用化本地 VHD 来准备托管映像。 若要使用自定义映像来可靠地缩放 Batch 池，建议仅使用第一种方法创建托管映像，即使用 VM 磁盘的快照。 请参阅以下步骤来准备 VM、创建快照，然后基于该快照创建映像。 
+在 Azure 中，可以基于 Azure VM 的 OS 和数据磁盘快照、包含托管磁盘的通用化 Azure VM 或者上传的通用化本地 VHD 来准备托管映像。 若要使用自定义映像来可靠地缩放 Batch 池，建议仅使用第一种方法创建托管映像，即使用 VM 磁盘的快照。  请参阅以下步骤来准备 VM、创建快照，然后基于该快照创建映像。 
 
 ### <a name="prepare-a-vm"></a>准备 VM 
 
@@ -83,19 +82,19 @@ ms.locfileid: "65586834"
 > 托管映像的资源必须在池的生存期内存在。 如果删除了基础资源，将无法缩放池。 
 
 1. 导航到 Azure 门户中的 Batch 帐户。 此帐户必须与包含自定义映像的资源组在同一订阅和区域中。 
-2. 在左侧的“设置”窗口中，选择“池”菜单项。
-3. 在“池”窗口中，选择“添加”命令。
-4. 在“添加池”窗口中，从“映像类型”下拉列表中选择“自定义映像(Linux/Windows)”。 在“自定义 VM 映像”下拉列表中，选择映像名称（资源 ID 的短格式）。
-5. 为自定义映像选择正确的“发布服务器/产品/SKU”。
-6. 指定剩余所需设置，包括“节点大小”、“目标专用节点”和“低优先级节点”，以及任何所需的可选设置。
+2. 在左侧的“设置”  窗口中，选择“池”  菜单项。
+3. 在“池”窗口中，选择“添加”命令。  
+4. 在“添加池”窗口中，从“映像类型”下拉列表中选择“自定义映像(Linux/Windows)”。    在“自定义 VM 映像”下拉列表中，选择映像名称（资源 ID 的短格式）。 
+5. 为自定义映像选择正确的“发布服务器/产品/SKU”。 
+6. 指定剩余所需设置，包括“节点大小”、“目标专用节点”和“低优先级节点”，以及任何所需的可选设置。   
 
-    例如，对于 Microsoft Windows Server Datacenter 2016 自定义映像，会显示“添加池”窗口，如下所示：
+    例如，对于 Microsoft Windows Server Datacenter 2016 自定义映像，会显示“添加池”窗口，如下所示： 
 
     ![从自定义 Windows 映像添加池](./media/batch-custom-images/add-pool-custom-image.png)
   
-要检查现有池是否基于自定义映像，请查看“池”窗口的资源摘要部分中的“操作系统”属性。 如果池是从自定义映像创建的，该属性会设置为“自定义 VM 映像”。
+要检查现有池是否基于自定义映像，请查看“池”窗口的资源摘要部分中的“操作系统”属性。   如果池是从自定义映像创建的，该属性会设置为“自定义 VM 映像”。 
 
-与池关联的所有自定义映像已显示在池的“属性”窗口中。
+与池关联的所有自定义映像已显示在池的“属性”窗口中。 
 
 ## <a name="considerations-for-large-pools"></a>大型池的注意事项
 

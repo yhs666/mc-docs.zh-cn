@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/01/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8587fdd06f9f3e898ecdcfe9b9cab5ed0547e16b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 749ee764946017124b7423b70cda817e6182a983
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204260"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844657"
 ---
 # <a name="overview-of-service-fabric-standalone-clusters"></a>Service Fabric 独立群集概述
 
@@ -69,11 +69,11 @@ Service Fabric 还支持使用访问控制限制对不同用户组的某些群�
 
 * Windows Server 2012 R2
 * Windows Server 2016 
+* Windows Server 2019
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何[保护](service-fabric-cluster-security.md)、[缩放](service-fabric-cluster-scaling-standalone.md)和[升级](service-fabric-cluster-upgrade-standalone.md)独立群集。
 
 了解 [Service Fabric 支持选项](service-fabric-support.md)。
 
-<!--Update_Description: new articles on service fabric standalone clusters overview -->
-<!--ms.date: 03/04/2019-->
+<!--Update_Description: wording update -->

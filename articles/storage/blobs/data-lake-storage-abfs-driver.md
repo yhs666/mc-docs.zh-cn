@@ -6,15 +6,15 @@ author: WenJason
 ms.topic: conceptual
 ms.author: v-jay
 origin.date: 12/06/2018
-ms.date: 04/08/2019
+ms.date: 07/15/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: c468593dc06d13ec9e0c73dce0c6d10980306aec
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: bf8fbd6abdf31467c09fdedbf74fe612388b4b64
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890164"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844394"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob FileSystem 驱动程序 (ABFS)：用于 Hadoop 的专用 Azure 存储驱动程序
 
@@ -32,7 +32,7 @@ Windows Azure 存储 Blob 驱动程序或 [WASB 驱动程序](https://hadoop.apa
 
 ### <a name="uri-scheme-to-reference-data"></a>引用数据的 URI 方案
 
-与 Hadoop 中的其他 FileSystem 实现一样，ABFS 驱动程序自行定义 URI 方案，让资源（目录和文件）能够得到明确处理。 如需了解 URI 方案，请参阅[使用 Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)。 URI 的结构是： `abfs[s]://file_system@account_name.dfs.core.chinacloudapi.cn/<path>/<path>/<file_name>`
+与 Hadoop 中的其他 FileSystem 实现一样，ABFS 驱动程序自行定义 URI 方案，让资源（目录和文件）能够得到明确处理。 如需了解 URI 方案，请参阅[使用 Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)。 URI 的结构是 `abfs[s]://file_system@account_name.dfs.core.chinacloudapi.cn/<path>/<path>/<file_name>`
 
 可按上述 URI 格式使用标准 Hadoop 工具和框架引用这些资源：
 

@@ -8,22 +8,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/23/2018
-ms.date: 01/21/2019
+origin.date: 04/22/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 581f3bc96c9d056defa52af19c75bb1b9b0b3add
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: bf1b8b2af511dd36a01607c4d7f46e69205ea0bd
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216282"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845440"
 ---
 # <a name="install-apache-giraph-on-hdinsight-hadoop-clusters-and-use-giraph-to-process-large-scale-graphs"></a>在 HDInsight Hadoop 群集上安装 Apache Giraph 并使用 Giraph 处理大型图形
 
 了解如何在 HDInsight 群集上安装 Apache Giraph。 HDInsight 的脚本操作功能允许通过运行 bash 脚本来自定义群集。 可以在创建群集期间或之后使用脚本来自定义群集。
-
-> [!IMPORTANT]
-> 本文档中的步骤需要使用 Linux 的 HDInsight 群集。 Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="whatis"></a>什么是 Giraph
 
@@ -59,7 +56,7 @@ ms.locfileid: "54216282"
 > [!NOTE]
 > 可以通过下列任一方法应用脚本操作：
 > * Azure PowerShell
-> * Azure 经典 CLI
+> * Azure CLI
 > * HDInsight .NET SDK
 > * Azure Resource Manager 模板
 > 
@@ -67,7 +64,7 @@ ms.locfileid: "54216282"
 
 1. 使用[创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中的步骤开始创建群集，但是不完成创建。
 
-2. 在“可选配置”部分中，选择“脚本操作”，并提供以下信息：
+2. 在“可选配置”  部分中，选择“脚本操作”  ，并提供以下信息：
 
    * **名称**：输入脚本操作的友好名称。
 
@@ -81,7 +78,7 @@ ms.locfileid: "54216282"
 
    * **参数**：将此字段留空
 
-3. 在“脚本操作”的底部，使用“选择”按钮保存配置。 最后，使用“可选配置”部分底部的“选择”按钮保存可选配置信息。
+3. 在“脚本操作”  的底部，使用“选择”  按钮保存配置。 最后，使用“可选配置”  部分底部的“选择”  按钮保存可选配置信息。
 
 4. 根据[创建基于 Linux 的 HDInsight 群集](hdinsight-hadoop-create-linux-clusters-portal.md)中所述继续创建群集。
 
@@ -119,7 +116,7 @@ ms.locfileid: "54216282"
 
     ![tiny_graph.txt 中的对象绘制为圆圈，线条表示对象之间的不同距离](./media/hdinsight-hadoop-giraph-install-linux/giraph-graph.png)
 
-3. 如果要保存文件，请使用 **Ctrl+X**，并输入“Y”，最后按 **Enter** 以接受文件名。
+3. 如果要保存文件，请使用 **Ctrl+X**，并输入“Y”  ，最后按 **Enter** 以接受文件名。
 
 4. 使用以下命令将数据存储到 HDInsight 群集的主存储中：
 
@@ -147,7 +144,7 @@ ms.locfileid: "54216282"
    | `-op` |输出位置。 |
    | `-w 2` |要使用的辅助角色数目。 在此示例中为 2。 |
 
-    有关这些参数以及与 Giraph 示例搭配使用的其他参数的详细信息，请参阅 [Giraph 快速入门](http://giraph.apache.org/quick_start.html)。
+    有关这些参数以及与 Giraph 示例搭配使用的其他参数的详细信息，请参阅 [Giraph 快速入门](https://giraph.apache.org/quick_start.html)。
 
 6. 作业完成后，其结果存储在 **/example/out/shotestpaths** 目录。 创建的输出文件名称以 **part-m-** 开头，结尾的数字表示第一个文件、第二个文件，依此类推。 使用以下命令查看输出：
 

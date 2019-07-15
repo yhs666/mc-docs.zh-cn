@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/30/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
-ms.openlocfilehash: 33b66b34e20d2a4fe2b8ab9fdce4c9c57631616b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: ff640b74c86c9cd38f0daa1db3da73d499e2ba9d
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004324"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844488"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理对容器和 Blob 的匿名读取访问
 
@@ -41,7 +41,7 @@ ms.locfileid: "66004324"
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>在 Azure 门户中设置容器公共访问级别
 
-在 [Azure 门户](https://portal.azure.cN)中，可以更新一个或多个容器的公共访问级别：
+在 [Azure 门户](https://portal.azure.cn)中，可以更新一个或多个容器的公共访问级别：
 
 1. 导航到 Azure 门户中的存储帐户。
 1. 在菜单边栏选项卡上的“Blob 服务”下，选择“Blob”   。

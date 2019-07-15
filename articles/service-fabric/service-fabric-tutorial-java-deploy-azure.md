@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/26/2018
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f40cf6291d2663322aee37e81f93280f0c1fc3bf
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: e1b99d9ee1f98f45afe6d2de910111b4a8e5cf7f
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195488"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844580"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>教程：将 Java 应用程序部署到 Azure 中的 Service Fabric 群集
 
@@ -106,7 +106,7 @@ ms.locfileid: "66195488"
     Example: az storage account create -g teststorageaccountrg -l chinanorth --name teststorageaccount --kind Storage
     ```
 
-7. 访问 [Azure 门户](https://portal.azure.cn)，导航到供存储帐户使用的“共享访问签名”选项卡。 生成 SAS 令牌，如下所示。
+7. 访问 [Azure 门户](https://portal.azure.cn)，导航到供存储帐户使用的“共享访问签名”选项卡。  生成 SAS 令牌，如下所示。
 
     ![生成用于存储的 SAS](./media/service-fabric-tutorial-java-deploy-azure/storagesas.png)
 
@@ -138,7 +138,7 @@ ms.locfileid: "66195488"
     Please provide string value for 'receiveAuthorizationRuleName' (? for help): receiver
     ```
 
-    将“输出”字段的内容复制到上一命令的 JSON 输出中。 创建 Service Fabric 群集时，使用发送方信息。 接收方名称和密钥应该保存，供下一教程使用。在下一教程中，Logstash 服务配置为接收事件中心的消息。 以下 Blob 为 JSON 输出示例：
+    将“输出”字段的内容复制到上一命令的 JSON 输出中。  创建 Service Fabric 群集时，使用发送方信息。 接收方名称和密钥应该保存，供下一教程使用。在下一教程中，Logstash 服务配置为接收事件中心的消息。 以下 Blob 为 JSON 输出示例：
 
     ```json
     "outputs": {
@@ -202,7 +202,7 @@ ms.locfileid: "66195488"
 
 ## <a name="deploy-your-application-to-the-cluster"></a>将应用程序部署到群集
 
-1. 在部署应用程序之前，需将以下代码片段添加到 *Voting/VotingApplication/ApplicationManifest.xml* 文件。 **X509FindValue** 字段是从“在 Azure 中创建 Service Fabric 群集”部分的步骤 4 返回的指纹。 此代码片段嵌套在 **ApplicationManifest** 字段（根字段）下。
+1. 在部署应用程序之前，需将以下代码片段添加到 *Voting/VotingApplication/ApplicationManifest.xml* 文件。 **X509FindValue** 字段是从“在 Azure 中创建 Service Fabric 群集”  部分的步骤 4 返回的指纹。 此代码片段嵌套在 **ApplicationManifest** 字段（根字段）下。
 
     ```xml
     <Certificates>
@@ -228,7 +228,7 @@ ms.locfileid: "66195488"
     ./install.sh
     ```
 
-5. 若要访问 Service Fabric Explorer，请打开最常用的浏览器，然后键入 https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 从证书存储中选择需要用来连接到此终结点的证书。 如果使用 Linux 计算机，则必须将通过 *new-service-fabric-cluster-certificate.sh* 脚本生成的证书导入到 Chrome 中，然后才能查看 Service Fabric Explorer。 如果使用 Mac，则必须将 PFX 文件安装到密钥链中。 你注意到应用程序已安装到群集上。
+5. 若要访问 Service Fabric Explorer，请打开最常用的浏览器，然后键入 https://testlinuxcluster.chinanorth.cloudapp.chinacloudapi.cn:19080 。 从证书存储中选择需要用来连接到此终结点的证书。 如果使用 Linux 计算机，则必须将通过 *new-service-fabric-cluster-certificate.sh* 脚本生成的证书导入到 Chrome 中，然后才能查看 Service Fabric Explorer。 如果使用 Mac，则必须将 PFX 文件安装到密钥链中。 你注意到应用程序已安装到群集上。
 
     ![SFX Java Azure](./media/service-fabric-tutorial-java-deploy-azure/sfxjavaonazure.png)
 

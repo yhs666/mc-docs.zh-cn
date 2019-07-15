@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-origin.date: 05/09/2019
-ms.date: 06/10/2019
+origin.date: 06/28/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1da4f5da5ecb2fbf6bcd5123cbed092edd391780
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 0884a0eb497e28d92e680c36373cf0eae4ebe6c6
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830136"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844768"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>快速入门：使用 Python REST API 调用文本分析认知服务 
 <a name="HOLTop"></a>
@@ -50,7 +50,6 @@ ms.locfileid: "66830136"
 import requests
 # pprint is used to format the JSON response
 from pprint import pprint
-from IPython.display import HTML
 ```
 
 为订阅密钥创建变量，并文本分析 REST API 创建终结点。 验证终结点中的区域是否与注册时使用的区域（例如 `chinaeast2`）相对应。 
@@ -381,3 +380,4 @@ entities = response.json()
  [文本分析概述](../overview.md)  
  [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)
 
+<!-- Update_Description: code update -->

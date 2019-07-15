@@ -8,14 +8,14 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: conceptual
 origin.date: 03/15/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 0b53c0661c32c3dcc1acb34ff97e7e1813133fb3
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 503775f28607209c010d393f0016801ff2fa338f
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003738"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845269"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)
 
@@ -36,10 +36,10 @@ HDInsight 还包含 Jython，后者是用 Java 编写的 Python 实现。 Jython
 * 可选。  如果计划使用 PowerShell，则需要安装 [AZ 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
 
 > [!NOTE]  
-> 本文中使用的存储帐户是启用了[安全传输](/../storage/common/storage-require-secure-transfer.md)的 Azure 存储，因此，本文通篇使用 `wasbs`。
+> 本文中使用的存储帐户是启用了[安全传输](../../storage/common/storage-require-secure-transfer.md)的 Azure 存储，因此，本文通篇使用 `wasbs`。
 
 ## <a name="storage-configuration"></a>存储配置
-如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/tezstaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/tezstaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/tezstaging`。  可以通过 [Ambari UI](../hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息： `Page blob is not supported for this account type.`
+如果使用 `Storage (general purpose v1)` 或 `StorageV2 (general purpose v2)` 类型的存储帐户，则不需要执行任何操作。  本文中的过程至少向 `/tezstaging` 生成输出。  默认的 Hadoop 配置将在 `core-site.xml` 中的 `fs.azure.page.blob.dir` 配置变量内包含服务 `HDFS` 的 `/tezstaging`。  此配置会导致将页 Blob 输出到目录，而 `BlobStorage` 类型的存储帐户不支持页 Blob。  若要在本文中使用 `BlobStorage`，请删除 `fs.azure.page.blob.dir` 配置变量中的 `/tezstaging`。  可以通过 [Ambari UI](../hdinsight-hadoop-manage-ambari.md) 访问配置。  否则，会收到错误消息：`Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > 本文档中的步骤基于以下假设：  
@@ -157,9 +157,6 @@ while True:
     ```
 
 ### <a name="upload-file-powershell"></a>上传文件 (PowerShell)
-
-> [!IMPORTANT]  
-> 如果启用了[安全传输](../../storage/common/storage-require-secure-transfer.md)，则这些 PowerShell 脚本将无法运行。  请使用 shell 命令或禁用安全传输。
 
 也可以使用 PowerShell 远程运行 Hive 查询。 确保工作目录是 `hiveudf.py` 所在的位置。  使用以下 PowerShell 脚本来运行使用 `hiveudf.py` 脚本的 Hive 查询：
 
@@ -290,8 +287,8 @@ Get-AzHDInsightJobOutput `
 
 若要指定 Python 解释器，请在引用 Python 脚本时使用 `register`。 以下示例将脚本作为 `myfuncs` 注册到 Pig：
 
-* **使用 Jython**： `register '/path/to/pigudf.py' using jython as myfuncs;`
-* **使用 C Python**： `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **使用 Jython**：`register '/path/to/pigudf.py' using jython as myfuncs;`
+* **使用 C Python**：`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > 使用 Jython 时，pig_jython 文件的路径可以是本地路径或 WASBS:// 路径。 但是，使用 C Python 时，必须引用用于提交 Pig 作业的节点的本地文件系统上的文件。
@@ -413,7 +410,7 @@ def create_structure(input):
     #from pig_util import outputSchema
     ```
 
-    此行会修改 Python 脚本以使用 C Python 而不是 Jython。 更改后，请使用 Ctrl+X 退出编辑器。 选择 Y，然后选择 Enter 保存更改。
+    此行会修改 Python 脚本以使用 C Python 而不是 Jython。 更改后，请使用 Ctrl+X 退出编辑器  。 选择 Y，然后选择 Enter 保存更改   。
 
 6. 使用 `pig` 命令再次启动 shell。 在 `grunt>` 提示符下，使用以下命令运行带有 Jython 解释器的 Python 脚本。
 
@@ -429,9 +426,6 @@ def create_structure(input):
 
 
 ### <a name="upload-file-powershell"></a>上传文件 (PowerShell)
-
-> [!IMPORTANT]  
-> 如果启用了[安全传输](../../storage/common/storage-require-secure-transfer.md)，则这些 PowerShell 脚本将无法运行。  请使用 shell 命令或禁用安全传输。
 
 也可以使用 PowerShell 远程运行 Hive 查询。 确保工作目录是 `pigudf.py` 所在的位置。  使用以下 PowerShell 脚本来运行使用 `pigudf.py` 脚本的 Hive 查询：
 

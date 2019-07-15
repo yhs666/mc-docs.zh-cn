@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 04/10/2019
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 4a7673d3d0d688024e7aa5cecfdaaf37f5c5bc0b
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 772a72f5ec854c83107a0bf67fee63a911b2bbee
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830122"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844665"
 ---
 # <a name="add-faces-to-a-persongroup"></a>将人脸添加到 PersonGroup
 
@@ -61,10 +61,12 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>步骤 2：授权 API 调用
 
-使用客户端库时，必须将你的订阅密钥传递给 FaceServiceClient 类的构造函数。 例如：
+使用客户端库时，必须将订阅密钥传递给 **FaceClient** 类的构造函数。 例如：
 
 ```csharp
-FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
+private readonly IFaceClient faceClient = new FaceClient(
+    new ApiKeyServiceClientCredentials("<SubscriptionKey>"),
+    new System.Net.Http.DelegatingHandler[] { });
 ```
 
 在 [Azure 门户](https://portal.azure.cn)中创建认知服务后，可以获取订阅密钥。
@@ -78,7 +80,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
+await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 ```
 
 ## <a name="step-4-create-the-persons-for-the-persongroup"></a>步骤 4：为 PersonGroup 创建人员
@@ -92,7 +94,7 @@ Parallel.For(0, PersonCount, async i =>
     await WaitCallLimitPerSecondAsync();
 
     string personName = $"PersonName#{i}";
-    persons[i] = await faceServiceClient.CreatePersonAsync(personGroupId, personName);
+    persons[i] = await faceClient.PersonGroupPerson.CreateAsync(personGroupId, personName);
 });
 ```
 
@@ -113,7 +115,7 @@ Parallel.For(0, PersonCount, async i =>
 
         using (Stream stream = File.OpenRead(imagePath))
         {
-            await faceServiceClient.AddPersonFaceAsync(personGroupId, personId, stream);
+            await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(personGroupId, personId, stream);
         }
     }
 });

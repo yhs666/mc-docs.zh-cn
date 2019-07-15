@@ -2,8 +2,8 @@
 title: Azure 快速入门 - 运行 Batch 作业 - CLI
 description: 快速了解如何使用 Azure CLI 运行 Batch 作业。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
@@ -11,12 +11,12 @@ origin.date: 07/03/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 46f323a301e30f59a051cdd41141b5dfe1ddc26f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: bb6479c4de1bd827d230f9089ab777e3dd523927
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52653244"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845394"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>快速入门：使用 Azure CLI 运行第一个 Batch 作业
 
@@ -30,7 +30,7 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 
 使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 
 
-以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli 
 az group create `
@@ -203,4 +203,10 @@ az batch pool delete --pool-id mypool
 az group delete --name myResourceGroup
 ```
 
+## <a name="next-steps"></a>后续步骤
 
+本快速入门创建了 Batch 帐户、Batch 池和 Batch 作业。 作业运行示例任务，你查看了在其中一个节点上产生的输出。 了解 Batch 服务的重要概念以后，即可使用更逼真的工作负荷进行更大规模的 Batch 试用。 若要详细了解 Azure Batch，请继续学习 Azure Batch 教程。 
+
+
+> [!div class="nextstepaction"]
+> [Azure Batch 教程](./tutorial-parallel-dotnet.md)

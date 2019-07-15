@@ -17,12 +17,12 @@ origin.date: 03/01/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4c53865a12a10f0e85558c0e5aca9ff9c407a0f6
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cc4fecb4251197569d56215ed237fdd68f70d492
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666160"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725233"
 ---
 # <a name="restart-vms"></a>重新启动 VM
 
@@ -125,7 +125,7 @@ az group delete -n myResourceGroup --no-wait --yes
 | [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用，用来确保在重新启动 VM 之前已对其进行了预配，获取这些 VM 的 ID 以将其重新启动。 |
 | [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用来获取使用该标记的 VM 的 ID。 |
 | [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-restart) | 重新启动 VM。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group/extension?view=azure-cli-latest#az-group-delete)  | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete)  | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

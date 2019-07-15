@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 04/10/2019
-ms.date: 06/10/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6baec268fdad2957994f79f3dd653c5409f78773
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: fb020a76ac9efc136f018b35ed2e3cd703aee070
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830041"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844670"
 ---
 # <a name="example-identify-faces-in-images"></a>示例：在图像中识别人脸
 
@@ -43,10 +43,12 @@ https://api.cognitive.azure.cn/face/v1.0/detect[?returnFaceId][&returnFaceLandma
 ```
 
 作为替代方法，也可以在 HTTP 请求标头 **ocp-apim-subscription-key:&lt;订阅密钥&gt;** 中指定订阅密钥。
-使用客户端库时，订阅密钥通过 FaceServiceClient 类的构造函数传入。 例如：
+使用客户端库时，订阅密钥通过 FaceClient 类的构造函数传入。 例如：
  
-```CSharp 
-faceServiceClient = new FaceServiceClient("<Subscription Key>");
+```csharp 
+private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 ```
  
 注册人脸 API 服务以后，订阅密钥可在 [Azure 门户](https://portal.azure.cn)中获取。
@@ -60,17 +62,17 @@ faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ### <a name="step-21-define-people-for-the-persongroup"></a>步骤 2.1：定义 PersonGroup 的人员
 人是基本的识别单位。 一个人可以注册一个或多个已知人脸。 PersonGroup 是人员的集合。 每个人在特定的 PersonGroup 中定义。 识别是针对 PersonGroup 进行的。 任务是先创建一个 PersonGroup，然后在其中创建人员，例如 Anna、Bill、Clare。
 
-首先，使用 [PersonGroup - Create](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API 创建新的 PersonGroup。 相应的客户端库 API 是用于 FaceServiceClient 类的 CreatePersonGroupAsync 方法。 指定的用于创建组的组 ID 对于每个订阅都是唯一的。 还可以使用其他 PersonGroup API 来获取、更新或删除 PersonGroup。 
+首先，使用 [PersonGroup - Create](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API 创建新的 PersonGroup。 相应的客户端库 API 是 FaceClient 类的 CreatePersonGroupAsync 方法。 指定的用于创建组的组 ID 对于每个订阅都是唯一的。 还可以使用其他 PersonGroup API 来获取、更新或删除 PersonGroup。 
 
 定义组之后，可以使用 [PersonGroup Person - Create](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API 在该组中定义人员。 客户端库方法是 CreatePersonAsync。 可以在创建每个人之后向其添加人脸。
 
-```CSharp 
+```csharp 
 // Create an empty PersonGroup
 string personGroupId = "myfriends";
-await faceServiceClient.CreatePersonGroupAsync(personGroupId, "My Friends");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Friends");
  
 // Define Anna
-CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
+CreatePersonResult friend1 = await faceClient.PersonGroupPerson.CreateAsync(
     // Id of the PersonGroup that the person belonged to
     personGroupId,    
     // Name of the person
@@ -80,12 +82,13 @@ CreatePersonResult friend1 = await faceServiceClient.CreatePersonAsync(
 // Define Bill and Clare in the same way
 ```
 ### <a name="step2-2"></a>步骤 2.2：检测人脸并将其注册到正确的人
-进行检测时，可以将一个“POST”Web 请求发送到[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API，将图像文件置于 HTTP 请求正文中。 使用客户端库时，人脸检测是通过 FaceServiceClient 类的 DetectAsync 方法执行的。
+进行检测时，可以将一个“POST”Web 请求发送到[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API，将图像文件置于 HTTP 请求正文中。 使用客户端库时，人脸检测是通过 FaceClient 类的 DetectAsync 方法完成的。
 
 对于检测到的每个人脸，调用 [PersonGroup Person - Add Face](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) 将其添加到正确的人。
 
 以下代码演示了在图像中检测人脸并将其添加到人这一过程：
-```CSharp 
+
+```csharp 
 // Directory contains image files of Anna
 const string friend1ImageDir = @"D:\Pictures\MyFriends\Anna\";
  
@@ -94,7 +97,7 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
     using (Stream s = File.OpenRead(imagePath))
     {
         // Detect faces in the image and add to Anna
-        await faceServiceClient.AddPersonFaceAsync(
+        await faceClient.PersonGroupPerson.AddFaceFromStreamAsync(
             personGroupId, friend1.PersonId, s);
     }
 }
@@ -106,17 +109,17 @@ foreach (string imagePath in Directory.GetFiles(friend1ImageDir, "*.jpg"))
 
 必须先训练 PersonGroup，然后才能使用它来进行识别。 在添加或删除任何人或者编辑某人的已注册人脸后，必须重新训练 PersonGroup。 训练由 [PersonGroup - 训练](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API 完成。 使用客户端库时，会调用 TrainPersonGroupAsync 方法：
  
-```CSharp 
-await faceServiceClient.TrainPersonGroupAsync(personGroupId);
+```csharp 
+await faceClient.PersonGroup.TrainAsync(personGroupId);
 ```
  
 训练是一个异步过程。 即使 TrainPersonGroupAsync 方法已经返回，它也可能还未完成。 可能需要查询训练状态。 使用 [PersonGroup - Get Training Status](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395247) API 或客户端库的 GetPersonGroupTrainingStatusAsync 方法。 以下代码演示了一个等待 PersonGroup 训练完成的简单逻辑：
  
-```CSharp 
+```csharp 
 TrainingStatus trainingStatus = null;
 while(true)
 {
-    trainingStatus = await faceServiceClient.GetPersonGroupTrainingStatusAsync(personGroupId);
+    trainingStatus = await faceClient.PersonGroup.GetTrainingStatusAsync(personGroupId);
  
     if (trainingStatus.Status != Status.Running)
     {
@@ -135,15 +138,15 @@ while(true)
 
 以下代码演示识别过程：
 
-```CSharp 
+```csharp 
 string testImageFile = @"D:\Pictures\test_img1.jpg";
 
 using (Stream s = File.OpenRead(testImageFile))
 {
-    var faces = await faceServiceClient.DetectAsync(s);
+    var faces = await faceClient.Face.DetectAsync(s);
     var faceIds = faces.Select(face => face.FaceId).ToArray();
  
-    var results = await faceServiceClient.IdentifyAsync(personGroupId, faceIds);
+    var results = await faceClient.Face.IdentifyAsync(faceIds, personGroupId);
     foreach (var identifyResult in results)
     {
         Console.WriteLine("Result of face: {0}", identifyResult.FaceId);
@@ -155,7 +158,7 @@ using (Stream s = File.OpenRead(testImageFile))
         {
             // Get top 1 among all candidates returned
             var candidateId = identifyResult.Candidates[0].PersonId;
-            var person = await faceServiceClient.GetPersonAsync(personGroupId, candidateId);
+            var person = await faceClient.PersonGroupPerson.GetAsync(personGroupId, candidateId);
             Console.WriteLine("Identified as {0}", person.Name);
         }
     }
@@ -188,4 +191,4 @@ using (Stream s = File.OpenRead(testImageFile))
 - [添加人脸](how-to-add-faces.md)
 - [使用大规模功能](how-to-use-large-scale.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

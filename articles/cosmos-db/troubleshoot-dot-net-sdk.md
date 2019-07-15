@@ -10,12 +10,12 @@ ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 474d438ddc3cf5ea7c89bce2e0d2b16f22f943cb
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 2be6fe0bf829dc595894f9de2cd73c4cf069e817
+ms.sourcegitcommit: e9b648b0cb923b93753fb7e85e1a29f07602213b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988610"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717689"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查使用 Azure Cosmos DB .NET SDK 时遇到的问题
@@ -92,11 +92,14 @@ ms.locfileid: "57988610"
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
-[Enable client SDK logging]: #logging
+
+<!--Not Available on [Enable client SDK logging]: #logging-->
+
 [请求速率过大]: #request-rate-too-large
 [Request Timeouts]: #request-timeouts
 [Azure SNAT (PAT) 端口耗尽]: #snat
-[Production check list]: #production-check-list
+
+<!--Not Available on [Production check list]: #production-check-list-->
 
 <!--Update_Description: new articles on troubleshoot dot net sdk -->
 <!--ms.date: 03/18/2019-->

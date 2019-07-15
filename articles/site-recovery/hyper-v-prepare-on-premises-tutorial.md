@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 ms.service: site-recovery
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: ab585f8cb71053733d0a991a40c8011a88506c76
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 548abe66515e1d5fb98653cbe9fb5b4075e55f32
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390863"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861723"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>准备本地 Hyper-V 服务器用于灾难恢复到 Azure
 

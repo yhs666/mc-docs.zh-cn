@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
 origin.date: 04/07/2019
-ms.date: 05/01/2019
-ms.openlocfilehash: d782c947603f2bc7a86ea14e88671b6dc7d5f8d6
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 07/22/2019
+ms.openlocfilehash: a291ad0c789ec98d01e967765136e00ffdab4edd
+ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686718"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717337"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>教程：在 Azure 数据资源管理器中不使用任何代码引入数据
 
@@ -34,7 +34,7 @@ ms.locfileid: "59686718"
 ## <a name="prerequisites"></a>先决条件
 
 * 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-* [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。 在本教程中，数据库名为 TestDatabase。
+* [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)。 在本教程中，数据库名为 TestDatabase  。
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Azure Monitor 数据提供程序：诊断日志和活动日志
 
@@ -134,33 +134,33 @@ Azure 活动日志是订阅级日志，提供对订阅中的资源执行的操�
 
 ## <a name="set-up-an-ingestion-pipeline-in-azure-data-explorer"></a>在 Azure 数据资源管理器中设置引入管道
 
-设置 Azure 数据资源管理器管道需要执行若干步骤，如[表创建和数据引入](/azure/data-explorer/ingest-sample-data#ingest-data)。 此外，你可以处理、映射和更新数据。
+设置 Azure 数据资源管理器管道需要执行若干步骤，如[表创建和数据引入](/data-explorer/ingest-sample-data#ingest-data)。 此外，你可以处理、映射和更新数据。
 
 ### <a name="connect-to-the-azure-data-explorer-web-ui"></a>连接到 Azure 数据资源管理器 Web UI
 
-在 Azure 数据资源管理器的 TestDatabase 数据库中，选择“查询”打开 Azure 数据资源管理器 Web UI。
+在 Azure 数据资源管理器的 TestDatabase 数据库中，选择“查询”打开 Azure 数据资源管理器 Web UI   。
 
 ![查询页](media/ingest-data-no-code/query-database.png)
 
 ### <a name="create-the-target-tables"></a>创建目标表
 
-Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的名为 ActivityLogsRawRecords 的中间表和诊断日志的名为 DiagnosticLogsRawRecords 的中间表。 此时，数据已经过处理和扩展。 使用更新策略，将扩展的数据引入到活动日志的 ActivityLogsRecords 表和诊断日志的 DiagnosticLogsRecords 表。 这意味着需要创建两个单独的表来引入活动日志，并创建两个单独的表来引入诊断日志。
+Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事件扩展到一个或多个记录。 将原始数据引入到活动日志的名为 ActivityLogsRawRecords 的中间表和诊断日志的名为 DiagnosticLogsRawRecords 的中间表   。 此时，数据已经过处理和扩展。 使用更新策略，将扩展的数据引入到活动日志的 ActivityLogsRecords 表和诊断日志的 DiagnosticLogsRecords 表   。 这意味着需要创建两个单独的表来引入活动日志，并创建两个单独的表来引入诊断日志。
 
 使用 Azure 数据资源管理器 Web UI 在 Azure 数据资源管理器数据库中创建目标表。
 
 #### <a name="the-diagnostic-logs-table"></a>诊断日志表
 
-1. 在 TestDatabase 数据库中，创建名为 DiagnosticLogsRecords 的表来存储诊断日志记录。 使用以下 `.create table` 控制命令：
+1. 在 TestDatabase 数据库中，创建名为 DiagnosticLogsRecords 的表来存储诊断日志记录   。 使用以下 `.create table` 控制命令：
 
     ```kusto
     .create table DiagnosticLogsRecords (Timestamp:datetime, ResourceId:string, MetricName:string, Count:int, Total:double, Minimum:double, Maximum:double, Average:double, TimeGrain:string)
     ```
 
-1. 选择“运行”以创建该表。
+1. 选择“运行”以创建该表  。
 
     ![运行查询](media/ingest-data-no-code/run-query.png)
 
-1. 使用以下查询在 TestDatabase 数据库中创建名为 DiagnosticLogsRawRecords 的中间数据表，以进行数据操纵。 选择“运行”以创建该表。
+1. 使用以下查询在 TestDatabase 数据库中创建名为 DiagnosticLogsRawRecords 的中间数据表，以进行数据操纵   。 选择“运行”以创建该表  。
 
     ```kusto
     .create table DiagnosticLogsRawRecords (Records:dynamic)
@@ -168,13 +168,13 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 #### <a name="the-activity-logs-tables"></a>活动日志表
 
-1. 在 TestDatabase 数据库中创建名为 ActivityLogsRecords 的表，用于接收活动日志记录。 若要创建该表，请运行以下 Azure 数据资源管理器查询：
+1. 在 TestDatabase 数据库中创建名为 ActivityLogsRecords 的表，用于接收活动日志记录   。 若要创建该表，请运行以下 Azure 数据资源管理器查询：
 
     ```kusto
     .create table ActivityLogsRecords (Timestamp:datetime, ResourceId:string, OperationName:string, Category:string, ResultType:string, ResultSignature:string, DurationMs:int, IdentityAuthorization:dynamic, IdentityClaims:dynamic, Location:string, Level:string)
     ```
 
-1. 在 TestDatabase 数据库中创建名为 ActivityLogsRawRecords 的中间数据表，以便处理数据：
+1. 在 TestDatabase 数据库中创建名为 ActivityLogsRawRecords 的中间数据表，以便处理数据   ：
 
     ```kusto
     .create table ActivityLogsRawRecords (Records:dynamic)
@@ -183,7 +183,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 <!--
      ```kusto
      .alter-merge table ActivityLogsRawRecords policy retention softdelete = 0d
-    <[Retention](/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
+    <[Retention](https://docs.microsoft.com/zh-cn/azure/kusto/management/retention-policy) for an intermediate data table is set at zero retention policy.
 -->
 
 ### <a name="create-table-mappings"></a>创建表映射
@@ -210,7 +210,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 #### <a name="activity-log-data-update-policy"></a>活动日志数据更新策略
 
-1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展活动日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/zh-cn/azure/kusto/query/mvexpandoperator) 运算符：
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -231,7 +231,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 ActivityLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 ActivityLogsRecords 表中：
+2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 ActivityLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 ActivityLogsRecords 表中   ：
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
@@ -239,7 +239,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 #### <a name="diagnostic-log-data-update-policy"></a>诊断日志数据更新策略
 
-1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](/azure/kusto/query/mvexpandoperator) 运算符：
+1. 创建一个[函数](https://docs.microsoft.com/zh-cn/azure/kusto/management/functions)用于扩展诊断日志记录集合，使集合中的每个值收到一个单独的行。 使用 [`mv-expand`](https://docs.microsoft.com/zh-cn/azure/kusto/query/mvexpandoperator) 运算符：
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
@@ -257,7 +257,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     }
     ```
 
-2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 DiagnosticLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 DiagnosticLogsRecords 表中：
+2. 将[更新策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/updatepolicy)添加到目标表。 此策略将针对 DiagnosticLogsRawRecords 中间数据表中任何新引入的数据自动运行查询，并将查询结果引入到 DiagnosticLogsRecords 表中   ：
 
     ```kusto
     .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
@@ -265,9 +265,9 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>创建一个 Azure 事件中心命名空间
 
-通过 Azure 诊断日志，能够将指标导出到存储帐户或事件中心。 本教程通过事件中心路由指标。 按照以下步骤，为诊断日志创建事件中心命名空间和事件中心。 Azure Monitor 将为活动日志创建事件中心 insights-operational-logs。
+通过 Azure 诊断日志，能够将指标导出到存储帐户或事件中心。 本教程通过事件中心路由指标。 按照以下步骤，为诊断日志创建事件中心命名空间和事件中心。 Azure Monitor 将为活动日志创建事件中心 insights-operational-logs  。
 
-1. 在 Azure 门户中使用 Azure 资源管理器模板创建事件中心。 若要执行本文的剩余步骤，请右键单击“部署到 Azure”，然后选择“在新窗口中打开”。 单击“部署到 Azure”按钮可转到 Azure 门户。
+1. 在 Azure 门户中使用 Azure 资源管理器模板创建事件中心。 若要执行本文的剩余步骤，请右键单击“部署到 Azure”，然后选择“在新窗口中打开”   。 单击“部署到 Azure”按钮可转到 Azure 门户。 
 
     [![“部署到 Azure”按钮](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -281,7 +281,7 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
     |---|---|---|
     | **订阅** | *订阅* | 选择要用于事件中心的 Azure 订阅。|
     | **资源组** | *test-resource-group* | 创建新的资源组。 |
-    | **位置** | 选择最符合需求的区域。 | 在其他资源所在的同一位置创建事件中心命名空间。
+    | **Location** | 选择最符合需求的区域。 | 在其他资源所在的同一位置创建事件中心命名空间。
     | **命名空间名称** | *AzureMonitoringData* | 选择用于标识命名空间的唯一名称。
     | **事件中心名称** | *DiagnosticLogsData* | 事件中心位于命名空间下，该命名空间提供唯一的范围容器。 |
     | **使用者组名称** | *adxpipeline* | 创建使用者组名称。 使用者组允许多个使用应用程序各自具有事件流的单独视图。 |
@@ -296,47 +296,47 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 选择要从其中导出指标的资源。 支持导出诊断日志的资源类型有多种，包括事件中心命名空间、Azure Key Vault、Azure IoT 中心和 Azure 数据资源管理器群集。 本教程使用 Azure 数据资源管理器群集作为资源。
 
 1. 在 Azure 门户中选择你的 Kusto 群集。
-1. 选择“诊断设置”，然后选择“启用诊断”链接。 
+1. 选择“诊断设置”，然后选择“启用诊断”链接   。 
 
     ![诊断设置](media/ingest-data-no-code/diagnostic-settings.png)
 
-1. “诊断设置”窗格打开。 执行以下步骤：
-   1. 将诊断日志数据命名为 ADXExportedData。
-   1. 在“指标”下方，选择“AllMetrics”复选框（可选）。
-   1. 选择“流式传输到事件中心”复选框。
-   1. 选择“配置” 。
+1. “诊断设置”窗格打开  。 执行以下步骤：
+   1. 将诊断日志数据命名为 ADXExportedData  。
+   1. 在“指标”下方，选择“AllMetrics”复选框（可选）   。
+   1. 选择“流式传输到事件中心”复选框  。
+   1. 选择“配置”  。
 
       ![诊断设置窗格](media/ingest-data-no-code/diagnostic-settings-window.png)
 
-1. 在“选择事件中心”窗格中，配置将数据从诊断日志导出到所创建事件中心的方法：
-    1. 在“选择事件中心命名空间”列表中，选择 AzureMonitoringData。
-    1. 在“选择事件中心名称”列表中，选择 diagnosticlogsdata。
-    1. 在“选择事件中心策略名称”列表中，选择 RootManagerSharedAccessKey。
-    1. 选择“确定” 。
+1. 在“选择事件中心”窗格中，配置将数据从诊断日志导出到所创建事件中心的方法  ：
+    1. 在“选择事件中心命名空间”列表中，选择 AzureMonitoringData   。
+    1. 在“选择事件中心名称”列表中，选择 diagnosticlogsdata   。
+    1. 在“选择事件中心策略名称”列表中，选择 RootManagerSharedAccessKey   。
+    1. 选择“确定”  。
 
-1. 选择“其他安全性验证” 。
+1. 选择“其他安全性验证”  。
 
 ### <a name="connect-activity-logs-to-your-event-hub"></a>将活动日志连接到事件中心
 
-1. 在 Azure 门户的左侧菜单中，选择“活动日志”。
-1. 此时会打开“活动日志”窗口。 选择“导出到事件中心”。
+1. 在 Azure 门户的左侧菜单中，选择“活动日志”  。
+1. 此时会打开“活动日志”窗口  。 选择“导出到事件中心”  。
 
     ![活动日志窗口](media/ingest-data-no-code/activity-log.png)
 
-1. 此时会打开“导出活动日志”窗口：
+1. 此时会打开“导出活动日志”窗口  ：
  
     ![导出活动日志窗口](media/ingest-data-no-code/export-activity-log.png)
 
-1. 在“导出活动日志”窗口中，执行以下步骤：
+1. 在“导出活动日志”窗口中，执行以下步骤  ：
       1. 选择订阅。
-      1. 在“区域”列表中，选择“全选”。
-      1. 选择“导出到事件中心”复选框。
-      1. 选择“选择服务总线命名空间”，打开“选择事件中心”窗格。
-      1. 在“选择事件中心”窗格中，选择订阅。
-      1. 在“选择事件中心命名空间”列表中，选择 AzureMonitoringData。
-      1. 在“选择事件中心策略名称”列表中，选择默认的事件中心策略名称。
-      1. 选择“确定” 。
-      1. 在窗口的左上角，选择“保存”。
+      1. 在“区域”列表中，选择“全选”   。
+      1. 选择“导出到事件中心”复选框  。
+      1. 选择“选择服务总线命名空间”，打开“选择事件中心”窗格   。
+      1. 在“选择事件中心”窗格中，选择订阅  。
+      1. 在“选择事件中心命名空间”列表中，选择 AzureMonitoringData   。
+      1. 在“选择事件中心策略名称”列表中，选择默认的事件中心策略名称  。
+      1. 选择“确定”  。
+      1. 在窗口的左上角，选择“保存”  。
    随即会创建名为 *insights-operational-logs* 的事件中心。
 
 ### <a name="see-data-flowing-to-your-event-hubs"></a>查看流入事件中心的数据
@@ -355,11 +355,11 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
 ### <a name="create-the-data-connection-for-diagnostic-logs"></a>创建诊断日志的数据连接
 
-1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”。
-1. 在“数据库”窗口中，选择 TestDatabase 数据库。
-1. 在左侧菜单中，选择“数据引入”。
-1. 在“数据引入”窗口中，单击“+ 添加数据连接”。
-1. 在“数据连接”窗口中输入以下信息：
+1. 在名为 kustodocs 的 Azure 数据资源管理器群集中，选择左侧菜单中的“数据库”   。
+1. 在“数据库”窗口中，选择 TestDatabase 数据库   。
+1. 在左侧菜单中，选择“数据引入”  。
+1. 在“数据引入”窗口中，单击“+ 添加数据连接”   。
+1. 在“数据连接”窗口中输入以下信息： 
 
     ![事件中心数据连接](media/ingest-data-no-code/event-hub-data-connection.png)
 
@@ -375,22 +375,22 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。 本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。
+    有两个路由选项：静态和动态。   本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | **表** | *DiagnosticLogsRawRecords* | 在 TestDatabase 数据库中创建的表。 |
+    | **表** | *DiagnosticLogsRawRecords* | 在 TestDatabase 数据库中创建的表  。 |
     | **数据格式** | *JSON* | 表中使用的格式。 |
-    | **列映射** | *DiagnosticLogsRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 DiagnosticLogsRecords 表的列名和数据类型。|
+    | **列映射** | *DiagnosticLogsRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 DiagnosticLogsRawRecords 表的列名和数据类型   。|
     | | |
 
-1. 选择“创建” 。  
+1. 选择“创建”  。  
 
 ### <a name="create-the-data-connection-for-activity-logs"></a>创建活动日志的数据连接
 
 重复“创建诊断日志的数据连接”一节中的步骤，为活动日志创建数据连接。
 
-1. 在“数据连接”窗口中使用以下设置：
+1. 在“数据连接”窗口中使用以下设置  ：
 
     数据源：
 
@@ -404,16 +404,16 @@ Azure Monitor 日志的结构不是表格。 你将操纵数据并将每个事�
 
     目标表：
 
-    有两个路由选项：静态和动态。 本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。
+    有两个路由选项：静态和动态。   本教程将使用静态路由（默认），需在其中指定表名、数据格式和映射。 让“我的数据包含路由信息”保持取消选中状态。 
 
      **设置** | **建议的值** | **字段说明**
     |---|---|---|
-    | **表** | *ActivityLogsRawRecords* | 在 TestDatabase 数据库中创建的表。 |
+    | **表** | *ActivityLogsRawRecords* | 在 TestDatabase 数据库中创建的表  。 |
     | **数据格式** | *JSON* | 表中使用的格式。 |
-    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型。|
+    | **列映射** | *ActivityLogsRawRecordsMapping* | 在 TestDatabase 数据库中创建的映射，它将传入的 JSON 数据映射到 ActivityLogsRawRecords 表的列名和数据类型   。|
     | | |
 
-1. 选择“创建” 。  
+1. 选择“创建”  。  
 
 ## <a name="query-the-new-tables"></a>查询新表
 

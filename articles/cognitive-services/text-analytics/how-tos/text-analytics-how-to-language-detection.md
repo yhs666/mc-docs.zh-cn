@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 origin.date: 02/26/2019
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: c2d73c53f1e585b88ef4781c317f0f66a5036e45
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: dc30bf113521a6b3deeea28611d882287b9c1415
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830030"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844949"
 ---
 # <a name="example-how-to-detect-language-with-text-analytics"></a>示例：如何通过文本分析检测语言
 
@@ -80,7 +80,7 @@ API 的[语言检测](https://dev.cognitive.azure.cn/docs/services/TextAnalytics
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
-在收到请求时执行分析。 该服务每分钟最多接受 100 个请求。 每个请求最大为 1 MB。
+在收到请求时执行分析。 有关每分钟和每秒可以发送的请求的大小和数量的信息，请参阅概述中的[数据限制](../overview.md#data-limits)部分。
 
 记住，该服务是无状态服务。 帐户中未存储任何数据。 结果会立即在响应中返回。
 

@@ -3,20 +3,20 @@ title: 快速入门：检测文本语言，Python - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Python 和文本翻译 REST API 来识别所提供文本的语言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: e58559c15117e4c09d4df431652c08fa8139c732
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: b5b610fa8d7e4f79daac7545dc488f84231ecf8d
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830109"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844803"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>快速入门：使用文本翻译 API 通过 Python 来检测文本语言
 
@@ -37,7 +37,10 @@ ms.locfileid: "66830109"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -92,6 +95,8 @@ headers = {
 }
 ```
 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="create-a-request-to-detect-text-language"></a>创建文本语言检测请求
 
 定义要检测其语言的字符串：
@@ -115,7 +120,8 @@ response = request.json()
 最后一步是输出结果。 以下代码片段通过将密钥排序、设置缩进以及声明项和密钥分隔符来美化结果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>将其放在一起

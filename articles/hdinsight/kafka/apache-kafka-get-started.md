@@ -8,16 +8,16 @@ ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/01/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 98b148a5deb0a7750bca9dfe463cffe34c46a116
-ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
+origin.date: 06/12/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: 6a8099ec65c637fbeaa7bc2351c531e7bde3ae71
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67307595"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845484"
 ---
-# <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>快速入门：创建 Apache Kafka on HDInsight 群集
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集
 
 Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，因为它可提供类似于发布-订阅消息队列的功能。 
 
@@ -25,16 +25,13 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-> [!IMPORTANT]
-> 仅可通过相同虚拟网络内的资源访问 Apache Kafka API。 本快速入门使用 SSH 直接访问群集。 若要将其他服务、网络或虚拟机连接到 Apache Kafka，则必须首先创建虚拟机，然后才能在网络中创建资源。
->
-> 有关详细信息，请参阅[使用虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
+仅可通过相同虚拟网络内的资源访问 Apache Kafka API。 本快速入门使用 SSH 直接访问群集。 若要将其他服务、网络或虚拟机连接到 Apache Kafka，则必须首先创建虚拟机，然后才能在网络中创建资源。 有关详细信息，请参阅[使用虚拟网络连接到 Apache Kafka](apache-kafka-connect-vpn-gateway.md) 文档。
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-an-apache-kafka-cluster"></a>创建 Apache Kafka 群集
 
@@ -55,7 +52,7 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
     
    选择“群集类型”，以显示“群集配置”   。
    
-   ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
+   ![基于 HDInsight 基本配置的 Apache Kafka 群集](./media/apache-kafka-get-started/custom-basics-kafka.png)
 
 4. 从“群集配置”中选择以下值  ：
 
@@ -95,22 +92,19 @@ Apache Kafka 是开源分布式流式处理平台。 通常用作消息代理，
 
 7. 在“群集大小”中，选择“下一步”以使用默认设置继续   。
 
-    > [!IMPORTANT]
-    > 若要确保 Apache Kafka on HDInsight 的可用性，辅助角色节点数条目必须设置为 3 或以上  。 默认值为 4。
-    
-    > [!TIP]
-    > “每个工作节点的磁盘数”条目配置 Apache Kafka on HDInsight 的可伸缩性。  Apache Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Apache Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Apache Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
+    若要确保 Apache Kafka on HDInsight 的可用性，辅助角色节点数条目必须设置为 3 或以上  。 默认值为 4。
+
+    “每个工作节点的磁盘数”条目配置 Apache Kafka on HDInsight 的可伸缩性。  Apache Kafka on HDInsight 在群集中使用虚拟机的本地磁盘来存储数据。 由于 Apache Kafka 的 I/O 很高，因此会使用 [Azure 托管磁盘](../../virtual-machines/windows/managed-disks-overview.md)为每个节点提供高吞吐量和更多存储。 托管磁盘的类型可以为“标准”  (HDD) 或“高级”  (SSD)。 磁盘类型取决于辅助角色节点（Apache Kafka 代理）所使用的 VM 大小。 高级磁盘可自动与 DS 和 GS 系列 VM 一起使用。 所有其他的 VM 类型使用“标准”。
 
    ![设置 Apache Kafka 群集大小](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
 8. 在“高级设置”中，选择“下一步”以使用默认设置继续   。
 
-9. 在“摘要”  中，查看群集的配置。 使用“编辑”  链接更改不正确的设置。 最后，使用“创建”按钮创建群集。
-   
+11. 在“摘要”  中，查看群集的配置。 使用“编辑”  链接更改不正确的设置。 最后，选择“创建”  以创建群集。
+
     ![群集配置摘要](./media/apache-kafka-get-started/kafka-configuration-summary.png)
-   
-    > [!NOTE]
-    > 创建群集可能需要 20 分钟。
+
+    创建群集可能需要 20 分钟。
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
 
@@ -174,8 +168,8 @@ ssuhuser@hn0-mykafk:~$
     echo $clusterName, $clusterNameA
     ```
 
-4. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令：
-    
+4. 若要使用 Zookeeper 主机信息来设置环境变量，请使用以下命令。 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
+
     ```bash
     export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
@@ -183,10 +177,7 @@ ssuhuser@hn0-mykafk:~$
     > [!TIP]
     > 此命令直接查询群集头节点上的 Ambari 服务。 也可以使用公用地址 `https://$CLUSTERNAME.azurehdinsight.cn:80/` 访问 ambari。 某些网络配置可以阻止访问公用地址。 例如，使用网络安全组 (NSG) 限制对虚拟网络中的 HDInsight 的访问。
 
-    > [!NOTE]
-    > 此命令检索所有 Zookeeper 主机，然后仅返回前两个条目。 这是由于某个主机无法访问时，需要一些冗余。
-
-4. 若要验证是否已正确设置了环境变量，请使用以下命令：
+5. 若要验证是否已正确设置了环境变量，请使用以下命令：
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -228,15 +219,13 @@ Kafka 在主题中存储数据流  。 可以使用 `kafka-topics.sh` 实用工�
 
 * 每个分区在群集中的三个辅助角色节点上进行复制。
 
-    > [!IMPORTANT]
-    > 如果在 Azure 区域中已创建提供三个容错域的群集，则复制因子使用 3。 否则，复制因子使用 4.
+        If you created the cluster in an Azure region that provides three fault domains, use a replication factor of 3. Otherwise, use a replication factor of 4.
         
     在具有三个容错域的区域中，复制因子为 3 可让副本分布在容错域中。 在具有两个容错域的区域中，复制因子为 4 可将副本均匀分布在域中。
         
     有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
-    > [!IMPORTANT] 
-    > Apache Kafka 不识别 Azure 容错域。 在创建主题的分区副本时，它可能未针对高可用性正确分发副本。
+        Apache Kafka is not aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 
     若要确保高可用性，请使用 [Apache Kafka 分区重新均衡工具](https://github.com/hdinsight/hdinsight-kafka-tools)。 必须通过 SSH 连接运行此工具，以便连接到 Apache Kafka 群集的头节点。
 
@@ -295,8 +284,7 @@ Kafka 将记录  存储在主题中。 记录由生成者  生成，由使用者
 
     此命令从主题中检索并显示记录。 使用 `--from-beginning` 告知使用者从流的开头开始，以检索所有记录。
 
-    > [!NOTE]
-    > 如果使用的是较旧版本的 Kafka，请将 `--bootstrap-server $KAFKABROKERS` 替换为 `--zookeeper $KAFKAZKHOSTS`。
+    如果使用的是较旧版本的 Kafka，请将 `--bootstrap-server $KAFKABROKERS` 替换为 `--zookeeper $KAFKAZKHOSTS`。
 
 4. 使用 __Ctrl + C__ 阻止使用者。
 

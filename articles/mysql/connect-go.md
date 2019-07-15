@@ -1,23 +1,20 @@
 ---
 title: 使用 Go 连接到 Azure Database for MySQL
 description: 本快速入门提供了多个 Go 代码示例，你可以使用它来连接到 Azure Database for MySQL 并查询其中的数据。
-services: mysql
 author: WenJason
 ms.author: v-jay
-manager: digimobile
-editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 origin.date: 02/28/2018
-ms.date: 08/13/2018
-ms.openlocfilehash: 67d7a577882d50dd49d6d7ff75439b9c77570a48
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.date: 07/15/2019
+ms.openlocfilehash: f1bda654e5815de7bad5b834bcd732de02d3ca5a
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236661"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845407"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL：使用 Go 语言连接和查询数据
 
@@ -94,7 +91,7 @@ ms.locfileid: "67236661"
    
 
 ## <a name="build-and-run-go-code"></a>生成和运行 Go 代码 
-1. 若要编写 Golang 代码，可以使用简单的文本编辑器，例如 Microsoft Windows 中的记事本、Ubuntu 中的 [vi](http://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或者 macOS 中的 TextEdit。 如果偏好功能更丰富的交互式开发环境 (IDE)，可尝试 Jetbrains 推出的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 推出的 [Visual Studio Code](https://code.visualstudio.com/)，或者 [Atom](https://atom.io/)。
+1. 若要编写 Golang 代码，可以使用简单的文本编辑器，例如 Microsoft Windows 中的记事本、Ubuntu 中的 [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) 或 [Nano](https://www.nano-editor.org/)，或者 macOS 中的 TextEdit。 如果偏好功能更丰富的交互式开发环境 (IDE)，可尝试 Jetbrains 推出的 [Gogland](https://www.jetbrains.com/go/)、Microsoft 推出的 [Visual Studio Code](https://code.visualstudio.com/)，或者 [Atom](https://atom.io/)。
 2. 将以下部分中的 Go 代码粘贴到文本文件中，再使用文件扩展名 \*.go 将这些文件保存到项目文件夹中（例如 Windows 路径 `%USERPROFILE%\go\src\mysqlgo\createtable.go` 或 Linux 路径 `~/go/src/mysqlgo/createtable.go`）。
 3. 在代码中找到 `HOST`、`DATABASE`、`USER` 和 `PASSWORD` 常量，然后将示例值替换为自己的值。 
 4. 启动命令提示符或 Bash shell。 将目录转到项目文件夹。 例如，在 Windows 上使用 `cd %USERPROFILE%\go\src\mysqlgo\`。 在 Linux 上使用 `cd ~/go/src/mysqlgo/`。  提到的某些 IDE 编辑器提供不需 shell 命令的调试和运行时功能。

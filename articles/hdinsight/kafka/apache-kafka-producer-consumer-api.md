@@ -11,15 +11,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 11/06/2018
+origin.date: 06/24/2019
 ms.author: v-yiso
-ms.date: 01/14/2019
-ms.openlocfilehash: 92548b547df47c8ea90c42cc5c5c574072b3e9d8
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 07/22/2019
+ms.openlocfilehash: e03691809455848e9a74c4651925c2d64fc4494c
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627006"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845452"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
@@ -30,38 +30,22 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
-> * 设置开发环境
-> * 设置部署环境
+> * 先决条件
 > * 了解代码
 > * 生成并部署应用程序
 > * 在群集上运行应用程序
 
 有关这些 API 的详细信息，请参阅有关[生成者 API](https://kafka.apache.org/documentation/#producerapi) 和[使用者 API](https://kafka.apache.org/documentation/#consumerapi) 的 Apache 文档。
 
-## <a name="set-up-your-development-environment"></a>设置开发环境
+## <a name="prerequisites"></a>先决条件
 
-必须在开发环境中安装以下组件：
+* Apache Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)。
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 或等效版本，如 OpenJDK。
+* [Java Developer Kit (JDK) 版本 8](https://aka.ms/azure-jdks) 或等效工具，例如 OpenJDK。
 
-* [Apache Maven](https://maven.apache.org/)
+* 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 
-* SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
-
-* 文本编辑器或 Java IDE。
-
-可以在开发工作站上安装 Java 和 JDK 时设置以下环境变量。 不过，应该检查它们是否存在并且包含系统的正确值。
-
-* `JAVA_HOME` - 应该指向 JDK 的安装目录。
-* `PATH` - 应该包含以下路径：
-  
-    * `JAVA_HOME`（或等效路径）。
-    * `JAVA_HOME\bin`（或等效路径）。
-    * Maven 的安装目录。
-
-## <a name="set-up-your-deployment-environment"></a>设置部署环境
-
-本教程需要 Apache Kafka on HDInsight 3.6。 若要了解如何创建 Kafka on HDInsight 群集，请参阅 [Apache Kafka on HDInsight 入门](apache-kafka-get-started.md)文档。
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="understand-the-code"></a>了解代码
 
@@ -97,7 +81,7 @@ Kafka 生成者 API 允许应用程序将数据流发送到 Kafka 群集。 Kafk
 
 ### <a name="producerjava"></a>Producer.java
 
-生成者与 Kafka 中转站主机（辅助角色节点）进行通信，并将数据发送到 Kafka 主题。 以下代码片段摘自 [github 存储库](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)中的 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 文件，并演示如何设置生成者属性：
+生成者与 Kafka 中转站主机（辅助角色节点）进行通信，并将数据发送到 Kafka 主题。 以下代码片段摘自 [GitHub 存储库](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)中的 [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) 文件，演示了如何设置生成者属性：
 
 ```java
 Properties properties = new Properties();
@@ -139,91 +123,100 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>生成并部署示例
 
-可以跳过用于构建的步骤 1 和步骤 2，并从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/Prebuilt-Jars) 下载预构建的 jar (kafka-producer-consumer.jar)。 然后可以将此 jar 复制到 HDInsight 群集。
+1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载并提取示例。
 
-1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载示例。
+2. 将当前目录设置为 `hdinsight-kafka-java-get-started\Producer-Consumer` 目录的位置，然后执行以下命令：
 
-2. 将目录更改到 `Producer-Consumer` 目录的位置，然后执行以下命令：
-
-    ```
+    ```cmd
     mvn clean package
     ```
 
     此命令创建名为 `target` 的目录，其中包含名为 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 的文件。
 
-3. 使用以下命令将 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 文件复制到 HDInsight 群集：
-   
-    ```bash
+3. 将 `sshuser` 替换为群集的 SSH 用户，并将 `CLUSTERNAME` 替换为群集的名称。 输入以下命令，将 `kafka-producer-consumer-1.0-SNAPSHOT.jar` 文件复制到 HDInsight 群集。 出现提示时，请输入 SSH 用户的密码。
+
+    ```cmd
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn:kafka-producer-consumer.jar
     ```
-   
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，请输入 SSH 用户的密码。
 
 ## <a id="run"></a> 运行示例
 
-1. 若要与群集建立 SSH 连接，请使用以下命令：
+1. 将 `sshuser` 替换为群集的 SSH 用户，并将 `CLUSTERNAME` 替换为群集的名称。 输入以下命令，打开到群集的 SSH 连接。 出现提示时，输入 SSH 用户帐户的密码。
 
-    ```bash
-    ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。 有关在 HDInsight 中使用 `scp` 的详细信息，请参阅[在 HDInsight 中使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 若要创建此示例使用的 Kafka 主题，请使用以下步骤：
-
-    1. 若要将群集名称保存到一个变量中并安装 JSON 分析实用工具 (`jq`)，请使用以下命令。 出现提示时，请输入 Kafka 群集名称：
-    
-        ```bash
-        sudo apt -y install jq
-        read -p 'Enter your Kafka cluster name:' CLUSTERNAME
-        ```
-    
-    2. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。
-    
-        ```bash
-        export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
-        ```
-
-    3. 若要创建 `test` 主题，请使用以下命令：
-
-        ```bash
-        java -jar kafka-producer-consumer.jar create test $KAFKABROKERS
-        ```
-
-3. 若要运行生成者并将数据写入到主题，请使用以下命令：
+2. 安装 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理程序。 在打开的 SSH 连接中，输入以下命令以安装 `jq`：
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
+    sudo apt -y install jq
     ```
 
-4. 在生成者完成后，使用以下命令从主题中读取：
-   
+3. 设置环境变量。 将 `PASSWORD` 和 `CLUSTERNAME` 分别替换为群集登录密码和群集名称，然后输入命令：
+
     ```bash
-    java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
-   
+
+4. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令：
+
+    ```bash
+    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    ```
+
+6. 通过输入以下命令创建 Kafka 主题 `myTest`：
+
+    ```bash
+    java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
+    ```
+
+7. 若要运行生成者并将数据写入到主题，请使用以下命令：
+
+    ```bash
+    java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
+    ```
+
+8. 在生成者完成后，使用以下命令从主题中读取：
+
+    ```bash
+    java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
+    ```
+
     会显示已读取的记录以及记录计数。
 
-5. 使用 __Ctrl + C__ 退出使用者。
+9. 使用 __Ctrl + C__ 退出使用者。
 
 ### <a name="multiple-consumers"></a>多个使用者
 
 在读取记录时，Kafka 使用者使用使用者组。 对多个使用者使用相同的组会导致从主题进行负载均衡读取。 组中的每个使用者都会接收一部分记录。
 
-使用者应用程序接受一个用作组 ID 的参数。 例如，以下命令使用组 ID `mygroup` 启动一个使用者：
-   
+使用者应用程序接受一个用作组 ID 的参数。 例如，以下命令使用组 ID `myGroup` 启动一个使用者：
+
 ```bash
-java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup
+java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup
 ```
 
+使用 __Ctrl + C__ 退出使用者。
 若要在操作中了解此过程，请使用以下命令：
 
 ```bash
-tmux new-session 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; split-w
-indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygroup' \; attach
+tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; split-window -h 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS myGroup' \
+\; attach
 ```
 
-此命令使用 `tmux` 将终端拆分为两列。 每列中都会启动使用者，且具有相同的组 ID 值。 使用者完成读取后，请注意，每个使用者仅读取记录的一部分。 按 Ctrl+C 两次以退出 `tmux`。
+此命令使用 `tmux` 将终端拆分为两列。 每列中都会启动使用者，且具有相同的组 ID 值。 使用者完成读取后，请注意，每个使用者仅读取记录的一部分。 按 Ctrl+C  两次以退出 `tmux`。
 
 同一个组中客户端的使用方式由主题的分区处理。 在此代码示例中，之前创建的 `test` 主题有 8 个分区。 如果启动 8 个使用者，则每个使用者都从主题的单个分区读取记录。
 
@@ -231,6 +224,16 @@ indow -h 'java -jar kafka-producer-consumer.jar consumer test $KAFKABROKERS mygr
 > 使用者组中的使用者实例数不能超过分区数。 此示例中，一个使用者组最多可包含八个使用者，因为这是本主题中的分区数。 也可拥有多个使用者组，每个组的使用者不能超过八个。
 
 Kafka 中存储的记录将按接收顺序存储在分区中。 若要 *在分区中*实现有序的记录传送，可以创建使用者实例数与分区数相匹配的使用者组。 若要 *在主题中*实现有序的记录传送，可以创建仅包含一个使用者实例的使用者组。
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本教程创建的资源，可以删除资源组。 删除资源组也会删除相关联的 HDInsight 群集，以及与资源组相关联的任何其他资源。
+
+若要使用 Azure 门户删除资源组，请执行以下操作：
+
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
+2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。 
+3. 选择“删除资源组”，然后进行确认。 
 
 ## <a name="next-steps"></a>后续步骤
 

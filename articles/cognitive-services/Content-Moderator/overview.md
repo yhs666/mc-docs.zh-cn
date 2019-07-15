@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: overview
-origin.date: 02/20/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: cdf7ecc2632848f327eda20584807d8c3bc388cf
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: f83996d4e9db6ca39100469d5d6fb30233bd925c
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830118"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844941"
 ---
 # <a name="what-is-azure-content-moderator"></a>什么是 Azure 内容审查器？
 
@@ -26,11 +26,14 @@ Azure 内容审查器 API 是一项认知服务，用于检查文本、图像和
 
 下面是软件开发人员或团队会使用内容审察器的一些场景：
 
-- 在联机市场中审查产品目录和其他用户生成的内容
-- 在游戏公司中审查用户生成的游戏项目和聊天室
-- 在社交通讯平台中审查用户添加的图像、文本和视频
-- 企业媒体公司对其内容进行集中式审查
-- K-12 教育解决方案提供商为学生和教师筛选掉不当的内容
+- 在联机市场中审查产品目录和其他用户生成的内容。
+- 在游戏公司中审查用户生成的游戏项目和聊天室。
+- 在社交消息平台中审查用户添加的图像、文本和视频。
+- 企业媒体公司对其内容进行集中式审查。
+- K-12 教育解决方案提供商为学生和教师筛选掉不当的内容。
+
+> [!NOTE]
+> 不能使用内容审查器检测非法儿童剥削图像。 不过，合格组织可以使用 [PhotoDNA 云服务](https://www.microsoft.com/photodna "Microsoft PhotoDNA 云服务")筛查此类内容。
 
 ## <a name="what-it-includes"></a>组成部分
 

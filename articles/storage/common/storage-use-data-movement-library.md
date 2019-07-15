@@ -7,20 +7,21 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 09/27/2017
-ms.date: 02/25/2019
-ms.author: v-jay
+ms.date: 07/15/2019
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 58d10191c7e9ec33816b339ddb4313a7683d7afc
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 1d41e332a040be64d0362c968206087525d53dff
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665529"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844530"
 ---
 # <a name="transfer-data-with-the-azure-storage-data-movement-library"></a>使用 Azure 存储数据移动库传输数据
 
 ## <a name="overview"></a>概述
-Azure 存储数据移动库是一个高性能的跨平台开源库，用于上传、下载和复制 Azure 存储 Blob 与文件。 此库是驱动 [AzCopy](../storage-use-azcopy.md) 的核心数据移动框架。 数据移动库提供传统 [.NET Azure 存储客户端库](../blobs/storage-dotnet-how-to-use-blobs.md)中所不能提供的便利方法。 这些功能包括设置并行操作数目、跟踪传输进度、轻松恢复已取消的传输，等等。  
+Azure 存储数据移动库是一个高性能的跨平台开源库，用于上传、下载和复制 Azure 存储 Blob 与文件。 此库是驱动 [AzCopy](../storage-use-azcopy.md) 的核心数据移动框架。 数据移动库提供传统 [.NET Azure 存储客户端库](../blobs/storage-dotnet-how-to-use-blobs.md)中所不能提供的便利方法。 这些功能包括设置并行操作数目、跟踪传输进度、轻松恢复已取消的传输，等等。
 
 此库还使用 .NET Core，这意味着，可以在构建适用于 Windows、Linux 和 macOS 的 .NET 应用时使用它。 若要了解有关 .NET Core 的详细信息，请参阅 [.NET Core 文档](https://dotnet.github.io/)。 此库也适用于面向 Windows 的传统 .NET Framework 应用。
 
@@ -50,7 +51,7 @@ Azure 存储数据移动库是一个高性能的跨平台开源库，用于上�
 3. 在 Visual Studio Code 中打开此目录。 通过在 Windows 中命令行上键入 `code .` 可快速完成此步骤。
 4. 从 Visual Studio Code Marketplace 安装 [C# 扩展](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。 重新启动 Visual Studio Code。
 5. 此时，应会出现两条提示。 其中一条提示指出要“添加所需的资产用于生成和调试。 ” 请单击“是”。 另一条提示指出要还原未解析的依赖项。 请单击“还原”。
-6. 修改 `.vscode` 下的 `launch.json`，将外部终端用作控制台。 此设置应为 ` "console": "externalTerminal"`
+6. 修改 `.vscode` 下的 `launch.json`，将外部终端用作控制台。 此设置应为 `"console": "externalTerminal"`
 7. 可以使用 Visual Studio Code 调试 .NET Core 应用程序。 点击 `F5` 运行应用程序，并验证设置是否正常运行。 应会看到“Hello World!” 列显在控制台上。
 
 ## <a name="add-data-movement-library-to-your-project"></a>将数据移动库添加到项目
@@ -81,9 +82,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace DMLibSample
 {
@@ -194,7 +195,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 此代码提示我们输入本地文件的路径、新的或现有容器的名称，以及新 Blob 的名称。 `TransferManager.UploadAsync` 方法使用此信息执行上传。
 
-点击 `F5` 运行应用程序。 可通过使用 [Azure 存储资源管理器](http://storageexplorer.com/)查看存储帐户，来验证是否已发生上传。
+点击 `F5` 运行应用程序。 可通过使用 [Azure 存储资源管理器](https://storageexplorer.com/)查看存储帐户，来验证是否已发生上传。
 
 ## <a name="set-number-of-parallel-operations"></a>设置并行操作数目
 数据移动库提供的一个极佳功能就是设置并行操作数目，以提高数据传输吞吐量。 默认情况下，数据移动库将并行操作数目设置为 8 * 计算机上核心数。
@@ -566,4 +567,3 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 在本入门教程中，我们创建了可与 Azure 存储交互的、在 Windows、Linux 和 macOS 上运行的应用程序。 本入门教程重点介绍有关 Blob 存储的操作。 但是，也可以针对文件存储运用这些知识。 若要了解详细信息，请查看 [Azure 存储数据移动库参考文档](https://azure.github.io/azure-storage-net-data-movement)。
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../../includes/storage-try-azure-tools-blobs.md)]
-<!--Update_Description: wording update-->

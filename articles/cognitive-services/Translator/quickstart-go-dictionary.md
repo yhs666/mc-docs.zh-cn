@@ -3,20 +3,20 @@ title: 快速入门：使用双语字典、Go 查找字词 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，你将使用文本翻译 API 和 Go 查找字词的备用翻译和示例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 63303b092aa61aa9b5ba13630dac35e7c514f302
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 6d5b5d688bb78592e5c764418e7181c573d311fa
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502569"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844832"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>快速入门：通过 Go 使用双语字典查找字词
 
@@ -141,6 +141,8 @@ if err != nil {
 }
 ```
 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="handle-and-print-the-response"></a>处理并输出响应
 
 将此代码添加到 `altTranslations` 函数以解码 JSON 响应，然后格式化并输出结果。
@@ -240,7 +242,7 @@ go run alt-translations.go
 
 * [翻译文本](quickstart-go-translate.md)
 * [直译文本](quickstart-go-transliterate.md)
-* [根据输入确定语言](quickstart-go-detect.md)
+* [按输入确定语言](quickstart-go-detect.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)
 

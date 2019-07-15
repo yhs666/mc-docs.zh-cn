@@ -3,20 +3,20 @@ title: 快速入门：获取受支持语言的列表，C# - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 在本快速入门中，请使用文本翻译 API 获取翻译、音译和字典查找支持的语言列表。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/07/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: e23e600b0ba57bdd41bb7a05152b97a06cee8481
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: c1d426a10a689f6d9091dc20d733e9a97b66def8
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830131"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844840"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-c"></a>快速入门：使用 C# 通过文本翻译 API 获取受支持语言的列表
 
@@ -115,6 +115,8 @@ var jsonResponse = response.Content.ReadAsStringAsync().Result;
 Console.WriteLine(PrettyPrint(jsonResponse));
 Console.WriteLine("Press any key to continue.");
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 要使用“Pretty Print”（响应格式）打印响应，请将此函数添加到 Program 类：
 ```

@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 02/27/2018
-ms.date: 01/21/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 9b93d2648f603854d590334223bb4cb244b519cc
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 96bdef3bd9f7c1c218d7bad4573ce2adabb206e4
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625927"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845449"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Apache Hive 库
 
@@ -47,14 +47,9 @@ ms.locfileid: "58625927"
 
 对于**基于 Windows 的群集**：[https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
-
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 **要求**
 
-* 这些脚本必须同时应用于“头节点”和“辅助角色节点”。
+* 这些脚本必须同时应用于“头节点”  和“辅助角色节点”  。
 
 * 要安装的 jar 必须存储在**单个容器**中的 Azure Blob 存储中。
 
@@ -76,7 +71,7 @@ ms.locfileid: "58625927"
 
 1. 使用[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中的步骤开始预配群集，但不要完成预配。
 
-2. 在“可选配置”部分中，选择“脚本操作”，并提供以下信息：
+2. 在“可选配置”  部分中，选择“脚本操作”  ，并提供以下信息：
 
    * **名称**：输入脚本操作的友好名称。
 
@@ -90,11 +85,11 @@ ms.locfileid: "58625927"
 
    * **参数**：输入包含 jar 的容器和存储帐户的 WASB 地址。 例如，<strong>wasb://libs@mystorage.blob.core.chinacloudapi.cn/</strong>。
 
-3. 在“脚本操作”的底部，使用“选择”按钮保存配置。
+3. 在“脚本操作”  的底部，使用“选择”  按钮保存配置。
 
-4. 在“可选配置”部分中，选择“链接存储帐户”，并选择“添加存储密钥”链接。 选择包含 jar 的存储帐户。 然后使用“选择”按钮保存设置并返回“可选配置”。
+4. 在“可选配置”  部分中，选择“链接存储帐户”  ，并选择“添加存储密钥”  链接。 选择包含 jar 的存储帐户。 然后使用“选择”  按钮保存设置并返回“可选配置”  。
 
-5. 若要保存可选配置，请使用“可选配置”部分底部的“选择”按钮。
+5. 若要保存可选配置，请使用“可选配置”  部分底部的“选择”  按钮。
 
 6. 继续按[预配 Linux 上的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)中所述预配群集。
 
@@ -102,6 +97,6 @@ ms.locfileid: "58625927"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Hive 的详细信息，请参阅[将 Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+有关使用 Hive 的详细信息，请参阅[将 Apache Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
 
 <!--Update_Description: change 'wasbs' into 'wasb'-->

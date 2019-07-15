@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
 origin.date: 04/17/2019
-ms.date: 05/14/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: a78b5c2ab520fa33afeef992394b3d816891d9ee
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: e8dadfccb335bf58b838e74187c9101e063691f7
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598890"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844855"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：通过计算机视觉中的 REST API 和 Python 使用域模型
 
@@ -50,7 +50,7 @@ ms.locfileid: "65598890"
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -68,8 +68,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -127,7 +127,7 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -145,8 +145,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -206,3 +206,4 @@ _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 > [!div class="nextstepaction"]
 > [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
 
+<!-- Update_Description: wording update -->

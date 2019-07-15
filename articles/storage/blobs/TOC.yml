@@ -33,10 +33,14 @@
               href: storage-quickstart-blobs-nodejs-v10.md
             - name: Python
               href: storage-quickstart-blobs-python.md
-            - name: JS/HTML
+            - name: 使用 v10 SDK 的 JS/HTML
+              href: storage-quickstart-blobs-javascript-client-libraries-v10.md
+            - name: 使用 v2 SDK 的 JS/HTML
               href: storage-quickstart-blobs-javascript-client-libraries.md
             - name: Go
               href: storage-quickstart-blobs-go.md
+            - name: PHP
+              href: storage-quickstart-blobs-php.md
             - name: Ruby
               href: storage-quickstart-blobs-ruby.md
     - name: 教程
@@ -65,6 +69,8 @@
               href: storage-create-geo-redundant-storage.md
             - name: 2 - 模拟 RA-GRS 存储故障
               href: storage-simulate-failure-ragrs-account-app.md
+        - name: 使用 Azure Key Vault 加密和解密 Blob
+          href: storage-encrypt-decrypt-blobs-key-vault.md
     - name: 示例
       items:
         - name: .NET
@@ -410,21 +416,23 @@
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: NuGet 包
           items:
-            - name: 适用于 .NET 的 Azure 存储客户端库
-              href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+            - name: Azure 存储公用客户端库
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+            - name: Azure Blob 存储客户端库
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
             - name: Azure 存储数据移动库
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
             - name: Azure 配置管理器
-              href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
         - name: 源代码
           items:
             - name: .NET
               items:
-                - name: Blob、队列、表和文件
-                  href: /dotnet/api/overview/storage/client
+                - name: Blob、队列和文件
+                  href: 'https://github.com/Azure/azure-storage-net'
                 - name: 数据移动
                   href: /dotnet/api/microsoft.windowsazure.storage.datamovement
-                - name: 资源管理器
+                - name: 存储资源提供程序
                   href: /dotnet/api/overview/storage/management
             - name: Java
               items:
@@ -494,8 +502,14 @@
       items:
         - name: 引入数据
           items:
+            - name: AzCopy
+              items:
+                - name: 入门
+                  href: ../common/storage-use-azcopy-v10.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 使用 Distcp
               href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fstorage%2fblobs%2ftoc.json
+            - name: 使用 Azure 数据工厂
+              href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fstorage%2fblobs%2ftoc.json
         - name: 保护数据
           items:
             - name: 配置防火墙和虚拟网络
@@ -524,10 +538,14 @@
               href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 与 Hadoop 文件系统 CLI 配合使用
               href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fstorage%2fblobs%2ftoc.json
+            - name: 与 Azure SQL 数据仓库配合使用
+              href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
         - name: 优化性能
           items:
             - name: 概述
               href: ../blobs/data-lake-storage-performance-tuning-guidance.md?toc=%2fstorage%2fblobs%2ftoc.json
+            - name: 优化 HDInsight 上的 Spark
+              href: ../blobs/data-lake-storage-performance-tuning-spark.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 优化 HDInsight 上的 Hive
               href: ../blobs/data-lake-storage-performance-tuning-hive.md?toc=%2fstorage%2fblobs%2ftoc.json
             - name: 优化 HDInsight 上的 MapReduce

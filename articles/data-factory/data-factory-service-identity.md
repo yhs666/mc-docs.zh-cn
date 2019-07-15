@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 04/08/2019
 ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 99a4531b219a403e8fd40fbabd1ba0d1997b41fb
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6442a7b58e1d57b9c79c315beb3c06d52c3e1048
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569844"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844531"
 ---
 # <a name="managed-identity-for-data-factory"></a>数据工厂的托管标识
 
@@ -172,7 +172,7 @@ PrincipalId                          TenantId
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
 
-ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
+ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.chinacloudapi.cn/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
 ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
 DisplayName           : ADFV2DemoFactory
 Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

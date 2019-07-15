@@ -1,29 +1,33 @@
 ---
-title: 使用 HeadPose 调整人脸矩形
+title: 使用 HeadPose 属性
 titleSuffix: Azure Cognitive Services
-description: 了解如何使用 HeadPose 属性来自动旋转人脸矩形。
+description: 了解如何使用 HeadPose 属性在视频源中自动旋转人脸矩形或检测头部姿势。
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
-ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 05/14/2019
+ms.topic: sample
+origin.date: 05/29/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 02f814dfdb25229b23da8519dcd2226ce7ea3045
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 2a015e5408042166d3a0f67ecdb356d8c4d18c53
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65669042"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844591"
 ---
-# <a name="use-the-headpose-attribute-to-adjust-the-face-rectangle"></a>使用 HeadPose 属性调整人脸矩形
+# <a name="use-the-headpose-attribute"></a>使用 HeadPose 属性
 
-在本指南中，你将使用检测到的人脸属性 HeadPose 来旋转 Face 对象的矩形。 本指南中的示例代码摘自[认知服务人脸 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 示例应用，使用 .NET SDK。
+本指南介绍如何使用检测到的人脸的 HeadPose 属性来启用某些重要方案。
 
-连同检测到的每个人脸一起返回的人脸矩形标记了该人脸在图像中的位置和大小。 默认情况下，该矩形始终与图像对齐（它的四条边是完全垂直和水平的）；这样可能不能有效地定格倾斜的人脸。 如果你想要以编程方式裁剪图像中的人脸，最好是能够旋转该矩形。
+## <a name="rotate-the-face-rectangle"></a>旋转人脸矩形
 
-## <a name="explore-the-sample-code"></a>探索示例代码
+随每个检测到的人脸返回的人脸矩形用于标记人脸在图像中的位置和大小。 默认情况下，此矩形始终与图像（其边分为垂直边和水平边）对齐；在给有一定角度的人脸配框时，这可能导致效率不高。 在需要以编程方式对图像中的人脸进行裁剪的情况下，最好是能够旋转要裁剪的矩形。
+
+[认知服务人脸 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 示例应用使用 HeadPose 属性来旋转其检测到的人脸矩形。
+
+### <a name="explore-the-sample-code"></a>探索示例代码
 
 可以使用 HeadPose 属性以编程方式旋转人脸矩形。 如果在检测人脸（请参阅[如何检测人脸](HowtoDetectFacesinImage.md)）时指定此属性，则稍后可以查询此属性。 [认知服务人脸 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 应用中的以下方法采用 **DetectedFace** 对象的列表，并返回 **[Face](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** 对象的列表。 此处的 **Face** 是一个自定义类，它用于存储人脸数据，包括更新的矩形坐标。 将计算**顶边缘**、**左边缘**、**宽度**和**高度**的新值；新字段 **FaceAngle** 指定旋转角度。
 
@@ -103,9 +107,9 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 }
 ```
 
-## <a name="display-the-updated-rectangle"></a>显示更新的矩形
+### <a name="display-the-updated-rectangle"></a>显示更新的矩形
 
-在此处，可以使用显示画面中返回的 **Face** 对象。 [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) 中的以下行显示如何基于此数据呈现新矩形：
+在此处，可以使用显示画面中返回的 **Face** 对象。 [FaceDetectionPage.xaml](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/FaceDetectionPage.xaml) 中的以下行显示如果根据该数据呈现新矩形：
 
 ```xaml
  <DataTemplate>
@@ -117,7 +121,19 @@ public static IEnumerable<Face> CalculateFaceRectangleForRendering(IList<Detecte
 </DataTemplate>
 ```
 
+## <a name="detect-head-gestures"></a>检测头部姿势
+
+可以通过实时跟踪 HeadPose 变化检测头部姿势，例如点头和摇头。 可以将此功能用作自定义活体检测器。
+
+活体检测用于确定某个对象是真人，而不是图像或视频表示形式。 可以使用头部姿势检测器来验证某个对象是活体，而不是某个人的图像表示形式。
+
+> [!CAUTION]
+> 若要实时检测头部姿势，需高频率（高于每秒一次）调用人脸 API。 如果你使用的是免费层 (f0) 订阅，则无法使用此功能。 如果你使用的是付费层订阅，请确保已计算进行快速 API 调用来检测头部姿势的成本。
+
+如需头部姿势检测的工作示例，请查看 GitHub 上的[人脸 API HeadPose 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample)。
+
 ## <a name="next-steps"></a>后续步骤
 
-有关旋转的人脸矩形的有效示例，请参阅 GitHub 上的[认知服务人脸 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 应用。 或者，请参阅[人脸 API HeadPose 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples)应用，该应用会实时跟踪 HeadPose 属性，以检测各种头部动作（点头、摇头）。
+如需旋转的人脸矩形的工作示例，请查看 GitHub 上的[认知服务人脸 WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) 应用。 也可查看[人脸 API HeadPose 示例](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples)应用，了解如何通过实时跟踪 HeadPose 属性来检测头部动作。
 
+<!-- Update_Description: wording update -->

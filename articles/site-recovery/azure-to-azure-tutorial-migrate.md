@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 01/28/2019
-ms.date: 04/22/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: e78ca71288482eadc3a45d3cbcc57b806b3becdb
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 2abaeee24142e0564b18fff51ca68a8fe57aa622
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276457"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861688"
 ---
 # <a name="move-azure-vms-to-another-region"></a>将 Azure VM 移动到另一区域
 
@@ -62,7 +62,7 @@ ms.locfileid: "67276457"
     - 对于 Windows VM，请在 VM 上安装所有最新的 Windows 更新，使所有受信任的根证书位于该计算机上。 在未联网的环境中，请按照你的组织的标准 Windows 更新和证书更新过程执行操作。
     - 对于 Linux VM，请遵循 Linux 分销商提供的指导，在 VM 上获取最新的受信任根证书和证书吊销列表。
 1. 确保未使用身份验证代理来控制要移动的 VM 的网络连接。
-1. 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity)。
+1. 如果尝试移动的 VM 无法访问 Internet，或使用防火墙代理来控制出站访问，请[检查要求](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms)。
 1. 确定源网络布局和当前正在使用的所有资源。 这包括但不限于负载均衡器、网络安全组 (NSG) 和公共 IP。
 
 ## <a name="prepare-the-target-region"></a>准备目标区域
@@ -80,7 +80,7 @@ ms.locfileid: "67276457"
 
     - [网络安全组](/virtual-network/manage-network-security-group)
     - [负载均衡器](/load-balancer/#step-by-step-tutorials)
-    - [公共 IP](/load-balancer/#step-by-step-tutorials)
+    - [公共 IP](../virtual-network/virtual-network-public-ip-address.md)
 
      对于其他任何网络组件，请参阅[网络文档](/#pivot=products&panel=network)。
 
@@ -92,56 +92,56 @@ ms.locfileid: "67276457"
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>在除了源区域之外的任意区域中创建保管库
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 选择“创建资源”   > “监视 + 管理”   >   “备份和站点恢复”。
+1. 选择“创建资源”   > “监视 + 管理”   >   “备份和站点恢复”。
     
     <!--MOONCAKE is correct on **Monitoring + Management**-->
     
-3. 在“名称”  中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
-4. 创建资源组 ContosoRG  。
-5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
-6. 在“恢复服务保管库”中，选择“概述” > “ContosoVMVault” > “+复制”     。
-7. 在“源”中，选择“Azure”。  
-8. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。 
-9. 选择“资源管理器”部署模型。 然后选择“源订阅”和“源资源组”。  
-10. 选择“确定”以保存设置。 
+1. 在“名称”  中，指定友好名称 **ContosoVMVault**。 如果有多个订阅，请选择合适的一个。
+1. 创建资源组 ContosoRG  。
+1. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
+1. 在“恢复服务保管库”中，选择“概述” > “ContosoVMVault” > “+复制”     。
+1. 在“源”中，选择“Azure”。  
+1. 在“源位置”中，选择当前运行 VM 的 Azure 源区域。 
+1. 选择“资源管理器”部署模型。 然后选择“源订阅”和“源资源组”。  
+1. 选择“确定”以保存设置。 
 
 ### <a name="enable-replication-for-azure-vms-and-start-copying-the-data"></a>为 Azure VM 启用复制并开始复制数据
 
 Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 
 1. 在下一步中，选择要移动的 VM，然后选择“确定”  。
-2. 在“设置”中，选择“灾难恢复”   。
-3. 在“配置灾难恢复” > “目标区域”中，选择要复制到的目标区域   。
-4. 对于本教程，接受其他默认设置。
-5. 选择“启用复制”  。 此步骤将启动用于为 VM 启用复制的作业。
+1. 在“设置”中，选择“灾难恢复”   。
+1. 在“配置灾难恢复” > “目标区域”中，选择要复制到的目标区域   。
+1. 对于本教程，接受其他默认设置。
+1. 选择“启用复制”  。 此步骤将启动用于为 VM 启用复制的作业。
 
     ![启用复制](media/tutorial-migrate-azure-to-azure/settings.png)
 
 ## <a name="test-the-configuration"></a>测试配置
 
 1. 转到保管库。 在“设置” > “复制的项”中，选择要移到目标区域的 VM，然后选择“+测试故障转移”    。
-2. 在“测试故障转移”中，选择要用于故障转移的恢复点  ：
+1. 在“测试故障转移”中，选择要用于故障转移的恢复点  ：
 
    - **最新处理**：将 VM 故障转移到由 Site Recovery 服务处理的最新恢复点。 将显示时间戳。 使用此选项时，无需费时处理数据，因此恢复时间目标 (RTO) 会较低。
    - **最新应用一致**：此选项将所有 VM 故障转移到最新的应用一致恢复点。 将显示时间戳。
    - **自定义**：选择任何恢复点。
 
-3. 选择要将 Azure VM 移到的目标 Azure 虚拟网络，以测试配置。
+1. 选择要将 Azure VM 移到的目标 Azure 虚拟网络，以测试配置。
 
     > [!IMPORTANT]
     > 我们建议使用单独的 Azure VM 网络来测试故障转移。 不要使用在启用复制时设置的生产网络和最终要将 VM 移动到其中的生产网络。
 
-4. 若要开始测试移动，请单击“确定”。  若要跟踪进度，请单击 VM 以打开其属性。 或者，可以在保管库名称 >“设置” > “作业” > “Site Recovery 作业”中单击“测试故障转移”作业。    
-5. 故障转移完成后，副本 Azure VM 会显示在 Azure 门户 >“虚拟机”中。  请确保 VM 正在运行、大小适当并已连接到相应的网络。
-6. 若要删除测试移动期间创建的 VM，请在“复制的项”中单击“清理测试故障转移”  。 在“说明”中，记录并保存与测试关联的任何观测结果  。
+1. 若要开始测试移动，请单击“确定”。  若要跟踪进度，请单击 VM 以打开其属性。 或者，可以在保管库名称 >“设置” > “作业” > “Site Recovery 作业”中单击“测试故障转移”作业。    
+1. 故障转移完成后，副本 Azure VM 会显示在 Azure 门户 >“虚拟机”中。  请确保 VM 正在运行、大小适当并已连接到相应的网络。
+1. 若要删除测试移动期间创建的 VM，请在“复制的项”中单击“清理测试故障转移”  。 在“说明”中，记录并保存与测试关联的任何观测结果  。
 
 ## <a name="perform-the-move-to-the-target-region-and-confirm"></a>执行到目标区域的移动并确认。
 
 1. 转到保管库。 在“设置” > “复制的项”中选择 VM，然后选择“故障转移”    。
-2. 在“故障转移”  中，选择“最新”  。
-3. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
-4. 该作业完成后，检查 VM 是否按预期显示在目标 Azure 区域中。
-5. 在“复制的项”中，右键选择 VM >“提交”   。 此步骤会完成移到目标区域的过程。 请等待提交作业完成。
+1. 在“故障转移”  中，选择“最新”  。
+1. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
+1. 该作业完成后，检查 VM 是否按预期显示在目标 Azure 区域中。
+1. 在“复制的项”中，右键选择 VM >“提交”   。 此步骤会完成移到目标区域的过程。 请等待提交作业完成。
 
 ## <a name="delete-the-resource-in-the-source-region"></a>删除源区域中的资源 
 
@@ -153,7 +153,7 @@ Site Recovery 会检索与订阅和资源组关联的 VM 列表。
 如果不打算再次使用任何源资源，请执行以下步骤：
 
 1. 删除在[准备源 VM](#prepare-the-source-vms) 的步骤 4 中列出的、位于源区域中的所有相关网络资源。
-2. 删除源区域中的相应存储帐户。
+1. 删除源区域中的相应存储帐户。
 
 ## <a name="next-steps"></a>后续步骤
 

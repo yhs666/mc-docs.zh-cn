@@ -3,20 +3,20 @@ title: 快速入门：使用双语字典、Python 查找字词 - 文本翻译 AP
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Python 和文本翻译 REST API 查找指定文本的备用翻译和用法示例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8ed416b19ea570bf5ee3c11ceac14cb89e0f21bb
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 7842ab9959890f99a8b7dac7a23199321301824e
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502568"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844799"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>快速入门：通过 Python 使用双语字典查找字词
 
@@ -37,7 +37,10 @@ ms.locfileid: "59502568"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -76,7 +79,7 @@ region = 'put_your_region_here'
 ```python
 base_url = 'https://api.translator.azure.cn'
 path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es';
+params = '&from=en&to=es'
 constructed_url = base_url + path + params
 ```
 
@@ -94,6 +97,8 @@ headers = {
     'X-ClientTraceId': str(uuid.uuid4())
 }
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="create-a-request-to-find-alternate-translations"></a>创建查找备用翻译的请求
 
@@ -118,7 +123,8 @@ response = request.json()
 最后一步是输出结果。 以下代码片段通过将密钥排序、设置缩进以及声明项和密钥分隔符来美化结果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>将其放在一起
@@ -174,7 +180,7 @@ python alt-translations.py
 
 * [翻译文本](quickstart-python-translate.md)
 * [直译文本](quickstart-python-transliterate.md)
-* [根据输入确定语言](quickstart-python-detect.md)
+* [按输入确定语言](quickstart-python-detect.md)
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)
 

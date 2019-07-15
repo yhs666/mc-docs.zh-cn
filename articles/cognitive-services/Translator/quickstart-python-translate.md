@@ -3,20 +3,20 @@ title: 快速入门：翻译文本，Python - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何在不到 10 分钟内使用文本翻译 API 和 Python 将文本从一种语言翻译成另一种语言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 85a605afbb25792e9a1a69d7ed3e4cfd2f54f4ed
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 6963e1ce715a720618d0a304cf4a63d91cb07b71
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502575"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844795"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-python"></a>快速入门：使用 Python 通过文本翻译 API 来翻译字符串
 
@@ -37,7 +37,10 @@ ms.locfileid: "59502575"
 
 ```python
 # -*- coding: utf-8 -*-
-import os, requests, uuid, json
+import os
+import requests
+import uuid
+import json
 ```
 
 > [!NOTE]
@@ -95,13 +98,15 @@ headers = {
 }
 ```
 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="create-a-request-to-translate-text"></a>创建文本翻译请求
 
 定义要翻译的字符串：
 
 ```python
 body = [{
-    'text' : 'Hello World!'
+    'text': 'Hello World!'
 }]
 ```
 
@@ -117,7 +122,8 @@ response = request.json()
 最后一步是输出结果。 以下代码片段通过将密钥排序、设置缩进以及声明项和密钥分隔符来美化结果。
 
 ```python
-print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+print(json.dumps(response, sort_keys=True, indent=4,
+                 ensure_ascii=False, separators=(',', ': ')))
 ```
 
 ## <a name="put-it-all-together"></a>将其放在一起
@@ -167,7 +173,7 @@ python translate-text.py
 了解如何使用文本翻译 API 执行以下操作：
 
 * [直译文本](quickstart-python-transliterate.md)
-* [根据输入确定语言](quickstart-python-detect.md)
+* [按输入确定语言](quickstart-python-detect.md)
 * [获取备用翻译](quickstart-python-dictionary.md)
 * [获取支持的语言的列表](quickstart-python-languages.md)
 * [根据输入确定句子长度](quickstart-python-sentences.md)

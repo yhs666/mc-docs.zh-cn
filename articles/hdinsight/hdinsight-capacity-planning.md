@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2019
-ms.date: 06/24/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: f497d19cd5d60d095fe189503ceb7edf483e798a
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 6ac9ed182bc50fb1bed6389e21f752f1dd331a91
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135757"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845030"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -44,15 +44,15 @@ Azure 区域确定群集的物理预配位置。 为了将读写延迟最小化�
 
 ### <a name="location-of-default-storage"></a>默认存储的位置
 
-默认存储必须位于与群集相同的位置。 所有位置都提供 Azure 存储。 
+默认存储（Azure 存储帐户或 Azure Data Lake Storage）必须与群集位于同一位置。 所有位置都提供 Azure 存储。 Data Lake Storage Gen1 已在某些区域中提供 - 请参阅[可用的 Azure 产品(按区域)](https://azure.microsoft.com/regions/services/) 中“存储”  下面列出的当前 Data Lake Storage 可用性。
 
 ### <a name="location-of-existing-data"></a>现有数据的位置
 
-如果已有一个包含数据的存储帐户，需要将此存储用作群集的默认存储，则必须在与此存储相同的位置部署群集。
+如果已有一个包含数据的存储帐户或 Data Lake Storage，并想要将此存储用作群集的默认存储，则必须在与此存储相同的位置部署群集。
 
 ### <a name="storage-size"></a>存储大小
 
-部署 HDInsight 群集之后，可以附加更多 Azure 存储帐户。 所有存储帐户必须与群集位于同一位置。 
+部署 HDInsight 群集之后，可以附加更多 Azure 存储帐户，或访问其他 Data Lake Storage。 所有存储帐户必须与群集位于同一位置。 Data Lake Storage 可以位于不同的位置，不过，这可能会造成某种程度的数据读/写延迟。
 
 Azure 存储具有一些[容量限制](../azure-subscription-service-limits.md#storage-limits)。
 
@@ -81,7 +81,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 * RAM：VM 大小还决定了 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
 
-* 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Azure 存储等外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+* 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Data Lake Storage 或 Azure 存储之类的外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
 
 ## <a name="choose-the-cluster-scale"></a>选择群集规模
 
@@ -95,8 +95,8 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 在群集的生存期内会产生费用。 可以创建用于预配和删除群集的 PowerShell 脚本，然后使用 [Azure 自动化](/automation/)安排这些脚本的执行时间。
 
-> [!NOTE]
-> 删除某个群集时，也会一并删除其默认 Hive 元存储。 若要保留元存储供下一次重新创建群集时使用，可以使用 Azure 数据库或 Oozie 等外部元数据存储。
+> [!NOTE]  
+> 删除某个群集时，也会一并删除其默认 Hive 元存储。 若要保留元存储供下一次重新创建群集时使用，可以使用 Azure 数据库或 [Apache Oozie](https://oozie.apache.org/) 等外部元数据存储。
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>查明群集作业错误

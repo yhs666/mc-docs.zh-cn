@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 98d4bd6ba33a2132d5811ee68a0ee7ed7f8d8236
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 10ae996a3c38c7865aa947d107043ab3c85a7c43
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566280"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845018"
 ---
 # <a name="monitor-batch-solutions"></a>监视 Batch 解决方案
 
@@ -30,7 +30,7 @@ Azure 和 Batch 服务提供了一系列服务、工具和 API 来监视 Batch �
 
 对于 Batch 帐户，具体而言，活动日志收集与帐户创建和删除以及密钥管理相关的事件。
 
-从活动日志中检索事件的一种方法是使用 Azure 门户。 单击“所有服务” > “活动日志”。 或者，使用 Azure CLI、PowerShell cmdlet 或 Azure Monitor REST API 来查询事件。 
+从活动日志中检索事件的一种方法是使用 Azure 门户。 单击“所有服务” > “活动日志”。   或者，使用 Azure CLI、PowerShell cmdlet 或 Azure Monitor REST API 来查询事件。 
 
 ## <a name="batch-account-level-monitoring"></a>Batch 帐户级监视
 
@@ -52,6 +52,19 @@ Azure 和 Batch 服务提供了一系列服务、工具和 API 来监视 Batch �
 * 监视[池状态](https://docs.microsoft.com/rest/api/batchservice/pool/get#poolstate)
 * 监视[帐户中的池使用情况](https://docs.microsoft.com/rest/api/batchservice/pool/listusagemetrics)
 * [按状态对池节点进行计数](https://docs.microsoft.com/rest/api/batchservice/account/listpoolnodecounts)
+
+## <a name="vm-performance-counters-and-application-monitoring"></a>VM 性能计数器和应用程序监视
+
+* [Application Insights](../azure-monitor/app/app-insights-overview.md) 是一项 Azure 服务，可以用来以编程方式监视 Batch 作业和任务的可用性、性能和使用情况。 轻松从计算节点 (VM) 获取性能计数器，并从 VM 获取任务的自定义信息。 
+
+  有关示例，请参阅[使用 Application Insights 监视和调试 Batch .NET 应用程序](monitor-application-insights.md)以及附随的[代码示例](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights)。
+
+  > [!NOTE]
+  > 使用 Application Insights 可能会产生额外的成本。 请参阅[定价选项](https://azure.microsoft.com/pricing/details/application-insights/)。 
+  >
+
+* [Batch Explorer](https://github.com/Azure/BatchExplorer) 是一个功能丰富的免费独立客户端工具，可帮助创建、调试和监视 Azure Batch 应用程序。 下载适用于 Mac、Linux 或 Windows 的[安装包](https://azure.github.io/BatchExplorer/)。 （可选）对 Batch 解决方案进行配置以[显示 Application Insights 数据](https://github.com/Azure/batch-insights)，例如 Batch Explorer 中的 VM 性能计数器。
+
 
 ## <a name="next-steps"></a>后续步骤
 

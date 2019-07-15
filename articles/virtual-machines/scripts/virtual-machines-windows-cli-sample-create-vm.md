@@ -16,12 +16,12 @@ ms.workload: infrastructure
 origin.date: 02/23/2017
 ms.date: 04/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bf34656912e60fb27b85e688b611ab2297f1080
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 184c368d14b756a9afad736897a23308b5ac8d99
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003837"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725225"
 ---
 # <a name="create-a-virtual-machine-with-the-azure-cli"></a>使用 Azure CLI 创建虚拟机
 
@@ -95,7 +95,7 @@ az group delete --name myResourceGroup --yes
 | [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) | 创建网络安全组 (NSG)，这是 Internet 和虚拟机之间的安全边界。 |
 | [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) | 创建虚拟网卡并将其连接到虚拟网络、子网和 NSG。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group/extension?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

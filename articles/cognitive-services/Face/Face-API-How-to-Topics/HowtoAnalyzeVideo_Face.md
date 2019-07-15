@@ -4,19 +4,19 @@ titleSuffix: Azure Cognitive Services
 description: 使用人脸 API 对从实时视频流中获取的帧执行近实时分析。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: sample
 origin.date: 03/01/2018
-ms.date: 01/17/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 505f87838d7edcb9e14f2a3b0d01e45e01941cda
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 0605c71f710fdd38ee29e3b647a1d1cea1c1fc0e
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63852156"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844606"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>示例：如何实时分析视频
 
@@ -161,7 +161,9 @@ namespace VideoFrameConsoleApplication
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
             // Create Face API Client. Insert your Face API key here.
-            FaceServiceClient faceClient = new FaceServiceClient("<Subscription Key>");
+            private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials("<subscription key>"),
+            new System.Net.Http.DelegatingHandler[] { });
 
             // Set up our Face API call.
             grabber.AnalysisFunction = async frame => return await faceClient.DetectAsync(frame.Image.ToMemoryStream(".jpg"));
@@ -226,4 +228,4 @@ namespace VideoFrameConsoleApplication
 - [如何识别图像中的人脸](HowtoIdentifyFacesinImage.md)
 - [如何检测图像中的人脸](HowtoDetectFacesinImage.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

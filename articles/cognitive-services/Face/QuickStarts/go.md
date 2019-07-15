@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 02/07/2019
-ms.date: 03/01/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2a5a21371401eb8cb7c10c39a5d758820deb965f
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 95043c7da3883b89057bca5b2da6301e4fce04e9
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204143"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844783"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>快速入门：使用 REST API 和 Go 检测图像中的人脸
 
@@ -57,8 +57,16 @@ func main() {
 
     reader := strings.NewReader(imageUrlEnc)
 
+    //Configure TLS, etc.
+    tr := &http.Transport{
+        TLSClientConfig: &tls.Config{
+            InsecureSkipVerify: true,
+        },
+    }
+    
     // Create the Http client
     client := &http.Client{
+        Transport: tr,
         Timeout: time.Second * 2,
     }
 
@@ -303,4 +311,4 @@ detect-face
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

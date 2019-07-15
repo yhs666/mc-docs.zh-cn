@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5d843c2cb9ce8104eff0422a9f4687947d99e891
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 4fbf4826755a0b6494ead563a2f3cb774eb0a6e8
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390878"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861676"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -143,19 +143,11 @@ Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
 ```
 ## <a name="set-the-vault-context"></a>设置保管库上下文
 
-> [!TIP]
-> Azure Site Recovery PowerShell 模块（Az.RecoveryServices 模块）附带了大多数 cmdlet 的易用别名。 模块中的 cmdlet 采用 *\<Operation>-**AzRecoveryServicesAsr**\<Object>* 形式，并具有采用 *\<Operation>-**ASR**\<Object>* 形式的等效别名。 本文使用 cmdlet 别名以便于阅读。
+设置 PowerShell 会话中使用的保管库上下文。 设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。
 
-设置 PowerShell 会话中使用的保管库上下文。 为此，请下载保管库设置文件，并将下载的文件导入 PowerShell 会话以设置保管库上下文。
-
-设置后，PowerShell 会话中的后续 Azure Site Recovery 操作将在所选保管库的上下文中执行。
-
- ```azurepowershell
-#Download the vault settings file for the vault.
-$Vaultsettingsfile = Get-AzRecoveryServicesVaultSettingsFile -Vault $vault -SiteRecovery -Path C:\users\user\Documents\
-
-#Import the downloaded vault settings file to set the vault context for the PowerShell session.
-Import-AzRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.FilePath
+```azurepowershell
+#Setting the vault context.
+Set-AsrVaultSettings -Vault $vault
 
 ```
 ```
@@ -416,6 +408,8 @@ $ChinaNorthTargetStorageAccount = New-AzStorageAccount -Name "a2atargetstorage" 
 
 复制包含**托管磁盘**的 Azure 虚拟机。
 
+<!--MOONCAKE: CORRECT ON $ChinaEastCacheStorageAccount -->
+
 ```azurepowershell
 
 #Get the resource group that the virtual machine must be created in when failed over.
@@ -448,6 +442,8 @@ $diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
 #Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 ```
+
+<!--MOONCAKE: CORRECT ON $ChinaEastCacheStorageAccount -->
 
 复制包含**非托管磁盘**的 Azure 虚拟机。
 
@@ -514,6 +510,7 @@ $TFONetwork= $TFOVnet.Id
 $ReplicationProtectedItem = Get-ASRReplicationProtectedItem -FriendlyName "AzureDemoVM" -ProtectionContainer $PrimaryProtContainer
 
 $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicationProtectedItem -AzureVMNetworkId $TFONetwork -Direction PrimaryToRecovery
+
 ```
 
 等待测试故障转移操作完成。

@@ -13,20 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/01/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: a973672371b6232b9352175f74af4067bd57e977
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 1ffef8a05ad678cf988bc2bee7e940c4b358bdd4
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204191"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844758"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>将群集从证书指纹更改为公用名称
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  将已部署的群集从使用证书指纹切换为使用证书公用名称会使证书管理更加简单。 本文介绍了如何将正在运行的 Service Fabric 群集更新为使用证书公用名称而非证书指纹。
 
 >[!NOTE]
-> 如果在模板中声明了两个指纹，则需要执行两次部署。  第一次部署是在执行本文中的步骤之前完成的。  第一次部署将模板中的“指纹”属性设置为正在使用的证书，并删除“thumbprintSecondary”属性。  对于第二次部署，请按照本文中的步骤操作。
+> 如果在模板中声明了两个指纹，则需要执行两次部署。  第一次部署是在执行本文中的步骤之前完成的。  第一次部署将模板中的“指纹”属性设置为正在使用的证书，并删除“thumbprintSecondary”属性   。  对于第二次部署，请按照本文中的步骤操作。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>获取证书
 首先，从[证书颁发机构 (CA)](https://wikipedia.org/wiki/Certificate_authority) 获取证书。  证书的公用名称应当是群集的主机名。  例如，“myclustername.chinaeast.cloudapp.chinacloudapi.cn”。  
@@ -45,7 +47,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
+Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
 
 $region = "chinaeast"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -57,10 +59,10 @@ $VmssResourceGroupName     = "myclustergroup"
 $VmssName                  = "prnninnxj"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName `
     -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
@@ -82,17 +84,17 @@ Write-Host "Common Name              :"  $CommName
 Set-StrictMode -Version 3
 $ErrorActionPreference = "Stop"
 
-$certConfig = New-AzureRmVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
+$certConfig = New-AzVmssVaultCertificateConfig -CertificateUrl $CertificateURL -CertificateStore "My"
 
 # Get current VM scale set 
-$vmss = Get-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
+$vmss = Get-AzVmss -ResourceGroupName $VmssResourceGroupName -VMScaleSetName $VmssName
 
 # Add new secret to the VM scale set.
-$vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
+$vmss = Add-AzVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $SourceVault `
     -VaultCertificate $certConfig
 
 # Update the VM scale set 
-Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
+Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
 
@@ -100,7 +102,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > 规模集机密不支持对两个不同的机密使用相同的资源 ID，因为每个机密都是带有版本的唯一资源。 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>从门户中下载并更新模板
-证书已安装在基础规模集上，但还需要将 Service Fabric 群集更新为使用该证书及其公用名称。  现在，为群集部署下载模板。  登录到 [Azure 门户](https://portal.azure.cn)并导航到承载着群集的资源组。  在“设置”中，选择“部署”。  选择最新部署并单击“查看模板”。
+证书已安装在基础规模集上，但还需要将 Service Fabric 群集更新为使用该证书及其公用名称。  现在，为群集部署下载模板。  登录到 [Azure 门户](https://portal.azure.cn)并导航到承载着群集的资源组。  在“设置”中，选择“部署”。    选择最新部署并单击“查看模板”。 
 
 ![查看模板][image1]
 
@@ -127,7 +129,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 
     另请考虑删除 *certificateThumbprint*，可能不再需要此项。
 
-2. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在“virtualMachineProfile”->“extensionProfile”->“扩展”->“属性”->“设置”->“证书”中，添加 `"commonNames": ["[parameters('certificateCommonName')]"],` 并删除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
+2. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在“virtualMachineProfile”  ->“extensionProfile”  ->“扩展”  ->“属性”  ->“设置”  ->“证书”  中，添加 `"commonNames": ["[parameters('certificateCommonName')]"],` 并删除 `"thumbprint": "[parameters('certificateThumbprint')]",`。
     ```json
         "virtualMachineProfile": {
         "extensionProfile": {
@@ -161,7 +163,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
                 },
     ```
 
-3.  在 **Microsoft.ServiceFabric/clusters** 资源中，将 API 版本更新为“2018-02-01”。  另请添加包含 **commonNames** 属性的 **certificateCommonNames** 设置，并删除 **certificate** 设置（包含指纹属性），如以下示例中所示：
+3. 在 **Microsoft.ServiceFabric/clusters** 资源中，将 API 版本更新为“2018-02-01”。  另请添加包含 **commonNames** 属性的 **certificateCommonNames** 设置，并删除 **certificate** 设置（包含指纹属性），如以下示例中所示：
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -194,7 +196,7 @@ Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 ```powershell
 $groupname = "sfclustertutorialgroup"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
 ```
 

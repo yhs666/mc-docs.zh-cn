@@ -17,12 +17,12 @@ origin.date: 02/27/2017
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 470b9e049497aa907376278c6ad8ac221da47790
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ca487ce352c3d4303f497809e742a2797dfb8c01
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666085"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725222"
 ---
 # <a name="create-a-highly-available-vm"></a>创建高度可用 VM
 
@@ -132,7 +132,7 @@ az group delete --name myResourceGroup
 | [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) | 创建虚拟网卡并将其连接到虚拟网络、子网和 NSG。 |
 | [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) | 创建可用性集。 可用性集通过将虚拟机分布到各个物理资源上（以便发生故障时，不会影响整个集）来确保应用程序运行时间。 |
 | [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/group/extension?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,17 +6,17 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: dd3f87b75651eec43104da85a0608055e04b1db3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 393ddd6b68e3afade07fa96242e051736fade0b2
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004325"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844492"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>教程：使用 Blob 存储构建高度可用的应用程序
 
@@ -41,7 +41,7 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* 使用以下工作负荷安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)：
+* 使用以下工作负荷安装 [Visual Studio 2019](https://www.visualstudio.com/downloads/)：
   - **Azure 开发**
 
   ![Azure 开发（位于“Web 和云”下）](media/storage-create-geo-redundant-storage/workloads.png)
@@ -72,21 +72,21 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 
 按以下步骤创建读取访问异地冗余存储帐户：
 
-1. 选择 Azure 门户左上角的“创建资源”按钮。
-2. 从“新建”页面中选择“存储”。
-3. 在“特色”下选择“存储帐户 - Blob、文件、表、队列”。
-4. 使用以下信息填充存储帐户窗体（如下图所示），然后选择“创建”：
+1. 选择 Azure 门户左上角的“创建资源”按钮。 
+2. 从“新建”页面中选择“存储”。  
+3. 在“特色”下选择“存储帐户 - Blob、文件、表、队列”。  
+4.  使用以下信息填充存储帐户窗体（如下图所示），然后选择“创建”：
 
    | 设置       | 建议的值 | 说明 |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **名称** | mystorageaccount | 存储帐户的唯一值 |
-   | 部署模型 | Resource Manager  | 资源管理器包含最新功能。|
-   | 帐户类型 | StorageV2 | 有关帐户类型的详细信息，请参阅[存储帐户的类型](../common/storage-introduction.md#types-of-storage-accounts) |
+   | 部署模型  | Resource Manager  | 资源管理器包含最新功能。|
+   |  帐户类型 | StorageV2 | 有关帐户类型的详细信息，请参阅[存储帐户的类型](../common/storage-introduction.md#types-of-storage-accounts) |
    | **性能** | 标准 | 对于示例方案，“标准”已足够。 |
    | **复制**| 读取访问异地冗余存储 (RA-GRS) | 这是运行示例所必需的。 |
    |**订阅** | 你的订阅 |有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
    |**ResourceGroup** | MyResourceGroup |如需有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
-   |**位置** | 中国东部 | 选择一个位置。 |
+   |**Location** | 中国东部 | 选择一个位置。 |
 
 ![创建存储帐户](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -132,7 +132,7 @@ git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
 
 在应用程序中，必须为存储帐户提供连接字符串。 可以将此连接字符串存储在运行应用程序的本地计算机的环境变量中。 根据你的操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 复制主密钥或辅助密钥中的**连接字符串**。 根据操作系统运行以下命令之一，将 \<yourconnectionstring\> 替换为实际的连接字符串。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。   复制主密钥或辅助密钥中的**连接字符串**。 根据操作系统运行以下命令之一，将 \<yourconnectionstring\> 替换为实际的连接字符串。 此命令将一个环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
 
 ### <a name="linux"></a>Linux
 
@@ -150,7 +150,7 @@ setx storageconnectionstring "<yourconnectionstring>"
 
 在应用程序中，必须提供存储帐户凭据。 可以将此信息存储在运行应用程序的本地计算机的环境变量中。 根据操作系统，按照下面的某个示例创建环境变量。
 
-在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 将“存储帐户名称”和“密钥”值粘贴到以下命令中，替换 \<youraccountname\> 和 \<youraccountkey\> 占位符。 此命令将环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
+在 Azure 门户中导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。   将“存储帐户名称”和“密钥”值粘贴到以下命令中，   替换 \<youraccountname\> 和 \<youraccountkey\> 占位符。 此命令将环境变量保存到本地计算机。 在 Windows 中，必须重载正在使用的**命令提示符**或 shell，该环境变量才可用。
 
 ### <a name="linux"></a>Linux
 
@@ -193,9 +193,9 @@ AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
 AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 ```
 
-导航到存储帐户并在“设置”部分选择“访问密钥”，即可找到 Azure 门户中的此信息。
+导航到存储帐户并在“设置”部分选择“访问密钥”，即可找到 Azure 门户中的此信息。  
 
-还必须安装所需的依赖项。 为此，请打开命令提示符，导航到示例文件夹，然后输入 `npm install`。
+安装必需的依赖项。 为此，请打开命令提示符，导航到示例文件夹，然后输入 `npm install`。
 
 ---
 
@@ -203,9 +203,9 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-在 Visual Studio 中，按 F5 或选择“启动”，开始调试应用程序。 Visual Studio 会自动还原缺少的 NuGet 包（若已配置）。若要了解详情，请参阅[通过包还原安装和重新安装包](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)。
+在 Visual Studio 中，按 F5  或选择“启动”  ，开始调试应用程序。 Visual Studio 会自动还原缺少的 NuGet 包（若已配置）。若要了解详情，请参阅[通过包还原安装和重新安装包](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview)。
 
-此时会启动一个控制台窗口，应用程序开始运行。 应用程序将 HelloWorld.png 图像从解决方案上传到存储帐户。 应用程序会进行检查，确保图像已复制到辅助 RA-GRS 终结点， 然后开始下载图像（最多 999 次）。 每次读取由 **P** 或 **S** 表示。其中，P 表示主终结点，S 表示辅助终结点。
+此时会启动一个控制台窗口，应用程序开始运行。 应用程序将  HelloWorld.png 图像从解决方案上传到存储帐户。 应用程序会进行检查，确保图像已复制到辅助 RA-GRS 终结点， 然后开始下载图像（最多 999 次）。 每次读取由 **P** 或 **S** 表示。其中，  P 表示主终结点，  S 表示辅助终结点。
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -213,7 +213,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-若要在终端或命令提示符处运行应用程序，请转到 **circuitbreaker.py** 目录，然后输入 `python circuitbreaker.py`。 应用程序将 HelloWorld.png 图像从解决方案上传到存储帐户。 应用程序会进行检查，确保图像已复制到辅助 RA-GRS 终结点， 然后开始下载图像（最多 999 次）。 每次读取由 **P** 或 **S** 表示。其中，P 表示主终结点，S 表示辅助终结点。
+若要在终端或命令提示符处运行应用程序，请转到 **circuitbreaker.py** 目录，然后输入 `python circuitbreaker.py`。 应用程序将  HelloWorld.png 图像从解决方案上传到存储帐户。 应用程序会进行检查，确保图像已复制到辅助 RA-GRS 终结点， 然后开始下载图像（最多 999 次）。 每次读取由 **P** 或 **S** 表示。其中，  P 表示主终结点，  S 表示辅助终结点。
 
 ![正在运行的控制台应用](media/storage-create-geo-redundant-storage/figure3.png)
 
@@ -230,13 +230,13 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 1. 打开 shell 并浏览到已克隆目录中的 **storage-blobs-java-v10-quickstart**。
 2. 输入 `mvn compile exec:java`。
 
-此示例在默认目录中为 Windows 用户创建一个测试文件，该目录为 **AppData\Local\Temp**。然后，示例会提供下述可以输入的命令选项：
+此示例在默认目录中创建一个测试文件。 对于 Windows 用户，此目录是 **AppData\Local\Temp**。然后，示例会提供下述可以输入的命令选项：
 
-- 输入 **P** 可执行一个放置 Blob 操作，将临时文件上传到存储帐户。
-- 输入 **L** 可执行一个列表 Blob 操作，列出目前在容器中的 Blob。
-- 输入 **G** 可执行一个获取 Blob 操作，将文件从存储帐户下载到本地计算机。
-- 输入 **D** 可执行一个删除 Blob 操作，将 Blob 从存储帐户中删除。
-- 输入 **E** 可关闭示例，同时也会删除示例创建的所有资源。
+- 输入 **P** 可执行一个放置 Blob 操作，此命令将临时文件上传到存储帐户。
+- 输入 **L** 可执行一个列出 Blob 操作，此命令列出目前在容器中的 Blob。
+- 输入 **G** 可执行一个获取 Blob 操作，此命令将文件从存储帐户下载到本地计算机。
+- 输入 **D** 可执行一个删除 Blob 操作，此命令将 Blob 从存储帐户中删除。
+- 输入 **E** 可关闭示例，此命令也会删除示例创建的所有资源。
 
 如果在 Windows 上运行应用程序，则此示例显示输出。
 

@@ -10,12 +10,12 @@ origin.date: 05/11/2017
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 64a66da1e861a77a3ca6dfea9be4666ac4199342
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: eb5dd8ce5f30da29fc3e627567e1e422fb70da77
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004037"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844462"
 ---
 # <a name="managing-concurrency-in-azure-storage"></a>在 Azure 存储中管理并发
 ## <a name="overview"></a>概述

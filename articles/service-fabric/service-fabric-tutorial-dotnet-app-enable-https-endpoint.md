@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/17/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7703a6ee6ff90b8a6263f99a24c81b67f78e6ca6
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: f2b5201cf1427ee895b73f989756ab5cdebcbfc8
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625634"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844581"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>教程：使用 Kestrel 向 ASP.NET Core Web API 前端服务添加 HTTPS 终结点
 
@@ -43,14 +43,17 @@ ms.locfileid: "58625634"
 > * [将应用程序部署到远程群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * 向 ASP.NET Core 前端服务添加 HTTPS 终结点
 > * [使用 Azure Pipelines 配置 CI/CD](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+
 <!-- Not Available on [Set up monitoring and diagnostics for the application](service-fabric-tutorial-monitoring-aspnet.md)-->
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
 在开始学习本教程之前：
 
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* [安装 Visual Studio 2017](https://www.visualstudio.com/) 版本 15.5 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+* [安装 Visual Studio 2019](https://www.visualstudio.com/) 版本 15.5 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>获取证书或创建自签名开发证书
@@ -83,8 +86,8 @@ Thumbprint                                Subject
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -182,7 +185,7 @@ private X509Certificate2 GetCertificateFromStore()
 
 ## <a name="give-network-service-access-to-the-certificates-private-key"></a>允许 NETWORK SERVICE 访问证书的私钥
 
-在前面的步骤中，已在开发计算机上将证书导入 `Cert:\LocalMachine\My` 存储。  另外，还必须显式允许运行服务（默认为 NETWORK SERVICE）的帐户访问证书的私钥。 可以手动执行此操作（使用 certlm.msc 工具），但最好是在服务清单的 **SetupEntryPoint** 中[配置启动脚本](service-fabric-run-script-at-service-startup.md)，以便自动运行 PowerShell 脚本。
+在前面的步骤中，已在开发计算机上将证书导入 `Cert:\LocalMachine\My` 存储。  现在，显式允许运行服务（默认为 NETWORK SERVICE）的帐户访问证书的私钥。 可以手动执行此步骤（使用 certlm.msc 工具），但最好是在服务清单的 **SetupEntryPoint** 中[配置启动脚本](service-fabric-run-script-at-service-startup.md)，以便自动运行 PowerShell 脚本。
 
 ### <a name="configure-the-service-setup-entry-point"></a>配置服务安装程序入口点
 
@@ -193,8 +196,8 @@ private X509Certificate2 GetCertificateFromStore()
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <StatelessServiceType ServiceTypeName="VotingWebType" />
   </ServiceTypes>
@@ -227,17 +230,17 @@ private X509Certificate2 GetCertificateFromStore()
 
 ### <a name="add-the-batch-and-powershell-setup-scripts"></a>添加批处理和 PowerShell 设置脚本
 
-若要从 **SetupEntryPoint** 点运行 PowerShell，可以在指向 PowerShell 文件的批处理文件中运行 PowerShell.exe。 首先，添加服务项目的批处理文件。  在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“Setup.bat”的新文件。  编辑 *Setup.bat* 文件，添加以下命令：
+若要从 **SetupEntryPoint** 点运行 PowerShell，可以在指向 PowerShell 文件的批处理文件中运行 PowerShell.exe。 首先，添加服务项目的批处理文件。  在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“Setup.bat”的新文件。     编辑 *Setup.bat* 文件，添加以下命令：
 
 ```bat
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 
-修改 *Setup.bat* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。
+修改 *Setup.bat* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。 
 
 ![设置文件属性][image1]
 
-在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“SetCertAccess.ps1”的新文件。  编辑 *SetCertAccess.ps1* 文件，添加以下脚本：
+在“解决方案资源管理器”中，右键单击“VotingWeb”，选择“添加”->“新建项”，然后添加名为“SetCertAccess.ps1”的新文件。     编辑 *SetCertAccess.ps1* 文件，添加以下脚本：
 
 ```powershell
 $subject="mytestcert"
@@ -284,7 +287,7 @@ if ($cert -eq $null)
 }
 ```
 
-修改 *SetCertAccess.ps1* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。
+修改 *SetCertAccess.ps1* 文件属性，将“复制到输出目录”设置为“如果较新则复制”。 
 
 ### <a name="run-the-setup-script-as-a-local-administrator"></a>以管理员身份运行设置脚本
 
@@ -295,7 +298,7 @@ if ($cert -eq $null)
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -339,9 +342,9 @@ if ($cert -eq $null)
 
 ## <a name="run-the-application-locally"></a>在本地运行应用程序
 
-在“解决方案资源管理器”中，选择 **Voting** 应用程序并将“应用程序 URL”属性设置为 “ <https://localhost:443> ” 。
+在“解决方案资源管理器”中，选择 **Voting** 应用程序并将“应用程序 URL”  属性设置为“https:\//localhost:443”。
 
-保存所有文件并按 F5，以便在本地运行应用程序。  在应用程序部署完以后，Web 浏览器会打开到 [https://localhost:443](https://localhost:443)。 如果使用自签名证书，则会看到一个警告，指出电脑不信任此网站的安全性。  转到该网页。
+保存所有文件并按 F5，以便在本地运行应用程序。  在应用程序部署完以后，Web 浏览器会打开到 https:\//localhost:443。 如果使用自签名证书，则会看到一个警告，指出电脑不信任此网站的安全性。  转到该网页。
 
 ![Voting 应用程序][image2]
 
@@ -349,19 +352,19 @@ if ($cert -eq $null)
 
 在将应用程序部署到 Azure 之前，请将证书安装到所有远程群集节点的 `Cert:\LocalMachine\My` 存储中。  服务可以移到群集的不同节点。  当前端 Web 服务在群集节点上启动时，启动脚本会查找证书并配置访问权限。
 
-首先，将证书导出到 PFX 文件。 打开 certlm.msc 应用程序，导航到“个人”>“证书”。  右键单击 *mytestcert* 证书，选择“所有任务”>“导出”。
+首先，将证书导出到 PFX 文件。 打开 certlm.msc 应用程序，导航到“个人”  >  “证书”。  右键单击 *mytestcert* 证书，选择“所有任务”  >  “导出”。
 
 ![导出证书][image4]
 
-在导出向导中，选择“是，导出私钥”，然后选择“个人信息交换(PFX)”格式。  将文件导出到 *C:\Users\sfuser\votingappcert.pfx*。
+在导出向导中，选择“是，导出私钥”，然后选择“个人信息交换(PFX)”格式。   将文件导出到 *C:\Users\sfuser\votingappcert.pfx*。
 
-接下来，使用 [Add-AzureRmServiceFabricApplicationCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) cmdlet 在远程群集上安装证书。
+接下来，使用 [Add-AzServiceFabricApplicationCertificate](https://docs.microsoft.com/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) cmdlet 在远程群集上安装证书。
 
 > [!Warning]
 > 对于开发和测试应用程序，自签名证书已足够。 对于生产应用程序，请使用[证书颁发机构 (CA)](https://wikipedia.org/wiki/Certificate_authority) 提供的证书，而不是自签名证书。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 
 $vaultname="sftestvault"
 $certname="VotingAppPFX"
@@ -394,7 +397,7 @@ Write-Host "Writing secret to $certname in vault $vaultname"
 $secret = Set-AzureKeyVaultSecret -VaultName $vaultname -Name $certname -SecretValue $secretValue
 
 # Add a certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $secret.Id -Verbose
 ```
 
 ## <a name="open-port-443-in-the-azure-load-balancer"></a>在 Azure 负载均衡器中打开端口 443
@@ -408,23 +411,23 @@ $RGname="voting_RG"
 $port=443
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName -eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
-$slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
+$resource = Get-AzResource | Where {$_.ResourceGroupName -eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"}
+$slb = Get-AzLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
-$slb | Add-AzureRmLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
+$slb | Add-AzLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
 
 # Add rule configuration to the load balancer
-$probe = Get-AzureRmLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
-$slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
+$probe = Get-AzLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
+$slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
 
 # Set the goal state for the load balancer
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 ```
 
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
-保存所有文件，从“调试”切换到“发布”，然后按 F6 进行重新生成。  在“解决方案资源管理器”中，右键单击“Voting”并选择“发布”。 选择在[将应用程序部署到群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)中创建的群集的连接终结点，或者选择另一群集。  单击“发布”，将应用程序发布到远程群集。
+保存所有文件，从“调试”切换到“发布”，然后按 F6 进行重新生成。  在“解决方案资源管理器”中，右键单击“Voting”并选择“发布”   。 选择在[将应用程序部署到群集](service-fabric-tutorial-deploy-app-to-party-cluster.md)中创建的群集的连接终结点，或者选择另一群集。  单击“发布”，将应用程序发布到远程群集。 
 
 当应用程序部署后，打开 Web 浏览器，导航到 [https://mycluster.region.cloudapp.chinacloudapi.cn:443](https://mycluster.region.cloudapp.chinacloudapi.cn:443)（使用群集的连接终结点更新 URL）。 如果使用自签名证书，则会看到一个警告，指出电脑不信任此网站的安全性。  转到该网页。
 

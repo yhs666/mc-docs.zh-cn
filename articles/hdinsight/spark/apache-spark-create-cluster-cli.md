@@ -5,17 +5,17 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-origin.date: 05/09/2019
-ms.date: 06/10/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4173a9b4868709c8013de0134c6e4fee5e7bcea9
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 99aca5e4b4acefa8ccf7eec126fca9036a17e588
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425242"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845266"
 ---
-# <a name="create-an-apache-spark-cluster-in-azure-hdinsight-with-azure-cli"></a>使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集
+# <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集
 
 在本快速入门中，你将了解如何使用 Azure CLI 在 Azure HDInsight 中创建 Apache Spark 群集。 通过 Apache Spark 可以使用内存处理进行快速数据分析和群集计算。 [Azure 命令行接口 (CLI)](/cli/?view=azure-cli-latest) 是用于管理 Azure 资源的 Microsoft 跨平台命令行体验。
 

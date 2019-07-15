@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 05/14/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 351dc7d5ba140c4463c01e8752e0342e1a9530f5
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 5d72f09a8e6645327cecff60e58725611b5b8031
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598905"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844886"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>快速入门：使用计算机视觉 REST API 和 Java 分析远程图像
 
@@ -197,10 +197,6 @@ REST Response:
 }
 ```
 
-## <a name="clean-up-resources"></a>清理资源
-
-当不再需要时，可以删除 Java 项目，包括已编辑的类和导入的库。
-
 ## <a name="next-steps"></a>后续步骤
 
 浏览一款 Java Swing 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。 要快速体验计算机视觉 API，请尝试使用 [Open API 测试控制台](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)。
@@ -208,3 +204,4 @@ REST Response:
 > [!div class="nextstepaction"]
 > [计算机视觉 API Java 教程](../Tutorials/java-tutorial.md)
 
+<!-- Update_Description: wording update -->

@@ -1,16 +1,16 @@
 ---
-author: diberry
+author: IEvangelist
 ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 02/11/2019
-ms.date: 03/01/2019
-ms.openlocfilehash: c00676dfb7a84be72dc548e1e29730fc813f878d
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+origin.date: 06/26/2019
+ms.date: 07/12/2019
+ms.openlocfilehash: a232f75a28e574b1894f443e47ece15e98544292
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204208"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844953"
 ---
 > [!TIP]
 > 可以使用 [docker images](https://docs.docker.com/engine/reference/commandline/images/) 命令列出下载的容器映像。 例如，以下命令以表格列出每个下载的容器映像的 ID、存储库和标记：
@@ -19,7 +19,6 @@ ms.locfileid: "57204208"
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY              TAG
->  ebbee78a6baa       <container-name>         latest
->  ``` 
+>  <image-id>       <repository-path/name>     <tag-name>
+>  ```
 
-<!-- ms.date: 03/01/2019 -->

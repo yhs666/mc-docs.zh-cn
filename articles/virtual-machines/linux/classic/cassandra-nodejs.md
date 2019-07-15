@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 08/17/2017
 ms.date: 11/26/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4834448d1fcdb12cb82b8748e0aa0f09dc70d495
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8c3e7cc5f0b0b0996e973f6aaf06ffba91336d3e
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626212"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725217"
 ---
 # <a name="run-a-cassandra-cluster-on-linux-in-azure-with-nodejs"></a>使用 Node.js 在 Azure 中的 Linux 上运行 Cassandra 群集
 
@@ -71,7 +71,7 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 
 单区域 Cassandra 群集配置：
 
-| 群集参数 | 值 | 备注 |
+| 群集参数 | Value | 备注 |
 | --- | --- | --- |
 | 节点数 (N) |8 |群集中节点总数 |
 | 复制因子 (RF) |3 |给定行副本数 |
@@ -106,7 +106,7 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 
 **双区域 Cassandra 群集配置**
 
-| 群集参数 | 值 | 备注 |
+| 群集参数 | Value | 备注 |
 | --- | --- | --- |
 | 节点数 (N) |8 + 8 |群集中节点总数 |
 | 复制因子 (RF) |3 |给定行副本数 |
@@ -119,7 +119,7 @@ Cassandra 支持两种类型的数据完整性模型 - 一致性和最终一致�
 在部署过程中使用以下软件版本：
 
 <table>
-<tr><th>软件</th><th>源</th><th>版本</th></tr>
+<tr><th>软件</th><th>Source</th><th>版本</th></tr>
 <tr><td>JRE    </td><td><a href="https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable" data-raw-source="[JRE 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)">JRE 8</a> </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td><a href="https://github.com/twall/jna" data-raw-source="[JNA](https://github.com/twall/jna)">JNA</a> </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td><a href="http://www.apache.org/dist/cassandra/" data-raw-source="[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)">Apache Cassandra 2.0.8</a></td><td> 2.0.8</td></tr>
@@ -281,7 +281,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 编辑每个 VM 上的 cassandra.yaml，使之能够反映所有虚拟机所需的配置 [在实际预配过程中，我们会调整此配置]：
 
 <table>
-<tr><th>字段名称   </th><th> 值  </th><th>    备注 </th></tr>
+<tr><th>字段名称   </th><th> Value  </th><th>    备注 </th></tr>
 <tr><td>cluster_name </td><td>    &quot;CustomerService&quot;    </td><td> 使用能够反映你的部署的名称</td></tr>
 <tr><td>listen_address    </td><td>[将此字段留空]    </td><td> 删除 &quot;localhost&quot; </td></tr>
 <tr><td>rpc_addres   </td><td>[将此字段留空]    </td><td> 删除 &quot;localhost&quot; </td></tr>
@@ -309,7 +309,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 **步骤 1：创建虚拟网络**：登录 Azure 门户，再创建虚拟网络（经典），属性如下表所示。 请参阅[使用 Azure 门户创建虚拟网络（经典）](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)，了解此过程的详细步骤。      
 
 <table>
-<tr><th>VM 属性名称</th><th>值</th><th>备注</th></tr>
+<tr><th>VM 属性名称</th><th>Value</th><th>备注</th></tr>
 <tr><td>Name</td><td>vnet-cass-north-china</td><td></td></tr>
 <tr><td>区域</td><td>中国北部</td><td></td></tr>
 <tr><td>DNS 服务器</td><td>无</td><td>将其忽略，因为我们不使用 DNS 服务器</td></tr>
@@ -473,7 +473,7 @@ Azure 在进行配置时需要用 PEM 或 DER 编码的 X509 公钥。 按照“
 登录到 Azure 门户，并使用下表中的属性创建虚拟网络。 请参阅[在 Azure 门户中配置只使用云的虚拟网络](../../../virtual-network/virtual-networks-create-vnet-classic-pportal.md)，了解此过程的详细步骤。      
 
 <table>
-<tr><th>属性名称    </th><th>值    </th><th>备注</th></tr>
+<tr><th>属性名称    </th><th>Value    </th><th>备注</th></tr>
 <tr><td>Name    </td><td>vnet-cass-east-china</td><td></td></tr>
 <tr><td>区域    </td><td>中国东部</td><td></td></tr>
 <tr><td>DNS 服务器        </td><td></td><td>将其忽略，因为我们不使用 DNS 服务器</td></tr>
@@ -523,7 +523,10 @@ Azure 虚拟网络中的本地网络是映射到远程站点（包括私有云�
 </table>
 
 ### <a name="step-6-update-the-shared-key"></a>步骤 6：更新共享密钥
-使用以下 Powershell 脚本更新每个 VPN 网关的 IPSec 密钥 [为两个网关使用安全的密钥]：Set-AzureVNetGatewayKey -VNetName hk-vnet-east-china -LocalNetworkSiteName hk-lnet-map-to-north-china -SharedKey D9E76BKK Set-AzureVNetGatewayKey -VNetName hk-vnet-north-china -LocalNetworkSiteName hk-lnet-map-to-east-china -SharedKey D9E76BKK
+使用以下 Powershell 脚本更新每个 VPN 网关的 IPSec 密钥 [为两个网关使用安全的密钥]：
+
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-east-china -LocalNetworkSiteName hk-lnet-map-to-north-china -SharedKey D9E76BKK
+    Set-AzureVNetGatewayKey -VNetName hk-vnet-north-china -LocalNetworkSiteName hk-lnet-map-to-east-china -SharedKey D9E76BKK
 
 ### <a name="step-7-establish-the-vnet-to-vnet-connection"></a>步骤 7：建立 VNET 到 VNET 连接
 在 Azure 门户中，使用这两个虚拟网络的“仪表板”菜单建立网关到网关连接。 使用底部工具栏中的“连接”菜单项。 几分钟后，仪表板会以图形方式显示连接详细信息。

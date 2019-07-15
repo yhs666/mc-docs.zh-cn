@@ -4,18 +4,18 @@ description: 本教程逐步介绍如何设置开发计算机和云资源，以�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 04/26/2019
-ms.date: 06/17/2019
+origin.date: 06/10/2019
+ms.date: 07/22/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dc8154201e639aa299bb4cc34a0adb157b2ead87
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 15a144a113cc1a8d03c8ff1b7c207ee52649f0b3
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732722"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845253"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -23,7 +23,7 @@ ms.locfileid: "66732722"
 
 在快速入门文章中，你已使用 Linux 虚拟机创建了一个 IoT Edge 设备，并通过 Azure 市场部署了一个预生成的模块。 本教程将逐步介绍如何开发你自己的代码并将其部署到 IoT Edge 设备。 本教程是更详细地介绍特定编程语言或 Azure 服务的其他所有教程的有用先决条件。 
 
-本教程使用了有关**将 C 模块部署到 Linux 设备**的示例。 之所以选择此示例，是因为它要求满足的先决条件最少，无论是否安装了适当的库，它都可以让你从中了解开发工具。 了解开发概念之后，可以选择首选的语言或 Azure 服务深入到详细信息。 
+本教程使用**将 C# 模块部署到 Linux 设备**的示例。 之所以选择此示例是因为它是 IoT Edge 解决方案中最常见的开发人员方案。 即使你计划使用其他语言或部署 Azure 服务，本教程仍然有助于了解开发工具和概念。 在阅读开发过程的介绍后，你可以选择喜欢的语言或 Azure 服务来深入了解细节。 
 
 本教程介绍如何执行下列操作：
 
@@ -63,6 +63,8 @@ ms.locfileid: "66732722"
 * 可以根据开发偏好，使用自己的计算机或虚拟机。
 * 大多数可以运行容器引擎的操作系统都可用于开发 Linux 设备的 IoT Edge 模块。 本教程使用 Windows 计算机，但会指出 MacOS 或 Linux 上的已知差异。 
 * 安装 [Git](https://git-scm.com/)，用于稍后在本教程中提取模块模板包。  
+* [适用于 Visual Studio Code 的 C# 扩展（由 OmniSharp 提供支持）](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)。
+* [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)。
 
 Linux 上的一个 Azure IoT Edge 设备：
 
@@ -117,7 +119,7 @@ IoT Edge 模块打包为容器，因此，需要在开发计算机上安装一�
 
 Azure IoT Tools 扩展为 Visual Studio Code 中支持的所有 IoT Edge 模块语言提供项目模板。 这些模板包含将工作模块部署到测试 IoT Edge 所需的所有文件和代码，或者提供一个起点让你使用自己的业务逻辑自定义模板。 
 
-本教程将使用 C 模块模板，因为它的安装先决条件最少。 
+本教程使用 C# 模块模板，因为它是最常用的模板。 
 
 ### <a name="create-a-project-template"></a>创建项目模板
 
@@ -127,7 +129,7 @@ Azure IoT Tools 扩展为 Visual Studio Code 中支持的所有 IoT Edge 模块�
    | ----- | ----- |
    | 选择文件夹 | 在适用于 VS Code 的开发计算机上选择用于创建解决方案文件的位置。 |
    | 提供解决方案名称 | 输入解决方案的描述性名称，或者接受默认的 **EdgeSolution**。 |
-   | 选择模块模板 | 选择“C 模块”。  |
+   | 选择模块模板 | 选择“C# 模块”。  |
    | 提供模块名称 | 接受默认值“SampleModule”。  |
    | 为模块提供 Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 容器映像是基于你在上一步中提供的名称预先填充的。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/samplemodule。 |
  
@@ -155,7 +157,7 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 ### <a name="select-your-target-architecture"></a>选择目标体系结构
 
-目前，Visual Studio Code 可以开发适用于 Linux AMD64 和 Linux ARM32v7 设备的 C 模块。 需要选择面向每个解决方案的体系结构，因为这会影响容器的生成和运行方式。 默认设置为 Linux AMD64。 
+目前，Visual Studio Code 可以为 Linux AMD64 和 ARM32v7 设备开发 C# 模块。 需要选择面向每个解决方案的体系结构，因为这会影响容器的生成和运行方式。 默认设置为 Linux AMD64。 
 
 1. 打开命令面板并搜索 **Azure IoT Edge:Set Default Target Platform for Edge Solution**，或者选择窗口底部边栏中的快捷方式图标。 
 
@@ -169,17 +171,19 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 每个模块可以在其代码中声明多个输入和输出队列。   设备上运行的 IoT Edge 中心将消息从一个模块的输出路由到一个或多个模块的输入。 用于声明输入和输出的具体语言各不相同，但在所有模块中的概念是相同的。 有关模块间路由的详细信息，请参阅[声明路由](module-composition.md#declare-routes)。
 
-1. 打开 **modules/SampleModules/** 文件夹中的 **main.c** 文件。 
+项目模板附带的示例 C# 代码使用适用于 .NET 的 IoT Hub SDK 中的 [ModuleClient 类](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet)。 
 
-2. IoT 中心 C SDK 使用函数 [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) 初始化模块输入队列。 在 main.c 文件中搜索该函数。
+1. 打开 **Program.cs** 文件，该文件位于 **modules/SampleModule/** 文件夹中。 
 
-3. 查看 SetInputMessageCallback 函数构造函数，将会看到，代码中已初始化名为 **input1** 的输入队列。 
+2. 在 program.cs 中，找到 **SetInputMessageHandlerAsync** 方法。
+
+2. [SetInputMessageHandlerAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.setinputmessagehandlerasync?view=azure-dotnet) 方法设置了一个输入队列来接收传入消息。 查看此方法，并了解它如何初始化名为 **input1** 的输入队列。 
 
    ![在 SetInputMessageCallback 构造函数中查找输入名称](./media/tutorial-develop-for-linux/declare-input-queue.png)
 
-4. 模块输出队列以类似的方式初始化。 在 main.c 文件中搜索 [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) 函数。 
+3. 接下来，找到 **SendEventAsync** 方法。
 
-5. 查看 SendEventToOutputAsync 函数构造函数，将会看到，代码中已初始化名为 **output1** 的输出队列。 
+4. [SendEventAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient.sendeventasync?view=azure-dotnet) 方法会处理收到的消息，并设置一个输出队列，用来传递这些消息。 查看此方法，可以看到，它初始化了名为 **output1** 的输出队列。 
 
    ![在 SendEventToOutputAsync 中查找输出名称](./media/tutorial-develop-for-linux/declare-output-queue.png)
 
@@ -257,7 +261,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 * 是否使用从容器注册表复制的凭据运行了 `docker login` 命令？ 这些凭据不同于用来登录到 Azure 的凭据。 
 * 你的容器存储库是否正确？ 存储库中是否包含正确的容器注册表名称和模块名称？ 打开 SampleModule 文件夹中的 **module.json** 文件进行检查。 存储库值应类似于 **\<注册表名称\>.azurecr.io/samplemodule**。 
 * 如果为模块使用的名称不是 **SampleModule**，使用的名称是否在整个解决方案中一致？
-* 计算机运行的容器是否与正在生成的容器的类型相同？ 本教程适用于 Linux IoT Edge 设备，因此，Visual Studio Code 应会在边栏中显示 **amd64** 或 **arm32v7**，并且 Docker Desktop 应运行 Linux 容器。 Visual Studio Code 中的 C 模块不支持 Windows 容器。 
+* 计算机运行的容器是否与正在生成的容器的类型相同？ 本教程适用于 Linux IoT Edge 设备，因此，Visual Studio Code 应会在边栏中显示 **amd64** 或 **arm32v7**，并且 Docker Desktop 应运行 Linux 容器。  
 
 ## <a name="deploy-modules-to-device"></a>将模块部署到设备
 

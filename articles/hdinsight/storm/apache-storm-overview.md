@@ -14,27 +14,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/27/2018
-ms.date: 04/15/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 58160d1e0cff3bc61e76c129febad110b67d32aa
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: aedc97cac139e3616cace289061dd835db0011e8
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004176"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845159"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>什么是 Azure HDInsight 上的 Apache Storm？
 
 [Apache Storm](https://storm.apache.org/) 是一种容错的分布式开源计算系统。 若要实时处理数据流，可以将 Storm 与 [Apache Hadoop](https://hadoop.apache.org/) 配合使用。 Storm 解决方案还提供有保障的数据处理功能，能够重播第一次未成功处理的数据。
 
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
-
 ## <a name="why-use-apache-storm-on-hdinsight"></a>为何使用 Apache Storm on HDInsight？
 
 Storm on HDInsight 提供以下功能：
 
-* __Storm 99% 正常运行时间的服务级别协议 (SLA)__：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)文档。
+* __Storm 99% 正常运行时间的服务级别协议 (SLA)__ ：有关详细信息，请参阅 [HDInsight 的 SLA 信息](https://www.azure.cn/support/sla/hdinsight/)文档。
 
 * 支持在 Storm 群集创建期间或者创建之后，通过对该群集运行脚本轻松进行自定义。 有关详细信息，请参阅[使用脚本操作自定义 HDInsight 群集](../hdinsight-hadoop-customize-cluster-linux.md)。
 
@@ -55,7 +53,7 @@ Storm on HDInsight 提供以下功能：
 
 有关在实时分析解决方案中使用 Apache Storm 的公司的列表，请参阅[使用 Apache Storm 的公司](https://storm.apache.org/documentation/Powered-By.html)。
 
-若要开始使用 Storm，请参阅 [Apache Storm on HDInsight 入门][gettingstarted]。
+若要开始使用 Storm，请参阅[在 Azure HDInsight 中创建和监视 Apache Storm 拓扑](apache-storm-quickstart.md)。
 
 ## <a name="how-does-apache-storm-work"></a>Apache Storm 如何工作
 
@@ -79,7 +77,7 @@ Apache Storm 群集的默认配置是只能有一个 Nimbus 节点。 HDInsight 
 
 ## <a name="ease-of-creation"></a>容易创建
 
-只需数分钟即可在 HDInsight 上创建新的 Storm 群集。 有关创建 Storm 群集的信息，请参阅 [Storm on HDInsight 入门](apache-storm-tutorial-get-started-linux.md)。
+只需数分钟即可在 HDInsight 上创建新的 Storm 群集。 有关创建 Storm 群集的详细信息，请参阅[使用 Azure 门户创建 Apache Hadoop 群集](../hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="ease-of-use"></a>易于使用
 
@@ -88,6 +86,8 @@ Apache Storm 群集的默认配置是只能有一个 Nimbus 节点。 HDInsight 
   有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 * __Web 连接__：所有 HDInsight 群集都提供 Ambari Web UI。 可以使用 Ambari Web UI 在群集上轻松监视、配置和管理服务。 Storm 群集还提供 Storm UI。 可以使用 Storm UI，通过浏览器监视和管理 Storm 拓扑的运行。
+
+  有关详细信息，请参阅[使用 Apache Ambari Web UI 管理 HDInsight](../hdinsight-hadoop-manage-ambari.md) 和[使用 Apache Storm UI 进行监视和管理](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui)文档。
 
 * __Azure PowerShell 和 Azure 经典 CLI__：PowerShell 和经典 CLI 都提供命令行实用工具，可在客户端系统中使用这些工具来操作 HDInsight 和其他 Azure 服务。
 
@@ -153,7 +153,9 @@ Apache Storm 可以提供不同级别的有保证的消息处理。 例如，基
 
 在以下 Java 实例中，fieldsGrouping 用于将来自组件“1”、“2”和“3”的元组路由至 MyJoiner bolt：
 
-    builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```java
+builder.setBolt("join", new MyJoiner(), parallelism) .fieldsGrouping("1", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("2", new Fields("joinfield1", "joinfield2")) .fieldsGrouping("3", new Fields("joinfield1", "joinfield2"));
+```
 
 ### <a name="batches"></a>批处理
 
@@ -181,8 +183,8 @@ Storm 使用 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 来记录�
 
 了解有关使用 Apache Storm on HDInsight 构建实时分析解决方案的详细信息：
 
-* [HDInsight 上的 Apache Storm 入门][gettingstarted]
-* [Apache Storm on HDInsight 的示例拓扑](apache-storm-example-topology.md)
+* [在 Azure HDInsight 中创建和监视 Apache Storm 拓扑](apache-storm-quickstart.md)
+* [HDInsight 上的 Apache Storm 的示例拓扑](apache-storm-example-topology.md)
 
 [stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
 [samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining

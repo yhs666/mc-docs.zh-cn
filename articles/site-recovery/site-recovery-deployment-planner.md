@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/18/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 69c3c29b2213965336612147d3514f9693d5301e
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 950145cbcc5ee64e52d6e0b28b7510462282aa56
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390797"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861652"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>关于用于 VMware 到 Azure 部署的 Azure Site Recovery 部署规划器
 本文为适用于 VMware 到 Azure 生产部署的 Azure Site Recovery 部署规划器用户指南。
@@ -88,15 +88,15 @@ ms.locfileid: "66390797"
 
 ## <a name="download-and-extract-the-deployment-planner-tool"></a>下载和提取部署规划器工具
 1. 下载最新版本的 [Site Recovery 部署规划器](https://aka.ms/asr-deployment-planner)。
-该工具已打包到 .zip 文件夹中。 该工具的当前版本仅支持 VMware 到 Azure 的方案。
+    该工具已打包到 .zip 文件夹中。 该工具的当前版本仅支持 VMware 到 Azure 的方案。
 
 2. 将 .zip 文件夹复制到要从中运行该工具的 Windows Server。
-可以从 Windows Server 2012 R2 运行该工具，前提是该服务器具有网络访问权限，可以连接到 vCenter 服务器/vSphere ESXi 主机，其中包含要分析的 VM。 但是，我们建议在其硬件配置符合[配置服务器大小调整指南](https://aka.ms/asr-v2a-on-prem-components)的服务器上运行该工具。 如果已在本地部署 Site Recovery 组件，请从配置服务器运行该工具。
+    可以从 Windows Server 2012 R2 运行该工具，前提是该服务器具有网络访问权限，可以连接到 vCenter 服务器/vSphere ESXi 主机，其中包含要分析的 VM。 但是，我们建议在其硬件配置符合[配置服务器大小调整指南](https://aka.ms/asr-v2a-on-prem-components)的服务器上运行该工具。 如果已在本地部署 Site Recovery 组件，请从配置服务器运行该工具。
 
     我们建议在运行该工具的服务器上实施与配置服务器（包含内置的进程服务器）一样的硬件配置。 此类配置可确保该工具所报告的已实现吞吐量与 Site Recovery 在复制过程中能够达到的实际吞吐量相符。 吞吐量计算取决于服务器上的可用网络带宽和服务器的硬件配置（例如 CPU 和存储）。 如果从任何其他服务器运行该工具，则会计算从该服务器到 Azure 的吞吐量。 另外，由于该服务器的硬件配置可能不同于配置服务器的硬件配置，该工具所报告的已实现吞吐量可能不准确。
 
 3. 解压缩 .zip 文件夹。
-该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
+    该文件夹包含多个文件和子文件夹。 可执行文件是父文件夹中的 ASRDeploymentPlanner.exe。
 
     示例：将 .zip 文件复制到 E:\ 驱动器并将它解压缩。
     E:\ASR Deployment Planner_v2.3.zip
@@ -119,7 +119,7 @@ ms.locfileid: "66390797"
 
 ## <a name="version-history"></a>版本历史记录
 最新的 Site Recovery 部署规划器工具版本为 2.4。
-请参阅 [Site Recovery 部署规划器版本历史记录](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx)页，了解每个更新中增加的修补程序。
+请参阅 [Site Recovery 部署规划器版本历史记录](/site-recovery/site-recovery-deployment-planner-history)页，了解每个更新中增加的修补程序。
 
 ## <a name="next-steps"></a>后续步骤
 [运行 Site Recovery 部署规划器](site-recovery-vmware-deployment-planner-run.md)

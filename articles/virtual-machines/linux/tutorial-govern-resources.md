@@ -15,12 +15,12 @@ origin.date: 10/12/2018
 ms.date: 05/20/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 61c31ef737ecfcd5ab7258ffb53c00a56e977daa
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: bc2891f478c225b93ba0b75a6294b80f88ee1d23
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004255"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725215"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>教程：了解如何使用 Azure CLI 管理 Linux 虚拟机
 
@@ -66,7 +66,7 @@ adgroupId=$(az ad group show --group <your-group-name> --query objectId --output
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
 
-如果收到一条错误，指出“主体 \<guid> 不存在于目录中”，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
+如果收到一条错误，指出“主体 \<guid> 不存在于目录中”  ，则表明新组未在 Azure Active Directory 中完成传播。 请尝试再次运行命令。
 
 通常情况下，请对*网络参与者*和*存储帐户参与者*重复执行此过程，确保分配用户来管理已部署的资源。 在本文中，可以跳过这些步骤。
 
@@ -78,7 +78,7 @@ az role assignment create --assignee-object-id $adgroupId --role "Virtual Machin
 az policy definition list --query "[].[displayName, policyType, name]" --output table
 ```
 
-可以看到现有的策略定义。 策略类型为“内置”或“自定义”。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
+可以看到现有的策略定义。 策略类型为“内置”或“自定义”   。 在这些定义中查找所述条件正是你要分配的条件的定义。 在本文中，分配的策略要符合以下条件：
 
 * 限制所有资源的位置。
 * 限制虚拟机的 SKU。
@@ -144,7 +144,7 @@ az vm create --resource-group myResourceGroup --name myVM --image UbuntuLTS --ge
 
 [资源锁](../../azure-resource-manager/resource-group-lock-resources.md)可以防止组织中的用户意外删除或修改重要资源。 与基于角色的访问控制不同，资源锁对所有用户和角色应用限制。 可以将锁定级别设置为 *CanNotDelete* 或 *ReadOnly*。
 
-若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。
+若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。  
 
 若要锁定虚拟机和网络安全组，请使用 [az lock create](https://docs.azure.cn/zh-cn/cli/lock?view=azure-cli-latest#az-lock-create) 命令：
 
@@ -202,7 +202,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 ```
 
 <!-- Not Available on ### View costs by tag values -->
-<!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)] -->
+<!-- Not Available on [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)-->
 
 ## <a name="clean-up-resources"></a>清理资源
 

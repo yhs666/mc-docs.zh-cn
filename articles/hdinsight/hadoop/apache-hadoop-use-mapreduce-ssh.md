@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 04/10/2018
-ms.date: 01/14/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8887c8ebe21f7e5373bccd4eb95060e2bac9dcff
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 38672d137e0027bf5ef4f077b451b1f78fc75c42
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029179"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845259"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>通过 SSH 将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用
 
@@ -36,9 +36,6 @@ ms.locfileid: "54029179"
 ## <a id="prereq"></a>先决条件
 
 * 基于 Linux 的 HDInsight（HDInsight 上的 Hadoop）群集
-
-  > [!IMPORTANT]
-  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 * SSH 客户端。 有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（将 SSH 与 HDInsight 配合使用）
 
@@ -97,7 +94,7 @@ ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
     hdfs dfs -cat /example/data/WordCountOutput/part-r-00000
     ```
 
-    此命令会显示一个列表，其内容为 wasb://example/data/gutenberg/davinci.txt 文件中包含的单词以及每个单词出现的次数。 以下文本是文件中所含数据的示例：
+    此命令会显示一个列表，其内容为 wasb://example/data/gutenberg/davinci.txt 文件中包含的单词以及每个单词出现的次数  。 以下文本是文件中所含数据的示例：
 
         wreathed        3
         wreathing       1

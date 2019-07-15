@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 01/10/2019
-ms.date: 02/20/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5a0a1944e66560656eceae621369c14b2b0f93d1
-ms.sourcegitcommit: 3ae99942621d28a8439ca1e7a7905caa5a3a10f9
+ms.openlocfilehash: 92c458f644e3d7743010ebbedb1d3825c8e1f756
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56582757"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844937"
 ---
 # <a name="quickstart-analyze-text-content-for-objectionable-material-in-python"></a>快速入门：使用 Python 分析文本内容中是否存在令人反感的材料
 
@@ -33,13 +33,13 @@ ms.locfileid: "56582757"
 
 打开命令提示符并运行以下命令以安装内容审查器 Python SDK：
 
-```
+```bash
 pip install azure-cognitiveservices-vision-contentmoderator
 ```
 
 ## <a name="import-modules"></a>导入模块
 
-创建名为 ContentModeratorQS.py 的新 Python 脚本，并添加以下代码来导入 SDK 的必要部分。
+创建名为 ContentModeratorQS.py 的新 Python 脚本，并添加以下代码来导入 SDK 的必要部分  。
 
 ```python
 # the ContentModeratorClient interacts with the service
@@ -85,7 +85,7 @@ Crap is the profanity here. Is this information PII? phone 3144444444
 
 ## <a name="query-the-moderator-service"></a>查询审查器服务
 
-使用订阅密钥和终结点 URL 创建 ContentModeratorClient 实例。 然后，使用其成员 TextModerationOperations 实例调用审查 API。 有关如何调用的详细信息，请参阅 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 参考文档。
+使用订阅密钥和终结点 URL 创建 ContentModeratorClient 实例  。 然后，使用其成员 TextModerationOperations 实例调用审查 API  。 有关如何调用的详细信息，请参阅 **[screen_text](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python)** 参考文档。
 
 ```python
 # Create the Content Moderator client
@@ -106,7 +106,7 @@ screen = client.text_moderation.screen_text(
 
 ## <a name="print-the-response"></a>输出响应
 
-最后，检查调用是否成功完成并返回“屏幕”实例。 然后将返回的数据输出到控制台。
+最后，检查调用是否成功完成并返回“屏幕”实例  。 然后将返回的数据输出到控制台。
 
 ```python
 assert isinstance(screen, Screen)
@@ -155,4 +155,4 @@ pprint(screen.as_dict())
 > [!div class="nextstepaction"]
 > [文本审查指南](text-moderation-api.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

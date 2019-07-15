@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/25/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3907d712b79956aeea0dde37925f1e8d0daa89ab
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: f6ae3eee9bf921f8f9d2c27f069572f4caf6826a
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390809"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861716"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Azure Site Recovery 中的服务更新
 组织需确定在发生计划内和计划外中断时，如何维护数据的安全，以及如何确保应用/工作负荷处于运行状态。 Azure Site Recovery 可以在站点出现故障时让应用始终在 VM 上运行并使物理服务器保持可用，以此帮助实现 BCDR 策略。 Site Recovery 可以复制在 VM 和物理服务器上运行的工作负荷，因此当主站点不可用时，始终可以在次要位置使用这些工作负荷。 当主站点重新启动并运行时，它会将工作负荷恢复到主站点。
@@ -123,12 +123,10 @@ Azure Site Recovery 定期发布服务更新 - 包括添加新功能、改进支
 |[更新汇总 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[更新汇总 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[更新汇总 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
-|[更新汇总 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-
-*发行说明正在编写中。 请参阅相应的升级文档升级 Site Recovery 组件。
 
 ## <a name="previous-update-rollups"></a>以前的更新汇总
 
+- [更新汇总 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)
 - [更新汇总 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
 - [更新汇总 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
 - [更新汇总 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)

@@ -1,30 +1,33 @@
-items:
 - name: Azure 认知服务文档
   href: index.md
 - name: 概述
-  items:
-  - name: 什么是认知服务？
-    href: Welcome.md
-  - name: 语言支持
-    href: language-support.md
   expanded: true
+  items:
+    - name: 什么是认知服务？
+      href: Welcome.md
+    - name: 语言支持
+      href: language-support.md
+- name: 容器支持
+  items:
+    - name: 容器支持
+      href: cognitive-services-container-support.md
+    - name: 其他容器服务
+      items:
+        - name: Azure 容器注册表
+          href: ../container-registry/container-registry-get-started-azure-cli.md
+        - name: Azure Kubernetes 服务 (AKS)
+          href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: 快速入门
   items:
-  - name: 创建帐户
-    href: cognitive-services-apis-create-account.md
-- name: 教程
-  items:
-  - name: 使用计算机视觉开发应用
-    href: ./Computer-vision/tutorials/java-tutorial.md
+    - name: 使用 Azure 门户创建帐户
+      href: cognitive-services-apis-create-account.md
+    - name: 使用 Azure CLI 创建帐户
+      href: cognitive-services-apis-create-account-cli.md
+    - name: 诊断日志记录
+      href: diagnostic-logging.md
 - name: 资源
   items:
-  - name: 定价
-    href: https://www.azure.cn/pricing/details/cognitive-services/
-  - name: 定价计算器
-    href: https://www.azure.cn/pricing/calculator/
-ms.openlocfilehash: cd0f7e0532b1965ec1e693eb7a0f5b892e24beca
-ms.sourcegitcommit: bfd0b25b0c51050e51531fedb4fca8c023b1bf5c
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52672853"
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/cognitive-services/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/pricing/calculator/'

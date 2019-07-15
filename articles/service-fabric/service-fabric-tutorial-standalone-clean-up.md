@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/11/2018
-ms.date: 05/28/2018
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 57584b442063f95e535886b13c7ee164c6994ad5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 099fc77c517211219aa495962bd730bfe70fc956
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662424"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844578"
 ---
 # <a name="tutorial-clean-up-your-standalone-cluster"></a>教程：清理独立群集
 
@@ -64,7 +64,7 @@ The cluster is successfully removed.
 * 登录到 AWS 帐户
 * 转到 EC2 控制台。
 * 选择在本教程的第一部分中创建的三个节点。
-* 单击“操作” > “实例状态” > “终止”
+* 单击“操作”   > “实例状态”   > “终止” 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -75,5 +75,5 @@ The cluster is successfully removed.
 
 > [!div class="nextstepaction"]
 > [回到开头](service-fabric-tutorial-standalone-create-infrastructure.md)
-<!-- Update_Description: new articles on service fabric tutorial standalone clean up -->
-<!--ms.date: 05/28/2018-->
+
+<!-- Update_Description: wording update -->

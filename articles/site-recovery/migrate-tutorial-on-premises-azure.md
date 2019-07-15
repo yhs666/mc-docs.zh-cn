@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 39ac51e75eef162aa5b1498a139faf9aafad473b
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 8df5df8313a1185c70f8d87b7ce3a6eb490a17d4
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390810"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861636"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>将本地计算机迁移到 Azure
 
@@ -103,7 +103,7 @@ Hyper-V | [启用复制](hyper-v-azure-tutorial.md#enable-replication)<br/><br/>
     - 完成迁移过程，停止本地 VM 的复制，并停止 VM 的 Site Recovery 计费。
     - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-    ![完成迁移](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+        ![完成迁移](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 > [!WARNING]
 > **请勿取消正在进行的故障转移**：在故障转移开始前，VM 复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但 VM 将不再进行复制。

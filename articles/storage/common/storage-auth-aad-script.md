@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/19/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f3587861c6a4cab2b00148e344df0a036a22072f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 39a3db55b2461ab396b32c29ed1074aba48cca16
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004048"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844506"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据
 
@@ -132,3 +132,4 @@ Azure CLI 支持使用 `--auth-mode` 参数进行 Blob 和队列数据操作：
 ## <a name="next-steps"></a>后续步骤
 
 - 若要详细了解 Azure 存储中的 RBAC 角色，请参阅[使用 RBAC 管理存储数据的访问权限](storage-auth-aad-rbac.md)。
+- 若要了解如何从存储应用程序内授予容器和队列访问权限，请参阅[将 Azure AD 与存储应用程序配合使用](storage-auth-aad-app.md)。

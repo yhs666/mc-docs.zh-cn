@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d97a5d1378cdfdda69b2ed4731945bcff44a2fb3
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 266446fcedd5cc943cae3d5734e7638dcb221b43
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363487"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861719"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>为 Hyper-V VM 灾难恢复到 Azure 准备网络映射
 
@@ -23,8 +23,8 @@ ms.locfileid: "54363487"
 ## <a name="prepare-network-mapping-for-replication-to-azure"></a>为复制到 Azure 准备网络映射
 
 复制到 Azure 时，网络映射在源 VMM 服务器上的 VM 网络与目标 Azure 虚拟网络之间进行映射。 映射将执行以下操作：
-    - 网络连接 - 确保复制的 Azure VM 连接到映射的网络。 在同一网络中进行故障转移的所有计算机可以相互连接，即使它们在不同的恢复计划中进行故障转移。
-    - 网关 - 如果在目标 Azure 网络上设置了网络网关，则 VM 可以连接到其他本地虚拟机。
+- 网络连接  - 确保复制的 Azure VM 连接到映射的网络。 在同一网络中进行故障转移的所有计算机可以相互连接，即使它们在不同的恢复计划中进行故障转移。
+- 网关  - 如果在目标 Azure 网络上设置了网络网关，则 VM 可以连接到其他本地虚拟机。
 
 网络映射的工作原理如下所述：
 
@@ -38,9 +38,9 @@ ms.locfileid: "54363487"
 
 复制到辅助站点时，网络映射在源 VMM 服务器上的 VM 网络与目标 VMM 服务器上的 VM 网络之间进行映射。 映射将执行以下操作：
 
-- 网络连接 - 在故障转移之后将 VM 连接到相应的网络。 副本 VM 将连接到已映射到源网络的目标网络。
+- 网络连接  - 在故障转移之后将 VM 连接到相应的网络。 副本 VM 将连接到已映射到源网络的目标网络。
 - **最佳 VM 放置**：以最佳方式在 Hyper-V 主机服务器上放置副本 VM。 副本 VM 放置在可访问映射 VM 网络的主机上。
-- 无网络映射 - 如果未配置网络映射，则在故障转移后副本 VM 将不会连接到任何 VM 网络。
+- 无网络映射  - 如果未配置网络映射，则在故障转移后副本 VM 将不会连接到任何 VM 网络。
 
 网络映射的工作原理如下所述：
 
@@ -53,7 +53,7 @@ ms.locfileid: "54363487"
 
 以下示例演示了此机制。 我们来考察一个具有两个位置（北京和上海）的组织。
 
-**位置** | **VMM 服务器** | **VM 网络** | **映射到**
+**Location** | **VMM 服务器** | **VM 网络** | **映射到**
 ---|---|---|---
 北京 | VMM-Beijing| VMNetwork1-Beijing | 映射到 VMNetwork1-Shanghai
  |  | VMNetwork2-Beijing | 未映射
@@ -69,7 +69,7 @@ ms.locfileid: "54363487"
 
 ### <a name="cloud-protection-settings"></a>云保护设置
 
-**受保护的云** | **提供保护的云** | 逻辑网络（北京）  
+**受保护的云** | **提供保护的云** | 逻辑网络（北京）   
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
@@ -78,7 +78,7 @@ SilverCloud2 | <p>不可用</p><p></p> | <p>LogicalNetwork1-Beijing</p><p>Logica
 
 ### <a name="logical-and-vm-network-settings"></a>逻辑和 VM 网络设置
 
-**位置** | **逻辑网络** | **关联的 VM 网络**
+**Location** | **逻辑网络** | **关联的 VM 网络**
 ---|---|---
 北京 | LogicalNetwork1-Beijing | VMNetwork1-Beijing
 上海 | LogicalNetwork1-Shanghai | VMNetwork1-Shanghai

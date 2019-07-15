@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 01/17/2019
-ms.date: 04/01/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 16830c09cbbabe5e9b08a51c81a0617d47bb65b7
-ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
+ms.openlocfilehash: 6a06af9f6d0dcdaff5a147fadf0e3e1f95c812fc
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135566"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844485"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -85,6 +85,9 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 以下示例将启动一个包含参数的子 Runbook，并使用 Start-AzureRmAutomationRunbook -wait 参数等待其完成。 完成后，从子 Runbook 收集其输出。 若要使用 `Start-AzureRmAutomationRunbook`，必须向 Azure 订阅进行身份验证。
 
 ```azurepowershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 

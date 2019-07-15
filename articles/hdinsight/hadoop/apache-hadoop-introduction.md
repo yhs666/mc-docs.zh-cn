@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/28/2019
-ms.date: 06/24/2019
+origin.date: 06/11/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: b83906012bac44bde099f9a6e147187932fa6199
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 275dad112796a44682b7c76d97ccce1031ae6ea6
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135988"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845363"
 ---
-# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>什么是 Azure HDInsight 和 Apache Hadoop 技术堆栈？
+# <a name="what-is-apache-hadoop-in-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hadoop？
 
 本文介绍 Azure HDInsight 上的 Apache Hadoop。 Azure HDInsight 是云中适用于企业的分析服务，具有完全托管、全面且开源的特点。 可以使用开源框架，例如 Hadoop、Apache Spark、Apache Hive、LLAP、Apache Kafka、Apache Storm、R 等等。 
 
@@ -31,7 +31,8 @@ ms.locfileid: "67135988"
 
 [Apache Hadoop](https://hadoop.apache.org/) 是原始的开源框架，适用于对群集上的大数据集进行分布式处理和分析。 Hadoop 技术堆栈包括相关的软件和实用程序，例如 Apache Hive、Apache HBase、Spark、Kafka 等等。
 
-Azure HDInsight 是 [Hortonworks Data Platform (HDP)](https://hortonworks.com/products/data-center/hdp/) 提供的 Hadoop 组件的云发行版。 可以通过 Azure HDInsight 轻松、快速且经济有效地处理大量数据。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等最常用的开源框架。 可以通过这些框架启用各种各样的方案，例如提取、转换和加载 (ETL)；数据仓库操作；机器学习；IoT。
+
+Azure HDInsight 是 Hadoop 组件的云分发版。 可以通过 Azure HDInsight 轻松、快速且经济有效地处理大量数据。 可以使用 Hadoop、Spark、Hive、LLAP、Kafka、Storm、R 等最常用的开源框架。 可以通过这些框架启用各种各样的方案，例如提取、转换和加载 (ETL)；数据仓库操作；机器学习；IoT。
 
 若要查看 HDInsight 上的可用 Hadoop 技术堆栈组件，请参阅[可以与 HDInsight 配合使用的组件和版本][component-versioning]。 若要详细了解 HDInsight 中的 Hadoop，请参阅 [Azure 上介绍了 HDInsight 功能的页面](/hdinsight/)。
 
@@ -145,10 +146,7 @@ HDInsight 群集包括 Spark、HBase、Kafka、Hadoop 和其他群集，支持�
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了 Azure HDInsight 及其在 Azure 上提供 Hadoop 和其他群集类型的方式。 请继续阅读下一篇文章，了解如何在 HDInsight 中创建 Apache Hadoop 群集。
-
-> [!div class="nextstepaction"]
-> [在 HDInsight 中创建 Apache Hadoop 群集](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [在 HDInsight 中创建 Apache Hadoop 群集](apache-hadoop-linux-create-cluster-get-started-portal.md)
 
 
 [component-versioning]: ../hdinsight-component-versioning.md

@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 1ca8187608d5df6495dd0fdf87ae872864263c49
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 4766e857a90fc6ce4368baef174275d59c2abc59
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390867"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861705"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常见问题 - Hyper-V 到 Azure 的灾难恢复
 
@@ -157,10 +157,14 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。
 
 ### <a name="can-i-extend-replication"></a>是否可以扩展复制？
-不支持扩展扩展或链式复制。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
+不支持扩展扩展或链式复制。
+
+<!--Not Available on  Request this feature in [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
-不支持此操作。 请在[反馈论坛](https://www.azure.cn/support/contact/)中请求此功能。
+不支持此操作。
+
+<!--Not Available on  Request this feature in the [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
 
 ### <a name="can-i-exclude-disks"></a>是否可以排除磁盘？
 可以从复制中排除磁盘。 

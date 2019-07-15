@@ -7,15 +7,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 02/21/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 04540daac032e140c074059cf9c804cb468ad63e
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: affe0a0769689dc7c1617547620daf6544705ce7
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236044"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844510"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
@@ -45,9 +45,6 @@ ms.locfileid: "67236044"
 * **Azure CLI**：安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
 * **安全外壳 (SSH) 客户端**：有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-> [!IMPORTANT]
-> 本文中的步骤需要一个使用 Linux 的 HDInsight 群集。 Linux 是 Azure HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement)。
 
 ## <a name="download-the-flight-data"></a>下载航班数据
 

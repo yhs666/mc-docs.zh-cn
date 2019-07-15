@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
 origin.date: 02/26/2019
-ms.date: 05/15/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: ee2623a36470d487baa1e18c7340a1f5f01eb464
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 8fc41aa1a6a737cc132bb1e3008e65e673fa651f
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668975"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844923"
 ---
 # <a name="example-how-to-detect-sentiment-with-text-analytics"></a>示例：如何使用文本分析检测情绪
 
@@ -78,7 +78,7 @@ ms.locfileid: "65668975"
 
 有关请求定义的详细信息，请参阅[如何调用文本分析 API](text-analytics-how-to-call-api.md)。 为方便起见，特重申以下几点：
 
-+ 创建 POST 请求。 查看此请求的 API 文档：[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
++ 创建 POST 请求  。 查看此请求的 API 文档：[情绪分析 API](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 + 使用 Azure 上的文本分析资源或实例化的[文本分析容器](text-analytics-how-to-install-containers.md)设置 HTTP 终结点，以便进行情绪分析。 它必须包含 `/sentiment` 资源：`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1/sentiment`
 
@@ -87,11 +87,11 @@ ms.locfileid: "65668975"
 + 在请求正文中，提供为此分析准备的 JSON 文档集合。
 
 > [!Tip]
-> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)中的 API 测试控制台来构造请求并将其 POST 到该服务。
+> 使用 [Postman](text-analytics-how-to-call-api.md) 或打开[文档](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)中的 API 测试控制台来构造请求并将其 POST 到该服务  。
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
-在收到请求时执行分析。 该服务每分钟最多接受 100 个请求。 每个请求最大为 1 MB。
+在收到请求时执行分析。 有关每分钟和每秒可以发送的请求的大小和数量的信息，请参阅概述中的[数据限制](../overview.md#data-limits)部分。
 
 记住，该服务是无状态服务。 帐户中未存储任何数据。 结果会立即在响应中返回。
 

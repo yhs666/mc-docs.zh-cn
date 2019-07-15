@@ -3,20 +3,20 @@ title: 快速入门：检测文本语言，Java - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Java 和文本翻译 REST API 来检测所提供文本的语言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: ba9bb4a87c3a995716797ed4d90889b9de5a5116
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 4ef83a3d1203d2c148a11cfe6b65e1b1976a155b
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830128"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844822"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>快速入门：使用文本翻译 API 通过 Java 来检测文本语言
 
@@ -109,6 +109,8 @@ public class Detect {
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.translator.azure.cn/detect?api-version=3.0";
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="create-a-client-and-build-a-request"></a>创建客户端并生成请求
 

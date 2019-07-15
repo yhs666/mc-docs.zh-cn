@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ec24e941a6304329be353e426fe6e9df9b41f1c
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: e4c3cc74f412385577d69dcf3e46182fd703f8cd
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463492"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861650"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>为基于 IIS 的多层 Web 应用程序设置灾难恢复
 
@@ -70,7 +70,7 @@ Azure|不可用|是
 
 若要开始将所有 IIS Web 场虚拟机复制到 Azure，请遵照[在 Site Recovery 中执行到 Azure 的测试故障转移](site-recovery-test-failover-to-azure.md)中的指导。
 
-如果使用的是静态 IP，可以指定希望虚拟机采用的 IP 地址。 若要设置 IP 地址，请转到“计算和网络设置” > “目标 IP”。
+如果使用的是静态 IP，可以指定希望虚拟机采用的 IP 地址。 若要设置 IP 地址，请转到“计算和网络设置” > “目标 IP”   。
 
 ![演示如何在 Site Recovery 的“计算和网络”窗格中设置目标 IP 的屏幕截图](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -89,7 +89,7 @@ Azure|不可用|是
 1. 在组 3 下面添加 Web 层虚拟机。 这可以确保在启动应用程序层后启动 Web 层虚拟机。
 1. 在组 4 下面添加负载均衡虚拟机。 这可以确保在启动 Web 层后启动负载均衡虚拟机。
 
-<!-- Not Available on [Customize the recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
+    <!-- Not Available on [Customize the recovery plan](site-recovery-runbook-automation.md#customize-the-recovery-plan)-->
 
 ### <a name="add-a-script-to-the-recovery-plan"></a>将脚本添加到恢复计划
 在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让 IIS Web 场正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目、更改站点绑定或更改连接字符串。
@@ -104,21 +104,21 @@ Azure|不可用|是
 
 如果连接字符串指向使用某个 IP 地址的数据库虚拟机，则故障转移后需要更新该字符串。 例如，以下连接字符串指向 IP 地址为 127.0.1.2 的数据库：
 
-        <?xml version="1.0" encoding="utf-8"?>
-        <configuration>
-        <connectionStrings>
-        <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
-        </connectionStrings>
-        </configuration>
+    <?xml version="1.0" encoding="utf-8"?>
+    <configuration>
+    <connectionStrings>
+    <add name="ConnStringDb1" connectionString="Data Source= 127.0.1.2\SqlExpress; Initial Catalog=TestDB1;Integrated Security=False;" />
+    </connectionStrings>
+    </configuration>
 
-若要更新 Web 层中的连接字符串，可以通过恢复计划中的“组 3”后面添加 [IIS 连接更新脚本](https://aka.ms/asr-update-webtier-script-classic)。
+若要更新 Web 层中的连接字符串，可以通过恢复计划中的“组 3”后面添加 [IIS 连接更新脚本](https://gallery.technet.microsoft.com/Update-IIS-connection-2579aadc)。
 
 #### <a name="site-bindings-for-the-application"></a>应用程序的站点绑定
 每个站点包含绑定信息。 绑定信息包括绑定类型、IIS 服务器侦听站点请求所用的 IP 地址、端口号和站点的主机名。 在故障转移期间，如果与这些绑定关联的 IP 地址发生更改，则可能需要更新这些绑定。
 
 > [!NOTE]
 >
-> 如果将站点绑定设置为“全部取消分配”，则故障转移后不需要更新此绑定。 此外，如果与站点关联的 IP 地址在故障转移后未发生未更改，则不需要更新站点绑定。 （能否保留 IP 地址取决于网络体系结构以及分配给主站点和恢复站点的子网。 因此，在组织中不一定能够使用绑定。）
+> 如果将站点绑定设置为“全部取消分配”，则故障转移后不需要更新此绑定。  此外，如果与站点关联的 IP 地址在故障转移后未发生未更改，则不需要更新站点绑定。 （能否保留 IP 地址取决于网络体系结构以及分配给主站点和恢复站点的子网。 因此，在组织中不一定能够使用绑定。）
 
 ![演示如何设置 SSL 绑定的屏幕截图](./media/site-recovery-iis/sslbinding.png)
 
@@ -144,10 +144,10 @@ Azure|不可用|是
 
 1. 在 Azure 门户中，选择恢复服务保管库。
 2. 选择针对 IIS Web 场创建的恢复计划。
-3. 选择“测试故障转移”。
+3. 选择“测试故障转移”  。
 4. 若要启动测试故障转移过程，请选择恢复点和 Azure 虚拟网络。
 5. 当辅助环境启动时，可以执行验证。
-6. 完成验证后，选择“验证完成”可清理测试故障转移环境。
+6. 完成验证后，选择“验证完成”可清理测试故障转移环境。 
 
 有关详细信息，请参阅[在 Site Recovery 中执行到 Azure 的测试故障转移](site-recovery-test-failover-to-azure.md)。
 
@@ -155,7 +155,7 @@ Azure|不可用|是
 
 1. 在 Azure 门户中，选择恢复服务保管库。
 1. 选择针对 IIS Web 场创建的恢复计划。
-1. 选择“故障转移”。
+1. 选择“故障转移”。 
 1. 若要启动故障转移过程，请选择恢复点。
 
 有关详细信息，请参阅 [Site Recovery 中的故障转移](site-recovery-failover.md)。

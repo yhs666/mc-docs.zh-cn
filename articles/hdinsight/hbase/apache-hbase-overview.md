@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 02/22/2018
-ms.date: 06/10/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 442835d2a76ef850ca4f41500049667e26715d2c
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: d5c20b0986b1437678e884e7d41600047b7ea4f5
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424669"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845242"
 ---
 # <a name="what-is-apache-hbase-in-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache HBase
 
@@ -59,9 +59,3 @@ BigTable（以及延伸开来的 HBase）是从 Web 搜索创建的典型用例�
 * [开始在 HDInsight 中将 Apache HBase 与 Apache Hadoop 配合使用](./apache-hbase-tutorial-get-started-linux.md)
 * [在 Azure 虚拟网络上创建 HDInsight 群集](./apache-hbase-provision-vnet.md)
 * [在 HDInsight 中配置 Apache HBase 复制](apache-hbase-replication.md)
-* [借助 Apache Maven 生成可将 Apache HBase 与 HDInsight (Hadoop) 配合使用的 Java 应用程序](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>另请参阅
-* [Apache HBase](https://hbase.apache.org/)
-* [Apache HBase 参考指南](https://hbase.apache.org/book.html)
-* [Bigtable：针对结构化数据的分布式存储系统](https://research.google.com/archive/bigtable.html)

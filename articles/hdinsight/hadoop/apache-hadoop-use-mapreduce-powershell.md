@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/09/2018
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: a635539f1e295d6e2d3501146f199817fb7d92d8
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: ec41b377abe285e8be0719b65f4cef77af7570ce
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004073"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845051"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-powershell"></a>使用 PowerShell 通过 HDInsight 上的 Apache Hadoop 运行 MapReduce 作业
 
@@ -38,9 +38,6 @@ ms.locfileid: "59004073"
 
 * **Azure HDInsight（HDInsight 上的 Hadoop）群集**
 
-  > [!IMPORTANT]
-  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
 * **配备 Azure PowerShell 的工作站**。
 
 ## <a id="powershell"></a>运行 MapReduce 作业
@@ -51,9 +48,9 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 * **Connect-AzAccount**：在 Azure 订阅中进行 Azure PowerShell 身份验证。
 
-* **New-AzHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的作业定义。
+* **New-AzHDInsightMapReduceJobDefinition**：使用指定的 MapReduce 信息创建新的作业定义  。
 
-* **Start-AzHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象。
+* **Start-AzHDInsightJob**：将作业定义发送到 HDInsight 并启动作业。 将返回作业对象  。
 
 * **Wait-AzHDInsightJob**：使用作业对象来检查作业的状态。 它等到作业完成或超出等待时间。
 
@@ -158,7 +155,7 @@ Azure PowerShell 提供 *cmdlet*，可在 HDInsight 上远程运行 MapReduce �
 
 ### <a name="view-output"></a>查看输出
 
-若要查看作业生成的单词和计数，请在文本编辑器中打开 output.txt 文件。
+若要查看作业生成的单词和计数，请在文本编辑器中打开 output.txt 文件  。
 
 > [!NOTE]
 > MapReduce 作业的输出文件是固定不变的。 因此，如果重新运行此示例，需要更改输出文件的名称。

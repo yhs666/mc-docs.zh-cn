@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 08/16/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: e2e7d096cc4ee2587616a9086ad45769c558f6e6
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: b1e7bf46f6c568ce37824d2e6b52e3a8d77a87ff
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424657"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845445"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集
 
@@ -324,7 +324,7 @@ static void Main(string[] args)
 
 使用脚本操作，可以在群集创建过程中配置其他设置。  有关详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 
-修改 [创建群集]() 中的示例，以便调用脚本操作来安装 R：
+修改 [创建群集](#create-clusters) 中的示例，以便调用脚本操作来安装 R：
 
 ```csharp
 static void Main(string[] args)
@@ -397,7 +397,6 @@ static void Main(string[] args)
 
 ### <a name="run-jobs"></a>运行作业
 * [使用 .NET SDK 在 HDInsight 中运行 Apache Hive 作业](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [使用 .NET SDK 在 HDInsight 中运行 Apache Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [使用 .NET SDK 在 HDInsight 中运行 Apache Sqoop 作业](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [在 HDInsight 中运行 Apache Oozie 作业](hdinsight-use-oozie-linux-mac.md)
 

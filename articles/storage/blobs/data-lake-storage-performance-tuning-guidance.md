@@ -7,15 +7,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: stewu
-ms.openlocfilehash: 895045402de2b102667682182575bc313df5ff1d
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: c8a75c9ccb53a8c5bdfceb3fd2f1616154dabd2e
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236048"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844387"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>优化 Azure Data Lake Storage Gen2 性能
 
@@ -48,6 +48,7 @@ Data Lake Storage Gen2 可进行缩放，以便为所有分析方案提供必要
 | 工具               | 设置     | 更多详细信息                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [链接](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
+| Azure 数据工厂| parallelCopies    | [链接](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)    |   [链接](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>调整数据集结构
@@ -120,7 +121,7 @@ HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅
 
 始终需要最小的 YARN 容器，具体取决于工作负荷。 如果选取的容器太小，作业会出现内存不足的问题。 YARN 容器通常不应小于 1 GB。 YARN 容器一般为 3 GB。 对于某些工作负荷，可能需要更大的 YARN 容器。  
 
-增加每个 YARN 容器的核心数  。  增加分配给每个容器的核心数，以提高每个容器中运行的并行任务数。  这适用于每个容器运行多个任务的应用程序。  对于在每个容器中运行单个线程的应用程序（如 Hive），最好分配多个容器，而不是为每个容器分配多个核心。
+增加每个 YARN 容器的核心数  。  增加分配给每个容器的核心数，以提高每个容器中运行的并行任务数。  这适用于每个容器运行多个任务的应用程序，例如 Spark。  对于在每个容器中运行单个线程的应用程序（如 Hive），最好分配多个容器，而不是为每个容器分配多个核心。
 
 ### <a name="workload-layer"></a>工作负荷层
 
@@ -134,6 +135,7 @@ HDInsight 群集由两个头节点和一些辅助角色节点组成。 每个辅
 
 | 工作负载 | 用于设置任务数的参数 |
 |----------|------------------------|
+| [Spark on HDInsight](data-lake-storage-performance-tuning-spark.md) | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [Hive on HDInsight](data-lake-storage-performance-tuning-hive.md) | <ul><li>hive.tez.container.size</li></ul> |
 | [MapReduce on HDInsight](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm on HDInsight](data-lake-storage-performance-tuning-storm.md)| <ul><li>工作进程数</li><li>Spout 执行器实例数</li><li>Bolt 执行器实例数 </li><li>Spout 任务数</li><li>Bolt 任务数</li></ul>|

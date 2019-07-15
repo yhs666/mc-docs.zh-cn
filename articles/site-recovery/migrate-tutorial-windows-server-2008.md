@@ -5,17 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-origin.date: 11/27/2018
-ms.date: 03/04/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 38939f3e44443f18eefa5adec5bf51f6d479daa4
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 076b67f514235fe1193b400c708da6de348ab972
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627673"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861728"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>将运行 Windows Server 2008 的服务器迁移到 Azure
 
@@ -35,8 +34,8 @@ ms.locfileid: "58627673"
 
 |操作系统  | 本地环境  |
 |---------|---------|
-|Windows Server 2008 SP2 - 32 位和 64 位（IA-32 和 x86-64）</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VM、Hyper-V VM 和物理服务器    |
-|Windows Server 2008 R2 SP1 - 64 位</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VM、Hyper-V VM 和物理服务器|
+|Windows Server 2008 SP2 - 32 位和 64 位（IA-32 和 x86-64）<br />- Standard<br />- Enterprise<br />- Datacenter   |     VMware VM、Hyper-V VM 和物理服务器    |
+|Windows Server 2008 R2 SP1 - 64 位<br />- Standard<br />- Enterprise<br />- Datacenter     |     VMware VM、Hyper-V VM 和物理服务器|
 
 > [!WARNING]
 > - 不支持迁移运行 Server Core 的服务器。
@@ -49,6 +48,8 @@ ms.locfileid: "58627673"
 若要迁移运行 Windows Server 2008 或 Windows Server 2008 R2 的 Hyper-V 虚拟机，请遵循[将本地计算机迁移到 Azure](migrate-tutorial-on-premises-azure.md) 教程中的步骤。
 
 本教程的余下部分介绍如何迁移运行 Windows Server 2008 或 2008 R2 的本地 VMware 虚拟机和物理服务器。
+
+<!--Not Available on [Click here](https://aka.ms/migrateVMs-signup)-->
 
 ## <a name="limitations-and-known-issues"></a>限制和已知问题
 
@@ -84,18 +85,18 @@ ms.locfileid: "58627673"
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
 1. 登录到 [Azure 门户](https://portal.azure.cn) > **恢复服务**。
-2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复”。
+2. 单击“创建资源” > “监视 + 管理” > “备份和站点恢复(OMS)”。   
 
     <!--MOONCAKE is Correct on **Monitoring + Management**-->
 
-3. 在“名称”中，指定友好名称 **W2K8-migration**。 如果有多个订阅，请选择合适的一个。
+3. 在“名称”中，指定友好名称 **W2K8-migration**。  如果有多个订阅，请选择合适的一个。
 4. 创建资源组 **w2k8migrate**。
 5. 指定 Azure 区域。 若要查看受支持的区域，请参阅 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery/)中的“地域可用性”。
-6. 若要从仪表板快速访问保管库，请单击“固定到仪表板”，然后单击“创建”。
+6. 若要从仪表板快速访问保管库，请单击“固定到仪表板”，然后单击“创建”。  
 
-   ![新保管库](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
+    ![新保管库](media/migrate-tutorial-windows-server-2008/migrate-windows-server-2008-vault.png)
 
-新保管库将添加到“仪表板”中的“所有资源”下，以及“恢复服务保管库”主页面上。
+新保管库将添加到“仪表板”中的“所有资源”下，以及“恢复服务保管库”主页面上。   
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>准备好要迁移的本地环境
 
@@ -106,24 +107,24 @@ ms.locfileid: "58627673"
 
 选择并验证目标资源。
 
-1. 单击“准备基础结构” > “目标”，然后选择要使用的 Azure 订阅。
+1. 单击“准备基础结构” > “目标”，然后选择要使用的 Azure 订阅   。
 2. 指定资源管理器部署模型。
 3. Site Recovery 检查是否有一个或多个兼容的 Azure 存储帐户和网络。
 
 ## <a name="set-up-a-replication-policy"></a>设置复制策略
 
-1. 若要创建新的复制策略，请单击“Site Recovery 基础结构” > “复制策略” > “+复制策略”。
-2. 在“创建复制策略”中指定策略名称。
-3. 在“RPO 阈值”中，指定恢复点目标 (RPO) 限制。 如果复制 RPO 超过此限制，则会生成警报。
-4. 在“恢复点保留期”中，指定每个恢复点的保留期时长（以小时为单位）。 可以将复制的服务器恢复到此窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
-5. 在“应用一致性快照频率”中，指定“关闭”。 单击“确定”创建该策略。
+1. 若要创建新的复制策略，请单击“Site Recovery 基础结构” > “复制策略” > “+复制策略”    。
+2. 在“创建复制策略”中指定策略名称  。
+3. 在“RPO 阈值”中，指定恢复点目标 (RPO) 限制  。 如果复制 RPO 超过此限制，则会生成警报。
+4. 在“恢复点保留期”中，指定每个恢复点的保留期时长（以小时为单位）  。 可以将复制的服务器恢复到此窗口中的任何点。 复制到高级存储的计算机最多支持 24 小时的保留期，复制到标准存储的计算机最多支持 72 小时的保留期。
+5. 在“应用一致性快照频率”中，指定“关闭”。   单击“确定”创建该策略  。
 
 此策略自动与配置服务器关联。
 
 > [!WARNING]
-> 确保在复制策略的“应用一致性快照频率”设置中指定“关闭”。 复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定任何其他值时，由于缺少应用一致性恢复点，会导致服务器的复制运行状况出现严重问题，因此会生成假警报。
+> 确保在复制策略的“应用一致性快照频率”设置中指定“关闭”。  复制运行 Windows Server 2008 的服务器时，仅支持崩溃一致性恢复点。 为“应用一致性快照频率”指定任何其他值时，由于缺少应用一致性恢复点，会导致服务器的复制运行状况出现严重问题，因此会生成假警报。
 
-   ![创建复制策略](media/migrate-tutorial-windows-server-2008/create-policy.png)
+![创建复制策略](media/migrate-tutorial-windows-server-2008/create-policy.png)
 
 ## <a name="enable-replication"></a>启用复制
 
@@ -135,7 +136,7 @@ ms.locfileid: "58627673"
 
 ## <a name="run-a-test-migration"></a>运行测试迁移
 
-初始复制完成并且服务器状态变为“受保护”后，可对服务器复制执行测试故障转移。
+初始复制完成并且服务器状态变为“受保护”后，可对服务器复制执行测试故障转移。 
 
 运行[测试故障转移](tutorial-dr-drill-azure.md)，确保一切如预期正常运行。
 
@@ -145,16 +146,16 @@ ms.locfileid: "58627673"
 
 为想要迁移的计算机运行故障转移。
 
-1. 在“设置” > “复制的项”中，单击计算机 >“故障转移”。
-2. 在“故障转移”中，选择要故障转移到的“恢复点”。 选择最新恢复点。
-3. 选择“在开始故障转移前关闭计算机”。 Site Recovery 在触发故障转移之前会尝试关闭服务器。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。
+1. 在“设置”   > “复制的项”  中，单击计算机 >“故障转移”  。
+2. 在“故障转移”  中，选择要故障转移到的“恢复点”  。 选择最新恢复点。
+3. 选择“在开始故障转移前关闭计算机”  。 Site Recovery 在触发故障转移之前会尝试关闭服务器。 即使关机失败，故障转移也仍会继续。 可以在“作业”页上跟踪故障转移进度。 
 4. 检查 Azure VM 是否在 Azure 中按预期显示。
-5. 在“复制的项”中，右键单击服务器 >“完成迁移”。 这样会执行以下操作：
+5. 在“复制的项”  中，右键单击服务器 >“完成迁移”  。 这样会执行以下操作：
 
-   - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
-   - 此步骤清除复制数据。 它不删除迁移的 VM。
+    - 完成迁移过程，停止服务器复制，并停止服务器的 Site Recovery 计费。
+    - 此步骤清除复制数据。 它不删除迁移的 VM。
 
-     ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
+    ![完成迁移](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 > [!WARNING]
 > **请勿取消正在进行的故障转移**：在故障转移开始前，服务器复制已停止。 如果取消正在进行的故障转移，故障转移会停止，但服务器将不继续复制。

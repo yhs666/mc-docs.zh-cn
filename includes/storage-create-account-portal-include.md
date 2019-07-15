@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 06/03/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: ec0e7aa77a70f7128cee014ba5bb6a792bafac9e
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: ed89a2469ce930716150ff72edd9d36859a22728
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381817"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844417"
 ---
 若要在 Azure 门户中创建常规用途 v2 存储帐户，请执行以下步骤：
 
@@ -34,7 +34,7 @@ ms.locfileid: "66381817"
    |部署模型     |Resource Manager         |
    |性能     |标准         |
    |帐户类型     |StorageV2（常规用途 v2）         |
-   |复制     |读取访问异地冗余存储 (LRS)         |
+   |复制     |读取访问异地冗余存储 (RA-GRS)         |
    |访问层     |热         |
 
 1. 选择“查看+创建”  可查看存储帐户设置并创建帐户。

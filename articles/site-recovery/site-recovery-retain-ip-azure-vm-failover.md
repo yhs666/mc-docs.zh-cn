@@ -3,16 +3,16 @@ title: 使用 Azure Site Recovery 在 Azure VM 故障转移期间保留 IP 地�
 description: 介绍如何在使用 Azure Site Recovery 将用于灾难恢复的 Azure VM 故障转移到次要区域时保留 IP 地址
 ms.service: site-recovery
 origin.date: 04/09/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 author: rockboyfor
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 3c63fe9167a5c9908407c8cb9b4bbea9ede4cfc6
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 2d5472b0ee000cdf5fb6740a59a46181d65d4cf1
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390795"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861649"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>在故障转移期间保留 IP 地址
 
@@ -45,7 +45,7 @@ ms.locfileid: "66390795"
         - 中国东部包含的 VNet（**源 VNet**）的地址空间为 10.1.0.0/16。
         - 中国东部的工作负荷拆分在 VNet 中的三个子网中：
             - **子网 1**：10.1.1.0/24
-            - **子网 2**：10.1.2.0/24，
+            - **子网 2**：10.1.2.0/24
             - **子网 3**：10.1.3.0/24
             
             <!--Up for Primary region China East-->
@@ -68,10 +68,10 @@ ms.locfileid: "66390795"
 
 - 如果目标 IP 地址在故障转移前已就位，公司 A 可安排故障转移以及故障转移后自动在恢复 VNet 和 Azure VNet 之间建立连接   。 下图对此做了演示.
 - 根据应用的要求，可以在故障转移之前、期间（作为中间步骤）或之后，在目标区域中的两个 VNet（恢复 VNet 和 Azure VNet）之间建立连接   。
-  - 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
-  - 他们可以使用 VNet 对等互连或站点到站点 VPN 来在 VNet 之间进行连接。
-      - VNet 对等互连不使用 VPN 网关，并且具有不同的约束。
-      - VNet 对等互连[定价](https://www.azure.cn/pricing/details/networking/)的计算不同于 VNet 到 VNet VPN 网关[定价](https://www.azure.cn/pricing/details/vpn-gateway/)的计算。 对于故障转移，我们通常建议使用与源网络相同的连接方法（包括连接类型），以最大程度减少不可预测的网络事件。
+    - 该公司可以使用[恢复计划](site-recovery-create-recovery-plans.md)来指定何时建立连接。
+    - 他们可以使用 VNet 对等互连或站点到站点 VPN 来在 VNet 之间进行连接。
+        - VNet 对等互连不使用 VPN 网关，并且具有不同的约束。
+        - VNet 对等互连[定价](https://www.azure.cn/pricing/details/networking/)的计算不同于 VNet 到 VNet VPN 网关[定价](https://www.azure.cn/pricing/details/vpn-gateway/)的计算。 对于故障转移，我们通常建议使用与源网络相同的连接方法（包括连接类型），以最大程度减少不可预测的网络事件。
 
     ![Azure 完全故障转移中的资源](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
 

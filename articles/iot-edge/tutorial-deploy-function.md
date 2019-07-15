@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0a591380b1e1f8f8268b766b65f1d8d727a730e8
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: fc8c67ca9bce77322a79c542cec484c1f33802b1
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732719"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845246"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -137,7 +137,7 @@ ms.locfileid: "66732719"
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
@@ -177,7 +177,7 @@ ms.locfileid: "66732719"
 
 在上一部分，你已经创建了一个 IoT Edge 解决方案并将代码添加到了 **CSharpFunction**，该函数会筛选出其中报告的计算机温度低于可接受阈值的消息。 现在需将解决方案生成为容器映像并将其推送到容器注册表。
 
-在此部分，你为容器注册表提供凭据两次。 第一次是从开发计算机进行本地登录，这样 Visual Studio Code 就能将映像推送到注册表。 第二次是在 IoT Edge 解决方案的 **.env** 文件中，目的是为 IoT Edge 设备提供从注册表拉取映像的权限。 
+在本部分中，你将第二次提供容器注册表的凭据（第一次是在 IoT Edge 解决方案的 **.env** 文件中），方法是从开发计算机本地登录，以便 Visual Studio Code 可以将映像推送到注册表。
 
 1. 打开 VS Code 集成终端，方法是选择“视图” > “终端”   。 
 
@@ -187,7 +187,7 @@ ms.locfileid: "66732719"
     docker login -u <ACR username> <ACR login server>
     ```
 
-    当系统提示输入密码时，请粘贴容器注册表的密码，然后按 **Enter**。
+    当系统提示输入密码时，请粘贴容器注册表的密码（它在终端窗口中不可见），然后按 **Enter**。
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>

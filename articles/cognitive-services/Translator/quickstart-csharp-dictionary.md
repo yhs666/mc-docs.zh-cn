@@ -3,20 +3,20 @@ title: 快速入门：使用双语字典、C# 查找字词 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 .NET Core 和文本翻译 API 获取术语的备用翻译，以及这些备用翻译的使用示例。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 060b08feaefb54aeb28bc0cb7e4a427df37cc32a
-ms.sourcegitcommit: 59220e22f870c3a9e8c18fa548ddb6885e68e8a7
+ms.openlocfilehash: 5d0dfc90ec24c8e2109ca2f1d9856c2f4d07336b
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529038"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844842"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-c"></a>快速入门：通过 C# 使用双语字典查找字词
 
@@ -90,6 +90,8 @@ System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
 var requestBody = JsonConvert.SerializeObject(body);
 ```
 
+
+
 ## <a name="instantiate-the-client-and-make-a-request"></a>实例化客户端并发出请求
 
 以下行实例化 `HttpClient` 和 `HttpRequestMessage`：
@@ -145,6 +147,8 @@ static string PrettyPrint(string s)
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);
 }
 ```
+
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
 
 ## <a name="put-it-all-together"></a>将其放在一起
 
@@ -210,4 +214,4 @@ dotnet run
 * [获取支持的语言的列表](quickstart-csharp-languages.md)
 * [根据输入确定句子长度](quickstart-csharp-sentences.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

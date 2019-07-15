@@ -3,20 +3,20 @@ title: 快速入门：翻译文本，Go - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何在不到 10 分钟内使用文本翻译 API 和 Go 将文本从一种语言翻译成另一种语言。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 03/25/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0be58a7dad9c46edb77b76bc5b78466c1c0709f2
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: dfaa266abc05a2a82771fb13851a966d9d605359
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502544"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844830"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>快速入门：使用 Go 通过文本翻译 API 来翻译字符串
 
@@ -141,6 +141,8 @@ if err != nil {
 }
 ```
 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+
 ## <a name="handle-and-print-the-response"></a>处理并输出响应
 
 将此代码添加到 `translate` 函数以解码 JSON 响应，然后格式化并输出结果。
@@ -203,7 +205,7 @@ go run translate-text.go
 了解如何使用文本翻译 API 执行以下操作：
 
 * [直译文本](quickstart-go-transliterate.md)
-* [根据输入确定语言](quickstart-go-detect.md)
+* [按输入确定语言](quickstart-go-detect.md)
 * [获取备用翻译](quickstart-go-dictionary.md)
 * [获取支持的语言的列表](quickstart-go-languages.md)
 * [根据输入确定句子长度](quickstart-go-sentences.md)

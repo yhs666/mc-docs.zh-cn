@@ -4,17 +4,17 @@ description: 了解可以运行 Azure IoT Edge 守护程序和运行时的操作
 author: kgremban
 manager: timlt
 ms.author: v-yiso
-origin.date: 05/06/2019
-ms.date: 05/27/2019
+origin.date: 06/12/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: bfcdb968e11a1e3b89fc59a691a550cbaa6537ca
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: d29394c13c6f470f0b7cc93273483567ad5af4a0
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829312"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845154"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支持的系统
 
@@ -61,14 +61,15 @@ Azure IoT Edge 在可以运行容器的大多数操作系统上运行，但并�
 | Ubuntu Server 16.04 | 是 | 否 |
 | Ubuntu Server 18.04 | 是 | 否 |
 | Windows 10 IoT 企业版 17763 | 是 | 否 |
+| Windows Server 2019 内部版本 17763 | 是 | 否 |
+| Windows Server IoT 2019 内部版本 17763 | 是 | 否 |
 
 公共预览版
 
 | 操作系统 | AMD64 | ARM32v7 |
 | ---------------- | ----- | ----- |
 | Windows 10 IoT 核心版 17763 | 是 | 否 |
-| Windows Server 2019 内部版本 17763 | 是 | 否 |
-| Windows Server IoT 2019 内部版本 17763 | 是 | 否 |
+
 
 在 Windows 上运行 Windows 容器的设备必须使用上面列出的 Windows 操作系统。 生产环境中仅支持此配置。 适用于 Windows 的 Azure IoT Edge 安装包允许在 Windows 上使用 Linux 容器；但是，只能将此配置用于开发和测试。 在生产环境中的 Windows 上使用 Linux 容器是不受支持的配置。 任何版本的 Windows 10 内部版本 14393 或更高版本，以及 Windows Server 2016 或更高版本都可用于此开发方案。
 

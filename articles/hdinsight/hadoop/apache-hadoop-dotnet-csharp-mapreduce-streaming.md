@@ -13,14 +13,14 @@ ms.service: hdinsight
 ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 02/15/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7290b5a4095560a2601dd25f40a61408d8a014fc
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a9ed13e302a91508b65cb57338c533f60a1f650f
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004088"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845364"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>在 HDInsight 中的 Apache Hadoop 上将 C# 与 MapReduce 流式处理配合使用
 
@@ -35,7 +35,7 @@ Apache Hadoop 流式处理是一个实用工具，通过它可以使用脚本或
 
 ## <a name="net-on-hdinsight"></a>HDInsight 上的 .NET
 
-__基于 Linux 的 HDInsight__ 群集使用 [Mono (https://mono-project.com)](https://mono-project.com) 运行 .NET 应用程序。 HDInsight 版本 3.6 附带了 Mono 版本 4.2.1。 有关包含在 HDInsight 中的 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](../hdinsight-component-versioning.md)。 若要使用 Mono 的特定版本，请参阅[安装或更新 Mono](../hdinsight-hadoop-install-mono.md) 文档。
+__基于 Linux 的 HDInsight__ 群集使用 [Mono (https://mono-project.com)](https://mono-project.com) 运行 .NET 应用程序。 HDInsight 版本 3.6 附带了 Mono 版本 4.2.1。 有关包含在 HDInsight 中的 Mono 版本的详细信息，请参阅 [HDInsight 组件版本](../hdinsight-component-versioning.md)。 
 
 有关 Mono 与 .NET Framework 版本的兼容性的详细信息，请参阅 [Mono 兼容性](https://www.mono-project.com/docs/about-mono/compatibility/)。
 
@@ -49,7 +49,7 @@ __基于 Linux 的 HDInsight__ 群集使用 [Mono (https://mono-project.com)](ht
 4. 化简器将读取制表符分隔的键/值对、处理数据，并将结果作为制表符分隔的键/值对在 STDOUT 上发出。
 5. 该输出由 Hadoop 读取，并写入输出目录。
 
-有关流式处理的详细信息，请参阅 [Hadoop 流式处理 (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)。
+有关流式处理的详细信息，请参阅 [Hadoop 流式处理](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -153,25 +153,25 @@ namespace reducer
 
 ## <a name="upload-to-storage"></a>上传到存储
 
-1. 在 Visual Studio 中，打开“服务器资源管理器”。
+1. 在 Visual Studio 中，打开“服务器资源管理器”  。
 
-2. 依次展开“Azure”和“HDInsight”。
+2. 依次展开“Azure”  和“HDInsight”  。
 
-3. 如果出现提示，请输入 Azure 订阅凭据，并单击“登录”。
+3. 如果出现提示，请输入 Azure 订阅凭据，并单击“登录”  。
 
-4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”的条目。
+4. 展开要将此应用程序部署到的 HDInsight 群集。 列出带有文本“（默认存储帐户）”  的条目。
 
     ![显示群集存储帐户的服务器资源管理器](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
 
-    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”。
+    * 如果此条目可以展开，则在使用 __Azure 存储帐户__作为该群集的默认存储。 如果要查看该群集的默认存储上的文件，请展开该条目，并双击“（默认容器）”  。
 
 5. 若要上传 .exe 文件，请使用以下方法之一：
 
-    单击上传图标，并浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”文件，并单击“确定”。
+    单击上传图标，并浏览到 **mapper** 项目的 **bin\debug** 文件夹。 最后，选择“mapper.exe”  文件，并单击“确定”  。
 
         ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
 
-    上传“mapper.exe”完成后，请为“reducer.exe”文件重复该上传过程。
+    上传“mapper.exe”  完成后，请为“reducer.exe”  文件重复该上传过程。
 
 ## <a name="run-a-job-using-an-ssh-session"></a>运行作业：使用 SSH 会话
 
@@ -193,12 +193,12 @@ namespace reducer
 
      下表描述每个参数的作用：
 
-   * `hadoop-streaming.jar`:包含流式处理 MapReduce 功能的 jar 文件。
-   * `-files`:将 `reducer.exe` 和  文件添加到此作业。 每个文件之前的 `abfs:///`、`adl:///` 或 `wasb:///` 是指向群集默认存储根目录的路径。
-   * `-mapper`:指定哪个文件实现映射器。
-   * `-reducer`:指定哪个文件实现化简器。
-   * `-input`:输入数据。
-   * `-output`:输出目录。
+   * `hadoop-streaming.jar`：包含流式处理 MapReduce 功能的 jar 文件。
+   * `-files`：将 `mapper.exe` 和 `reducer.exe` 文件添加到此作业。 每个文件之前的 `abfs:///`、`adl:///` 或 `wasb:///` 是指向群集默认存储根目录的路径。
+   * `-mapper`：指定哪个文件实现映射器。
+   * `-reducer`：指定哪个文件实现化简器。
+   * `-input`：输入数据。
+   * `-output`：输出目录。
 
 3. 完成 MapReduce 作业后，使用以下命令查看结果：
 

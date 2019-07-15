@@ -8,30 +8,28 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-origin.date: 11/06/2018
-ms.date: 01/14/2019
-ms.openlocfilehash: dcc32c345a21535f64f1f56688bcca59690ab549
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 06/25/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: fd45b5a314aa73c2a449998b3e2c5af4f7f02369
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626597"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845390"
 ---
-# <a name="tutorial-apache-kafka-streams-api"></a>教程：Apache Kafka Streams API
+# <a name="tutorial-use-apache-kafka-streams-api-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache Kafka Streams API
 
 了解如何创建一个使用 Apache Kafka Streams API 的应用程序并在 Kafka on HDInsight 上运行该应用程序。 
 
 本教程中使用的应用程序是流式处理字数统计。 它从 Kafka 主题读取文本数据、提取各个单词，然后将单词和计数存储到另一个 Kafka 主题。
 
-> [!NOTE]  
-> Kafka 流处理通常使用 Apache Spark 或 Apache Storm 完成。 Kafka 版本 0.10.0（在 HDInsight 3.5 和 3.6 中）引入了 Kafka Streams API。 通过此 API 可以在输入和输出主题间转换数据流。 在某些情况下，这可以作为创建 Spark 或 Storm 流式处理解决方案的替代方法。 
->
-> 有关 Kafka Streams 的详细信息，请参阅 Apache.org 上的 [Streams 简介](https://kafka.apache.org/10/documentation/streams/)文档。
+Kafka 流处理通常使用 Apache Spark 或 Apache Storm 完成。 Kafka 版本 1.1.0（在 HDInsight 3.5 和 3.6 中）引入了 Kafka Streams API。 通过此 API 可以在输入和输出主题间转换数据流。 在某些情况下，这可以作为创建 Spark 或 Storm 流式处理解决方案的替代方法。
+
+有关 Kafka Streams 的详细信息，请参阅 Apache.org 上的 [Streams 简介](https://kafka.apache.org/10/documentation/streams/)文档。
 
 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
-> * 设置开发环境
 > * 了解代码
 > * 生成并部署应用程序
 > * 配置 Kafka 主题
@@ -43,15 +41,11 @@ ms.locfileid: "58626597"
 
 * 完成 [Apache Kafka 使用者和生成者 API](apache-kafka-producer-consumer-api.md) 文档中的步骤。 本文档中的步骤使用本教程中创建的示例应用程序和主题。
 
-## <a name="set-up-your-development-environment"></a>设置开发环境
+* [Java Developer Kit (JDK) 版本 8](https://aka.ms/azure-jdks) 或等效工具，例如 OpenJDK。
 
-必须在开发环境中安装以下组件：
+* 根据 Apache 要求正确[安装](https://maven.apache.org/install.html)的 [Apache Maven](https://maven.apache.org/download.cgi)。  Maven 是 Java 项目的项目生成系统。
 
-* [Java JDK 8](https://aka.ms/azure-jdks) 或等效版本，如 OpenJDK。
-
-* [Apache Maven](https://maven.apache.org/)
-
-* SSH 客户端和 `scp` 命令。 有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="understand-the-code"></a>了解代码
 
@@ -75,8 +69,7 @@ ms.locfileid: "58626597"
     </dependency>
     ```
 
-    > [!NOTE]
-    > `${kafka.version}` 条目在 `pom.xml` 的 `<properties>..</properties>` 部分进行声明，并配置为 HDInsight 群集的 Kafka 版本。
+    `${kafka.version}` 条目在 `pom.xml` 的 `<properties>..</properties>` 部分进行声明，并配置为 HDInsight 群集的 Kafka 版本。
 
 * 插件：Maven 插件提供各种功能。 此项目使用了以下插件：
 
@@ -141,46 +134,58 @@ public class Stream
 
 按照以下步骤生成项目并将其部署到 Kafka on HDInsight 群集：
 
-1. 从 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) 下载示例。
+1. 将当前目录设置为 `hdinsight-kafka-java-get-started-master\Streaming` 目录的位置，然后使用以下命令创建一个 jar 包：
 
-2. 将目录切换到 `Streaming` 目录，然后使用以下命令创建 jar 包：
-
-    ```bash
+    ```cmd
     mvn clean package
     ```
 
     此命令在 `target/kafka-streaming-1.0-SNAPSHOT.jar` 创建包。
 
-3. 使用以下命令将 `kafka-streaming-1.0-SNAPSHOT.jar` 文件复制到 HDInsight 群集：
-   
-    ```bash
+2. 将 `sshuser` 替换为群集的 SSH 用户，并将 `clustername` 替换为群集的名称。 使用以下命令将 `kafka-streaming-1.0-SNAPSHOT.jar` 文件复制到 HDInsight 群集。 出现提示时，输入 SSH 用户帐户的密码。
+
+    ```cmd
     scp ./target/kafka-streaming-1.0-SNAPSHOT.jar SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn:kafka-streaming.jar
     ```
-   
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。 有关在 HDInsight 中使用 `scp` 的详细信息，请参阅[在 HDInsight 中使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="create-apache-kafka-topics"></a>创建 Apache Kafka 主题
 
-1. 若要与群集建立 SSH 连接，请使用以下命令：
+1. 将 `sshuser` 替换为群集的 SSH 用户，并将 `CLUSTERNAME` 替换为群集的名称。 输入以下命令，打开到群集的 SSH 连接。 出现提示时，输入 SSH 用户帐户的密码。
 
     ```bash
     ssh SSHUSER@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
-    将 **SSHUSER** 替换为群集的 SSH 用户，并将 **CLUSTERNAME** 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。 有关在 HDInsight 中使用 `scp` 的详细信息，请参阅[在 HDInsight 中使用 SSH](../hdinsight-hadoop-linux-use-ssh-unix.md)。
-
-2. 若要将群集名称保存到一个变量中并安装 JSON 分析实用工具 (`jq`)，请使用以下命令。 出现提示时，请输入 Kafka 群集名称：
+2. 安装 [jq](https://stedolan.github.io/jq/)，一个命令行 JSON 处理程序。 在打开的 SSH 连接中，输入以下命令以安装 `jq`：
 
     ```bash
     sudo apt -y install jq
-    read -p 'Enter your Kafka cluster name:' CLUSTERNAME
     ```
 
-3. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。 系统会提示输入密码两次。
+3. 设置环境变量。 将 `PASSWORD` 和 `CLUSTERNAME` 分别替换为群集登录密码和群集名称，然后输入命令：
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`; \
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`; \
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
+    ```
+
+4. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
+
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+  	| jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+5. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令。 出现提示时，输入群集登录（管理员）帐户的密码。 系统会提示输入密码两次。
+
+    ```bash
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`;
+    export KAFKABROKERS=`curl -sS -u admin:$password -G \
+    https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`;
     ```
 
 4. 若要创建流式处理操作所使用的主题，请使用以下命令：
@@ -205,8 +210,7 @@ public class Stream
    * `RekeyedIntermediateTopic`：本主题用于在 `countByKey` 运算符更新计数时对数据进行重新分区。
    * `wordcount-example-Counts-changelog`：本主题是 `countByKey` 操作使用的状态存储
 
-     > [!IMPORTANT]
-     > Kafka on HDInsight 也可以配置为自动创建主题。 有关详细信息，请参阅[配置自动主题创建](apache-kafka-auto-create-topics.md)文档。
+    Kafka on HDInsight 也可以配置为自动创建主题。 有关详细信息，请参阅[配置自动主题创建](apache-kafka-auto-create-topics.md)文档。
 
 ## <a name="run-the-code"></a>运行代码
 
@@ -216,8 +220,7 @@ public class Stream
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > 可能会收到有关 Apache log4j 的警告。 可将其忽略。
+    可能会收到有关 Apache log4j 的警告。 可将其忽略。
 
 2. 若要将记录发送到 `test` 主题，请使用以下命令启动生成者应用程序：
 
@@ -231,8 +234,7 @@ public class Stream
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]
-    > `--property` 参数指示控制台 consumer 输出关键字（字）以及计数（值）。 此参数还配置从 Kafka 中读取这些值时要使用的反序列化程序。
+    `--property` 参数指示控制台 consumer 输出关键字（字）以及计数（值）。 此参数还配置从 Kafka 中读取这些值时要使用的反序列化程序。
 
     输出与以下文本类似：
    
@@ -249,10 +251,28 @@ public class Stream
         jumped  13640
         jumped  13641
    
-    > [!NOTE]
-    > 参数 `--from-beginning` 将使用者配置为从主题中存储的记录开头启动。 每遇到一个字，计数都会递增，主题包含每个字的多个条目，因此计数不断增加。
+    参数 `--from-beginning` 将使用者配置为从主题中存储的记录开头启动。 每遇到一个字，计数都会递增，主题包含每个字的多个条目，因此计数不断增加。
 
-7. 使用 __Ctrl + C__ 退出 producer。 继续使用 __Ctrl + C__ 退出应用程序和 consumer。
+4. 使用 __Ctrl + C__ 退出 producer。 继续使用 __Ctrl + C__ 退出应用程序和 consumer。
+
+5. 若要删除流式处理操作所使用的主题，请使用以下命令：
+
+    ```bash
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcounts --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic RekeyedIntermediateTopic --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
+    ```
+
+## <a name="clean-up-resources"></a>清理资源
+
+若要清理本教程创建的资源，可以删除资源组。 删除资源组也会删除相关联的 HDInsight 群集，以及与资源组相关联的任何其他资源。
+
+若要使用 Azure 门户删除资源组，请执行以下操作：
+
+1. 在 Azure 门户中展开左侧的菜单，打开服务菜单，然后选择“资源组”以显示资源组的列表。 
+2. 找到要删除的资源组，然后右键单击列表右侧的“更多”按钮 (...)。 
+3. 选择“删除资源组”，然后进行确认。 
 
 ## <a name="next-steps"></a>后续步骤
 

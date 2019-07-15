@@ -4,17 +4,17 @@ description: 了解基于环境中的数据大小和可用网络带宽如何选�
 services: storage
 author: WenJason
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
-origin.date: 12/10/2018
-ms.date: 02/25/2019
+origin.date: 06/03/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.openlocfilehash: ce58f69333e680a25d3e8e6e79f3fc4d6807a5da
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 4bed5756bd0be88bf607664a539aaa608fa3f268
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665774"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844464"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>选择 Azure 数据传输解决方案
 
@@ -43,6 +43,7 @@ ms.locfileid: "56665774"
 - [阅读 AzCopy 概述](/storage/common/storage-use-azcopy-v10)。
 - [将 Azure PowerShell 与 Azure 存储一起使用](/storage/common/storage-powershell-guide-full)
 - [将 Azure CLI 用于 Azure 存储](/storage/common/storage-azure-cli)
+- [了解什么是 Azure 数据工厂](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)。
 - 使用 REST API 传输数据
 
     - [在 .NET 中](/dotnet/api/overview/storage)
