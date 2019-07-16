@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/15/2017
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: f83e0423c2fa63049832fd3e9001ec7fe0c8b111
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: 2a24d0acf0cb269e0383f61a08aece56cdda03dd
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540061"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725231"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -141,5 +141,7 @@ ms.locfileid: "67540061"
 |创建具有多个 NIC 的 VM|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)、[PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fvirtual-network%2ftoc.json)|
 |创建具有多个 IPv4 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 
-<!-- Not Avaiable on |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json), [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json), [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)| -->
+<!-- Not Avaiable on [CLI](../load-balancer/load-balancer-ipv6-internet-cli.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Avaiable on [PowerShell](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fvirtual-network%2ftoc.json)-->
+<!-- Not Avaiable on [Azure Resource Manager template](../load-balancer/load-balancer-ipv6-internet-template.md?toc=%2fvirtual-network%2ftoc.json)-->
 <!--Update_Description: wording udpate, update link -->

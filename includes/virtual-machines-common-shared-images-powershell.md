@@ -9,12 +9,12 @@ origin.date: 05/21/2019
 ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: e6ffbc51bf1bf39b5d9ba1fcf35e8daa3449eb50
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: f9a88cbcc8e4a894c884be7301782342460ce861
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570071"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67791320"
 ---
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
@@ -101,8 +101,11 @@ $job.State
 > [!NOTE]
 > 需等待映像版本彻底生成并复制完毕，然后才能使用同一托管映像来创建另一映像版本。 
 >
-> 也可在[区域冗余存储](/storage/common/storage-redundancy-zrs)中存储映像版本，只需在创建映像版本时添加 `-StorageAccountType Standard_ZRS` 即可。
+> 
 >
+
+<!--Not Available You can also store your image version in Zone Redundant Storage by adding `-StorageAccountType Standard_ZRS` when you create the image version.-->
+<!--Not Available on [Zone Redundant Storage](/storage/common/storage-redundancy-zrs)-->
 
 ## <a name="share-the-gallery"></a>共享库
 

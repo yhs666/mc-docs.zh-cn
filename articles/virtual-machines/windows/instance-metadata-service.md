@@ -16,12 +16,12 @@ origin.date: 04/25/2019
 ms.date: 07/01/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: e8edb3a8a218b79bc4f0d3b3a30034cd29afd48b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6a7ca1988a2840aa1836bbb42b9b0bc309ce60bc
+ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569941"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67725221"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -352,7 +352,7 @@ attested | 请参阅[证明数据](#attested-data) | 2018-10-01
 instance | 请参阅[实例 API](#instance-api) | 2017-04-02
 scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
 
-<!--Not Available on identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01-->
+<!--Not Available on identity | Managed identities for Azure resources. See [acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)-->
 
 #### <a name="instance-api"></a>实例 API
 ##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>可以通过实例 API 使用以下计算类别：
@@ -382,9 +382,9 @@ vmId | VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-us
 vmScaleSetName | 虚拟机规模集的[虚拟机规模集名称](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 大小](sizes.md) | 2017-04-02
 
-<!--Not Availablle on customData | See [Custom Data](#custom-data) | 2019-02-01-->
-<!--Not Availablle on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01-->
-<!--Not Availablle on zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01-->
+<!--Not Availablle on customData | See [Custom Data](#custom-data)-->
+<!--Not Availablle on placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)-->
+<!--Not Availablle on zone | [Availability Zone](../../availability-zones/az-overview.md)-->
 
 ##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>可以通过实例 API 使用以下网络类别：
 

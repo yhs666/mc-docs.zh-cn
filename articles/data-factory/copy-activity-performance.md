@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 01/28/2019
-ms.date: 06/10/2019
+origin.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: ba0b868a6d6bd26107b7739ba00b37e1ad2bf7eb
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 4a2dd06e05a68f4d7513ec4a5dd5254143d4a6e4
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732671"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569859"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>复制活动性能和优化指南
 
@@ -28,7 +28,6 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 * 以 **1.2 GBps** 的速度将数据加载到 **Azure SQL 数据仓库**。
 * 以 **1.0 GBps** 的速度将数据加载到 **Azure Blob 存储**
-* 以 **1.0 GBps** 的速度将数据加载到 **Azure Data Lake Store**
 
 本文介绍：
 
@@ -72,7 +71,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 
 > [!TIP]
-> 通过使用更多数据集成单元 (DIU)，可以实现更高吞吐量。 例如，使用 100 个 DIU，可将数据以 **1.0GBps** 的速率从 Azure Blob 复制到 Azure Data Lake Store 中。 请参阅[数据集成单元](#data-integration-units)部分，了解有关此功能和受支持方案的相关详细信息。 
+> 通过使用更多数据集成单元 (DIU)，可以实现更高吞吐量。 请参阅[数据集成单元](#data-integration-units)部分，了解有关此功能和受支持方案的相关详细信息。 
 
 ## <a name="data-integration-units"></a>数据集成单元
 
@@ -90,7 +89,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 监视活动运行时，可以在复制活动输出中看到每次复制运行实际使用的数据集成单元数。 从[复制活动监视](copy-activity-overview.md#monitoring)中了解详细信息。
 
 > [!NOTE]
-> 仅当**将多个文件从 Azure 存储/Data Lake Storage/Amazon S3/Google Cloud Storage/云 FTP/云 SFTP 复制到任何其他云数据存储**时，当前**大于 4** 的 DIU 的设置才适用。
+> 当前仅当**将多个文件从 Azure 存储/Amazon S3/Google Cloud Storage/云 FTP/云 SFTP 复制到任何其他云数据存储**时，**大于 4** 的 DIU 设置才适用。
 >
 
 **示例：**
@@ -107,7 +106,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "AzureDataLakeStoreSink"
+                "type": "BlobSink"
             },
             "dataIntegrationUnits": 32
         }
@@ -148,7 +147,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "AzureDataLakeStoreSink"
+                "type": "BlobSink"
             },
             "parallelCopies": 32
         }
@@ -167,7 +166,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 将数据从源数据存储复制到接收器数据存储时，可能会选择使用 Blob 存储作为过渡暂存存储。 暂存在以下情况下特别有用：
 
-- **通过 PolyBase 从各种数据存储将数据引入 SQL 数据仓库**。 SQL 数据仓库使用 PolyBase 作为高吞吐量机制，将大量数据加载到 SQL 数据仓库中。 但是，源数据必须位于 Blob 存储或 Azure Data Lake Store 中，并且它必须满足其他条件。 从 Blob 存储或 Azure Data Lake Store 以外的数据存储加载数据时，可通过过渡暂存 Blob 存储激活数据复制。 在这种情况下，数据工厂会执行所需的数据转换，确保其满足 PolyBase 的要求。 然后，它使用 PolyBase 将数据高效加载到 SQL 数据仓库。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
+- **通过 PolyBase 从各种数据存储将数据引入 SQL 数据仓库**。 SQL 数据仓库使用 PolyBase 作为高吞吐量机制，将大量数据加载到 SQL 数据仓库中。 但是，源数据必须位于 Blob 存储中，并且它必须满足其他条件。 从 Blob 存储以外的数据存储加载数据时，可通过过渡暂存 Blob 存储激活数据复制。 在这种情况下，数据工厂会执行所需的数据转换，确保其满足 PolyBase 的要求。 然后，它使用 PolyBase 将数据高效加载到 SQL 数据仓库。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
 - **有时，通过速度慢的网络连接执行混合数据移动（即从本地数据存储复制到云数据存储）需要一段时间**。 为了提高性能，可使用暂存复制在本地压缩数据，缩短将数据移动到云中的暂存数据存储的时间，然后，可先在暂存存储中解压缩数据，再将它们加载到目标数据存储。
 - **由于企业 IT 策略，不希望在防火墙中打开除端口 80 和端口 443 以外的端口**。 例如，将数据从本地数据存储复制到 Azure SQL 数据库接收器或 Azure SQL 数据仓库接收器时，需要对 Windows 防火墙和公司防火墙激活端口 1433 上的出站 TCP 通信。 在这种情况下，暂存复制可以利用自承载 Integration Runtime 首先在端口 443 上通过 HTTP 或 HTTPS 将数据复制到 Blob 存储暂存实例，然后将数据从 Blob 存储暂存加载到 SQL 数据库或 SQL 数据仓库。 在此流中，不需要启用端口 1433。
 
@@ -256,7 +255,7 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
      * [暂存复制](#staged-copy)
      * [自承载 Integration Runtime 可伸缩性](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [自承载 Integration Runtime](#considerations-for-self-hosted-integration-runtime)
-   * Source[](#considerations-for-the-source)
+   * [Source](#considerations-for-the-source)
    * [接收器](#considerations-for-the-sink)
    * [序列化和反序列化](#considerations-for-serialization-and-deserialization)
    * [压缩](#considerations-for-compression)
@@ -279,11 +278,11 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 确保基础数据存储未被在其上运行或针对其运行的其他工作负荷过渡占用。
 
-有关 Microsoft 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)，帮助用户了解数据存储性能特征、尽量缩短响应时间以及最大化吞吐量。
+有关 Azure 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)，帮助你了解数据存储性能特征、最大限度缩短响应时间以及最大限度提高吞吐量。
 
 * 如果将数据**从 Blob 存储复制到 SQL 数据仓库**，请考虑使用 **PolyBase** 来提高性能。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
-* 如果将数据**从 HDFS 复制到 Azure Blob/Azure Data Lake Store**，请考虑使用 **DistCp** 来提高性能。 请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)了解详细信息。
-* 如果将数据**从 Redshift 复制到 Azure SQL 数据仓库/Azure BLob/Azure Data Lake Store**，请考虑使用 **UNLOAD** 来提高性能。 请参阅[使用 UNLOAD 从 Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)了解详细信息。
+* 如果将数据**从 HDFS 复制到 Azure Blob**，请考虑使用 **DistCp** 来提高性能。 请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)了解详细信息。
+* 如果将数据**从 Redshift 复制到 Azure SQL 数据仓库/Azure BLob**，请考虑使用 **UNLOAD** 来提高性能。 请参阅[使用 UNLOAD 从 Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)了解详细信息。
 
 ### <a name="file-based-data-stores"></a>基于文件的数据存储
 
@@ -301,11 +300,11 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 确保基础数据存储未被在其上运行或针对其运行的其他工作负荷过渡占用。
 
-有关 Microsoft 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)。 这些主题可帮助用户了解数据存储性能特征、了解如何尽量缩短响应时间以及最大化吞吐量。
+有关 Azure 数据存储的信息，请参阅特定于数据存储的[监视和优化主题](#performance-reference)。 这些主题可帮助用户了解数据存储性能特征、了解如何尽量缩短响应时间以及最大化吞吐量。
 
-* 如果将数据**从 Blob 存储复制到 SQL 数据仓库**，请考虑使用 **PolyBase** 来提高性能。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
-* 如果将数据**从 HDFS 复制到 Azure Blob/Azure Data Lake Store**，请考虑使用 **DistCp** 来提高性能。 请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)了解详细信息。
-* 如果将数据**从 Redshift 复制到 Azure SQL 数据仓库/Azure BLob/Azure Data Lake Store**，请考虑使用 **UNLOAD** 来提高性能。 请参阅[使用 UNLOAD 从 Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)了解详细信息。
+* 如果将数据**从任何数据存储复制到 Azure SQL 数据仓库**，请考虑使用 **PolyBase** 来提高性能。 有关详细信息，请参阅[使用 PolyBase 将数据加载到 Azure SQL 数据仓库](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse)。
+* 如果将数据**从 HDFS 复制到 Azure Blob**，请考虑使用 **DistCp** 来提高性能。 请参阅[使用 DistCp 从 HDFS 复制数据](connector-hdfs.md#use-distcp-to-copy-data-from-hdfs)了解详细信息。
+* 如果将数据**从 Redshift 复制到 Azure SQL 数据仓库/Azure BLob**，请考虑使用 **UNLOAD** 来提高性能。 请参阅[使用 UNLOAD 从 Amazon Redshift 复制数据](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift)了解详细信息。
 
 ### <a name="file-based-data-stores"></a>基于文件的数据存储
 
@@ -314,10 +313,8 @@ Azure 提供了一组企业级数据存储和数据仓库解决方案，并且�
 
 ### <a name="relational-data-stores"></a>关系数据存储
 
-* **复制行为**：根据已为 sqlSink  设置的属性，复制活动以不同的方式将数据写入目标数据库。
-  * 数据移动服务默认使用大容量复制 API 以追加模式插入数据，这提供最佳性能。
-  * 如果在接收器中配置存储过程，数据库一次会应用一行数据，而不是大容量加载。 性能会大大降低。 如果数据集较大，请考虑切换为使用 **preCopyScript** 属性（如适用）。
-  * 如果为每次复制活动运行配置 **preCopyScript** 属性，该服务会触发脚本，然后使用大容量复制 API 插入数据。 例如，若要使用最新数据覆盖整个表，可指定一个脚本，先删除所有记录，再从源大容量加载新数据。
+* **复制行为和性能含义**：可以通过不同方式将数据写入 SQL 接收器，请参阅[将数据加载到 Azure SQL 数据库的最佳做法](connector-azure-sql-database.md#best-practice-for-loading-data-into-azure-sql-database)了解更多信息。
+
 * **数据模式和批大小**：
   * 表架构会影响复制吞吐量。 复制相同数据量时，较大行大小会比较小行大小提供更好的性能，因为数据库可以更有效地提交较少的数据批次。
   * 复制活动以一系列批次插入数据。 可使用  **writeBatchSize** 属性设置批中的行数。 如果数据的行较小，可设置具有更高值的 **writeBatchSize** 属性，从更低的批开销和更高的吞吐量获益。 如果数据的行大小较大，请谨慎增加  **writeBatchSize**。 较高的值可能会导致复制失败（因为数据库负载过重）。
