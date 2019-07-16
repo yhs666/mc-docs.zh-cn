@@ -4,12 +4,12 @@ ms.author: bwren
 ms.service: azure-monitor
 ms.topic: include
 ms.date: 01/19/2019
-ms.openlocfilehash: 891ec8a8b5896190e602a2995e4a42ea6c43b7de
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 76759fc9707e56f8242e6d32401329fc7c53ff18
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440917"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562263"
 ---
 >[!NOTE]
-> 本文最近已更新，从使用术语“Log Analytics”改为使用术语“Azure Monitor 日志”。 日志数据仍然存储在 Log Analytics 工作区中，并仍然由同一 Log Analytics 服务收集并分析。 我们正在更新术语，以便更好地反映 [Azure Monitor 中日志](../articles/azure-monitor/platform/data-collection.md#logs)的角色。 有关详细信息，请参阅 [Azure Monitor 术语更改](../articles/azure-monitor/azure-monitor-rebrand.md)。
+> 本文最近已更新，从使用术语“Log Analytics”改为使用术语“Azure Monitor 日志”。 日志数据仍然存储在 Log Analytics 工作区中，并仍然由同一 Log Analytics 服务收集并分析。 我们正在更新术语，以便更好地反映 Azure Monitor 中的日志的角色。 

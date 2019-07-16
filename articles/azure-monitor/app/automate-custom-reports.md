@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 42ddb2b16dfc80e9ad1432eb77754e7c16ba2afe
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9a536333f660c881500a8231d0f66cdde7a527f6
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732210"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562723"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>使用 Azure Application Insights 数据自动化自定义报表
 
@@ -41,7 +41,7 @@ ms.locfileid: "66732210"
 
 * [使用 Azure Flow 自动化报表](automate-with-flow.md)
 * [使用逻辑应用自动化报表](automate-with-logic-apps.md)
-* 在监视方案中使用“Application Insights 计划摘要”[Azure Function](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function) 模板。 此函数使用 SendGrid 传递电子邮件。 
+* 在监视方案中使用“Application Insights 计划摘要”[Azure Function](/azure-functions/functions-create-first-azure-function) 模板。 此函数使用 SendGrid 传递电子邮件。 
 
     ![Azure Function 模板](./media/automate-custom-reports/azure-function-template.png)
 
@@ -94,6 +94,9 @@ availabilityResults
 
 5. 选择“Application Insights 计划的摘要模板”  。
 
+     > [!NOTE]
+     > 默认情况下，使用运行时版本 2.x 创建函数应用。 必须[以 Azure Functions 运行时版本 1.x 为目标](https://docs.microsoft.com/azure/azure-functions/set-runtime-version)才能使用 Application Insights 计划摘要模板。
+
    ![“新建函数 Application Insights 模板”屏幕截图](./media/automate-custom-reports/function-app-04.png)
 
 6. 为你的报告输入合适的收件人电子邮件地址并选择“创建”。 
@@ -115,7 +118,7 @@ availabilityResults
    * SendGridAPI =SendGrid API Key
 
      > [!NOTE]
-     > 如果没有 SendGrid 帐户，可以创建一个。 [此处](https://docs.microsoft.com/azure/azure-functions/functions-bindings-sendgrid)提供了适用于 Azure 函数的 SendGrid 文档。 如果只需要有关如何设置 SendGrid 的简单解释并生成一个 API 密钥，则本文末尾提供了一个。 
+     > 如果没有 SendGrid 帐户，可以创建一个。 [此处](/azure-functions/functions-bindings-sendgrid)提供了适用于 Azure 函数的 SendGrid 文档。 如果只需要有关如何设置 SendGrid 的简单解释并生成一个 API 密钥，则本文末尾提供了一个。 
 
 9. 选择“集成”  并在“输出”下单击“SendGrid ($return)”。 
 
@@ -161,8 +164,7 @@ availabilityResults
 
 * 详细了解如何创建 [Analytics 查询](../../azure-monitor/log-query/get-started-queries.md)。
 * 详细了解[采用编程方式查询 Application Insights 数据](https://dev.applicationinsights.io/)
-* 了解有关[逻辑应用](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps)的详细信息。
-* 详细了解 [Microsoft Flow](https://ms.flow.microsoft.com)。
+* 了解有关[逻辑应用](/logic-apps/logic-apps-what-are-logic-apps)的详细信息。
 
 
 

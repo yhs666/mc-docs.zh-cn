@@ -3,8 +3,8 @@ title: Microsoft 标识平台的应用程序类型 | Azure
 description: Microsoft 标识平台 (v2.0) 终结点支持的应用类型和方案。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/06/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9971715447e9c5dab95f6d4f90acbf0c0524fa
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: e35d43c990bd2d25a2ef8df79371faa0e7a7e95c
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517629"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568683"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 标识平台的应用程序类型
 
@@ -38,7 +38,7 @@ Microsoft 标识平台 (v2.0) 终结点支持各种现代应用体系结构的�
 必须在 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)中注册每个使用 Microsoft 标识平台终结点的应用。 应用注册过程收集并分配应用的以下值：
 
 * 用于唯一标识应用的 **应用程序（客户端）ID**
-* 用于将响应定向回应用的重定向 URI
+* 用于将响应定向回应用的重定向 URI 
 * 几个其他特定于方案的值，例如支持的帐户类型
 
 有关详细信息，请了解如何[注册应用](quickstart-register-app.md)。
@@ -52,7 +52,7 @@ https://login.partner.microsoftonline.cn/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>单页应用 (JavaScript)
 
-许多新式应用都有一个单页应用前端（主要以 JavaScript 编写）。 通常，该前端是使用 AngularJS、Ember.js、Durandal.js 等框架编写的。 Microsoft 标识平台终结点使用 [OAuth 2.0 隐式流](v2-oauth2-implicit-grant-flow.md)来支持这些应用。
+许多新式应用都有一个单页应用前端（主要以 JavaScript 编写）。 通常，该前端是使用 Angular、React 或 Vue 等框架编写的。 Microsoft 标识平台终结点使用 [OAuth 2.0 隐式流](v2-oauth2-implicit-grant-flow.md)来支持这些应用。
 
 在此流中，应用直接从 Microsoft 标识平台授权终结点接收令牌，无需任何服务器到服务器的交换。 所有身份验证逻辑和会话处理将完全在 JavaScript 客户端中发生，无需额外的页面重定向。
 
@@ -131,3 +131,4 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 
 若要生成守护程序，请参阅[客户端凭据文档](v2-oauth2-client-creds-grant-flow.md)，或者尝试 [.NET 示例应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
 
+<!-- Update_Description: wording update -->

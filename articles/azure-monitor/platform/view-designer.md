@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 50a35870f896529b93ae4bf7d665deec5d5aae53
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 605755d279a15f5f566017a44935e93914b14001
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586888"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562262"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>在 Azure Monitor 中使用视图设计器创建自定义视图
 在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文概述了视图设计器以及创建和编辑自定义视图的过程。
@@ -32,7 +32,7 @@ ms.locfileid: "65586888"
 
 
 ## <a name="concepts"></a>概念
-视图显示在 Azure 门户的 Azure Monitor“概述”页中。 通过点击“见解”部分下的“更多”，从“Azure Monitor”菜单打开此页面。 每个自定义视图中的磁贴都按字母顺序显示，监视解决方案的磁贴安装在同一工作区中。
+视图显示在 Azure 门户的 Azure Monitor“概述”  页中。 通过点击“见解”部分下的“更多”，从“Azure Monitor”菜单打开此页面    。 每个自定义视图中的磁贴都按字母顺序显示，监视解决方案的磁贴安装在同一工作区中。
 
 ![概述页](media/view-designer/overview-page.png)
 
@@ -40,7 +40,7 @@ ms.locfileid: "65586888"
 
 | 部分 | 说明 |
 |:--- |:--- |
-| 磁贴 | 显示在 Azure Monitor“概述”页上。 每个磁贴都会显示一个可视化摘要，其中包含磁贴所代表的自定义视图。 每个磁贴类型提供的记录可视化效果各不相同。 选择磁贴即可显示自定义视图。 |
+| 磁贴 | 显示在 Azure Monitor“概述”  页上。 每个磁贴都会显示一个可视化摘要，其中包含磁贴所代表的自定义视图。 每个磁贴类型提供的记录可视化效果各不相同。 选择磁贴即可显示自定义视图。 |
 | 自定义视图 | 在选择磁贴时显示。 每个视图包含一个或多个可视化部件。 |
 | 可视化部件 | 根据一个或多个[日志查询](../log-query/log-query-overview.md)，提供 Log Analytics 工作区中数据的可视化效果。 大多数部件会包括提供高级可视化效果的标头，以及显示最匹配结果的列表。 每个部件类型提供了 Log Analytics 工作区中记录的不同可视化效果。 选择部件中的元素即可进行日志查询，获取详细的记录。 |
 
@@ -57,7 +57,7 @@ ms.locfileid: "65586888"
 | 选项 | 说明 |
 |:--|:--|
 | 刷新   | 使用最新数据刷新视图。 | 
-| 日志      | 打开 [Log Analytics](../log-query/portals.md)，使用日志查询对数据进行分析。 |
+| 日志      | 打开 Log Analytics，以使用日志查询对数据进行分析。 |
 | 编辑       | 在视图设计器中打开视图，以便编辑其内容和配置。  |
 | 克隆      | 创建一个新视图，并在视图设计器中打开它。 新视图的名称与原始名称相同，但其末尾附加了 *Copy* 字样。 |
 | 日期范围 | 为视图中包含的数据设置日期和时间范围筛选器。 在视图中的查询中设置任何日期范围前，将应用此日期范围。  |
@@ -65,7 +65,7 @@ ms.locfileid: "65586888"
 
 
 ## <a name="create-a-new-view"></a>创建新视图
-可以在视图设计器中创建新视图，方法是在 Log Analytics 工作区的菜单中选择“视图设计器”。
+可以在视图设计器中创建新视图，方法是在 Log Analytics 工作区的菜单中选择“视图设计器”  。
 
 ![视图设计器磁贴](media/view-designer/view-designer-tile.png)
 
@@ -75,24 +75,24 @@ ms.locfileid: "65586888"
 
 视图设计器有三个窗格： 
 * **设计**：包含正在创建或编辑的自定义视图。 
-* **控件**：包含添加到“设计”窗格的磁贴和部件。 
+* **控件**：包含添加到“设计”窗格的磁贴和部件  。 
 * **属性**：显示磁贴或所选部件的属性。
 
 ![视图设计器](media/view-designer/view-designer-screenshot.png)
 
 ### <a name="configure-the-view-tile"></a>配置视图磁贴
-一个自定义视图只能有一个磁贴。 若要查看当前磁贴或选择另一个磁贴，请在“控件”窗格中选择“磁贴”选项卡。 “属性”窗格会显示当前磁贴的属性。 
+一个自定义视图只能有一个磁贴。 若要查看当前磁贴或选择另一个磁贴，请在“控件”  窗格中选择“磁贴”  选项卡。 “属性”  窗格会显示当前磁贴的属性。 
 
-可以根据[磁贴参考](view-designer-tiles.md)中的信息配置磁贴属性，然后单击“应用”，保存所做的更改。
+可以根据[磁贴参考](view-designer-tiles.md)中的信息配置磁贴属性，然后单击“应用”  ，保存所做的更改。
 
 ### <a name="configure-the-visualization-parts"></a>配置可视化部件
-视图中可以包含任何数量的可视化部件。 若要向视图添加部件，请选择“视图”选项卡，然后选择可视化部件。 “属性”窗格显示所选部件的属性。 
+视图中可以包含任何数量的可视化部件。 若要向视图添加部件，请选择“视图”  选项卡，然后选择可视化部件。  “属性”窗格显示所选部件的属性。 
 
-可以根据[可视化部件参考](view-designer-parts.md)中的信息配置视图属性，然后单击“应用”，保存所做的更改。
+可以根据[可视化部件参考](view-designer-parts.md)中的信息配置视图属性，然后单击“应用”  ，保存所做的更改。
 
 视图只有一行可视化部件。 可以重新排列现有部件，只需将其拖至新位置即可。
 
-可以通过以下方式从视图中删除可视化部件：选择该部件右上角的“X”。
+可以通过以下方式从视图中删除可视化部件：选择该部件右上角的“X”  。
 
 
 ### <a name="menu-options"></a>菜单选项

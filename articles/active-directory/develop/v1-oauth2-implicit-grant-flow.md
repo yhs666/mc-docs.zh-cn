@@ -3,27 +3,28 @@ title: 了解 Azure AD 中的 OAuth2 隐式授权流 | Microsoft 文档
 description: 详细了解 Azure Active Directory 的 OAuth2 隐式授权流实现，以及它是否适合应用程序。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 90e42ff9-43b0-4b4f-a222-51df847b2a8d
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 01/21/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ff2cef2afe0337f5c9dd1994a90bf81ba67fa688
-ms.sourcegitcommit: 29a95e5d4667c5c1ea82477c0449a722aae90d96
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b55d57f244311c391fa51836f96bc8a5cb93c8c8
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440367"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568696"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>了解 Azure Active Directory (AD) 中的 OAuth2 隐式授权流
 
@@ -49,10 +50,10 @@ OAuth2 规范声明，设计隐式授权是为了实现用户代理应用程序�
 
 当前情况下，若要保护对 Web API 的调用，首选方法是使用 OAuth2 持有者令牌方法，该方法的每个调用都伴随 OAuth2 访问令牌的使用。 Web API 会检查传入的访问令牌，如果在其中发现所需的范围，则会授予对已请求操作的访问权限。 隐式流提供了方便的机制供 JavaScript 应用程序获取 Web API 的访问令牌，并提供很多与 Cookie 相关的优点：
 
-- 可以可靠地获取令牌而无需跨源调用 – 强制注册令牌要返回到的重定向 URI 可保证令牌不会转到其他位置
-- JavaScript 应用程序可以针对任意数目的目标 Web API 获取所需数目的访问令牌 – 对域没有限制
-- 会话或本地存储等 HTML5 功能可授予令牌缓存和生存期管理的完全控制权，但是 Cookie 管理对于应用而言是不透明的
-- 访问令牌不容易遭受跨站点请求伪造 (CSRF) 攻击
+* 可以可靠地获取令牌而无需跨源调用 – 强制注册令牌要返回到的重定向 URI 可保证令牌不会转到其他位置
+* JavaScript 应用程序可以针对任意数目的目标 Web API 获取所需数目的访问令牌 – 对域没有限制
+* 会话或本地存储等 HTML5 功能可授予令牌缓存和生存期管理的完全控制权，但是 Cookie 管理对于应用而言是不透明的
+* 访问令牌不容易遭受跨站点请求伪造 (CSRF) 攻击
 
 隐式授权流不颁发刷新令牌，这主要是出于安全考虑。 刷新令牌的范围不像访问令牌那么窄，前者授予更大的权力，因此万一泄露，将造成更大的损害。在隐式流中，令牌在 URL 中传递，因此遭到拦截的风险高于授权代码授予。
 
@@ -62,7 +63,7 @@ OAuth2 规范声明，设计隐式授权是为了实现用户代理应用程序�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>隐式授权适合我的应用吗？
 
-与其他授权相比，隐式授权具有更多风险，需要注意的方面已有详细记录（例如，[在隐式流中误用访问令牌来模拟资源所有者][OAuth2-Spec-Implicit-Misuse]和 [OAuth 2.0 威胁模型和安全注意事项][OAuth2-Threat-Model-And-Security-Implications]）。 但是，风险走势之所以较高，主要是因为它要启用执行活动代码的应用程序，并由远程资源提供给浏览器。 如果要规划一个 SPA 体系结构，则不要设置后端组件或尝试通过 JavaScript 调用 Web API，而应使用隐式流来获取令牌。
+与其他授权相比，隐式授权具有更多风险，需要注意的方面已有详细的文档记录（例如，[在隐式流中误用访问令牌来模拟资源所有者][OAuth2-Spec-Implicit-Misuse] and [OAuth 2.0 Threat Model and Security Considerations][OAuth2-Threat-Model-And-Security-Implications]）。 但是，风险走势之所以较高，主要是因为它要启用执行活动代码的应用程序，并由远程资源提供给浏览器。 如果要规划一个 SPA 体系结构，则不要设置后端组件或尝试通过 JavaScript 调用 Web API，而应使用隐式流来获取令牌。
 
 如果应用程序是本机客户端，则隐式流并不太适合。 在使用本机客户端的情况下，如果没有 Azure AD 会话 Cookie，应用程序无法长时间维持一个会话。 这意味着，在为新资源获取访问令牌时，应用程序会反复提示用户。
 
@@ -70,8 +71,8 @@ OAuth2 规范声明，设计隐式授权是为了实现用户代理应用程序�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关开发人员资源的完整列表，包括 Azure AD 支持的协议和 OAuth2 授权流的参考信息，请参阅 [Azure AD Developer's Guide][AAD-Developers-Guide]
-- 要更深入了解应用程序集成过程，请参阅 [How to integrate an application with Azure AD][ACOM-How-To-Integrate] （如何将应用程序与 Azure AD 集成）。
+* 有关开发人员资源的完整列表，包括 Azure AD 支持的协议和 OAuth2 授权流的参考信息，请参阅 [Azure AD Developer's Guide][AAD-Developers-Guide]（Azure AD 开发人员指南）
+* 要更深入了解应用程序集成过程，请参阅 [How to integrate an application with Azure AD][ACOM-How-To-Integrate]（如何将应用程序与 Azure AD 集成）。
 
 <!--Image references-->
 
@@ -82,4 +83,4 @@ OAuth2 规范声明，设计隐式授权是为了实现用户代理应用程序�
 [OAuth2-Spec-Implicit-Misuse]: https://tools.ietf.org/html/rfc6749#section-10.16
 [OAuth2-Threat-Model-And-Security-Implications]: https://tools.ietf.org/html/rfc6819
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

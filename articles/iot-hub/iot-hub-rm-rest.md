@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/08/2017
 ms.author: v-yiso
-ms.date: 03/18/2019
-ms.openlocfilehash: 02e6ea7de8b213925e21fb979bd84d3f96a74fec
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 07/15/2019
+ms.openlocfilehash: 521d8a767a94cd96ee711336759ca15c37ada487
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855305"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569713"
 ---
 # <a name="create-an-iot-hub-using-the-resource-provider-rest-api-net"></a>使用资源提供程序 REST API 创建 IoT 中心 (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
@@ -31,16 +31,17 @@ ms.locfileid: "64855305"
 
 要完成本教程，需要以下各项：
 
-* Visual Studio 2015 或 Visual Studio 2017。
-* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个 [帐户][lnk-free-trial] 。
+* Visual Studio。
+
+* 有效的 Azure 帐户。 <br/>如果没有帐户，只需花费几分钟就能创建一个[帐户][lnk-free-trial]。
 * [Azure PowerShell 1.0][lnk-powershell-install] 或更高版本。
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
 ## <a name="prepare-your-visual-studio-project"></a>准备 Visual Studio 项目
-1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板创建 Visual C# Windows 经典桌面项目。 将该项目命名为 **CreateIoTHubREST**。
+1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”  项目模板创建 Visual C# Windows 经典桌面项目。 将该项目命名为 **CreateIoTHubREST**。
 2. 在解决方案资源管理器中右键单击项目，然后单击“**管理 NuGet 包**”。
-3. 在 NuGet 包管理器中，选中“包括预发行版”，并在“浏览”页上搜索 **Microsoft.Azure.Management.ResourceManager**。 选择该包，单击“安装”，在“审阅更改”中单击“确定”，并单击“我接受”以接受许可证。
+3. 在 NuGet 包管理器中，选中“包括预发行版”，并在“浏览”页上搜索 **Microsoft.Azure.Management.ResourceManager**   。 选择该包，单击“安装”  ，在“审阅更改”  中单击“确定”  ，并单击“我接受”  以接受许可证。
 4. 在 NuGet 包管理器中，搜索 **Microsoft.IdentityModel.Clients.ActiveDirectory**。  单击“**安装**”，在“**审阅更改**”中单击“**确定**”，并单击“**我接受**”以接受许可证。
 5. 在 Program.cs 中，将现有 **using** 语句替换为以下代码：
 
@@ -58,7 +59,7 @@ ms.locfileid: "64855305"
     using System.Threading;
     ```
 
-6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 资源组名称是创建 IoT 中心时要使用的资源组名称。 可以使用现有的资源组或新资源组。 “IoT 中心名称”是你创建的 IoT 中心的名称，例如“MyIoTHub”。 IoT 中心的名称必须全局唯一。 **部署名称**是部署的名称，例如 **Deployment_01**。
+6. 在 Program.cs 中，将占位符值替换为以下静态变量。 在本教程前面的介绍中，已记下 **ApplicationId**、**SubscriptionId**、**TenantId** 和 **Password**。 资源组名称  是创建 IoT 中心时要使用的资源组名称。 可以使用现有的资源组或新资源组。 “IoT 中心名称”  是你创建的 IoT 中心的名称，例如“MyIoTHub”  。 IoT 中心的名称必须全局唯一。 **部署名称**是部署的名称，例如 **Deployment_01**。
 
     ```csharp
     static string applicationId = "{Your ApplicationId}";
@@ -74,7 +75,7 @@ ms.locfileid: "64855305"
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
 
 ## <a name="use-the-resource-provider-rest-api-to-create-an-iot-hub"></a>使用资源提供程序 REST API 创建 IoT 中心
-在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可以使用资源提供程序 REST API 更改现有的 IoT 中心。
+在资源组中使用 [IoT 中心资源提供程序 REST API][lnk-rest-api] 创建 IoT 中心。 还可使用资源提供程序 REST API 更改现有的 IoT 中心。
 
 1. 将以下方法添加到 Program.cs：
 
@@ -108,7 +109,7 @@ ms.locfileid: "64855305"
     var json = JsonConvert.SerializeObject(description, Formatting.Indented);
     ```
 
-4. 将以下代码添加到 **CreateIoTHub** 方法中。 使用此代码将 REST 请求提交到 Azure。 然后该代码会检查响应，并检索可用于监视部署任务状态的 URL：
+4. 将以下代码添加到 **CreateIoTHub** 方法。 使用此代码将 REST 请求提交到 Azure。 然后该代码会检查响应，并检索可用于监视部署任务状态的 URL：
 
     ```csharp
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
@@ -163,10 +164,10 @@ ms.locfileid: "64855305"
 > 
 
 ## <a name="next-steps"></a>后续步骤
-现在，已使用资源提供程序 REST API 部署了一个 IoT 中心，接下来可以进一步进行探索：
+现已使用资源提供程序 REST API 部署了 IoT 中心，接下来可更进一步探索：
 
 * 阅读了解 [IoT 中心资源提供程序 REST API][lnk-rest-api] 的相关功能。
-* 有关 Azure 资源管理器功能的详细信息，请参阅 [Azure 资源管理器概述][lnk-azure-rm-overview]。
+* 若要详细了解 Azure 资源管理器功能，请阅读 [Azure 资源管理器概述][lnk-azure-rm-overview]。
 
 若要详细了解如何开发 IoT 中心，请参阅以下文章：
 

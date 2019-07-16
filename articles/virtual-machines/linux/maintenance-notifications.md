@@ -1,5 +1,5 @@
 ---
-title: 处理 Azure 中 Linux VM 的维护通知 | Azure
+title: 处理 Linux 虚拟机的计划内维护通知 | Azure
 description: 查看 Azure 中运行的 Linux 虚拟机的维护通知并开始自助式维护。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/30/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ce424aa4a9156dc7dccae444dc6e7801d15ef89e
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2ad714043be7447d4b902e4730b57032dd5a1a0e
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004259"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570429"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -28,12 +28,12 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 - 如果维护不需重新启动，Azure 会在更新主机时使用就地迁移来暂停 VM。 这些非重启型维护操作会一个容错域接着一个容错域地应用。如果收到任何警告性运行状况信号，则进度会停止。
 
-- 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口，方便我们在适当的时间自行启动维护。
+- 如果维护需重新启动，系统会告知计划维护的时间。 在这些情况下，系统会提供一个时间窗口（通常为 30 天），方便你在适当的时间自行启动维护。
 
 需要重启的计划内维护是按批进行计划的。 每个批具有不同的作用域（区域）。
 
 - 一个批从向客户发送通知开始。 默认情况下，向订阅所有者和共同所有者发送通知。 可以使用 Azure [活动日志警报](../../azure-monitor/platform/activity-logs-overview.md)，向通知添加更多收件人和消息传送选项（如电子邮件、短信和 Webhook）。  
-- 在通知时会提供自助时段。  在此期间内（通常为四周），你可以找到包含在此批中的虚拟机，开始按照自己的计划主动进行维护。
+- 在通知时会提供自助时段。  在此时段内（通常为 30 天），你可以找到包含在此批中的虚拟机，开始按照自己的计划主动进行维护。
 - 自助时段过后，就会开始计划内维护时段。  在此时段的某个时刻，Azure 会计划所需的维护，并将其应用于虚拟机。 
 
 设置这两个时段的目的是，在了解 Azure 何时将自动启动维护时，提供足够的时间来启动维护和重新启动虚拟机。
@@ -79,15 +79,14 @@ az vm get-instance-view -g rgName -n vmName
 
 在 MaintenanceRedeployStatus 下返回以下值： 
 
-
-|                 Value                 |                                            说明                                            |
-|---------------------------------------|---------------------------------------------------------------------------------------------------|
-| IsCustomerInitiatedMaintenanceAllowed |                指示此时是否可以在 VM 上启动维护                 |
-|     PreMaintenanceWindowStartTime     | 可以在 VM 上启动维护的自助式维护时段的起点 |
-|      PreMaintenanceWindowEndTime      |    可以在 VM 上启动维护的自助式维护时段的终点    |
-|      MaintenanceWindowStartTime       | Azure 在 VM 上启动维护的计划内维护时段的起点 |
-|       MaintenanceWindowEndTime        |    Azure 在 VM 上启动维护的计划内维护时段的终点    |
-|        LastOperationResultCode        |                 上次尝试在 VM 上启动维护的结果                  |
+| Value | 说明   |
+|-------|---------------|
+| IsCustomerInitiatedMaintenanceAllowed | 指示此时是否可以在 VM 上启动维护 |
+| PreMaintenanceWindowStartTime         | 可以在 VM 上启动维护的自助式维护时段的起点 |
+| PreMaintenanceWindowEndTime           | 可以在 VM 上启动维护的自助式维护时段的终点 |
+| MaintenanceWindowStartTime            | Azure 在 VM 上启动维护的计划内维护时段的起点 |
+| MaintenanceWindowEndTime              | Azure 在 VM 上启动维护的计划内维护时段的终点 |
+| LastOperationResultCode               | 上次尝试在 VM 上启动维护的结果 |
 
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>使用 CLI 在 VM 上启动维护
 

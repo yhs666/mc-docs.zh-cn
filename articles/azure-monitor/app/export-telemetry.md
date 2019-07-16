@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6cabd52304cae130e5337ca10662ea98bbdc5141
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: ac90c95f94a5b5d4d5edb3ce155533f077777bbf
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732287"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562699"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到世纪互联 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
@@ -37,11 +37,11 @@ ms.locfileid: "66732287"
 
 连续导出**不支持**以下 Azure 存储功能/配置：
 
-* 将 [VNET/Azure 存储防火墙](https://docs.microsoft.com/azure/storage/common/storage-network-security)与 Azure Blob 存储结合使用。
+* 将 [VNET/Azure 存储防火墙](/storage/common/storage-network-security)与 Azure Blob 存储结合使用。
 
-* Azure Blob 存储的[不可变存储](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)。
+* Azure Blob 存储的[不可变存储](/storage/blobs/storage-blob-immutable-storage)。
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)。
+* [Azure Data Lake Storage Gen2](/storage/blobs/data-lake-storage-introduction)。
 
 <a name="setup"></a>
 ##  <a name="create-a-continuous-export"></a>创建连续导出

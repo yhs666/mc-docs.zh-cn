@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bc35ed91fdca5fb99e53d3359a7ba28a094f159f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b8928be4bb16dd6a521feb99f1c5d468d34d8c1c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732134"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562695"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>在 Application Insights 中浏览指标
 [Application Insights][start] 中的指标是从应用程序遥测功能发送的度量值和事件计数。 它们可帮助检测性能问题，观察应用程序的用法趋势。 标准指标的范围很广泛，也可以创建自己的自定义指标和事件。
@@ -75,7 +75,7 @@ ms.locfileid: "66732134"
 
 可以在图表上显示多个指标，但是，可以一起显示的组合有一些限制。 只要选择一个指标，就会禁用其他一些指标。
 
-如果在应用中编写了[自定义指标][track]（对 TrackMetric 和 TrackEvent 的调用），此处会列出这些指标。
+如果你将[自定义指标][track]编码到应用中（对 TrackMetric 和 TrackEvent 的调用），此处会列出这些指标。
 
 ## <a name="segment-your-data"></a>将数据分段
 可以根据属性拆分指标 - 例如，比较使用不同操作系统的客户端上的页面视图。
@@ -89,7 +89,7 @@ ms.locfileid: "66732134"
 >
 >
 
-如果在应用中编写了[自定义指标][track]并且这些指标包含属性值，可以在列表中选择该属性。
+如果你将[自定义指标][track]编码到应用中并且这些指标包含属性值，则可以在列表中选择属性。
 
 图表是否对分段的数据而言太小？ 调整图表高度：
 
@@ -197,10 +197,6 @@ ms.locfileid: "66732134"
     如果想要在不同的图表上设置不同的筛选器，请在不同的边栏选项卡中创建图表，将它们保存为独立的收藏项。 如果需要，可将这些图表固定到仪表板，以便并排查看这些图表。
 * 如果根据指标上未定义的属性将图表分组，则图表中不会显示任何数据。 请尝试清除“分组依据”，或选择不同的分组属性。
 * 性能数据（CPU、IO 速率等）适用于 Java Web 服务、Windows 桌面应用、[IIS Web 应用和服务（如果安装了状态监视器）](../../azure-monitor/app/monitor-performance-live-website-now.md)以及 [Azure 云服务](../../azure-monitor/app/app-insights-overview.md)。 这些数据不适用于 Azure 网站。
-
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>后续步骤
 * [使用 Application Insights 监视使用情况](../../azure-monitor/app/usage-overview.md)

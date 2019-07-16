@@ -1,5 +1,5 @@
 ---
-title: 在 SQL VM (Resource Manager) 上自动完成管理任务 | Azure
+title: 使用 SQL Server 代理扩展（资源管理器）在 Azure 虚拟机上自动执行管理任务 | Azure
 description: 本文介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/12/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: fe4900c79ac6f2acde0d3fb3fe06b4e63b1d2bc0
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 3a6526a787f95b605dbac3acd89348fbb2c41537
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004108"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570018"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
@@ -51,12 +51,15 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
 **操作系统**：
 
+* Windows Server 2008 R2
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
 
 **SQL Server 版本**：
 
+* SQL Server 2008 
+* SQL Server 2008 R2
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
@@ -91,11 +94,11 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 如果默认实例未正确卸载，同时 IaaS 扩展已重新安装，则 SQL IaaS 扩展可以与 SQL Server 映像上的命名实例一起使用。
 
 若要使用 SQL Server 的命名实例，请执行以下操作：
-   1. 从市场部署 SQL Server VM。 
-   1. 在 [Azure 门户](https://portal.azure.cn)中卸载 IaaS 扩展。
-   1. 在 SQL Server VM 中彻底卸载 SQL Server。
-   1. 在 SQL Server VM 中将 SQL Server 与命名实例一起安装。 
-   1. 在 Azure 门户中安装 IaaS 扩展。  
+1. 从市场部署 SQL Server VM。 
+1. 在 [Azure 门户](https://portal.azure.cn)中卸载 IaaS 扩展。
+1. 在 SQL Server VM 中彻底卸载 SQL Server。
+1. 在 SQL Server VM 中将 SQL Server 与命名实例一起安装。 
+1. 在 Azure 门户中安装 IaaS 扩展。  
 
 ## <a name="status"></a>状态
 验证是否已安装扩展的方法之一是在 Azure 门户中查看代理状态。 在虚拟机窗口中选择“所有设置”，并单击“扩展”。   应看到列出“SqlIaasExtension”扩展。 

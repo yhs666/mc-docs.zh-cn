@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 将数据磁盘附加到 Azure 中的 Windows VM | Azure
+title: 使用 PowerShell 将数据磁盘附加到 Windows VM | Azure
 description: 如何配合使用 PowerShell 和 Resource Manager 部署模型将新磁盘或现有数据磁盘附加到 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 70e91e4722d5b5c0d2d31a15e56694355e7b2cf1
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 5cab1f8324cb13e4cdc9eb9dd50cb5d4c0bf8315
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427813"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569743"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>使用 PowerShell 将数据磁盘附加到 Windows VM
 

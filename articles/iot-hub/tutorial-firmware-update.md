@@ -9,16 +9,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/22/2019
-ms.date: 04/29/2019
+origin.date: 06/28/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 0382c5447d303a3dc09b933acc0cd3f692c755ab
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: f98653c9f89e734c633b2e27641556023151afde
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195047"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570432"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>教程：实现设备固件更新过程
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -o table
+az iot hub show-connection-string --name $hubname -policy-name service -o table
 
 ```
 
@@ -397,7 +397,7 @@ node ServiceClient.js "{your service connection string}"
 
 ![后端应用程序](./media/tutorial-firmware-update/BackEnd2.png)
 
-由于 IoT 中心设备标识注册表中存在延迟，可能看不到发送到后端应用程序的每个状态更新。 也可在门户中查看这些指标，具体说来就是在 IoT 中心的“自动设备管理 -> IoT 设备配置”部分： 
+由于自动设备配置在创建时运行，然后每五分钟运行一次，因此你可能看不到发送到后端应用程序的每个状态更新。 也可在门户中查看这些指标，具体说来就是在 IoT 中心的“自动设备管理 -> IoT 设备配置”部分： 
 
 ![在门户中查看配置](./media/tutorial-firmware-update/portalview.png)
 

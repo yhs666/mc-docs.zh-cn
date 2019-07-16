@@ -4,26 +4,27 @@ description: 本文介绍如何通过 OAuth2.0 代理流使用 HTTP 消息实现
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/06/2017
-ms.date: 01/02/2019
+origin.date: 05/22/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8ac5c3853a160fa80fab518efe49104a171b2d7a
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6550140734073fd9f65ea60e6251d6318a6380b1
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151740"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568698"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>代理流中使用委托用户标识的服务到服务调用
 
@@ -56,33 +57,34 @@ OAuth 2.0 代理 (OBO) 流使调用服务或 Web API 的应用程序能够将用
 ### <a name="register-the-middle-tier-service"></a>注册中间层服务
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在顶部栏中选择帐户，并在“目录”列表下为应用程序选择 Active Directory 租户  。
-3. 在左窗格中，选择“更多服务”，然后选择“Azure Active Directory”   。
-4. 依次选择“应用注册”和“新建应用程序注册”   。
-5. 输入应用程序的友好名称，并选择应用程序类型。
-    1. 根据应用程序类型，将登录 URL 或重定向 URL 设置为基 URL。
-    1. 选择“创建”  以创建应用程序。
-6. 在退出 Azure 门户之前生成客户端密码。
-   1. 在 Azure 门户中，选择应用程序，然后选择“设置”  。
-   2. 在“设置”菜单中选择“密钥”，然后添加密钥持续时间为一年或两年的密钥  。
-   3. 保存此页面时，Azure 门户将显示密钥值。 将密钥值复制并保存在安全的位置。
+1. 在顶部栏中选择帐户，并在“目录”列表下为应用程序选择 Active Directory 租户  。
+1. 在左窗格中，选择“更多服务”，然后选择“Azure Active Directory”   。
+1. 依次选择“应用注册”、“新建注册”   。
+1. 输入应用程序的友好名称，并选择应用程序类型。
+1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。  
+1. 将重定向 URI 设置为基 URL。
+1. 选择“注册”  以创建应用程序。
+1. 在退出 Azure 门户之前生成客户端密码。
+1. 在 Azure 门户中，选择应用程序，然后选择“证书和机密”  。
+1. 选择“新建客户端密码”  并添加持续时间为一年或两年的机密。
+1. 保存此页时，Azure 门户将显示机密值。 复制机密值并将其保存在安全位置。
 
-      > [!IMPORTANT]
-      > 在实现中配置应用程序设置时需要此秘钥。 此密钥值不会重新显示，也无法通过任何其他方式检索。 因此，当它在 Azure 门户中可见时请立即记录。
+> [!IMPORTANT]
+> 在实现中配置应用程序设置时需要此机密。 此机密值不会再次显示，并且无法通过任何其他方式检索。 因此，当它在 Azure 门户中可见时请立即记录。
 
 ### <a name="register-the-client-application"></a>注册客户端应用程序
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在顶部栏中选择帐户，并在“目录”列表下为应用程序选择 Active Directory 租户  。
 1. 在左窗格中，选择“更多服务”，然后选择“Azure Active Directory”   。
-1. 依次选择“应用注册”和“新建应用程序注册”   。
+1. 依次选择“应用注册”、“新建注册”   。
 1. 输入应用程序的友好名称，并选择应用程序类型。
-   1. 根据应用程序类型，将登录 URL 或重定向 URL 设置为基 URL。
-   1. 选择“创建”  以创建应用程序。
-1. 为应用程序配置权限。
-   1. 在“设置”菜单中，选择“所需权限”部分，然后选择“添加”和“选择 API”    。
-   1. 在文本字段中键入中间层服务的名称。
-   1. 依次选择“选择权限”和“访问服务名称”   。
+1. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。  
+1. 将重定向 URI 设置为基 URL。
+1. 选择“注册”  以创建应用程序。
+1. 为应用程序配置权限。 在“API 权限”  中，依次选择“添加权限”  、“我的 API”  。
+1. 在文本字段中键入中间层服务的名称。
+1. 依次选择“选择权限”和“访问 <service name>”   。
 
 ### <a name="configure-known-client-applications"></a>配置已知的客户端应用程序
 
@@ -198,7 +200,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 {
     "token_type":"Bearer",
-    "scope":"https://microsoftgraph.chinacloudapi.cn/user.read",
+    "scope":"User.Read",
     "expires_in":"43482",
     "ext_expires_in":"302683",
     "expires_on":"1493466951",
@@ -298,7 +300,7 @@ SAML 断言的服务到服务请求包含以下参数：
 
 详细了解 OAuth 2.0 协议和执行使用客户端凭据的服务到服务身份验证的其他方法：
 
-- [在 Azure AD 中使用 OAuth 2.0 客户端凭据授予执行服务到服务身份验证](v1-oauth2-client-creds-grant-flow.md)
-- [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
+* [在 Azure AD 中使用 OAuth 2.0 客户端凭据授予执行服务到服务身份验证](v1-oauth2-client-creds-grant-flow.md)
+* [Azure AD 中的 OAuth 2.0](v1-protocols-oauth-code.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

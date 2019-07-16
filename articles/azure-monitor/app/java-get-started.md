@@ -12,17 +12,17 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e90b2cb4bcd75f5c53836f32dc7884d2041daf2f
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 20d88950387510e972eae41889dedd5feda2dd83
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236556"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562696"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java Web 项目中的 Application Insights 入门
 
 
-Application Insights 是面向 Web 开发人员的可扩展分析服务，可帮助你了解实时应用程序的性能和使用情况。 它可用于[自动检测请求、跟踪依赖项和收集性能计数器](auto-collect-dependencies.md#java)、[诊断性能问题和异常](../../azure-monitor/app/detect-triage-diagnose.md)，以及[编写代码][api]来跟踪用户对你的应用的使用情况。 
+Application Insights 是面向 Web 开发人员的可扩展分析服务，可帮助你了解实时应用程序的性能和使用情况。 它可用于[自动检测请求、跟踪依赖项和收集性能计数器](auto-collect-dependencies.md#java)、以及[编写代码][api]来跟踪用户对应用的使用情况。 
 
 ![概述示例数据的屏幕截图](./media/java-get-started/overview-graphs.png)
 
@@ -118,26 +118,33 @@ Application Insights 支持 Linux、Unix 或 Windows 上运行的 Java 应用。
 
 ```XML
 
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
-  <InstrumentationKey>ffffeeee-dddd-cccc-bbbb-aaaa99998888</InstrumentationKey>
-  <TelemetryModules>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
-  </TelemetryModules>
-  <TelemetryInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
-  </TelemetryInitializers>
-  <!--Add the following Channel value to modify the Endpoint address-->
-  <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
-  <EndpointAddress>https://dc.applicationinsights.azure.cn/v2/track</EndpointAddress>
-  </Channel>
-</ApplicationInsights>
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+
+
+      <!-- The key from the portal: -->
+      <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+
+
+      <!-- HTTP request component (not required for bare API) -->
+      <TelemetryModules>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+      </TelemetryModules>
+
+      <!-- Events correlation (not required for bare API) -->
+      <!-- These initializers add context data to each event -->
+
+      <TelemetryInitializers>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+        <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+
+      </TelemetryInitializers>
+    </ApplicationInsights>
 ```
 
 也可将配置文件置于可以通过应用程序进行访问的任何位置。  系统属性 `-Dapplicationinsights.configurationDirectory` 指定 ApplicationInsights.xml 所在的目录。 例如，位于 `E:\myconfigs\appinsights\ApplicationInsights.xml` 的配置文件可以通过属性 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 进行配置。
@@ -430,7 +437,7 @@ Application Insights Java SDK 现支持 [W3C 分布式跟踪](https://w3c.github
 
 ## <a name="local-forwarder"></a>本地转发器
 
-[本地转发器](https://docs.microsoft.com/azure/application-insights/local-forwarder)是从各种 SDK 和框架中收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遥测并将其路由到 Application Insights 的代理。 它能够在 Windows 和 Linux 下运行。
+[本地转发器](/azure-monitor/app/app-insights-overview)是从各种 SDK 和框架中收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遥测并将其路由到 Application Insights 的代理。 它能够在 Windows 和 Linux 下运行。
 
 ```xml
 <Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
@@ -445,7 +452,7 @@ Application Insights Java SDK 现支持 [W3C 分布式跟踪](https://w3c.github
 如果使用的是 SpringBoot 入门版，请将以下内容添加到配置文件（application.properties）中：
 
 ```yml
-azure.application-insights.channel.local-forwarder.endpoint-address= https://dc.applicationinsights.azure.cn/v2/track
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
 azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
 azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
 ```
@@ -455,7 +462,7 @@ SpringBoot application.properties 和 applicationinsights.xml 配置的默认值
 ## <a name="get-user-and-session-data"></a>获取用户和会话数据
 好了，现在正在从 Web 服务发送遥测数据。 若要获取应用程序的 360 度全方位视图，可以添加更多监视：
 
-* [将遥测添加到网页][usage]，监视页面视图和用户指标。
+* [将遥测添加到网页][usage]，用于监视页面视图和用户指标。
 * [设置 Web 测试][availability]，确保应用程序处于活动状态且能够做出响应。
 
 ## <a name="capture-log-traces"></a>捕获日志跟踪
