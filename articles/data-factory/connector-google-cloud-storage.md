@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 3b30bb3965a97c606e68baf309d9ea51085bdf39
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 80fba458a17b5dd9dd917be1acbc4f3ae847712a
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732642"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570572"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>使用 Azure 数据工厂从 Google 云存储复制数据
 
@@ -24,7 +24,11 @@ ms.locfileid: "66732642"
 
 ## <a name="supported-capabilities"></a>支持的功能
 
-可以将数据从 Google 云存储复制到任何受支持的接收器数据存储。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
+以下活动支持此 Google 云存储连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
+- [GetMetadata 活动](control-flow-get-metadata-activity.md)
 
 具体而言，此 Google 云存储连接器支持按原样复制文件，或者使用[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs.md)分析文件。
 
@@ -48,7 +52,7 @@ ms.locfileid: "66732642"
 
 Google 云存储链接服务支持以下属性：
 
-| 属性 | 说明 | 必需 |
+| 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | type 属性必须设置为“AmazonS3”  。 | 是 |
 | accessKeyId | 机密访问键 ID。 若要查找访问密钥和机密，请转到“Google 云存储” > “设置” > “互操作性”。    |是 |
@@ -88,7 +92,7 @@ Google 云存储链接服务支持以下属性：
 
 若要以 **Parquet 或带分隔符的文本格式**从 Google 云存储中复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的数据集和支持的设置。 基于格式的数据集中 `location` 设置下的 Google 云存储支持以下属性：
 
-| 属性   | 说明                                                  | 必需 |
+| 属性   | 说明                                                  | 必选 |
 | ---------- | ------------------------------------------------------------ | -------- |
 | type       | 数据集中 `location` 下的 type 属性必须设置为 **AmazonS3Location**。 | 是      |
 | bucketName | S3 存储桶的名称。                                          | 是      |
@@ -129,7 +133,7 @@ Google 云存储链接服务支持以下属性：
 
 若要以 **ORC/Avro/JSON/Binary 格式**从 Google 云存储中复制数据，需要支持以下属性：
 
-| 属性 | 说明 | 必需 |
+| 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 数据集的 type 属性必须设置为：AmazonS3Object  |是 |
 | bucketName | S3 存储桶的名称。 不支持通配符筛选器。 |对于复制/查找活动，为“是”；对于 GetMetadata 活动，为“否” |
@@ -187,7 +191,7 @@ Google 云存储链接服务支持以下属性：
 
 若要以 **Parquet 或带分隔符的文本格式**从 Google 云存储复制数据，请参阅 [Parquet 格式](format-parquet.md)和[带分隔符的文本格式](format-delimited-text.md)一文，了解基于格式的复制活动源和支持的设置。 基于格式的复制源中 `storeSettings` 设置下的 Google 云存储支持以下属性：
 
-| 属性                 | 说明                                                  | 必需                                                    |
+| 属性                 | 说明                                                  | 必选                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
 | type                     | `storeSettings` 下的 type 属性必须设置为 **AmazonS3ReadSetting**。 | 是                                                         |
 | recursive                | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。 允许的值为 **true**（默认值）和 **false**。 | 否                                                          |
@@ -246,7 +250,7 @@ Google 云存储链接服务支持以下属性：
 
 若要以 **ORC/Avro/JSON/Binary 格式**从 Google 云存储复制数据，需要复制活动**源**部分支持以下属性：
 
-| 属性 | 说明 | 必需 |
+| 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为：FileSystemSource  |是 |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制/创建空的文件夹/子文件夹。<br/>允许的值为：true（默认）、false   | 否 |

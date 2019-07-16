@@ -9,12 +9,12 @@ origin.date: 04/10/2019
 ms.date: 06/10/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 25fac444f79401b4a1c04f7fa369cea067910b93
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: c6aa4a37071866d6489694f212bc119c239fd037
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250408"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540085"
 ---
 <a name="virtual-networking-limits-classic"></a>以下限制仅适用于每个订阅通过经典部署模型托管的网络资源。 了解如何[针对订阅限制查看当前资源使用情况](../articles/networking/check-usage-against-limits.md)。
 
@@ -85,15 +85,16 @@ ms.locfileid: "66250408"
 |---------------------------|---------------|
 |      负载均衡器       |     1,000     |
 | 每个资源的规则数，基本 |      250      |
+| 前端 IP 配置，基本 | 200 |
+| 后端池，基本 | 100，单个可用性集 |
 
 <!-- Not Avaiable on Rules per resource, Standard  -->
 <!-- Not Avaiable on Rules per IP configuration -->
-| 前端 IP 配置，基本 | 200 |
 <!-- Not Avaiable on Frontend IP configurations, Standard -->
-| 后端池，基本 | 100，单个可用性集 |
 <!-- Not Avaiable on | Backend pool, Standard | 1000, single VNet | contact support | -->
 <!-- Not Avaiable on | Backend resources per Load Balancer, Standard * | 150 | 150 |-->
 <!-- Not Avaiable on | HA Ports, Standard | 1 per internal frontend | - | -->
 
-<sup>1</sup>限制是最多 150 种资源，采用独立虚拟机资源、可用性集资源和虚拟机规模集资源的任意组合。
+<!--MOONCAKE: Not Available on Backend resources per Load Balancer, Standard * | 150 |-->
+<!--Not Available on <sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.-->
 

@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 09/29/2017
+origin.date: 06/26/2019
 ms.author: v-yiso
-ms.date: 02/25/2019
-ms.openlocfilehash: 754efcad51084cbdbbfa88faea90f4442a13b580
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 07/15/2019
+ms.openlocfilehash: a59d3bd2e66f981c24dd5013b51567e162ddff89
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302941"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569662"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -45,22 +45,40 @@ ms.locfileid: "56302941"
 
 ### <a name="open-api-v3"> </a>OpenAPI 版本 3
 
-* 如果指定了多个服务器，API 管理将尝试选择第一个 HTTP URL。 如果不存在任何 HTTP URL，则为第一个 HTTP URL。 如果不存在任何 HTTP URL，则服务器 URL 将为空。
-* 不支持“Examples”，但支持“example”。
-* 不支持“Multipart/form-data”。
+* 如果指定了多个服务器，API 管理将尝试选择第一个 HTTP URL  。 如果不存在任何 HTTP URL，则为第一个 HTTP URL。 如果不存在任何 HTTP URL，则服务器 URL 将为空。
+* 不支持“Examples”，但支持“example”   。
+* 不支持“Multipart/form-data”  。
 
 > [!IMPORTANT]
 > 如需与 OpenAPI 导入相关的重要信息和提示，请参阅此[文档](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)。
 
 ## <a name="wsdl"> </a>WSDL
-WSDL 文件用于生成 SOAP 直通 API，或用作 SOAP 到 REST API 的后端。
-* **SOAP 绑定** - 仅支持样式“文档”和“文本”编码的 SOAP 绑定。 不支持“rpc”样式或 SOAP 编码。
-* **WSDL:Import** - 不支持此属性。 客户应将导入项合并到一个文档中。
-* **包含多个部分的消息** - 不支持这些类型的消息。
-* **WCF wsHttpBinding** - 使用 Windows Communication Foundation 创建的 SOAP 服务应使用 basicHttpBinding - 不支持 wsHttpBinding。
-* **MTOM** - 使用 MTOM 的服务<em>可能</em>正常工作。 目前暂未提供官方支持。
-* **递归** - APIM 不支持以递归方式定义的类型（例如，引用这些类型本身的数组）。
-* **多个命名空间** - 可以在架构中使用多个名称空间，但只能使用目标名称空间来定义消息部分。 不保留用于定义其他输入或输出元素的目标以外的命名空间。 虽然可以导入这样的 WSDL 文档，但在导出时，所有消息部分都将具有 WSDL 的目标命名空间。
+
+WSDL 文件用于创建 SOAP 传递和 SOAP到 REST API。
+
+-   **SOAP 绑定** - 仅支持样式“文档”和“文本”编码的 SOAP 绑定。 不支持“rpc”样式或 SOAP 编码。
+-   **WSDL:Import** - 不支持此属性。 客户应将导入项合并到一个文档中。
+-   **包含多个部分的消息** - 不支持这些类型的消息。
+-   **WCF wsHttpBinding** - 使用 Windows Communication Foundation 创建的 SOAP 服务应使用 basicHttpBinding - 不支持 wsHttpBinding。
+-   **MTOM** - 使用 MTOM 的服务<em>可能</em>正常工作。 目前暂未提供官方支持。
+-   **递归** - APIM 不支持以递归方式定义的类型（例如，引用这些类型本身的数组）。
+-   **多个命名空间** - 可以在架构中使用多个名称空间，但只能使用目标名称空间来定义消息部分。 不保留用于定义其他输入或输出元素的目标以外的命名空间。 虽然可以导入这样的 WSDL 文档，但在导出时，所有消息部分都将具有 WSDL 的目标命名空间。
+-   **数组** - SOAP 到 REST 转换仅支持包装数组，如下例所示：
+
+```xml
+    <complexType name="arrayTypeName">
+        <sequence>
+            <element name="arrayElementValue" type="arrayElementType" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="typeName">
+        <sequence>
+            <element name="element1" type="someTypeName" minOccurs="1" maxOccurs="1"/>
+            <element name="element2" type="someOtherTypeName" minOccurs="0" maxOccurs="1" nillable="true"/>
+            <element name="arrayElement" type="arrayTypeName" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+```
 
 ## <a name="wadl"> </a>WADL
 目前没有已知的 WADL 导入问题。

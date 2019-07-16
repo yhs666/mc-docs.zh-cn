@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d699c712899c8b4edf84e7194098e7db95efd1fc
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b4539681e2ced9893ec10a86e510b4d3b9c767d0
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731441"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562299"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Azure Monitor 中视图设计器可视化部件的参考指南
 在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文针对自定义视图中可用的可视化部件，提供设置方面的参考指南。
@@ -327,7 +327,7 @@ ms.locfileid: "66731441"
 
 <a name="click-through-navigation"></a>
 ### <a name="click-through-navigation"></a>点击导航
-点击导航定义在单击标题或视图中的列表项时要执行的操作。  此操作将在 [Log Analytics](../../azure-monitor/log-query/portals.md) 中打开查询或启动另一个视图。
+点击导航定义在单击标题或视图中的列表项时要执行的操作。  此操作将在 Log Analytics 中打开查询或启动另一个视图。
 
 下表描述了点击导航的设置。
 

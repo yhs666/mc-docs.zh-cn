@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 从 VHD 创建快照以在短时间内创建多个相同的托管磁盘 | Azure
+title: 使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘 | Azure
 description: Azure PowerShell 脚本示例 - 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0b5d324c4548f2e5c7941c5ef95dbe146600b832
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 45591ff9abdc5384870f1ca1086596a5a8929834
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003879"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570130"
 ---
 # <a name="create-a-snapshot-from-a-vhd-to-create-multiple-identical-managed-disks-in-small-amount-of-time-with-powershell"></a>使用 PowerShell 从 VHD 创建快照，在短时间内创建多个相同的托管磁盘
 
@@ -71,6 +71,7 @@ $storageAccountId = '/subscriptions/yourSubscriptionId/resourceGroups/yourResour
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 $snapshotConfig = New-AzSnapshotConfig -AccountType $storageType -Location $location -CreateOption Import -StorageAccountId $storageAccountId -SourceUri $sourceVHDURI 
+
 New-AzSnapshot -Snapshot $snapshotConfig -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName
 
 ```

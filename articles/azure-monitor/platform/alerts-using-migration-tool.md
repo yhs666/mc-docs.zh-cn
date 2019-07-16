@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: ecffe61dc282f09f05069b7d4f66cff444207f60
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: a6fdba6b84ca48cef13fd660900847ff6c2c5c7f
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732343"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562425"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>使用自愿性迁移工具迁移经典警报规则
 
-根据[之前的通告](monitoring-classic-retirement.md)，Azure Monitor 中的经典警报即将在 2019 年 7 月停用。 Azure 门户中为使用经典警报规则并想要自行触发迁移的客户提供了一个迁移工具。 本文介绍了在 2019 年 7 月开始自动迁移之前，如何使用该迁移工具自愿性地迁移经典警报规则。
+根据[之前的公告](monitoring-classic-retirement.md)，Azure Monitor 中的经典警报即将在 2019 年 9 月（原来是 2019 年 7 月）停用。 Azure 门户中为使用经典警报规则并想要自行触发迁移的客户提供了一个迁移工具。 本文介绍了在 2019 年 9 月开始自动迁移之前，如何使用该迁移工具自行迁移经典警报规则。
+
+> [!NOTE]
+> 由于迁移工具的延迟推出，经典警报迁移的停用日期已从原来宣布的 2019 年 6 月 30 日[推迟至 2019 年 8 月 31 日](https://www.azure.cn/zh-cn/what-is-new/)。
 
 ## <a name="benefits-of-new-alerts"></a>新警报的优势
 
@@ -35,7 +38,7 @@ ms.locfileid: "66732343"
 
 - 通知有效负载格式以及用于创建和管理新警报规则的 API 不同于经典警报规则，因为它们支持更多的功能。 [了解如何准备迁移](alerts-prepare-migration.md)。
 
-- 使用该工具无法迁移某些经典警报规则。 [了解无法迁移哪些规则及其解决方法](alerts-understand-migration.md#which-classic-alert-rules-can-be-migrated)。
+- 使用该工具无法迁移某些经典警报规则。 [了解无法迁移哪些规则及其解决方法](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated)。
 
     > [!NOTE]
     > 迁移过程不会影响经典警报规则的评估。 在完成迁移并且新的警报规则生效之前，这些经典规则会继续运行并发送警报。
@@ -78,7 +81,7 @@ ms.locfileid: "66732343"
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>我的订阅为何列为未准备好迁移？
 
-迁移工具分阶段向客户推出。 在早期阶段，你的大部分或所有订阅可能标记为“尚未准备好迁移”。  但是，截至 4 月中旬，所有订阅应该都已准备好迁移。
+迁移工具分阶段向客户推出。 在早期阶段，你的大部分或所有订阅可能标记为“尚未准备好迁移”。  
 
 当某个订阅已准备好迁移时，订阅所有者会收到一封电子邮件，指出该工具可用。 请密切关注此邮件。
 

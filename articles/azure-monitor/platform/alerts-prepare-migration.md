@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 644be5c010df05c3e1743e3428da75f427652487
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e8bf0a7e054153e025f8d84ece40aa09deaa101f
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732319"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562426"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>准备逻辑应用和 Runbook 以迁移经典警报规则
 
-根据[之前的通告](monitoring-classic-retirement.md)，Azure Monitor 中的经典警报即将在 2019 年 7 月停用。 Azure 门户中为使用经典警报规则并想要自行触发迁移的客户提供了一个迁移工具。
+根据[之前的公告](monitoring-classic-retirement.md)，Azure Monitor 中的经典警报即将在 2019 年 9 月（原来是 2019 年 7 月）停用。 Azure 门户中为使用经典警报规则并想要自行触发迁移的客户提供了一个迁移工具。
+
+> [!NOTE]
+> 由于迁移工具的延迟推出，经典警报迁移的停用日期已从原来宣布的 2019 年 6 月 30 日推迟至 2019 年 8 月 31 日。
 
 如果你选择自愿将经典警报规则迁移到新的警报规则，请注意，这两个系统存在一些差异。 本文将会解释这些差异以及如何做好相应的准备。
 
@@ -29,9 +32,9 @@ ms.locfileid: "66732319"
 |         |经典警报  |新指标警报 |
 |---------|---------|---------|
 |REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
-|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
-|PowerShell      | [引用](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |      |
-| Azure Resource Manager 模板 | [经典警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[新指标警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
+|Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor metrics alert](/cli/monitor/metrics/alert?view=azure-cli-latest)        |
+|PowerShell      | [引用](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [引用](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
+| Azure Resource Manager 模板 | [经典警报](/azure-monitor/platform/alerts-enable-template)|[新指标警报](/azure-monitor/platform/alerts-metric-create-templates)|
 
 ## <a name="notification-payload-changes"></a>通知有效负载更改
 
@@ -148,11 +151,11 @@ else {
 
 ```
 
-有关在触发警报时停止虚拟机的完整 Runbook 示例，请参阅 [Azure 自动化文档](https://docs.microsoft.com/azure/automation/automation-create-alert-triggered-runbook)。
+有关在触发警报时停止虚拟机的完整 Runbook 示例，请参阅 [Azure 自动化文档](/automation/automation-create-alert-triggered-runbook)。
 
 ## <a name="partner-integration-via-webhooks"></a>通过 Webhook 进行合作伙伴集成
 
-[我们的大部分与经典警报集成的合作伙伴](https://docs.microsoft.com/azure/azure-monitor/platform/partners)已能够支持通过其集成处理新型指标警报。 能够处理新指标警报的已知集成包括：
+[我们的大部分与经典警报集成的合作伙伴](/azure-monitor/platform/partners)已能够支持通过其集成处理新型指标警报。 能够处理新指标警报的已知集成包括：
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)

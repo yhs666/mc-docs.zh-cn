@@ -1,5 +1,5 @@
 ---
-title: Azure 中的 Linux VM 大小 | Azure
+title: Azure 中 Linux 虚拟机的大小 | Azure
 description: 列出 Azure 中 Linux 虚拟机的不同可用大小。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 11/14/2018
-ms.date: 02/18/2019
+origin.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 888c209d671181efd5da48bc2d3c5575943611dc
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: ff9ced5d19bd9fe75df9c0414ed23766ca550710
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665866"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570410"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -29,16 +29,16 @@ ms.locfileid: "56665866"
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、Av2  | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
-| [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
-| [内存优化](sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2   | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
+| [计算优化](sizes-compute.md)        | Fsv2           | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
+| [内存优化](sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)            |     NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
-<!--Not Available GS, G-->
-<!--Not Available Ls-->
+<!--Not Available on DC-->
+<!--Not Available [Storage optimized](sizes-storage.md) Lsv2, Ls-->
 <!--Not Available NV, NVv2, NC, NCv2, ND, NDv2 (Preview)-->
-<!--Not Available H -->
+<!--Not Available [High performance compute](sizes-hpc.md) H -->
 
-<br>
+<br />
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)。 
 - 有关各 Azure 区域中推出的 VM 大小，请查看[可用产品(按区域)](https://www.azure.cn/zh-cn/home/features/products-by-region)。

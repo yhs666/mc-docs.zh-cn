@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 大小 - 通用 | Azure
+title: 常规用途虚拟机大小 | Azure
 description: 列出 Azure 中 Linux 虚拟机进行常规用途所适用的各种大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 10/01/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 18d29bbcd159ca211b18d7ec98a5efdeec0c2b32
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0e56ef40328aacc6fc3331caba1f64b440fad8eb
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004317"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570419"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>常规用途虚拟机大小
 

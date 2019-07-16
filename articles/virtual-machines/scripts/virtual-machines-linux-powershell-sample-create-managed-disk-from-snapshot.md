@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 从快照创建托管磁盘 | Azure
+title: 使用 PowerShell 从快照创建托管磁盘 | Azure
 description: Azure PowerShell 脚本示例 - 从快照创建托管磁盘
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6f1656c475c48ee338b326cbfdff3993cbdaf714
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 42ecc1ffbac865b32187874c49cbeae3fb54491e
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003884"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570176"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-powershell"></a>使用 PowerShell 从快照创建托管磁盘
 
@@ -67,7 +67,9 @@ $location = 'chinanorth'
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 $snapshot = Get-AzSnapshot -ResourceGroupName $resourceGroupName -SnapshotName $snapshotName 
+
 $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 
 ```
@@ -90,4 +92,4 @@ New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $di
 
 可以在 [Azure Linux VM 文档](../linux/powershell-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 PowerShell 脚本示例。
 
-<!-- Update_Description: update meta properties, udpate powershell az cmdlet -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -4,7 +4,7 @@ description: 了解如何使用 OpenID Connect 标准通过基于传统 Web 浏�
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/24/2018
-ms.date: 04/08/2019
+origin.date: 05/21/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a76da5ce33e70f1fa33f0733de29062a38b39b
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 2daaa58ee06a7af79bc5c6ef5ffc2a704b39491d
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243638"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568737"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>快速入门：向 ASP.NET Web 应用添加 Microsoft 登录
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-在本快速入门中，你将了解如何使用 OpenID Connect 通过基于传统 Web 浏览器的应用程序，根据 ASP.NET MVC 解决方案实现 Microsoft 登录。 你将了解如何在 ASP.NET 应用程序中使用工作和学校帐户登录。
+在本快速入门中，你将了解如何使用 OpenID Connect 通过基于传统 Web 浏览器的应用程序，根据 ASP.NET 模型视图控制器 (MVC) 解决方案实现 Microsoft 登录。 你将了解如何在 ASP.NET 应用程序中使用工作和学校帐户登录。
 
 在本快速入门结束时，应用程序可接受与 Azure Active Directory (Azure AD) 集成的组织的工作和学校帐户登录。
 
@@ -36,15 +36,15 @@ ms.locfileid: "59243638"
 
 要开始，请确保满足下列先决条件：
 
-- 已安装 Visual Studio 2015 Update 3 或 Visual Studio 2017。 尚未安装？ [免费下载 Visual Studio 2017](https://www.visualstudio.com/downloads/)
+* 安装 Visual Studio 2015 Update 3 或更高版本。 尚未安装？ [免费下载 Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>方案：在 ASP.NET 应用中让用户使用工作和学校帐户登录
 
 ![本指南的工作原理](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-在此方案中，浏览器访问 ASP.NET 网站，并请求用户使用“登录”按钮进行身份验证。 在此方案中，呈现网页的大部分工作在服务器端完成。
+浏览器访问 ASP.NET 网站，并请求用户使用此场景中的“登录”按钮进行身份验证。 在此方案中，呈现网页的大部分工作在服务器端完成。
 
-本快速入门演示了如何从空模板开始，使用户登录 ASP.NET Web 应用程序，包括添加登录按钮以及每个控制器和方法的步骤，并讨论这些任务背后的概念。 或者，还可以通过使用 [Visual Studio Web 模板](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)并选择“组织帐户”和云选项之一（该选项使用包含其他控制器、方法和视图的更丰富的模板），创建使 Azure AD 用户（工作和学校帐户）登录的项目。
+此快速入门演示了如何从空模板起步在 ASP.NET Web 应用程序上让用户登录。 它还包括了添加登录按钮和每个控制器与方法等步骤，并讨论了这些任务背后的概念。 还可以通过使用 [Visual Studio Web 模板](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options)并选择“组织帐户”和云选项之一（该选项使用包含其他控制器、方法和视图的更丰富的模板），创建使 Azure AD 用户（工作和学校帐户）登录的项目  。
 
 ## <a name="libraries"></a>库
 
@@ -67,14 +67,15 @@ ms.locfileid: "59243638"
 
 ## <a name="step-2-create-your-aspnet-project"></a>步骤 2：创建 ASP.NET 项目
 
-1. 在 Visual Studio 中，转到“文件”>“新建”>“项目”。
-2. 在 Visual C#\Web 下，选择“ASP.NET Web 应用程序(.NET Framework)”。
-3. 为应用程序命名，并单击“确定”。
-4. 选择“空”并选中复选框，添加 MVC 引用。
+1. 在 Visual Studio 中，转到“文件”>“新建”>“项目”  。
+2. 对于“项目类型”，请选择“Web”，然后选择“ASP.NET Web 应用程序 (.NET Framework)”    。
+3. 为应用程序命名，并单击“创建”  。
+4. 选择“空”，然后在“添加文件夹和核心引用”下选择“MVC”以添加 MVC 引用    。
+5. 选择“创建”  。
 
 ## <a name="step-3-add-authentication-components"></a>步骤 3：添加身份验证组件
 
-1. 在 Visual Studio 中，转到“工具”>“NuGet 包管理器”>“包管理器控制台”。
+1. 在 Visual Studio 中，转到“工具”>“NuGet 包管理器”>“包管理器控制台”  。
 2. 在包管理器控制台窗口中键入以下命令，添加 **OWIN 中间件 NuGet 包**：
 
     ```powershell
@@ -90,18 +91,18 @@ ms.locfileid: "59243638"
 
 ## <a name="step-4-configure-the-authentication-pipeline"></a>步骤 4：配置身份验证管道
 
-按照以下步骤创建 OWIN 中间件 Startup 类，以配置 OpenID Connect 身份验证。 此类自动执行。
+按照以下步骤创建 OWIN 中间件 Startup 类，以配置 OpenID Connect 身份验证  。 此类自动执行。
 
 > [!TIP]
 > 如果项目的根文件夹中没有 `Startup.cs` 文件，请执行以下操作：<br/>
-> 1. 右键单击项目的根文件夹：>   “添加”>“新建项”...>“OWIN Startup 类”<br/>
-> 2. 将它命名为 `Startup.cs`<br/>
+> 1. 右键单击项目的根文件夹：>   “添加”>“新建项”...>“OWIN Startup 类” <br/>
+> 2. 将其命名为 `Startup.cs`<br/>
 >
 >> 确保选择的类是 OWIN Startup 类，而不是标准 C# 类。 通过检查是否在命名空间上看到 `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` 来进行确认。
 
-创建 OWIN 中间件 Startup 类：
+创建 OWIN 中间件 Startup 类  ：
 
-1. 将 OWIN 和 Microsoft.IdentityModel 命名空间添加到 `Startup.cs`：
+1. 将 OWIN  和 Microsoft.IdentityModel  命名空间添加到 `Startup.cs`：
 
     ```C#
     using Microsoft.Owin;
@@ -199,11 +200,11 @@ ms.locfileid: "59243638"
 
 创建新控制器来公开登录和注销方法。
 
-1.  右键单击“控制器”文件夹，并选择“添加”>“控制器”
-2.  选择“MVC (.NET 版本)控制器 - 空”。
-3.  选择“设置” （应用程序对象和服务主体对象）。
-4.  将其命名为 `HomeController`，然后选择“添加”。
-5.  向该类添加 OWIN 命名空间：
+1.  右键单击“控制器”文件夹，并选择“添加”>“控制器”  
+2.  选择“MVC {version} 控制器 - 空”  。
+3.  选择“设置”  （应用程序对象和服务主体对象）。
+4.  将其命名为 `HomeController`，然后选择“添加”  。
+5.  向该类添加 OWIN  命名空间：
 
     ```C#
     using Microsoft.Owin.Security;
@@ -243,8 +244,8 @@ ms.locfileid: "59243638"
 
 在 Visual Studio 中，创建新视图来添加登录按钮并在身份验证后显示用户信息：
 
-1. 右键单击“视图/主页”文件夹，然后选择“添加视图”。
-1. 将其命名为“Index”。
+1. 右键单击“视图/主页”文件夹，然后选择“添加视图”   。
+1. 将其命名为“Index”  。
 1. 向文件添加以下 HTML，其中包括登录按钮：
 
     ```html
@@ -284,18 +285,18 @@ ms.locfileid: "59243638"
     ```
 
 <!--start-collapse-->
-此页以 SVG 格式添加登录按钮，背景为黑色：<br/>![使用 Microsoft 登录](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 
+此页以 SVG 格式添加登录按钮，背景为黑色：<br/>![使用 Microsoft 登录](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> 有关更多登录按钮，请转到[应用程序的品牌指南](howto-add-branding-in-azure-ad-apps.md)。
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>步骤 7：添加控制器来显示用户声明
 
 此控制器演示如何使用 `[Authorize]` 属性来保护控制器。 此属性只允许通过身份验证的用户，从而限制对控制器的访问。 下面的代码使用该属性来显示作为登录的一部分被检索的用户声明。
 
-1. 右键单击“控制器”文件夹，然后选择“添加”>“控制器”。
-1. 选择“MVC {version} 控制器 - 空”。
-1. 选择“设置” （应用程序对象和服务主体对象）。
-1. 将其命名为“ClaimsController”。
-1. 将控制器类的代码替换为下面的代码，这将 `[Authorize]` 属性添加到类：
+1. 右键单击“控制器”文件夹，然后选择“添加”>“控制器”   。
+1. 选择“MVC {version} 控制器 - 空”  。
+1. 选择“设置”  （应用程序对象和服务主体对象）。
+1. 将其命名为“ClaimsController”  。
+1. 将控制器类的代码替换为下面的代码 - 此示例将 `[Authorize]` 属性添加到类：
 
     ```c#
     [Authorize]
@@ -335,8 +336,8 @@ ms.locfileid: "59243638"
 
 在 Visual Studio 中创建新视图，以在网页上显示用户的声明：
 
-1. 右键单击“视图/声明”文件夹，然后选择“添加视图”。
-1. 将其命名为“Index”。
+1. 右键单击“视图/声明”文件夹，然后选择“添加视图”   。
+1. 将其命名为“Index”  。
 1. 将以下 HTML 添加到文件：
 
     ```html
@@ -373,7 +374,7 @@ ms.locfileid: "59243638"
 
 <!--start-configure-->
 
-## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>步骤 9：配置 web.config 并注册应用程序
+## <a name="step-9-configure-your-webconfig-and-register-an-application"></a>步骤 9：配置 web.config  并注册应用程序
 
 1. 在 Visual Studio 中，将以下内容添加到 `configuration\appSettings` 部分下的 `web.config`（位于根文件夹中）：
 
@@ -388,31 +389,32 @@ ms.locfileid: "59243638"
 4. 将项目的 SSL URL 复制到剪贴板：<br/><br/>![项目属性](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. 在 <code>web.config</code> 中，用项目的 SSL URL替换 <code>Enter_the_Redirect_URL_here</code>。
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 门户中注册应用程序，然后将其信息添加到 web.config
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>在 Azure 门户中注册你的应用程序，然后将其信息添加到 *web.config*
 
-1. 转到 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，注册应用程序。
-2. 选择“新建应用程序注册”。
-3. 输入应用程序的名称。
-4. 将 Visual Studio 项目的 SSL URL 粘贴到登录 URL 中。 此 URL 还会自动添加到正在注册的应用程序的回复 URL 列表。
-5. 选择“创建”以注册应用程序。 执行此操作后会返回到应用程序列表。
-6. 现在，搜索并/或选择刚刚创建的应用程序，打开其属性。
-7. 将“应用程序 ID”下的 GUID 复制到剪贴板。
-8. 返回到 Visual Studio，在 `web.config` 中，用刚刚注册的应用程序 ID 替换 `Enter_the_Application_Id_here`。
+1. 使用工作或学校帐户登录到 [Azure 门户](https://portal.azure.cn/)。
+2. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
+3. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
+4. 选择“新注册”。 
+5. “注册应用程序”页显示后，请输入应用程序的名称。 
+6. 在“支持的帐户类型”下，选择“任何组织目录中的帐户”。  
+7. 在“重定向 URI”  部分下选择  “Web”平台，并将值设置为 Visual Studio 项目的 *SSL URL*（Azure AD 将令牌返回到的位置）。
+78. 完成后，选择“注册”  。 在应用的“概述”页上，复制“应用程序(客户端) ID”值。  
+9. 返回到 Visual Studio，在 `web.config` 中，用你注册的应用程序 ID 替换 `Enter_the_Application_Id_here`。
 
 > [!TIP]
 > 如果帐户配置为可访问多个目录，请确保为要向其注册应用程序的组织选择了正确的目录，方法是单击 Azure 门户右上角的帐户名称，然后按照指示验证所选目录：<br/>![选择正确的目录](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>步骤 10：配置登录选项
 
-可以将应用程序配置为只允许某个组织的 Azure AD 实例中的用户登录，或者接受任何组织中的用户登录。 请按照以下选项之一的说明进行操作：
+可以将应用程序配置为只允许某个组织的 Azure AD 实例中的用户登录，或者接受任何组织中的用户登录。 按照以下选项之一的说明进行操作：
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>将应用程序配置为允许任何公司或组织（多租户）的工作和学校帐户登录
 
-如果想接受任何已经与 Azure AD 集成的公司或组织的工作和学校帐户登录，请执行以下步骤。 这是 SaaS 应用程序 的常见方案：
+如果想接受任何已经与 Azure AD 集成的公司或组织的工作和学校帐户登录，请执行以下步骤。 此场景是 *SaaS 应用程序*的常见场景：
 
-1. 返回到 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，找到刚注册的应用程序。
-2. 在“所有设置”下，选择“属性”。
-3. 将“多租户”属性更改为“是”，然后选择“保存”。
+1. 返回到 [Azure 门户 - 应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)，找到已注册的应用程序。
+2. 在“所有设置”下，选择“属性”   。
+3. 将“多租户”属性更改为“是”，然后选择“保存”    。
 
 有关此设置和多租户应用程序概念的详细信息，请参阅[多租户概述](howto-convert-app-to-be-multi-tenant.md)。
 
@@ -420,17 +422,17 @@ ms.locfileid: "59243638"
 
 此选项是业务线应用程序的常见方案。
 
-如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作：
+如果希望应用程序仅接受属于特定 Azure AD 实例的帐户（包括该示例的来宾帐户）进行登录，请按照下列步骤操作  ：
 
-1. 使用 `Common` 将 web.config 中的 `Tenant` 参数替换为组织的租户名称 - 例如 contoso.partner.onmschina.cn。
-1. 将 [OWIN Startup 类](#step-4-configure-the-authentication-pipeline)中的 `ValidateIssuer` 参数更改为 `true`。
+1. 使用 `Common` 将 web.config 中的 `Tenant` 参数替换为组织的租户名称 - 例如 contoso.partner.onmschina.cn   。
+1. 将 [OWIN Startup 类](#step-4-configure-the-authentication-pipeline)中的 `ValidateIssuer` 参数更改为 `true`  。
 
 要仅允许用户来自特定组织的列表，请按照下列步骤操作：
 
 1. 将 `ValidateIssuer` 设置为 true。
 1. 使用 `ValidIssuers` 参数来指定组织列表。
 
-还可通过 IssuerValidator 参数实现自定义方法来验证颁发者。 有关 `TokenValidationParameters` 的详细信息，请参阅[此 MSDN 文章](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 文章")。
+还可通过 IssuerValidator 参数实现自定义方法来验证颁发者  。 有关 `TokenValidationParameters` 的详细信息，请参阅[此 MSDN 文章](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters MSDN 文章")。
 
 <!--end-configure-->
 
@@ -440,10 +442,10 @@ ms.locfileid: "59243638"
 
 In this step, you will configure your project to use SSL, and then use the SSL URL to configure your application’s registration information. After this, add the application’ registration information to your solution via *web.config*.
 
-1.  In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
-2.  Change `SSL Enabled` to `True`
-3.  Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](./media/quickstart-v1-aspnet-webapp/vsprojectproperties.png)<br />
-4.  Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
+1. In Solution Explorer, select the project and look at the `Properties` window (if you don’t see a Properties window, press F4)
+2. Change `SSL Enabled` to `True`
+3. Copy the value from `SSL URL` above and paste it in the `Redirect URL` field on the top of this page, then click *Update*:<br/><br/>![Project properties](./media/quickstart-v1-aspnet-webapp/vsprojectproperties.png)<br />
+4. Add the following in `web.config` file located in root’s folder, under section `configuration\appSettings`:
 
 ```xml
 <add key="ClientId" value="[Enter the application Id here]" />
@@ -457,7 +459,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 ## <a name="step-11-test-your-code"></a>步骤 11：测试代码
 
-1. 按 F5 在 Visual Studio 中运行项目。 浏览器随即打开，并定向到 `http://localhost:{port}`，可在其中看到“Microsoft 登录”按钮。
+1. 按 F5 在 Visual Studio 中运行项目  。 浏览器随即打开，并定向到 `http://localhost:{port}`，可在其中看到“Microsoft 登录”按钮  。
 1. 选择登录按钮。
 
 ### <a name="sign-in"></a>登录
@@ -470,7 +472,7 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
 #### <a name="expected-results"></a>预期结果
 
-登录后，用户会重定向到网站主页，该网站是门户上的应用程序注册信息中指定的 HTTPS URL。 此页现在显示“Hello {用户}”、注销链接，以及查看用户声明的链接（即指向之前创建的 Authorize 控制器的链接）。
+用户登录后，将被重定向到你的网站主页，即门户上的应用程序注册信息中指定的 HTTPS URL。 此页现在显示“Hello {用户}”、注销链接，以及查看用户声明的链接（即指向之前创建的 Authorize 控制器的链接）  。
 
 ### <a name="see-users-claims"></a>查看用户的声明
 
@@ -480,17 +482,16 @@ In this step, you will configure your project to use SSL, and then use the SSL U
 
  此时应会显示一个表，其中包含已登录用户的基本属性：
 
-
-| 属性  |            值             |                           说明                           |
-|-----------|------------------------------|-----------------------------------------------------------------|
-|   Name    |       {用户全名}       |                 用户的名字和姓氏                  |
-| 用户名  | <span>user@domain.com</span> |          用于标识已登录用户的用户名          |
-|  使用者  |          {使用者}           |   一个唯一标识 Web 上用户登录名的字符串   |
-| 租户 ID |            {Guid}            | 唯一表示用户的 Azure AD 组织的 guid |
+| 属性 | 值 | 说明 |
+|---|---|---|
+| Name | {用户全名} | 用户的名字和姓氏 |
+| 用户名 | <span>user@domain.com</span> | 用于标识已登录用户的用户名 |
+| 使用者| {使用者} |一个在 Web 上唯一地标识用户登录名的字符串 |
+| 租户 ID | {Guid} | 唯一表示用户的 Azure AD 组织的 guid  |
 
 此外还可看到一个表格，其中包含身份验证请求中的所有用户声明。 有关 ID 令牌和说明中所有声明的列表，请参阅 [ID 令牌中的声明列表](/active-directory/develop/active-directory-token-and-claims)。
 
-### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>（可选）访问具有 [Authorize] 属性的方法
+### <a name="optional-access-a-method-that-has-an-authorize-attribute"></a>（可选）访问具有 [Authorize] 属性的方法 
 
 此步骤测试作为匿名用户对 Claims 控制器的访问：<br/>
 选择注销用户的链接并完成注销过程。<br/>
@@ -517,4 +518,10 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 
 <!--end-test-->
 
-<!-- Update_Description: wording update -->
+## <a name="next-steps"></a>后续步骤
+
+现在，可以转到其他方案。
+
+> [!div class="nextstepaction"]
+> [ASP.NET 教程](/active-directory/develop/tutorial-v2-asp-webapp)
+

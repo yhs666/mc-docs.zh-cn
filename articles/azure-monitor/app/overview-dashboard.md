@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aa1dbb7fe4c98f458916273db94f2dc60428e02f
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 69a84a150b80961df717c3a0dfc9d21197233b24
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236516"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562680"
 ---
 # <a name="application-insights-overview-dashboard"></a>Application Insights 概述仪表板
 
@@ -59,6 +59,10 @@ Application Insights 一直都有一个总览窗格，可让用户快速、直�
 若要导航回概览体验，只需选择：
 
 ![“概览”按钮](./media/overview-dashboard/app-insights-overview-dashboard-07.png)
+
+## <a name="troubleshooting"></a>故障排除
+
+如果选择“配置磁贴设置”  并将自定义时间范围设置为超过 31 天，则即使默认数据保留期为 90 天，仪表板也不会显示超过 31 天的数据。 目前没有针对此行为的解决方法。
 
 ## <a name="next-steps"></a>后续步骤
 

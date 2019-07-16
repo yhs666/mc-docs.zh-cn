@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 12/15/2017
 ms.date: 06/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd9351393b3c78c655e60d2e44b30377a8bd95ee
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: f83e0423c2fa63049832fd3e9001ec7fe0c8b111
+ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250456"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67540061"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>在虚拟机中添加或删除网络接口。
 
@@ -37,7 +37,7 @@ ms.locfileid: "66250456"
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
 - 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.26 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
@@ -65,8 +65,10 @@ ms.locfileid: "66250456"
 5. 选择“附加网络接口”  。 在当前未附加到其他 VM 网络接口列表中，选择要附加的接口。
 
     >[!NOTE]
-    >选择的网络接口无法启用加速网络，无法获得 IPv6 地址，并且必须位于包含当前附加到 VM 的网络接口的虚拟网络中。
+    >选择的网络接口无法启用加速网络，并且必须位于包含当前附加到 VM 的网络接口的虚拟网络中。
 
+    <!--Not Available on cannot have an IPv6 address assigned to it, -->
+    
     如果没有现有的网络接口，必须先创建一个。 为此，请选择“创建网络接口”  。 若要详细了解如何创建网络接口，请参阅[创建网络接口](virtual-network-network-interface.md#create-a-network-interface)。 若要详细了解将网络接口添加到虚拟机时的约束，请参阅[约束](#constraints)。
 
 6. 选择“确定”  。

@@ -5,16 +5,16 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 04/25/2019
-ms.date: 05/20/2019
+origin.date: 05/21/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9f5323a9d773e6f260d5937522078ef68d37454d
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: e6ffbc51bf1bf39b5d9ba1fcf35e8daa3449eb50
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835810"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570071"
 ---
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
@@ -24,7 +24,7 @@ ms.locfileid: "65835810"
 
 ## <a name="get-the-managed-image"></a>获取托管映像
 
-可使用 [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage) 查看资源组中可用的映像列表。 了解映像名称及其所在的资源组后，就可以再次使用 `Get-AzImage` 来获取映像对象并将其存储在变量中以便以后使用。 此示例将从“myResourceGroup”资源组获取名为“myImage”的映像，并将其分配给变量“$managedImage”。 
+可使用 [Get-AzImage](https://docs.microsoft.com/powershell/module/az.compute/get-azimage) 查看资源组中可用的映像列表。 了解映像名称及其所在的资源组后，就可以再次使用 `Get-AzImage` 来获取映像对象并将其存储在变量中以便以后使用。 此示例将从“myResourceGroup”资源组获取名为“myImage”的映像，并将其分配给变量“$managedImage”   。 
 
 ```powershell
 $managedImage = Get-AzImage `
@@ -36,7 +36,7 @@ $managedImage = Get-AzImage `
 
 映像库是用于启用映像共享的主要资源。 允许用于库名称的字符为大写或小写字母、数字、点和句点。 库名称不能包含短划线。 库名称在你的订阅中必须唯一。 
 
-使用 [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery) 创建映像库。 以下示例在“myGalleryRG”资源组中创建名为“myGallery”的库。
+使用 [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery) 创建映像库。 以下示例在“myGalleryRG”资源组中创建名为“myGallery”的库   。
 
 ```powershell
 $resourceGroup = New-AzResourceGroup `
@@ -53,7 +53,7 @@ $gallery = New-AzGallery `
 
 映像定义为映像创建一个逻辑分组。 它们用于管理有关映像版本的信息，这些版本是在其中创建的。 映像定义名称可能包含大写或小写字母、数字、点、短划线和句点。 若要详细了解可以为映像定义指定的值，请参阅[映像定义](/virtual-machines/windows/shared-image-galleries#image-definitions)。
 
-使用 [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 创建映像定义。 在此示例中，库映像名为 myGalleryImage。
+使用 [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) 创建映像定义。 在此示例中，库映像名为 myGalleryImage  。
 
 ```powershell
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,7 +74,7 @@ $galleryImage = New-AzGalleryImageDefinition `
 
 允许用于映像版本的字符为数字和句点。 数字必须在 32 位整数范围内。 格式：*MajorVersion*.*MinorVersion*.*Patch*。
 
-在此示例中，映像版本为 1.0.0，该版本被复制到中国北部和中国东部数据中心。 选择复制的目标区域时，请记住，你还需包括源区域作为复制的目标。
+在此示例中，映像版本为 1.0.0，该版本被复制到中国北部和中国东部数据中心    。 选择复制的目标区域时，请记住，你还需包括源区域作为复制的目标。 
 
 ```powershell
 $region1 = @{Name='China East';ReplicaCount=1}
@@ -101,5 +101,21 @@ $job.State
 > [!NOTE]
 > 需等待映像版本彻底生成并复制完毕，然后才能使用同一托管映像来创建另一映像版本。 
 >
-> 也可将映像版本存储在[区域冗余存储](/storage/common/storage-redundancy-zrs)中，方法是在创建映像版本时添加 `-StorageAccountType Standard_ZRS`。
+> 也可在[区域冗余存储](/storage/common/storage-redundancy-zrs)中存储映像版本，只需在创建映像版本时添加 `-StorageAccountType Standard_ZRS` 即可。
 >
+
+## <a name="share-the-gallery"></a>共享库
+
+我们建议你在映像库级别共享访问权限。 使用电子邮件地址和 [Get-AzADUser](https://docs.microsoft.com/powershell/module/az.resources/get-azaduser) cmdlet 获取用户的对象 ID，然后使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/Az.Resources/New-AzRoleAssignment) 授予他们对该库的访问权限。 请将此示例中的示例电子邮件 alinne_montes@contoso.com 替换为你自己的信息。
+
+```powershell
+# Get the object ID for the user
+$user = Get-AzADUser -StartsWith alinne_montes@contoso.com
+# Grant access to the user for our gallery
+New-AzRoleAssignment `
+   -ObjectId $user.Id `
+   -RoleDefinitionName Reader `
+   -ResourceName $gallery.Name `
+   -ResourceType Microsoft.Compute/galleries `
+   -ResourceGroupName $resourceGroup.ResourceGroupName
+```

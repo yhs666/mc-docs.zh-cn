@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/28/2018
-ms.date: 05/10/2019
+origin.date: 05/08/2019
+ms.date: 07/04/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9acf4a276307a070735d938d84d3d83820b61fd
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: f2479d99acf16efe98fe5829aeb789cbba5c26a2
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520754"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568620"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect 的先决条件
 本主题介绍 Azure AD Connect 的先决条件和硬件要求。
@@ -50,6 +50,9 @@ ms.locfileid: "65520754"
 * 不能在 Small Business Server 或 2019 版以前的 Windows Server Essentials（支持 Windows Server Essentials 2019）上安装 Azure AD Connect。 该服务器必须使用 Windows Server Standard 或更高版本。
 * 不建议在域控制器上安装 Azure AD Connect，因为安全措施和较严格的设置可能会阻碍正确安装 Azure AD Connect。
 * 必须在 Azure AD Connect 服务器上安装完整的 GUI。 **不支持** 在服务器核心上安装 GUI。
+>[!IMPORTANT]
+>不支持在 Small Business Server、Server Essentials 或 Server Core 上安装 Azure AD Connect。
+
 * Azure AD Connect 必须安装在 Windows Server 2008 R2 或更高版本上。 此服务器必须加入域，并且可以是域控制器或成员服务器。
 * 如果在 Windows Server 2008 R2 上安装 Azure AD Connect，请确保从 Windows 更新应用最新的修补程序。 在未修补的服务器上无法启动安装。
 * 如果打算使用 **密码同步**功能，则必须在 Windows Server 2008 R2 SP1 或更高版本上安装 Azure AD Connect 服务器。
@@ -76,7 +79,7 @@ ms.locfileid: "65520754"
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect 所使用的 SQL Server
 * Azure AD Connect 要求使用 SQL Server 数据库来存储标识数据。 默认安装 SQL Server 2012 Express LocalDB（轻量版本的 SQL Server Express）。 SQL Server Express 有 10GB 的大小限制，允许管理大约 100,000 个对象。 如果需要管理更多的目录对象，则需要将安装向导指向不同的 SQL Server 安装。
-* 如果使用独立的 SQL Server，则这些要求适用：
+* 如果使用不同的 SQL Server 安装，则以下要求适用：
   * Azure AD Connect 支持从 2008 R2（包含最新的 Service Pack）到 SQL Server 2019 的所有 Microsoft SQL Server 版本。 **不支持**将 Azure SQL 数据库用作数据库。
   * 必须使用不区分大小写的 SQL 排序规则。 可通过名称中的 \_CI_ 识别这些排序规则。 **不支持**使用区分大小写的排序规则，该规则可通过其名称中的 \_CS_ 识别。
   * 每个 SQL 实例只能有一个同步引擎。 **不支持** 与 FIM/MIM Sync、DirSync 或 Azure AD Sync 共享 SQL 实例。
@@ -106,7 +109,7 @@ ms.locfileid: "65520754"
         </system.net>
     ```
 
-* 如果代理服务器要求身份验证，则[服务帐户](reference-connect-accounts-permissions.md#adsync-service-account)必须位于域中，必须使用自定义的设置安装路径来指定[自定义服务帐户](how-to-connect-install-custom.md#install-required-components)。 还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎响应来自代理服务器的身份验证请求。 在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。 在安装向导末尾的“配置”页上，上下文将切换到已创建的[服务帐户](reference-connect-accounts-permissions.md#adsync-service-account)。 machine.config 节应如下所示。
+* 如果代理服务器要求身份验证，则[服务帐户](reference-connect-accounts-permissions.md#adsync-service-account)必须位于域中，必须使用自定义的设置安装路径来指定[自定义服务帐户](how-to-connect-install-custom.md#install-required-components)。 还需要对 machine.config 进行不同的更改。在 machine.config 中进行此更改之后，安装向导和同步引擎响应来自代理服务器的身份验证请求。 在所有安装向导页中（“配置”页除外）都使用已登录用户的凭据。  在安装向导末尾的“配置”页上，上下文将切换到已创建的[服务帐户](reference-connect-accounts-permissions.md#adsync-service-account)。  machine.config 节应如下所示。
 
     ```
         <system.net>
@@ -183,7 +186,7 @@ Azure AD Connect 依赖于 Microsoft PowerShell 和 .NET Framework 4.5.1。 服�
 * 证书的标识必须与联合身份验证服务名称（例如 sts.contoso.com）匹配。
   * 标识是类型为 dNSName 的使用者备用名称 (SAN) 扩展，或者是指定为公用名的使用者名称（当不存在 SAN 条目时）。  
   * 证书中可以存在多个 SAN 条目，但是它们中必须有一个与联合身份验证服务名称匹配。
-  * 如果计划使用工作区加入，则需其他 SAN，其值为 **enterpriseregistration.**， 后跟组织的用户主体名称 (UPN) 后缀，例如 **enterpriseregistration.contoso.com**。
+  * 如果计划使用工作区加入，则需其他 SAN，其值为 **enterpriseregistration.** ， 后跟组织的用户主体名称 (UPN) 后缀，例如 **enterpriseregistration.contoso.com**。
 * 不支持基于 CryptoAPI 下一代 (CNG) 密钥和密钥存储提供者的证书。 这意味着，必须使用基于 CSP（加密服务提供者）而非 KSP（密钥存储提供者）的证书。
 * 支持通配符证书。
 

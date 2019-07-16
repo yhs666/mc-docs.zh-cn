@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 4cd8d8af7d6c2da988d5853f9b43a2298d3321f7
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 5527a5f4e16a22b78ade689271cf573fe91435fc
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731341"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562435"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 
@@ -68,6 +68,10 @@ Azure Monitor 现在支持[新型指标警报类型](../../azure-monitor/platfor
 
 
 ## <a name="payload-schema"></a>负载架构
+
+> [!NOTE]
+> 还可以使用[常见警报架构](/azure-monitor/platform/alerts-common-schema)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载，用于 Webhook 集成。 [了解常见的警报架构定义。](/azure-monitor/platform/alerts-common-schema-definitions)
+
 
 使用适当配置的[操作组](../../azure-monitor/platform/action-groups.md)时，POST 操作对于所有准新型指标警报包含以下 JSON 有效负载和架构：
 

@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: dfcb21ea62db988b3c752f9b3b63391480ee63e2
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: f98febbf119f041fdef97ecfd91476870c8166ba
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731454"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562557"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>开始监视 ASP.NET Core Web 应用程序
 
 使用 Azure Application Insights，可轻松监视 Web 应用程序的可用性、性能和使用情况。 还可以快速确定并诊断应用程序中的错误，而无需等待用户报告这些错误。 
 
-本快速入门介绍如何将 Application Insights SDK 添加到现有 ASP.NET Core Web 应用程序。
+本快速入门介绍如何将 Application Insights SDK 添加到现有 ASP.NET Core Web 应用程序。 若要了解如何在没有 Visual Studio 的情况下配置 Application Insights，请查看此[文章](/azure-monitor/app/asp-net-core)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -47,16 +47,16 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 
 1. 选择“创建资源”   >   “开发人员工具” >   “Application Insights”。
 
-   ![添加 Application Insights 资源](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)文档来了解更多信息。
 
     此时会显示配置对话框，请使用下表填写输入字段。
 
     | 设置        |  Value           | 说明  |
    | ------------- |:-------------|:-----|
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
-   | **应用程序类型** | ASP.NET Web 应用程序 | 所监视的应用的类型 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **位置** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 
@@ -108,4 +108,4 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [查找和诊断运行时异常](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-runtime-exceptions)
+> [查找和诊断运行时异常](/azure-monitor/learn/tutorial-runtime-exceptions)

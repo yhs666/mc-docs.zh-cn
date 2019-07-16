@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 00cfc817b18698842cb68ee8733d0840db5b5bd2
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: c3492d2e66049d18014a076ba76bbe4f95e1ea8b
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135933"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562459"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -168,6 +168,8 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
     |代理资源| 端口 | 方向 |
     |------|---------|----------|  
+    |*.ods.opinsights.azure.cn | 端口 443| 入站和出站 |  
+    |*.oms.opinsights.azure.cn | 端口 443| 入站和出站 |  
     |*.blob.core.chinacloudapi.cn | 端口 443| 入站和出站 |  
     |\* .azure-automation.net | 端口 443| 入站和出站 | 
 
@@ -185,6 +187,33 @@ Success sending oms.syslog.authpriv.info x 1 in 0.91s
 
 ## <a name="issue-you-see-a-500-and-404-error-in-the-log-file-right-after-onboarding"></a>问题：载入后，日志文件中立即显示 500 和 404 错误
 这是第一次将 Linux 数据上传到 Log Analytics 工作区时发生的已知问题。 这不会影响发送的数据或服务体验。
+
+
+## <a name="issue-you-see-omiagent-using-100-cpu"></a>问题：你看到 omiagent 使用100% CPU
+
+### <a name="probable-causes"></a>可能的原因
+nss-pem 包 [v1.0.3-5.el7](https://centos.pkgs.org/7/centos-x86_64/nss-pem-1.0.3-5.el7.x86_64.rpm.html) 中的回归导致了严重的性能问题，我们已在 Redhat/CentOS 7.x 发行版中看到发生了很多这样的问题。 若要详细了解此问题，请查看以下文档：Bug [libcurl 中的 1667121 性能回归](https://bugzilla.redhat.com/show_bug.cgi?id=1667121)。
+
+与性能相关的 bug 并不总是发生，而且它们很难再现。 如果你在 omiagent 中遇到这样的问题，应该使用脚本 omiHighCPUDiagnostics.sh，它将在超过某个阈值时收集 omiagent 的堆栈跟踪。
+
+1. 下载脚本 <br/>
+`wget https://raw.githubusercontent.com/microsoft/OMS-Agent-for-Linux/master/tools/LogCollector/source/omiHighCPUDiagnostics.sh`
+
+2. 使用 30% CPU 阈值运行诊断 24 小时 <br/>
+`bash omiHighCPUDiagnostics.sh --runtime-in-min 1440 --cpu-threshold 30`
+
+3. Callstack 将转储到 omiagent_trace 文件中。如果你看到许多 Curl 和 NSS 函数调用，请按照下面的解决步骤操作。
+
+### <a name="resolution-step-by-step"></a>解决方法（分步）
+
+1. 将 nss-pem 包升级到 [v1.0.3-5.el7_6.1](https://centos.pkgs.org/7/centos-updates-x86_64/nss-pem-1.0.3-5.el7_6.1.x86_64.rpm.html)。 <br/>
+`sudo yum upgrade nss-pem`
+
+2. 如果 nss-pem 不可用于升级（主要发生在 Centos 上），则将 curl 降级到 7.29.0-46。 如果错误地运行了“yum update”，则 curl 将升级到 7.29.0-51，问题将再次发生。 <br/>
+`sudo yum downgrade curl libcurl`
+
+3. 重启 OMI： <br/>
+`sudo scxadmin -restart`
 
 ## <a name="issue-you-are-not-seeing-any-data-in-the-azure-portal"></a>问题：Azure 门户中未显示任何数据
 
@@ -406,7 +435,7 @@ sudo sh ./onboard_agent.sh --purge
 ### <a name="resolution"></a>解决方法 
 执行以下步骤来更正问题。
 1. 从 Azure 门户中删除扩展。
-2. 按照说明安装代理。
+2. 按照[说明](../../azure-monitor/learn/quick-collect-linux-computer.md)安装代理。
 3. 运行以下命令重启代理：`sudo /opt/microsoft/omsagent/bin/service_control restart`。
 4. 等待几分钟，并将预配状态更改为“预配成功”  。
 

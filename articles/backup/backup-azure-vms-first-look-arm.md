@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/17/2019
+ms.date: 06/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9837a9c6be178f5ae174e62596e8576920a58bd5
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 9beed86971537268d3ea0609c1aa10537b4b681a
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135992"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570603"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 
@@ -73,7 +73,8 @@ ms.locfileid: "67135992"
    
 
 > [!NOTE]
-> Azure 备份会创建一个单独的资源组（不同于 VM 资源组）来存储还原点，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 不应锁定该资源组。
+> Azure 备份服务会创建一个单独的资源组（而非 VM 资源组）来存储快照，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 此资源组中的数据将按 Azure 虚拟机备份策略的“保留即时恢复快照”部分中指定的天数保留。 对此资源组应用锁定可能会导致备份失败。<br>
+此资源组还应排除在任何名称/标记限制之外，因为限制策略会阻止在其中再次创建“资源点”集合，从而导致备份失败。
 
 
 

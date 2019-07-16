@@ -3,7 +3,7 @@ title: 移动应用入门（使用 Xamarin.Forms）
 description: 按本教程操作，开始使用移动应用进行 Xamarin.Forms 开发
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -13,18 +13,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 origin.date: 05/25/2018
 ms.author: v-biyu
-ms.date: 07/01/2019
-ms.openlocfilehash: 076ed4e46b89d1a36688bdef27c59f9b8862f9d1
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.date: 07/15/2019
+ms.openlocfilehash: 863788142366111efb392e02b3e4fe59a1f345cb
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171352"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560288"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>使用 Azure 创建 Xamarin.Forms 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+
+## <a name="overview"></a>概述
 本教程说明如何使用作为后端的 Azure 应用服务的移动应用功能，向 Xamarin.Forms 移动应用添加基于云的后端服务。 请创建一个新的移动应用后端和一个简单的待办事项列表 Xamarin.Forms 应用，此应用将应用数据存储在 Azure 中。
 
 只有在完成本教程后，才可学习有关 Xamarin.Forms 的所有其他移动应用教程。

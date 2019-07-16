@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: e3a185042435abb3ff2bc84166baaeab9fea394e
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b728f14ea155b7229dcfadde4db51ffe250b3b5c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731412"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562331"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>将管理事件的 Azure 警报迁移到活动日志警报
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!WARNING]
-> 有关管理事件的警报将于 10 月 1 日当天或之后关闭。 请使用以下说明进行操作，以了解你是否具有这些警报，如果有，请将其迁移。
+> 有关管理事件的警报将于 2017 年 10 月 1 日当天或之后关闭。 请使用以下说明进行操作，以了解你是否具有这些警报，如果有，请将其迁移。
 
 ## <a name="what-is-changing"></a>有什么变化
 

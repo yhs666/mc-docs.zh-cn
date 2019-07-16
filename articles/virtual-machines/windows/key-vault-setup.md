@@ -1,5 +1,5 @@
 ---
-title: 在 Azure Resource Manager 中为 Windows VM 设置 Key Vault | Azure
+title: 在 Azure Resource Manager 中为虚拟机设置密钥保管库 | Azure
 description: 如何设置与 Azure Resource Manager 虚拟机搭配使用的密钥保管库。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 01/24/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ec0538321f8db293bbe148fe485ed7339c9c1be
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0f34d725f96a32587418d6ff5940a2a0b1ad85c4
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004246"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569940"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>在 Azure Resource Manager 中为虚拟机设置密钥保管库
 
@@ -51,7 +51,11 @@ ms.locfileid: "66004246"
 
 使用 CLI 时，必须先创建密钥保管库，然后分配部署策略。 可以使用以下命令来执行此操作：
 
-    az keyvault set-policy ContosoKeyVault -enabled-for-deployment true
+    az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "chinaeast"
+
+然后，要启用密钥保管库以用于模板部署，请运行以下命令：
+
+    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>使用模板设置密钥保管库
 使用模板时，必须将 Key Vault 资源的 `enabledForDeployment` 属性设置为 `true`。
@@ -71,7 +75,7 @@ ms.locfileid: "66004246"
 有关使用模板创建密钥保管库时可以配置的其他选项，请参阅 [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create/)（创建密钥保管库）。
 
 > [!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudaap.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 
 <!-- Update_Description: update meta properties -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 7270ba64fd36bb0a3837a2102dd7c5029bed4882
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 7e2a4fa5917bfdfbf2b46c049c4259902fcd02f3
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586897"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562341"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -67,7 +67,7 @@ Circonus 是一个微服务监视和分析平台，专为本地或 SaaS 部署�
 
 借助专为省时省钱而构建的平台整合云并实现云的自动化。 CloudHealth 提供适用于云管理的可视性、直观的优化和可靠的管理做法。 企业和 MSP 可以通过 Cloudhealth 平台最大化云投资回报。 围绕成本、使用情况、性能和安全性进行自信的决策。
 
-[Learn More.][cloudhealth-doc]
+[了解详细信息。][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -169,7 +169,7 @@ PagerDuty 是行业领先的事件管理解决方案，为 Azure 指标警报提
 
 ![QRadar 徽标](./media/partners/qradar.png)
 
-Microsoft Azure DSM 和 Microsoft Azure 事件中心协议可从 [IBM 支持网站](https://www.ibm.com/support)下载。 可[在此处详细了解如何与 Azure 集成][qradar-doc]。
+Microsoft Azure DSM 和 Microsoft Azure 事件中心协议可从 [IBM 支持网站](https://www.ibm.com/support)下载。 可以[在此处了解 Azure 集成][qradar-doc]。
 
 ## <a name="sciencelogic"></a>ScienceLogic
 
@@ -191,7 +191,7 @@ Serverless360 是一个平台工具，用于运行、管理和监视 Azure 无�
 
 ![SignalFX 徽标](./media/partners/signalfx.png)
 
-SignalFx 是领先的面向数据驱动型 DevOps 的实时操作智能服务。 该服务可以发现并收集云中每个组件的指标， 取代传统的点选工具，提供当前动态环境的实时洞察信息。 利用可大规模缩放的 SignalFx 平台，可以根据体系结构针对容器和微服务优化 SaaS 平台，并在各种规模的组织中提供强大的可视化、主动警报和协作会审功能。 还可以通过 Telegraf、statsD 和 collectd 等开源连接器直接将 SignalFx 与 Azure Monitor 集成，以便为 Azure 提供一流的仪表板、分析和警报。
+SignalFx 是领先的面向数据驱动型 DevOps 的实时操作智能服务。 该服务可以发现并收集云中每个组件的指标， 取代传统的点选工具，提供当前动态环境的实时洞察信息。 利用可大规模缩放的 SignalFx 平台，可以根据体系结构针对容器和微服务优化 SaaS 平台，并在各种规模的组织中提供强大的可视化、主动警报和协作会审功能。 还可以通过 Telegraf、statsD 和 collectd 等开源连接器直接将 SignalFx 与 Azure Monitor 集成，以便为 Azure 提供一流的仪表板、分析和警报    。
 
 [查看相关文档。][signalfx-doc]
 
@@ -230,16 +230,15 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 
 [了解详细信息。][turbonomic-doc]
 
-
 ## <a name="next-steps"></a>后续步骤
-* [使用 REST API 访问指标](rest-api-walkthrough.md)
-* [将活动日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-* [将诊断日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
+- [了解有关 Azure Monitor 的详细信息](../../azure-monitor/overview.md)
+- [使用 REST API 访问指标](rest-api-walkthrough.md)
+- [将诊断日志流式传输给非 Microsoft 服务](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 
 
 
 <!--Partner Documentation-->
-[alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文档。"
+[alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 文档。"
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 文档。"
 [arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 文档。"
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/

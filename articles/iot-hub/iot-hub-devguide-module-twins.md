@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/26/2018
-ms.date: 12/31/2018
+ms.date: 07/15/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82c3a2d029e50a4c4e79d65605edc683006066e1
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e616e351bbcbfc6a842ac3ffd5b173acc934af99
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625947"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569991"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>在 IoT 中心内了解并使用模块孪生
 
@@ -29,13 +29,13 @@ ms.locfileid: "58625947"
 
 在设备端，可以使用 IoT 中心设备 SDK 创建模块，其中每个模块与 IoT 中心建立独立连接。 通过此功能，可对设备上的不同组件使用不同的命名空间。 例如，某个自动贩卖机包含三个不同的传感器。 每个传感器由公司的不同部门控制。 可为每个传感器创建一个模块。 这样，每个部门只能向他们控制的传感器发送作业或直接方法，避免发生冲突和用户失误。
 
- 模块标识和模块孪生提供的功能与设备标识和设备孪生相同，但前者的粒度更细。 这种更高的粒度级可让有能力的设备（例如基于操作系统的设备，或管理多个组件的固件设备）隔离其中每个组件的配置和状态。 与包含模块化软件组件的 IoT 设备结合使用时，模块标识和模块孪生能够提供管理关注点分离。 推出模块孪生的正式版后，我们将会支持模块孪生级别的所有设备孪生功能。 
+模块标识和模块孪生提供的功能与设备标识和设备孪生相同，但前者的粒度更细。 这种更高的粒度级可让有能力的设备（例如基于操作系统的设备，或管理多个组件的固件设备）隔离其中每个组件的配置和状态。 与包含模块化软件组件的 IoT 设备结合使用时，模块标识和模块孪生能够提供管理关注点分离。 推出模块孪生的正式版后，我们将会支持模块孪生级别的所有设备孪生功能。 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本文介绍：
 
-* 模块孪生的结构：标记、所需的属性和报告的属性。
+* 模块孪生的结构：标记、所需的属性和报告的属性    。
 * 模块和后端可在模块孪生上执行的操作。
 
 有关使用报告的属性、设备到云的消息或文件上传的指导，请参阅[设备到云的通信指南][lnk-d2c-guidance]。
@@ -96,7 +96,7 @@ ms.locfileid: "58625947"
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": 55,
             "$metadata" : {...},
             "$version": 4
@@ -105,7 +105,7 @@ ms.locfileid: "58625947"
 }
 ```
 
-根对象中包含模块标识属性，以及 `tags`、`reported` 和 `desired` 属性的容器对象。 `properties` 容器包含一些只读元素（`$metadata`、`$etag` 和 `$version`），[模块孪生元数据][lnk-module-twin-metadata]和[乐观并发][lnk-concurrency]部分描述了这些元素。
+根对象中包含模块标识属性，以及 `tags`、`reported` 和 `desired` 属性的容器对象。 `properties` 容器包含一些只读元素（`$metadata`、`$etag` 和 `$version`），[模块孪生元数据][lnk-module-twin-metadata] and [Optimistic concurrency][lnk-concurrency] 部分描述了这些元素。
 
 ### <a name="reported-property-example"></a>报告属性示例
 在上面的示例中，模块孪生包含模块应用报告的 `batteryLevel` 属性。 使用此属性可以根据上次报告的电池电量水平查询和操作模块。 其他示例包括让模块应用报告模块功能或连接选项。
@@ -132,7 +132,6 @@ ms.locfileid: "58625947"
 2. 连接后或者首次重新连接时，模块应用会立即收到更改通知。 然后，模块应用报告更新的配置（或使用 `status` 属性报告错误状态）。 下面是报告属性的一部分：
 
     ```json
-    ...
     "reported": {
         "telemetryConfig": {
             "sendFrequency": "5m",
@@ -140,7 +139,6 @@ ms.locfileid: "58625947"
         }
         ...
     }
-    ...
     ```
 
 3. 解决方案后端可以通过[查询][lnk-query]模块孪生，跟踪多个模块上的配置操作结果。
@@ -176,7 +174,7 @@ ms.locfileid: "58625947"
 
   - 属性
 
-    | Name | 值 |
+    | Name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  发送通知的时间 |
@@ -214,7 +212,7 @@ ms.locfileid: "58625947"
     }
     ```
 
-上述所有操作均支持[乐观并发][lnk-concurrency]，并且需要[控制对 IoT 中心的访问](iot-hub-devguide-security.md)一文中定义的 **ServiceConnect** 权限。
+上述所有操作均支持[乐观并发][lnk-concurrency]，并且需要[控制对 IoT 中心的访问](iot-hub-devguide-security.md)文章中定义的 ServiceConnect 权限  。
 
 除了上述操作以外，解决方案后端还可以使用类似于 SQL 的 [IoT 中心查询语言](iot-hub-devguide-query-language.md)查询模块孪生。
 
@@ -292,7 +290,7 @@ IoT 中心保留模块孪生所需属性和报告属性中每个 JSON 对象的�
             "telemetryConfig": {
                 "sendFrequency": "5m",
                 "status": "success"
-            }
+            },
             "batteryLevel": "55%",
             "$metadata": {
                 "telemetryConfig": {
@@ -301,7 +299,7 @@ IoT 中心保留模块孪生所需属性和报告属性中每个 JSON 对象的�
                         "$lastUpdated": "2016-03-31T16:35:48.789Z"
                     },
                     "$lastUpdated": "2016-03-31T16:35:48.789Z"
-                }
+                },
                 "batteryLevel": {
                     "$lastUpdated": "2016-04-01T16:35:48.789Z"
                 },

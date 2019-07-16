@@ -3,24 +3,25 @@ title: Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最
 description: 提供适用于 ADAL 客户端应用程序的错误处理指南和最佳做法。
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.author: v-junlch
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/27/2017
-ms.date: 11/06/2018
+ms.date: 06/24/2019
 ms.custom: ''
-ms.openlocfilehash: 1a47c7f9f493c1ce64e6460de34655b70ba8b138
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c04bdcbe6faa055a94b86af7f7ef9569f30e60bf
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652953"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568554"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
 
@@ -28,11 +29,11 @@ ms.locfileid: "52652953"
 
 本文将探讨 ADAL 支持的每个平台的具体情况，以及应用程序应如何正确处理每种情况。 根据 ADAL API 提供的令牌获取模式，错误指南可分为两大类：
 
-- **AcquireTokenSilent**：客户端尝试自动获取令牌（无 UI），如果 ADAL 不成功，则可能获取失败。 
-- **AcquireToken**：客户端可以尝试自动获取，但也可以执行交互式请求（需要登录）。
+- **AcquireTokenSilent**：客户端尝试以无提示方式获取令牌（无 UI），如果 ADAL 不成功，则可能会失败。 
+- **AcquireToken**：客户端可以尝试以无提示方式获取，但也可以执行交互式请求（需要登录）。
 
 > [!TIP]
-> 最好在使用 ADAL 和 Azure AD 时记录所有错误和异常。 日志记录不仅有助于了解应用程序的整体运行状况，而且在调试更广泛的问题时也可发挥重要作用。 虽然应用程序可以从某些错误中恢复，但它们可能会提示存在其他设计问题，需要更改代码才能解决。 
+> 最好在使用 ADAL 和 Azure AD 时记录所有错误和异常。 日志不仅有助于了解应用程序的整体运行状况，而且在调试更广泛的问题时也可发挥重要作用。 虽然应用程序可以从某些错误中恢复，但它们可能会提示存在其他设计问题，需要更改代码才能解决。 
 > 
 > 出于上述原因，在实现本文档中提到的错误条件时，应记录错误代码和相应描述。 有关日志记录代码的示例，请参阅[错误和日志记录引用](#error-and-logging-reference)。 
 >
@@ -209,7 +210,7 @@ AcquireToken 是用于获取令牌的默认 ADAL 方法。 在需要用户标识
 
 #### <a name="net"></a>.NET
 
-以下指南提供了与所有非自动 AcquireToken(…) ADAL 方法相关的错误处理示例，但以下方法除外： 
+以下指南提供了与所有非自动 AcquireToken(…) ADAL 方法相关的错误处理示例，但以下方法除外  ： 
 
 - AcquireTokenAsync(…, IClientAssertionCertification, …)
 - AcquireTokenAsync(…,ClientCredential, …)
@@ -376,7 +377,7 @@ AcquireToken 失败存在以下情况：
 |------|-------------|
 | **情况 1**：<br>可通过交互式式请求解决 | 1.如果 login() 失败，请勿立即执行重试。 仅在用户执行某一操作，提示重试后才重试。|
 | **情况 2**：<br>不可通过交互式请求解决。 错误可重试。 | 1.执行一次重试，因为最终用户可能已进入某种会带来成功的状态。<br><br>2.如果重试失败，请根据调用重试的特定错误向最终用户显示操作（“尝试再次登录”）。 |
-| 情况 3：<br>不可通过交互式请求解决。 错误不可重试。 | 1.不要尝试立即重试。 根据调用重试的特定错误向最终用户显示操作（“尝试再次登录”）。 |
+| 情况 3  ：<br>不可通过交互式请求解决。 错误不可重试。 | 1.不要尝试立即重试。 根据调用重试的特定错误向最终用户显示操作（“尝试再次登录”）。 |
 
 代码按如下所示进行实现：
 
@@ -409,7 +410,7 @@ AuthContext.acquireToken(…, function(error, errorDesc, token) {
 
 #### <a name="all-scenarios"></a>所有情况
 
-对于所有服务到服务应用程序情况，包括代表：
+对于所有服务到服务应用程序情况，包括代表  ：
 
 - 不要尝试立即重试。 ADAL 尝试对某些失败的请求执行一次重试。 
 - 只有在用户或应用操作提示重试后才能继续重试。 例如，守护程序应用程序在某个设置间隔内未正常运行，应等到下一时间间隔再进行重试。
@@ -440,7 +441,7 @@ catch (AdalException e) {
 
 #### <a name="on-behalf-of-scenarios"></a>代表情况
 
-适用于所有代表服务到服务应用程序情况。
+适用于所有代表服务到服务应用程序情况  。
 
 以下指南提供了与 ADAL 方法有关的错误处理示例： 
 
@@ -579,18 +580,24 @@ window.Logging = {
 ```
 ## <a name="related-content"></a>相关内容
 
-- [Azure AD 开发人员指南][AAD-Dev-Guide]
-- [Azure AD 身份验证库][AAD-Auth-Libraries]
-- [Azure AD 身份验证方案][AAD-Auth-Scenarios]
-- [将应用程序与 Azure Active Directory 集成][AAD-Integrating-Apps]
+* [Azure AD Developer's Guide][AAD-Dev-Guide]（Azure AD 开发人员指南）
+* [Azure AD 身份验证库][AAD-Auth-Libraries]
+* [Azure AD 身份验证方案][AAD-Auth-Scenarios]
+* [将应用程序与 Azure Active Directory 集成][AAD-Integrating-Apps]
 
 欢迎通过下方的“评论”部分提供反馈，帮助我们改进内容。
 
-[![登录按钮][AAD-Sign-In]][AAD-Sign-In]
-<!--Reference style links --> [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md [AAD-Auth-Scenarios]:authentication-scenarios.md [AAD-Dev-Guide]:azure-ad-developers-guide.md [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md [AZURE-portal]: https://portal.azure.cn
+[![“登录”按钮][AAD-Sign-In]][AAD-Sign-In]
+<!--Reference style links -->
+
+[AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
+[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Dev-Guide]:azure-ad-developers-guide.md
+[AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
+[AZURE-portal]: https://portal.azure.cn
 
 <!--Image references-->
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

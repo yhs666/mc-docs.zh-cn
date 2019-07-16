@@ -9,17 +9,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 04/15/2019
-ms.date: 05/13/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11438fafc6cfc70022a5dfb8c1016e7fcbd0b8d9
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 72e3f570ebe9e158a24aab97491f9fa0db4df289
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598808"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568751"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 登录页的主领域发现
 
@@ -33,28 +33,28 @@ ms.locfileid: "65598808"
 
 此项工作的另一个好处是改进了错误消息。 下面是登录到仅支持 Azure Active Directory 用户的应用程序时，显示的一些经过改进的错误消息示例。
 
-1. 键入错误的用户名，或者用户名尚未同步到 Azure AD：
+- 键入错误的用户名，或者用户名尚未同步到 Azure AD：
   
     ![键入错误的用户名，或者找不到该用户名](./media/signin-realm-discovery/typo-username.png)
   
-2. 键入错误的域名：
+- 键入错误的域名：
   
     ![键入错误的域名，或者找不到该域名](./media/signin-realm-discovery/typo-domain.png)
   
-3. 用户尝试使用已知的使用者域登录：
+- 用户尝试使用已知的使用者域登录：
   
     ![使用已知的使用者域登录](./media/signin-realm-discovery/consumer-domain.png)
   
-4. 键入错误的密码，但用户名正确：  
+- 键入错误的密码，但用户名正确：  
   
     ![键入错误的密码，但用户名正确](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> 此功能可能对依赖于使用旧式域级别主领域发现来强制联合的联合域造成影响。 同时，某些组织已经为其员工提供了培训，让他们使用 Azure Active Directory 中不存在的、但包含正确域名的用户名登录，因为域名目前会将用户路由到其组织的域终结点。 新的登录行为不允许此操作。 系统会告知用户更正用户名，且不允许他们使用 Azure Active Directory 中不存在的用户名登录。
+> 此功能可能对依赖于使用旧式域级别主领域发现来强制联合的联合域造成影响。 有关何时添加联合域支持的更新，请参阅 [Microsoft 365 服务登录期间的主领域发现](https://azure.microsoft.com/updates/signin-hrd/)。 同时，某些组织已经为其员工提供了培训，让他们使用 Azure Active Directory 中不存在的、但包含正确域名的用户名登录，因为域名目前会将用户路由到其组织的域终结点。 新的登录行为不允许此操作。 系统会告知用户更正用户名，且不允许他们使用 Azure Active Directory 中不存在的用户名登录。
 >
 > 如果你或你的组织在实践中依赖于旧行为，则组织管理员必须更新员工登录与身份验证文档，并为员工提供培训，让他们使用其 Azure Active Directory 用户名登录。
   
-如果你对新的行为存有疑虑，请在本文的“反馈”部分留言。  
+如果你对新的行为存有疑虑，请在本文的“反馈”部分留言。   
 
 ## <a name="next-steps"></a>后续步骤
 

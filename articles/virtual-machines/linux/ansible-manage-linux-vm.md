@@ -7,14 +7,14 @@ ms.service: ansible
 author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
-origin.date: 04/22/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: c26ccfbc64bf41e1e4582bf59b1bc3dd581aa0e1
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+origin.date: 04/30/2019
+ms.date: 07/01/2019
+ms.openlocfilehash: e91b2d96c8ce9df20968b296a140ea49a165c3aa
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835766"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570330"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 管理 Azure 中的 Linux 虚拟机
 
@@ -22,12 +22,14 @@ ms.locfileid: "65835766"
 
 ## <a name="prerequisites"></a>先决条件
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="stop-a-virtual-machine"></a>停止虚拟机
 
 在本部分中，你将使用 Ansible 解除分配（停止）Azure 虚拟机。
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -39,7 +41,7 @@ ms.locfileid: "65835766"
     ssh <your-linux-account>@<your-linux-public-ip-address>
     ```
 
-1.  创建名为 `azure-vm-stop.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
+1. 创建一个名为 `azure-vm-stop.yml` 的文件，并在编辑器中将其打开：
 
     ```azurecli
     vi azure-vm-stop.yml
@@ -104,7 +106,7 @@ ms.locfileid: "65835766"
     ssh <your-linux-account>@<your-linux-public-ip-address>
     ```
 
-1.  创建名为 `azure-vm-start.yml` 的文件（用于包含 playbook）并在 VI 编辑器中将其打开，如下所示：
+1.  创建一个名为 `azure-vm-start.yml` 的文件，并在编辑器中将其打开：
 
     ```azurecli
     vi azure-vm-start.yml

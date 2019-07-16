@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fa170997332a404e93a0e5bd79b637931f0494fa
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 8270c995a45d070f5352a87ef9be97f6ef431e8a
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56441021"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562577"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中创建管理解决方案文件（预览版）
 > [!NOTE]
@@ -85,12 +85,12 @@ Azure 中的管理解决方案作为[资源管理器模板](../../azure-resource
 
 | 参数 | 类型 | 说明 |
 |:--- |:--- |:--- |
-| accountName |字符串 |Azure 自动化帐户名称。 |
-| pricingTier |字符串 |Log Analytics 工作区和 Azure 自动化帐户的定价层。 |
-| regionId |字符串 |Azure 自动化帐户的区域。 |
-| solutionName |字符串 |解决方案名称。  如果要通过快速入门模板部署解决方案，则应将 solutionName 定义为参数，以便能够定义字符串，而无需用户指定一个字符串。 |
-| workspaceName |字符串 |Log Analytics 工作区名称。 |
-| workspaceRegionId |字符串 |Log Analytics 工作区的区域。 |
+| accountName |string |Azure 自动化帐户名称。 |
+| pricingTier |string |Log Analytics 工作区和 Azure 自动化帐户的定价层。 |
+| regionId |string |Azure 自动化帐户的区域。 |
+| solutionName |string |解决方案名称。  如果要通过快速入门模板部署解决方案，则应将 solutionName 定义为参数，以便能够定义字符串，而无需用户指定一个字符串。 |
+| workspaceName |string |Log Analytics 工作区名称。 |
+| workspaceRegionId |string |Log Analytics 工作区的区域。 |
 
 
 以下是可以复制并粘贴到解决方案文件的标准参数的结构。  
@@ -144,7 +144,7 @@ Azure 中的管理解决方案作为[资源管理器模板](../../azure-resource
         "AutomationApiVersion": "2015-10-31"
     },
 
-引用整个解决方案中的变量值时的语法为 **variables('variable name')** 的变量值。  例如，若要访问 SolutionName 变量，需使用 **variables('SolutionName')**。
+引用整个解决方案中的变量值时的语法为 **variables('variable name')** 的变量值。  例如，若要访问 SolutionName 变量，需使用 **variables('SolutionName')** 。
 
 还可定义包含多组值的复杂变量。  这些复杂变量对以下管理解决方案特别有用：为不同类型的资源定义多个属性。  例如，可将如上所示的解决方案变量重构到以下内容。
 
@@ -213,7 +213,7 @@ Azure 中的管理解决方案作为[资源管理器模板](../../azure-resource
 
 | 属性 | 说明 |
 |:--- |:--- |
-| workspaceResourceId |*<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>* 窗体中 Log Analytics 工作区的 ID。 |
+| workspaceResourceId |格式为 *\<Resource Group ID>/providers/Microsoft.OperationalInsights/workspaces/\<Workspace Name\>* 的 Log Analytics 工作区的 ID。 |
 | referencedResources |解决方案中不应随解决方案一起删除的资源的列表。 |
 | containedResources |解决方案中应随解决方案一起删除的资源的列表。 |
 
@@ -229,13 +229,6 @@ Azure 中的管理解决方案作为[资源管理器模板](../../azure-resource
 | product |标识解决方案的唯一字符串。 |
 | 发布者 |解决方案发布者。 |
 
-
-
-## <a name="sample"></a>示例
-可在以下位置查看具有解决方案资源的解决方案文件示例。
-
-- [自动化资源](solutions-resources-automation.md#sample)
-- [搜索和警报资源](solutions-resources-searches-alerts.md#sample)
 
 
 ## <a name="next-steps"></a>后续步骤

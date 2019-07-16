@@ -3,8 +3,8 @@ title: 使用 Microsoft 标识平台在无需用户交互的情况下访问安�
 description: 使用 OAuth 2.0 身份验证协议的 Microsoft 标识平台实现生成 Web 应用程序。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 9b7cfbd7-f89f-4e33-aff2-414edd584b07
 ms.service: active-directory
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/12/2019
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc208e09af29e9d8d054a76397e99b47022f3929
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 96979aec3ba086547d3b380d45bd23cad11e1d8b
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517618"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568675"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Microsoft 标识平台和 OAuth 2.0 客户端凭据流
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-可通过 RFC 6749 中指定的 [OAuth 2.0 客户端凭据授予](https://tools.ietf.org/html/rfc6749#section-4.4)（有时称为“双重 OAuth”），使用应用程序标识来访问 Web 托管的资源。 这种授予通常用于必须在后台运行的服务器间交互，不需要立即与用户交互。 此类应用程序通常称为守护程序或服务帐户。
+可通过 RFC 6749 中指定的 [OAuth 2.0 客户端凭据授予](https://tools.ietf.org/html/rfc6749#section-4.4)（有时称为“双重 OAuth”  ），使用应用程序标识来访问 Web 托管的资源。 这种授予通常用于必须在后台运行的服务器间交互，不需要立即与用户交互。 此类应用程序通常称为守护程序  或服务帐户  。
 
 OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调用其他 Web 服务时使用它自己的凭据（而不是模拟用户）进行身份验证。 在这种情况下，客户端通常是中间层 Web 服务、后台程序服务或网站。 为了进行更高级别的保证，Microsoft 标识平台还允许调用服务将证书（而不是共享机密）用作凭据。
 
 > [!NOTE]
 > Microsoft 标识平台终结点并非支持所有 Azure AD 方案和功能。 若要确定是否应使用 Microsoft 标识平台终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。
 
-在较典型的 *三重 OAuth*中，客户端应用程序有权代表特定用户访问资源。 该权限通常在[许可](v2-permissions-and-consent.md)过程中由用户委托给应用程序。 但是，在客户端凭据（双重 OAuth）流中，权限直接授予应用程序本身。 应用向资源出示令牌时，该资源强制要求应用本身而不是用户拥有执行操作的授权。
+在较典型的 *三重 OAuth*中，客户端应用程序有权代表特定用户访问资源。 该权限通常在[许可](v2-permissions-and-consent.md)过程中由用户委托给应用程序。 但是，在客户端凭据（双重 OAuth  ）流中，权限直接授予应用程序本身。 应用向资源出示令牌时，该资源强制要求应用本身而不是用户拥有执行操作的授权。
 
 ## <a name="protocol-diagram"></a>协议图
 
@@ -78,8 +78,8 @@ OAuth 2.0 客户端凭据授权流允许 Web 服务（机密客户端）在调�
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>在应用注册门户中请求权限
 
 1. 通过新的[应用注册（预览版）体验](quickstart-register-app.md)注册和创建应用。
-2. 在应用注册（预览版）体验中转到你的应用程序。 导航到“证书和机密”部分，并添加一个**新的客户端机密**，因为至少需要使用一个客户端机密来请求令牌。
-3. 找到“API 权限”部分，然后添加应用所需的**应用程序权限**。
+2. 在应用注册（预览版）体验中转到你的应用程序。 导航到“证书和机密”部分，并添加一个**新的客户端机密**，因为至少需要使用一个客户端机密来请求令牌。 
+3. 找到“API 权限”  部分，然后添加应用所需的**应用程序权限**。
 4. **保存** 应用注册。
 
 #### <a name="recommended-sign-the-user-into-your-app"></a>建议：让用户登录到应用
@@ -251,6 +251,10 @@ scope=https%3A%2F%2Fmicrosoftgraph.chinacloudapi.cn%2F.default
 | `trace_id` | 可帮助进行诊断的请求的唯一标识符。 |
 | `correlation_id` | 可帮助跨组件进行诊断的请求的唯一标识符。 |
 
+> [!NOTE]
+> 为了让应用程序能够接收 v2 令牌，可以从 Azure 门户中更新应用程序的清单文件。 可以添加属性 `accessTokenAcceptedVersion` 并将值设置为 2 作为 `"accessTokenAcceptedVersion": 2`。 请查看文章[应用程序清单](/active-directory/develop/reference-app-manifest#manifest-reference)以了解有关相同内容的更多信息。 默认情况下，应用程序当前接收 v1 令牌。 如果未在应用程序/Web API 清单中定义此属性，则清单中此属性的值将默认为 1，因此应用程序将接收 v1 令牌。  
+
+
 ## <a name="use-a-token"></a>使用令牌
 
 获取令牌后，使用该令牌对资源发出请求。 令牌过期时，向 `/token` 终结点重复该请求，即可获取全新的访问令牌。
@@ -271,10 +275,11 @@ curl -X GET -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dC
 
 ## <a name="code-samples-and-other-documentation"></a>代码示例和其他文档
 
-阅读 Microsoft 身份验证库中的[客户端凭据概述文档](https://aka.ms/msal-net-client-credentials)
+阅读 Microsoft 身份验证库中的[客户端凭据概述文档](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-credential-flows)
 
 | 示例 | 平台 |说明 |
 |--------|----------|------------|
 |[active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) | .NET Core 2.1 控制台 | 一个简单的 .NET Core 应用程序，该应用程序显示某个租户的用户在使用应用程序的标识查询 Microsoft Graph，而不是代表用户来查询。 该示例还演示了使用证书进行身份验证的变体。 |
 |[active-directory-dotnet-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)|ASP.NET MVC | 一个 Web 应用程序，该应用程序使用应用程序的标识来同步 Microsoft Graph 的数据，而不是代表用户来同步。 |
 
+<!-- Update_Description: wording update -->

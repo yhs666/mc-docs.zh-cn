@@ -12,18 +12,18 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual
 origin.date: 11/03/2017
-ms.date: 09/24/2018
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: ef4565b39eefce5420d6bd48557f97912daa4397
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 56d64e217f5b5082f19a327c648ddabc8a0ac53b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660971"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569831"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>通过 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 
-本文档介绍如何使用 Visual Studio 2017 中的 **Azure 虚拟机**发布功能，将 ASP.NET Web 应用程序发布到 Azure 虚拟机 (VM)。  
+本文档介绍如何使用 Visual Studio 2019 中的 **Azure 虚拟机**发布功能，将 ASP.NET Web 应用程序发布到 Azure 虚拟机 (VM)。 
 
 ## <a name="prerequisites"></a>先决条件
 若要使用 Visual Studio 将 ASP.NET 项目发布到某个 Azure VM，必须正确设置该 VM。
@@ -35,37 +35,37 @@ ms.locfileid: "52660971"
 ## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>使用 Visual Studio 将 ASP.NET Web 应用发布到 Azure VM
 以下部分介绍如何将现有的 ASP.NET Web 应用程序发布到 Azure 虚拟机。
 
-1. 在 Visual Studio 2017 中打开自己的 Web 应用解决方案。
-2. 在解决方案资源管理器中右键单击该项目，并选择“发布...”。
-3. 使用页面右侧的箭头滚动浏览发布选项，直到发现“Azure 虚拟机”。  
+1. 在 Visual Studio 2019 中打开自己的 Web 应用解决方案。
+2. 在解决方案资源管理器中右键单击该项目，并选择“发布...”。 
+3. 使用页面右侧的箭头滚动浏览发布选项，直到发现“Azure 虚拟机”。   
 
-   ![发布页 - 右箭头]
+    ![发布页 - 右侧箭头]
 
-4. 选择“Azure 虚拟机”图标，然后选择“发布”。
+4. 选择“Azure 虚拟机”图标，然后选择“发布”。  
 
-   ![发布页 -“Azure 虚拟机”图标]
+    ![发布页 -“Azure 虚拟机”图标]
 
 5. 选择相应的帐户（包含与虚拟机连接的 Azure 订阅）。  
-   - 如果已登录 Visual Studio，则帐户列表中会填充所有已经过身份验证的帐户。  
-   - 如果未登录，或者所需的帐户未列出，请选择“添加帐户...”并遵照提示登录。  
-   ![Azure 帐户选择器]  
+    - 如果已登录 Visual Studio，则帐户列表中会填充所有已经过身份验证的帐户。  
+    - 如果未登录，或者所需的帐户未列出，请选择“添加帐户...”并遵照提示登录。  
+    ![Azure 帐户选择器]  
 
 6. 从“现有虚拟机”列表中选择相应的 VM。
 
-   > [!Note]
-   > 填充此列表可能需要一段时间。
+    > [!Note]
+    > 填充此列表可能需要一段时间。
 
-   ![Azure VM 选择器]
+    ![Azure VM 选择器]
 
 7. 单击“确定”开始发布。
 
-8. 出现输入凭据的提示时，请提供目标 VM 上已配置有发布权限的用户帐户的用户名和密码（通常是创建 VM 时使用的管理员用户名和密码）。  
+8. 提示输入凭据时，请提供目标 VM 上已配置有发布权限的用户帐户的用户名和密码。 这些凭据通常是创建 VM 时使用的管理员用户名和密码。  
 
-   ![WebDeploy 登录]
+    ![WebDeploy 登录]
 
 9. 接受安全证书。
 
-   ![证书错误]
+    ![证书错误]
 
 10. 观察“输出”窗口以检查发布操作的进度。
 
@@ -83,7 +83,7 @@ ms.locfileid: "52660971"
 
 ### <a name="re-publish"></a>重新发布
 
-若要将更新发布到 Web 应用程序，请在“发布”页上选择“发布”按钮。  
+若要将更新发布到 Web 应用程序，请在“发布”页上选择“发布”按钮。   
 - 根据提示输入用户名和密码。  
 - 随即会开始发布。
 
@@ -91,7 +91,7 @@ ms.locfileid: "52660971"
 
 ### <a name="modify-publish-profile-settings"></a>修改发布配置文件设置
 
-若要查看和修改发布配置文件设置，请选择“设置...”。  
+若要查看和修改发布配置文件设置，请选择“设置...”。   
 
 ![发布页-“设置”按钮]
 
@@ -100,12 +100,12 @@ ms.locfileid: "52660971"
 ![发布设置 -“连接”页]
 
 #### <a name="save-user-name-and-password"></a>保存用户名和密码
-- 为了避免每次发布时都要提供身份验证信息，可以填充“用户名”和“密码”字段，并选中“保存密码”框。
-- 使用“验证连接”按钮确认是否输入了正确的信息。
+- 避免在每次发布时提供身份验证信息。 为此，请填写“用户名”  和“密码”  字段，并选中“保存密码”  框。
+- 使用“验证连接”按钮确认是否输入了正确的信息。 
 
 #### <a name="deploy-to-clean-web-server"></a>部署到干净的 Web 服务器
 
-- 如果想要确保每次上传后 Web 服务器包含 Web 应用程序的干净副本（不包含先前部署留下的其他混杂文件），可以在“设置”选项卡中选中“删除目标中的其他文件”复选框。
+- 如果想要确保每次上传后 Web 服务器包含 Web 应用程序的干净副本（不包含先前部署留下的其他文件），可以在“设置”选项卡中选中“删除目标中的其他文件”复选框。  
 
 - 警告：使用此设置进行发布会删除 Web 服务器上存在的所有文件（包括 wwwroot 目录）。 在启用此选项的情况下进行发布之前，请务必了解计算机的状态。 
 
@@ -120,4 +120,18 @@ ms.locfileid: "52660971"
 <!-- THE FOLLOWING ARCHOR IS NOT AVAILABLE -->
 <!-- Not Available on [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png-->
 <!-- Not Available on [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png-->
-<!-- Not Available on [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png--> [发布页 - 右箭头]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png [发布页 -“Azure 虚拟机”图标]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png [Azure 帐户选择器]：../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png [Azure VM 选择器]：../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png [WebDeploy 登录]：../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png [证书错误]：../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png [输出窗口]：../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png [发布页 -“发布”按钮]：../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png [发布页 -“设置”按钮]：../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png [发布设置 -“连接”页]：../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png [发布设置 -“设置”页]：../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png <!-- Update_Description: update meta properties, update link -->
+<!-- Not Available on [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png-->
+
+[发布页 - 右侧箭头]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
+[发布页 -“Azure 虚拟机”图标]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
+[Azure 帐户选择器]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
+[Azure VM 选择器]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
+[WebDeploy 登录]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
+[证书错误]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
+[输出窗口]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[发布页 -“发布”按钮]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
+[发布页-“设置”按钮]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
+[发布设置 -“连接”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
+[发布设置 -“设置”页]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
+
+<!-- Update_Description: update meta properties, wording update -->

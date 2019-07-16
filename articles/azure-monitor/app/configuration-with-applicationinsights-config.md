@@ -13,24 +13,24 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 351c5f49ce033a6b48f437a3fc9d599f9c51c10b
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 5a4ee5fe3181bce728d15618b3a8b2ff1d4bf04d
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046904"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562710"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 配置 Application Insights SDK
 Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用于将遥测数据发送到 Application Insights。 [其他包](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遥测*模块*和*初始值设定项*，用于自动从应用程序及其上下文跟踪遥测。 可以通过调整配置文件来启用或禁用遥测模块和初始值设定项并为其设置参数。
 
 配置文件名为 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，具体取决于应用程序的类型。 [安装大多数版本的 SDK][start] 时，系统会自动将配置文件添加到项目。 通过使用 [IIS 服务器上的状态监视器][redfield]或者在选择[适用于 Azure 网站或 VM 的 Application Insights 扩展](azure-web-apps.md)时，也会将配置文件添加到 Web 应用。
 
-没有同等的文件可以控制[网页中的 SDK][client]。
+没有等效的文件可以控制[网页中的 SDK][client]。
 
 本文档说明配置文件中显示的节、控制 SDK 组件的方式，以及哪些 NuGet 包会加载这些组件。
 
 > [!NOTE]
-> ApplicationInsights.config 和 .xml 指令不适用于 .NET Core SDK。 对于 .NET Core 应用程序的更改，我们通常使用 appsettings.json 文件。 可在 [Snapshot Debugger 文档](snapshot-debugger.md)中找到此示例。
+> ApplicationInsights.config 和 .xml 指令不适用于 .NET Core SDK。 若要配置 .NET Core 应用程序，请遵循[此](../../azure-monitor/app/asp-net-core.md)指南。
 
 ## <a name="telemetry-modules-aspnet"></a>遥测模块 (ASP.NET)
 每个遥测模块收集特定类型的数据，并使用核心 API 来发送数据。 不同的 NuGet 包会安装这些模块，同时在 .config 文件中添加所需的行。
@@ -52,10 +52,12 @@ Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://w
 * [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector) NuGet 包。
 
 ### <a name="application-insights-diagnostics-telemetry"></a>Application Insights 诊断遥测
-`DiagnosticsTelemetryModule` 报告 Application Insights 检测代码本身中的错误。 例如，代码无法访问性能计数器，或 `ITelemetryInitializer` 引发异常。 此模块跟踪的跟踪遥测数据显示在[诊断搜索][diagnostic]中。 将诊断数据发送到 dc.services.vsallin.net。
+`DiagnosticsTelemetryModule` 报告 Application Insights 检测代码本身中的错误。 例如，代码无法访问性能计数器，或 `ITelemetryInitializer` 引发异常。 此模块跟踪的跟踪遥测数据将显示在[诊断搜索][diagnostic]中。
 
+```
 * `Microsoft.ApplicationInsights.Extensibility.Implementation.Tracing.DiagnosticsTelemetryModule`
-* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 包。 如果只安装此包，则不会自动创建 ApplicationInsights.config 文件。
+* [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet package. If you only install this package, the ApplicationInsights.config file is not automatically created.
+```
 
 ### <a name="developer-mode"></a>开发人员模式
 将调试器附加到应用程序进程后，`DeveloperModeWithDebuggerAttachedTelemetryModule` 强制 `TelemetryChannel` 立即发送数据，一次发送一个遥测项。 这可以减少应用程序跟踪遥测数据与在 Application Insights 门户显示遥测数据的间隔时间， 但会明显增大 CPU 和网络带宽的开销。
@@ -97,10 +99,10 @@ Microsoft.ApplicationInsights 包提供 SDK 的[核心 API](https://msdn.microso
 * [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) NuGet 包。 如果只安装此 NuGet，则不会生成任何 .config 文件。
 
 ## <a name="telemetry-channel"></a>遥测通道
-遥测通道管理缓冲以及将遥测数据传输到 Application Insights 服务。
+[遥测通道](telemetry-channels.md)管理遥测到 Application Insights 服务的缓冲和传输。
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 是服务的默认通道。 它在内存中缓冲数据。
-* `Microsoft.ApplicationInsights.PersistenceChannel` 是控制台应用程序的替代通道。 当应用关闭时，该通道可将所有未刷新的数据保存到持久性存储，并在应用重新启动时发送这些数据。
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` 是 Web 应用程序的默认通道。 它在内存中缓冲数据，并采用重试机制和本地磁盘存储，以实现更可靠的遥测传输。
+* `Microsoft.ApplicationInsights.InMemoryChannel` 是一个轻型遥测通道，在未配置其他通道时使用。 
 
 ## <a name="telemetry-initializers-aspnet"></a>遥测初始值设定项 (ASP.NET)
 遥测初始值设定项设置连同每个遥测项一起发送的上下文属性。
@@ -249,7 +251,7 @@ Microsoft.ApplicationInsights 包提供 SDK 的[核心 API](https://msdn.microso
 如果使用的是 SpringBoot 入门版，请将以下内容添加到配置文件（application.properties）中：
 
 ```yml
-azure.application-insights.channel.local-forwarder.endpoint-address= https://dc.applicationinsights.azure.cn/v2/track
+azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
 azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
 azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
 ```

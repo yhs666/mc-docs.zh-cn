@@ -3,8 +3,8 @@ title: 适用于 Linux 的 Azure Monitor 虚拟机扩展 | Azure
 description: 使用虚拟机扩展在 Linux 虚拟机上部署 Log Analytics 代理。
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: rockboyfor
+manager: digimobile
 editor: ''
 tags: azure-resource-manager
 ms.assetid: c7bbf210-7d71-4a37-ba47-9c74567a9ea6
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/12/2019
-ms.author: roiyz
-ms.openlocfilehash: 8231f9f97558c0f302bed7e12f6675f9246e8db0
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+origin.date: 06/06/2019
+ms.date: 07/08/2019
+ms.author: v-yeche
+ms.openlocfilehash: 3908fadbfea429ea93ab58858cb69c8b558a438b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276455"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570535"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>适用于 Linux 的 Azure Monitor 虚拟机扩展
 
@@ -28,8 +29,12 @@ ms.locfileid: "67276455"
 
 Azure Monitor 日志提供跨云和本地资产的监视、警报和警报修正功能。 适用于 Linux 的 Log Analytics 代理虚拟机扩展由 Azure 发布和提供支持。 该扩展在 Azure 虚拟机上安装 Log Analytics 代理，并将虚拟机注册到现有的 Log Analytics 工作区中。 本文档详细介绍适用于 Linux 的 Azure Monitor 虚拟机扩展支持的平台、配置和部署选项。
 
+<!--MOONCAKE: CORRECT ON supported by Azure-->
+
 >[!NOTE]
 >从 Microsoft Operations Management Suite (OMS) 过渡到 Azure Monitor 期间，Windows 或 Linux 的 OMS 代理称为 Windows 或 Linux 的 Log Analytics 代理。
+
+<!--MOONCAKE: CORRECT ON Microsoft Operations Management Suite-->
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -54,11 +59,30 @@ Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
 >任何平台都不支持低于版本 1.x 的 OpenSSL，并且仅在 x86_64 平台（64 位）上支持版本 1.10。  
 >
 
+### <a name="agent-prerequisites"></a>代理先决条件
+
+下表重点介绍了要安装代理的受支持 Linux 发行版所需的包。
+
+|所需的包 |说明 |最低版本 |
+|-----------------|------------|----------------|
+|Glibc |    GNU C 库 | 2.5-12 
+|Openssl    | OpenSSL 库 | 1.0.x 或 1.1.x |
+|Curl | cURL Web 客户端 | 7.15.5 |
+|Python-ctype | | 
+|PAM | 可插入验证模块 | | 
+
+>[!NOTE]
+>收集 Syslog 消息时需要 rsyslog 或 syslog ng。 syslog 事件收集不支持 CentOS (sysklog) 上的默认 syslog 守护程序。 要从这些发行版的此版本中收集 syslog 数据，应安装并配置 rsyslog 守护程序以替换 sysklog。
+
+<!--Not Available on version 5 of Red Hat Enterprise Linux-->
+<!--Not Avaialble on , and Oracle Linux version-->
+
 ### <a name="agent-and-vm-extension-version"></a>代理和 VM 扩展版本
 下表提供每次发布的 Azure Monitor VM 扩展和 Log Analytics 代理捆绑包的版本映射。 并附有 Log Analytics 代理捆绑包版本的发行说明链接。 发行说明包括有关可用于给定代理版本的 bug 修补程序和新功能的详细信息。  
 
 | Azure Monitor Linux VM 扩展版本 | Log Analytics 代理捆绑包版本 | 
 |--------------------------------|--------------------------|
+|1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
 | 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
 | 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
@@ -83,9 +107,7 @@ Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
 
 ## <a name="extension-schema"></a>扩展架构
 
-以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要目标 Log Analytics 工作区的工作区 ID 和工作区密钥，这些值可在 Azure 门户的 Log Analytics 工作区中找到。 由于工作区密钥应视为敏感数据，因此将它存储在受保护的设置配置中。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，**workspaceId** 和 **workspaceKey** 区分大小写。
-
-<!--Not Available on [found in your Log Analytics workspace](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key)-->
+以下 JSON 显示 Log Analytics 代理扩展的架构。 此扩展需要目标 Log Analytics 工作区的工作区 ID 和工作区密钥，这些值可在 Azure 门户中的 [Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) 工作区中找到。 由于工作区密钥应视为敏感数据，因此将它存储在受保护的设置配置中。 Azure VM 扩展保护的设置数据已加密，并且只能在目标虚拟机上解密。 请注意，**workspaceId** 和 **workspaceKey** 区分大小写。
 
 ```json
 {
@@ -125,7 +147,6 @@ Log Analytics 代理扩展可以针对这些 Linux 发行版运行。
 | typeHandlerVersion | 1.7 |
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
-
 
 ## <a name="template-deployment"></a>模板部署
 
@@ -217,7 +238,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 | 错误代码 | 含义 | 可能的操作 |
 | :---: | --- | --- |
-| 9 | 过早调用 enable | 将 [Azure Linux 代理](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)更新为可用的最新版本。 |
+| 9 | 过早调用 enable | 将 [Azure Linux 代理](/virtual-machines/linux/update-agent)更新为可用的最新版本。 |
 | 10 个 | VM 已连接至 Log Analytics 工作区 | 要将 VM 连接到扩展架构中指定的工作区，请在公共设置中将“stopOnMultipleConnections”设置为 false，或删除该属性。 连接到工作区后，此 VM 立即开始计费。 |
 | 11 | 提供给扩展的无效配置 | 按上述示例设置部署所需的所有属性值。 |
 | 17 | Log Analytics 包安装失败 | 
@@ -230,7 +251,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new article about oms linux-->
-<!--ms.date: 05/20/2019-->
+<!-- Update_Description: wording update-->

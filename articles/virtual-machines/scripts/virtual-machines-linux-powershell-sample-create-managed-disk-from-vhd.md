@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 脚本示例 - 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure
+title: 使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘 | Azure
 description: Azure PowerShell 脚本示例 - 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: a9595ac8f074f7d7d5c14c2a6d374b891743c902
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 05a8f219afea54bf698cf2ac2de41b20fd0c8a4f
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003878"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570174"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>使用 PowerShell 在相同或不同订阅的存储帐户中从 VHD 文件创建托管磁盘
 
@@ -76,6 +76,7 @@ $storageAccountId = '/subscriptions/yourSubscriptionId/resourceGroups/yourResour
 Select-AzSubscription -SubscriptionId $SubscriptionId
 
 $diskConfig = New-AzDiskConfig -AccountType $storageType -Location $location -CreateOption Import -StorageAccountId $storageAccountId -SourceUri $sourceVHDURI
+
 New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $diskName
 
 ```

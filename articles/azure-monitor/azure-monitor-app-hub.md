@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dc4e4e9819bbdd21d22f7b21276ab1dac10fcccb
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 26bfb8c4834bec103e5a0580538340d429dbddca
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732146"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562636"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "66732146"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,6 +64,12 @@ ms.locfileid: "66732146"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+                                                        <h3>新增功能</h3>
+                                                        <p>
+                                                            <a href="./app/kubernetes.md">监视 Kubernetes 应用程序</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">用于 IIS 应用的状态监视器 v2</a><br>
+                                                        </p>
+                                                        <br><br>
                                                         <h3>快速入门</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
@@ -139,7 +130,7 @@ ms.locfileid: "66732146"
                                                         <h3>Java 应用程序</h3>
                                                         <p>
                                                             <a href="./app/java-get-started.md">深入的监视配置</a><br>
-                                                            <a href="https://docs.azure.cn/java/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot Starter</a><br>
+                                                            <a href="https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights?view=azure-java-stable">Spring Boot Starter</a><br>
                                                             <a href="./app/micrometer-java.md">Micrometer 指标</a><br>
                                                             <a href="./app/java-filter-telemetry.md">筛选遥测数据</a><br>
                                                             <a href="./app/java-trace-logs.md">跟踪日志记录</a><br>

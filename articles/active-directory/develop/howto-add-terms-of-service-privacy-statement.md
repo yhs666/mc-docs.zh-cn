@@ -3,8 +3,8 @@ title: 应用的服务条款和隐私声明 | Azure
 description: 了解如何为注册为使用 Azure AD 的应用配置服务条款和隐私声明。
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/24/2018
-ms.date: 05/09/2019
+origin.date: 05/22/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e6de14b25ee0468137c4ae6f58a771169b575a5
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 24428df8856b5b6035aa65dd9dfa02548edef6e2
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517485"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568485"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：配置应用的服务条款和隐私声明
 
-构建和管理与 Azure Active Directory (Azure AD) 和 Microsoft 帐户集成的应用的开发人员应随附指向应用的服务条款和隐私声明的链接。 服务条款和隐私声明通过用户同意体验展示给用户。 它们可以帮助用户认识到他们可以信任你的应用。 对于面向用户的多租户应用（由多个目录使用的应用或面向所有 Microsoft 帐户提供的应用）来说，服务条款和隐私声明至关重要。
+构建和管理与 Azure Active Directory (Azure AD) 集成的应用的开发人员应随附指向应用的服务条款和隐私声明的链接。 服务条款和隐私声明通过用户同意体验展示给用户。 它们可以帮助用户认识到他们可以信任你的应用。 对于面向用户的多租户应用（由多个目录使用的应用）来说，服务条款和隐私声明尤其至关重要。
 
 你负责为你的应用创建服务条款和隐私声明文档，并提供指向这些文档的 URL。 对于未能提供这些链接的多租户应用，你的应用的用户同意体验将显示一条警报，可能阻碍用户同意使用你的应用。
 
@@ -57,18 +57,17 @@ ms.locfileid: "65517485"
 
 服务条款和隐私声明准备就绪后，可以在应用中使用这些方法之一添加指向这些文档的链接：
 
-* [通过 Azure 门户 添加](#registered-in-azure-portal)
+* [通过 Azure 门户 添加](#azure-portal)
 * [使用应用对象 JSON](#app-object-json)
 * [使用 MSGraph beta REST API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>已在 Azure 门户中注册应用
-
-如果已在 Azure 门户中注册应用，请按照下列步骤操作。
+### <a name="azure-portal"></a>使用 Azure 门户
+在 Azure 门户中执行以下步骤。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 导航到“应用注册”部分并选择应用。
-3. 打开应用的“属性”部分。
-4. 填写“服务条款 URL”和“隐私声明 URL”字段。
+2. 导航到“应用注册”部分并选择应用  。
+3. 打开“品牌”  窗格。
+4. 填写“服务条款 URL”和“隐私声明 URL”字段   。
 5. 保存所做更改。
 
     ![含有服务条款和隐私声明 URL 的应用属性部分](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)

@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 2a726581f65494f66904344a2f06379e1aedab0a
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: a290d11f61b34c02c1c0993e22f7edbb72573473
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732678"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569870"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure 数据工厂中的复制活动
 
@@ -63,7 +63,7 @@ ms.locfileid: "66732678"
 
 ## <a name="supported-regions"></a>支持的区域
 
-为复制活动提供支持的服务面向 [Azure Integration Runtime 位置](concepts-integration-runtime.md#integration-runtime-location)中列出的区域和地理位置全球发布。 全局可用拓扑可确保高效的数据移动，此类移动通常避免跨区域跃点。
+支持复制活动的服务在 [Azure Integration Runtime 位置](concepts-integration-runtime.md#integration-runtime-location)中列出的区域中可用。 有关某区域内数据工厂和数据移动的可用性，请参阅[服务（按区域）](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
 
 ## <a name="configuration"></a>配置
 
@@ -158,9 +158,6 @@ ms.locfileid: "66732678"
 >[!TIP]
 >对于某些方案，你还会在复制监视页面的顶部看到“**性能优化提示**”，这告诉你所识别出的瓶颈并指导你进行一些更改来提升复制吞吐量，请参阅[此处](#performance-and-tuning)包含详细信息的示例。
 
-**示例：从 Amazon S3 复制到 Azure Data Lake Store**
-![监视活动运行详细信息](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
-
 **示例：使用暂存复制从 Azure SQL 数据库复制到 Azure SQL 数据仓库**
 ![监视活动运行详细信息](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
@@ -199,7 +196,7 @@ ms.locfileid: "66732678"
     "copyDuration": 224,
     "throughput": 467707.344,
     "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (China East 2)",
     "usedDataIntegrationUnits": 32,
     "usedParallelCopies": 8,
     "executionDetails": [
@@ -248,7 +245,7 @@ ms.locfileid: "66732678"
 数据工厂支持以递增方式将增量数据从源数据存储复制到目标数据存储的方案。 请参阅[教程：以递增方式复制数据](tutorial-incremental-copy-overview.md)。
 
 ## <a name="read-and-write-partitioned-data"></a>读取和写入分区数据
-在版本 1 中，Azure 数据工厂支持使用 SliceStart/SliceEnd/WindowStart/WindowEnd 系统变量读取或写入分区的数据。 在当前版本中，可使用管道参数和触发器的开始时间/计划时间作为参数值实现此行为。 有关详细信息，请参阅[如何读取或写入分区的数据](how-to-read-write-partitioned-data.md)。
+可使用管道参数和触发器的开始时间/计划时间作为参数值实现此行为。 有关详细信息，请参阅[如何读取或写入分区的数据](how-to-read-write-partitioned-data.md)。
 
 ## <a name="next-steps"></a>后续步骤
 请参阅以下快速入门、教程和示例：

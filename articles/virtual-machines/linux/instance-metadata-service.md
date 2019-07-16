@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.reviewer: azmetadata
-ms.openlocfilehash: 5b75e6dd9645b70f67122e9b3817a06d794d9033
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 2a30bc719e1c78dea3417542c1570390c9ab0b9d
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835748"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570359"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure 实例元数据服务
 
@@ -32,13 +32,13 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 该终结点位于已知不可路由的 IP 地址 (`169.254.169.254`)，该地址只能从 VM 中访问。
 
 > [!IMPORTANT]
-> 此服务在所有 Azure 区域中提供有正式版。  它会定期接收更新，发布有关虚拟机实例的新信息。 本页反映了最新可用的[元数据 API](#metadata-apis)。
+> 此服务在所有 Azure 区域中提供有正式版  。  它会定期接收更新，发布有关虚拟机实例的新信息。 本页反映了最新可用的[元数据 API](#metadata-apis)。
 
 ## <a name="service-availability"></a>服务可用性
 
 此服务在所有 Azure 区域中提供有可用的正式版。 并非所有 API 版本在所有 Azure 区域中可用。
 
-区域                                        | 可用性？                                 | 支持的版本
+Regions                                        | 可用性？                                 | 支持的版本
 -----------------------------------------------|-----------------------------------------------|-----------------
 [全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
 [Azure 美国政府版](https://azure.microsoft.com/overview/clouds/government/)              | 正式版 | 2017-04-02、2017-08-01、2017-12-01、2018-02-01、2018-04-02、2018-10-01
@@ -51,7 +51,7 @@ Azure 的实例元数据服务是一个 REST 终结点，所有创建的 IaaS VM
 当有服务更新且/或有可用的新支持版本时，此表将更新。
 
 
-<!--Not Availabl on  2019-02-01 -->
+<!--Not Availabl on Public West Central US  2019-02-01 -->
 
 若要试用实例元数据服务，请在上述区域中从 [Azure 资源管理器](https://docs.microsoft.com/rest/api/resources/)或 [Azure 门户](https://portal.azure.cn)创建一个 VM，并按照以下示例操作。
 
@@ -261,7 +261,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 }
 ```
 
-<!-- Notice: Zone is not Available on Moocake-->
+<!-- Notice: Zone is not Available on Moocake, so the valud is "" -->
 
 #### <a name="retrieving-metadata-in-windows-virtual-machine"></a>在 Windows 虚拟机中检索元数据
 
@@ -366,14 +366,14 @@ scheduledevents | 请参阅[计划事件](scheduled-events.md) | 2017-08-01
 azEnvironment | VM 运行时所在的 Azure 环境 | 2018-10-01
 location | VM 在其中运行的 Azure 区域 | 2017-04-02
 name | VM 的名称 | 2017-04-02
-offer | 为 VM 映像提供信息。 此值只适用于 Azure 映像库中部署的图像。 | 2017-04-02
+offer | 提供 VM 映像的信息，仅适用于从 Azure 映像库部署的映像 | 2017-04-02
 osType | Linux 或 Windows | 2017-04-02
-计划 | 在 Azure 市场映像中 VM 的[计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)，包含名称、产品和发布者 | 2018-04-02
+计划 | [计划](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)包含 VM 的名称、产品和发布者（如果是 Azure 市场映像） | 2018-04-02
 platformUpdateDomain |  正在运行 VM 的[更新域](manage-availability.md) | 2017-04-02
 platformFaultDomain | 正在运行 VM 的[容错域](manage-availability.md) | 2017-04-02
 provider | VM 的提供商 | 2018-10-01
 publicKeys | [公钥的集合](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey)，已分配给 VM 和路径 | 2018-04-02
-发布者 | VM 映像的发布者 | 2017-04-02
+publisher | VM 映像的发布者 | 2017-04-02
 resourceGroupName | 虚拟机的[资源组](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
 sku | VM 映像的特定 SKU | 2017-04-02
 subscriptionId | 虚拟机的 Azure 订阅 | 2017-08-01
@@ -596,7 +596,7 @@ openssl x509 -inform der -in intermediate.cer -out intermediate.pem
 openssl smime -verify -in sign.pk7 -inform pem -noverify
 ```
 
- **响应**
+**响应**
 
 ```json
 Verification successful
@@ -631,7 +631,7 @@ vmId |  VM 的[唯一标识符](https://azure.microsoft.com/blog/accessing-and-u
 > [!NOTE]
 > 公有云和主权云的证书将有所不同。
 
- 区域 | 证书
+ Regions | 证书
 ---------|-----------------
 [全球所有公开上市的 Azure 区域](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure 美国政府云](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
@@ -652,9 +652,7 @@ openssl x509 -noout -issuer -in intermediate.pem
 openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
-如果由于验证期间出现网络限制，导致中间证书无法下载，可以固定中间证书。 但是，Azure 会根据标准的 PKI 做法滚动更新证书。 发生滚动更新时，需要更新固定的证书。 每当规划某项更改来更新中间证书，就会更新 Azure 博客并向 Azure 客户发出通知。
-
-<!--Not Available on The intermediate certificates can be found [here](https://www.microsoft.com/pki/mscorp/cps/default.htm). The intermediate certificates for each of the regions can be different.-->
+如果由于验证期间出现网络限制，导致中间证书无法下载，可以固定中间证书。 但是，Azure 会根据标准的 PKI 做法滚动更新证书。 发生滚动更新时，需要更新固定的证书。 每当规划某项更改来更新中间证书，就会更新 Azure 博客并向 Azure 客户发出通知。 [此处](https://www.microsoft.com/pki/mscorp/cps/default.htm)可找到中间证书。 每个区域的中间证书可能并不相同。
 
 ### <a name="failover-clustering-in-windows-server"></a>Windows Server 中的故障转移群集
 
@@ -712,7 +710,7 @@ Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
-C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
+C# | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 Javascript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
@@ -734,7 +732,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. 我为什么会收到错误 `500 Internal Server Error`？
     * 请根据指数后退系统重试请求。 如果问题持续出现，请联系 Azure 支持部门。
 6. 在何处共享其他问题/评论？
-    * 在 https://www.azure.cn/support/contact/ 上发送评论。
+    * 在 https://support.azure.cn/en-us/support/contact 上发送评论。
 7. 这是否适用于虚拟机规模集实例？
     * 是的，元数据服务可用于规模集实例。 
 8. 如何获取服务支持？

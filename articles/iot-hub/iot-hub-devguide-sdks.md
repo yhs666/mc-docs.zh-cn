@@ -9,13 +9,13 @@ ms.topic: conceptual
 origin.date: 09/14/2018
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 01/28/2019
-ms.openlocfilehash: a2400b83b07df5bc820c9809679f8bac805d5101
-ms.sourcegitcommit: f40e5b30f50205beda427eb4e3f481385b47ca06
+ms.date: 07/15/2019
+ms.openlocfilehash: 36d06093fac2f6eba05da48c0b30bee91080346b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55985619"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569846"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>了解和使用 Azure IoT 中心 SDK
 
@@ -25,6 +25,10 @@ ms.locfileid: "55985619"
 
 * **IoT 中心服务 SDK**：可用于构建后端应用程序来管理 IoT 中心，并视需要发送消息、计划作业、调用直接方法或向 IoT 设备或模块发送相应属性更新。
 
+此外，我们还提供了一组 SDK 来处理[设备预配服务](../iot-dps/about-iot-dps.md)。
+* **预配设备 SDK**：可用于构建在 IoT 设备上运行的与设备预配服务进行通信的应用。
+
+* **预配服务 SDK**：可用于构建后端应用程序来管理设备预配服务中的注册。
 
 了解[使用 Azure IoT SDK 执行开发的益处](https://azure.microsoft.com/blog/benefits-of-using-the-azure-iot-sdks-in-your-azure-iot-solution/)。
 
@@ -35,7 +39,8 @@ ms.locfileid: "55985619"
 
 可以在 [Azure IoT SDK 平台支持](iot-hub-device-sdk-platform-support.md)中找到支持的 SDK 平台。
 
-## <a name="azure-iot-device-sdks"></a>Azure IoT 中心设备 SDK
+
+## <a name="azure-iot-hub-device-sdks"></a>Azure IoT 中心设备 SDK
 
 Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT 中心服务并由这些服务管理的应用程序。
 
@@ -55,6 +60,7 @@ Microsoft Azure IoT 设备 SDK 包含的代码可帮助构建连接到 Azure IoT
 * [模块参考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [将 C SDK 移植到其他平台](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [开发人员文档](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc)，包含交叉编译以及在不同的平台上开始等信息。
+* [Azure IoT 中心 C SDK 资源消耗信息](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 适用于 Java 的 Azure IoT 中心设备 SDK： 
 

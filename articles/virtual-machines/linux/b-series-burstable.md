@@ -1,5 +1,5 @@
 ---
-title: B 系列 Azure Linux VM 大小 | Azure
+title: B 系列可突增虚拟机大小 | Azure
 description: 描述 B 系列可突增 Azure VM 大小。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/07/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: c3759926852d4b98ce3c46a45bf455fa3bb50f2d
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: c0349bd112693dd1658d4a53bf74f400729af6af
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835749"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570044"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -33,8 +33,7 @@ ms.locfileid: "65835749"
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
     <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
 - [GPU 优化](sizes-gpu.md)
-
-<!-- Not Available on - [High performance compute](sizes-hpc.md) -->
+    <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。

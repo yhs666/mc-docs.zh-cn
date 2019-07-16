@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d0aa0469e546611fc1595abf4629aae9e17b4c95
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 49cf828315512a0e6a42c92f1d4bf1d281361f16
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731265"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562392"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 
@@ -30,7 +30,7 @@ ms.locfileid: "66731265"
 ## <a name="observability-data-in-azure-monitor"></a>Azure Monitor 中的观测数据
 指标、日志和分布式跟踪通常称作观测功能的三大支柱。 监视工具必须收集并分析这些不同类型的数据，才能对受监视系统进行充分的观测。 若要实现观测功能，可以关联多个支柱提供的数据，并聚合整个受监视资源集中的数据。 由于 Azure Monitor 将多个源中的数据存储在一起，因此可以使用一组通用的工具来关联和分析这些数据。 Azure Monitor 还可关联多个 Azure 订阅和租户中的数据，并托管其他服务的数据。
 
-Azure 资源会生成大量的监视数据。 Azure Monitor 将这些数据连同其他源中的监视数据一起整合到指标或日志平台。 每个平台已针对特定的监视方案进行优化，各自支持 Azure Monitor 中的不同功能。 使用数据分析、可视化或警报等功能需要了解数据的差异，以便能够以最经济高效的方式实现所需的方案。 Azure Monitor 中的见解功能（例如 [Application Insights](../app/app-insights-overview.md)）提供分析工具让你专注于特定的监视方案，而无需了解这两种数据之间的差异。 
+Azure 资源会生成大量的监视数据。 Azure Monitor 将这些数据连同其他源中的监视数据一起整合到指标或日志平台。 每个平台已针对特定的监视方案进行优化，各自支持 Azure Monitor 中的不同功能。 使用数据分析、可视化或警报等功能需要了解数据的差异，以便能够以最经济高效的方式实现所需的方案。 Azure Monitor 中的见解功能（例如 [Application Insights](../app/app-insights-overview.md) 或[用于 VM 的 Azure Monitor](../insights/vminsights-overview.md)）提供分析工具让你专注于特定的监视方案，而无需了解这两种数据之间的差异。 
 
 
 ### <a name="metrics"></a>指标
@@ -51,7 +51,7 @@ Azure Monitor 中的日志存储在基于 [Azure 数据资源管理器](/azure/d
 > 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](diagnostic-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
 
 
- 可以在 Azure 门户中配合 [Log Analytics](../log-query/portals.md) 以交互方式使用[日志查询](../log-query/log-query-overview.md)，或者将结果添加到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)，以结合其他数据生成可视化效果。 还可以创建[日志警报](alerts-log.md)，以根据计划查询的结果触发警报。
+ 可以在 Azure 门户中通过 Log Analytics 以交互方式使用[日志查询](../log-query/log-query-overview.md)，或者将结果添加到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)，以结合其他数据生成可视化效果。 还可以创建[日志警报](alerts-log.md)，以根据计划查询的结果触发警报。
 
 在 [Azure Monitor 中的日志](data-platform-logs.md)中详细了解 Azure Monitor 日志，包括其数据源。
 

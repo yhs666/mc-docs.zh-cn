@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08ae8f4728a56e3b7c4c33073cca31b295cf592c
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 50ccaae7cbca4be56f2de5f293402c742e79802e
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732185"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562720"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>演练：使用流分析从 Application Insights 导出到 SQL
-本文说明如何使用[连续导出][export]和 [Azure 流分析](https://www.azure.cn/services/stream-analytics/)，将遥测数据从 [Azure Application Insights][start] 移入 Azure SQL 数据库。 
+本文介绍如何从 [Azure Application Insights][start] into an Azure SQL database by using [Continuous Export][export] 和 [Azure 流分析](https://www.azure.cn/services/stream-analytics/)移动遥测数据。 
 
 连续导出以 JSON 格式将遥测数据移入 Azure 存储。 我们将使用 Azure 流分析来分析 JSON 对象，并在数据库表中创建行。
 
@@ -82,7 +82,7 @@ ms.locfileid: "66732185"
 事件以 JSON 格式写入 Blob 文件。 每个文件可能包含一个或多个事件。 因此我们想要读取事件数据，并筛选出所需的字段。 可以针对数据执行各种操作，但我们目前的计划是使用流分析将数据移到 SQL 数据库。 这样做可以轻松运行许多微妙的查询。
 
 ## <a name="create-an-azure-sql-database"></a>创建 Azure SQL 数据库
-再次在 [Azure 门户][portal]中打开订阅，创建要在其中写入数据的数据库（除非已有新服务器，否则还要创建新服务器）。
+再次从 [Azure 门户][portal]中的订阅开始，创建要向其写入数据的数据库以及一个新服务器（除非已有一个）。
 
 ![依次选择“新建”、“数据”、“SQL”](./media/code-sample-export-sql-stream-analytics/090-sql.png)
 
@@ -179,10 +179,10 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 > [!TIP]
 > 使用示例函数检查是否已正确设置输入路径。 如果检查失败：请检查在所选的示例时间范围内，存储中是否有数据。 编辑输入定义，检查是否已正确设置存储帐户、路径前缀和日期格式。
-> 
-> 
-> ## <a name="set-query"></a>设置查询
-> 打开查询部分：
+
+ 
+## <a name="set-query"></a>设置查询
+打开查询部分：
 
 将默认查询替换为以下内容：
 

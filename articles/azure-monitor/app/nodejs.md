@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: afe6f5def291be285fef319e54ae9927e216c244
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 0cb683abbaabcc5926bc53ffa4e6027d2f267bc9
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236546"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562690"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以在部署后端服务和组件后对其进行监视，以便[发现并快速诊断性能问题和其他问题](../../azure-monitor/app/detect-triage-diagnose.md)。 可以将 Application Insights 用于 Node.js 服务，不管这些服务是托管在数据中心、Azure VM 和 Web 应用中，还是在其他公有云中。
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以在部署后对后端服务和组件进行监视，以便发现并快速诊断性能问题和其他问题。 可以将 Application Insights 用于 Node.js 服务，不管这些服务是托管在数据中心、Azure VM 和 Web 应用中，还是在其他公有云中。
 
 若要接收、存储和探索监视数据，请将 SDK 包括到代码中，然后在 Azure 中设置相应的 Application Insights 资源。 SDK 会将数据发送到该资源进行进一步的分析和探索。
 
@@ -35,7 +35,7 @@ Node.js SDK 可以自动监视传入和传出的 HTTP 请求、异常和某些�
 
 ### <a name="prerequisites"></a>先决条件
 
-开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]。 如果组织已经拥有 Azure 订阅，管理员可以按照[这些说明][add-aad-user]你将添加到该订阅。
+开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user]以将你添加到其中。
 
 [azure-free-offer]: https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth
 [add-aad-user]: https://docs.azure.cn/zh-cn/active-directory/fundamentals/add-users-azure-active-directory
@@ -104,7 +104,7 @@ SDK 自动收集 Node.js 运行时和一些常用第三方模块的遥测。 请
 * 在门户资源视图中单击“刷新”。  图表会定期自行刷新，但手动刷新会强制图表立刻刷新。
 * 验证[所需传出端口](../../azure-monitor/app/ip-addresses.md)是否已打开。
 * 使用[搜索](../../azure-monitor/app/diagnostic-search.md)查找特定事件。
-* 查看[常见问题解答][FAQ]。
+* 查看[常见问题][FAQ]。
 
 
 ## <a name="sdk-configuration"></a>SDK 配置
@@ -134,11 +134,7 @@ appInsights.setup("<instrumentation_key>")
 
 ```javascript
 let appInsights = require("applicationinsights");
-appInsights.setup('INSTRUMENTATION_KEY');
-appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.azure.cn/v2/track"; // ingestion
-appInsights.defaultClient.config.profileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId"; // appid/profile lookup
-appInsights.defaultClient.config.quickPulseHost = "https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc"; //live metrics
-appInsights.Configuration.start();
+appInsights.setup().start(); // assuming ikey is in env var
 let client = appInsights.defaultClient;
 
 client.trackEvent({name: "my custom event", properties: {customProperty: "custom property value"}});
@@ -160,11 +156,6 @@ http.createServer( (req, res) => {
 
 ```javascript
 let appInsights = require("applicationinsights");
-appInsights.setup('INSTRUMENTATION_KEY');
-appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.azure.cn/v2/track"; // ingestion
-appInsights.defaultClient.config.profileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId"; // appid/profile lookup
-appInsights.defaultClient.config.quickPulseHost = "https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc"; //live metrics
-appInsights.Configuration.start();
 let client = appInsights.defaultClient;
 
 var success = false;
@@ -214,6 +205,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>后续步骤
 
+* [在门户中监视遥测](../../azure-monitor/app/overview-dashboard.md)
 * [通过遥测编写分析查询](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

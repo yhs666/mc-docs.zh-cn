@@ -13,20 +13,20 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-origin.date: 04/02/2019
-ms.date: 05/20/2019
+origin.date: 05/23/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 2d4f758b4a1e56998df8dd7332cf4942843f0b89
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 37b7a163f9e6f5b76aef3aa50c30a4e641f91a52
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004279"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569809"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
-使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=visual%20studio&page=1)。
+使用预配置的 Azure 虚拟机 (VM) 中的 Visual Studio 是从无到启动并运行的开发环境的简单快捷方法。 具有不同 Visual Studio 配置的系统映像位于 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1)。
 
 <!-- Notice: URL is correct on https://market.azure.cn/zh-cn/marketplace/apps?search=Visual%20Studio&page=1-->
 
@@ -35,13 +35,13 @@ ms.locfileid: "66004279"
 ## <a name="what-configurations-and-versions-are-available"></a>提供了哪些配置和版本？
 在 Azure 市场中，可找到最新主版本的映像：Visual Studio 2019、Visual Studio 2017 和 Visual Studio 2015。  对于发布的每个主版本，可看到最初的“发布到 Web”(RTW) 版本和最新更新版本。  其中每个版本都提供 Visual Studio Enterprise 和 Visual Studio Community 版本。  这些映像至少每个月更新一次，以包括最新的 Visual Studio 和 Windows 更新。  尽管映像的名称保持不变，但每个映像的说明包括已安装的产品版本和映像的截止日期。
 
-| 发行版本                                              | 版本                     |     产品版本      |
-|:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019：RTW                                  |    Enterprise、Community     |      版本 16.0.0      |
-| Visual Studio 2017：最新（版本 15.9）                    |    Enterprise、Community     |      版本 15.9.10     |
-|         Visual Studio 2017：RTW                              |    Enterprise、Community     |      版本 15.0.22     |
-|   Visual Studio 2015：最新 (Update 3)                      |    Enterprise、Community     |  版本 14.0.25431.01   |
-|         Visual Studio 2015：RTW                              |             无             | （已过期，无法进行维护）  |
+| 发行版本                                                                                                                                                | 版本              | 产品版本   |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
+| [Visual Studio 2019：最新（版本 16.1）](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.1.0    |
+| [Visual Studio 2019：RTW](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本 16.0.4    |
+| [Visual Studio 2017：最新（版本 15.9）](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本 15.9.12   |
+| [Visual Studio 2017：RTW](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本 15.0.23   |
+| [Visual Studio 2015：最新 (Update 3)](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise、Community | 版本 14.0.25431.01 |
 
 > [!NOTE]
 > 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
@@ -76,13 +76,13 @@ ms.locfileid: "66004279"
 ## <a name="what-size-vm-should-i-choose"></a>应选择什么大小的 VM？
 Azure 提供各种虚拟机大小。 由于 Visual Studio 是一个功能强大的多线程应用程序，因此 VM 大小需要包含至少两个处理器和 7 GB 内存。 我们为 Visual Studio 映像建议以下 VM 大小：
 
-   * Standard_D2_v3
-   * Standard_D2s_v3
-   * Standard_D4_v3
-   * Standard_D4s_v3
-   * Standard_D2_v2
-   * Standard_D2S_v2
-   * Standard_D3_v2
+* Standard_D2_v3
+* Standard_D2s_v3
+* Standard_D4_v3
+* Standard_D4s_v3
+* Standard_D2_v2
+* Standard_D2S_v2
+* Standard_D3_v2
 
 有关最新虚拟机大小的详细信息，请参阅 [Azure 中的 Windows 虚拟机大小](/virtual-machines/windows/sizes)。
 
@@ -109,7 +109,7 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 > 不要忘记使用 Sysprep 来准备 VM。 如果缺少该步骤，Azure 无法从映像配置 VM。
 
 > [!NOTE]
-> 仍需花费一些成本来存储映像，但与从头开始重建 VM 的开销成本相比，对每个需要 VM 的团队成员而言，这种增量成本可能微不足道。 例如，创建和存储 127 GB 的映像每月只需几人民币，整个团队都可重复使用该映像。 但是，与每位员工为构建和验证正确配置的开发箱以供个人使用而投入的时间相比，这些成本微不足道。
+> 仍需花费一些成本来存储映像，但与从头开始重建 VM 的开销成本相比，对每个需要 VM 的团队成员而言，这种增量成本可能微不足道。 例如，每月创建和存储一个 127 GB 的映像只需花费几十元人民币，整个团队都可重复使用该映像。 但是，与每位员工为构建和验证正确配置的开发箱以供个人使用而投入的时间相比，这些成本微不足道。
 
 <!-- Notice: Change dollers to CNY-->
 

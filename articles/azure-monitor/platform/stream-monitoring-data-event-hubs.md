@@ -8,18 +8,16 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: a624a237f3ffc74e69cbbd794f6a8ae2c87350cd
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: c5c12f633048d432ebf83ee3d3f2b9dc0058eb2c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236058"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562273"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
 本文将演练如何将 Azure 环境中的不同数据层设置为发送到单个事件中心命名空间或事件中心，以便由外部工具收集。
-
-> [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
 ## <a name="what-data-can-i-send-into-an-event-hub"></a>可将哪些数据发送到事件中心？
 
@@ -43,8 +41,8 @@ ms.locfileid: "67236058"
 * 使用吞吐量单位数，可增加事件中心的吞吐量规模。 使用分区数可以在多个使用者之间并行使用。 单个分区最多可以执行 20MBps，或者大约每秒 20,000 条消息。 不一定支持从多个分区使用，具体取决于使用数据的工具。 如果不确定要设置的分区数，我们建议从四个分区开始。
 * 我们建议将事件中心的消息保留期设置为 7 天。 如果使用的工具多天出现故障，这可确保该工具可以从它中断的位置重新开始（因为事件最多可保存 7 天）。
 * 我们建议将默认使用者组用于事件中心。 除非你打算使用两个不同的工具使用同一事件中心内的相同数据，否则无需创建其他使用者组或使用单独的使用者组。
-* 对于 Azure 活动日志，可选择事件中心命名空间，Azure Monitor 将在该命名空间内创建名为“insights-logs-operationallogs”的事件中心。 对于其他日志类型，可以选择现有事件中心（可以重复使用同一 insights-logs-operationallogs 事件中心），也可以让 Azure Monitor 为每个日志类别创建一个事件中心。
-* 通常，必须在使用事件中心数据的计算机上打开端口 5671 和端口 5672。
+* 对于 Azure 活动日志，可选择事件中心命名空间，Azure Monitor 将在该命名空间内创建名为“insights-logs-operational-logs”的事件中心。 对于其他日志类型，可以选择现有事件中心（可以重复使用同一 insights-logs-operational-logs 事件中心），也可以让 Azure Monitor 为每个日志类别创建一个事件中心。
+* 通常，必须在使用事件中心数据的计算机或 VNET 上打开出站端口 5671 和 5672。
 
 另请参阅 [Azure 事件中心常见问题解答](../../event-hubs/event-hubs-faq.md)。
 
@@ -62,7 +60,7 @@ Azure 订阅监视数据可以在 [Azure 活动日志](./../../azure-monitor/pla
 
 ### <a name="activity-log-data"></a>活动日志数据
 
-若要将数据从 Azure 活动日志发送到事件中心命名空间，请在订阅上设置日志配置文件。 [按照本指南](./activity-logs-stream-event-hubs.md)在订阅上设置日志配置文件。 对要监视每个订阅执行一次此操作。
+若要将数据从 Azure 活动日志发送到事件中心命名空间，请在订阅上设置日志配置文件。 
 
 > [!TIP]
 > 日志配置文件当前仅允许选择一个事件中心命名空间，并将在其中创建名为“insights-operational-logs”的事件日志。 尚不可在日志配置文件中指定自己的事件中心名称。
@@ -117,7 +115,7 @@ Azure 资源将发出两种类型的监视数据：
 * **Syslog 服务器** - 如果要将 Azure Monitor 数据直接流式传输到 syslog 服务器，可查看[此 GitHub 存储库](https://github.com/miguelangelopereira/azuremonitor2syslog/)。
 
 ## <a name="next-steps"></a>后续步骤
-* [将活动日志存档到存储帐户](../../azure-monitor/platform/archive-activity-log.md)
 * [阅读 Azure 活动日志概述](../../azure-monitor/platform/activity-logs-overview.md)
+* [根据活动日志事件设置警报](../../azure-monitor/platform/alerts-log-webhook.md)
 
 

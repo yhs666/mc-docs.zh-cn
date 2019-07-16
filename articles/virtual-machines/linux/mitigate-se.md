@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中防御推理执行的指南 | Azure
+title: 有关在 Azure 中防御推理执行旁道漏洞的指南 | Azure
 description: 有关在 Azure 中防御推理执行旁道漏洞的指南。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 08/14/2018
-ms.date: 05/20/2019
+origin.date: 06/04/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0c01f288e3b41cb7592de3471b37471f99b3c25c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 085314d731cbbe6ee714924d6a4e8bcd54dd104c
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004258"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570267"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>有关在 Azure 中防御推理执行旁道漏洞的指南
 

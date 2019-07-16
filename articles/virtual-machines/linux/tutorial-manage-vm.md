@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 02/18/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d47a5ba261e4eaabd820f85c2ea1cabe90c68692
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fcbdf28b1330058dd835c9642511e7de45e331a5
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665881"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569687"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理 Linux VM
 
@@ -43,7 +43,7 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”区域中创建了名为“myResourceGroupVM”的资源组。 
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”  区域中创建了名为“myResourceGroupVM”  的资源组。 
 
 ```azurecli 
 az group create --name myResourceGroupVM --location chinaeast
@@ -55,7 +55,7 @@ az group create --name myResourceGroupVM --location chinaeast
 
 使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
 
-创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 下面的示例创建一个名为 *myVM*、运行 Ubuntu Server 的 VM。 将在该 VM 上创建名为 *azureuser* 的用户帐户，并生成 SSH 密钥（如果这些密钥在默认密钥位置 (*~/.ssh*) 中不存在）：
+创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 下面的示例创建一个名为 *myVM*、运行 Ubuntu Server 的 VM。 将在该 VM 上创建名为 *azureuser* 的用户帐户，并生成 SSH 密钥（如果这些密钥在默认密钥位置 ( *~/.ssh*) 中不存在）：
 
 ```azurecli
 az vm create \
@@ -124,7 +124,7 @@ CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:
 
 <!-- Not Available on RHEL-->
 
-可以通过添加 `--all` 参数查看完整列表。 还可以按 `--publisher` 或 `--offer` 筛选映像列表。 在此示例中，已在列表中筛选出其产品与“CentOS”匹配的所有映像。 
+可以通过添加 `--all` 参数查看完整列表。 还可以按 `--publisher` 或 `--offer` 筛选映像列表。 在此示例中，已在列表中筛选出其产品与“CentOS”  匹配的所有映像。 
 
 ```azurecli 
 az vm image list --offer CentOS --all --output table
@@ -143,7 +143,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-若要使用特定的映像部署 VM，请记下“Urn”列中的值，包括发布者、产品/服务、SKU，以及用于[标识](cli-ps-findimage.md#terminology)映像的版本号（可选）。 指定映像时，可将映像版本号替换为“latest”，这会选择最新的发行版。 在此示例中，`--image` 参数用于指定最新版本的 CentOS 6.5 映像。  
+若要使用特定的映像部署 VM，请记下“Urn”列中的值，包括发布者、产品/服务、SKU，以及用于[标识](cli-ps-findimage.md#terminology)映像的版本号（可选）。  指定映像时，可将映像版本号替换为“latest”，这会选择最新的发行版。 在此示例中，`--image` 参数用于指定最新版本的 CentOS 6.5 映像。  
 
 ```azurecli 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -157,17 +157,18 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 下表将大小分类成了多个用例。  
 
-| 类型                     | 大小           |    说明       |
+| 类型                     | 常见大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [常规用途](sizes-general.md)         |Dsv3、Dv3、DSv2、Dv2、DS、D、Av2、A0-7| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
-| [计算优化](sizes-compute.md)   | Fs, F             | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
-| [内存优化](../virtual-machines-windows-sizes-memory.md)    | Esv3、Ev3、M、DSv2、DS、Dv2、D   | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+| [常规用途](sizes-general.md)         |B、Dsv3、Dv3、DSv2、Dv2、Av2| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
+| [计算优化](sizes-compute.md)   | Fsv2          | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
+| [内存优化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、Dv2  | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+| [GPU](sizes-gpu.md)          | NCv3            | 专门针对大量图形绘制和视频编辑的 VM。       |
 
-<!-- Not Available on [GPU](sizes-gpu.md)-->
-<!-- Not Available GS,G series-->
-<!-- Not Available Ls series-->
-<!-- Not Available NV, NC series-->
-<!-- Not Available H, A8-11 series-->
+<!-- Not Available on DC -->
+<!-- Not Available on [Storage optimized](sizes-storage.md)      | Lsv2, Ls  -->
+<!-- Not Available NV, NVv2, NC, NCv2, NCv3, ND-->
+<!-- Not Available [High performance](sizes-hpc.md) | H -->
+
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
 若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 

@@ -10,15 +10,15 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: ns
-origin.date: 02/22/2019
-ms.date: 03/18/2019
+origin.date: 06/21/2019
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 417af386a283b0230a725cb24b27df941ee1485c
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: cc614c95ad9f38d4b5ec0f2bc61dc4a78347f336
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560456"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570514"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>快速入门：将遥测数据从设备发送到 IoT 中心并使用后端应用程序读取该数据 (C#)
 
@@ -43,6 +43,12 @@ IoT 中心是一项 Azure 服务，用于将大量遥测数据从 IoT 设备引�
 dotnet --version
 ```
 
+运行以下命令将用于 Azure CLI 的 Microsoft Azure IoT 扩展添加到 Cloud Shell 实例。 IOT 扩展会将 IoT 中心、IoT Edge 和 IoT 设备预配服务 (DPS) 特定的命令添加到 Azure CLI。
+
+```azurecli
+az extension add --name azure-cli-iot-ext
+```
+
 从 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 下载示例 C# 项目并提取 ZIP 存档。
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
@@ -53,13 +59,12 @@ dotnet --version
 
 必须先将设备注册到 IoT 中心，然后该设备才能进行连接。 在本快速入门中，请使用 Azure CLI 来注册模拟设备。
 
-1. 在终端窗口 Shell 中运行以下命令，以添加 IoT 中心 CLI 扩展并创建设备标识。 
+1. 在 Azure Cloud Shell 中运行以下命令，以创建设备标识。
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
-   **MyDotnetDevice**：所注册的设备的名称。 请按显示的方法使用 MyDotnetDevice。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
+   **MyDotnetDevice**：所注册的设备的名称。 请按显示的方法使用 MyDotnetDevice  。 如果为设备选择其他名称，则需要在本文中从头至尾使用该名称，并在运行示例应用程序之前在其中更新设备名称。
     ```azurecli
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDotnetDevice
     ```
 
@@ -77,7 +82,7 @@ dotnet --version
 
     稍后会在快速入门中用到此值。
 
-3. 还需要来自 IoT 中心的与事件中心兼容的终结点、与事件中心兼容的路径和 iothubowner 主键，确保后端应用程序能连接到 IoT 中心并检索消息。 以下命令可检索 IoT 中心的这些值：
+3. 还需要使用与事件中心兼容的终结点、与事件中心兼容的路径和 IoT 中心的服务主密钥，确保后端应用程序能连接到 IoT 中心并检索消息    。 以下命令可检索 IoT 中心的这些值：
 
    **YourIoTHubName**：将下面的占位符替换为你为 IoT 中心选择的名称。
 
@@ -86,7 +91,7 @@ dotnet --version
 
     az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
 
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
     ```
 
     记下这三个值，稍后会在快速入门中用到这些值。
@@ -97,9 +102,9 @@ dotnet --version
 
 1. 在本地终端窗口中，导航到示例 C# 项目的根文件夹。 然后导航到 **iot-hub\Quickstarts\simulated-device** 文件夹。
 
-2. 在所选文本编辑器中打开 SimulatedDevice.cs 文件。
+2. 在所选文本编辑器中打开 SimulatedDevice.cs 文件  。
 
-    将 `s_connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件。
+    将 `s_connectionString` 变量的值替换为之前记下的设备连接字符串。 然后将更改保存到 SimulatedDevice.cs 文件  。
 
 3. 在本地终端窗口中，运行以下命令以安装模拟设备应用程序所需的包：
 
@@ -119,17 +124,17 @@ dotnet --version
 
 ## <a name="read-the-telemetry-from-your-hub"></a>从中心读取遥测数据
 
-后端应用程序会连接到 IoT 中心上的服务端“事件”终结点。 应用程序会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
+后端应用程序会连接到 IoT 中心上的服务端“事件”终结点  。 应用程序会接收模拟设备发送的设备到云的消息。 IoT 中心后端应用程序通常在云中运行，接收和处理设备到云的消息。
 
-1. 在另一本地终端窗口中，导航到示例 C# 项目的根文件夹。 然后导航到 iot-hub\Quickstarts\read-d2c-messages 文件夹。
+1. 在另一本地终端窗口中，导航到示例 C# 项目的根文件夹。 然后导航到 iot-hub\Quickstarts\read-d2c-messages 文件夹  。
 
-2. 在所选文本编辑器中打开 ReadDeviceToCloudMessages.cs 文件。 更新以下变量并保存对文件所做的更改。
+2. 在所选文本编辑器中打开 ReadDeviceToCloudMessages.cs 文件  。 更新以下变量并保存对文件所做的更改。
 
-    | 变量 | 值 |
+    | 变量 | Value |
     | -------- | ----------- |
     | `s_eventHubsCompatibleEndpoint` | 将变量的值替换为之前记下的与事件中心兼容的终结点。 |
     | `s_eventHubsCompatiblePath`     | 将变量的值替换为之前记下的与事件中心兼容的路径。 |
-    | `s_iotHubSasKey`                | 将变量的值替换为之前记下的 iothubowner 主键。 |
+    | `s_iotHubSasKey`                | 将变量的值替换为之前记下的服务主密钥。 |
 
 3. 在本地终端窗口中，运行以下命令，安装后端应用程序所需的库：
 

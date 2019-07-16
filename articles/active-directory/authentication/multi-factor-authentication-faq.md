@@ -1,22 +1,23 @@
 ---
-title: Azure 多重身份验证常见问题解答 | Microsoft Docs
+title: Azure 多重身份验证常见问题解答 - Azure Active Directory
 description: 与 Azure 多重身份验证相关的常见问题与解答。
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 07/11/2018
-ms.date: 02/19/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 673fc291181a8551ecef8cef64594c76bc7cd04b
-ms.sourcegitcommit: 37cd07a58b168feb8314cd6d7afb36b13e9ffdc5
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 3563935103f98332529146cc778e54143269faec
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56409408"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568564"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>有关 Azure 多重身份验证的常见问题
 
@@ -54,7 +55,7 @@ ms.locfileid: "56409408"
 
 如果用户经常无法可靠地接收短信，请告诉他们改用移动应用或电话验证方法。 移动应用可以同时通过手机网络和 Wi-Fi 连接接收通知。 此外，即使设备根本没有信号，也可以生成验证码。 Microsoft 验证器应用适用于 [Android](https://go.microsoft.com/fwlink/?Linkid=825072)、[iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 和 [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071)。
 
-如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，可以防止由于回复其他国家/地区发来的短信而给用户造成的全球短信费用。
+如果必须使用短信，建议尽可能使用单向短信，而不要使用双向短信。 单向短信更加可靠，并可以防止用户由于回复从其他国家/地区发来的短信而产生的全球短信费用。
 
 **问：为何系统提示用户注册其安全信息？**
 有多种原因会导致系统提示用户注册其安全信息：
@@ -74,9 +75,9 @@ ms.locfileid: "56409408"
 告诉他们按照此过程从移动应用中删除其帐户，并重新添加：
 
 1. 转到 Azure 门户配置文件，并使用组织帐户登录。
-2. 选择“其他安全性验证” 。
+2. 选择“其他安全性验证”  。
 3. 从移动应用中删除现有帐户。
-4. 单击“配置”，并按照说明重新配置移动应用。
+4. 单击“配置”  ，并按照说明重新配置移动应用。
 
 **问：如果用户在登录非浏览器应用程序时看到 0x800434D4L 错误消息，该怎么办？**
 
@@ -87,9 +88,9 @@ ms.locfileid: "56409408"
 ## <a name="next-steps"></a>后续步骤
 如果此处未解答问题，请将其留在页面底部的评论中。 或者，以下是一些用于获取帮助的其他选项：
 
-- 在 [Microsoft 支持知识库](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) 中搜索常见技术问题的解决方法。
-- 在 [Azure Active Directory 论坛](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)中搜索和浏览来自社区的技术问题与解答，或者提出自己的问题。
-- 对于旧版 PhoneFactor 客户，如果有疑问或需要重置密码方面的帮助，请使用[密码重置](mailto:phonefactorsupport@microsoft.com)链接建立支持案例。
-- 通过 [Azure 多重身份验证服务器 (PhoneFactor) 支持](https://support.microsoft.com/oas/default.aspx?prid=14947)联系支持专业人员。 与我们联系时，尽可能包含有关问题的更多信息将很有帮助。 可以提供的信息包括出现错误的页面、特定错误代码、特定会话 ID 以及看到错误的用户的 ID。
+* 在 [Microsoft 支持知识库](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) 中搜索常见技术问题的解决方法。
+* 在 [Azure Active Directory 论坛](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)中搜索和浏览来自社区的技术问题与解答，或者提出自己的问题。
+* 对于旧版 PhoneFactor 客户，如果有疑问或需要重置密码方面的帮助，请使用[密码重置](mailto:phonefactorsupport@microsoft.com)链接建立支持案例。
+* 通过 [Azure 多重身份验证服务器 (PhoneFactor) 支持](https://support.microsoft.com/oas/default.aspx?prid=14947)联系支持专业人员。 与我们联系时，尽可能包含有关问题的更多信息将很有帮助。 可以提供的信息包括出现错误的页面、特定错误代码、特定会话 ID 以及看到错误的用户的 ID。
 
 <!-- Update_Description: wording update -->

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 07/06/2018
-ms.date: 05/20/2019
+origin.date: 05/16/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: f639b1e2b8ff8b60e360689b4dfa764e77639723
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: b1662fb3c9cda0ad5b521acaef48fc8ec690adbf
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004313"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570415"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
@@ -39,6 +39,9 @@ ms.locfileid: "66004313"
 - [前几代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: update meta properties  -->
+* 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
+
+* 了解如何[使用 Azure CLI 创建和管理 Linux VM](tutorial-manage-vm.md)
+
+<!-- Update_Description: update meta properties, wording update -->

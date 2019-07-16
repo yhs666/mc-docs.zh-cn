@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Linux VM 上通过策略强制执行安全措施 | Azure
+title: 使用 Azure 资源管理器向 Linux VM 应用策略 | Azure
 description: 如何向 Azure Resource Manager Linux 虚拟机应用策略
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 04/01/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: fc4ad14b8f14f08406fefe6efc176d6addac03df
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 34190ab98b965ecea09b189890a2e5e7df0e7d23
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003975"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569757"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Linux VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。

@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 10/29/2018
 ms.author: v-yiso
-ms.date: 03/18/2019
-ms.openlocfilehash: 84909eea23c65b24598900d78f92db01e3a7b983
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 07/15/2019
+ms.openlocfilehash: 8662b4f98336e34e89a3257498f19dfe0bf037b7
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135730"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569848"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>用于设备和模块孪生、作业和消息路由的 IoT 中心查询语言
 
@@ -27,7 +27,7 @@ IoT 中心提供类似于 SQL 的强大语言，用于检索有关[设备孪生]
 
 ## <a name="device-and-module-twin-queries"></a>设备和模块孪生查询
 
-[设备孪生](iot-hub-devguide-device-twins.md)和模块孪生可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生和模块孪生作为包含所有孪生信息的单个 JSON 文档进行查询。
+[设备孪生](iot-hub-devguide-device-twins.md)和[模块孪生](iot-hub-devguide-module-twins.md)可以包含标记和属性形式的任意 JSON 对象。 通过 IoT 中心，可将设备孪生和模块孪生作为包含所有孪生信息的单个 JSON 文档进行查询。
 
 例如，假定 IoT 中心设备孪生具有以下结构（模块孪生将与之类似，只是具有附加的 moduleId）：
 
@@ -161,7 +161,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>模块孪生查询
 
-对模块孪生进行查询类似于对设备孪生进行查询，但使用不同的集合/命名空间，即不“从设备”进行查询，可以查询 device.modules：
+对模块孪生进行查询类似于对设备孪生进行查询，但使用不同的集合/命名空间，即不从**设备**进行查询，而是从 **devices.modules** 进行查询：
 
 ```sql
 SELECT * FROM devices.modules
@@ -312,7 +312,8 @@ WHERE devices.jobs.jobId = 'myJobId'
 * 执行聚合，例如 count、avg、group by。
 
 ## <a name="basics-of-an-iot-hub-query"></a>IoT 中心查询基础知识
-每个 IoT 中心查询都包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，将按 GROUP BY 子句中的指定对此步骤的结果分组。 对于每组，将按照 SELECT 子句中的指定生成一行。
+
+每个 IoT 中心查询都包括 SELECT 和 FROM 子句，以及可选的 WHERE 和 GROUP BY 子句。 每个查询针对 JSON 文档的集合（例如，设备孪生）运行。 FROM 子句指示要迭代的文档集合（**devices**、**devices.modules** 或 **devices.jobs**）。 然后，应用 WHERE 子句中的筛选器。 使用聚合时，将按 GROUP BY 子句中的指定对此步骤的结果分组。 对于每组，将按照 SELECT 子句中的指定生成一行。
 
 ```sql
 SELECT <select_list>
@@ -322,7 +323,8 @@ FROM <from_specification>
 ```
 
 ## <a name="from-clause"></a>FROM 子句
-FROM <from_specification> 子句只能假定两个值  ：用于查询设备孪生的“FROM devices”，或用于根据设备详情查询作业“FROM devices.jobs”   。
+
+FROM <from_specification> 子句只能假定三个值  ：用于查询设备孪生的“FROM devices”、用于查询模块孪生的“FROM devices.modules”或用于根据设备详情查询作业“FROM devices.jobs”    。
 
 ## <a name="where-clause"></a>WHERE 子句
 **WHERE <filter_condition>** 子句是可选的。 它指定要将 FROM 集合中的 JSON 文档内含在结果中时需满足的一项或多项条件。 任何 JSON 文档必须将指定的条件求值为“true”才能包含在结果中。

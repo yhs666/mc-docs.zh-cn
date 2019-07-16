@@ -9,17 +9,17 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/16/2019
-ms.date: 04/08/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f153275fedfcd250ab3aa231f9687a18657c1b18
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: 8a14964f95ed22e04b130b0ee693aa7c32f9801f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355872"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568636"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Azure Active Directory 中的默认用户权限是什么？
 在 Azure Active Directory (Azure AD) 中，所有用户都被授予一组默认权限。 用户的访问权限由用户的类型、其[角色分配](active-directory-users-assign-role-azure-portal.md)及其对单个对象的所有权构成。 本文将会介绍这些默认权限，并将成员和来宾用户的默认权限进行比较。 只能在 Azure AD 的用户设置中更改默认用户权限。
@@ -27,9 +27,9 @@ ms.locfileid: "59355872"
 ## <a name="member-and-guest-users"></a>成员和来宾用户
 获得的默认权限集取决于该用户是否为租户的本机成员（成员用户）。
 * 成员用户可以注册应用程序、管理自己的个人资料照片和手机号码以及更改自己的密码。 此外，用户可以读取所有目录信息（少数用户除外）。 
-* 来宾用户的目录权限受到限制。 例如，来宾用户只能浏览自己的个人资料信息，而不能浏览租户中的其他信息。 但是，来宾用户可以通过提供用户主体名称或 objectId 来检索有关另一用户的信息。 来宾用户可以读取他们所属组的属性，包括组成员身份，而不考虑“来宾用户权限处于限制状态”设置。 来宾无法查看有关任何其他租户对象的信息。
+* 来宾用户的目录权限受到限制。 例如，来宾用户只能浏览自己的个人资料信息，而不能浏览租户中的其他信息。 但是，来宾用户可以通过提供用户主体名称或 objectId 来检索有关另一用户的信息。 来宾用户可以读取他们所属组的属性，包括组成员身份，而不考虑“来宾用户权限处于限制状态”设置  。 来宾无法查看有关任何其他租户对象的信息。
 
-默认情况下，来宾的默认权限受到限制。 可将来宾添加到管理员角色，从而向他们授予角色中包含的完全读取和写入权限。 此外还有一条限制，即来宾邀请其他来宾的能力。 将“来宾可邀请”设置为“否”会阻止来宾邀请其他来宾。  若要向来宾用户授予成员用户默认拥有的权限，请将“来宾用户权限处于限制状态”设置为“否”。 此设置向来宾用户授予默认的成员用户权限，并允许将来宾添加到管理角色。
+默认情况下，来宾的默认权限受到限制。 可将来宾添加到管理员角色，从而向他们授予角色中包含的完全读取和写入权限。 此外还有一条限制，即来宾邀请其他来宾的能力。 将“来宾可邀请”设置为“否”会阻止来宾邀请其他来宾。    若要向来宾用户授予成员用户默认拥有的权限，请将“来宾用户权限处于限制状态”设置为“否”。   此设置向来宾用户授予默认的成员用户权限，并允许将来宾添加到管理角色。
 
 ## <a name="compare-member-and-guest-default-permissions"></a>比较成员和来宾的默认权限
 
@@ -50,9 +50,11 @@ Directory | 读取所有公司信息<br>读取所有域<br>读取所有合作伙
 
 权限 | 设置说明
 ---------- | ------------
+用户可以注册应用程序 | 将此选项设置为“否”可阻止用户创建应用程序注册。 然后，通过将特定的个人添加到“应用程序开发人员”角色，可以将该能力重新授予这些个人。
+允许用户使用 LinkedIn 连接工作或学校帐户 | 将此选项设置为“否”可阻止用户使用其 LinkedIn 帐户连接其工作或学校帐户。  
 能够创建安全组 | 将此选项设置为“否”可阻止用户创建安全组。 全局管理员和用户管理员仍可创建安全组。
 能够创建 Office 365 组 | 将此选项设置为“否”可阻止用户创建 Office 365 组。 将此选项设置为“某些”可让选定的一组用户创建 Office 365 组。 全局管理员和用户管理员仍可创建 Office 365 组。
-限制访问 Azure AD 管理门户 | 将此选项设置为“否”可阻止用户访问 Azure Active Directory。
+限制访问 Azure AD 管理门户 | 将此选项设置为“是”可阻止用户仅通过 Azure 门户访问 Azure Active Directory。
 能够读取其他用户 | 此设置仅可在 PowerShell 中使用。 将此设置为 $false 可阻止所有非管理员用户从目录读取用户信息。 这不会阻止读取其他 Microsoft 服务（如 Exchange Online）中的用户信息。 此设置适用于特殊情况，因此不建议将此设置为 $false。
 
 ## <a name="object-ownership"></a>对象所有权

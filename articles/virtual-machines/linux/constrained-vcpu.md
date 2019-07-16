@@ -1,5 +1,5 @@
 ---
-title: Azure 受约束的 vCPU 大小 - Linux | Azure
+title: 支持受约束 vCPU 的 VM 大小 | Azure
 description: 列出支持具有受约束的 vCPU 计数的 VM 大小。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/09/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: f0bdebd420489874ae24629943aba801758a9169
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 84d4625adb6c0625b64e35e0192d82154a250431
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835757"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570611"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 
@@ -31,11 +31,10 @@ ms.locfileid: "65835757"
 - [计算优化](../windows/sizes-compute.md)
 - [内存优化](sizes-memory.md)
     <!-- Not Available on - [Storage optimized](sizes-storage.md) -->
-    <!-- Not Available on - [GPU](sizes-gpu.md)-->
+- [GPU](sizes-gpu.md)
     <!-- Not Available on - [High performance compute](sizes-hpc.md) -->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!--The parent file of includes file of virtual-machines-common-constrained-vcpu.md-->
-<!--ms.date:04/16/2019-->
+<!--Update_Description: update meta properties-->

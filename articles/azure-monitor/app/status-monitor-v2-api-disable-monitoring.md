@@ -12,21 +12,21 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 545c58150275ffb6ac3b7579b7b1c27f0f9cefc8
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 6d39db1b74edc7cbbfff55d412fc2fe1f213f577
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732451"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562658"
 ---
 # <a name="status-monitor-v2-api-disable-applicationinsightsmonitoring-v021-alpha"></a>状态监视器 v2 API：Disable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
-本文档介绍作为 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)成员提供的 cmdlet。
+本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
 > [!IMPORTANT]
-> 状态监视器 v2 目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)
+> 状态监视器 v2 目前为公共预览版。
+> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
+
 
 ## <a name="description"></a>说明
 
@@ -45,7 +45,7 @@ PS C:\> Disable-ApplicationInsightsMonitoring
 ## <a name="parameters"></a>parameters 
 
 ### <a name="-verbose"></a>-Verbose
-**通用参数。** 使用此开关输出详细的日志。
+**通用参数。** 使用此开关可显示详细日志。
 
 ## <a name="output"></a>输出
 

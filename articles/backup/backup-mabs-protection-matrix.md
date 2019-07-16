@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.topic: conceptual
 ms.author: v-lingwu
 manager: digimobile
-ms.openlocfilehash: afa0bde7e770397bb50d91f716f3426f2dca3615
-ms.sourcegitcommit: c43ca3018ef00245a94b9a7eb0901603f62de639
+ms.openlocfilehash: e0ddcecc918d18acc52a2d306bfb9857b5d29f32
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56987028"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570476"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 备份服务器保护矩阵
 
@@ -24,7 +24,7 @@ ms.locfileid: "56987028"
 ## <a name="protection-support-matrix"></a>保护支持矩阵
 
 |工作负载|版本|Azure 备份服务器</br> 安装|Azure 备份</br> 服务器 V3|Azure 备份</br> 服务器 V2|保护和恢复|
-|------------|-----------|---------------|--------------|---------------|-----------------|---------------------------|
+|------------|-----------|---------------|--------------|---------------|-----------------|
 |客户端计算机（64 位和 32 位）|Windows 10|物理服务器<br /><br />Hyper-V 虚拟机<br /><br />VMware 虚拟机|Y|Y|卷、共享、文件夹、文件、重复删除的卷<br /><br />受保护的卷必须采用 NTFS 格式。 不支持 FAT 和 FAT32。<br /><br />卷必须至少有 1 GB 空间。 DPM 使用卷影复制服务 (VSS) 来创建数据快照；仅当卷至少有 1 GB 空间时，快照才能正常工作。|
 |客户端计算机（64 位和 32 位）|Windows 8.1|物理服务器<br /><br />Hyper-V 虚拟机|Y|Y|文件<br /><br />受保护的卷必须采用 NTFS 格式。 不支持 FAT 和 FAT32。<br /><br />卷必须至少有 1 GB 空间。 DPM 使用卷影复制服务 (VSS) 来创建数据快照；仅当卷至少有 1 GB 空间时，快照才能正常工作。|
 |客户端计算机（64 位和 32 位）|Windows 8.1|VMWare 中 Windows 虚拟机（保护在 VMWare 中的 Windows 虚拟机上运行的工作负荷）|Y|Y|卷、共享、文件夹、文件、重复删除的卷<br /><br />受保护的卷必须采用 NTFS 格式。 不支持 FAT 和 FAT32。<br /><br />卷必须至少有 1 GB 空间。 DPM 使用卷影复制服务 (VSS) 来创建数据快照；仅当卷至少有 1 GB 空间时，快照才能正常工作。|
@@ -83,6 +83,15 @@ ms.locfileid: "56987028"
 |VMware VM|VMware vCenter/vSphere ESX/ESXi 许可版本 5.5/6.0/6.5 |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|Y|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
 |VMware VM|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md) |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|N|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
 |Linux|以 Hyper-V 或 VMware 来宾身份运行的 Linux|物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|Y|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机 <br/><br/> 有关支持的 Linux 分发版和版本的完整列表，请参阅 [Azure 认可的分发中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。|
+
+## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持
+
+如果 Azure ExpressRoute 配置了专用或 Microsoft 对等互连，则不能使用它将数据备份到 Azure。
+
+如果 Azure ExpressRoute 配置了公共对等互连，则可以使用它将数据备份到 Azure。
+
+>[!NOTE]
+>对于新线路，公共对等互连已弃用。
 
 ## <a name="cluster-support"></a>群集支持
 Azure 备份服务器可以保护以下群集应用程序中的数据：

@@ -8,18 +8,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 05/22/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 796eb2d0b1fd9748e37c28a10802525d3bd13889
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: e72569f4162ab358a3c765bb6c9f33909e4af1b6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732651"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570615"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Azure 数据工厂中支持的文件格式和压缩编解码器
 
-本文适用于以下连接器： *[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 文件存储](connector-azure-file-storage.md)、[文件系统](connector-file-system.md)、[FTP](connector-ftp.md)、[Google Cloud Storage](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。*
+本文适用于以下连接器：  [Amazon S3](connector-amazon-simple-storage-service.md)、[Azure Blob](connector-azure-blob-storage.md)、[Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)、[Azure 文件存储](connector-azure-file-storage.md)、[文件系统](connector-file-system.md)、[FTP](connector-ftp.md)、[Google 云存储](connector-google-cloud-storage.md)、[HDFS](connector-hdfs.md)、[HTTP](connector-http.md) 和 [SFTP](connector-sftp.md)。
 
 如果想要在基于文件的存储之间按原样复制文件  （二进制副本），可以在输入和输出数据集定义中跳过格式节。 如果要**分析或生成具有特定格式的文件**，Azure 数据工厂支持以下文件格式类型：
 
@@ -542,7 +542,6 @@ ms.locfileid: "66732651"
 
 * 从 Azure Blob 读取 GZIP 压缩的数据，将其解压缩，然后将结果数据写入 Azure SQL 数据库。 使用值为 GZIP 的 `compression` `type` 属性定义输入 Azure Blob 数据集。
 * 从来自本地文件系统的纯文本文件读取数据、使用 GZip 格式进行压缩并将压缩的数据写入到 Azure Blob。 使用值为 GZip 的 `compression` `type` 属性定义输出 Azure Blob 数据集。
-* 从 FTP 服务器读取 .zip 文件，将它解压缩以获取文件内容，然后将这些文件加入 Azure Data Lake Store。 使用值为 ZipDeflate 的 `compression` `type` 属性定义输入 FTP 数据集。
 * 从 Azure Blob 读取 GZIP 压缩的数据，将其解压缩、使用 BZIP2 将其压缩，然后将结果数据写入 Azure Blob。 使用设置为 GZIP 的 `compression` `type` 定义输入 Azure Blob 数据集，使用设置为 BZIP2 的 `compression` `type` 定义输出数据集。
 
 若要为数据集指定压缩，请在数据集 JSON 中使用 **compression** 属性，如以下示例所示：
@@ -589,9 +588,9 @@ ms.locfileid: "66732651"
 可以使用 Azure 数据工厂的可扩展性功能来转换不受支持的文件。
 两个选项包括 Azure Functions 和使用 Azure Batch 的自定义任务。
 
-可以看到一个示例，它使用 Azure 函数[提取 tar 文件的内容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)。 有关详细信息，请参阅 [Azure Functions 活动](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity)。
+可以看到一个示例，它使用 Azure 函数[提取 tar 文件的内容](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)。 有关详细信息，请参阅 [Azure Functions 活动](/data-factory/control-flow-azure-function-activity)。
 
-还可以使用自定义 dotnet 活动构建此功能。 更多的信息可以在[这里](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity)找到
+还可以使用自定义 dotnet 活动构建此功能。 更多的信息可以在[这里](/data-factory/transform-data-using-dotnet-custom-activity)找到
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -2,8 +2,8 @@
 title: Azure Active Directory 中的应用程序对象和服务主体对象
 description: 了解 Azure Active Directory 中应用程序对象与服务主体对象之间的关系。
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/13/2019
-ms.date: 05/09/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1155331838d200a179c329398383fff390f937
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 9ebb6e0ebe9c3750e2262053df73a5bc08a3acd7
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517488"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568536"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的应用程序对象和服务主体对象
 
@@ -107,4 +107,4 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 [MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

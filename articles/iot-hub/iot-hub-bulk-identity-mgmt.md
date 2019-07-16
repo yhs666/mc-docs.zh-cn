@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 05/11/2019
 ms.author: v-yiso
-ms.date: 05/27/2019
-ms.openlocfilehash: 62fed58cb57843c81fd8f83dc1fd0edb019bfab7
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.date: 07/15/2019
+ms.openlocfilehash: b07d6de68dfe5d3459f5235abcc85e214c4482d6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194989"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570449"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>批量导入和导出 IoT 中心设备标识
 
@@ -31,7 +31,7 @@ ms.locfileid: "66194989"
 
 ## <a name="what-are-jobs"></a>什么是作业？
 
-当操作出现以下情况时，标识注册表操作使用“作业”系统：
+当操作出现以下情况时，标识注册表操作使用“作业”  系统：
 
 * 相较标准运行时操作，其执行时间可能很长。
 * 向用户返回大量数据。
@@ -57,7 +57,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString("{y
 若要查找 IoT 中心的连接字符串，请在 Azure 门户中执行以下操作：
 
 - 导航到 IoT 中心。
-- 选择“共享访问策略”。
+- 选择“共享访问策略”  。
 - 选择一个策略（考虑到所需的权限）。
 - 从屏幕右侧的面板中复制 connectionstring。
 
@@ -208,7 +208,7 @@ using (var streamReader = new StreamReader(await blob.OpenReadAsync(AccessCondit
 
 **ImportDevicesAsync** 方法采用两个参数：
 
-* 一个字符串，其中包含作为作业的输入使用的 [Azure 存储](../storage/index.yml) Blob 容器的 URI。 此 URI 必须包含可授予容器读取权限的 SAS 令牌。 此容器必须包含名为 **devices.txt** 的 Blob，其中包含要导入标识注册表的序列化设备数据。 导入数据包含的设备信息必须采用 **ExportImportDevice** 作业在创建 **devices.txt** Blob 时使用的同一种 JSON 格式。 SAS 令牌必须包含这些权限：
+* 一个字符串  ，其中包含作为作业的输入  使用的 [Azure 存储](../storage/index.yml) Blob 容器的 URI。 此 URI 必须包含可授予容器读取权限的 SAS 令牌。 此容器必须包含名为 **devices.txt** 的 Blob，其中包含要导入标识注册表的序列化设备数据。 导入数据包含的设备信息必须采用 **ExportImportDevice** 作业在创建 **devices.txt** Blob 时使用的同一种 JSON 格式。 SAS 令牌必须包含这些权限：
 
    ```csharp
    SharedAccessBlobPermissions.Read
@@ -384,7 +384,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>获取容器 SAS URI
 
-下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)：
+下面的代码示例演示如何使用 Blob 容器的读取、写入和删除权限生成 [SAS URI](../storage/common/storage-dotnet-shared-access-signature-part-1.md)：
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)

@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 02/26/2019
 ms.author: v-yiso
-ms.date: 04/01/2019
-ms.openlocfilehash: 73c2332bce7c898425725062ee3a0b3e36c302cf
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.date: 07/15/2019
+ms.openlocfilehash: 00eb09f5714a8aa6c1f652c177afb73c37428901
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348595"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570522"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -31,7 +31,7 @@ IoT 中心还支持用户管理内置设备到云接收终结点上的使用者�
 
 如果使用[消息路由](iot-hub-devguide-messages-d2c.md)，并启用了[回退路由](iot-hub-devguide-messages-d2c.md#fallback-route)，则与任何路由上的查询不匹配的所有消息都会进入内置终结点。 如果禁用此回退路由，将删除与任何查询都不匹配的消息。
 
-可以使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis] 以编程方式修改保留期时间，或通过 [Azure 门户][lnk-management-portal]进行修改。
+可以使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal] 以编程方式修改保留期时间。
 
 IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端服务读取中心收到的设备到云消息。 该终结点与事件中心兼容，因此可以使用事件中心服务支持的任何机制读取消息。
 
@@ -41,16 +41,16 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 使用无法感知 IoT 中心的事件中心 SDK 或产品集成时，需要一个与事件中心兼容的终结点以及与事件中心兼容的名称。 可以从门户检索这些值，如下所示：
 
-1. 登录 [Azure 门户][lnk-management-portal]，并导航到 IoT 中心。
-2. 单击“内置终结点”。
+1. 登录 [Azure 门户][lnk-management-portal]，导航到 IoT 中心。
+2. 单击“内置终结点”  。
 
-3. “事件”部分包含以下值：“分区”、“与事件中心兼容的名称”、“与事件中心兼容的终结点”、“保留时间”、“使用者组”。
+3. “事件”部分包含以下值：  “分区”、“与事件中心兼容的名称”、“与事件中心兼容的终结点”、“保留时间”、“使用者组”。     
 
     ![设备到云的设置](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 在门户中，“与事件中心兼容的终结点”字段包含完整的事件中心连接字符串，如下所示：**Endpoint=sb://abcd1234namespace.servicebus.chinacloudapi.cn/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**。 如果所用 SDK 需求其他值，则这些值将会是：
 
-| Name | 值 |
+| Name | Value |
 | ---- | ----- |
 | 终结点 | sb://abcd1234namespace.servicebus.chinacloudapi.cn/ |
 | 主机名 | abcd1234namespace.servicebus.chinacloudapi.cn |
@@ -71,6 +71,7 @@ IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端�
 
 * [Azure Functions](/azure-functions/)。 
 * [Azure 流分析](/stream-analytics/)。 请参阅[将数据作为流分析的输入进行流式传输](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-iot-hub)。
+* [时序见解](/time-series-insights/)。 请参阅[向时序见解环境添加 IoT 中心事件源](../time-series-insights/time-series-insights-how-to-add-an-event-source-iothub.md)。
 * [Apache Storm Spout](../hdinsight/storm/apache-storm-develop-csharp-event-hub-topology.md)。 可以在 GitHub 上查看 [Spout 源代码](https://github.com/apache/storm/tree/master/external/storm-eventhubs) 。
 * [Apache Spark 集成](../hdinsight/spark/apache-spark-eventhub-streaming.md)。
 

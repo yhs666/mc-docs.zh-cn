@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 335f5b27d4a38e4749033c989e6c5a87fde98533
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 54e1e9160a95be170c1bb9e7e04052281cd06a2a
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732435"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562646"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -240,7 +240,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 ## <a name="are-there-data-transfer-charges-between-an-azure-web-app-and-application-insights"></a>Azure Web 应用和 Application Insights 之间是否有数据传输费用？
 
 * 如果 Azure Web 应用托管在具有 Application Insights 集合终结点的数据中心内，则不收取费用。 
-* 如果主机数据中心没有集合终结点，那么应用的遥测会产生 [ Azure 传出费用](https://www.azure.cn/pricing/details/data-transfer/)。
+* 如果主机数据中心没有集合终结点，那么应用的遥测会产生 [ Azure 传出费用](https://www.azure.cn/zh-cn/pricing/details/bandwidth)。
 
 这与 Application Insights 资源的托管位置无关。 它只取决于终结点的分布情况。
 

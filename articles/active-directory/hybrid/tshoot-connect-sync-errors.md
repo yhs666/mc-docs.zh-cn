@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 10/29/2018
-ms.date: 04/09/2019
+ms.date: 07/04/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adafa4f99a852d2114e2d8d3765ea53fd2003681
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: b467bd8f3dfd45634fed54ca66ca63fcc9a57e26
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355891"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568608"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
@@ -103,7 +103,7 @@ Azure Active Directory 架构不允许两个或更多个对象的以下属性使
 >
 
 #### <a name="related-articles"></a>相关文章
-* [Office 365 中的重复或无效属性导致无法进行目录同步](https://support.microsoft.com/kb/2647098)
+* [Duplicate or invalid attributes prevent directory synchronization in Office 365（Office 365 中的重复或无效属性导致无法进行目录同步）](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>说明
@@ -176,11 +176,11 @@ b. UserPrincipalName 属性不符合所需的格式。
 a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式。
 
 #### <a name="related-articles"></a>相关文章
-* [准备在 Office 365 中通过目录同步来预配用户](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Prepare to provision users through directory synchronization to Office 365（准备在 Office 365 中通过目录同步来预配用户）](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>说明
-该事例导致“FederatedDomainChangeError”同步错误：用户的 UserPrincipalName 后缀已从一个联合域更改为另一个联合域。
+该事例导致“FederatedDomainChangeError”  同步错误：用户的 UserPrincipalName 后缀已从一个联合域更改为另一个联合域。
 
 #### <a name="scenarios"></a>方案
 某个已同步用户的 UserPrincipalName 后缀已从一个联合域更改为本地的另一个联合域。 例如，*UserPrincipalName = bob\@contoso.com* 已更改为 *UserPrincipalName = bob\@fabrikam.com*。
@@ -194,8 +194,7 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 #### <a name="how-to-fix"></a>如何解决
 如果用户的 UserPrincipalName 后缀已从 bob@**contoso.com** 更新为 bob\@**fabrikam.com**，并且 **contoso.com** 和 **fabrikam.com** 都是**联合域**，则执行以下步骤可以解决同步错误
 
-1. 在 Azure AD 中将用户的 UserPrincipalName 从 bob@contoso.com 更新为 bob@contoso.partner.onmschina.cn。 可以在 Azure AD PowerShell 模块中使用以下 PowerShell 命令：
-   `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.partner.onmschina.cn`
+1. 在 Azure AD 中将用户的 UserPrincipalName 从 bob@contoso.com 更新为 bob@contoso.partner.onmschina.cn。 可以在 Azure AD PowerShell 模块中使用以下 PowerShell 命令： `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.partner.onmschina.cn`
 2. 允许下一个同步周期尝试同步。 这一次，同步会成功，并且会按预期将 Bob 的 UserPrincipalName 更新为 bob@fabrikam.com 。
 
 #### <a name="related-articles"></a>相关文章
@@ -222,7 +221,7 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 ## <a name="existing-admin-role-conflict"></a>现有的管理员角色冲突
 
 ### <a name="description"></a>说明
-当用户对象具有以下项时，同步期间用户对象上将发生“现有管理员角色冲突”：
+当用户对象具有以下项时，同步期间用户对象上将发生“现有管理员角色冲突”  ：
 
 - 管理权限和
 - 与现有 Azure AD 对象相同的 UserPrincipalName
@@ -243,7 +242,7 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 >当本地用户对象与 Azure AD 用户对象之间的软匹配完成后，可以再次将管理角色分配给现有用户对象。
 
 ## <a name="related-links"></a>相关链接
-* [在 Active Directory 管理中心内查找 Active Directory 对象](https://technet.microsoft.com/library/dd560661.aspx)
-* [如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Locate Active Directory Objects in Active Directory Administrative Center（在 Active Directory 管理中心查找 Active Directory 对象）](https://technet.microsoft.com/library/dd560661.aspx)
+* [How to query Azure Active Directory for an object using Azure Active Directory PowerShell（如何使用 Azure Active Directory PowerShell 在 Azure Active Directory 中查询对象）](https://msdn.microsoft.com/library/azure/jj151815.aspx)
 
 <!-- Update_Description: wording update -->

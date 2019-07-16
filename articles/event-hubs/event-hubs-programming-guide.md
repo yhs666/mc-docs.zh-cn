@@ -8,14 +8,14 @@ ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
 origin.date: 08/12/2018
-ms.date: 04/08/2019
+ms.date: 07/15/2019
 ms.author: v-biyu
-ms.openlocfilehash: 828dac6346413f98370c219ccb269e71d03d182c
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: ccaa7929f61cdb1ed731ee11c8dc8d4db6030eb1
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505515"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560295"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Azure 事件中心编程指南
 本文介绍使用 Azure 事件中心编写代码时的一些常见情况。 内容假设你对事件中心已有初步的了解。 有关事件中心的概念概述，请参阅 [事件中心概述](event-hubs-what-is-event-hubs.md)。
@@ -71,6 +71,9 @@ for (var i = 0; i < numMessagesToSend; i++)
 ```
 
 ## <a name="partition-key"></a>分区键
+
+> [!NOTE]
+> 如果你不熟悉分区，请参阅[此文](event-hubs-features.md#partitions)。 
 
 发送事件数据时，可指定一个在经哈希处理后生成分区分配的值。 请使用 [PartitionSender.PartitionID](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.partitionsender.partitionid?view=azure-dotnet) 属性指定分区。 但是，若要决定使用分区，则必须在可用性和一致性之间进行选择。 
 

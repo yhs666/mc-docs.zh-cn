@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 12/20/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9df230820982b7a1a63f10a8ea44bcb0a31847fd
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 42ded4bbe8b8652ea1bedb7b0b4bf653c3df860a
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003977"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570255"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>在强制隧道方案中，Windows 激活失败
 
@@ -57,7 +57,11 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-1. 打开 Azure PowerShell，然后[登录到 Azure 订阅](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+1. 打开 Azure PowerShell，然后使用以下 cmdlet [登录到 Azure 订阅](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+
+    ```powershell
+    Connect-AzAccount -Environment AzureChinaCloud
+    ```
 2. 运行以下命令：
 
     ```powershell
@@ -72,6 +76,12 @@ Azure 全球云的 KMS 服务器的 IP 地址为 23.102.135.246。 其 DNS 名�
     Add-AzRouteConfig -Name "DirectRouteToKMS" -AddressPrefix 23.102.135.246/32 -NextHopType Internet -RouteTable $RouteTable
 
     Set-AzRouteTable -RouteTable $RouteTable
+
+    # Next, attach the route table to the subnet that hosts the VMs
+
+    Set-AzVirtualNetworkSubnetConfig -Name "Subnet01" -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/24" -RouteTable $RouteTable
+
+    Set-AzVirtualNetwork -VirtualNetwork $vnet
     ```
 3. 请转到存在激活问题的 VM。 使用 [PsPing](https://docs.microsoft.com/zh-cn/sysinternals/downloads/psping) 测试其是否能够访问 KMS 服务器：
 

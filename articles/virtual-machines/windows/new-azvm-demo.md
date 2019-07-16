@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: 020ff1433a1b80a6a6cdb1df151a931a58776207
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 5afb96a5c1aa911bb5d16d3e7069dbf7316e0f68
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427816"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569827"
 ---
 <!--Verify Successfully-->
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azvm-cmdlet-in-local-shell"></a>在本地 Shell 中使用简化的 New-AzVM cmdlet 创建 Windows 虚拟机 
@@ -102,5 +102,4 @@ Remove-AzResourceGroup -Name myResourceGroup
 > [!div class="nextstepaction"]
 > [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
-<!-- Update_Description: new article about new azvm demo-->
-<!--ms.date: 05/20/2019-->
+<!-- Update_Description: wording update -->

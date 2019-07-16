@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: b85f4af77373a84f243e6e9bc44b74c5c0cc9245
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: d80d2549d7cc9779f3a954e394ddc67ea5566abc
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046914"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562737"
 ---
 # <a name="application-map-triage-distributed-applications"></a>应用程序映射：会审分布式应用程序
 
@@ -94,7 +94,9 @@ ms.locfileid: "67046914"
 
 应用程序映射使用**云角色名称**属性来标识映射上的组件。 Application Insights SDK 会自动将云角色名称属性添加到组件发出的遥测数据。 例如，SDK 会将网站名称或服务角色名称添加到云角色名称属性。 但是，在某些情况下，你可能希望替代默认值。 若要替代云角色名称并更改要在应用程序映射上显示的内容，请如下所示进行操作：
 
-### <a name="net"></a>.NET
+### <a name="netnet-core"></a>.NET/.NET Core
+
+**按如下所示编写自定义 TelemetryInitializer。**
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -117,7 +119,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**加载初始值设定项**
+**将初始值设定项加载到活动 TelemetryConfiguration**
 
 在 ApplicationInsights.config 中：
 
@@ -131,7 +133,10 @@ namespace CustomInitializer.Telemetry
     </ApplicationInsights>
 ```
 
-另一种方法是在代码中实例化初始值设定项，例如在 Global.aspx.cs 中：
+> [!NOTE]
+> 使用 `ApplicationInsights.config` 添加初始值设定项对于 ASP.NET Core 应用程序无效。
+
+ASP.NET Web 应用程序的另一种方法是在代码中（例如在 Global.aspx.cs 中）实例化初始值设定项：
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -141,6 +146,17 @@ namespace CustomInitializer.Telemetry
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+    }
+```
+
+对于 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
     }
 ```
 
@@ -222,15 +238,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 1. 请确保你使用的是官方支持的 SDK。 不受支持的/社区 SDK 可能不支持关联。
 
-    有关受支持的 SDK 的列表，请参考此[文章](https://docs.microsoft.com/azure/application-insights/app-insights-platforms)。
+    有关受支持的 SDK 的列表，请参考此[文章](/azure-monitor/app/platforms)。
 
 2. 将所有组件都升级到最新 SDK 版本。
 
-3. 如果将 Azure Functions 与 C# 一起使用，请升级到 [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions)。
+3. 如果将 Azure Functions 与 C# 一起使用，请升级到 [Functions V2](/azure-functions/functions-versions)。
 
 4. 确认[云角色名称](#set-cloud-role-name)已正确配置。
 
-5. 如果缺少某个依赖项，请确保它在[自动收集的依赖项](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)列表中。 如果不在其中，也可以使用某个[跟踪依赖项调用](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)手动跟踪它。
+5. 如果缺少某个依赖项，请确保它在[自动收集的依赖项](/azure-monitor/app/auto-collect-dependencies)列表中。 如果不在其中，也可以使用某个[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
 
 ### <a name="too-many-nodes-on-the-map"></a>映射中存在过多的节点
 
@@ -244,7 +260,7 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 * 依赖项类型应代表依赖项的逻辑类型。 例如，HTTP、 SQL 或 Azure Blob 就是典型的依赖项类型。 它不应包含唯一 ID。
 
-* [上面的部分](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name)介绍了云角色名称的用途。
+* [上面的部分](/azure-monitor/app/app-map#set-cloud-role-name)介绍了云角色名称的用途。
 
 ## <a name="portal-feedback"></a>门户反馈
 
@@ -254,7 +270,7 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解关联](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* [了解关联](/azure-monitor/app/correlation)
 
 
 

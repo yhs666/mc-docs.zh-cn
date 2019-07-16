@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 6/4/2019
+ms.date: 7/2/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f043a8f6d21c06771ba755cfac3b5421f11b840b
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 058079cf8b0f57b04cac061fd932a4685c1de263
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236527"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562724"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>为 ASP.NET 网站设置 Application Insights
 
@@ -47,60 +47,6 @@ ms.locfileid: "67236527"
 （根据所用的 Application Insights SDK 版本，系统可能会提示升级到最新的 SDK 版本。 如果出现提示，请选择“更新 SDK”。） 
 
 ![屏幕截图：新版的 Azure Application Insights SDK 可用。 突出显示了“更新 SDK”](./media/asp-net/0002-update-sdk.png)
-
-### <a name="sdk-endpoint-modifications"></a>修改 SDK 终结点
-
-若要从此区域的 Application Insights 发送数据，需要修改 Application Insights SDK 使用的默认终结点地址。 每个 SDK 都需要进行稍有不同的修改。
-
-### <a name="net-with-applicationinsightsconfig"></a>使用 applicationinsights.config 的 .NET
-
-```xml
-<ApplicationInsights>
-  ...
-  <TelemetryModules>
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
-      <QuickPulseServiceEndpoint>https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc</QuickPulseServiceEndpoint>
-    </Add>
-  </TelemetryModules>
-    ...
-  <TelemetryChannel>
-     <EndpointAddress>https://dc.applicationinsights.azure.cn/v2/track</EndpointAddress>
-  </TelemetryChannel>
-  ...
-  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-    <ProfileQueryEndpoint>https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId</ProfileQueryEndpoint>
-  </ApplicationIdProvider>
-  ...
-</ApplicationInsights>
-```
-
-### <a name="net-core"></a>.NET Core
-
-按如下所示修改项目中的 appsettings.json 文件以调整主终结点：
-
-```json
-"ApplicationInsights": {
-    "InstrumentationKey": "instrumentationkey",
-    "TelemetryChannel": {
-      "EndpointAddress": "https://dc.applicationinsights.azure.cn/v2/track"
-    }
-  }
-```
-
-实时指标和配置文件查询终结点的值只能通过代码设置。 若要通过代码替代所有终结点值的默认值，请在 `Startup.cs` 文件的 `ConfigureServices` 方法中进行以下更改：
-
-```csharp
-using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
-
-   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc");
-
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId" }); 
-
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "https://dc.applicationinsights.azure.cn/v2/track" });
-
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
-```
 
 Application Insights 配置屏幕：
 
@@ -157,7 +103,8 @@ Visual Studio 中会显示已记录的事件数。
 
 ## <a name="step-4-publish-your-app"></a>步骤 4：发布应用
 将应用发布到 IIS 服务器或 Azure。 监视 [实时指标流](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) ，确保一切平稳运行。
-还可以使用功能强大的 [Kusto 查询语言](/azure/kusto/query/)来分析使用情况和性能，或查找特定的事件。
+
+遥测数据会在 Application Insights 门户中累积，可在该门户中监视指标、搜索遥测数据。 还可以使用功能强大的 [Kusto 查询语言](/azure/kusto/query/)来分析使用情况和性能，或查找特定的事件。
 
 还可以继续在 [Visual Studio](../../azure-monitor/app/visual-studio.md) 中借助诊断搜索和[趋势](../../azure-monitor/app/visual-studio-trends.md)等工具来分析遥测。
 

@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
@@ -14,24 +13,25 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 947b33c3d948b46abe5e74804e8c7a7c9f77e765
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 598955c27d0bb7459bf6f73da2f78c87119ecf7b
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151748"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568582"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-本快速入门包含了一个代码示例，该示例演示了本机 iOS 应用程序如何将个人、工作和学校帐户进行登录，获取访问令牌以及调用 Microsoft Graph API。
+本快速入门包含了一个代码示例，该示例演示了本机 iOS 应用程序如何将工作和学校帐户登录，获取访问令牌以及调用 Microsoft Graph API。
 
-![显示本快速入门生成的示例应用的工作原理](media/quickstart-v2-ios/ios-intro.svg)
+![显示本快速入门生成的示例应用的工作原理](./media/quickstart-v2-ios/ios-intro.svg)
 
 > [!NOTE]
 > **先决条件**
@@ -74,7 +74,7 @@ ms.locfileid: "67151748"
 > > [执行此更改]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已配置](media/quickstart-v2-ios/green-check.png) 应用程序已使用这些属性进行了配置
+> > ![已配置](./media/quickstart-v2-ios/green-check.png) 应用程序已使用这些属性进行了配置
 
 #### <a name="step-2-download-your-web-server-or-project"></a>步骤 2：下载 Web 服务器或项目
 
@@ -228,7 +228,7 @@ applicationContext.acquireToken(with: parameters) { (result, error) in /* Add yo
 
 > |其中：||
 > |---------|---------|
-> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
+> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `["https://microsoftgraph.chinacloudapi.cn/user.read"]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
 
 #### <a name="acquiretokensilent-getting-an-access-token-silently"></a>acquireTokenSilent：以无提示方式获取访问令牌
 
@@ -241,7 +241,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 > |其中： ||
 > |---------|---------|
-> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `[ "https://microsoftgraph.chinacloudapi.cn/user.read" ]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
+> | `scopes` | 包含所请求的范围（即针对 Microsoft Graph 的 `["https://microsoftgraph.chinacloudapi.cn/user.read"]` 或针对自定义 Web API (`api://<Application ID>/access_as_user`) 的 `[ "<Application ID URL>/scope" ]`） |
 > | `account` | 正在请求其令牌的帐户。 本快速入门是一个单帐户应用程序，若要生成多帐户应用，需要定义相应的逻辑来识别用于令牌请求的帐户 `applicationContext.account(forHomeAccountId: self.homeAccountId)` |
 
 ## <a name="next-steps"></a>后续步骤
@@ -255,3 +255,4 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in /* 
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+<!-- Update_Description: update metedata properties -->

@@ -11,25 +11,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 01/21/19
+ms.date: 06/14/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 745a802f57b6e780ea53b38f4cf5d096dede7853
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 1dc46b6c79502d3e51df34d2a31b71568932dd73
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731383"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562552"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>在混合环境中为 Linux 计算机配置 Log Analytics 代理
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可将物理或虚拟 Linux 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Linux 计算机中配置或收集数据。  有关 Azure Linux VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](quick-collect-azurevm.md)。  
+[Azure Log Analytics](../platform/agent-windows.md) 可将物理或虚拟 Linux 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。 本快速入门介绍如何通过几个简单步骤，从 Linux 计算机中配置或收集数据。  有关 Azure Linux VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](quick-collect-azurevm.md)。  
 
-若要了解支持的配置，请查看[支持的 Linux 操作系统](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)和[网络防火墙配置](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)。
+在继续之前，应首先查看 Log Analytics 代理[概述](../platform/log-analytics-agent.md)一文，以了解支持的配置、[支持的 Linux 操作系统](../platform/log-analytics-agent.md#supported-linux-operating-systems)和[网络防火墙配置](../platform/log-analytics-agent.md#network-firewall-requirements)。 
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。
 
-## <a name="log-in-to-azure-portal"></a>登录到 Azure 门户
-通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户。 
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
+在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。 
 
 ## <a name="create-a-workspace"></a>创建工作区
 1. 在 Azure 门户中，单击“所有服务”  。 在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”  。
@@ -42,7 +42,7 @@ ms.locfileid: "66731383"
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。  
-   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/log-analytics/)。
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
 
         ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
@@ -144,11 +144,6 @@ Log Analytics 可从 Linux Syslog 以及指定用于长期分析的性能计数�
 
 ## <a name="next-steps"></a>后续步骤
 从本地 Linux 计算机上收集操作和性能数据后，现在可轻松开始浏览、分析免费收集的数据，并对它们采取措施  。  
-
-若要了解如何查看和分析数据，请继续本教程。   
-
-> [!div class="nextstepaction"]
-> [在 Log Analytics 中查看或分析数据](../../azure-monitor/learn/tutorial-viewdata.md)
 
 
 

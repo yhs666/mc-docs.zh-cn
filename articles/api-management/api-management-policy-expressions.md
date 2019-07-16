@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/22/2019
 ms.author: v-yiso
-ms.date: 06/03/2019
-ms.openlocfilehash: 52f2c68410c9a075d45c242ed4139b0eca5a6d4b
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.date: 07/15/2019
+ms.openlocfilehash: b4e545a2c588da532df4dc774b6293ac8ad468a6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195043"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569649"
 ---
 # <a name="api-management-policy-expressions"></a>API 管理策略表达式
 本文讨论策略表达式语法 C# 7。 每个表达式都可以访问隐式提供的[上下文](api-management-policy-expressions.md#ContextVariables)变量以及允许的 .NET Framework 类型[子集](api-management-policy-expressions.md#CLRTypes)。
@@ -95,19 +95,19 @@ ms.locfileid: "66195043"
 |System.Byte|全部|
 |System.Char|全部|
 |System.Collections.Generic.Dictionary<TKey, TValue>|全部|
-|System.Collections.Generic.HashSet<T>|全部|
-|System.Collections.Generic.ICollection<T>|全部|
+|System.Collections.Generic.HashSet\<T>|全部|
+|System.Collections.Generic.ICollection\<T>|全部|
 |System.Collections.Generic.IDictionary<TKey, TValue>|全部|
-|System.Collections.Generic.IEnumerable<T>|全部|
-|System.Collections.Generic.IEnumerator<T>|全部|
-|System.Collections.Generic.IList<T>|全部|
-|System.Collections.Generic.IReadOnlyCollection<T>|全部|
+|System.Collections.Generic.IEnumerable\<T>|全部|
+|System.Collections.Generic.IEnumerator\<T>|全部|
+|System.Collections.Generic.IList\<T>|全部|
+|System.Collections.Generic.IReadOnlyCollection\<T>|全部|
 |System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|全部|
-|System.Collections.Generic.ISet<T>|全部|
+|System.Collections.Generic.ISet\<T>|全部|
 |System.Collections.Generic.KeyValuePair<TKey, TValue>|全部|
-|System.Collections.Generic.List<T>|全部|
-|System.Collections.Generic.Queue<T>|全部|
-|System.Collections.Generic.Stack<T>|全部|
+|System.Collections.Generic.List\<T>|全部|
+|System.Collections.Generic.Queue\<T>|全部|
+|System.Collections.Generic.Stack\<T>|全部|
 |System.Convert|全部|
 |System.DateTime|（构造函数）、Add、AddDays、AddHours、AddMilliseconds、AddMinutes、AddMonths、AddSeconds、AddTicks、AddYears、Date、Day、DayOfWeek、DayOfYear、DaysInMonth、Hour、IsDaylightSavingTime、IsLeapYear、MaxValue、Millisecond、Minute、MinValue、Month、Now、Parse、Second、Subtract、Ticks、TimeOfDay、Today、ToString、UtcNow、Year|
 |System.DateTimeKind|Utc|
@@ -211,26 +211,26 @@ ms.locfileid: "66195043"
 
 |上下文变量|允许的方法、属性和参数值|
 |----------------------|-------------------------------------------------------|
-|上下文|Api：IApi<br /><br /> 部署<br /><br /> Elapsed：TimeSpan - 时间戳值和当前时间之间的时间间隔<br /><br /> LastError<br /><br /> 操作<br /><br /> 产品<br /><br /> 请求<br /><br /> RequestId：Guid - 唯一请求标识符<br /><br /> 响应<br /><br /> 订阅<br /><br /> Timestamp：DateTime - 接收到请求的时间点<br /><br /> Tracing: bool - 指示跟踪是为打开还是关闭 <br /><br /> User<br /><br /> 变量：IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|
-|context.Api|Id：string<br /><br /> IsCurrentRevision：bool<br /><br />  Name：string<br /><br /> Path：string<br /><br /> Revision: string<br /><br /> ServiceUrl：IUrl<br /><br /> Version: string |
-|context.Deployment|Region：string<br /><br /> ServiceName：string<br /><br /> 证书：IReadOnlyDictionary<string, X509Certificate2>|
-|context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](api-management-error-handling-policies.md)。|
-|context.Operation|Id：string<br /><br /> Method: 字符串<br /><br /> Name：string<br /><br /> UrlTemplate：string|
-|context.Product|Api：IEnumerable<IApi\><br /><br /> ApprovalRequired：bool<br /><br /> 组：IEnumerable < IGroup\><br /><br /> Id：string<br /><br /> Name：string<br /><br /> State：enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
-|context.Request|正文：IMessageBody<br /><br /> 证书：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> 标头：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress：string<br /><br /> MatchedParameters：IReadOnlyDictionary<string, string><br /><br /> Method：string<br /><br /> OriginalUrl：IUrl<br /><br /> URL：IUrl|
-|string context.Request.Headers.GetValueOrDefault(headerName：string, defaultValue：string)|headerName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的请求标头值或 `defaultValue`。|
-|context.Response|正文：IMessageBody<br /><br /> 标头：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason：string|
-|string context.Response.Headers.GetValueOrDefault(headerName：string, defaultValue：string)|headerName: 字符串<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的响应标头值或 `defaultValue`。|
-|context.Subscription|CreatedTime：DateTime<br /><br /> EndDate:DateTime?<br /><br /> Id：string<br /><br /> Key：string<br /><br /> Name：string<br /><br /> PrimaryKey：string<br /><br /> SecondaryKey：string<br /><br /> StartDate:DateTime?|
-|context.User|Email：string<br /><br /> FirstName：string<br /><br /> 组：IEnumerable < IGroup\><br /><br /> Id：string<br /><br /> 标识：IEnumerable<IUserIdentity\><br /><br /> LastName：string<br /><br /> Note：string<br /><br /> RegistrationDate：DateTime|
-|IApi|Id：string<br /><br /> Name：string<br /><br /> Path：string<br /><br /> 协议：IEnumerable<string\><br /><br /> ServiceUrl：IUrl<br /><br /> SubscriptionKeyParameterNames：ISubscriptionKeyParameterNames|
-|IGroup|Id：string<br /><br /> Name: 字符串|
-|IMessageBody|As<T\>(preserveContent: bool = false):其中 T 为字符串、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法用于以指定的类型 `T` 读取请求和响应消息正文。 该方法默认使用原始消息正文流，并在返回后将其呈现为不可用。 要通过让该方法在正文流的副本上执行操作而避免这种情况，请将 `preserveContent` 参数设置为 `true`。 请转到[此处](api-management-transformation-policies.md#SetBody)查看示例。|
-|IUrl|Host：string<br /><br /> Path：string<br /><br /> Port：int<br /><br /> 查询：IReadOnlyDictionary<string, string[]><br /><br /> QueryString：string<br /><br /> Scheme：string|
-|IUserIdentity|Id：string<br /><br /> Provider：string|
-|ISubscriptionKeyParameterNames|Header：string<br /><br /> Query：string|
-|string IUrl.Query.GetValueOrDefault(queryParameterName：string, defaultValue：string)|queryParameterName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到参数，则会返回逗号分隔的查询参数值或 `defaultValue`。|
-|T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue:T)|variableName：string<br /><br /> defaultValue:T<br /><br /> 如果找不到变量，则会返回强制转换为 `T` 或 `defaultValue` 类型的变量值。<br /><br /> 如果指定的类型与已返回变量的实际类型不符，此方法会引发异常。|
+|上下文|[Api](#ref-context-api)：[IApi](#ref-iapi)<br /><br /> [部署](#ref-context-deployment)<br /><br /> Elapsed：TimeSpan - 时间戳值和当前时间之间的时间间隔<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [操作](#ref-context-operation)<br /><br /> [产品](#ref-context-product)<br /><br /> [请求](#ref-context-request)<br /><br /> RequestId：Guid - 唯一请求标识符<br /><br /> [响应](#ref-context-response)<br /><br /> [订阅](#ref-context-subscription)<br /><br /> 时间戳:DateTime - 接收到请求的时间点<br /><br /> Tracing: bool - 指示跟踪是为打开还是关闭 <br /><br /> [User](#ref-context-user)<br /><br /> [变量](#ref-context-variables)：IReadOnlyDictionary<string, object><br /><br /> void Trace(message：string)|
+|<a id="ref-context-api"></a>context.Api|Id：string<br /><br /> IsCurrentRevision：bool<br /><br />  Name：string<br /><br /> Path：string<br /><br /> Revision: string<br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> Version: string |
+|<a id="ref-context-deployment"></a>context.Deployment|Region：string<br /><br /> ServiceName：string<br /><br /> 证书：IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-lasterror"></a>context.LastError|Source：string<br /><br /> Reason：string<br /><br /> Message：string<br /><br /> Scope：string<br /><br /> Section：string<br /><br /> Path：string<br /><br /> PolicyId：string<br /><br /> 有关 context.LastError 的详细信息，请参阅[错误处理](api-management-error-handling-policies.md)。|
+|<a id="ref-context-operation"></a>context.Operation|Id：string<br /><br /> Method: 字符串<br /><br /> Name：string<br /><br /> UrlTemplate：string|
+|<a id="ref-context-product"></a>context.Product|Api：IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired：bool<br /><br /> 组：IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id：string<br /><br /> Name：string<br /><br /> State：enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit：int?<br /><br /> SubscriptionRequired：bool|
+|<a id="ref-context-request"></a>context.Request|正文：[IMessageBody](#ref-imessagebody) 或 `null`（如果请求没有正文）。<br /><br /> 证书：System.Security.Cryptography.X509Certificates.X509Certificate2<br /><br /> [标头](#ref-context-request-headers)：IReadOnlyDictionary<string, string[]><br /><br /> IpAddress：string<br /><br /> MatchedParameters：IReadOnlyDictionary<string, string><br /><br /> Method：string<br /><br /> OriginalUrl：[IUrl](#ref-iurl)<br /><br /> URL：[IUrl](#ref-iurl)|
+|<a id="ref-context-request-headers"></a>string context.Request.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的请求标头值或 `defaultValue`。|
+|<a id="ref-context-response"></a>context.Response|正文：[IMessageBody](#ref-imessagebody)<br /><br /> [标头](#ref-context-response-headers)：IReadOnlyDictionary<string, string[]><br /><br /> StatusCode：int<br /><br /> StatusReason：string|
+|<a id="ref-context-response-headers"></a>string context.Response.Headers.GetValueOrDefault(headerName: string, defaultValue: string)|headerName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到标头，则返回逗号分隔的响应标头值或 `defaultValue`。|
+|<a id="ref-context-subscription"></a>context.Subscription|CreatedTime：DateTime<br /><br /> EndDate:DateTime?<br /><br /> Id：string<br /><br /> Key：string<br /><br /> Name：string<br /><br /> PrimaryKey：string<br /><br /> SecondaryKey：string<br /><br /> StartDate:DateTime?|
+|<a id="ref-context-user"></a>context.User|Email：string<br /><br /> FirstName：string<br /><br /> 组：IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id：string<br /><br /> 标识：IEnumerable<[IUserIdentity](#ref-iuseridentity)\><br /><br /> LastName：string<br /><br /> Note：string<br /><br /> RegistrationDate：DateTime|
+|<a id="ref-iapi"></a>IApi|Id：string<br /><br /> Name：string<br /><br /> Path：string<br /><br /> 协议：IEnumerable<string\><br /><br /> ServiceUrl：[IUrl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames：[ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
+|<a id="ref-igroup"></a>IGroup|Id：string<br /><br /> Name：string|
+|<a id="ref-imessagebody"></a>IMessageBody|As<T\>(preserveContent: bool = false):其中 T 为字符串、JObject、JToken、JArray、XNode、XElement、XDocument<br /><br /> `context.Request.Body.As<T>` 和 `context.Response.Body.As<T>` 方法用于以指定的类型 `T` 读取请求和响应消息正文。 该方法默认使用原始消息正文流，并在返回后将其呈现为不可用。 要通过让该方法在正文流的副本上执行操作而避免这种情况，请将 `preserveContent` 参数设置为 `true`。 请转到[此处](api-management-transformation-policies.md#SetBody)查看示例。|
+|<a id="ref-iurl"></a>IUrl|Host：string<br /><br /> Path：string<br /><br /> Port：int<br /><br /> [查询](#ref-iurl-query)：IReadOnlyDictionary<string, string[]><br /><br /> QueryString：string<br /><br /> Scheme：string|
+|<a id="ref-iuseridentity"></a>IUserIdentity|Id：string<br /><br /> Provider：string|
+|<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header：string<br /><br /> Query：string|
+|<a id="ref-iurl-query"></a>string IUrl.Query.GetValueOrDefault(queryParameterName: string, defaultValue: string)|queryParameterName：string<br /><br /> defaultValue：string<br /><br /> 如果找不到参数，则会返回逗号分隔的查询参数值或 `defaultValue`。|
+|<a id="ref-context-variables"></a>T context.Variables.GetValueOrDefault<T\>(variableName: string, defaultValue:T)|variableName：string<br /><br /> defaultValue:T<br /><br /> 如果找不到变量，则会返回强制转换为 `T` 或 `defaultValue` 类型的变量值。<br /><br /> 如果指定的类型与已返回变量的实际类型不符，此方法会引发异常。|
 |BasicAuthCredentials AsBasic(input：this string)|input：string<br /><br /> 如果输入参数包含有效的 HTTP Basic Authentication 授权请求标头值，此方法会返回类型为 `BasicAuthCredentials` 的对象；否则，此方法会返回 null。|
 |bool TryParseBasic(input：this string, result：out BasicAuthCredentials)|input：string<br /><br /> result：out BasicAuthCredentials<br /><br /> 如果输入参数包含请求标头中的有效 HTTP Basic Authentication 授权值，此方法会返回 `true` 且结果参数会包含类型为 `BasicAuthCredentials` 的值；否则，此方法会返回 `false`。|
 |BasicAuthCredentials|Password：string<br /><br /> UserId：string|

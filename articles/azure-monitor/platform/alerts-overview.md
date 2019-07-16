@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: a60dd96e3eeb6ba9ec630966c7956f6c3168e49d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: da2b21103e302efc08c7d6103bfa3116f0e03c4c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731340"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562430"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
@@ -56,17 +56,18 @@ ms.locfileid: "66731340"
 
 ## <a name="what-you-can-alert-on"></a>可以报警的内容
 
-可以按照[监视数据源](../../azure-monitor/platform/data-sources-reference.md)中的说明，针对指标和日志发出警报。 这些检查包括但不限于：
+可以按照“监视数据源”中的说明，针对指标和日志发出警报。 这些检查包括但不限于：
 - 指标值
 - 日志搜索查询
 - 活动日志事件
 - 基础 Azure 平台的运行状况
 - 网址可用性测试
 
-以前为 Azure Monitor 指标、Application Insights、Log Analytics。 随着时间推移，Azure 改进并组合了用户界面和不同的警报方法。 此整合仍在进行中。 因此，仍有一些警报功能未出现在新的警报系统中。  
+以前，Azure Monitor 指标、Application Insights、Log Analytics 和服务运行状况都有单独的警报功能。 随着时间推移，Azure 改进并组合了用户界面和不同的警报方法。 此整合仍在进行中。 因此，仍有一些警报功能未出现在新的警报系统中。  
 
 | **监视器源** | **信号类型**  | **说明** | 
 |-------------|----------------|-------------|
+| 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
 | Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../../azure-monitor/app/monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
 
 ## <a name="manage-alerts"></a>管理警报
@@ -91,6 +92,8 @@ ms.locfileid: "66731340"
 ## <a name="alerts-experience"></a>警报体验 
 默认的“警报”页提供特定时间范围内创建的警报的摘要。 该页显示每种严重性的警报总数，列中会标识处于每种状态的、具有每种严重性的警报总数。 选择任一严重性可打开按该严重性筛选的“[所有警报](#all-alerts-page)”页。
 
+或者，可以[使用 REST API 以编程方式枚举在订阅上生成的警报实例](#manage-your-alert-instances-programmatically)。
+
 它不显示或跟踪旧的[经典警报](#classic-alerts)。 可以通过更改订阅或筛选器参数来更新页面。 
 
 ![“警报”页](media/alerts-overview/alerts-page.png)
@@ -99,7 +102,7 @@ ms.locfileid: "66731340"
 
 | 列 | 说明 |
 |:---|:---|
-| 订阅 | 最多可选择五个 Azure 订阅。 只有选定订阅中的警报才会包含在视图中。 |
+| 订阅 | 选择要查看其警报的 Azure 订阅。 （可选）可以选择你的所有订阅。 视图中仅包含你在所选订阅中有权访问的警报。 |
 | 资源组 | 选择单个资源组。 只有包含选定资源组中的目标的警报才会包含在视图中。 |
 | 时间范围 | 只有在选定时间范围内触发的警报才会包含在该视图中。 支持的值为过去 1 小时、过去 24 小时、过去 7 天和过去 30 天。 |
 
@@ -142,7 +145,7 @@ ms.locfileid: "66731340"
 
 | 列 | 说明 |
 |:---|:---|
-| 订阅 | 最多可选择五个 Azure 订阅。 只有选定订阅中的警报才会包含在视图中。 |
+| 订阅 | 选择要查看其警报的 Azure 订阅。 （可选）可以选择你的所有订阅。 视图中仅包含你在所选订阅中有权访问的警报。 |
 | 资源组 | 选择单个资源组。 只有包含选定资源组中的目标的警报才会包含在视图中。 |
 | 资源类型 | 选择一个或多个资源类型。 只有包含选定类型中的目标的警报才会包含在视图中。 仅在指定资源组后，才显示此列。 |
 | Resource | 选择资源。 只有包含该资源（作为目标）的警报才会包含在视图中。 仅在指定资源类型后，才显示此列。 |
@@ -154,7 +157,7 @@ ms.locfileid: "66731340"
 
 选择页面顶部的“列”可以选择要显示的列  。 
 
-## <a name="alert-detail-page"></a>“警报详细信息”页
+## <a name="alert-details-page"></a>“警报详细信息”页
 选择某个警报时，会显示“警报详细信息”页。 该页提供警报详细信息，并可在其中更改警报的状态。
 
 ![警报详细信息](media/alerts-overview/alert-detail2.png)
@@ -163,11 +166,34 @@ ms.locfileid: "66731340"
 
 | 部分 | 说明 |
 |:---|:---|
-| 概要 | 显示警报的属性和其他重要信息。 |
+| 摘要 | 显示警报的属性和其他重要信息。 |
 | 历史记录 | 列出警报执行的每个操作，以及对警报进行的任何更改。 目前仅限状态更改。 |
-| 智能组 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量  。 包括同一智能组中在过去 30 天内创建的其他警报，无论警报列表页面中的时间筛选器是什么。 选择某个警报以查看其详细信息。 |
-| 更多详细信息 | 显示警报的其他上下文信息，此信息通常特定于创建此警报的源类型。 |
+| 诊断 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量  。 包括同一智能组中在过去 30 天内创建的其他警报，无论警报列表页面中的时间筛选器是什么。 选择某个警报以查看其详细信息。 |
 
+## <a name="manage-your-alert-instances-programmatically"></a>以编程方式管理警报实例
+
+在许多情况下，你可能希望以编程方式查询针对订阅生成的警报。 这可以是在 Azure 门户之外创建自定义视图，也可以是分析警报以确定模式和趋势。
+
+可以使用[警报管理 REST API](https://aka.ms/alert-management-api) 或[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 查询针对订阅生成的警报。
+
+[用于警报的 Azure Resource Graph REST API](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) 允许你大规模地查询警报实例。 对于必须管理跨多个订阅生成的警报的情况，建议使用此 API。 
+
+以下对 API 的示例请求返回一个订阅中的警报计数：
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+可以查询警报的[“基本”](/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields)字段。
+
+[警报管理 REST API](https://aka.ms/alert-management-api) 可用于获取有关特定警报的详细信息，包括其[“警报上下文”](/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields)字段。
 
 ## <a name="classic-alerts"></a>经典警报 
 

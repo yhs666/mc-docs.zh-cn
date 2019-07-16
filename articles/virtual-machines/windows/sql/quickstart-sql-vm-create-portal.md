@@ -12,15 +12,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 origin.date: 05/11/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 17beae3d132b6a26ca16d22d330a044f01a863ed
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: b0f90de8cf63c20654438db5773d3e7a3f1e4f6e
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004101"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570252"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 
@@ -47,6 +47,9 @@ ms.locfileid: "66004101"
 1. 在 Azure 门户中，选择“创建资源”  。 
 
 1. 在搜索框中键入 `SQL Server 2017 Developer on Windows Server 2016` 并按 ENTER。
+
+    <!--Not Available on Expand the SQL Server 2017 on Windows Server 2016 option.-->
+    <!--MOONCAKE: ONLY ONE IMAGES Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016-->
 
 1. 选择“免费 SQL Server 许可证：  Windows Server 2016 上的 SQL Server 2017 Developer”映像。 本教程中使用 Developer 版，因为该版本是 SQL Server 的完整功能版本，并且可免费用于开发测试。 只需支付运行 VM 的成本。 有关完整的定价注意事项，请参阅 [SQL Server Azure VM 定价指南](virtual-machines-windows-sql-server-pricing-guidance.md)。
 
@@ -98,7 +101,7 @@ ms.locfileid: "66004101"
 
 ## <a name="sql-server-settings"></a>SQL Server 设置
 
-在“SQL Server 设置”窗口中配置以下选项。 
+在“SQL Server 设置”选项卡中配置以下选项  。
 
 1. 在“SQL 连接”下拉列表中，选择“公共(Internet)”。   这样，便可以通过 Internet 建立 SQL Server 连接。
 

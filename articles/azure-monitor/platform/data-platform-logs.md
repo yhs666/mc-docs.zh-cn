@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 12f1af224a76a4352985b51f97247ba69e9c1e91
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 99a84ebee065e447fd703c27ecbddf9378a615c8
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236385"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562395"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 
@@ -60,7 +60,7 @@ Application Insights 中的日志数据使用与工作区相同的 Log Analytics
 ![工作区](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>日志查询
-Azure Monitor 日志中的日志数据都是使用以 [Kusto 查询语言](../log-query/get-started-queries.md)编写的[日志查询](../log-query/log-query-overview.md)检索的，这使得你可以快速检索、合并和分析所收集的数据。 可以在 Azure 门户中使用 [Log Analytics](../log-query/portals.md) 编写和测试日志查询。 这可以通过交互方式使用结果，也可以将其固定到某个仪表板，与其他可视化效果一起查看。
+Azure Monitor 日志中的日志数据都是使用以 [Kusto 查询语言](../log-query/get-started-queries.md)编写的[日志查询](../log-query/log-query-overview.md)检索的，这使得你可以快速检索、合并和分析所收集的数据。 可以在 Azure 门户中使用 Log Analytics 编写和测试日志查询。 这可以通过交互方式使用结果，也可以将其固定到某个仪表板，与其他可视化效果一起查看。
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
@@ -79,7 +79,7 @@ Azure Monitor 可从 Azure 和本地资源中的各种源收集日志数据。 �
 | 数据 | 说明 |
 |:---|:---|
 | Azure Active Directory 审核日志 | 通过每个目录的诊断设置进行配置。 |
-| 活动日志 | 默认会单独存储，可用于近实时的警报。 安装 Activity Log Analytics 解决方案以将数据写入 Log Analytics 工作区。 参阅[收集和分析 Log Analytics 中的 Azure 活动日志](collect-activity-logs.md)。 |
+| 活动日志 | 默认会单独存储，可用于近实时的警报。 安装 Activity Log Analytics 解决方案以将数据写入 Log Analytics 工作区。 |
 
 ### <a name="azure-resources"></a>Azure 资源
 

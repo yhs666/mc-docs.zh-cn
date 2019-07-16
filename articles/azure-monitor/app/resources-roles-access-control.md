@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e2d973a25a35de30e99a43061d49f510555cd0c4
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: aa3c5e8a2b10afd7b1609316aaec3b3a2b231609
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235921"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562665"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的资源、角色和访问控制
 
@@ -60,7 +60,7 @@ ms.locfileid: "67235921"
 
 必须对订阅或资源组拥有所有者权限。
 
-用户必须具有 [Microsoft 帐户][account]，或对[组织 Microsoft 帐户](../../active-directory/fundamentals/sign-up-organization.md)的访问权限。 可以将访问权限提供给个人，也可以提供给 Azure Active Directory 中定义的用户组。
+用户必须具有 [Microsoft 帐户][account]，或对其[组织 Microsoft 帐户](../../active-directory/fundamentals/sign-up-organization.md)的访问权限。 可以将访问权限提供给个人，也可以提供给 Azure Active Directory 中定义的用户组。
 
 #### <a name="navigate-to-resource-group-or-directly-to-the-resource-itself"></a>导航到资源组或直接导航到该资源本身
 
@@ -90,7 +90,7 @@ ms.locfileid: "67235921"
 | [读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |可以查看但无法更改任何内容。 |
 | [Application Insights 快照调试器](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | 授予用户使用 Application Insights 快照调试器功能的权限。 请注意，此角色既不包含在所有者角色中，也不包含在参与者角色中。 |
 | Azure 服务部署版本管理参与者 | 通过 Azure 服务部署进行部署的服务的参与者角色。 |
-| [数据清除程序](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 清除个人数据的特殊角色。 有关更多信息，请参阅我们的[个人数据指南](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data)。   |
+| [数据清除程序](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | 清除个人数据的特殊角色。 有关更多信息，请参阅我们的[个人数据指南](/azure-monitor/platform/personal-data-mgmt)。   |
 | ExpressRoute 管理员 | 可以创建删除和管理快速路由。|
 | [Log Analytics 参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志收集、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。  |
 | [Log Analytics 读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |

@@ -4,23 +4,24 @@ description: 本文解答有关 Azure AD Connect 的常见问题。
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 11/02/2018
-ms.date: 12/05/2018
-ms.component: hybrid
+ms.topic: reference
+origin.date: 05/03/2019
+ms.date: 07/04/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 95c73bd88221a6a5e7b26f1315c0bdde1180237f
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c56e59c1b0b8a5a57fb8bab0b6723995f67f56cc
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028581"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568626"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Azure Active Directory Connect 常见问题解答
 
@@ -41,7 +42,7 @@ ms.locfileid: "53028581"
 **问：是否可对 Azure AD Connect 中的同一个 Active Directory 域使用多个连接器？**  
 否，不支持对同一个 AD 域使用多个连接器。 
 
-**问：是否可将 Azure AD Connect 数据库从本地数据库移到远程 SQL Server 实例？**   
+**问：是否可将 Azure AD Connect 数据库从本地数据库移到远程 SQL Server 实例？**    
 是的，以下步骤提供了此操作的一般指导。 我们目前正在努力编写更详细的文档。
 1. 备份 LocalDB ADSync 数据库。
 最简单的方法就是使用 Azure AD Connect 所在的同一台计算机上安装的 SQL Server Management Studio。 连接到 *(LocalDb).\ADSync*，然后备份 ADSync 数据库。
@@ -87,12 +88,15 @@ Azure AD Connect 不支持纯 IPv6 环境。
 **问：安装 Azure AD Connect 之后，是否支持重命名服务器？**  
 否。 更改服务器名称将导致同步引擎无法连接到 SQL 数据库实例，并且服务将无法启动。
 
+**问：已启用 FIPS 的计算机是否支持下一代加密 (NGC) 同步规则？**  
+否。  不支持。
+
 ## <a name="identity-data"></a>标识数据
 **问：Azure AD 中的 userPrincipalName (UPN) 属性为何与本地 UPN 不匹配？**  
 有关信息，请参阅以下文章：
 
-- [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)
-- [在将用户帐户的 UPN 更改为使用不同的联合域后，Azure Active Directory 同步工具未同步更改](https://support.microsoft.com/kb/2669550)
+* [Office 365、Azure 或 Intune 中的用户名与本地 UPN 或备用登录 ID 不匹配](https://support.microsoft.com/kb/2523192)
+* [在将用户帐户的 UPN 更改为使用不同的联合域后，Azure Active Directory 同步工具未同步更改](https://support.microsoft.com/kb/2669550)
 
 还可以根据 [Azure AD Connect 同步服务功能](how-to-connect-syncservice-features.md)中所述配置 Azure AD，以允许同步引擎更新 UPN。
 
@@ -110,10 +114,10 @@ Azure AD Connect 不支持纯 IPv6 环境。
 否。 此选项不会检索所有配置设置，因此不应使用。 请改用向导在第二台服务器上创建基础配置，并使用同步规则编辑器生成 PowerShell 脚本，如此即可在服务器之间移动任何自定义规则。 有关详细信息，请参阅[交叉迁移](how-to-upgrade-previous-version.md#swing-migration)。
 
 **问：是否可以为 Azure 登录页缓存密码，这是否会因为包含一个具有 *autocomplete = "false"* 属性的密码输入元素而阻止此缓存？**  
-目前不支持修改“密码”字段的 HTML 属性，包括 autocomplete 标记。 我们目前正在开发一种功能，它将允许使用自定义 JavaScript 向“密码”字段添加任何属性。
+目前不支持修改“密码”字段的 HTML 属性，包括 autocomplete 标记。  我们目前正在开发一种功能，它将允许使用自定义 JavaScript 向“密码”字段添加任何属性。 
 
 **问：Azure 登录页会显示之前已成功登录的用户的用户名。此行为是否可以关闭？**  
-目前不支持修改“密码”输入字段的 HTML 属性，包括 autocomplete 标记。 我们目前正在开发一种功能，它将允许使用自定义 JavaScript 向“密码”字段添加任何属性。
+目前不支持修改“密码”输入字段的 HTML 属性，包括 autocomplete 标记。  我们目前正在开发一种功能，它将允许使用自定义 JavaScript 向“密码”字段添加任何属性。 
 
 **问：是否有方法来阻止并发会话？**  
 否。
@@ -147,7 +151,7 @@ Azure AD Connect 不支持纯 IPv6 环境。
 不需要知道最初用来升级 Azure AD Connect 的用户名和密码。 可以使用任何具有全局管理员角色的 Azure AD 帐户。
 
 **问：如何确定所用 Azure AD Connect 的版本？**  
-若要确定安装在服务器上的 Azure AD Connect 的具体版本，请转到“控制面板”，然后选择“程序” > “程序和功能”并找到已安装的 Azure AD Connect 版本，如下所示：
+若要确定安装在服务器上的 Azure AD Connect 的具体版本，请转到“控制面板”，然后选择“程序” > “程序和功能”并找到已安装的 Azure AD Connect 版本，如下所示：  
 
 ![控制面板中的 Azure AD Connect 版本](./media/reference-connect-faq/faq1.png)
 
@@ -184,11 +188,13 @@ Azure AD Connect 服务偶尔会在升级以后无法启动。 在这种情况�
 ## <a name="troubleshooting"></a>故障排除
 **问：如何获取有关 Azure AD Connect 的帮助？**
 
-- 在知识库 (KB) 中搜索有关 Azure AD Connect 支持的常见故障维修服务问题的技术解决方案。
+[搜索 Microsoft 知识库 (KB)](https://www.microsoft.com/en-us/search/result.aspx?q=azure+active+directory+connect)
+
+* 在知识库 (KB) 中搜索有关 Azure AD Connect 支持的常见故障维修服务问题的技术解决方案。
 
 [Azure Active Directory 论坛](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD)
 
-- 转到 [Azure AD 社区](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)，搜索技术问题与答案，或提出自己的问题。
+* 转到 [Azure AD 社区](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)，搜索技术问题与答案，或提出自己的问题。
 
 [获取 Azure AD 支持](https://support.azure.cn/en-us/support/support-azure/)
 

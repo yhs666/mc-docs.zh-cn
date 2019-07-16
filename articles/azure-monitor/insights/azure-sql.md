@@ -10,12 +10,12 @@ ms.author: v-lingwu
 ms.reviewer: carlrab
 manager: digimobile
 ms.date: 04/12/19
-ms.openlocfilehash: 8c780e3bf87095f81ee38a6a942218479443ed13
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 75685e0fe3725592cd568046cffe64dd85db3cc8
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236538"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562631"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL Analytics（预览版）监视 Azure SQL 数据库
 
@@ -31,9 +31,10 @@ Azure SQL Analytics 是一种仅限云的监视解决方案，支持流式传输
 
 | 连接的源 | 支持 | 说明 |
 | --- | --- | --- |
-| [Azure 诊断](../platform/collect-azure-metrics-logs.md) | **是** | Azure 指标和日志数据由 Azure 直接发送到 Log Analytics。 |
-| [Azure 存储帐户](../platform/collect-azure-metrics-logs.md) | 否 | Log Analytics 不从存储帐户中读取数据。 |
+| [Azure 诊断](../platform/collect-azure-metrics-logs.md) | **是** | Azure 指标和日志数据将由 Azure 直接发送到 Azure Monitor 日志。 |
+| [Azure 存储帐户](../platform/collect-azure-metrics-logs.md) | 否 | Azure Monitor 不从存储帐户中读取数据。 |
 | [Windows 代理](../platform/agent-windows.md) | 否 | 该解决方案不使用直接 Windows 代理。 |
+| [Linux 代理](../learn/quick-collect-linux-computer.md) | 否 | 该解决方案不使用直接Linux 代理。 |
 
 ## <a name="configuration"></a>配置
 使用[从解决方案库中添加 Azure Monitor 解决方案](../../azure-monitor/insights/solutions.md)中所述的流程，将 Azure SQL Analytics（预览）解决方案添加到 Log Analytics 工作区。
@@ -48,9 +49,13 @@ Azure SQL Analytics 是一种仅限云的监视解决方案，支持流式传输
 
 ## <a name="using-the-solution"></a>使用解决方案
 
-将解决方案添加到工作区时，“Azure SQL Analytics”磁贴也会添加到工作区并显示在“概览”中。 该磁贴显示解决方案从中接收诊断遥测数据的 Azure SQL 数据库、弹性池、托管实例和托管实例中数据库的数目。
+将解决方案添加到工作区时，“Azure SQL Analytics”磁贴也会添加到工作区并显示在“概览”中。 选择“查看摘要”链接可加载磁贴内容。
 
-![“Azure SQL Analytics”磁贴](./media/azure-sql/azure-sql-sol-tile.png)
+![Azure SQL Analytics“摘要”磁贴](./media/azure-sql/azure-sql-sol-tile-01.png)
+
+加载后，该磁贴显示解决方案从其中接收诊断遥测数据的 Azure SQL 数据库、弹性池、托管实例和托管实例中数据库的数目。
+
+![“Azure SQL Analytics”磁贴](./media/azure-sql/azure-sql-sol-tile-02.png)
 
 该解决方案提供两个独立的视图 - 一个视图用于监视 Azure SQL 数据库和弹性池，另一个视图用于监视托管实例以及托管实例中的数据库。
 
@@ -182,7 +187,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 设置此警报的前提要求是受监视的数据库将诊断指标（“所有指标”选项）流式传输到解决方案。
+> - 设置此警报的前提要求是受监视的数据库将基本指标流式传输到解决方案。
 > - 若要改为获取高 DTU 结果，请将 MetricName 值 cpu_percent 替换为 dtu_consumption_percent。
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Azure SQL 数据库弹性池的 CPU 利用率较高
@@ -197,7 +202,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 设置此警报的前提要求是受监视的数据库将诊断指标（“所有指标”选项）流式传输到解决方案。
+> - 设置此警报的前提要求是受监视的数据库将基本指标流式传输到解决方案。
 > - 若要改为获取高 DTU 结果，请将 MetricName 值 cpu_percent 替换为 dtu_consumption_percent。
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Azure SQL 数据库存储在过去 1小时的平均值超过 95%
@@ -214,7 +219,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - 设置此警报的前提要求是受监视的数据库将诊断指标（“所有指标”选项）流式传输到解决方案。
+> - 设置此警报的前提要求是受监视的数据库将基本指标流式传输到解决方案。
 > - 此查询要求将警报规则设置为当存在来自查询的结果时（> 0 个结果，表示某些数据库上存在此条件）触发。 输出是在所定义的 time_range 内高于 storage_threshold 的数据库资源的列表。
 > - 输出是在所定义的 time_range 内高于 storage_threshold 的数据库资源的列表。
 
@@ -281,6 +286,7 @@ AzureDiagnostics
 ## <a name="next-steps"></a>后续步骤
 
 - 使用 [Azure Monitor 中的日志查询](../log-query/log-query-overview.md)查看详细的 Azure SQL 数据。
+- [创建自己的仪表板](../learn/tutorial-logs-dashboards.md)，显示 Azure SQL 数据。
 - 发生特定 Azure SQL 事件时[创建警报](../platform/alerts-overview.md)。
 
 

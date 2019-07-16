@@ -13,21 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd5124f278e61c60f647ffbafc62e4a9706eb532
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: b59473b10554aa16b10b4c59d01fbd2df9b50714
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151743"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568707"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>从通用 Windows 平台应用程序 (XAML) 调用 Microsoft 图形 API
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 本指南介绍本机通用 Windows 平台 (UWP) 应用程序如何请求访问令牌，然后调用 Microsoft 图形 API。 本指南也适用于其他需要从 Microsoft 标识平台终结点请求访问令牌的 API。
 
@@ -330,8 +329,10 @@ ms.locfileid: "67151743"
    - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。  
    - 选择“注册”  以创建应用程序。
 1. 在应用的“概述”页上，找到“应用程序(客户端) ID”值，并记下该值以供后续使用   。 返回 Visual Studio，打开 MainPage.xaml.cs，并将 ClientId 的值替换为刚刚记下的应用程序 ID  ：
-1. 在应用的页面列表中，选择“身份验证”  ：
-   - 在“重定向 URI” | “建议用于公共客户端(移动、桌面)的重定向 URI”部分中，勾选“urn:ietf:wg:oauth:2.0:oob”   
+1. 在应用的页面列表中，选择“身份验证”。 
+   1. 在“重定向 URI”  部分的重定向 URI 列表中：
+   1. 在“类型”  列中选择“公共客户端(移动和桌面)”  。
+   1. 在“重定向 URI”列中输入 `urn:ietf:wg:oauth:2.0:oob`  。
 1. 选择“其他安全性验证”  。
 1. 在应用的页面列表中，选择“API 权限” 
    - 单击“添加权限”  按钮，然后
@@ -385,7 +386,7 @@ ms.locfileid: "67151743"
 
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>有关作用域和委派权限的详细信息
 
-Microsoft Graph API 需要 https://microsoftgraph.chinacloudapi.cn/user.read  作用域来读取用户的配置文件。 Microsoft Graph 的其他 API 以及后端服务器的自定义 API 可能需要其他作用域。 Microsoft 图形 API 需要 *Calendars.Read* 作用域来列出用户的日历。
+Microsoft 图形 API 需要 *user.read* 作用域来读取用户的个人资料。 默认情况下，在门户中注册的每个应用程序中，都会自动添加此作用域。 Microsoft Graph 的其他 API 以及后端服务器的自定义 API 可能需要其他作用域。 Microsoft 图形 API 需要 *Calendars.Read* 作用域来列出用户的日历。
 
 若要在应用程序上下文中访问用户的日历，请将 *Calendars.Read* 委派权限添加到应用程序注册信息。 然后，将 *Calendars.Read* 作用域添加到 `acquireTokenSilent` 调用。
 
@@ -416,3 +417,4 @@ Microsoft Graph API 需要 https://microsoftgraph.chinacloudapi.cn/user.read  �
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
+<!-- Update_Description: wording update -->

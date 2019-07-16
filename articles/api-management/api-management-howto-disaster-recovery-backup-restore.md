@@ -11,27 +11,32 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 11/14/2018
+origin.date: 06/26/2019
 ms.author: v-yiso
-ms.date: 06/17/2019
-ms.openlocfilehash: 2c05dc0178548b2fbed6f1ff8a60dc6a22c4d66e
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 07/15/2019
+ms.openlocfilehash: 0f5917fe2a93b063b804bf69824f1f2b9c0fbb2b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732495"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569596"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>如何使用 Azure API 管理中的服务备份和还原实现灾难恢复
 
 通过 Azure API 管理来发布和管理 API，即可充分利用容错和基础结构功能，否则需手动设计、实现和管理这些功能。 Azure 平台通过花费少量成本消除大量潜在故障。
 
-若要从影响托管着 API 管理服务的区域的可用性问题中恢复，应随时准备好在另一区域中重建服务。 根据可用性目标和恢复时间目标，可能需要在一个或多个区域中保留备份服务。 也可尝试使其配置和内容与活动服务保持同步。 服务“备份和还原”功能为实现灾难恢复策略提供了必要的构建基块。
+若要从影响托管着 API 管理服务的区域的可用性问题中恢复，应随时准备好在另一区域中重建服务。 根据恢复时间目标，你可能希望在一个或多个区域中保留备用服务。 你还可以根据自己的恢复点目标，尝试将其配置和内容与活动服务保持同步。 服务备份和还原功能为实现灾难恢复策略提供必要的构建基块。
 
-本指南介绍如何对 Azure 资源管理器请求进行身份验证。 另外还介绍如何备份和还原 API 管理服务实例。
+备份和还原操作还可用于在操作环境（例如，开发环境和过渡环境）之间复制 API 管理服务配置。 请注意，运行时数据（如用户和订阅）也将被复制，这可能并不总是理想的。
 
-> [!NOTE]
-> 为灾难恢复备份和还原 API 管理服务实例的过程还可用于为暂存之类的方案复制 API 管理服务实例。
+本指南介绍如何自动执行备份和还原操作，以及如何确保 Azure 资源管理器成功验证备份和还原请求。
+
+> [!IMPORTANT]
+> 还原操作不会更改目标服务的自定义主机名配置。 我们建议对活动服务和备用服务使用相同的自定义主机名和 TLS 证书，以便在还原操作完成后，可以通过简单的 DNS CNAME 更改将流量重定向到备用实例。
 >
+> 备份操作不会捕获 Azure 门户的 Analytics 边栏选项卡上显示的报告中使用的预聚合日志数据。
+
+> [!WARNING]
 > 每个备份都会在 30 天后过期。 如果在 30 天有效期到期后尝试还原备份，还原会失败并显示 `Cannot restore: backup expired` 消息。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

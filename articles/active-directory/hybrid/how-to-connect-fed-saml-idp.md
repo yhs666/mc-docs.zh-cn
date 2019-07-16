@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect：使用 SAML 2.0 标识提供者进行单一登录 | Microsoft Docs
+title: Azure AD Connect：使用 SAML 2.0 标识提供者进行单一登录 - Azure
 description: 本文档介绍使用符合 SAML 2.0 的 Idp 进行单一登录。
 services: active-directory
 author: billmath
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/13/2017
-ms.date: 04/09/2019
+ms.date: 07/04/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad976ef9eaffdc68abccfc26434e9238a234d44
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: fe9b228e95fed7ad08553c2ae21c6cd24b5a2b2d
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355896"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568633"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>使用 SAML 2.0 标识提供者 (IdP) 进行单一登录
 
@@ -42,7 +42,7 @@ Microsoft 支持此登录体验，允许将 Azure 云服务（例如 Office 365�
 >     - Windows 8 邮件客户端和 Windows 8.1 邮件客户端
 >     - Windows 10 邮件客户端
 
-在使用 SAML 2.0 标识提供者的这个登录方案中，所有其他客户端均不可用。 例如，Lync 2010 桌面客户端无法登录到配置了 SAML 2.0 标识提供者的单一登录服务中。
+在使用 SAML 2.0 标识提供者的这个登录方案中，所有其他客户端均不可用。 例如，Lync 2010 桌面客户端不能登录到已将 SAML 2.0 标识提供者配置为进行单一登录的服务。
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Azure AD SAML 2.0 协议要求
 本文档包含与 Azure AD 一起进行联合身份验证以便登录到一个或多个 Azure 云服务（例如 Office 365）时，SAML 2.0 标识提供者必须实现的协议和消息格式设置的详细要求。 本方案中使用的 Azure 云服务的 SAML 2.0 信赖方 (SP-STS) 为 Azure AD。
@@ -72,8 +72,8 @@ Azure AD 在进行配置后可以用于标识提供者，后者使用 SAML 2.0 S
 绑定是所需的传输相关通信参数。 以下要求适用于绑定：
 
 1. HTTPS 是所需的传输。
-2. Azure AD 将需要使用 HTTP POST 在登录期间提交令牌。
-3. Azure AD 将使用 HTTP POST 向标识提供者提交身份验证请求，并使用 REDIRECT 向标识提供者发送“注销”消息。
+2.  Azure AD 将需要使用 HTTP POST 在登录期间提交令牌。
+3.  Azure AD 将使用 HTTP POST 向标识提供者提交身份验证请求，并使用 REDIRECT 向标识提供者发送“注销”消息。
 
 ## <a name="required-attributes"></a>必需属性
 下表显示了针对 SAML 2.0 消息中的特定属性的要求。
@@ -241,7 +241,7 @@ SAML 2.0 标识提供者需遵循有关 Azure AD 信赖方的信息要求。 Azu
       -LastName Folk 
       -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
       -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-      -UsageLocation "China North" 
+      -UsageLocation "CN"
     ```
 
 有关“New-MsolUser”签出的详细信息，请参阅：[https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx)
@@ -293,7 +293,7 @@ Microsoft 提供了一种工具，用于测试基于 SAML 2.0 的标识提供者
 若要验证单一登录是否已正确设置，请完成以下步骤：
 
 
-1. 在已加入域的计算机上，使用企业凭据所用的相同登录名称登录到云服务。
+1. 在已加入域的计算机上，使用用于公司凭据的相同登录名登录到云服务。
 2. 在密码框内单击。 如果设置了单一登录，则密码框会灰显，同时会显示以下消息：“你现在需在&lt;你的公司&gt;登录。”
 3. 单击&lt;你的公司&gt;链接中的登录。 如果能够登录，则已设置好单一登录。
 

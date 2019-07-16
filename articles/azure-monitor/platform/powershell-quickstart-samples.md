@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: b2635caac641a8596f5e395395b44171dbea6b32
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 5b03599116fa430223cc2f6f208587c3c59a0fd2
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586889"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562302"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Azure Monitor PowerShell 快速启动示例
 本文说明可帮助访问 Azure Monitor 功能的示例 PowerShell 命令。
@@ -42,6 +42,11 @@ Connect-AzAccount -Environment AzureChinaCloud
 Get-AzSubscription
 ```
 
+若要查看工作上下文（运行命令所针对的订阅），请使用以下命令：
+
+```powershell
+Get-AzContext
+```
 若要将工作环境更改为另一订阅，请使用以下命令：
 
 ```powershell
@@ -50,18 +55,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## <a name="retrieve-activity-log-for-a-subscription"></a>检索订阅的活动日志
-使用 `Get-AzLog` cmdlet。  下面是一些常见示例。
+使用 [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet。  下面是一些常见示例。 活动日志保留过去 90 天的操作。 使用此时间之前的日期会生成错误消息。  
+
+查看当前日期/时间，以确认要在以下命令中使用的时间：
+```powershell
+Get-Date
+```
 
 从此时间/日期中获取要显示的日志条目︰
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 在一个时间/日期范围中获取日志条目︰
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 从特定资源组中获取日志条目︰
@@ -85,13 +95,13 @@ Get-AzLog -Caller 'myname@company.com'
 以下命令从活动日志中检索最后 1000 个事件：
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` 支持许多其他参数。 有关详细信息，请参阅 `Get-AzLog` 参考文档。
 
 > [!NOTE]
-> `Get-AzLog` 仅提供 15 天的历史记录。 使用 **-MaxEvents** 参数可查询 15 天之外的最后 N 个事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果不包括 **StartTime**，则默认值为 **EndTime** 减去一小时。 如果不包括 **EndTime**，则默认值为当前时间。 所有时间均是 UTC 时间。
+> `Get-AzLog` 仅提供 15 天的历史记录。 使用 **-MaxRecords** 参数可查询 15 天之外的最后 N 个事件。 若要访问超过 15 天的事件，请使用 REST API 或 SDK（使用 SDK 的 C# 示例）。 如果不包括 **StartTime**，则默认值为 **EndTime** 减去一小时。 如果不包括 **EndTime**，则默认值为当前时间。 所有时间均是 UTC 时间。
 > 
 > 
 

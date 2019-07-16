@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9d42a5139ad3c1bc40a2b3d22756dcde7fef6929
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: a9126b3243c06f8608237eaa049d2be8aa107ea9
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555414"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570601"
 ---
 # <a name="about-azure-vm-backup"></a>关于 Azure VM 备份
 
-本文介绍 [Azure 备份服务](backup-introduction-to-azure-backup.md)如何备份 Azure 虚拟机 (VM)。
+本文介绍 [Azure 备份服务](backup-overview.md)如何备份 Azure 虚拟机 (VM)。
 
 ## <a name="backup-process"></a>备份过程
 
-下面描述 Azure 备份如何对 Azure VM 完成备份。
+下面介绍 Azure 备份如何对 Azure VM 完成备份：
 
 1. 对于选择进行备份的 Azure VM，Azure 备份服务将根据指定的备份计划启动备份作业。
 1. 首次备份期间，如果 VM 已运行，则会在 VM 上安装备份扩展。
@@ -125,7 +125,7 @@ Azure 备份根据备份计划创建快照。
 
 针对特定 VM 的计费仅在停止保护并且删除全部备份数据后才会停止。 当停止保护并且没有活动的备份作业时，最后一个成功的 VM 备份的大小将成为用于每月帐单的受保护实例大小。
 
-受保护实例大小计算基于 VM 的实际大小。 VM 的大小是 VM 中除临时存储以外的所有数据之和。 定价基于数据磁盘中存储的实际数据，而不是附加到 VM 的每个数据磁盘的最大支持大小。
+受保护实例大小计算基于 VM 的实际大小。  VM 的大小是 VM 中除临时存储以外的所有数据之和。 定价基于数据磁盘中存储的实际数据，而不是附加到 VM 的每个数据磁盘的最大支持大小。
 
 与此类似，备份存储的收费是基于 Azure 备份中存储的数据量，即每个恢复点中实际数据之和。
 
@@ -133,10 +133,10 @@ Azure 备份根据备份计划创建快照。
 
 **Disk** | **最大大小** | **实际存在的数据**
 --- | --- | ---
-操作系统磁盘 | 4095 GB | 17 GB 
-本地/临时磁盘 | 135 GB | 5 GB（不包括在备份中） 
-数据磁盘 1 | 4095 GB | 30 GB 
-数据磁盘 2 | 4095 GB | 0 GB 
+操作系统磁盘 | 4095 GB | 17 GB
+本地/临时磁盘 | 135 GB | 5 GB（不包括在备份中）
+数据磁盘 1 | 4095 GB | 30 GB
+数据磁盘 2 | 4095 GB | 0 GB
 
 此示例中，VM 的实际大小为 17 GB + 30 GB + 0 GB = 47 GB。 此受保护实例大小 (47 GB) 成为按月计费的基础。 随着 VM 中数据量的增长，用于计费的受保护实例大小也会相应变化。
 

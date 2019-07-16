@@ -1,30 +1,29 @@
 ---
 title: Azure AD 应用开发人员的支持和帮助选项 | Microsoft Docs
-description: 了解在创建与 Microsoft 标识（Azure Active Directory 和 Microsoft 帐户）集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持
+description: 了解在创建与 Microsoft 标识 (Azure Active Directory) 集成的应用程序时，如何获取所遇到的开发相关问题的帮助和支持
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/14/2019
-ms.date: 05/09/2019
+origin.date: 05/23/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
-ms.reviewer: jmprieur, dadobali
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe3b722945674fe30052d9245a323124684b46fc
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: a5ba28f59927c3539e7c937bc97e92d463d7d54f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517479"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568491"
 ---
 # <a name="support-and-help-options-for-developers"></a>开发人员的支持和帮助选项
 
@@ -49,7 +48,7 @@ ms.locfileid: "65517479"
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
 ```
 
-其中，*{Your Search Terms}* 对应于搜索关键字。
+其中， *{Your Search Terms}* 对应于搜索关键字。
 
 ## <a name="use-the-development-support-tools"></a>使用开发支持工具
 
@@ -69,6 +68,7 @@ Stack Overflow 是开发相关问题的首选渠道。 在这里，开发人员�
 | ADAL 库 | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | MSAL 库     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
 | OWIN 中间件  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Azure B2C](https://www.azure.cn/home/features/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
 | [Microsoft 图形 API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
 | 与身份验证或授权主题相关的其他任何方面 | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
@@ -81,10 +81,10 @@ Stack Overflow 中的以下帖子包含有关如何提问和如何添加源代�
 
 如果发现了与库相关的 Bug 或问题，请在 GitHub 存储库中提出问题。 由于我们的库是开源的，因此也可提交拉取请求。
 
-若要查看库及其 GitHub 存储库的列表，请参阅以下文章：
+有关库及其 GitHub 存储库的列表，请参阅以下内容：
 
 * [ADAL](active-directory-authentication-libraries.md) 库和 GitHub 存储库
-* [MSAL](reference-v2-libraries.md) 库和 GitHub 存储库
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)、[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md)、[MSAL.Android](https://github.com/AzureAD/microsoft-authentication-library-for-android) 和 [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 库和 GitHub 存储库
 
 ## <a name="open-a-support-request"></a>提出支持请求
 
@@ -94,7 +94,7 @@ Stack Overflow 中的以下帖子包含有关如何提问和如何添加源代�
 
 * 如果你不是 Azure 客户，也可以通过[我们的商业支持](https://support.microsoft.com/gp/contactus81?Audience=Commercial)向 Microsoft 提出支持请求。
 
-还可以尝试通过[虚拟代理](https://support.microsoft.com/contactus/?ws=support)获取支持或提出问题。
+还可以尝试通过[虚拟代理](https://www.azure.cn/support/contact/?ws=support)获取支持或提出问题。
 
 ### <a name="free-chat-support-for-a-limited-time"></a>获取限时免费聊天支持
 

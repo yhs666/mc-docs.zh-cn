@@ -4,18 +4,17 @@ description: 使用 Azure 备份服务器保护工作负荷或将其备份到 Az
 services: backup
 author: lingliw
 manager: digimobile
-keywords: Azure 备份服务器; 保护工作负荷; 备份工作负荷
 ms.service: backup
 ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 30b53d3afc2d31065044e685567e5d6a33d4c49c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1569ab30f08a013f7062b9988415f07f1ccd7373
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627356"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570520"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安装和升级 Azure 备份服务器 
 <a name="install-and-upgrade-azure-backup-server"></a>
@@ -32,7 +31,7 @@ ms.locfileid: "58627356"
 >
 >
 
-还可以在 Azure 中保护基础结构即服务 (IaaS) 工作负荷（例如 VM）。
+部署在 Azure VM 中的 MABS 可以备份 Azure 中的 VM，但它们应位于同一域中以启用备份操作。 备份 Azure VM 的过程仍与在本地备份 VM 的过程相同，但在 Azure 中部署 MABS 有一些限制。 有关限制的详细信息，请参阅 [DPM 作为 Azure 虚拟机](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure 有两种用于创建和使用资源的部署模型：[资源管理器部署模型和经典部署模型](../azure-resource-manager/resource-manager-deployment-model.md)。 本文提供有关还原使用 Resource Manager 模型部署的 VM 的信息和过程。
@@ -45,19 +44,18 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 若要启动并运行 Azure 备份服务器，首先要设置 Windows Server。 服务器可位于 Azure 中，也可位于本地。
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的服务器
-选择用于运行 Azure 备份服务器的服务器时，建议从 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的库映像着手。 [在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)一文提供了如何在 Azure 中开始使用建议的虚拟机的教程，即使以前从未使用过 Azure 也没关系。 建议服务器虚拟机 (VM) 最低要求应为：带 2 核、3.5 GB RAM 的 A2 标准。
+选择用于运行 Azure 备份服务器的服务器时，建议从 Windows Server 2012 R2 Datacenter、Windows Server 2016 Datacenter 或 Windows Server 2019 Datacenter 的库映像着手。 [在 Azure 门户中创建第一个 Windows 虚拟机](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)一文提供了如何在 Azure 中开始使用建议的虚拟机的教程，即使以前从未使用过 Azure 也没关系。 建议服务器虚拟机 (VM) 最低要求应为：Standard_A4_v2 具有四个核心和 8 GB RAM。
 
 使用 Azure 备份服务器保护工作负荷有许多细微差异需要注意。 可通过[将 DPM 安装为 Azure 虚拟机](https://technet.microsoft.com/library/jj852163.aspx)一文了解这些细微差异。 部署计算机前，请先阅读完本文。
 
 ### <a name="using-an-on-premises-server"></a>使用本地服务器
-如果不希望在 Azure 中运行基本服务器，则可以在 Hyper-V VM、VMware VM 或物理主机上运行服务器。 建议服务器硬件至少必须符合以下要求：双核和 4GB RAM。 下表列出了支持的操作系统：
+如果不希望在 Azure 中运行基本服务器，则可以在 Hyper-V VM、VMware VM 或物理主机上运行服务器。 建议服务器硬件至少必须符合以下要求：双核和 8 GB RAM。 下表列出了支持的操作系统：
 
 | 操作系统 | 平台 | SKU |
 |:--- | --- |:--- |
 | Windows Server 2019 |64 位 |Standard、Datacenter、Essentials（MABS V3 和更高版本） |
 | Windows Server 2016 和最新的 SP |64 位 |Standard、Datacenter、Essentials（MABS V2 和更高版本） |
 | Windows Server 2012 R2 和最新的 SP |64 位 |Standard、Datacenter、Foundation |
-| Windows Server 2012 和最新的 SP |64 位 |Datacenter、Foundation、Standard |
 | Windows Storage Server 2012 R2 和最新的 SP |64 位 |Standard、Workgroup |
 | Windows Storage Server 2012 和最新的 SP |64 位 |Standard、Workgroup |
 
@@ -82,8 +80,8 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
 若要编辑存储复制设置，请执行以下操作：
 
-1. 选择保管库以打开保管库仪表板和“设置”菜单。 如果“设置”菜单未打开，请在保管库仪表板中单击“所有设置”。
-2. 在“设置”菜单中，单击“备份基础结构” > “备份配置”，打开“备份配置”边栏选项卡。 在“备份配置”菜单中，选择保管库的存储复制选项。
+1. 选择保管库以打开保管库仪表板和“设置”菜单。 如果“设置”菜单未打开，请在保管库仪表板中单击“所有设置”   。
+2. 在“设置”菜单中，单击“备份基础结构” > “备份配置”，打开“备份配置”边栏选项卡     。 在“备份配置”菜单中，选择保管库的存储复制选项  。
 
     ![备份保管库列表](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
 
@@ -92,10 +90,10 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 ## <a name="software-package"></a>软件包
 ### <a name="downloading-the-software-package"></a>下载软件包
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 如果已打开恢复服务保管库，请转到步骤 3。 如果未打开恢复服务保管库，而是位于 Azure 门户中，请在主菜单中单击“浏览”。
+2. 如果已打开恢复服务保管库，请转到步骤 3。 如果未打开恢复服务保管库，而是位于 Azure 门户中，请在主菜单中单击“浏览”  。
 
-   * 在资源列表中，键入“恢复服务”。
-   * 开始键入时，会根据输入内容筛选该列表。 出现“恢复服务保管库”时，请单击它。
+   * 在资源列表中，键入“恢复服务”  。
+   * 开始键入时，会根据输入内容筛选该列表。 出现“恢复服务保管库”时，请单击它  。
 
      ![创建恢复服务保管库步骤 1](./media/backup-azure-microsoft-azure-backup/open-recovery-services-vault.png)
 
@@ -105,24 +103,24 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
      此时会打开选定的保管库仪表板。
 
      ![打开保管库边栏选项卡](./media/backup-azure-microsoft-azure-backup/vault-dashboard.png)
-3. 默认情况下会打开“设置”边栏选项卡。 如果“设置”边栏选项卡已关闭，请单击“设置”将它打开。
+3. 默认情况下会打开“设置”  边栏选项卡。 如果“设置”边栏选项卡已关闭，请单击“设置”  将它打开。
 
     ![打开保管库边栏选项卡](./media/backup-azure-microsoft-azure-backup/vault-setting.png)
-4. 单击“备份”打开“开始使用”向导。
+4. 单击“备份”  打开“开始使用”向导。
 
     ![备份入门](./media/backup-azure-microsoft-azure-backup/getting-started-backup.png)
 
-    在打开的“开始备份”边栏选项卡中，会自动选择“备份目标”。
+    在打开的“开始备份”  边栏选项卡中，会自动选择“备份目标”  。
 
     ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
-5. 在“备份目标”边栏选项卡中，从“工作负荷的运行位置”菜单中选择“本地”。
+5. 在“备份目标”  边栏选项卡中，从“工作负荷的运行位置”  菜单中选择“本地”  。
 
     ![用作目标的“本地”和“工作负荷”](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    从“希望备份什么内容?”下拉菜单上，选择想要使用 Azure 备份服务器保护的工作负荷，并单击“确定”。
+    从“希望备份什么内容?”  下拉菜单上，选择想要使用 Azure 备份服务器保护的工作负荷，并单击“确定”  。
 
-    “开始备份”向导可切换“准备基础结构”选项以将工作负荷备份到 Azure。
+    “开始备份”  向导可切换“准备基础结构”  选项以将工作负荷备份到 Azure。
 
    > [!NOTE]
    > 如果只想备份文件和文件夹，建议使用 Azure 备份代理，并遵循[初步了解：备份文件和文件夹](backup-configure-vault.md)一文中的指南。 如果要保护的不止是文件和文件夹，或者计划在将来扩大保护需求，请选择这些工作负荷。
@@ -131,18 +129,18 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
     ![快速启动向导更改](./media/backup-azure-microsoft-azure-backup/getting-started-prep-infra.png)
 
-6. 在打开的“准备基础结构”边栏选项卡中，单击用于安装 Azure 备份服务器和下载保管库凭据的“下载”链接。 在将 Azure 备份服务器注册到恢复服务保管库期间，请使用保管库凭据。 使用此链接转到“下载中心”，可从中下载软件包。
+6. 在打开的“准备基础结构”边栏选项卡中，单击用于安装 Azure 备份服务器和下载保管库凭据的“下载”链接   。 在将 Azure 备份服务器注册到恢复服务保管库期间，请使用保管库凭据。 使用此链接转到“下载中心”，可从中下载软件包。
 
     ![为 Azure 备份服务器准备基础结构](./media/backup-azure-microsoft-azure-backup/azure-backup-server-prep-infra.png)
 
-7. 选择所有文件，然后单击“下一步”。 下载 Azure 备份下载页中的所有文件，并将所有文件放在同一个文件夹中。
+7. 选择所有文件，然后单击“下一步”。  下载 Azure 备份下载页中的所有文件，并将所有文件放在同一个文件夹中。
 
     ![下载中心 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
     由于所有文件的下载大小合计超过了 3G，在 10Mbps 下载链路上可能需要 60 分钟才能完成下载。
 
 ### <a name="extracting-the-software-package"></a>解压缩软件包
-下载所有文件之后，单击 **MicrosoftAzureBackupInstaller.exe**。 这将启动“Azure 备份安装向导”，并将安装程序文件解压缩到指定的位置。 继续运行向导，然后单击“解压缩”按钮开始解压缩过程。
+下载所有文件之后，单击 **MicrosoftAzureBackupInstaller.exe**。 这将启动“Azure 备份安装向导”，并将安装程序文件解压缩到指定的位置。  继续运行向导，然后单击“解压缩”  按钮开始解压缩过程。
 
 > [!WARNING]
 > 至少需要有 4GB 的可用空间才能解压缩安装程序文件。
@@ -151,23 +149,23 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
 ![Azure 备份安装向导](./media/backup-azure-microsoft-azure-backup/extract/03.png)
 
-解压缩过程完成后，请选中相应的框，以启动刚刚解压缩的 *setup.exe* 来开始安装 Azure 备份服务器，然后单击“完成”按钮。
+解压缩过程完成后，请选中相应的框，以启动刚刚解压缩的 *setup.exe* 来开始安装 Azure 备份服务器，然后单击“完成”按钮。 
 
 ### <a name="installing-the-software-package"></a>安装软件包
-1. 单击“Azure 备份”启动安装向导。
+1. 单击“Azure 备份”启动安装向导。 
 
     ![Azure 备份安装向导](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. 在“欢迎”屏幕上单击“**下一步**”按钮。 随即会转到“先决条件检查”部分。 在此屏幕上单击“检查”，以确定是否符合 Azure 备份服务器的硬件和软件先决条件。 如果完全符合所有先决条件，将看到一条指明计算机符合要求的消息。 单击“**下一步**”按钮。
+2. 在“欢迎”屏幕上单击“**下一步**”按钮。 随即会转到“先决条件检查”部分。  在此屏幕上单击“检查”  ，以确定是否符合 Azure 备份服务器的硬件和软件先决条件。 如果完全符合所有先决条件，将看到一条指明计算机符合要求的消息。 单击“**下一步**”按钮。
 
     ![Azure 备份服务器 - 欢迎页和先决条件检查](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
-3. Azure 备份服务器需要 SQL Server Enterprise。 此外，如果你不想使用自己的 SQL，Azure 备份服务器安装包还会根据需要随附相应的 SQL Server 二进制文件。 在开始全新安装 Azure 备份服务器时，应该选择“使用此安装程序安装新的 SQL Server 实例”，然后单击“检查并安装”按钮。 成功安装必备组件后，单击“**下一步**”。
+3. Azure 备份服务器需要 SQL Server Enterprise。 此外，如果你不想使用自己的 SQL，Azure 备份服务器安装包还会根据需要随附相应的 SQL Server 二进制文件。 在开始全新安装 Azure 备份服务器时，应该选择“使用此安装程序安装新的 SQL Server 实例”  ，然后单击“检查并安装”  按钮。 成功安装必备组件后，单击“**下一步**”。
 
     ![Azure 备份服务器 - SQL 检查](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    如果发生故障并且系统建议重启计算机，请按说明操作，然后单击“再次检查”。 如果遇到任何 SQL 配置问题，请根据 SQL 指导原则重新配置 SQL，然后使用现有的 SQL 实例重试安装/升级 MABS。
+    如果发生故障并且系统建议重启计算机，请按说明操作，然后单击“再次检查”  。 如果遇到任何 SQL 配置问题，请根据 SQL 指导原则重新配置 SQL，然后使用现有的 SQL 实例重试安装/升级 MABS。
 
    > [!NOTE]
-   > Azure 备份服务器不能与远程 SQL Server 实例配合使用。 Azure 备份服务器使用的实例需在本地。 如果对 MABS 使用现有的 SQL Server，MABS 安装程序仅支持使用 SQL Server 的命名实例。
+   > Azure 备份服务器不能与远程 SQL Server 实例配合使用。 Azure 备份服务器使用的实例需在本地。 如果对 MABS 使用现有的 SQL Server，MABS 安装程序仅支持使用 SQL Server 的命名实例。 
 
    **手动配置**
 
@@ -186,15 +184,15 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
     [详细了解](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) SSRS 配置。
 
-4. 提供 Azure 备份服务器文件的安装位置，然后单击“下一步”。
+4. 提供 Azure 备份服务器文件的安装位置，然后单击“下一步”。 
 
     ![Azure 备份先决条件 2](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
     备份到 Azure 需要有暂存位置。 请确保暂存位置的空间至少为要备份到云的数据的 5%。 在磁盘保护方面，安装完成之后需要配置独立的磁盘。 有关存储池的详细信息，请参阅[配置存储池和磁盘存储](https://technet.microsoft.com/library/hh758075.aspx)。
-5. 为受限的本地用户帐户提供强密码，然后单击“下一步”。
+5. 为受限的本地用户帐户提供强密码，然后单击“下一步”  。
 
     ![Azure 备份先决条件 2](./media/backup-azure-microsoft-azure-backup/security-screen.png)
-6. 选择是否要使用 *Microsoft 更新*来检查更新，然后单击“下一步”。
+6. 选择是否要使用 *Microsoft 更新*来检查更新，然后单击“下一步”  。
 
    > [!NOTE]
    > 我们建议让 Windows 更新重定向到 Azure 更新，此网站为 Windows 和 Azure 备份服务器等其他产品提供了安全更新与重要更新。
@@ -202,7 +200,7 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
    >
 
     ![Azure 备份先决条件 2](./media/backup-azure-microsoft-azure-backup/update-opt-screen2.png)
-7. 复查“设置摘要”，然后单击“安装”。
+7. 复查“设置摘要”  ，然后单击“安装”  。
 
     ![Azure 备份先决条件 2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
 8. 安装会分阶段进行。 第一个阶段，会在服务器上安装 Azure 恢复服务代理。 向导还会检查 Internet 连接。 如果可以连接到 Internet，则可以继续安装，否则需要提供代理详细信息以连接到 Internet。
@@ -230,20 +228,20 @@ MABS 使用 System Center Data Protection Manager 保护代理。 [此处](https
 
 以下部分介绍如何更新客户端计算机的保护代理。
 
-1. 在备份服务器管理员控制台中，选择“管理” > “代理”。
+1. 在备份服务器管理员控制台中，选择“管理”   > “代理”  。
 
 2. 在显示窗格中，选择要为其更新保护代理的客户端计算机。
 
    > [!NOTE]
-   > “代理更新”列指示每个受保护计算机何时有保护代理更新可用。 在“操作”窗格中，仅当选择了受保护计算机并且有可用更新时，“更新”操作才可用。
+   > “代理更新”  列指示每个受保护计算机何时有保护代理更新可用。 在“操作”  窗格中，仅当选择了受保护计算机并且有可用更新时，“更新”  操作才可用。
    >
    >
 
-3. 若要在所选计算机上安装更新的保护代理，请在“操作”窗格中选择“更新”。
+3. 若要在所选计算机上安装更新的保护代理，请在“操作”  窗格中选择“更新”  。
 
-4. 对于未连接到网络的客户端计算机，在计算机连接到网络之前，“代理状态”列会显示“待更新”状态。
+4. 对于未连接到网络的客户端计算机，在计算机连接到网络之前，“代理状态”  列会显示“待更新”  状态。
 
-   在客户端计算机连接到网络之后，客户端计算机的“代理更新”列会显示“正在更新”状态。
+   在客户端计算机连接到网络之后，客户端计算机的“代理更新”  列会显示“正在更新”  状态。
 
 ## <a name="move-mabs-to-a-new-server"></a>将 MABS 移到新服务器
 
@@ -262,12 +260,13 @@ MABS 使用 System Center Data Protection Manager 保护代理。 [此处](https
 7. 还原步骤 1 中创建的 DPMDB。
 8. 将存储从原始备份服务器连接到新服务器。
 9. 从 SQL 还原 DPMDB
-10. 从新服务器 cd 的管理员命令行到 Azure 备份安装位置和 bin 文件夹
+10. 从新服务器 cd 的管理员命令行到 Microsoft Azure 备份安装位置和 bin 文件夹
 
-    路径示例：C:\windows\system32>cd "c:\Program Files\Azure Backup\DPM\DPM\bin\
-11. 到 Azure 备份运行 DPMSYNC - SYNC
-    
-    请注意，如果已将新磁盘添加到 DPM 存储池（而不是移动旧磁盘），请运行 DPMSYNC -Reallocatereplica
+    路径示例：C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+
+11. 若要进行 Azure 备份，请运行 DPMSYNC -SYNC
+
+    如果已将新磁盘添加到 DPM 存储池（而不是移动旧磁盘），请运行 DPMSYNC -Reallocatereplica
 
 ## <a name="network-connectivity"></a>网络连接
 Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若要验证计算机是否已连接到 Azure，请在 Azure 备份服务器 PowerShell 控制台中使用 ```Get-DPMCloudConnection``` cmdlet。 如果该 cmdlet 的输出为 TRUE，则表示已建立连接，否则表示未建立连接。
@@ -286,7 +285,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 | 连接断开超过 15 天 |已取消预配 |已停止 |已停止 |已停止且已删除 Azure 恢复点 |已停止 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
-如果防火墙或代理导致无法访问 Azure，需要将防火墙/代理配置文件中的以下域地址列入允许列表：
+如果防火墙或代理导致无法访问 Azure，则需要在防火墙/代理配置文件中允许以下域地址：
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com
@@ -297,9 +296,9 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 在 Azure 备份服务器计算机上还原与 Azure 的连接之后，可执行的操作取决于 Azure 订阅状态。 上表详细列出了有关计算机在“连接”之后允许的操作的信息。
 
 ### <a name="handling-subscription-states"></a>处理订阅状态
-可以将 Azure 订阅从“已过期”或“已取消预配”状态更改为“活动”状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
+可以将 Azure 订阅从“已过期”  或“已取消预配”  状态更改为“活动”  状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
 
-* “已取消预配”的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
+* “已取消预配”  的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
 * “*已过期*”的订阅只会在恢复“*活动*”状态之前失去功能。 在订阅处于“*已过期*”期间计划的任何备份都不会运行。
 
 ## <a name="upgrade-mabs"></a>升级 MABS
@@ -327,15 +326,15 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
    > 
    >  在升级到 SQL 2017 的过程中，我们会备份 SQL 加密密钥并卸载报告服务。 升级 SQL Server 后，将安装报告服务 (14.0.6827.4788) 并还原加密密钥。
    > 
-   > 手动配置 SQL 2017 时，请参阅“安装说明”下的“使用 SQL 2017 时的 SSRS 配置”部分。
+   > 手动配置 SQL 2017 时，请参阅“安装说明”下的“使用 SQL 2017 时的 SSRS 配置”部分。 
 
 3. 在受保护的服务器上更新保护代理。
 4. 备份应会继续，而无需重启生产服务器。
 5. 现在，可以开始保护数据。 如果在保护状态下升级到新式备份存储，则还可以选择备份要存储到的卷，并检查预配不足的空间。 [了解详细信息](backup-mabs-add-storage.md)。
 
 > [!NOTE]
-> 
-> 如果从 MABS V1 升级到 V2，请确保 OS 是 Windows Server 2016 或 Windows Server 2012 R2。 若要利用新功能（例如 System Center 2016 Data Protection Manager 新式备份存储），必须在 Windows Server 2016 上安装备份服务器 V2。 升级到或安装备份服务器 V2 之前，请阅读适用于 MABS 的[安装先决条件](https://docs.microsoft.com/zh-cn/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)。
+>
+> 如果从 MABS V1 升级到 V2，请确保 OS 是 Windows Server 2016 或 Windows Server 2012 R2。 若要利用新功能（例如 System Center 2016 Data Protection Manager 新式备份存储），必须在 Windows Server 2016 上安装备份服务器 V2。 升级到或安装备份服务器 V2 之前，请阅读适用于 MABS 的[安装先决条件](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)。
 
 ## <a name="troubleshooting"></a>故障排除
 如果 Azure 备份服务器在安装阶段（或者备份或还原时）失败并出现错误，请参阅此[错误代码文档](https://support.microsoft.com/kb/3041338)以获取详细信息。

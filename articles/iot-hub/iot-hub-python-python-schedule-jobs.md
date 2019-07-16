@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 02/16/2018
 ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: df9d5e6662216675dfa3e741f6eb4f8ef5b4bc05
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 9dfde3a6066c2217e31d4aa93ee2a645a4d6385f
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854909"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570547"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -33,30 +33,30 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 可在以下文章中了解有关所有这些功能的详细信息：
 
-* 设备孪生和属性：[设备孪生入门][lnk-get-started-twin]和[教程：如何使用设备孪生属性][lnk-twin-props]
-* 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods]和[教程：直接方法][lnk-c2d-methods]
+* 设备孪生和属性：[设备孪生入门][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
+* 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods] and [Tutorial: direct methods][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 本教程演示如何：
 
-* 创建一个 Python 模拟设备应用，该应用具有一种直接方法，使 lockDoor 能够由解决方案后端调用。
-* 创建 Python 控制台应用，它使用作业在模拟设备应用中调用 lockDoor 直接方法，并使用设备作业更新所需属性。
+* 创建一个 Python 模拟设备应用，该应用具有一种直接方法，使 lockDoor 能够由解决方案后端调用  。
+* 创建 Python 控制台应用，它使用作业在模拟设备应用中调用 lockDoor 直接方法，并使用设备作业更新所需属性  。
 
 在本教程结束时，会创建两个 Python 应用：
 
-simDevice.py，它使用设备标识连接到 IoT 中心并接收 lockDoor 直接方法。
+simDevice.py，它使用设备标识连接到 IoT 中心并接收 lockDoor 直接方法   。
 
-scheduleJobService.py，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性。
+scheduleJobService.py，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性  。
 
 要完成本教程，需要以下各项：
 
-* [Python 2.x 或 3.x][lnk-python-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip - Python 包管理系统][lnk-install-pip]。
+* [Python 2.x 或 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip]。
 * 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。）
 
 > [!NOTE]
-> Azure IoT SDK for Python 不直接支持作业功能。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。 
+> Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。 
 > 
 > 
 
@@ -73,17 +73,17 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="create-a-simulated-device-app"></a>创建模拟设备应用程序
-本部分将创建一个 Python 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法。
+本部分将创建一个 Python 控制台应用，用于响应通过云调用的方法，这会触发模拟 lockDoor 方法  。
 
-1. 在命令提示符处，运行以下命令以安装 azure-iot-device-client 包：
+1. 在命令提示符处，运行以下命令以安装 azure-iot-device-client 包  ：
    
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
 
-1. 使用文本编辑器，在工作目录中创建一个 simDevice.py 文件。
+1. 使用文本编辑器，在工作目录中创建一个 simDevice.py 文件  。
 
-1. 在 simDevice.py 文件的开头添加以下 `import` 语句和变量。 将 `deviceConnectionString` 替换为上述创建的设备的连接字符串：
+1. 在 simDevice.py 文件的开头添加以下 `import` 语句和变量  。 将 `deviceConnectionString` 替换为上述创建的设备的连接字符串：
    
     ```python
     import time
@@ -101,7 +101,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
     CONNECTION_STRING = "{deviceConnectionString}"
     ```
 
-1. 添加以下功能回调以处理 lockDoor 方法：
+1. 添加以下功能回调以处理 lockDoor 方法  ：
    
     ```python
     def device_method_callback(method_name, payload, user_context):
@@ -156,7 +156,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
         iothub_jobs_sample_run()
     ```
 
-1. 保存并关闭 simDevice.py 文件。
+1. 保存并关闭 simDevice.py 文件  。
 
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
@@ -165,17 +165,17 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
-在本部分中，将创建一个 Python 控制台应用，它使用直接方法在设备上启动远程 lockDoor 并更新设备孪生的属性。
+在本部分中，将创建一个 Python 控制台应用，它使用直接方法在设备上启动远程 lockDoor 并更新设备孪生的属性  。
 
-1. 在命令提示符处，运行以下命令以安装 azure-iot-service-client 包：
+1. 在命令提示符处，运行以下命令以安装 azure-iot-service-client 包  ：
    
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
 
-1. 使用文本编辑器，在工作目录中创建一个 scheduleJobService.py 文件。
+1. 使用文本编辑器，在工作目录中创建一个 scheduleJobService.py 文件  。
 
-1. 在 scheduleJobService.py 文件的开头添加以下 `import` 语句和变量：
+1. 在 scheduleJobService.py 文件的开头添加以下 `import` 语句和变量  ：
    
     ```python
     import sys
@@ -299,7 +299,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
         iothub_jobs_sample_run()
     ```
 
-1. 保存并关闭 scheduleJobService.py 文件。
+1. 保存并关闭 scheduleJobService.py 文件  。
 
 
 ## <a name="run-the-applications"></a>运行应用程序
@@ -327,11 +327,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 ## <a name="next-steps"></a>后续步骤
 在本教程中，使用了作业来安排用于设备的直接方法以及设备孪生属性的更新。
 
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
-
-[教程：固件更新方法][lnk-fwupdate]
-
-若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
+若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[如何更新固件](tutorial-firmware-update.md)。
 
 [lnk-get-started-twin]: iot-hub-python-twin-getstarted.md
 [lnk-twin-props]: tutorial-device-twins.md

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: f7389f9b1178fa88315539b49c5883059ad987fb
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: af1e4f25a7e8d5a39f8f349e2104560d7bff499c
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731187"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562356"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "66731187"
 
 ### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>问：新的日志体验和 Log Analytics 的区别在哪里？
 
-答：没有区别。 [Log Analytics 是作为一项功能集成到 Azure Monitor 中的](../../azure-monitor/azure-monitor-rebrand.md)，目的是提供更统一的监视体验。 Azure Monitor 中的新的日志体验与许多客户一直在使用的 Log Analytics 查询完全相同。
+答：没有区别。 Log Analytics 作为一项功能集成到 Azure Monitor 中，目的是提供更统一的监视体验。 Azure Monitor 中的新的日志体验与许多客户一直在使用的 Log Analytics 查询完全相同。
 
 ### <a name="q-can-i-still-use-log-search"></a>问：是否仍然可以使用日志搜索？ 
 
@@ -40,7 +40,7 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>问： 为何在新的日志体验中看不到“查询资源管理器”按钮和“保存”按钮？
 
-在特定资源的上下文中浏览日志时，“查询资源管理器”、“保存”和“设置警报”按钮不可用。    若要创建警报以及保存或加载查询，日志的范围必须局限于某个工作区。 若要在工作区上下文中打开日志，请选择“所有服务”   >   “监视” >   “日志”。 选择的是上次使用的工作区，但可以选择任何其他的工作区。 有关详细信息，请参阅[查看和分析 Log Analytics 中的数据](../log-query/portals.md)。
+在特定资源的上下文中浏览日志时，“查询资源管理器”、“保存”和“设置警报”按钮不可用。    若要创建警报以及保存或加载查询，日志的范围必须局限于某个工作区。 若要在工作区上下文中打开日志，请选择“所有服务”   >   “监视” >   “日志”。 选择的是上次使用的工作区，但可以选择任何其他的工作区。 有关详细信息，请参阅“查看和分析 Log Analytics 中的数据”。
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>问： 在新的日志体验中，如何提取自定义字段？ 
 
@@ -62,9 +62,6 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 
 答：若要查看 VM 日志，需获得存储 VM 日志的工作区的读取权限。 在这些示例中，管理员必须在 Azure 中为你授予相关权限。
 
-### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>问： 为什么我可以访问 OMS 门户中的工作区，但在 Azure 门户中却获得“你没有访问权限”错误？  
-
-答：若要访问 Azure 中的工作区，必须获得 Azure 权限。 在某些情况下，你可能没有相应的访问权限。 在这些情况下，管理员必须授予你 Azure 中的权限。
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>问： 为什么在日志中看不到“视图设计器”条目？ 
 答：视图设计器在日志中仅供分配了“参与者”权限或更高权限的用户使用。
@@ -82,7 +79,7 @@ A. 可以，Azure 中的“日志”页和高级分析门户基于相同的代�
 
 ### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>问： 为何无法在“美国中西部”区域创建工作区？ 
 
-答：此区域暂时有容量限制。 计划在 2019 年上半年解决此限制问题。
+答：此区域暂时有容量限制。 此限制计划将于 2019 年 9 月底予以解除。
 
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>问： Log Analytics 是否与 Azure 安全中心使用同一代理？
@@ -169,7 +166,7 @@ Log Analytics 通信流量使用的是公共对等 ExpressRoute 线路。
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>问： 有没有简单易用的方法将现有的 Log Analytics 工作区移到另一个 Log Analytics 工作区/Azure 订阅？
 
-A. `Move-AzureRmResource` Cmdlet 可以用来将 Log Analytics 工作区以及自动化帐户从一个 Azure 订阅移到另一个订阅。 有关详细信息，请参阅[移动 - AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx)。
+A. `Move-AzResource` Cmdlet 可以用来将 Log Analytics 工作区以及自动化帐户从一个 Azure 订阅移到另一个订阅。 有关详细信息，请参阅 [Move-AzResource](https://msdn.microsoft.com/library/mt652516.aspx)。
 
 也可在 Azure 门户中进行此更改。
 
@@ -234,7 +231,7 @@ A. 每个代理发送的数据量取决于：
 * 正在收集的日志和性能计数器的数量
 * 日志中的数据量
 
-一个好的方法就是利用免费定价层来搭载数台服务器并测量典型数据量。 总体使用情况显示在“使用情况”页。
+一个好的方法就是利用免费定价层来搭载数台服务器并测量典型数据量。
 
 对于能够运行 WireData 代理的计算机，可以使用以下查询了解正在发送的数据量：
 

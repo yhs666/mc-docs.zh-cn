@@ -9,12 +9,12 @@ ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 9ed6ff0477d8d9cd4f69c12982ad932116c6a16a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 8fe2a3e512ee3f28603c2dd3d842b86a5282d791
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731450"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562279"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>在 Azure Monitor 中监视使用情况和预估成本
 
@@ -25,7 +25,7 @@ ms.locfileid: "66731450"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/log-analytics/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/application-insights/) 等核心监视功能的使用情况。  对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
+在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/monitor/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/monitor/) 等核心监视功能的使用情况。  对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
 
 在此页上，用户可以查看过去 31 天的资源使用情况（按订阅聚合）。 “钻取”显示的是 31 天的使用趋势。 需要聚合大量的数据才能进行此估算，因此请耐心等待页面加载。
 
@@ -74,7 +74,7 @@ ms.locfileid: "66731450"
 
 ## <a name="new-pricing-model-and-operations-management-suite-subscription-entitlements"></a>新定价模型和 Operations Management Suite 订阅权利
 
-购买了 Azure Operations Management Suite E1 和 E2 的客户有资格享受 [Log Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite) 和 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-pricing) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
+购买了 Azure Operations Management Suite E1 和 E2 的客户有资格享受 [Application Insights](/azure-monitor/app/pricing) 的每节点数据引入权利。 若要在给定的订阅中享受 Log Analytics 工作区或 Application Insights 资源的这些权利： 
 
 - 该订阅的定价模型必须保持为 2018 年 4 月之前的定价模型。
 - Log Analytics 工作区应使用“按节点 (OMS)”定价层。
@@ -96,7 +96,7 @@ ms.locfileid: "66731450"
 成本估算显示了这些变化造成的影响。
 
 > [!WARNING]
-> 要注意的重要一点是，如果使用 Azure 资源管理器或 PowerShell 在订阅中部署 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-template-workspace-configuration) 或 [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-powershell)，则你已转移到新的定价模型。 如果为 Log Analytics 指定“按 GB 2018”以外的定价层/计划，或为 Application Insights 指定“基本”以外的定价层/计划，此部署不会由于指定了无效定价层/计划而失败，相反，此部署会成功，但它将仅使用有效的定价层/计划（这不适用于生成无效定价层消息的 Log Analytics 免费层）  。
+> 要注意的重要一点是，如果使用 Azure 资源管理器或 PowerShell 在订阅中部署 [Log Analytics](/azure-monitor/platform/template-workspace-configuration) 或 [Application Insights](/azure-monitor/app/powershell)，则你已转移到新的定价模型。 如果为 Log Analytics 指定“按 GB 2018”以外的定价层/计划，或为 Application Insights 指定“基本”以外的定价层/计划，此部署不会由于指定了无效定价层/计划而失败，相反，此部署会成功，但它将仅使用有效的定价层/计划（这不适用于生成无效定价层消息的 Log Analytics 免费层）  。
 >
 
 ## <a name="moving-to-the-new-pricing-model"></a>转移到新定价模型

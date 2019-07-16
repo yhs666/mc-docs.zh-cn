@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 147d6b23ec680f600440894e7621e89cb60ae84a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: dd644ab4e1df388b737ad0c023336faff905fe41
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731472"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562481"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 
@@ -26,7 +26,7 @@ ms.locfileid: "66731472"
 
 -   为相应的警报类型创建逻辑应用。
 
--   将相应警报类型的架构导入逻辑应用。
+-   将相应警报类型的示例有效负载导入到逻辑应用中。
 
 -   定义逻辑应用行为。
 
@@ -58,7 +58,7 @@ ms.locfileid: "66731472"
 
     ![使用示例有效负载](media/action-groups-logic-app/use-sample-payload-button.png "使用示例有效负载")
 
-8.  将以下示例架构复制并粘贴到对话框中。
+8.  将以下示例有效负载复制并粘贴到对话框中：
 
     ```json
         {
@@ -140,7 +140,7 @@ ms.locfileid: "66731472"
 Azure Service Health 条目包含在活动日志中。 创建警报的过程类似于[创建活动日志警报](#create-an-activity-log-alert-administrative)，但存在几处差别：
 
 - 步骤 1 至步骤 7 相同。
-- 步骤 8 中，为 HTTP 触发器使用以下示例架构：
+- 在步骤 8 中，对 HTTP 请求触发器使用以下示例有效负载：
 
     ```json
     {
@@ -228,7 +228,7 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
 创建指标警报的过程类似于[创建活动日志警报](#create-an-activity-log-alert-administrative)，但存在几处差别：
 
 - 步骤 1 至步骤 7 相同。
-- 步骤 8 中，为 HTTP 触发器使用以下示例架构：
+- 在步骤 8 中，对 HTTP 请求触发器使用以下示例有效负载：
 
     ```json
     {
@@ -281,11 +281,11 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
        
        ![“指标警报有效负载条件”](media/action-groups-logic-app/metric-alert-payload-condition.png "指标警报有效负载条件")
 
-  2. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
+  1. 在 **if true** 条件中，添加 **For each** 循环和 Microsoft Teams 操作。 使用 HTML 和动态内容的组合定义消息。
 
       ![“指标警报 true 件下的发布操作”](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "指标警报 true 件下的发布操作")
 
-  3. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
+  1. 在 **If false** 条件中定义一个 Microsoft Teams 操作，以指出指标警报不符合逻辑应用的预期。 包含 JSON 有效负载。 注意如何在 `json()` 表达式中引用 `triggerBody` 动态内容。
 
       ![“指标警报 false 条件下的发布操作”](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "指标警报 false 条件下的发布操作")
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 10/31/2018
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: afed8cdbd3d732cbca787335dd6a1ddae0330f9f
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 99d77d0d4922e28bd605c287dd4285d3b6e60549
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732660"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569722"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory-with-powershell"></a>使用 PowerShell 在 Azure 数据工厂中创建共享自承载集成运行时
 
@@ -38,7 +38,7 @@ ms.locfileid: "66732660"
 - **Azure PowerShell**。 请遵循[使用 PowerShellGet 在 Windows 上安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) 中的说明。 可使用 PowerShell 运行脚本来创建可与其他数据工厂共享的自承载集成运行时。 
 
 > [!NOTE]  
-> 若要查看目前提供数据工厂的 Azure 区域列表，请选择你感兴趣的区域：[可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)。
+> 若要查看目前提供数据工厂的 Azure 区域列表，请选择你感兴趣的区域：[可用产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=data-factory)。
 
 ## <a name="create-a-data-factory"></a>创建数据工厂
 
@@ -50,7 +50,7 @@ ms.locfileid: "66732660"
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
     $SubscriptionName = "[Azure subscription name]" 
     $ResourceGroupName = "[Azure resource group name]" 
-    $DataFactoryLocation = "ChinaEast" 
+    $DataFactoryLocation = "ChinaEast2" 
 
     # Shared Self-hosted integration runtime information. This is a Data Factory compute resource for running any activities 
     # Data factory name. Must be globally unique 
@@ -77,7 +77,7 @@ ms.locfileid: "66732660"
     > [!NOTE]  
     > 此步骤是可选的。 若已有数据工厂，请跳过此步骤。 
 
-    使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 ChinaEast 位置创建名为 `myResourceGroup` 的资源组： 
+    使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 ChinaEast2 位置创建名为 `myResourceGroup` 的资源组： 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

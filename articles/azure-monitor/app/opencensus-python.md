@@ -9,12 +9,12 @@ ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 99bfe29f28b83966e112201765e90b77c053fd94
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: f76a67da9a5e678b88fa9e9a7d209cba1ad1612f
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732170"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562682"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>从 Python（预览版）收集分布式跟踪
 
@@ -47,7 +47,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
    | **名称**      | 全局唯一值 | 标识所监视的应用的名称 |
    | **应用程序类型** | 常规 | 所监视的应用的类型 |
    | **资源组**     | MyResourceGroup      | 用于托管 App Insights 数据的新资源组的名称 |
-   | **位置** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
+   | **Location** | 美国东部 | 选择离你近的位置或离托管应用的位置近的位置 |
 
 2. 单击**创建**。
 
@@ -78,10 +78,12 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 ## <a name="opencensus-python-package"></a>OpenCensus Python 包
 
-1. 从命令行使用 pip 或 pipenv 安装用于 Python 的 Open Census 包：
+1. 从命令行使用 pip 或 pipenv 安装用于 Python 的 Open Census 包和导出程序：
 
-    ```python
+    ```console
     python -m pip install opencensus
+    python -m pip install opencensus-ext-ocagent
+
     # pip env install opencensus
     ```
 
@@ -127,7 +129,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
     ```python
     from opencensus.trace.tracer import Tracer
     from opencensus.trace import config_integration
-    from opencensus.trace.exporters.ocagent import trace_exporter
+    from opencensus.ext.ocagent.trace_exporter import TraceExporter
     from opencensus.trace import tracer as tracer_module
     
     import os
@@ -137,7 +139,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
             valuePrompt()
     
     def valuePrompt():
-        export_LocalForwarder = trace_exporter.TraceExporter(
+        export_LocalForwarder = TraceExporter(
         service_name=os.getenv('SERVICE_NAME', 'python-service'),
         endpoint=os.getenv('OCAGENT_TRACE_EXPORTER_ENDPOINT'))
         
@@ -152,13 +154,13 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 5. 如果保存上述模块并尝试运行它，可能会收到针对 `grpc` 的 `ModuleNotFoundError`。 如果发生这种情况，请运行以下命令，以便用其安装 [grpcio 包](https://pypi.org/project/grpcio/)：
 
-    ```
+    ```console
     python -m pip install grpcio
     ```
 
 6. 现在当你运行上述 Python 脚本时，系统仍会提示你输入值，但现在只有此值输出到 shell 中。
 
-7. 若要确认**本地转发器**是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](https://docs.microsoft.com/azure/application-insights/local-forwarder)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
+7. 若要确认**本地转发器**是否正在拾取跟踪，请检查 `LocalForwarder.config` 文件。 如果已按照[先决条件](/azure-monitor/app/app-insights-overview)中的步骤执行了操作，它将位于 `C:\LF-WindowsServiceHost` 中。
 
     在下面的日志文件图像中，可以看到在运行第二个脚本（已在其中添加了导出程序）之前，`OpenCensus input BatchesReceived` 为 0。 开始运行更新的脚本以后，`BatchesReceived` 根据我们输入的值的数目递增：
     

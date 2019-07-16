@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 53b9c2614c34d78234665867503667c89eb2823a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 0d9367cf54ee9a751f5f14b9fdd36903f1286a7d
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731462"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562332"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>存储在 Log Analytics 和 Application Insights 中的个人数据指南
 
@@ -74,8 +74,8 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
     | where timestamp > ago(1d)
     | project $table, timestamp, name, customDimensions 
     ```
-* *内存中和传输中数据*：Application Insights 会跟踪异常、请求、依赖项调用和跟踪。 私人数据通常可以在代码和 HTTP 调用级别收集。 查看异常、请求、依赖项和跟踪表中是否存在任何此类数据。 尽可能使用[遥测初始值设定项](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling)来混淆该数据。
-* *Snapshot Debugger 捕获*：使用 Application Insights 中的 [Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 功能时，只要在应用程序的生产实例上捕获某个异常，就可以收集调试快照。 快照会公开导致异常的完整堆栈跟踪，以及堆栈中每一步的本地变量的值。 遗憾的是，此功能不允许选择性地删除吸附点，也不允许以编程方式访问快照中的数据。 因此，如果默认的快照保留率不满足符合性要求，建议关闭此功能。
+* *内存中和传输中数据*：Application Insights 会跟踪异常、请求、依赖项调用和跟踪。 私人数据通常可以在代码和 HTTP 调用级别收集。 查看异常、请求、依赖项和跟踪表中是否存在任何此类数据。 尽可能使用[遥测初始值设定项](/azure-monitor/app/api-filtering-sampling)来混淆该数据。
+* *Snapshot Debugger 捕获*：使用 Application Insights 中的 [Snapshot Debugger](/azure-monitor/app/snapshot-debugger) 功能时，只要在应用程序的生产实例上捕获某个异常，就可以收集调试快照。 快照会公开导致异常的完整堆栈跟踪，以及堆栈中每一步的本地变量的值。 遗憾的是，此功能不允许选择性地删除吸附点，也不允许以编程方式访问快照中的数据。 因此，如果默认的快照保留率不满足符合性要求，建议关闭此功能。
 
 ## <a name="how-to-export-and-delete-private-data"></a>如何导出和删除私人数据
 
@@ -85,7 +85,10 @@ Log Analytics 是十分灵活的存储，可在规定数据架构的同时允许
 
 ### <a name="view-and-export"></a>查看和导出
 
-对于查看和导出数据请求，应使用 [Log Analytics 查询 API](https://dev.loganalytics.io/) 或 [Application Insights 查询 API](https://dev.applicationinsights.io/quickstart)。 将数据形状转换为适当形状以提供给用户时，将由你实现相关逻辑。 [Azure Functions](https://www.azure.cn/services/functions/) 非常适合托管此类逻辑。
+对于查看和导出数据请求，应使用 [Log Analytics 查询 API](https://dev.loganalytics.io/) 或 [Application Insights 查询 API](https://dev.applicationinsights.io/quickstart)。 将数据形状转换为适当形状以提供给用户时，将由你实现相关逻辑。
+
+> [!IMPORTANT]
+>  虽然绝大多数清除操作的完成速度可能比 SLA 快得多，但**完成清除操作的正式 SLA 设置为 30 天**，因为它们对所使用的数据平台产生了重大影响。 这是一个自动化过程；没有办法请求更快地处理操作。
 
 ### <a name="delete"></a>Delete
 

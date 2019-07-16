@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: b2ddc42127dcacc97632fa95a24d02e4f5f0668d
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 01ecf2985f6a62670a9c8b37778d93bba6cfa32d
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236399"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569958"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
@@ -39,7 +39,7 @@ ms.locfileid: "67236399"
 
 ### <a name="before-you-start"></a>开始之前
 
-- 如果不想使用 HTTPS，可以[禁用默认设置](backup-azure-backup-server-vmware.md#disable-secure-communication-protocol)。
+- 如果不想使用 HTTPS，可以[对所有 VMware 服务器禁用 HTTPS 证书验证](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)。
 - 通常，你会使用 vSphere Web 客户端从 Azure 备份服务器计算机上的浏览器连接到 vCenter/ESXi 服务器。 首次执行此操作时，连接并不安全，会显示以下消息。
 - 必须了解 Azure 备份服务器处理备份的方式。
     - Azure 备份服务器首先将数据备份到本地磁盘存储。 对于保护的数据，Azure 备份服务器将使用存储池，即，Azure 备份服务器用来存储磁盘恢复点的一组磁盘和卷。 该存储池可以是直接附加存储 (DAS)、光纤通道 SAN，或者 iSCSI 存储设备或 SAN。 必须确保为 VMware VM 数据的本地备份提供足够的存储空间。
@@ -101,7 +101,7 @@ ms.locfileid: "67236399"
 
 
 
-### 禁用默认 HTTPS <a name="disable-secure-communication-protocol"></a>
+### <a name="disable-https-certificate-validation"></a>禁用 HTTPS 证书验证
 
 如果你在组织中创建了安全边界并且不想要在 VMware 服务器与 Azure 备份服务器计算机之间使用 HTTPS 协议，请按如下所述禁用 HTTPS：
 1. 将以下文本复制并粘贴到 .txt 文件中。
@@ -353,6 +353,27 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 14. 在“摘要”页中检查设置，然后单击“创建组”。  
 
     ![保护组成员和设置摘要](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+
+## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
+
+若要备份 vSphere 6.7，请执行以下操作：
+
+- 在 DPM 服务器上启用 TLS 1.2
+  >[!Note]
+  >VMWare 6.7 及更高版本已启用 TLS 作为通信协议。
+
+- 按如下所示设置注册表项：  
+
+  Windows 注册表编辑器版本 5.00
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v2.0.50727] "SystemDefaultTlsVersions"=dword:00000001 "SchUseStrongCrypto"=dword:00000001
+
+  [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319] "SystemDefaultTlsVersions"=dword:00000001 s"SchUseStrongCrypto"=dword:00000001
+
 
 ## <a name="next-steps"></a>后续步骤
 

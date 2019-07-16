@@ -1,5 +1,5 @@
 ---
-title: Azure 中 Linux VM 的计划事件 | Azure
+title: Azure 元数据服务 - 适用于 Linux VM 的计划事件 | Azure
 description: 使用 Azure 元数据服务为 Linux 虚拟机计划事件。
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 18830ebec23af95a9087b206c8d43b6242303adc
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: b5d092180dc05135c5077779d847cf788215802f
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390879"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569675"
 ---
+<!--MOONCAKE: "Preempt" equal to low priority which not support on China-->
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
 
 计划事件是一个 Azure 元数据服务，可提供应用程序时间用于准备虚拟机 (VM) 维护。 它提供有关即将发生的维护事件的信息（例如重新启动），使应用程序可以为其准备并限制中断。 它可用于 Windows 和 Linux 上的所有 Azure 虚拟机类型（包括 PaaS 和 IaaS）。 
@@ -50,6 +51,7 @@ ms.locfileid: "66390879"
 - [平台启动的维护](/virtual-machines/linux/maintenance-and-updates)（例如 VM 重启、主机的实时迁移或内存保留更新）
 - 降级的硬件
 - 用户启动的维护（例如，用户重启或重新部署 VM）
+
 <!--Not Available on - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets-->
 
 ## <a name="the-basics"></a>基础知识  
@@ -76,7 +78,7 @@ ms.locfileid: "66390879"
 ### <a name="version-and-region-availability"></a>版本和区域可用性
 计划事件服务受版本控制。 版本是必需的，当前版本为 `2017-11-01`。
 
-| 版本 | 发布类型 | 区域 | 发行说明 | 
+| 版本 | 发布类型 | Regions | 发行说明 | 
 | - | - | - | - | 
 | 2017-08-01 | 正式版 | 全部 | <li> 已从 IaaS VM 的资源名称中删除前置下划线<br /><li>针对所有请求强制执行元数据标头要求 | 
 | 2017-03-01 | 预览 | 全部 | <li>初始版本
@@ -117,7 +119,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" ,
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -126,6 +128,8 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
     ]
 }
 ```
+
+<!--Not Available "Preempt" -->
 
 ### <a name="event-properties"></a>事件属性
 |属性  |  说明 |
@@ -147,7 +151,8 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 | 冻结| 15 分钟 |
 | 重新启动 | 15 分钟 |
 | 重新部署 | 10 分钟 |
-| Preempt | 30 秒 |
+
+<!--Not Available on | Preempt | 30 seconds |-->
 
 ### <a name="start-an-event"></a>启动事件 
 
@@ -219,6 +224,7 @@ if __name__ == '__main__':
 ## <a name="next-steps"></a>后续步骤 
 
 <!-- Not Available on [Scheduled Events on Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance) -->
+
 - 在 [Azure 实例元数据计划事件 GitHub 存储库](https://github.com/Azure-Samples/virtual-machines-scheduled-events-discover-endpoint-for-non-vnet-vm)中查看计划事件代码示例。
 - 详细了解[实例元数据服务](instance-metadata-service.md)中提供的 API。
 - [Azure 中 Linux 虚拟机的计划内维护](planned-maintenance.md)。

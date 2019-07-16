@@ -3,9 +3,8 @@ title: Microsoft 标识平台访问令牌参考 | Azure
 description: 了解 Azure AD v1.0 和 Microsoft 标识平台 (v2.0) 终结点发出的访问令牌。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/13/2019
-ms.date: 05/09/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac4c7b7b8401eefbdbeaa473d13b51bf868bbce
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 22de7c7f0efd2af9ca077b5b3644d1d22a99eb0f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517495"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568557"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -36,7 +35,7 @@ ms.locfileid: "65517495"
 请参阅以下部分，了解资源如何验证和使用访问令牌中的声明。
 
 > [!IMPORTANT]
-> 访问令牌是根据令牌的受众（即，拥有令牌中范围的应用程序）创建的。  如果在[应用清单](reference-app-manifest.md#manifest-reference)中将资源设置 `accessTokenAcceptedVersion` 指定为 `2`，则允许客户端调用 v1.0 终结点来接收 v2.0 访问令牌。  
+> 访问令牌是根据令牌的受众（即，拥有令牌中范围的应用程序）创建的。   如果在[应用清单](reference-app-manifest.md#manifest-reference)中将资源设置 `accessTokenAcceptedVersion` 指定为 `2`，则允许客户端调用 v1.0 终结点来接收 v2.0 访问令牌。  同样，这就是为什么更改客户端的访问令牌[可选声明](active-directory-optional-claims.md)不会更改为 `user.read` 请求令牌时收到的访问令牌的原因，该令牌归 MS Graph 资源所有。  
 > 
 
 ## <a name="sample-tokens"></a>示例令牌
@@ -89,7 +88,7 @@ JWT 拆分成三个部分：
 | 声明 | 格式 | 说明 |
 |-----|--------|-------------|
 | `aud` | 字符串，应用 ID URI | 标识令牌的目标接收方。 在访问令牌中，受众是在 Azure 门户中分配给应用的应用程序 ID。 应用应该验证此值并拒绝其值不匹配的令牌。 |
-| `iss` | 字符串，STS URI | 标识构造并返回令牌的安全令牌服务 (STS)，以及对用户进行身份验证的 Azure AD 租户。 如果颁发的令牌是 v2.0 令牌（请参阅 `ver` 声明），则 URI 将以 `/v2.0` 结尾。 表示用户是来自 Microsoft 帐户的使用者用户的 GUID 为 `9188040d-6c67-4c5b-b112-36a304b66dad`。 应用应该使用声明的 GUID 部分限制可登录应用的租户集（如果适用）。 |
+| `iss` | 字符串，STS URI | 标识构造并返回令牌的安全令牌服务 (STS)，以及对用户进行身份验证的 Azure AD 租户。 如果颁发的令牌是 v2.0 令牌（请参阅 `ver` 声明），则 URI 将以 `/v2.0` 结尾。 应用应该使用声明的 GUID 部分限制可登录应用的租户集（如果适用）。 |
 |`idp`| 字符串，通常是 STS URI | 记录对令牌使用者进行身份验证的标识提供者。 除非用户帐户与颁发者不在同一租户中，否则此值与颁发者声明的值相同 - 例如，来宾。 如果声明不存在，则意味着可以改用 `iss` 的值。  |  
 | `iat` | int，UNIX 时间戳 | “Issued At”表示针对此令牌进行身份验证的时间。 |
 | `nbf` | int，UNIX 时间戳 | “nbf”（不早于）声明指定只能在哪个时间之后接受 JWT 的处理。 |
@@ -108,7 +107,7 @@ JWT 拆分成三个部分：
 | `wids` | [RoleTemplateID](/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) GUID 的数组 | 表示在[管理员角色页](/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids)中的角色部分分配给此用户的租户级角色。  此声明是通过[应用程序清单](reference-app-manifest.md)的 `groupMembershipClaims` 属性按应用程序定义的。  必须将其设置为“All”或“DirectoryRole”。  由于令牌长度方面的原因，它在通过隐式流获取的令牌中可能不存在。 |
 | `groups` | GUID 的 JSON 数组 | 指定表示使用者的组成员身份的对象 ID。 这些值具有唯一性（请参阅对象 ID），可安全地用于管理访问，例如强制要求授权访问资源。 组声明中包含的组通过[应用程序清单](reference-app-manifest.md)的 `groupMembershipClaims` 属性基于每个应用程序进行配置。 值为 null 将排除所有组；值为“SecurityGroup”将只包括 Active Directory 安全组成员身份；值为“All”将包括安全组和 Office 365 通讯组列表。 <br><br>有关将 `groups` 声明与隐式授权一起使用的详细信息，请参阅下文中的 `hasgroups` 声明。 <br>对于其他流，如果用户所在的组数超出了某个限制（对于 SAML，为 150，对于 JWT，为 200），则会将超额声明添加到指向包含该用户的组列表的 AAD Graph 终结点的声明源。 |
 | `hasgroups` | 布尔 | 如果存在，始终为 `true`，表示用户至少在一个组中。 如果完整组声明将导致 URI 片段超出 URL 长度限制（当前为 6 个或更多组），则在隐式授权流中用来替代 JWT 的 `groups` 声明。 指示客户端应当使用 Graph 来确定用户的组 (`https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects`)。 |
-| `groups:src1` | JSON 对象 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。 对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br>JWT 值示例： <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `groups:src1` | JSON 对象 | 对于长度不受限制（参阅上文中的 `hasgroups`）但对于令牌而言仍然太大的令牌请求，将包括指向用户的完整组列表的链接。 对于 JWT，作为分布式声明；对于 SAML，作为新声明替代 `groups` 声明。 <br><br>JWT 值示例：  <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.chinacloudapi.cn/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `sub` | 字符串，GUID | 令牌针对其断言信息的主体，例如应用的用户。 此值固定不变，无法重新分配或重复使用。 可使用它安全地执行授权检查（例如，使用令牌访问资源时），并可将它用作数据库表中的键。 由于使用者始终会在 Azure AD 颁发的令牌中存在，我们建议在通用授权系统中使用此值。 但是，使用者是成对标识符 - 它对特定应用程序 ID 是唯一的。 因此，如果单个用户使用两个不同的客户端 ID 登录到两个不同的应用，这些应用将收到两个不同的使用者声明值。 这不一定是所需的，具体取决于体系结构和隐私要求。 另请参阅 `oid` 声明（在租户中的应用之间确实会保持相同）。 |
 | `oid` | 字符串，GUID | 在 Microsoft 标识平台中，对象的不可变标识符在这种情况下是用户帐户。 还可以使用它安全地执行授权检查，并将它用作数据库表中的键。 此 ID 唯一标识应用程序中的用户 - 同一个用户登录两个不同的应用程序会在 `oid` 声明中收到相同值。 因此，对 Microsoft 联机服务（例如 Microsoft Graph）发出查询时可以使用 `oid`。 Microsoft Graph 将返回此 ID 作为给定用户帐户的 `id` 属性。 因为 `oid` 允许多个应用关联用户，需要 `profile` 作用域才能收到此声明。 请注意，如果单个用户存在于多个租户中，该用户将包含每个租户中的不同对象 ID - 它们将视为不同帐户，即使用户使用相同的凭据登录到每个帐户，也是如此。 |
 | `tid` | 字符串，GUID | 表示用户所在的 Azure AD 租户。 对于工作和学校帐户，该 GUID 就是用户所属组织的不可变租户 ID。 需要 `profile` 范围才能接收此声明。 |
@@ -119,7 +118,7 @@ JWT 拆分成三个部分：
 
 #### <a name="v10-basic-claims"></a>v1.0 基本声明
 
-以下声明将包含在 v1.0 令牌中（如果适用），默认不会包含在 v2.0 令牌中。 
+以下声明将包含在 v1.0 令牌中（如果适用），默认不会包含在 v2.0 令牌中。 如果使用 v2.0 并需要其中的某个声明，请使用[可选声明](active-directory-optional-claims.md)来请求它们。
 
 | 声明 | 格式 | 说明 |
 |-----|--------|-------------|
@@ -159,7 +158,7 @@ Azure AD 中间件具有验证访问令牌的内置功能，可以浏览我们�
 
 ### <a name="validating-the-signature"></a>验证签名
 
-JWT 包含三个段（以 `.` 字符分隔）。 第一个段称为标头，第二个称为主体，第三个称为签名。 签名段可用于验证令牌的真实性，使令牌可获得应用的信任。
+JWT 包含三个段（以 `.` 字符分隔）。 第一个段称为标头，第二个称为主体，第三个称为签名。    签名段可用于验证令牌的真实性，使令牌可获得应用的信任。
 
 Azure AD 颁发的令牌已使用行业标准非对称式加密算法（例如 RSA 256）进行签名。 JWT 的标头包含用于签名令牌的密钥和加密方法的相关信息：
 
@@ -193,7 +192,7 @@ https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configur
 > [!NOTE]
 > V1.0 终结点返回 `x5t` 和 `kid` 声明，尽管 v2.0 终结点仅使用 `kid` 声明进行响应。 从目前开始，我们建议使用 `kid` 声明来验证令牌。
 
-执行签名验证超出了本文档的范围 - 有许多开源库可帮助你执行验证（如有必要）。
+执行签名验证超出了本文档的范围 - 有许多开源库可帮助你执行验证（如有必要）。  但是，Microsoft 标识平台具有标准的一个令牌签名扩展 - 自定义签名密钥。  
 
 ### <a name="claims-based-authorization"></a>基于声明的授权
 
@@ -204,7 +203,7 @@ https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configur
 * 使用 `appidacr` 验证调用方客户端的身份验证状态 - 如果不允许公共客户端调用你的 API，则值不应该是 0。
 * 根据以往的 `nonce` 声明列表进行检查，以验证令牌是否未重放。
 * 检查 `tid` 是否与允许调用该 API 的租户相匹配。
-* 使用 `acr` 声明验证已执行 MFA 的用户。 应使用条件访问强制实施此步骤。
+* 使用 `acr` 声明验证已执行 MFA 的用户。 
 * 如果在访问令牌中请求了 `roles` 或 `groups` 声明，请验证用户是否在允许执行此操作的组中。
   * 对于使用隐式流检索的令牌，可能需要在 [Microsoft Graph](https://developer.microsoft.com/graph/) 中查询此数据，因为该数据通常很庞大，无法放到令牌中。
 

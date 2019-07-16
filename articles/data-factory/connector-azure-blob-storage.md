@@ -8,14 +8,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: a6879c21af8f159ab86588ec02db94902de38a73
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 79d3fd8574e416585bc3c85d99ac45a12a36d019
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732600"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570596"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure Blob 存储复制数据
 
@@ -24,6 +24,12 @@ ms.locfileid: "66732600"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="supported-capabilities"></a>支持的功能
+
+以下活动支持此 Azure Blob 连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
+- [GetMetadata 活动](control-flow-get-metadata-activity.md)
 
 具体而言，此 Blob 存储连接器支持：
 
@@ -51,7 +57,10 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
 - [Azure 资源的托管标识身份验证](#managed-identity)
 
 >[!NOTE]
->HDInsights、Azure 机器学习和 Azure SQL 数据仓库 PolyBase 负载仅支持 Azure Blob 存储帐户密钥身份验证。
+>使用 PolyBase 将数据载入 SQL 数据仓库时，如果源或暂存 Blob 存储配置了虚拟网络终结点，则必须按照 PolyBase 的要求使用托管标识身份验证，并使用版本 3.18 或更高版本的自承载集成运行时。 请参阅[托管标识身份验证](#managed-identity)部分，其中介绍了更多配置先决条件。
+
+>[!NOTE]
+>HDInsights 活动仅支持 Azure Blob 存储帐户密钥身份验证。
 
 ### <a name="account-key-authentication"></a>帐户密钥身份验证
 
@@ -76,7 +85,7 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>;EndpointSuffix=core.chinacloudapi.cn"
             }
         },
         "connectVia": {
@@ -97,7 +106,7 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;"
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;EndpointSuffix=core.chinacloudapi.cn"
             },
             "accountKey": { 
                 "type": "AzureKeyVaultSecret", 
@@ -126,7 +135,7 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
 
 > [!TIP]
 > 若要为存储帐户生成服务共享访问签名，可以执行以下 PowerShell 命令。 请替换占位符并授予所需的权限。
-> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey>`
+> `$context = New-AzStorageContext -StorageAccountName <accountName> -StorageAccountKey <accountKey> -Endpoint chinacloudapi.cn`
 > `New-AzStorageContainerSASToken -Name <containerName> -Context $context -Permission rwdl -StartTime <startTime> -ExpiryTime <endTime> -FullUri`
 
 若要使用共享访问签名身份验证，需支持以下属性：
@@ -202,7 +211,13 @@ Azure Blob 连接器支持以下身份验证类型，有关详细信息，请参
 
 若要使用服务主体身份验证，请执行以下步骤：
 
-授予服务主体在 Azure Blob 存储中的适当权限。 有关角色的更多详细信息，请参阅[使用 RBAC 管理 Azure 存储数据的访问权限](../storage/common/storage-auth-aad-rbac.md)。
+1. 遵循[将应用程序注册到 Azure AD 租户](../storage/common/storage-auth-aad-app.md#register-your-application-with-an-azure-ad-tenant)，在 Azure Active Directory (Azure AD) 中注册一个应用程序实体。 记下下面的值，这些值用于定义链接服务：
+
+    - 应用程序 ID
+    - 应用程序密钥
+    - 租户 ID
+
+2. 授予服务主体在 Azure Blob 存储中的适当权限。 有关角色的更多详细信息，请参阅[使用 RBAC 管理 Azure 存储数据的访问权限](../storage/common/storage-auth-aad-rbac.md)。
 
     - **对于源**，请在访问控制 (IAM) 中，至少授予“存储 Blob 数据读取者”角色。 
     - **对于接收器**，请在访问控制 (IAM) 中，至少授予“存储 Blob 数据参与者”角色。 
@@ -257,6 +272,9 @@ Azure Blob 存储链接服务支持以下属性：
 
     - **对于源**，请在访问控制 (IAM) 中，至少授予“存储 Blob 数据读取者”角色。 
     - **对于接收器**，请在访问控制 (IAM) 中，至少授予“存储 Blob 数据参与者”角色。 
+
+>[!IMPORTANT]
+>如果使用 PolyBase 将 Blob（作为源或暂存）中的数据载入 SQL 数据仓库，则在对 Blob 使用托管标识身份验证时，请确保还按照[此指南](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)中的步骤 1 和步骤 2 完成以下任务：1) 向 Azure Active Directory (Azure AD) 注册 SQL 数据库服务器，2) 将存储 Blob 数据参与者角色分配给 SQL 数据库服务器；其余的任务由数据工厂处理。 如果 Blob 存储配置了 Azure 虚拟网络终结点，要使用 PolyBase 从其中加载数据，必须使用 PolyBase 所需的托管标识身份验证。
 
 Azure Blob 存储链接服务支持以下属性：
 
@@ -347,7 +365,7 @@ Azure Blob 存储链接服务支持以下属性：
 | fileName | 指定的“folderPath”下 blob 的名称或通配符筛选器  。 如果没有为此属性指定任何值，则数据集会指向文件夹中的所有 Blob。 <br/><br/>对于筛选器，允许的通配符为：`*`（匹配零个或更多字符）和 `?`（匹配零个或单个字符）。<br/>- 示例 1：`"fileName": "*.csv"`<br/>- 示例 2：`"fileName": "???20180427.txt"`<br/>如果实际文件名内具有通配符或此转义符，请使用 `^` 进行转义。<br/><br/>如果没有为输出数据集指定 fileName，并且没有在活动接收器中指定 **preserveHierarchy**，则复制活动会自动生成采用以下模式的 Blob 名称：“Data.[activity run ID GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]  ”，例如“Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz  ”；如果使用表名称而不是查询从表格源进行复制，则名称模式为“[table name].[format].[compression if configured]”，例如“MyTable.csv”。 |否 |
 | modifiedDatetimeStart | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，当你要从大量文件中进行文件筛选时，启用此设置将影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
 | modifiedDatetimeEnd | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br/><br/> 请注意，当你要从大量文件中进行文件筛选时，启用此设置将影响数据移动的整体性能。 <br/><br/> 属性可以为 NULL，这意味着不向数据集应用任何文件属性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。| 否 |
-| 格式 | 若要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>如果要分析或生成具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat      。 请将 **format** 中的 **type** 属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
+| format | 若要在基于文件的存储之间按原样复制文件（二进制副本），可以在输入和输出数据集定义中跳过格式节。<br/><br/>如果要分析或生成具有特定格式的文件，以下是受支持的文件格式类型：TextFormat、JsonFormat、AvroFormat、OrcFormat 和 ParquetFormat      。 请将 **format** 中的 **type** 属性设置为上述值之一。 有关详细信息，请参阅[文本格式](supported-file-formats-and-compression-codecs.md#text-format)、[JSON 格式](supported-file-formats-and-compression-codecs.md#json-format)、[Avro 格式](supported-file-formats-and-compression-codecs.md#avro-format)、[Orc 格式](supported-file-formats-and-compression-codecs.md#orc-format)和 [Parquet 格式](supported-file-formats-and-compression-codecs.md#parquet-format)部分。 |否（仅适用于二进制复制方案） |
 | compression | 指定数据的压缩类型和级别。 有关详细信息，请参阅[受支持的文件格式和压缩编解码器](supported-file-formats-and-compression-codecs.md#compression-support)。<br/>支持的类型为 **GZip**、**Deflate**、**BZip2** 和 **ZipDeflate**。<br/>支持的级别为“最佳”  和“最快”  。 |否 |
 
 >[!TIP]
@@ -404,7 +422,7 @@ Azure Blob 存储链接服务支持以下属性：
 | wildcardFileName         | 给定的容器 + folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 如果数据集中未指定 `fileName`，则为“是” |
 | modifiedDatetimeStart    | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否                                            |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否                                            |
 
 > [!NOTE]
 > 对于 Parquet/带分隔符的文本格式，仍然按原样支持下一部分中提到的 **BlobSource** 类型复制活动源，以实现向后兼容性。 建议你继续使用此新模型，并且 ADF 创作 UI 已切换为生成这些新类型。
@@ -458,7 +476,7 @@ Azure Blob 存储链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 **BlobSource**。 |是 |
 | recursive | 指示是要从子文件夹中以递归方式读取数据，还是只从指定的文件夹中读取数据。 请注意，当 recursive 设置为 true 且接收器是基于文件的存储时，将不会在接收器上复制或创建空的文件夹或子文件夹。<br/>允许的值为 **true**（默认值）和 **false**。 | 否 |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
 
 **示例：**
 
@@ -495,7 +513,7 @@ Azure Blob 存储链接服务支持以下属性：
 ### <a name="blob-storage-as-a-sink-type"></a>用作接收器类型的 Blob 存储
 
 - 若要复制到 **Parquet 和带分隔符的文本格式**，请参阅 [Parquet 和带分隔符的文本格式接收器](#parquet-and-delimited-text-format-sink)部分。
-- 若要复制到其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式接收器](#other-format-sink)部分。
+- 若要复制为其他格式（如 **ORC/Avro/JSON/Binary 格式**），请参阅[其他格式接收器](#other-format-sink)部分。
 
 #### <a name="parquet-and-delimited-text-format-sink"></a>Parquet 和带分隔符的文本格式接收器
 
@@ -505,7 +523,7 @@ Azure Blob 存储链接服务支持以下属性：
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | `storeSettings` 下的 type 属性必须设置为 **AzureBlobStorageWriteSetting**。 | 是      |
 | copyBehavior             | 定义以基于文件的数据存储中的文件为源时的复制行为。<br/><br/>允许值包括：<br/><b>- PreserveHierarchy（默认）</b>：将文件层次结构保留到目标文件夹中。 从源文件到源文件夹的相对路径与从目标文件到目标文件夹的相对路径相同。<br/><b>- FlattenHierarchy</b>：源文件夹中的所有文件都位于目标文件夹的第一级中。 目标文件具有自动生成的名称。 <br/><b>- MergeFiles</b>：将源文件夹中的所有文件合并到一个文件中。 如果指定了文件名或 Blob 名称，则合并文件的名称为指定名称。 否则，它是自动生成的文件名。 | 否       |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否       |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否       |
 
 > [!NOTE]
 > 对于 Parquet/带分隔符的文本格式，仍然按原样支持下一部分中提到的 **BlobSink** 类型复制活动接收器，以实现向后兼容性。 建议你继续使用此新模型，并且 ADF 创作 UI 已切换为生成这些新类型。
@@ -553,7 +571,7 @@ Azure Blob 存储链接服务支持以下属性：
 |:--- |:--- |:--- |
 | type | 复制活动接收器的 type 属性必须设置为 **BlobSink**。 |是 |
 | copyBehavior | 定义以基于文件的数据存储中的文件为源时的复制行为。<br/><br/>允许值包括：<br/><b>- PreserveHierarchy（默认）</b>：将文件层次结构保留到目标文件夹中。 从源文件到源文件夹的相对路径与从目标文件到目标文件夹的相对路径相同。<br/><b>- FlattenHierarchy</b>：源文件夹中的所有文件都位于目标文件夹的第一级中。 目标文件具有自动生成的名称。 <br/><b>- MergeFiles</b>：将源文件夹中的所有文件合并到一个文件中。 如果指定了文件名或 Blob 名称，则合并文件的名称为指定名称。 否则，它是自动生成的文件名。 | 否 |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
 
 **示例：**
 

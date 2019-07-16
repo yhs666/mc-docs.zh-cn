@@ -3,25 +3,26 @@ title: 登录到应用程序时出现的意外许可提示 | Microsoft Docs
 description: 如何对用户遇到的与 Azure AD 集成的应用程序出现意外许可提示这一情形进行故障排除
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 07/11/2017
-ms.date: 10/08/2018
+ms.date: 07/04/2019
 ms.author: v-junlch
 ms.reviewer: asteen
-ms.openlocfilehash: ebf86799242be6c068ea541e965fcf2a4ea6acfa
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0d5304f5e8ba6892c7a7e7a50e355ac4e8c80b9f
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654649"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568603"
 ---
 # <a name="unexpected-consent-prompt-when-signing-in-to-an-application"></a>登录到应用程序时出现的意外许可提示
 
@@ -33,17 +34,23 @@ ms.locfileid: "52654649"
 
 可能在各种情况下看到其他提示：
 
-- 应用程序所需的权限集已更改。
+* 应用程序所需的权限集已更改。
 
-- 最初对应用程序进行许可的用户不是管理员，现在其他（非管理员）用户首次使用该应用程序。
+* 最初对应用程序进行许可的用户不是管理员，现在其他（非管理员）用户首次使用该应用程序。
 
-- 最初对应用程序进行许可的用户是管理员，但他们未代表整个组织进行许可。
+* 最初对应用程序进行许可的用户是管理员，但他们未代表整个组织进行许可。
 
-- 已在最初授予许可后将其吊销。
+* 最初授予许可后，应用程序使用[增量许可和动态许可](/active-directory/develop/active-directory-v2-compare#incremental-and-dynamic-consent)请求其他权限。 这通常会在以下情况下使用：应用程序的可选功能需要超出基线功能所需权限以外的附加权限。
 
-- 开发人员已对应用程序作了如下配置：每次使用时，都需要许可提示（注意：这并非最佳做法）。
+* 已在最初授予许可后将其吊销。
+
+* 开发人员已对应用程序作了如下配置：每次使用时，都需要许可提示（注意：这并非最佳做法）。
 
 ## <a name="next-steps"></a>后续步骤
 
 -   [Azure Active Directory（v1.0 终结点）中的应用、权限和许可](/active-directory/develop/active-directory-integrating-applications)
+
+-   [Azure Active Directory（v2.0 终结点）中的范围、权限和许可](/active-directory/develop/active-directory-v2-scopes)
+
+<!-- Update_Description: wording update -->
 

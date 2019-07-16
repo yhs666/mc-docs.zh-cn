@@ -4,17 +4,17 @@ description: 介绍 Azure Policy 如何使用资源策略定义，通过描述�
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/16/2018
-ms.date: 06/10/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 20064bd149c336bdd84435f2730cdc627b8fe2c5
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: a7807bcbf5f7a4a677b0610ce9c01f4a12351114
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296696"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560300"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -72,6 +72,10 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 [!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="mode"></a>Mode
+
+**模式**的配置取决于策略是针对 Azure 资源管理器属性还是资源提供程序属性。
+
+### <a name="resource-manager-modes"></a>“资源管理器”模式
 
 **模式**确定将对策略评估哪些资源类型。 支持的模式包括：
 
@@ -400,15 +404,25 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 
 ### <a name="policy-functions"></a>策略函数
 
-除以下函数外，所有[资源管理器模板函数](../../../azure-resource-manager/resource-group-template-functions.md)均可在策略规则中使用：
+除以下函数和用户定义的函数外，所有[资源管理器模板函数](../../../azure-resource-manager/resource-group-template-functions.md)均可在策略规则中使用：
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - providers()
 - reference()
 - resourceId()
 - variables()
+
+以下函数可在策略规则中使用，但与在 Azure 资源管理器模板中使用不同：
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**：[必需] 字符串 - 通用 ISO 8601 日期/时间格式“yyyy-MM-ddTHH:mm:ss.fffffffZ”的字符串
+  - **numberOfDaysToAdd**：[必需] 整数 - 要添加的天数
+- utcNow() - 与资源管理器模板不同，它可以在 defaultValue 之外使用。
+  - 以通用 ISO 8601 日期/时间格式“yyyy-MM-ddTHH:mm:ss.fffffffZ”返回设置为当前日期和时间的字符串
 
 此外，`field` 函数可用于策略规则。 `field` 主要用于 **AuditIfNotExists** 和 **DeployIfNotExists**，以引用所评估资源上的字段。 可以在 [DeployIfNotExists 示例](effects.md#deployifnotexists-example)中看到这种用法的示例。
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ba9e8678a6b8898a8cff76a52b0c5952ae59aba9
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: c5925d7eea4e29a1cc618b2d2858a2492819dd20
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586844"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562477"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -27,27 +27,27 @@ ms.locfileid: "65586844"
 
 * **名称**：操作组中的唯一标识符。  
 * **操作类型**：执行的操作。 示例包括发送语音呼叫、短信、电子邮件，或者触发各种类型的自动化操作。 请参阅本文下文中的“类型”。 
-* **详细信息**：因“操作类型”而异的相应详细信息。 
+* **详细信息**：因“操作类型”而异的相应详细信息。  
 
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 门户创建操作组 ##
-1. 在[门户](https://portal.azure.cn)中，选择“监视器”。 “监视器”窗格将所有监视设置和数据合并到一个视图中。
+1. 在[门户](https://portal.azure.cn)中，选择“监视器”  。 “监视器”  窗格将所有监视设置和数据合并到一个视图中。
 
     ![“监视”服务](./media/action-groups/home-monitor.png)
-1. 依次选择“警报”、“管理操作组”。
+1. 依次选择“警报”  、“管理操作”  。
 
-    ![“管理操作组”按钮](./media/action-groups/manage-action-groups.png)
-1. 选择“添加操作组”，并填写字段。
+    ![“管理操作”按钮](./media/action-groups/manage-action-groups.png)
+1. 选择“添加操作组”  ，并填写字段。
 
     ![“添加操作组”命令](./media/action-groups/add-action-group.png)
-1. 在“操作组名称”框中输入名称，然后在“短名称”框中输入名称。 使用此组发送通知时，短名称被用来代替完整的操作组名称。
+1. 在“操作组名称”  框中输入名称，然后在“短名称”  框中输入名称。 使用此组发送通知时，短名称被用来代替完整的操作组名称。
 
       ![“添加操作组”对话框](./media/action-groups/action-group-define.png)
 
-1. “订阅”框会自动填充当前订阅。 此“订阅”是在其中保存操作组的订阅。
+1. “订阅”  框会自动填充当前订阅。 此“订阅”是在其中保存操作组的订阅。
 
-1. 选择在其中保存操作组的“资源组”。
+1. 选择在其中保存操作组的“资源组”  。
 
 1. 定义一个操作列表。 为每个操作提供以下信息：
 
@@ -55,18 +55,23 @@ ms.locfileid: "65586844"
 
     b. **操作类型**：选择电子邮件/短信/推送/语音、逻辑应用、Webhook、ITSM 或自动化 Runbook。
 
-    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”和其他字段。
+    c. **详细信息**：根据操作类型，输入电话号码、电子邮件地址、webhook URI、Azure 应用、ITSM 连接或自动化 runbook。 对于 ITSM 操作，另外指定 ITSM 工具需要的“工作项”  和其他字段。
+    
+    d. **常见警报架构**：可以选择启用[常见警报架构](https://aka.ms/commonAlertSchemaDocs)，它的优点是可以跨 Azure Monitor 中的所有警报服务提供单个可扩展且统一的警报有效负载。
 
-1. 选择“确定”创建操作组。
+1. 选择“确定”  创建操作组。
 
 ## <a name="manage-your-action-groups"></a>管理操作组 ##
-创建操作组后，它会显示在“监视器”边栏选项卡的“操作组”部分中。 选择要管理的操作组：
+创建操作组后，它会显示在“监视器”  边栏选项卡的“操作组”  部分中。 选择要管理的操作组：
 
 * 添加、编辑或删除操作。
 * 删除操作组。
 
 ## <a name="action-specific-information"></a>特定于操作的信息
-**Azure 应用推送** - 一个操作组中可以存在有限数量的 Azure 应用操作。 目前，Azure 应用操作只支持 ServiceHealth 警报。 任何其他警报类型都会被忽略。 请参阅[配置每次发布服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+> [!NOTE]
+> 有关以下每项的数值限制，请参阅[用于监视的订阅服务限制](/azure-subscription-service-limits#monitor-limits)。  
+
+**Azure 应用推送** - 一个操作组中可以存在有限数量的 Azure 应用操作。
 
 **电子邮件** - 将从以下电子邮件地址发送电子邮件。 确保电子邮件筛选正确配置
 - azure-noreply@microsoft.com
@@ -75,7 +80,7 @@ ms.locfileid: "65586844"
 
 一个操作组中可以存在有限数量的电子邮件操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文
 
-**ITSM** - 一个操作组中可以存在有限数量的 ITSM 操作。 ITSM 操作需要 ITSM 连接。 
+**ITSM** - 一个操作组中可以存在有限数量的 ITSM 操作。 ITSM 操作需要 ITSM 连接。 了解如何创建 [ITSM 连接](../../azure-monitor/platform/itsmc-overview.md)。
 
 **逻辑应用** - 一个操作组中可以存在有限数量的逻辑应用操作。
 
@@ -99,6 +104,8 @@ ms.locfileid: "65586844"
  - 13.106.57.196
  - 52.244.68.117
  - 52.244.65.137
+ - 52.183.31.0
+ - 52.184.145.166
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19
@@ -108,6 +115,7 @@ ms.locfileid: "65586844"
 ## <a name="next-steps"></a>后续步骤 ##
 * 详细了解[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。  
 * 获取[对活动日志警报 webhook 架构的了解](../../azure-monitor/platform/activity-log-alerts-webhook.md)。  
+* 了解有关 [ITSM 连接器](../../azure-monitor/platform/itsmc-overview.md)的详细信息
 * 详细了解有关警报的[速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 * 获取[活动日志警报概述](../../azure-monitor/platform/alerts-overview.md)，了解如何接收警报。  
 * 了解如何[配置每次发布服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。

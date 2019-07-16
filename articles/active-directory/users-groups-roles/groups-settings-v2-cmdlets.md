@@ -10,16 +10,17 @@ ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
 origin.date: 01/31/2019
-ms.date: 02/18/2019
+ms.date: 07/04/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 11ac7db8034a247ee58e1b5dfe199ea54711b94e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: b50f9e9deb7a800680cbfc46e75fec663d6fbd68
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626455"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568744"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
@@ -111,7 +112,7 @@ ms.locfileid: "58626455"
     SecurityEnabled              : True
 
 > [!NOTE] 
-> Azure AD PowerShell cmdlet 实现 OData 查询标准。 有关详细信息，请参阅[使用 OData 终结点的 OData 系统查询选项](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)中的 $filter。
+> Azure AD PowerShell cmdlet 实现 OData 查询标准。 有关详细信息，请参阅[使用 OData 终结点的 OData 系统查询选项](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)中的 $filter  。
 
 ## <a name="create-groups"></a>创建组
 若要在目录中创建新的组，可使用 New-AzureADGroup cmdlet。 此 cmdlet 创建名为“Marketing”的新安全组：
@@ -233,13 +234,13 @@ ObjectId 参数是要将成员添加到的组的 ObjectID，-RefObjectId 是要�
 
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 
-ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是要作为组所有者添加的用户的 ObjectID。
+-ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是要作为组所有者添加的用户或服务主体的 ObjectID。
 
 若要检索组的所有者，请使用 Get-AzureADGroupOwner cmdlet：
 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 
-该 cmdlet 将返回指定组的所有者的列表：
+该 cmdlet 将返回指定组的所有者（用户和服务主体）的列表：
 
     DeletionTimeStamp ObjectId                             ObjectType
     ----------------- --------                             ----------
@@ -252,22 +253,22 @@ ObjectId 参数是要将所有者添加到的组的 ObjectID，-RefObjectId 是�
 ## <a name="reserved-aliases"></a>保留的别名 
 创建组后，某些终结点允许最终用户指定一个 mailNickname 或别名，用作组的电子邮件地址的一部分。 仅 Azure AD 全局管理员可以创建具有以下权限较高的电子邮件别名的组。 
   
-- abuse 
-- admin 
-- administrator 
-- hostmaster 
-- majordomo 
-- postmaster 
-- root 
-- secure 
-- security 
-- ssl-admin 
-- webmaster 
+* abuse 
+* admin 
+* administrator 
+* hostmaster 
+* majordomo 
+* postmaster 
+* root 
+* secure 
+* security 
+* ssl-admin 
+* webmaster 
 
 ## <a name="next-steps"></a>后续步骤
 如需更多 Azure Active Directory PowerShell 文档，可参阅 [Azure Active Directory Cmdlet](https://docs.microsoft.com/powershell/azure/install-adv2?view=azureadps-2.0)。
 
-- [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-- [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [使用 Azure Active Directory 组管理对资源的访问](../fundamentals/active-directory-manage-groups.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+* [将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

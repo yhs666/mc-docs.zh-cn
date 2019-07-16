@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: vitalyg
 ms.author: v-lingwu
-ms.openlocfilehash: b5be31cf4351ac14254a8d9bfcc518b82cd8f1b8
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9fa5cfdae5687ff45b0efd39064aded35426d807
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732360"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562660"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -53,7 +53,7 @@ ms.locfileid: "66732360"
 
 自适应采样适用于 Application Insights SDK for ASP.NET v 2.0.0-beta3 及更高版本、Microsoft.ApplicationInsights.AspNetCore SDK v 2.2.0-beta1 及更高版本，默认已启用。
 
-自适应采样会影响从 Web 服务器应用发送至 Application Insights 服务终结点的遥测量。 遥测量会自动调整以保持在指定的最大流量率，可通过 `MaxTelemetryItemsPerSecond` 设置对其进行控制。 如果应用程序生成的遥测数据很少（例如，只会在调试时生成遥测数据，或者用量较小），只要量小于 `MaxTelemetryItemsPerSecond`，就不会对项采样。 随着遥测数据量的增加，采样率将会调整以实现目标量。
+自适应采样会影响从 Web 服务器应用发送至 Application Insights 服务终结点的遥测量。 遥测量会自动调整以保持在指定的最大流量率，可通过 `MaxTelemetryItemsPerSecond` 设置对其进行控制。 如果应用程序产生的遥测数据很少（例如在调试时或由于用量较小），则只要数量低于 `MaxTelemetryItemsPerSecond`，采样处理器就不会丢弃项目。 随着遥测数据量的增加，采样率将会调整以实现目标量。
 
 为了实现目标量，一些生成的遥测会被丢弃。 但与其他类型的采样一样，该算法会保留相关的遥测项。 例如，在“搜索”中检查遥测数据时，可以查找与特定异常相关的请求。
 
@@ -313,7 +313,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
                     <Add name = "SamplingPercentage" value = "50" />
                 </Processor>
             </BuiltInProcessors>
-        <TelemetryProcessors/>
+        </TelemetryProcessors>
     ```
 
 3. 可以使用处理器标记“FixedRateSamplingTelemetryProcessor”中的以下标记，在采样中包括或排除特定类型的遥测

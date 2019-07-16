@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 11/14/2018
-ms.date: 02/18/2019
+origin.date: 06/07/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: a65f08fdbe2c72025a5dd21ca15ad9fac163a870
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: cf0afdc5063506fc77505d5153636c673873281a
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666333"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570340"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -30,17 +30,16 @@ ms.locfileid: "56666333"
 | 类型                     | 大小           |    说明       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [常规用途](sizes-general.md)          | B、Dsv3、Dv3、DSv2、Dv2、Av2 | CPU 与内存之比平衡。 适用于测试和开发、小到中型数据库和低到中等流量 Web 服务器。 |
-| [计算优化](sizes-compute.md)        | Fsv2、Fs、F             | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
+| [计算优化](sizes-compute.md)        | Fsv2          | 高 CPU 与内存之比。 适用于中等流量的 Web 服务器、网络设备、批处理和应用程序服务器。        |
 | [内存优化](../virtual-machines-windows-sizes-memory.md)         | Esv3、Ev3、M、DSv2、Dv2  | 高内存与 CPU 之比。 适用于关系数据库服务器、中到大型规模的缓存和内存中分析。                 |
 | [GPU](sizes-gpu.md)            | NCv3           | 针对大量图形绘制和视频编辑的专用虚拟机，以及带有深度学习功能的模型定型和推断 (ND)。 可选择单个或多个 GPU。       |
 
 <!-- Not Available DC series -->
-<!-- Not Available M, Gs, G series -->
-<!-- Not Available [Storage optimized] Ls -->
-<!-- Not Available [GPU] NV, NVv2, NC, NCv2, ND-series  -->
-<!-- Not Available [High performance compute] H  -->
+<!-- Not Available [Storage optimized](../virtual-machines-windows-sizes-storage.md)        | Lsv2, Ls  -->
+<!-- Not Available [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, ND, NDv2 (Preview)   -->
+<!-- Not Available [High performance compute](sizes-hpc.md) | H -->
 
-<br> 
+<br /> 
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Windows)。 
 - 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
@@ -69,12 +68,11 @@ ms.locfileid: "56666333"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+    <!--Not Avaialble on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
 - [GPU 优化](sizes-gpu.md)
-- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）系列
+    <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
+- 查看[上一代](sizes-previous-gen.md)页，了解 A Standard 和 Dv1（D1-4 和 D11-14 v1）系列
+
 
 <!-- Not Available on A8-A11 series-->
-<!-- Not Available on Line 67 - [Storage optimized](../virtual-machines-windows-sizes-storage.md) -->
-<!-- Not Available on - [High performance compute](sizes-hpc.md)-->
-
-
 <!--Update_Description: update meta properties, update link, wording update -->

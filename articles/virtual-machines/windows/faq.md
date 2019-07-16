@@ -1,5 +1,5 @@
 ---
-title: 有关 Azure 中 Windows VM 的常见问题解答 | Azure
+title: 有关 Windows 虚拟机的常见问题 | Azure
 description: 解答通过 Resource Manager 模型创建 Windows 虚拟机的一些常见问题。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,24 +13,27 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-origin.date: 10/20/2017
-ms.date: 11/26/2018
+origin.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9bfed180907a1129d9bdd5fb83c44bc6bddb9596
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: daff85ea5ece4c7f9822952134ace612a128baf3
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625107"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569947"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>有关 Windows 虚拟机的常见问题
-本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+本文讨论了在 Azure 中使用 Resource Manager 部署模型创建的 Windows 虚拟机的一些常见问题。 有关本主题的 Linux 版本，请参阅[有关 Linux 虚拟机的常见问题](../linux/faq.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
 ## <a name="what-can-i-run-on-an-azure-vm"></a>我可以在 Azure VM 上运行什么程序？
 所有订户都可以在 Azure 虚拟机上运行服务器软件。 有关在 Azure 中运行 Microsoft 服务器软件的支持策略的信息，请参阅 [Microsoft server software support for Azure Virtual Machines](https://support.microsoft.com/kb/2721672)（对 Azure 虚拟机中的 Microsoft 服务器软件的支持）
 
+<!-- MOONCAKE: CORRECT ON Microsoft server software in Azure-->
+
 <!-- Not Available on Windows 7, Windows 8.1, and Windows 10-->
 <!-- Not Available on MSDN Azure benefit subscribers and MSDN Dev -->
+
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>使用虚拟机时，我可以使用多少存储？
 每个数据磁盘的容量高达 4 TB (4,095 GB)。 可以使用的数据磁盘数取决于虚拟机大小。 有关详细信息，请参阅[虚拟机大小](sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
 
@@ -86,34 +89,27 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 用户名最长为 20 个字符，不能以句点（“.”）结尾。 
 
 不允许使用以下用户名：
-<table>
-    <tr>
-        <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
-    </tr>   <tr>
-        <td style="text-align:center">主要区域中的</td><td style="text-align:center">aspnet</td><td style="text-align:center">backup</td><td style="text-align:center">console</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">david </td><td style="text-align:center">guest</td><td style="text-align:center">john</td><td style="text-align:center">owner</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">root</td><td style="text-align:center">server</td><td style="text-align:center">sql</td><td style="text-align:center">support</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">user</td><td style="text-align:center">user1</td>
-    </tr>
-    <tr>
-        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
-    </tr>
-</table>
+
+| | | | |
+|-----------------|-----------|--------------------|----------|
+| `administrator` | `admin`   | `user`             | `user1`  |
+| `test`          | `user2`   | `test1`            | `user3`  |
+| `admin1`        | `1`       | `123`              | `a`      |
+| `actuser`       | `adm`     | `admin2`           | `aspnet` |
+| `backup`        | `console` | `david`            | `guest`  |
+| `john`          | `owner`   | `root`             | `server` |
+| `sql`           | `support` | `support_388945a0` | `sys`    |
+| `test2`         | `test3`   | `user4`            | `user5`  |
+| `video`         |           |                    |          |
+
+<!--MOONCAKE: CUSTOMIZED ON video-->
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>创建 VM 时，密码有什么要求？
-密码的长度必须为 12 到 123 个字符，并满足以下 4 个复杂性要求中的 3 个要求：
+
+根据所使用的工具，有不同的密码长度要求：
+ - 门户 - 12 到 72 个字符之间
+ - PowerShell - 8 到 123 个字符之间
+ - CLI - 12 到 123 个字符之间
 
 * 具有小写字符
 * 具有大写字符
@@ -127,12 +123,12 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
         <td>abc@123</td>
         <td>iloveyou!</td>
         <td>P@$$w0rd</td>
-        <td>P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref></td>
-        <td>P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref></td>
+        <td>P@ssw0rd</td>
+        <td>P@ssword123</td>
     </tr>
     <tr>
         <td>Pa$$word</td>
-        <td>pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref></td>
+        <td>pass@word1</td>
         <td>Password!</td>
         <td>Password1</td>
         <td>Password22</td>

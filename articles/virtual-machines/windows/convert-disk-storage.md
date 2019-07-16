@@ -14,19 +14,24 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: a3c5dac11d52c83663d6953cdb87e2d2355786e1
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: f2efadaf08d161aa089abd600d6d7beee7fd11fe
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427809"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569737"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>更新托管磁盘的存储类型
 
-Azure 托管磁盘有三个选项：高级 SSD、标准 SSD 和标准 HDD。 可以根据性能需求在这些存储类型之间切换，切换过程只会造成极短暂的停机。 非托管磁盘不支持此功能。 但是，可以轻松[将非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，然后即可切换磁盘类型。
+Azure 托管磁盘有三种磁盘类型：高级 SSD、标准 SSD 和标准 HDD。 可以根据性能需求在三种 GA 磁盘类型（高级 SSD、标准 SSD 和标准 HDD）之间切换。
+
+非托管磁盘不支持此功能。 但是，可以轻松[将非托管磁盘转换为托管磁盘](convert-unmanaged-to-managed-disks.md)，然后即可切换磁盘类型。
+
+<!--Not Available on Azure ultra SSDs (preview)-->
+<!--Not Available on You are not yet able to switch from or to an ultra SSD, you must deploy a new one.-->
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 

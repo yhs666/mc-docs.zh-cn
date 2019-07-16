@@ -14,18 +14,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/29/2019
-ms.date: 05/20/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3a6149610513a272944d9bc07b8a4629bb0fd37c
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: ae723725db005a384a7349ce2448b22aead0974f
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276456"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570532"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Azure Monitor 虚拟机扩展
 
 Azure Monitor 日志提供跨云和本地资产的监视功能。 适用于 Windows 的 Log Analytics 代理虚拟机扩展由 Azure 发布和提供支持。 该扩展在 Azure 虚拟机上安装 Log Analytics 代理，并将虚拟机注册到现有的 Log Analytics 工作区中。 本文档详细介绍适用于 Windows 的 Azure Monitor 虚拟机扩展支持的平台、配置和部署选项。
+
+<!--MOONCAKE: CORRECT ON supported by Azure-->
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -38,9 +40,20 @@ Windows 的 Log Analytics 代理扩展支持以下版本的 Windows 操作系统
 - Windows Server 2019
 - Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
 
-### <a name="azure-security-center"></a>Azure 安全中心
+### <a name="agent-and-vm-extension-version"></a>代理和 VM 扩展版本
+下表提供每次发布的 Azure Monitor VM 扩展和 Log Analytics 代理捆绑包的版本映射。 
 
-Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订阅的默认 Log Analytics 工作区。 如果使用 Azure 安全中心，请勿按照本文档中的步骤运行。 这样做会覆盖已配置的工作区并断开与 Azure 安全中心的连接。
+| Azure Monitor Linux VM 扩展版本 | Log Analytics 代理捆绑包版本 | 发布日期 | 发行说明 |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | 2017 年 2 月 | |
+| 8.0.11072.0 | 1.0.11072.1 | 2017 年 9 月 | |
+| 8.0.11081.0 | 1.0.11081.5 | 2017 年 11 月 | | 
+| 8.0.11103.0 | 不适用 |  2018 年 4 月 | |
+| 8.0.11136.0 | 不适用 | 2018 年 9 月 |  <ul><li> 添加了对 VM 移动时检测资源 ID 更改的支持 </li><li> 添加了对使用非扩展安装时报告资源 ID 的支持 </li></ul>| 
+| 10.19.10006.0 | 不适用 | 2018 年 12 月 | <ul><li> 次要稳定性修复 </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | 2019 年 3 月 | <ul><li>次要稳定性修复 </li></ul> |
+
+<!--Not Available on ### Azure Security Center-->
 
 ### <a name="internet-connectivity"></a>Internet 连接
 适用于 Windows 的 Log Analytics 代理扩展要求目标虚拟机已连接到 Internet。 
@@ -78,7 +91,7 @@ Azure 安全中心自动预配 Log Analytics 代理并将其连接到 Azure 订�
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | AzureMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
@@ -185,7 +198,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: new article about oms windows-->
 <!--ms.date: 04/20/2018-->

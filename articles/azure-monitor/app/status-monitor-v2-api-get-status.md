@@ -12,27 +12,27 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ea89a66b5bb04d55af3ee9c57e6ddbf8fd6ed1f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 1d6114810f8e9e6793b3660f55139ac532026a2f
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732439"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562654"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
 
-本文档介绍作为 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)成员提供的 cmdlet。
+本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
 > [!IMPORTANT]
-> 状态监视器 v2 目前以公共预览版提供。
-> 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)
+> 状态监视器 v2 目前为公共预览版。
+> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
+
 
 ## <a name="description"></a>说明
 
-此 cmdlet 用于对正在使用的 PowerShell 模块进行故障排除。
-此 cmdlet 将报告监视所需的版本信息和密钥文件。
-其他参数提供有关当前监视状态的额外报告。
+对所用的 PowerShell 模块启用故障排除。
+此 cmdlet 将报告监视所需的版本信息和密钥文件相关信息。
+其他参数提供有关监视状态的额外报告。
 
 > [!IMPORTANT] 
 > 此 cmdlet 需要具有管理员权限的 PowerShell 会话。
@@ -42,7 +42,7 @@ ms.locfileid: "66732439"
 
 ### <a name="example-basic-information"></a>示例：基本信息
 
-运行命令：`Get-ApplicationInsightsMonitoringStatus` 以获取有关此模块的信息输出：
+运行 `Get-ApplicationInsightsMonitoringStatus` 可显示有关当前模块的信息：
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus
@@ -81,7 +81,7 @@ Machine Identifier:
 
 可以检查已检测计算机上的进程以查看是否已加载所有 DLL。 如果监视正常工作，则至少应加载 12 个 DLL。
 
-- Cmd：`Get-ApplicationInsightsMonitoringStatus -InspectProcess`
+运行命令 `Get-ApplicationInsightsMonitoringStatus -InspectProcess`：
 
 
 ```
@@ -117,17 +117,17 @@ listdlls64.exe -accepteula w3wp
 
 ## <a name="parameters"></a>parameters 
 
-### <a name="no-params"></a>（无参数）
+### <a name="no-parameters"></a>（不带参数）
 
-在**默认**情况下，此 cmdlet 将报告监视所需的 DLL 的版本号和路径。
+在默认情况下，此 cmdlet 将报告监视所需的 DLL 的版本号和路径。
 
 如果需要标识任何 DLL 的版本（包括 Application Insights SDK），请使用此选项。
 
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-可选  。 此 cmdlet 将报告 IIS 是否正在运行。
-此 cmdlet 还将下载外部工具，以检查是否将必要的 DLL 加载到 IIS 运行时。
+可选  。 使用此参数报告 IIS 是否正在运行。
+它还将下载外部工具，以确定是否将必要的 DLL 加载到 IIS 运行时。
 
 
 如果此过程因任何原因失败，你可以手动运行这些命令：
@@ -138,7 +138,7 @@ listdlls64.exe -accepteula w3wp
 
 ### <a name="-force"></a>-Force
 
-可选  。 仅与 InspectProcess 一起使用。 此开关将跳过用户提示以下载其他工具。
+可选  。 仅与 InspectProcess 一起使用。 使用此开关可跳过在下载其他工具之前出现的用户提示。
 
 
 ## <a name="next-steps"></a>后续步骤

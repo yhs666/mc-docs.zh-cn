@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 03/11/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 2872f5517d09b8df03eada877602eed0544a276c
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 1d34a404cf866b55945dc406398e4031b8762f00
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732689"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570367"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure 数据工厂中的获取元数据活动
 
@@ -46,6 +46,7 @@ GetMetadata 活动将数据集作为必要输入，并输出可用作活动输�
 
 | 连接器/元数据 | itemName<br>（文件/文件夹） | itemType<br>（文件/文件夹） | 大小<br>（文件） | created<br>（文件/文件夹） | lastModified<br>（文件/文件夹） |childItems<br>（文件夹） |contentMD5<br>（文件） | structure<br/>（文件） | columnCount<br>（文件） | exists<br>（文件/文件夹） |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
@@ -54,6 +55,7 @@ GetMetadata 活动将数据集作为必要输入，并输出可用作活动输�
 | SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | FTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 
+- 对于 Amazon S3 和 Google 云存储，`lastModified` 适用于 Bucket 和密钥，但不适用于虚拟文件夹；而 `exists` 适用于 Bucket 和密钥，但不适用于前缀或虚拟文件夹。
 - 对于 Azure Blob，`lastModified` 适用于容器和 blob，但不适用于虚拟文件夹。
 
 **关系数据库：**
@@ -61,6 +63,7 @@ GetMetadata 活动将数据集作为必要输入，并输出可用作活动输�
 | 连接器/元数据 | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | Azure SQL 数据库 | √ | √ | √ |
+| Azure SQL 数据库托管实例 | √ | √ | √ |
 | Azure SQL 数据仓库 | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 

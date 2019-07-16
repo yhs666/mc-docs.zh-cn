@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 05/24/2018
-ms.date: 06/10/2019
+origin.date: 06/10/2018
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: ed3d16c779e493381742d0650e3137250c5b7cd3
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: b4c385a4b02cffe507f7212aa92b64371aac986b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732767"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570391"
 ---
 # <a name="copy-data-from-sap-table-using-azure-data-factory"></a>使用 Azure 数据工厂从 SAP 表复制数据
 
@@ -30,7 +30,13 @@ ms.locfileid: "66732767"
 
 具体而言，此 SAP 表连接器支持：
 
-- 从 **SAP Business Suite 7.01 或更高版本**（2015 年之后发布的较新版 SAP 支持包堆栈）或 **S/4HANA** 中的 SAP 表复制数据。
+- 在以下产品中从 SAP 表复制数据：
+
+    - **SAP ECC** 7.01 或更高版本（在 2015 年之后发布的最新 SAP 支持包堆栈中）
+    - **SAP BW** 7.01 或更高版本
+    - **SAP S/4HANA**
+    - **SAP Business Suite 7.01 或更高版本中的其他产品** 
+
 - 从 **SAP 透明表**和**视图**复制数据。
 - 使用**基本身份验证**或 **SNC**（安全网络通信）（如果已配置 SNC）复制数据。
 - 连接到**应用程序服务器**或**消息服务器**。
@@ -204,7 +210,7 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
 | type                             | type 属性必须设置为 **SapTableSource**。       | 是      |
 | rowCount                         | 要检索的行数。                              | 否       |
 | rfcTableFields                   | 要从 SAP 表中复制的字段。 例如，`column0, column1`。 | 否       |
-| rfcTableOptions                  | 用于筛选 SAP 表中的行的选项。 例如，`COLUMN0 EQ 'SOMEVALUE'`。 | 否       |
+| rfcTableOptions                  | 用于筛选 SAP 表中的行的选项。 例如，`COLUMN0 EQ 'SOMEVALUE'`。 请参阅此表下面的更多说明。 | 否       |
 | customRfcReadTableFunctionModule | 可用于从 SAP 表读取数据的自定义 RFC 函数模块。 | 否       |
 | partitionOption                  | 要从 SAP 表中读取的分区机制。 支持的选项包括： <br/>- **None**<br/>- **PartitionOnInt**（在左侧用零填充正常整数或整数值，例如 0000012345）<br/>- **PartitionOnCalendarYear**（采用“YYYY”格式的 4 位数）<br/>- **PartitionOnCalendarMonth**（采用“YYYYMM”格式的 6 位数）<br/>- **PartitionOnCalendarDate**（采用“YYYYMMDD”格式的 8 位数） | 否       |
 | partitionColumnName              | 要将其中的数据分区的列的名称。 | 否       |
@@ -216,6 +222,18 @@ SAP Business Warehouse Open Hub 链接服务支持以下属性：
 >- 如果 SAP 表包含大量数据（例如几十亿行），请使用 `partitionOption` 和 `partitionSetting` 将数据拆分成小分区，在这种情况下，将按分区读取数据，并通过单个 RFC 调用从 SAP 服务器检索每个数据分区。<br/>
 >- 以 `partitionOption` 和 `partitionOnInt` 为例，每个分区中的行数的计算公式为：(处于 *partitionUpperBound* 与 *partitionLowerBound* 之间的总行数)/*maxPartitionsNumber*。<br/>
 >- 若要进一步并行运行分区以加速复制，我们强烈建议将 `maxPartitionsNumber` 设为 `parallelCopies` 值的倍数（详细了解[并行复制](copy-activity-performance.md#parallel-copy)）。
+
+例如，在 `rfcTableOptions` 中，可以使用以下常用 SAP 查询运算符来筛选行： 
+
+| 运算符 | 说明 |
+| :------- | :------- |
+| EQ | 等于 |
+| NE | 不等于 |
+| LT | 小于 |
+| LE | 小于等于 |
+| GT | 大于 |
+| GE | 大于或等于 |
+| LIKE | 例如 LIKE 'Emma%' |
 
 **示例：**
 

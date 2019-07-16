@@ -3,8 +3,8 @@ title: 了解 Microsoft 标识平台支持的授权协议 | Azure
 description: 有关 Microsoft 标识平台终结点支持的 OAuth 2.0 和 OpenID Connect 协议的指导。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2019
-ms.date: 05/07/2019
+origin.date: 05/30/2019
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f5423b58fcfc2b272620c898ca3ec5df70204a6
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: 3095ce2a4a518fdb9bdf7444502c363f4e9ba8c5
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517560"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568546"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 标识平台协议
 
@@ -40,16 +40,16 @@ ms.locfileid: "65517560"
 ![OAuth 2.0 角色](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * **授权服务器**是 Microsoft 标识平台终结点，它负责确保用户的标识、授予和吊销对资源的访问权限，以及颁发令牌。 授权服务器也称为标识提供者 - 它可安全处理与用户信息、用户访问权，以及流中各方彼此间信任关系有关的任何项目。
-* 资源所有者通常是最终用户。 它是拥有数据的一方，并且有权允许第三方访问该数据或资源。
-* OAuth 客户端是应用，按照其应用程序 ID 进行标识。 OAuth 客户端通常是与最终用户交互的对象，并向授权服务器请求令牌。 客户端必须获得资源所有者授权才能访问资源。
+* 资源所有者通常是最终用户  。 它是拥有数据的一方，并且有权允许第三方访问该数据或资源。
+* OAuth 客户端是应用，按照其应用程序 ID 进行标识  。 OAuth 客户端通常是与最终用户交互的对象，并向授权服务器请求令牌。 客户端必须获得资源所有者授权才能访问资源。
 * **资源服务器** 是资源或数据所在的位置。 它信任授权服务器安全验证和授权 OAuth 客户端，并使用持有者访问令牌来确保可以授予对资源的访问权限。
 
 ## <a name="app-registration"></a>应用注册
 
-要接受工作或学校帐户的每个应用必须已通过 [Azure 门户](https://portal.azure.cn/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)中新的**应用注册（预览版）** 体验进行注册，才能使用 OAuth 2.0 或 OpenID Connect 将这些用户登录。 应用注册进程会收集一些值并将其分配到应用：
+要接受工作或学校帐户的每个应用必须已通过 [Azure 门户](https://portal.azure.cn/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)中的**应用注册**体验进行注册，才能使用 OAuth 2.0 或 OpenID Connect 将这些用户登录。 应用注册进程会收集一些值并将其分配到应用：
 
 * 用于唯一标识应用的 **应用程序 ID**
-* 用于将响应定向回应用的重定向 URI 或包标识符
+* 可用于将响应定向回到应用的**重定向 URI**（可选）
 * 其他一些特定于方案的值。
 
 有关详细信息，请了解如何[注册应用](quickstart-register-app.md)。
@@ -92,3 +92,4 @@ OAuth 2.0 和 OpenID Connect 的 Microsoft 标识平台实现广泛使用了持�
 * [使用 OAuth 2.0 客户端凭据流构建守护程序或服务器端进程](v2-oauth2-client-creds-grant-flow.md)
 * [使用 OAuth 2.0 代理流在 Web API 中获取令牌](v2-oauth2-on-behalf-of-flow.md)
 
+<!-- Update_Description: wording update -->

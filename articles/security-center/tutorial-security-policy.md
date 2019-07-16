@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1d131c7fee7c866615dc1a3b43e93e609aa8d8d1
-ms.sourcegitcommit: 42766e267c2016d12977c24be394e8496f08e8fb
+ms.openlocfilehash: 73e6ecc2ad68431ee9e730674039e2d8048902f8
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250293"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570189"
 ---
 # <a name="working-with-security-policies"></a>使用安全策略
 
@@ -74,6 +74,10 @@ Azure Policy 由以下组件构成：
    > - “安全中心”仪表板在“订阅覆盖范围”下显示的订阅数可能会高于在“策略管理”下显示的订阅数   。 订阅覆盖范围显示标准订阅、免费订阅和“未覆盖”订阅的数量。 “未覆盖”订阅未启用“安全中心”，并且不会显示在“策略管理”下  。
    >
 
+   表中的列显示了：
+
+   - **覆盖范围** – 标识管理组、订阅或工作区在其上运行的定价层：免费或标准。  若要详细了解安全中心的定价层，请参阅[定价](security-center-pricing.md)。
+
 2. 选择想要查看其策略的订阅或管理组。
 
    - “安全策略”屏幕反映在所选订阅或管理组上分配的策略所执行的操作  。
@@ -125,11 +129,11 @@ Azure 安全中心与 Azure Policy 实现了本机集成，借助它，可以利
 
 Azure Policy 中的重要概念： 
 
--  **策略定义** 是规则 
+- **策略定义**是一种规则 
 
--  **计划** 是策略定义（规则）的集合 
+- **计划**是策略定义（规则）的集合 
 
--  **分配** 是将计划或策略应用于特定的范围（管理组、订阅等） 
+- **分配**是将计划或策略应用于特定的范围（管理组、订阅等） 
 
 安全中心有一项内置计划，它包括中心内的所有安全策略。 为评估对 Azure 资源的安全中心策略，应对管理组或想访问的订阅创建一个分配。  
 

@@ -1,28 +1,29 @@
 ---
-title: 联合多个 Azure AD 与单个 AD FS | Microsoft Docs
+title: 联合多个 Azure AD 与单个 AD FS - Azure
 description: 本文档介绍如何联合多个 Azure AD 与单个 AD FS。
 keywords: 联合, ADFS, AD FS, 多个租户, 单个 AD FS, 一个 ADFS, 多租户联合身份验证, 多林 adfs, aad connect, 联合身份验证, 跨租户联合身份验证
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 07/17/2017
-ms.date: 01/03/2019
-ms.component: hybrid
+ms.date: 07/04/2019
+ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 95e87938e8087748cc7839c0b0f838a628cd2b03
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f97e8614e35e50a8a0b2be9d48d360b6e70e16ff
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996371"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568630"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>将 Azure AD 的多个实例与 AD FS 的单个实例联合
 
@@ -66,4 +67,4 @@ ms.locfileid: "53996371"
 ## <a name="next-steps"></a>后续步骤
 [将 Active Directory 与 Azure Active Directory 连接](whatis-hybrid-identity.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: update metedata properties -->

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 385a0616baa58eaaa471c07c18f42fa0bc0f810b
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 71155b15f552ae49555afecb583ddea117c25ad4
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732329"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562664"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 探查实时 Azure 应用服务应用
 
@@ -50,7 +50,7 @@ Application Insights Profiler 是作为应用服务运行时的一部分预先�
 可以通过为你的 Azure 应用服务创建应用设置来启用 Application Insights Profiler。 包含如上所示选项的页面为你创建这些应用设置。 但是，你可以使用模板或其他方式自动创建这些设置。 如果你的 Application Insights 资源与 Azure 应用服务处于不同的订阅中，这些设置也将起作用。
 下面是启用 Profiler 时需要执行的配置：
 
-|应用设置    | 值    |
+|应用设置    | Value    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 资源的 iKey    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -59,6 +59,14 @@ Application Insights Profiler 是作为应用服务运行时的一部分预先�
 
 可以使用 [Azure 资源管理器模板](../../azure-monitor/app/azure-web-apps.md#app-service-application-settings-with-azure-resource-manager)、[Azure Powershell](https://docs.microsoft.com/powershell/module/az.websites/set-azwebapp)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/webapp/config/appsettings?view=azure-cli-latest) 设置这些值。
 
+### <a name="enabling-profiler-for-other-clouds-manually"></a>手动为其他云启用 Profiler
+
+如果要为其他云启用 Profiler，可以使用以下应用设置。
+
+|应用设置    | 美国政府值| 中国云 |   
+|---------------|---------------------|-------------|
+|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
 
 ## <a name="disable-profiler"></a>禁用 Profiler
 
@@ -73,7 +81,7 @@ Application Insights Profiler 是作为应用服务运行时的一部分预先�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [在 Visual Studio 中使用 Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-visual-studio)
+* [在 Visual Studio 中使用 Application Insights](/azure-monitor/app/visual-studio)
 
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png

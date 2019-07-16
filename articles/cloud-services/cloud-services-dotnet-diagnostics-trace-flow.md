@@ -9,14 +9,14 @@ editor: ''
 ms.service: cloud-services
 ms.topic: article
 origin.date: 02/20/2016
-ms.date: 12/26/2016
+ms.date: 07/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7a61f22c7521ecfedfffee3be370de50168bec55
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a7b8b57b5e5c40f881c844d06a1c78240015ffd2
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660378"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569778"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>使用 Azure 诊断跟踪云服务应用程序的流
 
@@ -24,11 +24,11 @@ ms.locfileid: "52660378"
 
 ## <a name="use-trace-statements-and-trace-switches"></a>使用 Trace 语句和 Trace 开关
 
-通过将 [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) 添加到应用程序配置，并在应用程序代码中调用 System.Diagnostics.Trace 或 System.Diagnostics.Debug，在云服务应用程序中实施跟踪。 对辅助角色使用配置文件 app.config，对 Web 角色使用配置文件 web.config。 使用 Visual Studio 模板创建新的托管服务时，系统会针对添加的角色将 Azure 诊断自动添加到项目，并将 DiagnosticMonitorTraceListener 添加到相应的配置文件。
+通过将 [DiagnosticMonitorTraceListener](https://msdn.microsoft.com/zh-cn/library/azure/microsoft.windowsazure.diagnostics.diagnosticmonitortracelistener.aspx) 添加到应用程序配置，并在应用程序代码中调用 System.Diagnostics.Trace 或 System.Diagnostics.Debug，在云服务应用程序中实施跟踪。 对辅助角色使用配置文件 app.config，对 Web 角色使用配置文件 web.config   。 使用 Visual Studio 模板创建新的托管服务时，系统会针对添加的角色将 Azure 诊断自动添加到项目，并将 DiagnosticMonitorTraceListener 添加到相应的配置文件。
 
-有关如何放置 Trace 语句的信息，请参阅 [如何：向应用程序代码添加 Trace 语句](https://msdn.microsoft.com/zh-cn/library/zd83saa2.aspx)。
+有关如何放置 Trace 语句的信息，请参阅[如何：将 Trace 语句添加到应用程序代码](https://msdn.microsoft.com/zh-cn/library/zd83saa2.aspx)。
 
-通过在代码中放置 [Trace 开关](https://msdn.microsoft.com/zh-cn/library/3at424ac.aspx) ，可以控制是否进行跟踪以及跟踪的范围。 这样可以在生产环境中监视应用程序的状态。 这在使用多台计算机上运行的多个组件的业务应用程序中尤其重要。 有关详细信息，请参阅 [如何：配置 Trace 开关](https://msdn.microsoft.com/zh-cn/library/t06xyy08.aspx)。
+通过在代码中放置 [Trace 开关](https://msdn.microsoft.com/zh-cn/library/3at424ac.aspx) ，可以控制是否进行跟踪以及跟踪的范围。 这样可以在生产环境中监视应用程序的状态。 这在使用多台计算机上运行的多个组件的业务应用程序中尤其重要。 有关更多信息，请参阅[如何：配置 Trace 开关](https://msdn.microsoft.com/zh-cn/library/t06xyy08.aspx)。
 
 ## <a name="configure-the-trace-listener-in-an-azure-application"></a>在 Azure 应用程序中配置跟踪侦听器
 
@@ -69,11 +69,10 @@ Trace、Debug 和 TraceSource 都需要设置“侦听器”来收集和记录�
 完成添加侦听器步骤后，可以将 Trace 语句添加到代码。
 
 ### <a name="to-add-trace-statement-to-your-code"></a>将 Trace 语句添加到代码
-
-1. 打开应用程序的源文件。 例如，用于辅助角色或 Web 角色的 <RoleName>.cs 文件。
+1. 打开应用程序的源文件。 例如，用于辅助角色或 Web 角色的 \<RoleName>.cs 文件。
 2. 添加以下 using 语句（如果尚未添加）：
     ```
         using System.Diagnostics;
     ```
-3. 添加 Trace 语句，以便捕获有关应用程序状态的信息。 可以使用多种方法格式化 Trace 语句的输出。 有关详细信息，请参阅 [如何：向应用程序代码添加 Trace 语句](https://msdn.microsoft.com/zh-cn/library/zd83saa2.aspx)。
+3. 添加 Trace 语句，以便捕获有关应用程序状态的信息。 可以使用多种方法格式化 Trace 语句的输出。 有关更多信息，请参阅[如何：将 Trace 语句添加到应用程序代码](https://msdn.microsoft.com/zh-cn/library/zd83saa2.aspx)。
 4. 保存源文件。

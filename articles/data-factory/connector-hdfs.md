@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 3ff3eee4445153c4f2244ab4f1c0f201b2739ef9
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 2963f145b63987ee5c2f3edfbd74483e1b95de7b
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732644"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570569"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure 数据工厂从 HDFS 复制数据
 
@@ -26,7 +26,10 @@ ms.locfileid: "66732644"
 
 ## <a name="supported-capabilities"></a>支持的功能
 
-可以将数据从 HDFS 复制到任何支持的接收器数据存储。 有关复制活动支持作为源/接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
+以下活动支持此 HDFS 连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
 
 具体而言，此 HDFS 连接器支持：
 
@@ -218,7 +221,7 @@ HDFS 链接的服务支持以下属性：
 | wildcardFileName         | 给定的 folderPath/wildcardFolderPath 下带有通配符的文件名，用于筛选源文件。 <br>允许的通配符为：`*`（匹配零个或更多个字符）和 `?`（匹配零个或单个字符）；如果实际文件夹名称中包含通配符或此转义字符，请使用 `^` 进行转义。  请参阅[文件夹和文件筛选器示例](#folder-and-file-filter-examples)中的更多示例。 | 如果数据集中未指定 `fileName`，则为“是” |
 | modifiedDatetimeStart    | 基于属性“上次修改时间”的文件筛选器。 如果文件的上次修改时间在 `modifiedDatetimeStart` 和 `modifiedDatetimeEnd` 之间的时间范围内，则将选中这些文件。 该时间应用于 UTC 时区，格式为“2018-12-01T05:00:00Z”。 <br> 属性可以为 NULL，这意味着不向数据集应用任何文件特性筛选器。  如果 `modifiedDatetimeStart` 具有日期/时间值，但 `modifiedDatetimeEnd` 为 NULL，则意味着将选中“上次修改时间”属性大于或等于该日期/时间值的文件。  如果 `modifiedDatetimeEnd` 具有日期/时间值，但 `modifiedDatetimeStart` 为 NULL，则意味着将选中“上次修改时间”属性小于该日期/时间值的文件。 | 否                                            |
 | modifiedDatetimeEnd      | 同上。                                               | 否                                            |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否                                            |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否                                            |
 
 > [!NOTE]
 > 对于 Parquet/带分隔符的文本格式，仍然按原样支持下一部分中提到的 **FileSystemSource** 类型复制活动源，以实现向后兼容性。 建议你继续使用此新模型，并且 ADF 创作 UI 已切换为生成这些新类型。
@@ -274,7 +277,7 @@ HDFS 链接的服务支持以下属性：
 | resourceManagerEndpoint | Yarn 资源管理器终结点 | 是（如果使用 DistCp） |
 | tempScriptPath | 用于存储临时 DistCp 命令脚本的文件夹路径。 脚本文件由数据工厂生成，并在复制作业完成后删除。 | 是（如果使用 DistCp） |
 | distcpOptions | 提供给 DistCp 命令的其他选项。 | 否 |
-| maxConcurrentConnections | 用于同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
+| maxConcurrentConnections | 可以同时连接到存储库的连接数。 仅在要限制与数据存储的并发连接时指定。 | 否 |
 
 **示例：复制活动中使用 DistCp 的 HDFS 源**
 
@@ -306,18 +309,17 @@ HDFS 链接的服务支持以下属性：
 
 [DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) 是 Hadoop 本机命令行工具，用于在 Hadoop 群集中进行分布式复制。 运行 Distcp 命令时，该命令首先会列出所有要复制的文件，创建多个指向 Hadoop 群集的 Map 作业，每个 Map 作业会进行从源到接收器的二进制复制。
 
-复制活动支持使用 DistCp 将文件按原样复制到 Azure Blob（包括[暂存复制](copy-activity-performance.md)）或 Azure Data Lake Store，在这种情况下，它可以充分利用群集的功能，而不必依赖于自承载集成运行时而运行。 它将提供更高的复制吞吐量，尤其是当群集非常强大时。 根据 Azure 数据工厂中的配置，复制活动会自动构造 distcp 命令，提交到 Hadoop 群集，以及监视复制状态。
+复制活动支持使用 DistCp 将文件按原样复制到 Azure Blob（包括[暂存复制](copy-activity-performance.md)），在这种情况下，它可以充分利用群集的功能，而不必依赖于自承载集成运行时而运行。 它将提供更高的复制吞吐量，尤其是当群集非常强大时。 根据 Azure 数据工厂中的配置，复制活动会自动构造 distcp 命令，提交到 Hadoop 群集，以及监视复制状态。
 
 ### <a name="prerequisites"></a>先决条件
 
-要使用 DistCp 将文件按原样从 HDFS 复制到 Azure Blob（包括暂存复制）或 Azure Data Lake Store，请确保 Hadoop 群集满足以下要求：
+要使用 DistCp 将文件按原样从 HDFS 复制到 Azure Blob（包括暂存复制），请确保 Hadoop 群集满足以下要求：
 
 1. 启用了 MapReduce 和 Yarn 服务。
 2. Yarn 版本为 2.5 或更高版本。
-3. HDFS 服务器与目标数据存储，即 Azure Blob 或 Azure Data Lake Store 集成：
+3. HDFS 服务器与目标数据存储（即 Azure Blob）集成：
 
     - 从 Hadoop 2.7 起，为 Azure Blob FileSystem 提供本机支持。 只需在 Hadoop env config 中指定 jar 路径即可。
-    - 从 Hadoop 3.0.0-alpha1 开始，包中附含 Azure Data Lake Store FileSystem。 如果 Hadoop 群集低于该版本，则需要从[此处](https://hadoop.apache.org/releases.html)将与 ADLS 相关的包 (azure-datalake-store.jar) 手动导入到群集，并在 Hadoop env config 中指定 jar 路径。
 
 4. 在 HDFS 中准备临时文件夹。 此临时文件夹用于存储 DistCp shell 脚本，因此会占用 KB 级的空间。
 5. 请确保 HDFS 链接的服务中提供的用户帐户具有以下权限：a) 在 Yarn 中提交应用程序；b) 有权在临时文件夹下创建子文件夹，冰有权对其中文件进行读/写操作。

@@ -7,11 +7,12 @@
 ## [成本建议](advisor-cost-recommendations.md)
 ## [性能建议](advisor-performance-recommendations.md)
 ## [高可用性建议](advisor-high-availability-recommendations.md)
+## [提高资源的安全性](advisor-security-recommendations.md)
 
 # 入门
 ## [顾问入门](advisor-get-started.md)
 
-# 参考
+# 引用
 ## [REST API](https://docs.microsoft.com/rest/api/advisor)
 ## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 

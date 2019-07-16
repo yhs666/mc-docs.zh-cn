@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: b54aeaca8300fc12e91344138721b3a7ec746d06
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 61faded4889249e0bd80112a5eb7230a4f8cedd7
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732264"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562691"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>实时指标流：以 1 秒的延迟进行监视和诊断
 
-通过使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的实时指标流探测实时和生产时的 Web 应用程序的信号。 选择并筛选指标和性能计数器进行实时监视，且服务不会受到任何干扰。 从失败请求和异常的样本中检查堆栈跟踪。 实时指标流与[探查器](../../azure-monitor/app/profiler.md)、[快照调试器](../../azure-monitor/app/snapshot-debugger.md)和[性能测试](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests)一同为实时网站提供了功能强大且非入侵性的诊断工具。
+通过使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的实时指标流探测实时和生产时的 Web 应用程序的信号。 选择并筛选指标和性能计数器进行实时监视，且服务不会受到任何干扰。 从失败请求和异常的样本中检查堆栈跟踪。 与 [Profiler](../../azure-monitor/app/profiler.md)、[Snapshot Debugger](../../azure-monitor/app/snapshot-debugger.md) 一起使用。 实时指标流为实时网站提供了功能强大的非侵入式诊断工具。
 
 使用实时指标流可实现以下操作：
 
@@ -33,8 +33,6 @@ ms.locfileid: "66732264"
 * 试用筛选器，查找最相关的 KPI。
 * 实时监视任何 Windows 性能计数器。
 * 轻松识别有问题的服务器，并筛选出只与该服务器相关的所有 KPI/实时源。
-
-[![实时指标流视频](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 目前 ASP.NET、ASP.NET Core、Azure Functions、Java 和 Node.js 应用支持实时指标。
 
@@ -192,15 +190,6 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 >[!NOTE]
 >在筛选条件中输入 CustomerID 等潜在的敏感信息之前，我们强烈建议设置经过身份验证的通道。
 >
-
-## <a name="generating-a-performance-test-load"></a>生成性能测试负载
-
-若要监视负载增大的效果，请使用“性能测试”边栏选项卡。 可模拟多个用户同时发出的请求。 可运行单一 URL 的“手动测试”（ping 测试），或运行上传的[多步骤 Web 性能测试](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests)（方式与可用性测试相同）。
-
-> [!TIP]
-> 创建性能测试后，请在不同窗口中打开测试和“实时流”边栏选项卡。 可以看到排队的性能测试的启动时间，同时监视实时流。
->
-
 
 ## <a name="troubleshooting"></a>故障排除
 

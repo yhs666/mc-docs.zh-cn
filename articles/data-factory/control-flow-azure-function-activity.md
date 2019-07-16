@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: a529bd614ec6541fe740e5cd5a0926d2120b7893
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: c278a61fc7afc0d255ca25d06f0cb6c86c177882
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732699"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570375"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure 数据工厂中的 Azure 函数活动
 
@@ -34,7 +34,7 @@ Azure 函数的返回类型必须是有效的 `JObject`。 （请记住：[JArra
 | **属性** | **说明** | **必需** |
 | --- | --- | --- |
 | type   | type 属性必须设置为：**AzureFunction** | 是 |
-| 函数应用 URL | Azure 函数应用的 URL。 格式为 `https://<accountname>.azurewebsites.net`。 在 Azure 门户中查看函数应用时，此 URL 是 URL  部分下的值  | 是 |
+| 函数应用 URL | Azure 函数应用的 URL。 格式为 `https://<accountname>.chinacloudsites.cn`。 在 Azure 门户中查看函数应用时，此 URL 是 URL  部分下的值  | 是 |
 | 函数密钥 | Azure 函数的访问密钥。 单击相应函数的“管理”  部分，并复制“函数密钥”  或“主机密钥”  。 在此处了解详细信息：[Azure Functions HTTP 触发器和绑定](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) | 是 |
 |   |   |   |
 
@@ -55,7 +55,7 @@ Azure 函数的返回类型必须是有效的 `JObject`。 （请记住：[JArra
 
 ## <a name="routing-and-queries"></a>路由和查询
 
-Azure 函数活动支持**路由**。 例如，如果你的 Azure Function 具有终结点 `https://functionAPP.azurewebsites.cn/api/<functionName>/<value>?code=<secret>`，则要在 Azure 函数活动中使用的 `functionName` 是 `<functionName>/<value>`。 你可以将此函数参数化以在运行时提供所需的 `functionName`。
+Azure 函数活动支持**路由**。 例如，如果你的 Azure Function 具有终结点 `https://functionAPP.chinacloudsites.cn/api/<functionName>/<value>?code=<secret>`，则要在 Azure 函数活动中使用的 `functionName` 是 `<functionName>/<value>`。 你可以将此函数参数化以在运行时提供所需的 `functionName`。
 
 Azure 函数活动还支持**查询**。 必须将查询包括为 `functionName` 的一部分。 例如，当函数名称为 `HttpTriggerCSharp` 并且要包括的查询为 `name=hello` 时，无法将 Azure 函数活动中的 `functionName` 构造为 `HttpTriggerCSharp?name=hello`。 可以将此函数参数化，以便在运行时确定值。
 
@@ -65,6 +65,10 @@ Azure Functions 会在 230 秒之后超时，无论在设置中配置的 `functi
 
 在[此文章](../azure-functions/durable/durable-functions-overview.md)中详细了解 Durable Functions。 你可以设置 Azure 函数活动来调用持久函数，这将返回具有不同 URI 的响应，例如[此示例](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery)。 因为 `statusQueryGetUri` 在函数正在运行时返回 HTTP 状态 202，因此你可以使用 Web 活动轮询函数的状态。 简单地设置一个 Web 活动并将 `url` 字段设置为 `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`。 当持久函数完成时，该函数的输出将是 Web 活动的输出。
 
+
+## <a name="sample"></a>示例
+
+可以在[此处](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction)找到使用 Azure 函数提取 tar 文件内容的数据工厂示例。
 
 ## <a name="next-steps"></a>后续步骤
 

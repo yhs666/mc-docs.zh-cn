@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 36e503e42875dfd629452669245adb8ab9d586ca
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 43790d982f6c1df6d77f7856335662e777e1bf45
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731208"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562532"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -63,13 +63,13 @@ Application Insights 收集应用程序的遥测数据，而不考虑应用程�
 
 1. 在解决方案资源管理器中展开“连接的服务”文件夹  （云和插头图标），然后右键单击 **Application Insights** 文件夹，单击“打开 Application Insights 门户”。   可以看到有关应用程序的一些信息和各种选项。
 
-    ![应用程序地图](media/quick-monitor-portal/4overview.png)
+    ![应用程序地图](media/quick-monitor-portal/04-overview.png)
 
 2. 单击“应用程序映射”  以获取应用程序组件之间依赖关系的可视布局。  每个组件均显示 KPI，如负载、性能、失败和警报。
 
-    ![应用程序地图](media/quick-monitor-portal/5appmap.png)
+    ![应用程序地图](media/quick-monitor-portal/05-appmap.png)
 
-3. 单击应用程序组件之一上的“应用分析”  图标 ![应用程序映射](media/quick-monitor-portal/app-analytics-icon.png) **在 Analytics 中查看**。 这将打开“Application Insights Analytics”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。  在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
+3. 单击其中一个应用程序组件上的“应用分析”  图标 ![应用程序地图](media/quick-monitor-portal/app-viewinlogs-icon.png)“在日志(分析)中查看”  。 这将打开“日志(分析)”  ，该软件提供丰富的查询语言，可用于分析 Application Insights 收集的所有数据。 在本示例中，将生成以图表形式呈现请求计数的查询。 可以编写自己的查询来分析其他数据。
 
     ![分析](media/quick-monitor-portal/6viewanalytics.png)
 

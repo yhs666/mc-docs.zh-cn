@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Packer 创建 Linux Azure VM 映像 | Azure
+title: 如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像 | Azure
 description: 了解如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,23 +13,25 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: 05/03/2018
-ms.date: 02/18/2019
+origin.date: 05/07/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: 83e8593086a9e42156a1c32222249411ce00bbf5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7fa1075cacbcad0b2ae67af4f30dcd8a6ac941b6
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665849"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570040"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可包括预安装的应用程序和配置。 Azure 市场为最常见的分发和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
 
+<!--Not Available on Azure Image Builder (preview)-->
+
 ## <a name="create-azure-resource-group"></a>创建 Azure 资源组
 生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -67,14 +69,14 @@ az account show --query "{ subscription_id: id }"
 ## <a name="define-packer-template"></a>定义 Packer 模板
 若要生成映像，请创建一个模板作为 JSON 文件。 在模板中，定义执行实际生成过程的生成器和设置程序。 Packer 具有 [Azure 设置程序](https://www.packer.io/docs/builders/azure.html)，允许定义 Azure 资源，如在前一步骤中创建的服务主体凭据。
 
-创建名为 ubuntu.json 的文件并粘贴以下内容。 为以下内容输入自己的值：
+创建名为 ubuntu.json  的文件并粘贴以下内容。 为以下内容输入自己的值：
 
 | 参数                           | 获取位置 |
 |-------------------------------------|----------------------------------------------------|
-| *client_id*                         | `az ad sp` 创建命令的第一行输出 - appId |
-| client_secret                     | `az ad sp` 创建命令的第二行输出 - password |
-| tenant_id                         | `az ad sp` 创建命令的第三行输出 - tenant |
-| subscription_id                   | `az account show` 命令的输出 |
+| *client_id*                         | `az ad sp` 创建命令的第一行输出 - appId  |
+| client_secret                      | `az ad sp` 创建命令的第二行输出 - password  |
+| tenant_id                          | `az ad sp` 创建命令的第三行输出 - tenant  |
+| subscription_id                    | `az account show` 命令的输出 |
 | *managed_image_resource_group_name* | 在第一步中创建的资源组的名称 |
 | *managed_image_name*                | 创建的托管磁盘映像的名称 |
 
@@ -203,7 +205,7 @@ ManagedImageLocation: chinaeast
 Packer 需要几分钟时间来生成 VM、运行设置程序并清理部署。
 
 ## <a name="create-vm-from-azure-image"></a>从 Azure 映像创建 VM
-现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage 创建一个名为 myVM 的 VM，并生成 SSH 密钥（如果它们尚不存在）：
+现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage  创建一个名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```azurecli
 az vm create \
@@ -232,9 +234,7 @@ az vm open-port \
 
 ![NGINX 默认站点](./media/build-image-with-packer/nginx.png) 
 
-## <a name="next-steps"></a>后续步骤
-在此示例中，使用 Packer 创建已安装 NGINX 的 VM 映像。 可以将此 VM 映像与现有部署工作流配合使用，执行例如将应用部署到在使用 Ansible、Chef 或 Puppet 通过映像创建的 VM 中的操作。
-
-有关适用于其他 Linux 发行版本的额外 Packer 模板示例，请参阅此 [GitHub 存储库](https://github.com/hashicorp/packer/tree/master/examples/azure)。
+<!--Not Available on ## Next steps-->
+<!--Not Available on [Azure Image Builder](image-builder.md)-->
 
 <!-- Update_Description: update meta properties, update link -->

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3a1349034519cd231e3ac6565e2f7caee4202633
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 851a359b6fba9727294470d345354506bf45ee62
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731185"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562361"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>管理 Azure Monitor 中的日志数据和工作区
 Azure Monitor 将日志数据存储在 Log Analytics 工作区中，该工作区本质上是一个包含数据和配置信息的容器。 若要管理对日志数据的访问，需要对工作区执行各种管理任务。 你或组织中的其他成员可以使用多个工作区，管理收集自所有或部分 IT 基础结构的不同数据集。
@@ -33,6 +33,12 @@ Azure Monitor 将日志数据存储在 Log Analytics 工作区中，该工作区
 3. 将工作区与订阅和资源组之一相关联。
 4. 选择地理位置。
 
+有关创建工作区的详细信息，请参阅以下文章：
+
+- [在 Azure 门户中创建 Log Analytics 工作区](../learn/quick-create-workspace.md)
+- [使用 Azure CLI 2.0 创建 Log Analytics 工作区](../learn/quick-create-workspace-cli.md)
+- [使用 Azure PowerShell 创建 Log Analytics 工作区](../learn/quick-create-workspace-posh.md)
+
 ## <a name="determine-the-number-of-workspaces-you-need"></a>确定所需工作区数
 Log Analytics 工作区是一种 Azure 资源，也是 Azure Monitor 中收集、聚合、分析和呈现数据的容器。 你可以为每个 Azure 订阅创建多个工作区，并且你可以访问多个工作区，并且可以轻松查询这些工作区。 本部分介绍有助于创建多个工作区的情况。
 
@@ -40,7 +46,7 @@ Log Analytics 工作区可提供：
 
 * 数据存储的地理位置。
 * 数据隔离，用于定义以工作区为中心的模式下的不同用户访问权限。 在以资源为中心的模式下操作时，此功能没有作用。
-* 设置配置的范围，如[定价层级](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)和[数据上限](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap)。
+* 设置配置的范围，如[定价层级](/azure-monitor/platform/manage-cost-storage#changing-pricing-tier)、[保留期](/platform/manage-cost-storage#change-the-data-retention-period)和[数据上限](/azure-monitor/platform/manage-cost-storage#daily-cap)。
 * 与数据引入和保留相关的费用是根据工作区资源计收的。
 
 从使用角度来看，我们建议尽量减少创建的工作区数量。 这可带来更轻松快捷的管理和查询体验。 但是，基于上述特征，在以下情况下可能需要创建多个工作区：
@@ -53,6 +59,8 @@ Log Analytics 工作区可提供：
 使用 Windows 代理收集数据时，可[将每个代理配置为向一个或多个工作区报告](../../azure-monitor/platform/agent-windows.md)。
 
 如果使用 System Center Operations Manager，每个 Operations Manager 管理组仅可以连接一个工作区。 可以在 Operations Manager 管理的计算机上安装 Azure Monitoring Agent，并使代理向 Operations Manager 和不同 Log Analytics 工作区报告。
+
+定义工作区体系结构后，应使用 [Azure Policy](../../governance/policy/overview.md) 对 Azure 资源强制实施此策略。 这可以提供自动应用于所有 Azure 资源的内置定义。 例如，可以设置一个策略，以确保特定区域中的所有 Azure 资源都将其所有诊断日志发送到特定工作区。
 
 ## <a name="view-workspace-details"></a>查看工作区详细信息
 通过 Azure 门户中的“Azure Monitor”  菜单分析 Log Analytics 工作区中的数据时，可以在“Log Analytics 工作区”  菜单中创建和管理工作区。
@@ -95,7 +103,7 @@ Log Analytics 工作区可提供：
 > - Application Insights
 > - 容器
 >
-> 可以通过运行一个查询并检查所需的记录，来测试日志是否已适当关联到其资源。 如果 `_ResourceId` 属性中包含正确的资源 ID，则数据可用于以资源为中心的查询。
+> 可以通过运行一个查询并检查所需的记录，来测试日志是否已适当关联到其资源。 如果 [_ResourceId](log-standard-properties.md#_resourceid) 属性中包含正确的资源 ID，则可以对数据进行以资源为中心的查询。
 
 ### <a name="comparing-access-modes"></a>比较访问模式
 
@@ -270,7 +278,7 @@ Log Analytics 参与者角色包括以下 Azure 操作：
 ## <a name="table-level-rbac"></a>表级 RBAC
 使用**表级 RBAC** 可以针对 Log Analytics 工作区中的数据提供更精细的控制，此外还能分配其他权限。 使用此控制措施可以定义仅供特定一组用户访问的特定数据类型。
 
-使用 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)实现表访问控制，以授予或拒绝对工作区中特定[表](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized)的访问权限。 无论用户的[访问模式](#access-modes)是什么，这些角色都会应用到使用以工作区为中心或者以资源为中心[访问控制模式](#access-control-mode)的工作区。
+使用 [Azure 自定义角色](../../role-based-access-control/custom-roles.md)实现表访问控制，以授予或拒绝对工作区中特定[表](../log-query/logs-structure.md)的访问权限。 无论用户的[访问模式](#access-modes)是什么，这些角色都会应用到使用以工作区为中心或者以资源为中心[访问控制模式](#access-control-mode)的工作区。
 
 使用以下操作创建[自定义角色](../../role-based-access-control/custom-roles.md)，以定义对表访问控制的访问权限。
 

@@ -1,5 +1,5 @@
 ---
-title: 有关 Azure 中 Linux VM 的常见问题 | Azure
+title: 有关 Linux 虚拟机的常见问题 | Azure
 description: 回答了通过 Resource Manager 模型创建的 Linux 虚拟机的一些常见问题。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/22/2018
-ms.date: 02/18/2019
+origin.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
-ms.openlocfilehash: bd2f7ae1bc632b0c05b824fbac3324d6b440997d
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.openlocfilehash: 224c3e02160336f617224dc41d5205534dbb0e3d
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67325770"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570506"
 ---
 # <a name="frequently-asked-question-about-linux-virtual-machines"></a>有关 Linux 虚拟机的常见问题
 本文讨论有关在 Azure 中使用 Resource Manager 部署模型创建的 Linux 虚拟机的一些常见问题。 有关本主题的 Windows 版本，请参阅[有关 Windows 虚拟机的常见问题](../windows/faq.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -37,7 +37,7 @@ Azure 托管磁盘是推荐用于 Azure 虚拟机的磁盘存储产品，方便�
 Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储空间。 每个磁盘都是一个 .vhd 文件，以页 blob 形式存储。 有关定价详细信息，请参阅 [Storage Pricing Details](https://www.azure.cn/pricing/details/storage/)（存储定价详细信息）。
 
 ## <a name="how-can-i-access-my-virtual-machine"></a>如何访问我的虚拟机？
-使用安全外壳 (SSH) 建立远程连接，登录到虚拟机。 请参阅如何[从 Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或[从 Linux 和 Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 进行连接的相关说明。 默认情况下，SSH 允许的并发连接最多为 10 个。 通过编辑配置文件，可以增加此数量。
+使用安全外壳 (SSH) 建立远程连接，以登录到虚拟机。 请参阅如何[从 Windows](ssh-from-windows.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 或[从 Linux 和 Mac](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 进行连接的相关说明。 默认情况下，SSH 允许的并发连接最多为 10 个。 通过编辑配置文件，可以增加此数量。
 
 如果遇到问题，请查阅[排查安全外壳 (SSH) 连接问题](troubleshoot-ssh-connection.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。
 
@@ -78,7 +78,13 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
 <!--MOONCAKE: `video` is tested by users which is invalid-->
 
 ## <a name="what-are-the-password-requirements-when-creating-a-vm"></a>创建 VM 时，密码有什么要求？
-密码的长度必须为 6 到 72 个字符，并满足以下 4 个复杂性要求中的 3 个要求：
+
+根据所使用的工具，有不同的密码长度要求：
+ - 门户 - 12 到 72 个字符之间
+ - PowerShell - 8 到 123 个字符之间
+ - CLI - 12 到 123 个字符之间
+
+密码还必须满足以下 4 个复杂性要求中的 3 个要求：
 
 * 具有小写字符
 * 具有大写字符
@@ -91,12 +97,12 @@ Azure 存储帐户还可为操作系统磁盘和任何数据磁盘提供存储�
     <tr>
         <td style="text-align:center">abc@123</td>
         <td style="text-align:center">P@$$w0rd</td>
-        <td style="text-align:center">P<xref href="ssw0rd" data-throw-if-not-resolved="False" data-raw-source="@ssw0rd"></xref></td>
-        <td style="text-align:center">P<xref href="ssword123" data-throw-if-not-resolved="False" data-raw-source="@ssword123"></xref></td>
+        <td style="text-align:center">P@ssw0rd</td>
+        <td style="text-align:center">P@ssword123</td>
         <td style="text-align:center">Pa$$word</td>
     </tr>
     <tr>
-        <td style="text-align:center">pass<xref href="word1" data-throw-if-not-resolved="False" data-raw-source="@word1"></xref></td>
+        <td style="text-align:center">pass@word1</td>
         <td style="text-align:center">Password!</td>
         <td style="text-align:center">Password1</td>
         <td style="text-align:center">Password22</td>

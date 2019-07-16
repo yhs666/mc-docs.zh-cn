@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2cf6fb353ddb7f792b5cede09596aea5c5561c59
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 4ff9db5bc548ed27b2792db97a6f466e19a4f664
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236559"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562684"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在运行时使用 Application Insights 状态监视器检测 Web 应用
 
@@ -63,7 +63,7 @@ ms.locfileid: "67236559"
 2. 如果尚未安装 Application Insights 状态监视器，请[下载并运行安装程序](#download)
 3. 在状态监视器中，选择已安装的 Web 应用程序或者要监视的网站。 使用 Azure 凭据登录。
 
-    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 [Web 测试][availability]或[客户端监视][client]，请选择现有资源。） 
+    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 [Web 测试][availability]or [client monitoring][client]，请选择现有资源。） 
 
     ![选择应用和资源。](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -303,9 +303,6 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 
 [了解详细信息](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
-## <a name="video"></a>视频
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 <a name="download"></a>
 ## <a name="download-status-monitor"></a>下载状态监视器
@@ -319,13 +316,13 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 查看遥测：
 
 * [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
-* [搜索事件和日志][diagnostic]，以便诊断问题
+* [搜索事件和日志][diagnostic]以诊断问题
 * [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
 
 添加更多遥测：
 
-* [创建 Web 测试][availability]，确保站点保持活动状态。
-* [添加 Web 客户端遥测][usage]，查看网页代码中的异常并将其插入跟踪调用。
+* [创建 Web 测试][availability]，以确保站点保持活动状态。
+* [添加 Web 客户端遥测][usage]，以查看网页代码中的异常并将其插入跟踪调用。
 * [将 Application Insights SDK 添加到代码][greenbrown]，以便插入跟踪和日志调用
 
 <!--Link references-->

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: ece4738ca63e2ded09eb85344cd11e6440c3736e
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 181698bd8ce0b76fe656f1b28a2aa3ef13355811
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731271"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562412"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>将适用于 IIS 的 Azure Blob 存储和适用于事件的 Azure 表存储与 Azure Monitor 配合使用
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>从 Azure 存储收集 Azure 诊断日志
 
 Azure Monitor 可以读取将诊断写入到表存储的以下服务的日志或写入到 Blob 存储的 IIS 日志：
 

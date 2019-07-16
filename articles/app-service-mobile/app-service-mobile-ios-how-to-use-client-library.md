@@ -3,7 +3,7 @@ title: 如何使用适用于 Azure 移动应用的 iOS SDK
 description: 如何使用适用于 Azure 移动应用的 iOS SDK
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
 ms.service: app-service-mobile
@@ -13,19 +13,21 @@ ms.devlang: objective-c
 ms.topic: article
 origin.date: 10/01/2016
 ms.author: v-biyu
-ms.date: 01/07/2019
-ms.openlocfilehash: 1a4598e17513d7e4280ea62477a271b393cc8f7d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 07/15/2019
+ms.openlocfilehash: 971c92b9c6f94615440652798927ef3b54e70c8c
+ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626013"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67560292"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 iOS 客户端库
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
-本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
+
+## <a name="overview"></a>概述
+本指南介绍如何使用最新的 [Azure 移动应用 iOS SDK][1] 执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 iOS Xcode 项目。 本指南侧重于客户端 iOS SDK。 若要了解有关用于后端的服务器端 SDK 的详细信息，请参阅 Server SDK 操作方法。
 
 ## <a name="reference-documentation"></a>参考文档
 
@@ -76,13 +78,13 @@ let table = client.tableWithName("TodoItem")
 
 ## <a name="querying"></a>如何：查询数据
 
-若要创建数据库查询，请查询 `MSTable` 对象。 以下查询会获取 `TodoItem` 中的所有项，并记录每个项的文本。
+若要创建数据库查询，请查询 `MSTable` 对象。 以下查询将获取 `TodoItem` 中的所有项，并记录每个项的文本。
 
 **Objective-C**：
 
 ```objc
 [table readWithCompletion:^(MSQueryResult *result, NSError *error) {
-        if(error) { // error is nil if no error occured
+        if(error) { // error is nil if no error occurred
                 NSLog(@"ERROR %@", error);
         } else {
                 for(NSDictionary *item in result.items) { // items is NSArray of records that match query
@@ -254,9 +256,9 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 
 此设置仅控制客户端侧的页面大小。 如果客户端所需的页面大小大于移动应用后端支持的页面大小，则页面大小的上限为后端配置所支持的最大大小。 
 
-此设置也是数据记录的数目，而不是字节大小。
+此设置也是数据记录的数目  ，而不是字节大小  。
 
-如果要增加客户端页面大小，还应增加服务器上的页面大小。 请参阅[“如何：调整表分页大小”](./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)以获取执行此操作的步骤。
+如果要增加客户端页面大小，还应增加服务器上的页面大小。 请参阅[“如何：调整表分页大小”](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)以获取执行此操作的步骤。
 
 **Objective-C**：
 
@@ -266,7 +268,7 @@ query.parameters = ["myKey1": "value1", "myKey2": "value2"]
                         completion:^(NSError * _Nullable error) {
                                if(error) {
                     NSLog(@"ERROR %@", error);
-                } 
+                }
                            }];
 ```
 
@@ -434,7 +436,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 ## <a name="customapi"></a>如何：调用自定义 API
 
-使用自定义 API 可以公开任何后端功能。 无需映射到表操作。 不仅能进一步控制消息，甚至还可以读取或设置标头，并更改响应正文格式。 若要了解如何在后端上创建自定义 API，请阅读[自定义 API](./app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+使用自定义 API 可以公开任何后端功能。 无需映射到表操作。 不仅能进一步控制消息，甚至还可以读取或设置标头，并更改响应正文格式。 若要了解如何在后端上创建自定义 API，请阅读[自定义 API](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
 
 若要调用自定义 API，请调用 `MSClient.invokeAPI`。 请求和响应内容被视为 JSON。 若要使用其他媒体类型，[请使用 `invokeAPI` 的其他重载][5]。  若要发出 `GET` 请求而不是 `POST` 请求，请将参数 `HTTPMethod` 设置为 `"GET"`，将参数 `body` 设置为 `nil`（因为 GET 请求没有消息正文）。如果自定义 API 支持其他 HTTP 谓词，请相应地更改 `HTTPMethod`。
 
@@ -511,11 +513,11 @@ NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"aler
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 ```
 
-出于安全考虑，从请求中删除所有标记。  要将标记添加到安装或安装中的模板，请参阅 [Work with the .NET backend server SDK for Azure Mobile Apps][4]（使用适用于 Azure 移动应用的 .NET 后端服务器 SDK）。  若要使用这些注册的模板发送通知，请参阅 [通知中心 API][3]。
+出于安全考虑，从请求中删除所有标记。  若要将标记添加到安装或安装中的模板，请参阅[使用适用于 Azure 移动应用的 .NET 后端服务器 SDK][4]。  若要使用这些注册的模板发送通知，请参阅[通知中心 API][3]。
 
 ## <a name="errors"></a>如何：处理错误
 
-调用 Azure 应用服务移动后端时，完成块包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 在代码中，应检查此参数，并根据需要处理错误，如上面代码片段中所示。
+调用 Azure 应用服务移动后端时，完成块包含 `NSError` 参数。 如果出错，此参数为非 nil 值。 应该在代码中检查此参数，并根据需要处理错误，如前面的代码片段中所示。
 
 文件 [`<WindowsAzureMobileServices/MSError.h>`][6] 定义常量 `MSErrorResponseKey`、`MSErrorRequestKey` 和 `MSErrorServerItemKey`。 若要获取与错误相关的更多数据，请执行以下操作：
 
@@ -563,13 +565,12 @@ if (error.code == MSErrorPreconditionFailed) {
         pod 'ADALiOS'
 
 3. 使用终端，从包含项目的目录运行 `pod install`，然后打开生成的 Xcode 工作区（而不是项目）。
-
 4. 根据使用的语言，将以下代码添加到应用程序。 在每个应用程序中，进行以下替换：
 
-    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
-    * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
+    * 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com 。 可以在 [Azure 门户]中从 Azure Active Directory 的域选项卡复制此值。
+    * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”  下面的“高级”  选项卡获取此客户端 ID。
     * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
-    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
+   * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_ 。
 
 **Objective-C**：
 
@@ -692,5 +693,3 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 [8]:../active-directory/develop/quickstart-v1-ios.md
 
 [10]: https://developers.facebook.com/docs/ios/getting-started
-
-<!--Update_Description: update meta data-->

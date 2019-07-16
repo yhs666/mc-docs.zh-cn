@@ -3,31 +3,32 @@ title: 适用于应用程序的品牌准则 | Microsoft Docs
 description: 介绍面向开发人员的 Azure Active Directory 资源的综合性指南
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 72f4e464-1352-4a49-a18f-c37f58e7d5c4
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 11/06/2018
+ms.date: 06/24/2019
 ms.author: v-junlch
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 3dcec20ffb90f94357b18e452e0ab1bb0fee46d9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: c4755c84f3656a73fe8fcb8bdfc54f31c04b7c92
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655700"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568495"
 ---
 # <a name="branding-guidelines-for-applications"></a>适用于应用程序的品牌准则
 
-使用 Azure Active Directory (Azure AD) 开发应用程序时，如果客户想要使用工作或学校帐户（在 Azure AD 中托管）或其个人帐户进行注册和登录到应用程序，你需要指导客户进行相关操作。
+使用 Azure Active Directory (Azure AD) 开发应用程序时，如果客户想要使用工作或学校帐户（在 Azure AD 中托管）进行注册和登录到应用程序，你需要指导客户进行相关操作。
 
 在本文中，你将：
 
@@ -36,14 +37,6 @@ ms.locfileid: "52655700"
 - 下载官方的**登录**或**使用 Microsoft 登录**图像以在应用中使用
 - 了解品牌和导航的注意事项
 
-## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>个人帐户与 Microsoft 中的工作或学校帐户
-
-Microsoft 管理两种类型的用户帐户：
-
-- **个人帐户**（以前称为 Windows Live ID）。 这些帐户表示 *个人* 用户与 Microsoft 之间的关系，用于访问客户设备和 Microsoft 中的服务。 这些帐户专供个人使用。
-- **工作或学校帐户。** 这些帐户由 Microsoft 代表使用 Azure Active Directory 的组织进行管理。 这些帐户用于登录 Office 365 和 Microsoft 的其他业务服务。
-
-Microsoft 工作或学校帐户通常由组织（公司、学校、政府机构）分配给最终用户（员工、学生、联邦雇员）。 这些帐户可以直接在云中（在 Azure AD 平台中）直接控制，也可以从本地目录（如 Windows Server Active Directory）同步到 Azure AD。 Microsoft 是工作或学校帐户的 *监管员* ，但这些帐户由组织所有和控制。
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>在应用程序中引用 Azure AD 帐户
 
@@ -60,9 +53,9 @@ Microsoft 不会向最终用户显示 Azure 或 Active Directory 品牌名称，
 
 应用程序可以为注册和登录提供不同的路径，以下部分提供了这两种应用场景的可视指南。
 
-**如果应用支持最终用户注册（例如免费试用或免费增值模式）**：可以显示“登录”按钮，让用户使用其工作帐户或个人帐户访问应用。 当用户首次访问你的应用程序时，Azure AD 会显示许可提示。
+**如果应用支持最终用户注册（例如免费试用或免费增值模式）** ：可以显示“登录”  按钮，让用户使用其工作帐户访问应用。 当用户首次访问你的应用程序时，Azure AD 会显示许可提示。
 
-如果应用需要只有管理员才能授予的权限，或者需要组织许可：请将管理员请求与用户登录区别开来。 “获取此应用”按钮会将管理员重定向到登录页，然后要求他们代表其组织中的用户授权同意，这还有一个额外的好处，那就是在你的应用中抑制最终用户许可提示。
+**如果应用需要只有管理员才能授予的权限，或者需要组织许可：** 请将管理员请求与用户登录区别开来。 “获取此应用”按钮  会将管理员重定向到登录页，然后要求他们代表其组织中的用户授权同意，这还有一个额外的好处，那就是在你的应用中抑制最终用户许可提示。
 
 ## <a name="visual-guidance-for-app-acquisition"></a>有关获取应用程序的可视指南
 
@@ -118,4 +111,4 @@ Microsoft 徽标和“通过 Microsoft 登录”词语的关联可唯一地将 A
 
 **要** 提供让用户注销以及切换到其他用户帐户的方法。 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

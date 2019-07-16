@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: lingliwu
-ms.openlocfilehash: fe5e393fd69ae4470c36f4300dace409469eb073
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: e25dc8a5e25284db232a4235f04ff11c1e330dcb
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586900"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562479"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>从 SQL 到 Azure Monitor 日志查询备忘单 
 
@@ -50,4 +50,4 @@ Join                                    |`SELECT * FROM dependencies JOIN except
 
 ## <a name="next-steps"></a>后续步骤
 
-- 完成关于[在 Azure Monitor 中编写日志查询](get-started-queries.md)的一课。
+- 通读有关[在 Azure Monitor 中编写日志查询](get-started-queries.md)的课程。

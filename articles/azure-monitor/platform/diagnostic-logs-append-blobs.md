@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 17b48f97a0d42cf2918e40b724363f4610720f3e
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 767831a7a8ea9b2ee9c9a37bc8b05c3b966186e2
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731269"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562376"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 
 > [!WARNING]
-> 如果[使用资源诊断设置将 Azure 资源诊断日志或指标发送到存储帐户](./../../azure-monitor/platform/archive-diagnostic-logs.md)或[使用日志配置文件将活动日志发送到存储帐户](./../../azure-monitor/platform/archive-activity-log.md)，则存储帐户中的数据格式将于 2018 年 11 月 1 日更改为 JSON Lines。 以下说明介绍了影响以及如何更新工具以处理新格式。 
+> 如果[使用资源诊断设置将 Azure 资源诊断日志或指标发送到存储帐户](./../../azure-monitor/platform/archive-diagnostic-logs.md)或使用日志配置文件将活动日志发送到存储帐户，则存储帐户中的数据格式将于 2018 年 11 月 1 日更改为 JSON Lines。 以下说明介绍了影响以及如何更新工具以处理新格式。 
 >
 > 
 
@@ -33,7 +33,6 @@ Azure Monitor 提供的功能可将资源诊断数据和活动日志数据发送
 * 此更改会影响以下数据类型：
   * [Azure 资源诊断日志](./../../azure-monitor/platform/archive-diagnostic-logs.md) 
   * [由诊断设置导出的 Azure 资源指标](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [由日志配置文件导出的 Azure 活动日志数据](./../../azure-monitor/platform/archive-activity-log.md)
 * 此更改不会影响：
   * 网络流日志
   * 尚未通过 Azure Monitor 可用的 Azure 服务日志（例如，Azure 应用服务诊断日志、存储分析日志）
@@ -136,4 +135,3 @@ Azure blob 存储中 PT1H.json 文件的当前格式使用 JSON 数组记录。 
 ## <a name="next-steps"></a>后续步骤
 
 * 了解如何[将资源诊断日志存档到存储帐户](./../../azure-monitor/platform/archive-diagnostic-logs.md)
-* 了解如何[将活动日志数据存档到存储帐户](./../../azure-monitor/platform/archive-activity-log.md)

@@ -3,8 +3,8 @@ title: 了解 Azure Active Directory 应用清单 | Microsoft Docs
 description: 详细介绍 Azure Active Directory 应用清单，该清单表示 Azure AD 租户中的应用程序标识配置，并方便实现 OAuth 授权、许可体验和其他功能。
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/13/2019
-ms.date: 05/09/2019
+ms.date: 07/01/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9aae682aa9f91156b78404877d7778ffeb544da
-ms.sourcegitcommit: 1ebc1e0b99272e62090448d1cd2af385b74ef4b3
+ms.openlocfilehash: d3939c4e1fdf672ee3ebd0408e30dfac8150e4c8
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517480"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568574"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory 应用清单
 
@@ -40,18 +40,18 @@ ms.locfileid: "65517480"
 若要配置应用程序清单，请执行以下操作：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory”服务，然后选择“应用注册”。
+1. 选择“Azure Active Directory”服务  ，然后选择“应用注册”。 
 1. 选择要配置的应用。
-1. 在应用的“概览”页中，选择“清单”部分。 此时会打开一个基于 Web 的清单编辑器，可在其中编辑门户中的清单。 （可选）可以选择“下载”以在本地编辑清单，然后使用“上传”将清单重新应用于应用程序。
+1. 在应用的“概览”页中，选择“清单”部分。   此时会打开一个基于 Web 的清单编辑器，可在其中编辑门户中的清单。 （可选）可以选择“下载”以在本地编辑清单，然后使用“上传”将清单重新应用于应用程序。  
 
 ## <a name="manifest-reference"></a>清单参考
 
 > [!NOTE]
-> 如果看不到“说明”后的“示例值”列，请最大化浏览器窗口并滚动/轻扫，直至看到“示例值”列。
+> 如果看不到“说明”后的“示例值”列，请最大化浏览器窗口并滚动/轻扫，直至看到“示例值”列。   
 
 | 键  | 值类型 | 说明  | 示例值 |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | 可为 Null 的 Int32 | 指定资源所需的访问令牌版本。 这会更改独立于用于请求访问令牌的终结点或客户端生成的 JWT 的版本和格式。<br/><br/>使用的端点 v1.0 或 v2.0 由客户端选择，仅影响 id_tokens 的版本。 资源需要显式配置 `accesstokenAcceptedVersion` 以指示受支持的访问令牌格式。<br/><br/>`accesstokenAcceptedVersion` 的可能值为 1、2 或为 null。 如果值为 null，则默认为 1，这对应于 v1.0 终结点。 | `2` |
+| `accessTokenAcceptedVersion` | 可为 Null 的 Int32 | 指定资源所需的访问令牌版本。 这会更改独立于用于请求访问令牌的终结点或客户端生成的 JWT 的版本和格式。<br/><br/>使用的端点 v1.0 或 v2.0 由客户端选择，仅影响 id_tokens 的版本。 资源需要显式配置 `accesstokenAcceptedVersion` 以指示受支持的访问令牌格式。<br/><br/>`accesstokenAcceptedVersion` 的可能值为 1、2 或为 null。 如果值为 null，则默认为 1，这对应于 v1.0 终结点。   | `2` |
 | `addIns` | 集合 | 定义使用方服务在特定上下文中调用某个应用时可以使用的自定义行为。 例如，呈现文件流的应用程序可以设置其“FileHandler”功能的 addIns 属性。 这样，Office 365 等服务便可以在用户正在处理的文档上下文中调用该应用程序。 | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | 布尔 | 指定回退应用程序类型。 默认情况下，Azure AD 基于 replyUrlsWithType 推断应用程序类型。 某些情况下，Azure AD 无法确定客户端应用类型（例如，其中发生了没有 URL 重定向的 HTTP 请求的 [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) 流）。 在这种情况下，Azure AD 将基于此属性的值解释应用程序类型。 如果此值设置为 true，则回退应用程序类型设置为公共客户端，例如在移动设备上运行的已安装应用。 默认值为 false，这意味着，回退应用程序类型为机密，例如 Web 应用。 | `false` |
 | `availableToOtherTenants` | 布尔 | 如果应用程序与其他租户共享，则为 true；否则为 false。 <br><br> _注意：仅在应用注册（旧版）体验中可用。此功能已由[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验中的 `signInAudience` 取代。_ | |
@@ -62,6 +62,7 @@ ms.locfileid: "65517480"
 | `groupMembershipClaims` | String | 配置应用所需的用户访问令牌或 OAuth 2.0 访问令牌中颁发的 `groups` 声明。 若要设置此属性，请使用以下有效的字符串值之一：<br/><br/>- `"None"`<br/>- `"SecurityGroup"`（适用于安全组和 Azure AD 角色）<br/>- `"All"`（此项将获取登录用户所属的所有安全组、通讯组和 Azure AD 目录角色）。 | `"SecurityGroup"` |
 | `homepage` | String | 应用程序主页的 URL。 <br><br> _注意：仅在应用注册（旧版）体验中可用。此功能已由[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验中的 `signInUrl` 取代。_ | `"https://MyRegisteredApp"` |
 | `objectId` | String | 应用在目录中的唯一标识符。 <br><br> _注意：仅在应用注册（旧版）体验中可用。此功能已由[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)体验中的 `id` 取代。_ | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
+| `optionalClaims` | String | 此特定应用的安全令牌服务在令牌中返回的可选声明。<br>目前有。 但是，使用 v2.0 终结点仅为 Azure AD 注册的应用可以获取它们在清单中请求的可选声明。 有关详细信息，请参阅[可选声明](active-directory-optional-claims.md)。 | `null` |
 | `id` | String | 应用在目录中的唯一标识符。 此 ID 不是用于在任何协议事务中标识应用的标识符。 用于引用目录查询中的对象。 | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | String Array | 用户定义的 URI，用于在 Web 应用的 Azure AD 租户中唯一标识该应用程序；如果应用是多租户的，则用于在已验证的自定义域中唯一标识该应用。 | <code>[<br>&nbsp;&nbsp;"https://MyRegisteredApp"<br>]</code> |
 | `informationalUrls` | String | 指定应用服务条款和隐私声明的链接。 服务条款和隐私声明通过用户同意体验展示给用户。 有关详细信息，请参阅[如何：为已注册的 Azure AD 应用添加服务条款和隐私声明](howto-add-terms-of-service-privacy-statement.md)。 | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |
@@ -115,11 +116,11 @@ ms.locfileid: "65517480"
 
 尝试上传以前下载的清单时，可能会看到以下错误之一。 可能的原因是清单编辑器现在支持更新版本的架构，而该架构与你尝试上传的架构不匹配。
 
-- “**无法更新 xxxxxx 应用程序。错误详细信息:无效的对象标识符 'undefined'。[]**”
-- “**无法更新 xxxxxx 应用程序。错误详细信息:指定的一个或多个属性值无效。[]**”
-- “**无法更新 xxxxxx 应用程序。错误详细信息:不允许在此 api 版本中设置要更新的 availableToOtherTenants。[]**”
-- “**无法更新 xxxxxx 应用程序。错误详细信息:不允许更新此应用程序的 'replyUrls' 属性。请改用 'replyUrlsWithType' 属性。[]**”
-- “**无法更新 xxxxxx 应用程序。错误详细信息:找到了没有类型名称的值，且没有预期的类型可用。如果指定该模型，则有效负载中的每个值都必须具有可在有效负载中指定、显式由调用方调用或隐式从父值推断的类型。[]**”
+- “**无法更新 xxxxxx 应用程序。错误详细信息:无效的对象标识符 'undefined'。[]** ”
+- “**无法更新 xxxxxx 应用程序。错误详细信息:指定的一个或多个属性值无效。[]** ”
+- “**无法更新 xxxxxx 应用程序。错误详细信息:不允许在此 api 版本中设置要更新的 availableToOtherTenants。[]** ”
+- “**无法更新 xxxxxx 应用程序。错误详细信息:不允许更新此应用程序的 'replyUrls' 属性。请改用 'replyUrlsWithType' 属性。[]** ”
+- “**无法更新 xxxxxx 应用程序。错误详细信息:找到了没有类型名称的值，且没有预期的类型可用。如果指定该模型，则有效负载中的每个值都必须具有可在有效负载中指定、显式由调用方调用或隐式从父值推断的类型。[]** ”
 
 如果看到以下错误之一，我们建议采取以下措施：
 
@@ -143,7 +144,6 @@ ms.locfileid: "65517480"
 [AZURE-PORTAL]: https://portal.azure.cn
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
-[INTEGRATING-APPLICATIONS-AAD]: active-directory-integrating-applications.md
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 

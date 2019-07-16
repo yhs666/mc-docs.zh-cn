@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2de427c532007a8ceba1d61795c4fb01f9052ffe
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 253cf0a5e261266b5ed945b4eacdec414d5caacc
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732216"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562725"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>排查无数据问题 - 用于 .NET 的 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>缺少一些遥测数据
@@ -25,6 +25,15 @@ ms.locfileid: "66732216"
 
 * 如果持续看到同一个部分，可能是由于自适应[采样](../../azure-monitor/app/sampling.md)所导致。 要确认这一点，请打开“搜索”（通过“概述”边栏选项卡），并查看请求或其他事件的实例。 单击“属性”部分底部的“...”，获取完整的属性详细信息。 如果请求计数 > 1，则表示采样正在进行。
 * 否则，有可能是已达到定价计划的[数据率限制](../../azure-monitor/app/pricing.md#limits-summary)。 系统每隔一分钟应用这些限制。
+
+*我随机遇到数据丢失。*
+
+
+* 检查遥测通道 [GitHub 存储库](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)中是否存在任何已知问题
+
+*当应用程序即将停止时，我在控制台应用或 Web 应用中遇到数据丢失。*
+
+* SDK 通道将遥测数据保存在缓冲区中，并分批发送。 
 
 ## <a name="no-data-from-my-server"></a>服务器未提供数据
 *我已在 Web 服务器上安装应用，但未看到服务器提供任何遥测数据。服务器在开发计算机上正常运行。*
@@ -60,7 +69,6 @@ ms.locfileid: "66732216"
 * 检查是否为适当的 Azure 帐户提供了登录凭据。
 * 在浏览器中，检查是否可以访问 [Azure 门户](https://portal.azure.cn)。 打开“设置”并查看是否有任何限制。
 * [将 Application Insights 添加到现有项目](../../azure-monitor/app/asp-net.md)：在解决方案资源管理器中，右键单击项目并选择“添加 Application Insights”。
-* 如果仍不起作用，请执行[手动过程](../../azure-monitor/app/windows-services.md)在门户中添加资源，然后将 SDK 添加到项目。
 
 <a name="emptykey"></a>
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a>遇到错误“检测密钥不能为空”
@@ -176,7 +184,7 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 在 2018 年 2 月 5 日，我们宣布我们删除了客户端 IP 地址的日志记录。 这不会影响地理位置。
 
 > [!NOTE]
-> 如果需要 IP 地址的前 3 个八位字节，则可以使用[遥测初始化程序](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)添加自定义属性。
+> 如果需要 IP 地址的前 3 个八位字节，则可以使用[遥测初始化程序](/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer)添加自定义属性。
 > 这不会影响 2018 年 2 月 5 日之前收集的数据。
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>用户遥测数据包含错误的地理数据
@@ -212,7 +220,9 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 
 ### <a name="net-core"></a>.NET Core
 
-1. 从 NuGet 安装 [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) 包。 安装的版本必须与当前安装的 `Microsoft.ApplicationInsights` 版本匹配
+1. 从 NuGet 安装 [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) 包。 安装的版本必须与当前安装的 `Microsoft.ApplicationInsights` 版本匹配
+
+Microsoft.ApplicationInsights.AspNetCore 的最新版本为 2.7.1，它引用 Microsoft.ApplicationInsights 版本 2.10。 因此，要安装的 Microsoft.AspNet.ApplicationInsights.HostingStartup 版本应该是 2.10.0
 
 2. 修改 `Startup.cs` 类中的 `ConfigureServices` 方法：
 
@@ -229,6 +239,27 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 3. 重新启动进程，以便 SDK 获取这些新设置
 
 4. 完成后还原这些更改。
+
+
+## <a name="PerfView"></a> 使用 PerfView 收集日志
+[PerfView](https://github.com/Microsoft/perfview) 是一款免费的诊断和性能分析工具，可通过收集和可视化来自多个源的诊断信息来帮助确定 CPU、内存和其他问题。
+
+Application Insights SDK 记录可由 PerfView 捕获的 EventSource 自我故障排除日志。
+
+若要收集日志，请下载 PerfView 并运行以下命令：
+```cmd
+PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-ApplicationInsights-Core,*Microsoft-ApplicationInsights-Data,*Microsoft-ApplicationInsights-WindowsServer-TelemetryChannel,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Dependency,*Microsoft-ApplicationInsights-Extensibility-AppMapCorrelation-Web,*Microsoft-ApplicationInsights-Extensibility-DependencyCollector,*Microsoft-ApplicationInsights-Extensibility-HostingStartup,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector,*Microsoft-ApplicationInsights-Extensibility-PerformanceCollector-QuickPulse,*Microsoft-ApplicationInsights-Extensibility-Web,*Microsoft-ApplicationInsights-Extensibility-WindowsServer,*Microsoft-ApplicationInsights-WindowsServer-Core,*Microsoft-ApplicationInsights-Extensibility-EventSourceListener,*Microsoft-ApplicationInsights-AspNetCore
+```
+
+可以根据需要修改以下参数：
+- **MaxCollectSec**。 设置此参数可防止 PerfView 无限期运行并影响服务器的性能。
+- **OnlyProviders**。 设置此参数可仅从 SDK 收集日志。 可以基于特定调查自定义此列表。 
+- **NoGui**。 设置此参数可收集不包含 Gui 的日志。
+
+
+有关详细信息，请参阅
+- [使用 PerfView 记录性能跟踪](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView)。
+- [Application Insights 事件源](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/ETW)
 
 ## <a name="still-not-working"></a>仍然无法解决问题...
 * [Application Insights 论坛](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

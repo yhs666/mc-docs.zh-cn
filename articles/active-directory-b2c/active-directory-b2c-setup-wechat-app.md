@@ -11,17 +11,17 @@ origin.date: 09/11/2018
 ms.date: 04/03/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6f052a86e5737e6d243b1203f96635feb3ae3ad7
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 8a724838bc1b224c3f15c548e35fc840cd8dbce1
+ms.sourcegitcommit: e63a584e3231f1d2ba44079db97d0af8b1d3ea5b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235939"
+ms.lasthandoff: 07/03/2019
+ms.locfileid: "67538936"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-wechat-account-using-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 设置通过微信帐户注册与登录
 
 > [!NOTE]
-> 此功能为预览版。中国区暂不支持 Google, Facebook, Twitter 作为标识提供者。
+> 此功能为预览版。 目前，Azure 中国不支持将 Google、Facebook 和 Twitter 作为标识提供者。
 > 
 
 ## <a name="create-a-wechat-application"></a>创建 WeChat 应用程序
