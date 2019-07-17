@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 06/10/2019
+origin.date: 06/14/2019
+ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 2f191aedc9c1d81cc48f81b1d66d1d219d9e6b5b
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: ea3faa73ca3b42033136a103f88dc988145f42e8
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732648"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67570585"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂向/从 Azure SQL 数据库复制数据
 
@@ -26,7 +26,11 @@ ms.locfileid: "66732648"
 
 ## <a name="supported-capabilities"></a>支持的功能
 
-可将数据复制到 Azure SQL 数据库或从中将数据复制到任何支持的接收器数据存储。 还可将数据从任何支持的源数据存储复制到 Azure SQL 数据库。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储和格式](copy-activity-overview.md#supported-data-stores-and-formats)表。
+以下活动支持此 Azure SQL 数据库连接器：
+
+- 带有[支持的源或接收器矩阵](copy-activity-overview.md)表的[复制活动](copy-activity-overview.md)
+- [Lookup 活动](control-flow-lookup-activity.md)
+- [GetMetadata 活动](control-flow-get-metadata-activity.md)
 
 具体而言，此 Azure SQL 数据库连接器支持以下函数：
 
@@ -34,7 +38,8 @@ ms.locfileid: "66732648"
 - 作为源，使用 SQL 查询或存储过程检索数据。
 - 作为接收器，在复制期间将数据追加到目标表，或调用带有自定义逻辑的存储过程。
 
-目前不支持 Azure SQL 数据库 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)。 
+>[!NOTE]
+>目前此连接器不支持 Azure SQL 数据库 **[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=azuresqldb-current)** 。 为了解决此问题，可以通过自承载 Integration Runtime 使用[泛型 ODBC 连接器](connector-odbc.md)和 SQL Server ODBC 驱动程序。 按照[此指南](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=azuresqldb-current)完成 ODBC 驱动程序下载和连接字符串配置。
 
 > [!IMPORTANT]
 > 如果使用 Azure 数据工厂集成运行时复制数据，请将 [Azure SQL Server 防火墙](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure)配置为允许 Azure 服务访问服务器。
@@ -357,6 +362,9 @@ GO
 
 ### <a name="azure-sql-database-as-the-sink"></a>Azure SQL 数据库作为接收器
 
+> [!TIP]
+> 若要详细了解支持的写入行为、配置和最佳做法，请参阅[有关将数据载入 Azure SQL 数据库的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)。
+
 要向 Azure SQL 数据库复制数据，请将复制活动接收器中的 type 属性设置为 SqlSink   。 复制活动 **sink** 节支持以下属性：
 
 | 属性 | 说明 | 必选 |
@@ -365,14 +373,11 @@ GO
 | writeBatchSize | **每批**要插入到 SQL 表中的行数。<br/> 允许的值为 **integer**（行数）。 默认情况下，数据工厂会根据行大小动态确定适当的批大小。 | 否 |
 | writeBatchTimeout | 超时前等待批插入操作完成的时间。<br/> 允许的值为 **timespan**。 示例：“00:30:00”（30 分钟）。 | 否 |
 | preCopyScript | 将数据写入到 Azure SQL 数据库之前，指定复制活动要运行的 SQL 查询。 每次运行复制仅调用该查询一次。 使用此属性清理预加载的数据。 | 否 |
-| sqlWriterStoredProcedureName | 定义如何将源数据应用于目标表的存储过程的名称。 例如，使用自己的业务逻辑执行 upsert 或转换操作。 <br/><br/>此存储过程由每个批处理调用  。 对于仅运行一次且与源数据无关的操作，请使用 `preCopyScript` 属性。 例如，删除和截断操作。 | 否 |
+| sqlWriterStoredProcedureName | 定义如何将源数据应用于目标表的存储过程的名称。 <br/>此存储过程由每个批处理调用  。 若要执行仅运行一次且与源数据无关的操作（例如删除或截断），请使用 `preCopyScript` 属性。 | 否 |
 | storedProcedureParameters |存储过程的参数。<br/>允许的值为名称和值对。 参数的名称和大小写必须与存储过程参数的名称和大小写匹配。 | 否 |
 | sqlWriterTableType | 指定要在存储过程中使用的表类型名称。 通过复制活动可以在具有此表类型的临时表中提供将移动的数据。 然后，存储过程代码可合并复制数据和现有数据。 | 否 |
 
-> [!TIP]
-> 将数据复制到 Azure SQL 数据库时，复制活动默认将数据追加到接收器表后面。 要执行 upsert 或其他业务逻辑，请在 SqlSink 中使用存储过程  。 请参阅[调用 SQL 接收器的存储过程](#invoking-stored-procedure-for-sql-sink)，了解更多详细信息。
-
-#### <a name="append-data-example"></a>追加数据示例
+**示例 1：追加数据**
 
 ```json
 "activities":[
@@ -404,7 +409,7 @@ GO
 ]
 ```
 
-#### <a name="invoke-a-stored-procedure-during-copy-for-upsert-example"></a>复制过程中为 upsert 调用存储过程的示例
+**示例 2：在复制过程中调用存储过程**
 
 请参阅[调用 SQL 接收器的存储过程](#invoking-stored-procedure-for-sql-sink)，了解更多详细信息。
 
@@ -443,84 +448,69 @@ GO
 ]
 ```
 
-## <a name="identity-columns-in-the-target-database"></a>目标数据库中的标识列
+## <a name="best-practice-for-loading-data-into-azure-sql-database"></a>有关将数据载入 Azure SQL 数据库的最佳做法
 
-本部分介绍如何将数据从不含标识列的源表复制到含标识列的目标表。
+将数据复制到 Azure SQL 数据库时，可能需要不同的写入行为：
 
-#### <a name="source-table"></a>源表
+- **[追加](#append-data)** ：我的源数据只有新记录；
+- **[更新插入](#upsert-data)** ：我的源数据有插入和更新；
+- **[覆盖](#overwrite-entire-table)** ：我需要每次都重新加载整个维度表；
+- **[使用自定义逻辑进行写入](#write-data-with-custom-logic)** ：在将数据最终插入目标表之前，我需要额外的处理。
+
+请参阅相应的部分，了解在 ADF 中进行配置的方法以及最佳做法。
+
+### <a name="append-data"></a>追加数据
+
+这是此 Azure SQL 数据库接收器连接器的默认行为，而 ADF 会执行**批量插入**，以便向表高效写入数据。 可以相应地在复制活动中直接配置源和接收器。
+
+### <a name="upsert-data"></a>更新插入数据
+
+**选项 I**（建议使用，尤其是在有大量数据需要复制的情况下）：进行更新插入的**最高性能方法**如下所示： 
+
+- 首先，利用[数据库范围的临时表](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql?view=azuresqldb-current#database-scoped-global-temporary-tables-azure-sql-database)通过复制活动批量加载所有记录。 系统不记录对数据库范围的临时表执行的操作，你可以在数秒内加载数百万条记录。
+- 在 ADF 中执行“存储过程”活动以应用 [MERGE](https://docs.microsoft.com/sql/t-sql/statements/merge-transact-sql?view=azuresqldb-current)（或 INSERT/UPDATE）语句，并使用临时表作为源以单个事务的方式执行所有更新或插入操作，减少往返和日志操作量。 在“存储过程”活动结束时，可以截断临时表，使之可以用于下一更新插入循环。 
+
+例如，在 Azure 数据工厂中，可以使用**复制活动**创建一个管道，并将其与在成功时才使用的 **“存储过程”活动**关联。 前者将数据从源存储复制到数据集中的 Azure SQL 数据库临时表（假设，将  “##UpsertTempTable”作为表名），然后，后者调用一个存储过程，以便将临时表中的源数据合并到目标表中，并清理临时表。
+
+![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
+
+在数据库中使用 MERGE 逻辑定义一个存储过程（如下所示），以便从上述“存储过程”活动指向该过程。 假定目标 **Marketing** 表有三个列：**ProfileID**、**State** 和 **Category**，根据 **ProfileID** 列执行更新插入。
 
 ```sql
-create table dbo.SourceTbl
-(
-       name varchar(100),
-       age int
-)
+CREATE PROCEDURE [dbo].[spMergeData]
+AS
+BEGIN
+    MERGE TargetTable AS target
+    USING ##UpsertTempTable AS source
+    ON (target.[ProfileID] = source.[ProfileID])
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT matched THEN
+        INSERT ([ProfileID], [State], [Category])
+      VALUES (source.ProfileID, source.State, source.Category);
+    
+    TRUNCATE TABLE ##UpsertTempTable
+END
 ```
 
-#### <a name="destination-table"></a>目标表
+**选项 II：** 也可选择[在复制活动中调用存储过程](#invoking-stored-procedure-for-sql-sink)，但请注意，系统会针对源表中的每个行执行此方法，而不是在复制活动中使用批量插入作为默认方法，因此它不适用于大规模更新插入。
 
-```sql
-create table dbo.TargetTbl
-(
-       identifier int identity(1,1),
-       name varchar(100),
-       age int
-)
-```
+### <a name="overwrite-entire-table"></a>覆盖整个表
 
-> [!NOTE]
-> 目标表包含标识列。
+可以在“复制”活动接收器中配置 **preCopyScript** 属性，这样，对于每个“复制”活动运行，ADF 会首先执行此脚本，然后运行复制来插入数据。 例如，若要使用最新数据覆盖整个表，可指定一个脚本，先删除所有记录，再从源大容量加载新数据。
 
-#### <a name="source-dataset-json-definition"></a>源数据集 JSON 定义
+### <a name="write-data-with-custom-logic"></a>使用自定义逻辑写入数据
 
-```json
-{
-    "name": "SampleSource",
-    "properties": {
-        "type": " AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "SourceTbl"
-        }
-    }
-}
-```
-
-#### <a name="destination-dataset-json-definition"></a>目标数据集 JSON 定义
-
-```json
-{
-    "name": "SampleTarget",
-    "properties": {
-        "structure": [
-            { "name": "name" },
-            { "name": "age" }
-        ],
-        "type": "AzureSqlTable",
-        "linkedServiceName": {
-            "referenceName": "TestIdentitySQL",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "TargetTbl"
-        }
-    }
-}
-```
-
-> [!NOTE]
-> 源表和目标表具有不同的架构。 
-
-目标额外具有一个含标识的列。 在本方案中，必须在不包含标识列的目标数据集定义中指定 structure 属性  。
+与[更新插入数据](#upsert-data)部分的描述类似，如果在将源数据最终插入目标表之前需要应用额外的处理，则可执行以下操作：a) 如果规模大，则请先加载到数据库范围的临时表，然后再调用存储过程；或者 b) 在复制过程中调用存储过程。
 
 ## <a name="invoking-stored-procedure-for-sql-sink"></a> 调用 SQL 接收器的存储过程
 
 将数据复制到 Azure SQL 数据库时，还可通过其他参数配置并调用某个用户指定的存储过程。
 
-当内置复制机制无法使用时，还可使用存储过程。 如果在将源数据最终插入目标表之前必须执行 upsert、insert plus update 或额外处理，则一般会使用存储过程。 额外处理包括合并列、查找其他值以及插入多个表等。
+> [!TIP]
+> 调用存储过程时，会逐行处理数据，而不是进行批量操作，不建议将批量操作用于大规模复制。 在[有关将数据载入 Azure SQL 数据库的最佳做法](#best-practice-for-loading-data-into-azure-sql-database)中了解详细信息。
+
+当内置复制机制不起作用时，可以使用存储过程，例如，在将源数据最终插入目标表之前应用额外的处理。 额外处理包括合并列、查找其他值以及插入多个表等。
 
 以下示例演示如何使用存储过程在 Azure SQL 数据库数据库中的表内执行 upsert。 假设输入数据和接收器“Marketing”  表各具有三列：**ProfileID**、**State** 和 **Category**。 基于 ProfileID 列执行 upsert，并仅将其应用于特定类别  。
 
@@ -616,7 +606,7 @@ CREATE TYPE [dbo].[MarketingType] AS TABLE(
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |对象 |
+| sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |

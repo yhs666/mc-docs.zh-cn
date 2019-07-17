@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 398d3886519905fb280ee3bc5f44cc00769eb3c5
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: aa7de2af625c44be61e5bcf5211baaa93983e641
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67236035"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562678"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
@@ -38,7 +38,8 @@ ms.locfileid: "67236035"
 * 自 2018 年 4 月起，应用程序的数据量费用将在名为“数据引入”  的新计费表中报告。 这种新型计量将在诸如 Applications Insights 和 Log Analytics 等监视技术之间进行共享，目前位于服务名称“Log Analytics”  下。 
 * 定价未考虑[实时指标流](../../azure-monitor/app/live-stream.md)数据。
 
-有关在你所在区域中以适合你的货币计价的当前价格，请参阅 [Application Insights 定价][pricing]
+> [!NOTE]
+> 本文的屏幕截图中显示的所有价格都仅用于举例。 有关在你所在区域中以适合你的货币计价的当前价格，请参阅 [Application Insights 定价][pricing]。
 
 ### <a name="multi-step-web-tests"></a>多步骤 Web 测试
 
@@ -132,10 +133,6 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 
 在每个保留的记录中，`itemCount` 指示它表示的原始记录数。 它等于 1 +（即以前已放弃的记录数）。 
 
-## <a name="automation"></a>自动化
-
-可使用 Azure 资源管理编写脚本进行价格计划设置。 [了解操作方法](powershell.md#price)。
-
 ## <a name="limits-summary"></a>限制摘要
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
@@ -144,45 +141,48 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 
 若要禁用每日容量上限电子邮件，请在“使用情况和预估成本”窗格中 Application Insights 资源的“配置”部分下，选择“每日上限”    。 有一些在达到上限时以及达到可调整的警告等级时发送电子邮件的设置。 如果要禁用与每日容量上限相关的所有电子邮件，请取消选中这两个框。
 
-## <a name="legacy-enterprise-pricing-plan"></a>旧企业定价计划
+## <a name="legacy-enterprise-per-node-pricing-tier"></a>旧的企业（按节点）定价层
 
-对于 Azure Application Insights 的早期采用者来说，仍有两种可能存在的定价计划：基本计划和企业计划。 基本定价计划与上面所述相同，是默认计划。 它包括所有企业计划功能，不另外收费。 基本计划帐单主要针对引入的数据量。 
+对于 Azure Application Insights 的早期采用者，仍存在两种可能的定价层：基本计划和企业计划。 “基本”定价层如上所述，它是默认层。 其中包括所有的“企业”层功能，而不另外收费。 “基本”层主要针对所引入的数据量计费。 
 
-企业计划按节点收费，每个节点会收到每日数据限额。 在企业定价计划中，需要为引入数据中超出规定限额的数据支付费用。 如果使用 Operations Management Suite，应选择企业计划。 
+> [!NOTE]
+> 这些旧的定价层已重命名。 “企业”定价层现在称为“按节点”  层，而“基本”定价层现在称为“按 GB”  层。 这些新名称将在下文和 Azure 门户中使用。  
+
+“按节点”（以前是“企业”）层按节点收费，并且每个节点都会收到每日数据限额。 在“按节点”定价层中，你需要为所引入的数据中超出规定限额的数据付费。 如果使用的是 Operations Management Suite，则应选择“按节点”层。 
 
 有关在你所在区域中以适合你的货币计价的当前价格，请参阅 [Application Insights 定价](https://www.azure.cn/pricing/details/application-insights/)。
 
 > [!NOTE]
 > 在 2018 年 4 月，我们[引入了](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure 监视的新定价模型。 此模型在监视服务的完整组合中采用简单的“即用即付”模型。 深入了解[新的定价模型](../../azure-monitor/platform/usage-estimated-costs.md)、如何根据使用模式[评估移到此模型的影响](../../azure-monitor/platform/usage-estimated-costs.md#assessing-the-impact-of-the-new-pricing-model)以及[如何选择加入该新模型](../../azure-monitor/platform/usage-estimated-costs.md#moving-to-the-new-pricing-model)
 
-### <a name="enterprise-plan-and-operations-management-suite-subscription-entitlements"></a>企业计划和 Operations Management Suite 订阅权利
+### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>“按节点”层和 Operations Management Suite 订阅权利
 
-按照[最近的公告](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)，购买 Microsoft Operations Management Suite E1 和 E2 的客户能够以附加组件的形式获取 Application Insights Enterprise，而没有额外费用。 具体而言，Operations Management Suite E1 和 E2 的每个单位都包含对 Application Insights Enterprise 计划的 1 个节点的权利。 每个 Application Insights 节点包含每天最多 200 MB 的引入数据（独立于 Log Analytics 数据引入），并且数据会保留 90 天，无额外费用。 本文后面会详述该计划。 
+按照[以前的公告](https://blogs.technet.microsoft.com/msoms/2017/05/19/azure-application-insights-enterprise-as-part-of-operations-management-suite-subscription/)，客户如果购买了 Operations Management Suite E1 和 E2，则能够免费获取 Application Insights 的“按节点”作为附加组件。 具体而言，Operations Management Suite E1 和 E2 的每个单位都包含对 Application Insights“按节点”层的 1 个节点的权利。 每个 Application Insights 节点包含每天最多 200 MB 的引入数据（独立于 Log Analytics 数据引入），并且数据会保留 90 天，无额外费用。 该层将在本文的后面进行更详细的介绍。 
 
-由于此计划仅适用于使用 Operations Management Suite 订阅的客户，没有 Operations Management Suite 订阅的客户不会看到用于选择此计划的选项。
+由于此层仅适用于具有 Operations Management Suite 订阅的客户，因此，没有 Operations Management Suite 订阅的客户看不到用于选择此层的选项。
 
 > [!NOTE]
-> 若要确保获取此权利，必须在企业定价计划中具有 Application Insights 资源。 此权利仅以节点的形式应用。 基本计划中的 Application Insights 资源不会实现任何权益。 此权利不会出现在“使用情况和预估成本”窗格中显示的预估成本中  。 此外，如果在 2018 年 4 月将订阅移到新的 Azure 监视定价模型，则只可使用基本计划。 如果具有 Operations Management Suite 订阅，不建议将订阅移到新的 Azure 监视定价模型。
+> 若要确保你获取此权利，Application Insights 资源必须位于“按节点”定价层中。 此权利仅以节点的形式应用。 “按 GB”层中的 Application Insights 资源不会实现任何权益。 此权利不会出现在“使用情况和预估成本”窗格中显示的预估成本中  。 此外，如果在 2018 年 4 月将订阅移到了新的 Azure 监视定价模型，则只有“按 GB”层可用。 如果具有 Operations Management Suite 订阅，不建议将订阅移到新的 Azure 监视定价模型。
 
-### <a name="how-the-enterprise-plan-works"></a>企业计划的工作原理
+### <a name="how-the-per-node-tier-works"></a>“按节点”层的工作原理
 
-* 将按在企业计划中为任何应用发送遥测数据的节点收费。
+* 你需要针对为“按节点”层中的任何应用发送遥测数据的每个节点付费。
   * *节点*是托管应用的物理/虚拟服务器计算机或平台即服务角色实例。
   * 开发计算机、客户端浏览器和移动设备不计为节点。
   * 如果应用有多个组件（例如 Web 服务和后端辅助角色）发送遥测数据，则会对组件分开计数。
   * 定价未考虑[实时指标流](../../azure-monitor/app/live-stream.md)数据。 在订阅中，将按节点而非应用计费。 如果有 5 个节点在为 12 个应用发送遥测数据，则按 5 个节点计费。
 * 虽然是按月计费，但对于从应用发送遥测数据的节点来说，实际上是按小时计费。 小时费率为月费除以 744（每月的小时数，每月按 31 天算）。
 * 每天为每个检测到的节点分配的数据量为 200 MB（时间粒度为小时）。 分配的数据如果未使用，不会从当天转到第二天。
-  * 如果选择企业定价计划，会根据该订阅中向 Application Insights 资源发送遥测数据的节点数为每个订阅提供每日数据限额。 因此，如果全天有 5 个节点在发送数据，则该订阅中的所有 Application Insights 资源可以共用 1 GB 的数据限额。 无所谓某些节点是否比其他节点发送更多数据，因为包含的数据在所有节点之间共享。 如果 Application Insights 资源在特定的某一天收到的数据量超出了为该订阅分配的每日数据限额，则会对超额数据按 GB 计费。 
+  * 如果你选择了“按节点”定价层，则每个订阅都会收到基于向该订阅中的 Application Insights 资源发送遥测数据的节点数的每日数据限额。 因此，如果全天有 5 个节点在发送数据，则该订阅中的所有 Application Insights 资源可以共用 1 GB 的数据限额。 无所谓某些节点是否比其他节点发送更多数据，因为包含的数据在所有节点之间共享。 如果 Application Insights 资源在给定的某天收到的数据量超出了为此订阅分配的每日数据限额，则会按 GB 对超额数据收费。 
   * 每日数据限额的计算方式为所有节点在一天中发送遥测数据的小时数（使用 UTC 计时方式）除以 24 再乘以 200 MB。 因此，如果有 4 个节点一天 24 小时中有 15 个小时在发送遥测，则当天包含的数据为 ((4 &#215; 15) / 24) &#215; 200 MB = 500 MB。 超额数据的价格为 2.30 美元/GB，如果当天发送了 1 GB 的数据，则收费 1.15 美元。
-  * 企业计划的每日限额不与已为其选择基本计划的应用程序共享。 未使用的限额不能从当天转到第二天。 
+  * “按节点”层的每日限额不与已为其选择“每 GB”层的应用程序共享。 未使用的限额不能从当天转到第二天。 
 
 ### <a name="examples-of-how-to-determine-distinct-node-count"></a>演示如何确定不同节点计数的示例
 
 | 方案                               | 每日节点计数总数 |
 |:---------------------------------------|:----------------:|
 | 1 个应用程序使用 3 个 Azure 应用服务实例和 1 个虚拟服务器 | 4 |
-| 3 个应用程序运行在 2 个 VM 上，这些应用程序的 Application Insights 资源属于同一订阅，所用计划为企业计划 | 2 | 
+| 3 个应用程序正运行在 2 个 VM 上，这些应用程序的 Application Insights 资源属于同一订阅，并且位于“按节点”层中 | 2 | 
 | 4 个应用程序的 Applications Insights 资源属于同一订阅；每个应用程序在 16 小时的非高峰时段内运行 2 个实例，在 8 小时的高峰时段内运行 4 个实例 | 13.33 | 
 | 云服务有 1 个辅助角色和 1 个 Web 角色，每个角色运行 2 个实例 | 4 | 
 | 5 节点 Azure Service Fabric 群集运行 50 个微服务；每个微服务运行 3 个实例 | 5|
@@ -193,6 +193,11 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
   * 如果应用程序通过 SDK 将 **roleInstance** 设置为自定义值，则会默认使用该值确定节点计数。 
   * 如果对应用使用新版 SDK，而该应用在客户端计算机或移动设备中运行，则节点计数可能会返回很大的数目（因为在客户端计算机或移动设备数目很大）。 
 
+## <a name="automation"></a>自动化
+
+可使用 Azure 资源管理编写脚本来设置定价层。 [了解操作方法](powershell.md#price)。
+
+
 ## <a name="next-steps"></a>后续步骤
 
 * [采样](../../azure-monitor/app/sampling.md)
@@ -200,7 +205,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
-[pricing]: https://www.azure.cn/pricing/details/application-insights/
+[pricing]: https://www.azure.cn/pricing/details/monitor/
 
 
 

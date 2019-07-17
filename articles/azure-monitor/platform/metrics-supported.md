@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 4b9d038f92d34ddf9348723a24ac41eab036a0c1
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 69d02541be8e685a95544782482c145d5c722a51
+ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586762"
+ms.lasthandoff: 07/04/2019
+ms.locfileid: "67562324"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -21,7 +21,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。
 >
-> 例如：可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
+> 例如：  可以基于每个队列级别浏览和绘制事件中心上的“传入消息”指标。 但是，当通过诊断设置导出时，该指标将表示为事件中心的所有队列中的所有传入消息。
 >
 >
 
@@ -84,12 +84,23 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |OtherRequests|其他网关请求数|计数|总计|其他网关请求数|位置、主机名|
 |持续时间|网关请求的总持续时间|毫秒|平均值|网关请求的总持续时间，以毫秒为单位|位置、主机名|
 |容量|容量|百分比|平均值|ApiManagement 服务的利用率指标|位置|
+|EventHubTotalEvents|事件中心事件总数|计数|总计|发送到事件中心的事件数|位置|
+|EventHubSuccessfulEvents|成功的事件中心事件数|计数|总计|成功的事件中心事件数|位置|
+|EventHubTotalFailedEvents|失败的事件中心事件数|计数|总计|失败的事件中心事件数|位置|
+|EventHubRejectedEvents|拒绝的事件中心事件数|计数|总计|拒绝的事件中心事件（配置不当或未授权）数|位置|
+|EventHubThrottledEvents|限制的事件中心事件数|计数|总计|限制的事件中心事件数|位置|
+|EventHubTimedoutEvents|超时的事件中心事件数|计数|总计|超时的事件中心事件数|位置|
+|EventHubDroppedEvents|删除的事件中心事件数|计数|总计|由于达到队列大小限制而跳过的事件数|位置|
+|EventHubTotalBytesSent|事件中心事件大小|字节|总计|事件中心事件的总大小，以字节为单位|位置|
+|请求|请求|计数|总计|网关请求数|Location、BackendResponseCode、LastErrorReason、GatewayResponseCode|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |TotalJob|作业总数|计数|总计|作业总数|Runbook、状态|
+|TotalUpdateDeploymentRuns|更新部署运行总数|计数|总计|软件更新部署运行总数|SoftwareUpdateConfigurationName、Status|
+|TotalUpdateDeploymentMachineRuns|更新部署计算机运行总数|计数|总计|软件更新部署运行中的软件更新部署计算机运行总数|SoftwareUpdateConfigurationName、Status、TargetComputer、SoftwareUpdateConfigurationRunId|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 
@@ -339,91 +350,108 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|TotalCalls|总调用数|计数|总计|调用总数。|无维度|
-|SuccessfulCalls|成功调用数|计数|总计|成功调用数。|无维度|
-|TotalErrors|错误总数|计数|总计|引发错误响应（HTTP 响应代码 4xx 或 5xx）的调用总数。|无维度|
-|BlockedCalls|阻止的调用数|计数|总计|超过速率或配额限制的调用数。|无维度|
-|ServerErrors|服务器错误数|计数|总计|引发服务内部错误（HTTP 响应代码 5xx）的调用数。|无维度|
-|ClientErrors|客户端错误数|计数|总计|引发客户端错误（HTTP 响应代码 4xx）的调用数。|无维度|
-|DataIn|数据输入|字节|总计|传入数据的大小（字节）。|无维度|
-|DataOut|数据输出|字节|总计|传出数据的大小（字节）。|无维度|
-|延迟|延迟|毫秒|平均值|延迟（毫秒）。|无维度|
-|CharactersTranslated|转换的字符|计数|总计|传入的文本请求中的字符总数。|无维度|
-|SpeechSessionDuration|语音会话持续时间|秒|总计|语音会话的总持续时间（以秒计）。|无维度|
+|TotalCalls|总调用数|计数|总计|调用总数。|ApiName、OperationName、Region|
+|SuccessfulCalls|成功调用数|计数|总计|成功调用数。|ApiName、OperationName、Region|
+|TotalErrors|错误总数|计数|总计|引发错误响应（HTTP 响应代码 4xx 或 5xx）的调用总数。|ApiName、OperationName、Region|
+|BlockedCalls|阻止的调用数|计数|总计|超过速率或配额限制的调用数。|ApiName、OperationName、Region|
+|ServerErrors|服务器错误数|计数|总计|引发服务内部错误（HTTP 响应代码 5xx）的调用数。|ApiName、OperationName、Region|
+|ClientErrors|客户端错误数|计数|总计|引发客户端错误（HTTP 响应代码 4xx）的调用数。|ApiName、OperationName、Region|
+|DataIn|数据输入|字节|总计|传入数据的大小（字节）。|ApiName、OperationName、Region|
+|DataOut|数据输出|字节|总计|传出数据的大小（字节）。|ApiName、OperationName、Region|
+|延迟|延迟|毫秒|平均值|延迟（毫秒）。|ApiName、OperationName、Region|
+|CharactersTranslated|转换的字符|计数|总计|传入的文本请求中的字符总数。|ApiName、OperationName、Region|
+|CharactersTrained|训练的字符数|计数|总计|训练的字符总数。|ApiName、OperationName、Region|
+|SpeechSessionDuration|语音会话持续时间|秒|总计|语音会话的总持续时间（以秒计）。|ApiName、OperationName、Region|
 |TotalTransactions|总事务|计数|总计|事务总数。|无维度|
-|TotalTokenCalls|令牌调用总数|计数|总计|令牌调用的总数。|无维度|
+|TotalTokenCalls|令牌调用总数|计数|总计|令牌调用的总数。|ApiName、OperationName、Region|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.Compute/virtualMachines
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
 |CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|无维度|
-|网络传入|网络传入|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
-|网络传出|网络传出|字节|总计|虚拟机在所有网络接口上发出的字节数（传出流量）|无维度|
-|磁盘读取字节数|磁盘读取字节数|字节|总计|监视期间从磁盘读取的字节总数|无维度|
-|磁盘写入字节数|磁盘写入字节数|字节|总计|监视期间向磁盘写入的字节总数|无维度|
+|网络传入|可计费的网络传入流量|字节|总计|虚拟机在所有网络接口上收到的可计费字节数（传入流量）|无维度|
+|网络传出|可计费的网络传出流量|字节|总计|虚拟机在所有网络接口上发出的可计费字节数（传出流量）|无维度|
+|磁盘读取字节数|磁盘读取字节数|字节|总计|监视期间从磁盘读取的字节数|无维度|
+|磁盘写入字节数|磁盘写入字节数|字节|总计|监视期间向磁盘写入的字节数|无维度|
 |磁盘读取操作次数/秒|磁盘读取操作次数/秒|每秒计数|平均值|磁盘读取 IOPS|无维度|
 |磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
 |剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
 |已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
-|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
-|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
-|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
-|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
-|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
-|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
-|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
-|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
-|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
-|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
+|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（已弃用）|每秒计数|平均值|监视期间每秒从单个磁盘读取的字节数|SlotId|
+|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（已弃用）|每秒计数|平均值|监视期间每秒写入到单个磁盘的字节数|SlotId|
+|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（已弃用）|每秒计数|平均值|监视期间从单个磁盘执行的读取 IOPS|SlotId|
+|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（已弃用）|每秒计数|平均值|监视期间从单个磁盘执行的写入 IOPS|SlotId|
+|每磁盘 QD|数据磁盘 QD（已弃用）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
+|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的字节数|无维度|
+|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的字节数|无维度|
+|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的读取 IOPS|无维度|
+|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的写入 IOPS|无维度|
+|OS 每磁盘 QD|OS 磁盘 QD（已弃用）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
+|数据磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的字节数|LUN|
+|数据磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的字节数|LUN|
+|数据磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘执行的读取 IOPS|LUN|
+|数据磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘执行的写入 IOPS|LUN|
+|数据磁盘队列深度|数据磁盘队列深度（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|LUN|
+|OS 磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的字节数|无维度|
+|OS 磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的字节数|无维度|
+|OS 磁盘读取操作次数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的读取 IOPS|无维度|
+|OS 磁盘写入操作次数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的写入 IOPS|无维度|
+|OS 磁盘队列深度|OS 磁盘队列深度（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
+|入站流数|入站流数（预览版）|计数|平均值|入站流数是入站方向的当前流（传入 VM 的流量）的数目|无维度|
+|出站流数|出站流数（预览版）|计数|平均值|出站流数是出站方向的当前流（传出 VM 的流量）的数目|无维度|
+|入站流最大创建速率|入站流最大创建速率（预览版）|每秒计数|平均值|入站流（传入 VM 的流量）的最大创建速率|无维度|
+|出站流最大创建速率|出站流最大创建速率（预览版）|每秒计数|平均值|出站流（传出 VM 的流量）的最大创建速率|无维度|
+|高级数据磁盘缓存读取命中|高级数据磁盘缓存读取命中（预览版）|百分比|平均值|高级数据磁盘缓存读取命中|LUN|
+|高级数据磁盘缓存读取未命中|高级数据磁盘缓存读取未命中（预览版）|百分比|平均值|高级数据磁盘缓存读取未命中|LUN|
+|高级 OS 磁盘缓存读取命中|高级 OS 磁盘缓存读取命中（预览版）|百分比|平均值|高级 OS 磁盘缓存读取命中|无维度|
+|高级 OS 磁盘缓存读取未命中|高级 OS 磁盘缓存读取未命中（预览版）|百分比|平均值|高级 OS 磁盘缓存读取未命中|无维度|
+|网络传入流量总计|网络传入流量总计|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
+|网络传出流量总计|网络传出流量总计|字节|总计|虚拟机在所有网络接口上发出的字节数（传出流量）|无维度|
 
 ## <a name="microsoftcomputevirtualmachinescalesets"></a>Microsoft.Compute/virtualMachineScaleSets
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|无维度|
-|网络传入|网络传入|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
-|网络传出|网络传出|字节|总计|虚拟机在所有网络接口上发出的字节数（传出流量）|无维度|
-|磁盘读取字节数|磁盘读取字节数|字节|总计|监视期间从磁盘读取的字节总数|无维度|
-|磁盘写入字节数|磁盘写入字节数|字节|总计|监视期间向磁盘写入的字节总数|无维度|
-|磁盘读取操作次数/秒|磁盘读取操作次数/秒|每秒计数|平均值|磁盘读取 IOPS|无维度|
-|磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
+|CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|VMName|
+|网络传入|可计费的网络传入流量|字节|总计|虚拟机在所有网络接口上收到的可计费字节数（传入流量）|VMName|
+|网络传出|可计费的网络传出流量|字节|总计|虚拟机在所有网络接口上发出的可计费字节数（传出流量）|VMName|
+|磁盘读取字节数|磁盘读取字节数|字节|总计|监视期间从磁盘读取的字节数|VMName|
+|磁盘写入字节数|磁盘写入字节数|字节|总计|监视期间向磁盘写入的字节数|VMName|
+|磁盘读取操作次数/秒|磁盘读取操作次数/秒|每秒计数|平均值|磁盘读取 IOPS|VMName|
+|磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|VMName|
 |剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
 |已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
-|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
-|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
-|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
-|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
-|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
-|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
-|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
-|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
-|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
-|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
-
-## <a name="microsoftcomputevirtualmachinescalesetsvirtualmachines"></a>Microsoft.Compute/virtualMachineScaleSets/virtualMachines
-
-|度量值|指标显示名称|计价单位|聚合类型|说明|维度|
-|---|---|---|---|---|---|
-|CPU 百分比|CPU 百分比|百分比|平均值|当前虚拟机正在使用的已分配计算单元百分比|无维度|
-|网络传入|网络传入|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|无维度|
-|网络传出|网络传出|字节|总计|虚拟机在所有网络接口上发出的字节数（传出流量）|无维度|
-|磁盘读取字节数|磁盘读取字节数|字节|总计|监视期间从磁盘读取的字节总数|无维度|
-|磁盘写入字节数|磁盘写入字节数|字节|总计|监视期间向磁盘写入的字节总数|无维度|
-|磁盘读取操作次数/秒|磁盘读取操作次数/秒|每秒计数|平均值|磁盘读取 IOPS|无维度|
-|磁盘写入操作次数/秒|磁盘写入操作次数/秒|每秒计数|平均值|磁盘写入 IOPS|无维度|
-|剩余 CPU 信用额度|剩余 CPU 信用额度|计数|平均值|可用来集中使用的总信用点数|无维度|
-|已用 CPU 信用额度|已用 CPU 信用额度|计数|平均值|虚拟机使用的总信用点数|无维度|
-|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的总字节数|SlotId|
-|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的总字节数|SlotId|
-|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘读取时完成的总 IOPS|SlotId|
-|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间写入单个磁盘时完成的总 IOPS|SlotId|
-|每磁盘 QD|数据磁盘 QD（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
-|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的总字节数|无维度|
-|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的总字节数|无维度|
-|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘读取时完成的总 IOPS|无维度|
-|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间写入单个磁盘时完成的总 IOPS|无维度|
-|OS 每磁盘 QD|OS 磁盘 QD（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
+|每磁盘读取字节数/秒|数据磁盘读取字节数/秒（已弃用）|每秒计数|平均值|监视期间每秒从单个磁盘读取的字节数|SlotId|
+|每磁盘写入字节数/秒|数据磁盘写入字节数/秒（已弃用）|每秒计数|平均值|监视期间每秒写入到单个磁盘的字节数|SlotId|
+|每磁盘读取操作数/秒|数据磁盘读取操作数/秒（已弃用）|每秒计数|平均值|监视期间从单个磁盘执行的读取 IOPS|SlotId|
+|每磁盘写入操作数/秒|数据磁盘写入操作数/秒（已弃用）|每秒计数|平均值|监视期间从单个磁盘执行的写入 IOPS|SlotId|
+|每磁盘 QD|数据磁盘 QD（已弃用）|计数|平均值|数据磁盘队列深度(或队列长度)|SlotId|
+|OS 每磁盘读取字节数/秒|OS 磁盘读取字节数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的字节数|无维度|
+|OS 每磁盘写入字节数/秒|OS 磁盘写入字节数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的字节数|无维度|
+|OS 每磁盘读取操作数/秒|OS 磁盘读取操作数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的读取 IOPS|无维度|
+|OS 每磁盘写入操作数/秒|OS 磁盘写入操作数/秒（已弃用）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的写入 IOPS|无维度|
+|OS 每磁盘 QD|OS 磁盘 QD（已弃用）|计数|平均值|OS 磁盘队列深度(或队列长度)|无维度|
+|数据磁盘读取字节数/秒|数据磁盘读取字节数/秒（预览版）|每秒计数|平均值|监视期间每秒从单个磁盘读取的字节数|LUN、VMName|
+|数据磁盘写入字节数/秒|数据磁盘写入字节数/秒（预览版）|每秒计数|平均值|监视期间每秒写入到单个磁盘的字节数|LUN、VMName|
+|数据磁盘读取操作数/秒|数据磁盘读取操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘执行的读取 IOPS|LUN、VMName|
+|数据磁盘写入操作数/秒|数据磁盘写入操作数/秒（预览版）|每秒计数|平均值|监视期间从单个磁盘执行的写入 IOPS|LUN、VMName|
+|数据磁盘队列深度|数据磁盘队列深度（预览版）|计数|平均值|数据磁盘队列深度(或队列长度)|LUN、VMName|
+|OS 磁盘读取字节数/秒|OS 磁盘读取字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒从单个磁盘读取的字节数|VMName|
+|OS 磁盘写入字节数/秒|OS 磁盘写入字节数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间每秒写入到单个磁盘的字节数|VMName|
+|OS 磁盘读取操作次数/秒|OS 磁盘读取操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的读取 IOPS|VMName|
+|OS 磁盘写入操作次数/秒|OS 磁盘写入操作数/秒（预览版）|每秒计数|平均值|OS 磁盘监视期间从单个磁盘执行的写入 IOPS|VMName|
+|OS 磁盘队列深度|OS 磁盘队列深度（预览版）|计数|平均值|OS 磁盘队列深度(或队列长度)|VMName|
+|入站流数|入站流数（预览版）|计数|平均值|入站流数是入站方向的当前流（传入 VM 的流量）的数目|VMName|
+|出站流数|出站流数（预览版）|计数|平均值|出站流数是出站方向的当前流（传出 VM 的流量）的数目|VMName|
+|入站流最大创建速率|入站流最大创建速率（预览版）|每秒计数|平均值|入站流（传入 VM 的流量）的最大创建速率|VMName|
+|出站流最大创建速率|出站流最大创建速率（预览版）|每秒计数|平均值|出站流（传出 VM 的流量）的最大创建速率|VMName|
+|高级数据磁盘缓存读取命中|高级数据磁盘缓存读取命中（预览版）|百分比|平均值|高级数据磁盘缓存读取命中|LUN、VMName|
+|高级数据磁盘缓存读取未命中|高级数据磁盘缓存读取未命中（预览版）|百分比|平均值|高级数据磁盘缓存读取未命中|LUN、VMName|
+|高级 OS 磁盘缓存读取命中|高级 OS 磁盘缓存读取命中（预览版）|百分比|平均值|高级 OS 磁盘缓存读取命中|VMName|
+|高级 OS 磁盘缓存读取未命中|高级 OS 磁盘缓存读取未命中（预览版）|百分比|平均值|高级 OS 磁盘缓存读取未命中|VMName|
+|网络传入流量总计|网络传入流量总计|字节|总计|虚拟机在所有网络接口上收到的字节数（传入流量）|VMName|
+|网络传出流量总计|网络传出流量总计|字节|总计|虚拟机在所有网络接口上发出的字节数（传出流量）|VMName|
 
 ## <a name="microsoftcontainerinstancecontainergroups"></a>Microsoft.ContainerInstance/containerGroups
 
@@ -434,6 +462,16 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |NetworkBytesReceivedPerSecond|每秒接收到的网络字节数|字节|平均值|每秒接收到的网络字节数。|无维度|
 |NetworkBytesTransmittedPerSecond|每秒传输的网络字节数|字节|平均值|每秒传输的网络字节数。|无维度|
 
+## <a name="microsoftcontainerregistryregistries"></a>Microsoft.ContainerRegistry/registries
+
+|指标|指标显示名称|计价单位|聚合类型|说明|维度|
+|---|---|---|---|---|---|
+|TotalPullCount|提取总数|计数|平均值|映像提取总次数|无维度|
+|SuccessfulPullCount|成功提取计数|计数|平均值|成功的映像提取次数|无维度|
+|TotalPushCount|推送总数|计数|平均值|映像推送总次数|无维度|
+|SuccessfulPushCount|成功推送计数|计数|平均值|成功的映像推送次数|无维度|
+|RunDuration|运行持续时间|毫秒|总计|运行持续时间，以毫秒为单位|无维度|
+
 ## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
@@ -441,7 +479,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |kube_node_status_allocatable_cpu_cores|托管群集中可用 CPU 内核的总数|计数|总计|托管群集中可用 CPU 内核的总数|无维度|
 |kube_node_status_allocatable_memory_bytes|托管群集中可用内存的总量|字节|总计|托管群集中可用内存的总量|无维度|
 |kube_pod_status_ready|就绪状态下的 Pod 数|计数|总计|就绪状态下的 Pod 数|命名空间、Pod|
-|kube_node_status_condition|各种节点条件的状态|计数|总计|各种节点条件的状态|条件、状态、节点|
+|kube_node_status_condition|各种节点条件的状态|计数|总计|各种节点条件的状态|condition、status、status2、node|
 |kube_pod_status_phase|依据阶段的 Pod 数|计数|总计|依据阶段的 Pod 数|阶段、命名空间、Pod|
 
 ## <a name="microsoftcustomerinsightshubs"></a>Microsoft.CustomerInsights/hubs
@@ -500,8 +538,8 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|FailedRuns|失败的运行次数|计数|总计||pipelineName、activityName、windowEnd、windowStart|
-|SuccessfulRuns|成功的运行次数|计数|总计||pipelineName、activityName、windowEnd、windowStart|
+|FailedRuns|失败的运行次数|计数|总计||pipelineName、activityName|
+|SuccessfulRuns|成功的运行次数|计数|总计||pipelineName、activityName|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.DataFactory/factories
 
@@ -529,7 +567,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |JobEndedCancelled|取消的作业数|计数|总计|取消的作业计数。|无维度|
 |JobAUEndedSuccess|成功 AU 时间|秒|总计|成功作业的总 AU 时间。|无维度|
 |JobAUEndedFailure|失败的 AU 时间|秒|总计|失败作业的总 AU 时间。|无维度|
-|JobAUEndedCancelled|已取消的 AU 时间|秒|总计|取消的作业的总 AU 时间。|无维度|
+|JobAUEndedCancelled|取消的 AU 时间|秒|总计|取消的作业的总 AU 时间。|无维度|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -637,12 +675,14 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |d2c.endpoints.latency.serviceBusQueues|路由：服务总线队列的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入服务总线队列终结点之间的平均延迟（毫秒）|无维度|
 |d2c.endpoints.egress.serviceBusTopics|路由：消息传送到服务总线主题的次数|计数|总计|IoT 中心路由成功将消息传送到服务总线主题终结点的次数。|无维度|
 |d2c.endpoints.latency.serviceBusTopics|路由：服务总线主题的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入服务总线主题终结点之间的平均延迟（毫秒）|无维度|
-|d2c.endpoints.egress.builtIn.events|路由：消息传送到消息/事件的次数|计数|总计|IoT 中心路由成功将消息传送到内置终结点（消息/事件）的次数。|无维度|
-|d2c.endpoints.latency.builtIn.events|路由：消息/事件的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入内置终结点（消息/事件）之间的平均延迟（毫秒）|无维度|
+|d2c.endpoints.egress.builtIn.events|路由：消息传送到消息/事件的次数|计数|总计|IoT 中心路由成功将消息传送到内置终结点（消息/事件）的次数。 此指标仅在已为 IoT 中心启用路由 (https://aka.ms/iotrouting) 时开始工作。|无维度|
+|d2c.endpoints.latency.builtIn.events|路由：消息/事件的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入内置终结点（消息/事件）之间的平均延迟（毫秒） 此指标仅在已为 IoT 中心启用路由 (https://aka.ms/iotrouting) 时开始工作。|无维度|
 |d2c.endpoints.egress.storage|路由：消息传送到存储的次数|计数|总计|IoT 中心路由成功将消息传送到存储终结点的次数。|无维度|
 |d2c.endpoints.latency.storage|路由：存储的消息延迟|毫秒|平均值|消息进入 IoT 中心与遥测消息进入存储终结点之间的平均延迟（毫秒）。|无维度|
 |d2c.endpoints.egress.storage.bytes|路由：传送到存储的数据量|字节|总计|IoT 中心路由传送到存储终结点的数据量（字节）。|无维度|
 |d2c.endpoints.egress.storage.blobs|路由：将 Blob 传送到存储的次数|计数|总计|IoT 中心路由将 Blob 传送到存储终结点的次数。|无维度|
+|EventGridDeliveries|事件网格传送（预览版）|计数|总计|发布到事件网格的 IoT 中心事件的数量。 使用 Result 维度表示成功和失败请求的数量。 EventType 维度显示事件的类型 (https://aka.ms/ioteventgrid) 。|Result、EventType|
+|EventGridLatency|从生成 IoT 中心事件到将事件发布到事件网格的平均延迟（毫秒）。 此数值是所有事件类型的平均。 若要查看特定事件类型的延迟，请使用 EventType 维度。|EventType|
 |d2c.twin.read.success|设备的成功孪生读取数|计数|总计|由设备发起的所有成功孪生读取的计数。|无维度|
 |d2c.twin.read.failure|设备的失败孪生读取数|计数|总计|由设备发起的所有失败孪生读取的计数。|无维度|
 |d2c.twin.read.size|设备的孪生读取的响应大小|字节|平均值|由设备发起的所有成功的孪生读取的平均、最小和最大大小。|无维度|
@@ -676,8 +716,7 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |jobs.failed|失败的作业数|计数|总计|所有失败的作业的计数。|无维度|
 |d2c.telemetry.ingress.sendThrottle|限制错误数|计数|总计|由于设备吞吐量限制而导致的限制错误数|无维度|
 |dailyMessageQuotaUsed|已使用的消息总数|计数|平均值|今天使用的消息总数。 这是累积值，每日 00:00 UTC 重置为零。|无维度|
-|deviceDataUsage|设备数据用量总计（已弃用）|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
-|deviceDataUsageV2|设备数据用量总计（预览）|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
+|deviceDataUsage|设备数据用量总计|字节|总计|从与 IotHub 相连的任意设备传出的字节，以及传入到与 IotHub 相连的任意设备的字节|无维度|
 |totalDeviceCount|设备总数（预览）|计数|平均值|已注册到 IoT 中心的设备数目|无维度|
 |connectedDeviceCount|连接设备数（预览）|计数|平均值|已连接到 IoT 中心的设备数目|无维度|
 |配置|配置指标|计数|总计|配置操作的指标|无维度|
@@ -808,12 +847,6 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |---|---|---|---|---|---|
 |GatewayRequests|网关请求数|计数|总计|网关请求数|ClusterDnsName、HttpStatus|
 |CategorizedGatewayRequests|已分类的网关请求数|计数|总计|按类别（1xx/2xx/3xx/4xx/5xx）统计的网关请求数|ClusterDnsName、HttpStatus|
-|自动缩放|自动缩放指标|计数|最大值|自动缩放指标|ClusterDnsName、MetricName|
-|AllocatedMB|已分配 MB|计数|最大值|已分配 MB|ClusterDnsName、MetricName|
-|AvailableMB|可用 MB|计数|最大值|可用 MB|ClusterDnsName、MetricName|
-|AppsPending|挂起的应用数|计数|最大值|挂起的应用数|ClusterDnsName、MetricName|
-|AppsRunning|正在运行的应用数|计数|最大值|正在运行的应用数|ClusterDnsName、MetricName|
-|AppsSubmitted|已提交的应用数|计数|最大值|已提交的应用数|ClusterDnsName、MetricName|
 |NumActiveWorkers|活动辅助角色数目|计数|最大值|活动辅助角色数目|ClusterDnsName、MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
