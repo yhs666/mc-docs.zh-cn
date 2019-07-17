@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/05/2019
-ms.date: 07/08/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 1601efa2337ac691fa14995a386a2997af1be404
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 53b9f4fc42645d8728a691fc48bb17d49c180107
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571473"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844508"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>在应用程序中使用 Azure Active Directory 进行身份验证以访问 Blob 和队列
 
@@ -171,7 +171,7 @@ private static async Task<string> CreateBlob(string accessToken)
 
 ```https
 GET /container/file.txt HTTP/1.1
-Host: mystorageaccount.blob.core.chinacloudapi
+Host: mystorageaccount.blob.core.chinacloudapi.cn
 x-ms-version: 2017-11-09
 Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 ```
