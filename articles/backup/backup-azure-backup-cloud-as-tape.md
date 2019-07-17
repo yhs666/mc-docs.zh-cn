@@ -10,12 +10,12 @@ origin.date: 01/10/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f9a07faeb563d43c72d3eb7d367a45e6b2f20e74
-ms.sourcegitcommit: 0544706ab2ff239fb09fbeedc5910644301ad029
+ms.openlocfilehash: 8ecc3e1b77ba0aada3930cd886ce7bad7462c317
+ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2018
-ms.locfileid: "52745221"
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67569978"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：
@@ -60,7 +60,7 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 恢复点总数为 56。
 
 > [!NOTE]
-> Azure 备份对恢复点的数量没有限制。
+> 使用 Azure 备份，最多可为每个受保护的实例创建 9999 个恢复点。 受保护的实例包括计算机、服务器（物理或虚拟）或备份到 Azure 的工作负载。
 >
 >
 
@@ -72,7 +72,6 @@ Azure 备份和 System Center Data Protection Manager 客户可以：
 ## <a name="next-steps"></a>后续步骤
 关于 Azure 备份的详细信息，请参阅：
 
-* [Azure 备份简介](backup-introduction-to-azure-backup.md)
 * [尝试 Azure 备份](backup-configure-vault.md)
 
 <!-- Update_Description: update metedata properties -->
