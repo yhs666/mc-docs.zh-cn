@@ -115,7 +115,7 @@ ms.locfileid: "67562899"
     | Name |是 |日志配置文件的名称。 |
     | StorageAccountId |否 |应该将活动日志保存到其中的存储帐户的资源 ID。 |
     | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 这是采用以下格式的字符串：`{service bus resource ID}/authorizationrules/{key name}`。 |
-    | 位置 |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
+    | Location |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
     | RetentionInDays |是 |事件应在存储帐户中保留的天数，介于 1 和 2147483647 之间。 值为零时，将无限期存储日志。 |
     | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_、_Delete_ 和 _Action_。 |
 
@@ -157,7 +157,7 @@ ms.locfileid: "67562899"
     | --- | --- | --- |
     | name |是 |日志配置文件的名称。 |
     | storage-account-id |是 |活动日志应保存到的存储帐户的资源 ID。 |
-    | 位置 |是 |要为其收集活动日志事件的空格分隔区域列表。 可以使用 `az account list-locations --query [].name` 查看订阅的所有区域列表。 |
+    | locations |是 |要为其收集活动日志事件的空格分隔区域列表。 可以使用 `az account list-locations --query [].name` 查看订阅的所有区域列表。 |
     | days |是 |事件的保留天数，介于 1 到 365 之间。 值为零时，将无限期（永久）存储日志。  如果为零，则启用的参数应设置为 true。 |
     |enabled | 是 |True 或 False。  用于启用或禁用保留策略。  如果为 True，则 days 参数必须为大于 0 的值。
     | Categories |是 |应收集的事件类别的空格分隔列表。 可能值包括：Write、Delete 和 Action。 |
