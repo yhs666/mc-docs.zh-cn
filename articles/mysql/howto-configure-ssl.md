@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 01/24/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: c5840e1d3c2cf2955157982241ca62b08a528f21
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+origin.date: 05/21/2019
+ms.date: 07/15/2019
+ms.openlocfilehash: 3d17ccdf81f6223f624b851a1d24e221e0d6b653
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236649"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845099"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -100,6 +100,7 @@ try:
 except mysql.connector.Error as err:
     print(err)
 ```
+
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
 conn = pymysql.connect(user = 'myadmin@mydemoserver', 
@@ -108,16 +109,35 @@ conn = pymysql.connect(user = 'myadmin@mydemoserver',
         host = 'mydemoserver.mysql.database.chinacloudapi.cn', 
         ssl = {'ssl': {'ca': 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'}})
 ```
+
+### <a name="django-pymysql"></a>Django (PyMySQL)
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'quickstartdb',
+        'USER': 'myadmin@mydemoserver',
+        'PASSWORD': 'yourpassword',
+        'HOST': 'mydemoserver.mysql.database.chinacloudapi.cn',
+        'PORT': '3306',
+        'OPTIONS': {
+            'ssl': {'ssl-ca': 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'}
+        }
+    }
+}
+```
+
 ### <a name="ruby"></a>Ruby
 ```ruby
 client = Mysql2::Client.new(
         :host     => 'mydemoserver.mysql.database.chinacloudapi.cn', 
-        :username => 'myadmin@mydemoserver',      
-        :password => 'yourpassword',    
+        :username => 'myadmin@mydemoserver',
+        :password => 'yourpassword',
         :database => 'quickstartdb',
         :ssl_ca => 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'
     )
 ```
+
 ### <a name="golang"></a>Golang
 ```go
 rootCertPool := x509.NewCertPool()
@@ -130,7 +150,7 @@ var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.chinacloudapi.cn', 'quickstartdb')    
 db, _ := sql.Open("mysql", connectionString)
 ```
-### <a name="javajdbc"></a>JAVA(JDBC)
+### <a name="java-mysql-connector-for-java"></a>Java（适用于 Java 的 MySQL 连接器）
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+
@@ -157,7 +177,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="javamariadb"></a>JAVA(MariaDB)
+### <a name="java-mariadb-connector-for-java"></a>Java（适用于 Java 的 MariaDB 连接器）
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

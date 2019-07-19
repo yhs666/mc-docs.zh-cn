@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/04/2019
-ms.date: 06/06/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 1192bad807498f95aabdf9a1f6b3bb4ed11cf2e8
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 3d194753042928aa47de6e2afb81125f2f5310e4
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830116"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844880"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 JavaScript 提取手写文本
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-javascript"></a>快速入门：使用计算机视觉 REST API 和 JavaScript 提取手写文本
 
 在本快速入门中，你将使用计算机视觉的 REST API 从图像中提取手写文本。 使用[批量读取](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 和[读取操作结果](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API，可以检测图像中的手写文本，并将识别的字符提取到计算机可用的字符流中。
 
@@ -283,10 +283,6 @@ Image to read:
 }
 ```
 
-## <a name="clean-up-resources"></a>清理资源
-
-不再需要该文件时，请将其删除。
-
 ## <a name="next-steps"></a>后续步骤
 
 浏览一款 JavaScript 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。 要快速体验计算机视觉 API，请尝试使用 [Open API 测试控制台](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)。
@@ -294,4 +290,4 @@ Image to read:
 > [!div class="nextstepaction"]
 > [计算机视觉 API JavaScript 教程](../Tutorials/javascript-tutorial.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

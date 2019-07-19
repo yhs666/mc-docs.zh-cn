@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/23/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8c5b265b46f366f178ea95e866e160062416e50
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 65288dfb8dfc52f3e66ec079cea0efa29f5eb6e4
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204257"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844701"
 ---
 # <a name="networking"></a>网络
 
@@ -73,6 +73,8 @@ ms.locfileid: "57204257"
 
 * 使用反向代理（例如 [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 或 [Service Fabric 反向代理](/service-fabric/service-fabric-reverseproxy)）公开常用的应用程序端口，例如 80 或 443。
 
+* 对于托管在无法从 Azure 云存储中拉取基本层的气隙计算机上的 Windows 容器，可通过在 Docker 守护程序中使用 [--allow-nondistributable-artifacts](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 标志来重写外部层行为。
+
 ## <a name="next-steps"></a>后续步骤
 
 * 在运行 Windows Server 的 VM 或计算机上创建群集：[创建适用于 Windows Server 的 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)
@@ -81,5 +83,4 @@ ms.locfileid: "57204257"
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png
 
-<!--Update_Description: new articles on service fabric best practices networking -->
-<!--ms.date: 03/04/2019-->
+<!--Update_Description: wording update -->

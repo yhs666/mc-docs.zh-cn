@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 05/14/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 333fca3a2c00f784bb86977ebaf76db31bf1945a
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: 2748adcd6fad2f21612723c25c03370d9e3206cc
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598912"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844655"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 C# 分析本地图像
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-c"></a>快速入门：使用计算机视觉 REST API 和 C# 分析本地图像
 
 在本快速入门中，你将使用计算机视觉的 REST API 分析本地存储的图像以提取视觉特征。 使用[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，可以根据图像内容提取视觉特征信息。
 
@@ -36,9 +36,9 @@ ms.locfileid: "65598912"
 
 1. 使用 Visual C# 控制台应用 (.NET Framework) 模板在 Visual Studio 中创建新的 Visual Studio 解决方案。
 1. 安装 Newtonsoft.Json NuGet 包。
-    1. 在菜单上，单击“工具”，然后依次选择“NuGet 包管理器”、“管理解决方案的 NuGet 包”。
-    1. 单击“浏览”选项卡，在“搜索”框中键入“Newtonsoft.Json”。
-    1. 选择显示的 Newtonsoft.Json，单击项目名称旁边的复选框，然后单击“安装”。
+    1. 在菜单上，单击“工具”，然后依次选择“NuGet 包管理器”、“管理解决方案的 NuGet 包”    。
+    1. 单击“浏览”选项卡，在“搜索”框中键入“Newtonsoft.Json”   。
+    1. 选择显示的 Newtonsoft.Json，单击项目名称旁边的复选框，然后单击“安装”   。
 1. 将 `Program.cs` 中的代码替换为以下代码，然后根据需要在代码中进行以下更改：
     1. 将 `subscriptionKey` 的值替换为你的订阅密钥。
     1. 如有必要，请将 `uriBase` 的值替换为获取的订阅密钥所在的 Azure 区域中的[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法的终结点 URL。
@@ -240,10 +240,6 @@ namespace CSHttpClientSample
 }
 ```
 
-## <a name="clean-up-resources"></a>清理资源
-
-不再需要 Visual Studio 解决方案时，请将其删除。 为此，请打开文件资源管理器，导航到在其中创建 Visual Studio 解决方案的文件夹，然后删除该文件夹。
-
 ## <a name="next-steps"></a>后续步骤
 
 浏览一款基本 Windows 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。
@@ -251,3 +247,4 @@ namespace CSHttpClientSample
 > [!div class="nextstepaction"]
 > [计算机视觉 API C# 教程](../Tutorials/CSharpTutorial.md)
 
+<!-- Update_Description: wording update -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/24/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: e63410b3a8e650f3b7f13018e5f167a09b6c4ebc
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 9472cb59af5845d2070d739e003c8047a844b5cc
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463539"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844918"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>使用 Service Fabric Explorer 可视化群集
 
@@ -31,14 +31,14 @@ Service Fabric Explorer (SFX) 是一种用于检验和管理 Azure Service Fabri
 使用以下链接将 Service Fabric Explorer 下载为桌面应用程序：
 
 - Windows
-  - https://aka.ms/sfx-windows
+    - https://aka.ms/sfx-windows
 
 - Linux
-  - https://aka.ms/sfx-linux-x86
-  - https://aka.ms/sfx-linux-x64
+    - https://aka.ms/sfx-linux-x86
+    - https://aka.ms/sfx-linux-x64
 
 - macOS
-  - https://aka.ms/sfx-macos
+    - https://aka.ms/sfx-macos
 
 > [!NOTE]
 > 桌面版的 Service Fabric Explorer 可能比群集支持包含更多或更少的功能。 可回退到部署到群集的 Service Fabric Explorer 版本，以确保完全的功能兼容性。
@@ -47,7 +47,7 @@ Service Fabric Explorer (SFX) 是一种用于检验和管理 Azure Service Fabri
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>从群集运行 Service Fabric Explorer
 
-Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点中进行托管。 若要在 Web 浏览器中启动 SFX，则从任意浏览器（如 https://clusterFQDN:19080）浏览到群集的 HTTP 管理终结点。
+Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点中进行托管。 若要在 Web 浏览器中启动 SFX，请从任意浏览器浏览到群集的 HTTP 管理终结点（例如 https:\//clusterFQDN:19080）。
 
 对于开发人员工作站设置，可以通过导航到 https://localhost:19080/Explorer 在本地群集上启动 Service Fabric Explorer。 阅读本文，了解如何[准备开发环境](service-fabric-get-started.md)。
 
@@ -57,7 +57,7 @@ Service Fabric Explorer 同时在 Service Fabric 群集的 HTTP 管理终结点�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>连接到 Service Fabric 群集
-若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如， https://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
+若要连接到 Service Fabric 群集，需要群集管理终结点 (FQDN/IP) 和 HTTP 管理终结点端口（默认情况下为 19080）。 例如，https\://mysfcluster.chinanorth.cloudapp.chinacloudapi.cn:19080。 使用“连接到 localhost”复选框，连接到工作站上的本地群集。
 
 ### <a name="connect-to-a-secure-cluster"></a>连接到安全群集
 可以使用证书或 Azure Active Directory (AAD) 控制客户端对 Service Fabric 群集的访问。
@@ -79,7 +79,7 @@ Service Fabric 群集中的节点横跨容错域和升级域的二维网格放�
 
 可以使用应用程序视图导航 Service Fabric 的逻辑层次结构：应用程序、服务、分区和副本。
 
-在以下示例中，应用程序 MyApp 由两个服务 MyStatefulService 与 WebService 组成。 由于 **MyStatefulService** 是有状态的，因此它包含一个分区，其中有一个主要副本和两个次要副本。 相反，WebSvcService 是无状态的，只包含单个实例。
+在以下示例中，应用程序 MyApp 由两个服务 MyStatefulService 与 WebService 组成    。 由于 **MyStatefulService** 是有状态的，因此它包含一个分区，其中有一个主要副本和两个次要副本。 相反，WebSvcService 是无状态的，只包含单个实例。
 
 ![Service Fabric Explorer 应用程序视图][sfx-application-tree]
 
@@ -93,7 +93,7 @@ Service Fabric 群集中的节点横跨容错域和升级域的二维网格放�
 ## <a name="actions"></a>操作
 Service Fabric Explorer 提供用于对群集中的节点、应用程序和服务快速调用操作的方式。
 
-例如，若要删除某应用程序实例，只需从左侧树中选择该应用程序，然后选择“操作” > “删除应用程序”。
+例如，若要删除某应用程序实例，只需从左侧树中选择该应用程序，然后选择“操作” > “删除应用程序”   。
 
 ![Service Fabric Explorer 中删除应用程序][sfx-delete-application]
 
@@ -124,17 +124,23 @@ EventStore 是该平台提供的一项功能，它通过 REST API 提供可在 S
 >[!NOTE]
 >从 Service Fabric 版本 6.4 开始。 EventStore API 仅可用于在 Azure 上运行的 Windows 群集。 我们正在将此功能移植到 Linux 以及我们的独立群集。
 
+## <a name="image-store-viewer"></a>映像存储查看器
+映像存储查看器是使用本机映像存储时提供的一项功能，使用它可以查看映像存储的当前内容、获取文件和文件夹信息，以及删除文件/文件夹。
+
+![Service Fabric Explorer 群集图][sfx-imagestore]
+
 ## <a name="next-steps"></a>后续步骤
 * [在 Visual Studio 中管理 Service Fabric 应用程序](service-fabric-manage-application-in-visual-studio.md)
 * [使用 PowerShell 部署 Service Fabric 应用程序](service-fabric-deploy-remove-applications.md)
 
 <!--Image references-->
-[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/SfxClusterDashboard.png
-[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/SfxClusterMap.png
-[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/SfxApplicationTree.png
-[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
-[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
-[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-cluster-dashboard]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-dashboard.png
+[sfx-cluster-map]: ./media/service-fabric-visualizing-your-cluster/sfx-cluster-map.png
+[sfx-application-tree]: ./media/service-fabric-visualizing-your-cluster/sfx-application-tree.png
+[sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/sfx-service-essentials.png
+[sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/sfx-delete-application.png
+[sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/sfx-create-app-instance.png
 [sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png
+[sfx-imagestore]: ./media/service-fabric-visualizing-your-cluster/sfx-image-store.png
 
 <!--Update_Description: update meta properties-->

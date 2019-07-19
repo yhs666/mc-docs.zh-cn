@@ -9,18 +9,18 @@ ms.author: v-yiso
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-origin.date: 02/08/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 6f089742c80be6456ef2dc40032cf9235f3949c3
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+origin.date: 06/03/2019
+ms.date: 06/22/2019
+ms.openlocfilehash: 6bc12a94c8f9928994d790c0af8411be0f2d834c
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520772"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845186"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
-Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage (Gen2) 的功能完备的 Hadoop 分布式文件系统 (HDFS)。 Azure 存储以及 Data Lake Storage Gen2 设计为 HDFS 扩展，为客户提供无缝体验。 它们通过启用 Hadoop 生态系统中的整套组件以直接操作其管理的数据。 Azure 存储、Data Lake Storage Gen1 和 Data lake Storage Gen2 是独特的文件系统，并且已针对数据的存储和计算进行了优化。 若要了解使用 Azure 存储的益处，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
+Azure HDInsight 提供一个基于 Azure 存储和 Azure Data Lake Storage (Gen2) 的功能完备的 Hadoop 分布式文件系统 (HDFS)。 Azure 存储以及 Data Lake Storage Gen2 设计为 HDFS 扩展，为客户提供无缝体验。 它们通过启用 Hadoop 生态系统中的整套组件以直接操作其管理的数据。 Azure 存储、Data Lake Storage Gen1 和 Data lake Storage Gen2 是独特的文件系统，并且已针对数据的存储和计算进行了优化。 若要了解使用 Azure 存储的优点，请参阅[将 Azure 存储与 HDInsight 配合使用][hdinsight-storage]。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -65,11 +65,11 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 由于 HDInsight 的默认文件系统在 Azure 存储中，/example/data.txt 实际是在 Azure 存储中。 也可以将该文件表示为：
 
-    wasb:///example/data/data.txt
+    wasbs:///example/data/data.txt
 
 或
 
-    wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
 若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -146,11 +146,11 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 还可使用 Apache Ambari 以全局方式增加 `fs.azure.write.request.size` 的值。 可以使用以下步骤在 Ambari Web UI 中更改该值：
 
-1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.net，其中“CLUSTERNAME”是群集名称。
+1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.net ，其中“CLUSTERNAME”是群集名称  。
 
     出现提示时，输入群集的管理员名称和密码。
-2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡。
-3. 在“筛选...”字段中输入 `fs.azure.write.request.size`。 这会在页面中间显示字段和当前值。
+2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡   。
+3. 在“筛选...”字段中输入 `fs.azure.write.request.size`  。 这会在页面中间显示字段和当前值。
 4. 将值从 262144 (256KB) 更改为新的值。 例如，4194304 (4MB)。
 
 ![通过 Ambari Web UI 更改值的图像](./media/hdinsight-upload-data/hbase-change-block-write-size.png)

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/04/2019
-ms.date: 06/06/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: b41330155463d253defc79412bba7e787705fb4d
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 345d8511e9c7aac0b4c40dda28597de4d11ccbe7
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830057"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844653"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-c-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 C# 提取手写文本
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-c"></a>快速入门：使用计算机视觉 REST API 和 C# 提取手写文本
 
 在本快速入门中，你将使用计算机视觉的 REST API 从图像中提取手写文本。 使用[批量读取](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 和[读取操作结果](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API，可以检测图像中的手写文本，并将识别的字符提取到计算机可读的字符流中。
 
@@ -322,4 +322,4 @@ namespace CSHttpClientSample
 > [!div class="nextstepaction"]
 > [计算机视觉 API C# 教程](../Tutorials/CSharpTutorial.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

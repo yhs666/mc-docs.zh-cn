@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 04/04/2019
-ms.date: 04/29/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 91564ab9eea152cd951d16c9a9ff44fbdcf30e64
-ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
+ms.openlocfilehash: 16d4258446506621b0cc555c4d94a08e3be9cc02
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135569"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844388"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -62,6 +62,9 @@ else
 
 创作 runbook 时，应仔细考虑。 如前所述，需要以某种方式编写 runbook，使其可靠并且能够处理可能导致 runbook 重启或失败的瞬态错误。 如果某个 Runbook 失败，将会重试该 Runbook。 如果 Runbook 在时间约束内正常运行，则应在 Runbook 中实现检查执行时间的逻辑，确保只在特定时间运行启动、关闭或横向扩展等操作。
 
+> [!NOTE]
+> Azure 沙盒进程上的本地时间设置为 UTC 时间。 对 runbook 中的日期和时间的计算需要考虑到这一点。
+
 ### <a name="tracking-progress"></a>跟踪进程
 
 实际上模块化创作 runbook 是很好的做法。 这意味着要在 runbook 中构造逻辑，以便能够轻松重用和重启。 跟踪 Runbook 的进度能够很好地确保在出现问题时正确执行 Runbook 中的逻辑。 跟踪 runbook 进程可以利用的一些方法是使用外部源（如存储帐户、数据库或共享文件）。 通过在外部跟踪状态可以在 Runbook 中创建逻辑，用于先检查 Runbook 所执行的最后一个操作的状态。 然后根据结果跳过或继续执行 Runbook 中的特定任务。
@@ -98,7 +101,12 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### <a name="working-with-multiple-subscriptions"></a>使用多个订阅
 
+在创作处理多个订阅的 Runbook 时，Runbook 需要使用 [Disable-AzureRmContextAutosave](https://docs.microsoft.com/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet 来确保不会从可能在同一个沙盒中运行的另一个 Runbook 检索到你的身份验证上下文。 然后，你需要使用 `AzureRM` cmdlet 上的 `-AzureRmContext` 参数并将其传递给适当的上下文。
+
 ```powershell
+# Ensures you do not inherit an AzureRMContext in your runbook
+Disable-AzureRmContextAutosave –Scope Process
+
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzureRmAccount -ServicePrincipal `
 -EnvironmentName AzureChinaCloud `

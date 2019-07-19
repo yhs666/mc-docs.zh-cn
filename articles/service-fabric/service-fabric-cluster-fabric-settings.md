@@ -13,14 +13,14 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/10/2019
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: ecf6a60ac2f03dd4fcd82a55b0316c9c3df0434d
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: cecc044285c8d9ba4ee4d46b5c1bfbf056f90650
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195484"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844747"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>自定义 Service Fabric 群集设置
 本文介绍可以自定义的 Service Fabric 群集的各种结构设置。 对于 Azure 中托管的群集，可以通过 [Azure 门户](https://portal.azure.cn)或使用 Azure 资源管理器模板自定义设置。 对于独立群集，可通过更新 ClusterConfig.json  文件并对群集执行配置升级来自定义设置。 有关详细信息，请参阅[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。

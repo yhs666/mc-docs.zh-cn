@@ -10,21 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 03/20/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: f3e70e5c0f5724f0949558c7e902a2657b6cc908
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 1504efeffe7b6187cfd09f7df9b36ce523d36235
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424650"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845439"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>有关在 Linux 上使用 HDInsight 的信息
 
-Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中运行的 Apache Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了应注意的具体差异。
-
-> [!IMPORTANT]
-> Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中运行的 Apache Hadoop。 在大多数情况下，它的工作方式应该与其他任何 Hadoop-on-Linux 安装完全相同。 本文档指出了你应该注意的具体差异。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -54,7 +51,7 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
 
 ## <a name="remote-access-to-services"></a>对服务的远程访问
 
-* **Ambari (web)** - https://&lt;群集名称>.azurehdinsight.cn
+* **Ambari (web)**  - https://CLUSTERNAME.azurehdinsight.cn
 
     使用群集管理员用户和密码进行身份验证，并登录到 Ambari。
 
@@ -65,21 +62,21 @@ Azure HDInsight 群集提供了基于熟悉的 Linux 环境并在 Azure 云中�
     >
     > 要使用 Ambari web UI 的全部功能，请使用 SSH 隧道通过代理将 Web 流量传送到群集头节点。 请参阅[使用 SSH 隧道访问 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 和其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md)
 
-* **Ambari (REST)** - https://&lt;群集名称>.azurehdinsight.cn/ambari
+* **Ambari (REST)**  - https://CLUSTERNAME.azurehdinsight.cn/ambari
 
     > [!NOTE]
     > 通过使用群集管理员用户和密码进行身份验证。
     >
     > 身份验证是纯文本身份验证 - 始终使用 HTTPS 来帮助确保连接是安全的。
 
-* **WebHCat (Templeton)** - https://&lt;群集名称>.azurehdinsight.cn/templeton
+* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.cn/templeton
 
     > [!NOTE]
     > 通过使用群集管理员用户和密码进行身份验证。
     >
     > 身份验证是纯文本身份验证 - 始终使用 HTTPS 来帮助确保连接是安全的。
 
-* 端口 22 或 23 上的 **SSH** - &lt;clustername>-ssh.azurehdinsight.net。 端口 22 用于连接主要头节点，而端口 23 用于连接辅助头节点。 有关头节点的详细信息，请参阅 [HDInsight 中的 Apache Hadoop 群集的可用性和可靠性](hdinsight-high-availability-linux.md)。
+* **SSH** - CLUSTERNAME-ssh.azurehdinsight.cn，使用端口 22 或 23。 端口 22 用于连接主要头节点，而端口 23 用于连接辅助头节点。 有关头节点的详细信息，请参阅 [HDInsight 中的 Apache Hadoop 群集的可用性和可靠性](hdinsight-high-availability-linux.md)。
 
     > [!NOTE]
     > 只能通过 SSH 从客户端计算机访问群集头节点。 在连接后，可以通过使用 SSH 从头节点访问从节点。

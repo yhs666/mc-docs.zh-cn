@@ -9,12 +9,12 @@ origin.date: 12/18/2018
 ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d4826c0c8da9d3aaeaa22681512c69b839702898
-ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
+ms.openlocfilehash: bca5ca09e11f74b24d68d5d40ae347b773b9095b
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552111"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673963"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -34,7 +34,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑组。 创建资源组时，系统会要求你指定一个位置， 此位置是资源组元数据的存储位置，如果你在创建资源期间未指定另一个区域，则它还是你的资源在 Azure 中的运行位置。 使用 [az group create][az-group-create] 命令创建资源组。
 
-以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组。
+以下示例在“chinaeast2”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast2
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location chinaeast2
 
 ## <a name="create-aks-cluster"></a>创建 AKS 群集
 
-使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为 myAKSCluster 的群集。 也可通过 *--enable-addons monitoring* 参数启用用于容器的 Azure Monitor。
+使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 以下示例创建一个具有一个节点的名为  myAKSCluster 的群集。 也可通过 *--enable-addons monitoring* 参数启用用于容器的 Azure Monitor。
 
 ```azurecli
 az aks create \
@@ -99,10 +99,13 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
 
 ## <a name="run-the-application"></a>运行应用程序
 
-Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
+Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包含两个 [Kubernetes 部署][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] 还会创建 - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
 
 > [!TIP]
-> 在本快速入门中，请手动创建应用程序清单并将其部署到 AKS 群集。 在更实际的方案中，可以使用 [Azure Dev Spaces][azure-dev-spaces] 直接在 AKS 群集中快速地循环访问代码并对其进行调试。 可以跨 OS 平台和开发环境使用 Dev Spaces，并可与团队中的他人进行协作。
+> 在本快速入门中，请手动创建应用程序清单并将其部署到 AKS 群集。
+
+<!--Not Available on [Azure Dev Spaces][azure-dev-spaces]-->
+<!--Not Available on  In more real-world scenarios, you can use Azure Dev Spaces to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.-->
 
 创建名为 `azure-vote.yaml` 的文件，并将其复制到以下 YAML 定义中。 如果使用 Azure 本地 Shell，则可以使用 `vi` 或 `nano` 来创建此文件，就像在虚拟或物理系统中操作一样：
 
@@ -239,18 +242,18 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 若要查看 Azure Vote Pod 的当前状态、运行时间和资源使用情况，请完成以下步骤：
 
-1. 将 Web 浏览器打开到 Azure 门户 [https://portal.azure.cn][azure-portal]的位置。
+1. 将 Web 浏览器打开到 Azure 门户 [https://portal.azure.cn][azure-portal] 的位置。
 1. 选择资源组（例如 *myResourceGroup*），然后选择 AKS 群集（例如 *myAKSCluster*）。
-1. 在左侧的“监视”下，选择“见解”
-1. 在顶部，选择“+ 添加筛选器”
-1. 选择“命名空间”作为属性，然后选择“\<除 kube-system 之外的所有项\>”
-1. 选择查看“容器”。
+1. 在左侧的“监视”  下，选择“见解” 
+1. 在顶部，选择“+ 添加筛选器” 
+1. 选择“命名空间”  作为属性，然后选择“\<除 kube-system 之外的所有项\>” 
+1. 选择查看“容器”  。
 
 将显示 *azure-vote-back* 和 *azure-vote-front* 容器，如下面的示例中所示：
 
 ![查看在 AKS 中运行的容器的运行状况](media/kubernetes-walkthrough/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的日志，请在容器列表右侧选择“查看容器日志”链接。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
+若要查看 `azure-vote-front` Pod 的日志，请在容器列表右侧选择“查看容器日志”链接  。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
 
 ![查看 AKS 中的容器日志](media/kubernetes-walkthrough/monitor-container-logs.png)
 
@@ -273,7 +276,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。  为你刚才创建的群集[访问 Kubernetes Web 仪表板][kubernetes-dashboard]。
+在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。  访问刚刚创建的群集的 [Kubernetes Web 仪表板][kubernetes-dashboard]。
 
 若要详细了解 AKS 并演练部署示例的完整代码，请继续阅读“Kubernetes 群集”教程。
 
@@ -285,7 +288,8 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /dev-spaces/
+
+<!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
 
 <!-- LINKS - internal -->
 [kubernetes-concepts]: concepts-clusters-workloads.md

@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/21/2019
-ms.date: 05/27/2019
-ms.author: tamram
+ms.date: 07/15/2019
+ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 882e1390df055da3accebfdeb80df0f795befac2
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 6124d2eec5fe3f25bf24a7e2846f9961c1d4db36
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004044"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844505"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>使用 Azure Active Directory 验证对 Azure Blob 和队列的访问权限
 
@@ -31,6 +31,7 @@ Azure 存储支持为 Blob 和队列服务使用 Azure Active Directory (AD) 进
 
 授权步骤需要将一个或多个 RBAC 角色分配给安全主体。 Azure 存储提供 RBAC 角色，这些角色涵盖了针对 Blob 和队列数据的通用权限集。 分配给安全主体的角色确定了该主体拥有的权限。 若要详细了解如何为 Azure 存储分配 RBAC 角色，请参阅[通过 RBAC 管理存储数据访问权限](storage-auth-aad-rbac.md)。
 
+向 Azure Blob 或队列服务发出请求的本机应用程序和 Web 应用程序也可以使用 Azure AD 进行身份验证。 若要了解如何请求访问令牌并使用它来授权对 blob 或队列数据的请求，请参阅[从 Azure 存储应用程序使用 Azure AD 进行身份验证](storage-auth-aad-app.md)。
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>分配 RBAC 角色以授予访问权限
 
@@ -76,3 +77,6 @@ Azure 门户可以使用 Azure AD 帐户或帐户访问密钥来访问 Azure 存
 
 Azure CLI 和 PowerShell 支持使用 Azure AD 凭据登录。 登录后，会话将在这些凭据下运行。 有关详细信息，请参阅[使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据](storage-auth-aad-script.md)。
 
+## <a name="next-steps"></a>后续步骤
+
+- [从应用程序中使用 Azure Active Directory 进行身份验证以访问 blob 和队列](storage-auth-aad-app.md)

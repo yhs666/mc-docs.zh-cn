@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/02/2017
-ms.date: 03/04/2019
+ms.date: 04/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8882efe32f1399b7de2408ddd00e351e34e442bb
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 82f7a5b3016852c75f0a42e00ce64b616b20dc6d
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204187"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844743"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>打包现有可执行文件并将其部署到 Service Fabric
 将现有可执行文件打包为[来宾可执行文件](service-fabric-guest-executables-introduction.md)时，可以选择是使用 Visual Studio 项目模板，还是[手动创建应用程序包](#manually)。 使用 Visual Studio 时，新的项目模板为用户创建应用程序包结构和清单文件。
@@ -32,17 +32,17 @@ ms.locfileid: "57204187"
 ## <a name="use-visual-studio-to-package-and-deploy-an-existing-executable"></a>使用 Visual Studio 打包和部署现有可执行文件
 Visual Studio 提供 Service Fabric 服务模板将来宾可执行文件部署到 Service Fabric 群集。
 
-1. 依次选择“文件” > “新建项目”，并创建一个 Service Fabric 应用程序。
+1. 依次选择“文件”   > “新建项目”  ，并创建一个 Service Fabric 应用程序。
 2. 选择“**来宾可执行文件**”作为服务模板。
 3. 单击“浏览”  选择包含所需可执行文件的文件夹，并填充余下的参数来创建服务。
-   * 代码包行为。 可以设置为将文件夹中的所有内容复制到 Visual Studio 项目，如果可执行文件不会更改，则这种设置会很有用。 如果预期可执行文件会更改，并且希望能够动态选择新版本，则可以改为选择文件夹的链接。 在 Visual Studio 中创建应用程序项目时，可以使用链接的文件夹。 这会从项目内部链接到源位置，从而能够在来宾可执行文件的源目标中对它进行更新。 这些更新会在生成时成为应用程序包的一部分。
-   * *Program* 指定为了启动服务而应该运行的可执行文件。
-   * *Arguments* 指定应传递给可执行文件的参数。 它可以是带有实参的形参的列表。
-   * *WorkingFolder* 指定要启动的进程的工作目录。 可以指定三个值：
-     * `CodeBase` 指定将应用程序包中的 Code 目录（如上述文件结构中的 `Code` 目录所示）设为工作目录。
-     * `CodePackage` 指定将应用程序包的根目录（如上述文件结构中的 `GuestService1Pkg` 目录所示）设为工作目录。
-     * `Work` 指定将文件放置在 Work 子目录中。
-4. 为服务命名，并单击“确定” 。
+    * 代码包行为  。 可以设置为将文件夹中的所有内容复制到 Visual Studio 项目，如果可执行文件不会更改，则这种设置会很有用。 如果预期可执行文件会更改，并且希望能够动态选择新版本，则可以改为选择文件夹的链接。 在 Visual Studio 中创建应用程序项目时，可以使用链接的文件夹。 这会从项目内部链接到源位置，从而能够在来宾可执行文件的源目标中对它进行更新。 这些更新会在生成时成为应用程序包的一部分。
+    * *Program* 指定为了启动服务而应该运行的可执行文件。
+    * *Arguments* 指定应传递给可执行文件的参数。 它可以是带有实参的形参的列表。
+    * *WorkingFolder* 指定要启动的进程的工作目录。 可以指定三个值：
+        * `CodeBase` 指定将应用程序包中的 Code 目录（如上述文件结构中的 `Code` 目录所示）设为工作目录。
+        * `CodePackage` 指定将应用程序包的根目录（如上述文件结构中的 `GuestService1Pkg` 目录所示）设为工作目录。
+        * `Work` 指定将文件放置在 Work 子目录中。
+4. 为服务命名，并单击“确定”  。
 5. 如果服务需要使用终结点进行通信，现在可以在 ServiceManifest.xml 文件中添加协议、端口和类型。 例如： `<Endpoint Name="NodeAppTypeEndpoint" Protocol="http" Port="3000" UriScheme="http" PathSuffix="myapp/" Type="Input" />`。
 6. 接下来，可以通过在 Visual Studio 中调试解决方案，针对本地群集使用打包和发布操作。 准备就绪后，可将应用程序发布到远程群集，或者将解决方案签入源代码管理。
 7. 请阅读[检查正在运行的应用程序](#check-your-running-application)，了解如何查看在 Service Fabric Explorer 中运行的来宾可执行服务。
@@ -70,11 +70,12 @@ Yeoman 创建应用程序包，其中包含相应的应用程序和清单文件�
 4. 编辑应用程序清单文件。
 
 <!--
->[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from [here](https://aka.ms/servicefabricpacktool).
+>[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from here.
+<!--Not Available on [here](https://aka.ms/servicefabricpacktool)-->
 -->
 
 ### <a name="create-the-package-directory-structure"></a>创建包目录结构
-可首先创建目录结构，如前一节“应用程序包文件结构”中所述。
+可以首先创建目录结构，如[打包 Azure Service Fabric 应用](/service-fabric/service-fabric-package-apps)中所述。
 
 ### <a name="add-the-applications-code-and-configuration-files"></a>添加应用程序的代码和配置文件
 创建了目录结构之后，可以在 code 和 config 目录下添加应用程序的代码和配置文件。 还可以在 code 或 config 目录下创建其他目录或子目录。
@@ -97,7 +98,7 @@ Service Fabric 对应用程序根目录下的内容执行了 `xcopy`，因此除
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ServiceManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" Name="NodeApp" Version="1.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceTypes>
       <StatelessServiceType ServiceTypeName="NodeApp" UseImplicitHost="true"/>
    </ServiceTypes>
@@ -176,9 +177,9 @@ SetupEntryPoint 元素用于指定在启动服务代码之前应执行的任何�
 * `Program` 指定应启动服务的可执行文件的名称。
 * `Arguments` 指定应传递给可执行文件的参数。 它可以是带有实参的形参的列表。
 * `WorkingFolder` 指定要启动的进程的工作目录。 可以指定三个值：
-  * `CodeBase` 指定工作目录将设置为应用程序包中的 code 目录（前述文件结构中的 `Code` 目录）。
-  * `CodePackage` 指定将应用程序包的根目录（如上述文件结构中的 `GuestService1Pkg` 所示）设为工作目录。
-    * `Work` 指定将文件放置在 Work 子目录中。
+    * `CodeBase` 指定工作目录将设置为应用程序包中的 code 目录（前述文件结构中的 `Code` 目录）。
+    * `CodePackage` 指定将应用程序包的根目录（如上述文件结构中的 `GuestService1Pkg` 所示）设为工作目录。
+        * `Work` 指定将文件放置在 Work 子目录中。
 
 WorkingFolder 用于设置正确的工作目录，以便应用程序或初始化脚本可以使用相对路径。
 
@@ -208,7 +209,7 @@ WorkingFolder 用于设置正确的工作目录，以便应用程序或初始化
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="NodeAppType" ApplicationTypeVersion="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
    <ServiceManifestImport>
       <ServiceManifestRef ServiceManifestName="NodeApp" ServiceManifestVersion="1.0.0.0" />
    </ServiceManifestImport>
@@ -255,7 +256,7 @@ WorkingFolder 用于设置正确的工作目录，以便应用程序或初始化
 ## <a name="deployment"></a>部署
 最后一步是[部署应用程序](service-fabric-deploy-remove-applications.md)。 下面的 PowerShell 脚本展示了如何将应用程序部署到本地开发群集，并启动新的 Service Fabric 服务。
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

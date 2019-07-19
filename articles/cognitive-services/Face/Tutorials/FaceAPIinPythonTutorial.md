@@ -1,26 +1,26 @@
 ---
 title: 快速入门：使用 Python SDK 检测和定格图像中的人脸
 titleSuffix: Azure Cognitive Services
-description: 在本快速入门中，你将创建一个简单的 Python 脚本，它使用人脸 API 来检测和定格远程图像中的人脸。
+description: 在本快速入门中，你将创建一个 Python 脚本，它使用人脸 API 来检测和定格远程图像中的人脸。
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 11/13/2018
-ms.date: 01/04/2019
+origin.date: 07/03/2018
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: dd682b5c20bfa85cd5c6c4154dc0e36cbe41a358
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 42158e62c10ae97490a0edc3505d12fd04778f83
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083745"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844679"
 ---
 # <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>快速入门：创建一个用于检测和定格图像中人脸的 Python 脚本
 
-在本快速入门中，你将创建一个简单的 Python 脚本，它通过 Python SDK 使用 Azure 人脸 API 来检测远程图像中的人脸。 此应用程序显示一个选定的图像，然后围绕每个检测到的人脸绘制一个框。
+在本快速入门中，你将创建一个 Python 脚本，它通过 Python SDK 使用 Azure 人脸 API 来检测远程图像中的人脸。 此应用程序显示一个选定的图像，然后围绕每个检测到的人脸绘制一个框。
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
@@ -40,17 +40,19 @@ pip install cognitive_face
 
 ## <a name="detect-faces-in-an-image"></a>在图像中检测人脸
 
-创建名为 FaceQuickstart.py 的新 Python 脚本并添加以下代码。 这是人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
+创建名为 FaceQuickstart.py 的新 Python 脚本并添加以下代码  。 此代码处理人脸检测的核心功能。 需将 `<Subscription Key>` 替换为密钥的值。 可能还需更改 `BASE_URL` 的值，以便使用密钥的正确区域标识符（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。 （可选）将 `img_url` 设置为要使用的图像的 URL。
 
 此脚本会通过调用 **cognitive_face.face.detect** 方法来检测人脸，该方法可包装[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API 并返回人脸的列表。
 
 ```python
 import cognitive_face as CF
 
-KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
+# Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'
 CF.Key.set(KEY)
 
-BASE_URL = 'https://api.cognitive.azure.cn/face/v1.0/'  
+# Replace with your regional Base URL
+BASE_URL = 'https://api.cognitive.azure.cn/face/v1.0/'
 CF.BaseUrl.set(BASE_URL)
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
@@ -63,11 +65,11 @@ print(faces)
 
 使用 `python FaceQuickstart.py` 命令运行此应用。 此时会在控制台窗口中出现文本响应，如下所示：
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-这是检测到的人脸的列表。 列表中的每项都是一个 **dict** 实例，其中 `faceId` 是检测到的人脸的唯一 ID，`faceRectangle` 说明检测到的人脸的位置。 
+输出表示检测到的人脸列表。 列表中的每项都是一个 **dict** 实例，其中 `faceId` 是检测到的人脸的唯一 ID，`faceRectangle` 说明检测到的人脸的位置。 
 
 > [!NOTE]
 > 人脸 ID 在 24 小时后过期；如需长期保存人脸数据，则需对其进行显式存储。
@@ -82,10 +84,12 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-然后，在脚本底部添加以下代码。 这样会创建一个用于分析矩形坐标的简单函数，并使用 Pillow 在原始图像上绘制矩形。 然后，它会在默认的图像查看器中显示图像。
+然后，在脚本底部添加以下代码。 此代码会创建一个用于分析矩形坐标的简单函数，并使用 Pillow 在原始图像上绘制矩形。 然后，它会在默认的图像查看器中显示图像。
 
 ```python
-#Convert width height to a point in a rectangle
+# Convert width height to a point in a rectangle
+
+
 def getRectangle(faceDictionary):
     rect = faceDictionary['faceRectangle']
     left = rect['left']
@@ -94,16 +98,17 @@ def getRectangle(faceDictionary):
     right = top + rect['width']
     return ((left, top), (bottom, right))
 
-#Download the image from the url
+
+# Download the image from the url
 response = requests.get(img_url)
 img = Image.open(BytesIO(response.content))
 
-#For each face returned use the face rectangle and draw a red box.
+# For each face returned use the face rectangle and draw a red box.
 draw = ImageDraw.Draw(img)
 for face in faces:
     draw.rectangle(getRectangle(face), outline='red')
 
-#Display the image in the users default image browser.
+# Display the image in the users default image browser.
 img.show()
 ```
 

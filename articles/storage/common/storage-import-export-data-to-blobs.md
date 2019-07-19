@@ -5,16 +5,16 @@ author: WenJason
 services: storage
 ms.service: storage
 ms.topic: article
-origin.date: 12/11/2018
-ms.date: 01/14/2019
+origin.date: 06/06/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.component: common
-ms.openlocfilehash: 268f1a9b14c8696d39e37a046a4fe6c452da692c
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.subservice: common
+ms.openlocfilehash: 32df55ff01586c13bbd7208b7d479951aa699e99
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63858609"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844454"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>使用 Azure 导入/导出服务将数据导入到 Azure Blob 存储
 
@@ -30,7 +30,7 @@ ms.locfileid: "63858609"
     - 有关存储容器的信息，请转到[创建存储容器](../blobs/storage-quickstart-blobs-portal.md#create-a-container)。
 - 拥有[受支持类型](storage-import-export-requirements.md#supported-disks)的足够数量的磁盘。 
 - 拥有运行[受支持 OS 版本](storage-import-export-requirements.md#supported-operating-systems)的 Windows 系统。 
-- 在 Windows 系统上启用 BitLocker。 请参阅[如何启用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
+- 在 Windows 系统上启用 BitLocker。 请参阅[如何启用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/)。
 - 必须在复制计算机上安装 .NET Framework 4。
 - 在 Windows 系统上[下载 WAImportExport 版本 1](https://aka.ms/waiev1)。 解压缩到默认文件夹 `waimportexportv1`。 例如，`C:\WaImportExportV1`。
 
@@ -43,21 +43,21 @@ ms.locfileid: "63858609"
 
 1.  通过 SATA 连接器将磁盘驱动器连接到 Windows 系统。
 1.  在每个驱动器上创建一个 NTFS 卷。 为卷分配驱动器号。 不要使用装入点。
-2.  在 NTFS 卷上启用 BitLocker 加密。 如果使用某个 Windows Server 系统，请使用[如何在 Windows Server 2012 R2 上启用 BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) 中的说明。
+2.  在 NTFS 卷上启用 BitLocker 加密。 如果使用某个 Windows Server 系统，请使用[如何在 Windows Server 2012 R2 上启用 BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/) 中的说明。
 3.  将数据复制到加密的卷。 可使用拖放或 Robocopy 或任何类似的复制工具。
-4.  使用管理权限打开命令行窗口。 若要将目录切换到解压缩的文件夹，请运行以下命令：
+4.  使用管理权限打开一个 PowerShell 或命令行窗口。 若要将目录切换到解压缩的文件夹，请运行以下命令：
     
     `cd C:\WaImportExportV1`
 5.  若要获取驱动器的 BitLocker 密钥，请运行以下命令：
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
     ![获取 BitLocker 密钥](./media/storage-import-export-data-to-blobs/getbitlockerkey.png)
 6.  若要准备磁盘，请运行以下命令。 **这可能要花费几小时到几天时间，具体取决于数据大小。** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
-    ![准备](./media/storage-import-export-data-to-blobs/preparedisk.png) 在运行该工具的同一文件夹中会创建一个日志文件。 还会创建两个其他文件 - 一个 *.xml* 文件（您在其中运行工具的文件夹）和一个 *drive-manifest.xml* 文件（数据所在的文件夹）。
+    在运行该工具的同一文件夹中会创建一个日志文件。 还会创建两个其他文件 - 一个 *.xml* 文件（您在其中运行工具的文件夹）和一个 *drive-manifest.xml* 文件（数据所在的文件夹）。
     
     下表介绍了所使用的参数：
 
@@ -65,12 +65,13 @@ ms.locfileid: "63858609"
     |---------|---------|
     |/j:     |带有 .jrn 扩展名的日志文件的名称。 会为每个驱动器生成一个日志文件。 建议使用磁盘序列号作为日志文件名。         |
     |/id:     |会话 ID。 请为该命令的每个实例使用唯一的会话编号。      |
-    |/sk:     |Azure 存储帐户密钥。         |
     |/t:     |要寄送的磁盘的驱动器号。 例如，驱动器 `D`。         |
-    |/bk:     |驱动器的 BitLocker 密钥。 其数字密码来自 ` manage-bde -protectors -get D: ` 的输出      |
+    |/bk:     |驱动器的 BitLocker 密钥。 其数字密码来自 `manage-bde -protectors -get D:` 的输出      |
     |/srcdir:     |要寄送的磁盘的驱动器号后跟 `:\`。 例如，`D:\`。         |
     |/dstdir:     |Azure 存储中的目标容器的名称。         |
+    |/blobtype:     |此选项指定要将数据导入到的 Blob 的类型。 对于块 blob，此项为 `BlockBlob`；对于页 blob，此项为 `PagaBlob`。         |
     |/skipwrite:     |此选项指定没有需要复制的新数据并且要准备磁盘上的现有数据。          |
+    |/enablecontentmd5:     |启用此选项时，将确保计算 MD5 并将其设置为每个 blob 上的 `Content-md5` 属性。 仅当希望在将数据上传到 Azure 后使用 `Content-md5` 字段时，才使用此选项。 <br> 此选项不影响数据完整性检查（默认情况下会进行）。 此设置确实会增加将数据上传到云所需的时间。          |
 7. 为需要寄送的每个磁盘重复前面的步骤。 每次运行该命令行时，都会使用所提供的名称创建一个日志文件。
     
     > [!IMPORTANT]
@@ -80,18 +81,18 @@ ms.locfileid: "63858609"
 
 在 Azure 门户中执行以下步骤来创建导入作业。
 
-1. 登录到 https://portal.azure.cn/。
-2. 转到“所有服务”>“存储”>“导入/导出作业”。 
+1. 登录到 https://portal.azure.cn/ 。
+2. 转到“所有服务”>“存储”>“导入/导出作业”  。 
     
     ![转到导入/导出作业](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
 
-3. 单击“创建导入/导出作业”。
+3. 单击“创建导入/导出作业”  。
 
     ![单击“创建导入/导出作业”](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
 
-4. 在“基本信息”中：
+4. 在“基本信息”  中：
 
-   - 选择“导入到 Azure”。
+   - 选择“导入到 Azure”。 
    - 输入导入作业的描述性名称。 可使用此名称来跟踪作业进度。
        - 此名称可以包含大写和小写字母、数字、连字符。
        - 此名称必须以字母开头，并且不得包含空格。
@@ -100,7 +101,7 @@ ms.locfileid: "63858609"
 
      ![创建导入作业 - 步骤 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
-5. 在“作业详细信息”中：
+5. 在“作业详细信息”  中：
 
     - 上传你在驱动器准备步骤中获取的驱动器日志文件。 如果使用了 `waimportexport.exe version1`，请为你准备的每个驱动器上传一个文件。 如果日志文件大小超过了 2 MB，则可以使用随日志文件创建的 `<Journal file name>_DriveInfo_<Drive serial ID>.xml`。 
     - 选择将用来存放数据的目标存储帐户。 目前仅在中国东部和中国北部支持此功能。
@@ -108,7 +109,7 @@ ms.locfileid: "63858609"
    
    ![创建导入作业 - 步骤 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
-6. 在“回寄信息”中：
+6. 在“回寄信息”  中：
 
    - 从下拉列表中选择承运商。
    - 输入你已在该承运商那里创建的有效承运商帐户编号。 当导入作业完成后，我们使用此帐户寄回驱动器。 如果没有帐户编号，请创建一个 EMS 承运商帐户。
@@ -119,10 +120,10 @@ ms.locfileid: "63858609"
 
      ![创建导入作业 - 步骤 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
-7. 在“摘要”中：
+7. 在“摘要”  中：
 
    - 在摘要中复查提供的作业信息。 记下作业名称和 Azure 数据中心送货地址，以便将将磁盘寄回 Azure。 稍后将在发货标签中使用此信息。
-   - 单击“确定”以创建导入作业。
+   - 单击“确定”  以创建导入作业。
 
      ![创建导入作业 - 步骤 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
    - 创建后，可以在设置部分下“管理发货信息”中再次查看数据中心的地址。

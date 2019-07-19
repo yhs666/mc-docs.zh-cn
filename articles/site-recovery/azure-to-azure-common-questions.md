@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 origin.date: 04/29/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 5882e6d80601dbe7bf8e9838b85ada3908e291b7
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 7ae732f4709ccc0feb10f232e99298719461ec0b
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276459"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861725"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常见问题：Azure 到 Azure 的灾难恢复
 
@@ -47,8 +47,10 @@ Site Recovery 团队会与 Azure 容量管理团队合作，规划足够的基�
 
 <!--Pending on verify 
 ### Can I replicate VMs enabled through Azure disk encryption?
-Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
+Yes, you can replicate them. See the article Replicate Azure disk encryption enabled virtual machines to another Azure region. Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
 -->
+
+<!--Pending on [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md)-->
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>是否可将 VM 复制到另一个订阅？
 是的，可将 Azure VM 复制到同一 Azure AD 租户中的不同订阅。
@@ -126,7 +128,7 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 用户无法更�
 1. 在过去 1 小时内，以 5 分钟的频率创建了恢复点。
 2. 对于超出 1 小时的期限，Site Recovery 只保留了 1 个恢复点。
 
-   ![生成的恢复点列表](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+    ![生成的恢复点列表](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
 
 ### <a name="how-far-back-can-i-recover"></a>可以恢复到哪个最早的时间点？
 可以使用的最早恢复点是 72 小时。
@@ -152,7 +154,7 @@ Site Recovery 每隔 5 分钟创建崩溃一致性恢复点。 用户无法更�
 多 VM 一致性可以确保恢复点在所有复制的虚拟机之间保持一致。
 Site Recovery 提供“多 VM 一致性”选项，选择该选项会创建一个复制组，该组中的所有虚拟机可一同复制。
 故障转移后，所有虚拟机将具有共享的崩溃一致性恢复点和应用一致性恢复点。
-请阅读有关[启用多 VM 一致性](/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication)的整篇教程。
+请阅读有关[启用多 VM 一致性](/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm)的整篇教程。
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>是否可以故障转移多 VM 一致性复制组中的单个虚拟机？
 选择“多 VM 一致性”选项即表明应用程序依赖于组中的所有虚拟机。 因此，不允许故障转移单个虚拟机。
@@ -247,7 +249,7 @@ Site Recovery 中的恢复计划可以协调 VM 的故障转移恢复。 它有�
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何保证 Azure VM 在目标区域的容量？
 Site Recovery 团队会与 Azure 容量管理团队合作，规划足够的基础结构容量，确保支持灾难恢复的 VM 在启动故障转移时可以成功部署到目标区域中。
 
-<!--Not Avaialble on [reserve instances](https://www.azure.cn/pricing/reserved-vm-instances/)-->
+<!--MOONCAKE: Not Avaialble on [reserve instances](https://www.azure.cn/pricing/reserved-vm-instances/)-->
 
 ## <a name="a-namesecuritysecurity"></a><a name="security">安全性
 
@@ -261,6 +263,7 @@ Site Recovery 已通过 ISO 27001:2013、27018、HIPAA、DPA 认证，目前正�
 ## <a name="next-steps"></a>后续步骤
 * [查看](azure-to-azure-support-matrix.md)支持要求。
 * [设置](azure-to-azure-tutorial-enable-replication.md) Azure 到 Azure 的复制。
+- 如果在阅读本文后有任何问题，请通过 [Azure 支持](https://support.azure.cn/support/contact/)与我们联系。
 
 <!-- Update_Description: wording update -->
 

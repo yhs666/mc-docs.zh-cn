@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/23/2019
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5ff831ea1421f9ad456a5797e4a2e911864833b
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 155b711275e7d987ed44657987106e57d15542d4
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195418"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844757"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全 
 
-有关 [Azure 安全性最佳做法](/security/)的详细信息，请参阅 [Azure Service Fabric 安全性最佳做法](/security/azure-service-fabric-security-best-practices)
+有关详细信息，请参阅 [Azure 安全最佳做法](/security/)。 
+
+<!--Not Available on [Azure Service Fabric security best practices](/security/azure-service-fabric-security-best-practices)-->
 
 ## <a name="key-vault"></a>密钥保管库
 
@@ -153,54 +155,16 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 在加密受保护的值以后，[在 Service Fabric 应用程序中指定加密的机密](/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)，并[解密服务代码中加密的机密](/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)。
 
-## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>使用托管服务标识 (MSI) 向 Azure 资源验证 Service Fabric 应用程序
+<!--Not Available on ## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)-->
 
-若要了解 Azure 资源的托管标识，请参阅[什么是 Azure 资源的托管标识？](/active-directory/managed-identities-azure-resources/overview#how-does-it-work)。
-Azure Service Fabric 群集托管在虚拟机规模集上，后者支持[托管服务标识](/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources)。
-若要获取可以使用 MSI 向其进行身份验证的服务的列表，请参阅[支持 Azure Active Directory 身份验证的 Azure 服务](/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)。
 
-若要在创建虚拟机规模集期间启用系统分配托管标识，或在现有的虚拟机规模集上这样做，请声明以下 `"Microsoft.Compute/virtualMachinesScaleSets"` 属性：
+## <a name="windows-security-baselines"></a>Windows 安全基线
+[我们建议实现广为人知且经过充分测试的业界标准配置，如 Azure 安全基线，而不是自行创建基线](https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-security-baselines)；用于在虚拟机规模集上预配这些基线的一个选项是，使用 Azure Desired State Configuration (DSC) 扩展处理程序，以在 VM 处于联机状态时对其进行配置，以便其运行生产软件。
 
-```json
-"identity": { 
-    "type": "SystemAssigned"
-}
-```
-有关详细信息，请参阅[什么是 Azure 资源的托管标识？](/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vmss#system-assigned-managed-identity)。
+<!--Not Avaialble on ## Azure Firewall-->
 
-如果创建了[用户分配托管标识](/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm#create-a-user-assigned-managed-identity)，请在模板中声明以下资源，以便将其分配到虚拟机规模集。 将 `\<USERASSIGNEDIDENTITYNAME\>` 替换为你创建的用户分配托管标识的名称：
-
-```json
-"identity": {
-    "type": "userAssigned",
-    "userAssignedIdentities": {
-        "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
-    }
-}
-```
-
-在 Service Fabric 应用程序使用托管标识之前，必须先向该应用程序授予权限，使之能够访问进行身份验证时需要使用的 Azure 资源。
-以下命令授予对 Azure 资源的访问权限：
-
-```bash
-principalid=$(az resource show --id /subscriptions/<YOUR SUBSCRIPTON>/resourceGroups/<YOUR RG>/providers/Microsoft.Compute/virtualMachineScaleSets/<YOUR SCALE SET> --api-version 2018-06-01 | python -c "import sys, json; print(json.load(sys.stdin)['identity']['principalId'])")
-
-az role assignment create --assignee $principalid --role 'Contributor' --scope "/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/<PROVIDER NAME>/<RESOURCE TYPE>/<RESOURCE NAME>"
-```
-
-在 Service Fabric 应用程序代码中，通过进行如下所示的 REST 调用获取 Azure 资源管理器的访问令牌：
-
-```bash
-access_token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.chinacloudapi.cn%2F' -H Metadata:true | python -c "import sys, json; print json.load(sys.stdin)['access_token']")
-
-```
-
-然后，Service Fabric 应用就可以使用访问令牌向支持 Active Directory 的 Azure 资源进行身份验证。
-以下示例介绍如何针对 Cosmos DB 资源执行此操作：
-
-```bash
-cosmos_db_password=$(curl 'https://management.chinacloudapi.cn/subscriptions/<YOUR SUBSCRIPTION>/resourceGroups/<YOUR RG>/providers/Microsoft.DocumentDB/databaseAccounts/<YOUR ACCOUNT>/listKeys?api-version=2016-03-31' -X POST -d "" -H "Authorization: Bearer $access_token" | python -c "import sys, json; print(json.load(sys.stdin)['primaryMasterKey'])")
-```
+## <a name="tls-12"></a>TLS 1.2
+[TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
 
 ## <a name="windows-defender"></a>Windows Defender 
 
@@ -235,6 +199,18 @@ cosmos_db_password=$(curl 'https://management.chinacloudapi.cn/subscriptions/<YO
 > [!NOTE]
 > 如果不使用 Windows Defender，请参阅有关配置规则的反恶意软件文档。 Linux 不支持 Windows Defender。
 
+## <a name="platform-isolation"></a>平台隔离
+默认情况下，Service Fabric 应用程序会被授予访问 Service Fabric 运行时本身的权限，这本身会通过以下不同形式表明：[环境变量](service-fabric-environment-variables-reference.md)（指向对应于应用程序和 Fabric 文件的主机上的文件路径）、进程间通信终结点（接受应用程序特定请求）和客户端证书（Fabric 希望应用程序使用该证书对自身进行身份验证）。 如果服务托管本身不信任的代码，建议禁用此 SF 运行时访问权限，除非明确需要。 该运行时的访问权限可使用应用程序清单的“策略”部分中的以下声明来删除： 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
+
 ## <a name="next-steps"></a>后续步骤
 
 * 在运行 Windows Server 的 VM 或计算机上创建群集：[创建适用于 Windows Server 的 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)。
@@ -243,5 +219,4 @@ cosmos_db_password=$(curl 'https://management.chinacloudapi.cn/subscriptions/<YO
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png
 
-<!--Update_Description: new articles on service fabric best practices security -->
-<!--ms.date: 03/04/2019-->
+<!--Update_Description: wording update -->

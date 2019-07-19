@@ -16,12 +16,12 @@ ms.topic: conceptual
 origin.date: 05/16/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0f2bf0440df38d3d1cb9b30bcd1c6204913d3d21
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 0fc1a376ec2f709bfa8d72ccf0130c5884650430
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029221"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845260"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>运行 HDInsight 包含的 MapReduce 示例
 
@@ -31,12 +31,9 @@ ms.locfileid: "54029221"
 
 ## <a name="prerequisites"></a>先决条件
 
-* **一个 HDInsight 群集**：请参阅[开始在 Linux 上的 HDInsight 中将 Apache Hadoop 与 Apache Hive 配合使用](apache-hadoop-linux-tutorial-get-started.md)
+* HDInsight 中的 Apache Hadoop 群集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 
-    > [!IMPORTANT]
-    > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
-
-* **一个 SSH 客户端**：有关详细信息，请参阅 [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md)（对 HDInsight 使用 SSH）。
+* SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 ## <a name="the-mapreduce-examples"></a>MapReduce 示例
 
@@ -71,7 +68,11 @@ ms.locfileid: "54029221"
 
 ## <a name="run-the-wordcount-example"></a>运行 wordcount 示例
 
-1. 使用 SSH 连接到 HDInsight。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+1. 使用 SSH 连接到 HDInsight。 将 `CLUSTER` 替换为群集的名称，然后输入以下命令：
+
+    ```cmd
+    ssh sshuser@CLUSTER-ssh.azurehdinsight.cn
+    ```
 
 2. 在 `username@#######:~$` 提示符下，使用以下命令列出示例：
 
@@ -169,7 +170,7 @@ yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar 
 
 此命令返回的值类似于 **3.14159155000000000000**。 例如，pi 采用前 10 位小数时为 3.1415926535。
 
-## <a name="10-gb-greysort-example"></a>10 GB Greysort 示例
+## <a name="10-gb-graysort-example"></a>10 GB GraySort 示例
 
 GraySort 是一种基准排序。 该指标是在给大量数据（通常至少 100 TB）排序时达到的排序速率（TB/分钟）。
 

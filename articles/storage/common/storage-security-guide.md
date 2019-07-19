@@ -9,12 +9,12 @@ origin.date: 03/21/2019
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: cab8afe7a0cfc235ef06a4cc93b2473ed9c9d575
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 45b4e9bfcd4b6b691cba374e7b6b0f2b53ee5ca0
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004015"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844499"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -238,10 +238,9 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
     此文提供有关使用服务级别 SAS 配合 Blob、队列、表范围和文件的示例。
   * [构造服务 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
-* 这些教程介绍了如何使用 .NET 客户端库创建共享访问签名和存储访问策略。
 
+* 这是有关使用 .NET 客户端库创建共享访问签名和存储访问策略的教程。
   * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-  * [共享访问签名，第 2 部分：创建 SAS 并将其用于 Blob 服务](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     本文包含 SAS 模型的说明、共享访问签名的示例，以及 SAS 用法最佳实践的建议。 此外还介绍了如何吊销授予的权限。
 

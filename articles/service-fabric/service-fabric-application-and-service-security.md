@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/16/2018
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 15f8421781b4b62b9fd0c6eacb41ce2e93b3f594
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 486f4ec6a4bd6ebb0be4d7973b17edf58962fa36
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204110"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844721"
 ---
 # <a name="service-fabric-application-and-service-security"></a>Service Fabric 应用程序和服务安全性
 微服务体系结构可以带来[诸多好处](service-fabric-overview-microservices.md)。 但是，管理微服务的安全性有一定的难度，比管理传统单体式应用程序的安全性更复杂。 
@@ -37,17 +37,14 @@ ms.locfileid: "57204110"
 
 如果可以直接访问服务，则可以使用某个身份验证服务（例如 Azure Active Directory，或充当安全令牌服务 (STS) 的专用身份验证微服务）对用户进行身份验证。 信任决策在包含安全令牌或 Cookie 的服务之间共享。 
 
-对于 ASP.NET Core，用于[对用户进行身份验证](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要机制是 ASP.NET Core 标识成员身份系统。 ASP.NET Core 标识在开发人员配置的数据存储中存储用户信息（包括登录信息、角色和声明）。 ASP.NET Core 标识支持双重身份验证。  也支持外部身份验证提供程序，因此，用户可以使用 Microsoft 等提供程序中的现有身份验证过程登录。
+对于 ASP.NET Core，用于[对用户进行身份验证](https://docs.microsoft.com/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/)的主要机制是 ASP.NET Core 标识成员身份系统。 ASP.NET Core 标识在开发人员配置的数据存储中存储用户信息（包括登录信息、角色和声明）。 ASP.NET Core 标识支持双重身份验证。  也支持外部身份验证提供程序，因此，用户可以使用 Microsoft 等提供程序中的现有身份验证过程登录。
 
 <!-- Not Available on , Google, Facebook, or Twitter -->
-<!-- URL is Correct on https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/-->
 
 ### <a name="authorization"></a>授权
 完成身份验证后，服务需要为用户访问授权，或确定哪些用户可以访问。 此过程可让服务将 API 提供给某些经过身份验证的用户使用，而不是提供给所有用户使用。 授权是正交性的，它独立于身份验证，是认定用户身份的过程。 身份验证可为当前用户创建一个或多个标识。
 
-可以根据用户的角色或者根据自定义策略（可能包括检查声明或其他试探方法）实现 [ASP.NET Core 授权](https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)。
-
-<!--URL is Correct on https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications) -->
+可以根据用户的角色或者根据自定义策略（可能包括检查声明或其他试探方法）实现 [ASP.NET Core 授权](https://docs.microsoft.com/dotnet/standard/microservices-architecture/secure-net-microservices-web-applications/authorization-net-microservices-web-applications)。
 
 ## <a name="restrict-and-secure-access-using-an-api-gateway"></a>使用 API 网关限制和保护访问
 云应用程序通常都需要使用前端网关，为用户、设备或其他应用程序提供同一个入口点。 [API 网关](https://docs.microsoft.com/azure/architecture/microservices/gateway)位于客户端与服务之间，是应用程序提供的所有服务的入口点。 它充当反向代理，将来自客户端的请求路由到服务。 它还可以执行各种横切任务，例如身份验证和授权、SSL 终止与速率限制。 如果未部署网关，则客户端必须直接向前端服务发送请求。
@@ -59,7 +56,7 @@ API 管理直接与 Service Fabric 集成，以便可以使用一组丰富的路
 ## <a name="manage-application-secrets"></a>管理应用程序机密
 机密可以是任何敏感信息，例如存储连接字符串、密码或其他不应以明文形式处理的值。 本文使用 Azure Key Vault 来管理密钥和机密。 但是，在应用程序中 *使用* 机密的方式不区分云平台，因此可让应用程序部署到托管在任何位置的群集。
 
-建议通过 [服务配置包][config-package]来管理服务配置设置。 可以通过包含运行状况验证和自动回滚的托管滚动升级机制来控制配置包版本以及对其进行更新。 这比全局配置更有优势，因为可以减少全局服务中断的可能性。 加密的机密也不例外。 通过 Service Fabric 的内置功能，可以使用证书加密来加密和解密配置包 Settings.xml 文件中的值。
+建议通过[服务配置包][config-package]来管理服务配置设置。 可以通过包含运行状况验证和自动回滚的托管滚动升级机制来控制配置包版本以及对其进行更新。 这比全局配置更有优势，因为可以减少全局服务中断的可能性。 加密的机密也不例外。 通过 Service Fabric 的内置功能，可以使用证书加密来加密和解密配置包 Settings.xml 文件中的值。
 
 下图演示了 Service Fabric 应用程序中机密管理的基本流程：
 

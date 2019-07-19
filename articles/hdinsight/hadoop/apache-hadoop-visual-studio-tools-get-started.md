@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/21/2019
-ms.date: 06/10/2019
+origin.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4426a4131bc05b5a6bc2ea0a66242563a6da6e82
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: caf8a4e71e4ec0ad5042323c6a2a4f52711e4db8
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424629"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845043"
 ---
 # <a name="use-data-lake-tools-for-visual-studio-to-connect-to-azure-hdinsight-and-run-apache-hive-queries"></a>使用针对 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询
 
@@ -37,11 +37,11 @@ ms.locfileid: "66424629"
 
 ## <a name="prerequisites"></a>先决条件
 
-若要完成本教程并使用用于 Visual Studio 的 Data Lake 工具，需要准备以下项目：
+若要完成本文并使用用于 Visual Studio 的 Data Lake 工具，需要具备以下项目：
 
 * 一个 Azure HDInsight 群集。 若要创建 HDInsight 群集，请参阅[在 Azure HDInsight 中使用 Apache Hadoop 入门](apache-hadoop-linux-tutorial-get-started.md)。 若要运行交互式 Apache Hive 查询，需使用 [HDInsight 交互式查询](../interactive-query/apache-interactive-query-get-started.md)群集。
 
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/)（2013 或更高版本）。  [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) 是免费的。  另请参阅[安装 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 和 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/)（2013 或更高版本）。  [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/) 是免费的。  另请参阅[安装 Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) 和 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)。 Visual Studio 2019 的界面略有变化。
 
   > [!IMPORTANT]  
   > Visual Studio 2013 不再支持 Data Lake 工具。 
@@ -115,7 +115,7 @@ ms.locfileid: "66424629"
 
 ![针对 Visual Studio 的 Data Lake 工具“链接群集”对话框的屏幕截图](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-dialog.png)
 
-右键单击链接的群集，选择“编辑”  ，用户可以更新群集信息。 请注意，添加 HDInsight 群集目前仅支持 Hive。
+右键单击链接的群集，选择“编辑”  ，用户可以更新群集信息。 添加 HDInsight 群集目前仅支持 Hive。
 
 ![针对 Visual Studio 的 Data Lake 工具“链接群集更新”的屏幕截图](./media/apache-hadoop-visual-studio-tools-get-started/hdinsight-visual-studio-tools-link-cluster-update.png)
 
@@ -180,7 +180,14 @@ ms.locfileid: "66424629"
 
 1. 右键单击要运行查询的群集，然后选择“编写 Hive 查询”。   
 
-2. 输入 Hive 查询。  
+2. 输入以下 Hive 查询：
+
+    ```sql
+    SELECT devicemodel, COUNT(devicemodel) AS deviceCount
+    FROM hivesampletable
+    GROUP BY devicemodel
+    ORDER BY devicemodel
+    ```
 
     Hive 编辑器支持 IntelliSense。 用于 Visual Studio 的 Data Lake 工具支持在编辑 Hive 脚本时加载远程元数据。 例如，如果键入 `SELECT * FROM`，则 IntelliSense 会列出所有建议的表名称。 在指定表名称后，IntelliSense 会列出列名称。 这些工具支持大多数 Hive DML 语句、子查询和内置 UDF。
 

@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-origin.date: 04/28/2019
-ms.date: 05/14/2019
+origin.date: 06/06/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2ad3090e648a7af91510149907bbb67a96f14776
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 47f13d32b7cb92ee2d6594543d5e8527d77ff1f0
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668843"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844592"
 ---
 # <a name="face-api-release-notes"></a>人脸 API 发行说明
 
 本文适用于人脸 API 服务 1.0 版。
+
+### <a name="release-changes-in-june-2019"></a>2019 年 6 月版本更改
+
+* 添加了一个新的人脸检测模型，提高了对小脸、侧视图、遮挡和模糊人脸的检测准确性。 通过[人脸 - 检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)、[FaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250)、[LargeFaceList - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3)、[PersonGroup Person - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)和 [LargePersonGroup Person - 添加人脸](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42)来使用它，只需在 `detectionModel` 参数中指定新的人脸检测模型名称 `detection_02` 即可。 [如何指定检测模型](Face-API-How-to-Topics/specify-detection-model.md)中提供了更多详细信息。
 
 ### <a name="release-changes-in-april-2019"></a>2019 年 4 月版本更改
 

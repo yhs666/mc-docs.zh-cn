@@ -3,20 +3,20 @@ title: 请求限制 - 文本翻译 API
 titleSuffix: Azure Cognitive Services
 description: 本文列出了文本翻译 API 的请求限制。 费用是根据字符数而不是请求频率产生的，每个请求限制为 5,000 个字符。 字符限制是基于订阅的，F0 限制为每小时 200 万个字符。
 services: cognitive-services
-author: erhopf
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 06/11/2019
+origin.date: 06/04/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 435c29c44fabde383ad03b82ab884776dd4e353b
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: caa4e32be15ad90bbdfd4912b38c214a55fc3fe1
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830088"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844635"
 ---
 # <a name="request-limits-for-translator-text"></a>文本翻译的请求限制
 
@@ -28,7 +28,7 @@ ms.locfileid: "66830088"
 
 下表列出了文本翻译 API 的每个操作的数组元素和字符限制。
 
-| 操作 | 数组元素的最大大小 | 最大数组元素数 | 最大请求大小（字符数） |
+| 操作 | 数组元素的最大大小 |   最大数组元素数 |  最大请求大小（字符数） |
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10 个    | 5,000 |
@@ -39,7 +39,11 @@ ms.locfileid: "66830088"
 
 ## <a name="character-limits-per-hour"></a>每小时的字符限制
 
-每小时的字符限制取决于文本翻译订阅层。 每小时配额应在一小时内均匀使用。 如果你达到或超过这些限制，或在短时间内发送过大部分配额，则可能会收到超出配额响应。 
+每小时的字符限制取决于文本翻译订阅层。 
+
+每小时配额应在一小时内均匀使用。 例如，在 F0 层限制为每小时 200 万字符时，使用字符的速度不应超过大约 33,300 个字符/分钟滑动窗口（200 万个字符除以 60 分钟）。
+
+如果你达到或超过这些限制，或在短时间内发送过大部分配额，则可能会收到超出配额响应。 对并发请求没有限制。
 
 | 层 | 字符限制 |
 |------|-----------------|

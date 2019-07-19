@@ -4,22 +4,23 @@ titlesuffix: Azure Cognitive Services
 description: 通过使用联机控制台中的文本审查 API 体验文本审查。
 services: cognitive-services
 author: sanjeev3
+ms.author: v-junlch
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-origin.date: 04/30/2019
-ms.date: 06/10/2019
-ms.openlocfilehash: a88baf22f53d78e30f6d24c6c257c2cee7b53340
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+origin.date: 05/29/2019
+ms.date: 07/10/2019
+ms.openlocfilehash: bb72168054b1d721a13a9b2f6453635ee4de7818
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830126"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844935"
 ---
 # <a name="moderate-text-from-the-api-console"></a>从 API 控制台审查文本
 
-使用 Azure 内容审查器中的[文本审查 API](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 扫描文本内容。 此操作会扫描你的内容是否有猥亵内容，并将内容与自定义和共享黑名单进行比较。
+在 Azure 内容审查器中使用[文本审查 API](https://dev.cognitive.azure.cn/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) 扫描文本内容以查找亵渎语言，并将其与自定义和共享列表进行比较。
 
 ## <a name="get-your-api-key"></a>获取 API 密钥
 
@@ -73,7 +74,7 @@ Also, 999-99-9999 looks like a social security number (SSN).
 
 ## <a name="analyze-the-response"></a>分析响应
 
-下面的响应显示来自 API 的各种见解。 它包含潜在不雅内容、PII、分类（预览）和自动更正版本。
+下面的响应显示来自 API 的各种见解。 它包含潜在不雅内容、个人数据、分类（预览）和自动更正版本。
 
 > [!NOTE]
 > 计算机辅助的“分类”功能处于预览状态，仅支持英语。

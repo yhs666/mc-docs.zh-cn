@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 05/28/2018
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4b7d625742adfa74801303716c9d1721fc925d4d
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6c316f6bc50b5d67d80bfe6c8ddc5348ab6162ac
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666619"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844764"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>迁移应用程序之前了解云服务与 Service Fabric 之间的差异。
 Azure Service Fabric 是面向高度可缩放、高度可靠的分布式应用程序的下一代云应用程序平台。 其中引入了许多用于打包、部署、升级和管理分布式云应用程序的新功能。 
@@ -32,11 +32,11 @@ Azure Service Fabric 是面向高度可缩放、高度可靠的分布式应用�
 
 * **云服务涉及到将应用程序部署为 VM。** 编写的代码与 VM 实例（如 Web 角色或辅助角色）密切结合。 在云服务中部署工作负荷就是要部署一个或多个运行该工作负荷的 VM 实例。 应用程序与 VM 没有区别，因此对于应用程序没有正式的定义。 可将应用程序视为云服务部署中的一组 Web 角色或辅助角色实例，或视为整个云服务部署。 在此示例中，应用程序显示为一组角色实例。
 
-![云服务应用程序和拓扑][1]
+    ![云服务应用程序和拓扑][1]
 
 * **Service Fabric 涉及到将应用程序部署至现有的 VM 或运行 Service Fabric 的 Windows 或 Linux 计算机。** 编写的服务完全与底层的基础结构分离（由 Service Fabric 应用程序平台抽象化），因此可将应用程序部署到多个环境。 Service Fabric 中的工作负荷称为“服务”，一个或多个服务会在 Service Fabric 应用程序平台上运行的且正式定义的应用程序中分组。 可将多个应用程序部署到单个 Service Fabric 群集。
 
-![Service Fabric 应用程序和拓扑][2]
+    ![Service Fabric 应用程序和拓扑][2]
 
 Service Fabric 本身是在 Windows 或 Linux 中运行的应用程序平台层，而云服务是用于部署 Azure 托管的且附加了工作负荷的 VM 的系统。
 Service Fabric 应用程序模型有许多优点：
@@ -72,9 +72,9 @@ Service Fabric 应用程序还可以选择在整个应用程序中使用相同�
 
 ![云服务直接通信][5]
 
- 直接通信是 Service Fabric 中常见的通信模型。 Service Fabric 和云服务的重要差别在于，在云服务中是连接到 VM，而在 Service Fabric 中是连接到服务。 这种差别之所以重要，其原因如下：
+直接通信是 Service Fabric 中常见的通信模型。 Service Fabric 和云服务的重要差别在于，在云服务中是连接到 VM，而在 Service Fabric 中是连接到服务。 这种差别之所以重要，其原因如下：
 
-* Service Fabric 中的服务不受限于托管它们的 VM；服务可以在群集中移动，实际上应因为多个原因而移动：资源平衡、故障转移、应用程序和基础结构升级，以及放置或负载约束。 这意味着服务实例的地址可随时更改。 
+* Service Fabric 中的服务未绑定到托管它们的 VM；这些服务可以在群集中四处移动。事实上，它们会出于以下各种原因而四处移动：资源平衡、故障转移、应用程序和基础结构升级，以及放置或负载约束。 这意味着服务实例的地址可随时更改。 
 * Service Fabric 中的一个 VM 可以托管多个服务，且每个服务有其独特的终结点。
 
 Service Fabric 提供服务发现机制（称为“命名服务”），用于解析服务的终结点地址。 
@@ -89,6 +89,23 @@ Service Fabric 提供服务发现机制（称为“命名服务”），用于�
 在 Service Fabric 中可以使用相同的通信模型。 这有助于将现有的云服务应用程序迁移到 Service Fabric。 
 
 ![Service Fabric 直接通信][8]
+
+## <a name="parity"></a>奇偶校验
+[云服务的控制和易用程度类似于 Service Fabric，但它现在是旧版服务，因此建议将 Service Fabric 用于新的开发](/app-service/overview-compare)；下面是 API 的对比情况：
+
+| **云服务 API** | **Service Fabric API** | **说明** |
+| --- | --- | --- |
+| RoleInstance.GetID | FabricRuntime.GetNodeContext.NodeId 或 .NodeName | ID 是 NodeName 的属性 |
+| RoleInstance.GetFaultDomain | FabricClient.QueryManager.GetNodeList | 按 NodeName 筛选并使用 FD 属性 |
+| RoleInstance.GetUpgradeDomain | FabricClient.QueryManager.GetNodeList | 按 NodeName 筛选并使用 Upgrade 属性 |
+| RoleInstance.GetInstanceEndpoints | FabricRuntime.GetActivationContext 或 Naming (ResolveService) | CodePackageActivationContext，由 FabricRuntime.GetActivationContext 提供以及通过 ServiceInitializationParameters.CodePackageActivationContext provided during .Initialize 在副本中提供 |
+| RoleEnvironment.GetRoles | FabricClient.QueryManager.GetNodeList | 如果要按类型执行同种筛选，则可以通过 FabricClient.ClusterManager.GetClusterManifest 从群集清单获取节点类型列表，并从此处获取角色/节点类型。 |
+| RoleEnvironment.GetIsAvailable | Connect-WindowsFabricCluster 或创建指向特定节点的 FabricRuntime | * |
+| RoleEnvironment.GetLocalResource | CodePackageActivationContext.Log/Temp/Work | * |
+| RoleEnvironment.GetCurrentRoleInstance | CodePackageActivationContext.Log/Temp/Work | * |
+| LocalResource.GetRootPath | CodePackageActivationContext.Log/Temp/Work | * |
+| Role.GetInstances | FabricClient.QueryManager.GetNodeList 或 ResolveService | * |
+| RoleInstanceEndpoint.GetIPEndpoint | FabricRuntime.GetActivationContext 或 Naming (ResolveService) | * |
 
 ## <a name="next-steps"></a>后续步骤
 从云服务迁移到 Service Fabric 的最简单路径是只将云服务部署替换为 Service Fabric 应用程序，并将应用程序的整个体系结构保持大致相同。 以下文章提供了帮助将 Web 角色或辅助角色转换为 Service Fabric 无状态服务的指南。
@@ -106,4 +123,4 @@ Service Fabric 提供服务发现机制（称为“命名服务”），用于�
 [10]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-simple.png
 [11]: ./media/service-fabric-cloud-services-migration-differences/service-fabric-architecture-full.png
 
-<!--Update_Description: update meta properties-->
+<!--Update_Description: update meta properties, wording update -->

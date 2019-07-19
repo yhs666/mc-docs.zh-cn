@@ -13,18 +13,20 @@ ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/25/2019
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cf03783db7cbd0dc113cba080cdd1721bea0129
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: d95ecae1043ce3624cd5fba4aab302b414e9f022
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204121"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844736"
 ---
 # <a name="list-of-service-fabric-events"></a>Service Fabric 事件列表 
 
-Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [Service Fabric 事件](service-fabric-diagnostics-events.md)。 这些事件基于 Service Fabric 在节点上执行的操作和群集所有者/操作员所做的群集或管理决策。 可以通过多种方式访问这些事件，包括[使用群集配置 Log Analytics](service-fabric-diagnostics-oms-setup.md)，或查询 [EventStore](service-fabric-diagnostics-eventstore.md)。 在 Windows 计算机上，这些事件被传输到 EventLog - 因此可以在“事件查看器”中查看 Service Fabric 事件。 
+Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [Service Fabric 事件](service-fabric-diagnostics-events.md)。 这些事件基于 Service Fabric 在节点上执行的操作和群集所有者/操作员所做的群集或管理决策。 可以通过多种方式（包括查询 [EventStore](service-fabric-diagnostics-eventstore.md)）进行配置，以便访问这些事件。 在 Windows 计算机上，这些事件被传输到 EventLog - 因此可以在“事件查看器”中查看 Service Fabric 事件。 
+
+<!--Not Available on [Log Analytics with your cluster](service-fabric-diagnostics-oms-setup.md)-->
 
 下面是这些事件的一些特征
 * 每个事件被绑定到群集中的特定实体，例如应用程序、服务、节点、副本。
@@ -41,7 +43,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 有关群集升级的详细信息，请参阅[此处](service-fabric-cluster-upgrade-windows-server.md)。
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 | 
+| EventId | Name | Category | 说明 |源（任务） | 级别 | 
 | --- | --- | --- | --- | --- | --- | 
 | 29627 | ClusterUpgradeStarted | 升级 | 群集升级已启动 | CM | 信息性 |
 | 29628 | ClusterUpgradeCompleted | 升级 | 群集升级已完成 | CM | 信息性 | 
@@ -53,7 +55,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 **节点生命周期事件** 
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 |
+| EventId | Name | Category | 说明 |源（任务） | 级别 |
 | --- | --- | ---| --- | --- | --- | 
 | 18602 | NodeDeactivateCompleted | StateTransition | 节点停用已完成 | FM | 信息性 | 
 | 18603 | NodeUp | StateTransition | 群集检测到节点已启动 | FM | 信息性 | 
@@ -70,7 +72,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 **应用程序生命周期事件**
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 | 
+| EventId | Name | Category | 说明 |源（任务） | 级别 | 
 | --- | --- | --- | --- | --- | --- | 
 | 29620 | ApplicationCreated | LifeCycle | 新应用程序已创建 | CM | 信息性 | 
 | 29625 | ApplicationDeleted | LifeCycle | 一个现有的应用程序已删除 | CM | 信息性 | 
@@ -80,7 +82,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 有关应用程序升级的详细信息，请参阅[此处](service-fabric-application-upgrade.md)。
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 | 
+| EventId | Name | Category | 说明 |源（任务） | 级别 | 
 | --- | --- | ---| --- | --- | --- | 
 | 29621 | ApplicationUpgradeStarted | 升级 | 应用程序升级已启动 | CM | 信息性 | 
 | 29622 | ApplicationUpgradeCompleted | 升级 | 应用程序升级已完成 | CM | 信息性 | 
@@ -92,7 +94,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 **服务生命周期事件**
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 | 
+| EventId | Name | Category | 说明 |源（任务） | 级别 | 
 | --- | --- | ---| --- | --- | --- |
 | 18657 | ServiceCreated | LifeCycle | 已创建新服务 | FM | 信息性 | 
 | 18658 | ServiceDeleted | LifeCycle | 已删除一个现有的服务 | FM | 信息性 | 
@@ -101,9 +103,43 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 
 **分区移动事件**
 
-| EventId | Name | 类别 | 说明 |源（任务） | 级别 | 
+| EventId | Name | Category | 说明 |源（任务） | 级别 | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | 分区重新配置已完成 | RA | 信息性 | 
+
+## <a name="replica-events"></a>副本事件
+
+**副本生命周期事件**
+
+| EventId | Name | Category | 说明 |源（任务） | 级别 |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | 可靠字典已打开 | DistributedDictionary | 信息性 |
+| 61702 | ReliableDictionaryClosed | LifeCycle | 可靠字典已关闭 | DistributedDictionary | 信息性 |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | 可靠字典已恢复其检查点 | DistributedDictionary | 信息性 |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | 副本已发送可靠字典的检查点文件 | DistributedDictionary | 信息性 |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | 副本已接收可靠字典的检查点文件 | DistributedDictionary | 信息性 |
+| 61963 | ReliableQueueOpened | LifeCycle | 可靠队列已打开 | DistributedQueue | 信息性 |
+| 61964 | ReliableQueueClosed | LifeCycle | 可靠队列已关闭 | DistributedQueue | 信息性 |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | 可靠队列已恢复其检查点 | DistributedQueue | 信息性 |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | 副本已发送可靠队列的检查点文件 | DistributedQueue | 信息性 |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | 副本已接收可靠队列的检查点文件 | DistributedQueue | 信息性 |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | 可靠并发队列已打开 | ReliableConcurrentQueue | 信息性 |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | 可靠并发队列已关闭 | ReliableConcurrentQueue | 信息性 |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | 可靠并发队列已恢复其检查点 | ReliableConcurrentQueue | 信息性 |
+| 61687 | TStoreError | 失败 | 可靠集合已收到意外错误 | TStore | 错误 |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | 主要副本已启动完整副本 | TReplicator | 信息性 |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | 主要副本已启动不完整副本 | TReplicator | 信息性 |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | 主要副本已开始构建空闲副本 | 复制 | 信息性 |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | 主要副本已构建完空闲副本 | 复制 | 信息性 |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | 主要副本无法构建空闲副本 | 复制 | 警告 |
+| 16834 | PrimaryReplicationQueueFull | 运行状况 | 主要副本的复制队列已满 | 复制 | 警告 |
+| 16835 | PrimaryReplicationQueueWarning | 运行状况 | 主要副本的复制队列已快满 | 复制 | 警告 |
+| 16836 | PrimaryReplicationQueueWarningMitigated | 运行状况 | 主要副本的复制队列正常 | 复制 | 信息性 |
+| 16837 | SecondaryReplicationQueueFull | 运行状况 | 次要副本的复制队列已满 | 复制 | 警告 |
+| 16838 | SecondaryReplicationQueueWarning | 运行状况 | 次要副本的复制队列已快满 | 复制 | 警告 |
+| 16839 | SecondaryReplicationQueueWarningMitigated | 运行状况 | 次要副本的复制队列正常 | 复制 | 信息性 |
+| 16840 | PrimaryFaultedSlowSecondary | 运行状况 | 主要副本已导致慢速次要副本出现故障 | 复制 | 警告 |
+| 16841 | ReplicatorFaulted | 运行状况 | 副本已出现故障 | 复制 | 警告 |
 
 ## <a name="container-events"></a>容器事件
 
@@ -218,7 +254,7 @@ Service Fabric 公开一组主要的群集事件，以通知群集的状态为 [
 | --- | --- | ---| --- | --- | --- |
 | 65011 | CorrelationOperational | 已检测到相关性 | Testability | 信息性 | 1 |
 
-## <a name="events-prior-to-version-62"></a>6.2 版本之前的事件
+## <a name="events-prior-to-version-62"></a>6\.2 版本之前的事件
 
 以下是 6.2 版本之前的 Service Fabric 提供的事件综合列表。
 

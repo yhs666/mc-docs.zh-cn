@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: article
 origin.date: 05/06/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 2a512d37ba39c6e94a72490d7391129ac357ee70
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 20e5e7043d470e593e5ce394dcaeb46d5cc2e984
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004029"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844416"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -63,7 +63,7 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-若要登录到本地安装的 CLI，请运行登录命令：
+若要登录到本地安装的 CLI，请运行 [az login](/cli/reference-index#az-login) 命令：
 
 ```cli
 az cloud set -n AzureChinaCloud

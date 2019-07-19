@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 12/10/2018
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 430c1d0dcea7e170dff8450d63b9203e84c20307
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: ee960eae0c0777a3c008029b74f65cec624ddb6f
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626432"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844720"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>将应用程序和服务作为 Azure 资源管理器资源进行管理
 
@@ -29,7 +29,7 @@ ms.locfileid: "58626432"
 这是部署群集所需的任意安装应用程序、治理应用程序或群集管理应用程序的推荐方法。 其中包括[修补业务流程应用程序](service-fabric-patch-orchestration-application.md)、监视程序，或部署其他应用程序/服务前群集需要运行的任何应用程序。 
 
 在适当情况下，将应用程序作为资源管理器资源进行管理可改进：
-* 审核线索：资源管理器审核所有操作，并记录详细的活动日志，有助于跟踪对这些应用程序和群集做出的任何更改。
+* 审核线索：资源管理器审核所有操作，并记录详细的活动日志  ，有助于跟踪对这些应用程序和群集做出的任何更改。
 * 基于角色的访问控制 (RBAC)：可通过同一个资源管理器模板，管理对群集及其上部署的应用程序的访问。
 * Azure 资源管理器（通过 Azure 门户）成为管理群集和关键应用程序部署的一站式平台。
 
@@ -67,10 +67,10 @@ ms.locfileid: "58626432"
 1. 准备群集的资源管理器模板，以供部署时使用。 若要详细了解如何执行此操作，请参阅[使用 Azure 资源管理器创建 Service Fabric 群集](service-fabric-cluster-creation-via-arm.md)。
 2. 考虑一下，打算在群集中部署的一些应用程序。 是否有始终要运行的被其他应用程序依赖的应用程序？ 是否计划部署任何群集治理应用程序或安装应用程序？ 如上所述，此类应用程序最好是通过资源管理器模板进行管理。 
 3. 确定要使用此方法部署的应用程序后，需要立即打包、压缩这些应用程序，并将它们上传到文件共享。 此共享必须可通过 REST 终结点进行访问，这样 Azure 资源管理器才能在部署期间使用它。
-4. 在资源管理器模板中的群集声明下，描述每个应用程序的属性。 这些属性包括副本或实例计数，以及资源（其他应用程序或服务）之间的任何依赖链。 有关完整属性列表，请参阅 [REST API Swagger 规范](https://aka.ms/sfrpswaggerspec)。请注意，这不会取代应用程序或服务清单，只是在群集的资源管理器模板中描述了清单的部分内容。 下面展示了示例模板，包括在 Application1 中部署无状态服务 Service1 和有状态服务 Service2：
+4. 在资源管理器模板中的群集声明下，描述每个应用程序的属性。 这些属性包括副本或实例计数，以及资源（其他应用程序或服务）之间的任何依赖链。 有关完整属性列表，请参阅 [REST API Swagger 规范](https://aka.ms/sfrpswaggerspec)。请注意，这不会取代应用程序或服务清单，只是在群集的资源管理器模板中描述了清单的部分内容。 下面展示了示例模板，包括在 Application1  中部署无状态服务 Service1  和有状态服务 Service2  ：
 
-   ```json
-   {
+    ```json
+    {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
@@ -251,13 +251,23 @@ ms.locfileid: "58626432"
         }
       }
     ]
-   }
-   ```
+    }
+    ```
 
-   > [!NOTE] 
-   > 必须将 apiVersion 设置为 `"2017-07-01-preview"`。 部署的此模板也可以与群集互不影响，只要群集已部署即可。
+    > [!NOTE] 
+    > 必须将 apiVersion  设置为 `"2017-07-01-preview"`。 部署的此模板也可以与群集互不影响，只要群集已部署即可。
 
 5. 部署！ 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>删除 Service Fabric 资源提供程序应用程序资源
+以下命令将触发从群集取消预配应用程序包，这将清理已用的磁盘空间：
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+只是从 ARM 模板中删 Microsoft.ServiceFabric/clusters/application 就不会取消预配应用程序
+
+>[!NOTE]
+> 删除完成后，你应该不会再在 SFX 或 ARM 中看到包版本。 你不能删除应用程序运行所使用的应用程序类型版本资源；ARM/SFRP 将阻止此操作。 如果你尝试取消预配正在运行的包，SF 运行时将阻止此操作。
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>通过资源管理器管理现有应用程序
 
@@ -271,4 +281,4 @@ ms.locfileid: "58626432"
 * 使用 [Service Fabric CLI](service-fabric-cli.md) 或 [PowerShell](service-fabric-deploy-remove-applications.md)，将其他应用程序部署到群集。 
 * [升级 Service Fabric 群集](service-fabric-cluster-upgrade.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

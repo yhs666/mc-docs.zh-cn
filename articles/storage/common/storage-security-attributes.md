@@ -8,18 +8,18 @@ manager: digimobile
 ms.service: storage
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.openlocfilehash: 772268e78867c1a14c94031cf97f5699cb3ca9c7
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 487476b61e0701307c4feaf27b41e42b22c0cbe0
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236464"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844501"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Azure 存储的常见安全属性
+# <a name="security-attributes-for-azure-storage"></a>Azure 存储的安全属性
 
-安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 Azure 存储中的常见安全特性。 
+本文记录了内置到 Azure 存储中的安全属性。 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -65,6 +65,6 @@ ms.locfileid: "67236464"
 
 ## <a name="configuration-management"></a>配置管理
 
-| 安全特性 | Yes/No | 注释|
+| 安全属性 | Yes/No | 注释|
 |---|---|--|
 | 配置管理支持（配置的版本控制等）| 是 | 支持通过 Azure 资源管理器 API 进行资源提供程序版本控制 |

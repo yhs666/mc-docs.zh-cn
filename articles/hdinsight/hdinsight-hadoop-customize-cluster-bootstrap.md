@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/19/2019
-ms.date: 05/27/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3f3fa3e9b8b6d5f81028199b84223ec35558abe6
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: bb49145fd9d2e20ca1fec4d95817b14f1c6607c2
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829395"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845443"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 群集
 
@@ -95,15 +95,15 @@ New-AzHDInsightCluster `
 **若要验证更改，请执行以下操作：**
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧菜单中，单击“HDInsight 群集” 。 如果看不到该群集，请先单击“所有服务”。
+2. 在左侧菜单中，单击“HDInsight 群集”  。 如果看不到该群集，请先单击“所有服务”。 
 3. 单击刚刚使用 PowerShell 脚本创建的群集。
 4. 单击边栏选项卡顶部的“仪表板”  打开 Ambari UI。
-5. 在左侧菜单中，单击“Hive”。
-6. 在“摘要”中单击“HiveServer2”。
-7. 单击“配置”选项卡。
-8. 在左侧菜单中，单击“Hive”。
+5. 在左侧菜单中，单击“Hive”  。
+6. 在“摘要”中单击“HiveServer2”   。
+7. 单击“配置”  选项卡。
+8. 在左侧菜单中，单击“Hive”  。
 9. 单击“高级”选项卡  。
-10. 向下滚动，并展开“高级 hive 站点” 。
+10. 向下滚动，并展开“高级 hive 站点”  。
 11. 在此部分中查找 **hive.metastore.client.socket.timeout** 。
 
 下面是有关自定义其他配置文件的更多示例：
@@ -157,9 +157,6 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 ## <a name="appendix-powershell-sample"></a>附录：PowerShell 示例
 
 此 PowerShell 脚本创建一个 HDInsight 群集并自定义 Hive 设置。 请确保为 `$nameToken`、`$httpPassword` 和 `$sshPassword` 输入值。
-
-> [!IMPORTANT]  
-> 在存储帐户上启用了[安全传输](../storage/common/storage-require-secure-transfer.md)时，不会从 [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 返回 `DefaultStorageAccount` 和 `DefaultStorageContainer` 的值。
 
 > [!WARNING]  
 > 存储帐户类型 `BlobStorage` 不能用于 HDInsight 群集。
@@ -249,7 +246,7 @@ $config = New-AzHDInsightClusterConfig `
     | Set-AzHDInsightDefaultStorage `
         -StorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
         -StorageAccountKey $defaultStorageAccountKey `
-    | Add-AzHDInsightConfigValues `
+    | Add-AzHDInsightConfigValue `
         -HiveSite $hiveConfigValues `
         -Spark2Defaults @{}
 

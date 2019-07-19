@@ -1,24 +1,24 @@
 ---
-title: Azure HDInsight Go SDK
-description: Azure HDInsight Go SDK 参考
+title: 用于 Go 的 Azure HDInsight SDK
+description: 用于 Go 的 Azure HDInsight SDK 参考
 services: hdinsight
 author: tylerfox
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 9/21/2018
+origin.date: 05/08/2019
 ms.author: v-yiso
-ms.date: 11/19/2018
-ms.openlocfilehash: 91ea575786a39d4c6ddfcc525020eaab0896db87
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 07/22/2019
+ms.openlocfilehash: 59ce024e2249213449143262330fd93b09da4aa2
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652786"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845132"
 ---
-# <a name="hdinsight-go-management-sdk-preview"></a>HDInsight Go 管理 SDK 预览版
+# <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
 ## <a name="overview"></a>概述
-HDInsight Go SDK 提供了用于管理 HDInsight 群集的类和函数。 该 SDK 包含用于创建、删除、更新、列出、调整大小、执行脚本操作，以及监视、获取 HDInsight 群集属性等操作。
+用于 Go 的 HDInsight SDK 提供了用于管理 HDInsight 群集的类和函数。 该 SDK 包含用于创建、删除、更新、列出、调整大小、执行脚本操作，以及监视、获取 HDInsight 群集属性等操作。
 
 > [!NOTE]
 >还可以[从此处获得](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight)适用于此 SDK 的GoDoc 参考资料。
@@ -26,7 +26,7 @@ HDInsight Go SDK 提供了用于管理 HDInsight 群集的类和函数。 该 SD
 ## <a name="prerequisites"></a>先决条件
 
 * 一个 Azure 帐户。 如果没有帐户，可[获取一个免费试用帐户](https://azure.microsoft.com/free/)。
-* [Go](https://golang.org/dl/)
+* [Go](https://golang.org/dl/)。
 
 ## <a name="sdk-installation"></a>SDK 安装
 
@@ -142,7 +142,7 @@ func main() {
 
 #### <a name="example"></a>示例
 
-本示例演示如何创建包含 2 个头节点和 1 个工作节点的 Spark 群集。
+本示例演示如何创建包含 2 个头节点和 1 个工作节点的 [Apache Spark](https://spark.apache.org/) 群集。
 
 > [!NOTE]
 > 首先需要创建一个资源组和存储帐户，下面将予以介绍。 如果已创建资源组和存储帐户，则可以跳过这些步骤。
@@ -351,7 +351,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>启用 OMS 监视
 
 > [!NOTE]
-> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建此工作区，可以参阅[在 Azure 门户中创建 Log Analytics 工作区](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)了解相关操作。
+> 若要启用 OMS 监视，必须已有一个 Log Analytics 工作区。 如果尚未创建工作区，可在此了解创建方法：[在 Azure 门户中创建 Log Analytics 工作区](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)。
 
 在群集上启用 OMS 监视：
 
@@ -379,7 +379,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 HDInsight 提供了一个称为“脚本操作”的配置函数，用以调用自定义脚本来自定义群集。
 > [!NOTE]
-> 有关如何使用脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> 有关如何使用脚本操作的详细信息见此处：[使用脚本操作自定义基于 Linux 的 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>执行脚本操作
 

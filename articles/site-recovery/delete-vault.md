@@ -6,21 +6,27 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 01/21/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: be34257b9f8db83e8413e4ccdd62c10260ede24c
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: a6262cf22ad89d948b39fbcad7e13e33e5cfdde7
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363572"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861643"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>删除 Site Recovery 服务保管库
 
 依赖项可能会阻止删除 Azure Site Recovery 保管库。 需要采取的操作取决于 Site Recovery 方案。 若要删除用于 Azure 备份的保管库，请参阅[删除 Azure 备份保管库](../backup/backup-azure-delete-vault.md)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="delete-a-site-recovery-vault"></a>删除 Site Recovery 保管库 
 若要删除保管库，请按照方案对应的推荐步骤操作。
+### <a name="azure-vms-to-azure"></a>Azure VM 到 Azure
+
+1. 按照[禁用 VMware 保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure)中的步骤操作，删除所有受保护的 VM。
+2. 删除保管库。
 
 ### <a name="vmware-vms-to-azure"></a>VMware VM 到 Azure
 
@@ -37,7 +43,7 @@ ms.locfileid: "54363572"
 ### <a name="hyper-v-vms-with-vmm-to-azure"></a>Hyper-V VM（包含 VMM）到 Azure
 1. 按照[对 Hyper-V VM（包含 VMM）禁用保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)中的步骤操作，删除所有受保护的 VM。
 
-2. 依次转到保管库 ->“Site Recovery 基础结构”->“对于 System Center VMM” -> “复制策略”，取消关联并删除所有复制策略
+2. 依次转到保管库 ->“Site Recovery 基础结构”  ->“对于 System Center VMM”   -> “复制策略”  ，取消关联并删除所有复制策略
 
 3. 按照[取消注册已连接的 VMM 服务器](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)中的步骤操作，删除对 VMM 服务器的引用。
 
@@ -48,7 +54,7 @@ ms.locfileid: "54363572"
 ### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Hyper-V VM（不带 Virtual Machine Manager）到 Azure
 1. 按照[禁用对 Hyper-V 虚拟机（Hyper-V 到 Azure）的保护](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure)中的步骤操作，删除所有受保护的 VM。
 
-2. 依次转到保管库 ->“Site Recovery 基础结构”->“对于 Hyper-V 站点” -> “复制策略”，取消关联并删除所有复制策略
+2. 依次转到保管库 ->“Site Recovery 基础结构”  ->“对于 Hyper-V 站点”   -> “复制策略”  ，取消关联并删除所有复制策略
 
 3. 按照[取消注册 Hyper-V 主机](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)中的步骤操作，删除对 Hyper-V 服务器的引用。
 
@@ -62,18 +68,18 @@ ms.locfileid: "54363572"
 
 > [!Important]
 > 若要测试产品，并对数据丢失并不在意，请使用强制删除方法，快速删除保管库及其所有依赖项。
-> PowerShell 命令将删除保管库的所有内容，这一步无法撤消。
+> PowerShell 命令将删除保管库的所有内容，这一步无法撤消  。
 
 若要删除 Site Recovery 保管库（即使有受保护的项，也不例外），请运行以下命令：
 
-    Connect-AzureRmAccount -Environment AzureChinaCloud
+    Connect-AzAccount -Environment AzureChinaCloud
 
-    Select-AzureRmSubscription -SubscriptionName "XXXXX"
+    Select-AzSubscription -SubscriptionName "XXXXX"
 
-    $vault = Get-AzureRmRecoveryServicesVault -Name "vaultname"
+    $vault = Get-AzRecoveryServicesVault -Name "vaultname"
 
-    Remove-AzureRmRecoveryServicesVault -Vault $vault
+    Remove-AzRecoveryServicesVault -Vault $vault
 
-深入了解 [Get AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/get-azurermrecoveryservicesvault?view=azurermps-6.0.0) 和 [Remove-AzureRMRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/remove-azurermrecoveryservicesvault?view=azurermps-6.0.0)。
+详细了解 [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) 和 [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)。
 
 <!--Update_Description: wording update, update meta properties, update link -->

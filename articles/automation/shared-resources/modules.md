@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: shared-resources
 author: WenJason
 ms.author: v-jay
-origin.date: 03/13/2019
-ms.date: 04/01/2019
+origin.date: 06/05/2019
+ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 433c05494fbf003518ddc3164246b864ad67f598
-ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
+ms.openlocfilehash: 17b583f2a2f1c0eee918fdd463e8ad678fa1311f
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135570"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844383"
 ---
 # <a name="manage-modules-in-azure-automation"></a>在 Azure 自动化中管理模块
 
@@ -146,6 +146,37 @@ PowerShell 模块可导入到 Azure 自动化中，这样其 cmdlet 就可以在
 * 该模块应完全包含在能够进行 xcopy 操作的包中。 需要执行 Runbook 时，Azure 自动化模块将分发到自动化沙盒中。 这些模块需要独立于它们在其上运行的​​主机工作。 你应能够压缩并移动模块包，并在导入到其他主机的 PowerShell 环境时使其正常运行。 为了实现这一点，模块不应该依赖于模块文件夹以外的任何文件。 此文件夹是将模块导入 Azure 自动化时压缩的文件夹。 该模块还不应依赖于主机上的任何唯一注册表设置，例如安装产品时设置的那些设置。 该模块中所有文件的路径长度应小于 140 个字符。 长度超过 140 个字符的任何路径将导致导入 Runbook 时出现问题。 如果不遵循此最佳做法，则无法在 Azure 自动化中使用该模块。  
 
 * 如果在模块中引用 [Azure Powershell Az 模块](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.1.0)，请确保没有同时引用 `AzureRM`。 `Az` 模块不能与 `AzureRM` 模块一起使用。 Runbook 支持 `Az`，但默认情况下不会导入。
+
+## <a name="default-modules"></a>默认模块
+
+下表列出了创建自动化帐户时默认导入的模块。 下面列出的模块可以导入其更新版本的模块，但即使你删除了它们的新版本，也无法从自动化帐户中删除原始版本。
+
+|模块名称|版本|
+|---|---|
+| AuditPolicyDsc | 1.1.0.0 |
+| Azure | 1.0.3 |
+| Azure.Storage | 1.0.3 |
+| AzureRM.Automation | 1.0.3 |
+| AzureRM.Compute | 1.2.1 |
+| AzureRM.Profile | 1.0.3 |
+| AzureRM.Resources | 1.0.3 |
+| AzureRM.Sql | 1.0.3 |
+| AzureRM.Storage | 1.0.3 |
+| ComputerManagementDsc | 5.0.0.0 |
+| GPRegistryPolicyParser | 0.2 |
+| Microsoft.PowerShell.Core | 0 |
+| Microsoft.PowerShell.Diagnostics |  |
+| Microsoft.PowerShell.Management |  |
+| Microsoft.PowerShell.Security |  |
+| Microsoft.PowerShell.Utility |  |
+| Microsoft.WSMan.Management |  |
+| Orchestrator.AssetManagement.Cmdlets | 1 |
+| PSDscResources | 2.9.0.0 |
+| SecurityPolicyDsc | 2.1.0.0 |
+| StateConfigCompositeResources | 1 |
+| xDSCDomainjoin | 1.1 |
+| xPowerShellExecutionPolicy | 1.1.0.0 |
+| xRemoteDesktopAdmin | 1.1.0.0 |
 
 ## <a name="next-steps"></a>后续步骤
 

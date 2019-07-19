@@ -7,21 +7,19 @@ ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 10/25/2018
-ms.date: 04/15/2019
+origin.date: 04/05/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 378d96f3e4485bc0eea2b6d8bd81efb3239c6863
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: e811aacd944a5d9cd3c6208407e2edbabfd0e512
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003725"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845352"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 基础结构最佳做法
 
 本文提供有关管理 Azure HDInsight 群集基础结构的建议。 本文是帮助用户将本地 Apache Hadoop 系统迁移到 Azure HDInsight 的最佳做法系列教程中的其中一篇。
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="plan-for-hdinsight-cluster-capacity"></a>规划 HDInsight 群集容量
 
@@ -29,7 +27,7 @@ ms.locfileid: "59003725"
 
 - **选择区域** - Azure 区域确定了群集的物理预配位置。 为了将读写延迟最小化，群集应与数据位于同一区域。
 - **选择存储位置和大小** - 默认存储必须与群集位于同一区域。 对于 48 节点群集，建议创建 4 到 8 个存储帐户。 尽管存储总量可能已足够，但每个存储帐户能够为计算节点提供额外的网络带宽。 如果有多个存储帐户，请为每个存储帐户使用不带前缀的随机名称。 使用随机名称的目的是降低出现存储瓶颈（限制）或所有帐户发生共模故障的可能性。 为提高性能，请对每个存储帐户仅使用一个容器。
-- **选择 VM 大小和类型（现在支持 G 系列）**- 每个群集类型具有一组节点类型，每个节点类型在 VM 大小和类型方面提供特定的选项。 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定。 可以使用模拟工作负荷来确定每个节点类型的最佳 VM 大小和类型。
+- **选择 VM 大小和类型（现在支持 G 系列）** - 每个群集类型具有一组节点类型，每个节点类型在 VM 大小和类型方面提供特定的选项。 VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定。 可以使用模拟工作负荷来确定每个节点类型的最佳 VM 大小和类型。
 - **选择工作节点数** - 可以使用模拟工作负荷来确定初始的工作节点数。 以后可以通过添加更多工作节点来扩展群集，以满足峰值负载需求。 以后不再需要额外的工作节点时，可以缩减群集。
 
 有关详细信息，请参阅 [HDInsight 群集的容量规划](../hdinsight-capacity-planning.md)一文
@@ -40,7 +38,7 @@ ms.locfileid: "59003725"
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>检查 HDInsight 中 Hadoop 组件的可用性
 
-每个 HDInsight 版本是某个 Hortonworks 数据平台 (HDP) 版本的云分发版，包括一组 Hadoop 生态系统组件。 有关所有 HDInsight 组件及其最新版本的详细信息，请参阅 [HDInsight 组件版本控制](../hdinsight-component-versioning.md)。
+每个 HDInsight 版本都是一组 Hadoop 生态系统组件的云分发版。 有关所有 HDInsight 组件及其最新版本的详细信息，请参阅 [HDInsight 组件版本控制](../hdinsight-component-versioning.md)。
 
 还可以使用 Apache Ambari UI 或 Ambari REST API 来检查 HDInsight 中的 Hadoop 组件和版本。
 
@@ -77,7 +75,7 @@ ms.locfileid: "59003725"
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>使用脚本操作自定义 HDInsight 群集
 
-HDInsight 提供名为“脚本操作”的群集配置方法。 脚本操作是一个 Bash 脚本，在 HDInsight 群集中的节点上运行，可用于安装附加的组件和更改配置设置。
+HDInsight 提供名为“脚本操作”的群集配置方法。  脚本操作是一个 Bash 脚本，在 HDInsight 群集中的节点上运行，可用于安装附加的组件和更改配置设置。
 
 必须将脚本操作存储在可从 HDInsight 群集访问的 URI 上。 在创建群集期间或之后可以使用脚本操作，也可以将它们限制为只能在特定的节点类型上运行。
 
@@ -105,7 +103,7 @@ HDInsight 提供预先编写的脚本用于在 HDInsight 群集上安装以下�
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>使用 Bootstrap 自定义 HDInsight 配置
 
-可以使用 Bootstrap 对 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml` 等配置文件中的配置进行更改。 以下脚本是使用 Powershell 的示例：
+可以使用 Bootstrap 对 `core-site.xml`、`hive-site.xml` 和 `oozie-env.xml` 等配置文件中的配置进行更改。 以下脚本是使用 Powershell [AZ module](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) cmdlet [New-AzHDInsightClusterConfig](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 的示例：
 
 ```powershell
 # hive-site.xml configuration
@@ -130,7 +128,7 @@ New—AzHDInsightCluster `
     —Config $config
 ```
 
-有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集](../hdinsight-hadoop-customize-cluster-bootstrap.md)一文。
+有关详细信息，请参阅 [使用 Bootstrap 自定义 HDInsight 群集](../hdinsight-hadoop-customize-cluster-bootstrap.md)一文。  另请参阅 [使用 Apache Ambari REST API 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari-rest-api.md)。
 
 ## <a name="access-client-tools-from-hdinsight-hadoop-cluster-edge-nodes"></a>从 HDInsight Hadoop 群集边缘节点访问客户端工具
 
@@ -148,37 +146,10 @@ New—AzHDInsightCluster `
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>使用群集的纵向扩展和缩减功能
 
-HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点数。 使用此功能可在若干小时后或者在周末收缩群集，或者在业务高峰期扩展群集。
+HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点数。 使用此功能可在若干小时后或者在周末收缩群集，或者在业务高峰期扩展群集。 有关详细信息，请参阅：
 
-可使用以下方法将群集缩放自动化：
-
-### <a name="powershell-cmdlet"></a>PowerShell cmdlet
-
-```powershell
-Set-AzHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```powershell
-azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
-```
-
-### <a name="azure-portal"></a>Azure 门户
-
-将节点添加到正在运行的 HDInsight 群集时，任何挂起的或正在运行的作业不受影响。 在运行缩放过程时，可以安全提交新作业。 如果缩放操作出于任何原因而失败，系统会正常处理失败，让群集保持正常运行状态。
-
-但是，如果通过删除节点来缩减群集，则当缩放操作完成时，任何挂起的或正在运行的作业将会失败。 发生这种失败的原因是在此过程中某些服务重启。 若要解决此问题，可以等到作业完成后再缩减群集、手动终止作业，或者在缩放操作结束后重新提交作业。
-
-如果将群集缩减到最少量的（一个）工作节点，则在由于修补而重新启动工作节点时，HDFS 可能会停滞在安全模式，或者在执行缩放操作后立即发生这种情况。 可执行以下命令来使 HDFS 脱离安全模式：
-
-```bash
-hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
-```
-
-退出安全模式后，可以手动删除临时文件，或等待 Hive 最终自动清除这些文件。
-
-有关详细信息，请参阅[缩放 HDInsight 群集](../hdinsight-scaling-best-practices.md)一文。
+* [缩放 HDInsight 群集](../hdinsight-scaling-best-practices.md)。
+* [缩放群集](../hdinsight-administer-use-portal-linux.md#scale-clusters)。
 
 ## <a name="use-hdinsight-with-azure-virtual-network"></a>通过 Azure 虚拟网络使用 HDInsight
 

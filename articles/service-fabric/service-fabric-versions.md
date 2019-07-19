@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/24/2018
-ms.date: 06/03/2019
+origin.date: 05/24/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 459174d34964462bd7ca56688b66992b619bd22f
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: c7c245b19091b4b0b6b4ce29c0e95764daf92975
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195365"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844902"
 ---
 # <a name="supported-service-fabric-versions"></a>支持的 Service Fabric 版本
 
@@ -37,7 +37,7 @@ ms.locfileid: "66195365"
 
 | 群集中的 Service Fabric 运行时 | 可以直接从群集版本升级 |兼容的 SDK 或 NuGet 包版本 | 结束支持 |
 | --- | --- |--- | --- |
-| 5.3.121 之前的所有群集版本 | 5.1.158.* |低于或等于版本 2.3 |2017 年 1 月 20 日 |
+| 5\.3.121 之前的所有群集版本 | 5.1.158.* |低于或等于版本 2.3 |2017 年 1 月 20 日 |
 | 5.3.* | 5.1.158.* |低于或等于版本 2.3 |2017 年 2 月 24 日 |
 | 5.4.* | 5.1.158.* |低于或等于版本 2.4 |2017 年 5 月 10 日       |
 | 5.5.* | 5.4.164.* |低于或等于版本 2.5 |2017 年 8 月 10 日    |
@@ -102,5 +102,7 @@ ms.locfileid: "66195365"
 | 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
+| 6.4 CU6 | 6.4.658.9590 | 不可用 |
+| 6.4 CU7 | 6.4.664.9590 | 6.4.661.1 |
 
 <!-- Update_Description: update meta properties, wording update -->

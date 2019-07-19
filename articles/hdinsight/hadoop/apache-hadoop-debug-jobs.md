@@ -15,22 +15,22 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 02/25/2019
+ms.date: 07/22/2019
 ms.author: ashish
-ms.openlocfilehash: 48776400b6f7a6cfb6c7813d74c578853b16b279
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.openlocfilehash: feeb1f4f2b0f4a8e4d913795659edc44cbbbb99a
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303062"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845366"
 ---
 # <a name="analyze-apache-hadoop-logs"></a>分析 Apache Hadoop 日志
 
-Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件系统的 Azure 存储帐户。 该存储帐户称作默认存储帐户。 群集使用默认存储帐户上的 Azure 表存储和 Blob 存储存储其日志。  若要了解群集的默认存储帐户，请参阅[在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account)。 即使在删除群集后，日志仍会保留在存储帐户中。
+Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件系统的 Azure 存储帐户。 该存储帐户称作默认存储帐户。 群集使用默认存储帐户上的 Azure 表存储和 Blob 存储来存储其日志。  若要了解群集的默认存储帐户，请参阅[在 HDInsight 中管理 Apache Hadoop 群集](../hdinsight-administer-use-portal-linux.md#find-the-storage-accounts)。 即使在删除群集以后，日志仍会保留在存储帐户中。
 
-## <a name="logs-written-to-azure-tables"></a>写入 Azure 表的日志
+## <a name="logs-written-to-azure-tables"></a>写入到 Azure 表的日志
 
-通过写入 Azure 表的日志，可在一定程度上了解 HDInsight 群集中发生的事件。
+使用写入到 Azure 表的日志，可以在一定程度上了解 HDInsight 群集中发生的事件。
 
 创建 HDInsight 群集时，会自动在默认表存储中为基于 Linux 的群集创建六个表：
 
@@ -41,7 +41,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 * ambariserverlog
 * ambariagentlog
 
-表的文件名为 u<ClusterName>DDMonYYYYatHHMMSSsss<TableName>。
+表文件名为 **u\<ClusterName>DDMonYYYYatHHMMSSsss\<TableName>** 。
 
 这些表包含以下字段：
 
@@ -50,7 +50,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 * EventTimestamp
 * 主机
 * MALoggingHash
-* 消息
+* Message
 * N
 * PreciseTimeStamp
 * 角色
@@ -72,7 +72,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 **使用 Power Query 打开和分析服务日志**
 
 1. 打开 **Microsoft Excel**。
-2. 在“Power Query”菜单中依次单击“来自 Azure”和“来自 Microsoft Azure 表存储”。
+2. 在“Power Query”  菜单中依次单击“来自 Azure”  和“来自 Microsoft Azure 表存储”  。
    
     ![HDInsight Hadoop Excel PowerQuery 打开 Azure 表存储](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-open.png)
     
@@ -81,13 +81,13 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
    
     ![存储在 Azure 表存储中的 HDInsight Hadoop 日志](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-table-names.png)
     
-5. 右键单击“导航器”窗格中的 hadoopservicelog 表，然后选择“编辑”。 应看到四个列。 （可选）删除“分区键”、“行键”和“时间戳”列，方法是：选中这些项，然后在功能区的选项中单击“删除列”。
+5. 右键单击“导航器”窗格中的 hadoopservicelog 表，然后选择“编辑”   。 应看到四个列。 （可选）删除“分区键”、“行键”和“时间戳”列，方法是：选中这些项，然后在功能区的选项中单击“删除列”     。
 6. 单击“内容”列上的展开图标，选择要导入 Excel 电子表格中的列。 我选择了 TraceLevel 和 ComponentName 进行本次演示：这样我可以大致知道哪些组件有问题。
    
     ![HDInsight Hadoop 日志选择列](./media/apache-hadoop-debug-jobs/hdinsight-hadoop-analyze-logs-using-excel-power-query-filter.png)
     
-7. 单击“确定”导入数据。
-8. 选择“TraceLevel”、“Role”和“ComponentName”列，然后单击功能区中的“分组依据”控件。
+7. 单击“确定”导入数据  。
+8. 选择“TraceLevel”、“Role”和“ComponentName”列，然后单击功能区中的“分组依据”控件    。
 9. 单击“分组依据”对话框中的“确定” 
 10. 单击“应用和关闭”。
 
@@ -97,10 +97,10 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 **使用 Visual Studio**
 
 1. 打开 Visual Studio。
-2. 在“视图”菜单中，单击“Cloud Explorer”。 也可直接单击“CTRL+\,”或“CTRL+X”。
-3. 在“Cloud Explorer”中，选择“资源类型”。  另一可用选项是“资源组”。
-4. 依次展开“存储帐户”、群集的默认存储帐户、“表”。
-5. 双击“hadoopservicelog”。
+2. 在“视图”菜单中，单击“Cloud Explorer”   。 也可直接单击“CTRL+\,”或“CTRL+X”  。
+3. 在“Cloud Explorer”中，选择“资源类型”   。  另一可用选项是“资源组”  。
+4. 依次展开“存储帐户”、群集的默认存储帐户、“表”   。
+5. 双击“hadoopservicelog”  。
 6. 添加筛选器。 例如：
    
         TraceLevel eq 'ERROR'
@@ -110,7 +110,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
     有关构造筛选器的详细信息，请参阅[构造表设计器的筛选器字符串](../../vs-azure-tools-table-designer-construct-filter-strings.md)。
 
 ## <a name="logs-written-to-azure-blob-storage"></a>写入 Azure Blob 存储的日志
-通过写入 Azure 表的日志，可在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
+使用写入到 Azure 表的日志，可以在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
 
 若要查看日志，请参阅[在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
 
@@ -120,25 +120,25 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 
 ## <a name="view-cluster-health-and-job-logs"></a>查看群集运行状况和作业日志
 ### <a name="access-the-ambari-ui"></a>访问 Ambari UI
-在 Azure 门户中，单击某个 HDInsight 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”。
+在 Azure 门户中，单击某个 HDInsight 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”  。
 
 ![启动群集仪表板](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### <a name="access-the-yarn-ui"></a>访问 Yarn UI
-在 Azure 门户中，单击某个 HDInsight 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”。 出现提示时，输入群集管理员凭据。 在 Ambari 中，从左侧的服务列表中选择 **YARN**。 在显示的页面上，选择“快速链接”，然后选择活动头节点条目和资源管理器 UI。
+在 Azure 门户中，单击某个 HDInsight 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”  。 出现提示时，输入群集管理员凭据。 在 Ambari 中，从左侧的服务列表中选择 **YARN**。 在显示的页面上，选择“快速链接”  ，然后选择活动头节点条目和资源管理器 UI。
 
 可使用 YARN UI 执行以下操作：
 
-* **获取群集状态**。 在左窗格中展开“群集”，然后单击“关于”。 此时会显示群集状态详细信息，例如总分配内存、所用核心数、群集资源管理器状态、群集版本等。
+* **获取群集状态**。 在左窗格中展开“群集”，然后单击“关于”   。 此时会显示群集状态详细信息，例如总分配内存、所用核心数、群集资源管理器状态、群集版本等。
   
     ![启动群集仪表板](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png)
     
-* **获取节点状态**。 在左窗格中展开“群集”，然后单击“节点”。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
-* **监视作业状态**。 在左窗格中展开“群集”，然后单击“应用程序”列出群集中的所有作业。 若要查看特定状态（例如“新”、“已提交”、“正在运行”等）的作业，请单击“应用程序”下的相应链接。 可以进一步单击作业名称，了解该作业的详细信息，例如输出、日志等。
+* **获取节点状态**。 在左窗格中展开“群集”，然后单击“节点”   。 此时会列出群集中的所有节点、每个节点的 HTTP 地址、分配给每个节点的资源等。
+* **监视作业状态**。 在左窗格中展开“群集”，然后单击“应用程序”列出群集中的所有作业   。 若要查看特定状态（例如“新”、“已提交”、“正在运行”等）的作业，请单击“应用程序”下的相应链接  。 可以进一步单击作业名称以查找该作业的详细信息，例如输出、日志等。
 
 ### <a name="access-the-hbase-ui"></a>访问 HBase UI
-在 Azure 门户中，单击某个 HDInsight HBase 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”。 出现提示时，输入群集管理员凭据。 在 Ambari 中，从服务列表中选择“HBase”。 在页面顶部选择“快速链接”，指向活动 Zookeeper 节点链接，并单击“HBase Master UI”。
+在 Azure 门户中，单击某个 HDInsight HBase 群集名称以打开群集窗格。 在群集窗格中，单击“仪表板”  。 出现提示时，输入群集管理员凭据。 在 Ambari 中，从服务列表中选择“HBase”。 在页面顶部选择“快速链接”  ，指向活动 Zookeeper 节点链接，并单击“HBase Master UI”。
 
 ## <a name="hdinsight-error-codes"></a>HDInsight 错误代码
 本部分中列举的错误消息旨在帮助 Azure HDInsight 中的 Hadoop 用户了解在使用 Azure PowerShell 管理服务时可能会遇到的错误情况，并向他们建议要从错误中恢复可以执行哪些步骤。
@@ -230,7 +230,7 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 * **缓解措施**：如果群集处于错误状态，则删除该群集，并重试。
 
 ### <a id="InsufficientResourcesCores"></a>InsufficientResourcesCores
-* **说明**：订阅 ID *yourSubscriptionId* 没有可供创建群集 *yourClusterName* 的核心。 必需：resourcesRequired，可用：resourcesAvailable。  
+* **说明**：订阅 ID *yourSubscriptionId* 没有可供创建群集 *yourClusterName* 的核心。 必需：resourcesRequired，可用：resourcesAvailable   。  
 * **缓解措施**：释放订阅中的资源或增加可用于订阅的资源，并尝试再次创建群集。
 
 ### <a id="InsufficientResourcesHostedServices"></a>InsufficientResourcesHostedServices
@@ -303,11 +303,11 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 
 ### <a id="UnableToResolveDNS"></a>UnableToResolveDNS
 * **说明**：无法解析 DNS *yourDnsUrl*。 请确保提供针对 Blob 终结点的完全限定 URL。  
-* **缓解措施**：提供有效的 Blob URL。 该 URL 必须完全有效，包括以 http:// 开头和以 .com 结尾。
+* **缓解措施**：提供有效的 Blob URL。 该 URL 必须完全有效，包括以 http:// 开头和以 .com 结尾   。
 
 ### <a id="UnableToVerifyLocationOfResource"></a>UnableToVerifyLocationOfResource
 * **说明**：无法验证资源 *yourDnsUrl* 的位置。 请确保提供针对 Blob 终结点的完全限定 URL。  
-* **缓解措施**：提供有效的 Blob URL。 该 URL 必须完全有效，包括以 http:// 开头和以 .com 结尾。
+* **缓解措施**：提供有效的 Blob URL。 该 URL 必须完全有效，包括以 http:// 开头和以 .com 结尾   。
 
 ### <a id="VersionCapabilityNotAvailable"></a>VersionCapabilityNotAvailable
 * **说明**：版本功能不可用于版本 *specifiedVersion* 和订阅 ID *yourSubscriptionId*。  
@@ -327,6 +327,5 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 Apache Ambari 视图来调试 HDInsight 上的 Apache Tez 作业](../hdinsight-debug-ambari-tez-view.md)
 * [在基于 Linux 的 HDInsight 上为 Apache Hadoop 服务启用堆转储](../hdinsight-hadoop-collect-debug-heap-dump-linux.md)
 * [使用 Apache Ambari Web UI 管理 HDInsight 群集](../hdinsight-hadoop-manage-ambari.md)

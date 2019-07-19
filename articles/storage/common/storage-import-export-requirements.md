@@ -6,15 +6,15 @@ services: storage
 ms.service: storage
 ms.topic: article
 origin.date: 04/15/2019
-ms.date: 05/20/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 6c7e09309548bdd4a5d22a4c65ac9aa20e1b655d
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.openlocfilehash: 8cf3eda7603e2893ed028635b728dd3c2564fd69
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549990"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844442"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure 导入/导出系统要求
 
@@ -42,7 +42,7 @@ ms.locfileid: "65549990"
 
 Azure 导入/导出服务支持以下类型的存储帐户：
 
-- 常规用途 v2 存储帐户（建议用于大多数方案）
+- 标准常规用途 v2 存储帐户（建议用于大多数方案）
 - Blob 存储帐户
 - 常规用途 v1 存储帐户（经典部署或 Azure 资源管理器部署） 
 

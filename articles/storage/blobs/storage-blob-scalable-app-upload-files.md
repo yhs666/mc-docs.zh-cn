@@ -7,16 +7,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 02/20/2018
-ms.date: 01/14/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.component: blobs
-ms.openlocfilehash: 18d2a43f7b2d123366d167ea2cc83634ab77af9b
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.subservice: blobs
+ms.openlocfilehash: 31a660777d87ce4cb9ea2ceea3e033fe70454dd4
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192907"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844496"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>将大量随机数据以并行方式上传到 Azure 存储
 
@@ -32,7 +32,7 @@ ms.locfileid: "54192907"
 
 Azure Blob 存储提供可缩放的服务来存储数据。 为了尽可能提高应用程序的性能，建议了解 blob 存储的工作方式。 了解 Azure Blob 的限制非常重要，要深入了解这些限制，请访问：[Blob 存储可伸缩性目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)。
 
-在使用 Blob 设计高性能应用程序时，[分区命名](../common/storage-performance-checklist.md?toc=%2fstorage%2fblobs%2ftoc.json#subheading47)是另一个重要因素。 Azure 存储使用基于范围的分区方案来进行缩放和负载均衡。 此配置意味着具有相似命名约定或前缀的文件转到相同分区。 此逻辑还包括文件上传到的容器的名称。 本教程中使用名称为 GUID 的文件以及随机生成的内容。 然后将这些文件和内容上传到五个使用随机名称的不同容器。
+在使用 Blob 设计高性能应用程序时，[分区命名](../common/storage-performance-checklist.md?toc=%2fstorage%2fblobs%2ftoc.json#subheading47)是另一个潜在重要因素。 Azure 存储使用基于范围的分区方案来进行缩放和负载均衡。 此配置意味着具有相似命名约定或前缀的文件转到相同分区。 此逻辑还包括文件上传到的容器的名称。 本教程中使用名称为 GUID 的文件以及随机生成的内容。 然后将这些文件和内容上传到五个使用随机名称的不同容器。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -48,13 +48,13 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>配置连接字符串
 
-在 Azure 门户中，导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。 从主密钥或辅助密钥复制“连接字符串”。 登录到上一教程中创建的虚拟机。 以管理员身份打开“命令提示符”，并使用 `/m` 开关运行 `setx` 命令，该命令可保存计算机设置环境变量。 重载“命令提示符”后，环境变量才可用。 替换以下示例中的 \<storageConnectionString\>：
+在 Azure 门户中，导航到存储帐户。 在存储帐户中选择“设置”下的“访问密钥”。   从主密钥或辅助密钥复制“连接字符串”  。 登录到上一教程中创建的虚拟机。 以管理员身份打开“命令提示符”，并使用 `/m` 开关运行 `setx` 命令，该命令可保存计算机设置环境变量  。 重载“命令提示符”后，环境变量才可用  。 替换以下示例中的 \<storageConnectionString\>  ：
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
 
-完成后，打开另一“命令提示符”，导航到 `D:\git\storage-dotnet-perf-scale-app` 并键入 `dotnet build` 以生成应用程序。
+完成后，打开另一“命令提示符”，导航到 `D:\git\storage-dotnet-perf-scale-app` 并键入 `dotnet build` 以生成应用程序  。
 
 ## <a name="run-the-application"></a>运行应用程序
 
@@ -75,7 +75,7 @@ dotnet run
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.paralleloperationthreadcount?view=azure-dotnet)| 8| 上传时，此设置将 blob 分为多个块。 为获得最佳性能，此值应为内核数的 8 倍。 |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.disablecontentmd5validation?view=azure-dotnet)| 是| 该属性禁用对上传内容的 MD5 哈希检查。 禁用 MD5 验证可加快传输速度。 但是不能确认传输文件的有效性或完整性。   |
 |[StoreBlobContentMD5](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.storeblobcontentmd5?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_StoreBlobContentMD5)| false| 该属性确定是否计算和存储文件的 MD5 哈希。   |
-| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 秒回退，最多重试 10 次 |确定请求的重试策略。 重试连接失败，在此示例中，[ExponentialRetry](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.exponentialretry?view=azure-dotnet) 策略配置为 2 秒回退，最多可重试 10 次。 当应用程序快要达到 [blob 存储可伸缩性目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)时，此设置非常重要。  |
+| [RetryPolicy](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.retrypolicy?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_RetryPolicy)| 2 秒回退，最多重试 10 次 |确定请求的重试策略。 重试连接失败，在此示例中，[ExponentialRetry](/dotnet/api/microsoft.azure.batch.common.exponentialretry) 策略配置为 2 秒回退，最多可重试 10 次。 当应用程序快要达到 [blob 存储可伸缩性目标](../common/storage-scalability-targets.md?toc=%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets)时，此设置非常重要。  |
 
 下例显示了 `UploadFilesAsync` 任务：
 
@@ -175,7 +175,7 @@ Upload has been completed in 142.0429536 seconds. Press any key to continue
 
 ### <a name="validate-the-connections"></a>验证连接
 
-在上载文件的同时，可以验证存储帐户的并发连接数。 打开“命令提示符”并键入 `netstat -a | find /c "blob:https"`。 此命令显示当前使用 `netstat` 打开的连接数。 下例显示的输出与自己运行该教程时看到的输出类似。 如该示例所示，上传随机文件到存储帐户时，打开了 800 个连接。 此值在整个上传过程中不断更改。 通过以并行块区块的形式进行上传，可显著减少传输内容所需的时间。
+在上载文件的同时，可以验证存储帐户的并发连接数。 打开“命令提示符”  并键入 `netstat -a | find /c "blob:https"`。 此命令显示当前使用 `netstat` 打开的连接数。 下例显示的输出与自己运行该教程时看到的输出类似。 如该示例所示，上传随机文件到存储帐户时，打开了 800 个连接。 此值在整个上传过程中不断更改。 通过以并行块区块的形式进行上传，可显著减少传输内容所需的时间。
 
 ```
 C:\>netstat -a | find /c "blob:https"

@@ -8,23 +8,23 @@ ms.topic: article
 origin.date: 04/19/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 427b4b71af3fe3c2fcba3f88c9242fa9f86391c7
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: d420079b7415be022c315b4830d8ca4c89b03d19
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520714"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673959"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
 
-[Istio][istio-github] 是跨 Kubernetes 群集中的微服务提供关键功能集的开源服务网格。 这些功能包括流量管理、服务标识和安全性、策略执行以及可观察性。 有关 Istio 的详细信息，请参阅官方文档[什么是 Istio？][istio-docs-concepts]。
+[Istio][istio-github] is an open-source service mesh that provides a key set of functionality across the microservices in a Kubernetes cluster. These features include traffic management, service identity and security, policy enforcement, and observability. For more information about Istio, see the official [What is Istio?][istio-docs-concepts] 文档。
 
 本文介绍如何安装 Istio。 Istio `istioctl` 客户端二进制文件已安装到客户端计算机上，Istio 组件将安装到 AKS 上的 Kubernetes 群集中。
 
 > [!NOTE]
 > 这些说明引用 Istio 版本 `1.1.3`。
 >
-> Istio 团队已针对 Kubernetes 版本 `1.11`、`1.12` 和 `1.13` 测试了 `1.1.x` 版本。 可以在 [GitHub - Istio 版本][istio-github-releases] 中找到其他 Istio 版本，并可以在 [Istio - 发行说明][istio-release-notes]中找到有关每个版本的信息。
+> Istio 团队已针对 Kubernetes 版本 `1.11`、`1.12` 和 `1.13` 测试了 `1.1.x` 版本。 可以在 [GitHub - Istio 版本][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes] 中找到其他 Istio 版本。
 
 在本文中，学习如何：
 
@@ -41,7 +41,7 @@ ms.locfileid: "65520714"
 
 本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.11` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。
 
-需要使用 [Helm][helm] 遵照这些说明安装 Istio。 建议在群集中正确安装并配置版本 `2.12.2` 或更高版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。
+需要使用 [Helm][helm] 按照这些说明安装 Istio。 建议在群集中正确安装并配置版本 `2.12.2` 或更高版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。
 
 本文将 Istio 安装指南分为多个独立步骤。 最终结果的结构与官方 Istio 安装[指南][istio-install-helm]相同。
 
@@ -208,7 +208,7 @@ Powershell
 > [!IMPORTANT]
 > 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
 
-我们将安装 [Grafana][grafana] 和 [Kiali][kiali] 作为 Istio 安装的一部分。 Grafana 提供分析和监视仪表板，Kiali 提供服务网格观察仪表板。 在设置中，每个组件都需要凭据，必须以[机密][kubernetes-secrets]的形式提供这些凭据。
+我们将安装 [Grafana][grafana] and [Kiali][kiali] 作为 Istio 安装的一部分。 Grafana 提供分析和监视仪表板，Kiali 提供服务网格观察仪表板。 在我们的设置中，上述每个组件都需要凭据，必须以[机密][kubernetes 机密]的形式提供这些凭据。
 
 在安装 Istio 组件之前，必须为 Grafana 和 Kiali 创建机密。 通过运行适用于你的环境的命令来创建这些机密。
 
@@ -545,7 +545,7 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 [istio-install-helm]: https://istio.io/docs/setup/kubernetes/install/helm/
 [istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
-[install-wsl]: /windows/wsl/install-win10
+[install-wsl]: https://docs.microsoft.com/windows/wsl/install-win10
 
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/

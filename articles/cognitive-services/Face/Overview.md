@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-origin.date: 02/20/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/11/2019
 ms.author: v-junlch
-ms.openlocfilehash: 125b843255d4fd1865f2c57d403d1769e54319f0
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 696c5816c07630424a2849ff5c00e87913be9690
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830052"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844656"
 ---
 # <a name="what-is-the-azure-face-api"></a>什么是 Azure 人脸 API？
 
@@ -60,7 +60,7 @@ Azure 认知服务人脸 API 提供用于检测、识别和分析图像中人脸
 
 识别 API 用于根据人员数据库识别检测到的人脸。 此功能可用于照片管理软件中的自动图像标记。 需提前创建数据库，以后可以不断地对其进行编辑。
 
-下图显示名为“myfriends”的数据库的示例。 每个组最多可以包含 100 万个不同的 person 对象。 每个人员对象可以注册最多 248 张人脸。
+下图显示名为 `"myfriends"` 的数据库的示例。 每个组最多可以包含 100 万个不同的 person 对象。 每个人员对象可以注册最多 248 张人脸。
 
 ![包含三个列（代表不同的人）的网格，每个列包含三行人脸图像](./Images/person.group.clare.jpg)
 

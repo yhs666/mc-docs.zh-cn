@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 03/20/2019
-ms.date: 05/27/2019
+origin.date: 06/27/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 16514623728682e716d5d149356e278b1a15ed49
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 8476c422cf563485c9edb592f272714cfc6c0bfa
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829287"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845236"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux 上安装 Azure IoT Edge 运行时 (ARM32v7/armhf)
 
@@ -28,7 +28,11 @@ ms.locfileid: "65829287"
 >[!NOTE]
 >Linux 软件存储库中的包受到每个包中的许可条款限制 (/usr/share/doc/*package-name*)。 使用程序包之前请阅读许可条款。 安装和使用程序包即表示接受这些条款。 如果不同意许可条款，则不要使用程序包。
 
-## <a name="install-the-container-runtime"></a>安装容器运行时
+## <a name="install-the-latest-version"></a>安装最新版本
+
+根据以下部分的说明，将最新版 Azure IoT Edge 服务安装到 Linux ARM 设备上。 
+
+### <a name="install-the-container-runtime"></a>安装容器运行时
 
 Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器运行时。 对于生产方案，强烈建议使用下面提供的[基于 Moby](https://mobyproject.org/) 的引擎。 这是官方唯一支持用于 Azure IoT Edge 的容器引擎。 Docker CE/EE 容器映像与基于 Moby 的运行时兼容。
 
@@ -50,7 +54,7 @@ sudo apt-get install -f
 
 ```
 
-## <a name="install-the-iot-edge-security-daemon"></a>安装 IoT Edge 安全守护程序
+### <a name="install-the-iot-edge-security-daemon"></a>安装 IoT Edge 安全守护程序
 
 **IoT Edge 安全守护程序**提供和维护 IoT Edge 设备上的安全标准。 守护程序在每次开机时启动，并通过启动 IoT Edge 运行时的其余部分来启动设备。 
 
@@ -69,7 +73,17 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>将设备连接到 IoT 中心 
+IoT Edge 成功安装以后，输出会提示你更新配置文件。 执行[配置 Azure IoT Edge 安全守护程序](#configure-the-azure-iot-edge-security-daemon)部分的步骤，完成设备预配。 
+
+## <a name="install-a-specific-version"></a>安装特定版本
+
+若要安装特定版本的 Azure IoT Edge，可以直接将 IoT Edge GitHub 存储库中的组件文件作为目标。 使用前面部分列出的那些 `curl` 命令，将所有 IoT Edge 组件安装到设备上：首先是 Moby 引擎和 CLI，然后是 libiothsm，最后是 IoT Edge 安全守护程序。 唯一区别是，你将 **aka.ms** URL 替换为你的链接，这些链接直接指向要使用的每个组件的版本。
+
+导航到 [Azure IoT Edge 版本](https://github.com/Azure/azure-iotedge/releases)，找到需要将其作为目标的发行版。 展开版本的 **Assets** 节，选择与 IoT Edge 设备的体系结构匹配的文件。 每个 IoT Edge 版本都包含 **iotedge** 和 **libiothsm** 文件。 并非所有版本都包含 **moby-engine** 或 **moby-cli**。 如果尚未安装 Moby 容器引擎，请在较旧的版本中查找包含 Moby 组件的版本。 
+
+IoT Edge 成功安装以后，输出会提示你更新配置文件。 按照下一部分中的步骤完成设备预配。 
+
+## <a name="configure-the-azure-iot-edge-security-daemon"></a>配置 Azure IoT Edge 安全守护程序
 
 配置 IoT Edge 运行时以将物理设备与 Azure IoT 中心中存在的设备标识相链接。 
 
@@ -113,7 +127,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>选项 2：自动预配
 
-若要自动预配设备，请设置设备预配服务并检索设备注册 ID。 自动预配仅适用于具有受信任的平台模块 (TPM) 芯片的设备。 例如，默认情况下，Raspberry Pi 设备未附带 TPM。 
+若要自动预配设备，请[设置设备预配服务并检索设备注册 ID](how-to-auto-provision-simulated-device-linux.md)。 自动预配仅适用于具有受信任的平台模块 (TPM) 芯片的设备。 例如，默认情况下，Raspberry Pi 设备未附带 TPM。 
 
 打开配置文件。 
 

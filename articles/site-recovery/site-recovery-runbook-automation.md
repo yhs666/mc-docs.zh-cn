@@ -15,12 +15,12 @@ ms.workload: storage-backup-recovery
 origin.date: 07/06/2018
 ms.date: 07/23/2018
 ms.author: v-yeche
-ms.openlocfilehash: 8c56fecaa7e64fc298c9b0d6f2b81fdd5697be0d
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: aef59112c9b75621599299308fd3238bba12431d
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53028334"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861702"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>将 Azure 自动化 Runbook 添加到恢复计划
 本文将介绍 Azure Site Recovery 如何与 Azure 自动化集成，以便扩展恢复计划。 恢复计划可以安排恢复受 Site Recovery 保护的 VM。 恢复计划支持复制到辅助云和复制到 Azure。 恢复计划还有助于实现恢复的**一致准确性**、**可重复性**和**自动化**。 如果从 VM 故障转移到 Azure，与 Azure 自动化集成可以扩展恢复计划。 可用于执行 Runbook，从而提供功能强大的自动化任务。
@@ -33,17 +33,17 @@ ms.locfileid: "53028334"
 本文介绍如何将 Azure 自动化 Runbook 集成到恢复计划中。 我们使用示例，自动执行以前需要手动干预的基本任务。 本文还将介绍如何将多步骤恢复过程转换为一键式恢复操作。
 
 ## <a name="customize-the-recovery-plan"></a>自定义恢复计划
-1. 转到“Site Recovery”恢复计划资源边栏选项卡。 对于此示例，恢复计划包含两个要恢复的 VM。 若要开始添加 Runbook，请单击“自定义”选项卡。
+1. 转到“Site Recovery”  恢复计划资源边栏选项卡。 对于此示例，恢复计划包含两个要恢复的 VM。 若要开始添加 Runbook，请单击“自定义”  选项卡。
 
     ![单击“自定义”按钮](media/site-recovery-runbook-automation-new/essentials-rp.png)
 
-2. 右键单击“组 1: 启动”，再选择“添加后操作”。
+2. 右键单击“组 1:  启动”，再选择“添加后操作”  。
 
     ![右键单击“组 1: 启动”并添加后操作](media/site-recovery-runbook-automation-new/customize-rp.png)
 
-3. 单击“选择脚本”。
+3. 单击“选择脚本”  。
 
-4. 在“更新操作”边栏选项卡中，将脚本命名为“Hello World”。
+4. 在“更新操作”  边栏选项卡中，将脚本命名为“Hello World”  。
 
     ![“更新操作”边栏选项卡](media/site-recovery-runbook-automation-new/update-rp.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "53028334"
 
 6. 在自动化帐户中，选择一个 Runbook。 此 Runbook 是在恢复第一组后执行恢复计划期间运行的脚本。
 
-7. 选择“确定”，保存脚本。 此时，脚本将添加到“组 1: 后步骤”。
+7. 选择“确定”  ，保存脚本。 此时，脚本将添加到“组 1:  后步骤”。
 
     ![“组 1: 启动”后操作](media/site-recovery-runbook-automation-new/addedscript-rp.PNG)
 
@@ -247,9 +247,15 @@ workflow AddPublicIPAndNSG {
 
 ## <a name="sample-scripts"></a>示例脚本
 
-单击“部署到 Azure”按钮，将示例脚本部署到自动化帐户。
+单击“部署到 Azure”  按钮，将示例脚本部署到自动化帐户。
 
-[![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+> [!NOTE]
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 
+> 在本文中，选择 Azure 门户中的“编辑模板”  ，并将 **allowedValues** 列表替换为 **automationRegion** 属性中的以下参数。
+> `[ChinaEast, ChinaEast2, ChinaNorth2]`
+
+[![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fasr-automation-recovery%2F%2Fazuredeploy.json)
 
 <!-- Not Available on Channel9 VIDEO -->
 

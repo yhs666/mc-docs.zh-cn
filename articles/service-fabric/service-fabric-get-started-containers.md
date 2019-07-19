@@ -12,44 +12,45 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/18/2018
-ms.date: 10/15/2018
+origin.date: 01/25/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: da2ccf071aad28577a37782cc741aea2e53bbad7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c25dc94a826272c75000ff304b2bb1429906057e
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627432"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844790"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
+
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-在 Service Fabric 群集上运行 Windows 容器中的现有应用程序不需要对应用程序进行任何更改。 本文逐步讲解如何创建包含 Python [Flask](http://flask.pocoo.org/) Web 应用程序的 Docker 映像并将其部署到 Service Fabric 群集。 此外，会通过 [Azure 容器注册表](/container-registry/)共享容器化的应用程序。 本文假定读者对 Docker 有一个基本的了解。 阅读 [Docker Overview](https://docs.docker.com/engine/understanding-docker/)（Docker 概述）即可了解 Docker。
+在 Service Fabric 群集上运行 Windows 容器中的现有应用程序不需要对应用程序进行任何更改。 本文逐步讲解如何创建包含 Python [Flask](http://flask.pocoo.org/) Web 应用程序的 Docker 映像并将其部署到在本地计算机上运行的 Service Fabric 群集。 此外，会通过 [Azure 容器注册表](/container-registry/)共享容器化的应用程序。 本文假定读者对 Docker 有一个基本的了解。 阅读 [Docker Overview](https://docs.docker.com/engine/understanding-docker/)（Docker 概述）即可了解 Docker。
 
 > [!NOTE]
 > 本文适用于 Windows 开发环境。  Service Fabric 群集运行时和 Docker 运行时必须在同一 OS 上运行。  不能在 Linux 群集上运行 Windows 容器。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>先决条件
+
 * 一台运行以下软件的开发计算机：
-    * Visual Studio 2015 或 Visual Studio 2017。
+    * Visual Studio 2015 或 Visual Studio 2019。
     * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
-    *  适用于 Windows 的 Docker。 [获取适用于 Windows 的 Docker CE（稳定版）](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安装并启动 Docker 以后，右键单击任务栏图标，并选择“切换到 Windows 容器”。 此步骤是运行基于 Windows 的 Docker 映像所必需的。
+    *  适用于 Windows 的 Docker。 [获取适用于 Windows 的 Docker CE（稳定版）](https://store.docker.com/editions/community/docker-ce-desktop-windows?tab=description)。 安装并启动 Docker 以后，右键单击任务栏图标，并选择“切换到 Windows 容器”。  此步骤是运行基于 Windows 的 Docker 映像所必需的。
 
 * 有三个或更多节点在使用容器的 Windows Server 上运行的 Windows 群集。 
 
-  在本文中，群集结点上运行的使用容器的 Windows Server 版本必须与开发计算机上的版本相匹配。 这是因为要在开发计算机上构建 Docker 映像，而容器 OS 和用来部署的主机 OS 的版本之间有兼容性限制。 有关详细信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](#windows-server-container-os-and-host-os-compatibility)。 
+    在本文中，群集结点上运行的使用容器的 Windows Server 版本必须与开发计算机上的版本相匹配。 这是因为要在开发计算机上构建 Docker 映像，而容器 OS 和用来部署的主机 OS 的版本之间有兼容性限制。 有关详细信息，请参阅 [Windows Server 容器 OS 与主机 OS 的兼容性](#windows-server-container-os-and-host-os-compatibility)。 
 
-  若要确定使用容器的 Windows Server 版本，请在开发计算机上从 Windows 命令提示符运行 `ver` 命令：
+若要确定使用容器的 Windows Server 版本，请在开发计算机上从 Windows 命令提示符运行 `ver` 命令：
 
-  * 如果版本包含 x.x.14323.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServer 2016-Datacenter-with-Containers 作为操作系统。
+* 如果版本包含 x.x.14323.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServer 2016-Datacenter-with-Containers 作为操作系统   。
 
-  <!-- Not Available on [try Service Fabric for free](https://aka.ms/tryservicefabric)-->
-  * 如果版本包含 x.x.16299.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers 作为操作系统。
-
-  <!-- Not Available on  You cannot use a party cluster-->
+* 如果版本包含 x.x.16299.x，[创建群集](service-fabric-cluster-creation-via-portal.md)时请选择 WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers 作为操作系统   。
 
 * 一个位于 Azure 容器注册表中的注册表 - 在 Azure 订阅中[创建容器注册表](../container-registry/container-registry-get-started-portal.md)。
 
@@ -58,10 +59,11 @@ ms.locfileid: "58627432"
 >   
 
 > [!NOTE]
-> Service Fabric 6.2 及更高版本支持将容器部署到在 Windows Server 1709 上运行的群集。  
+> Service Fabric 6.2 及更高版本支持将容器部署到在 Windows Server 1709 上运行的群集。 
 > 
 
 ## <a name="define-the-docker-container"></a>定义 Docker 容器
+
 基于 Docker 中心内的 [Python 映像](https://hub.docker.com/_/python/)生成一个映像。
 
 在 Dockerfile 中指定 Docker 容器。 Dockerfile 包含有关在容器中设置环境、加载要运行的应用程序以及映射端口的说明。 Dockerfile 是 `docker build` 命令的输入，该命令用于创建映像。
@@ -155,7 +157,7 @@ docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" my-web-site
 docker inspect my-web-site
 ```
 
-连接到正在运行的容器。 打开 Web 浏览器并指向返回的 IP 地址，例如 “ <http://172.31.194.61> ”。 此时会看到标题“Hello World!” 显示在浏览器中。
+连接到正在运行的容器。 打开 Web 浏览器并指向返回的 IP 地址，例如“http:\//172.31.194.61”。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 若要停止容器，请运行：
 
@@ -171,9 +173,10 @@ docker rm my-web-site
 
 <a name="Push-Containers"></a>
 ## <a name="push-the-image-to-the-container-registry"></a>将映像推送到容器注册表
+
 验证容器是否在开发计算机上运行以后，即可将映像推送到 Azure 容器注册表的注册表中。
 
-运行 ``docker login``，使用[注册表凭据](../container-registry/container-registry-authentication.md)登录到容器注册表。
+运行 ``docker login``，以使用[注册表凭据](../container-registry/container-registry-authentication.md)登录到容器注册表。
 
 以下示例传递了 Azure Active Directory [服务主体](../active-directory/develop/app-objects-and-service-principals.md)的 ID 和密码。 例如，在自动化方案中，可能已向注册表分配了服务主体。 或者，可以使用注册表用户名和密码登录。
 
@@ -196,11 +199,11 @@ docker push myregistry.azurecr.cn/samples/helloworldapp
 ## <a name="create-the-containerized-service-in-visual-studio"></a>在 Visual Studio 中创建容器化服务
 Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程序。
 
-1. 启动 Visual Studio。 选择“文件” > “新建” > “项目”。
-2. 选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。
-3. 从“服务模板”列表中选择“容器”。
-4. 在“映像名称”中输入“myregistry.azurecr.cn/samples/helloworldapp”，这是已推送到容器存储库中的映像。
-5. 为服务命名，并单击“确定” 。
+1. 启动 Visual Studio。 选择“文件” > “新建” > “项目”    。
+2. 选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。  
+3. 从“服务模板”列表中选择“容器”。  
+4. 在“映像名称”中输入“myregistry.azurecr.cn/samples/helloworldapp”，这是已推送到容器存储库中的映像。 
+5. 为服务命名，并单击“确定”  。
 
 ## <a name="configure-communication"></a>配置通信
 容器化服务需要使用终结点进行通信。 请将 `Endpoint` 元素以及协议、端口和类型添加到 ServiceManifest.xml 文件。 在此示例中，使用固定端口 8081。 如果未指定端口，则从应用程序端口范围中选择一个随机端口。 
@@ -237,6 +240,7 @@ Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程�
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -261,6 +265,7 @@ Service Fabric SDK 和工具提供服务模板，用于创建容器化应用程�
 > 可以通过使用适用的属性值声明其他 PortBinding 元素来添加服务的其他端口绑定。
 
 ## <a name="configure-container-registry-authentication"></a>配置容器注册表身份验证
+
 将 `RepositoryCredentials` 添加到 ApplicationManifest.xml 文件的 `ContainerHostPolicies`，配置容器注册表身份验证。 为 myregistry.azurecr.cn 容器注册表添加帐户和密码，以便服务从存储库下载容器映像。
 
 ```xml
@@ -292,9 +297,9 @@ $clustername = "mycluster"
 
 $subscriptionId = "subscription ID"
 
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
+Login-AzAccount -EnvironmentName AzureChinaCloud
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
@@ -303,10 +308,9 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 # Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
-# Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 使用 [Invoke-ServiceFabricEncryptText](https://docs.microsoft.com/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps) cmdlet 来加密密码。
 
@@ -359,10 +363,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
 * DefaultContainerRepositoryPasswordType (string) --- 从 6.4 版运行时起受支持
 
-下面是可以在 ClusterManifestTemplate.json 文件中的 `Hosting` 部分内添加的内容的示例。 有关详细信息，请参阅[更改 Azure Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)和[管理 Azure Service Fabric 应用程序机密](service-fabric-application-secret-management.md)
+下面是可以在 ClusterManifestTemplate.json 文件中的 `Hosting` 部分内添加的内容的示例。 可以在群集创建时或配置升级后期添加 `Hosting` 节。 有关详细信息，请参阅[更改 Azure Service Fabric 群集设置](service-fabric-cluster-fabric-settings.md)和[管理 Azure Service Fabric 应用程序机密](service-fabric-application-secret-management.md)
 
 ```json
-      {
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -387,6 +393,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           }
         ]
       },
+]
 ```
 
 ## <a name="configure-isolation-mode"></a>配置隔离模式
@@ -414,11 +421,15 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 ```
 ## <a name="configure-docker-healthcheck"></a>配置 docker HEALTHCHECK 
 
-从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK**，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。 当 *health_status* 为“正常”时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；当 *health_status* 为“不正常”时，会显示“警告”。 生成容器映像时使用的 Dockerfile 中必须存在 **HEALTHCHECK** 指令，该指令指向监视容器运行状况时执行的实际检查。 
+从 v6.1 开始，Service Fabric 自动将 [docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 事件集成到其系统运行状况报告。 这意味着，如果容器启用了 **HEALTHCHECK**，则只要容器的运行状况状态如 Docker 所报告的那样更改，Service Fabric 就会报告运行状况。  当 *health_status* 为“正常”  时，会在 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 中显示运行状况报告“正常”；  当 *health_status* 为“不正常”时，  会显示“警告”。 
+
+从 v6.4 的最新更新版开始，可以选择指定应将 Docker HEALTHCHECK 评估报告为错误。 如果此选项已启用，当 *health_status* 为“正常”时，将显示“正常”运行状况报告；当 *health_status* 为“不正常”时，将显示“错误”运行状况报告     。
+
+生成容器映像时使用的 Dockerfile 中必须存在 **HEALTHCHECK** 指令，该指令指向监视容器运行状况时执行的实际检查。
 
 ![HealthCheckHealthy][3]
 
-![HealthCheckUnealthyApp][4]
+![HealthCheckUnhealthyApp][4]
 
 ![HealthCheckUnhealthyDsp][5]
 
@@ -429,21 +440,27 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
     <ServiceManifestRef ServiceManifestName="ContainerServicePkg" ServiceManifestVersion="2.0.0" />
     <Policies>
       <ContainerHostPolicies CodePackageRef="Code">
-        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true" RestartContainerOnUnhealthyDockerHealthStatus="false" />
+        <HealthConfig IncludeDockerHealthStatusInSystemHealthReport="true"
+              RestartContainerOnUnhealthyDockerHealthStatus="false" 
+              TreatContainerUnhealthyStatusAsError="false" />
       </ContainerHostPolicies>
     </Policies>
 </ServiceManifestImport>
 ```
-默认情况下，*IncludeDockerHealthStatusInSystemHealthReport* 设置为 **true**，*RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **false**。 如果 *RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **true**，则会重启（可能在其他节点上进行）反复报告“不正常”的容器。
+默认情况下，*IncludeDockerHealthStatusInSystemHealthReport* 设置为 **true**，*RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **false**，而 *TreatContainerUnhealthyStatusAsError* 设置为 **false**。 
+
+如果 *RestartContainerOnUnhealthyDockerHealthStatus* 设置为 **true**，则会重启（可能在其他节点上进行）反复报告“不正常”的容器。
+
+如果 *TreatContainerUnhealthyStatusAsError* 设置为 **true**，当容器的 *health_status* 为“不正常”时，将显示“错误”运行状况报告   。
 
 若要禁用整个 Service Fabric 群集的 **HEALTHCHECK** 集成，则需将 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) 设置为 **false**。
 
 ## <a name="deploy-the-container-application"></a>部署容器应用程序
-保存所有更改，生成应用程序。 若要发布应用程序，请右键单击解决方案资源管理器中的“MyFirstContainer”，选择“发布”。
+保存所有更改，生成应用程序。 若要发布应用程序，请右键单击解决方案资源管理器中的“MyFirstContainer”，选择“发布”。  
 
-在“连接终结点”中输入群集的管理终结点。 例如“containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000”。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
+在“连接终结点”中  输入群集的管理终结点。 例如“containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000”。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
 
-单击“发布”。
+单击“发布”。 
 
 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项基于 Web 的工具，用于检验和管理 Service Fabric 群集中的应用程序和节点。 打开浏览器，导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19080/Explorer/ ，并执行应用程序部署。 将映像下载到群集节点（这可能需要一段时间，具体时间取决于映像大小）之前，应用程序可部署但处于错误状态：![错误][1]
 
@@ -452,9 +469,11 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 打开浏览器并导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:8081 。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ## <a name="clean-up"></a>清理
-只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-tutorial-delete-cluster.md)。
+
+只要群集处于运行状态，就会产生费用。若要避免不必要的费用，可考虑[删除群集](service-fabric-cluster-delete.md)。
 
 <!-- Not Available on  [Party clusters](https://try.servicefabric.azure.com/) -->
+
 将映像推送到容器注册表以后，可从开发计算机中删除本地映像：
 
 ```
@@ -467,7 +486,7 @@ docker rmi myregistry.azurecr.cn/samples/helloworldapp
 Windows Server 容器并非在所有主机 OS 版本间都兼容。 例如：
 
 - 使用 Windows Server 1709 版本生成的 Windows Server 容器在运行 Windows Server 2016 版本的主机上无效。 
-- 使用 Windows Server 2016 生成的 Windows Server 容器仅在运行 Windows Server 1709 版本的主机上以 hyperv 隔离模式工作。 
+- 使用 Windows Server 2016 生成的 Windows Server 容器仅在运行 Windows Server 1709 版本的主机上以 Hyper-V 隔离模式工作。 
 - 因为 Windows Server 容器使用 Windows Server 2016 生成，所以在运行 Windows Server 2016 的主机上以进程隔离模式运行时，可能需要确保容器 OS 和主机 OS 的版本相同。
 
 若要了解详细信息，请参阅 [Windows 容器版本兼容性](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/deploy-containers/version-compatibility)。
@@ -508,9 +527,9 @@ WIndows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内
 </ContainerHost>
 ```
 
-   > [!NOTE]
-   > OS 内部版本标记功能仅适用于 Windows 上的 Service Fabric
-   >
+> [!NOTE]
+> OS 内部版本标记功能仅适用于 Windows 上的 Service Fabric
+>
 
 如果 VM 上的基础 OS 为内部版本 16299（版本 1709），Service Fabric 会根据该 Windows Server 版本选取容器映像。 如果应用程序清单中除了标记的容器映像外，还提供了未标记的容器映像，则 Service Fabric 会将未标记的映像视为可以跨版本使用的映像。 请显式对容器映像进行标记以避免在升级过程中出现问题。
 
@@ -525,8 +544,8 @@ WIndows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内
 <ServiceManifest Name="Guest1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -552,7 +571,7 @@ WIndows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内
 
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -572,8 +591,8 @@ WIndows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内
 <ApplicationManifest ApplicationTypeName="MyFirstContainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Guest1_InstanceCount" DefaultValue="-1" />
   </Parameters>
@@ -616,10 +635,12 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>配置在强制终止容器之前需经历的时间间隔
 
-可以配置一个时间间隔，目的是在启动服务删除操作（或移动到另一个节点的操作）之后，要求运行时在删除容器之前等待特定的时间。 配置时间间隔时，会向容器发送 `docker stop <time in seconds>` 命令。  有关更多详细信息，请参阅 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)。 等待时间间隔在 `Hosting` 节指定。 以下群集清单代码片段显示了如何设置等待时间间隔：
+可以配置一个时间间隔，目的是在启动服务删除操作（或移动到另一个节点的操作）之后，要求运行时在删除容器之前等待特定的时间。 配置时间间隔时，会向容器发送 `docker stop <time in seconds>` 命令。  有关更多详细信息，请参阅 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)。 等待时间间隔在 `Hosting` 节指定。 可以在群集创建时或配置升级后期添加 `Hosting` 节。 以下群集清单代码片段显示了如何设置等待时间间隔：
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -628,16 +649,19 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           },
           ...
         ]
-}
+    }
+]
 ```
 默认时间间隔设置为 10 秒。 由于此配置是动态的，因此对群集进行仅限配置的升级即可更新超时。 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>将运行时配置为删除未使用的容器映像
 
-可将 Service Fabric 群集配置为从节点删除未使用的容器映像。 如果节点上存在过多容器映像，则可通过此配置回收磁盘空间。 若要启用此功能，请更新群集清单中的 `Hosting` 节，如以下代码片段所示： 
+可将 Service Fabric 群集配置为从节点删除未使用的容器映像。 如果节点上存在过多容器映像，则可通过此配置回收磁盘空间。 若要启用此功能，请更新群集清单中的 [Hosting](service-fabric-cluster-fabric-settings.md#hosting) 节，如以下代码片段所示： 
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -651,17 +675,20 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
           ...
           }
         ]
-} 
+    } 
+]
 ```
 
-对于不应删除的映像，可以在 `ContainerImagesToSkip` 参数下进行指定。 
+对于不应删除的映像，可以在 `ContainerImagesToSkip` 参数下进行指定。  
 
 ## <a name="configure-container-image-download-time"></a>配置容器映像下载时间
 
 Service Fabric 运行时为下载和解压缩容器映像分配了 20 分钟的时间，这适用于大多数容器映像。 如果是大型映像，或者网络连接速度较慢，则可能必须延长中止映像下载和解压缩之前的等待时间。 此超时是使用群集清单的 **Hosting** 节中的 **ContainerImageDownloadTimeout** 属性设置的，如以下代码片段所示：
 
 ```json
-{
+"fabricSettings": [
+    ...,
+    {
         "name": "Hosting",
         "parameters": [
           {
@@ -669,7 +696,8 @@ Service Fabric 运行时为下载和解压缩容器映像分配了 20 分钟的�
               "value": "1200"
           }
         ]
-}
+    }
+]
 ```
 
 ## <a name="set-container-retention-policy"></a>设置容器保留策略
@@ -680,14 +708,16 @@ Service Fabric（6.1 或更高版本）支持保留终止的或无法启动的�
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
 ```
 
-ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 **ContainersRetentionCount** 属性，则不会保留任何容器。 ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
+ ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 如果指定一个负值，则会保留所有故障容器。 如果不指定 **ContainersRetentionCount** 属性，则不会保留任何容器。  ContainersRetentionCount 属性还支持应用程序参数，因此用户可以为测试性群集和生产群集指定不同的值。 使用此功能时可使用放置约束，将容器服务的目标设置为特定的节点，防止将容器服务移至其他节点。 使用此功能保留的容器必须手动删除。
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>使用自定义参数启动 Docker 守护程序
 
 有了 6.2 版和更高版本的 Service Fabric 运行时，可以使用自定义参数启动 Docker 守护程序。 指定自定义参数时，Service Fabric 不会将 `--pidfile` 参数以外的任何其他参数传递给 docker 引擎。 因此，`--pidfile` 不应作为参数传递。 此外，参数应继续让 docker 守护程序侦听 Windows 上的默认名称管道（或 Linux 上的 unix 域套接字），以便 Service Fabric 与该守护程序通信。 自定义参数是在 **Hosting** 节中的 **ContainerServiceArguments** 下的群集清单中传递的，如以下代码片段中所示。 
 
 ```json
-{ 
+"fabricSettings": [
+    ...,
+    { 
         "name": "Hosting", 
         "parameters": [ 
           { 
@@ -695,7 +725,8 @@ ContainersRetentionCount 设置指定在容器故障时需保留的容器数。 
             "value": "-H localhost:1234 -H unix:///var/run/docker.sock" 
           } 
         ] 
-} 
+    } 
+]
 ```
 
 ## <a name="next-steps"></a>后续步骤

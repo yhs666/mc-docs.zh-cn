@@ -1,27 +1,29 @@
 ---
 title: Azure 存储中的数据冗余 | Microsoft Docs
-description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 冗余选项包括本地冗余存储 (LRS)、区域冗余存储 (ZRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
+description: 复制 Azure 存储帐户中的数据，实现持久性和高可用性。 冗余选项包括本地冗余存储 (LRS)、异地冗余存储 (GRS) 和读取访问异地冗余存储 (RA-GRS)。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 01/18/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9d918d360101bbb07e8426c1b6891c1a4c50796e
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: a1717b6a8bcf43374a23252c24dc4e87a40e1008
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004026"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844406"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
 始终复制 Azure 存储帐户中的数据，确保持久性和高可用性。 Azure 存储功能会复制数据，以防范各种计划内和计划外的事件，包括暂时性的硬件故障、网络中断或断电、大范围自然灾害等。 可以选择在同一数据中心甚至跨地域分隔区域复制数据。
 
 即使面临故障时，复制也可确保存储帐户满足[存储的服务级别协议 (SLA)](https://www.azure.cn/zh-cn/support/sla/storage/)的要求。 请参阅 SLA，了解有关 Azure 存储确保持续性和可用性的信息。
+
+Azure 存储使用循环冗余检验 (CRC) 定期验证存储的数据的完整性。 如果检测到数据损坏，则使用冗余数据进行修复。 Azure 存储还计算所有网络流量的校验和，以检测存储或检索数据时数据包的损坏。
 
 ## <a name="choosing-a-redundancy-option"></a>选择冗余选项
 

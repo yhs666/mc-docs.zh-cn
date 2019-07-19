@@ -7,14 +7,14 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 04/26/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.openlocfilehash: c5fb0987937972065dc1d320d01b758102e54677
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 8ac3a52c2d5d1248240ad6f8281e46a12eda51fd
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004052"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844384"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -24,7 +24,7 @@ ms.locfileid: "66004052"
 
 ## <a name="blob-storage-apis"></a>Blob 存储 API
 
-Blob 存储 API 已禁用，以防止意外出现的数据访问问题，因为 Blob 存储 API 与 Azure Data Lake Gen2 API 目前不可互操作。
+Blob 存储 API 已禁用，以防止可能出现的功能可操作性问题，因为 Blob 存储 API 还不能与 Azure Data Lake Gen2 API 互操作。
 
 ### <a name="what-to-do-with-existing-tools-applications-and-services"></a>对于现有工具、应用程序和服务要采取的措施
 
@@ -62,7 +62,7 @@ Blob 存储 API 已禁用，以防止意外出现的数据访问问题，因为 
 | **诊断日志** |尚不支持|
 | **文件系统资源管理器** | 有限支持 |
 | **不可变存储** |尚不支持 <br><br>使用不可变存储可以 [WORM（一次写入，多次读取）](/storage/blobs/storage-blob-immutable-storage)状态存储数据。|
-| **对象级层** |尚不支持 <br><br>例如：热层、冷层和存档层。|
+| **对象级层** |尚不支持 <br><br>例如：高级层、热层、冷层和存档层。|
 | **Powershell 和 CLI 支持** | 受限功能 <br><br>可以使用 Powershell 或 CLI 创建帐户。 无法针对文件系统、目录和文件执行操作或设置访问控制列表。|
 | **第三方应用程序** | 有限支持 <br><br>对于使用 REST API 保持正常运行的第三方应用程序，如果在 Data Lake Storage Gen2 中使用这些应用程序，则它们可继续正常运行。 <br>如果应用程序使用 Blob API，在 Data Lake Storage Gen2 中使用该应用程序很可能会出现问题。 有关详细信息，请参阅本文的[为 Data Lake Storage Gen2 存储帐户禁用了 Blob 存储 API](#blob-apis-disabled) 部分。|
 | **版本控制功能** |尚不支持 <br><br>这包括[快照](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob)和[软删除](/storage/blobs/storage-blob-soft-delete)。|

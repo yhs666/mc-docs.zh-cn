@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/09/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: c1d7d61beba25f5e38974d5b81155f4c1a84dd59
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 5528460d4feb153ae50419c1119c255f65fbdb61
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390857"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861684"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>设置 VNet 的网络映射和 IP 寻址
 
@@ -35,7 +35,7 @@ ms.locfileid: "66390857"
 
 3. 在“添加网络映射”中，选择源和目标位置。  在本示例中，源 VM 在“中国东部”区域运行，将复制到“中国北部”区域。
     
-    <!--MOONCAKE: Change as replicated to China North region -->
+    <!--MOONCAKE: Change as China East replicated to China North region -->
     
     ![选择源和目标 ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
 
@@ -65,7 +65,7 @@ ms.locfileid: "66390857"
 
 - 如果可在目标网络中找到与源 VM 子网同名的子网，则为目标 VM 设置该子网。
 - 如果目标网络中没有同名的子网，则按字母顺序设置第一个子网作为目标子网。
-- 可以在 VM 的“计算和网络”设置中修改此设置。 
+- 可以在 VM 的“计算和网络”设置中修改目标子网。 
 
     ![计算和网络计算属性窗口](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

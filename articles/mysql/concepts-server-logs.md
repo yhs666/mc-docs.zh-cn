@@ -1,32 +1,32 @@
 ---
 title: Azure Database for MySQL 的服务器日志
-description: 介绍了 Azure Database for MySQL 中提供的日志，以及用于启用不同日志记录级别的可用参数。
+description: 介绍 Azure Database for MySQL 中提供的慢查询日志，以及用于启用不同日志记录级别的可用参数。
 author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: c31fd7234f51e0e96b5af3d4598b185d00b7bed0
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 05/29/2019
+ms.date: 07/15/2019
+ms.openlocfilehash: b5fdbf2cca0cc6c0c9f6226fc6e97c8dd319d1b9
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529458"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845111"
 ---
-# <a name="server-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的服务器日志
+# <a name="slow-query-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的慢查询日志
 
 > [!NOTE]
 > 将要查看的是 Azure Database for MySQL 的新服务。 若要查看经典 MySQL Database for Azure 的文档，请访问[此页](https://docs.azure.cn/zh-cn/mysql-database-on-azure/)。
 
-在 Azure Database for MySQL 中，慢查询日志可供用户使用。 不支持访问事务日志。 可以使用慢查询日志来查明性能瓶颈以进行故障排除。 
+在 Azure Database for MySQL 中，慢查询日志可供用户使用。 不支持访问事务日志。 可以使用慢查询日志来查明性能瓶颈以进行故障排除。
 
 有关 MySQL 慢查询日志的详细信息，请参阅 MySQL 参考手册中的[慢查询日志部分](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html)。
 
-## <a name="access-server-logs"></a>访问服务器日志
-可以使用 Azure 门户和 Azure CLI 列出和下载 Azure Database for MySQL 服务器日志。
+## <a name="access-slow-query-logs"></a>访问慢查询日志
+可以使用 Azure 门户和 Azure CLI 列出和下载 Azure Database for MySQL 慢查询日志。
 
-在 Azure 门户中，选择 Azure Database for MySQL 服务器。 在“监视”标题下，选择“服务器日志”页面。
+在 Azure 门户中，选择 Azure Database for MySQL 服务器。 在“监视”标题下，选择“服务器日志”页面。  
 
 有关 Azure CLI 的详细信息，请参阅[使用 Azure CLI 配置和访问服务器日志](howto-configure-server-logs-in-cli.md)。
 
@@ -35,8 +35,7 @@ ms.locfileid: "59529458"
 
 日志每 24 小时或每 7 GB 轮换一次（以先达到的条件为准）。
 
-
-## <a name="configure-logging"></a>配置日志记录 
+## <a name="configure-slow-query-logging"></a>配置慢查询日志记录 
 默认情况下，慢查询日志被禁用。 若要启用它，请将 slow_query_log 设置为 ON。
 
 可以调整的其他参数包括：

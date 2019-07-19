@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 06/10/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 64ab9454c228a2511a1316d38b121a59cd5ab2b9
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: fe4d9810b803dfd9b6534173d250e8b6c4fc3885
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390874"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861677"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -68,37 +68,37 @@ ms.locfileid: "66390874"
 
     ``# cd /etc/ssl/certs``
 
-3. 检查 Symantec 根 CA 证书是否存在。
+1. 检查 Symantec 根 CA 证书是否存在。
 
     ``# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-4. 如果未找到 Symantec 根 CA 证书，则运行以下命令下载文件。 检查是否有任何错误，对于网络故障执行建议的操作。
+2. 如果未找到 Symantec 根 CA 证书，则运行以下命令下载文件。 检查是否有任何错误，对于网络故障执行建议的操作。
 
     ``# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem``
 
-5. 检查 Baltimore 根 CA 证书是否存在。
+3. 检查 Baltimore 根 CA 证书是否存在。
 
     ``# ls Baltimore_CyberTrust_Root.pem``
 
-6. 如果未找到 Baltimore 根 CA 证书，则下载该证书。  
+4. 如果未找到 Baltimore 根 CA 证书，则下载该证书。  
 
     ``# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root.pem``
 
-7. 检查 DigiCert_Global_Root_CA 证书是否存在。
+5. 检查 DigiCert_Global_Root_CA 证书是否存在。
 
     ``# ls DigiCert_Global_Root_CA.pem``
 
-8. 如果未找到 DigiCert_Global_Root_CA，则运行以下命令下载该证书。
+6. 如果未找到 DigiCert_Global_Root_CA，则运行以下命令下载该证书。
 
     ``# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt``
 
     ``# openssl x509 -in DigiCertGlobalRootCA.crt -inform der -outform pem -out DigiCert_Global_Root_CA.pem``
 
-9. 运行 rehash 脚本更新新下载的证书的证书使用者哈希。
+7. 运行 rehash 脚本更新新下载的证书的证书使用者哈希。
 
     ``# c_rehash``
 
-10. 检查是否已为证书创建使用者哈希作为符号链接。
+8. 检查是否已为证书创建使用者哈希作为符号链接。
 
     - 命令
 
@@ -127,11 +127,11 @@ ms.locfileid: "66390874"
         ``lrwxrwxrwx 1 root root   27 Jan  8 09:48 399e7759.0 -> DigiCert_Global_Root_CA.pem
         -rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem``
 
-11. 使用文件名 b204d74a.0 创建文件 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 的副本
+9. 使用文件名 b204d74a.0 创建文件 VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem 的副本
 
     ``# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5.pem b204d74a.0``
 
-12. 使用文件名 653b494a.0 创建文件 Baltimore_CyberTrust_Root.pem 的副本
+10. 使用文件名 653b494a.0 创建文件 Baltimore_CyberTrust_Root.pem 的副本
 
     ``# cp Baltimore_CyberTrust_Root.pem 653b494a.0``
 
@@ -164,7 +164,7 @@ ms.locfileid: "66390874"
 - **解决方法**
     - 如果你使用的是自定义 DNS，请确保可以从灾难恢复区域访问 DNS 服务器。 若要检查你是否具有自定义 DNS，请转到“VM”>“灾难恢复网络”>“DNS 服务器”。 尝试从虚拟机访问 DNS 服务器。 如果它无法访问，请通过对 DNS 服务器进行故障转移或创建 DR 网络与 DNS 之间站点的行来使其可访问。
 
-    ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
+        ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>问题 2：Site Recovery 配置失败 (151196)
 - 可能的原因  <br />
@@ -193,7 +193,7 @@ ms.locfileid: "66390874"
     1. 移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
     2. 如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：<br />
         - ***Linux*** 上的 ``/usr/local/InMage/config/``
-        - ***Windows*** 上的 ``C:\ProgramData\Azure Site Recovery\Config``
+        - ***Windows*** 上的 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
     3. ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。<br />
         *[proxy]*<br />
         *Address=http://1.2.3.4*<br />
@@ -230,10 +230,11 @@ ms.locfileid: "66390874"
     ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. 要关闭警告， 请转到“复制的项”>“VM”> 在“概述”部分下单击“关闭警报”。
     ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>无法查看 Azure VM 中“启用复制”的选择
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>无法在“启用复制”中看到要选择的 Azure VM 或资源组
 
 **原因 1：资源组和源虚拟机位于不同的位置** <br />
-Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同一位置。 如果不是这种情况，那么在保护期间将无法找到虚拟机。
+Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同一位置。 如果不是这种情况，那么在保护期间将无法找到虚拟机。 一种解决方法是，可以从 VM 而不是从恢复服务保管库启用复制。 转到“源 VM”>“属性”>“灾难恢复”并启用复制。
 
 **原因 2：资源组不是所选订阅的一部分** <br />
 如果资源组不是给定订阅的一部分，则可能无法在保护期间找到该资源组。 确保资源组属于正在使用的订阅。
@@ -250,7 +251,11 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 >
 >请确保在使用以下脚本之前更新“AzureRM.Resources”模块。
 
-可以使用[删除过时的 ASR 配置脚本](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412)，删除 Azure VM 上过时的 Site Recovery 配置。 删除过时配置后，应能够看到该 VM。
+可以使用[删除过时的 ASR 配置脚本](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)，删除 Azure VM 上过时的 Site Recovery 配置。 删除过时配置后，应能够看到该 VM。
+
+>[!NOTE]
+>
+> 请确保在下载的[删除过时的 ASR 配置脚本](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)中将 `Login-AzureRmAccount` 替换为 `Login-AzureRmAccount -Environment AzureChinaCloud`。
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>无法选择虚拟机进行保护
 **原因 1：虚拟机安装的某些扩展处于失败或无响应状态** <br />
@@ -313,7 +318,8 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
 - 以下行来自 GRUB 文件 /boot/grub2/grub.cfg  。 <br />
     *linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts*
 
-- 以下代码行摘自 GRUB 文件 **/boot/grub/menu.lst** *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
+- 以下代码行摘自 GRUB 文件 **/boot/grub/menu.lst** <br />
+    *kernel /boot/vmlinuz-3.0.101-63-default **root=/dev/sda2** **resume=/dev/sda1** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 
 如果发现上面的粗体字符串，GRUB 具有参数“root”和“resume”的实际设备名，而不是 UUID。
 
@@ -321,49 +327,48 @@ GRUB 配置文件（“/boot/grub/menu.lst”、“/boot/grub/grub.cfg”、“/
 设备名应替换为相应的 UUID。<br />
 
 1. 通过执行命令“blkid \<设备名称>”查找设备的 UUID。 例如：<br />
-   ```
-   blkid /dev/sda1
-   ```<br />
-   ```/dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap" ```<br />
-   ```blkid /dev/sda2```<br />
-   ```/dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
-   ```<br />
+    
+    ```
+    $ blkid /dev/sda1
+    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"   
+    $ blkid /dev/sda2
+    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
+    ```
 
-1. Now replace the device name with its UUID in the format like "root=UUID=\<UUID>". For example, if we replace the device names with UUID for root and resume parameter mentioned above in the files "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub: then the lines in the files looks like. <br />
+1. 现在请将设备名替换为设备 UUID，格式类似于“root=UUID=\<UUID>”。 例如，对于上述在“/boot/grub2/grub.cfg”、“/boot/grub2/grub.cfg”或“/etc/default/grub”文件中提到的 root 和 resume 参数，如果将设备名称替换为 UUID，则文件中的行将类似于： <br />
     *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
-1. Restart the protection again
+1. 再次重启保护
 
-## Enable protection failed as device mentioned in the GRUB configuration doesn't exist(error code 151124)
-**Possible Cause:** <br />
-The GRUB configuration files ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") may contain the parameters "rd.lvm.lv" or "rd_LVM_LV" to indicate the LVM device that should be discovered at the time of booting. If these LVM devices doesn't exist, then the protected system itself will not boot and stuck in the boot process. Even the same will be observed with the failover VM. Below are few examples:
+## <a name="enable-protection-failed-as-device-mentioned-in-the-grub-configuration-doesnt-existerror-code-151124"></a>启用保护失败，因为 GRUB 配置中所述的设备不存在（错误代码 151124）
+**可能的原因：** <br />
+GRUB 配置文件 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" or "/etc/default/grub") 可能包含参数“rd.lvm.lv”或“rd_LVM_LV”，指示在启动时应发现的 LVM 设备。 如果这些 LVM 设备不存在，则受保护的系统本身不会启动，而是停滞在启动过程。 甚至在故障转移 VM 上也会出现相同的问题。 下面是几个示例：
 
-Few examples: <br />
+几个示例： <br />
 
-1. The following line is from the GRUB file **"/boot/grub2/grub.cfg"** on RHEL7. <br />
+1. 以下代码行摘自 RHEL7 上的 GRUB 文件 **"/boot/grub2/grub.cfg"** 。 <br />
     *linux16 /vmlinuz-3.10.0-957.el7.x86_64 root=/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel=128M\@64M **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet LANG=en_US.UTF-8*<br />
-    Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/etc/default/grub"** on RHEL7 <br />
+    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。
+1. 以下代码行摘自 RHEL7 上的 GRUB 文件 **"/etc/default/grub"** <br />
     *GRUB_CMDLINE_LINUX="crashkernel=auto **rd.lvm.lv=rootvg/root rd.lvm.lv=rootvg/swap** rhgb quiet"*<br />
-    Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".
-1. The following line is from the GRUB file **"/boot/grub/menu.lst"** on RHEL6 <br />
+    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。
+1. 以下代码行摘自 RHEL6 上的 GRUB 文件 **"/boot/grub/menu.lst"** <br />
     *kernel /vmlinuz-2.6.32-754.el6.x86_64 ro root=UUID=36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG=en_US.UTF-8 rd_NO_MD SYSFONT=latarcyrheb-sun16 crashkernel=auto rd_LVM_LV=rootvg/lv_root  KEYBOARDTYPE=pc KEYTABLE=us rd_LVM_LV=rootvg/lv_swap rd_NO_DM rhgb quiet* <br />
-    Here the highlighted portion shows that the GRUB has to detect two LVM devices with names **"root"** and **"swap"** from the volume group "rootvg".<br />
+    此处的突出显示部分指明，GRUB 必须在卷组“rootvg”中检测到名为 **“root”** 和 **“swap”** 的两个 LVM 设备。<br />
 
-**How to Fix:**<br />
+**如何修复：**<br />
 
-If the LVM device doesn't exist, fix either by creating it or remove the parameter for the same from the GRUB configuration files and then retry the enable protection. <br />
+如果 LVM 设备不存在，解决方法是创建该设备，或者从 GRUB 配置文件中删除该设备对应的参数，然后重试启用保护。 <br />
 
-## Site recovery mobility service update completed with warnings ( error code 151083)
-Site Recovery mobility service has many components, one of which is called filter driver. Filter driver gets loaded into system memory only at a time of system reboot. Whenever there are  site recovery mobility service updates that has filter driver changes, we update the machine but still gives you warning that some fixes require a reboot. It means that the filter driver fixes can only be realized when a new filter driver is loaded which can happen only at the time of system reboot.<br />
-**Please note** that this is just a warning and existing replication keeps on working even after the new agent update. You can choose to reboot anytime you want to get the benefits of new filter driver but if you don't reboot than also old filter driver keeps on working. Apart from filter driver, **benefits of  any other enhancements and fixes in mobility service get realized without any reboot when the agent gets updated.**  
+## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>Site Recovery 移动服务更新完成但出现警告（错误代码 151083）
+Site Recovery 移动服务有多个组件，其中一个称为筛选器驱动程序。 筛选器驱动程序只有在系统重启时才会加载到系统内存中。 每当 Site Recovery 移动服务更新涉及到筛选器驱动程序的更改时，我们都会更新计算机，但仍会发出警告，指出某些修复措施需要重新启动。 这意味着，仅当已加载新的筛选器驱动程序（只有在系统重新启动时才能发生）时，才能实现筛选器驱动程序的修复。<br />
+**请注意**这只是一条警告，即使在新代理更新后，现有的复制也能保持正常工作。 可以选择在需要使用新筛选器驱动程序的时候重启，但如果不重启，则旧筛选器驱动程序仍可继续使用。 除了筛选器驱动程序以外，**在更新代理后，无需重新启动，移动服务中也能获得其他任何增强和修复。**  
 
-## Protection couldn't be enabled as replica managed disk 'diskname-replica' already exists without expected tags in the target resource group( error code 150161
+## <a name="protection-couldnt-be-enabled-as-replica-managed-disk-diskname-replica-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>无法启用保护，因为副本托管磁盘“diskname-replica”已存在，但目标资源组中不包含预期的标记（错误代码 150161）
 
-**Cause**: It can occur if the  virtual machine was protected earlier in the past and during disabling the replication, replica disk was not cleaned due to some reason.<br />
-**How to fix:**
-Delete the mentioned replica disk in the error message and restart the failed protection job again.
+**原因：** 如果虚拟机过去受保护，而在禁止复制期间，某种原因导致副本磁盘未能清理，则可能会出现此错误。<br />
+**如何修复：** 删除错误消息中提到的副本磁盘，然后再次重启失败的保护作业。
 
-## Next steps
-[Replicate Azure virtual machines](site-recovery-replicate-azure-to-azure.md)
+## <a name="next-steps"></a>后续步骤
+[复制 Azure 虚拟机](site-recovery-replicate-azure-to-azure.md)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

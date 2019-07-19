@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-origin.date: 02/06/2019
-ms.date: 03/01/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9a5bc877b0c364dfb71548ae5a70649ff32eeae0
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 1ddc07de1e341a0091872980e92cf8fc1897d5c0
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204119"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844697"
 ---
 # <a name="tutorial-create-a-wpf-app-to-display-face-data-in-an-image"></a>教程：创建一个用于显示图像中人脸数据的 WPF 应用
 
-本教程介绍如何通过 .NET 客户端 SDK 使用 Azure 人脸 API 检测图像中的人脸，然后在 UI 中显示该数据。 请创建一个简单的 Windows Presentation Framework (WPF) 应用程序，用于检测人脸，围绕每张脸绘制一个框架，并在状态栏中显示人脸描述。 
+本教程介绍如何通过 .NET 客户端 SDK 使用 Azure Face API 检测图像中的人脸，然后在 UI 中显示该数据。 你将创建一个 Windows Presentation Framework (WPF) 应用程序，以检测人脸，围绕每张脸绘制一个框架，并在状态栏中显示人脸的描述。 
 
 本教程演示如何：
 
@@ -47,9 +47,9 @@ ms.locfileid: "57204119"
 
 执行以下步骤，以便创建新的 WPF 应用程序项目。
 
-1. 在 Visual Studio 中打开“新建项目”对话框。 展开“已安装”，接着展开“Visual C#”，然后选择“WPF 应用(.NET Framework)”。
-1. 将应用程序命名为 **FaceTutorial**，单击“确定”。
-1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包：
+1. 在 Visual Studio 中打开“新建项目”对话框。 展开“已安装”，接着展开“Visual C#”，然后选择“WPF 应用(.NET Framework)”。   
+1. 将应用程序命名为 **FaceTutorial**，单击“确定”。 
+1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包： 
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
 ## <a name="add-the-initial-code"></a>添加初始代码
@@ -58,7 +58,7 @@ ms.locfileid: "57204119"
 
 ### <a name="create-the-ui"></a>创建 UI
 
-打开 *MainWindow.xaml*，将其中的内容替换为以下代码&mdash;这将创建 UI 窗口。 请注意，`FacePhoto_MouseMove` 和 `BrowseButton_Click` 是将在稍后定义的事件处理程序。
+打开 *MainWindow.xaml*，将其中的内容替换为以下代码&mdash;此代码将创建 UI 窗口。 `FacePhoto_MouseMove` 和 `BrowseButton_Click` 方法是将在稍后定义的事件处理程序。
 
 ```csharp
 <Window x:Class="FaceTutorial.MainWindow"
@@ -100,7 +100,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 ```
 
-接下来，在 **MainWindow** 类中插入以下代码。 这将使用订阅密钥创建 **FaceClient** 实例，该密钥必须你自己输入。 此外还必须在 `faceEndpoint` 中将区域字符串设置为订阅的正确区域（如需包含所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
+接下来，在 **MainWindow** 类中插入以下代码。 此代码将使用订阅密钥创建 **FaceClient** 实例，该密钥必须由你自己输入。 你需要在 `faceEndpoint` 中将区域字符串设置为适用于你的订阅的正确区域（有关所有区域终结点的列表，请参阅[人脸 API 文档](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)）。
 
 ```csharp
 // Replace <SubscriptionKey> with your valid subscription key.
@@ -141,7 +141,7 @@ else
 }
 ```
 
-最后，向类添加 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 方法。 这两个方法对应于在 *MainWindow.xaml* 中声明的事件处理程序。 **BrowseButton_Click** 方法创建 **OpenFileDialog**，供用户选择 .jpg 图像。 然后，它会在主窗口中显示图像。 将会在后面的步骤中插入 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 的剩余代码。 另请注意 `faceList` 引用&mdash;**DetectedFace** 对象的列表。 这是应用存储和调用实际人脸数据的位置。
+最后，向类添加 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 方法。 这两个方法对应于在 *MainWindow.xaml* 中声明的事件处理程序。 **BrowseButton_Click** 方法创建 **OpenFileDialog**，供用户选择 .jpg 图像。 然后，它会在主窗口中显示图像。 将会在后面的步骤中插入 **BrowseButton_Click** 和 **FacePhoto_MouseMove** 的剩余代码。 另请注意 `faceList` 引用&mdash;**DetectedFace** 对象的列表。 此引用是应用存储和调用实际人脸数据的位置。
 
 ```csharp
 // Displays the image and calls UploadAndDetectFaces.
@@ -183,7 +183,7 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 
 ### <a name="try-the-app"></a>试用应用
 
-按菜单上的“启动”，对应用进行测试。 应用窗口打开后，单击左下角的“浏览”。 此时会打开“打开的文件”对话框。 从文件系统中选择一个图像，验证它是否显示在窗口中。 然后，关闭应用并转到下一步。
+按菜单上的“启动”，对应用进行测试。  应用窗口打开后，单击左下角的“浏览”。  此时会打开“打开的文件”对话框。  从文件系统中选择一个图像，验证它是否显示在窗口中。 然后，关闭应用并转到下一步。
 
 ![显示未修改的人脸图像的屏幕截图](../Images/getting-started-cs-ui.png)
 
@@ -191,7 +191,7 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 
 应用会通过调用 **FaceClient.Face.DetectWithStreamAsync** 方法来检测人脸，该方法可包装用于上传本地图像的[检测](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API。
 
-在 **MainWindow** 类中 **FacePhoto_MouseMove** 方法下面插入以下方法。 这样会定义一系列人脸特性，用于检索提交的图像文件并将其读取到**流**中。 然后，它将这两个对象传递到 **DetectWithStreamAsync** 方法调用。
+在 **MainWindow** 类中 **FacePhoto_MouseMove** 方法下面插入以下方法。 此方法会定义一系列人脸特性，用于检索提交的图像文件并将其读取到**流**中。 然后，它将这两个对象传递到 **DetectWithStreamAsync** 方法调用。
 
 ```csharp
 // Uploads the image file and calls DetectWithStreamAsync.
@@ -236,7 +236,7 @@ private async Task<IList<DetectedFace>> UploadAndDetectFaces(string imageFilePat
 
 ## <a name="draw-rectangles-around-faces"></a>在人脸周围绘制矩形
 
-接下来，将添加用于在图像中每个检测到的人脸周围绘制矩形的代码。 在 **MainWindow** 类的 **BrowseButton_Click** 方法末尾的 `FacePhoto.Source = bitmapSource` 行后插入以下代码。 这样会通过调用 **UploadAndDetectFaces** 填充检测到的人脸的列表。 然后，它会围绕每个人脸绘制一个矩形，并将修改的图像显示在主窗口中。
+接下来，将添加用于在图像中每个检测到的人脸周围绘制矩形的代码。 在 **MainWindow** 类的 **BrowseButton_Click** 方法末尾的 `FacePhoto.Source = bitmapSource` 行后插入以下代码。 此代码会通过调用 **UploadAndDetectFaces** 填充检测到的人脸的列表。 然后，它会围绕每个人脸绘制一个矩形，并将修改的图像显示在主窗口中。
 
 ```csharp
 // Detect any faces in the image.
@@ -297,7 +297,7 @@ if (faceList.Count > 0)
 
 ## <a name="describe-the-faces"></a>描述人脸
 
-将以下方法添加到 **MainWindow** 类的 **UploadAndDetectFaces** 方法下面。 这会将检索的人脸特性转换成描述人脸的字符串。
+将以下方法添加到 **MainWindow** 类的 **UploadAndDetectFaces** 方法下面。 此方法会将检索到的人脸特性转换成描述人脸的字符串。
 
 ```csharp
 // Creates a string out of the attributes describing the face.
@@ -419,4 +419,4 @@ if (!mouseOverFace) faceDescriptionStatusBar.Text = defaultStatusBarText;
 > [!div class="nextstepaction"]
 > [如何检测图像中的人脸](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

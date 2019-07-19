@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/23/2018
-ms.date: 03/18/2019
+origin.date: 03/26/2019
+ms.date: 04/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: bd67ca95762397dc2b8341d4022622f55beaf497
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: d617b9838b7ebbd2eae725b9ededf9f7fcb8a27b
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560467"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845017"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>什么是 Azure HDInsight 中的 Apache Hive 和 HiveQL？
 
@@ -45,18 +45,15 @@ HDInsight 提供了已针对特定工作负荷进行了优化的多种群集类�
 
 使用下表来了解将 Hive 与 HDInsight 配合使用的各种方法：
 
-| **使用此方法**，如果想要... | ...**交互式**查询 | ...**批处理** | ...使用此 **群集操作系统** | ...从此 **客户端操作系统** |
+| **使用此方法**，如果想要... | ...**交互式**查询 | ...**批处理** | ...从此 **客户端操作系统** |
 |:--- |:---:|:---:|:--- |:--- |
-| [Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ |Linux | Linux、Unix、Mac OS X 或 Windows |
-| [用于 Visual Studio 的 HDInsight 工具](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Linux 或 Windows* |Windows |
-| [Hive 视图](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |Linux |任何（基于浏览器） |
-| [Beeline 客户端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux |Linux、Unix、Mac OS X 或 Windows |
-| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux 或 Windows* |Linux、Unix、Mac OS X 或 Windows |
-| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Linux 或 Windows* |Windows |
+| [Visual Studio Code 的 HDInsight 工具](../hdinsight-for-vscode.md) |✔ |✔ | Linux、Unix、Mac OS X 或 Windows |
+| [用于 Visual Studio 的 HDInsight 工具](../hadoop/apache-hadoop-use-hive-visual-studio.md) |✔ |✔ |Windows |
+| [Hive 视图](../hadoop/apache-hadoop-use-hive-ambari-view.md) |✔ |✔ |任何（基于浏览器） |
+| [Beeline 客户端](../hadoop/apache-hadoop-use-hive-beeline.md) |✔ |✔ |Linux、Unix、Mac OS X 或 Windows |
+| [REST API](../hadoop/apache-hadoop-use-hive-curl.md) |&nbsp; |✔ |Linux、Unix、Mac OS X 或 Windows |
+| [Windows PowerShell](../hadoop/apache-hadoop-use-hive-powershell.md) |&nbsp; |✔ |Windows |
 
-> [!IMPORTANT]
-> \* Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
->
 
 ## <a name="hiveql-language-reference"></a>HiveQL 语言参考
 
@@ -79,7 +76,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化程序/反序列化程序 (SerDe)**。 有关详细信息，请参阅[如何将自定义 JSON SerDe 与 HDInsight 配合使用](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx)文档。
+Hive 还支持对复杂或不规则的结构化数据使用自定义**序列化程序/反序列化程序 (SerDe)** 。 有关详细信息，请参阅[如何将自定义 JSON SerDe 与 HDInsight 配合使用](https://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx)文档。
 
 有关 Hive 支持的文件格式的详细信息，请参阅[语言手册 (https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
@@ -128,7 +125,6 @@ Hive on HDInsight 中预先加载了名为 `hivesampletable` 的内部表。 HDI
 以下 HiveQL 语句将各列投影到 `/example/data/sample.log` 文件上：
 
 ```hiveql
-set hive.execution.engine=tez;
 DROP TABLE log4jLogs;
 CREATE EXTERNAL TABLE log4jLogs (
     t1 string,
@@ -147,20 +143,16 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 在上例中，HiveQL 语句执行以下操作：
 
-* `set hive.execution.engine=tez;`：将执行引擎设置为使用 Tez。 使用 Tez 可以提高查询性能。 有关 Tez 的详细信息，请参阅[使用 Apache Tez 提高性能](#usetez)部分。
-
-    > [!NOTE]
-    > 仅在使用基于 Windows 的 HDInsight 群集时需要此语句。 Tez 是用于基于 Linux 的 HDInsight 的默认执行引擎。
 
 * `DROP TABLE`：如果该表已存在，则删除它。
 
-* `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表。 外部表只会在 Hive 中存储表定义。 数据以原始格式的形式保留在原始位置中。
+* `CREATE EXTERNAL TABLE`：在 Hive 中创建一个新的“外部”表  。 外部表只会在 Hive 中存储表定义。 数据以原始格式的形式保留在原始位置中。
 
 * `ROW FORMAT`：让 Hive 知道数据的格式已如何进行了设置。 在此情况下，每个日志中的字段以空格分隔。
 
 * `STORED AS TEXTFILE LOCATION`：让 Hive 知道数据的存储位置（`example/data` 目录），并且数据已存储为文本。 数据可以在一个文件中，也可以分散在目录的多个文件内。
 
-* `SELECT`：选择“t4”列中包含值“[ERROR]”的所有行的计数。 此语句返回的值为 **3**，因为有三行包含此值。
+* `SELECT`：选择“t4”列中包含值“[ERROR]”的所有行的计数   。 此语句返回的值为 **3**，因为有三行包含此值。
 
 * `INPUT__FILE__NAME LIKE '%.log'` - Hive 会尝试向目录中的所有文件应用架构。 在此示例中，目录包含与架构不匹配的文件。 为防止结果中包含垃圾数据，此语句指示 Hive 应当仅返回以 .log 结尾的文件中的数据。
 
@@ -172,7 +164,6 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 若要创建**内部**表而非外部表，请使用以下 HiveQL：
 
 ```hiveql
-set hive.execution.engine=tez;
 CREATE TABLE IF NOT EXISTS errorLogs (
     t1 string,
     t2 string,
@@ -193,7 +184,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 * `STORED AS ORC`：以优化的行纵栏式 (ORC) 格式存储数据。 ORC 是高度优化且有效的 Hive 数据存储格式。
 
-* `INSERT OVERWRITE ... SELECT`：从包含“[ERROR]”的“log4jLogs”表中选择行，然后将数据插入“errorLogs”表中。
+* `INSERT OVERWRITE ... SELECT`：从包含“[ERROR]”的“log4jLogs”表中选择行，然后将数据插入“errorLogs”表中    。
 
 > [!NOTE]
 > 与外部表不同，删除内部表会同时删除基础数据。
@@ -202,18 +193,7 @@ SELECT t1, t2, t3, t4, t5, t6, t7
 
 ### <a id="usetez"></a>Apache Tez
 
-[Apache Tez](https://tez.apache.org) 是让数据密集型应用程序（例如 Hive）能够大规模高效运行的框架。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
-
-> [!NOTE]
-> 对于基于 Windows 的 HDInsight 群集来说，Tez 目前默认处于关闭状态，因此必须启用。 要充分利用 Tez，必须设置 Hive 查询的以下值：
->
-> `set hive.execution.engine=tez;`
->
-> Tez 是用于基于 Linux 的 HDInsight 群集的默认引擎。
-
-[Apache Hive on Tez 设计文档](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)包含有关实现选项和优化配置的详细信息。
-
-为了帮助调试使用 Tez 运行的作业，HDInsight 提供了以下 Web UI，使你可以查看 Tez 作业的详细信息：[在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)。
+[Apache Tez](https://tez.apache.org) 是让数据密集型应用程序（例如 Hive）能够大规模高效运行的框架。 默认情况下，Tez 已启用。  [Apache Hive on Tez 设计文档](https://cwiki.apache.org/confluence/display/Hive/Hive+on+Tez)包含有关实现选项和优化配置的详细信息。
 
 ### <a name="low-latency-analytical-processing-llap"></a>低延迟分析处理 (LLAP)
 
@@ -243,9 +223,9 @@ Apache Oozie 是一个管理 Hadoop 作业的工作流和协调系统。 有关�
 
 现在，已了解什么是 Hive，以及如何将它与 HDInsight 中的 Hadoop 配合使用，请使用以下链接来学习 Azure HDInsight 的其他用法。
 
-* [将数据上传到 HDInsight][hdinsight-upload-data]
-* [将 Apache Pig 和 HDInsight 配合使用][hdinsight-use-pig]
-* [将 MapReduce 作业与 HDInsight 配合使用][hdinsight-use-mapreduce]
+* [将数据上传到 HDInsight](../hdinsight-upload-data.md)
+* [在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)](./python-udf-hdinsight.md)
+* [将 MapReduce 作业与 HDInsight 配合使用](hdinsight-use-mapreduce.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 

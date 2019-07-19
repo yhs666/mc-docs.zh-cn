@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 05/14/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 151d760a8dc4620116ced41b3d6924d84feefa6e
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 1ab418a0492cc86a98433791e3cda91196887abb
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668974"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844640"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>快速入门：使用 REST API 和 PHP 检测图像中的人脸
 
@@ -44,7 +44,7 @@ ms.locfileid: "65668974"
 
 ## <a name="write-the-php-script"></a>编写 PHP 脚本
 
-在该文档的 `body` 元素中添加以下代码。 这将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”按钮、响应窗格和图像显示窗格。
+在该文档的 `body` 元素中添加以下代码。 此代码将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”  按钮、响应窗格和图像显示窗格。
 
 ```php
 <?php

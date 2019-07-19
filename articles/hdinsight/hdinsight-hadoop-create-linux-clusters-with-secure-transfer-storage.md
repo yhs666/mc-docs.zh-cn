@@ -15,31 +15,31 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/24/2018
-ms.date: 10/22/2018
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5e871a0aaae55363d45872372f2575fbbe5323d5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 40761403265b1c00e6222a482c9dbaf05df48939
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625881"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845444"
 ---
-# <a name="create-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Hadoop 群集
+# <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>在 Azure HDInsight 中使用安全传输存储帐户创建 Apache Hadoop 群集
 
 [需要安全传输](../storage/common/storage-require-secure-transfer.md)功能强制提交到帐户的所有请求都通过安全连接来进行，从而增强 Azure 存储帐户的安全性。 仅 HDInsight 群集 3.6 或更高版本支持此功能和 wasbs 方案。 
 
 ## <a name="prerequisites"></a>先决条件
-在开始阅读本教程前，必须具备以下条件：
+在开始阅读本文前，必须具备：
 
 * **Azure 订阅**：若要创建一个月试用帐户，请浏览到 [https://www.azure.cn/pricing/1rmb-trial](https://www.azure.cn/pricing/1rmb-trial)。
-* 启用安全传输的 Azure 存储帐户。 有关说明，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)和[需要安全传输](../storage/common/storage-require-secure-transfer.md)。
-* 存储帐户中的 Blob 容器。 
+*  启用安全传输的 Azure 存储帐户。 有关说明，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)和[需要安全传输](../storage/common/storage-require-secure-transfer.md)。
+*  存储帐户中的 Blob 容器。 
 
 ## <a name="create-cluster"></a>创建群集
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-本部分介绍如何使用 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 HDInsight 中创建 Hadoop 群集。 该模板位于 [Gibhub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-existing-default-storage-account/) 中。 对于遵循本教程，Resource Manager 模板体验不是必需的。 如需其他群集创建方法或需了解本教程中使用的属性，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
+本部分介绍如何使用 [Azure Resource Manager 模板](../azure-resource-manager/resource-group-template-deploy.md)在 HDInsight 中创建 Hadoop 群集。 该模板位于 [Gibhub](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-with-existing-default-storage-account/) 中。 学习本文不需要有资源管理器模板方面的经验。 有关其他群集创建方法以及了解本文中使用的属性，请参阅[创建 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)。
 
 1. 单击以下映像以登录到 Azure，然后在 Azure 门户中打开 Resource Manager 模板。 
    
@@ -47,7 +47,7 @@ ms.locfileid: "58625881"
 
 2. 按说明遵循以下规范创建群集： 
 
-   - 指定 HDInsight 版本 3.6。  3.6 或更高版本是必需的。
+   - 指定 HDInsight 版本 3.6。  3\.6 或更高版本是必需的。
    - 指定启用安全传输的存储帐户。
    - 对存储帐户使用短名称。
    - 必须事先创建存储帐户和 blob 容器。 
@@ -69,7 +69,7 @@ ms.locfileid: "58625881"
 - 使用脚本操作，将其他启用安全传输的存储帐户添加到现有的 HDInsight 群集。  有关详细信息，请参阅[将其他存储帐户添加到 HDInsight](hdinsight-hadoop-add-storage.md)。
 
 ## <a name="next-steps"></a>后续步骤
-本教程介绍了如何创建 HDInsight 群集，以及如何才能安全地传输到存储帐户。
+本文介绍了如何创建 HDInsight 群集，以及如何启用到存储帐户的安全传输。
 
 有关如何使用 HDInsight 分析数据的详细信息，请参阅以下文章：
 
@@ -81,10 +81,11 @@ ms.locfileid: "58625881"
 若要详细了解如何通过 HDInsight 来存储数据，或者如何将数据导入 HDInsight，请参阅以下文章：
 
 * 有关 HDInsight 如何使用 Azure 存储的信息，请参阅[将 Azure 存储与 HDInsight 配合使用](hdinsight-hadoop-use-blob-storage.md)。
-* 有关如何将数据上传到 HDInsight 的信息，请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
+* 若要了解如何将数据上传到 HDInsight，请参阅[将数据上传到 HDInsight][hdinsight-upload-data]。
 
 若要详细了解如何创建或管理 HDInsight 群集，请参阅以下文章：
 
+* 要了解如何管理基于 Linux 的 HDInsight 群集，请参阅[使用 Apache Ambari 管理 HDInsight 群集](hdinsight-hadoop-manage-ambari.md)。
 * 若要详细了解在创建 HDInsight 群集时可以选择哪些选项，请参阅[使用自定义选项在 Linux 上创建 HDInsight](hdinsight-hadoop-provision-linux-clusters.md)。
 * 如果已熟悉 Linux 和 Apache Hadoop，但想要了解有关 HDInsight 上的 Hadoop 的具体信息，请参阅[在 Linux 上使用 HDInsight](hdinsight-hadoop-linux-information.md)。 此文提供了如下所述信息：
 

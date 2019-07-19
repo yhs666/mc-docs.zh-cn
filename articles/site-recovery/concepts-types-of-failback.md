@@ -6,17 +6,17 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 01/17/2019
-ms.date: 03/04/2019
+origin.date: 05/19/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: f00d08f7f2e13c57f834a9f86a3af6237b582a25
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 25c51151683b3f4a3d09cc2aba7f612a688fd62d
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463503"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861683"
 ---
-# <a name="overview-of-failback"></a>故障回复概述
+# <a name="failback-after-disaster-recovery-of-vmware-vms"></a>VMware VM 灾难恢复后的故障回复
 
 在灾难恢复过程中故障转移到 Azure 以后，可以故障回复到本地站点。 使用 Azure Site Recovery 可以执行两种不同类型的故障回复： 
 

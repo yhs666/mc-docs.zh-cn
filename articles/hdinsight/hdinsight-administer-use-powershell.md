@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/17/2019
-ms.date: 05/20/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 86db8cc3300a0d5d22062d440856c5e0ffb831ee
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: d36caf16542c8b72d396734091fb356cb34803e9
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520811"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845401"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -159,10 +159,6 @@ Grant-AzHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredential $c
 ## <a name="find-the-default-storage-account"></a>查找默认存储帐户
 以下 PowerShell 脚本演示了如何获取群集的默认存储帐户名称和相关信息：
 
-> [!IMPORTANT]  
-> 在存储帐户上启用[安全传输](../storage/common/storage-require-secure-transfer.md)时，不会从 [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) 返回 `DefaultStorageAccount` 和 `DefaultStorageContainer` 的值。
-
-
 ```powershell
 #Connect-AzAccount
 $clusterName = "<HDInsight Cluster Name>"
@@ -207,10 +203,6 @@ $resourceGroupName = $cluster.ResourceGroup
 
 请参阅[使用 PowerShell 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-powershell.md)。
 
-**提交 Apache Pig 作业**
-
-请参阅[使用 PowerShell 运行 Apache Pig 作业](hadoop/apache-hadoop-use-pig-powershell.md)。
-
 **提交 Apache Sqoop 作业**
 
 请参阅[将 Apache Sqoop 与 HDInsight 配合使用](hadoop/hdinsight-use-sqoop.md)。
@@ -225,11 +217,10 @@ $resourceGroupName = $cluster.ResourceGroup
 ## <a name="see-also"></a>另请参阅
 * [HDInsight cmdlet 参考文档](https://msdn.microsoft.com/library/azure/dn479228.aspx)
 * [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
-* [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
+* [使用命令行接口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]
-* [将数据上传到 HDInsight][hdinsight-upload-data]
 * [以编程方式提交 Apache Hadoop 作业][hdinsight-submit-jobs]
-* [Azure HDInsight 入门][hdinsight-get-started]
+* [Azure HDInsight 入门](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/
@@ -253,3 +244,4 @@ $resourceGroupName = $cluster.ResourceGroup
 [powershell-install-configure]: https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 
 [image-hdi-ps-provision]: ./media/hdinsight-administer-use-powershell/HDI.PS.Provision.png
+

@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-origin.date: 03/20/2019
-ms.date: 04/22/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: e66742d1fb5bb109100ba0acd2feadaf1b97c681
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: b16d2bdae79a928ff7c7b4f5f0b8825585653533
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854760"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844939"
 ---
 # <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>快速入门：使用 C# 分析图像中是否存在令人反感的内容
 
-本文中的信息和代码示例有助于你完成[适用于 .NET 的内容审查器 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的使用入门。 本文将介绍如何通过扫描方式查找成人或不雅内容、可提取的文本以及人脸，以便审查是否存在可能会令人反感的材料。
+本文中的信息和代码示例有助于你完成[适用于 .NET 的内容审查器 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 的使用入门。 本文介绍如何通过扫描方式查找成人或不雅内容、可提取的文本以及人脸，以便审查是否存在可能会令人反感的材料。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。 
 
@@ -37,7 +37,7 @@ ms.locfileid: "64854760"
 
 1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **ImageModeration**。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
-1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包：
+1. 获取所需的 NuGet 包。 右键单击解决方案资源管理器中的项目，选择“管理 NuGet 包”，然后找到并安装以下包： 
     - Microsoft.Azure.CognitiveServices.ContentModerator
     - Microsoft.Rest.ClientRuntime
     - Newtonsoft.Json
@@ -63,7 +63,7 @@ using System.Threading;
 
 ### <a name="create-the-content-moderator-client"></a>Create the Content Moderator client
 
-向 *Program.cs* 文件添加以下代码，为订阅创建内容审查器客户端提供程序。 在同一命名空间中添加此代码和 **Program** 类。 还需使用区域标识符和订阅密钥的值更新 AzureRegion 和 CMSubscriptionKey 字段。
+向 *Program.cs* 文件添加以下代码，为订阅创建内容审查器客户端提供程序。 在同一命名空间中添加此代码和 **Program** 类。 还需使用区域标识符和订阅密钥的值更新  AzureRegion 和 CMSubscriptionKey  字段。
 
 ```c#
 // Wraps the creation and configuration of a Content Moderator client.
@@ -94,7 +94,7 @@ public static class Clients
 
 ### <a name="set-up-input-and-output-targets"></a>设置输入和输出目标
 
-向 Program.cs 中的 Program 类添加以下静态字段。 这些字段指定输入图像内容和输出 JSON 内容的文件。
+向 Program.cs 中的 Program 类添加以下静态字段   。 这些字段指定输入图像内容和输出 JSON 内容的文件。
 
 ```c#
 //The name of the file that contains the image URLs to evaluate.
@@ -170,7 +170,7 @@ private static EvaluationData EvaluateImage(
 
 ### <a name="load-the-input-images"></a>加载输入图像
 
-在 **Program** 类的 **Main** 方法中添加以下代码。 这样会将程序设置为检索输入文件中每个图像 URL 的评估数据， 然后会将该数据写入单个输出文件中。
+在 **Program** 类的 **Main** 方法中添加以下代码。 此代码会将程序设置为检索输入文件中每个图像 URL 的评估数据， 然后会将该数据写入单个输出文件中。
 
 ```c#
 // Create an object to store the image moderation results.
@@ -207,7 +207,7 @@ using (StreamWriter outputWriter = new StreamWriter(OutputFile, false))
 
 ## <a name="run-the-program"></a>运行程序
 
-程序会将 JSON 字符串数据写入 _ModerationOutput.json_ 文件。 本快速入门中使用的示例图像的输出如下。 注意，每个图像有对应于 `ImageModeration`、`FaceDetection` 和 `TextDetection` 的不同部分，对应于 **EvaluateImage** 方法中的三个 API 调用。
+程序会将 JSON 字符串数据写入 _ModerationOutput.json_ 文件。 本快速入门中使用的示例图像的输出如下。 每个图像有对应于 `ImageModeration`、`FaceDetection` 和 `TextDetection` 的不同部分，对应于 **EvaluateImage** 方法中的三个 API 调用。
 
 ```json
 [{

@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/13/2019
-ms.date: 06/24/2019
+origin.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: abd117ba23f5f55bfe45e9577ee86925f6756376
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: a5afde65956294c4a5b58f85f1ca641e6a65127e
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136004"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845024"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -25,6 +25,9 @@ HDInsight 提供弹性，可让你选择扩展和缩减群集中的工作节点�
 
 可以使用下述方法之一手动缩放群集，也可以使用[自动缩放](hdinsight-autoscale-clusters.md)选项，让系统根据 CPU、内存等指标自动进行纵向扩展和缩减。
 
+> [!NOTE]  
+> 只支持使用 HDInsight 3.1.3 或更高版本的群集。 如果不确定群集的版本，可以查看“属性”页面。
+
 ## <a name="utilities-to-scale-clusters"></a>用来缩放群集的实用程序
 
 Microsoft 提供以下实用程序来缩放群集：
@@ -33,9 +36,9 @@ Microsoft 提供以下实用程序来缩放群集：
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Set-AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Set-AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<群集名称> -TargetInstanceCount \<NewSize>|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
+|[Azure CLI](/cli/?view=azure-cli-latest)|[az hdinsight resize](/cli/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource-group \<资源组> --name \<群集名称> --target-instance-count \<NewSize>|
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight cluster resize \<clusterName> \<目标实例计数> |
-|[Azure 门户](https://portal.azure.com)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。 |  
+|[Azure 门户](https://portal.azure.cn)|打开 HDInsight 群集的窗格，在左侧菜单中选择“群集大小”，然后在“群集大小”窗格中键入工作节点数并选择“保存”。 |  
 
     ![Scale cluster](./media/hdinsight-scaling-best-practices/scale-cluster-blade.png)
 
@@ -51,6 +54,50 @@ Microsoft 提供以下实用程序来缩放群集：
 
 如果**删除**节点（纵向缩减），则当缩放操作完成时，任何挂起的或正在运行的作业将会失败。 该失败的原因是在缩放过程中某些服务重启。 此外还有这样一种风险：在手动缩放操作过程中，群集可能停滞在安全模式下。
 
+对于 HDInsight 支持的每种类型的群集，更改数据节点数的影响有所不同：
+
+* Apache Hadoop
+
+    可顺利增加正在运行的 Hadoop 群集中的辅助节点数，而不会影响任何挂起或运行中的作业。 也可在操作进行中提交新作业。 系统会正常处理失败的缩放操作，让群集始终保持正常运行状态。
+
+    减少数据节点数目以缩减 Hadoop 群集时，系统会重新启动群集中的某些服务。 此行为会导致所有正在运行和挂起的作业在缩放操作完成时失败。 但是，可在操作完成后重新提交这些作业。
+
+* Apache HBase
+
+    可在 HBase 群集运行时顺利添加或删除节点。 完成缩放操作后的几分钟内，区域服务器自动平衡。 但也可手动平衡区域服务器，方法是登录到群集的头节点，并在命令提示符窗口中运行以下命令：
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    有关使用 HBase shell 的详细信息，请参阅 [HDInsight 中的 Apache HBase 示例入门](hbase/apache-hbase-tutorial-get-started-linux.md)。
+
+* Apache Storm
+
+    可在 Storm 群集运行时顺利添加或删除数据节点。 但是，在缩放操作成功完成后，需要重新平衡拓扑。
+
+    可以使用两种方法来完成重新平衡操作：
+
+  * Storm Web UI
+  * 命令行界面 (CLI) 工具
+
+    有关详细信息，请参阅 [Apache Storm 文档](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
+
+    HDInsight 群集上提供了 Storm Web UI：
+
+    ![HDInsight Storm 缩放重新平衡](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    以下是用于重新平衡 Storm 拓扑的示例 CLI 命令：
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
+
 ## <a name="how-to-safely-scale-down-a-cluster"></a>如何安全地纵向缩减群集
 
 ### <a name="scale-down-a-cluster-with-running-jobs"></a>通过运行的作业纵向缩减群集
@@ -63,11 +110,10 @@ Microsoft 提供以下实用程序来缩放群集：
 
 若要查看挂起的和正在运行的作业列表，可以遵循以下步骤使用 YARN **ResourceManager UI**：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在左侧导航到“所有服务” > “分析” > “HDInsight 群集”，然后选择群集。   
-3. 在主视图中，导航到“群集仪表板”   >   “Ambari 主页”。 输入群集凭据。
-4. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。   
-5. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。  
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择群集。  有关说明，请参阅[列出和显示群集](./hdinsight-administer-use-portal-linux.md#showClusters)。 群集会在新的门户页中打开。
+2. 在主视图中，导航到“群集仪表板”   >   “Ambari 主页”。 输入群集凭据。
+3. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。   
+4. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。  
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
@@ -144,13 +190,13 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 1. 停止 Hive 服务，并确保所有查询和作业都已完成。
 2. 列出在上面找到的 scratch 目录 `hdfs://mycluster/tmp/hive/` 的内容，看其是否包含任何文件：
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
     
     下面是存在文件时的示例输出：
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -164,7 +210,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 
     用于从 HDFS 中删除文件的示例命令行：
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -204,4 +250,3 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure HDInsight 简介](hadoop/apache-hadoop-introduction.md)
-* [缩放群集](hdinsight-administer-use-portal-linux.md#scale-clusters)

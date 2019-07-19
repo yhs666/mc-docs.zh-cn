@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 01/21/2019
+origin.date: 05/30/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0f18c0ef46e72360a4679cb62b42927f326b287d
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: 0296b79ba27cc294fee583bff69ac17a72de51df
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363518"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861703"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>将本地 Hyper-V VM 灾难恢复到 Azure 时的支持矩阵
 
@@ -31,8 +31,8 @@ ms.locfileid: "54363518"
 
 **服务器** | **要求** | **详细信息**
 --- | --- | ---
-Hyper-V（不使用 Virtual Machine Manager 运行） | Windows Server 2016 （包括服务器核心安装），最新更新的 Windows Server 2012 R2 | 对于运行 Windows Server 2016 的主机上的 VM，不支持恢复到备用位置。<br/><br/> 如果已使用 Azure Site Recovery 配置 Windows Server 2012 R2 和/或 SCVMM 2012 R2 并计划升级 OS，请遵循指南[文档](upgrade-2012R2-to-2016.md)。 
-Hyper-V（使用 Virtual Machine Manager 运行） | Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager，Windows Server 2016 主机应在 Virtual Machine Manager 2016 中托管。<br/><br/>
+Hyper-V（不使用 Virtual Machine Manager 运行） |  Windows Server 2019、Windows Server 2016 （包括服务器核心安装）、包含最新更新的 Windows Server 2012 R2 | 如果已使用 Azure Site Recovery 配置 Windows Server 2012 R2 和/或 SCVMM 2012 R2 并计划升级 OS，请遵循指南[文档](upgrade-2012R2-to-2016.md)。 
+Hyper-V（使用 Virtual Machine Manager 运行） | Virtual Machine Manager 2019、Virtual Machine Manager 2016、Virtual Machine Manager 2012 R2 | 如果使用 Virtual Machine Manager，Windows Server 2019 主机应在 Virtual Machine Manager 2019 中托管。 同样，Windows Server 2016 主机应在 Virtual Machine Manager 2016 中托管。<br/><br/>
 
 ## <a name="replicated-vms"></a>复制的 VM
 
@@ -83,11 +83,11 @@ Azure 虚拟网络服务终结点<br/> （不带 Azure 存储防火墙） | 是 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 主机存储
 
 **存储** | **使用 Virtual Machine Manager 的 Hyper-V** | **不使用 Virtual Machine Manager 的 Hyper-V**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | 不可用 | 不可用
 SMB 3.0 | 是 | 是
 SAN (ISCSI) | 是 | 是
-多路径 (MPIO)。 测试时使用的对象：<br></br> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 是 | 是
+多路径 (MPIO)。 测试时使用的对象：<br><br /> Microsoft DSM、EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | 是 | 是
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 来宾存储
 
@@ -154,7 +154,7 @@ FC 磁盘 | 不支持 | 如果不支持，先决条件检查会失败。
 硬盘格式 | VHD <br/><br/> VHDX | 故障转移到 Azure 时，Site Recovery 自动将 VHDX 转换为 VHD。 故障回复到本地时，虚拟机将继续使用 VHDX 格式。
 BitLocker | 不支持 | 为 VM 启用复制之前，必须先禁用 BitLocker。
 VM 名称 | 介于 1 和 63 个字符之间。 限制为字母、数字和连字符。 VM 名称必须以字母或数字开头和结尾。 | 在 Site Recovery 中更新 VM 属性中的值。
-VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br></br>不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
+VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基本”的第 2 代 VM（其中包括一个或两个格式化为 VHDX 的数据卷），并且支持的磁盘空间大小小于 300 GB。<br><br />不支持 Linux 第 2 代 VM。 [了解详细信息](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/)。|
 
 ## <a name="recovery-services-vault-actions"></a>恢复服务保管库操作
 
@@ -171,7 +171,7 @@ VM 类型 | 第 1 代<br/><br/> 第 2 代 - Windows | OS 磁盘类型为“基�
 若要确保部署与本文的设置兼容，请确保运行的是最新的提供程序和代理版本。
 
 **名称** | **说明** | **详细信息**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Azure Site Recovery 提供程序 | 协调本地服务器与 Azure 之间的通信 <br/><br/> 使用 Virtual Machine Manager 的 Hyper-V：安装在 Virtual Machine Manager 服务器上<br/><br/> 不使用 Virtual Machine Manager 的 Hyper-V：安装在 Hyper-V 主机上| 最新版本：5.1.2700.1（可从 Azure 门户获得）<br/><br/> [最新功能和修复](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Azure 恢复服务代理 | 协调 Hyper-V VM 与 Azure 之间的复制<br/><br/> 在本地 Hyper-V 服务器（使用或不使用 Virtual Machine Manager）上安装 | 可从门户获取最新代理
 

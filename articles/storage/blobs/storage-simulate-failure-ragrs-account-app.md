@@ -6,20 +6,21 @@ author: WenJason
 ms.service: storage
 ms.topic: tutorial
 origin.date: 01/03/2019
-ms.date: 03/25/2019
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.openlocfilehash: 922241dc7835cd9d375f86a0df36d2415eca7f2c
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.reviewer: artek
+ms.openlocfilehash: 41ba3c9eb2870fad74e7eae0a0406ae736954f1f
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253914"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844516"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>教程：模拟在访问读取访问冗余存储时出现的故障
 
 本教程是一个系列中的第二部分。 本教程通过模拟一个故障，介绍[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 的优点。
 
-若要模拟故障，可以使用[静态路由](#simulate-a-failure-with-an-invalid-static-route)或 [Fiddler](#simulate-a-failure-with-fiddler)。 使用这两种方法都可以模拟这样一个故障：向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发送请求，导致应用程序改从辅助终结点读取内容。 
+若要模拟故障，可以使用[静态路由](#simulate-a-failure-with-an-invalid-static-route)或 [Fiddler](#simulate-a-failure-with-fiddler)。 使用这两种方法都可以模拟这样一个故障：向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发送请求，导致应用程序改从辅助终结点读取内容。
 
 如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -27,12 +28,12 @@ ms.locfileid: "58253914"
 
 > [!div class="checklist"]
 > * 运行和暂停应用程序
-> * 使用[无效的静态路由](#simulate-a-failure-with-an-invalid-static-route)或 [Fiddler](#simulate-a-failure-with-fiddler) 模拟故障 
+> * 使用[无效的静态路由](#simulate-a-failure-with-an-invalid-static-route)或 [Fiddler](#simulate-a-failure-with-fiddler) 模拟故障
 > * 模拟主终结点还原
 
 ## <a name="prerequisites"></a>先决条件
 
-开始学习本教程之前，请完成前一教程：[使用 Azure 存储实现应用程序数据的高可用性][previous-tutorial]。
+开始学习本教程之前，请完成前一教程：[使应用程序数据在 Azure 存储中高度可用][previous-tutorial]。
 
 若要使用静态路由模拟故障，需要使用权限提升的命令提示符。
 
@@ -40,11 +41,11 @@ ms.locfileid: "58253914"
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>使用无效的静态路由模拟失败
 
-对于向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发出的所有请求，可以创建一个无效的静态路由。 本教程使用本地主机作为网关来路由向存储帐户发出的请求。 使用本地主机作为网关会导致向存储帐户主终结点发出的所有请求都以循环方式返回到主机内，随后导致请求失败。 执行以下步骤，使用无效的静态路由模拟失败和主终结点还原。 
+对于向[读取访问异地冗余](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) (RA-GRS) 存储帐户的主终结点发出的所有请求，可以创建一个无效的静态路由。 本教程使用本地主机作为网关来路由向存储帐户发出的请求。 使用本地主机作为网关会导致向存储帐户主终结点发出的所有请求都以循环方式返回到主机内，随后导致请求失败。 执行以下步骤，使用无效的静态路由模拟失败和主终结点还原。
 
 ### <a name="start-and-pause-the-application"></a>启动和暂停应用程序
 
-使用[前一篇教程][previous-tutorial]中的说明启动示例并下载测试文件（确认该文件来自主存储）。 然后，可以根据目标平台手动暂停示例或等待出现提示。 
+使用[前一篇教程][previous-tutorial]中的说明启动示例并下载测试文件（确认该文件来自主存储）。 然后，可以根据目标平台手动暂停示例或等待出现提示。
 
 ### <a name="simulate-failure"></a>模拟故障
 
@@ -54,11 +55,11 @@ ms.locfileid: "58253914"
 
 ```
 nslookup STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn
-``` 
+```
 
 将存储帐户的 IP 地址复制到文本编辑器中，供以后使用。
 
-若要获取本地主机的 IP 地址，请在 Windows 命令提示符处键入 `ipconfig`，或者在 Linux 终端上键入 `ifconfig`。 
+若要获取本地主机的 IP 地址，请在 Windows 命令提示符处键入 `ipconfig`，或者在 Linux 终端上键入 `ifconfig`。
 
 若要添加目标主机的静态路由，请在 Windows 命令提示符下或 Linux 终端中键入以下命令（请将 `<destination_ip>` 替换为存储帐户 IP 地址，将 `<gateway_ip>` 替换为本地主机 IP 地址）。
 
@@ -74,7 +75,7 @@ route add <destination_ip> gw <gateway_ip>
 route add <destination_ip> <gateway_ip>
 ```
 
-在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并确认该文件来自辅助存储。 然后可以再次暂停示例或等待出现提示。 
+在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并确认该文件来自辅助存储。 然后可以再次暂停示例或等待出现提示。
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模拟主终结点还原
 
@@ -102,28 +103,28 @@ route delete <destination_ip>
 
 ### <a name="launch-fiddler"></a>启动 Fiddler
 
-打开 Fiddler，选择“规则”和“自定义规则”。
+打开 Fiddler，选择“规则”和“自定义规则”。  
 
 ![自定义 Fiddler 规则](media/storage-simulate-failure-ragrs-account-app/figure1.png)
 
-此时，Fiddler ScriptEditor 会启动，并显示 SampleRules.js 文件。 此文件用于自定义 Fiddler。
+此时，Fiddler ScriptEditor 会启动，并显示 SampleRules.js  文件。 此文件用于自定义 Fiddler。
 
 在 `OnBeforeResponse` 函数中粘贴以下代码示例（请将 `STORAGEACCOUNTNAME` 替换为存储帐户的名称）。 根据示例，可能还需要将 `HelloWorld` 替换为所要下载的测试文件的名称（或类似于 `sampleFile` 的前缀）。 新代码已注释掉，以确保它不会立即运行。
 
-完成后，依次选择“文件”和“保存”，保存所做的更改。 将 ScriptEditor 窗口保持打开，以执行后续步骤。
+完成后，依次选择“文件”  和“保存”  ，保存所做的更改。 将 ScriptEditor 窗口保持打开，以执行后续步骤。
 
 ```javascript
     /*
         // Simulate data center failure
         // After it is successfully downloading the blob, pause the code in the sample,
         // uncomment these lines of script, and save the script.
-        // It will intercept the (probably successful) responses and send back a 503 error. 
-        // When you're ready to stop sending back errors, comment these lines of script out again 
+        // It will intercept the (probably successful) responses and send back a 503 error.
+        // When you're ready to stop sending back errors, comment these lines of script out again
         //     and save the changes.
 
-        if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn") 
+        if ((oSession.hostname == "STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn")
             && (oSession.PathAndQuery.Contains("HelloWorld"))) {
-            oSession.responseCode = 503;  
+            oSession.responseCode = 503;
         }
     */
 ```
@@ -132,19 +133,19 @@ route delete <destination_ip>
 
 ### <a name="start-and-pause-the-application"></a>启动和暂停应用程序
 
-使用[前一篇教程][previous-tutorial]中的说明启动示例并下载测试文件（确认该文件来自主存储）。 然后，可以根据目标平台手动暂停示例或等待出现提示。 
+使用[前一篇教程][previous-tutorial]中的说明启动示例并下载测试文件（确认该文件来自主存储）。 然后，可以根据目标平台手动暂停示例或等待出现提示。
 
 ### <a name="simulate-failure"></a>模拟故障
 
-当应用程序处于暂停状态时，切换回到 Fiddler，并取消注释在 `OnBeforeResponse` 函数中保存的自定义规则。 请务必选择“文件”、“保存”来保存更改，使规则生效。 此代码查找对 RA-GRS 存储帐户发出的请求，如果路径包含示例文件的名称，则返回响应代码 `503 - Service Unavailable`。
+当应用程序处于暂停状态时，切换回到 Fiddler，并取消注释在 `OnBeforeResponse` 函数中保存的自定义规则。 请务必选择“文件”、“保存”来保存更改，使规则生效。   此代码查找对 RA-GRS 存储帐户发出的请求，如果路径包含示例文件的名称，则返回响应代码 `503 - Service Unavailable`。
 
-在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并确认该文件来自辅助存储。 然后可以再次暂停示例或等待出现提示。 
+在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并确认该文件来自辅助存储。 然后可以再次暂停示例或等待出现提示。
 
 ### <a name="simulate-primary-endpoint-restoration"></a>模拟主终结点还原
 
-在 Fiddler 中删除或再次注释掉自定义规则。 选择“文件”、“保存”，确保该规则不再生效。
+在 Fiddler 中删除或再次注释掉自定义规则。 选择“文件”、“保存”，确保该规则不再生效。  
 
-在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并再次确认该文件来自主存储。 然后可以退出示例。 
+在运行示例的窗口中恢复应用程序，或者按下相应的键下载示例文件，并再次确认该文件来自主存储。 然后可以退出示例。
 
 ## <a name="next-steps"></a>后续步骤
 

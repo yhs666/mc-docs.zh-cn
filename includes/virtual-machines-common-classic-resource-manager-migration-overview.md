@@ -9,12 +9,12 @@ origin.date: 04/25/2019
 ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1de39845b43b81e18f9d855eea3fe5e753d68472
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: f4dfa762826b9942a687cd0b1566eba73575668f
+ms.sourcegitcommit: 4fbef0ad2ed0a76b89bb69c8984c75668a338c6e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570271"
+ms.lasthandoff: 07/11/2019
+ms.locfileid: "67812537"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移
 本文介绍如何将基础结构即服务 (IaaS) 资源从经典部署模型迁移到资源管理器部署模型，并详细说明如何使用虚拟网络站点到站点网关连接两个在订阅中共存的两个部署模型的资源。 用户可以阅读有关 [Azure Resource Manager 功能和优点](../articles/azure-resource-manager/resource-group-overview.md)的更多内容。 
@@ -73,22 +73,16 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 
 如果存储帐户没有任何关联的磁盘或虚拟机数据，并且只有 blob、文件、表和队列，那么到 Azure 资源管理器的迁移可以作为独立的迁移完成，而不需要依赖项。
 
+<!--MOONCAKE: No **Migrate to ARM** submenu in Azure China Portal, only use Powershell-->
+
 > [!NOTE]
 > Resource Manager 部署模型没有经典映像和磁盘的概念。 迁移存储帐户时，经典映像和磁盘不在 Resource Manager 堆栈中可见，但后备 VHD 保留在存储帐户中。
+>
+> 有关迁移存储帐户的更多详细信息，可以参考[使用 PowerShell 迁移存储帐户](https://docs.azure.cn/zh-cn/virtual-machines/windows/migration-classic-resource-manager-ps#step-62-migrate-a-storage-account)。
 
-以下屏幕截图演示了如何使用 Azure 门户将经典存储帐户升级到 Azure 资源管理器存储帐户：
-1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 导航到存储帐户。
-3. 在“设置”部分单击“迁移到 ARM”。  
-4. 单击“验证”，确定迁移可行性。 
-5. 如果验证通过，请单击“准备”  ，以便创建迁移的存储帐户。
-6. 键入“是”对迁移进行确认，然后单击“提交”   完成迁移。
+<!--MOONCAKE: No **Migrate to ARM** submenu in Azure China Portal-->
 
-    ![验证存储帐户](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
-
-    ![准备存储帐户](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
-
-    ![完成存储帐户迁移](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
+<!--MOONCAKE: No **Migrate to ARM** submenu in Azure China Portal, only use Powershell-->
 
 ### <a name="migration-of-unattached-resources"></a>未附加资源的迁移
 没有关联的磁盘或虚拟机数据的存储帐户可以单独迁移。

@@ -7,15 +7,15 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: 02343cb7166a0eeab6719f3328f4929421779068
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 963b80765825a3bf31013e38813e0a4e2ecae7b7
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004133"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844395"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 中的访问控制
 
@@ -27,9 +27,9 @@ Azure Data Lake Storage Gen2 实现了一个访问控制模型，该模型支持
 
 RBAC 使用角色分配对服务主体有效地应用权限集。  安全主体是一个对象，表示 Azure Active Directory (AD) 中定义的、请求访问 Azure 资源的用户、组或服务主体。 
 
-一般情况下，这些 Azure 资源限制为顶级资源（例如：Azure 存储帐户）。 就 Azure 存储以及 Azure Data Lake Storage Gen2 而言，此机制已扩展到文件系统资源。
+一般情况下，这些 Azure 资源限制为顶级资源（例如：Azure 存储帐户）。 就 Azure 存储以及随后的 Azure Data Lake Storage Gen2 而言，此机制已扩展到容器（文件系统）资源。
 
-若要了解如何在存储帐户范围内将角色分配到安全主体，请参阅[使用 Azure Active Directory 验证对 Azure Blob 和队列的访问权限](/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
+若要了解如何为存储帐户范围内的安全主体分配角色，请参阅[在 Azure 门户中使用 RBAC 授予对 Azure blob 和队列数据的访问权限](/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)。
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>角色分配对文件和目录级访问控制列表的影响
 
@@ -54,7 +54,7 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 
 如果在存储帐户级别将角色分配到某个安全主体，则可以使用访问控制列表授予该安全主体对特定文件和目录的提升访问权限。
 
-无法使用访问控制列表来提供比角色分配授予的级别更低的访问级别。 例如，如果将[存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-blob-data-contributor-preview)角色分配到了某个安全主体，则无法使用访问控制列表来防止该安全主体写入目录。
+无法使用访问控制列表来提供比角色分配授予的级别更低的访问级别。 例如，如果将[存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-blob-data-contributor)角色分配到了某个安全主体，则无法使用访问控制列表来防止该安全主体写入目录。
 
 ### <a name="set-file-and-directory-level-permissions-by-using-access-control-lists"></a>使用访问控制列表设置文件和目录级权限
 
@@ -90,6 +90,9 @@ SAS 令牌本身就包含允许的权限。 它包含的权限有效地应用到
 | **读取 (R)** | 可以读取文件内容 | 需有“读取”和“执行”权限才能列出目录内容   |
 | **写入 (W)** | 可以在文件中写入或追加内容 | 需有“写入”和“执行”权限才能在目录中创建子项   |
 | **执行 (X)** | 不表示 Data Lake Storage Gen2 上下文中的任何内容 | 需要遍历目录的子项 |
+
+> [!NOTE]
+> 如果仅使用 ACL（无 RBAC）授予权限，则要授予服务主体对文件的读或写访问权限，需要授予服务主体对文件系统以及通向该文件的文件夹层次结构中每个文件夹的 **EXECUTE** 权限。
 
 #### <a name="short-forms-for-permissions"></a>权限的简短形式
 

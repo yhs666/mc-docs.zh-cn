@@ -8,18 +8,18 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33ba10d0a65d72b12d27d90cac5ebe59e969197f
-ms.sourcegitcommit: 7fdba97400f00af4e8c5877ab89aa055cade88b1
+ms.openlocfilehash: c76912d0775a026d77416d68409be818174984e6
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/10/2019
-ms.locfileid: "66816787"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844948"
 ---
-# <a name="common-security-attributes-for-azure-service-fabric"></a>Azure Service Fabric 的常见安全属性
+# <a name="security-attributes-for-azure-service-fabric"></a>Azure Service Fabric 的安全属性
 
-安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 Azure Service Fabric 中的常见安全属性。 
+本文记录了内置到 Azure Service Fabric 中的安全属性。 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -66,7 +66,7 @@ ms.locfileid: "66816787"
 
 ## <a name="configuration-management"></a>配置管理
 
-| 安全特性 | Yes/No | 注释|
+| 安全属性 | Yes/No | 注释|
 |---|---|--|
 | 配置管理支持（配置的版本控制等）| 是 | |
 

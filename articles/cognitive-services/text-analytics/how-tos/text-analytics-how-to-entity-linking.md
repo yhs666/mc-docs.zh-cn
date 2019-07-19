@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 22e2ae82d11f0d6cc6e0d75de1b8cb3694e23264
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 3f765cd4b7989f67a8acffac2ebdba7c16a6413c
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830073"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844593"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>如何在文本分析中使用命名实体识别
 
@@ -32,7 +32,7 @@ ms.locfileid: "66830073"
 ### <a name="named-entity-recognition-ner"></a>命名实体识别 (NER)
 命名实体识别 (NER) 是指识别文本中不同实体，并将它们分入预定义类别的能力。 下面列出了受支持的实体类型。
 
-文本分析[版本 2.1](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 中同时提供了实体链接和命名实体识别 (NER)。
+在文本分析[版本 2.1](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 中，实体链接和命名实体识别 (NER) 均可用于几种语言。 有关详细信息，请参阅[语言支持](../language-support.md#sentiment-analysis-key-phrase-extraction-and-named-entity-recognition)一文。 
 
 ### <a name="language-support"></a>语言支持
 
@@ -54,7 +54,7 @@ ms.locfileid: "66830073"
 | 数量      | 维度     | “10 miles”、“40 cm”     | 
 | 数量      | 温度   | “32 degrees”    |
 | DateTime      | 暂无\*         | “6:30PM February 4, 2012”      | 
-| DateTime      | 日期          | “May 2nd, 2017”、“05/02/2017”   | 
+| DateTime      | Date          | “May 2nd, 2017”、“05/02/2017”   | 
 | DateTime      | 时间          | “8am”、“8:00”  | 
 | DateTime      | DateRange     | “May 2nd to May 5th”    | 
 | DateTime      | TimeRange     | “6pm to 7pm”     | 
@@ -106,7 +106,7 @@ ms.locfileid: "66830073"
 
 ## <a name="step-2-post-the-request"></a>步骤 2：发布请求
 
-在收到请求时执行分析。 该服务每秒最多接受 100 个请求，每分钟最多接受 1000 个请求。 每个请求最大为 1 MB。
+在收到请求时执行分析。 有关每分钟和每秒可以发送的请求的大小和数量的信息，请参阅概述中的[数据限制](../overview.md#data-limits)部分。
 
 记住，该服务是无状态服务。 帐户中未存储任何数据。 结果会立即在响应中返回。
 
@@ -291,5 +291,6 @@ ms.locfileid: "66830073"
 
 * [文本分析概述](../overview.md)  
 * [常见问题解答 (FAQ)](../text-analytics-resource-faq.md)</br>
+* [文本分析产品页](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/) 
 
 <!-- Update_Description: wording update -->

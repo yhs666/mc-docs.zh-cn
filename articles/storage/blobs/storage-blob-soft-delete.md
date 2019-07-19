@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/23/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: blobs
-ms.openlocfilehash: 82517d40b5855ce8c97f807a0e9041fc45cd3b52
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 7f4a757fb6e16f5cd0f09ba8fa6d628ac9399e26
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004329"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844502"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Azure 存储 Blob 的软删除
 Azure 存储现提供 Blob 对象软删除，目的是为了在应用程序或其他存储帐户用户错误地修改或删除数据后可以更轻松地恢复数据。
@@ -275,13 +275,10 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## <a name="should-i-use-soft-delete"></a>是否应该使用软删除？
-如果应用程序或其他存储帐户用户可能意外修改或删除数据，则建议启用软删除。 作为数据保护策略的一部分，软删除可防止数据意外丢失。
+## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>使用软删除时是否有任何特殊注意事项？
+如果应用程序或其他存储帐户用户可能意外修改或删除数据，则建议启用软删除。 为频繁覆盖的数据启用软删除可能会导致在列出 Blob 时存储容量费用增加且延迟增加。 可以通过将频繁覆盖的数据存储在禁用了软删除的单独存储帐户中来缓解此问题。 
 
 ## <a name="faq"></a>常见问题
-**使用软删除时是否有任何特殊注意事项？**  
-为频繁覆盖的数据启用软删除可能会导致在列出 Blob 时存储容量费用增加且延迟增加。 可以通过将频繁覆盖的数据存储在禁用了软删除的单独存储帐户中来缓解此问题。 
-
 **哪种存储类型可以使用软删除？**  
 目前，软删除仅适用于 blob（对象）存储。
 

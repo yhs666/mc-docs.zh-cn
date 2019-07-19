@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 04/22/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c8481c9b799670f3f9403d4114528850788eaaea
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 0cbd674dd5014dd8f12340a4b4409144bbd4d214
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855151"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844642"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>快速入门：使用 REST API 和 Java 检测图像中的人脸
 
@@ -31,7 +31,7 @@ ms.locfileid: "64855151"
 
 ## <a name="create-the-java-project"></a>创建 Java 项目
 
-1. 在 IDE 中创建新的命令行 Java 应用，并使用 **main** 方法添加 **Main** 类。
+1. 在 IDE 中创建新的命令行 Java 应用，并添加包含 **main** 方法的 **Main** 类。
 1. 将以下库导入到你的 Java 项目中。 如果使用 Maven，则为每个库提供 Maven 坐标。
    - [Apache HTTP 客户端](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.6)
    - [Apache HTTP 核心](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.10)
@@ -251,4 +251,4 @@ public class Main {
 > [!div class="nextstepaction"]
 > [教程：创建一个用于检测和定格人脸的 Android 应用](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

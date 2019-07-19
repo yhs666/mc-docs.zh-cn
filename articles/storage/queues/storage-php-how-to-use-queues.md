@@ -1,22 +1,22 @@
 ---
-title: 如何通过 PHP 使用队列存储 | Microsoft Docs
+title: 如何通过 PHP 使用队列存储 - Azure 存储
 description: 了解如何使用 Azure 队列存储服务创建和删除队列，以及插入、获取和删除消息。 示例用 PHP 编写。
 services: storage
 author: WenJason
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: article
 origin.date: 01/11/2018
-ms.date: 12/10/2018
+ms.date: 07/15/2019
 ms.author: v-jay
-ms.component: queues
-ms.openlocfilehash: 8cd0867c4da100ad2106b91418281edc8b61c341
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.reviewer: cbrooks
+ms.subservice: queues
+ms.openlocfilehash: eedb00f60431eaffb4ff0e27e2b10334b99a17fc
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029046"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844514"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>如何通过 PHP 使用队列存储
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -46,14 +46,14 @@ ms.locfileid: "53029046"
       }
     }
     ```
-2. 将 [composer.phar][composer-phar] 下载到项目根目录中。
+2. 将 **[composer.phar][composer-phar]** 下载到项目根目录中。
 3. 打开命令提示符并在项目根目录中执行以下命令
    
     ```
     php composer.phar install
     ```
 
-或者转到 GitHub 上的 [Azure 存储 PHP 客户端库][download]，然后克隆源代码。
+或者转到 GitHub 上的 [Azure 存储 PHP 客户端库][download]，以克隆源代码。
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>配置应用程序以访问队列存储
 若要使用 Azure 队列存储 API，需执行以下操作：
@@ -61,7 +61,7 @@ ms.locfileid: "53029046"
 1. 使用 [require_once] 语句引用 autoloader 文件。
 2. 引用可使用的所有类。
 
-以下示例演示如何添加 autoloader 文件和引用 QueueRestProxy 类。
+以下示例演示如何添加 autoloader 文件和引用 QueueRestProxy 类  。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -85,10 +85,10 @@ DefaultEndpointsProtocol=[http|https];AccountName=[yourAccount];AccountKey=[your
 UseDevelopmentStorage=true
 ```
 
-若要创建 Azure 队列服务客户端，则需要使用 QueueRestProxy 类。 可使用以下方法之一：
+若要创建 Azure 队列服务客户端，则需要使用 QueueRestProxy 类  。 可使用以下方法之一：
 
 * 将连接字符串直接传递给它。
-* 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/web-sites-configure.md)文档。
+* 在 Web 应用中使用环境变量来存储连接字符串。 要配置连接字符串，请参阅 [Azure Web 应用配置设置](../../app-service/configure-common.md)文档。
 在此处列出的示例中，将直接传递连接字符串。
 
 ```php
@@ -101,7 +101,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## <a name="create-a-queue"></a>创建队列
-QueueRestProxy 对象允许使用 createQueue 方法创建队列。 创建队列时，可以在该队列上设置选项，但此操作不是必需的。 （下面的示例演示了如何在队列上设置元数据。）
+QueueRestProxy  对象允许使用 createQueue  方法创建队列。 创建队列时，可以在该队列上设置选项，但此操作不是必需的。 （下面的示例演示了如何在队列上设置元数据。）
 
 ```php
 require_once 'vendor/autoload.php';
@@ -127,7 +127,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -140,7 +140,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="add-a-message-to-a-queue"></a>向队列添加消息
-若要将消息添加到队列，请使用 QueueRestProxy->createMessage。 此方法接受队列名称、消息文本和消息选项（这些都是可选的）。
+若要将消息添加到队列，请使用 QueueRestProxy->createMessage  。 此方法接受队列名称、消息文本和消息选项（这些都是可选的）。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -161,7 +161,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -169,7 +169,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="peek-at-the-next-message"></a>扫视下一条消息
-通过调用 QueueRestProxy->peekMessages，可以扫视队列前面的消息，而不会从队列中将其删除。 默认情况下，peekMessage 方法返回单条消息，但可以使用 PeekMessagesOptions->setNumberOfMessages 方法更改该值。
+通过调用 QueueRestProxy->peekMessages  ，可以扫视队列前面的消息，而不会从队列中将其删除。 默认情况下，peekMessage  方法返回单条消息，但可以使用 PeekMessagesOptions->setNumberOfMessages  方法更改该值。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -193,7 +193,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -217,7 +217,7 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>取消对下一条消息的排队
-代码分两步从队列中删除消息。 首先，调用 QueueRestProxy->listMessages，这将使消息对从队列中读取的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 （如果在此时段内未删除该消息，它会在队列上再次可见。）若要从队列中删除消息，必须调用 QueueRestProxy->deleteMessage。 此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 代码处理消息后会立即调用 **deleteMessage** 。
+代码分两步从队列中删除消息。 首先，调用 QueueRestProxy->listMessages  ，这将使消息对从队列中读取的任何其他代码不可见。 默认情况下，此消息持续 30 秒不可见。 （如果在此时段内未删除该消息，它会在队列上再次可见。）若要从队列中删除消息，必须调用 QueueRestProxy->deleteMessage  。 此删除消息的两步过程可确保当代码因硬件或软件故障而无法处理消息时，其他代码实例可以获取同一消息并重试。 代码处理消息后会立即调用 **deleteMessage** 。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -250,7 +250,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -258,7 +258,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>更改已排队消息的内容
-可以调用 QueueRestProxy->updateMessage 来更改队列中已就位消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常同时保留重试计数，当消息重试次数超过 *n* 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
+可以调用 QueueRestProxy->updateMessage  来更改队列中已就位消息的内容。 如果消息表示工作任务，可使用此功能来更新该工作任务的状态。 以下代码使用新内容更新队列消息，并将可见性超时设置为再延长 60 秒。 这会保存与消息关联的工作的状态，并额外为客户端提供一分钟的时间来继续处理消息。 可使用此方法跟踪队列消息上的多步骤工作流，即使处理步骤因硬件或软件故障而失败，也无需从头开始操作。 通常同时保留重试计数，当消息重试次数超过 *n* 时再删除该消息。 这可避免每次处理某条消息时都触发应用程序错误。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -295,7 +295,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -345,7 +345,7 @@ try{
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -353,7 +353,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>获取队列长度
-可以获取队列中消息的估计数。 QueueRestProxy->getQueueMetadata 方法要求队列服务返回有关队列的元数据。 对返回的对象调用 **getApproximateMessageCount** 方法将提供队列中消息的计数。 此计数仅为近似值，因为只能在队列服务响应的请求后添加或删除消息。
+可以获取队列中消息的估计数。 QueueRestProxy->getQueueMetadata  方法要求队列服务返回有关队列的元数据。 对返回的对象调用 **getApproximateMessageCount** 方法将提供队列中消息的计数。 此计数仅为近似值，因为只能在队列服务响应的请求后添加或删除消息。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -374,7 +374,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -384,7 +384,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>删除队列
-若要删除队列及其包含的所有消息，请调用 QueueRestProxy->deleteQueue 方法。
+若要删除队列及其包含的所有消息，请调用 QueueRestProxy->deleteQueue  方法。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -404,7 +404,7 @@ try    {
 catch(ServiceException $e){
     // Handle exception based on error codes and messages.
     // Error codes and messages are here:
-    // http://msdn.microsoft.com/library/azure/dd179446.aspx
+    // https://msdn.microsoft.com/library/azure/dd179446.aspx
     $code = $e->getCode();
     $error_message = $e->getMessage();
     echo $code.": ".$error_message."<br />";
@@ -414,13 +414,13 @@ catch(ServiceException $e){
 ## <a name="next-steps"></a>后续步骤
 既已了解有关 Azure 队列存储的基础知识，可单击以下链接了解更复杂的存储任务。
 
-* 请访问 [Azure 存储 PHP 客户端库的 API 参考](http://azure.github.io/azure-storage-php/)
+* 请访问 [Azure 存储 PHP 客户端库的 API 参考](https://azure.github.io/azure-storage-php/)
 * 请参阅[高级队列示例](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)。
 
 有关详细信息，另请参阅 [PHP 开发人员中心](/develop/php/)。
 
 [download]: https://github.com/Azure/azure-storage-php
-[require_once]: http://www.php.net/manual/en/function.require-once.php
+[require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.cn
-[composer-phar]: http://getcomposer.org/composer.phar
+[composer-phar]: https://getcomposer.org/composer.phar
 <!--Update_Description:remove unuseful code-->

@@ -4,21 +4,21 @@ description: 了解 IoT Edge 设备和模块如何能够长时间在无 Internet
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/30/2019
-ms.date: 05/27/2019
+origin.date: 06/04/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9ade9c8793e693a80a6cb1f698a694f32ebc6ca8
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: e3ccc41a3bd9808951a75917016db6496e98ff25
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829394"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845406"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>了解有关 IoT Edge 设备、模块和子设备的扩展脱机功能
 
-Azure IoT Edge 支持 IoT Edge 设备上的扩展脱机操作，同时在非 Edge 子设备上启用脱机操作。 只要 IoT Edge 设备有机会连接到 IoT 中心，它和任何子设备就可以在间歇性或无 Internet 连接的情况下继续运作。 
+Azure IoT Edge 支持 IoT Edge 设备上的扩展脱机操作，同时在非 IoT Edge 子设备上启用脱机操作。 只要 IoT Edge 设备有机会连接到 IoT 中心，它和任何子设备就可以在间歇性或无 Internet 连接的情况下继续运作。 
 
 
 ## <a name="how-it-works"></a>工作原理
@@ -27,9 +27,9 @@ Azure IoT Edge 支持 IoT Edge 设备上的扩展脱机操作，同时在非 Edg
 
 下面的示例展示了 IoT Edge 方案如何在脱机模式下运行：
 
-1. **配置 IoT Edge 设备**。
+1. **配置设备**
 
-   IoT Edge 设备自动启用脱机功能。 若要将此功能扩展到其他 IoT 设备，需要在 IoT 中心声明设备之间的父子关系。 
+   IoT Edge 设备自动启用脱机功能。 若要将此功能扩展到其他 IoT 设备，需要在 IoT 中心声明设备之间的父子关系。 然后，将子设备配置为信任分配给它们的父设备，并通过父设备（用作网关）路由设备到云的通信。 
 
 2. **与 IoT 中心同步**。
 
@@ -48,28 +48,30 @@ Azure IoT Edge 支持 IoT Edge 设备上的扩展脱机操作，同时在非 Edg
 本文所述的扩展脱机功能可在 [IoT Edge 1.0.4 版或更高版本](https://github.com/Azure/azure-iotedge/releases)中获得。 早期版本有一个脱机功能子集。 不具备扩展脱机功能的现有 IoT Edge 设备不能通过更改运行时版本进行升级，但是必须用新的 IoT Edge 设备标识重新配置才能获得这些功能。 
 
 
-只有非 Edge loT 设备可以作为子设备添加。 
+只能添加非 IoT Edge 设备作为子设备。 
 
 IoT Edge 设备及其分配的子设备可以在初始一次性同步之后无限期脱机运行。但是，消息存储取决于生存时间 (TTL) 设置和存储消息的可用磁盘空间。 
 
-## <a name="set-up-an-iot-edge-device"></a>设置 IoT Edge 设备
+## <a name="set-up-parent-and-child-devices"></a>设置父设备和子设备
 
-对于将其扩展脱机功能扩展到 loT 子设备的 IoT Edge 设备，需要在 Azure 门户中声明父子关系。
+对于将其扩展脱机功能扩展到 IoT 子设备的 IoT Edge 设备，需要完成两个步骤。 首先，在 Azure 门户中声明父子关系。 其次，在父设备与任何子设备之间建立信任关系，然后将设备到云的通信配置为通过父设备（用作网关）路由。 
 
 ### <a name="assign-child-devices"></a>分配子设备
 
-子设备可以是注册到同一个 IoT 中心的任何非 Edge 设备。 父设备可以有多个子设备，但子设备只能有一个父设备。 可以通过三个选项将子设备设置为边缘设备：
+子设备可以是注册到同一个 IoT 中心的任何非 IoT Edge 设备。 父设备可以有多个子设备，但一个子设备只能有一个父设备。 可以使用三个选项在 Edge 设备中设置子设备：使用 Azure 门户、Azure CLI 或 IoT 中心服务 SDK。 
+
+以下部分举例说明如何在 IoT 中心为现有的 IoT 设备声明父/子关系。 若要为子设备创建新的设备标识，请参阅[在 Azure IoT 中心对下游设备进行身份验证](how-to-authenticate-downstream-device.md)了解详细信息。
 
 #### <a name="option-1-iot-hub-portal"></a>选项 1：IoT 中心门户
 
- 可以在创建新设备时管理父子关系，或者从 IoT Edge 父设备或 loT 子设备的设备详细信息页进行管理。 
+可以在创建新设备时声明父子关系。 或者，对于现有的设备，可以从 IoT Edge 父设备或 IoT 子设备的设备详细信息页声明关系。 
 
    ![从 IoT Edge 设备的详细信息页管理子设备](./media/offline-capabilities/manage-child-devices.png)
 
 
 #### <a name="option-2-use-the-az-command-line-tool"></a>选项 2：使用 `az` 命令行工具
 
-将 [Azure 命令行界面](/cli/?view=azure-cli-latest)与 [IoT 扩展](https://github.com/azure/azure-iot-cli-extension)（v0.7.0 或更高版本）配合使用时，可以通过 [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 子命令管理父子关系。 在下面的示例中，我们执行一个查询，将中心的所有非 IoT Edge 设备作为 IoT Edge 设备的子设备分配。 
+将 [Azure 命令行接口](/cli/?view=azure-cli-latest)与 [IoT 扩展](https://github.com/azure/azure-iot-cli-extension)（v0.7.0 或更高版本）配合使用时，可以通过 [device-identity](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) 子命令管理父子关系。 以下示例使用一个查询将中心内的所有非 IoT Edge 设备分配为 IoT Edge 设备的子设备。 
 
 ```shell
 # Set IoT Edge parent device
@@ -98,19 +100,29 @@ az iot hub device-identity add-children \
 
 最后，可以使用 C#、Java 或 Node.js IoT 中心服务 SDK 以编程方式管理父子关系。 这是使用 C# SDK [分配子设备的示例](https://aka.ms/set-child-iot-device-c-sharp)。
 
-### <a name="specifying-dns-servers"></a>指定 DNS 服务器 
+### <a name="set-up-the-parent-device-as-a-gateway"></a>将父设备设为网关
 
-为了提高可靠性，强烈建议指定在环境中使用的 DNS 服务器地址。 请查看[故障排除文章中有关此操作的两个选项](troubleshoot.md#resolution-7)。
+可将父/子关系视为一种透明网关，其中的子设备在 IoT 中心具有自身的标识，但通过其父设备在云中通信。 若要安全通信，子设备需能够验证父设备来自受信任的源。 否则，第三方可能会设置恶意设备来模拟父设备并截获通信。 
+
+以下文章详细介绍了建立这种信任关系的一种方法： 
+* [配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)
+* [将下游（子）设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)
+
+## <a name="specify-dns-servers"></a>指定 DNS 服务器 
+
+为了提高可靠性，强烈建议指定在环境中使用的 DNS 服务器地址。 参阅[故障排除文章中所述的设置 DNS 服务器](troubleshoot.md#resolution-7)的两个选项。
 
 ## <a name="optional-offline-settings"></a>可选脱机设置
 
-如果希望收集设备在长时间脱机期中生成的所有消息，请配置 IoT Edge 中心，这样它就可以存储所有消息。 可以对 IoT Edge 中心进行两次更改，以启用长期消息存储。 首先，增加生存时间设置。 然后，为消息存储添加更多磁盘空间。 
+如果设备已脱机，IoT Edge 父设备将一直存储所有设备到云的消息，直到重新建立连接为止。 IoT Edge 中心模块将管理脱机消息的存储和转发。 对于长时间脱机的设备，可以通过配置两项 IoT Edge 中心设置来优化性能。 
+
+首先，增大活动设置的时间，以便在设备重新建立连接之前，IoT Edge 中心将消息保留足够长的时间。 然后，为消息存储添加更多磁盘空间。 
 
 ### <a name="time-to-live"></a>生存时间
 
 生存时间设置是指在过期之前消息可以等待传递的时间量（以秒为单位）。 默认为 7200 秒（两个小时）。 此最大值仅受整数变量的最大值（约为 20 亿）限制。 
 
-此设置是 IoT Edge 中心的所需属性，它存储在模块孪生中。 可以在 Azure 门户的“配置高级 Edge 运行时设置”部分进行配置，也可以直接在部署清单中配置。 
+此设置是 IoT Edge 中心的所需属性，它存储在模块孪生中。 可以在 Azure 门户中或者直接在部署清单中配置此项设置。 
 
 ```json
 "$edgeHub": {
@@ -128,7 +140,7 @@ az iot hub device-identity add-children \
 
 默认情况下，消息存储在 IoT Edge 中心的容器文件系统中。 如果存储空间不足以满足你的脱机需求，可以在 IoT Edge 设备上使用本地存储。 为 IoT Edge 中心创建一个环境变量，以便指向容器中的存储文件夹。 然后，使用创建选项将存储文件夹绑定到主机上的文件夹。 
 
-可以在 Azure 门户的“配置高级 Edge 运行时设置”部分配置环境变量和 IoT Edge 中心模块的创建选项。 或者，可以直接在部署清单中进行配置。 
+可以在 Azure 门户的“配置高级 Edge 运行时设置”  部分配置环境变量和 IoT Edge 中心模块的创建选项。 或者，可以直接在部署清单中进行配置。 
 
 ```json
 "edgeHub": {
@@ -158,10 +170,14 @@ az iot hub device-identity add-children \
 
 将 `<HostStoragePath>` 和 `<ModuleStoragePath>` 替换为你的主机和模块存储路径；主机和模块存储路径都必须是绝对路径。 在创建选项中，将主机和模块存储路径绑定在一起。 然后，创建指向模块存储路径的环境变量。  
 
-例如，`"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 表示主机系统上的目录 /etc/iotedge/storage 映射到容器上的目录 /iotedge/storage/。 或是对于 Windows 系统的另一个示例，`"Binds":["C:\\temp:C:\\contemp"]` 表示主机系统上的目录 C:\\temp 映射到容器上的目录 C:\\contemp。 
+例如，`"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` 表示主机系统上的目录 /etc/iotedge/storage  映射到容器上的目录 /iotedge/storage/  。 或是对于 Windows 系统的另一个示例，`"Binds":["C:\\temp:C:\\contemp"]` 表示主机系统上的目录 C:\\temp  映射到容器上的目录 C:\\contemp  。 
 
 你还可以从 [docker 文档](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate)中找到有关创建选项的更多详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
-在[透明网关](how-to-create-transparent-gateway.md)方案中启用扩展脱机操作。
+详细了解如何为父/子设备连接设置透明网关： 
+
+* [配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)
+* [在 Azure IoT 中心对下游设备进行身份验证](how-to-authenticate-downstream-device.md)
+* [将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)

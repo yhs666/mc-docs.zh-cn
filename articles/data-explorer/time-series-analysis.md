@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.data: 04/07/2019
-ms.date: 05/01/2019
-ms.openlocfilehash: d5ccefb84f737903fa37772d32fb89566793da4b
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 07/22/2019
+ms.openlocfilehash: 9522bbdd05c8d0528653c064feb2238fe5eaf3d7
+ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686738"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717318"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Azure 数据资源管理器中的时序分析
 
@@ -261,3 +261,8 @@ demo_many_series1
 在不到两分钟的时间内，ADX 分析了接近 20,000 个时序并检测到了读取计数骤然下降的两个异常时序。
 
 将这些高级功能与 ADX 的高速性能相结合，可为时序分析提供独特且强大的解决方案。
+
+## <a name="next-steps"></a>后续步骤
+
+* 了解如何在 Azure 数据资源管理器中进行[时序异常情况检测和预测](/data-explorer/anomaly-detection)。
+* 了解 Azure 数据资源管理器中的[机器学习功能](/data-explorer/machine-learning-clustering)。

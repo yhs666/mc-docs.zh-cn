@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 02/07/2019
-ms.date: 03/13/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c2682e2a6b9bbf329bb604f1a9d45b20d77b24fe
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f42d5b8954a86913885bd782a93a9fcb8804a063
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57964457"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844651"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>快速入门：使用 REST API 和 JavaScript 检测图像中的人脸
 
@@ -24,7 +24,7 @@ ms.locfileid: "57964457"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
 - 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="initialize-the-html-file"></a>初始化 HTML 文件
@@ -42,7 +42,7 @@ ms.locfileid: "57964457"
 </html>
 ```
 
-然后在该文档的 `body` 元素中添加以下代码。 这将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”按钮、响应窗格和图像显示窗格。
+然后在该文档的 `body` 元素中添加以下代码。 此代码将设置一个基本用户界面，其中包含 URL 字段、“分析人脸”  按钮、响应窗格和图像显示窗格。
 
 ```html
 <h1>Detect Faces:</h1>
@@ -66,7 +66,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="write-the-javascript-script"></a>编写 JavaScript 脚本
 
-在该文档中 `h1` 元素的正上方添加以下代码。 这会设置调用人脸 API 的 JavaScript 代码。
+在该文档中 `h1` 元素的正上方添加以下代码。 此代码会设置调用人脸 API 的 JavaScript 代码。
 
 ```html
 <script type="text/javascript">
@@ -128,11 +128,11 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## <a name="run-the-script"></a>运行脚本
 
-在浏览器中打开 *detectFaces.html*。 单击“分析人脸”按钮时，应用应显示给定 URL 中的图像并打印出人脸数据的 JSON 字符串。
+在浏览器中打开 *detectFaces.html*。 单击“分析人脸”  按钮时，应用应显示给定 URL 中的图像并打印出人脸数据的 JSON 字符串。
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-下面是成功的 JSON 响应的示例。
+以下文本是成功的 JSON 响应的示例。
 
 ```json
 [
@@ -233,4 +233,4 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/04/2019
-ms.date: 06/06/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: aa10a7b1158f20b929abf757e7cf6df9a3bd3bf7
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: a6b1050ba7fb55b406a8e472ecc56ad4f3bf777a
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830056"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844853"
 ---
-# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 Python 提取手写文本
+# <a name="quickstart-extract-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>快速入门：使用计算机视觉 REST API 和 Python 提取手写文本
 
 在本快速入门中，你将使用计算机视觉的 REST API 从图像中提取手写文本。 使用[批量读取](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API 和[读取操作结果](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) API，可以检测图像中的手写文本，并将识别的字符提取到计算机可用的字符流中。
 
@@ -54,7 +54,7 @@ ms.locfileid: "66830056"
 import requests
 import time
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from matplotlib.patches import Polygon
 from PIL import Image
@@ -72,7 +72,7 @@ text_recognition_url = vision_base_url + "read/core/asyncBatchAnalyze"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/d/dd/Cursive_Writing_on_Notebook_paper.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-data    = {'url': image_url}
+data = {'url': image_url}
 response = requests.post(
     text_recognition_url, headers=headers, json=data)
 response.raise_for_status()
@@ -93,15 +93,15 @@ while (poll):
     print(analysis)
     time.sleep(1)
     if ("recognitionResults" in analysis):
-        poll= False 
+        poll = False
     if ("status" in analysis and analysis['status'] == 'Failed'):
-        poll= False
+        poll = False
 
-polygons=[]
+polygons = []
 if ("recognitionResults" in analysis):
     # Extract the recognized text, with bounding boxes.
     polygons = [(line["boundingBox"], line["text"])
-        for line in analysis["recognitionResults"][0]["lines"]]
+                for line in analysis["recognitionResults"][0]["lines"]]
 
 # Display the image and overlay it with the extracted text.
 plt.figure(figsize=(15, 15))
@@ -109,9 +109,9 @@ image = Image.open(BytesIO(requests.get(image_url).content))
 ax = plt.imshow(image)
 for polygon in polygons:
     vertices = [(polygon[0][i], polygon[0][i+1])
-        for i in range(0, len(polygon[0]), 2)]
-    text     = polygon[1]
-    patch    = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
+                for i in range(0, len(polygon[0]), 2)]
+    text = polygon[1]
+    patch = Polygon(vertices, closed=True, fill=False, linewidth=2, color='y')
     ax.axes.add_patch(patch)
     plt.text(vertices[0][0], vertices[0][1], text, fontsize=20, va="top")
 ```
@@ -403,4 +403,4 @@ for polygon in polygons:
 > [!div class="nextstepaction"]
 > [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

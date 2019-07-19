@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 04/29/2019
-ms.date: 06/10/2019
+origin.date: 06/09/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: e228e59a6491bcb297ca23c6d115e67b255c3bd9
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 7c0c65010c9a054f86019cf86d9671c194593e0e
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390855"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861672"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>用于将 Azure VM 从一个区域复制到另一个区域的支持矩阵
 
@@ -67,12 +67,16 @@ Site Recovery 支持复制那些运行本节中所列操作系统的 Azure VM。
 
 **操作系统** | **详细信息**
 --- | ---
+Windows Server 2019 |
 Windows Server 2016  | 服务器核心、带桌面体验的服务器
 Windows Server 2012 R2 |
 Windows Server 2012 |
 Windows Server 2008 R2 | 运行 SP1 或更高版本
+Windows 10 (x64) |
 
-<!--Not Available on Windows Server 2019 |-->
+<!--Not Available on Windows 8.1 (x64) -->
+<!--Not Available on Windows 8 (x64) -->
+<!--Not Available on Windows 7 (x64) -->
 
 #### <a name="linux"></a>Linux
 
@@ -94,32 +98,33 @@ SUSE Linux Enterprise Server 11 | SP4
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
+14.04 LTS | 9.25 | 3.13.0-24-generic 到 3.13.0-169-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-146-generic、<br/>4.15.0-1023-azure 到 4.15.0-1042-azure |
 14.04 LTS | 9.24 | 3.13.0-24-generic 到 3.13.0-167-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-143-generic、<br/>4.15.0-1023-azure 到 4.15.0-1040-azure |
 14.04 LTS | 9.23 | 3.13.0-24-generic 到 3.13.0-165-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-142-generic、<br/>4.15.0-1023-azure 到 4.15.0-1037-azure |
 14.04 LTS | 9.22 | 3.13.0-24-generic 到 3.13.0-164-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.15.0-1023-azure 到 4.15.0-1036-azure |
-14.04 LTS | 9.21 | 3.13.0-24-generic 到 3.13.0-163-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.15.0-1023-azure 到 4.15.0-1035-azure |
 |||
-16.04 LTS | 9.24 | 4.4.0-21-generic 到 4.4.0-143-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-46-generic<br/>4.11.0-1009-azure 到 4.11.0-1018-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1040-azure|
+16.04 LTS | 9.25 | 4.4.0-21-generic 到 4.4.0-146-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-48-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1042-azure|
+16.04 LTS | 9.24 | 4.4.0-21-generic 到 4.4.0-143-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-46-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1040-azure|
 16.04 LTS | 9.23 | 4.4.0-21-generic 到 4.4.0-142-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-45-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1037-azure|
 16.04 LTS | 9.22 | 4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-43-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1036-azure|
-16.04 LTS | 9.21 | 4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-42-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1035-azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虚拟机支持的 Debian 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-Debian 7 | 9.21、9.22、9.23、9.24 | 3.2.0-4-amd64 到 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.22、9.23、9.24、9.25 | 3.2.0-4-amd64 到 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.21、9.22、9.23、9.24 | 3.16.0-4-amd64 到 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
+Debian 8 | 9.25 | 3.16.0-4-amd64 到 3.16.0-8-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
+Debian 8 | 9.22、9.23、9.24 | 3.16.0-4-amd64 到 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 虚拟机支持的 SUSE Linux Enterprise Server 12 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.24 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.101-default<br /><br />SP3 4.4.73-5-default 到 4.4.175-94.79-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.25 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.104-default<br /><br />SP3 4.4.73-5-default 到 4.4.176-94.88-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.13-default |
+SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.24 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.104-default<br /><br />SP3 4.4.73-5-default 到 4.4.176-94.88-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.13-default |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.23 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.101-default<br /><br />SP3 4.4.73-5-default 到 4.4.162-94.69-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.22 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.98-default<br /><br />SP3 4.4.73-5-default 到 4.4.162-94.72-default |
-SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.21 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.98-default<br /><br />SP3 4.4.73-5-default 到 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>复制的计算机 - Linux 文件系统/来宾存储
 
@@ -140,6 +145,7 @@ Azure 库映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作�
 自定义映像 - 由第三方发布 | 支持 | 如果 VM 在受支持的操作系统上运行，则支持该配置。
 使用 Site Recovery 迁移 VM | 支持 | 如果使用 Site Recovery 将 VMware VM 或物理计算机迁移到 Azure，则需要卸载计算机上运行的旧版移动服务，并在重启计算机后将该计算机复制到另一个 Azure 区域。
 RBAC 策略 | 不支持 | VM 上的基于角色的访问控制 (RBAC) 策略不会复制到目标区域中的故障转移 VM。
+扩展 | 不支持 | 扩展不会复制到目标区域中的故障转移 VM。 需要在故障转移后手动安装。
 
 <!--Not Available on Availability zones | Supported |-->
 
@@ -163,6 +169,7 @@ RBAC 策略 | 不支持 | VM 上的基于角色的访问控制 (RBAC) 策略不�
 OS 磁盘的最大大小 | 2048 GB | [深入了解 ](../virtual-machines/windows/managed-disks-overview.md)VM 磁盘相关信息。
 临时磁盘 | 不支持 | 始终从复制中排除临时磁盘。<br/><br/> 请勿在临时磁盘上存储任何持久性数据。 [了解详细信息](../virtual-machines/windows/managed-disks-overview.md)。
 数据磁盘的最大大小 | 4095 GB |
+数据磁盘的最小大小 | 对非托管磁盘没有限制。 托管磁盘为 2 GB | 
 数据磁盘的最大数量 | 最多为 64，根据对特定的 Azure VM 大小的支持而定 | [深入了解 ](../virtual-machines/windows/sizes.md)VM 大小相关信息。
 数据磁盘更改率 | 每个高级存储的磁盘最大为 10 MBps。 每个标准存储的磁盘最大为 2 MBps。 | 如果磁盘上的平均数据更改率持续高于最大值，复制将跟不上。<br/><br/>  但是，如果偶尔超出最大值，则复制可跟上，但可能会看到稍有延迟的恢复点。
 数据磁盘 - 标准存储帐户 | 支持 |
@@ -174,7 +181,6 @@ OS 磁盘的最大大小 | 2048 GB | [深入了解 ](../virtual-machines/windows
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持 VM 磁盘
 存储空间 | 支持 |
 静态加密 (SSE) | 支持 | SSE 是存储帐户的默认设置。   
-适用于 Windows OS 的 Azure 磁盘加密 (ADE) | 支持为[使用 Azure AD 应用的加密](/security/azure-security-disk-encryption-windows-aad)启用的 VM |
 适用于 Linux OS 的 Azure 磁盘加密 (ADE) | 不支持 |
 热添加 | 支持 | 使用托管磁盘的 VM 支持对添加到已复制 Azure VM 的数据磁盘启用复制。
 热删除磁盘 | 不支持 | 如果在 VM 上删除数据磁盘，需要先禁用复制然后重新为 VM 启用复制。
@@ -188,6 +194,9 @@ ZRS | 不支持 |
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
 虚拟网络的 Azure 存储防火墙  | 支持 | 如果限制通过虚拟网络访问存储帐户，请启用[允许受信任的 Azure 服务](/storage/common/storage-network-security#exceptions)。
 常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
+
+<!--Not Available on Line 171 [encryption with Azure AD app](/security/azure-security-disk-encryption-windows-aad)-->
+
 
 >[!IMPORTANT]
 > 为了避免出现性能问题，请务必遵守 [Linux](../virtual-machines/linux/disk-scalability-targets.md) 或 [Windows](../virtual-machines/windows/disk-scalability-targets.md) VM 的 VM 磁盘可伸缩性和性能目标。 如果使用默认设置，Site Recovery 会基于源配置创建所需的磁盘和存储帐户。 如果自定义和选择自己的设置，请遵守源 VM 的磁盘可伸缩性和性能目标。

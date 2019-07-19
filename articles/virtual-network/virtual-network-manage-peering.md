@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/01/2019
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: b0b2317b374acbcd2024bc71fa562bb9a5266e9f
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: 4fe0b13428ca1e1bd0bad6b06861499be1d5ef8d
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540072"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861658"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>创建、更改或删除虚拟网络对等互连
 
@@ -123,8 +123,9 @@ ms.locfileid: "67540072"
 - <a name="cross-region"></a>可在相同区域或不同区域中的虚拟网络之间建立对等互连。 不同区域中的对等互连虚拟网络也称为“全局 VNet 对等互连”  。 
 - 创建全球对等互连时，对等虚拟网络可以存在于任何 Azure 中国云区域中。 不能跨云对等互连。 例如，Azure 公有云中的 VNet 不能与 Azure 中国云中的 VNet 对等互连。
     <!--MOONCAKE: Customized on globla peering, , but not in Government cloud regions-->
-- 一个虚拟网络中的资源无法与全局对等互连虚拟网络中基本内部负载均衡器的前端 IP 地址通信。 对基本负载均衡器的支持仅存在于同一区域内。 VNet 对等互连和全局 VNet 对等互连都支持标准负载均衡器。
-- 无法使用远程网关或允许网关在全球对等互连的虚拟网络中传输。 若要使用远程网关或允许网关传输，对等互连的虚拟网络必须位于同一区域中。
+- 一个虚拟网络中的资源无法与全局对等互连虚拟网络中基本内部负载均衡器的前端 IP 地址通信。 对基本负载均衡器的支持仅存在于同一区域内。 VNet 对等互连和全局 VNet 对等互连都支持标准负载均衡器。 [此处](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)记录了使用基本负载均衡器但不能通过全局 VNet 对等互连正常工作的服务。
+- 可以使用远程网关或允许全局对等虚拟网络和本地对等虚拟网络中的网关传输。
+    <!--MOONCAKE: Correct on the above line You can use remote gateways or allow gateway transit in globally peered, due to GA V3 in global -->
     <!--MOONCAKE: VNet must be 两个订阅要关联到同一个 Azure Active Directory 租户-->
 - 虚拟网络可以位于相同或不同的订阅中。 如果对等虚拟网络位于不同的订阅中，两个订阅应当关联到同一 Azure Active Directory 租户。 如果还没有 AD 租户，可以[创建一个](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant)。 可使用 CLI、PowerShell 或模板。
     <!--MOONCAKE: VNet must be 两个订阅要关联到同一个 Azure Active Directory 租户-->

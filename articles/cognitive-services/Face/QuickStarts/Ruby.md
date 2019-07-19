@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 02/07/2019
-ms.date: 03/01/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 52167cf29201a3e13235382297175c867ea771df
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: f3662e0b4f4ec01631a42463059a723c33f1a2da
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204168"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844911"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>快速入门：使用 REST API 和 Ruby 检测图像中的人脸
 
@@ -24,13 +24,12 @@ ms.locfileid: "57204168"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 人脸 API 订阅密钥。 需要一个订阅密钥来运行此示例。 可从 [https://portal.azure.cn](https://portal.azure.cn) 获取订阅密钥。
-
+- 人脸 API 订阅密钥。 可以按照[创建认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)中的说明订阅人脸 API 服务并获取密钥。
 - 代码编辑器，如 [Visual Studio Code](https://code.visualstudio.com/download)
 
 ## <a name="write-the-script"></a>编写脚本
 
-创建一个新文件 (_faceDetection.rb_)，并添加以下代码。 这将根据给定的图像 URL 调用人脸 API。
+创建一个新文件 (_faceDetection.rb_)，并添加以下代码。 此代码将对给定的图像 URL 调用人脸 API。
 
 ```ruby
 require 'net/http'
@@ -73,7 +72,7 @@ puts response.body
 ruby faceDetection.rb
 ```
 
-应该会看到输出到控制台的已检测到人脸数据的 JSON 字符串。 下面是成功的 JSON 响应的示例。
+应该会看到输出到控制台的已检测到人脸数据的 JSON 字符串。 以下文本是成功的 JSON 响应的示例。
 
 ```json
 [

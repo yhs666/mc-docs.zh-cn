@@ -1,29 +1,29 @@
 ---
-title: 快速入门：使用 Azure 数据资源管理器 Node 库引入数据
-description: 本快速入门介绍如何使用 Node.js 在 Azure 数据资源管理器中引入（加载）数据。
+title: 使用 Azure 数据资源管理器 Node 库引入数据
+description: 本文介绍如何使用 Node.js 将数据引入（加载）到 Azure 数据资源管理器中。
 author: orspod
 ms.author: v-biyu
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
+ms.topic: conceptual
 origin.date: 10/25/2018
-ms.date: 05/01/2019
-ms.openlocfilehash: bb39acfe0bb4eb07a44ff66aacffa12cc46f4fc6
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 07/22/2019
+ms.openlocfilehash: 227929edd93296bc887a080429a52ad0d0406b47
+ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686627"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717329"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>快速入门：使用 Azure 数据资源管理器 Node 库引入数据
+# <a name="ingest-data-using-the-azure-data-explorer-node-library"></a>使用 Azure 数据资源管理器 Node 库引入数据
 
-Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器为 Node 提供了两个客户端库：[引入库](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest)和[数据库](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)。 可以使用这些库在群集中引入（加载）数据并从代码中查询数据。 在本快速入门，首先在测试群集中创建一个表和数据映射。 然后将引入排列到群集并验证结果。
+Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Azure 数据资源管理器为 Node 提供了两个客户端库：[引入库](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest)和[数据库](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data)。 可以使用这些库在群集中引入（加载）数据并从代码中查询数据。 本文首先在测试群集中创建一个表和数据映射。 然后将引入排列到群集并验证结果。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-除 Azure 订阅外，还需以下条件才能完成此快速入门：
+除 Azure 订阅外，还需以下条件才能完成本文：
 
 * [测试群集和数据库](create-cluster-database-portal.md)
 
@@ -34,7 +34,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 安装 *azure-kusto-ingest* 和 *azure-kusto-data*
 
 ```bash
-npm i --save azure-kusto-ingest azure-kusto-data
+npm i azure-kusto-ingest azure-kusto-data
 ```
 
 ## <a name="add-import-statements-and-constants"></a>添加导入语句和常量
@@ -59,7 +59,7 @@ Azure 数据资源管理器使用 Azure Active Directory 租户 ID，以对应�
 const cluster = "MyCluster";
 const region = "westus";
 const authorityId = "microsoft.com";
-const kustoUri = `https://${cluster}.${region}.kusto.windows.net:443`;
+const kustoUri = `https://${cluster}.${region}.kusto.chinacloudapi.cn:443`;
 const kustoIngestUri = `https://ingest-${cluster}.${region}.kusto.chinacloudapi.cn:443`;
 const kustoDatabase  = "Weather";
 ```
@@ -77,7 +77,7 @@ const destTableMapping = "StormEvents_CSV_Mapping";
 
 ## <a name="set-source-file-information"></a>设置源文件信息
 
-导入其他类并设置数据源文件的常数。 此示例使用 Azure Blob 存储上托管的示例文件。
+导入其他类并设置数据源文件的常数。 此示例使用 Azure Blob 存储上托管的示例文件。 StormEvents  示例数据集包含[美国国家环境信息中心](https://www.ncdc.noaa.gov/stormevents/)中与天气相关的数据。
 
 ```javascript
 const container = "samplefiles";
@@ -89,7 +89,7 @@ const blobPath = `https://${account}.blob.core.chinacloudapi.cn/${container}/${f
 
 ## <a name="create-a-table-on-your-test-cluster"></a>在测试群集上创建表
 
-创建与 `StormEvents.csv` 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页 https://microsoft.com/devicelogin，然后输入代码 XXXXXXXXX 进行身份验证。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块会要求你再次登录。
+创建与 `StormEvents.csv` 文件中的数据架构匹配的表。 运行此代码时，它会返回如下消息：若要登录，请使用 Web 浏览器打开页 https://microsoft.com/devicelogin ，然后输入代码 XXXXXXXXX 进行身份验证  。 按照步骤登录，然后返回运行下一个代码块。 建立连接的后续代码块会要求你再次登录。
 
 ```javascript
 const kustoClient = new KustoClient(kcsbData);
@@ -158,7 +158,7 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果计划学习其他快速入门和教程，请保留创建的资源。 否则，在数据库中运行以下命令以清除 `StormEvents` 表。
+如果计划学习我们的其他文章，请保留已创建的资源。 否则，在数据库中运行以下命令以清除 `StormEvents` 表。
 
 ```Kusto
 .drop table StormEvents
@@ -166,5 +166,4 @@ kustoClient.execute(kustoDatabase, query, (err, results) => {
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [编写查询](write-queries.md)
+* [编写查询](write-queries.md)

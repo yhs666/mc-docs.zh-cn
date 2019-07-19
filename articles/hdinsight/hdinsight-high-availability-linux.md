@@ -11,20 +11,18 @@ ms.topic: conceptual
 origin.date: 03/22/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 36d2a94b8d0fe9eee65552b24fdb8b745725fd2f
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: bf5b73e26bb00f0ef15ab1f6b0c2abc700c11a60
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829278"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845434"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
 
 HDInsight 群集提供了两个头节点，以提升 Apache Hadoop 服务和作业运行的可用性与可靠性。
 
 Hadoop 通过将服务和数据复制到群集中的多个节点来实现高可用性和可靠性。 不过，Hadoop 的标准分发功能通常只能有一个头节点。 单个头节点发生任何中断都可能导致群集停止工作。 HDInsight 提供了两个头节点来提高 Hadoop 的可用性和可靠性。
-
-[!INCLUDE [windows-retirement-notice](../../includes/windows-retirement-notice.md)]
 
 ## <a name="availability-and-reliability-of-nodes"></a>节点的可用性和可靠性
 
@@ -112,7 +110,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 ![已安装的服务](./media/hdinsight-high-availability-linux/services.png)
 
-服务旁边可能会出现一系列表示状态的图标。 可以使用页面顶部的“警报”链接查看与服务相关的任何警报。  Ambari 提供多个预定义的警报。
+服务旁边可能会出现一系列表示状态的图标。 可以使用页面顶部的“警报”  链接查看与服务相关的任何警报。  Ambari 提供多个预定义的警报。
 
 以下警报可以帮助监视群集的可用性：
 
@@ -157,7 +155,7 @@ HDInsight 群集中的节点具有内部 IP 地址和 FQDN，这些只能从群�
 
 可以选择每个服务来查看其详细信息。
 
-尽管服务页提供了有关每个服务的状态和配置的信息，但并不提供有关该服务正在哪个头节点上运行的信息。 若要查看此信息，请使用页面顶部的“主机”链接。 此页会显示群集内的主机，包括头节点。
+尽管服务页提供了有关每个服务的状态和配置的信息，但并不提供有关该服务正在哪个头节点上运行的信息。 若要查看此信息，请使用页面顶部的“主机”  链接。 此页会显示群集内的主机，包括头节点。
 
 ![主机列表](./media/hdinsight-high-availability-linux/hosts.png)
 
@@ -175,7 +173,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/services/SERVICENAME?fields=ServiceInfo/state
 
 * 将 **PASSWORD** 替换为 HTTP 用户 (admin) 帐户密码。
-* 将 CLUSTERNAME 替换为群集的名称。
+* 将  CLUSTERNAME 替换为群集的名称。
 * 将 **SERVICENAME** 替换为要检查其状态的服务的名称。
 
 例如，若要检查名为 **mycluster** 的群集上的、密码为 **password** 的 **HDFS** 服务的状态，可使用以下命令：
@@ -195,7 +193,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 该 URL 表示，服务当前在名为 **hn0-CLUSTERNAME** 的头节点上运行。
 
-该状态表示，此服务目前正在运行，或“已启动”。
+该状态表示，此服务目前正在运行，或“已启动”  。
 
 如果不知道有哪些服务安装在该群集上，可以使用以下命令检索列表：
 
@@ -217,7 +215,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 ### <a name="ssh"></a>SSH
 
-通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如，**/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
+通过 SSH 连接到头节点时，可以在 **/var/log**中找到日志文件。 例如， **/var/log/hadoop-yarn/yarn** 包含 YARN 的日志。
 
 每个头节点可能具有唯一的日志条目，因此应该检查两个头节点上的日志。
 
@@ -242,7 +240,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 > [!NOTE]
 > 若要通过 Ambari 访问日志文件，必须使用 SSH 隧道。 单个服务的 Web 界面不在 Internet 上公开。 有关使用 SSH 隧道的信息，请参阅[使用 SSH 隧道](hdinsight-linux-ambari-ssh-tunnel.md)文档。
 
-在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后使用“快速链接”选择要查看其日志的头节点。
+在 Ambari Web UI 中选择要查看其日志的服务（例如 YARN）。 然后使用“快速链接”选择要查看其日志的头节点  。
 
 ![使用快速链接查看日志](./media/hdinsight-high-availability-linux/viewlogs.png)
 
@@ -250,7 +248,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)上找到 HDInsight 可用的不同 VM 大小的列表。
 
-创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell 模块 Az][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
+创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal], [Azure PowerShell module Az][azure-powershell]和 [Azure CLI][azure-cli] 指定大小：
 
 * **Azure 门户**：创建群集时，可以设置群集所用节点的大小：
 
@@ -266,7 +264,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 * [Apache Ambari REST 参考](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [安装和配置 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)
-* [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [安装和配置 Azure PowerShell 模块 Az](https://docs.microsoft.com/powershell/azure/overview)
 * [配置基于 Linux 的 HDInsight 群集](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.cn/

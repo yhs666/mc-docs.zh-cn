@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 02/13/2019
-ms.date: 06/10/2019
+origin.date: 06/18/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: 96971afa1aad05fd7e63d57b98338107d0ad7812
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 193fae4af574c0d65bab4f193ec573d4c1c1f1e6
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830031"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844769"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文本分析 API 的语言和区域支持
 
@@ -32,7 +32,14 @@ ms.locfileid: "66830031"
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情绪分析、关键短语提取和命名的实体识别
 
-对于情绪分析、关键短语提取和实体识别，所支持语言的列表更具选择性，因为分析器已优化为适应更多语言的语言规则。
+对于情绪分析、关键短语提取和实体识别，所支持语言的列表更具选择性，因为分析器已优化为适应更多语言的语言规则。 对全套[实体类型](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition)的支持目前仅限于以下语言： 
+* 英语
+* 简体中文
+* 法语
+* 德语
+* 西班牙语
+
+对于其他语言，仅返回 `Person`、`Location` 和 `Organization` 命名实体。
 
 ## <a name="language-list-and-status"></a>语言列表和状态
 
@@ -59,13 +66,13 @@ ms.locfileid: "66830031"
 | 葡萄牙语(葡萄牙) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` 也接受|
 | 葡萄牙语(巴西)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | 俄语     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| 西班牙语     | `es`          | ✔        |            |   ✔ \*\*      |     | 
+| 西班牙语     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
 | 瑞典语     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | 土耳其语     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
 \* 语言支持为预览版
 
-\*\* 命名的实体识别和[实体链接](how-tos/text-analytics-how-to-entity-linking.md)均适用于此语言。    
+\*\* [命名实体识别](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-ner)和[实体链接](how-tos/text-analytics-how-to-entity-linking.md#entity-linking)均适用于此语言。    
 
 ## <a name="see-also"></a>另请参阅
 

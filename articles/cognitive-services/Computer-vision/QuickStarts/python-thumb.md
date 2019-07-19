@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 02/21/2019
-ms.date: 05/14/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: a9be222d48b266d39eea30eb743b032b53c1f403
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: b70559e95636d7f377d61d9ad31af6dd8d36fe69
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598879"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844850"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：在计算机视觉中使用 REST API 和 Python 生成缩略图
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>快速入门：使用计算机视觉 REST API 和 Python 生成缩略图
 
 在本快速入门中，你将使用计算机视觉的 REST API 基于图像生成缩略图。 使用[获取缩略图](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb)方法，可以指定所需的高度和宽度，计算机视觉使用智能裁剪来智能识别感兴趣的区域并基于该区域生成裁剪坐标。
 
@@ -37,7 +37,7 @@ ms.locfileid: "65598879"
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -54,9 +54,10 @@ thumbnail_url = vision_base_url + "generateThumbnail"
 image_url = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'width': '50', 'height': '50', 'smartCropping': 'true'}
-data    = {'url': image_url}
-response = requests.post(thumbnail_url, headers=headers, params=params, json=data)
+params = {'width': '50', 'height': '50', 'smartCropping': 'true'}
+data = {'url': image_url}
+response = requests.post(thumbnail_url, headers=headers,
+                         params=params, json=data)
 response.raise_for_status()
 
 thumbnail = Image.open(BytesIO(response.content))
@@ -94,3 +95,4 @@ print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 > [!div class="nextstepaction"]
 > [生成缩略图](../concept-generating-thumbnails.md)
 
+<!-- Update_Description: wording update -->

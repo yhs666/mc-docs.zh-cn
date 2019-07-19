@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 01/10/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 508dca015a921a2e029e708c5a310c1ece62f4ab
-ms.sourcegitcommit: 2f31ac5e07e682a9ed03eb0b80c36962529b4139
+ms.date: 07/15/2019
+ms.openlocfilehash: 6ee4fbcf96456147e94c097ab8d5845d17cebf35
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64347222"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845112"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>使用 Azure 门户设置针对 Azure Database for MySQL 指标的警报 
 
@@ -33,47 +33,47 @@ ms.locfileid: "64347222"
 ## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>通过 Azure 门户针对指标创建警报规则
 1. 在 [Azure 门户](https://portal.azure.cn/)中，选择要监视的 Azure Database for MySQL 服务器。
 
-2. 在边栏的“监视”部分，选择“警报”，如下所示：
+2. 在边栏的“监视”部分，选择“警报”，如下所示   ：
 
    ![选择“警报规则”](./media/howto-alert-on-metric/2-alert-rules.png)
 
-3. 选择“添加警报规则”（+ 图标）。
+3. 选择“新建警报规则”（+ 图标）。 
 
-4. 随即打开“创建规则”页面，如下所示。 填写所需信息：
+4. 随即打开“创建规则”页面，如下所示  。 填写所需信息：
 
    ![添加指标警报窗体](./media/howto-alert-on-metric/4-add-rule-form.png)
 
-5. 在“条件”部分中，选择“添加条件”。
+5. 在“条件”部分中，选择“添加条件”   。
 
-6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“删除 Mysql 服务器”。
+6. 从要发出警报的信号列表中选择一个指标。 在此示例中，选择“存储百分比”。
    
    ![选择指标](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. 配置警报逻辑，包括“事件级别”（例如， “警告”）、“状态”（例如， “已启动”）。
+7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   “30 分钟”）、以及“频率”  。
    
-   完成后选择“完成”。
+   完成后选择“完成”  。
 
    ![选择指标](./media/howto-alert-on-metric/7-set-threshold-time.png)
 
-8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知。
+8. 在“操作组”部分中，选择“新建”创建新组以接收有关警报的通知   。
 
 9. 使用名称、短名称、订阅和资源组填写“添加操作组”表单。
 
-10. 配置“电子邮件/短信”操作类型。
+10. 配置“电子邮件/短信”操作类型  。
     
-    选择“电子邮件”，键入用于接收通知的电子邮件地址。
+    选择“电子邮件 Azure 资源管理器角色”以选择订阅所有者、参与者和读取器来接收通知。
    
-    （可选）如果希望在警报触发时调用有效的 URI，请将其放入“Webhook”字段。
+    （可选）如果希望在警报触发时调用有效的 URI，请将其放入“Webhook”字段  。
 
-    完成后选择“确定”。
+    完成后选择“确定”  。
 
     ![操作组](./media/howto-alert-on-metric/10-action-group-type.png)
 
-11. 指定警报规则名称、说明和保存警报的资源组。
+11. 指定预警规则名称、说明和严重性。
 
     ![操作组](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
-12. 选择“创建警报规则”可以创建警报。
+12. 选择“创建警报规则”可以创建警报  。
 
     在几分钟后，警报将如前所述激活并触发。
 
@@ -81,8 +81,8 @@ ms.locfileid: "64347222"
 创建警报后，可选择它并执行以下操作：
 
 * 查看图，了解与此警报相关的指标阈值和前一天实际值。
-* 编辑或删除预警规则。
-* 如果要暂时停止或恢复接收通知，可禁用或启用警报。
+* 编辑或删除预警规则   。
+* 如果要暂时停止或恢复接收通知，可禁用或启用警报   。
 
 
 ## <a name="next-steps"></a>后续步骤

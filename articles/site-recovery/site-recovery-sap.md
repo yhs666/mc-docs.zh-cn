@@ -8,14 +8,14 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 11/27/2018
-ms.date: 03/04/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: d085eb390ec0bd0cab8d574b43ede8a0646b316b
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 9e6579b746680719c34b858cd7b808282a5b2065
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463546"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861696"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>为多层 SAP NetWeaver 应用部署设置灾难恢复
 
@@ -71,7 +71,7 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 若要管理 ABAP 应用程序服务器的登录组，需使用 SMLG 事务。 该事务使用 Central Services 的消息服务器中的负载均衡功能，在 SAPGUI 的 SAP 应用程序服务器池之间分配工作负荷，以及分配 RFC 流量。 这将会使用 Azure Site Recovery 进行复制 
 
 #### <a name="vms-running-sap-central-services-cluster"></a>运行 SAP Central Services 群集的 VM
-此参考体系结构在应用层中的 VM 上运行 Central Services。 如果将 Central Services 部署到单个 VM（高可用性不是一项要求时，通常采用这种部署方式），则它可能会成为潜在的单一故障点 (SPOF)。<br>
+此参考体系结构在应用层中的 VM 上运行 Central Services。 如果将 Central Services 部署到单个 VM（高可用性不是一项要求时，通常采用这种部署方式），则它可能会成为潜在的单一故障点 (SPOF)。<br />
 
 若要实现高可用性解决方案，可以使用共享磁盘群集或文件共享群集。若要为共享磁盘群集配置 VM，请使用 Windows Server 故障转移群集。 建议将云见证用作仲裁见证。 
  > [!NOTE]
@@ -81,7 +81,7 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 
 处理群集的另一种方法是实现文件共享群集。 [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) 最近修改了 Central Services 部署模式，以允许通过 UNC 路径访问 /sapmnt 全局目录。 但是，我们仍然建议确保 /sapmnt UNC 共享具有高可用性。 这可在 Central Services 实例上实现：将 Windows Server 故障转移群集与 Windows Server 2016 中的横向扩展文件服务器 (SOFS) 和存储空间直通 (S2D) 功能配合使用。 
  > [!NOTE]
- > 当前，Azure Site Recovery 仅支持使用存储空间直通进行虚拟机的崩溃一致点复制 
+ > 当前，Azure Site Recovery 仅支持使用存储空间直通和 SIOS Datakeeper 的被动节点进行虚拟机的崩溃一致点复制
 
 ## <a name="disaster-recovery-considerations"></a>灾难恢复注意事项
 
@@ -90,14 +90,14 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 
 1. 复制虚拟机 
 2. 设计恢复网络
-3.  复制域控制器
-4.  复制数据库层 
-5.  执行测试故障转移 
-6.  执行故障转移 
+3. 复制域控制器
+4. 复制数据库层 
+5. 执行测试故障转移 
+6. 执行故障转移 
 
 下面是此示例中使用的每个层的灾难恢复建议。 
 
- **SAP 层** | 建议
+ **SAP 层** | 建议 
  --- | ---
 **SAP Web 调度程序池** |  使用 Site Recovery 进行复制 
 **SAP Application 服务器池** |  使用 Site Recovery 进行复制 
@@ -115,7 +115,7 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 
 ## <a name="networking-configuration"></a>网络配置
 
-如果使用的是静态 IP，可以指定希望虚拟机采用的 IP 地址。 若要设置 IP 地址，请转到“计算和网络设置” > “网络接口卡”。
+如果使用的是静态 IP，可以指定希望虚拟机采用的 IP 地址。 若要设置 IP 地址，请转到“计算和网络设置”   >   “网络接口卡”。
 
 ![演示如何在 Site Recovery 的“网络接口卡”窗格中设置专用 IP 地址的屏幕截图](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -124,8 +124,8 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 
 ### <a name="adding-virtual-machines-to-failover-groups"></a>将虚拟机添加到故障转移组
 
-1.  通过添加应用程序服务器、Web 调度程序和 SAP Central services VM 创建恢复计划。
-2.  单击“自定义”将 VM 分组。 默认情况下，所有 VM 属于“组 1”。
+1. 通过添加应用程序服务器、Web 调度程序和 SAP Central services VM 创建恢复计划。
+2. 单击“自定义”将 VM 分组。 默认情况下，所有 VM 属于“组 1”。
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>将脚本添加到恢复计划
 在故障转移后或测试故障转移期间，可能需要在 Azure 虚拟机上执行一些操作才能让应用程序正常工作。 可将某些故障转移后的操作自动化。 例如，可在恢复计划中添加相应的脚本，来更新 DNS 条目，以及更改绑定和连接。
@@ -133,7 +133,7 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 可以单击下面的“部署到 Azure”按钮，将最常用的 Azure Site Recovery 脚本部署到自动化帐户。 使用任何已发布的脚本时，请确保遵循脚本中的指导。
 
 > [!NOTE]
-> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 > 
 
 [![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fasr-automation-recovery%2F%2Fazuredeploy.json)
@@ -145,26 +145,26 @@ Web 调度程序组件用作 SAP 应用程序服务器之间的 SAP 流量的负
 
 ## <a name="run-a-test-failover"></a>运行测试故障转移
 
-1.  在 Azure 门户中，选择恢复服务保管库。
-2.  选择针对 SAP 应用程序创建的恢复计划。
-3.  选择“测试故障转移”。
-4.  若要启动测试故障转移过程，请选择恢复点和 Azure 虚拟网络。
-5.  当辅助环境启动时，执行验证。
-6.  完成验证后，选择“清理测试故障转移”清理测试故障转移环境。
+1. 在 Azure 门户中，选择恢复服务保管库。
+2. 选择针对 SAP 应用程序创建的恢复计划。
+3. 选择“测试故障转移”  。
+4. 若要启动测试故障转移过程，请选择恢复点和 Azure 虚拟网络。
+5. 当辅助环境启动时，执行验证。
+6. 完成验证后，选择“清理测试故障转移”清理测试故障转移环境。 
 
 有关详细信息，请参阅[在 Site Recovery 中执行到 Azure 的测试故障转移](site-recovery-test-failover-to-azure.md)。
 
 ## <a name="run-a-failover"></a>运行故障转移
 
-1.  在 Azure 门户中，选择恢复服务保管库。
-2.  选择针对 SAP 应用程序创建的恢复计划。
-3.  选择“故障转移”。
-4.  若要启动故障转移过程，请选择恢复点。
+1. 在 Azure 门户中，选择恢复服务保管库。
+2. 选择针对 SAP 应用程序创建的恢复计划。
+3. 选择“故障转移”。 
+4. 若要启动故障转移过程，请选择恢复点。
 
 有关详细信息，请参阅 [Site Recovery 中的故障转移](site-recovery-failover.md)。
 
 ## <a name="next-steps"></a>后续步骤
-* 若要详细了解如何使用 Site Recovery 为 SAP NetWeaver 部署构建灾难恢复解决方案，请参阅可下载的白皮书 [SAP NetWeaver：使用 Azure Site Recovery 构建灾难恢复解决方案](https://aka.ms/asr-sap)。 本白皮书介绍了针对各种 SAP 体系结构的建议，列出了 Azure 上的 SAP 所支持的应用程序和 VM 类型，并介绍了用于灾难恢复解决方案的测试计划选项。
+* 若要详细了解如何使用 Site Recovery 为 SAP NetWeaver 部署构建灾难恢复解决方案，请参阅可下载的白皮书 [SAP NetWeaver：使用 Azure Site Recovery 构建灾难恢复解决方案](https://aka.ms/asr_sap)。 本白皮书介绍了针对各种 SAP 体系结构的建议，列出了 Azure 上的 SAP 所支持的应用程序和 VM 类型，并介绍了用于灾难恢复解决方案的测试计划选项。
 * 详细了解如何使用 Site Recovery [复制其他工作负荷](site-recovery-workload.md)。
 
 <!-- Update_Description: update meta properties, wording update -->

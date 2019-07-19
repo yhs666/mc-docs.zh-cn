@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 05/28/2019
-ms.date: 06/24/2019
+origin.date: 06/17/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 13e6c075c5b8d6b323fc4a1edc15ab272a7af711
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 65b1e76c9a8181c87c2dfea4c3f7c02949127052
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135754"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845135"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -217,19 +217,19 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 ## <a id="networktraffic"></a> 控制网络流量
 
-### <a name="controlling-inbound-traffic-to-hdinsight-clusters"></a>控制 HDInsight 群集的入站流量
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>控制 HDInsight 群集的入站和出站流量的技术
 
 可以使用以下方法控制 Azure 虚拟网络中的网络流量：
 
 *  网络安全组 (NSG)：用于筛选网络的入站和出站流量。 有关详细信息，请参阅[使用网络安全组筛选网络流量](../virtual-network/security-overview.md)文档。
 
-*  网络虚拟设备：复制设备（例如防火墙和路由器）的功能。 有关详细信息，请参阅[网络设备](https://azure.microsoft.com/solutions/network-appliances)文档。
+* **网络虚拟设备** (NVA) 只能用于出站流量。 NVA 可复制设备（如防火墙和路由器）的功能。  有关详细信息，请参阅[网络设备](https://azure.microsoft.com/solutions/network-appliances)文档。
 
 作为托管服务，HDInsight 需要对 HDInsight 运行状况和管理服务具有不受限制的访问权限，以处理从 VNET 传入和传出的流量。 使用 NSG 时，必须确保这些服务仍然可以与 HDInsight 群集进行通信。
 
-![在 Azure 自定义 VNET 中创建的 HDInsight 实体的关系图](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
+![在 Azure 自定义 VNET 中创建的 HDInsight 实体示意图](./media/hdinsight-virtual-network-architecture/vnet-diagram.png)
 
-### <a id="hdinsight-ip"></a> 使用网络安全组的 HDInsight
+### <a name="hdinsight-with-network-security-groups"></a>使用网络安全组的 HDInsight
 
 如果计划使用**网络安全组**来控制网络流量，请在安装 HDInsight 之前执行以下操作：
 
@@ -253,14 +253,14 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 ## <a id="hdinsight-ip"></a> 所需 IP 地址
 
-> [!IMPORTANT]
-> Azure 运行状况和管理服务必须能够与 HDInsight 通信。 如果使用网络安全组或用户定义路由，则允许来自这些服务的 IP 地址的流量访问 HDInsight。
->
+如果使用网络安全组或用户定义的路由来控制流量，则必须允许来自 Azure 运行状况和管理服务的 IP 地址的流量，以便这些服务可与 HDInsight 群集进行通信。 一些 IP 地址特定于区域，而一些适用于所有的 Azure 区域。 如果使用的不是自定义 DNS，则可能还需要允许来自 Azure DNS 服务的流量。 还必须允许在子网内的 VM 之间传输流量。 使用以下步骤来查找必须允许的 IP 地址：
+
+> [!Note]  
 > 如果不使用网络安全组或用户定义的路由来控制流量，则可以忽略本部分。
 
-如果使用网络安全组，则必须允许来自 Azure 运行状况和管理服务的流量在端口 443 上到达 HDInsight 群集。 还必须允许在子网内的 VM 之间传输流量。 使用以下步骤来查找必须允许的 IP 地址：
+1. 如果使用的是 Azure 提供的 DNS 服务，则允许通过端口 53 从 __168.63.129.16__ 进行访问。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。 如果使用的是自定义 DNS，请跳过此步骤。
 
-1. 必须始终允许来自以下 IP 地址的流量：
+2. 对于适用于所有 Azure 区域的 Azure 运行状况和管理服务，允许来自其以下 IP 地址的流量：
 
     | 源 IP 地址 | 目标  | 方向 |
     | ---- | ----- | ----- |
@@ -269,7 +269,7 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
     | 168.61.48.131 | \*:443 | 入站 |
     | 138.91.141.162 | \*:443 | 入站 |
 
-2. 如果 HDInsight 群集位于以下区域之一，则必须允许针对该区域列出的 IP 地址发出的流量：
+3. 对于位于资源所在特定区域中的 Azure 运行状况和管理服务，允许来自其下列 IP 地址的流量：
 
     > [!IMPORTANT]
     > 如果未列出所用的 Azure 区域，则仅使用步骤 1 中所列的四个 IP 地址。
@@ -281,8 +281,6 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
     | &nbsp; | 中国北部 2 | 40.73.37.141</br>40.73.38.172 | 443 | 入站 |
 
     若要获取用于 Azure 政府版的 IP 地址的信息，请参阅 [Azure 政府智能 + 分析](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics)文档。
-
-3. 还必须允许从 168.63.129.16  访问。 该地址是 Azure 的递归解析程序。 有关详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)文档。
 
 有关详细信息，请参阅[控制网络流量](#networktraffic)部分。
 
@@ -306,15 +304,12 @@ Azure 为安装在虚拟网络中的 Azure 服务提供名称解析。 此内置
 
 * [部署安全的 Azure 虚拟网络和 HDInsight Hadoop 群集](https://azure.microsoft.com/resources/templates/101-hdinsight-secure-vnet/)
 
-> [!IMPORTANT]
-> 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
-
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 使用以下 PowerShell 脚本创建可限制入站流量的虚拟网络，但允许来自中国北部区域的 IP 地址的流量。
 
-> [!IMPORTANT]
-> 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
+> [!IMPORTANT]  
+> 更改此示例中的 `hdirule1` 和 `hdirule2` 的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
 
 ```powershell
 $vnetName = "Replace with your virtual network name"
@@ -411,14 +406,12 @@ Set-AzVirtualNetworkSubnetConfig `
 $vnet | Set-AzVirtualNetwork
 ```
 
-> [!IMPORTANT]
-> 此示例演示如何添加规则，以便在所需的 IP 地址上允许入站流量。 它不包含限制从其他源进行入站访问的规则。
->
-> 以下示例演示了如何从 Internet 启用 SSH 访问：
->
-> ```powershell
-> Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
-> ```
+此示例演示如何添加规则，以便在所需的 IP 地址上允许入站流量。 它不包含限制从其他源进行入站访问的规则。 以下代码演示如何允许来自 Internet 的 SSH 访问：
+
+```powershell
+Get-AzNetworkSecurityGroup -Name hdisecure -ResourceGroupName RESOURCEGROUP |
+Add-AzNetworkSecurityRuleConfig -Name "SSH" -Description "SSH" -Protocol "*" -SourcePortRange "*" -DestinationPortRange "22" -SourceAddressPrefix "*" -DestinationAddressPrefix "VirtualNetwork" -Access Allow -Priority 306 -Direction Inbound
+```
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -434,8 +427,8 @@ $vnet | Set-AzVirtualNetwork
 
 2. 使用以下命令将规则添加新网络安全组，以允许从 Azure HDInsight 运行状况和管理服务通过端口 443 发起的入站通信。 将 `RESOURCEGROUP` 替换为包含 Azure 虚拟网络的资源组的名称。
 
-    > [!IMPORTANT]
-    > 更改此示例中使用的 IP 地址，使之与要使用的 Azure 区域匹配。 可以在[使用网络安全组和用户定义的路由的 HDInsight](#hdinsight-ip) 一节找到此信息。
+    > [!IMPORTANT]  
+    > 更改此示例中的 `hdirule1` 和 `hdirule2` 的 IP 地址，使之与要使用的 Azure 区域匹配。 有关此方面的信息，可参阅 [HDInsight 与网络安全组和用户定义路由](#hdinsight-ip)部分。
 
     ```azurecli
     az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule1 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "52.164.210.96" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 300 --direction "Inbound"
@@ -449,14 +442,12 @@ $vnet | Set-AzVirtualNetwork
 3. 若要检索此网络安全组的唯一标识符，请使用以下命令：
 
     ```azurecli
-    az network nsg show -g RESOURCEGROUP -n hdisecure --query 'id'
+    az network nsg show -g RESOURCEGROUP -n hdisecure --query "id"
     ```
 
     此命令返回类似于以下文本的值：
 
         "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Network/networkSecurityGroups/hdisecure"
-
-    如果没有得到预期的结果，请在命令中 `id` 的两侧使用双引号。
 
 4. 使用以下命令将网络安全组应用于子网。 将 `GUID` 和 `RESOURCEGROUP` 值替换为从上一步骤中返回的值。 将 `VNETNAME` 和 `SUBNETNAME` 替换为要创建的虚拟网络名称和子网名称。
 
@@ -466,14 +457,14 @@ $vnet | Set-AzVirtualNetwork
 
     此命令完成后，即可将 HDInsight 安装到虚拟网络中。
 
-> [!IMPORTANT]
-> 这些步骤只会实现对 Azure 云中 HDInsight 运行状况和管理服务的访问。 任何从虚拟网络外部对 HDInsight 群集的其他访问会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
->
-> 以下示例演示了如何从 Internet 启用 SSH 访问：
->
-> ```azurecli
-> az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n hdirule5 --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
-> ```
+
+这些步骤只会实现对 Azure 云中 HDInsight 运行状况和管理服务的访问。 任何从虚拟网络外部对 HDInsight 群集的其他访问会被阻止。 若要从虚拟网络之外启用访问，必须添加其他的虚拟网络安全组规则。
+
+以下代码演示如何允许来自 Internet 的 SSH 访问：
+
+```azurecli
+az network nsg rule create -g RESOURCEGROUP --nsg-name hdisecure -n ssh --protocol "*" --source-port-range "*" --destination-port-range "22" --source-address-prefix "*" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 306 --direction "Inbound"
+```
 
 ## <a id="example-dns"></a> 示例：DNS 配置
 

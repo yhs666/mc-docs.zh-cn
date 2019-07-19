@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: reference
-origin.date: 04/30/2019
-ms.date: 06/10/2019
+origin.date: 05/29/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: ed73ab14068592903d40a044b48328724f7dc0f6
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 0883b3daa9414602e0cc96176b8ae29153a847de
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830061"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844943"
 ---
 # <a name="content-moderator-api-reference"></a>内容审查器 API 参考
 
@@ -35,7 +35,7 @@ ms.locfileid: "66830061"
 
 ## <a name="review-apis"></a>查看 API
 
-评审 API 包括以下组件：
+评审 API 包含以下组件：
 
 | 说明 | 参考 |
 | -------------------- |-------------|

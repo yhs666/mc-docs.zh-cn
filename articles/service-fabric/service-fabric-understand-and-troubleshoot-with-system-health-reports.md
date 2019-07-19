@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 06/03/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: f24b9a7669c2d5833c016505c2acbc750d2c0a69
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: ac1329ffc8d394e881d6bc76756d7cb9b3811cbc
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195490"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844901"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -65,14 +65,36 @@ Azure Service Fabric 组件提供有关现成群集中所有实体的系统运�
 
 * **等待广播**：FM/FMM 等待其他节点的广播消息答复。
 
-  * **后续步骤**：调查节点之间是否存在网络连接问题。
+    * **后续步骤**：调查节点之间是否存在网络连接问题。
 * **等待节点**：FM/FMM 已收到来自其他节点的广播答复，正在等待特定节点的答复。 运行状况报告列出 FM/FMM 正在等待其响应的节点。
-   * **后续步骤**：调查 FM/FMM 和所列出节点之间的网络连接。 调查每个列出的节点是否存在其他可能问题。
+    * **后续步骤**：调查 FM/FMM 和所列出节点之间的网络连接。 调查每个列出的节点是否存在其他可能问题。
 
 * **SourceID**：System.FM 或 System.FMM
 * **属性**：Rebuild。
 * **后续步骤**：调查节点之间的网络连接，以及在运行状况报告的说明中列出的任何特定节点的状态。
 
+### <a name="seed-node-status"></a>发送节点状态
+**System.FM** 会在某些种子节点运行不正常的情况下报告群集级别的警告。 种子节点可以维护基础群集的可用性。 这些节点有助于通过在某些类型的网络故障期间，与其他节点建立租约并充当决胜属性来确保群集保持启动状态。 如果群集中的大部分种子节点故障并且无法将其恢复，则群集会自动关闭。 
+
+如果种子节点的状态为“停机”、“已删除”或“未知”，则表明该节点运行不正常。
+种子节点状态的警告报告会列出所有运行不正常的种子节点及详细信息。
+
+* **SourceID**：System.FM
+* **属性**：SeedNodeStatus
+* **后续步骤**：如果此警告显示在群集中，请按以下说明来修复它：对于运行 Service Fabric 6.5 或更高版本的群集：对于 Azure 上的 Service Fabric 群集，当种子节点发生故障后，Service Fabric 会尝试自动将其更改为非种子节点。 若要实现这一点，请确保主节点类型中的非种子节点数大于或等于“发生故障”的种子节点数。 如果需要，请将更多节点添加到主节点类型以实现这一目标。
+    根据群集状态，修复此问题可能需要一定的时间。 修复完以后，会自动清除警告报告。
+
+    对于 Service Fabric 独立群集来说，所有种子节点必须变得正常才能清除警告报告。 需要根据种子节点运行不正常的原因采取不同的操作：如果种子节点状态为“停机”，则用户需启动该种子节点；如果种子节点状态为“已删除”或“未知”，则[需从群集中删除](/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes)该种子节点。
+    当所有种子节点变得正常以后，会自动清除警告报告。
+
+    对于运行低于 6.5 版的 Service Fabric 的群集：在这种情况下，需手动清除警告报告。 **用户在清除报告之前，应确保所有种子节点变得正常**：如果种子节点状态为“停机”，则用户需启动该种子节点；如果种子节点状态为“已删除”或“未知”，则需从群集中删除该种子节点。
+    在所有种子节点变得正常以后，请使用以下 Powershell 命令[清除警告报告](https://docs.microsoft.com/powershell/module/servicefabric/send-servicefabricclusterhealthreport)：
+
+    ```powershell
+    PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
+    ```
+    <!--MOONCAKE: ORIGNAL AUTHOR MISSING ```-->
+    
 ## <a name="node-system-health-reports"></a>节点系统运行状况报告
 System.FM 表示“故障转移管理器”服务，是管理群集节点相关信息的主管服务。 每个节点应该都有一个来自 System.FM 的报告，显示其状态。 节点实体随节点状态一起删除。 有关详细信息，请参阅 [RemoveNodeStateAsync](https://docs.azure.cn/zh-cn/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync?view=azure-dotnet)。
 
@@ -434,30 +456,30 @@ HealthEvents          :
                         ReceivedAt            : 8/27/2017 11:43:21 PM
                         TTL                   : Infinite
                         Description           : Replica had multiple failures during open on _Node_0 API call: IStatefulServiceReplica.Open(); Error = System.Reflection.TargetInvocationException (-2146232828)
-Exception has been thrown by the target of an invocation.
-   at Microsoft.ServiceFabric.Replicator.RecoveryManager.d__31.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at Microsoft.ServiceFabric.Replicator.LoggingReplicator.d__137.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at Microsoft.ServiceFabric.Replicator.DynamicStateManager.d__109.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at Microsoft.ServiceFabric.Replicator.TransactionalReplicator.d__79.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at Microsoft.ServiceFabric.Replicator.StatefulServiceReplica.d__21.MoveNext()
---- End of stack trace from previous location where exception was thrown ---
-   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
-
-    For more information see: https://aka.ms/sfhealth
+                                                Exception has been thrown by the target of an invocation.
+                                                   at Microsoft.ServiceFabric.Replicator.RecoveryManager.d__31.MoveNext()
+                                                --- End of stack trace from previous location where exception was thrown ---
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+                                                   at Microsoft.ServiceFabric.Replicator.LoggingReplicator.d__137.MoveNext()
+                                                --- End of stack trace from previous location where exception was thrown ---
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+                                                   at Microsoft.ServiceFabric.Replicator.DynamicStateManager.d__109.MoveNext()
+                                                --- End of stack trace from previous location where exception was thrown ---
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+                                                   at Microsoft.ServiceFabric.Replicator.TransactionalReplicator.d__79.MoveNext()
+                                                --- End of stack trace from previous location where exception was thrown ---
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+                                                   at Microsoft.ServiceFabric.Replicator.StatefulServiceReplica.d__21.MoveNext()
+                                                --- End of stack trace from previous location where exception was thrown ---
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+                                                   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+                                                   at Microsoft.ServiceFabric.Services.Runtime.StatefulServiceReplicaAdapter.d__0.MoveNext()
+    
+                                                    For more information see: https://aka.ms/sfhealth
                         RemoveWhenExpired     : False
                         IsExpired             : False
                         Transitions           : Error->Warning = 8/27/2017 11:43:21 PM, LastOk = 1/1/0001 12:00:00 AM                        
@@ -623,7 +645,7 @@ HealthEvents          :
 
 - **IStatefulServiceReplica.Close** 和 **IStatefulServiceReplica.Abort**：最常见的情况是服务不遵循传递给 `RunAsync` 的取消令牌。 也可能是无法调用 `ICommunicationListener.CloseAsync` 或 `OnCloseAsync`（若已重写）。
 
-- **IStatefulServiceReplica.ChangeRole(S)** 和 **IStatefulServiceReplica.ChangeRole(N)** ：最常见的情况是服务不遵循传递给 `RunAsync` 的取消令牌。
+- **IStatefulServiceReplica.ChangeRole(S)** 和 **IStatefulServiceReplica.ChangeRole(N)** ：最常见的情况是服务不遵循传递给 `RunAsync` 的取消令牌。 在这种情况下，最佳解决方案是重启副本。
 
 - **IStatefulServiceReplica.ChangeRole(P)** ：最常见的情况是服务没有从 `RunAsync` 返回任务。
 
@@ -860,4 +882,4 @@ HealthEvents               :
 
 * [Service Fabric 应用程序升级](service-fabric-application-upgrade.md)
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

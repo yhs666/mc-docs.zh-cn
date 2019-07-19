@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/28/2018
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5479130a59c5f989d648ecc83e5ea8a9ad7a1be5
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: cd9730ca53021f9d08d47b68a44e9bf57b3e25a3
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520691"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673962"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法
 
@@ -36,13 +36,13 @@ ms.locfileid: "65520691"
 
 * [AKS 区域可用性](/aks/quotas-skus-regions#region-availability)
     * 选择靠近用户的区域。 AKS 正不断向新区域扩展。
-* [Azure 配对区域](/best-practices-availability-paired-regions)
+* Azure 配对区域
 
     <!--Not Available on [Azure paired regions](/best-practices-availability-paired-regions)-->
     
     * 对于你的地理区域，选择两个相互配对的区域。 这些区域协调平台更新，并在需要时确定恢复工作的优先级。
 * 服务可用性级别（热/热、热/暖、热/冷）
-    * 是否希望同时运行两个区域，一个区域已准备好开始提供流量，一个区域需要时间来准备好提供流量。
+    * 是否希望同时运行两个区域，一个区域已准备好  开始提供流量，一个区域需要时间来准备好提供流量。
 
 AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部署到配对区域中，这些区域旨在一起管理区域灾难恢复。 例如，AKS 在*中国东部*和*中国北部*提供。 这些区域也是配对的。 创建 AKS 业务连续性/灾难恢复策略时，建议使用这两个区域。
 
@@ -56,7 +56,7 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 
 ![AKS 和 Azure 流量管理器](media/operator-best-practices-bc-dr/aks-azure-traffic-manager.png)
 
-在单个 AKS 群集中，客户通常连接到给定应用程序的服务 IP 或 DNS 名称。 在多群集部署中，客户应连接到指向每个 AKS 群集上的服务的流量管理器 DNS 名称。 使用流量管理器终结点定义这些服务。 每个终结点都是服务负载均衡器 IP。 此配置允许将网络流量从一个区域的流量管理器终结点定向到另一个区域的终结点。
+在单个 AKS 群集中，客户通常连接到给定应用程序的服务 IP  或 DNS 名称。 在多群集部署中，客户应连接到指向每个 AKS 群集上的服务的流量管理器 DNS 名称。 使用流量管理器终结点定义这些服务。 每个终结点都是服务负载均衡器 IP  。 此配置允许将网络流量从一个区域的流量管理器终结点定向到另一个区域的终结点。
 
 ![使用 Azure 流量管理器进行地理路由](media/operator-best-practices-bc-dr/traffic-manager-geographic-routing.png)
 
@@ -75,11 +75,11 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 
 使用 ACR 异地复制的好处包括：
 
-* 从同一区域提取映像速度更快。 可以从同一个 Azure 区域内的高速、低延迟网络连接中提取映像。
+* 从同一区域提取映像速度更快。  可以从同一个 Azure 区域内的高速、低延迟网络连接中提取映像。
 * **从同一区域提取映像更可靠。** 如果一个区域不可用，AKS 群集将从另一个仍然可用的 ACR 注册表中提取映像。
 * **从同一区域提取映像更经济实惠。** 数据中心之间没有任何网络出口费用。
 
-异地复制是高级 SKU ACR 注册表的一项功能。 有关如何配置复制的步骤，请参阅 [Azure 容器注册表异地复制](/container-registry/container-registry-geo-replication)
+异地复制是高级  SKU ACR 注册表的一项功能。 有关如何配置复制的步骤，请参阅 [Azure 容器注册表异地复制](/container-registry/container-registry-geo-replication)
 
 ## <a name="remove-service-state-from-inside-containers"></a>从容器内删除服务状态
 

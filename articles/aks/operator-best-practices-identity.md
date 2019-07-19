@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/24/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
-ms.openlocfilehash: c887e563e4f21e59ce67f16d4c81dea72797fc25
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: c791e4abd77e419ba83c4ce04a7fca04e5ede589
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520687"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673961"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的身份验证和授权的最佳做法
 
@@ -32,7 +32,7 @@ ms.locfileid: "65520687"
 
 Kubernetes 群集的开发人员和应用程序所有者需要访问不同的资源。 Kubernetes 不提供标识管理解决方案来控制哪些用户可与哪些资源交互。 通常，你会将群集与现有的标识解决方案相集成。 Azure Active Directory (AD) 提供企业就绪的标识管理解决方案，并可与 AKS 群集相集成。
 
-使用 AKS 中与 Azure AD 集成的群集，创建角色或群集角色用于定义对资源的访问权限。 然后，从 Azure AD 将角色绑定到用户或组。 下一部分将介绍这些 Kubernetes 基于角色的访问控制 (RBAC)。 下图显示了 Azure AD 集成，以及如何控制对资源的访问：
+使用 AKS 中与 Azure AD 集成的群集，创建角色或群集角色用于定义对资源的访问权限。   然后，从 Azure AD 将角色绑定到用户或组。  下一部分将介绍这些 Kubernetes 基于角色的访问控制 (RBAC)。 下图显示了 Azure AD 集成，以及如何控制对资源的访问：
 
 ![与 AKS 集成的 Azure Active Directory 的群集级身份验证](media/operator-best-practices-identity/cluster-level-authentication-flow.png)
 
@@ -49,7 +49,7 @@ Kubernetes 群集的开发人员和应用程序所有者需要访问不同的资
 
 **最佳做法指导** - 使用 Kubernetes RBAC 定义用户或组对群集中的资源拥有的权限。 创建角色和绑定，用于分配所需的最少量权限。 与 Azure AD 集成，使用户状态或组成员身份的任何更改可自动更新，并使群集资源访问权限保持最新状态。
 
-在 Kubernetes 中，可以针对群集中的资源提供精细访问控制。 可在群集级别或者针对特定的命名空间定义权限。 可以定义能够使用哪些权限管理哪些资源。 这些角色将结合绑定应用到用户或组。 有关角色、群集角色和绑定的详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的访问和标识选项][aks-concepts-identity]。
+在 Kubernetes 中，可以针对群集中的资源提供精细访问控制。 可在群集级别或者针对特定的命名空间定义权限。 可以定义能够使用哪些权限管理哪些资源。 这些角色将结合绑定应用到用户或组。 有关角色、群集角色和绑定的详细信息，请参阅 [Azure Kubernetes 服务 (AKS) 的访问和标识选项][aks-concepts-identity]。   
 
 例如，可以创建一个角色，用于授予对名为 *finance-app* 的命名空间中的资源的完全访问权限，如以下示例 YAML 清单中所示：
 
@@ -112,7 +112,7 @@ roleRef:
 > [!NOTE]
 > 托管 Pod 标识是开源项目，Azure 技术支持部门不为其提供支持。
 
-若要使用 pod 标识，请参阅 [Kubernetes 应用程序的 Azure Active Directory 标识][aad-pod-identity]。
+若要使用 Pod 标识，请参阅 [Kubernetes 应用程序的 Azure Active Directory 标识][aad-pod-identity]。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -133,7 +133,9 @@ roleRef:
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
 [aks-aad]: azure-ad-integration-cli.md
-[managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
+
+<!--Not Available on [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md-->
+
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md

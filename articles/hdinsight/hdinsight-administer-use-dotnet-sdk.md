@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/14/2018
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: d557ef1244d4f31b2e172820e92e66b2741063a6
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: eae7f9987085f128e5a3be59c62ba702643f14a2
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003832"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845168"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -35,9 +35,9 @@ ms.locfileid: "59003832"
 
 ## <a name="connect-to-azure-hdinsight"></a>连接到 Azure HDInsight
 
-需要以下 Nuget 包：
+需要以下 NuGet 包：
 
-```
+```powershell
 Install-Package Microsoft.Rest.ClientRuntime.Azure.Authentication -Pre
 Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
@@ -257,10 +257,6 @@ foreach (var key in results.Configuration.Keys)
 
 请参阅[使用 .NET SDK 运行 Apache Hive 查询](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)。
 
-**提交 Apache Pig 作业**
-
-请参阅[使用 .NET SDK 运行 Apache Pig 作业](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)。
-
 **提交 Apache Sqoop 作业**
 
 请参阅[将 Apache Sqoop 与 HDInsight 配合使用](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)。
@@ -275,7 +271,7 @@ foreach (var key in results.Configuration.Keys)
 ## <a name="see-also"></a>另请参阅
 * [HDInsight .NET SDK 参考文档](https://docs.azure.cn/dotnet/api/overview/hdinsight)
 * [使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集](hdinsight-administer-use-portal-linux.md)
-* [使用命令行借口管理 HDInsight][hdinsight-admin-cli]
+* [使用命令行接口管理 HDInsight][hdinsight-admin-cli]
 * [创建 HDInsight 群集][hdinsight-provision]
 * [将数据上传到 HDInsight][hdinsight-upload-data]
 * [Azure HDInsight 入门][hdinsight-get-started]

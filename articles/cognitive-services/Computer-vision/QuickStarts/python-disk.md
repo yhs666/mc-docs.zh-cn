@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 05/14/2019
+origin.date: 07/03/2019
+ms.date: 07/08/2019
 ms.author: v-junlch
 ms.custom: seodec18
-ms.openlocfilehash: 39417c6cec196837cbe34880b4ca01cd582a7aba
-ms.sourcegitcommit: 9235a1f313393f21b5c42cb7a1626b1b93feb8be
+ms.openlocfilehash: fa0f4efa1158f68bc29e6131e2b281ea3ce61e8a
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65598870"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844860"
 ---
-# <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>快速入门：使用计算机视觉中的 REST API 和 Python 分析本地图像
+# <a name="quickstart-analyze-a-local-image-using-the-computer-vision-rest-api-and-python"></a>快速入门：使用计算机视觉 REST API 和 Python 分析本地图像
 
 在本快速入门中，你将使用计算机视觉的 REST API 分析本地存储的图像以提取视觉特征。 使用[分析图像](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)方法，可以根据图像内容提取视觉特征。
 
@@ -54,7 +54,7 @@ ms.locfileid: "65598870"
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -72,9 +72,9 @@ image_path = "C:/Documents/ImageToAnalyze.jpg"
 
 # Read the image into a byte array
 image_data = open(image_path, "rb").read()
-headers    = {'Ocp-Apim-Subscription-Key': subscription_key,
-              'Content-Type': 'application/octet-stream'}
-params     = {'visualFeatures': 'Categories,Description,Color'}
+headers = {'Ocp-Apim-Subscription-Key': subscription_key,
+           'Content-Type': 'application/octet-stream'}
+params = {'visualFeatures': 'Categories,Description,Color'}
 response = requests.post(
     analyze_url, headers=headers, params=params, data=image_data)
 response.raise_for_status()
@@ -168,10 +168,6 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
 }
 ```
 
-## <a name="clean-up-resources"></a>清理资源
-
-不再需要该文件时，请将其删除。
-
 ## <a name="next-steps"></a>后续步骤
 
 浏览一款 Python 应用程序，该应用程序使用计算机视觉执行光学字符识别 (OCR)、创建智能裁剪缩略图，并对图像中的视觉特征（包括人脸）进行检测、分类、标记和描述。 要快速体验计算机视觉 API，请尝试使用 [Open API 测试控制台](https://dev.cognitive.azure.cn/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console)。
@@ -179,3 +175,4 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
 > [!div class="nextstepaction"]
 > [计算机视觉 API Python 教程](../Tutorials/PythonTutorial.md)
 
+<!-- Update_Description: wording update -->

@@ -9,13 +9,13 @@ ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: f48cf6d99e4d07fdd9faec24ecc00ca904990725
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+ms.date: 07/15/2019
+ms.openlocfilehash: 22d5551644e0b3e256dfb02cd2ee0e97f47acaee
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302956"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844385"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
@@ -146,6 +146,27 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 # Display the most recent report
 $reports[0]
 ```
+
+## <a name="removing-nodes-from-service"></a>从服务中删除节点
+
+当节点添加到 Azure 自动化 State Configuration 时，本地配置管理器中的设置会设置为注册到服务，并拉取配置和所需的模块，以配置计算机。
+如果选择从服务中删除节点，则可以使用 Azure 门户或 Az cmdlet 进行删除。
+
+> [!NOTE]
+> 从服务注销节点只会设置本地配置管理器设置，这样，该节点便不再连接到该服务。
+> 这不影响当前应用于该节点的配置。
+> 若要删除当前配置，请使用 [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 或删除本地配置文件（这是适用于 Linux 节点的唯一选项）。
+
+### <a name="azure-portal"></a>Azure 门户
+
+在 Azure 自动化中，单击目录中的“状态配置(DSC)”  。
+接下来，单击“节点”  ，以查看注册到服务的节点的列表。
+单击要删除的节点的名称。
+在打开的“节点”视图中，单击“注销”  。
+
+### <a name="powershell"></a>PowerShell
+
+若要使用 PowerShell 从 Azure 自动化 State Configuration 服务中注销节点，请按照 cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0) 的文档进行操作。
 
 ## <a name="next-steps"></a>后续步骤
 

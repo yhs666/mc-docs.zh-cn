@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/23/2017
-ms.date: 01/14/2019
+origin.date: 06/28/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4716eeef4171af90858e9ba737eb0c178959c454
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 1fd4cc57aac963dfb0ece91d583437b2aa7f8efa
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029229"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845053"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Apache Hadoop 运行 Apache Hive 查询
 
@@ -32,49 +32,62 @@ ms.locfileid: "54029229"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
+* HDInsight 中的 Apache Hadoop 群集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 
-  > [!IMPORTANT]
-  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+* 一个 REST 客户端。 本文档在 Windows PowerShell 上使用 [Invoke-WebRequest](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/invoke-webrequest)，在 [Bash](https://docs.microsoft.com/windows/wsl/install-win10) 上使用 [Curl](https://curl.haxx.se/)。
 
-* 一个 REST 客户端。 本文档使用了 Windows PowerShell 和 [Curl](https://curl.haxx.se/) 示例。
+* 如果使用 Bash，还需要命令行 JSON 处理器 jq。  请参阅 [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/)。
 
-    > [!NOTE]  
-    > Azure PowerShell 提供了用于使用 Hive on HDInsight 的专用 cmdlet。 有关详细信息，请参阅[将 Apache Hive 与 Azure PowerShell 配合使用](apache-hadoop-use-hive-powershell.md)文档。
+## <a name="base-uri-for-rest-api"></a>用于 Rest API 的基 URI
 
-本文档还使用 Windows PowerShell 和 [Jq](https://stedolan.github.io/jq/) 来处理从 REST 请求返回的 JSON 数据。
+HDInsight 上 REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.net`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
+
+## <a name="authentication"></a>身份验证
+
+使用 cURL 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员的用户名和密码以对请求进行身份验证。 REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 为了有助于确保将凭据安全地发送到服务器，应始终使用安全 HTTP (HTTPS) 发出请求。
+
+### <a name="setup-preserve-credentials"></a>设置（保留凭据）
+请保留凭据，以免在每个示例中重复输入。  群集名称将在单独的步骤中保留。
+
+**A.Bash**  
+编辑以下脚本，将 `PASSWORD` 替换为实际密码。  然后输入该命令。
+
+```bash
+export password='PASSWORD'
+```  
+
+**B.PowerShell** 执行以下代码并在弹出窗口中输入凭据：
+
+```powershell
+$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
+```
+
+### <a name="identify-correctly-cased-cluster-name"></a>识别大小写正确的群集名称
+群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。  此处的步骤将显示实际大小写，然后将其存储在某个变量中，以便在后续示例中使用。
+
+编辑以下脚本，将 `CLUSTERNAME` 替换为群集名称。 然后输入该命令。 （FQDN 的群集名称不区分大小写。）
+
+```bash
+export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+echo $clusterName
+```  
+
+```powershell
+# Identify properly cased cluster name
+$resp = Invoke-WebRequest -Uri "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters" `
+    -Credential $creds -UseBasicParsing
+$clusterName = (ConvertFrom-Json $resp.Content).items.Clusters.cluster_name;
+
+# Show cluster name
+$clusterName
+```
 
 ## <a id="curl"></a>运行 Hive 查询
 
-> [!NOTE]
-> 使用 cURL 或者与 WebHCat 进行任何其他形式的 REST 通信时，必须提供 HDInsight 群集管理员的用户名和密码以对请求进行身份验证。
->
-> REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_authentication)进行保护。 为了有助于确保将凭据安全地发送到服务器，应始终使用安全 HTTP (HTTPS) 发出请求。
-
-1. 若要设置本文档中的脚本使用的群集登录名，请使用下列命令之一：
+1. 若要验证是否可以连接到 HDInsight 群集，请使用下列命令之一：
 
     ```bash
-    read -p "Enter your cluster login account name: " LOGIN
-    ```
-
-    ```powershell
-    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
-    ```
-
-2. 若要设置群集名称，请使用下列命令之一：
-
-    ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
-    ```
-
-    ```powershell
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    ```
-
-3. 若要验证是否可以连接到 HDInsight 群集，请使用下列命令之一：
-
-    ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/status)
+    curl -u admin:$password -G https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/status
     ```
     
     ```powershell
@@ -98,12 +111,12 @@ ms.locfileid: "54029229"
    URL 的开头 (`https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1`) 对于所有请求都是相同的。 路径 `/status` 指示请求将返回服务器的 WebHCat（也称为 Templeton）状态。 还可以通过使用以下命令请求 Hive 的版本：
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/version/hive
+    curl -u admin:$password -G https://$clusterName.azurehdinsight.cn/templeton/v1/version/hive
     ```
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/templeton/v1/version/hive" `
-       -Credential $creds
+       -Credential $creds `
        -UseBasicParsing
     $resp.Content
     ```
@@ -111,14 +124,14 @@ ms.locfileid: "54029229"
     此请求返回的响应类似于以下文本：
 
     ```json
-        {"module":"hive","version":"0.13.0.2.1.6.0-2103"}
+    {"module":"hive","version":"1.2.1000.2.6.5.3008-11"}
     ```
 
 4. 使用以下命令创建名为 **log4jLogs** 的表：
 
     ```bash
-    JOBID=`curl -s -u $LOGIN -d user.name=$LOGIN -d execute="set+hive.execution.engine=tez;DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/hive | jq .id`
-    echo $JOBID
+    jobid=$(curl -s -u admin:$password -d user.name=admin -d execute="DROP+TABLE+log4jLogs;CREATE+EXTERNAL+TABLE+log4jLogs(t1+string,t2+string,t3+string,t4+string,t5+string,t6+string,t7+string)+ROW+FORMAT+DELIMITED+FIELDS+TERMINATED+BY+' '+STORED+AS+TEXTFILE+LOCATION+'/example/data/';SELECT+t4+AS+sev,COUNT(*)+AS+count+FROM+log4jLogs+WHERE+t4+=+'[ERROR]'+AND+INPUT__FILE__NAME+LIKE+'%25.log'+GROUP+BY+t4;" -d statusdir="/example/rest" https://$clusterName.azurehdinsight.cn/templeton/v1/hive | jq -r .id)
+    echo $jobid
     ```
 
     ```powershell
@@ -160,7 +173,7 @@ ms.locfileid: "54029229"
 5. 若要检查作业的状态，请使用以下命令：
 
     ```bash
-    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.cn/templeton/v1/jobs/$JOBID | jq .status.state
+    curl -u admin:$password -d user.name=admin -G https://$clusterName.azurehdinsight.cn/templeton/v1/jobs/$jobid | jq .status.state
     ```
 
     ```powershell
@@ -177,7 +190,7 @@ ms.locfileid: "54029229"
 
     如果作业已完成，状态是 **SUCCEEDED**。
 
-6. 在作业的状态更改为“SUCCEEDED”后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/rest`。 此地址将输出存储在群集默认存储中的 `example/curl` 目录。
+6. 在作业的状态更改为“SUCCEEDED”  后，可以从 Azure Blob 存储中检索作业的结果。 随查询一起传递的 `statusdir` 参数包含输出文件的位置；在本例中，该位置为 `/example/rest`。 此地址将输出存储在群集默认存储中的 `example/curl` 目录。
 
     可以使用 [Azure CLI](/cli/install-azure-cli) 列出并下载这些文件。 有关将 Azure CLI 与 Azure 存储配合使用的详细信息，请参阅[将 Azure CLI 与 Azure 存储配合使用](../../storage/common/storage-azure-cli.md#create-and-manage-blobs)文档。
 
@@ -191,10 +204,6 @@ ms.locfileid: "54029229"
 
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
-
-如果将 Tez 与 Hive 配合使用，请参阅以下文档以了解调试信息：
-
-* [在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)
 
 有关在本文档中使用的 REST API 的详细信息，请参阅 [WebHCat 参考](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference)文档。
 

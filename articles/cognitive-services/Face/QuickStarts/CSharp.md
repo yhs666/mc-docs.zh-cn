@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 04/22/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: c654466c8b78e4b267b82640a6c6446940726221
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 95967aa456219e494648ffcb05e44d0362b6cbd9
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854910"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844637"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>快速入门：使用人脸 REST API 和 C# 检测图像中的人脸
 
@@ -69,7 +69,7 @@ namespace DetectFace
 
 ### <a name="receive-image-input"></a>接收图像输入
 
-将以下代码添加到 **Program** 类的 **Main** 方法。 这样会将一个提示写入到控制台，要求用户输入图像 URL。 然后，它会调用另一方法 (**MakeAnalysisRequest**)，在该位置处理图像。
+将以下代码添加到 **Program** 类的 **Main** 方法。 此代码会将一个提示写入到控制台，要求用户输入图像 URL。 然后，它会调用另一方法 (**MakeAnalysisRequest**)，在该位置处理图像。
 
 ```csharp
         static void Main(string[] args)
@@ -154,7 +154,7 @@ namespace DetectFace
 
 ### <a name="process-the-input-image-data"></a>处理输入图像数据
 
-将以下方法添加到 **Program** 类。 这会将指定 URL 中的图像转换为字节数组。
+将以下方法添加到 **Program** 类。 此方法会将指定 URL 中的图像转换为字节数组。
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -171,7 +171,7 @@ namespace DetectFace
 
 ### <a name="parse-the-json-response"></a>分析 JSON 响应
 
-将以下方法添加到 **Program** 类。 这会格式化 JSON 输入，使之更加易于读取。 应用会将该字符串数据写入到控制台。 然后即可关闭类和命名空间。
+将以下方法添加到 **Program** 类。 此方法会格式化 JSON 输入，使之更加易于读取。 应用会将该字符串数据写入到控制台。 然后即可关闭类和命名空间。
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.
@@ -345,4 +345,4 @@ namespace DetectFace
 > [!div class="nextstepaction"]
 > [人脸 API](https://dev.cognitive.azure.cn/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

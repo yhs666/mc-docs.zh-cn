@@ -4,22 +4,22 @@ description: 使用适用于 Azure CLI 的 IoT 扩展注册新的 IoT Edge 设�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/03/2019
-ms.date: 01/28/2019
+origin.date: 06/03/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4f256c77dd8d3ee3f73eee527b25291a30f36370
-ms.sourcegitcommit: 49b42f8057226e8f82bde84ccef3c63197461509
+ms.openlocfilehash: 8872e4d445b312c3abe9e575ebde5153c01fc8d4
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396804"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845231"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>使用 Azure CLI 注册新 Azure IoT Edge 设备
 
-在 Azure IoT Edge 中使用 IoT 设备之前，需要在 IoT 中心中注册这些设备。 注册设备后，会收到一个连接字符串，可使用该字符串针对 Edge 工作负载设置设备。 
+在 Azure IoT Edge 中使用 IoT 设备之前，需要在 IoT 中心中注册这些设备。 注册设备后，会收到一个连接字符串，可使用该字符串针对 IoT Edge 工作负荷设置设备。
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 是一个开源跨平台命令行工具，用于管理 IoT Edge 等 Azure 资源。 使用 Azure CLI 2.0 可以管理 Azure IoT 中心资源、设备预配服务实例和现成的链接中心。 新的 IoT 扩展丰富了 Azure CLI 的功能，例如设备管理和完整的 IoT Edge 功能。
 

@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/23/2019
-ms.date: 03/04/2019
+origin.date: 04/24/2019
+ms.date: 07/08/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fe9f94b710240c7cd4c6a99fdd1144ed6e0b732
-ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
+ms.openlocfilehash: 4bc3c576b11c14194185751db62d5e4f3a55642f
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277533"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844700"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 应用程序和群集最佳做法
 
@@ -46,6 +46,10 @@ ms.locfileid: "67277533"
 <!--Not Available on ## Monitoring and diagnostics-->
 <!--Not Available on * [Best practices for cluster monitoring and diagnostics](service-fabric-best-practices-monitoring.md)-->
 
+## <a name="application-design"></a>应用程序设计
+
+* [应用程序设计的最佳做法](service-fabric-best-practices-applications.md)
+
 ## <a name="checklist"></a>清单
 
 完成上面的所有部分后，请确保你已集成了生产就绪情况核对清单中的所有最佳做法：
@@ -57,5 +61,4 @@ ms.locfileid: "67277533"
 * 在运行 Linux 的 VM 或计算机上创建群集：[创建 Linux 群集](service-fabric-cluster-creation-via-portal.md)
 * 故障排除：[Service Fabric 故障排除指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
 
-<!--Update_Description: new articles on service fabric best practices overview -->
-<!--ms.date: 03/04/2019-->
+<!--Update_Description: wording update -->

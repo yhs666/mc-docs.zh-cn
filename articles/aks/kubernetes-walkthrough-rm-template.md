@@ -9,12 +9,12 @@ origin.date: 04/19/2019
 ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4e430e18398e460f7dd61f72e2d63107003ed91d
-ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
+ms.openlocfilehash: f3c4df9f36e86f42512949d6ee369b29d36e8af0
+ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552110"
+ms.lasthandoff: 07/09/2019
+ms.locfileid: "67673965"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板部署 Azure Kubernetes 服务 (AKS) 群集
@@ -83,12 +83,12 @@ az ad sp create-for-rbac --skip-assignment
     
     <!--MOONCAKE: CUSTOMIZED-->
     
-    对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。 为以下模板参数提供自己的值：
-    * “部署解决方案模板”面板：
+    对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。      为以下模板参数提供自己的值：
+    * “部署解决方案模板”面板： 
         * **订阅**：选择 Azure 订阅。
-        * **资源组**：选择“新建”。 输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。
-        * **资源组位置**：选择一个位置，例如“中国东部 2”。
-    * “参数”面板：
+        * **资源组**：选择“新建”。  输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。 
+        * **资源组位置**：选择一个位置，例如“中国东部 2”。 
+    * “参数”面板： 
         * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
         * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
         * **Linux 管理员用户名**：输入一个用户名用于通过 SSH 进行连接，例如 *azureuser*。
@@ -98,11 +98,11 @@ az ad sp create-for-rbac --skip-assignment
         
         <!--NOT Available on * **I agree to the terms and conditions state above**: Check this box to agree.-->
         
-        选择“确定”按钮。
+        选择“确定”按钮。 
     
     ![用于在门户中创建 Azure Kubernetes 服务群集的资源管理器模板](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. 依次选择“查看法律条款”、“创建”。
+3. 依次选择“查看法律条款”、“创建”。  
 
 创建 AKS 群集需要几分钟时间。 等待群集成功部署，然后转到下一步骤。
 
@@ -126,7 +126,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 kubectl get nodes
 ```
 
-以下示例输出显示在上一步骤中创建的节点。 确保所有节点的状态为“就绪”：
+以下示例输出显示在上一步骤中创建的节点。 确保所有节点的状态为“就绪”： 
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -137,10 +137,13 @@ aks-agentpool-41324942-2   Ready    agent   6m45s   v1.12.6
 
 ## <a name="run-the-application"></a>运行应用程序
 
-Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
+Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包含两个 [Kubernetes 部署][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] 还会创建 - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
 
 > [!TIP]
-> 在本快速入门中，请手动创建应用程序清单并将其部署到 AKS 群集。 在更实际的方案中，可以使用 [Azure Dev Spaces][azure-dev-spaces] 直接在 AKS 群集中快速地循环访问代码并对其进行调试。 可以跨 OS 平台和开发环境使用 Dev Spaces，并可与团队中的他人进行协作。
+> 在本快速入门中，请手动创建应用程序清单并将其部署到 AKS 群集。
+
+<!--Not Avaialble on [Azure Dev Spaces][azure-dev-spaces]-->
+<!--Not Available on  In more real-world scenarios, you can use Azure Dev Spaces to rapidly iterate and debug your code directly in the AKS cluster. You can use Dev Spaces across OS platforms and development environments, and work together with others on your team.-->
 
 创建名为 `azure-vote.yaml` 的文件，并将其复制到以下 YAML 定义中。 如果使用 Azure 本地 Shell，则可以使用 `vi` 或 `nano` 来创建此文件，就像在虚拟或物理系统中操作一样：
 
@@ -290,7 +293,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。 访问刚刚创建的群集的 [Kubernetes Web 仪表板][kubernetes-dashboard]。
+在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。 访问已创建的群集的 [Kubernetes Web 仪表板][kubernetes-dashboard]。
 
 若要详细了解 AKS 并演练部署示例的完整代码，请继续阅读“Kubernetes 群集”教程。
 
@@ -302,7 +305,9 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[azure-dev-spaces]: /dev-spaces/
+
+<!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
+
 [aks-quickstart-templates]: https://github.com/Azure/azure-quickstart-templates/?term=Azure+Kubernetes+Service
 
 <!-- LINKS - internal -->

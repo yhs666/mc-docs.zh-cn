@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 490df1eb52dcddbfb50626a9f73a2dffb98ca363
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 26b82d9c686e7750a108a02360202dbcdb9be5dd
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004031"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844412"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
@@ -355,7 +355,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。 IP 规则不允许�
 |Azure Monitor|Microsoft.Insights|允许将监视数据写入受保护存储帐户[了解详细信息](/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|
 |Azure 网络|Microsoft.Network|存储和分析网络流量日志。 [了解详细信息](/network-watcher/network-watcher-packet-capture-overview)。|
 |Azure Site Recovery|Microsoft.SiteRecovery |通过启用 Azure IaaS 虚拟机的复制来配置灾难恢复。 如果使用启用了防火墙的缓存存储帐户、源存储帐户或目标存储帐户，则这是必需的。  [了解详细信息](/site-recovery/azure-to-azure-tutorial-enable-replication)。|
-|Azure SQL 数据仓库|Microsoft.Sql|允许使用 PolyBase 的导入和导出方案。 [了解详细信息](/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
+|Azure SQL 数据仓库|Microsoft.Sql|允许使用 PolyBase 从特定 SQL 数据库实例导入和导出方案。 [了解详细信息](/sql-database/sql-database-vnet-service-endpoint-rule-overview)。|
 
 ### <a name="storage-analytics-data-access"></a>存储分析数据访问
 

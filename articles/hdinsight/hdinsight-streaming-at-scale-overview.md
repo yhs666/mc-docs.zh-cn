@@ -16,19 +16,19 @@ ms.devlang: na
 ms.topic: article
 origin.date: 01/19/2018
 ms.author: v-yiso
-ms.date: 04/15/2019
-ms.openlocfilehash: 4f57c1d0807cc2a0bb6c380468797220f1b4de14
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.date: 07/22/2019
+ms.openlocfilehash: ebaf576724268d416ef8cac868d70b342f3de388
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004036"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845241"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>HDInsight 中的大规模流式处理
 
-实时大数据解决方案可以处理动态数据。 通常，这些数据在抵达时的作用最大。 如果传入的数据流比当时可处理的大小更大，则可能需要限制资源。 或者，可以按需添加节点，根据流式处理解决方案的需要纵向扩展 HDInsight 群集。
+实时大数据解决方案可以处理动态数据。 通常，这些数据在抵达时的作用最大。 如果传入的数据流比当时可处理的大小更大，则可能需要限制资源。 或者，可以通过按需添加节点来纵向扩展 HDInsight 群集以满足流式处理解决方案的需要。
 
-在流式处理应用程序中，一个或多个数据源会生成事件（有时达到每秒几百万个事件），此时，需要在不丢弃任何有用信息的情况下快速引入这些事件。 [Apache Kafka](kafka/apache-kafka-introduction.md) 或[事件中心](/event-hubs/)等服务使用流缓冲（也称为事件队列）来处理传入的事件。 收集事件后，可以使用流处理层中的实时分析系统（例如 [Apache Storm](storm/apache-storm-overview.md) 或 [Apache Spark Streaming](spark/apache-spark-streaming-overview.md)）来分析数据。 处理的数据可存储在长期存储系统中，并实时显示在商业智能仪表板（例如 [Power BI](https://powerbi.microsoft.com)、Tableau）或自定义的网页上。
+在流式处理应用程序中，一个或多个数据源会生成事件（有时达到每秒几百万个事件），此时，需要在不丢弃任何有用信息的情况下快速引入这些事件。 [Apache Kafka](kafka/apache-kafka-introduction.md) 或[事件中心](/event-hubs/)等服务使用流缓冲（也称为事件队列）来处理传入的事件。   收集事件后，可以使用流处理层中的实时分析系统（例如 [Apache Storm](storm/apache-storm-overview.md) 或 [Apache Spark Streaming](spark/apache-spark-streaming-overview.md)）来分析数据。  处理的数据可存储在长期存储系统中，并实时显示在商业智能仪表板（例如 [Power BI](https://powerbi.microsoft.com)、Tableau）或自定义的网页上。
 
 ![HDInsight Streaming 模式](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
@@ -66,13 +66,13 @@ Apache Storm 和 Spark Streaming 都支持将工作节点添加到其群集，�
 
 若要利用通过缩放 Storm 添加的新节点，需要重新均衡在增加群集大小之前启动的任何 Storm 拓扑。 可以使用 Storm Web UI 或其 CLI 实现这种重新均衡。 有关详细信息，请参阅 [Apache Storm 文档](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html)。
 
-Apache Spark 根据应用程序的要求使用三个关键参数来配置其环境：`spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 执行器是针对 Spark 应用程序启动的进程。 执行器在工作节点上运行，负责执行应用程序的任务。 执行器的默认数目和每个群集的执行器大小是根据工作节点数目和工作节点大小计算的。 这些数字存储在每个群集头节点上的 `spark-defaults.conf` 文件中。
+Apache Spark 根据应用程序的要求使用三个关键参数来配置其环境：`spark.executor.instances`、`spark.executor.cores` 和 `spark.executor.memory`。 执行器是针对 Spark 应用程序启动的进程。  执行器在工作节点上运行，负责执行应用程序的任务。 执行器的默认数目和每个群集的执行器大小是根据工作节点数目和工作节点大小计算的。 这些数字存储在每个群集头节点上的 `spark-defaults.conf` 文件中。
 
 这三个参数可在群集级别进行配置（适用于群集上运行的所有应用程序），也可以针对每个应用程序指定。 有关详细信息，请参阅[管理 Apache Spark 群集的资源](spark/apache-spark-resource-manager.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Apache Storm on HDInsight 入门](storm/apache-storm-tutorial-get-started-linux.md)
-* [Apache Storm on HDInsight 的示例拓扑](storm/apache-storm-example-topology.md)
-* [Apache Spark on HDInsight 简介](spark/apache-spark-overview.md)
-* [Apache Kafka on HDInsight 入门](kafka/apache-kafka-get-started.md)
+* [在 Azure HDInsight 中创建和监视 Apache Storm 拓扑](storm/apache-storm-quickstart.md)
+* [HDInsight 上的 Apache Storm 的示例拓扑](storm/apache-storm-example-topology.md)
+* [HDInsight 上的 Apache Spark 简介](spark/apache-spark-overview.md)
+* [HDInsight 上的 Apache Kafka 入门](kafka/apache-kafka-get-started.md)

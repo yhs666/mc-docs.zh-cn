@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-origin.date: 03/27/2019
-ms.date: 04/22/2019
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 83893ac70fd071d57d97a2c8e6023425d2d97537
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 55f0b7fa79faf5b1f20e0b09744b506001742c4e
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854872"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844910"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>快速入门：使用人脸 .NET SDK 检测图像中的人脸
 
@@ -33,9 +33,9 @@ ms.locfileid: "64854872"
 
 1. 在 Visual Studio 中创建新的**控制台应用 (.NET Framework)** 项目并将其命名为 **FaceDetection**。 
 1. 如果解决方案中有其他项目，请将此项目选为单一启动项目。
-1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”。 单击“浏览”选项卡，选择“包括预发行版”，然后找到并安装以下包：
+1. 获取所需的 NuGet 包。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”  。 单击“浏览”选项卡，选择“包括预发行版”，然后找到并安装以下包：  
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-1. 确保已为项目安装所有 NuGet 包的最新版本。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”。 单击“更新”选项卡，安装显示的任何包的最新版本。
+1. 确保已为项目安装所有 NuGet 包的最新版本。 在解决方案资源管理器中，右键单击项目并选择“管理 NuGet 包”  。 单击“更新”选项卡，安装显示的任何包的最新版本。 
 
 ## <a name="add-face-detection-code"></a>添加人脸检测代码
 
@@ -108,7 +108,7 @@ static void Main(string[] args)
 ```
 ### <a name="detect-faces"></a>检测人脸
 
-将以下方法添加到 **Program** 类。 它使用人脸服务客户端检测通过 URL 引用的远程图像中的人脸。 请注意，它使用 `faceAttributes` 字段&mdash;添加到 `faceList` 的 **DetectedFace** 对象将具有指定的属性（在此示例中为年龄和性别）。
+将以下方法添加到 **Program** 类。 它使用人脸服务客户端检测通过 URL 引用的远程图像中的人脸。 它使用 `faceAttributes` 字段&mdash;添加到 `faceList` 的 **DetectedFace** 对象将具有指定的属性（在此示例中为年龄和性别）。
 
 ```csharp
 // Detect faces in a remote image
