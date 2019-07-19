@@ -3,20 +3,20 @@ title: 文本翻译 API V3.0 参考
 titlesuffix: Azure Cognitive Services
 description: 文本翻译 API v3.0 参考文档。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 03/29/2018
-ms.date: 06/11/2019
+ms.date: 07/12/2019
 ms.author: v-junlch
-ms.openlocfilehash: cf35c445d0f44f05c7c01e7dbf409ffca1e98f09
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: e698413f97efbcd7887287a57f8ac5d8d4aa8d1f
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830105"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844634"
 ---
 # <a name="translator-text-api-v30"></a>文本翻译 API v3.0
 
@@ -32,13 +32,15 @@ ms.locfileid: "66830105"
 
 ## <a name="base-urls"></a>基 URL
 
-Microsoft Translator 位于多个数据中心位置之外。 目前位于 2 个 Azure 中国区域中：
+Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 6 个 [Azure 地理区域](https://azure.microsoft.com/global-infrastructure/regions)：
 
 * **中国：** 中国北部和中国东部 2 
 
-在大多数情况下，对 Microsoft 文本翻译 API 的请求由距离请求的来源位置最近的数据中心处理。 如果数据中心发生故障，则可能会在该区域之外路由请求。
+在大多数情况下，对 Microsoft 文本翻译 API 的请求由距离请求的来源位置最近的数据中心处理。 如果数据中心出现故障，请求可能会路由到 Azure 地理区域之外。
 
-|说明|区域|基 URL|
+若要强制由特定 Azure 地理区域处理请求，请将 API 请求中的全球终结点更改为所需的区域终结点：
+
+|说明|Azure 地理区域|基 URL|
 |:--|:--|:--|
 |Azure|中国北部| chinanorth.api.cognitive.azure.cn|
 |Azure|中国东部 2| chinaeast2.api.cognitive.azure.cn|
@@ -133,6 +135,7 @@ Authorization: Bearer <Base64-access_token>
 | 400075| 语言对和类别组合无效。|
 | 400077| 超过了最大请求大小。 查看[请求限制](../request-limits.md)。|
 | 400079| 请求用于在源语言与目标语言之间进行翻译的自定义系统不存在。|
+| 400080| 语言或脚本不支持音译。|
 | 401000| 由于凭据缺失或无效，请求未授权。|
 | 401015| “提供的凭据适用于语音 API。 此请求需要文本 API 的凭据。 请使用文本翻译 API 的订阅。”|
 | 403000| 不允许该操作。|

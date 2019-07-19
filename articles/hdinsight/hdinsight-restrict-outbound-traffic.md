@@ -8,15 +8,15 @@ ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 05/30/2019
-ms.date: 06/24/2019
-ms.openlocfilehash: 3d4f5ad8c7fd160e25b24a84ed5e157f53cedc1b
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 07/22/2019
+ms.openlocfilehash: 9fbc7a9a2243c0c4d1b5972b8c0bfc5932b8b084
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136006"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845393"
 ---
-# <a name="configure-outbound-network-traffic-restriction-for-azure-hdinsight-clusters-preview"></a>配置 Azure HDInsight 群集的出站网络流量限制（预览）
+# <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火墙配置 Azure HDInsight 群集的出站网络流量（预览）
 
 本文提供使用 Azure 防火墙保护来自 HDInsight 群集的出站流量的步骤。 以下步骤假设你要为现有群集配置 Azure 防火墙。 如果你正在部署新群集并在防火墙后面操作，请先创建 HDInsight 群集和子网，然后遵循本指南中的步骤。
 
@@ -53,17 +53,19 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 
 在“添加应用程序规则集合”屏幕上完成以下步骤： 
 
-1. 输入**名称**和**优先级**，然后单击“操作”下拉菜单中的“允许”。  
-1. 添加以下规则：
-    1. 一个允许 HDInsight 和 Windows 更新流量的规则：
-        1. 在“FQDN 标记”部分提供**名称**，并将“源地址”设置为 `*`。  
-        1. 从“FQDN 标记”下拉菜单中选择“HDInsight”和“Windows 更新”。   
-    1. 一个允许 Windows 登录活动的规则：
-        1. 在“目标 FQDN”部分提供**名称**，并将“源地址”设置为 `*`。  
-        1. 在“协议:端口”下输入 `https:443`，在“目标 FQDN”下输入 `login.windows.net`。  
-    1. 如果群集由 WASB 提供支持并且你未使用上述服务终结点，请为 WASB 添加一个规则：
-        1. 在“目标 FQDN”部分提供**名称**，并将“源地址”设置为 `*`。  
-        1. 输入 `http` 或 [https]，具体取决于你在“协议:端口”  下使用 wasb:// 还是 wasbs://，并在“目标 FQDNS”  下输入存储帐户 URL。 格式将类似于 <storage_account_name.blob.core.chinacloudapi.cn>。
+1. 输入**名称**、**优先级**，在“操作”下拉菜单中单击“允许”，   然后在“FQDN 标记部分”中输入以下规则： 
+
+   | **名称** | **源地址** | **FQDN 标记** | **说明** |
+   | --- | --- | --- | --- |
+   | Rule_1 | * | HDInsight 和 WindowsUpdate | HDI 服务所需 |
+
+1. 向“目标 FQDN”部分  添加以下规则：
+
+   | **名称** | **源地址** | **Protocol:Port** | **目标 FQDN** | **说明** |
+   | --- | --- | --- | --- | --- |
+   | Rule_2 | * | https:443 | login.windows.net | 允许 Windows 登录活动 |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.chinacloudapi.cn> | 如果群集由 WASB 提供支持，则为 WASB 添加一个规则。 若只使用 https 连接，请确保在存储帐户上启用 [需要安全传输](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)。 |
+
 1. 单击“添加”  。
 
 ![标题：输入应用程序规则集合详细信息](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
@@ -75,28 +77,21 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 1. 在 Azure 门户中选择新防火墙 **Test-FW01**。
 1. 单击“设置” > “网络规则集合” > “添加网络规则集合”下的“规则”。    
 1. 在“添加网络规则集合”屏幕上输入**名称**和**优先级**，然后单击“操作”下拉菜单中的“允许”。   
-1. 创建以下规则：
-    1. “IP 地址”部分中的网络规则，允许群集使用 NTP 执行时钟同步。
-        1. 在“规则”部分中提供**名称**，然后从“协议”下拉列表中选择“UDP”。   
-        1. 将“源地址”和“目标地址”设置为 `*`。  
-        1. 将“目标端口”设置为 123。 
-    1. 如果正在使用 Azure Data Lake Storage，则可以在“IP 地址”部分中添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会记录并且可审核。
-        1. 确定 Data Lake Storage 帐户的 IP 地址。 可以使用 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` 等 PowerShell 命令将 FQDN 解析成 IP 地址。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
-        1. 将“源地址”设置为 `*`。 
-        1. 在“目标地址”中输入存储帐户的 IP 地址。 
-        1. 将“目标端口”设置为 `*`。 
-    1. （可选）如果正在使用 Log Analytics，请在“IP 地址”部分中创建一个网络规则以实现与 Log Analytics 工作区的通信。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
-        1. 将“源地址”设置为 `*`。 
-        1. 将“目标地址”设置为 `*`。 
-        1. 将“目标端口”设置为 `12000`。 
-    1. 在 SQL 的“服务标记”部分中配置允许你记录和审核 SQL 流量的网络规则，除非你在 HDInsight 子网中为 SQL Server 配置了服务终结点。
-        1. 在“规则”部分的下一行中提供**名称**，然后从“协议”下拉列表中选择“TCP”。   
-        1. 将“源地址”设置为 `*`。 
-        1. 将“目标地址”设置为 `*`。 
-        1. 从“服务标记”下拉列表中选择“SQL”。  
-        1. 将“目标端口”设置为 `1433,11000-11999,14000-14999`。 
+1. 在“IP 地址”部分创建以下规则： 
+
+   | **名称** | **协议** | **源地址** | **目标地址** | **目标端口** | **说明** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_1 | UDP | * | * | `123` | 时间服务 |
+   | Rule_2 | 任意 | * | DC_IP_Address_1、DC_IP_Address_2 | `*` | 如果你正在使用企业安全性套餐 (ESP)，请在“IP 地址”部分添加一个允许与 ESP 群集的 AAD-DS 通信的网络规则。 可以在门户的 AAD-DS 部分找到域控制器的 IP 地址 | 
+   | Rule_3 | TCP | * | Data Lake Storage 帐户的 IP 地址 | `*` | 如果正在使用 Azure Data Lake Storage，则可以在“IP 地址”部分中添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会在防火墙日志中记录并且可供审核。 确定 Data Lake Storage 帐户的 IP 地址。 可以使用 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` 等 PowerShell 命令将 FQDN 解析成 IP 地址。|
+   | Rule_4 | TCP | * | * | `12000` | （可选）如果正在使用 Log Analytics，请在“IP 地址”部分中创建一个网络规则以实现与 Log Analytics 工作区的通信。 |
+
+1. 在“服务标记”部分创建以下规则： 
+
+   | **名称** | **协议** | **源地址** | **服务标记** | **目标端口** | **说明** |
+   | --- | --- | --- | --- | --- | --- |
+   | Rule_7 | TCP | * | SQL | `1433` | 在 SQL 的“服务标记”部分中配置允许你记录和审核 SQL 流量的网络规则，除非你在 HDInsight 子网中为 SQL Server 配置了服务终结点来绕过防火墙。 |
+
 1. 单击“添加”以完成网络规则集合的创建。 
 
 ![标题：输入应用程序规则集合详细信息](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png)
@@ -105,10 +100,9 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 
 创建包含以下条目的路由表：
 
-1. [此所需 HDInsight 管理 IP 地址列表](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)中的七个地址，其下一跃点为“Internet”： 
+1. [此所需 HDInsight 管理 IP 地址列表](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip)中的六个地址，其下一跃点为“Internet”： 
     1. 所有区域中所有群集的四个 IP 地址
     1. 特定于创建群集的区域的两个 IP 地址
-    1. Azure 递归解析程序的一个 IP 地址和检查运行状况的负载均衡器源 IP 地址
 1. IP 地址 0.0.0.0/0 的一个虚拟设备路由，其下一跃点为 Azure 防火墙专用 IP 地址。
 
 例如，若要为“美国中部”区域创建的群集配置路由表，请使用以下步骤:
@@ -127,7 +121,6 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 | 138.91.141.162 | 138.91.141.162/32 | Internet | 不可用 |
 | 13.67.223.215 | 13.67.223.215/32 | Internet | 不可用 |
 | 40.86.83.253 | 40.86.83.253/32 | Internet | 不可用 |
-| 168.63.129.16 | 168.63.129.16/32 | Internet | 不可用 |
 | 0.0.0.0 | 0.0.0.0/0 | 虚拟设备 | 10.1.1.4 |
 
 完成路由表配置：
@@ -136,7 +129,7 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 1. 在“关联子网”  屏幕上，选择已创建群集的虚拟网络以及用于 HDInsight 群集的 **HDInsight 子网**。
 1. 单击 **“确定”** 。
 
-## <a name="edge-node-application-traffic"></a>边缘节点应用程序流量
+## <a name="edge-node-or-custom-application-traffic"></a>边缘节点或自定义应用程序流量
 
 上述步骤可让群集正常运行。 但在可能的情况下，你仍然需要配置依赖项，以适应边缘节点上运行的自定义应用程序。
 

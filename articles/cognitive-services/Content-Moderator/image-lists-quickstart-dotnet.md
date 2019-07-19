@@ -1,24 +1,24 @@
 ---
-title: 快速入门：在 C# 中针对自定义列表检查图像 - 内容审查器
+title: 在 C# 中针对自定义列表检查图像 - 内容审查器
 titlesuffix: Azure Cognitive Services
 description: 如何通过适用于 C# 的内容审查器 SDK 使用自定义图像列表进行图像审查。
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: content-moderator
-ms.topic: quickstart
-origin.date: 10/10/2018
-ms.date: 01/22/2019
+ms.subservice: content-moderator
+ms.topic: conceptual
+origin.date: 07/03/2019
+ms.date: 07/10/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0686bc3f2a6f05f188eb8bcbc017c489a51c3fe6
-ms.sourcegitcommit: f248afb1039011d34579baed2980f0632061f5b5
+ms.openlocfilehash: f1e9d16cdb286d853c83f8be27b146bb506a6e69
+ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54858052"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844942"
 ---
-# <a name="quickstart-moderate-with-custom-image-lists-in-c"></a>快速入门：在 C# 中通过自定义图像列表进行审查
+# <a name="moderate-with-custom-image-lists-in-c"></a>在 C# 中通过自定义图像列表进行审查
 
 本文中的信息和代码示例可帮助你快速开始使用[适用于 .NET 的内容审查器 SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/)来执行下列操作：
 - 创建自定义图像列表
@@ -31,9 +31,9 @@ ms.locfileid: "54858052"
 - 删除自定义列表
 
 > [!NOTE]
-> 最多只能使用 5 个图像列表，每个列表中的图像数不得超过 10,000 张。
+> 最多只能使用 5 个图像列表  ，每个列表中的图像数不得超过 10,000 张  。
 
-针对本快速入门的控制台应用程序模拟了部分可使用图像列表 API 执行的任务。
+本指南的控制台应用程序模拟了一些可使用图像列表 API 执行的任务。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。 
 
@@ -43,9 +43,9 @@ ms.locfileid: "54858052"
 
 ## <a name="create-your-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 向解决方案添加新的“控制台应用 (.NET Framework)”项目。
+1. 向解决方案添加新的“控制台应用 (.NET Framework)”项目  。
 
-   在示例代码中，将项目命名为“ImageLists”。
+   在示例代码中，将项目命名为“ImageLists”  。
 
 1. 将此项目选为解决方案的单一启动项目。
 
@@ -77,7 +77,7 @@ using System.Threading;
 添加以下代码来为订阅创建内容审查器客户端。
 
 > [!IMPORTANT]
-> 使用区域标识符和订阅密钥的值更新 AzureRegion 和 CMSubscriptionKey 字段。
+> 使用区域标识符和订阅密钥的值更新  AzureRegion 和 CMSubscriptionKey  字段。
 
 ```csharp
 /// <summary>
@@ -126,7 +126,7 @@ public static class Clients
 
 ### <a name="initialize-application-specific-settings"></a>初始化应用专用设置
 
-向 Program.cs 中的 Program 类添加以下类和静态字段。
+向 Program.cs 中的 Program 类添加以下类和静态字段  。
 
 ```csharp
 /// <summary>
@@ -304,7 +304,7 @@ private static ImageList CreateCustomList(ContentModeratorClient client)
 
 ## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>创建一个方法来向列表添加图像集合
 
-将以下方法添加到 **Program** 类。 本快速入门不演示如何将标记应用到列表中的图像。 
+将以下方法添加到 **Program** 类。 本指南不演示如何将标记应用到列表中的图像。 
 
 ```csharp
 /// <summary>
@@ -599,7 +599,7 @@ private static IList<ImageList> GetAllListIds(ContentModeratorClient client)
 
 ## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>添加代码以模拟使用图像列表
 
-将以下代码添加到 Main 方法。 此代码将模拟在定义和管理列表以及使用列表来屏蔽图像时执行的诸多操作。 日志记录功能允许你查看通过 SDK 调用内容审查器服务生成的响应对象。
+将以下代码添加到 Main 方法  。 此代码将模拟在定义和管理列表以及使用列表来屏蔽图像时执行的诸多操作。 日志记录功能允许你查看通过 SDK 调用内容审查器服务生成的响应对象。
 
 ```csharp
 // Create the text writer to use for logging, and cache a static reference to it.
@@ -1094,3 +1094,4 @@ Response:
 
 为适用于 .NET 的此内容审查器快速入门和其他内容审查器快速入门获取[内容审查器 .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) 和 [Visual Studio 解决方案](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator)，并开始集成。
 
+<!-- Update_Description: wording update -->
