@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 02/27/2019
-ms.date: 04/15/2019
+origin.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 65a50ce533dfd3f8a9e612ff16f1b2b9db0179e8
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 07c16a1a0da48dec4ed2557e73376608e1a49682
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003933"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845268"
 ---
 # <a name="process-and-analyze-json-documents-by-using-apache-hive-in-azure-hdinsight"></a>使用 Azure HDInsight 中的 Apache Hive 分析和处理 JSON 文档
 
-了解如何使用 Azure HDInsight 中的 Apache Hive 处理和分析 JavaScript 对象表示法 (JSON) 文件。 本教程使用以下 JSON 文档：
+了解如何使用 Azure HDInsight 中的 Apache Hive 处理和分析 JavaScript 对象表示法 (JSON) 文件。 本文使用以下 JSON 文档：
 
 ```json
 {
@@ -66,7 +66,7 @@ ms.locfileid: "59003933"
 
 可以在 wasb://processjson@hditutorialdata.blob.core.chinacloudapi.cn/上找到该文件。 有关如何将 Azure Blob 存储与 HDInsight 配合使用的详细信息，请参阅[将 HDFS 兼容的 Azure Blob 存储与 HDInsight 中的 Apache Hadoop 配合使用](../hdinsight-hadoop-use-blob-storage.md)。 可以将该文件复制到群集的默认容器。
 
-在本教程中，将使用 Apache Hive 控制台。 有关如何打开 Hive 控制台的说明，请参阅[在 HDInsight 中将 Apache Ambari Hive 视图与 Apache Hadoop 配合使用](apache-hadoop-use-hive-ambari-view.md)。
+在本文中，将使用 Apache Hive 控制台。 有关如何打开 Hive 控制台的说明，请参阅[在 HDInsight 中将 Apache Ambari Hive 视图与 Apache Hadoop 配合使用](apache-hadoop-use-hive-ambari-view.md)。
 
 ## <a name="flatten-json-documents"></a>平展 JSON 文档
 下一部分中所列的方法需要 JSON 文档在单一行中。 因此，必须将 JSON 文档平展成字符串。 如果 JSON 文档已平展，则可以跳过此步骤，直接转到有关分析 JSON 数据的下一部分。 若要平展 JSON 文档，请运行以下脚本：
@@ -100,7 +100,7 @@ ms.locfileid: "59003933"
 
 下面是 **SELECT** 语句的输出：
 
-![平展 JSON 文档][image-hdi-hivejson-flatten]
+![平展 JSON 文档](./media/using-json-in-hive/flatten.png)
 
 ## <a name="analyze-json-documents-in-hive"></a>在 Hive 中分析 JSON 文档
 Hive 提供了三种不同的机制用于对 JSON 文档运行查询，你也可以编写自己的代码：
@@ -124,7 +124,7 @@ FROM StudentsOneLine;
 
 这是在控制台窗口中运行此查询时的输出：
 
-![get_json_object UDF][image-hdi-hivejson-getjsonobject]
+![get_json_object UDF](./media/using-json-in-hive/getjsonobject.png)
 
 get_json_object UDF 有限制：
 
@@ -145,12 +145,12 @@ LATERAL VIEW JSON_TUPLE(jt.json_body, 'StudentId', 'Grade') q1
 
 此脚本在 Hive 控制台中的输出：
 
-![json_tuple UDF][image-hdi-hivejson-jsontuple]
+![json_tuple UDF](./media/using-json-in-hive/jsontuple.png)
 
 json_tuple UDF 在 Hive 中使用了[横向视图](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+LateralView)语法，使 json\_tuple 能够通过将 UDT 函数应用于原始表的每一行来创建虚拟表。 由于重复使用**横向视图**，复杂的 JSON 会变得过于庞大。 此外，**JSON_TUPLE** 无法处理嵌套的 JSONs。
 
 ### <a name="use-a-custom-serde"></a>使用自定义 SerDe
-SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 JSON 架构，然后使用该架构来分析文档。 有关说明，请参阅[如何将自定义 JSON SerDe 与 Microsoft Azure HDInsight 配合使用](https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)。
+SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 JSON 架构，然后使用该架构来分析文档。 有关说明，请参阅[如何将自定义 JSON SerDe 与 Microsoft Azure HDInsight 配合使用](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/)。
 
 ## <a name="summary"></a>摘要
 总之，在 Hive 中选择 JSON 运算符类型取决于方案。 如果有一个简单的 JSON 文档，并只有一个要查找的字段，可以选择使用 Hive UDF get_json_object。 如果有多个键用于查找，则可以使用 json_tuple。 如果拥有嵌套文档，应该使用 JSON SerDe。
@@ -160,7 +160,6 @@ SerDe 是用于分析嵌套 JSON 文档的最佳选择。 使用它可以定义 
 相关文章请参阅：
 
 * [在 HDInsight 中将 Apache Hive 和 HiveQL 与 Apache Hadoop 配合使用来分析示例 Apache log4j 文件](../hdinsight-use-hive.md)
-* [使用 HDInsight 中的 Apache Hive 分析航班延误数据](../hdinsight-analyze-flight-delay-data-linux.md)
 
 [hdinsight-python]:python-udf-hdinsight.md
 

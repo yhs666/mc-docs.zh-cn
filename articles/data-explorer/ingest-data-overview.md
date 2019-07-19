@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 02/18/2019
-ms.date: 05/01/2019
-ms.openlocfilehash: 3bd077e1d2d2dd95ea02cac8c1a5c721ff478dbb
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.date: 07/22/2019
+ms.openlocfilehash: 93c0151d14040607a19feae753b0b402dd8f1858
+ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686586"
+ms.lasthandoff: 07/10/2019
+ms.locfileid: "67717331"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 数据资源管理器数据引入
 
@@ -49,6 +49,10 @@ Azure 数据资源管理器目前支持：
 * Logstash 插件，请参阅[将数据从 Logstash 引入 Azure 数据资源管理器](ingest-data-logstash.md)。
 
 * Kafka 连接器，请参阅[将数据从 Kafka 引入到 Azure 数据资源管理器](ingest-data-kafka.md)。
+
+### <a name="ingestion-using-integration-services"></a>使用集成服务的引入
+
+* Azure 数据工厂 (ADF) 是 Azure 中分析工作负荷的完全托管数据集成服务，可使用[支持的数据存储和格式](/data-factory/copy-activity-overview#supported-data-stores-and-formats)向/从 Azure 数据资源管理器复制数据。 有关详细信息，请参阅[将数据从 Azure 数据工厂复制到 Azure 数据资源管理器](/data-explorer/data-factory-load-data)。
 
 ### <a name="programmatic-ingestion"></a>编程引入
 
@@ -124,7 +128,7 @@ Kusto 提供可与以下项一起用于引入和查询数据的客户端 SDK：
 
 ## <a name="ingestion-recommendations-and-limitations"></a>引入建议和限制
 
-* 引入数据的有效保留策略衍生自数据库的保留策略。 请参阅[保留策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/retentionpolicy)获取详细信息。 引入数据需要“表引入器”或“数据库引入器”权限。
+* 引入数据的有效保留策略衍生自数据库的保留策略。 请参阅[保留策略](https://docs.microsoft.com/zh-cn/azure/kusto/concepts/retentionpolicy)获取详细信息。 引入数据需要“表引入器”或“数据库引入器”权限   。
 * 引入支持的最大文件大小为 5 GB。 建议引入 100 MB 到 1 GB 的文件。
 
 ## <a name="schema-mapping"></a>架构映射
@@ -132,7 +136,7 @@ Kusto 提供可与以下项一起用于引入和查询数据的客户端 SDK：
 架构映射有助于将源数据字段绑定到目标表列。
 
 * [CSV 映射](https://docs.microsoft.com/zh-cn/azure/kusto/management/mappings?branch=master#csv-mapping)（可选）适用于所有基于序号的格式。 可以使用引入命令参数执行该功能，或者[在表中预创建](https://docs.microsoft.com/zh-cn/azure/kusto/management/tables?branch=master#create-ingestion-mapping)并从引入命令参数进行引用。
-* 可以使用引入命令参数执行 [JSON 映射](https://docs.microsoft.com/zh-cn/azure/kusto/management/mappings?branch=master#json-mapping)（强制）和 [Avro 映射](https://docs.microsoft.com/zh-cn/azure/kusto/management/mappings?branch=master#avro-mapping)（强制）。 可以](https://docs.microsoft.com/zh-cn/azure/kusto/management/tables#create-ingestion-mapping)在表上预先创建[它们并从引入命令参数引用。
+* 可以使用引入命令参数执行 [JSON 映射](https://docs.microsoft.com/zh-cn/azure/kusto/management/mappings?branch=master#json-mapping)（强制）和 [Avro 映射](https://docs.microsoft.com/zh-cn/azure/kusto/management/mappings?branch=master#avro-mapping)（强制）。 可以[在表上预先创建](https://docs.microsoft.com/zh-cn/azure/kusto/management/tables#create-ingestion-mapping)它们并从引入命令参数引用。
 
 ## <a name="next-steps"></a>后续步骤
 
