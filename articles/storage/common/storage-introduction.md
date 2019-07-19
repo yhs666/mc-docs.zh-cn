@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 01/02/2019
-ms.date: 05/27/2019
+ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: e71450d446b76a87afa1af74d6680cdfed7fdbcc
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 93cf2108fc49471b81072db88c9d1269c891cf26
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004034"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67844421"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure 存储简介
 
@@ -86,7 +86,9 @@ Azure 表存储现在是 Azure Cosmos DB 的一部分。 若要查看 Azure 表�
 
 ## <a name="disk-storage"></a>磁盘存储
 
-Azure 存储还包括虚拟机使用的托管和非托管磁盘功能。 有关这些功能的详细信息，请参阅[计算服务文档](https://docs.azure.cn/zh-cn/#pivot=products&panel=Compute)。
+Azure 托管磁盘是虚拟硬盘 (VHD)。 可以将其视为本地服务器中的物理磁盘，但它是虚拟化的。 Azure 托管磁盘作为页 blob 存储，后者是 Azure 中的随机 IO 存储对象。 我们之所以将托管磁盘称为“托管”是因为，它是对页 blob、blob 容器和 Azure 存储帐户的抽象。 对于托管磁盘，你所要做的就是预配磁盘，而 Azure 负责其余的工作。
+
+有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘简介](../../virtual-machines/windows/managed-disks-overview.md)。
 
 ## <a name="types-of-storage-accounts"></a>存储帐户的类型
 

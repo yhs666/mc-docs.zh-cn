@@ -3,15 +3,16 @@ title: 检查池和节点错误 - Azure Batch
 description: 创建池和节点时要检查的错误以及如何避免错误
 services: batch
 author: lingliw
+manager: digimobile
 ms.author: v-lingwu
-ms.date: 1/3/2019
+ms.date: 05/28/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9f04128dbf3311f0fc9171884efb39b47311002f
-ms.sourcegitcommit: f46e1f7a5d582bb9663bfaee8087b233eb822e17
+ms.openlocfilehash: 439ff2e3c6fcfc7bf7563292d13e45c2ee4a167e
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996504"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845201"
 ---
 # <a name="check-for-pool-and-node-errors"></a>检查池和节点错误
 
@@ -64,7 +65,7 @@ ms.locfileid: "53996504"
 
 即使 Batch 在池中成功分配了节点，各种问题仍可能会导致某些节点不正常且不可用。 这些节点会产生费用。 请务必检测问题，以免为不可用的节点付费。
 
-### <a name="start-task-failure"></a>启动任务失败
+### <a name="start-task-failure"></a>开始任务失败
 
 你可能想要为某个池指定可选的[启动任务](https://docs.microsoft.com/rest/api/batchservice/pool/add#starttask)。 与指定任何任务一样，可以使用命令行和资源文件从存储下载。 启动任务在启动后，将针对每个节点运行。 **waitForSuccess** 属性指定 Batch 是否要等到启动任务成功完成，然后才为节点计划任何任务。
 
@@ -82,11 +83,15 @@ ms.locfileid: "53996504"
 
 节点 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 属性将报告下载和解压缩应用程序包失败。 Batch 将节点状态设置为 **unusable**。
 
+### <a name="container-download-failure"></a>容器下载失败
+
+可以在池上指定一个或多个容器引用。 Batch 可将指定的容器下载到每个节点。 节点的 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 属性报告容器下载失败，并将节点状态设置为“不可用”  。
+
 ### <a name="node-in-unusable-state"></a>处于“不可用”状态的节点
 
 Azure Batch 可能出于多种原因将[节点状态](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate)设置为 **unusable**。 将节点状态设置为 **unusable** 后，无法为该节点计划任务，但它仍会产生费用。
 
-Batch 始终会尝试恢复不可用的节点，但根据具体的原因，恢复不一定能够成功。
+节点处于“不可用”但  没有[错误](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror)的状态，这意味着 Batch 无法与 VM 进行通信。 在这种情况下，Batch 始终尝试恢复 VM。 Batch 不会自动尝试恢复无法安装应用程序包或容器的 VM，即使这些 VM 的状态为“不可用”  。
 
 如果 Batch 可以确定原因，则节点 [errors](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) 属性会报告此原因。
 
@@ -94,6 +99,10 @@ Batch 始终会尝试恢复不可用的节点，但根据具体的原因，恢�
 
 - 自定义 VM 映像无效。 例如，未正确准备某个映像。
 - 由于基础结构故障或低级别升级而移动了 VM。 Batch 将恢复节点。
+
+- VM 映像已部署在不支持它的硬件上。 例如，运行在非 HPC 硬件上的“HPC”VM 映像。 例如，尝试在 [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM 上运行 CentOS HPC 映像。
+
+- VM 位于 [Azure 虚拟网络](batch-virtual-network.md)中，并且流量已被阻止，无法发送到关键端口。
 
 ### <a name="node-agent-log-files"></a>节点代理日志文件
 

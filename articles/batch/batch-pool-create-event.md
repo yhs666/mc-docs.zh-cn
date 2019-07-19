@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: e3815e00ddff361a025481be4817d325f1d75186
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: c085ca94f1057963b364ed9dfffac719e8b4a8b0
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586905"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845203"
 ---
 # <a name="pool-create-event"></a>池创建事件
 
@@ -67,10 +67,10 @@ ms.locfileid: "65586905"
 <a name="bk_csconf"></a>
 ###  <a name="cloudserviceconfiguration"></a>cloudServiceConfiguration
 
-|  元素名称   |  类型  |                                                                                                                                                                                                                                   注释                                                                                                                                                                                                                                    |
-|-----------------|--------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|    osFamily     | String | 要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。 |
-| targetOSVersion | String |                                                             要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\\**\*，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](../cloud-services/cloud-services-guestos-update-matrix.md#releases)。                                                             |
+|元素名称|类型|注释|
+|------------------|----------|-----------|
+|osFamily|String|要安装在池中虚拟机上的 Azure 来宾 OS 系列。<br /><br /> 可能的值包括：<br /><br /> **2** - OS 系列 2，等效于 Windows Server 2008 R2 SP1。<br /><br /> **3** - OS 系列 3，等效于 Windows Server 2012。<br /><br /> **4** - OS 系列 4，等效于 Windows Server 2012 R2。<br /><br /> 有关详细信息，请参阅 [Azure 来宾 OS 版本](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
+|targetOSVersion|String|要安装在池中虚拟机上的 Azure 来宾 OS 版本。<br /><br /> 默认值为 **\*** ，用于指定特定系列的最新操作系统版本。<br /><br /> 有关其他允许的值的信息，请参阅 [Azure 来宾 OS 版本](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases)。|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
@@ -84,7 +84,7 @@ ms.locfileid: "65586905"
 
 |元素名称|类型|注释|
 |------------------|----------|-----------|
-|发布者|String|映像的发布者。|
+|publisher|String|映像的发布者。|
 |offer|String|映像的产品/服务。|
 |sku|String|映像的 SKU。|
 |版本|String|映像的版本。|

@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 04/30/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 23b49318e17507fb478990cb43277181004b62e4
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.date: 07/15/2019
+ms.openlocfilehash: bd27e2160d511cbf1597971b1f0aa409c5ec1e52
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65732001"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845120"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Azure Database for MySQL 中的只读副本
 
@@ -45,6 +45,8 @@ ms.locfileid: "65732001"
 
 启动“创建副本”工作流时，将创建空白的 Azure Database for MySQL 服务器。 新服务器中填充了主服务器上的数据。 创建时间取决于主服务器上的数据量，以及自上次每周完整备份以来所经历的时间。 具体所需时间从几分钟到几小时不等。
 
+每个副本都启用了存储[自动增长](concepts-pricing-tiers.md#storage-auto-grow)。 自动增长功能允许副本与复制到它的数据保持同步，并防止由于存储空间不足错误而导致的复制中断。
+
 了解如何[在 Azure 门户中创建只读副本](howto-read-replicas-portal.md)。
 
 ## <a name="connect-to-a-replica"></a>连接到副本
@@ -63,7 +65,7 @@ mysql -h myreplica.mysql.database.chinacloudapi.cn -u myadmin@myreplica -p
 
 ## <a name="monitor-replication"></a>监视复制
 
-Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)”指标。 此指标仅适用于副本。
+Azure Database for MySQL 在 Azure Monitor 中提供“复制滞后时间(秒)”指标。  此指标仅适用于副本。
 
 此指标是使用 MySQL 的 `SHOW SLAVE STATUS` 命令中提供的 `seconds_behind_master` 指标计算的。
 

@@ -8,19 +8,19 @@ keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 77be9b26be7f15a8e09180b6e87ebdc85082582c
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 1d62a2af1f8a8ebf658a15b1b3a7f1f2743c6b6e
+ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003919"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67845421"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
-了解如何为 [Apache Storm](https://storm.apache.org/) 创建基于 Java 的拓扑。 在此处，我们将创建一个实现单词计数应用程序的 Storm 拓扑。 将使用 [Apache Maven](https://maven.apache.org/) 构建并打包项目。 然后，了解如何使用 [Apache Storm Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) 框架定义拓扑。
+了解如何为 [Apache Storm](https://storm.apache.org/) 创建基于 Java 的拓扑。 在此处，我们将创建一个实现单词计数应用程序的 Storm 拓扑。 将使用 [Apache Maven](https://maven.apache.org/) 构建并打包项目。 然后，了解如何使用 [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) 框架定义拓扑。
 
 完成本文档中的步骤之后，便可以将拓扑部署到 Apache Storm on HDInsight。
 
@@ -56,9 +56,9 @@ mkdir resources
 
 该命令会在当前位置创建名为 `WordCount` 的目录，其中包含基本 Maven 项目。 第二条命令将现有工作目录更改为 `WordCount`。 第三条命令创建稍后要使用的新目录 `resources`。  `WordCount` 目录包含以下项：
 
-* `pom.xml`:包含 Maven 项目的设置。
-* `src\main\java\com\microsoft\example`:包含应用程序代码。
-* `src\test\java\com\microsoft\example`:包含应用程序的测试。  
+* `pom.xml`：包含 Maven 项目的设置。
+* `src\main\java\com\microsoft\example`：包含应用程序代码。
+* `src\test\java\com\microsoft\example`：包含应用程序的测试。  
 
 ### <a name="remove-the-generated-example-code"></a>删除生成的示例代码
 
@@ -623,7 +623,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 ## <a name="convert-the-topology-to-flux"></a>将拓扑转换为 Flux
 
-[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) 是 Storm 0.10.0 及更高版本随附的一个新框架，可以将配置和实现分离开来。 组件仍然是以 Java 语言定义的，但拓扑是使用 YAML 文件定义的。 可以随项目一起打包默认的拓扑定义，也可以在提交拓扑时使用独立的文件。 将拓扑提交到 Storm 时，可以使用环境变量或配置文件来填充 YAML 拓扑定义中的值。
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html) 是 Storm 0.10.0 及更高版本随附的一个新框架，可以将配置和实现分离开来。 组件仍然是以 Java 语言定义的，但拓扑是使用 YAML 文件定义的。 可以随项目一起打包默认的拓扑定义，也可以在提交拓扑时使用独立的文件。 将拓扑提交到 Storm 时，可以使用环境变量或配置文件来填充 YAML 拓扑定义中的值。
 
 YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 可以包括一个 YAML 文件（作为 jar 文件的一部分），也可以使用外部 YAML 文件。
 
@@ -830,8 +830,8 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
 
 已学习如何使用 Java 创建 Apache Storm 拓扑。 接下来，请学习如何：
 
-* [在 HDInsight 上部署和管理 Apache Storm 拓扑](apache-storm-deploy-monitor-topology.md)
+* [在 HDInsight 上部署和管理 Apache Storm 拓扑](apache-storm-deploy-monitor-topology-linux.md)
 
-* [使用 Visual Studio 开发 HDInsight 上 Apache Storm 的 C# 拓扑](apache-storm-develop-csharp-visual-studio-topology.md)
+* [使用 Visual Studio 开发 Apache Storm on HDInsight 的 C# 拓扑](apache-storm-develop-csharp-visual-studio-topology.md)
 
 如需更多 Apache Storm 拓扑示例，请访问 [Apache Storm on HDInsight 示例拓扑](apache-storm-example-topology.md)。
