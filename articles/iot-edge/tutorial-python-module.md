@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 03/24/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: db0680b27acf022e3a230762fd05c65f0fc52b7e
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 1c9dbcafbfe078916a14e887398638c5da1fdb0e
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732716"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337322"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>教程：为 Linux 设备开发并部署 Python IoT Edge 模块
 
@@ -69,19 +69,9 @@ ms.locfileid: "66732716"
 
 ### <a name="create-a-new-project"></a>创建新项目
 
-使用 Python 包 **cookiecutter** 创建一个 Python 解决方案模板，以便在其上生成项目。 
+使用 VS Code 创建一个 Python 解决方案模板，以便在其上生成项目。 
 
 1. 在 Visual Studio Code 中选择“视图”   >   “终端”，打开 VS Code 集成终端。
-
-2. 在终端中输入以下命令，以便安装（或更新）用于创建 IoT Edge 解决方案模板的 **cookiecuttere**：
-
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >确保将要在其中安装 Cookiecutter 的目录位于环境的 PATH 中，这样才可以从命令提示符处调用它。 目录是安装脚本的输出的一部分，例如 `C:\Users\{user}\AppData\Roaming\Python\Python{version}\Scripts`。
-   >
-   >重启 Visual Studio Code，使对 PATH 所做的更改生效。 
 
 3. 选择“视图”   >   “命令面板”，打开 VS Code 命令面板。 
 

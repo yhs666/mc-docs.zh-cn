@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-origin.date: 05/15/2019
-ms.date: 06/10/2019
+origin.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 9e6d3fbad6d61c2778c9cd107fa96532bb47e801
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: bdeb79521da7c444d66439ecd5100ce21e1106fd
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726502"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298127"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>教程：通过 NFS 将数据复制到 Azure Data Box
 
@@ -89,6 +89,12 @@ ms.locfileid: "66726502"
 - 如果 Data Box 正在上传的数据同时已由 Data Box 外部的其他应用程序上传，则可能会导致上传作业失败和数据损坏。
 - 我们建议不要同时使用 SMB 和 NFS，也不要将相同的数据复制到 Azure 上的同一个最终目标。 在这种情况下，最终的结果不可确定。
 - **始终为要复制到共享下的文件创建一个文件夹，然后将文件复制到该文件夹**。 在块 blob 和页 blob 共享下创建的文件夹表示将数据作为 blob 上传到的容器。 无法将文件直接复制到存储帐户中的 root 文件夹  。
+- 如果从 NFS 共享中将区分大小写的目录和文件名引入到 Data Box 上的 NFS： 
+    - 名称将保留大小写。
+    - 文件不区分大小写。
+    
+    例如，如果复制 `SampleFile.txt` 和 `Samplefile.Txt`，则在复制到 Data Box 时，名称将保留大小写，但第二个文件将覆盖第一个文件，因为这些文件被视为同一文件。
+
 
 如果使用 Linux 主机，请使用类似于 Robocopy 的复制实用工具。 在 Linux 中可用的一些替代工具包括 [rsync](https://rsync.samba.org/)、[FreeFileSync](https://www.freefilesync.org/)、[Unison](https://www.cis.upenn.edu/~bcpierce/unison/) 或 [Ultracopier](https://ultracopier.first-world.info/)。  
 
@@ -131,7 +137,7 @@ ms.locfileid: "66726502"
 > [!IMPORTANT]
 > 不支持以下 Linux 文件类型：符号链接、字符文件、块文件、套接字、管道。 在执行“准备交付”  步骤时，这些文件类型会导致故障。
 
-打开目标文件夹，查看并验证复制的文件。 如果复制过程中遇到任何错误，请下载用于故障排除的错误文件。 有关详细信息，请参阅[查看将数据复制到 Data Box 期间的错误日志](data-box-logs.md#view-error-log-during-data-copy-to-data-box)。 有关数据复制期间的错误详细列表，请参阅 [Data Box 问题故障排除](data-box-troubleshoot.md)。
+打开目标文件夹，查看并验证复制的文件。 如果复制过程中遇到任何错误，请下载用于故障排除的错误文件。 有关详细信息，请参阅[查看将数据复制到 Data Box 期间的错误日志](data-box-logs.md#view-error-log-during-data-copy)。 有关数据复制期间的错误详细列表，请参阅 [Data Box 问题故障排除](data-box-troubleshoot.md)。
 
 为确保数据完整性，复制数据时将以内联方式计算校验和。 复制完成后，检查设备上的已用空间和可用空间。
     

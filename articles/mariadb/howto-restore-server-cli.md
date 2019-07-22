@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 origin.date: 11/10/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 95e286c9c397b0d6293df989ab8bfe4d08ce8e62
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 07/22/2019
+ms.openlocfilehash: 1346cfedc0d8e8f454d5c8db4d6e254fed0d54f4
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173336"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308882"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-cli"></a>如何使用 Azure CLI 在 Azure Database for MariaDB 中备份和还原服务器
 
@@ -99,7 +99,7 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 az mariadb server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location chinaeast2 --sku-name GP_Gen5_8
 ```
 
-此命令在 East US 创建一台名为 *mydemoserver-georestored* 且将属于 *myresourcegroup* 的新服务器。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
+此命令在“中国东部 2”中创建一个名为 *mydemoserver-georestored* 且将属于 *myresourcegroup* 的新服务器。 它是第 5 代常规用途服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
 
 如果希望在与现有服务器不同的资源组中创建新服务器，则需要如下例所示在 `--source-server` 参数中限定服务器名称：
 

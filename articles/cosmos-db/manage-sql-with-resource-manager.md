@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/24/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: e8c0206d940f56294188945d74d56c5d8f178b82
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 6ddf95d37335a094ed55178dd63513d37f9b5bdc
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171427"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293432"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB SQL (Core) API 资源
@@ -392,7 +392,8 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 ### <a name="deploy-database-template-via-powershell"></a>通过 PowerShell 部署数据库模板
 
-若要使用 PowerShell 部署资源管理器模板，请**复制**脚本并选择“试用”  以打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+<!--Not Available on Cloud Shell-->
+<!--Not Available To deploy the Resource Manager template using PowerShell, **Copy** the script and select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```powershell
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -410,7 +411,8 @@ New-AzResourceGroupDeployment `
 
 ### <a name="deploy-database-template-via-azure-cli"></a>通过 Azure CLI 部署数据库模板
 
-若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+<!--Not Available on Cloud Shell-->
+<!--Not Available onTo deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```azurecli
 read -p 'Enter the Resource Group name: ' resourceGroupName

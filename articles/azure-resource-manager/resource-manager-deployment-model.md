@@ -1,25 +1,18 @@
 ---
 title: Resource Manager 和经典部署 | Azure
 description: 介绍 Resource Manager 部署模型与经典（或服务管理）部署模型之间的差异。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 11/15/2017
-ms.date: 03/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 89b5e2921323c74968c082b0fb3fad5d2df28b25
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: c3772ba095470117e6964888bdfacbb62279124e
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348075"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337412"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure 资源管理器和经典部署：了解部署模型和资源状态
 
@@ -161,4 +154,4 @@ Get-AzVM -ResourceGroupName ExampleGroup
 * 若要演练如何创建用于定义虚拟机、存储帐户和虚拟网络的模板，请参阅 [Resource Manager 模板演练](resource-manager-template-walkthrough.md)。
 * 若要查看用于部署模板的命令，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: wording update, update powershell az cmdlet --> 
+<!--Update_Description: wording update, update meta properties --> 

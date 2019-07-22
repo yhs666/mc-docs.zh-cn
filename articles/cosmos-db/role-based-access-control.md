@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 894fa5c894d20a8157a3393ee3a69a993249872d
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 9ad3caa0f251e29649cb58857fb7c3c8fc32740b
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171269"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293435"
 ---
 <!--Verify Successfully-->
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB 中基于角色的访问控制
@@ -52,4 +52,4 @@ Azure 门户中的“访问控制(IAM)”窗格用于针对 Azure Cosmos 资源�
 - [Azure Cosmos DB 资源提供程序操作](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
 
 <!--Update_Description: update meta properties, wording update -->
-\
+

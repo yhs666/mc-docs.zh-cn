@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a5ba9fac7b25cb3b3ef05a74b93befc7eee3c8b3
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 47ef146cf5c643b2c1053e81b14d710d26f52ec9
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544711"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332176"
 ---
 # <a name="azure-relay-port-settings"></a>Azure 中继端口设置
 
@@ -27,7 +27,7 @@ ms.locfileid: "58544711"
 
 ## <a name="hybrid-connections"></a>混合连接
 
-混合连接在端口 443 上结合使用 WebSocket 和 SSL，以用作仅使用 HTTPS 的基础传输机制。 
+混合连接在端口 443 上结合使用 WebSocket 和 SSL，以用作仅使用 HTTPS  的基础传输机制。 
 
 ## <a name="wcf-relays"></a>WCF 中继
   
@@ -52,8 +52,8 @@ ms.locfileid: "58544711"
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
-* [什么是 Azure 中继？](./relay-what-is-it.md)
-* [中继常见问题](./relay-faq.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
+* [中继常见问题](relay-faq.md)
 
 
 <!--Update_Description:update meta properties only-->

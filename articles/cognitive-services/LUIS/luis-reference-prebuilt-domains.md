@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9d4f94e1f6b42ffa85435f974d49b2133420d988
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: f976024d17c6d0718cab4ca85aefc9d78f403d0e
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828529"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332115"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 应用的预构建的域参考
 此参考提供有关预生成域的信息，这些信息是 LUIS 提供的意向和实体的预生成集合。
@@ -54,7 +54,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 |实体类型|说明|
 |--|--|
-|日历|日历涉及到个人会议和约会，而不涉及到公共活动，例如世界杯日程安排、西雅图赛事日历或普通日历（例如今天的日期、秋季在哪一天开始、劳动节是哪一天）。|
+|日历|日历涉及到个人会议和约会，而不涉及到公共活动，例如世界杯日程安排、西雅图赛事日历或普通日历（例如今天的日期、秋季在哪一天开始、劳动节是哪一天）。 |
 |通信|请求通话、发送短信或即时消息、查找并添加联系人，以及各种其他通信相关的请求（通常为传出请求）。 仅限联系人姓名的查询不属于通信域。|
 |Email|电子邮件是通信域的子域。 它主要包含通过电子邮件发送和接收消息的请求。|
 |家庭自动化|家庭自动化域提供与控制智能家居设备相关的意向和实体。 它主要支持与灯光和空调相关的控制命令，但对于其他电器提供某些通用化功能。|

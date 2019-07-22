@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a0eac8705b837569989738d80c6cb82e3580717c
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 6ed13c160bb3a7f02c2ad09c53801c72c4849903
+ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195398"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308848"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 

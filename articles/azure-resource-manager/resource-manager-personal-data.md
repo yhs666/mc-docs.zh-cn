@@ -1,25 +1,18 @@
 ---
 title: Azure 资源管理器个人数据 | Azure
 description: 了解如何管理与 Azure 资源管理器操作相关联的个人数据。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 05/14/2018
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6562169dcb71ccb8cf33600e83feff947c602f7
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 77f3ba59db1449d92bb5a56bfaa0cf94acaed682
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306105"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337402"
 ---
 # <a name="manage-personal-data-associated-with-azure-resource-manager"></a>管理与 Azure 资源管理器相关联的个人数据
 

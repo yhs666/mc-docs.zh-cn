@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 12/14/2018
-ms.date: 07/08/2019
+ms.date: 07/19/2019
 ms.author: v-jay
-ms.openlocfilehash: a881515b4cc635aaeb6f7c6bb0d918ceeaaa0306
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 40c1d9a6b0389abe57a1b4ff3322cf528a382c21
+ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570618"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332753"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-tumbling-window"></a>创建按翻转窗口运行管道的触发器
 本文提供了创建、启动和监视翻转窗口触发器的步骤。 有关触发器和支持的类型的一般信息，请参阅[管道执行和触发器](concepts-pipeline-execution-triggers.md)。
@@ -66,7 +66,7 @@ ms.locfileid: "67570618"
                     "type": "Expression",
                     "value": "@{concat('output',formatDateTime(trigger().outputs.windowEndTime,'-dd-MM-yyyy-HH-mm-ss-ffff'))}"
                 },
-                "parameter3": "https://mydemo.chinacloudsites.net/api/demoapi"
+                "parameter3": "https://mydemo.chinacloudsites.cn/api/demoapi"
             }
         }
     }

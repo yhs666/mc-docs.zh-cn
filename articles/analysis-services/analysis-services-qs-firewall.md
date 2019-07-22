@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 07/02/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: f40e8418587d1e01a2ef779e0920b606194dbc07
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: c9e88f64634c375b84568864d5735d27d5c545eb
+ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085685"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308834"
 ---
 <!--Notice: Verified successfully-->
 # <a name="quickstart-configure-server-firewall---portal"></a>快速入门：配置服务器防火墙 - 门户
@@ -33,10 +33,10 @@ ms.locfileid: "55085685"
 ## <a name="configure-a-firewall"></a>配置防火墙
 
 1. 单击服务器打开“概述”页。 
-2. 在“设置” > “防火墙” > “启用防火墙”，单击“开”。
-3. 若要允许从 Power BI 服务进行 DirectQuery 访问，请在“允许从Power BI 访问”中，单击“开”。  
-4. （可选）指定一个或多个 IP 地址范围。 输入每个范围的名称、起始和结束 IP 地址。 
-5. 单击“保存” 。
+2. 在“设置”   > “防火墙”   > “启用防火墙”  ，单击“开”  。
+3. 若要允许从 Power BI 服务进行 DirectQuery 访问，请在“允许从Power BI 访问”  中，单击“开”  。  
+4. （可选）指定一个或多个 IP 地址范围。 输入每个范围的名称、起始和结束 IP 地址。 防火墙规则名称应限制为 128 个字符，并且只能包含大写字符、小写字符、数字、下划线和连字符。 不允许使用空格和其他特殊字符。
+5. 单击“保存”  。
 
      ![防火墙设置](./media/analysis-services-qs-firewall/aas-qs-firewall.png)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9360f11dbb91c9408720c578e157e4ca6874dfc0
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 9dfa826b5012fcc95760c42faf7f316dd986d5f3
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556897"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332099"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>创作和终结点用户访问权限
 所有者和协作者具有创作访问权限。 对于专用应用，所有者和协作者具有终结点访问权限。 对于公共应用，任何具有 LUIS 帐户和公共应用 ID 的人员均具有终结点访问权限。 
@@ -40,7 +40,7 @@ ms.locfileid: "65556897"
 
 ## <a name="access-to-endpoint"></a>访问终结点
 
-查询终结点的访问权限由“应用程序信息”页上的“管理”部分中的设置进行控制。 
+查询终结点的访问权限由“应用程序信息”  页上的“管理”  部分中的设置进行控制。 
 
 ![将应用设置为公共](./media/luis-concept-security/set-application-as-public.png)
 
@@ -66,9 +66,9 @@ ms.locfileid: "65556897"
 
 ### <a name="public-app-endpoint-access"></a>公共应用终结点访问权限
 
-应用配置为公共后，任何有效的 LUIS 创作密钥或 LUIS 终结点密钥都可以查询应用，只要该密钥未使用整个终结点配额。
+应用配置为公共后，任何有效的 LUIS 创作密钥或 LUIS 终结点密钥都可以查询应用，只要该密钥未使用整个终结点配额  。
 
-如果用户不是所有者或协作者，则只有在给定应用 ID 时才能访问公共应用。 LUIS 不提供公共市场或其他搜索公共应用的方式。  
+如果用户不是所有者或协作者，则只有在给定应用 ID 时才能访问公共应用。 LUIS 不提供公共市场或其他搜索公共应用的方式  。  
 
 公共应用在所有区域中发布，以便有基于区域的 LUIS 资源密钥的用户可以在与资源密钥关联的任何区域中访问该应用。
 

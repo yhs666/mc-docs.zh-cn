@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 03/01/2019
 ms.date: 06/24/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7560c0e795deefd7d46af5cc64f05aa9ece04dd8
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.openlocfilehash: 77b1542e4cffa5d35fcf28cd1dd721eb4897d371
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67325769"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293426"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -248,7 +248,7 @@ parameters:
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/#azure-file
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [pv-static]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#static
-[smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[smb-overview]: https://docs.microsoft.com/windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 
 <!-- LINKS - internal -->
 [az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create

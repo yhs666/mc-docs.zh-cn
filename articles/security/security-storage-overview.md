@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 04/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 19d3efdd42f06c777379ad5e9b909a1305366325
-ms.sourcegitcommit: 023ab8b40254109d9edae1602c3488d13ef90954
+ms.openlocfilehash: 86abfd33653a23d909f9c2a15ee075dd452c5b24
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54141673"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332079"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 存储安全概述
 
@@ -33,9 +33,6 @@ Azure 存储是依赖于持续性、可用性和伸缩性来满足客户需求�
 * 使用分析来跟踪某人访问存储时使用的身份验证方法。
 
 有关 Azure 存储中安全性的详细信息，请参阅 [Azure Storage security guide](../storage/common/storage-security-guide.md)（Azure 存储安全指南）。 本指南深入介绍了 Azure 存储的安全功能。 这些功能包括存储帐户密钥、传输中和静态中的数据加密以及存储分析。
-
-
-本文概述可与 Azure 存储配合使用的 Azure 安全功能。 此外还提供了一些文章链接，这些文章详细介绍了每个功能，可从中了解更多信息。
 
 ## <a name="role-based-access-control"></a>基于角色的访问控制
 
@@ -54,7 +51,7 @@ SAS 是在其查询参数中包含对存储资源进行验证了身份的访问�
 了解详细信息：
 
 * [了解 SAS 模型](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [创建 SAS 并将其用于 Blob 存储](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [创建 SAS 并将其用于 Blob 存储](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="encryption-in-transit"></a>传输中加密
 
@@ -88,19 +85,10 @@ SAS 是在其查询参数中包含对存储资源进行验证了身份的访问�
 
 适用于 VM 的磁盘加密可用于 Linux 与 Windows 操作系统。 它也使用密钥保管库帮助保护、管理和审核磁盘加密密钥的使用。 在 Azure 存储帐户中使用行业标准加密技术，对 VM 磁盘中的所有数据进行静态加密。 适用于 Windows 的磁盘加密解决方案是基于 [Microsoft BitLocker 驱动器加密](https://technet.microsoft.com/library/cc732774.aspx)技术，Linux 解决方案基于 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)。
 
-了解更多：
-
-- [Azure Disk Encryption for Windows and Linux IaaS Virtual Machines（适用于 Windows 和 Linux IaaS 虚拟机的 Azure 磁盘加密）](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
-
 ## <a name="azure-key-vault"></a>Azure Key Vault
 
 Azure 磁盘加密使用 [Azure 密钥保管库](https://www.azure.cn/home/features/key-vault/) 来帮助控制和管理密钥保管库订阅中的磁盘加密密钥和机密，同时确保虚拟机磁盘中的所有数据可在 Azure 存储中静态加密。 应使用密钥保管库来审核密钥和策略用法。
 
 了解详细信息
 
-* [什么是 Azure 密钥保管库？](../key-vault/key-vault-whatis.md)
-* [Azure 密钥保管库入门](../key-vault/key-vault-get-started.md)
-
-
-
-
+* [什么是 Azure 密钥保管库？](../key-vault/key-vault-overview.md)

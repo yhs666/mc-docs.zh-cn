@@ -13,12 +13,12 @@ ms.workload: na
 origin.date: 12/07/2018
 ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: 815d5917ef448406201cab2c4e2569b4f5ca54fc
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 08b7f4becd6002854ef194864fb2201a2e1bfbc1
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195092"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337501"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>教程：使用逻辑应用发送有关 Azure IoT 中心事件的电子邮件
 
@@ -225,7 +225,6 @@ ms.locfileid: "66195092"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解如何[通过使用事件网格触发操作来对 IoT 中心事件做出反应](../iot-hub/iot-hub-event-grid.md)。
 * [了解如何订阅设备已连接和已断开连接事件](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * 了解[事件网格](overview.md)的其他作用。
 

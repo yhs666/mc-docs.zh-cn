@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 45ea6e5bbd8efba053d06fa04b996d00282e1e53
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 6e088c3394f5239d8827e49e729316e26c1e3091
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135920"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332095"
 ---
 # <a name="quickstart-change-model-using-python"></a>快速入门：使用 Python 更改模型
 

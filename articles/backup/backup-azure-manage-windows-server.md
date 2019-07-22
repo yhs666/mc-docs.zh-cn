@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/05/2018
-ms.date: 11/26/2018
+ms.date: 07/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 57852a157fa72f3ef18b86214d440a4827578429
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a029c68c0ccb07151744355ef114027833b2029d
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570445"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332223"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 
@@ -101,7 +101,7 @@ ms.locfileid: "67570445"
 * 警报
 * 备份项
 * 受保护的服务器
-* 严重性
+* severity
 * 持续时间
 * 创建时间
 * 状态
@@ -261,20 +261,6 @@ ms.locfileid: "67570445"
 * 与保管库关联的 Cloud LRS 存储使用情况
 * 与保管库关联的 Cloud GRS 存储使用情况
 
-## <a name="frequently-asked-questions"></a>常见问题
-
-### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>多长时间后，门户中会反映 Azure 备份代理作业状态？
-最长可能需要 15 分钟，Azure 门户才会反映 Azure 备份代理作业状态。
-
-### <a name="when-a-backup-job-fails-how-long-does-it-take-to-raise-an-alert"></a>备份作业失败后，需要多长时间才会引发警报？
-Azure 备份失败后，会在 20 分钟内引发警报。
-
-### <a name="is-there-a-case-where-an-email-wont-be-sent-if-notifications-are-configured"></a>是否存在配置了通知却不发送电子邮件的情况？
-是的。 在以下情况下，不会发送通知：
-
-* 已将通知配置为每小时发送，并且在一小时内引发并解决了警报
-* 取消了作业
-* 由于原始备份作业正在进行，另一个备份作业失败
 
 ## <a name="troubleshooting-monitoring-issues"></a>排查监视问题
 
@@ -292,6 +278,7 @@ Azure 备份失败后，会在 20 分钟内引发警报。
 
 ## <a name="next-steps"></a>后续步骤
 * [从 Azure 还原 Windows Server 或 Windows 客户端](backup-azure-restore-windows-server.md)
+* 若要了解有关 Azure 备份的详细信息，请参阅 [Azure 备份概述](backup-introduction-to-azure-backup.md)
 * 访问 [Azure 备份论坛](https://go.microsoft.com/fwlink/p/?LinkId=290933)
 
 <!-- Update_Description: wording update -->

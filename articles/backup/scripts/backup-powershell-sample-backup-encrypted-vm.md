@@ -3,26 +3,19 @@ title: Azure PowerShell 脚本示例 - 备份 Azure 虚拟机 | Microsoft Docs
 description: Azure PowerShell 脚本示例 - 备份 Azure 虚拟机
 services: backup
 documentationcenter: ''
-author: alexchen2016
+author: lingliw
 manager: digimobile
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: backup
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-origin.date: 09/07/2017
-ms.date: 11/02/2017
-ms.author: v-junlch
+ms.date: 03/05/2019
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: eeed5cd2934fe9bfe96d8ecbfc98ba4c89184bff
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 310a3e527fc709d422aa9f781ff5c365100e4a62
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63853082"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332153"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>使用 PowerShell 备份已加密 Azure 虚拟机
 
@@ -30,98 +23,41 @@ ms.locfileid: "63853082"
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="sample-script"></a>示例脚本
 
-```powershell
-# Edit these global variables with your unique Recovery Services Vault name, resource group name and location
-$rsVaultName = "myRsVault"
-$rgName = "myResourceGroup"
-$location = "chinanorth"
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-# Register the Recovery Services provider and create a resource group
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
-New-AzureRmResourceGroup -Location $location -Name $rgName
 
-# Create a Recovery Services Vault and set its storage redundancy type
-New-AzureRmRecoveryServicesVault `
-    -Name $rsVaultName `
-    -ResourceGroupName $rgName `
-    -Location $location 
-$vault1 = Get-AzureRmRecoveryServicesVault –Name $rsVaultName
-Set-AzureRmRecoveryServicesBackupProperties ` 
-    -Vault $vault1 `
-    -BackupStorageRedundancy GeoRedundant
-    
-# Set Recovery Services Vault context and create protection policy
-Get-AzureRmRecoveryServicesVault -Name $rsVaultName | Set-AzureRmRecoveryServicesVaultContext 
-$schPol = Get-AzureRmRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
-$retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
-New-AzureRmRecoveryServicesBackupProtectionPolicy `
-    -Name "NewPolicy" `
-    -WorkloadType "AzureVM" ` 
-    -RetentionPolicy $retPol `
-    -SchedulePolicy $schPol
-    
-# Provide permissions to Azure Backup to access key vault and enable backup on the VM
-Set-AzureRmKeyVaultAccessPolicy `
-    -VaultName "KeyVaultName" `
-    -ResourceGroupName "KyeVault-RGName" ` 
-    -PermissionsToKeys backup,get,list `
-    -PermissionsToSecrets backup,get,list ` 
-    -ServicePrincipalName 262044b1-e2ce-469f-a196-69ab7ada62d3
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" `
-Enable-AzureRmRecoveryServicesBackupProtection `
-    -Policy $pol `
-    -Name "myVM" `
-    -ResourceGroupName "VM-RGName" 
-    
-# Modify protection policy
-$retPol = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
-$retPol.DailySchedule.DurationCountInDays = 365
-$pol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
-Set-AzureRmRecoveryServicesBackupProtectionPolicy `
-    -Policy $pol `
-    -RetentionPolicy $RetPol
-    
-# Trigger a backup and monitor backup job
-$namedContainer = Get-AzureRmRecoveryServicesBackupContainer -ContainerType "AzureVM" -Status "Registered" -FriendlyName "myVM"
-$item = Get-AzureRmRecoveryServicesBackupItem -Container $namedContainer -WorkloadType "AzureVM"
-$job = Backup-AzureRmRecoveryServicesBackupItem -Item $item
-$joblist = Get-AzureRmRecoveryservicesBackupJob –Status "InProgress"
-Wait-AzureRmRecoveryServicesBackupJob `
-        -Job $joblist[0] `
-        -Timeout 43200
-```
-
-## <a name="clean-up-deployment"></a>清理部署 
+## <a name="clean-up-deployment"></a>清理部署
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令创建部署。 表中的每一项均链接到特定于命令的文档。
 
+
 | 命令 | 注释 | 
 |---|---| 
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 | 
-| [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/New-AzureRmRecoveryServicesVault) | 创建用于存储备份的恢复服务保管库。 | 
-| [Set-AzureRmRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices/Set-AzureRmRecoveryServicesBackupProperties) | 设置恢复服务保管库的备份存储属性。 | 
-| [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy)| 在恢复服务保管库中使用计划策略和保留策略创建保护策略。 | 
-| [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy) | 设置对 Key Vault 的权限，授予服务主体访问加密密钥的权限。 | 
-| [Enable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/enable-azurermrecoveryservicesbackupprotection) | 使用指定的备份保护策略为某一项启用备份。 | 
-| [Set-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/set-azurermrecoveryservicesbackupprotectionpolicy)| 修改现有备份保护策略。 | 
-| [Backup-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/backup-azurermrecoveryservicesbackupitem) | 为未绑定到备份计划的受保护 Azure 备份项启动备份。 |
-| [Wait-AzureRmRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/wait-azurermrecoveryservicesbackupjob) | 等待 Azure 备份作业完成。 | 
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | 删除资源组及其中包含的所有资源。 | 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 | 
+| [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) | 创建用于存储备份的恢复服务保管库。 | 
+| [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) | 设置恢复服务保管库的备份存储属性。 | 
+| [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| 在恢复服务保管库中使用计划策略和保留策略创建保护策略。 | 
+| [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) | 设置对 Key Vault 的权限，授予服务主体访问加密密钥的权限。 | 
+| [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) | 使用指定的备份保护策略为某一项启用备份。 | 
+| [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy)| 修改现有备份保护策略。 | 
+| [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) | 为未绑定到备份计划的受保护 Azure 备份项启动备份。 |
+| [Wait-AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/wait-azrecoveryservicesbackupjob) | 等待 Azure 备份作业完成。 | 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组及其中包含的所有资源。 | 
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
+有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
 
 

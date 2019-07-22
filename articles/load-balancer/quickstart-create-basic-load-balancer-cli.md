@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/25/2019
-ms.date: 03/04/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 9aefd9380e9b2ea98bdb4d3882ff4600a09ab3a5
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 9f73d62d6d47417df53f4974331ff9799528bf84
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836929"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298117"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>快速入门：使用 Azure CLI 创建负载均衡器以对 VM 进行负载均衡
 
@@ -36,7 +36,7 @@ ms.locfileid: "56836929"
 
 使用 [az group create](/cli/group) 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupLB”的资源组：
+以下示例在“chinanorth”  位置创建名为“myResourceGroupLB”  的资源组：
 
 ```azurecli
   az group create \
@@ -147,7 +147,7 @@ ms.locfileid: "56836929"
 ```
 ### <a name="create-nics"></a>创建 NIC
 
-使用 [az network nic create](/cli/network/nic#az-network-nic-create) 创建三个网络接口，并将它们与公共 IP 地址和网络安全组关联。 
+使用 [az network nic create](/cli/network/nic#az-network-nic-create) 创建两个网络接口，并将它们与公共 IP 地址和网络安全组关联。 
 
 ```azurecli
 for i in `seq 1 2`; do
@@ -165,7 +165,7 @@ done
 
 ## <a name="create-backend-servers"></a>创建后端服务器
 
-本示例将创建三个要用作负载均衡器后端服务器的虚拟机。 若要验证负载均衡器是否已成功创建，还需要在虚拟机上安装 NGINX。
+本示例将创建两个要用作负载均衡器后端服务器的虚拟机。 若要验证负载均衡器是否已成功创建，还需要在虚拟机上安装 NGINX。
 
 ### <a name="create-an-availability-set"></a>创建可用性集
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1bd56246ea899994fdcb3b180bf3c7f20e191eb6
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: f3682c80f7bb68b0f4badbfdee8f9015c41d0111
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135747"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332134"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 URL 预生成实体
 URL 实体提取带域名或 IP 地址的 URL。 此实体已定型，因此不需要将包含 URL 的示例陈述添加到应用程序。 仅在 `en-us` 区域性中支持 URL 实体。 
@@ -32,7 +32,7 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ```json
 {
-  "query": "https://docs.azure.cn is a great cognitive services example of artificial intelligence",
+  "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.781975448
@@ -45,7 +45,7 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
   ],
   "entities": [
     {
-      "entity": "https://docs.azure.cn",
+      "entity": "https://luis.azure.cn",
       "type": "builtin.url",
       "startIndex": 0,
       "endIndex": 17
@@ -60,9 +60,9 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ```json
 {
-    "query": "https://docs.azure.cn is a great cognitive services example of artificial intelligence",
+    "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
     "prediction": {
-        "normalizedQuery": "https://docs.azure.cn is a great cognitive services example of artificial intelligence",
+        "normalizedQuery": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -71,7 +71,7 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
         },
         "entities": {
             "url": [
-                "https://docs.azure.cn"
+                "https://luis.azure.cn"
             ]
         }
     }
@@ -82,9 +82,9 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ```json
 {
-    "query": "https://docs.azure.cn is a great cognitive services example of artificial intelligence",
+    "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
     "prediction": {
-        "normalizedQuery": "https://docs.azure.cn is a great cognitive services example of artificial intelligence",
+        "normalizedQuery": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -93,13 +93,13 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
         },
         "entities": {
             "url": [
-                "https://docs.azure.cn"
+                "https://luis.azure.cn"
             ],
             "$instance": {
                 "url": [
                     {
                         "type": "builtin.url",
-                        "text": "https://docs.azure.cn",
+                        "text": "https://luis.azure.cn",
                         "startIndex": 0,
                         "length": 19,
                         "modelTypeId": 2,

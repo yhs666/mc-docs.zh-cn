@@ -6,26 +6,26 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/17/2019
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: adea44c28869a776c4e6cac2334571e67ba88bd6
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 0a751fdf82e41271490791d5996251edcc55e610
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845240"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337537"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>使用 Azure 门户大规模部署和监视 IoT Edge 模块
 
-在 Azure 门户中创建“IoT Edge 自动部署”  ，以便同时管理多个设备的正在进行的部署。 IoT Edge 的自动部署属于 IoT 中心的[自动设备管理](/iot-hub/iot-hub-automatic-device-management.md)功能。 部署是动态的过程，允许将多个模块部署到多台设备，跟踪这些模块的状态和运行状况，以及做出必要的更改。 
+在 Azure 门户中创建“IoT Edge 自动部署”  ，以便同时管理多个设备的正在进行的部署。 IoT Edge 的自动部署属于 IoT 中心的[自动设备管理](/iot-hub/iot-hub-automatic-device-management.md)功能。 部署是动态的过程，允许将多个模块部署到多台设备，跟踪这些模块的状态和运行状况，以及在必要时进行更改。 
 
 有关详细信息，请参阅[了解单个设备或大规模的 IoT Edge 自动部署](module-deployment-monitoring.md)。
 
 ## <a name="identify-devices-using-tags"></a>使用标记标识设备
 
-创建部署之前，必须能够指定想要影响的设备。 Azure IoT Edge 标识使用设备孪生中的标记  标识设备。 每个设备都可以具有多个标记，你可以采用适合解决方案的任何方式定义这些标记。 例如，如果管理有智能楼宇的校园，可将以下标记添加到设备：
+创建部署之前，必须能够指定想要影响的设备。 Azure IoT Edge 标识使用设备孪生中的标记  标识设备。 每个设备都可以具有多个标记，你可以采用适合你的解决方案的任何方式定义这些标记。 例如，如果管理有智能楼宇的校园，可将以下标记添加到设备：
 
 ```json
 "tags":{
@@ -91,7 +91,7 @@ ms.locfileid: "67845240"
 
 ### <a name="step-3-specify-routes-optional"></a>步骤 3：指定路由（可选）
 
-路由定义模块在部署中如何相互通信。 向导默认提供名为“route”  且定义为 <strong>FROM /* INTO $upstream</strong> 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
+路由定义模块在部署中如何相互通信。 向导默认提供名为“route”  且定义为  FROM /\* INTO $upstream 的路由，这表示任何模块输出的任何消息都将发送到 IoT 中心。  
 
 在路由中添加或更新[声明路由](module-composition.md#declare-routes)中的信息，再选择“下一步”  继续转到评审部分。
 

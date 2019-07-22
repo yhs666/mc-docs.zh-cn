@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 01/09/2019
-ms.date: 05/27/2019
+ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: 1d9c5a0e457bcf02a3878ee742ca40033114dd04
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.openlocfilehash: 2d10ccdfcb042e96b3405ba41e7c9ea37c2488e9
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173352"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308895"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure Database for MariaDB 服务器
 
@@ -34,10 +34,10 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 
 使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
-以下示例在 `westus` 位置创建一个名为 `myresourcegroup` 的资源组：
+以下示例在 `chinaeast2` 位置创建一个名为 `myresourcegroup` 的资源组：
 
 ```azurecli
-az group create --name myresourcegroup --location westus
+az group create --name myresourcegroup --location chinaeast2
 ```
 
 ## <a name="create-an-azure-database-for-mariadb-server"></a>创建 Azure Database for MariaDB 服务器
@@ -68,7 +68,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 以下示例在“美国西部”区域创建一个名为 **mydemoserver** 的服务器。 该服务器在资源组 **myresourcegroup** 中，其服务器管理员登录名为 **myadmin**。 该服务器为“第 5 代”服务器，属于“常规用途”定价层，有 2 个 vCore。 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。 将 `<server_admin_password>` 替换为你自己的服务器管理员密码。
 
 ```azurecli
-az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
+az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2
 ```
 
 > [!NOTE]

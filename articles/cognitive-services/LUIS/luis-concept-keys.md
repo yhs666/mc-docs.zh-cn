@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 97bf6944d84e3e24e7291830ae1a0d1376c6c000
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 74c2f9a7fb21521e0488e81df706f46038dcebc6
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135829"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332270"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的创作密钥和查询预测终结点密钥
 LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpoint-key)密钥。 在创建 LUIS 帐户时会自动创建创作密钥。 准备好发布 LUIS 应用时，需要[创建终结点密钥](luis-how-to-azure-subscription.md)、将[终结点密钥分配](luis-how-to-azure-subscription.md)到 LUIS 应用并[将其与终结点查询配合使用](#use-endpoint-key-in-query)。 
@@ -80,7 +80,7 @@ LUIS API 使用标头 `Ocp-Apim-Subscription-Key`。 标头名称不会基于所
 
 ## <a name="assignment-of-the-endpoint-key"></a>分配终结点密钥
 
-可以在 [LUIS 门户](https://docs.azure.cn)中或通过相应的 API [分配](luis-how-to-azure-subscription.md)终结点密钥。 
+可以在 [LUIS 门户](https://luis.azure.cn)中或通过相应的 API [分配](luis-how-to-azure-subscription.md)终结点密钥。 
 
 
 ## <a name="next-steps"></a>后续步骤

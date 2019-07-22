@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/21/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1f57fa254dc08458d7e9910e490700607c4be149
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: b3c95ddfb841ea9e12a6c0146651ba3602869a21
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171397"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293433"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>使用 Power BI 连接器可视化 Azure Cosmos DB 数据
 
@@ -33,7 +33,9 @@ ms.locfileid: "67171397"
 
 * 从 GitHub 下载[示例火山数据](https://github.com/Azure-Samples/azure-cosmos-db-sample-data/blob/master/SampleData/VolcanoData.json)。
 
-* [创建一个 Azure Cosmos DB 数据库帐户](/cosmos-db/create-sql-api-dotnet)并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入火山数据。 导入数据时，请考虑数据迁移工具中源和目标的以下设置：  <!--Redirect (https://www.azure.cn/documentation/articles/create-account/)  to  (/cosmos-db/create-sql-api-dotnet)-->
+* [创建一个 Azure Cosmos DB 数据库帐户](/cosmos-db/create-sql-api-dotnet)并使用 [Azure Cosmos DB 数据迁移工具](import-data.md)导入火山数据。 导入数据时，请考虑数据迁移工具中源和目标的以下设置：
+    
+    <!--Redirect (https://www.azure.cn/documentation/articles/create-account/)  to  (/cosmos-db/create-sql-api-dotnet)-->
     * **源参数** 
 
         * **导入源：** JSON 文件
@@ -181,11 +183,11 @@ ms.locfileid: "67171397"
 
 将报表从 Power BI Desktop 发布到 PowerBI.com 时，会在 PowerBI.com 租户中生成一个“报表”  和“数据集”  。 例如，将一个名为 **PowerBITutorial** 的报表发布到 PowerBI.com 后，PowerBITutorial 会出现在 PowerBI.com 的“报表”  和“数据集”  部分。
 
-    ![Screenshot of the new Report and Dataset in PowerBI.com](./media/powerbi-visualize/powerbi-reports-datasets.png)
+![PowerBI.com 中新报表和数据集的屏幕截图](./media/powerbi-visualize/powerbi-reports-datasets.png)
 
 若要创建可共享的仪表板，请单击 PowerBI 报表上的“固定活动页”  按钮。
 
-    ![Screenshot of the new Report and Dataset in PowerBI.com](./media/powerbi-visualize/power-bi-pin-live-tile.png)
+![PowerBI.com 中新报表和数据集的屏幕截图](./media/powerbi-visualize/power-bi-pin-live-tile.png)
 
 然后，根据 [Pin a tile from a report](https://powerbi.microsoft.com/documentation/powerbi-service-pin-a-tile-to-a-dashboard-from-a-report/#pin-a-tile-from-a-report)（从报表固定磁贴）中的说明创建新仪表板。 
 

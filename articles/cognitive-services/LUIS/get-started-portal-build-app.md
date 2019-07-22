@@ -10,22 +10,22 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: d8ba459829dc44e7d8f11e9627e93ed3035384e0
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 02b3b3881db7ed0c61dfec1c4f86d38ba7836584
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135931"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332171"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
-本快速入门将在 [LUIS 门户](https://docs.azure.cn)中生成新应用。 首先创建应用的基本部件、**意向**和**实体**。 然后，通过在交互式测试面板中提供用于获取预测的意向的示例用户话语，对应用进行测试。
+本快速入门将在 [LUIS 门户](https://luis.azure.cn)中生成新应用。 首先创建应用的基本部件、**意向**和**实体**。 然后，通过在交互式测试面板中提供用于获取预测的意向的示例用户话语，对应用进行测试。
 
 生成应用是免费的操作，不需要 Azure 订阅。 准备好部署应用后，可以创建 Azure 认知服务资源并将其分配到应用。 此部署过程将在[下一篇快速入门](get-started-portal-deploy-app.md)中予以介绍。
 
 ## <a name="create-an-app"></a>创建应用
 
-1. 在浏览器中打开 [LUIS 门户](https://docs.azure.cn)并登录。 首次登录时，需要创建一个免费的 LUIS 门户用户帐户。
+1. 在浏览器中打开 [LUIS 门户](https://luis.azure.cn)并登录。 首次登录时，需要创建一个免费的 LUIS 门户用户帐户。
 
 1. 在上下文工具栏中选择“创建新应用”。 
 
@@ -50,7 +50,7 @@ ms.locfileid: "67135931"
 
 此应用的两个不同_意向_对应于以下意向：
 
-|意向|用户提供的文本示例<br>称为“言语” |
+|Intent|用户提供的文本示例<br>称为“言语” |
 |--|--|
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|

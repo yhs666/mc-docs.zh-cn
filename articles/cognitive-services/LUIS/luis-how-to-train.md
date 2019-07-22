@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 66492d78d5f9561c1ecbfa6dbd59984da71d5722
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 7a0d2a14be196043a2bcb11e1814222dee0a203f
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135786"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332058"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>训练 LUIS 应用的有效版本 
 
@@ -31,7 +31,7 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="how-to-train-interactively"></a>如何以交互方式训练
 
-若要在 [LUIS 门户中](https://docs.azure.cn)启动迭代过程，首先需要将 LUIS 应用训练至少一次。 在训练之前，请确保每个意向具有至少一个陈述。
+若要在 [LUIS 门户中](https://luis.azure.cn)启动迭代过程，首先需要将 LUIS 应用训练至少一次。 在训练之前，请确保每个意向具有至少一个陈述。
 
 1. 在“我的应用”页面上选择应用名称以访问应用  。 
 

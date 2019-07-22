@@ -6,17 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-origin.date: 05/29/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: dfcbb0f4f6f4f325822e1355364d9381e80e22b7
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 1f7923dac6d67cd09242d06b40242468e4ddeb4e
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730921"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298149"
 ---
-# <a name="tutorial-order-azure-data-box-heavy-preview"></a>教程：订购 Azure Data Box Heavy（预览）
+# <a name="tutorial-order-azure-data-box-heavy"></a>教程：订购 Azure Data Box Heavy
 
 
 Azure Data Box Heavy 是一个混合解决方案，可以快速、方便、可靠地将本地数据导入 Azure。 请先将数据传输到 Microsoft 提供的 770 TB（大致可用容量）存储设备，然后将设备寄回。 然后，此数据将上传到 Azure。
@@ -38,7 +38,7 @@ Azure Data Box Heavy 是一个混合解决方案，可以快速、方便、可�
 在开始之前，请确保：
 
 - 设备可以通过标准的门廊和入口通道。 但是，请确保设备可以通过所有入口通道。 设备规格：宽度26 英寸，长度48 英寸，高度28 英寸。
-- 如果在第一层以外的楼层安装设备，必须能够通过升降机或活动梯来接触设备。 设备重约 500 磅，
+- 如果在第一层以外的楼层安装设备，必须能够通过升降机或活动梯来接触设备。 设备重约 500 磅。
 - 务必在数据中心内的平坦场地上操作，该场地靠近可用的网络连接，并能够放得下 Data Box Heavy 大小的设备。
 
 
@@ -156,7 +156,7 @@ Azure Data Box Heavy 是一个混合解决方案，可以快速、方便、可�
 
 ## <a name="next-steps"></a>后续步骤
 
-本教程介绍了有关 Azure Data Box Heavy 的主题，例如：
+本教程介绍了 Azure Data Box Heavy 主题，例如：
 
 > [!div class="checklist"]
 > * 先决条件

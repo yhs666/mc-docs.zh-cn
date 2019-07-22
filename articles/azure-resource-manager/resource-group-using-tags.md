@@ -1,24 +1,18 @@
 ---
 title: 为逻辑组织标记 Azure 资源 | Azure
 description: 演示如何应用标记来组织 Azure 资源进行计费和管理。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: AzurePortal
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 06/03/2019
+origin.date: 07/11/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 69f4c27aede207cf00e18b18153b94d3cfc985cc
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 377651e315a6856d88391b877e4cf236a2b5ac29
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195478"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337439"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -53,31 +47,31 @@ Dept                           IT
 Environment                    Test
 ```
 
-若要查看具有指定资源 ID 的资源的现有标记，请使用：
+若要查看具有指定资源 ID 的资源  的现有标记，请使用：
 
 ```powershell
 (Get-AzResource -ResourceId /subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>).Tags
 ```
 
-或者，若要查看具有指定名称和资源组的资源的现有标记，请使用：
+或者，若要查看具有指定名称和资源组的资源  的现有标记，请使用：
 
 ```powershell
 (Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup).Tags
 ```
 
-若要获取具有特定标记的资源组，请使用：
+若要获取具有特定标记的资源组，请使用： 
 
 ```powershell
 (Get-AzResourceGroup -Tag @{ Dept="Finance" }).ResourceGroupName
 ```
 
-若要获取具有特定标记的资源，请使用：
+若要获取具有特定标记的资源，请使用： 
 
 ```powershell
 (Get-AzResource -Tag @{ Dept="Finance"}).Name
 ```
 
-若要获取具有特定标记名称的资源，请使用：
+若要获取具有特定标记名称的资源，请使用： 
 
 ```powershell
 (Get-AzResource -TagName Dept).Name
@@ -91,7 +85,7 @@ Environment                    Test
 Set-AzResourceGroup -Name examplegroup -Tag @{ Dept="IT"; Environment="Test" }
 ```
 
-若要将标记添加到包含现有标记的资源组，请检索现有标记，添加新标记，然后重新应用标记：
+若要将标记添加到包含现有标记的资源组  ，请检索现有标记，添加新标记，然后重新应用标记：
 
 ```powershell
 $tags = (Get-AzResourceGroup -Name examplegroup).Tags
@@ -106,7 +100,7 @@ $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
 Set-AzResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceId $r.ResourceId -Force
 ```
 
-若要将标记添加到包含现有标记的资源，请使用：
+若要将标记添加到包含现有标记的资源  ，请使用：
 
 ```powershell
 $r = Get-AzResource -ResourceName examplevnet -ResourceGroupName examplegroup
@@ -114,7 +108,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记  ，请使用以下脚本：
 
 ```powershell
 $groups = Get-AzResourceGroup
@@ -124,7 +118,7 @@ foreach ($g in $groups)
 }
 ```
 
-若要将资源组中的所有标记应用于其资源，并且保留资源上不重复的现有标记，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且保留资源上不重复的现有标记  ，请使用以下脚本：
 
 ```powershell
 $group = Get-AzResourceGroup "examplegroup"
@@ -175,13 +169,13 @@ az group show -n examplegroup --query tags
 }
 ```
 
-或者，若要查看具有指定名称、类型和资源组的资源的现有标记，请使用：
+或者，若要查看具有指定名称、类型和资源组的资源的现有标记，请使用： 
 
 ```azurecli
 az resource show -n examplevnet -g examplegroup --resource-type "Microsoft.Network/virtualNetworks" --query tags
 ```
 
-循环访问资源集合时，可能想要按资源 ID 显示资源。 本文稍后介绍一个完整的示例。 若要查看具有指定资源 ID 的资源的现有标记，请使用：
+循环访问资源集合时，可能想要按资源 ID 显示资源。 本文稍后介绍一个完整的示例。 若要查看具有指定资源 ID 的资源  的现有标记，请使用：
 
 ```azurecli
 az resource show --id <resource-id> --query tags
@@ -221,7 +215,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且不保留资源上的现有标记  ，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -237,7 +231,7 @@ do
 done
 ```
 
-若要将资源组中的所有标记应用于其资源，并且保留资源上的现有标记，请使用以下脚本：
+若要将资源组中的所有标记应用于其资源，并且保留资源上的现有标记  ，请使用以下脚本：
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -265,7 +259,7 @@ done
 
 ## <a name="rest-api"></a>REST API
 
-Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://docs.microsoft.com/rest/api/resources/)。 如果需要将标记集成到其他环境中，可对资源 ID 使用 GET 以获取标记，并使用 PATCH 调用更新标记集。
+Azure 门户和 PowerShell 均在后台使用[资源管理器 REST API](https://docs.microsoft.com/rest/api/resources/)。 如果需要将标记集成到其他环境中，可对资源 ID 使用 GET 以获取标记，并使用 PATCH 调用更新标记集。  
 
 ## <a name="tags-and-billing"></a>标记和计费
 

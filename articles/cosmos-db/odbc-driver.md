@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/28/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5dc65db7ed10ca31b9acaa0ae746139a431da44c
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: d7096bd6e7bc66a7c602bcbfcbe0b81afcead9f8
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171417"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293436"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>使用 BI 分析工具和 ODBC 驱动程序连接到 Azure Cosmos DB
 
@@ -65,7 +65,7 @@ Azure Cosmos DB 是一个无架构数据库，可用于快速开发应用程序�
     - **主机**：Azure Cosmos DB 帐户的 URI。 可在 Azure 门户的“Azure Cosmos DB 密钥”页中检索此信息，如以下屏幕截图所示。 
     - **访问密钥**：从 Azure 门户中“Azure Cosmos DB 密钥”页获取的主要或辅助读写或只读密钥，如以下屏幕截图所示。 如果 DSN 用于只读数据的处理和报告，我们建议使用只读密钥。
     
-    ![“Azure Cosmos DB 密钥”页](./media/odbc-driver/odbc-driver-keys.png)
+        ![“Azure Cosmos DB 密钥”页](./media/odbc-driver/odbc-driver-keys.png)
     - **加密以下对象的访问密钥**：根据此计算机的用户选择最合适的选项。 
 
 1. 单击“测试”按钮，确保可以连接到 Azure Cosmos DB 帐户。  

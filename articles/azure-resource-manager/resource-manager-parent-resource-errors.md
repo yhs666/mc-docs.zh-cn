@@ -1,23 +1,18 @@
 ---
 title: Azure 父资源错误 | Azure
 description: 说明如何在使用父资源时解决错误。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 08/01/2018
-ms.date: 09/03/2018
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 942af82d8e2fdecf73f4ddf3bb094c942b402748
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4ab12d7df08fe0b850f5f65a6ee19a8e0887007c
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655113"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337400"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>解决父资源的错误
 
@@ -89,4 +84,4 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 有关详细信息，请参阅[定义 Azure 资源管理器模板中部署资源的顺序](resource-group-define-dependencies.md)。
 
-<!--Update_Description: add new content of sample json format in template -->
+<!--Update_Description: update meta properties -->

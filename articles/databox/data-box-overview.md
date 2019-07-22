@@ -7,15 +7,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-origin.date: 01/18/2019
-ms.date: 02/25/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: c837ad90bce29dcf7f39e5d1d38f9a1d2291c642
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 35a871e03faf39413aab9fb722043b9c82c2b8c5
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627330"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298142"
 ---
 # <a name="what-is-azure-data-box"></a>什么是 Azure Data Box？
 
@@ -77,7 +77,7 @@ Data Box 包括以下组件：
 
 * **Data Box 设备** - 提供主存储、管理与云存储通信的物理设备，并有助于确保存储在设备上的所有数据的安全性和机密性。 Data Box 设备的可用存储容量为 80 TB。 
 
-    ![Data Box 的正面和背面 ](media/data-box-overview/data-box-combined3.png)
+    ![Data Box 的正面和背面](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box 设备** - Azure 门户的扩展，使用该扩展可以通过 Web 界面（可从不同的地理位置访问该界面）管理 Data Box 设备。 使用 Data Box 服务执行的 Data Box 设备的日常管理。 服务任务包括如何创建和管理订单、查看和管理警报以及管理共享。  
@@ -86,7 +86,7 @@ Data Box 包括以下组件：
 
     有关详细信息，请转到[使用 Data Box 服务管理 Data Box 设备](data-box-portal-ui-admin.md)。
 
-* **本地 Web 用户界面** - 基于 Web 的UI，用于配置设备，以便它可以连接到本地网络，并向 Data Box 服务注册该设备。 此外还可以使用本地 Web UI 关闭和重启 Data Box 设备、查看副本日志，并联系 Azure 支持部门以提交服务请求。
+* **本地 Web 用户界面** - 基于 Web 的UI，用于配置设备，以便它可以连接到本地网络，并向 Data Box 服务注册该设备。 此外还可以使用本地 Web UI 关闭和重启 Data Box 设备、查看复制日志，并联系 Azure 支持部门以提交服务请求。
 
     ![Data Box 本地 Web UI](media/data-box-overview/data-box-local-web-ui.png)
 

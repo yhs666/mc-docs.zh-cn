@@ -1,24 +1,18 @@
 ---
 title: Azure Resource Manager 模板函数 - 字符串 | Azure
 description: 介绍了可在 Azure Resource Manager 模板中用来处理字符串的函数。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 04/08/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 35476b4136b54b3ea4990afbebd067035f35ef37
-ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
+ms.openlocfilehash: 4c1bd14864184f9370e85f60c5b314081e4a867b
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673957"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337289"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 
@@ -1259,7 +1253,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1272,7 +1266,7 @@ newGuid 函数不同于 [guid](#guid) 函数，因为它不采用任何参数。
 | Name | 类型 | Value |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
 ## <a name="skip"></a>skip
 

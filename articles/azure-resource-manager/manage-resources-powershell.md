@@ -5,19 +5,16 @@ services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: d1876a1ef058f1706d359b9e08b20e7a0218147f
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 683f6155e1e51eee9358af58c2aa1aeb4d978a79
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195420"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337325"
 ---
 # <a name="manage-azure-resources-by-using-azure-powershell"></a>使用 Azure PowerShell 管理 Azure 资源
 
@@ -147,7 +144,6 @@ Remove-AzResourceLock -LockId $lockId
 - 若要了解 Azure 资源管理器，请参阅 [Azure 资源管理器概述](./resource-group-overview.md)。
 - 若要了解资源管理器模板语法，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
-- 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
 
-<!--Pending Verify-->
+<!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 <!--Update_Description: wording update -->

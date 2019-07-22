@@ -16,12 +16,12 @@ origin.date: 01/19/2018
 ms.date: 04/09/2018
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 39c7bc4a948cf7c7e4392fb6b6adfee631e6be63
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 11e5bdbfff7db5d627053175d01077f43a641d63
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731266"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332164"
 ---
 # <a name="what-is-azure-batch"></a>什么是 Azure Batch？
 
@@ -48,11 +48,19 @@ Batch 很适合处理本质并行（也称为“易并行”）的工作负荷�
 也可使用 Batch 来[运行紧密耦合工作负荷](batch-mpi.md)，此类工作负荷是指在其中运行的应用程序需要相互通信（而不是独立运行）的工作负荷。 紧密耦合应用程序通常使用消息传递接口 (MPI) API。 可以使用 [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) 或 Intel MPI，通过 Batch 来运行紧密耦合工作负荷。 
 
 紧密耦合工作负荷的一些示例：
-- 有限元素分析
-- 流体动力学
-- 多节点 AI 训练
+* 有限元素分析
+* 流体动力学
+* 多节点 AI 训练
 
 许多紧密耦合作业可以使用 Batch 来并行运行。 例如，通过更改管道宽度对液体在管道中的流动进行多次模拟。
+
+## <a name="additional-batch-capabilities"></a>其他 Batch 功能
+
+更高级别的特定于工作负荷的功能也适用于 Azure Batch：
+* Batch 支持大规模[渲染工作负荷](batch-rendering-service.md)，使用的渲染工具包括 Autodesk Maya、3ds Max、Arnold 和 V-Ray。 
+* R 用户可以安装 [doAzureParallel R 包](https://github.com/Azure/doAzureParallel)，在 Batch 池中轻松地横向扩展 R 算法的执行。
+
+还可以在更大型的 Azure 工作流中运行 Batch 作业，以便转换 [Azure 数据工厂](../data-factory/transform-data-using-dotnet-custom-activity.md)等工具管理的数据。
 
 
 ## <a name="how-it-works"></a>工作原理
@@ -79,5 +87,11 @@ Batch 的常用方案涉及在计算节点池中横向扩展本质并行工作�
 
 请参阅[适用于开发人员的 Batch 功能概述](batch-api-basics.md)，详细了解池、节点、作业、任务，以及生成 Batch 应用程序时可以使用的许多 API 功能。 
 
+## <a name="next-steps"></a>后续步骤
 
-<!-- Update_Description: wording update -->
+阅读以下快速入门文章之一，开始使用 Azure Batch：
+* [使用 Azure CLI 运行第一个 Batch 作业](quick-create-cli.md)
+* [使用 Azure 门户运行第一个 Batch 作业](quick-create-portal.md)
+* [使用 .NET API 运行第一个 Batch 作业](quick-run-dotnet.md)
+* [使用 Python API 运行第一个 Batch 作业](quick-run-python.md)
+

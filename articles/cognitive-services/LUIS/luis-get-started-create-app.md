@@ -9,14 +9,14 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8435cff441a3cea89ad53f8543070477603f5f77
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 220ff6af8453ac924a9aad4c3ec72f7f796d4f26
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135997"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332112"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>快速入门：使用预构建的家庭自动化应用
 
@@ -24,7 +24,7 @@ ms.locfileid: "67135997"
 
 ## <a name="prerequisites"></a>先决条件
 
-本文需要一个在 [https://docs.azure.cn](https://docs.azure.cn) 的 LUIS 门户中创建的免费 LUIS 帐户。 
+本文需要一个在 [https://luis.azure.cn](https://luis.azure.cn) 的 LUIS 门户中创建的免费 LUIS 帐户。 
 
 ## <a name="create-a-new-app"></a>创建新应用
 可在“我的应用”中创建和管理应用程序  。 

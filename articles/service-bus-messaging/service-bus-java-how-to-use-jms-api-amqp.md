@@ -14,12 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fc1dafa6989484c5b7142e4bafd4a7bf6b971bed
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: 0183670ab86a524c809eaf5a115912b1d88e7d24
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609880"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332255"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>如何将 Java 消息服务 (JMS) API 用于服务总线和 AMQP 1.0
 
@@ -30,12 +30,7 @@ ms.locfileid: "65609880"
 本文说明了如何使用采用常用 Java 消息服务 (JMS) API 标准的 Java 应用程序中的服务总线消息传送功能（队列和发布/订阅主题）。 此处的[随附文章](service-bus-amqp-dotnet.md)解释如何使用服务总线 .NET API 来执行相同操作的操作。 使用 AMQP 1.0，可以同时使用以下两个指南来了解跨平台消息。
 
 ## <a name="get-started-with-service-bus"></a>服务总线入门
-本指南假定你已具有包含名为 basicqueue 的队列的服务总线命名空间。 如果没有，则可以使用 [Azure 经典门户](https://portal.azure.cn)[创建命名空间和队列](service-bus-create-namespace-portal.md)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)。
-
-> [!NOTE]
-> 分区队列和主题也支持 AMQP。 有关详细信息，请参阅[分区消息实体](./service-bus-partitioning.md)和[针对服务总线分区队列和主题的 AMQP 1.0 支持](./service-bus-amqp-protocol-guide.md)。
-> 
-> 
+本指南假定你已具有包含名为 basicqueue  的队列的服务总线命名空间。 如果没有，则可以使用 [Azure 经典门户](https://portal.azure.cn)[创建命名空间和队列](service-bus-create-namespace-portal.md)。 有关如何创建服务总线命名空间和队列的详细信息，请参阅[服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)。
 
 ## <a name="downloading-the-amqp-10-jms-client-library"></a>下载 AMQP 1.0 JMS 客户端库
 有关 Apache Qpid JMS AMQP 1.0 客户端库最新版本的下载地址的信息，请访问 [https://qpid.apache.org/download.html](https://qpid.apache.org/download.html)。
@@ -67,7 +62,7 @@ queue.QUEUE = queue1
 
 #### <a name="setup-jndi-context-and-configure-the-connectionfactory"></a>设置 JNDI 上下文和配置 ConnectionFactory
 
-在 [Azure 门户](https://portal.azure.cn)“主连接字符串”下的 “共享访问策略”中提供了可引用的 ConnectionString
+在 [Azure 门户](https://portal.azure.cn)“主连接字符串”  下的 “共享访问策略”中提供了可引用的 ConnectionString 
 ```java
 // The connection string builder is the only part of the azure-servicebus SDK library
 // we use in this JMS sample and for the purpose of robustly parsing the Service Bus 
@@ -299,7 +294,7 @@ public class JmsQueueQuickstart {
 ```
 
 ### <a name="run-the-application"></a>运行应用程序
-传递共享访问策略中的“连接字符串”，以运行应用程序。
+传递共享访问策略中的“连接字符串”  ，以运行应用程序。
 以下是通过运行应用程序的表单输出：
 
 ```
@@ -356,7 +351,7 @@ JMS 主题允许客户端动态创建非持久的和持久的订阅者，这样�
 ## <a name="unsupported-features-and-restrictions"></a>不受支持的功能和限制
 在将 JMS over AMQP 1.0 用于 Service Bus 时存在以下限制，即：
 
-* 每个会话只允许一个 MessageProducer 或 MessageConsumer。 如果需要在应用程序中创建多个 MessageProducers 或 MessageConsumers，请分别对其创建专用会话。
+* 每个会话只允许一个 MessageProducer 或 MessageConsumer。    如果需要在应用程序中创建多个 MessageProducers 或 MessageConsumers，请分别对其创建专用会话。   
 * 当前不支持易失性主题订阅。
 * **MessageSelectors** 。
 * 不支持事务处理会话和分布式事务。
@@ -369,12 +364,12 @@ JMS 主题允许客户端动态创建非持久的和持久的订阅者，这样�
 | createDurableConsumer       | 创建移植消息选择器的主题订阅                                 |
 | createSharedConsumer        | 服务总线主题始终可共享，请参阅上述内容                                       |
 | createSharedDurableConsumer | 服务总线主题始终可共享，请参阅上述内容                                       |
-| createTemporaryTopic        | 通过管理 API/工具/门户创建主题（AutoDeleteOnIdle 被设置为过期期间） |
+| createTemporaryTopic        | 通过管理 API/工具/门户创建主题（AutoDeleteOnIdle  被设置为过期期间） |
 | createTopic                 | 通过管理 API/工具/门户创建主题                                           |
 | unsubscribe                 | 删除主题管理 API/工具/门户                                             |
 | createBrowser               | 不受支持。 使用服务总线 API 的 Peek() 功能                         |
 | createQueue                 | 通过管理 API/工具/门户创建队列                                           | 
-| createTemporaryQueue        | 通过管理 API/工具/门户创建队列（AutoDeleteOnIdle 被设置为过期期间） |
+| createTemporaryQueue        | 通过管理 API/工具/门户创建队列（AutoDeleteOnIdle  被设置为过期期间） |
 
 ## <a name="summary"></a>摘要
 
@@ -385,7 +380,6 @@ JMS 主题允许客户端动态创建非持久的和持久的订阅者，这样�
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 服务总线中的 AMQP 1.0 支持](./service-bus-amqp-overview.md)
-* [如何将 AMQP 1.0 与服务总线 .NET API 配合使用](./service-bus-amqp-dotnet.md)
 * [服务总线 AMQP 1.0 开发人员指南](./service-bus-amqp-dotnet.md)
 * [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)
 * [Java 开发人员中心](https://www.azure.cn/develop/java/)

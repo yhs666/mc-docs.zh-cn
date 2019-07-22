@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 01/24/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 4d4b650d1111ab921a1de0a5a6be86ac6277c077
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 8be029571d45f43a70d6e89fd9bacac78259a65d
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726501"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298129"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>教程：使用数据复制服务将数据复制到 Azure Data Box（预览）
 
@@ -60,7 +60,7 @@ ms.locfileid: "66726501"
     |-------------------------------|---------|
     |**作业名称**                       |作业的唯一名称，少于 230 个字符。 作业名称中不允许以下字符：\<、\>、\|、\?、\*、\\、\:、\/ 和 \\\.         |
     |**源位置**                |使用 `\\<ServerIPAddress>\<ShareName>` 或 `\\<ServerName>\<ShareName>` 格式提供数据源的 SMB 路径。        |
-    |**用户名**                       |用于访问数据源的用户名，采用 `\\<DomainName><UserName>` 格式。        |
+    |**用户名**                       |用于访问数据源的用户名，采用 `\\<DomainName><UserName>` 格式。 如果本地管理员正在连接，他们将需要显式的安全权限。 右键单击文件夹，选择“属性”  ，然后选择“安全性”  。 这应该会在“安全性”  选项卡中添加本地管理员。       |
     |**密码**                       |用于访问数据源的密码。           |
     |**目标存储帐户**    |从列表中选择要将数据上传到的目标存储帐户。         |
     |**目标类型**       |从列表中选择目标存储类型：“块 Blob”、“页 Blob”或“Azure 文件”。           |

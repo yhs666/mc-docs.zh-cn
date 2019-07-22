@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c4b796f67f183e8aeef2e3ed54f816f98b16af9d
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: b34918be0b8918e7252331468c5b68c750bba1ce
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828511"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332137"
 ---
 # <a name="phonenumber-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 Phonenumber 预构建实体
 `phonenumber` 实体提取各种包括国家/地区代码在内的电话号码。 此实体已定型，因此不需要将陈述示例添加到应用程序。 仅在 `en-us` 区域性中支持 `phonenumber` 实体。 
@@ -28,7 +28,7 @@ ms.locfileid: "65828511"
 
 ### <a name="api-version-2x"></a>API 版本 2.x
 
-以下示例演示了 builtin.phonenumber 实体解析。
+以下示例演示了 builtin.phonenumber  实体解析。
 
 ```json
 {

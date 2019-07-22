@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f308755a1431c96cdb036070cb0d5cc52c57a6dc
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 68a92e1053403f0402fbe27699041b2ab2d72146
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135975"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332125"
 ---
 # <a name="quickstart-change-model-using-go"></a>快速入门：使用 Go 更改模型
 
-在本快速入门中，你将向 LUIS 终结点传递话语并返回意向和实体。
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

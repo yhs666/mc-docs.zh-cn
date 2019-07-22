@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: be022705d603ab67431fa428afadf58a514063f9
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 26e290fe246cc1708d9bedd40b91edd0432daccb
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648420"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332202"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 
@@ -204,8 +204,8 @@ var server = createRelayedServer([options], [connectCallback] )
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
-* [什么是 Azure 中继？](./relay-what-is-it.md)
-* [可用的中继 API](./relay-api-overview.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
+* [可用的中继 API](relay-api-overview.md)
 
 
 <!--Update_Description:update meta properties and wording-->

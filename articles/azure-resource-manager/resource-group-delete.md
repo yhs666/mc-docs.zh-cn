@@ -1,24 +1,19 @@
 ---
 title: 删除资源组和资源 - Azure 资源管理器
 description: 介绍删除资源组时 Azure 资源管理器如何为资源的删除排序。 它描述响应代码以及资源管理器如何处理它们以确定是否成功删除。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 12/09/2018
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 94bdd33620232c7de21d675344326d288a5283b3
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: b484f5b6ecf046c1c552a947cd43204ba432c11c
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306161"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337456"
 ---
 # <a name="azure-resource-manager-resource-group-deletion"></a>Azure 资源管理器资源组的删除
 
@@ -72,4 +67,4 @@ ms.locfileid: "56306161"
 * 若要了解资源管理器概念，请参阅 [Azure 资源管理器概述](resource-group-overview.md)。
 * 有关删除命令，请参阅 [PowerShell](https://docs.microsoft.com/powershell/module/az.resources/Remove-AzResourceGroup)、[Azure CLI](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 和 [REST API](https://docs.microsoft.com/rest/api/resources/resourcegroups/delete)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties-->

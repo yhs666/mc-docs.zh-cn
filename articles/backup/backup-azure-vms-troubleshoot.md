@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4b7a4ed0f166c2b268ba9e5dc62c5f8d979c29de
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d2eec00dcda09a6fcbb278a45e51ae7f8a1ecd2d
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570599"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332147"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Azure 虚拟机备份疑难解答
 可以使用下面列出的信息排查使用 Azure 备份时遇到的错误：
@@ -279,5 +279,3 @@ VM 备份依赖于向底层存储发出快照命令。 如果无法访问存储�
 > - [更改分配给网络接口的专用 IP 地址的分配方法](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 >
 >
-
-<!-- Update_Description: wording update -->

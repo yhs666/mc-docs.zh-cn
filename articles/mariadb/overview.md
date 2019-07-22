@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 origin.date: 03/20/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: b4df048430f73603eb6e35e1b1eb680134099e99
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 07/22/2019
+ms.openlocfilehash: d8a4c8e53d9cb6a37d9ad2213cf91fa7c39cc3f6
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173255"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308892"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>什么是 Azure Database for MariaDB？
 
@@ -54,7 +54,7 @@ Azure 行业领先的 99.99% 可用性 SLA 由 Azure 管理的数据中心的全
 
 ## <a name="secure-your-data"></a>保护数据
 
-Azure 数据库服务沿袭了 Azure Database for MariaDB 的若干数据安全性功能。 Azure Database for MariaDB 提供的功能可以限制访问、保护静态数据和移动数据，以及帮助监视活动。
+Azure 数据库服务沿袭了 Azure Database for MariaDB 的若干数据安全性功能。 Azure Database for MariaDB 提供的功能可以限制访问、保护静态数据和移动数据，以及帮助监视活动。 有关 Azure 平台安全性的信息，请访问 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/security/default.html)。
 
 Azure Database for MariaDB 服务对静态数据使用存储加密，并且符合 FIPS 140-2 标准。 在磁盘上加密数据（包括备份数据）。 （引擎在运行查询时创建的临时文件不在磁盘上加密。）该服务使用包含在 Azure 存储加密中的 AES 256 位密码。 密钥由系统进行管理。 存储加密始终处于启用状态，无法禁用。
 

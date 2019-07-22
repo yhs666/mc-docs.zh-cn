@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 07/05/2019
-ms.date: 05/21/2019
+ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2e9429108c125dba91ee9730962d1569f3ff63c1
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 575414d6dbaf36a6c9cf7b90866ebce3baa1a180
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570440"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332049"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 

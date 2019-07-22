@@ -7,14 +7,14 @@ manager: digimobile
 keywords: Azure 备份; VM 代理; 网络连接;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 04/12/19
+ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ddedf2fca1e78eacf0e41c07c9135fd181d885a5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: b00e99f83992d5aee67768251010f7ee29eb8d26
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570609"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332149"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -121,12 +121,12 @@ ms.locfileid: "67570609"
 3. 在保管库仪表板菜单中，单击“备份作业”显示所有备份作业  。
 
     * 如果某个备份作业正在进行，请等待它完成或取消备份作业。
-        * 若要取消备份作业，请右键单击备份作业并单击“取消”或使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)  。
+        * 若要取消备份作业，请右键单击备份作业并单击“取消”或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)  。
     * 如果已在另一个保管库中重新配置了备份，则确保旧保管库中没有正在运行的备份作业。 如果存在，则取消备份作业。
-        * 若要取消备份作业，请右键单击备份作业并单击“取消”或使用 [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0) 
+        * 若要取消备份作业，请右键单击备份作业并单击“取消”或使用 [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0) 
 4. 重试备份操作。
 
-如果计划备份操作花费时间长且与下一个备份配置冲突，请查看[最佳做法](backup-azure-vms-introduction.md#best-practices)和[备份性能](backup-azure-vms-introduction.md#backup-performance)。
+如果计划备份操作花费时间长且与下一个备份配置冲突，请查看[最佳做法](backup-azure-vms-introduction.md#best-practices)、[备份性能](backup-azure-vms-introduction.md#backup-performance)和[还原注意事项](backup-azure-vms-introduction.md#backup-and-restore-considerations)。
 
 
 ## <a name="causes-and-solutions"></a>原因和解决方法

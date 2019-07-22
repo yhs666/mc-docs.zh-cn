@@ -91,6 +91,8 @@
       href: event-sources.md
     - name: 事件处理程序
       href: event-handlers.md
+    - name: 异地灾难恢复
+      href: geo-disaster-recovery.md
 - name: 操作指南
   items:
     - name: 发布到自定义主题
@@ -152,6 +154,8 @@
           href: event-schema-service-bus.md
         - name: Azure Maps
           href: event-schema-azure-maps.md
+        - name: 应用配置
+          href: event-schema-app-configuration.md
     - name: 模板资源
       items:
         - name: 事件订阅

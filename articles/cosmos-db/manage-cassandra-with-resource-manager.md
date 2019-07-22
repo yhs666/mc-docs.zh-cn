@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/06/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: 11fcfb7cef4c7586d33f6596bb6ea40ebc82c58e
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 67ba9e932cbb052833870f33c2fbb901c4e5109a
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171429"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293424"
 ---
 <!--Verify successfully-->
 # <a name="manage-azure-cosmos-db-cassandra-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Cassandra API 资源
@@ -333,7 +333,7 @@ az cosmosdb show --resource-group $resourceGroupName --name $accountName --outpu
 
 ### <a name="deploy-keyspace-template-via-azure-cli"></a>通过 Azure CLI 部署密钥空间模板
 
-若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+<!--Not Available on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```azurecli
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -403,7 +403,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 ### <a name="deploy-table-template-via-azure-cli"></a>通过 Azure CLI 部署表模板
 
-若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+<!--Not Available on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```azurecli
 read -p 'Enter the Resource Group name: ' resourceGroupName

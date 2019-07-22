@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-origin.date: 05/23/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: c91bdb04fdb3a6780b33d7851b6ee1ba4ab7a61d
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 13bb881277f3e90ccf4c5f9235a50b27f6ec86eb
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726497"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298155"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box：常见问题解答
 
@@ -171,7 +171,7 @@ A.  To speed up the copy process:
 
 
 ### <a name="q-can-i-use-multiple-storage-accounts-with-data-box"></a>问： 是否可对 Data Box 使用多个存储帐户？
-A.  是的。 Data Box 最多支持 10 个存储帐户（常规用途帐户、经典帐户或 blob 存储帐户）。 支持热 Blob 和冷 Blob。 在 GA 发布期，在 Azure 公有云中，支持中国东部、中国东部 2、中国北部、中国北部 2 的所有区域的存储帐户。
+A.  是的。 Data Box 最多支持 10 个存储帐户（常规用途帐户、经典帐户或 blob 存储帐户）。 支持热 Blob 和冷 Blob。 
 
 
 ## <a name="ship-device"></a>运送设备

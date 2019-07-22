@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 07/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4f4f573c5ccfa30f3714c0d0cb7cd907c04904b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: b9bdd094fc3d63c28b6b485904f742d389e5fe4e
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570360"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332240"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure 备份 - 常见问题
 本文回答有关 Azure 备份服务的常见问题。
@@ -51,40 +51,6 @@ ms.locfileid: "67570360"
 
 - 有关在 Azure VM 上运行的代理，请阅读此[常见问题解答](backup-azure-vm-backup-faq.md)。
 
-## <a name="vmware-and-hyper-v-backup"></a>VMware 和 Hyper-V 备份
-
-### <a name="can-i-back-up-vmware-vcenter-servers-to-azure"></a>是否可以将 VMware vCenter 服务器备份到 Azure？
-
-是的。 可以使用 Azure 备份服务器将 VMware vCenter Server 和 ESXi 主机备份到 Azure。
-
-- [详细了解](backup-mabs-protection-matrix.md)支持的版本。
-- [请按照下列步骤](backup-azure-backup-server-vmware.md)备份 VMware 服务器。
-
-### <a name="do-i-need-a-separate-license-to-recover-an-full-on-premises-vmwarehyper-v-cluster"></a>是否需要单独的许可证才能恢复完整的本地 VMware/Hyper-V 群集？
-
-不需要单独的 VMware/Hyper-V 保护许可。
-
-- 如果你是 System Center 客户，使用 System Center Data Protection Manager (DPM) 来保护 VMware VM。
-- 如果不是 System Center 客户，可以使用 Azure 备份服务器（即用即付）来保护 VMware VM。
-
-## <a name="dpm-and-azure-backup-server-backup"></a>DPM 和 Azure 备份服务器备份
-
-### <a name="which-dpm-versions-are-supported"></a>支持哪些 DPM 版本？
-
-支持的 DPM 版本在[支持矩阵](backup-azure-dpm-introduction.md#prerequisites-and-limitations)中进行了总结。 建议安装最新的 DPM 更新，并在 DPM 服务器上运行[最新版本](https://aka.ms/azurebackup_agent)的 Azure 备份代理。
-
-### <a name="can-i-register-the-server-to-multiple-vaults"></a>是否可以向多个保管库注册服务器？
-
-否。 一个 DPM 或 Azure 备份服务器只能注册到一个保管库。
-
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>是否可以使用 Azure 备份服务器为物理服务器创建裸机恢复 (BMR) 备份？ <br/>
-是的。
-
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 来备份 Azure Stack 中的应用吗？
-否。 可以使用 Azure 备份来保护 Azure Stack，但 Azure 备份不支持使用 DPM 来备份 Azure Stack 中的应用。
-
-### <a name="if-ive-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-back-up-on-premises-workloads-to-azure"></a>如果已经安装 Azure 备份代理来保护我的文件和文件夹，是否可以安装 System Center DPM 将本地工作负载备份到 Azure？
-是的。 但应首先设置 DPM，然后再安装 Azure 备份代理。  按此顺序安装组件可以确保 Azure 备份代理能够与 DPM 一起工作。 不建议也不支持在安装 DPM 之前安装代理。
 
 ## <a name="general-backup"></a>常规备份
 
@@ -207,8 +173,7 @@ Azure 备份存储体系结构在这两方面都能提供最佳性能，它以�
 ## <a name="encryption"></a>Encryption
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>发送到 Azure 的数据会加密吗？
-
-是的。 使用 AES256 在本地计算机上对数据进行加密。 数据通过安全的 HTTPS 链接发送。
+是的。 使用 AES256 在本地计算机上对数据进行加密。 数据通过安全的 HTTPS 链接发送。 在云中传输的数据仅在存储和恢复服务之间通过 HTTPS 链接进行保护。 iSCSI 协议可保护恢复服务和用户计算机之间传输的数据。 安全隧道用于保护 iSCSI 通道。
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Azure 中的备份数据也会加密吗？
 

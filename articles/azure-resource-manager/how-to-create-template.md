@@ -1,23 +1,18 @@
 ---
 title: 如何创建 Azure 资源管理器模板
 description: 介绍创作 Azure 资源管理器模板的过程。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 12/27/2018
-ms.date: 01/28/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3edebdaf7231d04aa4edd29ba4a2fab3cd1274cb
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: cf92943531a7eee62eadbe5ff8c0665816ce2ad9
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348102"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337504"
 ---
 # <a name="create-azure-resource-manager-template"></a>创建 Azure 资源管理器模板
 
@@ -57,7 +52,7 @@ ms.locfileid: "58348102"
 
 在该存储库中搜索类似于所需模板的模板。 如果该模板并不完全符合需要，没有关系，可以对它进行自定义。
 
-找到所需的模板后，选择“在 Github 上浏览”，然后复制存储库中的 **azuredeploy.json** 文件。 在 VS Code 中，创建名为 **azuredeploy.json** 的新文件，并添加从快速入门存储库复制的模板文件的内容。
+找到所需的模板后，选择“在 Github 上浏览”，然后复制存储库中的 **azuredeploy.json** 文件。  在 VS Code 中，创建名为 **azuredeploy.json** 的新文件，并添加从快速入门存储库复制的模板文件的内容。
 
 ## <a name="add-resources"></a>添加资源
 

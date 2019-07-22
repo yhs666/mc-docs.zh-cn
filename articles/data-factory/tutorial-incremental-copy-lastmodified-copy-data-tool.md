@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 origin.date: 1/24/2019
 ms.date: 07/08/2019
-ms.openlocfilehash: e2e3d1b2bf905eda7fe2ee0b12b03bb2ca193258
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0427dd56d2883887bf1f6b993f8736e504f14495
+ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570552"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332763"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>使用复制数据工具根据 LastModifiedDate 以增量方式复制新的和已更改的文件
 
@@ -124,7 +124,7 @@ ms.locfileid: "67570552"
     
     d. 选择新创建的链接服务，然后选择“下一步”。  
     
-        ![Source data store page](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
+    ![“源数据存储”页](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. 在“选择输入文件或文件夹”页中完成以下步骤： 
     

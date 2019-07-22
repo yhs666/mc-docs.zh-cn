@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 498027433e861d9c6fac9c5049e783480527cd6b
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 07/22/2019
+ms.openlocfilehash: 2eb5d621398b287b983c28a771aebddda6a353e7
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173294"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308925"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的限制
 以下各部分介绍了数据库服务中的容量、存储引擎支持、特权支持、数据操作语句支持和功能限制。
@@ -20,7 +20,7 @@ ms.locfileid: "66173294"
 ## <a name="maximum-connections"></a>最大连接数
 每个定价层的最大连接数和 vCore 数如下所示：
 
-|**定价层**|**vCore(s)**| 最大连接数|
+|**定价层**|**vCore(s)**| 最大连接数 |
 |---|---|---|
 |基本| 1| 50|
 |基本| 2| 100|
@@ -53,7 +53,7 @@ ms.locfileid: "66173294"
 ## <a name="privilege-support"></a>特权支持
 
 ### <a name="unsupported"></a>不支持
-- DBA 角色：许多服务器参数和设置可能会无意中导致服务器性能下降或使 DBMS 的 ACID 属性无效。 因此，为了维护产品级别的服务完整性和 SLA，此服务不公开 DBA 角色。
+- DBA 角色：许多服务器参数和设置可能会无意中导致服务器性能下降或使 DBMS 的 ACID 属性无效。 因此，为了维护产品级别的服务完整性和 SLA，此服务不公开 DBA 角色。 默认用户帐户（在创建新的数据库实例时构造）允许该用户执行托管数据库实例中的大部分 DDL 和 DML 语句。
 - SUPER 特权：[SUPER 特权](https://mariadb.com/kb/en/library/grant/#global-privileges)同样也受到限制。
 - DEFINER：需要创建并限制超级权限。 如果使用备份导入数据，请在执行 mysqldump 时手动删除或使用 `--skip-definer` 命令删除 `CREATE DEFINER` 命令。
 

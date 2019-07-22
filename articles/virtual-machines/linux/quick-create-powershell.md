@@ -17,12 +17,12 @@ origin.date: 10/17/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 856e75a89559ff49bffaa0402394cc2f7020757d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: d31ab069debeae6970e49c775a3233843bd92e87
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666290"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298115"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>快速入门：使用 PowerShell 在 Azure 中创建 Linux 虚拟机
 
@@ -49,7 +49,8 @@ ssh-keygen -t rsa -b 2048
 
 有关如何创建 SSH 密钥对的更多详细信息，包括 PuTTy 的用法，请参阅[如何将 SSH 密钥与 Windows 配合使用](ssh-from-windows.md)。
 
-如果使用 Cloud Shell 创建 SSH 密钥对，则会将密钥对存储在[由 Cloud Shell 自动创建的存储帐户](/cloud-shell/persisting-shell-storage)的容器映像中。 在检索密钥之前，请勿删除此存储帐户或其中的文件共享，否则将无法访问 VM。 
+<!--Not Available on If you create your SSH key pair using the Cloud Shell, it will be stored in a container image in a [storage account that is automatically created by Cloud Shell](/cloud-shell/persisting-shell-storage). Don't delete the storage account, or the files share within it, until after you have retrieved your keys or you will lose access to the VM. -->
+<!--Not Available on Cloud Shell-->
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

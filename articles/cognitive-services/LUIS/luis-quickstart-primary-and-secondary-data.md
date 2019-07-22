@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 496d6d3bde4bec1675f7448f5507c3bb50f999ff
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 99e3ab17450ddf894b784e6989f9acc919233488
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828562"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332272"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教程：通过简单实体和短语列表提取名称
 
@@ -83,23 +83,23 @@ ms.locfileid: "65828562"
 
 2. 将 JSON 导入到新应用中。
 
-3. 在“管理”部分的“版本”选项卡上，克隆版本并将其命名为 `simple`。 克隆非常适合用于演练各种 LUIS 功能，且不会影响原始版本。 由于版本名称用作 URL 路由的一部分，因此该名称不能包含任何在 URL 中无效的字符。
+3. 在“管理”  部分的“版本”  选项卡上，克隆版本并将其命名为 `simple`。 克隆非常适合用于演练各种 LUIS 功能，且不会影响原始版本。 由于版本名称用作 URL 路由的一部分，因此该名称不能包含任何在 URL 中无效的字符。
 
 ## <a name="mark-entities-in-example-utterances-of-an-intent"></a>在意向的示例话语中标记实体
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 在“意向”页上，选择“ApplyForJob”意向。 
+1. 在“意向”页上，选择“ApplyForJob”意向。   
 
-1. 在陈述`I want to apply for the new accounting job`中选择`accounting`，在弹出菜单的顶部字段中输入`Job`，然后在弹出菜单中选择“创建新实体”。 
+1. 在陈述`I want to apply for the new accounting job`中选择`accounting`，在弹出菜单的顶部字段中输入`Job`，然后在弹出菜单中选择“创建新实体”。  
 
     [![带有“ApplyForJob”意向的 LUIS 的屏幕截图，其中突出显示了创建实体的步骤](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "Screenshot of LUIS with 'ApplyForJob' intent with create entity steps highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
-1. 在弹出窗口中验证实体名称和类型，然后选择“完成”。
+1. 在弹出窗口中验证实体名称和类型，然后选择“完成”。 
 
     ![创建名称为“工作”、类型为“简单”的简单实体弹出模式对话框](media/luis-quickstart-primary-and-secondary-data/hr-create-simple-entity-popup.png)
 
-1. 在剩余的话语中，选择词汇或短语，然后从弹出菜单中选择“工作”，将与工作有关的词汇标记为“工作”实体。 
+1. 在剩余的话语中，选择词汇或短语，然后从弹出菜单中选择“工作”，将与工作有关的词汇标记为“工作”实体   。 
 
     [![LUIS 标签的屏幕截图，突出显示了工作实体](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png "Screenshot of LUIS labeling job entity highlighted")](media/luis-quickstart-primary-and-secondary-data/hr-label-simple-entity.png#lightbox)
 
@@ -108,7 +108,7 @@ ms.locfileid: "65828562"
 
 简单的实体需要很多示例，从而提高预测的置信度。 
  
-1. 添加更多的陈述并将工作词汇或短语标记为“工作”实体。 
+1. 添加更多的陈述并将工作词汇或短语标记为“工作”实体。  
 
     |话语|工作实体|
     |:--|:--|
@@ -131,9 +131,9 @@ ms.locfileid: "65828562"
 
 ## <a name="mark-job-entity-in-other-intents"></a>在其他意向中标记工作实体
 
-1. 在左侧菜单中选择“意向”。
+1. 在左侧菜单中选择“意向”。 
 
-1. 从意向列表中选择“GetJobInformation”。 
+1. 从意向列表中选择“GetJobInformation”。  
 
 1. 标记示例话语中的工作
 
@@ -225,19 +225,19 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 
 打开 Azure-Samples GitHub 存储库中的 [jobs-phrase-list.csv](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/job-phrase-list.csv)。 此列表有超过 1,000 个工作词汇和短语。 查看列表中是否有对你有意义的工作词汇。 如果列表中没有你的词汇或短语，请添加你自己的词汇或短语。
 
-1. 在 LUIS 应用的“生成”部分，选择“提高应用性能”菜单下的“短语列表”。
+1. 在 LUIS 应用的“生成”部分，选择“提高应用性能”菜单下的“短语列表”。   
 
-1. 选择“创建新的短语列表”。 
+1. 选择“创建新的短语列表”。  
 
-1. 将新的短语列表命名为`JobNames`，然后将列表从 jobs-phrase-list.csv 复制到“值”文本框中。 按 Enter。 
+1. 将新的短语列表命名为`JobNames`，然后将列表从 jobs-phrase-list.csv 复制到“值”文本框中。  按 Enter。 
 
     [![“新建短语列表”弹出对话框的屏幕截图](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "Screenshot of create new phrase list dialog pop-up")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
-    如果需要将更多词汇添加到短语列表中，请选择“建议”，查看新的“相关值”，然后添加任何相关值。 
+    如果需要将更多词汇添加到短语列表中，请选择“建议”  ，查看新的“相关值”  ，然后添加任何相关值。 
 
-    确保选中“这些值可互换”，因为这些值应全都被视为作业的同义词。 了解有关可互换和不可互换[短语列表概念](luis-concept-feature.md#how-to-use-phrase-lists)的更多信息。
+    确保选中“这些值可互换”  ，因为这些值应全都被视为作业的同义词。 了解有关可互换和不可互换[短语列表概念](luis-concept-feature.md#how-to-use-phrase-lists)的更多信息。
 
-1. 选择“保存”，激活短语列表。
+1. 选择“保存”，激活短语列表。 
 
     [![“新建短语列表”弹出对话框以及短语列表值框中字词的屏幕截图](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
@@ -297,7 +297,3 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 ## <a name="next-steps"></a>后续步骤
 
 在本教程中，人力资源应用使用一个机器学习的简单实体来查找话语中的工作名称。 由于工作名称可能包含各种单词或短语，因此应用需要一个短语列表来增强工作名称单词的信号。 
-
-
-
-

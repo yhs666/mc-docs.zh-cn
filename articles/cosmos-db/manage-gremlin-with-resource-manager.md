@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 05/20/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5c5f69ae89394d51b867092323bff94040462ed
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: d2478db34c75edf59c674f4700f816329b72b0e1
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171428"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293434"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Azure Cosmos DB Gremlin API 资源
 
@@ -453,7 +453,8 @@ az group deployment create --resource-group $resourceGroupName \
 
 ### <a name="deploy-graph-template-via-azure-cli"></a>通过 Azure CLI 部署图形模板
 
-若要使用 Azure CLI 部署资源管理器模板，请选择“试用”  打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  ：
+<!--Not Avaialble on Cloud Shell-->
+<!--Not Avaialble on To deploy the Resource Manager template using Azure CLI, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
 
 ```azurecli
 read -p 'Enter the Resource Group name: ' resourceGroupName

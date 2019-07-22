@@ -1,24 +1,18 @@
 ---
 title: Azure 资源管理器模板函数 - 逻辑 | Azure
 description: 介绍 Azure 资源管理器模板中用于确定逻辑值的函数。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 04/15/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe5b721224806b62d324c823ae00146af7b097ba
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: b2e0d8587896e39aa71e4da387abd9af10d61504
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195384"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337432"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>用于 Azure 资源管理器模板的逻辑函数
 
@@ -191,7 +185,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 | ---- | ---- | ----- |
 | yesOutput | String | 是 |
 | noOutput | String | 否 |
-| objectOutput | 对象 | { "test": "value1" } |
+| objectOutput | Object | { "test": "value1" } |
 
 以下[示例模板](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json)演示了如何将此函数与仅在特定条件下有效的表达式配合使用。
 
@@ -372,4 +366,4 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update az cmdlet -->
+<!--Update_Description: update meta properties -->

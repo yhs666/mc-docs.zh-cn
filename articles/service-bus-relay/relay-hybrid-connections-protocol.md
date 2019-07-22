@@ -15,15 +15,15 @@ ms.workload: na
 origin.date: 05/02/2018
 ms.author: v-yiso
 ms.date: 10/15/2018
-ms.openlocfilehash: 101d97d3cf84fb25d1b447c17618abaa3b4b09d5
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: dd407bfdeedf75535252d359b33872d8a5cbd02a
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544799"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332201"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Azure 中继混合连接协议
-Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继的新“混合连接”功能是基于 HTTP 和 WebSocket 的安全、开放协议演化版。 它取代了之前基于专用协议构建的名为“BizTalk 服务”的功能。 将混合连接集成到 Azure 应用服务并不影响原有的运行方式。
+Azure 中继是 Azure 服务总线平台最重要的功能支柱之一。 中继的新“混合连接”功能是基于 HTTP 和 WebSocket 的安全、开放协议演化版  。 它取代了之前基于专用协议构建的名为“BizTalk 服务”的功能  。 将混合连接集成到 Azure 应用服务并不影响原有的运行方式。
 
 混合连接在两个联网应用程序之间启用双向二进制流通信和简单的数据报流。 任何一方或双方均可驻留在 NAT 或防火墙之后。
 
@@ -134,9 +134,7 @@ HTTP 请求/响应模型为发送方提供受限程度极低的 HTTP 协议外�
 
 控制通道通过创建针对以下内容的 WebSocket 连接打开：
 
-```
-wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...
-```
+`wss://{namespace-address}/$hc/{path}?sb-hc-action=...[&sb-hc-id=...]&sb-hc-token=...`
 
 `namespace-address` 是托管混合连接的 Azure 中继命名空间的完全限定域名，通常格式为 `{myname}.servicebus.windows.net`。
 
@@ -206,7 +204,7 @@ URL 必须原样使用，用于创建接受套接字，但是要包含以下参�
 | -------------- | -------- | -------------------------------------------------------------------
 | `sb-hc-action` | 是      | 若要接受套接字，该参数必须为 `sb-hc-action=accept`
 | `{path}`       | 是      | （请参阅下文）
-| `sb-hc-id`     | 否       | 请参阅上述的 ID 说明。
+| `sb-hc-id`     | 否       | 请参阅上述的 ID 说明  。
 
 `{path}` 是要注册此侦听器的预配置混合连接的 URL 编码命名空间路径。 此表达式追加至固定的 `$hc/` 路径部分。 
 
@@ -400,7 +398,7 @@ FEFEFEFEFEFEFEFEFEFEF...
 
 侦听器令牌即将到期时，可以通过已创建的控制通道向服务发送文本框消息来替换令牌。 消息包含名为 `renewToken` 的 JSON 对象，此时该对象定义以下属性：
 
-* token – 命名空间或混合连接的有效 URL 编码的服务总线共享访问令牌，可授予“侦听”权限。
+* token – 命名空间或混合连接的有效 URL 编码的服务总线共享访问令牌，可授予“侦听”权限   。
 
 ```json
 {
@@ -489,7 +487,7 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 由于服务实际上充当代理，因此，即使它不是真正的 HTTP 代理，也会添加 `Via` 标头，或批注符合 [RFC7230 第 5.7.1 部分](https://tools.ietf.org/html/rfc7230#section-5.7.1)的现有 `Via` 标头。
 服务将中继命名空间主机名添加到 `Via`。
 
-| 代码 | 消息  | 说明                    |
+| 代码 | Message  | 说明                    |
 | ---- | -------- | ------------------------------ |
 | 200  | OK       | 请求已至少由一个侦听器处理。  |
 | 202  | 已接受 | 请求已至少由一个侦听器接受。 |
@@ -506,10 +504,11 @@ _namespace-address_ 是托管混合连接的 Azure 中继命名空间的完全�
 | 504  | 网关超时 | 请求已路由到侦听器，但侦听器在所需的时限内未确认接收。
 
 ## <a name="next-steps"></a>后续步骤
-* [中继常见问题](./relay-faq.md)
-* [创建命名空间](./relay-create-namespace-portal.md)
-* [.NET 入门](./relay-hybrid-connections-dotnet-get-started.md)
-* [节点入门](./relay-hybrid-connections-node-get-started.md)
+
+* [中继常见问题](relay-faq.md)
+* [创建命名空间](relay-create-namespace-portal.md)
+* [.NET 入门](relay-hybrid-connections-dotnet-get-started.md)
+* [节点入门](relay-hybrid-connections-node-get-started.md)
 
 
 <!--Update_Description:update meta properties and wording-->

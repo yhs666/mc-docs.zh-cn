@@ -5,14 +5,14 @@ author: WenJason
 ms.service: dns
 ms.topic: overview
 origin.date: 3/21/2019
-ms.date: 04/01/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 3660d116a01085a2b8246f88500314b3493893e3
-ms.sourcegitcommit: 5b827b325a85e1c52b5819734ac890d2ed6fc273
+ms.openlocfilehash: f87b6154ebc55b77ec2d0d2330d28d39aa83b5b2
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58503570"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298091"
 ---
 # <a name="what-is-azure-dns"></a>什么是 Azure DNS？
 

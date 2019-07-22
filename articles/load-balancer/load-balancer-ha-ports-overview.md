@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 12/11/2018
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 60b1270e1a88e13db7bad7c0912fedca7e38076d
-ms.sourcegitcommit: e85021b6bddb943d275bdaf023098caa8601b801
+ms.openlocfilehash: b47fadfa52dae5acb4656fa54fe30e1009326f6b
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299695"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68297944"
 ---
 # <a name="high-availability-ports-overview"></a>高可用性端口概述
 
@@ -63,6 +63,29 @@ HA 端口功能在所有 Azure 区域中均可用。
 
 ## <a name="supported-configurations"></a>支持的配置
 
+### <a name="a-single-non-floating-ip-non-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>内部标准负载均衡器上的一个非浮动 IP（非直接服务器返回）HA 端口配置
+
+此配置是一个基本 HA 端口配置。 执行以下操作可为单个前端 IP 地址配置 HA 端口负载均衡规则：
+1. 配置标准负载均衡器时，请在负载均衡器规则配置中选中“HA 端口”复选框  。
+2. 对于“浮动 IP”，请选择“禁用”   。
+
+进行此配置后，无法为当前负载均衡器资源配置任何其他的负载均衡规则。 并且无法为给定的一组后端实例配置其他的内部负载均衡器资源。
+
+但是，除了此 HA 端口规则外，还可以为后端实例配置公共标准负载均衡器。
+
+### <a name="a-single-floating-ip-direct-server-return-ha-ports-configuration-on-an-internal-standard-load-balancer"></a>内部标准负载均衡器上的一个浮动 IP（直接服务器返回）HA 端口配置
+
+同样，可以将负载均衡器配置为将负载均衡规则与具有单个前端的“HA 端口”配合使用，并将“浮动 IP”设置为“启用”    。 
+
+使用此配置，可添加更多浮动 IP 负载均衡规则和/或公共负载均衡器。 但是，无法在此配置之上使用非浮动 IP、HA 端口负载均衡配置。
+
+### <a name="multiple-ha-ports-configurations-on-an-internal-standard-load-balancer"></a>内部标准负载均衡器上的多个 HA 端口配置
+
+如果方案需要为同一后端池配置多个 HA 端口前端，则可执行以下操作： 
+- 为单个内部标准负载均衡器资源配置多个前端专用 IP 地址。
+- 配置多个负载均衡规则，为其中的每个规则选择一个唯一的前端 IP 地址。
+- 对于所有负载均衡规则，选择“HA 端口”选项，并将“浮动 IP”设置为“启用”    。
+
 ### <a name="an-internal-load-balancer-with-ha-ports-and-a-public-load-balancer-on-the-same-back-end-instance"></a>相同后端实例上具有 HA 端口的内部负载均衡器和公共负载均衡器
 
 可以为后端资源配置一个公共标准负载均衡器资源以及单个具有 HA 端口的内部标准负载均衡器  。
@@ -75,6 +98,8 @@ HA 端口功能在所有 Azure 区域中均可用。
 - 只有内部负载均衡器可以使用 HA 端口配置。 公共负载均衡器无法使用。
 
 - 不支持将 HA 端口负载均衡规则与非 HA 端口负载均衡规则组合使用。
+
+- HA 端口功能不适用于 IPv6。
 
 - 只有使用方式如上方的示意图所示并且使用了 HA 端口负载均衡规则时，才会通过后端实例和单一 NIC（以及单 IP 配置）来支持流对称（主要是针对 NVA 方案）。 任何其他方案中都不提供此功能。 这意味着，两个或多个负载均衡器资源和及其各自的规则都独立做出决策，永远不会进行协调。 请参阅[网络虚拟设备](#nva)的说明和示意图。 如果使用了多个 NIC 或者将 NVA 置于公共负载均衡器与内部负载均衡器之间，则流对称功能不可用。  通过对发往设备 IP 的传入流执行来源 NAT 操作以允许回复到达同一 NVA，也许能够解决此问题。  但是，强烈建议使用单一 NIC，并使用上方示意图中所示的参考体系结构。
 

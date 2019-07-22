@@ -1,26 +1,18 @@
 ---
 title: Azure Resource Manager 模板函数 - 数值 | Azure
 description: 介绍可在 Azure Resource Manager 模板中使用的用于处理数值的函数。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 11/08/2017
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 30e04ca5624033bff4235a1d4ad3505d64700b27
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: d47594c1452d0e048efdaaf20ed6395d73f3a6f0
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306263"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337433"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数值函数
 
@@ -94,7 +86,7 @@ Resource Manager 提供以下用于处理整数的函数：
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -121,7 +113,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| loopName | 否 | 字符串 | 用于获取迭代的循环的名称。 |
+| loopName | 否 | string | 用于获取迭代的循环的名称。 |
 | offset |否 |int |要添加到从零开始的迭代值的数。 |
 
 ### <a name="remarks"></a>备注
@@ -132,7 +124,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 有关如何使用 **copyIndex** 的完整说明，请参阅 [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md)（在 Azure Resource Manager 中创建多个资源实例）。
 
-有关定义变量时使用“copyIndex”的示例，请参阅[变量](resource-group-authoring-templates.md#variables)。
+有关定义变量时使用“copyIndex”的示例  ，请参阅[变量](resource-group-authoring-templates.md#variables)。
 
 ### <a name="example"></a>示例
 
@@ -211,7 +203,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -305,7 +297,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -368,7 +360,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -432,7 +424,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -503,7 +495,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -574,7 +566,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -644,7 +636,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | 值 |
+| Name | 类型 | Value |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

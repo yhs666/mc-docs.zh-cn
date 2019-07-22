@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
 ms.service: service-bus-messaging
 ms.devlang: tbd
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e34b5a3b948d706edccfa68d0c346d6f232ca056
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: bbf563c6885c7c624a50b9516c06918df30d4b6f
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046964"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332260"
 ---
 # <a name="get-started-with-service-bus-queues"></a>服务总线队列入门
 
@@ -389,6 +389,9 @@ ms.locfileid: "67046964"
     ![队列长度][queue-message-receive]
 
 祝贺！ 你现在已创建队列、将一组消息发送到该队列，以及从该队列接收这些消息。
+
+> [!NOTE]
+> 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
 
 ## <a name="next-steps"></a>后续步骤
 

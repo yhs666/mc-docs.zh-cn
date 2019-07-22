@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47567096b62845de1dc87f8ff5be61002f4e110a
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 8eedf096e8325a0c67234603b3bf053aa9131d90
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828527"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332094"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -88,7 +88,7 @@ LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 �
 İ ı Ş Ğ ş ğ ö ü
 ```
 
-如果应用打开规范化，则对于使用音调符号或标点的所有话语来说，“测试”窗格、批量测试和终结点查询中的分数会变化。
+如果应用打开规范化，则对于使用音调符号或标点的所有话语来说，“测试”窗格、批量测试和终结点查询中的分数会变化。 
 
 在 `settings` 参数中针对 LUIS JSON 应用文件的音调符号或标点打开话语规范化。
 

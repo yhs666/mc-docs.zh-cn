@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 281d0cff825a495ee14042dc30f5cdeb3b5f9575
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+origin.date: 07/11/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: 7f5cfcb3c11711c9d26634e53a8805c3e08d4bb0
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173205"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308927"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>将数据复制到 Azure Database for MariaDB
 
@@ -27,7 +27,7 @@ ms.locfileid: "66173205"
 ## <a name="limitations-and-considerations"></a>限制和注意事项
 
 ### <a name="data-not-replicated"></a>不会复制的数据
-不会复制主服务器上的 [mysql 系统数据库](https://mariadb.com/kb/en/library/the-mysql-database-tables/)。 不会复制对主服务器上的帐户和权限所做的更改。 如果在主服务器上创建帐户，并且此帐户需要访问副本服务器，则在副本服务器上手动创建相同的帐户。 要了解系统数据库中包含哪些表，请参阅 [MariaDB 文档](https://mariadb.com/kb/en/library/the-mysql-database-tables/)。
+不会复制主服务器上的 [mysql 系统数据库](https://mariadb.com/kb/en/library/the-mysql-database-tables/)  。 不会复制对主服务器上的帐户和权限所做的更改。 如果在主服务器上创建帐户，并且此帐户需要访问副本服务器，则在副本服务器上手动创建相同的帐户。 要了解系统数据库中包含哪些表，请参阅 [MariaDB 文档](https://mariadb.com/kb/en/library/the-mysql-database-tables/)。
 
 ### <a name="requirements"></a>要求
 - 主服务器版本不得低于 MariaDB 10.2 版本。
@@ -38,7 +38,6 @@ ms.locfileid: "66173205"
 
 ### <a name="other"></a>其他
 - 仅可在常规用途和优化内存定价层中使用数据传入复制功能。
-- 不支持全局事务标识符 (GTID)。
 
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[设置数据传入复制](howto-data-in-replication.md)。

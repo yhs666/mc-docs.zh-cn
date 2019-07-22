@@ -2,15 +2,15 @@
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: include
-origin.date: 04/19/2019
-ms.date: 06/03/2019
+origin.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7011660630a6006428b19fe3771fe5d96cc490fa
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 72cdd4183b90063efbe32acaa7f10078cd839f61
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66224491"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68362450"
 ---
 | Resource | 默认限制 | 最大限制 |
 | --- | --- | --- |
@@ -26,15 +26,15 @@ ms.locfileid: "66224491"
 
 #### <a name="template-limits"></a>模板限制
 
-| 值 | 默认限制 | 最大限制 |
+| Value | 默认限制 | 最大限制 |
 | --- | --- | --- |
-| 参数 |256 |256 |
+| parameters |256 |256 |
 | 变量 |256 |256 |
 | 资源（包括副本计数） |800 |800 |
-| 输出 |64 |64 |
+| Outputs |64 |64 |
 | 模板表达式 |24,576 个字符 |24,576 个字符 |
 | 已导出模板中的资源 |200 |200 | 
-| 模板大小 |1 MB |1 MB |
+| 模板大小 |4 MB |4 MB |
 | 参数文件大小 |64 KB |64 KB |
 
 通过使用嵌套模板，可超出某些模板限制。 有关详细信息，请参阅[部署 Azure 资源时使用链接的模板](../articles/azure-resource-manager/resource-group-linked-templates.md)。 若要减少参数、变量或输出的数量，可以将几个值合并为一个对象。 

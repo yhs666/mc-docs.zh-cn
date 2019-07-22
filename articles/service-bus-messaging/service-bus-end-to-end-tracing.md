@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a785cdf6375043f460f55b9e185a656c2b78cdcf
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 72ed7a34e059181b08460ae707ef0ad1434186bf
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626927"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332257"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -40,6 +40,16 @@ ms.locfileid: "58626927"
 从版本 3.0.0 开始，[适用于 .NET 的世纪互联 Azure 服务总线客户端](/dotnet/api/microsoft.azure.servicebus.queueclient)提供可由跟踪系统或客户端代码片段挂接的跟踪检测点。
 使用检测可以从客户端跟踪对服务总线消息传递服务发出的所有调用。 如果消息处理是通过[消息处理程序模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)完成的，则还会检测消息处理
 
+### <a name="tracking-with-azure-application-insights"></a>使用 Azure Application Insights 进行跟踪
+
+[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) 提供丰富的性能监视功能，包括自动请求和依赖项跟踪。
+
+请根据项目类型安装 Application Insights SDK：
+- [ASP.NET](../azure-monitor/app/asp-net.md) - 安装版本 2.5-beta2 或更高版本
+- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - 安装版本 2.2.0-beta2 或更高版本。
+这些链接提供了有关安装 SDK、创建资源和配置 SDK（如果需要）的详细信息。 针对非 ASP.NET 应用程序，请参阅[适用于控制台应用程序的 Azure Application Insights](../azure-monitor/app/console.md) 一文。
+
+如果使用[消息处理程序模式](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 否则，请参考以下示例手动进行消息处理跟踪。
 
 #### <a name="trace-message-processing"></a>跟踪消息处理
 
@@ -73,7 +83,7 @@ async Task ProcessAsync(Message message)
 在本示例中，系统针对每个已处理的消息报告 `RequestTelemetry`，并提供时间戳、持续时间和结果（成功）。 遥测功能也会提供一组关联属性。
 在消息处理期间报告的嵌套跟踪和异常也带有关联属性的戳记，代表它们是 `RequestTelemetry` 的“子级”。
 
-如果在消息处理期间对支持的外部组件发出调用，则会自动跟踪和关联这些调用。
+如果在消息处理期间对支持的外部组件发出调用，则会自动跟踪和关联这些调用。 请参阅[使用 Application Insights .NET SDK 跟踪自定义操作](../azure-monitor/app/custom-operations-tracking.md)来了解手动跟踪和关联。
 
 ### <a name="tracking-without-tracing-system"></a>在没有跟踪系统的情况下进行跟踪
 如果跟踪系统不支持自动服务总线调用跟踪，可以考虑将此类支持添加到跟踪系统或应用程序中。 本部分介绍服务总线 .NET 客户端发送的诊断事件。  
@@ -214,3 +224,9 @@ serviceBusLogger.LogInformation($"{currentActivity.OperationName} is finished, D
 也可以使用 `IsEnabled` 来实现采样策略。 基于 `Activity.Id` 或 `Activity.RootId` 的采样可确保在所有尝试都获取一致的采样结果（前提是采样内容由跟踪系统或你自己的代码传播）。
 
 如果同一个源存在多个 `DiagnosticSource` 侦听器，只需其中一个侦听器接受事件便已足够，因此无法保证调用 `IsEnabled`。
+
+## <a name="next-steps"></a>后续步骤
+
+* [Application Insights 关联](../azure-monitor/app/correlation.md)
+* 参阅 [Application Insights 监视依赖项](../azure-monitor/app/asp-net-dependencies.md)，了解 REST、SQL 或其他外部资源是否会降低性能。
+* [使用 Application Insights .NET SDK 跟踪自定义操作](../azure-monitor/app/custom-operations-tracking.md)

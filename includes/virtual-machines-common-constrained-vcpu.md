@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 03/09/2018
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b4885f0dd6846f3514278f305dd231f45eaa6c49
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 673c9b10ceaed3ba8e669920dfc263aece5e7071
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66039217"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332778"
 ---
 某些数据库工作负荷（例如 SQL Server 或 Oracle）要求高内存、高存储和高 I/O 带宽，但不要求高核心计数。 许多数据库工作负荷不是 CPU 密集型的。 Azure 提供特定的 VM 大小，允许你对 VM vCPU 计数进行限制，在保留相同的内存、存储和 I/O 带宽的同时，降低软件许可成本。
 
@@ -22,7 +22,7 @@ ms.locfileid: "66039217"
 
 <!-- Not Available on GS series -->
 
-对 SQL Server 或 Oracle 收取的许可费用受限于新 vCPU 计数，其他产品的费用应以新 vCPU 计数为基础。 这会导致 VM 规格相对于活动（可计费）vCPU 的比率增加 50% 到 75%。 这些新的 VM 大小仅在 Azure 中提供，可以让工作负荷提高 CPU 利用率，所需费用只是许可费用（按核心计）的一部分。 目前的计算费用（包括 OS 许可）仍与原始大小一样。 有关详细信息，请参阅 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（数据库工作负荷性价比更高的 Azure VM 大小）。
+对 SQL Server 或 Oracle 收取的许可费用受限于新 vCPU 计数，其他产品的费用应以新 vCPU 计数为基础。 这会导致 VM 规格相对于活动（可计费）vCPU 的比率增加 50% 到 75%。 这些新的 VM 大小允许客户工作负荷使用相同的内存、存储和 I/O 带宽，同时优化其软件许可成本。 目前的计算费用（包括 OS 许可）仍与原始大小一样。 有关详细信息，请参阅 [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/)（数据库工作负荷性价比更高的 Azure VM 大小）。
 
 | Name                | vCPU | 规格           |
 |---------------------|------|-----------------|

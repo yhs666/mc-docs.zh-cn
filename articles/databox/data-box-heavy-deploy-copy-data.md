@@ -6,17 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-origin.date: 05/28/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: bc7807646fe0e2e23c8fc071d071d698592f3cb4
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: b3a1bf496b43e0ba7d8c3bc015215ff43cc04d40
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730968"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298152"
 ---
-# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb-preview"></a>教程：通过 SMB 将数据复制到 Azure Data Box Heavy（预览）
+# <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>教程：通过 SMB 将数据复制到 Azure Data Box Heavy
 
 本教程介绍如何使用本地 Web UI 连接到主机并从中复制数据。
 
@@ -228,7 +228,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.172:/databoxe2etest_BlockBlob /home/data
 
     ![下载错误文件](media/data-box-heavy-deploy-copy-data/download-error-files.png)
 
-    有关详细信息，请参阅[查看将数据复制到 Data Box Heavy 期间生成的错误日志](data-box-logs.md#view-error-log-during-data-copy-to-data-box)。 有关数据复制期间的错误详细列表，请参阅[排查 Data Box Heavy 问题](data-box-troubleshoot.md)。
+    有关详细信息，请参阅[查看将数据复制到 Data Box Heavy 期间生成的错误日志](data-box-logs.md#view-error-log-during-data-copy)。 有关数据复制期间的错误详细列表，请参阅[排查 Data Box Heavy 问题](data-box-troubleshoot.md)。
 
 5. 在记事本中打开错误文件。 以下错误文件指示数据未正确对齐。
 

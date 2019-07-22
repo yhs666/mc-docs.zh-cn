@@ -51,6 +51,8 @@
           href: concepts-ssl-connection-security.md
         - name: VNet
           href: concepts-data-access-security-vnet.md
+        - name: 连接体系结构
+          href: concepts-connectivity-architecture.md
     - name: 业务连续性
       items:
         - name: 概述
@@ -61,8 +63,12 @@
       items:
         - name: 监视
           href: concepts-monitoring.md
-        - name: 服务器日志
+        - name: 慢查询日志
           href: concepts-server-logs.md
+        - name: 审核日志
+          href: concepts-audit-logs.md
+        - name: 查询存储
+          href: concepts-query-store.md
     - name: 开发
       items:
         - name: 驱动程序和工具兼容性
@@ -73,6 +79,8 @@
       items:
         - name: 复制中数据
           href: concepts-data-in-replication.md
+        - name: 只读副本
+          href: concepts-read-replicas.md
 - name: 操作指南
   items:
     - name: 防火墙规则
@@ -105,12 +113,22 @@
           href: howto-server-parameters.md
         - name: Azure CLI
           href: howto-configure-server-parameters-cli.md
-    - name: 访问服务器日志
+    - name: 自动增长存储
       items:
         - name: Azure 门户
-          href: howto-configure-server-logs-portal.md
-        - name: Azure CLI
-          href: howto-configure-server-logs-cli.md
+          href: howto-auto-grow-storage-portal.md
+    - name: 访问服务器日志
+      items:
+        - name: 慢查询日志
+          items:
+            - name: Azure 门户
+              href: howto-configure-server-logs-portal.md
+            - name: Azure CLI
+              href: howto-configure-server-logs-cli.md
+        - name: 审核日志
+          items:
+            - name: Azure 门户
+              href: howto-configure-audit-logs-portal.md
     - name: 监视
       items:
         - name: 针对指标创建警报
@@ -119,6 +137,8 @@
       items:
         - name: 配置复制中数据
           href: howto-data-in-replication.md
+        - name: 创建只读副本 Azure 门户
+          href: howto-read-replicas-portal.md
     - name: 故障排除
       items:
         - name: 排查连接错误

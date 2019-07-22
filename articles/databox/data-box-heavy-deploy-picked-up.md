@@ -6,17 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-origin.date: 05/28/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 7d995d7823fac6ba80ecc83a4389e1fddbcdca5e
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: e06f87fb2ed0e15bb132597237ecd98faab18f78
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730919"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298153"
 ---
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure-preview"></a>教程：退回 Azure Data Box Heavy 并验证上传到 Azure（预览版）的数据
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>教程：退回 Azure Data Box Heavy 并验证上传到 Azure 的数据
 
 
 本教程介绍如何退回 Azure Data Box Heavy 和验证上传到 Azure 的数据。
@@ -44,11 +44,11 @@ ms.locfileid: "66730919"
 ## <a name="ship-data-box-heavy-back"></a>寄回 Data Box Heavy
 
 1. 确保设备已关闭电源且已拔下所有电缆。 将 4 根电源线卷在线轴上安全地放入可从设备背面访问的托盘中。
-2. 如果该设备是在美国或欧洲发运，则货运公司是联邦快递 (FedEx)。
+2. 设备通过美国的联邦快递 (FedEx) 和欧盟的 DHL 运送 LTL 货物
 
-    1. 拨打货运公司的本地号码以安排取件。
-    2. 联系 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，通知收件相关事宜并获取退回发货标签。
-    3. 确保发货标签显示在设备前面的清晰屏幕上。
+    1. 联系 [Data Box Operations](mailto:DataBoxOps@microsoft.com)，通知收件相关事宜并获取退件发货标签。
+    2. 拨打货运公司的本地号码以安排取件。
+    3. 请确保发货标签显眼地显示在货件的外部。
     4. 确保已从设备中删除上次发货的旧发货标签。
 3. 承运人提取 Data Box Heavy 并进行扫描后，门户中的订单状态将更新为“已提货”。  此外还会显示一个跟踪 ID。
 

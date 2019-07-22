@@ -7,18 +7,18 @@ author: ggailey777
 ms.author: v-junlch
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 origin.date: 11/13/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 917783d8758804d47ed3eb51d69b9f5568876060
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 4d621f037756f04848e7aa1e0a12ebaa389f1c94
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491511"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331884"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>从命令行创建第一个函数
 
@@ -66,7 +66,7 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 cd MyFunctionProj
 ```
 
-## <a name="reference-bindings"></a>引用绑定
+## <a name="enable-extension-bundles"></a>启用扩展捆绑包
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

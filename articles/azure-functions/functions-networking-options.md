@@ -7,14 +7,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 06/04/2019
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 0c8d9ff92f49fb6f627ecfe467d58e7fc2b817f5
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: f87fdaefa36f9d3fb3ac587331459bf3b0ca9cb8
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491450"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331870"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 网络选项
 
@@ -55,7 +55,7 @@ ms.locfileid: "66491450"
 
 可以使用虚拟网络集成来从应用访问虚拟网络中运行的数据库和 Web 服务。 使用虚拟网络集成就不需要公开 VM 上应用程序的公共终结点。 可以改用不可通过 Internet 路由的专用地址。
 
-虚拟网络集成的正式版依赖于使用 VPN 网关将函数应用连接到虚拟网络。 它可以在应用服务计划中托管的函数中使用。 若要了解如何配置此功能，请参阅[将应用与 Azure 虚拟网络集成](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration)。
+虚拟网络集成的正式版依赖于使用 VPN 网关将函数应用连接到虚拟网络。 它可以在应用服务计划中托管的函数中使用。 若要了解如何配置此功能，请参阅[将应用与 Azure 虚拟网络集成](../app-service/web-sites-integrate-with-vnet.md)。
 
 ### <a name="preview-version-of-virtual-network-integration"></a>虚拟网络集成预览版
 

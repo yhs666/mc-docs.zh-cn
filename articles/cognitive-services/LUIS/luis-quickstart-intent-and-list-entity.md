@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bfa65a519f76d743c7fb4632db97b944077f041e
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 6097a423840dc10dd7d6a6bba4c2a1087a8d34bd
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828524"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332273"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 
@@ -57,9 +57,9 @@ ms.locfileid: "65828524"
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-2. 选择“创建新意向”。 
+2. 选择“创建新意向”  。 
 
-3. 在弹出对话框中输入 `TransferEmployeeToDepartment`，然后选择“完成”。 
+3. 在弹出对话框中输入 `TransferEmployeeToDepartment`，然后选择“完成”。  
 
     ![“创建新意向”对话框的屏幕截图](./media/luis-quickstart-intent-and-list-entity/hr-create-new-intent-ddl.png)
 
@@ -84,9 +84,9 @@ ms.locfileid: "65828524"
 
 ## <a name="department-list-entity"></a>部门列表实体
 
-“TransferEmployeeToDepartment”意向有示例话语以后，LUIS 需了解什么是部门。 
+“TransferEmployeeToDepartment”意向有示例话语以后，LUIS 需了解什么是部门  。 
 
-每个项的主规范名称是部门名称。 每个规范名称的同义词的示例如下： 
+每个项的主规范名称是部门名称  。 每个规范名称的同义词的示例如下： 
 
 |规范名称|同义词|
 |--|--|
@@ -98,11 +98,11 @@ ms.locfileid: "65828524"
 |内部销售|isale<br>insale<br>1414|
 |研究和开发|R&D<br>1234|
 
-1. 在左侧面板中选择“实体”。
+1. 在左侧面板中选择“实体”。 
 
-1. 选择“创建新实体”。
+1. 选择“创建新实体”  。
 
-1. 在实体弹出对话框中，输入 `Department` 作为实体名称，输入“列表”作为实体类型。 选择“完成” 。  
+1. 在实体弹出对话框中，输入 `Department` 作为实体名称，输入“列表”作为实体类型。  选择“完成”  。  
 
     [![创建新实体弹出项对话框的屏幕截图](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "Screenshot of creating new entity pop-up dialog")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
@@ -181,7 +181,7 @@ ms.locfileid: "65828524"
 继续使用此应用，[添加复合实体](luis-tutorial-composite-entity.md)。
 
 > [!div class="nextstepaction"]
-> [将分层实体添加到应用](luis-quickstart-intent-and-hier-entity.md)
+> [将带有角色的预生成实体添加到应用](tutorial-entity-roles.md)
 
 
 

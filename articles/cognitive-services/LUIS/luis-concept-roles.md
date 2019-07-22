@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 6fc20480e7f7c154de0f67f9772fd360b30292af
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: af2196afe855dd453ff1c71173454cbbc1c94a5f
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65997313"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332106"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>上下文子类型的实体角色
 
@@ -37,8 +37,8 @@ buy a ticket from New York to London
 
 |实体类型|实体名称|角色|目的|
 |--|--|--|--|
-|简单|位置|origin|飞机起飞地|
-|简单|位置|目标|飞机降落地|
+|简单|Location|origin|飞机起飞地|
+|简单|Location|目标|飞机降落地|
 
 ## <a name="non-machine-learned-entity-example-of-roles"></a>角色的非机器学习实体示例
 
@@ -96,10 +96,6 @@ Schedule the meeting from 8 to 9
 实体角色适用于 LUIS 应用的数据模型。 [协作者](luis-concept-collaborator.md)角色适用于创作访问级别。 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
-
-### <a name="roles-with-datetimev2"></a>具有 datetimeV2 的角色
-
-预生成实体 datetimeV2 可以很好地理解话语中日期和时间的各种变化。 你可能希望以不同于预生成实体的默认理解方式来指定日期和日期范围。 
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -7,13 +7,13 @@ ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
 origin.date: 04/15/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: c75e95073a4940fff8badb023bcf7fc32662bf8f
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 07/22/2019
+ms.openlocfilehash: 0e0bc1fc53f4a23a48dfad9980089cf5a3b2d5d9
+ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173309"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332764"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>使用 Azure 门户创建 Azure Database for MariaDB 服务器
 
@@ -50,7 +50,7 @@ Azure Database for MariaDB 是一种托管服务，可用于在云中运行、�
     服务器管理员登录名 | **myadmin** | 连接到服务器时需使用的登录帐户。 管理员登录名不能是“azure_superuser”、“admin”、“administrator”、“root”、“guest”或“public”。      
     密码 |  由用户选择 | 为服务器管理员帐户输入新密码。 该密码必须包含 8 到 128 个字符。 密码必须包含以下三个类别的字符：英文大写字母、英文小写字母、数字 (0-9)和非字母数字字符（!, $, #, % 等）。
     确认密码 |  由用户选择| 确认管理员帐户密码。
-    位置 |  离用户最近的区域| 选择最靠近用户或其他 Azure 应用程序的位置。
+    Location |  离用户最近的区域| 选择最靠近用户或其他 Azure 应用程序的位置。
     版本 |  最新版本| 最新版本，有特定要求（即要求使用其他版本）的除外。
     定价层 | 请参阅说明。 | 新服务器的计算、存储和备份配置。 选择“定价层”   >   “常规用途”。 为以下设置保留默认值：<br><ul><li>**计算代系**（第 5 代）</li><li>**vCore**（4 个 vCore）</li><li>**存储空间** (100 GB)</li><li>**备份保持期**（7 天）</li></ul><br>若要在异地冗余存储中启用服务器备份，请选择“异地冗余”作为“备份冗余选项”   。 <br><br>若要保存此定价层选择，请选择“确定”  。 下一个屏幕截图捕获了这些选择。
   
@@ -95,7 +95,7 @@ Azure Database for MariaDB 服务在服务器级别创建防火墙。 除非创�
 
 2. 若要复制这些值，请将光标放置在要复制的字段上方。 复制图标会显示在文本右侧。 根据需要选择复制图标即可复制这些值。
 
-在我们的示例中，服务器名称是 mydemoserver.mariadb.database.azure.com，服务器管理员登录名是 myadmin\@mydemoserver   。
+在我们的示例中，服务器名称是 **mydemoserver.mariadb.database.chinacloudapi.cn**，服务器管理员登录名是 **myadmin\@mydemoserver**。
 
 ## <a name="connect-to-azure-database-for-mariadb-by-using-the-mysql-command-line"></a>使用 mysql 命令行连接到 Azure Database for MariaDB
 
@@ -105,13 +105,13 @@ Azure Database for MariaDB 服务在服务器级别创建防火墙。 除非创�
 
 在 Powershell 提示符下输入以下 mysql 命令行，连接到 Azure Database for MariaDB 服务器。
 
-    To connect to an Azure Database for MariaDB server by using the mysql utility, use the following format:
+若要通过 mysql 实用程序连接到 Azure Database for MariaDB 服务器，请使用以下格式：
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
     ```
 
-    For example, the following command connects to our example server:
+例如，以下命令连接到示例服务器：
 
     ```azurecli
     mysql --host mydemoserver.mariadb.database.chinacloudapi.cn --user myadmin@mydemoserver -p

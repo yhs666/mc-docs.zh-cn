@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 88a67c8aa941be1ed5b947ec65f9ba99af2a4c33
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 4598a650351b1fb0a3b9376772c79836d2da5204
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135922"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332096"
 ---
 # <a name="quickstart-change-model-using-nodejs"></a>快速入门：使用 Node.js 更改模型
 

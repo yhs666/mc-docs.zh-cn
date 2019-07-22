@@ -9,12 +9,12 @@ origin.date: 05/21/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 651a0f1dc0b8c55c7fa074f54b8e14f5b62544a5
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 4d8a98300b2c0f5226e77566dc503836047bd76e
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151520"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293429"
 ---
 <!--Verify successfully-->
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 简介
@@ -42,9 +42,9 @@ Azure Cosmos DB Cassandra API 可以充当为 [Apache Cassandra](https://cassand
 ## <a name="next-steps"></a>后续步骤
 
 * 可以快速地着手生成以下特定于语言的应用，以便创建和管理 Cassandra API 数据库：
-  - [Node.js 应用](create-cassandra-nodejs.md)
-  - [.NET 应用](create-cassandra-dotnet.md)
-  - [Python 应用](create-cassandra-python.md)
+    - [Node.js 应用](create-cassandra-nodejs.md)
+    - [.NET 应用](create-cassandra-dotnet.md)
+    - [Python 应用](create-cassandra-python.md)
 
 * 使用 Java 应用程序开始[创建 Cassandra API 帐户、数据库和表](create-cassandra-api-account-java.md)。
 

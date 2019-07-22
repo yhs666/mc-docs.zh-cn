@@ -1,25 +1,18 @@
 ---
 title: Azure 资源找不到错误 | Azure
 description: 说明如何在找不到资源时解决错误。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 06/06/2018
-ms.date: 09/03/2018
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 829a25a6057e3431107e8f78209daef6a1442f20
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6945fd05e7e129eeca7d043620d50210f155402f
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663574"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337406"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>解决 Azure 资源找不到错误
 
@@ -48,7 +41,7 @@ group {resource group name} was not found.
 
 ## <a name="solution-1---set-dependencies"></a>解决方案 1 - 设置依赖关系
 
-如果尝试在模板中部署缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 会通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 dependsOn 元素。 例如，在部署 Web 应用时，应用服务计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，则 Resource Manager 会同时创建这两个资源。 会收到一条错误消息，指出未能找到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
+如果尝试在模板中部署缺少的资源，请检查是否需要添加依赖关系。 如果可能，Resource Manager 会通过并行创建资源来优化部署。 如果一个资源必须在另一个资源之后部署，则需在模板中使用 dependsOn 元素  。 例如，在部署 Web 应用时，应用服务计划必须存在。 如果未指定该 Web 应用与应用服务计划的依赖关系，则 Resource Manager 会同时创建这两个资源。 会收到一条错误消息，指出未能找到应用服务计划资源，因为尝试在 Web 应用上设置属性时它尚不存在。 在 Web 应用中设置依赖关系可避免此错误。
 
 ```json
 {
@@ -67,19 +60,19 @@ group {resource group name} was not found.
 
 1. 选择资源组的部署历史记录。
 
-   ![选择部署历史记录](./media/resource-manager-not-found-errors/select-deployment.png)
+    ![选择部署历史记录](./media/resource-manager-not-found-errors/select-deployment.png)
 
-2. 从历史记录中选择一个部署，并选择“事件” 。
+2. 从历史记录中选择一个部署，并选择“事件”  。
 
-   ![选择部署事件](./media/resource-manager-not-found-errors/select-deployment-events.png)
+    ![选择部署事件](./media/resource-manager-not-found-errors/select-deployment-events.png)
 
 3. 检查每项资源的事件的顺序。 注意每个操作的状态。 例如，下图显示了并行部署的三个存储帐户。 请注意，这三个存储帐户是同时启动的。
 
-   ![并行部署](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
+    ![并行部署](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   下图显示了非并行部署的三个存储帐户。 第二个存储帐户依赖于第一个存储帐户，第三个存储帐户又依赖于第二个存储帐户。 启动、接受并处理完成第一个存储帐户后才开始对下一个进行操作。
+    下图显示了非并行部署的三个存储帐户。 第二个存储帐户依赖于第一个存储帐户，第三个存储帐户又依赖于第二个存储帐户。 启动、接受并处理完成第一个存储帐户后才开始对下一个进行操作。
 
-   ![连续部署](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+    ![连续部署](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
 ## <a name="solution-2---get-resource-from-different-resource-group"></a>解决方案 2 - 从其他资源组获取资源
 

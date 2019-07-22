@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e67fc2496087ca2a2e43f37e361c50af5e5a89da
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 18ff2699a5e7ead45bb0ba34a3cea99e8f4e3321
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135925"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332090"
 ---
 # <a name="quickstart-change-model-using-java"></a>快速入门：使用 Java 更改模型 
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-change-model-intro-para.md)]
 
 ## <a name="prerequisites"></a>先决条件
 

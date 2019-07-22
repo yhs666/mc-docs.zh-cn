@@ -6,22 +6,24 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 05/20/2019
+ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: b676e4253fcc2f69257e87ccafe72d7f78d07641
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 1239f1608c3a679de424f9bd7ad6f39fd42fe949
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835819"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332782"
 ---
-共享映像库是可以帮助你围绕自定义托管 VM 映像生成结构和组织的服务。 共享映像库提供以下功能：
+共享映像库是一种可以帮助你围绕托管映像构建结构和组织的服务。 共享映像库提供以下功能：
 
 - 对映像进行托管式全局复制。
 - 对映像进行版本控制和分组，以便于管理。
-- 通过支持可用性区域的区域中的区域冗余存储 (ZRS) 帐户使映像高度可用。 ZRS 提供更好的复原能力来应对区域性的故障。
-- 跨订阅共享，甚至可以使用 RBAC 在租户之间共享。
+    <!--Not Available on - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.-->
+    <!--Not Avaialble on Zone Redundant Storage (ZRS)-->
+- 使用 RBAC 跨订阅以及甚至在 Active Directory (AD) 租户之间共享。
+- 使用每个区域中的映像副本缩放部署。
 
 使用共享映像库，可以将映像共享给组织内的不同用户、服务主体或 AD 组。 共享映像可以复制到多个区域，以便更快地扩展部署。
 
@@ -46,7 +48,7 @@ ms.locfileid: "65835819"
 
 映像定义是映像版本的逻辑分组。 映像定义包含有关创建映像的原因、它适用于哪个 OS 的信息，以及映像的用法信息。 映像定义类似于一个计划，提供了有关如何创建特定映像的所有详细信息。 不要从映像定义部署 VM，而要从基于该定义创建的映像版本部署 VM。
 
-对于每个映像定义，将组合使用“发布者”、“套餐”和“SKU”这三个参数。 这些参数用于查找特定的映像定义。 可以拥有共享一个或两个但不是全部三个值的映像版本。  例如，以下是三个映像定义及其值：
+对于每个映像定义，将组合使用“发布者”、“套餐”和“SKU”这三个参数。    这些参数用于查找特定的映像定义。 可以拥有共享一个或两个但不是全部三个值的映像版本。  例如，以下是三个映像定义及其值：
 
 |映像定义|发布者|产品/服务|SKU|
 |---|---|---|---|
@@ -82,7 +84,17 @@ ms.locfileid: "65835819"
 ## <a name="scaling"></a>扩展
 使用共享映像库可以指定要让 Azure 保留的映像副本数。 这有助于实现多 VM 部署方案，因为可将 VM 部署分散到不同的副本，减少单个副本过载导致实例创建过程受到限制的可能性。
 
+现在，使用共享映像库，最多可在虚拟机规模集中部署 1,000 个 VM 实例（相比使用托管映像部署 600 个有所增加）。 映像副本可用于提高部署性能、可靠性和一致性。  可以在每个目标区域中设置不同的副本计数，具体视该区域的缩放需求而定。 由于每个副本是映像的深层复制，因此，这有助于使用每个额外的副本线性地缩放部署。 虽然我们了解没有两个映像或区域是相同的，但是，需要遵循下面有关如何在区域中使用副本的一般原则：
+
+- 对于并行创建的每 20 个 VM，我们建议保留一个副本。 例如，如果要在区域中使用相同映像并行创建 120 个 VM，我们建议至少保留映像的 6 个副本。 
+- 对于包含多达 600 个实例的每个规模集部署，我们建议至少保留一个副本。 例如，如果要创建 5 个规模集，而每个规模集都包含在单个区域中使用相同映像创建的 600 个 VM 实例，我们建议至少保留映像的 5 个副本。 
+
+鉴于映像大小、内容和 OS 类型等因素，我们始终建议保留的副本数应超出该副本数。
+
 ![演示如何缩放映像的示意图](./media/shared-image-galleries/scaling.png)
+
+<!--Not Available on ## Make your images highly available-->
+<!--Not Available on Azure Zone Redundant Storage (ZRS)-->
 
 ## <a name="replication"></a>复制
 使用共享映像库还可以自动将映像复制到其他 Azure 区域。 可以根据组织的需要，将每个共享映像版本复制到不同的区域。 例如，始终在多个区域复制最新的映像，而只在 1 个区域提供所有旧版本。 这有助于节省共享映像版本的存储成本。 
@@ -93,17 +105,16 @@ ms.locfileid: "65835819"
 
 ## <a name="access"></a>访问
 
-与共享映像库一样，共享映像和共享映像版本都是资源，可以使用内置的本机 Azure RBAC 控件来共享它们。 使用 RBAC 可与其他用户、服务主体和组共享这些资源。 甚至可以与创建这些资源的租户外部的个人共享访问权限。 一旦用户有权访问共享的映像版本，他们就可以部署 VM 或虚拟机规模集。  以下共享矩阵可以帮助你了解用户有权访问哪些资源：
+由于共享映像库、映像定义和映像版本都是资源，因此，可以使用内置的本机 Azure RBAC 控件来共享这些资源。 使用 RBAC 可与其他用户、服务主体和组共享这些资源。 甚至可以与创建这些资源的租户外部的个人共享访问权限。 一旦用户有权访问共享的映像版本，他们就可以部署 VM 或虚拟机规模集。  以下共享矩阵可以帮助你了解用户有权访问哪些资源：
 
-| 与用户共享     | 共享的映像库 | 共享映像 | 共享映像版本 |
+| 与用户共享     | 共享的映像库 | 映像定义 | 映像版本 |
 |----------------------|----------------------|--------------|----------------------|
 | 共享的映像库 | 是                  | 是          | 是                  |
-| 共享映像         | 否                   | 是          | 是                  |
-| 共享映像版本 | 否                   | 否           | 是                  |
+| 映像定义     | 否                   | 是          | 是                  |
 
-我们建议在库级别共享，以获得最佳体验。 有关 RBAC 的详细信息，请参阅[使用 RBAC 管理 Azure 资源的访问权限](../articles/role-based-access-control/role-assignments-portal.md)。
+我们建议在库级别共享，以获得最佳体验。 我们建议不要共享单个映像版本。 有关 RBAC 的详细信息，请参阅[使用 RBAC 管理 Azure 资源的访问权限](../articles/role-based-access-control/role-assignments-portal.md)。
 
-还可以使用多租户应用注册在不同的租户之间大规模共享映像。 有关在租户之间共享映像的详细信息，请参阅[在 Azure 租户之间共享库 VM 映像](../articles/virtual-machines/linux/share-images-across-tenants.md)。
+此外，还可以使用多租户应用注册大规模共享映像，甚至是跨租户共享。 有关在租户之间共享映像的详细信息，请参阅[在 Azure 租户之间共享库 VM 映像](../articles/virtual-machines/linux/share-images-across-tenants.md)。
 
 ## <a name="billing"></a>计费
 使用共享映像库服务不会产生额外的费用。 以下资源会产生费用：
@@ -126,7 +137,7 @@ ms.locfileid: "65835819"
 映像版本：
 - 区域副本计数
 - 目标区域数
-- 从最新项中排除
+- 从最新版本中排除
 - 生命周期终结日期
 
 ## <a name="sdk-support"></a>SDK 支持
@@ -137,7 +148,7 @@ ms.locfileid: "65835819"
 - [Java](https://docs.azure.cn/java/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](/go/azure/)
+- [Go](https://docs.microsoft.com/en-us/go/azure/)
 
 ## <a name="templates"></a>模板
 
@@ -155,11 +166,11 @@ ms.locfileid: "65835819"
 A. 若要在 Azure 门户上列出不同订阅中你有权访问的所有共享映像库资源，请执行以下步骤：
 
 1. 打开 [Azure 门户](https://portal.azure.cn)。
-1. 转到“所有资源”。
+1. 转到“所有资源”。 
 1. 选择要列出其中的所有资源的所有订阅。
-1. 查找类型为“专用库”的资源。
+1. 查找类型为“专用库”的资源。 
 
-    若要查看映像定义和映像版本，还应选择“显示隐藏的类型”。
+    若要查看映像定义和映像版本，还应选择“显示隐藏的类型”。 
 
     若要列出不同订阅中你有权访问的所有共享映像库资源，请在 Azure CLI 中使用以下命令：
 
@@ -234,4 +245,4 @@ A. 若要在 Azure 门户上列出不同订阅中你有权访问的所有共享�
 
 **问：** 应使用哪个 API 版本来创建共享映像库、映像定义和映像版本，并基于映像版本创建 VM/VMSS？
 
- A. 若要使用映像版本部署 VM 和虚拟机规模集，我们建议使用 API 2018-04-01 或更高版本。 若要处理共享映像库、映像定义和映像版本，我们建议使用 API 版本 2018-06-01。
+ A. 若要使用映像版本部署 VM 和虚拟机规模集，我们建议使用 API 2018-04-01 或更高版本。 若要处理共享映像库、映像定义和映像版本，我们建议使用 API 版本 2018-06-01。 区域冗余存储 (ZRS) 需要 2019-03-01 版或更高版本。

@@ -12,12 +12,12 @@ ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 05/29/2019
 ms.date: 07/08/2019
-ms.openlocfilehash: dfd04ed0d705654030ed9847359dc3be509d6415
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: f586b2789fe41a4e2fb8c3d6a2f2a0e288181746
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570110"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308920"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -61,7 +61,7 @@ ms.locfileid: "67570110"
     >
     > Azure 数据库迁移服务缺少 Internet 连接，因此必须提供此配置。
 
-* 请确保 VNet 网络安全组 (NSG) 规则未阻止以下通信端口：53、443、445、9354 以及 10000-20000。 有关 Azure VNET NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
+* 请确保 VNet 网络安全组 (NSG) 规则未阻止以下通信端口：53、443、445、9354 以及 10000-20000。 有关 Azure VNet NSG 流量筛选的更多详细信息，请参阅[使用网络安全组筛选网络流量](/virtual-network/virtual-networks-nsg)一文。
 * 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 MongoDB 服务器（默认情况下为 TCP 端口 27017）。
 * 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
 
@@ -151,7 +151,14 @@ ms.locfileid: "67570110"
 
      * 对于 JSON 转储，blob 容器中的文件必须放置到以包含数据库命名的文件夹中。 在每个数据库文件夹中，数据文件必须放置到名为“数据”且采用 collection.json 格式命名的子文件夹中  。 元数据文件（如有）必须放置到名为“元数据”且同样采用 collection.json 格式命名的子文件夹中  。 元数据文件必须采用由 MongoDB bsondump 工具所生成的相同格式。
 
-   如果无法进行 DNS 名称解析，可以使用 IP 地址。
+    > [!IMPORTANT]
+    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用**连接字符串模式**连接到服务器，并确保连接字符串包含 “”
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
+
+    如果无法进行 DNS 名称解析，可以使用 IP 地址。
 
    ![指定源详细信息](media/tutorial-mongodb-to-cosmosdb-online/dms-specify-source1.png)
 
@@ -176,7 +183,7 @@ ms.locfileid: "67570110"
 
    如果字符串 **Create** 显示在数据库名称旁边，则表明 Azure 数据库迁移服务没有找到目标数据库，因此会为你创建该数据库。
 
-    此时，在迁移过程中，如果要在数据库上共享吞吐量，请指定吞吐量 RU。 在 Cosmos DB 中，可在数据库级别预配吞吐量，也可为每个集合单独进行预配。 吞吐量以[请求单位](/cosmos-db/request-units) (RU) 来度量。 深入了解 [Azure Cosmos DB 定价](https://azure.cn/pricing/details/cosmos-db/)。
+   此时，在迁移过程中，如果要在数据库上共享吞吐量，请指定吞吐量 RU。 在 Cosmos DB 中，可在数据库级别预配吞吐量，也可为每个集合单独进行预配。 吞吐量以[请求单位](/cosmos-db/request-units) (RU) 来度量。 深入了解 [Azure Cosmos DB 定价](https://azure.cn/pricing/details/cosmos-db/)。
 
    ![映射到目标数据库](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 
@@ -191,7 +198,7 @@ ms.locfileid: "67570110"
     > [!NOTE]
     > 必要时使用 Azure 数据库迁移服务的多个实例并行执行数据库迁移和集合，以便加快运行速度。
 
-    也可指定分片键来利用 [Azure Cosmos DB 中的分区](/cosmos-db/partitioning-overview)，以便优化可伸缩性。 确保查看[选择分片/分区键的最佳做法](/cosmos-db/partitioning-overview#choose-partitionkey)。 如果没有分区键，始终可以使用 **_id** 作为分片键来提高吞吐量。
+   也可指定分片键来利用 [Azure Cosmos DB 中的分区](/cosmos-db/partitioning-overview)，以便优化可伸缩性。 确保查看[选择分片/分区键的最佳做法](/cosmos-db/partitioning-overview#choose-partitionkey)。 如果没有分区键，始终可以使用 **_id** 作为分片键来提高吞吐量。
 
    ![选择集合表](media/tutorial-mongodb-to-cosmosdb-online/dms-collection-setting1.png)
 

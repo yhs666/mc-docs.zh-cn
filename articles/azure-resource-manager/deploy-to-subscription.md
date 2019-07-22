@@ -1,29 +1,26 @@
 ---
 title: 在订阅中创建资源组和资源 - Azure 资源管理器模板
 description: 介绍了如何在 Azure 资源管理器模板中创建资源组。 它还展示了如何在 Azure 订阅范围内部署资源。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 01/30/2019
-ms.date: 03/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 27c64ea2d4caebdf738ee7a247d60d185329191f
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 67e2e2b75e24c598842306e45657ca26f1b24c90
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348107"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337368"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>在订阅级别创建资源组和资源
 
 通常情况下，你可将 Azure 资源部署到 Azure 订阅中的资源组。 但是，你还可以创建 Azure 资源组，并在订阅级别创建 Azure 资源。 若要在订阅级别部署模板，请使用 Azure CLI 和 Azure PowerShell。 Azure 门户不支持在订阅级别部署。
 
-若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups 资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可以在订阅级别部署的资源包括：[策略](../governance/policy/overview.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
+若要在 Azure 资源管理器模板中创建资源组，请为该资源组定义包含名称和位置的 Microsoft.Resources/resourceGroups  资源。 你可以创建一个资源组并在同一模板中将资源部署到该资源组。 可以在订阅级别部署的资源包括：[策略](../governance/policy/overview.md)和[基于角色的访问控制](../role-based-access-control/overview.md)。
+
+<!--Not Available on [**Microsoft.Resources/resourceGroups**](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.resources/allversions)-->
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +65,7 @@ New-AzDeployment `
 
 对于订阅级别部署，在使用模板函数时有一些重要注意事项：
 
-* 不支持 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 函数。
+* 不支持 [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 函数。 
 * 支持 [resourceId()](resource-group-template-functions-resource.md#resourceid) 函数。 可以使用它获取在订阅级部署中使用的资源的资源 ID。 例如，使用 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))` 获取策略定义的资源 ID
 * 支持 [reference()](resource-group-template-functions-resource.md#reference) 和 [list()](resource-group-template-functions-resource.md#list) 函数。
 

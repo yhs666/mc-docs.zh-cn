@@ -4,18 +4,18 @@ description: include 文件
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 origin.date: 03/14/2019
-ms.date: 03/25/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 84b7cbe9ba66149a79778634b717f82d98c71f42
-ms.sourcegitcommit: 07a24e9a846705df3b98fc8ff193ec7d9ec913dc
+ms.openlocfilehash: 1101ea9f818da61022e404e628d115f59f2c40da
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58431403"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332797"
 ---
 [Durable Functions](../articles/azure-functions/durable-functions-overview.md) 的配置设置。
 

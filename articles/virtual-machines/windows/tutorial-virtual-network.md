@@ -17,12 +17,12 @@ origin.date: 12/04/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 75cb8f2c50025508cbd1a599f9ba1d3b808e63d3
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b05b6e330feae7082190828ce96e42105a450624
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665834"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298101"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-windows-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 为 Windows 虚拟机创建和管理 Azure 虚拟网络
 
@@ -53,7 +53,9 @@ Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure 
 - *myBackendNic* - *myBackendVM* 用于与 *myFrontendVM* 通信的网络接口。
 - *myBackendVM* - 使用端口 1433 与 *myFrontendVM* 通信的 VM。
 
-## <a name="launch-azure-cloud-shell"></a>启动 Azure Cloud Shell
+## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
+
+<!--Not Available on Azure Cloud Shell-->
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
@@ -61,7 +63,7 @@ Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure 
 
 本教程将创建包含两个子网的单个虚拟网络。 一个前端子网用于托管 Web 应用程序，一个后端子网用于托管数据库服务器。
 
-创建虚拟网络之前，需使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在 ChinaEast 位置创建名为 myRGNetwork 的资源组：
+创建虚拟网络之前，需使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在 ChinaEast  位置创建名为 myRGNetwork  的资源组：
 
 ```powershell
 Connect-AzAccount -Environment AzureChinaCloud
@@ -86,7 +88,7 @@ $backendSubnet = New-AzVirtualNetworkSubnetConfig `
 
 ## <a name="create-virtual-network"></a>创建虚拟网络
 
-通过 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 使用 *myFrontendSubnet* 和 *myBackendSubnet* 创建名为“myVNet”的 VNET：
+通过 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 使用 *myFrontendSubnet* 和 *myBackendSubnet* 创建名为“myVNet”  的 VNET：
 
 ```powershell
 $vnet = New-AzVirtualNetwork `
@@ -181,7 +183,7 @@ $nsgFrontendRule = New-AzNetworkSecurityRuleConfig `
   -Access Allow
 ```
 
-可通过为后端子网创建 NSG，将内部流量限制为仅从 myFrontendVM 流向 myBackendVM。 以下示例创建名为“myBackendNSGRule”的 NSG 规则：
+可通过为后端子网创建 NSG，将内部流量限制为仅从 myFrontendVM  流向 myBackendVM  。 以下示例创建名为“myBackendNSGRule”  的 NSG 规则：
 
 ```powershell
 $nsgBackendRule = New-AzNetworkSecurityRuleConfig `
@@ -241,7 +243,7 @@ Set-AzVirtualNetwork -VirtualNetwork $vnet
 
 创建本教程的后端 VM 的最简单方法是使用 SQL Server 映像。 本教程仅使用数据库服务器创建 VM，但不提供有关访问数据库的信息。
 
-创建 myBackendNic：
+创建 myBackendNic  ：
 
 ```powershell
 $backendNic = New-AzNetworkInterface `
@@ -257,7 +259,7 @@ $backendNic = New-AzNetworkInterface `
 $cred = Get-Credential
 ```
 
-创建 myBackendVM。
+创建 myBackendVM  。
 
 ```powershell
 New-AzVM `

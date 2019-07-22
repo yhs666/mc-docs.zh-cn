@@ -7,14 +7,14 @@ manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 origin.date: 05/08/2018
-ms.date: 07/05/2018
+ms.date: 5/8/2018
 ms.author: v-junlch
-ms.openlocfilehash: d1db4479cbea73dced87862612f6418c0363fa5e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 098070c59bc325bf00f5e7c287b74490e9c74951
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570517"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332246"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 和 Azure 备份服务器的脱机备份工作流
 Azure 备份有多个可提升效率的内置功能，可在将数据初始完整备份到 Azure 期间节省网络和存储成本。 初始完整备份通常会传输大量数据，且需要较多网络带宽，相比之下，后续备份只传输差异/增量部分。 Azure 备份可压缩初始备份。 通过脱机种子设定过程，Azure 备份可以使用磁盘将压缩后的初始备份数据脱机上传到 Azure。

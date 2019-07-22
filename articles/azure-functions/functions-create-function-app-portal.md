@@ -10,15 +10,15 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 origin.date: 04/11/2017
-ms.date: 04/26/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 6192d7cfd855c797d50f76dea202ec188093be31
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 4226ef43293b404ea9cceccc1a4a74416f0d45a8
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854885"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331891"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>通过 Azure 门户创建 Function App
 
@@ -28,7 +28,7 @@ Azure Function App 使用 Azure 应用服务基础结构。 本主题演示如�
 
 [!INCLUDE [functions-create-function-app-portal](../../includes/functions-create-function-app-portal.md)]
 
-创建 Function App 时，需提供有效的**应用名称**，其中只能包含字母、数字和连字符。 下划线 (**_**) 是不允许的字符。
+创建 Function App 时，需提供有效的**应用名称**，其中只能包含字母、数字和连字符。 下划线 ( **_** ) 是不允许的字符。
 
 存储帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。 存储帐户名称在 Azure 中必须是唯一的。 
 
@@ -53,6 +53,9 @@ Azure Functions 有两个不同的服务计划：消耗量计划和应用服务�
 
 ## <a name="next-steps"></a>后续步骤
 
-[!INCLUDE [Functions quickstart next steps](../../includes/functions-quickstart-next-steps.md)]
+虽然 Azure 门户可以轻松创建和试用 Functions，但我们建议[本地开发](functions-develop-local.md)。 在门户中创建函数应用后，仍然需要添加一个函数。 
 
-<!-- Update_Description: link update -->
+> [!div class="nextstepaction"]
+> [添加 HTTP 触发的函数](functions-create-first-azure-function.md#create-function)
+
+<!-- Update_Description: wording update -->

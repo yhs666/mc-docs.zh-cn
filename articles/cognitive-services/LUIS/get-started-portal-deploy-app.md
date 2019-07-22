@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 8a4b0a02ae6a141318b500b237b4501604090dcd
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 966e53d3385e5b2bf9f42b2e7a731d5f835d8660
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135929"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332165"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -42,7 +42,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
     |--|--|--|
     |Name|`my-cognitive-service-resource`|Azure 资源的名称。 将资源分配给 LUIS 门户中的应用时需要此名称。|
     |订阅|你的订阅|选择与你的帐户关联的其中某个订阅。|
-    |位置|**中国东部**|此资源的 Azure 区域。|
+    |Location|**中国东部**|此资源的 Azure 区域。|
     |定价层|**S0**|此资源的默认定价层。|
     |资源组|`my-cognitive-service-resource-group`|为所有认知服务资源创建新资源组。 完成资源后，可以删除资源组以清理订阅。 | 
 
@@ -56,7 +56,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 每次为 LUIS 创建新资源时，都需要将资源分配给 LUIS 应用。 分配后，除非创建新资源，否则无需再次执行此步骤。 可以创建新资源来扩展应用的区域或支持更多预测查询。
 
-1. 登录 [LUIS 门户](https://docs.azure.cn)，从应用列表中选择“myEnglishApp”应用  。
+1. 登录 [LUIS 门户](https://luis.azure.cn)，从应用列表中选择“myEnglishApp”应用  。
 
 1. 在右上角的菜单中选择“管理”，然后选择“密钥和终结点”   。
 

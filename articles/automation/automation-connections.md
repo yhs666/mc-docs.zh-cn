@@ -7,21 +7,21 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 01/16/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 465e51aab6427a37599ec59586ec126bb8a99d22
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 195afc4e4b216af7aa70d374ce77ac7fa6ad3f46
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502601"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298087"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure 自动化中的连接资产
 
 自动化连接资产包含从 Runbook 或 DSC 配置连接到外部服务或应用程序所需的信息。 除 URL 和端口等连接信息外，还包括身份验证所需的信息，如用户名和密码。 使用连接的值将用于连接一个特定应用程序的所有属性保留在一个资产中，而不是创建多个变量。 用户可以从一个位置编辑连接的值，并且可以在单个参数中将连接名称传递给 Runbook 或 DSC 配置。 可在 Runbook 或 DSC 配置中使用 **Get-AutomationConnection** 活动访问连接的属性。 
 
-创建连接时，必须指定“连接类型”。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。 连接类型通过集成模块添加到 Azure 自动化，或使用 [Azure 自动化 API](https://docs.microsoft.com/previous-versions/azure/reference/mt163818(v=azure.100)) 进行创建，前提是集成模块包含连接类型，并且已导入到自动化帐户中。 否则，需创建指定自动化连接类型的元数据文件。  此方面的详细信息，请参阅[集成模块](automation-integration-modules.md)。  
+创建连接时，必须指定“连接类型”  。 连接类型是定义了一组属性的模板。 连接为其连接类型中定义的每个属性定义值。 连接类型通过集成模块添加到 Azure 自动化，或使用 [Azure 自动化 API](https://docs.microsoft.com/previous-versions/azure/reference/mt163818(v=azure.100)) 进行创建，前提是集成模块包含连接类型，并且已导入到自动化帐户中。 否则，需创建指定自动化连接类型的元数据文件。  此方面的详细信息，请参阅[集成模块](automation-integration-modules.md)。  
 
 >[!NOTE]
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在系统托管的密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。 此过程由 Azure 自动化管理。
@@ -31,8 +31,8 @@ ms.locfileid: "59502601"
 Azure 自动化中有三种类型的内置连接：
 
 * **Azure** - 此连接可以用于管理经典资源。
-* **AzureClassicCertificate** - AzureClassicRunAs 帐户使用此连接。
-* **AzureServicePrincipal** - AzureRunAs 帐户使用此连接。
+* **AzureClassicCertificate** - AzureClassicRunAs 帐户使用此连接  。
+* **AzureServicePrincipal** - AzureRunAs 帐户使用此连接  。
 
 在大多数情况下不需要创建连接资源，因为在创建 [RunAs 帐户](manage-runas-account.md)时已经创建了该连接。
 
@@ -73,15 +73,15 @@ Azure 自动化中有三种类型的内置连接：
 
 ### <a name="to-create-a-new-connection-with-the-azure-portal"></a>使用 Azure 门户创建新连接
 
-1. 在自动化帐户中，单击“资产”部分以打开“资产”边栏选项卡。
-2. 单击“连接”部分以打开“连接”边栏选项卡。
-3. 单击边栏选项卡顶部的“添加连接”。
-4. 在“类型”下拉列表中，选择想要创建的连接类型。 表单会显示该特定类型的属性。
-5. 完成该表单，并单击“创建”以保存新连接。
+1. 在自动化帐户中，单击“资产”  部分以打开“资产”  边栏选项卡。
+2. 单击“连接”  部分以打开“连接”  边栏选项卡。
+3. 单击边栏选项卡顶部的“添加连接”  。
+4. 在“类型”  下拉列表中，选择想要创建的连接类型。 表单会显示该特定类型的属性。
+5. 完成该表单，并单击“创建”  以保存新连接。
 
 ### <a name="to-create-a-new-connection-with-windows-powershell"></a>使用 Windows PowerShell 创建新连接
 
-使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](https://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值。
+使用 Windows PowerShell 通过 [New-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationconnection) cmdlet 创建新连接。 此 cmdlet 有一个名为 ConnectionFieldValues 的参数，预期为一个[哈希表](https://technet.microsoft.com/library/hh847780.aspx)，用于为连接类型定义的每个属性定义值  。
 
 如果熟悉自动化的[运行方式帐户](automation-sec-configure-azure-runas-account.md)（可使用服务主体对 Runbook 进行身份验证），可以使用 PowerShell 脚本（在从门户创建运行方式帐户时作为替代方法提供）通过以下示例命令创建新的连接资产。  
 
@@ -107,11 +107,11 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 ```
 
 > [!IMPORTANT]
-> Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块。
+> Add-AzureRmAccount 现在是 Connect-AzureRMAccount 的别名   。 搜索库项时，如果未看到 Connect-AzureRMAccount，可以使用 Add-AzureRmAccount，或更新自动化帐户中的模块   。
 
 ### <a name="graphical-runbook-samples"></a>图形 Runbook 示例
 
-在图形编辑器的“库”窗格中，右键单击连接，并选择“添加到画布”将 **Get-AutomationConnection** 活动添加到图形 Runbook。
+在图形编辑器的“库”窗格中，右键单击连接，并选择“添加到画布”  将 **Get-AutomationConnection** 活动添加到图形 Runbook。
 
 ![添加到画布](media/automation-connections/connection-add-canvas.png)
 
@@ -127,36 +127,40 @@ Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $
 import azure.mgmt.resource
 import automationassets
 
+
 def get_automation_runas_credential(runas_connection):
-  """ Returns credentials to authenticate against Azure resoruce manager """
-  from OpenSSL import crypto
-  from msrestazure import azure_active_directory
-  import adal
+    """ Returns credentials to authenticate against Azure resoruce manager """
+    from OpenSSL import crypto
+    from msrestazure import azure_active_directory
+    import adal
 
-  # Get the Azure Automation Run As service principal certificate
-  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-  pks12_cert = crypto.load_pkcs12(cert)
-  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+    # Get the Azure Automation Run As service principal certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    pks12_cert = crypto.load_pkcs12(cert)
+    pem_pkey = crypto.dump_privatekey(
+        crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-  # Get Run As connection information for the Azure Automation service principal
-  application_id = runas_connection["ApplicationId"]
-  thumbprint = runas_connection["CertificateThumbprint"]
-  tenant_id = runas_connection["TenantId"]
+    # Get Run As connection information for the Azure Automation service principal
+    application_id = runas_connection["ApplicationId"]
+    thumbprint = runas_connection["CertificateThumbprint"]
+    tenant_id = runas_connection["TenantId"]
 
-  # Authenticate with service principal certificate
-  resource = "https://management.core.chinacloudapi.cn/"
-  authority_url = ("https://login.partner.microsoftonline.cn/" + tenant_id)
-  context = adal.AuthenticationContext(authority_url)
-  return azure_active_directory.AdalAuthentication(
-    lambda: context.acquire_token_with_client_certificate(
-      resource,
-      application_id,
-      pem_pkey,
-      thumbprint)
-  )
+    # Authenticate with service principal certificate
+    resource = "https://management.core.chinacloudapi.cn/"
+    authority_url = ("https://login.partner.microsoftonline.cn/" + tenant_id)
+    context = adal.AuthenticationContext(authority_url)
+    return azure_active_directory.AdalAuthentication(
+        lambda: context.acquire_token_with_client_certificate(
+            resource,
+            application_id,
+            pem_pkey,
+            thumbprint)
+    )
+
 
 # Authenticate to Azure using the Azure Automation Run As service principal
-runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+runas_connection = automationassets.get_automation_connection(
+    "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
 

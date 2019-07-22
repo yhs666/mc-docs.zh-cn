@@ -1,25 +1,19 @@
 ---
 title: 异步操作的状态 - Azure 资源管理器
 description: 介绍如何在 Azure 中跟踪异步操作。 它显示用于获取长时间运行操作的状态的值。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 12/09/2018
-ms.date: 01/21/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 8c1949c75ac95f7a6616ab70544d2e67945b6ae8
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: 47d217b3a3c1a205713fbab1953295f4e3a9b859
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193018"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337422"
 ---
 # <a name="track-asynchronous-azure-operations"></a>跟踪异步 Azure 操作
 某些 Azure REST 操作以异步方式运行，因为操作无法快速完成。 本文介绍如何通过响应中返回的值跟踪异步操作的状态。  
@@ -86,7 +80,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 * 已失败
 * 已取消
 
-所有其他值表示该操作仍在运行。 资源提供程序可以返回自定义的值，用于指示其状态。 例如，当请求已收到且正在运行时，用户会收到“已接受”。
+所有其他值表示该操作仍在运行。 资源提供程序可以返回自定义的值，用于指示其状态。 例如，当请求已收到且正在运行时，用户会收到“已接受”  。
 
 ## <a name="example-requests-and-responses"></a>示例请求和响应
 
@@ -123,7 +117,7 @@ https://management.chinacloudapi.cn/subscriptions/{subscription-id}/providers/Mi
 
 ### <a name="deploy-resources-201-with-azure-asyncoperation"></a>部署资源（Azure-AsyncOperation 标头出现 201 响应）
 
-此示例演示将资源部署到 Azure 时，如何确定“部署” 操作的状态。 初始请求采用以下格式：
+此示例演示将资源部署到 Azure 时，如何确定“部署”  操作的状态。 初始请求采用以下格式：
 
 ```HTTP
 PUT

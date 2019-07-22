@@ -10,12 +10,12 @@ ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Java application to load data to a Cassandra API table in Azure Cosmos DB so that customers can store and manage the key/value data and utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: 34893093d3cd53e16e2f476e58633741820ad073
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 58c3b52602cf58d6e9a6322a2adfc792a8d24eff
+ms.sourcegitcommit: 48a45ba95a6d1c15110191409deb0e7aac4bd88b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151523"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68293430"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-load-sample-data-into-a-cassandra-api-table-in-azure-cosmos-db"></a>教程：将示例数据加载到 Azure Cosmos DB 中的 Cassandra API 表
@@ -40,41 +40,41 @@ ms.locfileid: "67151523"
 
 1. 打开“src\main\java\com\azure\cosmosdb\cassandra”文件夹下的“UserRepository.java”文件并追加代码，以将 user_id、user_name 和 user_bcity 字段插入到表中：
 
-   ```java
-   /**
-   * Insert a row into user table
-   *
-   * @param id   user_id
-   * @param name user_name
-   * @param city user_bcity
-   */
-   public void insertUser(PreparedStatement statement, int id, String name, String city) {
+    ```java
+    /**
+    * Insert a row into user table
+    *
+    * @param id   user_id
+    * @param name user_name
+    * @param city user_bcity
+    */
+    public void insertUser(PreparedStatement statement, int id, String name, String city) {
         BoundStatement boundStatement = new BoundStatement(statement);
         session.execute(boundStatement.bind(id, name, city));
-   }
+    }
 
-   /**
-   * Create a PrepareStatement to insert a row to user table
-   *
-   * @return PreparedStatement
-   */
-   public PreparedStatement prepareInsertStatement() {
+    /**
+    * Create a PrepareStatement to insert a row to user table
+    *
+    * @return PreparedStatement
+    */
+    public PreparedStatement prepareInsertStatement() {
       final String insertStatement = "INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (?,?,?)";
-   return session.prepare(insertStatement);
-   }
-   ```
+    return session.prepare(insertStatement);
+    }
+    ```
 
 2. 打开“src\main\java\com\azure\cosmosdb\cassandra”文件夹下的“UserProfile.java”文件。 此类包含调用你早前定义的 createKeyspace 和 createTable 方法的主方法。 现在追加以下代码，以将某些示例数据插入到 Cassandra API 表中。
 
-   ```java
-   //Insert rows into user table
-   PreparedStatement preparedStatement = repository.prepareInsertStatement();
+    ```java
+    //Insert rows into user table
+    PreparedStatement preparedStatement = repository.prepareInsertStatement();
      repository.insertUser(preparedStatement, 1, "JohnH", "Seattle");
      repository.insertUser(preparedStatement, 2, "EricK", "Spokane");
      repository.insertUser(preparedStatement, 3, "MatthewP", "Tacoma");
      repository.insertUser(preparedStatement, 4, "DavidA", "Renton");
      repository.insertUser(preparedStatement, 5, "PeterS", "Everett");
-   ```
+    ```
 
 ## <a name="run-the-app"></a>运行应用
 

@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/30/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2a81babaad61df6a98abf106c6e5164cffe1e84
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: e1fe29e069edb94776b7461c3ca600b98fdd4733
+ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195405"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308846"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>使用本地数据网关连接到本地数据源
 本地数据网关提供本地数据源与云中的 Azure Analysis Services 服务器之间的安全数据传输。 除了适用于同一区域中的多个 Azure Analysis Services 服务器以外，最新版本的网关还适用于 Azure 逻辑应用、Power BI、Power Apps 和 Azure Flow。 可将同一订阅和同一区域中的多个服务与单个网关相关联。 
@@ -34,7 +34,7 @@ ms.locfileid: "66195405"
 若要立即开始，请参阅[安装并配置本地数据网关](analysis-services-gateway-install.md)。
 
 ## <a name="how-it-works"></a>工作原理
-在你组织中的计算机上安装的网关作为 Windows 服务（本地数据网关）运行。 此本地服务已通过 Azure 服务总线注册到网关云服务。 然后，可为 Azure 订阅创建网关资源网关云服务。 Azure Analysis Services 服务器随后会连接到网关资源。 如果服务器上的模型需要连接到本地数据源以执行查询或处理，查询和数据流会遍历网关资源、Azure 服务总线、本地数据网关服务和数据源。 
+在你组织中的计算机上安装的网关作为 Windows 服务（本地数据网关）  运行。 此本地服务已通过 Azure 服务总线注册到网关云服务。 然后，可为 Azure 订阅创建网关资源网关云服务。 Azure Analysis Services 服务器随后会连接到网关资源。 如果服务器上的模型需要连接到本地数据源以执行查询或处理，查询和数据流会遍历网关资源、Azure 服务总线、本地数据网关服务和数据源。 
 
 ![工作原理](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
@@ -152,7 +152,7 @@ ms.locfileid: "66195405"
 ## <a name="troubleshooting"></a>故障排除
 
 **问**：尝试在 Azure 中创建网关资源时，为什么在网关实例列表中看不到我的网关？ <br/>
-**答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”类型的资源。 枚举所有资源时，请确保选择所有订阅。 创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用安装该网关的用户帐户登录到门户。
+**答**：有两种可能的原因。 第一种可能性是已在当前或某个其他订阅中为该网关创建了资源。 若要消除该可能性，请从门户枚举“本地数据网关”  类型的资源。 枚举所有资源时，请确保选择所有订阅。 创建资源后，该网关将不会出现在“创建网关资源”门户体验的网关实例列表中。 第二种可能性是安装该网关的用户的 Azure AD 标识与登录到 Azure 门户的用户不同。 若要解决此问题，请使用安装该网关的用户帐户登录到门户。
 
 **问**：如何查看正在发送到本地数据源的查询？ <br/>
 **答**：可以启用查询跟踪（包括已发送的查询）。 请记得在完成故障排除后将查询跟踪改回原始值。 一直保持启用查询跟踪会创建大量的日志。
@@ -186,7 +186,7 @@ ms.locfileid: "66195405"
 
 #### <a name="event-logs"></a>事件日志
 
-可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。
+可在“应用程序和服务日志”下找到数据管理网关和 PowerBIGateway 日志。 
 
 ## <a name="next-steps"></a>后续步骤
 * [安装并配置本地数据网关](analysis-services-gateway-install.md)。   

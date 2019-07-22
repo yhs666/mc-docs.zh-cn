@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 02/25/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 030e7961d383dac6d356adad8db1f872974de494
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 1cda8c22d43c0355d3070ff39826bc1d84979454
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529350"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337550"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -75,69 +75,73 @@ ms.locfileid: "59529350"
 
     <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
     
-2. 选择“编辑模板”。
+2. 选择“编辑模板”。 
 
 3. 输入以下属性：
     
-    - “部署解决方案模板”面板。
-        |名称|值| |**订阅**| 选择你的 Azure 订阅。| |**资源组**| 选择“新建”并为其提供一个名称。 资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。| |**资源组位置**|选择一个区域。 例如，**中国北部**。 |
-    - 选择“编辑参数”，显示“参数”面板。
-        |**存储帐户类型**|使用默认值，即 **Standard_LRS**。| |**位置**| 使用默认值，即 **[resourceGroup().location]**。 这意味着，你将使用存储帐户的资源组位置。|
+    - “部署解决方案模板”面板。 
+    
+        |名称|值| |**订阅**| 选择你的 Azure 订阅。| |**资源组**| 选择“新建”  并为其提供一个名称。 资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。| |**资源组位置**|选择一个区域。 例如，**中国北部**。 |
+        
+    - 选择“编辑参数”，显示“参数”面板。  
+    
+        |**存储帐户类型**|使用默认值，即 **Standard_LRS**。| |**位置**| 使用默认值，即 **[resourceGroup().location]** 。 这意味着，你将使用存储帐户的资源组位置。|
         
         <!--MOONCAKE : Not Available on * **I agree to the terms and conditions started above**: (selected)-->
         
-    - 选择“确定” 。
+    - 选择“确定”  。
 
-4. 选择“查看法律条款”，然后选择“创建”。
-5. 选择“创建” 。
+4. 选择“查看法律条款”，然后选择“创建”。  
+5. 选择“创建”  。
     <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
 6. 选择门户右上角的通知图标（钟形图标）查看部署状态。
 
     ![资源管理器教程门户通知窗格](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-7. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。
+7. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。 
 
 ### <a name="create-a-blob-container"></a>创建 Blob 容器
 
-在上传任何文件之前，需要创建一个 Blob 容器。 
+在上传任何文件之前，需要创建一个 Blob 容器。
 
 1. 选择存储帐户以将其打开。 应会看到，资源组中只列出了一个存储帐户。 你的存储帐户名称不同于以下屏幕截图所示的名称。
 
     ![资源管理器教程存储帐户](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-storage-account.png)
 
-2. 选择“Blob”磁贴。
+2. 选择“Blob”磁贴。 
 
     ![资源管理器教程 Blob](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-blobs.png)
-3. 选择顶部的“+ 容器”创建新容器。
+3. 选择顶部的“+ 容器”创建新容器。 
 4. 输入以下值：
 
     * **名称**：输入 **sqlbacpac**。 
-    * **公共访问级别**：使用默认值“专用(不允许匿名访问)”。
-5. 选择“确定” 。
-6. 选择“sqlbacpac”打开新建的容器。
+    * **公共访问级别**：使用默认值“专用(不允许匿名访问)”。 
+    
+5. 选择“确定”  。
+6. 选择“sqlbacpac”打开新建的容器。 
 
 ### <a name="upload-the-bacpac-file-to-the-container"></a>将 BACPAC 文件上传到容器
 
-1. 选择“上传”。
+1. 选择“上传”。 
 2. 输入以下值：
 
     * **文件**：遵照说明选择前面下载的 BACPAC 文件。 默认名称为 **SQLDatabaseExtension.bacpac**。
-    * **身份验证类型**：选择“SAS”。  “SAS”是默认值。
-3. 选择“上传”。  成功上传文件后，容器中应会列出其文件名。
+    * **身份验证类型**：选择“SAS”。   “SAS”是默认值。 
+3. 选择“上传”。   成功上传文件后，容器中应会列出其文件名。
 
 ### <a name="a-namegenerate-a-sas-token-generate-a-sas-token"></a><a name="generate-a-sas-token" />生成 SAS 令牌
 
-1. 右键单击容器中的“SQLDatabaseExtension.bacpac”，并选择“生成 SAS”。
+1. 右键单击容器中的“SQLDatabaseExtension.bacpac”，并选择“生成 SAS”。  
 2. 输入以下值：
 
-    * **权限**：使用默认值“读取”。
-    * **开始和过期日期/时间**：默认值为使用 SAS 令牌八小时。 如果需要更多的时间来完成本教程，请更新“过期时间”。
+    * **权限**：使用默认值“读取”。 
+    * **开始和过期日期/时间**：默认值为使用 SAS 令牌八小时。 如果需要更多的时间来完成本教程，请更新“过期时间”。 
     * **允许的 IP 地址**：将此字段留空。
-    * **允许的协议**：使用默认值“HTTPS”。
-    * **签名密钥**：使用默认值“密钥 1”。
-3. 选择“生成 Blob SAS 令牌和 URL”。
-4. 复制“Blob SAS URL”。 URL 的中间是文件名 **SQLDatabaseExtension.bacpac**。  文件名将 URL 划分为三个部分：
+    * **允许的协议**：使用默认值“HTTPS”。 
+    * **签名密钥**：使用默认值“密钥 1”。 
+3. 选择“生成 Blob SAS 令牌和 URL”。 
+4. 复制“Blob SAS URL”。  URL 的中间是文件名 **SQLDatabaseExtension.bacpac**。  文件名将 URL 划分为三个部分：
 
-   - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/。 请确保位置以“/”结尾。
+   - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/ 。 请确保位置以“/”结尾。
    - **BACPAC 文件名**：SQLDatabaseExtension.bacpac。
    - **项目位置 SAS 令牌**：请确保该令牌的前面带有“?”。
 
@@ -147,13 +151,13 @@ ms.locfileid: "59529350"
 
 在此会话中，修改在[教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)中创建的模板，以通过 SAS 令牌调用 BACPAC 文件。  在 SQL 扩展教程中开发的模板已在 [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json) 位置共享。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
     ```
-3. 选择“打开”以打开该文件。
+3. 选择“打开”以打开该文件。 
 
     该模板中定义了五个资源：
     
@@ -170,7 +174,7 @@ ms.locfileid: "59529350"
     <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)-->
     
     在自定义模板之前，不妨对其进行一些基本的了解。
-4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
+4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。  
 
 ## <a name="edit-the-template"></a>编辑模板
 
@@ -239,7 +243,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="verify-the-deployment"></a>验证部署
 
-在门户中，从新部署的资源组中选择 SQL 数据库。 选择“查询编辑器(预览)”，然后输入管理员凭据。 此时会看到两个表导入到数据库中：
+在门户中，从新部署的资源组中选择 SQL 数据库。 选择“查询编辑器(预览)”，然后输入管理员凭据。  此时会看到两个表导入到数据库中：
 
 ![Azure 资源管理器部署 sql 扩展 BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac-query-editor.png)
 
@@ -247,16 +251,12 @@ New-AzResourceGroupDeployment `
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
-## <a name="next-steps"></a>后续步骤
-
-在本教程中，你已部署 SQL Server、SQL 数据库，并已使用 SAS 令牌导入 BACPAC 文件。 若要了解如何跨多个区域部署 Azure 资源，以及如何使用安全部署做法，请参阅
-
-> [!div class="nextstepaction"]
-> [使用 Azure 部署管理器](./resource-manager-tutorial-deploy-vm-extensions.md)
+<!--Not Available on ## Next steps-->
+<!--Not Available on [Continuous integration with Azure Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)-->
 
 <!-- Update_Description: wording update, update meta properties -->
