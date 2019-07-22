@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 备份服务器备份 VMware 服务器
-description: 可以使用 Azure 备份服务器将 VMware vCenter/ESXi 服务器备份到 Azure 或磁盘。 本文提供了用于备份（或保护）VMware 工作负荷的分步说明。
+title: 使用 Azure 备份服务器备份 VMware VM
+description: 使用 Azure 备份服务器备份 VMware vCenter/ESXi 服务器上运行的 VMware VM。
 services: backup
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 01ecf2985f6a62670a9c8b37778d93bba6cfa32d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 77e62ac257a8fbf87b9dc8b3160ec50b726478ba
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569958"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332032"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
