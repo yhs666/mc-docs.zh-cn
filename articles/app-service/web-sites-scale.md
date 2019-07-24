@@ -16,12 +16,12 @@ origin.date: 07/05/2016
 ms.date: 01/21/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: b4d548d814c5e14e4d20a0ac77716f37ad8d071c
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: ad47bd93962f4f9caf5149ffd73e88f1a2a0dd01
+ms.sourcegitcommit: 2ee3d4b7925390ff27d80d5e05a370dfb98e615c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083641"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371611"
 ---
 # <a name="scale-up-an-app-in-azure"></a>增加 Azure 中的应用
 本文介绍如何在 Azure 应用服务中缩放应用。 缩放的工作流有两种：向上缩放和向外缩放；本文介绍向上缩放工作流。
@@ -29,7 +29,7 @@ ms.locfileid: "54083641"
 * [纵向扩展](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VM)、自定义域和证书、过渡槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。
 * [横向扩展](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：增加用于运行应用的 VM 实例数。
   根据定价层，最多可以向外缩放到 20 个实例。 
-  有关向外缩放的详细信息，请参阅[手动或自动缩放实例计数](../monitoring-and-diagnostics/insights-how-to-scale.md)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
+  有关向外缩放的详细信息，请参阅[手动或自动缩放实例计数](../azure-monitor/platform/autoscale-get-started.md)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
 
 缩放设置仅需几秒即可应用，并且会影响[应用服务计划](../app-service/overview-hosting-plans.md)中的所有应用。
 缩放设置不需要更改代码或重新部署应用程序。
@@ -37,7 +37,7 @@ ms.locfileid: "54083641"
 有关各个应用服务计划的定价和功能的信息，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。  
 
 > [!NOTE]
-> 在从**免费**层切换应用服务计划之前，必须首先删除对 Azure 订阅施加的[支出限制](https://www.azure.cn/pricing/spending-limits/)。 若要查看或更改 Azure 应用服务订阅的选项，请参阅 [Azure Subscriptions][azuresubscriptions]（Azure 订阅）。
+> 在从**免费**层切换应用服务计划之前，必须首先删除对 Azure 订阅施加的[支出限制](https://www.azure.cn/pricing/spending-limits/)。 若要查看或更改 Azure 应用服务订阅的选项，请参阅 [Azure 订阅][azuresubscriptions]。
 > 
 > 
 
@@ -46,31 +46,31 @@ ms.locfileid: "54083641"
 
 ## <a name="scale-up-your-pricing-tier"></a>增加定价层
 1. 在浏览器中，打开 [Azure 门户][portal]。
-2. 在应用服务应用页面，单击“所有设置”，然后单击“纵向扩展”。
+2. 在应用服务应用页面，单击“所有设置”，然后单击“纵向扩展”   。
    
     ![导航到向上缩放 Azure 应用。][ChooseWHP]
-3. 选择层，并单击“应用”。
+3. 选择层，并单击“应用”。 
    
-    在操作完成后，“通知”选项卡上将闪现绿色的**成功**字样。
+    在操作完成后，“通知”选项卡上将闪现绿色的**成功**字样。 
 
 <a name="ScalingSQLServer"></a>
 
 ## <a name="scale-related-resources"></a>与缩放相关的资源
 如果应用依赖于其他服务，如 Azure SQL 数据库或 Azure 存储，则可单独对这些资源进行纵向扩展。 这些资源不由应用服务计划管理。
 
-1. 在“软件包”中，单击“资源组”链接。
+1. 在“软件包”中，单击“资源组”链接。  
    
     ![与向上缩放 Azure 应用相关的资源](./media/web-sites-scale/RGEssentialsLink.png)
-2. 在“资源组”页的“摘要”部分，单击希望缩放的资源。 以下屏幕截图显示了 SQL 数据库资源和 Azure 存储资源。
+2. 在“资源组”页的“摘要”部分，单击希望缩放的资源   。 以下屏幕截图显示了 SQL 数据库资源和 Azure 存储资源。
    
     ![导航到资源组页面对 Azure 应用进行纵向扩展](./media/web-sites-scale/ResourceGroup.png)
-3. 对于 SQL 数据库资源，请单击“设置” > “定价层”以缩放定价层。
+3. 对于 SQL 数据库资源，请单击“设置” > “定价层”以缩放定价层。  
    
     ![向上缩放 Azure 应用的 SQL 数据库后端](./media/web-sites-scale/ScaleDatabase.png)
    
     还可以为 SQL 数据库实例启用[异地复制](../sql-database/sql-database-geo-replication-overview.md)。
    
-    对于 Azure 存储资源，请单击“设置” > “配置”以向上缩放存储选项。
+    对于 Azure 存储资源，请单击“设置” > “配置”以向上缩放存储选项。  
    
     ![增加 Azure 应用使用的 Azure 存储帐户](./media/web-sites-scale/ScaleStorage.png)
 
