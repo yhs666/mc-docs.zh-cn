@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 05/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 656a76a120f5688ba644b8d1f629b56034b0c713
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 474089796f950273d3f60384693952ffb4260832
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828549"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332152"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用仪表板来改善应用
 
-使用示例言语时查找并修复已训练应用的意向问题。 摘要仪表板显示整体性的应用信息，并突出显示应予以修复的意向。 
+使用示例言语时查找并修复已训练应用的意向问题。 仪表板显示整体性的应用信息，并突出显示应予以修复的意向。 
 
 检查仪表板分析信息是一个迭代的过程，在更改和改善模型的过程中需要反复检查。
 
-对于在意向中不包含任何示例言语的应用（称为仅限模式的应用），此页不会提供相关的分析。 
+对于在意向中不包含任何示例言语的应用（称为仅限模式的应用），此页不会提供相关的分析。  
 
 ## <a name="what-issues-can-be-fixed-from-dashboard"></a>在仪表板中可以修复哪些问题？
 
@@ -32,43 +32,43 @@ ms.locfileid: "65828549"
 
 |问题|图表颜色|说明|
 |--|--|--|
-|数据不平衡|-|当示例言语的数量存在显著的差异时，将出现此问题。 所有意向需要有大致相同的示例言语数量 - None 意向除外。 None 意向的数量应该只占应用中言语总数的 10%-15%。<br><br> 如果数据不平衡但意向准确度超过特定的阈值，则不会将这种不平衡报告为一种问题。<br><br>**请从此问题着手 - 它可能是其他问题的根本原因。**|
+|数据不平衡|-|当示例言语的数量存在显著的差异时，将出现此问题。 所有意向需要有大致相同的示例言语数量 - None 意向除外。  None 意向的数量应该只占应用中言语总数的 10%-15%。<br><br> 如果数据不平衡但意向准确度超过特定的阈值，则不会将这种不平衡报告为一种问题。<br><br>**请从此问题着手 - 它可能是其他问题的根本原因。**|
 |不明确的预测|橙色|如果由于使用[负采样](luis-how-to-train.md#train-with-all-data)或者将更多示例言语添加到意向，而导致最前面的意向与下一个意向的评分足够接近，以致下一次训练时评分将会掉转，则就会出现此问题。 |
 |错误的预测|红色|未针对标记的意向（示例言语所在的意向）预测示例言语时，会出现此问题。|
 
 正确的预测以蓝色表示。
 
-摘要仪表板将显示这些问题，告知哪些意向受到影响，并建议采取哪些措施来改善应用。 
+仪表板将显示这些问题，告知哪些意向受到影响，并建议采取哪些措施来改进应用。 
 
 ## <a name="before-app-is-trained"></a>训练应用之前 
 
-训练应用之前，摘要仪表板不包含任何修复建议。 训练应用即可看到这些建议。  
+训练应用之前，仪表板不包含任何修复建议。 训练应用即可看到这些建议。  
 
 ## <a name="check-your-publishing-status"></a>检查发布状态
 
-“发布状态”卡片包含有关活动版本的上次发布情况的信息。 
+“发布状态”卡片包含有关活动版本的上次发布情况的信息。  
 
 请检查活动的版本是否为要修复的版本。 
 
-![摘要仪表板将显示应用的外部服务、发布区域，以及聚合的终结点访问次数。](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![仪表板将显示应用的外部服务、发布区域，以及聚合的终结点访问次数。](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 其中还会显示任何外部服务、发布区域，以及聚合的终结点访问次数。 
 
 ## <a name="review-training-evaluation"></a>检查训练评估
 
-“训练评估”卡片按区域显示应用总体准确度的聚合摘要。 评分指示意向的质量。 
+“训练评估”卡片按区域显示应用总体准确度的聚合摘要。  评分指示意向的质量。 
 
 ![“训练评估”卡片包含有关应用总体准确度的信息的第一个区域。](./media/luis-how-to-use-dashboard/analytics-card-2-shows-app-overall-accuracy.png)
 
 图表以不同的颜色指示正确预测的意向和问题区域。 根据建议改善应用时，此评分会提高。 
 
-建议的修复按问题类型进行区分，对于你的应用而言最为重要。 若要按意向检查和修复问题，请使用页面底部的**[有错误的意向](#intents-with-errors)** 卡片。 
+建议的修复按问题类型进行区分，对于你的应用而言最为重要。 若要按意向检查和修复问题，请使用页面底部的 **[有错误的意向](#intents-with-errors)** 卡片。 
 
-每个问题区域包含需要修复的意向。 选择意向名称时，“意向”页将会打开，其中包含一个应用于言语的筛选器。 使用此筛选器可以专注于处理导致问题的言语。
+每个问题区域包含需要修复的意向。 选择意向名称时，“意向”页将会打开，其中包含一个应用于言语的筛选器。  使用此筛选器可以专注于处理导致问题的言语。
 
 ### <a name="compare-changes-across-versions"></a>比较不同版本中的更改
 
-对应用进行更改之前创建新版本。 在新版本中，对意向的示例言语做出建议的更改，然后重新训练。 在仪表板页的“训练评估”卡片上，使用“显示已训练版本中的更改”来比较更改。 
+对应用进行更改之前创建新版本。 在新版本中，对意向的示例言语做出建议的更改，然后重新训练。 在仪表板页的“训练评估”卡片上，使用“显示已训练版本中的更改”来比较更改。   
 
 ![比较不同版本中的更改](./media/luis-how-to-use-dashboard/compare-improvement-across-versions.png)
 
@@ -96,10 +96,10 @@ ms.locfileid: "65828549"
 
 * 请将更多言语添加到意向，然后重新训练。 
 
-除非摘要仪表板上有建议，否则不要将言语添加到 None 意向。
+除非仪表板上有相关建议，否则不要将言语添加到 None 意向。
 
 > [!Tip]
-> 使用该页上的第三个部分 - 包含“言语(数目)”设置的“每个意向的言语”可以快速直观地了解哪些意向需要更多的言语。  
+> 使用该页上的第三个部分 - 包含“言语(数目)”设置的“每个意向的言语”可以快速直观地了解哪些意向需要更多的言语。    
     ![使用“言语(数目)”查找存在数据不平衡的意向。](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>检查错误的预测
@@ -136,7 +136,7 @@ ms.locfileid: "65828549"
 
 ![以下图表显示了一个适当平衡的应用，其中几乎不存在任何要修复的问题。](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
-使用“排序依据”功能可按问题类型排列意向，以便可以专注于处理存在该问题的最严重意向。 
+使用“排序依据”功能可按问题类型排列意向，以便可以专注于处理存在该问题的最严重意向。  
 
 ## <a name="intents-with-errors"></a>有错误的意向
 
@@ -163,7 +163,7 @@ ms.locfileid: "65828549"
 
 ### <a name="correct-prediction-threshold"></a>正确的预测阈值
 
-你的有把握预测的置信度评分是什么？ 在应用开发的初期，目标可能是 60%。 使用“正确的预测低于”和百分比 60% 查找选定意向中需要修复的所有言语。
+你的有把握预测的置信度评分是什么？ 在应用开发的初期，目标可能是 60%。 使用“正确的预测低于”和百分比 60% 查找选定意向中需要修复的所有言语。 
 
 ### <a name="unclear-or-incorrect-prediction-threshold"></a>不明确或错误的预测阈值
 
@@ -172,8 +172,3 @@ ms.locfileid: "65828549"
 ## <a name="next-steps"></a>后续步骤
 
 * [管理 Azure 资源](luis-how-to-azure-subscription.md)
-
-
-
-
-

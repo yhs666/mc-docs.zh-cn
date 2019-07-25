@@ -8,12 +8,12 @@ ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: v-lingwu
-ms.openlocfilehash: b7c76238ba4d53d0e984237457a807ed4cf9f931
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: b67f3ffdfd9318ceef0be35c4681dad4995f0125
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571455"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332235"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>使用 Microsoft Azure 备份服务器或 System Center DPM 进行备份时的支持矩阵
 
@@ -55,7 +55,7 @@ DPM 和 MABS 支持备份各种应用、服务器和客户端操作系统。 它
 
 **方案** | **代理** | **Location**
 --- | --- | ---
-**备份本地计算机/工作负荷** | DPM/MABS 保护代理在要备份的计算机上运行。<br/><br/> DPM/MABS 服务器上的 MARS 代理。 | DPM/MABS 必须在本地运行。
+**备份本地计算机/工作负荷** | DPM/MABS 保护代理在要备份的计算机上运行。<br/><br/> DPM/MABS 服务器上的 MARS 代理。<br/> 启用此功能所需的 Microsoft Azure 恢复服务代理或 Azure 备份代理的最低版本为 2.0.8719.0。  | DPM/MABS 必须在本地运行。
 **Azure VM/工作负荷的备份** | 受保护计算机上的 DPM/MABS 保护代理。<br/><br/> DPM/MABS 服务器上的 MARS 代理。 | DPM/MABS 必须在 Azure VM 上运行。
 
 ## <a name="supported-deployments"></a>支持的部署
@@ -103,7 +103,7 @@ Azure 备份可以备份运行以下任何操作系统的 DPM/MABS 实例。 操
 **MABS 存储** | 对 MABS VM 使用单独的存储帐户。 MABS 上运行的 MARS 代理需要使用临时存储作为缓存位置，以及保存从云中还原的数据。
 **MABS 存储池** | MABS 存储池的大小取决于附加到 MABS VM 的磁盘数目和大小。 每个 Azure Stack VM 大小具有最大磁盘数。 例如，A2 是四个磁盘。
 **MABS 保留** | 不要在本地 MABS 磁盘上将备份数据保留 5 天以上。
-**MABS 纵向扩展** | 若要纵向扩展部署，可以增大 MABS VM 的大小。 例如，可从 A 系列增大到 D 系列。<br/><br/> 还可以确保通过定期备份到 Azure 来卸载数据。 如有必要，可以部署更多的 MABS 服务器。
+**MABS 纵向扩展** | 若要纵向扩展部署，可以增加 MABS VM 的大小。 例如，可从 A 系列增大到 D 系列。<br/><br/> 还可以确保通过定期备份到 Azure 来卸载数据。 如有必要，可以部署更多的 MABS 服务器。
 **MABS 上的 .NET Framework** | 需要在 MABS VM 上安装 .NET Framework 3.3 SP1 或更高版本。
 **MABS 域** | MABS VM 必须加入域。 必须由具有管理员特权的域用户在 VM 上安装 MABS。
 **Azure Stack VM 数据备份** | 可以备份文件、文件夹和应用。
@@ -206,7 +206,7 @@ DPM 服务器/MABS 需要以下 URL 的访问权限：
 **VMware VM：vCenter/vSphere ESXi 5.5/6.0/6.5** | MABS v3、v2 <br/><br/> DPM 2012 R2 需要 System Center 更新汇总 1 <br/><br/>本地。 | 在 CSV、NFS 和 SAN 存储中备份 VMware VM。<br/><br/> 恢复整个 VM。<br/><br/> Windows/Linux 备份。<br/><br/> 文件夹/文件的项级恢复（仅适用于 Windows VM）。<br/><br/> 不支持 VMware vApp。<br/><br/> Linux VM 的恢复是针对整个计算机进行的。
 
 
-- 请注意，DPM/MABS 备份的群集工作负荷应与 DPM/MABS 位于同一域中，或者在子域/受信任的域中。
+- DPM/MABS 备份的群集工作负荷应与 DPM/MABS 位于同一域中，或者在子域/受信任的域中。
 - 可以使用 NTLM/证书身份验证在不受信任的域或工作组中备份数据。
 
 

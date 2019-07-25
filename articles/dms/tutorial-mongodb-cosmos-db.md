@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-origin.date: 05/29/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: 43649ea88a4c5b4fc0669872df0a4b5e0b7a9fbc
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+origin.date: 07/04/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: b46cb743de38fa134f10ee79b497a83396718f4b
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570101"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308923"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>教程：使用 DMS 将 MongoDB 脱机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -123,7 +123,7 @@ ms.locfileid: "67570101"
    * **连接字符串模式**：接受[连接字符串 URI 格式](https://docs.mongodb.com/manual/reference/connection-string/)一文中所述的 MongoDB 连接字符串。
    * **Azure 存储中的数据**：接受 Blob 容器 SAS URL。 如果 Blob 容器包含 MongoDB [bsondump 工具](https://docs.mongodb.com/manual/reference/program/bsondump/)生成的 BSON 转储，请选择“Blob 包含 BSON 转储”；如果容器包含 JSON 文件，请取消选择该选项。 
 
-    如果选择此选项，则请确保存储帐户连接字符串按以下格式显示：
+     如果选择此选项，则请确保存储帐户连接字符串按以下格式显示：
 
      ```
      https://blobnameurl/container?SASKEY
@@ -134,6 +134,13 @@ ms.locfileid: "67570101"
      * 对于 BSON 转储，blob 容器中的数据必须采用 bsondump 格式，这样数据文件才会放置到按 collection.bson 格式以包含数据库命令的文件夹中。 元数据文件（如有）应采用 collection.metadata.json 格式进行命名  。
 
      * 对于 JSON 转储，blob 容器中的文件必须放置到以包含数据库命名的文件夹中。 在每个数据库文件夹中，数据文件必须放置到名为“数据”且采用 collection.json 格式命名的子文件夹中  。 元数据文件（如有）必须放置到名为“元数据”且同样采用 collection.json 格式命名的子文件夹中  。 元数据文件必须采用由 MongoDB bsondump 工具所生成的相同格式。
+
+    > [!IMPORTANT]
+    > 建议不要在 mongo 服务器上使用自签名证书。 但是，如果使用了自签名证书，请使用**连接字符串模式**连接到服务器，并确保连接字符串包含 ��
+    >
+    >```
+    >&sslVerifyCertificate=false
+    >```
 
    即使不能使用 DNS 名称解析，也可使用 IP 地址。
 
