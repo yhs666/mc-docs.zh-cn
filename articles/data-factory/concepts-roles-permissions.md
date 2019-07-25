@@ -2,7 +2,7 @@
 title: Azure 数据工厂的角色和权限 | Microsoft Docs
 description: 介绍创建数据工厂并使用子资源所需的角色和权限。
 origin.date: 11/5/2018
-ms.date: 07/08/2019
+ms.date: 07/19/2019
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: cb30b06d15a8df6d7515e06f9639463992a4855b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e84d444f5cd8d20846b20679f3e356043a58d485
+ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569868"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332750"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure 数据工厂的角色和权限
 
@@ -51,7 +51,7 @@ ms.locfileid: "67569868"
 
 资源组级别或更高级别的“数据工厂参与者”  角色允许用户部署资源管理器模板。 因此，此角色的成员可以使用资源管理器模板来部署数据工厂及其子资源，包括数据集、链接服务、管道、触发器和集成运行时。 不过，此角色的成员身份不允许用户创建其他资源。
 
-Azure Repos 和 GitHub 上的权限独立于数据工厂权限。 因此，具有存储库权限但只具有读者角色的用户可以编辑数据工厂子资源并向存储库提交更改，但不能发布这些更改。
+GitHub 上的权限独立于数据工厂权限。 因此，具有存储库权限但只具有读者角色的用户可以编辑数据工厂子资源并向存储库提交更改，但不能发布这些更改。
 
 > [!IMPORTANT]
 > 使用“数据工厂参与者”角色进行资源管理器模板部署不会提升你的权限。  例如，如果你部署一个可以创建 Azure 虚拟机的模板，而你没有创建虚拟机的权限，则部署会失败并出现授权错误。

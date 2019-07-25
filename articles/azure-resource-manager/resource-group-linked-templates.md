@@ -1,26 +1,18 @@
 ---
 title: 用于 Azure 部署的链接模板 | Azure
 description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 05/01/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: b14374d271643f93d05547587a3d80d478ddd913
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 3e61c37cdc16a53c8f3c77efc7394237001ca9eb
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195383"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337445"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -92,7 +84,7 @@ ms.locfileid: "66195383"
 > [!NOTE]
 > 对于嵌套模板，不能使用嵌套模板中定义的参数或变量。 可以使用主模板中的参数和变量。 在前面的示例中，`[variables('storageName')]` 从主模板（而不是嵌套模板）中检索值。 此限制不适用于外部模版。
 >
-> 如果在嵌套的模板内定义了两个资源并且一个资源依赖于另一个资源，则依赖项的值就是被依赖资源的名称：
+> 如果在嵌套模板内定义了两个资源并且一个资源依赖于另一个资源，则依赖项的值就是依赖资源的名称：
 > ```json
 > "dependsOn": [
 >   "[variables('storageAccountName')]"

@@ -8,15 +8,15 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/19/2019
+origin.date: 07/04/2019
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 7331b54e2b70687fc8eb50c5a6164fcb7ecf87e8
-ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.openlocfilehash: 44b3b5bbf6ba54cbb2d90cb97b12f1cbedc8b542
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58256368"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331874"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 类型和功能 (Azure Functions)
 
@@ -28,7 +28,7 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 ## <a name="types-of-durable-functions"></a>Durable Functions 的类型
 
-可在 Azure Functions 中使用三种持久函数类型：活动、业务流程协调程序和客户端。
+可在 Azure Functions 中使用四种持久函数类型：活动、业务流程协调程序、实体和客户端。
 
 ### <a name="activity-functions"></a>活动函数
 
@@ -44,7 +44,7 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 ### <a name="orchestrator-functions"></a>业务流程协调程序函数
 
-业务流程协调程序函数描述操作的执行方式和操作的执行顺序。 业务流程协调程序函数描述代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 模式和技术概念](durable-functions-concepts.md)中所述。 业务流程可以包含许多不同类型的操作，包括[活动函数](#activity-functions)、[子业务流程](#sub-orchestrations)、[等待外部事件](#external-events)和[计时器](#durable-timers)。 
+业务流程协调程序函数描述操作的执行方式和操作的执行顺序。 业务流程协调程序函数描述代码（C# 或 JavaScript）中的业务流程，如 [Durable Functions 模式和技术概念](durable-functions-concepts.md)中所述。 业务流程可以包含许多不同类型的操作，包括[活动函数](#activity-functions)、[子业务流程](#sub-orchestrations)、[等待外部事件](#external-events)和[计时器](#durable-timers)。 业务流程协调程序函数也可以与[实体函数](#entity-functions)交互。
 
 必须由[业务流程触发器](durable-functions-bindings.md#orchestration-triggers)触发业务流程协调程序函数。
 
@@ -52,11 +52,18 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 有关详细信息和示例，请参阅[业务流程触发器](durable-functions-bindings.md#orchestration-triggers)。
 
+###  <a name="entity-functions"></a>实体函数（预览版）
+
+实体函数定义用于读取和更新较小状态片段（称为“持久实体”）的操作。  与业务流程协调程序函数类似，实体函数是具有特殊触发器类型“实体触发器”的函数。  与业务流程协调程序函数不同，实体函数没有任何特定的代码约束。 实体函数还会显式管理状态，而不是通过控制流隐式表示状态。
+
+> [!NOTE]
+> 实体函数和相关功能仅在 Durable Functions 2.0 及更高版本中可用。
+
+有关实体函数的详细信息，请参阅[实体函数](durable-functions-preview.md#entity-functions)预览功能文档。
+
 ### <a name="client-functions"></a>客户端函数
 
-客户端函数是触发的函数，可以创建业务流程的新实例。 客户端函数是用于创建 Durable Functions 业务流程实例的入口点。 可以从任何源（HTTP、队列、事件流）触发客户端函数。 可以使用应用支持的任何语言编写客户端函数。 
-
-客户端函数还具有[业务流程客户端](durable-functions-bindings.md#orchestration-client)绑定。 客户端函数可以使用业务流程客户端绑定来创建和管理持久业务流程。 
+客户端函数是触发的函数，用于创建和管理业务流程和实体的实例。 它们实际上是与 Durable Functions 进行交互的入口点。 可以从任何源（HTTP、队列、事件流等）触发客户端函数。 客户端函数使用[业务流程客户端绑定](durable-functions-bindings.md#orchestration-client)创建和管理持久业务流程和实体。
 
 客户端函数的最基本示例是 HTTP 触发的函数，该函数启动业务流程协调程序函数，然后返回检查状态响应。 有关示例，请参阅 [HTTP API URL 发现](durable-functions-http-api.md#http-api-url-discovery)。
 
@@ -74,7 +81,7 @@ Durable Functions 是 [Azure Functions](../functions-overview.md) 的一个扩�
 
 ### <a name="durable-timers"></a>持久计时器
 
-[Durable Functions](durable-functions-overview.md) 提供持久计时器，在业务流程协调程序函数中使用这些计时器可以针对异步操作实现延迟或设置超时。 在业务流程协调程序函数中应使用持久计时器，而不要使用 `Thread.Sleep` 和 `Task.Delay` (C#) 或 `setTimeout()` 和 `setInterval()` (JavaScript)。
+[Durable Functions](durable-functions-overview.md) 提供持久计时器，在业务流程协调程序函数中使用这些计时器可以针对异步操作实现延迟或设置超时。  在业务流程协调程序函数中应使用持久计时器，而不要使用 `Thread.Sleep` 和 `Task.Delay` (C#) 或 `setTimeout()` 和 `setInterval()` (JavaScript)。
 
 有关详细信息和示例，请参阅[持久计时器](durable-functions-timers.md)。
 
@@ -217,6 +224,6 @@ module.exports = async function(context, statusUrl) {
 > [详细了解 Durable Functions](durable-functions-bindings.md)
 
 <!-- Media references -->
-[1]: media/durable-functions-types-features-overview/durable-concepts.png
+[1]: ./media/durable-functions-types-features-overview/durable-concepts.png
 
 <!-- Update_Description: wording update -->

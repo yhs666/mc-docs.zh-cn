@@ -4,17 +4,17 @@ description: 介绍 Azure Policy 如何使用资源策略定义，通过描述�
 author: DCtheGeek
 ms.author: v-biyu
 origin.date: 08/16/2018
-ms.date: 07/15/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a7807bcbf5f7a4a677b0610ce9c01f4a12351114
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: b5ea5f1508ef30093c5f749ec996f3d0c8b167dd
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560300"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232311"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
@@ -99,13 +99,14 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 参数有下述可以在策略定义中使用的属性：
 
 - **name**：参数的名称。 由策略规则中的 `parameters` 部署函数使用。 有关详细信息，请参阅[使用参数值](#using-a-parameter-value)。
-- `type`：确定参数是**字符串**还是**数组**。
+- `type`：确定参数是**字符串**、**数组**、**对象**、**布尔值**、**整数**、**浮点数**还是**日期/时间**。
 - `metadata`：定义主要由 Azure 门户用来显示用户友好信息的子属性：
   - `description`：说明参数的用途。 可以用来提供可接受值的示例。
   - `displayName`：在门户中显示的用于参数的友好名称。
   - `strongType`：（可选）通过门户分配策略定义时使用。 提供上下文感知列表。 有关详细信息，请参阅 [strongType](#strongtype)。
   - `assignPermissions`：（可选）设置为 _true_ 将让 Azure 门户在分配策略期间创建角色分配。 如果希望分配处于分配作用域之外的权限，则此属性非常有用。 策略中的每个角色定义（或计划中所有策略中的每个角色定义）有一个角色分配。 参数值必须是有效的资源或作用域。
-- `defaultValue`：（可选）设置分配的参数的值（如果值未给定）。 在更新已分配的现有策略定义时必须使用此项。
+- `defaultValue`：（可选）设置分配的参数的值（如果值未给定）。
+  在更新已分配的现有策略定义时必须使用此项。
 - `allowedValues`：（可选）提供参数在分配过程中接受的值的数组。
 
 例如，可以定义策略定义来限制资源的部署位置。 **allowedLocations** 可以是该策略定义的一个参数。 每次分配策略定义来限制接受的值时，会使用此参数。 使用 **strongType** 可以在通过门户完成分配时提供增强的体验：
@@ -146,12 +147,17 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 在 `metadata` 属性中，可以使用 **strongType** 提供 Azure 门户中的选项多选列表。 **strongType** 的允许值目前包括：
 
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+- `location`
+- `resourceTypes`
+- `storageSkus`
+- `vmSKUs`
+- `existingResourceGroups`
+- `omsWorkspace`
+- `Microsoft.EventHub/Namespaces/EventHubs`
+- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.EventHub/Namespaces/AuthorizationRules`
+- `Microsoft.RecoveryServices/vaults`
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## <a name="definition-location"></a>定义位置
 
@@ -461,7 +467,7 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
   # Use Get-AzPolicyAlias to list aliases for a Namespace (such as Azure Automation -- Microsoft.Automation)
   Get-AzPolicyAlias -NamespaceMatch 'automation'
   ```
- 
+
 - CLI
 
   ```cli

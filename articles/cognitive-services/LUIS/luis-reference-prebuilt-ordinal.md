@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d7af170ed638414ccc92d33716069b7e00080017
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 1eae872d758d9f41cd1dc92c0e9ce4682f9eaa4b
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828508"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332142"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的序号预生成实体
 序号是一个集合内的对象的数字表示形式：`first`、`second`、`third`。 此实体已定型，因此不需要将包含序号的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持序号实体。 
@@ -130,8 +130,4 @@ ms.locfileid: "65828508"
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[百分比](luis-reference-prebuilt-percentage.md)、[电话号码](luis-reference-prebuilt-phonenumber.md)和[温度](luis-reference-prebuilt-temperature.md)实体。 
-
-
-
-
+了解[序号 V2](luis-reference-prebuilt-ordinal-v2.md)、[电话号码](luis-reference-prebuilt-phonenumber.md)和[温度](luis-reference-prebuilt-temperature.md)实体。 

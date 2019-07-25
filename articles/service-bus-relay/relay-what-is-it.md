@@ -9,16 +9,16 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: c7b5824d37da1e6239d90c4f8cf411fd7ba9ab58
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+ms.openlocfilehash: 745e7a6e3a271dccf13bd9dbcb9e71fd6ddc414c
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545272"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332204"
 ---
 # <a name="what-is-azure-relay"></a>什么是 Azure 中继？
 使用 Azure 中继服务可以安全地在公有云中公开企业网络中运行的服务。 无需打开防火墙上的端口或者对企业网络基础设施进行彻底的改造就能实现此目的。 
@@ -37,13 +37,13 @@ Azure 中继不同于 VPN 等网络级集成技术。 Azure 中继的范围可�
 1. 本地服务通过出站端口连接到中继服务。 
 2. 该服务创建双向套接字，以便专门为特定的地址进行通信。 
 3. 然后，客户端可以通过将流量发送到针对该地址的中继服务来与本地服务通信。 
-4. 中继服务接着通过客户端专用的双向套接字将数据中继到本地服务。 客户端不需要与本地服务建立直接连接。 它不需要知道该服务的位置。 另外，本地服务不需要在防火墙中打开任何入站端口。
+4. 中继服务接着通过客户端专用的双向套接字将数据中继到本地服务。  客户端不需要与本地服务建立直接连接。 它不需要知道该服务的位置。 另外，本地服务不需要在防火墙中打开任何入站端口。
 
 ## <a name="features"></a>功能 
 Azure 中继具有两项功能：
 
 - [混合连接](#hybrid-connections) - 使用开放标准 Web 套接字，实现多平台方案。
-- [WCF 中继](#wcf-relays) - 使用 Windows Communication Foundation (WCF) 实现远程过程调用。 WCF 中继是传统的中继产品，很多客户已在其 WCF 编程模型中使用。
+- WCF 中继 - 使用 Windows Communication Foundation (WCF) 实现远程过程调用。 WCF 中继是传统的中继产品，很多客户已在其 WCF 编程模型中使用。
 
 ## <a name="hybrid-connections"></a>混合连接
 
@@ -57,7 +57,7 @@ Azure 中继的混合连接功能是以往的中继功能的安全开放协议�
 ## <a name="wcf-relay"></a>WCF 中继
 WCF 中继适用于整个 .NET Framework 和 WCF。 可以使用一套 WCF“中继”绑定在本地服务与中继服务之间建立连接。 中继绑定将映射到新的传输绑定元素，这些元素旨在创建与云中服务总线集成的 WCF 通道组件。 有关详细信息，请参阅 [WCF 中继入门](relay-wcf-dotnet-get-started.md)。
 
-## 混合连接与WCF 中继<a name="wcf-relays"></a>
+## 混合连接与WCF 中继 <a name="wcf-relays"></a>
 使用混合连接和 WCF 中继都能与企业网络中的资产建立安全连接。 哪一种功能更好将取决于具体的需求，如下表中所述：
 
 |  | WCF 中继 | 混合连接 |

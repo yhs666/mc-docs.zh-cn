@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 04/19/19
+ms.date: 06/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6d49bd230020bb4356d3e6460f47a1b7c0bb155a
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: d5ce2d6ee311b8805895c61d9dcc3f7d761751ab
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555526"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332271"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 
@@ -57,17 +57,17 @@ LUIS 应用包含一个特定于域的自然语言模型。 可通过预构建�
 
 LUIS 模型从称为 **[意向](luis-concept-intent.md)** 的用户意向的类别开始。 每个意向都需要用户 **[话语](luis-concept-utterance.md)** 的示例。 每个话语都可以提供各种数据，这些数据需要通过 **[实体](luis-concept-entity-types.md)** 来提取。 
 
-|示例用户话语|意向|实体|
+|示例用户话语|Intent|实体|
 |-----------|-----------|-----------|
-|“预订到西雅图的航班？”|BookFlight|西雅图|
-|“你的店铺何时开门？”|店铺营业时间和位置|开门|
-|“安排下午 1 点与分销部的何石谈话”|安排谈话|下午 1 点，何石|
+|“预订到西雅图的航班？” |BookFlight|西雅图|
+|“你的店铺何时开门？” |店铺营业时间和位置|开门|
+|“安排下午 1 点与分销部的何石谈话”  |安排谈话|下午 1 点，何石|
 
 ## <a name="query-prediction-endpoint"></a>查询预测终结点
 
 在生成模型并将其发布到终结点以后，客户端应用程序会将话语发送到已发布的预测[终结点](https://aka.ms/luis-endpoint-apis) API。 API 将模型应用于要分析的文本。 API 使用 JSON 格式的预测结果进行响应。  
 
-JSON 终结点响应至少包含查询话语和得分最高的意向。 它还可以提取数据，例如下面的“联系人类型”实体。 
+JSON 终结点响应至少包含查询话语和得分最高的意向。 它还可以提取数据，例如下面的“联系人类型”实体。  
 
 ```JSON
 {
@@ -101,7 +101,7 @@ LUIS 提供工具、版本控制以及与其他 LUIS 创建者的协作，以便
 作为 REST API，LUIS 可以与任何发送 HTTP 请求的产品、服务或框架配合使用。 以下列表包含与 LUIS 配合使用的顶级 Azure 产品和服务。
 
 LUIS 的顶级客户端应用程序是：
-* [Web 应用机器人](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0)可以快速创建支持 LUIS 的聊天机器人，该机器人可以通过文本输入与用户交谈。 使用 [Bot Framework][bot-framework] [3.x](https://github.com/Microsoft/BotBuilder) 或 [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版以获取完整的机器人体验。
+* [Web 应用机器人](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)可以快速创建支持 LUIS 的聊天机器人，该机器人可以通过文本输入与用户交谈。 使用 [Bot Framework][bot-framework] [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版以获取完整的机器人体验。
 
 通过机器人快速轻松地使用 LUIS 的工具：
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS)：NPM 包以独立命令行工具或导入的形式提供创作和预测。 

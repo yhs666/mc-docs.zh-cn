@@ -5,16 +5,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/26/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b2fa5152029e31e084a8fd9fa5a76ca786c95540
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 2feea1a5e20da7a83ae143c515c6184fc76a190a
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194949"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337379"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge 的常见问题和解决方法
 
@@ -261,12 +261,12 @@ IoT Edge 运行时只支持短于 64 个字符的主机名。 物理计算机通
 看到此错误时，可以配置虚拟机的 DNS 名称，然后在设置命令中将 DNS 名称设置为主机名。
 
 1. 在 Azure 门户中，导航到虚拟机的概述页面。 
-2. 选择 DNS 名称下的“配置”。 如果你的虚拟机已配置 DNS 名称，则不需要再配置。 
+2. 选择 DNS 名称下的“配置”  。 如果你的虚拟机已配置 DNS 名称，则不需要再配置。 
 
    ![配置虚拟机的 DNS 名称](./media/troubleshoot/configure-dns.png)
 
-3. 为“DNS 名称标签”提供一个值，然后选择“保存”。
-4. 复制新的 DNS 名称，此名称应该为 \<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com。
+3. 为“DNS 名称标签”提供一个值，然后选择“保存”   。
+4. 复制新的 DNS 名称，此名称应该为 \<DNSnamelabel\>.\<vmlocation\>.cloudapp.azure.com  。
 5. 在虚拟机中使用下列命令，以 DNS 名称设置 IoT Edge 运行时：
 
    - 在 Linux 上：
@@ -292,7 +292,7 @@ IoT Edge 中心是 IoT Edge 运行时的一部分，默认情况下已针对性�
 
 在 UI 中： 
 
-在门户中，导航到“设备详细信息” > “设置模块” > “配置高级 Edge 运行时设置”。 为 Edge 中心模块创建名为 *OptimizeForPerformance*、设置为 *false* 的环境变量。
+在门户中，导航到“设备详细信息” > “设置模块” > “配置高级 Edge 运行时设置”    。 为 Edge 中心模块创建名为 *OptimizeForPerformance*、设置为 *false* 的环境变量。
 
 ![设为 false 的 OptimizeForPerformance](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -343,6 +343,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 出于安全考虑，IoT Edge 守护程序会强制对连接到 edgeHub 的所有模块执行进程识别。 它会验证某个模块发送的所有消息是否来自该模块的主进程 ID。 如果发送消息的模块的进程 ID 不同于最初建立的进程 ID，则守护程序会拒绝该消息并返回 404 错误消息。
 
 ### <a name="resolution"></a>解决方法
+从版本 1.0.7 开始，所有模块进程都有权进行连接。 如果无法升级到 1.0.7，请完成以下步骤。 有关详细信息，请参阅 [1.0.7 版本更改日志](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)。
+
 确保自定义 IoT Edge 模块始终使用相同的进程 ID 向 Edge 中心发送消息。 例如，确保在 Docker 文件中指定 `ENTRYPOINT` 而不是 `CMD` 命令，因为 `CMD` 会导致模块使用一个进程 ID、运行主程序的 bash 命令使用另一个进程 ID，而 `ENTRYPOINT` 则导致生成单个进程 ID。
 
 
@@ -380,7 +382,7 @@ IoT Edge 提供增强的配置来保护 Azure IoT Edge 运行时和已部署的�
 
 将 `daemon.json` 放入平台上的适当位置： 
 
-| 平台 | 位置 |
+| 平台 | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | 包含 Windows 容器的 Windows 主机 | `C:\ProgramData\iotedge-moby\config` |

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 07/15/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: e0a41590dbc7062679b8b7c788ff7bb241777acf
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: 06b18070916f3d66afbe463cd560c0acbfeba77f
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560298"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232307"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中心推送通知：常见问题
 
@@ -86,7 +86,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 
 有关支持的设备数目的详细信息，请参阅[通知中心定价]页。
 
-如果需要支持 1000 万台以上的已注册设备，请直接[与我们联系](https://www.azure.cn/support/contact/)，我们将帮你扩展解决方案。
+如果需要支持超过 1000 万个注册设备，则必须将设备分布到多个中心。
 
 ### <a name="how-many-push-notifications-can-i-send-out"></a>我可以发送多少推送通知？
 
@@ -198,6 +198,7 @@ Azure 通知中心允许在 [Azure 门户]中查看遥测数据。 可以在[通
 
 
 
+
 > [!NOTE]
 > 通知成功仅意味着推送通知已传递到外部 PNS。 PNS 负责将通知传递到目标设备。 PNS 通常不会向第三方公开传递指标。  
 
@@ -217,5 +218,3 @@ Azure 通知中心允许在 [Azure 门户]中查看遥测数据。 可以在[通
 [Azure 门户]: https://portal.azure.cn
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [应用服务定价]: https://www.azure.cn/pricing/details/app-service/
-
-<!--Update_Description: wording update -->

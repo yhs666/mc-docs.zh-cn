@@ -5,18 +5,18 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: a72c1de4670d1cd2833d2aebd3bb7281e3735a3a
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+origin.date: 06/11/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: a1b537bbff83857d789b6c2c6ecd697266d0f8e4
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173254"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308884"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>在 Azure 门户中配置和访问服务器日志
 
-可以从 Azure 门户配置、列出和下载 [Azure Database for MariaDB 服务器日志](concepts-server-logs.md)。
+可以从 Azure 门户配置、列出并下载 [Azure Database for MariaDB 慢查询日志](concepts-server-logs.md)。
 
 ## <a name="prerequisites"></a>先决条件
 若要逐步执行本操作方法指南，需要：
@@ -29,41 +29,41 @@ ms.locfileid: "66173254"
 
 2. 选择 Azure Database for MariaDB 服务器。
 
-3. 在侧栏“监视”部分下，选择“服务器日志”。 
+3. 在侧栏“监视”部分下，选择“服务器日志”   。 
    ![选择“服务器日志”，单击以进行配置](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
-4. 若要查看服务器参数，请选择标题“单击此处以启用日志并配置日志参数”。
+4. 若要查看服务器参数，请选择标题“单击此处以启用日志并配置日志参数”  。
 
 5. 更改需要调整的参数，包括将“slow_query_log”转换为“启用”。 在此会话中所做的更改都突出显示为紫色。 
 
-   更改参数之后，可以单击“保存”。 或者也可以放弃所做的更改。
+   更改参数之后，可以单击“保存”  。 或者也可以放弃所做的更改  。
 
    ![只需单击“保存”或“放弃”](./media/howto-configure-server-logs-portal/3-save-discard.png)
 
-6. 单击服务器参数页上的“关闭”按钮（X 图标）返回到日志列表。
+6. 单击服务器参数页上的“关闭”按钮（X 图标）返回到日志列表   。
 
 ## <a name="view-list-and-download-logs"></a>查看列表并下载日志
-日志记录开始后，在“服务器日志”面板上可以查看可用日志列表，并下载单个日志文件。 
+日志记录开始后，可以在“服务器日志”窗格上查看可用慢查询日志列表，并下载单个日志文件。 
 
 1. 打开 Azure 门户。
 
 2. 选择 Azure Database for MariaDB 服务器。
 
-3. 在侧栏“监视”部分下，选择“服务器日志”。 此页面将显示日志文件列表，如图所示：
+3. 在侧栏“监视”部分下，选择“服务器日志”   。 此页面将显示日志文件列表，如图所示：
 
    ![日志列表](./media/howto-configure-server-logs-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > 日志命名约定是 mysql-slow-< your server name>-yyyymmddhh.log。 文件名称中的日期和时间是发布日志的时间。 日志文件每 24 小时或每 7 GB 轮换一次（以先达到的条件为准）。
+   > 日志命名约定是 mysql-slow-< your server name>-yyyymmddhh.log  。 文件名称中的日期和时间是发布日志的时间。 日志文件每 24 小时或每 7 GB 轮换一次（以先达到的条件为准）。
 
-4. 如果需要，使用“搜索框”可快速缩小范围，找到基于日期/时间的特定日志。 按日志名称进行搜索。
+4. 如果需要，使用“搜索框”可快速缩小范围，找到基于日期/时间的特定日志  。 按日志名称进行搜索。
 
-5. 使用表行中日志文件旁边的“下载”按钮（向下箭头图标）下载单个日志文件，如图所示：
+5. 使用表行中日志文件旁边的“下载”按钮（向下箭头图标）下载单个日志文件，如图所示  ：
 
    ![单击“下载”图标](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## <a name="next-steps"></a>后续步骤
-- 详细了解 Azure Database for MariaDB 中的[服务器日志](concepts-server-logs.md)。
+- 详细了解 Azure Database for MariaDB 中的[慢查询日志](concepts-server-logs.md)。
 - 有关参数定义和日志记录的详细信息，请参阅[日志](https://mariadb.com/kb/en/library/slow-query-log-overview/)上的 MariaDB 文档。
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

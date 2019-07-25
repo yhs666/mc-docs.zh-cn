@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 12/20/2017
 ms.date: 11/06/18
 ms.author: v-lingwu
-ms.openlocfilehash: b9460d67e6df22f10c0acd0b9273a39e39c08b9d
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: 3a5b4beb6ba3e69e7de8b9657e33fc2b0e381af7
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609855"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332205"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
 本文介绍如何使用 Azure 中继服务。 相关示例用 C# 编写并使用服务总线程序集中包含的 Windows Communication Foundation (WCF) API 及扩展。 有关 Azure 中继的详细信息，请参阅 [Azure 中继概述](relay-what-is-it.md)。
@@ -29,7 +29,7 @@ ms.locfileid: "65609855"
 
 ## <a name="what-is-wcf-relay"></a>什么是 WCF 中继？
 
-通过 Azure [WCF 中继](relay-what-is-it.md)服务可构建在 Azure 数据中心和自己的本地企业环境中运行的混合应用程序。 中继服务可简化这一过程，它允许安全地向公有云公开位于企业网络内的 Windows Communication Foundation (WCF) 服务，而无需打开防火墙连接，也无需对企业网络基础结构进行彻底的更改。
+通过 Azure [WCF 中继  ](relay-what-is-it.md)服务可构建在 Azure 数据中心和自己的本地企业环境中运行的混合应用程序。 中继服务可简化这一过程，它允许安全地向公有云公开位于企业网络内的 Windows Communication Foundation (WCF) 服务，而无需打开防火墙连接，也无需对企业网络基础结构进行彻底的更改。
 
 ![WCF 中继概念](./media/service-bus-dotnet-how-to-use-relay/sb-relay-01.png)
 
@@ -42,8 +42,8 @@ Azure 中继可用于在现有企业环境中托管 WCF 服务。 然后，可�
 ## <a name="get-the-service-bus-nuget-package"></a>获取服务总线 NuGet 包
 [服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus) 是获取服务总线 API 并为应用程序配置所有服务总线依赖项的最简单的方法。 若要在项目中安装 NuGet 包，请执行以下操作：
 
-1. 在“解决方案资源管理器”中，右键单击“引用”，并单击“管理 NuGet 包”。
-2. 搜索“服务总线”并选择“Microsoft Azure 服务总线”项。 **安装** ”以完成安装，并关闭以下对话框：
+1. 在“解决方案资源管理器”中，右键单击“引用”  ，并单击“管理 NuGet 包”  。
+2. 搜索“服务总线”并选择“Microsoft Azure 服务总线”  项。 **安装** ”以完成安装，并关闭以下对话框：
    
    ![](./media/service-bus-dotnet-how-to-use-relay/getting-started-multi-tier-13.png)
 
@@ -94,7 +94,7 @@ class ProblemSolver : IProblemSolver
 ```
 
 ### <a name="configure-a-service-host-programmatically"></a>以编程方式配置服务主机
-协定和实施完成后，现在就可以托管服务了。 托管发生在 [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx) 对象内，该对象负责管理服务实例并托管侦听消息的终结点。 以下代码使用常规的本地终结点和中继终结点配置服务，以便并列展示内部和外部终结点的外观。 将字符串 namespace 替换为命名空间名称，并将 yourKey 替换为前面的设置步骤中获取的 SAS 密钥。
+协定和实施完成后，现在就可以托管服务了。 托管发生在 [System.ServiceModel.ServiceHost](https://msdn.microsoft.com/library/system.servicemodel.servicehost.aspx) 对象内，该对象负责管理服务实例并托管侦听消息的终结点。 以下代码使用常规的本地终结点和中继终结点配置服务，以便并列展示内部和外部终结点的外观。 将字符串 namespace  替换为命名空间名称，并将 yourKey  替换为前面的设置步骤中获取的 SAS 密钥。
 
 ```csharp
 ServiceHost sh = new ServiceHost(typeof(ProblemSolver));
@@ -130,7 +130,7 @@ Console.ReadLine();
 sh.Close();
 ```
 
-终结点定义移到 App.config 文件中。 NuGet 包已向 App.config 文件添加一系列定义，这些定义是 Azure 中继必需的配置扩展。 以下示例（与前面的代码完全等效）应该紧靠在 **system.serviceModel** 元素的下面。 此代码示例假设项目 C# 命名空间名命名为“Service”。
+终结点定义移到 App.config 文件中。 NuGet 包已向 App.config 文件添加一系列定义，这些定义是 Azure 中继必需的配置扩展。 以下示例（与前面的代码完全等效）应该紧靠在 **system.serviceModel** 元素的下面。 此代码示例假设项目 C# 命名空间名命名为“Service”  。
 将占位符替换为中继命名空间名称和 SAS 密钥。
 
 ```xml
@@ -162,7 +162,7 @@ sh.Close();
 
 ### <a name="create-the-client"></a>创建客户端
 #### <a name="configure-a-client-programmatically"></a>以编程方式配置客户端
-要使用该服务，可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 对象构造 WCF 客户端。 服务总线使用通过 ACS 实现的基于令牌的安全模型。 [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 类代表具有内置工厂方法的安全令牌提供程序，这些方法可返回一些众所周知的令牌提供程序。 以下示例使用 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider#Microsoft_ServiceBus_TokenProvider_CreateSharedAccessSignatureTokenProvider_System_String_) 方法处理相应 SAS 令牌的获取。 名称和密钥是根据上一部分所述从门户获取的凭据。
+要使用该服务，可以使用 [ChannelFactory](https://msdn.microsoft.com/library/system.servicemodel.channelfactory.aspx) 对象构造 WCF 客户端。 服务总线使用通过 ACS 实现的基于令牌的安全模型。 [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 类代表具有内置工厂方法的安全令牌提供程序，这些方法可返回一些众所周知的令牌提供程序。 以下示例使用 [CreateSharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) 方法处理相应 SAS 令牌的获取。 名称和密钥是根据上一部分所述从门户获取的凭据。
 
 首先，在客户端项目中引用服务中的 `IProblemSolver` 约定代码或将其复制到客户端项目中。
 
@@ -221,7 +221,7 @@ using (var ch = cf.CreateChannel())
 现已了解有关 Azure 中继的基础知识，请单击以下链接了解详细信息。
 
 * [什么是 Azure 中继？](relay-what-is-it.md)
-* 从 [Azure 示例][Azure samples]下载服务总线示例，或参阅[服务总线示例概述][overview of Service Bus samples]。
+* 从 [Azure 示例][Azure samples]or see the [overview of Service Bus samples][overview of Service Bus samples]下载服务总线示例。
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

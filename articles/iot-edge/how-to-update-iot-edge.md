@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 1717408870498304444598828fc0cd63d82381fe
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: f38fc4eb45d5feed7bf9b5ada59ce6e8d1b4cc65
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845217"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337317"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>更新 IoT Edge 安全守护程序和运行时
 
@@ -42,12 +42,14 @@ IoT Edge 安全守护程序是一个本机组件，需要使用 IoT Edge 设备�
 
 ### <a name="linux-devices"></a>Linux 设备
 
-在 Linux 设备上，请使用 apt-get 或相应的包管理器来更新安全守护程序。 
+在 Linux x64 设备上，请使用 apt-get 或相应的包管理器来更新安全守护程序。 
 
 ```bash
 apt-get update
 apt-get install libiothsm iotedge
 ```
+
+在 Linux ARM32 设备上，使用[在 Linux (ARM32v7/armhf) 上安装 Azure IoT Edge 运行时](how-to-install-iot-edge-linux-arm.md)中的步骤来安装最新版本的安全守护程序。 
 
 ### <a name="windows-devices"></a>Windows 设备
 

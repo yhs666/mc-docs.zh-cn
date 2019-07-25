@@ -6,16 +6,16 @@ manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
 origin.date: 06/19/2019
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 937fb83324af9a8e8b18cf900fb6e660fbb0c675
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: b9215f55796dc508d9d9c99aa03ecec6aba17337
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845216"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337312"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>通过 IoT Edge 上的 Azure Blob 存储（预览版）在边缘存储数据
 
@@ -60,13 +60,14 @@ Azure IoT Edge 设备：
 
 - IoT Edge 模块上的 Azure Blob 存储支持以下设备配置：
 
-  | 操作系统 | 体系结构 |
-  | ---------------- | ----- | ----- |
-  | Ubuntu Server 16.04 | AMD64 |
-  | Ubuntu Server 18.04 | AMD64 |
-  | Windows 10 IoT Enterprise | AMD64 |
-  | Windows Server 2019 | AMD64 |
-  | Raspbian-stretch | ARM32 |
+  | 操作系统 | AMD64 | ARM32v7 | ARM64 |
+  | ---------------- | ----- | ----- | ---- |
+  | Raspbian-stretch | 否 | 是 | 否 |  
+  | Ubuntu Server 16.04 | 是 | 否 | 是（适用于使用 [Azure IoT Edge 1.0.8-rc1 及更高版本](https://github.com/Azure/azure-iotedge/releases)[安装](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)） |
+  | Ubuntu Server 18.04 | 是 | 否 | 是（适用于使用 [Azure IoT Edge 1.0.8-rc1 及更高版本](https://github.com/Azure/azure-iotedge/releases)[安装](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)） |
+  | Windows 10 IoT 企业版 17763 | 是 | 否 | 否 |
+  | Windows Server 2019 内部版本 17763 | 是 | 否 | 否 |
+  
 
 云资源：
 

@@ -10,15 +10,15 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 02/25/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 4ba2f59a8036f0b1c385c1647b4f11a0fa87958b
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: b4d48369b203d6de30d82b6b42a7da4c0f65d71c
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222615"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232271"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>使用应用服务和 Azure Functions 的 Key Vault 引用（预览版）
 
@@ -39,6 +39,8 @@ ms.locfileid: "56222615"
    > Key Vault 引用目前仅支持系统分配托管标识。 不能使用用户分配标识。
 
 1. 在 Key Vault 中为此前创建的应用程序标识创建一项[访问策略](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies)。 在此策略上启用“获取”机密权限。 请勿配置“授权的应用程序”或 `appliationId` 设置，因为这与托管标识不兼容。
+
+    授予对密钥保管库中的应用程序标识的访问权限是一次性操作，并且对于所有 Azure 订阅都将保持相同。 可以使用它部署所需的任意数量的证书。 
 
 ## <a name="reference-syntax"></a>引用语法
 

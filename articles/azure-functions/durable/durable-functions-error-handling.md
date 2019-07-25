@@ -2,25 +2,25 @@
 title: 处理 Durable Functions 中的错误 - Azure
 description: 了解如何在 Azure Functions 的 Durable Functions 扩展中处理错误。
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 12/25/2018
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1d49c31718fa176182983d59e99375e3ad83a932
-ms.sourcegitcommit: d15400cf780fd494d491b2fe1c56e312d3a95969
+ms.openlocfilehash: 8fc9e6cf6c5bb4ad40aefdca16472a625fb6c052
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806696"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331939"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>处理 Durable Functions 中的错误 (Azure Functions)
 
-Durable Function 业务流程采用代码实现，并可使用编程语言的错误处理功能。 考虑到这一点，将错误处理和补偿合并到业务流程时，无需了解任何新概念。 但应注意以下事项。
+Durable Function 业务流程采用代码实现，并可使用编程语言的错误处理功能。 考虑到这一点，关于如何将错误处理和补偿合并到业务流程中，你实际上不需要学习任何新概念。 但应注意以下事项。
 
 ## <a name="errors-in-activity-functions"></a>活动函数中的错误
 
@@ -103,7 +103,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-如果目标帐户的 CreditAccount 函数调用失败，则业务流程协调程序函数通过将资金归还源帐户来进行补偿。
+如果目标帐户的 CreditAccount 函数调用失败，则业务流程协调程序函数通过将资金归还源帐户来进行补偿  。
 
 ## <a name="automatic-retry-on-failure"></a>失败时自动重试
 
@@ -142,12 +142,12 @@ module.exports = df.orchestrator(function*(context) {
 
 可通过多种选项自定义自动重试策略。 包含以下内容：
 
-- **最大尝试次数**：最大重试尝试次数。
-- **首次重试间隔**：首次尝试重试前需要等待的时间。
-- **回退系数**：用来确定回退增加速率的系数。 默认值为 1。
-- **最大重试间隔**：尝试重试之间需要等待的最长时间。
-- **重试超时**：执行重试所花费的最长时间。 默认行为是可无限期重试。
-- **处理**：可指定一个用户定义的回退，以确定是否应重试函数调用。
+* **最大尝试次数**：最大重试尝试次数。
+* **首次重试间隔**：首次尝试重试前需要等待的时间。
+* **回退系数**：用来确定回退增加速率的系数。 默认值为 1。
+* **最大重试间隔**：尝试重试之间需要等待的最长时间。
+* **重试超时**：执行重试所花费的最长时间。 默认行为是可无限期重试。
+* **处理**：可指定一个用户定义的回退，以确定是否应重试函数调用。
 
 ## <a name="function-timeouts"></a>函数超时
 
@@ -213,4 +213,4 @@ module.exports = df.orchestrator(function*(context) {
 
 如果业务流程协调程序函数失败，出现未经处理的异常，则会记录异常的详细信息，且实例的完成状态为 `Failed`。
 
-
+<!-- Update_Description: wording update -->

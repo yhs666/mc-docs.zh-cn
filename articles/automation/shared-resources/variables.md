@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
-origin.date: 05/04/2019
-ms.date: 06/10/2019
+origin.date: 05/14/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 0d55d8ba70fd7de2487b3d0ce04761209dd06501
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 5b4d205205175111c8015a0d2dafae72606cc06a
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726471"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298103"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure 自动化中的变量资产
 
@@ -29,7 +29,7 @@ ms.locfileid: "66726471"
 
 由于自动化变量将会持久保存，即使 Runbook 或 DSC 配置失败，它们也仍然可用。 此行为允许一个 Runbook 设置的值随后由另一个 Runbook 使用，或由同一 Runbook 或 DSC 配置在下次运行时使用。
 
-创建变量时，可以指定将其加密存储。 加密的变量安全地存储在 Azure 自动化中并且不能从 Azure PowerShell 模块随附的 [Get-AzureRmAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet 检索变量值。 可以检索加密值的唯一方法是从 Runbook 或 DSC 配置中的 **Get-AutomationVariable** 活动进行检索。
+创建变量时，可以指定将其加密存储。 加密的变量安全地存储在 Azure 自动化中并且不能从 Azure PowerShell 模块随附的 [Get-AzureRmAutomationVariable](https://docs.microsoft.com/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) cmdlet 检索变量值。 可以检索加密值的唯一方法是从 Runbook 或 DSC 配置中的 **Get-AutomationVariable** 活动进行检索。 若要将已加密的变量更改为未加密，必须删除该变量并将其重新创建为未加密的变量。
 
 >[!NOTE]
 >Azure 自动化中的安全资产包括凭据、证书、连接和加密的变量。 这些资产已使用针对每个自动化帐户生成的唯一密钥加密并存储在 Azure 自动化中。 此密钥存储在系统托管的密钥保管库中。 在存储安全资产之前，从密钥保管库加载密钥，然后使用该密钥加密资产。 此过程由 Azure 自动化管理。

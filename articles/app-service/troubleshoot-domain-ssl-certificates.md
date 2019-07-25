@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/18/2018
-ms.date: 04/22/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 30e8c34710af1d10db8e947d13a9b8528b7fd438
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: 771ca7741cf4454559c3c277c0a5e01833c573e3
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355886"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232268"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 SSL 证书问题
 
 本文列出了为 Azure 应用服务中的 Web 应用配置域或 SSL 证书时可能遇到的常见问题。 此外，还描述了这些问题的可能原因和解决方案。
 
-对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://azure.microsoft.com/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。
+对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://azure.microsoft.com/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -96,8 +96,8 @@ ms.locfileid: "59355886"
     **解决方案**：如果证书标记为欺诈，并且在 24 小时后未得到解决，请执行以下步骤：
 
     1. 登录到 [Azure 门户](https://portal.azure.cn)。
-    2. 转到“应用服务证书”，选择该证书。
-    3. 选择“证书配置” > “步骤 2：验证” > “域验证”。 此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
+    2. 转到“应用服务证书”，选择该证书。 
+    3. 选择  “证书配置” > “步骤 2：验证” > “域验证”。   此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
 
 ## <a name="custom-domain-problems"></a>自定义域问题
 
@@ -115,7 +115,7 @@ ms.locfileid: "59355886"
 
 配置的自定义域缺少 CNAME 或 A 记录。 
 
-**原因 1 的解决方案**
+**原因 1 的解决方法**
 
 - 如果添加了 A 记录，请确保同时添加 TXT 记录。 有关详细信息，请参阅[创建 A 记录](./app-service-web-tutorial-custom-domain.md#create-the-a-record)。
 - 如果不需要对应用使用根域，我们建议使用 CNAME 记录，而不要使用 A 记录。
@@ -125,7 +125,7 @@ ms.locfileid: "59355886"
 
 Internet 浏览器可能仍在缓存域的旧 IP 地址。 
 
-**原因 2 的解决方案**
+**原因 2 的解决方法**
 
 清除浏览器缓存。 对于 Windows 设备，可以运行命令 `ipconfig /flushdns`。 使用 [WhatsmyDNS.net](https://www.whatsmydns.net/) 验证域是否指向应用的 IP 地址。 
 
@@ -197,14 +197,14 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 可以强制同步证书：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 选择“应用服务证书”，然后选择该证书。
-2. 选择“重新生成密钥并同步”，然后选择“同步”。同步过程需要一段时间才能完成。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 选择“应用服务证书”，然后选择该证书。 
+2. 选择“重新生成密钥并同步”，然后选择“同步”。   同步过程需要一段时间才能完成。 
 3. 同步完成后，会看到以下通知：“已成功使用最新的证书更新了所有资源。”
 
 ### <a name="domain-verification-is-not-working"></a>域验证无法进行 
 
 #### <a name="symptom"></a>症状 
-应用服务证书要求先经过域验证，然后该证书才可供使用。 选择“验证”时，验证过程失败。
+应用服务证书要求先经过域验证，然后该证书才可供使用。 选择“验证”时，验证过程失败。 
 
 #### <a name="solution"></a>解决方案
 通过添加 TXT 记录来手动验证域：
@@ -212,13 +212,13 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 1.  转到托管域名的域名服务 (DNS) 提供商站点。
 2.  添加域的 TXT 记录，该记录使用 Azure 门户中显示的域令牌的值。 
 
-等待几分钟以运行 DNS 传播，然后选择“刷新”按钮以触发验证。 
+等待几分钟以运行 DNS 传播，然后选择“刷新”按钮以触发验证。  
 
 另一种做法是使用 HTML 网页方法来手动验证域。 此方法可让证书颁发机构确认为其颁发证书的域的域所有权。
 
 1.  创建名为 {域验证令牌}.html 的 HTML 文件。 此文件的内容应为域验证令牌的值。
 3.  将此文件上传到托管域的 Web 服务器的根目录。
-4.  选择“刷新”，检查证书状态。 验证可能需要几分钟才能完成。
+4.  选择“刷新”，检查证书状态。  验证可能需要几分钟才能完成。
 
 例如，如果为 azure.com 购买了域验证令牌为 1234abcd 的标准证书，则对 https://azure.com/1234abcd.html 发出的 Web 请求应返回 1234abcd。 
 
@@ -281,13 +281,13 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 **是否可以使用在 Azure 门户中购买的域来指向 Azure VM？**
 
-是的，可将该域指向 VM、存储等。有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的自定义 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
+是的，可将该域指向 VM。 有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的自定义 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
 
-**我的域是由 GoDaddy 还是由 Azure DNS 托管？**
+**我的域是由 GoDaddy 还是 Azure DNS 托管？**
 
 应用服务域使用 GoDaddy 进行域注册，使用 Azure DNS 来托管域。 
 
-**我已启用自动续订，但仍收到了有关域续订的电子邮件通知。 我该怎么办？**
+**我已启用自动续订，但仍收到了有关域续订的电子邮件通知。**
 
 如果你已启用自动续订，则不需要执行任何操作。 电子邮件通知旨在告诉你该域即将过期，如果未启用自动续订，则需要手动续订。
 
@@ -295,7 +295,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://www.azure.cn/zh-cn/home/features/dns)。
 
-**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。 该如何处理？**
+**我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。该如何处理？**
 
 不一定非要迁移到 Azure DNS 托管。 如果你确实想要迁移到 Azure DNS，Azure 门户中的域管理体验会提供有关转移到 Azure DNS 的步骤信息。 如果域通过应用服务购买的，则从 GoDaddy 托管迁移到 Azure DNS 的过程相对较为顺畅。
 
@@ -325,7 +325,6 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 **是否可将使用自定义域的 Web 应用移到另一个订阅，或者将其从应用服务环境 v1 移到 v2？**
 
-是的，可以在订阅之间移动 Web 应用。 请遵照[如何在 Azure 中移动资源](../azure-resource-manager/resource-group-move-resources.md)中的指导操作。 移动 Web 应用时存在一些限制。 有关详细信息，请参阅[移动应用服务资源时存在的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations
-)。
+是的，可以在订阅之间移动 Web 应用。 请遵照[如何在 Azure 中移动资源](../azure-resource-manager/resource-group-move-resources.md)中的指导操作。 移动 Web 应用时存在一些限制。 有关详细信息，请参阅[移动应用服务资源时存在的限制](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations)。
 
 移动 Web 应用之后，自定义域设置中的域的主机名绑定应保持不变。 无需执行额外的步骤即可配置主机名绑定。

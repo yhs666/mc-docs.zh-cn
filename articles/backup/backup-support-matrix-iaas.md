@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 927cd3aac11b24881572edd18eb9d03c63753bc3
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 205d4b4816f646604e3c2bcb5aca9a0a556914f2
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571457"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332236"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 可以使用 [Azure 备份服务](backup-overview.md)备份本地计算机和工作负荷以及 Azure 虚拟机 (VM)。 本文汇总了使用 Azure 备份服务备份 Azure VM 时的支持设置和限制。
@@ -164,7 +164,7 @@ Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><
 存储类型 | 标准 HDD、标准 SSD、高级 SSD。 <br/><br/> 如果保管库已升级到最新版本的 Azure VM 备份（称为“即时还原”），则支持标准 SSD。 [了解详细信息](backup-instant-restore-capability.md)。
 托管磁盘 | 。
 加密的磁盘 | 。<br/><br/> 可以备份已启用 Azure 磁盘加密的 Azure VM（包含或不包含 Azure AD 应用）。<br/><br/> 无法在文件/文件夹级别恢复已加密的 VM。 必须恢复整个 VM。<br/><br/> 可以在已受 Azure 备份保护的 VM 上启用加密。
-已启用写入加速器的磁盘 | 不支持。<br/><br/> 如果运行最新版本的 Azure VM 备份（称为[即时还原](backup-instant-restore-capability.md)），则可以从备份中排除已启用写入加速器的磁盘。
+已启用写入加速器的磁盘 | 不支持。<br/><br/> Azure 备份会在备份期间自动排除已启用写入加速器的磁盘。 由于这些磁盘未备份，因此将无法从 VM 的恢复点还原这些磁盘。
 备份已删除重复数据的磁盘 | 不支持。
 将磁盘添加到受保护的 VM | 。
 调整受保护 VM 上的磁盘大小 | 。

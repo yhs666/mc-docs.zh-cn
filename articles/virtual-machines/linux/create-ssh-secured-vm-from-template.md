@@ -17,12 +17,12 @@ origin.date: 03/22/2019
 ms.date: 04/01/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11c317c51610e6eea7ef572826478c5a0460f1b9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: efd0b26bbd0affd9359eacfe575caa050d0dccfe
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625301"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298102"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>如何使用 Azure Resource Manager 模板创建 Linux 虚拟机
 
@@ -233,7 +233,9 @@ az group create --name myResourceGroup --location chinaeast
 }
 ```
 
-若要运行 CLI 脚本，请选择“试用”以打开 Azure Cloud Shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”：
+<!--Not Available To run the CLI script, Select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**:-->
+
+在本地电脑上运行 CLI 脚本。
 
 ```azurecli
 echo "Enter the Resource Group name:" &&

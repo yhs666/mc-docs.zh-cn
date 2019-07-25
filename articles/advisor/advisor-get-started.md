@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: kasparks
-ms.openlocfilehash: ec7f14d4f6cb21722eb0494038cd1b9e710ecdb2
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 851b3b446d87e4908e8fc88aed167755da5e98e3
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569633"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332047"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 
@@ -58,7 +58,7 @@ ms.locfileid: "67569633"
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2.  使用顾问仪表板上的下拉列表，按订阅、资源类型或建议状态进行筛选。
+1. 使用顾问仪表板上的下拉列表，按订阅、资源类型或建议状态进行筛选。
 
     ![顾问搜索筛选条件](./media/advisor-get-started/advisor-filters.png)
 
@@ -66,13 +66,13 @@ ms.locfileid: "67569633"
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2. 导航至要推迟或消除的建议。
+1. 导航至要推迟或消除的建议。
 
-3. 单击建议。
+1. 单击建议。
 
-4. 单击“推迟”  。 
+1. 单击“推迟”  。 
 
-5. 指定推迟时间段，或选择“从不”  以消除该建议。
+1. 指定推迟时间段，或选择“从不”  以消除该建议。
 
 ## <a name="exclude-subscriptions-or-resource-groups"></a>排除订阅或资源组
 
@@ -83,36 +83,36 @@ ms.locfileid: "67569633"
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2. 单击操作栏中的“配置”  。
+1. 单击操作栏中的“配置”  。
 
-3. 如果不想接收有关某个订阅或资源组的顾问建议，可取消选中它。
+1. 如果不想接收有关某个订阅或资源组的顾问建议，可取消选中它。
 
     ![顾问配置资源示例](./media/advisor-get-started/advisor-configure-resources.png)
 
-4. 单击“应用”按钮。 
+1. 单击“应用”按钮。 
 
 ## <a name="configure-low-usage-vm-recommendation"></a>配置低使用率 VM 建议
 
 此过程针对低使用率虚拟机建议，配置平均 CPU 使用率规则。
 
-顾问可监视虚拟机 14 天的使用情况，并识别出利用率较低的虚拟机。 如果在 4 天或 4 天以上，虚拟机的平均 CPU 使用率都小于或等于 5% 且网络使用率小于或等于 7 MB，则会被视为利用率较低的虚拟机。
+顾问可监视虚拟机 7 天的使用情况，并识别出利用率较低的虚拟机。 以下情况可以将虚拟机视为使用率低：其 CPU 使用率为 5% 或更低且其网络使用率低于 2%，或者更小的虚拟机大小可以容纳当前工作负荷。
 
-若要加强对低使用率虚拟机的标识，可在每个订阅的基础上调整平均 CPU 使用率。  可将平均 CPU 使用率规则设置为 5%、10%、15% 或 20%。
+若要加强对低使用率虚拟机的标识，可在每个订阅的基础上调整平均 CPU 使用率。  可将 CPU 使用率规则设置为 5%、10%、15% 或 20%。
 
 > [!NOTE]
 > 要调整用于标识低使用率虚拟机的平均 CPU 使用率规则，操作者必须是订阅所有者  。  如果缺少订阅或资源组所需的相关权限，则用户界面中的添加或排除选项是禁用的。 
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2. 单击操作栏中的“配置”  。
+1. 单击操作栏中的“配置”  。
 
-3. 单击“规则”选项卡  。
+1. 单击“规则”选项卡  。
 
-4. 选择要为其调整平均 CPU 使用率规则的订阅，然后单击“编辑”  。
+1. 选择要为其调整平均 CPU 使用率规则的订阅，然后单击“编辑”  。
 
-5. 选择所需的平均 CPU 使用率值，然后单击“应用”  。
+1. 选择所需的平均 CPU 使用率值，然后单击“应用”  。
 
-6. 单击“刷新建议”来更新现有建议，以便使用新平均 CPU 使用率规则  。 
+1. 单击“刷新建议”来更新现有建议，以便使用新平均 CPU 使用率规则  。 
 
    ![顾问配置建议规则示例](./media/advisor-get-started/advisor-configure-rules.png)
 
@@ -122,7 +122,7 @@ ms.locfileid: "67569633"
 
 1. 登录 [Azure 门户](https://portal.azure.cn)，并打开[顾问](https://aka.ms/azureadvisor_cn)。
 
-2. 在操作栏中，单击“以 CSV 格式下载”或“以 PDF 格式下载”   。
+1. 在操作栏中，单击“以 CSV 格式下载”或“以 PDF 格式下载”   。
 
 下载选项与在顾问仪表板中应用的筛选器密切相关。  如果在选择下载选项的同时，正在查看某个特定的建议类别或建议，则所下载的摘要将仅包括该类别或建议的相关信息。 
 

@@ -14,13 +14,14 @@ ms.devlang: multiple
 ms.topic: article
 origin.date: 07/30/2018
 ms.author: v-biyu
-ms.date: 07/01/2019
-ms.openlocfilehash: 4dc05711ed1e20812a1039cd7f69a0195866f5df
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.custom: seodec18
+ms.date: 07/29/2019
+ms.openlocfilehash: fd688491aa7df32d25c7d5d22057f9f62183d159
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171384"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232277"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制 #
 
@@ -96,7 +97,7 @@ ms.locfileid: "67171384"
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 
-新的访问限制功能目前没有适用的 CLI 或 PowerShell，但是可以通过 PUT 操作在资源管理器中的应用配置上手动设置值。 例如，可以使用 resources.azure.com 并编辑 ipSecurityRestrictions 块以添加所需的 JSON。
+新的访问限制功能目前没有适用的 CLI 或 PowerShell，但是可以通过 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 操作在资源管理器中的应用配置上手动设置值。 例如，可以使用 resources.azure.com 并编辑 ipSecurityRestrictions 块以添加所需的 JSON。
 
 此信息在资源管理器中的位置为：
 
@@ -104,15 +105,19 @@ management.azure.com/subscriptions/subscription ID/resourceGroups/resource group
 
 前面的示例的 JSON 语法为：
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## <a name="function-app-ip-restrictions"></a>函数应用 IP 限制
 

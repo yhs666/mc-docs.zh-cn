@@ -7,16 +7,16 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: article
 origin.date: 05/22/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 28da29e61f00b99bde37083ae92287ff375d6610
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 941c99be5ca18bf3dd6d20da401676354ba7629d
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730945"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298147"
 ---
-# <a name="azure-data-box-heavy-system-requirements-preview"></a>Azure Data Box Heavy 系统要求（预览版）
+# <a name="azure-data-box-heavy-system-requirements"></a>Azure Data Box Heavy 系统要求
 
 本文介绍 Azure Data Box Heavy 设备以及连接到该设备的客户端的重要系统要求。 建议在部署 Data Box Heavy 之前仔细查看信息，然后在部署和后续操作期间根据需要重新参考。
 
@@ -52,6 +52,12 @@ ms.locfileid: "66730945"
 ## <a name="networking-requirements"></a>网络要求
 
 数据中心需要有高速网络。 为获得最快的复制速度，可以同时利用两个 40-GbE 连接（在每个节点上使用一个）。 如果没有可用的 40-GbE，我们建议至少开通两个 10-GbE 连接（在每个节点上使用一个）。
+
+### <a name="port-requirements"></a>端口要求
+
+下表列出了需要在防火墙中打开以允许 SMB 或 NFS 流量的端口。 在此表中，*入*或*入站*表示传入客户端请求访问设备的方向。 “传出”或“出站”表示 Data Box Heavy 设备从外部（超出部署范围）发送数据的方向：例如，向 Internet 发送出站数据。  
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
 
 ## <a name="next-steps"></a>后续步骤
 

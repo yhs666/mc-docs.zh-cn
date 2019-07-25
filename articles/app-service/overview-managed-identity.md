@@ -1,5 +1,5 @@
 ---
-title: 托管标识概述 - Azure 应用服务
+title: 托管标识概述 - Azure 应用服务 | Azure Docs
 description: Azure 应用服务和 Azure Functions 中的托管标识的概念性参考和安装指南
 services: app-service
 author: mattchenderson
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 11/20/2018
-ms.date: 03/18/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: 109ebbd030f1f9527a4c16d02aaff1bee6a64304
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: 372ce410d58b7542eab158904c5b40c4f30ef202
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347173"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232275"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -28,8 +28,8 @@ ms.locfileid: "57347173"
 本主题介绍如何为应用服务和 Azure Functions 应用程序创建托管标识，以及如何使用它来访问其他资源。 借助 Azure Active Directory 的托管标识，应用可以轻松访问其他受 AAD 保护的资源（如 Azure Key Vault）。 标识由 Azure 平台托管，无需设置或转交任何机密。 
 
 你的应用程序可以被授予两种类型的标识： 
-- 系统分配的标识与你的应用程序相绑定，如果删除应用，标识也会被删除。 一个应用只能具有一个系统分配的标识。 已正式发布适用于 Windows 应用的系统分配的标识支持。 
-- 用户分配的标识是可以分配给应用的独立 Azure 资源。 一个应用可以具有多个用户分配的标识。 适用于所有应用类型的用户分配的标识支持现提供预览版。
+- 系统分配的标识与你的应用程序相绑定，如果删除应用，标识也会被删除  。 一个应用只能具有一个系统分配的标识。 已正式发布适用于 Windows 应用的系统分配的标识支持。 
+- 用户分配的标识是可以分配给应用的独立 Azure 资源  。 一个应用可以具有多个用户分配的标识。 适用于所有应用类型的用户分配的标识支持现提供预览版。
 
 ## <a name="adding-a-system-assigned-identity"></a>添加系统分配的标识
 
@@ -41,11 +41,11 @@ ms.locfileid: "57347173"
 
 1. 按常规在门户中创建应用。 在门户中导航到该应用。
 
-2. 如果使用函数应用，请导航到“平台功能”。 对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。
+2. 如果使用函数应用，请导航到“平台功能”。  对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。 
 
-3. 选择“托管标识”。
+3. 选择“托管标识”  。
 
-4. 在“系统分配的”选项卡中，将“状态”切换为“启用”。 单击“保存” 。
+4. 在“系统分配的”选项卡中，将“状态”切换为“启用”    。 单击“保存”  。
 
 ![应用服务中的托管标识](media/app-service-managed-service-identity/msi-blade-system.png)
 
@@ -172,13 +172,13 @@ Azure 资源管理器模板可以用于自动化 Azure 资源部署。 若要详
 
 2. 按常规在门户中创建应用。 在门户中导航到该应用。
 
-3. 如果使用函数应用，请导航到“平台功能”。 对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。
+3. 如果使用函数应用，请导航到“平台功能”。  对于其他应用类型，请在左侧导航区域向下滚动到“设置”组。 
 
-4. 选择“托管标识”。
+4. 选择“托管标识”  。
 
-5. 在“用户分配的(预览版)”选项卡中，单击“添加”。
+5. 在“用户分配的(预览版)”选项卡中，单击“添加”   。
 
-6. 搜索之前创建的标识并选择它。 单击“添加” 。
+6. 搜索之前创建的标识并选择它。 单击“添加”  。
 
 ![应用服务中的托管标识](media/app-service-managed-service-identity/msi-blade-user.png)
 
@@ -273,6 +273,34 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 
 若要了解有关 Microsoft.Azure.Services.AppAuthentication 及其公开的操作的详细信息，请参阅 [Microsoft.Azure.Services.AppAuthentication 参考]以及[将应用服务和 KeyVault 与 MSI.NET 配合使用示例](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)。
 
+
+### <a name="using-the-azure-sdk-for-java"></a>使用用于 Java 的 Azure SDK
+
+对于 Java 应用程序和函数，使用托管标识的最简单方法是通过[用于 Java 的 Azure SDK](https://github.com/Azure/azure-sdk-for-java)。 本部分演示如何开始在代码中使用此库。
+
+1. 添加对 [Azure SDK 库](https://mvnrepository.com/artifact/com.microsoft.azure/azure)的引用。 对于 Maven 项目，可以将此代码片段添加到项目的 POM 文件的 `dependencies` 节：
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure</artifactId>
+    <version>1.23.0</version>
+</dependency>
+```
+
+2. 使用 `AppServiceMSICredentials` 对象进行身份验证。 此示例演示如何使用此机制来处理 Azure Key Vault：
+
+```java
+import com.microsoft.azure.AzureEnvironment;
+import com.microsoft.azure.management.Azure;
+import com.microsoft.azure.management.keyvault.Vault
+//...
+Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+        .withSubscription(subscriptionId);
+Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+```
+
 ### <a name="using-the-rest-protocol"></a>使用 REST 协议
 
 有托管标识的应用定义了两个环境变量：
@@ -280,7 +308,7 @@ var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServi
 - MSI_ENDPOINT - 本地令牌服务的 URL。
 - MSI_SECRET - 用于帮助缓解服务器端请求伪造 (SSRF) 攻击的标头。 该值由平台轮换。
 
-“MSI_ENDPOINT”是一本地 URL，应用可向其请求令牌。 若要获取资源的令牌，请对此终结点发起 HTTP GET 请求，并包括以下参数：
+“MSI_ENDPOINT”是一本地 URL，应用可向其请求令牌。  若要获取资源的令牌，请对此终结点发起 HTTP GET 请求，并包括以下参数：
 
 > |参数名称|In|说明|
 > |-----|-----|-----|
@@ -347,7 +375,7 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
-    var options = {
+    let options = {
         uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
         headers: {
             'Secret': process.env["MSI_SECRET"]

@@ -9,16 +9,16 @@ ms.topic: tutorial
 origin.date: 11/10/2018
 ms.date: 05/27/2019
 ms.custom: mvc
-ms.openlocfilehash: 53932d1441fbecb377ceaeae62a17e0320bff674
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.openlocfilehash: 0abc5841314e973435d3e6f8da06d9bf98df9874
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173303"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308885"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for MariaDB
 
-Azure Database for MariaDB 是 Microsoft 云中基于 MariaDB 社区版数据库引擎的一种关系数据库服务。 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
+Azure Database for MariaDB 是云中基于 MariaDB 社区版数据库引擎的一种关系数据库服务。 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
 
 > [!div class="checklist"]
 > * 创建 Azure Database for MariaDB
@@ -31,7 +31,7 @@ Azure Database for MariaDB 是 Microsoft 云中基于 MariaDB 社区版数据库
 
 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-你可在浏览器中使用 Azure Cloud Shell，或在自己的计算机上[安装 Azure CLI]( /cli/install-azure-cli)，运行本教程中的代码块。
+可以在自己的计算机上[安装 Azure CLI]( /cli/install-azure-cli) 来运行本教程中的代码块。
 
 本文要求运行 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
@@ -43,7 +43,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ## <a name="create-a-resource-group"></a>创建资源组
 使用 [az group create](/cli/group#az-group-create) 命令创建 [Azure 资源组](/azure-resource-manager/resource-group-overview)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。
 
-以下示例在 `westus` 位置创建名为 `myresourcegroup` 的资源组。
+以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 
 ```azurecli
 az group create --name myresourcegroup --location chinaeast2
@@ -84,7 +84,7 @@ az mariadb server firewall-rule create --resource-group myresourcegroup --server
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 fullyQualifiedDomainName 和 administratorLogin。
+结果采用 JSON 格式。 记下 fullyQualifiedDomainName  和 administratorLogin  。
 ```json
 {
   "administratorLogin": "myadmin",

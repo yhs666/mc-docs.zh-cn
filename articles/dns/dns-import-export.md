@@ -5,14 +5,15 @@ services: dns
 author: WenJason
 ms.service: dns
 origin.date: 4/3/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 0e4be08b959750bfef4fb21f85a664756210cd1b
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.topic: conceptual
+ms.openlocfilehash: 4f7a90310039af5cdf0fe260d525277a8702f2d4
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502589"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298160"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>使用 Azure CLI 导入和导出 DNS 区域文件
 
@@ -31,7 +32,7 @@ Azure CLI 是用于管理 Azure 服务的跨平台命令行工具。 它适用�
 将 DNS 区域文件导入 Azure DNS 之前，需要获取区域文件的副本。 此文件的来源取决于当前托管 DNS 区域的位置。
 
 * 如果 DNS 区域由合作伙伴服务（如域注册机构、专用的 DNS 托管提供商或备用云提供商）托管，则该服务应提供下载 DNS 区域文件的功能。
-* 如果 DNS 区域是在 Windows DNS 上托管的，则区域文件的默认文件夹是 **%systemroot%\system32\dns**。 每个区域文件的完整路径还会显示在 DNS 控制台的“常规”选项卡上。
+* 如果 DNS 区域是在 Windows DNS 上托管的，则区域文件的默认文件夹是 **%systemroot%\system32\dns**。 每个区域文件的完整路径还会显示在 DNS 控制台的“常规”  选项卡上。
 * 如果 DNS 区域是通过使用 BIND 托管的，则在 BIND 配置文件 **named.conf** 中会指定每个区域的区域文件位置。
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>将 DNS 区域文件导入 Azure DNS
@@ -154,7 +155,7 @@ az network dns zone import -g <resource group> -n <zone name> -f <zone file name
 
 ## <a name="export-a-dns-zone-file-from-azure-dns"></a>从 Azure DNS 导出 DNS 区域文件
 
-用于导入 DNS 区域的 Azure CLI 命令的格式为：
+用于导出 DNS 区域的 Azure CLI 命令的格式为：
 
 ```azurecli
 az network dns zone export -g <resource group> -n <zone name> -f <zone file name>

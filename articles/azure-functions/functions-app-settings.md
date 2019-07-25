@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 09/22/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 685caa4149d65329d01fc2f0a25a6289252dc213
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 1abc9ad21cb60a033277d8fe9cdd26020e696385
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491492"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331895"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions 的应用设置参考
 
@@ -26,6 +26,9 @@ ms.locfileid: "66491492"
 
 [host.json](functions-host-json.md) 文件和 [local.settings.json](functions-run-local.md#local-settings-file) 文件中提供了其他全局配置选项。
 
+## <a name="azurefunctionsenvironment"></a>AZURE_FUNCTIONS_ENVIRONMENT
+
+在 2.x 版 Functions 运行时中，基于运行时环境配置应用行为。 [在初始化期间读取](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/Program.cs#L43)此值。 可以将 `AZURE_FUNCTIONS_ENVIRONMENT` 设置为任何值，但支持[三个值](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname)：[Development](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.development)、[Staging](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.staging) 和 [Production](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.environmentname.production)。 未设置 `AZURE_FUNCTIONS_ENVIRONMENT` 时，它默认为 `Production`。 应使用此设置（而不是 `ASPNETCORE_ENVIRONMENT`）来设置运行时环境。 
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
@@ -62,14 +65,6 @@ ms.locfileid: "66491492"
 |键|示例值|
 |---|------------|
 |AzureWebJobsFeatureFlags|feature1,feature2|
-
-## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
-
-*host.json* 文件和函数文件夹所在的根目录的路径。 在函数应用中，默认值为 `%HOME%\site\wwwroot`。
-
-|键|示例值|
-|---|------------|
-|AzureWebJobsScriptRoot|%HOME%\site\wwwroot|
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 

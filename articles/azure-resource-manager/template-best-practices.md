@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
+origin.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 637b747c27a75456d30e35550a7b9c33956027a0
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 68c9dbcb7e944715a371101825856f075afbaa80
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348029"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337542"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -29,7 +29,7 @@ ms.locfileid: "58348029"
 
 ## <a name="template-limits"></a>模板限制
 
-将模板大小限制为 1 MB 以内，每个参数文件大小限制为 64 KB 以内。 通过迭代资源定义及变量和参数的值扩展模板后，1 MB 的限制适用于模板的最终状态。 
+将模板大小限制为 4 MB 以内，每个参数文件大小限制为 64 KB 以内。 4-MB 限制适用于模板使用迭代资源定义以及变量和参数值进行扩展后的最终状态。 
 
 还将受限于：
 
@@ -62,21 +62,21 @@ ms.locfileid: "58348029"
 
 * 对元数据中提供每个参数的说明。
 
-   ```json
-   "parameters": {
+    ```json
+    "parameters": {
        "storageAccountType": {
            "type": "string",
            "metadata": {
                "description": "The type of the new storage account created to store the VM disks."
            }
        }
-   }
-   ```
+    }
+    ```
 
 * 为不敏感的参数定义默认值。 通过指定默认值，可更轻松地部署模板，并同时为模板用户提供了一个合适值的示例。 默认参数值须对默认部署配置中的所有用户有效。 
 
-   ```json
-   "parameters": {
+    ```json
+    "parameters": {
         "storageAccountType": {
             "type": "string",
             "defaultValue": "Standard_GRS",
@@ -84,26 +84,26 @@ ms.locfileid: "58348029"
                 "description": "The type of the new storage account created to store the VM disks."
             }
         }
-   }
-   ```
+    }
+    ```
 
 * 若要指定可选参数，请勿将空字符串用作默认值。 而是使用文本值或语言表达式来构造值。
 
-   ```json
-   "storageAccountName": {
+    ```json
+    "storageAccountName": {
      "type": "string",
      "defaultValue": "[concat('storage', uniqueString(resourceGroup().id))]",
      "metadata": {
        "description": "Name of the storage account"
      }
-   },
-   ```
+    },
+    ```
 
 * 请勿为资源类型的 API 版本使用参数。 资源的属性和值可能会因版本号的不同而异。 如果将 API 版本设置为参数，代码编辑器中的 IntelliSense 无法确定正确架构。 并且会在模板中将 API 版本硬编码。
 
 * 请尽量少使用 `allowedValues`。 仅当必须确保允许的选项中不含特定值时使用它。 如果过于广泛地使用 `allowedValues`，可能会因未将列表保持最新而阻碍有效部署。
 
-* 当模板中的参数名称与 PowerShell 部署命令中的参数相同时，资源管理器会将 postfix FromTemplate 添加到模板参数中，以解决此命名冲突。 例如，如果在模板中包括一个名为“ResourceGroupName”的参数，则该参数会与 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet 中的“ResourceGroupName”参数冲突。 在部署期间，系统会提示用户提供 ResourceGroupNameFromTemplate 的值。
+* 当模板中的参数名称与 PowerShell 部署命令中的参数相同时，资源管理器会将 postfix FromTemplate 添加到模板参数中，以解决此命名冲突  。 例如，如果在模板中包括一个名为“ResourceGroupName”  的参数，则该参数会与 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet 中的“ResourceGroupName”  参数冲突。 在部署期间，系统会提示用户提供 ResourceGroupNameFromTemplate 的值  。
 
 ### <a name="security-recommendations-for-parameters"></a>有关参数的安全性建议
 
@@ -111,16 +111,16 @@ ms.locfileid: "58348029"
 
 * 为所有密码和机密使用 `securestring`。 如果将敏感数据传入 JSON 对象，请使用 `secureObject` 类型。 部署资源后，无法读取带 secureString 或 secureObject 类型的模板参数。 
 
-   ```json
-   "parameters": {
+    ```json
+    "parameters": {
        "secretValue": {
            "type": "securestring",
            "metadata": {
                "description": "The value of the secret to store in the vault."
            }
        }
-   }
-   ```
+    }
+    ```
 
 * 请勿为用户名、密码或任何需要 `secureString` 类型的值提供默认值。
 
@@ -130,8 +130,8 @@ ms.locfileid: "58348029"
 
 * 使用参数指定资源的位置，并将默认值设置为 `resourceGroup().location`。 通过提供位置参数，模板用户能够指定其有权部署到的位置。
 
-   ```json
-   "parameters": {
+    ```json
+    "parameters": {
      "location": {
        "type": "string",
        "defaultValue": "[resourceGroup().location]",
@@ -139,8 +139,8 @@ ms.locfileid: "58348029"
          "description": "The location in which the resources should be deployed."
        }
      }
-   },
-   ```
+    },
+    ```
 
 * 请勿为位置参数指定 `allowedValues`。 指定的位置可能并非在所有云中均可用。
 
@@ -158,7 +158,7 @@ ms.locfileid: "58348029"
 
 * 请勿为资源上的 `apiVersion` 使用变量。 API 版本决定资源的架构。 通常无法在不更改资源属性的情况下更改版本。
 
-* 不能在模板的“变量”节中使用 [reference](resource-group-template-functions-resource.md#reference) 函数。 **reference** 函数从资源的运行时状态中派生其值。 但是，变量是在初始模板分析期间解析的。 直接在模板的 **resources** 或 **outputs** 节中构造需要 **reference** 函数的值。
+* 不能在模板的“变量”节中使用 [reference](resource-group-template-functions-resource.md#reference) 函数  。 **reference** 函数从资源的运行时状态中派生其值。 但是，变量是在初始模板分析期间解析的。 直接在模板的 **resources** 或 **outputs** 节中构造需要 **reference** 函数的值。
 
 * 包括的变量适用于必须唯一的资源名称。
 
@@ -170,7 +170,7 @@ ms.locfileid: "58348029"
 
 在决定要设置的[依赖项](resource-group-define-dependencies.md)时，请遵循以下准则：
 
-* 使用 reference 函数并传入资源名称以在需要共享属性的资源之间设置隐式依赖项。 在已定义隐式依赖项的情况下，请勿添加显式 `dependsOn` 元素。 此方法降低了设置不必要依赖项的风险。
+* 使用 reference 函数并传入资源名称以在需要共享属性的资源之间设置隐式依赖项  。 在已定义隐式依赖项的情况下，请勿添加显式 `dependsOn` 元素。 此方法降低了设置不必要依赖项的风险。
 
 * 将子资源设置为依赖于其父资源。
 
@@ -186,8 +186,8 @@ ms.locfileid: "58348029"
 
 * 为了帮助其他参与者理解该资源的用途，请为模板中的每个资源指定**注释**：
 
-   ```json
-   "resources": [
+    ```json
+    "resources": [
      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
@@ -196,67 +196,68 @@ ms.locfileid: "58348029"
          "comments": "This storage account is used to store the VM disks.",
          ...
      }
-   ]
-   ```
+    ]
+    ```
 
-* 如果在模板中使用“公共终结点”（例如 Azure Blob 存储公共终结点），请不要将命名空间硬编码。 使用 **reference** 函数可动态检索命名空间。 可以使用此方法将模板部署到不同的公共命名空间环境，而无需在模板中手动更改终结点。 在模板中将 API 版本设置为用于存储帐户的同一版本：
+* 如果在模板中使用“公共终结点”（例如 Azure Blob 存储公共终结点），请不要将命名空间硬编码   。 使用 **reference** 函数可动态检索命名空间。 可以使用此方法将模板部署到不同的公共命名空间环境，而无需在模板中手动更改终结点。 在模板中将 API 版本设置为用于存储帐户的同一版本：
 
-   ```json
-   "osDisk": {
+    ```json
+    "osDisk": {
        "name": "osdisk",
        "vhd": {
            "uri": "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
        }
-   }
-   ```
+    }
+    ```
 
-   如果在创建的同一模板中部署存储帐户，则引用资源时不需要指定提供程序命名空间。 以下示例显示简化的语法：
+    如果在创建的同一模板中部署存储帐户，则引用资源时不需要指定提供程序命名空间。 以下示例显示简化的语法：
 
-   ```json
-   "osDisk": {
+    ```json
+    "osDisk": {
        "name": "osdisk",
        "vhd": {
            "uri": "[concat(reference(variables('storageAccountName'), '2016-01-01').primaryEndpoints.blob, variables('vmStorageAccountContainerName'), '/',variables('OSDiskName'),'.vhd')]"
        }
-   }
-   ```
+    }
+    ```
 
-   如果在模板中包含配置为使用公共命名空间的其他值，请更改这些值以反映相同的 **reference** 函数。 例如，可以设置虚拟机诊断配置文件的 **storageUri** 属性：
+    如果在模板中包含配置为使用公共命名空间的其他值，请更改这些值以反映相同的 **reference** 函数。 例如，可以设置虚拟机诊断配置文件的 **storageUri** 属性：
 
-   ```json
-   "diagnosticsProfile": {
+    ```json
+    "diagnosticsProfile": {
        "bootDiagnostics": {
            "enabled": "true",
            "storageUri": "[reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2016-01-01').primaryEndpoints.blob]"
        }
-   }
-   ```
+    }
+    ```
 
-   还可以引用不同资源组中的现有存储帐户：
+    还可以引用不同资源组中的现有存储帐户：
 
-   ```json
-   "osDisk": {
+    ```json
+    "osDisk": {
        "name": "osdisk", 
        "vhd": {
            "uri":"[concat(reference(resourceId(parameters('existingResourceGroup'), 'Microsoft.Storage/storageAccounts/', parameters('existingStorageAccountName')), '2016-01-01').primaryEndpoints.blob,  variables('vmStorageAccountContainerName'), '/', variables('OSDiskName'),'.vhd')]"
        }
-   }
-   ```
+    }
+    ```
 
 * 仅当应用程序有需要时，才将公共 IP 地址分配到虚拟机。 若要连接到虚拟机 (VM) 进行调试或管理，请使用出站 NAT 规则、虚拟网络网关或 jumpbox。
 
-   有关连接到虚拟机的详细信息，请参阅：
+    有关连接到虚拟机的详细信息，请参阅：
 
-   <!--Not Available on * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)-->
-   * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
-   * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [使用 Azure CLI 实现对 Linux VM 的外部访问](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+    <!--Not Available on * [Run VMs for an N-tier architecture in Azure](../guidance/guidance-compute-n-tier-vm.md)-->
+    
+    * [在 Azure Resource Manager 中设置对 VM 的 WinRM 访问](../virtual-machines/windows/winrm.md)
+    * [使用 Azure 门户实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-portal.md)
+    * [使用 PowerShell 实现对 VM 的外部访问](../virtual-machines/windows/nsg-quickstart-powershell.md)
+    * [使用 Azure CLI 实现对 Linux VM 的外部访问](../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
 
 * 公共 IP 地址的 **domainNameLabel** 属性必须唯一。 **domainNameLabel** 值的长度必须为 3 到 63 个字符，并遵循正则表达式 `^[a-z][a-z0-9-]{1,61}[a-z0-9]$` 指定的规则。 由于 **uniqueString** 函数生成长度为 13 个字符的字符串，因此 **dnsPrefixString** 参数限制为不超过 50 个字符：
 
-   ```json
-   "parameters": {
+    ```json
+    "parameters": {
        "dnsPrefixString": {
            "type": "string",
            "maxLength": 50,
@@ -264,16 +265,16 @@ ms.locfileid: "58348029"
                "description": "The DNS label for the public IP address. It must be lowercase. It should match the following regular expression, or it will raise an error: ^[a-z][a-z0-9-]{1,61}[a-z0-9]$"
            }
        }
-   },
-   "variables": {
+    },
+    "variables": {
        "dnsPrefix": "[concat(parameters('dnsPrefixString'),uniquestring(resourceGroup().id))]"
-   }
-   ```
+    }
+    ```
 
 * 将密码添加到自定义脚本扩展时，请在 **protectedSettings** 属性中使用 **commandToExecute** 属性：
 
-   ```json
-   "properties": {
+    ```json
+    "properties": {
        "publisher": "Microsoft.Azure.Extensions",
        "type": "CustomScript",
        "typeHandlerVersion": "2.0",
@@ -286,13 +287,13 @@ ms.locfileid: "58348029"
        "protectedSettings": {
            "commandToExecute": "[concat('sh install_lamp.sh ', parameters('mySqlPassword'))]"
        }
-   }
-   ```
+    }
+    ```
 
-   > [!NOTE]
-   > 为了确保机密内容作为参数传递给 VM 和扩展时经过加密，请使用相关扩展的 **protectedSettings** 属性。
-   > 
-   > 
+    > [!NOTE]
+    > 为了确保机密内容作为参数传递给 VM 和扩展时经过加密，请使用相关扩展的 **protectedSettings** 属性。
+    > 
+    > 
 
 ## <a name="outputs"></a>Outputs
 

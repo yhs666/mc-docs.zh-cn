@@ -6,18 +6,17 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-origin.date: 05/21/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 3daa0afc3a8573aea893b0b7823ef1ac3cf0bc36
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 1e4b57ee14848430cbd0f4a5bc5c2794c6a3f96f
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730916"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298151"
 ---
-# <a name="azure-data-box-heavy-limits-preview"></a>Azure Data Box Heavy 限制（预览版）
-
+# <a name="azure-data-box-heavy-limits"></a>Azure Data Box Heavy 限制
 
 在部署和操作 Azure Data Box Heavy 设备时请考虑这些限制。 下表介绍了 Data Box 的这些限制。
 

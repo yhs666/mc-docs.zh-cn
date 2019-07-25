@@ -10,12 +10,12 @@ ms.date: 11/26/2018
 ms.topic: conceptual
 ms.author: v-lingwu
 manager: digimobile
-ms.openlocfilehash: e0ddcecc918d18acc52a2d306bfb9857b5d29f32
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: dae4a6fe2296843ec4e03b4633edb9f741e85823
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570476"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332229"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure 备份服务器保护矩阵
 
@@ -81,7 +81,7 @@ ms.locfileid: "67570476"
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 DPM 保护代理|Windows Server 2008 R2 SP1 - Enterprise 和 Standard|物理服务器<br /><br />本地 Hyper-V 虚拟机|Y|Y|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机、文件和文件夹的项目级恢复、卷、虚拟硬盘驱动器|
 |Hyper-V 主机 - Hyper-V 主机服务器、群集或 VM 上的 DPM 保护代理|Windows Server 2008 SP2|物理服务器<br /><br />本地 Hyper-V 虚拟机|N|N|保护：Hyper-V 计算机、群集共享卷 (CSV)<br /><br />恢复：虚拟机、文件和文件夹的项目级恢复、卷、虚拟硬盘驱动器|
 |VMware VM|VMware vCenter/vSphere ESX/ESXi 许可版本 5.5/6.0/6.5 |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|Y|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
-|VMware VM|[VMware vSphere 6.7](backup-azure-backup-server-vmware.md) |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|N|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
+|VMware VM|[VMware vSphere 许可版本 6.7](backup-azure-backup-server-vmware.md#vmware-vsphere-67) |物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|N|群集共享卷 (CSV)、NFS 和 SAN 存储中的 VMware VM<br /> 文件和文件夹的项目级恢复仅适用于 Windows VM，不支持 VMware vApp。|
 |Linux|以 Hyper-V 或 VMware 来宾身份运行的 Linux|物理服务器、 <br/>本地 Hyper-V VM、 <br/> VMWare 中的 Windows VM|Y|Y|Hyper-V 必须在 Windows Server 2012 R2 或 Windows Server 2016 上运行。 保护：整个虚拟机<br /><br />恢复：整个虚拟机 <br/><br/> 有关支持的 Linux 分发版和版本的完整列表，请参阅 [Azure 认可的分发中的 Linux](../virtual-machines/linux/endorsed-distros.md) 一文。|
 
 ## <a name="azure-expressroute-support"></a>Azure ExpressRoute 支持

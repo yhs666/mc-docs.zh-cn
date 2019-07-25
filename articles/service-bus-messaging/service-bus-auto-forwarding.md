@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3dba77fbadd0d7f1a8c54a2827eda515343a523a
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: af9de9ddebfbb19f9b51fcbe84354b2bd65e3fd1
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544707"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332261"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>使用自动转发链接服务总线实体
 
-通过服务总线自动转发功能可将队列或订阅链接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。 仍可将消息直接发送到目标实体。
+通过服务总线自动转发  功能可将队列或订阅链接到作为相同命名空间组成部分的另一个队列或主题。 启用自动转发时，服务总线会自动删除放置在第一个队列或订阅（源）中的消息，并将其放入第二个队列或主题（目标）中。 仍可将消息直接发送到目标实体。
 
 ## <a name="using-autoforwarding"></a>使用自动转发
 
-可通过在源的 [QueueDescription][QueueDescription] 或 [SubscriptionDescription][SubscriptionDescription] 对象上设置 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] 或 [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 属性来启用自动转发，如以下示例所示：
+可通过在源的 [QueueDescription][QueueDescription] 或 [SubscriptionDescription][SubscriptionDescription] 对象上设置 [QueueDescription.ForwardTo][QueueDescription.ForwardTo] or [SubscriptionDescription.ForwardTo][SubscriptionDescription.ForwardTo] 属性来启用自动转发，如以下示例所示：
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);
@@ -46,6 +46,10 @@ namespaceManager.CreateSubscription(srcSubscription));
 ![自动转发方案][1]
 
 如果 Alice 处于度假期间，则其个人队列（而不是 ERP）会填满。 在此方案中，由于销售代表没有接收到任何消息，所以所有 ERP 主题都没有达到配额。
+
+> [!NOTE]
+> 设置了自动转发时，目标上的 AutoDeleteOnIdle 值将自动设置为数据类型的最大值。
+> 这样做是为了确保始终存在将消息转发到的目的地。
 
 ## <a name="autoforwarding-considerations"></a>自动转发注意事项
 
@@ -68,7 +72,7 @@ namespaceManager.CreateSubscription(srcSubscription));
 若要深入了解服务总线性能提升，请参阅 
 
 * [使用服务总线消息传送改进性能的最佳做法](service-bus-performance-improvements.md)
-* [分区消息传送实体][Partitioned messaging entities]。
+* [分区消息实体][Partitioned messaging entities]。
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo
 [SubscriptionDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.forwardto#Microsoft_ServiceBus_Messaging_SubscriptionDescription_ForwardTo

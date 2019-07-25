@@ -13,21 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 01/14/2018
-ms.date: 03/18/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: cf252f039355af91e63451ec3b3a61dc81aeef41
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.openlocfilehash: c0c3270c0b47f3a38c9be0c0848f094c8f0d6caf
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347089"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232272"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>使用 PowerShell 克隆 Azure App Service 应用
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 在 Microsoft 发行的 Azure PowerShell 版本 1.1.0 中，为 `New-AzWebApp` 添加了新选项，可让用户将现有“应用服务”应用克隆到不同区域或相同区域中的新建应用。 使用此选项，客户可跨不同区域快速轻松地部署多个应用。
 
-应用克隆目前仅支持高级层应用服务计划。 新功能使用与应用服务备份功能相同的限制，具体请参阅[在 Azure 应用服务中备份应用](manage-backup.md)。
+高级和高级 V2 应用服务计划支持应用克隆。 新功能使用与应用服务备份功能相同的限制，具体请参阅[在 Azure 应用服务中备份应用](manage-backup.md)。
 
 ## <a name="cloning-an-existing-app"></a>克隆现有应用
 方案：你想要将位于中国东部区域的现有应用的内容克隆到位于中国北部区域的新应用。 结合 -SourceWebApp 选项使用 Azure 资源管理器版本的 PowerShell cmdlet 来创建新的应用，即可实现此目的。

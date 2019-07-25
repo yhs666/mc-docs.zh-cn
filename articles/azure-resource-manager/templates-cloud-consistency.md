@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 12/09/2018
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 32fb6f124a739ced5a47f628a25914b512234204
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 8a3d35255c133630ea3e62ad3159cd25c7c1e613
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195463"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337541"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -65,14 +65,15 @@ Azure 资源管理器的功能始终会首先引入到全球 Azure。 使用以�
 
 1. 导入 psm1 模块并执行 Test-AzureRmTemplateFunctions cmdlet：
 
-   ```powershell
-   # Import the module
-   Import-module <path to local clone>\AzTemplateFunctions.psm1
+    ```powershell
+    # Import the module
+    Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-   # Execute the Test-AzureRmTemplateFunctions cmdlet
-   Test-AzureRmTemplateFunctions -path <path to local clone> chinanorth
-   ```
-   <!-- Notice: we should add ChinaNorth location for cmdlet of Test-AzureRmTemplateFunctions-->
+    # Execute the Test-AzureRmTemplateFunctions cmdlet
+    Test-AzureRmTemplateFunctions -path <path to local clone> chinanorth
+    ```
+    
+    <!-- Notice: we should add ChinaNorth location for cmdlet of Test-AzureRmTemplateFunctions-->
 
 该脚本部署多个最小化模板，每个模板仅包含唯一的模板函数。 脚本的输出报告受支持的和不可用的模板函数。
 
@@ -679,8 +680,8 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Azure 资源管理器模板注意事项](../azure-stack/user/azure-stack-develop-templates.md)
-    <!--MOONCAKE: correct on azure-stack/user/azure-stack-develop-templates.md-->
+* [Azure 资源管理器模板注意事项](/azure-stack/user/azure-stack-develop-templates)
+    <!--MOONCAKE: correct on /azure-stack/user/azure-stack-develop-templates-->
 * [Azure 资源管理器模板的最佳做法](resource-group-authoring-templates.md)
 
 <!--Update_Description: wording update, update link  -->

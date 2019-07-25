@@ -5,17 +5,17 @@ services: event-grid
 keywords: ''
 author: spelluru
 ms.author: v-yiso
-origin.date: 10/17/2018
-ms.date: 06/03/2019
+origin.date: 07/11/2019
+ms.date: 07/29/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 1e1a28351ac7d4fb214dd4e5f4a12dffc4acd59c
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 8791ae7ef3ea7dbb9e4d78bbf1cd4065d5df5818
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195159"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337551"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>快速入门：利用 Azure 门户将 Blob 存储事件路由到 Web 终结点
 
@@ -31,11 +31,11 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-1. 若要创建 Blob 存储，请选择“创建资源”。 
+1. 若要创建 Blob 存储，请选择“创建资源”。  
 
    ![创建资源](./media/blob-event-quickstart-portal/create-resource.png)
 
-1. 选择“存储”来筛选可用选项，并选择“存储帐户 - blob、文件、表、队列”。
+1. 选择“存储”  来筛选可用选项，并选择“存储帐户 - blob、文件、表、队列”  。
 
    ![选择“存储”](./media/blob-event-quickstart-portal/create-storage.png)
 
@@ -47,7 +47,7 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
 
 在订阅 Blob 存储的事件之前，让我们创建事件消息的终结点。 通常情况下，终结点基于事件数据执行操作。 为了简化此快速入门，将部署用于显示事件消息的[预建的 Web 应用](https://github.com/Azure-Samples/azure-event-grid-viewer)。 所部署的解决方案包括应用服务计划、应用服务 Web 应用和 GitHub 中的源代码。
 
-1. 选择“部署到 Azure”将解决方案部署到你的订阅。 在 Azure 门户中，为参数提供值。
+1. 选择“部署到 Azure”  将解决方案部署到你的订阅。 在 Azure 门户中，为参数提供值。
 
    <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
@@ -63,15 +63,15 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
 
 订阅主题，以告知事件网格要跟踪哪些事件，以及要将事件发送到何处。
 
-1. 在门户中，选择你的 blob 存储，然后选择“事件”。
+1. 在门户中，选择你的 blob 存储，然后选择“事件”  。
 
    ![选择“事件”](./media/blob-event-quickstart-portal/select-events.png)
 
-1. 若要将事件发送到查看器应用，请为终结点使用 Webhook。 依次选择“更多选项”和“Webhook”。
+1. 若要将事件发送到查看器应用，请为终结点使用 Webhook。 依次选择“更多选项”和“Webhook”。  
 
    ![选择“Webhook”](./media/blob-event-quickstart-portal/select-web-hook.png)
 
-1. 事件订阅中预先填写了你的 Blob 存储的值。 对于 Webhook 终结点，请提供你的 Web 应用的 URL，并将 `api/updates` 添加到主页 URL。 为你的订阅提供一个名称。 完成后，选择“创建”。
+1. 事件订阅中预先填写了你的 Blob 存储的值。 对于 Webhook 终结点，请提供你的 Web 应用的 URL，并将 `api/updates` 添加到主页 URL。 为你的订阅提供一个名称。 完成后，选择“创建”。 
 
    ![选择日志](./media/blob-event-quickstart-portal/create-subscription.png)
 
@@ -85,11 +85,11 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
 
 通过上传一个文件来为 Blob 存储触发一个事件。 该文件不需要有任何特定内容。 本文假定你有一个名为 testfile.txt 的文件，但是可以使用任何文件。
 
-1. 针对你的 Blob 存储，选择“Blob”。
+1. 针对你的 Blob 存储，选择“Blob”。 
 
    ![选择 Blob](./media/blob-event-quickstart-portal/select-blobs.png)
 
-1. 选择“+ 容器”。 为容器提供一个名称，并使用任意访问级别。
+1. 选择“+ 容器”  。 为容器提供一个名称，并使用任意访问级别。
 
    ![添加容器](./media/blob-event-quickstart-portal/add-container.png)
 
@@ -97,16 +97,16 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
 
    ![选择容器](./media/blob-event-quickstart-portal/select-container.png)
 
-1. 若要上传文件，请选择“上传”。
+1. 若要上传文件，请选择“上传”。 
 
    ![选择“上传”](./media/blob-event-quickstart-portal/upload-file.png)
 
 1. 浏览到你的测试文件并上传它。
 
-1. 现已触发事件，并且事件网格已将消息发送到订阅时配置的终结点。 查看你的 Web 应用，将会看到已收到了一个 blob 已创建事件。 
+1. 现已触发事件，并且事件网格已将消息发送到订阅时配置的终结点。 消息采用 JSON 格式，它包含一个或多个事件的数组。 在以下示例中，JSON 消息包含一个事件的数组。 查看你的 Web 应用，将会看到已收到了一个 blob 已创建事件。 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -128,14 +128,14 @@ Azure 事件网格是针对云的事件处理服务。 在本文中，你将使�
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## <a name="clean-up-resources"></a>清理资源
 
 如果打算继续处理此事件，请不要清除本文中创建的资源。 否则，请删除本文中创建的资源。
 
-选择资源组，然后选择“删除资源组”。
+ 选择资源组，然后选择“删除资源组”。
 
 ## <a name="next-steps"></a>后续步骤
 

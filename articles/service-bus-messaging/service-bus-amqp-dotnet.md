@@ -1,26 +1,26 @@
 ---
 title: Azure 服务总线与 .NET 和 AMQP 1.0 | Azure
 description: 使用 AMQP 通过 .NET 使用 Azure 服务总线
-services: service-bus
+services: service-bus-messaging
 documentationCenter: na
-author: sethmanheim
-manager: timlt
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 332bcb13-e287-4715-99ee-3d7d97396487
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 08/16/2018
+origin.date: 07/16/2018
+ms.date: 01/23/2019
 ms.author: v-yiso
-ms.date: 09/10/2018
-ms.openlocfilehash: 7ccc4afe74aba8cc3aec26c251b9826bed6a6509
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 07f3b44b80603f0cc6c44f36684bbc25e64c188e
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52654191"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332264"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>使用 AMQP 1.0 通过 .NET 使用服务总线
 
@@ -50,14 +50,14 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 
 `Endpoint=sb://[namespace].servicebus.chinacloudapi.cn/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-其中 `namespace` 和 `SAS key` 是在创建服务总线命名空间时从 [Azure 门户][Azure portal]获取的。 有关详细信息，请参阅[使用 Azure 门户创建服务总线命名空间][Create a Service Bus namespace using the Azure portal]。
+其中 `namespace` 和 `SAS key` 是从 [Azure 门户][Azure portal]when you create a Service Bus namespace. For more information, see [Create a Service Bus namespace using the Azure portal][Create a Service Bus namespace using the Azure portal]获取的。
 
 使用 AMQP 时，在连接字符串后面追加 `;TransportType=Amqp`。 此表示法使客户端库使用 AMQP 1.0 连接到服务总线。
 
 ## <a name="message-serialization"></a>消息序列化
-使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] 类型序列化 [BrokeredMessage][BrokeredMessage] 实例，以便在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将 [中转消息][BrokeredMessage] 序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
+使用默认协议时，.NET 客户端库的默认序列化行为是使用 [DataContractSerializer][DataContractSerializer] type to serialize a [BrokeredMessage][BrokeredMessage] 实例在客户端库和服务总线服务之间进行传输。 使用 AMQP 传输模式时，客户端库使用 AMQP 类型系统将 [中转消息][BrokeredMessage] 序列化为 AMQP 消息。 此序列化使得消息能够由可能在不同平台上运行的接收应用程序接收和解释，例如，使用 JMS API 来访问服务总线的 Java 应用程序。
 
-构造 [BrokeredMessage][BrokeredMessage] 实例时，可以提供 .NET 对象作为构造函数的参数以充当消息的正文。 对于可映射到 AMQP 基元类型的对象，正文序列化为 AMQP 数据类型。 如果该对象不能直接映射到 AMQP 基元类型（即，应用程序定义的自定义类型），则使用 [DataContractSerializer][DataContractSerializer]序列化对象，并且已序列化的字节会在 AMQP 数据消息中发送。
+当你构造 [BrokeredMessage][BrokeredMessage]instance, you can provide a .NET object as a parameter to the constructor to serve as the body of the message. For objects that can be mapped to AMQP primitive types, the body is serialized into AMQP data types. If the object cannot be directly mapped into an AMQP primitive type; that is, a custom type defined by the application, then the object is serialized using the [DataContractSerializer][DataContractSerializer] 时，序列化的字节将在 AMQP 数据消息中发送。
 
 为了便于使用非 .NET 客户端进行互操作，仅在消息的正文中使用可直接序列化为 AMQP 类型的 .NET 类型。 下表详细介绍了这些类型以及到 AMQP 类型系统的相应映射。
 
@@ -79,7 +79,7 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 | DateTime |timestamp |AMQP 值 |
 | Guid |uuid |AMQP 值 |
 | byte[] |binary |AMQP 值 |
-| 字符串 |字符串 |AMQP 值 |
+| string |string |AMQP 值 |
 | System.Collections.IList |list |AMQP 值：集合中包含的项只能是此表中定义的类型。 |
 | System.Array |数组 |AMQP 值：集合中包含的项只能是此表中定义的类型。 |
 | System.Collections.IDictionary |map |AMQP 值：集合中包含的项只能是此表中所定义的类型。注意：仅支持字符串键。 |
@@ -108,19 +108,19 @@ AMQP 1.0 支持在服务总线包 2.1 版或更高版本中提供。 为确保�
 
 [.NET API](/dotnet/api/) 公开了几项设置以控制 AMQP 协议的行为：
 
-* [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)：控制应用于链接的初始信用额度。 默认值为 0。
-* [MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)：控制在打开连接时协商期间提供的最大 AMQP 帧大小。 默认值为 65,536 字节。
-* [MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)：如果传输可以分批进行，此值确定发送处置的最大延迟。 默认情况下由发送方/接收方继承。 单个发送方/接收方可以覆盖默认值（即 20 毫秒）。
-* [MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)：控制是否通过 SSL 连接建立 AMQP 连接。 默认值为 **true**。
+* [MessageReceiver.PrefetchCount](/dotnet/api/microsoft.servicebus.messaging.messagereceiver.prefetchcount?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessageReceiver_PrefetchCount)：  控制应用于链接的初始额度。 默认值为 0。
+* [MessagingFactorySettings.AmqpTransportSettings.MaxFrameSize](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.maxframesize?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_MaxFrameSize)：  控制在打开连接时协商期间提供的最大 AMQP 帧大小。 默认值为 65,536 字节。
+* [MessagingFactorySettings.AmqpTransportSettings.BatchFlushInterval](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.batchflushinterval?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_BatchFlushInterval)：  如果可批量传输，则此值确定发送处置的最大延迟。 默认情况下由发送方/接收方继承。 单个发送方/接收方可以覆盖默认值（即 20 毫秒）。
+* [MessagingFactorySettings.AmqpTransportSettings.UseSslStreamSecurity](/dotnet/api/microsoft.servicebus.messaging.amqp.amqptransportsettings.usesslstreamsecurity?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_Amqp_AmqpTransportSettings_UseSslStreamSecurity)：  控制 AMQP 连接是否通过安全连接建立。 默认值为 **true**。
 
 ## <a name="next-steps"></a>后续步骤
 
 准备好了解详细信息？ 请访问以下链接：
 
-- [服务总线 AMQP 概述]
-- [AMQP 1.0 协议指南]
+* [服务总线 AMQP 概述]
+* [AMQP 1.0 协议指南]
 
-[Create a Service Bus namespace using the Azure portal]: ./service-bus-create-namespace-portal.md
+[Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
 [DataContractSerializer]: https://msdn.microsoft.com/library/system.runtime.serialization.datacontractserializer.aspx
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azureservicebus-4.0.0
 [Microsoft.ServiceBus.Messaging.MessagingFactory.AcceptMessageSession]: /dotnet/api/microsoft.servicebus.messaging.messagingfactory.acceptmessagesession?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactory_AcceptMessageSession

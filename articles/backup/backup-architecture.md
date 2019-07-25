@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 565ef382bdda271816d0aefef914653d0af2b48d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d38bd1c7adce37ed6b3f636f69ed23b879ea29fe
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569996"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332252"
 ---
 # <a name="azure-backup-architecture"></a>Azure 备份体系结构
 
@@ -36,7 +36,7 @@ Azure 备份可以备份数据、计算机状态，以及本地计算机和 Azur
     - 可以通过运行 MARS 代理来备份 Azure VM 上的特定文件和文件夹。
     - 可将 Azure VM 备份到 Azure 中运行的 MABS，然后可将 MABS 备份到恢复服务保管库。
 
-
+详细了解[可以备份哪些内容](backup-overview.md)，以及[支持的备份方案](backup-support-matrix.md)。
 
 ## <a name="where-is-data-backed-up"></a>数据备份到何处？
 
@@ -200,6 +200,7 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
 
 ## <a name="next-steps"></a>后续步骤
 
+- 查看支持矩阵，以[了解备份方案支持的功能和限制](backup-support-matrix.md)。
 - 为以下方案之一设置备份：
     - [备份 Azure VM](backup-azure-arm-vms-prepare.md)。
     - 不使用备份服务器[直接备份 Windows 计算机](tutorial-backup-windows-server-to-azure.md)。

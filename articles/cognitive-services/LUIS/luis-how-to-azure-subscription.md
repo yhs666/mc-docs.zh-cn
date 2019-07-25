@@ -9,29 +9,30 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 07/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4263377f98509afaf7c3398822eb472937b2fb4a
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 39b9a69287e68b82376211241f9ee3796bce528f
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136001"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332162"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>将订阅密钥与 LUIS 应用配合使用
 
-无需创建订阅密钥即可免费使用前 1000 个终结点查询。 使用这些终结点查询后，在 [Azure 门户](https://portal.azure.cn)中创建一个 Azure 资源，然后在 [LUIS 门户](https://docs.azure.cn)中将该资源分配到 LUIS 应用。
-
-如果收到 HTTP 403 或 429 形式的“超出配额”错误，则需要创建密钥并将其分配到应用。  
+首次使用语言理解 (LUIS) 时，不需要创建订阅密钥。 你将获得 1000 个终结点查询，以便开始使用。 
 
 如果仅用于测试和原型，请使用免费 (F0) 层。 对于生产系统，请使用[付费](https://aka.ms/luis-price-tier)层。 不要将[创作密钥](luis-concept-keys.md#authoring-key)用于生产中的终结点查询。
+
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
 ## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>在 Azure 门户中创建预测终结点运行时资源
 
-使用[构建应用](get-started-portal-build-app.md)快速入门了解更多信息。
+在 Azure 门户中创建[预测终结点资源](get-started-portal-deploy-app.md#create-the-endpoint-resource)。 此资源仅应用于终结点预测查询。 请勿使用此资源来创建对应用的更改。
+
+可以创建语言理解资源或认知服务资源。 如果创建的是语言理解资源，最好将资源类型作为资源名称的后缀。 
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -46,10 +47,19 @@ ms.locfileid: "67136001"
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### <a name="using-resource-from-luis-portal"></a>通过 LUIS 门户使用资源
+
+如果正在通过 LUIS 门户使用资源，则无需知道密钥和位置。 但是，需要知道资源租户、订阅和资源名称。
+
+将资源[分配](#assign-resource-key-to-luis-app-in-luis-portal)给 LUIS 门户中的 LUIS 应用后，密钥和位置将作为查询预测终结点 URL 的一部分在“管理”部分的“密钥和终结点设置”  页中提供。
+ 
+### <a name="using-resource-from-rest-api-or-sdk"></a>通过 REST API 或 SDK 使用资源
+
+如果正在通过 REST API 或 SDK 使用资源，则需要知道密钥和位置。 此信息将作为查询预测终结点 URL 的一部分在“管理”部分的“密钥和终结点设置”  页以及 Azure 门户中资源的“概述”和“密钥”页上提供。
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>在 LUIS 门户中将资源密钥分配到 LUIS 应用
 
-使用[部署](get-started-portal-deploy-app.md)快速入门了解更多信息。
+每次为 LUIS 创建新资源时，都需要[将资源分配给 LUIS 应用](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。 分配后，除非创建新资源，否则无需再次执行此步骤。 可以创建新资源来扩展应用的区域或支持更多预测查询。
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>
@@ -155,7 +165,7 @@ ms.locfileid: "67136001"
     ![验证 LUIS 支付层](./media/luis-usage-tiers/updated.png)
 1. 请记住在“发布”页[分配此终结点密钥](#assign-endpoint-key)，并将其用于所有终结点查询  。 
 
-## <a name="how-to-fix-out-of-quota-errors-when-the-key-exceeds-pricing-tier-usage"></a>当密钥超过定价层用量时如何修复“超出配额”错误
+## 当密钥超过定价层用量时如何修复“超出配额”错误<a name="fix-http-status-code-403-and-429"></a>
 每层允许以特定速率向 LUIS 帐户发送终结点请求。 如果请求速率高于计费帐户的每分钟或每月的允许速率，则请求会出现 HTTP 错误“429:请求过多”。
 
 每层允许按月累计请求数。 如果总请求数大于允许的速率，则请求会出现 HTTP 错误“403: 禁止”。  

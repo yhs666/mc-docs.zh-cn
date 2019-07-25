@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7521aa7bbcb3544e62dcdad6ebf17c000597b08f
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 6e10c05795652c1b72c456288f380b508854c9b2
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544687"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332258"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>服务总线死信队列概述
 
-Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)”的辅助子队列。 死信队列不需要显式创建，并且不能删除或以其他方式独立于主实体进行管理。
+Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)”的辅助子队列  。 死信队列不需要显式创建，并且不能删除或以其他方式独立于主实体进行管理。
 
 本文介绍服务总线中的死信队列。 GitHub 上的[死信队列示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue)对很多讨论进行了说明。
  
@@ -60,13 +60,13 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)�
 
 ## <a name="exceeding-timetolive"></a>超过 TimeToLive
 
-[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) 属性设置为 **true**（默认值是 **false**）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
+[QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) 或 [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性设置为 **true**（默认值是 **false**）时，所有到期的消息将移到 DLQ，并指定 `TTLExpiredException` 原因代码。
 
 请注意，如果主队列或订阅中至少有一个活动的接收器正在拉取，则会清除过期的消息，该消息会被移动到 DLQ；该行为是设计使然。
 
 ## <a name="errors-while-processing-subscription-rules"></a>处理订阅规则时出错
 
-当为订阅启用了 [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) 属性时，会在 DLQ 中捕获执行订阅的 SQL 筛选器规则时出现的任何错误以及有问题的消息。
+当为订阅启用了 [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) 属性时，会在 DLQ 中捕获执行订阅的 SQL 筛选器规则时出现的任何错误以及有问题的消息。
 
 ## <a name="application-level-dead-lettering"></a>应用程序级死信
 
@@ -84,7 +84,7 @@ Azure 服务总线队列和主题订阅提供一个名为“死信队列 (DLQ)�
 
 ## <a name="example"></a>示例
 
-下面的代码片段会创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后，[ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) 返回 **null**，主队列为空，且循环退出。
+下面的代码片段会创建一个消息接收器。 在主队列的接收循环中，此代码使用 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 检索消息，该方法请求代理立即返回随时可用的任何消息或返回空结果。 如果此代码接收到一条消息，则会立即将其放弃，从而使 `DeliveryCount` 递增。 系统将此消息移动到 DLQ 后，[ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver) 返回 **null**，主队列为空，且循环退出。
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -103,7 +103,19 @@ while(true)
 }
 ```
 
+## <a name="path-to-the-dead-letter-queue"></a>死信队列的路径
+可以使用以下语法访问死信队列：
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+如果使用的是 .NET SDK，则可以通过使用 SubscriptionClient.FormatDeadLetterPath() 方法获取死信队列的路径。 此方法使用 **/$DeadLetterQueue** 接受主题名称/订阅名称和后缀。
+
+
 ## <a name="next-steps"></a>后续步骤
+
 有关服务总线队列的详细信息，请参阅以下文章：
 
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)

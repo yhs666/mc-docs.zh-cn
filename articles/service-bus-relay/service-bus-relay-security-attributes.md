@@ -8,17 +8,17 @@ author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: mbaldwin
-ms.openlocfilehash: b3c81be8a0ca97953bf590f8ca783e6263e544bb
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.author: v-lingwu
+ms.openlocfilehash: 660d12377af83b5df0a25500159f79620d80b00d
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609884"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332177"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Azure 服务总线中继的常见安全属性
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Azure 服务总线中继的安全属性
 
-安全性已集成到 Azure 服务的各个方面。 本文记录了内置到 Azure 服务总线中继中的常见安全属性。
+本文记录了内置到 Azure 服务总线中继中的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "65609884"
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
 | 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>|  不适用 | 中继是一个 Web 套接字，不保存数据。 |
-| 传输中加密：<ul><li>快速路由加密</li><li>Vnet 中加密</li><li>VNet-VNet 加密</ul>| 是 | 服务需要 TLS。 |
+| 传输中加密：<ul><li>快速路由加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 是 | 服务需要 TLS。 |
 | 加密密钥处理（CMK、BYOK 等）| 否 | 仅使用 Microsoft TLS 证书。  |
 | 列级加密（Azure 数据服务）| 不适用 | |
 | 加密的 API 调用| 是 | HTTPS。 |

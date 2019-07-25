@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: a5009544b4fcb971482a403d710b670b3174afae
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 2e4086c5c60632bc8268f424caad4d936a834109
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570600"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332052"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -378,6 +378,32 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>在 MABS 代理中备份 Windows Server 系统状态
+
+本部分介绍用于在 MABS 代理中设置系统状态的 PowerShell 命令
+
+### <a name="schedule"></a>计划
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>保留
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>配置计划和保留期
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>验证策略
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
 
 ### <a name="applying-the-policy"></a>应用策略
 
@@ -719,7 +745,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅
 
-* [Azure 备份简介](backup-overview.md)
+* [Azure 备份简介](backup-introduction-to-azure-backup.md)
 * [备份 Windows Server](backup-configure-vault.md)
 
 <!-- Update_Description: code update -->

@@ -7,27 +7,27 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 02/22/2019
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 02b651762817c5d08913bbf2200cbbcb41f2fb68
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 99f138efbc1bfdcd77685bc4581a6aaf1ba97229
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665678"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331875"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>如何面向 Azure Functions 运行时版本
 
 函数应用在特定版本的 Azure Functions 运行时上运行。 有两个主版本：[1.x 和 2.x](functions-versions.md)。 默认情况下，函数应用基于 2.x 版的运行时创建。 本文介绍如何在 Azure 中将函数应用配置为在所选的版本上运行。 有关如何为特定版本配置本地开发环境的信息，请参阅[在本地编码和测试 Azure Functions](functions-run-local.md)。
 
-> [!NOTE]
-> 无法为具有一个或多个函数的函数应用更改运行时版本。 应当使用 Azure 门户更改运行时版本。
-
 ## <a name="automatic-and-manual-version-updates"></a>自动和手动版本更新
 
-Functions 允许通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置，针对特定版本的运行时。 函数应用将一直保留在指定的主版本上，直到显式选择迁移到新版本。
+Azure Functions 允许你通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置来针对特定版本的运行时。 函数应用将一直保留在指定的主版本上，直到显式选择迁移到新版本。
 
 如果仅指定主版本（对于 2.x 为“~2”；对于 1.x 为“~1”），当运行时的新次要版本可用时，函数应用将自动更新到该版本。 新次要版本不会引入重大更改。 如果指定次要版本（例如，“2.0.12345”），则函数应用将被固定到该特定版本，直到显式更改它。
+
+> [!NOTE]
+> 如果你固定到 Azure Functions 的特定版本，然后尝试使用 Visual Studio 发布到 Azure，则会弹出一个对话框窗口，提示你更新到最新版本或取消发布。 若要避免出现此情况，请在 `.csproj` 文件中添加 `<DisableFunctionExtensionVersionUpdate>true</DisableFunctionExtensionVersionUpdate>` 属性。
 
 有新版本公开可用时，门户中将显示提示，让你可以升级到该版本。 升级至新版本后，始终可使用 `FUNCTIONS_EXTENSION_VERSION` 应用程序设置移回到之前的版本。
 
@@ -42,6 +42,9 @@ Functions 允许通过使用函数应用中的 `FUNCTIONS_EXTENSION_VERSION` 应
 ### <a name="from-the-azure-portal"></a>通过 Azure 门户
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
+
+> [!NOTE]
+> 使用 Azure 门户，无法更改已包含函数的函数应用的运行时版本。
 
 ### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>通过 Azure CLI
 
@@ -104,4 +107,4 @@ az functionapp config appsettings set --name <function_app> `
 > [!div class="nextstepaction"]
 > [查看运行时版本的发行说明](https://github.com/Azure/azure-webjobs-sdk-script/releases)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

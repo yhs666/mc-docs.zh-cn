@@ -1,24 +1,18 @@
 ---
 title: Azure Resource Manager 概述 | Azure
 description: 介绍如何使用 Azure Resource Manager 在 Azure 上部署和管理资源以及对其进行访问控制。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 04/05/2019
-ms.date: 04/15/2019
+origin.date: 05/31/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ce82f7c05ed9e3437e2177c0717d866576972ff
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 021c23246e6b02b2f7431bbfcd6087a6ed6d30dd
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529220"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337450"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
@@ -52,13 +46,15 @@ Resource Manager 提供多种优势：
 * 可以将标记应用到资源，以逻辑方式组织订阅中的所有资源。
 * 可以通过查看一组共享相同标记的资源的成本来明确组织的帐单。
 
-## <a name="understand-management-scope"></a>了解管理范围
+## <a name="understand-scope"></a>了解范围
 
-Azure 提供四个级别的管理范围：[管理组](../governance/management-groups/index.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了一个这些层的示例。
+Azure 提供四个级别的范围：[管理组](../governance/management-groups/index.md)、订阅、[资源组](#resource-groups)和资源。 下图显示了一个这些层的示例。
 
 ![作用域](./media/resource-group-overview/scope-levels.png)
 
 将在上述任何级别的作用域中应用管理设置。 所选的级别确定应用设置的广泛程度。 较低级别继承较高级别的设置。 例如，将[策略](../governance/policy/overview.md)应用于订阅时，该策略将应用于订阅中的所有资源组和资源。 在资源组上应用策略时，该策略将应用于资源组及其所有资源。 但是，其他资源组没有该策略分配。
+
+可以将模板部署到管理组、订阅或资源组。
 
 ## <a name="guidance"></a>指南
 
@@ -86,13 +82,15 @@ Azure 提供四个级别的管理范围：[管理组](../governance/management-g
 
 创建资源组时，需要为该资源组提供一个位置。 你可能想知道，“为什么资源组需要一个位置？ 以及，如果资源可以具有与资源组不同的位置，资源组的位置应该不重要啊？ ” 资源组存储与资源有关的元数据。 因此，当指定资源组的位置时，也就指定了元数据的存储位置。 出于合规性原因，可能需要确保数据存储在某一特定区域。
 
-如果资源组的区域暂时不可用，则无法更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。 为了尽量降低风险，请将资源组和资源放入同一个区域。
+如果资源组的区域暂时不可用，则无法更新资源组中的资源，因为元数据不可用。 其他区域中的资源仍可按预期运行，但你不能更新它们。
+
+<!--Not Available on [Designing reliable Azure applications](https://docs.microsoft.com/azure/architecture/reliability/)-->
 
 ## <a name="resource-providers"></a>资源提供程序
 
-每个资源提供程序提供一组资源以及用于处理这些资源的操作。 例如，若要存储密钥和密码，可以使用 **Microsoft.KeyVault** 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。
+每个资源提供程序提供一组资源以及用于处理这些资源的操作。 例如，若要存储密钥和密码，可以使用 **Microsoft.KeyVault** 资源提供程序。 此资源提供程序提供名为“保管库”的资源类型，用于创建密钥保管库。 
 
-资源类型的名称采用以下格式：{resource-provider}/{resource-type}。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
+资源类型的名称采用以下格式：{resource-provider}/{resource-type}  。 Key Vault 的资源类型为 **Microsoft.KeyVault/vaults**。
 
 开始部署资源之前，应了解可用的资源提供程序。 了解资源提供程序和资源的名称可帮助定义想要部署到 Azure 的资源。 此外，还需要知道每种资源类型的有效位置和 API 版本。 有关详细信息，请参阅[资源提供程序和类型](resource-manager-supported-services.md)。
 
@@ -175,6 +173,20 @@ Azure Resource Manager 会分析依赖关系，以确保按正确的顺序创建
 
 <!-- Not Available on ## Safe deployment practices-->
 <!-- Notice:  URL is vaid on Central US for [Azure Deployment Manager](deployment-manager-overview.md)-->
+
+## <a name="resiliency-of-azure-resource-manager"></a>Azure 资源管理器的复原能力
+
+Azure 资源管理器服务旨在实现复原能力和持续可用性。 REST API 中的资源管理器和控制平面操作（发送到 management.chinacloudapi.cn 的请求）具有以下特性：
+
+* 跨区域分布。 某些服务具有区域性。
+
+* 在具有多个可用性区域的位置上跨可用性区域（以及区域）分布。
+
+* 不依赖于单个逻辑数据中心。
+
+* 从未因维护活动而停机。
+
+这种复原能力适用于通过资源管理器接收请求的服务。 例如，Key Vault 可以利用这种复原能力。
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

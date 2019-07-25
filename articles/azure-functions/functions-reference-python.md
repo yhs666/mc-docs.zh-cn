@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 origin.date: 04/16/2018
-ms.date: 06/04/2019
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: b3681508b56d03742f0933950eea9dc7f630933f
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: e4cd6696f5aa522950256d6171fe8a9a264b9bf3
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491435"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331887"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 开发人员指南
 
@@ -31,7 +31,7 @@ ms.locfileid: "66491435"
 
 Azure 函数应是 Python 脚本中处理输入并生成输出的无状态方法。 默认情况下，运行时期望此方法在 `__init__.py` 文件中作为名为 `main()` 的全局方法实现。
 
-可以通过在 `function.json` 文件中指定 `scriptFile` 和 `entryPoint` 属性来更改默认配置。 例如，下面的 _function.json_ 指示运行时使用 _main.py_ 文件中的 _customentry()_ 方法作为 Azure 函数的入口点。
+可以通过在 *function.json* 文件中指定 `scriptFile` 和 `entryPoint` 属性来更改默认配置。 例如，下面的 _function.json_ 指示运行时使用 _main.py_ 文件中的 `customentry()` 方法作为 Azure 函数的入口点。
 
 ```json
 {
@@ -41,7 +41,7 @@ Azure 函数应是 Python 脚本中处理输入并生成输出的无状态方法
 }
 ```
 
-来自触发器和绑定的数据使用在 `function.json` 配置文件中定义的 `name` 属性，通过方法特性绑定到函数。 例如，下面的 _function.json_ 描述一个由名为 `req` 的 HTTP 请求触发的简单函数：
+来自触发器和绑定的数据使用在 *function.json* 配置文件中定义的 `name` 属性，通过方法特性绑定到函数。 例如，下面的 _function.json_ 描述一个由名为 `req` 的 HTTP 请求触发的简单函数：
 
 ```json
 {
@@ -69,15 +69,16 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-（可选）还可以使用 Python 类型注释在函数中声明参数类型和返回类型。 例如，可以按如下所示，使用注释编写相同的函数：
+（可选）若要利用代码编辑器提供的 Intellisense 和自动完成功能，还可以使用 Python 类型注释来声明函数中的属性类型和返回类型。 
 
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest) -> str:
     user = req.params.get('user')
     return f'Hello, {user}!'
-```  
+```
 
 使用 [ azure.functions.*](https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python) 包中附带的 Python 注释将输入和输出绑定到方法。 
 
@@ -98,8 +99,6 @@ Python 函数项目的文件夹结构如下所示：
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
- | - extensions.csproj
- | - bin
 ```
 
 有一个共享的 [host.json](functions-host-json.md) 文件，可用于配置函数应用。 每个函数都有自己的代码文件和绑定配置文件 (function.json)。 
@@ -107,16 +106,16 @@ Python 函数项目的文件夹结构如下所示：
 共享代码应保留在单独的文件夹中。 若要引用 SharedCode 文件夹中的模块，可以使用以下语法：
 
 ```
-from ..SharedCode import myFirstHelperFunction
+from __app__.SharedCode import myFirstHelperFunction
 ```
 
-Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义，实际库文件位于 `bin` 文件夹中。 本地开发时，必须使用 Azure Functions Core Tools [注册绑定扩展](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)。 
-
-在 Azure 中将 Functions 项目部署到函数应用时，FunctionApp 文件夹的整个内容应包含在包中，但不包含该文件夹本身。
+在 Azure 中将 Functions 项目部署到函数应用时，*FunctionApp* 文件夹的整个内容应包含在包中，但不包含该文件夹本身。
 
 ## <a name="triggers-and-inputs"></a>触发器和输入
 
-在 Azure Functions 中，输入分为两种类别：触发器输入和附加输入。 虽然它们在 `function.json` 中并不相同，但它们在 Python 代码中的使用方法却是相同的。  触发器和输入源的连接字符串应映射到本地 `local.settings.json` 文件中的值，以及在 Azure 中运行时的应用程序设置。 请看以下代码片段示例：
+在 Azure Functions 中，输入分为两种类别：触发器输入和附加输入。 虽然它们在 `function.json` 文件中并不相同，但它们在 Python 代码中的使用方法却是相同的。  在本地运行时，触发器和输入源的连接字符串或机密应映射到 `local.settings.json` 文件中的值，以及在 Azure 中运行时的应用程序设置。 
+
+例如，以下代码演示了这两个类别之间的差异：
 
 ```json
 // function.json
@@ -157,6 +156,7 @@ Functions 运行时使用的绑定扩展在 `extensions.csproj` 文件中定义�
 import azure.functions as func
 import logging
 
+
 def main(req: func.HttpRequest,
          obj: func.InputStream):
 
@@ -172,7 +172,7 @@ def main(req: func.HttpRequest,
 
 若要使用函数的返回值作为输出绑定的值，则绑定的 `name` 属性应在 `function.json` 中设置为 `$return`。
 
-若要生成多个输出，请使用 `azure.functions.Out` 接口提供的 `set()` 方法将值分配给绑定。 例如，以下函数可以将消息推送到队列，还可返回 HTTP 响应。
+若要生成多个输出，请使用 [`azure.functions.Out`](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 接口提供的 `set()` 方法将值分配给绑定。 例如，以下函数可以将消息推送到队列，还可返回 HTTP 响应。
 
 ```json
 {
@@ -203,6 +203,7 @@ def main(req: func.HttpRequest,
 ```python
 import azure.functions as func
 
+
 def main(req: func.HttpRequest,
          msg: func.Out[func.QueueMessage]) -> str:
 
@@ -211,51 +212,44 @@ def main(req: func.HttpRequest,
     return message
 ```
 
-## <a name="importing-shared-code-into-a-function-module"></a>将共享代码导入函数模块中
-
-与函数模块一起发布的 Python 模块必须使用相关导入语法进行导入：
-
-```python
-from . import helpers  # Use more dots to navigate up the folder structure.
-def main(req: func.HttpRequest):
-    helpers.process_http_request(req)
-```
-
-或者，将共享代码置于独立包中，将它发布到公共或专用 PyPI 实例，并将它指定为常规依赖项。
-
 ## <a name="async"></a>异步
 
-由于对于每个函数应用只能存在单个 Python 进程，因此建议使用 `async def` 语句将 Azure 函数实现为异步协同程序。
+建议使用 `async def` 语句将 Azure 函数编写为异步协同例程。
 
 ```python
 # Will be run with asyncio directly
+
+
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-如果 main() 函数是同步函数（无 `async` 限定符），则我们会在 `asyncio` 线程池中自动运行它。
+如果 main() 函数是同步函数（无 `async` 限定符），则我们会在 `asyncio` 线程池中自动运行该函数。
 
 ```python
 # Would be run in an asyncio thread-pool
+
+
 def main():
     some_blocking_socket_io()
 ```
 
 ## <a name="context"></a>上下文
 
-若要在执行过程中获取函数的调用上下文，请在其签名中包含 `context` 参数。 
+若要在执行过程中获取函数的调用上下文，请在其签名中包含 [`context`](https://docs.microsoft.com/python/api/azure-functions/azure.functions.context?view=azure-python) 参数。 
 
 例如：
 
 ```python
 import azure.functions
 
+
 def main(req: azure.functions.HttpRequest,
-            context: azure.functions.Context) -> str:
+         context: azure.functions.Context) -> str:
     return f'{context.invocation_id}'
 ```
 
-**Context** 类具有以下方法：
+[**Context**](https://docs.microsoft.com/python/api/azure-functions/azure.functions.context?view=azure-python) 类具有以下方法：
 
 `function_directory`  
 在其中运行函数的目录。
@@ -266,6 +260,22 @@ def main(req: azure.functions.HttpRequest,
 `invocation_id`  
 当前函数调用的 ID。
 
+## <a name="global-variables"></a>全局变量
+
+不保证应用的状态可保留到将来的执行。 不过，Azure Functions 运行时通常会重复使用同一个进程来多次执行同一个应用。 为了缓存高开销计算的结果，请将其声明为全局变量。 
+
+```python
+CACHED_DATA = None
+
+
+def main(req):
+    global CACHED_DATA
+    if CACHED_DATA is None:
+        CACHED_DATA = load_json()
+
+    # ... use CACHED_DATA in code
+```
+
 ## <a name="python-version-and-package-management"></a>Python 版本和包管理
 
 当前，Azure Functions 仅支持 Python 3.6.x（CPython 正式分发版）。
@@ -273,10 +283,6 @@ def main(req: azure.functions.HttpRequest,
 在使用 Azure Functions Core Tools 或 Visual Studio Code 进行本地开发时，将所需包的名称和版本添加到 `requirements.txt` 文件并使用 `pip` 安装它们。
 
 例如，可以使用以下要求文件和 pip 命令从 PyPI 安装 `requests` 包。
-
-```bash
-pip install requests
-```
 
 ```txt
 requests==2.19.1
@@ -286,20 +292,9 @@ requests==2.19.1
 pip install -r requirements.txt
 ```
 
-准备好进行发布时，确保所有依赖项都在 `requirements.txt` 文件（位于项目目录的根目录）中列出。 若要成功执行 Azure Functions，要求文件应至少包含以下包：
-
-```txt
-azure-functions
-azure-functions-worker
-grpcio==1.14.1
-grpcio-tools==1.14.1
-protobuf==3.6.1
-six==1.11.0
-```
-
 ## <a name="publishing-to-azure"></a>发布到 Azure
 
-如果使用的包需要编译器并且不支持从 PyPI 安装 manylinux 兼容滚轮的包，则发布到 Azure 会失败并出现以下错误： 
+准备好进行发布时，请确保所有依赖项都已在 *requirements.txt* 文件（位于项目目录的根目录）中列出。 如果使用的包需要编译器并且不支持从 PyPI 安装 manylinux 兼容滚轮的包，则发布到 Azure 会失败并出现以下错误： 
 
 ```
 There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
@@ -314,13 +309,123 @@ func azure functionapp publish <app name> --build-native-deps
 
 实际上，Core Tools 会使用 docker 将 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 映像作为本地计算机上的容器来运行。 它随后会使用此环境从源分发版生成并安装所需模块，然后再打包它们以便最终部署到 Azure。
 
-> [!NOTE]
-> Core Tools (func) 使用 PyInstaller 程序将用户的代码和依赖项冻结到单个独立可执行文件中以在 Azure 中运行。 此功能当前处于预览状态，可能不会扩展到所有类型的 Python 包。 如果无法导入模块，请使用 `--no-bundler` 选项尝试再次发布。 
-> ```
-> func azure functionapp publish <app_name> --build-native-deps --no-bundler
-> ```
-> 如果继续遇到问题，请通过[建立问题](https://github.com/Azure/azure-functions-core-tools/issues/new)并包含问题描述来告知我们。 
+## <a name="unit-testing"></a>单元测试
 
+可以使用标准测试框架，像测试其他 Python 代码一样测试以 Python 编写的函数。 对于大多数绑定，可以通过创建 `azure.functions` 包中相应类的实例来创建模拟输入对象。 由于不能直接使用 [`azure.functions`](https://pypi.org/project/azure-functions/) 包，请务必根据前面的 [Python 版本和包管理](#python-version-and-package-management)部分中所述，通过 `requirements.txt` 文件安装该包。
+
+例如，下面是 HTTP 触发的函数的模拟测试：
+
+```json
+{
+  "scriptFile": "httpfunc.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+```python
+# myapp/httpfunc.py
+import azure.functions as func
+import logging
+
+def my_function(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+```python
+# myapp/test_httpfunc.py
+import unittest
+
+import azure.functions as func
+from httpfunc import my_function
+
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock HTTP request.
+        req = func.HttpRequest(
+            method='GET',
+            body=None,
+            url='/api/HttpTrigger',
+            params={'name': 'Test'})
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp.get_body(),
+            b'Hello Test',
+        )
+```
+
+下面是使用队列触发的函数的另一个示例：
+
+```python
+# myapp/__init__.py
+import azure.functions as func
+
+
+def my_function(msg: func.QueueMessage) -> str:
+    return f'msg body: {msg.get_body().decode()}'
+```
+
+```python
+# myapp/test_func.py
+import unittest
+
+import azure.functions as func
+from . import my_function
+
+
+class TestFunction(unittest.TestCase):
+    def test_my_function(self):
+        # Construct a mock Queue message.
+        req = func.QueueMessage(
+            body=b'test')
+
+        # Call the function.
+        resp = my_function(req)
+
+        # Check the output.
+        self.assertEqual(
+            resp,
+            'msg body: test',
+        )
+```
 
 ## <a name="known-issues-and-faq"></a>已知问题和常见问题解答
 
@@ -330,6 +435,7 @@ func azure functionapp publish <app name> --build-native-deps
 
 有关详细信息，请参阅以下资源：
 
+* [Azure Functions 包 API 文档](https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python)
 * [Azure Functions 最佳实践](functions-best-practices.md)
 * [Azure Functions 触发器和绑定](functions-triggers-bindings.md)
 * [Blob 存储绑定](functions-bindings-storage-blob.md)

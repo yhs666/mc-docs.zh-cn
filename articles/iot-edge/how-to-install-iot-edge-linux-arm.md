@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 06/27/2019
-ms.date: 07/22/2019
+origin.date: 07/10/2019
+ms.date: 07/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8476c422cf563485c9edb592f272714cfc6c0bfa
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: eb24c1400ec8a6e2ff9d79bf899c517c2d145eac
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845236"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337321"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>在 Linux 上安装 Azure IoT Edge 运行时 (ARM32v7/armhf)
 
@@ -101,19 +101,23 @@ IoT Edge 成功安装以后，输出会提示你更新配置文件。 按照下�
 sudo nano /etc/iotedge/config.yaml
 ```
 
-找到文件的 provisioning 节并取消注释 **manual** 预配模式。 使用 IoT Edge 设备的连接字符串更新 **device_connection_string** 的值。
+找到文件的预配配置，并取消注释“手动预配配置”  节。 使用 IoT Edge 设备的连接字符串更新 **device_connection_string** 的值。 请确保注释掉任何其他预配部分。
 
-   ```yaml
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
+```yaml
+# Manual provisioning configuration
+provisioning:
+  source: "manual"
+  device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   # provisioning: 
-   #   source: "dps"
-   #   global_endpoint: "https://global.azure-devices-provisioning.net"
-   #   scope_id: "{scope_id}"
-   #   registration_id: "{registration_id}"
-   ```
+# DPS TPM provisioning configuration
+# provisioning:
+#   source: "dps"
+#   global_endpoint: "https://global.azure-devices-provisioning.net"
+#   scope_id: "{scope_id}"
+#   attestation:
+#     method: "tpm"
+#     registration_id: "{registration_id}"
+```
 
 保存并关闭该文件。 
 
@@ -127,7 +131,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>选项 2：自动预配
 
-若要自动预配设备，请[设置设备预配服务并检索设备注册 ID](how-to-auto-provision-simulated-device-linux.md)。 自动预配仅适用于具有受信任的平台模块 (TPM) 芯片的设备。 例如，默认情况下，Raspberry Pi 设备未附带 TPM。 
+若要自动预配设备，请[设置设备预配服务并检索设备注册 ID](how-to-auto-provision-simulated-device-linux.md)。 使用自动预配时，IoT Edge 支持多种证明机制，但硬件要求也会影响你的选择。 例如，默认情况下，Raspberry Pi 设备不附带受信任的平台模块 (TPM) 芯片。
 
 打开配置文件。 
 
@@ -135,19 +139,23 @@ sudo systemctl restart iotedge
 sudo nano /etc/iotedge/config.yaml
 ```
 
-找到文件的 provisioning 节并取消注释 **dps** 预配模式。 使用 IoT 中心设备预配服务中的值更新 **scope_id** 和 **registration_id** 的值，并使用 TPM 更新 IoT Edge 设备。 
+找到文件的预配配置，并取消注释适用于你的证明机制的部分。 例如，使用 TPM 证明时，请分别使用来自 IoT 中心设备预配服务和带有 TPM 的 IoT Edge 设备的值更新 **scope_id** 和 **registration_id** 的值。
 
-   ```yaml
+```yaml
+   # Manual provisioning configuration
    # provisioning:
    #   source: "manual"
    #   device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
   
-   provisioning: 
+   # DPS TPM provisioning configuration
+   provisioning:
      source: "dps"
      global_endpoint: "https://global.azure-devices-provisioning.net"
      scope_id: "{scope_id}"
-     registration_id: "{registration_id}"
-   ```
+     attestation:
+       method: "tpm"
+       registration_id: "{registration_id}"
+```
 
 保存并关闭该文件。 
 

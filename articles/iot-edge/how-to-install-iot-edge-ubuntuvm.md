@@ -7,15 +7,15 @@ ms.reviewer: kgremban
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 03/29/2019
-ms.date: 07/22/2019
+origin.date: 07/09/2019
+ms.date: 07/29/2019
 ms.author: gregman
-ms.openlocfilehash: acfdea928cc4b25821e6a1a4f9139e91337c6e6e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: fde20c8bb0888f2ad4315d096892c284ea3b4fad
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845234"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337319"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虚拟机上运行 Azure IoT Edge
 
@@ -46,11 +46,7 @@ ms.locfileid: "67845234"
 在 Azure 门户中，搜索“Azure IoT Edge”并选择“Ubuntu Server 16.04 LTS + Azure IoT Edge 运行时”开始 VM 创建工作流。  在此处，请完成上述“从 Azure 市场部署”说明中的步骤 3 到 4。
 
 ## <a name="deploy-from-azure-cli"></a>从 Azure CLI 部署
-1. 首次通过 CLI 部署虚拟机时，需要为 Azure 订阅启用编程部署：
-   1. 打开 [Ubuntu 上的 Azure IoT Edge](https://aka.ms/azure-iot-edge-ubuntuvm) 市场套餐
-   1. 选择“立即获取”，然后在下一个对话框中单击“继续”  
-   1. 在门户中对话框的底部选择“想要以编程方式进行部署?  开始使用”
-   1. 在“配置编程部署”页中单击“启用”按钮，然后单击“保存”   
+
 1. 如果在桌面上使用 Azure CLI，请先登录：
 
    ```azurecli-interactive
@@ -64,8 +60,9 @@ ms.locfileid: "67845234"
       az account list --output table
       ```
     
-   1. 复制要使用的订阅的 SubscriptionID 字段
-   1. 结合刚刚复制的 ID 运行以下命令：
+   1. 复制要使用的订阅的 SubscriptionID 字段。
+
+   1. 使用刚复制的 ID 设置工作订阅：
     
       ```azurecli-interactive 
       az account set -s {SubscriptionId}
@@ -76,11 +73,17 @@ ms.locfileid: "67845234"
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus2
    ```
-    
+
+1. 接受虚拟机的使用条款。 如果想先查看这些条款，请按照[从 Azure 市场部署](#deploy-from-the-azure-marketplace)中的步骤进行操作。
+
+   ```azurecli
+   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   ```
+
 1. 创建新虚拟机：
 
    ```azurecli-interactive
-   az vm create --resource-group IoTEdgeResources --name EdgeVM –-image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys --size Standard_DS1_v2
+   az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. 设置设备连接字符串（如果你不熟悉此过程，可以遵循[使用 Azure CLI 注册新的 Azure IoT Edge 设备](how-to-register-device-cli.md)操作指南）：

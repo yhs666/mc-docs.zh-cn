@@ -4,15 +4,15 @@ description: 列出 Azure 资源管理器的所有资源提供程序命名空间
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 04/25/2019
-ms.date: 06/03/2019
+origin.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 184cd17dcc26d6070ff1b759a9e7c4a645347a9a
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: afd68b34bd5f6e63cd20013499da4fd780a8a397
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276425"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337303"
 ---
 <!--Verify sucessfully-->
 # <a name="resource-providers-for-azure-services"></a>Azure 服务的资源提供程序
@@ -29,7 +29,8 @@ ms.locfileid: "67276425"
 | Microsoft.ApiManagement | [API 管理](../api-management/index.yml) |
 | Microsoft.Authorization | [Azure 资源管理器](index.yml) |
 | Microsoft.Automation | [自动化](../automation/index.yml) |
-| Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
+| Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
+| Microsoft.AzureStack | core |
 | Microsoft.Batch | [批处理](../batch/index.yml) |
 | Microsoft.Cache | [用于 Redis 的 Azure 缓存](/azure-cache-for-redis/) |
 | Microsoft.Cdn | [内容分发网络](/cdn/) |
@@ -42,17 +43,20 @@ ms.locfileid: "67276425"
 | Microsoft.Compute | [虚拟机](/virtual-machines/) |
 | Microsoft.ContainerRegistry | [容器注册表](/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes 服务 (AKS)](/aks/) |
+| Microsoft.DataFactory | [数据工厂](/data-factory/) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](/mariadb/) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/postgresql/) |
-| Microsoft.Devices | [IoT 中心](/iot-hub/) |
+| Microsoft.Devices | [IoT 中心](/iot-hub/)<br />[IoT 中心设备预配服务](/iot-dps/) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
 | Microsoft.EventHub | [事件中心](../event-hubs/index.yml) |
+| Microsoft.Features | [Azure 资源管理器](index.yml) |
 | Microsoft.GuestConfiguration | [Azure Policy](../governance/policy/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../hdinsight/index.yml) |
 | Microsoft.ImportExport | [Azure 导入/导出](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [密钥保管库](../key-vault/index.yml) |
+| Microsoft.Kusto | [Azure 数据资源管理器](../data-explorer/index.yml) |
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [逻辑应用](../logic-apps/index.yml) |
 | Microsoft.ManagedIdentity | Azure 资源的托管标识 |
@@ -77,9 +81,9 @@ ms.locfileid: "67276425"
 | Microsoft.Sql | [Azure SQL 数据库](../sql-database/index.yml) |
 | Microsoft.Storage | [存储](../storage/index.yml) |
 | Microsoft.StreamAnalytics | [流分析](../stream-analytics/index.yml) |
+| Microsoft.TimeSeriesInsights | [时序见解](../time-series-insights/index.yml) |
 | Microsoft.Web | [应用服务](../app-service/index.yml)<br />[函数](../azure-functions/index.yml) |
 
-<!--Not Available on | Microsoft.Kusto | [Azure Data Explorer](../data-explorer/index.yml) |-->
 
 ## <a name="next-steps"></a>后续步骤
 

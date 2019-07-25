@@ -10,15 +10,16 @@ ms.service: azure-functions
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 08/10/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
+ms.reviewer: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d5618ac460b75feaae4786194c0f3edb42343340
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: b2d0d5aed478fd92f3323fdc5f7ce4f4f1734908
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491466"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331892"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>使用 Java 和 Maven 创建你的第一个函数
 
@@ -63,8 +64,8 @@ mvn archetype:generate `
 
 ```cmd
 mvn archetype:generate ^
-    -DarchetypeGroupId=com.microsoft.azure ^
-    -DarchetypeArtifactId=azure-functions-archetype
+    "-DarchetypeGroupId=com.microsoft.azure" ^
+    "-DarchetypeArtifactId=azure-functions-archetype"
 ```
 
 Maven 会请求你提供所需的值以完成项目的生成。 有关 groupId  、artifactId  和 version  值，请参阅 [Maven 命名约定](https://maven.apache.org/guides/mini/guide-naming-conventions.html)参考。 AppName  值在 Azure 中必须唯一，以便 Maven 基于以前输入的 artifactId  生成默认应用名称。 PackageName  值确定所生成函数代码的 Java 包。
@@ -72,17 +73,25 @@ Maven 会请求你提供所需的值以完成项目的生成。 有关 groupId  
 下面的 `com.fabrikam.functions` 和 `fabrikam-functions` 标识符用作示例，目的是使本快速入门中后面的步骤更易读。 建议你在此步骤中向 Maven 提供你自己的值。
 
 ```Output
-Define value for property 'groupId': com.fabrikam.functions
-Define value for property 'artifactId' : fabrikam-functions
+Define value for property 'groupId' (should match expression '[A-Za-z0-9_\-\.]+'): com.fabrikam.functions
+Define value for property 'artifactId' (should match expression '[A-Za-z0-9_\-\.]+'): fabrikam-functions
 Define value for property 'version' 1.0-SNAPSHOT : 
 Define value for property 'package': com.fabrikam.functions
 Define value for property 'appName' fabrikam-functions-20170927220323382:
+Define value for property 'appRegion' chinanorth: :
+Define value for property 'resourceGroup' java-functions-group: :
 Confirm properties configuration: Y
 ```
 
-在此示例 `fabrikam-functions` 中，Maven 在新文件夹中创建名为 artifactId  的项目文件 项目中生成的可以运行的代码是一个简单的回显请求正文的 [HTTP 触发](/azure-functions/functions-bindings-http-webhook)函数：
+在此示例 `fabrikam-functions` 中，Maven 在新文件夹中创建名为 artifactId  的项目文件 项目中生成的准备运行代码是一个 [HTTP 触发的](/azure-functions/functions-bindings-http-webhook)函数，该函数回显请求正文。 将 *src/main/java/com/fabrikam/functions/Function.java* 替换为以下代码： 
 
 ```java
+package com.fabrikam.functions;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
 public class Function {
     /**
      * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
@@ -109,7 +118,7 @@ public class Function {
 
 ```
 
-## <a name="reference-bindings"></a>引用绑定
+## <a name="enable-extension-bundles"></a>启用扩展捆绑包
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -157,7 +166,7 @@ Hello LocalFunction!
 az login
 ```
 
-使用 `azure-functions:deploy` Maven 目标将代码部署到新的函数应用。
+使用 `azure-functions:deploy` Maven 目标将代码部署到新的函数应用。 这将执行一个启用了[“从包运行”模式的 Zip 部署](functions-deployment-technologies.md#zip-deploy)。
 
 ```
 mvn azure-functions:deploy
@@ -203,7 +212,7 @@ return request.createResponse(200, "Hi, " + name);
 保存更改。 运行 mvn 清理包，如以前一样通过从终端运行 `azure-functions:deploy` 进行重新部署。 函数应用将更新，并且以下请求：
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/HttpTrigger-Java
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.chinacloudsites.cn/api/hello
 ```
 
 将具有更新的输出：

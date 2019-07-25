@@ -7,14 +7,14 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: article
 origin.date: 02/22/2019
-ms.date: 03/18/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 44cd402643194d896a4d1889c76723ffddffe381
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 0fc87e15e4d857af2e0dc3b38ac1b938a13c0b4f
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57990124"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298135"
 ---
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk 系统要求
 
@@ -30,7 +30,7 @@ ms.locfileid: "57990124"
 | **操作系统** | **测试的版本** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| Windows（64 位） |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04、16.04、18.04 <br> 8.11、9 <br> 7.0 <br> 6.5、6.9、7.0、7.5 |  
 
 ## <a name="other-required-software-for-windows-clients"></a>Windows 客户端所需的其他软件

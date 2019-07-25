@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 04/14/2018
-ms.date: 07/01/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: c548a6884ead044c529318d63e81670402ae3658
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 29891a2cbda42907b919bde9170118a548380f4b
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171379"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232274"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 
@@ -32,7 +32,7 @@ ms.locfileid: "67171379"
 > [!IMPORTANT]
 > 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
 
-本指南介绍如何借助 Azure 通知中心，直接从 Node.js 应用程序发送推送通知。 
+本指南介绍如何借助 Azure 通知中心，直接从 [Node.js](https://nodejs.org) 应用程序发送推送通知。
 
 涵盖的方案包括在下列平台将推送通知发送到应用程序：
 
@@ -47,7 +47,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 
-本教程的第一步是创建新的空白 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站][nodejswebsite]、使用 Windows PowerShell [创建 Node.js 云服务][Node.js Cloud Service]或[使用 WebMatrix 创建网站][webmatrix]。
+本教程的第一步是创建新的空白 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[使用 Windows PowerShell 创建 Node.js 应用程序并将其部署到 Azure 网站][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service]或[使用 WebMatrix][webmatrix] 创建网站。
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>将应用程序配置为使用通知中心
 

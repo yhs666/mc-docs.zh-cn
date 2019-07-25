@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: e52c6bf9a1fe13c32760f653476580c453187798
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0e0d7e1b7a12559ee0fec8be884298f311e7b5b2
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627329"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332218"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>开始在 .NET 中使用中继混合连接 WebSocket
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -53,19 +53,19 @@ ms.locfileid: "58627329"
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-server](../../includes/relay-hybrid-connections-dotnet-get-started-server.md)]
 
-## <a name="4-create-a-client-application-sender"></a>4.创建客户端应用程序（发送程序）
+## <a name="create-a-client-application-sender"></a>创建客户端应用程序（发送程序）
 在 Visual Studio 中编写可将消息发送到中继的 C# 控制台应用程序。
 
 [!INCLUDE [relay-hybrid-connections-dotnet-get-started-client](../../includes/relay-hybrid-connections-dotnet-get-started-client.md)]
 
-## <a name="5-run-the-applications"></a>5.运行应用程序
+## <a name="run-the-applications"></a>运行应用程序
 1. 运行服务器应用程序。
 2. 运行客户端应用程序并输入一些文本。
 3. 确保服务器应用程序控制台显示了客户端应用程序中输入的文本。
 
 ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-祝贺你，现已创建端到端混合连接应用程序！
+祝贺你，你已创建了一个完整的混合连接应用程序！
 
 ## <a name="next-steps"></a>后续步骤
 在本快速入门中，你创建了 .NET 客户端和服务器应用程序，此类程序使用 WebSocket 来发送和接收消息。 Azure 中继的混合连接功能也支持使用 HTTP 发送和接收消息。 若要了解如何将 HTTP 与 Azure 中继混合连接配合使用，请参阅 [HTTP 快速入门](relay-hybrid-connections-http-requests-dotnet-get-started.md)。

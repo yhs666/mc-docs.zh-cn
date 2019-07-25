@@ -2,35 +2,63 @@
 title: 部署多个 Azure 资源实例 | Azure
 description: 在部署资源时使用 Azure Resource Manager 模板中的复制操作和数组执行多次迭代。
 services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-editor: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 05/01/2019
-ms.date: 06/03/2019
+origin.date: 07/01/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c72b21ead6bb039b2341eb27a77c563312cb02d
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: f147284d0d7af3b2363b70557377b3403cc8764c
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195385"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337458"
 ---
-# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>在 Azure 资源管理器模板中部署资源或属性的多个实例
+# <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的资源、属性或变量迭代
 
-本文介绍了如何在 Azure 资源管理器模板中进行迭代操作，以创建多个资源实例。 如需指定究竟是否部署资源，请参阅 [condition 元素](resource-group-authoring-templates.md#condition)。
+本文介绍如何在 Azure 资源管理器模板中创建资源、变量或属性的多个实例。 若要创建多个实例，请将 `copy` 对象添加到模板。
 
-有关教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
+与资源一起使用时，复制对象的格式如下：
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+```json
+"copy": {
+    "name": "<name-of-loop>",
+    "count": <number-of-iterations>,
+    "mode": "serial" <or> "parallel",
+    "batchSize": <number-to-deploy-serially>
+}
+```
+
+与变量或属性一起使用时，复制对象的格式如下：
+
+```json
+"copy": [
+  {
+      "name": "<name-of-loop>",
+      "count": <number-of-iterations>,
+      "input": <values-for-the-property-or-variable>
+  }
+]
+```
+
+本文将更详细地介绍这两种用法。 有关教程，请参阅[教程：使用资源管理器模板创建多个资源实例](./resource-manager-tutorial-create-multiple-instances.md)。
+
+如需指定究竟是否部署资源，请参阅 [condition 元素](resource-group-authoring-templates.md#condition)。
+
+## <a name="copy-limits"></a>复制限制
+
+若要指定迭代次数，请为 count 属性提供值。 count 不能超过 800。
+
+count 不能为负数。 如果使用 REST API 版本 **2019-05-10** 或更高版本部署模板，则可以将 count 设置为零。 更早版本的 REST API 不支持将 count 设为零。 目前，Azure CLI 或 PowerShell 不支持将 count 设为零，但在未来的版本中将添加该支持。
+
+将[完整模式部署](deployment-modes.md)与复制一起使用时要小心。 如果以完整模式重新部署到资源组，则在解析复制循环后会删除模板中未指定的任何资源。
+
+无论与资源、变量还是属性一起使用，count 的限制都是相同的。
 
 ## <a name="resource-iteration"></a>资源迭代
 
-当必须在部署过程中决定是创建资源的一个实例还是多个实例时，请将 `copy` 元素添加到资源类型。 在 copy 元素中，为此循环指定迭代次数和名称。 计数值必须是不超过 800 的正整数。 
+当必须在部署过程中决定是创建资源的一个实例还是多个实例时，请将 `copy` 元素添加到资源类型。 在 copy 元素中，为此循环指定迭代次数和名称。
 
 要多次创建的资源采用以下格式：
 
@@ -71,7 +99,7 @@ ms.locfileid: "66195385"
 * storage1
 * storage2。
 
-若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 要执行的迭代次数仍被指定在 copy 元素中，但 copyIndex 的值已按指定的值发生了偏移。 因此，以下示例：
+若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 迭代次数仍在 copy 元素中指定，但 copyIndex 的值会按指定的值发生偏移。 因此，以下示例：
 
 ```json
 "name": "[concat('storage', copyIndex(1))]",
@@ -156,7 +184,7 @@ mode 属性也接受 **parallel**（它是默认值）。
 若要为资源上的属性创建多个值，请在属性元素中添加一个 `copy` 数组。 此数组包含对象，每个对象具有以下属性：
 
 * 名称 - 要创建多个值的属性的名称
-* 计数 - 要创建的值的数目。 计数值必须是不超过 800 的正整数。
+* 计数 - 要创建的值的数目。
 * input - 一个对象，其中包含要赋给该属性的值  
 
 以下示例演示如何将 `copy` 应用到虚拟机上的 dataDisks 属性：

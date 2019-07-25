@@ -1,24 +1,18 @@
 ---
 title: 使用 PowerShell 和模板部署资源 | Azure
 description: 使用 Azure Resource Manager 和 Azure PowerShell 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: 55903f35-6c16-4c6d-bf52-dbf365605c3f
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/28/2019
-ms.date: 04/15/2019
+origin.date: 05/31/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ba90ce7e518740e113142217670eaa1927c163d
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 1c7320652fe7b3bced713fc0237593be25c0bf1f
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276445"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337441"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>使用 Resource Manager 模板和 Azure PowerShell 部署资源
 
@@ -42,12 +36,18 @@ New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Template
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
+目前，仅通过 REST API 支持管理组部署。 请参阅[使用资源管理器模板和资源管理器 REST API 部署资源](resource-group-template-deploy-rest.md)。
+
 本文中的示例使用资源组部署。 有关订阅部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 你需要使用模板进行部署。 如果还没有模板，请从 Azure 快速入门模板存储库下载并保存一个[示例模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json)。 本文中使用的本地文件名称为 **c:\MyTemplates\azuredeploy.json**。
+
 需安装 Azure PowerShell 并连接到 Azure：
+
+<!--MOONCAKE: Not Available on Azure Cloud Shell-->
+
 - **在本地计算机上安装 Azure PowerShell cmdlet。** 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 - **使用 [Connect-AZAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 连接到 Azure**。 如果有多个 Azure 订阅，则可能还需要运行 [Set-AzContext](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)。 有关详细信息，请参阅[使用多个 Azure 订阅](https://docs.microsoft.com/powershell/azure/manage-subscriptions-azureps)。
 
@@ -89,11 +89,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-此功能也称为“出错时回滚”  。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `-RollbackToLastDeployment` 或 `-RollBackDeploymentName` 参数。 如果你的基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
+此功能也称为“出错时回滚”  。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `-RollbackToLastDeployment` 或 `-RollBackDeploymentName` 参数。 如果基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
 
 - 重新部署使用与以前运行它时相同的参数以相同的方式运行。 无法更改参数。
 - 以前的部署是使用[完整模式](./deployment-modes.md#complete-mode)运行的。 以前的部署中未包括的任何资源都将被删除，任何资源配置都将设置为以前的状态。 请确保你完全理解[部署模式](./deployment-modes.md)。
-- 重新部署只会影响资源，不会影响任何数据更改。
+- 重新部署只会影响资源，而不会影响任何数据更改。
 - 只有资源组部署支持此功能，订阅级部署不支持此功能。 有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](./deploy-to-subscription.md)。
 
 若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
@@ -145,6 +145,17 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
 ```
 
 当需要提供配置值时，从文件中获取参数值非常有用。 例如，可以[为 Linux 虚拟机提供 cloud-init 值](../virtual-machines/linux/using-cloud-init.md)。
+
+如果需要传入对象数组，请在 PowerShell 中创建哈希表并将其添加到数组中。 在部署过程中将该数组作为参数传递。
+
+```powershell
+$hash1 = @{ Name = "firstSubnet"; AddressPrefix = "10.0.0.0/24"}
+$hash2 = @{ Name = "secondSubnet"; AddressPrefix = "10.0.1.0/24"}
+$subnetArray = $hash1, $hash2
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
+  -TemplateFile c:\MyTemplates\demotemplate.json `
+  -exampleArray $subnetArray
+```
 
 ### <a name="parameter-files"></a>参数文件
 

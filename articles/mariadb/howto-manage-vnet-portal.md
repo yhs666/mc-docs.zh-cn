@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 02/26/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 69e0eb7369eb71230da655d86b0678451efdba1a
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.date: 07/22/2019
+ms.openlocfilehash: e8c3a239673e968c5b58416477363fc23d535b31
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173211"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308888"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>使用 Azure 门户创建和管理 Azure Database for MariaDB VNet 服务终结点和 VNet 规则
 
@@ -28,7 +28,7 @@ ms.locfileid: "66173211"
 2. 确保将“允许访问 Azure 服务”控件设置为“关闭”。 
 
 > [!Important]
-> 如果将它设置为“开启”，则 Azure MariaDB Database 服务器将接受来自任何子网的通信。 从安全角度来看，将此控件设置为“启用”可能会导致过度访问。 Microsoft Azure 虚拟网络服务终结点功能与 Azure Database for MariaDB 的虚拟网络规则功能一起使用可以降低安全风险。
+> 如果将它设置为“开启”，则 Azure MariaDB Database 服务器将接受来自任何子网的通信。 从安全角度来看，将此控件设置为“启用”可能会导致过度访问。 Azure 虚拟网络服务终结点功能与 Azure Database for MariaDB 的虚拟网络规则功能一起协同工作可以减少安全外围应用。
 
 3. 接下来，单击“+ 添加现有虚拟网络”  。 若无现有 VNet，可以单击“+ 新建虚拟网络”  来创建一个。 请参阅[快速入门：使用 Azure 门户创建虚拟网络](../virtual-network/quick-create-portal.md)
 

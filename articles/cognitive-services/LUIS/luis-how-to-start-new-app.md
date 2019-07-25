@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 22d256f26d0469010ab37044d743864c5bd357c6
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: d67ff0cff80ef01d4cc06b73fe3c26acc7c4af62
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135759"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332060"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 门户中创建新的 LUIS 应用
-可通过多种方法创建 LUIS 应用。 可以在 [LUIS](https://docs.azure.cn) 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 创建。
+可通过多种方法创建 LUIS 应用。 可以在 [LUIS](https://luis.azure.cn) 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 创建。
 
 ## <a name="using-the-luis-portal"></a>使用 LUIS 门户
 可以通过以下几种方式在 LUIS 门户中创建新应用：
@@ -64,7 +64,7 @@ ms.locfileid: "67135759"
 
 可能的错误为： 
 
-* 已存在具有该名称的应用。 重新导入应用，并将“可选名称”  设置为新名称。 
+* 已存在具有该名称的应用。 若要解决此问题，请重新导入应用，并将“可选名称”  设置为新名称。 
 
 ## <a name="export-app-for-backup"></a>导出用于备份的应用
 

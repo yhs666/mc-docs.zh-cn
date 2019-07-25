@@ -1,24 +1,18 @@
 ---
 title: 锁定 Azure 资源以防止更改 | Azure
 description: 通过对所有用户和角色应用锁，来防止用户更新或删除关键 Azure 资源。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 06/03/2019
+origin.date: 05/14/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: a5621f19120346e8f0f70e0012e7c1429e435ac6
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: ecf8d8b47d5409886ce7f2e611f5a6314f468bab
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195387"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337455"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>锁定资源，以防止意外更改 
 
@@ -37,7 +31,13 @@ ms.locfileid: "66195387"
 
 Resource Manager 锁仅适用于管理平面内发生的操作，包括发送到 `https://management.chinacloudapi.cn`的操作。 这类锁不会限制资源如何执行各自的函数。 资源更改将受到限制，但资源操作不受限制。 例如，SQL 数据库上的 ReadOnly 锁会阻止你删除或修改数据库。 它不会阻止你在数据库中创建、更新或删除数据。 允许数据事务，因为这些操作不会发送到 `https://management.chinacloudapi.cn`。
 
-应用 **ReadOnly** 可能会导致意外结果，因为看起来好像读取操作的某些操作实际上需要其他操作。 例如，在存储帐户上放置 **ReadOnly** 锁会阻止所有用户列出密钥。 列出密钥操作通过 POST 请求进行处理，因为返回的密钥可用于写入操作。 另举一例，在应用服务资源上放置 **ReadOnly** 锁将阻止 Visual Studio 服务器资源管理器显示资源文件，因为该交互需要写访问权限。
+应用 **ReadOnly** 可能导致意外的结果，因为某些似乎不会修改资源的操作实际上需要被锁定阻止的操作。 **ReadOnly** 锁可以应用于资源或包含资源的资源组。 被 **ReadOnly** 锁阻止的操作的一些常见示例包括：
+
+* 存储帐户上的 **ReadOnly** 锁会阻止所有用户列出密钥。 列出密钥操作通过 POST 请求进行处理，因为返回的密钥可用于写入操作。
+
+* 应用服务资源上的 **ReadOnly** 锁将阻止 Visual Studio 服务器资源管理器显示资源文件，因为该交互需要写访问权限。
+
+* 包含虚拟机的资源组上的 **ReadOnly** 锁会阻止所有用户启动或重启虚拟机。 这些操作需要 POST 请求。
 
 ## <a name="who-can-create-or-delete-locks"></a>谁可以创建或删除锁
 若要创建或删除管理锁，必须有权执行 `Microsoft.Authorization/*` 或 `Microsoft.Authorization/locks/*` 操作。 在内置角色中，只有“所有者”和“用户访问管理员”有权执行这些操作。  
@@ -135,7 +135,7 @@ New-AzResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName exam
 New-AzResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
-若要获取有关某个锁的信息，请使用 [Get-AzureRmResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock)。 若要获取订阅中的所有锁，请使用：
+若要获取有关某个锁的信息，请使用 [Get-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcelock)。 若要获取订阅中的所有锁，请使用：
 
 ```powershell
 Get-AzResourceLock

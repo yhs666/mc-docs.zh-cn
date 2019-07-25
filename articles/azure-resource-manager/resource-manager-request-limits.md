@@ -1,29 +1,23 @@
 ---
 title: 请求限制 - Azure 资源管理器 | Microsoft Azure
 description: 介绍在达到订阅限制后如何对 Azure Resource Manager 请求进行限制。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
+origin.date: 07/09/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 42b2255a5e4d4d6dc69e4a6126179d0bcb645131
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 3ffa322e20742f04bac24d58f48070219412bf5f
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348137"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337391"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 
-对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制作用于发出请求的主体 ID，以及订阅 ID 或租户 ID。 如果请求来自多个主体 ID，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
+对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制的范围是发出请求的安全主体（用户或应用程序）和订阅 ID 或租户 ID。 如果请求来自多个安全主体，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
 
 请求将应用到订阅或租户。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
 
@@ -31,9 +25,9 @@ ms.locfileid: "58348137"
 
 如果应用程序或脚本达到了这些限制，则需对请求数进行限制。 本文说明如何在达到限制之前确定剩余的请求数，以及达到限制时如何做出响应。
 
-达到限制时，会收到 HTTP 状态代码“429 请求过多”。
+达到限制时，会收到 HTTP 状态代码“429 请求过多”  。
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+<!--Not Available on [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling)-->
 
 ## <a name="remaining-requests"></a>剩余请求数
 可以通过检查响应标头确定剩余请求数。 读取请求在标头中返回一个值，表示剩余读取请求的数目。 写入请求包含的值表示剩余写入请求的数目。 下表说明了各种响应标头，用户可以检查其中是否存在这些值：
@@ -153,4 +147,4 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-writes': '1199'
 * 有关限制和配额的详细信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 * 若要了解如何处理异步 REST 请求，请参阅[跟踪异步 Azure 操作](resource-manager-async-operations.md)。
 
-<!--Update_Description: update meta properties, update cmdlet -->
+<!--Update_Description: update meta properties, wording update -->

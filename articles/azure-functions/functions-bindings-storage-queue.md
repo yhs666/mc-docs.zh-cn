@@ -4,21 +4,21 @@ description: 了解如何在 Azure Functions 中使用 Azure 队列存储触发�
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/03/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 403b9145938a13edfc50acbc95bd96f0efb1fd4d
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 6ca602e4ce2efdd48d6d68348753f4de6af0611c
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491490"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331881"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Functions 的 Azure 队列存储绑定
 
@@ -567,7 +567,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 |属性  |默认 | 说明 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|队列轮询的最大间隔时间。 最小值为 00:00:00.100（100 毫秒）。 |
+|maxPollingInterval|00:00:01|队列轮询的最大间隔时间。 最小值为 00:00:00.100（100 毫秒），可递增至 00:01:00（1 分钟）。 |
 |visibilityTimeout|00:00:00|消息处理失败时的重试间隔时间。 |
 |batchSize|16|Functions 运行时同时检索并并行处理的队列消息数。 当处理的数量下降到 `newBatchThreshold` 时，运行时可获取另一个批，并开始处理这些消息。 因此，每个函数处理的最大并发消息数是 `batchSize` 加上 `newBatchThreshold`。 此限制分别应用于各个队列触发的函数。 <br><br>如果要避免对队列上收到的消息并行执行，可以将 `batchSize` 设置为 1。 但是，只有在函数于单个虚拟机 (VM) 上运行时，此设置才可消除并发。 如果函数应用横向扩展到多个 VM，每个 VM 可运行每个队列触发的函数的一个实例。<br><br>`batchSize` 的最大值为 32。 |
 |maxDequeueCount|5|在将某个消息移到有害队列之前，尝试处理该消息的次数。|

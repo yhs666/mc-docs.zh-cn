@@ -7,16 +7,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 07/22/2019
+origin.date: 07/10/2019
+ms.date: 07/29/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 8ddd03f3ec6a48b31cb6a583a12113b76760089e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 555366c4156889b07767be3ce76e69b6f3ae90db
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845233"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337318"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -115,9 +115,9 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 ### <a name="option-2-install-and-automatically-provision"></a>选项 2：安装和自动预配
 
-在这第二个选项中，使用 IoT 中心设备预配服务来预配设备。 提供设备预配服务实例中的“范围 ID”，以及设备中的“注册 ID”。  
+在这第二个选项中，使用 IoT 中心设备预配服务来预配设备。 提供设备预配服务实例中的“范围 ID”，以及设备中的“注册 ID”。   使用 DPS 进行预配时，根据证明机制可能需要其他值，例如使用[对称密钥](how-to-auto-provision-symmetric-keys.md)时。
 
-以下示例演示使用 Windows 容器进行的自动安装：
+以下示例演示如何使用 Windows 容器和 TPM 证明进行自动安装：
 
 1. 按照[在 Windows上创建和预配模拟 TPM IoT Edge 设备](how-to-auto-provision-simulated-device-windows.md)中的步骤，设置设备预配服务并检索其**范围 ID**，模拟 TPM 设备并检索其**注册 ID**，然后创建个人注册。 在 IoT 中心注册设备后，继续执行以下安装步骤。  
 
@@ -144,12 +144,21 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 6. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 该命令默认为使用 Windows 容器手动预配。 通过 `-Dps` 标志使用设备预配服务，而不是手动预配。
 
+   使用 **Initialize-IoTEdge** 命令将 DPS 与 TPM 证明配合使用：
+
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
    Initialize-IoTEdge -Dps
    ```
 
-7. 出现提示时，请提供设备预配服务中的范围 ID 以及设备中的注册 ID，在步骤 1 中应已检索到这两个 ID。
+   使用 **Initialize-IoTEdge** 命令将 DPS 与对称密钥证明配合使用。 将 `{symmetric key}` 替换为设备密钥。
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   ```
+
+1. 出现提示时，请提供设备预配服务中的范围 ID 以及设备中的注册 ID，在步骤 1 中应已检索到这两个 ID。
 
 8. 使用[验证安装是否成功](#verify-successful-installation)中的步骤检查设备上的 IoT Edge 状态。 
 
@@ -286,6 +295,7 @@ Initialize-IoTEdge 命令使用设备连接字符串和操作详细信息配置 
 | **DeviceConnectionString** | 已在 IoT 中心注册的 IoT Edge 设备中的连接字符串，括在单引号中 | 对于手动安装，此参数是**必需**的。 如果未在脚本参数中提供连接字符串，则安装期间系统会提示你提供连接字符串。 |
 | **ScopeId** | 与 IoT 中心关联的设备预配服务实例中的范围 ID。 | 对于 DPS 安装，此参数是**必需**的。 如果未在脚本参数中提供范围 ID，则安装期间系统会提示你提供范围 ID。 |
 | **RegistrationId** | 设备生成的注册 ID | 对于 DPS 安装，此参数是**必需**的。 如果未在脚本参数中提供注册 ID，则安装期间系统会提示你提供注册 ID。 |
+| **SymmetricKey** | 使用 DPS 时用于预配 IoT Edge 设备标识的对称密钥 | 如果使用对称密钥证明，则是 DPS 安装所**必需**的。 |
 | **ContainerOs** | **Windows** 或 **Linux** | 如果未指定容器操作系统，则 Windows 是默认值。<br><br>对于 Windows 容器，IoT Edge 使用安装中包含的 moby 容器引擎。 对于 Linux 容器，需要在开始安装之前安装容器引擎。 |
 | **InvokeWebRequestParameters** | 参数和值的哈希表 | 在安装期间，会发出多个 Web 请求。 请使用此字段来设置这些 Web 请求的参数。 此参数可用于配置代理服务器的凭据。 有关详细信息，请参阅[将 IoT Edge 设备配置为通过代理服务器进行通信](how-to-configure-proxy-support.md)。 |
 | **AgentImage** | IoT Edge 代理映像 URI | 默认情况下，新的 IoT Edge 安装使用 IoT Edge 代理映像的最新滚动标记。 使用此参数可为映像版本设置特定的标记，或者提供自己的代理映像。 有关详细信息，请参阅[了解 IoT Edge 标记](how-to-update-iot-edge.md#understand-iot-edge-tags)。 |

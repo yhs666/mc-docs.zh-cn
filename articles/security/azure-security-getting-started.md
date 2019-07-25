@@ -1,24 +1,26 @@
 ---
-title: Microsoft Azure 安全入门 | Microsoft Azure
+title: Microsoft Azure 安全入门 | Azure
 description: 本文概述了 Microsoft Azure 安全功能，以及组织在将其资产迁移到云提供商处时需要注意的一般性注意事项。
 services: security
-documentationCenter: na
-authors: YuriDio
-manager: swadhwa
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: TomSh
+ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/19/2016
-ms.author: v-johch
-ms.openlocfilehash: 092a0ada5dc3d40e2b945e234021eabcc043107c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 11/21/2017
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: a03cb2049e5549c6ff8e042a478ddf2e54a239bc
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625556"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332071"
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 安全入门
 
@@ -124,7 +126,7 @@ IP 筛选器可以防止来宾 VM 执行以下操作：
 
 可以使用以下 Azure 虚拟网络技术来帮助实现 Azure 虚拟网络上的安全通信：
 
--   [**网络安全组 (NSG)**](../virtual-network/virtual-networks-nsg.md)。 可以在虚拟网络中使用 NSG 控制流向一个或多个虚拟机 (VM) 实例的流量。 NSG 包含根据流量方向、协议、源地址和端口以及目标地址和端口允许或拒绝流量的访问控制规则。
+-   [**网络安全组 (NSG)** ](../virtual-network/virtual-networks-nsg.md)。 可以在虚拟网络中使用 NSG 控制流向一个或多个虚拟机 (VM) 实例的流量。 NSG 包含根据流量方向、协议、源地址和端口以及目标地址和端口允许或拒绝流量的访问控制规则。
 
 -   [**用户定义的路由**](../virtual-network/virtual-networks-udr-overview.md)。 可以创建用户定义的路由来指定下一跃点，方便数据包流向特定的子网并转到虚拟网络安全设备，从而控制数据包通过虚拟设备进行的路由。
 
@@ -148,7 +150,7 @@ IP 筛选器可以防止来宾 VM 执行以下操作：
 
 -   **来宾防火墙**：复制 VM 切换数据包筛选器中的规则，不过这些规则是在不同软件（即来宾 OS 的 Windows 防火墙组件）中通过编程方式设置的。 来宾 VM 防火墙在经过配置后，可以限制与来宾 VM 的通信，即使主机 IP 筛选器上的配置允许进行这样的通信。 例如，可以选择使用来宾 VM 防火墙来限制两个 VNet 之间的通信，这两个 VNet 已配置为可以互相进行连接。
 
--   **存储防火墙 (FW)**：存储前端的防火墙会对通信进行筛选，只允许在端口 80/443 以及其他必需的实用程序端口上进行通信。 存储后端的防火墙会将通信限制为只能来自存储前端服务器。
+-   **存储防火墙 (FW)** ：存储前端的防火墙会对通信进行筛选，只允许在端口 80/443 以及其他必需的实用程序端口上进行通信。 存储后端的防火墙会将通信限制为只能来自存储前端服务器。
 
 -   **虚拟网络网关**：[Azure 虚拟网关](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)充当跨界网关，会在 Azure 虚拟网络中的工作负荷连接到本地站点。 它需要通过 [IPsec 站点到站点 VPN 隧道](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md) 或 [ExpressRoute](../expressroute/expressroute-introduction.md) 线路连接到本地站点。 对于 IPsec/IKE VPN 隧道，这些网关会执行 IKE 握手，并在虚拟网络和本地站点之间建立 IPsec S2S VPN 隧道。 虚拟网络网关还会终止 [点到站点 VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md)。
 

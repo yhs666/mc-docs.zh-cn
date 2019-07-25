@@ -4,19 +4,19 @@ description: 了解如何配置 Azure 函数绑定
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 02/18/2019
-ms.date: 03/04/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 962c99cf6878b2488e31f2a65560673bde383864
-ms.sourcegitcommit: 115087334f6170fb56c7925a8394747b07030755
+ms.openlocfilehash: 41f49a0f595197bd5d87add7ba40d08e49b76065
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57254073"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331920"
 ---
 # <a name="azure-functions-trigger-and-binding-example"></a>Azure Functions 触发器和绑定示例
 
@@ -24,7 +24,7 @@ ms.locfileid: "57254073"
 
 假设希望在 Azure 队列存储中显示一条新消息时就将一个新行写入 Azure 表存储。 使用 Azure 队列存储触发器和 Azure 表存储输出绑定即可实现此方案。 
 
-下面是用于这种方案的 function.json 文件。 
+下面是用于这种方案的 function.json  文件。 
 
 ```json
 {
@@ -51,14 +51,14 @@ ms.locfileid: "57254073"
 
 `bindings` 数组中的第二个元素是 Azure 表存储输出绑定。 `type` 和 `direction` 属性标识该绑定。 `name` 属性指定函数提供新表行的方式，在此例中是使用函数返回值来提供。 表格的名称位于 `tableName` 中，连接字符串位于由 `connection` 标识的应用设置中。
 
-若要在 Azure 门户中查看和编辑 *function.json* 的内容，请单击函数“集成”选项卡上的“高级编辑器”选项。
+若要在 Azure 门户中查看和编辑 *function.json* 的内容，请单击函数“集成”  选项卡上的“高级编辑器”  选项。
 
 > [!NOTE]
-> `connection` 的值是包含连接字符串的应用设置的名称，而不是连接字符串本身的名称。 绑定使用应用设置中存储的连接字符串，以强制执行 function.json 不包含服务密钥这一最佳做法。
+> `connection` 的值是包含连接字符串的应用设置的名称，而不是连接字符串本身的名称。 绑定使用应用设置中存储的连接字符串，以强制执行 function.json  不包含服务密钥这一最佳做法。
 
 ## <a name="c-script-example"></a>C# 脚本示例
 
-以下是适用于此触发器和绑定的 C# 脚本代码。 请注意，提供队列消息内容的参数的名称是 `order`；需使用此名称是因为 function.json 中的 `name` 属性值是 `order` 
+以下是适用于此触发器和绑定的 C# 脚本代码。 请注意，提供队列消息内容的参数的名称是 `order`；需使用此名称是因为 function.json  中的 `name` 属性值是 `order` 
 
 ```cs
 #r "Newtonsoft.Json"
@@ -136,10 +136,11 @@ public class Person
 }
 ```
 
-你现在有一个由 Azure 表存储触发的工作函数，该函数将数据输出到队列中。
+现在，你已有一个由 Azure 队列触发并将数据输出到 Azure 表存储的工作函数。
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
 > [Azure Functions 绑定表达式模式](./functions-bindings-expressions-patterns.md)
 
+<!-- Update_Description: wording update -->

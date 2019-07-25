@@ -9,22 +9,22 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d29394c13c6f470f0b7cc93273483567ad5af4a0
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: ad6f4bd94cddb4b2afdd29e1643314e9c39d06c2
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845154"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337388"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Azure IoT Edge 支持的系统
 
 有多种方法可用来寻求对 Azure IoT Edge 产品的支持。
 
-**报告 bug** – 涉及 Azure IoT Edge 产品的大多数开发都是在 IoT Edge 开放源代码项目中进行的。 可以在项目的[问题页面](https://github.com/azure/iotedge/issues)上报告 bug。 修复很快就会从项目实施到产品更新中。
+**报告 bug** - 涉及 Azure IoT Edge 产品的大多数开发都在 IoT Edge 开放源代码项目中进行。 可以在项目的[问题页面](https://github.com/azure/iotedge/issues)上报告 bug。 修复很快就会从项目实施到产品更新中。
 
-**Microsoft 客户支持团队** – 拥有[支持计划](https://azure.microsoft.com/support/plans/)的用户可以通过直接从 [Azure 门户]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)创建支持票证来与 Microsoft 客户支持团队进行沟通。
+**Microsoft 客户支持团队** - 拥有[支持计划](https://azure.microsoft.com/support/plans/)的用户可以通过直接从 [Azure 门户]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac)创建支持票证来与 Microsoft 客户支持团队进行沟通。
 
-**功能请求** – Azure IoT Edge 产品通过产品的 [User Voice 页面](https://feedback.azure.com/forums/907045-azure-iot-edge)跟踪功能请求。
+**功能请求** - Azure IoT Edge 产品通过产品的[“用户之声”页](https://feedback.azure.com/forums/907045-azure-iot-edge)跟踪功能请求。
 
 ## <a name="container-engines"></a>容器引擎
 Azure IoT Edge 需要使用容器引擎启动模块，因为模块是以容器形式实现的。 Microsoft 提供了容器引擎 moby-engine 来满足此要求。 它基于 Moby 开放源代码项目。 Docker CE 和 Docker EE 是其他常用的容器引擎。 它们也基于 Moby 开放源代码项目并且与 Azure IoT Edge 兼容。 Microsoft 对使用那些容器引擎的系统提供尽力而为的支持；但是，Microsoft 没有能力为其中的问题提供修复。 因此，Microsoft 建议在生产系统上使用 moby-engine。

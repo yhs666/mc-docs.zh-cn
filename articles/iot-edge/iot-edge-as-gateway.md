@@ -9,12 +9,12 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 271067f1e6188a49c1d654c8b6e2a1c6bf6786c6
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 3c3138eaf9ae0077924c0b6858595461c2f9458b
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845214"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337314"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>如何将 IoT Edge 设备用作网关
 
@@ -23,7 +23,7 @@ IoT Edge 解决方案中的网关为 IoT 设备提供了设备连接和边缘分
 ## <a name="patterns"></a>模式
 
 将 IoT Edge 设备用作网关有三种模式：透明、协议转换和标识转换：
-* 透明  – 理论上可以连接到 IoT 中心的设备可以改为连接到网关设备。 下游设备有其自己的 IoT 中心标识，并将使用任一 MQTT、AMQP 或 HTTP 协议。 网关只是在设备与 IoT 中心之间传递通信。 这些设备不会意识到它们正通过网关与云进行通信，而与 loT 中心设备交互的用户也不会觉察到中间网关设备。 因此，网关是透明的。 请参阅[创建透明网关](how-to-create-transparent-gateway.md)，了解有关将 IoT Edge 设备用作透明网关的详细信息。
+* **透明** - 理论上可以连接到 IoT 中心的设备可以改为连接到网关设备。 下游设备有其自己的 IoT 中心标识，并将使用任一 MQTT、AMQP 或 HTTP 协议。 网关只是在设备与 IoT 中心之间传递通信。 这些设备不会意识到它们正通过网关与云进行通信，而与 loT 中心设备交互的用户也不会觉察到中间网关设备。 因此，网关是透明的。 请参阅[创建透明网关](how-to-create-transparent-gateway.md)，了解有关将 IoT Edge 设备用作透明网关的详细信息。
 * **协议转换** - 也称为不透明网关模式，不支持 MQTT、AMQP 或 HTTP 的设备可以使用网关设备以它们的名义将数据发送到 IoT 中心。 网关理解下游设备使用的协议；然而，它是唯一一个在 loT 中心拥有标识的设备。 所有信息好像都来自一台设备，即网关。 如果云应用程序想要以设备位单位分析数据，则下游设备就必须在其消息中嵌入额外的标识信息。 此外，IoT 中心基元（例如孪生和方法）仅适用于网关设备，而不适用于下游设备。
 * **标识转换** - 无法连接到 IoT 中心的设备可以改为连接到网关设备。 网关代表下游设备提供 IoT 中心标识和协议转换。 网关非常智能，它能够理解下游设备使用的协议，为其提供标识，并转换 IoT 中心基元。 下游设备作为一流设备出现在 IoT 中心，随附克隆和方法。 用户可以与 IoT 中心的设备进行交互，但并觉察不到中间网关设备。
 
@@ -31,8 +31,8 @@ IoT Edge 解决方案中的网关为 IoT 设备提供了设备连接和边缘分
 
 ## <a name="use-cases"></a>用例
 所有网关模式提供以下优势：
-* **边缘分析** – 在本地使用 AI 服务处理来自下游设备的数据，而无需向云发送完全保真的遥测数据。 本地查找和响应见解，并仅将一部分数据发送到 IoT 中心。 
-* 下游设备隔离  – 网关设备可以屏蔽所有下游设备，而不对 Internet 公开。 它可以位于无连接的 OT 网络和提供 Web 访问权限的 IT 网络之间。 
+* **边缘分析** - 在本地使用 AI 服务处理来自下游设备的数据，而无需向云发送完全保真的遥测数据。 本地查找和响应见解，并仅将一部分数据发送到 IoT 中心。 
+* **下游设备隔离** - 网关设备可以屏蔽所有下游设备，而不对 Internet 公开。 它可以位于无连接的 OT 网络和提供 Web 访问权限的 IT 网络之间。 
 * **连接多路复用** - 通过 IoT Edge 网关连接到 IoT 中心的所有设备使用同一个基础连接。
 * 流量平滑  - 在本地保存消息的同时，如果 IoT 中心对流量进行限制，IoT Edge 设备将自动执行指数回退。 此优点使解决方案能灵活应对流量高峰。
 * **脱机支持** - 网关设备存储不能传递到 IoT 中心的消息和孪生更新。
@@ -58,5 +58,5 @@ IoT Edge 解决方案中的网关为 IoT 设备提供了设备连接和边缘分
 了解如何设置透明网关： 
 
 * [配置 IoT Edge 设备以充当透明网关](how-to-create-transparent-gateway.md)
-* [向 Azure IoT 中心验证下游设备](how-to-authenticate-downstream-device.md)
+* [在 Azure IoT 中心对下游设备进行身份验证](how-to-authenticate-downstream-device.md)
 * [将下游设备连接到 Azure IoT Edge 网关](how-to-connect-downstream-device.md)

@@ -6,15 +6,15 @@ author: cephalin
 ms.service: app-service
 ms.topic: include
 origin.date: 06/05/2018
-ms.date: 04/08/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: b1c8eb8fa47b60931d8897bf2e6a2b5125d93b72
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 13e6cc5920f74ad053c34f9dc590d4f2d76c3140
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66689107"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232269"
 ---
 ## <a name="prepare-your-repository"></a>准备存储库
 
@@ -36,6 +36,5 @@ ms.locfileid: "66689107"
 
 > [!NOTE]
 > 如果在 Visual Studio 中进行开发，让 [Visual Studio 创建存储库](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio)。 该项目可立即通过 Git 进行部署。
->
 >
 

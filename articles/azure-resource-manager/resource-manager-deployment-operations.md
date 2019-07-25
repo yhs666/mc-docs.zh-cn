@@ -1,37 +1,29 @@
 ---
-title: 使用 Azure Resource Manager 执行部署操作 | Azure
+title: 使用 Azure 资源管理器查看部署历史记录 | Azure
 description: 介绍如何通过门户、PowerShell、Azure CLI 和 REST API 查看 Azure Resource Manager 部署操作。
-services: azure-resource-manager,virtual-machines
-documentationcenter: ''
 tags: top-support-issue
 author: rockboyfor
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: vm-multiple
-ms.workload: infrastructure
-origin.date: 09/28/2018
-ms.date: 04/15/2019
+origin.date: 05/13/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3333a27a5e509705f40c0a02d8845404de23d6dd
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 3a101f12b3ada2775c19ba5d3b34c3b369a3d4b1
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529170"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337418"
 ---
-# <a name="view-deployment-operations-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署操作
+# <a name="view-deployment-history-with-azure-resource-manager"></a>使用 Azure 资源管理器查看部署历史记录
 
-可以通过 Azure 门户查看部署操作。 在部署过程中收到错误时，可能最想要查看的就是这些操作，因此，本文将重点介绍如何查看已失败的操作。 该门户提供了一个界面让你轻松找到错误并确定可能的解决方法。
+使用 Azure 资源管理器可以查看部署历史记录并检查过去部署中的特定操作。 你可以查看已部署的资源，并获取有关任何错误的信息。
 
-可以通过查看审核日志或部署操作来对部署进行故障排除。 本文介绍了这两种方法。 如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+如需帮助解决特定部署错误，请参阅[解决使用 Azure Resource Manager 将资源部署到 Azure 时的常见错误](resource-manager-common-deployment-errors.md)。
 
 ## <a name="portal"></a>门户
 
-若要查看部署操作，请使用以下步骤 ：
+从部署历史记录中获取有关部署的详细信息。
 
 1. 对于部署中涉及的资源组，请注意最后一个部署的状态。 可以选择此状态以获取更多详细信息。
 
@@ -49,7 +41,7 @@ ms.locfileid: "59529170"
     ![查看操作](./media/resource-manager-deployment-operations/view-operations.png)
 
     在此示例中，会看到已成功创建存储帐户、虚拟网络和可用性集。 公共 IP 地址失败，未尝试其他资源。
-5. 可以通过选择“事件”查看部署的事件 。
+5. 可以通过选择“事件”查看部署的事件  。
 
     ![查看事件](./media/resource-manager-deployment-operations/view-events.png)
 6. 查看部署的所有事件，并选择任何事件以了解更多详细信息。 请注意相关 ID。 与技术支持人员合作排查部署问题时，此值非常有用。

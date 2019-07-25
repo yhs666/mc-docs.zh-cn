@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 16209a5e15e297d99082913753ebab0e433923f0
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 4b699a75b4b351af49ece371ca09e2a3584d9711
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236349"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332064"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本进行编辑和测试，而不会影响暂存应用或生产应用
 
@@ -67,7 +67,7 @@ ms.locfileid: "67236349"
 
 * 若要**删除**某个版本，请从列表中选择一个版本，然后从工具栏中选择“删除”。  选择“确定”。  
 * 若要**重命名**某个版本，请从列表中选择一个版本，然后从工具栏中选择“重命名”。  输入新名称并选择“完成”  。 
-* 若要**导出**某个版本，请从列表中选择一个版本，然后从工具栏中选择“导出应用”。  文件将下载到本地计算机。 
+* 若要**导出**某个版本，请从列表中选择一个版本，然后从工具栏中选择“导出应用”。  选择要导出以备份的 JSON，选择“为容器导出”  以[在 LUIS 容器中使用此应用](luis-container-howto.md)。  
 
 
 

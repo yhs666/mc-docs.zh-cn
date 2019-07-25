@@ -2,23 +2,25 @@
 title: Microsoft 信任中心 | Microsoft Azure
 description: Microsoft 信任中心提供所需的信息让你确信运行服务的 Azure 平台是安全的。
 services: security
-documentationCenter: na
-authors: TomShinder
-manager: MBaldwin
+documentationcenter: na
+author: lingliw
+manager: digimobile
 editor: TomSh
+ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
-ms.author: v-johch
-ms.openlocfilehash: 310a568ea5c3bdb3823b7ae2b1da98efd41b8fa8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 11/26/2018
+ms.date: 11/26/2018
+ms.author: v-lingwu
+ms.openlocfilehash: a3275e0703eb0e008cb6d39075e5736b58ab02c8
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657828"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332061"
 ---
 # <a name="trust-center"></a>信任中心
 
@@ -29,11 +31,11 @@ Azure.cn 上的 Azure 安全信息站点提供所需的信息用于规划、设�
 
 信任中心提供以下信息：
 
-- [安全性](https://www.trustcenter.cn/zh-cn/security/default.html) – 了解 21Vianet 运营的 Microsoft Azure 受到怎样的保护。
-- [隐私性](https://www.trustcenter.cn/zh-cn/privacy/default.html) – 了解 21Vianet 如何确保云中客户数据的隐私性。
-- [合规性](https://www.trustcenter.cn/zh-cn/compliance/default.html) – 了解 21Vianet 和 Microsoft 如何帮助组织符合监管个人数据收集和使用的国家、地区和行业特定要求的标准。
-- [透明性](https://www.trustcenter.cn/zh-cn/transparency/default.html) – 了解 21Vianet 如何相信可以控制云中的数据，以及 21Vianet 如何帮助你更深入地了解该数据的处理方式。
-- [产品和服务](https://www.trustcenter.cn/zh-cn/cloudservices/default.html) – 在一个中心位置了解 21Vianet 运营的 Microsoft Azure 和 Office 365
+- [安全性](https://www.trustcenter.cn/zh-cn/security/default.html) – 了解如何保护所有的 Microsoft 云服务。
+- [隐私性](https://www.trustcenter.cn/zh-cn/privacy/default.html) – 了解 Microsoft 如何确保在 Microsoft 云中数据的隐私性。
+- [合规性](https://www.trustcenter.cn/zh-cn/compliance/default.html) – 探索 Microsoft 如何帮助组织符合监管个人数据收集和使用的国家、地区和行业特定要求的标准。
+- [透明性](https://www.trustcenter.cn/zh-cn/transparency/default.html) – 查看 Microsoft 如何相信可以控制在云中的数据，以及 Microsoft 如何帮助你更深入地了解该数据的处理方式。
+- [产品和服务](https://www.trustcenter.cn/zh-cn/cloudservices/default.html) – 在一个位置查看所有 Microsoft 云产品和服务
 - [新增功能](https://www.trustcenter.cn/zh-cn/what-is-new/default.html) – 了解云信任的新增功能
 - [资源](https://www.trustcenter.cn/zh-cn/resources/default.html) – 查看有关受信任云的白皮书、视频和案例研究
 

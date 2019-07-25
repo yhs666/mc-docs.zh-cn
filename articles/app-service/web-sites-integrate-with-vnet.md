@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2017
-ms.date: 07/01/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 5ce24f027fa3e92b39040e2c404c9e2f6662866e
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: dfa206d6d6db0fa96ad7032e85e9748ed048677b
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171380"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232276"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
-本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。 然后可以使用 VPN 技术将这些网络连接到本地网络。 
+本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。
 
 在 Azure 中国区，Azure 应用服务只有一个窗体。  
 
@@ -37,7 +37,7 @@ VNet 集成通常用于实现应用对 VNet 中的数据库和运行 Web 服务�
 
 VNet 集成功能：
 
-* 需要标准、高级定价计划 
+* 需要“标准”、“高级”或“高级 V2”定价计划 
 * 支持 TCP 和 UDP
 * 使用应用服务应用和函数应用
 
@@ -150,7 +150,7 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
 使用网关所需的 VNet 集成功能涉及到三种相关费用：
 
-* ASP 定价层费用 - 应用需要属于“标准”、“高级”应用服务计划。 可在此处了解这些费用的更多详细信息：[应用服务定价][ASPricing]。 
+* ASP 定价层费用 - 应用需要属于“标准”、“高级”或“高级 V2”应用服务计划。 可在此处了解这些费用的更多详细信息：[应用服务定价][ASPricing]。 
 * 数据传输费用 - 数据传出会产生费用，即使 VNet 在同一数据中心也是如此。 [数据传输定价详细信息][DataPricing]中对这些费用进行了说明。 
 * VPN 网关费用 - 点到站点 VPN 所需的 VNet 网关会产生费用。 [VPN 网关定价][VNETPricing]页上介绍了详细信息。
 
@@ -171,8 +171,8 @@ ASP VNet 集成 UI 会显示 ASP 中的应用使用的所有 VNet。 要查看�
 
 **tcpping** 实用程序会告知是否可访问特定主机和端口。 仅满足以下条件才会显示成功：存在侦听主机和端口组合的应用程序，且可从应用对指定主机和端口进行网络访问。
 
-#### <a name="debugging-access-to-vnet-hosted-resources"></a>针对 VNET 托管的资源进行访问权限调试
-许多因素会阻止应用访问特定的主机和端口。  大多数情况下为以下三种情况：
+#### <a name="debugging-access-to-vnet-hosted-resources"></a>针对 VNet 托管的资源进行访问权限调试
+许多因素会阻止应用访问特定的主机和端口。 大多数情况下为以下三种情况：
 
 * **存在防火墙。** 如果存在防火墙，则会发生 TCP 超时。 本例中的 TCP 超时为 21 秒。 使用 **tcpping** 工具测试连接性。 除了防火墙外，还有多种原因可能导致 TCP 超时。 
 * **DNS 不可访问。** DNS 超时时间为每个 DNS 服务器 3 秒。 如果具有 2 个 DNS 服务器，则超时为 6 秒。 使用 nameresolver 查看 DNS 是否正常工作。 请记住，不能使用 nslookup，因其没有使用为 VNet 配置的 DNS。

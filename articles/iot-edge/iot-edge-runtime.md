@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b7e612e5837fc93d47905fa240898ae63cb935c8
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 5842d691fcacbab44aa020ec45236c43478744ab
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845432"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337316"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
@@ -97,7 +97,7 @@ IoT Edge 代理是构成 Azure IoT Edge 运行时的其他模块。 它负责实
    * 已失败
    * 已停止
 * **restartPolicy** - IoT Edge 代理如何重启模块。 可能的值包括：
-   * `never` – IoT Edge 代理永远不会重启模块。
+   * `never` - IoT Edge 代理永远不会重启模块。
    * `on-failure` - 如果模块崩溃，IoT Edge 代理会重启它。 如果该模块完全关闭，IoT Edge 代理不会重启它。
    * `on-unhealthy` - 如果模块崩溃或被视为不正常，IoT Edge 代理会重启它。
    * `always` - 如果模块崩溃、被视为不正常或者以任何方式关闭，IoT Edge 代理会重启它。 

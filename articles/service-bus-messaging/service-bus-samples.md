@@ -12,21 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: f59f16c650a4b81583ad1f780f24bb164e933095
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: aa4f55b2bc6b25e2aaa60f50be6b0dd882615d5f
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544787"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332133"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
+服务总线消息传送示例演示[服务总线消息传送](https://www.azure.cn/services/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：
 
-服务总线消息传送示例演示[服务总线消息传送](/service-bus/)中的关键功能。 目前，可以在两个位置找到这些示例：
-
-- [.NET 和 Java](https://github.com/Azure/azure-service-bus/tree/master/samples)。 有关 .NET 示例的说明，请参阅存储库中的 [.NET 自述文件](https://github.com/Azure/azure-service-bus/blob/master/samples/DotNet/Microsoft.ServiceBus.Messaging/README.md)；有关 Java 示例的说明，请参阅 [Java 自述文件](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)。
-- [Typescript](https://github.com/Azure/azure-service-bus-node/tree/master/examples)
+| 编程语言 | SDK 或示例位置 |
+| -------------------- | ----------------------- |
+| .NET、Java 和管理 | https://github.com/Azure/azure-service-bus/ |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>服务总线资源管理器
 
@@ -37,4 +39,3 @@ ms.locfileid: "58544787"
 有关服务总线的概念性概述，请参阅以下主题。
 
 * [服务总线消息传送概述](service-bus-messaging-overview.md)
-* [服务总线体系结构](service-bus-architecture.md)

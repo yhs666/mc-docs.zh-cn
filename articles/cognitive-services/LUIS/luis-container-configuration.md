@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 06/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3fc4bfaf2f94e5de85c4a9cba462711e75ecceac
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 20fc04da489e4fe3382f9265cadc6d32133d0d37
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135995"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332098"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>配置语言理解 Docker 容器 
 
@@ -108,9 +108,9 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 
 以下示例使用的配置设置说明如何编写和使用 `docker run` 命令。  运行后，容器将继续运行，直到[停止](luis-container-howto.md#stop-the-container)它。
 
-
-* **行继续符**：以下各节中的 docker 命令使用反斜杠 `\` 作为行继续符。 根据主机操作系统的要求替换或删除字符。 
-* **参数顺序**：除非非常熟悉 docker 容器，否则不要更改参数顺序。
+* 这些示例使用 `c:` 驱动器外的目录来避免 Windows 上的任何权限冲突。 如果需要使用特定目录作为输入目录，则需要授予 docker 服务权限。 
+* 除非非常熟悉 docker 容器，否则不要更改参数顺序。
+* 如果使用的是不同的操作系统，请使用正确的控制台/终端、用于装载的文件夹语法和系统的行继续符。 这些示例假定 Windows 控制台使用行继续符 `^`。 由于容器是 Linux 操作系统，因此目标装载使用 Linux 样式的文件夹语法。
 
 请记住在 URL 中包括 `luis/v2.0` 路由，如下表所示。
 
@@ -138,10 +138,6 @@ Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY}
 ```
-
-> [!Note] 
-> 上述命令使用 `c:` 驱动器下的目录来避免 Windows 上的任何权限冲突。 如果需要使用特定目录作为输入目录，则需要授予 docker 服务权限。 前面的 docker 命令使用反斜杠 `\` 作为行继续符。 根据[主计算机](luis-container-howto.md#the-host-computer)操作系统的要求替换或删除此字符。 除非非常熟悉 docker 容器，否则不要更改参数顺序。
-
 
 ### <a name="applicationinsights-example"></a>ApplicationInsights 示例
 

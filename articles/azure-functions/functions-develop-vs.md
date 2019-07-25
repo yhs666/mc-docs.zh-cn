@@ -9,18 +9,18 @@ ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 origin.date: 10/08/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6ed7bb61a06ccc184cb3c30440e6afc6a96d3784
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: d063a767a739fccf7572d13094e429b1aa49cf9f
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491408"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331947"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>使用 Visual Studio 开发 Azure Functions  
 
-用于 Visual Studio 2019 的 Azure Functions 工具是 Visual Studio 的一个扩展，可用于开发、测试 C# 函数并将其部署到 Azure。 如果这是你第一次体验 Azure Functions，可以在 [Azure Functions 简介](functions-overview.md)中了解详细信息。
+Azure Functions 工具是 Visual Studio 的一个扩展，可用于开发、测试 C# 函数并将其部署到 Azure。 如果这是你第一次体验 Azure Functions，可以在 [Azure Functions 简介](functions-overview.md)中了解详细信息。
 
 Azure Functions 工具提供以下优势： 
 
@@ -43,13 +43,11 @@ Azure Functions 工具包含在 [Visual Studio 2017](https://www.visualstudio.co
 
 请确保 Visual Studio 为最新版本，并且使用的是[最新版本](#check-your-tools-version)的 Azure Functions 工具。
 
-### <a name="other-requirements"></a>其他要求
+### <a name="azure-resources"></a>Azure 资源
 
-若要创建和部署函数，还需要：
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-* 一个有效的 Azure 订阅。 如果没有 Azure 订阅，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-* 一个 Azure 存储帐户。 若要创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
+所需的其他资源（例如 Azure 存储帐户）将在发布过程中在订阅中创建。
 
 ### <a name="check-your-tools-version"></a>检查工具版本
 
@@ -81,16 +79,24 @@ Azure Functions 工具包含在 [Visual Studio 2017](https://www.visualstudio.co
 
 * **host.json**：用于配置 Functions 主机。 在本地和 Azure 中运行时，都会应用这些设置。 有关详细信息，请参阅 [host.json 参考](functions-host-json.md)。
 
-* **local.settings.json**：维护本地运行函数时使用的设置。 Azure 不使用这些设置，它们由 [Azure Functions 核心工具](functions-run-local.md)使用。 使用此文件为函数所需的环境变量指定应用设置。 针对项目中的函数绑定所需的每个连接，将新项添加到 **Values** 数组。 有关详细信息，请参阅“Azure Functions 核心工具”一文中的[本地设置文件](functions-run-local.md#local-settings-file)。
+* **local.settings.json**：维护本地运行函数时使用的设置。 在 Azure 中运行时不使用这些设置。 有关详细信息，请参阅[本地设置文件](#local-settings-file)。
 
     >[!IMPORTANT]
     >由于 local.settings.json 文件可能包含机密，因此必须将其从项目源代码管理中排除。 此文件的“复制到输出目录”设置应始终为“如果较新则复制”   。 
 
 有关详细信息，请参阅 [Functions 类库项目](functions-dotnet-class-library.md#functions-class-library-project)。
 
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+发布项目时，不会自动上传 local.settings.json 中的设置。 为了确保这些设置也存在于 Azure 的函数应用中，必须在发布项目之后上传它们。 若要了解详细信息，请参阅[函数应用设置](#function-app-settings)。
+
+**ConnectionStrings** 中的值永远不会发布。
+
+还可以在代码中将函数应用设置值读取为环境变量。 有关详细信息，请参阅[环境变量](functions-dotnet-class-library.md#environment-variables)。
+
 ## <a name="configure-the-project-for-local-development"></a>为本地开发配置项目
 
-Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webhook 以外的所有触发器类型，必须将 **Values.AzureWebJobsStorage** 键设置为有效的 Azure 存储帐户连接字符串。 函数应用还可以在项目所需的 AzureWebJobsStorage 连接设置中使用 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)  。 若要使用模拟器，请将 AzureWebJobsStorage 的值设置为 `UseDevelopmentStorage=true`  。 在部署之前，必须将此设置更改为实际的存储连接。
+Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webhook 以外的所有触发器类型，必须将 **Values.AzureWebJobsStorage** 键设置为有效的 Azure 存储帐户连接字符串。 函数应用还可以在项目所需的 AzureWebJobsStorage 连接设置中使用 [Azure 存储模拟器](../storage/common/storage-use-emulator.md)  。 若要使用模拟器，请将 AzureWebJobsStorage 的值设置为 `UseDevelopmentStorage=true`  。 在部署之前，请将此设置更改为实际的存储连接。
 
 若要设置存储帐户连接字符串，请执行以下操作：
 
@@ -134,8 +140,9 @@ Functions 运行时在内部使用 Azure 存储帐户。 对于除 HTTP 和 Webh
         }
     }
     ```
+
     已向提供给入口点方法的每个绑定参数提供了特定于绑定的属性。 该属性采用绑定信息作为参数。 在上例中，第一个参数具应用了 QueueTrigger 属性，表示触发了队列的函数  。 队列名称和连接字符串设置名称作为参数传递到“QueueTrigger”属性。  有关详细信息，请参阅 [Azure Functions 的 Azure 队列存储绑定](functions-bindings-storage-queue.md#trigger---c-example)。
-    
+
 可以使用上述过程向函数应用项目添加更多的函数。 项目中的每个函数可以有不同的触发器，但每个函数的触发器必须刚好一个。 有关详细信息，请参阅 [Azure Functions 触发器和绑定概念](functions-triggers-bindings.md)。
 
 ## <a name="add-bindings"></a>添加绑定
@@ -183,6 +190,13 @@ For an example of how to test a queue triggered function, see the [queue trigger
 若要详细了解如何使用 Azure Functions 核心工具，请参阅[在本地编写 Azure 函数代码并对其进行测试](functions-run-local.md)。
 
 ## <a name="publish-to-azure"></a>发布到 Azure
+
+从 Visual Studio 发布时，使用以下两种部署方法之一：
+
+* [Web 部署](functions-deployment-technologies.md#web-deploy-msdeploy)：将 Windows 应用打包并部署到任何 IIS 服务器。
+* [启用了从包运行的 Zip 部署](functions-deployment-technologies.md#zip-deploy)：建议用于 Azure Functions 部署。
+
+使用以下步骤将项目发布到 Azure 中的函数应用。
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 

@@ -1,44 +1,44 @@
 ---
-title: 跟踪和记录 Azure Data Box 事件 | Microsoft Docs
-description: 介绍如何在 Azure Data Box 订单的各个处理阶段跟踪和记录事件。
+title: 跟踪和记录 Azure Data Box 与 Azure Data Box Heavy 事件 | Microsoft Docs
+description: 介绍如何在 Azure Data Box 与 Azure Data Box Heavy 订单的各个处理阶段跟踪和记录事件。
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 05/14/2019
-ms.date: 06/10/2019
+origin.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 9ad6bea55245643193c4c4329a9fce895d72adaf
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: b09b451390b153f1cc9d047a7d9d692a23490461
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66730940"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298143"
 ---
-# <a name="tracking-and-event-logging-for-your-azure-data-box"></a>跟踪和记录 Azure Data Box 的事件
+# <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 和 Azure Data Box Heavy 的跟踪与事件日志记录
 
-Data Box 订单会经历以下步骤：订购、设置、数据复制、寄回、上传到 Azure、验证和数据擦除。 对于每个订单步骤，可以采取多种措施来控制对订单的访问、审核事件、跟踪订单，以及解释生成的各种日志。
+Data Box 或 Data Box Heavy 订单会经历以下步骤：订购、设置、数据复制、寄回、上传到 Azure、验证和数据擦除。 对于每个订单步骤，可以采取多种措施来控制对订单的访问、审核事件、跟踪订单，以及解释生成的各种日志。
 
-下表汇总了 Data Box 订单步骤，以及在每个步骤中可用于跟踪和审核订单的工具。
+下表汇总了 Data Box 或 Data Box Heavy 订单步骤，以及在每个步骤中可用于跟踪和审核订单的工具。
 
 | Data Box 订单阶段       | 用于跟踪和审核的工具                                                                        |
 |----------------------------|------------------------------------------------------------------------------------------------|
 | 创建订单               | [通过 RBAC 对订单设置访问控制](#set-up-access-control-on-the-order)                                                    |
 | 订单已处理            | 通过以下方式[跟踪订单](#track-the-order) <ul><li> Azure 门户 </li><li> 承运商网站 </li><li>电子邮件通知</ul> |
 | 设置设备              | 在[活动日志](#query-activity-logs-during-setup)中记录的设备访问凭据                                              |
-| 将数据复制到设备        | [查看 *error.xml* 文件](#view-error-log-during-data-copy-to-data-box)了解数据复制状态                                                             |
+| 将数据复制到设备        | [查看 *error.xml* 文件](#view-error-log-during-data-copy)了解数据复制状态                                                             |
 | 准备交付            | [检查 BOM 文件](#inspect-bom-during-prepare-to-ship)或设备上的清单文件                                      |
 | 将数据上传到 Azure       | [检查 *copylogs*](#review-copy-log-during-upload-to-azure)，了解在 Azure 数据中心上传数据期间是否出错                         |
-| 从设备中擦除数据   | [查看监护日志链](#get-chain-of-custody-logs-after-data-erasure)，包括审核日志和订单历史记录                                                   |
+| 从设备中擦除数据   | [查看监护日志链](#get-chain-of-custody-logs-after-data-erasure)，包括审核日志和订单历史记录                |
 
-本文将详细介绍用于跟踪和审核 Data Box 订单的各种机制或工具。
+本文将详细介绍用于跟踪和审核 Data Box 或 Data Box Heavy 订单的各种机制或工具。 本文中的信息同时适用于 Data Box 和 Data Box Heavy。 在后续部分，有关 Data Box 的任何参考信息也适用于 Data Box Heavy。
 
 ## <a name="set-up-access-control-on-the-order"></a>针对订单设置访问控制
 
 首次创建订单时，可以控制谁能够访问你的订单。 在不同的范围设置基于角色的访问控制 (RBAC)，以控制对 Data Box 订单的访问。 RBAC 角色确定了对一部分操作的访问类型 – 读写、只读、只写。
 
-可定义的两个 Data Box 角色为：
+可为 Azure Data Box 服务定义的两个角色：
 
 - **Data Box 读取者** - 对订单拥有按范围定义的只读访问权限。 他们只能查看订单详细信息。 他们无法访问与存储帐户相关的任何其他详细信息，也无法编辑订单详细信息，例如地址等。
 - **Data Box 参与者** - 仅当已对某个存储帐户拥有写入访问权限时，才能创建一个订单以将数据传输到给定的存储帐户。  如果他们没有某个存储帐户的访问权限，则无法 Data Box 订单以将数据复制到该帐户。 此角色不会定义任何存储帐户相关的权限，也不授予对存储帐户的访问权限。  
@@ -71,9 +71,9 @@ Data Box 订单会经历以下步骤：订购、设置、数据复制、寄回�
 
 - 每次登录 Data Box 都有实时的记录。 但是，此信息只会在成功完成订单之后才显示在[审核日志](#audit-logs)中。
 
-## <a name="view-error-log-during-data-copy-to-data-box"></a>查看将数据复制到 Data Box 期间的错误日志
+## <a name="view-error-log-during-data-copy"></a>查看将数据复制期间的错误日志
 
-将数据复制到 Data Box 期间，如果所复制的数据出现任何问题，则会生成错误文件。
+将数据复制到 Data Box 或 Data Box Heavy 期间，如果所复制的数据出现任何问题，则会生成错误文件。
 
 ### <a name="errorxml-file"></a>Error.xml 文件
 
@@ -148,7 +148,7 @@ Data Box 订单会经历以下步骤：订购、设置、数据复制、寄回�
 <file error="ERROR_CONTAINER_OR_SHARE_NAME_ALPHA_NUMERIC_DASH">\Starting with Capital</file>
 ```
 
-如果出现上述任一情况，请先解决这些错误，然后继续下一步。 有关通过 SMB 或 NFS 协议将数据复制到 Data Box 期间出现的错误的详细信息，请转到[排查 Data Box 问题](data-box-troubleshoot.md)。 有关通过 REST 将数据复制到 Data Box 期间出现的错误的信息，请转到[排查 Data Box Blob 存储问题](data-box-troubleshoot-rest.md)。
+如果出现上述任一情况，请先解决这些错误，然后继续下一步。 有关通过 SMB 或 NFS 协议将数据复制到 Data Box 期间出现的错误的详细信息，请转到[排查 Data Box 和 Data Box Heavy 问题](data-box-troubleshoot.md)。 有关通过 REST 将数据复制到 Data Box 期间出现的错误的信息，请转到[排查 Data Box Blob 存储问题](data-box-troubleshoot-rest.md)。
 
 ## <a name="inspect-bom-during-prepare-to-ship"></a>在准备交付期间检查 BOM
 
@@ -158,7 +158,7 @@ Data Box 订单会经历以下步骤：订购、设置、数据复制、寄回�
 - 使用此文件检查文件的实际大小。
 - 检查 *crc64* 是否对应于某个非零字符串。 <!--A null value for crc64 indicates that there was a reparse point error)-->
 
-有关准备交付期间出现的错误的详细信息，请转到[排查 Data Box 问题](data-box-troubleshoot.md)。
+有关准备交付期间出现的错误的详细信息，请转到[排查 Data Box 和 Data Box Heavy 问题](data-box-troubleshoot.md)。
 
 ### <a name="bom-or-manifest-file"></a>BOM 或清单文件
 
@@ -204,7 +204,7 @@ BOM 或清单文件还会复制到 Azure 存储帐户。 可以使用 BOM 或清
 
 在上传到 Azure 期间，会执行循环冗余检查 (CRC) 计算。 系统会比较从数据复制开始到完成数据上传为止的 CRC。 如果 CRC 不匹配，则表示相应的文件无法上传。
 
-默认情况下，日志将写入名为 copylog 的容器中。 使用以下命名约定存储日志：
+默认情况下，日志将写入一个名为  `copylog` 的容器中。 使用以下命名约定存储日志：
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`。
 
@@ -246,7 +246,41 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+下面是 `copylog` 的一个示例，其中，不符合 Azure 命名约定的容器在将数据上传到 Azure 期间已重命名。
 
+容器的新唯一名称采用 `DataBox-GUID` 格式，容器的数据将放入已重命名的新容器。 `copylog` 为容器指定旧的和新的容器名称。
+
+```xml
+<ErroredEntity Path="New Folder">
+   <Category>ContainerRenamed</Category>
+   <ErrorCode>1</ErrorCode>
+   <ErrorMessage>The original container/share/blob has been renamed to: DataBox-3fcd02de-bee6-471e-ac62-33d60317c576 :from: New Folder :because either the name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>Container</Type>
+</ErroredEntity>
+```
+
+下面是 `copylog` 的一个示例，其中，不符合 Azure 命名约定的 Blob 或文件在将数据上传到 Azure 期间已重命名。 新的 Blob 或文件名称已转换为容器相对路径的 SHA256 摘要，并已根据目标类型上传到路径。 目标可以是块 Blob、页 Blob 或 Azure 文件。
+
+`copylog` 指定旧的和新的 Blob 或文件名称，以及 Azure 中的路径。
+
+```xml
+<ErroredEntity Path="TesDir028b4ba9-2426-4e50-9ed1-8e89bf30d285\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: PageBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDir9856b9ab-6acb-4bc3-8717-9a898bdb1f8c\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: AzureFile/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity><ErroredEntity Path="TesDirf92f6ca4-3828-4338-840b-398b967d810b\Ã">
+  <Category>BlobRenamed</Category>
+  <ErrorCode>1</ErrorCode>
+  <ErrorMessage>The original container/share/blob has been renamed to: BlockBlob/DataBox-0xcdc5c61692e5d63af53a3cb5473e5200915e17b294683968a286c0228054f10e :from: Ã :because either name has invalid character(s) or length is not supported</ErrorMessage>
+  <Type>File</Type>
+</ErroredEntity>
+```
 
 ## <a name="get-chain-of-custody-logs-after-data-erasure"></a>擦除数据后获取监管日志链
 
@@ -254,7 +288,7 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
 
 ### <a name="audit-logs"></a>审核日志
 
-审核日志包含有关 Data Box 通电的信息，以及当它位于 Azure 数据中心外部时在其上进行共享访问的信息。 这些日志位于：`storage-account/azuredatabox-chainofcustodylogs`
+审核日志包含有关 Data Box 或 Data Box Heavy 通电的信息，以及当它位于 Azure 数据中心外部时在其上进行共享访问的信息。 这些日志位于：`storage-account/azuredatabox-chainofcustodylogs`
 
 下面是 Data Box 中的审核日志示例：
 
@@ -311,7 +345,7 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>下载订单历史记录
 
-Azure 门户提供订单历史记录。 如果订单处理和设备清理（从磁盘中擦除数据）已完成，请转到“Data Box 订单”>“订单详细信息”。此时会看到“下载订单历史记录”选项。 ****  ****   有关详细信息，请参阅[下载订单历史记录](data-box-portal-admin.md#download-order-history)。
+Azure 门户提供订单历史记录。 如果订单处理和设备清理（从磁盘中擦除数据）已完成，请转到设备订单，然后导航到“订单详细信息”。此时会看到“下载订单历史记录”选项。   ****   有关详细信息，请参阅[下载订单历史记录](data-box-portal-admin.md#download-order-history)。
 
 滚动浏览订单历史记录时，可以看到：
 
@@ -325,7 +359,7 @@ Azure 门户提供订单历史记录。 如果订单处理和设备清理（从�
 -------------------------------
 Microsoft Data Box Order Report
 -------------------------------
-Name                                               : gus-pinto                              
+Name                                               : gus-poland                              
 StartTime(UTC)                              : 9/19/2018 8:49:23 AM +00:00                       
 DeviceType                                     : DataBox                                           
 -------------------
@@ -363,11 +397,11 @@ Time(UTC)                 | Activity                       | Status          | D
 Data Box Log Links
 ------------------
 Account Name         : gusacct
-Copy Logs Path       : databoxcopylog/gus-pinto_<Device-serial-no>_CopyLog_<GUID>.xml
+Copy Logs Path       : databoxcopylog/gus-poland_<Device-serial-no>_CopyLog_<GUID>.xml
 Audit Logs Path      : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 BOM Files Path       : azuredatabox-chainofcustodylogs\<GUID>\<Device-serial-no>
 ```
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解如何[排查 Data Box 的问题](data-box-troubleshoot.md)。
+- 了解如何[排查 Data Box 和 Data Box Heavy 上的问题](data-box-troubleshoot.md)。

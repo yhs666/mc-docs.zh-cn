@@ -5,19 +5,16 @@ services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 origin.date: 02/11/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 70e61814425b5a0ffb29f17d628ce70dea66265a
-ms.sourcegitcommit: d9b907342ceea2e30f411e74164d6d386b6a7099
+ms.openlocfilehash: ca5c5a3055707879231b901d04a28827baa81aca
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65211912"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337285"
 ---
 <!--Verfiy successfully-->
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>使用 Azure CLI 管理 Azure 资源管理器资源组
@@ -87,7 +84,7 @@ az group delete --name $resourceGroupName
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-此功能也称为“出错时回滚”。 有关详细信息，请参阅[在部署失败时重新部署](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails)。
+此功能也称为“出错时回滚”  。 有关详细信息，请参阅[在部署失败时重新部署](./resource-group-template-deploy-cli.md#redeploy-when-deployment-fails)。
 
 ## <a name="move-to-another-resource-group-or-subscription"></a>移到另一个资源组或订阅
 
@@ -144,7 +141,7 @@ az group export --name $resourceGroupName
 
 该脚本在控制台上显示模板。  复制 JSON，并将其另存为文件。
 
-有关详细信息，请参阅[导出资源组](./manage-resource-groups-portal.md#export-resource-groups-to-templates)。
+有关详细信息，请参阅[将 Azure 门户中的单资源和多资源导出到模板](./export-template-portal.md)。
 
 ## <a name="manage-access-to-resource-groups"></a>管理对资源组的访问
 
@@ -155,7 +152,8 @@ az group export --name $resourceGroupName
 - 若要了解 Azure 资源管理器，请参阅 [Azure 资源管理器概述](./resource-group-overview.md)。
 - 若要了解资源管理器模板语法，请参阅[了解 Azure 资源管理器模板的结构和语法](./resource-group-authoring-templates.md)。
 - 若要了解如何开发模板，请参阅[分步教程](/azure-resource-manager/)。
-- 若要查看 Azure 资源管理器模板架构，请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/)。
+
+<!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
 
 <!--Update_Description: wording update -->
 <!--ms.date: 03/18/2019-->

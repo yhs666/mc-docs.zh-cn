@@ -1,5 +1,5 @@
 ---
-title: 根据限制检查 Azure 资源使用情况
+title: 根据限制检查 Azure 资源使用情况 | Azure Docs
 description: 了解如何根据 Azure 订阅限制检查 Azure 资源使用情况。
 services: networking
 documentationcenter: na
@@ -8,20 +8,20 @@ manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: networking
+ms.service: azure
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/05/2018
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: 5aaf457c0933262120c2aaa2d53d66d55baf2b07
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: cf4ca35cc40d3abd0e2a6238733da021e9d5fd41
+ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625792"
+ms.lasthandoff: 07/16/2019
+ms.locfileid: "68232279"
 ---
 # <a name="check-resource-usage-against-limits"></a>根据限制检查资源使用情况
 
@@ -30,13 +30,13 @@ ms.locfileid: "58625792"
 ## <a name="azure-portal"></a>Azure 门户
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 在 Azure 门户左上角选择“所有服务”。
-3. 在“筛选器”框中，键入“订阅”。 当“订阅”出现在搜索结果中时，请选择它。
+2. 在 Azure 门户左上角选择“所有服务”  。
+3. 在“筛选器”框中，键入“订阅”。   当“订阅”出现在搜索结果中时，请选择它。 
 4. 选择要查看其使用情况信息的订阅的名称。
-5. 在“设置”下选择“使用情况 + 配额”。
+5. 在“设置”  下选择“使用情况 + 配额”  。
 6. 可以选择以下选项：
    - **资源类型**：可以选择所有资源类型，也可以选择要查看的特定资源类型。
-   - **提供程序**：可以选择所有资源提供程序，也可以选择“计算”、“网络”或“存储”。
+   - **提供程序**：可以选择所有资源提供程序，也可以选择“计算”  、“网络”  或“存储”  。
    - **位置**：可以选择所有 Azure 位置，也可以选择特定位置。
    - 可以选择显示所有资源，也可只显示至少部署了一个资源的资源。
 
@@ -44,9 +44,11 @@ ms.locfileid: "58625792"
 
        ![查看使用情况数据](./media/check-usage-against-limits/view-usage.png)
 
-     可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
+     可以通过选择列标题来对列进行排序。 显示的限制是订阅的限制。 如果需要增加默认限制，请选择“请求增加”  ，然后完成并提交支持请求。 所有资源都具有 Azure [限制](../azure-subscription-service-limits.md?toc=%2fazure%2fnetworking%2ftoc.json#networking-limits)中列出的最大限制。 如果当前限制已达到最大数量，则不能增加限制。
 
 ## <a name="powershell"></a>PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 可以从计算机上的 PowerShell 中运行后面的命令。 如果在计算机上运行 PowerShell，需要 Azure PowerShell 模块 1.0.0 或更高版本。 在计算机上运行 `Get-Module -ListAvailable Az`，找到已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/zh-cn/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Login-AzAccount` 以登录到 Azure。
 

@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 06/17/2019
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9bf52f014e5f042e96da183220e57ac0b8eda41
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 80f64b73f989f3dc905162b5dd19567844ecd8c3
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845237"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337364"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>使用 Azure CLI 大规模部署并监视 IoT Edge 模块
 
@@ -29,7 +29,7 @@ ms.locfileid: "67845237"
 
 * Azure 订阅中的 [IoT 中心](../iot-hub/iot-hub-create-using-cli.md)。 
 * 已安装 IoT Edge 运行时的 [IoT Edge 设备](how-to-register-device-cli.md)。
-* 环境中的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 Azure CLI 版本必须至少是 2.0.24 或更高版本。 请使用 `az –-version` 验证版本。 此版本支持 az 扩展命令，并引入了 Knack 命令框架。 
+* 环境中的 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 Azure CLI 版本必须至少是 2.0.24 或更高版本。 请使用 `az --version` 验证版本。 此版本支持 az 扩展命令，并引入了 Knack 命令框架。 
 * [适用于 Azure CLI 的 IoT 扩展](https://github.com/Azure/azure-iot-cli-extension)。
 
 ## <a name="configure-a-deployment-manifest"></a>配置部署清单
@@ -151,7 +151,7 @@ ms.locfileid: "67845237"
 
 ## <a name="monitor-a-deployment"></a>监视部署
 
-使用以下命令显示部署的内容：
+使用以下命令显示单个部署的详细信息：
 
 ```cli
 az iot edge deployment show --deployment-id [deployment id] --hub-name [hub name]

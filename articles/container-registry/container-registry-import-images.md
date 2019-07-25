@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 02/06/2019
 ms.date: 04/15/2019
 ms.author: v-yeche
-ms.openlocfilehash: f5c823312a44a2004622700632faf9feeff79fd7
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: d1c1508caf23e6dc5465c20e6dcd5d4d26bd0fd4
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529517"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298114"
 ---
 <!--Verify sucessfully except the different subscription-->
 # <a name="import-container-images-to-a-container-registry"></a>向容器注册表导入容器映像
@@ -34,8 +34,9 @@ Azure 容器注册表可灵活应对许多常见方案，以便从现有注册�
 
 * 导入多体系结构映像（例如正式的 Docker 映像）时，会复制清单列表中指定的所有体系结构和平台的映像。
 
-若要导入容器映像，本文要求在 Azure Cloud Shell 中或本地（建议使用 2.0.55 或更高版本）运行 Azure CLI。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
+若要导入容器映像，本文要求在 Azure 本地 Shell 中（建议使用 2.0.55 或更高版本）运行 Azure CLI。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
 
+<!--Not Available on Cloud Shell-->
 <!--Not Available on [geo-replication](container-registry-geo-replication.md)-->
 
 ## <a name="prerequisites"></a>先决条件
@@ -48,7 +49,7 @@ Azure 容器注册表可灵活应对许多常见方案，以便从现有注册�
 
 ### <a name="import-from-docker-hub"></a>从 Docker 中心导入
 
-例如，使用 [az acr import][az-acr-import] 命令将多体系结构 `hello-world:latest` 映像从 Docker 中心导入到名为 myregistry 的注册表。 由于 `hello-world` 是来自 Docker 中心的官方映像，因此该映像位于默认的 `library` 存储库中。 `--source` 映像参数的值中包含存储库名称和（可选）标记。 （可以选择性根据映像的清单摘要而不是标签来标识映像，这确保映像为特定版本。）
+例如，使用 [az acr import][az-acr-import] 命令将多体系结构 `hello-world:latest` 映像从 Docker Hub 导入到名为 myregistry  的注册表。 由于 `hello-world` 是来自 Docker 中心的官方映像，因此该映像位于默认的 `library` 存储库中。 `--source` 映像参数的值中包含存储库名称和（可选）标记。 （可以选择性根据映像的清单摘要而不是标签来标识映像，这确保映像为特定版本。）
 
 ```azurecli
 az acr import --name myregistry --source dockerhub.azk8s.cn/library/hello-world:latest --image hello-world:latest
@@ -84,7 +85,7 @@ az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:la
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>从同一订阅的注册表中导入
 
-例如，在同一 Azure 订阅中，将 `aci-helloworld:latest` 映像从源注册表 mysourceregistry 导入到 myregistry。
+例如，在同一 Azure 订阅中，将 `aci-helloworld:latest` 映像从源注册表 mysourceregistry 导入到 myregistry   。
 
 ```azurecli
 az acr import --name myregistry --source mysourceregistry.azurecr.cn/aci-helloworld:latest --image hello-world:latest
@@ -98,7 +99,7 @@ az acr import --name myregistry --source mysourceregistry.azurecr.cn/aci-hellowo
 
 ### <a name="import-from-a-registry-in-a-different-subscription"></a>从不同订阅的注册表导入
 
-在下面的示例中，mysourceregistry 与 myregistry 处于同一 Active Directory 租户的不同订阅中。 使用 `--registry` 参数提供源注册表的资源 ID。 注意，`--source` 参数只指定源存储库和映像名，而非注册表登录服务器名称。
+在下面的示例中，mysourceregistry 与 myregistry 处于同一 Active Directory 租户的不同订阅中   。 使用 `--registry` 参数提供源注册表的资源 ID。 注意，`--source` 参数只指定源存储库和映像名，而非注册表登录服务器名称。
 
 ```azurecli
 az acr import --name myregistry --source sourcerepo/aci-helloworld:latest --image aci-hello-world:latest --registry /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sourceResourceGroup/providers/Microsoft.ContainerRegistry/registries/mysourceregistry

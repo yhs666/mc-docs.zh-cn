@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 06/03/2019
+ms.date: 07/18/2019
 ms.author: v-junlch
-ms.openlocfilehash: 07ea0c7df1813e2be7b9fb0ad0635649486fd95c
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: 0e7ce55c6bcfcd1b774fdb5a1e249b5b4747ae64
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491487"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331940"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Durable Functions 模式和技术概念 (Azure Functions)
 
@@ -386,27 +386,46 @@ module.exports = async function (context) {
 使用 [Durable Entity 函数](durable-functions-preview.md#entity-functions)，可以很容易地将此模式实现为单个函数。
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+持久实体还可以建模为 .NET 类。 如果操作列表变大并且大部分是静态的，这可能很有用。 以下示例是使用 .NET 类和方法对 `Counter` 实体的等效实现。
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -427,7 +446,7 @@ public static async Task Run(
 }
 ```
 
-同样，客户端可以使用 `orchestrationClient` 绑定上的方法查询实体函数的状态。
+动态生成的代理也可用于以类型安全的方式向实体发信号。 除了发信号外，客户端还可以使用 `orchestrationClient` 绑定上的方法查询实体函数的状态。
 
 > [!NOTE]
 > 实体函数目前仅在 [Durable Functions 2.0 预览版](durable-functions-preview.md)中可用。
@@ -482,4 +501,4 @@ Durable Functions 扩展使用 Azure 存储中的队列、表和 Blob 来持久�
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-origin.date: 11/10/2018
-ms.date: 05/27/2019
-ms.openlocfilehash: 1e791bb401b7631677bae6115bfe72d392c84a14
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+origin.date: 06/12/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: 0cc5a8fa3c624dd71f83af8afea9125c811af5c2
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173273"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308889"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>使用 Azure CLI 配置和访问服务器日志
 可以使用 Azure CLI（Azure 的命令行实用工具）下载 Azure Database for MariaDB 服务器日志。
@@ -39,7 +39,7 @@ az mariadb server configuration list --resource-group myresourcegroup --server m
 ```
 
 ## <a name="list-logs-for-azure-database-for-mariadb-server"></a>列出 Azure Database for MariaDB 服务器的日志
-若要列出服务器的可用日志文件，请运行 [az mariadb server-logs list](/cli/mariadb/server-logs#az-mariadb-server-logs-list) 命令。
+若要列出服务器的可用慢查询日志文件，请运行 [az mariadb server-logs list](/cli/mariadb/server-logs#az-mariadb-server-logs-list) 命令。
 
 可以列出资源组 **myresourcegroup** 下的服务器 **mydemoserver.mariadb.database.chinacloudapi.cn** 的日志文件。 然后在日志文件列表中找到名为“log\_files\_list.txt”的文本文件  。
 ```azurecli
@@ -54,4 +54,4 @@ az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --
 ```
 
 ## <a name="next-steps"></a>后续步骤
-- 了解 [Azure Database for MariaDB 中的服务器日志](concepts-server-logs.md)。
+- 了解 [Azure Database for MariaDB 中的慢查询日志](concepts-server-logs.md)。

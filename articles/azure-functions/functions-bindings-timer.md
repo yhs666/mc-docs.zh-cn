@@ -4,22 +4,22 @@ description: 了解如何在 Azure Functions 中使用计时器触发器。
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: Azure Functions，函数，事件处理，动态计算，无服务体系结构
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 origin.date: 09/08/2018
-ms.date: 06/03/2019
+ms.date: 07/17/2019
 ms.author: v-junlch
 ms.custom: ''
-ms.openlocfilehash: 1f9fa1d53e3a43bf34291627dd52475fe90676b3
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: c84affed9f553d155a0536417bc9f57ec11aaa25
+ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491471"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68331878"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions 的计时器触发器 
 
@@ -46,8 +46,9 @@ ms.locfileid: "66491471"
 * [C#](#c-example)
 * [C# 脚本 (.csx)](#c-script-example)
 * [F#](#f-example)
-* [JavaScript](#javascript-example)
 * [Java](#java-example)
+* [JavaScript](#javascript-example)
+* [Python](#python-example)
 
 ### <a name="c-example"></a>C# 示例
 
@@ -118,6 +119,21 @@ let Run(myTimer: TimerInfo, log: ILogger ) =
     log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
+### <a name="java-example"></a>Java 示例
+
+以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 [CRON 表达式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字符串格式定义计划。
+
+```java
+@FunctionName("keepAlive")
+public void keepAlive(
+  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
+      ExecutionContext context
+ ) {
+     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
+     context.getLogger().info("Timer is triggered: " + timerInfo);
+}
+```
+
 ### <a name="javascript-example"></a>JavaScript 示例
 
 以下示例演示 *function.json* 文件中的一个计时器触发器绑定以及使用该绑定的 [JavaScript 函数](functions-reference-node.md)。 该函数将写入日志信息，指示调用此函数是由于错过了计划发生时间。 [计时器对象](#usage)将传递到函数中。
@@ -149,19 +165,38 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-### <a name="java-example"></a>Java 示例
+### <a name="python-example"></a>Python 示例
 
-以下示例函数的触发和执行间隔为 5 分钟。 函数上的 `@TimerTrigger` 注释使用与 [CRON 表达式](https://en.wikipedia.org/wiki/Cron#CRON_expression)相同的字符串格式定义计划。
+以下示例使用计时器触发器绑定，其配置在 *function.json* 文件中进行了描述。 使用绑定的实际 [Python 函数](functions-reference-python.md)在 init.py 文件中进行了描述   。 传入函数的对象的类型为 [azure.functions.TimerRequest 对象](https://docs.microsoft.com/python/api/azure-functions/azure.functions.timerrequest)。 函数逻辑将写入日志，以指示当前调用是由于错过了计划发生时间。 
 
-```java
-@FunctionName("keepAlive")
-public void keepAlive(
-  @TimerTrigger(name = "keepAliveTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo,
-      ExecutionContext context
- ) {
-     // timeInfo is a JSON string, you can deserialize it to an object using your favorite JSON library
-     context.getLogger().info("Timer is triggered: " + timerInfo);
+下面是 function.json  文件中的绑定数据：
+
+```json
+{
+    "name": "mytimer",
+    "type": "timerTrigger",
+    "direction": "in",
+    "schedule": "0 */5 * * * *"
 }
+```
+
+下面是 Python 代码：
+
+```python
+import datetime
+import logging
+
+import azure.functions as func
+
+
+def main(mytimer: func.TimerRequest) -> None:
+    utc_timestamp = datetime.datetime.utcnow().replace(
+        tzinfo=datetime.timezone.utc).isoformat()
+
+    if mytimer.past_due:
+        logging.info('The timer is past due!')
+
+    logging.info('Python timer trigger function ran at %s', utc_timestamp)
 ```
 
 ## <a name="attributes"></a>属性
@@ -235,12 +270,7 @@ Azure Functions 使用 [NCronTab](https://github.com/atifaziz/NCrontab) 库来�
 |一组值（`,` 运算符）|<nobr>"5,8,10 * * * * *"</nobr>|在 hh:mm:05、hh:mm:08 和 hh:mm:10，其中 hh:mm 表示每小时的每分钟（每分钟 3 次）|
 |一个间隔值（`/` 运算符）|<nobr>"0 */5 * * * *"</nobr>|在 hh:05:00、hh:10:00、hh:15:00，依此类推，直到 hh:55:00，其中 hh 表示每小时（每小时 12 次）|
 
-若要指定月份或天，可以使用数字值、名称或名称的缩写：
-
-* 对于天，数字值为 0 到 6，其中 0 表示星期日。
-* 名称采用英语。 例如：`Monday`、`January`。
-* 名称不区分大小写。
-* 名称可缩写。 三字母是建议的缩写长度。  例如：`Mon`、`Jan`。 
+[!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
 ### <a name="cron-examples"></a>CRON 示例
 

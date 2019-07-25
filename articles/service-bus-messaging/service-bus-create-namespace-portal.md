@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 02/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1155e3a169e6e945af571834e8cd05d6ecd3212
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 033407acbf331b001a8ca783b62c6a3655e804cb
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544825"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332262"
 ---
 # <a name="create-a-service-bus-namespace-using-the-azure-portal"></a>使用 Azure 门户创建服务总线命名空间。
 
@@ -33,7 +33,7 @@ ms.locfileid: "58544825"
 
 查看服务总线 [GitHub 示例][github-samples]，了解服务总线消息传送中的某些更高级的功能。
 
-[create-namespace-using-arm]: ./service-bus-resource-manager-overview.md
+[create-namespace-using-arm]: service-bus-resource-manager-overview.md
 [github-samples]: https://github.com/Azure/azure-service-bus/tree/master/samples
 
 <!--Update_Description:update meta properties and link references-->

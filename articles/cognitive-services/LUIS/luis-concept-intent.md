@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 803b4cbf55acea61c65b0e690558b0a70f512696
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: c257ff03c56a508895f62811e6291a40fc1434ad
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556934"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332276"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>关于 LUIS 应用中的意向的概念
 
@@ -34,7 +34,7 @@ ms.locfileid: "65556934"
 所有应用程序均附带了预定义意向“[None](#none-intent-is-fallback-for-app)”，这是一个回退意向。 
 
 ## <a name="prebuilt-domains-provide-intents"></a>预生成域提供意向
-除了定义的意向外，还可以使用其中一个预生成域中的预生成意向。 
+除了定义的意向外，还可以使用其中一个预生成域中的预生成意向。 获取详细信息。
 
 ## <a name="return-all-intents-scores"></a>返回所有意向的得分
 将陈述分配给单个意向。 当 LUIS 在终结点上收到陈述时，它将返回该陈述的最高意向。 如果需要陈述的所有意向得分，可以在 API [终结点调用](https://aka.ms/v1-endpoint-api-docs)的查询字符串上提供 `verbose=true` 标记。 
@@ -42,7 +42,7 @@ ms.locfileid: "65556934"
 ## <a name="intent-compared-to-entity"></a>意向与实体
 意向表示聊天机器人应为用户采取的操作，以整个陈述为基础。 实体表示陈述中包含的词或短语。 陈述仅可具有一个得分最高的意向，但可具有多个实体。 
 
-<a name="how-do-intents-relate-to-entities"></a> 当用户的意向将在客户端应用程序中触发操作时（例如，调用 checkweather() 函数），请创建意图。 然后创建实体来表示执行操作所需的参数。 
+<a name="how-do-intents-relate-to-entities"></a> 当用户的意向将在客户端应用程序中触发操作时（例如，调用 checkweather() 函数），请创建意图  。 然后创建实体来表示执行操作所需的参数。 
 
 |示例意向   | 实体 | 示例陈述中的实体   | 
 |------------------|------------------------------|------------------------------|
@@ -62,24 +62,24 @@ ms.locfileid: "65556934"
 **None** 意向对每个应用都很重要，不应该有零话语。
 
 ### <a name="none-intent-is-fallback-for-app"></a>None 意向是应用的回退意向
-“None”意向是全方位或或回退意向。 它用于训练应用域（主题区域）中不重要的 LUIS 陈述。 None 意向应占应用程序中总陈述数的 10 % 到 20%。 不要将“None”意向留空。 
+“None”意向是全方位或或回退意向  。 它用于训练应用域（主题区域）中不重要的 LUIS 陈述。 None 意向应占应用程序中总陈述数的 10 % 到 20%  。 不要将“None”意向留空。 
 
 ### <a name="none-intent-helps-conversation-direction"></a>None 意向有助于指导会话
 当陈述预测为 None 意向并且返回到具有该预测的聊天机器人时，机器人可询问更多问题或提供菜单以指导用户在聊天机器人中进行有效选择。 
 
 ### <a name="no-utterances-in-none-intent-skews-predictions"></a>None 意向中没有陈述扭曲预测
-如果不向 None 意向添加任何陈述，LUIS 会强制域外的陈述进入其中一个域意向。 这将因对 LUIS 进行了错误的陈述意向训练而扭曲预测评分。 
+如果不向 None 意向添加任何陈述，LUIS 会强制域外的陈述进入其中一个域意向  。 这将因对 LUIS 进行了错误的陈述意向训练而扭曲预测评分。 
 
 ### <a name="add-utterances-to-the-none-intent"></a>将陈述添加到 None 意向
-已创建 None 意向但有意留空。 使用域外的陈述对其进行填充。 适用于 None 的陈述是完全不在应用以及应用所服务行业内的内容。 例如，旅行应用不应对 None 使用与旅行相关的的任何陈述，例如预订、计费、食物、款待、货物、机上娱乐。 
+已创建 None 意向但有意留空  。 使用域外的陈述对其进行填充。 适用于 None 的陈述是完全不在应用以及应用所服务行业内的内容  。 例如，旅行应用不应对 None 使用与旅行相关的的任何陈述，例如预订、计费、食物、款待、货物、机上娱乐  。 
 
 为 None 意向保留了哪种类型的陈述？ 从机器人不能回答的具体事情开始，如“哪种恐龙有蓝牙？” 这是一个非常具体的问题，远远超出了旅行应用的范围。 
 
 ### <a name="none-is-a-required-intent"></a>None 是必需的意向
-None 意向是必需的意向，不能删除或重命名。
+None 意向是必需的意向，不能删除或重命名  。
 
 ## <a name="negative-intentions"></a>反面意图 
-如果希望确定正面和反面意向，例如“我想要一辆车”和“我不想要一辆车”，则可以创建两个意图（一个正面意向和一个反面意向），并为每个意向添加适当的陈述。 或者，可以创建单个意向，并将两个不同的正面和反面术语标记为实体。  
+如果希望确定正面和反面意向，例如“我想要一辆车”和“我不想要一辆车”，则可以创建两个意图（一个正面意向和一个反面意向），并为每个意向添加适当的陈述   。 或者，可以创建单个意向，并将两个不同的正面和反面术语标记为实体。  
 
 ## <a name="intents-and-patterns"></a>意向和模式
 
@@ -90,7 +90,7 @@ None 意向是必需的意向，不能删除或重命名。
 ## <a name="intent-balance"></a>意向平衡
 应用域意向应让每个意向的陈述数保持平衡。 请勿出现一个意向具有 10 个陈述，而另一个意向具有 500 个陈述的情况。 这样不平衡。 如果遇到这种情况，请查看具有 500 个陈述的意向，了解是否可将其中许多意向重新组织为[模式](luis-concept-patterns.md)。 
 
-平衡中不包含 None 意向。 该意向应包含应用中总陈述数的 10%。
+平衡中不包含 None 意向  。 该意向应包含应用中总陈述数的 10%。
 
 ## <a name="intent-limits"></a>意向限制
 查看[限制](luis-boundaries.md#model-boundaries)以了解可添加到模型中的意向数。 

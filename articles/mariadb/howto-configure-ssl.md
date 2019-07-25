@@ -5,32 +5,54 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 01/24/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 32bcf6d270000a42d0c9fe3bac15df433a4624b0
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+origin.date: 07/02/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: 3d8a87f838b564a5d9aec5c96f785d231bb5697f
+ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173208"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68308890"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MariaDB
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Database for MariaDB 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
 
 ## <a name="obtain-ssl-certificate"></a>获取 SSL 证书
-从 [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) 下载通过 SSL 与 Azure Database for MariaDB 服务器通信所需的证书，再将证书文件保存到本地驱动器（例如，本教程使用 c:\ssl）。
-**对于 Microsoft Internet Explorer 和 Microsoft Edge：** 下载完成之后，将证书重命名为 BaltimoreCyberTrustRoot.crt.pem。
+从 [https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt](https://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt) 下载通过 SSL 与 Azure Database for MariaDB 服务器通信所需的证书，再将证书文件保存到本地驱动器（例如，本教程使用 c:\ssl）。
+
+## <a name="download-and-install-openssl"></a>下载并安装 OpenSSL
+从[下载页](http://slproweb.com/products/Win32OpenSSL.html)查找并下载最新版本的 OpenSSL。
+
+## <a name="move-the-local-certificate-file-to-the-openssl-directory"></a>将本地证书文件移到 OpenSSL 目录
+将步骤 1 中下载的证书放入 **...\OpenSSL-Win32\bin** 目录。
+
+## <a name="convert-the-certificate-file-to-pem-format"></a>将证书文件转换为 PEM 格式
+下载的根证书文件采用 crt 格式。 需要使用 openssl.exe 命令行工具执行以下命令来转换文件格式：
+
+```
+OpenSSL>x509 -inform DEV -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.pem
+```
 
 ## <a name="bind-ssl"></a>绑定 SSL
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 通过 SSL 连接到服务器
-配置 MySQL Workbench，以便安全地通过 SSL 连接。 从“设置新连接”对话框，导航到“SSL”选项卡  。在“SSL CA 文件:”字段中输入 BaltimoreCyberTrustRoot.crt.pem 的文件位置   。 
-![保存自定义磁贴](./media/howto-configure-ssl/mysql-workbench-ssl.png) 对于现有连接，可以通过右键单击“连接”图标并选择“编辑”来绑定 SSL。 然后导航到“SSL”  选项卡，并绑定证书文件。
+
+### <a name="connecting-to-server-using-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 通过 SSL 连接到服务器
+配置 MySQL Workbench，以便安全地通过 SSL 连接。 
+
+1. 从“设置新连接”对话框，导航到“SSL”选项卡  。 
+
+1. 将“使用 SSL”  字段更新为“必需”。
+
+1. 在“SSL CA 文件:”  字段中，输入 **DigiCertGlobalRootCA.crt** 的文件位置。 
+    
+    ![保存 SSL 配置](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+对于现有连接，可以通过右键单击“连接”图标并选择“编辑”来绑定 SSL。 然后导航到“SSL”  选项卡，并绑定证书文件。
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 通过 SSL 连接到服务器
 绑定 SSL 证书的另一种方法是使用 MySQL 命令行接口执行以下命令。 
 
 ```bash
-mysql.exe -h mydemoserver.mariadb.database.chinacloudapi.cn -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+mysql.exe -h mydemoserver.mariadb.database.chinacloudapi.cn -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem
 ```
 
 > [!NOTE]
@@ -60,7 +82,7 @@ status
 ### <a name="php"></a>PHP
 ```php
 $conn = mysqli_init();
-mysqli_ssl_set($conn,NULL,NULL, "/var/www/html/BaltimoreCyberTrustRoot.crt.pem", NULL, NULL) ; 
+mysqli_ssl_set($conn,NULL,NULL, "C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem", NULL, NULL) ; 
 mysqli_real_connect($conn, 'mydemoserver.mariadb.database.chinacloudapi.cn', 'myadmin@mydemoserver', 'yourpassword', 'quickstartdb', 3306, MYSQLI_CLIENT_SSL, MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT);
 if (mysqli_connect_errno($conn)) {
 die('Failed to connect to MySQL: '.mysqli_connect_error());
@@ -73,7 +95,7 @@ try:
         password='yourpassword', 
         database='quickstartdb', 
         host='mydemoserver.mariadb.database.chinacloudapi.cn', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+        ssl_ca='C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
@@ -83,7 +105,7 @@ conn = pymysql.connect(user = 'myadmin@mydemoserver',
         password = 'yourpassword', 
         database = 'quickstartdb', 
         host = 'mydemoserver.mariadb.database.chinacloudapi.cn', 
-        ssl = {'ssl': {'ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+        ssl = {'ssl': {'ca': 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'}})
 ```
 ### <a name="ruby"></a>Ruby
 ```ruby
@@ -92,13 +114,13 @@ client = Mysql2::Client.new(
         :username => 'myadmin@mydemoserver',      
         :password => 'yourpassword',    
         :database => 'quickstartdb',
-        :ssl_ca => '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'
+        :ssl_ca => 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'
     )
 ```
 ### <a name="golang"></a>Golang
 ```go
 rootCertPool := x509.NewCertPool()
-pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
+pem, _ := ioutil.ReadFile("/var/www/html/DigiCertGlobalRootCA.crt")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }
@@ -171,7 +193,7 @@ var builder = new MySqlConnectionStringBuilder
     Password = "yourpassword",
     Database = "quickstartdb",
     SslMode = MySqlSslMode.VerifyCA,
-    CACertificateFile = "BaltimoreCyberTrustRoot.crt.pem",
+    CACertificateFile = "C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem",
 };
 using (var connection = new MySqlConnection(builder.ConnectionString))
 {

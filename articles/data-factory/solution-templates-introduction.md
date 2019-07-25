@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/04/2019
-ms.date: 07/08/2019
+ms.date: 07/19/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 014d743e5792a9a76e321da5a7cad2954a9c0424
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 02c94b228aaaa2c9f9b4ca85a7006f2d36b7922f
+ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570228"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332751"
 ---
 # <a name="templates"></a>模板
 
@@ -82,4 +82,4 @@ ms.locfileid: "67570228"
 ![我的模板](media/solution-templates-introduction/templates-intro-image5.png)
 
 > [!NOTE]
-> 若要使用“我的模板”功能，必须启用 GIT 集成。 支持 Azure DevOps GIT 和 GitHub。
+> 若要使用“我的模板”功能，必须启用 GIT 集成。 支持 GitHub。

@@ -1,24 +1,18 @@
 ---
 title: Azure Resource Manager 模板的结构和语法 | Azure
 description: 使用声明性 JSON 语法描述 Azure Resource Manager 模板的结构和属性。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: 19694cb4-d9ed-499a-a2cc-bcfc4922d7f5
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 04/18/2019
-ms.date: 06/03/2019
+origin.date: 05/31/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 79982849c25abbf3c81d8926bcd23460093334da
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 8ef80434491da413477d335c16bb5925834d19ff
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195386"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337462"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>了解 Azure Resource Manager 模板的结构和语法
 
@@ -26,6 +20,7 @@ ms.locfileid: "66195386"
 
 本文面向对资源管理器模板有一定了解的用户， 其中提供了有关模板结构和语法的详细信息。 有关创建模板的简介，请参阅[创建第一个 Azure 资源管理器模板](resource-manager-create-first-template.md)。
 
+<a name="template-format"></a>
 ## <a name="template-format"></a>模板格式
 
 使用最简单的结构时，模板有以下元素：
@@ -73,7 +68,21 @@ ms.locfileid: "66195386"
 
 模板函数及其参数不区分大小写。 例如，资源管理器将 **variables('var1')** 和 **VARIABLES('VAR1')** 解析为相同内容。 在求值时，除非函数明确修改大小写（例如，使用 toUpper 或 toLower 进行修改），否则函数将保留大小写。 某些资源类型可能会提出大小写要求，而不考虑函数求值方式。
 
-要使用一个括号 `[` 在开头括住文本字符串但不将其解释为表达式，请额外添加一个括号，使字符串以 `[[` 开头。
+要使文本字符串以左方括号 `[` 开头，以右方括号 `]` 结尾，但不将其解释为表达式，请添加额外的方括号使字符串以 `[[` 开头。 例如，变量：
+
+```json
+"demoVar1": "[[test value]"
+```
+
+解析为 `[test value]`。
+
+但是，如果文本字符串没有以方括号结束，则不要转义第一个方括号。 例如，变量：
+
+```json
+"demoVar2": "[test] value"
+```
+
+解析为 `[test] value`。
 
 若要将字符串值作为参数传递给函数，请使用单引号。
 

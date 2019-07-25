@@ -1,24 +1,18 @@
 ---
 title: 使用 Azure CLI 和模板部署资源 | Azure
 description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.assetid: 493b7932-8d1e-4499-912c-26098282ec95
 ms.service: azure-resource-manager
-ms.devlang: azurecli
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/28/2019
-ms.date: 04/15/2019
+origin.date: 07/12/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: aa6d3bf8b80e097ac9a111e2a7d224ef78fd3897
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 7c8dba292243a9d53b960621b53f10c77bde6764
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529444"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337444"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -43,6 +37,8 @@ az group deployment create --resource-group <resource-group-name> --template-fil
 ```azurecli
 az deployment create --location <location> --template-file <path-to-template>
 ```
+
+目前，仅通过 REST API 支持管理组部署。 请参阅[使用资源管理器模板和资源管理器 REST API 部署资源](resource-group-template-deploy-rest.md)。
 
 本文中的示例使用资源组部署。 有关订阅部署的详细信息，请参阅[在订阅级别创建资源组和资源](deploy-to-subscription.md)。
 
@@ -96,11 +92,11 @@ az group deployment create \
 
 ## <a name="redeploy-when-deployment-fails"></a>部署失败时，重新部署
 
-此功能也称为“出错时回滚”。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。 如果基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
+此功能也称为“出错时回滚”  。 部署失败时，可以自动重新部署部署历史记录中先前成功的部署。 若要指定重新部署，请在部署命令中使用 `--rollback-on-error` 参数。 如果基础结构部署存在一个已知良好的状态，并且你希望还原到此状态，则此功能非常有用。 有许多需要注意的问题和限制：
 
 - 重新部署使用与以前运行它时相同的参数以相同的方式运行。 无法更改参数。
 - 以前的部署是使用[完整模式](./deployment-modes.md#complete-mode)运行的。 以前的部署中未包括的任何资源都将被删除，任何资源配置都将设置为以前的状态。 请确保你完全理解[部署模式](./deployment-modes.md)。
-- 重新部署只会影响资源，不会影响任何数据更改。
+- 重新部署只会影响资源，而不会影响任何数据更改。
 - 只有资源组部署支持此功能，订阅级部署不支持此功能。 有关订阅级部署的详细信息，请参阅[在订阅级别创建资源组和资源](./deploy-to-subscription.md)。
 
 若要使用此选项，部署必须具有唯一的名称，以便可以在历史记录中标识它们。 如果没有唯一名称，则当前失败的部署可能会覆盖历史记录中以前成功的部署。 只能将此选项用于根级别部署。 从嵌套模板进行的部署不可用于重新部署。
@@ -143,6 +139,8 @@ az group deployment create \
   --template-file demotemplate.json \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
+
+如果将 Azure CLI 与 Windows 命令提示符 (CMD) 或 PowerShell 配合使用，请以以下格式传递数组：`exampleArray="['value1','value2']"`。
 
 还可以获取文件的内容并将该内容作为内联参数提供。
 

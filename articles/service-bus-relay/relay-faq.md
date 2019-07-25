@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: a6c41f6573842e454359bbaddb2763f589033f4c
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: d51e66190007054b64d56f328ddbe676680629c3
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609859"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332217"
 ---
 # <a name="azure-relay-faqs"></a>Azure 中继常见问题解答
 
@@ -71,7 +71,7 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 在某些情况下，单个中继可能会有多个连接的侦听器。 当至少有一个中继侦听器连接到中继时，该中继都就会被视为“打开”状态。 将侦听器添加到打开的中继时，会增加中继小时数。 连接到中继的中继发送方（调用消息或将消息发送至中继的客户端）数量不会对中继小时数的计算产生影响。
 
 ### <a name="how-is-the-messages-meter-calculated-for-wcf-relays"></a>如何计算 WCF 中继的消息数？
-（**这仅适用于 WCF 中继。对于混合连接来说，消息不收费。**）
+（**这仅适用于 WCF 中继。对于混合连接来说，消息不收费。** ）
 
 一般情况下，会使用与上述相同的用于中转实体（队列、主题和订阅）的方法来计算中继的可计费消息。 但是，有一些明显的区别。
 
@@ -106,7 +106,7 @@ WCF 中继仅适用于标准层命名空间。 其他中继的定价和[连接�
 
 #### <a name="azure-portal"></a>Azure 门户
 
-若要使用 Azure 门户将 Azure 中继命名空间从一个订阅迁移到另一个订阅，请参阅[将资源移到新的资源组或订阅](../azure-resource-manager/resource-group-move-resources.md#use-portal)。 
+使用 Azure 门户将 Azure 中继命名空间从一个订阅迁移到另一个订阅。 
 
 #### <a name="powershell"></a>PowerShell
 

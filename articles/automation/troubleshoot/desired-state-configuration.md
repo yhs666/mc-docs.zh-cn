@@ -7,15 +7,15 @@ ms.subservice: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 04/16/2019
-ms.date: 07/15/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 3570bb2a88684de5d02b13b9ef1ee848a9350bf1
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 1fee68d5276b3fe639625c7570215fb9dd821a24
+ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844466"
+ms.lasthandoff: 07/17/2019
+ms.locfileid: "68298099"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 疑难解答
 
@@ -140,6 +140,24 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 * 确保要为节点分配的节点配置名称与服务中的名称完全匹配。
 * 可以选择不包含节点配置名称，这将导致载入节点，而不分配节点配置
+
+### <a name="failure-linux-temp-noexec"></a>场景：在 Linux 中应用配置时出现故障，并显示一般错误
+
+#### <a name="issue"></a>问题
+
+在 Linux 中应用配置时，会出现包含以下错误的故障：
+
+```error
+This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
+```
+
+#### <a name="cause"></a>原因
+
+客户已确定，如果 /tmp 位置设置为 noexec，则当前版本的 DSC 将无法应用配置。
+
+#### <a name="resolution"></a>解决方法
+
+* 从 /tmp 位置中删除 noexec 选项。
 
 ## <a name="next-steps"></a>后续步骤
 

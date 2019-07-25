@@ -1,24 +1,18 @@
 ---
 title: Azure Active Directory 身份验证和 Resource Manager | Azure
 description: 指导开发人员使用 Azure Resource Manager API 和 Azure Active Directory 进行身份验证，将应用集成到其他 Azure 订阅。
-services: azure-resource-manager,active-directory
-documentationcenter: na
 author: rockboyfor
-ms.assetid: 17b2b40d-bf42-4c7d-9a88-9938409c5088
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: identity
 origin.date: 04/05/2019
-ms.date: 04/15/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 07f31191c2ac99116916a6bac0d4bbb794c09f36
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: ff13f86190548eb339b150671fc0de4199c36240
+ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276436"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68337429"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>使用 Resource Manager 身份验证 API 访问订阅
 
@@ -69,27 +63,9 @@ Web 应用：
 ## <a name="register-application"></a>注册应用程序
 在开始编写代码之前，请先使用 Azure Active Directory (AD) 注册 Web 应用。 应用注册会在 Azure AD 中为你的应用创建一个中心标识。 该标识保留有关应用程序的基本信息，例如应用程序用来进行身份验证和访问 Azure Resource Manager API 的 OAuth 客户端 ID、回复 URL 和凭据。 应用注册还会记录应用程序在代表用户访问 Azure API 时所需的各种委托权限。
 
-由于应用访问其他订阅，必须将它配置为多租户应用程序。 若要通过验证，请提供与 Azure Active Directory 关联的域。 若要查看与 Azure Active Directory 关联的域，请登录门户。
+若要注册应用，请参阅[快速入门：将应用程序注册到 Azure 标识平台](../active-directory/develop/quickstart-register-app.md)。 为你的应用命名，并选择“任何组织目录中的帐户”  作为支持的帐户类型。 对于“重定向 URL”，请提供与 Azure Active Directory 关联的域。
 
-以下示例演示如何使用 Azure PowerShell 注册应用。 必须拥有最新版本（2016 年 8 月）Azure PowerShell 才能正常运行此命令。
-
-```azurepowershell
-$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
-```
-
-若要以 AD 应用程序登录，需要使用应用程序的 ID 和密码。 若要查看前一命令返回的应用程序 ID，请使用：
-
-```azurepowershell
-$app.ApplicationId
-```
-
-以下示例演示如何使用 Azure CLI 注册应用。
-
-```azurecli
-az ad app create --display-name {app name} --homepage https://{your domain}/{app name} --identifier-uris https://{your domain}/{app name} --password {your password} --available-to-other-tenants true
-```
-
-结果包含 AppId，以应用程序的形式进行身份验证时需要此数据。
+若要以 AD 应用程序登录，需要应用程序 ID 和机密。 应用程序 ID 显示在应用程序的概述中。 若要创建机密并请求 API 权限，请参阅[快速入门：将客户端应用程序配置为访问 Web API](../active-directory/develop/quickstart-configure-app-access-web-apis.md)。 提供新的客户端密码。 对于“API 权限”，请选择“Azure 服务管理”  。 选择“委托的权限”  和 **user_impersonation**。
 
 ### <a name="optional-configuration---certificate-credential"></a>可选配置 - 证书凭据
 Azure AD 还支持应用程序的证书凭据：创建自签名证书、保留私钥，以及将公钥添加到 Azure AD 应用程序注册。 对于身份验证，应用程序会使用你的私钥将小负载发送到签名的 Azure AD，然后 Azure AD 使用注册的公钥来验证签名。
@@ -239,7 +215,7 @@ ASP.NET MVC 示例应用的 [UserCanManagerAccessForSubscription](https://github
 
 若要对应用进行身份验证并获取 Azure AD 图形 API 的令牌，请向 Azure AD 令牌终结点发出客户端凭据授予 OAuth2.0 流令牌请求 (**https:\//login.chinacloudapi.cn/{directory_domain_name}/OAuth2/Token**)。
 
-ASP.net MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 方法使用适用于 .NET 的 Active Directory 身份验证库来获取图形 API 的仅限应用的访问令牌。
+ASP.NET MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) 方法使用适用于 .NET 的 Active Directory 身份验证库来获取图形 API 的仅限应用访问令牌。
 
 若要了解适用于此请求的查询字符串参数，请参阅[请求访问令牌](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token)一文。
 
@@ -259,7 +235,7 @@ ASP.net MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](
 ### <a name="get-objectid-of-application-service-principal-in-user-azure-ad"></a>获取用户 Azure AD 中应用程序服务主体的 ObjectId
 现在，请使用仅限应用的访问令牌来查询 [Azure AD Graph 服务主体](https://docs.microsoft.com/zh-cn/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) API，确定目录中应用程序服务主体的对象 ID。
 
-ASP.net MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) 方法可实现此调用。
+ASP.NET MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs#) 方法可实现此调用。
 
 以下示例演示如何请求应用程序的服务主体。 a0448380-c346-4f9f-b897-c18733de9394 是应用程序的客户端 ID。
 
@@ -287,7 +263,7 @@ ASP.net MVC 示例应用程序的 [GetObjectIdOfServicePrincipalInOrganization](
 
 请调用[资源管理器角色定义 API](https://docs.microsoft.com/rest/api/authorization/roledefinitions) 列出所有 Azure RBAC 角色，并逐一查看结果，按名称找到角色定义。
 
-ASP.net MVC 示例应用的 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) 方法可实现此调用。
+ASP.NET MVC 示例应用的 [GetRoleId](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L246) 方法可实现此调用。
 
 以下请求示例演示如何获取 Azure RBAC 角色标识符。 09cbd307-aa71-4aca-b346-5f253e6e3ebb 是订阅的 ID。
 
@@ -320,9 +296,9 @@ ASP.net MVC 示例应用的 [GetRoleId](https://github.com/dushyantgill/VipSwapp
 | SQL DB 参与者 |9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 
 ### <a name="assign-rbac-role-to-application"></a>将 RBAC 角色分配到应用程序
-现已准备就绪，即可使用 [Resource Manager 创建角色分配](https://docs.microsoft.com/rest/api/authorization/roleassignments) API，将相应的 RBAC 角色分配到服务主体。
+现已做好一切准备，可以使用 [Resource Manager 创建角色分配](https://docs.microsoft.com/rest/api/authorization/roleassignments) API 将相应的 RBAC 角色分配到服务主体。
 
-ASP.net MVC 示例应用的 [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) 方法可实现此调用。
+ASP.NET MVC 示例应用的 [GrantRoleToServicePrincipalOnSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L170) 方法可实现此调用。
 
 将 RBAC 角色分配到应用程序的示例请求：
 
@@ -371,7 +347,7 @@ ASP.NET MVC 示例应用的 [ServicePrincipalHasReadAccessToSubscription](https:
 如同允许用户将其订阅连接到应用程序一样，必须允许用户断开连接订阅。 从访问管理的观点来讲，断开连接意味着删除应用程序服务主体在订阅上的角色分配。 （可选）也可能删除订阅的任何应用程序状态。
 只有对订阅拥有访问管理权限的用户才能断开连接订阅。
 
-ASP.net MVC 示例应用的 [RevokeRoleFromServicePrincipalOnSubscription 方法](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) 可实现此调用。
+ASP.NET MVC 示例应用的 [RevokeRoleFromServicePrincipalOnSubscription 方法](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureResourceManagerUtil.cs#L200) 可实现此调用。
 
 大功告成 - 用户现在可以使用应用程序来轻松连接和管理其 Azure 订阅。
 
