@@ -14523,7 +14523,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "azure-stack/user/azure-stack-version-profiles-powershell.md",
+      "source_path": "articles/azure-stack/user/azure-stack-version-profiles-powershell.md",
       "redirect_url": "/azure-stack/operator/azure-stack-powershell-install",
       "redirect_document_id": true
     },
@@ -14561,11 +14561,6 @@
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore-database-rest-api.md",
       "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-stack/user/azure-stack-version-profiles-powershell.md",
-      "redirect_url": "/azure-stack/operator/azure-stack-powershell-install",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory-b2c/active-directory-b2c-app-registration.md",
@@ -16096,7 +16091,66 @@
       "source_path": "articles/security/azure-security-disk-encryption.md",
       "redirect_url": "/security/azure-security-disk-encryption-overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-solution-staged-data-analytics.md",
+      "redirect_url": "/azure-stack/user/azure-stack-solution-staged-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-security-updates-1904.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-security-updates-1906",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-release-notes-security-updates-1905.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-security-updates-1906",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/capacity-planning.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-capacity-planning-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/capacity-planning-storage.md",
+      "redirect_url": "/azure-stack/operator/capacity-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-help-and-support.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-help-and-support-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/capacity-planning-compute.md",
+      "redirect_url": "/azure-stack/operator/capacity-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/capacity-planning-spreadsheet.md",
+      "redirect_url": "/azure-stack/operator/capacity-planning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-update-1901.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-1906",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/operator/azure-stack-update-1902.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-release-notes-1906",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/azure-stack/user/azure-stack-create-service-principals.md",
+      "redirect_url": "/azure-stack/operator/azure-stack-create-service-principals",
+      "redirect_document_id": false
     }
+
+
+
+
 
 	  ]
 }
