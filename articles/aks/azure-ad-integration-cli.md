@@ -9,10 +9,10 @@ origin.date: 04/16/2019
 ms.date: 06/24/2019
 ms.author: v-yeche
 ms.openlocfilehash: 3d04084a2a70d6965984f4846023406e769faeeb
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
+ms.lasthandoff: 07/25/2019
 ms.locfileid: "67325777"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>使用 Azure CLI 将 Azure Active Directory 与 Azure Kubernetes 服务集成
@@ -50,7 +50,7 @@ aksname="myakscluster"
 
 若要与 AKS 集成，请创建并使用充当标识请求终结点的 Azure AD 应用程序。 所需的第一个 Azure AD 应用程序获取用户的 Azure AD 组成员身份。
 
-使用 [az ad app create][az-ad-app-create]command, then update the group membership claims using the [az ad app update][az-ad-app-update] 命令创建服务器应用程序组件。 以下示例使用[开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
+使用 [az ad app create][az-ad-app-create] 命令创建服务器应用程序组件，然后使用 [az ad app update][az-ad-app-update] 命令更新组成员身份声明。 以下示例使用[开始之前](#before-you-begin)部分中定义的 *aksname* 变量，并创建一个变量
 
 ```azurecli
 # Create the Azure AD application
@@ -63,7 +63,7 @@ serverApplicationId=$(az ad app create \
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
 ```
 
-现在，使用 [az ad sp create][az-ad-sp-create]command. This service principal is used to authenticate itself within the Azure platform. Then, get the service principal secret using the [az ad sp credential reset][az-ad-sp-credential-reset] 命令为服务器应用创建服务主体，并将其分配给名为“serverApplicationSecret”  的变量，以便在以下步骤之一中使用：
+现在，使用 [az ad sp create][az-ad-sp-create] 命令创建服务器应用的服务主体。 此服务主体用于在 Azure 平台中对自身进行身份验证。 然后，使用 [az ad sp credential reset][az-ad-sp-credential-reset] 命令获取服务主体机密，并将其分配到名为 *serverApplicationSecret* 的变量，以便在以下步骤之一中使用：
 
 ```azurecli
 # Create a service principal for the Azure AD application
@@ -90,7 +90,7 @@ az ad app permission add \
     --api-permissions e1fe6dd8-ba31-4d61-89e7-88639da4683d=Scope 06da0dbc-49e2-44d2-8312-53f166ab848a=Scope 7ab1d382-f21e-4acd-a863-ba3e13f7da61=Role
 ```
 
-最后，使用 [az ad app permission grant][az-ad-app-permission-grant] command. This step fails if the current account is not a tenant admin. You also need to add permissions for Azure AD application to request information that may otherwise require administrative consent using the [az ad app permission admin-consent][az-ad-app-permission-admin-consent] 授予在上一步骤中为服务器应用程序分配的权限：
+最后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予在上一步骤中为服务器应用程序分配的权限。 如果当前帐户不是租户管理员，此步骤将会失败。还需要添加对 Azure AD 应用程序的权限来请求信息，否则可能需要使用 [az ad app permission admin-consent][az-ad-app-permission-admin-consent] 来请求管理许可：
 
 <!--The following cli cmdlet run failed due to not the administration priviledge-->
 
@@ -123,7 +123,7 @@ az ad sp create --id $clientApplicationId
 oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
-使用 [az ad app permission add][az-ad-app-permission-add]command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] 命令添加对客户端应用程序和服务器应用程序组件的权限，以使用 oAuth2 通信流：
+使用 [az ad app permission add][az-ad-app-permission-add] 命令添加对客户端应用程序和服务器应用程序组件的权限，以使用 oAuth2 通信流。 然后，使用 [az ad app permission grant][az-ad-app-permission-grant] 命令授予客户端应用程序与服务器应用程序通信的权限：
 
 ```azurecli
 az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
@@ -140,7 +140,7 @@ az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 az group create --name myResourceGroup --location ChinaEast
 ```
 
-使用 [az account show][az-account-show]command. Then, create the AKS cluster using the [az aks create][az-aks-create] 命令获取 Azure 订阅的租户 ID。 用于创建 AKS 群集的命令可提供服务器和客户端应用程序 ID、服务器应用程序服务主体机密和租户 ID：
+使用 [az account show][az-account-show] 命令获取 Azure 订阅的租户 ID。 然后使用 [az aks create][az-aks-create] 命令创建 AKS 群集。 用于创建 AKS 群集的命令可提供服务器和客户端应用程序 ID、服务器应用程序服务主体机密和租户 ID：
 
 ```azurecli
 tenantId=$(az account show --query tenantId -o tsv)
