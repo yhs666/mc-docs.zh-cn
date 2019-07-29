@@ -72,7 +72,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 
 
 ## <a name="configure-firewall-rule"></a>配置防火墙规则
-使用 az mysql server firewall-rule create 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 mysql 命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 
+使用 az mysql server firewall-rule create 命令创建 Azure Database for MySQL 服务器级防火墙规则。 服务器级防火墙规则允许外部应用程序（如 mysql  命令行工具或 MySQL Workbench）通过 Azure MySQL 服务防火墙连接到服务器。 
 
 以下示例创建名为 `AllowMyIP` 的防火墙规则，该规则允许从特定的 IP 地址 (192.168.0.1) 进行连接。 替代与要从其进行连接的地址相对应的 IP 地址或 IP 地址范围。 
 
@@ -87,7 +87,7 @@ az mysql server firewall-rule create --resource-group myresourcegroup --server m
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 fullyQualifiedDomainName 和 administratorLogin。
+结果采用 JSON 格式。 记下 fullyQualifiedDomainName  和 administratorLogin  。
 ```json
 {
   "administratorLogin": "myadmin",

@@ -32,7 +32,7 @@ ms.locfileid: "65960891"
 
 在 Azure 中，可将相关的资源分配到资源组。 使用 [az group create](/cli/group#az-group-create) 创建资源组。 
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroupAG”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroupAG --location chinanorth
@@ -154,13 +154,13 @@ az network application-gateway create `
   --servers "$address1" "$address2"
 ```
 
-Azure 可能需要长达 30 分钟的时间来创建应用程序网关。 创建该网关以后，即可在“应用程序网关”页的“设置”部分查看以下设置：
+Azure 可能需要长达 30 分钟的时间来创建应用程序网关。 创建该网关以后，即可在“应用程序网关”页的“设置”部分查看以下设置：  
 
-- **appGatewayBackendPool**：位于“后端池”页。 它指定所需的后端池。
-- **appGatewayBackendHttpSettings**：位于“HTTP设置”页。 它指定应用程序网关使用端口 80 和 HTTP 协议进行通信。
-- **appGatewayHttpListener**：位于“侦听器”页。 它指定与 **appGatewayBackendPool** 关联的默认侦听器。
-- **appGatewayFrontendIP**：位于“前端 IP 配置”页。 它将 *myAGPublicIPAddress* 分配到 **appGatewayHttpListener**。
-- **rule1**：位于“规则”页。 它指定与 **appGatewayHttpListener** 关联的默认路由规则。
+- **appGatewayBackendPool**：位于“后端池”页。  它指定所需的后端池。
+- **appGatewayBackendHttpSettings**：位于“HTTP设置”页。  它指定应用程序网关使用端口 80 和 HTTP 协议进行通信。
+- **appGatewayHttpListener**：位于“侦听器”页。  它指定与 **appGatewayBackendPool** 关联的默认侦听器。
+- **appGatewayFrontendIP**：位于“前端 IP 配置”页。  它将 *myAGPublicIPAddress* 分配到 **appGatewayHttpListener**。
+- **rule1**：位于“规则”页。  它指定与 **appGatewayHttpListener** 关联的默认路由规则。
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 

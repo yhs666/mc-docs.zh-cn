@@ -96,7 +96,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```cli
 az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location chinaeast --sku-name GP_Gen4_8 
 ```
-此命令在“中国东部”创建一个名为“mydemoserver-georestored”且将属于 *myresourcegroup* 的新服务器。 它是一台常规用途第 4 代服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
+此命令在“中国东部”创建一个名为“mydemoserver-georestored”  且将属于 *myresourcegroup* 的新服务器。 它是一台常规用途第 4 代服务器，具有 8 个 vCore。 该服务器是基于也在资源组 *myresourcegroup* 中的 *mydemoserver* 的异地冗余备份创建的。
 
 如果希望在与现有服务器不同的资源组中创建新服务器，则需要如下例所示在 `--source-server` 参数中限定服务器名称：
 

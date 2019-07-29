@@ -145,7 +145,7 @@ Update-AzVmss `
 ```
 
 ## <a name="test-your-scale-set"></a>测试规模集
-若要查看运行中的规模集，请使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例显示创建为规模集一部分的“myPublicIP”的 IP 地址：
+若要查看运行中的规模集，请使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例显示创建为规模集一部分的“myPublicIP”的 IP 地址： 
 
 ```powershell
 Get-AzPublicIPAddress `
@@ -190,7 +190,7 @@ Get-AzVmssVM `
 ```
 
 ### <a name="increase-or-decrease-vm-instances"></a>增加或减少 VM 实例
-若要查看规模集中当前包含的实例数，请使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 并查询 sku.capacity：
+若要查看规模集中当前包含的实例数，请使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 并查询 sku.capacity  ：
 
 ```powershell
 Get-AzVmss -ResourceGroupName "myResourceGroupScaleSet" `

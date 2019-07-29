@@ -119,7 +119,7 @@ Get-AzVirtualNetworkGatewayConnectionSharedKey `
   -Name $Connection1 -ResourceGroupName $RG1
 ```
 
-执行上面的示例时，输出将为“Azure\@!b2C3”。 使用以下命令可以将预共享密钥值更改为“Azure\@!_b2=C3”：
+执行上面的示例时，输出将为“Azure\@!b2C3”  。 使用以下命令可以将预共享密钥值更改为“Azure\@!_b2=C3”  ：
 
 ```azurepowershell
 Set-AzVirtualNetworkGatewayConnectionSharedKey `

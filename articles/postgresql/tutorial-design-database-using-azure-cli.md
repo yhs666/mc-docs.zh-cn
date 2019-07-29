@@ -21,7 +21,7 @@ ms.locfileid: "65732037"
 > [!div class="checklist"]
 > * 创建 Azure Database for PostgreSQL 服务器
 > * 配置服务器防火墙
-> * 使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
+> * 使用 [psql  ](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据
@@ -59,7 +59,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 > [!IMPORTANT]
 > 此处指定的服务器管理员登录名和密码是以后在本快速入门中登录到服务器及其数据库所必需的。 请牢记或记录此信息，以后会使用到它。
 
-默认情况下，在服务器下创建 postgres 数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 
+默认情况下，在服务器下创建 postgres  数据库。 [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) 是供用户、实用工具和第三方应用程序使用的默认数据库。 
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>配置服务器级防火墙规则
@@ -85,7 +85,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 administratorLogin 和 fullyQualifiedDomainName。
+结果采用 JSON 格式。 记下 administratorLogin  和 fullyQualifiedDomainName  。
 ```json
 {
   "administratorLogin": "myadmin",
@@ -124,7 +124,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”  的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
    ```cli
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -135,7 +135,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    CREATE DATABASE mypgsqldb;
    ```
 
-3. 出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb：
+3. 出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb  ：
    ```sql
    \c mypgsqldb
    ```
@@ -209,7 +209,7 @@ az postgres server restore --resource-group myresourcegroup --name mydemoserver-
 > [!div class="checklist"]
 > * 创建 Azure Database for PostgreSQL 服务器
 > * 配置服务器防火墙
-> * 使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
+> * 使用 [psql  ](https://www.postgresql.org/docs/9.6/static/app-psql.html) 实用工具创建数据库
 > * 加载示例数据
 > * 查询数据
 > * 更新数据

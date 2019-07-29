@@ -55,9 +55,9 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 1. 连接到虚拟机。
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 *%windir%\system32\sysprep*，然后运行 `sysprep.exe`。
-3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
-4. 在“关机选项”中选择“关机”，然后单击“确定”。
-5. Sysprep 在完成运行后会关闭虚拟机。 请勿重启 VM。
+3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。   
+4. 在“关机选项”  中选择“关机”  ，然后单击“确定”  。
+5. Sysprep 在完成运行后会关闭虚拟机。 请勿重启 VM  。
 
 ### <a name="deallocate-and-mark-the-vm-as-generalized"></a>解除分配 VM 并将其标记为通用化
 
@@ -82,7 +82,7 @@ Set-AzVM `
 
 ## <a name="create-the-image"></a>创建映像
 
-现在，可以使用 [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage) 来创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
+现在，可以使用 [New-AzImageConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azimageconfig) 和 [New-AzImage](https://docs.microsoft.com/powershell/module/az.compute/new-azimage) 来创建 VM 的映像。 以下示例从名为 myVM  的 VM 创建名为 myImage  的映像。
 
 获取虚拟机。 
 
@@ -113,7 +113,7 @@ New-AzImage `
 
 在已有映像之后，可以从该映像创建一个或多个新 VM。 从自定义映像创建 VM 与使用市场映像创建 VM 很相似。 如果使用市场映像，需提供有关映像、映像提供程序、产品/服务、SKU 和版本的信息。 使用为 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 设置的简化参数时，如果自定义映像位于同一资源组中，则只需提供该映像的名称。 
 
-本示例从“myResourceGroup”中的“myImage”映像创建名为“myVMfromImage”的 VM。
+本示例从“myResourceGroup”  中的“myImage”  映像创建名为“myVMfromImage”  的 VM。
 
 ```powershell
 New-AzVm `

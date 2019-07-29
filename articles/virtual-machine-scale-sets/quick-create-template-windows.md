@@ -106,7 +106,7 @@ Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaSc
 
 [基于 Windows 的 ASP.NET 应用程序](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)示例模板使用 PowerShell DSC 扩展来安装在 IIS 中运行的 ASP.NET MVC 应用。 
 
-安装脚本从 url 中定义的 GitHub 下载。 扩展然后运行 *IISInstall.ps1* 脚本中的 *InstallIIS*（在 *function* 和 *Script* 中定义）。 ASP.NET 应用本身作为 Web 部署包提供，该包也从 *WebDeployPackagePath* 中定义的 GitHub 下载：
+安装脚本从 url 中定义的 GitHub 下载。  扩展然后运行 *IISInstall.ps1* 脚本中的 *InstallIIS*（在 *function* 和 *Script* 中定义）。 ASP.NET 应用本身作为 Web 部署包提供，该包也从 *WebDeployPackagePath* 中定义的 GitHub 下载：
 
 ```json
 "extensionProfile": {
@@ -137,7 +137,7 @@ Azure 资源管理器模板允许部署成组的相关资源。 模板以 JavaSc
 ```
 
 ## <a name="deploy-the-template"></a>部署模板
-可以通过下面的“部署到 Azure”按钮部署[基于 Windows 的 ASP.NET MVC 应用程序](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)模板。 此按钮可打开 Azure 门户、加载完整的模板，以及提示输入一些参数，例如规模集名称、实例计数和管理员凭据。
+可以通过下面的“部署到 Azure”按钮部署[基于 Windows 的 ASP.NET MVC 应用程序](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-windows-webapp-dsc-autoscale)模板。  此按钮可打开 Azure 门户、加载完整的模板，以及提示输入一些参数，例如规模集名称、实例计数和管理员凭据。
 
 [![将模板部署到 Azure](./media/virtual-machine-scale-sets-create-template/deploy-button.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-vmss-windows-webapp-dsc-autoscale%2Fazuredeploy.json)
 
@@ -169,7 +169,7 @@ Update-AzVmss `
 Get-AzPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
 ```
 
-以“http:\//publicIpAddress/MyApp”格式将负载均衡器的公共 IP 地址输入到 Web 浏览器中。 负载均衡器将流量分发到某个 VM 实例，如以下示例所示：
+以“http:\//publicIpAddress/MyApp”  格式将负载均衡器的公共 IP 地址输入到 Web 浏览器中。 负载均衡器将流量分发到某个 VM 实例，如以下示例所示：
 
 ![运行 IIS 网站](./media/virtual-machine-scale-sets-create-powershell/running-iis-site.png)
 

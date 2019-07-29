@@ -27,7 +27,7 @@ ms.locfileid: "65609844"
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
-如果使用“试用”按钮来启动 Cloud Shell，请使用凭据登录到 Azure。 
+如果使用“试用”按钮来启动 Cloud Shell，请使用凭据登录到 Azure。  
 
 如果在 Web 浏览器中启动 Cloud Shell，不管是直接这样做还是在 Azure 门户中这样做，则请在 Cloud Shell 左上角看到 **PowerShell** 时切换到 **Bash**。 
 
@@ -370,7 +370,7 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读教程的“发送和接收消息”部分。 
+本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读教程的“发送和接收消息”部分  。 
 
 > [!div class="nextstepaction"]
 > [发送和接收消息](service-bus-dotnet-get-started-with-queues.md)

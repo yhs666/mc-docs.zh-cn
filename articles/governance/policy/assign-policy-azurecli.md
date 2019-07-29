@@ -20,7 +20,7 @@ ms.locfileid: "59471966"
 
 若要了解 Azure 中的符合性，第一步是确定资源的状态。 本快速入门逐步讲解如何创建策略分配，以识别未使用托管磁盘的虚拟机。
 
-此过程结束时，你可以成功识别哪些虚拟机未使用托管磁盘。 这些虚拟机不符合策略分配要求。
+此过程结束时，你可以成功识别哪些虚拟机未使用托管磁盘。 这些虚拟机不符合策略分配要求。 
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南使用 Azure CLI 创建策略分配，并识别 Azure 环境中的不合规资源。
 
@@ -44,7 +44,7 @@ az provider register --namespace 'Microsoft.PolicyInsights'
 
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 
-本快速入门将创建一个策略分配，并分配“审核未使用托管磁盘的 VM”定义。 此策略定义可识别不符合策略定义中设置的条件的资源。
+本快速入门将创建一个策略分配，并分配“审核未使用托管磁盘的 VM”定义  。 此策略定义可识别不符合策略定义中设置的条件的资源。
 
 运行以下命令创建策略分配：
 
@@ -55,8 +55,8 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 上述命令使用以下信息：
 
 - **名称** - 分配的实际名称。  对于此示例，使用 *audit-vm-manageddisks*。
-- **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”。
-- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID。 若要获取策略定义 ID，请运行以下命令： `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
+- **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”  。
+- **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID  。 若要获取策略定义 ID，请运行以下命令： `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。
 
 ## <a name="identify-non-compliant-resources"></a>识别不合规的资源
@@ -102,7 +102,7 @@ armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/provider
 }
 ```
 
-这些结果与 Azure 门户视图中“不合规资源”下通常所列的结果类似。
+这些结果与 Azure 门户视图中“不合规资源”下通常所列的结果类似。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

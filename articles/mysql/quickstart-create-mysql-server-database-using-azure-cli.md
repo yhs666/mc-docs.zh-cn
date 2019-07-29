@@ -69,7 +69,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 
 请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
-以下示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部”区域的名为 `mydemoserver` 的 MySQL 5.7 服务器。 这是第 4 代常规用途服务器，带有 2 个 vCore。 用自己的值替换 `<server_admin_password>`。
+以下示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部”区域的名为 `mydemoserver` 的 MySQL 5.7 服务器。 这是第 4 代常规用途服务器，带有 2 个 vCore    。 用自己的值替换 `<server_admin_password>`。
 
 ```azurecli
 az mysql server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
@@ -141,7 +141,7 @@ az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
 ## <a name="connect-to-the-server-using-the-mysqlexe-command-line-tool"></a>使用 mysql.exe 命令行工具连接到服务器
-使用 mysql.exe 命令行工具连接到服务器。 可从[此处](https://dev.mysql.com/downloads/)下载 MySQL 并将其安装在计算机上。 
+使用 mysql.exe  命令行工具连接到服务器。 可从[此处](https://dev.mysql.com/downloads/)下载 MySQL 并将其安装在计算机上。 
 
 键入下一命令： 
 
@@ -202,11 +202,11 @@ mysql>
 ## <a name="connect-to-the-server-using-the-mysql-workbench-gui-tool"></a>使用 MySQL Workbench GUI 工具连接到服务器
 1. 启动客户端计算机上的 MySQL Workbench 应用程序。 可以从[此处](https://dev.mysql.com/downloads/workbench/)下载并安装 MySQL Workbench。
 
-2. 在“设置新连接”对话框的“参数”选项卡上，输入以下信息：
+2. 在“设置新连接”  对话框的“参数”  选项卡上，输入以下信息：
 
    ![设置新连接](./media/quickstart-create-mysql-server-database-using-azure-cli/setup-new-connection.png)
 
-| **设置** | 建议的值 | **说明** |
+| **设置** | 建议的值  | **说明** |
 |---|---|---|
 |   连接名称 | 我的连接 | 指定此连接的标签（这可以是任何内容） |
 | 连接方法 | 选择“标准(TCP/IP)” | 使用 TCP/IP 协议连接到 Azure Database for MySQL |
@@ -215,7 +215,7 @@ mysql>
 | 用户名 | myadmin@mydemoserver | 先前记下的服务器管理员登录名。 |
 | 密码 | **** | 使用之前配置的管理员帐户密码。 |
 
-单击“测试连接”以测试是否所有参数均已正确配置。
+单击“测试连接”  以测试是否所有参数均已正确配置。
 现在，可以单击该连接，成功连接到服务器。
 
 ## <a name="clean-up-resources"></a>清理资源

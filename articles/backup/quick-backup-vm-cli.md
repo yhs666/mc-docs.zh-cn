@@ -31,9 +31,9 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 可以通�
 
 使用 [az backup vault create](/cli/backup/vault#az-backup-vault-create) 创建恢复服务保管库。 指定与想要保护的 VM 相同的资源组和位置。 如果使用过 [VM 快速入门](../virtual-machines/linux/quick-create-cli.md)，则已创建：
 
-- 名为 myResourceGroup 的资源组；
-- 名为 myVM 的 VM；
-- chinanorth 位置的资源。
+- 名为 myResourceGroup 的资源组； 
+- 名为 myVM 的 VM  ；
+-  chinanorth 位置的资源。
 
 ```azurecli 
 az backup vault create --resource-group myResourceGroup \
@@ -104,7 +104,7 @@ az backup job list \
     --output table
 ```
 
-输出如以下示例所示，其中显示备份作业的状态为“正在进行”：
+输出如以下示例所示，其中显示备份作业的状态为“正在进行”： 
 
 ```
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -113,7 +113,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-当备份作业的“状态”报告为“已完成”时，表示 VM 已受恢复服务的保护，并且已存储完整的恢复点。
+当备份作业的“状态”报告为“已完成”时，表示 VM 已受恢复服务的保护，并且已存储完整的恢复点。  
 
 
 ## <a name="clean-up-deployment"></a>清理部署

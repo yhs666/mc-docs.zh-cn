@@ -78,9 +78,9 @@ Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 mstsc /v:publicIpAddress
 ```
 
-在“Windows 安全性”窗口中，依次选择“更多选择”、“使用其他帐户”。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。
+在“Windows 安全性”  窗口中，依次选择“更多选择”  、“使用其他帐户”  。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。 
 
-你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接
+你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接  
 
 ## <a name="install-web-server"></a>安装 Web 服务器
 

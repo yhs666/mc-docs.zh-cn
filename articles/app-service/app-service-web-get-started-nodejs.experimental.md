@@ -173,7 +173,7 @@ zip -r myUpdatedAppFiles.zip *.*
 az webapp deployment source config-zip --resource-group myResourceGroup --name <app_name> --src myUpdatedAppFiles.zip
 ```
 
-切换回在“浏览到应用”步骤中打开的浏览器窗口，然后刷新页面。
+切换回在“浏览到应用”  步骤中打开的浏览器窗口，然后刷新页面。
 
 ![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-nodejs-poc/hello-azure-in-browser.png)
 
@@ -181,7 +181,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用程序服务”，然后单击 Azure 应用的名称。
+在左侧菜单中单击“应用程序服务”  ，然后单击 Azure 应用的名称。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-get-started-nodejs-poc/nodejs-docs-hello-world-app-service-list.png)
 

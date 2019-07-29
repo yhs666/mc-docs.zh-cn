@@ -33,7 +33,7 @@ ms.locfileid: "59004010"
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>创建运行 OpenSUSE Linux 的虚拟机
 
-首先创建一个资源组。 在此示例中，资源组名为 *mySQSUSEResourceGroup*，并在“中国东部”区域创建。
+首先创建一个资源组。 在此示例中，资源组名为 *mySQSUSEResourceGroup*，并在“中国东部”  区域创建。
 
 ```azurecli
 az group create --name mySQLSUSEResourceGroup --location chinaeast

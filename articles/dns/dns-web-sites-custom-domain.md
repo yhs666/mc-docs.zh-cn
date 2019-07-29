@@ -62,11 +62,11 @@ A 记录可用于将名称映射到其 IP 地址。 在下面的示例中，使�
 
 ### <a name="get-the-ipv4-address"></a>获取 IPv4 地址
 
-在 Azure 门户中，在应用服务页的左侧导航窗格中，选择“自定义域”。 
+在 Azure 门户中，在应用服务页的左侧导航窗格中，选择“自定义域”  。 
 
 ![自定义域菜单](../app-service/media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-在“自定义域”页中，复制应用的 IPv4 地址：
+在“自定义域”  页中，复制应用的 IPv4 地址：
 
 ![在门户中导航到 Azure 应用](../app-service/media/app-service-web-tutorial-custom-domain/mapping-information.png)
 

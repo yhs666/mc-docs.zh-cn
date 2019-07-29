@@ -44,7 +44,7 @@ ms.locfileid: "59004149"
 
 使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例使用 Azure CLI 在“chinaeast”位置创建名为 *myResourceGroupMEAN* 的资源组。 将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
+以下示例使用 Azure CLI 在“chinaeast”位置创建名为 *myResourceGroupMEAN* 的资源组。  将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
 
 ```azurecli
 az group create --name myResourceGroupMEAN --location chinaeast
@@ -328,11 +328,11 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如，*http://13.72.77.9:3300*。 应显示以下页面所示的内容：
+2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如， *http://13.72.77.9:3300* 。 应显示以下页面所示的内容：
 
     ![书籍记录](media/tutorial-mean/meanstack-init.png)
 
-3. 在文本框中输入数据并单击“添加”。 例如：
+3. 在文本框中输入数据并单击“添加”。  例如：
 
     ![添加书籍记录](media/tutorial-mean/meanstack-add.png)
 
@@ -340,7 +340,7 @@ sudo apt-get install -y nodejs
 
     ![列出书籍记录](media/tutorial-mean/meanstack-list.png)
 
-5. 可以单击“删除”并从数据库中删除书籍记录。
+5. 可以单击“删除”并从数据库中删除书籍记录。 
 
 ## <a name="next-steps"></a>后续步骤
 

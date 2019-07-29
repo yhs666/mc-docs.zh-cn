@@ -51,7 +51,7 @@ ms.locfileid: "56666036"
 
 ### <a name="deprovision-the-vm"></a>取消预配 VM 
 
-取消预配可通过删除特定于计算机的信息来通用化 VM。 实现此通用化后，即可从单个映像部署多个 VM。 在取消预配期间，主机名将重置为“localhost.localdomain”。 还会删除 SSH 主机密钥、名称服务器配置、根密码和缓存的 DHCP 租约。
+取消预配可通过删除特定于计算机的信息来通用化 VM。 实现此通用化后，即可从单个映像部署多个 VM。 在取消预配期间，主机名将重置为“localhost.localdomain”  。 还会删除 SSH 主机密钥、名称服务器配置、根密码和缓存的 DHCP 租约。
 
 若要取消预配 VM，请使用 Azure VM 代理 (waagent)。 Azure VM 代理安装在 VM 上，用于管理预配及其与 Azure 结构控制器的交互。 有关详细信息，请参阅 [Azure Linux 代理用户指南](../extensions/agent-linux.md)。
 
@@ -88,7 +88,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### <a name="create-the-image"></a>创建映像
 
-现在，可使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 的映像。 以下示例从名为 myVM 的 VM 创建名为 myImage 的映像。
+现在，可使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 的映像。 以下示例从名为 myVM  的 VM 创建名为 myImage  的映像。
 
 ```azurecli 
 az image create \
@@ -99,7 +99,7 @@ az image create \
 
 ## <a name="create-vms-from-the-image"></a>从映像创建 VM
 
-现在，你已有了一个映像，可以使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从该映像创建一个或多个新 VM。 以下示例从名为 myImage 的映像创建名为 myVMfromImage 的 VM。
+现在，你已有了一个映像，可以使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从该映像创建一个或多个新 VM。 以下示例从名为 myImage  的映像创建名为 myVMfromImage  的 VM。
 
 ```azurecli 
 az vm create \
@@ -121,7 +121,7 @@ az image list \
     --resource-group myResourceGroup
 ```
 
-删除映像。 此示例将从 myResourceGroup 中删除名为 myOldImage 的映像。
+删除映像。 此示例将从 myResourceGroup  中删除名为 myOldImage  的映像。
 
 ```azurecli 
 az image delete \

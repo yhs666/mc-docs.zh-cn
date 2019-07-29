@@ -35,7 +35,7 @@ New-AzResourceGroup -name MyResourceGroup -location "chinaeast"
 
 ## <a name="create-a-dns-zone"></a>创建 DNS 区域
 
-通过使用 `New-AzDnsZone` cmdlet 创建 DNS 区域。 以下示例在名为 MyResourceGroup 的资源组中创建名为 contoso.xyz 的 DNS 区域。 使用该示例创建 DNS 区域，将相应的值替换成自己的值。
+通过使用 `New-AzDnsZone` cmdlet 创建 DNS 区域。 以下示例在名为 MyResourceGroup  的资源组中创建名为 contoso.xyz  的 DNS 区域。 使用该示例创建 DNS 区域，将相应的值替换成自己的值。
 
 ```powershell
 New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
@@ -87,7 +87,7 @@ Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样。 此结果表明名称解析正常工作。
+主机名 www\.contoso.xyz 解析为 10.10.10.10，正如你配置的那样   。 此结果表明名称解析正常工作。
 
 ## <a name="delete-all-resources"></a>删除所有资源
 

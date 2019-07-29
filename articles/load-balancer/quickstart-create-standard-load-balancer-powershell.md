@@ -69,7 +69,7 @@ $feip = New-AzLoadBalancerFrontendIpConfig -Name 'myFrontEndPool' -PublicIpAddre
 
 ### <a name="configure-back-end-address-pool"></a>配置后端地址池
 
-使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 创建一个后端地址池。 在剩余的步骤中，各个 VM 将附加到此后端池。 以下示例创建名为 myBackEndPool 的后端地址池：
+使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 创建一个后端地址池。 在剩余的步骤中，各个 VM 将附加到此后端池。 以下示例创建名为 myBackEndPool  的后端地址池：
 
 ```powershell
 $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
@@ -78,7 +78,7 @@ $bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
 ### <a name="create-a-health-probe"></a>创建运行状况探测器
 若要允许负载均衡器监视应用的状态，可以使用运行状况探测器。 运行状况探测器基于其对运行状况检查的响应，从负载均衡器中动态添加或删除 VM。 默认情况下，在 15 秒时间间隔内发生两次连续的故障后，会从负载均衡器分布中删除 VM。 可以为应用创建基于协议或特定运行状况检查页面的运行状况探测器。
 
-以下示例创建一个 TCP 探测器。 还可创建自定义 HTTP 探测器，以便执行更精细的运行状况检查。 使用自定义 HTTP 探测器时，必须创建运行状况检查页，例如 healthcheck.aspx。 探测器必须为负载均衡器返回 HTTP 200 OK 响应，以保持主机处于旋转状态。
+以下示例创建一个 TCP 探测器。 还可创建自定义 HTTP 探测器，以便执行更精细的运行状况检查。 使用自定义 HTTP 探测器时，必须创建运行状况检查页，例如 healthcheck.aspx  。 探测器必须为负载均衡器返回 HTTP 200 OK  响应，以保持主机处于旋转状态。
 
 若要创建 TCP 运行状况探测，请使用 [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig)。 以下示例创建名为 *myHealthProbe* 的运行状况探测，用于在 *HTTP* 端口 *80* 上监视每台 VM：
 
@@ -149,7 +149,7 @@ $lb = New-AzLoadBalancer `
 必须创建支持网络资源（虚拟网络和虚拟 NIC），才能部署某些 VM 并测试均衡器。 
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例创建包含 mySubnet 的名为 myVnet 的虚拟网络：
+使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例创建包含 mySubnet  的名为 myVnet  的虚拟网络：
 
 ```powershell
 # Create subnet config
@@ -331,7 +331,7 @@ $vm3 = New-AzVM -ResourceGroupName $rgName -Location $location -VM $vmConfig
 
 
 ## <a name="test-load-balancer"></a>测试负载均衡器
-使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
+使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”  的 IP 地址：
 
 ```powershell
 Get-AzPublicIPAddress `

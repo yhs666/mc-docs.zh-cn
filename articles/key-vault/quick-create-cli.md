@@ -37,7 +37,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinanorth”位置创建名为“ContosoResourceGroup”的资源组。
+资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinanorth”  位置创建名为“ContosoResourceGroup”  的资源组。
 
 ```azurecli
 az group create --name 'ContosoResourceGroup' --location chinanorth
@@ -58,7 +58,7 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 此 cmdlet 的输出显示新创建的 Key Vault 的属性。 请记下下面列出的两个属性：
 
 - **保管库名称**：在本示例中，此项为 **Contoso-Vault2**。 会在其他 Key Vault 命令中使用此名称。
-- **保管库 URI**：在本示例中，此项为 https://contoso-vault2.vault.azure.cn/。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
+- **保管库 URI**：在本示例中，此项为 https://contoso-vault2.vault.azure.cn/ 。 通过其 REST API 使用保管库的应用程序必须使用此 URI。
 
 目前，只有你的 Azure 帐户才有权对这个新保管库执行任何操作。
 

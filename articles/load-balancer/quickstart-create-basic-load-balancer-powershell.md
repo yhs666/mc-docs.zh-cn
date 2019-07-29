@@ -33,7 +33,7 @@ ms.locfileid: "65731979"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-创建负载均衡器之前，必须使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“ChinaEast”位置创建名为“myResourceGroupLB”的资源组：
+创建负载均衡器之前，必须使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“ChinaEast”  位置创建名为“myResourceGroupLB”  的资源组：
 
 ```powershell
 New-AzResourceGroup `
@@ -68,7 +68,7 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>配置后端地址池
 
-使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 创建一个后端地址池。 在剩余的步骤中，各个 VM 将附加到此后端池。 以下示例创建名为 myBackEndPool 的后端地址池：
+使用 [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) 创建一个后端地址池。 在剩余的步骤中，各个 VM 将附加到此后端池。 以下示例创建名为 myBackEndPool  的后端地址池：
 
 ```powershell
 $backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
@@ -77,7 +77,7 @@ $backendPool = New-AzLoadBalancerBackendAddressPoolConfig -Name "myBackEndPool"
 ### <a name="create-a-health-probe"></a>创建运行状况探测器
 若要允许负载均衡器监视应用的状态，可以使用运行状况探测器。 运行状况探测器基于其对运行状况检查的响应，从负载均衡器中动态添加或删除 VM。 默认情况下，在 15 秒时间间隔内发生两次连续的故障后，会从负载均衡器分布中删除 VM。 可以为应用创建基于协议或特定运行状况检查页面的运行状况探测器。 
 
-以下示例创建一个 TCP 探测器。 还可创建自定义 HTTP 探测器，以便执行更精细的运行状况检查。 使用自定义 HTTP 探测器时，必须创建运行状况检查页，例如 healthcheck.aspx。 探测器必须为负载均衡器返回 HTTP 200 OK 响应，以保持主机处于旋转状态。
+以下示例创建一个 TCP 探测器。 还可创建自定义 HTTP 探测器，以便执行更精细的运行状况检查。 使用自定义 HTTP 探测器时，必须创建运行状况检查页，例如 healthcheck.aspx  。 探测器必须为负载均衡器返回 HTTP 200 OK  响应，以保持主机处于旋转状态。
 
 若要创建 TCP 运行状况探测，请使用 [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig)。 以下示例创建名为 *myHealthProbe* 的运行状况探测，用于在 *HTTP* 端口 *80* 上监视每台 VM：
 
@@ -150,7 +150,7 @@ $lb = New-AzLoadBalancer `
 
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例创建包含 mySubnet 的名为 myVnet 的虚拟网络：
+使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例创建包含 mySubnet  的名为 myVnet  的虚拟网络：
 
 ```powershell
 # Create subnet config
@@ -249,7 +249,7 @@ $nicVM2 = New-AzNetworkInterface `
 
 若要提高应用的高可用性，请将 VM 放置在可用性集中。
 
-使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 创建一个可用性集。 以下示例创建名为 myAvailabilitySet 的可用性集：
+使用 [New-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/new-azavailabilityset) 创建一个可用性集。 以下示例创建名为 myAvailabilitySet  的可用性集：
 
 ```powershell
 $availabilitySet = New-AzAvailabilitySet `
@@ -267,7 +267,7 @@ $availabilitySet = New-AzAvailabilitySet `
 $cred = Get-Credential
 ```
 
-现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，上一步中创建的 NIC（VM1 和 VM2）将自动分配给虚拟机 VM1 和 VM2，因为它们具有相同的名称，并分配了相同的虚拟网络 (myVnet) 和子网 (mySubnet)。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
+现在，可使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 以下示例创建两台 VM 和所需的虚拟网络组件（如果它们尚不存在）。 在此示例中，上一步中创建的 NIC（VM1  和 VM2  ）将自动分配给虚拟机 VM1  和 VM2  ，因为它们具有相同的名称，并分配了相同的虚拟网络 (myVnet  ) 和子网 (mySubnet  )。 此外，由于 NIC 与负载均衡器的后端池关联，因此 VM 会自动添加到该后端池。
 
 ```powershell
 for ($i=1; $i -le 2; $i++)
@@ -322,7 +322,7 @@ for ($i=1; $i -le 2; $i++)
 6. 通过运行 `mstsc /v:PublicIpAddress:4222` 命令创建与 *myVM2* 的 RDP 连接，并为 *VM2* 重复步骤 4。
 
 ## <a name="test-load-balancer"></a>测试负载均衡器
-使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”的 IP 地址：
+使用 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) 获取负载均衡器的公共 IP 地址。 以下示例获取前面创建的“myPublicIP”  的 IP 地址：
 
 ```powershell
 Get-AzPublicIPAddress `

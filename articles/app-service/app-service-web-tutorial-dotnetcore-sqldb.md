@@ -75,7 +75,7 @@ dotnet ef database update
 dotnet run
 ```
 
-在浏览器中导航至 `http://localhost:5000` 。 选择“新建”链接，创建几个待办事项。
+在浏览器中导航至 `http://localhost:5000` 。 选择“新建”  链接，创建几个待办事项  。
 
 ![已成功连接到 SQL 数据库](./media/app-service-web-tutorial-dotnetcore-sqldb/local-app-in-browser.png)
 
@@ -96,7 +96,7 @@ dotnet run
 
 在 CLI 中，使用 [`az sql server create`](/cli/sql/server?view=azure-cli-latest#az_sql_server_create) 命令创建 SQL 数据库逻辑服务器。
 
-将 \<server_name> 占位符替换为唯一的 SQL 数据库名称。 此名称用作 SQL 数据库终结点 `<server_name>.database.chinacloudapi.cn` 的一部分，因此必须在 Azure 的所有逻辑服务器中具有唯一性。 它只能包含小写字母、数字及连字符(-)，长度必须为 3 到 50 个字符。 此外，将 \<db_username> 和 \<db_password> 分别替换为所选用户名和密码。 
+将 \<server_name> 占位符替换为唯一的 SQL 数据库名称  。 此名称用作 SQL 数据库终结点 `<server_name>.database.chinacloudapi.cn` 的一部分，因此必须在 Azure 的所有逻辑服务器中具有唯一性。 它只能包含小写字母、数字及连字符(-)，长度必须为 3 到 50 个字符。 此外，将 \<db_username> 和 \<db_password> 分别替换为所选用户名和密码   。 
 
 
 ```azurecli
@@ -145,7 +145,7 @@ az sql db create --resource-group myResourceGroup --server <server_name> --name 
 
 ### <a name="create-connection-string"></a>创建连接字符串
 
-将下列字符串替换为先前所使用的 \<server_name>、\<db_username> 和 \<db_password>。
+将下列字符串替换为先前所使用的 \<server_name>、\<db_username> 和 \<db_password>    。
 
 ```
 Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
@@ -171,7 +171,7 @@ Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=
 
 ### <a name="configure-an-environment-variable"></a>配置环境变量
 
-若要为 Azure 应用设置连接字符串，请在 CLI 中使用 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，将 \<app name> 和 \<connection_string> 参数替换为先前创建的连接字符串。
+若要为 Azure 应用设置连接字符串，请在 CLI 中使用 [`az webapp config appsettings set`](/cli/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) 命令。 在下列命令中，将 \<app name> 和 \<connection_string> 参数替换为先前创建的连接字符串   。
 
 ```azurecli
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
@@ -179,7 +179,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 接下来，将 `ASPNETCORE_ENVIRONMENT` 应用设置设置为_生产_。 由于对本地开发环境使用 SQLite，并对 Azure 环境使用 SQL 数据库，因此通过此设置，你可以了解应用是否正在 Azure 中运行。
 
-下面的示例在 Azure 应用中配置 `ASPNETCORE_ENVIRONMENT` 应用设置。 替换 \<app_name> 占位符。
+下面的示例在 Azure 应用中配置 `ASPNETCORE_ENVIRONMENT` 应用设置。 替换 \<app_name> 占位符  。
 
 ```azurecli
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -395,11 +395,11 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。
 
-在左侧菜单中单击“应用服务”，然后单击 Azure 应用的名称。
+在左侧菜单中单击“应用服务”，然后单击 Azure 应用的名称。 
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-默认情况下，门户将显示应用的“概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。
+默认情况下，门户将显示应用的  “概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。
 
 ![Azure 门户中的“应用服务”页](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

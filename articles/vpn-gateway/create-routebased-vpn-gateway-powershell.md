@@ -33,7 +33,7 @@ New-AzResourceGroup -Name TestRG1 -Location ChinaNorth
 
 ## <a name="vnet"></a>创建虚拟网络
 
-使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络：
+使用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 创建虚拟网络。 以下示例在“ChinaNorth”位置创建一个名为“VNet1”的虚拟网络   ：
 
 ```azurepowershell
 $virtualNetwork = New-AzVirtualNetwork `

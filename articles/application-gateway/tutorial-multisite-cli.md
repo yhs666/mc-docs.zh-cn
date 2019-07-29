@@ -43,7 +43,7 @@ ms.locfileid: "58625122"
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group) 创建资源组。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroupAG”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroupAG --location chinanorth
@@ -226,7 +226,7 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如， http://www.contoso.com。
+在浏览器的地址栏中输入域名。 例如， http://www.contoso.com 。
 
 ![在应用程序网关中测试 contoso 站点](./media/tutorial-multisite-cli/application-gateway-nginxtest1.png)
 

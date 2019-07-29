@@ -61,7 +61,7 @@ Azure 虚拟网络在虚拟机、Internet 与其他 Azure 服务（例如 Azure 
 
 本教程将创建包含两个子网的单个虚拟网络。 一个前端子网用于托管 Web 应用程序，一个后端子网用于托管数据库服务器。
 
-在创建虚拟网络之前，请先使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。 以下示例在“chinaeast”位置创建名为 myRGNetwork 的资源组。
+在创建虚拟网络之前，请先使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。 以下示例在“chinaeast”位置创建名为 myRGNetwork  的资源组。
 
 ```azurecli 
 az group create --name myRGNetwork --location chinaeast

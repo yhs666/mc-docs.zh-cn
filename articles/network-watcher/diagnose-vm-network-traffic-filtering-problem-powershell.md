@@ -37,7 +37,7 @@ ms.locfileid: "52658571"
 
 ## <a name="create-a-vm"></a>创建 VM
 
-在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 创建资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location ChinaEast
@@ -60,7 +60,7 @@ $vM = New-AzureRmVm `
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在中国东部区域启用了网络观察程序，请使用 [Get-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG 资源组中名为 NetworkWatcher_chinaeast 的现有网络观察程序：
+如果已在中国东部区域启用了网络观察程序，请使用 [Get-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG  资源组中名为 NetworkWatcher_chinaeast  的现有网络观察程序：
 
 ```powershell
 $networkWatcher = Get-AzureRmNetworkWatcher `

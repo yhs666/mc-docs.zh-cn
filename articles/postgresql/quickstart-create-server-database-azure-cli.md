@@ -27,12 +27,12 @@ ms.locfileid: "65731907"
 
 本文要求运行 Azure CLI 2.0 或更高版本。 若要查看安装的版本，请运行 `az --version` 命令。 如果需要进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
-要本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录你的帐户。 记下命令行输出中相应订阅名称的 ID 属性。
+要本地运行 CLI，需要使用 [az login](/cli/authenticate-azure-cli?view=interactive-log-in) 命令登录你的帐户。 记下命令行输出中相应订阅名称的 ID 属性  。
 ```cli
 az login
 ```
 
-如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。 将 az login 输出中你的订阅的 ID 属性替换到订阅 ID 占位符中。
+如果有多个订阅，请选择应计费的资源所在的相应订阅。 使用 [az account set](/cli/account) 命令选择帐户下的特定订阅 ID。 将 az login 输出中你的订阅的 ID 属性替换到订阅 ID 占位符中   。
 ```cli
 az account set --subscription <subscription id>
 ```
@@ -71,7 +71,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 
 请参阅[定价层](./concepts-pricing-tiers.md)文档来了解适用于每个区域和每个层的有效值。
 
-下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部”区域的名为 `mydemoserver` 的 PostgreSQL 9.6 服务器。 这是第 4 代常规用途服务器，带有 2 个 vCore。 用自己的值替换 `<server_admin_password>`。
+下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建位于“中国东部”区域的名为 `mydemoserver` 的 PostgreSQL 9.6 服务器。 这是第 4 代常规用途服务器，带有 2 个 vCore    。 用自己的值替换 `<server_admin_password>`。
 ```cli
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
 ```
@@ -99,7 +99,7 @@ az postgres server firewall-rule create --resource-group myresourcegroup --serve
 az postgres server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-结果采用 JSON 格式。 记下 administratorLogin 和 fullyQualifiedDomainName。
+结果采用 JSON 格式。 记下 administratorLogin  和 fullyQualifiedDomainName  。
 ```json
 {
   "administratorLogin": "myadmin",
@@ -138,7 +138,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
+   例如，以下命令使用访问凭据连接到 PostgreSQL 服务器 **mydemoserver.postgres.database.chinacloudapi.cn** 上名为“postgres”  的默认数据库。 提示输入密码时，输入之前选择的 `<server_admin_password>`。
   
    ```bash
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
@@ -149,7 +149,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    CREATE DATABASE mypgsqldb;
    ```
 
-3. 出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb：
+3. 出现提示时，请执行以下命令，将连接切换到新建的数据库 mypgsqldb  ：
    ```sql
    \c mypgsqldb
    ```
@@ -160,43 +160,43 @@ pgAdmin 是用于 PostgreSQL 的开源工具。 可以从 [pgAdmin 网站](https
 
 1. 在客户端计算机上打开 pgAdmin 应用程序。
 
-2. 从工具栏转到“对象”，将鼠标指针悬停在“创建”上，然后选择“服务器”。
+2. 从工具栏转到“对象”  ，将鼠标指针悬停在“创建”  上，然后选择“服务器”  。
 
-3. 在“创建 - 服务器”对话框中的“常规”选项卡上，为服务器输入唯一的友好名称，例如 **mydemoserver**。
+3. 在“创建 - 服务器”对话框中的“常规”选项卡上，为服务器输入唯一的友好名称，例如 **mydemoserver**。  
 
    ![“常规”选项卡](./media/quickstart-create-server-database-azure-cli/9-pgadmin-create-server.png)
 
-4. 在“创建 - 服务器”对话框中的“连接”选项卡上，填写设置表。
+4. 在“创建 - 服务器”对话框中的“连接”选项卡上，填写设置表。  
 
    ![“连接”选项卡](./media/quickstart-create-server-database-azure-cli/10-pgadmin-create-server.png)
 
     pgAdmin 参数 |Value|说明
     ---|---|---
-    主机名/地址 | 服务器名称 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn**。 请使用完全限定的域名 (**\*.postgres.database.chinacloudapi.cn**)，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。 
+    主机名/地址 | 服务器名称 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时使用过的服务器名称值。 示例服务器为 **mydemoserver.postgres.database.chinacloudapi.cn**。 请使用完全限定的域名 ( **\*.postgres.database.chinacloudapi.cn**)，如示例中所示。 如果不记得服务器名称，请按上一部分的步骤操作，以便获取连接信息。 
     端口 | 5432 | 连接到用于 PostgreSQL 的 Azure 数据库服务器时使用的端口。 
-    维护数据库 | postgres | 系统生成的默认数据库名称。
-    用户名 | 服务器管理员登录名 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username\@servername。
+    维护数据库 |  postgres | 系统生成的默认数据库名称。
+    用户名 | 服务器管理员登录名 | 此前在创建用于 PostgreSQL 的 Azure 数据库服务器时提供的服务器管理员登录用户名。 如果不记得用户名，请按上一部分的步骤操作，以便获取连接信息。 格式为 username\@servername  。
     密码 | 管理员密码 | 之前在此快速入门中创建服务器时选择的密码。
     角色 | 留空 | 此时无需提供角色名称。 此字段留空。
     SSL 模式 | *必需* | 可以在 pgAdmin 的 SSL 选项卡中设置 SSL 模式。默认情况下，所有 Azure Database for PostgreSQL 服务器在创建时都会启用“SSL 强制实施”。 若要关闭“SSL 强制实施”，请参阅 [SSL 强制实施](./concepts-ssl-connection-security.md)。
     
-5. 选择“其他安全性验证” 。
+5. 选择“其他安全性验证”  。
 
-6. 在左侧的“浏览器”窗格中，展开“服务器”节点。 选择服务器，例如 **mydemoserver**。 单击该服务器与它建立连接。
+6. 在左侧的“浏览器”窗格中，展开“服务器”节点   。 选择服务器，例如 **mydemoserver**。 单击该服务器与它建立连接。
 
-7. 展开服务器节点，然后展开其下的“数据库”。 此列表应包括现有 *postgres* 数据库和已创建的任何其他数据库。 可以使用 Azure Database for PostgreSQL 为每个服务器创建多个数据库。
+7. 展开服务器节点，然后展开其下的“数据库”。  此列表应包括现有 *postgres* 数据库和已创建的任何其他数据库。 可以使用 Azure Database for PostgreSQL 为每个服务器创建多个数据库。
 
-8. 右键单击“数据库”，选择“创建”菜单，并选择“数据库”。
+8. 右键单击“数据库”，选择“创建”菜单，并选择“数据库”。   
 
-9. 在“数据库”字段中键入所选的数据库名称，例如“mypgsqldb2”。
+9. 在“数据库”字段中键入所选的数据库名称，例如“mypgsqldb2”。  
 
-10. 从列表框中选择数据库的“所有者”。 选择服务器管理员登录名，例如“my admin”。
+10. 从列表框中选择数据库的“所有者”。  选择服务器管理员登录名，例如“my admin”  。
 
     ![在 pgadmin 中创建数据库](./media/quickstart-create-server-database-azure-cli/11-pgadmin-database.png)
 
-11. 选择“保存”创建新的空白数据库。
+11. 选择“保存”创建新的空白数据库。 
 
-12. 在“浏览器”窗格中，可以在服务器名称下的数据库列表中看到创建的数据库。
+12. 在“浏览器”窗格中，可以在服务器名称下的数据库列表中看到创建的数据库。 
 
 
 

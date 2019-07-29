@@ -28,7 +28,7 @@ ms.locfileid: "56665368"
 ## <a name="create-a-resource-group"></a>创建资源组
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 如果没有 Azure 资源组，可以使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 新建一个。 
 
-以下示例在“中国东部”区域创建名为“myResourceGroup”的资源组：
+以下示例在“中国东部”区域创建名为“myResourceGroup”  的资源组：
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -39,7 +39,7 @@ New-AzResourceGroup `
 ## <a name="create-a-storage-account"></a>创建存储帐户
 存储帐户是一个存储共享池，可以用来部署 Azure 文件共享或其他存储资源，例如 Blob 或队列。 一个存储帐户可以包含无限数量的共享，一个共享可以存储无限数量的文件，直到达到存储帐户的容量限制为止。
 
-此示例使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet 创建存储帐户。 存储帐户名为 *mystorageaccount<random number>*，对该存储帐户的引用存储在变量 **$storageAcct** 中。 存储帐户名称必须唯一，因此请使用 `Get-Random` 将一个数字追加到名称末尾，使之变得唯一。 
+此示例使用 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet 创建存储帐户。 存储帐户名为 *mystorageaccount<random number>* ，对该存储帐户的引用存储在变量 **$storageAcct** 中。 存储帐户名称必须唯一，因此请使用 `Get-Random` 将一个数字追加到名称末尾，使之变得唯一。 
 
 ```azurepowershell 
 $storageAcct = New-AzStorageAccount `

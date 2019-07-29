@@ -39,7 +39,7 @@ ms.locfileid: "58626773"
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group) 创建资源组。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroupAG”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroupAG --location chinanorth

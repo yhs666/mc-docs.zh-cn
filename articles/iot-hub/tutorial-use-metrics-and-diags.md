@@ -115,7 +115,7 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ```
 
 >[!NOTE]
->创建设备标识时，可能会出现以下错误：找不到 IoT 中心 ContosoTestHub 的策略 iothubowner 的密钥。 若要修正此错误，请更新 Azure CLI IoT 扩展，然后再次运行脚本中的最后两个命令。 
+>创建设备标识时，可能会出现以下错误：找不到 IoT 中心 ContosoTestHub 的策略 iothubowner 的密钥。  若要修正此错误，请更新 Azure CLI IoT 扩展，然后再次运行脚本中的最后两个命令。 
 >
 >下面是用于更新扩展的命令。 在 Cloud Shell 实例中运行该命令。
 >
@@ -127,28 +127,28 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 创建新的 IoT 中心时，默认会禁用[诊断日志](../azure-monitor/platform/diagnostic-logs-overview.md)。 在此部分，请为中心启用诊断日志。
 
-1. 首先，如果尚未进入门户的中心，请单击“资源组”，然后单击资源组 Contoso-Resources。 从显示的资源列表中选择中心。 
+1. 首先，如果尚未进入门户的中心，请单击“资源组”，然后单击资源组 Contoso-Resources  。 从显示的资源列表中选择中心。 
 
-2. 找到 IoT 中心边栏选项卡中的“监视”部分。 单击“诊断设置”。 
+2. 找到 IoT 中心边栏选项卡中的“监视”部分。  单击“诊断设置”。  
 
    ![显示 IoT 中心边栏选项卡诊断设置部分的屏幕截图。](./media/tutorial-use-metrics-and-diags/01-diagnostic-settings.png)
 
 
-3. 确保订阅和资源组正确。 在“资源类型”下取消选中“全选”，然后查找并勾选 IoT 中心”。 （“全选”旁边会再次出现一个对勾，忽略它即可。）在“资源”下，选择中心名称。 屏幕应如下图所示： 
+3. 确保订阅和资源组正确。 在“资源类型”下取消选中“全选”，然后查找并勾选 IoT 中心”。    （“全选”旁边会再次出现一个对勾，忽略它即可。）  在“资源”下，选择中心名称。  屏幕应如下图所示： 
 
    ![显示 IoT 中心边栏选项卡诊断设置部分的屏幕截图。](./media/tutorial-use-metrics-and-diags/02-diagnostic-settings-start.png)
 
-4. 现在单击“启用诊断”。 此时会显示“诊断设置”窗格。 将诊断日志设置的名称指定为“diags-hub”。
+4. 现在单击“启用诊断”。  此时会显示“诊断设置”窗格。 将诊断日志设置的名称指定为“diags-hub”。
 
-5. 选中“存档到存储帐户”。 
+5. 选中“存档到存储帐户”。  
 
    ![显示如何将诊断设置为存档到存储帐户的屏幕截图。](./media/tutorial-use-metrics-and-diags/03-diagnostic-settings-storage.png)
 
-    单击“配置”，此时会看到“选择存储帐户”屏幕，选择右侧的帐户 (*contosostoragemon*)，然后单击“确定”，返回到“诊断设置”窗格。 
+    单击“配置”，此时会看到“选择存储帐户”屏幕，选择右侧的帐户   (*contosostoragemon*)，然后单击“确定”，返回到“诊断设置”窗格。  
 
    ![显示如何将诊断日志设置为存档到存储帐户的屏幕截图。](./media/tutorial-use-metrics-and-diags/04-diagnostic-settings-after-storage.png)
 
-6. 在“日志”下，勾选“连接”和“设备遥测”，然后将“保留期(天)”设置为每项 7 天。 “诊断设置”屏幕现在应如下图所示：
+6. 在“日志”下，勾选“连接”和“设备遥测”，然后将“保留期(天)”设置为每项 7 天。     “诊断设置”屏幕现在应如下图所示：
 
    ![显示最终诊断日志设置的屏幕截图。](./media/tutorial-use-metrics-and-diags/05-diagnostic-settings-done.png)
 
@@ -160,36 +160,36 @@ az iot hub device-identity show --device-id $iotDeviceName \
 
 现在，设置一些将消息发送到中心时需要监视的指标。 
 
-1. 在 IoT 中心的设置窗格中，单击“监视”部分中的“指标”选项。
+1. 在 IoT 中心的设置窗格中，单击“监视”部分中的“指标”选项。  
 
-2. 在屏幕顶部，单击“过去 24 小时(自动)”。 在显示的下拉列表中，选择“过去 4 小时”作为“时间范围”，并将“时间粒度”设置为“1 分钟”（本地时间）。 单击“应用”保存这些设置。 
+2. 在屏幕顶部，单击“过去 24 小时(自动)”  。 在显示的下拉列表中，选择“过去 4 小时”作为“时间范围”，并将“时间粒度”设置为“1 分钟”（本地时间）。     单击“应用”  保存这些设置。 
 
    ![显示指标时间设置的屏幕截图。](./media/tutorial-use-metrics-and-diags/06-metrics-set-time-range.png)
 
-3. 默认有一个指标条目。 让资源组和指标命名空间保留默认值。 在“指标”下拉列表中，选择“发送的遥测消息数”。 将“聚合”设置为“总和”。
+3. 默认有一个指标条目。 让资源组和指标命名空间保留默认值。 在“指标”下拉列表中，选择“发送的遥测消息数”   。 将“聚合”设置为“总和”。  
 
    ![显示如何为发送的遥测消息添加指标的屏幕截图。](./media/tutorial-use-metrics-and-diags/07-metrics-telemetry-messages-sent.png)
 
 
-4. 现在单击“添加指标”，向图表添加另一个指标。 选择资源组 (**ContosoTestHub**)。 在“指标”下，选择“已使用的消息总数”。 对于“聚合”，请选择“平均”。 
+4. 现在单击“添加指标”，向图表添加另一个指标。  选择资源组 (**ContosoTestHub**)。 在“指标”下，选择“已使用的消息总数”。   对于“聚合”，请选择“平均”。   
 
-   现在，屏幕会显示针对“发送的遥测消息数”的最小化指标，以及针对“已使用的消息总数”的新指标。
+   现在，屏幕会显示针对“发送的遥测消息数”的最小化指标，以及针对“已使用的消息总数”的新指标。  
 
    ![显示如何为发送的遥测消息添加指标的屏幕截图。](./media/tutorial-use-metrics-and-diags/07-metrics-num-messages-used.png)
 
-   单击“固定到仪表板”。 这样就会将它固定到 Azure 门户的仪表板上，方便再次访问。 如果不将它固定到仪表板，则不会保留设置。
+   单击“固定到仪表板”  。 这样就会将它固定到 Azure 门户的仪表板上，方便再次访问。 如果不将它固定到仪表板，则不会保留设置。
 
 ## <a name="set-up-alerts"></a>设置警报
 
-转到门户中的中心。 单击“资源组”，选择“ContosoResources”，然后选择 IoT 中心“ContosoTestHub”。 
+转到门户中的中心。 单击“资源组”，选择“ContosoResources”，然后选择 IoT 中心“ContosoTestHub”。    
 
 IoT 中心尚未迁移到 [Azure Monitor 中的指标](/azure/azure-monitor/platform/data-collection#metrics)；必须使用[经典警报](/azure/azure-monitor/platform/alerts-classic.overview)。
 
-1. 在“监视”下，单击“警报”。此时会显示警报主屏幕。 
+1. 在“监视”下，单击“警报”。此时会显示警报主屏幕。   
 
    ![显示如何查找经典警报的屏幕截图。](./media/tutorial-use-metrics-and-diags/08-find-classic-alerts.png)
 
-2. 若要从此处转到经典警报，请单击“查看经典警报”。 
+2. 若要从此处转到经典警报，请单击“查看经典警报”。  
 
     ![显示经典警报屏幕的屏幕截图。](./media/tutorial-use-metrics-and-diags/09-view-classic-alerts.png)
 
@@ -197,69 +197,69 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](/azure/azure-monitor/plat
 
     **订阅**：将此字段保留设置为当前订阅。
 
-    **源**：将此字段设置为“指标”。
+    **源**：将此字段设置为“指标”。 
 
-    **资源组**：将此字段设置为当前资源组“ContosoResources”。 
+    **资源组**：将此字段设置为当前资源组“ContosoResources”。  
 
     **资源类型**：将此字段设置为“IoT 中心”。 
 
-    **资源**：选择 IoT 中心“ContosoTestHub”。
+    **资源**：选择 IoT 中心“ContosoTestHub”。 
 
-3. 单击“添加指标警报(经典)”以设置新警报。
+3. 单击“添加指标警报(经典)”以设置新警报。 
 
     填写字段：
 
     **名称**：为警报规则提供名称，例如 *telemetry-messages*。
 
-    **说明**：提供警报说明，例如“发送了 1000 个遥测消息时的警报”。 
+    **说明**：提供警报说明，例如“发送了 1000 个遥测消息时的警报”。  
 
-    **源**：将此项设置为“指标”。
+    **源**：将此项设置为“指标”。 
 
-    “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。 
+    “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。     
 
-    将“指标”设置为“发送的遥测消息数”。
+    将“指标”设置为“发送的遥测消息数”。  
 
     ![显示如何为发送的遥测消息设置经典警报的屏幕截图。](./media/tutorial-use-metrics-and-diags/10-alerts-add-rule-telemetry-top.png)
 
 4. 在图表后设置以下字段：
 
-   **条件**：设置为“大于”。
+   **条件**：设置为“大于”。 
 
    **阈值**：设置为 1000。
 
-   **时间段**：设置为“过去 5 分钟”。
+   **时间段**：设置为“过去 5 分钟”。 
 
    **通知电子邮件收件人**：将电子邮件地址置于此处。 
 
    ![显示警报屏幕下半部分的屏幕截图。](./media/tutorial-use-metrics-and-diags/11-alerts-add-rule-bottom.png)
 
-   单击“确定”保存警报。 
+   单击“确定”保存警报。  
 
-5. 现在针对“已使用的消息总数”设置另一警报。 当使用的消息数接近 IoT 中心的配额时，如果需要系统发送警报来通知你该中心很快就会开始拒绝消息，则可使用此指标。
+5. 现在针对“已使用的消息总数”设置另一警报。  当使用的消息数接近 IoT 中心的配额时，如果需要系统发送警报来通知你该中心很快就会开始拒绝消息，则可使用此指标。
 
-   在“查看经典警报”屏幕上，单击“添加指标警报(经典)”，然后在“添加规则”窗格上填充以下字段。
+   在“查看经典警报”屏幕上，单击“添加指标警报(经典)”，然后在“添加规则”窗格上填充以下字段。   
 
    **名称**：为警报规则提供名称，例如 *number-of-messages-used*。
 
-   **说明**：提供警报说明，例如“接近配额时的警报”。
+   **说明**：提供警报说明，例如“接近配额时的警报”。 
 
-   **源**：将此字段设置为“指标”。
+   **源**：将此字段设置为“指标”。 
 
-    “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。 
+    “订阅”、“资源组”和“资源”应该设置为在“查看经典警报”屏幕上选择的值。     
 
-    将“指标”设置为“已使用的消息总数”。
+    将“指标”设置为“已使用的消息总数”。  
 
 6. 在图表下填充以下字段：
 
-   **条件**：设置为“大于”。
+   **条件**：设置为“大于”。 
 
    **阈值**：设置为 1000。
 
-   **时间段**：将此字段设置为“过去 5 分钟”。 
+   **时间段**：将此字段设置为“过去 5 分钟”。  
 
    **通知电子邮件收件人**：将电子邮件地址置于此处。 
 
-   单击“确定”保存规则。 
+   单击“确定”  保存规则。 
 
 5. 现在会在经典警报窗格中看到两个警报： 
 
@@ -275,7 +275,7 @@ IoT 中心尚未迁移到 [Azure Monitor 中的指标](/azure/azure-monitor/plat
 
 下载 [IoT 设备模拟](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)的解决方案。 可以通过此链接下载一个包含多个应用程序的存储库；要查找的解决方案位于 iot-hub/Tutorials/Routing/ 中。
 
-双击解决方案文件 (SimulatedDevice.sln)，在 Visual Studio 中打开代码，然后打开 Program.cs。 使用 IoT 中心主机名代替 `{iot hub hostname}`。 IoT 中心主机名的格式为“{iot-hub-name}.azure-devices.net”。 本教程的中心主机名为“ContosoTestHub.azure-devices.net”。 接下来，使用之前设置模拟设备时保存的设备密钥代替 `{device key}`。 
+双击解决方案文件 (SimulatedDevice.sln)，在 Visual Studio 中打开代码，然后打开 Program.cs。 使用 IoT 中心主机名代替 `{iot hub hostname}`。 IoT 中心主机名的格式为“{iot-hub-name}.azure-devices.net”  。 本教程的中心主机名为“ContosoTestHub.azure-devices.net”  。 接下来，使用之前设置模拟设备时保存的设备密钥代替 `{device key}`。 
 
    ```csharp
         static string myDeviceId = "contoso-test-device";
@@ -297,15 +297,15 @@ await Task.Delay(10);
 
 ### <a name="see-the-metrics-in-the-portal"></a>在门户中查看指标
 
-从“仪表板”打开指标。 在时间粒度为“1 分钟”的情况下，将时间值更改为“过去 30 分钟”。 此时会显示发送的遥测消息数以及在图表上使用的总消息数，最新的数字位于图表底部。 
+从“仪表板”打开指标。 在时间粒度为“1 分钟”的情况下，将时间值更改为“过去 30 分钟”。   此时会显示发送的遥测消息数以及在图表上使用的总消息数，最新的数字位于图表底部。 
 
    ![显示指标的屏幕截图。](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
 ### <a name="see-the-alerts"></a>查看警报
 
-返回到警报。 单击“资源组”，选择“ContosoResources”，然后选择中心“ContosoTestHub”。 在为中心显示的属性页中，选择“警报”，然后选择“查看经典警报”。 
+返回到警报。 单击“资源组”，选择“ContosoResources”，然后选择中心“ContosoTestHub”。    在为中心显示的属性页中，选择“警报”，然后选择“查看经典警报”。   
 
-当发送的消息数超出限制时，你会开始收到电子邮件警报。 若要查看是否有任何活动警报，请转到中心，然后选择“警报”。 此时会显示处于活动状态的警报，以及是否存在任何警告。 
+当发送的消息数超出限制时，你会开始收到电子邮件警报。 若要查看是否有任何活动警报，请转到中心，然后选择“警报”。  此时会显示处于活动状态的警报，以及是否存在任何警告。 
 
    ![显示已触发警报的屏幕截图。](./media/tutorial-use-metrics-and-diags/14-alerts-firing.png)
 
@@ -319,7 +319,7 @@ await Task.Delay(10);
 
    ![显示如何向下钻取到存储容器来查看诊断日志的屏幕截图。](./media/tutorial-use-metrics-and-diags/16-diagnostics-logs-list.png)
 
-单击“下载”以下载该文件，然后将其打开。 此时会看到在将消息发送到中心时进行连接和断开连接的设备的日志。 下面是一个示例：
+单击“下载”  以下载该文件，然后将其打开。 此时会看到在将消息发送到中心时进行连接和断开连接的设备的日志。 下面是一个示例：
 
 ``` json
 { 
@@ -360,7 +360,7 @@ await Task.Delay(10);
 
 ## <a name="clean-up-resources"></a>清理资源 
 
-若要删除在本教程中创建的所有资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 本例删除 IoT 中心、存储帐户和资源组本身。 如果已将指标固定到仪表板，则需要手动删除这些指标，方法是：单击每个指标右上角的三个点，然后选择“删除”。
+若要删除在本教程中创建的所有资源，请删除资源组。 此操作会一并删除组中包含的所有资源。 本例删除 IoT 中心、存储帐户和资源组本身。 如果已将指标固定到仪表板，则需要手动删除这些指标，方法是：单击每个指标右上角的三个点，然后选择“删除”。 
 
 若要删除资源组，请使用 [az group delete](/cli/group?view=azure-cli-latest#az-group-delete) 命令。
 
