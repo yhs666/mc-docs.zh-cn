@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 26bfb8c4834bec103e5a0580538340d429dbddca
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d9917849f2248da0d86866ac4f28edef75de456a
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562636"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513875"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -201,7 +201,6 @@ ms.locfileid: "67562636"
                                                             <a href="./app/app-map.md">分布式应用映射</a><br>
                                                             <a href="../monitoring-and-diagnostics/resource-group-insights.md">资源组级别监视</a><br>
                                                             <a href="./app/usage-workbooks.md">交互式报告</a><br>
-                                                            <a href="./app/export-power-bi.md">Power BI 集成</a><br>
                                                             <a href="./platform/metrics-charts.md">调查指标</a>
                                                         </p>
                                                         <br><br>

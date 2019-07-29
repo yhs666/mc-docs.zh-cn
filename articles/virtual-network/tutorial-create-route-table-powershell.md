@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 42be0e93afb556784dc1ea202777d55a8099ec7a
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: bd9f8726db33424a0ee7236889ead0f11c542cd2
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250471"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514441"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>使用 PowerShell 通过路由表路由网络流量
 
@@ -50,6 +50,7 @@ ms.locfileid: "66250471"
 创建路由表之前，需使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例为本文中创建的所有资源创建名为 *myResourceGroup* 的资源组。
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 

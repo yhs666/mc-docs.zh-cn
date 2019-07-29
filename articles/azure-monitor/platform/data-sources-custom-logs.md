@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6fe15293ce6a297996cb0d2ebc9995e0df02873c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 5c1e819c98e18e197936fa54a708cda048f7f9f9
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562394"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514007"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor 中的自定义日志
 Azure Monitor 中的自定义日志数据源可以从 Windows 和 Linux 计算机上的文本文件中收集事件。 许多应用程序将信息记录到文本文件，而不是标准日志记录服务（例如 Windows 事件日志或 Syslog）。 在收集后，可以将数据分析到查询中的各个字段，或者在收集期间将数据提取到各个字段。

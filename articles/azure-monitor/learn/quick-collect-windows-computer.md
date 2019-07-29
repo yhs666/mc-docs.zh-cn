@@ -1,6 +1,6 @@
 ---
-title: 为混合 Windows 计算机配置 Azure Log Analytics 代理 | Azure Docs
-description: 了解如何为 Azure 外部的计算机上运行的 Windows 部署 Log Analytics 代理，并通过 Log Analytics 启用数据收集。
+title: 为混合 Windows 计算机配置 Azure Log Analytics 代理 | Microsoft Docs
+description: 本快速入门介绍如何为 Azure 外部运行的 Windows 计算机部署 Log Analytics 代理，并通过 Log Analytics 启用数据收集。
 services: log-analytics
 documentationcenter: log-analytics
 author: lingliw
@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: edad22c3a30bbfbd2521fc64090f549e32812dca
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4d0293fb6b498494b23e4635e069395bae8f3b84
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562541"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513985"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>在混合环境中为 Windows 计算机配置 Log Analytics 代理
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可将物理或虚拟 Windows 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Windows 计算机中配置或收集数据。  有关 Azure Windows VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](../../azure-monitor/learn/quick-collect-azurevm.md)。  
@@ -132,6 +132,7 @@ Log Analytics 可从 Windows 事件日志以及性能计数器中收集指定的
 ## <a name="next-steps"></a>后续步骤
 从 Windows 计算机收集操作和性能数据时，可以轻松地开始免费浏览、分析和处理收集的数据。   
 
+若要了解如何查看和分析数据，请继续学习以下教程：
 
-
-
+> [!div class="nextstepaction"]
+> [在 Log Analytics 中查看或分析数据](../log-query/get-started-portal.md)

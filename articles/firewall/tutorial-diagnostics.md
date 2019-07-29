@@ -9,10 +9,10 @@ origin.date: 10/24/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
 ms.openlocfilehash: 91ae17c94ee63e435a75167c3cf0cd558baa4f76
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68337353"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>教程：监视 Azure 防火墙日志和指标

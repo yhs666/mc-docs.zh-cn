@@ -7,14 +7,14 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 02/12/2019
-ms.date: 07/15/2019
+ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 70049cf8b35cd984d5ae03c19719689332e162db
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: f6d712837f4f9a3a5e3434a9919c50e6ee7fd318
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844391"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391985"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 
@@ -54,11 +54,11 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
 * 将下述角色之一分配给用户、组、用户托管标识或服务主体：
 
-  [存储 Blob 数据读者](/role-based-access-control/built-in-roles#storage-blob-data-reader-preview)
+  [存储 Blob 数据读者](/role-based-access-control/built-in-roles#storage-blob-data-reader)
 
-  [存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-queue-data-contributor-preview)
+  [存储 Blob 数据参与者](/role-based-access-control/built-in-roles#storage-blob-data-contributor)
 
-  [存储 Blob 数据所有者](/role-based-access-control/built-in-roles#storage-blob-data-owner-preview)
+  [存储 Blob 数据所有者](/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
 * 使用共享访问签名 (SAS) 令牌。
 

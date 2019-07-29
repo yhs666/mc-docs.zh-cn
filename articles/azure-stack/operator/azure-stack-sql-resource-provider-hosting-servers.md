@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/26/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: a4fac3bf5fa8a7ce687c2e777c093e06577f0ced
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 6de151c3c908729a2833b4207096d3310da58a08
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381900"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513392"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>为 SQL 资源提供程序添加托管服务器
 
@@ -74,7 +74,7 @@ ms.locfileid: "66381900"
 
 * 使用 BitLocker 加密所有 Azure Stack 存储，因此 Azure Stack 上的任何 SQL 实例都将使用加密的 Blob 存储。
 * SQL 资源提供程序完全支持 TLS 1.2。 确保通过 SQL RP 管理的任何 SQL Server 仅针对 TLS 1.2 进行配置，并且 RP 默认使用该配置。  支持的所有 SQL Server 版本都支持 TLS 1.2，具体请参阅 [Microsoft SQL Server 的 TLS 1.2 支持](https://support.microsoft.com/en-us/help/3135244/tls-1-2-support-for-microsoft-sql-server)。
-* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#ConfigureServerConnections)。
+* 使用 SQL Server 配置管理器设置 **ForceEncryption** 选项，确保与 SQL Server 之间的所有通信始终经过加密。 请参阅[将服务器配置为强制加密连接](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-2017#to-configure-the-server-to-force-encrypted-connections)。
 * 确保任何客户端应用程序也通过加密的连接进行通信。
 * RP 配置为信任 SQL Server 实例使用的证书。
 

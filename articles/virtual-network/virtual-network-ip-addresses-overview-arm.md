@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 45f35dbd0f53415eeea9aaf5c1532768dbb2bf09
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: b1d806c729dcc17bb9232f4cc638c7681d96b5be
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250460"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514237"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -69,7 +69,6 @@ ms.locfileid: "66250460"
 - 具有可调整的入站发起流空闲超时，范围为 4-30 分钟，默认值为 4 分钟，出站发起流的空闲超时固定为 4 分钟。
 - 默认情况下处于打开状态。  建议使用网络安全组来对入站或出站流量进行限制，但这是可选的。
 - 分配到可以采用公共 IP 地址的任何 Azure 资源，例如网络接口、VPN 网关、应用程序网关和面向 Internet 的负载均衡器。
-- 不支持可用性区域方案。
 
 <!-- Not Available on [Availability zones overview](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
@@ -147,7 +146,7 @@ ms.locfileid: "66250460"
 | --- | --- | --- | --- |
 | 虚拟机 |Linux |是 |是 |
 | 面向 Internet 的负载均衡器 |前端配置 |是 |是 |
-| VPN 网关 |网关 IP 配置 |是 |是 |
+| VPN 网关 |网关 IP 配置 |是 |否 |
 | 应用程序网关 |前端配置 |是（仅限 V1） | |
 
 <!--MOONCAKE: Previw on Yes (V2 only) -->

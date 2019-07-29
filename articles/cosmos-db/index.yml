@@ -10,7 +10,7 @@ metadata:
   ms.service: cosmos-db
   ms.topic: landing-page
   origin.date: 05/20/2019
-  ms.date: 06/17/2019
+  ms.date: 07/29/2019
 abstract:
   description: Azure Cosmos DB 是完全托管的数据库服务，具有统包多区域分布和透明多主数据库复制功能。 你可以对数据库中的事务数据运行多区域分布的低延迟运营与分析工作负荷和 AI。 参考我们的快速入门、教程和示例，了解如何使用 Azure Cosmos DB。
 sections:
@@ -40,16 +40,21 @@ sections:
             image:
               src: media/index/mongodb-api.svg
             title: Azure Cosmos DB 的用于 MongoDB 的 API
-          - href: /cosmos-db/table-introduction/
-            html: <p>如果要将数据从 Azure 表存储迁移到 Azure Cosmos DB 的高级版表产品/服务，请使用表 API。</p>
-            image:
-              src: media/index/table-api.svg
-            title: 表 API
           - href: /cosmos-db/cassandra-introduction/
             html: <p>如果要将数据从 Cassandra 数据库迁移到 Azure Cosmos DB 的完全托管服务，请使用 Cassandra API。</p>
             image:
               src: media/index/cassandra-api.png
             title: Cassandra API
+          - href: /cosmos-db/table-introduction/
+            html: <p>如果要将数据从 Azure 表存储迁移到 Azure Cosmos DB 的高级版表产品/服务，请使用表 API。</p>
+            image:
+              src: media/index/table-api.svg
+            title: 表 API
+          - href: /cosmos-db/change-feed/
+            html: <p>利用更改源执行实时分析，方法是按 Azure Cosmos DB 容器中文档的修改顺序读取这些文档的排序列表。 </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: 更改源
   - title: 5 分钟快速入门
     items:
       - type: paragraph

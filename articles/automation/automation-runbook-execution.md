@@ -10,12 +10,12 @@ origin.date: 04/04/2019
 ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 16d4258446506621b0cc555c4d94a08e3be9cc02
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: d55972dadbc29822562d708938c21c83381759c2
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844388"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391981"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -105,7 +105,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
-Disable-AzureRmContextAutosave –Scope Process
+Disable-AzureRmContextAutosave -Scope Process
 
 $Conn = Get-AutomationConnection -Name AzureRunAsConnection
 Connect-AzureRmAccount -ServicePrincipal `

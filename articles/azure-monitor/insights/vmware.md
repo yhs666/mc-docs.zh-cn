@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3515c0c2f1a284f4db43d61b1bca167fbe8df20
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8eeaf4e2bf3fe9dce660a9336151a80342416a10
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562933"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514053"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor 中的 VMware 监视（已弃用）解决方案
 

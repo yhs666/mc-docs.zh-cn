@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/10/2017
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0600ed8b4891359c2b6656b495338b8680b16aa2
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 2384c9387ac1c0b8e1955a9bedc71cff6272f9cc
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390742"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514291"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>管理 Azure 流量管理器配置文件
 

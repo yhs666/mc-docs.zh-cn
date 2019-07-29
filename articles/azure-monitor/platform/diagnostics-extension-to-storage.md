@@ -5,15 +5,15 @@ services: azure-monitor
 author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: d5b93f05ab66037b5bf2057bf6c3a72ac11795ae
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: f98c28fd14a9f99831be1eb366cbd398b8852d61
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363346"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513798"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
 诊断数据不会永久存储，除非将其传输到世纪互联 Azure 存储模拟器或 Azure 存储。 如果诊断数据位于存储中，可以使用提供的工具之一进行查看。
@@ -65,7 +65,7 @@ ms.locfileid: "54363346"
 
 **Blob**
 
-* wad-control-container -（仅适用于 SDK 2.4 及更低版本）包含用于控制 Azure 诊断的 XML 配置文件。
+* wad-control-container -（仅适用于 SDK 2.4 及更低版本）包含用于控制 Azure 诊断的 XML 配置文件  。
 * **wad-iis-failedreqlogfiles** - 包含 IIS 失败请求日志中的信息。
 * **wad-iis-logfiles** - 包含有关 IIS 日志的信息。
 * **"custom"** - 自定义容器，基于配置由诊断监视器监视的目录。  此 blob 容器的名称在 WADDirectoriesTable 中指定。

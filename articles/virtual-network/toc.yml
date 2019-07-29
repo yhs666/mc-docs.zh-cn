@@ -296,12 +296,6 @@
                   href: virtual-networks-move-vm-role-to-subnet.md
         - name: 云服务和网络安全
           items:
-            - name: 创建使用 NSG 的外围网络
-              href: virtual-networks-dmz-nsg-asm.md
-            - name: 创建使用防火墙和 NSG 的外围网络
-              href: virtual-networks-dmz-nsg-fw-asm.md
-            - name: 使用防火墙、UDR 和 NSG 的外围网络
-              href: virtual-networks-dmz-nsg-fw-udr-asm.md
             - name: 示例应用程序
               href: virtual-networks-sample-app.md
 - name: 参考
@@ -325,7 +319,7 @@
 - name: 资源
   items:
     - name: 网络论坛
-      href: 'https://www.azure.cn/support/contact/'
+      href: 'https://support.azure.cn/support/contact/'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/networking/'
     - name: 定价计算器

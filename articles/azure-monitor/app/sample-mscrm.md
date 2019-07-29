@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mazhar
 ms.author: v-lingwu
-ms.openlocfilehash: 5ecb887a77170e0bde8b98889105749d6d0d319f
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 5244e2e1c0b02a7dec8920a5206c1a8fa4008968
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135918"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513880"
 ---
 # <a name="walkthrough-enabling-telemetry-for-azure-dynamics-crm-online-using-application-insights"></a>演练：使用 Application Insights 为 Azure Dynamics CRM Online 启用遥测
 本文演示如何使用 [Azure Application Insights](https://www.azure.cn/services/application-insights/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。
@@ -126,8 +126,6 @@ ms.locfileid: "67135918"
 ## <a name="sample-code"></a>代码示例
 [浏览示例代码](https://dynamicsandappinsights.codeplex.com/)。
 
-## <a name="power-bi"></a>Power BI
-如果[将数据导出到 Azure Power BI](../../azure-monitor/app/export-power-bi.md )，则可以执行更深入的分析。
 
 ## <a name="sample-azure-dynamics-crm-solution"></a>Azure Dynamics CRM 解决方案示例
 [此处是在 Azure Dynamics CRM 中实现的示例解决方案](https://dynamicsandappinsights.codeplex.com/)。

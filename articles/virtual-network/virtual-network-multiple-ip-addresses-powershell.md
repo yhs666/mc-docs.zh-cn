@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/24/2017
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff2148561af1e0334bdbddb6f4039413e2a4c852
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.reviewer: annahar
+ms.openlocfilehash: 0452dc2b2a9a94bec47064a52c2522626e49ce56
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250459"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514251"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>使用 PowerShell 将多个 IP 地址分配到虚拟机
 
@@ -153,7 +154,6 @@ ms.locfileid: "66250459"
 8. 创建 NIC 并将以下三个 IP 配置与之关联：
 
     ```powershell
-
     $NIC = New-AzNetworkInterface `
     -Name MyNIC `
     -ResourceGroupName $RgName `
@@ -330,6 +330,7 @@ ms.locfileid: "66250459"
     ```powershell   
     $MyNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
     ```
+
 8. 将专用 IP 地址添加到 VM 操作系统，只需完成本文 [将 IP 地址添加到 VM 操作系统](#os-config) 部分针对操作系统的步骤即可。 请勿向操作系统添加公共 IP 地址。
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

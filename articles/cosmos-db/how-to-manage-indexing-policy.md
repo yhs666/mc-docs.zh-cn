@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的索引策略
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 06/27/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4c50e53fef8a95574689eb77cf86e8996f5815ce
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: eb4c300c121e2fd50f432f8f71d54cbcdc0cc158
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514164"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的索引策略
 
@@ -358,7 +358,7 @@ response = client.ReplaceContainer(containerPath, container)
                     "path":"/age",
                     "order":"ascending"
                 }
-            ]
+            ],
             [  
                 {  
                     "path":"/name",

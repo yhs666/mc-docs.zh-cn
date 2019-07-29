@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36d7c968bfd9ae16d5cc6f1c181a4044e793b4e9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 127292bf4ddd06280801327a8b4f2f0353e25194
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562529"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513856"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 

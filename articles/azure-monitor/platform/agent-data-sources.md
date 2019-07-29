@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8826420fa4bd61e55afc544fc2679aa34b8af699
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: f0f64581b8e9256a9a5d2b78fb3dea42c4eaa064
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562469"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514027"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor 中的代理数据源
 Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  来自代理的数据将存储为包含一组记录的日志数据。  每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。

@@ -126,8 +126,6 @@
   items:
     - name: 作者
       items:
-        - name: 直观创作数据工厂
-          href: author-visually.md
         - name: 迭代开发和调试
           href: iterative-development-debugging.md
     - name: 连接器

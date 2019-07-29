@@ -9,13 +9,13 @@ author: lingliw
 ms.author: v-lingwu
 ms.reviewer: carlrab
 manager: digimobile
-ms.date: 04/12/19
-ms.openlocfilehash: 75685e0fe3725592cd568046cffe64dd85db3cc8
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.date: 04/12/2019
+ms.openlocfilehash: 96c7d6fd548e536b9060667a4883bc3d27fc0492
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562631"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513872"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>使用 Azure SQL Analytics（预览版）监视 Azure SQL 数据库
 

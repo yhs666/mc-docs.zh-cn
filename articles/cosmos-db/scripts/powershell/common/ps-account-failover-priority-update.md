@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - 更改 Azure Cosmos 帐户的故障转移优先
 description: Azure PowerShell 脚本示例 - 更改 Azure Cosmos 帐户的故障转移优先级
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/06/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8275d0f53f557b720d9ef57277ba06d06abd453a
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 70eed5a2047f44e6617cc70efba2c57e89c59710
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424289"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514411"
 ---
 # <a name="change-failover-priority-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 更改 Azure Cosmos 帐户的故障转移优先级
 
@@ -65,5 +65,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps account failover priority update -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

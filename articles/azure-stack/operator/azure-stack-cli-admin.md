@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
-origin.date: 01/15/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.lastreviewed: 01/15/2019
-ms.openlocfilehash: 65ef0a5f9ef891e59e560f2066fa2e6991abeee7
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 555ecc3d53fae8755a7738a11cf3c7032b8cc9c5
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529578"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513471"
 ---
 # <a name="enable-azure-cli-for-azure-stack-users"></a>为 Azure Stack 用户启用 Azure CLI
 
@@ -61,7 +61,7 @@ certutil -encode root.cer root.pem
 
 Azure Stack 操作员应设置可公开访问的终结点来托管虚拟机别名文件。 虚拟机别名文件是一个 JSON 文件，提供映像的公用名称。 以 Azure CLI 参数形式部署 VM 时，将使用该名称。  
 
-向别名文件添加条目之前，请确保[从 Azure 市场下载映像](azure-stack-download-azure-marketplace-item.md)，或者已[发布自己的自定义映像](azure-stack-add-vm-image.md)。 如果发布自定义映像，请记下发布过程中指定的发布者、产品/服务、SKU 和版本信息。 如果映像来自市场，可以使用 ```Get-AzureVMImage``` cmdlet 查看信息。  
+向别名文件添加条目之前，请确保[从 Azure 市场下载映像](azure-stack-download-azure-marketplace-item.md)，或者已[发布自己的自定义映像](azure-stack-add-vm-image.md)。 如果发布自定义映像，请记下发布过程中指定的发布者、产品/服务、SKU 和版本信息。 如果映像来自市场，可以使用 `Get-AzureVMImage` cmdlet 查看信息。  
 
 可以使用包含许多常见映像别名的[示例别名文件](https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json)。 可以使用该文件作为起点。 将该文件托管在 CLI 客户端可以访问它的空间。 一种方法是将该文件托管在 blob 存储帐户中并与用户共享 URL：
 

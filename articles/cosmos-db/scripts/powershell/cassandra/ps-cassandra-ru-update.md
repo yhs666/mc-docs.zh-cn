@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新 Cassandra API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36e280fe723fbd809e49059fefcf610fe07a3b4d
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 61ba7ee8bd51eb16fe8561d176c9514a8d2c4de9
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424245"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514412"
 ---
 # <a name="update-rus-for-a-keyspace-or-table-for-azure-cosmos-db---cassandra-api"></a>更新 Azure Cosmos DB 的密钥空间或表的 RU/秒 - Cassandra API
 
@@ -79,5 +79,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps cassandra ru update -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

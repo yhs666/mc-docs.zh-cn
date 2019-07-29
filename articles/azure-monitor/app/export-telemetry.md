@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ac90c95f94a5b5d4d5edb3ce155533f077777bbf
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: a7082dc2f93433c9a689e1c592b83117d516ac3c
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562699"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513885"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到世纪互联 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
@@ -27,7 +27,6 @@ ms.locfileid: "67562699"
 * 通过指标或搜索边栏选项卡顶部的“导出”按钮，可将表格和图表发送到 Excel 电子表格。
 
 * [Analytics](../../azure-monitor/app/analytics.md) 提供功能强大的遥测查询语言。 它还可以导出结果。
-* 如果想要[在 Power BI 中浏览数据](../../azure-monitor/app/export-power-bi.md )，无需使用连续导出也可以做到。
 * 使用[数据访问 REST API](https://dev.applicationinsights.io/) 能够以编程方式访问遥测数据。
 * 也可以访问[通过 Powershell 设置连续导出](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport)。
 

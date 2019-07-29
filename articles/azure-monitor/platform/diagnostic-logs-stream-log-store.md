@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/18/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 78f64ef4dbd4128c1f9dc42a601251e4eb9e0a31
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b830592626065f5cfa4696fe2481ae2a578ac587
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562374"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514001"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>将 Azure 诊断日志流式传输到 Azure Monitor 中的 Log Analytics 工作区
 
@@ -98,6 +98,30 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 ## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>如何查询 Log Analytics 工作区中的数据？
 
 在 Azure Monitor 门户上的“日志”边栏选项卡中，可以在“AzureDiagnostics”表下面查询作为日志管理解决方案的一部分提供的诊断日志。 此外，还可以安装[适用于 Azure 资源的多个监视解决方案](../../azure-monitor/insights/solutions.md)，以立即深入了解发送到 Azure Monitor 的日志数据。
+
+### <a name="examples"></a>示例
+
+```Kusto
+// Resources that collect diagnostic logs into this Log Analytics workspace, using Diagnostic Settings
+AzureDiagnostics
+| distinct _ResourceId
+```
+```Kusto
+// Resource providers collecting diagnostic logs into this Log Analytics worksapce, with log volume per category
+AzureDiagnostics
+| summarize count() by ResourceProvider, Category
+```
+```Kusto
+// Resource types collecting diagnostic logs into this Log Analytics workspace, with number of resources onboarded
+AzureDiagnostics
+| summarize ResourcesOnboarded=dcount(_ResourceId) by ResourceType
+```
+```Kusto
+// Operations logged by specific resource provider, in this example - KeyVault
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.KEYVAULT"
+| distinct OperationName
+```
 
 ## <a name="azure-diagnostics-vs-resource-specific"></a>“Azure 诊断”与“特定于资源”  
 在 Azure 诊断配置中启用 Log Analytics 目标后，将以两种不同的方法在工作区中显示数据：  

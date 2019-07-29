@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 99a84ebee065e447fd703c27ecbddf9378a615c8
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 42c7e4aac9e7abd37f340a2a727e253e1755e687
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562395"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514011"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 
@@ -44,7 +44,7 @@ Azure Monitor 中的日志包含已整理成记录的各种数据，每种数据
 |  |  |
 |:---|:---|
 | 分析 | 使用 Azure 门户中的 [Log Analytics](../log-query/get-started-portal.md) 可以编写[日志查询](../log-query/log-query-overview.md)，并通过强大的数据资源管理器分析引擎以交互方式分析日志数据。<br>使用 Azure 门户中的 [Application Insights 分析控制台](../app/analytics.md)可以编写日志查询，并在 Application Insights 中以交互方式分析日志数据。 |
-| 可视化 | 将以表格或图表形式呈现的查询结果固定到 [Azure 仪表板](../../azure-portal/azure-portal-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)，用于在交互式报表中合并多个数据集。 <br>将查询结果导出到 [Power BI](powerbi.md)，以使用不同的可视化效果并与 Azure 外部的用户共享。<br>将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。|
+| 可视化 | 将以表格或图表形式呈现的查询结果固定到 [Azure 仪表板](../../azure-portal/azure-portal-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)，用于在交互式报表中合并多个数据集。|
 | 警报 | 配置[日志警报规则](alerts-log.md)，以便在查询结果与特定的结果匹配时发送通知或执行[自动化操作](action-groups.md)。<br>针对作为指标提取的特定日志数据配置[指标警报规则](alerts-metric-logs.md)。 |
 | 检索 | 使用 [Azure CLI](https://docs.azure.cn/zh-cn/cli/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest) 从命令行访问日志查询结果。<br>使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights) 从命令行访问日志查询结果。<br>使用 [REST API](https://dev.loganalytics.io/) 从自定义应用程序访问日志查询结果。 |
 | 导出 | 使用[逻辑应用](~/articles/logic-apps/index.yml)生成一个工作流，以检索日志数据并将其复制到外部位置。 |
@@ -125,7 +125,7 @@ Azure Monitor 可从 Azure 和本地资源中的各种源收集日志数据。 �
 
 | 数据 | 说明 |
 |:---|:---|
-| Azure 安全中心 | [Azure 安全中心](/azure/security-center/)将其收集的数据存储在 Log Analytics 工作区中，在该工作区中可以结合其他日志数据对这些收集的数据进行分析。|
+| Azure 安全中心 | [Azure 安全中心](/security-center/)将其收集的数据存储在 Log Analytics 工作区中，在该工作区中可以结合其他日志数据对这些收集的数据进行分析。|
 | Azure Sentinel | [Azure Sentinel](/azure/sentinel/) 将来自数据源的数据存储到 Log Analytics 工作区中。 请参阅[连接数据源](/azure/sentinel/connect-data-sources)。  |
 
 

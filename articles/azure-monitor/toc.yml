@@ -773,14 +773,6 @@
               href: platform/view-designer-parts.md
             - name: 筛选器
               href: platform/view-designer-filters.md
-        - name: Power BI
-          items:
-            - name: 导出日志数据
-              href: platform/powerbi.md
-            - name: 导出应用程序数据
-              href: app/export-power-bi.md
-        - name: 将数据发送到 Grafana
-          href: platform/grafana-plugin.md
     - name: 响应事件
       items:
         - name: 警报
@@ -813,8 +805,6 @@
               items:
                 - name: 基于活动日志事件的警报
                   href: platform/alerts-activity-log.md
-                - name: 将管理事件迁移到活动日志警报
-                  href: platform/migrate-management-alerts.md
                 - name: 基于服务运行状况通知的警报
                   href: platform/alerts-activity-log-service-notifications.md
             - name: 使用操作组
@@ -849,12 +839,6 @@
                   href: platform/alerts-managing-nagios-zabbix-scom.md
             - name: 迁移经典警报规则
               items:
-                - name: 准备迁移
-                  href: platform/alerts-prepare-migration.md
-                - name: 了解迁移工具
-                  href: platform/alerts-understand-migration.md
-                - name: 使用迁移工具
-                  href: platform/alerts-using-migration-tool.md
                 - name: 管理经典指标警报
                   href: platform/alerts-classic-portal.md
                 - name: 使用资源管理器模板的经典指标警报
@@ -887,14 +871,6 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: 使用 Webhook 和电子邮件通知
               href: platform/autoscale-webhook-email.md
-        - name: IT 服务管理
-          items:
-            - name: IT Service Management Connector
-              href: platform/itsmc-overview.md
-            - name: IT Service Management 连接
-              href: platform/itsmc-connections.md
-            - name: 创建 Service Manager Web 应用
-              href: platform/itsmc-service-manager-script.md
     - name: 管理使用情况和成本
       items:
         - name: 使用情况和预估成本
@@ -1046,18 +1022,6 @@
               href: platform/diagnostics-extension-schema-1dot2.md
             - name: 1
               href: platform/diagnostics-extension-schema-1dot0.md
-    - name: 功能和 API 停用
-      items:
-        - name: 经典的自动缩放和指标 API
-          href: ./platform/classic-api-retirement-metrics-autoscale.md
-        - name: 经典的警报和监视
-          href: platform/monitoring-classic-retirement.md
-        - name: 将警报从 Log Analytics 扩展到 Azure
-          href: platform/alerts-extend.md
-        - name: 将警报从 OMS 门户复制到 Azure 门户
-          href: platform/alerts-extend-tool.md
-        - name: 切换日志警报 API 首选项
-          href: platform/alerts-log-api-switch.md
 - name: 资源
   items:
     - name: 定价

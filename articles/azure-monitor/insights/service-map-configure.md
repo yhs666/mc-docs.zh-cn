@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 06/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0235988042d1d0693f824918df4eb62e6ef2aa88
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 6d2104b22edd9c786f780a4e5b4f69f085923310
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562590"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514056"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中配置服务映射
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 借助它，你可以按照自己的想法，将服务器作为提供重要服务的互连系统。 服务映射显示任何 TCP 连接的体系结构中服务器、进程和端口之间的连接，只需安装代理，无需任何其他配置。
@@ -262,7 +262,7 @@ ForEach-Object {
 
 Dependency Agent 的文件放置在以下目录中：
 
-| 文件 | 位置 |
+| 文件 | Location |
 |:--|:--|
 | 核心文件 | /opt/microsoft/dependency-agent |
 | 日志文件 | /var/opt/microsoft/dependency-agent/log |
@@ -370,7 +370,7 @@ Azure Dependency Agent 基于 Microsoft Visual Studio 运行时库。 如果安�
 Windows  ：查找名为“Microsoft Dependency Agent”的服务。<br>
 Linux  ：查找正在运行的进程“microsoft-dependency-agent”。
 
-* 是否属于 Operations Management Suite/Log Analytics 的免费定价层？免费计划允许最多 5 个唯一的服务映射服务器。 服务映射中不再有任何其他的服务器，即使前 5 个服务器不再发送数据。
+* 是否属于 [Operations Management Suite/Log Analytics 的免费定价层](/azure-monitor/insights/solutions)？ 免费计划允许最多 5 个仅有的服务映射服务器。 服务映射中不再有任何其他的服务器，即使前 5 个服务器不再发送数据。
 
 * 服务器是否正在向 Log Analytics 发送日志和性能数据？ 转到日志搜索，并为计算机运行以下查询： 
 

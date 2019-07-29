@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/14/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: dd928cb7b1e311018250a59bc08d6fbeb79ef1bb
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 1d59832ec0e3d8b98613861ce0fbfc036f767e5b
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250332"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514436"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>使用 PowerShell 通过虚拟网络服务终结点限制对 PaaS 资源的网络访问
 
@@ -382,4 +382,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 如果帐户中有多个虚拟网络，可将两个虚拟网络连接到一起，使每个虚拟网络中的资源可以相互通信。 若要了解如何操作，请参阅[连接虚拟网络](tutorial-connect-virtual-networks-powershell.md)。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: wording update -->

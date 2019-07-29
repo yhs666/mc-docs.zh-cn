@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 924e159b8601dc0d67b7395661c01bc3d88106ec
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 38a8bac108d8c93158f6f67b74ebbb1c24596905
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562509"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513836"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 
@@ -133,7 +133,9 @@ SecurityEvent
 请参阅有关将 [Kusto 查询语言](/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
 
 - [字符串操作](string-operations.md)
+- [时间和日期操作](datetime-operations.md)
+- [聚合函数](aggregations.md)
+- [高级聚合](advanced-aggregations.md)
 - [JSON 和数据结构](json-data-structures.md)
-
-
-
+- [联接](joins.md)
+- [图表](charts.md)

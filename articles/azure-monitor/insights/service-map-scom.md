@@ -11,14 +11,14 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6aed88b87279a5079b1bfc37869c09219f252055
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8c2c92bd923c433d616848cc9d133e162087d428
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562596"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514058"
 ---
 # <a name="service-map-integration-with-system-center-operations-manager"></a>服务映射与 System Center Operations Manager 的集成
 

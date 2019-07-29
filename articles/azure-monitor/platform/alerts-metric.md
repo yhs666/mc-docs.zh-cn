@@ -4,15 +4,15 @@ description: 了解如何使用 Azure 门户或 CLI 来创建、查看和管理�
 author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7e6fe3efff7c7ad432de3a766cf77d09609c963d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c88ba515b79db2e545cf5ba44791576ea4b9be28
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562433"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514013"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 

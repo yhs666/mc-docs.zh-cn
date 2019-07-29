@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB MongoDB API 的列出和获取�
 description: Azure PowerShell 脚本 - Azure Cosmos DB MongoDB API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: c8266b21cdf264c0a9618fd9f2cd9b1316590704
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 5de5f7a5e7369f8090cc4f39314ad75d412e6470
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151370"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514371"
 ---
 # <a name="list-and-get-databases-and-graphs-for-azure-cosmos-db---mongodb-api"></a>列出和获取 Azure Cosmos DB 的数据库和图 - MongoDB API
 
@@ -84,5 +84,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps mongodb list get -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

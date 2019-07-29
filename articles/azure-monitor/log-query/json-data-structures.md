@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Monitor 日志查询中使用字符串 | Azure Docs
-description: 本文提供了有关使用 Azure 门户中的 Azure Monitor 日志分析对 Azure Monitor 中的日志数据进行查询和分析的教程。
+description: 本文提供了有关使用 Azure 门户中的 Azure Monitor Log Analytics 对 Azure Monitor 中的日志数据进行查询和分析的教程。
 services: log-analytics
 documentationcenter: ''
 author: lingliw
@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 637024a2fb862bfcd305a7300204cb832e1d0057
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: ebfd0e3867f1b4d2e69fe589d7489f16cce69547
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544678"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514040"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用 JSON 和数据结构
 
@@ -134,7 +134,9 @@ print hosts_object
 参阅有关在 Azure Monitor 中使用日志查询的其他课：
 
 - [字符串操作](string-operations.md)
+- [时间和日期操作](datetime-operations.md)
+- [聚合函数](aggregations.md)
+- [高级聚合](advanced-aggregations.md)
 - [高级查询编写](advanced-query-writing.md)
-
-
-
+- [联接](joins.md)
+- [图表](charts.md)

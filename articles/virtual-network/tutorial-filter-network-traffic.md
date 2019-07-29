@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/13/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9fab1500298876d4e5d5273844462b9f6d5c3bc0
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 5549470ff162fbca2935c7b11cbe01f1f84b3f56
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250334"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514440"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>教程：使用 Azure 门户通过网络安全组筛选网络流量
 
@@ -52,7 +52,7 @@ ms.locfileid: "66250334"
     | 地址空间           | 10.0.0.0/16                                        |
     | 订阅            | 选择订阅。                          |
     | 资源组          | 选择“新建”，并输入 myResourceGroup   |
-    | 位置                | 选择“中国东部”。                                 |
+    | Location                | 选择“中国东部”。                                 |
     | 子网 - 名称            | mySubnet                                           |
     | 子网 - 地址范围  | 10.0.0.0/24                                        |
 
@@ -69,7 +69,7 @@ ms.locfileid: "66250334"
     | Name           | myAsgWebServers                                               |
     | 订阅   | 选择订阅。                                     |
     | 资源组 | 选择“使用现有”，然后选择“myResourceGroup”   。 |
-    | 位置       | 中国东部                                                       |
+    | Location       | 中国东部                                                       |
 
 4. 再次完成步骤 3 并指定以下值：
 
@@ -78,7 +78,7 @@ ms.locfileid: "66250334"
     | Name           | myAsgMgmtServers                                              |
     | 订阅   | 选择订阅。                                     |
     | 资源组 | 选择“使用现有”，然后选择“myResourceGroup”   。 |
-    | 位置       | 中国东部                                                       |
+    | Location       | 中国东部                                                       |
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 
@@ -91,7 +91,7 @@ ms.locfileid: "66250334"
     |Name|myNsg|
     |订阅| 选择订阅。|
     |资源组 | 选择“使用现有”，然后选择“myResourceGroup”   。|
-    |位置|中国东部|
+    |Location|中国东部|
 
 ## <a name="associate-network-security-group-to-subnet"></a>将网络安全组关联到子网
 
@@ -153,7 +153,7 @@ ms.locfileid: "66250334"
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |订阅| 选择订阅。|
     |资源组| 选择“使用现有资源组”，再选择“myResourceGroup”   。|
-    |位置| 选择“中国东部” |
+    |Location| 选择“中国东部” |
 
 4. 选择 VM 的大小，然后选择“选择”  。
 5. 在“设置”下选择以下值，接受剩下的默认设置，然后选择“确定”：  

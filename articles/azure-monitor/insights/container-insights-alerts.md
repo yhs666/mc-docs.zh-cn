@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a60b09f36e6a59aa59162bf16cdb7a26a66557df
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c57811c6c6cf72a1398aa6e7f493412d012a5fd2
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562626"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513871"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>如何在用于容器的 Azure Monitor 中针对性能问题设置警报
 用于容器的 Azure Monitor 可以监视部署到 Azure 容器实例或 Azure Kubernetes 服务 (AKS) 上托管的托管 Kubernetes 群集的容器工作负荷的性能。
@@ -286,9 +286,6 @@ InsightsMetrics
 ## <a name="create-an-alert-rule"></a>创建警报规则
 在 Azure Monitor 中，遵循以下步骤使用前面提供的日志搜索规则之一创建日志警报。  
 
->[!NOTE]
->遵循以下过程针对容器资源利用率创建警报规则需要根据[切换日志警报的 API 首选项](../platform/alerts-log-api-switch.md)中所述，切换到新的日志警报 API。
->
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 在左侧窗格中选择“监视”。  在“见解”下，选择“容器”。  

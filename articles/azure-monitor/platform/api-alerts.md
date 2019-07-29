@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 007b54b49e91dc27ae510268a75a3a750a857c08
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b400219a0ac766362b325f67249f7f789f9a41e8
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731312"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513817"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>在 Log Analytics 中通过 REST API 创建和管理警报规则
 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。
@@ -100,9 +100,6 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 
 ### <a name="retrieving-actions"></a>检索操作
 
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。 对于将警报扩展到 Azure 的用户，现在可以在 Azure 操作组中控制操作。 当工作区及其警报扩展到 Azure 后，可以使用[操作组 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 检索或添加操作。
-
 使用 Get 方法检索计划的所有操作。
 
     armclient get /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search  ID}/schedules/{Schedule ID}/actions?api-version=2015-03-20
@@ -123,9 +120,6 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 
 ### <a name="deleting-actions"></a>删除操作
 
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。 对于将警报扩展到 Azure 的用户，现在可以在 Azure 操作组中控制操作。 当工作区及其警报扩展到 Azure 后，可以使用[操作组 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 检索或添加操作。
-
 结合使用 Delete 方法和操作 ID 可删除操作。
 
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/Actions/{Action ID}?api-version=2015-03-20
@@ -136,7 +130,7 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 | 部分 | 说明 | 使用情况 |
 |:--- |:--- |:--- |
 | 阈值 |用于确定何时运行操作的条件。| 每个警报所必需的，无论是在警报扩展到 Azure 之前还是之后。 |
-| 严重性 |当触发时用来对警报进行分类的标签。| 每个警报所必需的，无论是在警报扩展到 Azure 之前还是之后。 |
+| severity |当触发时用来对警报进行分类的标签。| 每个警报所必需的，无论是在警报扩展到 Azure 之前还是之后。 |
 | 取消 |用于停止警报通知的选项。 | 对于每个警报均为可选，无论是在警报扩展到 Azure 之前还是之后。 |
 | 操作组 |在其中指定所需操作的 Azure 操作组的 ID，例如 - 电子邮件、SMS、语音呼叫、Webhook、自动化 Runbook、ITSM 连接器，等等。| 警报扩展到 Azure 后所必需的|
 | 自定义操作|修改有关从操作组中选择操作的标准输出| 对于每个警报都是可选的，可以在警报扩展到 Azure 后使用。 |
@@ -145,7 +139,7 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 | Webhook 操作 | 将来自警报的数据以 JSON 形式推送到所需的服务 |如果警报扩展到 Azure，则不是必需的|
 
 > [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。
+> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。
 
 #### <a name="thresholds"></a>阈值
 一项警报操作应具有一个且只能有一个阈值。  当已保存搜索的结果匹配与该搜索关联的操作中的阈值时，将运行该操作中的任何其他进程。  操作也可以只包含一个阈值，以便与不包含阈值的其他类型的操作一起使用。
@@ -182,7 +176,7 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>严重性
+#### <a name="severity"></a>severity
 Log Analytics 允许你将警报归类到各个类别，以便更轻松地进行管理和会审。 定义的警报严重性是：信息性、警告和严重。 它们如下所示映射到 Azure 警报的常规严重性级别：
 
 |Log Analytics 严重性级别  |Azure 警报严重性级别  |
@@ -351,11 +345,7 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
 #### <a name="email-notification"></a>电子邮件通知
-向一个或多个收件人发送邮件的电子邮件通知。  它们具有下表中的属性。
-
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。 对于将警报扩展到 Azure 的用户，现在可以在 Azure 操作组中控制诸如电子邮件通知之类的操作。 当工作区及其警报扩展到 Azure 后，可以使用[操作组 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 检索或添加操作。
-   
+向一个或多个收件人发送邮件的电子邮件通知。  它们具有下表中的属性。   
 
 | 属性 | 说明 |
 |:--- |:--- |
@@ -396,9 +386,6 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
 
 #### <a name="remediation-actions"></a>修正操作
 修正在 Azure 自动化中启动 Runbook，尝试纠正警报发现的问题。  必须为用于修正操作的 Runbook 创建 Webhook，并在 WebhookUri 属性中指定 URI。  使用 Azure 门户创建此操作时，会自动为 Runbook 创建新的 Webhook。
-
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。 对于将警报扩展到 Azure 的用户，现在可以在 Azure 操作组中控制诸如使用 runbook 进行修正之类的操作。 当工作区及其警报扩展到 Azure 后，可以使用[操作组 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 检索或添加操作。
 
 修正具有下表中的属性。
 
@@ -455,10 +442,6 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
 
 #### <a name="webhook-actions"></a>Webhook 操作
 Webhook 操作通过调用 URL 和提供要发送的负载（可选）启动进程。  Webhook 操作与修正操作类似，不同之处在于它们是用于 Webhook，可能调用 Azure 自动化 Runbook 之外的进程。  此外，它们还提供了额外的选项，即提供要发送到远程进程的负载。
-
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。 有关详细信息，请参阅[将警报从 Log Analytics 扩展到 Azure](../../azure-monitor/platform/alerts-extend.md)。 对于将警报扩展到 Azure 的用户，现在可以在 Azure 操作组中控制诸如 Webhook 之类的操作。 当工作区及其警报扩展到 Azure 后，可以使用[操作组 API](https://docs.microsoft.com/rest/api/monitor/actiongroups) 检索或添加操作。
-
 
 Webhook 操作没有阈值，但应添加到具有带阈值的警报操作的计划中。  
 

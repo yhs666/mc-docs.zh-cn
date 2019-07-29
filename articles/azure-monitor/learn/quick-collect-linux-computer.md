@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 1dc46b6c79502d3e51df34d2a31b71568932dd73
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 3aa691569acc5a47eeed47ff351a86c8a8ae1f9d
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562552"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513986"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>在混合环境中为 Linux 计算机配置 Log Analytics 代理
 [Azure Log Analytics](../platform/agent-windows.md) 可将物理或虚拟 Linux 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。 本快速入门介绍如何通过几个简单步骤，从 Linux 计算机中配置或收集数据。  有关 Azure Linux VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](quick-collect-azurevm.md)。  
@@ -145,6 +145,7 @@ Log Analytics 可从 Linux Syslog 以及指定用于长期分析的性能计数�
 ## <a name="next-steps"></a>后续步骤
 从本地 Linux 计算机上收集操作和性能数据后，现在可轻松开始浏览、分析免费收集的数据，并对它们采取措施  。  
 
+若要了解如何查看和分析数据，请继续本教程。   
 
-
-
+> [!div class="nextstepaction"]
+> [在 Log Analytics 中查看或分析数据](../../azure-monitor/log-query/get-started-portal.md)

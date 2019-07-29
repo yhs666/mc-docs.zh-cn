@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB SQL (Core) API 的列出和获�
 description: Azure PowerShell 脚本 - Azure Cosmos DB SQL (Core) API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3071a5df2b58d7fc24120e05e7c46c02fef7d1a5
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 54f91bc318f3b2613b429f9bb21c9fec123cb638
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424248"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514450"
 ---
 # <a name="list-and-get-databases-and-containers-for-azure-cosmos-db---sql-core-api"></a>列出和获取 Azure Cosmos DB 的数据库和容器 - SQL (Core) API
 
@@ -84,5 +84,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps sql list get -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

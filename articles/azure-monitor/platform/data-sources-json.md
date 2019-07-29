@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 94ee29284268c533df7c4cdce96349a5b83f982f
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 9a6f013ce6a5b213ac43a7ebc00b6b3cc80bf713
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686374"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514006"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>在 Azure Monitor 中使用适用于 Linux 的 Log Analytics 代理收集自定义 JSON 数据源
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

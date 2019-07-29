@@ -9,12 +9,12 @@ ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: ebb23989538fe76081fc930a56b3b5eae998e963
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 4ca79aea16d74578771e92015b66f8c99ecf68c0
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003998"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391986"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>有关 Azure 文件的常见问题解答 (FAQ)
 [Azure 文件](storage-files-introduction.md)在云端提供完全托管的文件共享，这些共享项可通过行业标准的[服务器消息块 (SMB) 协议](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)进行访问。 你可以在云或 Windows、Linux 和 macOS 的本地部署同时装载 Azure 文件共享。 另外，你也可以使用 Azure 文件同步在 Windows Server 计算机上缓存 Azure 文件共享，以在靠近使用数据的位置实现快速访问。
@@ -77,15 +77,12 @@ ms.locfileid: "66003998"
 
     - 你可以使用共享访问签名 (SAS) 生成在指定时间间隔内有效的具有特定权限的令牌。 例如，可以生成在 10 分钟后到期、对特定文件具有只读访问权限的令牌。 只要拥有此有效令牌，就可以在 10 分钟内拥有对给定文件的只读访问权限。 目前，仅通过 REST API 或客户端库支持共享的访问签名密钥。 你必须使用存储帐户密钥通过 SMB 装载 Azure 文件共享。
 
-
-~~~
-Currently, Azure Files does not support Active Directory directly.
-~~~
+当前，Azure 文件不直接支持 Active Directory。
 
 * <a id="encryption-at-rest"></a>
 **如何确保已静态加密 Azure 件共享？**  
 
-    是的。 有关详细信息，请参阅 [Azure 存储服务加密](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)。
+    是的。 有关详细信息，请参阅 [Azure 存储服务加密](../common/storage-service-encryption.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
 * <a id="access-via-browser"></a>
 **如何使用 Web 浏览器提供对特定文件的访问权限？**  
@@ -234,7 +231,7 @@ Currently, Azure Files does not support Active Directory directly.
 
 ## <a name="features-and-interoperability-with-other-services"></a>功能以及与其他服务的互操作性
 * <a id="cluster-witness"></a>
-**是否可以将 Azure 文件共享作为 Windows 服务器故障转移群集的文件共享见证？  **  
+**是否可以将 Azure 文件共享作为 Windows 服务器故障转移群集的文件共享见证？ **  
     Azure 文件共享目前不支持此配置。 有关如何为 Azure Blob 存储设置此服务的详细信息，请参阅[部署故障转移群集的云见证](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness)。
 
 

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 12/26/2018
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36548a6102f90cebec7a4bbcb440e46637c22a99
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: c161af494ec3d3e8db9c429181f0fc9967b5132d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151472"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514333"
 ---
 # <a name="quickstart-build-a-web-app-using-azure-cosmos-dbs-api-for-mongodb-and-java-sdk"></a>快速入门：使用 Azure Cosmos DB 的用于 MongoDB 的 API 和 Java SDK 生成 Web 应用
 
@@ -34,7 +34,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 ## <a name="prerequisites"></a>先决条件
 
 在运行此示例之前，必须具备以下先决条件：
-* [安装适用于 Azure 的 JDK 和 Azure Stack JDK 版本 8] (https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
+* [安装适用于 Azure 的 JDK 和 Azure Stack JDK 版本 8](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)
 * Maven（如果没有 Maven，请运行 `apt-get install maven`）
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

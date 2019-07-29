@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
 origin.date: 04/10/2019
-ms.date: 07/10/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: fb020a76ac9efc136f018b35ed2e3cd703aee070
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 5b5cb195c9bc47832c6289d9784a429c8e4d4b98
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844670"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439946"
 ---
 # <a name="example-identify-faces-in-images"></a>示例：在图像中识别人脸
 
@@ -121,7 +121,7 @@ while(true)
 {
     trainingStatus = await faceClient.PersonGroup.GetTrainingStatusAsync(personGroupId);
  
-    if (trainingStatus.Status != Status.Running)
+    if (trainingStatus.Status != TrainingStatusType.Running)
     {
         break;
     }

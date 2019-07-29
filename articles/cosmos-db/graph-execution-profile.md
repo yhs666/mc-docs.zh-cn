@@ -5,17 +5,17 @@ services: cosmos-db
 author: rockboyfor
 manager: digimobile
 ms.service: cosmos-db
-ms.component: cosmosdb-graph
+ms.subservice: cosmosdb-graph
 ms.topic: conceptual
 origin.date: 03/27/2019
-ms.date: 04/15/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: b1205f5f01c04cbe4607992126304a771b6ca58a
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 0f9daa74f03cc39a2dea87ddc2a3c9c2e2be1fa6
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491296"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514424"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>如何使用执行配置文件步骤来评估 Gremlin 查询
 
@@ -384,5 +384,4 @@ Cosmos DB Gremlin 运行时运算符|说明
 * 了解 Azure Cosmos DB [支持的 Gremlin 功能](gremlin-support.md)。 
 * 详细了解 [Azure Cosmos DB 中的 Gremlin API](graph-introduction.md)。
 
-<!--Update_Description: new articles on graph execution profile -->
-<!--ms.date: 04/15/2019-->
+<!--Update_Description: wording update -->

@@ -8,14 +8,14 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ba8c3ea42ff7eedf84a6836f1dc4c558c8662c4e
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 015dbf1291bb98c4819ddcfb6d06d54ec5fce583
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562948"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513854"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>用于 VM 的 Azure Monitor（预览版）常见问题解答
 本 Microsoft 常见问题解答列出了用于 VM 的 Azure Monitor 的常见问题。 如果对该解决方案还有其他任何问题，请访问[论坛](https://feedback.azure.com/forums/34192--general-feedback)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。

@@ -2,21 +2,21 @@
 title: 在 Azure Active Directory B2C 中切换到 B2C 租户 | Microsoft Docs
 description: 如何切换到 Active Directory B2C 租户的上下文。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/13/2017
-ms.date: 04/01/2019
+ms.date: 07/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 3d9850f4897c82af8a678fb15a9137369af47d54
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 87f292b2fea0f3dbd9ecb0c7bef3e9ca892cab5c
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004499"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391547"
 ---
 # <a name="switching-to-your-azure-ad-b2c-tenant"></a>切换到 Azure AD B2C 租户
 
@@ -34,12 +34,13 @@ ms.locfileid: "59004499"
 
 ## <a name="navigate-to-the-b2c-features-pane"></a>导航到 B2C 功能窗格
 
-1. 单击左侧导航上的“浏览”。
-1. 单击“所有服务”，然后在左侧导航窗格中搜索 `Azure AD B2C`。  （若要固定到左侧启动板，请单击 Azure AD B2C 左侧的星号）
-1. 单击“Azure AD B2C”访问 B2C 功能窗格。
-   
+1. 单击左侧导航上的“浏览”  。
+1. 单击“所有服务”，然后在左侧导航窗格中搜索 `Azure AD B2C`。   （若要固定到左侧启动板，请单击 Azure AD B2C 左侧的星号）
+1. 单击“Azure AD B2C”  访问 B2C 功能窗格。
+
     ![浏览到 B2C 功能窗格的屏幕截图](./media/active-directory-b2c-get-started/b2c-browse.png)
 
 > [!IMPORTANT]
 > 你需要是能够访问 B2C 功能窗格的 B2C 租户全局管理员。 任何其他租户的全局管理员或任何租户的用户均不能访问它。  可以通过 Azure 门户右上角的租户切换器切换到 B2C 租户。
 
+<!-- Update_Description: update metedata properties -->

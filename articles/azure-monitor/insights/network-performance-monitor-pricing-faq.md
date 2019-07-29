@@ -12,14 +12,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e87b256ab264b83bde6981b0544c3c5f9617e3e1
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 9b2985ea9ee2a0b0dc0a91836893999d4bdb8491
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566298"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514057"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 网络性能监视器的定价变化
 

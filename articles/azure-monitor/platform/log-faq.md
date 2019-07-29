@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af1e4f25a7e8d5a39f8f349e2104560d7bff499c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 3a370b2f486a971bafbb8fdb1f782de351ddd0fe
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562356"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513997"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

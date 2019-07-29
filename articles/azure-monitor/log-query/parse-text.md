@@ -9,14 +9,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c8fc3e072f31a9961a42783e72af62a5b9a6aefd
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 1fff3c9ab909c3fa46a48efc9ec5d7d68b53772f
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566319"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513829"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
 Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的自定义日志。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。

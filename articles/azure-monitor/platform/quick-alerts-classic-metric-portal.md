@@ -5,16 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: quickstart
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: c1852473d2013a4e96ba619802743de71db2d26b
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: e46c913f6b1e3a4fb0c998e807f14b452defd599
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562296"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513993"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>当指标值满足条件时接收通知
 

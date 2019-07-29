@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 74e82bd706983105945bd7f127a61a3a0e80b5e8
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: c1406b785f471947c9bd6fbda78010884eca99ea
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151521"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514352"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 和 Azure Functions 的基于事件的无服务器体系结构
 
@@ -21,7 +21,7 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 
 ![使用 Azure Cosmos DB 触发器的基于事件的无服务器 Functions](./media/change-feed-functions/functions.png)
 
-借助 [Azure Cosmos DB 触发器](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)，可以利用[更改源处理器](./change-feed-processor.md)的缩放与可靠事件检测功能，而无需维护任何[辅助角色基础结构](./change-feed-processor.md#implementing-the-change-feed-processor-library)。 只需专注于 Azure 函数的逻辑，而无需考虑事件溯源管道的剩余。 甚至可以将触发器和任何其他 [Azure Functions 绑定](../azure-functions/functions-triggers-bindings.md#supported-bindings)搭配使用。
+借助 [Azure Cosmos DB 触发器](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)，可以利用[更改源处理器](./change-feed-processor.md)的缩放与可靠事件检测功能，而无需维护任何[辅助角色基础结构](./change-feed-processor.md)。 只需专注于 Azure 函数的逻辑，而无需考虑事件溯源管道的剩余。 甚至可以将触发器和任何其他 [Azure Functions 绑定](../azure-functions/functions-triggers-bindings.md#supported-bindings)搭配使用。
 
 > [!NOTE]
 > 目前，仅支持将 Azure Cosmos DB 触发器与 Core (SQL) API 配合使用。
@@ -45,7 +45,8 @@ Azure Functions 提供连接到[更改源](change-feed.md)的最简单方法。 
 
 可以使用 [Azure Cosmos DB 模拟器](./local-emulator.md)[在本地运行 Azure 函数](../azure-functions/functions-develop-local.md)，以创建和开发基于事件的无服务器流，而无需使用 Azure 订阅，也不会产生任何费用。
 
-<!--Not Available on If you want to test live scenarios in the cloud, you can [Try Cosmos DB for free](https://www.azure.cn/try/cosmosdb/) without any credit card or Azure subscription required.-->
+<!--Not Available on If you want to test live scenarios in the cloud, you can Try Cosmos DB for free without any credit card or Azure subscription required.-->
+<!--Not Available on [Try Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)-->
 
 ## <a name="next-steps"></a>后续步骤
 

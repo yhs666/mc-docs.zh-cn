@@ -13,12 +13,12 @@ ms.date: 6/4/2019
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: d05b942eff42bb74d9f6c66c38e78efbe8e296e7
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 64cdc5878ba069bf3be252272b18cabc74fad428
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732420"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513794"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>使用 Application Insights 漏斗图了解客户如何使用你的应用程序
 
@@ -44,7 +44,6 @@ ms.locfileid: "66732420"
 ### <a name="funnels-features"></a>漏斗图功能
 上面的屏幕截图包括五个突出显示的区域。 这些是漏斗图的功能。 以下列表更详细说明了屏幕截图中的每个相应区域：
 1. 如果对应用进行采样，将看到采样横幅。 选择标题栏打开上下文窗格，其中说明了如何关闭采样。 
-2. 可以将漏斗图导出到 [Power BI](../../azure-monitor/app/export-power-bi.md )。
 3. 选择一个步骤以在右侧查看更多详细信息。 
 4. 历史转换图显示过去 90 天内的兑换率。 
 5. 通过访问用户工具更好地了解用户。 可在每个步骤中使用筛选器。 
@@ -55,7 +54,6 @@ ms.locfileid: "66732420"
   * [保留期](usage-retention.md)
   * [工作簿](../../azure-monitor/app/usage-workbooks.md)
   * [添加用户上下文](usage-send-user-context.md)
-  * [导出到 Power BI](../../azure-monitor/app/export-power-bi.md )
 
 
 

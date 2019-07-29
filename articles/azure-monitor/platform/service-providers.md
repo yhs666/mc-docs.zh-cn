@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6a318f815ac739eb1d5779c3fe9e4855c137fae3
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c9523a41db7100ab5012d44d2df9a1032da8bbb1
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562274"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513895"
 ---
 # <a name="azure-monitor-for-service-providers"></a>适用于服务提供商的 Azure Monitor
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。 
@@ -73,7 +73,6 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 1. 中心工作区：服务提供商可以在其租户中创建工作区，并使用利用[查询 API](https://dev.loganalytics.io/) 和[数据收集 API](../../azure-monitor/platform/data-collector-api.md) 的脚本从各个工作区将数据提取到此中心位置。 脚本之外的另一种选择是使用 [Azure 逻辑应用](/logic-apps/logic-apps-overview)。
 
-2. 使用 Power BI 作为中心位置：当各个工作区利用 Log Analytics 工作区和 [Power BI](../../azure-monitor/platform/powerbi.md) 之间的集成将数据导出到 Power BI 时，Power BI 可以充当中心位置。 
 
 
 ## <a name="next-steps"></a>后续步骤

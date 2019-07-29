@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos 帐户的帐户密钥和连接字�
 description: Azure PowerShell 脚本示例 - Azure Cosmos 帐户的帐户密钥和连接字符串操作
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/20/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ca00d5ea136963ade3a21055ab0327b839636ae
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: ef7f96dd26604ad9ec1cf92801608c5525918935
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424285"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514410"
 ---
 # <a name="connection-string-and-account-key-operations-for-an-azure-cosmos-account-using-powershell"></a>使用 PowerShell 执行 Azure Cosmos 帐户的连接字符串和帐户密钥操作
 
@@ -79,5 +79,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps account keys connection string -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

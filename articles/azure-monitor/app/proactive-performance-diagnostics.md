@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: antonfr
 ms.author: v-lingwu
-ms.openlocfilehash: 7ea20d9009e99109baab86aa124bedaef250eece
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 7e86da7d5e494f32bb37a8d06ae4739e1ccb0668
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732400"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513878"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
@@ -80,7 +80,6 @@ Application Insights 已根据以下依据之一检测到应用程序出现性�
 
   * 目前不可以，但可以：
     * [设置警报](../../azure-monitor/app/alerts.md)，以便在指标超出阈值时告知用户。
-    * [将遥测导出到](../../azure-monitor/app/export-telemetry.md)[数据库](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)或 [PowerBI](../../azure-monitor/app/export-power-bi.md )，可自行在其中进行分析。
 * *执行分析的频率是多少？*
 
   * 我们每天针对前一天（UTC 时区整天）的遥测数据运行分析。

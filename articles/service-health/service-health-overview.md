@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 03/27/2018
-ms.date: 03/11/2019
+origin.date: 05/10/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2d6c30406412119ecd79326f1b1d42859c212d1d
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: 1a6639a35a051bd1b1711d4ee91888203044ba89
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196620"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514429"
 ---
 # <a name="service-health"></a>服务运行状况
 服务运行状况提供可定制的仪表板，用于跟踪 Azure 服务在使用区域中的运行状况。 在此仪表板中，可跟踪活动事件，例如正在处理的服务问题、即将开始的计划内维护或相关运行状况公告。 当事件转变为非活动状态时，将在运行状况历史记录中保留最多 90 天。 最后，可使用服务运行状况仪表板创建和管理服务运行状况警报，在服务问题影响到自己时提前获得通知。
@@ -40,11 +40,11 @@ ms.locfileid: "57196620"
 ![服务运行状况入门](./media/service-health-overview/azure-service-health-overview-1.png)
 
 ## <a name="see-current-issues-which-impact-your-services"></a>查看当前影响了服务的问题
-“服务问题”视图显示 Azure 服务中当前正在影响资源的所有问题。 可以了解问题的开始时间，以及受影响的服务和区域。 还可以阅读最新的更新，了解 Azure 正在采取哪些措施来解决问题。 
+“服务问题”视图显示 Azure 服务中当前正在影响资源的所有问题。  可以了解问题的开始时间，以及受影响的服务和区域。 还可以阅读最新的更新，了解 Azure 正在采取哪些措施来解决问题。 
 
 ![管理服务问题](./media/service-health-overview/azure-service-health-overview-2.png)
 
-选择“潜在影响”选项卡查看自己拥有的、可能被问题影响的特定资源列表。 可以下载这些资源的 CSV 列表，以便与团队共享。
+选择“潜在影响”选项卡查看自己拥有的、可能被问题影响的特定资源列表。  可以下载这些资源的 CSV 列表，以便与团队共享。
 ![管理服务问题 - 影响](./media/service-health-overview/azure-service-health-overview-4.png)
 
 ## <a name="get-links-and-downloadable-explanations"></a>获取链接和可下载的说明 
@@ -60,7 +60,6 @@ ms.locfileid: "57196620"
 ![固定个性化运行状况图](./media/service-health-overview/azure-service-health-overview-6b.png)
 
 ## <a name="configure-service-health-alerts"></a>配置服务运行状况警报
-服务运行状况与 Azure Monitor 集成，当业务关键型资源受到影响时，它可以通过电子邮件、短信和 Webhook 通知发出警报。 针对相应的服务运行状况事件设置活动日志警报。 使用“操作组”将该警报路由到组织中的相应人员。 有关详细信息，请参阅[配置服务运行状况的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)
 
-# <a name="next-steps"></a>后续步骤
-设置警报，以便收到运行状况问题的通知。 有关详细信息，请参阅[配置服务运行状况的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)。 
+服务运行状况与 Azure Monitor 集成，当业务关键型资源受到影响时，它可以通过电子邮件、短信和 Webhook 通知发出警报。 针对相应的服务运行状况事件设置活动日志警报。 使用“操作组”将该警报路由到组织中的相应人员。 有关详细信息，请参阅[配置服务运行状况的警报](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+

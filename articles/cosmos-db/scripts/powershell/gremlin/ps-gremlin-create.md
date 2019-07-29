@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Gremlin API 数据库和
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建 Gremlin API 数据库和图
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cfd92be8251ca333812dca5b8789a4e6e5d4d11
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: b8aed240b6249a0a71b02c2d726160864bdfc717
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151380"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514407"
 ---
 # <a name="create-a-database-and-graph-for-azure-cosmos-db---gremlin-api"></a>为 Azure Cosmos DB 创建数据库和图 - Gremlin API
 
@@ -109,5 +109,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps gremlin create -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

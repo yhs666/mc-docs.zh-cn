@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 05/09/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7f6206605a077d797d273d6770cb8c90b6b2c72d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 3520ce0644df6d8262f33b56992b46710a79197c
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562499"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514041"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询入门
 

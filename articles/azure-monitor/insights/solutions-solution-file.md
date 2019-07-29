@@ -11,15 +11,15 @@ ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8270c995a45d070f5352a87ef9be97f6ef431e8a
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: dc85fa0768b08dd6e3d7455df13ef47846ac6a13
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562577"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514044"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中创建管理解决方案文件（预览版）
 > [!NOTE]

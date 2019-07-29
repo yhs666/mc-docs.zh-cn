@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - 更新 Azure Cosmos 帐户
 description: Azure PowerShell 脚本示例 - 使用添加的区域更新 Azure Cosmos 帐户
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/06/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4d0884be7eb50ae56bcffd1dd5e6e51cbc50be55
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 8540076976ab52d6ced774c239c6ccca09deba43
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424292"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514409"
 ---
 # <a name="update-an-azure-cosmos-account-and-add-a-region-using-powershell"></a>使用 PowerShell 更新 Azure Cosmos 帐户并添加区域
 
@@ -73,5 +73,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps account update -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

@@ -9,12 +9,12 @@ origin.date: 03/21/2019
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 45b4e9bfcd4b6b691cba374e7b6b0f2b53ee5ca0
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 542dae09377ac57c2065acc54c975cac43506dae
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844499"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391983"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -484,26 +484,10 @@ Azure 存储允许启用 CORS – 跨域资源共享。 对于每个存储帐户
   这是宣布推出 CORS 并演示其用法的第一篇博客文章的链接。
 
 ## <a name="frequently-asked-questions-about-azure-storage-security"></a>有关 Azure 存储安全性的常见问题
-1. **如果无法使用 HTTPS 协议，该如何验证传输到 Azure 存储或从中传出的 Blob 的完整性？**
+* **如果无法使用 HTTPS 协议，该如何验证传输到 Azure 存储或从中传出的 Blob 的完整性？**
 
    如果出于任何原因需要使用 HTTP 而不是 HTTPS，并且正在使用块 Blob，可以使用 MD5 检查来帮助验证传输中 Blob 的完整性。 这会有助于防止网络/传输层错误，但不一定可帮助防止中间攻击。
 
    如果可以使用提供传输级安全的 HTTPS，则使用 MD5 检查就很多余且不必要。
 
    有关详细信息，请查看 [Azure Blob MD5 Overview](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx)（Azure Blob MD5 概述）。
-2. **美国政府实施的 FIPS 合规性要求是怎样的？**
-
-   美国联邦信息处理标准 (FIPS) 定义了美国联邦政府计算机系统批准使用的加密算法，以保护敏感数据。 如果在 Windows 服务器或桌面上启用 FIPS 模式，将告知 OS 仅应使用经 FIPS 验证的加密算法。 如果某个应用程序使用不合规的算法，即表示该应用程序违规。 使用 .NET Framework 4.5.2 或更高版本，应用程序可在计算机处于 FIPS 模式时自动切换加密算法来使用符合 FIPS 的算法。
-
-   Microsoft 允许每个客户决定是否启用 FIPS 模式。 我们相信，客户没有充分的理由违反政府法规，不按默认启用 FIPS 模式。
-
-### <a name="resources"></a>资源
-* [为何建议不再使用“FIPS 模式”](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
-
-  此博客文章提供了 FIPS 概述，并说明了他们为什么默认不启用 FIPS 模式。
-* [FIPS 140 Validation](https://technet.microsoft.com/library/cc750357.aspx)（FIPS 140 验证）
-
-  此文提供了有关 Microsoft 产品和加密模块如何遵守美国联邦政府 FIPS 标准的信息。
-* [“系统加密：使用 FIPS 兼容的算法来加密、哈希和签名”在 Windows XP 和更高版本的 Windows 中的安全设置影响](https://support.microsoft.com/kb/811833)
-
-  此文介绍如何在较旧的 Windows 计算机中使用 FIPS 模式。

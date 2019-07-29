@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/15/2016
-ms.date: 01/21/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3bdf73dbd5463b16c8ba3a14fb51a6813492219a
-ms.sourcegitcommit: db9c7f1a7bc94d2d280d2f43d107dc67e5f6fa4c
+ms.openlocfilehash: dce97e9042b47a8a3a0535b0c7a9b899f14f73a7
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193093"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514157"
 ---
 # <a name="control-routing-and-use-virtual-appliances-classic-using-the-azure-cli"></a>使用 Azure CLI 控制路由和使用虚拟设备（经典）
 
@@ -73,8 +73,9 @@ ms.locfileid: "54193093"
 
     参数：
 
-   * **-l（或 --location）**。 要创建新 NSG 所在的 Azure 区域。 对于我们的方案，为 *chinanorth*。
-   * **-n（或 --name）**。 新 NSG 的名称。 对于我们的方案，为 *NSG-FrontEnd*。
+    * **-l（或 --location）** 。 要创建新 NSG 所在的 Azure 区域。 对于我们的方案，为 *chinanorth*。
+    * **-n（或 --name）** 。 新 NSG 的名称。 对于我们的方案，为 *NSG-FrontEnd*。
+    
 3. 运行以下命令，在路由表中创建路由，将目标为后端子网 (192.168.2.0/24) 的所有流量发送到 **FW1** VM (192.168.0.4)：
 
     ```azurecli
@@ -90,10 +91,11 @@ ms.locfileid: "54193093"
 
     参数：
 
-   * **-r（或 --route-table-name）**。 要添加路由的路由表的名称。 对于我们的方案，为 *UDR-FrontEnd*。
-   * **-a（或 --address-prefix）**。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
-   * **-t（或 --next-hop-type）**。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
-   * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
+    * **-r（或 --route-table-name）** 。 要添加路由的路由表的名称。 对于我们的方案，为 *UDR-FrontEnd*。
+    * **-a（或 --address-prefix）** 。 数据包的目标子网的地址前缀。 对于我们的方案，为 *192.168.2.0/24*。
+    * **-t（或 --next-hop-type）** 。 要发送的对象流量的类型。 可能的值为 *VirtualAppliance*、*VirtualNetworkGateway*、*VNETLocal*、*Internet* 或 *None*。
+    * **-p（或 --next-hop-ip-address**）。 下一个跃点的 IP 地址。 对于我们的方案，为 *192.168.0.4*。
+    
 4. 运行以下命令，将创建的路由表与 **FrontEnd** 子网关联：
 
     ```azurecli
@@ -115,8 +117,8 @@ ms.locfileid: "54193093"
 
     参数：
 
-   * **-t（或 --vnet-name）**。 子网所在的 VNet 的名称。 对于我们的方案，为 *TestVNet*。
-   * **-n（或 --subnet-name）**。 会在其中添加路由表的子网的名称。 对于我们的方案，为 *FrontEnd*。
+    * **-t（或 --vnet-name）** 。 子网所在的 VNet 的名称。 对于我们的方案，为 *TestVNet*。
+    * **-n（或 --subnet-name）** 。 会在其中添加路由表的子网的名称。 对于我们的方案，为 *FrontEnd*。
 
 ## <a name="create-the-udr-for-the-back-end-subnet"></a>为后端子网创建 UDR
 若要根据方案为后端子网创建所需的路由表和路由，请完成以下步骤：

@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
 origin.date: 04/03/2019
-ms.date: 07/12/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9caf05de6c4d0fffba65b8655c2f44faf5610195
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 46b5a76604b9c3d5488134eda9c105645c4dd4da
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844649"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439904"
 ---
 # <a name="what-is-text-analytics-api"></a>什么是文本分析 API？
 
@@ -29,13 +29,13 @@ ms.locfileid: "67844649"
 文本分析可能有不同的含义，但在认知服务中，文本分析 API 提供如下所述的四种分析。
 
 ## <a name="sentiment-analysis"></a>情绪分析
-使用[情绪分析](how-tos/text-analytics-how-to-sentiment-analysis.md)，通过在原始文本中分析有关积极和消极情绪的线索，确定客户如何看待你的品牌或主题。 此 API 针对每个文档返回介于 0 和 1 之间的情绪评分，1 是最积极的评分。<br /> 分析模型已使用 Microsoft 提供的大量文本正文和自然语言技术进行预先训练。 对于[选定的语言](text-analytics-supported-languages.md)，该 API 可以分析和评分提供的任何原始文本，并直接将结果返回给调用方应用程序。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+使用[情绪分析](how-tos/text-analytics-how-to-sentiment-analysis.md)，通过在原始文本中分析有关积极和消极情绪的线索，确定客户如何看待你的品牌或主题。 此 API 针对每个文档返回介于 0 和 1 之间的情绪评分，1 是最积极的评分。<br /> 分析模型已使用 Microsoft 提供的大量文本正文和自然语言技术进行预先训练。 对于[选定的语言](text-analytics-supported-languages.md)，该 API 可以分析和评分提供的任何原始文本，并直接将结果返回给调用方应用程序。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c9) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="key-phrase-extraction"></a>关键短语提取
-自动[提取关键短语](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速识别要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 可以使用此处的 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API，也可以使用 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+自动[提取关键短语](how-tos/text-analytics-how-to-keyword-extraction.md)，以快速识别要点。 例如，针对输入文本“The food was delicious and there were wonderful staff”，该 API 会返回谈话要点：“food”和“wonderful staff”。 可以使用此处的 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) API，也可以使用 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="language-detection"></a>语言检测
-可以[检测输入文本是用哪种语言编写的](how-tos/text-analytics-how-to-language-detection.md)，并以多种语言、变体、方言和一些区域/文化语言报告请求中提交的每个文档的单一语言代码。 语言代码与表示评分强度的评分相搭配。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) SDK。
+可以[检测输入文本是用哪种语言编写的](how-tos/text-analytics-how-to-language-detection.md)，并以多种语言、变体、方言和一些区域/文化语言报告请求中提交的每个文档的单一语言代码。 语言代码与表示评分强度的评分相搭配。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c7) API 或 [.NET](/cognitive-services/text-analytics/quickstarts/csharp#create-the-visual-studio-solution-and-install-the-sdk) SDK。
 
 ## <a name="named-entity-recognition"></a>命名实体识别
 在文本中[识别实体并将其分类](how-tos/text-analytics-how-to-entity-linking.md)为人员、地点、组织、日期/时间、数量、百分比、货币等。 已知实体也可以在 Web 上识别并链接到更多信息。 可以使用 [REST](https://dev.cognitive.azure.cn/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634) API。

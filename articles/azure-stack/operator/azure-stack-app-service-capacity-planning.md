@@ -3,8 +3,8 @@ title: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计�
 description: 针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: azure-stack
@@ -12,20 +12,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
-ms.author: anwestg
+origin.date: 03/13/2019
+ms.date: 07/29/2019
+ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: c2eff27c27423f21864421a1f6e71458d5ce0a3a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: a67621096713177feb040bf104f4edd8baf297de
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529703"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513495"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>针对 Azure Stack 中的 Azure 应用服务服务器角色的容量计划
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 若要在 Azure Stack 上设置 Azure 应用服务的生产就绪部署，则必须计划你期望系统支持的容量。  
 

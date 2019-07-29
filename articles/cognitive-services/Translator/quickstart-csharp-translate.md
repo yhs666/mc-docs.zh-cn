@@ -9,20 +9,23 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 06/13/2019
-ms.date: 07/11/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5cca6a840563960dba91302fdc9c96aaad103cdd
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f85f42652110b9f7f00907f53c1e713a103170ae
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844838"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439933"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>快速入门：使用 C# 通过文本翻译 API 来翻译字符串
 
 本快速入门介绍如何使用 .NET Core、C# 7.1 或更高版本以及文本翻译 REST API 将英语文本字符串翻译为德语、意大利语、日语和泰语。
 
 此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
+
+>[!TIP]
+> 如果你想一次看到所有代码，这个示例的源代码可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp) 上找到。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -201,7 +204,7 @@ foreach (TranslationResult o in deserializedOutput)
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="put-it-all-together"></a>将其放在一起
 
@@ -286,10 +289,10 @@ Translated to th: หวัดดีชาวโลก!
 
 ## <a name="next-steps"></a>后续步骤
 
-浏览此快速入门的示例代码和其他内容，包括音译和语言识别，以及 GitHub 上的其他示例文本翻译项目。
+查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 C# 示例](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另请参阅
 

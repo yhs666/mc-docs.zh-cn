@@ -11,12 +11,12 @@ origin.date: 11/27/2018
 ms.date: 07/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1b36876f1e74444fac5cf50e0379b5fa3d3f812e
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: c48bb9e3dc02c1a0ef7fc808b4013936fd84ec5a
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844472"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391982"
 ---
 # <a name="my-first-powershell-runbook"></a>我的第一个 PowerShell Runbook
 
@@ -109,7 +109,7 @@ ms.locfileid: "67844472"
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
    
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
@@ -127,7 +127,7 @@ ms.locfileid: "67844472"
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
@@ -150,7 +150,7 @@ ms.locfileid: "67844472"
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `
@@ -173,7 +173,7 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果在启
     [string]$ResourceGroupName
    )
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $connection = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $connection.TenantID `

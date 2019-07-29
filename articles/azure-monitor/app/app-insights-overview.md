@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ed84d10838671e48045f3b2d5f81b1864d794d5c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d788cb78a58125f9543d07dd9c4f47a556d3c934
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562738"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513884"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -70,7 +70,6 @@ Application Insights 主要面向开发团队，旨在帮助用户了解应用�
 | [**分析**](../../azure-monitor/app/analytics.md)<br/>使用此功能强大的查询语言，回答有关应用的性能和使用情况的疑难问题。 |![分析示例](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](../../azure-monitor/app/visual-studio.md)<br/>查看代码中的性能数据。 从堆栈跟踪转到代码。|![Visual Studio](./media/app-insights-overview/visual-studio-tn.png) |
 | [**快照调试器**](../../azure-monitor/app/snapshot-debugger.md)<br/>使用参数值调试从实时操作采样的快照。|![Visual Studio](./media/app-insights-overview/snapshot.png) |
-| [**Power BI**](../../azure-monitor/app/export-power-bi.md )<br/>将使用指标与其他商业智能集成。| ![Power BI](./media/app-insights-overview/power-bi.png)|
 | [**REST API**](https://dev.applicationinsights.io/)<br/>编写代码以对指标和原始数据运行查询。| ![REST API](./media/app-insights-overview/rest-tn.png) |
 | [**连续导出**](../../azure-monitor/app/export-telemetry.md)<br/>原始数据到达后，立即将其批量导出到存储。 |![导出](./media/app-insights-overview/export-tn.png) |
 

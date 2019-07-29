@@ -16,10 +16,10 @@ ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: seodec18
 ms.openlocfilehash: dfa206d6d6db0fa96ad7032e85e9748ed048677b
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68232276"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成

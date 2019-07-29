@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/21/19
+ms.date: 01/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f4393abf3849d4e2d61ff12ff5f7ce7bad1ae45a
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 943f36cf97273718db84d7f10639275b004afd93
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562507"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513831"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>Azure Monitor 查询中的 app() 表达式
 

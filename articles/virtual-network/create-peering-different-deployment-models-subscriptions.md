@@ -11,14 +11,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/15/2017
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5eb52b68df3058094cede337aa2e7e6e5280646a
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.reviewer: anavin
+ms.openlocfilehash: 2645f76b9c7424d6f22951727d25732f794d2d28
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250469"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514202"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>创建虚拟网络对等互连 - 不同的部署模型和不同的订阅
 
@@ -82,11 +83,11 @@ ms.locfileid: "66250469"
 20. 在显示的“myVnetA”边栏选项卡中，单击左侧垂直选项列表中的“对等互连”   。
 21. 在显示的“myVnetA - 对等互连”边栏选项卡中，单击“+ 添加”  
 22. 在显示的“添加对等互连”边栏选项卡中，输入或选择以下选项，然后单击“确定”：  
-     - **名称**：*myVnetAToMyVnetB*
-     - **虚拟网络部署模型**：选择“经典”  。
-     - **我知道我的资源 ID**：选中此框。
-     - **资源 ID**：输入步骤 15 中 myVnetB 的资源 ID。
-     - **允许虚拟网络访问：** 确保选中“已启用”。 
+    - **名称**：*myVnetAToMyVnetB*
+    - **虚拟网络部署模型**：选择“经典”  。
+    - **我知道我的资源 ID**：选中此框。
+    - **资源 ID**：输入步骤 15 中 myVnetB 的资源 ID。
+    - **允许虚拟网络访问：** 确保选中“已启用”。 
     本教程不使用其他任何设置。 若要了解所有对等互连设置，请阅读[管理虚拟网络对等互连](virtual-network-manage-peering.md#create-a-peering)。
 23. 在上一步骤中单击“确定”后，“添加对等互连”边栏选项卡将会关闭，并再次显示“myVnetA - 对等互连”边栏选项卡    。 几秒钟后，创建的对等互连将显示在该边栏选项卡中。 所创建的 myVnetAToMyVnetB 对等互连的“对等互连状态”列中列出了“已连接”    。 现已建立对等互连。 无需将虚拟网络（经典）与虚拟网络 (Resource Manager) 进行对等。
 
@@ -101,6 +102,7 @@ ms.locfileid: "66250469"
 本教程为每个订阅使用不同的帐户。 如果使用的帐户可访问这两个订阅，则可使用相同帐户完成所有步骤，可跳过注销 Azure 的步骤，并删除创建用户角色分配的脚本行。 将以下所有脚本中的 UserA@azure.com 和 UserB@azure.com 替换为 UserA 和 UserB 使用的用户名。 使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?view=azure-cli-latest) 和 [CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并运行命令来完成这些步骤。
 
 1. 使用 `azure login -e AzureChinaCloud` 命令打开命令会话并登录 Azure。
+    <!--Not Available on Azure Cloud Shell-->
 2. 输入 `azure config mode asm` 命令，在服务管理模式下运行经典 CLI。
 3. 输入下述经典 CLI 命令以创建虚拟网络（经典）：
 

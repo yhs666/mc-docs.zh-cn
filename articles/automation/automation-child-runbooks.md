@@ -10,12 +10,12 @@ origin.date: 01/17/2019
 ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 6a06af9f6d0dcdaff5a147fadf0e3e1f95c812fc
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: d8e7d3ee38036595a805eb38e49310b397f1697e
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844485"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391976"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure 自动化中的子 Runbook
 
@@ -50,15 +50,15 @@ ms.locfileid: "67844485"
 以下示例将启动一个测试子 Runbook，该 Runbook 接受三个参数：一个复杂对象、一个整数和一个布尔值。 该子 Runbook 的输出将分配到某个变量。  在本示例中，子 Runbook 属于 PowerShell 工作流 Runbook。
 
 ```azurepowershell
-$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = PSWF-ChildRunbook –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzureRmVM -ResourceGroupName "LabRG" -Name "MyVM"
+$output = PSWF-ChildRunbook -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 下面是使用 PowerShell Runbook 作为子项的同一示例。
 
 ```azurepowershell
-$vm = Get-AzureRmVM –ResourceGroupName "LabRG" –Name "MyVM"
-$output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
+$vm = Get-AzureRmVM –ResourceGroupName "LabRG" -Name "MyVM"
+$output = .\PS-ChildRunbook.ps1 -VM $vm -RepeatCount 2 -Restart $true
 ```
 
 ## <a name="starting-a-child-runbook-using-cmdlet"></a>使用 cmdlet 启动子 Runbook
@@ -86,7 +86,7 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 
 ```azurepowershell
 # Ensures you do not inherit an AzureRMContext in your runbook
-Disable-AzureRmContextAutosave –Scope Process
+Disable-AzureRmContextAutosave -Scope Process
 
 # Connect to Azure with RunAs account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'

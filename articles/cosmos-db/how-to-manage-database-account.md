@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6d2e3a2eede57909672c90310ea8315df94bdde1
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 928e8960fcbe1758a5eb96d83980e615cea220a6
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151407"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514172"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -43,7 +43,7 @@ az cosmosdb create \
    --resource-group $resourceGroupName \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations ChinaNorth=0 ChinaEast=1 \
+   --locations chinanorth=0 chinaeast=1 \
    --enable-multiple-write-locations true
 ```
 
@@ -89,6 +89,8 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 <!--MOONCAKE: CUSTOMIZE-->
 
 [![“部署到 Azure”](http://azuredeploy.net/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-create-multi-region-account%2Fazuredeploy.json)
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 ## <a name="addremove-regions-from-your-database-account"></a>在数据库帐户中添加/删除区域
 
@@ -355,6 +357,7 @@ az cosmosdb failover-priority-change --name $accountName --resource-group $resou
 <a name="set-failover-priorities-via-ps"></a>
 ### <a name="azure-powershell"></a>Azure PowerShell
 
+<!--MOONCAKE: China East and China East 2 change each other.-->
 ```powershell
 # Assume account currently has regions with priority: China North = 0, China East = 1, China East 2 = 2
 $resourceGroupName = "myResourceGroup"
@@ -362,8 +365,8 @@ $accountName = "myaccountname"
 
 $failoverPolicies = @(
     @{ "locationName"="China North"; "failoverPriority"=0 },
-    @{ "locationName"="China East"; "failoverPriority"=1 },
-    @{ "locationName"="China East 2"; "failoverPriority"=2 }
+    @{ "locationName"="China East 2"; "failoverPriority"=1 },
+    @{ "locationName"="China East"; "failoverPriority"=2 }
 )
 
 Invoke-AzResourceAction -Action failoverPriorityChange `

@@ -8,13 +8,13 @@ ms.author: v-yeche
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 06/17/2019
-ms.openlocfilehash: 2dbf9251dc60973ec67d46a11375d78e62f8c5aa
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.date: 07/29/2019
+ms.openlocfilehash: eadf1b1119bbe462bdfa3e41a1eab62179fe70ef
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151513"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514338"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用

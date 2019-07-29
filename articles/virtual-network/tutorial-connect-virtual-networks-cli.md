@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 6e2740056a19c1963c87237058e2b3a74dc61b2f
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 3a2bd01d3ffcf930ac6a4e1607326f5afbe78acc
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250481"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514443"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>通过 Azure CLI 使用虚拟网络对等互连连接虚拟网络
 
@@ -96,7 +96,7 @@ az network vnet peering create \
   --name myVirtualNetwork1-myVirtualNetwork2 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork1 \
-  --remote-vnet-id $vNet2Id \
+  --remote-vnet $vNet2Id \
   --allow-vnet-access
 ```
 
@@ -107,7 +107,7 @@ az network vnet peering create \
   --name myVirtualNetwork2-myVirtualNetwork1 \
   --resource-group myResourceGroup \
   --vnet-name myVirtualNetwork2 \
-  --remote-vnet-id $vNet1Id \
+  --remote-vnet $vNet1Id \
   --allow-vnet-access
 ```
 

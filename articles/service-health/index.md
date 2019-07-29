@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 origin.date: 03/27/2018
-ms.date: 03/11/2019
+ms.date: 06/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9de97e2576dd68f876aa3edb44d6333ab0fa785f
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: c07c9c53134a22d15f71e15c8dfbce4415e8a7ce
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196613"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514165"
 ---
 # <a name="azure-service-health-documentation"></a>Azure 服务运行状况文档
 
-Azure 服务运行状况是一个体验套件，在你受到 Azure 服务中的问题影响时提供个性化指导和支持。 它会通知你、帮助你了解问题影响，并在问题得以解决时告知你。 此外，它还帮助你对可能会影响资源可用性的定期维护和更改做好准备。
+Azure 服务运行状况是一个体验套件，在你受到 Azure 服务中的问题影响时提供个性化指导和支持。 Azure 服务运行状况会通知你、帮助你了解问题影响，并在问题得以解决时告知你。 此外，Azure 服务运行状况还帮助你对可能会影响资源可用性的定期维护和更改做好准备。
 
 Azure 服务运行状况由以下部分组成：
  1. **Azure 状态** - Azure 服务运行状况的全局视图
@@ -30,6 +30,8 @@ Azure 服务运行状况由以下部分组成：
  3. **资源运行状况** - Azure 服务预配给你的各个资源的运行状况的更深入视图
 
 同时，这些体验在与你最相关的粒度上提供 Azure 运行状况的综合视图。
+
+有关每项服务的更多深度信息，请参阅[服务运行状况概述](overview.md)
 
 <ul class="panelContent cardsFTitle">
     <li>

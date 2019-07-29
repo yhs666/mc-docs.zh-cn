@@ -12,15 +12,15 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: a3a8384ce5e2f3ce03167d4c84cbf57a9ebf5547
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 77aac410410f4c9b7d93cda17669344d803b31ae
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686433"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513980"
 ---
 # <a name="azure-monitor-powershell-samples"></a>Azure Monitor PowerShell 示例
 

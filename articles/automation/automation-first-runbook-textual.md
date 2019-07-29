@@ -11,12 +11,12 @@ origin.date: 09/24/2018
 ms.date: 07/15/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 026166421698dc0dd6db455457c49000a2ab2f41
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 85f58c2288559d5a10774d10ef56297d935ef1e4
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844478"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391978"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>我的第一个 PowerShell 工作流 Runbook
 
@@ -133,7 +133,7 @@ ms.locfileid: "67844478"
 
    ```powershell
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave �Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
@@ -160,7 +160,7 @@ ms.locfileid: "67844478"
    workflow MyFirstRunbook-Workflow
    {
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave �Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud"
@@ -188,7 +188,7 @@ Runbook 当前会启动你在 Runbook 中硬编码的虚拟机，但如果可以
      [string]$ResourceGroupName
     )  
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave �Scope Process
+   Disable-AzureRmContextAutosave -Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint -EnvironmentName "AzureChinaCloud"

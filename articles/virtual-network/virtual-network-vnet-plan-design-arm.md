@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/16/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 12d1ec8c3bf3b5920d7870967453e1170ec7dc00
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: c39f38915e6253e07daf8428ecdab78cc54491a2
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514222"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -32,7 +32,7 @@ ms.locfileid: "66250447"
 
 <!--Not Available on  For suggestions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#networking)-->
 
-## <a name="regions"></a>区域
+## <a name="regions"></a>Regions
 
 在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅和区域中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：
 
@@ -84,9 +84,8 @@ ms.locfileid: "66250447"
 - 如果子网中不同 VM 需要应用不同的安全规则，则可将 VM 中的网络接口与一个或多个应用程序安全组相关联。 安全规则可以在其源和/或目标中指定应用程序安全组。 该规则仅适用于属于应用程序安全组成员的网络接口。 详细了解[网络安全组](security-overview.md)和[应用程序安全组](security-overview.md#application-security-groups)。
 - Azure 在每个网络安全组中创建了多个默认安全规则。 其中一个默认规则允许所有流量在虚拟网络中的所有资源之间流动。 若要替代此行为，可使用网络安全组和/或自定义路由将流量路由到 NVA。 建议熟悉 Azure 的所有[默认安全规则](security-overview.md#default-security-rules)，并了解网络安全组规则如何应用于资源。
 
-可查看使用[网络安全组](virtual-networks-dmz-nsg.md)在 Azure 和 Internet 之间实施外围网络的示例设计。
+    <!--Not Available on  [NVA](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)-->
 
-<!--Not Available on an [NVA](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)-->
 
 ### <a name="traffic-routing"></a>流量路由
 

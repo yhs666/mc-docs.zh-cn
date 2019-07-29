@@ -1,6 +1,6 @@
 ---
 title: 创建和共享 Azure Log Analytics 数据的仪表板 | Microsoft Docs
-description: 本教程可帮助你了解 Log Analytics 仪表板如何直观显示所有已保存的日志搜索，从而提供单个可重用功能区来查看环境。
+description: 本教程有助于了解 Log Analytics 仪表板如何直观显示所有已保存的日志查询，从而提供单个可重用功能区来查看环境。
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 46b32850360aef4c9bf04a771a5e82416f665bda
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8027b285e616e4aa8511797d0828e5ca9218a085
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562520"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513839"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>创建和共享 Log Analytics 数据的仪表板
 

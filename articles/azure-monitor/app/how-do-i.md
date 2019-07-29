@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3aa6db3167e2af643c7087f14b6ec12563b628b0
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 20f0bbb28129439da849b04fc52123fc4ce2a217
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732283"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513879"
 ---
 # <a name="how-do-i--in-application-insights"></a>如何在 Application Insights 中执行...？
 ## <a name="get-an-email-when-"></a>... 时收到电子邮件
@@ -92,9 +92,6 @@ ms.locfileid: "66732283"
 ## <a name="visualize-data"></a>可视化数据
 #### <a name="dashboard-with-metrics-from-multiple-apps"></a>包含来自多个应用的指标的仪表板
 * 在 [指标资源管理器](../../azure-monitor/app/metrics-explorer.md) 中，自定义图表并将它保存到收藏夹。 将图表固定到 Azure 仪表板。
-
-#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>包含来自其他源和 Application Insights 的数据的仪表板
-* [将遥测数据导出到 Power BI](../../azure-monitor/app/export-power-bi.md )。
 
 或
 

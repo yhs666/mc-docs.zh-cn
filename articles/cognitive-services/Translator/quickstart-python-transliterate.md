@@ -9,20 +9,23 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 06/04/2019
-ms.date: 07/12/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: be061671af8c03fba38647b5d60546cc0ff0de13
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 150d33f87cd9eed7b65dedb32760ee309de11c42
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844945"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439958"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-python"></a>快速入门：使用文本翻译 API 通过 Python 对文本进行直译
 
 本快速入门介绍如何使用 Python 和文本翻译 REST API 将文本从一个脚本直译（转换）为另一个脚本。 在提供的示例中，日语在经过直译后使用拉丁字母。
 
 此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
+
+>[!TIP]
+> 如果你想一次看到所有代码，这个示例的源代码可以在 [GitHub]() 上找到。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -98,7 +101,7 @@ headers = {
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="create-a-request-to-transliterate-text"></a>创建文本直译请求
 
@@ -155,8 +158,10 @@ python transliterate-text.py
 
 ## <a name="next-steps"></a>后续步骤
 
+查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Python 示例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另请参阅
 

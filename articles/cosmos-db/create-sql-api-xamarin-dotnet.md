@@ -7,20 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/30/2018
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22929584635d0221ff7d2de2b1f757ff4b550b70
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 8fd6b85ab2bb2be1ec2c98ea3a9d44a5913cb17a
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514325"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户通过 Xamarin 构建待办事项应用
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET（预览版）](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -157,8 +156,8 @@ ToDoItems 解决方案中的代码包含：
 
     `IDocumentQuery<T>.ExecuteNextAsync<T>` 函数从 Azure Cosmos DB 检索结果页，该 DB 会进行 `HasMoreResults` 检查，看是否还有其他需要返回的结果。
 
-> [!TIP]
-> 多个在 Azure Cosmos DB 集合和文档上运行的函数采用 URI 作为参数，以便指定集合或文档的地址。 此 URI 使用 `URIFactory` 类进行构造。 数据库、集合和文档的 URI 均可通过此类来创建。
+    > [!TIP]
+    > 多个在 Azure Cosmos DB 集合和文档上运行的函数采用 URI 作为参数，以便指定集合或文档的地址。 此 URI 使用 `URIFactory` 类进行构造。 数据库、集合和文档的 URI 均可通过此类来创建。
 
 * 第 107 行中的 `ComsmosDBService.InsertToDoItem` 函数演示如何插入新的文档：
 

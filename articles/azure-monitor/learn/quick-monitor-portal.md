@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: lingliw
 ms.author: v-lingwu
-ms.date: 6/4/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: 43790d982f6c1df6d77f7856335662e777e1bf45
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: f296e9fc75d701727ec76c14e6c0cc0b08eb65f0
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562532"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513844"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>开始监视 ASP.NET Web 应用程序
 
@@ -105,6 +105,5 @@ window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&
 ## <a name="next-steps"></a>后续步骤
 在本快速入门中，已通过 Azure Application Insights 为应用程序启用了监视。  继续学习教程，了解如何使用它来监视统计信息和检测应用程序中的问题。
 
-
-
-
+> [!div class="nextstepaction"]
+> [Azure Application Insights 教程](tutorial-runtime-exceptions.md)

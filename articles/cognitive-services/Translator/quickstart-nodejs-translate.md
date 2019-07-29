@@ -9,20 +9,23 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 06/04/2019
-ms.date: 07/11/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 73fb3b143b2a7b45c2a5d02cfb5c506fab08c1d6
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: a73ea51cbbe9c210eb2a5c2aefb258b131851c9f
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844807"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439912"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-with-nodejs"></a>快速入门：使用 Node.js 通过文本翻译 API 来翻译字符串
 
 本快速入门介绍如何使用 Node.js 和文本翻译 REST API 将文本字符串从英文翻译为意大利文和德文。
 
 此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
+
+>[!TIP]
+> 如果你想一次看到所有代码，这个示例的源代码可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS) 上找到。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -93,9 +96,9 @@ let options = {
 };
 ```
 
-若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。 
+若要对请求进行身份验证，最容易的方法是将订阅密钥作为 `Ocp-Apim-Subscription-Key` 标头传入，这是我们在此示例中使用的方法。 替代方法是交换订阅密钥来获取访问令牌，将访问令牌作为 `Authorization` 标头传入，以便对请求进行验证。
 
-如果使用的是认知服务多服务订阅，则还必须在请求标头中包括 `Ocp-Apim-Subscription-Region`。 
+如果使用的是认知服务多服务订阅，则还必须在请求标头中包括 `Ocp-Apim-Subscription-Region`。
 
 有关详细信息，请参阅[身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
@@ -151,8 +154,10 @@ node translate-text.js
 
 ## <a name="next-steps"></a>后续步骤
 
+查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Node.js 示例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS)
+> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另请参阅
 

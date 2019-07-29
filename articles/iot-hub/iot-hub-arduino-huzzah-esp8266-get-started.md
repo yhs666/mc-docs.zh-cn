@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: ea10ead05bdd8d4289410c361fe44c3738dc3b83
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/05/2019
+ms.openlocfilehash: 766810f9b97403630352c889a28c846835a7c641
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570364"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514317"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
@@ -28,7 +28,7 @@ ms.locfileid: "67570364"
 将 Adafruit Feather HUZZAH ESP8266 连接到创建的 Azure IoT 中心。 然后，在 ESP8266 上运行一个示例应用程序，用于从 DHT22 传感器收集温度和湿度数据。 最后，将传感器数据发送到 IoT 中心。
 
 > [!NOTE]
-> 如果使用其他 ESP8266 开发板，仍可使用这些步骤将其连接到 IoT 中心。 根据所用的 ESP8266 开发板，可能需要重新配置 `LED_PIN`。 例如，如果使用 AI-Thinker 提供的 ESP8266，可将此参数从 `0` 更改为 `2`。 还没有工具包？ 从 [Azure 网站](http://azure.com/iotstarterkits)获取。
+> 如果使用其他 ESP8266 开发板，仍可使用这些步骤将其连接到 IoT 中心。 根据所用的 ESP8266 开发板，可能需要重新配置 `LED_PIN`。 例如，如果使用 AI-Thinker 提供的 ESP8266，可将此参数从 `0` 更改为 `2`。 还没有工具包？ 从 [Azure 网站](https://azure.com/iotstarterkits)获取。
 
 
 
@@ -69,10 +69,6 @@ ms.locfileid: "67570364"
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 

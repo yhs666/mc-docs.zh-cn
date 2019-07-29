@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB Cassandra API 的列出和获�
 description: Azure PowerShell 脚本 - Azure Cosmos DB Cassandra API 的列出和获取操作
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ad104a6c014ed85808f8eacded264a9b4a13f48
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 080acd7e4cab02fd5efbc4eb1f4bc36e5aca99f0
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424294"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514455"
 ---
 # <a name="list-and-get-keyspaces-and-tables-for-azure-cosmos-db---cassandra-api"></a>列出和获取 Azure Cosmos DB 的密钥空间和表 - Cassandra API
 
@@ -84,5 +84,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps cassandra list get -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

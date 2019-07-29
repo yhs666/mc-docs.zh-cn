@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b301cc9b896cf21f259a84be724943878289c702
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: eea48ca0011b2faa57ddf8b12b557077edc88c21
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562397"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514010"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor 中的日志数据引入时间
 Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 关于日志数据在收集后需要多长时间才可供使用，大家通常存有疑问。 本文将对影响此延迟的不同因素进行说明。
@@ -39,7 +39,7 @@ Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发
 代理和管理解决方案使用不同的策略从虚拟机收集数据，这可能会影响延迟。 一些具体示例包括：
 
 - 立即收集 Windows 事件、syslog 事件和性能指标。 Linux 性能计数器每隔 30 秒轮询一次。
-- IIS 日志和自定义日志在其时间戳更改后收集。 对于 IIS 日志，这会受 IIS 上配置的滚动更新计划影响。 
+- IIS 日志和自定义日志在其时间戳更改后收集。 对于 IIS 日志，这会受 [IIS 上配置的滚动更新计划](data-sources-iis-logs.md)影响。 
 - Active Directory 复制解决方案每五天执行一次评估，而 Active Directory 评估解决方案每周对 Active Directory 基础结构进行一次评估。 只有在评估完成后，代理才会收集这些日志。
 
 ### <a name="agent-upload-frequency"></a>代理上传频率

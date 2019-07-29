@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2017
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1c3d64096b44f5c4ed32dbb6cd5cd8ae5c8f4768
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 8dffd7ae40520d2d6552a314c908c82561bdafe3
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390835"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514177"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Azure 流量管理器将国家/地区层次结构用于地理流量路由方法
 

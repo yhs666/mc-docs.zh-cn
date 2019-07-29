@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 54e1e9160a95be170c1bb9e7e04052281cd06a2a
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7240ce30f87af2a74ae54bd3de428e2d10bf8369
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562646"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513874"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -142,8 +142,6 @@ ms.locfileid: "67562646"
 * 服务器遥测：Application Insights 模块收集客户端 IP 地址。 如果设置了 `X-Forwarded-For`，则不会进行收集。
 
 可以配置 `ClientIpHeaderTelemetryInitializer`，从不同的标头获取 IP 地址。 例如，在某些系统中，代理、负载均衡器或 CDN 会将其移动到 `X-Originating-IP`。 [了解详细信息](https://apmtips.com/blog/2016/07/05/client-ip-address/)。
-
-可以[使用 Power BI](export-power-bi.md ) 在映射中显示请求遥测。
 
 
 <a name="data"></a>

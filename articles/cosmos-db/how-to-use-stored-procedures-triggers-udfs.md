@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/21/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 88a92f79f6d2d5ae8a9a33b996c00173a47a873c
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 0053cfa0435ca073f2aea32988f7c281e3ab1fa9
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151392"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514275"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>如何在 Azure Cosmos DB 中注册和使用存储过程、触发器与用户定义的函数
 
@@ -329,7 +329,7 @@ var newItem = {
     albums: ["Hellujah", "Rotators", "Spinning Top"]
 };
 
-var options = { postTriggerInclude: "trgPostUpdateMetadata" };
+RequestOptions options = new RequestOptions { PostTriggerInclude = new List<string> { "trgPostUpdateMetadata" } };
 Uri containerUri = UriFactory.CreateDocumentCollectionUri("myDatabase", "myContainer");
 await client.createDocumentAsync(containerUri, newItem, options);
 ```

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 106d53583e606c839649bcac73649d85220d149d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 9ad8b961732a10e866f08e73366389e9c009a9cc
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562947"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514046"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>启用用于 VM 的 Azure Monitor（预览版）进行评估
 

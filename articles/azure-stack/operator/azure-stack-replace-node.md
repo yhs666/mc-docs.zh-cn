@@ -12,15 +12,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
+ms.reviewer: thoroet
 ms.lastreviewed: 12/06/2018
-ms.openlocfilehash: 387d1348814e5a06e3058eaecb08d0c55a478016
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 90281924e47d366bbe70251faae2ca17b8e18a51
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248647"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513401"
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>更换 Azure Stack 集成系统上的缩放单元节点
 
@@ -69,7 +70,7 @@ ms.locfileid: "66248647"
 
 4. 更换物理计算机。 通常，这由 OEM 硬件供应商来完成。
 5. 使用[修复](azure-stack-node-actions.md#repair)操作将新的物理计算机添加到缩放单元。
-6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
+6. 使用到特权终结点[检查虚拟磁盘修复状态](azure-stack-replace-disk.md#check-the-status-of-virtual-disk-repair-using-the-privileged-endpoint)。 利用新的数据驱动器，完整的存储修复作业可能需要数小时的时间，具体取决于系统负载和已使用的空间。
 7. 修复操作完成后，验证是否已自动关闭所有活动警报。
 
 ## <a name="next-steps"></a>后续步骤

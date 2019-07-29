@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7fe373ec18eb8dc31c458c7e2f0373828a6cf010
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 09b490cc386f0440da0082d6caba352707e0a9df
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562480"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513828"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用字符串
 
@@ -366,9 +366,9 @@ print toupper("hello"); // result: "HELLO"
 
 ## <a name="next-steps"></a>后续步骤
 继续学习高级教程：
+* [聚合函数](aggregations.md)
+* [高级聚合](advanced-aggregations.md)
+* [图表和关系图](charts.md)
 * [使用 JSON 和数据结构](json-data-structures.md)
 * [高级查询编写](advanced-query-writing.md)
-
-
-
-
+* [联接 - 交叉分析](joins.md)

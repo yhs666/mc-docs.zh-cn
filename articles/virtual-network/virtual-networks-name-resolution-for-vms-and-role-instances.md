@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/25/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: ddfda0857187c3d303c3f43bfafd015c7f2824fa
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: c06d72b821907053194e55a58fbfcc4af2aaa839
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250440"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514225"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -177,7 +177,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 * 禁止从 Internet 进行访问，减少外部代理带来的威胁。
 
 > [!NOTE]
-> 为获得最佳性能，在将 Azure VM 用作 DNS 服务器时，应禁用 IPv6。 [公共 IP 地址](virtual-network-public-ip-address.md) 应分配给每个 DNS 服务器 VM。 如需获取更多性能分析和优化（使用 Windows Server 作为 DNS 服务器时），请参阅[递归 Windows DNS Server 2012 R2 的名称解析性能](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)。
+> 为获得最佳性能，在将 Azure VM 用作 DNS 服务器时，应禁用 IPv6。 [公共 IP 地址](virtual-network-public-ip-address.md) 应分配给每个 DNS 服务器 VM。 如需获取更多性能分析和优化（使用 Windows Server 作为 DNS 服务器时），请参阅[递归 Windows DNS Server 2012 R2 的名称解析性能](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)。
 > 
 > 
 

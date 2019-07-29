@@ -9,20 +9,23 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 06/04/2019
-ms.date: 07/11/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: e685811f883658fd3bc6c1576e5faef2a1ef1d3d
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 3daab5e404566372541e614b20727d583665e9d7
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844821"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439923"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>快速入门：通过 Java 使用双语字典查找字词
 
 本快速入门介绍如何使用 Java 和文本翻译 API 获取术语的备用翻译，以及这些备用翻译的使用示例。
 
 此快速入门需要包含文本翻译资源的 [Azure 认知服务帐户](/cognitive-services/cognitive-services-apis-create-account)。 如果没有帐户，可以使用[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)获取订阅密钥。
+
+>[!TIP]
+> 如果你想一次看到所有代码，这个示例的源代码可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java) 上找到。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -110,7 +113,7 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.translator.azure.cn/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="create-a-client-and-build-a-request"></a>创建客户端并生成请求
 
@@ -246,10 +249,10 @@ gradle run
 
 ## <a name="next-steps"></a>后续步骤
 
-浏览此快速入门的示例代码和其他内容，包括翻译和音译，以及 GitHub 上的其他示例文本翻译项目。
+查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
 
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Java 示例](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另请参阅
 

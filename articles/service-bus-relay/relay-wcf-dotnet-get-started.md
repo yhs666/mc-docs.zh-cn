@@ -16,10 +16,10 @@ origin.date: 12/20/2017
 ms.date: 11/06/18
 ms.author: v-lingwu
 ms.openlocfilehash: 3a5b4beb6ba3e69e7de8b9657e33fc2b0e381af7
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68332205"
 ---
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>如何将 Azure Relay WCF 中继与 .NET 配合使用
@@ -221,7 +221,7 @@ using (var ch = cf.CreateChannel())
 现已了解有关 Azure 中继的基础知识，请单击以下链接了解详细信息。
 
 * [什么是 Azure 中继？](relay-what-is-it.md)
-* 从 [Azure 示例][Azure samples]or see the [overview of Service Bus samples][overview of Service Bus samples]下载服务总线示例。
+* 从 [Azure 示例][Azure samples]下载服务总线示例，或参阅[服务总线示例概述][overview of Service Bus samples]。
 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2

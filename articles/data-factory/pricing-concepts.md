@@ -8,14 +8,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 09/25/2018
-ms.date: 07/08/2019
+ms.date: 07/26/2019
 ms.author: v-jay
-ms.openlocfilehash: f742c681a67db200f18c847962d58efadc0d5e9b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a456d1c5c3f0ffc4c5161e08539776dc44897c52
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570363"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513516"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>通过示例了解数据工厂定价
 
@@ -133,5 +133,3 @@ ms.locfileid: "67570363"
 - [使用 Azure 数据工厂 UI 创建数据工厂](quickstart-create-data-factory-portal.md)
 
 - [Azure 数据工厂简介](introduction.md)
-
-- [Azure 数据工厂中的视觉对象创作](author-visually.md)

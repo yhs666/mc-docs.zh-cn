@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/30/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d4875c00bd6c84b0db1c4694fdd8a12cfa8d2e1a
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: f3185d18205c4f305f6218f707730a17faf89556
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250329"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514438"
 ---
 # <a name="filter-network-traffic-with-a-network-security-group-using-powershell"></a>在 PowerShell 中使用网络安全组筛选网络流量
 
@@ -51,6 +51,7 @@ ms.locfileid: "66250329"
 首先使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 针对本文中创建的所有资源创建一个资源组。 以下示例在“chinaeast”  位置创建一个资源组：
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
@@ -307,4 +308,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 默认情况下，Azure 在子网之间路由流量。 你也可以选择通过某个 VM（例如，充当防火墙的 VM）在子网之间路由流量。 若要了解操作方法，请参阅[创建路由表](tutorial-create-route-table-powershell.md)。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: wording update, update meta properties -->

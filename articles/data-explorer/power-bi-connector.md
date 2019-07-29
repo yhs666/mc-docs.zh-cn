@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: a9a171b39461351dc38d54dcc0944320d5b44ed6
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.date: 08/05/2019
+ms.openlocfilehash: 9bbcd5ebffb14f88f07f27568220c5430d69df61
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717336"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371751"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
 

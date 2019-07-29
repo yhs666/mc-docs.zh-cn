@@ -1,8 +1,8 @@
 ---
 title: 管理 Azure Log Analytics 的使用情况和成本 | Azure Docs
 description: 了解如何在 Azure 中更改定价计划和管理 Log Analytics 工作区的数据量与保留策略。
-services: log-analytics
-documentationcenter: log-analytics
+services: azure-monitor
+documentationcenter: azure-monitor
 author: lingliw
 manager: digimobile
 editor: ''
@@ -11,15 +11,15 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 28e3ecebcc3bca195d5094b6015644ce59de7397
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7363f2e3adf5fb9b0f25ab5caa62aeb448a4ea1b
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562357"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513796"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
@@ -94,7 +94,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 - 警报规则名称：达到每日数据限制
 - 严重性：警告（严重性 1）
 
-定义警报并达到限制后，警报将会触发，并执行操作组中定义的响应。 该警报可通过电子邮件和短信通知团队，或者使用 Webhook、自动化 Runbook 或[与外部 ITSM 解决方案的集成](itsmc-overview.md#create-itsm-work-items-from-azure-alerts)来自动执行操作。 
+定义警报并达到限制后，警报将会触发，并执行操作组中定义的响应。
 
 ## <a name="change-the-data-retention-period"></a>更改数据保留期 
 以下步骤说明如何配置日志数据在工作区中的保留期限。

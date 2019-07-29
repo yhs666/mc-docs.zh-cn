@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-origin.date: 03/29/2019
-ms.date: 06/03/2019
+origin.date: 05/23/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: xiaofmao
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 03fc0334b248744c755e9401b183e95c48cb0736
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: a730e5078dd59e2c5d10a5daae994cfdc15c17bf
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381890"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513456"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>管理 Azure Stack 的存储容量 
 
@@ -158,8 +158,7 @@ VM 磁盘包括操作系统磁盘，由租户添加到容器。 VM 还可能包�
 3. 识别用于保存要迁移的容器的最佳目标共享：
 
    ```powershell
-   $destinationshares = Get-AzsStorageShare -SourceShareName
-   $shares[0].ShareName -Intent ContainerMigration
+   $destinationshare = ($shares | Sort-Object FreeCapacity -Descending)[0]
    ```
 
    然后检查 $destinationshares：

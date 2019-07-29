@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b0bb387c08ae83feae98e6b814b2d082ab84e857
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 0ba589a1bd7618a1793f2ae9a3122a21ab6d9e36
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440830"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514052"
 ---
 # <a name="best-practices-for-creating-management-solutions-in-azure-preview"></a>在 Azure 中创建管理解决方案的最佳做法（预览版）
 > [!NOTE]

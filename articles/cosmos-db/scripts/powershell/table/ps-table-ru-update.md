@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 更新表 API 的 RU/秒
 description: Azure PowerShell 脚本 - Azure Cosmos DB 更新表 API 的 RU/秒
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6c72ffe8768f808216262398ffe2b35c06e92b3a
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: ca6c634cd2c51e47083fd7c4d67b29c64746d544
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424247"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514448"
 ---
 # <a name="update-rus-for-a-table-for-azure-cosmos-db---table-api"></a>更新 Azure Cosmos DB 的表的 RU/秒 - 表 API
 
@@ -64,5 +64,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps table ru update -->
-<!--ms.date: 06/03/2019-->
+<!-- Update_Description: update meta properties -->

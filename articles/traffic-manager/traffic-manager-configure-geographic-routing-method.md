@@ -3,20 +3,21 @@ title: 使用 Azure 流量管理器配置地理流量路由方法
 description: 本文介绍如何使用 Azure 流量管理器配置地理流量路由方法
 services: traffic-manager
 author: rockboyfor
+manager: digimobile
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/22/2017
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7a749388c63e5e3e1c1abf41422ab34c796c7ead
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: fccb9c29626fe7ec92e6a9b751c10d8b72c50c4b
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390846"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514190"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>使用流量管理器配置地理流量路由方法
 

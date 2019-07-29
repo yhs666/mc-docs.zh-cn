@@ -12,22 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 089701f6910e10d5282fdb6cb573cc58a1c5004c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 12cfb0057bab11f6110ffad48bc5f978994cdd4c
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562701"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513882"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用流分析处理从 Application Insights 导出的数据
 [Azure 流分析](https://www.azure.cn/services/stream-analytics/)是用于处理[从 Application Insights 导出](export-telemetry.md)的数据的理想工具。 流分析可以从各种源提取数据。 它可以转换和筛选数据，然后将其路由到各种接收器。
 
 在本示例中，我们将创建一个适配器用于从 Application Insights 提取数据，重命名和处理某些字段，然后通过管道将数据传送到 Power BI。
 
-> [!WARNING]
-> 还有便利得多的[建议方法可在 Power BI 中显示 Application Insights 数据](../../azure-monitor/app/export-power-bi.md )。 本文所述的途径只是一个示例，演示如何处理导出的数据。
-> 
-> 
 
 ![通过 SA 导出到 PBI 的框图](./media/export-stream-analytics/020.png)
 
@@ -195,12 +191,6 @@ ms.locfileid: "67562701"
 ![选择作业，并单击“查询”。 粘贴以下示例。](./media/export-stream-analytics/SA008.png)
 
 等待作业运行。
-
-## <a name="see-results-in-power-bi"></a>在 Power BI 中查看结果
-> [!WARNING]
-> 还有便利得多的[建议方法可在 Power BI 中显示 Application Insights 数据](../../azure-monitor/app/export-power-bi.md )。 本文所述的途径只是一个示例，演示如何处理导出的数据。
-> 
-> 
 
 使用工作或学校帐户打开 Power BI，并选择已定义为流分析作业输出的数据集和表。
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 914bc91f1d21fe997d253037828dc861205e6e75
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b8aafac45b1fe09e886af7ba274094f7a4a54b5b
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562384"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513803"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>在 Azure Monitor 中收集 Linux 应用程序的性能计数器 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]

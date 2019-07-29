@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 68274439bb9ef79816480b09a5c26f0c0bd970ae
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 478e08c0a5354bd9a996a2ddeb943e3acde25a59
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236382"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513807"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>将 Configuration Manager 连接到 Azure Monitor
 可将 System Center Configuration Manager 环境连接到 Azure Monitor 以同步设备集合数据，并在 Azure Monitor 和 Azure 自动化中引用这些集合。  

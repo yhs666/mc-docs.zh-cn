@@ -16,10 +16,10 @@ origin.date: 08/08/2018
 ms.date: 04/29/2019
 ms.author: v-yeche
 ms.openlocfilehash: 45dc2a85158e24269d24291ebc12b1832028664a
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67844744"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器

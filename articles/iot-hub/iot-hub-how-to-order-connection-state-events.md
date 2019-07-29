@@ -6,14 +6,14 @@ ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6ad615621fde55e660f97c7083fe89f2fd0ac6fe
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 62a70ebc2c585f42b2fcda590e00491ae45ecaac
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569826"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514426"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -25,9 +25,9 @@ ms.locfileid: "67569826"
 
 * 有效的 Azure 帐户。 如果没有帐户，可以[创建一个免费帐户](https://azure.microsoft.com/pricing/free-trial/)。
 
-* 有效的 Azure Cosmos DB SQL API 帐户。 如果尚未创建此帐户，请参阅[创建数据库帐户](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account)中的演练。
+* 有效的 Azure Cosmos DB SQL API 帐户。 如果尚未创建此帐户，请参阅[创建数据库帐户](../cosmos-db/create-sql-api-java.md#create-a-database-account)中的演练。
 
-* 数据库中的集合。 请参阅[添加集合](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection)中的演练。 创建集合时，请对分区键使用 `/id`。
+* 数据库中的集合。 请参阅[添加集合](../cosmos-db/create-sql-api-java.md#add-a-container)中的演练。 创建集合时，请对分区键使用 `/id`。
 
 * Azure 中的 IoT 中心。 如果尚未创建 Iot 中心，请参阅 [IoT 中心入门](iot-hub-csharp-csharp-getstarted.md)中的演练。
 

@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: howto
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 30b3d20b2cf110dae1cd37823cf8e5d02992e849
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b02aceed48cf11c623b16eb4d8af59dce5bfd253
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562405"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513808"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 

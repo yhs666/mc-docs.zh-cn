@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 04/22/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: eb7b7b1a42280064ccdae5c73ea04350331b913c
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 5c8a6ec7cffe87cc6813e5ad83b2ef7475032ab2
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514445"
 ---
 # <a name="azure-resource-manager-template-samples-for-virtual-network"></a>适用于虚拟网络的 Azure 资源管理器模板示例
 
@@ -30,7 +30,9 @@ ms.locfileid: "66250483"
 > [!NOTE]
 > 必须修改从 GitHub 存储库“azure-quickstart-templates”下载或参考的模板，以适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
-| | |
+<!--Not Available on [Microsoft.Network resource types](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/allversions)-->
+
+| 任务 | 说明 |
 |----|----|
 |[创建包含两个子网的虚拟网络](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| 创建包含两个子网的虚拟网络。|
 |[通过网络虚拟设备的路由流量](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| 创建包含三个子网的虚拟网络。 将虚拟机部署到每个子网。 创建一个路由表，使其包含通过第三个子网中的虚拟机将流量从一个子网定向到另一个子网的路由。 将该路由表关联到其中一个子网。|

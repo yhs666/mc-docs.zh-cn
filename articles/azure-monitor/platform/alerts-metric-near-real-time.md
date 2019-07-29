@@ -5,15 +5,15 @@ author: lingliw
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 5527a5f4e16a22b78ade689271cf573fe91435fc
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8e1b3ded64a0cfe73cb3787bd18ea6cdc2aabf3e
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562435"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514015"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Azure Monitor 中的指标警报支持的资源
 

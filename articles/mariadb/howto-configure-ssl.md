@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
 origin.date: 07/02/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 3d8a87f838b564a5d9aec5c96f785d231bb5697f
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 07/26/2019
+ms.openlocfilehash: 10485cca555cfd16d188469ecd5527ce8214c978
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308890"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514289"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MariaDB
 Azure Database for MariaDB 支持使用安全套接字层 (SSL) 将 Azure Database for MariaDB 服务器连接到客户端应用程序。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
@@ -120,7 +120,7 @@ client = Mysql2::Client.new(
 ### <a name="golang"></a>Golang
 ```go
 rootCertPool := x509.NewCertPool()
-pem, _ := ioutil.ReadFile("/var/www/html/DigiCertGlobalRootCA.crt")
+pem, _ := ioutil.ReadFile("C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }

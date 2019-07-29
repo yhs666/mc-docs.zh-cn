@@ -5,21 +5,21 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 06/05/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: aa791676fe1162af51df071ab0c780d3efaf2328
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 06/27/2019
+ms.date: 07/29/2019
+ms.openlocfilehash: 243aa310d12dad46fc2fe568b13329173557f58d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845544"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514253"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查询存储监视 Azure Database for MySQL 的性能
 
 **适用于：**  Azure Database for MySQL 5.7
 
 > [!NOTE]
-> 查询存储目前以预览版提供。 Azure 门户中对查询存储的支持即将推出，目前可能尚未在你所在的区域中提供。
+> 查询存储目前以预览版提供。
 
 使用 Azure Database for MySQL 中的查询存储功能可以跟踪一段时间内的查询性能。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for MySQL 实例上的 **mysql** 架构数据库中。
 
@@ -30,10 +30,6 @@ ms.locfileid: "67845544"
 - 检测回归查询
 - 确定在给定时间范围内执行查询的次数
 - 比较跨时间范围查询的平均执行时间，以查看较大的增量
-- 标识过去 X 小时内运行时间最长的查询
-- 标识正在等待资源的前 N 个查询
-- 了解查询的等待性质
-- 了解资源等待趋势以及发生资源争用的位置
 
 ## <a name="enabling-query-store"></a>启用查询存储
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 45ecdffbed594dd8d57eab6c19030e0d96fdac45
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b4f28548c03ee43be3ea7d80542350ce597df32c
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562953"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513855"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>有关启用用于 VM 的 Azure Monitor（预览版）的概述
 

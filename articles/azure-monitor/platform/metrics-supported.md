@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 04/12/19
+ms.date: 05/20/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 69d02541be8e685a95544782482c145d5c722a51
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 23454f7ecaa42a23d4b8f36f92d63f584a64c915
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562324"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513995"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -83,15 +83,15 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |FailedRequests|失败的网关请求数|计数|总计|失败的网关请求数|位置、主机名|
 |OtherRequests|其他网关请求数|计数|总计|其他网关请求数|位置、主机名|
 |持续时间|网关请求的总持续时间|毫秒|平均值|网关请求的总持续时间，以毫秒为单位|位置、主机名|
-|容量|容量|百分比|平均值|ApiManagement 服务的利用率指标|位置|
-|EventHubTotalEvents|事件中心事件总数|计数|总计|发送到事件中心的事件数|位置|
-|EventHubSuccessfulEvents|成功的事件中心事件数|计数|总计|成功的事件中心事件数|位置|
-|EventHubTotalFailedEvents|失败的事件中心事件数|计数|总计|失败的事件中心事件数|位置|
-|EventHubRejectedEvents|拒绝的事件中心事件数|计数|总计|拒绝的事件中心事件（配置不当或未授权）数|位置|
-|EventHubThrottledEvents|限制的事件中心事件数|计数|总计|限制的事件中心事件数|位置|
-|EventHubTimedoutEvents|超时的事件中心事件数|计数|总计|超时的事件中心事件数|位置|
-|EventHubDroppedEvents|删除的事件中心事件数|计数|总计|由于达到队列大小限制而跳过的事件数|位置|
-|EventHubTotalBytesSent|事件中心事件大小|字节|总计|事件中心事件的总大小，以字节为单位|位置|
+|容量|容量|百分比|平均值|ApiManagement 服务的利用率指标|Location|
+|EventHubTotalEvents|事件中心事件总数|计数|总计|发送到事件中心的事件数|Location|
+|EventHubSuccessfulEvents|成功的事件中心事件数|计数|总计|成功的事件中心事件数|Location|
+|EventHubTotalFailedEvents|失败的事件中心事件数|计数|总计|失败的事件中心事件数|Location|
+|EventHubRejectedEvents|拒绝的事件中心事件数|计数|总计|拒绝的事件中心事件（配置不当或未授权）数|Location|
+|EventHubThrottledEvents|限制的事件中心事件数|计数|总计|限制的事件中心事件数|Location|
+|EventHubTimedoutEvents|超时的事件中心事件数|计数|总计|超时的事件中心事件数|Location|
+|EventHubDroppedEvents|删除的事件中心事件数|计数|总计|由于达到队列大小限制而跳过的事件数|Location|
+|EventHubTotalBytesSent|事件中心事件大小|字节|总计|事件中心事件的总大小，以字节为单位|Location|
 |请求|请求|计数|总计|网关请求数|Location、BackendResponseCode、LastErrorReason、GatewayResponseCode|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts

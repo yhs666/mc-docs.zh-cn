@@ -9,14 +9,14 @@ ms.service: service-health
 ms.custom: REST
 ms.topic: article
 origin.date: 06/06/2017
-ms.date: 06/23/2018
+ms.date: 08/05/2018
 ms.author: v-yiso
-ms.openlocfilehash: 083b5d16131f1cde9a8c02a3f300770b18c02d7f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f8560f44a38d14b0fc56197052e5e94bb0c4cb03
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663959"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514274"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>使用 REST API 获取资源运行状况 
 
@@ -38,8 +38,8 @@ https://management.azure.cn/subscriptions/{subscription-id}/providers/microsoft.
 
 |请求标头|说明|  
 |--------------------|-----------------|  
-|Content-Type：|必需。 设置为 `application/json`。|  
-|Authorization：|必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/en-us/rest/api/azure/#authorization-code-grant-interactive-clients)。 |  
+|Content-Type： |必需。 设置为 `application/json`。|  
+|Authorization： |必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/en-us/rest/api/azure/#authorization-code-grant-interactive-clients)。 |  
 
 ### <a name="uri-parameters"></a>URI 参数
 
@@ -47,7 +47,7 @@ https://management.azure.cn/subscriptions/{subscription-id}/providers/microsoft.
 | :--- | :---------- |
 | subscriptionId | 用于标识 Azure 订阅的订阅 ID。 如果拥有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)。 |
 | api-version | 用于请求的 API 版本。<br /><br /> 本文档介绍上述 URL 中包括的 api-version `2015-04-01`。  |
-| $filter | 一个筛选选项，用于缩减返回结果集。 [活动日志操作参考](https://docs.microsoft.com/en-us/rest/api/monitor/activitylogs/list#uri-parameters)中提供了此参数的允许模式。 所示示例捕获了 2018-05-16 到 2018-06-20 这个时间范围内的所有事件 |
+| $filter | 一个筛选选项，用于缩减返回结果集。 此参数的允许模式在[活动日志操作参考](https://docs.microsoft.com/en-us/rest/api/monitor/activitylogs/list#uri-parameters)中可用。 所示示例捕获了 2018-05-16 到 2018-06-20 这个时间范围内的所有事件 |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>请求正文

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 6969352d8fc5521e0205c7ca04c63d98efac4450
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 30f44d8b1694aa8ccf8ac853cee6e327e0cd5d71
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562675"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513877"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>开发人员分析：语言、平台和集成
 这些项是我们听说过的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 的实现，包括第三方的一些实现。
@@ -81,8 +81,6 @@ ms.locfileid: "67562675"
 * [SharePoint](../../azure-monitor/app/sharepoint.md)
 * [WordPress](https://wordpress.org/plugins/application-insights/)
 
-## <a name="export-and-data-analysis"></a>导出和数据分析
-* [流分析](../../azure-monitor/app/export-power-bi.md )
 
 <a name="projects"></a>
 ##  <a name="build-your-own-sdk"></a>构建自己的 SDK

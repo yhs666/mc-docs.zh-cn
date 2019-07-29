@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建表 API 表
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建表 API 表
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c566a7e59f02280e54149e9e2a7fe31c1bbfa5d
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: 5d3e6cf8b6bc59eb2f05f0506ca99d9eb65b24ab
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424243"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514391"
 ---
 # <a name="create-a-table-for-azure-cosmos-db---table-api"></a>为 Azure Cosmos DB 创建表 - 表 API
 
@@ -88,5 +88,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps table create -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

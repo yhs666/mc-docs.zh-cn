@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 71bc7bf926df2f537b029c5dfc648b222d359283
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 47f767311dc516b2f885da173e3c0e840174b320
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562941"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513851"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何从用于 VM 的 Azure Monitor（预览版）查询日志
 用于 VM 的 Azure Monitor 收集性能和连接指标、计算机和进程库存数据以及运行状况信息，并将其转发到 Azure Monitor 中的 Log Analytics 工作区。  此数据可用于 Azure Monitor 中的[查询](../../azure-monitor/log-query/log-query-overview.md)。 此数据可应用于包括迁移计划、容量分析、发现和按需性能故障排除在内的方案。
@@ -115,7 +115,7 @@ ms.locfileid: "67562941"
 |说明 |观察到的威胁说明。 |
 |TLPLevel |交通信号灯协议 (TLP) 级别是以下定义值之一：White  、Green  、Amber  和 Red  。 |
 |置信度 |值介于 0 和 100  之间。 |
-|严重性 |值介于 0 和 5  之间，其中 5  表示最严重，0  表示毫不严重。 默认值为 3  。  |
+|severity |值介于 0 和 5  之间，其中 5  表示最严重，0  表示毫不严重。 默认值为 3  。  |
 |FirstReportedDateTime |提供程序第一次报告指标。 |
 |LastReportedDateTime |Interflow 最后一次看到指标。 |
 |IsActive |使用值 True  或 False  指明是否停用标志。 |

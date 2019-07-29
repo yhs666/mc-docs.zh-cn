@@ -12,14 +12,14 @@ ms.service: log-analytics
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fd527c60957ed05830cd61dfeb9f8d253f8aa050
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: 520f7bf2c8133cd0aa2dd7162bfc3da338fb596e
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440543"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513989"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>使用 PowerShell 创建 Log Analytics 工作区
 

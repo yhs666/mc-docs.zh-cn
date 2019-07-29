@@ -6,14 +6,14 @@ author: lingliw
 ms.service: log-analytics
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a0715eaa1f0f7913fa12b05b14a437369848dc26
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4e727d8b90a9a00a3343dc69dabd6f43aff94e74
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562300"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513990"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure Monitor 中的 Log Analytics 工作区
 

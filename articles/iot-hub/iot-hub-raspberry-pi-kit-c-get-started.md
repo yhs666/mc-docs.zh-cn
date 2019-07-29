@@ -11,19 +11,20 @@ ms.workload: na
 origin.date: 02/14/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017
-ms.date: 05/06/2019
-ms.openlocfilehash: 45afa9f9f7c45b30e57db14a50099790f79f2f6c
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/05/2019
+ms.openlocfilehash: 5f67dd3f1fa41630c37d3683f1ed9c0b93755ef6
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854956"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514469"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>将 Raspberry Pi 连接到 Azure IoT 中心 (C)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](http://www.windowsondevices.com/)。
+在本教程中，首先学习有关使用运行 Raspbian 的 Raspberry Pi 的基础知识。 然后学习如何使用 [Azure IoT 中心](about-iot-hub.md)将设备无缝连接到云。 有关 Windows 10 IoT Core 的示例，请访问 [Windows 开发人员中心](https://www.windowsondevices.com/)。
+
 还没有工具包？ 试用 [Raspberry Pi 联机模拟器](./iot-hub-raspberry-pi-web-simulator-get-started.md)。 或在[此处](https://docs.azure.cn/zh-cn/develop/iot/iot-starter-kits)购买新工具包。
 
 ## <a name="what-you-do"></a>准备工作
@@ -70,10 +71,6 @@ ms.locfileid: "64854956"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -100,16 +97,17 @@ ms.locfileid: "64854956"
 ### <a name="enable-ssh-and-spi"></a>启用 SSH 和 SPI
 
 1. 将 Pi 连接到监视器、键盘和鼠标，启动 Pi，然后通过将 `pi` 用作用户名并将 `raspberry` 用作密码来登录 Raspbian。
-1. 依次单击 Raspberry 图标 >“首选项” > “Raspberry Pi 配置”。
+1. 依次单击 Raspberry 图标 >“首选项” > “Raspberry Pi 配置”。  
 
    ![Raspbian 首选项菜单](./media/iot-hub-raspberry-pi-kit-c-get-started/1-raspbian-preferences-menu.png)
 
-1. 在“接口”选项卡上，将“SPI”和“SSH”设置为“启用”，然后单击“确定”。 如果没有物理传感器，但希望使用模拟传感器数据，可选择执行此步骤。
+1. 在“接口”  选项卡上，将“SPI”  和“SSH”  设置为“启用”  ，然后单击“确定”  。 如果没有物理传感器，但希望使用模拟传感器数据，可选择执行此步骤。
 
    ![在 Raspberry Pi 上启用 SPI 和 SSH](./media/iot-hub-raspberry-pi-kit-c-get-started/2-enable-spi-ssh-on-raspberry-pi.png)
 
 > [!NOTE]
 > 若要启用 SSH 和 SPI，可在 [raspberrypi.org](https://www.raspberrypi.org/documentation/remote-access/ssh/) 和 [RASPI-CONFIG](https://www.raspberrypi.org/documentation/configuration/raspi-config.md) 中找到更多参考文档。
+>
 
 ### <a name="connect-the-sensor-to-pi"></a>将传感器连接到 Pi
 
@@ -182,7 +180,7 @@ BME280 传感器可以收集温度和湿度数据。 如果设备和云之间有
    ```
 
    > [!NOTE] 
-   > 如果没有物理 BME280，可使用“--simulated-data”作为命令行参数来模拟温度和湿度数据。 `sudo ./setup.sh --simulated-data`
+   > 如果没有物理 BME280，可使用“--simulated-data”作为命令行参数来模拟温度和湿度数据  。 `sudo ./setup.sh --simulated-data`
    >
 
 ### <a name="build-and-run-the-sample-application"></a>生成并运行示例应用程序

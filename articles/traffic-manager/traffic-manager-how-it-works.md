@@ -5,22 +5,20 @@ services: traffic-manager
 documentationcenter: ''
 author: rockboyfor
 manager: digimobile
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 07/25/2018
-ms.date: 02/18/2019
+origin.date: 03/05/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: af93196adfc79589ddcfb2db80826d058cf947a3
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: b4fe71504a0375f863c13bc96efcaa0e20891a0f
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625299"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514178"
 ---
 # <a name="how-traffic-manager-works"></a>流量管理器的工作原理
 
@@ -37,13 +35,13 @@ ms.locfileid: "58625299"
 
 ## <a name="traffic-manager-example"></a>流量管理器示例
 
-Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
+Contoso Corp 开发了一个新的合作伙伴门户。 此门户的 URL 为 https://partners.contoso.com/login.aspx 。 该应用程序托管在三个 Azure 区域中。 为了改善可用性并在全球最大程度地提高性能，他们使用流量管理器将客户端流量分布到最靠近的可用终结点。
 
 若要实现此配置，需要完成以下步骤：
 
 1. 部署其服务的三个实例。 这些部署的 DNS 名称为“contoso-east.chinacloudapp.cn”、“contoso-north.chinacloudapp.cn”和“contoso-east2.chinacloudapp.cn”。
-2. 创建一个名为“contoso.trafficmanager.cn”的流量管理器配置文件，并将该文件配置为对三个终结点使用“性能”流量路由方法。
-3. 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
+1. 创建一个名为“contoso.trafficmanager.cn”的流量管理器配置文件，并将该文件配置为对三个终结点使用“性能”流量路由方法。
+1. 使用 DNS CNAME 记录将其虚构域名“partners.contoso.com”配置为指向“contoso.trafficmanager.cn”。
    <!--Notice: us map east, eu map north, asia map east2 -->
 
 ![流量管理器 DNS 配置][1]

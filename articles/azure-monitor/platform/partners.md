@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 7e2a4fa5917bfdfbf2b46c049c4259902fcd02f3
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 55233576e39d9faa956498aca63a621483e5670e
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562341"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514000"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -100,14 +100,6 @@ Dynatrace OneAgent 通过 Azure 扩展机制来与 Azure VM 和应用服务集�
 Elastic 是一家搜索公司。 作为 Elastic Stack（Elasticsearch、Kibana、Beats 和 Logstash）的创建者，Elastic 构建了自托管产品/服务和 SaaS 产品/服务，使数据实时可用并可大规模地用于搜索、日志记录、安全和分析用例。
 
 [查看相关文档。][elastic-doc]
-
-## <a name="grafana"></a>Grafana
-
-![Grafana 徽标](./media/partners/grafana.png)
-
-Grafana 是一个开源应用程序，用于可视化时序指标数据。
-
-[查看相关文档。][grafana-doc]
 
 ## <a name="influxdata"></a>InfluxData
 
@@ -249,7 +241,6 @@ Turbonomic 为混合云提供工作负荷自动化解决方案，同时实时优
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Datadog 文档。"
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace 文档。"
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 文档。"
-[grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana 集成。"
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor Influxdata Telegraf 集成。"
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 文档。"
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 文档。"

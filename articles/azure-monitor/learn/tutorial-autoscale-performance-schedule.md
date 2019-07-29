@@ -5,16 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 4e6028ee1736f178b5cf1c6296bb9e91ce874391
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 326b8a9c887972b7272bdd51e0f76be253e64235
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731353"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513838"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>基于性能数据或调度为 Azure 资源创建自动缩放设置 | Microsoft 文档
 

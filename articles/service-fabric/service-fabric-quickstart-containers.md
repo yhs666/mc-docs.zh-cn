@@ -17,10 +17,10 @@ ms.date: 07/08/2019
 ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: 2c2ff05863f17e48c249e91bea0eaff88a11b847
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67844924"
 ---
 <!--Verify Successfully-->

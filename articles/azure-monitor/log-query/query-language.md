@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8cbf46e0f09cda45c9e5f3f92da4c47d5b274eab
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b2dcfaf7e57c362b8211718a04fafda920eae058
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562490"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514035"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 日志查询
 Azure Monitor 日志在 Azure 数据资源管理器之上构建，Azure Monitor 日志查询使用同一 Kusto 查询语言的某个版本。 [Azure 数据资源管理器查询语言文档](https://azure.microsoft.com/azure/kusto/query)提供了该语言的完整详细信息，在编写 Azure Monitor 日志查询时，应将此文档用作主要参考资源。 本页提供了用于学习编写查询，以及该语言的 Azure Monitor 实现差异的其他资源的链接。
@@ -32,6 +32,7 @@ Azure Monitor 日志在 Azure 数据资源管理器之上构建，Azure Monitor 
 
 ## <a name="concepts"></a>概念
 - [在 Azure Monitor 中分析日志数据](../../azure-monitor/log-query/log-query-overview.md)简要概述了日志查询以及如何构建 Azure Monitor 日志数据。
+- [查看和分析 Azure Monitor 中的日志数据](../../azure-monitor/log-query/log-query-overview.md)介绍了可在其中创建和运行日志查询的门户。
 
 ## <a name="reference"></a>参考
 

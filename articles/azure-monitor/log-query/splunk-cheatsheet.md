@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d6ceb31b62cf0db09770c84c1ae15ec8e82e54ad
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7fb718107883720cac1f237953307fa241fc8e11
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562486"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514032"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>从 Splunk 到 Azure Monitor 日志查询
 

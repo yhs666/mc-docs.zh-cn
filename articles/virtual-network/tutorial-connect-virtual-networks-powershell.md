@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 03/13/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 17c6e88a60d2e3d3f27ed71ee1852fceb0fec566
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: f4cde142e46e637dbb7eec8dc5c16c856bc8c4fe
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250479"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514439"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>通过 PowerShell 使用虚拟网络对等互连连接虚拟网络
 
@@ -47,6 +47,7 @@ ms.locfileid: "66250479"
 创建虚拟网络之前，必须为虚拟网络创建资源组以及本文中创建的所有其他资源。 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast
 ```
 
@@ -217,4 +218,4 @@ Remove-AzResourceGroup -Name myResourceGroup -Force
 
 可以通过 VPN [将自己的计算机连接到虚拟网络](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)，并可与虚拟网络或对等虚拟网络中的资源进行交互。 有关用来完成虚拟网络文章中涉及的许多任务的可重用脚本，请参阅[脚本示例](powershell-samples.md)。
 
-<!-- Update_Description: wording update, update meta properties, update cmdlet -->
+<!-- Update_Description: update meta properties -->

@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 origin.date: 11/28/2018
 ms.date: 05/20/2019
-ms.openlocfilehash: 4648f635bac8538f70c0e9b37f854f37f54ab2a7
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: bf6c735d726cd29baf988da4b97786838ee9e47a
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731971"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391989"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>连接 Azure Kubernetes 服务和 Azure Database for MySQL
 
@@ -33,7 +33,7 @@ Azure Kubernetes 服务 (AKS) 提供可在 Azure 中使用的托管 Kubernetes �
 3. 复制**基础结构资源组**的名称。
 4. 使用门户搜索栏找到并打开基础结构资源组。
 5. 在该资源组中选择一个 VM。
-6. 转到 VM 的“网络”选项卡。
+6. 转到 VM 的“网络”  选项卡。
 7. 确认是否已启用**加速网络**。
 
 也可以通过 Azure CLI 使用以下两个命令：
@@ -54,4 +54,3 @@ az network nic list --resource-group nodeResourceGroup -o table
 
 ## <a name="next-steps"></a>后续步骤
 - [创建 Azure Kubernetes 服务群集](../aks/kubernetes-walkthrough.md)
-- 了解如何[使用 OSBA 和 Azure Database for MySQL 从 Helm 图表安装 WordPress](../aks/integrate-azure.md)

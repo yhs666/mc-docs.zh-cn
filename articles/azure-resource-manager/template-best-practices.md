@@ -13,10 +13,10 @@ origin.date: 07/12/2019
 ms.date: 07/22/2019
 ms.author: v-yeche
 ms.openlocfilehash: 68c9dbcb7e944715a371101825856f075afbaa80
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68337542"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法

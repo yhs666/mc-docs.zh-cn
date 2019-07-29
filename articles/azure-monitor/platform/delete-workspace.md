@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 162fdfd22ca457ffd2bfe49342bda6b0084c351f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b0a2e5131f0e8179d14ff0d3f644c4ce98a2ec1f
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731195"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513999"
 ---
 # <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>使用 Azure 门户删除 Azure Log Analytics 工作区
 本文介绍如何使用 Azure 门户删除可能不再需要的 Log Analytics 工作区。 

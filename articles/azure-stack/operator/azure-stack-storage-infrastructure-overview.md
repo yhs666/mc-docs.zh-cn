@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: article
 origin.date: 03/11/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 847d94d40da226ee6ef3fb59478c101e1fcc73d2
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: b76ed16377777d33e3e29fbfdc58f5210bb6dacc
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381896"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513389"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 
@@ -150,8 +150,6 @@ Get-AzsVolume -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Sel
 $scaleunit_name = (Get-AzsScaleUnit)[0].name
 
 $subsystem_name = (Get-AzsStorageSubSystem -ScaleUnit $scaleunit_name)[0].name
-
-, SerialNumber
 
 Get-AzsDrive -ScaleUnit $scaleunit_name -StorageSubSystem $subsystem_name | Select-Object StorageNode, PhysicalLocation, HealthStatus, OperationalStatus, Description, Action, Usage, CanPool, CannotPoolReason, SerialNumber, Model, MediaType, CapacityGB
 ```

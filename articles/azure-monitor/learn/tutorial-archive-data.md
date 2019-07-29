@@ -5,16 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: tutorial
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: c9f18906be821d67b86f91df2ebbfac853b71900
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: eb16bf9f162952116319ff2fc80e8648f54dff7f
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562528"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513845"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 

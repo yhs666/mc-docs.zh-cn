@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b997da079528eebe4bf15d9017cded4ad54ea65b
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: aca87fc644e61a52249f7c2ed92e84d1512972b6
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562554"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513987"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集 Azure 虚拟机相关数据
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可直接从 Azure 虚拟机及环境中的其他资源收集数据，并将数据置于单个存储库进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Azure Linux 或 Windows VM 中配置或收集数据。  

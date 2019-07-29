@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6095b83149f5bae43476b35c81965eaebefaf80e
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: bc50f8398c48ca17b3dbaacce7522612d112c484
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732363"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513992"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。
@@ -104,12 +104,6 @@ ms.locfileid: "66732363"
 - 需要将查询结果导入到 Power BI 模型中进行配置。 结果大小和刷新存在限制。
 - 每天的数据刷新次数限制为 8 次。
 
-
-## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) 是一个适用于操作仪表板的开放平台。 它尤其适用于检测、隔离和归类操作事件。 你可以将 [Grafana Azure Monitor 数据源插件](platform/grafana-plugin.md)添加到 Azure 订阅中，使其可视化 Azure 指标数据。
-
-![Grafana](media/visualizations/grafana.png)
-
 ### <a name="advantages"></a>优点
 - 丰富的可视化效果。
 - 丰富的数据源生态系统。
@@ -137,8 +131,6 @@ ms.locfileid: "66732363"
 - 了解 [Azure 仪表板](../azure-portal/azure-portal-dashboards.md)。
 - 了解 [Azure Monitor 中的视图](platform/view-designer.md)。
 - 了解[工作簿](../azure-monitor/app/usage-workbooks.md)。
-- 了解如何[将日志数据导入 Power BI](../azure-monitor/platform/powerbi.md)。
-- 了解 [Grafana Azure Monitor 数据源插件](../azure-monitor/platform/grafana-plugin.md)。
 
 
 

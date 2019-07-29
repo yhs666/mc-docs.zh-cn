@@ -3,19 +3,18 @@ title: 在 Azure 自动化中管理模块
 description: 本文介绍如何在 Azure 自动化中管理模块。
 services: automation
 ms.service: automation
-ms.subservice: shared-resources
 author: WenJason
 ms.author: v-jay
 origin.date: 06/05/2019
-ms.date: 07/15/2019
+ms.date: 07/22/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 17b583f2a2f1c0eee918fdd463e8ad678fa1311f
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: a59ca52ac1c8edd8c435cc3b700ea64a54c2c529
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844383"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391974"
 ---
 # <a name="manage-modules-in-azure-automation"></a>在 Azure 自动化中管理模块
 
@@ -32,7 +31,7 @@ Azure 自动化提供相应的功能用于将 PowerShell 模块导入到基于 P
 
 可以使用 [New-AzureRmAutomationModule](https://docs.microsoft.com/powershell/module/azurerm.automation/new-azurermautomationmodule) 将模块导入到自动化帐户。 该 cmdlet 采用某个模块 zip 包的 URL。
 
-```azurepowershell-interactive
+```powershell
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 

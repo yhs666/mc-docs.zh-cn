@@ -4,14 +4,14 @@ description: 了解如何使用 Azure 门户、CLI 或 Powershell 来创建、�
 author: lingliw
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9a01e3d37a03c04fb7c415f587f12c7d065f4fd1
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b4805d6c28cf4397cc0d2ecb7cd38dd575850186
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562448"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514022"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理经典指标警报
 

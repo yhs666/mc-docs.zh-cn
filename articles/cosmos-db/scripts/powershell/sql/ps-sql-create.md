@@ -3,16 +3,16 @@ title: Azure PowerShell 脚本 - Azure Cosmos DB 创建 SQL (Core) API 数据库
 description: Azure PowerShell 脚本 - Azure Cosmos DB 创建 SQL (Core) API 数据库和容器
 author: rockboyfor
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 origin.date: 05/18/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3dac6a11bc3a5497b36bc7577e5314d4ac3d4464
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: d198f3cc9de60755e2d70d3ca013a8c119c734ec
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424246"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514451"
 ---
 # <a name="create-a-database-and-container-for-azure-cosmos-db---sql-core-api"></a>为 Azure Cosmos DB 创建数据库和容器 - SQL (Core) API
 
@@ -138,5 +138,4 @@ Remove-AzResourceGroup -ResourceGroupName "myResourceGroup"
 
 可以在 [Azure Cosmos DB PowerShell 脚本](../../../powershell-samples.md)中找到其他 Azure Cosmos DB PowerShell 脚本示例。
 
-<!--Update_Description: new articles on ps sql create -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: update meta properties -->

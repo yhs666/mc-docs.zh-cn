@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f8b59d35e92809223b38e1ca0073bb5a67f995d6
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 3a6454345afd6eeeb6075d36ee8bb9a9c9429f94
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731268"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513805"
 ---
 # <a name="metrics-in-azure-monitor"></a>Azure Monitor 中的指标
 
@@ -34,7 +34,7 @@ Azure Monitor 中的指标是能够为近实时方案提供支持的轻型数据
 |  |  |
 |:---|:---|
 | 分析 | 使用[指标资源管理器](metrics-charts.md)可以在图表中分析收集的指标，并比较来自不同资源的指标。 |
-| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)用于在交互式报表中合并多个数据集。将查询结果导出到 [Grafana](grafana-plugin.md)，以利用其仪表板功能以及合并其他数据源。 |
+| 可视化 | 将指标资源管理器中的图表固定到 [Azure 仪表板](../learn/tutorial-app-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)，用于在交互式报表中合并多个数据集。|
 | 警报 | 配置指标[警报规则](alerts-metric.md)，以便在指标值超过阈值时发送通知或执行[自动化操作](action-groups.md)。 |
 | 自动化 |  根据超过阈值的指标值，使用[自动缩放](autoscale-overview.md)来增加或减少资源。 |
 | 导出 | [将指标路由到日志](diagnostic-logs-stream-log-store.md)，以连同 Azure Monitor 日志中的数据一起分析 Azure Monitor 指标中的数据，并将指标值存储 93 天以上。<br>将指标流式传输到[事件中心](stream-monitoring-data-event-hubs.md)，以将其路由到外部系统。 |

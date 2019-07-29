@@ -9,18 +9,21 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
 origin.date: 06/04/2019
-ms.date: 07/11/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: 6000dfe6a12454e68c34869e54ae62d70c89844a
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 9126ebd949fa259bfc0fef0857b1d5bad6c1592f
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844798"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439961"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-python"></a>快速入门：使用 Python 通过文本翻译 API 获取所支持语言的列表
 
 本快速入门介绍如何使用 Python 和文本翻译 REST API 发出可以返回所支持语言的列表的 GET 请求。
+
+>[!TIP]
+> 如果你想一次看到所有代码，这个示例的源代码可以在 [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python) 上找到。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -71,7 +74,7 @@ headers = {
 }
 ```
 
-如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。 
+如果使用的是认知服务多服务订阅，则还必须在请求参数中包括 `Ocp-Apim-Subscription-Region`。 [详细了解如何使用多服务订阅进行身份验证](/cognitive-services/translator/reference/v3-0-reference#authentication)。
 
 ## <a name="create-a-request-to-get-a-list-of-supported-languages"></a>创建一个请求，以获取支持的语言的列表
 
@@ -197,8 +200,10 @@ python get-languages.py
 
 ## <a name="next-steps"></a>后续步骤
 
+查看 API 参考，了解使用文本翻译 API 可以执行的所有操作。
+
 > [!div class="nextstepaction"]
-> [浏览 GitHub 上的 Python 示例](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+> [API 参考](/cognitive-services/translator/reference/v3-0-reference)
 
 ## <a name="see-also"></a>另请参阅
 

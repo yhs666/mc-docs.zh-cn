@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 2bd17a2430937650789aa8b243a5b4f877d400f1
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 14ff88b6f96d288381defe2c671a87bdf6c70eff
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732350"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513834"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的聚合
 
@@ -150,6 +150,9 @@ Perf
 请参阅有关将 [Kusto 查询语言](/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
 
 - [字符串操作](string-operations.md)
+- [时间和日期操作](datetime-operations.md)
+- [高级聚合](advanced-aggregations.md)
 - [JSON 和数据结构](json-data-structures.md)
 - [高级查询编写](advanced-query-writing.md)
 - [联接](joins.md)
+- [图表](charts.md)

@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/16/2017
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b5fe8c4200c100f2bc28076e64037eb8e9b2af3
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: efc8f611dc13fa1bbe911c37093d909c2c2d94fb
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306705"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514210"
 ---
 # <a name="verify-traffic-manager-settings"></a>验证流量管理器设置
 

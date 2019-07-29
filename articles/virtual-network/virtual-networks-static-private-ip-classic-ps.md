@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/02/2016
-ms.date: 06/11/2018
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 72340fa69c852a33fdacf6ef0942ae5603dc2ee8
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2ce8687e0eb21084b0e4e615db857b4bc4438ce6
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52655960"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514228"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>使用 PowerShell 为虚拟机（经典）配置专用 IP 地址
 
@@ -138,4 +138,5 @@ ms.locfileid: "52655960"
 * 了解[保留公共 IP](virtual-networks-reserved-public-ip.md) 地址。
 * 了解[实例层级公共 IP (ILPIP) 地址](virtual-networks-instance-level-public-ip.md)。
 * 查阅[保留 IP REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx)。
+
 <!--Update_Description: wording update, update reference link-->

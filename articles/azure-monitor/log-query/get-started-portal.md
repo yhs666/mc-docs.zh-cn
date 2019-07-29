@@ -6,14 +6,14 @@ author: lingliw
 manager: digimobile
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1e260fd3a9ee4e3c915a81657b55a4dbb46adadd
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 0ecf7e2b60b8d0f166f6debd701610681534ab81
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562505"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513837"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 入门
 
@@ -190,8 +190,6 @@ Log Analytics 查询始终保存到选定的工作区中，并与该工作区的
 Log Analytics 支持多种导出方法：
 
 - Excel：将结果保存为 CSV 文件。
-- Power BI：将结果导出到 Power BI。 有关详细信息，请参阅[将 Azure Monitor 日志数据导入到 Power BI 中](../../azure-monitor/platform/powerbi.md)。
-- 共享链接：可将查询本身作为链接共享，然后，有权访问同一工作区的其他用户可以发送和执行该查询。
 
 ## <a name="next-steps"></a>后续步骤
 

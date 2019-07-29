@@ -11,16 +11,16 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 397add322f717ff65783894f31ce7beb0d26d0d2
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 57c3d476d2ef410b18fa44e11e70447ff3bb589e
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562936"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513849"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报告
+# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 
 工作簿可将文本、 [日志查询](../log-query/query-language.md)、指标和参数合并到丰富的交互式报告中。 有权访问相同 Azure 资源的其他团队成员都可编辑工作簿。
 

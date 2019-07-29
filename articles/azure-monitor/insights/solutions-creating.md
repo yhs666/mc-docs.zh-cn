@@ -7,19 +7,19 @@ author: lingliw
 manager: digimobile
 editor: tysonn
 ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd43f37f877d7a86e7c944c738ec54625002accb
-ms.sourcegitcommit: 7e25a709734f03f46418ebda2c22e029e22d2c64
+ms.openlocfilehash: a7435b985004f23412a47eda820d64942bb51691
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56440755"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513981"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中设计和生成管理解决方案（预览）
 > [!NOTE]

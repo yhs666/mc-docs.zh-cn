@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8af4b14e23c0055411d4f92a131a49f84df9a2b5
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: ff737ed9dcdb62c3cd62fc92fee02e0f8aa59713
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562957"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514045"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-by-using-azure-policy"></a>使用 Azure Policy 启用用于 VM 的 Azure Monitor（预览版）
 
@@ -204,7 +204,7 @@ ms.locfileid: "67562957"
 
 ## <a name="next-steps"></a>后续步骤
 
-现已为虚拟机启用了监视，可在适用于 VM 的 Azure Monitor 中使用此信息进行分析。 
+现已为虚拟机启用了监视，可在用于 VM 的 Azure Monitor 中使用此信息进行分析。 
 
 - 若要了解如何使用运行状况功能，请参阅[查看用于 VM 的 Azure Monitor 的运行状况](vminsights-health.md)。 
 - 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。 

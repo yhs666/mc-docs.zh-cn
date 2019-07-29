@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 10/23/2018
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 16f598db11bf3e6c4a934688e02b9cf2115b07b3
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: ec4e418d8c458a704101eb45b7a4abd8a6fac74b
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306713"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514360"
 ---
 # <a name="azure-powershell-samples-for-traffic-manager"></a>适用于流量管理器的 Azure PowerShell 示例
 

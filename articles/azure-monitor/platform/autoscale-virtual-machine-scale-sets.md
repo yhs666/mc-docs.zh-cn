@@ -5,15 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: autoscale
-ms.openlocfilehash: 1dab480b4a1f6605ab1e600b9693e61c39bcc03b
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 3ff76c7f9ff02913912e00a437e812178c15a76b
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562420"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513812"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>使用 VM 规模集的 Resource Manager 模板的高级自动缩放配置
 可以根据性能指标阈值，按循环计划或按特定日期扩展和缩减虚拟机规模集。 还可以为缩放操作配置电子邮件和 webhook 通知。 本文演示了在 VM 规模集上使用 Resource Manager 模板配置以上所有对象的示例。
@@ -35,16 +35,15 @@ ms.locfileid: "67562420"
 
 3. 现在，可根据计划或特定要求添加更多的配置文件和规则。 创建具有三个配置文件的自动缩放设置。 若要了解自动缩放中的配置文件和规则，请查看[自动缩放最佳做法](autoscale-best-practices.md)。  
 
-
-   | 配置文件和规则 |             说明              |
-   |------------------|--------------------------------------|
-   |   **Profile**    |     **基于性能/指标**     |
-   |       规则       | 服务总线队列消息计数 > x  |
-   |       规则       | 服务总线队列消息计数 < y  |
-   |       规则       |               CPU% > n               |
-   |       规则       |               CPU% < p               |
-   |   **Profile**    | **工作日上午时（无规则）** |
-   |   **Profile**    |  **产品发布日（无规则）**   |
+    | 配置文件和规则 | 说明 |
+    |--- | --- |
+    | **Profile** |**基于性能/指标** |
+    | 规则 |服务总线队列消息计数 > x |
+    | 规则 |服务总线队列消息计数 < y |
+    | 规则 |CPU% > n |
+    | 规则 |CPU% < p |
+    | **Profile** |**工作日上午时（无规则）** |
+    | **Profile** |**产品发布日（无规则）** |
 
 
 4. 以下是用于进行此演练所假设的一个缩放方案。

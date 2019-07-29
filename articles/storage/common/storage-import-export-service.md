@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 07/11/2018
 ms.date: 07/30/2018
 ms.author: v-nany
-ms.openlocfilehash: 6f438347634d6a04a92d944e7adeeebfa5135f32
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: d875d8bb3d097a665d525a2dca7fb223934146ed
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171439"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391984"
 ---
 # <a name="use-the-azure-importexport-service-to-transfer-data-to-azure-storage"></a>使用 Azure 导入/导出服务将数据传输到 Azure 存储
 本文分步介绍如何使用 Azure 导入/导出服务将磁盘驱动器寄送到 Azure 数据中心，从而安全地将大量数据传输到 Azure Blob 存储和 Azure 文件。 此外，还可以使用此服务将数据从 Azure 存储传输到硬盘驱动器，然后再寄送到本地站点。 可将单个内部 SATA 磁盘驱动器中的数据导入 Azure Blob 存储或 Azure 文件。 
@@ -304,12 +304,11 @@ Azure 门户中的此映像会显示示例作业的驱动器状态：
 
 
 
-~~~
-**Driveset CSV File**
+**驱动器集 CSV 文件**
 
-The value of the driveset flag is a CSV file which contains the list of disks to which the drive letters are mapped in order for the tool to correctly pick the list of disks to be prepared. 
+驱动器集标志的值是一个 CSV 文件，其中包含要将驱动器号映射到的磁盘的列表，以便工具可以正确选择要准备的磁盘列表。 
 
-Below is the example of driveset CSV file:
+下面是驱动器集 CSV 文件的示例：
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -317,10 +316,9 @@ G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-25261
 H,Format,SilentMode,Encrypt,
 ```
 
-In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
+在上面的示例中，假设附加了两个磁盘，并创建了盘符为 G:\ 和 H:\ 的基本 NTFS 卷。 工具会格式化并加密托管 H:\ 的磁盘，但不会格式化或加密托管卷 G:\ 的磁盘。
 
-Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
-~~~
+详细了解如何[准备驱动器集 CSV 文件](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file)。
 
 6. 使用 [WAImportExport 工具](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip)将数据复制到一个或多个硬盘驱动器。
 7. 可以通过在驱动器集 CSV 中的 Encryption 字段内指定“Encrypt”，在硬盘驱动器上启用 BitLocker 加密。 也可以手动在硬盘驱动器上启用 BitLocker 加密，并在运行工具时，在驱动器集 CSV 文件中指定“AlreadyEncrypted”并提供密钥。

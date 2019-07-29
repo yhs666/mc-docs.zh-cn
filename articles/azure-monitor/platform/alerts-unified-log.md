@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7272a1b76a9752a99abadd8ae80e347972bfbd03
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 0c7e00fc7f46015520348aa099a72ac6be270de4
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562422"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513818"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor 中的日志警报
 本文提供日志警报的详细信息，该警报是 [Azure 警报](../platform/alerts-overview.md)中支持的警报类型之一，允许用户使用 Azure 分析平台作为警报的基础。
@@ -31,10 +31,6 @@ ms.locfileid: "67562422"
 日志搜索规则由以下详细信息定义：
 
 - **日志查询**。  这是每次触发预警规则时都会运行的查询。  此查询返回的记录用于确定是否将触发某个警报。 分析查询可以针对特定的 Log Analytics 工作区或 Application Insights 应用，如果用户有权访问和查询所有资源，则分析查询甚至可以跨[多个 Log Analytics 和 Application Insights 资源](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)。 
-    > [!IMPORTANT]
-    > [跨资源查询](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights)仅支持 Application Insights 的日志警报和[使用 scheduledQueryRules API 配置的 Log Analytics](../../azure-monitor/platform/alerts-log-api-switch.md) 的日志警报。
-
-    某些分析命令和组合不适合在日志警报中使用；有关更详细的视图，请参阅 [Azure Monitor 中的日志警报查询](../../azure-monitor/platform/alerts-log-query.md)。
 
 - **时间段**。  指定查询的时间范围。 查询仅返回在当前时间的这个范围内创建的记录。 时间段限制为日志查询提取的数据以防止滥用，并规避日志查询中使用的任何时间命令（如 ago）。 <br>*例如，如果时间段设置为 60 分钟，且在下午 1:15 运行查询，则执行日志查询时仅返回中午 12:15 和下午 1:15 之间创建的记录。现在，如果日志查询使用时间命令（如 ago (7d)），则日志查询将仅针对中午 12:15 和下午 1:15 之间的数据运行 - 就像仅存在过去 60 分钟的数据一样。而不是按在日志查询中所指定针对七天的数据。*
 
@@ -80,9 +76,6 @@ ms.locfileid: "67562422"
 - **聚合函数**：确定要执行的计算以及可能要聚合的数字字段。  例如，**count()** 返回查询中的记录数，**avg(CounterValue)** 返回 CounterValue 字段在特定时间间隔内的平均值。 查询中的聚合函数必须名为：AggregatedValue 并提供数值。 
 
 - **分组字段**：将为此字段的每个实例创建包含聚合值的记录，并可为每个实例生成警报。  例如，如果需要为每台计算机生成一个警报，则可使用“按计算机”。  如果在警报查询中指定了多个分组字段，则用户可以使用**聚合依据** (metricColumn) 参数指定要使用哪个字段对结果进行排序。
-
-    > [!NOTE]
-    > *聚合依据* (metricColumn) 选项仅适用于 Application Insights 的指标度量类型日志警报和[使用 scheduledQueryRules API 配置的 Log Analytics](alerts-log-api-switch.md) 的日志警报。
 
 - **时间间隔**：定义一个时间间隔，在该间隔内对数据进行聚合。  例如，如果指定“五分钟”，则会在为警报指定的时间段内，为分组字段（按 5 分钟间隔进行聚合）的每个实例创建一个记录。 
 
@@ -144,17 +137,16 @@ ms.locfileid: "67562422"
 - Application Insights 上的日志警报显示确切的警报名称以及资源组和警报属性
 - 如果是使用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 创建的，则 Log Analytics 上的日志警报显示确切的警报名称以及资源组和警报属性
 
-[旧 Log Analytics API](../../azure-monitor/platform/api-alerts.md) 将警报操作和计划作为 Log Analytics 保存的搜索的一部分，而不是相应 [Azure 资源](../../azure-resource-manager/resource-group-overview.md)的一部分。 因此，为了对使用 Azure 门户（**未**[切换到新的 API](../../azure-monitor/platform/alerts-log-api-switch.md)）或通过[旧 Log Analytics API](../../azure-monitor/platform/api-alerts.md) 为 Log Analytics 创建的此类旧日志警报启用计费 - `microsoft.insights/scheduledqueryrules` 上会创建用于在 Azure 上计费的隐藏伪警报规则。 在 `microsoft.insights/scheduledqueryrules` 上创建的用于计费的隐藏伪警报规则将随资源组和警报属性一起显示，格式为 `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`。
+
 
 > [!NOTE]
 > 如果存在无效字符（例如 `<, >, %, &, \, ?, /`），则它们在隐藏的伪警报规则名称以及 Azure 帐单中会被替换为 `_`。
 
 若要删除使用[旧 Log Analytics API](api-alerts.md) 为警报规则的计费创建的隐藏 scheduleQueryRules 资源，用户可以执行以下任一操作：
 
-- 用户可以[在 Log Analytics 工作区上切换警报规则的 API 首选项](../../azure-monitor/platform/alerts-log-api-switch.md)，并且可以切换到 Azure 资源管理器兼容的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 而不丢失其警报规则或监视功能。 因此，这不需要创建用于计费的隐藏伪警报规则。
 - 或者，如果用户不希望切换 API 首选项，则用户将需要使用[旧 Log Analytics API](api-alerts.md) **删除**原始计划和警报操作，或者[在 Azure 门户中删除原始日志警报规则](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)
 
-此外，对于使用[旧版 Log Analytics API](api-alerts.md) 为警报规则计费创建的隐藏 scheduleQueryRules 资源，任何修改操作（例如 PUT）将会失败。 作为 `microsoft.insights/scheduledqueryrules` 类型，伪规则可以满足使用[旧版 Log Analytics API](api-alerts.md) 创建的警报规则的计费目的。 应该使用[旧版 Log Analytics API](api-alerts.md) 进行任何警报规则修改，（或者）用户可以[切换警报规则的 API 首选项](../../azure-monitor/platform/alerts-log-api-switch.md)，以改用 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)。
+此外，对于使用[旧版 Log Analytics API](api-alerts.md) 为警报规则计费创建的隐藏 scheduleQueryRules 资源，任何修改操作（例如 PUT）将会失败。 作为 `microsoft.insights/scheduledqueryrules` 类型，伪规则可以满足使用[旧版 Log Analytics API](api-alerts.md) 创建的警报规则的计费目的。 
 
 ## <a name="next-steps"></a>后续步骤
 
