@@ -12,16 +12,16 @@ ms.topic: conceptual
 origin.date: 10/22/2018
 ms.date: 07/08/2019
 ms.author: v-jay
-ms.openlocfilehash: 2aac69f0db6825b1013e56bdb5e9a22dc023aca5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6a2a6e578a6f99e934fea05be630dbe83a74519c
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570308"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68331950"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 Office 365 加载数据
 
-本文介绍如何使用数据工厂将 Office 365 中的数据载入 Azure Blob 存储。  可以遵循类似的步骤将数据复制到 Azure Data Lake Gen1 或 Gen2。 请参阅 [Office 365 连接器文章](connector-office-365.md)，了解有关从 Office 365 复制数据的一般信息。
+本文介绍如何使用数据工厂将 Office 365 中的数据载入 Azure Blob 存储。  可以遵循类似的步骤将数据复制到 Azure Data Lake Gen2。 请参阅 [Office 365 连接器文章](connector-office-365.md)，了解有关从 Office 365 复制数据的一般信息。
 
 ## <a name="create-a-data-factory"></a>创建数据工厂
 

@@ -5,22 +5,22 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 04/29/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 58676be083dfb2945f037220570d10b511e0d21f
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+origin.date: 06/12/2019
+ms.date: 07/22/2019
+ms.openlocfilehash: 8a59dbe8495c5894026ff5103828705d7343ee3f
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173287"
+ms.lasthandoff: 07/29/2019
+ms.locfileid: "68331942"
 ---
-# <a name="server-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的服务器日志
+# <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的慢查询日志
 在 Azure Database for MariaDB 中，慢查询日志可供用户使用。 不支持访问事务日志。 可以使用慢查询日志来查明性能瓶颈以进行故障排除。
 
 有关慢查询日志的详细信息，请参阅[慢查询日志](https://mariadb.com/kb/en/library/slow-query-log-overview/)的 MariaDB 文档。
 
-## <a name="access-server-logs"></a>访问服务器日志
-可以使用 Azure 门户和 Azure CLI 列出和下载 Azure Database for MariaDB 服务器日志。
+## <a name="access-slow-query-logs"></a>访问慢查询日志
+可以使用 Azure 门户和 Azure CLI 列出和下载 Azure Database for MariaDB 慢查询日志。
 
 在 Azure 门户中，选择 Azure Database for MariaDB 服务器。 在“监视”标题下，选择“服务器日志”页面。  
 
@@ -31,7 +31,7 @@ ms.locfileid: "66173287"
 
 日志每 24 小时或每 7 GB 轮换一次（以先达到的条件为准）。
 
-## <a name="configure-logging"></a>配置日志记录
+## <a name="configure-slow-query-logging"></a>配置慢查询日志记录
 默认情况下，慢查询日志被禁用。 若要启用它，请将 slow_query_log 设置为 ON。
 
 可以调整的其他参数包括：
