@@ -153,7 +153,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 |区域 |  终结点名称 | Value |
 |-----------------|:------------|:-------------|
 | Azure 中国 | 遥测通道 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure 中国 | QuickPulse（实时指标） |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure 中国 | QuickPulse（实时指标） |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure 中国 | 配置文件查询 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 遥测通道 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse（实时指标） |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
