@@ -1,5 +1,5 @@
 ---
-title: Azure Stack 中托管磁盘和托管映像的差异与注意事项 | Microsoft Docs
+title: Azure Stack 托管磁盘的差异和注意事项 | Microsoft Docs
 description: 了解 Azure Stack 中托管磁盘和托管映像的差异与注意事项。
 services: azure-stack
 documentationcenter: ''
@@ -12,35 +12,35 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/23/2019
-ms.date: 06/03/2019
+origin.date: 06/25/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: jiahan
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: cc3fe55f29d1449aff5f789383607fd8e1db95b8
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 609eeb38560d648a28b76863d1a2c67fcc1581b3
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248525"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513276"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack 托管磁盘：差异与注意事项
 
-本文汇总了 [Azure Stack 托管磁盘](azure-stack-manage-vm-disks.md)与 [Azure 托管磁盘](/virtual-machines/windows/managed-disks-overview)之间的已知差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
+本文汇总了 [Azure Stack 中的托管磁盘](azure-stack-manage-vm-disks.md)与 [Azure 中的托管磁盘](/virtual-machines/windows/managed-disks-overview)之间的差异。 有关 Azure Stack 与 Azure 之间的大致差异的详细信息，请参阅[重要注意事项](azure-stack-considerations.md)一文。
 
-托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS VM 的磁盘管理。
+托管磁盘通过管理与 VM 磁盘关联的[存储帐户](../operator/azure-stack-manage-storage-accounts.md)简化了 IaaS 虚拟机 (VM) 的磁盘管理。
 
-> [!Note]  
-> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack 门户创建虚拟机时，默认会启用托管磁盘。
+> [!NOTE]  
+> 从 1808 更新开始，推出了 Azure Stack 上的托管磁盘。 从 1811 更新开始，使用 Azure Stack 门户创建 VM 时，会默认启用它。
   
 ## <a name="cheat-sheet-managed-disk-differences"></a>速查表：托管磁盘的差异
 
 | 功能 | Azure（中国） | Azure Stack |
 | --- | --- | --- |
 |静态数据加密 |Azure 存储服务加密 (SSE)、Azure 磁盘加密 (ADE)     |BitLocker 128 位 AES 加密      |
-|映像          | 支持托管自定义映像 |支持|
-|备份选项 |支持 Azure 备份服务 |尚不支持 |
-|灾难恢复选项 |支持 Azure Site Recovery |尚不支持|
+|映像          | 托管自定义映像 |支持|
+|备份选项 | Azure 备份服务 |尚不支持 |
+|灾难恢复选项 | Azure Site Recovery |尚不支持|
 |磁盘类型     |高级 SSD、标准 SSD 和标准 HDD |高级 SSD、标准 HDD |
 |高级磁盘  |完全支持 |可部署，但无性能限制或保证  |
 |高级磁盘 IOPS  |取决于磁盘大小  |每个磁盘 2300 IOPS |
@@ -69,67 +69,71 @@ Azure Stack 托管磁盘支持以下 API 版本：
 
 ## <a name="convert-to-managed-disks"></a>转换为托管磁盘
 
+> [!NOTE]  
+> 不能在 Azure Stack 中使用 Azure PowerShell cmdlet **ConvertTo-AzureRmVMManagedDisk** 将非托管磁盘转换为托管磁盘。 Azure Stack 目前不支持此 cmdlet。
+
 可以使用以下脚本将当前预配的 VM 从非托管磁盘转换为托管磁盘。 将占位符替换成自己的值：
 
 ```powershell
-$subscriptionId = 'subid'
+$SubscriptionId = "SubId"
 
-# The name of your resource group where your VM to be converted exists
-$resourceGroupName ='rgmgd'
+# The name of your resource group where your VM to be converted exists.
+$ResourceGroupName ="MyResourceGroup"
 
-# The name of the managed disk
-$diskName = 'unmgdvm'
+# The name of the managed disk to be created.
+$DiskName = "mngddisk"
 
 # The size of the disks in GB. It should be greater than the VHD file size.
-$diskSize = '50'
+$DiskSize = "50"
 
 # The URI of the VHD file that will be used to create the managed disk.
 # The VHD file can be deleted as soon as the managed disk is created.
-$vhdUri = 'https://rgmgddisks347.blob.local.azurestack.external/vhds/unmgdvm20181109013817.vhd' 
+$VhdUri = "https://rgmgddisks347.blob.local.azurestack.external/vhds/unmngdvm20181109013817.vhd"
 
-# The storage type for the managed disk; PremiumLRS or StandardLRS.
-$accountType = 'StandardLRS'
+# The storage type for the managed disk: PremiumLRS or StandardLRS.
+$AccountType = "StandardLRS"
 
 # The Azure Stack location where the managed disk will be located.
 # The location should be the same as the location of the storage account in which VHD file is stored.
-# Configure the new managed VM point to the old unmanaged VM's configuration (network config, vm name, location).
-$location = 'local'
-$virtualMachineName = 'mgdvm'
-$virtualMachineSize = 'Standard_D1'
-$pipname = 'unmgdvm-ip'
-$virtualNetworkName = 'rgmgd-vnet'
-$nicname = 'unmgdvm295'
+# Configure the new managed VM point to the old unmanaged VM configuration (network config, VM name, location).
+$Location = "local"
+$VirtualMachineName = "unmngdvm"
+$VirtualMachineSize = "Standard_D1"
+$PIpName = "unmngdvm-ip"
+$VirtualNetworkName = "unmngdrg-vnet"
+$NicName = "unmngdvm"
 
-# Set the context to the subscription ID in which the managed disk will be created
+# Set the context to the subscription ID in which the managed disk will be created.
 Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
-#Delete old VM, but keep the OS disk
-Remove-AzureRmVm -Name $virtualMachineName -ResourceGroupName $resourceGroupName
+# Delete old VM, but keep the OS disk.
+Remove-AzureRmVm -Name $VirtualMachineName -ResourceGroupName $ResourceGroupName
 
-$diskConfig = New-AzureRmDiskConfig -AccountType $accountType  -Location $location -DiskSizeGB $diskSize -SourceUri $vhdUri -CreateOption Import
+# Create the managed disk configuration.
+$DiskConfig = New-AzureRmDiskConfig -AccountType $AccountType -Location $Location -DiskSizeGB $DiskSize -SourceUri $VhdUri -CreateOption Import
 
-# Create managed disk
-New-AzureRmDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGroupName
-$disk = get-azurermdisk -DiskName $diskName -ResourceGroupName $resourceGroupName
-$VirtualMachine = New-AzureRmVMConfig -VMName $virtualMachineName -VMSize $virtualMachineSize
+# Create managed disk.
+New-AzureRmDisk -DiskName $DiskName -Disk $DiskConfig -ResourceGroupName $resourceGroupName
+$Disk = Get-AzureRmDisk -DiskName $DiskName -ResourceGroupName $ResourceGroupName
+$VirtualMachine = New-AzureRmVMConfig -VMName $VirtualMachineName -VMSize $VirtualMachineSize
 
 # Use the managed disk resource ID to attach it to the virtual machine.
-# Change the OS type to Linux if the OS disk has Linux OS.
-$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $disk.Id -CreateOption Attach -Linux
+# Change the OS type to "-Windows" if the OS disk has the Windows OS.
+$VirtualMachine = Set-AzureRmVMOSDisk -VM $VirtualMachine -ManagedDiskId $Disk.Id -CreateOption Attach -Linux
 
-# Create a public IP for the VM
-$publicIp = Get-AzureRmPublicIpAddress -Name $pipname -ResourceGroupName $resourceGroupName 
+# Create a public IP for the VM.
+$PublicIp = Get-AzureRmPublicIpAddress -Name $PIpName -ResourceGroupName $ResourceGroupName
 
-# Get the virtual network where the virtual machine will be hosted
-$vnet = Get-AzureRmVirtualNetwork -Name $virtualNetworkName -ResourceGroupName $resourceGroupName
+# Get the virtual network where the virtual machine will be hosted.
+$VNet = Get-AzureRmVirtualNetwork -Name $VirtualNetworkName -ResourceGroupName $ResourceGroupName
 
-# Create NIC in the first subnet of the virtual network
-$nic = Get-AzureRmNetworkInterface -Name $nicname -ResourceGroupName $resourceGroupName
+# Create NIC in the first subnet of the virtual network.
+$Nic = Get-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $ResourceGroupName
 
-$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $nic.Id
+$VirtualMachine = Add-AzureRmVMNetworkInterface -VM $VirtualMachine -Id $Nic.Id
 
-# Create the virtual machine with managed disk
-New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $resourceGroupName -Location $location
+# Create the virtual machine with managed disk.
+New-AzureRmVM -VM $VirtualMachine -ResourceGroupName $ResourceGroupName -Location $Location
 ```
 
 ## <a name="managed-images"></a>托管映像
@@ -148,7 +152,7 @@ Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管�
 
 ### <a name="step-2-create-the-managed-image"></a>步骤 2：创建托管映像
 
-可以使用门户、PowerShell 或 CLI 创建托管映像。 请遵循[此](/virtual-machines/windows/capture-image-resource) Azure 文章中的步骤操作。
+可以使用门户、PowerShell 或 CLI 创建托管映像。 请按[创建托管映像](/virtual-machines/windows/capture-image-resource)中的步骤操作。
 
 ### <a name="step-3-choose-the-use-case"></a>步骤 3：选择用例
 
@@ -156,13 +160,13 @@ Azure Stack 支持托管映像，可让你在通用化 VM（非托管和托管�
 
 执行此步骤之前，请务必正确通用化 VM。 通用化之后，不再可以使用此 VM。 基于未正确通用化的映像创建 VM 会导致 **VMProvisioningTimeout** 错误。
 
-遵照[此处](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)的说明，从存储帐户中的通用化 VHD 创建托管映像。 以后可以使用此映像创建托管 VM。
+遵照[从存储帐户中的 VHD 创建映像](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-vhd-in-a-storage-account)中的说明，从存储帐户中的通用化 VHD 创建托管映像。 将来可以使用此映像创建托管 VM。
 
 #### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>情况 2：使用 PowerShell 基于托管映像创建托管 VM
 
-使用[此处](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，以下示例脚本从现有映像对象创建类似的 Linux VM：
+使用[使用 PowerShell 从托管磁盘创建映像](/virtual-machines/windows/capture-image-resource#create-an-image-from-a-managed-disk-using-powershell)的脚本从现有托管磁盘 VM 创建映像之后，请使用以下示例脚本从现有映像对象创建类似的 Linux VM。
 
-Azure Stack PowerShell 模块 1.7.0 或更高版本：请遵照[此处](/virtual-machines/windows/create-vm-generalized-managed)的说明操作。
+Azure Stack PowerShell 模块 1.7.0 或更高版本：按[从托管映像创建 VM](/virtual-machines/windows/create-vm-generalized-managed) 中的说明操作。
 
 Azure Stack PowerShell 模块 1.6.0 或更低版本：
 

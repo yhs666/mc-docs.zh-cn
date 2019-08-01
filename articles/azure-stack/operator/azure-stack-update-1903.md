@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/10/2019
-ms.date: 06/03/2019
+origin.date: 05/30/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: adepue
 ms.lastreviewed: 04/20/2019
-ms.openlocfilehash: 35c57d63083c57ddbc7f574e50e3b8b0b977de06
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 41b43c973adc44d809d90b51be9610e464b836dd
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381864"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513381"
 ---
 # <a name="azure-stack-1903-update"></a>Azure Stack 1903 更新
 
@@ -33,9 +33,17 @@ ms.locfileid: "66381864"
 > [!IMPORTANT]
 > 此更新包仅适用于 Azure Stack 集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
 
+## <a name="archived-release-notes"></a>已存档的发行说明
+
+可查看 [TechNet 库中 Azure Stack 发行说明的早期版本](http://aka.ms/azsarchivedrelnotes)。 提供这些已存档的发行说明仅供参考，并不意味着支持这些版本。 如需进一步帮助，请联系 Azure 客户支持服务。
+
 ## <a name="build-reference"></a>内部版本参考
 
 Azure Stack 1903 更新内部版本号为 **1.1903.0.35**。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 1903 更新生成类型为“Express”  。 有关更新生成类型的详细信息，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 完成 1903 更新预期所需的时间约为 16 小时，但具体时间可能会有所不同。 此运行时近似值特定于 1903 更新，不应与其他 Azure Stack 更新进行比较。
 
 > [!IMPORTANT]
 > 1903 有效负载不包括 ASDK 发行版。
@@ -57,8 +65,6 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - **1903**：[KB 4500638 - Azure Stack 修补程序 1.1903.2.39](https://support.microsoft.com/help/4500638)
 
 ## <a name="improvements"></a>改进
-
-- 1903 更新有效负载包含对 Azure Stack 组件的更新，这些组件不包括用于托管 Azure Stack 的底层操作系统。 这样就可以实现限定范围的特定更新。 因此，完成 1903 更新预期所需的时间较短（约 16 个小时，但确切的时间不定）。 这种运行时下降特定于 1903 更新，后续的更新可能包含对操作系统的更新，这意味着运行时会有所不同。 将来的更新会根据包含的有效负载，提供有关完成更新预期所需时间的指导。
 
 - 修复了以下网络 bug：阻止“公共 IP 地址”的“空闲超时(分钟)”值更改生效。   以前，对此值的更改将被忽略，因此，不管做出哪种更改，该值始终默认为 4 分钟。 此设置控制在不依赖客户端发送保持连接消息的情况下，TCP 连接持续打开的分钟数。 请注意，此 bug 仅影响实例级公共 IP，而不影响分配给负载均衡器的公共 IP。
 
@@ -162,7 +168,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    如果在 VM 上启用了启动诊断，但删除了启动诊断存储帐户，则会发生该错误。 若要解决此问题，请使用以前所用的同一名称重新创建存储帐户。
 
 <!-- 2967447 - IS, ASDK, to be fixed in 1902 -->
-- 虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
+- 虚拟机规模集创建体验提供基于 CentOS 的 7.2 作为部署选项。 由于该映像在 Azure Stack 市场上不可用，因此请为部署选择另一操作系统，或者使用一个 Azure 资源管理器模板，指定另一个已在部署之前由操作员从市场下载的 CentOS 映像。
 
 <!-- TBD - IS ASDK -->
 - 应用 1903 更新后，在部署包含托管磁盘的 VM 时可能会遇到以下问题：
@@ -188,6 +194,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
    ```
 
 - 无法从“虚拟机规模集”边栏选项卡中删除规模集。  解决方法是，选择要删除的规模集，然后在“概述”窗格中单击“删除”按钮。  
+
+- 在包含 3 个容错域的可用性集中创建 VM 以及创建虚拟机规模集实例失败，在一个 4 节点 Azure Stack 环境中进行更新时出现 **FabricVmPlacementErrorUnsupportedFaultDomainSize** 错误。 可以在包含 2 个容错域的可用性集中成功创建单一 VM。 但是，在 4 节点 Azure Stack 上进行更新时，仍然不能创建规模集实例。
 
 ### <a name="networking"></a>网络
 
@@ -217,7 +225,8 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 ### <a name="app-service"></a>应用服务
 
 <!-- 2352906 - IS ASDK -->
-- 在订阅中创建第一个 Azure 函数之前，必须先注册存储资源提供程序。
+- 在订阅中创建第一个 Azure 函数之前，租户必须先注册存储资源提供程序。
+- 由于与 1903 中的门户框架不兼容，某些租户门户用户体验会中断，其中主要为部署槽的 UX、在生产环境中进行的测试，以及站点扩展。 若要解决此问题，请使用 [Azure 应用服务 PowerShell](/app-service/deploy-staging-slots#automate-with-powershell) 模块或 [Azure CLI](/cli/webapp/deployment/slot?view=azure-cli-latest)。 在即将发布的基于 Azure Stack 1.6 (Update 6) 的 Azure 应用服务中，将还原门户体验。
 
 <!-- ### Usage -->
 

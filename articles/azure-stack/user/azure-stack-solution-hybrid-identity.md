@@ -1,6 +1,6 @@
 ---
-title: 为 Azure 和 Azure Stack 应用程序配置混合云标识 | Microsoft Docs
-description: 了解如何为 Azure 和 Azure Stack 应用程序配置混合云标识。
+title: 为 Azure 和 Azure Stack 应用配置混合云标识 | Microsoft Docs
+description: 了解如何为 Azure 和 Azure Stack 应用配置混合云标识。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,30 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 01/14/2019
-ms.date: 04/29/2019
+origin.date: 06/26/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: e53b8c6cd675505dcc7b29ae0fc13b23689734be
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.lastreviewed: 06/26/2019
+ms.openlocfilehash: 3cba8034a3b17d6d7083def8bf70ec4548fd26c4
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854627"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513225"
 ---
 # <a name="tutorial-configure-hybrid-cloud-identity-for-azure-and-azure-stack-applications"></a>教程：为 Azure 和 Azure Stack 应用程序配置混合云标识
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何为 Azure 和 Azure Stack 应用程序配置混合云标识。
+了解如何为 Azure 和 Azure Stack 应用配置混合云标识。
 
-有两个选项可用来向全球 Azure 和 Azure Stack 中的应用程序授予访问权限。
+有两个选项可用来向全球 Azure 和 Azure Stack 中的应用授予访问权限。
 
  * 当 Azure Stack 与 Internet 建立了不间断的连接时，可以使用 Azure Active Directory (Azure AD)。
  * 当 Azure Stack 从 Internet 断开了连接时，可以使用 Azure Directory 联合身份验证服务 (AD FS)。
 
-使用服务主体向 Azure Stack 应用程序授予访问权限，以便在 Azure Stack 中使用 Azure 资源管理器进行部署或配置。
+使用服务主体向 Azure Stack 应用授予访问权限，以便在 Azure Stack 中使用 Azure 资源管理器进行部署或配置。
 
 在本教程中，我们将构建一个示例环境来完成以下任务：
 
@@ -46,18 +46,18 @@ ms.locfileid: "64854627"
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入你的本地环境，并支持唯一的混合云，以允许你在任何地方构建和部署混合应用。  
+> Azure Stack 是 Azure 的扩展。 Azure Stack 将云计算的灵活性和创新性带入本地环境，并支持唯一的混合云，允许你在任何地方构建和部署混合应用。  
 > 
 > 白皮书[混合应用程序的设计注意事项](https://aka.ms/hybrid-cloud-applications-pillars)回顾了设计、部署和运行混合应用程序所需的软件质量的要素（位置、可伸缩性、可用性、复原能力、可管理性和安全性）。 这些设计注意事项有助于优化混合应用程序设计，从而最大限度地减少生产环境中的难题。
 
 
 ## <a name="create-a-service-principal-for-azure-ad-in-the-portal"></a>在门户中创建适用于 Azure AD 的服务主体
 
-如果已使用 Azure AD 部署 Azure Stack 作为标识存储，则可以创建服务主体，就像对 Azure 所做的那样。 [创建服务主体](azure-stack-create-service-principals.md#create-service-principal-for-azure-ad)一文介绍了如何通过门户执行这些步骤。 在开始之前，请检查是否拥有[所需的 Azure AD 权限](/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)。
+如果已使用 Azure AD 部署 Azure Stack 作为标识存储，则可以创建服务主体，就像对 Azure 所做的那样。 [使用应用标识访问资源](../operator/azure-stack-create-service-principals.md#manage-an-azure-ad-service-principal)介绍了如何通过门户执行这些步骤。 在开始之前，请确保你具有[所需的 Azure AD 权限](/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions)。
 
 ## <a name="create-a-service-principal-for-ad-fs-using-powershell"></a>使用 PowerShell 创建适用于 AD FS 的服务主体
 
-如果已使用 AD FS 部署 Azure Stack，则可以使用 PowerShell 创建服务主体、为角色分配访问权限以及使用该标识从 PowerShell 登录。 [创建 AD FS 的服务主体](azure-stack-create-service-principals.md#create-service-principal-for-ad-fs)介绍了如何使用 PowerShell 执行所需的步骤。
+如果已使用 AD FS 部署 Azure Stack，则可以使用 PowerShell 创建服务主体、为角色分配访问权限以及使用该标识从 PowerShell 登录。 [使用应用标识访问资源](../operator/azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)介绍了如何使用 PowerShell 执行所需步骤。
 
 ## <a name="using-the-azure-stack-api"></a>使用 Azure Stack API
 
@@ -69,7 +69,7 @@ ms.locfileid: "64854627"
 
 ### <a name="prerequisites"></a>先决条件
 
-一个通过你可以访问的订阅连接到 Azure Active Directory 的 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来安装 [Azure Stack 开发工具包](../asdk/asdk-install.md)。
+需要一个通过你可以访问的订阅连接到 Azure Active Directory 的 Azure Stack 安装。 如果没有 Azure Stack 安装，可以使用这些说明来安装 [Azure Stack 开发工具包](../asdk/asdk-install.md)。
 
 #### <a name="connect-to-azure-stack-using-code"></a>使用代码连接到 Azure Stack
 

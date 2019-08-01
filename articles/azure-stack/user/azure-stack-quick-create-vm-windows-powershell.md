@@ -1,6 +1,6 @@
 ---
-title: 在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机 | Microsoft Docs
-description: 在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机。
+title: 在 Azure Stack 中使用 PowerShell 创建 Windows Server VM | Microsoft Docs
+description: 在 Azure Stack 中使用 PowerShell 创建 Windows Server VM。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,19 +12,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 04/09/2019
-ms.date: 04/29/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 40cc4510eb1eedcc489d349a2d4bb54632174ecb
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 1cb14ccf41252b9608acfbd3cdc6bef488b5c94a
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248557"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513240"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server 虚拟机
+# <a name="quickstart-create-a-windows-server-vm-by-using-powershell-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 PowerShell 创建 Windows Server VM
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -47,7 +47,10 @@ ms.locfileid: "66248557"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-资源组是在其中部署和管理 Azure Stack 资源的逻辑容器。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 本文档中为所有变量都分配了值，你可以使用这些值或分配新值。
+资源组是在其中部署和管理 Azure Stack 资源的逻辑容器。 在开发工具包或 Azure Stack 集成系统中，运行以下代码块创建资源组。 
+
+> [!NOTE]
+> 代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -83,7 +86,7 @@ Set-AzureRmCurrentStorageAccount `
 
 ## <a name="create-networking-resources"></a>创建网络资源
 
-创建虚拟网络、子网和公共 IP 地址。 这些资源用来与虚拟机建立网络连接。
+创建虚拟网络、子网和公共 IP 地址。 这些资源用来与 VM 建立网络连接。
 
 ```powershell
 # Create a subnet configuration
@@ -110,7 +113,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>创建网络安全组和网络安全组规则
 
-网络安全组使用入站和出站规则保护虚拟机。 让我们创建端口 3389 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
+网络安全组使用入站和出站规则来保护 VM。 让我们创建端口 3389 的入站规则以允许传入的远程桌面连接，并创建端口 80 的入站规则以允许传入的 Web 流量。
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -145,9 +148,9 @@ $nsg = New-AzureRmNetworkSecurityGroup `
   -SecurityRules $nsgRuleRDP,$nsgRuleWeb
 ```
 
-### <a name="create-a-network-card-for-the-virtual-machine"></a>为虚拟机创建网卡
+### <a name="create-a-network-card-for-the-vm"></a>为 VM 创建网卡
 
-网卡将虚拟机连接到子网、网络安全组和公共 IP 地址。
+网卡将 VM 连接到子网、网络安全组和公共 IP 地址。
 
 ```powershell
 # Create a virtual network card and associate it with public IP address and NSG
@@ -160,17 +163,17 @@ $nic = New-AzureRmNetworkInterface `
   -NetworkSecurityGroupId $nsg.Id
 ```
 
-## <a name="create-a-virtual-machine"></a>创建虚拟机
+## <a name="create-a-vm"></a>创建 VM
 
-创建虚拟机配置。 此配置包括部署虚拟机时使用的设置。 例如：凭据、大小和虚拟机映像。
+创建 VM 配置。 此配置包括部署 VM 时使用的设置。 例如：凭据、大小和 VM 映像。
 
 ```powershell
-# Define a credential object to store the username and password for the virtual machine
+# Define a credential object to store the username and password for the VM
 $UserName='demouser'
 $Password='Password@123'| ConvertTo-SecureString -Force -AsPlainText
 $Credential=New-Object PSCredential($UserName,$Password)
 
-# Create the virtual machine configuration object
+# Create the VM configuration object
 $VmName = "VirtualMachinelatest"
 $VmSize = "Standard_A1"
 $VirtualMachine = New-AzureRmVMConfig `
@@ -190,7 +193,7 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-# Sets the operating system disk properties on a virtual machine.
+# Sets the operating system disk properties on a VM.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
   -CreateOption FromImage | `
@@ -199,23 +202,23 @@ $VirtualMachine = Set-AzureRmVMOSDisk `
   Add-AzureRmVMNetworkInterface -Id $nic.Id
 
 
-# Create the virtual machine.
+# Create the VM.
 New-AzureRmVM `
   -ResourceGroupName $ResourceGroupName `
   -Location $location `
   -VM $VirtualMachine
 ```
 
-## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
+## <a name="connect-to-the-vm"></a>连接到 VM
 
-若要远程连接到在上一步骤中创建的虚拟机，需要使用其公共 IP 地址。 运行以下命令，获取虚拟机的公共 IP 地址：
+若要远程连接到在上一步骤中创建的 VM，需要使用其公共 IP 地址。 运行以下命令，获取 VM 的公共 IP 地址：
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-使用以下命令创建与虚拟机的远程桌面会话。 将 IP 地址替换为虚拟机的 publicIPAddress。 出现提示时，请输入创建虚拟机时使用的用户名和密码。
+使用以下命令创建与 VM 的远程桌面会话。 将 IP 地址替换为你的 VM 的 *publicIPAddress*。 出现提示时，请输入创建 VM 时使用的用户名和密码。
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -223,7 +226,7 @@ mstsc /v <publicIpAddress>
 
 ## <a name="install-iis-via-powershell"></a>通过 PowerShell 安装 IIS
 
-现已登录到 Azure VM，可以使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 Web 流量。 打开 PowerShell 提示符并运行以下命令：
+登录到 Azure VM 后，可以使用单行 PowerShell 安装 IIS，并启用本地防火墙规则以允许 Web 流量。 打开 PowerShell 提示符并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -231,13 +234,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-IIS 已安装，并且已打开 VM 上的端口 80，可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 请使用前面部分中记录的 *publicIpAddress* 来访问默认页面。
+IIS 已安装，并且已打开 VM 上的端口 80，可以使用任何浏览器查看默认的 IIS 欢迎页。 请使用前面部分中记录的 *publicIpAddress* 来访问默认页面。
 
 ![IIS 默认站点](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
-## <a name="delete-the-virtual-machine"></a>删除虚拟机
+## <a name="delete-the-vm"></a>删除 VM
 
-不再有需要时，可使用以下命令删除包含虚拟机及其相关资源的资源组：
+不再有需要时，可使用以下命令删除包含 VM 及其相关资源的资源组：
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -246,4 +249,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，我们部署了一个简单的 Windows 虚拟机。 有关 Azure Stack 虚拟机的详细信息，请转到 [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)。
+在本快速入门中，我们部署了一个简单的 Windows VM。 若要详细了解 Azure Stack VM，请继续阅读 [Azure Stack VM 功能](azure-stack-vm-considerations.md)。

@@ -1,5 +1,5 @@
 ---
-title: 使用安全地存放在 Azure Stack 上的证书部署虚拟机 | Microsoft Docs
+title: 使用安全地存放在 Azure Stack 上的证书部署 VM | Microsoft Docs
 description: 了解如何在 Azure Stack 中部署虚拟机，并使用密钥保管库将证书推送到该虚拟机
 services: azure-stack
 documentationcenter: ''
@@ -12,22 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 04/29/2019
+origin.date: 06/11/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 076b4e1cc1963b89941c456f8422cdfa7dd8436a
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: dab8ba26939953fba5bef9ae98285a62972f7092
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855315"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513287"
 ---
-# <a name="create-a-virtual-machine-and-install-a-certificate-retrieved-from-an-azure-stack-key-vault"></a>创建虚拟机，并安装从 Azure Stack 密钥保管库检索到的证书
+# <a name="deploy-a-vm-with-a-securely-stored-certificate-on-azure-stack"></a>使用安全地存放在 Azure Stack 上的证书部署 VM 
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-了解如何创建一个安装了密钥保管库证书的 Azure Stack 虚拟机 (VM)。
+本文介绍如何部署一个安装了密钥保管库证书的 Azure Stack 虚拟机 (VM)。
 
 ## <a name="overview"></a>概述
 
@@ -37,16 +37,16 @@ ms.locfileid: "64855315"
 * 简化了证书管理流程。
 * 可以控制访问证书的密钥。
 
-### <a name="process-description"></a>过程说明
+## <a name="process-description"></a>过程说明
 
-以下步骤说明将证书推送到虚拟机所需的过程：
+以下步骤说明将证书推送到 VM 所需的过程：
 
-1. 创建 Key Vault 机密。
-2. 更新 azuredeploy.parameters.json 文件。
+1. 创建密钥保管库机密。
+2. 更新 **azuredeploy.parameters.json** 文件。
 3. 部署模板。
 
 > [!NOTE]
-> 可以通过 Azure Stack 开发工具包或者外部客户端（如果已通过 VPN 建立连接）执行这些步骤。
+> 可以通过 Azure Stack 开发工具包 (ASDK) 或者外部客户端（如果已通过 VPN 建立连接）执行这些步骤。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -54,7 +54,7 @@ ms.locfileid: "64855315"
 * [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)。
 * [配置 Azure Stack 用户的 PowerShell 环境](azure-stack-powershell-configure-user.md)。
 
-## <a name="create-a-key-vault-secret"></a>创建 Key Vault 机密
+## <a name="create-a-key-vault-secret"></a>创建密钥保管库机密
 
 以下脚本会创建 .pfx 格式的证书、创建密钥保管库，并将该证书作为机密存储在密钥保管库中。
 
@@ -73,8 +73,8 @@ $pwd = ConvertTo-SecureString `
   -AsPlainText
 
 Export-PfxCertificate `
-  -cert "cert:\localMachine\my\<Certificate Thumbprint that was created in the previous step>" `
-  -FilePath "<Fully qualified path where the exported certificate can be stored>" `
+  -cert "cert:\localMachine\my\<certificate thumbprint that was created in the previous step>" `
+  -FilePath "<Fully qualified path to where the exported certificate can be stored>" `
   -Password $pwd
 
 # Create a key vault and upload the certificate into the key vault as a secret
@@ -82,7 +82,7 @@ $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
 $location = "local"
 $secretName = "servicecert"
-$fileName = "<Fully qualified path where the exported certificate can be stored>"
+$fileName = "<Fully qualified path to where the exported certificate can be stored>"
 $certPassword = "<Password used to export the certificate>"
 
 $fileContentBytes = get-content $fileName `
@@ -120,13 +120,13 @@ Set-AzureKeyVaultSecret `
    -SecretValue $secret
 ```
 
-运行前面的脚本时，输出会包括机密 URI。 请记下此 URI。 在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中，必须引用此 URI。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含 `azuredeploy.json` 和 `azuredeploy.parameters.json`文件，在后续步骤中将需要这些文件。
+运行此脚本时，输出会包括机密 URI。 请记下此 URI，因为在[将证书推送到 Windows 资源管理器模板](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate)中时必须引用此它。 将 [vm-push-certificate-windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/201-vm-windows-pushcertificate) 模板文件夹下载到开发计算机。 此文件夹包含 **azuredeploy.json** 和 **azuredeploy.parameters.json** 文件，这些文件需要在以下步骤中使用。
 
-根据环境值，修改 `azuredeploy.parameters.json` 文件。 要注意的参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 以下部分显示参数文件的示例。
+根据环境值，修改 **azuredeploy.parameters.json** 文件。 重要参数是保管库名称、保管库资源组和机密 URI（由前面的脚本生成）。 以下部分显示参数文件的示例。
 
 ## <a name="update-the-azuredeployparametersjson-file"></a>更新 azuredeploy.parameters.json 文件
 
-根据环境，以 `vaultName`、机密 URI、`VmName` 和其他值更新 `azuredeploy.parameters.json` 文件。 以下 JSON 文件显示模板参数文件的示例：
+根据环境，以 `vaultName`、机密 URI、`VmName` 和其他参数更新 **azuredeploy.parameters.json** 文件。 以下 JSON 文件显示模板参数文件的示例：
 
 ```json
 {
@@ -178,16 +178,16 @@ New-AzureRmResourceGroupDeployment `
 
 ![模板部署结果](media/azure-stack-key-vault-push-secret-into-vm/deployment-output.png)
 
-在部署期间，Azure Stack 会将证书推送到虚拟机。 证书位置取决于 VM 的操作系统：
+在部署期间，Azure Stack 会将证书推送到 VM。 证书位置取决于 VM 的操作系统：
 
 * 在 Windows 中，系统会利用用户提供的证书存储，将证书添加到 **LocalMachine** 证书位置。
-* 在 Linux 中，证书置于 `/var/lib/waagent directory` 下，其中 x509 证书文件的文件名为 &lt;UppercaseThumbprint&gt;.crt，私钥的文件名为 &lt;UppercaseThumbprint&gt;.prv。
+* 在 Linux 中，证书会置于 **/var/lib/waagent** 目录下，其中 x509 证书文件的文件名为 **UppercaseThumbprint.crt**，私钥的文件名为 **UppercaseThumbprint.prv**。
 
 ## <a name="retire-certificates"></a>停用证书
 
 停用证书是证书管理过程的一部分。 无法删除旧版本的证书，但可以使用 `Set-AzureKeyVaultSecretAttribute` cmdlet 将其禁用。
 
-以下示例说明如何禁用证书。 对 **VaultName**、**Name** 和 **Version** 参数使用自己的值。
+以下示例说明如何禁用证书。 对于 `VaultName`、`Name` 和 `Version` 参数，请使用你自己的值。
 
 ```powershell
 Set-AzureKeyVaultSecretAttribute -VaultName contosovault -Name servicecert -Version e3391a126b65414f93f6f9806743a1f7 -Enable 0
