@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: hectorl
-ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 6584e1959cce312723e3169d8163eb5e08b8708e
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 19a12555f13b2ab3f20428ae343ef7fbcd4b1b49
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529584"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513489"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>使用基础结构备份服务对 Azure Stack 进行备份和数据恢复
 

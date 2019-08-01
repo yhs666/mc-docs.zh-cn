@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/05/2019
-ms.date: 02/18/2019
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: fbfd7ea25b1eda709f051a22ba766f8cb2b4de0e
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 63e16abe89da280e1deccd5e8b47cabf27bad5de
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218293"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513303"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Azure 资源管理器模板注意事项
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-开发应用程序时，请务必确保模板可在 Azure 和 Azure Stack 之间移植。 本文提供有关开发 Azure 资源管理器[模板](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项，以便用户可以为应用程序创建原型以及在 Azure 中测试部署而无需访问 Azure Stack 环境。
+开发应用程序时，请务必确保模板可在 Azure 和 Azure Stack 之间移植。 本文提供有关开发 [Azure 资源管理器模板](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)的注意事项，以便你可以为应用程序创建原型以及在 Azure 中测试部署而无需访问 Azure Stack 环境。
 
 ## <a name="resource-provider-availability"></a>资源提供程序可用性
 
@@ -36,7 +36,7 @@ ms.locfileid: "56218293"
 
 ## <a name="public-namespaces"></a>公共命名空间
 
-由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 可以使用 `reference` 和 `concatenate` 函数动态构建服务终结点，以便在部署期间从资源提供程序检索值。 例如，不需要在模板中硬编码 *blob.core.chinacloudapi.cn*，检索 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 即可动态设置 *osDisk.URI* 终结点：
+由于 Azure Stack 托管在数据中心中，它的服务终结点命名空间与 Azure 公有云不同。 因此，如果尝试将 Azure 资源管理器模板部署到 Azure Stack，这些模板中的硬编码公共终结点会失败。 可以使用 `reference` 和 `concatenate` 函数动态构建服务终结点，以便在部署期间从资源提供程序检索值。 例如，不需要在模板中硬编码 `blob.core.chinacloudapi.cn`，检索 [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) 即可动态设置 osDisk.URI  终结点：
 
 ```json
 "osDisk": {"name": "osdisk","vhd": {"uri":
@@ -50,11 +50,11 @@ Azure 服务版本在 Azure 和 Azure Stack 之间可能有所不同。 每个�
 
 | 资源提供程序 | apiVersion |
 | --- | --- |
-| 计算 |`'2015-06-15'` |
-| 网络 |`'2015-06-15'`, `'2015-05-01-preview'` |
-| 存储 |`'2016-01-01'`、`'2015-06-15'`、`'2015-05-01-preview'` |
-| KeyVault | `'2015-06-01'` |
-| 应用服务 |`'2015-08-01'` |
+| 计算 |**2015-06-15** |
+| 网络 |**2015-06-15**、**2015-05-01-preview** |
+| 存储 |**2016-01-01**、**2015-06-15**、**2015-05-01-preview** |
+| KeyVault | **2015-06-01** |
+| 应用服务 |**2015-08-01** |
 
 ## <a name="template-functions"></a>模板函数
 

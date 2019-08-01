@@ -9,10 +9,10 @@ origin.date: 01/16/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
 ms.openlocfilehash: 63c92480666ea030f00d65df9e67b3a185bacbf2
-ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67673966"
 ---
 <!--Verify successfully-->
@@ -31,7 +31,7 @@ ms.locfileid: "67673966"
 
 为了创建 Azure 资源，本文要求运行 Azure CLI 版本 2.0.55 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli]。
 
-若要设置容器注册表并向其推送容器映像，还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac], [Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
+若要设置容器注册表并向其推送容器映像，还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 ## <a name="why-use-a-managed-identity"></a>为什么使用托管标识？
 

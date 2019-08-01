@@ -2,21 +2,21 @@
 title: 在 Azure Active Directory B2C 中管理用户访问 | Microsoft Docs
 description: 了解如何使用 Azure AD B2C 识别未成年人、收集出生日期和国家/地区数据，以及让用户在应用程序中接受使用条款。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 07/24/2018
-ms.date: 06/05/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 459426b96f180ac93b1dfceab537adea24115d87
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: f7490ee3cb14cd577d8391446aa349294528b363
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687620"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391555"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中管理用户访问
 
@@ -31,7 +31,7 @@ ms.locfileid: "66687620"
 
 ## <a name="control-minor-access"></a>控制未成年人访问
 
-应用程序和组织可以决定阻止未成年人使用并非面向此类受众的应用程序和服务。 或者，应用程序和组织可以决定接受未成年人访问，随后管理家长的同意，并根据企业规则和法规条例的规定，向未成年人提供许可的体验。 
+应用程序和组织可以决定阻止未成年人使用并非面向此类受众的应用程序和服务。 或者，应用程序和组织可以决定接受未成年人访问，随后管理家长的同意，并根据企业规则和法规条例的规定，向未成年人提供许可的体验。
 
 如果已将某个用户识别为未成年人，则你可以将 Azure AD B2C 中的用户流设置为以下三个选项之一：
 
@@ -49,7 +49,7 @@ ms.locfileid: "66687620"
 
 1. [Azure Active Directory 图形 API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/api-catalog) 操作将用户识别为未成年人，并将用户数据以未签名 JSON 令牌的形式返回给应用程序。
 
-2. 应用程序处理 JSON 令牌，并向未成年人显示一个屏幕，告知他们需要家长同意，并请求家长在线同意。 
+2. 应用程序处理 JSON 令牌，并向未成年人显示一个屏幕，告知他们需要家长同意，并请求家长在线同意。
 
 3. Azure AD B2C 显示可让用户正常登录的登录旅程，并向应用程序颁发一个令牌，该令牌设置为包含 **legalAgeGroupClassification ="minorWithParentalConsent"** 。 应用程序收集家长的电子邮件地址，并验证该家长是否为成年人。 为此，它会使用受信任的源，例如身份证颁发机构、执照验证或信用卡证明。 如果验证成功，则应用程序会提示未成年人使用 Azure AD B2C 用户流登录。 如果同意被拒绝（例如 **legalAgeGroupClassification ="minorWithoutParentalConsent"** ），则 Azure AD B2C 会向应用程序返回 JSON 令牌（并非登录名），以重启同意过程。 可以选择性地自定义用户流，让未成年人或成年人重获未成年人帐户的访问权限，方法是向记录的未成年人电子邮件地址或成年人电子邮件地址发送一个注册码。
 
@@ -61,7 +61,7 @@ ms.locfileid: "66687620"
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>收集出生日期和国家/地区数据
 
-在注册期间，应用程序可能依赖于 Azure AD B2C 从所有用户收集出生日期 (DOB) 和国家/地区信息。 如果此信息不存在，在下一次身份验证（登录）旅程期间，应用程序可以请求用户提供此信息。 在不提供 DOB 和国家/地区信息的情况下，用户无法继续。 Azure AD B2C 使用此信息根据该国家/地区的法规标准，判断是否要将该用户视为未成年人。 
+在注册期间，应用程序可能依赖于 Azure AD B2C 从所有用户收集出生日期 (DOB) 和国家/地区信息。 如果此信息不存在，在下一次身份验证（登录）旅程期间，应用程序可以请求用户提供此信息。 在不提供 DOB 和国家/地区信息的情况下，用户无法继续。 Azure AD B2C 使用此信息根据该国家/地区的法规标准，判断是否要将该用户视为未成年人。
 
 自定义的用户流可以收集 DOB 和国家/地区信息，使用 Azure AD B2C 声明转换来确定 **ageGroup**，并将结果保存在目录中（或直接保存 DOB 和国家/地区信息）。
 
@@ -75,7 +75,7 @@ ms.locfileid: "66687620"
 
     b. 将最小出生日期与实际出生日期相比较。 如果最小出生日期在用户的实际出生日期之前，则计算会返回 **Minor** 作为年龄组计算结果。
 
-3. 如果 country 元素中存在 **MinorNoConsentRequired** 节点，请使用 **MinorNoConsentRequired** 中的值重复步骤 2a 和 2b。 如果最小出生日期在用户的实际出生日期之前，则 2b 的输出将返回 **MinorNoConsentRequired**。 
+3. 如果 country 元素中存在 **MinorNoConsentRequired** 节点，请使用 **MinorNoConsentRequired** 中的值重复步骤 2a 和 2b。 如果最小出生日期在用户的实际出生日期之前，则 2b 的输出将返回 **MinorNoConsentRequired**。
 
 4. 如果任何计算都未返回 true，则计算会返回 **Adult**。
 
@@ -113,11 +113,11 @@ ms.locfileid: "66687620"
 
 下图显示了建议的用户流：
 
-![接受用户流](./media/manage-user-access/user-flow.png) 
+![显示建议的接受用户流的流程图](./media/manage-user-access/user-flow.png)
 
 下面是声明中基于 DateTime 的使用条款许可状态示例：
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetNewUserAgreeToTermsOfUseConsentDateTime" TransformationMethod="GetCurrentDateTime">
     <OutputClaims>
@@ -140,7 +140,7 @@ ms.locfileid: "66687620"
 
 下面是声明中基于 Version 的使用条款许可状态示例：
 
-```
+```xml
 <ClaimsTransformations>
   <ClaimsTransformation Id="GetEmptyTermsOfUseConsentVersionForNewUser" TransformationMethod="CreateStringClaim">
     <InputParameters>
@@ -171,7 +171,7 @@ ms.locfileid: "66687620"
       <OutputClaim ClaimTypeReferenceId="termsOfUseConsentRequired" TransformationClaimType="outputClaim" />
     </OutputClaims>
   </ClaimsTransformation>
-</ClaimsTransformations> 
+</ClaimsTransformations>
 ```
 
 ## <a name="next-steps"></a>后续步骤

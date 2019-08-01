@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: f044496a49cb71f5c8f5ac851b243b2888aa8368
-ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
+ms.openlocfilehash: cef371936946bd859512de71755db031a6c2309e
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725232"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514459"
 ---
 # <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -31,10 +31,15 @@ ms.locfileid: "67725232"
 
 - **[Azure 存储](../storage/common/storage-network-security.md?toc=%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** ：在所有 Azure 区域已推出正式版。
 - **[Azure SQL 数据库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域正式发布。
-- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+- **[Azure SQL 数据仓库](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域正式发布。
+- **[Azure Database for PostgreSQL 服务器](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** ：在可以使用数据库服务的 Azure 区域中通常可用。
+- **[Azure Database for MySQL 服务器](../mysql/howto-manage-vnet-using-portal.md?toc=%2fvirtual-network%2ftoc.json)** ：在可以使用数据库服务的 Azure 区域中通常可用。
+- **[Azure Database for MariaDB](/mariadb/concepts-data-access-security-vnet)** ：在可以使用数据库服务的 Azure 区域中通常可用。
 - **[Azure Cosmos DB](../cosmos-db/vnet-service-endpoint.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
 - **[Azure Key Vault](../key-vault/key-vault-overview-vnet-service-endpoints.md)** ：在所有 Azure 区域已推出正式版。
 - **[Azure 服务总线](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)** ：在所有 Azure 区域已推出正式版。
+
+- **[Azure 应用服务](/app-service/app-service-ip-restrictions)** ：通常可在应用服务可用的所有 Azure 区域中使用
 
 <!--Not Available on - **Azure Event Hubs**: Generally available in all Azure regions.-->
 <!--Not Available on - [Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fvirtual-network%2ftoc.json)-->
@@ -120,7 +125,7 @@ ms.locfileid: "67725232"
 
 ## <a name="provisioning"></a>设置
 
-对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有 *Microsoft.Network/JoinServicetoaSubnet* 权限。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
+对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action”权限  。 此权限默认包含在内置的服务管理员角色中，可以通过创建自定义角色进行修改。
 
 详细了解[内置角色](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json)以及将特定的权限分配到[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 

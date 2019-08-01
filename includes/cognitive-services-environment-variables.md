@@ -3,20 +3,20 @@ author: aahill
 ms.service: cognitive-services
 ms.topic: include
 origin.date: 06/24/2019
-ms.date: 07/09/2019
+ms.date: 07/24/2019
 ms.author: v-junlch
-ms.openlocfilehash: dfd22c9c892b02594f8063da77b070c949975f80
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 3e0be5eb9ee610c8f048415fb2a7d0d73cef1c53
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844611"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439909"
 ---
 ## <a name="configure-an-environment-variable-for-authentication"></a>配置用于身份验证的环境变量
 
-应用程序需要对它们使用的认知服务的访问进行身份验证。 若要进行身份验证，我们建议你创建一个环境变量，以便在 Azure 资源中存储密钥。 
+应用程序需要对它们使用的认知服务的访问进行身份验证。 若要进行身份验证，我们建议创建一个环境变量来存储 Azure 资源的密钥。 
 
-获得密钥后，将其写入运行应用程序的本地计算机上的新环境变量。 若要设置环境变量，请打开控制台窗口，并遵照适用于操作系统的说明。 将 `your-key` 替换为异常检测器访问密钥：
+获得密钥后，将其写入运行应用程序的本地计算机上的新环境变量。 若要设置环境变量，请打开控制台窗口，并遵照适用于操作系统的说明。 将 `your-key` 替换为资源的密钥之一。
 
 * Windows
 

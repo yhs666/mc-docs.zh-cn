@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 03/04/2019
+origin.date: 06/10/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
-ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d6fd72c24ce924ff1c32c8e03a18f3bfa3f80aa7
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.lastreviewed: 06/10/2019
+ms.openlocfilehash: b3917b70a09abdf561f07bf805552261d361ccfd
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513395"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure Stack 基础结构安全局势
 
@@ -98,4 +98,5 @@ Azure Stack 已通过了由第三方独立的审核公司执行的正式评估�
 
 ## <a name="next-steps"></a>后续步骤
 
+- [配置 Azure Stack 安全控制](azure-stack-security-configuration.md)
 - [了解如何在 Azure Stack 中轮换机密](azure-stack-rotate-secrets.md)

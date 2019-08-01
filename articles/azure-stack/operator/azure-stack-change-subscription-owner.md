@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 06/03/2019
+origin.date: 06/04/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: shnatara
 ms.lastreviewed: 10/19/2018
-ms.openlocfilehash: 26125038fbd4e908aa2220bd4cddb122ee813f5f
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 12be3ec74eddd6b11335fa11cabb29e74aa4d0a6
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381881"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513477"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>更改 Azure Stack 用户订阅的所有者
 
@@ -34,7 +34,7 @@ Azure Stack 操作员可以使用 PowerShell 更改用户订阅的计费所有�
 
   可以使用 PowerShell cmdlet [Set-AzsUserSubscription](https://docs.microsoft.com/powershell/module/azs.subscriptions.admin/set-azsusersubscription) 更改计费所有者。  
 
-- **通过 RBAC 角色添加的所有者** - 可以使用[基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 系统为其他用户授予“所有者”  角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
+- **通过 RBAC 角色添加的所有者** - 可以使用[基于角色的访问控制](azure-stack-manage-permissions.md) (RBAC) 向其他用户授予**所有者**角色。 可将任意数量的其他用户帐户添加为所有者，以补充计费所有者。 其他所有者也是订阅的管理员，拥有订阅的所有特权，但无权删除计费所有者。
 
   可以使用 PowerShell 来管理其他所有者。 有关详细信息，请参阅[此文章](/role-based-access-control/role-assignments-powershell)。
 

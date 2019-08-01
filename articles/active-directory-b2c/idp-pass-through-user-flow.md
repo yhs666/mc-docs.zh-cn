@@ -2,21 +2,21 @@
 title: 通过用户流将访问令牌传递给应用程序 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中以用户流中声明的方式传递 OAuth2.0 标识提供者的访问令牌。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 06/05/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 59db250f7c05caea5822615e3962cb8d9a310ddc
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: efe08222f3b9477570433fb86546c812e1a2e43a
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687628"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391566"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用用户流将访问令牌传递给应用程序
 
@@ -55,13 +55,10 @@ Azure AD B2C 当前仅支持传递 [OAuth 2.0](active-directory-b2c-reference-oa
 
     应会看到类似于以下示例的内容：
 
-    ![已解码的令牌](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.png)
+    ![jwt.ms 中突出显示了 idp_access_token 块的已解码令牌](./media/idp-pass-through-user-flow/idp-pass-through-user-flow-token.PNG)
 
 ## <a name="next-steps"></a>后续步骤
 
 在 [Azure AD B2C 令牌概述](active-directory-b2c-reference-tokens.md)中了解详细信息。
 
 <!-- Update_Description: wording update -->
-
-
-

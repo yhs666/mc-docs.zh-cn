@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-origin.date: 05/06/2019
-ms.date: 06/03/2019
+origin.date: 06/20/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anajod
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: 87c5972616b7973a2270374a9140d1c2ff44e52c
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: b1ea9359107498122e556f448b19f75c1146d935
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135479"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513292"
 ---
 # <a name="create-hybrid-cloud-apps-with-azure-and-azure-stack"></a>使用 Azure 和 Azure Stack 创建混合云应用
 
@@ -31,18 +31,16 @@ Azure 是一致的混合云。 Azure 允许你重用在 Azure 中开发的代码
 
 混合方案因可用于开发的资源而有很大的不同，并且涉及地理、安全性、Internet 访问等考虑因素。 尽管这些方案不能满足你的特定需求，但它们可以为你提供一些重要的准则和示例，以帮助你探索实现混合解决方案。
 
-可以使用混合云来处理以下项：
-- 示例分层数据。
-- Azure 和 Azure Stack 中的 SQL Server。
-- Azure 和 Azure Stack 中的 Mongo 数据库端到端部署。
-- Microsoft Edge 人工智能推理无效检测。
-
 ## <a name="step-by-step-tutorials"></a>分步教程
 
 - [将应用部署到 Azure Stack 和 Azure](azure-stack-solution-hybrid-identity.md)
 - [使用 Azure 和 Azure Stack 应用配置混合云标识](azure-stack-solution-hybrid-connectivity.md)
 - [使用 Azure 和 Azure Stack 配置混合云连接](azure-stack-solution-staged-data-analytics.md)
+- [使用 Azure 和 Azure Stack 创建临时数据分析解决方案](azure-stack-solution-staged-data.md)
 - [使用 Azure 和 Azure Stack 部署混合云解决方案](azure-stack-solution-hybrid-cloud.md)
+- [在 Azure 和 Azure Stack 中部署 MongoDB](azure-stack-solution-mongodb-ha.md)
+- [在 Azure 和 Azure Stack 中部署 SQL Server 2016](azure-stack-solution-sql-ha.md)
+
 
 ## <a name="next-steps"></a>后续步骤
 

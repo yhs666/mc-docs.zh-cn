@@ -7,15 +7,15 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: 160bd951eca60147b29e068ab247c53da5a28d0e
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.date: 08/05/2019
+ms.openlocfilehash: 743c9924196ff6cad8ee0adc288c4135531174d6
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717321"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371749"
 ---
-# <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据
+# <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>在 Power BI 中使用 SQL 查询直观显示 Azure 数据资源管理器中的数据
 
 Azure 数据资源管理器是一项快速且高度可缩放的数据探索服务，适用于日志和遥测数据。 Power BI 是一种业务分析解决方案，可以用来可视化数据，并在组织内共享结果。
 
@@ -85,4 +85,4 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Power BI 中已导入的查询来直观显示数据](power-bi-connector.md)
+[使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据](power-bi-connector.md)

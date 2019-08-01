@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 680d50fbb12ec8cd4b8404a2c8f5e6b8052e5155
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e18801802414eaeda549a9716ed3ded1be49dbf4
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732151"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513870"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure Monitor 进行持续监视
 
@@ -70,7 +70,7 @@ ms.locfileid: "66732151"
 
 - 基于日志和指标[在 Azure Monitor 中创建警报](../azure-monitor/platform/alerts-overview.md)可以识别到可预测的故障状态。 在使所有警报可操作方面应有一个目标，即，这些警报表示实际的关键状况，并且应该尽量减少误报。 使用[动态阈值](platform/alerts-dynamic-thresholds.md)可基于指标数据自动计算基线，而无需定义自己的静态阈值。 
 - 为警报定义操作可以使用最有效的方式来通知管理员。 可用的[通知操作](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)包括短信、电子邮件、推送通知或语音呼叫。
-- 使用更高级的操作可以通过 [Webhook](platform/activity-log-alerts-webhook.md) [连接到 ITSM 工具](platform/itsmc-overview.md)或其他警报管理系统。
+- 使用更高级的操作通过 [webhook](platform/activity-log-alerts-webhook.md) 向管理系统发出警报。
 - 还可以使用 [Azure 自动化 Runbook](../automation/automation-webhooks.md) 或[逻辑应用](/connectors/custom-connectors/create-webhook-trigger)（可以通过 Webhook 从警报启动）来修正警报中识别到的问题。 
 - 使用[自动缩放](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md)可以根据收集的指标动态增加和减少计算资源。
 

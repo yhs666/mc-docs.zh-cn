@@ -10,49 +10,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/22/2019
-ms.date: 03/18/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: cd9bff0eae3584ce9b01fb49ae6bbf996d7cdc3d
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: 3920d66eb2d9b4d06080be2dba45db8f696daba7
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560504"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514463"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>使用 IoT 中心发送云到设备消息 (Python)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 
 ## <a name="introduction"></a>简介
-Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [IoT 中心入门] 教程介绍了如何创建 IoT 中心和在其中预配设备标识，并介绍了如何编写用于发送设备到云消息的模拟设备应用。
+
+Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备和单个解决方案后端之间实现安全可靠的双向通信。 [从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)快速入门介绍了如何创建 IoT 中心、在其中预配设备标识，以及编写模拟设备应用来发送设备到云的消息。
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-本教程是在 [IoT 中心入门]的基础上编写的。 其中了说明了如何：
+本教程在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)的基础上编写。 其中了说明了如何：
 
 * 通过 IoT 中心，将云到设备的消息从解决方案后端发送到单个设备。
 * 在设备上接收云到设备的消息。
-* 通过解决方案后端，请求确认收到从 IoT 中心发送到设备的消息（反馈）。
+* 通过解决方案后端，请求确认收到从 IoT 中心发送到设备的消息（反馈  ）。
 
 可以在 [IoT 中心开发人员指南][IoT Hub developer guide - C2D]中找到有关云到设备消息的详细信息。
 
 在本教程末尾，你将运行两个 Python 控制台应用：
 
-* **SimulatedDevice.py**，这是在 [IoT 中心入门]中创建的应用的修改版本，它连接到 IoT 中心并接收云到设备消息。
+* **SimulatedDevice.py**（[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)中创建的应用的修改版本），它连接到 IoT 中心并接收云到设备的消息。
+
 * **SendCloudToDeviceMessage.py**，它将云到设备消息通过 IoT 中心发送到模拟设备应用，然后接收其传送确认。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心]。
-> 
+> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
+>
 
 要完成本教程，需要以下各项：
 
-* [Python 2.x 或 3.x][lnk-python-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip - Python 包管理系统][lnk-install-pip]。
-* 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
+* [Python 2.x 或 3.x](https://www.python.org/downloads/)。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip  - Python 包管理系统](https://pip.pypa.io/en/stable/installing/)。
+
+* 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包](https://www.microsoft.com/download/confirmation.aspx?id=48145)，以便使用 Python 中的本机 DLL。
+
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。）
 
 > [!NOTE]
-> 适用于 `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 包目前仅供 Windows OS 使用。 对于 Linux/Mac OS，请参阅[准备适用于 Python 的开发环境][lnk-python-devbox]一文中特定于 Linux 和 Mac OS 的部分。
+> 适用于 `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip  包目前仅供 Windows OS 使用。 对于 Linux/Mac OS，请参阅[准备适用于 Python 的开发环境][lnk-python-devbox]一文中特定于 Linux 和 Mac OS 的部分。
 > 
 
 
@@ -76,8 +80,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     RECEIVE_CALLBACKS = 0
     ```
 
-1. 将以下代码添加到 **SimulatedDevice.py** 文件。 将“{deviceConnectionString}”占位符值替换为在 [IoT 中心入门]教程中创建的设备的设备连接字符串：
-   
+3. 将以下代码添加到 **SimulatedDevice.py** 文件。 将“{deviceConnectionString}”占位符值替换为你在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)快速入门中创建的设备的设备连接字符串：
+
     ```python
     # choose AMQP or AMQP_WS as transport protocol
     PROTOCOL = IoTHubTransportProvider.AMQP
@@ -168,7 +172,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 
 ## <a name="send-a-cloud-to-device-message"></a>发送云到设备的消息
-在本部分中，将创建一个 Python 控制台应用，用于向模拟设备应用发送云到设备消息。 需要使用 [IoT 中心入门]教程中添加的设备的设备 ID。 还需要中心的 IoT 中心连接字符串（位于 [Azure 门户]）。
+
+在本部分中，将创建一个 Python 控制台应用，用于向模拟设备应用发送云到设备消息。 需要在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)快速入门中添加的设备的设备 ID。 还需要中心的 IoT 中心连接字符串（位于 [Azure 门户](https://portal.azure.cn)）。
 
 1. 使用文本编辑器，创建一个 **SendCloudToDeviceMessage.py** 文件。
 
@@ -187,8 +192,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     MSG_TXT = "{\"service client sent a message\": %.2f}"
     ```
 
-1. 将以下代码添加到 **SendCloudToDeviceMessage.py** 文件。 将“{IoTHubConnectionString}”占位符值替换为在 [IoT 中心入门]教程中创建的中心的 IoT 中心连接字符串。 将“{deviceId}”占位符替换为在 [IoT 中心入门]教程中添加的设备的设备 ID：
-   
+3. 将以下代码添加到 **SendCloudToDeviceMessage.py** 文件。 将“{IoTHubConnectionString}”占位符值替换为你在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)快速入门中创建的中心的 IoT 中心连接字符串。 将“{deviceId}”占位符替换为你在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-python.md)快速入门中添加的设备的设备 ID：
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
@@ -266,7 +271,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 1. 打开命令提示符，并安装**用于 Python 的 Azure IoT 中心设备 SDK**。
 
-    ```
+    ```shell
     pip install azure-iothub-device-client
     ```
 
@@ -275,12 +280,12 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ```shell
     python SimulatedDevice.py 
     ```
-   
-    ![运行模拟设备应用][img-simulated-device]
+
+    ![运行模拟设备应用](./media/iot-hub-python-python-c2d/simulated-device.png)
 
 1. 打开一个新的命令提示符，并安装**用于 Python 的 Azure IoT 中心服务 SDK**。
 
-    ```
+    ```shell
     pip install azure-iothub-service-client
     ```
 
@@ -289,18 +294,17 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     ```shell
     python SendCloudToDeviceMessage.py 
     ```
-   
-    ![运行应用以发送云到设备的命令][img-send-command]
-   
-1. 注意设备收到的消息。
 
-    ![收到的消息][img-message-received]
+    ![运行应用以发送云到设备的命令](./media/iot-hub-python-python-c2d/send-command.png)
+
+5. 注意设备收到的消息。
+
+    ![收到的消息](./media/iot-hub-python-python-c2d/message-received.png)
 
 
 ## <a name="next-steps"></a>后续步骤
 在本教程中，已学习如何发送和接收云到设备的消息。 
 
-若要查看使用 IoT 中心完成端到端解决方案的示例，请参阅 [Azure IoT 远程监视解决方案加速器]。
 
 若要了解有关使用 IoT 中心开发解决方案的详细信息，请参阅 [IoT 中心开发人员指南]。
 
@@ -314,12 +318,12 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 [lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
 [lnk-node-download]: https://nodejs.org/en/download/
 [lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[IoT 中心入门]: quickstart-send-telemetry-python.md
+[Get started with IoT Hub]: quickstart-send-telemetry-python.md
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md
 [IoT 中心开发人员指南]: iot-hub-devguide.md
-[Azure IoT 开发人员中心]: http://www.azure.cn/develop/iot
+[Azure IoT Developer Center]: http://www.azure.cn/develop/iot
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Azure 门户]: https://portal.azure.cn
-[Azure IoT 远程监视解决方案加速器]: /iot-suite/
+[Azure portal]: https://portal.azure.cn
+[Azure IoT Remote Monitoring solution accelerator]: /iot-suite/

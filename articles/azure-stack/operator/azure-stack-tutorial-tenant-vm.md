@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 02/12/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/11/2018
 ms.custom: mvc
-ms.openlocfilehash: 22d563cd820d060c923c8c8c74f979c42c294cf2
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 807c52bcf92cde55658220f4fce2f9376c022302
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381880"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513387"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>教程：将虚拟机提供给 Azure Stack 用户使用
 
@@ -42,7 +42,7 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 
 ![订阅、套餐和计划](media/azure-stack-key-features/image4.png)
 
-有关详细信息，请参阅 [Azure Stack 中的重要功能和概念](azure-stack-overview.md)。
+若要了解详细信息，请参阅[计划、套餐、配额和订阅概述](azure-stack-plan-offer-quota-overview.md)。
 
 ## <a name="create-an-offer"></a>创建产品
 
@@ -111,8 +111,8 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
 1. **订阅套餐**
 
    a. 使用用户帐户登录到用户门户，然后选择“获取订阅”磁贴。 
-   - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
-   - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
+   - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; 。
+   - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external 。
 
    ![获取订阅](media/azure-stack-tutorial-tenant-vm/image10.png)
 
@@ -130,8 +130,8 @@ Azure Stack 云管理员可以创建套餐供用户（有时称为租户）订�
    可在用户门户中使用新订阅预配虚拟机。
 
    a. 使用用户帐户登录到用户门户。
-   - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;。
-     - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external。
+   - 对于集成系统，URL 根据操作员所在的区域和外部域名的不同而异，格式为 https://portal.&lt ;*region*&gt;.&lt;*FQDN*&gt; 。
+     - 如果使用的是 Azure Stack 开发工具包，则门户地址为 https://portal.local.azurestack.external 。
 
    b.  在仪表板上，选择“+创建资源” > “计算” > “Windows Server 2016 Datacenter Eval”，然后选择“创建”。    
 

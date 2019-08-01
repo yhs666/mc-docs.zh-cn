@@ -9,14 +9,14 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 03/29/2018
-ms.date: 07/12/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: e698413f97efbcd7887287a57f8ac5d8d4aa8d1f
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 33f31db3728566185ef1d880c01482844893f1e3
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844634"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439906"
 ---
 # <a name="translator-text-api-v30"></a>文本翻译 API v3.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "67844634"
 
 ## <a name="base-urls"></a>基 URL
 
-Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 6 个 [Azure 地理区域](https://azure.microsoft.com/global-infrastructure/regions)：
+Microsoft Translator 位于多个数据中心位置之外。 目前它们位于 10 个 [Azure 地理区域](https://azure.microsoft.com/global-infrastructure/regions)：
 
 * **中国：** 中国北部和中国东部 2 
 

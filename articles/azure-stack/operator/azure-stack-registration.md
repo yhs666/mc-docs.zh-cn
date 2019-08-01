@@ -13,16 +13,16 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: brbartle
+ms.reviewer: avishwan
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 9e0336cd05fdc60d55c7b7b87d796f7eab6cf260
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 231a89481b65fe0ca6a4b59fd5af3556f562fdf3
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135421"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513428"
 ---
 # <a name="register-azure-stack-with-azure"></a>将 Azure Stack 注册到 Azure
 
@@ -253,7 +253,17 @@ Run: Get-AzureStackStampInformation
 
 ### <a name="connect-to-azure-and-register"></a>连接到 Azure 并注册
 
-在连接到 Internet 的计算机上，执行相同的步骤以导入 RegisterWithAzure.psm1 模块，并登录到正确的 Azure Powershell 上下文。 然后调用 Register-AzsEnvironment。 指定可注册到 Azure 的注册令牌。 如果使用同一 Azure 订阅 ID 注册多个 Azure Stack 实例，请指定唯一的注册名称。 运行以下 cmdlet：
+在连接到 Internet 的计算机上，执行相同的步骤以导入 RegisterWithAzure.psm1 模块，并登录到正确的 Azure Powershell 上下文。 然后调用 Register-AzsEnvironment。 指定可注册到 Azure 的注册令牌。 如果使用同一 Azure 订阅 ID 注册多个 Azure Stack 实例，请指定唯一的注册名称。
+
+你将需要注册令牌和唯一令牌名称。
+
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+
+   ```powershell  
+   Import-Module .\RegisterWithAzure.psm1
+   ```
+
+2. 然后运行以下 PowerShell cmdlet：  
 
   ```powershell  
   $RegistrationToken = "<Your Registration Token>"
@@ -261,7 +271,17 @@ Run: Get-AzureStackStampInformation
   Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
-（可选）可以使用 Get-Content cmdlet，使之指向包含注册令牌的文件：
+（可选）可以使用 Get-Content cmdlet 指向包含注册令牌的文件。
+
+你将需要注册令牌和唯一令牌名称。
+
+1. 以管理员身份启动 PowerShell ISE，并导航到下载 Azure Stack 工具时所创建的 **AzureStack-Tools-master** 目录中的 **Registration** 文件夹。 导入 **RegisterWithAzure.psm1** 模块：  
+
+  ```powershell  
+  Import-Module .\RegisterWithAzure.psm1
+  ```
+
+2. 然后运行以下 PowerShell cmdlet：  
 
   ```powershell  
   $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
@@ -310,7 +330,7 @@ Run: Get-AzureStackStampInformation
 
 2. 在“仪表板”中，选择“区域管理”。 
 
-3. 选择“属性”  。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”，也可能是“未注册”。  
+3. 选择“属性”  。 此边栏选项卡显示环境的状态和详细信息。 状态可能是“已注册”、“未注册”或“已过期”。   
 
     [![“区域管理”磁贴](media/azure-stack-registration/admin1sm.png "“区域管理”磁贴")](media/azure-stack-registration/admin1.png#lightbox)
 

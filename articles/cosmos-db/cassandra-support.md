@@ -8,13 +8,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 origin.date: 09/24/2018
-ms.date: 04/15/2019
-ms.openlocfilehash: d6b01aa8cb992bdad7c4e0124ab1a5900a18bdb9
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.date: 07/29/2019
+ms.openlocfilehash: c73f32990d342bd5db205de83470080a63334fb3
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491281"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514355"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API 支持的 Apache Cassandra 功能 
 
@@ -75,6 +75,8 @@ Azure Cosmos DB Cassandra API 支持以下 CQL 数据类型：
 Azure Cosmos DB Cassandra API 支持以下 CQL 函数：
 
 * 令牌  
+* 聚合函数
+    * 最小值、最大值、平均值、计数
 * Blob 转换函数 
     * typeAsBlob(value)  
     * blobAsType(value)
@@ -154,11 +156,11 @@ Azure Cosmos DB 在 Cassandra API 帐户上支持以下数据库命令。
 
 ## <a name="consistency-mapping"></a>一致性映射 
 
-Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。 无论帐户的一致性如何，所有写入操作都始终会使用写入性能 SLA 进行编写。
+Azure Cosmos DB Cassandra API 为读取操作提供了一致性选择。 一致性映射的详细信息[在这里](https://docs.azure.cn/cosmos-db/consistency-levels-across-apis#cassandra-mapping)。
 
 ## <a name="permission-and-role-management"></a>权限和角色管理
 
-Azure Cosmos DB 支持基于角色的访问控制 (RBAC) 以及读写和只读密码/密钥（可通过 [Azure 门户](https://portal.azure.cn)获取）。 Azure Cosmos DB 在数据平面活动中尚不支持用户和角色。 
+Azure Cosmos DB 支持基于角色的访问控制 (RBAC) 用于预配、旋转密钥、查看指标以及读写和只读密码/密钥（可通过 [Azure 门户](https://portal.azure.cn)获取）。 Azure Cosmos DB 在 CRUD 活动中尚不支持用户和角色。 
 
 ## <a name="planned-support"></a>计划的支持 
 * 目前忽略 create keypace 命令中的区域名称 - 数据分配在底层 Cosmos DB 平台中实现，并通过门户或 powershell 向帐户公开。 

@@ -1,8 +1,8 @@
 ---
 title: 连接到云的模拟 Raspberry Pi (Node.js) - 将 Raspberry Pi Web 模拟器连接到 Azure IoT 中心 | Microsoft Docs
 description: 将 Raspberry Pi Web 模拟器连接到 Azure IoT 中心，以供 Raspberry Pi 将数据发送到 Azure 云。
-author: rangv
-manager: ''
+author: wesmc7777
+manager: philmea
 keywords: raspberry pi 模拟器, azure iot raspberry Pi, raspberry pi iot 中心, raspberry pi 将数据发送到云, 连接到云的 raspberry pi
 ms.service: iot-hub
 services: iot-hub
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 05/06/2019
-ms.openlocfilehash: 2204679a21e5343946b388c468ef733a6085e93c
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/05/2019
+ms.openlocfilehash: 8b163398859580d77331bdcf2b4d86d92564de46
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855179"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514467"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>将 Raspberry Pi 联机模拟器连接到 Azure IoT 中心 (Node.js)
 
@@ -65,9 +65,9 @@ Web 模拟器中有三个区域。
 1. 装配区 - 默认电路是 Pi 与 BME280 传感器和 LED 连接。 在预览版中该区域是锁定的，因此当前无法执行自定义操作。
 2. 编码区 - 一个联机代码编辑器，用于使用 Raspberry Pi 进行编码。 默认示例应用程序有助于从 BME280 传感器收集传感器数据，并发送到 Azure IoT 中心。 应用程序与实际 Pi 设备是完全兼容的。 
 3. 集成控制台窗口 - 会显示代码的输出。 此窗口顶部有三个按钮。
-   * 运行 - 在编码区中运行应用程序。
-   * 重置 - 将编码区重置为默认示例应用程序。
-   * 折叠/展开 - 按钮位于右侧，用于折叠/展开控制台窗口。
+   * 运行 - 在编码区中运行应用程序  。
+   * 重置 - 将编码区重置为默认示例应用程序  。
+   * 折叠/展开 - 按钮位于右侧，用于折叠/展开控制台窗口  。
 
 > [!NOTE]
 > Raspberry Pi Web 模拟器现于预览版中提供。 我们希望通过 [Gitter Chatroom](https://gitter.im/Microsoft/raspberry-pi-web-simulator) 听到你的建议。 [Github](https://github.com/Azure-Samples/raspberry-pi-web-simulator) 上公开了源代码。
@@ -78,10 +78,6 @@ Web 模拟器中有三个区域。
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
@@ -89,9 +85,10 @@ Web 模拟器中有三个区域。
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>在 Pi Web 模拟器上运行示例应用程序
 
 1. 在编码区中，请确保正在使用默认示例应用程序。 将 15 行中的占位符替换为 Azure IoT 中心设备的连接字符串。
-   ![替换设备连接字符串](./media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
-2. 选择“运行”，或键入 `npm start`，即可运行应用程序。
+   ![替换设备连接字符串](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
+
+2. 选择“运行”，或键入 `npm start`，即可运行应用程序  。
 
 应看到以下输出，其中显示传感器数据以及发送至 IoT 中心的消息![输出 - 从 Raspberry Pi 发送到 IoT 中心的传感器数据](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 

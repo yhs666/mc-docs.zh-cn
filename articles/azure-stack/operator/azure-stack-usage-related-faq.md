@@ -11,23 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/26/2019
-ms.date: 04/29/2019
+origin.date: 05/31/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 4f3087ed3ff07a98fe8029b1f332920c2fe60cfd
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 4883a4131fbe7471d68d71388b199034d68e74df
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135456"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513372"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Azure Stack 用量 API 的常见问题解答
 
-此文解答有关 Azure Stack 用量 API 的一些常见问题。
+本文解答有关 Azure Stack 用量 API 的一些常见问题。
 
 ## <a name="what-meter-ids-can-i-see"></a>可以查看哪些计量 ID？
+
 系统针对以下资源提供程序报告用量：
 
 ### <a name="network"></a>网络
@@ -77,7 +78,7 @@ ms.locfileid: "67135456"
 **计量 ID**：1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **计量名称**：TableDataTransOut  
 **单元**：传出数据 (GB)  
-**注释**：表服务传出数据 (GB)  
+**注释**：表服务传出数据 (GB)。
   
 **计量 ID**：43DAF82B-4618-444A-B994-40C23F7CD438  
 **计量名称**：BlobTransactions  
@@ -109,7 +110,7 @@ ms.locfileid: "67135456"
 **单元**：传出数据 (GB)  
 **注释**：队列服务传出数据 (GB)  
 
-### <a name="compute"></a>计算 
+### <a name="compute"></a>计算
   
 **计量 ID**：FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
 **计量名称**：基本 VM 大小小时  
@@ -124,7 +125,7 @@ ms.locfileid: "67135456"
 **计量 ID**：6DAB500F-A4FD-49C4-956D-229BB9C8C793  
 **计量名称**：VM 大小小时数  
 **单元**：VM 小时数  
-**注释**：捕获基本 VM 和 Windows 的 VM。 不针对核心进行调整。  
+**注释**：捕获基本 VM 和 Windows VM。 不针对核心进行调整。  
   
 ### <a name="managed-disks"></a>托管磁盘
 
@@ -388,6 +389,7 @@ ms.locfileid: "67135456"
   
 
 ## <a name="what-is-the-difference-between-usage-time-and-reported-time"></a>使用时间与报告时间有何差别？
+
 用量数据报告包含两个主要时间值：
 
 * **报告时间**。 用量事件进入用量系统的时间
@@ -398,6 +400,7 @@ ms.locfileid: "67135456"
 目前，只能按“报告时间”查询。 
 
 ## <a name="what-do-these-usage-api-error-codes-mean"></a>这些用量 API 错误代码的含义是什么？
+
 | **HTTP 状态代码** | 错误代码  | **说明** |
 | --- | --- | --- |
 | 400/错误的请求 |*NoApiVersion* |未提供 *api-version* 查询参数。 |
@@ -413,10 +416,7 @@ ms.locfileid: "67135456"
 正在运行的和已停止的 VM 会生成使用情况数据。 与 Azure 一致的是，必须解除分配才能停止使用情况数据的发出。 如果门户不可用，但计算资源提供程序仍在运行，则会发出使用情况数据。
 
 ## <a name="next-steps"></a>后续步骤
-[Azure Stack 中的客户计费和退款](azure-stack-billing-and-chargeback.md)
 
-[提供程序资源使用情况 API](azure-stack-provider-resource-api.md)
-
-[租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)
-
-<!-- Update_Description: wording update -->
+* [Azure Stack 中的客户计费和退款](azure-stack-billing-and-chargeback.md)
+* [提供程序资源使用情况 API](azure-stack-provider-resource-api.md)
+* [租户资源使用情况 API](azure-stack-tenant-resource-usage-api.md)

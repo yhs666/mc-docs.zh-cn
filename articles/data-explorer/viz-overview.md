@@ -8,13 +8,13 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 12e740fe59d9d0c91f2a6c14eb478ee963bd68c1
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.date: 08/05/2019
+ms.openlocfilehash: d85d8d36dc5d15f7fcffaa3f25d5b673643605c8
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717355"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371747"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>使用 Azure 数据资源管理器进行数据可视化 
 
@@ -22,9 +22,13 @@ Azure 数据资源管理器是一项适用于日志和遥测数据的快速且�
 
 数据可视化和报告是数据分析过程中的关键步骤。 Azure 数据资源管理器支持许多项 BI 服务，因此你可以使用最适合自己方案和预算的一项。
 
-* Azure 数据资源管理器可视化：[`render operator`](https://docs.microsoft.com/zh-cn/azure/kusto/query/renderoperator) 使用 Kusto 查询语言，提供各种用于描述查询结果的可视化类型。 查询可视化用于异常情况检测和预测、机器学习等。
+## <a name="kusto-query-language-visualizations"></a>Kusto 查询语言可视化
 
-* [Power BI](https://powerbi.microsoft.com)：Azure 数据资源管理器提供使用各种方法连接到 Power BI 的功能： 
+Kusto 查询语言 [`render operator`](https://docs.microsoft.com/zh-cn/azure/kusto/query/renderoperator) 提供各种可视化效果（如表格、饼图和条形图）来描述查询结果。 查询可视化用于异常情况检测和预测、机器学习等。
+
+## <a name="power-bi"></a>Power BI
+
+Azure 数据资源管理器提供使用各种方法连接到 [Power BI](https://powerbi.microsoft.com) 的功能： 
 
   * [内置的本机 Power BI 连接器](/data-explorer/power-bi-connector)
 
@@ -32,12 +36,27 @@ Azure 数据资源管理器是一项适用于日志和遥测数据的快速且�
  
   * [SQL 查询](/data-explorer/power-bi-sql-query)。
 
-* [Microsoft Excel](https://products.office.com/excel)：Azure 数据资源管理器提供使用内置本机 Excel 连接器连接到 Excel 的功能，也可以将查询从 Azure 数据资源管理器导入 Excel。
+## <a name="microsoft-excel"></a>Microsoft Excel
 
-* [Grafana](https://grafana.com)：Grafana 提供一个 Azure 数据资源管理器插件，用于可视化 Azure 数据资源管理器中的数据。 请[将 Azure 数据资源管理器设置为 Grafana 的数据源，然后将数据可视化](/data-explorer/grafana)
+Azure 数据资源管理器提供使用内置本机 Excel 连接器连接到 [Microsoft Excel](https://products.office.com/excel) 的功能，也可以将查询从 Azure 数据资源管理器导入 Excel。
 
-* [Sisense](https://www.sisense.com)：Azure 数据资源管理器提供使用 JDBC 连接器连接到 Sisense 的功能。 请[将 Azure 数据资源管理器设置为 Sisense 的数据源，然后将数据可视化](/data-explorer/sisense)。
+## <a name="grafana"></a>Grafana
 
-* [Tableau](https://www.tableau.com)：Azure 数据资源管理器提供使用 [ODBC 连接器](/data-explorer/connect-odbc)连接到 Tableau 的功能，并可在 Tableau 中将数据可视化。
+[Grafana](https://grafana.com) 提供一个 Azure 数据资源管理器插件，用于直观显示 Azure 数据资源管理器中的数据。 请[将 Azure 数据资源管理器设置为 Grafana 的数据源，然后将数据可视化](/data-explorer/grafana)。 
 
-* [Qlik](https://www.qlik.com)：Azure 数据资源管理器提供使用 [ODBC 连接器](/data-explorer/connect-odbc)连接到 Qlik 的功能。
+## <a name="odbc-connector"></a>ODBC 连接器
+
+Azure 数据资源管理器提供了[开放式数据库连接 (ODBC) 连接器](connect-odbc.md)，因此任何支持 ODBC 的应用程序都可以连接到 Azure 数据资源管理器。
+
+## <a name="tableau"></a>Tableau
+
+Azure 数据资源管理器提供使用 [ODBC 连接器](/data-explorer/connect-odbc)连接到 [Tableau](https://www.tableau.com) 的功能，然后可[在 Tableau 中直观显示数据](tableau.md)。
+
+## <a name="qlik"></a>Qlik
+
+Azure 数据资源管理器提供使用 [ODBC 连接器](/azure/data-explorer/connect-odbc)连接到 [Qlik](https://www.qlik.com) 的功能，然后可创建 Qlik Sense 仪表板并直观显示数据。
+
+
+## <a name="sisense"></a>Sisense
+
+Azure 数据资源管理器提供使用 JDBC 连接器连接到 [Sisense](https://www.sisense.com) 的功能。 请[将 Azure 数据资源管理器设置为 Sisense 的数据源，然后将数据可视化](/azure/data-explorer/sisense)。

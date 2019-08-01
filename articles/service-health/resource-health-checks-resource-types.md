@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: Supportability
 origin.date: 01/29/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 9244c84a5bfbfd2d0f75807398e03a87cd0723db
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 08/05/2019
+ms.openlocfilehash: 7b1cd08a475233dc4ca5d346c88bb2ecadd490a7
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626084"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514151"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure 资源运行状况中的资源类型和运行状况检查
 下面是通过资源运行状况执行的所有检查（按资源类型）的完整列表。
@@ -71,6 +71,16 @@ ms.locfileid: "58626084"
 |---|
 |<ul><li>是否有用户无法将数据上传到 Data Lake Store？</li><li>是否有用户无法从 Data Lake Store 下载数据？</li></ul>|
 
+## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
+|执行的检查|
+|---|
+|<ul><li>服务器是否因维护而不可用？</li><li>服务器是否因重新配置而不可用？</li></ul>|
+
+## <a name="microsoftdbforpostgresqlservers"></a>Microsoft.DBforPostgreSQL/servers
+|执行的检查|
+|---|
+|<ul><li>服务器是否因维护而不可用？</li><li>服务器是否因重新配置而不可用？</li></ul>|
+
 ## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |执行的检查|
@@ -82,15 +92,40 @@ ms.locfileid: "58626084"
 |---|
 |<ul><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的数据库或集合请求？</li><li>是否存在因 Azure Cosmos DB 服务不可用而未处理的文档请求？</li></ul>|
 
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+|执行的检查|
+|---|
+|<ul><li>事件中心命名空间是否遇到用户生成的错误？</li><li>事件中心命名空间当前是否正在升级？</li></ul>|
+
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+|执行的检查|
+|---|
+|<ul><li>HDInsight 群集上是否提供核心服务？</li><li>HDInsight 群集是否可以访问用于 BYOK 静态加密的密钥？</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |执行的检查|
 |---|
 |<ul><li>向 Key Vault 发出的请求是否因 Azure KeyVault 平台问题而失败？</li><li>向 Key Vault 发出的请求是否因客户发出的请求过多而受限制？</li></ul>|
 
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+|执行的检查|
+|---|
+|<ul><li>应用程序网关的性能是否下降了？</li><li>应用程序网关是否可用？</li></ul>|
+
 ## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |执行的检查|
 |---|
 |<ul><li>VPN 隧道是否已连接？</li><li>是否存在连接配置冲突？</li><li>是否已正确配置预共享密钥？</li><li>是否可访问 VPN 本地设备？</li><li>IPSec/IKE 安全策略中是否有不匹配内容？</li><li>S2S VPN 连接是设置正确还是处于连接失败状态？</li><li>VNET 到 VNET 连接是设置正确还是处于连接失败状态？</li></ul>|
+
+## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+|执行的检查|
+|---|
+|<ul><li>ExpressRoute 线路是否正常运行？</li></ul>|
+
+## <a name="microsoftnetworkfrontdoors"></a>Microsoft.network/frontdoors
+|执行的检查|
+|---|
+|<ul><li>Front Door 后端是否以错误向运行状况探测做出响应？</li><li>配置更改是否延迟了？</li></ul>|
 
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |执行的检查|
@@ -100,7 +135,12 @@ ms.locfileid: "58626084"
 ## <a name="microsoftnotificationhubsnamespace"></a>Microsoft.NotificationHubs/namespace
 |执行的检查|
 |---|
-|<ul><li> 是否可以在命名空间上执行注册、安装或发送等运行时操作？</li></ul>|
+|<ul><li>是否可以在命名空间上执行注册、安装或发送等运行时操作？</li></ul>|
+
+## <a name="microsoftoperationalinsightsworkspaces"></a>Microsoft.operationalinsights/workspaces
+|执行的检查|
+|---|
+|<ul><li>工作区是否存在索引延迟？</li></ul>|
 
 ## <a name="microsoftpowerbidedicatedcapacities"></a>Microsoft.PowerBIDedicated/Capacities
 |执行的检查|

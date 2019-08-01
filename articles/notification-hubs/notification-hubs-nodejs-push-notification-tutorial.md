@@ -17,10 +17,10 @@ origin.date: 04/14/2018
 ms.date: 07/29/2019
 ms.author: v-biyu
 ms.openlocfilehash: 29891a2cbda42907b919bde9170118a548380f4b
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "68232274"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
@@ -47,7 +47,7 @@ Azure 通知中心提供用于向移动设备发送推送通知的易于使用�
 
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 
-本教程的第一步是创建新的空白 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[使用 Windows PowerShell 创建 Node.js 应用程序并将其部署到 Azure 网站][nodejswebsite], [Node.js Cloud Service][Node.js Cloud Service]或[使用 WebMatrix][webmatrix] 创建网站。
+本教程的第一步是创建新的空白 Node.js 应用程序。 有关创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站][nodejswebsite]、使用 Windows PowerShell 创建 [Node.js 云服务][Node.js Cloud Service]或[使用 WebMatrix 创建网站][webmatrix]。
 
 ## <a name="configure-your-application-to-use-notification-hubs"></a>将应用程序配置为使用通知中心
 

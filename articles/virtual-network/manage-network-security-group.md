@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/05/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: cca3f181c8b55c394286974ca70f86628c1efea9
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 459c751a5ae22c6e4dcc5e58f479e15d5b93acf8
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250427"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514388"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>创建、更改或删除网络安全组
 
@@ -31,7 +31,7 @@ ms.locfileid: "66250427"
 在完成本文任何部分中的步骤之前，请完成以下任务：
 
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-- 如果使用门户，请打开 https://portal.azure.cn，并使用 Azure 帐户登录。
+- 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
     <!-- Not Available on [Azure Cloud Shell](https://shell.azure.com/powershell)-->
 - 如果使用 Azure 命令行接口 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.28 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
@@ -73,11 +73,11 @@ ms.locfileid: "66250427"
     <!-- Not Available on [Diagnostic logs](virtual-network-nsg-manage-log.md)-->
     
 3. 要了解有关列出的常见 Azure 设置的详细信息，请参阅以下文章：
-    *   [活动日志](../azure-monitor/platform/activity-logs-overview.md)
-    *   [访问控制 (IAM)](../role-based-access-control/overview.md)
-    *   [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
-    *   [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
-    *   [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
+    * [活动日志](../azure-monitor/platform/activity-logs-overview.md)
+    * [访问控制 (IAM)](../role-based-access-control/overview.md)
+    * [标记](../azure-resource-manager/resource-group-using-tags.md?toc=%2fvirtual-network%2ftoc.json)
+    * [锁](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fvirtual-network%2ftoc.json)
+    * [自动化脚本](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
  命令
 
@@ -128,7 +128,7 @@ ms.locfileid: "66250427"
     |---------|---------|---------|
     |Source     | 为入站安全规则选择“任何项”、“应用程序安全组”、“IP 地址”或“服务标记”     。 如果要创建出站安全规则，所用选项与为“目标”列出的选项相同  。       | 如果选择“应用程序安全组”，则选择一个或多个与网络接口存在于同一区域的现有的应用程序安全组  。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 如果为“源”和“目标”都选择“应用程序安全组”，则两个应用程序安全组中的网络接口必须在同一虚拟网络中    。 如果选择“IP 地址”，请指定“源 IP 地址/CIDR 范围”   。 可指定单个值或以逗号分隔的多个值的列表。 多个值的示例为 10.0.0.0/16, 192.188.1.1。 可指定的值的数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果选择“服务标记”，请选择一个服务标记  。 服务标记是 IP 地址类别的预定义标识符。 若要了解有关可用服务标记以及每个标记表示的含义的详细信息，请参阅[服务标记](security-overview.md#service-tags)。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
     |源端口范围     | 指定单个端口（如 80）、端口范围（如 1024-65535）或单个端口和/或端口范围的以逗号分隔的列表（如 80, 1024-65535）。 输入星号可允许任何端口上的流量。 | 端口和范围指定规则允许或拒绝哪个端口流量。 可指定的端口数目有限制。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。  |
-    |目标     | 为入站安全规则选择“任何项”、“应用程序安全组”、“IP 地址”或“虚拟网络”     。 如果要创建出站安全规则，则使用选项与为“源”列出的选项相同  。        | 如果选择“应用程序安全组”，那么必须选择一个或多个与网络接口存在于同一区域的现有的应用程序安全组  。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 如果选择“应用程序安全组”，则选择一个与网络接口存在于同一区域的现有的应用程序安全组  。 如果选择“IP 地址”，则指定“目标 IP 地址/CIDR 范围”   。 类似于“源”和“源 IP 地址/CIDR 范围”，你可指定单个或多个地址或范围，并且可指定的数目有限制   。 选择“虚拟网络”，它是一个服务标记，意味着流量可到虚拟网络地址空间内的所有 IP 地址  。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
+    |目标     | 为出站安全规则选择“任何项”、“应用程序安全组”、“IP 地址”或“虚拟网络”     。 如果要创建入站安全规则，则使用选项与为“源”列出的选项相同  。        | 如果选择“应用程序安全组”，那么必须选择一个或多个与网络接口存在于同一区域的现有的应用程序安全组  。 了解如何[创建应用程序安全组](#create-an-application-security-group)。 如果选择“应用程序安全组”，则选择一个与网络接口存在于同一区域的现有的应用程序安全组  。 如果选择“IP 地址”，则指定“目标 IP 地址/CIDR 范围”   。 类似于“源”和“源 IP 地址/CIDR 范围”，你可指定单个或多个地址或范围，并且可指定的数目有限制   。 选择“虚拟网络”，它是一个服务标记，意味着流量可到虚拟网络地址空间内的所有 IP 地址  。 如果指定的 IP 地址已分配给 Azure 虚拟机，请确保指定的是专用 IP，而不是已分配给虚拟机的公共 IP 地址。 在 Azure 将公共 IP 地址转换为专用 IP 地址以符合入站安全规则后，在 Azure 将专用 IP 地址转换为公共 IP 地址以符合出站规则之前，会处理安全规则。 若要了解有关 Azure 中的公共和专用 IP 地址的详细信息，请参阅 [IP 地址类型](virtual-network-ip-addresses-overview-arm.md)。        |
     |目标端口范围     | 指定单个值或以逗号分隔的多个值的列表。 | 类似于“源端口范围”，可指定单个或多个端口和范围，并且可指定的数目有限制  。 |
     |协议     | 选择“任何”、“TCP”或“UDP”    。        |         |
     |操作     | 选择“允许”或“拒绝”   。        |         |
@@ -203,7 +203,7 @@ ms.locfileid: "66250427"
     | Name           | 名称在资源组中必须唯一。        |
     | 订阅   | 选择订阅。                               |
     | 资源组 | 选择现有的资源组，或创建一个新的组。 |
-    | 位置       | 选择位置                                       |
+    | Location       | 选择位置                                       |
 
  命令
 

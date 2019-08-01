@@ -11,10 +11,10 @@ origin.date: 03/22/2018
 ms.date: 07/22/2019
 ms.author: v-yiso
 ms.openlocfilehash: d89876ea869bcffe6709537c13d2a0be27e54c71
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67845136"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志
@@ -44,7 +44,7 @@ YARN 通过将资源管理与应用程序计划/监视相分离，来支持多�
 
 在此路径中，`user` 是启动应用程序的用户的名称。 `applicationId` 是 YARN RM 分配给应用程序的唯一标识符。
 
-无法直接阅读聚合日志，因为它们是以容器编制索引的 [TFile][T-file], [binary format][binary-format] 格式编写的。 使用 YARN ResourceManager 日志或 CLI 工具以纯文本的形式查看感兴趣的应用程序或容器的这些日志。
+无法直接阅读聚合日志，因为它们是以 [TFile][T-file]（由容器编制索引的[二进制格式][binary-format]）编写的。 使用 YARN ResourceManager 日志或 CLI 工具以纯文本的形式查看感兴趣的应用程序或容器的这些日志。
 
 ## <a name="yarn-cli-tools"></a>YARN CLI 工具
 

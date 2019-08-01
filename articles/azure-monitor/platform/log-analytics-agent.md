@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 07/01/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e954202937fce17e89deb92e280a577f188b8bea
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 462a3585696c46b13616d9266f8d1bb2688d4af4
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562355"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513792"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理收集日志数据
 
@@ -67,7 +67,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 * Red Hat Enterprise Linux Server 6 (x86/x64) 和 7 (x64)
 * Debian GNU/Linux 8 和 9 (x86/x64)
 * Ubuntu 14.04 LTS (x86/x64)、16.04 LTS (x86/x64) 和 18.04 LTS (x64)
-* SUSE Linux Enterprise Server 12 (x64)
+* SUSE Linux Enterprise Server 12 (x64) 和 15 (x64)
 
 >[!NOTE]
 >仅 x86_x64 平台（64 位）支持 OpenSSL 1.1.0，任何平台均不支持早于 1.x 版本的 OpenSSL。
@@ -75,7 +75,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 
 ### <a name="agent-prerequisites"></a>代理先决条件
 
-下表重点介绍了要安装代理的受支持的 Linux 发行版所需的包。
+下表重点介绍了要安装代理的受支持 Linux 发行版所需的包。
 
 |所需的包 |说明 |最低版本 |
 |-----------------|------------|----------------|

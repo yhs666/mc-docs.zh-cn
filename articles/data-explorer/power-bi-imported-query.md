@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 11/14/2018
-ms.date: 07/22/2019
-ms.openlocfilehash: a63742ee065f673864706f4eb14396a70914510c
-ms.sourcegitcommit: ea5dc30371bc63836b3cfa665cc64206884d2b4b
+ms.date: 08/05/2019
+ms.openlocfilehash: 9263801cb8ab7bd62d64129f75b5e32d2dcd59a7
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717322"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371752"
 ---
 # <a name="visualize-data-using-a-query-imported-into-power-bi"></a>使用已导入到 Power BI 中的查询来可视化数据
 
@@ -83,4 +83,4 @@ Azure 数据资源管理器提供三个可以在 Power BI 中连接到数据的�
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用 Power BI 中已导入的查询来直观显示数据](power-bi-sql-query.md)
+[使用 Power BI 的 Azure 数据资源管理器连接器直观显示数据](power-bi-connector.md)

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 06/25/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: f7a85ffeffd9217a07df9546c33efdf619e09e6b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/05/2019
+ms.openlocfilehash: 969ec325eb45bb58822693f0715d64a297cd04f2
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570201"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514330"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>将 IoT DevKit AZ3166 连接到 Azure IoT 中心
 
@@ -31,6 +31,8 @@ ms.locfileid: "67570201"
 * 如何准备开发环境并为 IoT DevKit 开发应用程序。
 
 还没有 DevKit？ 请尝试 [DevKit 模拟器](https://azure-samples.github.io/iot-devkit-web-simulator/)或[购买 DevKit](https://aka.ms/iot-devkit-purchase)。
+
+可以在 [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) 存储库中找到所有 DevKit 教程的源代码。
 
 ## <a name="what-you-need"></a>需要什么
 
@@ -361,7 +363,7 @@ DevKit 将重新启动并开始运行代码。
 1. 在 VS Code 中，单击 `F1`，键入并选择“Azure IoT Hub:  Set IoT Hub Connection String”。 将连接字符串复制到其中。
     ![设置 Azure IoT 中心连接字符串](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/set-iothub-connection-string.png)
 
-1. 展开右侧的“AZURE IOT HUB DEVICES”（AZURE IOT 中心设备）窗格，右键单击创建的设备名称，然后选择“Start Monitoring D2C Message”（开始监视 D2C 消息）。  
+1. 展开右侧的“AZURE IOT 中心设备”窗格，右键单击创建的设备名称，然后选择“开始监视内置事件终结点”。  
     ![监视 D2C 消息](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/monitor-d2c.png)
 
 1. 在“输出”窗格中，可以看到传入 IoT 中心的 D2C 消息。 

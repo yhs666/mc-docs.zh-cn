@@ -10,10 +10,10 @@ ms.date: 05/13/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 ms.openlocfilehash: bca5ca09e11f74b24d68d5d40ae347b773b9095b
-ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67673963"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
@@ -99,7 +99,7 @@ aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
 
 ## <a name="run-the-application"></a>运行应用程序
 
-Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包含两个 [Kubernetes 部署][kubernetes-deployment] - one for the sample Azure Vote Python applications, and the other for a Redis instance. Two [Kubernetes Services][kubernetes-service] 还会创建 - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
+Kubernetes 清单文件定义群集的所需状态，例如，要运行哪些容器映像。 在本快速入门中，清单用于创建运行 Azure Vote 应用程序所需的所有对象。 此清单包括两个 [Kubernetes 部署][kubernetes-deployment] - 一个用于 Azure Vote Python 示例应用程序，另一个用于 Redis 实例。 此外，还会创建两个 [Kubernetes 服务][kubernetes-service] - 一个内部服务用于 Redis 实例，一个外部服务用于从 Internet 访问 Azure Vote 应用程序。
 
 > [!TIP]
 > 在本快速入门中，请手动创建应用程序清单并将其部署到 AKS 群集。

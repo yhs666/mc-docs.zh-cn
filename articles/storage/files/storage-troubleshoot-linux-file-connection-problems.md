@@ -10,12 +10,12 @@ origin.date: 10/16/2018
 ms.date: 12/10/2018
 ms.author: v-jay
 ms.component: files
-ms.openlocfilehash: 9baf6c77deabc425673cb19cb7efbde2789e93bb
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: f4bb4227a87b3e8a44ffc6213c91154cb53619d8
+ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844528"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391987"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/25/2019
-ms.date: 06/03/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 231f509b3835fe9645f85bac778bf617fbe2fe33
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 5a4183b1ef18d8fd4b2e100dd2cf970653e7c00c
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381784"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513429"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>使用 Azure Stack 中的特权终结点
 
@@ -168,10 +168,17 @@ PEP 记录你在 PowerShell 会话中执行的每项操作（及其相应的输�
 关闭终结点会话：
 
 1. 创建 PEP 可访问的外部文件共享。 在开发工具包环境中，只能在开发工具包主机上创建文件共享。
-2. 运行 `Close-PrivilegedEndpoint` cmdlet。 
-3. 系统会提示输入脚本日志文件的存储路径。 使用 &#92;&#92;*servername*&#92;*sharename* 指定前面创建的文件共享。 如果未指定路径，该 cmdlet 将会失败，且会话将保持打开状态。 
+2. 运行此 cmdlet 
+    ```powershell
+    Close-PrivilegedEndpoint -TranscriptsPathDestination "\\fileshareIP\SharedFolder" -Credential Get-Credential
+    ```
+其中
 
-    ![Close-PrivilegedEndpoint cmdlet 输出，其中显示了脚本目标的指定路径](media/azure-stack-privileged-endpoint/closeendpoint.png)
+| 参数 | 说明 | 类型 | 必须 |
+|---------|---------|---------|---------|
+| *TranscriptsPathDestination* | 定义为“fileshareIP\sharefoldername”的外部文件共享的路径 | String | 是|
+| *凭据* | 用于访问文件共享的凭据 | SecureString |  是 |
+
 
 将脚本日志文件成功传送到文件共享后，它们会自动从 PEP 中删除。 
 

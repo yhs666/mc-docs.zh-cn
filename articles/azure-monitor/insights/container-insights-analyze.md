@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/19
+ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3a6a3f959b53bf19891c9e09c13e411e88d65d9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d9e5f06d35bb725d9d685c5492e5ff68be363f61
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562635"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513802"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能 
 借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度（直接从 AKS 群集查看，或是从 Azure Monitor 查看订阅中的所有 AKS 群集）查看 Azure Kubernetes 服务 (AKS) 群集的工作负载。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例 (ACI)。
@@ -109,7 +109,7 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 
 可以使用向左键/向右键循环浏览图表上的每个数据点，使用向上键/向下键循环显示百分位线。 单击其中任一图表右上角的图钉图标会将所选图表固定到你上次查看的最后一个 Azure 仪表板。 在仪表板中，可以调整图表大小及其位置。 在仪表板中选择图表会将你重定向到用于容器的 Azure Monitor，并加载正确的作用域和视图。
 
-适用于容器的 Azure Monitor 也支持 Azure Monitor 指标资源管理器。在该管理器中，你可以创建自己的绘图图表、将趋势相关联并对其进行调查，以及将内容固定到仪表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
+适用于容器的 Azure Monitor 也支持 Azure Monitor [指标资源管理器](../platform/metrics-getting-started.md)。在该管理器中，你可以创建自己的绘图图表、将趋势相关联并对其进行调查，以及将内容固定到仪表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>在指标资源管理器中查看容器指标
 在指标资源管理器中，可以通过适用于容器的 Azure Monitor 查看聚合的节点和 Pod 利用率指标。 下表汇总了详细信息，这些信息有助于你了解如何使用指标图表来可视化容器指标。
@@ -163,7 +163,9 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 从展开的节点中，你可以从在节点上运行的 pod 或容器向下钻取到控制器来查看针对该控制器筛选的性能数据。 单击特定节点的“控制器”列下的值。    
 ![性能视图中从节点到控制器的示例向下钻取](./media/container-insights-analyze/drill-down-node-controller.png)
 
-可从页面顶部选择控制器或容器，查看这些对象的状态和资源使用率。  如果想要查看内存利用率，可在“指标”下拉列表中选择“内存 RSS”或“内存工作集”    。 仅 Kubernetes 1.8 版和更高版本支持**内存 RSS**。 否则，看到的 **Min&nbsp;%** 值会显示为 *NaN&nbsp;%* ，它表示未定义或无法表示的值的数值数据类型值。 
+可从页面顶部选择控制器或容器，查看这些对象的状态和资源使用率。  如果想要查看内存利用率，可在“指标”下拉列表中选择“内存 RSS”或“内存工作集”    。 仅 Kubernetes 1.8 版和更高版本支持**内存 RSS**。 否则，看到的 **Min&nbsp;%** 值会显示为 *NaN&nbsp;%* ，它表示未定义或无法表示的值的数值数据类型值。
+
+内存工作集显示包含的驻留内存和虚拟内存（缓存），是应用程序正在使用的内存的总和。 内存 RSS 只显示主内存，即驻留内存。 此指标显示可用内存的实际容量。
 
 ![容器节点性能视图](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 

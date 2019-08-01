@@ -4,15 +4,15 @@ description: 了解如何查找针对 Azure Cosmos 容器执行的任何操作�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 06/14/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: cd2666f9fa4d43db8d4b04dfbdf7d1dcb381ef47
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 223e712e449516d21605aae1e6051fe6f4ca4264
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151448"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514392"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中查找请求单位费用
 
@@ -40,7 +40,8 @@ ms.locfileid: "67151448"
 
     ![Azure 门户中的 SQL 查询请求费用屏幕截图](./media/find-request-unit-charge/portal-sql-query.png)
 
-### <a name="use-the-net-sdk-v2"></a>使用 .NET SDK V2
+### <a name="use-the-net-sdk"></a>使用 .NET SDK
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 从 [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 返回的对象公开 `RequestCharge` 属性：
 
@@ -72,6 +73,40 @@ while (query.HasMoreResults)
 {
     FeedResponse<dynamic> queryResponse = await query.ExecuteNextAsync<dynamic>();
     requestCharge = queryResponse.RequestCharge;
+}
+```
+
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+
+从 [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 返回的对象公开 `RequestCharge` 属性：
+
+```csharp
+Container container = this.cosmosClient.GetContainer("database", "container");
+string itemId = "myItem";
+string partitionKey = "partitionKey";
+string storedProcedureId = "storedProcedureId";
+string queryText = "SELECT * FROM c";
+
+ItemResponse<dynamic> itemResponse = await container.CreateItemAsync<dynamic>(
+    item: new { id = itemId, pk = partitionKey },
+    partitionKey: new PartitionKey(partitionKey));
+var requestCharge = itemResponse.RequestCharge;
+
+Scripts scripts = container.Scripts;
+StoredProcedureExecuteResponse<object> sprocResponse = await scripts.ExecuteStoredProcedureAsync<object>(
+    storedProcedureId: storedProcedureId,
+    partitionKey: new PartitionKey(partitionKey),
+    parameters: new dynamic[] { new object() });
+
+requestCharge = sprocResponse.RequestCharge;
+
+FeedIterator<dynamic> feedIterator = container.GetItemQueryIterator<dynamic>(
+     queryText: queryText,
+     requestOptions: new QueryRequestOptions() { PartitionKey = new PartitionKey(partitionKey) });
+while (feedIterator.HasMoreResults)
+{
+    FeedResponse<dynamic> feedResponse = await feedIterator.ReadNextAsync();
+    requestCharge = feedResponse.RequestCharge;
 }
 ```
 
@@ -302,5 +337,6 @@ if (tableResult.RequestCharge.HasValue) // would be false when using Azure Stora
 * [全局缩放预配的吞吐量](scaling-throughput.md)
 * [在容器和数据库上预配吞吐量](set-throughput.md)
 * [为容器预配吞吐量](how-to-provision-container-throughput.md)
+* [使用 Azure Cosmos DB 中的指标进行监视和调试](use-metrics.md)
 
 <!--Update_Description: wording update -->

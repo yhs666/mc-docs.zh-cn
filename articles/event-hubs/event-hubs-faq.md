@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 origin.date: 08/07/2018
-ms.date: 03/11/2019
+ms.date: 08/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 44e4034734c287ba9fdb34fbc001e9ececabcc15
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: 1940f2dc37047b893bd2e8dadf27211a55f5e44a
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903186"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371758"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -23,6 +23,15 @@ ms.locfileid: "56903186"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>什么是事件中心命名空间？
 命名空间是事件中心主题的范围容器。 它提供唯一的 [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)。 命名空间充当容装多个事件中心主题的应用程序容器。 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>何时创建新的命名空间而不是使用现有的命名空间？
+容量分配（[吞吐量单位 (TU)](#throughput-units)）在命名空间级别进行计费。 命名空间也与区域相关联。
+
+在以下任一情况下，你可能希望创建新的命名空间，而不是使用现有的命名空间： 
+
+- 需要与新区域关联的事件中心。
+- 需要与其他订阅关联的事件中心。
+- 需要一个具有不同容量分配的事件中心（即，具有添加的事件中心的命名空间的容量需求将超过 40 TU 阈值，并且你不希望使用专用群集）  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>事件中心基本和标准这两种服务层有什么不同？
 
@@ -36,14 +45,34 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 有关定价层的详细信息（包括专用事件中心），请参阅[事件中心定价详细信息](https://www.azure.cn/pricing/details/event-hubs/)。
 
 ### <a name="where-is-azure-event-hubs-available"></a>Azure 事件中心在哪些区域可用？
+
 在所有支持的 Azure 区域中都可使用 Azure 事件中心。 有关列表，请访问 [Azure 区域](https://www.azure.cn/zh-cn/home/features/products-by-region)页。  
+
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>是否可以使用单个 AMQP 连接来与多个事件中心相互收发数据？
+
 可以，但前提是所有事件中心都在同一个命名空间中。
+
 ### <a name="what-is-the-maximum-retention-period-for-events"></a>事件的最长保留期有多久？
 
 事件中心标准版目前支持的最长保留期为七天。 事件中心并非永久性的数据存储。 大于 24 小时的保留期适用于将事件流重播到相同系统中的情形；例如，为了基于现有数据来培训或验证新机器学习模型。 如果需要将消息保留 7 天以上，那么启用事件中心的[事件中心捕获](event-hubs-capture-overview.md)功能，可将数据从事件中心拉取到选定的存储帐户。 启用捕获功能需要支付费用，具体因购买的吞吐量单位而异。
+
 ### <a name="how-do-i-monitor-my-event-hubs"></a>如何监视事件中心？
 事件中心向 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 发出详尽指标用于提供资源的状态。 此外，参考指标不仅可以在命名空间级别，而且还能在实体级别评估事件中心服务的总体运行状况。 了解 [Azure 事件中心](event-hubs-metrics-azure-monitor.md)提供哪些监视功能。
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>我需要在防火墙上打开哪些端口？ 
+可以将以下协议与 Azure 服务总线配合使用，以便发送和接收消息：
+
+- 高级消息队列协议 (AMQP)
+- HTTP
+- Apache Kafka
+
+请查看下表，了解需要打开哪些出站端口，以便使用这些协议与 Azure 事件中心通信。 
+
+| 协议 | 端口 | 详细信息 | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP、HTTPS | 80、443 |  |
+
 ## <a name="throughput-units"></a>吞吐量单位
 
 ### <a name="what-are-event-hubs-throughput-units"></a>什么是事件中心吞吐量单元？
@@ -77,7 +106,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 如果某个命名空间中所有事件中心间的总出口吞吐量或总出口事件率超过了聚合吞吐量单位限额，接收方会受到限制，并会收到指明已超出出口配额的错误信息。 入口和出口配额是分开强制实施的，因此，任何发送方都不会使事件耗用速度减慢，并且接收方也无法阻止事件发送到事件中心。
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-tus-that-can-be-reservedselected"></a>可预留/选择的吞吐量单位 (TU) 数量是否有限制？
-在多租户产品/服务中，吞吐量单位最多可扩展到 40 TU（可在门户中最多选择 20 TU，然后提出支持票证，在同一命名空间中将数目提高到 40 TU）。 如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。 专用群集按容量单位 (CU) 销售。
+在多租户产品/服务中，吞吐量单位最多可扩展到 40 TU（可在门户中最多选择 20 TU，然后提出支持票证，在同一命名空间中将数目提高到 40 TU）。 如果超出 40 TU，事件中心可提供名为“事件中心专用群集”的基于资源/容量的模型。  专用群集按容量单位 (CU) 销售。
 
 ## <a name="dedicated-clusters"></a>专用群集
 
@@ -138,7 +167,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 
 ### <a name="do-brokered-connection-charges-apply-to-event-hubs"></a>中转连接费用是否适用于事件中心？
 
-连接费用只在使用 AMQP 协议时适用。 使用 HTTP 发送事件没有连接费用，无论发送系统或设备的数量是多少。 如果计划使用 AMQP（例如，为了实现更高效的事件流式传输，或者为了对 IoT 命令和控制方案启用双向通信），请参阅[事件中心定价信息](https://www.azure.cn/pricing/details/event-hubs/)页，了解有关每个服务层中包括多少连接的详细信息。
+连接费用只在使用 AMQP 协议时适用。 使用 HTTP 发送事件没有连接费用，无论发送系统或设备的数量是多少。 如果计划使用 AMQP（例如，为了实现更高效的事件流式传输，或者为了对 IoT 命令和控制方案启用双向通信），请参阅[事件中心定价信息](https://www.azure.cn/pricing/details/event-hubs/)页，了解有关每个服务层级中包括多少连接的详细信息。
 
 ### <a name="how-is-event-hubs-capture-billed"></a>事件中心捕获如何计费？
 
@@ -164,6 +193,7 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 有关可能的事件中心异常的列表，请参阅[异常概述](event-hubs-messaging-exceptions.md)。
 
 <!-- Not Full Available  ### Diagnostic logs -->
+
 ### <a name="support-and-sla"></a>支持和 SLA
 
 事件中心的技术支持可通过 [社区论坛](https://www.azure.cn/support/contact/)获得。 计费和订阅管理支持免费提供。

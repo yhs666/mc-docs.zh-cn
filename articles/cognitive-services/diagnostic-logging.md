@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.topic: article
 origin.date: 06/14/2019
-ms.date: 07/09/2019
+ms.date: 07/24/2019
 ms.author: v-junlch
-ms.openlocfilehash: 92afc970f7099062559a7b29565ae7fab7c3f5b4
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: ae8183bc9393aa5d984c2eef91322dc5bfb31a9f
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845006"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439948"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 
@@ -28,21 +28,21 @@ ms.locfileid: "67845006"
 * [Azure 存储](/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - 保留策略审核、静态分析或备份的诊断日志。 只要配置设置的用户同时拥有两个订阅的相应 RBAC 访问权限，存储帐户就不必位于发出日志的资源所在的订阅中。
  
 > [!NOTE]
-> 还有其他配置选项可供使用。 有关详细信息，请参阅[从 Azure 资源收集和使用日志数据](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)。
+> 还有其他配置选项可供使用。 有关详细信息，请参阅[从 Azure 资源收集和使用日志数据](/azure-monitor/platform/diagnostic-logs-overview)。
 
 ## <a name="enable-diagnostic-log-collection"></a>启用诊断日志收集  
 
 首先，让我们使用 Azure 门户启用诊断日志记录。
 
 > [!NOTE]
-> 若要使用 PowerShell 或 Azure CLI 启用此功能，请参考[从 Azure 资源收集和使用日志数据](/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs)中提供的说明。
+> 若要使用 PowerShell 或 Azure CLI 启用此功能，请参考[从 Azure 资源收集和使用日志数据](/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings)中提供的说明。
 
 1. 导航到 Azure 门户。 然后找到并选择某个认知服务资源。 例如，LUIS 订阅。
 2. 接下来，在左侧导航菜单中找到“监视”，然后选择“诊断设置”。   此屏幕包含以前为此资源创建的所有诊断设置。
 3. 如果你想要使用以前创建的某个资源，现在可以选择它。 否则，请选择“+ 添加诊断设置”。 
 4. 输入设置名称。 依次选择“存档到存储帐户”、“发送到 Log Analytics”。  
 5. 出现配置提示时，请选择你要用来存储诊断日志的存储帐户和 OMS 工作区。 **注意**：如果你没有存储帐户或 OMS 工作区，请按提示创建一个。
-6. 依次选择“审核”、“RequestResponse”。   然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
+6. 依次选择“审核”  、**RequestResponse** 和 **AllMetrics**。 然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
 7. 单击“保存”  。
 
 最长可能需要在两个小时之后，日志数据才可供查询和分析。 因此，如果当前未显示任何内容，请不要担心。
@@ -120,3 +120,4 @@ by bin(TimeGenerated, 10s), OperationName
 * 参阅[从 Azure 存储下载指标和诊断日志](/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs)。
 
 
+<!-- Update_Description: wording update -->

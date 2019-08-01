@@ -2,21 +2,21 @@
 title: 教程 - 自定义用户界面体验 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure 门户在 Azure Active Directory B2C 中自定义应用程序的用户界面。
 services: B2C
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 29d630b14ada2116814010c09d67972e1d085198
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: b23362e8435eaa16e2d5a3ffb236305a7645010b
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235976"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391605"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中自定义用户界面体验
 
@@ -45,11 +45,11 @@ ms.locfileid: "67235976"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 请确保使用的是包含 Azure 订阅的目录。 选择顶部菜单中的“目录和订阅筛选器”，然后选择包含订阅的目录  。 此目录与包含 Azure B2C 租户的目录不同。
-3. 选择 Azure 门户左上角的“所有服务”，搜索并选择“存储帐户”  。 
+3. 选择 Azure 门户左上角的“所有服务”，搜索并选择“存储帐户”  。
 4. 选择“设置”  （应用程序对象和服务主体对象）。
 5. 在“资源组”下，选择“新建”，输入新资源组的名称，然后单击“确定”    。
 6. 输入存储帐户的名称。 所选名称在 Azure 中需唯一，且必须为 3 到 24 个字符，并且只能包含数字和小写字母。
-7. 选择存储帐户的位置或接受默认位置。 
+7. 选择存储帐户的位置或接受默认位置。
 8. 接受所有其他默认值，选择“查看 + 创建”，然后点击“创建”   。
 9. 创建存储帐户后，选择“转到资源”  。
 
@@ -69,7 +69,7 @@ ms.locfileid: "67235976"
 5. 对于“公开的标头”  ，请输入一个星号 (*)。
 6. 对于“最大期限”  ，请输入 200。
 
-    ![启用 CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![Azure 门户的 Azure Blob 存储中的 CORS 配置页](./media/tutorial-customize-ui/enable-cors.png)
 
 5. 单击“保存”  。
 
@@ -86,14 +86,14 @@ ms.locfileid: "67235976"
         <title>My B2C Application</title>
         <link rel="stylesheet" href="https://your-storage-account.blob.core.chinacloudapi.cn/your-container/style.css">
       </head>
-      <body>  
+      <body>
         <h1>My B2C Application</h1>
         <div id="api"></div>
       </body>
     </html>
     ```
 
-    可以根据需要设计页面，但是所创建的任何 HTML 自定义文件都需要“api”div 元素  。 
+    可以根据需要设计页面，但是所创建的任何 HTML 自定义文件都需要“api”div 元素  。
 
 3. 将文件另存为“custom-ui.html”  。
 4. 创建以下简单的 CSS，将所有元素集中在注册或登录页面上，包括 Azure AD B2C 注入的元素。
@@ -104,7 +104,7 @@ ms.locfileid: "67235976"
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 300px ;
@@ -112,7 +112,7 @@ ms.locfileid: "67235976"
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 300px ;
@@ -131,7 +131,7 @@ ms.locfileid: "67235976"
 2. 选择创建的存储帐户，选择“Blob”，然后选择创建的容器  。
 3. 选择“上传”，导航到“custom-ui.html”文件并选择该文件，然后点击“上传”    。
 
-    ![上传自定义文件](./media/tutorial-customize-ui/upload-blob.png)
+    ![门户中突出显示了“上传”按钮和文件的“上传 blob”页](./media/tutorial-customize-ui/upload-blob.png)
 
 4. 复制所上传文件的 URL，以便稍后在本教程中使用。
 5. 对“style.css”文件重复步骤 3 和 4  。
@@ -150,11 +150,11 @@ ms.locfileid: "67235976"
 2. 在该页顶部，单击“运行用户流”。 
 3. 单击“运行用户流”  按钮。
 
-    ![运行注册或登录用户流](./media/tutorial-customize-ui/run-user-flow.png)
+    ![注册或登录用户流的“运行用户流”页](./media/tutorial-customize-ui/run-user-flow.png)
 
     应该会看到类似于以下示例的页面，其中元素基于所创建的 CSS 文件集中在一起：
 
-    ![用户流结果](./media/tutorial-customize-ui/run-now.png) 
+    ![显示带有自定义 UI 元素的注册或登录页的 Web 浏览器](./media/tutorial-customize-ui/run-now.png)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -168,3 +168,4 @@ ms.locfileid: "67235976"
 > [!div class="nextstepaction"]
 > [Azure Active Directory B2C 中的语言自定义 ](active-directory-b2c-reference-language-customization.md)
 
+<!-- Update_Description: wording update -->

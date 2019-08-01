@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中管理一致性
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b9517a394026ee7f773e82d912e100f8ac772e0
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: f921af48f1ee9fdbf49ef35d6516de92662ca0ec
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151402"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514378"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中管理一致性级别
 
@@ -28,10 +28,10 @@ ms.locfileid: "67151402"
 
 ```bash
 # create with a default consistency
-az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Strong
+az cosmosdb create --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Session
 
 # update an existing account's default consistency
-az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level BoundedStaleness
+az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource group name> --default-consistency-level Eventual
 ```
 
 ### <a name="powershell"></a>PowerShell
@@ -64,6 +64,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 若要查看或修改默认一致性级别，请登录到 Azure 门户。 找到你的 Azure Cosmos 帐户，打开“默认一致性”窗格  。 选择你希望用作新的默认值的一致性级别，然后选择“保存”  。
 
+<!--MOONCAKE: music notes in cosmos db NOT AVAILABLE-->
 <!--Not Availabel on 06/14/2019 The Azure portal also provides a visualization of different consistency levels with music notes. -->
 
 ![Azure 门户中的一致性菜单](./media/how-to-manage-consistency/consistency-settings.png)
@@ -73,22 +74,30 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 客户端可以重写由服务设置的默认一致性级别。 可以在每个请求上设置一致性级别，这将替代在帐户级别设置的默认一致性级别。
 
 <a name="override-default-consistency-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 // Override consistency at the client level
-ConsistencyPolicy consistencyPolicy = new ConsistencyPolicy
-    {
-        DefaultConsistencyLevel = ConsistencyLevel.BoundedStaleness,
-        MaxStalenessIntervalInSeconds = 5,
-        MaxStalenessPrefix = 100
-    };
-documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, consistencyPolicy);
+documentClient = new DocumentClient(new Uri(endpoint), authKey, connectionPolicy, ConsistencyLevel.Eventual);
 
 // Override consistency at the request level via request options
-RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = ConsistencyLevel.Eventual };
 
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
+```
+
+<a name="override-default-consistency-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+// Override consistency at the request level via request options
+ItemRequestOptions requestOptions = new ItemRequestOptions { ConsistencyLevel = ConsistencyLevel.Strong };
+
+var response = await client.GetContainer(databaseName, containerName)
+    .CreateItemAsync(
+        item, 
+        new PartitionKey(itemPartitionKey), 
+        requestOptions);
 ```
 
 <a name="override-default-consistency-java-async"></a>
@@ -112,7 +121,7 @@ AsyncDocumentClient client =
 ```java
 // Override consistency at the client level
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
+DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Eventual);
 ```
 
 <a name="override-default-consistency-javascript"></a>
@@ -122,7 +131,7 @@ DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connecti
 // Override consistency at the client level
 const client = new CosmosClient({
   /* other config... */
-  consistencyLevel: ConsistencyLevel.Strong
+  consistencyLevel: ConsistencyLevel.Eventual
 });
 
 // Override consistency at the request level via request options
@@ -135,7 +144,7 @@ const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual }
 ```python
 # Override consistency at the client level
 connection_policy = documents.ConnectionPolicy()
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Strong)
+client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Eventual)
 ```
 
 ## <a name="utilize-session-tokens"></a>利用会话令牌
@@ -145,7 +154,7 @@ Azure Cosmos DB 中的一致性级别之一是“会话”一致性  。 这是�
 若要手动管理会话令牌，请从响应中获取会话令牌并针对每个请求设置它们。 如果不需手动管理会话令牌，则不需要使用这些示例。 SDK 会自动跟踪会话令牌。 如果未手动设置会话令牌，则默认情况下，SDK 使用最新的会话令牌。
 
 <a name="utilize-session-tokens-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -156,6 +165,19 @@ RequestOptions options = new RequestOptions();
 options.SessionToken = sessionToken;
 var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
+```
+
+<a name="utilize-session-tokens-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+Container container = client.GetContainer(databaseName, collectionName);
+ItemResponse<SalesOrder> response = await container.CreateItemAsync<SalesOrder>(salesOrder);
+string sessionToken = response.Headers.Session;
+
+ItemRequestOptions options = new ItemRequestOptions();
+options.SessionToken = sessionToken;
+ItemResponse<SalesOrder> response = await container.ReadItemAsync<SalesOrder>(salesOrder.Id, new PartitionKey(salesOrder.PartitionKey), options);
 ```
 
 <a name="utilize-session-tokens-java-async"></a>

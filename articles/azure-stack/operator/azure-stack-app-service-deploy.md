@@ -12,17 +12,17 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/27/2019
-ms.date: 06/03/2019
+origin.date: 05/28/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 05f1427f66649fed7808a3a701c0a58188a091c0
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 7b7b4506902ef7db5ea9db05e3f67c96de539c0a
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513498"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>将应用服务资源提供程序添加到 Azure Stack
 
@@ -30,16 +30,16 @@ ms.locfileid: "66381932"
 
 根据本文中的指南在 Azure Stack 中部署应用服务。
 
-> [!IMPORTANT]  
-> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.5。
+> [!IMPORTANT]
+> 请将 1904 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.6。
 
 可以让用户能够创建 Web 应用程序和 API 应用程序。 若要让用户创建这些应用程序，必须：
 
- - 执行本文所述步骤，将[应用服务资源提供程序](azure-stack-app-service-overview.md)添加到 Azure Stack 部署。
- - 安装应用服务资源提供程序后，可以将其包括在套餐和计划中。 然后，用户可以订阅以获取服务并开始创建应用程序。
+- 执行本文所述步骤，将[应用服务资源提供程序](azure-stack-app-service-overview.md)添加到 Azure Stack 部署。
+- 安装应用服务资源提供程序后，可以将其包括在套餐和计划中。 然后，用户可以订阅以获取服务并开始创建应用程序。
 
-> [!IMPORTANT]  
-> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作，并已阅读版本 1.5 随附的[发行说明](azure-stack-app-service-release-notes-update-five.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
+> [!IMPORTANT]
+> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作，并已阅读版本 1.6 随附的[发行说明](azure-stack-app-service-release-notes-update-six.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 ## <a name="run-the-app-service-resource-provider-installer"></a>运行应用服务资源提供程序安装程序
 
@@ -80,7 +80,7 @@ ms.locfileid: "66381932"
 
    b. 在“Azure Stack 订阅”中，选择“默认提供程序订阅”。  
 
-     > [!IMPORTANT]  
+     > [!IMPORTANT]
      > 应用服务**必须**部署到**默认提供程序订阅**。
 
    c. 在“Azure Stack 位置”  中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”  。
@@ -187,8 +187,20 @@ ms.locfileid: "66381932"
 
 ## <a name="post-deployment-steps"></a>部署后步骤
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > 如果已经为应用服务 RP 提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
+
+如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  转到管理门户中的 WorkersNsg 网络安全组并添加具有以下属性的出站安全规则：
+
+- 源：任意
+- 源端口范围：*
+- 目标：IP 地址
+- 目标 IP 地址范围：文件服务器的 IP 范围
+- 目标端口范围：445
+- 协议：TCP
+- 操作：允许
+- 优先级：700
+- 姓名：Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>验证 Azure Stack 上的应用服务安装
 
@@ -197,18 +209,6 @@ ms.locfileid: "66381932"
 2. 在“概述”中，在“状态”下，检查“状态”  是否显示了“所有角色已就绪”  。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
-
-    如果部署到现有虚拟网络并使用内部 IP 地址连接到文件服务器，则必须添加出站安全规则。 此规则允许辅助角色子网和文件服务器之间的 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-
-    - 源：任意
-    - 源端口范围：*
-    - 目标：IP 地址
-    - 目标 IP 地址范围：文件服务器的 IP 范围
-    - 目标端口范围：445
-    - 协议：TCP
-    - 操作：允许
-    - 优先级：700
-    - 姓名：Outbound_Allow_SMB445
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 
@@ -252,13 +252,13 @@ ms.locfileid: "66381932"
 
 还可以试用其他[平台即服务 (PaaS) 服务](azure-stack-offer-services-overview.md)。
 
- - [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
- - [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
+- [SQL Server 资源提供程序](azure-stack-sql-resource-provider-deploy.md)
+- [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
-[Azure_Stack_App_Service_preview_installer]: /sql-database/sql-vulnerability-assessment
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
 [App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
-[AppServiceHelperScripts]: /sql-database/sql-vulnerability-assessment
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/app-service-installer.png

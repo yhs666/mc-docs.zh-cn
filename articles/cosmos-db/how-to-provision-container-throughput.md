@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中预配容器级别的吞吐量
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: f401ef6d4dd6c1fcdd2274c2b89bcfd5b150499b
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: e9f13eea886baa615ecc72bfd4857961dc52a2e0
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151398"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514242"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>在 Azure Cosmos 容器上预配吞吐量
 
@@ -37,14 +37,40 @@ ms.locfileid: "67151398"
 ## <a name="provision-throughput-using-azure-cli"></a>使用 Azure CLI 预配吞吐量
 
 ```azurecli
-# Create a container with a partition key and provision throughput of 1000 RU/s
+# Create a container with a partition key and provision throughput of 400 RU/s
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $containerName \
     --name $accountName \
     --db-name $databaseName \
     --partition-key-path /myPartitionKey \
-    --throughput 1000
+    --throughput 400
+```
+
+## <a name="provision-throughput-using-powershell"></a>使用 PowerShell 预配吞吐量
+
+```powershell
+# Create a container with a partition key and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+$ContainerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $resourceName -PropertyObject $ContainerProperties
 ```
 
 若要在 Azure Cosmos DB 帐户（使用用于 MongoDB 的 Azure Cosmos DB API）为容器预配吞吐量，请使用 `/myShardKey` 作为分区键路径。 若要使用 Cassandra API 在 Azure Cosmos DB 帐户中为容器预配吞吐量，请使用 `/myPrimaryKey` 作为分区键路径。
@@ -56,9 +82,10 @@ az cosmosdb collection create \
 
 <a name="dotnet-most"></a>
 ### <a name="sql-mongodb-gremlin-and-table-apis"></a>SQL、MongoDB、Gremlin 和表 API
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
-// Create a container with a partition key and provision throughput of 1000 RU/s
+// Create a container with a partition key and provision throughput of 400 RU/s
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "myContainerName";
 myCollection.PartitionKey.Paths.Add("/myPartitionKey");
@@ -66,18 +93,31 @@ myCollection.PartitionKey.Paths.Add("/myPartitionKey");
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     myCollection,
-    new RequestOptions { OfferThroughput = 1000 });
+    new RequestOptions { OfferThroughput = 400 });
+```
+
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+
+```csharp
+// Create a container with a partition key and provision throughput of 1000 RU/s
+string containerName = "myContainerName";
+string partitionKeyPath = "/myPartitionKey";
+
+await this.cosmosClient.GetDatabase("myDatabase").CreateContainerAsync(
+    id: containerName,
+    partitionKeyPath: partitionKeyPath,
+    throughput: 1000);
 ```
 
 <a name="dotnet-cassandra"></a>
 ### <a name="cassandra-api"></a>Cassandra API
 
 ```csharp
-// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+// Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
 session.Execute(CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=1000);
+    lastName text) WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## <a name="next-steps"></a>后续步骤

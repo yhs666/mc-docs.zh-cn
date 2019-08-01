@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bd8137c194f6123206e247e528c5315889e9bc1e
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c8b4c248e34a1a954ef8a63b888fb39aadda590a
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562460"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514024"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
@@ -31,7 +31,13 @@ ms.locfileid: "67562460"
 * 手动安装。 可以使用安装向导通过命令行在计算机上手动运行安装程序，也可以使用现有软件分发工具进行部署。
 * Azure 自动化 Desired State Configuration (DSC)。 配合使用 Azure 自动化中的 DSC 以及已部署在环境中的 Windows 计算机的脚本。  
 * PowerShell 脚本。
-* 适用于在 Azure Stack 中运行 Windows 本地环境的虚拟机的资源管理器模板。  
+* 适用于在 Azure Stack 中运行 Windows 本地环境的虚拟机的资源管理器模板。 
+
+>[!NOTE]
+>Azure 安全中心 (ASC) 依赖于 Microsoft Monitoring Agent（也称为 Log Analytics Windows 代理），并将在其部署过程中安装和配置它以便向 Log Analytics 工作区报告。 ASC 包括一个自动预配选项，该选项允许在订阅中的所有 VM 上自动安装 Log Analytics Windows 代理，并将其配置为向特定工作区报告。
+>
+
+如果需要将代理配置为向多个工作区报告，则不能在初始设置期间执行此操作，只能在通过从控制面板或 PowerShell 更新设置之后执行，如[添加或删除工作区](agent-manage.md#adding-or-removing-a-workspace)中所述。  
 
 若要了解支持的配置，请查看[支持的 Windows 操作系统](log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](log-analytics-agent.md#network-firewall-requirements)。
 
@@ -64,7 +70,7 @@ ms.locfileid: "67562460"
 5. 重启系统以使设置生效。 
 
 ## <a name="install-the-agent-using-setup-wizard"></a>使用安装向导安装代理
-以下步骤在计算机上使用代理的设置向导在 Azure 和 Azure China Cloud 云中安装并配置 Log Analytics 的代理。 如果希望了解如何将代理配置为也向 System Center Operations Manager 管理组进行报告，请参阅[使用代理设置向导部署 Operations Manager 代理](https://docs.microsoft.com/zh-cn/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
+以下步骤在计算机上使用代理的设置向导在 Azure 和 Azure 中国云中安装并配置 Log Analytics 代理。 如果希望了解如何将代理配置为也向 System Center Operations Manager 管理组进行报告，请参阅[使用代理设置向导部署 Operations Manager 代理](https://docs.microsoft.com/system-center/scom/manage-deploy-windows-agent-manually#to-deploy-the-operations-manager-agent-with-the-agent-setup-wizard)。
 
 1. 在 Log Analytics 工作区中，从先前导航到的“Windows 服务器”页，根据 Windows 操作系统的处理器体系结构选择相应的“下载 Windows 代理”版本。     
 2. 运行安装程序在计算机上安装该代理。
@@ -73,7 +79,7 @@ ms.locfileid: "67562460"
 4. 在“目标文件夹”页面上更改或保留默认安装文件夹，然后单击“下一步”   。
 5. 在“代理安装选项”页上，选择将代理连接到 Azure Log Analytics，单击“下一步”。     
 6. 在“Azure Log Analytics”页上执行以下操作： 
-   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。    如果计算机应向 Azure China Cloud 云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 美国政府”。    
+   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。    如果计算机应向 Azure 政府云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 美国政府版”。    
    2. 如果计算机需要通过代理服务器来与 Log Analytics 通信，请单击“高级”并提供代理服务器的 URL 和端口号。   如果代理服务器要求身份验证，请键入用于在代理服务器上进行身份验证的用户名和密码，并单击“下一步”。   
 7. 提供所需的配置设置后，单击“下一步”。 <br><br> ![粘贴工作区 ID 和主键](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. 在“准备安装”页上检查所做的选择，并单击“安装”。  
@@ -104,13 +110,13 @@ ms.locfileid: "67562460"
 2. 要以无提示方式安装代理，并将其配置为向 Azure 商业版云中的工作区报告，请在提取安装文件的文件夹中键入： 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    或者，要将代理配置为向 Azure 美国政府版云报告，请键入： 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]
     >需要将参数 OPINSIGHTS_WORKSPACE_ID  和 OPINSIGHTS_WORKSPACE_KEY  的字符串值封装在双引号中，以指示 Windows Installer 将其解释为包的有效选项。 
@@ -200,6 +206,4 @@ ms.locfileid: "67562460"
 
 查看[管理并维护 Windows 和 Linux 的 Log Analytics 代理](agent-manage.md)，了解如何在代理部署生命周期内在计算机上管理代理。  
 
-
-
-
+- 如果在安装或管理代理时遇到问题，请查看 [Windows 代理疑难解答](agent-windows-troubleshoot.md)。

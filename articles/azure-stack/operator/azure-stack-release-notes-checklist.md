@@ -12,33 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/02/2019
-ms.date: 06/03/2019
+origin.date: 06/27/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.lastreviewed: 05/02/2019
-ms.openlocfilehash: 098e7fb4ba58ec9318ce24307e5b93cfef1bb772
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.reviewer: hectorl
+ms.lastreviewed: 06/27/2019
+ms.openlocfilehash: f5c30db61ba3473a4a162902b22e9026fe184910
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66249157"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513415"
 ---
 # <a name="azure-stack-update-activity-checklist"></a>Azure Stack 更新活动清单
 
-本文包含 Azure Stack 操作员的更新相关活动的清单。 如果你正准备将更新应用于 Azure Stack，可以查看此信息。
+本文包含 Azure Stack 操作员的更新相关活动的清单。 如果正准备将更新应用于 Azure Stack，可以查看此信息。
 
 ## <a name="prepare-for-azure-stack-update"></a>准备 Azure Stack 更新
 
 | 活动              | 详细信息                                                                          |
 |-----------------------|----------------------------------------------------------------------------------|
-| 查看已知问题   | [已知问题列表](azure-stack-release-notes-known-issues-1904.md)。                |
-| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1904.md)。      |
+| 查看已知问题   | [已知问题列表](azure-stack-release-notes-known-issues-1906.md)。                |
+| 查看安全更新 | [安全更新列表](azure-stack-release-notes-security-updates-1906.md)。      |
 | 运行 Test-AzureStack   | 运行 `Test-AzureStack -Group UpdateReadiness` 确定操作问题。      |
 | 解决问题        | 解决 **Test-AzureStack** 确定的任何操作问题。                |
 | 应用最新修补程序 | 应用适用于当前安装版本的最新修补程序。         |
 | 运行 Capacity Planner 工具 | 请确保使用最新版本的 [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner)  工具来执行工作负荷规划和大小调整。 最新版本包含 bug 修复，并提供与每个 Azure Stack 更新一起发布的新功能。 |
-| 可用更新       | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以根据[此处所述的过程](azure-stack-apply-updates.md)下载和导入新的 1904 包。               |
+| 可用更新       | 只有在联网场景中，Azure Stack 部署才会定期检查安全的终结点，并在已发布云更新的情况下自动通知你。 断开连接的客户可以根据[此处所述的过程](azure-stack-apply-updates.md)下载和导入新的 1906 包。               |
 
 ## <a name="during-azure-stack-update"></a>在 Azure Stack 更新期间
 
@@ -60,5 +60,5 @@ ms.locfileid: "66249157"
 
 ## <a name="next-steps"></a>后续步骤
 
-- [查看已知问题列表](azure-stack-release-notes-known-issues-1904.md)
-- [查看安全更新列表](azure-stack-release-notes-security-updates-1904.md)
+- [查看已知问题列表](azure-stack-release-notes-known-issues-1906.md)
+- [查看安全更新列表](azure-stack-release-notes-security-updates-1906.md)

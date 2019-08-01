@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/04/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6106978c3f6b91c35b7c53425f0081c8057211e
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 836c897a2fdb0cd079fa3a94e044e81783a62f73
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250416"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514356"
 ---
 # <a name="quickstart-create-a-virtual-network-using-powershell"></a>快速入门：使用 PowerShell 创建虚拟网络
 
@@ -31,6 +31,8 @@ ms.locfileid: "66250416"
 <!--[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-powershell.md)]-->
 
 如果决定在本地安装并使用 PowerShell，则本快速入门需要使用 Azure PowerShell 模块 1.0.0 版本或更高版本。 要查找已安装的版本，请运行 `Get-Module -ListAvailable Az`。 请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)，获取安装和升级信息。
+
+<!--Not Available on instead-->
 
 最后，如果在本地运行 PowerShell，则还将需运行 `Connect-AzAccount -Environment AzureChinaCloud`。 该命令创建与 Azure 的连接。
 
@@ -141,9 +143,6 @@ Get-AzPublicIpAddress `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-将远程桌面协议 (.rdp) 文件下载到计算机后，随即会打开一个远程桌面  。
-
 1. 出现提示时，选择“连接”  。
 
 1. 输入在创建 VM 时指定的用户名和密码。

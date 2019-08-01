@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: CLI
 ms.topic: article
 origin.date: 05/09/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 05/09/2019
-ms.openlocfilehash: 3c0e3412f2a97ac2aac0e5e533ec70ceb825800e
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: f389a2a17efe163240107466131b3a206585fcfc
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248544"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513329"
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>使用命令行在 Azure Stack 中部署模板
+# <a name="deploy-a-template-with-the-command-line-in-azure-stack"></a>在 Azure Stack 中使用命令行部署模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 

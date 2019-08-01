@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/22/2018
-ms.date: 02/18/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: cfb1aa0e643b1787c8d9d2bf2c48ab4e2cdcd55d
-ms.sourcegitcommit: e32c8da268002b94c500131bb361fd6afc85ce9f
+ms.openlocfilehash: 0eddaa414922c6241e572bd37f8e6f1042af87f3
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306721"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514406"
 ---
 <!-- Region Map  West US China North, West Europe China North 2, and East Asia China East-->
 # <a name="nested-traffic-manager-profiles"></a>嵌套式流量管理器配置文件
@@ -96,7 +96,7 @@ ms.locfileid: "56306721"
 无需在中国北部 2 区添加多个终结点，这些终结点会包含在单独的子配置文件中。 子配置文件将作为中国北部 2 区的唯一终结点添加到父配置文件。 子配置文件中的设置可以通过在中国北部 2 区启用基于优先级或加权的流量路由，控制该区域的流量分布。
 
 <!-- Region Map West Europe China North 2-->
-![“性能”流量路由，自定义区域内流量分布][8]
+![自定义区域内流量分布的“性能”流量路由][8]
 
 ## <a name="example-5-per-endpoint-monitoring-settings"></a>示例 5：基于终结点的监视设置
 

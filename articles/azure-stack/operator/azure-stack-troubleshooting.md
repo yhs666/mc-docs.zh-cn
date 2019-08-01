@@ -12,33 +12,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/06/2019
-ms.date: 06/03/2019
+origin.date: 05/20/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 9b1da2979f29d2e8b1ddfc52325cf43ef74714e6
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: dec3b5ca91edaec70d377e6d851be37b5173106e
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381893"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513382"
 ---
 # <a name="azure-stack-troubleshooting"></a>Azure Stack 故障排除
 
-本文档提供 Azure Stack 的常见故障排除信息。 
-
-> [!NOTE]
-> 由于 Azure Stack 技术开发工具包 (ASDK) 以评估环境的形式提供，因此 Microsoft 客户支持服务不会提供官方支持。 如果遇到问题，请务必查看 [Azure Stack MSDN 论坛](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack)以获取更多帮助和信息。  
-
-本部分针对故障排除问题提供的建议派生自多个来源，不保证能够解决具体的问题。 代码示例按原样提供，不保证生成预期的结果。 随着产品的不断改进，本部分的内容可能会频繁更新。
+本文档提供 Azure Stack 的常见故障排除信息。 建议和代码示例按原样提供，可能不会始终解决你的问题。 
 
 ## <a name="deployment"></a>部署
 ### <a name="general-deployment-failure"></a>常见的部署失败
 如果安装期间发生失败，可以使用部署脚本的 -rerun 选项从失败的步骤重新开始部署。  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>ASDK 部署结束时，PowerShell 会话仍保持打开状态，但不显示任何输出。
-此行为可能是选择 PowerShell 命令窗口后的默认行为。 开发工具包部署成功，但选择窗口时，脚本已暂停。 可以通过在命令窗口的标题栏中查找“select”一词，来验证安装是否已完成。  按 ESC 键取消选择窗口，然后即会显示完成消息。
+此行为可能是选择 PowerShell 命令窗口后的默认行为。 开发工具包部署成功，但选择窗口时，脚本已暂停。 可以通过在命令窗口的标题栏中查找“select”一词，来验证安装是否已完成。 按 ESC 键取消选择窗口，然后即会显示完成消息。
 
 ### <a name="deployment-fails-due-to-lack-of-external-access"></a>部署因缺少外部访问而失败
 如果部署在需要外部访问的阶段失败，则会返回一个异常，如以下示例所示：
@@ -50,7 +45,7 @@ An error occurred while trying to test identity provider endpoints: System.Net.W
 ```
 如果发生此错误，请查看[部署网络流量文档](deployment-networking.md)，通过检查确保满足所有最低的网络要求。 合作伙伴也可使用网络检查器工具（在合作伙伴工具包中提供）。
 
-如果部署失败且出现上述异常，则通常是由于在连接到 Internet 上的资源时出现问题
+如果部署失败且出现上述异常，则通常是由于在连接到 Internet 上的资源时出现问题。
 
 若要验证这是否是你的问题，可以执行以下步骤：
 

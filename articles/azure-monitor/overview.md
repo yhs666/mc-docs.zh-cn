@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7db1a45fa32f92c1a9a72cac462725f6fa09ca28
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: ec749e8aef99a65e73eed43431a6b3c9451e72b3
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562482"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513832"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 
@@ -58,7 +58,7 @@ Azure Monitor 可从各种源收集数据。 可将应用程序的监视数据�
 
 通过[启用诊断](platform/diagnostic-logs-overview.md)并[将代理添加](platform/agent-windows.md)到计算资源，将数据收集范围扩展到资源的实际操作。 这会收集资源内部操作的遥测数据，并可让你配置不同的[数据源](platform/agent-data-sources.md)用于从 Windows 和 Linux 来宾操作系统收集日志与指标。 
 
-[将检测包添加到应用程序](app/azure-web-apps.md)，使 Application Insights 能够收集有关应用程序的详细信息，包括页面视图、应用程序请求和异常。 通过配置[可用性测试](app/monitor-web-app-availability.md)来模拟用户流量，进一步验证应用程序的可用性。
+启用对[应用程序服务应用程序](app/azure-web-apps.md)的监视，使 Application Insights 能够收集有关应用程序的详细信息，包括页面视图、应用程序请求和异常。 通过配置[可用性测试](app/monitor-web-app-availability.md)来模拟用户流量，进一步验证应用程序的可用性。
 
 ### <a name="custom-sources"></a>自定义源
 Azure Monitor 可以使用[数据收集器 API](platform/data-collector-api.md) 从任何 REST 客户端收集日志数据。 这样，便可以创建自定义监视方案，并将监视范围扩展到不通过其他源公开遥测数据的资源。
@@ -79,13 +79,13 @@ Azure Monitor 可以使用[数据收集器 API](platform/data-collector-api.md) 
 ![容器运行状况](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor
-用于 VM 的 Azure Monitor 分析 Windows 和 Linux VM 的性能与运行状况，包括其不同的进程以及与其他资源和外部进程之间的相互依赖关系，可以大规模监视 Azure 虚拟机 (VM)。 该解决方案支持监视本地或其他云提供程序中托管的 VM 的性能和应用程序依赖项。  
+[用于 VM 的 Azure Monitor](insights/vminsights-overview.md) 分析 Windows 和 Linux VM 的性能与运行状况，包括其不同的进程以及与其他资源和外部进程之间的相互依赖关系，可以大规模监视 Azure 虚拟机 (VM)。 该解决方案支持监视本地或其他云提供程序中托管的 VM 的性能和应用程序依赖项。  
 
 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>监视解决方案
-Azure Monitor 中的[监视解决方案](insights/solutions.md)是打包的逻辑集，提供有关特定应用程序或服务的见解。 它们包括了用于为应用程序或服务收集监视数据的逻辑、用于分析该数据的[查询](log-query/log-query-overview.md)。 监视解决方案由 [Microsoft](insights/solutions-inventory.md) 或合作伙伴提供，可针对各种 Azure 服务和其他应用程序提供监视。
+Azure Monitor 中的[监视解决方案](insights/solutions.md)是打包的逻辑集，提供有关特定应用程序或服务的见解。 它们包括了用于为应用或服务收集监视数据的逻辑、用于分析该数据的[查询](log-query/log-query-overview.md)，以及用于提供可视化效果的[视图](platform/view-designer.md)。 监视解决方案由 [Microsoft](insights/solutions-inventory.md) 或合作伙伴提供，可针对各种 Azure 服务和其他应用程序提供监视。
 
 ![监视解决方案](media/overview/solutions-overview.png)
 

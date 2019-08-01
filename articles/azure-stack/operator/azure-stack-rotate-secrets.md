@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 06/03/2019
+origin.date: 07/15/2019
+ms.date: 07/29/2019
 ms.reviewer: ppacent
 ms.author: v-jay
-ms.lastreviewed: 04/15/2019
-ms.openlocfilehash: ffa3000ce33371c91114d5de172141627e3cb30e
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.lastreviewed: 07/15/2019
+ms.openlocfilehash: 79f2f5931a49a84742e10a82b243fd69c079e19b
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135411"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513397"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>在 Azure Stack 中轮换机密
 
@@ -370,7 +370,11 @@ Remove-PSSession -Session $PEPSession
 
 基板管理控制器 (BMC) 监视服务器的物理状态。 有关更新 BMC 用户帐户名和密码的规范和说明会根据原始设备制造商 (OEM) 硬件供应商而有所不同。 应定期更新 Azure Stack 组件的密码。
 
-1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 请注意，BMC 用户名不能超过 16 个字符。
+1. 遵照 OEM 说明在 Azure Stack 的物理服务器上更新 BMC。 环境中每个 BMC 的用户名和密码必须相同。 BMC 用户名不能超过 16 个字符。
+
+    > [!Note]  
+    > 首先，在物理服务器的基板管理控制器上更新 BMC 凭据；否则，Azure Stack 命令将在验证期间失败。
+
 2. 在 Azure Stack 会话中打开特权终结点。 有关说明，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 3. 在 PowerShell 提示符更改为 **[IP 地址或 ERCS VM 名称]:PS>** 或 **[azs-ercs01]:PS>** （具体取决于环境）后，通过运行 `Invoke-Command` 来运行 `Set-BmcCredential`。 将特权终结点会话变量作为参数传递。 例如：
 

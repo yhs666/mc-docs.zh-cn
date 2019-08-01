@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 03/23/2019
-ms.date: 04/29/2019
+origin.date: 06/23/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 588aa04cd577001e0200d2ca3043e50278cc92cc
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: a76ffe7dfe4e6af29f601c10c2e19873bbb856ee
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135482"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513371"
 ---
 # <a name="validate-azure-registration"></a>验证 Azure 注册
 
@@ -41,7 +41,7 @@ ms.locfileid: "67135482"
 
 以下系统必备组件是必需的：
 
-**运行该工具的计算机：**
+### <a name="the-computer-on-which-the-tool-runs"></a>运行该工具的计算机
 
 - Windows 10 或 Windows Server 2016，具有 Internet 连接。
 - PowerShell 5.1 或更高版本。 若要检查版本，请运行以下 PowerShell cmdlet，然后查看主要  版本和次要  版本：  
@@ -53,7 +53,7 @@ ms.locfileid: "67135482"
 - [为 Azure Stack 配置的 PowerShell](azure-stack-powershell-install.md)。
 - 最新版本的 [Azure Stack 就绪性检查器](https://aka.ms/AzsReadinessChecker)。  
 
-**Azure Active Directory 环境：**
+### <a name="azure-active-directory-environment"></a>Azure Active Directory 环境
 
 - 标识将与 Azure Stack 配合使用的帐户的用户名和密码，该帐户必须是 Azure 订阅所有者。  
 - 标识将使用的 Azure 订阅的订阅 ID。
@@ -107,7 +107,7 @@ ms.locfileid: "67135482"
 
 这些文件可以帮助你在部署 Azure Stack 之前共享验证状态，或者调查验证问题。 这两个文件都会持久保留每个后续验证检查的结果。 报表向你的部署团队提供标识配置确认。 日志文件可以帮助你的部署或支持团队调查验证问题。
 
-默认情况下，这两个文件都写入到 **C:\Users\<username>\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
+默认情况下，这两个文件都写入到 **C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json**。  
 
 - 可以在运行命令行的末尾使用 **-OutputPath** ***&lt;path&gt;*** 参数指定一个不同的报表位置。
 - 可以在运行命令的末尾使用 **-CleanReport** 参数从 **AzsReadinessCheckerReport.json** 中清除以前运行此工具时的相关信息。

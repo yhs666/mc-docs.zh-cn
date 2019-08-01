@@ -3,20 +3,20 @@ title: 文本翻译 API 翻译方法
 titleSuffix: Azure Cognitive Services
 description: 使用文本翻译 API 翻译方法。
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 origin.date: 02/01/2019
-ms.date: 06/11/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
-ms.openlocfilehash: fb739ee8ac397cbead1d1ed48672e8b385c62d05
-ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.openlocfilehash: 7a4b590a0b232b93f07b5447f89029d40b5badb5
+ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/11/2019
-ms.locfileid: "66830099"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68439957"
 ---
 # <a name="translator-text-api-30-translate"></a>文本翻译 API 3.0：Translate
 
@@ -43,7 +43,7 @@ https://api.translator.azure.cn/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td>可选参数。<br/>指定输入文本的语言。 可以使用 <code>translation</code> 范围来查找<a href="./v3-0-languages.md">支持的语言</a>，了解哪些语言可以翻译。 如果未指定 <code>from</code> 参数，则会应用自动语言检测来确定源语言。</td>
+    <td>可选参数。<br/>指定输入文本的语言。 可以使用 <code>translation</code> 范围来查找<a href="./v3-0-languages.md">支持的语言</a>，了解哪些语言可以翻译。 如果未指定 <code>from</code> 参数，则会应用自动语言检测来确定源语言。 <br/><br/>使用<a href="/cognitive-services/translator/dynamic-dictionary">动态字典</a>功能时，必须使用 <code>from</code> 参数而不是自动检测。</td>
   </tr>
   <tr>
     <td>to</td>

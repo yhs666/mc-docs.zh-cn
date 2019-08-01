@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-origin.date: 01/05/2019
-ms.date: 02/18/2019
+ms.topic: conceptual
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.lastreviewed: 01/05/2019
-ms.openlocfilehash: 2bb03574266760e5c16c2329a652ba04bf5721c6
-ms.sourcegitcommit: 6101e77a8a4b8285ddedcb5a0a56cd3884165de9
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 868de67a400711f66bd4a03ae33e4f34ce871e47
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56218347"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513291"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
@@ -51,7 +51,7 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 
 然后，操作员可以向开发人员提供统一资源标识符 (URI)，以便从其应用程序调用。 操作员也可以向安全管理员提供密钥用法记录信息。
 
-开发人员还可通过使用 API 直接管理密钥。 有关详细信息，请参阅 Key Vault 开发人员指南。
+开发人员还可通过使用 API 直接管理密钥。 有关详细信息，请参阅 [Key Vault 开发人员指南](/azure/key-vault/key-vault-developers-guide)。
 
 ## <a name="scenarios"></a>方案
 
@@ -79,4 +79,3 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 
 * [通过门户管理 Azure Stack 中的 Key Vault](azure-stack-key-vault-manage-portal.md)  
 * [使用 PowerShell 管理 Azure Stack 中的 Key Vault](azure-stack-key-vault-manage-powershell.md)
-

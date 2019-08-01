@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 04/29/2019
+origin.date: 05/20/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 3415c7ff8f3ab408cdafa7fc9cd4f65ec50957a8
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: c715c3c1d32d3a391177f218dd30287b306c2a8b
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135450"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513499"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>在 Azure Active Directory 中添加新的 Azure Stack 租户帐户
 
@@ -61,8 +61,15 @@ ms.locfileid: "67135450"
 
 如果没有 Azure 订阅，则无法使用 Azure 门户添加租户用户帐户。 在这种情况下，可以改用适用于 Windows PowerShell 的 Azure Active Directory 模块。
 
-1. 安装[适用于 IT 专业人员 RTW 的 Microsoft Online Services 登录助手](https://www.microsoft.com/en-us/download/details.aspx?id=41950)。
-2. 安装[适用于 Windows PowerShell 的 Azure Active Directory 模块（64 位版本）](https://go.microsoft.com/fwlink/p/?linkid=236297)并将其打开。
+1. 安装 **64 位**版本的[适用于 IT 专业人员的 Microsoft Online Services 登录助手 RTW](https://go.microsoft.com/fwlink/p/?LinkId=286152)。
+
+2. 按照以下步骤安装适用于 Windows PowerShell 的 Azure Active Directory 模块：
+
+    - 打开提升的 Windows PowerShell 命令提示符（以管理员身份运行 Windows PowerShell）。
+    - 运行 **Install-Module MSOnline** 命令。
+    - 如果提示安装 NuGet 提供程序，请选择 **Y** 和 **Enter**。
+    - 如果提示从 PSGallery 安装模块，请选择 **Y** 和 **Enter**。
+
 3. 运行以下 cmdlet：
 
     ```powershell

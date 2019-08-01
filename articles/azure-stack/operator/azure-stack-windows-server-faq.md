@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2019
-ms.date: 04/29/2019
+origin.date: 06/22/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 11/12/2018
-ms.openlocfilehash: 6e8e65b077584149ccd75a0a8f04964f6341739e
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 72743aba8d3a18529eda22c8bbcb9308d0089640
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135474"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513359"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Azure Stack 市场中的 Windows Server 常见问题解答
 
-本文解答有关 [Azure Stack 市场](azure-stack-marketplace.md)中 Windows Server 映像的常见问题。
+本文解答有关 [Azure Stack 市场](azure-stack-marketplace.md)中 Windows Server 映像的一些常见问题。
 
 ## <a name="marketplace-items"></a>市场项
 
@@ -33,11 +33,11 @@ ms.locfileid: "67135474"
 
 首先，请确定是否有任何 Azure 资源管理器模板引用了特定的版本。 如果有，请更新这些模板，或保留旧的映像版本。 最好是使用 **version: latest**。
 
-接下来，如果有任何虚拟机规模集引用特定的版本，则应考虑将来是否要缩放它们，并确定是否要保留旧版本。 如果上述两个条件都不适用，请先在市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请继续这样做。 然后下载新版本。
+接下来，如果有任何虚拟机规模集引用特定的版本，则应考虑将来是否要缩放它们，并确定是否要保留旧版本。 如果上述两个条件都不适用，请先在市场中删除旧映像，然后下载新映像。 如果原始映像是使用“市场管理”下载的，请使用“市场管理”将其删除。 然后下载新版本。
 
 ### <a name="what-are-the-licensing-options-for-windows-server-marketplace-images-on-azure-stack"></a>Azure Stack 上的 Windows Server 市场映像有哪些许可选项？
 
-Azure 通过 Azure Stack 市场提供两种版本的 Windows Server 映像：
+Azure 通过 Azure Stack 市场提供两种版本的 Windows Server 映像。 在 Azure Stack 环境中只能使用此映像的一个版本。  
 
 - **预支付**：这些映像运行全价 Windows 计量器。
    适合对象：使用消耗量计费模型的企业协议 (EA) 客户、不想要使用 SPLA 许可的 CSP。 
@@ -48,7 +48,9 @@ Azure Stack 不支持 Azure 混合使用权益 (AHUB)。 通过“容量”模�
 
 ### <a name="what-if-i-downloaded-the-wrong-version-to-offer-my-tenantsusers"></a>如果下载了错误的版本并将其提供给租户/用户，该怎么办？
 
-请先通过“市场管理”删除错误的版本。 等待删除操作完全完成（请查看完成通知，而不要查看“市场管理”边栏选项卡）。 然后下载正确的版本。
+请先通过“市场管理”删除错误的版本。 等待删除操作完成（请查看完成通知，而不要查看“市场管理”  边栏选项卡）。 然后下载正确的版本。
+
+如果下载了两个版本的映像，则最终客户在市场库中只能看到最新版本。
 
 ### <a name="what-if-my-user-incorrectly-checked-the-i-have-a-license-box-in-previous-windows-builds-and-they-dont-have-a-license"></a>如果我的用户在旧版 Windows 生成中错误地选中了“我有许可证”框，但他们其实并没有许可证，该怎么办？
 

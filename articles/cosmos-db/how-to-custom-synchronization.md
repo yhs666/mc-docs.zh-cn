@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5ecc28ea8efff114b2252395c48912e588b789f7
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 8dc086ee1477e133c9119342f32b808dcd849cf9
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151404"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514456"
 ---
 # <a name="implement-custom-synchronization-to-optimize-for-higher-availability-and-performance"></a>实现自定义同步以根据更高可用性和性能进行优化
 
@@ -36,6 +36,7 @@ Azure Cosmos DB 提供[五个定义明确的一致性级别](consistency-levels.
 <!--Verify suceesfully-->
 <!--MOONCAKE: write region is China North and read region is China East-->
 
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -71,12 +72,36 @@ class MyDataAccessLayer
 }
 ```
 
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+    private CosmosClient writeClient;
+    private CosmosClient readClient;
+
+    public void InitializeAsync(string accountEndpoint, string key)
+    {
+        CosmosClientOptions writeConnectionOptions = new CosmosClientOptions();
+        writeConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        writeConnectionOptions.ApplicationRegion = "China North";
+
+        CosmosClientOptions readConnectionOptions = new CosmosClientOptions();
+        readConnectionOptions.ConnectionMode = ConnectionMode.Direct;
+        readConnectionOptions.ApplicationRegion = "China East";
+
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+        writeClient = new CosmosClient(accountEndpoint, key, writeConnectionOptions);
+    }
+}
+```
+
 ## <a name="implement-custom-synchronization"></a>实现自定义同步
 
 初始化客户端后，应用程序可向本地区域（中国北部）执行写入，并强制将写入操作同步到中国东部，如下所示。
 
 <!--MOONCAKE: write region is China North and read region is China East-->
 
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 ```csharp
 class MyDataAccessLayer
 {
@@ -87,6 +112,25 @@ class MyDataAccessLayer
 
         await readClient.ReadDocumentAsync(response.Resource.SelfLink,
             new RequestOptions { SessionToken = response.SessionToken });
+    }
+}
+```
+
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+```csharp
+class MyDataAccessLayer
+{
+     public async Task CreateItem(string databaseId, string containerId, dynamic item)
+     {
+        ItemResponse<dynamic> response = await writeClient.GetContainer("containerId", "databaseId")
+            .CreateItemAsync<dynamic>(
+                item,
+                new PartitionKey("test"));
+
+        await readClient.GetContainer("containerId", "databaseId").ReadItemAsync<dynamic>(
+            response.Resource.id,
+            new PartitionKey("test"),
+            new ItemRequestOptions { SessionToken = response.Headers.Session, ConsistencyLevel = ConsistencyLevel.Session });
     }
 }
 ```

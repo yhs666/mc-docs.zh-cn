@@ -1,5 +1,5 @@
 ---
-title: 管理 Azure 安全中心的安全建议 | Azure Docs
+title: Azure 安全中心的安全建议 | Docs
 description: 本文档介绍 Azure 安全中心中的建议如何帮助你保护 Azure 资源并保持符合安全策略。
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1611e99335947ffce3f325c6fd6798ba0dcf8da
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: b51830029e15b918734d15139ce001e26f69c48d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570210"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514414"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Azure 安全中心的安全建议 
 本主题说明如何查看和了解 Azure 安全中心内的建议，以帮助你保护 Azure 资源。

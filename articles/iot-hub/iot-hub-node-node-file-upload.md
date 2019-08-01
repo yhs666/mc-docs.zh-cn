@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 06/03/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 347f007aa177993a4564ae6c0f930d447c83468f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 116172381b9b653c89e07fefcfdfae170cbc80bd
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570452"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514464"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -23,10 +23,11 @@ ms.locfileid: "67570452"
 
 本教程的内容基于[使用 IoT 中心发送云到设备的消息](iot-hub-node-node-c2d.md)教程中所述的代码，介绍如何使用 [IoT 中心的文件上传功能](iot-hub-devguide-file-upload.md)将文件上传到 [Azure Blob 存储](../storage/index.yml)。 本教程介绍如何：
 
-- 安全地为设备提供用于上传文件的 Azure Blob URI。
-- 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
+* 安全地为设备提供用于上传文件的 Azure Blob URI。
 
-[IoT 中心入门](quickstart-send-telemetry-node.md)教程展示了 IoT 中心基本的设备到云消息功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+* 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
+
+[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门演示了 IoT 中心基本的设备到云的消息传送功能。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频

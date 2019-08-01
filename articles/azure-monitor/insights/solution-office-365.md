@@ -10,18 +10,22 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/29/2019
+ms.date: 07/01/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 30aeb0ab5a05ef358a376d6b094c3b485808dad1
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 2e649d1479d55c6871d0525cde3100d241ae4cf8
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562592"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514055"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
 ![Office 365 徽标](media/solution-office-365/icon.png)
+
+
+> [!NOTE]
+> Azure 政府云的用户必须按照本文中的步骤安装 Office 365，因为 Azure Sentinel 在政府云中尚不可用。
 
 通过 Office 365 管理解决方案，可在 Azure Monitor 中监视 Office 365 环境。
 

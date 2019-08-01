@@ -12,10 +12,10 @@ origin.date: 03/22/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
 ms.openlocfilehash: bf5b73e26bb00f0ef15ab1f6b0c2abc700c11a60
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67845434"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight 中的 Apache Hadoop 群集的可用性和可靠性
@@ -248,7 +248,7 @@ Ambari REST API 可以通过 Internet 使用。 HDInsight 公共网关处理以�
 
 只能在创建群集期间选择节点大小。 可以在 [HDInsight 定价页](https://www.azure.cn/pricing/details/hdinsight/)上找到 HDInsight 可用的不同 VM 大小的列表。
 
-创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal], [Azure PowerShell module Az][azure-powershell]和 [Azure CLI][azure-cli] 指定大小：
+创建群集时，可以指定节点的大小。 以下信息介绍了如何使用 [Azure 门户][preview-portal]、[Azure PowerShell 模块 Az][azure-powershell] 和 [Azure CLI][azure-cli] 指定大小：
 
 * **Azure 门户**：创建群集时，可以设置群集所用节点的大小：
 

@@ -16,10 +16,10 @@ ms.date: 1/3/2019
 ms.author: v-lingwu
 ms.custom: seodec18
 ms.openlocfilehash: fb1dd2658eec98b1a75dd32264ff6a1dfe7c391a
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67845261"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>使用 Batch 开发大规模并行计算解决方案
@@ -233,7 +233,7 @@ Azure Batch 池构建在核心 Azure 计算平台的顶层。 它们提供大规
     请注意，Batch 服务将没有任务的作业视为其所有任务都已完成。  因此，此选项往往与 [作业管理器任务](#job-manager-task)配合使用。 如果想要使用自动作业终止而不通过作业管理器终止，首先应该将新作业的 **onAllTasksComplete** 属性设置为 *noaction*，然后只有在完成将任务添加到作业之后才将它设置为 *terminatejob*。
 
 ### <a name="job-priority"></a>作业优先级
-可以向你在 Batch 中创建的作业分配优先级。 Batch 服务使用作业的优先级值来确定帐户中的作业计划顺序（不要与 [计划的作业](#scheduled-jobs)相混淆）。 优先级值的范围为 -1000 到 1000，-1000 表示最低优先级，1000 表示最高优先级。 若要更新作业的优先级，请调用[更新作业的属性][rest_update_job] operation (Batch REST), or modify the [CloudJob.Priority][net_cloudjob_priority] 属性 (Batch .NET)。
+可以向你在 Batch 中创建的作业分配优先级。 Batch 服务使用作业的优先级值来确定帐户中的作业计划顺序（不要与 [计划的作业](#scheduled-jobs)相混淆）。 优先级值的范围为 -1000 到 1000，-1000 表示最低优先级，1000 表示最高优先级。 若要更新作业的优先级，请调用[更新作业的属性][rest_update_job]操作 (Batch REST) 或修改 [CloudJob.Priority][net_cloudjob_priority] 属性 (Batch .NET)。
 
 在同一个帐户内，高优先级作业的计划优先顺序高于低优先级作业。 一个帐户中具有较高优先级值的作业，其计划优先级并不高于不同帐户中较低优先级值的另一个作业。
 
@@ -334,14 +334,14 @@ Batch 提供作业准备任务来设置作业前的执行。 作业释放任务�
 * *taskC* 同时依赖于 *taskA* 和 *taskB*。
 * *taskD* 在执行前依赖于某个范围的任务，例如任务 *1* 到 *10*。
 
-有关此功能的更深入信息，请查看 [Azure Batch 中的任务依赖关系](batch-task-dependencies.md)和 [TaskDependencies][github_sample_taskdeps] code sample in the [azure-batch-samples][github_samples] GitHub 存储库。
+有关此功能的更深入详细信息，请查看 [Azure Batch 中的任务依赖关系](batch-task-dependencies.md)和 [azure-batch-samples][github_samples] GitHub 存储库中的 [TaskDependencies][github_sample_taskdeps] 代码示例。
 
 ## <a name="environment-settings-for-tasks"></a>任务的环境设置
 批处理服务执行的每个任务都可以访问在计算节点上设置的环境变量。 这包括 Batch 服务定义的（[服务定义型][msdn_env_vars]）环境变量以及用户可以针对其任务定义的自定义环境变量。 任务执行的应用程序和脚本可以在执行期间访问这些环境变量。
 
-可以通过填充这些实体的 *环境设置* 属性，在任务或作业级别设置自定义环境变量。 有关示例，请参阅[将任务添加到作业][rest_add_task] operation (Batch REST API), or the [CloudTask.EnvironmentSettings][net_cloudtask_env] 和 Batch .NET 中的 [CloudJob.CommonEnvironmentSettings][net_job_env] 属性。
+可以通过填充这些实体的 *环境设置* 属性，在任务或作业级别设置自定义环境变量。 有关示例，请参阅[将任务添加到作业][rest_add_task]操作 (Batch REST API)，或 Batch .NET 中的 [CloudTask.EnvironmentSettings][net_cloudtask_env] 和 [CloudJob.CommonEnvironmentSettings][net_job_env] 属性。
 
-客户端应用程序或服务可使用[获取有关任务的信息][rest_get_task_info]operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings][net_cloudtask_env] 属性 (Batch .NET)，来获取任务的环境变量（服务定义型和自定义型）。 在计算节点上执行的进程可以在节点上访问这些和其他环境变量，例如，通过使用熟悉的 `%VARIABLE_NAME%` (Windows) 或 `$VARIABLE_NAME` (Linux) 语法。
+客户端应用程序或服务可使用[获取有关任务的信息][rest_get_task_info]操作 (Batch REST) 或通过访问 [CloudTask.EnvironmentSettings][net_cloudtask_env] 属性 (Batch .NET)，来获取任务的环境变量（服务定义型和自定义型）。 在计算节点上执行的进程可以在节点上访问这些和其他环境变量，例如，通过使用熟悉的 `%VARIABLE_NAME%` (Windows) 或 `$VARIABLE_NAME` (Linux) 语法。
 
 可以在[计算节点环境变量][msdn_env_vars]中找到包含所有服务定义型环境变量的完整列表。
 
@@ -424,7 +424,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 ## <a name="security-with-certificates"></a>证书的安全性
 在加密或解密任务的敏感信息（例如 [Azure 存储帐户][azure_storage]的密钥）时，通常需要使用证书。 为此，可以在节点上安装证书。 加密的机密通过命令行参数或内嵌在某个任务资源中来传递给任务，已安装的证书可用于解密机密。
 
-可以使用[添加证书][rest_add_cert] operation (Batch REST) or [CertificateOperations.CreateCertificate][net_create_cert] 方法 (Batch .NET) 将证书添加到 Batch 帐户。 然后，可以将该证书与新的或现有的池相关联。 将证书与池关联后，Batch 服务将在池中的每个节点上安装该证书。 在启动节点之后、启动任何任务（包括启动任务和作业管理器任务）之前，Batch 服务将安装相应的证书。
+可以使用[添加证书][rest_add_cert]操作 (Batch REST) 或 [CertificateOperations.CreateCertificate][net_create_cert] 方法 (Batch .NET) 将证书添加到 Batch 帐户。 然后，可以将该证书与新的或现有的池相关联。 将证书与池关联后，Batch 服务将在池中的每个节点上安装该证书。 在启动节点之后、启动任何任务（包括启动任务和作业管理器任务）之前，Batch 服务将安装相应的证书。
 
 如果将证书添加到 *现有* 池，必须重新启动其计算节点，证书才会应用到节点。
 
@@ -461,7 +461,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 ### <a name="debugging-application-failures"></a>调试应用程序失败
 * `stderr` 和 `stdout`
 
-    在执行过程中，应用程序可以生成诊断输出，这些信息可用于排查问题。 如前一部分[文件和目录](#files-and-directories)中所述，批处理服务会将标准输出和标准错误输出发送到计算节点上的任务目录中的 `stdout.txt` 和 `stderr.txt` 文件。 可以使用 Azure 门户或 Batch SDK 之一下载这些文件。 例如，可以使用 Batch .NET 库中的 [ComputeNode.GetNodeFile][net_getfile_node] and [CloudTask.GetNodeFile][net_getfile_task] 检索这些文件和其他文件来进行故障排除。
+    在执行过程中，应用程序可以生成诊断输出，这些信息可用于排查问题。 如前一部分[文件和目录](#files-and-directories)中所述，批处理服务会将标准输出和标准错误输出发送到计算节点上的任务目录中的 `stdout.txt` 和 `stderr.txt` 文件。 可以使用 Azure 门户或 Batch SDK 之一下载这些文件。 例如，可以使用 Batch .NET 库中的 [ComputeNode.GetNodeFile][net_getfile_node] 和 [CloudTask.GetNodeFile][net_getfile_task] 检索这些文件和其他文件来进行故障排除。
 
 * **任务退出代码**
 
@@ -476,7 +476,7 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 可通过远程登录到计算节点来进一步执行调试和故障排除。 可以使用 Azure 门户下载 Windows 节点的远程桌面协议 (RDP) 文件，并获取 Linux 节点的安全外壳 (SSH) 连接信息。 也可以使用 Batch API（例如，使用 [Batch .NET][net_rdpfile] 或 [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)）执行此操作。
 
 > [!IMPORTANT]
-> 若要通过 RDP 或 SSH 连接到某个节点，必须先在该节点上创建一个用户。 为此，可以通过 Azure 门户在 Batch .NET 中使用[将用户帐户添加到节点][rest_create_user] by using the Batch REST API, call the [ComputeNode.CreateComputeNodeUser][net_create_user] 方法，或在 Batch Python 模块中调用 [add_user][py_add_user] 方法。
+> 若要通过 RDP 或 SSH 连接到某个节点，必须先在该节点上创建一个用户。 为此，可以使用 Azure 门户通过 Batch REST API [将用户帐户添加到节点][rest_create_user]、在 Batch .NET 中调用 [ComputeNode.CreateComputeNodeUser][net_create_user] 方法，或在 Batch Python 模块中调用 [add_user][py_add_user] 方法。
 >
 >
 
@@ -485,10 +485,10 @@ Batch 可以处理使用 Azure 存储将应用程序包存储及部署到计算�
 ### <a name="troubleshooting-problematic-compute-nodes"></a>对有问题的计算节点进行故障排除
 在部分任务失败的情况下，Batch 客户端应用程序或服务可以检查失败任务的元数据来找出行为异常的节点。 池中的每个节点都有一个唯一 ID，运行任务的节点包含在任务元数据中。 识别出“有问题的节点”后，可对其执行多种操作：
 
-* **重启节点** ([REST][rest_reboot] | [.NET][net_reboot])
+* **重新启动节点** ([REST][rest_reboot] | [.NET][net_reboot])
 
     重新启动节点有时可以清除潜在的问题，例如进程停滞或崩溃。 请注意，如果池使用启动任务或作业使用作业准备任务，节点重新启动时将执行这些任务。
-* **重置节点映像** ([REST][rest_reimage]| [.NET][net_reimage])
+* **重置节点映像** ([REST][rest_reimage] | [.NET][net_reimage])
 
     这会在节点上重新安装操作系统。 和重新启动节点一样，在重置映像节点后，便重新执行启动任务和作业准备任务。
 * **从池中删除节点** ([REST][rest_remove] | [.NET][net_remove])
