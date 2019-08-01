@@ -10,10 +10,10 @@ ms.date: 07/15/2019
 ms.author: v-jay
 ms.subservice: blobs
 ms.openlocfilehash: a357fb8e4d1475875e2328ec21e4874552c473f1
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67844500"
 ---
 # <a name="create-a-blob-snapshot"></a>创建 Blob 快照
@@ -79,7 +79,7 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 * 创建块 Blob 的快照时，也会将该 Blob 的已提交块列表复制到快照。 不会复制任何未提交的块。
 
 ## <a name="specify-an-access-condition"></a>指定访问条件
-调用 [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], you can specify an access condition so that the snapshot is created only if a condition is met. To specify an access condition, use the [AccessCondition][dotnet_AccessCondition] 参数时。 如果不符合指定条件，则不会创建快照，并且 Blob 服务会返回状态代码 [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed。
+调用 [CreateSnapshotAsync][dotnet_CreateSnapshotAsync] 时，可以指定访问条件，以便仅在符合某条件时创建快照。 若要指定访问条件，请使用 [AccessCondition][dotnet_AccessCondition] 参数。 如果不符合指定条件，则不会创建快照，并且 Blob 服务会返回状态代码 [HTTPStatusCode][dotnet_HTTPStatusCode].PreconditionFailed。
 
 ## <a name="delete-snapshots"></a>删除快照
 除非连同快照一起删除，否则无法删除包含快照的 Blob。 可以单独删除快照，或指定在删除源 Blob 时删除所有快照。 如果尝试删除仍包含快照的 Blob，会发生错误。
@@ -128,7 +128,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 * 不管唯一的块或页是在 Blob 还是快照中，存储帐户都会产生费用。 在更新快照所基于的 Blob 之前，你的帐户不会就与 Blob 关联的快照产生额外费用。 更新基本 Blob 后，它与其快照分离。 发生这种情况时，需要支付每个 Blob 或快照中唯一块或页的费用。
 * 在替换块 Blob 中的某个块后，会将该块作为唯一块进行收费。 即使该块具有的块 ID 和数据与它在快照中所具有的 ID 和数据相同也是如此。 重新提交块后，它将偏离它在任何快照中的对应部分，并且要为数据支付费用。 对于使用相同数据更新的页 Blob 中的页面来说，情况也是如此。
-* 通过调用 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 方法替换块 Blob 可替换该 Blob 中的所有块。 如果你有与该 Blob 关联的快照，则基本 Blob 和快照中的所有块现在将发生偏离，你需要为这两个 Blob 中的所有块支付费用。 即使基本 Blob 和快照中的数据保持相同也是如此。
+* 通过调用 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 方法替换块 blob 可替换该 blob 中的所有块。 如果你有与该 Blob 关联的快照，则基本 Blob 和快照中的所有块现在将发生偏离，你需要为这两个 Blob 中的所有块支付费用。 即使基本 Blob 和快照中的数据保持相同也是如此。
 * Azure Blob 服务无法确定这两个块是否包含相同的数据。 每个上传和提交的块均被视为唯一的快，即使它具有相同的数据和块 ID 也是如此。 由于唯一的块会产生费用，因此必须考虑到：在更新具有快照的 Blob 时，会产生额外的唯一块，因此也会产生额外的费用。
 
 ### <a name="minimize-cost-with-snapshot-management"></a>使用快照管理最大限度地降低成本
@@ -136,7 +136,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 建议细致管理快照以避免产生额外费用。 可遵循这些最佳做法来帮助最大限度地减少快照存储成本：
 
 * 除非应用程序设计需要保留与 Blob 关联的快照，否则请在更新 Blob 时删除并重新创建这些快照，即使你使用相同的数据进行更新也是如此。 通过删除并重新创建 Blob 的快照，可以确保 Blob 和快照不会发生偏离。
-* 如果要保留 Blob 的快照，请避免调用 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] to update the blob. These methods replace all of the blocks in the blob, causing your base blob and its snapshots to diverge significantly. Instead, update the fewest possible number of blocks by using the [PutBlock][dotnet_PutBlock] 和 [PutBlockList][dotnet_PutBlockList] 方法。
+* 如果要保留 Blob 的快照，请避免调用 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 来更新该 Blob。 这些方法将替换 Blob 中的所有块，导致基本 Blob 和其快照发生明显偏离。 相反，请使用 [PutBlock][dotnet_PutBlock] 和 [PutBlockList][dotnet_PutBlockList] 方法更新尽可能少的块。
 
 ### <a name="snapshot-billing-scenarios"></a>快照计费方案
 下列方案说明了块 Blob 及其快照如何产生费用。
@@ -161,7 +161,7 @@ Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 
 **方案 4**
 
-在方案 4 中，已完全更新基本 Blob，并且其中不包含任何原始块。 因此，帐户需要为所有八个唯一块支付费用。 如果使用 [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 等更新方法，则会出现此情况，因为这些方法将替换 Blob 的所有内容。
+在方案 4 中，已完全更新基本 Blob，并且其中不包含任何原始块。 因此，帐户需要为所有八个唯一块支付费用。 如果使用 [UploadFromFile][dotnet_UploadFromFile]、[UploadText][dotnet_UploadText]、[UploadFromStream][dotnet_UploadFromStream] 或 [UploadFromByteArray][dotnet_UploadFromByteArray] 等更新方法，则会出现此情况，因为这些方法将替换 Blob 的所有内容。
 
 ![Azure 存储资源](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 

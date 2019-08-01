@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 01/14/2019
-ms.date: 04/29/2019
+origin.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: scottnap
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 68bfc76833859b6f1b94383e5b9765d0f7ca3149
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: f550ef3704cc83c948772de9032a5d33b98c3d96
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248553"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513212"
 ---
 # <a name="introducing-idns-for-azure-stack"></a>适用于 Azure Stack 的 iDNS 简介
 

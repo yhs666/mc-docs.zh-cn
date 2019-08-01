@@ -1,6 +1,6 @@
 ---
 title: 使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机 | Microsoft Docs
-description: 了解如何使用 Azure CLI 在 Azure Stack 中创建 Windows VM
+description: 使用 Azure CLI 在 Azure Stack 中创建 Windows 虚拟机
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -11,19 +11,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 01/14/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 63cb70b17c9e9356fc361dbe6782713ab4d3cb58
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 9dfb1357d53e0938543a3f2c5897f12a433d09af
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855465"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513243"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
+# <a name="quickstart-create-a-windows-server-virtual-machine-using-azure-cli-in-azure-stack"></a>快速入门：在 Azure Stack 中使用 Azure CLI 创建 Windows Server 虚拟机
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -46,7 +46,7 @@ ms.locfileid: "64855465"
 > [!NOTE]
 >  代码示例中为所有变量都分配了值。 但是，如果愿意，也可以分配新值。
 
-以下示例在本地位置创建名为 myResourceGroup 的资源组。
+以下示例在本地位置创建名为 myResourceGroup 的资源组：
 
 ```cli
 az group create --name myResourceGroup --location local
@@ -54,7 +54,7 @@ az group create --name myResourceGroup --location local
 
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-可以使用 [az vm create](/cli/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理用户名，使用 Demouser@123 作为用户密码。 将这些值更改为适合你的环境的值。
+可以使用 [az vm create](/cli/vm#az-vm-create) 命令创建虚拟机 (VM)。 以下示例创建名为 myVM 的 VM。 此示例使用 Demouser 作为管理员用户名，并使用 Demouser@123 作为管理员密码。 将这些值更改为适合你的环境的值。
 
 ```cli
 az vm create \
@@ -70,7 +70,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-由于此 VM 将用来运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。
+由于此 VM 将运行 IIS Web 服务器，因此需要为 Internet 流量打开端口 80。
 
 使用 [az vm open-port](/cli/vm) 命令打开端口 80。
 
@@ -80,7 +80,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 ## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
 
-使用以下命令创建到虚拟机的远程桌面连接。 将“Public IP Address”替换为你的虚拟机的 IP 地址。 出现提示时，输入用于虚拟机的用户名和密码。
+使用以下命令创建到虚拟机的远程桌面连接。 将“Public IP Address”替换为你的虚拟机的 IP 地址。 系统询问时，输入用于虚拟机的用户名和密码。
 
 ```
 mstsc /v <Public IP Address>
@@ -96,7 +96,7 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-可以使用所选的 Web 浏览器查看默认 IIS 欢迎页。 请使用前面部分中记录的公用 IP 地址来访问默认页面。
+可以使用所选的浏览器查看默认 IIS 欢迎页。 请使用前面部分中列出的公共 IP 地址来访问默认页面：
 
 ![IIS 默认站点](./media/azure-stack-quick-create-vm-windows-cli/default-iis-website.png)
 

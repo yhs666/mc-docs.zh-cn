@@ -2,21 +2,21 @@
 title: 在 Azure Active Directory B2C 中配置资源所有者密码凭据流 | Microsoft Docs
 description: 了解如何在 Azure AD B2C 中配置资源所有者密码凭据流。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 9f349ad8ea4592022ee5199f97da6e44e72702e1
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: d2e30739a2804becbf3d319f53b7fcdaa49f91ba
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235967"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391582"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 中配置资源所有者密码凭据流
 
@@ -136,6 +136,8 @@ username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=o
     "refresh_token_expires_in": 1209600
 }
 ```
+> [!NOTE]
+> 通过图形 API 创建用户时，应用程序需要具有 Microsoft Graph 的“openid”、“offline_access”和“profile”权限。
 
 ## <a name="implement-with-your-preferred-native-sdk-or-use-app-auth"></a>使用首选本机 SDK 实现或使用 AppAuth
 
@@ -143,7 +145,7 @@ Azure AD B2C 实现符合公共客户端资源所有者密码凭据的 OAuth 2.0
 
 从 GitHub 下载已配置为与 Azure AD B2C 一起使用的工作示例：[用于 Android](https://aka.ms/aadb2cappauthropc) 和[用于 iOS](https://aka.ms/aadb2ciosappauthropc)。
 
-
+<!-- Update_Description: wording update -->
 
 
 

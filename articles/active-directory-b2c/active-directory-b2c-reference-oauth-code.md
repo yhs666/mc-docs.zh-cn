@@ -2,21 +2,22 @@
 title: 授权代码流 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何使用 Azure AD B2C 和 OpenID Connect 身份验证协议生成 Web 应用。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 04/02/2019
+ms.date: 07/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 33529408a5c7f9c7b92f6c2405597a4ed9e325b0
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 681c25faf57c692a3f0df08c36926da68e162865
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235956"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391594"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -117,7 +118,9 @@ error=access_denied
 | state |请参阅上表中的完整说明。 如果请求中包含 `state` 参数，响应中就应该出现相同的值。 应用应该验证请求和响应中的 `state` 值是否相同。 |
 
 ## <a name="2-get-a-token"></a>2.获取令牌
-现在，已获取授权代码，可将 POST 请求发送到 `/token` 终结点，兑换 `code` 来获取所需资源的令牌。 在 Azure AD B2C 中，可请求令牌的唯一资源是应用自己的后端 Web API。 用于向自己请求令牌的约定为，使用应用的客户端 ID 作为范围：
+现在，已获取授权代码，可将 POST 请求发送到 `/token` 终结点，兑换 `code` 来获取所需资源的令牌。 在 Azure AD B2C 中，可以像往常一样通过在请求中指定其他 API 的范围来[为这些 API 请求访问令牌](active-directory-b2c-access-tokens.md#request-a-token)。
+
+还可以按照将应用的客户端 ID 用作所请求范围（这将导致具有该客户端 ID 的访问令牌作为“受众”）的约定，为应用自己的后端 Web API 请求访问令牌：
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
@@ -244,4 +247,4 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&client_s
 2. [创建应用程序](active-directory-b2c-app-registration.md)，获取应用程序 ID 和重定向 URI。 在应用中包含本机客户端。
 3. [创建用户流](active-directory-b2c-reference-policies.md)以获取用户流名称。
 
-
+<!-- Update_Description: wording update -->

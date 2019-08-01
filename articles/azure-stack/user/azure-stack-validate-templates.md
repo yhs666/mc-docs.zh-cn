@@ -12,23 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/08/2018
-ms.date: 04/29/2019
+origin.date: 06/11/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 2839b00e3117396ce00f8530588c78c61d6bd642
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 1e5797b89f3f74e90430dd35bceb8477a3ada66e
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855470"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513205"
 ---
 # <a name="check-your-templates-for-azure-stack-with-the-template-validation-tool"></a>使用模板验证工具检查 Azure Stack 的模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack。 模板验证工具是 Azure Stack 工具的一部分。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)一文中所述的步骤下载 Azure Stack 工具。
+可以使用模板验证工具检查 Azure 资源管理器[模板](azure-stack-arm-templates.md)是否已准备好部署到 Azure Stack。 模板验证工具是 Azure Stack 工具的一部分。 使用[从 GitHub 下载工具](../operator/azure-stack-powershell-download.md)中所述的步骤下载 Azure Stack 工具。
 
 ## <a name="overview"></a>概述
 
@@ -51,7 +51,7 @@ ms.locfileid: "64855470"
     Import-Module .\CloudCapabilities\AzureRM.CloudCapabilities.psm1
     ```
 
-3. 使用 `Get-CloudCapabilities` cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 **-OutputPath**，则将在当前目录中创建文件 AzureCloudCapabilities.Json。 使用你的实际 Azure 位置：
+3. 使用 `Get-CloudCapabilities` cmdlet 检索服务版本，并创建云功能 JSON 文件。 如果未指定 `-OutputPath`，则将在当前目录中创建文件 AzureCloudCapabilities.Json。 使用你的实际 Azure 位置：
 
     ```powershell
     Get-AzureRMCloudCapability -Location <your location> -Verbose
@@ -80,19 +80,19 @@ ms.locfileid: "64855470"
 
 ![模板验证报告](./media/azure-stack-validate-templates/image1.png)
 
-### <a name="parameters"></a>参数
+### <a name="parameters"></a>parameters
 
-模板验证程序支持以下参数。
+模板验证程序 cmdlet 支持以下参数。
 
-| 参数 | 说明 | 必需 |
+| 参数 | 说明 | 必须 |
 | ----- | -----| ----- |
-| TemplatePath | 指定要在其中递归查找 Azure 资源管理器模板的路径。 | 是 |
-| TemplatePattern | 指定要匹配的模板文件的名称。 | 否 |
-| CapabilitiesPath | 指定云功能 JSON 文件的路径。 | 是 |
-| IncludeComputeCapabilities | 包括 IaaS 资源（例如 VM 大小和 VM 扩展）的评估。 | 否 |
-| IncludeStorageCapabilities | 包括存储资源（例如 SKU 类型）的评估。 | 否 |
-| 报表 | 指定生成的 HTML 报告的名称。 | 否 |
-| 详细 | 将错误和警告记录到控制台。 | 否|
+| `TemplatePath` | 指定要在其中递归查找 Azure 资源管理器模板的路径。 | 是 |
+| `TemplatePattern` | 指定要匹配的模板文件的名称。 | 否 |
+| `CapabilitiesPath` | 指定云功能 JSON 文件的路径。 | 是 |
+| `IncludeComputeCapabilities` | 包括 IaaS 资源（例如 VM 大小和 VM 扩展）的评估。 | 否 |
+| `IncludeStorageCapabilities` | 包括存储资源（例如 SKU 类型）的评估。 | 否 |
+| `Report` | 指定生成的 HTML 报告的名称。 | 否 |
+| `Verbose` | 将错误和警告记录到控制台。 | 否|
 
 ### <a name="examples"></a>示例
 

@@ -6,37 +6,37 @@ documentationcenter: ''
 author: WenJason
 manager: digimobile
 editor: ''
-ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 06/13/2019
+origin.date: 05/29/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: a71cf6b7d27c14ae73361865742cdfd164553ead
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.lastreviewed: 05/29/2019
+ms.openlocfilehash: 6551bddcba737af1b89d99482a36e9238c058589
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135461"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513445"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack 管理基础知识
-如果不熟悉 Azure Stack 管理，则需要了解几项事情。 本文概述了 Azure Stack 操作员角色，以及需要告知用户哪些东西才能让他们快速提高工作效率。
+
+如果你不熟悉 Azure Stack 管理，则需要了解几项事情。 本文概述 Azure Stack 操作员角色，以及需要告知用户哪些事情才能帮助他们提高工作效率。
 
 ## <a name="understand-the-builds"></a>了解版本
 
 ### <a name="integrated-systems"></a>集成系统
 
-如果使用 Azure Stack 集成系统，则会通过更新包分发更新版的 Azure Stack。 可以通过管理员门户中的“更新”磁贴导入并应用这些包。 不支持更新 ASDK 安装。 
+如果你使用 Azure Stack 集成系统，请更新包会分发更新版的 Azure Stack。 可以通过管理员门户中的“更新”磁贴导入并应用这些包  。
  
 ### <a name="development-kit"></a>开发工具包
 
-如果使用 Azure Stack 开发工具包，请参阅[什么是 Azure Stack？](../asdk/asdk-what-is.md)一文，确保了解该开发工具包的用途和限制。 应该将开发工具包作为“沙盒”使用，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用。 （有关部署信息，请参阅 [Azure Stack 开发工具包部署](../asdk/asdk-install.md)一文。）
+如果你使用 Azure Stack 开发工具包 (ASDK)，请查看[什么是 Azure Stack？](../asdk/asdk-what-is.md)来了解 ASDK 的用途和其限制。 可将 ASDK 用作沙盒，在其中对 Azure Stack 进行评估，并在非生产环境中开发和测试应用  。 有关部署信息，请参阅 [Azure Stack 开发工具包部署](../asdk/asdk-install.md)。
 
-正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果开发包正在运行，但需要更新到最新版本，则必须[重新部署 Azure Stack](../asdk/asdk-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的开发工具包文档反映了最新的发行版。
+正如 Azure 一样，我们的创新速度很快。 我们会定期发布新版本。 如果你正在运行 ASDK 并想要更新到最新版本，则必须[重新部署 Azure Stack](../asdk/asdk-redeploy.md)。 不能应用更新包。 此过程需要一定的时间，但好处是可以尝试最新功能。 我们网站上的 ASDK 文档反映了最新的发行版。
 
 ## <a name="learn-about-available-services"></a>了解可用的服务
 
@@ -68,7 +68,7 @@ ms.locfileid: "67135461"
 Azure Stack 会持续增加对 Azure 服务的支持。 有关计划的路线图，请参阅 [Azure Stack：Azure 的扩展](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409)白皮书。 也可留意 [Azure Stack 博客文章](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview)中的新公告。
 
 ## <a name="what-account-should-i-use"></a>我应使用什么帐户?
-管理 Azure Stack 时，应该注意帐户方面的几个事项， 尤其是在使用 Windows Server Active Directory 联合身份验证服务 (AD FS) 而不是 Azure Active Directory (Azure AD) 作为标识提供者的部署中。 以下帐户注意事项同时适用于 Azure Stack 集成系统和 ASDK 部署：
+管理 Azure Stack 时，请注意帐户方面的几个事项。 尤其是在使用 Windows Server Active Directory 联合身份验证服务 (AD FS) 而不是 Azure Active Directory (Azure AD) 作为标识提供者的部署中。 以下帐户注意事项同时适用于 Azure Stack 集成系统和 ASDK 部署：
 
 
 |帐户|Azure AD|AD FS|
@@ -81,20 +81,20 @@ Azure Stack 会持续增加对 Azure 服务的支持。 有关计划的路线图
 
 ## <a name="what-tools-do-i-use-to-manage"></a>使用哪些工具进行管理？
  
-可以使用[管理员门户](azure-stack-manage-portals.md)或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，则需完成准备步骤。 必须[安装](azure-stack-powershell-install.md) PowerShell，[下载](azure-stack-powershell-download.md)更多的模块，然后[配置](azure-stack-powershell-configure-admin.md) PowerShell。
+可以使用[管理员门户](azure-stack-manage-portals.md)或 PowerShell 来管理 Azure Stack。 若要了解基本概念，最简单的方式是使用门户。 若要使用 PowerShell，则需完成准备步骤。 开始之前，请先熟悉如何在 Azure Stack 上使用 PowerShell。 有关详细信息，请参阅 [Azure Stack 上的 PowerShell 入门](../user/azure-stack-powershell-overview.md)。
 
-Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，应了解资源管理器。 请参阅 [Azure 资源管理器入门](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)白皮书。
+Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组织机制。 若要管理 Azure Stack 并帮助支持用户，可了解资源管理器。 请参阅 [Azure 资源管理器入门](https://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf)白皮书。
 
 ## <a name="your-typical-responsibilities"></a>典型责任
 
-用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 你必须通过创建计划、套餐和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](azure-stack-offer-services-overview.md)。 
+用户需要使用服务， 从其角度来看，你的主要角色是向他们提供这些服务。 必须通过创建计划、套餐和配额来确定要提供的具体服务并将这些服务提供给用户。 有关详细信息，请参阅[概述：如何在 Azure Stack 中提供服务](azure-stack-offer-services-overview.md)。 
 
 此外还需向[市场](azure-stack-marketplace.md)添加项，例如虚拟机映像。 最简单的方式是[将市场项从 Azure 下载到 Azure Stack](azure-stack-download-azure-marketplace-item.md)。
 
 > [!NOTE]
-> 如需测试计划、套餐和服务，应使用[用户门户](azure-stack-manage-portals.md)而不是管理员门户。
+> 如需测试计划、套餐和服务，可使用[用户门户](azure-stack-manage-portals.md)而不是管理员门户。
 
-除了提供服务，还必须执行操作员的所有常规任务，使 Azure Stack 始终能够启动并运行。 这些任务包括以下内容：
+除了提供服务，还必须执行操作员的常规任务，使 Azure Stack 始终能够启动并运行。 这些任务包括以下内容：
 
 - 添加用户帐户（用于 [Azure Active Directory](azure-stack-add-new-user-aad.md) 部署或 [Active Directory 联合身份验证服务 (AD FS)](azure-stack-add-users-adfs.md) 部署）
 - [分配基于角色的访问控制 (RBAC) 角色](azure-stack-manage-permissions.md)（不限管理员）
@@ -118,7 +118,7 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 **以用户身份连接到 Azure Stack**
 
-在开发工具包环境中，如果不能通过远程桌面访问开发工具包主机，用户必须先配置虚拟专用网络 (VPN) 连接，然后才能访问 Azure Stack。 请参阅[连接到 Azure Stack](../asdk/asdk-connect.md)。 
+在 ASDK 环境中，如果用户未使用远程桌面连接到 ASDK 主机，他们可以配置虚拟专用网络 (VPN) 连接来连接 Azure Stack。 请参阅[连接到 Azure Stack](../asdk/asdk-connect.md)。 
 
 用户需要知道如何[访问用户门户](../user/azure-stack-use-portal.md)，或者如何通过 PowerShell 进行连接。 在集成系统环境中，用户门户地址随部署而变。 需向用户提供正确的 URL。
 
@@ -126,26 +126,27 @@ Azure Stack 使用 Azure 资源管理器作为其基础的部署、管理和组�
 
 **订阅套餐**
 
-在访问服务之前，用户必须[订阅套餐](azure-stack-subscribe-plan-provision-vm.md)，该产品/服务是你以操作员身份创建的。
+在使用服务之前，用户必须[订阅套餐](azure-stack-subscribe-plan-provision-vm.md)，该产品/服务是你以操作员身份创建的。
 
 ## <a name="where-to-get-support"></a>从何处获取支持
+
+> [!Note]  
+> 若要查找旧版 Azure Stack（1905 之前）的支持信息，请参阅[旧版 Azure Stack（1905 之前）的帮助和支持](azure-stack-servicing-policy.md)。
 
 ### <a name="integrated-systems"></a>集成系统
 
 对于集成系统，Azure 和我们的原始设备制造商 (OEM) 硬件合作伙伴之间已经建立了协作的问题升级和解决流程。
 
-如果存在云服务问题，请通过 Azure 客户支持服务 (CSS) 寻求支持。 单击管理员门户右上角的“帮助和支持”图标（问号），再单击“新建支持请求”，则会打开一个网站，然后就可以在其中直接提出支持请求。 
+如果存在云服务问题，请通过 Azure 客户支持服务 (CSS) 寻求支持。 如果选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“新建支持请求”。    提出支持请求。
 
 如果存在部署问题、修补和更新问题、硬件（包括现场可更换部件）问题，以及任何硬件品牌软件（例如在硬件生命周期主机上运行的软件）问题，请首先联系 OEM 硬件供应商。
 
-至于其他问题，请联系 Azure 支持。
+对于其他问题，请联系 Azure CSS。
 
-### <a name="development-kit"></a>开发工具包
+### <a name="azure-stack-development-kit-asdk"></a>Azure Stack 开发工具包 (ASDK)
 
-对于开发工具包，可以在[论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurestack)中提出与支持相关的问题。 单击管理员门户右上角的“帮助和支持”图标（问号），然后单击“新建支持请求”，则会直接打开论坛网站。  我们会定期关注这些论坛。 由于开发工具包是一个评估环境，因此我们不会通过 Microsoft CSS 提供官方支持。
+对于 ASDK，可以在[论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home?forum=azurestack)中提出与支持相关的问题。 如果选择管理员门户右上角的“帮助和支持”图标（问号），然后选择“帮助 + 支持”，再选择“支持”部分下面的“MSDN 论坛”。     论坛站点将会打开。 我们会定期关注这些论坛。 由于 ASDK 是一个评估环境，因此我们不会通过 Azure CSS 提供官方支持。
 
 ## <a name="next-steps"></a>后续步骤
 
 [Azure Stack 中的区域管理](azure-stack-region-management.md)
-
-

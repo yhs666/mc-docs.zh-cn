@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/29/2017
-ms.date: 10/29/2018
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5cbaefbebc56743edff824fcae9c049f5f09b170
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: fb26d7d157a9a91a2af64af3323abded62bc96ca
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674583"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514453"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关 IoTHubClient 的详细信息
 
@@ -30,7 +30,7 @@ ms.locfileid: "52674583"
 
 我们将使用 **IoTHubClient** SDK 示例来阐释这些主题。 如果想要继续，请参阅适用于 C 的 Azure IoT 设备 SDK 中随附的 **iothub\_client\_sample\_http** and **iothub\_client\_sample\_amqp** 应用程序。以下部分所述的所有内容都将通过这些示例来演示。
 
-可在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，还可在 [C API 参考](https://azure.github.io/azure-iot-sdk-c/index.html)中查看 API 的详细信息。
+可在 GitHub 存储库中找到[**适用于 C 语言的 Azure IoT 设备 SDK**](https://github.com/Azure/azure-iot-sdk-c)，还可在 [C API 参考](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)中查看 API 的详细信息。
 
 ## <a name="the-lower-level-apis"></a>较低级别 API
 前一篇文章介绍了 **IotHubClient** 应用程序上下文中 **iothub\_client\_sample\_amqp** 的基本操作。 例如，该文章说明了如何使用此代码来初始化库。
@@ -66,7 +66,7 @@ IoTHubClient_Destroy(iotHubClientHandle);
 * IoTHubClient\_LL\_SetMessageCallback
 * IoTHubClient\_LL\_Destroy
 
-这些函数的 API 名称中都包含“LL”。 除了名称的 **LL** 部分之外，其中每个函数的参数都与其非 LL 的对应项相同。 但是，这些函数的行为有一个重要的差异。
+这些函数的 API 名称中都包含“LL”  。 除了名称的 **LL** 部分之外，其中每个函数的参数都与其非 LL 的对应项相同。 但是，这些函数的行为有一个重要的差异。
 
 当你调用 **IoTHubClient\_CreateFromConnectionString** 时，基础库将创建在后台运行的新线程。 此线程将事件发送到 IoT 中心以及从 IoT 中心接收消息。 使用 **LL** API 时不会创建此类线程。 创建后台线程是为了给开发人员提供方便。 你无需担心如何明确与 IoT 中心相互发送和接收消息 -- 此操作会在后台自动进行。 相比之下，**LL** API 可让你根据需要显式控制与 IoT 中心的通信。
 
@@ -240,7 +240,7 @@ iotHubClientHandle = IoTHubClient_CreateFromConnectionString(connectionString, A
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-此字符串包含四个信息片段：IoT 中心名称、IoT 中心后缀、设备 ID 和共享访问密钥。 当在 Azure 门户中创建 IoT 中心实例时，可以获取 IoT 中心的完全限定域名 (FQDN) - 它提供了 IoT 中心名称（FQDN 的第一个部分）和 IoT 中心后缀（FQDN 的其余部分）。 使用 IoT 中心注册设备时，可以获取设备 ID 和共享访问密钥（如[前一篇文章](./iot-hub-device-sdk-c-intro.md)中所述）。
+此字符串中有四条信息：IoT 中心名称、IoT 中心后缀、设备 ID 和共享访问密钥。 当在 Azure 门户中创建 IoT 中心实例时，可以获取 IoT 中心的完全限定域名 (FQDN) - 它提供了 IoT 中心名称（FQDN 的第一个部分）和 IoT 中心后缀（FQDN 的其余部分）。 使用 IoT 中心注册设备时，可以获取设备 ID 和共享访问密钥（如[前一篇文章](./iot-hub-device-sdk-c-intro.md)中所述）。
 
 **IoTHubClient\_CreateFromConnectionString** 提供了初始化库的方式。 如果需要，可以使用其中的每个参数而不是设备连接字符串来创建新的 **IOTHUB\_CLIENT\_HANDLE**。 使用以下代码即可实现此目的：
 
@@ -256,7 +256,7 @@ IOTHUB_CLIENT_HANDLE iotHubClientHandle = IoTHubClient_LL_Create(&iotHubClientCo
 
 结果将与使用 **IoTHubClient\_CreateFromConnectionString** 相同。
 
-显然，你更想要使用 **IoTHubClient\_CreateFromConnectionString**，而不是这种更繁琐的初始化方法。 但请记住，当在 IoT 中心注册设备时，获得的是设备 ID 和设备密钥（而不是连接字符串）。 [前一篇文章](./iot-hub-device-sdk-c-intro.md)中介绍的设备资源管理器 SDK 工具使用 **Azure IoT 服务 SDK** 中的库，通过设备 ID、设备密钥和 IoT 中心主机名创建设备连接字符串。 因此调用 **IoTHubClient\_LL\_Create** 可能更好，因为这样可以免除生成连接字符串的步骤。 使用任何一种方法都很方便。
+显然，你更想要使用 **IoTHubClient\_CreateFromConnectionString**，而不是这种更繁琐的初始化方法。 但请记住，当在 IoT 中心注册设备时，获得的是设备 ID 和设备密钥（而不是连接字符串）。 [前一篇文章](./iot-hub-device-sdk-c-intro.md)中介绍的设备资源管理器  SDK 工具使用 **Azure IoT 服务 SDK** 中的库，通过设备 ID、设备密钥和 IoT 中心主机名创建设备连接字符串。 因此调用 **IoTHubClient\_LL\_Create** 可能更好，因为这样可以免除生成连接字符串的步骤。 使用任何一种方法都很方便。
 
 ## <a name="configuration-options"></a>配置选项
 到目前为止，有关 **IoTHubClient** 库工作方式的所有介绍内容都反映了其默认行为。 但是，可以设置几个选项来更改库的工作方式。 此目的可以利用 **IoTHubClient\_LL\_SetOption** API 来实现。 请看以下示例：
@@ -268,7 +268,8 @@ IoTHubClient_LL_SetOption(iotHubClientHandle, "timeout", &timeout);
 
 有一些常用的选项：
 
-* **SetBatching**（布尔值）– 如果为 **true**，则将数据分批发送到 IoT 中心。 如果为 **false**，则逐个发送消息。 默认值为 **false**。 请注意，“SetBatching”选项仅适用于 HTTPS 协议，不适用于 MQTT 或 AMQP 协议。
+* **SetBatching**（布尔值）– 如果为 **true**，则将数据分批发送到 IoT 中心。 如果为 **false**，则逐个发送消息。 默认值为 **false**。 支持通过 AMQP/AMQP-WS 进行批处理，以及在 D2C 消息上添加系统属性。
+
 * **Timeout**（无符号整数）– 此值以毫秒表示。 如果发送 HTTPS 请求或接收响应所花费的时间超过此时间，即表示连接超时。
 
 batching 选项非常重要。 默认情况下，库将逐个引入事件（单个事件是你传递给 **IoTHubClient\_LL\_SendEventAsync** 的任何内容）。 如果 batching 选项为 **true**，库将尽可能多地从缓冲区中收集事件（上限为 IoT 中心接受的消息大小上限）。  事件批在单个 HTTPS 调用中发送到 IoT 中心（单个事件已捆绑到 JSON 数组中）。 启用批处理通常可以大幅提升性能，因为网络往返时间会缩减。 不过，这也会明显减少带宽，你要在事件批中发送一组 HTTPS 标头，而不是针对每个事件发送一组标头。 除非有使用其他方式的特殊理由，否则建议启用批处理。

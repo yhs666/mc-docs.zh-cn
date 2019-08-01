@@ -17,27 +17,27 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b5809126293129dc9977e91ebd551f5fe7b0a664
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: be6bc60ffcfe2cb5e71903ce01ebbaf2e97c35bb
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381933"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513501"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>将应用服务资源提供程序添加到受 AD FS 保护且已断开连接的 Azure Stack 环境
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
 > [!IMPORTANT]
-> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.5。
+> 请将 1904 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包，然后部署 Azure 应用服务 1.6。
 
 按照本文中的说明操作即可将[应用服务资源提供程序](azure-stack-app-service-overview.md)安装到符合以下条件的 Azure Stack 环境：
 
 - 未连接到 Internet
 - 受 Active Directory 联合身份验证服务 (AD FS) 保护。
 
-> [!IMPORTANT]  
-> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作，并已阅读版本 1.5 随附的[发行说明](azure-stack-app-service-release-notes-update-five.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
+> [!IMPORTANT]
+> 在运行资源提供程序安装程序之前，请确保已按照[准备工作](azure-stack-app-service-before-you-get-started.md)中的指南进行操作，并已阅读版本 1.6 随附的[发行说明](azure-stack-app-service-release-notes-update-six.md)，了解新功能、修补程序以及任何可能影响部署的已知问题。
 
 若要将应用服务资源提供程序添加到脱机的 Azure Stack 部署，必须完成以下顶级任务：
 
@@ -86,11 +86,11 @@ ms.locfileid: "66381933"
    1. 单击“Azure Stack 订阅”  框旁边的“连接”  按钮。
       - 提供管理员帐户。 例如，cloudadmin@azurestack.local。 输入密码，并单击“登录”  。
    2. 在“Azure Stack 订阅”框中，选择“默认提供商订阅”。  
-    
+
       > [!NOTE]
       > 应用服务只能部署到“默认提供程序订阅”。 
       >
-    
+
    3. 在“Azure Stack 位置”  框中，选择要部署到的区域所对应的位置。 例如，如果要部署到 Azure Stack 开发工具包，请选择“本地”  。
    4. 单击“下一步”  。
 
@@ -145,14 +145,14 @@ ms.locfileid: "66381933"
     > ```sql
     >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
     >    ***********************************************************
-    >    sp_configure 'contained database authentication', 1;  
-    >    GO  
-    >    RECONFIGURE;  
+    >    sp_configure 'contained database authentication', 1;
+    >    GO
+    >    RECONFIGURE;
     >    GO
     >    ***********************************************************
     > ```
     > 有关更多详细信息，请参阅 [Azure Stack 1.3 上的 Azure 应用服务的发行说明](azure-stack-app-service-release-notes-update-three.md)。
-   
+
     ![应用服务安装程序][12]
 
 13. 查看角色实例和 SKU 选项。 使用 ASDK 部署中每个角色的最小实例数和最小 SKU 填充默认值。 提供 vCPU 和内存要求摘要是为了帮助你规划部署。 进行选择后，单击“下一步”。 
@@ -175,7 +175,7 @@ ms.locfileid: "66381933"
     > [!NOTE]
     > **不支持将 Windows Server 2016 Core 平台映像与 Azure Stack 上的 Azure 应用服务配合使用。请勿将评估映像用于生产部署。Azure Stack上的 Azure 应用服务要求在用于部署的映像上激活 Microsoft.NET 3.5.1 SP1。 市场联合 Windows Server 2016 映像未启用此功能，因此必须在预先启用此功能的情况下创建并使用 Windows Server 2016 映像。**
 
-14. 在“选择平台映像”  框中选择部署型 Windows Server 2016 虚拟机映像，该映像由应用服务云的计算资源提供程序提供。 单击“下一步”  。
+14. 在“选择平台映像”  框中选择 Windows Server 2016 虚拟机部署映像，该映像是应用服务云的计算资源提供程序提供的映像之一。 选择“**下一步**”。
 
 15. 在下一页上执行以下操作：
      1. 输入辅助角色虚拟机管理员用户名和密码。
@@ -199,8 +199,20 @@ ms.locfileid: "66381933"
 
 ## <a name="post-deployment-steps"></a>部署后步骤
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > 如果已经为应用服务 RP 提供 SQL Always On 实例，则必须[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)并同步数据库，以免在进行数据库故障转移时丢失服务。
+
+如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  转到管理门户中的 WorkersNsg 网络安全组并添加具有以下属性的出站安全规则：
+
+- 源：任意
+- 源端口范围：*
+- 目标：IP 地址
+- 目标 IP 地址范围：文件服务器的 IP 范围
+- 目标端口范围：445
+- 协议：TCP
+- 操作：允许
+- 优先级：700
+- 姓名：Outbound_Allow_SMB445
 
 ## <a name="validate-the-app-service-on-azure-stack-installation"></a>验证 Azure Stack 上的应用服务安装
 
@@ -209,19 +221,6 @@ ms.locfileid: "66381933"
 2. 在“概述”中，在“状态”下，检查“状态”  是否显示了“所有角色已就绪”  。
 
     ![应用服务管理](media/azure-stack-app-service-deploy/image12.png)
-
-> [!NOTE]
-> 如果选择部署到现有虚拟网络和内部 IP 地址以连接到文件服务器，则必须添加出站安全规则，以便在工作子网和文件服务器之间启用 SMB 流量。  为此，请转到管理门户中的 WorkersNsg 并添加具有以下属性的出站安全规则：
-> * 源：任意
-> * 源端口范围：*
-> * 目标：IP 地址
-> * 目标 IP 地址范围：文件服务器的 IP 范围
-> * 目标端口范围：445
-> * 协议：TCP
-> * 操作：允许
-> * 优先级：700
-> * 姓名：Outbound_Allow_SMB445
->
 
 ## <a name="test-drive-app-service-on-azure-stack"></a>体验 Azure Stack 上的应用服务
 
@@ -266,7 +265,9 @@ ms.locfileid: "66381933"
 - [MySQL 资源提供程序](azure-stack-mysql-resource-provider-deploy.md)
 
 <!--Links-->
+[Azure_Stack_App_Service_preview_installer]: https://go.microsoft.com/fwlink/?LinkID=717531
 [App_Service_Deployment]: https://go.microsoft.com/fwlink/?LinkId=723982
+[AppServiceHelperScripts]: https://go.microsoft.com/fwlink/?LinkId=733525
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy-offline/app-service-exe-advanced-create-package.png

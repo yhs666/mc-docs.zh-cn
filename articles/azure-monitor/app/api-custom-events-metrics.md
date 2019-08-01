@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3539e5fdcecd77d13bf5189caf91e6234974c8d3
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: e567e9f319fb65c70febe822c339ad9b2e14fab2
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562735"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513881"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>用于处理自定义事件和指标的 Application Insights API
 
@@ -1215,7 +1215,7 @@ telemetry.Context.Operation.Name = "MyOperationName";
     无。 不需要将它们包装在 try-catch 子句中。 如果 SDK 遇到问题，它会在调试控制台输出中记录消息，如果消息已传入，可在诊断搜索中查看。
 * *是否可以使用某个 REST API 从门户获取数据？*
 
-    是的，可以使用[数据访问 API](https://dev.applicationinsights.io/)。 提取数据的其他方法包括[从 Analytics 导出到 Power BI](../../azure-monitor/app/export-power-bi.md ) 和[连续导出](../../azure-monitor/app/export-telemetry.md)。
+    是的，可以使用[数据访问 API](https://dev.applicationinsights.io/)。 提取数据的其他方法包括[连续导出](../../azure-monitor/app/export-telemetry.md)。
 
 <a name="next"></a>
 ## <a name="next-steps"></a>后续步骤

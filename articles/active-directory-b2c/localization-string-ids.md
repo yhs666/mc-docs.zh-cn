@@ -2,21 +2,21 @@
 title: 本地化字符串 ID - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 中使用自定义策略的 api.signuporsignin ID 指定内容定义的 ID。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 06/05/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: ef06ee042f051f6243e5ff396670dfb20b1b8261
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: df4b50e2e89da1ad706325dae46d1f03ae83dfbf
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687630"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391567"
 ---
 # <a name="localization-string-ids"></a>本地化字符串 ID
 
@@ -73,11 +73,11 @@ Localization  元素使你能够在用户旅程的策略中支持多个区域设
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | 密码不正确。 |
 | **UserMessageIfClaimsPrincipalDoesNotExist** | 似乎找不到你的帐户。 |
-| **UserMessageIfOldPasswordUsed** | 你可能使用的是旧密码。 |  
-| **DefaultMessage** | 无效的用户名或密码。 |  
-| **UserMessageIfUserAccountDisabled** | 帐户已锁定。 请联系支持人员解除锁定，然后重试。 |  
-| **UserMessageIfUserAccountLocked** | 帐户暂时锁定以防止未经授权的使用。 请稍后重试。 |  
-| **AADRequestsThrottled** | 目前请求过多。 请等待一段时间，然后重试。 |  
+| **UserMessageIfOldPasswordUsed** | 你可能使用的是旧密码。 |
+| **DefaultMessage** | 无效的用户名或密码。 |
+| **UserMessageIfUserAccountDisabled** | 帐户已锁定。 请联系支持人员解除锁定，然后重试。 |
+| **UserMessageIfUserAccountLocked** | 帐户暂时锁定以防止未经授权的使用。 请稍后重试。 |
+| **AADRequestsThrottled** | 目前请求过多。 请等待一段时间，然后重试。 |
 
 ## <a name="sign-up-and-self-asserted-pages-user-interface-elements"></a>注册和自断言页用户界面元素
 
@@ -134,7 +134,7 @@ Localization  元素使你能够在用户旅程的策略中支持多个区域设
 
 下面的示例演示如何在注册页中使用某些用户界面元素：
 
-![注册页 UX 元素](./media/localization-string-ids/localization-sign-up.png)
+![标记了其 UI 元素名称的注册页](./media/localization-string-ids/localization-sign-up.png)
 
 下面的示例演示在用户单击“发送验证码”按钮后如何在注册页中使用某些用户界面元素：
 
@@ -143,7 +143,7 @@ Localization  元素使你能够在用户旅程的策略中支持多个区域设
 
 ## <a name="phone-factor-authentication-page-user-interface-elements"></a>电话身份验证页用户界面元素
 
-以下是包含 `api.phonefactor` ID 的内容定义的 ID。 
+以下是包含 `api.phonefactor` ID 的内容定义的 ID。
 
 | ID | 默认值 |
 | -- | ------------- |

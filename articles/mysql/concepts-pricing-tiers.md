@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: b8ac2477fccf0b81d20eebb10182aa765b4bb5eb
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 06/27/2019
+ms.date: 07/29/2019
+ms.openlocfilehash: bb54c9bfcba81f40265f2a5301651466d84af175
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845123"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514254"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 定价层
 
@@ -42,14 +42,7 @@ ms.locfileid: "67845123"
 
 ## <a name="compute-generations-and-vcores"></a>计算代数和 vCore 数
 
-计算资源以 vCore 的形式提供，代表基础硬件的逻辑 CPU。 目前提供两代计算（第 4 代和第 5 代）供你选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器。 第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器。 可在以下区域获取第 4 代和第 5 代（“X”表示可用）。
-
-| **Azure 区域** | **第 4 代** | **第 5 代** |
-|:---|:----------:|:--------------------:|
-| 中国东部 | X |  |
-| 中国东部 2 |  | X |
-| 中国北部 | X |  |
-| 中国北部 2 |  | X |
+计算资源以 vCore 的形式提供，代表基础硬件的逻辑 CPU。 中国东部、中国北部利用基于 Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器的第 4 代逻辑 CPU。 所有其他区域均利用基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器的第 5 代逻辑 CPU。
 
 ## <a name="storage"></a>存储
 

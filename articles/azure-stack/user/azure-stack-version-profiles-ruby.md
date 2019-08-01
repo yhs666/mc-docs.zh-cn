@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/09/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 2fdea5aac457076d5ed6af92152033a8bcb3bc58
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: af234f91f4dbd0da950e959f2cdb38e5c0e047a6
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854453"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513195"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Ruby 配合使用
 
@@ -35,7 +35,7 @@ ms.locfileid: "64854453"
 API 配置文件是资源提供程序和服务版本的组合。 可以使用 API 配置文件来组合不同的资源类型。
 
 - 若要使用所有服务的最新版本，请使用 Azure SDK 汇总 gem 的**最新**配置文件。
-- 若要使用与 Azure Stack 兼容的服务，请使用 Azure SDK 汇总 gem 的 **V2018_03_01** 配置文件。
+- 若要使用与 Azure Stack 兼容的服务，请使用 Azure SDK 汇总 gem 的 **V2019_03_01_Hybrid** 或 **V2018_03_01** 配置文件。
 - 若要使用某个服务的最新 **api-version**，请使用特定 gem 的**最新**配置文件。 例如，若要单独使用计算服务的最新 **api-version**，请使用**计算** gem 的**最新**配置文件。
 - 若要使用某个服务的特定 **api-version**，请使用在 gem 中定义的特定 API 版本。
 
@@ -46,7 +46,7 @@ API 配置文件是资源提供程序和服务版本的组合。 可以使用 AP
 
 - 遵照官方说明安装 [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 - 遵照官方说明安装 [Ruby](https://www.ruby-lang.org/en/documentation/installation/)。
-  - 在安装时选择“将 Ruby 添加到 PATH 变量”。
+  - 在安装时选择“将 Ruby 添加到 PATH 变量”。 
   - 在 Ruby 安装过程中根据提示安装开发工具包。
   - 接下来，使用以下命令安装捆绑程序：  
     `Gem install bundler`
@@ -74,7 +74,7 @@ Azure 资源管理器 Ruby SDK 为预览版，在即将推出的版本中可能�
 
 ## <a name="use-the-azuresdk-gem"></a>使用 azure_sdk gem
 
-**azure_sdk** gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的 **最新** 配置文件支持所有服务的最新版本。 它引入了针对 Azure Stack 生成的两个版本受控的配置文件  **V2017_03_09** 和 **V2018_03_01** 。
+**azure_sdk** gem 汇总了 Ruby SDK 中所有受支持的 gem。 此 gem 包含的 **最新** 配置文件支持所有服务的最新版本。 它包括为 Azure Stack 生成的版本控制配置文件  **V2017_03_09** 和 **V2019_03_01_Hybrid**。
 
 可使用以下命令安装 azure_sdk 汇总 gem：  
 
@@ -131,10 +131,10 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 Azure_sdk 汇总 gem 包含以下三个配置文件：
 
-1. **V2018_03_01** 为 Azure Stack 生成的配置文件。 使用此配置文件可以利用 Azure Stack 中提供的所有最新版服务。
-2. **V2017_03_09**  
-  为 Azure Stack 生成的配置文件。 请将此配置文件用于会与 Azure Stack 最兼容的服务。
-3. **最新**  
+1. 为 Azure Stack 生成的 **V2019_03_01_Hybrid** 配置文件。 使用此配置文件可利用 Azure Stack 标记版本 1904 或更高版本中提供的所有最新版服务。
+1. **V2017_03_09**  
+  为 Azure Stack 生成的配置文件。 使用此配置文件可以使服务与 Azure Stack 标记版本 1808 或更早版本最兼容。
+1. **最新**  
   配置文件包含所有服务的最新版本。 使用所有服务的最新版本。
 
 有关 Azure Stack 和 API 配置文件的详细信息，请参阅 [API 配置文件的摘要](azure-stack-version-profiles.md#summary-of-api-profiles)。
@@ -161,7 +161,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
 ```
 
 可以使用配置文件客户端来访问单个资源提供程序，例如计算、存储和网络提供程序：
@@ -175,7 +175,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2019_03_01_Hybrid::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>定义 Azure Stack 环境设置函数
@@ -205,7 +205,7 @@ end
 可以参考 GitHub 上的以下示例，使用 Ruby 和 Azure Stack API 配置文件来创建解决方案：
 
 - [使用 Ruby 管理 Azure 资源和资源组](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
-- [Manage virtual machines using Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)（使用 Ruby 管理虚拟机）
+- [使用 Ruby 管理虚拟机](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)（使用 2019-03-01-hybrid 配置文件针对 Azure Stack 支持的最新 API 版本的示例）。
 - [在 Ruby 中使用模板部署启用 SSH 的 VM](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>示例资源管理器和组
@@ -245,7 +245,7 @@ end
    - export AZURE_CLIENT_ID={你的客户端 ID}
    - export AZURE_CLIENT_SECRET={你的客户端机密}
    - export AZURE_SUBSCRIPTION_ID={你的订阅 ID}
-   - export ARM_ENDPOINT={你的 AzureStack 资源管理器 URL}
+   - export ARM_ENDPOINT={你的 Azure Stack 资源管理器 URL}
 
    > [!NOTE]  
    > 在 Windows 上，请使用 set 而不是 export。
@@ -272,7 +272,7 @@ end
 7. 创建以 Azure Stack 配置文件为目标的配置文件客户端：
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2019_03_01_Hybrid::Mgmt::Client.new(options)
    ```
 
 8. 若要通过 Azure Stack 进行服务主体身份验证，应使用 **get_active_directory_settings()** 来定义终结点。 此方法使用的 **ARM_Endpoint** 环境变量是你在构建自己的环境变量时设置的：

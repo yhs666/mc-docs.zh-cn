@@ -2,25 +2,25 @@
 title: 使用隐式流的单页登录 - Azure Active Directory B2C | Microsoft Docs
 description: 了解如何添加使用 Azure Active Directory B2C 的 OAuth 2.0 隐式流的单页登录。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 06/05/2019
+ms.date: 07/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 6997b42537d5a1afb9c52b0224125b117a2a7181
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 3181bd1f77bb342a0d1d4ea8dd5787dcd647be20
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235949"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391596"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 中的 OAuth 2.0 隐式流的单页登录
 
-许多新式应用程序都有一个单页应用前端（主要以 JavaScript 编写）。 通常，该应用通过 AngularJS、Ember.js 或 Durandal 等框架编写。 主要在浏览器上运行的单页应用和其他 JavaScript 应用在身份验证时还面临一些其他挑战：
+许多新式应用程序都有一个单页应用前端（主要以 JavaScript 编写）。 通常，该应用可使用 React、Angular 或 Vue.js 等框架进行编写。 主要在浏览器上运行的单页应用和其他 JavaScript 应用在身份验证时还面临一些其他挑战：
 
 - 这些应用程序的安全特征与传统的基于服务器的 Web 应用程序不同。
 - 许多授权服务器与标识提供者不支持跨源资源共享 (CORS) 请求。
@@ -32,7 +32,7 @@ Azure AD B2C 扩展了标准 OAuth 2.0 隐式流，使其功能远远超出了�
 
 隐式登录流看起来类似于下图。 本文后面将详细说明每个步骤。
 
-![OpenID Connect swimlanes](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
+![显示 OpenID Connect 隐式流的泳道样式示意图](../media/active-directory-v2-flows/convergence_scenarios_implicit.png)
 
 ## <a name="send-authentication-requests"></a>发送身份验证请求
 
@@ -264,6 +264,6 @@ p=b2c_1_sign_in
 
 > [!NOTE]
 > 将用户定向到 `end_session_endpoint` 会清除用户的某些 Azure AD B2C 单一登录状态。 但是，不会从用户的社交标识提供者会话中注销该用户。 如果用户在后续登录中选择相同的标识提供者，用户将重新进行身份验证，且无需输入其凭据。 例如，如果用户要注销 Azure AD B2C 应用程序，并不表示他们想要完全注销其帐户。 但是，如果是本地帐户，则会以正确的方式结束用户的会话。
-> 
+>
 
-
+<!-- Update_Description: wording update -->

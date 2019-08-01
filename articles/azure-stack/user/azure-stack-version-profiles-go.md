@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 01/19/2019
-ms.date: 04/29/2019
+origin.date: 05/26/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: f190f376baad29be0008e6ce8127cb8dfc88fe43
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.lastreviewed: 05/26/2019
+ms.openlocfilehash: 0bf870690d7f6167c4b25b644b8e16d4a71224d6
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854964"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513197"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Go 配合使用
 
@@ -33,10 +33,10 @@ ms.locfileid: "64854964"
 - 通过锁定到特定的 API 版本提供应用程序稳定性。
 - 提供应用程序与 Azure Stack 和区域性 Azure 数据中心的兼容性。
 
-在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 目前，最新的 Azure Stack API 配置文件版本为 **2017-03-09**。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2017-03-09** 配置文件导入**计算**服务，请使用以下代码：
+在 Go SDK 中，配置文件在 profiles 路径下提供，其版本采用 **YYYY-MM-DD** 格式。 目前，最新的 Azure Stack API 配置文件版本为 **2019-03-01**，适用于标记版本 1904 或更高版本。 若要从配置文件导入给定的服务，请从配置文件导入其相应的模块。 例如，若要从 **2019-03-01** 配置文件导入**计算**服务，请使用以下代码：
 
 ```go
-import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
+import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/compute/mgmt/compute"
 ```
 
 ## <a name="install-azure-sdk-for-go"></a>安装 Azure SDK for Go
@@ -87,13 +87,13 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
 
 3. 如果不可用，请创建订阅，并保存订阅 ID 供稍后使用。 有关创建订阅的信息，请参阅[在 Azure Stack 中创建套餐的订阅](../operator/azure-stack-subscribe-plan-provision-vm.md)。
 
-4. 创建具有“订阅”范围和“所有者”角色的服务主体。 保存服务主体的 ID 和机密。 有关为 Azure Stack 创建服务主体的信息，请参阅[创建服务主体](azure-stack-create-service-principals.md)。 现已设置 Azure Stack 环境。
+4. 创建使用客户端密码、具有“订阅”范围和“所有者”角色的服务主体。   保存服务主体的 ID 和机密。 有关为 Azure Stack 创建服务主体的信息，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)。 现已设置 Azure Stack 环境。
 
-5. 在代码中从 Go SDK 配置文件导入服务模块。 最新版本的 Azure Stack 配置文件为 **2017-03-09**。 例如，若要从 **2017-03-09** 配置文件类型导入网络模块，请使用以下代码：
+5. 在代码中从 Go SDK 配置文件导入服务模块。 最新版本的 Azure Stack 配置文件为 **2019-03-01**。 例如，若要从 **2019-03-01** 配置文件类型导入网络模块，请使用以下代码：
 
    ```go
    package main
-    import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+    import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    ```
 
 6. 在函数中，使用 **New** 客户端函数调用创建客户端并对其进行身份验证。 若要创建虚拟网络客户端，可使用以下代码：  
@@ -101,7 +101,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
 
    func main() {
       vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
@@ -117,7 +117,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
    ```go
    package main
 
-   import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+   import "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
    func main() {
    vnetClient := network.NewVirtualNetworksClientWithBaseURI("<baseURI>", "(subscriptionID>")
    vnetClient .Authorizer = autorest.NewBearerAuthorizer(token)
@@ -133,7 +133,7 @@ Go SDK 依赖 Azure **Go-AutoRest** 模块将 REST 请求发送到 Azure 资源�
 
 Authorizer 必须设置为资源客户端的授权者。 可通过不同的方式使用客户端凭据在 Azure Stack 上获取授权者令牌：
 
-1. 如果可以使用订阅中具有所有者角色的某个服务主体，请跳过此步骤。 否则，请创建[服务主体](azure-stack-create-service-principals.md)，并为其分配[范围限定于订阅](azure-stack-create-service-principals.md#assign-the-service-principal-to-a-role)的“所有者”角色。 保存服务主体应用程序 ID 和机密。
+1. 如果可以使用订阅中具有所有者角色的某个服务主体，请跳过此步骤。 否则，请参阅[使用应用标识访问资源](../operator/azure-stack-create-service-principals.md)，了解有关创建使用客户端密码的服务主体并为其分配范围为订阅的“所有者”角色的说明。 确保捕获服务主体应用程序 ID 和机密。
 
 2. 在代码中从 Go-AutoRest 导入 **adal** 包。
 
@@ -184,7 +184,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
 本示例演示用于在 Azure Stack 中创建虚拟网络的 Go 代码示例。 有关 Go SDK 的完整示例，请参阅 [Azure Go SDK 示例存储库](https://github.com/Azure-Samples/azure-sdk-for-go-samples)。 可从该存储库的服务文件夹中的 hybrid 路径下获取 Azure Stack 示例。
 
 > [!NOTE]  
-> 若要运行此示例中的代码，请验证使用的订阅是否具有列为“已注册”的“网络”资源提供程序。 若要验证，请在 Azure Stack 门户中找到该订阅，然后选择“资源提供程序”。
+> 若要运行此示例中的代码，请验证使用的订阅是否具有列为“已注册”的“网络”资源提供程序。   若要验证，请在 Azure Stack 门户中找到该订阅，然后选择“资源提供程序”。 
 
 1. 在代码中导入所需的包。 使用 Azure Stack 上最新的可用配置文件来导入网络模块。
 
@@ -194,7 +194,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import (
        "context"
        "fmt"
-       "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+       "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
        "github.com/Azure/go-autorest/autorest"
        "github.com/Azure/go-autorest/autorest/adal"
        "github.com/Azure/go-autorest/autorest/to"
@@ -240,7 +240,7 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
    import (
       "context"
       "fmt"
-      "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
+      "github.com/Azure/azure-sdk-for-go/profiles/2019-03-01/network/mgmt/network"
       "github.com/Azure/go-autorest/autorest"
       "github.com/Azure/go-autorest/autorest/adal"
       "github.com/Azure/go-autorest/autorest/to"
@@ -293,14 +293,17 @@ Authorizer 必须设置为资源客户端的授权者。 可通过不同的方�
                   },
               },
           })
-      err := future.WaitForCompletion(context.Background(), vnetClient.Client)
+      err := future.WaitForCompletionRef(context.Background(), vnetClient.Client)
       if err != nil {
           fmt.Printf(err.Error())
           return
       }
    }
    ```
-
+使用 Go SDK 可用于 Azure Stack 的一些代码示例如下：
+- [创建虚拟机](https://github.com/Azure-Samples/Hybrid-Compute-Go-Create-VM)。
+- [存储数据平面](https://github.com/Azure-Samples/Hybrid-Storage-Go-Dataplane)。
+- [使用托管磁盘](https://github.com/Azure-Samples/Hybrid-Compute-Go-ManagedDisks)，（使用 2019-03-01 配置文件的示例，该配置文件针对 Azure Stack 支持的最新 API 版本）
 ## <a name="next-steps"></a>后续步骤
 
 - [安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md)

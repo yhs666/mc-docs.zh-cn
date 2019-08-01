@@ -1,6 +1,6 @@
 ---
-title: 了解使用服务和开发应用时 Azure 与 Azure Stack 之间的主要差异 | Microsoft Docs
-description: 使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用时需要了解的差异。
+title: 使用服务和生成应用时 Azure Stack 与 Azure 之间的差异 | Microsoft Docs
+description: 了解使用服务和生成应用时 Azure 与 Azure Stack 之间的差异。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,19 +13,19 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 04/08/2019
-ms.date: 04/29/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 25b7da3485c0da1e2c583c0db0e8826df11f07f4
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: a9778d6488e2d17a5f814b0540a0589dcd936d67
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135477"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513349"
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>重要注意事项：使用 Azure Stack 的服务或开发 Azure Stack 的应用
+# <a name="differences-between-azure-stack-and-azure-when-using-services-and-building-apps"></a>使用服务和生成应用时 Azure Stack 与 Azure 之间的差异
 
-使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用之前，必须了解 Azure Stack 与 Azure 之间的差异。 本文阐述在将 Azure Stack 用作混合云开发环境时的重要注意事项。
+使用 Azure Stack 的服务或开发适用于 Azure Stack 的应用之前，必须了解 Azure Stack 与 Azure 之间的差异。 本文阐述在将 Azure Stack 用作混合云开发环境时的不同功能和重要注意事项。
 
 ## <a name="overview"></a>概述
 
@@ -58,7 +58,7 @@ Azure 技术文档内容假设应用是为 Azure 服务（而不是 Azure Stack�
 |支持的命名空间、资源类型和 API 版本 | 最新版本（或未弃用的较低版本）。 | Azure Stack 支持特定的版本。 请参阅本文的[版本要求](#version-requirements)部分。
 | | |
 
-*如果你是 Azure Stack 运营商，请参阅[使用管理员门户](../operator/azure-stack-manage-portals.md)和[管理基础知识](../operator/azure-stack-manage-basics.md)来了解详细信息。
+*如果你是 Azure Stack 操作员，请参阅[使用管理员门户](../operator/azure-stack-manage-portals.md)和[管理基础知识](../operator/azure-stack-manage-basics.md)来了解详细信息。
 
 ## <a name="helpful-tools-and-best-practices"></a>有用的工具和最佳做法
 
@@ -80,7 +80,7 @@ Azure Stack 支持特定版本的 Azure PowerShell 和 Azure 服务 API。 使�
 > [!NOTE]
 > 如果使用 Azure Stack 开发工具包，并且拥有管理访问权限，请参阅[确定当前版本](../operator/azure-stack-updates.md#determine-the-current-version)部分来确定 Azure Stack 内部版本。
 
-对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack 订阅中支持的命名空间、资源类型和 API 版本。 请注意，可能仍存在属性级别的差异。 若要正常运行此命令，必须事先[安装](../operator/azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack 环境的 PowerShell。 此外，必须有 Azure Stack 套餐的订阅。
+对于其他 API，请运行以下 PowerShell 命令输出 Azure Stack 订阅中支持的命名空间、资源类型和 API 版本（在属性级别上可能仍然存在差异）。 若要正常运行此命令，必须事先[安装](../operator/azure-stack-powershell-install.md)并[配置](azure-stack-powershell-configure-user.md)适用于 Azure Stack 环境的 PowerShell。 此外，必须有 Azure Stack 套餐的订阅。
 
 ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
@@ -93,6 +93,6 @@ Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}
 
 有关服务级别的差异的详细信息，请参阅：
 
-* [Azure Stack 中虚拟机的注意事项](azure-stack-vm-considerations.md)
+* [Azure Stack 中的 VM 注意事项](azure-stack-vm-considerations.md)
 * [Azure Stack 中的存储注意事项](azure-stack-acs-differences.md)
 * [Azure Stack 网络注意事项](azure-stack-network-differences.md)

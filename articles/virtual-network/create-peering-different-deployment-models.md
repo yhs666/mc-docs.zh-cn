@@ -14,14 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 11/15/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 53c5aafeb7a5e58483e461c21884be822e20a594
-ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
+ms.reviewer: anavin
+ms.openlocfilehash: 87ad09798a538239c828867f95c9e55a742140f4
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725216"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514198"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>创建虚拟网络对等互连 - 不同的部署模型，相同的订阅
 
@@ -85,12 +86,14 @@ ms.locfileid: "67725216"
 ## <a name="create-peering---azure-cli"></a>创建对等互连 - Azure CLI
 
 使用 Azure 经典 CLI 和 Azure CLI 完成以下步骤。 可以通过在本地计算机上安装[经典 CLI](https://docs.azure.cn/zh-cn/cli/install-classic-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 和 [CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?toc=%2fvirtual-network%2ftoc.json?view=azure-cli-latest) 并运行命令来完成这些步骤。
+
 <!-- Correct on install-classic-cli REPLACE install-cli-version-1.0-->
 <!-- Not Available on the Azure Cloud Shell-->
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-1. 使用 `azure login -e AzureChinaCloud` 命令打开命令会话并登录 Azure。
+1. 打开 CLI 命令并使用 `azure login -e AzureChinaCloud` 命令登录 Azure。
+    <!--Not Available on Azure Cloud Shell-->
 2. 输入 `azure config mode asm` 命令，在服务管理模式下运行 CLI 命令。
 3. 输入以下命令创建虚拟网络（经典）：
 
@@ -102,6 +105,10 @@ ms.locfileid: "67725216"
 
     ```azurecli
     #!/bin/bash
+
+    # Sign in the Azure China Cloud
+    az cloud set -n AzureChinaCloud
+    az login 
 
     # Create a resource group.
     az group create \

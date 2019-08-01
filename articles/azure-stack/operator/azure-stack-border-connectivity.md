@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 03/04/2019
+origin.date: 06/13/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 9148cc7c7a531e75d489194643017e754f5713ea
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: bdd8fea3f00081074db90eeea9fd3e65a70b2431
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248734"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513490"
 ---
 # <a name="border-connectivity"></a>边界连接 
 网络集成规划是成功进行 Azure Stack 集成系统部署、操作和管理的重要先决条件。 边界连接规划首先是要选择是否将动态路由与边界网关协议 (BGP) 配合使用。 这需要分配 16 位的 BGP 自治系统编号（公共或专用），或者使用静态路由（在这种情况下会将静态默认路由分配给边界设备）。

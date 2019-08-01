@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/12/2019
-ms.date: 06/03/2019
+origin.date: 06/04/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: wamota
-ms.lastreviewed: 08/30/2018
-ms.openlocfilehash: 93cab29fe11bd7e2e3db61896c53bfc7475cac9b
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.lastreviewed: 06/04/2019
+ms.openlocfilehash: 7563b34d5dc94f1b456ee1705160a6c643a9833f
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381909"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513441"
 ---
 # <a name="network-connectivity"></a>网络连接
 本文提供 Azure Stack 网络基础架构信息，可帮助你确定如何以最佳方式将 Azure Stack 集成到现有的网络环境。 
@@ -31,7 +31,7 @@ ms.locfileid: "66381909"
 > 若要从 Azure Stack 解析外部 DNS 名称（例如 www\.bing.com），必须提供 DNS 服务器来转发 DNS 请求。 有关 Azure Stack DNS 要求的详细信息，请参阅 [Azure Stack 数据中心集成 - DNS](azure-stack-integrate-dns.md)。
 
 ## <a name="physical-network-design"></a>物理网络设计
-Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能支持其操作和服务。 从 ToR 到边界交换机的上行链路仅限于 SFP+ 或 SFP28 介质以及 1 GB、10 GB 或 25 GB 的速度。 请咨询原始设备制造商 (OEM) 硬件供应商以了解可用性。 下图显示了建议的设计：
+Azure Stack 解决方案需有弹性且高度可用的物理基础结构才能支持其操作和服务。 从 ToR 到边界交换机的上行链路限制为 SFP+ 或 SFP28 介质以及 1 GB、10 GB 或 25 GB 的速度。 请咨询原始设备制造商 (OEM) 硬件供应商以了解可用性。 下图显示了建议的设计：
 
 ![建议的 Azure Stack 网络设计](media/azure-stack-network/recommended-design.png)
 
@@ -85,6 +85,22 @@ HLH 也托管部署 VM (DVM)。 此 DVM 在 Azure Stack 部署期间使用，在
 若要使 Azure Stack 服务（例如门户、Azure 资源管理器、DNS 等）可供外部网络使用，必须允许特定 URL、端口和协议的入站流量发往这些终结点。
  
 如果部署中的透明代理上行链接到传统的代理服务器，则必须允许特定的端口和 URL，以便能够进行[入站](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)和[出站](azure-stack-integrate-endpoints.md#ports-and-urls-outbound)通信。 这包括用于标识、市场、修补和更新、注册和使用情况数据的端口与 URL。
+
+### <a name="mac-address-pool"></a>MAC 地址池
+
+Azure Stack 使用静态 MAC 地址池自动生成 MAC 地址并将其分配给虚拟机。
+此 MAC 地址池是在部署过程中自动生成的，并使用以下范围：
+
+- StartMacAddress：00-1D-D8-B7-00-00
+- EndMacAddress：00-1D-D8-F4-FF-FF
+
+> [!Note]  
+> 此 MAC 地址池在每个 Azure Stack 系统中都是相同的，并且是不可配置的。
+
+根据虚拟网络与现有公司网络的连接方式，你可能会需要虚拟机的 MAC 地址重复。
+
+使用 Azure Stack Administrator PowerShell 模块中的 cmdlet [Get-AzsMacAddressPool](https://docs.microsoft.com/powershell/module/azs.fabric.admin/get-azsmacaddresspool) 可以找到有关 MAC 地址池利用率的详细信息。
+
 
 ## <a name="next-steps"></a>后续步骤
 [边界连接](azure-stack-border-connectivity.md)

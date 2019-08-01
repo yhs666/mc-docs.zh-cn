@@ -2,21 +2,21 @@
 title: 有关 Azure Active Directory B2C 中的用户界面自定义 | Microsoft Docs
 description: 了解如何为使用 Azure Active Directory B2C 的应用程序自定义用户界面。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4c0fb05d801f1cf58ce3cad7401443314bea9072
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: d9057b546c8eabaf94113d6506c3506ee6005613
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236452"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391575"
 ---
 # <a name="about-user-interface-customization-in-azure-active-directory-b2c"></a>有关 Azure Active Directory B2C 中的用户界面自定义
 
@@ -28,7 +28,7 @@ ms.locfileid: "67236452"
 - 如果使用的是 v2 用户流，则可以使用[页面布局模板](#page-layout-templates)来更改用户流页面的外观，无需进一步进行自定义。 例如，可以在用户流中的所有页面中应用海蓝或石板灰主题。
 - 如果客户在登录前尝试编辑其个人资料，则会将其重定向到使用与自定义 Azure AD 登录页面相同的步骤进行自定义的页面。
 - 如果需要根据客户的决策提供动态内容，则可使用可根据查询字符串中发送的参数更改页面内容的自定义策略。 例如，可以基于从 Web 或移动应用程序传递的参数，更改 Azure AD B2C 注册或登录页面上的背景图像。
-- 可以在 Azure AD B2C [用户流](user-flow-javascript-overview.md)或[自定义策略](page-contract.md)中启用 JavaScript 客户端代码。
+- 可以在 Azure AD B2C [用户流](user-flow-javascript-overview.md)或[自定义策略](page-layout.md)中启用 JavaScript 客户端代码。
 
 Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源共享 (CORS)](https://www.w3.org/TR/cors/) 的新式方法。 在运行时，从在用户流或策略中指定的 URL 加载内容。 可以为不同的页面指定不同的 URL。 从 URL 加载的内容与从 Azure AD B2C 插入的 HTML 片段合并后，会向客户显示页面。
 
@@ -36,7 +36,7 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 - 使用 Azure AD B2C 将 HTML 内容合并到页面中。 请勿复制并尝试更改 Azure AD B2C 提供的默认内容。 最好从头开始构建 HTML5 内容，将默认内容用作参考。
 - 现在可以在自定义内容中包括 JavaScript。
-- 支持的浏览器版本： 
+- 支持的浏览器版本：
     - Internet Explorer 11、10 和 Microsoft Edge
     - 对 Internet Explorer 9 和 8 的支持有限
     - Google Chrome 42.0 和更高版本
@@ -49,11 +49,11 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 在左侧菜单中，在“自定义”下选择“页面布局”。   然后，选择“模板(预览版)”  。
 
-![选择一个页面布局模板](./media/customize-ui-overview/template.png)
+![Azure 门户的用户流页中的模板选择下拉列表](./media/customize-ui-overview/template.png)
 
 从列表中选择一个模板。 例如，“海蓝”  模板向用户流页面应用以下布局：
 
-![“海蓝”模板](./media/customize-ui-overview/ocean-blue.png)
+![注册登录页上呈现的“海蓝”模板的示例](./media/customize-ui-overview/ocean-blue.png)
 
 选择某个模板时，选定的布局将应用于用户流中的所有页面，并且每个页面的 URI 将显示在“自定义页面 URI”  字段中。
 
@@ -84,13 +84,13 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 - 在 HTTPS 终结点上托管内容（允许 CORS）。 配置 CORS 时必须启用 GET 和 OPTIONS 请求方法。
 - 使用 CSS 设置 Azure AD B2C 插入页面的 UI 元素的样式。 以下示例显示了一个简单的 CSS 文件，其中还包含注册注入 HTML 元素的设置：
 
-    ```css 
+    ```css
     h1 {
       color: blue;
       text-align: center;
     }
     .intro h2 {
-      text-align: center; 
+      text-align: center;
     }
     .entry {
       width: 400px ;
@@ -98,7 +98,7 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
       margin-right: auto ;
     }
     .divider h2 {
-      text-align: center; 
+      text-align: center;
     }
     .create {
       width: 400px ;
@@ -135,3 +135,4 @@ Azure AD B2C 在客户的浏览器中运行代码，并使用称为[跨域资源
 
 - 如果使用用户流，可以根据教程开始自定义 UI：[在 Azure Active Directory B2C 中自定义应用程序的用户界面](tutorial-customize-ui.md)。
 
+<!-- Update_Description: wording update -->

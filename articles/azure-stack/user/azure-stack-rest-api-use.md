@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Stack API | Microsoft Docs
+title: 向 Azure Stack 发出 API 请求 | Microsoft Docs
 description: 了解如何从 Azure 检索身份验证令牌，以向 Azure Stack 发出 API 请求。
 services: azure-stack
 documentationcenter: ''
@@ -10,30 +10,31 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/10/2018
-ms.date: 11/12/2018
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: thoroet
-ms.openlocfilehash: caddd242aaa481a6e3e68851188535fee507203f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: 47152b811aec7ae1da14d61cc737aa1785bb2223
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625573"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513226"
 ---
 <!--  cblackuk and charliejllewellyn. This is a community contribution by cblackuk-->
 
-# <a name="use-the-azure-stack-api"></a>使用 Azure Stack API
+# <a name="make-api-requests-to-azure-stack"></a>向 Azure Stack 发出 API 请求
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-可以使用应用程序编程接口 (API) 来自动执行操作，例如将 VM 添加到 Azure Stack 云。
+可以使用应用程序编程接口 (API) 来自动执行操作，例如将虚拟机 (VM) 添加到 Azure Stack 云。
 
 此 API 要求客户端向 Azure 登录终结点进行身份验证。 该终结点返回一个要在发送到 Azure Stack API 的每个请求的标头中使用的令牌。 Azure 使用 Oauth 2.0。
 
-本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 应用程序 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演练了检索令牌来访问 Azure Stack API 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
+本文提供了使用 **cURL** 实用工具创建 Azure Stack 请求的示例。 cURL 是一个命令行工具，它有一个用于传输数据的库。 这些示例演练了检索令牌来访问 Azure Stack API 的过程。 大多数编程语言都提供了 Oauth 2.0 库，这些库提供可靠的令牌管理，并可以处理刷新令牌等任务。
 
-查看配合常规 REST 客户端（例如 **cURL**）使用 Azure Stack REST API 的整个过程有助于了解基础请求，该过程还显示了应可以在响应有效负载中收到的内容。
+查看配合常规 REST 客户端（例如 **cURL**）使用 Azure Stack REST API 的整个过程有助于了解基础请求，以及应可以在响应有效负载中收到的内容。
 
 本文并未探索可用于检索令牌的所有选项，例如交互式登录或创建专用应用 ID。 若要获取有关这些主题的信息，请参阅 [Azure REST API 参考](https://docs.microsoft.com/rest/api/)。
 
@@ -66,19 +67,19 @@ grant_type=password
 
 对于每个值：
 
-- **grant_type**  
-   要使用的身份验证方案类型。 在此示例中，值为 `password`
+- **grant_type**：  
+   要使用的身份验证方案类型。 在此示例中，值为 `password`。
 
-- **resource**  
-   令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 请查看 **audiences** 部分
+- **资源**：  
+   令牌访问的资源。 可以通过查询 Azure Stack 管理元数据终结点找到该资源。 查看“受众”  部分。
 
-- **Azure Stack 管理终结点**  
+- **Azure Stack 管理终结点**：  
    ```
    https://management.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-01
    ```
 
   > [!NOTE]  
-  > 如果你是尝试访问租户 API 的管理员，请务必使用租户终结点，例如：`https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
+  > 如果你是尝试访问租户 API 的管理员，请确保使用租户终结点。 例如： `https://adminmanagement.{region}.{Azure Stack domain}/metadata/endpoints?api-version=2015-01-011`  
 
   例如，使用 Azure Stack 开发工具包作为终结点：
 
@@ -106,7 +107,7 @@ grant_type=password
   https://contoso.partner.onmschina.cn/4de154de-f8a8-4017-af41-df619da68155
   ```
 
-  client_id
+  client_id 
 
   此值已硬编码为默认值：
 
@@ -168,7 +169,7 @@ curl -X "POST" "https://login.chinacloudapi.cn/fabrikam.partner.onmschina.cn/oau
 
 ## <a name="api-queries"></a>API 查询
 
-获取访问令牌后，需将其作为标头添加到每个 API 请求。 为此，需要创建值为 `Bearer <access token>` 的标头**授权**。 例如：
+获取访问令牌后，请将其作为标头添加到每个 API 请求。 若要将其添加为标头，请创建值为 `Bearer <access token>` 的标头 **authorization**。 例如：
 
 请求：
 
@@ -190,7 +191,7 @@ subscriptionPolicies : @{locationPlacementId=AzureStack}
 
 ### <a name="url-structure-and-query-syntax"></a>URL 结构和查询语法
 
-常规请求 URI，由以下项构成：{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}
+通用请求 URI 包含：`{URI-scheme} :// {URI-host} / {resource-path} ? {query-string}`
 
 - **URI 方案**：  
 URI 指示用于发送请求的协议。 例如 `http` 或 `https`。

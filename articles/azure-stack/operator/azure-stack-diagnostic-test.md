@@ -10,17 +10,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 04/20/2019
-ms.date: 04/29/2019
+origin.date: 06/26/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: ef4a12412df6034657df47baca91aebdbcf97673
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: ca8de9078d05e079bdfc2e37bb1bf331300b09d2
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135418"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513463"
 ---
 # <a name="validate-azure-stack-system-state"></a>验证 Azure Stack 系统状态
 
@@ -30,7 +30,7 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
 ## <a name="running-the-validation-tool-and-accessing-results"></a>运行验证工具并访问结果
 
-如前所述，验证工具是通过 PEP 运行的。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 此外，会创建一份详细的 HTML 报告，稍后在[日志收集](azure-stack-diagnostics.md)期间可以访问该报告。 下面概述了端到端的验证测试过程： 
+如前所述，验证工具是通过 PEP 运行的。 每项测试在 PowerShell 窗口中返回 **PASS/FAIL**（通过/失败）状态。 下面概述了端到端的验证测试过程： 
 
 1. 访问特权终结点 (PEP)。 运行以下命令建立 PEP 会话：
 
@@ -49,13 +49,9 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 
    有关详细信息，请参阅[参数注意事项](azure-stack-diagnostic-test.md#parameter-considerations)和[用例](azure-stack-diagnostic-test.md#use-case-examples)部分。
 
-3. 如果有任何测试报告了“失败”  ，请运行：
+3. 如果有任何测试报告了“失败”  ，请运行 `Get-AzureStackLog`。 有关集成系统的说明，请参阅[在 Azure Stack 集成系统上运行 Get-AzureStackLog](azure-stack-diagnostics.md#to-run-get-azurestacklog-on-azure-stack-integrated-systems)；有关 ASDK 的说明，请参阅[在 Azure Stack 开发工具包 (ASDK) 系统上运行 Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
-   ```powershell
-   Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath "<path>" -OutputShareCredential $cred
-   ```
-
-   该 cmdlet 收集 Test-AzureStack 生成的日志。 有关诊断日志的详细信息，请参阅 [Azure Stack 诊断工具](azure-stack-diagnostics.md)。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
+   该 cmdlet 收集 Test-AzureStack 生成的日志。 如果测试报告 **WARN**（警告），则不应收集日志或联系 CSS。
 
 4. 如果 CSS 已指示你运行验证工具，CSS 代表将会请求提供收集的日志，以便继续排查问题。
 
@@ -133,7 +129,6 @@ Azure Stack 操作员必须能够按需确定系统的运行状况和状态，�
 - 如[用例](azure-stack-diagnostic-test.md#use-case-examples)部分所述，在测试基础结构备份设置时，需使用 **BackupSharePath** 和 **BackupShareCredential**。
 
 - **DetailedResults** 可用于获取每个测试以及整个运行的通过/失败/警告信息。 如果未指定此参数，未发生失败时，**Test-AzureStack** 将返回 **$true**，否则返回 **$false**。
-
 - **TimeoutSeconds** 可用于设置每个组完成的特定时间。
 
 - 验证工具还支持常用的 PowerShell 参数：Verbose、Debug、ErrorAction、ErrorVariable、WarningAction、WarningVariable、OutBuffer 和 OutVariable。 有关详细信息，请参阅[有关通用参数](https://go.microsoft.com/fwlink/?LinkID=113216)。  

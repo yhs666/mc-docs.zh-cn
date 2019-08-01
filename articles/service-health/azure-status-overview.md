@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-origin.date: 02/11/2019
-ms.date: 03/11/2019
+origin.date: 06/11/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5fb963aa5352c77833a0c367482a1889bc5f22a0
-ms.sourcegitcommit: 1224987f3ad1179177c72dfcbb0a30edf8871974
+ms.openlocfilehash: e99b94f6cb81eae73566efea4e67e67532d7b859
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196622"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514154"
 ---
-# <a name="azure-status"></a>Azure 状态
+# <a name="azure-status-overview"></a>Azure 状态概述
 [Azure 状态](https://www.azure.cn/support/service-dashboard/)可提供 Azure 服务和区域运行状况的全局视图。 通过 Azure 状态可获取有关服务可用性的最新信息。 每个人都可以使用 Azure 状态查看报告其服务运行状况的所有服务，以及具有广泛影响的事件。 但是，如果你现在是 Azure 用户，我们强烈建议你在 [Azure 服务运行状况](https://aka.ms/azureservicehealth)中使用个性化体验。 Azure 服务运行状况包括所有中断、即将计划的维护活动和服务建议。
 
 ![Azure 状态页](./media/azure-status-overview/azure-status.PNG)

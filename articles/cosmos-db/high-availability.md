@@ -4,16 +4,16 @@ description: 本文介绍 Azure Cosmos DB 如何提供高可用性
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/29/2019
-ms.date: 06/17/2019
+origin.date: 06/28/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 1d9a19bc04901ba8aac54f96f75834c1055862ea
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 18bea8c323a5aa05e227a92e4c8ad2de8774681d
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151444"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514422"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 实现高可用性
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 以透明方式在与 Cosmos 帐户关联的所有 Azure 区域�
 
 - 发生区域性服务中断时，单区域帐户可能会失去可用性。 建议始终对 Cosmos 帐户**至少设置两个区域**（最好是至少设置两个写入区域），以确保始终保持高可用性。
 
-- 即使在罕见的不幸事件中，发生了 Azure 区域永久无法恢复的情况，如果为多区域 Cosmos 帐户配置了默认的非常一致性级别，也不可能丢失数据。  在写入区域永久无法恢复的情况下，对于配置了有限过期一致性的多区域 Cosmos 帐户，可能的数据丢失时间范围限于过期时间范围（*K* 或 *T*）；对于会话、一致的前缀和最终一致性级别，可能的数据丢失时间范围限于最多五秒。 
+- 即使在罕见的不幸事件中，发生了 Azure 区域永久无法恢复的情况，如果为多区域 Cosmos 帐户配置了默认的非常一致性级别，也不会丢失数据。  在写入区域永久无法恢复的情况下，对于配置了有限过期一致性的多区域 Cosmos 帐户，可能的数据丢失时间范围限于过期时间范围（*K* 或 *T*）；对于会话、一致的前缀和最终一致性级别，可能的数据丢失时间范围限于最多五秒。 
 
 <!--Not Available on ## Availability Zone support-->
 ## <a name="building-highly-available-applications"></a>生成高可用性应用程序

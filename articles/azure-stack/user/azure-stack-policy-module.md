@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/26/2019
-ms.date: 04/29/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 03/26/2019
-ms.openlocfilehash: 766804be4a57c8e1ad05c21a857ec17f452b5897
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 48203b0d33d9c5e3fcb9bcd72ee4df29c68fddbb
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855281"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513266"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>使用 Azure Stack 策略模块管理 Azure Policy
 
@@ -34,7 +34,7 @@ ms.locfileid: "64855281"
 1. 按照[安装适用于 Azure Stack 的 PowerShell](../operator/azure-stack-powershell-install.md) 步骤 1 中的说明，安装所需的 AzureRM PowerShell 模块版本。
 2. [从 GitHub 下载 Azure Stack 工具](../operator/azure-stack-powershell-download.md)。
 3. [配置适用于 Azure Stack 的 PowerShell](azure-stack-powershell-configure-user.md)。
-4. 导入 AzureStack.Policy.psm1 模块：
+4. 导入 AzureStack.Policy.psm1  模块：
 
 
    ```powershell

@@ -1,22 +1,22 @@
 ---
-title: 设置 Azure Active Directory 组织的登录 - Azure Active Directory B2C | Microsoft Docs
+title: 为 Azure Active Directory 组织设置登录 - Azure Active Directory B2C
 description: 在 Azure Active Directory B2C 中设置登录特定 Azure Active Directory 组织。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 05/14/2018
-ms.date: 06/05/2019
+origin.date: 07/08/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: a134be2398ab692c36bf2555746a80695ec1ff9f
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: e716550d4f0fecb7bd583d7e145003a47cc881ac
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235942"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391590"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中设置登录特定 Azure Active Directory 组织
 
@@ -38,7 +38,7 @@ ms.locfileid: "67235942"
 7. 对于“重定向 URI”  ，接受值 **Web**，并以全小写字母输入以下 URL，其中 `your-B2C-tenant-name` 将替换为 Azure AD B2C 租户的名称。 例如，`https://fabrikam.b2clogin.cn/fabrikam.partner.onmschina.cn/oauth2/authresp`：
 
     ```
-    https://your--B2C-tenant-name.b2clogin.cn/your-B2C-tenant-name.partner.onmschina.cn/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.cn/your-B2C-tenant-name.partner.onmschina.cn/oauth2/authresp
     ```
 
     现在，所有 URL 都应使用 [b2clogin.cn](b2clogin.md)。
@@ -64,10 +64,10 @@ ms.locfileid: "67235942"
     ```
 
 8. 对于“客户端 ID”  ，输入先前记录的应用程序 ID；对于“客户端密码”  ，输入先前记录的客户端密码。
-9. （可选）输入  Domain_hint 的值。 例如，`ContosoAD`。 在请求中使用 domain_hint 引用此标识提供者时会用到该值  。 
+9. （可选）输入  Domain_hint 的值。 例如，`ContosoAD`。 在请求中使用 domain_hint 引用此标识提供者时会用到该值  。
 10. 单击 **“确定”** 。
 11. 选择“映射此标识提供者的声明”  并设置以下声明：
-    
+
     - 在“用户 ID”中输入 `oid`  。
     - 在“显示名称”中输入 `name`  。
     - 在“名字”中输入 `given_name`  。

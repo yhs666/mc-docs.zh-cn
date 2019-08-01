@@ -7,17 +7,17 @@ manager: digimobile
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-origin.date: 04/30/2019
-ms.date: 06/03/2019
+origin.date: 05/29/2019
+md.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: adshar
 ms.lastreviewed: 11/20/2018
-ms.openlocfilehash: 34c70c82d22c6fd81e65b74675debf2eb6164b62
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 1446865f5e349800adf2cc5570d0b718e49e55b3
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381808"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513462"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack 诊断工具
 
@@ -86,21 +86,21 @@ if($s)
 
 * 收集所有角色的所有日志：
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred
+  ```
 
 * 从 VirtualMachines 和 BareMetal 角色收集日志：
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
+  ```
 
 * 从 VirtualMachines 和 BareMetal 角色收集日志，通过日期筛选功能筛选出过去 8 小时的日志文件：
 
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-```
+  ```powershell
+  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
 * 从 VirtualMachines 和 BareMetal 角色收集日志，通过日期筛选功能筛选出 8 小时前到 2 小时前这个时间段的日志文件：
 
@@ -111,7 +111,7 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 * 收集日志并将其存储在指定的 Azure 存储 blob 容器中。 此操作的常规语法如下所示：
 
   ```powershell
-  Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "<Blob service SAS Uri>"
+  Get-AzureStackLog -OutputSasUri "<Blob service SAS Uri>"
   ```
 
   例如：
@@ -119,6 +119,9 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   ```powershell
   Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -OutputSasUri "https://<storageAccountName>.blob.core.chinacloudapi.cn/<ContainerName><SAS Token>"
   ```
+
+  > [!NOTE]
+  > 当你使用 Azure 支持建立案例并被要求上传日志时，此过程非常有用。 即使你没有可从 ERCS VM 访问的 SMB 共享，并且你的 ERCS VM 无法访问 Internet，你也可以在 Azure Stack 上创建一个 blob 存储帐户来传输日志，然后使用客户端检索这些日志并将其上传到 Azure。  
 
   若要为存储帐户生成 SAS 令牌，需要以下权限：
 
@@ -137,9 +140,6 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   8. 根据所需的权限，选择“读取”  、“写入”  和“列表”  。
   9. 选择“创建”  。
   10. 你将获得共享访问签名。 复制 URL 部分，并将其提供给 `-OutputSasUri` 参数。
-```powershell
-Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>ASDK 系统和集成系统的参数考虑事项
 
@@ -165,7 +165,8 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
 
   |   |   |   |    |
   | - | - | - | -  |
-  |ACS                   |CacheService                   |IBC                            |OEM|
+  |ACS                   |CA                             |HRP                            |OboService|
+  |ACSBlob               |CacheService                   |IBC                            |OEM|
   |ACSDownloadService    |计算                        |InfraServiceController         |OnboardRP|
   |ACSFabric             |CPI                            |KeyVaultAdminResourceProvider  |PXE|
   |ACSFrontEnd           |CRP                            |KeyVaultControlPlane           |QueryServiceCoordinator|
@@ -183,7 +184,6 @@ Get-AzureStackLog -OutputSharePath "<path>" -OutputShareCredential $cred -Filter
   |AzureMonitor          |网关                        |NC                             |WAS|
   |BareMetal             |HealthMonitoring               |NonPrivilegedAppGateway        |WASPUBLIC|
   |BRP                   |HintingServiceV2               |NRP                            |   |
-  |CA                    |HRP                            |OboService                     |   |
   |   |   |   |    |
 
 ### <a name="additional-considerations"></a>其他注意事项

@@ -4,15 +4,15 @@ description: 了解如何管理 Azure Cosmos DB 中的冲突
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 06/25/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: cef22db8dbd84f2462a4dab113e437d9e59ce03d
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: dc86979655f6f2f4c8e8e1658d591da165476d9f
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151401"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514384"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中的冲突解决策略
 
@@ -23,7 +23,7 @@ ms.locfileid: "67151401"
 这些示例介绍如何使用“以最后写入者为准”冲突解决策略设置一个容器。 “以最后写入者为准”的默认路径是时间戳字段或 `_ts` 属性。 这还可以设置为数值类型的用户定义路径。 如果发生冲突，最高值优先。 如果路径未设置或无效，则它默认为 `_ts`。 使用此策略解决的冲突不会显示在冲突源中。 此策略可供所有 API 使用。
 
 <a name="create-custom-conflict-resolution-policy-lww-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -36,6 +36,21 @@ DocumentCollection lwwCollection = await createClient.CreateDocumentCollectionIf
           ConflictResolutionPath = "/myCustomId",
       },
   });
+```
+
+<a name="create-custom-conflict-resolution-policy-lww-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.lwwCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.LastWriterWins,
+            ResolutionPath = "/myCustomId",
+        }
+    });
 ```
 
 <a name="create-custom-conflict-resolution-policy-lww-java-async"></a>
@@ -163,7 +178,7 @@ function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
 ```
 
 <a name="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection udpCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -184,6 +199,25 @@ UriFactory.CreateStoredProcedureUri(this.databaseName, this.udpCollectionName, "
     Id = "resolver",
     Body = File.ReadAllText(@"resolver.js")
 });
+```
+
+<a name="create-custom-conflict-resolution-policy-stored-proc-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.udpCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom,
+            ResolutionProcedure = string.Format("dbs/{0}/colls/{1}/sprocs/{2}", this.databaseName, this.udpCollectionName, "resolver")
+        }
+    });
+
+await container.Scripts.CreateStoredProcedureAsync(
+    new StoredProcedureProperties("resolver", File.ReadAllText(@"resolver.js"))
+);
 ```
 
 <a name="create-custom-conflict-resolution-policy-stored-proc-java-async"></a>
@@ -254,7 +288,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 这些示例介绍如何使用自定义冲突解决策略设置一个容器。 这些冲突会显示在冲突源中。
 
 <a name="create-custom-conflict-resolution-policy-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 DocumentCollection manualCollection = await createClient.CreateDocumentCollectionIfNotExistsAsync(
@@ -266,6 +300,20 @@ DocumentCollection manualCollection = await createClient.CreateDocumentCollectio
           Mode = ConflictResolutionMode.Custom,
       },
   });
+```
+
+<a name="create-custom-conflict-resolution-policy-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+Container container = await createClient.GetDatabase(this.databaseName)
+    .CreateContainerIfNotExistsAsync(new ContainerProperties(this.manualCollectionName, "/partitionKey")
+    {
+        ConflictResolutionPolicy = new ConflictResolutionPolicy()
+        {
+            Mode = ConflictResolutionMode.Custom
+        }
+    });
 ```
 
 <a name="create-custom-conflict-resolution-policy-java-async"></a>
@@ -324,10 +372,33 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 这些示例介绍如何从容器的冲突源读取。 只有在未自动解决冲突或使用自定义冲突策略的情况下，冲突才显示在冲突源中。
 
 <a name="read-from-conflict-feed-dotnet"></a>
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk-v2"></a>.NET SDK V2
 
 ```csharp
 FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.collectionUri);
+```
+
+<a name="read-from-conflict-feed-dotnet-v3"></a>
+### <a name="net-sdk-v3"></a>.NET SDK V3
+
+```csharp
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+while (conflictFeed.HasMoreResults)
+{
+    FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
+    foreach (ConflictProperties conflict in conflicts)
+    {
+        // Read the conflicted content
+        MyClass intendedChanges = container.Conflicts.ReadConflictContent<MyClass>(conflict);
+        MyClass currentState = await container.Conflicts.ReadCurrentAsync<MyClass>(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Do manual merge among documents
+        await container.ReplaceItemAsync<MyClass>(intendedChanges, intendedChanges.Id, new PartitionKey(intendedChanges.MyPartitionKey));
+
+        // Delete the conflict
+        await container.Conflicts.DeleteAsync(conflict, new PartitionKey(intendedChanges.MyPartitionKey));
+    }
+}
 ```
 
 <a name="read-from-conflict-feed-java-async"></a>

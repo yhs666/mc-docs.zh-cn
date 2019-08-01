@@ -7,14 +7,14 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 origin.date: 07/04/2017
-ms.date: 06/03/2019
+ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: bc60d73a65d66b3b61fd2dd2bd9264b27b36400f
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 1a2dc65514b3a7e1c87cdc5a8b02c02229596b03
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194988"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514297"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>通过 .NET 使用 IoT 中心将文件从设备上传到云
 
@@ -25,7 +25,7 @@ ms.locfileid: "66194988"
 - 安全地为设备提供用于上传文件的 Azure Blob URI。
 - 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
 
-[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-dotnet.md)和[使用 IoT 中心发送云到设备的消息](iot-hub-csharp-csharp-c2d.md)文章介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [使用 IoT 中心配置消息路由](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-dotnet.md)快速入门和[使用 IoT 中心发送云到设备的消息](iot-hub-csharp-csharp-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [使用 IoT 中心配置消息路由](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频
@@ -40,14 +40,14 @@ ms.locfileid: "66194988"
 * **ReadFileUploadNotification**，它可以接收来自 IoT 中心的文件上传通知。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、Java 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心]。
+> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、Java 和 Javascript）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
 > 
 > 
 
 要完成本教程，需要以下各项：
 
 * Visual Studio
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]
 
@@ -103,9 +103,9 @@ ms.locfileid: "66194988"
 
     ![Visual Studio 中的新项目](./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png)
 
-2. 在“解决方案资源管理器”中，右键单击 **ReadFileUploadNotification** 项目，并单击“管理 NuGet 包...”。
+2. 在“解决方案资源管理器”中，右键单击 **ReadFileUploadNotification** 项目，并单击“管理 NuGet 包...”。 
 
-3. 在“NuGet 包管理器”窗口中，搜索“Microsoft.Azure.Devices”，并单击“安装”并接受使用条款。 
+3. 在“NuGet 包管理器”窗口中，搜索“Microsoft.Azure.Devices”，并单击“安装”并接受使用条款。    
 
     此操作会下载、安装 [Azure IoT 服务 SDK NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.Devices/)，并在 **ReadFileUploadNotification** 项目中添加对它的引用。
 
@@ -184,7 +184,7 @@ ms.locfileid: "66194988"
 
 [Azure 门户]: https://portal.azure.cn/
 
-[Azure IoT 开发人员中心]: https://www.azure.cn/develop/iot
+[Azure IoT Developer Center]: https://www.azure.cn/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/zh-cn/library/hh680901(v=pandp.50).aspx
 [Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

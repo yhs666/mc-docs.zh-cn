@@ -2,27 +2,27 @@
 title: TrustFrameworkPolicy - Azure Active Directory B2C | Microsoft Docs
 description: 在 Azure Active Directory B2C 中指定自定义策略的 TrustFrameworkPolicy 元素。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 06/05/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 0f1e26727c691ad12de22e1e48fca15cd5015ba7
-ms.sourcegitcommit: 26e99f63fe3c2ffbdcdcc17691199bbacabdd048
+ms.openlocfilehash: afe22015f0a9c62b4f991574a7ad3d68fd8f0c90
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687643"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391615"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-自定义策略以一个或多个采用 XML 格式的文件表示，这些文件在分层链中相互引用。 XML 元素定义策略的元素，例如声明架构、声明转换、内容定义、声明提供程序、技术配置文件、用户旅程和业务流程步骤。 每个策略文件在策略文件的顶级 **TrustFrameworkPolicy** 元素中定义。 
+自定义策略以一个或多个采用 XML 格式的文件表示，这些文件在分层链中相互引用。 XML 元素定义策略的元素，例如声明架构、声明转换、内容定义、声明提供程序、技术配置文件、用户旅程和业务流程步骤。 每个策略文件在策略文件的顶级 **TrustFrameworkPolicy** 元素中定义。
 
 ```XML
 <TrustFrameworkPolicy
@@ -67,11 +67,11 @@ ms.locfileid: "66687643"
 
 - **基本**文件：包含大多数定义。 为了帮助进行故障排除和长期维护策略，我们建议对此文件进行极少量的更改。
 - **扩展**文件：保存租户的独特配置更改。 此策略文件派生自“基本”文件。 使用此文件可以添加新功能或替代现有功能。 例如，使用此文件可与新的标识提供者联合。
-- **信赖方 (RP)** 文件：注重单个任务的文件，由信赖方应用程序（例如 Web、移动或桌面应用程序）直接调用。 每个独特的任务（例如注册或登录、密码重置或配置文件编辑）都需要自身的 RP 策略文件。 此策略文件派生自“扩展”文件。 
+- **信赖方 (RP)** 文件：注重单个任务的文件，由信赖方应用程序（例如 Web、移动或桌面应用程序）直接调用。 每个独特的任务（例如注册或登录、密码重置或配置文件编辑）都需要自身的 RP 策略文件。 此策略文件派生自“扩展”文件。
 
 信赖方应用程序调用 RP 策略文件来执行特定的任务。 例如，启动登录流。 Azure AD B2C 中的标识体验框架依次从“基本”文件、“扩展”文件和“RP”策略文件中添加所有元素，以组合当前生效的策略。 “RP”文件中具有相同类型和名称的元素将替代“扩展”中的这些元素，“扩展”替代“基本”。 下图显示了策略文件与信赖方应用程序之间的关系。
 
-![继承模型](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
+![显示信任框架策略继承模型的示意图](./media/trustframeworkpolicy/custom-policy-Inheritance-model.png)
 
 继承模型如下所示：
 
@@ -81,7 +81,7 @@ ms.locfileid: "66687643"
 
 ## <a name="base-policy"></a>基本策略
 
-若要从另一个策略继承某个策略，必须在策略文件的 **TrustFrameworkPolicy** 元素下声明 **BasePolicy** 元素。 **BasePolicy** 元素是对从中派生此策略的基本策略的引用。  
+若要从另一个策略继承某个策略，必须在策略文件的 **TrustFrameworkPolicy** 元素下声明 **BasePolicy** 元素。 **BasePolicy** 元素是对从中派生此策略的基本策略的引用。
 
 **BasePolicy** 元素包含以下元素：
 
@@ -91,7 +91,7 @@ ms.locfileid: "66687643"
 | `PolicyId` | 1:1 | 父策略的标识符。 |
 
 
-以下示例演示如何指定基本策略。 此 **B2C_1A_TrustFrameworkExtensions** 策略派生自 **B2C_1A_TrustFrameworkBase** 策略。 
+以下示例演示如何指定基本策略。 此 **B2C_1A_TrustFrameworkExtensions** 策略派生自 **B2C_1A_TrustFrameworkBase** 策略。
 
 ``` XML
 <TrustFrameworkPolicy
@@ -129,11 +129,11 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 
 ```XML
 <UserJourneys>
-  <UserJourney Id="SignOrSignIn">
+  <UserJourney Id="SignUpOrSignIn">
   ...
 ```
 
-用户旅程定义用户所要经历的业务逻辑。 每个用户旅程是按顺序执行一系列操作，以进行身份验证和收集信息的一组业务流程步骤。 
+用户旅程定义用户所要经历的业务逻辑。 每个用户旅程是按顺序执行一系列操作，以进行身份验证和收集信息的一组业务流程步骤。
 
 `starter pack` 中的 **SocialAndLocalAccounts** 策略文件包含 SignUpOrSignIn、ProfileEdit 和 PasswordReset 用户旅程。 可为其他方案添加更多的用户旅程，例如，更改电子邮件地址或链接和取消链接社交帐户。 
 
@@ -145,7 +145,7 @@ B2C_1A_TrustFrameWorkBase 或 B2C_1A_TrustFrameworkExtensionPolicy：
 - 在 Azure AD B2C 标识存储中读取和写入数据。
 - 调用自定义 Restful API 服务。
 
-![策略执行](./media/trustframeworkpolicy/custom-policy-execution.png)
+![显示策略执行流的示意图](./media/trustframeworkpolicy/custom-policy-execution.png)
 
  **TrustFrameworkPolicy** 元素包含以下元素：
 

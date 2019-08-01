@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 06/21/2018
-ms.date: 07/08/2019
+ms.date: 07/26/2019
 ms.author: v-jay
-ms.openlocfilehash: a8c647c1c0816bd66828536bdf76ab616b22ee9f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 494bc37e257da676f27b8ca4d9b02344e934f775
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570187"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513518"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-azure-data-factory"></a>使用 Azure 数据工厂，将数据从 Azure Blob 存储复制到 SQL 数据库
 在本教程中，请使用 Azure 数据工厂用户界面 (UI) 创建数据工厂。 此数据工厂中的管道将数据从 Azure Blob 存储复制到 SQL 数据库。 本教程中的配置模式适用于从基于文件的数据存储复制到关系数据存储。 如需可以用作源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
@@ -230,7 +230,7 @@ ms.locfileid: "67570187"
 可以通过单击右上角的“代码”来查看与管道关联的 JSON 代码。 
 
 ## <a name="debug-and-publish-the-pipeline"></a>调试和发布管道
-可以先调试管道，然后再将项目（链接服务、数据集和管道）发布到数据工厂或自己的 Azure Repos GIT 存储库。 
+可以先调试管道，然后再将项目（链接服务、数据集和管道）发布到数据工厂。 
 
 1. 若要调试管道，请在工具栏上选择“调试”。  可以在窗口底部的“输出”选项卡中看到管道运行的状态。  
 

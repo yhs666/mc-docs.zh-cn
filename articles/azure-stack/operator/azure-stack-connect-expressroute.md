@@ -15,12 +15,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 91c21a1e9c2c0eb304618b85c0c7a96097140f90
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 8fd81e1deb03e4e4cf01d883f241b7078862dab5
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381921"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513478"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>使用 Azure ExpressRoute 将 Azure Stack 连接到 Azure
 
@@ -59,25 +59,21 @@ ms.locfileid: "66381921"
 
 ### <a name="expressroute-network-architecture"></a>ExpressRoute 网络体系结构
 
-下图显示了使用本文中的示例完成设置 ExpressRoute 后的 Azure Stack 和 Azure 环境。
-
-*图 1.ExpressRoute 网络*
+下图显示了使用本文中的示例完成设置 ExpressRoute 后的 Azure Stack 和 Azure 环境：
 
 ![ExpressRoute 网络](media/azure-stack-connect-expressroute/Conceptual.png)
 
 下图显示多个租户如何从 Azure Stack 基础结构通过 ExpressRoute 路由器连接到位于 Microsoft 边缘的 Azure：
 
-*图 2.多租户连接*
-
 ![使用 ExpressRoute 的多租户连接](media/azure-stack-connect-expressroute/Architecture.png)
 
-本文中的示例使用图 2 中所示的相同多租户体系结构，通过 ExpressRoute 专用对等互连将 Azure Stack 连接到 Azure。 连接方式是使用站点到站点 VPN 连接从 Azure Stack 中的虚拟网络网关连接到 ExpressRoute 路由器。
+本文中的示例使用此图中所示的相同多租户体系结构，通过 ExpressRoute 专用对等互连将 Azure Stack 连接到 Azure。 连接方式是使用站点到站点 VPN 连接从 Azure Stack 中的虚拟网络网关连接到 ExpressRoute 路由器。
 
 本文中的步骤说明如何在两个 VNet 之间创建端到端连接：从 Azure Stack 中的不同租户连接到它们在 Azure 中的相应 VNet。 设置两个租户是可选的操作；也可以针对单个租户使用这些步骤。
 
 ## <a name="configure-azure-stack"></a>配置 Azure Stack
 
-若要为第一个租户设置 Azure Stack 环境，请使用下图中的步骤作为指导。 若要设置多个租户，请重复这些步骤：
+若要为第一个租户设置 Azure Stack 环境，请使用以下步骤作为指导。 若要设置多个租户，请重复这些步骤：
 
 >[!NOTE]
 >以下步骤说明如何使用 Azure Stack 门户创建资源，但也可以使用 PowerShell。
@@ -97,7 +93,7 @@ ms.locfileid: "66381921"
 
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>创建虚拟网络和 VM 子网
 
-1. 使用用户（租户）帐户登录到用户门户。
+1. 登录到 Azure Stack 用户门户。
 
 2. 在门户中，选择“+ 创建资源”。 
 
@@ -145,14 +141,14 @@ ms.locfileid: "66381921"
 
 #### <a name="create-the-local-network-gateway"></a>创建本地网关
 
-本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于图 2 中所示的租户 1，远程地址为 10.60.3.255。
+本地网络网关资源识别位于 VPN 连接另一端的远程网关。 在本示例中，连接的远程端是 ExpressRoute 路由器的 LAN 子接口。 对于上图中的租户 1，远程地址为 10.60.3.255。
 
 1. 使用用户帐户登录到 Azure Stack 用户门户，然后选择“+ 创建资源”。 
 1. 在“Azure 市场”下，选择“网络”。  
 1. 从资源列表中选择“本地网关”。 
 1. 在“名称”字段中，键入 **ER-Router-GW**。 
-1. 对于“IP 地址”字段，请参阅图示 2。  对于租户 1，ExpressRoute 路由器的 LAN 子接口 IP 地址是 10.60.3.255。 根据自己的环境，输入路由器对应接口的 IP 地址。
-1. 在“地址空间”字段中，输入 Azure 中要连接到的 VNet 的地址空间。  *图 2* 中租户 1 的子网如下：
+1. 对于“IP 地址”字段，请参阅上图。  对于租户 1，ExpressRoute 路由器的 LAN 子接口 IP 地址是 10.60.3.255。 根据自己的环境，输入路由器对应接口的 IP 地址。
+1. 在“地址空间”字段中，输入 Azure 中要连接到的 VNet 的地址空间。  租户 1 的子网如下所示：
 
    * 192.168.2.0/24 是 Azure 中的中心 VNet。
    * 10.100.0.0/16 是 Azure 中的分支 VNet。
@@ -358,8 +354,6 @@ Azure Stack 开发工具包是自主性的，与部署物理主机的网络相�
 ## <a name="configure-the-router"></a>配置路由器
 
 可以使用以下 ExpressRoute 路由器配置示意图作为指导来配置 ExpressRoute 路由器。 此图显示了两个租户（租户 1 和租户 2）及其各自的 ExpressRoute 线路。 每个租户链接到各自在 ExpressRoute 路由器的 LAN 和 WAN 端的 VRF（虚拟路由和转发）。 此配置可确保在两个租户之间保持端到端隔离。 在学习示例配置的过程中，请记下路由器接口中使用的 IP 地址。
-
-*图 4.ExpressRoute 路由器配置*
 
 ![ExpressRoute 路由器配置](media/azure-stack-connect-expressroute/EndToEnd.png)
 
@@ -625,7 +619,7 @@ New-NetFirewallRule `
 
 若要了解有多少流量通过连接，可以在 Azure Stack 用户门户中查找此信息。 此信息也很适合用于确认 ping 测试数据是否通过了 VPN 和 ExpressRoute 连接：
 
-1. 使用租户帐户登录到 Azure Stack 用户门户，并选择“所有资源”。 
+1. 登录 Azure Stack 用户门户并选择“所有资源”  。
 1. 导航到 VPN 网关的资源组，然后选择“连接”对象类型。 
 1. 从列表中选择“ConnectToAzure”连接。 
 1. 在“连接” > “概述”下，可以看到“传入数据”和“传出数据”的统计信息。     应会看到一些非零值。

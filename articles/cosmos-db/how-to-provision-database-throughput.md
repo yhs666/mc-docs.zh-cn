@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中预配数据库级别的吞吐�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 05/23/2019
-ms.date: 06/17/2019
+origin.date: 07/03/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29655afa4d6512e7c0b63866b0e98eb49ae7255a
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: ed42eb6c3d7c481f986c1c7816b772efdba6079a
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151397"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514240"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 
@@ -36,6 +36,25 @@ ms.locfileid: "67151397"
 
     ![“新建数据库”对话框屏幕截图](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## <a name="provision-throughput-using-powershell"></a>使用 PowerShell 预配吞吐量
+
+```powershell
+# Create a database and provision throughput of 400 RU/s
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$databaseResourceName = $accountName + "/sql/" + $databaseName
+
+$databaseProperties = @{
+    "resource"=@{ "id"=$databaseName };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $databaseResourceName -PropertyObject $databaseProperties
+```
+
 ## <a name="provision-throughput-using-net-sdk"></a>使用 .NET SDK 预配吞吐量
 
 > [!Note]
@@ -43,12 +62,13 @@ ms.locfileid: "67151397"
 
 <a name="dotnet-all"></a>
 ### <a name="all-apis"></a>所有 API
+### <a name="net-v2-sdk"></a>.NET V2 SDK
 
 ```csharp
 //set the throughput for the database
 RequestOptions options = new RequestOptions
 {
-    OfferThroughput = 10000
+    OfferThroughput = 500
 };
 
 //create the database
@@ -57,12 +77,22 @@ await client.CreateDatabaseIfNotExistsAsync(
     options);
 ```
 
+### <a name="net-v3-sdk"></a>.NET V3 SDK
+
+```csharp
+//create the database with throughput
+string databaseName = "MyDatabaseName";
+await this.cosmosClient.CreateDatabaseIfNotExistsAsync(
+        id: databaseName,
+        throughput: 1000);
+```
+
 <a name="dotnet-cassandra"></a>
 ### <a name="cassandra-api"></a>Cassandra API
 
 ```csharp
-// Create a Cassandra keyspace and provision throughput of 10000 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=10000);
+// Create a Cassandra keyspace and provision throughput of 400 RU/s
+session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
 ```
 
 ## <a name="next-steps"></a>后续步骤

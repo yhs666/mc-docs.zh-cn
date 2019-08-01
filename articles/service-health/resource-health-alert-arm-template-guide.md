@@ -6,13 +6,13 @@ ms.author: v-yiso
 ms.topic: conceptual
 ms.service: service-health
 origin.date: 09/04/2018
-ms.date: 06/03/2019
-ms.openlocfilehash: c982e58aa435550d0ee9f3ba94c1d8bb6eb052f9
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.date: 08/05/2019
+ms.openlocfilehash: 6c62794e0ee48f07bc31bcd8e4296966b4b4f021
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194932"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514155"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>使用资源管理器模板创建资源运行状况警报
 
@@ -446,3 +446,4 @@ Azure 资源运行状况可通过使用测试运行器持续监控资源，向�
 
 创建服务运行状况警报：
 -  [配置服务运行状况的警报](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Azure 活动日志事件架构](../azure-monitor/platform/activity-log-schema.md)

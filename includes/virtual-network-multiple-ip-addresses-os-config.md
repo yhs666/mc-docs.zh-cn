@@ -5,16 +5,16 @@ services: virtual-network
 author: rockboyfor
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/09/2018
-ms.date: 06/10/2019
+origin.date: 05/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d407ee5306eee64db3e0d2894d63d0d1ca67b67f
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 60f4f2415d5b25e3b4fb05e84e6c647a086d6935
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250458"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514233"
 ---
 <a name="os-config"></a>
 ## <a name="add-ip-addresses-to-a-vm-operating-system"></a>将 IP 地址添加到 VM 操作系统
@@ -54,6 +54,7 @@ ping -S 10.0.0.5 hotmail.com
 >对于辅助 IP 配置，仅当该配置存在关联的 IP 地址的情况下，才能 ping Internet。 对于主 IP 配置，不需公共 IP 地址也可 ping 到 Internet。
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
+我们建议你查看 Linux 发行版的最新文档。 
 
 1. 打开终端窗口。
 2. 请确保以 root 用户身份操作。 如果不是，请输入以下命令：

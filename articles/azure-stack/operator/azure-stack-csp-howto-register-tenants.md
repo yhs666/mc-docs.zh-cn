@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/07/2019
-ms.date: 06/03/2019
+origin.date: 06/07/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: alfredop
-ms.lastreviewed: 05/07/2019
-ms.openlocfilehash: 9f871149bb7a60bb4d0f87bee75164fb63692e24
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.lastreviewed: 06/07/2019
+ms.openlocfilehash: cecb85d2a607a9c73aba54ea0630ffc20a798a18
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381918"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513470"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>将租户添加到 Azure Stack 以获取用量和计费信息
 
@@ -48,11 +48,11 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ### <a name="create-an-azure-subscription-for-the-end-customer"></a>为最终客户创建 Azure 订阅
 
-在合作伙伴中心创建客户记录后，可向客户销售目录中产品的订阅。 有关说明，请参阅[创建、暂停或取消客户订阅](https://msdn.microsoft.com/partner-center/create-a-new-subscription)。
+在合作伙伴中心创建客户记录后，可向客户销售目录中产品的订阅。 有关说明，请参阅[创建、暂停或取消客户订阅](https://docs.microsoft.com/partner-center/create-a-new-subscription)。
 
 ### <a name="create-a-guest-user-in-the-end-customer-directory"></a>在最终客户目录中创建来宾用户
 
-如果最终客户管理自己的帐户，请在其目录中创建一个来宾用户，并向其发送信息。 然后，最终用户将添加来宾，并将来宾权限提升为 Azure Stack CSP 帐户的**所有者**。
+默认情况下，作为 CSP 你将无权访问最终客户的 Azure Stack 订阅。 但是，如果客户希望你管理其资源，那么他们可以将你的帐户作为所有者/参与者添加到其 Azure Stack 订阅。 为此，他们需要将你的帐户作为来宾用户添加到其 AAD 租户。 建议你使用与 Azure CSP 帐户不同的帐户来管理客户的 Azure Stack 订阅，以确保你不会失去访问客户的 Azure 订阅的权限。
 
 ### <a name="update-the-registration-with-the-end-customer-subscription"></a>更新最终客户订阅中的注册
 
@@ -95,6 +95,6 @@ CSP 通常向其 Azure Stack 部署中的多个最终客户（租户）提供服
 
 ## <a name="next-steps"></a>后续步骤
 
-- 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes)。
+- 若要查看注册过程中触发的错误消息，请参阅[租户注册错误消息](azure-stack-registration-errors.md)。
 - 若要详细了解如何从 Azure Stack 检索资源使用情况信息，请参阅 [Azure Stack 中的使用情况和计费](azure-stack-billing-and-chargeback.md)。
 - 若要了解最终客户如何将你添加为 CSP 或其 Azure Stack 租户的管理员，请参阅[让云服务提供程序管理 Azure Stack 订阅](../user/azure-stack-csp-enable-billing-usage-tracking.md)。

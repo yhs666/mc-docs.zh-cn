@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: azure-stack
 ms.topic: article
 origin.date: 05/02/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: wamota
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 2be92d7b0f922cb33eee16927f18a4601e8ff42c
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 155cf0474a668cb740b8fe88faececb655961d6d
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381906"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513458"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack 数据中心集成 - 发布终结点
 
@@ -36,7 +36,10 @@ Azure Stack 为其基础结构角色设置虚拟 IP 地址 (VIP)。 这些 VIP �
 > [!Note]  
 > 用户 VIP 是动态的，由用户自己定义，而不受 Azure Stack 操作员的控制。
 
-> [!Note]
+> [!Note]  
+> IKEv2 VPN。 IKEv2 VPN 是一个基于标准的 IPsec VPN 解决方案，它使用 UDP 端口 500 和 4500 以及 IP 协议号 50。 防火墙并非始终打开这些端口，因此，IKEv2 VPN 有可能无法穿过代理和防火墙。
+
+> [!Note]  
 > 自 1811 更新起，由于添加了[扩展主机](azure-stack-extension-host-prepare.md)，因此不再需要打开 12495-30015 范围内的端口。
 
 |终结点 (VIP)|DNS 主机 A 记录|协议|端口|
@@ -90,8 +93,9 @@ Azure Stack 仅支持透明代理服务器。 如果部署中的透明代理上�
 |AD FS|为 AD FS 集成提供的 AD FS 元数据终结点|TCP|443|公共 VIP - /27|
 |     |     |     |     |     |
 
-> [!Note]  
-> 使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
+使用 Azure 流量管理器对出站 URL 进行负载均衡，以根据地理位置提供尽可能最佳的连接。 使用负载均衡 URL，Azure 可以更新和更改后端终结点，而不会影响客户。 Azure 不共享负载均衡 URL 的 IP 地址列表。 应使用支持按 URL 而不是按 IP 筛选的设备。
+
+任何时候都需要出站 DNS，不同的是查询外部 DNS 的源以及选择了哪种标识集成。 如果这是一个联网场景，则在部署期间，位于 BMC 网络上的 DVM 需要该出站访问，但在部署之后，DNS 服务将移到内部组件，该组件将通过公共 VIP 发送查询。 此时，可以删除通过 BMC 网络的出站 DNS 访问权限，但是必须保留对该 DNS 服务器的公共 VIP 访问权限，否则身份验证将失败。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -17,12 +17,12 @@ ms.date: 06/03/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 8a0c3f3918aafb3217578e52c5326575ed7ed2be
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: 1285b898fdf34adc2e1f5e91a87dd5326e67535b
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135457"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513460"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Azure Stack 的标识概述
 

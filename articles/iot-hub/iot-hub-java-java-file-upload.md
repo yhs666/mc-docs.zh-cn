@@ -8,13 +8,13 @@ ms.devlang: java
 ms.topic: conceptual
 origin.date: 06/28/2017
 ms.author: dobett
-ms.date: 10/29/2018
-ms.openlocfilehash: ddb5f961adc1ee0e6ff24ffec7ae6c09bb110bd1
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.date: 08/05/2019
+ms.openlocfilehash: e6299eb5eb7bdba0ebd29ac3bdb3f20471d93a81
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674141"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514418"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
 
@@ -25,7 +25,7 @@ ms.locfileid: "52674141"
 - 安全地为设备提供用于上传文件的 Azure Blob URI。
 - 使用 IoT 中心文件上传通知在应用后端中触发对文件的处理。
 
-[将遥测数据发送到 IoT 中心 (Java)](quickstart-send-telemetry-java.md) 和[使用 IoT 中心发送云到设备的消息 (Java)](iot-hub-java-java-c2d.md) 教程介绍了 IoT 中心提供的基本的设备到云和云到设备消息传送功能。 [使用 IoT 中心配置消息路由](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
+[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-java.md)快速入门和[使用 IoT 中心发送云到设备的消息](iot-hub-java-java-c2d.md)教程介绍了 IoT 中心提供的基本的设备到云和云到设备的消息传送功能。 [使用 IoT 中心配置消息路由](tutorial-routing.md)教程介绍了一种在 Azure Blob 存储中可靠存储设备到云消息的方法。 但是，在某些情况下，无法轻松地将设备发送的数据映射为 IoT 中心接受的相对较小的设备到云消息。 例如：
 
 * 包含图像的大型文件
 * 视频
@@ -121,7 +121,7 @@ ms.locfileid: "52674141"
 
 本部分中的操作将创建一个 Java 控制台应用，用于接收来自 IoT 中心的文件上传通知消息。
 
-需要使用 IoT 中心的 **iothubowner** 的连接字符串才能完成本部分。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。
+需要使用 IoT 中心的 **iothubowner** 的连接字符串才能完成本部分。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。 
 
 1. 在命令提示符下使用以下命令，创建名为 **read-file-upload-notification** 的 Maven 项目。 请注意，此命令是一条很长的命令：
 
@@ -142,7 +142,7 @@ ms.locfileid: "52674141"
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
+    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
 
 1. 保存并关闭 `pom.xml` 文件。
 

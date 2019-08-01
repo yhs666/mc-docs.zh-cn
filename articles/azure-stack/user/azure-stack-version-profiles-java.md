@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/02/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
-ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: ff3ea51e3c95764bd14bf2e02f746a80193b1f93
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.lastreviewed: 05/16/2019
+ms.openlocfilehash: 2de071bd8ec0622d4c7e11b7df88567e06603a36
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854530"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513196"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Java 配合使用
 
@@ -38,17 +38,15 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
   - 若使用 latest 配置文件，则依赖项为 **com.microsoft.azure**。
 
-  - 若要使用与 Azure Stack 兼容的服务，请使用 **com.microsoft.azure.profile\_2018\_03\_01\_hybrid** 配置文件。
+  - 若要使用 Azure Stack 中提供的最新支持的服务，请使用 **com.microsoft.azure.profile\_2019\_03\_01\_hybrid** 配置文件。
 
     - 请在 Pom.xml 文件中将其指定为依赖项，如果从下拉列表中选择了正确的类，则会自动加载模块，就像使用 .NET 一样。
-
-    - 每个模块的顶部都如下所示：      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - 依赖项如下所示：
 
      ```xml
      <dependency>
-     <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+     <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
      <artifactId>azure</artifactId>
      <version>1.0.0-beta</version>
      </dependency>
@@ -70,7 +68,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
    ```xml  
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <version>1.0.0-beta</version>
    </dependency>
@@ -78,7 +76,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 
 4. 需要安装的包取决于你要使用的配置文件版本。 配置文件版本的包名如下：
 
-   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **latest**
 
@@ -99,7 +97,7 @@ API 配置文件是资源提供程序和 API 版本的组合。 可以使用 API
 | 订阅 ID           | AZURE_SUBSCRIPTION_ID      | [订阅 ID](../operator/azure-stack-plan-offer-quota-overview.md#subscriptions) 用于访问 Azure Stack 中的套餐。                |
 | 客户端机密             | AZURE_CLIENT_SECRET        | 创建服务主体时保存的服务主体应用程序机密。                                                                                                                                   |
 | 资源管理器终结点 | ARM_ENDPOINT              | 请参阅 [Azure Stack 资源管理器终结点](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint)。 |
-| 位置                  | RESOURCE_LOCATION    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |
+| Location                  | RESOURCE_LOCATION    | 对于 Azure Stack 来说为 **Local**。                                                                                                                                                                                                |
 
 若要查找你的 Azure Stack 的租户 ID，请参阅[此处](../operator/azure-stack-csp-ref-operations.md)的说明。 若要设置环境变量，请执行以下操作：
 
@@ -143,7 +141,7 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 请注意以下事项：
 
-- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： https://management.local.azurestack.external/。
+- Azure Stack 开发工具包 (ASDK) 中的 **ResourceManagerUrl** 为： https://management.local.azurestack.external/ 。
 
 - 集成系统中的 **ResourceManagerUrl** 为：`https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`。
 
@@ -166,7 +164,9 @@ Azure 资源管理器是一种管理框架，可供管理员用来部署、管�
 
 ## <a name="existing-api-profiles"></a>现有 API 配置文件
 
-- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：为 Azure Stack 生成的最新配置文件。 请将此配置文件用于与 Azure Stack 最兼容的服务，前提是使用 1808 或更高的戳记。
+- **com.microsoft.azure.profile\_2019\_03\_01\_hybrid**：为 Azure Stack 生成的最新配置文件。 使用此配置文件可以使服务与标记版本 1904 或更高版本的 Azure Stack 最兼容。
+
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**：为 Azure Stack 生成的配置文件。 使用此配置文件可以使服务与标记版本 1808 或更高版本的 Azure Stack 兼容。
 
 - **com.microsoft.azure**：包含所有服务的最新版本的配置文件。 使用所有服务的最新版本。
 
@@ -191,6 +191,9 @@ Azure azureStack = Azure.configure()
 若要将 Azure Stack 云注册到正确的终结点，请使用以下代码：
 
 ```java
+// Get Azure Stack cloud endpoints
+final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+
 AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>() {
                 {
                     put("managementEndpointUrl", settings.get("audience"));
@@ -205,29 +208,50 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
             });
 ```
 
-以下代码中的 `getActiveDirectorySettings` 调用从元数据终结点检索终结点。 它从所做的调用声明环境变量：
+上面代码中的 `getActiveDirectorySettings` 调用从元数据终结点检索终结点。 它从所做的调用声明环境变量：
 
 ```java
-public static HashMap<String, String>
-getActiveDirectorySettings(String armEndpoint) {
+public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
 
-HashMap<String, String> adSettings = new HashMap<String, String>();
+    HashMap<String, String> adSettings = new HashMap<String, String>();
+    try {
 
-try {
+        // create HTTP Client
+        HttpClient httpClient = HttpClientBuilder.create().build();
 
-// create HTTP Client
-HttpClient httpClient = HttpClientBuilder.create().build();
+        // Create new getRequest with below mentioned URL
+        HttpGet getRequest = new HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
+                             armEndpoint));
 
-// Create new getRequest with below mentioned URL
-HttpGet getRequest = new
-HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
-armEndpoint));
+        // Add additional header to getRequest which accepts application/xml data
+        getRequest.addHeader("accept", "application/xml");
 
-// Add additional header to getRequest which accepts application/xml data
-getRequest.addHeader("accept", "application/xml");
+        // Execute request and catch response
+        HttpResponse response = httpClient.execute(getRequest);
+        
+        // Check for HTTP response code: 200 = success
+        if (response.getStatusLine().getStatusCode() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : " + response.getStatusLine().getStatusCode());
+        }
+        
+        String responseStr = EntityUtils.toString(response.getEntity());
+        JSONObject responseJson = new JSONObject(responseStr);
+        adSettings.put("galleryEndpoint", responseJson.getString("galleryEndpoint"));
+        JSONObject authentication = (JSONObject) responseJson.get("authentication");
+        String audience = authentication.get("audiences").toString().split("\"")[1];
+        adSettings.put("login_endpoint", authentication.getString("loginEndpoint"));
+        adSettings.put("audience", audience);
+        adSettings.put("graphEndpoint", responseJson.getString("graphEndpoint"));
 
-// Execute request and catch response
-HttpResponse response = httpClient.execute(getRequest);
+    } catch (ClientProtocolException cpe) {
+        cpe.printStackTrace();
+        throw new RuntimeException(cpe);
+    } catch (IOException ioe) {
+        ioe.printStackTrace();
+        throw new RuntimeException(ioe);
+    }
+    return adSettings;
+}
 ```
 
 ## <a name="samples-using-api-profiles"></a>使用 API 配置文件的示例
@@ -238,7 +262,7 @@ HttpResponse response = httpClient.execute(getRequest);
 
 - [管理存储帐户](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-- [管理虚拟机](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [管理虚拟机](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)（已使用 2019-03-01-hybrid 配置文件更新）。
 
 ### <a name="sample-unit-test-project"></a>示例单元测试项目
 
@@ -268,33 +292,18 @@ HttpResponse response = httpClient.execute(getRequest);
 
    在 Windows 中，请使用 **set** 而不是 **export**。
 
-5. 使用 `getactivedirectorysettings` 代码检索 arm 元数据终结点，使用 HTTP 客户端设置终结点信息。
+5. 使用 `getActiveDirectorySettings` 函数检索 Azure 资源管理器元数据终结点。
 
-   ```java
-   public static HashMap<String, String> getActiveDirectorySettings(String armEndpoint) {
-   HashMap<String, String> adSettings = new HashMap<String,> String>();
+    ```java
+    // Get Azure Stack cloud endpoints
+    final HashMap<String, String> settings = getActiveDirectorySettings(armEndpoint);
+    ```
 
-   try {
-
-   // create HTTP Client
-   HttpClient httpClient = HttpClientBuilder.create().build();
-
-   // Create new getRequest with below mentioned URL
-   HttpGet getRequest = new
-   HttpGet(String.format("%s/metadata/endpoints?api-version=1.0", armEndpoint));
-
-   // Add additional header to getRequest which accepts application/xml data
-   getRequest.addHeader("accept", "application/xml");
-
-   // Execute request and catch response
-   HttpResponse response = httpClient.execute(getRequest);
-   ```
-
-6. 在 Pom.xml 文件中，添加以下依赖项，以便使用 Azure Stack 的 **2018-03-01-hybrid** 配置文件。 此依赖项将为计算、网络、存储、KeyVault 和应用服务资源提供程序安装与此配置文件相关联的模块：
+6. 在 Pom.xml 文件中，添加以下依赖项，以便将 **2019-03-01-hybrid** 配置文件用于 Azure Stack。 此依赖项将为计算、网络、存储、KeyVault 和应用服务资源提供程序安装与此配置文件相关联的模块：
 
    ```xml
    <dependency>
-   <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
+   <groupId>com.microsoft.azure.profile_2019_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
    <vers1s.0.0-beta</version>
    </dependency>

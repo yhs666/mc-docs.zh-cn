@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/20/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 309e4699665ce5f025e424f1f1ee7ff8b3131752
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 283151d4ece45db0d7a3ae41d189b030cdcc311e
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151447"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514434"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 
@@ -75,7 +75,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 若要修复帐户问题，请在 Azure 门户中提交[支持请求](https://support.azure.cn/zh-cn/support/support-azure/)。
 
-其他问题可以通过 [Azure 支持](https://www.azure.cn/support/contact/)提交给团队。
+其他问题可以通过 [Azure 支持](https://support.azure.cn/support/contact)提交给团队。
 
 <!--Not Available on however this isn't a technical support alias-->
 
@@ -109,9 +109,7 @@ Azure Cosmos DB 存在于所有 Azure 中国区域，详见 [Azure 区域](https
 
 ### <a name="is-it-possible-to-switch-from-container-level-throughput-provisioning-to-database-level-throughput-provisioning-or-vice-versa"></a>是否可以从容器级吞吐量预配切换到数据库级吞吐量预配？ 或者反之亦然？
 
-容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)迁移数据。
-
-<!--Not Available on  [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)-->
+容器级和数据库级吞吐量预配是不同的产品，在这两者之间切换需要将数据从源迁移到目标。 这意味着你需要创建新数据库或新集合，然后使用[批量执行程序库](bulk-executor-overview.md)或 [Azure 数据工厂](../data-factory/connector-azure-cosmos-db.md)迁移数据。
 
 ### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure CosmosDB 是否支持时序分析？
 
@@ -149,7 +147,7 @@ GitHub 上提供了 SQL API [.NET](sql-api-dotnet-samples.md)、[Java](https://g
 
 ### <a name="how-do-i-create-a-database"></a>我如何创建数据库？
 
-可以使用 [Azure 门户](https://portal.azure.cn)（详见[添加集合](create-sql-api-dotnet.md#create-collection-database)中所述）、某个 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 来创建数据库。
+可以使用 [Azure 门户](https://portal.azure.cn)（详见[添加集合](create-sql-api-java.md#add-a-container)中所述）、某个 [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) 或 [REST API](https://docs.microsoft.com/rest/api/cosmos-db/) 来创建数据库。
 
 ### <a name="how-do-i-set-up-users-and-permissions"></a>我如何设置用户和权限？
 
@@ -161,7 +159,9 @@ SQL API 支持的 SQL 查询语言是 SQL Server 支持的查询功能增强子�
 
 ### <a name="does-the-sql-api-support-sql-aggregation-functions"></a>SQL API 是否支持 SQL 聚合函数？
 
-SQL API 支持通过聚合函数 `COUNT`、`MIN`、`MAX`、`AVG` 和 `SUM` 通过 SQL 语法实现的任何规模的低延迟聚合。 有关详细信息，请参阅[聚合函数](how-to-sql-query.md#Aggregates)。
+SQL API 支持通过聚合函数 `COUNT`、`MIN`、`MAX`、`AVG` 和 `SUM` 通过 SQL 语法实现的任何规模的低延迟聚合。 
+
+<!--Not Available on For more information, see [Aggregate functions](sql-query-aggregates.md)-->
 
 ### <a name="how-does-the-sql-api-provide-concurrency"></a>SQL API 如何提供并发性？
 
@@ -277,13 +277,13 @@ Azure Cosmos DB 实施严格的安全要求和标准。 Azure Cosmos DB 帐户�
 | TableServiceExtensions | " " |
 | TableServiceQuery | " " |
 
-如果其中的任何差异会给项目造成问题，请联系 [Azure 支持部门](https://www.azure.cn/support/contact/)并告诉我们。
+如果其中的任何差异会给项目造成问题，请联系 [Azure 支持部门](https://support.azure.cn/support/contact/)并告诉我们。
 
 ### <a name="how-do-i-provide-feedback-about-the-sdk-or-bugs"></a>如何提供有关 SDK 或 Bug 的反馈？
 
 可通过以下途径提供反馈：
 
-* [User Voice](https://www.azure.cn/support/contact/)
+* [Azure 支持](https://support.azure.cn/en-us/support/contact/)
 
 <!--Not Available on * [MSDN forum](https://www.azure.cn/support/contact/)-->
 <!--Not Available on * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask)-->
@@ -635,7 +635,7 @@ g.V('mary').out('knows').executionProfile()
 
 ### <a name="what-is-the-protocol-version-supported-by-azure-cosmso-db-cassandra-api-is-there-a-plan-to-support-other-protocols"></a>Azure Cosmso DB Cassandra API 支持哪个协议版本？ 是否打算支持其他协议？
 
-Azure Cosmos DB 的 Apache Cassandra API 目前支持 CQL 版本 4。 如果有与支持其他协议相关的反馈，请通过 [User Voice 反馈](https://www.azure.cn/support/contact/)告知我们。
+Azure Cosmos DB 的 Apache Cassandra API 目前支持 CQL 版本 4。 如果有与支持其他协议相关的反馈，请通过 [User Voice 反馈](https://support.azure.cn/en-us/support/contact/)告知我们。
 
 ### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>为何要求选择表的吞吐量？
 
@@ -745,9 +745,9 @@ Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程�
 
 是的，可以使用正则语法创建复合分区键。
 
-### <a name="can-i-use-stable-loader-for-data-loading"></a>是否可以使用 sstable 加载程序加载数据？
+### <a name="can-i-use-stableloader-for-data-loading"></a>是否可以使用 stableloader 加载数据？
 
-否，预览版不支持 sstable 加载程序。
+不可以，不支持 stableloader。
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>本地 Apache Cassandra 群集是否可与 Azure Cosmos DB 的 Cassandra API 配对？
 
@@ -766,15 +766,11 @@ Azure Cosmos DB Cassandra API 借助 Azure Cosmos DB 的多区域分布式平台
 
 ### <a name="does-the-apache-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>Apache Cassandra API 是否默认对实体的所有属性编制索引？
 
-是，默认情况下 Azure Cosmos DB 会对实体的所有属性进行索引。 有关详细信息，请参阅 [Azure Cosmos DB：索引策略](index-policy.md)。 这样始终可以获得有保障的性能，以及一致的索引和持久的仲裁提交写入。
-
-### <a name="does-this-mean-i-dont-have-to-create-more-than-one-index-to-satisfy-the-queries"></a>这是否意味着，无需创建多个索引来满足查询要求？
-
-是的，Azure Cosmos DB 针对所有属性提供自动索引，无需任何架构定义。 这种自动化操作可以让开发人员将工作重点放在应用程序上，不必考虑索引的创建和管理。 有关详细信息，请参阅 [Azure Cosmos DB：索引策略](index-policy.md)。
+Cassandra API 计划支持辅助索引，以帮助在某些属性上创建选择性索引。 
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>是否可以在本地将新的 Cassandra API SDK 用于模拟器？
 
-我们计划在将来支持此功能。
+可以，支持该操作。
 
 ### <a name="azure-cosmos-db-as-a-platform-seems-to-have-lot-of-capabilities-such-as-change-feed-and-other-functionality-will-these-capabilities-be-added-to-the-cassandra-api"></a>平台形式的 Azure Cosmos DB 似乎拥有许多功能，例如，更改源和其他功能。 这些功能是否将添加到 Cassandra API 中？
 
@@ -782,7 +778,7 @@ Apache Cassandra API 提供了与 Apache Cassandra 相同的 CQL 功能。 我�
 
 ### <a name="feature-x-of-regular-cassandra-api-isnt-working-as-today-where-can-the-feedback-be-provided"></a>常规 Cassandra API 的功能 x 目前不工作，可以在哪里提供反馈？
 
-请通过 [UserVoice 反馈](https://www.azure.cn/support/contact/)提供反馈。
+请通过 [UserVoice 反馈](https://support.azure.cn/en-us/support/contact/)提供反馈。
 
 [azure-portal]: https://portal.azure.cn
 [query]: sql-api-sql-query.md

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
 origin.date: 03/23/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 24c7a423ec27d5049bf5afededd333cf084d8477
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 09a06de04e96219df0e0f4d144ba46f82e3691dd
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381922"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513513"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>在高可用性配置中部署应用服务
 
@@ -235,8 +235,9 @@ ms.locfileid: "66381922"
 
     ![安装完成](media/app-service-deploy-ha/16.png)
 
-
 ## <a name="next-steps"></a>后续步骤
+
+如果已为应用服务资源提供程序提供 SQL Always On 实例，请[将 appservice_hosting 和 appservice_metering 数据库添加到可用性组](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)。 同步数据库以防止在发生数据库故障转移时丢失任何服务。
 
 [横向扩展应用服务](azure-stack-app-service-add-worker-roles.md)。 你可能需要添加更多的应用服务基础结构辅助角色，以满足环境中的预期应用程序需求。 基于 Azure Stack 的应用服务默认支持免费的和共享的辅助角色层。 若要添加其他辅助角色层，需添加更多的辅助角色。
 

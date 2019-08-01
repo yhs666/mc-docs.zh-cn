@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d1a176b790ad3f537ddcd06362d660dd0dde5954
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7f0690be8d1f30054ea48fcb0e39a19343cca9e6
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562975"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513795"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何实时查看日志和事件（预览）
 适用于容器的 Azure Monitor 包含一项功能，该功能目前为预览版，可以实时查看 Azure Kubernetes 服务 (AKS) 容器日志 (stdout/stderr) 和事件，不需运行 kubectl 命令。 选择任一选项后，“节点”、“控制器”和“容器”视图上的性能数据表下方将显示新窗格    。 它显示了容器引擎生成的实时日志记录和事件，可以进一步实时排查问题。
@@ -66,7 +66,7 @@ ms.locfileid: "67562975"
          apiGroup: rbac.authorization.k8s.io
     ```
 
-2. 如果是首次配置它，请运行以下命令以创建群集规则绑定：`kubectl create -f LogReaderRBAC.yaml`。 如果在我们引入实时事件日志之前，你已经启用了对实时日志预览版的支持，则请运行以下命令来更新配置：`kubectl apply -f LogReaderRBAC.yml`。
+2. 如果是首次配置它，请运行以下命令以应用群集规则绑定：`kubectl create -f LogReaderRBAC.yaml`。 如果在我们引入实时事件日志之前，你已经启用了对实时日志预览版的支持，则请运行以下命令来更新配置：`kubectl apply -f LogReaderRBAC.yaml`。
 
 ## <a name="configure-aks-with-azure-active-directory"></a>为 AKS 配置 Azure Active Directory
 

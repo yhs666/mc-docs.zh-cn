@@ -2,21 +2,21 @@
 title: 在 Azure Active Directory B2C 中使用自定义策略将访问令牌传递给应用程序 | Microsoft Docs
 description: 了解如何在 Azure Active Directory B2C 中使用自定义策略将 OAuth2.0 标识提供者的访问令牌作为声明传递给应用程序。
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 04/04/2019
+ms.date: 07/23/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: b6bdaa5e23c70e51567c7a612fb826d0d698450e
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 3c56765e57cc7dbe0ba544b94ff5e29351c673af
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004453"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391576"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用自定义策略将访问令牌传递给应用程序
 
@@ -30,7 +30,7 @@ Azure AD B2C 支持传递 [OAuth 2.0](active-directory-b2c-reference-oauth-code.
 
 - 自定义策略使用 OAuth 2.0 或 OpenID Connect 标识提供者进行配置。
 
-## <a name="add-the-claim-elements"></a>添加声明元素 
+## <a name="add-the-claim-elements"></a>添加声明元素
 
 1. 打开 *TrustframeworkExtensions.xml* 文件，向 **ClaimsSchema** 元素中添加标识符为 `identityProviderAccessToken` 的以下 **ClaimType** 元素：
 
@@ -73,30 +73,26 @@ Azure AD B2C 支持传递 [OAuth 2.0](active-directory-b2c-reference-oauth-code.
 ### <a name="upload-the-files"></a>上传文件
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 请确保使用包含 Azure AD B2C 租户的目录，方法是单击顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录。
-3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”。
-4. 选择“标识体验框架”。
-5. 在“自定义策略”页上，单击“上传策略”。
-6. 选择“覆盖策略(若存在)”，然后搜索并选择 *TrustframeworkExtensions.xml* 文件。
-7. 单击“上传”。
+2. 请确保使用包含 Azure AD B2C 租户的目录，方法是单击顶部菜单中的“目录和订阅筛选器”，然后选择包含租户的目录  。
+3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
+4. 选择“标识体验框架”  。
+5. 在“自定义策略”页上，单击“上传策略”  。
+6. 选择“覆盖策略(若存在)”，然后搜索并选择 *TrustframeworkExtensions.xml* 文件。 
+7. 单击“上传”。 
 8. 针对信赖方文件（例如 *SignUpOrSignIn.xml*）重复步骤 5 到 7。
 
 ### <a name="run-the-policy"></a>运行策略
 
 1. 打开你更改的策略。 例如，*B2C_1A_signup_signin*。
-2. 对于“应用程序”，选择你之前注册的应用程序。 “回复 URL”应当显示 `https://jwt.ms` 才能看到以下示例中的令牌。
-3. 单击“立即运行”。
+2. 对于“应用程序”  ，选择你之前注册的应用程序。 “回复 URL”  应当显示 `https://jwt.ms` 才能看到以下示例中的令牌。
+3. 单击“立即运行”  。
 
     应会看到类似于以下示例的内容：
 
-    ![已解码的令牌](./media/idp-pass-through-custom/idp-pass-through-custom-token.png)
+    ![jwt.ms 中突出显示了 idp_access_token 块的已解码令牌](./media/idp-pass-through-custom/idp-pass-through-custom-token.PNG)
 
 ## <a name="next-steps"></a>后续步骤
 
 在 [Azure Active Directory 令牌参考](active-directory-b2c-reference-tokens.md)中了解有关令牌的更多信息。
 
-
-
-
-
-
+<!-- Update_Description: wording update -->

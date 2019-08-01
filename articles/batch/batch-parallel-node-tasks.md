@@ -15,10 +15,10 @@ ms.workload: big-compute
 ms.date: 04/17/2019
 ms.author: v-lingwu
 ms.openlocfilehash: d454131de17b9421a5f7e4546ef8938dba318cb0
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
+ms.lasthandoff: 07/26/2019
 ms.locfileid: "67845267"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>以并发方式运行任务以最大程度地利用 Batch 计算节点 
@@ -38,7 +38,7 @@ ms.locfileid: "67845267"
 如果不使用具有 1 个 CPU 内核的 Standard\_D1 节点，则可使用每个具有 16 个内核的 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点，同时允许并行执行任务。 因此，可以使用 *1/16 的节点*，即只需使用 63 个节点，而无需使用 1,000 个节点。 此外，如果每个节点需要大型应用程序文件或引用数据，作业持续时间和效率将再次得到提升，因为数据仅复制到 63 个节点。
 
 ## <a name="enable-parallel-task-execution"></a>允许并行执行任务
-可以对计算节点进行配置，在池级别并行执行任务。 使用 Batch .NET 库，在池创建过程中在请求正文中设置 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] property when you create a pool. If you are using the Batch REST API, set the [maxTasksPerNode][rest_addpool] 元素。
+可以对计算节点进行配置，在池级别并行执行任务。 在创建池时，可以通过 Batch .NET 库设置 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 属性。 如果使用的是 Batch REST API，则可在创建池时在请求正文中设置 [maxTasksPerNode][rest_addpool] 元素。
 
 Azure Batch 允许你将每个节点的任务数最多设置为（4 倍）核心节点数。 例如，如果将池的节点大小配置为“大型”（四核），则可将 `maxTasksPerNode` 设置为 16。 但是，无论节点有多少个核心，每个节点的任务数都不能超过 256 个。 有关每个节点大小的核心数的详细信息，请参阅[云服务的大小](../cloud-services/cloud-services-sizes-specs.md)。 有关服务限制的详细信息，请参阅 [Azure Batch 服务的配额和限制](batch-quota-limit.md)。
 
@@ -52,10 +52,10 @@ Azure Batch 允许你将每个节点的任务数最多设置为（4 倍）核心
 
 可以通过 [CloudPool.TaskSchedulingPolicy][task_schedule] 属性指定任务应在池中所有节点之间平均分配（“散布式”）。 或者，先给池中的每个节点分配尽量多的任务，此后再将任务分配给池中的其他节点（“装箱式”）。
 
-为了举例说明此功能如何重要，考虑为配置了 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] value of 16. If the [CloudPool.TaskSchedulingPolicy][task_schedule] 的 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点池（在上例中）配置 *Pack* 的 [ComputeNodeFillType][fill_type]，这会最大程度地使用每个节点的所有 16 个核心，并且允许[自动缩放池](batch-automatic-scaling.md)删除池中未使用的节点（没有分配任何任务的节点）。 这可以最大程度地减少资源使用量并节省资金。
+此功能十分重要，如需示例，请参阅上面示例中 [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) 节点的池，该池配置后的 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 值为 16。 如果对 [CloudPool.TaskSchedulingPolicy][task_schedule] 进行配置时，将 [ComputeNodeFillType][fill_type] 设置为 Pack  ，则会充分使用每个节点的所有 16 个核心，并可通过[自动缩放池](batch-automatic-scaling.md)将不使用的节点（没有分配任何任务的节点）从池中删除。 这可以最大程度地减少资源使用量并节省资金。
 
 ## <a name="batch-net-example"></a>Batch .NET 示例
-此 [Batch .NET][api_net] API code snippet shows a request to create a pool that contains four nodes with a maximum of four tasks per node. It specifies a task scheduling policy that will fill each node with tasks prior to assigning tasks to another node in the pool. For more information on adding pools by using the Batch .NET API, see [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
+此 [Batch .NET][api_net] API 代码片段演示了一个请求，该请求要求创建一个包含四个节点的池，每个节点最多四个任务。 它指定了一个任务计划策略，要求先用任务填充一个节点，此后再将任务分配给池中的其他节点。 有关如何使用 Batch .NET API 添加池的详细信息，请参阅 [BatchClient.PoolOperations.CreatePool][poolcreate_net]。
 
 ```csharp
 CloudPool pool =
@@ -71,7 +71,7 @@ pool.Commit();
 ```
 
 ## <a name="batch-rest-example"></a>Batch REST 示例
-此 [Batch REST][api_rest] API snippet shows a request to create a pool that contains two large nodes with a maximum of four tasks per node. For more information on adding pools by using the REST API, see [Add a pool to an account][rest_addpool]。
+此 [Batch REST][api_rest] API 代码片段演示了一个请求，该请求要求创建一个包含两个大型节点的池，每个节点最多四个任务。 有关如何使用 REST API 添加池的详细信息，请参阅 [Add a pool to an account][rest_addpool]（将池添加到帐户）。
 
 ```json
 {
@@ -94,7 +94,7 @@ pool.Commit();
 >
 
 ## <a name="code-sample"></a>代码示例
-[ParallelNodeTasks][parallel_tasks_sample] project on GitHub illustrates the use of the [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 属性。
+GitHub 上的 [ParallelNodeTasks][parallel_tasks_sample] 项目说明了如何使用 [CloudPool.MaxTasksPerComputeNode][maxtasks_net] 属性。
 
 此 C# 控制台应用程序使用 [Batch .NET][api_net] 库创建包含一个或多个计算节点的池。 并在这些节点上执行其数量可以配置的任务，以便模拟可变负荷。 应用程序的输出指定了哪些节点执行了每个任务。 该应用程序还提供了作业参数和持续时间的摘要。 下面显示了同一个应用程序运行两次后的输出摘要部分。
 

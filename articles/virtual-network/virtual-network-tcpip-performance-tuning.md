@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/02/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 060bb489ecb70bb4ae9dc3566309b637e495b2d5
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 23c96bb11921c2f71359f08232a099e9ecdc8008
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250448"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514182"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>适用于 Azure VM 的 TCP/IP 性能优化
 
@@ -66,7 +66,7 @@ Don't Fragment (DF) 位是 IP 协议标头中的一个标志。 DF 位指示发�
 
 #### <a name="azure-and-vm-mtu"></a>Azure 和 VM MTU
 
-Azure VM 的默认 MTU 为 1,500 字节。 Azure 虚拟网络堆栈尝试按 1,400 字节将数据包分段。 但是，如果在 IP 标头中设置 Don't Fragment 位，则虚拟网络堆栈将允许最大 2,006 字节的数据包。
+Azure VM 的默认 MTU 为 1,500 字节。 Azure 虚拟网络堆栈尝试按 1,400 字节将数据包分段。
 
 请注意，虚拟网络堆栈本质上并不是低效的，因为即使 VM 的 MTU 为 1,500，该堆栈也会按 1,400 字节将数据包分段。 大部分网络数据包远远小于 1,400 或 1,500 字节。
 
@@ -138,7 +138,7 @@ PMTUD 过程的效率低下，会影响网络性能。 如果发送的数据包�
 
 可以使用 200 作为传播速度。 这是光在 1 毫秒内传播的距离（以米为单位）。
 
-我们以从北京到旧金山的距离为例。 两者之间的直线距离为 4,148 公里。 将该值插入公式，会得到以下结果：
+我们以从北京到上海为例。 两者之间的直线距离为 1,080 公里。 将该值插入公式，会得到以下结果：
 
 `Minimum RTT = 2 * (1,080 / 200)`
 
@@ -265,7 +265,7 @@ Set-NetTCPSetting
 
 接收端缩放 (RSS) 是一种网络驱动程序技术，它通过在多处理器系统中的多个 CPU 之间分配接收处理，更有效地分配网络流量的接收负载。 简单来说，RSS 可让系统处理更多的接收流量，因为它使用所有可用的 CPU，而不是只使用一个。 有关 RSS 的更多技术讨论，请参阅[接收端缩放简介](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling)。
 
-在 VM 上启用加速网络后，若要获得最佳性能，需要启用 RSS。 RSS 也能够为不使用加速网络的 VM 带来优势。 有关如何确定 RSS 是否已启用及其启用方法的概述，请参阅[优化 Azure 虚拟机的网络吞吐量](http://aka.ms/FastVM)。
+在 VM 上启用加速网络后，若要获得最佳性能，需要启用 RSS。 RSS 也能够为不使用加速网络的 VM 带来优势。 有关如何确定 RSS 是否已启用及其启用方法的概述，请参阅[优化 Azure 虚拟机的网络吞吐量](/virtual-network/virtual-network-optimize-network-bandwidth/)。
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT 和 TIME_WAIT 抹消
 
@@ -305,7 +305,7 @@ Azure 虚拟机上至少附加了一个网络接口。 它们可能包含多个�
 
 - **协议**：基于所有协议的所有出站流量都计入限制。
 
-有关详细信息，请参阅[虚拟机网络带宽](http://aka.ms/AzureBandwidth)。
+有关详细信息，请参阅[虚拟机网络带宽](/virtual-network/virtual-machine-network-throughput/)。
 
 ### <a name="internet-performance-considerations"></a>Internet 性能注意事项
 
@@ -353,7 +353,7 @@ TCP 性能严重依赖于 RTT 和丢包率。 测量 RTT 和丢包率的最简�
 
 NTttcp 是用于测试 Linux 或 Windows VM 的 TCP 性能的工具。 可以更改各项 TCP 设置，然后测试使用 NTttcp 所带来的优势。 有关详细信息，请参阅以下资源：
 
-- [带宽/吞吐量测试 (NTttcp)](https://aka.ms/TestNetworkThroughput)
+- [带宽/吞吐量测试 (NTttcp)](/virtual-network/virtual-network-bandwidth-testing/)
 
 - [NTttcp 实用工具](https://gallery.technet.microsoft.com/NTttcp-Version-528-Now-f8b12769)
 

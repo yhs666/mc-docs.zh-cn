@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/24/2018
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: cea3e30ac05fb1ad3900151b51207f7548e01749
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: e47e240dbbc49394af887ff541533350ca125ba9
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250403"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514452"
 ---
 # <a name="public-ip-address-prefix"></a>公共 IP 地址前缀
 
@@ -38,7 +38,7 @@ ms.locfileid: "66250403"
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>为什么要创建公共 IP 地址前缀？
 
-创建公共 IP 地址资源时，Azure 将从某个区域中使用的任何一个范围分配可用的公共 IP 地址。 Azure 分配地址后，你就会知道是哪一个地址，但在 Azure 分配地址之前，你并不知道可能会分配哪个地址。 有时这可能会是一个问题，例如，你或你的业务合作伙伴设置防火墙规则，允许使用特定 IP 地址。 每当向资源分配新的公共 IP 地址时，必需将该地址添加到防火墙规则。 当从公共 IP 地址前缀向资源分配地址时，无需在每次分配一个地址时都更新防火墙规则，因为可以将整个范围添加到规则。
+创建公共 IP 地址资源时，Azure 会从区域中使用的任何一个范围分配可用的公共 IP 地址。 Azure 分配地址后，你就会知道是哪一个地址，但在 Azure 分配地址之前，你并不知道可能会分配哪个地址。 有时这可能会是一个问题，例如，你或你的业务合作伙伴设置防火墙规则，允许使用特定 IP 地址。 每当向资源分配新的公共 IP 地址时，必需将该地址添加到防火墙规则。 当从公共 IP 地址前缀向资源分配地址时，无需在每次分配一个地址时都更新防火墙规则，因为可以将整个范围添加到规则。
 
 ## <a name="benefits"></a>优点
 
@@ -64,7 +64,7 @@ ms.locfileid: "66250403"
 ## <a name="constraints"></a>约束
 
 - 不能指定前缀的 IP 地址。 Azure 将根据指定的大小分配前缀的 IP 地址。
-- 前缀的默认大小为 /28 或 16 个公共 IP 地址。
+- 可以创建前缀最多为 16 的 IP 地址或 /28。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)。
 - 创建前缀后，无法更改该范围。
 - 该范围仅适用于 IPv4 地址。 该范围不包含 IPv6 地址。
 - 仅使用标准 SKU 创建的静态公共 IP 地址可从前缀范围进行分配。 若要详细了解公用 IP 地址 SKU，请参阅[公用 IP 地址](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)。
@@ -76,4 +76,4 @@ ms.locfileid: "66250403"
 
 - [创建](manage-public-ip-address-prefix.md)公共 IP 地址前缀
 
-<!--Update_Description: wording update -->
+<!--Update_Description: wording update, update link reference -->

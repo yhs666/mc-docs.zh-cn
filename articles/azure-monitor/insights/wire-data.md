@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 891bb95da08078f7e444e7162a1eb2f4e92f1d21
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: aafabc99fb1fb80956031adf4d2a33ba8f04c72c
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562558"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514049"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor 中的 Wire Data 2.0（预览版）解决方案
 
@@ -169,7 +169,7 @@ ms.locfileid: "67562558"
 
 执行以下步骤，为工作区配置 Wire Data 解决方案。
 
-1. 从 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)或者使用[从解决方案库中添加监视解决方案](../../azure-monitor/insights/solutions.md)中所述的过程，启用 Activity Log Analytics 解决方案。
+1. 从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview)或者使用[从解决方案库中添加监视解决方案](../../azure-monitor/insights/solutions.md)中所述的过程，启用 Activity Log Analytics 解决方案。
 2. 在希望从中获取数据的每台计算机上安装依赖关系代理。 依赖关系代理可以监视与直接邻居之间的连接，因此不需要在每台计算机上都具有代理。
 
 > [!NOTE]

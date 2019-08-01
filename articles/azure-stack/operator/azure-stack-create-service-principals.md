@@ -1,6 +1,6 @@
 ---
-title: 管理 Azure Stack 的服务主体 | Microsoft Docs
-description: 介绍如何管理新的服务主体，并在 Azure 资源管理器中将此服务主体与基于角色的访问控制配合使用以管理对资源的访问权限。
+title: 使用应用标识访问资源
+description: 介绍如何管理可与基于角色的访问控制配合使用的、用于登录和访问资源的服务主体。
 services: azure-resource-manager
 documentationcenter: na
 author: WenJason
@@ -10,379 +10,350 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/18/2018
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 779173b075a4f70df6fac150bbc9ee16cc814f5a
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+origin.date: 06/25/2019
+ms.date: 07/29/2019
+ms.author: bryanla
+ms.lastreviewed: 06/20/2019
+ms.openlocfilehash: de249dbefbf49e687ccc1beb4099ee0865f66075
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529760"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513474"
 ---
-# <a name="provide-applications-access-to-azure-stack"></a>提供对 Azure Stack 的应用程序访问权限
+# <a name="use-an-app-identity-to-access-resources"></a>使用应用标识访问资源
 
-*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
+*适用于：Azure Stack 集成系统和 Azure Stack 开发工具包 (ASDK)*
 
-当应用程序需要在 Azure Stack 通过Azure 资源管理器部署或配置资源的访问权限时，请创建服务主体（它是应用程序的凭据）。 然后可以仅将必需的权限委派给该服务主体。  
+需要通过 Azure 资源管理器部署或配置资源的应用程序必须以服务主体来表示。 如同用户以用户主体来表示，服务主体是一种代表应用程序的安全主体。 服务主体为应用程序提供标识，可让你只对该服务主体委托必要的权限。  
 
-例如，你可能有一个使用 Azure 资源管理器来清点 Azure 资源的配置管理工具。 在此方案中，可以创建服务主体，向该服务主体授予读者角色，并将配置管理工具限制为只能进行只读访问。 
+例如，你可能有一个使用 Azure 资源管理器来清点 Azure 资源的配置管理应用程序。 在此方案中，可以创建服务主体，向该服务主体授予读者角色，并将配置管理应用程序限制为只能进行只读访问。 
 
-与使用自己的凭据运行应用相比，服务主体更优，原因在于：
+## <a name="overview"></a>概述
 
- - 可以向服务主体分配不同于自己的帐户权限的权限。 通常情况下，这些权限仅限于应用需执行的操作。
- - 职责变化时，无需更改应用的凭据。
- - 执行无人参与的脚本时，可以使用证书自动执行身份验证。  
+类似于用户主体，服务主体也必须在身份验证期间出示包括以下两个元素的凭据：
 
-## <a name="getting-started"></a>入门
+- **应用程序 ID**，有时也称为客户端 ID。 这是一个用于唯一标识 Active Directory 租户中应用程序的注册的 GUID。
+- 与应用程序 ID 关联的**机密**。 你可以生成客户端机密字符串（类似于密码），也可以指定 X509 证书（使用其公钥）。 
 
-根据部署 Azure Stack 的方式，可以首先创建服务主体。 本文档介绍如何为以下对象创建服务主体：
+在服务主体的标识下运行应用程序比在用户主体下运行应用程序更有利，因为：
 
-- Azure Active Directory (Azure AD)。 Azure AD 是基于云的多租户目录和标识管理服务。 可将 Azure AD 与联网 Azure Stack 配合使用。
+ - 服务主体可以使用 X509 证书来提供**更强的凭据**。  
+ - 可对服务主体分配**限制更高的权限**。 一般而言，这些权限限制为只能执行应用程序需要执行的操作，即所谓的“最低特权原则”。 
+ - 服务主体**凭据和权限的更改频率不像用户凭据那么高**。 例如，当用户的职责发生变化、密码要求规定要更改，或用户从公司离职时。
+
+首先请在目录中创建新的应用注册，这会创建关联的[服务主体对象](/active-directory/develop/developer-glossary#service-principal-object)来代表应用在目录中的标识。 本文档将根据你为 Azure Stack 实例选择的目录介绍创建和管理服务主体的过程：
+
+- Azure Active Directory (Azure AD)。 Azure AD 是基于云的多租户目录和标识管理服务。 可将 Azure AD 与联网 Azure Stack 实例配合使用。
 - Active Directory 联合身份验证服务 (AD FS)。 AD FS 提供简化、安全的标识联合与 Web 单一登录 (SSO) 功能。 可将 AD FS 与联网和离线 Azure Stack 实例配合使用。
 
-创建服务主体后，将使用普遍适用于 AD FS 和 Azure Active Directory 的一组步骤向角色委派权限。
+首先，你将了解如何管理服务主体，然后了解如何为角色分配服务主体，以限制其对资源的访问权限。
 
-## <a name="manage-service-principal-for-azure-ad"></a>管理 Azure AD 的服务主体
+## <a name="manage-an-azure-ad-service-principal"></a>管理 Azure AD 服务主体 
 
-如果在使用 Azure Active Directory (Azure AD) 作为标识管理服务的情况下部署了 Azure Stack，可以像在 Azure 中那样创建服务主体。 本部分演示如何通过门户执行这些步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
+如果你在使用 Azure Active Directory (Azure AD) 作为标识管理服务的情况下部署了 Azure Stack，可以像在 Azure 中那样创建服务主体。 本部分介绍如何通过 Azure 门户执行这些步骤。 在开始之前，请检查是否具有[所需的 Azure AD 权限](/active-directory/develop/howto-create-service-principal-portal#required-permissions)。
 
-### <a name="create-service-principal"></a>创建服务主体
+### <a name="create-a-service-principal-that-uses-a-client-secret-credential"></a>创建使用客户端机密凭据的服务主体
 
-在本部分中，将在 Azure AD 中创建表示你的应用程序的应用程序（服务主体）。
+在本部分，你将使用 Azure 门户注册应用程序，这会在 Azure AD 租户中创建服务主体对象。 本示例使用客户端机密凭据创建服务主体，但门户也支持基于 X509 证书的凭据。
 
-1. 通过 [Azure 门户](https://portal.azure.cn)登录到 Azure 帐户。
-2. 选择“Azure Active Directory” > “应用注册” > “新建应用程序注册”
-3. 为应用提供名称和 URL。 选择“Web 应用/API”或“本机”作为要创建的应用程序的类型。 设置这些值后，选择“创建”。
+1. 使用 Azure 帐户登录到 [Azure 门户](https://portal.azure.cn)。
+2. 选择“Azure Active Directory” > “应用注册” > “新建注册”。   
+3. 提供应用程序的**名称**。 
+4. 选择相应的**受支持帐户类型**。
+5. 在“重定向 URI”下，选择“Web”作为应用程序类型，并（可选）指定重定向 URI（如果应用程序需要它）。   
+6. 设置这些值后，选择“注册”  。 随即会创建应用程序注册，并显示“概述”页。 
+7. 复制“应用程序 ID”以便在应用程序代码中使用。  此值也称为“客户端 ID”。
+8. 若要生成客户端机密，请选择“证书和机密”页。  选择“新建客户端机密”。 
+9. 提供机密的**说明**以及**过期**时间。 
+10. 完成后，选择“添加”  。
+11. 此时会显示机密值。 请复制此值并将其保存到另一位置，因为以后无法检索它。 在服务主体登录期间，你要在客户端应用程序中提供机密与应用程序 ID。 
 
-已为应用程序创建服务主体。
+    ![保存的密钥](./media/azure-stack-create-service-principal/create-service-principal-in-azure-stack-secret.png)
 
-### <a name="get-credentials"></a>获取凭据
+## <a name="manage-an-ad-fs-service-principal"></a>管理 AD FS 服务主体
 
-以编程方式登录时，需要使用应用程序、Web 应用/API 的 ID 和身份验证密钥。 若要获取这些值，请使用以下步骤：
+如果你已部署 Azure Stack 与 Active Directory 联合身份验证服务 (AD FS) 作为标识管理服务，则必须使用 PowerShell 来管理服务主体。 以下示例说明如何管理服务主体凭据，同时演示 X509 证书和客户端机密。
 
-1. 从 Active Directory 中的“应用注册”，选择应用程序。
+脚本必须在权限提升（“以管理员身份运行”）的 PowerShell 控制台中运行，这会打开另一个会话来连接到托管了 Azure Stack 实例特权终结点的 VM。 建立特权终结点会话后，其他 cmdlet 将会执行并管理服务主体。 有关特权终结点的详细信息，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
 
-2. 复制“应用程序 ID”并将其存储在应用程序代码中。 “示例应用程序”部分的应用程序引用此值作为客户端 ID。
+### <a name="create-a-service-principal-that-uses-a-certificate-credential"></a>创建使用证书凭据的服务主体
 
-     ![客户端 ID](./media/azure-stack-create-service-principal/image12.png)
-3. 若要为 Web 应用/API 生成身份验证密钥，请选择“设置” > “密钥”。 
-
-4. 提供密钥说明和密钥持续时间。 完成后，选择“保存” 。
-
-保存密钥后，密钥的值显示。 将此值复制到记事本或其他某个临时位置，因为以后无法检索该密钥。 提供密钥值及应用程序 ID 登录为该应用程序。 将密钥值存储在应用程序可检索的位置。
-
-![保存的密钥](./media/azure-stack-create-service-principal/image15.png)
-
-完成后，可为应用程序分配角色。
-
-## <a name="manage-service-principal-for-ad-fs"></a>管理 AD FS 的服务主体
-
-如果在使用 Active Directory 联合身份验证服务 (AD FS) 作为标识管理服务的情况下部署了 Azure Stack，请使用 PowerShell 创建服务主体，分配用于进行访问的角色，然后使用该标识登录。
-
-可以使用两种方法之一通过 AD FS 创建服务主体。 方法：
- - [使用证书创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate)
- - [使用客户端机密创建服务主体](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret)
-
-用于管理 AD FS 服务主体的任务。
-
-| 类型 | 操作 |
-| --- | --- |
-| AD FS 证书 | [创建](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| AD FS 证书 | [更新](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
-| AD FS 证书 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-| AD FS 客户端机密 | [创建](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS 客户端机密 | [更新](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| AD FS 客户端机密 | [Remove](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
-
-### <a name="create-a-service-principal-using-a-certificate"></a>使用证书创建服务主体
-
-在使用 AD FS 作为标识创建服务主体时，可以使用证书。
-
-#### <a name="certificate"></a>证书
-
-需要证书。
-
-**证书要求**
+为服务主体凭据创建证书时，必须符合以下要求：
 
  - 加密服务提供程序 (CSP) 必须是旧密钥提供程序。
  - 证书格式必须是 PFX 文件，因为公钥和私钥都是必需的。 Windows 服务器使用包含公钥文件（SSL 证书文件）和关联的私钥文件的 .pfx 文件。
  - 对于生产环境，证书必须由内部证书颁发机构或公共证书颁发机构颁发。 如果你使用公共证书颁发机构，则必须将基础操作系统映像中的颁发机构包括为 Microsoft 信任根颁发机构计划的一部分。 可以在 [Microsoft 信任根证书计划：参与者](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca)中找到完整列表。
  - Azure Stack 基础结构必须能够通过网络访问证书中发布的证书颁发机构的证书吊销列表 (CRL) 位置。 此 CRL 必须是一个 HTTP 终结点。
 
-#### <a name="parameters"></a>parameters
+创建证书后，使用以下 PowerShell 脚本来注册应用程序，并创建服务主体。 还要使用服务主体登录到 Azure。 请将以下占位符替换为自己的值：
 
-以下信息是作为自动化参数的输入所必需的：
+| 占位符 | 说明 | 示例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack 实例上特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<YourAppName\> | 新应用注册的描述性名称 | "My management tool" |
 
-|参数|说明|示例|
-|---------|---------|---------|
-|Name|SPN 帐户的名称|MyAPP|
-|ClientCertificates|证书对象的数组|X509 证书|
-|ClientRedirectUris<br>(可选)|应用程序重定向 URI|-|
-
-#### <a name="use-powershell-to-create-a-service-principal"></a>使用 PowerShell 创建服务主体
-
-1. 打开权限提升的 Windows PowerShell 会话，并运行以下 cmdlet：
+1. 打开权限提升的 Windows PowerShell 会话，并运行以下脚本：
 
    ```powershell  
-    # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+    # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
     $Creds = Get-Credential
 
-    # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+    # Create a PSSession to the Privileged Endpoint VM
+    $Session = New-PSSession -ComputerName "<PepVm>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-    # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
+    # Use the Get-Item cmdlet to retrieve your certificate.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
     # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
     $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    # Use the privileged endpoint to create the new app registration (and service principal object)
+    $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -ClientCertificates $using:cert}
     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
     $Session | Remove-PSSession
 
-    # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
+    # Using the stamp info for your Azure Stack instance, populate the following variables:
+    # - AzureRM endpoint used for Azure Resource Manager operations 
+    # - Audience for acquiring an OAuth token used to access Graph API 
+    # - GUID of the directory tenant
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
-
-    # For Azure Stack development kit, this value is set to https://graph.local.azurestack.external/. This is read from the AzureStackStampInformation output of the ERCS VM.
     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
-
-    # TenantID for the stamp. This is read from the AzureStackStampInformation output of the ERCS VM.
     $TenantID = $AzureStackInfo.AADTenantID
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-    -Name "AzureStackUser" `
-    -ArmEndpoint $ArmEndpoint
+    # Register and set an AzureRM environment that targets your Azure Stack instance
+    Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+    Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
 
-    # Set the GraphEndpointResourceId value
-    Set-AzureRmEnvironment `
-    -Name "AzureStackUser" `
-    -GraphAudience $GraphAudience `
-    -EnableAdfsAuthentication:$true
-
-    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
+    # Sign in using the new service principal identity
+    $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" `
     -ServicePrincipal `
-    -CertificateThumbprint $ServicePrincipal.Thumbprint `
-    -ApplicationId $ServicePrincipal.ClientId `
+    -CertificateThumbprint $SpObject.Thumbprint `
+    -ApplicationId $SpObject.ClientId `
     -TenantId $TenantID
 
-    # Output the SPN details
-    $ServicePrincipal
+    # Output the service principal details
+    $SpObject
 
    ```
-   > [!Note]  
-   > 出于验证目的，可以使用以下示例创建一个自签名证书：
-
-   ```powershell  
-   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-   ```
-
-
-2. 自动化完成后，它将显示使用该 SPN 所需的详细信息。 建议存储该输出以供稍后使用。
-
-   例如：
+   
+2. 脚本完成后，会显示应用程序注册信息，包括服务主体的凭据。 演示中使用了 `ClientID` 和 `Thumbprint` 在服务主体的标识下登录。 成功登录后，服务主体标识将用于后续对 Azure 资源管理器所管理的资源进行授权和访问。 
 
    ```shell
    ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
    ClientId              : 3c87e710-9f91-420b-b009-31fa9e430145
    Thumbprint            : 30202C11BE6864437B64CE36C8D988442082A0F1
    ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+   ClientSecret          :
    PSComputerName        : azs-ercs01
    RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
    ```
 
-### <a name="update-certificate-for-service-principal-for-ad-fs"></a>更新 AD FS 服务主体的证书
+请将 PowerShell 控制台会话保持打开状态，因为在下一部分要将它与 `ApplicationIdentifier` 值配合使用。
 
-如果已结合 AD FS 部署 Azure Stack，可以使用 PowerShell 来更新服务主体的机密。
+### <a name="update-a-service-principals-certificate-credential"></a>更新服务主体的证书凭据
 
-从 ERCS 虚拟机上的特权终结点运行脚本。
+本部分介绍在创建服务主体后如何执行以下操作：
 
-#### <a name="parameters"></a>parameters
+1. 创建新的自签名 X509 证书用于测试。
+2. 更新服务主体的凭据，方法是更新其 **Thumbprint** 属性，以匹配新的证书。
 
-以下信息是作为自动化参数的输入所必需的：
+使用 PowerShell 更新证书凭据（请将以下占位符替换为自己的值）：
 
-|参数|说明|示例|
-|---------|---------|---------|
-|Name|SPN 帐户的名称|MyAPP|
-|ApplicationIdentifier|唯一标识符|S-1-5-21-1634563105-1224503876-2692824315-2119|
-|ClientCertificate|证书对象的数组|X509 证书|
+| 占位符 | 说明 | 示例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack 实例上特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<YourAppName\> | 新应用注册的描述性名称 | "My management tool" |
+| \<YourCertificateLocation\> | X509 证书在本地证书存储中的位置。 | "Cert:\CurrentUser\My\AB5A8A3533CC7AA2025BF05120117E06DE407B34" |
+| \<AppIdentifier\> | 分配给应用程序注册的标识符 | "S-1-5-21-1512385356-3796245103-1243299919-1356" |
 
-#### <a name="example-of-updating-service-principal-for-ad-fs"></a>更新 AD FS 服务主体的示例
-
-该示例创建一个自签名证书。 在生产部署中运行 cmdlet 时，请使用 [Get-Item](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Management/Get-Item) 检索要使用的证书的证书对象。
-
-1. 打开权限提升的 Windows PowerShell 会话，并运行以下 cmdlet：
+1. 使用权限提升的 Windows PowerShell 会话运行以下 cmdlet：
 
      ```powershell
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # Create a self-signed certificate for testing purposes. 
+     $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+     # In production, use Get-Item and a managed certificate instead.
+     # $Cert = Get-Item "<YourCertificateLocation>"
 
-          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
+     # Use the privileged endpoint to update the certificate thumbprint, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ClientCertificates $using:NewCert}
+     $Session | Remove-PSSession
 
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. 自动化完成之后，会显示 SPN 身份验证所需的已更新指纹值。
+2. 脚本完成后，会显示更新后的应用程序注册信息，包括新的自签名证书的指纹值。
 
      ```Shell  
-          ClientId              : 
-          Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
-          ApplicationName       : Azurestack-ThomasAPP-3e5dc4d2-d286-481c-89ba-57aa290a4818
-          ClientSecret          : 
-          RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
+     ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356
+     ClientId              : 
+     Thumbprint            : AF22EE716909041055A01FE6C6F5C5CDE78948E9
+     ApplicationName       : Azurestack-MyApp-c30febe7-1311-4fd8-9077-3d869db28342
+     ClientSecret          : 
+     PSComputerName        : azs-ercs01
+     RunspaceId            : a580f894-8f9b-40ee-aa10-77d4d142b4e5
      ```
 
-### <a name="create-a-service-principal-using-a-client-secret"></a>使用客户端机密创建服务主体
+### <a name="create-a-service-principal-that-uses-client-secret-credentials"></a>创建使用客户端机密凭据的服务主体
 
-在使用 AD FS 作为标识创建服务主体时，可以使用证书。 使用特权终结点运行 cmdlet。
+> [!IMPORTANT]
+> 使用客户端机密不如使用 X509 证书凭据那么安全。 这不仅会降低身份验证机制的安全性，而且通常还要求在客户端应用的源代码中嵌入机密。 因此，我们强烈建议在生产应用程序中使用证书凭据。
 
-从 ERCS 虚拟机上的特权终结点运行这些脚本。 有关特权终结点的详细信息，请参阅[使用 Azure Stack 中的特权终结点](azure-stack-privileged-endpoint.md)。
+现在你将创建另一个应用注册，但这次需要指定客户端机密凭据。 不同于证书凭据，目录能够生成客户端机密凭据。 因此，无需指定客户端机密，而可以使用 `-GenerateClientSecret` 开关来请求生成客户端机密。 请将以下占位符替换为自己的值：
 
-#### <a name="parameters"></a>parameters
-
-以下信息是作为自动化参数的输入所必需的：
-
-| 参数 | 说明 | 示例 |
-|----------------------|--------------------------|---------|
-| Name | SPN 帐户的名称 | MyAPP |
-| GenerateClientSecret | 创建机密 |  |
-
-#### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>使用 ERCS PrivilegedEndpoint 创建服务主体
+| 占位符 | 说明 | 示例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack 实例上特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<YourAppName\> | 新应用注册的描述性名称 | "My management tool" |
 
 1. 打开权限提升的 Windows PowerShell 会话，并运行以下 cmdlet：
 
      ```powershell  
-      # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
+     # Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
      $Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+     # Create a PSSession to the Privileged Endpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     # Use the privileged endpoint to create the new app registration (and service principal object)
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name "<YourAppName>" -GenerateClientSecret}
      $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
      $Session | Remove-PSSession
 
-     # Output the SPN details
-     $ServicePrincipal
+     # Using the stamp info for your Azure Stack instance, populate the following variables:
+     # - AzureRM endpoint used for Azure Resource Manager operations 
+     # - Audience for acquiring an OAuth token used to access Graph API 
+     # - GUID of the directory tenant
+     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
+     $GraphAudience = "https://graph." + $AzureStackInfo.ExternalDomainFQDN + "/"
+     $TenantID = $AzureStackInfo.AADTenantID
+
+     # Register and set an AzureRM environment that targets your Azure Stack instance
+     Add-AzureRMEnvironment -Name "AzureStackUser" -ArmEndpoint $ArmEndpoint
+     Set-AzureRmEnvironment -Name "AzureStackUser" -GraphAudience $GraphAudience -EnableAdfsAuthentication:$true
+
+     # Sign in using the new service principal identity
+     $securePassword = $SpObject.ClientSecret | ConvertTo-SecureString -AsPlainText -Force
+     $credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $SpObject.ClientId, $securePassword
+     $SpSignin = Connect-AzureRmAccount -Environment "AzureStackUser" -ServicePrincipal -Credential $credential -TenantId $TenantID
+
+     # Output the service principal details
+     $SpObject
      ```
 
-2. 运行 cmdlet 后，shell 会显示使用 SPN 所需的详细信息。 请务必存储客户端机密。
+2. 脚本完成后，会显示应用程序注册信息，包括服务主体的凭据。 演示中使用了 `ClientID` 和生成的 `ClientSecret` 在服务主体的标识下登录。 成功登录后，服务主体标识将用于后续对 Azure 资源管理器所管理的资源进行授权和访问。
 
-     ```powershell  
+     ```shell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
      ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-     ClientSecret          : 6RUZLRoBw3EebMDgaWGiowCkoko5_j_ujIPjA8dS
-     PSComputerName        : 192.168.200.224
+     ClientSecret          : 6RUWLRoBw3EebBLgaWGiowCkoko5_j_ujIPjA8dS
+     PSComputerName        : azs-ercs01
      RunspaceId            : 286daaa1-c9a6-4176-a1a8-03f543f90998
      ```
 
-#### <a name="update-client-secret-for-a-service-principal-for-ad-fs"></a>更新 AD FS 服务主体的客户端机密
+请将 PowerShell 控制台会话保持打开状态，因为在下一部分要将它与 `ApplicationIdentifier` 值配合使用。
 
-新的客户端机密由 PowerShell cmdlet 自动生成。
+### <a name="update-a-service-principals-client-secret"></a>更新服务主体的客户端机密
 
-从 ERCS 虚拟机上的特权终结点运行脚本。
+在 PowerShell 中使用 **ResetClientSecret** 参数更新客户端机密凭据，以立即更改客户端机密。 请将以下占位符替换为自己的值：
 
-##### <a name="parameters"></a>parameters
+| 占位符 | 说明 | 示例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack 实例上特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<AppIdentifier\> | 分配给应用程序注册的标识符 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
-以下信息是作为自动化参数的输入所必需的：
+1. 使用权限提升的 Windows PowerShell 会话运行以下 cmdlet：
 
-| 参数 | 说明 | 示例 |
-|-----------------------|-----------------------------------------------------------------------------------------------------------|------------------------------------------------|
-| ApplicationIdentifier | 唯一标识符。 | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-| ChangeClientSecret | 在旧机密仍然有效的情况下，使用 2880 分钟的滚动更新期限来更改客户端机密。 |  |
-| ResetClientSecret | 立即更改客户端机密 |  |
+     ```powershell
+     # Create a PSSession to the PrivilegedEndpoint VM
+     $Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>更新 AD FS 客户端机密的示例
+     # Use the privileged endpoint to update the client secret, used by the service principal associated with <AppIdentifier>
+     $SpObject = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier "<AppIdentifier>" -ResetClientSecret}
+     $Session | Remove-PSSession
 
-该示例使用 **ResetClientSecret** 参数，该参数可立即更改客户端密码。
-
-1. 打开权限提升的 Windows PowerShell 会话，并运行以下 cmdlet：
-
-     ```powershell  
-          # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
-
-          # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
-
-          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
-
-          $Session | Remove-PSSession
+     # Output the updated service principal details
+     $SpObject
      ```
 
-2. 自动化完成之后，会显示 SPN 身份验证所需的新生成机密。 请务必存储新的客户端机密。
+2. 脚本完成后，会显示更新后的应用程序注册信息，包括新生成的客户端机密。
 
-     ```powershell  
-          ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
-          ClientId              :  
-          Thumbprint            : 
-          ApplicationName       : Azurestack-Yourapp-6967581b-497e-4f5a-87b5-0c8d01a9f146
-          ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
-          RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
+     ```shell  
+     ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
+     ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
+     Thumbprint            : 
+     ApplicationName       : Azurestack-YourApp-6967581b-497e-4f5a-87b5-0c8d01a9f146
+     ClientSecret          : MKUNzeL6PwmlhWdHB59c25WDDZlJ1A6IWzwgv_Kn
+     PSComputerName        : azs-ercs01
+     RunspaceId            : 6ed9f903-f1be-44e3-9fef-e7e0e3f48564
      ```
 
-### <a name="remove-a-service-principal-for-ad-fs"></a>删除 AD FS 的服务主体
+### <a name="remove-a-service-principal"></a>删除服务主体
 
-如果已结合 AD FS 部署 Azure Stack，可以使用 PowerShell 来删除服务主体。
+现在介绍如何使用 PowerShell 从目录中删除应用注册及其关联的服务主体对象。 
 
-从 ERCS 虚拟机上的特权终结点运行脚本。
+请将以下占位符替换为自己的值：
 
-#### <a name="parameters"></a>parameters
-
-以下信息是作为自动化参数的输入所必需的：
-
-|参数|说明|示例|
-|---------|---------|---------|
-| 参数 | 说明 | 示例 |
-| ApplicationIdentifier | 唯一标识符 | S-1-5-21-1634563105-1224503876-2692824315-2119 |
-
-> [!Note]  
-> 若要查看所有现有服务主体及其应用程序标识符的列表，可以使用 get-graphapplication 命令。
-
-#### <a name="example-of-removing-the-service-principal-for-ad-fs"></a>删除 AD FS 服务主体的示例
+| 占位符 | 说明 | 示例 |
+| ----------- | ----------- | ------- |
+| \<PepVM\> | Azure Stack 实例上特权终结点 VM 的名称。 | "AzS-ERCS01" |
+| \<AppIdentifier\> | 分配给应用程序注册的标识符 | "S-1-5-21-1634563105-1224503876-2692824315-2623" |
 
 ```powershell  
-     Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $Creds = Get-Credential
+# Sign in to PowerShell interactively, using credentials that have access to the VM running the Privileged Endpoint (typically <domain>\cloudadmin)
+$Creds = Get-Credential
 
-     # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
+# Create a PSSession to the PrivilegedEndpoint VM
+$Session = New-PSSession -ComputerName "<PepVM>" -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+# OPTIONAL: Use the privileged endpoint to get a list of applications registered in AD FS
+$AppList = Invoke-Command -Session $Session -ScriptBlock {Get-GraphApplication}
 
-     $Session | Remove-PSSession
+# Use the privileged endpoint to remove the application and associated service principal object for <AppIdentifier>
+Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier "<AppIdentifier>"}
+```
+
+在特权终结点上调用 Remove-GraphApplication cmdlet 后不会返回任何输出，但在运行 cmdlet 期间，控制台中会显示原义确认输出：
+
+```shell
+VERBOSE: Deleting graph application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623.
+VERBOSE: Remove-GraphApplication : BEGIN on AZS-ADFS01 on ADFSGraphEndpoint
+VERBOSE: Application with identifier S-1-5-21-1634563105-1224503876-2692824315-2623 was deleted.
+VERBOSE: Remove-GraphApplication : END on AZS-ADFS01 under ADFSGraphEndpoint configuration
 ```
 
 ## <a name="assign-a-role"></a>分配角色
 
-要访问订阅中的资源，必须将应用程序分配到角色。 决定哪个角色表示应用程序的相应权限。 若要了解有关可用角色的信息，请参阅 [RBAC：内置角色](/role-based-access-control/built-in-roles)。
+可以通过基于角色的访问控制 (RBAC) 来授权用户和应用程序访问 Azure 资源。 若要允许应用程序使用其服务主体访问订阅中的资源，必须将该服务主体分配到特定资源的某个角色。    首先决定哪个角色表示应用程序的相应权限。  若要了解可用的角色，请参阅 [Azure 资源的内置角色](/role-based-access-control/built-in-roles)。
 
-可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
+选择的资源类型也会建立适用于该服务主体的访问范围。  可将访问范围设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 
-1. 在 Azure Stack 门户中，导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，选择“订阅” 。 可改为选择资源组或资源。
+1. 根据在安装 Azure Stack 期间指定的目录登录到相应的门户（例如，如果指定了 Azure AD，则登录到 Azure 门户；如果指定了 AD FS，则登录到 Azure Stack 用户门户）。 在本示例中，用户已登录到 Azure Stack 用户门户。
 
-2. 选择要将应用程序分配到的特定订阅（资源组或资源）。
+   > [!NOTE]
+   > 若要为给定的资源添加角色分配，你的用户帐户必须属于声明 `Microsoft.Authorization/roleAssignments/write` 权限的角色。 例如，[所有者](/role-based-access-control/built-in-roles#owner)或[用户访问管理员](/role-based-access-control/built-in-roles#user-access-administrator)内置角色。  
+2. 导航到你要允许服务主体访问的资源。 本示例选择“订阅”，然后选择特定的订阅，以将服务主体分配到订阅范围的角色。  你也可以改为选择资源组，或者虚拟机之类的特定资源。 
 
-     ![选择要分配的订阅](./media/azure-stack-create-service-principal/image16.png)
+     ![选择要分配的订阅](./media/azure-stack-create-service-principal/select-subscription.png)
 
-3. 选择“访问控制(IAM)”。
+3. 选择“访问控制(IAM)”页。支持 RBAC 的所有资源都会提供此页。 
+4. 选择“+ 添加”。 
+5. 在“角色”下，选择要将应用程序分配到哪个角色。 
+6. 在“选择”下，使用完整或部分应用程序名称来搜索你的应用程序。  在注册期间，生成的应用程序名称为 *Azurestack-\<应用名称\>-\<客户端 ID\>* 。 例如，如果使用的应用程序名为 *App2*，在创建期间分配的客户端 ID 为 *2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*，则完整名称为 *Azurestack-App2-2bbe67d8-3fdb-4b62-87cf-cc41dd4344ff*。 可以搜索确切的字符串，也可以只搜索其一部分，例如 *Azurestack* 或 *Azurestack-App2*。
+7. 找到应用后，请选择它，然后它会显示在“已选择的成员”下。 
+8. 选择“保存”  完成角色分配。 
 
-     ![选择访问权限](./media/azure-stack-create-service-principal/image17.png)
+     [ ![分配角色](media/azure-stack-create-service-principal/assign-role.png)](media/azure-stack-create-service-principal/assign-role.png#lightbox)
 
-4. 选择“添加角色分配”。
+9. 完成后，在当前范围分配到给定角色的主体列表中会显示该应用程序。
 
-5. 选择要分配到应用程序的角色。
-
-6. 搜索用户的应用程序，并选择它。
-
-7. 选择“确定”  完成角色分配。 该应用程序会显示在分配到该范围角色的用户列表中。
+     [ ![分配的角色](media/azure-stack-create-service-principal/assigned-role.png)](media/azure-stack-create-service-principal/assigned-role.png#lightbox)
 
 既然已创建服务主体并已分配角色，可以开始在应用程序中使用此服务主体访问 Azure Stack 资源。  
 

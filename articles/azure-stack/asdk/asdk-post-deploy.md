@@ -13,20 +13,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: misainat
 ms.lastreviewed: 10/10/2018
-ms.openlocfilehash: 42ba0cf9f4c03df908cfc6fd6d64da512b0ce95e
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.openlocfilehash: 99bbb0f878718d1b0e2001548259e282e8556c4e
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381825"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513512"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>安装 ASDK 后的配置任务
 
-[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md) 之后，当你在 ASDK 主计算机上以 AzureStack\AzureStackAdmin 身份登录时，应进行一些建议的安装后配置更改。 
+[安装 Azure Stack 开发工具包 (ASDK)](asdk-install.md) 之后，当你在 ASDK 主计算机上以 AzureStack\AzureStackAdmin 身份登录时，应进行一些建议的安装后配置更改。
 
 ## <a name="install-azure-stack-powershell"></a>安装 Azure Stack PowerShell
 
@@ -38,7 +38,7 @@ ms.locfileid: "66381825"
 Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 ```
 
-可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 可通过 PowerShell 库获得的 **AzureRM.Bootstrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
+可以使用 API 版本配置文件来指定与 Azure Stack 兼容的 AzureRM 模块。  API 版本配置文件提供一种管理 Azure 与 Azure Stack 之间版本差异的方式。 API 版本配置文件是一组具有特定 API 版本 AzureRM PowerShell 模块。 可通过 PowerShell 库获得的 **AzureRM.BootStrapper** 模块会提供使用 API 版本配置文件所需的 PowerShell cmdlet。
 
 无论是否与 ASDK 主机建立了 Internet 连接，都可以安装最新 Azure Stack PowerShell 模块：
 
@@ -47,23 +47,25 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 - **已从 ASDK 主机建立 Internet 连接**。 运行以下 PowerShell 脚本，在开发工具包安装中安装以下模块：
 
-- 对于 1904 版本或更高版本：
+  - 对于 1904 版本或更高版本：
 
     ```powershell  
+      Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
+      Get-Module -Name Azure* -ListAvailable | Uninstall-Module -Force -Verbose
+
       # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
       Install-Module -Name AzureRM.BootStrapper
-      
+
       # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-      Get-AzureRMProfile -Update
       Use-AzureRmProfile -Profile 2019-03-01-hybrid -Force
       Install-Module -Name AzureStack -RequiredVersion 1.7.2
     ```
 
-- Azure Stack 版本 1903 或更低版本仅安装以下两个模块：
+  - Azure Stack 版本 1903 或更低版本仅安装以下两个模块：
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
-    Install-Module AzureRM -RequiredVersion 2.4.0
+    Install-Module -Name AzureRM -RequiredVersion 2.4.0
     Install-Module -Name AzureStack -RequiredVersion 1.7.1
     ```
 
@@ -73,8 +75,8 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
   - Azure Stack 1811：
 
     ``` PowerShell
-    # Install the AzureRM.Bootstrapper module. Select Yes when prompted to install NuGet. 
-    Install-Module -Name AzureRm.BootStrapper
+    # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet.
+    Install-Module -Name AzureRM.BootStrapper
 
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
@@ -120,12 +122,12 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
   # Enforce usage of TLSv1.2 to download the Azure Stack tools archive from GitHub
   [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-  invoke-webrequest `
-    https://github.com/Azure/AzureStack-Tools/archive/master.zip `
+  Invoke-WebRequest `
+    -Uri https://github.com/Azure/AzureStack-Tools/archive/master.zip `
     -OutFile master.zip
 
   # Expand the downloaded files.
-  expand-archive master.zip -DestinationPath . -Force
+  Expand-Archive -Path master.zip -DestinationPath . -Force
 
   # Change to the tools directory.
   cd AzureStack-Tools-master
@@ -146,34 +148,12 @@ Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
 如果失败，请遵循故障排除步骤来获取帮助。
 
-## <a name="reset-the-password-expiration-policy"></a>重置密码过期策略 
-
-若要确保开发工具包主机的密码不在评估期结束之前过期，请在部署 ASDK 之后执行以下步骤。
-
-### <a name="to-change-the-password-expiration-policy-from-powershell"></a>通过 Powershell 更改密码过期策略
-
-在提升权限的 Powershell 控制台中，运行以下命令：
-
-```powershell
-Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local
-```
-
-### <a name="to-change-the-password-expiration-policy-manually"></a>手动更改密码过期策略
-
-1. 在开发工具包主机上打开“组策略管理”(GPMC.MMC)，然后导航到  “组策略管理”   -   “林: azurestack.local” -   “域” -   “azurestack.local”。
-2. 右键单击“默认域策略”，然后单击“编辑”。  
-3. 在组策略管理编辑器中，导航到“计算机配置”   -   “策略” -   “Windows 设置” -   “安全设置” -   “帐户策略” -   “密码策略”。
-4. 在右窗格中，双击“密码最长期限”。 
-5. 在“密码最长期限属性”对话框中，将“密码有效天数”值更改为 **180**，然后单击“确定”。   
-
-![组策略管理控制台](media/asdk-post-deploy/gpmc.png)
-
 ## <a name="enable-multi-tenancy"></a>启用多租户
 
 对于使用 Azure AD 的部署，需要为 ASDK 安装[启用多租户](../operator/azure-stack-enable-multitenancy.md#enable-multi-tenancy)。
 
 > [!NOTE]
-> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 已注册到 fabrikam.partner.onmschina.cn 并且登录的用户帐户为 admin@contoso.com，则用于登录用户门户的 URL 将为： https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn。
+> 当使用非用于注册 Azure Stack 的域的管理员或用户帐户登录 Azure Stack 门户时，用于注册 Azure Stack 的域名必须追加到门户 URL 后面。 例如，如果 Azure Stack 已注册到 fabrikam.partner.onmschina.cn 并且登录的用户帐户为 admin@contoso.com，则用于登录用户门户的 URL 将为： https://portal.local.azurestack.external/fabrikam.partner.onmschina.cn 。
 
 ## <a name="next-steps"></a>后续步骤
 

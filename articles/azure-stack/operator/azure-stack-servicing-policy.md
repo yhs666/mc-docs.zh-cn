@@ -12,17 +12,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/02/2019
-ms.date: 06/03/2019
+origin.date: 06/26/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a70e171455fe11939088c3222dd466e2e32aca47
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.openlocfilehash: c2f350acd59f85aef45234e3203adeb79351669b
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135408"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513394"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack 服务策略
 
@@ -34,7 +34,7 @@ Microsoft 会发布完整的每月更新包和修补程序包来解决特定问�
 
 每月更新包托管在安全的 Azure 终结点中。 可以使用 [Azure Stack 更新下载程序工具](https://aka.ms/azurestackupdatedownload)手动下载它们。 如果缩放单元已连接，更新会以“有可用更新”消息的形式自动显示在管理员门户中。  完整的每月更新包在每次发布时都会详细地进行记录。 有关每次发布的详细信息，可以单击本文[更新包发布频率](#update-package-release-cadence)部分的任何发布。
 
-修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序 KB 文章（例如，[Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接手动下载它们。 Azure Stack 操作员可以按照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。 
+修补程序更新包托管在同一个安全的 Azure 终结点中。 可以使用每篇相应的修补程序知识库文章（例如，[Azure Stack 修补程序 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114)）中的嵌入式链接下载它们。 Azure Stack 操作员可以按照[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)中的过程下载 .xml、.bin 和 .exe 文件并将其导入，这与操作完整的每月更新包类似。 使用已连接缩放单元的 Azure Stack 操作员会看到修补程序自动出现在管理员门户中，并会看到消息“有可用更新”。 
 
 如果在缩放单元未连接的情况下希望获得每个修补程序版本的通知，请订阅每个版本中注明的 [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) 或 [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) 源。  
 
@@ -54,16 +54,18 @@ Microsoft 预期每月发布软件更新包。 但是，可能一个月内发布
 
 有关特定更新（包括其下载方法）的信息，请参阅该更新的发行说明：
 
+- [Azure Stack 1906 更新](azure-stack-release-notes-1906.md)
+- [Azure Stack 1905 更新](azure-stack-release-notes-1905.md)
 - [Azure Stack 1904 更新](azure-stack-release-notes-1904.md)
 - [Azure Stack 1903 更新](azure-stack-update-1903.md)
-- [Azure Stack 1902 更新](azure-stack-update-1902.md)
-- [Azure Stack 1901 更新](azure-stack-update-1901.md)
 
 ## <a name="hotfixes"></a>修补程序
 
 Microsoft 偶尔会提供 Azure Stack 的修补程序（通常是预防性或时效性的程序）来解决具体的问题。  发布的每个修补程序都附带相应的 Microsoft 知识库文章，其中详细描述了问题、原因和解决方法。
 
-可以像下载和安装普通的 Azure Stack 完整更新包一样下载和安装修补程序。 但是，与完整更新不同，修补程序在几分钟内即可完成安装。 我们建议 Azure Stack 操作员在安装修补程序时设置维护时段。 修补程序会更新 Azure Stack 云的版本，使你可以轻松确定是否已应用该修补程序。 对于仍在支持期内的每个 Azure Stack 版本，将单独提供修补程序。 特定迭代的每个修复程序是累积性的，包含同一版本的以往更新。 可以在相应的知识库文章中详细了解特定修补程序的适用性。  
+有关特定修补程序的详细信息和链接，请参阅上一部分中的发行说明链接。
+
+可以像下载和安装普通的 Azure Stack 完整更新包一样下载和安装修补程序。 但是，与完整更新不同，修补程序在几分钟内即可完成安装。 我们建议 Azure Stack 操作员在安装修补程序时设置维护时段。 修补程序会更新 Azure Stack 云的版本，使你可以轻松确定是否已应用该修补程序。 对于仍在支持期内的每个 Azure Stack 版本，将单独提供修补程序。 特定迭代的每个修复程序是累积性的，包含该同一版本的以往更新。 可以在相应的知识库文章中详细了解特定修补程序的适用性。 请参阅上一部分中的发行说明链接。  
 
 ## <a name="keep-your-system-under-support"></a>保持系统受支持
 

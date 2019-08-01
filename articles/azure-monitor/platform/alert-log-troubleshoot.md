@@ -5,21 +5,21 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 11b7049137bc69e6819f7bf12b7d5122da170155
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 89b140036bd8a31be668665e8440600c08e41628
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562458"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514026"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>在 Azure Monitor 中排查日志警报问题  
 
 本文介绍如何解决在 Azure Monitor 中设置日志警报时可能发生的常见问题， 并提供有关日志警报功能或配置的常见问题的解决方法。 
 
-术语“日志警报”  描述基于 Azure Log Analytics 工作区或 [Azure Application Insights](../../azure-monitor/app/analytics.md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
+术语“日志警报”  描述基于 [Azure Log Analytics 工作区](../log-query/get-started-portal.md)或 [Azure Application Insights](../../azure-monitor/app/analytics.md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
 
 > [!NOTE]
 > 本文不考虑 Azure 门户中显示警报规则已触发以及不是通过关联的操作组执行通知的情况。 对于此类情况，请参阅[在 Azure 门户中创建和管理操作组](../platform/action-groups.md)中的详细信息。
@@ -30,7 +30,7 @@ ms.locfileid: "67562458"
 
 ### <a name="data-ingestion-time-for-logs"></a>日志的数据引入时间
 
-日志警报基于 Log Analytics 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
+日志警报基于 [Log Analytics](../log-query/get-started-portal.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
 
 如果系统发现所需的数据尚未引入，为了缓解延迟，它会等待一段时间，并重试警报查询多次。 为系统设置的等待时间呈指数级递增。 日志警报只会在数据可用后才会触发，因此，延迟可能是日志数据引入速度缓慢造成的。 
 
@@ -101,7 +101,7 @@ Log Analytics 和 Application Insights 可能会发生引入和处理延迟。 �
 
 ![要执行的查询](media/alert-log-troubleshoot/LogAlertPreview.png)
 
-“要执行的查询”框显示日志警报服务运行的操作。  若要在创建警报之前了解警报查询输出的内容，可以通过 Analytics 门户或 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) 运行指定的查询及时间跨度。
+“要执行的查询”框显示日志警报服务运行的操作。  若要在创建警报之前了解警报查询输出的内容，可以通过 [Analytics 门户](../log-query/log-query-overview.md)或 [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) 运行指定的查询及时间跨度。
 
 ## <a name="log-alert-was-disabled"></a>已禁用日志警报
 
@@ -181,6 +181,7 @@ Azure 活动日志中的以下示例事件适用于因持续失败而被禁用�
 在 Azure Monitor 中创建为配置的一部分的每个日志警报规则必须指定警报服务要定期运行的分析查询。 在创建或更新规则时，分析查询可能使用了正确的语法。 但有时，在一段时间后，日志警报规则中提供的查询可能会出现语法问题，从而导致规则执行失败。 日志警报规则中提供的分析查询可能出现错误的一些常见原因包括：
 
 - 该查询已写入到[跨多个资源的运行](../log-query/cross-workspace-query.md)。 一个或多个指定的资源不再存在。
+- 配置的[指标度量类型日志警报](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)具有不符合语法规范的警报查询
 - 没有任何数据流向分析平台。 由于提供的查询没有数据，[查询执行出错](https://dev.loganalytics.io/documentation/Using-the-API/Errors)。
 - [查询语言](https://docs.microsoft.com/azure/kusto/query/)的更改包含命令和函数的已修改格式。 因此，以前在警报规则中提供的查询不再有效。
 
@@ -190,8 +191,6 @@ Azure 活动日志中的以下示例事件适用于因持续失败而被禁用�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解 [Azure 警报中的日志警报](../platform/alerts-unified-log.md)
-- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息
-
-
-
+- 了解 [Azure 中的日志警报](../platform/alerts-unified-log.md)。
+- 详细了解 [Application Insights](../../azure-monitor/app/analytics.md)。
+- 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。

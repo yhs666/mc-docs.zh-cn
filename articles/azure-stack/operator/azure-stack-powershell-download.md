@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-origin.date: 01/14/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: thoroet
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d32c06ce61ce243aa06306f39570d6c1cb6d42b5
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 976cd5fb9c2029a4aff59a361f69697d36fbb17e
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529451"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513434"
 ---
 # <a name="download-azure-stack-tools-from-github"></a>从 GitHub 下载 Azure Stack 工具
 
@@ -64,5 +64,7 @@ cd AzureStack-Tools-master
 
 
 ## <a name="next-steps"></a>后续步骤
-* [配置 Azure Stack 用户的 PowerShell 环境](../user/azure-stack-powershell-configure-user.md)   
-* [通过 VPN 连接到 Azure Stack 开发工具包](../asdk/asdk-connect.md)  
+
+- [Azure Stack 上的 PowerShell 入门](../user/azure-stack-powershell-overview.md)
+- [配置 Azure Stack 用户的 PowerShell 环境](../user/azure-stack-powershell-configure-user.md)   
+- [通过 VPN 连接到 Azure Stack 开发工具包](../asdk/asdk-connect.md)  

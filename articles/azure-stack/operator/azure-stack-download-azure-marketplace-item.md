@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 02/14/2019
-ms.date: 04/29/2019
+origin.date: 04/24/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: unknown
+ms.reviewer: ihcherie
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: d1672147f28de59c283f5ec6ee4073eab1fed069
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: 3b5dfb04c0f6b1c97ec022e4d28267fba28c28e2
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248718"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513466"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>将市场项从 Azure 下载到 Azure Stack
 
@@ -49,7 +49,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
   
 1. 登录到 Azure Stack 管理员门户。
 
-2.  下载市场项之前，查看可用的存储空间。 稍后在选择要下载的项时，可将下载大小与可用存储容量进行比较。 如果容量有限，请考虑使用[管理可用空间](azure-stack-manage-storage-shares.md#manage-available-space)的选项。 
+2. 下载市场项之前，查看可用的存储空间。 稍后在选择要下载的项时，可将下载大小与可用存储容量进行比较。 如果容量有限，请考虑使用[管理可用空间](azure-stack-manage-storage-shares.md#manage-available-space)的选项。 
 
     若要查看可用空间，请在“区域管理”中选择要浏览的区域，然后转到“资源提供程序” > “存储”：   
 
@@ -178,7 +178,7 @@ Azure Stack 部署必须已建立 Internet 连接，并且[已注册到 Azure](a
    `-AzsCredential` 参数是可选的。 该参数用于续订访问令牌（如果已过期）。 如果未指定 `-AzsCredential` 参数且令牌已过期，则你会收到输入操作员凭据的提示。
 
     > [!Note]  
-    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS的服务主体](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs)。
+    > AD FS 仅支持通过用户标识进行交互式身份验证。 如果需要凭据对象，则必须使用服务主体 (SPN)。 若要详细了解如何在设置服务主体时将 Azure Stack 和 AD FS 作为标识管理服务，请参阅[管理 AD FS 服务主体](azure-stack-create-service-principals.md#manage-an-ad-fs-service-principal)。
 
 4. 成功完成该脚本后，Azure Stack 市场中应会提供该项。
 

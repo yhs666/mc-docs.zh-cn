@@ -1,6 +1,6 @@
 ---
 title: Azure Stack 1904 发行说明 | Microsoft Docs
-description: 了解 Azure Stack 集成系统的 1904 更新，包括新增功能、已知问题和更新下载位置。
+description: 了解 Azure Stack 集成系统的 1904 更新，包括新增功能、已知问题和更新下载位置以及已存档的 Azure Stack 发行说明。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 05/06/2019
-ms.date: 06/03/2019
+origin.date: 05/30/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: ''
-ms.lastreviewed: 05/06/2019
-ms.openlocfilehash: f2a026508f63a884be3865a3bc2331f4b8bb5b04
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.reviewer: hectorl
+ms.lastreviewed: 05/30/2019
+ms.openlocfilehash: dbb0eb40168e3f9fdb0dbe47301d999d06c6584d
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135486"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513425"
 ---
 # <a name="azure-stack-1904-update"></a>Azure Stack 1904 更新
 
@@ -36,9 +36,17 @@ ms.locfileid: "67135486"
 > [!IMPORTANT]  
 > 此更新包仅适用于 Azure Stack 集成系统。 请勿将此更新包应用于 Azure Stack 开发工具包。
 
+## <a name="archived-release-notes"></a>已存档的发行说明
+
+可查看 [TechNet 库中 Azure Stack 发行说明的早期版本](http://aka.ms/azsarchivedrelnotes)。 提供这些已存档的发行说明仅供参考，并不意味着支持这些版本。 如需进一步帮助，请联系 Azure 客户支持服务。
+
 ## <a name="build-reference"></a>内部版本参考
 
 Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
+
+### <a name="update-type"></a>更新类型
+
+Azure Stack 1904 更新生成类型为“Express”  。 有关更新生成类型的详细信息，请参阅[管理 Azure Stack 中的更新](azure-stack-updates.md)一文。 完成 1904 更新预期所需的时间约为 16 小时，但具体时间可能会有所不同。 此运行时近似值特定于 1904 更新，不应与其他 Azure Stack 更新进行比较。
 
 ## <a name="whats-in-this-update"></a>此更新的内容
 
@@ -49,8 +57,6 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 ### <a name="improvements"></a>改进
 
 <!-- Changes and product improvements with tangible customer-facing value. -->
-
-- 1904 更新有效负载包含对 Azure Stack 组件的更新，这些组件不包括用于托管 Azure Stack 的底层操作系统。 这样就可以实现限定范围的特定更新。 因此，完成 1904 更新预期所需的时间较短（约 16 个小时，但确切的时间不定）。 运行时缩减的情况类似于 1903 更新。 但是，后续的更新可能包含对操作系统的更新，这意味着运行时会有所不同。 将来的更新会根据包含的有效负载，提供有关完成更新预期所需时间的指导。
 
 - 1904 已对软件定义的网络 (SDN) 堆栈做了重大改进。 这些改进提高了 SDN 堆栈在 Azure Stack 中的整体服务能力和可靠性。
 
@@ -70,8 +76,6 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 
 <!-- this applies to bug 3725384 and bug #4225643 -->
 - 改进了 syslog 消息量，方法是筛选掉不必要的事件，并提供配置参数以针对转发的消息选择所需的严重性级别。 有关如何配置严重性级别的详细信息，请参阅 [Azure Stack 数据中心集成 - syslog 转发](azure-stack-integrate-security.md)。
-
-- 从 1904 更新开始，Azure Stack 基础结构会额外消耗 12 GB + (4 GB * Azure Stack 主机数)。 这意味着，在 4 节点阵列中，会额外消耗 28 GB 容量 (12 GB + 4 GB * 4)，这会反映在 Azure Stack 管理员门户的“容量”屏幕中。 即使额外消耗的内存会让 Azure Stack 阵列超出容量，也仍可以成功更新到版本 1904。 如果更新完成后，Azure Stack 阵列超出内存用量，你会看到一条反映此状态的警报，以及用于解除分配某些 VM 的补救步骤。
 
 <!--this applied to Bug 1473487 -->
 - 已通过整合附加参数 `-OutputSASUri`，将一个新的功能添加到 **Get-AzureStackLog** cmdlet。 现在，可以从环境中收集 Azure Stack 日志，并将其存储在指定的 Azure 存储 Blob 容器中。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-diagnostics.md#examples)。
@@ -93,6 +97,8 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 <!--Bug/Task 3139609 -->
 - 改进了 Azure Stack 日志收集。 这些改进缩减了检索日志集所需的时间。 此外，[Get-AzureStackLog](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system) cmdlet 不再为 OEM 角色生成默认日志。 必须执行 [Invoke-AzureStackOnDemandLog](azure-stack-diagnostics.md#invoke-azurestackondemandlog) cmdlet，并指定要检索其 OEM 日志的角色。 有关详细信息，请参阅 [Azure Stack 诊断](azure-stack-diagnostics.md#run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system)。
 
+- Azure Stack 现在会监视为数据中心与 ADFS 集成而提供的联合数据 URL。 这可提高客户 ADFS 实例或场在机密轮换期间的可靠性。
+
 ### <a name="changes"></a>更改
 
 <!-- Feature 3906611 -->
@@ -112,6 +118,8 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
   - 门户中会显示一条“硬性”关键警报，指出“最近的更新失败。 Azure 建议尽快提出服务请求。 在更新过程中，会执行 Test-AzureStack，我们会根据输出生成最适当的警报。 在此情况下，Test-AzureStack 也会失败。”
 
 - 已更新 Azure Linux Agent 版本 2.2.38.0。 此项支持可让客户在 Azure 与 Azure Stack 之间保持一致的 Linux 映像。
+
+- 更改了操作员门户中的更新日志。 检索成功更新日志的请求不再可用。 失败的更新日志仍然可供下载，因为它们可用于诊断。
 
 ### <a name="fixes"></a>修复项
 
@@ -149,6 +157,8 @@ Azure Stack 1904 更新内部版本号为 **1.1904.0.36**。
 
 - 修复了以下问题：如果使用脱机联合工具上传映像，并且其中的任一映像缺少图标 URI，则市场管理屏幕是空的。
 
+- 修复了阻止在市场管理中删除无法下载的产品的问题。
+
 ### <a name="security-updates"></a>安全更新
 
 Azure Stack 的此更新不包括托管 Azure Stack 的底层操作系统的安全更新。 有关信息，请参阅 [Azure Stack 安全更新](azure-stack-release-notes-security-updates-1904.md)。
@@ -185,8 +195,7 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 
 安装此更新之后，请安装所有适用的修补程序。 有关详细信息，请参阅我们的[服务策略](azure-stack-servicing-policy.md)。
 
-<!-- One of these. Either no updates at all, nothing is required, or the LATEST hotfix that is required-->
-- 1904 没有可用的修补程序。
+- [Azure Stack 修补程序 1.1904.4.45](https://support.microsoft.com/help/4505688)
 
 ## <a name="automatic-update-notifications"></a>自动更新通知
 
@@ -204,4 +213,4 @@ Azure Stack 修补程序仅适用于 Azure Stack 集成系统；请勿尝试在 
 - 有关如何在 Azure Stack 中应用更新的详细信息，请参阅[在 Azure Stack 中应用更新](azure-stack-apply-updates.md)。
 - 若要查看 Azure Stack 集成系统的服务策略，以及必须如何做才能使系统保持在受支持的状态，请参阅 [Azure Stack 服务策略](azure-stack-servicing-policy.md)。  
 - 若要使用特权终结点 (PEP) 来监视和恢复更新，请参阅[使用特权终结点监视 Azure Stack 中的更新](azure-stack-monitor-update.md)。  
-- 请填写调查表以提供[有关发行说明的反馈](https://forms.microsoft.com)。
+

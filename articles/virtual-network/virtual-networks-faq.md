@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2019
-ms.date: 06/10/2019
+ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 401b8caa039fa332d9702ef3347c8781fbb7b1a5
-ms.sourcegitcommit: ab87d30f4435c3b7c03f7edd33c9f374b7fe88c9
+ms.openlocfilehash: aeb1cf30498fc9120f879f7341d5069a03d9fff8
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67540069"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514221"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -70,7 +70,9 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 有关详细信息，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。 子网地址空间不能相互重叠。
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>使用这些子网中的 IP 地址是否有任何限制？
-是的。 Azure 在每个子网中保留 5 个 IP 地址。 每个子网的第一个和最后一个 IP 地址将为协议一致性而保留，每个子网的 x.x.x.1-x.x.x.3 地址用于 Azure 服务。
+是的。 Azure 在每个子网中保留 5 个 IP 地址。 这些地址是 x.x.x.0-x.x.x.3 和子网的最后一个地址。    
+- x.x.x.0 和子网的最后一个地址是为了符合协议而进行保留。
+- 在每个子网中都为 Azure 服务保留了 x.x.x.1-x.x.x.3。
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>VNet 和子网的最小和最大容量是多少？
 支持的最小子网为 /29，最大为 /8（使用 CIDR 子网定义）。
@@ -153,8 +155,8 @@ Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此�
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>可向 VM 分配哪些不同类型的 IP 地址？
 * **专用：** 分配到每个 VM 中的每个 NIC。 使用静态或动态方法分配地址。 应该分配 VNet 子网设置中指定的范围内的专用 IP 地址。 将为通过经典部署模型部署的资源分配专用 IP 地址，即使它们未连接到 VNet。 分配方法的行为根据资源是通过资源管理器还是通过经典部署模型部署的而不同： 
 
-  - **资源管理器**：使用动态或静态方法分配的专用 IP 地址保持分配给虚拟机（资源管理器），直到该资源被删除。 差别在于，使用静态方法时由你来选择地址，而使用动态方法时由 Azure 来选择地址。 
-  - **经典**：如果虚拟机（经典）VM 在处于停止（解除分配）状态后重新启动，则使用动态方法分配的的专用 IP 地址可能会变化。 如果需要确保通过经典部署模型部署的资源的专用 IP 地址永远不会变化，请使用静态方法分配专用 IP 地址。
+    - **资源管理器**：使用动态或静态方法分配的专用 IP 地址保持分配给虚拟机（资源管理器），直到该资源被删除。 差别在于，使用静态方法时由你来选择地址，而使用动态方法时由 Azure 来选择地址。 
+    - **经典**：如果虚拟机（经典）VM 在处于停止（解除分配）状态后重新启动，则使用动态方法分配的的专用 IP 地址可能会变化。 如果需要确保通过经典部署模型部署的资源的专用 IP 地址永远不会变化，请使用静态方法分配专用 IP 地址。
 
 * **公共：** 选择性地分配给附加到通过 Azure 资源管理器部署模型部署的 VM 的 NIC。 可以使用静态或动态分配方法分配地址。 通过经典部署模型部署的所有 VM 和云服务角色实例位于分配有*动态*公共虚拟 IP (VIP) 地址的云服务中。 可以选择性地将某个公共*静态* IP 地址（称为[保留 IP 地址](virtual-networks-reserved-public-ip.md)）分配为 VIP。 可将公共 IP 地址分配给通过经典部署模型部署的单个 VM 或云服务角色实例。 这些地址称为[实例级公共 IP (ILPIP](virtual-networks-instance-level-public-ip.md) 地址，可动态分配。
 
@@ -185,20 +187,20 @@ Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此�
 ## <a name="azure-services-that-connect-to-vnets"></a>连接到 VNet 的 Azure 服务
 
 ### <a name="can-i-use-azure-app-service-web-apps-with-a-vnet"></a>是否可以在 VNet 中使用 Azure 应用服务 Web 应用？
-是的。 可以使用 ASE（应用服务环境）在 VNet 中部署 Web 应用。 如果为 VNet 配置了点到站点连接，则所有 Web 应用都可以安全地连接和访问 VNet 中的资源。 有关详细信息，请参阅以下文章：
+是的。 可以使用 ASE（应用服务环境）在 VNet 内部部署 Web 应用，使用 VNet 集成将应用的后端连接到 VNet，并使用服务终结点锁定应用的入站流量。 有关详细信息，请参阅以下文章：
 
 <!-- Not Available on [Creating Web Apps in an App Service Environment](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fvirtual-network%2ftoc.json) -->
 
 * [将应用与 Azure 虚拟网络进行集成](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
-* [将 VNet 集成和混合连接用于 Web 应用](../app-service/web-sites-integrate-with-vnet.md?toc=%2fvirtual-network%2ftoc.json)
+* [应用服务访问限制](../app-service/app-service-ip-restrictions.md)
 
 <!-- Not Avaialble hybrid-connections-and-app-service-environments-->
 
 ### <a name="can-i-deploy-cloud-services-with-web-and-worker-roles-paas-in-a-vnet"></a>是否可以在 VNet 中部署云服务与 Web 和辅助角色 (PaaS)？
 是的。 （可选）可在 VNet 中部署云服务角色实例。 为此，请在服务配置的网络配置部分中指定 VNet 名称和角色/子网映射。 不需要更新任何二进制文件。
 
-### <a name="can-i-connect-a-virtual-machine-scale-set-vmss-to-a-vnet"></a>是否可将虚拟机规模集 (VMSS) 连接到 VNet？
-是的。 必须将 VMSS 连接到 VNet。
+### <a name="can-i-connect-a-virtual-machine-scale-set-to-a-vnet"></a>是否可将虚拟机规模集连接到 VNet？
+是的。 必须将虚拟机规模集连接到 VNet。
 
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>是否存在我可以将其中的资源部署到 VNet 的 Azure 服务完整列表？
 是的，有关详细信息，请参阅[Azure 服务的虚拟网络集成](virtual-network-for-azure-services.md)。
@@ -241,20 +243,20 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 使用 VNet 对等互连（或虚拟网络对等互连）可连接虚拟网络。 使用虚拟网络之间的 VNet 对等互连连接，可通过 IPv4 地址在这些虚拟网络之间私下路由流量。 对等互连的 VNet 中的虚拟机可相互通信，如同它们处于同一网络中一样。 这些虚拟网络可以位于相同区域或不同区域中（也称为全球 VNet 对等互连）。 此外，还可跨 Azure 订阅创建 VNet 对等互连连接。
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>是否可以在另一区域创建到 VNet 的对等互连连接？
-是的。 全球 VNet 对等互连可以将不同区域中的 VNet 对等互连。 全球 VNet 对等互连适用于所有中国云区域。 不能通过全球对等互连的方式从 Azure 公共区域连接到中国云区域。
+是的。 全球 VNet 对等互连可以将不同区域中的 VNet 对等互连。 全球 VNet 对等互连适用于所有 Azure 公共区域和中国云区域。 不能通过全球对等互连的方式从 Azure 公共区域连接到国家云区域。
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>与全球 VNet 对等互连和负载均衡器相关的约束有哪些？
 如果两个虚拟网络位于不同的区域（全球 VNet 对等互连），则无法连接到使用基本负载均衡器的资源。 你可以连接到使用标准负载均衡器的资源。
 以下资源使用基本负载均衡器，这意味着你不能跨全球 VNet 对等互连与它们进行通信：
 - 位于基本负载均衡器后的 VM
-- 采用基本负载均衡器的 VM 规模集 
+- 采用基本负载均衡器的虚拟机规模集 
 - Redis 缓存 
 - 应用程序网关 (v1) SKU
 - Service Fabric
 - SQL MI
 - API 管理   <!--Not Available on - Active Directory Domain Service (ADDS)-->
 - Logic Apps
-- HD Insight
+- HDInsight
 - Azure Batch
 - AKS
 - 应用服务环境
@@ -386,7 +388,7 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 要访问 Azure 服务，NSG 需要允许出站连接。 如果 NSG 对所有 Internet 出站流量开放，则服务端点流量应有效。 还可仅使用服务标签将出站流量限制为服务 IP。  
 
 ### <a name="what-permissions-do-i-need-to-set-up-service-endpoints"></a>设置服务终结点需要哪些权限？
-对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有 **Microsoft.Network/JoinServicetoaSubnet** 权限。 此权限默认包含在内置的服务管理员角色中，可通过创建自定义角色进行修改。 详细了解内置角色以及如何将特定的权限分配到[自定义角色](/role-based-access-control/custom-roles?toc=%2fvirtual-network%2ftoc.json)。
+对虚拟网络拥有写入访问权限的用户可在虚拟网络上单独配置服务终结点。 若要在 VNet 中保护 Azure 服务资源，用户必须对所添加的子网拥有“Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action”权限  。 此权限默认包含在内置的服务管理员角色中，可通过创建自定义角色进行修改。 详细了解内置角色以及如何将特定的权限分配到[自定义角色](/role-based-access-control/custom-roles?toc=%2fvirtual-network%2ftoc.json)。
 
 <!--Not Available on ### Can I filter virtual network traffic to Azure services, allowing only specific azure service resources, over VNet service endpoints? -->
 <!--Not Available on  [here](virtual-network-service-endpoint-policies-overview.md)-->
@@ -407,5 +409,5 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 <!--Not Available on|Azure Service Bus| 128|-->
 <!--Not Available on |Azure Data Lake Store V1| 100|-->
 
->[!NOTE]
+> [!NOTE]
 > Azure 服务自行决定是否对这些限制进行更改。 有关服务详细信息，请参阅相应的服务文档。

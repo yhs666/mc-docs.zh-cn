@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: bc4a93eecdebb584dba31b31b6a68b6227698c48
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: a5bd75547877caba188daf7d3bdadd954a61f532
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248516"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513209"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Azure CLI 配合使用
 
@@ -44,12 +44,21 @@ ms.locfileid: "66248516"
 
 导出 PEM 格式的 ASDK 根证书：
 
-1. [在 Azure Stack 上创建 Windows VM](azure-stack-quick-windows-portal.md)。
+1. 获取 Azure Stack 根证书的名称：
+    - 登录到 Azure Stack 租户或管理门户。
+    - 单击地址栏附近的“安全”。
+    - 在弹出窗口中，单击“有效”。
+    - 在“证书”窗口中，单击“证书路径”选项卡。 
+    - 记下 Azure Stack 根证书的名称。
 
-2. 登录到计算机，打开权限提升的 PowerShell 提示符，然后运行以下脚本：
+    ![Azure Stack 根证书](media/azure-stack-version-profiles-azurecli2/root-cert-name.png)
+
+2. [在 Azure Stack 上创建 Windows VM](azure-stack-quick-windows-portal.md)。
+
+3. 登录到计算机，打开权限提升的 PowerShell 提示符，然后运行以下脚本：
 
     ```powershell  
-      $label = "AzureStackSelfSignedRootCert"
+      $label = "<the name of your azure stack root cert from Step 1>"
       Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
       $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
       if (-not $root)
@@ -65,7 +74,7 @@ ms.locfileid: "66248516"
     certutil -encode root.cer root.pem
     ```
 
-3. 将证书复制到本地计算机。
+4. 将证书复制到本地计算机。
 
 
 ### <a name="set-up-the-virtual-machine-aliases-endpoint"></a>设置虚拟机别名终结点
@@ -105,11 +114,11 @@ ms.locfileid: "66248516"
 
 如果使用的是 ASDK，则需要信任远程计算机上的 CA 根证书。 不需要对集成系统进行此操作。
 
-若要信任 Azure Stack CA 根证书，请将其追加​​到随 Azure CLI 一起安装的 Python 版本的现有 Python 证书中。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
+若要信任 Azure Stack CA 根证书，请将其追加​​到随 Azure CLI 一起安装的 Python 版本的现有 Python 证书存储中。 你可能正在运行自己的 Python 实例。 Azure CLI 包括其自己的 Python 版本。
 
-1. 在计算机上找到证书位置。  可以通过运行命令 `az --version` 查找位置。
+1. 在计算机上找到证书存储位置。  可以通过运行命令 `az --version` 查找位置。
 
-2. 导航到包含 CLI Python 应用程序的文件夹。 你将希望运行此版本的 python。 如果已在系统 PATH 中设置了 Python，则运行 Python 将执行你自己的 Python 版本。 但是，你将希望运行 CLI 使用的版本并将证书添加到该版本。 例如，CLI Python 可能位于：`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
+1. 导航到包含 CLI Python 应用程序的文件夹。 你将希望运行此版本的 python。 如果已在系统 PATH 中设置了 Python，则运行 Python 将执行你自己的 Python 版本。 但是，你将希望运行 CLI 使用的版本并将证书添加到该版本。 例如，CLI Python 可能位于：`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\`。
 
     使用以下命令：
 
@@ -120,7 +129,7 @@ ms.locfileid: "66248516"
 
     记下证书位置。 例如，`C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2\lib\site-packages\certifi\cacert.pem`。 你的特定路径将取决于你的操作系统和 CLI 安装。
 
-2. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
+1. 若要信任 Azure Stack CA 根书，请将它附加到现有的 Python 证书。
 
     ```powershell
     $pemFile = "<Fully qualified path to the PEM certificate Ex: C:\Users\user1\Downloads\root.pem>"
@@ -162,7 +171,7 @@ ms.locfileid: "66248516"
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
+1. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
     | Value | 示例 | 说明 |
     | --- | --- | --- |
@@ -176,22 +185,22 @@ ms.locfileid: "66248516"
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
     ```
 
-2. 使用以下命令设置活动环境。
+1. 使用以下命令设置活动环境。
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-3. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+1. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
     az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
  
-4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
    - 以用户  身份登录： 
 
@@ -282,7 +291,7 @@ az group create -n MyResourceGroup -l local
     set ADAL_PYTHON_SSL_NO_VERIFY=1
     ```
 
-2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
+1. 注册环境。 在运行 `az cloud register` 时使用以下参数。
 
     | Value | 示例 | 说明 |
     | --- | --- | --- |
@@ -296,29 +305,29 @@ az group create -n MyResourceGroup -l local
     az cloud register -n <environmentname> --endpoint-resource-manager "https://management.local.azurestack.external" --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
     ```
 
-2. 使用以下命令设置活动环境。
+1. 使用以下命令设置活动环境。
 
       ```azurecli
       az cloud set -n <environmentname>
       ```
 
-3. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
+1. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-    az cloud update --profile 2018-03-01-hybrid
+    az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
-4. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
+1. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
    - 以用户  身份登录：
 
      可以直接在 `az login` 命令中指定用户名和密码，或使用浏览器进行身份验证。 如果帐户已启用多重身份验证，则必须采用后一种方法。
 
      ```azurecli
-     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-active-directory-resource-id "https://management.adfs.azurestack.local/<tenantID>" --endpoint-active-directory-graph-resource-id "https://graph.local.azurestack.external/" --endpoint-active-directory "https://adfs.local.azurestack.external/adfs/" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2018-03-01-hybrid"
+     az cloud register  -n <environmentname>   --endpoint-resource-manager "https://management.local.azurestack.external"  --suffix-storage-endpoint "local.azurestack.external" --suffix-keyvault-dns ".vault.local.azurestack.external" --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>   --profile "2019-03-01-hybrid"
      ```
 
      > [!NOTE]
@@ -394,8 +403,8 @@ az group create -n MyResourceGroup -l local
 1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，可以设置以下环境变量：
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
@@ -421,11 +430,11 @@ az group create -n MyResourceGroup -l local
 4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 
@@ -505,8 +514,8 @@ az group create -n MyResourceGroup -l local
 1. 运行 `az cloud register` 命令注册 Azure Stack 环境。 在某些情况下，直接出站 Internet 连接通过代理或防火墙进行路由，从而强制进行 SSL 拦截。 在这些情况下，`az cloud register` 命令可能会失败并显示错误，如“无法从云中获取终结点”。 若要解决此错误，可以设置以下环境变量：
 
    ```shell
-   set AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1 
-   set ADAL_PYTHON_SSL_NO_VERIFY=1
+   export AZURE_CLI_DISABLE_CONNECTION_VERIFICATION=1
+   export ADAL_PYTHON_SSL_NO_VERIFY=1
    ```
 
 2. 注册环境。 在运行 `az cloud register` 时使用以下参数。
@@ -532,11 +541,11 @@ az group create -n MyResourceGroup -l local
 4. 将环境配置更新为使用 Azure Stack 特定的 API 版本配置文件。 若要更新配置，请运行以下命令：
 
     ```azurecli
-      az cloud update --profile 2018-03-01-hybrid
+      az cloud update --profile 2019-03-01-hybrid
    ```
 
     >[!NOTE]  
-    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2018-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
+    >如果正在运行的 Azure Stack 版本低于 1808 版，则必须使用 API 版本配置文件 **2017-03-09-profile**，而不是 API 版本配置文件 **2019-03-01-hybrid**。 需要使用最新版本的 Azure CLI。
 
 5. 使用 `az login` 命令登录到 Azure Stack 环境。 可以用户身份或以[服务主体](/active-directory/develop/app-objects-and-service-principals)的形式登录到 Azure Stack 环境。 
 

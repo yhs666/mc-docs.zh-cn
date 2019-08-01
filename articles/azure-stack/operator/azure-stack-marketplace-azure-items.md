@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/12/2019
-ms.date: 04/29/2019
+origin.date: 07/12/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: unknown
-ms.lastreviewed: 01/29/2019
-ms.openlocfilehash: 21aabf72deaed5f21c1207b2a115331a1a6ee431
-ms.sourcegitcommit: 20bff6864fd10596b5fc2ac8e059629999da8ab1
+ms.reviewer: ihcherie
+ms.lastreviewed: 07/12/2019
+ms.openlocfilehash: 540ca354875d97a6979676eca960d1497e8256ef
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135485"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513459"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>适用于 Azure Stack 的 Azure 市场项
 
@@ -37,8 +37,9 @@ ms.locfileid: "67135485"
 | ![SQL IaaS 扩展](media/azure-stack-marketplace-azure-items/cse.png) | [SQL IaaS 扩展](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| **下载此扩展以部署任何“Windows 上的 SQL Server”市场项 - 此扩展是必需的。** | Microsoft | Windows |
 | ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | [自定义脚本扩展](/virtual-machines/windows/extensions-customscript)| **请下载此更新，此更新针对用于 Windows 的自定义脚本扩展的内置版本。** | Microsoft | Windows |
 | ![PowerShell DSC 扩展](media/azure-stack-marketplace-azure-items/dsc.png) | [PowerShell DSC 扩展](/virtual-machines/windows/extensions-dsc-overview)| **请将此更新下载到 PowerShell DSC 扩展的内置版本。更新为支持 TLS v1.2。** | Microsoft | Windows |
-| ![Microsoft 反恶意软件扩展](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反恶意软件扩展](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在在后台运行而无需人工干预。 **请将此更新下载到 Antimalware 扩展的内置版本。** | Microsoft | Windows |
+| ![Microsoft 反恶意软件扩展](media/azure-stack-marketplace-azure-items/cse.png) | [Microsoft 反恶意软件扩展](/security/azure-security-antimalware)| 适用于 Azure 的 Microsoft 反恶意软件是一个针对应用程序和租户环境所提供的单一代理解决方案，可在后台运行而无需人工干预。 **请将此更新下载到 Antimalware 扩展的内置版本。** | Microsoft | Windows |
 | ![Azure 诊断扩展](media/azure-stack-marketplace-azure-items/cse.png) | [Azure 诊断扩展](/virtual-machines/extensions/diagnostics-windows)| Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的功能。 **请下载此更新，此更新针对用于 Windows 的诊断扩展的内置版本。** | Microsoft | Windows |
+| ![“Azure Monitor 更新和配置管理”扩展](media/azure-stack-marketplace-azure-items/cse.png) | [“Azure Monitor 更新和配置管理”扩展](/virtual-machines/extensions/oms-windows)| “Azure Monitor 更新和配置管理”扩展将与 Log Analytics 一起使用，以提供虚拟机监视功能。 **请下载此更新，此更新针对用于 Windows 的 Monitoring Agent 扩展的内置版本。** | Microsoft | Windows |
 | ![自定义脚本扩展](media/azure-stack-marketplace-azure-items/cse.png) | - [自定义脚本扩展（版本 1，已弃用）](/virtual-machines/extensions/custom-script-linuxostc)</b> - [自定义脚本扩展（版本 2）](/virtual-machines/extensions/custom-script-linux) |**请将此更新下载到 Linux 的自定义脚本扩展的内置版本。此扩展有多个版本，应下载 1.5.2.1 和 2.0.x。** | Microsoft | Linux |
 | ![适用于 Linux 的 VM 访问权限](media/azure-stack-marketplace-azure-items/cse.png) | [适用于 Linux 的 VM 访问权限](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/)| **请下载此更新，此更新针对适用于 Linux 的 VM 访问权限扩展的内置版本。如果计划使用 Debian Linux VM，此更新很重要。** | Microsoft | Linux |
 
@@ -60,7 +61,7 @@ Azure Stack 支持下述 Azure 市场虚拟机和解决方案模板。 请根据
 | ![免费许可证：Windows Server 2016 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免费许可证：Windows Server 2016 上的 SQL Server 2017 Express](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsqlserver.sql2017-ws2016?tab=Overview) | SQL Server 2017 的免费 Express 版本。 **所需的下载：** SQL IaaS 扩展。 | Microsoft |
 | ![Windows Server 2016 上的 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2017 Enterprise](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsqlserver.sql2017-ws2016?tab=Overview) | 适用于任务关键型智能应用程序的数据库平台。 **所需的下载：** SQL IaaS 扩展。 | Microsoft |
 | ![Windows Server 2016 上的 SQL Server 2017 Web](media/azure-stack-marketplace-azure-items/sql.png) | [Windows Server 2016 上的 SQL Server 2017 Web](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsqlserver.sql2017-ws2016?tab=Overview) | 适用于任务关键型智能应用程序的数据库平台。 **所需的下载：** SQL IaaS 扩展。 | Microsoft |
-| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Standard](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Standard](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SQLServer2017Ubuntu?tab=Overview) | 适用于任务关键型智能应用程序的数据库平台。 | Microsoft + Canonical |
+| ![Ubuntu Server 16.04 LTS 上的 SQL Server 2017](media/azure-stack-marketplace-azure-items/sql.png) | [Ubuntu Server 16.04 LTS 上的 SQL Server 2017 Enterprise](https://market.azure.cn/zh-cn/marketplace/apps/microsoftsqlserver.sql2017-ubuntu1604?tab=Overview) | 适用于任务关键型智能应用程序的数据库平台。 | Microsoft + Canonical |
 | ![免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](media/azure-stack-marketplace-azure-items/sql.png) | [免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Developer](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SQLServer2017Ubuntu?tab=Overview) | SQL Server 2017 的免费开发人员版，适用于事务处理、数据仓库、商业智能和分析型工作负荷。 | Microsoft + SUSE |
 | ![免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](media/azure-stack-marketplace-azure-items/sql.png) | [免费许可证：SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Express](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SQLServer2017Ubuntu?tab=Overview) | SQL Server 2017 的免费 Express 版本。 | Microsoft + SUSE |
 | ![SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise](media/azure-stack-marketplace-azure-items/sql.png) | [SUSE Linux Enterprise Server (SLES) 12 SP2 上的 SQL Server 2017 Enterprise](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.SQLServer2017Ubuntu?tab=Overview) | 适用于任务关键型智能应用程序的数据库平台。 | Microsoft + SUSE |

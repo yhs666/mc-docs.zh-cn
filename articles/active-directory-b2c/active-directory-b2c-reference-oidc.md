@@ -2,21 +2,22 @@
 title: 使用 OpenID Connect 进行 Web 登录 - Azure Active Directory B2C | Microsoft Docs
 description: 使用 Azure Active Directory B2C 中的 OpenID Connect 身份验证协议生成 Web 应用程序。
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 04/16/2019
-ms.date: 06/05/2019
+ms.date: 07/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: f9504161f458a9d59a990eef95c71024240ff638
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 438da054f6e9db7eeadb3b5e834e7849aabb7935
+ms.sourcegitcommit: e2af455871bba505d80180545e3c528ec08cb112
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67235952"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68391595"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>在 Azure Active Directory B2C 中使用 OpenID Connect 进行 Web 登录
 
@@ -153,7 +154,9 @@ Azure AD B2C 具有 OpenID Connect 元数据终结点，允许应用程序在运
 
 如果仅需要 Web 应用程序运行用户流，则可以跳过下面几个部分。 这些部分仅适用于需要对 Web API 进行验证的调用，以及受到 Azure AD B2C 保护的 Web 应用程序。
 
-通过将 `POST` 请求发送到 `/token` 终结点，可以将获取的授权代码（通过 `response_type=code+id_token` 获取）兑换为所需资源的令牌。 当前可以为其请求令牌的唯一资源是应用程序的后端 Web API。 用于向自己请求令牌的约定是使用应用程序的客户端 ID 作为范围：
+通过将 `POST` 请求发送到 `/token` 终结点，可以将获取的授权代码（通过 `response_type=code+id_token` 获取）兑换为所需资源的令牌。 在 Azure AD B2C 中，可以像往常一样通过在请求中指定其他 API 的范围来[为这些 API 请求访问令牌](active-directory-b2c-access-tokens.md#request-a-token)。
+
+还可以按照将应用的客户端 ID 用作所请求范围（这将导致具有该客户端 ID 的访问令牌作为“受众”）的约定，为应用自己的后端 Web API 请求访问令牌：
 
 ```
 POST fabrikamb2c.partner.onmschina.cn/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1

@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure Stack 中每个用户对资源的权限 | Microsoft Docs
-description: 作为服务管理员或租户，了解如何管理 RBAC 权限。
+description: 作为服务管理员或租户，了解如何管理基于角色的访问控制 (RBAC) 权限。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 04/29/2019
+origin.date: 07/10/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 36f2ef63b7b95e80a3cd3b6bb56fec66155669c5
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: dd121cff7724d11916268f306c16030ea9f27312
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248563"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513285"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>使用 Azure Stack 基于角色的访问控制管理对资源的访问权限
 
@@ -83,4 +83,4 @@ Azure [角色分配](/role-based-access-control/role-assignments-portal)一文�
 
 ## <a name="next-steps"></a>后续步骤
 
-[创建服务主体](azure-stack-create-service-principals.md)
+[创建服务主体](../operator/azure-stack-create-service-principals.md)

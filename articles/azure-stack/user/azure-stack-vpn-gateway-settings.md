@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 12/27/2018
-ms.date: 04/29/2019
+origin.date: 06/11/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: b708b85f6c30c2e93c44ceb325fadaf2e65aab71
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: b4506b248541fea146d0c3838bf0405372607f55
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854976"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513183"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Azure Stack 的 VPN 网关配置设置
 
@@ -35,7 +35,7 @@ VPN 网关连接依赖于多个资源的配置，每个资源都包含可配置�
 
 ### <a name="gateway-types"></a>网关类型
 
-每个 Azure Stack 虚拟网络支持单个虚拟网络网关，其类型必须是 **Vpn**。  此项支持不同于 Azure，后者可支持其他类型。  
+每个 Azure Stack 虚拟网络支持单个虚拟网络网关，其类型必须是 **Vpn**。  此项支持不同于 Azure，后者可支持其他类型。
 
 创建虚拟网络网关时，必须确保用于配置的网关类型正确。 VPN 网关需要 `-GatewayType Vpn` 标志，例如：
 
@@ -51,17 +51,17 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 Azure Stack 提供下表中显示的 VPN 网关 SKU。
 
-|   | VPN 网关吞吐量 |VPN 网关最大 IPsec 隧道数 |
+| | VPN 网关吞吐量 |VPN 网关最大 IPsec 隧道数 |
 |-------|-------|-------|
 |**基本 SKU**  | 100 Mbps  | 20 个    |
-|**标准 SKU**           | 100 Mbps  | 20 个    |
-|**高性能 SKU** | 200 Mbps    | 10 个    |
+|**标准 SKU**   | 100 Mbps  | 20 个 |
+|**高性能 SKU** | 200 Mbps | 10 个 |
 
 ### <a name="resizing-gateway-skus"></a>调整网关 SKU 大小
 
 Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
-同样，Azure Stack 不支持将大小从支持的旧式 SKU（基本、标准和高性能）调整为 Azure 所支持的新式 SKU（VpnGw1、VpnGw2 和 VpnGw3）。
+同样，Azure Stack 不支持将大小从支持的旧式 SKU（**基本**、**标准**和**高性能**）调整为 Azure 所支持的新式 SKU（**VpnGw1**、**VpnGw2** 和 **VpnGw3**）。
 
 ### <a name="configure-the-gateway-sku"></a>配置网关 SKU
 
@@ -71,7 +71,7 @@ Azure Stack 不支持在所支持的旧式 SKU 之间调整 SKU 大小。
 
 #### <a name="powershell"></a>PowerShell
 
-以下 PowerShell 示例将 **-GatewaySku** 指定为 `VpnGw1`：
+以下 PowerShell 示例将 `-GatewaySku` 指定为 **VpnGw1**：
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -81,9 +81,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 
 ### <a name="connection-types"></a>连接类型
 
-在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 **-ConnectionType** 的可用资源管理器 PowerShell 值为：
+在 Resource Manager 部署模型中，每个配置都需要特定的虚拟网络网关连接类型。 `-ConnectionType` 的可用 Resource Manager PowerShell 值为：
 
-* IPsec
+* **IPsec**
 
    以下 PowerShell 示例创建需要 IPsec 连接类型的 S2S 连接：
 
@@ -107,9 +107,9 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
   >[!NOTE]
   >**PolicyBased** 在 Azure 中受支持，但在 Azure Stack 中不受支持。
 
-* **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
+* **RouteBased**：RouteBased VPN 使用 IP 转发或路由表中配置的路由将数据包定向到相应的隧道接口。 然后，隧道接口会加密或解密出入隧道的数据包。 **RouteBased** VPN 的策略或流量选择器配置为任意到任意（或使用通配符）。 默认情况下，无法更改这些 VPN。 **RouteBased** VPN 类型的值为 **RouteBased**。
 
-以下 PowerShell 示例将 **-VpnType** 指定为 **RouteBased**。 创建网关时，必须确保用于配置的 **-VpnType** 正确。
+以下 PowerShell 示例将 `-VpnType` 指定为 **RouteBased**。 创建网关时，必须确保 `-VpnType` 符合你的配置。
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
@@ -124,7 +124,7 @@ New-AzureRmVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 | |基于策略的基本 VPN 网关 | 基于路由的基本 VPN 网关 | 基于路由的标准 VPN 网关 | 基于路由的高性能 VPN 网关|
 |--|--|--|--|--|
 | **站点到站点连接（S2S 连接）** | 不支持 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 | 基于路由的 VPN 配置 |
-| **身份验证方法**  | 不支持 | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  |   
+| **身份验证方法**  | 不支持 | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  | S2S 连接的预先共享密钥  |
 | **S2S 连接的最大数目**  | 不支持 | 20 个 | 20 个| 10 个|
 |**活动路由支持 (BGP)** | 不支持 | 不支持 | 支持 | 支持 |
 
@@ -188,7 +188,7 @@ Azure Stack 默认情况下仅支持一个套餐，这与 Azure 不同，后者�
 |加密和哈希算法（身份验证） | GCMAES256|
 |SA 生存期（时间）  | 27,000 秒  |
 |SA 生存期（千字节） | 33,553,408     |
-|完全向前保密 (PFS) |无<sup>请参阅注释 1</sup> |
+|完全向前保密 (PFS) |无（请参阅注释 1） |
 |死对等体检测 | 支持|  
 
 * *注释 1：* 在版本 1807 以前，Azure Stack 使用值 PFS2048 作为“完全向前保密(PFS)”值。

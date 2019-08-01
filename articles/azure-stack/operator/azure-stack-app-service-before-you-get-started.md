@@ -12,26 +12,26 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 04/29/2019
+origin.date: 05/28/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: anwestg
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3bfd6c1bcdfaf0993fa2726dee7c38e82f23e79d
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: 588e454d0df72870b0872b9ad792f36a2f2d6279
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529636"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513496"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>在 Azure Stack 上开始使用应用服务之前
 
-适用于：Azure Stack 集成系统和 Azure Stack 开发工具包
+适用于：  Azure Stack 集成系统和 Azure Stack 开发工具包
 
 在 Azure Stack 上部署 Azure 应用服务之前，必须完成本文中的先决条件步骤。
 
 > [!IMPORTANT]
-> 请将 1901 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.5。
+> 请将 1904 更新应用于 Azure Stack 集成系统，或部署最新的 Azure Stack 开发工具包 (ASDK)，然后部署 Azure 应用服务 1.6。
 
 ## <a name="download-the-installer-and-helper-scripts"></a>下载安装程序与帮助器脚本
 
@@ -177,7 +177,7 @@ Azure Stack 上的 Azure 应用服务需要文件服务器和 SQL Server 才能�
 
 如果选择将资源部署在 Azure Stack 默认提供程序订阅内部，则这些资源的许可证（Windows Server 许可证和 SQL Server 许可证）会包括在 Azure Stack 上的 Azure 应用服务的成本中，但会受到以下约束：
 
-- 基础结构部署到“默认提供程序订阅”中；
+- 基础结构部署到“默认提供程序订阅”中； 
 - 基础结构由 Azure Stack 资源提供程序上的 Azure 应用服务独占使用。  任何其他工作负荷、管理程序（其他资源提供程序，例如 SQL-RP）或租户（例如需要数据库的租户应用程序）都无权使用此基础结构。
 
 ## <a name="prepare-the-file-server"></a>准备文件服务器
@@ -197,6 +197,9 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 >[!IMPORTANT]
 > 如果选择在现有虚拟网络中部署应用服务，应将文件服务器部署到独立于应用服务的子网中。
 
+>[!NOTE]
+> 如果已选择使用上述任一快速入门模板部署文件服务器，则可以跳过此部分，因为在部署模板的过程中已配置文件服务器。
+
 #### <a name="provision-groups-and-accounts-in-active-directory"></a>在 Active Directory 中预配组和帐户
 
 1. 创建以下 Active Directory 全局安全组：
@@ -211,9 +214,9 @@ Azure 应用服务需要使用文件服务器。 在生产部署中，必须将�
 
    根据安全最佳做法，这些帐户（以及所有 Web 角色）的用户应该各不相同，并采用强用户名和密码。 根据以下条件设置密码：
 
-   - 启用“密码永不过期”。
-   - 启用“用户不能更改密码”。
-   - 禁用“用户在下次登录时必须更改密码”。
+   - 启用“密码永不过期”。 
+   - 启用“用户不能更改密码”。 
+   - 禁用“用户在下次登录时必须更改密码”。 
 
 3. 如下所述将帐户添加到组成员身份：
 
@@ -297,6 +300,9 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 ## <a name="prepare-the-sql-server-instance"></a>准备 SQL Server 实例
 
+>[!NOTE]
+> 如果已选择为高度可用的文件服务器和 SQL Server 部署快速入门模板，则可以跳过本部分，因为模板会在 HA 配置中部署和配置 SQL Server。
+
 对于 Azure Stack 上的 Azure 应用服务托管和计量数据库，必须准备 SQL Server 实例，用于存放应用服务数据库。
 
 对于 Azure Stack 开发工具包部署，可以使用 SQL Server Express 2014 SP2 或更高版本。
@@ -307,7 +313,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 > [!NOTE]
 > 可通过市场管理功能获取许多 SQL IaaS 虚拟机映像。 在使用市场项部署 VM 之前，请确保下载最新版本的 SQL IaaS 扩展。 SQL 映像与 Azure 中提供的 SQL VM 相同。 对于从这些映像创建的 SQL VM，IaaS 扩展和相应的门户增强功能可提供自动修补和备份等功能。
-> 
+>
 > 对于任何 SQL Server 角色，可以使用默认实例或命名实例。 如果使用命名实例，请务必手动启动 SQL Server Browser 服务并打开端口 1434。
 
 应用服务安装程序将检查以确保 SQL Server 已启用数据库包含。 若要在将托管应用服务数据库的 SQL Server 上启用数据库包含，请运行以下 SQL 命令：
@@ -343,16 +349,16 @@ GO
 2. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
 3. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 运行 **Create-AADIdentityApp.ps1** 脚本。 根据提示输入部署 Azure Stack 时使用的 Azure AD 租户 ID。 例如，输入 **myazurestack.partner.onmschina.cn**。
-5. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。 选择“确定” 。
+5. 在“凭据”窗口中，输入 Azure AD 服务管理帐户和密码。  选择“确定”  。
 6. 输入[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 7. 此脚本在租户 Azure AD 实例中创建新的应用程序。 请记下 PowerShell 输出中返回的应用程序 ID。 安装期间需要此信息。
 8. 打开新的浏览器窗口，以 Azure Active Directory 服务管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 9. 打开 Azure AD 资源提供程序。
-10. 选择“应用注册”。
+10. 选择“应用注册”  。
 11. 搜索步骤 7 返回的应用程序 ID。 随即会列出应用服务应用程序。
-12. 在列表中选择“应用程序”。
+12. 在列表中选择“应用程序”。 
 13. Select <bpt id="p1">**</bpt>Settings<ept id="p1">**</ept>.
-14. 选择“所需的权限” > “授予权限” > “是”。
+14. 选择“所需的权限” > “授予权限” > “是”    。
 
 ```powershell
     Create-AADIdentityApp.ps1
@@ -387,7 +393,7 @@ GO
 2. 转到在[先决条件步骤](azure-stack-app-service-before-you-get-started.md)中下载并提取的脚本所在的位置。
 3. [安装适用于 Azure Stack 的 PowerShell](azure-stack-powershell-install.md)。
 4. 运行 **Create-ADFSIdentityApp.ps1** 脚本。
-5. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。 选择“确定” 。
+5. 在“凭据”窗口中，输入 AD FS 云管理帐户和密码。  选择“确定”  。
 6. 提供[前面创建的证书](azure-stack-app-service-before-you-get-started.md)的证书文件路径和证书密码。 默认情况下值，为此步骤创建的证书是 **sso.appservice.local.azurestack.external.pfx**。
 
 ```powershell

@@ -4,17 +4,17 @@ description: 排查在 Azure 虚拟机、Service Fabric 或云服务中使用 Az
 services: azure-monitor
 author: lingliw
 ms.service: azure-monitor
-ms.devlang: dotnet
+ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 05/08/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 554ed751497c21cd478baaeb2452d2fe5dba61c1
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: f41d4bbfdfe0f15e715c116e292b58730b114d23
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135722"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513791"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure 诊断故障排除
 本文介绍有关使用 Azure 诊断的故障排除信息。 有关 Azure 诊断的详细信息，请参阅 [Azure 诊断概述](diagnostics-extension-overview.md)。

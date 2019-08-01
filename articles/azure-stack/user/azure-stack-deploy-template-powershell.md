@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 中使用 PowerShell 部署模板 | Microsoft Docs
-description: 使用 PowerShell 将模板部署到 Azure Stack。
+description: 在 Azure Stack 中使用 PowerShell 部署模板。
 services: azure-stack
 documentationcenter: ''
 author: WenJason
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 04/29/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: b1cdb4388422c367d34229c08faed5a05458023c
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 41c69b50ec980b2cb134e1c7550061166b542f48
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854895"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513328"
 ---
-# <a name="deploy-a-template-to-azure-stack-using-powershell"></a>使用 PowerShell 将模板部署到 Azure Stack
+# <a name="deploy-a-template-using-powershell-in-azure-stack"></a>在 Azure Stack 中使用 Powershell 部署模板
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
@@ -66,8 +66,8 @@ ms.locfileid: "64854895"
     >[!IMPORTANT]
     > 每次运行此脚本时，都应递增 `$myNum` 参数的值，以避免覆盖你的部署。
 
-4. 打开 Azure Stack 门户，选择“浏览”，然后选择“虚拟机”以查找新虚拟机 (**myDeployment001**)。
+4. 打开 Azure Stack 门户，选择“浏览”  ，然后选择“虚拟机”  以查找新虚拟机 (**myDeployment001**)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
+- [使用 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)

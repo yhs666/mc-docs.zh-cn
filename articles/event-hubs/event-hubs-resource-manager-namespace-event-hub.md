@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1f0ffadd4261988629a53a4cdb016e4678655a8e
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: a78e9822ecc012328abc3051b77a8396c9dcc277
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560294"
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371757"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 
@@ -32,17 +32,79 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ## <a name="create-an-event-hub"></a>创建事件中心
 
-在此快速入门中，使用[现有资源管理器模板](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)。
-
+本快速入门使用[现有快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)：
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectName":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies a project name that is used to generate the Event Hub name and the Namespace name."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specifies the Azure location for all resources."
+      }
+    },
+    "eventHubSku": {
+      "type": "string",
+      "allowedValues": [ "Basic", "Standard" ],
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "Specifies the messaging tier for service Bus namespace."
+      }
+    }
+  },
+  "variables": {
+    "eventHubNamespaceName": "[concat(parameters('projectName'), 'ns')]",
+    "eventHubName": "[parameters('projectName')]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "type": "Microsoft.EventHub/namespaces",
+      "name": "[variables('eventHubNamespaceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('eventHubSku')]",
+        "tier": "[parameters('eventHubSku')]",
+        "capacity": 1
+      },
+      "properties": {
+        "isAutoInflateEnabled": false,
+        "maximumThroughputUnits": 0
+      }
+    },
+    {
+      "apiVersion": "2017-04-01",
+      "type": "Microsoft.EventHub/namespaces/eventhubs",
+      "name": "[concat(variables('eventHubNamespaceName'), '/', variables('eventHubName'))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('eventHubNamespaceName'))]"
+      ],
+      "properties": {
+        "messageRetentionInDays": 7,
+        "partitionCount": 1
+      }
+    }
+  ]
+}
+```
 若要部署模板，请执行以下操作：
 
 1. 从以下代码块中选择“试用”  ，然后按照说明登录 Azure CLI。
 
-   ```azurepowershell-interactive
+   ```azurepowershell
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+   $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
    $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
    New-AzResourceGroup -Name $resourceGroupName -Location $location
    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
@@ -73,7 +135,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-```azurepowershell-interactive
+```azurepowershell
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
 $resourceGroupName = "${projectName}rg"
 

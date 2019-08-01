@@ -6,13 +6,13 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/20/2019
-ms.date: 06/17/2019
-ms.openlocfilehash: 460016b9a0ddb428d5be09095755ed41fbe4f1a7
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.date: 07/29/2019
+ms.openlocfilehash: 2c316de7a637d2d42220a3d941b63dec36c1622f
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151511"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514335"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
@@ -51,7 +51,7 @@ Azure Cosmos DB 提供的综合 SLA 可保证 100% 的读取请求满足所选�
 
     有限过期提供全局整体顺序，但在“过期窗口”中除外。 过期窗口内部和外部的区域中提供单调读取保证。 非常一致性的语义与有限过期提供的语义相同。 过期窗口等于零。 有限过期也称为“延时可线性化”。 当客户端在接受写入的区域中执行读取操作时，有限过期一致性提供的保证与非常一致性的保证相同。
 
-- **会话一致性**：保证读取操作遵循一致前缀（假定一个“writer”会话）、单调读取、单调写入、读取写入和读取后写入保证。 会话一致性划归到客户端会话。
+- **会话一致性**：在单个客户端会话中，保证读取操作遵循一致前缀（假定一个“writer”会话）、单调读取、单调写入、读取写入和读取后写入保证。 执行写入操作的会话之外的客户端将看到最终一致性。
 
 - 一致前缀  ：返回的更新包含所有更新的一些前缀，不带间隔。 一致前缀一致性级别保证读取操作永远不会看到无序写入。
 

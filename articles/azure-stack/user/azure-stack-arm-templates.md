@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/21/2019
-ms.date: 04/29/2019
+origin.date: 06/04/2019
+ms.date: 07/29/2019
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 278cfbea2962e60f0edb13847982e045888abd69
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 38bc20de4ee4145eb1338d43f36f4e48e244a6f2
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854593"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513356"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -32,11 +32,11 @@ ms.locfileid: "64854593"
 
 可通过 Azure Stack 门户、PowerShell、命令行和 Visual Studio 部署这些模板。
 
-[GitHub](https://aka.ms/azurestackgithub) 中提供了以下快速入门模板：
+[GitHub 中提供了](https://aka.ms/azurestackgithub)以下快速入门模板：
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>部署 SharePoint Server（非高可用性部署）
 
-使用 PowerShell DSC 扩展[创建包含以下资源的 SharePoint Server 2013 场](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)：
+使用 PowerShell [Desired State Configuration](/powershell/dsc/overview/overview) (DSC) 扩展[创建包含以下资源的 SharePoint Server 2013 场](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha)：
 
 * 虚拟网络
 * 三个存储帐户
@@ -78,9 +78,11 @@ ms.locfileid: "64854593"
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell cmdlet。
+若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](/powershell/developer/cmdlet/cmdlet-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 
 * [通过门户部署模板](azure-stack-deploy-template-portal.md)
+* [通过 PowerShell 部署模板](azure-stack-deploy-template-powershell.md)
+* [通过 Visual Studio 部署模板](azure-stack-deploy-template-visual-studio.md)
 * [Azure Resource Manager 概述](/azure-resource-manager/resource-group-overview)

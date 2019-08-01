@@ -11,20 +11,20 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 06/03/2019
+ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/08/2019
-ms.openlocfilehash: fc9c9fbeda5c9fc967fddaffc0e359c94bb7fd8d
-ms.sourcegitcommit: 77d6ceb6a14a3316a6088859c4d9978115b2454a
+ms.openlocfilehash: ecf896916f644bed3d53a3880a7409cb6df56f70
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66248523"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513251"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Azure Stack 中的配置文件支持的资源提供程序 API 版本
 
-可以在本文中找到 Azure Stack 使用的每个 API 配置文件的资源提供程序和版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。 
+可以在本文中找到 Azure Stack 使用的每个 API 配置文件的资源提供程序和版本号。 本文中的表格列出了每个资源提供程序支持的版本以及配置文件的 API 版本。 每个资源提供程序包含一组资源类型和特定的版本号。
 
 API 配置文件使用三个命名约定：
 
@@ -34,10 +34,10 @@ API 配置文件使用三个命名约定：
 
 有关 Azure Stack 的 API 配置文件和版本发布频率的说明，请参阅[在 Azure Stack 中管理 API 版本配置文件](azure-stack-version-profiles.md)。
 
-> [!Note]  
+> [!Note]
 > **最新** API 配置文件包含最新版资源提供程序 API，未在本文中列出。
 
-## <a name="overview-of-2019---03-01-hybrid"></a>2019 - 03-01-hybrid 的概述
+## <a name="overview-of-the-2019-03-01-hybrid-profile"></a>2019-03-01-hybrid 配置文件概述
 
 | 资源提供程序 | Api-version |
 |-----------------------------------------------|-----------------------------------------------------|
@@ -51,9 +51,9 @@ API 配置文件使用三个命名约定：
 | Microsoft.Authorization（策略操作） | 2016-09-01 |
 | Microsoft.Insights | 2018-01-01 |
 
-有关 API 配置文件中提供程序的每种资源类型的版本列表，请参阅 [2019-03-01-hybrid 配置文件的详细信息](#details-for-the-2019-03-01-hybrid)。
+有关 API 配置文件中提供程序的每种资源类型的版本列表，请参阅 [2019-03-01-hybrid 配置文件的详细信息](#details-for-the-2019-03-01-hybrid-profile)。
 
-## <a name="details-for-the-2019-03-01-hybrid"></a>2019-03-01-hybrid 的详细信息
+## <a name="details-for-the-2019-03-01-hybrid-profile"></a>2019-03-01-hybrid 配置文件的详细信息
 
 ### <a name="microsoftauthorization"></a>Microsoft.Authorization
 

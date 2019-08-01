@@ -15,71 +15,71 @@ ms.topic: article
 origin.date: 11/14/2017
 ms.date: 03/19/2018
 ms.author: v-yiso
-ms.openlocfilehash: 665d210e2a5697322d6356784399fecd5b65e03c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 84889decde01aadbe28fcb8bcbd8bb066134b884
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661483"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514432"
 ---
-# <a name="configure-service-health-alerts-with-opsgenie"></a>使用 OpsGenie 配置服务运行状况警报
+# <a name="send-azure-service-health-alerts-with-opsgenie-using-webhooks"></a>使用 Webhook 通过 OpsGenie 发送 Azure 服务运行状况警报
 
 本文介绍如何使用 Webhook，通过 OpsGenie 设置 Azure 服务运行状况警报。 可以通过 [OpsGenie](https://www.opsgenie.com/) 的 Azure 服务运行状况集成，将 Azure 服务运行状况警报转发到 OpsGenie。 OpsGenie 根据值勤计划来确定要通知的适当人员，使用电子邮件、短信 (SMS)、电话、iOS 和 Android 推送通知以及升级警报向他们发出通知，直到这些人员确认收到警报或将其关闭。
 
 ## <a name="creating-a-service-health-integration-url-in-opsgenie"></a>在 OpsGenie 中创建服务运行状况集成 URL
 1.  请确保已注册并登录到 [OpsGenie](https://www.opsgenie.com/) 帐户。
 
-2.  在 OpsGenie 中导航到“集成”部分。
+2.  在 OpsGenie 中导航到“集成”部分。 
 
     ![OpsGenie 中的“集成”部分](./media/webhook-alerts/opsgenie-integrations-section.png)
 
-3.  选择“Azure 服务运行状况”集成按钮。
+3.  选择“Azure 服务运行状况”  集成按钮。
 
     ![OpsGenie 中的“Azure 服务运行状况按钮”](./media/webhook-alerts/opsgenie-azureservicehealth-button.png)
 
-4.  为警报**命名**，并指定“分配到团队”字段。
+4.  为警报**命名**，并指定“分配到团队”字段。 
 
-5.  填写其他字段，例如“收件人”、“启用”、“禁止显示通知”。
+5.  填写其他字段，例如“收件人”、“启用”、“禁止显示通知”。   
 
-6.  复制并保存“集成 URL”，其中应该已经包含追加到末尾的 `apiKey`。
+6.  复制并保存“集成 URL”，其中应该已经包含追加到末尾的 `apiKey`。 
 
     ![OpsGenie 中的“集成 URL”](./media/webhook-alerts/opsgenie-integration-url.png)
 
-7.  选择“保存集成”
+7.  选择“保存集成” 
 
 ## <a name="create-an-alert-using-opsgenie-in-the-azure-portal"></a>在 Azure 门户中使用 OpsGenie 创建警报
 ### <a name="for-a-new-action-group"></a>对于新操作组：
-1. 执行[使用 Azure 门户为新操作组创建有关服务运行状况通知的警报](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md)中的步骤 1 到步骤 8。
+1. 执行[使用 Azure 门户为新操作组创建有关服务运行状况通知的警报](../azure-monitor/platform/alerts-activity-log-service-notifications.md)中的步骤 1 到步骤 8。
 
-2. 在“操作”列表中定义：
+2. 在“操作”  列表中定义：
 
-    a. **操作类型：***Webhook*
+    a. **操作类型：** *Webhook*
 
-    b. **详细信息：** 前面保存的 OpsGenie **集成 URL**。
+    b. **详细信息：** 前面保存的 OpsGenie 集成 URL  。
 
     c. **名称：** Webhook 的名称、别名或标识符。
 
-3. 警报创建完成后，选择“保存”。
+3. 警报创建完成后，选择“保存”  。
 
 ### <a name="for-an-existing-action-group"></a>对于现有操作组：
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“监视”。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“监视”  。
 
-2. 在“设置”部分中，选择“操作组”。
+2. 在“设置”  部分中，选择“操作组”  。
 
 3. 找到要编辑的操作组并选择它。
 
-4. 添加到“操作”列表：
+4. 添加到“操作”  列表：
 
-    a. **操作类型：***Webhook*
+    a. **操作类型：** *Webhook*
 
-    b. **详细信息：** 前面保存的 OpsGenie **集成 URL**。
+    b. **详细信息：** 前面保存的 OpsGenie 集成 URL  。
 
     c. **名称：** Webhook 的名称、别名或标识符。
 
-5. 操作组更新完成后，选择“保存”。
+5. 操作组更新完成后，选择“保存”  。
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>通过 HTTP POST 请求测试 Webhook 集成
-1. 创建要发送的服务运行状况有效负载。 可以在 [Azure 活动日志警报的 Webhook](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md) 中找到示例服务运行状况 Webhook 有效负载。
+1. 创建要发送的服务运行状况有效负载。 可以在 [Azure 活动日志警报的 Webhook](../azure-monitor/platform/activity-log-alerts-webhook.md) 中找到示例服务运行状况 Webhook 有效负载。
 
 2. 按如下所示创建 HTTP POST 请求：
 
@@ -96,6 +96,6 @@ ms.locfileid: "52661483"
 
 ## <a name="next-steps"></a>后续步骤
 - 了解如何[为现有问题管理系统配置 Webhook 通知](service-health-alert-webhook-guide.md)。
-- 查看[活动日志警报 webhook 架构](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md)。 
-- 了解[服务运行状况通知](../monitoring-and-diagnostics/monitoring-service-notifications.md)。
-- 详细了解[操作组](../monitoring-and-diagnostics/monitoring-action-groups.md)。
+- 查看[活动日志警报 webhook 架构](../azure-monitor/platform/activity-log-alerts-webhook.md)。 
+- 了解[服务运行状况通知](../azure-monitor/platform/service-notifications.md)。
+- 详细了解[操作组](../azure-monitor/platform/action-groups.md)。

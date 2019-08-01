@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 03/29/2019
-ms.date: 06/03/2019
+ms.date: 07/22/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: ''
-ms.lastreviewed: 03/29/2019
-ms.openlocfilehash: 03910b087f82717ae32a79e2fc75f676e7ba9b78
-ms.sourcegitcommit: 87e9b389e59e0d8f446714051e52e3c26657ad52
+ms.lastreviewed: 05/14/2019
+ms.openlocfilehash: 330ea8bd7658e16da05508ba5f145f2deffa23a7
+ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66381929"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513440"
 ---
 # <a name="azure-stack-overview"></a>Azure Stack 概述
 
@@ -77,17 +77,17 @@ Azure Stack 提供两个部署选项来满足需求 - 用于生产的 Azure Stac
 > 有关详细信息，请参阅有关[联网](azure-stack-connected-deployment.md)和[离线](azure-stack-disconnected-deployment.md)部署模型的注意事项。 
 
 ### <a name="identity-provider"></a>标识提供者 
-Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 作为标识提供者来建立 Azure Stack 标识。 
+Azure Stack 使用 Azure Active Directory (Azure AD) 或 Active Directory 联合身份验证服务 (AD FS) 提供标识。 Azure AD 是 Microsoft 的基于云的多租户标识提供者。 使用 Internet 联网部署的大多数混合方案都使用 Azure AD 作为标识存储。 
+
+对于断开连接的 Azure Stack 部署，需要使用 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack 资源提供程序和其他应用程序以类似方式使用 AD FS 或 Azure AD。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。
 
 > [!IMPORTANT]
-> 这是关键决策点！ 选择 Azure AD 还是 AD FS 作为标识提供者是部署时必须做出的一次性决策。 以后，除非重新部署整个系统，否则将无法更改此设置。
-
-Azure AD 是 Azure 的基于云的多租户标识提供者。 使用 Internet 联网部署的大多数混合方案都使用 Azure AD 作为标识存储。 但是，对于 Azure Stack 的离线部署，可以选择使用 Active Directory 联合身份验证服务 (AD FS)。 Azure Stack、资源提供者和其他应用程序使用 AD FS 的方式与它们使用 Azure AD 的方式非常类似。 Azure Stack 包含自身的 Active Directory 实例，另外还包含 Active Directory 图形 API。 
+> 部署后将无法更改标识提供者。 若要使用其他标识提供者，需要重新部署 Azure Stack。
 
 > 可以在 [Azure Stack 的标识概述](azure-stack-identity-overview.md)中详细了解 Azure Stack 标识注意事项。
 
 ## <a name="how-is-azure-stack-managed"></a>如何管理 Azure Stack？
-在集成式系统部署或 ASDK 安装中部署 Azure Stack 后，与 Azure Stack 交互的主要方法是使用管理门户、用户门户和 PowerShell。 每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack 操作员**可以使用管理门户来管理 Azure Stack，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 
+可以通过管理门户、用户门户或 [PowerShell](https://docs.microsoft.com/powershell/azure/azure-stack/overview?view=azurestackps-1.7.1) 来管理 Azure Stack。 每个 Azure Stack 门户由 Azure 资源管理器的单独实例提供支持。 **Azure Stack 操作员**可以使用管理门户来管理 Azure Stack，以及执行如下所述的操作：创建租户套餐，保持集成式系统的运行状况及监视其状态。 用户门户（也称为租户门户）提供自助服务体验让用户使用云资源，例如虚拟机、存储帐户和 Web 应用。 
 
 > 有关使用管理门户管理 Azure Stack 的详细信息，请参阅 [Azure Stack 管理门户快速入门](azure-stack-manage-portals.md)。
 
@@ -103,14 +103,14 @@ Azure Stack 操作员可以提供各种服务和应用程序，例如[虚拟机]
 资源提供程序属于 Web 服务，构成了所有 Azure Stack IaaS 和 PaaS 服务的基础。 Azure 资源管理器依靠不同的资源提供程序提供对服务的访问。 每个资源提供程序可帮助你配置和控制其相应资源。 服务管理员还可以添加新的自定义资源提供程序。 
 
 ### <a name="foundational-resource-providers"></a>基础资源提供程序 
-有三个基础 IaaS 资源提供程序：计算、网络和存储：
+有三个基础 IaaS 资源提供程序： 
 
-- **计算**。 Azure Stack 租户可以使用计算资源提供程序创建自己的虚拟机。 计算资源提供程序包括创建虚拟机和虚拟机扩展的功能。 虚拟机扩展服务可帮助提供适用于 Windows 和 Linux 虚拟机的 IaaS 功能。  例如，可以使用计算资源提供程序预配一个 Linux 虚拟机，并在部署期间运行 Bash 脚本来配置该 VM。
+- **计算**。 Azure Stack 租户可以使用计算资源提供程序创建自己的虚拟机。 计算资源提供程序包括创建虚拟机和虚拟机扩展的功能。 虚拟机扩展服务可帮助提供适用于 Windows 和 Linux 虚拟机的 IaaS 功能。 例如，可以使用计算资源提供程序预配一个 Linux 虚拟机，并在部署期间运行 Bash 脚本来配置该 VM。
 - **网络资源提供程序**。 网络资源提供程序为私有云提供了一系列软件定义的网络 (SDN) 和网络功能虚拟化 (NFV) 功能。 可以使用网络资源提供程序创建软件负载均衡器、公共 IP、网络安全组和虚拟网络等资源。
-- **存储资源提供程序**。 存储资源提供程序提供四个 Azure 一致性存储服务：[Blob](/storage/common/storage-introduction#blob-storage)、[队列](/storage/common/storage-introduction#queue-storage)、[表](/storage/common/storage-introduction#table-storage)和 KeyVault 帐户管理（提供密码和证书等机密的管理与审核）。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
+- **存储资源提供程序**。 存储资源提供程序提供四个 Azure 一致性存储服务：[Blob](/storage/common/storage-introduction#blob-storage)、[队列](/storage/common/storage-introduction#queue-storage)、[表](/storage/common/storage-introduction#table-storage)和 [KeyVault](/key-vault/) 帐户管理（提供密码和证书等机密的管理与审核）。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
 
 ### <a name="optional-resource-providers"></a>可选的资源提供程序
-在 Azure Stack 中可以部署和使用三个可选的 PaaS 资源提供程序：应用服务、SQL Server 和 MySQL Server 资源提供程序：
+在 Azure Stack 中可以部署和使用三个可选的 PaaS 资源提供程序： 
 
 - **应用服务**。 [Azure Stack 上的 Azure 应用服务](azure-stack-app-service-overview.md)是 Azure 的一种可用于 Azure Stack 的平台即服务 (PaaS) 产品。 该服务可让你的内部或外部客户为任何平台或设备创建 Web 应用、API 应用和 Azure Functions 应用程序。 
 - **SQL Server**。 使用 [SQL Server 资源提供程序](azure-stack-sql-resource-provider.md)将 SQL 数据库作为 Azure Stack 的一项服务提供。 安装资源提供程序并将其连接到一个或多个 SQL Server 实例后，你和你的用户可以创建云原生应用的数据库、使用 SQL 的网站，以及使用 SQL 的其他工作负荷。
