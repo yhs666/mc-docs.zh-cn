@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 1432cc77c70488300789be0236a28964c2678831
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: c7c344dea9c8b81656f2250880f8f797aa2cdf77
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732357"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513996"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Azure 指标资源管理器入门
 
@@ -59,6 +59,8 @@ Azure Monitor 指标资源管理器是 Microsoft Azure 门户的一个组件，�
 
 - **拆分**控制图表是要对每个维度值显示单独的行，还是要将这些值聚合到一行。 例如，可以在一行中查看所有服务器实例的平均响应时间，也可以在不同的行中查看每台服务器的此项指标。 需要对“服务器实例”维度应用拆分才能查看单独的行。 
 
+请查看应用了筛选和拆分的[图表的示例](metric-chart-samples.md)。 本文介绍了用于配置图表的步骤。
+
 ## <a name="advanced-chart-settings"></a>高级图表设置
 
 可以自定义图表样式、标题，以及修改高级图表设置。 完成自定义后，请将图表固定到仪表板以保存所做的工作。 还可以配置指标警报。 请参阅[产品文档](metrics-charts.md)来了解 Azure Monitor 指标资源管理器的上述功能和其他高级功能。
@@ -66,4 +68,6 @@ Azure Monitor 指标资源管理器是 Microsoft Azure 门户的一个组件，�
 ## <a name="next-steps"></a>后续步骤
 
 * [了解指标资源管理器的高级功能](metrics-charts.md)
+* [对指标资源管理器进行故障排除](metrics-troubleshoot.md)
 * [查看 Azure 服务的可用指标列表](metrics-supported.md)
+* [查看已配置的图表示例](metric-chart-samples.md)

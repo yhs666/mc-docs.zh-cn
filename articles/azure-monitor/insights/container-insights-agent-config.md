@@ -11,25 +11,31 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/19
+ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 55d9515176b9da5db0fdbe16491f949c29ab6fc5
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 6c737389b8bfd6b60c7b516066651ec3e8ef3b3a
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562985"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513816"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>配置用于容器的 Azure Monitor 的代理数据收集
 
-用于容器的 Azure Monitor 通过容器化的代理，从托管在 Azure Kubernetes 服务 (AKS) 上的托管 Kubernetes 群集中部署的容器工作负荷收集 stdout、stderr 和环境变量。 可以创建一个自定义的 Kubernetes ConfigMap 用于控制此体验，以配置代理数据收集设置。 本文演示如何根据要求创建 ConfigMap 和配置数据收集。
+用于容器的 Azure Monitor 通过容器化的代理，从托管在 Azure Kubernetes 服务 (AKS) 上的托管 Kubernetes 群集中部署的容器工作负荷收集 stdout、stderr 和环境变量。 此代理还可以使用容器化代理从 Prometheus 收集时序数据（也称为指标），而无需设置和管理 Prometheus 服务器与数据库。 可以创建一个自定义的 Kubernetes ConfigMap 用于控制此体验，以配置代理数据收集设置。 
+
+本文演示如何根据要求创建 ConfigMap 和配置数据收集。
+
+>[!NOTE]
+>目前，对 Prometheus 的支持是公共预览版中的一项功能。
+>
 
 ## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>使用自定义数据收集设置配置群集
 
 我们已提供一个模板 ConfigMap 文件，你可以使用自定义内容轻松编辑此文件，而无需从头开始创建。 在开始之前，请查看有关 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) 的 Kubernetes 文档，并熟悉如何创建、配置和部署 ConfigMap。 这样，就可以按命名空间或者在整个群集中筛选 stderr 和 stdout，以及筛选在所有群集 pod/节点中运行的任何容器的环境变量。
 
 >[!IMPORTANT]
->此功能支持的最低代理版本是 microsoft/oms:ciprod06142019 或更高版本。 
+>支持从容器工作负荷收集 stdout、stderr 和环境变量的最低代理版本为 ciprod06142019 或以上。 支持擦除 Prometheus 指标的最低代理版本为 ciprod07092019 或以上。 若要验证代理版本，请在“节点”选项卡中选择一个节点，然后在属性窗格中记下“代理映像标记”属性的值。    
 
 ### <a name="overview-of-configurable-data-collection-settings"></a>可配置的数据收集设置概述
 
@@ -44,6 +50,29 @@ ms.locfileid: "67562985"
 |`[log_collection_settings.stderr] enabled =` |布尔 | true 或 false |此设置控制是否启用 stderr 容器日志收集。 如果设置为 `true` 且未在 stdout 日志收集中排除任何命名空间（`log_collection_settings.stderr.exclude_namespaces` 设置），则会从所有群集 pod/节点中的所有容器收集 stderr 日志。 如果未在 ConfigMap 中指定，默认值为 `enabled = true`。 |
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |逗号分隔的数组 |不收集其 stderr 日志的 Kubernetes 命名空间数组。 仅当 `log_collection_settings.stdout.enabled` 设置为 `true` 时，此设置才会生效。 如果未在 ConfigMap 中指定，默认值为 `exclude_namespaces = ["kube-system"]`。 |
 | `[log_collection_settings.env_var] enabled =` |布尔 | true 或 false | 此设置控制是否启用环境变量收集。 如果设置为 `false`，则不会收集所有群集 pod/节点中运行的任何容器的环境变量。 如果未在 ConfigMap 中指定，默认值为 `enabled = true`。 |
+
+## <a name="overview-of-configurable-prometheus-scraping-settings"></a>可配置的 Prometheus 擦除设置概述
+
+从以下两个角度之一执行从 Prometheus 主动擦除指标的操作：
+
+* 群集范围 - 获取 HTTP URL，并从列出的服务终结点、k8s 服务（例如 kube-dns 和 kube-state-metrics）以及特定于应用程序的 pod 批注发现目标。 将在 ConfigMap 节 *[Prometheus data_collection_settings.cluster]* 中定义此上下文中收集的指标。
+* 节点范围 - 获取 HTTP URL，并从列出的服务终结点发现目标。 将在 ConfigMap 节 *[Prometheus_data_collection_settings.node]* 中定义此上下文中收集的指标。
+
+|作用域 | 键 | 数据类型 | Value | 说明 |
+|------|-----|-----------|-------|-------------|
+| 群集范围 | | | | 指定以下三种方法中的任何一种，以擦除指标的终结点。 |
+| | `urls` | String | 逗号分隔的数组 | HTTP 终结点（指定的 IP 地址或有效的 URL 路径）。 例如：`urls=[$NODE_IP/metrics]`。 （$NODE_IP 是容器参数的特定 Azure Monitor，可以使用它来代替节点 IP 地址。 必须全部大写。） |
+| | `kubernetes_services` | String | 逗号分隔的数组 | 用于从 kube-state-metrics 擦除指标的 Kubernetes 服务数组。 例如 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
+| | `monitor_kubernetes_pods` | 布尔 | true 或 false | 如果在群集范围设置中将此项设置为 `true`，则容器代理的 Azure Monitor 将在整个群集中擦除以下 Prometheus 批注的 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | 布尔 | true 或 false | 启用 pod 擦除。 |
+| | `prometheus.io/scheme` | String | http 或 https | 默认为通过 HTTP 擦除。 如果需要，请设置为 `https`。 | 
+| | `prometheus.io/path` | String | 逗号分隔的数组 | 要从中提取指标的 HTTP 资源路径。 如果指标路径不是 `/metrics`，请使用此批注定义它。 |
+| | `prometheus.io/port` | String | 9102 | 指定要侦听的端口。 如果未设置端口，则默认为 9102。 |
+| 节点范围 | `urls` | String | 逗号分隔的数组 | HTTP 终结点（指定的 IP 地址或有效的 URL 路径）。 例如：`urls=[$NODE_IP/metrics]`。 （$NODE_IP 是容器参数的特定 Azure Monitor，可以使用它来代替节点 IP 地址。 必须全部大写。） |
+| 节点范围或群集范围 | `interval` | String | 60s | 收集间隔默认为 1 分钟（60 秒）。 可将 *[prometheus_data_collection_settings.node]* 和/或 *[prometheus_data_collection_settings.cluster]* 的收集间隔设置为 ns、us（或 µs）、ms、s、m、h 等时间单位。 |
+| 节点范围或群集范围 | `fieldpass`<br> `fielddrop`| String | 逗号分隔的数组 | 可以通过设置允许 (`fieldpass`) 和禁止 (`fielddrop`) 列表，来指定要从终结点收集或不收集的特定指标。 必须先设置允许列表。 |
+
+ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 不能使用推翻收集规则的其他 ConfigMap。
 
 ### <a name="configure-and-deploy-configmaps"></a>使用 ConfigMap 进行配置和部署
 
@@ -62,18 +91,24 @@ ms.locfileid: "67562985"
     
     配置更改可能需要几分钟时间才能完成并生效，群集中的所有 omsagent pod 将会重启。 所有 omsagent pod 的重启是轮流式的重启，而不是一次性全部重启。 重启完成后，系统会显示包含结果的消息，如下所示：`configmap "container-azm-ms-agentconfig" created`。
 
-若要验证是否已成功应用配置，请使用以下命令查看代理 pod 的日志：`kubectl logs omsagent-fdf58 -n=kube-system`。 如果 osmagent pod 存在配置错误，输出中会显示如下所示的错误：
+若要验证是否已成功应用配置，请使用以下命令查看代理 pod 的日志：`kubectl logs omsagent-fdf58 -n=kube-system`。 如果 omsagent pod 存在配置错误，输出中会显示如下所示的错误：
 
 ``` 
 ***************Start Config Processing******************** 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
+还可以查看有关对 Prometheus 应用配置更改的错误。  使用相同的 `kubectl logs` 命令从代理 pod 中的日志收集，或者从实时日志收集。 实时日志显示类似于以下内容的错误：
+
+```
+2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
+```
+
 错误阻止了 omsagent 分析文件，导致其重启并使用默认配置。 更正 ConfigMap 中的错误后，保存 yaml 文件，并运行以下命令应用已更新的 ConfigMap：`kubectl apply -f <configmap_yaml_file.yaml`。
 
 ## <a name="applying-updated-configmap"></a>应用已更新的 ConfigMap
 
-如果你已经为群集部署了 ConfigMap 但想要使用较新的配置更新 ConfigMap，只需编辑以前用过的 ConfigMap 文件，然后使用前面提到的相同命令 `kubectl apply -f <configmap_yaml_file.yaml` 应用该文件。
+如果你已将 ConfigMap 部署到群集，但想要使用较新的配置更新 ConfigMap，只需编辑以前用过的 ConfigMap 文件，然后使用前面提到的相同命令 `kubectl apply -f <configmap_yaml_file.yaml` 应用该文件。
 
 配置更改可能需要几分钟时间才能完成并生效，群集中的所有 omsagent pod 将会重启。 所有 omsagent pod 的重启是轮流式的重启，而不是一次性全部重启。 重启完成后，系统会显示包含结果的消息，如下所示：`configmap "container-azm-ms-agentconfig" updated`。
 
@@ -96,7 +131,42 @@ omsagent pod 上以 pod 注释 (schema-versions) 的形式提供了支持的配�
                     schema-versions=v1 
 ```
 
+## <a name="review-prometheus-data-usage"></a>查看 Prometheus 数据使用情况
+
+若要确定每个指标大小 (GB) 的每日引入量以了解其是否偏高，请提供以下查询。
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+输出将显示类似于以下内容的结果：
+
+![数据引入量的日志查询结果](./media/container-insights-agent-config/log-query-example-usage-03.png)
+
+若要估算月份中的每个指标大小 (GB) 以了解工作区中收到的引入数据量是否偏高，请提供以下查询。
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
+| render barchart
+```
+
+输出将显示类似于以下内容的结果：
+
+![数据引入量的日志查询结果](./media/container-insights-agent-config/log-query-example-usage-02.png)
+
+[使用 Azure Monitor 日志管理使用情况和成本](../platform/manage-cost-storage.md)中提供了有关如何监视数据使用情况和分析成本的更多信息。
+
 ## <a name="next-steps"></a>后续步骤
+
+用于容器的 Azure Monitor 不包含预定义的警报集。 请查看[使用用于容器的 Azure Monitor 创建性能警报](container-insights-alerts.md)，了解如何针对高 CPU 和内存利用率创建建议的警报以支持 DevOps 或操作流程和过程。
 
 - 若要继续学习如何使用 Azure Monitor 以及如何监视 AKS 群集的其他方面，请参阅[查看 Azure Kubernetes 服务运行状况](container-insights-analyze.md)。
 - 请参阅[日志查询示例](container-insights-log-search.md#search-logs-to-analyze-data)，以查看预定义的查询，以及用于发警报、可视化或分析群集的评估或自定义示例。

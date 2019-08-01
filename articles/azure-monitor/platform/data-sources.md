@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6e52378db58e400e6a431cd5c87421a0f1d97fc2
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 9a2f1b945a018f3637c88c680bb8fac86bcd6368
+ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562389"
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68513804"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -54,6 +54,10 @@ Azure 应用程序中的监视数据源可以组织为层，最高的层是应�
 与你的 Azure 租户相关的遥测数据是从租户级服务（例如 Azure Active Directory）中收集的。
 
 ![Azure 租户集合](media/data-sources/tenant.png)
+
+### <a name="azure-active-directory-audit-logs"></a>Azure Active Directory 审核日志
+[Azure Active Directory 报告](../../active-directory/reports-monitoring/overview-reports.md)包含特定租户中的登录活动历史记录和更改审核日志。 
+
 
 
 ## <a name="azure-subscription"></a>Azure 订阅
@@ -196,8 +200,7 @@ Azure 中的其他服务将数据写入到 Azure Monitor 数据平台。 这样�
 
 | 服务 | 目标 | 说明 | 参考 |
 |:---|:---|:---|:---|
-| [Azure 安全中心](/azure/security-center/) | Azure Monitor 日志 | Azure 安全中心将它收集的安全数据存储在 Log Analytics 工作区中，可以结合 Azure Monitor 收集的其他日志数据对其进行分析。  | Azure 安全中心内的数据收集 |
-| [Azure Sentinel](/azure/sentinel/) | Azure Monitor 日志 | Azure Sentinel 将它从不同数据源收集的数据存储在 Log Analytics 工作区中，可以结合 Azure Monitor 收集的其他日志数据对其进行分析。  | [连接数据源](/azure/sentinel/quickstart-onboard) |
+| [Azure 安全中心](/security-center/) | Azure Monitor 日志 | Azure 安全中心将它收集的安全数据存储在 Log Analytics 工作区中，可以结合 Azure Monitor 收集的其他日志数据对其进行分析。  | Azure 安全中心中的数据收集 |
 
 ## <a name="next-steps"></a>后续步骤
 
