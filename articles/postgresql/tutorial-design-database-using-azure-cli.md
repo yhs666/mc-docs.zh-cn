@@ -7,14 +7,14 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 9ec2aa2cb9b3fce8653635ec83beca94c761a054
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 06/25/2019
+ms.date: 08/05/2019
+ms.openlocfilehash: d43e3cba251669be9ba7e9b40cf91b35282e7e81
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65732037"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732409"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>教程：使用 Azure CLI 设计 Azure Database for PostgreSQL - 单个服务器 
 在本教程中，需使用 Azure CLI（命令行接口）以及其他实用工具了解如何完成以下操作：
@@ -37,20 +37,20 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>创建资源组
-使用 [az group create](/cli/group) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast` 位置创建名为 `myresourcegroup` 的资源组。
+使用 [az group create](/cli/group) 命令创建 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)。 资源组是在其中以组的形式部署和管理 Azure 资源的逻辑容器。 以下示例在 `chinaeast2` 位置创建名为 `myresourcegroup` 的资源组。
 ```cli
-az group create --name myresourcegroup --location chinaeast
+az group create --name myresourcegroup --location chinaeast2
 ```
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>创建 Azure Database for PostgreSQL 服务器
 使用 [az postgres server create](/cli/postgres/server) 命令创建 [Azure Database for PostgreSQL 服务器](overview.md)。 服务器包含作为组进行管理的一组数据库。 
 
-下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建名为 `mydemoserver` 的服务器。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。 它是第 4 代常规用途服务器，带有 2 个 2 vCore。
+下面的示例使用服务器管理员登录名 `myadmin` 在资源组 `myresourcegroup` 中创建名为 `mydemoserver` 的服务器。 服务器的名称映射到 DNS 名称，因此需要在 Azure 中全局唯一。 用自己的值替换 `<server_admin_password>`。 它是一台常规用途第 5 代服务器，具有 2 个 vCore。
 ```cli
-az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+az postgres server create --resource-group myresourcegroup --name mydemoserver --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 9.6
 ```
 sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如以下示例中所示：
-+ `--sku-name B_Gen4_4` 映射到基本、第 4 代和 4 个 vCore。
++ `--sku-name B_Gen5_2` 映射到基本、第 5 代和 2 个 vCore。
 + `--sku-name GP_Gen5_32` 映射到常规用途、第 5 层和 32 个 vCore。
 + `--sku-name MO_Gen5_2` 映射到内存优化、第 5 层和 2 个 vCore。
 
@@ -92,13 +92,13 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
   "earliestRestoreDate": null,
   "fullyQualifiedDomainName": "mydemoserver.postgres.database.chinacloudapi.cn",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver",
-  "location": "chinaeast",
+  "location": "chinaeast2",
   "name": "mydemoserver",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -120,7 +120,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
 如果客户端计算机已安装 PostgreSQL，则可使用 [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) 的本地实例，或 Azure 云控制台连接到 Azure PostgreSQL 服务器。 现在，使用 psql 命令行实用工具连接到“用于 PostgreSQL 的 Azure 数据库”服务器。
 
 1. 运行以下 psql 命令连接到 Azure Database for PostgreSQL 数据库：
-   ```cli
+   ```
    psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
@@ -129,6 +129,12 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    ```cli
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > 如果更喜欢使用 URL 路径连接到 Postgres，则 URL 会使用 `%40` 对用户名中的 @ 符号进行编码。 例如，psql 的连接字符串将是：
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.chinacloudapi.cn:5432/postgres
+   > ```
 
 2. 连接到服务器后，在出现提示时创建空数据库：
    ```sql

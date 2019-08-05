@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 origin.date: 02/06/2018
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
-ms.openlocfilehash: 0329dd8abe4e97ed09a4d43840fd55a867c33b32
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: c876837622331ec0c1505401d405bb03cf65a7b9
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844520"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732346"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>快速入门：使用 .NET 在 Azure 存储中创建队列
 
@@ -188,9 +188,9 @@ Console.WriteLine();
 
 接下来，该示例将消息添加到队列的后部。 
 
-消息必须采用可包含在 XML 请求中的 UTF-8 编码格式，大小不能超过 64 KB。 如果消息包含二进制数据，则 Azure 建议对消息进行 Base64 编码。
+消息必须采用可包含在 XML 请求中的 UTF-8 编码格式，大小不能超过 64 KB。 如果消息包含二进制数据，则我们建议对消息进行 Base64 编码。
 
-消息的最大生存时间默认设置为 7 天。 可为消息生存时间指定任何正数，-1 表示该消息不会过期。
+消息的最大生存时间默认设置为 7 天。 可以为消息生存时间指定任何正数。
 
 ```csharp
 // Create a message and add it to the queue. Set expiration time to 14 days.
@@ -200,6 +200,12 @@ Console.WriteLine("Added message '{0}' to queue '{1}'", message.Id, queue.Name);
 Console.WriteLine("Message insertion time: {0}", message.InsertionTime.ToString());
 Console.WriteLine("Message expiration time: {0}", message.ExpirationTime.ToString());
 Console.WriteLine();
+```
+
+若要添加未过期的消息，请在对 [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync) 的调用中使用 `Timespan.FromSeconds(-1)`。
+
+```csharp
+await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null);
 ```
 
 ### <a name="peek-a-message-from-the-queue"></a>扫视队列中的消息

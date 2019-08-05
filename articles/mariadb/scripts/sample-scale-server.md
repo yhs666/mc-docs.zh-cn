@@ -9,12 +9,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 11/28/2018
 ms.date: 05/27/2019
-ms.openlocfilehash: 3ec946d67f057fff531bd69e389e068f753b3054
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.openlocfilehash: ff608ae388ea62cf3566ef20ae264a8c66264293
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173307"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732367"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放 Azure Database for MariaDB 服务器
 此示例 CLI 脚本在查询指标后将单个 Azure Database for MariaDB 服务器缩放为不同的性能级别。
@@ -22,17 +22,19 @@ ms.locfileid: "66173307"
 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。 
 
 ## <a name="sample-script"></a>示例脚本
-在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的订阅 ID 替换为自己的订阅 ID。```Azure CLI
-#<a name="binbash"></a>!/bin/bash
+在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的订阅 ID 替换为自己的订阅 ID。
 
-# <a name="create-a-resource-group"></a>创建资源组
+```azurecli
+#!/bin/bash
+
+# Create a resource group
 az group create \
 --name myresourcegroup \
 --location chinaeast2
 
-# <a name="create-a-mariadb-server-in-the-resource-group"></a>在资源组中创建 MariaDB 服务器
-# <a name="name-of-a-server-maps-to-dns-name-and-is-thus-required-to-be-globally-unique-in-azure"></a>服务器的名称会映射到 DNS 名称，因此该名称在 Azure 中需具有全局级别的唯一性。
-# <a name="substitute-the-serveradminpassword-with-your-own-value"></a>将 <server_admin_password> 替换为你自己的值。
+# Create a MariaDB server in the resource group
+# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
+# Substitute the <server_admin_password> with your own value.
 az mariadb server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -41,34 +43,35 @@ az mariadb server create \
 --admin-password <server_admin_password> \
 --sku-name GP_Gen5_2 \
 
-# <a name="monitor-usage-metrics---cpu"></a>监视使用情况指标 - CPU
+# Monitor usage metrics - CPU
 az monitor metrics list \
 --resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMariaDB/servers/mydemoserver" \
 --metric cpu_percent \
 --interval PT1M
 
-# <a name="monitor-usage-metrics---storage"></a>监视使用情况指标 - 存储
+# Monitor usage metrics - Storage
 az monitor metrics list \
 --resource-id "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMariaDB/servers/mydemoserver" \
 --metric storage_used \
 --interval PT1M
 
-# <a name="scale-up-the-server-to-provision-more-vcores-within-the-same-tier"></a>纵向扩展服务器，在同一层级中预配更多 vCore
+# Scale up the server to provision more vCores within the same Tier
 az mariadb server update \
 --resource-group myresourcegroup \
 --name mydemoserver \
 --sku-name GP_Gen5_4
 
-# <a name="scale-up-the-server-to-provision-a-storage-size-of-7gb"></a>纵向扩展服务器，预配 7GB 的存储大小
+# Scale up the server to provision a storage size of 7GB
 az mariadb server update \
 --resource-group myresourcegroup \
 --name mydemoserver \
 --storage-size 7168
 ```
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run. 
-```Azure CLI
+## <a name="clean-up-deployment"></a>清理部署
+运行脚本示例后，请使用以下命令删除资源组以及与其关联的所有资源。 
+
+```azurecli
 #!/bin/bash
 az group delete --name myresourcegroup
 ```

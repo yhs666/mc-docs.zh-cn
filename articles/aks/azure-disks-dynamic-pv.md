@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 06/24/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9e6d1d02bd70fc65f08720bfd5376a355fe510e2
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 45062ccc8c8ecbec307db1ded6a399be5b680305
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67325775"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731262"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 磁盘
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6d1f67f202a9b260f719afd615217839fe111ce
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 4deb63b5b11f986c916c7d9cd635c7519cb79556
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844782"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753159"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -49,8 +49,7 @@ ms.locfileid: "67844782"
     ```
 
 <!--Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
-
-    <!--MOONCAKE: Deployment raise error with "PlatformImageNotFound" -->
+<!--MOONCAKE: Deployment raise error with "PlatformImageNotFound" -->
 
 ## <a name="installation-methods"></a>安装方法
 
@@ -89,8 +88,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 4. 向 APT Keyring 添加新的 Gnu 隐私防护（GnuPG 或 GPG）密钥。
 
     ```bash
-    sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 417A0893
+    curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
     ```
 
 5. 向 APT Keyring 添加官方的 Docker GPG 密钥。
@@ -109,8 +107,8 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 7. 将 Azul JDK 密钥添加到 APT Keyring 并设置其存储库。
 
     ```bash
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0x219BD9C9
-    sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
+    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
     ```
 
 8. 根据新添加的存储库刷新包列表。
@@ -177,7 +175,7 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 1. 在计算机上安装 Node.js 和 npm。
 
     ```bash
-    sudo apt-add-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
+    sudo add-apt-repository "deb https://deb.nodesource.com/node_8.x $(lsb_release -s -c) main"
     sudo apt-get update
     sudo apt-get install nodejs
     ```
@@ -268,6 +266,7 @@ sudo apt-get install servicefabric servicefabricsdkcommon
     npm uninstall -g generator-azuresfguest
     sudo apt-get install -f
     ```
+
 <!-- Not Available on * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
 
 ## <a name="next-steps"></a>后续步骤

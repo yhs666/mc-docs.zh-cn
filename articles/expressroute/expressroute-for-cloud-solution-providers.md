@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 10/10/2016
 ms.author: v-yiso
 ms.date: 05/14/2018
-ms.openlocfilehash: 11634dde5165ca25dd48687ece9c0cc05c408c16
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: def03fc025a6c693c374a9e6ef90b0b3f4d517c4
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135770"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733542"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>适用于云解决方案提供商 (CSP) 的 ExpressRoute
 
@@ -69,9 +69,9 @@ Microsoft 为 CSP 提供管理 Azure 客户订阅所需的 API，允许通过编
 ![替换文字](./media/expressroute-for-cloud-solution-providers/connect-to-model.png)
 
 如何选择这两种模式取决于客户的需求，以及目前提供 Azure 服务的具体需要。 有关这些模型的详细信息以及关联的基于角色的访问控制、网络和标识设计模式在以下链接中有详尽介绍：
-- 基于角色的访问控制 (RBAC)  – RBAC 基于 Azure Active Directory。  有关 Azure RBAC 的更多详细信息，请参阅[此处](../active-directory/role-based-access-control-configure.md)。
-- **网络** – 介绍有关 Azure 中网络的各种主题。
-- **Azure Active Directory (Azure AD)** – Azure AD 提供针对 Microsoft Azure 和第三方 SaaS 应用程序的标识管理。 有关 Azure AD 的更多详细信息，请参阅[此处](https://azure.microsoft.com/documentation/services/active-directory/)。  
+* 基于角色的访问控制 (RBAC)  – RBAC 基于 Azure Active Directory。  有关 Azure RBAC 的更多详细信息，请参阅[此处](../role-based-access-control/role-assignments-portal.md)。
+* **网络** – 介绍有关 Azure 中网络的各种主题。
+* **Azure Active Directory (Azure AD)** – Azure AD 提供针对 Microsoft Azure 和第三方 SaaS 应用程序的标识管理。 有关 Azure AD 的更多详细信息，请参阅[此处](/active-directory/)。  
 
 ## <a name="network-speeds"></a>网络速度
 ExpressRoute 支持的网络速度其范围为 50 Mb/秒到 10Gb/秒。 因此，客户可以根据其具体环境购买所需的网络带宽。

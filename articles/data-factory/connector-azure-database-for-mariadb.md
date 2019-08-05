@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 07/08/2019
+ms.date: 07/31/2019
 ms.author: v-jay
-ms.openlocfilehash: 131fdc6e2c41a73f178538eac9b6a6f926861d87
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 24d3f42bd90c6f595cb6c0da06fd3817e93283ab
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570590"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732337"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>使用 Azure 数据工厂从 Azure Database for MariaDB 复制数据 
 
@@ -56,7 +56,7 @@ Azure Database for MariaDB 链接服务支持以下属性：
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server={your_server}.mariadb.database.azure.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
+                "value": "Server={your_server}.mariadb.database.chinacloudapi.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; Pwd={your_password}; SslMode=Preferred;"
             }
         },
         "connectVia": {
@@ -77,7 +77,7 @@ Azure Database for MariaDB 链接服务支持以下属性：
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server={your_server}.mariadb.database.azure.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
+                 "value": "Server={your_server}.mariadb.database.chinacloudapi.cn; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;"
             },
             "pwd": { 
                 "type": "AzureKeyVaultSecret", 

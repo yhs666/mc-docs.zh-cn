@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2018
-ms.date: 04/22/2019
+ms.date: 08/12/2019
 ms.author: v-biyu
-ms.openlocfilehash: 42d4a6278ff2f5a44ed79d23dbed8b0e982cb435
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: c5dac850919e397c54c36d4fea997b6b5c224164
+ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355902"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68633019"
 ---
-# <a name="receive-events-from-azure-event-hubs-using-event-processor-host"></a>使用事件处理程序主机从 Azure 事件中心接收事件
+# <a name="event-processor-host"></a>事件处理程序主机
 
 Azure 事件中心是强大的遥测引入服务，使用它能以较低的成本流式传输数百万个事件。 本文介绍如何通过*事件处理程序主机* (EPH) 使用引用的事件；EPH 是一个智能使用者代理，可以简化检查点、租用和并行事件读取器的管理。  
 
@@ -39,7 +39,7 @@ Azure 事件中心是强大的遥测引入服务，使用它能以较低的成�
 
 1. **缩放：** 创建多个使用者，每个使用者获取若干事件中心分区的读取所有权。
 2. **负载均衡：** 动态增加或减少使用者。 例如，将新的传感器类型（例如一氧化碳检测器）添加到每个家庭后，事件数会增多。 在这种情况下，操作员（人类）会增加使用者实例的数目。 然后，使用者池可以重新均衡它们拥有的分区数，以便与新添加的使用者分担负载。
-3. **故障时无缝恢复：** 如果某个使用者（使用者 A）发生故障（例如，托管使用者的虚拟机突然崩溃），其他使用者必须能够拾取使用者 A 拥有的分区并继续。 此外，称作“检查点”或“偏移量”的延续点应该位于**使用者 A** 发生故障时的确切位置，或者略微在该位置的前面。
+3. **故障时无缝恢复：** 如果某个使用者（使用者 A）发生故障（例如，托管使用者的虚拟机突然崩溃），其他使用者必须能够拾取使用者 A 拥有的分区并继续   。 此外，称作“检查点”或“偏移量”的延续点应该位于**使用者 A** 发生故障时的确切位置，或者略微在该位置的前面。  
 4. **使用事件：** 尽管前面三个要点能够应对使用者的管理，但还必须提供代码来使用事件并对其执行有用的操作；例如，聚合事件并将其上传到 Blob 存储。
 
 你无需为此生成自己的解决方案，事件中心会通过 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet) 接口和 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 类提供此功能。
@@ -85,8 +85,8 @@ public class SimpleEventProcessor : IEventProcessor
 
 - **hostName：** 每个使用者实例的名称。 **EventProcessorHost** 的每个实例必须在使用者组中对此变量使用唯一值，因此，请不要对此值进行硬编码。
 - **eventHubPath：** 事件中心的名称。
-- **consumerGroupName：** 事件中心使用 $Default 作为默认使用者组的名称，但合理的做法是创建一个使用者组，以进行特定方面的处理。
-- **eventHubConnectionString：** 事件中心的连接字符串，可从 Azure 门户中检索。 此连接字符串应该对事件中心拥有“侦听”权限。
+- **consumerGroupName：** 事件中心使用 $Default 作为默认使用者组的名称，但合理的做法是创建一个使用者组，以进行特定方面的处理  。
+- **eventHubConnectionString：** 事件中心的连接字符串，可从 Azure 门户中检索。 此连接字符串应该对事件中心拥有“侦听”权限。 
 - **storageConnectionString：** 用于内部资源管理的存储帐户。
 
 最后，使用者将 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 实例注册到事件中心服务。 向 EventProcessorHost 实例注册事件处理程序类会启动事件处理。 注册操作告知事件中心服务预期使用者应用会使用其某些分区发送的事件，并且每当推送要使用的事件时，都要调用 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor?view=azure-dotnet) 实现代码。
@@ -126,7 +126,8 @@ public class SimpleEventProcessor : IEventProcessor
 每次调用 [ProcessEventsAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync) 都会提供事件的集合。 你需要负责处理这些事件。 如果要确保处理器主机将每条消息至少处理一次，则需要编写自己的继续重试代码。 但请注意有害消息。
 
 建议以相对较快的速度执行操作；也就是说，尽量减少处理量。 改用使用者组。 如果需要写入存储并执行某种路由，最好是使用两个使用者组，并使用两个可以单独运行的 [IEventProcessor](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) 实现。
-在处理过程中的某个阶段，你可能想要跟踪已读取和已完成哪些信息。 如果必须重新开始读取，以免返回到流的开头，则保持跟踪至关重要。 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 使用检查点简化了这种跟踪。 检查点是给定使用者组中给定分区的位置或偏移量，你希望在此位置处理消息。 在 **EventProcessorHost** 中标记检查点的过程是通过在 [PartitionContext](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext?view=azure-dotnet) 对象中调用 [CheckpointAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync?view=azure-dotnet) 方法实现的。 此操作通常在 [ProcessEventsAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync?view=azure-dotnet) 方法中完成，但也可以在 [CloseAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync?view=azure-dotnet) 中完成。
+
+在处理过程中的某个阶段，你可能想要跟踪已读取和已完成哪些信息。 如果必须重新开始读取，以免返回到流的开头，则保持跟踪至关重要。 [EventProcessorHost](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost?view=azure-dotnet) 使用检查点简化了这种跟踪。  检查点是给定使用者组中给定分区的位置或偏移量，你希望在此位置处理消息。 在 **EventProcessorHost** 中标记检查点的过程是通过在 [PartitionContext](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext?view=azure-dotnet) 对象中调用 [CheckpointAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.partitioncontext.checkpointasync?view=azure-dotnet) 方法实现的。 此操作通常在 [ProcessEventsAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processeventsasync?view=azure-dotnet) 方法中完成，但也可以在 [CloseAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.eventhubclient.closeasync?view=azure-dotnet) 中完成。
 
 ## <a name="checkpointing"></a>检查点
 
@@ -191,6 +192,6 @@ Epoch 功能可让用户确保在任意时间点使用者组中只有一个接�
 
 * 开始使用[事件中心教程](event-hubs-dotnet-standard-getstarted-send.md)
 * [事件中心编程指南](event-hubs-programming-guide.md)
-* [事件中心内的可用性和一致性](event-hubs-availability-and-consistency.md)
+* [事件中心中的可用性和一致性](event-hubs-availability-and-consistency.md)
 * [事件中心常见问题](event-hubs-faq.md)
 * [GitHub 上的事件中心示例](https://github.com/Azure/azure-event-hubs/tree/master/samples)

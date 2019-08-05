@@ -13,17 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2018
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4db9a537a597b2b6643851794f64d18a05812fa5
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 8bfe08e0d99d45fa3b99ecb35aad95c9bffd0a1d
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204182"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753160"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-a-certificate"></a>获取证书
 首先，从[证书颁发机构 (CA)](https://wikipedia.org/wiki/Certificate_authority) 获取证书。  证书的公用名称应该是针对你拥有的自定义域，并且是从域注册机构购买的。 例如，“azureservicefabricbestpractices.com”；不是 Azure 员工的用户不能为 MS 域预配证书，因此不能使用 LB 或流量管理器的 DNS 名称作为证书的公用名称，而需预配 [Azure DNS 区域](/dns/dns-delegate-domain-azure-dns)（前提是自定义域可以在 Azure 中解析）。 如果希望门户反映群集的自定义域别名，则还需将拥有的自定义域声明为群集的“managementEndpoint”。
@@ -42,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
+Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
 
 $region = "chinaeast"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -52,10 +54,10 @@ $certname = "myclustercert"
 $Password  = "P@ssw0rd!123"
 
 # Create new Resource Group 
-New-AzureRmResourceGroup -Name $KeyVaultResourceGroupName -Location $region
+New-AzResourceGroup -Name $KeyVaultResourceGroupName -Location $region
 
 # Create the new key vault
-$newKeyVault = New-AzureRmKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
+$newKeyVault = New-AzKeyVault -VaultName $VaultName -ResourceGroupName $KeyVaultResourceGroupName -Location $region -EnabledForDeployment 
 $resourceId = $newKeyVault.ResourceId 
 
 # Add the certificate to the key vault.
@@ -76,8 +78,10 @@ Write-Host "Common Name              :"  $CommName
 ## <a name="download-and-update-a-sample-template"></a>下载并更新示例模板
 本文使用了 [5 节点安全群集示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-1-NodeTypes-Secure)模板和模板参数。 将 *azuredeploy.json* 和 *azuredeploy.parameters.json* 文件下载到计算机。
 
+<!--MOONCAKE: CUSTOMIZED-->
+
 > [!NOTE]
-> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“chinacloudapp.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
+> 必须修改从 GitHub 存储库“Azure-Samples”下载或引用的模板，使之适应 Azure 中国云环境。 例如，替换某些终结点（将“blob.core.windows.net”替换为“blob.core.chinacloudapi.cn”，将“cloudapp.azure.com”替换为“cloudapp.chinacloudapi.cn”）；必要时更改某些不受支持的位置、VM 映像、VM 大小、SKU 以及资源提供程序的 API 版本。
 
 <!--Notice: Change storageAccountEndPoint as https://core.chinacloudapi.cn/-->
 
@@ -90,11 +94,16 @@ Write-Host "Common Name              :"  $CommName
 > * 替换 [New-ServiceFabricClusterCertificate.ps1](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/5-VM-Windows-1-NodeTypes-Secure/New-ServiceFabricClusterCertificate.ps1) 中的 Location。
 >     * 将 `WestUS` 替换为 `chinanorth`。
 
+<!--MOONCAKE: CUSTOMIZED-->
+
 ### <a name="update-parameters-file"></a>更新参数文件
 首先，在文本编辑器中打开 *azuredeploy.parameters.json* 文件并添加以下参数值：
 ```json
 "certificateCommonName": {
     "value": "myclustername.chinaeast.cloudapp.chinacloudapi.cn"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 ```
 
@@ -102,6 +111,9 @@ Write-Host "Common Name              :"  $CommName
 ```json
 "certificateCommonName": {
     "value": "myclustername.chinaeast.cloudapp.chinacloudapi.cn"
+},
+"certificateIssuerThumbprint": {
+    "value": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 },
 "sourceVaultValue": {
   "value": "/subscriptions/<subscription>/resourceGroups/testvaultgroup/providers/Microsoft.KeyVault/vaults/testvault"
@@ -122,6 +134,12 @@ Write-Host "Common Name              :"  $CommName
         "description": "Certificate Commonname"
       }
     },
+    "certificateIssuerThumbprint": {
+      "type": "string",
+      "metadata": {
+        "description": "Certificate Authority Issuer Thumpbrint for Commonname cert"
+      }
+    },
     ```
 
     另请考虑删除 *certificateThumbprint*，可能不再需要此项。
@@ -131,7 +149,7 @@ Write-Host "Common Name              :"  $CommName
     "sfrpApiVersion": "2018-02-01",
     ```
 
-3. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在“virtualMachineProfile”->“extensionProfile”->“扩展”->“属性”->“设置”->“证书”中，添加 
+3. 在 **Microsoft.Compute/virtualMachineScaleSets** 资源中，更新虚拟机扩展以在证书设置中使用公用名称而非指纹。  在“virtualMachineProfile”->“extensionProfile”->“扩展”->“属性”->“设置”->“证书”中，添加       
     ```json
        "commonNames": [
         "[parameters('certificateCommonName')]"
@@ -173,7 +191,7 @@ Write-Host "Common Name              :"  $CommName
           },
     ```
 
-4.  在 **Microsoft.ServiceFabric/clusters** 资源中，将 API 版本更新为“2018-02-01”。  另请添加包含 **commonNames** 属性的 **certificateCommonNames** 设置，并删除 **certificate** 设置（包含指纹属性），如以下示例中所示：
+4. 在 **Microsoft.ServiceFabric/clusters** 资源中，将 API 版本更新为“2018-02-01”。  另请添加包含 **commonNames** 属性的 **certificateCommonNames** 设置，并删除 **certificate** 设置（包含指纹属性），如以下示例中所示：
     ```json
     {
         "apiVersion": "2018-02-01",
@@ -208,20 +226,21 @@ Write-Host "Common Name              :"  $CommName
 ## <a name="deploy-the-updated-template"></a>部署已更新的模板
 在进行更改后，重新部署已更新的模板。
 
+<!--MOONCAKE: New-AzResourceGroupDeployment parameter -ResourceGroupName is mandatory, -name is optional-->
+
 ```powershell
 # Variables.
 $groupname = "testclustergroup"
 $clusterloc="chinaeast"  
 $id="<subscription ID>"
-$deploymentname="yourdeploymentname"
 
 # Sign in to your Azure account and select your subscription
-Login-AzureRmAccount -Environment AzureChinaCloud -SubscriptionId $id 
+Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
+New-AzResourceGroup -Name $groupname -Location $clusterloc
 
-New-AzureRmResourceGroupDeployment -Name $deploymentname -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
+New-AzResourceGroupDeployment -ResourceGroupName $groupname -TemplateParameterFile "C:\temp\cluster\AzureDeploy.Parameters.json" -TemplateFile "C:\temp\cluster\AzureDeploy.json" -Verbose
 ```
 
 ## <a name="next-steps"></a>后续步骤

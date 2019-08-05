@@ -13,12 +13,12 @@ ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 94d41466bb773dbed27b3704f135737b8a6c9a8e
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 4ea3dc1ee7bd025015a4b762b0fc8dbe6b4b7e23
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629181"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732371"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL 数据库指标和诊断日志记录
 
@@ -51,7 +51,7 @@ ms.locfileid: "65629181"
 - Azure 事件中心
 - Azure 存储
 
-可预配新的 Azure 资源或选择现有资源。 使用“诊断设置”选项选择资源之后，指定要收集的数据。
+可预配新的 Azure 资源或选择现有资源。 使用“诊断设置”选项选择资源之后，指定要收集的数据。 
 
 ## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>支持用于 Azure SQL 数据库的诊断日志记录
 
@@ -77,7 +77,7 @@ ms.locfileid: "65629181"
 
 ## <a name="azure-portal"></a>Azure 门户
 
-可以在 Azure 门户中使用每个单一数据库或共用数据库的“诊断设置”菜单，配置诊断遥测数据的流式传输。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心。
+可以在 Azure 门户中使用每个单一数据库或共用数据库的“诊断设置”菜单，配置诊断遥测数据的流式传输  。 可设置以下目标来流式传输诊断遥测数据：Azure 存储、Azure 事件中心。
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>为单一数据库或弹性池中的数据库配置诊断遥测数据的流式传输
 
@@ -86,17 +86,17 @@ ms.locfileid: "65629181"
 若要为单一数据库或共用数据库启用诊断遥测数据的流式传输，请执行以下步骤：
 
 1. 转到 Azure **SQL 数据库**资源。
-1. 选择“诊断设置”。
-1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置
+1. 选择“诊断设置”。 
+1. 选择“启用诊断”（如果不存在以前的设置），或选择“编辑设置”来编辑以前的设置  
    - 最多可以创建两个并行连接，用于流式传输诊断遥测数据。
-   - 选择“+添加诊断设置”，配置为将诊断数据并行流式传输到多个资源。
+   - 选择“+添加诊断设置”，配置为将诊断数据并行流式传输到多个资源。 
 
    ![为单一数据库或共用数据库启用诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. 输入设置名称供自己参考。
-1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”。
-1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。
+1. 选择诊断数据要流式传输到的目标资源：“存档到存储帐户”、“流式传输到事件中心”。  
+1. 选中数据库诊断日志遥测对应的以下复选框：“SQLInsights”、“AutomaticTuning”、“QueryStoreRuntimeStatistics”、“QueryStoreWaitStatistics”、“Errors”、“DatabaseWaitStatistics”、“Timeouts”、“Blocks”和“Deadlocks”。         
    ![为单一数据库、共用数据库或实例数据库配置诊断](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. 选择“其他安全性验证” 。
+1. 选择“其他安全性验证”  。
 1. 针对要监视的每个数据库重复上述步骤。
 
 > [!NOTE]
@@ -157,7 +157,7 @@ ms.locfileid: "65629181"
 
    服务总线规则 ID 是以下格式的字符串：
 
-   ```azurecli-interactive
+   ```azurecli
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
@@ -173,7 +173,7 @@ ms.locfileid: "65629181"
 
 ## <a name="stream-into-event-hubs"></a>流式传输到事件中心
 
-在 Azure 门户中使用内置的“流式传输到事件中心”选项可将 SQL 数据库指标和诊断日志流式传输到事件中心。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用服务总线规则 ID。
+在 Azure 门户中使用内置的“流式传输到事件中心”  选项可将 SQL 数据库指标和诊断日志流式传输到事件中心。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用服务总线规则 ID。
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>如何处理事件中心内的指标和诊断日志
 
@@ -190,7 +190,7 @@ ms.locfileid: "65629181"
 
 ## <a name="stream-into-storage"></a>流式传输到存储
 
-在 Azure 门户中使用内置的“存档到存储帐户”选项，可以在 Azure 存储中存储 SQL 数据库指标和诊断日志。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用存储。
+在 Azure 门户中使用内置的“存档到存储帐户”  选项，可以在 Azure 存储中存储 SQL 数据库指标和诊断日志。 此外，还可以通过 PowerShell cmdlet、Azure CLI 或 Azure Monitor REST API 使用诊断设置来启用存储。
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>存储帐户中指标和诊断日志的架构
 
@@ -212,9 +212,11 @@ insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit 
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
 ```
 
-### <a name="download-metrics-and-logs-from-storage"></a>从存储下载指标和日志
+如果存储弹性池中的数据，Blob 名称类似于：
 
-了解如何[从存储下载指标和诊断日志](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。
+```powershell
+insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/ RESOURCEGROUPS/{resource group name}/PROVIDERS/Microsoft.SQL/servers/{resource_server}/ elasticPools/{elastic_pool_name}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
+```
 
 ## <a name="data-retention-policy-and-pricing"></a>数据保留策略和定价
 
@@ -350,7 +352,7 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 |Message|纯文本格式的错误消息 |
 |user_defined_b|是否是用户定义位错误 |
 |error_number_d|错误代码 |
-|严重性|错误的严重性 |
+|severity|错误的严重性 |
 |state_d|错误的状态 |
 |query_hash_s|失败查询的查询哈希（如果有） |
 |query_plan_hash_s|失败查询的查询计划哈希（如果有） |
@@ -499,5 +501,3 @@ insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123
 
 - [什么是 Azure 事件中心？](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [事件中心入门](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
-
-若要详细了解 Azure 存储，请参阅[如何从存储下载指标和诊断日志](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-the-sample-application)。

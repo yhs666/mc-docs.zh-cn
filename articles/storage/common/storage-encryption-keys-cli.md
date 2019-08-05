@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 04/16/2019
-ms.date: 05/27/2019
+origin.date: 06/24/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1c3978ab77ac833b78b02df8dac7e165d599a0f1
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 82a4a296003f2c9abedf72b20b1a238b63086004
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004358"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732375"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>通过 Azure CLI 配置客户管理的密钥用于 Azure 存储加密
 
@@ -61,7 +61,7 @@ az keyvault create \
 
 ```azurecli
 storage_account_principal=$(az storage account show \
-    -name <storage-account> \
+    --name <storage-account> \
     --resource-group <resource-group> \
     --query identity.principalId \
     --output tsv)

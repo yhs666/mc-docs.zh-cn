@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 03/13/2019
-ms.date: 04/01/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: effd949f579cf26bf8f83fdb7bc81455061df120
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2c5c1fd5b6da268544727b519d006a9a9141911e
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627060"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732405"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
@@ -78,7 +78,7 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 1. 可以在 VpnGw1 SKU、VpnGw2 SKU 和 VpnGw3 SKU 之间调整大小。
 2. 使用旧版网关 SKU 时，仍可在基本、标准和高性能 SKU 之间调整大小。
-3. 不能从基本/标准/高性能 SKU 调整为新版 VpnGw1/VpnGw2/VpnGw3 SKU， 而只能[更改](#change)为新版 SKU。
+3. 不能从基本/标准/高性能 SKU 调整为新版 VpnGw1/VpnGw2/VpnGw3 SKU  ， 而只能[更改](#change)为新版 SKU。
 
 #### <a name="resizegwsku"></a>重设网关大小
 
@@ -166,7 +166,7 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 
 | **经典** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network/#networking) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#vpn) |
+| [PowerShell](https://docs.microsoft.com/powershell/module/az.network/#networking) |[PowerShell](https://docs.microsoft.com/powershell/module/az.network#vpn) |
 | [REST API](https://msdn.microsoft.com/library/jj154113) |[REST API](https://docs.microsoft.com/rest/api/network/virtualnetworkgateways) |
 | 不支持 | [Azure CLI](/cli/network/vnet-gateway)|
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/26/2018
-ms.date: 01/21/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1749e62db75e758800db956447380017acb42ac3
-ms.sourcegitcommit: 35a09a86cbb3d896fa9784471ece41df7728bd71
+ms.openlocfilehash: 3fdf86a54028192a3a5f84ba8a4404c848056dbc
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54396700"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753184"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 群集上的证书和安全性
 

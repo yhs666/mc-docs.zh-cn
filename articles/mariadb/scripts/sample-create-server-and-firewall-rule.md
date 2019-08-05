@@ -9,12 +9,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 11/28/2018
 ms.date: 05/27/2019
-ms.openlocfilehash: 02c8cfb408f93da92c2d8fa8a13fc36b5897222e
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.openlocfilehash: 9db183c6227399b6f4aa26c9cfc785a3aa4ac849
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173245"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732263"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建 MariaDB 服务器并配置防火墙规则
 此示例 CLI 脚本创建 Azure Database for MariaDB 服务器，并配置服务器级防火墙规则。 成功运行此脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 MariaDB 服务器。
@@ -23,17 +23,18 @@ ms.locfileid: "66173245"
 
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。
-```Azure CLI
-#<a name="binbash"></a>!/bin/bash
 
-# <a name="create-a-resource-group"></a>创建资源组
+```azurecli
+#!/bin/bash
+
+# Create a resource group
 az group create \
 --name myresourcegroup \
 --location chinaeast2
 
-# <a name="create-a-mariadb-server-in-the-resource-group"></a>在资源组中创建 MariaDB 服务器
-# <a name="name-of-a-server-maps-to-dns-name-and-is-thus-required-to-be-globally-unique-in-azure"></a>服务器的名称会映射到 DNS 名称，因此该名称在 Azure 中需具有全局级别的唯一性。
-# <a name="substitute-the-serveradminpassword-with-your-own-value"></a>将 <server_admin_password> 替换为你自己的值。
+# Create a MariaDB server in the resource group
+# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
+# Substitute the <server_admin_password> with your own value.
 az mariadb server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -42,8 +43,8 @@ az mariadb server create \
 --admin-password <server_admin_password> \
 --sku-name GP_Gen5_2 \
 
-# <a name="configure-a-firewall-rule-for-the-server"></a>配置服务器的防火墙规则
-# <a name="the-ip-address-range-that-you-want-to-allow-to-access-your-server"></a>你希望其能够访问服务器的 IP 地址范围
+# Configure a firewall rule for the server
+# The ip address range that you want to allow to access your server
 az mariadb server firewall-rule create \
 --resource-group myresourcegroup \
 --server mydemoserver \
@@ -52,9 +53,10 @@ az mariadb server firewall-rule create \
 --end-ip-address 255.255.255.255
 ```
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run.
-```Azure CLI
+## <a name="clean-up-deployment"></a>清理部署
+运行脚本示例后，请使用以下命令删除资源组以及与其关联的所有资源。
+
+```azurecli
 #!/bin/bash
 az group delete --name myresourcegroup
 ```

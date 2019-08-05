@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/21/2019
 ms.author: v-yiso
-ms.date: 06/24/2019
-ms.openlocfilehash: 2d63548a1a9679b60547c6d8d3cc0db501fa23aa
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 08/12/2019
+ms.openlocfilehash: 58e0fb2e06aae6ceebeaa39453a443dca2956e62
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135868"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733522"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>使用 CLI 将虚拟网络连接到 ExpressRoute 线路
 
@@ -157,6 +157,9 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 ```
 
 *RoutingWeight* 的范围是 0 到 32000。 默认值为 0。
+
+
+
 
 ## <a name="next-steps"></a>后续步骤
 

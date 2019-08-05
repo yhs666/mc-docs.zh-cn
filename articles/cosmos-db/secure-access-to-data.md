@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 575a68fe571516b8cc279371cbfdd9e876a23ad9
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 7c8f81288b601a349635c3fbd5437c4768775238
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171348"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672229"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -27,6 +27,7 @@ Azure Cosmos DB 使用两种类型的密钥来验证用户身份并提供其数�
 
 <a name="master-key"></a>
 <!--Notice: the Archor is master-key without s char-->
+
 ## <a name="master-keys"></a>主密钥 
 
 主密钥提供对数据库帐户中所有管理资源的访问权限。 主密钥：  
@@ -197,4 +198,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * 若要详细了解 Cosmos DB 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

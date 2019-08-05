@@ -5,20 +5,22 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
-origin.date: 12/18/2018
-ms.date: 05/13/2019
+origin.date: 05/20/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: bca5ca09e11f74b24d68d5d40ae347b773b9095b
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: bd6a6f9185ebe53cca643d6ff05822d870706f1f
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67673963"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731248"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 
 Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管式 Kubernetes 服务。 本快速入门介绍如何使用 Azure CLI 部署 AKS 群集。 该群集中将运行一个包含 Web 前端和 Redis 实例的多容器应用程序。 然后，介绍如何监视群集的运行状况，以及监视运行该应用程序的 Pod。
+
+<!--Not Available on [Create an AKS cluster that supports Windows Server containers][windows-container-cli]-->
 
 ![浏览到 Azure Vote 的图像](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
@@ -28,7 +30,7 @@ Azure Kubernetes 服务 (AKS) 是可用于快速部署和管理群集的托管�
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.52 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.64 版或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -92,9 +94,9 @@ kubectl get nodes
 
 以下示例输出显示在上一步创建的单个节点。 请确保节点的状态为 *Ready*：
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.9.11
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
 
 ## <a name="run-the-application"></a>运行应用程序
@@ -202,7 +204,7 @@ kubectl apply -f azure-vote.yaml
 
 以下示例输出显示已成功创建了部署和服务：
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -221,14 +223,14 @@ kubectl get service azure-vote-front --watch
 
 最初，*azure-vote-front* 服务的 *EXTERNAL-IP* 显示为 *pending*。
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 当 *EXTERNAL-IP* 地址从 *pending* 更改为实际公共 IP 地址时，请使用 `CTRL-C` 停止 `kubectl` 监视进程。 以下示例输出显示向服务分配了有效的公共 IP 地址：
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -253,11 +255,11 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 ![查看在 AKS 中运行的容器的运行状况](media/kubernetes-walkthrough/monitor-containers.png)
 
-若要查看 `azure-vote-front` Pod 的日志，请在容器列表右侧选择“查看容器日志”链接  。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
+若要查看 `azure-vote-back` Pod 的日志，请选择“在分析中查看”选项，然后单击容器列表右侧的“查看容器日志”链接   。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
 
 ![查看 AKS 中的容器日志](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>删除群集
+## <a name="delete-the-cluster"></a>删除群集
 
 如果不再需要群集，可以使用 [az group delete][az-group-delete] 命令删除资源组、容器服务及所有相关资源。
 
@@ -276,7 +278,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。  访问刚刚创建的群集的 [Kubernetes Web 仪表板][kubernetes-dashboard]。
+在本快速入门中，部署了 Kubernetes 群集，并向该群集部署了多容器应用程序。 还可以[访问 AKS 群集的 Kubernetes Web 仪表板][kubernetes-dashboard]。
 
 若要详细了解 AKS 并演练部署示例的完整代码，请继续阅读“Kubernetes 群集”教程。
 
@@ -307,3 +309,6 @@ az group delete --name myResourceGroup --yes --no-wait
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
 [kubernetes-dashboard]: kubernetes-dashboard.md
+
+<!--Not Available on [windows-container-cli]: windows-container-cli.md-->
+<!-- Update_Description: wording update, update link -->

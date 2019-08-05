@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 04/01/2019
 ms.date: 05/20/2019
 ms.author: v-jay
-ms.openlocfilehash: 23f512c99f065405136ff2a884fc3270f862f879
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: 3426c90ef892c39f4bdd3a6db700677b3ddb9509
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731970"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732307"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>使用 Azure CLI 在标准负载均衡器中配置负载均衡和出站规则
 
@@ -97,7 +97,7 @@ ms.locfileid: "65731970"
 
 使用 [az network lb address-pool create](/cli/network/lb?view=azure-cli-latest) 创建名为 *bepooloutbound* 的另一个后端地址池，用于定义 VM 池的出站连接。  创建独立的出站池可以提供最大的灵活性，但你也可以忽略此步骤，仅使用入站池 *bepoolinbound*。
 
-```azurecli-interactive
+```cli
   az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \

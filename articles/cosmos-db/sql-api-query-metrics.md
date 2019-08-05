@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: f28ae52d84b42336c83a0372a08f6fb17018c33b
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 75e47d0554be9b2795c7ea4d9a369548f7bc268c
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171387"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672227"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>优化 Azure Cosmos DB 的查询性能
 
@@ -271,7 +271,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 | `SELECT TOP 500 c.Name FROM c WHERE STARTSWITH(LOWER(c.Name), 'den')` | `"IndexLookupTime": "00:00:00", "RetrievedDocumentCount": 2491,  "OutputDocumentCount": 500` | 查询是作为扫描执行的，因为它使用了 `LOWER`，并且返回了所检索的 2491 个文档中的 500 个。 |
 
 ## <a name="next-steps"></a>后续步骤
-* 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](how-to-sql-query.md)。 
+* 若要了解受支持的 SQL 查询运算符和关键字，请参阅 [SQL 查询](sql-query-getting-started.md)。 
 * 若要了解请求单位，请参阅[请求单位](request-units.md)。
 * 若要了解索引编制策略，请参阅[索引编制策略](index-policy.md)
 

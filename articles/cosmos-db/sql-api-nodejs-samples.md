@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 09/24/2018
-ms.date: 03/18/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: c17c6f8ca60beebd129c72a44f831c76fef63ead
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 8a23c3c52d33ed90f729641b610c990f0d24ebc7
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004531"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672235"
 ---
 # <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
 > [!div class="op_single_selector"]

@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 03/13/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: e8bc00b349774c20000132e505f08c57588bd266
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: bd2ffdde8e6b08f3d11928f6594a38b378cc0608
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171309"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672200"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Java SDK：发行说明和资源
 > [!div class="op_single_selector"]

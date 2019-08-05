@@ -9,15 +9,15 @@ ms.service: storage
 ms.author: v-jay
 ms.reviewer: seguler
 origin.date: 05/20/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 4d1595531f22e7f1308beaf5c43e8ade7b560bd4
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 378c7af3855fb0f0977a91859d1689fd8538133d
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844535"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732362"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -95,7 +95,7 @@ az storage account generate-sas \
 
 ## <a name="implement-the-html-page"></a>实现 HTML 页
 
-在本部分，你将创建一个基本的网页，然后将 VS Code 配置为启动并调试该页面。 但是，在启动之前，需要使用 Node.js 启动本地 Web 服务器，并根据浏览器的请求提供该页面。 接下来，添加 JavaScript 代码以调用各种 Blob 存储 API，并在页中显示结果。 也可以在 [Azure 门户](https://portal.azure.cN)、[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer)和适用于 VS Code 的 [Azure 存储扩展](vscode:extension/ms-azuretools.vscode-azurestorage)中查看这些调用的结果。
+在本部分，你将创建一个基本的网页，然后将 VS Code 配置为启动并调试该页面。 但是，在启动之前，需要使用 Node.js 启动本地 Web 服务器，并根据浏览器的请求提供该页面。 接下来，添加 JavaScript 代码以调用各种 Blob 存储 API，并在页中显示结果。 也可以在 [Azure 门户](https://portal.azure.cn)、[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer)和适用于 VS Code 的 [Azure 存储扩展](vscode:extension/ms-azuretools.vscode-azurestorage)中查看这些调用的结果。
 
 ### <a name="set-up-the-web-application"></a>设置 Web 应用程序
 
@@ -221,7 +221,7 @@ const sasString = "<Add the SAS you generated earlier>";
 const containerName = "testcontainer";
 const containerURL = new azblob.ContainerURL(
     `https://${accountName}.blob.core.chinacloudapi.cn/${containerName}?${sasString}`,
-    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential)));
+    azblob.StorageURL.newPipeline(new azblob.AnonymousCredential));
 ```
 
 此代码使用你的帐户信息和 SAS 来创建 [ContainerURL](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL) 实例，该实例可用于创建和操作存储容器。
@@ -316,7 +316,7 @@ const uploadFiles = async () => {
 }
 
 selectButton.addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("input", uploadFiles);
+fileInput.addEventListener("change", uploadFiles);
 ```
 
 此代码将“Select and upload files”按钮连接到隐藏的 `file-input` 元素。  这样，按钮 `click` 事件便会触发文件输入 `click` 事件，并显示文件选取器。 选择文件并关闭对话框之后，将发生 `input` 事件并调用 `uploadFiles` 函数。 对于选择的每个文件，此函数将调用仅限浏览器的 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) 函数。 每次调用都会返回一个约定，此约定将添加到某个列表，以便可以等待一次，导致并行上传文件。

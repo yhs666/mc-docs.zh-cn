@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 08/01/2017
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: b6cf9daf00efe2b7c71d9e71622c4af8ddde5b26
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e90f09bf13b91c78ea0a70b2ecd9831364eaaaf9
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625155"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732404"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>使用经典部署模型配置强制隧道
 
@@ -114,6 +114,7 @@ ms.locfileid: "58625155"
    ```powershell
    New-AzureRouteTable -Name "MyRouteTable" -Label "Routing Table for Forced Tunneling" -Location "China North"
    ```
+
 2. 将默认路由添加到路由表中。 
 
    下面的示例将默认路由添加到在步骤 1 中创建的路由表。 请注意，唯一支持的路由是“0.0.0.0/0”到“VPN 网关”下一跃点的目标前缀。
@@ -121,6 +122,7 @@ ms.locfileid: "58625155"
    ```powershell
    Get-AzureRouteTable -Name "MyRouteTable" | Set-AzureRoute -RouteTable "MyRouteTable" -RouteName "DefaultRoute" -AddressPrefix "0.0.0.0/0" -NextHopType VPNGateway
    ```
+
 3. 将路由表关联到子网。 
 
    创建路由表并添加路由后，可以使用以下示例将路由表添加到 VNet 子网，或将路由表与 VNet 子网关联。 下面的示例将“MyRouteTable”路由表添加到 VNet MultiTier-VNet 的中间层和后端子网。
@@ -129,6 +131,7 @@ ms.locfileid: "58625155"
    Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Midtier" -RouteTableName "MyRouteTable"
    Set-AzureSubnetRouteTable -VirtualNetworkName "MultiTier-VNet" -SubnetName "Backend" -RouteTableName "MyRouteTable"
    ```
+
 4. 为强制隧道指定默认站点。 
 
    在前面的步骤中，示例 cmdlet 脚本创建了路由表，并将路由表关联到两个 VNet 子网。 剩下的步骤是在虚拟网络的多站点连接中，选择一个本地站点作为默认站点或隧道。

@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 10/18/2018
-ms.date: 04/01/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: 8203760cc0ad031650b4de372c3b535809319171
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 0c9061a5a71fb6f359c36e90ad73c5a9f3a7a887
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625231"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732271"
 ---
 # <a name="create-a-virtual-network-with-a-site-to-site-vpn-connection-using-cli"></a>使用 CLI 创建具有站点到站点 VPN 连接的虚拟网络
 

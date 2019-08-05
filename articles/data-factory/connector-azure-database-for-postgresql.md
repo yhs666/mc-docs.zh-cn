@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 07/08/2019
+ms.date: 07/31/2019
 ms.author: v-jay
-ms.openlocfilehash: f6f23019d32302ead1e6e0e7c9950e37bd3314f6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 142bf0a30238a4676d631c5b21138bdb2a2d996f
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570588"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732331"
 ---
 # <a name="copy-data-from-azure-database-for-postgresql-using-azure-data-factory"></a>使用 Azure 数据工厂从 Azure Database for PostgreSQL 复制数据
 
@@ -46,11 +46,11 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
 | connectionString | 用于连接到 Azure Database for PostgreSQL 的 ODBC 连接字符串。<br/>将此字段标记为 SecureString，以便安全地将其存储在数据工厂中。 还可以将密码放在 Azure 密钥保管库中，并从连接字符串中拉取 `password` 配置。 有关更多详细信息，请参阅以下示例和[将凭据存储在 Azure 密钥保管库中](store-credentials-in-key-vault.md)一文。 | 是 |
 | connectVia | 用于连接到数据存储的[集成运行时](concepts-integration-runtime.md)。 如果数据存储位于专用网络，则可以使用 Azure Integration Runtime 或自承载集成运行时。 如果未指定，则使用默认 Azure Integration Runtime。 |否 |
 
-典型的连接字符串为 `Server=<server>.postgres.database.azure.cn;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 你可以根据自己的情况设置更多属性：
+典型的连接字符串为 `Server=<server>.postgres.database.chinacloudapi.cn;Database=<database>;Port=<port>;UID=<username>;Password=<Password>`。 你可以根据自己的情况设置更多属性：
 
 | 属性 | 说明 | 选项 | 必须 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如 `ValidateServerCertificate=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
+| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如 `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
 | ValidateServerCertificate (VSC) | 启用 SSL 加密后，确定驱动程序是否验证数据库服务器发送的证书（加密方法=1）。 例如 `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | 否 |
 
 **示例：**
@@ -63,7 +63,7 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
-                "value": "Server=<server>.postgres.database.azure.cn;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+                "value": "Server=<server>.postgres.database.chinacloudapi.cn;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         }
     }
@@ -80,7 +80,7 @@ Azure Database for PostgreSQL 链接服务支持以下属性：
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.postgres.database.azure.cn;Database=<database>;Port=<port>;UID=<username>;"
+                 "value": "Server=<server>.postgres.database.chinacloudapi.cn;Database=<database>;Port=<port>;UID=<username>;"
             },
             "password": { 
                 "type": "AzureKeyVaultSecret", 

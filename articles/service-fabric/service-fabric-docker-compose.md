@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 01/07/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 828f2e3ccbd8f2cdb5e06fc4312fcb5ddae6aa91
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: f809d51eb277797d8f11566fb4a7b53c7dbd58d0
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083899"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753130"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中的 Docker Compose 部署支持（预览版）
 
@@ -139,8 +139,8 @@ sfctl compose upgrade-status --deployment-name TestContainerApp
 ### <a name="ports-section"></a>端口部分
 
 指定 Service Fabric 侦听程序将使用“端口”部分中的 http 还是 https 协议。 这将确保使用命名服务正确发布终结点协议，以允许反向代理转发请求：
-* 若要路由到不安全的 Service Fabric Compose 服务，请指定 /http。 例如“80:80/http”。
-* 若要路由到安全的 Service Fabric Compose 服务，请指定 /https。 例如“443:443/https”。
+* 若要路由到不安全的 Service Fabric Compose 服务，请指定 /http  。 例如“80:80/http”  。
+* 若要路由到安全的 Service Fabric Compose 服务，请指定 /https  。 例如“443:443/https”  。
 
 > [!NOTE]
 > /http 和 /https 端口部分语法特定于 Service Fabric，用于注册正确的 Service Fabric 侦听程序 URL。  如果以编程方式验证 Docker Compose 文件语法，则可能导致验证错误。
@@ -167,5 +167,4 @@ docker-compose.yml 文件描述一组包括属性和配置在内的可部署容�
 * 了解 [Service Fabric 应用程序模型](service-fabric-application-model.md)
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
-<!-- Update_Description: new articles on service fabric docker compose -->
-<!--ms.date: 01/14/2019 -->
+<!-- Update_Description: update meta properties -->

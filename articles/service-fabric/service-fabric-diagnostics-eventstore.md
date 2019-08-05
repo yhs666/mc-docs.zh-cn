@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/06/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7870a4413b102468b2f4f076810c232c8e25a840
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: e7ea8443e35da498b78456a297680739a55d89a9
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844735"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753178"
 ---
 # <a name="eventstore-overview"></a>EventStore 概述
 
@@ -77,12 +77,12 @@ EventStore 服务还能够将群集中的事件相关联。 通过查看在同�
 
 * 使用 `2019-03-01` 的 API 版本或更高版本 
 * 将以下代码添加到群集中的属性部分
-  ```json  
+    ```json  
     "fabricSettings": [
       …
     ],
-    "eventStoreEnabled": false
-  ```
+    "eventStoreServiceEnabled": false
+    ```
 
 ### <a name="azure-cluster-version-64"></a>Azure 群集版本 6.4
 

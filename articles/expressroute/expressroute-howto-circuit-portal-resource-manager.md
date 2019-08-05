@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/20/2018
-ms.date: 02/25/2019
+ms.date: 08/12/2019
 ms.author: v-yiso
-ms.openlocfilehash: fbf0eff0dea87c9b7972ba9538905d7e78b71709
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: cbd2c10db00a5252c888a059a80e566c9b0a7eb9
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236037"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733541"
 ---
 # <a name="create-and-modify-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路
 
@@ -29,6 +29,7 @@ ms.locfileid: "67236037"
 > * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 模板](expressroute-howto-circuit-resource-manager-template.md)
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 >
 

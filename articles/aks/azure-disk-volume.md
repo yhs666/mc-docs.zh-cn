@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 06/24/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba023b7bcfb8fbedd1f4498e1844123f5ba51325
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 1ef007cbca9124c165bc54e5a6d120de6b6f6276
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67325772"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731233"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中通过 Azure 磁盘手动创建并使用卷
 
@@ -154,3 +154,5 @@ Events:
 [azure-files-volume]: azure-files-volume.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+
+<!-- Update_Description: wording update -->

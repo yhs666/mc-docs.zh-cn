@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 1aee43fcf86d789dc21c381030039a809c14dc8d
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
-ms.translationtype: HT
-ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656533"
 documentType: LandingData
 title: Azure VPN 网关文档
 metadata:
-  document_id: 
+  document_id: null
   title: VPN 网关文档 - 教程和 API 参考 | Microsoft Docs
-  meta.description: Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.
+  meta.description: 'Learn how to configure, create, and manage an Azure VPN gateway. Create encrypted cross-premises connections to your virtual network from on-premises locations, or create encrypted connections between VNets.'
   services: vpn-gateway
   author: WenJason
   manager: digimobile
@@ -19,38 +13,38 @@ metadata:
   ms.devlang: na
   ms.topic: landing-page
 origin.date: 04/26/2018
-ms.date: 12/24/2018
+ms.date: 08/05/2018
 ms.author: v-jay
 abstract:
   description: 了解如何配置、创建和管理 Azure VPN 网关。 创建从本地位置到虚拟网络的加密跨界连接，或者在 VNet 之间创建加密连接。
 sections:
-- title: 分步教程
-  items:
-  - type: paragraph
-    text: 了解如何创建、配置和管理 Azure VPN 网关。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+  - title: 分步教程
     items:
-    - html: <a href="/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">创建和管理 VPN 网关</a>
-- title: 示例
-  items:
-  - type: paragraph
-    text: 常见任务的脚本示例。
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 了解如何创建、配置和管理 Azure VPN 网关。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell">创建和管理 VPN 网关</a>
+  - title: 示例
     items:
-    - html: <a href="/vpn-gateway/powershell-samples">PowerShell</a>
-- title: 参考
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 常见任务的脚本示例。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/vpn-gateway/powershell-samples">PowerShell</a>
+  - title: 参考
     items:
-    - title: 命令行
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.network#vpn">PowerShell</a></p><p><a href="/cli/network/vnet-gateway">Azure CLI</a></p>
-    - title: 语言
-      html: <p><a href="/dotnet/api/overview/virtual-network">.NET</a></p><p><a href="/java/api/overview/network">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/network">Python</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/network-gateway/">REST API 参考</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令行
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.network#vpn">PowerShell</a></p><p><a href="/cli/network/vnet-gateway">Azure CLI</a></p>'
+          - title: 语言
+            html: '<p><a href="/dotnet/api/overview/virtual-network">.NET</a></p><p><a href="/java/api/overview/network">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/virtual-network">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/network">Python</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/network-gateway/">REST API 参考</a></p>'

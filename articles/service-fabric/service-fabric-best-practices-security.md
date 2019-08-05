@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/23/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 155b711275e7d987ed44657987106e57d15542d4
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: ba29c4370449439e547997d239fe1c8bc19818dc
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844757"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753173"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全 
 

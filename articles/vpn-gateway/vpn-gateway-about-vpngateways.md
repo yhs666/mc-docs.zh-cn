@@ -6,15 +6,15 @@ author: WenJason
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-origin.date: 02/22/2019
-ms.date: 03/25/2019
+origin.date: 05/22/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: ce531bb3b08feddbc2b59123026635430cb08ee1
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: e9faa5779bc0a785950d0045cc6e455028d2b874
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236636"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732411"
 ---
 # <a name="what-is-vpn-gateway"></a>什么是 VPN 网关？
 
@@ -50,7 +50,7 @@ VPN 网关连接需依赖于多个具有特定设置的资源。 大多数资源
 
 ## <a name="gwsku"></a>网关 SKU
 
-创建虚拟网络网关时，需指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。 有关网关 SKU 的详细信息（包括支持的功能、生产和开发测试以及配置步骤），请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+创建虚拟网络网关时，需指定要使用的网关 SKU。 请根据工作负荷、吞吐量、功能和 SLA 的类型，选择满足需求的 SKU。 有关网关 SKU 的详细信息（包括支持的功能、生产和开发测试以及配置步骤），请参阅 [VPN 网关设置 - 网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 一文。 有关旧版 SKU 的信息，请参阅[使用旧版 SKU](vpn-gateway-about-skus-legacy.md)。
 
 ### <a name="benchmark"></a>按隧道、连接和吞吐量列出的网关 SKU
 

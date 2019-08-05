@@ -6,15 +6,15 @@ ms.author: v-jay
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-origin.date: 05/06/2019
-ms.date: 05/20/2019
+origin.date: 06/25/2019
+ms.date: 08/05/2019
 ms.custom: mvc
-ms.openlocfilehash: fe9f34f1e7aca3541a65b9276a093a20d66de8ac
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: 8b850224af208c5d8e74028de8af68cebcbbc614
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731907"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732417"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Azure Database for PostgreSQL - 单一服务器
 
@@ -143,6 +143,13 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    ```bash
    psql --host=mydemoserver.postgres.database.chinacloudapi.cn --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > 如果更喜欢使用 URL 路径连接到 Postgres，则 URL 会使用 `%40` 对用户名中的 @ 符号进行编码。 例如，psql 的连接字符串将是：
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.chinacloudapi.cn:5432/postgres
+   > ```
+
 
 2. 连接到服务器后，在出现提示时创建空数据库。
    ```sql

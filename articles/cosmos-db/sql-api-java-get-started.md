@@ -7,22 +7,19 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
 origin.date: 12/22/2018
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 59da25e189e9ebd1484428ee3ff1d6532eb6d332
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: fc1d203734b192eededb78179e8ecf1b0ce5e739
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171373"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672205"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET（预览版）](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core（预览版）](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -80,9 +77,9 @@ ms.locfileid: "67171373"
 
 <a name="Connect"></a>
 ## <a name="step-3-connect-to-an-azure-cosmos-db-account"></a>步骤 3：连接到 Azure Cosmos DB 帐户
-接下来，回到 [Azure 门户](https://portal.azure.cn) ，检索终结点和主要主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
+接下来，返回到 [Azure 门户](https://portal.azure.cn)检索终结点和主密钥。 Azure Cosmos DB 终结点和主密钥是必需的，可让应用程序知道要连接的对象，使 Azure Cosmos DB 信任应用程序的连接。
 
-在 Azure 门户中，导航到 Azure Cosmos DB 帐户，并单击“密钥”  。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
+在 Azure 门户中，导航到 Azure Cosmos DB 帐户，然后单击“密钥”  。 从门户复制 URI，并将其粘贴到 Program.java 文件的 `https://FILLME.documents.azure.cn` 中。 然后从门户中复制“主密钥”并将它粘贴到 `FILLME`。
 
     this.client = new DocumentClient(
         "https://FILLME.documents.azure.cn",
@@ -90,7 +87,7 @@ ms.locfileid: "67171373"
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![NoSQL 教程创建 Java 控制台应用程序时使用的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
+![NoSQL 教程用于创建 Java 控制台应用程序的 Azure 门户的屏幕截图。 显示了一个 Azure Cosmos DB 帐户，在“Azure Cosmos DB 帐户”边栏选项卡上突出显示了“ACTIVE”中心、“密钥”按钮，在“密钥”边栏选项卡上突出显示了 URI、主密钥、辅助密钥的值][keys]
 
 ## <a name="step-4-create-a-database"></a>步骤 4：创建数据库
 可以使用 **DocumentClient** 类的 [createDatabase](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) 方法创建 Azure Cosmos DB [数据库](databases-containers-items.md#azure-cosmos-databases)。 数据库是跨集合分区的 JSON 文档存储的逻辑容器。

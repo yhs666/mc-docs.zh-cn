@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 630b0c15117bc9cca27bb9c5bfc16d3e6d3901fd
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 0492fd56ecc4bf4da36e1af0ae7e1e3ac7f25f29
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171426"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672220"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>使用 Azure CLI 管理 Azure Cosmos 资源
 
@@ -34,7 +34,8 @@ az cosmosdb create \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
-   --locations ChinaEast=0 ChinaNorth=1 \
+   --locations regionName=chinaeast failoverPriority=0 isZoneRedundant=False \
+   --locations regionName=chinanorth failoverPriority=1 isZoneRedundant=False \
    --enable-multiple-write-locations false
 ```
 
@@ -93,7 +94,7 @@ az cosmosdb collection update \
 
 ```azurecli
 # List account keys
-az cosmosdb list-keys \
+az cosmosdb keys list \
    --name  mycosmosdbaccount \
    --resource-group myResourceGroup
 ```

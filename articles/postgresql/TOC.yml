@@ -73,6 +73,8 @@
               href: concepts-ssl-connection-security.md
             - name: 虚拟网络
               href: concepts-data-access-and-security-vnet.md
+            - name: 连接体系结构
+              href: concepts-connectivity-architecture.md
         - name: 业务连续性
           items:
             - name: 概述
@@ -149,6 +151,10 @@
           href: howto-configure-server-parameters-using-portal.md
         - name: Azure CLI
           href: howto-configure-server-parameters-using-cli.md
+    - name: 自动增长存储
+      items:
+        - name: Azure 门户
+          href: howto-auto-grow-storage-portal.md
     - name: 访问服务器日志
       items:
         - name: Azure 门户

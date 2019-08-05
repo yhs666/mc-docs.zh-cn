@@ -9,12 +9,12 @@ ms.topic: sample
 ms.custom: mvc
 origin.date: 11/28/2018
 ms.date: 05/27/2019
-ms.openlocfilehash: f859e5be73f2c6e2ea03482fba029c094e5f1d9f
-ms.sourcegitcommit: 60169f39663ae62016f918bdfa223c411e249883
+ms.openlocfilehash: 3575fadf53079617b27989ded0757e5fb7d5385b
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66173252"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732363"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>使用 Azure CLI 列出和更新 Azure Database for MariaDB 服务器的配置
 此示例 CLI 脚本列出了 Azure Database for MariaDB 服务器的可用配置参数及其允许的值，并将 innodb_lock_wait_timeout  设置为默认值以外的值。
@@ -23,17 +23,18 @@ ms.locfileid: "66173252"
 
 ## <a name="sample-script"></a>示例脚本
 在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。
-```Azure CLI
-#<a name="binbash"></a>!/bin/bash
 
-# <a name="create-a-resource-group"></a>创建资源组
+```azurecli
+#!/bin/bash
+
+# Create a resource group
 az group create \
 --name myresourcegroup \
 --location chinaeast2
 
-# <a name="create-a-mariadb-server-in-the-resource-group"></a>在资源组中创建 MariaDB 服务器
-# <a name="name-of-a-server-maps-to-dns-name-and-is-thus-required-to-be-globally-unique-in-azure"></a>服务器的名称会映射到 DNS 名称，因此该名称在 Azure 中需具有全局级别的唯一性。
-# <a name="substitute-the-serveradminpassword-with-your-own-value"></a>将 <server_admin_password> 替换为你自己的值。
+# Create a MariaDB server in the resource group
+# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
+# Substitute the <server_admin_password> with your own value.
 az mariadb server create \
 --name mydemoserver \
 --resource-group myresourcegroup \
@@ -42,28 +43,29 @@ az mariadb server create \
 --admin-password <server_admin_password> \
 --sku-name GP_Gen5_2 \
 
-# <a name="display-all-available-configurations-with-valid-values-of-an-azure-database-for-mariadb-server"></a>显示具有 Azure Database for MariaDB 服务器的有效值的所有可用配置
+# Display all available configurations with valid values of an Azure Database for MariaDB server
 az mariadb server configuration list \
 --resource-group myresourcegroup \
 --server-name mydemoserver
 
-# <a name="set-value-of-innodblockwaittimeout"></a>设置 *innodb_lock_wait_timeout* 的值
+# Set value of *innodb_lock_wait_timeout*
 az mariadb server configuration set \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --name innodb_lock_wait_timeout \
 --value 120
 
-# <a name="check-the-value-of-innodblockwaittimeout"></a>检查 *innodb_lock_wait_timeout* 的值
+# Check the value of *innodb_lock_wait_timeout*
 az mariadb server configuration show \
 --resource-group myresourcegroup \
 --server-name mydemoserver \
 --name innodb_lock_wait_timeout
 ```
 
-## Clean up deployment
-Use the following command to remove the resource group and all resources associated with it after the script has been run.
-```Azure CLI
+## <a name="clean-up-deployment"></a>清理部署
+运行脚本示例后，请使用以下命令删除资源组以及与其关联的所有资源。
+
+```azurecli
 #!/bin/bash
 az group delete --name myresourcegroup
 ```

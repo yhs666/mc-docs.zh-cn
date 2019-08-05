@@ -7,23 +7,20 @@ ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: tutorial
 origin.date: 06/05/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 4bbd43a7b191a68bb0bc3241613dd9ce1e6cd9af
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 933761bec96691fd81d31431273db83c766abe50
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171365"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672232"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
-> * [.NET（预览版）](sql-api-dotnet-get-started-preview.md)
-> * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [.NET Core（预览版）](sql-api-dotnet-core-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 > * [异步 Java](sql-api-async-java-get-started.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
@@ -455,9 +452,9 @@ ms.locfileid: "67171365"
 
 1. 在终端中，找到 ```app.js``` 文件并运行以下命令： 
 
-   ```bash 
-   node app.js
-   ```
+    ```bash 
+    node app.js
+    ```
 
 <a name="CreateItem"></a>
 ## <a name="create-an-item"></a>创建项

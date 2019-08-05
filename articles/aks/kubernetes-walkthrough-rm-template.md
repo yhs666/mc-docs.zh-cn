@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 04/19/2019
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f3c4df9f36e86f42512949d6ee369b29d36e8af0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: a86e70923bbfc15099e00ae5209c5152d5e06bb4
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67673965"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731223"
 ---
 <!--Verify successfully-->
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板部署 Azure Kubernetes 服务 (AKS) 群集
@@ -85,9 +85,11 @@ az ad sp create-for-rbac --skip-assignment
     
     对于本快速入门，请保留“OS 磁盘大小(GB)”、“代理计数”、“代理 VM 大小”、“OS 类型”和“Kubernetes 版本”的默认值。      为以下模板参数提供自己的值：
     * “部署解决方案模板”面板： 
+    
         * **订阅**：选择 Azure 订阅。
         * **资源组**：选择“新建”。  输入资源组的唯一名称（例如 *myResourceGroup*），然后选择“确定”。 
         * **资源组位置**：选择一个位置，例如“中国东部 2”。 
+        
     * “参数”面板： 
         * **群集名称**：输入 AKS 群集的唯一名称，例如 *myAKSCluster*。
         * **DNS 前缀**：输入群集的唯一 DNS 前缀，例如 *myakscluster*。
@@ -104,6 +106,8 @@ az ad sp create-for-rbac --skip-assignment
 
 3. 依次选择“查看法律条款”、“创建”。  
 
+    <!--MOONCAKE: CUSTOMIZED-->
+    
 创建 AKS 群集需要几分钟时间。 等待群集成功部署，然后转到下一步骤。
 
 ## <a name="connect-to-the-cluster"></a>连接至群集
@@ -329,5 +333,4 @@ az group delete --name myResourceGroup --yes --no-wait
 [ssh-keys]: ../virtual-machines/linux/create-ssh-keys-detailed.md
 [az-ad-sp-create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 
-<!--Update_Description: new articles on kubernetes waklthrought rm template -->
-<!--ms.date: 05/13/2019-->
+<!--Update_Description: wording update -->

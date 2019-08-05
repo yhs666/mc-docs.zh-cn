@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 03/25/2019
+ms.date: 08/05/2019
 ms.author: v-jay
+ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 6d572d4b766b74627dd3ce1e49a00f865403d08e
-ms.sourcegitcommit: c70402dacd23ccded50ec6aea9f27f1cf0ec22ba
+ms.openlocfilehash: 3a6c183f74785f813db9ebce0d71a0150209825b
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58253892"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732374"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在免费试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
@@ -56,7 +57,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Azure 存储资源管理器</a></td>
+    <td><a href="https://storageexplorer.com/">Azure 存储资源管理器</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -108,7 +109,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata：Azure Management Studio</a></td>
+    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata：Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -150,7 +151,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
+    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -164,7 +165,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -178,7 +179,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://clumsyleaf.com">ClumsyLeaf：AzureXplorer、CloudXplorer、TableXplorer</a></td>
+    <td><a href="https://clumsyleaf.com">ClumsyLeaf：AzureXplorer、CloudXplorer、TableXplorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -192,7 +193,7 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
+    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>

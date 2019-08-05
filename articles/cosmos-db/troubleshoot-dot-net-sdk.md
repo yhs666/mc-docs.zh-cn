@@ -3,19 +3,18 @@ title: 诊断和排查使用 Azure Cosmos DB .NET SDK 时遇到的问题
 description: 使用客户端日志记录等功能和其他第三方工具来确定、诊断和排查使用 .NET SDK 时遇到的 Azure Cosmos DB 问题。
 author: rockboyfor
 ms.service: cosmos-db
-origin.date: 01/19/2019
-ms.date: 03/18/2019
+origin.date: 05/28/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2be6fe0bf829dc595894f9de2cd73c4cf069e817
-ms.sourcegitcommit: e9b648b0cb923b93753fb7e85e1a29f07602213b
+ms.openlocfilehash: 8c514e721ec0fa0ebf3f906b6286d35ef4198ce2
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717689"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672212"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>诊断和排查使用 Azure Cosmos DB .NET SDK 时遇到的问题
@@ -25,13 +24,13 @@ ms.locfileid: "67717689"
 ## <a name="checklist-for-troubleshooting-issues"></a>问题排查清单：
 在将应用程序投放生产之前，请查看以下清单。 使用该清单有助于防止出现多个常见问题。 出现问题时可以快速诊断：
 
-*   使用最新的 [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)。 不应该将预览版 SDK 用于生产。 这可以防止出现已予以修复的已知问题。
-*   查看[性能提示](performance-tips.md)并按照建议的做法进行操作。 这有助于防止缩放、延迟和其他性能问题。
-*   启用 SDK 日志记录以帮助排查问题。 启用日志记录可能会影响性能，因此，最好是只在排查问题时才启用日志记录。 可以启用以下日志：
-    *   使用 Azure 门户[记录指标](monitor-accounts.md)。 门户指标显示 Azure Cosmos DB 遥测数据，这有助于确定问题是否与 Azure Cosmos DB 相关，或者是否由客户端造成。
-    *   记录点操作响应中的[诊断字符串](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)。
-    *   记录所有查询响应中的 [SQL 查询指标](sql-api-query-metrics.md) 
-    *   遵循有关 [SDK 日志记录]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)的设置
+* 使用最新的 [SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)。 不应该将预览版 SDK 用于生产。 这可以防止出现已予以修复的已知问题。
+* 查看[性能提示](performance-tips.md)并按照建议的做法进行操作。 这有助于防止缩放、延迟和其他性能问题。
+* 启用 SDK 日志记录以帮助排查问题。 启用日志记录可能会影响性能，因此，最好是只在排查问题时才启用日志记录。 可以启用以下日志：
+    * 使用 Azure 门户[记录指标](monitor-accounts.md)。 门户指标显示 Azure Cosmos DB 遥测数据，这有助于确定问题是否与 Azure Cosmos DB 相关，或者是否由客户端造成。
+    * 记录点操作响应中的[诊断字符串](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?view=azure-dotnet)。
+    * 记录所有查询响应中的 [SQL 查询指标](sql-api-query-metrics.md) 
+    * 遵循有关 [SDK 日志记录]( https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/docs/documentdb-sdk_capture_etl.md)的设置
 
 请查看本文中的[常见问题和解决方法](#common-issues-workarounds)部分。
 
@@ -71,7 +70,7 @@ ms.locfileid: "67717689"
 
 如果应用部署在没有公共 IP 地址的 Azure 虚拟机上，则默认情况下，[Azure SNAT 端口](/load-balancer/load-balancer-outbound-connections#preallocatedports)用于建立与 VM 外部任何终结点的连接。 从 VM 到 Azure Cosmos DB 终结点，允许的连接数受 [Azure SNAT 配置](/load-balancer/load-balancer-outbound-connections#preallocatedports)的限制。
 
- 仅当 VM 具有专用 IP 地址且来自 VM 的进程尝试连接到公共 IP 地址时，才会使用 Azure SNAT 端口。 有两种解决方法可以避免 Azure SNAT 限制：
+仅当 VM 具有专用 IP 地址且来自 VM 的进程尝试连接到公共 IP 地址时，才会使用 Azure SNAT 端口。 有两种解决方法可以避免 Azure SNAT 限制：
 
 * 向 Azure 虚拟机虚拟网络的子网添加 Azure Cosmos DB 服务终结点。 有关详细信息，请参阅 [Azure 虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)。 
 
@@ -101,5 +100,4 @@ ms.locfileid: "67717689"
 
 <!--Not Available on [Production check list]: #production-check-list-->
 
-<!--Update_Description: new articles on troubleshoot dot net sdk -->
-<!--ms.date: 03/18/2019-->
+<!--Update_Description: wording update -->

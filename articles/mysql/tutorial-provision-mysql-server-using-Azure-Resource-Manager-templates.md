@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 12/21/2018
 ms.date: 03/18/2019
 ms.custom: mvc
-ms.openlocfilehash: 3844c65b0b5a973d62709f0170b9fa6af922ce95
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: fae11509927ed6fb57c9c6bb585bb3556f6ca445
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625191"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732402"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>教程：使用 Azure 资源管理器模板预配 Azure Database for MySQL 服务器
 
@@ -113,7 +113,7 @@ az group deployment create -g $ ExampleResourceGroup   --template-file $ {templa
 
 ## <a name="get-the-connection-information"></a>获取连接信息
 若要连接到服务器，需要提供主机信息和访问凭据。
-```azurecli-interactive
+```azurecli
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
