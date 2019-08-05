@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/25/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 22138f076bb44bfad4bb993b8b3168df33a6c17c
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: f268d03b09bb9ff40339a331173b17ca7de7aa79
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844524"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732326"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>规划 Azure 文件部署
 
@@ -37,7 +37,7 @@ ms.locfileid: "67844524"
 * **URL 格式**：对于使用文件 REST 协议向 Azure 文件共享提出的请求，可采用以下 URL 格式对文件进行寻址：
 
     ```
-    https://<storage account>.file.core.chinacloudapi.cn/<share>/<directory>/directories>/<file>
+    https://<storage account>.file.core.chinacloudapi.cn/<share>/<directory>/<file>
     ```
 
 ## <a name="data-access-method"></a>数据访问方法
