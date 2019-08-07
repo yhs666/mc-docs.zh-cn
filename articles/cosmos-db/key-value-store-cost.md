@@ -5,22 +5,23 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 7a892a4a61ec7b387e18ad3b6b8e79d3e045ee73
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: e30b74465f4974c0fc87a0b2efaf7f8205e1d95a
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171430"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672183"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store---cost-overview"></a>用作键值存储的 Azure Cosmos DB - 费用概述
 
 Azure Cosmos DB 是一个多区域分布式多模型数据库服务，用于轻松构建高度可用的大规模应用程序。 默认情况下，Azure Cosmos DB 会自动为其引入的所有数据高效编制索引。 因此，可针对任何类型的数据执行快速一致的 [SQL](how-to-sql-query.md)（和 [JavaScript](stored-procedures-triggers-udfs.md)）查询。 
 
 <!-- Notice: 全球 to 多个区域 -->
-本文介绍使用 Azure Cosmos DB 作为键/值存储执行简单写入和读取操作时产生的成本。 写入操作包括文档的插入、替换、删除和更新插入。 除了针对所有采用宽松一致性的单区域帐户和多区域帐户提供有保证的 99.99% 可用性 SLA，针对所有多区域数据库帐户提供 99.999% 读取可用性以外，Azure Cosmos DB 还保证读取延迟小于 10 毫秒，（索引）写入延迟小于 15 毫秒，SLA 高达 99%。 
+
+本文介绍使用 Azure Cosmos DB 作为键/值存储执行简单写入和读取操作时产生的成本。 写入操作包括文档的插入、替换、删除和更新插入。 除了针对所有采用宽松一致性的单区域帐户和多区域帐户提供有保证的 99.99% 可用性 SLA，针对所有多区域数据库帐户提供 99.999% 读取可用性以外，Azure Cosmos DB 还保证在 99% 的情况下，读取和（索引）写入延迟分别小于 10 毫秒。 
 
 ## <a name="why-we-use-request-units-rus"></a>为何使用请求单位 (RU)
 
@@ -29,6 +30,7 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 作为一种多区域分布式数据库系统，Cosmos DB 是唯一除提供高可用性外还在延迟、吞吐量和一致性方面提供 SLA 的 Azure 服务。 预配的吞吐量应用到与 Cosmos DB 数据库帐户关联的每个区域。 对于读取，Cosmos DB 提供多个妥善定义的[一致性级别](consistency-levels.md)供用户选择。 
 
 <!-- Notice: 全球 to 多个区域 -->
+
 下表显示基于 1 KB 和 100 KB 自定义文档大小执行读取和写入事务所需的 RU 数量。
 
 |项大小|1 次读取|1 次写入|
@@ -49,7 +51,8 @@ Azure Cosmos DB 的性能基于分区的预配[请求单位](request-units.md) (
 
 <!--Notice: $0.08 against CNY0.82 for Azure China-->
 
-大多数基本 Blob 或对象存储服务针对百万次读取事务收取 $0.40，针对百万次写入事务收取 $5。 如果以最佳的方式使用，Cosmos DB 可能比其他解决方案要便宜 98%（适用于 1-KB 事务）。
+<!--Not Available on Most of the basic blob or object stores services charge $0.40 per million read transaction and $5 per million write transaction. If used optimally, Cosmos DB can be up to 98% cheaper than these other solutions (for 1-KB transactions).-->
+<!--Notice: $0.40 per million read transaction for Azure China-->
 
 ## <a name="next-steps"></a>后续步骤
 

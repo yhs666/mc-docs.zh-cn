@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 04/24/2019
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: c791e4abd77e419ba83c4ce04a7fca04e5ede589
-ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
+ms.openlocfilehash: 29e825adfdfa49d5106e3e08905243e0e442ec0f
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67673961"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731220"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的身份验证和授权的最佳做法
 
@@ -89,7 +89,7 @@ roleRef:
 
 ## <a name="use-pod-identities"></a>使用 pod 标识
 
-**最佳做法指导** - 不要在 pod 或容器映像中使用固定的凭据，因为它们存在泄漏或滥用的风险。 应该使用 pod 标识通过中心 Azure AD 标识解决方案来自动请求访问权限。
+**最佳做法指导** - 不要在 pod 或容器映像中使用固定的凭据，因为它们存在泄漏或滥用的风险。 应该使用 pod 标识通过中心 Azure AD 标识解决方案来自动请求访问权限。 Pod 标识仅适用于 Linux Pod 和容器映像。
 
 当 pod 需要访问其他 Azure 服务（例如 Cosmos DB、Key Vault 或 Blob 存储）时，pod 需要访问凭据。 可以使用容器映像定义这些访问凭据或将其注入为 Kubernetes 机密，但需要手动创建并分配这些凭据。 通常，凭据会在不同的 pod 之间重复使用，并且不会定期轮换。
 
@@ -140,3 +140,5 @@ roleRef:
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [azure-ad-rbac]: azure-ad-rbac.md
+
+<!-- Update_Description: wording update, update link -->

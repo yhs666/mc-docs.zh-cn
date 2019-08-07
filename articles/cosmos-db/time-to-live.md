@@ -4,16 +4,16 @@ description: 通过 TTL 功能，Azure Cosmos DB 能够在一段时间后将文�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 9515d54ef9bade8e356ad28ae88323edf073681d
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 4059df23c909c45fadbf3fabc04bb6cdd3cc5068
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615227"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672213"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Azure Cosmos DB 中的生存时间 (TTL) 
 
@@ -25,27 +25,61 @@ ms.locfileid: "59615227"
 
 1. **容器的生存时间**（使用 `DefaultTimeToLive` 设置）：
 
-   - 如果缺失（或设置为 null），则项不会自动过期。
+    - 如果缺失（或设置为 null），则项不会自动过期。
 
-   - 如果存在且值设置为“-1”（无限期），则默认情况下，项不会过期。
+    - 如果存在且值设置为“-1”（无限期），则默认情况下，项不会过期。
 
-   - 如果存在且值设置为某个数字（“n”），则项将在上次修改“n”秒后过期。
+    - 如果存在且值设置为某个数字（“n”），则项将在上次修改“n”秒后过期。  
 
 2. **项的生存时间**（使用 `ttl` 设置）：
 
-   - 仅当父容器的 `DefaultTimeToLive` 存在且不是设置为 null 时，此属性才适用。
+    - 仅当父容器的 `DefaultTimeToLive` 存在且不是设置为 null 时，此属性才适用。
 
-   - 如果存在，它将替代父容器的 `DefaultTimeToLive` 值。
+    - 如果存在，它将替代父容器的 `DefaultTimeToLive` 值。
 
 ## <a name="time-to-live-configurations"></a>生存时间配置
 
-* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。  如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。 
+* 如果将某个容器的 TTL 设置为“n”，该容器中的项将在 n 秒后过期。    如果同一容器中的项有自身的生存时间且 TTL 设置为 -1（表示不会过期），或者某些项使用不同的数字替代了生存时间设置，则这些项会根据其自己的已配置 TTL 值过期。 
 
 * 如果未针对某个容器设置 TTL，则此容器中的项的生存时间不起作用。 
 
 * 如果某个容器的 TTL 设置为 -1，则此容器中生存时间设置为 n 的项将在 n 秒后过期，剩余的项不会过期。 
 
 基于 TTL 删除项是免费的。 TTL 过期后删除项不会产生额外的费用（即，不会消耗额外的 RU）。
+
+## <a name="examples"></a>示例
+
+本部分显示分配给容器和项不同生存时间值的一些示例：
+
+### <a name="example-1"></a>示例 1
+
+容器的 TTL 设置为 null (DefaultTimeToLive = null)
+
+|项的 TTL| 结果|
+|---|---|
+|ttl = null|    TTL 已禁用。 该项将永不过期（默认值）。|
+|ttl = -1   |TTL 已禁用。 该项将永不过期。|
+|ttl = 2000 |TTL 已禁用。 该项将永不过期。|
+
+### <a name="example-2"></a>示例 2
+
+容器的 TTL 设置为 -1 (DefaultTimeToLive = -1)
+
+|项的 TTL| 结果|
+|---|---|
+|ttl = null |TTL 已启用。 该项将永不过期（默认值）。|
+|ttl = -1   |TTL 已启用。 该项将永不过期。|
+|ttl = 2000 |TTL 已启用。 该项将在 2000 秒后过期。|
+
+### <a name="example-3"></a>示例 3
+
+容器的 TTL 设置为 1000 (DefaultTimeToLive = 1000)
+
+|项的 TTL| 结果|
+|---|---|
+|ttl = null|    TTL 已启用。 该项将在 1000 秒（默认值）后过期。|
+|ttl = -1   |TTL 已启用。 该项将永不过期。|
+|ttl = 2000 |TTL 已启用。 该项将在 2000 秒后过期。|
 
 ## <a name="next-steps"></a>后续步骤
 

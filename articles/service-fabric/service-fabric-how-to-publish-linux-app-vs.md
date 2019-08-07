@@ -13,18 +13,18 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/20/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: fc9b040296e5b947397a4cbab8fee7e582d5e802
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: ebb6a072df665540151d5ba2c1c8a49843659c00
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844984"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753164"
 ---
 <!--Verify successfully-->
 <!--Need Reopen the Visual Studio project and refresh certification after about half an hour-->
-# <a name="use-visual-studio-to-create-and-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>使用 Visual Studio 创建 .NET Core 应用程序并将其发布到远程 Linux Service Fabric 群集
+# <a name="use-visual-studio-to-create-and-publish-net-core-applications-targeting-a-remote-linux-service-fabric-cluster"></a>使用 Visual Studio 创建 .NET Core 应用程序并将其发布到远程 Linux Service Fabric 群集
 可以使用 Visual Studio 工具开发 .NET Core 应用程序并将其发布到 Linux Service Fabric 群集。 SDK 版本必须为 3.4 或更高才能在 Visual Studio 中将 .NET Core 应用程序部署到 Linux Service Fabric 群集。
 
 > [!Note]
@@ -85,5 +85,4 @@ ms.locfileid: "67844984"
 ## <a name="next-steps"></a>后续步骤
 * 了解 [Service Fabric 入门（使用 .NET Core）](https://azure.microsoft.com/resources/samples/service-fabric-dotnet-core-getting-started/)
 
-<!-- Update_Description: new article about service fabric public linux app vs -->
-<!--ms.date: 07/08/2018-->
+<!-- Update_Description: wording update -->

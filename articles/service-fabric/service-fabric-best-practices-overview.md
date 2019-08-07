@@ -12,21 +12,21 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 04/24/2019
-ms.date: 07/08/2019
+origin.date: 06/18/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4bc3c576b11c14194185751db62d5e4f3a55642f
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 6f9bfb691934542682e0ed0ad91eec12b4b8d865
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844700"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753172"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Azure Service Fabric 应用程序和群集最佳做法
 
-为了成功管理 Azure Service Fabric 应用程序和群集，强烈建议你执行一些操作来优化生产环境的可靠性；请执行本文档中定义的操作，并选择我们的 [Azure 示例 Service Fabric 群集模板](https://github.com/Azure-Samples/service-fabric-cluster-templates)之一来开始设计你的生产解决方案或修改现有模板来包括这些做法。
+本文提供了有关管理 Azure Service Fabric 应用程序和群集的最佳做法的链接。 我们强烈建议你实施这些做法，以优化生产环境的可靠性。 使用 [Service Fabric 群集模板之一](https://github.com/Azure-Samples/service-fabric-cluster-templates)开始设计生产解决方案，或更新现有模板以纳入这些做法。
 
-## <a name="security"></a>安全性 
+## <a name="security"></a>安全性
 
 * [安全性最佳做法](service-fabric-best-practices-security.md)
 
@@ -52,13 +52,13 @@ ms.locfileid: "67844700"
 
 ## <a name="checklist"></a>清单
 
-完成上面的所有部分后，请确保你已集成了生产就绪情况核对清单中的所有最佳做法：
+实施前面几节中建议的做法后，请确保已将所有最佳做法集成到生产就绪情况核对清单中：
 * [Azure Service Fabric 生产就绪情况核对清单](/service-fabric/service-fabric-production-readiness-checklist)
 
 ## <a name="next-steps"></a>后续步骤
 
 * 在运行 Windows Server 的 VM 或计算机上创建群集：[创建适用于 Windows Server 的 Service Fabric 群集](service-fabric-cluster-creation-for-windows-server.md)
 * 在运行 Linux 的 VM 或计算机上创建群集：[创建 Linux 群集](service-fabric-cluster-creation-via-portal.md)
-* 故障排除：[Service Fabric 故障排除指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
+* Service Fabric 故障排除：[故障排除指南](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides)
 
 <!--Update_Description: wording update -->

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06ac3b59b15862e94c6913926f18f479e8f8a437
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2bda41fb0ba215c0013413ac5728fd67be84cda8
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625632"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753180"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
 Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
@@ -37,9 +37,9 @@ Service Fabric 群集资源管理器支持动态负载更改、对添加或删�
 群集 Resource Manager 可以进行的每种不同类型的修复都由不同的计时器控制，控管修复频率。 激发每个计时器时，会计划任务。 默认情况下，Resource Manager：
 
 * 每 1/10 秒扫描其状态并应用更新（如记录某节点处于关闭状态）
-* 设置放置检查标志 
+* 每秒设置放置检查标志
 * 每秒设置约束检查标志
-* 每隔 5 秒设置均衡标记。
+* 每隔 5 秒设置一次均衡标志
 
 下面是用于管理这些计时器的配置示例：
 
@@ -89,7 +89,7 @@ ClusterManifest.xml：
 群集 Resource Manager 还需要一些其他信息来确定群集是否不均衡。 为此，我们还提供了另外两个配置：*BalancingThresholds* 和 *ActivityThresholds*。
 
 ## <a name="balancing-thresholds"></a>均衡阈值
-均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个比率。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 
+均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个比率  。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 
 
 均衡阈值根据每个指标定义为群集定义的一部分。 有关指标的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-metrics.md)。
 
@@ -124,7 +124,8 @@ ClusterManifest.xml
 
 <center>
 
-![均衡阈值示例][Image1]
+![平衡阈值示例][Image1]
+
 </center>
 
 在此示例中，每个服务使用一个单位的指标。 在最上面的示例中，节点的负载上限为 5，下限为 2。 假设此指标的均衡阈值为 3。 群集中的比率为 5/2 = 2.5，这小于指定的均衡阈值 3，因此群集被视为均衡。 群集 Resource Manager 进行检查时不会触发均衡。
@@ -137,13 +138,13 @@ ClusterManifest.xml
 </center>
 
 > [!NOTE]
-> “均衡”会处理两种不同的策略，管理群集中的负载。 群集资源管理器使用的默认策略是在群集的节点间分发负载。 另一个策略是[碎片整理](service-fabric-cluster-resource-manager-defragmentation-metrics.md)。 在同一均衡运行的过程中，执行碎片整理。 均衡和碎片整理策略可以用于同一群集中的不同指标。 一个服务可具有均衡和碎片整理两个指标。 对于碎片整理指标，群集中负载的比率低于均衡阈值时，会触发重新均衡。 
+> “均衡”会处理两种不同的策略，管理群集中的负载。 群集资源管理器使用的默认策略是在群集的节点间分发负载。 另一个策略是[碎片整理](service-fabric-cluster-resource-manager-defragmentation-metrics.md)。 在同一均衡运行的过程中，执行碎片整理。 均衡和碎片整理策略可以用于同一群集中的不同指标。 一个服务可具有均衡和碎片整理两个指标。 对于碎片整理指标，群集中负载的比率低于均衡阈值时，会触发重新均衡  。 
 >
 
-低于均衡阈值不是直接目标。 均衡阈值只是一个触发器。 均衡运行时，群集资源管理器会确定它可进行哪些改进（如有）。 因为仅仅启动均衡搜索并不意味着会移动任何内容。 有时群集是不均衡的，但约束过度，就无法修正。 或者，改进需要[成本高昂](service-fabric-cluster-resource-manager-movement-cost.md)的移动）。
+低于均衡阈值不是直接目标。 均衡阈值只是一个触发器  。 均衡运行时，群集资源管理器会确定它可进行哪些改进（如有）。 因为仅仅启动均衡搜索并不意味着会移动任何内容。 有时群集是不均衡的，但约束过度，就无法修正。 或者，改进需要[成本高昂](service-fabric-cluster-resource-manager-movement-cost.md)的移动）。
 
 ## <a name="activity-thresholds"></a>活动阈值
-有时，虽然节点相当不均衡，但群集中的负载 *总量* 很低。 负载缺乏可能是暂时性的下降，或是因为群集是新的并且刚刚开始引导。 不管是哪种情况，建议不要花费时间来均衡群集，因为实际的收获很少。 如果均衡群集，会耗费网络和计算资源进行移动操作，却不会产生任何大的绝对差异。 为了避免不必要的移动，可使用名为“活动阈值”的另一种控件。 活动阈值可以指定活动的绝对下限。 如果没有节点高于此阈值，即使达到均衡阈值，也不触发均衡。
+有时，虽然节点相当不均衡，但群集中的负载 *总量* 很低。 负载缺乏可能是暂时性的下降，或是因为群集是新的并且刚刚开始引导。 不管是哪种情况，建议不要花费时间来均衡群集，因为实际的收获很少。 如果均衡群集，会耗费网络和计算资源进行移动操作，却不会产生任何大的绝对差异  。 为了避免不必要的移动，可使用名为“活动阈值”的另一种控件。 活动阈值可以指定活动的绝对下限。 如果没有节点高于此阈值，即使达到均衡阈值，也不触发均衡。
 
 假设我们为此指标保留三个均衡阈值。 另外假设具有 1536 个活动阈值。 在第一种情况下，根据均衡阈值，群集为不均衡状态，但没有节点符合活动阈值，因此保持现状。 在底部的示例中，Node1 超过活动阈值。 由于同时超过了指标的均衡阈值和活动阈值，所以计划进行均衡。 有关示例，请看下图： 
 
@@ -199,7 +200,8 @@ ClusterManifest.xml
 
 <center>
 
-![一起均衡服务][Image4]
+![一起平衡服务][Image4]
+
 </center>
 
 由于此链条，指标 1-4 不均衡可能会导致属于服务 1-3 的副本或实例四处移动。 此外，指标 1、2 或 3 不均衡一定不会在 Service4 中引起移动。 因为移动属于 Service4 的副本或实例绝对不会影响指标 1-3 的均衡，所以这样做毫无意义。
@@ -208,7 +210,8 @@ ClusterManifest.xml
 
 <center>
 
-![一起均衡服务][Image5]
+![一起平衡服务][Image5]
+
 </center>
 
 ## <a name="next-steps"></a>后续步骤

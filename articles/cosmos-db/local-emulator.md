@@ -5,14 +5,14 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: rockboyfor
 ms.author: v-yeche
-origin.date: 05/20/2019
-ms.date: 06/17/2019
-ms.openlocfilehash: fb658ac4d600206bfe2bf05b76e19651cc8aaf17
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+origin.date: 07/09/2019
+ms.date: 07/29/2019
+ms.openlocfilehash: bc88199574e0c6dbbe9e5e6381e8588bbc5ce967
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171432"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672228"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>使用 Azure Cosmos 模拟器进行本地开发和测试
 
@@ -24,7 +24,7 @@ ms.locfileid: "67171432"
 
 Azure Cosmos 模拟器提供对 Azure Cosmos DB 服务的高保真模拟。 它支持与 Azure Cosmos DB 相同的功能，包括创建和查询数据、支持预配和缩放容器，以及执行存储过程和触发器。 可以使用 Azure Cosmos 模拟器开发和测试应用程序，并通过直接对 Azure Cosmos DB 的连接终结点进行单一配置更改将其部署到多区域范围的 Azure。
 
-虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 依赖于 Azure 基础结构的功能（如多区域复制、读/写的单位数毫秒延迟，以及可调整的一致性级别）不适用。
+虽然模拟 Azure Cosmos DB 服务很逼真，但模拟器的实现不同于服务。 例如，模拟器使用标准 OS 组件，例如用于暂留的本地文件系统和用于连接的 HTTPS 协议堆栈。 依赖于 Azure 基础结构的功能（如多区域复制、读/写的个位数毫秒延迟，以及可调整的一致性级别）不适用。
 
 可通过 [Azure Cosmos DB 数据迁移工具](https://github.com/azure/azure-documentdb-datamigrationtool)在 Azure Cosmos 模拟器与 Azure Cosmos DB 服务之间迁移数据。
 
@@ -236,7 +236,7 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 
 ### <a name="command-line-syntax"></a>命令行语法
 
-    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/?]
+    CosmosDB.Emulator.exe [/Shutdown] [/DataPath] [/Port] [/MongoPort] [/DirectPorts] [/Key] [/EnableRateLimiting] [/DisableRateLimiting] [/NoUI] [/NoExplorer] [/EnableMongoDbEndpoint] [/?]
 
 若要查看选项列表，请在命令提示符下键入 `CosmosDB.Emulator.exe /?`。
 
@@ -248,18 +248,19 @@ table.Execute(TableOperation.Insert(new DynamicTableEntity("partitionKey", "rowK
 | Shutdown| 关闭 Azure Cosmos 模拟器。| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | 指定要在其中存储数据文件的路径。 默认值为 %LocalAppdata%\CosmosDBEmulator。 | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>：可访问路径 |
 |端口 | 指定用于模拟器的端口号。 默认值为 8081。 |CosmosDB.Emulator.exe /Port=\<port\> | \<port\>：单个端口号 |
-| MongoPort | 指定用于 MongoDB 兼容性 API 的端口号。 默认值为 10255。 |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>：单个端口号|
-| CassandraPort | 指定用于 Cassandra 终结点的端口号。 默认值为 10350。 | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>：单个端口号 |
 | ComputePort | 指定用于计算互操作网关服务的端口号。 该网关的 HTTP 终结点探测端口计算得出 ComputePort + 79。 因此，ComputePort 和 ComputePort + 79 必须打开且可使用。 默认值为 8900, 8979。 | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>：单个端口号 |
+| EnableMongoDbEndpoint | 启用 MongoDB API | CosmosDB.Emulator.exe /EnableMongoDbEndpoint | |
+| MongoPort | 指定用于 MongoDB 兼容性 API 的端口号。 默认值为 10255。 |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>：单个端口号|
 | EnableCassandraEndpoint | 启用 Cassandra API | CosmosDB.Emulator.exe /EnableCassandraEndpoint | |
+| CassandraPort | 指定用于 Cassandra 终结点的端口号。 默认值为 10350。 | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>：单个端口号 |
 | EnableGremlinEndpoint | 启用 Gremlin API | CosmosDB.Emulator.exe /EnableGremlinEndpoint | |
 | GremlinPort | 用于 Gremlin 终结点的端口号。 默认值为 8901。 | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>：单个端口号 |
+|EnableTableEndpoint | 启用 Azure 表 API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |TablePort | 用于 Azure 表终结点的端口号。 默认值为 8902。 | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>：单个端口号|
 | KeyFile | 从指定文件中读取授权密钥。 使用 /GenKeyFile 选项来生成密钥文件 | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>：文件的路径 |
 | ResetDataPath | 以递归方式删除指定路径中的所有文件。 如果不指定路径，则默认为 %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>：文件路径  |
 | StartTraces  |  开始收集调试跟踪日志。 | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | 停止收集调试跟踪日志。 | CosmosDB.Emulator.exe /StopTraces  | |
-|EnableTableEndpoint | 启用 Azure 表 API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
 |FailOnSslCertificateNameMismatch | 默认情况下，如果证书的 SAN 不包含模拟器主机的域名、本机 IPv4 地址、“localhost”和“127.0.0.1”，则模拟器会重新生成自签名的 SSL 证书。 启用此选项后，模拟器在启动时会失败。 之后，你应使用 /GenCert 选项来创建和安装新的自签名 SSL 证书。 | CosmosDB.Emulator.exe /FailOnSslCertificateNameMismatch  | |
 | GenCert | 生成并安装新的自签名 SSL 证书。 选择性地包含用于通过网络访问模拟器的其他 DNS 名称的列表（以逗号分隔）。 | CosmosDB.Emulator.exe /GenCert[ \<comma-separated list of additional dns-names\>] | |
 | DirectPorts |指定用于直接连接的端口。 默认值为 10251、10252、10253、10254。 | CosmosDB.Emulator.exe /DirectPorts:\<directports\> | \<directports\>：以逗号分隔的 4 个端口的列表 |
@@ -418,13 +419,65 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 
     https://<emulator endpoint provided in response>/_explorer/index.html
 
+## 在 Mac 或 Linux 上运行<a name="mac"></a>
+
+目前 Cosmos 模拟器只能在 Windows 上运行。 运行 Mac 或 Linux 的用户可以在托管虚拟机监控程序（如 Parallels 或 VirtualBox）的 Windows 虚拟机中运行模拟器。 以下是启用此功能的步骤。
+
+在 Windows VM 中运行以下命令并记下 IPv4 地址。
+
+```cmd
+ipconfig.exe
+```
+
+在应用程序中，需要更改 DocumentClient 对象的 URI，以使用 `ipconfig.exe` 返回的 IPv4 地址。 下一步是在构建 DocumentClient 对象时绕过 CA 验证。 为此，需要向 DocumentClient 构造函数提供一个 HttpClientHandler，其中包含它自己的 ServerCertificateCustomValidationCallback 实现。
+
+下面是代码应该是什么样的示例。
+
+```csharp
+using System;
+using Microsoft.Azure.Documents;
+using Microsoft.Azure.Documents.Client;
+using System.Net.Http;
+
+namespace emulator
+{
+    class Program
+    {
+        static async void Main(string[] args)
+        {
+            string strEndpoint = "https://10.135.16.197:8081/";  //IPv4 address from ipconfig.exe
+            string strKey = "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==";
+
+            //Work around the CA validation
+            var httpHandler = new HttpClientHandler()
+            {
+                ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+            };
+
+            //Pass http handler to document client
+            using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+            {
+                Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "myDatabase" });
+                Console.WriteLine($"Created Database: id - {database.Id} and selfLink - {database.SelfLink}");
+            }
+        }
+    }
+}
+```
+
+最后，在 Windows VM 中，使用以下选项从命令行启动 Cosmos 模拟器。
+
+```cmd
+Microsoft.Azure.Cosmos.Emulator.exe /AllowNetworkAccess /Key=C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+```
+
 ## <a name="troubleshooting"></a>故障排除
 
 使用以下提示来帮助解决使用 Azure Cosmos 模拟器时遇到的问题：
 
 - 如果安装了新版本的模拟器并遇到错误，请务必重置数据。 可在系统任务栏上右键单击“Azure Cosmos 模拟器”图标，然后单击“重置数据...”来重置数据。 如果仍无法消除错误，可卸载该模拟器和所有旧版模拟器（如有），删除“C:\Program files\Azure Cosmos DB Emulator”目录，并卸载模拟器。 有关说明，请参阅[卸载本地模拟器](#uninstall)。
 
-- 如果 Azure Cosmos 模拟器崩溃，请从“%LOCALAPPDATA%\CrashDumps”文件夹收集转储文件、将其压缩，再附加到电子邮件发送到 [Azure 支持][Azure 支持](https://www.azure.cn/support/contact/)。
+- 如果 Azure Cosmos 模拟器崩溃，请从“%LOCALAPPDATA%\CrashDumps”文件夹收集转储文件、将其压缩，再附加到电子邮件发送到 [Azure 支持](https://support.azure.cn/support/contact/)。
 
 - 如果 `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe` 中出现崩溃，这可能表示性能计数器处于损坏状态。 通常，从管理员命令提示符处运行以下命令即可解决此问题：
 
@@ -432,7 +485,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
     lodctr /R
     ```
 
-- 如果遇到连接问题，请[收集跟踪文件](#trace-files)、进行压缩并将其附加到电子邮件，发送至 [Azure 支持](https://www.azure.cn/support/contact/)。
+- 如果遇到连接问题，请[收集跟踪文件](#trace-files)、将其压缩并附加到电子邮件，发送至 [Azure 支持](https://support.azure.cn/support/contact/)。
 
 - 如果出现“服务不可用”消息，则可能表示模拟器无法初始化网络堆栈。  请查看是否安装了 Pulse 安全客户端或 Juniper 网络客户端，因为其网络筛选器驱动程序可能会导致该问题。 卸载第三方网络筛选器驱动程序通常可修复此问题。 或者，使用 /DisableRIO 启动模拟器，这会将模拟器网络通信切换到常规 Winsock。 
 
@@ -450,7 +503,7 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 5. 再现问题。 如果数据资源管理器无法运行，只需等待几秒钟，待浏览器打开以捕获错误。
 5. `CosmosDB.Emulator.exe /stoptraces`
 6. 导航到 `%ProgramFiles%\Azure Cosmos DB Emulator`，查找 docdbemulator_000001.etl 文件。
-7. 将 .etl 文件和重现步骤一起发送至 [Azure 支持](https://www.azure.cn/support/contact/)进行调试。
+7. 将 .etl 文件和重现步骤一起发送至 [Azure 支持](https://support.azure.cn/support/contact/)进行调试。
 
 <a name="uninstall"></a>
 ### <a name="uninstall-the-local-emulator"></a>卸载本地模拟器

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/26/2018
-ms.date: 04/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 812befe7903d3153f367278c94de48217867004f
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 77f7f20c50b544f3227b081723906f38beb40413
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625665"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731241"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的基本计划程序功能的最佳做法
 
@@ -30,9 +30,9 @@ ms.locfileid: "58625665"
 
 **最佳做法指导** - 在命名空间级别规划和应用资源配额。 如果 pod 未定义资源请求和限制，则拒绝部署。 监视资源用量并根据需要调整配额。
 
-在 pod 规范中放置资源请求和限制。 在部署时，Kubernetes 计划程序使用这些限制在群集中查找可用的节点。 这些限制和请求在单个 pod 级别应用。 有关如何定义这些值的详细信息，请参阅[定义 pod 资源请求和限制][resource-limits]
+在 pod 规范中放置资源请求和限制。 在部署时，Kubernetes 计划程序使用这些限制在群集中查找可用的节点。 这些限制和请求在单个 pod 级别应用。 有关如何定义这些值的详细信息，请参阅[定义 Pod 资源请求和限制][resource-limits]
 
-若要通过某个方式来保留和限制整个开发团队或项目的资源，应使用资源配额。 这些配额在命名空间中定义，可用于根据以下条件设置配额：
+若要通过某个方式来保留和限制整个开发团队或项目的资源，应使用资源配额。  这些配额在命名空间中定义，可用于根据以下条件设置配额：
 
 * **计算资源**：例如 CPU 和内存，或 GPU。
 * **存储资源**：包括给定存储类的总卷数或磁盘空间量。
@@ -72,12 +72,12 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 
 有两个中断性事件会导致 pod 被删除：
 
-* 非自愿性中断是群集操作员或应用程序所有者无法以一般方式进行控制的事件。
+* 非自愿性中断是群集操作员或应用程序所有者无法以一般方式进行控制的事件。 
   * 这些非自愿性中断包括物理机上的硬件故障、内核崩溃或删除节点 VM
-* 自愿性中断是群集操作员或应用程序所有者请求的事件。
+* 自愿性中断是群集操作员或应用程序所有者请求的事件。 
   * 这些自愿性中断包括群集升级、部署模板更新，或意外删除 pod。
 
-在部署中使用 pod 的多个副本可以缓解非自愿性中断。 在 AKS 群集中运行多个节点也有助于缓解这些非自愿性中断。 Kubernetes 针对自愿性中断提供 pod 中断预算，让群集操作员定义最小可用资源计数或最大不可用资源计数。 使用这些 pod 中断预算可以规划当发生自愿性中断事件时，部署或副本集如何做出响应。
+在部署中使用 pod 的多个副本可以缓解非自愿性中断。 在 AKS 群集中运行多个节点也有助于缓解这些非自愿性中断。 Kubernetes 针对自愿性中断提供 pod 中断预算，让群集操作员定义最小可用资源计数或最大不可用资源计数。  使用这些 pod 中断预算可以规划当发生自愿性中断事件时，部署或副本集如何做出响应。
 
 如果要升级群集或更新部署模板，Kubernetes 计划程序会确保在其他节点上计划其他 pod，然后，自愿性中断事件可以继续。 在重新启动节点之前，计划程序将一直等到在群集中的其他节点上成功计划了定义的 pod 数为止。
 
@@ -95,7 +95,7 @@ spec:
       app: nginx-frontend
 ```
 
-还可以定义一个百分比（例如 *60%*），以便在扩展 pod 数目时可以自动补偿副本集。
+还可以定义一个百分比（例如 *60%* ），以便在扩展 pod 数目时可以自动补偿副本集。
 
 可在副本集中定义最大不可用实例数。 同样，也可以定义最大不可用 pod 数的百分比。 以下 pod 中断预算 YAML 清单定义副本集中不可用的 pod 数不能超过两个：
 
@@ -119,13 +119,17 @@ kubectl apply -f nginx-pdb.yaml
 
 请咨询应用程序开发人员和所有者以了解其需求，并应用适当的 pod 中断预算。
 
-有关使用 pod 中断预算的详细信息，请参阅[为应用程序指定中断预算][k8s-pdbs]。
+有关使用 Pod 中断预算的详细信息，请参阅[为应用程序指定中断预算][k8s-pdbs]。
 
 ## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>定期使用 kube-advisor 检查群集问题
 
 **最佳做法指导** - 定期运行最新版本的 `kube-advisor` 开放源代码工具，以检测群集中的问题。 如果针对现有 AKS 群集应用资源配额，请先运行 `kube-advisor`，以查找未定义资源请求和限制的 pod。
 
 [kube-advisor][kube-advisor] 工具是一个关联的 AKS 开放源代码项目，它将扫描 Kubernetes 群集，并报告它找到的问题。 一项有用的检查是识别未应用资源请求和限制的 pod。
+
+kube-advisor 工具可以报告 PodSpecs for Windows 应用程序以及 Linux 应用程序中缺少的资源请求和限制，但 kube-advisor 工具本身必须在 Linux Pod 上进行计划。
+
+<!--Not Available on [node selector][k8s-node-selector]-->
 
 在托管多个开发团队和应用程序的 AKS 群集中，可能很难跟踪未设置这些资源请求和限制的 pod。 最佳做法是定期针对 AKS 群集运行 `kube-advisor`，尤其是未向命名空间分配资源配额时。
 
@@ -148,3 +152,6 @@ kubectl apply -f nginx-pdb.yaml
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
+
+<!--Not Available on [k8s-node-selector]: concepts-clusters-workloads.md#node-selectors-->
+<!-- Update_Description: wording update, update link -->

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 12/10/2018
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6d689842663efec54458f5809d7a4f411a6e1cbe
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: c07fd0abace0a1966dbcb689cd5439bcdc09d7c8
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520684"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731216"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的网络连接和安全的最佳做法
 
@@ -50,6 +50,8 @@ ms.locfileid: "65520684"
 
 每个节点和 Pod 在接收自己的 IP 地址时，请规划 AKS 子网的地址范围。 子网必须大到足以为每个部署的节点、Pod 和网络资源提供 IP 地址。 每个 AKS 群集必须位于自己的子网中。 要允许连接到 Azure 中的本地网络或对等互连网络，请勿使用与现有网络资源重叠的 IP 地址范围。 每个节点使用 kubenet 和 Azure CNI 网络运行的 Pod 数量存在默认限制。 若要处理纵向扩展事件或群集升级，还需要可在分配的子网中使用的其他 IP 地址。
 
+<!--MOONCAKE: Windows Server containers (currently in preview in AKS)-->
+
 若要计算所需的 IP 地址，请参阅[在 AKS 中配置 Azure CNI 网络][advanced-networking]。
 
 ### <a name="kubenet-networking"></a>Kubenet 网络
@@ -69,12 +71,12 @@ Azure 负载均衡器可以将客户流量分配到 AKS 群集中的各个应用
 
 ![显示 AKS 群集中入口流量的示意图](media/operator-best-practices-network/aks-ingress.png)
 
- 入口有两个组件：
+入口有两个组件：
 
- * 入口资源，和
- * 入口控制器
+* 入口资源，和 
+* 入口控制器 
 
-入口资源是 `kind: Ingress` 的 YAML 清单，它定义了将流量路由到 AKS 群集中运行的服务的主机、证书和规则。 以下示例 YAML 清单会将 myapp.com 的流量分配到 blogservice 或 storeservice 两个服务中的一个。 客户根据他们访问的 URL，被定向到一个或另一个服务。
+入口资源是 `kind: Ingress` 的 YAML 清单，它定义了将流量路由到 AKS 群集中运行的服务的主机、证书和规则。 以下示例 YAML 清单会将 myapp.com 的流量分配到 blogservice 或 storeservice 两个服务中的一个    。 客户根据他们访问的 URL，被定向到一个或另一个服务。
 
 ```yaml
 kind: Ingress
@@ -100,11 +102,16 @@ spec:
          servicePort: 80
 ```
 
-入口控制器是在 AKS 节点上运行的守护程序并监视传入请求。 然后根据入口资源中定义的规则分配流量。 最佳常见的入口控制器基于 [NGINX]。 AKS 不会限制于特定的控制器，因此可以使用其他控制器，例如 [Contour][contour]、[HAProxy][haproxy] 或 [Traefik][traefik]。
+入口控制器是在 AKS 节点上运行的守护程序并监视传入请求。 然后根据入口资源中定义的规则分配流量。 最佳常见的入口控制器基于 [NGINX]。 AKS 不会限制你使用特定控制器，因此可以使用其他控制器，例如 [Contour][contour]、[HAProxy][haproxy] 或 [Traefik][traefik]。
+
+必须在 Linux 节点上计划入口控制器。 
+
+<!--Not Available on Windows Server nodes (currently in preview in AKS)-->
+<!--Not Available on [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors]-->
 
 入口有许多方案，包括以下操作指南：
 
-* [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
+* [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
 * [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 * [创建使用你自己的 TLS 证书的入口控制器][aks-ingress-own-tls]
 * 创建一个使用 Let's Encrypt 的入口控制器，以自动生成[具有动态公共 IP 地址][aks-ingress-tls]或[具有静态公共 IP 地址][aks-ingress-static-tls]的 TLS 证书
@@ -121,7 +128,7 @@ AKS 中的大多数操作都可以使用 Azure 管理工具或通过 Kubernetes 
 
 ![使用堡垒主机或跳转盒连接到 AKS 节点](media/operator-best-practices-network/connect-using-bastion-host-simplified.png)
 
-堡垒主机的管理网络也应受到保护。 使用 [Azure ExpressRoute][expressroute] 或 [VPN 网关][ vpn-gateway]连接到本地网络，并使用网络安全组控制访问。
+堡垒主机的管理网络也应受到保护。 使用 [Azure ExpressRoute][expressroute] 或 [VPN 网关][vpn-gateway]连接到本地网络，并使用网络安全组控制访问。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -153,3 +160,8 @@ AKS 中的大多数操作都可以使用 Azure 管理工具或通过 Kubernetes 
 
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+
+<!--Not Avaialble on [concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors-->
+<!--Not Avaialble on [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool-->
+
+<!-- Update_Description: wording update, update link -->

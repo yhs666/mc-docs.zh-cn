@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 05/24/2019
-ms.date: 07/08/2019
+origin.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: a9da345e565525d414d21f12e6dfcf9e328387ab
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 3f5312bcb05c23b8df865756d4bcfccef48a0f7d
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844778"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753150"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>在 Windows 上准备开发环境
 > [!div class="op_single_selector"]
@@ -56,8 +56,8 @@ Web 平台安装程序 (WebPI) 是安装 SDK 和工具的建议方法。 如果�
 > [!NOTE]
 > 不支持本地 Service Fabric 开发群集升级。
 
-### <a name="to-use-visual-studio-2017"></a>使用 Visual Studio 2017
-Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一部分。 在 Visual Studio 安装过程中启用此工作负荷。
+### <a name="to-use-visual-studio-2017-or-2019"></a>使用 Visual Studio 2017 或 2019
+Service Fabric 工具是 Visual Studio 2017 和 2019 中 Azure 开发工作负荷的一部分。 在 Visual Studio 安装过程中启用此工作负荷。
 此外，还需使用 Web 平台安装程序安装 Azure Service Fabric SDK 和运行时。
 
 * [安装 Azure Service Fabric SDK][core-sdk]
@@ -72,10 +72,11 @@ Service Fabric 工具是 Visual Studio 2017 中 Azure 开发工作负荷的一�
 * [安装 Azure Service Fabric SDK][core-sdk]
 
 当前版本包括：
-* Service Fabric SDK and Tools 3.3.664
-* Service Fabric 运行时 6.4.664
-* 适用于 Visual Studio 2015 的 Service Fabric 工具 2.4.11116.1
+* Service Fabric SDK and Tools 3.4.641
+* Service Fabric 运行时 6.5.641
+* 适用于 Visual Studio 2015 的 Service Fabric 工具 2.5.20615.1
 * Visual Studio 2017 15.9 包括适用于 Visual Studio 的 Service Fabric 工具 2.4.11024.1 
+* Visual Studio 2019 16.1 包括适用于 Visual Studio 的 Service Fabric 工具 2.5
 
 有关支持版本的列表，请参阅 [Service Fabric 版本](service-fabric-versions.md)
 

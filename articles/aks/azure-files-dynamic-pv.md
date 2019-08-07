@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 03/01/2019
-ms.date: 06/24/2019
+origin.date: 07/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 77b1542e4cffa5d35fcf28cd1dd721eb4897d371
-ms.sourcegitcommit: 9a330fa5ee7445b98e4e157997e592a0d0f63f4c
+ms.openlocfilehash: 1cbb3d467b259fff53f3f2efd52a9acfb1846f38
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68293426"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731231"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中动态创建永久性卷并将其用于 Azure 文件
 
@@ -29,14 +29,14 @@ ms.locfileid: "68293426"
 
 ## <a name="create-a-storage-class"></a>创建存储类
 
-存储类用于定义如何创建 Azure 文件共享。 *_MC* 资源组中会自动创建一个存储帐户来与存储类配合使用，以保存 Azure 文件共享。 为 *skuName* 选择下列任一 [Azure 存储冗余][storage-skus]：
+存储类用于定义如何创建 Azure 文件共享。 [节点资源组][node-resource-group]中会自动创建一个存储帐户来与存储类配合使用，以保存 Azure 文件共享。 为 *skuName* 选择下列任一 [Azure 存储冗余][storage-skus]：
 
 * *Standard_LRS* - 标准本地冗余存储 (LRS)
 * *Standard_GRS* - 标准异地冗余存储 (GRS)
 * *Standard_RAGRS* - 标准读取访问异地冗余存储 (RA-GRS)
 
 > [!NOTE]
-> Azure 文件目前仅使用标准存储。 如果使用高级存储，则无法预配该卷。
+> Azure 文件存储支持运行 Kubernetes 1.13 或更高版本的 AKS 群集中的高级存储。
 
 有关 Azure 文件存储的 Kubernetes 存储类的详细信息，请参阅 [Kubernetes 存储类][kubernetes-storage-classes]。
 
@@ -267,3 +267,6 @@ parameters:
 [kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
+
+<!-- Update_Description: wording update -->

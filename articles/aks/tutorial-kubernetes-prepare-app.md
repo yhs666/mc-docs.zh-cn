@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 04/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1641145b174e3ceaf1ea1535ddac0ea705b30277
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 069b8ef30802a7196a9a1487697a60d33d7b39b5
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626011"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731238"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教程：准备用于 Azure Kubernetes 服务 (AKS) 的应用程序
 
@@ -133,3 +133,5 @@ docker-compose down
 
 <!-- LINKS - internal -->
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
+
+<!-- Update_Description: update meta properties -->

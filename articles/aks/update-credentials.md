@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 01/30/2019
-ms.date: 03/04/2019
+origin.date: 05/31/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 533b3e9506a7463219111e76f484e07b253e8334
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 82f577244fa530e3ebd5fab214ef84b2678a03dc
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854784"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731235"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的服务主体更新或轮换凭据
 
@@ -21,7 +21,7 @@ ms.locfileid: "64854784"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-需要安装并配置 Azure CLI 2.0.56 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.65 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
 ## <a name="choose-to-update-or-create-a-service-principal"></a>选择要更新或创建服务主体
 
@@ -34,10 +34,11 @@ ms.locfileid: "64854784"
 
 ### <a name="get-the-service-principal-id"></a>获取服务主体 ID
 
-若要为现有服务主体更新凭据，请使用 [az aks show][az-aks-show] 命令获取群集的服务主体 ID。 以下示例获取 myResourceGroup 资源组中名为 myAKSCluster 的群集的 ID。 服务主体 ID 设置为变量中以供在其他命令中使用。
+若要为现有服务主体更新凭据，请使用 [az aks show][az-aks-show] 命令获取群集的服务主体 ID。 以下示例获取 myResourceGroup 资源组中名为 myAKSCluster 的群集的 ID   。 服务主体 ID 设置为名为“SP_ID”  变量以供在其他命令中使用。
 
 ```azurecli
-SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
+SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
+    --query servicePrincipalProfile.clientId -o tsv)
 ```
 
 ### <a name="update-the-service-principal-credentials"></a>更新服务主体凭据
@@ -71,7 +72,7 @@ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-现在使用自己的 [az ad sp create-for-rbac][az-ad-sp-create] 命令的输出为服务主体 ID 和客户端密码定义变量，如下面的示例所示。 SP_ID 是 appId，SP_SECRET 是 password：
+现在使用自己的 [az ad sp create-for-rbac][az-ad-sp-create] 命令的输出为服务主体 ID 和客户端密码定义变量，如下面的示例所示。 SP_ID  是 appId  ，SP_SECRET  是 password  ：
 
 ```azurecli
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
@@ -80,7 +81,7 @@ SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 
 ## <a name="update-aks-cluster-with-new-credentials"></a>使用新凭据更新 AKS 群集
 
-无论是选择为现有服务主体更新凭据还是创建服务主体，现在都使用 [az aks update-credentials][az-aks-update-credentials] 命令，借助新凭据更新 AKS 群集。 会使用 --service-principal 和 --client-secret 的变量：
+无论是选择为现有服务主体更新凭据还是创建服务主体，现在都通过 [az aks update-credentials][az-aks-update-credentials] 命令，使用新凭据更新 AKS 群集。 会使用 --service-principal  和 --client-secret  的变量：
 
 ```azurecli
 az aks update-credentials \
@@ -95,7 +96,7 @@ az aks update-credentials \
 
 ## <a name="next-steps"></a>后续步骤
 
-在本文中，更新了 AKS 群集本身的服务主体。 有关如何为群集中的工作负载管理标识的详细信息，请参阅 [AKS 中的身份验证和授权的最佳做法][best-practices-identity]。
+在本文中，更新了 AKS 群集本身的服务主体。 有关如何为群集中的工作负荷管理标识的详细信息，请参阅 [AKS 中的身份验证和授权的最佳做法][best-practices-identity]。
 
 <!-- LINKS - internal -->
 [install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
@@ -104,3 +105,5 @@ az aks update-credentials \
 [best-practices-identity]: operator-best-practices-identity.md
 [az-ad-sp-create]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-reset]: https://docs.azure.cn/zh-cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
+
+<!-- Update_Description: wording update, update link -->

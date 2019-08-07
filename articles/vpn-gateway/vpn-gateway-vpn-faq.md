@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/11/2019
-ms.date: 04/01/2019
+origin.date: 05/14/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: 2cf202912bb57feec3e281d9c58a15378d4a8886
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d020d287b9fee4cf0e48e846aa9088d3d500f3a4
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627689"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732352"
 ---
 # <a name="vpn-gateway-faq"></a>VPN 网关常见问题
 
@@ -191,7 +191,7 @@ Azure VPN 使用 PSK（预共享密钥）身份验证。 我们在创建 VPN 隧
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure 会为同一虚拟网络的所有 VPN 连接生成同一 IPsec/IKE 预共享密钥吗？
 
-否，默认情况下，Azure 会为不同 VPN 连接生成不同的预共享密钥。 但是，可以使用设置 VPN 网关密钥 REST API 或 PowerShell cmdlet 设置你想要的密钥值。 该密钥必须是长度介于 1 到 128 个字符之间的字母数字字符串。
+否，默认情况下，Azure 会为不同 VPN 连接生成不同的预共享密钥。 但是，可以使用设置 VPN 网关密钥 REST API 或 PowerShell cmdlet 设置你想要的密钥值。 密钥必须是可打印的 ASCII 字符。
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>使用更多站点到站点 VPN 是否会比为单个虚拟网络获取更多带宽？
 

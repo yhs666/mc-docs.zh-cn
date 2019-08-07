@@ -1,6 +1,6 @@
 ---
-title: Azure 事件中心的常见安全属性
-description: 用于评估 Azure 事件中心的常见安全属性的清单
+title: Azure 事件中心的安全属性
+description: 用于评估 Azure 事件中心的安全属性的清单
 services: event-hubs
 ms.service: event-hubs
 documentationcenter: ''
@@ -8,18 +8,18 @@ author: msmbaldwin
 manager: barbkess
 ms.topic: conceptual
 origin.date: 05/22/2019
-ms.date: 06/17/2019
+ms.date: 08/12/2019
 ms.author: v-biyu
-ms.openlocfilehash: cfa0648705134263be43bae04544797468284fdc
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 029625647abb50a320706a294efc82450a14126f
+ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687495"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68633007"
 ---
-# <a name="common-security-attributes-for-azure-event-hubs"></a>Azure 事件中心的常见安全属性
+# <a name="security-attributes-for-azure-event-hubs"></a>Azure 事件中心的安全属性
 
-本文记录了内置到 Azure 事件中心的常见安全属性。
+本文记录了内置到 Azure 事件中心的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,8 +27,8 @@ ms.locfileid: "66687495"
 
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
-| 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>|  是 | |
-| 传输中加密：<ul><li>快速路由加密</li><li>Vnet 中加密</li><li>VNet-VNet 加密</ul>| 是 | |
+| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能）|  是 | |
+| 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 是 | |
 | 加密密钥处理（CMK、BYOK 等）| 否 |  |
 | 列级加密（Azure 数据服务）| 不适用 | |
 | 加密的 API 调用| 是 |  |
@@ -38,7 +38,7 @@ ms.locfileid: "66687495"
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
 | 服务终结点支持| 是 |  |
-| vNET 注入支持| 否 | |
+| VNet 注入支持| 否 | |
 | 网络隔离和防火墙支持| 是 |  |
 | 强制隧道支持| 否 |  |
 
@@ -46,7 +46,7 @@ ms.locfileid: "66687495"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| Azure 监视支持（Log Analytics 等）| 是 | |
+| Azure 监视支持（Log Analytics、App Insights 等）| 是 | |
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
 

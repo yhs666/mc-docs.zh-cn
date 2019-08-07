@@ -13,18 +13,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 07/15/2019
+ms.date: 08/12/2019
 ms.author: v-biyu
-ms.custom: mvc
-ms.openlocfilehash: 6bec3b817f417d0caac61c66e79449db5f5c982f
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.custom: mvc, seo-java-july2019
+ms.openlocfilehash: 410b29872a2d78ac4947a7bb87c37a6435fde431
+ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560266"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68633015"
 ---
 # <a name="quickstart-create-a-java-app-in-app-service"></a>快速入门：在应用服务中创建 Java 应用
 
+> [!NOTE]
+> 本文将应用部署到 Windows 上的应用服务。
+>
 
 [Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门介绍如何将 [Azure CLI](/cli/get-started-with-azure-cli) 与[用于 Azure 应用服务的 Maven 插件](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)配合使用来部署 Java Web 存档 (WAR) 文件。
 
@@ -63,7 +66,7 @@ code pom.xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.6.0</version>
+        <version>1.7.0</version>
         <configuration>
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>

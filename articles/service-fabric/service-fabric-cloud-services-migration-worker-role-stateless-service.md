@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 11/02/2017
-ms.date: 10/15/2018
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: de00f6b00e2fef7cc1abadeafcf59a55f118f529
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 46de4ce108f80e983f08214476adde7230374d47
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661836"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753135"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>将 Web 角色和辅助角色转换为 Service Fabric 无状态服务的指南
 本文说明如何将云服务的 Web 角色和辅助角色迁移到 Service Fabric 无状态服务。 对于整体体系结构大致保持相同的应用程序来说，这是从云服务迁移到 Service Fabric 的最简单路径。
@@ -33,7 +33,7 @@ ms.locfileid: "52661836"
 ![Service Fabric 与云服务项目的比较][3]
 
 ## <a name="worker-role-to-stateless-service"></a>辅助角色到无状态服务
-从概念上讲，辅助角色代表无状态的工作负荷，这意味着工作负荷的每个实例都是相同的，随时可将请求路由到任何实例。 每个实例不需要记住前一个请求。 工作负荷的运行状态由外部状态存储（例如 Azure 表存储或 Azure Document DB）管理。 在 Service Fabric 中，此类工作负荷以无状态服务表示。 将辅助角色迁移到 Service Fabric 的最简单方法是将辅助角色代码转换为无状态服务。
+从概念上讲，辅助角色代表无状态的工作负荷，这意味着工作负荷的每个实例都是相同的，随时可将请求路由到任何实例。 每个实例不需要记住前一个请求。 工作负荷的运行状态由外部状态存储（例如 Azure 表存储或 Azure Cosmos DB）管理。 在 Service Fabric 中，此类工作负荷以无状态服务表示。 将辅助角色迁移到 Service Fabric 的最简单方法是将辅助角色代码转换为无状态服务。
 
 ![辅助角色到无状态服务][4]
 
@@ -111,8 +111,8 @@ namespace Stateless1
 
 辅助角色和 Service Fabric 服务的生命周期与生存期之间有几个主要差异：
 
-* **生命周期：** 最大的差异为辅助角色是 VM，因此其生命周期绑定到 VM，且包含 VM 启动和停止时的事件。 Service Fabric 服务的生命周期与 VM 的生命周期不同，因此不包含主机 VM 或计算机启动和停止时的事件，因为它们彼此不相关。
-* 生存期：如果 `Run` 方法退出，辅助角色实例将回收。 但是，Service Fabric 服务中的 `RunAsync` 方法可以运行到完成为止，服务实例将保持运行状态。 
+* **生命周期：** 最大的区别是辅助角色是 VM，因此其生命周期与 VM 绑定，其中包括 VM 启动和停止时的事件。 Service Fabric 服务的生命周期与 VM 的生命周期不同，因此不包含主机 VM 或计算机启动和停止时的事件，因为它们彼此不相关。
+* **生存期：** 如果 `Run` 方法退出，辅助角色实例将回收。 但是，Service Fabric 服务中的 `RunAsync` 方法可以运行到完成为止，服务实例将保持运行状态。 
 
 Service Fabric 为侦听客户端请求的服务提供可选的通信设置入口点。 RunAsync 和通信入口点都是 Service Fabric 服务中的可选重写（服务可选择只侦听客户端请求和/或只运行处理循环），这就是 RunAsync 方法无需重新启动服务实例就可退出的原因，因为它可以继续侦听客户端请求。
 
@@ -210,7 +210,7 @@ private void CodePackageActivationContext_ConfigurationPackageModifiedEvent(obje
 启动任务是应用程序启动前执行的操作。 启动任务通常用于通过提升的特权运行设置脚本。 云服务和 Service Fabric 均支持启动任务。 两者的主要差异在于，云服务中的启动任务绑定到 VM，因为 VM 是角色实例的一部分；而 Service Fabric 中的启动任务绑定到服务，而不绑定到任何特定 VM。
 
 | Service Fabric | 云服务 |
-| --- | --- | --- |
+| --- | --- |
 | 配置位置 |ServiceDefinition.csdef |
 | 特权 |“受限”或“提升” |
 | 序列 |“简单”、“后台”、“前台” |

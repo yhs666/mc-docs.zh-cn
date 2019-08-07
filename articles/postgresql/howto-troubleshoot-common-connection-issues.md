@@ -7,13 +7,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 01822a7256451f62a01e7a11d8a514ad7ffd6e8e
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.date: 08/05/2019
+ms.openlocfilehash: 973cb400594569c28daed6a0f32fc44177dbac10
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731997"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732280"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>排查 Azure Databases for PostgreSQL - 单一服务器的连接问题
 
@@ -54,7 +54,7 @@ ms.locfileid: "65731997"
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>解决永久性连接问题的步骤
 
 1. 设置[防火墙规则](howto-manage-firewall-using-portal.md)以允许客户端 IP 地址。 （仅出于临时测试目的）使用 0.0.0.0 作为起始 IP 地址，使用 255.255.255.255 作为结束 IP 地址，来设置一个防火墙规则。 这样会使服务器向所有 IP 地址开放。 如果这样可以解决连接性问题，请删除此规则，再针对适当限制的 IP 地址或地址范围创建防火墙规则。
-2. 在客户端与 Internet 之间的所有防火墙上，确保为出站连接打开端口 3306。
+2. 在客户端与 Internet 之间的所有防火墙上，确保为出站连接打开端口 5432。
 3. 验证连接字符串和其他连接设置。
 4. 在仪表板中检查服务运行状况。 如果你认为发生了区域性服务中断，请参阅[有关使用 Azure Database for PostgreSQL 确保业务连续性的概述](concepts-business-continuity.md)了解恢复到新区域所要执行的步骤。
 

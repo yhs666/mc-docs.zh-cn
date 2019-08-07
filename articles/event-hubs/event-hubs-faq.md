@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 origin.date: 08/07/2018
-ms.date: 08/05/2019
+ms.date: 08/12/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1940f2dc37047b893bd2e8dadf27211a55f5e44a
-ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.openlocfilehash: 06fc562d950ecb2f7168c8973b3803a66126b40d
+ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371758"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68633009"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>事件中心常见问题
 
@@ -72,6 +72,33 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 | -------- | ----- | ------- | 
 | AMQP | 5671 和 5672 | 请参阅 [AMQP 协议指南](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP、HTTPS | 80、443 |  |
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>我需要将哪些 IP 地址加入允许列表？
+若要找到适合加入连接的允许列表的 IP 地址，请执行以下步骤：
+
+1. 从命令提示符处运行以下命令： 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.chinacloudapi.cn
+    ```
+2. 记下在 `Non-authoritative answer` 中返回的 IP 地址。 只有在你将命名空间还原到另一群集时，它才会更改。
+
+如果对命名空间使用区域冗余，则需执行一些额外的步骤： 
+
+1. 首先，在命名空间中运行 nslookup。
+
+    ```
+    nslookup <yournamespace>.servicebus.chinacloudapi.cn
+    ```
+2. 记下“非权威回答”  部分中的名称，该名称采用下述格式之一： 
+
+    ```
+    <name>-s1.servicebus.chinacloudapi.cn
+    <name>-s2.servicebus.chinacloudapi.cn
+    <name>-s3.servicebus.chinacloudapi.cn
+    ```
+3. 为每一个运行 nslookup，使用后缀 s1、s2 和 s3 获取所有三个在三个可用性区域中运行的实例的 IP 地址。 
+
 
 ## <a name="throughput-units"></a>吞吐量单位
 
@@ -138,8 +165,9 @@ Azure 事件中心标准层提供的功能超出了基本层中提供的功能�
 ## <a name="best-practices"></a>最佳实践
 
 ### <a name="how-many-partitions-do-i-need"></a>需要多少分区？
+分区数在创建时指定，必须介于 2 到 32 之间。 分区计数不可更改，因此在设置分区计数时应考虑长期规模。 分区是一种数据组织机制，与使用方应用程序中所需的下游并行度相关。 事件中心的分区数与预期会有的并发读取者数直接相关。 有关分区的详细信息，请参阅[分区](event-hubs-features.md#partitions)。
 
-事件中心的分区数在设置后无法修改。 鉴于这一点，请务必在开始之前考虑需要多少分区。 
+你可能希望在创建时将其设置为最高可能值，即 32。 请记住，拥有多个分区将导致事件发送到多个分区而不保留顺序，除非你将发送方配置为仅发送到 32 个分区中的一个分区，剩下的 31 个分区是冗余分区。 在前一种情况下，必须跨所有 32 个分区读取事件。 在后一种情况下，除了必须在事件处理器主机上进行额外配置外，没有明显的额外成本。
 
 事件中心设计用于允许每个用户组使用单个分区读取器。 在大多数用例中，四个分区的默认设置就足够了。 如果希望扩展事件处理，则可以考虑添加其他分区。 对分区没有特定的吞吐量限制，但是命名空间中的聚合吞吐量受吞吐量单位数限制。 增加命名空间中吞吐量单位的数量时，可能需要添加额外分区来允许并发读取器实现其自身的最大吞吐量。
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6f05900272f446f546cf95d291e30084e6888959
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: c1bc8388964e85346153f535c5587cf161a88c41
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520679"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731207"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中更新应用程序。
 
@@ -58,7 +58,7 @@ SHOWHOST = 'false'
 
 ## <a name="update-the-container-image"></a>更新容器映像
 
-若要重新创建前端映像并测试更新后的应用程序，请使用 [docker-compose][docker-compose]。 `--build` 参数用于指示 Docker Compose 重新创建应用程序映像：
+若要重新创建前端映像并测试更新的应用程序，请使用 [docker-compose][docker-compose]。 `--build` 参数用于指示 Docker Compose 重新创建应用程序映像：
 
 ```console
 docker-compose up --build -d
@@ -74,7 +74,7 @@ docker-compose up --build -d
 
 ## <a name="tag-and-push-the-image"></a>标记并推送映像
 
-若要正确使用已更新的映像，请使用 ACR 注册表的登录服务器名称标记 *azure-vote-front* 映像。 运行 [az acr list](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-list) 命令，获取登录服务器名称：
+若要正确使用已更新的映像，请使用 ACR 注册表的登录服务器名称标记 *azure-vote-front* 映像。 运行 [az acr list](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-list) 命令获取登录服务器名称：
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
@@ -86,7 +86,10 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 ```
 
-现在，请使用 [docker push][docker-push] 将映像上传到注册表。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称。 如果在推送到 ACR 注册表时遇到问题，请确保已运行 [az acr login][az-acr-login] 命令。
+现在，请使用 [docker push][docker-push] 将映像上传到注册表。 将 `<acrLoginServer>` 替换为 ACR 登录服务器名称。
+
+> [!NOTE]
+> 如果在推送到 ACR 注册表时遇到问题，请确保你仍已登录。 使用在 [创建 Azure 容器注册表](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry)步骤中创建的 Azure 容器注册表的名称运行 [az acr login][az-acr-login] 命令。 例如，`az acr login --name <azure container registry name>`。
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -94,7 +97,7 @@ docker push <acrLoginServer>/azure-vote-front:v2
 
 ## <a name="deploy-the-updated-application"></a>部署更新的应用程序
 
-为了提供最长运行时间，必须运行应用程序 Pod 的多个实例。 使用 [kubectl get pods][kubectl-get] 命令验证运行的前端实例的数目：
+为了提供最长运行时间，必须运行应用程序 Pod 的多个实例。 使用 [kubectl get pods][kubectl-get] 命令验证正在运行的前端实例的数目：
 
 ```
 $ kubectl get pods
@@ -158,7 +161,7 @@ kubectl get service azure-vote-front
 > * 将容器映像推送到 Azure 容器注册表
 > * 部署更新的容器映像
 
-请继续学习下一个教程，了解如何将 AKS 群集升级到新版 Kubernetes。
+继续学习下一篇教程，了解如何将 AKS 群集升级到新版 Kubernetes。
 
 > [!div class="nextstepaction"]
 > [升级 Kubernetes][aks-tutorial-upgrade]
@@ -175,3 +178,5 @@ kubectl get service azure-vote-front
 [aks-tutorial-upgrade]: ./tutorial-kubernetes-upgrade-cluster.md
 [az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+<!-- Update_Description: wording update, update link -->

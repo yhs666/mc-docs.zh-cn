@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8dae9682c06a7653d071a5cbff5a4a0b4b7022c
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 73f568976f60181dc2ec16807ae0876609a761c5
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520699"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731222"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 的服务主体
 
@@ -25,13 +25,13 @@ AKS 群集需要 [Azure Active Directory (AD) 服务主体][aad-service-principa
 
 若要创建 Azure AD 服务主体，必须具有相应的权限，能够向 Azure AD 租户注册应用程序，并将应用程序分配到订阅中的角色。 如果没有必需的权限，可能需要请求 Azure AD 或订阅管理员来分配必需的权限，或者预先创建一个可以与 AKS 群集配合使用的服务主体。
 
+如果使用来自另一 Azure AD 租户的服务主体，则还需围绕部署群集时可用的权限进行更多的考虑。 你可能没有读取和写入目录信息的适当权限。 有关详细信息，请参阅 [Azure Active Directory 中的默认用户权限是什么？][azure-ad-permissions]
+
 还需安装并配置 Azure CLI 2.0.59 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>自动创建和使用服务主体
 
-使用 [az aks create][az-aks-create] 命令创建 AKS 群集时，Azure 可以自动生成服务主体。
-
-<!--Not Available on in the Azure portal or -->
+通过 Azure 门户或 [az aks create][az-aks-create] 命令创建 AKS 群集时，Azure 可以自动生成服务主体。
 
 在下述 Azure CLI 示例中，尚未指定服务主体。 在此方案中，Azure CLI 为 AKS 群集创建一个服务主体。 若要成功完成此操作，Azure 帐户必须具有创建服务主体所需的相应权限。
 
@@ -71,10 +71,12 @@ az aks create \
     --client-secret <password>
 ```
 
-<!--Not Available on If you deploy an AKS cluster using the Azure portal, on the *Authentication* page of the **Create Kubernetes cluster** dialog, choose to **Configure service principal**. Select **Use existing**, and specify the following values:-->
-<!--Not Available on - **Service principal client ID** is your *appId*-->
-<!--Not Available on - **Service principal client secret** is the *password* value-->
-<!--Not Available on ![Image of browsing to Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)-->
+如果使用 Azure 门户来部署 AKS 群集，请在“创建 Kubernetes 群集”对话框的“身份验证”页上选择“配置服务主体”。    选择“使用现有”并指定以下值： 
+
+- **服务主体客户端 ID** 是你的 *appId*
+- **服务主体客户端机密**是  密码值
+
+![浏览到 Azure Vote 的图像](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
 ## <a name="delegate-access-to-other-azure-resources"></a>委托对其他 Azure 资源的访问权限
 
@@ -92,7 +94,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-registry"></a>Azure 容器注册表
 
-如果使用 Azure 容器注册表 (ACR) 作为容器映像存储，则需授予 AKS 群集读取和拉取映像的权限。 必须向 AKS 群集的服务主体委托注册表的“读者”角色。 有关详细步骤，请参阅[向 AKS 授予对 ACR 的访问权限][aks-to-acr]。
+如果使用 Azure 容器注册表 (ACR) 作为容器映像存储，则需授予 AKS 群集读取和拉取映像的权限。 必须向 AKS 群集的服务主体委托注册表的“读者”角色。  有关详细步骤，请参阅[向 AKS 授予对 ACR 的访问权限][aks-to-acr]。
 
 ### <a name="networking"></a>网络
 
@@ -101,9 +103,10 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - 创建一个[自定义角色][rbac-custom-role]，并定义以下角色权限：
     - *Microsoft.Network/virtualNetworks/subnets/join/action*
     - *Microsoft.Network/virtualNetworks/subnets/read*
+    - *Microsoft.Network/virtualNetworks/subnets/write*
+    - *Microsoft.Network/publicIPAddresses/join/action*
     - *Microsoft.Network/publicIPAddresses/read*
     - *Microsoft.Network/publicIPAddresses/write*
-    - *Microsoft.Network/publicIPAddresses/join/action*
 - 或者，在虚拟网络的子网上分配[网络参与者][rbac-network-contributor]内置角色
 
 ### <a name="storage"></a>存储
@@ -117,15 +120,15 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-instances"></a>Azure 容器实例
 
-如果使用虚拟 Kubelet 与 AKS 集成并选择在与 AKS 群集分开的资源组中运行 Azure 容器实例 (ACI)，则必须在 ACI 资源组上授予 AKS 服务主体“参与者”权限。
+如果使用虚拟 Kubelet 与 AKS 集成并选择在与 AKS 群集分开的资源组中运行 Azure 容器实例 (ACI)，则必须在 ACI 资源组上授予 AKS 服务主体“参与者”  权限。
 
 ## <a name="additional-considerations"></a>其他注意事项
 
 使用 AKS 和 Azure AD 服务主体时，请牢记以下注意事项。
 
 - Kubernetes 的服务主体是群集配置的一部分。 但是，请勿使用标识来部署群集。
-- 默认情况下，服务主体凭据的有效期为一年。 你随时可以[更新或轮换服务主体凭据][update-credentials]。
-- 每个服务主体都与一个 Azure AD 应用程序相关联。 Kubernetes 群集的服务主体可以与任何有效的 Azure AD 应用程序名称（例如 *https://www.contoso.org/example*）相关联。 应用程序的 URL 不一定是实际的终结点。
+- 默认情况下，服务主体凭据的有效期为一年。 可以随时[更新或轮换服务主体凭据][update-credentials]。
+- 每个服务主体都与一个 Azure AD 应用程序相关联。 Kubernetes 群集的服务主体可以与任何有效的 Azure AD 应用程序名称（例如 *https://www.contoso.org/example* ）相关联。 应用程序的 URL 不一定是实际的终结点。
 - 指定服务主体**客户端 ID** 时，请使用 `appId` 的值。
 - 在 Kubernetes 群集的代理节点 VM 中，服务主体凭据存储在 `/etc/kubernetes/azure.json` 文件中
 - 使用 [az aks create][az-aks-create] 命令自动生成服务主体时，会将服务主体凭据写入用于运行命令的计算机上的 `~/.azure/aksServicePrincipal.json` 文件中。
@@ -135,6 +138,24 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
         ```azurecli
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
+
+## <a name="troubleshoot"></a>故障排除
+
+AKS 群集的服务主体凭据由 Azure CLI 缓存。 如果这些凭据已过期，则会在部署 AKS 群集时遇到错误。 运行 [az aks create][az-aks-create] 时，如果出现以下错误消息，则可能表示缓存的服务主体凭据出现问题：
+
+```console
+Operation failed with status: 'Bad Request'.
+Details: The credentials in ServicePrincipalProfile were invalid. Please see https://aka.ms/aks-sp-help for more details.
+(Details: adal: Refresh request failed. Status Code = '401'.
+```
+
+请使用以下命令检查凭据文件的存在时间：
+
+```console
+ls -la $HOME/.azure/aksServicePrincipal.json
+```
+
+服务主体凭据的默认过期时间为一年后。 如果 *aksServicePrincipal.json* 文件的存在时间已超出一年，请删除该文件，然后尝试再次部署 AKS 群集。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -159,3 +180,6 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 [az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md
+
+<!-- Update_Description: wording update, update link -->

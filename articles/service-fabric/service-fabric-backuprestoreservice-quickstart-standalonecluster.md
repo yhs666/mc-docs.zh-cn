@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 05/24/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe6cb37123ede99a6d9dd152f0017eb61524b9b6
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 384376b5e4d7743a017415a1e71bc33e563ef743
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844709"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753176"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric 中的定期备份和还原
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Service Fabric 提供了一组 API 以实现与定期备份和还原功能相关
 - 备份的保留期管理（即将推出）
 
 ## <a name="prerequisites"></a>先决条件
-* 具有 Fabric 6.2 及更高版本的 Service Fabric 群集。 应在 Windows Server 上安装群集。 有关下载所需包的步骤，请参阅[文章](service-fabric-cluster-creation-for-windows-server.md)。
+* 具有 Fabric 6.4 或更高版本的 Service Fabric 群集。 有关下载所需包的步骤，请参阅[文章](service-fabric-cluster-creation-for-windows-server.md)。
 * 用于加密机密的 X.509 证书，连接到存储以存储备份时需要此机密。 请参阅[文章](service-fabric-windows-cluster-x509-security.md)，了解如何获取或创建一个自签名的 X.509 证书。
 * 使用 Service Fabric SDK 3.0 或更高版本生成的 Service Fabric 可靠有状态应用程序。 对于面向 .NET Core 2.0 的应用程序，应使用 Service Fabric SDK 3.1 或更高版本生成应用程序。
 * 安装 Microsoft.ServiceFabric.Powershell.Http模块 [在预览中] 进行配置调用。

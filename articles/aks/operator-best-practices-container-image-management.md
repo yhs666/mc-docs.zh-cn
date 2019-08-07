@@ -6,27 +6,26 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 03/04/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ae6a2ca9cabcb64bd1105f7140a0b821be1b22c
-ms.sourcegitcommit: 1e5ca29cde225ce7bc8ff55275d82382bf957413
+ms.openlocfilehash: c34c35d6a4bf572b3b5fdc996a68f56543f22e00
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56903249"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731242"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中容器映像管理和安全性的最佳做法
 
-在 Azure Kubernetes 服务 (AKS) 中开发和运行应用程序时，容器和容器映像的安全性是需要考虑的一个重要方面。 包括过时基础映像或未修补的应用程序运行时的容器可能会引入安全风险和可能的攻击途径。 为了尽量降低这些风险，你应集成一些工具，这些工具在生成时和运行时扫描并修正容器中的问题。 越早在过程中捕获漏洞或过时的基础映像，群集就安全。 在本文中，“容器”是指容器注册表中存储的容器映像以及正在运行的容器。
+在 Azure Kubernetes 服务 (AKS) 中开发和运行应用程序时，容器和容器映像的安全性是需要考虑的一个重要方面。 包括过时基础映像或未修补的应用程序运行时的容器可能会引入安全风险和可能的攻击途径。 为了尽量降低这些风险，你应集成一些工具，这些工具在生成时和运行时扫描并修正容器中的问题。 越早在过程中捕获漏洞或过时的基础映像，群集就安全。 在本文中，“容器”是指容器注册表中存储的容器映像以及正在运行的容器  。
 
 本文重点介绍如何保护 AKS 中的容器。 你将学习如何执行以下操作：
 
 > [!div class="checklist"]
 > * 扫描并修复映像漏洞
-> * 使用含数字签名容器映像的可信注册表
 > * 在更新基础映像时自动触发并重新部署容器映像
 
-还可以阅读[群集安全性][best-practices-cluster-security]和[Pod 安全性][best-practices-pod-security]的最佳做法。
+还可以阅读[群集安全性][best-practices-cluster-security]和 [Pod 安全性][best-practices-pod-security]的最佳做法。
 
 ## <a name="secure-the-images-and-run-time"></a>保护映像和运行时
 
@@ -37,19 +36,6 @@ ms.locfileid: "56903249"
 ![扫描并修复容器映像、验证和部署](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 在实际的示例中，可以使用持续集成和持续部署 (CI/CD) 管道自动执行映像的扫描、验证和部署。 Azure 容器注册表包含这些漏洞扫描功能。
-
-<!--Not Available on ## Use a trusted registry -->
-## <a name="use-a-trusted-registry"></a>使用可信的注册表
-
-**最佳做法指南** - 限制 Pod 和部署可以使用的映像注册表。 只允许使用可信的注册表来验证和控制可用的映像。
-
-为了提高安全性，还可以对容器映像进行数字签名，就像对应用程序代码进行数字签名一样。 然后就可以使用 AKS 部署签名映像。 此过程提供一层额外的安全性，因为你将 AKS 限制为仅拉取你已进行数字签名且信任的映像，而不只是通过了漏洞检查的映像。 你还确保容器映像未遭到篡改，未被完全同名的映像替换。
-
-提供数字签名容器映像的可信注册表使环境更复杂，但某些策略或法规符合性要求使用这样的注册表。 Azure 容器注册表支持使用可信注册表和签名映像。
-
-<!--Not Available on [Content trust in Azure Container Registry][acr-content-trust]-->
-
-<!--Not Available on ## Automatically build new images on base image update -->
 
 ## <a name="automatically-build-new-images-on-base-image-update"></a>更新基础映像时自动生成新映像
 
@@ -66,10 +52,15 @@ Azure 容器注册表任务也可以在更新基础映像时自动更新容器�
 <!--Not Available on* [Content trust in Azure Container Registry][acr-content-trust]-->
 
 <!-- EXTERNAL LINKS -->
-<!--Not Available on [azure-pipelines]: /devops/pipelines/?view=vsts--> [twistlock]: https://www.twistlock.com/ [aqua]: https://www.aquasec.com/
+<!--Not Available on [azure-pipelines]: /devops/pipelines/?view=vsts-->
+
+[twistlock]: https://www.twistlock.com/
+[aqua]: https://www.aquasec.com/
 
 <!-- INTERNAL LINKS -->
+
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
-<!--Not Available on [acr-content-trust]: ../container-registry/container-registry-content-trust.md-->
+
 <!--Not Available on [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md-->
+<!-- Update_Description: wording update, update link -->

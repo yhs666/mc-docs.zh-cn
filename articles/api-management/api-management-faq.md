@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/19/2017
 ms.author: v-yiso
-ms.date: 04/22/2019
-ms.openlocfilehash: 0cfc39668fc5b812ae550badb62e451ef0903b9a
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/12/2019
+ms.openlocfilehash: e38ea5e1639a416b8b1c1c5b202d0214fb46c76d
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529467"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733521"
 ---
 # <a name="azure-api-management-faqs"></a>Azure API 管理常见问题解答
 了解有关 Azure API 管理的常见问题解答、模式和最佳做法。
@@ -88,7 +88,7 @@ ms.locfileid: "59529467"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 转到具有要更新的 API 管理实例的资源组。
-3. 在 API 管理中，将 **API 管理参与者**角色分配给该用户。
+3. 在 API 管理中，将“API 管理服务参与者”  角色分配给该用户。
 
 现在，新添加的参与者可以使用 Azure PowerShell [cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 下面是以管理员身份登录的方法：
 
@@ -138,14 +138,14 @@ ms.locfileid: "59529467"
 使用 [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend)（适用于新后端）或 [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend)（适用于现有后端）PowerShell cmdlet 并将 `-SkipCertificateChainValidation` 参数设置设为 `True`。 
 
 ```powershell
-$context = New-AApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+$context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
 New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
 ```
 
 #### <a name="direct-api-update-method"></a>直接 API 更新方法 ####
 1. 使用 API 管理创建[后端](https://msdn.microsoft.com/library/azure/dn935030.aspx)实体。       
-2. 将“skipCertificateChainValidation”属性设置为“true”。     
-3. 如果不再希望允许自签名证书，请删除后端实体，或将“skipCertificateChainValidation”属性设置为“false”。
+2. 将“skipCertificateChainValidation”  属性设置为“true”  。     
+3. 如果不再希望允许自签名证书，请删除后端实体，或将“skipCertificateChainValidation”  属性设置为“false”  。
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>为何在尝试克隆 Git 存储库时出现身份验证失败？
 如果使用 Git 凭据管理器，或者正在尝试使用 Visual Studio 克隆 Git 存储库，可能遇到“Windows 凭据”对话框的已知问题。 该对话框将密码长度限制为 127 个字符，并截断 Microsoft 生成的密码。 我们正致力于缩短密码。 目前请使用 Git Bash 克隆 Git 存储库。

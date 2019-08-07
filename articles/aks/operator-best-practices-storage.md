@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/04/2018
-ms.date: 05/13/2019
+origin.date: 05/06/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 84940fe427e0a3818b483f4a812a5a8c6c5c8828
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 1e490c893f1c55d0cc381b181233a8441a25d89d
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520690"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731215"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 中的存储和备份的最佳做法
 
@@ -35,6 +35,8 @@ ms.locfileid: "65520690"
 
 下表概述了可用的存储类型及其功能：
 
+<!--Not Available on   Windows Server container support-->
+
 | 使用案例 | 卷插件 | 读/写一次 | 只读多次 | 读/写多次 |
 |----------|---------------|-----------------|----------------|-----------------|
 | 共享配置       | Azure 文件   | 是 | 是 | 是 |
@@ -54,7 +56,7 @@ Azure 文件目前在标准性能层中可用。 Azure 磁盘在标准和高级�
 
 ### <a name="create-and-use-storage-classes-to-define-application-needs"></a>创建和使用存储类来定义应用程序需求
 
-所使用的存储类型是使用 Kubernetes 存储类定义的。 然后在 pod 或部署规范中引用存储类。 这些定义共同发生作用，创建合适的存储并将其连接到 pod。 有关详细信息，请参阅 [AKS 中的存储类][aks-concepts-storage-classes]。
+所使用的存储类型是使用 Kubernetes 存储类定义的  。 然后在 pod 或部署规范中引用存储类。 这些定义共同发生作用，创建合适的存储并将其连接到 pod。 有关详细信息，请参阅 [AKS 中的存储类][aks-concepts-storage-classes]。
 
 ## <a name="size-the-nodes-for-storage-needs"></a>根据存储需求调整节点大小
 
@@ -62,14 +64,14 @@ Azure 文件目前在标准性能层中可用。 Azure 磁盘在标准和高级�
 
 AKS 节点作为 Azure VM 运行。 有不同类型和大小的 VM 可使用。 每种大小的 VM 提供不同数量的核心资源，例如 CPU 和内存。 对于每种不同的 VM 大小，存在可附加的最大磁盘数。 不同大小的 VM 用于实现最大本地和附加磁盘 IOPS（每秒的输入/输出操作）的存储性能也会有所不同。
 
-若应用程序需要 Azure 磁盘作为其存储解决方案，请规划并选择合适的节点 VM 大小。 选择 VM 大小时，CPU 和内存量不是唯一的考量因素。 存储功能也很重要。 例如，Standard_B2ms 和 Standard_DS2_v2 大小的 VM 包含相似数量的 CPU 和内存资源。 但其潜在的存储性能不同，如下表所示：
+若应用程序需要 Azure 磁盘作为其存储解决方案，请规划并选择合适的节点 VM 大小。 选择 VM 大小时，CPU 和内存量不是唯一的考量因素。 存储功能也很重要。 例如，Standard_B2ms 和 Standard_DS2_v2 大小的 VM 包含相似数量的 CPU 和内存资源   。 但其潜在的存储性能不同，如下表所示：
 
 | 节点类型和大小 | vCPU | 内存 (GiB) | 最大数据磁盘数 | 最大未缓存磁盘 IOPS | 最大未缓存吞吐量 (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1,920                  | 22.5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6,400                  | 96                             |
 
-此处，Standard_DS2_v2 可将附加磁盘数量增加一倍，并提供三到四倍的 IOPS 和磁盘吞吐量。 若只关注核心计算资源和成本，则可以选择 Standard_B2ms 大小的 VM，但存储性能较差且存在较多限制。 与应用程序开发团队沟通，了解他们的存储容量和性能需求。 为 AKS 节点选择合适的 VM 大小以满足或超出其性能需求。 定期调整应用程序的基线，以根据需要调整 VM 大小。
+此处，Standard_DS2_v2 可将附加磁盘数量增加一倍，并提供三到四倍的 IOPS 和磁盘吞吐量  。 若只关注核心计算资源和成本，则可以选择 Standard_B2ms 大小的 VM，但存储性能较差且存在较多限制  。 与应用程序开发团队沟通，了解他们的存储容量和性能需求。 为 AKS 节点选择合适的 VM 大小以满足或超出其性能需求。 定期调整应用程序的基线，以根据需要调整 VM 大小。
 
 有关可用 VM 大小的详细信息，请参阅 [Azure 中的 Linux 虚拟机大小][vm-sizes]。
 
@@ -83,11 +85,11 @@ AKS 节点作为 Azure VM 运行。 有不同类型和大小的 VM 可使用。 
 
 通过永久性卷声明 (PVC)，可根据需要动态创建存储。 基础 Azure 磁盘是根据 pod 的请求创建的。 在 pod 定义中，请求创建卷并将其附加到设计的装载路径
 
-有关如何动态创建和使用卷，请参阅[永久性卷声明][aks-concepts-storage-pvcs]。
+有关如何动态创建和使用卷的概念，请参阅[永久性卷声明][aks-concepts-storage-pvcs]。
 
-要了解这些卷的运行原理，请参阅如何使用 [Azure 磁盘][dynamic-disks]或 [Azure 文件][dynamic-files]动态创建和使用永久性卷。
+若要查看这些卷的运行情况，请参阅“如何使用 [Azure 磁盘][dynamic-disks]或 [Azure 文件存储][dynamic-files]动态创建和使用永久性卷”。
 
-作为存储类定义的一部分，请设置相应的 reclaimPolicy。 删除 Pod 后且可能不再需要永久性卷时，此 reclaimPolicy 可控制基础 Azure 存储资源在此情况下的行为。 可删除基础存储资源，也可保留基础存储资源以便与未来的 Pod 配合使用。 可将 reclaimPolicy 设置为“保留”或“删除”。 了解应用程序需求，并定期检查存储，以最大限度地减少未利用的存储量和费用。
+作为存储类定义的一部分，请设置相应的 reclaimPolicy  。 删除 Pod 后且可能不再需要永久性卷时，此 reclaimPolicy 可控制基础 Azure 存储资源在此情况下的行为。 可删除基础存储资源，也可保留基础存储资源以便与未来的 Pod 配合使用。 可将 reclaimPolicy 设置为“保留”或“删除”   。 了解应用程序需求，并定期检查存储，以最大限度地减少未利用的存储量和费用。
 
 有关存储类选项的详细信息，请参阅[存储回收策略][reclaim-policy]。
 
@@ -105,7 +107,6 @@ AKS 节点作为 Azure VM 运行。 有不同类型和大小的 VM 可使用。 
 
 <!-- LINKS - External -->
 [velero]: https://github.com/heptio/velero
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->
@@ -119,3 +120,5 @@ AKS 节点作为 Azure VM 运行。 有不同类型和大小的 VM 可使用。 
 [managed-disks]: ../virtual-machines/linux/managed-disks-overview.md
 [best-practices-multi-region]: operator-best-practices-multi-region.md
 [remove-state]: operator-best-practices-multi-region.md#remove-service-state-from-inside-containers
+
+<!-- Update_Description: wording update, update link -->

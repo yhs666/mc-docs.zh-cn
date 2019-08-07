@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 03/27/2019
-ms.date: 05/13/2019
+origin.date: 05/24/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cbdff62e116b2f8c3075adb9c744070453104e8
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 3caffdd7558d6ae7af8a8a45b36e7f0f05172bf9
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835720"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731254"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建入口控制器
 
@@ -33,11 +33,15 @@ ms.locfileid: "65835720"
 
 本文使用 Helm 安装 NGINX 入口控制器、cert-manager 和示例 Web 应用。 你需要在 AKS 群集中初始化 Helm 并使用 Tiller 服务帐户。 有关配置和使用 Helm 的详细信息，请参阅[在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序][use-helm]。
 
-本文还要求运行 Azure CLI 2.0.61 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+本文还要求运行 Azure CLI 2.0.64 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 ## <a name="create-an-ingress-controller"></a>创建入口控制器
 
 若要创建入口控制器，请使用 `Helm` 来安装 *nginx-ingress*。 对于增加的冗余，NGINX 入口控制器的两个副本会在部署时具备 `--set controller.replicaCount` 参数。 若要充分利用正在运行的入口控制器副本，请确保 AKS 群集中有多个节点。
+
+还需要在 Linux 节点上计划入口控制器。 使用 `--set nodeSelector` 参数指定节点选择器，以告知 Kubernetes 计划程序在基于 Linux 的节点上运行 NGINX 入口控制器。
+
+<!--Not Available on Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller-->
 
 > [!TIP]
 > 以下示例为名为 *ingress-basic* 的入口资源创建 Kubernetes 命名空间。 根据需要为你自己的环境指定一个命名空间。 如果 AKS 群集未启用 RBAC，请将 `--set rbac.create=false` 添加到 Helm 命令中。
@@ -49,7 +53,12 @@ ms.locfileid: "65835720"
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2 --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend
 ```
 
 <!--MOONCAKE: Add --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-->
@@ -108,19 +117,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   rules:
   - http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 使用 `kubectl apply -f hello-world-ingress.yaml` 命令创建入口资源。
@@ -133,11 +142,11 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-controller"></a>测试入口控制器
 
-若要测试入口控制器的路由，请浏览到这两个应用程序。 打开 Web 浏览器，访问 NGINX 入口控制器的 IP 地址，例如 *http://40.117.74.8*。 首个演示应用程序显示在 Web 浏览器中，如以下示例所示：
+若要测试入口控制器的路由，请浏览到这两个应用程序。 打开 Web 浏览器，访问 NGINX 入口控制器的 IP 地址，例如 *http://40.117.74.8* 。 首个演示应用程序显示在 Web 浏览器中，如以下示例所示：
 
 ![在入口控制器后面运行的首个应用](media/ingress-basic/app-one.png)
 
-现在向 IP 地址添加 */hello-world-two* 路径，例如 *http://40.117.74.8/hello-world-two*。 下面显示了带自定义标题的第二个演示应用程序：
+现在向 IP 地址添加 */hello-world-two* 路径，例如 *http://40.117.74.8/hello-world-two* 。 下面显示了带自定义标题的第二个演示应用程序：
 
 ![在入口控制器后面运行的第二个应用](media/ingress-basic/app-two.png)
 
@@ -161,7 +170,7 @@ helm repo remove azure-samples
 
 ### <a name="delete-resources-individually"></a>单独删除资源
 
-也可采用更细致的方法来删除单个已创建的资源。 使用 `helm list` 命令列出 Helm 版本。 查找名为“nginx-ingress”和“aks-helloworld”的图表，如以下示例输出中所示：
+也可采用更细致的方法来删除单个已创建的资源。 使用 `helm list` 命令列出 Helm 版本。 查找名为“nginx-ingress”  和“aks-helloworld”  的图表，如以下示例输出中所示：
 
 ```
 $ helm list

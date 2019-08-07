@@ -5,32 +5,33 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 05/13/2019
+origin.date: 06/26/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 6f37a187d1be8b749aee54aef5e5fd7a488b63a4
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 999fc11be31033ab8115db588213c216701c83c1
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520727"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731257"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中结合自己的 IP 地址范围使用 kubenet 网络
 
 默认情况下，AKS 群集使用 [kubenet][kubenet]，系统会为你创建 Azure 虚拟网络和子网。 节点使用 *kubenet* 从 Azure 虚拟网络子网获取 IP 地址。 Pod 接收从逻辑上不同的地址空间到节点的 Azure 虚拟网络子网的 IP 地址。 然后配置网络地址转换 (NAT)，以便 Pod 可以访问 Azure 虚拟网络上的资源。 流量的源 IP 地址通过 NAT 转换为节点的主 IP 地址。 这种方法大大减少了需要在网络空间中保留供 Pod 使用的 IP 地址数量。
 
-借助 [Azure 容器网络接口 (CNI)][cni-networking]，每个 Pod 都可以从子网获取 IP 地址，并且可供直接访问。 这些 IP 地址在网络空间中必须唯一，并且必须事先计划。 每个节点都有一个配置参数来表示它支持的最大 Pod 数。 这样，就会为每个节点预留相应的 IP 地址数。 使用此方法需要经过更详细的规划，并且经常会耗尽 IP 地址，或者在应用程序需求增长时需要在更大的子网中重建群集。
+借助 [Azure 容器网络接口 (CNI)][cni-networking]，每个 Pod 都可以从子网获得 IP 地址，并且可供直接访问。 这些 IP 地址在网络空间中必须唯一，并且必须事先计划。 每个节点都有一个配置参数来表示它支持的最大 Pod 数。 这样，就会为每个节点预留相应的 IP 地址数。 使用此方法需要经过更详细的规划，并且经常会耗尽 IP 地址，或者在应用程序需求增长时需要在更大的子网中重建群集。
 
-本文介绍如何使用 *kubenet* 网络来创建和使用 AKS 群集的虚拟网络子网。 有关网络选项的详细信息和注意事项，请参阅 [Kubernetes 和 AKS 的网络概念][aks-network-concepts]。
+本文介绍如何使用 *kubenet* 网络来创建和使用 AKS 群集的虚拟网络子网。 有关网络选项和注意事项的详细信息，请参阅 [Kubernetes 和 AKS 的网络概念][aks-network-concepts]。
 
+<!--Not Available on Windows Server node pools (currently in preview in AKS)-->
 ## <a name="before-you-begin"></a>准备阶段
 
-需要安装并配置 Azure CLI 2.0.56 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
+需要安装并配置 Azure CLI 2.0.65 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>使用自有子网的 kubenet 网络概述
 
-在许多环境中，你已定义了具有分配的 IP 地址范围的虚拟网络和子网。 这些虚拟网络资源用于支持多个服务和应用程序。 若要提供网络连接，AKS 群集可以使用 *kubenet*（基本网络）或 Azure CNI（高级网络）。
+在许多环境中，你已定义了具有分配的 IP 地址范围的虚拟网络和子网。 这些虚拟网络资源用于支持多个服务和应用程序。 若要提供网络连接，AKS 群集可以使用 *kubenet*（基本网络）或 Azure CNI（高级网络）。 
 
 使用 *kubenet* 时，只有节点接收虚拟网络子网中的 IP 地址。 Pod 无法直接相互通信。 用户定义的路由 (UDR) 和 IP 转发用于不同节点中 Pod 之间的连接。 此外，可以在接收分配的 IP 地址的服务后面部署 Pod，并对应用程序的流量进行负载均衡。 下图显示了 AKS 节点（不是 Pod）如何接收虚拟网络子网中的 IP 地址：
 
@@ -50,7 +51,7 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 
 作为一种折衷方案，可以创建使用 *kubenet* 的 AKS 群集并连接到现有虚拟网络子网。 这种方法可让节点接收定义的 IP 地址，而无需提前为群集中可能运行的所有潜在 Pod 节点预留大量的 IP 地址。
 
-使用 *kubenet* 时，可以大幅减小要使用的 IP 地址范围，并且可以支持大型群集和应用程序的需求。 例如，即使使用 */27* IP 地址范围，也能运行包括 20-25 节点个的群集，并且可以提供足够的空间用于扩展或升级。 此群集大小最多支持 *2,200-2,750* 个 Pod（每个节点的最大 Pod 数默认为 110 个）。
+使用 *kubenet* 时，可以大幅减小要使用的 IP 地址范围，并且可以支持大型群集和应用程序的需求。 例如，即使使用 */27* IP 地址范围，也能运行包括 20-25 节点个的群集，并且可以提供足够的空间用于扩展或升级。 此群集大小最多支持 *2,200-2,750* 个 Pod（每个节点的最大 Pod 数默认为 110 个）。 可以在 AKS 中使用 *kubenet* 配置的每个节点的最大 Pod 数为 110。
 
 以下基本计算方法对网络模型的差异做了比较：
 
@@ -64,7 +65,7 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 
 ### <a name="virtual-network-peering-and-expressroute-connections"></a>虚拟网络对等互连和 ExpressRoute 连接
 
-若要提供本地连接，*kubenet* 和 *Azure CNI* 网络方法都可以使用 [Azure 虚拟网络对等互连][vnet-peering]或 [ExpressRoute 连接][express-route]。 精心规划 IP 地址范围，以防止地址重叠和流量路由错误。 例如，许多本地网络使用通过 ExpressRoute 连接播发的 *10.0.0.0/8* 地址范围。 建议在此地址范围（例如 *172.26.0.0/16*）外部的 Azure 虚拟网络子网中创建 AKS 群集。
+若要提供本地连接，*kubenet* 和 *Azure CNI* 网络方法都可以使用 [Azure 虚拟网络对等互连][vnet-peering]或 [ExpressRoute 连接][express-route]。 精心规划 IP 地址范围，以防止地址重叠和流量路由错误。 例如，许多本地网络使用通过 ExpressRoute 连接播发的 *10.0.0.0/8* 地址范围。 建议在此地址范围（例如 *172.16.0.0/16*）外部的 Azure 虚拟网络子网中创建 AKS 群集。
 
 ### <a name="choose-a-network-model-to-use"></a>选择要使用的网络模型
 
@@ -87,21 +88,21 @@ Azure 在一个 UDR 中最多支持 400 个路由，因此，AKS 群集中的节
 
 ## <a name="create-a-virtual-network-and-subnet"></a>创建虚拟网络和子网
 
-若要开始使用 *kubenet* 和自己的虚拟网络子网，请先使用 [az group create][az-group-create] 命令创建一个资源组。 以下示例在“chinaeast2”位置创建名为“myResourceGroup”的资源组：
+若要开始使用 *kubenet* 和自己的虚拟网络子网，请先使用 [az group create][az-group-create] 命令创建一个资源组。 以下示例在“chinaeast2”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast2
 ```
 
-如果没有可用的现有虚拟网络和子网，请使用 [az network vnet create][az-network-vnet-create] 命令创建这些网络资源。 在以下示例中，虚拟网络名为 *myVnet*，其地址前缀为 *10.0.0.0/8*。 创建了名为 *myAKSSubnet*、地址前缀为 *10.240.0.0/16* 的子网。
+如果没有可用的现有虚拟网络和子网，请使用 [az network vnet create][az-network-vnet-create] 命令创建这些网络资源。 在以下示例中，虚拟网络名为 *myVnet*，其地址前缀为 *192.168.0.0/16*。 创建了名为 *myAKSSubnet*、地址前缀为 *192.168.1.0/24* 的子网。
 
 ```azurecli
 az network vnet create \
     --resource-group myResourceGroup \
     --name myAKSVnet \
-    --address-prefixes 10.0.0.0/8 \
+    --address-prefixes 192.168.0.0/16 \
     --subnet-name myAKSSubnet \
-    --subnet-prefix 10.240.0.0/16
+    --subnet-prefix 192.168.1.0/24
 ```
 
 ## <a name="create-a-service-principal-and-assign-permissions"></a>创建服务主体并分配权限
@@ -133,7 +134,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-现在，使用 [az role assignment create][az-role-assignment-create] 命令为 AKS 群集的服务主体分配虚拟网络中的“参与者”权限。 根据上一命令的输出所示，提供自己的 \<appId> 来创建服务主体：
+现在，使用 [az role assignment create][az-role-assignment-create] 命令为 AKS 群集的服务主体分配虚拟网络中的“参与者”权限。  根据上一命令的输出所示，提供自己的 \<appId>  来创建服务主体：
 
 ```azurecli
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -141,18 +142,20 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>在虚拟网络中创建 AKS 群集
 
-现已创建虚拟网络和子网、已创建服务主体并为其分配了这些网络资源的使用权限。 现在，请使用 [az aks create][az-aks-create] 命令在虚拟网络和子网中创建 AKS 群集。 根据上一命令的输出所示，定义自己的服务主体 \<appId> 和 \<password> 来创建服务主体。
+现已创建虚拟网络和子网、已创建服务主体并为其分配了这些网络资源的使用权限。 现在，请使用 [az aks create][az-aks-create] 命令在虚拟网络和子网中创建 AKS 群集。 根据上一命令的输出所示，定义自己的服务主体 \<appId>  和 \<password>  来创建服务主体。
 
 在创建群集的过程中还定义了以下 IP 地址范围：
 
-* *--service-cidr* 用于为 AKS 群集中的内部服务分配 IP 地址。 此 IP 地址范围应该是未在网络环境中的其他位置使用的地址空间。 如果你需要或者打算使用 Express Route 或站点到站点 VPN 连接来连接 Azure 虚拟网络，则此地址范围可包括任何本地网络范围。
+* *--service-cidr* 用于为 AKS 群集中的内部服务分配 IP 地址。 此 IP 地址范围应该是未在网络环境中的其他位置使用的地址空间。 如果你需要或者打算使用 Express Route 或站点到站点 VPN 连接来连接 Azure 虚拟网络，则此范围可包括任何本地网络范围。
 
 * *--dns-service-ip* 地址应该是服务 IP 地址范围的 *.10* 地址。
 
-* *--pod-cidr* 应该是未在网络环境中的其他位置使用的较大地址空间。 如果你需要或者打算使用 Express Route 或站点到站点 VPN 连接来连接 Azure 虚拟网络，则此地址范围可包括任何本地网络范围。
+* *--pod-cidr* 应该是未在网络环境中的其他位置使用的较大地址空间。 如果你需要或者打算使用 Express Route 或站点到站点 VPN 连接来连接 Azure 虚拟网络，则此范围可包括任何本地网络范围。
     * 此地址范围必须足够大，可以容纳预期要扩展到的节点数。 部署群集后，如果需要为更多的节点提供更多的地址，你无法更改此地址范围。
-    * Pod IP 地址范围用于将 */24* 地址空间分配到群集中的每个节点。 在以下示例中，*--pod cidr* *192.168.0.0/16* 为第一个节点分配 *192.168.0.0/24*，为第二个节点分配 *192.168.1.0/24*，为第三节点分配 *192.168.2.0/24*。
+    * Pod IP 地址范围用于将 */24* 地址空间分配到群集中的每个节点。 在以下示例中， *--pod cidr* *10.244.0.0/16* 为第一个节点分配 *10.244.0.0/24*，为第二个节点分配 *10.244.1.0/24*，为第三节点分配 *10.244.2.0/24*。
     * 群集扩展或升级时，Azure 平台会继续向每个新节点分配 Pod IP 地址范围。
+
+* *--docker-bridge-address* 允许 AKS 节点与基础管理平台进行通信。 此 IP 地址不能在群集的虚拟网络 IP 地址范围内，并且不应当与网络上使用的其他地址范围重叠。
 
 ```azurecli
 az aks create \
@@ -162,7 +165,7 @@ az aks create \
     --network-plugin kubenet \
     --service-cidr 10.0.0.0/16 \
     --dns-service-ip 10.0.0.10 \
-    --pod-cidr 192.168.0.0/16 \
+    --pod-cidr 10.244.0.0/16 \
     --docker-bridge-address 172.17.0.1/16 \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal <appId> \
@@ -202,5 +205,6 @@ az aks create \
 
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [express-route]: ../expressroute/expressroute-introduction.md
+[network-comparisons]: concepts-network.md#compare-network-models
 
 <!-- Update_Description: wording update, update link -->

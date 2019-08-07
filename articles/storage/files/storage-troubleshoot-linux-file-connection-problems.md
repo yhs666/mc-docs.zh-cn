@@ -7,15 +7,15 @@ tags: storage
 ms.service: storage
 ms.topic: article
 origin.date: 10/16/2018
-ms.date: 12/10/2018
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.component: files
-ms.openlocfilehash: f4bb4227a87b3e8a44ffc6213c91154cb53619d8
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.subservice: files
+ms.openlocfilehash: bb8a726ebba732beb8eec9e133684f0c040a4d92
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391987"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732322"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>在 Linux 中排查 Azure 文件问题
 
@@ -95,19 +95,30 @@ ms.locfileid: "68391987"
 
 关闭某些句柄以减少并发打开句柄数，然后重试操作。
 
+若要查看文件共享、目录或文件的打开句柄，请使用 [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet。  
+
+若要关闭文件共享、目录或文件的打开句柄，请使用 [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet。
+
+> [!Note]  
+> Get-AzStorageFileHandle 和 Close-AzStorageFileHandle cmdlet 包括在 Az PowerShell 模块 2.4 或更高版本中。 若要安装最新 Az PowerShell 模块，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>在 Linux 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢
 
 - 如果你没有特定的 I/O 大小下限要求，我们建议使用 1 MiB 的 I/O 大小以获得最佳性能。
-- 如果知道通过写入扩展的最终文件大小，并且文件上尚未写入的结尾包含零时软件不会出现兼容性问题，请提前设置文件大小，而不是使每次写入都成为扩展写入。
 - 使用正确的复制方法：
     -   为两个文件共享之间的任何传输使用 [AzCopy](../common/storage-use-azcopy.md?toc=%2fstorage%2ffiles%2ftoc.json)。
-    - 将 cp 与 parallel 配合使用可以提高复制速度，线程数取决于用例和工作负荷。 本示例使用六个：`find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`。
+    - 将 cp 或 dd 与 parallel 配合使用可以提高复制速度，线程数取决于用例和工作负荷。 以下示例使用 6 个线程： 
+    - cp 示例（cp 将使用文件系统的默认块大小作为区块大小）：`find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`。
+    - dd 示例（此命令将区块大小显式设置为 1 MiB）：`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - 开源第三方工具，例如：
-        - [GNU Parallel](http://www.gnu.org/software/parallel/)。
+        - [GNU Parallel](https://www.gnu.org/software/parallel/)。
         - [Fpart](https://github.com/martymac/fpart) - 将文件排序并将其打包到分区中。
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) - 使用 Fpart 和复制工具生成多个实例，以便将数据从 src_dir 迁移到 dst_url。
         - [Multi](https://github.com/pkolano/mutil) - 基于 GNU coreutils 的多线程 cp 和 md5sum。
+- 提前设置文件大小而不是让每个写入成为扩展写入，这样可以在文件大小已知的情况下提高复制速度。 如果需要避免扩展写入，则可使用 `truncate - size <size><file>` 命令设置目标文件大小。 然后，`dd if=<source> of=<target> bs=1M conv=notrunc`命令会复制源文件，不需反复更新目标文件的大小。 例如，可以为每个要复制的文件设置目标文件大小（假定在 /mnt/share 下装载了一个共享）：
+    - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
+    - 然后复制文件，不需以并行方式扩展写入：`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>使用 SMB 3.0 装载 Azure 文件时出现“装载错误(115): 操作正在进行”
@@ -141,6 +152,23 @@ ms.locfileid: "68391987"
 ### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
 验证是否已在存储帐户上正确配置虚拟网络和防火墙规则。 若要测试虚拟网络或防火墙规则是否导致此问题，请将存储帐户上的设置临时更改为“允许来自所有网络的访问”  。 若要了解详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>无法删除 Azure 文件共享中的文件或目录
+
+### <a name="cause"></a>原因
+如果该文件或目录有一个打开的句柄，通常会出现此问题。 
+
+### <a name="solution"></a>解决方案
+
+如果 SMB 客户端关闭了所有打开的句柄，但问题仍然出现，请执行以下操作：
+
+- 使用 [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet 查看打开的句柄。
+
+- 使用 [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet 关闭打开的句柄。 
+
+> [!Note]  
+> Get-AzStorageFileHandle 和 Close-AzStorageFileHandle cmdlet 包括在 Az PowerShell 模块 2.4 或更高版本中。 若要安装最新 Az PowerShell 模块，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Linux VM 上装载的 Azure 文件共享的性能低下

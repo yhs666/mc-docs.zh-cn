@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/05/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 53b9f4fc42645d8728a691fc48bb17d49c180107
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 85e807e9e03352c777954710770ca5cd3639d933
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844508"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732398"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>在应用程序中使用 Azure Active Directory 进行身份验证以访问 Blob 和队列
 
@@ -50,16 +50,16 @@ ms.locfileid: "67844508"
 接下来，授予应用程序权限以调用 Azure 存储 API。 借助此步骤，应用程序可授权使用 Azure AD 请求 Azure 存储。
 
 1. 在已注册的应用程序的“概述”页上，选择“查看 API 权限”。  
-1. 在“API 权限”部分，依次选择“添加权限”、“我的组织使用的 API”。   
-1. 在“我的组织使用的 API”部分下搜索“Azure 存储”，然后从结果列表中选择“Azure 存储”以显示“请求 API 权限”窗格。   
+1. 在“API 权限”部分中，依次选择“添加权限”、“Microsoft API”。   
+1. 从结果列表中选择“Azure 存储”  以显示“请求 API 权限”  窗格。
+1. 在“应用程序需要哪种类型的权限?”下，注意可用的权限类型是“委托的权限”。   默认已自动选择此选项。
+1. 在“请求 API 权限”窗格的“选择权限”部分，选中“user_impersonation”旁边的复选框，然后单击“添加权限”。    
 
     ![显示存储权限的屏幕截图](media/storage-auth-aad-app/registered-app-permissions-1.png)
 
-1. 在“应用程序需要哪种类型的权限?”下，注意可用的权限类型是“委托的权限”。   默认已自动选择此选项。
-1. 在“请求 API 权限”窗格的“选择权限”部分，选中“user_impersonation”旁边的复选框，然后单击“添加权限”。    
-1. 现在，“API 权限”窗格会显示你的 Azure AD 应用程序有权访问 Microsoft Graph 和 Azure 存储。  首次向 Azure AD 注册应用时，系统会自动授予对 Microsoft Graph 的权限。
+现在，“API 权限”窗格会显示已注册的 Azure AD 应用程序有权访问 Microsoft Graph 和 Azure 存储。  首次向 Azure AD 注册应用时，系统会自动授予对 Microsoft Graph 的权限。
 
-    ![显示注册应用权限的屏幕截图](media/storage-auth-aad-app/registered-app-permissions-2.png)
+![显示注册应用权限的屏幕截图](media/storage-auth-aad-app/registered-app-permissions-2.png)
 
 ## <a name="create-a-client-secret"></a>创建客户端机密
 
@@ -122,7 +122,7 @@ ms.locfileid: "67844508"
 
 当应用程序访问 Azure 存储时，它是在代表用户进行访问，这意味着，这是在使用已登录用户的权限访问 blob 或队列资源。 若要尝试运行此代码示例，需要提供一个可以提示用户使用 Azure AD 标识登录的 Web 应用程序。 你可以创建自己的应用程序，也可以使用 Azure 提供的示例应用程序。
 
-[GitHub](http://aka.ms/aadstorage) 上提供了一个已完成的示例 Web 应用程序，该应用程序可获取令牌，并使用该令牌在 Azure 存储中创建 Blob。 查看并运行这个已完成的示例可能有助于理解代码示例。 有关如何运行已完成的示例的说明，请参阅标题为[查看和运行已完成的示例](#view-and-run-the-completed-sample)的部分。
+[GitHub](https://aka.ms/aadstorage) 上提供了一个已完成的示例 Web 应用程序，该应用程序可获取令牌，并使用该令牌在 Azure 存储中创建 Blob。 查看并运行这个已完成的示例可能有助于理解代码示例。 有关如何运行已完成的示例的说明，请参阅标题为[查看和运行已完成的示例](#view-and-run-the-completed-sample)的部分。
 
 #### <a name="add-references-and-using-statements"></a>添加引用和 using 语句  
 
@@ -236,7 +236,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>查看和运行已完成的示例
 
-若要运行示例应用程序，请先从 [GitHub](http://aka.ms/aadstorage) 克隆或下载它。 然后根据以下部分所述更新应用程序。
+若要运行示例应用程序，请先从 [GitHub](https://aka.ms/aadstorage) 克隆或下载它。 然后根据以下部分所述更新应用程序。
 
 ### <a name="provide-values-in-the-settings-file"></a>在设置文件中提供值
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fc3c103a5c111b3130c04fcb7bb0be0e1217b47d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3c18d0031679695fba8be24122ae88bb6c87ed6a
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625453"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731239"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -119,7 +119,7 @@ az aks install-cli --install-location <kubectl-download-path>
 
 ## <a name="connect-to-cluster-using-kubectl"></a>使用 kubectl 连接到群集
 
-若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials][] 命令。 以下示例获取 myResourceGroup 中名为“myAKSCluster”的 AKS 群集的凭据：
+若要将 `kubectl` 配置为连接到 Kubernetes 群集，请使用 [az aks get-credentials][] 命令。 以下示例获取 myResourceGroup  中名为“myAKSCluster”  的 AKS 群集的凭据：
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -164,3 +164,5 @@ aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 [az aks install-cli]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
 [az aks get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+<!-- Update_Description: wording update, update link -->

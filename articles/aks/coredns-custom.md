@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/15/2019
-ms.date: 06/24/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 936dbab9fb47285c1ca838904732930ac76bfe27
-ms.sourcegitcommit: d469887c925cbce25a87f36dd248d1c849bb71ce
+ms.openlocfilehash: 6a50cb64696f9f348af10889da275244af218359
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67325784"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731255"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>使用 Azure Kubernetes 服务自定义 CoreDNS
 
@@ -28,15 +28,15 @@ Azure Kubernetes 服务 (AKS) 可将适用于管理和解决群集 DNS 问题的
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门：[使用 Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal]。
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
 ## <a name="what-is-supportedunsupported"></a>支持的/不支持的插件
 
-支持所有内置 CoreDNS 插件。 不支持任何附加/第三方插件。
+支持所有内置 CoreDNS 插件。 不支持任何附加/第三方插件。 
 
 ## <a name="rewrite-dns"></a>重写 DNS
 
-一个可以使用的方案是执行 DNS 名称即时重写。 在以下示例中，请将 `<domain to be written>` 替换为你自己的完全限定域名。 创建名为 `corednsms.json` 的文件并粘贴以下示例配置：
+一个可以使用的方案是执行 DNS 名称即时重写。 在以下示例中，请将 `<domain to be written>` 替换为你自己的完全限定域名。 创建名为 `corednsms.yaml` 的文件并粘贴以下示例配置：
 
 ```yaml
 apiVersion: v1
@@ -57,7 +57,7 @@ data:
 使用 [kubectl apply configmap][kubectl-apply] 命令创建 ConfigMap，并指定 YAML 清单的名称：
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 ```
 
 若要验证自定义项是否已得到应用，请使用 [kubectl get configmaps][kubectl-get] 命令并指定 *coredns-custom* ConfigMap：
@@ -77,7 +77,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 
 ## <a name="custom-proxy-server"></a>自定义代理服务器
 
-如需指定网络流量的代理服务器，可以创建 ConfigMap 来自定义 DNS。 在以下示例中，请将 `proxy` 名称和地址更新为你自己的环境的值。 创建名为 `corednsms.json` 的文件并粘贴以下示例配置：
+如需指定网络流量的代理服务器，可以创建 ConfigMap 来自定义 DNS。 在以下示例中，请将 `proxy` 名称和地址更新为你自己的环境的值。 创建名为 `corednsms.yaml` 的文件并粘贴以下示例配置：
 
 ```yaml
 apiVersion: v1
@@ -92,10 +92,10 @@ data:
     }
 ```
 
-按前面的示例所示创建 ConfigMap，方法是使用 [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete]，以便 Kubernetes 计划程序重新创建它们：
+与前面的示例一样，使用 [kubectl apply configmap][kubectl-apply] 命令创建 ConfigMap，并指定 YAML 清单的名称。 然后，使用 [kubectl delete pod][kubectl delete] 强制 CoreDNS 重新加载 ConfigMap，以便 Kubernetes 计划程序重新创建它们：
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
@@ -103,7 +103,7 @@ kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 
 可能需要配置只能在内部进行解析的自定义域。 例如，可能需要解析自定义域 *puglife.local*，该域不是有效的顶级域。 在没有自定义域 ConfigMap 的情况下，AKS 群集无法解析该地址。
 
-在以下示例中，请将用于定向流量的自定义域和 IP 地址更新为你自己的环境的值。 创建名为 `corednsms.json` 的文件并粘贴以下示例配置：
+在以下示例中，请将用于定向流量的自定义域和 IP 地址更新为你自己的环境的值。 创建名为 `corednsms.yaml` 的文件并粘贴以下示例配置：
 
 ```yaml
 apiVersion: v1
@@ -120,16 +120,16 @@ data:
     }
 ```
 
-按前面的示例所示创建 ConfigMap，方法是使用 [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete]，以便 Kubernetes 计划程序重新创建它们：
+与前面的示例一样，使用 [kubectl apply configmap][kubectl-apply] 命令创建 ConfigMap，并指定 YAML 清单的名称。 然后，使用 [kubectl delete pod][kubectl delete] 强制 CoreDNS 重新加载 ConfigMap，以便 Kubernetes 计划程序重新创建它们：
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>存根域
 
-CoreDNS 也可用于配置存根域。 在以下示例中，请将自定义域和 IP 地址更新为你自己的环境的值。 创建名为 `corednsms.json` 的文件并粘贴以下示例配置：
+CoreDNS 也可用于配置存根域。 在以下示例中，请将自定义域和 IP 地址更新为你自己的环境的值。 创建名为 `corednsms.yaml` 的文件并粘贴以下示例配置：
 
 ```yaml
 apiVersion: v1
@@ -152,10 +152,10 @@ data:
 
 ```
 
-按前面的示例所示创建 ConfigMap，方法是使用 [kubectl apply configmap][kubectl-apply] command and specify the name of your YAML manifest. Then, force CoreDNS to reload the ConfigMap using the [kubectl delete pod][kubectl delete]，以便 Kubernetes 计划程序重新创建它们：
+与前面的示例一样，使用 [kubectl apply configmap][kubectl-apply] 命令创建 ConfigMap，并指定 YAML 清单的名称。 然后，使用 [kubectl delete pod][kubectl delete] 强制 CoreDNS 重新加载 ConfigMap，以便 Kubernetes 计划程序重新创建它们：
 
 ```console
-kubectl apply -f corednsms.json
+kubectl apply -f corednsms.yaml
 kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
 ```
 
@@ -198,5 +198,4 @@ data:
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 
-<!-- Update_Description: new articles on AKS coredns custom-->
-<!--ms.date: 06/24/2019-->
+<!-- Update_Description: wording update -->

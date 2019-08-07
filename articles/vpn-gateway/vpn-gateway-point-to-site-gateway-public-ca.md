@@ -5,15 +5,15 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
+origin.date: 05/16/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: 750c055c6d01f85c27a62ecc60daf3c9fe89d345
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 4a68fcf15b378f6c8bba9e0ef1358b161e0d6da2
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855451"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732414"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>为 P2S 转换到公共 CA 网关证书
 
@@ -30,17 +30,7 @@ ms.locfileid: "64855451"
 只有较旧的网关会受此更改影响。 如果网关证书需要转换，你将在 Azure 门户中收到相关信息或 toast。 可以通过执行本文中的步骤查看网关是否受影响。
 
 > [!IMPORTANT]
-> 转换计划为 2019 年 3 月 12 日 18:00 (UTC) 开始。 如果需要不同的时间窗口，可以创建一个支持案例。 请至少提前 24 个小时提出并确认请求。  可以请求以下窗口之一：
->
-> * 2 月 25 日 06:00 (UTC)
-> * 2 月 25 日 18:00 (UTC)
-> * 3 月 1 日 06:00 (UTC)
-> * 3 月 1 日 18:00 (UTC)
->
-> **所有剩余网关将在 2019 年 3 月 12 日 18:00 (UTC) 开始转换**。
->
-> 网关完成转换过程时，客户将收到电子邮件。
-> 
+> 转换为公共 CA 证书的操作已于 2019 年 5 月 12 日完成。 **此文档将于 2019 年 5 月 31 日删除。**
 
 ## <a name="1-verify-your-certificate"></a>1.验证证书
 
@@ -53,7 +43,7 @@ ms.locfileid: "64855451"
 
    * `<ServerCertRootCn>DigiCert Global Root CA</ServerCertRootCn>`
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
-4. 如果 ServerCertRotCn 和 ServerCertIssuerCn 是“DigiCert Global Root CA”，则你不受此项更新的影响，无需继续执行本文中的步骤。 但是，如果这两个字段显示其他内容，那么你的网关证书属于此更新的一部分，将进行转换。
+4. 如果 ServerCertRotCn 和 ServerCertIssuerCn 是“DigiCert Global Root CA”，则你不受此项更新的影响，无需继续执行本文中的步骤   。 但是，如果这两个字段显示其他内容，那么你的网关证书属于此更新的一部分，将进行转换。
 
 ### <a name="classic"></a>经典
 

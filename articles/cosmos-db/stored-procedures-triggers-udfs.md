@@ -4,20 +4,20 @@ description: 本文介绍 Azure Cosmos DB 中存储过程、触发器和用户�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/11/2018
-ms.date: 03/04/2019
+origin.date: 06/14/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 95d1b4c35939eb0f0046b49b5e7ea521c5422e0b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 8652e6351dac70a867858d3860d53e2571dc8baa
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625377"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672214"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>存储过程、触发器和用户定义的函数
 
-Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言编写**存储过程**、**触发器**和**用户定义的函数 (UDF)**。 可以使用 JavaScript 编写可在数据库引擎内部执行的逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 或 [Cosmos DB SQL API 客户端 SDK](how-to-use-stored-procedures-triggers-udfs.md) 来创建及执行触发器、存储过程与 UDF。
+Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Cosmos DB 中使用 SQL API 时，可以采用 JavaScript 语言编写**存储过程**、**触发器**和**用户定义的函数 (UDF)** 。 可以使用 JavaScript 编写可在数据库引擎内部执行的逻辑。 可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Cosmos DB 中的 JavaScript 语言集成式查询 API](javascript-query-api.md) 或 [Cosmos DB SQL API 客户端 SDK](how-to-use-stored-procedures-triggers-udfs.md) 来创建及执行触发器、存储过程与 UDF。
 
 ## <a name="benefits-of-using-server-side-programming"></a>使用服务器端编程的优势
 
@@ -29,20 +29,20 @@ Azure Cosmos DB 提供 JavaScript 的语言集成式事务执行。 在 Azure Co
 
 * **性能：** JSON 数据在本质上会映射到 JavaScript 语言类型系统。 这种映射可以实现多种优化，例如，在缓冲池中将 JSON 文档惰性具体化，并使其可按需供执行代码使用。 还有其他与传送业务逻辑到数据库相关的性能优势，包括：
 
-   * 批处理：可将插入等操作分组到一起并批量提交。 用于创建单独事务的网络流量延迟成本和存储开销显著降低。
+    * 批处理：  可将插入等操作分组到一起并批量提交。 用于创建单独事务的网络流量延迟成本和存储开销显著降低。
 
-   * 预编译：存储过程、触发器和 UDF 是隐式预编译成字节代码格式，这是为了避免每次脚本调用时产生编译成本。 预编译使得存储过程的调用速度加快，且占用空间减少。
+    * 预编译：  存储过程、触发器和 UDF 是隐式预编译成字节代码格式，这是为了避免每次脚本调用时产生编译成本。 预编译使得存储过程的调用速度加快，且占用空间减少。
 
-   * 定序：有时，操作需要通过某个触发机制来对数据执行一项或多项更新。 除了原子性以外，在服务器端执行还可以带来性能优势。
+    * 定序：  有时，操作需要通过某个触发机制来对数据执行一项或多项更新。 除了原子性以外，在服务器端执行还可以带来性能优势。
 
 * **封装：** 使用存储过程可在一个位置分组逻辑。 封装在数据的顶层添加一个抽象层，使你能够独立于数据改进应用程序。 如果数据无架构，并且你无需管理直接将其他逻辑添加到应用程序的过程，则此抽象层非常有用。 借助这种抽象，可以通过从脚本简化访问来保证数据的安全。
 
 > [!TIP]
-> 存储过程最适合写入密集型操作。 确定要在何处使用存储过程时，请在尽量封装最大量的写入操作的基础上进行优化。 一般而言，存储过程不是执行大量读取操作的最有效方式，因此，使用存储过程来批处理要返回到客户端的大量读取操作不会带来所需的优势。
+> 存储过程最适合写入密集型操作，需要跨分区键值进行事务处理。 确定是否使用存储过程时，请在尽量封装最大量的写入操作的基础上进行优化。 一般而言，存储过程不是执行大量读取或查询操作的最有效方式，因此，使用存储过程来批处理要返回到客户端的大量读取操作不会带来所需的优势。 为了获得最佳性能，应该使用 Cosmos SDK 在客户端完成这些读取密集型操作。 
 
 ## <a name="transactions"></a>事务
 
-典型数据库中的事务可以定义为一系列作为单个逻辑单元工作执行的操作。 每个事务提供 **ACID 属性保证**。 ACID 是一个众所周知的缩写词，表示：原子性、一致性、隔离性和持久性。 
+典型数据库中的事务可以定义为一系列作为单个逻辑单元工作执行的操作。 每个事务提供 **ACID 属性保证**。 ACID 是一个众所周知的缩写词，表示：原子性、一致性、隔离性和持久性。     
 
 * 原子性保证将一个事务内部执行的所有操作视为一个单位，这些操作要么全部提交，要么都不提交。 
 
@@ -76,7 +76,7 @@ JavaScript 函数还有[预配的吞吐量容量](request-units.md)方面的约�
 
 ## <a name="triggers"></a>触发器
 
-本部分介绍两种类型的触发器：
+Azure Cosmos DB 支持两种触发器类型：
 
 ### <a name="pre-triggers"></a>前触发器
 
@@ -84,7 +84,10 @@ Azure Cosmos DB 提供可以通过对 Azure Cosmos DB 项执行操作来调用�
 
 ### <a name="post-triggers"></a>后触发器
 
-类似于前触发器，后触发器也与针对 Azure Cosmos DB 项执行的操作相关联，但它们不需要任何输入参数。 后触发器在操作完成之后运行，且具有对发送到客户端的响应消息的访问权限。 有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
+类似于前触发器，后触发器也与针对 Azure Cosmos DB 项执行的操作相关联，但它们不需要任何输入参数。 后触发器在操作完成之后运行，且具有对发送到客户端的响应消息的访问权限。  有关示例，请参阅[如何编写触发器](how-to-write-stored-procedures-triggers-udfs.md#triggers)一文。
+
+> [!NOTE]
+> 注册的触发器不会在出现相应的操作（创建/删除/替换/更新）时自动运行。 在执行这些操作时，必须显式调用它们。 若要了解详细信息，请参阅[如何运行触发器](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers)一文。
 
 <a name="udfs"></a>
 ## <a name="user-defined-functions"></a>用户定义的函数

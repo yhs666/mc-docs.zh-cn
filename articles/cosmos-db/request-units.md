@@ -4,15 +4,15 @@ description: 了解如何指定和评估 Azure Cosmos DB 中的请求单位要�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 06/17/2019
+origin.date: 06/14/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c1fbbe50d76db6d3051196b03220fec6f3c7502
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 2df979758753c5678757beb4e835659a54f3c480
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171281"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672188"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Azure Cosmos DB 中的请求单位
 
@@ -76,5 +76,6 @@ Azure Cosmos DB 支持多种 API，例如 SQL、MongoDB、Cassandra、Gremlin �
 * 了解如何[在 Azure Cosmos DB 中优化预配的吞吐量成本](optimize-cost-throughput.md)。
 * 了解如何[优化 Azure Cosmos DB 中的读取和写入成本](optimize-cost-reads-writes.md)。
 * 了解如何[优化 Azure Cosmos DB 中的查询成本](optimize-cost-queries.md)。
+* 了解如何[使用指标监视吞吐量](use-metrics.md)。
 
 <!--Update_Description: update meta properties, wording update -->

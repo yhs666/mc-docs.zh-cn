@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/28/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 523c69828e00f5906a5e02e7e1d4e262b9610b8f
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 777150fb656ff7f232e65d38ce986f37098c468d
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171332"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672224"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 进行社交
 
@@ -97,7 +97,7 @@ Azure Cosmos DB 的自动索引功能可确保为所有属性都编制索引。 
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-可拥有“最新”的流，其中包含按创建日期排序的帖子。 或者可拥有一个“最热门”的流，其中包含过去 24 小时内点赞数较多的帖子。 甚至可以根据关注者和兴趣等逻辑为每个用户实现自定义流。 它仍然是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能不会受到阻碍。 在获得其中一个列表之后，使用 [IN 运算符](how-to-sql-query.md#WhereClause)向 Cosmos DB 发布单个查询以一次性获取帖子的所有页面。
+可拥有“最新”的流，其中包含按创建日期排序的帖子。 或者可拥有一个“最热门”的流，其中包含过去 24 小时内点赞数较多的帖子。 甚至可以根据关注者和兴趣等逻辑为每个用户实现自定义流。 它仍然是一个帖子列表。 虽然如何生成这些列表还是一个问题，但读取性能不会受到阻碍。 在获得其中一个列表之后，使用 [IN 关键字](sql-query-keywords.md#in)向 Cosmos DB 发出单个查询以一次获取帖子页面。
 
 可以使用 [Azure 应用服务](https://www.azure.cn/home/features/app-service/)的后台进程 - [Webjobs](../app-service/webjobs-create.md) - 来构建源流。 创建一个帖子后，可以通过使用 [Azure 存储](https://www.azure.cn/home/features/storage/)[队列](../storage/queues/storage-dotnet-how-to-use-queues.md)和 Web 作业（通过 [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) 触发）触发后台处理，从而根据自己的自定义逻辑实现流内的帖子传播。
 

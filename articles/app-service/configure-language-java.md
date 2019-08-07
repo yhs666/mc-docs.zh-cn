@@ -11,15 +11,15 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 04/12/2019
-ms.date: 06/17/2019
+ms.date: 08/12/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 4c14c5846269a9b3b08ee3e77f9ca146febe77de
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: e85b03a7fdf53ce2d8865ffeba75fc3b1d07ff3c
+ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687484"
+ms.lasthandoff: 07/30/2019
+ms.locfileid: "68633008"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Windows Java 应用
 
@@ -35,7 +35,7 @@ Azure 应用服务可让 Java 开发人员在完全托管的基于 Windows 的�
 若要编辑 Tomcat 的 `server.xml` 或其他配置文件，请首先记下门户中你的 Tomcat 主版本。
 
 1. 通过运行 `env` 命令查找你的版本的 Tomcat 主目录。 搜索以 `AZURE_TOMCAT` 开头并且与你的主版本匹配的环境变量。 例如，`AZURE_TOMCAT85_HOME` 指向 Tomcat 8.5 的 Tomcat 目录。
-1. 查明你的版本的 Tomcat 主目录后，将配置目录复制到 `D:\home`。 例如，如果 `AZURE_TOMCAT85_HOME` 的值为 `D:\Program Files (x86)\apache-tomcat-8.5.37`，则所复制的配置目录的完整路径将是 `D:\home\tomcat\conf`。
+1. 查明你的版本的 Tomcat 主目录后，将配置目录复制到 `D:\home`。 例如，如果 `AZURE_TOMCAT85_HOME` 的值为 `D:\Program Files (x86)\apache-tomcat-8.5.37`，则所复制目录的新路径将为 `D:\home\apache-tomcat-8.5.37`。
 
 最后，请重启应用服务。 你的部署应当转到 `D:\home\site\wwwroot\webapps`，跟以前完全一样。
 

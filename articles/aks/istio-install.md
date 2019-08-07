@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/19/2019
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: d420079b7415be022c315b4830d8ca4c89b03d19
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 38e7b3d74ea8185150a81ff612bb1d650a770d8e
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67673959"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731246"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
 
@@ -41,7 +41,7 @@ ms.locfileid: "67673959"
 
 本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.11` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。
 
-需要使用 [Helm][helm] 按照这些说明安装 Istio。 建议在群集中正确安装并配置版本 `2.12.2` 或更高版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。
+需要使用 [Helm][helm] 按照这些说明安装 Istio。 建议在群集中正确安装并配置版本 `2.12.2` 或更高版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。 所有 Istio Pod 也必须按计划在 Linux 节点上运行。
 
 本文将 Istio 安装指南分为多个独立步骤。 最终结果的结构与官方 Istio 安装[指南][istio-install-helm]相同。
 
@@ -84,6 +84,8 @@ curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-
 $ISTIO_VERSION="1.1.3"
 
 # Windows
+# Use TLS 1.2
+[Net.ServicePointManager]::SecurityProtocol = "tls12"
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
@@ -151,14 +153,19 @@ echo "source ~/completions/istioctl.bash" >> ~/.bashrc
 
 ### <a name="windows"></a>Windows
 
-若要在 Windows 上的基于 **Powershell** 的 shell 中安装 Istio `istioctl` 客户端二进制文件，请使用以下命令。 这些命令可将 `istioctl` 客户端库复制到某个 Istio 文件夹，并通过 `PATH` 使其永久可用。 不需要提升的（管理员）特权即可运行这些命令。
+若要在 Windows 上的基于 **Powershell** 的 shell 中安装 Istio `istioctl` 客户端二进制文件，请使用以下命令。 这些命令可将 `istioctl` 客户端二进制文件复制到某个 Istio 文件夹，然后你就可以通过 `PATH` 将其设置为立即可用（在当前 shell 中）或永久可用（跨 shell 重启）。 不需要提升的（管理员）特权即可运行这些命令，不需重启 shell。
 
 ```powershell
+# Copy istioctl.exe to C:\Istio
 cd istio-$ISTIO_VERSION
 New-Item -ItemType Directory -Force -Path "C:\Istio"
 Copy-Item -Path .\bin\istioctl.exe -Destination "C:\Istio\"
-$PATH = [environment]::GetEnvironmentVariable("PATH", "User")
-[environment]::SetEnvironmentVariable("PATH", $PATH + "; C:\Istio\", "User")
+
+# Add C:\Istio to PATH. 
+# Make the new PATH permanently available for the current User, and also immediately available in the current shell.
+$PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Istio\"
+[environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
+[environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
 
 现在，请转到[在 AKS 上安装 Istio CRD](#install-the-istio-crds-on-aks) 部分。
@@ -205,6 +212,7 @@ Powershell
 如果达到了这一步，即表示你已成功安装 Istio CRD。 现在，请转到[在 AKS 上安装 Istio 组件](#install-the-istio-components-on-aks)部分。
 
 ## <a name="install-the-istio-components-on-aks"></a>在 AKS 上安装 Istio 组件
+
 > [!IMPORTANT]
 > 确保从已经下载并提取的 Istio 版本的顶层文件夹运行此部分的步骤。
 
@@ -336,6 +344,9 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 ```
 
 `istio` Helm 图表会部署大量的对象。 上述 `helm install` 命令的输出会显示对象列表。 部署 Istio 组件可能需要 4 到 5 分钟才能完成，具体取决于群集环境。
+
+> [!NOTE]
+> 所有 Istio Pod 必须按计划在 Linux 节点上运行。 如果群集上除了 Linux 节点池还有 Windows Server 节点池，请验证所有 Istio Pod 是否已计划在 Linux 节点上运行。
 
 此时，已将 Istio 部署到 AKS 群集。 为确保成功部署 Istio，让我们转到[验证 Istio 安装](#validate-the-istio-installation)部分。
 
@@ -533,6 +544,9 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 
 也可以使用 [Istio Bookinfo 应用程序示例][istio-bookinfo-example]关注其他方案。
 
+若要了解如何使用 Application Insights 和 Istio 来监视 AKS 应用程序，请参阅以下 Azure Monitor 文档：
+- [Kubernetes 托管应用程序的零检测应用程序监视][app-insights]
+
 <!-- LINKS - external -->
 [istio]: https://istio.io
 [helm]: https://helm.sh
@@ -559,8 +573,11 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 [jaeger]: https://www.jaegertracing.io/
 [kiali]: https://www.kiali.io/
 
+[app-insights]: /azure-monitor/app/kubernetes
+
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [istio-scenario-routing]: ./istio-scenario-routing.md
 [helm-install]: ./kubernetes-helm.md
 
+<!-- Update_Description: wording update -->

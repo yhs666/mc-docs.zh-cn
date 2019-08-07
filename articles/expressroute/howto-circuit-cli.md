@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2017
 ms.author: v-yiso
-ms.date: 12/11/2017
-ms.openlocfilehash: 443ed0141b03e793183fd0657276583499178d30
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.date: 08/12/2019
+ms.openlocfilehash: c89af6d7f4fe815c93426319a9bb3b8520dd3ce4
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662928"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733528"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>使用 CLI 创建和修改 ExpressRoute 线路
 
@@ -32,6 +32,7 @@ ms.locfileid: "52662928"
 > * [Azure 门户](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager 模板](expressroute-howto-circuit-resource-manager-template.md)
 > * [PowerShell（经典）](expressroute-howto-circuit-classic.md)
 > 
 
@@ -208,7 +209,7 @@ az network express-route create --bandwidth 200 -n MyCircuit --peering-location 
 
 ### <a name="4-list-all-expressroute-circuits"></a>4.列出所有 ExpressRoute 线路
 
-若要获取已创建的所有 ExpressRoute 线路的列表，请运行“az network express-route list”命令。 可以随时使用此命令检索此信息。 若要列出所有线路，请进行不带任何参数的调用。
+要获取已创建的所有 ExpressRoute 线路的列表，请运行 `az network express-route list` 命令。 可以随时使用此命令检索此信息。 若要列出所有线路，请进行不带任何参数的调用。
 
 ```azurecli
 az network express-route list
@@ -335,7 +336,7 @@ az network express-route show --resource-group ExpressRouteResourceGroup --name 
 * 为 ExpressRoute 线路启用或禁用 ExpressRoute 高级版外接程序。
 * 增加 ExpressRoute 线路的带宽，前提是端口上有可用容量。 但不支持对线路的带宽进行降级。 
 * 将计量套餐从数据流量套餐更改为无限制流量套餐。 但不支持将计量套餐从无限制流量套餐更改为数据流量套餐。
-* 可以启用和禁用允许经典操作。
+* 可以启用和禁用允许经典操作  。
 
 有关限制和局限性的详细信息，请参阅 [ExpressRoute 常见问题解答](expressroute-faqs.md)。
 
@@ -403,8 +404,8 @@ az network express-route update -n MyCircuit -g ExpressRouteResourceGroup --sku-
 若要取消预配并删除 ExpressRoute 线路，请确保已了解以下条件：
 
 * 必须取消所有虚拟网络与 ExpressRoute 线路的链接。 如果此操作失败，请查看是否有虚拟网络链接到了该线路。
-* 如果 ExpressRoute 线路服务提供商预配状态为“正在预配”或“已预配”，则必须与服务提供商合作，在他们那一端取消预配线路。 在服务提供商取消对线路的预配并通知我们之前，我们会继续保留资源并收费。
-* 如果服务提供商已取消预配线路，则可以删除此线路。 取消预配线路后，服务提供商预配状态会被设置为“未预配”。 这样就会停止对线路的计费。
+* 如果 ExpressRoute 线路服务提供商预配状态为“正在预配”或“已预配”，则必须与服务提供商合作，在他们那一端取消预配线路   。 在服务提供商取消对线路的预配并通知我们之前，我们会继续保留资源并收费。
+* 如果服务提供商已取消预配线路，则可以删除此线路。 取消预配线路后，服务提供商预配状态会被设置为“未预配”  。 这样就会停止对线路的计费。
 
 可以通过运行以下命令删除 ExpressRoute 线路：
 

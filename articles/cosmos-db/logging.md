@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/23/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: b6ea6e14273be7b27803b1cd61dc19dffbd08a49
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 6b233dbd9f629205299397bda74ac9a90629e943
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171431"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672230"
 ---
 <!--Verify sucessfully-->
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB 中的诊断日志记录 
@@ -54,7 +54,7 @@ Azure 活动日志是一种方便用户深入了解 Azure 中发生的订阅级�
 
 ### <a name="azure-diagnostic-logs"></a>Azure 诊断日志
 
-Azure 诊断日志由资源发出，提供与该资源的操作相关的各种频繁生成的数据。 这些日志的内容因资源类型而异。 资源级诊断日志与来宾 OS 级诊断日志也不相同。 来宾 OS 级诊断日志由在虚拟机内部或其他受支持的资源类型中运行的代理收集。 资源级诊断日志不需要代理并从 Azure 平台本身捕获特定于资源的数据。 来宾 OS 级诊断日志从操作系统和在虚拟机上运行的应用程序捕获数据。
+Azure 诊断日志由资源发出，提供与该资源的操作相关的各种频繁生成的数据。 这些日志是按请求捕获的。 这些日志的内容因资源类型而异。 资源级诊断日志与来宾 OS 级诊断日志也不相同。 来宾 OS 级诊断日志由在虚拟机内部或其他受支持的资源类型中运行的代理收集。 资源级诊断日志不需要代理并从 Azure 平台本身捕获特定于资源的数据。 来宾 OS 级诊断日志从操作系统和在虚拟机上运行的应用程序捕获数据。
 
 ![存储、事件中心或 Azure Monitor 日志的诊断日志记录](./media/logging/azure-cosmos-db-logging-overview.png)
 
@@ -68,26 +68,40 @@ Azure 诊断日志由资源发出，提供与该资源的操作相关的各种�
 <a name="turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>在 Azure 门户中启用日志记录
 
-若要启用诊断日志记录，必须具有以下资源：
+使用以下步骤在 Azure 门户中启用诊断日志记录：
 
-* 现有的 Azure Cosmos DB 帐户、数据库和容器。 有关创建这些资源的说明，请参阅[使用 Azure 门户创建数据库帐户](create-sql-api-dotnet.md#create-account)、[Azure CLI 示例](cli-samples.md)或 [PowerShell 示例](powershell-samples.md)。
-
-若要在 Azure 门户中启用诊断日志记录，请执行以下步骤：
+1. 登录到 [Azure 门户](https://portal.azure.cn)。 
 
 1. 在 [Azure 门户](https://portal.azure.cn)的 Azure Cosmos DB 帐户中，选择左侧导航栏中的“诊断日志”，然后选择“启用诊断”   。
 
     ![在 Azure 门户中启用 Azure Cosmos DB 的诊断日志记录](./media/logging/turn-on-portal-logging.png)
 
-2. 在“诊断设置”页上，执行以下步骤  ： 
+1. 在“诊断设置”页的表单中填充以下详细信息：  
 
     * **名称**：为要创建的日志输入名称。
 
-    * **存档到存储帐户**：要使用此选项，需要一个可连接到的现有存储帐户。 要在门户中创建新的存储帐户，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)，并按照说明创建 Azure 资源管理器（即通用帐户）。 然后在门户中返回到此页，选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
-    * **流式传输到事件中心**：要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 要创建事件中心命名空间，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
-    * **发送到 Log Analytics**：若要使用此选项，请使用现有的工作区，或遵循[创建新工作区](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步骤在门户中创建新的 Log Analytics 工作区。 有关在 Azure Monitor 日志中查看日志的详细信息，请参阅“在 Azure Monitor 日志中查看日志”。
-    * **记录 DataPlaneRequests**：选择此选项可记录从底层 Azure Cosmos DB 分布式平台发出的针对 SQL、图形、MongoDB、Cassandra 和表 API 帐户的后端请求。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
-    * **记录 MongoRequests**：选择此选项可记录来自 Azure Cosmos DB 前端的用户发起的请求，以便为使用 Azure Cosmos DB 的 API for MongoDB 配置的 Cosmos 帐户提供服务。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
-    * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
+    * 可以将日志存储到以下服务：
+
+        * **存档到存储帐户**：要使用此选项，需要一个可连接到的现有存储帐户。 若要在门户中创建新存储帐户，请参阅[创建存储帐户](../storage/common/storage-create-storage-account.md)一文。 然后在门户中返回到 Azure Cosmos DB 诊断设置窗格，选择存储帐户。 新创建的存储帐户可能几分钟后才会显示在下拉菜单中。
+
+        * **流式传输到事件中心**：要使用此选项，需要一个可连接到的现有事件中心命名空间和事件中心。 要创建事件中心命名空间，请参阅[使用 Azure 门户创建事件中心命名空间和事件中心](../event-hubs/event-hubs-create.md)。 然后在门户中返回到此页，选择事件中心命名空间和策略名称。
+
+        * **发送到 Log Analytics**：若要使用此选项，请使用现有的工作区，或遵循[创建新工作区](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace)的步骤在门户中创建新的 Log Analytics 工作区。 
+
+    * 可以记录以下数据：
+        * **DataPlaneRequests**：选择此选项可在 Azure Cosmos DB 中将后端请求记录到所有 API，其中包括 SQL、图形、MongoDB、Cassandra 和表 API 帐户。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。 以下 JSON 数据是使用 DataPlaneRequests 记录的详细信息的示例输出。 要记录的关键属性：Requestcharge、statusCode、clientIPaddress 和 partitionID：
+
+            ```
+            { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "China East","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
+            ```
+        * **MongoRequests**：选择此选项可记录用户从前端发起的请求，这些请求的内容是要求处理发送给 Azure Cosmos DB 的 MongoDB API 的请求。 MongoDB 请求会显示在 MongoRequests 和 DataPlaneRequests 中。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。 以下 JSON 数据是使用 MongoRequests 记录的详细信息的示例输出。 要记录的关键属性：Requestcharge、opCode：
+
+            ```
+            { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
+            ```
+
+
+        * **指标请求**：选择此选项可在 [Azure 指标](../azure-monitor/platform/metrics-supported.md)中存储详细数据。 若要存档到存储帐户，可以选择诊断日志的保留期。 保留期到期后自动删除日志。
 
 3. 选择“其他安全性验证”  。
 
@@ -235,7 +249,7 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 <a name="access"></a>
 ### <a name="access-your-logs"></a>访问日志
-**DataPlaneRequests** 类别的 Azure Cosmos DB 日志存储在所提供的存储帐户的 **insights-logs-data-plane-requests** 容器中。 
+**DataPlaneRequests** 类别的 Azure Cosmos DB 日志存储在所提供的存储帐户的 **insights-logs-dataplanerequests** 容器中。 
 
 首先，请为容器名称创建一个变量。 该变量将在整个演练中使用。
 

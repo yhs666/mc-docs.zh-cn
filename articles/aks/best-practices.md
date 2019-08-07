@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 12/07/2018
-ms.date: 03/04/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab750778d5b17cd2753d5df4151513ba49274299
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 14edf3e0a17472f2f79231c4bb534cab642522d5
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855408"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731260"
 ---
 # <a name="cluster-operator-and-developer-best-practices-to-build-and-manage-applications-on-azure-kubernetes-service-aks"></a>群集操作员和开发人员的最佳做法，用于在 Azure Kubernetes 服务 (AKS) 中生成并管理应用程序
 
@@ -41,7 +41,7 @@ ms.locfileid: "64855408"
 * [有关群集安全性和升级的最佳做法](operator-best-practices-cluster-security.md)
     * 包括保护对 API 服务器的访问、限制容器访问权限，以及管理升级和节点重启。
 * [容器映像管理和安全性的最佳做法](operator-best-practices-container-image-management.md)
-    * 包括保护映像和运行时、使用受信任的注册表，以及在更新基础映像时自动生成。
+    * 包括保护映像和运行时以及在更新基础映像时自动生成。
 * [Pod 安全性的最佳做法](developer-best-practices-pod-security.md)
     * 包括保护对资源的访问、限制凭据公开，以及使用 Pod 标识和数字密钥保管库。
 
@@ -79,6 +79,6 @@ ms.locfileid: "64855408"
 
 ## <a name="next-steps"></a>后续步骤
 
-如果需要完成 AKS 入门，请按某个快速入门的说明操作，通过 [Azure CLI](kubernetes-walkthrough.md) 来部署 Azure Kubernetes 服务 (AKS) 群集。
+如果需要完成 AKS 入门，请按某个快速入门的说明操作，通过 [Azure CLI](kubernetes-walkthrough.md) 或 [Azure 门户](kubernetes-walkthrough-portal.md)来部署 Azure Kubernetes 服务 (AKS) 群集。
 
-<!--Not Available on [Azure portal](kubernetes-walkthrough-portal.md)-->
+<!-- Update_Description: wording update -->

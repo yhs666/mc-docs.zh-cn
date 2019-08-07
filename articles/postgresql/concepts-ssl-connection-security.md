@@ -5,19 +5,19 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: b98c3be89cb4d81cf9639905b4377c1d623a641d
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+origin.date: 06/27/2019
+ms.date: 08/05/2019
+ms.openlocfilehash: 1dbf4347bbfab640c43e92ce15c47fe2ce3b9a72
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236564"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732301"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>在 Azure Database for PostgreSQL - 单一服务器中配置 SSL 连接
 Azure Database for PostgreSQL 倾向于使用安全套接字层 (SSL) 将客户端应用程序连接到 PostgreSQL 服务。 通过在数据库服务器与客户端应用程序之间强制实施 SSL 连接，可以加密服务器与应用程序之间的数据流，有助于防止“中间人”攻击。
 
-默认情况下，PostgreSQL 数据库服务配置为需要 SSL 连接。 （可选）如果客户端应用程序不支持 SSL 连接，则可以禁止要求 SSL 连接到数据库服务。 
+默认情况下，PostgreSQL 数据库服务配置为需要 SSL 连接。 如果客户端应用程序不支持 SSL 连接，则可以选择禁用 SSL。 
 
 ## <a name="enforcing-ssl-connections"></a>强制实施 SSL 连接
 对于通过 Azure 门户或 CLI 预配的所有 Azure Database for PostgreSQL 服务器，强制实施 SSL 连接是默认启用的。 
@@ -42,7 +42,7 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>确保应用程序或框架支持 SSL 连接
-许多将 PostgreSQL 用于其数据库服务的常见应用程序框架（例如 Drupal 和 Django）在安装过程中不会默认启用 SSL。 必须在安装完毕后启用 SSL 连接性，或者通过特定于应用程序的 CLI 命令启用。 如果 PostgreSQL 服务器强制实施了 SSL 连接，但是未正确配置关联的应用程序，那么应用程序可能无法连接到数据库服务器。 请查阅应用程序文档，了解如何启用 SSL 连接。
+某些使用 PostgreSQL 作为其数据库服务的应用程序框架在安装期间默认不启用 SSL。 如果 PostgreSQL 服务器强制实施 SSL 连接，但应用程序未配置 SSL，则应用程序可能无法连接到数据库服务器。 请查阅应用程序文档，了解如何启用 SSL 连接。
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>需要证书验证才可启用 SSL 连接性的应用程序
@@ -86,4 +86,4 @@ postgres=>
 ```
 
 ## <a name="next-steps"></a>后续步骤
-在 [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md)（Azure Database for PostgreSQL 的连接库）中查看各种应用程序连接选项。
+在 [Azure Database for PostgreSQL 的连接库](concepts-connection-libraries.md)中查看各种应用程序连接选项。

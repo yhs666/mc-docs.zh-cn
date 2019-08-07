@@ -11,23 +11,70 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 06/14/2019
+origin.date: 07/12/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: 5ea7df0e22771c06aa1064bb06b8be47ee1f0603
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 9772fb56b87721d4ae7f08a100da315904cddaa6
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569770"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733519"
 ---
 # <a name="azure-guest-os"></a>Azure 来宾 OS
 下表显示了适用于 Azure 来宾 OS 的 Microsoft 安全响应中心 (MSRC) 更新。 要确定特定的更新是否适用于使用的来宾 OS，请搜索本文。 引入这些更新的特定[系列][family-explain]始终会包含这些更新。
 
-## <a name="june-2019-guest-os"></a>2019 年 6 月来宾 OS
+## <a name="july-2019-guest-os"></a>2019 年 7 月来宾 OS
 
 >[!NOTE]
->目前，我们正在将 6 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 6 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+>目前，我们正在将 7 月来宾 OS 推广到配置为自动更新的云服务 VM。 推出完成后，此版本将可通过 Azure 门户和配置文件进行手动更新。 7 月来宾 OS 中包含以下修补程序。 此列表可能随时变动。
+
+| 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88、3.75、4.68  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506621]  |  Windows 安全性   |  2.88、3.75、4.68  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 安全性   |  2.88  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 安全性   |  2.88  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4507456]  |  Windows 安全性   |  2.88  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 安全性   |  3.75  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 安全性   |  3.75  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4507464]  |  Windows 安全性   |  3.75  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 安全性   |  4.68  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 安全性   |  4.68  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4507457]  |  Windows 安全性   |  4.68  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506986]  |  .NET 4.8 安全性   |  5.33  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4507460]  |  Windows 安全性   |  5.33  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 和 4.7.2 安全性   |  6.9  |  2019 年 7 月 9 日  |
+|  Rel 19-07   |  [4507469]  |  Windows 安全性   |  6.9  |  2019 年 7 月 9 日  |
+|  不适用  |  [4503537]  |  6 月 19 日服务堆栈更新 (Server 2016)   |  5.33  |  2019 年 5 月 14 日  |
+|  不适用  |  [4504369]  |  6 月 19 日服务堆栈更新 (Server 2019)   |  6.9  |  2019 年 5 月 14 日  |
+|  不适用  |  [4503292]  |  6 月 19 日非安全性 (Server 2008 R2)   |  2.88  |  2019 年 5 月 20 日  |
+|  不适用  |  [4503285]  |  6 月 19 日非安全性 (Server 2012)   |  3.75  |  2019 年 5 月 14 日  |
+|  不适用  |  [4503276]  |  6 月 19 日非安全性 (Server 2012 R2)   |  4.68  |  2019 年 5 月 14 日  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4506986]: https://support.microsoft.com/kb/4506986
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## <a name="june-2019-guest-os"></a>2019 年 6 月来宾 OS
 
 | 产品类别 | 上层知识库文章 | 漏洞描述 | 来宾 OS | 首次引入日期 |
 | --- | --- | --- | --- | --- |

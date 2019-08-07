@@ -7,24 +7,24 @@ tags: storage
 ms.service: storage
 ms.topic: article
 origin.date: 01/02/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: 780e38b1f880b68a4bf81176a883f7bae7b2a1d9
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 3d29e2f78c40563de884e8021402edf7301760df
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844522"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732314"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>在 Windows 中排查 Azure 文件问题
 
 本文列出了从 Windows 客户端连接时与 Azure 文件相关的常见问题， 并提供了这些问题的可能原因和解决方法。 除本文中的疑难解答步骤之外，还可使用 [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) ，以确保 Windows 客户端环境满足正确的先决条件。 AzFileDiagnostics 会自动检测本文中提及的大多数症状，并帮助设置环境以获得最佳性能。 还可在 [Azure 文件共享疑难解答](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares)中找到这些信息，该疑难解答提供相关步骤来帮助解决连接/映射/装载 Azure 文件共享时遇到的问题。
 
-<a id="error5"></a>
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
+<a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>装载 Azure 文件共享时出现错误 5
 
 尝试装载文件共享时，可能会收到以下错误：
@@ -95,11 +95,10 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 ### <a name="solution-for-cause-1"></a>原因 1 的解决方案
 
 #### <a name="solution-1---unblock-port-445-with-help-of-your-ispit-admin"></a>解决方案 1 - 在 ISP/IT 管理员的帮助下取消阻止端口 445
-与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)开放端口 445 出站通信。
+与 IT 部门或 ISP 配合，向 [Azure IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)开放端口 445 出站通信。
 
 #### <a name="solution-2---use-rest-api-based-tools-like-storage-explorerpowershell"></a>解决方案 2 - 使用基于 REST API 的工具，例如存储资源管理器/Powershell
 除了 SMB，Azure 文件存储还支持 REST。 REST 访问可以通过端口 443 进行（标准 tcp）。 有许多工具是用 REST API 编写的，可以给用户带来丰富的 UI 体验。 [存储资源管理器](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows)是其中之一。 [下载并安装存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，然后将其连接到 Azure 文件存储支持的文件共享。 也可使用 [PowerShell](/storage/files/storage-how-to-use-files-powershell)，此工具也使用 REST API。
-
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>原因 2：NTLMv1 已启用
 
@@ -128,6 +127,13 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 
 关闭一些句柄，减少并发打开句柄的数量，再重试。 有关详细信息，请参阅 [Azure 存储性能和可伸缩性核对清单](../common/storage-performance-checklist.md?toc=%2fstorage%2ffiles%2ftoc.json)。
 
+若要查看文件共享、目录或文件的打开句柄，请使用 [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet。  
+
+若要关闭文件共享、目录或文件的打开句柄，请使用 [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet。
+
+> [!Note]  
+> Get-AzStorageFileHandle 和 Close-AzStorageFileHandle cmdlet 包括在 Az PowerShell 模块 2.4 或更高版本中。 若要安装最新 Az PowerShell 模块，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+
 <a id="authorizationfailureportal"></a>
 ## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>浏览到门户中的 Azure 文件共享时出现“授权失败”错误
 
@@ -147,6 +153,23 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 ### <a name="solution-for-cause-2"></a>原因 2 的解决方案
 
 验证是否已在存储帐户上正确配置虚拟网络和防火墙规则。 若要测试虚拟网络或防火墙规则是否导致此问题，请将存储帐户上的设置临时更改为“允许来自所有网络的访问”  。 若要了解详细信息，请参阅[配置 Azure 存储防火墙和虚拟网络](/storage/common/storage-network-security)。
+
+<a id="open-handles"></a>
+## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>无法删除 Azure 文件共享中的文件或目录
+
+### <a name="cause"></a>原因
+如果该文件或目录有一个打开的句柄，通常会出现此问题。 
+
+### <a name="solution"></a>解决方案
+
+如果 SMB 客户端关闭了所有打开的句柄，但问题仍然出现，请执行以下操作：
+
+- 使用 [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet 查看打开的句柄。
+
+- 使用 [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet 关闭打开的句柄。 
+
+> [!Note]  
+> Get-AzStorageFileHandle 和 Close-AzStorageFileHandle cmdlet 包括在 Az PowerShell 模块 2.4 或更高版本中。 若要安装最新 Az PowerShell 模块，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>在 Windows 中将文件复制到 Azure 文件以及从中复制文件时速度缓慢
@@ -175,7 +198,7 @@ Windows 8、Windows Server 2012 及更高版本的每次系统协商均要求其
 > 自 2015 年 12 月起，Azure 市场中的 Windows Server 2012 R2 映像将默认安装修补程序 KB3114025。
 
 <a id="shareismissing"></a>
-## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>“我的电脑”  中没有带驱动器号的文件夹
+## <a name="no-folder-with-a-drive-letter-in-my-computer-or-this-pc"></a>“我的电脑”或“这台电脑”中没有带驱动器号的文件夹
 
 如果以管理员身份使用 net use 来映射 Azure 文件共享，则会缺失共享。
 
@@ -265,7 +288,6 @@ net use 命令将正斜杠 (/) 解释为命令行选项。 如果用户帐户名
  
  
 例如，可将其设置为 0x100000，并查看性能是否有所提高。
-
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 如果仍需帮助，请[联系支持人员](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)，以快速解决问题。

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 03/04/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 90797e0a744725e8e04f13a064db8f9915842cdc
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: ecaf567ca08c8411837e2b3a73498925b95ffdb1
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855005"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731237"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>教程：部署并使用 Azure 容器注册表
 
@@ -44,7 +44,7 @@ Azure 容器注册表 (ACR) 是容器映像的专用注册表。 可以通过专
 az group create --name myResourceGroup --location chinaeast2
 ```
 
-使用 [az acr create][az-acr-create] 命令创建 Azure 容器注册表实例，并提供你自己的注册表名称。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 在本教程的剩余部分，请使用 `<acrName>` 作为容器注册表名称的占位符。 提供自己的唯一注册表名称。 “基本”SKU 是一个针对成本优化的入口点，适用于可以对存储和吞吐量进行均衡考虑的开发目的。
+使用 [az acr create][az-acr-create] 命令创建 Azure 容器注册表实例，并提供你自己的注册表名称。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 在本教程的剩余部分，请使用 `<acrName>` 作为容器注册表名称的占位符。 提供自己的唯一注册表名称。 “基本”SKU 是一个针对成本优化的入口点，适用于可以对存储和吞吐量进行均衡考虑的开发目的。 
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -58,11 +58,11 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 az acr login --name <acrName>
 ```
 
-完成后，该命令会返回“登录成功”消息。
+完成后，该命令会返回“登录成功”  消息。
 
 ## <a name="tag-a-container-image"></a>标记容器映像
 
-若要查看当前本地映像的列表，请使用 [docker images][docker-images] 命令：
+若要查看当前的本地映像的列表，请使用 [docker images][docker-images] 命令：
 
 ```
 $ docker images
@@ -73,7 +73,7 @@ redis                        latest              a1b99da73d05        7 days ago 
 tiangolo/uwsgi-nginx-flask   flask               788ca94b2313        9 months ago        694MB
 ```
 
-若要将 *azure-vote-front* 容器映像与 ACR 配合使用，需使用注册表的登录服务器地址对映像进行标记。 在将容器映像推送到映像注册表时，使用此标记进行路由。
+若要使用 ACR 中的 *azure-vote-front* 容器映像，需要使用注册表的登录服务器地址来标记该映像。 在将容器映像推送到映像注册表时，使用此标记进行路由。
 
 若要获取登录服务器地址，请使用 [az acr list][az-acr-list] 命令并查询是否存在 *loginServer*，如下所示：
 
@@ -87,7 +87,7 @@ az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginSe
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-若要验证是否已应用标记，请再次运行 [docker images][docker-images]。 系统会使用 ACR 实例地址和版本号对映像进行标记。
+若要验证是否已应用标记，请再次运行 [docker images][docker-images]。 已使用 ACR 实例地址和版本号标记了某个映像。
 
 ```
 $ docker images
@@ -107,7 +107,7 @@ tiangolo/uwsgi-nginx-flask                           flask         788ca94b2313 
 docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
-可能需要数分钟才能将映像推送到 ACR。
+可能需要花费几分钟才能将映像推送到 ACR。
 
 ## <a name="list-images-in-registry"></a>列出注册表中的映像
 
@@ -151,7 +151,7 @@ v1
 > * 向 ACR 上传映像
 > * 查看注册表中的映像
 
-继续学习下一篇教程，了解如何在 Azure 中部署 Kubernetes 群集。
+请继续学习下一篇教程，了解如何在 Azure 中部署 Kubernetes 群集。
 
 > [!div class="nextstepaction"]
 > [部署 Kubernetes 群集][aks-tutorial-deploy-cluster]
@@ -171,3 +171,5 @@ v1
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [aks-tutorial-deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
+
+<!-- Update_Description: wording update, update link -->

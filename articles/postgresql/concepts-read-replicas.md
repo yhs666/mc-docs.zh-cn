@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 90f6d10e573cdb9a76a4318674c836841d8ec2c5
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 06/14/2019
+ms.date: 08/05/2019
+ms.openlocfilehash: 45cf89c8817106457a61a42567ece796b075b602
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731904"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732300"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -41,10 +41,9 @@ ms.locfileid: "65731904"
 
 启动“创建副本”工作流时，将创建空白的 Azure Database for PostgreSQL 服务器。 新服务器中填充了主服务器上的数据。 创建时间取决于主服务器上的数据量，以及自上次每周完整备份以来所经历的时间。 具体所需时间从几分钟到几小时不等。
 
-只读副本功能使用 PostgreSQL 的物理复制，而不使用逻辑复制。 使用复制槽位的流复制是默认的操作模式。 必要时，使用日志传送来跟上进度。
+每个副本都启用了存储[自动增长](concepts-pricing-tiers.md#storage-auto-grow)。 自动增长功能允许副本与复制到它的数据保持同步，并防止由于存储空间不足错误而导致的复制中断。
 
-> [!NOTE]
-> 如果尚未在服务器上设置存储警报，我们建议进行设置。 当服务器即将达到其存储限制（这会影响复制）时，警报可以向你发出通知。
+只读副本功能使用 PostgreSQL 的物理复制，而不使用逻辑复制。 使用复制槽位的流复制是默认的操作模式。 必要时，使用日志传送来跟上进度。
 
 了解如何[在 Azure 门户中创建只读副本](howto-read-replicas-portal.md)。
 
@@ -62,17 +61,15 @@ psql -h myreplica.postgres.database.chinacloudapi.cn -U myadmin@myreplica -d pos
 在提示符下，输入用户帐户的密码。
 
 ## <a name="monitor-replication"></a>监视复制
-Azure Database for PostgreSQL 在 Azure Monitor 中提供“副本的最大滞后时间”指标。 此指标仅适用于主服务器。 该指标显示主服务器与滞后时间最长的副本之间的滞后时间（以字节为单位）。 
+Azure Database for PostgreSQL 提供了两个用于监视复制的指标。 这两个指标是**副本的最大滞后时间**和**副本滞后时间**。 若要了解如何查看这些指标，请参阅[只读副本操作指南文章](howto-read-replicas-portal.md)的“监视副本”  部分。
 
-Azure Database for PostgreSQL 还在 Azure Monitor 中提供“副本滞后时间”指标。 此指标仅适用于副本。 
+“副本的最大滞后时间”指标显示主服务器与滞后时间最长的副本之间的滞后时间（以字节为单位）  。 此指标仅适用于主服务器。
 
-该指标是从 `pg_stat_wal_receiver` 视图计算的：
+“副本滞后时间”指标显示的是自上次重放事务以来所经历的时间  。 如果主服务器上未发生任何事务，则该指标会反映此滞后时间。 此指标仅适用于副本服务器。 “副本滞后时间”是从 `pg_stat_wal_receiver` 视图计算得出的：
 
 ```SQL
 EXTRACT (EPOCH FROM now() - pg_last_xact_replay_timestamp());
 ```
-
-“副本滞后时间”指标显示的是自上次重放事务以来所经历的时间。 如果主服务器上未发生任何事务，则该指标会反映此滞后时间。
 
 请设置警报，以便在副本滞后时间达到工作负荷不可接受的值时收到通知。 
 
@@ -126,6 +123,9 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 PostgreSQL 要求只读副本上的 `max_connections` 参数值大于或等于主服务器上的值，否则副本不会启动。 在 Azure Database for PostgreSQL 中，`max_connections` 参数值基于 SKU。 有关详细信息，请参阅 [Azure Database for PostgreSQL 中的限制](concepts-limits.md)。 
 
 在不遵守限制的情况下尝试更新服务器值会导致出错。
+
+### <a name="max_prepared_transactions"></a>max_prepared_transactions
+[PostgreSQL 要求](https://www.postgresql.org/docs/10/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)只读副本上的 `max_prepared_transactions` 参数值大于或等于主服务器上的值，否则副本不会启动。 如果要更改主服务器上的 `max_prepared_transactions`，请先在副本上进行相应更改。
 
 ### <a name="stopped-replicas"></a>停止的副本
 如果停止主服务器与只读副本之间的复制，副本会重启以应用更改。 已停止的副本将成为可接受读取和写入的独立服务器。 独立服务器不能再次成为副本。

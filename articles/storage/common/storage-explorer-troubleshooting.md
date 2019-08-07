@@ -6,14 +6,14 @@ author: WenJason
 ms.service: virtual-machines
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 05/25/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: d24558e814cc8e3ffc476107d857e9539f3d900a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: b9debdea4c4f860043a3c8b2ec1d2658797ec5b1
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236580"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732376"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure 存储资源管理器故障排除指南
 
@@ -60,7 +60,7 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>如果我无法从管理员获取管理层权限，该怎么办？
 
-目前，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#attach-a-service-by-using-a-shared-access-signature-sas)。
+目前，我们尚未制定 RBAC 相关的解决方法。 一种解决方法是请求一个 SAS URI 并将其[附加到资源](/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)。
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>错误：证书链中的自签名证书（和类似错误）
 
@@ -230,46 +230,76 @@ RBAC 角色可以包含对管理或数据访问层的权限。 例如，“读�
 
 ## <a name="linux-dependencies"></a>Linux 依赖项
 
-一般情况下，需要安装以下包才能在 Linux 上运行存储资源管理器：
+<!-- Storage Explorer 1.9.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all of its dependencies with no extra hassle.
 
-* [.NET Core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) 注意：存储资源管理器 1.7.0 及更低版本需要 .NET Core 2.0。 如果安装了更高版本的 .NET Core，则需修补存储资源管理器（见下）。 如果运行存储资源管理器 1.8.0 或更高版本，则最高应该能使用 .NET Core 2.2。 高于 2.2 的版本目前尚未验证其使用情况。
-* `libgnome-keyring-common` 和 `libgnome-keyring-dev`
+Storage Explorer requires the use of a password manager, which may need to be connected manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager with the following command:
+
+```bash
+snap connect storage-explorer:password-manager-service :password-manager-service
+```
+
+You can also download the application .tar.gz file, but you'll have to install dependencies manually. -->
+
+> [!IMPORTANT]
+> 仅 Ubuntu 发行版支持 .tar.gz 下载中提供的存储资源管理器。 其他发行版尚未经过验证，可能需要替代包或附加包。
+
+这些包是 Linux 上存储资源管理器的最常见要求：
+
+* [.NET Core 2.0 运行时](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
 * `libgconf-2-4`
+* `libgnome-keyring0` 或 `libgnome-keyring-dev`
+* `libgnome-keyring-common`
 
-根据所用的分发版，可能还需要安装不同的包或其他包。
+> [!NOTE]
+> 存储资源管理器 1.7.0 及更低版本需要 .NET Core 2.0。 如果安装了更高版本的 .NET Core，则需[修补存储资源管理器](#patching-storage-explorer-for-newer-versions-of-net-core)。 如果运行存储资源管理器 1.8.0 或更高版本，则最高应该能使用 .NET Core 2.2。 高于 2.2 的版本目前尚未验证其使用情况。
 
-Ubuntu 18.04、16.04 和 14.04 正式支持存储资源管理器。 全新计算机上的安装步骤如下：
+# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+
+1. 下载存储资源管理器。
+2. 安装 [.NET Core 运行时](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)。
+3. 运行以下命令：
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
 
-1. 下载存储资源管理器
-2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
-3. 运行 `sudo apt-get install libgconf-2-4`
-4. 运行 `sudo apt install libgnome-keyring-common libgnome-keyring-dev`
+1. 下载存储资源管理器。
+2. 安装 [.NET Core 运行时](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)。
+3. 运行以下命令：
+   ```bash
+   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   ```
 
 # <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. 下载存储资源管理器
-2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
-3. 运行 `sudo apt install libgnome-keyring-dev`
+2. 安装 [.NET Core 运行时](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)。
+3. 运行以下命令：
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
-# <a name="ubuntu-1404tab1404"></a>Ubuntu 14.04[](#tab/1404)
+# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. 下载存储资源管理器
-2. 安装 .NET Core 运行时，已验证的最新版本为：[2.0.8](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-2.0.8)（如果已安装更高的版本，可能需要修补存储资源管理器，请参阅下文）
-3. 运行 `sudo apt install libgnome-keyring-dev`
+2. 安装 [.NET Core 运行时](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)。
+3. 运行以下命令：
+   ```bash
+   sudo apt install libgnome-keyring-dev
+   ```
 
----
+### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>修补适用于 .NET Core 更高版本的存储资源管理器
 
-### <a name="patching-storage-explorer-for-newer-versions-of-net-core"></a>修补适用于 .NET Core 更高版本的存储资源管理器 
-如果安装的 .NET Core 版本高于 2.0，而运行的存储资源管理器版本为 1.7.0 或更低，则很有可能需要通过完成以下步骤来修补存储资源管理器：
+对于存储资源管理器 1.7.0 或更早版本，可能需要修补存储资源管理器使用的 .NET Core 版本。
+
 1. [从 Nuget](https://www.nuget.org/packages/StreamJsonRpc/1.5.43) 中下载 StreamJsonRpc 版本 1.5.43。 在页面的右侧找到“下载包”链接。
-2. 下载该包后，将其文件扩展名从 `.nupkg` 更改为 `.zip`
-3. 将包解压缩
-4. 转到 `streamjsonrpc.1.5.43/lib/netstandard1.1/`
+2. 下载该包后，将其文件扩展名从 `.nupkg` 更改为 `.zip`。
+3. 将包解压缩。
+4. 打开 `streamjsonrpc.1.5.43/lib/netstandard1.1/` 文件夹。
 5. 将 `StreamJsonRpc.dll` 复制到存储资源管理器文件夹中的以下位置：
-    1. `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
-    2. `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
+   * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
+   * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 
 ## <a name="open-in-explorer-from-azure-portal-doesnt-work"></a>Azure 门户中的“在资源管理器中打开”不起作用
 

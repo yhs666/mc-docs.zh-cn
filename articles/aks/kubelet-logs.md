@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/05/2019
-ms.date: 04/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: bab9c31f6adbe18d95e0d73093b3c1df726c9816
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: f63e5eb82faaa4a89cbb49f27afb36480ee64f04
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855383"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731245"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>从 Azure Kubernetes 服务 (AKS) 群集节点获取 kubelet 日志
 
@@ -25,9 +25,7 @@ ms.locfileid: "64855383"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
-
-<!--Not Available on  or [using the Azure portal][aks-quickstart-portal]-->
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
 ## <a name="create-an-ssh-connection"></a>创建 SSH 连接
 
@@ -77,8 +75,10 @@ I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname fr
 <!--Not Available on [aks-master-logs]: view-master-logs.md-->
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 
-<!--Not Available on[aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
 <!--Not Available on[aks-master-logs]: view-master-logs.md-->
 
 [azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md
+
+<!-- Update_Description: wording update, update link -->

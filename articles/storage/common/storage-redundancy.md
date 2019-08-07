@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 01/18/2019
-ms.date: 07/15/2019
+origin.date: 07/10/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a1717b6a8bcf43374a23252c24dc4e87a40e1008
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 3f7e1db058ef750e1108bc237d4bd5d052889911
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844406"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732258"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -45,6 +45,8 @@ Azure 存储使用循环冗余检验 (CRC) 定期验证存储的数据的完整�
 | 支持的存储帐户类型                                                                   | GPv2、GPv1、Blob                | GPv2、GPv1、Blob                     | GPv2、GPv1、Blob                     |
 | 读取请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.99%（冷访问层为 99.9%） |
 | 写入请求的可用性 SLA | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） | 至少为 99.9%（冷访问层为 99%） |
+
+将复制存储帐户中的所有数据，包括块 blob 和追加 blob、页 blob、队列、表和文件。 复制所有类型的存储帐户。
 
 有关每个冗余选项的定价信息，请参阅 [Azure 存储定价](https://azure.cn/pricing/details/storage/)。 
 

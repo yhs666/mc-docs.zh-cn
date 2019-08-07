@@ -12,15 +12,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 02/15/2019
-ms.date: 06/03/2019
+origin.date: 06/28/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: b77917f610a5e72c5957f908ec1f1f925e691790
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: ba979255013ac2bf2508fea3e3cfafe4bf0e6e4a
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67844753"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753182"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>为客户端身份验证设置 Azure Active Directory
 
@@ -36,14 +36,14 @@ Service Fabric 群集提供其管理功能的各种入口点，包括基于 Web 
 
 为了简化涉及到配置 Azure AD 与 Service Fabric 群集的一些步骤，我们创建了一组 Windows PowerShell 脚本。
 
-1. [将脚本下载](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool)到计算机。
-2. 右键单击 zip 文件，选择“属性”  ，“解除阻止”  复选框，并单击“应用”  。
-3. 解压缩 zip 文件。
+1. [将存储库克隆](https://github.com/Azure-Samples/service-fabric-aad-helpers)到计算机。
+2. 对于已安装脚本，[确保具备所有先决条件](https://github.com/Azure-Samples/service-fabric-aad-helpers#getting-started)。
 
 ## <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>创建 Azure AD 应用程序并为用户分配角色
-创建两个 Azure AD 应用程序来控制对群集的访问：一个 Web 应用程序和一个本机应用程序。 创建用于表示群集的应用程序后，请将用户分配到 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)：只读和管理员。
 
-运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。  另请指定用户的用户名和密码。  例如：
+我们将使用这些脚本创建两个 Azure AD 应用程序来控制对群集的访问：一个 Web 应用程序和一个本机应用程序。 创建表示群集的应用程序后，将为 [Service Fabric 支持的角色](service-fabric-cluster-security-roles.md)创建用户：只读和管理员。
+
+运行 `SetupApplications.ps1` 并提供租户 ID、群集名称和 Web 应用程序回复 URL 作为参数。  另请指定用户的用户名和密码。 例如：
 
 <!--MOONCAKE: Add -location china parameter in $Configobj-->
 
@@ -136,7 +136,7 @@ FabricClient 和 FabricGateway 执行相互身份验证。 使用 Azure AD 身�
 在设置 Azure Active Directory 应用程序并为用户设置角色后，[配置并部署群集](service-fabric-cluster-creation-via-arm.md)。
 
 <!-- Links -->
-[azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest
+[azure-CLI]: https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest
 [azure-portal]: https://portal.azure.cn/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md

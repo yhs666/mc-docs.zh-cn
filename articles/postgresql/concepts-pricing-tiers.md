@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: a1ade9ac0b7b3133848b3d1aa74b7e7d7eb2030b
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.date: 08/05/2019
+ms.openlocfilehash: c87d5d82be260bcf087d114dda59c4a8f83265e1
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731915"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732368"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的定价层
 
@@ -37,17 +37,9 @@ ms.locfileid: "65731915"
 
 创建服务器后，只需数秒即可增加或减少 vCore 数、硬件生成和定价层（来回调整基本定价层除外）。 也可在不关闭应用程序的情况下，独立调整存储容量（向上调整）和备份保留期（上下调整）。 创建服务器之后，不能更改备份存储类型。 有关详细信息，请参阅[缩放资源](#scale-resources)部分。
 
-
 ## <a name="compute-generations-and-vcores"></a>计算代数和 vCore 数
 
-计算资源以 vCore 的形式提供，代表基础硬件的逻辑 CPU。 目前提供两代计算（第 4 代和第 5 代）供你选择。 第 4 代逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器。 第 5 代逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器。 可在以下区域获取第 4 代和第 5 代（“X”表示可用）。 
-
-| **Azure 区域** | **第 4 代** | **第 5 代** |
-|:---|:----------:|:--------------------:|
-| 中国东部 | X |  |
-| 中国东部 2 |   | X |
-| 中国北部 | X |  |
-| 中国北部 2 |   | X |
+计算资源以 vCore 的形式提供，代表基础硬件的逻辑 CPU。 中国东部、中国北部利用基于 Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器的第 4 代逻辑 CPU。 所有其他区域均利用基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器的第 5 代逻辑 CPU。
 
 ## <a name="storage"></a>存储
 
@@ -60,19 +52,27 @@ ms.locfileid: "65731915"
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
 | IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
 
-在创建服务器的过程中和之后，可以添加更多的存储容量。 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
+在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
 
 可以通过 Azure 门户或 Azure CLI 命令监视 I/O 使用情况。 要监视的相关指标是[存储上限、存储百分比、已用存储和 IO 百分比](concepts-monitoring.md)。
 
 ### <a name="reaching-the-storage-limit"></a>达到存储限制
 
-当可用存储量低于 5 GB 或 5% 的预配存储（以较低者为准）时，服务器会标记为只读。 例如，如果已预配 100 GB 的存储，而实际使用量超过 95 GB，则服务器会标记为只读。 或者，如果已预配 5 GB 的存储，则当可用存储少于 250 MB 时，服务器会标记为只读。  
+对于预配存储不到 100 GB 的服务器，如果可用存储低于 512MB 或 5% 的预配存储大小，则会将该服务器标记为只读。 对于预配存储超出 100 GB 的服务器，当可用存储不到 5 GB 时，会将该服务器标记为只读。
+
+例如，如果已预配 110 GB 的存储，而实际使用量超过 105 GB，则会将服务器标记为只读。 或者，如果已预配 5 GB 的存储，则当可用存储少于 512 MB 时，服务器会标记为只读。
 
 服务器设置为只读时，所有现有会话都将断开连接，且未提交的事务会回退。 任何后续写入操作和事务提交均会失败。 所有后续读取查询将不间断工作。  
 
 可增加服务器预配存储量，也可在读写模式下启动新会话并删除数据以回收空闲存储。 运行 `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` 将当前会话设置为读写模式。 为避免数据损坏，请勿在服务器仍处于只读状态时执行任何写入操作。
 
-我们建议你设置警报，以便在服务器存储接近阈值时通知你，从而可以避免进入只读状态。 有关详细信息，请参阅有关[如何设置警报](howto-alert-on-metric.md)的文档。
+我们建议你启用存储自动增长或设置警报，以便在服务器存储接近阈值时通知你，避免进入只读状态。 有关详细信息，请参阅有关[如何设置警报](howto-alert-on-metric.md)的文档。
+
+### <a name="storage-auto-grow"></a>存储自动增长
+
+如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
+
+例如，如果已预配 1000 GB 的存储，而实际使用量超过 950 GB，则服务器存储大小会增加到 1050 GB。 或者，如果已预配 10 GB 的存储，则当可用存储少于 1 GB 时，存储大小会增加到 15 GB。
 
 ## <a name="backup"></a>Backup
 
@@ -88,7 +88,7 @@ ms.locfileid: "65731915"
 
 ## <a name="pricing"></a>定价
 
-有关最新定价信息，请参阅服务的[定价页](https://www.azure.cn/pricing/details/PostgreSQL/)。 若要查看所需配置的具体成本，可以单击 [Azure 门户](https://portal.azure.cn/#create/Microsoft.PostgreSQLServer)的“定价层”选项卡，系统就会根据选定的选项显示每月成本。 如果没有 Azure 订阅，可使用 Azure 定价计算器获取估计的价格。 在 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)网站上，选择“添加项”，展开“数据库”类别，选择“Azure Database for PostgreSQL”自定义选项。
+有关最新定价信息，请参阅服务的[定价页](https://www.azure.cn/pricing/details/PostgreSQL/)。 若要查看所需配置的具体成本，可以单击 [Azure 门户](https://portal.azure.cn/#create/Microsoft.PostgreSQLServer)的“定价层”选项卡，系统就会根据选定的选项显示每月成本。  如果没有 Azure 订阅，可使用 Azure 定价计算器获取估计的价格。 在 [Azure 定价计算器](https://www.azure.cn/pricing/calculator/)网站上，选择“添加项”  ，展开“数据库”  类别，选择“Azure Database for PostgreSQL”  自定义选项。
 
 ## <a name="next-steps"></a>后续步骤
 

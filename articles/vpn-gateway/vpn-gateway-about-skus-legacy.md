@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/20/2018
-ms.date: 03/04/2019
+origin.date: 06/10/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: 80c3f8567979e781c191ae337b97b24e659927ef
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: db73b512d86fb331919b203a4496e69127bca617
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833136"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732370"
 ---
 # <a name="working-with-virtual-network-gateway-skus-legacy-skus"></a>使用虚拟网关 SKU（传统 SKU）
 
@@ -30,6 +30,8 @@ ms.locfileid: "56833136"
 ## <a name="gwsku"></a>网关 SKU
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
+
+可以在 [虚拟网络网关](https://www.azure.cn/pricing/details/vpn-gateway)  部分（位于“虚拟网络网关定价”页上）中查看旧版网关定价。
 
 ## <a name="agg"></a>按 SKU 列出的估计聚合吞吐量
 

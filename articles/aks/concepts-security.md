@@ -6,18 +6,18 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 74e6203b4034e20eaff01abcc80540a06f8405e6
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 65349315e930effe4dbdc99d5c4fbfd2cc6b927f
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520730"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731229"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中应用程序和群集的安全性相关概念
 
-在 Azure Kubernetes 服务 (AKS) 中运行应用程序工作负荷的过程中，若要保护客户数据，关键是要确保群集的安全性。 Kubernetes 包括安全组件，如网络策略和机密。 Azure 会添加组件，例如网络安全组和协调群集升级。 这些安全组件共同确保 AKS 群集运行最新的 OS 安全更新和 Kubernetes 版本，并确保安全的 pod 流量和对敏感凭据的安全访问。
+在 Azure Kubernetes 服务 (AKS) 中运行应用程序工作负荷的过程中，若要保护客户数据，关键是要确保群集的安全性。 Kubernetes 包括安全组件，如网络策略和机密   。 Azure 会添加组件，例如网络安全组和协调群集升级。 这些安全组件共同确保 AKS 群集运行最新的 OS 安全更新和 Kubernetes 版本，并确保安全的 pod 流量和对敏感凭据的安全访问。
 
 本文介绍用于保护 AKS 中应用程序的核心概念：
 
@@ -37,15 +37,19 @@ ms.locfileid: "65520730"
 
 ## <a name="node-security"></a>节点安全性
 
-AKS 节点是由你管理和维护的 Azure 虚拟机。 节点通过 Moby 容器运行时运行经过优化的 Ubuntu Linux 分发。 创建或纵向扩展了 AKS 群集时，会自动使用最新的 OS 安全更新和配置来部署节点。
+AKS 节点是由你管理和维护的 Azure 虚拟机。 Linux 节点通过 Moby 容器运行时运行经过优化的 Ubuntu 发行版。 创建或纵向扩展了 AKS 群集时，会自动使用最新的 OS 安全更新和配置来部署节点。
 
-Azure 平台会在夜间自动将 OS 安全修补程序应用于节点。 如果 OS 安全更新需要重启主机，系统不会自动执行重启操作。 可以手动重启节点，或使用常用的方法，即使用 [Kured][kured]，这是一个适用于 Kubernetes 的开源重启守护程序。 Kured 作为 [DaemonSet][aks-daemonsets] 运行并监视每个节点，用于确定指示需要重启的文件是否存在。 通过使用相同的 [cordon 和 drain 进程](#cordon-and-drain)作为群集升级，来跨群集管理重启。
+<!--MOONCAKE: Not Available on  Windows Server nodes (currently in preview in AKS) -->
+
+Azure 平台会在夜间自动将 OS 安全修补程序应用于 Linux 节点。 如果 Linux OS 安全更新需要重启主机，系统不会自动执行重启操作。 可以手动重启 Linux 节点，或使用常用的方法，即使用 [Kured][kured]，这是一个适用于 Kubernetes 的开源重启守护程序。 Kured 作为 [DaemonSet][aks-daemonsets] 运行并监视每个节点，用于确定指示需要重启的文件是否存在。 通过使用相同的 [cordon 和 drain 进程](#cordon-and-drain)作为群集升级，来跨群集管理重启。
+
+<!--MOONCAKE: Not Available on For Windows Server nodes (currently in preview in AKS)-->
 
 系统将节点部署到专用虚拟网络子网中，且不分配公共 IP 地址。 出于故障排除和管理的目的，会默认启用 SSH。 只能使用内部 IP 地址访问此 SSH。
 
 为提供存储，节点使用 Azure 托管磁盘。 这些是由高性能固态硬盘支持的高级磁盘，适用于大多数规模的 VM 节点。 托管磁盘上存储的数据在 Azure 平台内会自动静态加密。 为提高冗余，还会在 Azure 数据中心内安全复制这些磁盘。
 
-目前，在恶意的多租户使用情况下，AKS 或其他位置中的 Kubernetes 环境并不完全安全。 用于节点的其他安全功能（例如 *Pod 安全策略*或更细粒度的基于角色的访问控制 (RBAC)）可增加攻击的难度。 但是，为了在运行恶意多租户工作负荷时获得真正的安全性，虚拟机监控程序应是你唯一信任的安全级别。 Kubernetes 的安全域成为整个群集，而不是单个节点。 对于这些类型的恶意多租户工作负荷，应使用物理隔离的群集。 有关如何隔离工作负荷的详细信息，请参阅 [AKS 中的群集隔离最佳做法][cluster-isolation]，
+目前，在恶意的多租户使用情况下，AKS 或其他位置中的 Kubernetes 环境并不完全安全。 用于节点的其他安全功能（例如 *Pod 安全策略*或更细粒度的基于角色的访问控制 (RBAC)）可增加攻击的难度。 但是，为了在运行恶意多租户工作负荷时获得真正的安全性，虚拟机监控程序应是你唯一信任的安全级别。 Kubernetes 的安全域成为整个群集，而不是单个节点。 对于这些类型的恶意多租户工作负荷，应使用物理隔离的群集。 有关如何隔离工作负荷的详细信息，请参阅 [AKS 中的群集隔离最佳做法][cluster-isolation]。
 
 ## <a name="cluster-upgrades"></a>群集升级
 
@@ -53,12 +57,12 @@ Azure 平台会在夜间自动将 OS 安全修补程序应用于节点。 如果
 
 ### <a name="cordon-and-drain"></a>隔离和排空
 
-在升级过程中，AKS 节点会单独从群集中隔离出来，以便系统不会在其上计划新 pod。 然后将节点排空并进行升级，操作如下：
+在升级过程中，AKS 节点会单独从群集中隔离出来，以便系统不会在其上计划新 Pod。 然后将节点排空并进行升级，操作如下：
 
-- 妥善终止现有 pod 并在剩余节点上进行安排。
-- 重新启动节点，完成升级过程，然后返回 AKS 群集。
-- 重新在节点上安排和运行 pod。
-- 使用相同的过程隔离和排空群集中的下一个节点，直到成功升级所有节点。
+- 将新节点部署到节点池中。 此节点运行最新的 OS 映像和修补程序。
+- 其中一个现有的节点已确定要升级。 妥善终止此节点上的 Pod 并在节点池中的其他节点上对其进行安排。
+- 从 AKS 群集中删除此现有节点。
+- 使用相同的过程隔离和排空群集中的下一个节点，直到在升级过程中成功替换所有节点。
 
 有关详细信息，请参阅[升级 AKS 群集][aks-upgrade-cluster]。
 
@@ -74,7 +78,7 @@ Azure 平台会在夜间自动将 OS 安全修补程序应用于节点。 如果
 
 Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密钥。 首先使用 Kubernetes API 创建机密。 在定义 pod 或部署时，可以请求特定机密。 机密仅提供给所计划的 pod 需要该机密的节点，且机密存储在 *tmpfs* 中，不写入磁盘。 当节点上最后一个需要该机密的 pod 被删除后，将从该节点的 tmpfs 中删除该机密。 机密存储在给定的命名空间中，只有同一命名空间中的 pod 能访问该机密。
 
-使用机密会减少 pod 或服务 YAML 清单中定义的敏感信息。 可以请求存储在 Kubernetes API 服务器中的机密，作为 YAML 清单的一部分。 此方法仅为 pod 提供特定的机密访问权限。
+使用机密会减少 pod 或服务 YAML 清单中定义的敏感信息。 可以请求存储在 Kubernetes API 服务器中的机密，作为 YAML 清单的一部分。 此方法仅为 pod 提供特定的机密访问权限。 请注意：原始机密清单文件包含 base64 格式的机密数据（如需更多详细信息，请参阅[官方文档][secret-risks]）。 因此，此文件应被视为敏感信息，不应提交给源代码管理。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -93,6 +97,7 @@ Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密
 <!-- LINKS - External -->
 [kured]: https://github.com/weaveworks/kured
 [kubernetes-network-policies]: https://kubernetes.io/docs/concepts/services-networking/network-policies/
+[secret-risks]: https://kubernetes.io/docs/concepts/configuration/secret/#risks
 
 <!-- LINKS - Internal -->
 [aks-daemonsets]: concepts-clusters-workloads.md#daemonsets
@@ -105,5 +110,7 @@ Kubernetes *机密*用于将敏感数据注入到 pod，例如访问凭据或密
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+
+<!--Not Available on [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool-->
 
 <!-- Update_Description: wording update, update link -->

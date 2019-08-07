@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-origin.date: 06/06/2019
+origin.date: 07/08/2019
 ms.author: v-yiso
-ms.date: 07//15/2019
-ms.openlocfilehash: bcdaea01fb7e557237cfefb75afa3501331896d8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 4fa8b370e6f76a8d4719acb382b8f183b48aab08
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569956"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733505"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure 来宾 OS 版本和 SDK 兼容性对照表
 提供适用于云服务的最新 Azure 来宾 OS 版本的最新信息。 此信息可帮助在禁用来宾 OS 之前规划升级路径。 如果根据 [Azure 来宾 OS 更新设置][Azure Guest OS Update Settings]中所述将角色配置为使用*自动*进行来宾 OS 更新，则不一定要阅读本页面。
@@ -43,6 +43,9 @@ ms.locfileid: "67569956"
 不确定如何更新来宾 OS？ 请查阅[此文][cloud updates]。
 
 ## <a name="news-updates"></a>新闻更新
+
+###### <a name="july-8-2019"></a>**2019 年 7 月 8 日**
+6 月版来宾 OS 已发布。
 
 ###### <a name="june-6-2019"></a>**2019 年 6 月 6 日**
 5 月版来宾 OS 已发布。
@@ -79,7 +82,7 @@ ms.locfileid: "67569956"
 ## <a name="family-6-releases"></a>系列 6 发行版
 **Windows Server 2019**
 
-已安装的 .NET Framework：3.5、4.7.2
+已安装的 .NET Framework：3.5、4.7.2、4.8
 
 > [!NOTE]
 > Windows Azure SDK for .NET 3.0 可在[此处][Windows Azure SDK]下载。
@@ -96,8 +99,9 @@ ms.locfileid: "67569956"
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-6.8_201906-01 |2019 年 7 月 8 日 |6\.10 版发行后 |
 | WA-GUEST-OS-6.7_201905-01 |2019 年 6 月 6日 |6\.9 版发行后 |
-| WA-GUEST-OS-6.6_201904-01 |2019 年 5 月 7 日 |6\.8 版发行后 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |2019 年 5 月 7 日 |2019 年 7 月 8 日 |
 |~~WA-GUEST-OS-6.5_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日 |
 |~~WA-GUEST-OS-6.4_201902-01~~ |2019 年 3 月 12 日 |2019 年 5 月 7 日 |
 |~~WA-GUEST-OS-6.3_201901-01~~ |2019 年 2 月 5日 |2019 年 3 月 26 日 |
@@ -107,7 +111,7 @@ ms.locfileid: "67569956"
 ## <a name="family-5-releases"></a>系列 5 发行版本
 **Windows Server 2016**
 
-已安装的 .NET Framework：3.5、4.6.2
+已安装的 .NET Framework：3.5、4.6.2、4.7.2、4.8
 
 > [!NOTE]
 > OS 系列 5 的 RDP 密码至少必须有 10 个字符。
@@ -115,8 +119,9 @@ ms.locfileid: "67569956"
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-5.32_201906-01 |2019 年 7 月 8 日 |5\.34 版发行后 |
 | WA-GUEST-OS-5.31_201905-01 |2019 年 6 月 6日 |5\.33 版发行后 |
-| WA-GUEST-OS-5.30_201904-01 |2019 年 5 月 7 日 |5\.32 版发行后 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |2019 年 5 月 7 日 |2019 年 7 月 8 日 |
 |~~WA-GUEST-OS-5.29_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日 |
 |~~WA-GUEST-OS-5.28_201902-01~~ |2019 年 3 月 12 日 |2019 年 5 月 7 日 |
 |~~WA-GUEST-OS-5.27_201901-01~~ |2019 年 2 月 5日 |2019 年 3 月 26 日 |
@@ -128,12 +133,13 @@ ms.locfileid: "67569956"
 ## <a name="family-4-releases"></a>系列 4 发行版本
 **Windows Server 2012 R2**
 
-已安装的 .NET Framework：3.5、4.5.1
+已安装的 .NET Framework：3.5、4.5.1、4.5.2
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-4.67_201906-01 |2019 年 7 月 8 日 |4\.69 版发行后 |
 | WA-GUEST-OS-4.66_201905-01 |2019 年 6 月 6日 |4\.68 版发行后 |
-| WA-GUEST-OS-4.65_201904-01 |2019 年 5 月 7 日 |4\.67 版发行后 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |2019 年 5 月 7 日 |2019 年 7 月 8 日 |
 |~~WA-GUEST-OS-4.64_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日 |
 |~~WA-GUEST-OS-4.63_201902-01~~ |2019 年 3 月 12 日 |2019 年 5 月 7 日 |
 |~~WA-GUEST-OS-4.62_201901-01~~ |2019 年 2 月 5日 |2019 年 3 月 26 日 |
@@ -149,8 +155,9 @@ ms.locfileid: "67569956"
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |
-| WA-GUEST-OS-3.73_201905-01 |2019 年 6 月 6 日 |3\.75 版发行后 |
-| WA-GUEST-OS-3.72_201904-01 |2019 年 5 月 7 日 |3\.74 版发行后 |
+| WA-GUEST-OS-3.74_201906-01 |2019 年 7 月 8 日 |3\.76 版发行后 |
+| WA-GUEST-OS-3.73_201905-01 |2019 年 6 月 6日 |3\.75 版发行后 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |2019 年 5 月 7 日 |2019 年 7 月 8 日 |
 |~~WA-GUEST-OS-3.71_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日 |
 |~~WA-GUEST-OS-3.70_201902-01~~ |2019 年 3 月 12 日 |2019 年 5 月 7 日 |
 |~~WA-GUEST-OS-3.69_201901-01~~ |2019 年 2 月 5日 |2019 年 3 月 26 日 |
@@ -162,12 +169,13 @@ ms.locfileid: "67569956"
 ## <a name="family-2-releases"></a>系列 2 发行版本
 **Windows Server 2008 R2 SP1**
 
-已安装的 .NET Framework：3.5（包括 2.0 和 3.0）
+已安装的 .NET Framework：3.5（包括 2.0 和 3.0）、4.5
 
 | 配置字符串 | 发行日期 | 停用日期 |
 | --- | --- | --- |
+| WA-GUEST-OS-2.87_201906-01 |2019 年 7 月 8 日 |2\.89 版发行后 |
 | WA-GUEST-OS-2.86_201905-01 |2019 年 6 月 6日 |2\.88 版发行后 |
-| WA-GUEST-OS-2.85_201904-01 |2019 年 5 月 7 日 |2\.87 版发行后 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |2019 年 5 月 7 日 |2019 年 7 月 8 日 |
 |~~WA-GUEST-OS-2.84_201903-01~~ |2019 年 3 月 26 日 |2019 年 6 月 6日 |
 |~~WA-GUEST-OS-2.83_201902-01~~ |2019 年 3 月 12 日 |2019 年 5 月 7 日 |
 |~~WA-GUEST-OS-2.82_201901-01~~ |2019 年 2 月 5日 |2019 年 3 月 26 日 |

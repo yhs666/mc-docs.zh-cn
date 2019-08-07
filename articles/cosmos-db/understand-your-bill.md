@@ -4,16 +4,16 @@ description: 本文通过一些示例介绍如何了解 Azure Cosmos DB 帐单�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: ef8e3cc106a1424d61503a3afcb02ea577c22c3b
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 941a2c856d7c6907cb74011ede8f36821e9c0caa
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491294"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672211"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>了解 Azure Cosmos DB 帐单
 
@@ -22,6 +22,8 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 使用 Azure Cosmos DB 时，需根据预配的吞吐量和使用的存储按小时付费。 对于预配的吞吐量，计费单位为每小时 100 RU/秒，每小时收取 0.0802 元（假定为标准公开定价），请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。 对于消耗的存储，每月每 1 GB 存储收取 2.576 元，请参阅[定价页面](https://www.azure.cn/pricing/details/cosmos-db/)。 
 
 本文通过一些示例来帮助你了解每月帐单上的详细信息。 若存在以下情况，则示例中显示的数字可能会有所不同：Azure Cosmos 容器预配的吞吐量不同；容器跨多个区域；或在一个月内在不同时期运行。
+
+>!注意：计费针对挂钟时间的任何部分，而不是 60 分钟的持续时间。
 
 ## <a name="billing-examples"></a>计费示例
 
@@ -99,8 +101,8 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 |---------|---------|---------|-------|
 |中国北部容器的吞吐量帐单      | 10K RU/秒 * 24 * 31    |100 RU/秒每小时 0.082 元   |6,101 元|
 |3 个其他区域 - 中国东部、中国北部 2 和中国东部 2 的吞吐量帐单       | 3 * 10K RU/秒 * 24 * 31    |100 RU/秒每小时 0.082 元  |18,303 元|
-|中国北部容器的存储帐单      | 250 GB    |2.576 元/GB  |644 元|
-|3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2.576 元/GB  |1,932 元|
+|中国北部容器的存储帐单      | 250 GB    |2\.576 元/GB  |644 元|
+|3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2\.576 元/GB  |1,932 元|
 |**总计**     |     |  |**26,980 元**|
 
 此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部和中国东部。  则需要按数据传输速率为导出部分付费。
@@ -114,8 +116,8 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 |---------|---------|---------|-------|
 |中国北部容器的吞吐量帐单（所有区域都可写入）       | 10K RU/秒 * 24 * 31    |100 RU/秒每小时 0.102 元    |7589 元 |
 |3 个其他区域 - 中国东部、中国北部 2 和中国东部 2（所有区域均可写入）的吞吐量帐单        | (3 + 1) * 10K RU/秒 * 24 * 31    |100 RU/秒每小时 0.102 元   |30,355.2 元|
-|中国北部容器的存储帐单      | 250 GB    |2.576 元/GB  |644 元|
-|3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2.576 元/GB  |1,932 元|
+|中国北部容器的存储帐单      | 250 GB    |2\.576 元/GB  |644 元|
+|3 个其他区域 - 中国东部、中国北部和中国东部的存储帐单      | 3 * 250 GB    |2\.576 元/GB  |1,932 元|
 |**总计**     |     |  |**40,520.2 元**|
 
 此外，假定每月从中国北部的容器中传出 100 GB 数据，将数据复制到中国东部、中国北部 2 和中国东部 2。  则需要按数据传输速率为导出部分付费。
@@ -131,7 +133,7 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 |平均记录大小 (KB) |1 |
 |记录数  |100,000,000  |
 |总存储 (GB)  |100 |
-|每 GB 的月度成本  |2.576 元  |
+|每 GB 的月度成本  |2\.576 元  |
 |预期的月度存储成本   |257.6 元 |
 
 <br>
@@ -163,3 +165,5 @@ Azure Cosmos DB 是完全托管的云原生数据库服务，仅针对预配的�
 * 详细了解如何[优化读取和写入成本](optimize-cost-reads-writes.md)
 * 详细了解如何[优化查询成本](optimize-cost-queries.md)
 * 详细了解[优化多区域 Azure Cosmos 帐户的成本](optimize-cost-regions.md)
+
+<!--Update_Description: wording update -->

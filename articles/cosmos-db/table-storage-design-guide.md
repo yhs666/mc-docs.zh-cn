@@ -4,17 +4,17 @@ description: Azure 存储表设计指南：在 Azure Cosmos DB 和 Azure 存储�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/18/2019
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 74f682387420ac707584de2c1e94586b4c8185be
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: 67f41310706423e725576037bf25624c216c3dde
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "58004711"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672215"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
 
@@ -214,9 +214,11 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用的分�
 * 其次是***范围查询***，它使用 **PartitionKey**并筛选一系列 **RowKey** 值，从而返回多个实体。 **PartitionKey** 值确定特定分区，**RowKey** 值确定该分区中的实体子集。 例如：$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
 * 然后是***分区扫描***，它使用 **PartitionKey** 并筛选另一个非键属性，可能会返回多个实体。 **PartitionKey** 值确定特定分区，而属性值将选择该分区中的实体子集。 例如：$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***表扫描***不包括 **PartitionKey** 且效率较低，因为它会依次搜索构成表的所有分区，查找所有匹配的实体。 它会执行表扫描而不管你的筛选器是否使用 **RowKey**。 例如：$filter=LastName eq 'Jones'  
-* 返回多个实体的 Azure Table Storage 查询将按 PartitionKey 和 RowKey 顺序返回实体。 若要避免对客户端中的实体重新排序，请选择定义最常见排序顺序的 **RowKey**。 Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+* 返回多个实体的 Azure Table Storage 查询将按 PartitionKey 和 RowKey 顺序返回实体   。 若要避免对客户端中的实体重新排序，请选择定义最常见排序顺序的 **RowKey**。 Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
-使用“**or**”指定基于 **RowKey** 值的筛选器将导致分区扫描，而不会视为范围查询。 因此，应避免使用筛选器 （如查询：$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
+使用“**or**”指定基于 **RowKey** 值的筛选器将导致分区扫描，而不会视为范围查询。 因此，应避免使用筛选器的查询，例如：
+
+$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
 有关使用存储客户端库执行高效查询的客户端代码的示例，请参阅：  
 
@@ -248,15 +250,15 @@ EGT 还引入了潜在的权衡，以便在设计中进行评估：使用的分�
 许多设计必须满足要求，才能允许根据多个条件查找实体。 例如，根据电子邮件、员工 ID 或姓氏查找员工实体。 [表设计模式](#table-design-patterns)部分中的下述模式瞒住了这些类型的要求，并介绍了相关方式来处理表服务不提供辅助索引的问题：  
 
 * [内分区的第二索引模式](#intra-partition-secondary-index-pattern) - 利用同一分区中的 **RowKey** 值存储每个实体的多个副本，实现快速、高效的查询，并借助不同的 **RowKey** 值替换排序顺序。  
-* [内分区的第二索引模式](#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序。  
+* [内分区的第二索引模式](#inter-partition-secondary-index-pattern) - 在单独分区/表格中利用不同 RowKey 值存储每个实体的多个副本，实现快速高效的查找，并借助 RowKey 值替换排序顺序   。  
 * [索引实体模式](#index-entities-pattern) - 维护索引实体以启用返回实体列表的高效搜索。  
 
 ### <a name="sorting-data-in-the-table-service"></a>对表服务中的数据进行排序
 
-表服务返回的查询结果按照 PartitionKey 的升序排序，然后按 RowKey 排序。
+表服务返回的查询结果按照 PartitionKey 的升序排序，然后按 RowKey 排序   。
 
 > [!NOTE]
-> Azure DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 Azure 存储表中的键是字符串值，以确保数字值正确排序，应将值转换为固定长度并使用零进行填充。 例如，如果用作 **RowKey** 的员工 ID 值是个整数值，则应将员工 ID **123** 转换为 **00000123**。 
 
@@ -439,12 +441,12 @@ Azure 存储表中的键是字符串值，以确保数字值正确排序，应�
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'empid_000223')  
 * $filter=(PartitionKey eq 'Sales') and (RowKey eq 'email_jonesj@contoso.com')  
 
-若要查询一组员工实体，则可使用 **RowKey** 中相应的前缀查询实体，指定范围按员工 ID 顺序或按电子邮件地址顺序进行排序。  
+如果查询一组员工实体，则可以通过使用 **RowKey**中相应的前缀查询实体，指定按员工 ID 顺序排序的范围或按电子邮件地址顺序排序的范围。  
 
-* 要查找销售部门中的所有雇员，其雇员 ID 范围为 000100 到 000199，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
-* 要通过以字母“a”开头的邮件地址查找销售部门中的所有雇员，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
+* 若要查找销售部门中员工 ID 在 000100 到 000199 范围内的所有员工，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
+* 若要查找销售部门中电子邮件地址以字母“a”开头的所有员工，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
 
-  上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
+    上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 #### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
@@ -495,8 +497,8 @@ Azure 存储表中的键是字符串值，以确保数字值正确排序，应�
 
 如果查询一组员工实体，则可以通过使用 **RowKey**中相应的前缀查询实体，指定按员工 ID 顺序排序的范围或按电子邮件地址顺序排序的范围。  
 
-* 若要查找销售部门中的所有员工，其雇员 ID 范围为 **000100** 到 **000199** 且按照 ID 序号排列，请使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
-* 要在销售部门中通过以“a”开头的邮件地址并按照邮件地址顺序查找所有员工，请使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
+* 若要查找销售部门中员工 ID 在 **000100** 到 **000199** 范围内且按员工 ID 顺序排序的所有员工，请使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
+* 若要查找销售部门中电子邮件地址以“a”开头且按电子邮件地址顺序排序的的所有员工，请使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
 请注意，上述示例中使用的筛选器语法源自表服务 REST API，详细信息请参阅 [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx)（查询实体）。  
 
@@ -509,7 +511,7 @@ Azure 存储表中的键是字符串值，以确保数字值正确排序，应�
 * 在 **RowKey** 中填充数字值（例如员工 ID 000223），实现正确排序并根据上下限进行筛选。  
 * 不一定需要重复实体的所有属性。 例如，如果使用 **RowKey** 中的电子邮件地址查找实体的查询始终不需要员工的年龄，则这些实体可具有以下结构：
 
-  ![使用辅助索引的员工实体][11]
+    ![使用辅助索引的员工实体][11]
 * 通常，最好存储重复数据并确保可以使用单个查询检索所有所需数据，而不是使用一个查询通过辅助索引找到实体，使用另一个查询通过主索引查找所需数据。  
 
 #### <a name="when-to-use-this-pattern"></a>何时使用此模式
@@ -604,7 +606,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 以下步骤概述了在添加新员工时，如果使用第二个选项应遵循的过程。 在此示例中，我们要在 Sales 部门中添加 ID 为 000152、姓氏为 Jones 的员工：  
 
-1. 使用 **PartitionKey** 值“Sales”和 **RowKey** 值“Jones”检索索引实体。 保存此实体的 ETag 以便在步骤 2 中使用。  
+1. 使用 **PartitionKey** 值“Sales”和 **RowKey** 值“Jones”检索索引实体。 保存此实体的 ETag 以便在步骤 2 中使用。 
 2. 创建实体组事务（即批量操作），该项通过将新员工 ID 添加到 EmployeeIDs 字段的列表中，插入新的员工实体（**PartitionKey** 值“Sales”和 **RowKey** 值“000152”），并更新索引实体（**PartitionKey** 值“Sales”和 **RowKey** 值“Jones”）。 有关实体组事务的详细信息，请参阅[实体组事务](#entity-group-transactions)。  
 3. 如果实体组事务由于开放式并发错误（其他人修改了索引实体）而失败，则需要从步骤 1 重新开始。  
 
@@ -614,7 +616,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 1. 使用 **PartitionKey** 值“Sales”和 **RowKey** 值“Jones”检索索引实体。  
 2. 分析 EmployeeIDs 字段中的员工 ID 列表。  
-3. 如需了解其中每个员工的其他信息（如电子邮件地址），请通过 **PartitionKey** 值“Sales”和 **RowKey** 值，在步骤 2 中获得的员工列表中检索每个员工实体。  
+3. 如需了解其中每个员工的其他信息（如电子邮件地址），请通过 **PartitionKey** 值“Sales”和 **RowKey** 值，在步骤 2 中获得的员工列表中检索每个员工实体。 
 
 <u>选项 #3：</u>在不同分区或表中创建索引实体  
 
@@ -725,7 +727,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 通过使用以日期时间倒序排序的 *RowKey* 值检索最近添加到分区中的 **n** 个实体。  
 
 > [!NOTE]
-> Azure DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 因此，此模式适用于 Azure 表存储，而不适用于 Azure Cosmos DB。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
+> Azure Cosmos DB 中 Azure 表 API 返回的查询结果不按分区键或行键排序。 因此，此模式适用于 Azure 表存储，而不适用于 Azure Cosmos DB。 有关功能差异详细列表的信息，请参阅 [Azure Cosmos DB 和 Azure 表存储中的表 API 之间的差异](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)。
 
 #### <a name="context-and-problem"></a>上下文和问题
 一个常见的需求是能够检索最近创建的实体，例如某个员工提交的最近 10 个费用报销单。 表查询支持 **$top** 查询操作以返回一个集中的前 n 个实体：没有等效的查询操作可返回一个集中的最后 *n* 个实体。  

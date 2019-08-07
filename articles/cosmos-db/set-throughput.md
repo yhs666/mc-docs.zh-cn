@@ -4,15 +4,15 @@ description: 了解如何为 Azure Cosmos 容器和数据库设置预配的吞�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/28/2019
-ms.date: 06/17/2019
+origin.date: 06/14/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab18f37ec175bc75ff82b03c6f8119f851bae3e9
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 6f84b967cc800eceb0474de5f9baa4ee2d25b12e
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171342"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672222"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>在容器和数据库上预配吞吐量
 
@@ -73,6 +73,9 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 * 可以创建预配吞吐量为“K”RU 的名为“Z”的 Azure Cosmos 数据库。   
 * 接下来，在该数据库中创建名为 A、B、C、D、E 的五个容器。      创建容器 B 时，请确保启用“为此容器预配专用吞吐量”  选项，并在此容器上显式配置“P”  个 RU 的预配吞吐量。 请注意，只有在创建数据库和容器时，才能配置共享吞吐量和专用吞吐量。 
+
+    ![在容器级别设置吞吐量](./media/set-throughput/coll-level-throughput.png)
+
 * “K”RU 吞吐量在 A、C、D、E 这四个容器之间共享。      提供给 A、C、D 或 E 的确切吞吐量各不相同。     每个容器的吞吐量没有 SLA。
 * 保证名为 B 的容器始终可以获得“P”RU 吞吐量。   该容器有 SLA 的保障。
 
@@ -88,7 +91,7 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 
 使用 .NET SDK 时，可以通过 [DocumentClient.ReadOfferAsync](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) 方法检索容器或数据库的最小吞吐量。 
 
-可以随时缩放容器或数据库的预配吞吐量。 
+可以随时缩放容器或数据库的预配吞吐量。 执行缩放操作以增加吞吐量时，由于系统任务的原因，可能需要更长的时间来预配所需的资源。 可以在 Azure 门户中检查缩放操作的状态，也可以使用 SDK 以编程方式检查。 使用 .NET SDK 时，可以通过 `DocumentClient.ReadOfferAsync` 方法获取缩放操作的状态。
 
 ## <a name="comparison-of-models"></a>模型比较
 
@@ -96,7 +99,6 @@ Azure Cosmos 数据库是一组容器的管理单元。 数据库包含一组不
 |---------|---------|---------|
 |最小 RU 数 |400（前四个容器之后的每个容器均需要至少每秒 100 RU 的吞吐量。） |400|
 |每个容器的最小 RU 数|100|400|
-|使用 1 GB 存储所需的最小 RU 数|40|40|
 |最大 RU 数|对于数据库无限。|对于容器无限。|
 |分配或提供给特定容器的 RU 数|无保证。 为给定容器分配的 RU 数取决于多种属性。 属性可以是为共享吞吐量的容器选择的分区键、工作负荷的分布，以及容器的数量。 |对容器配置的所有 RU 专门保留给该容器使用。|
 |容器的最大存储|不受限制。|不受限制。|

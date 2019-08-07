@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 05/20/2019
+origin.date: 06/28/2019
 ms.author: v-yiso
-ms.date: 06/24/2019
-ms.openlocfilehash: 9000289d3d08701dfe437239e8ae177362b61b2e
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.date: 08/12/2019
+ms.openlocfilehash: e6dc06c8b8f45cf294dca4faaef7a8df70941f5c
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135892"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733531"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>创建和修改 ExpressRoute 线路的对等互连
 
@@ -54,43 +54,53 @@ ms.locfileid: "67135892"
 
 ### <a name="to-create-azure-private-peering"></a>创建 Azure 专用对等互连
 
-1. 配置 ExpressRoute 线路。 在继续之前，请确保线路完全由连接提供商设置。 如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接提供商未为你管理路由，则在创建线路后，请继续执行后续步骤。
+1. 配置 ExpressRoute 线路。 在继续之前，请确保线路完全由连接提供商设置。 
 
-   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   如果连接服务提供商提供第 3 层托管服务，可以请求连接服务提供商启用 Azure 专用对等互连。 在这种情况下，不需要遵循后续部分中所列的说明。 但是，如果连接提供商未为你管理路由，则在创建线路后，请继续执行后续步骤。
+
+   **线路 - 提供商状态：未预配**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p.png "提供商状态 = 未预配")](./media/expressroute-howto-routing-portal-resource-manager/not-provisioned-p-lightbox.png#lightbox)
+
+   **线路 - 提供商状态：已预配**
+
+   [![](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p.png "提供商状态 = 已预配")](./media/expressroute-howto-routing-portal-resource-manager/provisioned-p-lightbox.png#lightbox)
+
 2. 配置线路的 Azure 专用对等互连。 在继续执行后续步骤之前，请确保已准备好以下各项：
 
    * 主链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。 在此子网中，Microsoft 将第二个可用的 IP 用于其路由器时，你将为你的路由器分配第一个可用的 IP 地址。
    * 辅助链路的 /30 子网。 此子网不能是保留给虚拟网络使用的任何地址空间的一部分。 在此子网中，Microsoft 将第二个可用的 IP 用于其路由器时，你将为你的路由器分配第一个可用的 IP 地址。
    * 用于建立此对等互连的有效 VLAN ID。 请确保线路中没有其他对等互连使用同一个 VLAN ID。 主要链接和次要链接必须使用相同的 VLAN ID。
    * 对等互连的 AS 编号。 可以使用 2 字节和 4 字节 AS 编号。 可以使用专用 AS 编号建立对等互连（65515 到 65520 之间的数字除外）。
+   * 设置专用对等互连时，必须通过 BGP 将路由从本地边缘路由器播发到 Azure。
    * **可选** - MD5 哈希（如果选择使用）。
 3. 选择“Azure 专用”对等互连行，如下面的示例中所示：
 
-   ![专用](./media/expressroute-howto-routing-portal-resource-manager/rprivate1.png)
-4. 配置专用对等互连。 下图显示了一个配置示例：
+   [![选择“专用对等互连”行](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p.png "选择“专用对等互连”行")](./media/expressroute-howto-routing-portal-resource-manager/select-peering-p-lightbox.png#lightbox)
+4. 配置专用对等互连。 指定所有参数后，请**保存**配置。
 
-   ![配置专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
-5. 指定所有参数后，请保存配置。 成功接受配置后，会看到类似于以下示例的内容：
+   ![配置专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/configuration-p.png)
+5. 成功接受配置后，会看到类似于以下示例的内容：
 
-   ![保存专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+   ![已保存专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/save-p.png)
 
 ### <a name="getprivate"></a>查看 Azure 专用对等互连详细信息
 
 可以通过选择对等互连查看 Azure 专用对等互连的属性。
 
-![查看专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/rprivate3.png)
+[![查看专用对等互连属性](./media/expressroute-howto-routing-portal-resource-manager/view-p.png "查看专用对等互连属性")](./media/expressroute-howto-routing-portal-resource-manager/view-p-lightbox.png#lightbox)
 
 ### <a name="updateprivate"></a>更新 Azure 专用对等互连配置
 
-可以选择用于对等互连的行并修改对等互连属性。
+可以选择用于对等互连的行并修改对等互连属性。 更新后，保存所做的更改。
 
-![更新专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/rprivate2.png)
+![更新专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/update-peering-p.png)
 
 ### <a name="deleteprivate"></a>删除 Azure 专用对等互连
 
 可以通过选择“删除”图标来删除对等互连配置，如下图中所示：
 
-![删除专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/rprivate4.png)
+![删除专用对等互连](./media/expressroute-howto-routing-portal-resource-manager/delete-p.png)
 
 ## <a name="public"></a>Azure 公共对等互连
 
@@ -120,22 +130,15 @@ ms.locfileid: "67135892"
 
 ### <a name="getpublic"></a>查看 Azure 公共对等互连详细信息
 
-可以通过选择对等互连查看 Azure 公共对等互连的属性。
-
-![查看公共对等互连属性](./media/expressroute-howto-routing-portal-resource-manager/rpublic3.png)
+通过选择对等互连查看 Azure 公共对等互连的属性。
 
 ### <a name="updatepublic"></a>更新 Azure 公共对等互连配置
 
-可以选择用于对等互连的行并修改对等互连属性。
-
-![选择公共对等互连行](./media/expressroute-howto-routing-portal-resource-manager/rpublic2.png)
+选择对等互连所对应的行，然后修改对等互连属性。
 
 ### <a name="deletepublic"></a>删除 Azure 公共对等互连
 
-可以通过选择“删除”图标来删除对等互连配置，如以下示例中所示：
-
-![删除公共对等互连](./media/expressroute-howto-routing-portal-resource-manager/rpublic4.png)
-
+通过选择“删除”图标来删除对等互连配置。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,26 +1,28 @@
 ---
-title: Azure Database for PostgreSQL - 单一服务器中的限制
-description: 本文介绍了 Azure Database for PostgreSQL - 单一服务器中的限制，例如连接数和存储引擎选项。
+title: Azure Database for PostgreSQL（单一服务器）中的限制
+description: 本文介绍了 Azure Database for PostgreSQL（单一服务器）中的限制，例如连接数和存储引擎选项。
 author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 905a5bffc09cdb1029966b8fe43794098f71face
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 06/25/2019
+ms.date: 08/05/2019
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 2635d965d7f54c4fe40303983071c182d92ee73d
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731914"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732401"
 ---
-# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的限制
-下列各部分介绍数据库服务中的容量和功能限制。
+# <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的限制
+下列各部分介绍数据库服务中的容量和功能限制。 如果想了解资源（计算、内存、存储）层，请参阅[定价层](concepts-pricing-tiers.md)一文。
+
 
 ## <a name="maximum-connections"></a>最大连接数
 每个定价层的最大连接数和 vCore 数如下所示： 
 
-|**定价层**| **vCore(s)**| 最大连接数 |
+|**定价层**| **vCore(s)**| 最大连接数  |
 |---|---|---|
 |基本| 1| 50 |
 |基本| 2| 100 |
@@ -34,7 +36,7 @@ ms.locfileid: "65731914"
 |内存优化| 4| 500|
 |内存优化| 8| 960|
 |内存优化| 16| 1900|
-|内存优化| 32| 1900|
+|内存优化| 32| 1987|
 
 当连接数超出限制时，可能会收到以下错误：
 > 严重：很抱歉，客户端数过多
@@ -48,6 +50,9 @@ Azure 系统需要使用五个连接来监视 Azure Database for PostgreSQL 服�
 
 ### <a name="server-version-upgrades"></a>服务器版本升级
 - 目前不支持在主要数据库引擎版本之间进行自动迁移。 如果要升级到下一个主版本，请进行[转储并将其还原](./howto-migrate-using-dump-and-restore.md)到使用新引擎版本创建的服务器。
+
+> 请注意，在 PostgreSQL 版本 10 之前，[PostgreSQL 版本控制策略](https://www.postgresql.org/support/versioning/)将_主版本_升级视为第一个_或_第二个数字的增加（例如，9.5 到 9.6 视为_主_版本升级）。
+> 从版本 10 开始，只有第一个数字的更改才视为主版本升级（例如，10.0 到 10.1 是_次要_版本升级，10 到 11 是_主_版本升级）。
 
 ### <a name="vnet-service-endpoints"></a>VNet 服务终结点
 - 只有常规用途和内存优化服务器才支持 VNet 服务终结点。

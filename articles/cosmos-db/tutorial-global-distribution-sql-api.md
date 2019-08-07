@@ -4,16 +4,16 @@ description: 了解如何使用 SQL API 设置 Azure Cosmos DB 多区域分发�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 05/10/2017
-ms.date: 01/21/2019
+origin.date: 07/15/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 802bfe00c65e4536ba12915827af7bffb0c3ee1b
-ms.sourcegitcommit: 3577b2d12588826a674a61eb79bbbdfe5abe741a
+ms.openlocfilehash: 9e14fad810603b935828343d3c14b21e052f78c8
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54309100"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672234"
 ---
 # <a name="set-up-azure-cosmos-db-multiple-region-distribution-using-the-sql-api"></a>使用 SQL API 设置 Azure Cosmos DB 多区域分发
 
@@ -47,7 +47,7 @@ SDK 只会尝试读取 PreferredLocations 中指定的区域。 因此，例如�
 ## <a name="net-sdk"></a>.NET SDK
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
-在 .NET SDK 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的属性。 此属性的类型为 Collection `<string>` ，应包含区域名称的列表。 字符串值已根据 [Azure 区域][regions] 页上的“区域名称”列设置格式，其第一个字符的前面和最后一个字符的后面均没有空格。
+在 .NET SDK 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations 的属性。 此属性的类型为 Collection `<string>` ，应包含区域名称的列表。 字符串值已根据 [Azure 区域][regions]页上的“区域名称”列设置格式，其第一个字符的前面和最后一个字符的后面均没有空格。
 
 当前写入终结点和读取终结点分别在 DocumentClient.WriteEndpoint 和 DocumentClient.ReadEndpoint 中提供。
 
@@ -78,10 +78,10 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejs-javascript-and-python-sdks"></a>NodeJS、JavaScript 和 Python SDK
+## <a name="nodejs-javascript-and-python-sdks"></a>Node.js、JavaScript 和 Python SDK
 无需进行任何代码更改即可使用该 SDK。 在此情况下，SDK 会自动将读取和写入请求定向到当前写入区域。
 
-在每个 SDK 的 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 DocumentClient.ConnectionPolicy.PreferredLocations 的新属性。 此参数是采用区域名称列表的字符串数组。 名称已根据 [Azure 区域][regions] 页中的“区域名称”列设置格式。 也可以在便捷对象 AzureDocuments.Regions 中使用预定义的常量
+在每个 SDK 的 1.8 和更高版本中，DocumentClient 构造函数的 ConnectionPolicy 参数有一个名为 DocumentClient.ConnectionPolicy.PreferredLocations 的新属性。 此参数是采用区域名称列表的字符串数组。 名称已根据 [Azure 区域][regions]页中的“区域名称”列设置格式。 也可以在便捷对象 AzureDocuments.Regions 中使用预定义的常量
 
 当前写入终结点和读取终结点分别在 DocumentClient.getWriteEndpoint 和 DocumentClient.getReadEndpoint 中提供。
 
@@ -90,7 +90,7 @@ await docClient.OpenAsync().ConfigureAwait(false);
 >
 >
 
-下面是 NodeJS/Javascript 的代码示例。 Python 和 Java 将遵循相同的模式。
+下面是 Node.js/Javascript 的代码示例。 Python 和 Java 将遵循相同的模式。
 
 ```JavaScript
 // Creating a ConnectionPolicy object

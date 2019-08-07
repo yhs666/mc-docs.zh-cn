@@ -7,16 +7,16 @@ ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/17/2019
-ms.date: 07/15/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: de9e4a79cb5719abc8adf05fb72019ddb1691273
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 34610c78b78ca6878e4232e94ca02e8e13b428e7
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844446"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732378"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>使用 RA-GRS 设计高度可用的应用程序
 
@@ -121,7 +121,7 @@ ms.locfileid: "67844446"
 
     此方案会对性能产生负面影响，因为所有读取请求将首先尝试主终结点，等待超时过期，然后才能切换到辅助终结点。
 
-对于这些方案，应注意到主终结点存在一个持续性问题，通过将 **LocationMode** 属性设置为 **SecondaryOnly** 可将所有读取请求直接发送到辅助终结点。 此时，还应将应用程序更改为在只读模式下运行。 此方法称为 [断路器模式](https://msdn.microsoft.com/library/dn589784.aspx)。
+对于这些方案，应注意到主终结点存在一个持续性问题，通过将 **LocationMode** 属性设置为 **SecondaryOnly** 可将所有读取请求直接发送到辅助终结点。 此时，还应将应用程序更改为在只读模式下运行。 此方法称为 [断路器模式](https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker)。
 
 ### <a name="update-requests"></a>更新请求
 
@@ -209,6 +209,33 @@ RA-GRS 的工作方式是将事务从主要区域复制到次要区域。 此复
 在此示例中，假定客户端在 T5 从次要区域切换到读取。 它此时能够成功读取**管理员角色**实体，但该实体包含的管理员数量值与次要区域中此时标记的**员工**数量不一致。 客户端只需显示此值，并且具有信息不一致的风险。 或者，客户端可能会尝试确定 **管理员角色** 可能是不一致的状态，因为更新是无序进行的，并随后告知用户这一事实。
 
 要识别它可能具有不一致的数据，客户端可以使用通过随时查询存储服务获取的 *上次同步时间* 的值。 借此可了解次要区域中的数据上一次一致的时间，以及服务在该时间点前应用所有事务的时间。 在上述示例中，服务在次要区域中插入**员工**实体后，上次同步时间设置为 *T1*。 在服务更新次要区域中的**员工**实体前，它仍然保持为 *T1*，之后则设置为 *T6*。 如果客户端在其读取 *T5*处的实体时检索上次同步时间，它会将其与实体上的时间戳进行对比。 如果实体上的时间戳晚于上次同步时间，则实体可能处于不一致状态，可对应用程序采取任何适当操作。 使用此字段要求了解到主要区域上次更新的时间。
+
+## <a name="getting-the-last-sync-time"></a>获取上次同步时间
+
+可以使用 PowerShell 或 Azure CLI 检索上次同步时间，以确定上次将数据写入次要区域的时间。
+
+### <a name="powershell"></a>PowerShell
+
+若要使用 PowerShell 获取存储帐户的上次同步时间，请检查存储帐户的 **GeoReplicationStats.LastSyncTime** 属性。 请务必将占位符值替换为你自己的值：
+
+```powershell
+$lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
+    -Name <storage-account> `
+    -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
+```
+
+### <a name="azure-cli"></a>Azure CLI
+
+若要使用 Azure CLI 获取存储帐户的上次同步时间，请检查存储帐户的 **geoReplicationStats.lastSyncTime** 属性。 使用 `--expand` 参数返回在 **geoReplicationStats** 下嵌套的属性的值。 请务必将占位符值替换为你自己的值：
+
+```azurecli
+$lastSyncTime=$(az storage account show \
+    --name <storage-account> \
+    --resource-group <resource-group> \
+    --expand geoReplicationStats \
+    --query geoReplicationStats.lastSyncTime \
+    --output tsv)
+```
 
 ## <a name="testing"></a>测试
 

@@ -5,21 +5,21 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 4614f04f3cabd8354eea2f145d2496d2da977551
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+origin.date: 05/28/2019
+ms.date: 08/05/2019
+ms.openlocfilehash: 840c027ce02f24a4a08ce8dc2dfd4603a9779ae9
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65732010"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732285"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>在 Azure CLI 中创建和管理只读副本
 
 本文介绍如何使用 Azure CLI 在 Azure Database for PostgreSQL 中创建和管理只读副本。 若要详细了解只读副本，请参阅[概述](concepts-read-replicas.md)。
 
-> [!NOTE]
-> Azure CLI 尚不支持在与主服务器不同的区域中创建副本。 若要创建跨区域副本，请使用 [Azure 门户](howto-read-replicas-portal.md)。
+> [!IMPORTANT]
+> 可以在主服务器所在的区域或所选的任何其他 Azure 区域创建只读副本。 跨区域复制目前为公共预览版。
 
 ## <a name="prerequisites"></a>先决条件
 - 用作主服务器的 [Azure Database for PostgreSQL 服务器](quickstart-create-server-up-azure-cli.md)。
@@ -54,8 +54,16 @@ ms.locfileid: "65732010"
 | name | mydemoserver-replica | 所创建的新副本服务器的名称。 |
 | source-server | mydemoserver | 要从中进行复制的现有主服务器的名称或资源 ID。 |
 
+在下面的 CLI 示例中，副本在主服务器所在的区域中创建。
+
 ```azurecli
 az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup
+```
+
+若要创建跨区域只读副本，请使用 `--location` 参数。 下面的 CLI 示例在中国北部创建副本。
+
+```azurecli
+az postgres server replica create --name mydemoserver-replica --source-server mydemoserver --resource-group myresourcegroup --location chinanorth
 ```
 
 如果尚未在“常规用途”或“内存优化”主服务器上将 `azure.replication_support` 参数设置为 **REPLICA** 并重启服务器，将会收到错误。 请在创建副本之前完成这两个步骤。

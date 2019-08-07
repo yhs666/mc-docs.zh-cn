@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 05/13/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 53e264f6da0d71a9a6418786624d22cf85deee05
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 6dbdd4b7a7a9de33b7bd0193b197daee42a41baf
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520680"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731236"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 
@@ -71,7 +71,7 @@ azure-vote-front-3309479140-qphz8   1/1       Running   0          3m
 
 ## <a name="autoscale-pods"></a>自动缩放 Pod
 
-Kubernetes 支持[水平 Pod 自动缩放][kubernetes-hpa]以根据 CPU 利用率或其他选择指标调整部署中的 Pod 数。 [指标服务器][metrics-server]用来将资源利用率提供给 Kubernetes，可自动部署在 AKS 群集 1.10 及更高版本中。 若要查看 AKS 群集的版本，请使用 [az aks show][az-aks-show] 命令，如以下示例所示：
+Kubernetes 支持[水平 Pod 自动缩放][kubernetes-hpa]以根据 CPU 利用率或其他选择指标调整部署中的 Pod 数。 [指标服务器][metrics-server]用于向 Kubernetes 提供资源利用率，并自动部署在 AKS 群集版本 1.10 及更高版本中。 若要查看 AKS 群集的版本，请使用 [az aks show][az-aks-show] 命令，如以下示例所示：
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
@@ -84,7 +84,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-若要使用自动缩放程序，Pod 必须定义了 CPU 请求和限制。 在 `azure-vote-front` 部署中，前端容器已请求了 0.25 个 CPU，限制为 0.5 个 CPU。 这些资源请求和限制的定义方式如以下示例代码片段所示：
+若要使用自动缩放程序，你的 Pod 中的所有容器和你的 Pod 必须定义了 CPU 请求和限制。 在 `azure-vote-front` 部署中，前端容器已请求了 0.25 个 CPU，限制为 0.5 个 CPU。 这些资源请求和限制的定义方式如以下示例代码片段所示：
 
 ```yaml
 resources:
@@ -115,7 +115,7 @@ azure-vote-front   Deployment/azure-vote-front   0% / 50%   3         10        
 
 如果在前面的教程中使用命令创建了 Kubernetes 群集，则它具有一个节点。 如果计划在群集上有更多或更少的容器工作负荷，则可以手动调整节点数。
 
-下面的示例将名为 myAKSCluster 的 Kubernetes 群集中的节点数增加到 3 个。 该命令需要几分钟时间完成。
+下面的示例将名为 myAKSCluster  的 Kubernetes 群集中的节点数增加到 3 个。 该命令需要几分钟时间完成。
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
@@ -167,3 +167,5 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 [az-aks-scale]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-scale
 [azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
+
+<!-- Update_Description: wording update, update link -->

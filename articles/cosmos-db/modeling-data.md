@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/20/2019
-ms.date: 06/17/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: rimman
-ms.openlocfilehash: 8567fff7969d4d3dc0be97931da9a8a122f7806d
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 00a43456e471902e2bb9ab1f9fbb0085c41c3e3c
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171353"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672199"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Azure Cosmos DB 中的数据建模
 
@@ -44,7 +44,7 @@ ms.locfileid: "67171353"
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
     JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
+    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
 更新一个人的联系人详细信息和地址信息需要跨多个单独的表执行写入操作。
@@ -178,9 +178,9 @@ ms.locfileid: "67171353"
 <a name="Refer"></a>
 ## <a name="referencing-data"></a>引用数据
 
-因此，嵌入式数据在很多情况下都可以很好运作，但很明显在一些情况下，非规范化数据会导致更多问题而得不偿失。 因此我们现在该怎么办？
+嵌入式数据在很多情况下都可以很好运作，但在一些情况下，非规范化数据会导致更多问题而得不偿失。 因此我们现在该怎么办？
 
-关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息实际与其他文档中的数据相关。 现在，我甚至一分钟也不提倡在 Azure Cosmos DB 或任何其他文档数据库中构建可以更好地适应关系型数据库的系统，但是简单关系是可以的，并且还非常有用。
+关系数据库不是可以在实体之间创建关系的唯一数据库。 在文档数据库中，一个文档中的信息与其他文档中的数据相关。 我们不建议在 Azure Cosmos DB 或任何其他文档数据库中构建更适合于关系数据库的系统，但是简单关系是可以的，并且还非常有用。
 
 在下面的 JSON 中我们选择使用前面的股票投资组合示例，但是这次我们引用了投资组合中的股票项目，而不是嵌入此项目。 在这种情况下，当一天当中股票项发生频繁更改时，仅有的需要更新的文档就是一个股票文档。
 

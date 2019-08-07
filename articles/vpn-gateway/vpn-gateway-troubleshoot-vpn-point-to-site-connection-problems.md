@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/11/2018
-ms.date: 04/29/2019
+origin.date: 05/31/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: aa351f8cc23d3aa40442784e70033b3fe71b0c3e
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: a94f221cbcc4dc405566e10f5ab28b83b784d729
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854667"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732269"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>故障排除：Azure 点到站点连接问题
 
@@ -42,7 +42,7 @@ ms.locfileid: "64854667"
 
 若要解决该问题，请执行以下步骤：
 
-1. 打开证书管理器：单击“开始”，键入“管理计算机证书”，然后单击搜索结果中的“管理计算机证书”。
+1. 打开证书管理器：单击“开始”  ，键入“管理计算机证书”  ，然后单击搜索结果中的“管理计算机证书”  。
 
 2. 请确保已正确的位置安装下列证书：
 
@@ -57,7 +57,7 @@ ms.locfileid: "64854667"
 若要详细了解如何安装客户端证书，请参阅[为点到站点连接生成并导出证书](vpn-gateway-certificates-point-to-site.md)。
 
 > [!NOTE]
-> 导入客户端证书时，请勿选择“启用强私钥保护”选项。
+> 导入客户端证书时，请勿选择“启用强私钥保护”  选项。
 
 ## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>无法在计算机与 VPN 服务器之间建立网络连接，因为远程服务器不响应
 
@@ -79,7 +79,7 @@ ms.locfileid: "64854667"
 
 1. 安装更新。
 
-   | OS 版本 | 日期 | 编号/链接 |
+   | OS 版本 | Date | 编号/链接 |
    |---|---|---|---|
    | Windows Server 2016<br>Windows 10 版本 1607 | 2018 年 1 月 17 日 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
    | Windows 10 版本 1703 | 2018 年 1 月 17 日 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
@@ -174,9 +174,9 @@ VPN 网关类型必须是 **VPN**，VPN 类型必须是 **RouteBased**。
 提取 VPN 客户端配置包，并找到 .cer 文件。 若要安装证书，请执行以下步骤：
 
 1. 打开 mmc.exe。
-2. 添加“证书”管理单元。
-3. 选择本地计算机的“计算机”帐户。
-4. 右键单击“受信任的根证书颁发机构”节点。 单击“所有任务” > “导入”，浏览到从 VPN 客户端配置包中提取的 .cer 文件。
+2. 添加“证书”  管理单元。
+3. 选择本地计算机的“计算机”  帐户。
+4. 右键单击“受信任的根证书颁发机构”节点。  单击“所有任务” > “导入”，浏览到从 VPN 客户端配置包中提取的 .cer 文件。  
 5. 重启计算机。 
 6. 尝试安装 VPN 客户端。
 
@@ -302,11 +302,11 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="symptom"></a>症状
 
-先删除了点到站点 VPN 连接，再重新安装 VPN 客户端。 在这种情况下，VPN 连接未成功配置。 在 Windows 的“网络连接”设置中看不到 VPN 连接。
+先删除了点到站点 VPN 连接，再重新安装 VPN 客户端。 在这种情况下，VPN 连接未成功配置。 在 Windows 的“网络连接”  设置中看不到 VPN 连接。
 
 ### <a name="solution"></a>解决方案
 
-要解决此问题，请从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
+要解决此问题，请从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>  删除旧的 VPN 客户端配置文件，再重新运行 VPN 客户端安装程序。
 
 ## <a name="point-to-site-vpn-client-cannot-resolve-the-fqdn-of-the-resources-in-the-local-domain"></a>点到站点 VPN 客户端无法解析本地域中的资源的 FQDN
 
@@ -335,11 +335,11 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 ## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>错误：“吊销功能无法检查吊销，因为吊销服务器已脱机。(错误 0x80092013)”
 
 ### <a name="causes"></a>原因
-如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl，则会出现此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
+如果客户端无法访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl ，则会出现此错误消息。  进行吊销检查需要访问这两个站点。  此问题通常发生在配置了代理服务器的客户端上。 在某些环境中，如果请求不通过代理服务器，则在边缘防火墙处会被拒绝。
 
 ### <a name="solution"></a>解决方案
 
-请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl。
+请检查代理服务器设置，确保客户端可以访问 http://crl3.digicert.com/ssca-sha2-g1.crl 和 http://crl4.digicert.com/ssca-sha2-g1.crl 。
 
 ## <a name="error-405-when-you-download-root-certificate-from-vpn-gateway"></a>从 VPN 网关下载根证书时出现“错误 405”
 
@@ -357,9 +357,9 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 更新网卡驱动程序：
 
-1. 单击“开始”，键入“设备管理器”，然后从结果列表中选择它。 如果系统提示需要管理员密码或确认，请键入密码或进行确认。
-2. 在“网络适配器”类别中，找到要更新的 NIC。  
-3. 双击设备名称，选择“更新驱动程序”，选择“自动搜索更新的驱动程序软件”。
+1. 单击“开始”，键入“设备管理器”，然后从结果列表中选择它   。 如果系统提示需要管理员密码或确认，请键入密码或进行确认。
+2. 在“网络适配器”  类别中，找到要更新的 NIC。  
+3. 双击设备名称，选择“更新驱动程序”，选择“自动搜索更新的驱动程序软件”   。
 4. 如果 Windows 找不到新的驱动程序，可以尝试在设备制造商的网站上查找，并按照说明执行操作。
 5. 重启计算机并再次尝试连接。
 
@@ -371,7 +371,7 @@ SMB 协议用于文件共享访问。 连接启动时，VPN 客户端添加了�
 
 ### <a name="solution"></a>解决方案
 
-Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
+Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased  。
 
 ## <a name="vpn-package-installer-doesnt-complete"></a>VPN 包安装程序未完成
 
@@ -381,7 +381,7 @@ Azure VPN 网关类型必须是 VPN，VPN 类型必须是 RouteBased。
 
 ### <a name="solution"></a>解决方案
 
-从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再次运行 VPN 客户端安装程序。 
+从 C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId> 删除旧的 VPN 客户端配置文件，再次运行 VPN 客户端安装程序  。 
 
 ## <a name="the-vpn-client-hibernates-or-sleep-after-some-time"></a>VPN 客户端在一段时间后进入休眠状态或睡眠状态
 

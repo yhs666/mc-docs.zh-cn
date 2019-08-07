@@ -4,20 +4,20 @@ description: 本文比较包含 IaaS 和本地数据库的 Azure Cosmos DB 的�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/20/2018
-ms.date: 04/15/2019
+origin.date: 05/21/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: bfa0803dcbd242f73ebdd890b0a5a51126b6d056
-ms.sourcegitcommit: f8604dbca7aefd90078d2e6e7715e328eb280f16
+ms.openlocfilehash: 015158937012a96f8d6c5925f09b2f9a0c96ebb5
+ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491280"
+ms.lasthandoff: 07/31/2019
+ms.locfileid: "68672217"
 ---
-# <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Azure Cosmos DB 的总拥有成本 (TCO)
+# <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Azure Cosmos DB 的总拥有成本 (TCO)
 
-Azure Cosmos DB 中设计了精细的多租户和资源调控。 这种设计可让 Azure Cosmos DB 以明显降低的成本运行，并帮助用户节省成本。 目前，Azure Cosmos DB 支持在一台计算机上运行 280 多个客户工作负荷（密度还是不断提升），以及在一个群集中运行数千个客户工作负荷。 它对群集中不同计算机上的客户工作负荷以及数据中心内多个群集中的客户工作负荷进行负载均衡。有关详细信息，请参阅 [Azure Cosmos DB：扩大多区域分布式数据库的边界](https://azure.microsoft.com/en-us/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)。 由于实施资源调控、多租户并与 Azure 基础结构的剩余部分原生集成，与 MongoDB、Cassandra 或者在 IaaS 上运行的其他 OSS NoSQL 相比，Azure Cosmos DB 的费用平均要便宜 4 到 6 倍；与本地运行的数据库引擎相比，则最多便宜 10 倍。 请参阅有关 [NoSQL 数据库云服务的总（非）拥有成本](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)的白皮书。
+Azure Cosmos DB 中设计了精细的多租户和资源调控。 这种设计可让 Azure Cosmos DB 以明显降低的成本运行，并帮助用户节省成本。 目前，Azure Cosmos DB 支持在一台计算机上运行 280 多个客户工作负荷（密度还是不断提升），以及在一个群集中运行数千个客户工作负荷。 它对群集中不同计算机上的客户工作负荷以及数据中心内多个群集中的客户工作负荷进行负载均衡。有关详细信息，请参阅 [Azure Cosmos DB：扩大多区域分布式数据库的边界](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)。 由于实施资源调控、多租户并与 Azure 基础结构的剩余部分原生集成，与 MongoDB、Cassandra 或者在 IaaS 上运行的其他 OSS NoSQL 相比，Azure Cosmos DB 的费用平均要便宜 4 到 6 倍；与本地运行的数据库引擎相比，则最多便宜 10 倍。 请参阅有关 [NoSQL 数据库云服务的总（非）拥有成本](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf)的白皮书。
 
 Apache Cassandra、MongoDB、HBase、引擎等 OSS NoSQL 数据库解决方案是为本地设计的。 作为托管服务提供时，它们相当于一个资源管理器模板，其中包含用于管理预配群集和监视支持的租户数据库。 OSS NoSQL 体系结构需要很大的运营开销，了解其专业知识可能比较困难且费用不菲。 另一方面，Azure Cosmos DB 是完全托管式的云服务，可让开发人员专注于业务创新，而不是管理和维护数据库基础结构。 
 

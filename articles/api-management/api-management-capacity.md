@@ -10,18 +10,18 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 06/18/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7dce06794b80ea2d509f895953d8effe552d41b0
-ms.sourcegitcommit: 41a1c699c77a9643db56c5acd84d0758143c8c2f
+ms.openlocfilehash: 38e09653401e26465a7befd02efb74cd4a5bd99e
+ms.sourcegitcommit: fcc768b955bab5c6cb7f898c913bc7ede6815743
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348539"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68733523"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Azure API 管理实例的容量
 
-**容量**是最重要的单一 [Azure Monitor 指标](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis)，在是否扩展 API 管理实例以容纳更多负载方面，它可以帮助做出明智的决策。 容量的构造比较复杂，并且会施加特定的行为。
+**容量**是最重要的 [Azure Monitor 指标](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis)，在是否扩展 API 管理实例以容纳更多负载方面，它可以帮助做出明智的决策。 容量的构造比较复杂，并且会施加特定的行为。
 
 本文介绍**容量**的定义及其行为。 其中介绍了如何在 Azure 门户中访问**容量**指标，并建议何时应考虑扩展或升级 API 管理实例。
 
@@ -41,12 +41,14 @@ ms.locfileid: "58348539"
 
 ![容量指标](./media/api-management-capacity/capacity-ingredients.png)
 
-**容量**是 APIM 实例中负载的指标。 它反映资源用量（CPU、内存）和网络队列的长度。 CPU 和内存用量反映以下对象的资源消耗量：
+**容量**是 API 管理实例中负载的指标。 它反映资源用量（CPU、内存）和网络队列的长度。 CPU 和内存用量反映以下对象的资源消耗量：
 
-+ APIM 服务，例如管理操作或请求处理，可能包括转发请求或运行策略
++ API 管理服务，例如管理操作或请求处理，可以包括转发请求或运行策略
 + 选定的操作系统进程，包括在新连接上造成 SSL 握手开销的进程。
 
 总**容量**是 API 管理实例的每个单元中容量自有值的平均值。
+
+虽然**容量指标**旨在显示 API 管理实例出现的问题，但是在某些情况下，问题不会反映在**容量指标**的更改中。
 
 ## <a name="capacity-metric-behavior"></a>容量指标行为
 
@@ -64,19 +66,21 @@ ms.locfileid: "58348539"
 ![容量指标高峰](./media/api-management-capacity/capacity-spikes.png)
 
 **容量**还可能会出现间歇性的高峰或大于零，即使未处理任何请求。 之所以发生这种情况，是因为存在系统或平台特定的操作。在决定是否缩放实例时，不应考虑这些因素。
+
+低**容量指标**并不一定意味着 API 管理实例没有遇到任何问题。
   
 ## <a name="use-the-azure-portal-to-examine-capacity"></a>使用 Azure 门户检查容量
   
 ![容量指标](./media/api-management-capacity/capacity-metric.png)  
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中导航到自己的 APIM 实例。
-2. 选择“指标(预览)”。
-3. 在紫色部分，从可用指标中选择“容量”，并保留默认的“平均值”聚合。
+2. 选择“指标(预览)”。 
+3. 在紫色部分，从可用指标中选择“容量”，并保留默认的“平均值”聚合。  
 
     > [!TIP]
     > 为避免解释错误，**容量**指标始终按位置分解。
 
-4. 在绿色部分选择“位置”，以便按维度拆分指标。
+4. 在绿色部分选择“位置”，以便按维度拆分指标。 
 5. 从该部分的顶部栏中选择所需的时间范围。
 
     可以设置指标警报，以便在发生意外的情况时收到通知。 例如，当 APIM 实例超出预期峰值容量有 20 分钟以上时收到通知。

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/25/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: aacb83f253646bf02d665064c462b2616ec1ba81
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f9a59e821c7b3faab01e5cf4dfd8d216a0832e28
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844705"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753170"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Azure Service Fabric 的容量规划和缩放
 
@@ -36,8 +36,10 @@ ms.locfileid: "67844705"
 使用虚拟机规模集自动缩放会导致版本受控的资源管理器模板不准确地定义虚拟机规模集实例计数。 不准确的定义会增加将来的部署导致意外缩放操作的风险。 一般而言，如果存在以下情况，则应该使用自动缩放：
 
 * 使用相应的声明容量部署资源管理器模板不支持你的用例。
-    除了手动缩放以外，还可以[使用 Azure 资源组部署项目在 Azure DevOps 服务中配置持续集成和交付管道](/vs-azure-tools-resource-groups-ci-in-vsts)。 此管道通常由某个逻辑应用触发，而该应用利用从 [Azure Monitor REST API](/platform/rest-api-walkthrough) 查询的虚拟机性能指标。 该管道基于所需的任意指标进行有效自动缩放，同时针对 Azure 资源管理器进行优化可以增大价值。
+
+    除了手动缩放以外，还可以[使用 Azure 资源组部署项目在 Azure DevOps 服务中配置持续集成和交付管道](/vs-azure-tools-resource-groups-ci-in-vsts)。 此管道通常由某个逻辑应用触发，而该应用利用从 [Azure Monitor REST API](/azure-monitor/platform/rest-api-walkthrough) 查询的虚拟机性能指标。 该管道基于所需的任意指标进行有效自动缩放，同时针对 Azure 资源管理器进行优化可以增大价值。
 * 每次只需水平缩放一个虚拟机规模集节点。
+
     若要一次性横向扩展三个或更多个节点，应该[通过添加虚拟机规模集来横向扩展 Service Fabric 群集](virtual-machine-scale-set-scale-node-type-scale-out.md)。 最安全的做法是每次横向扩展或缩减虚拟机规模集的一个节点。
 * 对于 Service Fabric 群集，可以实现银级可靠性；对于配置了自动缩放规则的任何规模集，可以实现银级或更高的持久性。
 
@@ -79,6 +81,11 @@ ms.locfileid: "67844705"
 2. 运行 `Get-ServiceFabricNode` 以确保该节点已转换为禁用状态。 如果没有，请等到节点已禁用。 对于每个节点，此过程可能需要花费几个小时。 在节点转换为禁用状态之前，请不要继续操作。
 3. 将该节点类型的 VM 数目减少一个。 现在，将会删除编号最大的 VM 实例。
 4. 根据需要重复步骤 1 到 3，但切勿将主节点类型的实例数目缩减到少于可靠性层所需的数目。 有关建议实例的列表，请参阅[规划 Service Fabric 群集容量](/service-fabric/service-fabric-cluster-capacity)。
+5. 所有 VM 都消失（表示为“关闭”）后，fabric:/System/InfrastructureService/[node name] 将显示错误状态。 然后，可以更新群集资源以删除节点类型。 可以使用 ARM 模板部署。 这将启动群集升级，从而删除处于错误状态的 fabric:/System/InfrastructureService/[node type] 服务。
+    
+    <!--Not Available on or edit the cluster resource through the Azure resource manager-->
+    <!--Not Available on [Azure resource manager](https://resources.azure.com)-->
+6. 在此之后，可以选择删除 VMScaleSet，但仍然会在 Service Fabric Explorer 视图中看到节点为“关闭”。 最后一步是使用 `Remove-ServiceFabricNodeState` 命令清除它们。
 
 ### <a name="example-scenario"></a>示例方案
 支持执行垂直缩放操作的场景：你希望在不关闭应用程序的情况下，将 Service Fabric 群集和应用程序从非托管磁盘迁移到托管磁盘。 

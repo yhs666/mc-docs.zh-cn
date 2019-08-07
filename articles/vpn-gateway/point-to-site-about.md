@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 01/18/2019
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: 062e3ed90a76a6bd26042b02e5ad2ffa6c8b2595
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: f8b3159fbe468ee0bb80f159123c547bc6218ee5
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833203"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732377"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 
@@ -23,7 +23,7 @@ ms.locfileid: "56833203"
 
 点到站点 VPN 可使用以下协议之一：
 
-* 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 SSL 所用的 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
+* 安全套接字隧道协议 (SSTP)，这是一种基于 SSL 的专属协议。 由于大多数防火墙都会打开 SSL 所用的出站 TCP 端口 443，因此 SSL VPN 解决方案可以穿透防火墙。 只有 Windows 设备支持 SSTP。 Azure 支持所有采用 SSTP 的 Windows 版本（Windows 7 和更高版本）。
 
 * IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
@@ -81,6 +81,47 @@ RADIUS 服务器还能与其他外部标识系统集成。 这样就为 P2S VPN 
 >基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。
 >
 
+## <a name="IKE/IPsec policies"></a>在 P2S 的 VPN 网关上配置了哪些 IKE/IPsec 策略？
+
+
+**IKEv2**
+
+|**Cipher** | **完整性** | **PRF** | **DH 组** |
+|---        | ---           | ---       | ---   |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA384    | GROUP_ECP256 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_24 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_14 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP384 |
+|GCM_AES256 |   GCM_AES256  | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA384      | SHA384    | GROUP_24 |
+|AES256     |   SHA384      | SHA384    | GROUP_14 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP384 |
+|AES256     |   SHA384      | SHA384    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_24 |
+|AES256     |   SHA256      | SHA256    | GROUP_14 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP384 |
+|AES256     |   SHA256      | SHA256    | GROUP_ECP256 |
+|AES256     |   SHA256      | SHA256    | GROUP_2 |
+
+**IPsec**
+
+|**Cipher** | **完整性** | **PFS 组** |
+|---        | ---           | ---       |
+|GCM_AES256 | GCM_AES256 | GROUP_NONE |
+|GCM_AES256 | GCM_AES256 | GROUP_24 |
+|GCM_AES256 | GCM_AES256 | GROUP_14 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP384 |
+|GCM_AES256 | GCM_AES256 | GROUP_ECP256 |
+| AES256    | SHA256 | GROUP_NONE |
+| AES256    | SHA256 | GROUP_24 |
+| AES256    | SHA256 | GROUP_14 |
+| AES256    | SHA256 | GROUP_ECP384 |
+| AES256    | SHA256 | GROUP_ECP256 |
+| AES256    | SHA1 | GROUP_NONE |
+
 ## <a name="configure"></a>如何配置 P2S 连接？
 
 P2S 配置需要相当多的特定步骤。 以下文章包含引导你完成 P2S 配置的步骤，以及用于配置 VPN 客户端设备的链接：
@@ -89,6 +130,12 @@ P2S 配置需要相当多的特定步骤。 以下文章包含引导你完成 P2
 
 * [配置 P2S 连接 - Azure 本机证书身份验证](vpn-gateway-howto-point-to-site-rm-ps.md)
 
+## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>如何删除 P2S 连接的配置？
+
+可以使用 az cli 和以下命令删除 P2S 配置： 
+
+`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+ 
 ## <a name="faqcert"></a>本机 Azure 证书身份验证常见问题解答
 
 [!INCLUDE [vpn-gateway-point-to-site-faq-include](../../includes/vpn-gateway-faq-p2s-azurecert-include.md)]

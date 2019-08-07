@@ -8,12 +8,12 @@ ms.topic: include
 origin.date: 12/11/2018
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: ed705c9ce5fa0724f1658403971d20138cde7ed0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1d8195c2bfcfbc55991a7be34bc2e7945e242fcc
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627789"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732291"
 ---
 在使用点到站点连接连接到 VNet 的每台客户端计算机上，必须安装客户端证书。 请从根证书生成它，然后将它安装在每个客户端计算机上。 如果未安装有效的客户端证书，则当客户端尝试连接到 VNet 时，身份验证会失败。
 
@@ -23,8 +23,8 @@ ms.locfileid: "58627789"
 
 - **企业证书：**
 
-  - 如果使用的是企业证书解决方案，请使用通用名称值格式 <em>name@yourdomain.com</em> 生成客户端证书， 而不要使用“域名\用户名”格式。
-  - 请确保客户端证书基于“用户”证书模板，该模板将“客户端身份验证”列为用户列表中的第一项。 检查证书的方式是：双击证书，然后在“详细信息”选项卡中查看“增强型密钥用法”。
+  - 如果使用的是企业证书解决方案，请使用通用名称值格式“name\@yourdomain.com”  生成客户端证书， 而不要使用“域名\用户名”格式。 
+  - 请确保客户端证书基于“用户”证书模板，该模板将“客户端身份验证”列为用户列表中的第一项。  检查证书的方式是：双击证书，然后在“详细信息”选项卡中查看“增强型密钥用法”   。
 
 - **自签名根证书：** 按照下述某篇 P2S 证书文章中的步骤操作，使创建的客户端证书兼容 P2S 连接。 这些文章中的步骤可生成兼容的客户端证书： 
 

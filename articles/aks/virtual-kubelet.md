@@ -9,13 +9,15 @@ ms.topic: article
 origin.date: 08/14/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: 729a09cd497abaf3554b32b02764ba930c42701e
-ms.sourcegitcommit: 11361e477347b4cef74e01b780545e6d4267971c
+ms.openlocfilehash: 0211d1cd196a137bfd8941d67524d0a4d094e31d
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65552108"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731203"
 ---
+<!--IMPORTANT: 'Microsoft.ContainerInstance NOT EXIST RESOURCE PROVIDER ON MOONCAKE-->
+<!--NOT SUIT FOR MOONCAKE-->
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>结合使用虚拟 Kubelet 和 Azure Kubernetes 服务 (AKS)
 
 Azure 容器实例 (ACI) 提供托管环境，以便在 Azure 中运行容器。 使用 ACI 时，无需管理基础计算基础结构，Azure 会处理此管理。 在 ACI 中运行容器时，每个正在运行的容器将按秒收费。
@@ -23,7 +25,7 @@ Azure 容器实例 (ACI) 提供托管环境，以便在 Azure 中运行容器。
 在 Azure 容器实例中使用虚拟 Kubelet 提供程序时，可以在容器实例上安排 Linux 和 Windows 容器，就像容器实例是一个标准的 Kubernetes 节点一样。 此配置允许你利用 Kubernetes 的功能以及容器实例的管理价值和成本优势。
 
 > [!NOTE]
-> AKS 现在对 ACI 上的计划容器（称为“虚拟节点”）提供内置支持。 目前虚拟节点支持 Linux 容器实例。 如果需要计划 Windows 容器实例，可以继续使用虚拟 Kubelet。 否则，应使用虚拟节点，而不是本文中所述的手动虚拟 Kubelet 说明。
+> AKS 现在对 ACI 上的计划容器（称为“虚拟节点”）提供内置支持  。 目前虚拟节点支持 Linux 容器实例。 如果需要计划 Windows 容器实例，可以继续使用虚拟 Kubelet。 否则，应使用虚拟节点，而不是本文中所述的手动虚拟 Kubelet 说明。
 >
 > 虚拟 Kubelet 是实验性开放源代码项目，并且应该这样使用。 若要参与问题讨论、提交问题以及阅读有关虚拟 kubelet 的详细信息，请参阅[虚拟 Kubelet GitHub 项目][vk-github]。
 
@@ -32,15 +34,15 @@ Azure 容器实例 (ACI) 提供托管环境，以便在 Azure 中运行容器。
 
 ## <a name="prerequisite"></a>先决条件
 
-本文档假定你有 AKS 群集。 如果你需要 AKS 群集，请参阅 [Azure Kubernetes 服务 (AKS) 快速入门][aks-quick-start]。
+本文档假定你有 AKS 群集。 如果需要 AKS 群集，请参阅 [Azure Kubernetes 服务 (AKS) 快速入门][aks-quick-start]。
 
-还需要 Azure CLI 版本 2.0.33 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+还需要 Azure CLI 版本 2.0.33  或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 若要安装虚拟 Kubelet，还需要 [Helm](https://docs.helm.sh/using_helm/#installing-helm)。
 
 ### <a name="for-rbac-enabled-clusters"></a>对于启用 RBAC 的群集
 
-如果 AKS 群集已启用 RBAC，则必须创建服务帐户和角色绑定以便与 Tiller 一起使用。 有关详细信息，请参阅 [Helm 基于角色的访问控制][helm-rbac]。 要创建服务帐户和角色绑定，请创建名为 rbac-virtual-kubelet.yaml 的文件并粘贴以下定义：
+如果 AKS 群集已启用 RBAC，则必须创建服务帐户和角色绑定以便与 Tiller 一起使用。 有关详细信息，请参阅 [Helm 基于角色的访问控制][helm-rbac]。 要创建服务帐户和角色绑定，请创建名为 rbac-virtual-kubelet.yaml  的文件并粘贴以下定义：
 
 ```yaml
 apiVersion: v1
@@ -63,7 +65,7 @@ subjects:
     namespace: kube-system
 ```
 
-应用服务帐户并使用 [kubectl apply][kubectl-apply] 绑定，然后指定 rbac-virtualkubelet.yaml 文件，如下例所示：
+应用服务帐户并使用 [kubectl apply][kubectl-apply] 绑定，然后指定 rbac-virtual-kubelet.yaml  文件，如下例所示：
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -107,7 +109,7 @@ az aks install-connector --resource-group myAKSCluster --name myAKSCluster --con
 
 ## <a name="validate-virtual-kubelet"></a>验证虚拟 Kubelet
 
-若要验证已安装虚拟 Kubelet，请使用 [kubectl get nodes][kubectl-get] 命令返回 Kubernetes 节点的列表。
+若要验证是否已安装虚拟 Kubelet，请使用 [kubectl get nodes][kubectl-get] 命令返回 Kubernetes 节点的列表。
 
 ```
 $ kubectl get nodes
@@ -233,9 +235,9 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Virtual Kubelet 可能出现的问题，请参阅[已知问题和解决方法][vk-troubleshooting]。 要报告 Virtual Kubelet 出现的问题，请[打开 GitHub 问题][vk-issues]。
+有关虚拟 Kubelet 可能出现的问题，请参阅[已知问题和解决方法][vk-troubleshooting]。 若要报告虚拟 Kubelet 出现的问题，请[打开 GitHub 问题][vk-issues]。
 
-有关虚拟 Kubelet 的详细信息，请参阅 [虚拟 Kubelet GitHub 项目][vk-github]。
+有关虚拟 Kubelet 的详细信息，请参阅[虚拟 Kubelet GitHub 项目][vk-github]。
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md

@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 04/08/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c987e577ab5706b90f6f654d38276889a34dc60
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 96d13ff6ff43224b9cf9643d2e6b92d43e8e004a
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627512"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731259"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序存储选项
 
@@ -122,14 +122,14 @@ spec:
 
 ## <a name="next-steps"></a>后续步骤
 
-如需相关的最佳做法，请参阅[在 AKS 中存储和备份的最佳做法][operator-best-practices-storage]。
+如需相关的最佳做法，请参阅 [AKS 中的存储和备份最佳做法][operator-best-practices-storage]。
 
 若要了解如何创建使用 Azure 磁盘或 Azure 文件的动态和静态卷，请参阅以下操作指南：
 
 - [使用 Azure 磁盘创建静态卷][aks-static-disks]
-- [使用 Azure 文件创建静态卷][aks-static-files]
+- [使用 Azure 文件存储创建静态卷][aks-static-files]
 - [使用 Azure 磁盘创建动态卷][aks-dynamic-disks]
-- [使用 Azure 文件创建动态卷][aks-dynamic-files]
+- [使用 Azure 文件存储创建动态卷][aks-dynamic-files]
 
 有关核心 Kubernetes 和 AKS 概念的详细信息，请参阅以下文章：
 
@@ -137,7 +137,7 @@ spec:
 - [Kubernetes/AKS 标识][aks-concepts-identity]
 - [Kubernetes/AKS 安全性][aks-concepts-security]
 - [Kubernetes/AKS 虚拟网络][aks-concepts-network]
-- [Kubernetes/AKS 规模][aks-concepts-scale]
+- [Kubernetes/AKS 缩放][aks-concepts-scale]
 
 <!-- EXTERNAL LINKS -->
 
@@ -152,3 +152,5 @@ spec:
 [aks-concepts-security]: concepts-security.md
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
+
+<!-- Update_Description: update meta properties -->

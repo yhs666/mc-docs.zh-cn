@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 10/09/2018
-ms.date: 06/03/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5e9eccc5789bec8c9eac9fdad2feecae59f3e96a
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: ae3b932e337bd2afd9dec079602e2a945f322565
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195367"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753142"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>如何在 Service Fabric 中参数化配置文件
 
@@ -29,7 +29,7 @@ ms.locfileid: "66195367"
 在此示例中，在应用程序部署中使用参数来替代配置值。
 
 1. 打开你的服务项目中的 *\<MyService>\PackageRoot\Config\Settings.xml* 文件。
-2. 通过添加以下 XML，设置配置参数名称和值，例如高速缓存大小等于 25：
+1. 通过添加以下 XML，设置配置参数名称和值，例如高速缓存大小等于 25：
 
     ```xml
       <Section Name="MyConfigSection">
@@ -37,16 +37,16 @@ ms.locfileid: "66195367"
       </Section>
     ```
 
-3. 保存并关闭该文件。
-4. 打开 *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 文件。
-5. 在 ApplicationManifest.xml 文件的 `Parameters` 元素中声明参数和默认值。  建议参数名称包含服务的名称（例如，“MyService”）。
+1. 保存并关闭该文件。
+1. 打开 *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* 文件。
+1. 在 ApplicationManifest.xml 文件的 `Parameters` 元素中声明参数和默认值。  建议参数名称包含服务的名称（例如，“MyService”）。
 
     ```xml
     <Parameters>
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
     ```
-6. 在 ApplicationManifest.xml 文件的 `ServiceManifestImport` 节中，添加 `ConfigOverride` 元素，引用配置包、节和参数。
+1. 在 ApplicationManifest.xml 文件的 `ServiceManifestImport` 节中，添加 `ConfigOverrides` 和 `ConfigOverride` 元素，引用配置包、节和参数。
 
     ```xml
     <ConfigOverrides>

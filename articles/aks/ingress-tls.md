@@ -5,15 +5,15 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 03/27/2019
-ms.date: 05/13/2019
+origin.date: 05/24/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: fcf265e32350f6b232f01518577db6b1498395fd
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 8597fde3c24037e0855d864b87f6d863ef1235a8
+ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520724"
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68731251"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中创建 HTTPS 入口控制器
 
@@ -23,7 +23,7 @@ ms.locfileid: "65520724"
 
 也可执行以下操作：
 
-- [创建使用外部网络连接的基本入口控制器][aks-ingress-basic]
+- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
     <!--Not Available on- [Enable the HTTP application routing add-on][aks-http-app-routing]-->
 - [创建使用内部、专用网络和 IP 地址的入口控制器][aks-ingress-internal]
 - [创建使用你自己的 TLS 证书的入口控制器][aks-ingress-own-tls]
@@ -31,28 +31,42 @@ ms.locfileid: "65520724"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli]。
-
-<!--Not Available on [using the Azure portal][aks-quickstart-portal]-->
+本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
 本文使用 Helm 安装 NGINX 入口控制器、cert-manager 和示例 Web 应用。 你需要在 AKS 群集中初始化 Helm 并使用 Tiller 服务帐户。 请确保使用 Helm 的最新版本。 有关升级说明，请参阅 [Helm 安装文档][helm-install]。有关配置和使用 Helm 的详细信息，请参阅[在 Azure Kubernetes 服务 (AKS) 中使用 Helm 安装应用程序][use-helm]。
 
-本文还要求运行 Azure CLI 2.0.59 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
+本文还要求运行 Azure CLI 2.0.64 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 ## <a name="create-an-ingress-controller"></a>创建入口控制器
 
 若要创建入口控制器，请使用 `Helm` 来安装 *nginx-ingress*。 对于增加的冗余，NGINX 入口控制器的两个副本会在部署时具备 `--set controller.replicaCount` 参数。 若要充分利用正在运行的入口控制器副本，请确保 AKS 群集中有多个节点。
 
+还需要在 Linux 节点上计划入口控制器。 使用 `--set nodeSelector` 参数指定节点选择器，以告知 Kubernetes 计划程序在基于 Linux 的节点上运行 NGINX 入口控制器。
+
+<!--Not Available on  Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller.-->
+
 > [!TIP]
 > 以下示例为名为 *ingress-basic* 的入口资源创建 Kubernetes 命名空间。 根据需要为你自己的环境指定一个命名空间。 如果 AKS 群集未启用 RBAC，请将 `--set rbac.create=false` 添加到 Helm 命令中。
+
+> [!TIP]
+> 若要为对群集中容器的请求启用[客户端源 IP 保留][client-source-ip]，请将 `--set controller.service.externalTrafficPolicy=Local` 添加到 Helm install 命令中。 客户端源 IP 存储在 X-Forwarded-For  下的请求头中。 使用启用了客户端源 IP 保留的入口控制器时，SSL 传递将不起作用。
+
+<!--MOONCAKE: Add --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-->
 
 ```console
 # Create a namespace for your ingress resources
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend
 ```
+
+<!--MOONCAKE: Add --set defaultBackend.image.repository=gcr.azk8s.cn/google_containers/defaultbackend-->
 
 在安装过程中，将为入口控制器创建一个 Azure 公共 IP 地址。 此公共 IP 地址在入口控制器的寿命期内是静态的。 如果你删除入口控制器，则公共 IP 地址分配会丢失。 如果你然后创建了另外的入口控制器，则会分配新的公共 IP 地址。 如果希望保持使用此公共 IP 地址，则可以改为[创建具有静态公共 IP 地址的入口控制器][aks-ingress-static-tls]。
 
@@ -92,7 +106,7 @@ az network public-ip update --ids $PUBLICIPID --dns-name $DNSNAME
 
 ## <a name="install-cert-manager"></a>安装证书管理器
 
-NGINX 入口控制器支持 TLS 终止。 可通过多种方法为 HTTPS 检索和配置证书。 本文演示如何使用 [cert-manager][cert-manager]，该项目提供自动 [Lets Encrypt][lets-encrypt] 证书生成和管理功能。
+NGINX 入口控制器支持 TLS 终止。 可通过多种方法为 HTTPS 检索和配置证书。 本文演示如何使用[证书管理器][cert-manager]，该管理器提供自动 [Lets Encrypt][lets-encrypt] 证书生成和管理功能。
 
 > [!NOTE]
 > 本文为 Let's Encrypt 使用 `staging` 环境。 在生产部署中，请在安装 Helm 图表时使用资源定义中的 `letsencrypt-prod` 和 `https://acme-v02.api.letsencrypt.org/directory`。
@@ -101,7 +115,7 @@ NGINX 入口控制器支持 TLS 终止。 可通过多种方法为 HTTPS 检索�
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.7/deploy/manifests/00-crds.yaml
+kubectl apply -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.8/deploy/manifests/00-crds.yaml
 
 # Create the namespace for cert-manager
 kubectl create namespace cert-manager
@@ -119,7 +133,7 @@ helm repo update
 helm install \
   --name cert-manager \
   --namespace cert-manager \
-  --version v0.7.0 \
+  --version v0.8.0 \
   jetstack/cert-manager
 ```
 
@@ -127,7 +141,7 @@ helm install \
 
 ## <a name="create-a-ca-cluster-issuer"></a>创建 CA 群集证书颁发者
 
-证书管理器必须有 [Issuer][cert-manager-issuer] 或 [ClusterIssuer][cert-manager-cluster-issuer] 资源，才能颁发证书。 这两种 Kubernetes 资源的功能完全相同，区别在于 `Issuer` 适用于单一命名空间，而 `ClusterIssuer` 适用于所有命名空间。 有关详细信息，请参阅[证书管理器证书颁发者][cert-manager-issuer]文档。
+证书管理器需要 [Issuer][cert-manager-issuer] 或 [ClusterIssuer][cert-manager-cluster-issuer] 资源，才能颁发证书。 这两种 Kubernetes 资源的功能完全相同，区别在于 `Issuer` 适用于单一命名空间，而 `ClusterIssuer` 适用于所有命名空间。 有关详细信息，请参阅[证书管理器颁发者][cert-manager-issuer]文档。
 
 使用以下示例清单创建群集证书颁发者，例如 `cluster-issuer.yaml`。 将电子邮件地址更新为组织提供的有效地址：
 
@@ -196,7 +210,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     certmanager.k8s.io/cluster-issuer: letsencrypt-staging
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
   tls:
   - hosts:
@@ -206,14 +220,14 @@ spec:
   - host: demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn
     http:
       paths:
-      - path: /
-        backend:
+      - backend:
           serviceName: aks-helloworld
           servicePort: 80
-      - path: /hello-world-two
-        backend:
+        path: /(.*)
+      - backend:
           serviceName: ingress-demo
           servicePort: 80
+        path: /hello-world-two(/|$)(.*)
 ```
 
 使用 `kubectl apply -f hello-world-ingress.yaml` 命令创建入口资源。
@@ -226,7 +240,7 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="create-a-certificate-object"></a>创建证书对象
 
-接下来，必须创建证书资源。 证书资源定义了必需的 X.509 证书。 有关详细信息，请参阅 [cert-manager 证书][cert-manager-certificates]。
+接下来，必须创建证书资源。 证书资源定义了必需的 X.509 证书。 有关详细信息，请参阅[证书管理器证书][cert-manager-certificates]。
 
 证书管理器可能已使用 ingress-shim（自 v0.2.2 以来随证书管理器自动部署）为你自动创建了证书对象。 有关详细信息，请参阅 [ingress-shim 文档][ingress-shim]。
 
@@ -252,7 +266,7 @@ metadata:
   name: tls-secret
   namespace: ingress-basic
 spec:
-  secretName: tls-secret
+  secretName: tls-secret-staging
   dnsNames:
   - demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn
   acme:
@@ -271,12 +285,12 @@ spec:
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.certmanager.k8s.io/tls-secret-staging created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>测试入口配置
 
-打开 Web 浏览器，访问 Kubernetes 入口控制器的 FQDN，例如 *https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn*。
+打开 Web 浏览器，访问 Kubernetes 入口控制器的 FQDN，例如 *https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn* 。
 
 由于这些示例使用 `letsencrypt-staging`，因此浏览器不信任颁发的 SSL 证书。 接受警告提示以继续运行应用程序。 证书信息显示这个*伪 LE 中间 X1* 证书是由 Let's Encrypt 颁发的。 此伪证书指出 `cert-manager` 正确处理了请求并接收了提供程序提供的证书：
 
@@ -290,7 +304,7 @@ certificate.certmanager.k8s.io/tls-secret created
 
 ![应用程序示例 1](media/ingress/app-one.png)
 
-现在向 FQDN 添加 */hello-world-two* 路径，例如 *https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn/hello-world-two*。 下面显示了带自定义标题的第二个演示应用程序：
+现在向 FQDN 添加 */hello-world-two* 路径，例如 *https://demo-aks-ingress.chinaeast2.cloudapp.chinacloudapi.cn/hello-world-two* 。 下面显示了带自定义标题的第二个演示应用程序：
 
 ![应用程序示例 2](media/ingress/app-two.png)
 
@@ -321,7 +335,7 @@ kubectl delete -f certificates.yaml
 kubectl delete -f cluster-issuer.yaml
 ```
 
-现在使用 `helm list` 命令列出 Helm 版本。 查找名为“nginx-ingress”、“cert-manager”和“aks-helloworld”的图表，如以下示例输出中所示：
+现在使用 `helm list` 命令列出 Helm 版本。 查找名为“nginx-ingress”、“cert-manager”和“aks-helloworld”的图表，如以下示例输出中所示    ：
 
 ```
 $ helm list
@@ -372,7 +386,7 @@ kubectl delete -f hello-world-ingress.yaml
 
 也可执行以下操作：
 
-- [使用外部网络连接创建基本入口控制器][aks-ingress-basic]
+- [创建具有外部网络连接的基本入口控制器][aks-ingress-basic]
 - [启用 HTTP 应用程序路由附加产品][aks-http-app-routing]
 
 <!--Not Available on- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]-->
@@ -399,9 +413,13 @@ kubectl delete -f hello-world-ingress.yaml
 [aks-ingress-internal]: ingress-internal-ip.md
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-ingress-basic]: ingress-basic.md
+
 <!--Not Available on [aks-http-app-routing]: http-application-routing.md-->
-[aks-ingress-own-tls]: ingress-own-tls.md [aks-quickstart-cli]: kubernetes-walkthrough.md
-<!--Not Available on [aks-quickstart-portal]: kubernetes-walkthrough-portal.md-->
-[install-azure-cli]： https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+[aks-ingress-own-tls]: ingress-own-tls.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[client-source-ip]: concepts-network.md#ingress-controllers
+[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!-- Update_Description: wording update, update link -->
