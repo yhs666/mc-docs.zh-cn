@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: bb609ffc75af414ba970befcfca669d25f547dc9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 72e6a125f51bbe98791146446ebf1f1cc6a9462d
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562527"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818297"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>在 Azure 门户中创建 Log Analytics 工作区
 使用“Log Analytics 工作区”菜单通过 Azure 门户创建 Log Analytics 工作区  。 Log Analytics 工作区是适用于 Azure Monitor 日志数据的唯一环境。 每个工作区都有其自己的数据存储库和配置，并且数据源和解决方案均配置为将其数据存储在特定工作区中。 如果打算从以下源收集数据，则需要 Log Analytics 工作区：
@@ -50,7 +50,7 @@ ms.locfileid: "67562527"
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于**资源组**，选择要使用已设置的现有资源组，还是要创建一个新资源组。  
    * 选择可用**位置**。  有关详细信息，请参阅[提供 Log Analytics 的区域](/home/features/products-by-region)。
-   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有企业协议 (EA) 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的详细信息，请参阅 [Log Analytics 定价详细信息](/pricing/details/log-analytics/)。
+   * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有企业协议 (EA) 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的详细信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
 
         ![创建 Log Analytics 资源边栏选项卡](media/quick-create-workspace/create-loganalytics-workspace-02.png)  
 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
 origin.date: 04/20/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: fc70aef0861c060c59917273f86729eae720b80c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: de3e5a33cd753f1e60399cb0d2a1699bd50cdf6c
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625894"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912925"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>如何在 Windows VM 上安装和配置 Trend Micro Deep Security 即服务
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -73,11 +73,13 @@ ms.locfileid: "58625894"
 [Azure VM 扩展和功能]
 
 <!-- Image references -->
+
 [1]: ./media/trend/new_vm_Blade3.png
 [2]: ./media/trend/find_SecurityAgent.png
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
+
 [如何登录到运行 Windows Server 的虚拟机]:../windows/classic/connect-logon.md
 [Azure VM 扩展和功能]: /virtual-machines/windows/extensions-features
 

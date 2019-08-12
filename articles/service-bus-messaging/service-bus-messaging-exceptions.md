@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/21/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a3cb14f6df8a09bd562ad5a1fb9131d65c13fba9
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 0dc16552c3ffca94ed8d508af2f2702229a7d3f6
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332253"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818574"
 ---
 # <a name="service-bus-messaging-exceptions"></a>服务总线消息传送异常
 本文列出 Azure 服务总线消息传送 API 生成的一些异常。 此参考信息随时更改，请不时返回查看更新内容。
@@ -106,7 +106,7 @@ ConnectionsQuotaExceeded for namespace xxx.
 
 ## <a name="next-steps"></a>后续步骤
 
-有关服务总线 .NET API 的完整参考，请参阅 [Azure .NET API 参考](/dotnet/api/overview/azure/service-bus)。
+有关服务总线 .NET API 的完整参考，请参阅 [Azure .NET API 参考](/dotnet/api/overview/service-bus)。
 
 若要了解有关[服务总线](/service-bus-messaging/)的详细信息，请参阅以下文章：
 

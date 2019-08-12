@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/28/2019
-ms.date: 06/10/2019
+ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 84eed1348b22d92c3be96ef48e96e7b411c3bc5e
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: eb6f48db62aef2e46327c4e6342ccfd0efad8a49
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390709"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819654"
 ---
 # <a name="manage-process-servers"></a>管理进程服务器
 
@@ -120,7 +120,7 @@ ms.locfileid: "66390709"
 - C:\ProgramData\ASRLogs
 - C:\ProgramData\ASRSetupLogs
 - C:\ProgramData\LogUploadServiceLogs
-- C:\ProgramData\Azure Site Recovery
+- C:\ProgramData\Microsoft Azure Site Recovery
 - 进程服务器安装目录。 例如：C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 <!--Update_Description: update meta properties, wording update -->

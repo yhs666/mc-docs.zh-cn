@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 75174706b8f62891f17818e242ede38bdd030af8
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: f819008b1819f243c05fe2629bc95ec1cf7fca76
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135991"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818563"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 安全中心常见问题 (FAQ)
 本常见问题解答文章解答有关 Azure 安全中心的问题。Azure 安全中心可帮助预防、检测和响应威胁，同时增加世纪互联 Azure 资源的可见性和安全方面的可控性。
@@ -34,7 +34,7 @@ ms.locfileid: "67135991"
 Azure 安全中心有助于预防、检测和响应威胁，同时增加 Azure 资源的可见性和安全可控性。 该服务提供订阅之间的集成安全监视和策略管理，帮助检测可能被忽略的威胁，且适用于广泛的安全解决方案生态系统。
 
 ### <a name="how-do-i-get-azure-security-center"></a>如何获取Azure 安全中心？
-Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](https://www.azure.cn/features/azure-portal/)访问。 （[登录到门户](https://portal.azure.cn)，选“浏览”  ，并滚动到“安全中心”  ）。  
+Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](https://www.azure.cn/zh-cn/home/features/security-center/)访问。 （[登录到门户](https://portal.azure.cn)，选“浏览”  ，并滚动到“安全中心”  ）。  
 
 ## <a name="billing"></a>计费
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure 安全中心如何计费？
@@ -42,7 +42,7 @@ Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](
 
 免费层提供 Azure 资源、基本安全策略、安全建议以及与合作伙伴安全产品和服务的集成的安全状态  。
 
-标准层增添了高级威胁检测功能，包括威胁情报、行为分析、异常检测、安全事件和威胁归属报告  。 可以启动标准层免费试用版。 若要升级，请选择安全策略中的[定价层](https://docs.microsoft.com/azure/security-center/security-center-pricing)。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
+标准层增添了高级威胁检测功能，包括威胁情报、行为分析、异常检测、安全事件和威胁归属报告  。 可以启动标准层免费试用版。 若要升级，请选择安全策略中的[定价层](https://www.azure.cn/zh-cn//pricing/details/security-center/)。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/zh-cn//pricing/details/)。
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>如何跟踪哪个组织用户在 Azure 安全中心执行了定价层更改
 由于一个 Azure 订阅中可能有多个管理员有权更改定价层，因此用户可能想要知道谁执行了定价层更改。 可以使用 Azure 活动日志来实现此目的。 请参阅[此处](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)提供的更多说明
@@ -75,7 +75,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
 - 当前未在该 VM 上安装 Azure Monitoring Agent 扩展。
 - 该 VM 处于正在运行状态。
-- 安装了 Windows 或 Linux [Azure 虚拟机代理](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows)。
+- 安装了 Windows 或 Linux [Azure 虚拟机代理](/virtual-machines/extensions/agent-windows)。
 - 该 VM 未用作应用程序，例如 Web 防火墙或下一代防火墙。
 
 ### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>是否可以删除安全中心创建的默认工作区？

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 07/01/2016
-ms.date: 04/08/2019
-ms.author: v-biyu
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 1d274f3a60bef6edd165cadf772f96e2c4068501
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: b732acb43121cae0973994c831250ea3f7bcbe35
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505441"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878615"
 ---
 # <a name="best-practices-for-azure-app-service"></a>有关 Azure 应用服务的最佳实践
 本文汇总了有关使用 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) 的最佳实践。 
@@ -52,7 +52,7 @@ ms.locfileid: "58505441"
 例如，使用 `http` 或 `https` 包时：
 
 ```javascript
-var request = https.request(options, function(response) {
+const request = https.request(options, function(response) {
     response.on('data', function() { /* do nothing */ });
 });
 ```

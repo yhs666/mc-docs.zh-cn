@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 74c2f9a7fb21521e0488e81df706f46038dcebc6
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: cd9eb7d2c4b1052cb3ff319b82f0e7c085056d5e
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332270"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818448"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的创作密钥和查询预测终结点密钥
 LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpoint-key)密钥。 在创建 LUIS 帐户时会自动创建创作密钥。 准备好发布 LUIS 应用时，需要[创建终结点密钥](luis-how-to-azure-subscription.md)、将[终结点密钥分配](luis-how-to-azure-subscription.md)到 LUIS 应用并[将其与终结点查询配合使用](#use-endpoint-key-in-query)。 
@@ -63,7 +63,7 @@ LUIS 终结点接受两种样式的查询，这两种查询都使用终结点密
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>`subscription-key` 的查询字符串值<br><br>将 `subscription-key` 的终结点查询值从创作（初学者）密钥更改为新的终结点密钥，以便使用 LUIS 终结点密钥配额率。 如果创建并分配了该密钥，但是没有更改 `subscription-key` 的终结点查询值，则不会使用终结点密钥配额。|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://chinaeast2.api.cognitive.azure.cn/luis/v2.0//apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> `Ocp-Apim-Subscription-Key` 的标头值<br><br>将 `Ocp-Apim-Subscription-Key` 的终结点查询值从创作（初学者）密钥更改为新的终结点密钥，以便使用 LUIS 终结点密钥配额率。 如果创建并分配了该密钥，但是没有更改 `Ocp-Apim-Subscription-Key` 的终结点查询值，则不会使用终结点密钥配额。|
 
-在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://www.azure.cn/services/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
+在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://www.azure.cn/zh-cn/home/features/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Ocp-Apim-Subscription-Key 的 API 使用情况
 LUIS API 使用标头 `Ocp-Apim-Subscription-Key`。 标头名称不会基于所使用的密钥和 API 集产生变化。 将标头设为创作 API 的创作密钥。 如果使用的是终结点，则将标头设为终结点密钥。 

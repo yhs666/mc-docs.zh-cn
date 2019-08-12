@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/13/2019
-ms.date: 03/27/2019
+origin.date: 06/12/2019
+ms.date: 08/07/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 79a6b99eb645674c4e5f7f05d95a15f2a2a1e7fb
-ms.sourcegitcommit: c5599eb7dfe9fd5fe725b82a861c97605635a73f
+ms.openlocfilehash: 719ce27d8f200f22418201b959774266ff7aef94
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505534"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878727"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什么是 Azure 资源的基于角色的访问控制 (RBAC)？
 
@@ -51,17 +51,18 @@ RBAC 是在 [Azure 资源管理器](../azure-resource-manager/resource-group-ove
 
 ### <a name="security-principal"></a>安全主体
 
-安全主体是一个对象，表示请求访问 Azure 资源的用户、组或服务主体。
+安全主体是一个对象，表示请求访问 Azure 资源的用户、组、服务主体或托管标识。 
 
 ![角色分配的安全主体](./media/overview/rbac-security-principal.png)
 
 - 用户 - 在 Azure Active Directory 中具有配置文件的人员。 
 - 组 - 在 Azure Active Directory 中创建的一组用户。 将某个角色分配到某个组时，该组中的所有用户都拥有该角色。 
-- 服务主体 - 应用程序或服务用来访问特定 Azure 资源的安全标识。 可将服务主体视为应用程序的用户标识（用户名和密码或证书）。
+- 服务主体 - 应用程序或服务用来访问特定 Azure 资源的安全标识。 可将服务主体视为应用程序的用户标识（用户名和密码或证书）。 
+- 托管标识 - Azure Active Directory 中由 Azure 自动托管的标识。 在开发云应用程序时，通常使用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)来管理用于向 Azure 服务进行身份验证的凭据。
 
 ### <a name="role-definition"></a>角色定义
 
-角色定义是权限的集合。 它有时简称为“角色”。 角色定义列出可以执行的操作，例如读取、写入和删除。 角色可以是高级别的（例如所有者），也可以是特定的（例如虚拟机读取者）。
+角色定义是权限的集合。  它有时简称为“角色”  。 角色定义列出可以执行的操作，例如读取、写入和删除。 角色可以是高级别的（例如所有者），也可以是特定的（例如虚拟机读取者）。
 
 ![角色分配的角色定义](./media/overview/rbac-role-definition.png)
 
@@ -74,11 +75,11 @@ Azure 包含多个可用的[内置角色](built-in-roles.md)。 下面列出了�
 
 剩余的内置角色允许管理特定的 Azure 资源。 例如，[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色允许用户创建和管理虚拟机。 如果内置角色不能满足组织的特定需求，则可以[为 Azure 资源创建你自己的自定义角色](custom-roles.md)。
 
-Azure 引入了数据操作（目前为预览版），用于授予对对象中数据的访问权限。 例如，如果某个用户对某个存储帐户拥有读取数据的访问权限，则该用户可以读取该存储帐户中的 Blob 或消息。 有关详细信息，请参阅[了解 Azure 资源的角色定义](role-definitions.md)。
+Azure 具有数据操作，通过这些操作可以授予对对象内数据的访问权限。 例如，如果某个用户对某个存储帐户拥有读取数据的访问权限，则该用户可以读取该存储帐户中的 Blob 或消息。 有关详细信息，请参阅[了解 Azure 资源的角色定义](role-definitions.md)。
 
 ### <a name="scope"></a>作用域
 
-范围是访问权限适用于的资源集。 分配角色时，可以通过定义范围来进一步限制允许的操作。 如果你想要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则使用范围就很有帮助。
+范围是访问权限适用于的资源集。  分配角色时，可以通过定义范围来进一步限制允许的操作。 如果你想要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则使用范围就很有帮助。
 
 在 Azure 中，可在多个级别指定范围：[管理组](../governance/management-groups/index.md)、订阅、资源组或资源。 范围采用父子关系结构。
 
@@ -92,7 +93,7 @@ Azure 引入了数据操作（目前为预览版），用于授予对对象中�
 
 ### <a name="role-assignments"></a>角色分配
 
-角色分配是出于授予访问权限的目的，将角色定义附加到特定范围内的用户、组或服务主体的过程。 通过创建角色分配来授予访问权限，通过删除角色分配来撤销访问权限。
+角色分配是出于授予访问权限的目的，将角色定义附加到特定范围内的用户、组、服务主体或托管标识的过程。  通过创建角色分配来授予访问权限，通过删除角色分配来撤销访问权限。
 
 下图显示了角色分配的示例。 在此示例中，为“营销”组分配了医药销售资源组的[参与者](built-in-roles.md#contributor)角色。 这意味着，“营销”组中的用户可以在医药销售资源组中创建或管理任何 Azure 资源。 “营销”用户无权访问医药销售资源组外部的资源，除非他们属于另一个角色分配。
 

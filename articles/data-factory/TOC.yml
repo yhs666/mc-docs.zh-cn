@@ -443,8 +443,6 @@
           href: configure-bcdr-azure-ssis-integration-runtime.md
         - name: 使用弹性数据库作业清理 SSISDB 日志
           href: how-to-clean-up-ssisdb-logs-with-elastic-jobs.md
-        - name: 在 Azure-SSIS IR 中排查包执行问题
-          href: ssis-integration-runtime-ssis-activity-faq.md
     - name: 创建触发器
       items:
         - name: 创建计划触发器
@@ -463,6 +461,14 @@
           href: solution-template-bulk-copy-with-control-table.md
         - name: 使用控制表进行增量复制
           href: solution-template-delta-copy-with-control-table.md
+    - name: 故障排除指南
+      items:
+        - name: 活动故障排除
+          href: data-factory-troubleshoot-guide.md
+        - name: 排查 Azure-SSIS IR 管理问题
+          href: ssis-integration-runtime-management-troubleshoot.md
+        - name: 在 Azure-SSIS IR 中排查包执行问题
+          href: ssis-integration-runtime-ssis-activity-faq.md
 - name: 参考
   items:
     - name: .NET
@@ -487,3 +493,5 @@
       href: 'https://azure.cn/pricing/details/data-factory/'
     - name: 按区域列出的可用性
       href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all'
+    - name: 支持选项
+      href: 'https://support.azure.cn/zh-cn/support/contact/'

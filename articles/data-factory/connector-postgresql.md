@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 02/01/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 3cbf7c41b970d21c912838a30874b1d0058e9c25
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 31745ef5e1ff37594733e4ffe821c5f2ba5e81dd
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570400"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908689"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 PostgreSQL 复制数据
 
@@ -56,7 +56,7 @@ PostgreSQL 链接的服务支持以下属性：
 
 | 属性 | 说明 | 选项 | 必须 |
 |:--- |:--- |:--- |:--- |
-| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如 `ValidateServerCertificate=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
+| EncryptionMethod (EM)| 驱动程序用于加密在驱动程序和数据库服务器之间发送的数据的方法。 例如 `EncryptionMethod=<0/1/6>;`| 0 (No Encryption) **(Default)** / 1 (SSL) / 6 (RequestSSL) | 否 |
 | ValidateServerCertificate (VSC) | 启用 SSL 加密后，确定驱动程序是否验证数据库服务器发送的证书（加密方法=1）。 例如 `ValidateServerCertificate=<0/1>;`| 0 (Disabled) **(Default)** / 1 (Enabled) | 否 |
 
 **示例：**

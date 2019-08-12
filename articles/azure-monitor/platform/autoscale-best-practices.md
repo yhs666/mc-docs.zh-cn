@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 09c00bd7bcdffa60b4971587a0639cff1ad4403f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 21436be285afe95ba1318e298323c6fe38b26d96
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731280"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818402"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/services/app-service/)和 [API 管理服务](/api-management/api-management-key-concepts)。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/)和 [API 管理服务](/api-management/api-management-key-concepts)。
 
 ## <a name="autoscale-concepts"></a>自动缩放概念
 * 一个资源只能具有 *一个* 自动缩放设置
@@ -25,7 +25,7 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scal
   自动缩放设置具有最大、最小和默认实例值。
 * 自动缩放作业始终读取要作为缩放依据的关联指标，检查它是否超过针对扩大或缩小配置的阈值。 可以在 [Azure 监视器自动缩放常用指标](autoscale-common-metrics.md)查看可以作为自动缩放依据的指标列表。
 * 所有阈值都在实例级别进行计算。 例如，“如果实例计数为 2，则在平均 CPU > 80% 时横向扩展增加 1 个实例”表示在所有实例间的平均 CPU 大于 80% 时进行扩大。
-* 所有自动缩放失败都会记录到活动日志中。 然后可以配置[活动日志警报](./../../azure-monitor/platform/activity-log-alerts.md)，以便在自动缩放失败时通过电子邮件、短信或 Webhook 获得通知。
+* 所有自动缩放失败都会记录到活动日志中。 然后可以配置[活动日志警报](../../azure-monitor/platform/activity-log-alerts.md)，以便在自动缩放失败时通过电子邮件、短信或 Webhook 获得通知。
 * 同样，所有成功的缩放操作也会发布到活动日志中。 然后可以配置活动日志警报，以便在自动缩放操作成功时通过电子邮件、短信或 Webhook 获得通知。 还可以配置电子邮件或 Webhook 通知，以通过自动缩放设置上的通知选项卡获取有关成功缩放操作的通知。
 
 ## <a name="autoscale-best-practices"></a>自动缩放最佳做法

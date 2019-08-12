@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 09/14/2018
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 3beafc3a4c6262f7085f4a97e72ed4cb73ff5a49
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 40b5458769f29e274dbc87d63dc20c0feecb047c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046966"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818553"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>使应用程序免受服务总线中断和灾难影响的最佳实践
 
@@ -30,18 +30,6 @@ ms.locfileid: "67046966"
 ### <a name="geo-disaster-recovery"></a>异地灾难恢复
 
 服务总线高级版支持命名空间级别的异地灾难恢复。 有关详细信息，请参阅 [Azure 服务总线异地灾难恢复](service-bus-geo-dr.md)。 灾难恢复功能仅适用于[高级 SKU](service-bus-premium-messaging.md)，可实现元数据灾难恢复，并且依赖于主要和辅助灾难恢复命名空间。
-<!--
-### Availability Zones
-
-The Service Bus Premium SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within the same Azure region.
-
-> [!NOTE]
-> The Availability Zones support for Azure Service Bus Premium is only available in [Azure regions](../availability-zones/az-overview.md#regions-that-support-availability-zones) where availability zones are present.
-
-You can enable Availability Zones on new namespaces only, using the Azure portal. Service Bus does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
-
-![1][]
--->
 
 ## <a name="protecting-against-outages-and-disasters---service-bus-standard"></a>防范中断和灾难 - 服务总线标准版
 为了在使用标准消息传送定价层时实现针对数据中心中断的恢复，服务总线支持两种方法：主动  和被动  复制。 对于每一种方法，如果必须在数据中心中断的情况下仍可访问给定的队列或主题，可以在两个命名空间中创建。 两个实体可以具有相同的名称。 例如，可在 **contosoPrimary.servicebus.chinacloudapi.cn/myQueue** 下访问主要队列，而在 **contosoSecondary.servicebus.chinacloudapi.cn/myQueue** 下访问其辅助队列。

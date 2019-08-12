@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 01/09/2018
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: cb4518cb0c74fd00ad5c387609f4a468761a8c00
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: b47fb1ef640242aae0cc2bdf290e61d401d2b9b1
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829319"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878642"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>从 Spark Shell 运行 Apache Spark
 
@@ -36,7 +36,7 @@ ms.locfileid: "65829319"
 
 可以从 Azure 门户获取群集的完整 SSH 命令：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)。
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 导航到 HDInsight Spark 群集的窗格。
 3. 选择“安全外壳 (SSH)”。
 

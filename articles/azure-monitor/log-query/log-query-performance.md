@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4a0f2d2e80c0dbce709f9d36eb0b37cf9ce1b8c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b7787bf9724bc7f13e50e4e398c9e55ca79b9649
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514034"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818421"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>在 Azure Monitor 中编写有效的日志查询
 本文提供有关在 Azure Monitor 中编写有效日志查询的建议。 使用这些策略可确保以最低的开销快速运行查询。
@@ -33,7 +33,7 @@ ms.locfileid: "68514034"
 requests | ...
 ```
 
-可以在查询中使用 [search](/azure/kusto/query/searchoperator) 来搜索特定表中多个列内的某个值，如下所示：
+可以在查询中使用 [search](https://docs.microsoft.com/azure/kusto/query/searchoperator) 来搜索特定表中多个列内的某个值，如下所示：
 
 ``` Kusto
 search in (exceptions) "The server was not found"
@@ -41,7 +41,7 @@ search in (exceptions) "The server was not found"
 search in (exceptions, customEvents) "timeout"
 ```
 
-使用 [union](/azure/kusto/query/unionoperator) 可以查询多个表，如下所示：
+使用 [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) 可以查询多个表，如下所示：
 
 ``` Kusto
 union requests, traces | ...
@@ -75,11 +75,11 @@ traces | where severityLevel > 0
 
 
 ## <a name="string-comparisons"></a>字符串比较
-[评估字符串](/azure/kusto/query/datatypes-string-operators)时，通常会使用 `has` 而不是 `contains` 来查找完整令牌。 `has` 更加有效，因为它不需要查找子字符串。
+[评估字符串](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators)时，通常会使用 `has` 而不是 `contains` 来查找完整令牌。 `has` 更加有效，因为它不需要查找子字符串。
 
 ## <a name="returned-columns"></a>返回的列
 
-使用 [project](/azure/kusto/query/projectoperator) 将所要处理的列集范围缩小为所需的列：
+使用 [project](https://docs.microsoft.com/azure/kusto/query/projectoperator) 将所要处理的列集范围缩小为所需的列：
 
 ``` Kusto
 traces 
@@ -87,7 +87,7 @@ traces
 | ...
 ```
 
-尽管可以使用 [extend](/azure/kusto/query/extendoperator) 来计算值和创建自己的列，但基于表列进行筛选通常更加有效。
+尽管可以使用 [extend](https://docs.microsoft.com/azure/kusto/query/extendoperator) 来计算值和创建自己的列，但基于表列进行筛选通常更加有效。
 
 例如，以下第一个查询基于 _operation\_Name_ 进行筛选，第二个查询创建新的 _subscription_ 列并基于此列进行筛选，前者比后者更有效：
 
@@ -101,11 +101,11 @@ customEvents
 ```
 
 ## <a name="using-joins"></a>使用联接
-使用 [join](/azure/kusto/query/joinoperator) 运算符时，请在查询的左侧选择行数更少的表。
+使用 [join](https://docs.microsoft.com/azure/kusto/query/joinoperator) 运算符时，请在查询的左侧选择行数更少的表。
 
 
 ## <a name="next-steps"></a>后续步骤
-若要详细了解查询的最佳做法，请参阅[查询最佳做法](/azure/kusto/query/best-practices)。
+若要详细了解查询的最佳做法，请参阅[查询最佳做法](https://docs.microsoft.com/azure/kusto/query/best-practices)。
 
 
 

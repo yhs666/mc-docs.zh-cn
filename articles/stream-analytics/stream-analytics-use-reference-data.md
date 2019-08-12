@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fd9d7a80b8b4a764502263323bcb23c499a6c974
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 0c6072a3fc2bc015c0a6be6ead98842978bc8e41
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731481"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818548"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以将引用数据转换和/或复制到 Azure Blob 存储。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
@@ -84,8 +84,7 @@ Azure SQL 数据库参考数据由流分析作业进行检索并作为快照存�
 
 ### <a name="configure-sql-database-reference"></a>配置 SQL 数据库参考
 
-若要配置 SQL 数据库参考数据，首先需要创建**参考数据**输入。 下表介绍了在创建参考数据输入时需要提供的每个属性及其说明。 有关详细信息，请参阅[将 SQL 数据库中的参考数据用于 Azure 流分析作业](sql-reference-data.md)。
-
+若要配置 SQL 数据库参考数据，首先需要创建**参考数据**输入。 下表介绍了在创建参考数据输入时需要提供的每个属性及其说明。 
 |**属性名称**|**说明**  |
 |---------|---------|
 |输入别名|一个友好名称会用于作业查询，以便引用此输入。|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f2e9c11c8429b31f36a9d6a76d83c4ad176fc467
-ms.sourcegitcommit: 42766e267c2016d12977c24be394e8496f08e8fb
+ms.openlocfilehash: 1dec0f7a82d3aa2a675c3e3e47d361eb9cb6c7cc
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250291"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818562"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>快速入门：将 Azure 订阅加入安全中心标准层
 Azure 安全中心跨混合云工作负荷提供统一的安全管理和威胁防护。 免费层只能为 Azure 资源提供有限的安全性，而标准层将这些功能扩展到了本地和其他云。 借助安全中心标准层，可以查找和修复安全漏洞、应用访问控制和应用程序控制来阻止恶意活动、使用分析和智能功能检测威胁，以及在受到攻击时迅速做出响应。 可以免费试用安全中心标准版。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。
@@ -34,7 +34,7 @@ Azure 安全中心跨混合云工作负荷提供统一的安全管理和威胁�
 
 ## <a name="enable-your-azure-subscription"></a>启用 Azure 订阅
 
-1. 登录到 [Azure 门户](https://www.azure.cn/features/azure-portal/)。
+1. 登录到 [Azure 门户](https://www.azure.cn/zh-cn/home/features/security-center/)。
 2. 在“世纪互联 Azure”  菜单上选择“安全中心”  。 此时会打开“安全中心 - 概览”。 
 
    ![安全中心概述][2]

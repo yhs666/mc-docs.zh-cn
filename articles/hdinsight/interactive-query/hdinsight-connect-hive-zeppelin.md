@@ -17,12 +17,12 @@ ms.topic: conceptual
 origin.date: 05/06/2019
 ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: d0f3db985adf89f0eac919bf567aff137316361b
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 144c36a0ac3cc183403e644b585fa4f4a2a6e9f8
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66425238"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878638"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>快速入门：使用 Apache Zeppelin 在 Azure HDInsight 中执行 Apache Hive 查询
 
@@ -36,7 +36,7 @@ ms.locfileid: "66425238"
 
 ## <a name="create-an-apache-zeppelin-note"></a>创建 Apache Zeppelin 笔记
 
-1. 请将以下 URL 中的 `CLUSTERNAME` 替换为你的群集的名称：`https://CLUSTERNAME.azurehdinsight.net/zeppelin`。 然后在 Web 浏览器中输入该 URL。
+1. 请将以下 URL 中的 `CLUSTERNAME` 替换为你的群集的名称：`https://CLUSTERNAME.azurehdinsight.cn/zeppelin`。 然后在 Web 浏览器中输入该 URL。
 
 2. 输入群集登录用户名和密码。 在 Zeppelin 页中，可以创建新笔记，也可以打开现有笔记。 **HiveSample** 包含一些示例 Hive 查询。  
 

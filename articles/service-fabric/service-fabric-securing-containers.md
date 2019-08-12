@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 80eb6b4ba37f967a9b7ccf843642dfc05ecdbbbe
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 469c6ecd7a5394f1adb991e55e64e42c4b8a679e
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463661"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819563"
 ---
 # <a name="import-a-certificate-file-into-a-container-running-on-service-fabric"></a>将证书文件导入到 Service Fabric 上运行的容器
 
@@ -69,4 +69,4 @@ store.Close();
 * [将 Windows 容器部署到 Windows Server 2016 上的 Service Fabric](service-fabric-get-started-containers.md)
 * [将 Docker 容器部署到 Linux 上的 Service Fabric](service-fabric-get-started-containers-linux.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties -->

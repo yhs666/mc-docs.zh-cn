@@ -1,0 +1,33 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /event-hubs/
+      topicHref: /active-directory/index
+      items:
+        - name: Azure 资源的托管标识
+          tocHref: /event-hubs/
+          topicHref: /active-directory/managed-identities-azure-resources/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /service-bus-messaging/
+      topicHref: /active-directory/index
+      items:
+        - name: Azure 资源的托管标识
+          tocHref: /service-bus-messaging/
+          topicHref: /active-directory/managed-identities-azure-resources/index
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: Active Directory
+      tocHref: /app-service/
+      topicHref: /active-directory/index
+      items:
+        - name: Azure 资源的托管标识
+          tocHref: /app-service/
+          topicHref: /active-directory/managed-identities-azure-resources/index

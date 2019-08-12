@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: bbd0cec8954d68cd6d407991f47fbe8863444857
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: c26231270ffbf86e4282c24518c57498101c49d0
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731188"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818379"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Azure 诊断 1.2 配置架构
 > [!NOTE]
@@ -32,7 +32,7 @@ Azure 诊断可以与其他 Azure 诊断产品（例如 Azure Monitor，其中�
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- 有关使用 Azure 诊断的详细信息，请参阅 [Enabling Diagnostics in Azure Cloud Services](https://www.azure.cn/documentation/articles/cloud-services-dotnet-diagnostics/)（在 Azure 云服务中启用诊断）。  
+ 有关使用 Azure 诊断的详细信息，请参阅 [Enabling Diagnostics in Azure Cloud Services](/cloud-services/cloud-services-dotnet-diagnostics)（在 Azure 云服务中启用诊断）。  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>诊断配置文件示例  
  以下示例演示典型的诊断配置文件：  

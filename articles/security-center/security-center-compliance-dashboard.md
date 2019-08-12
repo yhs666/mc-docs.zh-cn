@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2bc93dccf9db87c78d3c8d7b061663c19bcc21cc
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ada017c615603bb9952ad255834dde391a1c40d2
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570272"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818564"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>教程：提高合规性
 ---
@@ -37,7 +37,7 @@ Azure 安全中心使用合规性仪表板，可以根据合规性要求简化�
 ## <a name="prerequisites"></a>先决条件
 
 若要逐步执行本教程中介绍的功能，必须有安全中心的“标准”定价层。 可以免费试用安全中心标准版。
-若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。 快速入门教程“[将 Azure 订阅载入到安全中心标准版](https://docs.microsoft.com/azure/security-center/security-center-get-started)”详细介绍了如何升级到标准版。
+若要了解详细信息，请参阅[定价页](https://www.azure.cn/pricing/details/security-center/)。 快速入门教程“[将 Azure 订阅载入到安全中心标准版](/security-center/security-center-get-started)”详细介绍了如何升级到标准版。
 
 ##  <a name="assess-your-regulatory-compliance"></a>评估合规性
 

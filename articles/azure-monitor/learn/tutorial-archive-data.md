@@ -9,12 +9,12 @@ ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: eb16bf9f162952116319ff2fc80e8648f54dff7f
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 0327c7cd757fda14890b6e25a413600d106f5278
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513845"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818434"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 
@@ -144,7 +144,7 @@ Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和�
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>查看存储帐户中的监视数据
 
 > [!WARNING]
-> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/25/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: f4dfa762826b9942a687cd0b1566eba73575668f
-ms.sourcegitcommit: 4fbef0ad2ed0a76b89bb69c8984c75668a338c6e
+ms.openlocfilehash: 4b0c4e7ce1f4e76b61064652d599df62ed3c5c73
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812537"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912720"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>平台支持的从经典部署模型到 Azure Resource Manager 的 IaaS 资源迁移
 本文介绍如何将基础结构即服务 (IaaS) 资源从经典部署模型迁移到资源管理器部署模型，并详细说明如何使用虚拟网络站点到站点网关连接两个在订阅中共存的两个部署模型的资源。 用户可以阅读有关 [Azure Resource Manager 功能和优点](../articles/azure-resource-manager/resource-group-overview.md)的更多内容。 
@@ -129,4 +129,3 @@ Resource Manager 除了可让你通过模板部署复杂的应用程序之外，
 | Azure API 管理 |包含 Azure API 管理部署的虚拟网络 |目前不支持。 若要迁移 IaaS VNET，则更改 API 管理部署的 VNET（该部署不会造成停机）。 |
 
 <!--Update_Description: wording update-->
-<!--ms.date: 07/30/2018-->

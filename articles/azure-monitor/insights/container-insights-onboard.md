@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3f8f92c61f4af020f70d8148d67f9f3888130a9c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 1c06444b8b61396081bae6fba74dddfa904161ae
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513865"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818329"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何为容器启用 Azure Monitor  
 
-本文概述了可用于为容器设置 Azure Monitor 的选项，这些选项用于监视部署到 Kubernetes 环境并托管在 [Azure Kubernetes 服务](https://docs.microsoft.com/azure/aks/)上的工作负荷的性能。
+本文概述了可用于为容器设置 Azure Monitor 的选项，这些选项用于监视部署到 Kubernetes 环境并托管在 [Azure Kubernetes 服务](/aks/)上的工作负荷的性能。
 
 可使用以下支持的方法为 AKS 的新部署，或是一个或多个现有部署启用适用于容器的 Azure Monitor：
 

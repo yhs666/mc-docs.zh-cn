@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/30/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7b2eb096b2d897f1631ccc9c689a8997961bbeb2
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 743a45969e70d9c69db1806f4c5ab3aa67bce1a9
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003910"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878770"
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>从基于 Windows 的 HDInsight 群集迁移到基于 Linux 的群集
 
@@ -70,18 +70,18 @@ ms.locfileid: "59003910"
     write-host "Default container: $clusterInfo.DefaultStorageContainer"
     ```
 
-2. 按照“在 HDInsight 中创建基于 Linux 的群集”文档中的步骤创建测试环境。 在创建群集之前停止，并改为选择“可选配置”。
+2. 按照“在 HDInsight 中创建基于 Linux 的群集”文档中的步骤创建测试环境。 在创建群集之前停止，并改为选择“可选配置”  。
 
-3. 从“可选配置”部分中，选择“链接的存储帐户”。
+3. 从“可选配置”部分中，选择“链接的存储帐户”  。
 
-4. 选择“添加存储密钥”，并在出现提示时选择步骤 1 中由 PowerShell 脚本返回的存储帐户。 在每个部分中单击“选择”。 最后，创建群集。
+4. 选择“添加存储密钥”  ，并在出现提示时选择步骤 1 中由 PowerShell 脚本返回的存储帐户。 在每个部分中单击“选择”。  最后，创建群集。
 
 5. 创建群集后，使用 **SSH** 连接到该群集。 有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 
 6. 从 SSH 会话中，使用以下命令来将文件从链接的存储帐户复制到新的默认存储帐户。 将 CONTAINER 替换为 PowerShell 返回的容器信息。 将 __ACCOUNT__ 替换为帐户名称。 将数据的路径替换为数据文件的路径。
 
     ```bash
-    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
+    hdfs dfs -cp wasb://CONTAINER@ACCOUNT.blob.core.chinacloudapi.cn/path/to/old/data /path/to/new/location
     ```
 
     > [!NOTE]
@@ -145,7 +145,7 @@ ms.locfileid: "59003910"
 
 ## <a name="management-and-monitoring"></a>监视和管理
 
-与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Apache Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.net) 上获得。
+与基于 Windows 的 HDInsight 配合使用的许多 Web UI（例如作业历史记录或 Yarn UI）均可通过 Apache Ambari 使用。 此外，Ambari Hive 视图提供使用 Web 浏览器运行 Hive 查询的方法。 Ambari Web UI 可在基于 Linux 的群集 (https://CLUSTERNAME.azurehdinsight.cn ) 上获得。
 
 有关使用 Ambari 的详细信息，请参阅以下文档：
 
@@ -157,7 +157,7 @@ ms.locfileid: "59003910"
 Ambari 提供能够通知群集潜在问题的警报系统。 警报以红色或黄色条目出现在 Ambari Web UI 中，也可以通过 REST API 检索警报。
 
 > [!IMPORTANT]
-> Ambari 警报表示可能有问题，而不表示已发生问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。
+> Ambari 警报表示可能  有问题，而不表示已发生  问题。 例如，你可能会收到无法访问 HiveServer2 的警报，但实际上仍可以正常访问它。
 >
 > 许多警报都是针对某项服务实现为基于间隔的查询，并预期在特定的时间范围内收到响应。 因此警报本身并不代表服务已关闭，而只是单纯表示该服务没有在预期时间范围内返回结果。
 
@@ -167,9 +167,9 @@ Linux 群集文件系统的布局与基于 Windows 的 HDInsight 群集不同。
 
 | 我需要查找... | 文件位于... |
 | --- | --- |
-| 配置 |`/etc`上获取。 例如， `/etc/hadoop/conf/core-site.xml` |
+| 配置 |`/etc`。 例如 `/etc/hadoop/conf/core-site.xml` |
 | 日志文件 |`/var/logs` |
-| Hortonworks 数据平台 (HDP) |`/usr/hdp`此处有两个目录，一个是当前 HDP 版本，另一个是 `current`。 `current` 目录包含位于版本号目录中的文件和目录的符号链接。 由于版本号随 HDP 版本的更新而更改，因此可将 `current` 目录作为访问 HDP 文件的便利方式。 |
+| Hortonworks 数据平台 (HDP) |`/usr/hdp`。此处有两个目录，一个是当前 HDP 版本，另一个是 `current`。 `current` 目录包含位于版本号目录中的文件和目录的符号链接。 由于版本号随 HDP 版本的更新而更改，因此可将 `current` 目录作为访问 HDP 文件的便利方式。 |
 | hadoop-streaming.jar |`/usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar` |
 
 一般而言，如果知道文件的名称，则可以从 SSH 会话使用以下命令来查找文件路径：
@@ -201,7 +201,7 @@ Pig 和 MapReduce 工作负荷在基于 Linux 的群集上很相似。 但是，
 | `set hive.execution.engine=tez;` 以启用 Tez |Apache Tez 是基于 Linux 的群集的默认执行引擎，因此不再需要 set 语句。 |
 | C# 用户定义函数 | 有关通过基于 Linux 的 HDInsight 验证 C# 组件的信息，请参阅[将 .NET 解决方案迁移到基于 Linux 的 HDInsight](hdinsight-hadoop-migrate-dotnet-to-linux.md) |
 | 服务器上的 CMD 文件或脚本作为 Hive 作业的一部分调用 |使用 Bash 脚本 |
-| `hive` 来自远程桌面的命令 |使用 [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
+| 从远程桌面运行 `hive` 命令 |使用 [Apache Hive Beeline](hadoop/apache-hadoop-use-hive-beeline.md)，或者[从 SSH 会话使用 Apache Hive](hdinsight-hadoop-use-hive-ssh.md) |
 
 ### <a name="pig"></a>Pig
 
@@ -231,7 +231,7 @@ Oozie 工作流支持 shell 操作。 shell 操作将默认 shell 用于操作�
 | 对于基于 Windows 的群集，我使用... | 对于基于 Linux 的群集... |
 | --- | --- |
 | Storm 仪表板 |Storm 仪表板不可用。 请参阅[在基于 Linux 的 HDInsight 上部署和管理 Apache Storm 拓扑](storm/apache-storm-deploy-monitor-topology-linux.md)，了解提交拓扑的方法 |
-| Storm UI |Storm UI 在 https://CLUSTERNAME.azurehdinsight.net/stormui 上提供 |
+| Storm UI |Storm UI 在 https://CLUSTERNAME.azurehdinsight.cn/stormui 上提供 |
 | 使用 Visual Studio 创建、部署和管理 C# 或混合拓扑 |可以使用 Visual Studio 在基于 Linux 的 Storm on HDInsight 上创建、部署和管理 C# (SCP.NET) 或混合拓扑。 它只能与在 2016 年 10 月 28 日之后创建的群集一起使用。 |
 
 ## <a name="apache-hbase"></a>Apache HBase

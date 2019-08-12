@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: v-lingli
-ms.openlocfilehash: ce35fb5b8ae5b05b0dc21089361040fd846c44da
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 7e8429157f5bb643f308ee2b008c961b9b5df4aa
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845205"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818459"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>使用自定义映像创建虚拟机池 
 
@@ -50,7 +50,7 @@ ms.locfileid: "67845205"
 
 ### <a name="prepare-a-vm"></a>准备 VM 
 
-若要为映像创建新 VM，请使用 Batch 支持的第一方 Azure 市场映像作为托管映像的基础映像。 仅第一方映像可以用作基础映像。 若要获取 Azure Batch 支持的 Azure 市场映像参考的完整列表，请参阅[列出节点代理 SKU](/rest/api/batchservice/account/listnodeagentskus) 操作。
+若要为映像创建新 VM，请使用 Batch 支持的第一方 Azure 市场映像作为托管映像的基础映像。 仅第一方映像可以用作基础映像。 若要获取 Azure Batch 支持的 Azure 市场映像参考的完整列表，请参阅[列出节点代理 SKU](https://docs.microsoft.com/rest/api/batchservice/account/listnodeagentskus) 操作。
 
 > [!NOTE]
 > 不能使用具有附加许可和购买条款的第三方映像作为基础映像。 有关这些市场映像的信息，请参阅 [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
@@ -70,7 +70,7 @@ ms.locfileid: "67845205"
 
 ### <a name="create-an-image-from-one-or-more-snapshots"></a>基于一个或多个快照创建映像
 
-若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](/cli/azure/image) 命令。 可以通过指定 OS 磁盘快照并选择性地指定一个或多个数据磁盘快照来创建映像。
+若要基于快照创建托管映像，请使用 Azure 命令行工具，例如 [az image create](/cli/image) 命令。 可以通过指定 OS 磁盘快照并选择性地指定一个或多个数据磁盘快照来创建映像。
 
 ## <a name="create-a-pool-from-a-custom-image-in-the-portal"></a>在 Azure 门户中使用自定义映像创建池
 
@@ -108,7 +108,7 @@ ms.locfileid: "67845205"
 
   如果使用[入站 NAT 池](pool-endpoint-configuration.md)来配置池，可以降低限制。
 
-- **重设大小超时** - 如果池包含固定数目的节点（不会自动缩放），请增大池的 resizeTimeout 属性的值，例如增大到 20-30 分钟。 如果在超时期限内池未达到其目标大小，请再次执行[重设大小操作](/rest/api/batchservice/pool/resize)。
+- **重设大小超时** - 如果池包含固定数目的节点（不会自动缩放），请增大池的 resizeTimeout 属性的值，例如增大到 20-30 分钟。 如果在超时期限内池未达到其目标大小，请再次执行[重设大小操作](https://docs.microsoft.com/rest/api/batchservice/pool/resize)。
 
   如果打算创建包含 300 个以上计算节点的池，可能需要多次重设池大小才能达到目标大小。
 

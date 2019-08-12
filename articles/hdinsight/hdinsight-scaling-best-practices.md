@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/10/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: a5afde65956294c4a5b58f85f1ca641e6a65127e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: ea786318b63228063f19c0150460b045c56dba6a
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845024"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878767"
 ---
 # <a name="scale-hdinsight-clusters"></a>缩放 HDInsight 群集
 
@@ -110,14 +110,14 @@ Microsoft 提供以下实用程序来缩放群集：
 
 若要查看挂起的和正在运行的作业列表，可以遵循以下步骤使用 YARN **ResourceManager UI**：
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择群集。  有关说明，请参阅[列出和显示群集](./hdinsight-administer-use-portal-linux.md#showClusters)。 群集会在新的门户页中打开。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择群集。  有关说明，请参阅[列出和显示群集](./hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。 群集会在新的门户页中打开。
 2. 在主视图中，导航到“群集仪表板”   >   “Ambari 主页”。 输入群集凭据。
 3. 在 Ambari UI 的左侧菜单中的服务列表内选择“YARN”。   
 4. 在“YARN”页中选择“快速链接”，将鼠标悬停在活动头节点上，然后选择“ResourceManager UI”。  
 
     ![ResourceManager UI](./media/hdinsight-scaling-best-practices/resourcemanager-ui.png)
 
-可以使用 `https://<HDInsightClusterName>.azurehdinsight.net/yarnui/hn/cluster` 直接访问 ResourceManager UI。
+可以使用 `https://<HDInsightClusterName>.azurehdinsight.cn/yarnui/hn/cluster` 直接访问 ResourceManager UI。
 
 可以看到作业的列表及其当前状态。 在屏幕截图中，当前有一个作业正在运行：
 

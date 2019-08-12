@@ -18,12 +18,12 @@ ms.topic: article
 origin.date: 05/27/2019
 ms.date: 07/01/2019
 ms.author: v-yiso
-ms.openlocfilehash: 01264bdc581495a5f9c9dac005aa2c92c5bb2f78
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 54444c1b11118108c6299aede95243088e239cff
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236029"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878641"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight 中 Apache Spark 群集上的 Jupyter notebook 的内核 
 
@@ -41,7 +41,7 @@ HDInsight Spark 群集提供可在 [Apache Spark](https://spark.apache.org/) 上
 
 ## <a name="create-a-jupyter-notebook-on-spark-hdinsight"></a>在 Spark HDInsight 上创建 Jupyter Notebook
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Spark 群集。  有关说明，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#showClusters)。 此时将打开“概述”  视图。
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择 Spark 群集。  有关说明，请参阅[列出和显示群集](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters)。 此时将打开“概述”  视图。
 
 2. 在“概述”  视图的“群集仪表板”  框中，选择 **Jupyter Notebook**。 出现提示时，请输入群集的管理员凭据。
 

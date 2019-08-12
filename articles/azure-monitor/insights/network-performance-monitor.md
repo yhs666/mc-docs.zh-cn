@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3bef9751d149fd98214d04bd0240f6187ec192e5
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: f5150cf454b5074867acef5e1b93e9ebbd380344
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514060"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818438"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -39,14 +39,13 @@ ms.locfileid: "68514060"
 
 * [ExpressRoute 监视器](network-performance-monitor-expressroute.md)：通过 Azure ExpressRoute 监视分支办事处与 Azure 之间的端到端连接和性能。  
 
-可在线查看相关信息，深入了解[网络性能监视器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)支持的各种功能。
  
 ## <a name="supported-regions"></a>支持的区域
 NPM 可从以下任一区域托管的工作区监视世界上任何地方网络和应用程序之间的连接：
 * 中国东部
 
 
-可在[文档](https://docs.microsoft.com/azure/expressroute/how-to-npm?utm_swu=8117)中查看支持 ExpressRoute 监视器的区域列表。
+可在[文档](/expressroute/how-to-npm?utm_swu=8117)中查看支持 ExpressRoute 监视器的区域列表。
 
 
 ## <a name="set-up-and-configure"></a>安装和配置

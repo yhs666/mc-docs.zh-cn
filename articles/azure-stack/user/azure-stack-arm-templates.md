@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 06/04/2019
-ms.date: 07/29/2019
+ms.date: 08/05/2019
 ms.author: v-jay
 ms.reviewer: justini
 ms.lastreviewed: 11/14/2018
-ms.openlocfilehash: 38bc20de4ee4145eb1338d43f36f4e48e244a6f2
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 7267589e8ea990a897555e7af9a25385e8701d3d
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513356"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908714"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>在 Azure Stack 中使用 Azure 资源管理器模板
 
@@ -78,7 +78,7 @@ ms.locfileid: "68513356"
 
 ## <a name="cancel-a-running-template-deployment"></a>取消正在运行的模板部署
 
-若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](/powershell/developer/cmdlet/cmdlet-overview)。
+若要取消正在运行的模板部署，请使用 [Stop-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell [cmdlet](https://docs.microsoft.com/powershell/developer/cmdlet/cmdlet-overview)。
 
 ## <a name="next-steps"></a>后续步骤
 

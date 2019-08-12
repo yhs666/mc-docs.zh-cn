@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e18801802414eaeda549a9716ed3ded1be49dbf4
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 990298d88e44b313afe250c87b9c691a55caa7f3
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513870"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818328"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>使用 Azure Monitor 进行持续监视
 
 持续监视是指在 DevOps 和 IT 运营生命周期的每个阶段中整合监视功能所要采用的流程和技术。 它有助于持续确保应用程序和基础结构在从开发环境转移到生产环境时保持正常的运行状况、性能和可靠性。 持续监视构建在持续集成和持续部署 (CI/CD) 的概念基础之上。CI/CD 可帮助你更快、更可靠地开发和交付软件，为用户持续提供价值。
 
-[Azure Monitor](overview.md) 是 Azure 中的统一监视解决方案，可跨云中和本地的应用程序与基础结构观察整个堆栈。 它可以在开发和测试过程中无缝配合 [Visual Studio 和 Visual Studio Code](https://visualstudio.microsoft.com/)，并可以在部署和运营过程中与 [Azure DevOps](/azure/devops/user-guide/index) 相集成，以提供发布管理和工作项管理。 它甚至可跨所选的 ITSM 和 SIEM 工具集成，以帮助跟踪现有 IT 流程中的问题和事件。
+[Azure Monitor](overview.md) 是 Azure 中的统一监视解决方案，可跨云中和本地的应用程序与基础结构观察整个堆栈。 它可以在开发和测试过程中无缝配合 [Visual Studio 和 Visual Studio Code](https://visualstudio.microsoft.com/)，并可以在部署和运营过程中与 [Azure DevOps](https://docs.microsoft.com/azure/devops/user-guide/index) 相集成，以提供发布管理和工作项管理。 它甚至可跨所选的 ITSM 和 SIEM 工具集成，以帮助跟踪现有 IT 流程中的问题和事件。
 
 本文介绍使用 Azure Monitor 在整个工作流中启用持续监视的具体步骤。 其中还包含了详细介绍如何实施不同功能的其他文档的链接。
 
@@ -45,7 +45,7 @@ ms.locfileid: "68513870"
 - 为环境中的不同应用程序和服务添加[监视解决方案](insights/solutions-inventory.md)。
 
 
-[基础结构即代码](/azure/devops/learn/what-is-infrastructure-as-code)是描述性模型中的基础结构的管理系统，它使用版本控制方式与 DevOps 团队用于源代码管理的方式相同。 它提高了环境的可靠性和可伸缩性，并让你利用管理应用程序时所用的类似流程。
+[基础结构即代码](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)是描述性模型中的基础结构的管理系统，它使用版本控制方式与 DevOps 团队用于源代码管理的方式相同。 它提高了环境的可靠性和可伸缩性，并让你利用管理应用程序时所用的类似流程。
 
 -  使用[资源管理器模板](platform/template-workspace-configuration.md)可以针对大量的资源启用监视和配置警报。
 - 使用 [Azure Policy](../governance/policy/overview.md) 可对资源强制实施不同的规则。 这可以确保这些资源始终符合企业标准和服务级别协议。 
@@ -60,8 +60,8 @@ ms.locfileid: "68513870"
 使用持续集成/持续部署可以根据自动测试的结果，将代码更改自动集成和部署到应用程序。 它简化了部署过程，并确保任何更改在转移到生产环境之前具有可靠的质量。
 
 
-- 使用 [Azure Pipelines](/azure/devops/pipelines) 可以实现持续部署，并可以根据 CI/CD 测试，自动化将代码提交到生产环境的整个流程。
-- 使用[质量门限](/azure/devops/pipelines/release/approvals/gates)可将监视功能集成到部署前或部署后的流程。 这可以确保应用程序从开发环境转移到生产环境时可以符合关键的运行状况/性能指标 (KPI)，并且基础结构环境或规模的任何差异不会对 KPI 造成负面影响。
+- 使用 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines) 可以实现持续部署，并可以根据 CI/CD 测试，自动化将代码提交到生产环境的整个流程。
+- 使用[质量门限](https://docs.microsoft.com/azure/devops/pipelines/release/approvals/gates)可将监视功能集成到部署前或部署后的流程。 这可以确保应用程序从开发环境转移到生产环境时可以符合关键的运行状况/性能指标 (KPI)，并且基础结构环境或规模的任何差异不会对 KPI 造成负面影响。
 - 在开发、测试、Canary 和生产等不同的部署环境之间[维护独立的监视实例](../azure-monitor/app/separate-resources.md)。这可以确保收集的数据与关联的应用程序和基础结构相关。 如果需要跨环境关联数据，可以使用[指标资源管理器中的多资源图表](../azure-monitor/platform/metrics-charts.md)，或者[在 Azure Monitor 中创建跨资源查询](log-query/cross-workspace-query.md)。
 
 

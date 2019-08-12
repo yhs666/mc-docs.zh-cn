@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/05/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: e811aacd944a5d9cd3c6208407e2edbabfd0e512
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 3a7f73f5709d061b5d49553180174febb0722bbd
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845352"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878509"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 基础结构最佳做法
 
@@ -111,7 +111,7 @@ $hiveConfigValues = @{"hive.metastore.client.socket.timeout"="90"}
 
 $config = New—AzHDInsightClusterConfig '
     | Set—AzHDInsightDefaultStorage
-    —StorageAccountName "$defaultStorageAccountName.blob. core.windows.net" `
+    —StorageAccountName "$defaultStorageAccountName.blob. core.chinacloudapi.cn" `
     —StorageAccountKey "defaultStorageAccountKey " `
     | Add—AzHDInsightConfigValues `
         —HiveSite $hiveConfigValues
@@ -138,7 +138,7 @@ New—AzHDInsightCluster `
 - 测试客户端应用程序
 - 托管客户端应用程序
 
-可以通过 Azure 门户创建和删除边缘节点，可以在创建群集期间或之后使用边缘节点。 创建边缘节点后，可以使用 SSH 连接到该节点，运行客户端工具访问 HDInsight 中的 Hadoop 群集。 边缘节点 SSH 终结点为 `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22`。
+可以通过 Azure 门户创建和删除边缘节点，可以在创建群集期间或之后使用边缘节点。 创建边缘节点后，可以使用 SSH 连接到该节点，运行客户端工具访问 HDInsight 中的 Hadoop 群集。 边缘节点 SSH 终结点为 `<EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.cn:22`。
 
 
 有关详细信息，请参阅[在 HDInsight 中的 Apache Hadoop 群集上使用空边缘节点](../hdinsight-apps-use-edge-node.md)一文。

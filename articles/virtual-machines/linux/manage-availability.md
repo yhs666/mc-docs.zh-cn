@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/27/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68cadf4fe7b7eaa7e360835245832abba94cbcbf
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ac4bf02e4a01dec17321ce40b7a388544743ee30
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570428"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912741"
 ---
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>管理 Linux 虚拟机的可用性
 

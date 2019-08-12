@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 01/10/2018
 ms.author: v-yiso
 ms.date: 01/21/2019
-ms.openlocfilehash: cadbbb38572fd69e5713d40cbcf6e831769957a8
-ms.sourcegitcommit: f159d58440b39f5f591dae4e92e6f4d500ed3fc1
+ms.openlocfilehash: ed422944550b4a5f0170002618cf6a2edf63e7e2
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216269"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878702"
 ---
 # <a name="install-published-application---h2o-sparkling-water"></a>安装已发布的应用程序 - H2O Sparkling Water
 
@@ -59,9 +59,9 @@ H2O Sparkling Water 提供：
 
 ## <a name="launch-h2o-sparkling-water"></a>启动 H2O Sparkling Water
 
-1. 安装完成后，可以在 Azure 门户中打开 [Jupyter Notebook](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.net/jupyter`)，通过群集开始使用 H2O Sparkling Water (h2o-sparklingwater)。 转到 Jupyter 的另一种方法是在门户上的群集窗格中选择“群集仪表板”，然后选择“Jupyter Notebook”。 系统会提示输入凭据。 输入创建群集时指定的群集 Hadoop 凭据。
+1. 安装完成后，可以在 Azure 门户中打开 [Jupyter Notebook](https://jupyter.org/) (`https://<ClusterName>.azurehdinsight.cn/jupyter`)，通过群集开始使用 H2O Sparkling Water (h2o-sparklingwater)。 转到 Jupyter 的另一种方法是在门户上的群集窗格中选择“群集仪表板”，然后选择“Jupyter Notebook”。   系统会提示输入凭据。 输入创建群集时指定的群集 Hadoop 凭据。
 
-2. 在 Jupyter 中，可以看到以下三个文件夹：H2O-PySparkling-Examples、PySpark Examples 和 Scala Examples。 选择“H2O-PySparkling-Examples”文件夹。
+2. 在 Jupyter 中，可以看到以下三个文件夹：H2O-PySparkling-Examples、PySpark Examples 和 Scala Examples。 选择“H2O-PySparkling-Examples”文件夹。 
 
     ![Jupyter Notebook 主页](./media/hdinsight-apps-install-h2o/jupyter-home.png)
 
@@ -76,19 +76,19 @@ H2O Sparkling Water 提供：
 5. H2O 群集启动并运行后，转到 **`https://<ClusterName>-h2o.apps.azurehdinsight.cn:443`** 打开 H2O Flow。
 
     > [!NOTE]
-    > 如果无法打开 H2O Flow，请尝试清除浏览器缓存。 如果仍然无法访问它，则可能表示群集中没有足够的资源。 请尝试在群集窗格中的“缩放群集”选项下增加工作节点的数目。
+    > 如果无法打开 H2O Flow，请尝试清除浏览器缓存。 如果仍然无法访问它，则可能表示群集中没有足够的资源。 请尝试在群集窗格中的“缩放群集”选项下增加工作节点的数目。 
 
     ![H2O Flow 仪表板](./media/hdinsight-apps-install-h2o/h2o-flow.png)
 
-6. 在右侧菜单中选择“Million_Songs.flow”示例。 出现提示和警告时，请单击“加载 Notebook”。 几分钟后，将使用真实数据运行此演示。 目的是使用二元分类，基于数据预测该歌曲是在 2004 年之前还是之后发行的。
+6. 在右侧菜单中选择“Million_Songs.flow”示例。  出现提示和警告时，请单击“加载 Notebook”。  几分钟后，将使用真实数据运行此演示。 目的是使用二元分类，基于数据预测该歌曲是在 2004 年之前还是之后发行的。
 
     ![选择 Million_Songs.flow](./media/hdinsight-apps-install-h2o/million-songs.png)
 
-7. 查找包含 **milsongs-cls-train.csv.gz** 的路径，并将整个路径替换为 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz**。
+7. 查找包含 **milsongs-cls-train.csv.gz** 的路径，并将整个路径替换为 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-train.csv.gz** 。
 
-8. 查找包含 **milsongs-cls-test.csv.gz** 的路径，并将其替换为 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz**。
+8. 查找包含 **milsongs-cls-test.csv.gz** 的路径，并将其替换为 **https://h2o-public-test-data.s3.amazonaws.com/bigdata/laptop/milsongs/milsongs-cls-test.csv.gz** 。
 
-9. 若要执行 Notebook 单元中的所有语句，请在工具栏上选择“全部运行”按钮。
+9. 若要执行 Notebook 单元中的所有语句，请在工具栏上选择“全部运行”按钮。 
 
     ![全部运行](./media/hdinsight-apps-install-h2o/run-all.png)
 

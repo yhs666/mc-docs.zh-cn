@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7240ce30f87af2a74ae54bd3de428e2d10bf8369
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 0fb048cfb0a00defeeb0f4f15040bb8809d2f507
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513874"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818495"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -56,7 +56,7 @@ ms.locfileid: "68513874"
 
 企业计划对每个 Web 服务器节点每天发送的遥测进行收费。 如果要大规模使用连续导出，此计划非常合适。
 
-[阅读定价计划](https://www.azure.cn/pricing/details/application-insights/)。
+[阅读定价计划](https://www.azure.cn/pricing/details/monitor/)。
 
 ## <a name="how-much-is-it-costing"></a>花费是多少？
 
@@ -315,7 +315,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 
 ## <a name="how-long-does-it-take-for-telemetry-to-be-collected"></a>收集遥测数据需要多长时间？
 
-大多数 Application Insights 数据的延迟小于 5 分钟。 有些数据可能需要更长的时间，通常是较大的日志文件。 有关详细信息，请参阅 [Application Insights SLA](https://www.azure.cn/support/legal/sla/application-insights/v1_2/)。
+大多数 Application Insights 数据的延迟小于 5 分钟。 有些数据可能需要更长的时间，通常是较大的日志文件。 
 
 ## <a name="more-answers"></a>更多答案
 * [Application Insights 论坛](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)

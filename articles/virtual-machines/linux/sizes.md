@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 06/07/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: ff9ced5d19bd9fe75df9c0414ed23766ca550710
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 5ba7da61966051949af30164357e4cc481951486
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570410"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912994"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的大小
 本文介绍可用于运行 Linux 应用和工作负荷的 Azure 虚拟机的可用大小与选项。 此外，还提供在计划使用这些资源时要考虑的部署注意事项。 本文也适用于 [Windows 虚拟机](../windows/sizes.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。
@@ -36,12 +36,12 @@ ms.locfileid: "67570410"
 <!--Not Available on DC-->
 <!--Not Available [Storage optimized](sizes-storage.md) Lsv2, Ls-->
 <!--Not Available NV, NVv2, NC, NCv2, ND, NDv2 (Preview)-->
-<!--Not Available [High performance compute](sizes-hpc.md) H -->
+<!--Not Available [High performance compute](sizes-hpc.md) HB, HC, H -->
 
 <br />
 
 - 有关不同大小的定价信息，请参阅[虚拟机定价](https://www.azure.cn/pricing/details/virtual-machines/#Linux)。 
-- 有关各 Azure 区域中推出的 VM 大小，请查看[可用产品(按区域)](https://www.azure.cn/zh-cn/home/features/products-by-region)。
+- 有关各 Azure 区域中推出的 VM 大小，请查看[可用产品(按区域)](https://www.azure.cn/home/features/products-by-region)。
 - 若要查看 Azure VM 的一般限制，请参阅 [Azure 订阅和服务限制、配额与约束](../../azure-subscription-service-limits.md)。
 - 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
@@ -67,10 +67,15 @@ ms.locfileid: "67570410"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
+
+    <!--Not Available- [Storage optimized](sizes-storage.md) -->
+    
 - [GPU](sizes-gpu.md)
+
+    <!--Not Available- [High performance compute](sizes-hpc.md)-->
+    
 - 查看[上一代](sizes-previous-gen.md)页，了解 A Standard、Dv1（D1-4 和 D11-14 v1）系列。
 
-<!--Not Available- [Storage optimized](sizes-storage.md) -->
-<!--Not Available- [High performance compute](sizes-hpc.md)-->
+
 <!--Not Available on A8-A11 series-->
 <!--Update_Description: update meta properties, wording update, update link -->

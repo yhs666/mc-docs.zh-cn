@@ -4,7 +4,7 @@ description: 数分钟内在 Azure 应用服务 Web 应用中部署首个 PHP He
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.service: app-service-web
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 08/24/2018
-ms.date: 01/21/2019
-ms.author: v-biyu
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: a663d17635e2efa4a3d14656eb9ed6d9eb308de6
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: e76b94e51f4cc20692780e951d4f80bbae9415cf
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083726"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878576"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>在 Azure 中创建 PHP Web 应用
 
@@ -59,13 +59,11 @@ php -S localhost:8080
 
 打开 Web 浏览器并导航到 `http://localhost:8080` 处的示例应用。
 
-此时会看到来自示例应用的 Hello World! 消息（来自页面中显示的示例应用）。
+此时会看到来自示例应用的 Hello World!  消息（来自页面中显示的示例应用）。
 
 ![本地运行应用的示例](media/app-service-web-get-started-php/localhost-hello-world-in-browser.png)
 
 在终端窗口中，按 **Ctrl+C** 退出 Web 服务器。
-
-[!INCLUDE [Log in to Azure](../../includes/login-to-azure.md)] 
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
@@ -174,17 +172,17 @@ git commit -am "updated output"
 git push azure master
 ```
 
-完成部署后，返回到“浏览到应用”步骤期间打开的浏览器窗口，然后刷新页面。
+完成部署后，返回到“浏览到应用”步骤期间打开的浏览器窗口，然后刷新页面。 
 
-![已更新的在 Azure 中运行应用的示例](media/app-service-web-get-started-php/hello-azure-in-browser.png)
+![已更新的在 Azure 中运行的示例应用](media/app-service-web-get-started-php/hello-azure-in-browser.png)
 
-## <a name="manage-your-new-azure-web-app"></a>管理新 Azure Web 应用
+## <a name="manage-your-new-azure-app"></a>管理新的 Azure 应用
 
 转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
 
-在左侧菜单中单击“应用服务”，然后单击 Azure Web 应用的名称。
+在左侧菜单中单击“应用程序服务”  ，然后单击 Azure 应用的名称。
 
-![在门户中导航到 Azure Web 应用](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+![在门户中导航到 Azure 应用](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
 此时将显示 Web 应用的概述页。 在此处可以执行基本的管理任务，例如浏览、停止、启动、重启和删除。
 

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/28/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6f8e825bea0f788b6d666986595791c195f46f97
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 87b5f555af936c12797176e0d330d394e8cb4649
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004252"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912966"
 ---
 <!--Notice: Verify successfully on bash cmdlet-->
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>使用 SMB 在 Linux VM 上装载 Azure 文件存储
@@ -31,7 +31,7 @@ ms.locfileid: "66004252"
 
 将文件从 VM 移至托管在文件存储上的 SMB 装载，可以很轻松地调试日志。 同一 SMB 共享可以通过本地方式装载到 Mac、Linux 或 Windows 工作站。 SMB 不会是实时流式传输 Linux 或应用程序日志的最佳解决方案，因为 SMB 协议并非为处理那样重的日志记录任务而构建。 专用统一的日志记录层工具（如 Fluentd）会是 SMB 之上的更好选择，可收集 Linux 和应用程序日志记录输出。
 
-本指南需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
+本指南需要运行 Azure CLI 2.0.4 或更高版本。 若要查找版本，请运行 **az --version**。 如需进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
@@ -43,7 +43,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-a-storage-account"></a>创建存储帐户
 
-使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 在创建的资源组中创建一个新存储帐户。 此示例创建一个名为 *mySTORAGEACCT\<random number>* 的存储帐户，然后将该存储帐户的名称置于变量 **STORAGEACCT** 中。 存储帐户名称必须唯一，请使用 `$RANDOM` 将一个数字追加到名称末尾，使之变得唯一。
+使用 [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 在创建的资源组中创建一个新存储帐户。 此示例创建一个名为 *mySTORAGEACCT\<random number>* 的存储帐户，然后将该存储帐户的名称置于变量 **STORAGEACCT** 中。 存储帐户名称必须唯一，请使用 `$RANDOM` 将一个数字追加到名称末尾，使之变得唯一。
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -58,7 +58,7 @@ STORAGEACCT=$(az storage account create \
 
 创建存储帐户时，帐户密钥是成对创建的，这样是为了不中断任何服务就可轮换密钥。 轮换到密钥对中的第二个密钥后，创建新的密钥对。 新的存储帐户密钥始终成对创建，因此始终至少有一个未使用的存储帐户密钥可以切换到。
 
-使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 查看存储帐户密钥。 此示例将密钥 1 的值存储在 **STORAGEKEY** 变量中。
+使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) 查看存储帐户密钥。 此示例将密钥 1 的值存储在 **STORAGEKEY** 变量中。
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -69,7 +69,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## <a name="create-a-file-share"></a>创建文件共享
 
-使用 [az storage share create](https://docs.azure.cn/zh-cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create) 创建文件存储共享。 
+使用 [az storage share create](https://docs.azure.cn/cli/storage/share?view=azure-cli-latest#az-storage-share-create) 创建文件存储共享。 
 
 共享名必须全部采用小写字母、数字和单个连字符，但不能以连字符开头。 有关命名文件共享和文件的完整详细信息，请参阅 [命名和引用共享、目录、文件和元数据](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata)。
 

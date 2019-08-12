@@ -10,12 +10,12 @@ ms.topic: overview
 ms.workload: data-services
 ms.custom: seodec18
 ms.date: 1/3/2019
-ms.openlocfilehash: b81fafec57c90d4d7cda6d6a05843266d4a8bbb7
-ms.sourcegitcommit: 25b5e2efc0739cc09f3ddaabd7c2d098562aca1b
+ms.openlocfilehash: b587affa0c9e96f49457a470f0db2af219a86944
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54440273"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818203"
 ---
 # <a name="what-is-azure-stream-analytics"></a>什么是 Azure 流分析？
 
@@ -83,7 +83,7 @@ Azure 流分析在云中和智能边缘使用相同的查询语言，因此开�
 
 流分析保证刚好进行一次事件处理，以及至少进行一次事件传送，因此事件从来不会丢失。 它有内置的恢复功能，可以在事件传送失败时发挥作用。 另外，流分析会提供用于保留作业状态的内置检查点，并提供可重复的结果。
 
-作为托管服务，流分析保证在进行事件处理时，可以实现 99.9% 的可用性。 如需更多详细信息，请参阅[流分析的 SLA](https://www.azure.cn/support/legal/sla/stream-analytics/v1_0/) 页。 
+作为托管服务，流分析保证在进行事件处理时，可以实现 99.9% 的可用性。 如需更多详细信息，请参阅[流分析的 SLA](https://www.azure.cn/zh-cn/support/sla/stream-analytics/) 页。 
 
 ## <a name="performance"></a>性能
 

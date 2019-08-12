@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 01/09/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a6102cb0aa23e36e2325987f6148f493fdb77ec9
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 636c2793fb92415ea597e433d9c80945e4aa22c2
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569763"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913016"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>在运行 Linux 的 N 系列 VM 上安装 NVIDIA GPU 驱动程序
 
@@ -100,7 +100,7 @@ sudo reboot
 
 ### <a name="centos"></a>CentOS
 
-<!-- Not Available on Red Hat Enterprise Linux 7.3 or 7.4-->
+<!-- Not Available on Red Hat Enterprise Linux -->
 
 1. 更新内核（建议）。 如果选择不更新内核，请确保 `kernel-devel` 和 `dkms` 的版本适合你的内核。
 
@@ -109,6 +109,8 @@ sudo reboot
 
     sudo reboot
     ```
+    
+    <!--MOONCAKE: GLOBAL missing ```-->
 
 2. 安装最新的[适用于 Hyper-V 和 Azure 的 Linux 集成服务](https://www.microsoft.com/download/details.aspx?id=55106)。
 

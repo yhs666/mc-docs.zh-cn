@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/01/2018
-ms.date: 01/14/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0a1e7a9ea8f7bd27656e64dca0217b15f6c25667
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 7892d31afd5791319a58b17695b4ff8fd6b12ac9
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029232"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878758"
 ---
 # <a name="high-availability-of-your-data-with-apache-kafka-on-hdinsight"></a>通过 Apache Kafka on HDInsight 实现数据的高可用性
 

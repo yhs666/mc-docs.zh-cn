@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/21/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6eece3e4b88967a330897ef1f58e8672519e5f0c
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 920c6d78fe1b2ae500c4560aaa37485099038159
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570338"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912920"
 ---
 # <a name="azure-compute-unit-acu"></a>Azure 计算单元 (ACU)
 

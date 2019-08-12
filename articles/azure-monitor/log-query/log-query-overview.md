@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a9972fecca4a58acbff3196edad7b4916e653f0a
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 2717940b9eb8801999a326dbed4743192b783e10
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514037"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818286"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Azure Monitor 中的日志查询概述
 日志查询可帮助你充分利用 [Azure Monitor 日志](../platform/data-platform-logs.md)中收集的数据的价值。 使用功能强大的查询语言，只需编写极少量的代码即可联接多个表中的数据、聚合大型数据集，以及执行复杂的操作。 只要收集了支持数据，并且你了解如何构造适当的查询，就几乎能够解答任何问题和执行分析。
@@ -32,9 +32,9 @@ Azure Monitor 中的某些功能（例如[见解](../insights/insights-overview.
 - [在 Azure Monitor 日志查询中使用字符串](string-operations.md)
  
 ## <a name="what-language-do-log-queries-use"></a>日志查询使用哪种语言？
-Azure Monitor 日志基于 [Azure 数据资源管理器](/azure/data-explorer)，日志查询是使用相同的 Kusto 查询语言 (KQL) 编写的。 这是一种旨在方便阅读和创作的丰富语言，只需接受少量的指导，你就可以开始使用它。
+Azure Monitor 日志基于 [Azure 数据资源管理器](/data-explorer)，日志查询是使用相同的 Kusto 查询语言 (KQL) 编写的。 这是一种旨在方便阅读和创作的丰富语言，只需接受少量的指导，你就可以开始使用它。
 
-有关 KQL 的完整文档以及有关各种可用功能的参考，请参阅 [Azure 数据资源管理器 KQL 文档](/azure/kusto/query)。<br>
+有关 KQL 的完整文档以及有关各种可用功能的参考，请参阅 [Azure 数据资源管理器 KQL 文档](https://docs.microsoft.com/azure/kusto/query)。<br>
 有关使用 Azure Monitor 日志中的数据的快速语言演练，请参阅 [Azure Monitor 中的日志查询入门](get-started-queries.md)。
 有关 Azure Monitor 使用的 KQL 版本的次要差别，请参阅 [Azure Monitor 日志查询语言的差别](data-explorer-difference.md)。
 
@@ -96,7 +96,7 @@ Log Analytics 是 Azure 门户中用于编写日志查询以及以交互方式�
 - **仪表板。** 可以将任何查询的结果固定到 [Azure 仪表板](../learn/tutorial-logs-dashboards.md)，这使得你可以将日志和指标数据一起可视化，并且还可以将其与其他 Azure 用户共享。
 - **视图。**  可以使用[视图设计器](../platform/view-designer.md)创建要包含在用户仪表板中的数据的可视化效果。  日志查询提供每个视图中[磁贴](../platform/view-designer-tiles.md)和[可视化部件](../platform/view-designer-parts.md)使用的数据。  
 - **导出。**  将日志数据从 Azure Monitor 导入到 Excel 中时，请创建日志查询来定义要导出的数据。
-- **PowerShell。** 可从命令行运行 PowerShell 脚本或运行使用 [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) 的 Azure 自动化 runbook，从 Azure Monitor 中检索日志数据。  此 cmdlet 需要一个查询来确定要检索的数据。
+- **PowerShell。** 可从命令行运行 PowerShell 脚本或运行使用 [Get-AzOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) 的 Azure 自动化 runbook，从 Azure Monitor 中检索日志数据。  此 cmdlet 需要一个查询来确定要检索的数据。
 - **Azure Monitor 日志 API。**  [Azure Monitor 日志 API](../platform/alerts-overview.md) 允许任何 REST API 客户端从工作区中检索日志数据。  API 请求包括针对 Azure Monitor 运行的查询，用于确定要检索的数据。
 
 

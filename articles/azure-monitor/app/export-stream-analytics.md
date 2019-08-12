@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 12cfb0057bab11f6110ffad48bc5f978994cdd4c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: e915b3493f927a88cb5aad1be5b754e7ab72fa8e
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513882"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818506"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>使用流分析处理从 Application Insights 导出的数据
-[Azure 流分析](https://www.azure.cn/services/stream-analytics/)是用于处理[从 Application Insights 导出](export-telemetry.md)的数据的理想工具。 流分析可以从各种源提取数据。 它可以转换和筛选数据，然后将其路由到各种接收器。
+[Azure 流分析](/stream-analytics/)是用于处理[从 Application Insights 导出](export-telemetry.md)的数据的理想工具。 流分析可以从各种源提取数据。 它可以转换和筛选数据，然后将其路由到各种接收器。
 
 在本示例中，我们将创建一个适配器用于从 Application Insights 提取数据，重命名和处理某些字段，然后通过管道将数据传送到 Power BI。
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 76ec4b48be8121746de7c2b59186049deeaff321
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: da4af180134738c6f675acf9354f34200bdda97e
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818492"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>将 Azure VM 备份到恢复服务保管库中
 
@@ -80,7 +80,7 @@ ms.locfileid: "67569984"
 默认情况下，保管库使用[异地冗余存储 (GRS)](/storage/common/storage-redundancy-grs)。
 
 - 如果保管库是主要备份机制，我们建议使用 GRS。
-- [本地冗余存储 (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fstorage%2fblobs%2ftoc.json) 的费用更低。
+- [本地冗余存储 (LRS)](/storage/common/storage-redundancy-lrs?toc=%2fstorage%2fblobs%2ftoc.json) 的费用更低。
 
 按如下所述修改存储复制类型：
 
@@ -197,7 +197,7 @@ Azure 备份通过为在计算机上运行的 Azure VM 代理安装一个扩展�
 **VM** | **详细信息**
 --- | ---
 **Windows** | 1.[下载并安装](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)代理 MSI 文件。<br/><br/> 2.使用管理员权限在计算机上进行安装。<br/><br/> 3.验证安装。 在 VM 上的“C:\WindowsAzure\Packages”中，右键单击“WaAppAgent.exe” >  选择“属性”。    在“详细信息”选项卡上，“产品版本”应为 2.6.1198.718 或更高。  <br/><br/> 若要更新代理，请确保没有备份操作正在运行，并[重新安装代理](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)。
-**Linux** | 使用分发版包存储库中的 RPM 或 DEB 包安装代理。 这是安装和升级 Azure Linux 代理的首选方法。 所有 [认可的分发版提供商](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 会将 Azure Linux 代理包集成到其映像和存储库。 [GitHub](https://github.com/Azure/WALinuxAgent) 上提供了该代理，但我们不建议从此处安装。<br/><br/> 若要更新代理，请确保没有备份操作正在运行，并更新二进制文件。
+**Linux** | 使用分发版包存储库中的 RPM 或 DEB 包安装代理。 这是安装和升级 Azure Linux 代理的首选方法。 所有 [认可的分发版提供商](/virtual-machines/linux/endorsed-distros) 会将 Azure Linux 代理包集成到其映像和存储库。 [GitHub](https://github.com/Azure/WALinuxAgent) 上提供了该代理，但我们不建议从此处安装。<br/><br/> 若要更新代理，请确保没有备份操作正在运行，并更新二进制文件。
 
 ### <a name="explicitly-allow-outbound-access"></a>显式允许出站访问
 
@@ -296,13 +296,6 @@ VM 上运行的备份扩展需要对 Azure 公共 IP 地址进行出站访问。
 Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
 Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
 ```
-
-##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>使用 FQDN 标记允许通过防火墙访问
-
-可以设置 Azure 防火墙，以允许网络流量对 Azure 备份进行出站访问。
-
-- [了解](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)如何部署 Azure 防火墙。
-- [了解](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN 标记。
 
 
 

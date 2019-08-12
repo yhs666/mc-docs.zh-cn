@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c6414c90a6e5ff41a6ce919159019e5a3551df45
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 566e607deb40cfaff52b97fa65f5ff5090bd2ccb
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514061"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818316"
 ---
 # <a name="service-connectivity-monitor"></a>服务连接监视器
 
@@ -64,7 +64,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
     * 如果要监视响应 HTTP/S 请求的服务（例如 outlook.office365.com 或 bing.com）的连接，请选择“Web”。 <br>
     * 如果要监视响应 TCP 请求，但不响应 HTTP/S 请求的服务（例如 SQL 服务器、FTP 服务器、SSH 端口等）的连接，请选择“网络”。  
-    * 例如：若要为 blob 存储帐户创建 Web 测试，请选择 **Web** 并输入目标为 *yourstorageaccount*.blob.core.chinacloudapi.cn。 同样，可以使用[此链接](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)为其他表存储、队列存储和 Azure 文件存储创建测试。
+    * 例如：若要为 blob 存储帐户创建 Web 测试，请选择 **Web** 并输入目标为 *yourstorageaccount*.blob.core.chinacloudapi.cn。 同样，可以使用[此链接](/storage/common/storage-account-overview#storage-account-endpoints)为其他表存储、队列存储和 Azure 文件存储创建测试。
 4. 如果你不希望执行网络度量（例如网络延迟、数据包丢失和拓扑发现），请清除“执行网络度量”  复选框。 保持选中此项可以最大程度地利用此功能。 
 5. 在“目标”  中，输入要监视其网络连接的目标 URL/FQDN/IP 地址。
 6. 在“端口号”中，输入目标服务的端口号。  

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 04/08/2019
 ms.date: 05/20/2019
 ms.author: v-yiso
-ms.openlocfilehash: 176d727888428a1b0b073b3a15b9add61f64eccd
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: d1def6f8dfe9c4d3fb5f5f74bf8a70a3d6a9675b
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520788"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878510"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 数据迁移最佳做法
 
@@ -83,7 +83,7 @@ DistCp 会尝试创建映射任务，使每个副本的字节数大致相同。 
 看看传递参数 `-Dmapreduce.fileoutputcommitter.algorithm.version=2` 是否能够提高 DistCp 的性能。 此输出提交器算法在将输出文件写入到目标方面做了优化。 以下示例命令演示了不同参数的用法：
 
 ```bash
-hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.windows.net/foo/
+hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatusThreads 30 -m 100 -strategy dynamic hdfs://nn1:8020/foo/bar wasb://<container_name>@<storage_account_name>.blob.core.chinacloudapi.cn/foo/
 ```
 
 ## <a name="metadata-migration"></a>元数据迁移
@@ -105,7 +105,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 - 使用“Hive MetaTool”将 HDFS URL 替换为 WASB/ADLS/ABFS URL，例如：
 
 ```bash
-./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
+./hive --service metatool -updateLocation hdfs://nn1:8020/ wasb://<container_name>@<storage_account_name>.blob.core.chinacloudapi.cn/
 ```
 
 ### <a name="apache-ranger"></a>Apache Ranger

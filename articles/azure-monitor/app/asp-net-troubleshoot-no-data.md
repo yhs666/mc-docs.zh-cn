@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 253cf0a5e261266b5ed945b4eacdec414d5caacc
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: a45a9589042b11467fc63b698fdfe9cde9681841
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562725"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818370"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>排查无数据问题 - 用于 .NET 的 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>缺少一些遥测数据
@@ -50,7 +50,7 @@ ms.locfileid: "67562725"
 *在解决方案资源管理器中右键单击现有项目时，未看到任何 Application Insights 选项。*
 
 * 工具并非支持所有类型的 .NET 项目。 支持 Web 和 WCF 项目。 对于其他项目类型，例如桌面或服务应用程序，仍可以[手动将 Application Insights SDK 添加到项目](../../azure-monitor/app/windows-desktop.md)。
-* 请务必使用 [Visual Studio 2013 Update 3 或更高版本](https://docs.microsoft.com/zh-cn/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 该软件预装了开发人员分析工具，其中提供了 Application Insights SDK。
+* 请务必使用 [Visual Studio 2013 Update 3 或更高版本](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs)。 该软件预装了开发人员分析工具，其中提供了 Application Insights SDK。
 * 选择“工具”、“扩展和更新”，检查“开发人员分析工具”是否已安装并启用。    如果是，请单击“更新”查看是否有可用的更新。 
 * 打开“新建项目”对话框，选择“ASP.NET Web 应用程序”。 如果看到了 Application Insights 选项，则表示工具已安装。 否则，请尝试卸载再重新安装 Developer Analytics Tools。
 
@@ -172,7 +172,7 @@ ApplicationInsights.config 中的检测密钥控制遥测数据发送到的位�
 
 ## <a name="i-used-to-see-data-but-it-has-stopped"></a>我以前看到了数据，但现在看不到
 * 请查看[状态博客](https://blogs.msdn.com/b/applicationinsights-status/)。
-* 是否达到了数据点的每月配额？ 打开“设置/配额和定价”即可检查。如果达到了配额，可以升级计划，或付费购买更多的容量。 请参阅[定价方案](https://www.azure.cn/pricing/details/application-insights/)。
+* 是否达到了数据点的每月配额？ 打开“设置/配额和定价”即可检查。如果达到了配额，可以升级计划，或付费购买更多的容量。 请参阅[定价方案](https://www.azure.cn/pricing/details/monitor/)。
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>未按预期看到所有数据
 如果应用程序发送大量数据，并且使用的是用于 ASP.NET 的 Application Insights SDK 2.0.0-beta3 或更高版本，则[自适应采样](../../azure-monitor/app/sampling.md)功能可以正常运行，只发送一部分遥测数据。

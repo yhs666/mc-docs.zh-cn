@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 49cf828315512a0e6a42c92f1d4bf1d281361f16
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 614465e1c63c0b8b59575ad29eaa3eaf7167a7f9
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562392"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818230"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 
@@ -45,7 +45,7 @@ Azure Monitor 中的指标存储在时序数据库中，该数据库经过优化
 ### <a name="logs"></a>日志
 [日志](data-platform-logs.md)是指系统中发生的事件。 它们可以包含不同类型的数据，并可以结构化，或者采用带时间戳的自由文本格式。 当环境中的事件生成日志项时，可以偶发性地创建日志；负载较重的系统往往会生成更多的日志。
 
-Azure Monitor 中的日志存储在基于 [Azure 数据资源管理器](/azure/data-explorer/)的 Log Analytics 工作区中。数据资源管理器提供强大的分析引擎和[丰富查询语言](/azure/kusto/query/)。 日志通常提供足够的信息来给出所要识别的问题的完整上下文，在识别问题的根本原因时很有价值。
+Azure Monitor 中的日志存储在基于 [Azure 数据资源管理器](/data-explorer/)的 Log Analytics 工作区中。数据资源管理器提供强大的分析引擎和[丰富查询语言](https://docs.microsoft.com/azure/kusto/query/)。 日志通常提供足够的信息来给出所要识别的问题的完整上下文，在识别问题的根本原因时很有价值。
 
 > [!NOTE]
 > 必须将 Azure Monitor 日志与 Azure 中的日志数据源区分开来。 例如，Azure 中的订阅级事件将写入到可以通过 Azure Monitor 菜单查看的[活动日志](activity-logs-overview.md)。 大多数资源会将操作信息写入可转发到不同位置的[诊断日志](diagnostic-logs-overview.md)。 Azure Monitor 日志是一个日志数据平台，它可以收集活动日志和诊断日志以及其他监视数据，以针对整个资源集提供深入分析。
@@ -83,7 +83,7 @@ Azure Monitor 中的分布式跟踪是使用 [Application Insights SDK](../app/d
 
 
 ## <a name="stream-data-to-external-systems"></a>将数据流式传输到外部系统
-除了使用 Azure 中的工具分析监视数据以外，可能还需要将这些数据转发到外部工具，例如某个安全信息和事件管理 (SIEM) 产品。 通常，这种转发是通过 [Azure 事件中心](/azure/event-hubs/)直接从受监视资源完成的。 可将某些源配置为直接向事件中心发送数据，同时，可以使用另一个进程（例如逻辑应用）来检索所需的数据。 有关详细信息，请参阅[将 Azure 监视数据流式传输到事件中心供外部工具使用](stream-monitoring-data-event-hubs.md)。
+除了使用 Azure 中的工具分析监视数据以外，可能还需要将这些数据转发到外部工具，例如某个安全信息和事件管理 (SIEM) 产品。 通常，这种转发是通过 [Azure 事件中心](/event-hubs/)直接从受监视资源完成的。 可将某些源配置为直接向事件中心发送数据，同时，可以使用另一个进程（例如逻辑应用）来检索所需的数据。 有关详细信息，请参阅[将 Azure 监视数据流式传输到事件中心供外部工具使用](stream-monitoring-data-event-hubs.md)。
 
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b0a12eee0c4c40d860206583ea25bde3849482e5
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 1fc76c333f25de322d45a33bdc2ddecfc36e343b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562900"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818284"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>跨 Azure Active Directory 租户将 Azure 活动日志收集到 Azure Monitor 中
 
@@ -129,7 +129,7 @@ ms.locfileid: "67562900"
    | Name           | 逻辑应用的唯一名称。 |
    | 订阅   | 选择将要包含该逻辑应用的 Azure 订阅。 |
    | 资源组 | 为逻辑应用选择现有的 Azure 资源组或创建新的资源组。 |
-   | 位置       | 选择用于部署逻辑应用的数据中心区域。 |
+   | Location       | 选择用于部署逻辑应用的数据中心区域。 |
    | Log Analytics  | 如果想要将逻辑应用的每次运行状态记录到 Log Analytics 工作区中，请选择此项。  |
 
     
@@ -340,4 +340,4 @@ ms.locfileid: "67562900"
 本文已介绍如何创建一个逻辑应用，用于从事件中心读取 Azure 活动日志并将其发送到 Log Analytics 工作区进行分析。 若要详细了解如何可视化工作区中的数据（包括创建仪表板），请查看有关可视化数据的教程。
 
 > [!div class="nextstepaction"]
-> [有关可视化日志搜索数据的教程](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [有关可视化日志搜索数据的教程](../../azure-monitor/learn/tutorial-logs-dashboards.md)

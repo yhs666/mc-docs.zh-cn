@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc85fa0768b08dd6e3d7455df13ef47846ac6a13
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: a711881a9594acdf225b7d1942ffa1c591588653
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514044"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818430"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>在 Azure 中创建管理解决方案文件（预览版）
 > [!NOTE]
@@ -236,7 +236,7 @@ Azure 中的管理解决方案作为[资源管理器模板](../../azure-resource
 * [将视图](solutions-resources-views.md)添加到管理解决方案。
 * [将 runbook 和其他自动化资源添加](solutions-resources-automation.md)到管理解决方案。
 * 了解[创作 Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)的详细信息。
-* 在 [Azure 快速启动模板](https://www.azure.cn/documentation/templates)中搜索不同 Resource Manager 模板的示例。
+* 在 [Azure 快速启动模板](https://docs.microsoft.com/azure/templates)中搜索不同 Resource Manager 模板的示例。
 
 
 

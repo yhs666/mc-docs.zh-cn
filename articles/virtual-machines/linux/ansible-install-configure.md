@@ -8,13 +8,13 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 04/30/2019
-ms.date: 07/01/2019
-ms.openlocfilehash: 928010f5fd52c33b7c860a23a7d6a038b1595e22
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 9466f8365470039dffde7d4179c215de6deab900
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570336"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912917"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>快速入门：在 Azure 中的 Linux 虚拟机上安装 Ansible

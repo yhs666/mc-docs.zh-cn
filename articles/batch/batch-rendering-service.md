@@ -7,12 +7,12 @@ origin.date: 08/02/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: conceptual
-ms.openlocfilehash: a8d3dd73f3dbca040539bd34b69590ad54074222
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: a0fc3bb543c9e16454812deb61457e5b0d5be3f4
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586860"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818456"
 ---
 # <a name="rendering-using-azure"></a>使用 Azure 进行渲染
 
@@ -79,7 +79,7 @@ Azure Batch 可用于许多工作负荷，但以下功能专门用于简化和�
 可通过多种方法使用 Azure Batch，所有这些方法同样适用于 Azure Batch 渲染。
 
 - API：
-  - 使用 [REST](https://docs.microsoft.com/rest/api/batchservice)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/batch)、[Python](https://docs.microsoft.com/python/api/overview/azure/batch)、[Java](https://docs.microsoft.com/java/api/overview/batch) 或其他支持的 API 编写代码。  开发人员可将 Azure Batch 功能集成到其现有应用程序或工作流（不管是在云中还是本地）中。  例如，[Autodesk Maya 插件](https://github.com/Azure/azure-batch-maya)利用 Batch Python API 来调用 Batch、创建和管理池、提交作业和任务，以及监视状态。
+  - 使用 [REST](https://docs.microsoft.com/rest/api/batchservice)、[.NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/batch)、[Python](https://docs.microsoft.com/python/api/overview/azure/batch)、[Java](/java/api/overview/batch) 或其他支持的 API 编写代码。  开发人员可将 Azure Batch 功能集成到其现有应用程序或工作流（不管是在云中还是本地）中。  例如，[Autodesk Maya 插件](https://github.com/Azure/azure-batch-maya)利用 Batch Python API 来调用 Batch、创建和管理池、提交作业和任务，以及监视状态。
 - 命令行工具：
   - 可以使用 [Azure 命令行](/cli/)或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 来编写 Batch 脚本。
   - 具体而言，Batch CLI 模板支持可以简化创建池和提交作业的操作。

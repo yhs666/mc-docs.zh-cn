@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/06/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: f56c0cf66999884fb2864f9b82937ccf4d785618
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 1422c76bafd4080566f03d0bb9a051dece896d92
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845194"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878765"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -301,7 +301,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
    |                     占位符值                      |                     替换的值                      |
    |------------------------------------------------------------|---------------------------------------------------------|
-   | wasbs://mycontainer@mystorageaccount.blob.core.windows.net |               从步骤 1 获取的值。               |
+   | wasbs://mycontainer@mystorageaccount.blob.core.chinacloudapi.cn |               从步骤 1 获取的值。               |
    |                           admin                            | HDInsight 群集的登录名（如果不是 admin）。 |
    |                         serverName                         |             Azure SQL 数据库服务器名称。             |
    |                          sqlLogin                          |            Azure SQL 数据库服务器登录名。             |

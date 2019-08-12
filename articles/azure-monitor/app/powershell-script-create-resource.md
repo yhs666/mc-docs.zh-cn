@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9c72c5f24aa730cca5256b67df0683ab25b28ef1
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 2d341e00344461e10175b9dbca7879acabfc260a
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732383"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818356"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>用于创建 Application Insights 资源的 PowerShell 脚本
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-如果想要使用 [Azure Application Insights](https://www.azure.cn/services/application-insights/) 监视新应用程序（或新的应用程序版本），请在世纪互联 Azure 中设置新资源。 将在该资源中分析和显示应用中的遥测数据。 
+如果想要使用 [Azure Application Insights](/azure-monitor/) 监视新应用程序（或新的应用程序版本），请在世纪互联 Azure 中设置新资源。 将在该资源中分析和显示应用中的遥测数据。 
 
 可以使用 PowerShell 自动创建新的资源。
 

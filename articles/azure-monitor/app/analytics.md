@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3437d9526ca3c57c09d3a49cf0534b7d3868462c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 26d46a7327df7be8c003dd00457b2b0db9dd8eee
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562736"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818375"
 ---
 # <a name="analytics-in-application-insights"></a>Application Insights 中的 Analytics
 Analytics 是 [Application Insights](app-insights-overview.md) 的强大搜索和查询工具。 Analytics 是一个 Web 工具，因此不需要安装。
@@ -28,7 +28,7 @@ Analytics 是 [Application Insights](app-insights-overview.md) 的强大搜索�
 还可以使用 [Analytics 练习场](https://go.microsoft.com/fwlink/?linkid=859557)，这是一个免费的演示环境，其中包含大量示例数据。
 
 ## <a name="relation-to-azure-monitor-logs"></a>与 Azure Monitor 日志的关系
-与 Azure Monitor 日志一样，Application Insights 分析基于 [Azure 数据资源管理器](/azure/data-explorer)并且也使用 [Kusto 查询语言](/azure/kusto/query)。 它使用与 Azure Monitor 日志相同的[日志分析门户](../log-query/get-started-portal.md)，虽然其数据存储在不同的分区中。
+与 Azure Monitor 日志一样，Application Insights 分析基于 [Azure 数据资源管理器](/data-explorer)并且也使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query)。 它使用与 Azure Monitor 日志相同的[日志分析门户](../log-query/get-started-portal.md)，虽然其数据存储在不同的分区中。
 
 无法直接从 Application Insights Analytics 访问 Log Analytics 工作区中的数据，也无法直接从 Log Analytics 访问应用程序数据。 要想同时查询这两个数据集，请[在 Log Analytics 中编写查询](../log-query/log-query-overview.md)并使用 [app() 表达式](../log-query/app-expression.md)来访问应用程序数据。
 
@@ -51,9 +51,9 @@ requests
 
 该语言具有许多相当不错的功能：
 
-* 按任何字段（包括自定义属性和指标）[筛选](/azure/kusto/query/whereoperator)原始应用遥测。
-* [加入](/azure/kusto/query/joinoperator)多个表 - 将请求与页面视图、依赖项调用、异常和日志跟踪关联起来。
-* 功能强大的统计[聚合](/azure/kusto/query/summarizeoperator)。
+* 按任何字段（包括自定义属性和指标）[筛选](https://docs.microsoft.com/azure/kusto/query/whereoperator)原始应用遥测。
+* [加入](https://docs.microsoft.com/azure/kusto/query/joinoperator)多个表 - 将请求与页面视图、依赖项调用、异常和日志跟踪关联起来。
+* 功能强大的统计[聚合](https://docs.microsoft.com/azure/kusto/query/summarizeoperator)。
 * 功能强大的即时可视化效果。
 * 可以用来以编程方式运行查询的 [REST API](https://dev.applicationinsights.io/)，例如通过 PowerShell。
 

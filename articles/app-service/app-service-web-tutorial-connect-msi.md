@@ -11,16 +11,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 10/24/2018
-ms.date: 07/15/2019
-ms.author: v-biyu
+origin.date: 06/21/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: mvc
-ms.openlocfilehash: ca71c2c939a934a4f2b7bb173e12ab46fd8f5d57
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: d5502aafdd2b0070cf30e15c7e366ea12579950b
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560267"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878610"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>教程：使用托管标识确保从应用服务进行的 Azure SQL 数据库连接的安全
 
@@ -39,7 +39,7 @@ ms.locfileid: "67560267"
 > * 使用 Azure AD 身份验证从 Visual Studio 连接到 SQL 数据库
 
 > [!NOTE]
-> 在本地 Active Directory (AD DS) 中，Azure Active Directory 身份验证_不同_于集成式 Windows 身份验证。 AD DS 和 Azure Active Directory 使用的身份验证协议完全不相同。
+>在本地 Active Directory 域服务 (AD DS) 中，Azure AD 身份验证不同于[集成式 Windows 身份验证](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10))  。 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

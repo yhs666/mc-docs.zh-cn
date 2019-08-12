@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b474f83b1f301d6d58947316b42129e3c5bdad8e
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 793cc8b6a1b5dca1387476c11bf0d89d2ebd2a73
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562651"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818340"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>状态监视器 v2：详细说明
 
@@ -224,7 +224,7 @@ SerializationVersion           1.1.0.1
 用于从 PowerShell 库下载并安装 Az.ApplicationMonitor 的 PowerShell 命令支持 `-Proxy` 参数。
 编写安装脚本时，请查看上述说明。
 
-Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 建议在 web.config 文件中配置应用的代理设置。 有关详细信息，请参阅 [Application Insights 常见问题解答：代理透传](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)。
+Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 建议在 web.config 文件中配置应用的代理设置。 有关详细信息，请参阅 [Application Insights 常见问题解答：代理透传](/azure-monitor/app/troubleshoot-faq#proxy-passthrough)。
 
 
 ## <a name="enable-monitoring"></a>启用监视

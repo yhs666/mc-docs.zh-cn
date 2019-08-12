@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: c5c12f633048d432ebf83ee3d3f2b9dc0058eb2c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4ec395d513be5dd6dcdffc3bf3c6ac34771ae9c1
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562273"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818214"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>将 Azure 监视数据流式传输到事件中心以便外部工具使用
 
@@ -25,10 +25,10 @@ ms.locfileid: "67562273"
 
 - **应用程序监视数据：** 有关已编写并在 Azure 上运行的代码的性能和功能的数据。 应用程序监视数据的示例包括性能跟踪、应用程序日志及用户遥测数据。 通常以下列的一种方式收集应用程序监视数据：
   - 用 [Application Insights SDK](../../azure-monitor/app/app-insights-overview.md) 等 SDK 检测代码。
-   - 运行一个监视代理（如 [Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)），以便侦听运行应用程序的计算机上的新应用程序日志。
-- **来宾 OS 监视数据：** 有关运行应用程序的操作系统的数据。 来宾 OS 监视数据的示例有 Linux syslog 或 Windows 系统日志。 若要收集此类型的数据，需安装代理，如[ Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
-- **Azure 资源监视数据：** 有关 Azure 资源操作的数据。 对于某些 Azure 资源类型（如虚拟机），该 Azure 服务中会监视来宾 OS 和应用程序。 对于其他 Azure 资源（如网络安全组），资源监视数据是可用数据的最高层（因为没有 来宾 OS 或应用程序在这些资源中运行）。 可以使用[资源诊断设置](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)收集这些数据。
-- **Azure 订阅监视数据：** 有关 Azure 订阅操作和管理的数据，以及有关 Azure 本身运行状况和操作的数据。 [活动日志](./../../azure-monitor/platform/activity-logs-overview.md)包含大多数订阅监视数据，例如服务运行状况事件和 Azure 资源管理器审核。 可以使用日志配置文件收集此数据。
+   - 运行一个监视代理（如 [Windows Azure 诊断代理](../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)），以便侦听运行应用程序的计算机上的新应用程序日志。
+- **来宾 OS 监视数据：** 有关运行应用程序的操作系统的数据。 来宾 OS 监视数据的示例有 Linux syslog 或 Windows 系统日志。 若要收集此类型的数据，需安装代理，如[ Windows Azure 诊断代理](../../azure-monitor/platform/diagnostics-extension-overview.md)或 [Linux Azure 诊断代理](../../virtual-machines/extensions/diagnostics-linux.md)。
+- **Azure 资源监视数据：** 有关 Azure 资源操作的数据。 对于某些 Azure 资源类型（如虚拟机），该 Azure 服务中会监视来宾 OS 和应用程序。 对于其他 Azure 资源（如网络安全组），资源监视数据是可用数据的最高层（因为没有 来宾 OS 或应用程序在这些资源中运行）。 可以使用[资源诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)收集这些数据。
+- **Azure 订阅监视数据：** 有关 Azure 订阅操作和管理的数据，以及有关 Azure 本身运行状况和操作的数据。 [活动日志](../../azure-monitor/platform/activity-logs-overview.md)包含大多数订阅监视数据，例如服务运行状况事件和 Azure 资源管理器审核。 可以使用日志配置文件收集此数据。
 - **Azure 租户监视数据：** 有关租户级 Azure 服务（例如 Azure Active Directory）操作的数据。 Azure Active Directory 审核和登录是租户监视数据的示例。 可以使用租户诊断设置收集此数据。
 
 可将任何层的数据发送到事件中心，以便将其拉取到合作伙伴工具。 可将某些源配置为直接向事件中心发送数据，同时，可能需要使用另一个进程（例如逻辑应用）来检索所需的数据。 以下各节描述了如何将每层数据配置为流式传输到事件中心。 这些步骤假定你拥有处于要监视的层的资产。
@@ -56,7 +56,7 @@ Azure 租户监视数据目前仅适用于 Azure Active Directory。 可以使�
 
 ## <a name="azure-subscription-monitoring-data"></a>Azure 订阅监视数据
 
-Azure 订阅监视数据可以在 [Azure 活动日志](./../../azure-monitor/platform/activity-logs-overview.md)中找到。 此日志包含来自资源管理器的创建、更新和删除操作；[Azure 服务运行状况](../../service-health/service-health-overview.md)中可能影响订阅中资源的更改；[资源运行状况](../../service-health/resource-health-overview.md)状态转换；以及若干其他类型的订阅级别事件。 [本文详细介绍了 Azure 活动日志中显示的所有事件类别](./../../azure-monitor/platform/activity-log-schema.md)。
+Azure 订阅监视数据可以在 [Azure 活动日志](../../azure-monitor/platform/activity-logs-overview.md)中找到。 此日志包含来自资源管理器的创建、更新和删除操作；[Azure 服务运行状况](../../service-health/service-health-overview.md)中可能影响订阅中资源的更改；[资源运行状况](../../service-health/resource-health-overview.md)状态转换；以及若干其他类型的订阅级别事件。 [本文详细介绍了 Azure 活动日志中显示的所有事件类别](../../azure-monitor/platform/activity-log-schema.md)。
 
 ### <a name="activity-log-data"></a>活动日志数据
 
@@ -89,7 +89,7 @@ Azure 资源将发出两种类型的监视数据：
 
 ### <a name="windows-data"></a>Windows 数据
 
-[Windows Azure 诊断代理](./../../azure-monitor/platform/diagnostics-extension-overview.md)用于将来自 Windows 计算机的监视数据发送到事件中心。 在 WAD 配置文件的 privateConfig 部分添加事件中心作为接收器，即可完成此操作。 [参阅此文章，详细了解如何向 Windows Azure 诊断代理添加事件中心接收器](./../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)。
+[Windows Azure 诊断代理](../../azure-monitor/platform/diagnostics-extension-overview.md)用于将来自 Windows 计算机的监视数据发送到事件中心。 在 WAD 配置文件的 privateConfig 部分添加事件中心作为接收器，即可完成此操作。 [参阅此文章，详细了解如何向 Windows Azure 诊断代理添加事件中心接收器](../../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)。
 
 > [!NOTE]
 > 不能在门户中将来宾 OS 监视数据设置为流式传输到事件中心。 相反，必须手动编辑配置文件。

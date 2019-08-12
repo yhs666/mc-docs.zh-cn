@@ -9,14 +9,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 origin.date: 12/17/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d7109ac907c636af50f15cfba2698814bd8bd507
-ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
+ms.openlocfilehash: de0b6af74b198e6587c525d9a122de559b62f225
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277532"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912922"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Linux 扩展
 
@@ -62,6 +62,8 @@ VM 快照扩展要求在我们获取虚拟机的备份时，目标虚拟机已�
   }
 }
 ```
+
+<!--MOONCAKE: The extension type is VMSnapshotLinux-->
 
 ### <a name="property-values"></a>属性值
 
@@ -113,6 +115,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: update meta properties, wording update, update az cmdlet -->

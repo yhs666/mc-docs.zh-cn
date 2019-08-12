@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9511e254ad570f0530ba8869104c31fe03d65583
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b8b6b0ab72317eed71d579dadf6512cbeec5f606
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666275"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912985"
 ---
 # <a name="use-cloud-init-to-set-hostname-for-a-linux-vm-in-azure"></a>在 Azure 中使用 cloud-init 设置 Linux VM 的主机名
 本文演示如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时间配置虚拟机 (VM) 或虚拟机规模集 (VMSS) 上特定的主机名。 Azure 预配资源后，这些 cloud-init 脚本即会在第一次启动时运行。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
 
 ## <a name="set-the-hostname-with-cloud-init"></a>使用 cloud-init 设置主机名称
-默认情况下，在 Azure 中创建新的虚拟机时，主机名和 VM 名称相同。  如果希望在 Azure 中使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 时通过运行 cloud-init 脚本来更改默认主机名，请通过 `--custom-data` 开关指定 cloud-init 文件。  
+默认情况下，在 Azure 中创建新的虚拟机时，主机名和 VM 名称相同。  如果希望在 Azure 中使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 时通过运行 cloud-init 脚本来更改默认主机名，请通过 `--custom-data` 开关指定 cloud-init 文件。  
 
-要查看操作中的升级进程，请在本地 shell 中创建一个名为“cloud_init_hostname.txt”的文件并粘贴下面的配置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_hostname.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+要查看操作中的升级进程，请在本地 shell 中创建一个名为“cloud_init_hostname.txt”的文件并粘贴下面的配置  。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_hostname.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器  。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
 
 <!-- Not Available on Cloud Shell -->
 
@@ -37,13 +37,13 @@ ms.locfileid: "56666275"
 hostname: myhostname
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_hostname.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_hostname.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \

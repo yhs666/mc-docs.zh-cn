@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 11/06/2018
 ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5c781f39dd3f6394b42d598d8f6b37c8bcfedaf0
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 278443cce43d73dbdc9733cd48d81efab672dde8
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424695"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878491"
 ---
 # <a name="monitor-cluster-performance"></a>监视群集性能
 
@@ -74,9 +74,9 @@ YARN 队列管理器页的左侧显示队列的列表，以及分配给每个队
 
 ## <a name="storage-throttling"></a>存储限制
 
-群集的性能瓶颈可能发生于存储级别。 出现此类瓶颈的最常见原因为阻止  输入/输出 (IO) 操作，这发生在当正在运行的任务发送的 IO 超过了存储服务可以处理的 IO 数时。 这种阻止将创建等待处理完当前 IO 后再进行处理的 IO 请求队列。 发生此阻止的原因为存储限制  ，这并非物理限制，而是由存储服务通过服务级别协议 (SLA) 施加的限制。 此限制确保单个客户端或租户无法独占服务。 SLA 限制 Azure 存储的每秒 IO 数 (IOPS)。有关详细信息，请参阅 [Azure 存储可缩放性和性能目标](https://docs.microsoft.com/azure/storage/storage-scalability-targets)。
+群集的性能瓶颈可能发生于存储级别。 出现此类瓶颈的最常见原因为阻止  输入/输出 (IO) 操作，这发生在当正在运行的任务发送的 IO 超过了存储服务可以处理的 IO 数时。 这种阻止将创建等待处理完当前 IO 后再进行处理的 IO 请求队列。 发生此阻止的原因为存储限制  ，这并非物理限制，而是由存储服务通过服务级别协议 (SLA) 施加的限制。 此限制确保单个客户端或租户无法独占服务。 SLA 限制 Azure 存储的每秒 IO 数 (IOPS)。有关详细信息，请参阅 [Azure 存储可缩放性和性能目标](/storage/storage-scalability-targets)。
 
-如果使用 Azure 存储，有关监视与存储相关问题（包括限制）的信息，请参阅[监视、诊断和排查 Microsoft Azure 存储问题](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting)。
+如果使用 Azure 存储，有关监视与存储相关问题（包括限制）的信息，请参阅[监视、诊断和排查 Microsoft Azure 存储问题](/storage/storage-monitoring-diagnosing-troubleshooting)。
 
 
 ## <a name="next-steps"></a>后续步骤

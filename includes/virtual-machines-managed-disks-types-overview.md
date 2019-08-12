@@ -6,19 +6,23 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 01/22/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 05415328a61b2d79583892b5d9b0496e66ad9b4f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 913fc742e6bf0eeaf6e113fce2f7bd0eb418b486
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569783"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913034"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure 有哪些可用的磁盘类型？
 
+<!--MOONCAKE: CURRENT NO Ultra SSD-->
+
 Azure 托管磁盘当前提供了三种磁盘类型，它们都已公开发布 (GA)。 这三种磁盘类型的每一种都有自己的相应目标客户方案。
+
+<!--MOONCAKE: CURRENT NO Ultra SSD-->
 
 ## <a name="disk-comparison"></a>磁盘比较
 

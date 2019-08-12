@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 07/01/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d8eb3549120e0c3888104f7b5d379c4038b7022d
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 3092160e63fe804cbd521b98691789003fc36d09
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861661"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819627"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>在区域之间故障转移和重新保护 Azure VM
 
@@ -47,7 +47,7 @@ ms.locfileid: "67861661"
     * **最新处理**：将虚拟机还原到已由 Site Recovery 服务处理的最新恢复点。
     * **自定义**：故障转移到特定的恢复点。 此选项可用于执行测试故障转移。
 
-3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源 VM，请选择“在开始故障转移前关闭计算机”  。 即使关机失败，故障转移也仍会继续。 Site Recovery 不在故障转移之后清理源。
+3. 如果希望 Site Recovery 在触发故障转移之前尝试关闭源 VM，请选择“在开始故障转移前关闭计算机”  。 关闭有助于确保没有数据丢失。 即使关机失败，故障转移也仍会继续。 Site Recovery 不在故障转移之后清理源。
 
 4. 在“作业”页上跟踪故障转移进度。 
 

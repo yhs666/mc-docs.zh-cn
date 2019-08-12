@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: c9a6ffafca025d3ede42d677a8c74ae5995201f3
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 9931c65ab61658aaab0de044b4d99d7d0da8522b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818431"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>开始使用 App Center 和 Application Insights 分析移动应用
 
@@ -71,7 +71,7 @@ Analytics.trackEvent("Video clicked")
 2. 选择“创建资源”   >   “开发人员工具” >   “Application Insights”。
 
     > [!NOTE]
-    > 如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文档来了解更多信息。
+    > 如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)文档来了解更多信息。
 
     随后会显示一个配置对话框。 请使用下表填写输入字段。
 
@@ -94,7 +94,7 @@ Analytics.trackEvent("Video clicked")
 1. 在“设置”  页上，单击“导出”  。
 2. 选择“新建导出”  ，选择“Application Insights”  ，然后单击“自定义”  。
 3. 将 Application Insights 检测密钥粘贴到此框中。
-4. 同意增加包含 Application Insights 资源的 Azure 订阅的使用量。 每个 Application Insights 资源对每月收到的前 1GB 数据是免费的。 [了解有关 Application Insights 定价的详细信息。](/pricing/details/application-insights/)
+4. 同意增加包含 Application Insights 资源的 Azure 订阅的使用量。 每个 Application Insights 资源对每月收到的前 1GB 数据是免费的。 [了解有关 Application Insights 定价的详细信息。](https://www.azure.cn/pricing/details/monitor/)
 
 请务必为应用支持的每个平台重复此过程。
 

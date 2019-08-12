@@ -14,32 +14,32 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 origin.date: 02/24/2017
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 430ced8ea55ff358ee6516c6a9d52caca5550fc2
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 054b5c5906cc85e7d72ff57c90e1c478c3354665
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569755"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912724"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>如何使用 Azure CLI 为虚拟机设置 Key Vault
 
 在 Azure Resource Manager 堆栈中，密码/证书被建模为 Key Vault 所提供的资源。 若要了解有关 Azure 密钥保管库的详细信息，请参阅[什么是 Azure 密钥保管库？](../../key-vault/key-vault-whatis.md) 为了让 Key Vault 能与 Azure Resource Manager VM 搭配使用，必须将 Key Vault 上的 *EnabledForDeployment* 属性设置为 true。 本文说明如何通过 Azure CLI 设置用于 Azure 虚拟机 (VM) 的 Key Vault。 
 
-若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+若要执行这些步骤，需要安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库
-使用 [az keyvault create](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 创建密钥保管库并分配部署策略。 以下示例在 `myResourceGroup` 资源组中创建名为 `myKeyVault` 的密钥保管库：
+使用 [az keyvault create](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-create) 创建密钥保管库并分配部署策略。 以下示例在 `myResourceGroup` 资源组中创建名为 `myKeyVault` 的密钥保管库：
 
 ```azurecli
 az keyvault create -l chinanorth -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>更新用于 VM 的 Key Vault
-使用 [az keyvault update](https://docs.azure.cn/zh-cn/cli/keyvault?view=azure-cli-latest#az-keyvault-update) 在现有的密钥保管库上设置部署策略。 以下命令在 `myResourceGroup` 资源组中更新名为 `myKeyVault` 的密钥保管库：
+使用 [az keyvault update](https://docs.azure.cn/cli/keyvault?view=azure-cli-latest#az-keyvault-update) 在现有的密钥保管库上设置部署策略。 以下命令在 `myResourceGroup` 资源组中更新名为 `myKeyVault` 的密钥保管库：
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

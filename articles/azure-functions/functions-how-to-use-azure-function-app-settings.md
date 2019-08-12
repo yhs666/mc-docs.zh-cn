@@ -12,12 +12,12 @@ origin.date: 03/28/2018
 ms.date: 06/03/2019
 ms.author: v-junlch
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 23e80c945e70756f68a26da8b283630018f9c5e5
-ms.sourcegitcommit: 9e839c50ac69907e54ddc7ea13ae673d294da77a
+ms.openlocfilehash: d5f91098e3252174e071a440454065db36608ca3
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66491413"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878589"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>如何在 Azure 门户中管理 Function App 
 
@@ -64,7 +64,7 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 + [身份验证](#auth)
 + [API 定义](#swagger)
 
-若要深入了解如何使用应用服务设置，请参阅[配置 Azure 应用服务设置](../app-service/web-sites-configure.md)。
+若要深入了解如何使用应用服务设置，请参阅[配置 Azure 应用服务设置](../app-service/configure-common.md)。
 
 ### <a name="editor"></a>应用服务编辑器
 
@@ -127,7 +127,7 @@ Function App 运行于 Azure 应用服务平台，并由该平台维护。 在�
 
 ## <a name="next-steps"></a>后续步骤
 
-+ [配置 Azure 应用服务设置](../app-service/web-sites-configure.md)
++ [配置 Azure 应用服务设置](../app-service/configure-common.md)
 
 
 

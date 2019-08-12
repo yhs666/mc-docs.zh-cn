@@ -13,33 +13,33 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/07/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0859ab98adaa860512ace148b0c425f76dcc6e0
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6c047062644946331e053df9bf89f56a19c8b933
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569334"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912964"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>如何在 Azure 中创建具有多个网络接口卡的 Linux 虚拟机
 
 本文详述了如何使用 Azure CLI 创建具有多个 NIC 的 VM。
 
 ## <a name="create-supporting-resources"></a>创建支持资源
-安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 myResourceGroup  、mystorageaccount  和 myVM  。
 
-首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
+首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
 ```
 
-使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建一个名为 myVnet  的虚拟网络和一个名为 mySubnetFrontEnd  的子网：
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建一个名为 myVnet  的虚拟网络和一个名为 mySubnetFrontEnd  的子网：
 
 ```azurecli
 az network vnet create \
@@ -50,7 +50,7 @@ az network vnet create \
     --subnet-prefix 10.0.1.0/24
 ```
 
-使用 [az network vnet subnet create](https://docs.azure.cn/zh-cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) 为后端通信流创建子网。 以下示例创建名为 mySubnetBackEnd  的子网：
+使用 [az network vnet subnet create](https://docs.azure.cn/cli/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-create) 为后端通信流创建子网。 以下示例创建名为 mySubnetBackEnd  的子网：
 
 ```azurecli
 az network vnet subnet create \
@@ -60,7 +60,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”  的网络安全组：
+使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”  的网络安全组：
 
 ```azurecli
 az network nsg create \
@@ -69,7 +69,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>创建和配置多个 NIC
-使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建两个 NIC。 以下示例创建两个连接到网络安全组的 NIC（名为 myNic1  和 myNic2  ），其中一个 NIC 连接到每个子网：
+使用 [az network nic create](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建两个 NIC。 以下示例创建两个连接到网络安全组的 NIC（名为 myNic1  和 myNic2  ），其中一个 NIC 连接到每个子网：
 
 ```azurecli
 az network nic create \
@@ -89,7 +89,7 @@ az network nic create \
 ## <a name="create-a-vm-and-attach-the-nics"></a>创建 VM 并附加 NIC
 创建 VM 时，请使用 `--nics`指定所创建的 NIC。 还需要谨慎选择 VM 的大小。 可添加到 VM 的 NIC 数目有限制。 详细了解 [Linux VM 大小](sizes.md)。
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建一个名为 myVM  的 VM：
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建一个名为 myVM  的 VM：
 
 ```azurecli
 az vm create \
@@ -107,7 +107,7 @@ az vm create \
 ## <a name="add-a-nic-to-a-vm"></a>将 NIC 添加到 VM
 之前的步骤创建了具有多个 NIC 的 VM。 还可使用 Azure CLI 将 NIC 添加到现有 VM。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。 如果需要，可[调整 VM 的大小](change-vm-size.md)。
 
-使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建另一 NIC。 以下示例创建一个名为 myNic3  的 NIC，该 NIC 连接到后端子网和之前步骤中创建的网络安全组：
+使用 [az network nic create](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建另一 NIC。 以下示例创建一个名为 myNic3  的 NIC，该 NIC 连接到后端子网和之前步骤中创建的网络安全组：
 
 ```azurecli
 az network nic create \
@@ -118,13 +118,13 @@ az network nic create \
     --network-security-group myNetworkSecurityGroup
 ```
 
-若要将 NIC 添加到现有 VM，请先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 以下示例解除分配名为 myVM  的 VM：
+若要将 NIC 添加到现有 VM，请先使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 以下示例解除分配名为 myVM  的 VM：
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-使用 [az vm nic add](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-add) 添加 NIC。 以下示例将 myNic3  添加到 myVM  ：
+使用 [az vm nic add](https://docs.azure.cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-add) 添加 NIC。 以下示例将 myNic3  添加到 myVM  ：
 
 ```azurecli
 az vm nic add \
@@ -133,7 +133,7 @@ az vm nic add \
     --nics myNic3
 ```
 
-使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM：
+使用 [az vm start](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM：
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -142,13 +142,13 @@ az vm start --resource-group myResourceGroup --name myVM
 通过完成[为多个 NIC 配置来宾 OS](#configure-guest-os-for-multiple-nics) 中的步骤，将路由表添加到来宾 OS。
 
 ## <a name="remove-a-nic-from-a-vm"></a>从 VM 中删除 NIC
-若要从现有 VM 中删除 NIC，请先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 以下示例解除分配名为 myVM  的 VM：
+若要从现有 VM 中删除 NIC，请先使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 解除分配 VM。 以下示例解除分配名为 myVM  的 VM：
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-使用 [az vm nic remove](https://docs.azure.cn/zh-cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-remove) 删除 NIC。 以下示例从 myVM  中删除 myNic3  ：
+使用 [az vm nic remove](https://docs.azure.cn/cli/vm/nic?view=azure-cli-latest#az-vm-nic-remove) 删除 NIC。 以下示例从 myVM  中删除 myNic3  ：
 
 ```azurecli
 az vm nic remove \
@@ -157,7 +157,7 @@ az vm nic remove \
     --nics myNic3
 ```
 
-使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM：
+使用 [az vm start](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-start) 启动 VM：
 
 ```azurecli
 az vm start --resource-group myResourceGroup --name myVM
@@ -189,7 +189,7 @@ Azure 资源管理器模板使用声明性 JSON 文件来定义环境。 可以�
 
 前面的步骤创建了虚拟网络和子网，附加了 NIC，然后创建了 VM。 尚未创建公共 IP 地址，以及允许 SSH 流量的网络安全组规则。 若要为多个 NIC 配置来宾 OS，需要允许远程连接并在 VM 本地运行命令。
 
-若要允许 SSH 流量，请使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 创建网络安全组规则，如下所示：
+若要允许 SSH 流量，请使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 创建网络安全组规则，如下所示：
 
 ```azurecli
 az network nsg rule create \
@@ -200,7 +200,7 @@ az network nsg rule create \
     --destination-port-ranges 22
 ```
 
-使用 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址，并使用 [az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) 将其分配到第一个 NIC：
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址，并使用 [az network nic ip-config update](https://docs.azure.cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update) 将其分配到第一个 NIC：
 
 <!--MOONCAKE CUSTOMIZE BELOW public-ip create CORRECT-->
 
@@ -216,7 +216,7 @@ az network nic ip-config update \
 
 <!--MOONCAKE CUSTOMIZE ABOVE --public-ip-address CORRECT-->
 
-若要查看 VM 的公共 IP 地址，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show)，如下所示：
+若要查看 VM 的公共 IP 地址，请使用 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show)，如下所示：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query publicIps -o tsv

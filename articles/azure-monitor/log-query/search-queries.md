@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 58be995a1b060e89a415df341fcd9eeb0ce56811
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 759b38ea1d3370e0dce3b087b7b9f34d6db9e899
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562909"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818416"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Azure Monitor 日志中的搜索查询
 Azure Monitor 日志查询可以从表名或 search 命令开始。 本教程介绍基于搜索的查询。 每种方法各有优势。
@@ -138,4 +138,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 [Kusto 查询语言站点](/azure/kusto/query/)上参阅其他教程。
+- 在 [Kusto 查询语言站点](https://docs.microsoft.com/azure/kusto/query/)上参阅其他教程。

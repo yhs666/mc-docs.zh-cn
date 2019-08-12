@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/06/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: fdb7d58b6b9e32106ca88177dcaa68bfcbec1a1d
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: f8566b1b324b13089e065b166b106afa5048875d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845162"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878729"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>使用 Azure 门户管理 HDInsight 中的 Apache Hadoop 群集
 
@@ -28,7 +28,7 @@ ms.locfileid: "67845162"
 - HDInsight 中的现有 Apache Hadoop 群集。  请参阅[使用 Azure 门户在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-portal.md)。
 
 ## <a name="getting-started"></a>入门
-登录到 [https://portal.azure.com](https://portal.azure.cn)。
+登录到 [https://portal.azure.cn](https://portal.azure.cn)。
 
 
 ## <a name="list-and-show-clusters"></a> 列出并显示集群

@@ -15,17 +15,17 @@ ms.workload: na
 origin.date: 11/06/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 394895e4b4c1d305f8dbb74b464606e8d53e0606
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: c43d0b97fca465cea3e318ce858fb4cc59ae4821
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332175"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818540"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 中继 REST 教程
 本教程介绍如何生成简单的 Azure 中继主机应用程序，用于公开基于 REST 的接口。 REST 使 Web 客户端（例如 Web 浏览器）可通过 HTTP 请求访问服务总线 API。
 
-该教程使用 Windows Communication Foundation (WCF) REST 编程模型在 Azure 中继上构建 REST 服务。 有关详细信息，请参阅 WCF 文档中的 [WCF REST 编程模型](/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[设计和实现服务](/dotnet/framework/wcf/designing-and-implementing-services)。
+该教程使用 Windows Communication Foundation (WCF) REST 编程模型在 Azure 中继上构建 REST 服务。 有关详细信息，请参阅 WCF 文档中的 [WCF REST 编程模型](https://docs.microsoft.com/dotnet/framework/wcf/feature-details/wcf-web-http-programming-model)和[设计和实现服务](https://docs.microsoft.com/dotnet/framework/wcf/designing-and-implementing-services)。
 
 在本教程中，你将执行以下步骤：
 
@@ -50,9 +50,9 @@ ms.locfileid: "68332175"
 
 ## <a name="step-2-define-a-rest-based-wcf-service-contract-to-use-with-azure-relay"></a>步骤 2：定义基于 REST 的 WCF 服务约定以用于 Azure 中继
 
-创建创建 WCF REST 样式的服务时，必须定义协定。 约定指定主机支持的操作。 服务操作可以看作是 Web 服务方法。 协定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 属性应用到每个接口，且必须将 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用到每个操作。 如果具有 [ServiceContractAttribute](/dotnet/api/system.servicemodel.servicecontractattribute) 的接口中的方法没有 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute)，则该方法是不公开的。 该过程后面的示例中显示了这些任务所用的代码。
+创建创建 WCF REST 样式的服务时，必须定义协定。 约定指定主机支持的操作。 服务操作可以看作是 Web 服务方法。 协定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://docs.microsoft.com) 属性应用到每个接口，且必须将 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用到每个操作。 如果具有 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 的接口中的方法没有 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute)，则该方法是不公开的。 该过程后面的示例中显示了这些任务所用的代码。
 
-WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContractAttribute](/dotnet/api/system.servicemodel.operationcontractattribute) 添加一个属性：[WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute)。 此属性允许将接口中的方法映射到该接口另一侧的方法。 此示例使用 [WebGetAttribute](/dotnet/api/system.servicemodel.web.webgetattribute) 属性将一个方法链接到 HTTP GET。 这会使服务总线可以准确地检索并解释发送到接口的命令。
+WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 添加一个属性：[WebGetAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.web.webgetattribute)。 此属性允许将接口中的方法映射到该接口另一侧的方法。 此示例使用 [WebGetAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.web.webgetattribute) 属性将一个方法链接到 HTTP GET。 这会使服务总线可以准确地检索并解释发送到接口的命令。
 
 ### <a name="to-create-a-contract-with-an-interface"></a>使用接口创建协定
 1. 以管理员身份打开 Visual Studio：在“开始”  菜单中右键单击该程序，然后选择“以管理员身份运行”  。
@@ -73,7 +73,7 @@ WCF 协定和 REST 样式的协定的主要区别在于是否向 [OperationContr
     using System.IO;
     ```
    
-    [System.ServiceModel](/dotnet/api/system.servicemodel) 是让你以通过编程方式访问 WCF 基本功能的命名空间。 WCF 中继使用 WCF 的许多对象和属性来定义服务协定。 将在大多数中继应用程序中使用此命名空间。 同样[System.ServiceModel.Channels](/dotnet/api/system.servicemodel.channels) 可帮助定义通道，通道是用来与 Azure 中继和客户端 Web 浏览器通信的对象。 最后，[System.ServiceModel.Web](/dotnet/api/system.servicemodel.web) 包含的类型可用于创建基于 Web 的应用程序。
+    [System.ServiceModel](https://docs.microsoft.com/dotnet/api/system.servicemodel) 是让你以通过编程方式访问 WCF 基本功能的命名空间。 WCF 中继使用 WCF 的许多对象和属性来定义服务协定。 将在大多数中继应用程序中使用此命名空间。 同样[System.ServiceModel.Channels](https://docs.microsoft.com/dotnet/api/system.servicemodel.channels) 可帮助定义通道，通道是用来与 Azure 中继和客户端 Web 浏览器通信的对象。 最后，[System.ServiceModel.Web](https://docs.microsoft.com/dotnet/api/system.servicemodel.web) 包含的类型可用于创建基于 Web 的应用程序。
 7. 将 `ImageListener` 命名空间重命名为 **Microsoft.ServiceBus.Samples**。
    
     ```csharp
@@ -166,7 +166,7 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
     与其他接口实现类似，可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main()` 方法所在的文件相同。
-2. 将 [ServiceBehaviorAttribute](/dotnet/api/system.servicemodel.servicebehaviorattribute) 属性应用到 **IImageService** 类，以指示该类是 WCF 协定的实现。
+2. 将 [ServiceBehaviorAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicebehaviorattribute) 属性应用到 **IImageService** 类，以指示该类是 WCF 协定的实现。
    
     ```csharp
     [ServiceBehavior(Name = "ImageService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 72ed7a34e059181b08460ae707ef0ad1434186bf
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 8a32ea72897392d1744b701cb3a0a2917e663111
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332257"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818583"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>通过服务总线消息传递进行分布式跟踪和关联
 
@@ -42,7 +42,7 @@ ms.locfileid: "68332257"
 
 ### <a name="tracking-with-azure-application-insights"></a>使用 Azure Application Insights 进行跟踪
 
-[Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) 提供丰富的性能监视功能，包括自动请求和依赖项跟踪。
+[Microsoft Application Insights](/azure-monitor/) 提供丰富的性能监视功能，包括自动请求和依赖项跟踪。
 
 请根据项目类型安装 Application Insights SDK：
 - [ASP.NET](../azure-monitor/app/asp-net.md) - 安装版本 2.5-beta2 或更高版本

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 1cc963e1e08c6c8389684a0d1dc5011b186c1a7d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0685dae24fd9b29dc7f893d1176670d70502302d
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570468"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818475"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>跨 Azure 订阅和资源组移动恢复服务保管库（受限公共预览版）
 
@@ -25,7 +25,7 @@ ms.locfileid: "67570468"
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>移动恢复服务保管库的先决条件
 
-- 在跨资源组的保管库移动期间，源和目标资源组都会被锁定，从而阻止了写入和删除操作。 有关详细信息，请参阅[此文](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+- 在跨资源组的保管库移动期间，源和目标资源组都会被锁定，从而阻止了写入和删除操作。 有关详细信息，请参阅[此文](/azure-resource-manager/resource-group-move-resources)。
 - 只有订阅管理员有权移动保管库。
 - 要在订阅之间移动保管库，目标订阅必须与源订阅位于同一租户中，并且其状态应为“已启用”。
 - 必须有权对目标资源组执行写入操作。
@@ -35,7 +35,7 @@ ms.locfileid: "67570468"
 - 不管 VM 是否连同保管库一起移动，都始终可以从保管库中保留的备份历史记录还原该 VM。
 - Azure 磁盘加密要求密钥保管库和 VM 位于同一 Azure 区域和订阅中。
 - 若要移动包含托管磁盘的虚拟机，请参阅[此文](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/)。
-- 移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅中移动资源，还是将资源移到新订阅。 有关详细信息，请参阅[此文](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)。
+- 移动通过经典模型部署的资源时，其选项各不相同，具体取决于是在订阅中移动资源，还是将资源移到新订阅。 有关详细信息，请参阅[此文](/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations)。
 - 跨订阅移动保管库或将其移到新资源组后，为保管库定义的备份策略将会保留。
 - 不支持在 IaaS VM 中使用 Azure 文件存储、Azure 文件同步或 SQL 跨订阅和资源组移动保管库。
 - 如果跨订阅移动包含 VM 备份数据的保管库，则必须将 VM 移到同一订阅，并使用同一目标资源组来继续备份。<br>
@@ -147,7 +147,7 @@ az resource move --destination-group <destinationResourceGroupName> --ids <Vault
 
 可以在资源组和订阅之间移动许多不同类型的资源。
 
-有关详细信息，请参阅[将资源移到新资源组或订阅](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)。
+有关详细信息，请参阅[将资源移到新资源组或订阅](/azure-resource-manager/resource-group-move-resources)。
 
 
 

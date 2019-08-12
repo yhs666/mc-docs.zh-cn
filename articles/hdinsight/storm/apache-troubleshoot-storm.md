@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 12/06/2018
 ms.date: 02/04/2019
 ms.author: v-yiso
-ms.openlocfilehash: 11712e51b4318157590a8a1f3745bfe8cda925bd
-ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.openlocfilehash: 3ed68f729573ec94d69c8d80be8bfb2839d853b9
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906103"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878505"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
@@ -30,8 +30,8 @@ ms.locfileid: "54906103"
 
 ### <a name="ambari-ui"></a>Ambari UI
 1. 转到 Ambari 仪表板。
-2. 在服务列表中，选择“Storm”。
-3. 在“快速链接”菜单中，选择“Storm UI”。
+2. 在服务列表中，选择“Storm”。 
+3. 在“快速链接”菜单中，选择“Storm UI”。  
 
 ### <a name="direct-link"></a>直接链接
 可通过以下 URL 访问 Storm UI：
@@ -127,10 +127,10 @@ Storm 工作节点运行以下服务：
 有关在拓扑中使用 Storm 事件中心 Spout .jar 文件的详细信息，请参阅以下资源。
  
 ### <a name="java-based-topology"></a>基于 Java 的拓扑
-[使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (Java)](/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
  
 ### <a name="c-based-topology-mono-on-hdinsight-34-linux-storm-clusters"></a>基于 C# 的拓扑（HDInsight 3.4+ Linux Storm 群集上的 Mono）
-[使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (C#)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
+[使用 Apache Storm on HDInsight 从 Azure 事件中心处理事件 (C#)](/hdinsight/hdinsight-storm-develop-csharp-event-hub-topology)
  
 ### <a name="latest-apache-storm-event-hub-spout-binaries-for-hdinsight-35-linux-storm-clusters"></a>HDInsight 3.5+ Linux Storm 群集的最新 Apache Storm 事件中心 Spout 二进制文件
 若要了解如何使用适用于 HDInsight 3.5+ Linux Storm 群集的最新 Storm 事件中心 Spout，请参阅 mvn-repo [自述文件](https://github.com/hdinsight/mvn-repo/blob/master/README.md)。

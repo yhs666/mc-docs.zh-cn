@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: f98c28fd14a9f99831be1eb366cbd398b8852d61
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 13003522c044c9928a25d9464f170f6f86e7ef14
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513798"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818221"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>在 Azure 存储中存储和查看诊断数据
 诊断数据不会永久存储，除非将其传输到世纪互联 Azure 存储模拟器或 Azure 存储。 如果诊断数据位于存储中，可以使用提供的工具之一进行查看。
@@ -73,7 +73,7 @@ ms.locfileid: "68513798"
 ## <a name="tools-to-view-diagnostic-data"></a>用于查看诊断数据的工具
 将数据传输到存储后，可以使用多个工具进行查看。 例如：
 
-* Visual Studio 中的服务器资源管理器 - 如果已安装 Azure Tools for Microsoft Visual Studio，则可以在服务器资源管理器中使用“Azure 存储”节点从 Azure 存储帐户查看只读 Blob 和表数据。 既可以从本地存储模拟器帐户显示数据，也可以从为 Azure 创建的存储帐户显示数据。 有关详细信息，请参阅[使用服务器资源管理器浏览和管理存储资源](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
+* Visual Studio 中的服务器资源管理器 - 如果已安装 Azure Tools for Microsoft Visual Studio，则可以在服务器资源管理器中使用“Azure 存储”节点从 Azure 存储帐户查看只读 Blob 和表数据。 既可以从本地存储模拟器帐户显示数据，也可以从为 Azure 创建的存储帐户显示数据。 有关详细信息，请参阅[使用服务器资源管理器浏览和管理存储资源](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)。
 * [世纪互联 Azure 存储资源管理器](../../vs-azure-tools-storage-manage-with-storage-explorer.md) 是一款独立应用，可用于在 Windows、OSX 和 Linux 上轻松处理 Azure 存储数据。
 * [Azure Management Studio](https://www.cerebrata.com/products/azure-management-studio/introduction) 随附 Azure 诊断管理器，可用于查看、下载和管理 Azure 中运行的应用程序收集的诊断数据。
 

@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: d3f710b7661bb6f0fbe89e1fa644035592cdfabd
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: e5eae0a9e9b703d737e5df1e9a39ad7ae431269f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135985"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818439"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>使用必应拼写检查更正拼写错误的字词
 
-在 LUIS 预测表述的分数和实体前，可将 LUIS 应用与[必应拼写检查 API V7](https://www.azure.cn/services/cognitive-services/spell-check/) 集成，以更正表述中拼写错误的字词。 
+在 LUIS 预测表述的分数和实体前，可将 LUIS 应用与[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 集成，以更正表述中拼写错误的字词。 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>为必应拼写检查 V7 创建第一个密钥
-[第一个必应拼写检查 API v7 密钥](https://www.azure.cn/try/cognitive-services/?api=spellcheck-api)是免费的。 
+[第一个必应拼写检查 API v7 密钥](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)是免费的。 
 
 ![创建免费密钥](./media/luis-tutorial-bing-spellcheck/free-key.png)
 

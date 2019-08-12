@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1770316b622f2a3a4eee764efd1aec4779eb9e31
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: f04f6e67c5714aa8391f993030b9f8418890f7f6
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562650"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818338"
 ---
 # <a name="status-monitor-v2"></a>状态监视器 v2
 
 状态监视器 v2 是发布到 [PowerShell 库](https://www.powershellgallery.com/packages/Az.ApplicationMonitor)的 PowerShell 模块。
-它将替换[状态监视器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)。
+它将替换[状态监视器](/azure-monitor/app/monitor-performance-live-website-now)。
 该模块提供了使用 IIS 托管的 .NET Web 应用的无代码检测。
-遥测数据将发送到 Azure 门户，你可以在其中[监视](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)应用。
+遥测数据将发送到 Azure 门户，你可以在其中[监视](/azure-monitor/app/app-insights-overview)应用。
 
 > [!IMPORTANT]
 > 状态监视器 v2 目前为公共预览版。

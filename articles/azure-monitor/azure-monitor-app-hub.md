@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d9917849f2248da0d86866ac4f28edef75de456a
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: a72cfade8c464666899b027c35627b8dea094b31
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513875"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818331"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,7 +136,7 @@ ms.locfileid: "68513875"
                                                             <a href="./app/java-trace-logs.md">跟踪日志记录</a><br>
                                                             <a href="./app/java-agent.md">依赖项跟踪的代理配置</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">自定义事件和指标</a><br>
-                                                            <a href="https://docs.microsoft.com/azure/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
+                                                            <a href="/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
 ">配置 .xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">开源 Java SDK GitHub 存储库</a>
                                                         </p>
@@ -206,7 +206,7 @@ ms.locfileid: "68513875"
                                                         <br><br>
                                                         <h3>隐私、安全性、使用情况 &amp; 成本</h3>
                                                         <p>
-                                                            <a href="https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt">处理个人数据</a><br>
+                                                            <a href="/azure-monitor/platform/personal-data-mgmt">处理个人数据</a><br>
                                                             <a href="./app/data-retention-privacy.md">数据收集、保留和存储</a><br>
                                                             <a href="./app/resources-roles-access-control.md">基于角色的访问</a><br>
                                                             <a href="./app/ip-addresses.md">IP 地址 &amp; 防火墙异常</a><br>

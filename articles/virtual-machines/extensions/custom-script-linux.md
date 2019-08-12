@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2 | Azure
+title: 在 Azure 中的 Linux VM 上运行自定义脚本 | Azure
 description: 使用自定义脚本扩展 v2 自动化 Linux VM 配置任务
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 04/25/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: f83d3f838434f12732b634cfededd41d09cfe3c6
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 274e8a022a63e8f417f2e6705e7b2c2e3daef7f3
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835618"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913050"
 ---
 <!--Verify successfully-->
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 2
@@ -74,7 +74,7 @@ ms.locfileid: "65835618"
 ```json
 {
   "name": "config-app",
-  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "type": "Extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -105,24 +105,24 @@ ms.locfileid: "65835618"
 
 ### <a name="property-values"></a>属性值
 
-|           名称           |                                     值/示例                                      |   数据类型    |
-|--------------------------|------------------------------------------------------------------------------------------|----------------|
-|        apiVersion        |                                        2015-06-15                                        |      date      |
-|        发布者         |                               Microsoft.Compute.Extensions                               |     string     |
-|           type           |                                       CustomScript                                       |     string     |
-|    typeHandlerVersion    |                                           2.0                                            |      int       |
-|      fileUris（例如）      |                  https://github.com/MyProject/Archive/MyPythonScript.py                  |     数组      |
-|  commandToExecute（例如）  |                           python MyPythonScript.py \<my-param1>                          |     string     |
-|          脚本          | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= |     string     |
-|   skipDos2Unix（示例）    |                                          false                                           |    布尔值     |
-|     timestamp（示例）     |                                        123456789                                         | 32 位整数 |
-| storageAccountName（例如） |                                    examplestorageacct                                    |     string     |
-| storageAccountKey（例如）  | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== |     string     |
+| 名称 | 值/示例 | 数据类型 | 
+| ---- | ---- | ---- |
+| apiVersion | 2015-06-15 | date |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
+| typeHandlerVersion | 2.0 | int |
+| fileUris（例如） | https://github.com/MyProject/Archive/MyPythonScript.py | array |
+| commandToExecute（例如） | python MyPythonScript.py \<my-param1> | string |
+| 脚本 | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix（示例） | false | 布尔值 |
+| timestamp（示例） | 123456789 | 32 位整数 |
+| storageAccountName（例如） | examplestorageacct | string |
+| storageAccountKey（例如） | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>属性值详细信息
 * `skipDos2Unix`：（可选，布尔值）跳过对基于脚本的文件 URL 或脚本进行的 dos2unix 转换。
 * `timestamp`（可选，32 位整数）仅当需要更改此字段的值来触发脚本的重新运行时，才使用此字段。  任何整数值都是可以接受的，前提是必须不同于以前的值。
-  * `commandToExecute`：（在脚本未设置的情况下为**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码），请改用此字段。
+    * `commandToExecute`：（在脚本未设置的情况下为**必需**，字符串）要执行的入口点脚本。 如果命令包含机密（例如密码），请改用此字段。
 * `script`：（在 commandToExecute 未设置的情况下为**必需**，字符串）base64 编码（可以选择执行 gzip 操作）的脚本，通过 /bin/sh 来执行。
 * `fileUris`：（可选，字符串数组）要下载的文件的 URL。
 * `storageAccountName`：（可选，字符串）存储帐户的名称。 如果指定存储凭据，所有 `fileUris` 都必须是 Azure Blob 的 URL。
@@ -156,7 +156,7 @@ ms.locfileid: "65835618"
 }
 ```
 
-####  <a name="property-script"></a>属性：脚本
+#### <a name="property-script"></a>属性：脚本
 
 CustomScript 支持执行用户定义的脚本。 可将 commandToExecute 和 fileUris 组合到单个设置中的脚本设置。 可以直接将脚本编码为设置，不必设置一个需要从 Azure 存储或 GitHub 主题下载的文件。 可以使用脚本来替换 commandToExecute 和 fileUris。
 
@@ -200,6 +200,8 @@ CustomScript 使用以下算法来执行脚本。
 ## <a name="template-deployment"></a>模板部署
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 可以在 Azure 资源管理器模板中使用上一部分中详细介绍的 JSON 架构，以便在 Azure 资源管理器模板部署过程中运行自定义脚本扩展。 若需包含自定义脚本扩展的示例模板，可访问 [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux)。
 
+<!--MOONCAKE: IMPORTANT:  Setting contain "fileUris" and protectedSettings contain "commandToExecute"-->
+
 ```json
 {
   "name": "config-app",
@@ -218,16 +220,16 @@ CustomScript 使用以下算法来执行脚本。
     "typeHandlerVersion": "2.0",
     "autoUpgradeMinorVersion": true,
     "settings": {
+        "fileUris": ["https://github.com/MyProject/Archive/hello.sh"]
       },
     "protectedSettings": {
-      "commandToExecute": "sh hello.sh <param2>",
-      "fileUris": ["https://github.com/MyProject/Archive/hello.sh"]  
+      "commandToExecute": "sh hello.sh <param2>"
     }
   }
 }
 ```
 
-<!--IMPORTANT:  Setting contain "fileUris" and protectedSettings contain "commandToExecute"-->
+<!--MOONCAKE: IMPORTANT:  Setting contain "fileUris" and protectedSettings contain "commandToExecute"-->
 
 >[!NOTE]
 >这些属性名称区分大小写。 要避免部署问题，请使用如下所示的名称。
@@ -245,16 +247,19 @@ az vm extension set \
 
 （可选）可以在命令中以 JSON 格式字符串的形式指定设置。 这样，便可以在执行期间指定配置，而无需使用单独的配置文件。
 
+<!--MOONCAKE: IMPORTANT: Should split settings and protected-settings JSON file-->
+
 ```azurecli
 az vm extension set \
   --resource-group exttest \
   --vm-name exttest \
   --name customScript \
   --publisher Microsoft.Azure.Extensions \
-  --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
+  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh']}"
+  --protected-settings "{'commandToExecute': './config-music.sh'}"
 ```
 
-<!--IMPORTANT: Should split settings and protected-settings JSON file-->
+<!--MOONCAKE: IMPORTANT: Should split settings and protected-settings JSON file-->
 
 ### <a name="azure-cli-examples"></a>Azure CLI 示例
 
@@ -341,6 +346,7 @@ az vm extension set \
 ```
 
 应该查找如下所示的扩展执行：
+
 ```text
 2018/04/26 17:47:22.110231 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] [Enable] current handler state is: notinstalled
 2018/04/26 17:47:22.306407 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Download, message=Download succeeded, duration=167
@@ -351,6 +357,7 @@ az vm extension set \
 2018/04/26 17:47:23.476151 INFO [Microsoft.Azure.Extensions.customScript-2.0.6] Enable extension [bin/custom-script-shim enable]
 2018/04/26 17:47:24.516444 INFO Event: name=Microsoft.Azure.Extensions.customScript, op=Enable, message=Launch command succeeded: bin/custom-sc
 ```
+
 一些需要注意的要点：
 1. Enable 表示该命令何时开始运行。
 2. Download 涉及下载 Azure 中的 CustomScript 扩展包，而非 fileUris 中指定的脚本文件。

@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 11/27/2018
-ms.date: 06/10/2019
+origin.date: 06/18/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: b65695389d10e7744c99ec8a4f82c65245ea4626
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 2459901bafdb69ab2541be1188ed4494c40153b6
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390856"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819605"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>使用 PowerShell 和 Azure 资源管理器对 Hyper-V VM 设置到 Azure 的灾难恢复
 
@@ -111,6 +111,18 @@ Azure PowerShell 提供用于通过 Windows PowerShell 管理 Azure 的 cmdlet�
 5. 验证 Hyper-V 主机是否已注册到站点，如下所示：
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+如果运行的是 Hyper-V 核心服务器，请下载安装程序文件并执行以下操作：
+1. 运行以下命令，将 AzureSiteRecoveryProvider.exe 中的文件提取到本地目录：
+    
+    ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 运行 ```.\setupdr.exe /i```
+    
+    结果将记录到 %Programdata%\ASRLogs\DRASetupWizard.log。
+
+3. 运行此命令注册服务器：
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
 
 ## <a name="step-6-create-a-replication-policy"></a>步骤 6：创建复制策略
 

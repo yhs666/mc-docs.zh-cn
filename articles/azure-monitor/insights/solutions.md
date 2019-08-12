@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dee06b1a4d34fe9d5eb557ab630bbfd763a43dfc
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 3d496b03493e26dd7812f6c01ccff11663f20f68
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513861"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818312"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的监视解决方案
 监视解决方案利用 Azure 中的服务来提供特定应用程序或服务的更多操作见解。 本文简要概述了 Azure 中的监视解决方案，并详细介绍如何了使用和安装这些解决方案。
@@ -77,7 +77,7 @@ ms.locfileid: "68513861"
 社区成员可以将管理解决方案提交到 Azure 快速入门模板。 可以直接安装这些解决方案，或者下载模板，以便今后安装。
 
 1. 请遵循 [Log Analytics 工作区和自动化帐户](#log-analytics-workspace-and-automation-account)中所述的过程来链接工作区和帐户。
-2. 转到 [Azure 快速入门模板](https://www.azure.cn/documentation/templates/)。 
+2. 转到 [Azure 快速入门模板](https://docs.microsoft.com/azure/templates/)。 
 3. 搜索感兴趣的解决方案。
 4. 从结果中选择解决方案以查看其详细信息。
 5. 单击“部署到 Azure”按钮。 

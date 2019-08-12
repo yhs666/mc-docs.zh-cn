@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 5c385f408f561925ffd607f853c49f209dc7f1bf
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 4c5752d5368d740119503f8f283ed664da0d7e60
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135915"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818442"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>对包含常见词汇和概念的术语表进行语言理解
 语言理解 (LUIS) 术语表解释使用 LUIS API 服务时可能遇到的术语。
@@ -122,7 +122,7 @@ ms.locfileid: "67135915"
 在机器学习中，[特征](luis-concept-feature.md)是系统观察到的数据的特征或特有属性。
 
 <a name="intent"></a>
-## <a name="intent"></a>意向
+## <a name="intent"></a>Intent
 
 [意向](luis-concept-intent.md)表示用户想执行的任务或操作。 系指用户输入的内容中所表达的目的或目标，比如预订航班、支付帐单或查找新闻文章。 在 LUIS 中，意向预测基于整个话语。 而实体是话语片段。
 
@@ -177,7 +177,7 @@ LUIS 应用是经过训练的、用于自然语言处理（包括[意向](#inten
 <a name="quota"></a>
 ## <a name="quota"></a>Quota
 
-LUIS 配额是 [Azure 订阅层](https://aka.ms/luis-price-tier)的限制。 可同时通过每秒请求数（HTTP 状态 429）和每月请求总数（HTTP 状态 403）来限制 LUIS 配额。
+LUIS 配额是 [Azure 订阅层](https://www.azure.cn/zh-cn/pricing/details/cognitive-services)的限制。 可同时通过每秒请求数（HTTP 状态 429）和每月请求总数（HTTP 状态 403）来限制 LUIS 配额。
 
 <a name="recall"></a>
 ## <a name="recall"></a>召回率
@@ -189,7 +189,7 @@ LUIS 配额是 [Azure 订阅层](https://aka.ms/luis-price-tier)的限制。 可
 
 <a name="sentiment-analysis"></a>
 ## <a name="sentiment-analysis"></a>情绪分析
-情绪分析提供[文本分析](https://www.azure.cn/services/cognitive-services/text-analytics/)所提供的话语的正值或负值。
+情绪分析提供[文本分析](https://www.azure.cn/zh-cn/home/features/cognitive-services/text-analytics/)所提供的话语的正值或负值。
 
 <a name="speech-priming"></a>
 ## <a name="speech-priming"></a>语音启动

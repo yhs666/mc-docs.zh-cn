@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 04/20/2017
-ms.date: 08/20/2018
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 097c67e1abc72e6ea175492f29339f2f46a3a871
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 09dd23190a2e269850f015557d14610f7fc97fb8
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52652984"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819647"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>保护 C# 服务的服务远程处理通信
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ ms.locfileid: "52652984"
         ```
     2. 使用[配置包](service-fabric-application-and-service-manifests.md)提供：
 
-       在 settings.xml 文件中添加名为 `TransportSettings` 的节。
+        在 settings.xml 文件中添加名为 `TransportSettings` 的节。
 
         ```xml
         <Section Name="HelloWorldStatefulTransportSettings">
@@ -113,22 +113,22 @@ ms.locfileid: "52652984"
             <Parameter Name="CertificateStoreName" Value="My" />
             <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
             <Parameter Name="CertificateRemoteCommonNames" Value="ServiceFabric-Test-Cert" />
-       </Section>
-       ```
+        </Section>
+        ```
 
-       在这种情况下，`CreateServiceReplicaListeners` 方法如下所示：
+        在这种情况下，`CreateServiceReplicaListeners` 方法如下所示：
 
-       ```csharp
-       protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
-       {
+        ```csharp
+        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+        {
            return new[]
            {
                new ServiceReplicaListener(
                    (context) => new FabricTransportServiceRemotingListener(
                        context,this,FabricTransportRemotingListenerSettings .LoadFrom("HelloWorldStatefulTransportSettings")))
            };
-       }
-       ```
+        }
+        ```
 
         如果在 settings.xml 文件中添加 `TransportSettings` 节，则 `FabricTransportRemotingListenerSettings ` 将按默认加载此节中的所有设置。
 
@@ -210,4 +210,5 @@ ms.locfileid: "52652984"
     ```
 
 有关后续步骤，请阅读 [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)。
+
 <!-- Update_Description: update meta properties, wording update -->

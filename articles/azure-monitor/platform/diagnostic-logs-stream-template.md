@@ -8,25 +8,25 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: ''
-ms.openlocfilehash: 6e977de7cab74a9b9fe2cf22a6919bba45542454
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b9b96b139dac321921802fd4cda167fe5419f3b0
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513998"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818377"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>在创建资源时使用 Resource Manager 模板自动启用诊断设置
 本文介绍如何使用 [Azure Resource Manager 模板](../../azure-resource-manager/resource-group-authoring-templates.md) 在创建资源时配置资源的诊断设置。 这样可以让你在创建资源时自动开始将诊断日志和指标流式传输到事件中心、将其存档在存储帐户中，或者发送到 Log Analytics 工作区。
 
 > [!WARNING]
-> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> 存储帐户中日志数据的格式将在 2018 年 11 月 1 日更改为 JSON Lines。 [请参阅此文章来了解此影响，以及如何通过更新工具来处理新格式。](../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
 >
 > 
 
 通过资源管理器模板启用诊断日志时，所用方法取决于资源类型。
 
 * **非计算**资源（例如，网络安全组、逻辑应用、自动化）使用[此文中描述的诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。
-* **计算**（基于 WAD/LAD）资源使用[此文中描述的 WAD/LAD 配置文件](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
+* **计算**（基于 WAD/LAD）资源使用[此文中描述的 WAD/LAD 配置文件](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
 本文介绍如何使用其中一种方法配置诊断。
 

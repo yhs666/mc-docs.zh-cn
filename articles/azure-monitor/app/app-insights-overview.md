@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d788cb78a58125f9543d07dd9c4f47a556d3c934
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 89b2058ee9e9b590f88cc7a62488c5b92344be79
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513884"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818509"
 ---
 # <a name="what-is-application-insights"></a>什么是 Application Insights？
 Application Insights 是多个平台上面向 Web 开发人员的可扩展应用程序性能管理 (APM) 服务。 使用它可以监视实时 Web 应用程序。 它会自动检测性能异常。 其中包含强大的分析工具来帮助诊断问题，了解用户在应用中实际执行了哪些操作。  它旨在帮助持续提高性能与可用性。 它适用于本地云、混合云或任何公有云中托管的各种平台（包括 .NET、Node.js 和 Java EE）中的应用。 它与 DevOps 进程集成，并且具有与不同开发工具的连接点。 可以通过与 Visual Studio App Center 集成来监视和分析移动应用的遥测数据。
@@ -134,7 +134,6 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
   * [MSDN 论坛](https://social.msdn.microsoft.com/Forums/vstudio/home?forum=ApplicationInsights)
   * [StackOverflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * 用户建议：
-  * [UserVoice](https://azure.microsoft.com/support/contact//forums/357324-application-insights/filters/top)
 * 博客：
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)（Application Insights 博客）
 
@@ -142,7 +141,6 @@ Application Insights 是世纪互联 Azure 中托管的众多服务之一，遥�
 <!--Link references-->
 
 [android]: ../../azure-monitor/learn/mobile-center-quickstart.md
-[azure]: ../../insights-perf-analytics.md
 [client]: ../../azure-monitor/app/javascript.md
 [desktop]: ../../azure-monitor/app/windows-desktop.md
 [greenbrown]: ../../azure-monitor/app/asp-net.md

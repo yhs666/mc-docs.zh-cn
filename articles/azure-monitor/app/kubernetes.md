@@ -8,19 +8,18 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 18a3a49b2c4662a122edefeafc9e4d0098dd7477
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: e88c9b529752d3cea1789025e08cedc2e3853572
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732263"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818351"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 托管应用程序的零检测应用程序监视
 
 > [!IMPORTANT]
 > 此功能目前以公共预览版提供。
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
-> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)。
 
 Azure Monitor 现在使用 Kubernetes 群集上的服务网格技术提供针对任何 Kubernetes 托管应用的现成应用程序监视。 默认的 Application Insight 功能包括用于为依赖项建模的[应用程序映射](../../azure-monitor/app/app-map.md)、用于实时监视的[实时指标流](../../azure-monitor/app/live-stream.md)，以及使用[默认仪表板](../../azure-monitor/app/overview-dashboard.md)、[指标资源管理器](../../azure-monitor/platform/metrics-getting-started.md)和[工作簿](../../azure-monitor/app/usage-workbooks.md)生成丰富的可视化效果。 此功能可帮助用户找出选定 Kubernetes 命名空间中所有 Kubernetes 工作负荷的性能瓶颈和故障热点。 Azure Monitor 可以通过 Istio 等技术将现有的服务网格投资变现，在不对应用程序代码进行任何修改的情况下实现自动检测的应用监视。
 
@@ -29,10 +28,10 @@ Azure Monitor 现在使用 Kubernetes 群集上的服务网格技术提供针对
 
 ## <a name="prerequisites"></a>先决条件
 
-- 一个 [Kubernetes 群集](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)。
+- 一个 [Kubernetes 群集](/aks/concepts-clusters-workloads)。
 - 可在控制台中访问群集，以运行 *kubectl*。
 - 一个 [Application Insights 资源](create-new-resource.md)。
-- 有一个服务网格 如果群集中未部署 Istio，你可以了解如何[在 Azure Kubernetes 服务中安装和使用 Istio](https://docs.microsoft.com/azure/aks/istio-install)。
+- 有一个服务网格 如果群集中未部署 Istio，你可以了解如何[在 Azure Kubernetes 服务中安装和使用 Istio](/aks/istio-install)。
 
 ## <a name="capabilities"></a>功能
 

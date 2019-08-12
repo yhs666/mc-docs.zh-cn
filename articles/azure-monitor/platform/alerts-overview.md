@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: da2b21103e302efc08c7d6103bfa3116f0e03c4c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: db05f70aa99b13fe26ad85854ae4e6fa62ae4bfc
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562430"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818254"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
@@ -149,7 +149,7 @@ ms.locfileid: "67562430"
 | 资源组 | 选择单个资源组。 只有包含选定资源组中的目标的警报才会包含在视图中。 |
 | 资源类型 | 选择一个或多个资源类型。 只有包含选定类型中的目标的警报才会包含在视图中。 仅在指定资源组后，才显示此列。 |
 | Resource | 选择资源。 只有包含该资源（作为目标）的警报才会包含在视图中。 仅在指定资源类型后，才显示此列。 |
-| 严重性 | 选择警报严重性，或选择“所有”以包含所有严重性的警报  。 |
+| severity | 选择警报严重性，或选择“所有”以包含所有严重性的警报  。 |
 | 监视条件 | 选择监视条件，或选择“所有”以包括所有条件的警报  。 |
 | 警报状态 | 选择警报状态，或选择“所有”以包含所有状态的警报  。 |
 | 监视服务 | 选择一个服务，或选择“所有”以包含所有服务  。 只会包含使用该服务（作为目标）的规则创建的警报。 |
@@ -199,7 +199,7 @@ ms.locfileid: "67562430"
 
 2018 年 6 月之前的 Azure Monitor 指标和活动日志警报功能称为“警报（经典）”。 
 
-有关详细信息，请参阅[经典警报](./../../azure-monitor/platform/alerts-classic.overview.md)
+有关详细信息，请参阅[经典警报](../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>后续步骤

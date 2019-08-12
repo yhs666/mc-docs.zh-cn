@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a9126b3243c06f8608237eaa049d2be8aa107ea9
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d104959bf7cce965979f40b36004f19362c21244
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570601"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818470"
 ---
 # <a name="about-azure-vm-backup"></a>关于 Azure VM 备份
 
@@ -113,7 +113,7 @@ Azure 备份根据备份计划创建快照。
 
 - 修改策略中设置的默认计划时间。 例如，如果策略中的默认时间是凌晨 12:00，请将时间递增几分钟，确保以最佳方式使用资源。
 - 对于使用高级存储的 VM 备份，我们建议运行最新版本的 Azure 备份（[即时还原](backup-instant-restore-capability.md)）。 对于未运行最新版本，备份服务将分配约 50% 的总存储空间。 备份服务需要此空间，以将快照复制到同一存储帐户并将其传输到保管库。
-- 如果从单个保管库还原 VM，我们强烈建议使用不同的[常规用途 v2 存储帐户](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade)，以确保目标存储帐户不会受到限制。 例如，每个 VM 必须具有不同的存储帐户。 例如，如果还原 10 个 VM，请使用 10 个不同的存储帐户。
+- 如果从单个保管库还原 VM，我们强烈建议使用不同的[常规用途 v2 存储帐户](/storage/common/storage-account-upgrade)，以确保目标存储帐户不会受到限制。 例如，每个 VM 必须具有不同的存储帐户。 例如，如果还原 10 个 VM，请使用 10 个不同的存储帐户。
 - 从常规用途 v1 存储层（快照）进行的还原将在几分钟内完成，因为快照位于同一存储帐户中。 从常规用途 v2 存储层（保管库）进行的还原可能需要数小时。 如果数据在常规用途 v1 存储中提供，则我们建议使用[即时还原](backup-instant-restore-capability.md)功能来加快还原速度。 （如果必须从保管库还原数据，则需要更多时间。）
 - 每个存储帐户的磁盘数限制与基础结构即服务 (IaaS) VM 上运行的应用程序访问磁盘的大小有关。 通常情况下，如果单个存储帐户上存在 5 至 10 个或以上磁盘，则通过将一些磁盘移动到单独的存储帐户以均衡负载。
 

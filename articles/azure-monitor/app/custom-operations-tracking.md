@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 1ddb4b7cd4c33299b993d31a5371b47d875dc0eb
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 3005a35407e22cef8bd01a8b83ef9e7c86a44438
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732311"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818364"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -126,7 +126,7 @@ HTTP 关联协议还声明 `Correlation-Context` 标头。 但为了简单起见
 
 ### <a name="service-bus-queue"></a>服务总线队列
 Application Insights 使用新的[适用于 .NET 的世纪互联 Azure 服务总线客户端](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) 3.0.0 版及更高版本跟踪服务总线消息传送调用。
-如果使用[消息处理程序模式](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler?view=azure-dotnet)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 如果手动处理消息，请参阅[使用 Azure Application Insights 跟踪的 Service Bus 客户端](../../service-bus-messaging/service-bus-end-to-end-tracing.md)。
+如果使用[消息处理程序模式](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler?view=azure-dotnet)来处理消息，则无需执行其他操作，系统会自动跟踪由服务所完成的所有服务总线调用，并将其与其他遥测项关联。 如果手动处理消息，请参阅[使用 Azure Application Insights 跟踪的 Service Bus 客户端](../../service-bus-messaging/service-bus-end-to-end-tracing.md)。
 
 如果使用 [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) 包，请进一步阅读 - 以下示例演示当服务总线队列使用 AMQP 协议且 Application Insights 不自动跟踪队列操作时，如何跟踪（和关联）对服务总线的调用。
 在消息属性中传递关联标识符。

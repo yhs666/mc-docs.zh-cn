@@ -6,22 +6,24 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 1239f1608c3a679de424f9bd7ad6f39fd42fe949
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: a5b41dd25baeecbda912215ca0850ee0beea41f8
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332782"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913004"
 ---
 共享映像库是一种可以帮助你围绕托管映像构建结构和组织的服务。 共享映像库提供以下功能：
 
 - 对映像进行托管式全局复制。
 - 对映像进行版本控制和分组，以便于管理。
+
     <!--Not Available on - Highly available images with Zone Redundant Storage (ZRS) accounts in regions that support Availability Zones. ZRS offers better resilience against zonal failures.-->
     <!--Not Avaialble on Zone Redundant Storage (ZRS)-->
+    
 - 使用 RBAC 跨订阅以及甚至在 Active Directory (AD) 租户之间共享。
 - 使用每个区域中的映像副本缩放部署。
 
@@ -144,11 +146,13 @@ ms.locfileid: "68332782"
 
 以下 SDK 支持创建共享映像库：
 
-- [.NET](https://docs.azure.cn/zh-cn/dotnet/api/overview/virtualmachines/management?view=azure-dotnet)
+- [.NET](https://docs.azure.cn/dotnet/api/overview/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.azure.cn/java/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/en-us/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
+
+    <!--URL correct on https://docs.microsoft.com/azure/go/-->
 
 ## <a name="templates"></a>模板
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7821d26d6904174a76bf82fe8007102c594b30f0
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 4a3e1b9bfe6a1b48b5281403f04e171816e3d288
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514018"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818403"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>使用 Resource Manager 模板创建指标警报
 
@@ -2574,7 +2574,7 @@ az group deployment create \
 ## <a name="next-steps"></a>后续步骤
 * 详细了解 [Azure 中的警报](alerts-overview.md)
 * 了解如何[使用资源管理器模板创建操作组](action-groups-create-resource-manager-template.md)
-* 有关 JSON 语法和属性，请参阅 [Microsoft.Insights/metricAlerts](/azure/templates/microsoft.insights/metricalerts) 模板参考。
+* 有关 JSON 语法和属性，请参阅 [Microsoft.Insights/metricAlerts](https://docs.microsoft.com/azure/templates/microsoft.insights/metricalerts) 模板参考。
 
 
 

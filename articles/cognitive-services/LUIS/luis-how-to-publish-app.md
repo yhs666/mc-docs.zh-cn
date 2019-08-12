@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: a612962d1ed93174af85a7b640051acd9fd8755a
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: c76bc1e09edbd1fefadb0e67e3c7fd47aa942ca3
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332160"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818443"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>将活动的已训练应用发布到过渡或生产终结点
 
@@ -52,7 +52,7 @@ ms.locfileid: "68332160"
 
 <a name="enable-sentiment-analysis"></a>
 
-情绪分析使 LUIS 可以与[文本分析](https://www.azure.cn/services/cognitive-services/text-analytics/)集成，以便提供情绪和关键短语分析。 
+情绪分析使 LUIS 可以与[文本分析](/cognitive-services/text-analytics/)集成，以便提供情绪和关键短语分析。 
 
 不需提供文本分析密钥，而且系统不会因为此服务向你的 Azure 帐户收费。 检查此设置后，它就会变成持久性的。 
 

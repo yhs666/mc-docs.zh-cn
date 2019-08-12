@@ -13,12 +13,12 @@ ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 137882b80f855d746f853e15c59bb8095b7693f4
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4e42d46fe5153e04ff60025f5bb26eb0152f9223
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562648"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818349"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>使用 Azure Monitor 工作簿创建交互式报表
 
@@ -77,7 +77,7 @@ ms.locfileid: "67562648"
 
 * 使用率下降的同一时段内，网站引发了多少异常？
 * 用户查看某个页面的页面加载时间分布是什么样的？
-* 有多少用户在网站上查看了某组页面，而没有查看其它组页面？ 这有助于了解你是否有使用不同网站功能子集的用户群集（在 [Kusto 查询语言](/azure/kusto/query/)中使用具有 `kind=leftanti` 修饰符的 `join` 运算符）。
+* 有多少用户在网站上查看了某组页面，而没有查看其它组页面？ 这有助于了解你是否有使用不同网站功能子集的用户群集（在 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)中使用具有 `kind=leftanti` 修饰符的 `join` 运算符）。
 
 此外，你还不仅限于通过工作簿启动的应用程序的上下文中进行查询。 只要你有权访问这些资源，就可跨多个受 Application Insights 监视的应用，以及 Log Analytics 工作区进行查询。
 
@@ -92,7 +92,7 @@ union app('app01').requests, app('app02').requests, requests
 
 若要从外部 Log Analytics 工作区提取数据，请使用 workspace 标识符  。
 
-若要了解有关跨资源查询的详细信息，请参阅[官方指南](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search)。
+若要了解有关跨资源查询的详细信息，请参阅[官方指南](/azure-monitor/log-query/cross-workspace-query)。
 
 ### <a name="advanced-analytic-query-settings"></a>高级分析查询设置
 

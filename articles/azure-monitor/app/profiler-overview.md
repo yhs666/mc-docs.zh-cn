@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1e1f2c635bcb8fef6f99384e1de1188bfa9141dc
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 3b7825ccc45ae6ab0029d45c339d4460a62d8df9
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732394"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818344"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>使用 Application Insights 探查 Azure 中的生产应用程序
 ## <a name="enable-application-insights-profiler-for-your-application"></a>对应用程序启用 Application Insights Profiler
@@ -36,7 +36,7 @@ Profiler 适用于以下 Azure 服务中部署的 .NET 应用程序。 下面提
 
 ## <a name="view-profiler-data"></a>查看 Profiler 数据
 
-要使 Profiler 上传跟踪，应用程序必须主动处理请求。 如果你正在进行试验，可以通过 [Application Insights 性能测试](https://docs.microsoft.com/zh-cn/vsts/load-test/app-service-web-app-performance-test)生成针对 Web 应用的请求。 如果最近启用了 Profiler，可以运行简短的负载测试。 运行负载测试时，请选择 [**Profiler 设置页**](profiler-settings.md#profiler-settings-pane)中的“立即探查”按钮。  Profiler 开始运行后，它会每小时随机探查大约一次，持续时间为两分钟。 如果应用程序处理的请求流比较稳定，则 Profiler 会每隔一小时上传跟踪。
+要使 Profiler 上传跟踪，应用程序必须主动处理请求。 如果你正在进行试验，可以通过 [Application Insights 性能测试](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)生成针对 Web 应用的请求。 如果最近启用了 Profiler，可以运行简短的负载测试。 运行负载测试时，请选择 [**Profiler 设置页**](profiler-settings.md#profiler-settings-pane)中的“立即探查”按钮。  Profiler 开始运行后，它会每小时随机探查大约一次，持续时间为两分钟。 如果应用程序处理的请求流比较稳定，则 Profiler 会每隔一小时上传跟踪。
 
 应用程序收到一些流量后，如果 Profiler 有时间上传跟踪，则你应会获得一些可查看的跟踪。 此过程最多可能需要 5 到 10 分钟。 若要查看跟踪，请在“性能”窗格中选择“采取措施”，然后选择“Profiler 跟踪”按钮。   
 
@@ -60,7 +60,7 @@ Azure 服务探查器结合使用采样方法和检测来分析应用程序的�
 时间线视图中显示的调用堆栈是采样和检测的结果。 由于每个样本会捕获线程的整个调用堆栈，因此包含 Azure .NET Framework 中的代码，以及引用的其他框架中的代码。
 
 <a name="jitnewobj"></a>
-### <a name="object-allocation-clrjitnew-or-clrjitnewarr1"></a>对象分配（clr!JIT\_New 或 clr!JIT\_Newarr1）
+### <a name="object-allocation-clrjit_new-or-clrjit_newarr1"></a>对象分配（clr!JIT\_New 或 clr!JIT\_Newarr1）
 
 **clr!JIT\_New** 和 **clr!JIT\_Newarr1** 是 .NET Framework 中的 helper 函数，用于分配托管堆中的内存。 分配对象时，将调用 clr!JIT\_New  。 分配对象数组时，将调用 clr!JIT\_Newarr1  。 这两个函数通常速度很快，花费的时间相对较短。 如果时间线中的 **clr!JIT\_New** 或 **clr!JIT\_Newarr1** 花费了很长时间，则可能表示代码分配了很多对象，从而消耗了大量的内存。
 
@@ -72,7 +72,7 @@ Azure 服务探查器结合使用采样方法和检测来分析应用程序的�
 如果 **clr!ThePreStub** 针对某个请求花费了很长时间，则表示这是第一个执行该方法的请求。 .NET Framework 运行时加载该方法的时间非常重要。 可以考虑在用户访问该代码部分之前使用执行该代码部分的预热进程，或者考虑在程序集中运行本机映像生成器 (ngen.exe)。
 
 <a name="lockcontention"></a>
-### <a name="lock-contention-clrjitutilmoncontention-or-clrjitutilmonenterworker"></a>锁争用（clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker）
+### <a name="lock-contention-clrjitutil_moncontention-or-clrjitutil_monenterworker"></a>锁争用（clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker）
 
 clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker 指示当前线程正在等待释放锁   。 执行 C# **LOCK** 语句、调用 **Monitor.Enter** 方法或者结合 **MethodImplOptions.Synchronized** 属性调用某个方法时，通常会显示此文本。 如果线程 _A_ 获取了某个锁，而线程 _B_ 在线程 _A_ 释放该锁之前尝试获取同一个锁，此时通常会发生锁争用。
 
@@ -94,7 +94,7 @@ clr!JITutil\_MonContention 或 clr!JITutil\_MonEnterWorker 指示当前线程正
 **SqlCommand.Execute** 等方法指示代码正在等待某个数据库操作完成。
 
 <a name="await"></a>
-### <a name="waiting-awaittime"></a>等待 (AWAIT\_TIME)
+### <a name="waiting-await_time"></a>等待 (AWAIT\_TIME)
 
 AWAIT\_TIME 指示代码正在等待另一个任务完成  。 这种延迟通常发生在 C# **AWAIT** 语句上。 当代码执行 C# **AWAIT** 时，线程会回退并将控制权返回给线程池，此时，不会有任何阻塞的线程等待 **AWAIT** 完成。 但是，从逻辑上讲，执行 **AWAIT** 的线程会被“阻塞”并等待该操作完成。 AWAIT\_TIME 语句指示等待任务完成的阻塞时间  。
 

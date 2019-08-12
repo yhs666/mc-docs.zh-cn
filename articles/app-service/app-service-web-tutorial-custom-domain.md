@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 06/18/2018
-ms.date: 07/15/2019
-ms.author: v-biyu
+origin.date: 06/06/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 1326b17f2d03d8892b42a04d32a0cebdf3806580
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+ms.openlocfilehash: 70553db05727e3b3fb5a3bf738fa314daf0a8b07
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560287"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878573"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>教程：将现有的自定义 DNS 名称映射到 Azure 应用服务
 

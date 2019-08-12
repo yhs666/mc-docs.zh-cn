@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 39b9a69287e68b82376211241f9ee3796bce528f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 888e3264a6808761a3eb3d1ae21a465d0162c73d
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332162"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818446"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>将订阅密钥与 LUIS 应用配合使用
 
 首次使用语言理解 (LUIS) 时，不需要创建订阅密钥。 你将获得 1000 个终结点查询，以便开始使用。 
 
-如果仅用于测试和原型，请使用免费 (F0) 层。 对于生产系统，请使用[付费](https://aka.ms/luis-price-tier)层。 不要将[创作密钥](luis-concept-keys.md#authoring-key)用于生产中的终结点查询。
+如果仅用于测试和原型，请使用免费 (F0) 层。 对于生产系统，请使用[付费](https://www.azure.cn/zh-cn/pricing/details/cognitive-services)层。 不要将[创作密钥](luis-concept-keys.md#authoring-key)用于生产中的终结点查询。
 
 
 <a name="create-luis-service"></a>
@@ -95,23 +95,6 @@ ms.locfileid: "68332162"
       "score": 0.372391433
     }
   ],
-  "entities": []
-}
-```
-
-### <a name="enable-bing-spell-checker"></a>启用必应拼写检查器 
-在“终结点 URL 设置”中，选中“必应拼写检查器”会让 LUIS 在预测之前更正错拼的单词。   创建[必应拼写检查密钥](https://www.azure.cn/try/cognitive-services/?api=spellcheck-api)  。 
-
-添加 spellCheck=true querystring 参数和 bing-spell-check-subscription-key={YOUR_BING_KEY_HERE}   。 将 `{YOUR_BING_KEY_HERE}` 替换为必应拼写检查器密钥。
-
-```JSON
-{
-  "query": "Book a flite to London?",
-  "alteredQuery": "Book a flight to London?",
-  "topScoringIntent": {
-    "intent": "BookFlight",
-    "score": 0.780123
-  },
   "entities": []
 }
 ```

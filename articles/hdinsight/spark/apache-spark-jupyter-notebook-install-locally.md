@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/06/2019
 ms.date: 07/22/2019
 ms.author: hrasheed
-ms.openlocfilehash: abf4323f06b5754f0bd3643cb9fecdcc47659b42
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: cb2b54ae85a605c34ea48c0f08c9d597cbdbdaef
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845381"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878704"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -108,13 +108,13 @@ ms.locfileid: "67845381"
       "kernel_python_credentials" : {
         "username": "{USERNAME}",
         "base64_password": "{BASE64ENCODEDPASSWORD}",
-        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.cn/livy"
       },
 
       "kernel_scala_credentials" : {
         "username": "{USERNAME}",
         "base64_password": "{BASE64ENCODEDPASSWORD}",
-        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
+        "url": "https://{CLUSTERDNSNAME}.azurehdinsight.cn/livy"
       },
 
       "heartbeat_refresh_seconds": 5,

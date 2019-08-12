@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 03/18/2019
-ms.author: v-biyu
+origin.date: 10/31/2018
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: e6d3862d44885e3b3795f2ac5e5e01280224da16
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a5b17b5a59f84ac8e82ce3ec8cb20680c9ea2973
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626655"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878544"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的应用程序性能常见问题解答
 
@@ -36,11 +36,11 @@ ms.locfileid: "58626655"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>如何解决 CPU 占用高的问题？
 
-在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建一个进程转储，然后分析该进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
+在某些 CPU 占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑扩展到较高服务层级，以便应用程序可获取所需的所有资源。 其他情况下，高 CPU 占用可能是由错误循环或编码实践导致的。 深入了解 CPU 占用升高的触发因素这一过程分为两部分。 首先，创建一个进程转储，然后分析该进程转储。 有关详细信息，请参阅[捕获和分析 Web 应用高 CPU 占用的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)。
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>如何解决内存占用高的问题？
 
-在某些内存占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑缩放到更高的服务层，以便应用程序获取所需的所有资源。 在其他情况下，代码中存在的 bug 可能会导致内存泄漏。 此外，编码实践也可能会增大内存占用。 深入了解内存占用高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 Azure 站点扩展库中的故障诊断程序可高效执行这两个步骤。 有关详细信息，请参阅[捕获和分析 Web 应用间歇性高内存的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
+在某些内存占用高的情况下，应用可能真的需要更多计算资源。 在这种情况下，请考虑扩展到较高服务层级，以便应用程序可获取所需的所有资源。 在其他情况下，代码中存在的 bug 可能会导致内存泄漏。 此外，编码实践也可能会增大内存占用。 深入了解内存占用高的触发因素这一过程分为两部分。 首先，创建进程转储，然后分析此进程转储。 Azure 站点扩展库中的故障诊断程序可高效执行这两个步骤。 有关详细信息，请参阅[捕获和分析 Web 应用间歇性高内存的转储文件](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)。
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>如何使用 PowerShell 实现应用服务 Web 应用的自动化？
 
@@ -51,9 +51,9 @@ ms.locfileid: "58626655"
 查看 Web 应用的事件日志：
 
 1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
-2. 在菜单中，选择“调试控制台” > “CMD”。
-3. 选择“LogFiles”文件夹。
-4. 若要查看事件日志，请选择“eventlog.xml”旁边的铅笔图标。
+2. 在菜单中，选择“调试控制台”   > “CMD”  。
+3. 选择“LogFiles”  文件夹。
+4. 若要查看事件日志，请选择 **eventlog.xml** 旁的铅笔图标。
 5. 若要下载日志，请运行 PowerShell cmdlet `Save-AzureWebSiteLog -Name webappname`。
 
 ## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>如何捕获 Web 应用的用户模式内存转储？
@@ -61,21 +61,21 @@ ms.locfileid: "58626655"
 捕获 Web 应用的用户模式内存转储:
 
 1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
-2. 选择“进程资源管理器”菜单。
-3. 右键单击“w3wp.exe”进程或 WebJob 进程。
-4. 选择“下载内存转储” > “完全转储”。
+2. 选择“进程资源管理器”  菜单。
+3. 右键单击“w3wp.exe”  进程或 WebJob 进程。
+4. 选择“下载内存转储”   > “完全转储”  。
 
 ## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>如何查看 Web 应用的进程级信息？
 
 可通过两种方法查看 Web 应用的进程级信息：
 
 *   在 Azure 门户中：
-    1. 打开 Web 应用的“进程资源管理器”。
-    2. 若要查看详细信息，请选择“w3wp.exe”进程。
+    1. 打开 Web 应用的“进程资源管理器”  。
+    2. 若要查看详细信息，请选择“w3wp.exe”  进程。
 *   在 Kudu 控制台中：
     1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
-    2. 选择“进程资源管理器”菜单。
-    3. 对于“w3wp.exe”进程，选择“属性”。
+    2. 选择“进程资源管理器”  菜单。
+    3. 对于“w3wp.exe”  进程，选择“属性”  。
 
 ## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>浏览到应用时，看到“错误 403 - 此 web 应用已停止。” 如何解决此问题？
 
@@ -93,24 +93,24 @@ ms.locfileid: "58626655"
 
 ## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>如何缩短空闲时间后第一个请求的响应时间？
 
-默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样，系统可以节省资源。 其缺点是：Web 应用处于未加载的状态后，对第一个请求的响应时间较长，需要等待 Web 应用加载和启动处理响应。 在基本和标准服务计划中，可启用“始终打开”设置，使应用保持加载状态。 这样就无需在应用处于空闲状态后重新加载应用。 若要更改“始终打开”设置，请执行以下操作：
+默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样，系统可以节省资源。 其缺点是：Web 应用处于未加载的状态后，对第一个请求的响应时间较长，需要等待 Web 应用加载和启动处理响应。 在基本和标准服务计划中，可启用“始终打开”  设置，使应用保持加载状态。 这样就无需在应用处于空闲状态后重新加载应用。 若要更改“始终打开”  设置，请执行以下操作：
 
 1. 在 Azure 门户中，转到自己的 Web 应用。
-2. 选择“应用程序设置”。
-3. 对于“始终打开”，选择“打开”。
+2. 选择“应用程序设置”  。
+3. 对于“始终打开”  ，选择“打开”  。
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>如何打开失败请求跟踪？
 
 若要打开失败的请求跟踪，请执行以下操作：
 
 1. 在 Azure 门户中，转到自己的 Web 应用。
-2. 选择“所有设置” > “诊断日志”。
-3. 对于“失败的请求跟踪”，选择“打开”。
-4. 选择“其他安全性验证” 。
-5. 在 Web 应用边栏选项卡，选择“工具”。
-6. 选择“Visual Studio Online”。
-7. 如果设置不是“打开”，则选择“打开”。
-8. 选择“转到”。
+2. 选择“所有设置”   > “诊断日志”  。
+3. 对于“失败的请求跟踪”  ，选择“打开”  。
+4. 选择“其他安全性验证”  。
+5. 在 Web 应用边栏选项卡，选择“工具”  。
+6. 选择“Visual Studio Online”  。
+7. 如果设置不是“打开”  ，则选择“打开”  。
+8. 选择“转到”  。
 9. 选择 **Web.config**。
 10. 在 system.webServer 中，添加此配置（以捕获特定的 URL）：
 
@@ -145,9 +145,9 @@ ms.locfileid: "58626655"
     </tracing>
     ```
 12. 若要下载失败的请求跟踪，请在[门户](https://portal.azure.cn)中转到你的网站。
-13. 选择“工具” > “Kudu” > “转到”。
-14. 在菜单中，选择“调试控制台” > “CMD”。
-15. 选择“LogFiles”文件夹，然后选择名称以“W3SVC”开头的文件夹。
+13. 选择“工具”   > “Kudu”   > “转到”  。
+14. 在菜单中，选择“调试控制台”   > “CMD”  。
+15. 选择“LogFiles”  文件夹，然后选择名称以“W3SVC”  开头的文件夹。
 16. 若要查看 XML 文件，请选择铅笔图标。
 
 ## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>看到消息“由于‘内存百分比’限制工作进程请求回收。” 如何解决此问题？
@@ -158,7 +158,7 @@ ms.locfileid: "58626655"
 
 另请注意，64 位环境需要“基本”或“标准”服务计划。 “免费”和“共享”计划始终在 32 位环境中运行。
 
-有关详细信息，请参阅[在应用服务中配置 web 应用](web-sites-configure.md)。
+有关详细信息，请参阅[在应用服务中配置 web 应用](configure-common.md)。
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>为何我的请求在 230 秒后超时？
 
@@ -177,7 +177,7 @@ WebJobs 专用于后台处理。 可在 WebJobs 中执行任意数量的后台�
 
 如果使用应用服务的本地缓存功能，应用服务实例“LogFiles 和数据”文件夹的文件夹结构会受到影响。 使用本地缓存时，将在存储 LogFiles 和数据文件夹中创建子文件夹。 子文件夹使用“唯一标识符”+ 时间戳的命名模式。 每个子文件夹对应于一个 VM 实例，其中的 Web 应用正在运行或已运行。
 
-若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”选项卡。如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。
+若要确定是否是在本地缓存，请检查应用服务的“应用程序设置”  选项卡。如果在使用本地缓存，应用设置 `WEBSITE_LOCAL_CACHE_OPTION` 设置为 `Always`。
 
 如果未使用本地缓存，并且遇到此问题，请提交支持请求。
 

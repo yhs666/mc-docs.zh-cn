@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08db1eeedfa2bf79987d4c68af0fe1856b20d7a5
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 2f7bacae73adb0cc6ce2bb8a182076b029e85f87
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562730"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818373"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
@@ -25,7 +25,7 @@ ms.locfileid: "67562730"
 
 ## <a name="automatically-tracked-dependencies"></a>自动跟踪的依赖项
 
-适用于 .NET 和 .NET Core 的 Application Insights SDK 随附了 `DependencyTrackingTelemetryModule`：一个自动收集依赖项的遥测模块。 根据链接的官方文档进行配置后，将自动为 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 和 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 应用程序启用此依赖项收集功能。`DependencyTrackingTelemetryModule` 作为[此](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet 包附送，使用 NuGet 包 `Microsoft.ApplicationInsights.Web` 或 `Microsoft.ApplicationInsights.AspNetCore` 时会自动打开它。
+适用于 .NET 和 .NET Core 的 Application Insights SDK 随附了 `DependencyTrackingTelemetryModule`：一个自动收集依赖项的遥测模块。 根据链接的官方文档进行配置后，将自动为 [ASP.NET](/azure-monitor/app/asp-net) 和 [ASP.NET Core](/azure-monitor/app/asp-net-core) 应用程序启用此依赖项收集功能。`DependencyTrackingTelemetryModule` 作为[此](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) NuGet 包附送，使用 NuGet 包 `Microsoft.ApplicationInsights.Web` 或 `Microsoft.ApplicationInsights.AspNetCore` 时会自动打开它。
 
  `DependencyTrackingTelemetryModule` 目前会自动跟踪以下依赖项：
 
@@ -148,7 +148,7 @@ ms.locfileid: "67562730"
 
 ## <a name="logs-analytics"></a>日志（分析）
 
-可以跟踪 [Kusto 查询语言](/azure/kusto/query/)中的依赖项。 下面是一些示例。
+可以跟踪 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)中的依赖项。 下面是一些示例。
 
 * 查找所有失败的依赖项调用：
 

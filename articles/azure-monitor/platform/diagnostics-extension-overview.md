@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f66dafc46b47fd7850a7625814b645e0c3c351fc
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 40c4ff0a7e042c7e1a69c32b2ce69bc7e16a007c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562367"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818378"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>什么是 Azure 诊断扩展
 Azure 诊断扩展是 Azure 中可对部署的应用程序启用诊断数据收集的代理。 可以使用于自许多不同源的诊断扩展。 目前支持 Azure 云服务（经典）Web 和辅助角色、虚拟机、虚拟机规模集，以及 Service Fabric。 其他 Azure 服务具有不同的诊断方法。 请参阅 [Azure 中的监控概述](../../azure-monitor/overview.md)。
@@ -62,7 +62,7 @@ Azure 诊断扩展可收集以下类型的数据：
 请选择要尝试在哪个服务上收集诊断数据，并使用以下文章来入门。 有关具体任务的参考，请使用一般的 Azure 诊断链接。
 
 ## <a name="cloud-services-using-azure-diagnostics"></a>使用 Azure 诊断的云服务
-* 如果使用 Visual Studio，请参阅[使用 Visual Studio 跟踪云服务应用程序](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)帮助自己入门。 否则，请参阅
+* 如果使用 Visual Studio，请参阅[使用 Visual Studio 跟踪云服务应用程序](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)帮助自己入门。 否则，请参阅
 * [如何使用 Azure 诊断监视云服务](../../cloud-services/cloud-services-how-to-monitor.md)
 * [在云服务应用程序中设置 Azure 诊断](../../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -72,8 +72,8 @@ Azure 诊断扩展可收集以下类型的数据：
 * [使用 PowerShell 在云服务上设置诊断](../../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="virtual-machines"></a>虚拟机
-* 如果使用 Visual Studio，请参阅[使用 Visual Studio 跟踪 Azure 虚拟机](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)帮助自己入门。 否则，请参阅
-* [在 Azure 虚拟机上设置 Azure 诊断](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+* 如果使用 Visual Studio，请参阅[使用 Visual Studio 跟踪 Azure 虚拟机](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines)帮助自己入门。 否则，请参阅
+* [在 Azure 虚拟机上设置 Azure 诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 有关更高级主题，请参阅
 

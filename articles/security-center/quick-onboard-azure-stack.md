@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e13c81ee18928bd653abb05b63f9577df1cff988
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 827df308ea5436bf55c8f630eefde284bbd92f23
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004547"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818204"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>快速入门：将 Azure Stack 虚拟机载入安全中心
 载入 Azure 订阅后，可以通过从 Azure Stack 市场添加“Azure 监视、更新和配置管理”虚拟机扩展，启用安全中心来保护 Azure Stack 上运行的虚拟机。 
@@ -61,7 +61,7 @@ ms.locfileid: "66004547"
 现在，必须将“Azure 监视、更新和配置管理”虚拟机扩展添加到 Azure Stack 上运行的虚拟机。 
 
 1. 在新的浏览器标签页中，登录到 **Azure Stack** 门户。
-2. 转到“虚拟机”页，选择要使用安全中心保护的虚拟机。  有关如何在 Azure Stack 上创建虚拟机的信息，请参阅[适用于 Windows 虚拟机的此快速入门](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal)，或[适用于 Linux 虚拟机的此快速入门](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)。
+2. 转到“虚拟机”页，选择要使用安全中心保护的虚拟机。  有关如何在 Azure Stack 上创建虚拟机的信息，请参阅[适用于 Windows 虚拟机的此快速入门](/azure-stack/user/azure-stack-quick-windows-portal)，或[适用于 Linux 虚拟机的此快速入门](/azure-stack/user/azure-stack-quick-linux-portal)。
 3. 选择“扩展”  。 此时将显示此虚拟机上安装的虚拟机扩展列表。
 4. 单击“添加”  选项卡。此时会打开“新建资源”菜单边栏选项卡，其中显示了可用虚拟机扩展的列表。  
 5. 选择“Azure 监视、更新和配置管理”扩展，然后单击“创建”。   此时会打开“安装扩展”配置边栏选项卡。 

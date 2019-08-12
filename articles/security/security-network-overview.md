@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 10/29/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8bd8f3dbd496a9ae97565006b862cc9d6f4ec6df
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: ab6f1bffd94bcfcd004889a9deb33e0cb89de6fc
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219572"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818543"
 ---
 # <a name="azure-network-security-overview"></a>Azure 网络安全概述
 
@@ -72,7 +72,7 @@ Azure 网络支持在虚拟网络上为流量自定义路由行为。 由此可�
 
 [强制隧道](https://www.petri.com/azure-forced-tunneling)是一种机制，可用于确保不允许服务启动与 Internet 上设备的连接。 请注意，这与接受并响应传入连接不同。 前端 Web 服务器需要响应来自 Internet 主机的请求，因此允许源自 Internet 的流量传入到这些 Web 服务器，并允许 Web 服务器作出响应。
 
-不想要允许的是前端 Web 服务器发起出站请求。 此类请求可能带来安全风险，因为这些连接可用于下载恶意软件。 即使想要这些前端服务器启动对 Internet 的出站请求，你可能想要强制它们通过本地 Web 代理服务器。 由此可利用 URL 筛选和日志记录。
+不想允许前端 Web 服务器启动出站请求。 此类请求可能带来安全风险，因为这些连接可用于下载恶意软件。 即使想要这些前端服务器启动对 Internet 的出站请求，你可能想要强制它们通过本地 Web 代理服务器。 由此可利用 URL 筛选和日志记录。
 
 可以使用强制隧道来避免此问题。 启用强制隧道后，会强制与 Internet 的所有连接通过本地网关。 可以利用 UDR 配置强制隧道。
 
@@ -127,8 +127,6 @@ Azure 网络支持以下安全远程访问方案：
 
 * IKEv2 VPN，这是一种基于标准的 IPsec VPN 解决方案。 IKEv2 VPN 可用于从 Mac 设备进行连接（OSX 10.11 和更高版本）。
 
-* [OpenVPN](https://www.azure.cn/updates/openvpn-support-for-azure-vpn-gateways/)
-
 了解详细信息：
 
 * [使用 PowerShell 配置与虚拟网络的点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
@@ -173,7 +171,7 @@ Azure 网络支持以下安全远程访问方案：
 
 ## <a name="availability"></a>可用性
 
-可用性是任何安全程序的重要组件。 如果用户和系统无法通过网络访问需要访问的内容，则可以认为服务已遭入侵。 Azure 的网络技术支持以下高可用性机制：
+可用性是任何安全程序的重要组件。 如果用户和系统无法访问他们需要通过网络访问的内容，可视为该服务已遭到入侵。 Azure 的网络技术支持以下高可用性机制：
 
 * 基于 HTTP 的负载均衡
 * 网络级别负载均衡
@@ -224,11 +222,11 @@ Azure 应用程序网关为基于 Web 的服务提供了基于 HTTP 的负载均
 
 ## <a name="name-resolution"></a>名称解析
 
-名称解析是对 Azure 中托管的所有服务而言至关重要的功能。 从安全角度看，入侵名称解析功能可能会导致攻击者将你站点的请求重定向到攻击者的站点。 安全名称解析是所有云托管服务的要求。
+名称解析是对 Azure 中托管的所有服务而言至关重要的功能。 从安全角度看，名称解析功能的泄漏可能会导致攻击者将来自站点的请求重定向到攻击者的站点。 安全名称解析是所有云托管服务的要求。
 
 需要解决两种类型的名称解析：
 
-* 内部名称解析。 虚拟网络和/或本地网络上的服务使用此名称解析。 用于内部名称解析的名称无法通过 Internet 访问。 为了获取最高安全性，外部用户不能访问内部名称解析方案，这一点非常重要。
+* 内部名称解析。 虚拟网络和/或本地网络上的服务使用此名称解析。 用于内部名称解析的名称无法通过 Internet 访问。 为获得最佳的安全性，重要的是内部名称解析方案对于外部用户不可访问。
 * 外部名称解析。 本地网络和虚拟网络之外的人员和设备使用此名称解析。 这些是对 Internet 可见且用于将连接定向到基于云的服务的名称。
 
 对于内部名称解析，可以使用两个选项：

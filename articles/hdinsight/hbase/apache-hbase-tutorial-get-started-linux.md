@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 706257d8d37320d92480fff40053371fd388f489
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: a15f79b05c91796e0fda21e19c92f2a7c949ee50
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845215"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878740"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>教程：在 Azure HDInsight 中使用 Apache HBase
 
@@ -56,7 +56,7 @@ ms.locfileid: "67845215"
     |---|---|
     |订阅|选择用于创建群集的 Azure 订阅。|
     |资源组|创建 Azure 资源管理组，或使用现有的组。|
-    |位置|指定资源组的位置。 |
+    |Location|指定资源组的位置。 |
     |ClusterName|输入 HBase 群集的名称。|
     |群集登录名和密码|默认登录名为“admin”  。|
     |SSH 用户名和密码|默认用户名为“sshuser”  。|
@@ -307,7 +307,7 @@ HDInsight 中的 HBase 随附了一个 Web UI 用于监视群集。 使用该 We
 
 为了避免不一致，建议在删除群集之前先禁用 HBase 表。 可以使用 HBase 命令 `disable 'Contacts'`。 如果不打算继续使用此应用程序，请使用以下步骤删除创建的 HBase 群集：
 
-1. 登录到 [Azure 门户](https://portal.azure.com/)。
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 1. 在顶部的“搜索”框中，键入 **HDInsight**。 
 1. 选择“服务”下的“HDInsight 群集”   。
 1. 在显示的 HDInsight 群集列表中，单击为本教程创建的群集旁边的“...”。 

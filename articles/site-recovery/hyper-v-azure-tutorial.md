@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 0938c51e7017162c9c627d1ad15251d59d4087b5
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 31294ded0034087e8bbb789a7d43464e22f0d66b
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861709"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819606"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>对 Azure 设置本地 Hyper-V VM 的灾难恢复
 
@@ -106,7 +106,7 @@ Azure Site Recovery 将检索 Hyper-V 服务器中的元数据，该服务器显
 3. 运行此命令注册服务器：
 
     ```
-    cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
+    cd  "C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"
     ```
     
     <!--MOONCAKE: CORRECT ON Microsoft Azure Site Recovery Provider-->

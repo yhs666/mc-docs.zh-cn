@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/29/2016
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: a721d8774d81d96ea17bbfbb4ab15e822e60e6e5
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 12795a19ec9e021316c380d0216020a5523a8c2b
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665843"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912926"
 ---
 # <a name="troubleshooting-azure-windows-vm-extension-failures"></a>Azure Windows VM 扩展故障排除
 [!INCLUDE [virtual-machines-common-extensions-troubleshoot](../../../includes/virtual-machines-common-extensions-troubleshoot.md)]
@@ -66,6 +66,7 @@ Azure PowerShell：
 注意：未来此功能将得到增强，不再需要卸载该扩展。
 
 #### <a name="remove-the-extension-from-azure-powershell"></a>从 Azure PowerShell 删除扩展
+    
     Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 删除该扩展后，可以重新执行模板以在 VM 上运行脚本。

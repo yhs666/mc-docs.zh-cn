@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ed92cde7d649be2c42cbd6954e1b77eeb07c2b96
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 0fa9bd3d06532cdfdc4a961fa69aa70ca2a7c359
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562923"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818288"
 ---
 # <a name="azure-monitor-log-query-language-differences"></a>Azure Monitor 日志查询语言差异
 
-虽然 [Azure Monitor 中的日志](log-query-overview.md)是基于 [Azure 数据资源管理器](/azure/data-explorer)构建的并使用相同的 [Kusto 查询语言](/azure/kusto/query)，但该语言的版本确实有一些差异。 本文介绍了在数据资源管理器使用的语言版本与 Azure Monitor 日志查询使用的版本之间存在差异的元素。
+虽然 [Azure Monitor 中的日志](log-query-overview.md)是基于 [Azure 数据资源管理器](/data-explorer)构建的并使用相同的 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query)，但该语言的版本确实有一些差异。 本文介绍了在数据资源管理器使用的语言版本与 Azure Monitor 日志查询使用的版本之间存在差异的元素。
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -31,28 +31,28 @@ ms.locfileid: "67562923"
 
 ### <a name="statements-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的语句
 
-* [Alias](/azure/kusto/query/aliasstatement)
-* [Query parameters](/azure/kusto/query/queryparametersstatement)
+* [Alias](https://docs.microsoft.com/azure/kusto/query/aliasstatement)
+* [Query parameters](https://docs.microsoft.com/azure/kusto/query/queryparametersstatement)
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的函数
 
-* [cluster()](/azure/kusto/query/clusterfunction)
-* [cursor_after()](/azure/kusto/query/cursorafterfunction)
-* [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
-* [cursor_current()、current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
-* [current_principal()](/azure/kusto/query/current-principalfunction)
-* [extent_id()](/azure/kusto/query/extentidfunction)
-* [extent_tags()](/azure/kusto/query/extenttagsfunction)
+* [cluster()](https://docs.microsoft.com/azure/kusto/query/clusterfunction)
+* [cursor_after()](https://docs.microsoft.com/azure/kusto/query/cursorafterfunction)
+* [cursor_before_or_at()](https://docs.microsoft.com/azure/kusto/query/cursorbeforeoratfunction)
+* [cursor_current()、current_cursor()](https://docs.microsoft.com/azure/kusto/query/cursorcurrent)
+* [database()](https://docs.microsoft.com/azure/kusto/query/databasefunction)
+* [current_principal()](https://docs.microsoft.com/azure/kusto/query/current-principalfunction)
+* [extent_id()](https://docs.microsoft.com/azure/kusto/query/extentidfunction)
+* [extent_tags()](https://docs.microsoft.com/azure/kusto/query/extenttagsfunction)
 
 ### <a name="operators-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的运算符
 
-* [跨群集加入](/azure/kusto/query/joincrosscluster)
-* [externaldata 运算符](/azure/kusto/query/externaldata-operator)
+* [跨群集加入](https://docs.microsoft.com/azure/kusto/query/joincrosscluster)
+* [externaldata 运算符](https://docs.microsoft.com/azure/kusto/query/externaldata-operator)
 
 ### <a name="plugins-not-supported-in-azure-monitor"></a>Azure Monitor 中不支持的插件
 
-* [sql_request 插件](/azure/kusto/query/sqlrequestplugin)
+* [sql_request 插件](https://docs.microsoft.com/azure/kusto/query/sqlrequestplugin)
 
 
 ## <a name="additional-operators-in-azure-monitor"></a>Azure Monitor 中的附加运算符
@@ -64,4 +64,4 @@ ms.locfileid: "67562923"
 ## <a name="next-steps"></a>后续步骤
 
 - 获取[用于编写 Azure Monitor 日志查询的不同资源](query-language.md)的参考信息。
-- 访问完整的 [Kusto 查询语言的参考文档](/azure/kusto/query/)。
+- 访问完整的 [Kusto 查询语言的参考文档](https://docs.microsoft.com/azure/kusto/query/)。

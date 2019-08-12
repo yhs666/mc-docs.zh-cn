@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mazhar
 ms.author: v-lingwu
-ms.openlocfilehash: 5244e2e1c0b02a7dec8920a5206c1a8fa4008968
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 1cf7db454e56fe20e3e40904f2e0c75e99c5b2f3
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513880"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818508"
 ---
 # <a name="walkthrough-enabling-telemetry-for-azure-dynamics-crm-online-using-application-insights"></a>演练：使用 Application Insights 为 Azure Dynamics CRM Online 启用遥测
-本文演示如何使用 [Azure Application Insights](https://www.azure.cn/services/application-insights/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。
+本文演示如何使用 [Azure Application Insights](/azure-monitor/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。
 
 > [!NOTE]
 > [浏览示例解决方案](https://dynamicsandappinsights.codeplex.com/)。

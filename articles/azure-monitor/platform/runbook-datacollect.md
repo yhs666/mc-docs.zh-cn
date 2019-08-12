@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d95637515c2654771aafe7c9ea28d248441dbb28
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 266a0d059a5dbac8a810ad3a732d0befdfb07b2c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513907"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818143"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
 
@@ -208,8 +208,8 @@ Azure 自动化包含用于[测试 runbook](../../automation/automation-testing-
 ## <a name="next-steps"></a>后续步骤
 - 使用[视图设计器](../../azure-monitor/platform/view-designer.md)创建一个视图，用于显示已收集到 Log Analytics 存储库的数据。
 - 打包[管理解决方案](../../azure-monitor/insights/solutions-creating.md)中的 runbook，分发给客户。
-- 详细了解 [Log Analytics](https://docs.microsoft.com/azure/log-analytics/)。
-- 详细了解 [Azure 自动化](https://docs.microsoft.com/azure/automation/)。
+- 详细了解 [Log Analytics](/azure-monitor/)。
+- 详细了解 [Azure 自动化](/automation/)。
 - 详细了解 [HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md)。
 
 

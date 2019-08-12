@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 05/14/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 60a6108f72322167bb45da40d60384a08e0a43b1
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: aebe3e66707e162acab64f2530dacfa684dd909a
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52659729"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913013"
 ---
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 

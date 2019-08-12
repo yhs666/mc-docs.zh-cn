@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 12/04/2017
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 4b281f559064f17d7279aad7c48e856a0bc20645
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 33150c16cc88df87c3139ecdc238102fa8fde9cc
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029150"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878737"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>Apache Phoenix 查询服务器 REST SDK
 
@@ -42,7 +42,7 @@ ms.locfileid: "54029150"
 若要开始使用库，请实例化新的 `PhoenixClient` 对象，将包含 `Uri` 的 `ClusterCredentials` 传入到群集，并传入群集的 Apache Hadoop 用户名和密码。
 
 ```csharp
-var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
+var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.cn/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
@@ -296,7 +296,7 @@ string connId = Guid.NewGuid().ToString();
 RequestOptions options = RequestOptions.GetGatewayDefaultOptions();
 options.TimeoutMillis = 300000;
 
-// In gateway mode, PQS requests will be https://<cluster dns name>.azurehdinsight.net/hbasephoenix<N>/
+// In gateway mode, PQS requests will be https://<cluster dns name>.azurehdinsight.cn/hbasephoenix<N>/
 // Requests sent to hbasephoenix0/ will be forwarded to PQS on workernode0
 options.AlternativeEndpoint = "hbasephoenix0/";
 OpenConnectionResponse openConnResponse = null;

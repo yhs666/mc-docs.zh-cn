@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 04/29/2018
 ms.date: 05/27/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8ebbecd5ebcd34ea8943615eed786efb7fcec70c
-ms.sourcegitcommit: 99ef971eb118e3c86a6c5299c7b4020e215409b3
+ms.openlocfilehash: 0e9b12432df891efc6606cdb4e4a7ed1dd9394f7
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65829264"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878734"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>使用 Azure 存储共享访问签名来限制访问 HDInsight 中的数据
 
@@ -216,9 +216,9 @@ Set-AzStorageblobcontent `
 
 1. 在 Visual Studio 中打开解决方案。
 
-2. 在解决方案资源管理器中，右键单击“SASExample”项目并选择“属性”。
+2. 在解决方案资源管理器中，右键单击“SASExample”项目并选择“属性”。  
 
-3. 选择“设置”，并添加以下条目的值：
+3. 选择“设置”  ，并添加以下条目的值：
 
    * StorageConnectionString：想要为其创建存储策略和 SAS 的存储帐户的连接字符串。 其格式应为 `DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey`，其中 `myaccount` 是存储帐户名称，`mykey` 是存储帐户密钥。
 
@@ -313,7 +313,7 @@ $config = New-AzHDInsightClusterConfig
 
 $config = $config | Add-AzHDInsightConfigValues `
     -Spark2Defaults @{} `
-    -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
+    -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.chinacloudapi.cn"=$SASToken}
 
 # Create the HDInsight cluster
 New-AzHDInsightCluster `
@@ -327,7 +327,7 @@ New-AzHDInsightCluster `
     -Version $clusterVersion `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
-    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.windows.net" `
+    -DefaultStorageAccountName "$defaultStorageAccountName.blob.core.chinacloudapi.cn" `
     -DefaultStorageAccountKey $defaultStorageAccountKey `
     -DefaultStorageContainer $clusterName
 
@@ -363,27 +363,27 @@ Remove-AzResourceGroup `
 
 如果已有一个群集，可使用以下步骤将 SAS 添加到 **core-site** 配置：
 
-1. 打开群集的 Ambari Web UI。 此页面的地址为 `https://YOURCLUSTERNAME.azurehdinsight.net`。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
+1. 打开群集的 Ambari Web UI。 此页面的地址为 `https://YOURCLUSTERNAME.azurehdinsight.cn`。 出现提示时，使用创建群集时所用的管理员名称 (admin) 和密码向群集进行身份验证。
 
-2. 从 Ambari Web UI 的左侧，选择“HDFS”，并在页面的中间选择“配置”选项卡。
+2. 从 Ambari Web UI 的左侧，选择“HDFS”  ，并在页面的中间选择“配置”  选项卡。
 
-3. 选择“高级”选项卡，并向下滚动，找到“自定义 core-site”部分。
+3. 选择“高级”  选项卡，并向下滚动，找到“自定义 core-site”  部分。
 
-4. 展开“自定义 core-site”部分，并滚动到底部，选择“添加属性...”链接。 在“密钥”和“值”字段中使用以下值：
+4. 展开“自定义 core-site”  部分，并滚动到底部，选择“添加属性...”  链接。 在“密钥”  和“值”  字段中使用以下值：
 
-   * **键**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **键**：`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn`
    * **值**：前面执行的某个方法返回的 SAS。
 
      将 `CONTAINERNAME` 替换为用于 C# 或 SAS 应用程序的容器名称。 将 `STORAGEACCOUNTNAME` 替换为所用的存储帐户名称。
 
-5. 单击“添加”按钮以保存此密钥和值，并单击“保存”按钮以保存配置更改。 出现提示时，请添加更改的说明（例如，“添加 SAS 存储访问”），并单击“保存”。
+5. 单击“添加”  按钮以保存此密钥和值，并单击“保存”  按钮以保存配置更改。 出现提示时，请添加更改的说明（例如，“添加 SAS 存储访问”），并单击“保存”  。
 
-    完成更改后，单击“确定”。
+    完成更改后，单击“确定”  。
 
    > [!IMPORTANT]  
    > 必须重启几个服务才能使更改生效。
 
-6. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，并从右侧的“服务操作”下拉列表中选择“重启所有受影响项”。 出现提示时，选择“确认全部重启”。
+6. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”  ，并从右侧的“服务操作”  下拉列表中选择“重启所有受影响项”  。 出现提示时，选择“确认全部重启”  。
 
     对 MapReduce2 和 YARN 重复此过程。
 
@@ -396,13 +396,13 @@ Remove-AzResourceGroup `
 1. 连接到群集。 将 `CLUSTERNAME` 替换为群集的名称，然后输入以下命令：
 
     ```cmd
-    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
 2. 要列出容器的内容，请在提示符下使用以下命令：
 
     ```bash
-    hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
+    hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/
     ```
 
     将 `SASCONTAINER` 替换为针对 SAS 存储帐户创建的容器名称。 将 `SASACCOUNTNAME` 替换为用于 SAS 的存储帐户名称。
@@ -412,7 +412,7 @@ Remove-AzResourceGroup `
 3. 使用以下命令验证是否可以读取文件的内容。 按上一步骤中所述替换 `SASCONTAINER` 和 `SASACCOUNTNAME`。 将 `sample.log` 替换为前一个命令中显示的名称：
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/sample.log
     ```
 
     此命令列出文件的内容。
@@ -420,15 +420,15 @@ Remove-AzResourceGroup `
 4. 使用以下命令将文件下载到本地文件系统：
 
     ```bash
-    hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log testfile.txt
+    hdfs dfs -get wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/sample.log testfile.txt
     ```
 
     此命令会将该文件下载到名为 **testfile.txt**的本地文件中。
 
-5. 使用以下命令将本地文件上传到 SAS 存储上名为 testupload.txt 的新文件中：
+5. 使用以下命令将本地文件上传到 SAS 存储上名为 testupload.txt 的新文件中： 
 
     ```bash
-    hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/testupload.txt
+    hdfs dfs -put testfile.txt wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.chinacloudapi.cn/testupload.txt
     ```
 
     将收到类似于以下文本的消息：

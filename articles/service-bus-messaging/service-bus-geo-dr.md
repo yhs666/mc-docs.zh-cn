@@ -9,16 +9,16 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4a7cd4640885231eb7ef42006d8430ae9ecf66a2
-ms.sourcegitcommit: 1bb0b40e36085cd8219af1de86b9a6f36a50bdc1
+ms.openlocfilehash: bd50b72b45b00d4e22a935f9d0bc9e517cdf8314
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58545276"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818582"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 
-当整个 Azure 区域或数据中心（如果未使用[可用性区域](https://www.azure.cn/zh-cn/home/features/products-by-region )）遭遇停机时，在不同区域或数据中心中继续进行数据处理就显得至关重要。 因此，“异地灾难恢复”对于任何企业而言都是非常重要的功能。 Azure 服务总线支持命名空间级别的异地灾难恢复。
+当整个 Azure 区域或数据中心（如果未使用[可用性区域](https://www.azure.cn/zh-cn/home/features/products-by-region )）遭遇停机时，在不同区域或数据中心中继续进行数据处理就显得至关重要。 因此，“异地灾难恢复”对于任何企业而言都是非常重要的功能。  Azure 服务总线支持命名空间级别的异地灾难恢复。
 
 异地灾难恢复功能在全球范围内可用于服务总线高级 SKU。 
 
@@ -29,11 +29,11 @@ ms.locfileid: "58545276"
 
 请务必注意“中断”和“灾难”的区别。 
 
-中断是指 Azure 服务总线暂时不可用，可能会影响服务的某些组件，如消息存储，甚至是整个数据中心。 但在问题解决后，服务总线将恢复可用。 通常情况下，中断不会导致消息或其他数据丢失。 例如，数据中心的电源故障可能会导致此类中断。 某些中断由于暂时性故障或网络问题只是短时间连接丢失。 
+中断  是指 Azure 服务总线暂时不可用，可能会影响服务的某些组件，如消息存储，甚至是整个数据中心。 但在问题解决后，服务总线将恢复可用。 通常情况下，中断不会导致消息或其他数据丢失。 例如，数据中心的电源故障可能会导致此类中断。 某些中断由于暂时性故障或网络问题只是短时间连接丢失。 
 
 根据定义，*灾难*是指永久或长期丢失服务总线群集、Azure 区域或数据中心。 该区域或数据中心不一定会恢复可用，或可能停用数小时或数天。 例如，火灾、洪灾或地震等可能导致此类灾难。 永久性灾难可能会导致一些消息、事件或其他数据丢失。 不过，在大多数情况下，都不应该会有数据丢失，并且在数据中心备份后，便可以恢复消息。
 
-Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解决方案。 本文中所述的概念和工作流适用于灾难方案，而不适用于暂时或临时中断。 有关 Microsoft Azure 中的灾难恢复的详细讨论，请参阅[此文](/azure/architecture/resiliency/disaster-recovery-azure-applications)。   
+Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解决方案。 本文中所述的概念和工作流适用于灾难方案，而不适用于暂时或临时中断。 有关 Microsoft Azure 中的灾难恢复的详细讨论，请参阅[此文](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)。   
 
 ## <a name="basic-concepts-and-terms"></a>基本概念和术语
 
@@ -59,7 +59,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 1. 预配“主要”服务总线高级命名空间。
 
-2. 在与预配了主要命名空间的位置不同的区域中预配“次要”服务总线高级命名空间。 这将有助于跨不同的数据中心区域进行故障隔离。
+2. 在与预配了主要命名空间的位置不同的区域中预配“次要”服务总线高级命名空间  。 这将有助于跨不同的数据中心区域进行故障隔离。
 
 3. 在主要命名空间与次要命名空间之间创建配对以获取“别名”。
 
@@ -120,7 +120,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 2. 未复制数据是指未复制当前处于活动状态的会话。 此外，重复检测和计划消息可能无法正常工作。 新会话、新计划消息和新的重复项可以正常工作。 
 
-3. 故障转移复杂的分布式基础结构应至少[演练](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)一次。
+3. 故障转移复杂的分布式基础结构应至少[演练](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation)一次。
 
 4. 同步实体可能需要一些时间，每分钟大约 50-100 个实体。 订阅和规则也计为实体。
 
@@ -137,7 +137,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅此处的异地灾难恢复 [REST API 参考](/rest/api/servicebus/disasterrecoveryconfigs)。
+- 请参阅此处的异地灾难恢复 [REST API 参考](https://azure.microsoft.com/rest/api/servicebus/disasterrecoveryconfigs)。
 - 在 GitHub 上运行异地灾难恢复[示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)。
 - 请参阅异地灾难恢复[将消息发送到别名的示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1)。
 
@@ -146,7 +146,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* [Rest API](/rest/api/servicebus/) 
+* [Rest API](https://azure.microsoft.com/rest/api/servicebus/) 
 
 [1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png

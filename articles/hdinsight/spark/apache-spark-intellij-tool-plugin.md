@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/26/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: ff52840974237b6c5e6846366066286d7fd73ee6
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 16e05a77f932e2239b4fd89d8ed736a9b827180d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845331"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878739"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>教程：使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -235,7 +235,7 @@ ms.locfileid: "67845331"
     |Main 类名|默认值是所选文件中的 main 类。 可选择省略号 (...) 并选择其他类来更改类  。|
     |作业配置|可以更改默认的键和/或值。 有关详细信息，请参阅 [Apache Livy REST API](https://livy.incubator.apache.org./docs/latest/rest-api.html)。|
     |命令行参数|如果需要，可为 main 类输入参数并以空格分隔。|
-    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和文件（如果有）的路径。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  另请参阅[如何将资源上传到群集](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
+    |引用的 Jar 和引用的文件|可以输入引用的 Jar 和文件（如果有）的路径。 还可以在 Azure 虚拟文件系统中浏览文件，但目前仅支持 ADLS 第 2 代群集。 更多相关信息：[Apache Spark 配置](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。  另请参阅[如何将资源上传到群集](/storage/blobs/storage-quickstart-blobs-storage-explorer)。|
     |作业上传存储|展开以显示其他选项。|
     |存储类型|从下拉列表中选择“使用 Azure Blob 上传”。 |
     |存储帐户|输入存储帐户。|

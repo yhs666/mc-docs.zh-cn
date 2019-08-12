@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ab7c50803714bb5f227cb1cddda4648fb117c4a9
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 653c68cdeb419524f900da501b51a2b049a2a53e
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332250"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818436"
 ---
 # <a name="add-luis-results-to-application-insights-from-a-bot-in-c"></a>将 LUIS 结果从以 C# 编写的机器人添加到 Application Insights
 
-本教程介绍如何将 LUIS 响应信息添加到 [Application Insights](https://www.azure.cn/services/application-insights/) 遥测数据存储。 拥有该数据后，可使用 Kusto 语言对其进行查询，或使用 Power BI 对表述的意向和实体进行实时分析、聚合和报告。 此分析有助于确定是否应添加或编辑 LUIS 应用的意向和实体。
+本教程介绍如何将 LUIS 响应信息添加到 [Application Insights](/azure-monitor/) 遥测数据存储。 拥有该数据后，可使用 Kusto 语言对其进行查询，或使用 Power BI 对表述的意向和实体进行实时分析、聚合和报告。 此分析有助于确定是否应添加或编辑 LUIS 应用的意向和实体。
 
 本教程介绍如何执行下列操作：
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 0c8cafe1503efa239bdaef217f6cb9090aadde5d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 158d9da6134b6c6715be8e4c8801a03a5bc07ffd
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562928"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818282"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 日志查询示例
-本文包含使用 [Kusto 查询语言](/azure/kusto/query/)从 Azure Monitor 中检索不同类型的日志数据的各种[查询](log-query-overview.md)示例。 其中使用了不同的方法来合并和分析数据，因此，你可以使用这些示例来识别符合自身要求的不同策略。  
+本文包含使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)从 Azure Monitor 中检索不同类型的日志数据的各种[查询](log-query-overview.md)示例。 其中使用了不同的方法来合并和分析数据，因此，你可以使用这些示例来识别符合自身要求的不同策略。  
 
 有关这些示例中使用的不同关键字的详细信息，请参阅 [Kusto 语言参考](https://docs.microsoft.com/azure/kusto/query/)。 如果你是初次接触 Azure Monitor，请仔细阅读[有关创建查询的课程](get-started-queries.md)。
 
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>统计与权限相关的安全事件数
-此示例中显示 **securityEvent** 记录的数目，这些记录中的 **Activity** 列中包含整个单词 _Permissions_。 查询将应用到在过去 30 分钟内创建的记录。
+此示例中显示 **securityEvent** 记录的数目，这些记录中的 **Activity** 列中包含整个单词 _Permissions_ 。 查询将应用到在过去 30 分钟内创建的记录。
 
 ```Kusto
 SecurityEvent
@@ -439,5 +439,5 @@ Update
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关语言的详细信息，请参阅 [Kusto 语言参考](/azure/kusto/query)。
+- 有关语言的详细信息，请参阅 [Kusto 语言参考](https://docs.microsoft.com/azure/kusto/query)。
 - 演练[有关在 Azure Monitor 中编写日志查询的课程](get-started-queries.md)。

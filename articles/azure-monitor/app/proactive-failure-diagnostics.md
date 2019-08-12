@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: yossiy
 ms.author: v-lingwu
-ms.openlocfilehash: 67a8ea40fc04706443386459f7239beae6aa6438
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: a7fa074eecd47db0572ceaf7257290b06269785c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562671"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818357"
 ---
 # <a name="smart-detection---failure-anomalies"></a>智能检测 - 失败异常
 如果 Web 应用的失败请求速率出现异常上升，[Application Insights](../../azure-monitor/app/app-insights-overview.md) 会几乎实时地自动通知你。 它会对 HTTP 请求速率或报告为失败的依赖项调用的异常上升进行检测。 对于请求而言，失败的请求通常是响应代码为 400 或更高的请求。 为了帮助会审和诊断问题，通知中会提供失败及相关遥测的特征分析。 还提供指向 Application Insights 门户的链接，以供进一步诊断。 该功能不需要任何设置或配置，因为它使用机器学习算法来预测正常的失败率。
@@ -49,15 +49,15 @@ ms.locfileid: "67562671"
 
 ### <a name="whats-new-in-this-version"></a>此版本的新增功能
 - 更快地检测问题
-- 一组更丰富的操作 - 警报规则使用包含电子邮件和 Webhook 操作的关联[操作组](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)（名为“Application Insights 智能检测”）创建，可进行扩展以在警报引发时触发其他操作。
-- 更有针对性的通知 - 从此警报规则发送的电子邮件通知现在默认发送给与订阅的“监视阅读者”和“监视参与者”角色关联的用户。 [此处](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification)提供了与此内容相关的详细信息。
-- 通过 ARM 模板简化配置 - 请参阅[此处](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)的示例。
-- 常见警报架构支持 - 从此警报规则发送的通知遵循[常见警报架构](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema)。
+- 一组更丰富的操作 - 警报规则使用包含电子邮件和 Webhook 操作的关联[操作组](/azure-monitor/platform/action-groups)（名为“Application Insights 智能检测”）创建，可进行扩展以在警报引发时触发其他操作。
+- 更有针对性的通知 - 从此警报规则发送的电子邮件通知现在默认发送给与订阅的“监视阅读者”和“监视参与者”角色关联的用户。 [此处](/azure-monitor/app/proactive-email-notification)提供了与此内容相关的详细信息。
+- 通过 ARM 模板简化配置 - 请参阅[此处](/azure-monitor/app/proactive-arm-config)的示例。
+- 常见警报架构支持 - 从此警报规则发送的通知遵循[常见警报架构](/azure-monitor/platform/alerts-common-schema)。
 - 统一的电子邮件模板 - 从此警报规则发送的电子邮件通知具有与其他警报类型一致的外观。 经此更改，用于获取“故障异常”警报（包含详细的诊断信息）的选项不再可用。
 
 ### <a name="how-do-i-get-the-new-version"></a>如何获取新的版本？
 - 如今，新建的 Application Insights 资源是用新版的“故障异常”警报规则预配的。
-- 当使用“故障异常”警报规则经典版的现有 Application Insights 资源的托管订阅在[经典警报停用过程](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)中迁移到新的警报平台后，这些资源将获取新的版本。
+- 当使用“故障异常”警报规则经典版的现有 Application Insights 资源的托管订阅在[经典警报停用过程](/azure-monitor/platform/monitoring-classic-retirement)中迁移到新的警报平台后，这些资源将获取新的版本。
 
 > [!NOTE]
 > 新版的“故障异常”警报规则始终是免费的。 此外，由关联的“Application Insights 智能检测”操作组触发的电子邮件和 Webhook 操作也是免费的。

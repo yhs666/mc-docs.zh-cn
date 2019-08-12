@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 12/13/2018
-ms.date: 07/08/2019
+origin.date: 07/02/2019
+ms.date: 08/05/2019
 ms.author: v-jay
-ms.openlocfilehash: c01ea552db906eb398bbb75bb8040954ebbc3a5e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d4b9be1b7dead0cd84f3002fa64d551f5118c712
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570409"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908698"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 OData 源复制数据
 
@@ -230,7 +230,7 @@ OData 链接的服务支持以下属性：
 | 属性 | 说明 | 必选 |
 |:--- |:--- |:--- |
 | type | 复制活动源的 type 属性必须设置为 RelationalSource   。 | 是 |
-| 查询 | 用于筛选数据的 OData 查询选项。 示例：`"?$select=Name,Description&$top=5"`。<br/><br/>**注意**：OData 连接器会从以下组合 URL 复制数据：`[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`。 有关详细信息，请参阅 [OData URL 组件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
+| 查询 | 用于筛选数据的 OData 查询选项。 示例：`"$select=Name,Description&$top=5"`。<br/><br/>**注意**：OData 连接器会从以下组合 URL 复制数据：`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`。 有关详细信息，请参阅 [OData URL 组件](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)。 | 否 |
 
 **示例**
 
@@ -254,7 +254,7 @@ OData 链接的服务支持以下属性：
         "typeProperties": {
             "source": {
                 "type": "RelationalSource",
-                "query": "?$select=Name,Description&$top=5"
+                "query": "$select=Name,Description&$top=5"
             },
             "sink": {
                 "type": "<sink type>"

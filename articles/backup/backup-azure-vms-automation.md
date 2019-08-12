@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 53e333faba210af803520d17f64639c6bf41c647
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d8f388b1fa055516f792187c1835dc59004bf059
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570605"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818473"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>使用 PowerShell 备份和恢复 Azure VM
 
@@ -501,7 +501,7 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-只需要部署模板来创建新的 VM，如[此处](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)所述。
+只需要部署模板来创建新的 VM，如[此处](/azure-resource-manager/resource-group-template-deploy)所述。
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS

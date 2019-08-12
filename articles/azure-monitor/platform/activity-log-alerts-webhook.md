@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 7f0ba99a10c76f2e67a4cb7a19da2e4c054ef63e
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 9ab343b38d92b0f44927ef8b61e640a482a2263f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514028"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818263"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Azure 活动日志警报的 Webhook
 作为操作组定义的一部分，可以配置 webhook 终结点以接收活动日志警报通知。 通过 webhook 可以将这些通知路由到其他系统，以便进行后续处理或自定义操作。 本文介绍针对 webhook 发出的 HTTP POST 的有效负载的大致形式。
@@ -112,7 +112,7 @@ Webhook 可以选择使用基于令牌的授权进行身份验证。 保存的 w
                     "resourceType":"Virtual Machine",
                     "severity":"Medium",
                     "compromisedEntity":"LinuxVM1",
-                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/)]",
+                    "remediationSteps":"[In case this is an Azure virtual machine, add the source IP to NSG block list for 24 hours (see https://docs.azure.cn/zh-cn/virtual-network/virtual-network-vnet-plan-design-arm)]",
                     "attackedResourceType":"Virtual Machine"
                 },
                 "resourceId":"/subscriptions/12345-5645-123a-9867-123b45a6789/resourceGroups/contoso/providers/Microsoft.Security/locations/centralus/alerts/Sec-07f2-4d74-aaf0-03d2f53d5a33",

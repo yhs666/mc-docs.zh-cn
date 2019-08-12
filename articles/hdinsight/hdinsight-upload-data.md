@@ -11,12 +11,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 06/22/2019
-ms.openlocfilehash: 6bc12a94c8f9928994d790c0af8411be0f2d834c
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 8736c5de7d56fac4196bd3f6556beb3f2a5be2be
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845186"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878477"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>在 HDInsight 中上传 Apache Hadoop 作业的数据
 
@@ -69,7 +69,7 @@ hadoop -copyFromLocal <localFilePath> <storageFilePath>
 
 或
 
-    wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
+    wasbs://<ContainerName>@<StorageAccountName>.blob.core.chinacloudapi.cn/example/data/davinci.txt
 
 若要查看可用于文件的其他 Hadoop 命令的列表，请参阅 [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
@@ -146,7 +146,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 还可使用 Apache Ambari 以全局方式增加 `fs.azure.write.request.size` 的值。 可以使用以下步骤在 Ambari Web UI 中更改该值：
 
-1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.net ，其中“CLUSTERNAME”是群集名称  。
+1. 在浏览器中，转到群集的 Ambari Web UI。 该地址为 https://CLUSTERNAME.azurehdinsight.cn ，其中“CLUSTERNAME”是群集名称  。
 
     出现提示时，输入群集的管理员名称和密码。
 2. 在屏幕左侧选择“HDFS”，然后选择“配置”选项卡   。

@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/16/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: d9fbe67ed7f4cbf86edc9d7fd012567f9f571021
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: ae9f10eeaa546369d5dec001a17d27a5098ef417
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686358"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818835"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>应用程序网关对多租户后端（例如应用服务）的支持
 
@@ -23,8 +23,6 @@ ms.locfileid: "59686358"
 
 ![主机替代](./media/application-gateway-web-app-overview/host-override.png)
 
-> [!NOTE]
-> 这不适用于 Azure 应用服务环境 (ASE)，因为 ASE 与 Azure 应用服务不同，前者是专用资源，而后者是多租户资源。
 
 ## <a name="override-host-header-in-the-request"></a>替代请求中的主机标头
 
@@ -32,7 +30,7 @@ ms.locfileid: "59686358"
 
 - 在 HTTP 设置中显式输入将主机名设置为固定值的功能。 此功能可确保将主机标头替代为该值，前提是在流量流向的后端池中应用了特定的 HTTP 设置。 使用端到端 SSL 时，会在 SNI 扩展中使用该替代的主机名。 有了此功能，后端池场收到的主机标头就可以不同于传入的客户主机标头。
 
-- 从后端池成员的 IP 或 FQDN 派生主机名的功能。 HTTP 设置还提供了一个选项，用于从后端池成员的 FQDN 动态选取主机名，前提是配置了从单个后端池成员派生主机名的选项。 使用端到端 SSL 时，该主机名派生自 FQDN，用在 SNI 扩展中。 有了此功能，后端池就可以有两个或两个以上的多租户 PaaS 服务（例如 Azure Web 应用），而针对每个成员的请求的主机标头就可以包含从该成员的 FQDN 派生的主机名。 为了实现此方案，我们在 HTTP 设置中使用了名为[从后端地址中选取主机名](/application-gateway/configuration-overview#pick-host-name-from-backend-address)的开关，此开关会将原始请求中的主机标头动态替代为后端池中指定的标头。  例如，如果后端池 FQDN 包含“contoso11.chinacloudsites.cn”和“contoso22.chinacloudsites.cn”，将请求发送到相应的后端服务器时，原始请求的主机标头 contoso.com 将替代为 contoso11.chinacloudsites.cn 或contoso22.chinacloudsites.cn。 
+- 从后端池成员的 IP 或 FQDN 派生主机名的功能。 HTTP 设置还提供了一个选项，用于从后端池成员的 FQDN 动态选取主机名，前提是配置了从单个后端池成员派生主机名的选项。 使用端到端 SSL 时，该主机名派生自 FQDN，用在 SNI 扩展中。 有了此功能，后端池就可以有两个或两个以上的多租户 PaaS 服务（例如 Azure Web 应用），而针对每个成员的请求的主机标头就可以包含从该成员的 FQDN 派生的主机名。 为了实现此方案，我们在 HTTP 设置中使用了名为[从后端地址中选取主机名](/application-gateway/configuration-overview#pick-host-name-from-back-end-address)的开关，此开关会将原始请求中的主机标头动态替代为后端池中指定的标头。  例如，如果后端池 FQDN 包含“contoso11.chinacloudsites.cn”和“contoso22.chinacloudsites.cn”，将请求发送到相应的后端服务器时，原始请求的主机标头 contoso.com 将替代为 contoso11.chinacloudsites.cn 或contoso22.chinacloudsites.cn。 
 
   ![Web 应用方案](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -65,4 +63,4 @@ ms.locfileid: "59686358"
 
 访问[为应用服务 Web 应用配置应用程序网关](/application-gateway/create-web-app)，了解如何为用作后端池成员的多租户应用（例如 Azure 应用服务 Web 应用）设置应用程序网关
 
-<!--Update_Description: wording update -->
+<!--Update_Description: link update -->

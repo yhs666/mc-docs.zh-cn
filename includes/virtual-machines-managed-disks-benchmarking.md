@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 01/11/2019
-ms.date: ''
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: bbbb3f28cb26e90e79e1dfca594c62c7e7deda52
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 15c11fa8687210a55d37b8b65044ca0d072275a5
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004287"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913036"
 ---
 *预热缓存*  
 启用 ReadOnly 主机缓存的磁盘能够提供比磁盘限制更高的 IOPS。 若要通过主机缓存来实现此最大读取性能，首先必须对此磁盘的缓存进行预热。 这样可确保需要通过基准测试工具在 CacheReads 卷上实现的读取 IO 实际上可以直接命中缓存而不是磁盘。 命中缓存导致单个启用缓存的磁盘可以实现额外的 IOPS。
@@ -26,7 +26,7 @@ ms.locfileid: "59004287"
 
 ### <a name="iometer"></a>Iometer
 
-[下载 Iometer 工具](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 。
+[下载 Iometer 工具](https://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) 。
 
 #### <a name="test-file"></a>测试文件
 
@@ -37,7 +37,8 @@ Iometer 使用一个测试文件，该文件存储在运行基准测试的卷上
 规范、请求 IO 大小、读/写百分比、随机/顺序百分比都在 Iometer 中使用“访问规范”选项卡进行配置。 为下述每个方案创建一个访问规范。 创建访问规范，并使用合适的名称（例如 RandomWrites\_8K、RandomReads\_8K）进行“保存”。 在运行测试方案时，请选择相应的规范。
 
 最大写入 IOPS 方案的访问规范示例如下所示：  
-    ![最大写入 IOPS 方案的访问规范示例](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
+
+![最大写入 IOPS 方案的访问规范示例](../articles/virtual-machines/linux/media/premium-storage-performance/image8.png)
 
 #### <a name="maximum-iops-test-specifications"></a>最大 IOPS 测试规范
 
@@ -143,7 +144,7 @@ directory=/mnt/nocache
 
 请注意以下重要事项，这些事项必须符合前面部分讨论的设计准则。 这些规范是实现最大 IOPS 所必需的。  
 
-* 较高的队列深度：256。  
+* 较高的队列深度：256。 
 * 较小的块大小：8 KB。  
 * 多个执行随机写入的线程。
 
@@ -154,7 +155,7 @@ sudo fio --runtime 30 fiowrite.ini
 ```
 
 进行测试时，就能够看到 VM 和高级磁盘传送的写入 IOPS 数。 如以下示例所示，DS14 VM 传送的写入 IOPS 达到了最大限制：50,000 IOPS。  
-    ![正在传送的写入 IOPS VM 和高级磁盘的数量](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
+![正在传送的写入 IOPS VM 和高级磁盘的数量](../articles/virtual-machines/linux/media/premium-storage-performance/image11.png)
 
 #### <a name="maximum-read-iops"></a>最大读取 IOPS
 
@@ -184,7 +185,7 @@ directory=/mnt/readcache
 
 请注意以下重要事项，这些事项必须符合前面部分讨论的设计准则。 这些规范是实现最大 IOPS 所必需的。
 
-* 较高的队列深度：256。  
+* 较高的队列深度：256。 
 * 较小的块大小：8 KB。  
 * 多个执行随机写入的线程。
 
@@ -195,7 +196,7 @@ sudo fio --runtime 30 fioread.ini
 ```
 
 进行测试时，就能够看到 VM 和高级磁盘传送的读取 IOPS 数。 如以下示例所示，DS14 VM 传送了 64,000 个以上的读取 IOPS。 这是磁盘和缓存性能相结合。  
-    ![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
+![](../articles/virtual-machines/linux/media/premium-storage-performance/image12.png)
 
 #### <a name="maximum-read-and-write-iops"></a>最大读取和写入 IOPS
 
@@ -242,7 +243,7 @@ rate_iops=12500
 
 请注意以下重要事项，这些事项必须符合前面部分讨论的设计准则。 这些规范是实现最大 IOPS 所必需的。
 
-* 较高的队列深度：128。  
+* 较高的队列深度：128。 
 * 较小的块大小：4 KB。  
 * 多个执行随机读取和写入的线程。
 
@@ -253,7 +254,7 @@ sudo fio --runtime 30 fioreadwrite.ini
 ```
 
 进行测试时，就能够看到 VM 和高级磁盘传送的组合型读取和写入 IOPS 数。 如以下示例所示，DS14 VM 传送了 100,000 个以上的读写组合 IOPS。 这是磁盘和缓存性能相结合。  
-    ![组合型读取和写入 IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
+![组合型读取和写入 IOPS](../articles/virtual-machines/linux/media/premium-storage-performance/image13.png)
 
 #### <a name="maximum-combined-throughput"></a>最大组合吞吐量
 

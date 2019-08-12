@@ -5,39 +5,17 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 09/24/2018
-ms.date: 05/20/2019
+origin.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 51d9724e58deb4f02dd781708925aded89e37b50
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: affa59f825eb014824c36d31a84376f732675446
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004196"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912959"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure 高级存储：高性能设计
-
-本文提供了使用 Azure 高级存储构建高性能应用程序的准则。 可将本文档中提供的说明与适用于应用程序所用技术的性能最佳做法结合使用。 为了说明这些准则，我们在本文档中使用了在高级存储上运行的 SQL Server 作为示例。
-
-由于本文重点介绍针对存储层的性能方案，因此需要优化应用程序层。 例如，若要在 Azure 高级存储上托管 SharePoint 场，可使用本文中的 SQL Server 示例来优化数据库服务器。 另请优化 SharePoint 场的 Web 服务器和应用程序服务器以获取最高性能。
-
-本文帮助解答有关如何在 Azure 高级存储上优化应用程序性能的以下常见问题：
-
-* 如何度量应用程序性能？  
-* 为什么看不到预期的高性能？  
-* 哪些因素会影响应用程序在高级存储上的性能？  
-* 这些因素如何影响应用程序在高级存储上的性能？  
-* 如何针对 IOPS、带宽和延迟进行优化？  
-
-我们所提供的这些准则是专门针对高级存储的，因为在高级存储上运行的工作负荷具有高度的性能敏感性。 我们根据需要提供示例。 也可将其中部分准则应用于在使用标准存储磁盘的 IaaS VM 上运行的应用程序。
-
-> [!NOTE]
-> 有时，显示为磁盘性能问题的原因实际上是网络瓶颈。 在这些情况下，应优化[网络性能](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md)。
-> 如果 VM 支持加速网络，则应确保它已启用。 如果未启用，则可以在 [Windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) 和 [Linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms) 上已部署的 VM 上启用它。
-
-如果尚不熟悉高级存储，请在开始之前首先阅读[为 IaaS VM 选择 Azure 磁盘类型](../articles/virtual-machines/windows/disks-types.md)一文和 [Azure 存储可伸缩性和性能目标](../articles/storage/common/storage-scalability-targets.md)一文。
-
 ## <a name="application-performance-indicators"></a>应用程序性能指标
 
 我们评估应用程序的性能好坏时，会使用下面这样的性能指标：应用程序处理用户请求的速度如何、应用程序每个请求处理多少数据、应用程序在特定时间内处理多少请求、用户在提交其请求后必须等待多长时间才能获得响应。 与这些性能指标相对应的技术术语是：IOPS、吞吐量或带宽、延迟。
@@ -250,9 +228,6 @@ IO 大小是较为重要的因素之一。 IO 大小是由应用程序生成的�
 Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小对 IOPS、带宽和存储空间设置了不同规格的限制。 选择正确的高级存储磁盘大小，具体取决于应用程序要求和高规格 VM 大小。 下表显示了 11 种磁盘大小及其功能。 目前，仅托管磁盘支持 P4、P6、P15、P60、P70 和 P80 大小。
 
 <!--Not Available on and three disk sizes which are in preview-->
-<!--Not Available 11 disk size, actually is 8 disk size-->
-<!--Correct on offers eight GA disk, Not Available on preview P60,P70,P80-->
-<!--Not Available on preview P60,P70,P80-->
 
 | 高级磁盘类型  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
@@ -260,7 +235,6 @@ Azure 高级存储目前提供了十一种 GA 磁盘大小。 每种磁盘大小
 | 每个磁盘的 IOPS       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500              | 15,000              | 20,000              |
 | 每个磁盘的吞吐量 | 25 MiB/秒  | 50 MiB/秒  | 100 MiB/秒 |125 MiB/秒 | 150 MiB/秒 | 200 MiB/秒 | 250 MiB/秒 | 250 MiB/秒 | 480 MiB/秒 | 750 MiB/秒 | 750 MiB/秒 |
 
-<!--Not Available on preview P60,P70,P80-->
 
 选择多少磁盘取决于所选磁盘大小。 可以使用单个 P50 磁盘或多个 P10 磁盘来满足应用程序要求。 进行选择时，可考虑下面列出的注意事项。
 
@@ -441,6 +415,6 @@ Azure 高级存储根据所选 VM 大小和磁盘大小，预配指定数目的 
 SQL Server 用户请阅读有关 SQL Server 性能最佳实践的文章：
 
 * [Azure 虚拟机中 SQL Server 的性能最佳做法](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md)
-* [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
+* [Azure 高级存储为 Azure VM 中的 SQL Server 提供最高性能](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)
 
 <!-- Update_Description: wording update, update link -->

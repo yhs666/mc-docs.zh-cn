@@ -14,22 +14,21 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 636b46465e7c57c26610cc3955ea30056de185a5
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 70b0cd5937e068aa87fda7c3a2c8561816bfa575
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332687"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818555"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>如何将服务总线主题和订阅与 Node.js 和 azure/service-bus 包配合使用
 > [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Node.js 程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
+本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Node.js 程序，用于将消息发送到服务总线主题，并从服务总线订阅接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](https://azure.microsoft.com/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或注册[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或注册[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - 如果你没有可用的主题和订阅，请遵循[使用 Azure 门户创建服务总线主题和订阅](service-bus-quickstart-topics-subscriptions-portal.md)一文中的步骤创建主题和订阅。 记下服务总线实例的连接字符串，以及创建的主题和订阅的名称。 我们将在示例中使用这些值。
 
 > [!NOTE]

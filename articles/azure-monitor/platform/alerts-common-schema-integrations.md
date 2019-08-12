@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/27/2019
 ms.author: anantr
 ms.subservice: alerts
-ms.openlocfilehash: 0d7d78367d90b6d2b8057ee3c4f050914522ce25
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 3a371164c48e316d2d30366ec6f819894a5c44b5
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562882"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818255"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>如何将常见警报架构与逻辑应用集成
 
@@ -33,7 +33,7 @@ ms.locfileid: "67562882"
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>创建一个利用常见警报架构的逻辑应用
 
-1. 请按照[概述的步骤创建逻辑应用](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app)。 
+1. 请按照[概述的步骤创建逻辑应用](/azure-monitor/platform/action-groups-logic-app)。 
 
 1.  选择触发器：**当收到 HTTP 请求时**。
 

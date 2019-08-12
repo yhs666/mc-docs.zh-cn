@@ -13,15 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 93f587a02b743a31b733562e8d6340941be53761
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 09a2b1df715cff790a9ca65efae6f18600bd554d
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570425"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913005"
 ---
 <!--Verify Successfully-->
 # <a name="shared-image-galleries-overview"></a>共享映像库概述
@@ -32,5 +33,4 @@ ms.locfileid: "67570425"
 
 了解如何[部署共享映像](shared-images.md)。
 
-<!--Update_Description: new articles on share image gallery -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: wording update -->

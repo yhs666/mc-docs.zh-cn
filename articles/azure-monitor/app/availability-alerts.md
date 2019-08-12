@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 27ee3bc87163939e14d960475569a3a5288da870
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 098714f7d5354c4c223dc6354f15485860b8fe5a
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67563014"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818503"
 ---
 # <a name="availability-alerts"></a>可用性警报
 
@@ -61,7 +61,7 @@ ms.locfileid: "67563014"
 
 ### <a name="alert-on-custom-analytics-queries"></a>根据自定义分析查询发出警报
 
-使用[新的统一警报](/azure-monitor/platform/alerts-overview)时，可以根据[自定义日志查询](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log)发出警报。 借助自定义查询，可以在有助于获得最可靠的可用性问题信号的任意条件下发出警报。 如果使用 TrackAvailability SDK 发送自定义可用性结果，这也特别适用。 
+使用[新的统一警报](/azure-monitor/platform/alerts-overview)时，可以根据[自定义日志查询](/azure-monitor/platform/alerts-unified-log)发出警报。 借助自定义查询，可以在有助于获得最可靠的可用性问题信号的任意条件下发出警报。 如果使用 TrackAvailability SDK 发送自定义可用性结果，这也特别适用。 
 
 > [!Tip]
 > 可用性数据的指标包括可能通过调用我们的 TrackAvailability SDK 提交的任何自定义可用性结果。 可以使用“根据指标发出警报”支持根据自定义可用性结果发出警报。

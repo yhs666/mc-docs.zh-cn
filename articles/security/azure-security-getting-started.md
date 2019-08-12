@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/21/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a03cb2049e5549c6ff8e042a478ddf2e54a239bc
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 561ca7d91920929ca3ddf15f1045893fab7c61a4
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332071"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818185"
 ---
 # <a name="getting-started-with-microsoft-azure-security"></a>Microsoft Azure 安全入门
 
@@ -44,7 +44,7 @@ Azure 的基础结构（从设备到应用程序）经过设计，可同时托�
 
 ### <a name="azure-encryption-technologies"></a>Azure 加密技术
 
-可以选择在 Azure 的 VHD（内含敏感信息）上配置 [BitLocker 驱动器加密](https://technet.microsoft.com/zh-cn/library/cc732774.aspx)。
+可以选择在 Azure 的 VHD（内含敏感信息）上配置 [BitLocker 驱动器加密](https://technet.microsoft.com/library/cc732774.aspx)。
 
 Azure 中其他用于确保数据安全的功能包括：
 
@@ -108,7 +108,7 @@ Azure 中的[分布式网络和虚拟网络](http://download.microsoft.com/downl
 
 订阅可以包含多个独立的专用网络（并包括防火墙、负载均衡和网络地址转换）。
 
-Azure 在每个 Azure 群集中提供三种主要级别的网络隔离，可通过逻辑方式来隔离流量。 [虚拟局域网](https://azure.microsoft.com/services/virtual-network/) (VLAN) 用于将客户流量与 Azure 网络的其余部分分开。 可以通过负载均衡器对从群集外部访问 Azure 网络进行限制。
+Azure 在每个 Azure 群集中提供三种主要级别的网络隔离，可通过逻辑方式来隔离流量。 [虚拟局域网](/virtual-network/) (VLAN) 用于将客户流量与 Azure 网络的其余部分分开。 可以通过负载均衡器对从群集外部访问 Azure 网络进行限制。
 
 流向 VM 以及从 VM 流出的网络流量必须经过虚拟机监控程序虚拟交换机。 根 OS 中的 IP 筛选器组件将根 VM 与来宾 VM 隔离，以及将来宾 VM 相互隔离。 它会对流量进行筛选，将通信限制在租户的节点与公共 Internet 之间（基于客户的服务配置），将这些节点与其他租户隔离开。
 
@@ -122,7 +122,7 @@ IP 筛选器可以防止来宾 VM 执行以下操作：
 
 - 发送或接收不当的广播流量
 
-可以将虚拟机置于 [Azure 虚拟网络](https://azure.microsoft.com/documentation/services/virtual-network/)中。 这些虚拟网络类似于在本地环境中配置的网络，在本地环境中，网络通常与虚拟交换机相关联。 连接到同一个 Azure 虚拟网络的虚拟机可以相互通信而无需其他配置。 还可以选择在 Azure 虚拟网络中配置不同的子网。
+可以将虚拟机置于 [Azure 虚拟网络](/virtual-network/)中。 这些虚拟网络类似于在本地环境中配置的网络，在本地环境中，网络通常与虚拟交换机相关联。 连接到同一个 Azure 虚拟网络的虚拟机可以相互通信而无需其他配置。 还可以选择在 Azure 虚拟网络中配置不同的子网。
 
 可以使用以下 Azure 虚拟网络技术来帮助实现 Azure 虚拟网络上的安全通信：
 

@@ -3,14 +3,14 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 04/11/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 96298a371287f19b3429245a15e795a986cad52d
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: b0798e389bfd3d67689c66e7dec56a48dfe1f67b
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835763"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913021"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>在 Azure 中将基础结构自动化工具与虚拟机配合使用
 若要以一致的方式大规模创建和管理 Azure 虚拟机 (VM)，通常需要某种形式的自动化。 可以通过许多工具和解决方案来自动完成整个 Azure 基础结构部署和管理生命周期。 本文介绍了一些可以在 Azure 中使用的基础结构自动化工具。 这些工具通常适合以下某个方法：
@@ -20,6 +20,7 @@ ms.locfileid: "65835763"
     - 特定于 VM 自定义的工具包括适用于 Linux VM 的 [cloud-init](#cloud-init)、[PowerShell Desired State Configuration (DSC)](#powershell-dsc)，以及适用于所有 Azure VM 的 [Azure 自定义脚本扩展](#azure-custom-script-extension)。
     
     <!--Not Available [Puppet](#puppet) -->
+    
 - 自动化基础结构管理
     - 工具包括用于自动完成自定义 VM 映像生成的 [Packer](#packer)，以及用于自动完成基础结构生成过程的 [Terraform](#terraform)。
     - [Azure 自动化](#azure-automation)可以跨 Azure 和本地基础结构执行操作。
@@ -42,13 +43,14 @@ ms.locfileid: "65835763"
 了解如何：
 
 <!--Not Avaiable on [Deploy Chef Automate from the Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/apps/chef-software.chef-automate?tab=Overview)-->
+
 - [在 Windows 上安装 Chef 并创建 Azure VM](../articles/virtual-machines/windows/chef-automation.md)。
 
 <!--Not Available ## Puppet-->
 ## <a name="cloud-init"></a>Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
+[Cloud-init](https://cloudinit.readthedocs.io) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 由于是在初始启动过程中调用 cloud-init，因此无需额外的步骤且无需代理来应用配置。  有关如何正确设置 `#cloud-config` 文件格式的详细信息，请参阅 [cloud-init 文档站点](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)。  `#cloud-config` 文件是采用 base64 编码的文本文件。
 
-Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
+Cloud-init 还支持不同的发行版。 例如，不需使用  apt-get install 或  yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
 
 我们正在积极地与我们认可的 Linux 发行版合作伙伴合作，以便在 Azure 市场中提供已启用 cloud-init 的映像。 这些映像可使 cloud-init 部署和配置无缝地应用于 VM 和虚拟机规模集。 了解有关 Azure 上的 cloud-init 的更多详细信息：
 
@@ -100,7 +102,8 @@ Azure 自动化还提供 Desired State Configuration (DSC) 服务，用于针对
 了解如何：
 
 - [创建 PowerShell Runbook](../articles/automation/automation-first-runbook-textual-powershell.md)。
-<!-- Not Avaiable on - [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
+
+<!-- Not Available on - [Use Hybrid Runbook Worker to manage on-premises resources](../articles/automation/automation-hybrid-runbook-worker.md) -->
 <!-- Not Available on - [Use Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md) -->
 
 ## <a name="azure-devops-services"></a>Azure DevOps Services

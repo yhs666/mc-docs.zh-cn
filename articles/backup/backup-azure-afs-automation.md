@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: e070f7d423c750d2fc9d9a00ec6d1878087a5873
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 7e7bb9fbee35c65ac28af30b7fd2536b7f39ff8f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569982"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818493"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 备份和还原 Azure 文件
 
@@ -41,7 +41,7 @@ ms.locfileid: "67569982"
 
 ![恢复服务对象层次结构](./media/backup-azure-vms-arm-automation/recovery-services-object-hierarchy.png)
 
-查看 Azure 库中的 **Az.RecoveryServices** [cmdlet 参考](/powershell/module/az.recoveryservices)。
+查看 Azure 库中的 **Az.RecoveryServices** [cmdlet 参考](https://docs.microsoft.com/powershell/module/az.recoveryservices)。
 
 
 ## <a name="set-up-and-install"></a>设置和安装
@@ -50,7 +50,7 @@ ms.locfileid: "67569982"
 
 按如下所述设置 PowerShell：
 
-1. [下载最新版本的 Azure PowerShell](/powershell/azure/install-az-ps)。 所需的最低版本为 1.0.0。
+1. [下载最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。 所需的最低版本为 1.0.0。
 
 2. 找到包含以下命令的 Azure 备份 PowerShell cmdlet：
 
@@ -239,9 +239,9 @@ testAzureFS       ConfigureBackup      Completed            11/12/2018 2:15:26 P
 
 使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem?view=azps-1.4.0) 针对受保护的 Azure 文件共享运行按需备份。
 
-1. 使用 [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer) 从保管库中保存备份数据的容器检索存储帐户和文件共享。
-2. 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 获取有关 VM 的信息。
-3. 使用 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行按需备份。
+1. 使用 [Get-AzRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-Azrecoveryservicesbackupcontainer) 从保管库中保存备份数据的容器检索存储帐户和文件共享。
+2. 若要启动备份作业，请使用 [Get-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem) 获取有关 VM 的信息。
+3. 使用 [Backup-AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/backup-Azrecoveryservicesbackupitem) 运行按需备份。
 
 按如下所示运行按需备份：
     

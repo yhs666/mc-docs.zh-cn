@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 07/18/2019
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d0f9fd4c3e673a795dbb4575cf4436ce1c046b19
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: bf03d3a4daa82d6eee06af43e469f4293a603602
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332267"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818571"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Azure 服务总线和事件中心内的 AMQP 1.0 协议指南
 
@@ -54,7 +54,7 @@ AMQP 1.0 协议被设计为可扩展，允许进一步规范以增强其功能�
 
 本部分说明 AMQP 1.0 与 Azure 服务总线的基本使用方式，其中包括创建连接、会话和链接，以及与服务总线实体（例如队列、主题和订阅）相互传输消息。
 
-了解 AMQP 工作原理的最权威来源是 AMQP 1.0 规范，但此规范是为了精确引导实现而编写，而非用于传授协议知识。 本部分着重于尽可能介绍描述服务总线如何使用 AMQP 1.0 的术语。 有关 AMQP 的更完整介绍，以及 AMQP 1.0 的更广泛介绍，可查看[此视频课程][this video course]。
+了解 AMQP 工作原理的最权威来源是 AMQP 1.0 规范，但此规范是为了精确引导实现而编写，而非用于传授协议知识。 本部分着重于尽可能介绍描述服务总线如何使用 AMQP 1.0 的术语。 
 
 ### <a name="connections-and-sessions"></a>连接和会话
 
@@ -415,7 +415,6 @@ name  属性标识应与此令牌关联的实体。 在服务总线中，这是�
 * [对服务总线分区队列和主题的 AMQP 1.0 支持]
 * [适用于 Windows Server 的服务总线中的 AMQP]
 
-[this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
 [2]: ./media/service-bus-amqp-protocol-guide/amqp2.png
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png

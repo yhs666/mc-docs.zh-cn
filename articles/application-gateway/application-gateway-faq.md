@@ -7,14 +7,14 @@ ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 06/01/2019
-ms.date: 06/11/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 9e14d2ebe250dafb936e42e55f82d2cafa249a98
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 2e1d7b38ad8611c603a93f1d5df388ef8cfeb61d
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027443"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818831"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -46,7 +46,7 @@ Azure 应用程序网关以服务形式提供应用程序传送控制器 (ADC)�
 
 ### <a name="what-resources-are-supported-as-part-of-a-backend-pool"></a>支持在后端池中添加哪些资源？
 
-请参阅[支持的后端资源](/application-gateway/application-gateway-components#backend-pool)。
+请参阅[支持的后端资源](/application-gateway/application-gateway-components#backend-pools)。
 
 ### <a name="in-what-regions-is-application-gateway-available"></a>应用程序网关已在哪些区域推出？
 
@@ -350,4 +350,4 @@ WAF 目前支持 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp22
 
 若要详细了解应用程序网关，请参阅[什么是 Azure 应用程序网关？](overview.md)。
 
-<!--Update_Description: wording update-->
+<!--Update_Description: link update-->

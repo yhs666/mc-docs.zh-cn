@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 10/18/2017
 ms.date: 04/17/2019
 ms.author: v-johch
-ms.openlocfilehash: e52959ab4e03a7faf97d4fbf81df3fef228bc51a
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: ce3eef126e935570525d50060df89003aff13770
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686479"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878474"
 ---
 # <a name="get-started-guide-for-azure-in-china-developers"></a>中国区 Azure 开发人员入门指南
 
@@ -90,7 +90,7 @@ Service Fabric 支持具有 Open Web Interface for .NET (OWIN) 和 ASP.NET Core 
 
 > **何时使用：** 如果要创建应用程序或重新编写现有应用程序，以使用微服务体系结构，则 Service Fabric 将是一个不错的选择。 当你需要更好地控制或直接访问底层基础结构时，也可以使用 Service Fabric。
 > 
-> **入门：**[创建第一个 Azure Service Fabric 应用程序](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)。
+> **入门：** [创建第一个 Azure Service Fabric 应用程序](../../service-fabric/service-fabric-create-your-first-application-in-visual-studio.md)。
 
 ### <a name="enhance-your-applications-with-azure-services"></a>使用 Azure 服务增强应用程序
 
@@ -157,7 +157,7 @@ Azure 提供了多种方式以便在应用程序中使用容器。
 
 重要的是：不仅要知道谁在使用你的应用程序，而且还要防止对资源的未授权访问。 Azure 提供了多种方式来对你的应用客户端进行身份验证。
 
-- **Azure Active Directory (Azure AD)**：Microsoft 基于云的多租户标识和访问管理服务。 你可以通过与 Azure AD 集成将单一登录 (SSO) 添加到你的应用程序。 可以通过直接使用 Azure AD Graph API 或 Microsoft Graph API 访问目录属性。 可以通过使用本机 HTTP/REST 终结点和多平台 Azure AD 身份验证库与支持 OAuth2.0 授权框架的 Azure AD 和 Open ID Connect 相集成。
+- **Azure Active Directory (Azure AD)** ：Microsoft 基于云的多租户标识和访问管理服务。 你可以通过与 Azure AD 集成将单一登录 (SSO) 添加到你的应用程序。 可以通过直接使用 Azure AD Graph API 或 Microsoft Graph API 访问目录属性。 可以通过使用本机 HTTP/REST 终结点和多平台 Azure AD 身份验证库与支持 OAuth2.0 授权框架的 Azure AD 和 Open ID Connect 相集成。
 
   > **何时使用**：当需要提供 SSO 体验、使用基于 Graph 的数据，或者对基于域的用户进行身份验证时使用。
   > 
@@ -189,8 +189,6 @@ Azure 提供了多种方式以便在应用程序中使用容器。
 无论是预配虚拟机还是发布持续集成的 Web 应用，Azure 都将与大部分常用的 DevOps 工具集成。 在对 Jenkins、GitHub、Puppet、Chef、TeamCity、Ansible、Azure DevOps 以及其他工具的支持下，你可以使用已有工具并在最大程度上提升现有体验。
 
 
-
-> **入门**：如需查看应用服务应用的 DevOps 选项，请参阅[对 Azure 应用服务的持续部署](../../app-service/deploy-continuous-deployment.md)。
 
 
 ## <a name="azure-regions"></a>Azure 区域

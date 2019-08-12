@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e579d72398da637b0e2d91f2c883c3a9cc772df9
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9aeb49959f0bff7c81eaedc6dea5bbe326c6989d
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732397"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818345"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>使用 Application Insights 分析实时 Azure 云服务
 
@@ -47,7 +47,7 @@ Application Insights Profiler 随 Azure 诊断扩展一同安装。 只需将 Az
 
       ![诊断配置文件的位置](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
-      如果找不到该文件，请参阅[针对 Azure 云服务和虚拟机设置诊断](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
+      如果找不到该文件，请参阅[针对 Azure 云服务和虚拟机设置诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
     b. 添加以下 `SinksConfig` 部分作为 `WadCfg` 的子元素：  
 

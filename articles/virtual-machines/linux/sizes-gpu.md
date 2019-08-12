@@ -1,5 +1,5 @@
 ---
-title: 加速计算虚拟机大小 | Azure
+title: GPU 优化虚拟机大小 | Azure
 description: 列出 Azure 中适用于 Linux 虚拟机的各种 GPU 优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-origin.date: 05/14/2019
-ms.date: 07/01/2019
+origin.date: 06/11/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 95e6ab54fe6303311ef1f352faca9130b4a21e68
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 03ff1d777b9a9cf4fddf1672e35df957a0a1a8f5
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570417"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913001"
 ---
-# <a name="accelerated-compute-virtual-machine-sizes"></a>加速计算虚拟机大小
+# <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 优化虚拟机大小
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -43,8 +43,10 @@ ms.locfileid: "67570417"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](sizes-memory.md)
+
     <!--Not Available on - [Storage optimized](sizes-storage.md)-->
     <!--Not Available on - [High performance compute](sizes-hpc.md)-->
+    
 - [前几代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>后续步骤

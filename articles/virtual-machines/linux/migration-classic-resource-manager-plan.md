@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1bc54387ae292ab9de27cc367aabe960e9b2dd46
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 84e6904181116fa1f1903dfa9f27109f4b4343bd
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626874"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912973"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>规划将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager
 尽管 Azure Resource Manager 提供了大量令人惊叹的功能，但规划好迁移过程以确保一切顺利仍至关重要。 花时间进行规划可确保执行迁移活动时不会遇到问题。 
@@ -90,18 +90,18 @@ ms.locfileid: "58626874"
 
 下面是在许多大型迁移中发现的问题。 这个列表并不详尽，有关详细信息，请参阅[不支持的功能和配置](migration-classic-resource-manager-overview.md?toc=%2fvirtual-machines%2flinux%2ftoc.json#unsupported-features-and-configurations)。 不一定会遇到这些技术问题，但如果遇到，在尝试迁移前先解决这些问题可确保体验更流畅。
 
-- **执行验证/准备/中止试运行** - 这可能是确保经典部署模型成功迁移到 Azure Resource Manager 部署模型最重要的步骤。 迁移 API 包括三个主要步骤：验证、准备和提交。 验证读取经典环境的状态并返回所有问题的结果。 但是，由于某些问题可能存在于 Azure Resource Manager 堆栈中，因此验证并不会捕获所有内容。 作为迁移过程下一步的“准备”有助于公开这些问题。 “准备”会将元数据从经典部署模型移动到 Azure Resource Manager 部署模型，但不会提交移动，且不会删除或更改经典部署模型端的任何内容。 试运行涉及准备迁移，并中止（**而不是提交**）迁移准备。 验证/准备/中止试运行的目标是查看 Azure 资源管理器堆栈中的所有元数据，对其进行检查（以编程方式或在门户中），并验证所有内容是否正确迁移以及解决技术问题。  它还可让你对迁移持续时间有一些认识，以便可以相应地规划停机时间。  验证/准备/中止操作不会导致任何用户停机时间：因此，它对应用程序使用不具有破坏性。
-  - 以下各项需要在试运行前解决，但如果错过了，试运行测试也会安全刷新这些准备步骤。 企业迁移期间，我们发现试运行是确保迁移准备就绪的安全且重要的方法。
-  - 准备运行期间，将对整个虚拟网络锁定控制平面（Azure 管理操作），因此在验证/准备/中止期间无法对 VM 元数据进行任何更改。  但在其他方面，所有应用程序功能（RD、VM 使用等）均不受影响。  VM 用户不知道正在执行的是试运行。
+- **执行验证/准备/中止试运行** - 这可能是确保经典部署模型成功迁移到 Azure Resource Manager 部署模型最重要的步骤。 迁移 API 包括三个主要步骤：验证、准备和提交。 验证读取经典环境的状态并返回所有问题的结果。 但是，由于某些问题可能存在于 Azure Resource Manager 堆栈中，因此验证并不会捕获所有内容。 作为迁移过程下一步的“准备”有助于公开这些问题。 “准备”会将元数据从经典部署模型移动到 Azure Resource Manager 部署模型，但不会提交移动，且不会删除或更改经典部署模型端的任何内容。 试运行涉及准备迁移，并中止（**而不是提交**）迁移准备。 验证/准备/中止试运行的目标是查看 Azure 资源管理器堆栈中的所有元数据，对其进行检查（以编程方式或在门户中  ），并验证所有内容是否正确迁移以及解决技术问题。  它还可让你对迁移持续时间有一些认识，以便可以相应地规划停机时间。  验证/准备/中止操作不会导致任何用户停机时间：因此，它对应用程序使用不具有破坏性。
+    - 以下各项需要在试运行前解决，但如果错过了，试运行测试也会安全刷新这些准备步骤。 企业迁移期间，我们发现试运行是确保迁移准备就绪的安全且重要的方法。
+    - 准备运行期间，将对整个虚拟网络锁定控制平面（Azure 管理操作），因此在验证/准备/中止期间无法对 VM 元数据进行任何更改。  但在其他方面，所有应用程序功能（RD、VM 使用等）均不受影响。  VM 用户不知道正在执行的是试运行。
 
 - **Express Route 线路和 VPN**。 当前含授权链接的快速路由网关不能在不停机的情况下集成。 有关解决方法，请参阅[将 ExpressRoute 线路和关联的虚拟网络从经典部署模型迁移到 Resource Manager 部署模型](../../expressroute/expressroute-migration-classic-resource-manager.md)。
 
 - **VM 扩展** - 虚拟机扩展可能是迁移正在运行的 VM 的最大障碍之一。 VM 扩展修正可能需要 1-2 天，因此请相应进行规划。  一个有效的 Azure 代理是报告正在运行的 VM 的 VM 扩展状态所需的。 如果正在运行的 VM 返回的状态为不佳，这会暂停迁移。 代理本身无需处于正常运行状态即可启用迁移，但如果 VM 上存在扩展，则同时需要正常运行的代理和出站 Internet 连接（含 DNS）才能使迁移继续。
-  - 如果在迁移过程中与 DNS 服务器的连接丢失，除 BGInfo v1.\* 外的所有 VM 扩展在迁移准备前需要先从每个 VM 中删除，随后在 Azure Resource Manager 迁移后重新添加回 VM。  **这仅适用于正在运行的 VM。**  如果已停止解除分配 VM，则无需删除 VM 扩展。 **注意：** Azure 诊断和安全中心监视等诸多扩展都会在迁移后重新安装，因此删除它们并不是问题。
-  - 此外，确保网络安全组不限制出站 Internet 访问权限。 这可能针对某些网络安全组配置。 若要使 VM 扩展迁移到 Azure Resource Manager，出站 Internet 访问权限（和 DNS）是必需的。 
-  - BGInfo 扩展有两个版本：v1 和 v2。  如果 VM 是通过使用 Azure 门户或 PowerShell 创建的，则该 VM 上可能具有 v1 扩展。 此扩展无需删除且会被迁移 API 跳过（即不迁移）。 但是，如果经典 VM 是使用新的 Azure 门户创建的，它很可能具有基于 JSON 的 v2 版本的 BGInfo，该版本可迁移到 Azure Resource Manager，只要代理正常运行且具有出站 Internet 访问权限（和 DNS）。 
-  - **补救选项 1**。 如果用户知道 VM 不会有出站 Internet 访问权限、正常运行的 DNS 服务和 VM 上正常运行的 Azure 代理，则在准备前在迁移期间卸载所有 VM 扩展，并在迁移后重新安装这些 VM 扩展。 
-  - **补救选项 2**。 如果 VM 扩展是个大障碍，另一个方法是在迁移前关闭/解除分配所有 VM。 迁移已解除分配的 VM，并在 Azure Resource Manager 端重新启动它们。 这样做的好处是可迁移 VM 扩展。 缺点是将丢失所有面向公众的虚拟 IP（这可能是非初学者），并且 VM 明显会关闭，从而对正常运行的应用程序产生大得多的影响。
+    - 如果在迁移过程中与 DNS 服务器的连接丢失，除 BGInfo v1.\* 外的所有 VM 扩展在迁移准备前需要先从每个 VM 中删除，随后在 Azure Resource Manager 迁移后重新添加回 VM。  **这仅适用于正在运行的 VM。**  如果已停止解除分配 VM，则无需删除 VM 扩展。 **注意：** Azure 诊断和安全中心监视等诸多扩展都会在迁移后重新安装，因此删除它们并不是问题。
+    - 此外，确保网络安全组不限制出站 Internet 访问权限。 这可能针对某些网络安全组配置。 若要使 VM 扩展迁移到 Azure Resource Manager，出站 Internet 访问权限（和 DNS）是必需的。 
+    - BGInfo 扩展有两个版本：v1 和 v2。 如果 VM 是通过使用 Azure 门户或 PowerShell 创建的，则该 VM 上可能具有 v1 扩展。 此扩展无需删除且会被迁移 API 跳过（即不迁移）。 但是，如果经典 VM 是使用新的 Azure 门户创建的，它很可能具有基于 JSON 的 v2 版本的 BGInfo，该版本可迁移到 Azure Resource Manager，只要代理正常运行且具有出站 Internet 访问权限（和 DNS）。 
+    - **补救选项 1**。 如果用户知道 VM 不会有出站 Internet 访问权限、正常运行的 DNS 服务和 VM 上正常运行的 Azure 代理，则在准备前在迁移期间卸载所有 VM 扩展，并在迁移后重新安装这些 VM 扩展。 
+    - **补救选项 2**。 如果 VM 扩展是个大障碍，另一个方法是在迁移前关闭/解除分配所有 VM。 迁移已解除分配的 VM，并在 Azure Resource Manager 端重新启动它们。 这样做的好处是可迁移 VM 扩展。 缺点是将丢失所有面向公众的虚拟 IP（这可能是非初学者），并且 VM 明显会关闭，从而对正常运行的应用程序产生大得多的影响。
 
     > [!NOTE] 
     > 如果针对要迁移的正在运行的 VM 配置 Azure 安全中心策略，则在删除扩展前需要停止安全策略，否则会在删除扩展后自动重新安装安全监视扩展。
@@ -110,35 +110,35 @@ ms.locfileid: "58626874"
 
 - **Web/辅助角色部署** - 包含 Web 和辅助角色的云服务无法迁移到 Azure Resource Manager。 必须先从虚拟网络中删除 Web/辅助角色，才能开始迁移。  典型的解决方案只是将 Web/辅助角色实例移到单独的经典虚拟网络中，该网络也链接到了 ExpressRoute 回路，或者将代码迁移到较新的 PaaS 应用服务（此讨论已超出本文范围）中。 在前一个重新部署用例中，创建了新的经典虚拟网络，将该 Web/辅助角色移动/重新部署到该新虚拟网络，并从正在删除的虚拟网络中删除这些部署。 无需更改代码。 新的[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)功能可以用来使包含 Web/辅助角色的经典虚拟网络和同一 Azure 区域中的其他虚拟网络（如正在迁移的虚拟网络）通力合作（**虚拟网络迁移完成后，对等虚拟网络无法迁移**），从而提供没有性能损失和延迟/带宽损失的相同功能。 鉴于增加了[虚拟网络对等互连](../../virtual-network/virtual-network-peering-overview.md)，现可轻易缓解 Web/辅助角色部署，且不会阻止到 Azure Resource Manager 的迁移。
 
-- **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中 *（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）*，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。 
+- **Azure Resource Manager 配额** - 对于经典部署模型和 Azure Resource Manager 部署模型，Azure 区域都有单独的配额/限制。 即使在不使用新硬件的迁移方案中 *（我们正在将现有的 VM 从经典部署模型切换到 Azure 资源管理器部署模型）* ，Azure 资源管理器配额仍需处于容量充足的位置，然后才能开始迁移。 下面列出了我们已知的导致问题的主要限制。  开具配额支持票证来提高限制。 
 
     > [!NOTE]
     > 需要在与要迁移的当前环境相同的区域中提高这些限制。
     >
 
-  - 网络接口
-  - 负载均衡器
-  - 公共 IP
-  - 静态公共 IP
-  - 核心数
-  - 网络安全组
-  - 路由表
+    - 网络接口
+    - 负载均衡器
+    - 公共 IP
+    - 静态公共 IP
+    - 核心数
+    - 网络安全组
+    - 路由表
 
     可以通过最新版 Azure CLI 使用以下命令查看当前的 Azure 资源管理器配额。
 
-    **计算** *（核心数、可用性集数）*
+    **计算**（核心数、可用性集数） 
 
     ```bash
     az vm list-usage -l <azure-region> -o jsonc 
     ```
 
-    **网络***（虚拟网络、静态公共 IP、公共 IP、网络安全组、网络接口、负载均衡器和路由表）*
+    **网络** *（虚拟网络、静态公共 IP、公共 IP、网络安全组、网络接口、负载均衡器和路由表）*
 
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **存储***（存储帐户）*
+    **存储** *（存储帐户）*
 
     ```bash
     az storage account show-usage
@@ -146,11 +146,11 @@ ms.locfileid: "58626874"
 
 - **Azure Resource Manager API 限制** - 如果有足够大的环境（如 VNET 中的 VM 数 > 400），则可能达到 Azure Resource Manager 中的写入的默认 API 限制（当前为 **1200 次写入/小时**）。 开始迁移前，应开具支持票证为订阅提高此限制。
 
-- **预配超时 VM 状态** - 如果任何 VM 具有状态“预配超时”，则需要在迁移前解决此问题。 执行此操作的唯一方法是通过取消预配/重新预配 VM（删除、保留磁盘并重新创建 VM）来使用停机时间。 
+- **预配超时 VM 状态** - 如果任何 VM 具有状态“预配超时”  ，则需要在迁移前解决此问题。 执行此操作的唯一方法是通过取消预配/重新预配 VM（删除、保留磁盘并重新创建 VM）来使用停机时间。 
 
-- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机**启动**、**停止**、**重启**操作期间经常看到的过渡类型。 **建议做法：** 数分钟后尝试再次迁移。 
+- **RoleStateUnknown VM 状态** - 如果迁移因“角色状态未知”  错误消息暂停，请使用门户检查 VM 并确保其正常运行。 此错误通常数分钟后会自行消失（无需修正），通常属于虚拟机**启动**、**停止**、**重启**操作期间经常看到的过渡类型。 **建议做法：** 数分钟后尝试再次迁移。 
 
-- **Fabric 群集不存在** - 在某些情况下，由于各种原因，某些 VM 无法迁移。 已知情况之一是当 VM 创建于最近（过去一周左右），且碰巧获得尚未为 Azure Resource Manager 工作负荷配备的 Azure 群集。  将收到一条错误消息，指出“Fabric 群集不存在”并且无法迁移 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 但是，一个直接的解决方法是对 VM 执行 `stop-deallocate`，然后继续迁移，并在迁移后在 Azure 资源管理器中开始 VM 备份。
+- **Fabric 群集不存在** - 在某些情况下，由于各种原因，某些 VM 无法迁移。 已知情况之一是当 VM 创建于最近（过去一周左右），且碰巧获得尚未为 Azure Resource Manager 工作负荷配备的 Azure 群集。  将收到一条错误消息，指出“Fabric 群集不存在”  并且无法迁移 VM。 等待数天通常可解决此特殊问题，因为群集会很快启用 Azure Resource Manager。 但是，一个直接的解决方法是对 VM 执行 `stop-deallocate`，然后继续迁移，并在迁移后在 Azure 资源管理器中开始 VM 备份。
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 
@@ -200,7 +200,7 @@ ms.locfileid: "58626874"
 - [使用 Azure Resource Manager 模板以更轻松、更可控的方式完成部署](../../azure-resource-manager/resource-group-overview.md#template-deployment)。
 - [标记](../../azure-resource-manager/resource-group-using-tags.md)。
 - [活动控制](../../azure-resource-manager/resource-group-audit.md)
-- [Azure 策略](../../azure-policy/azure-policy-introduction.md)
+- [Azure 策略](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>需避免的错误
 

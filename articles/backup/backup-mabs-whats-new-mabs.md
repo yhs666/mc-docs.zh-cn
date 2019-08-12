@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: e63f48457115592f052397b6d0220b2b54827e01
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: eb62b5967caa52560100507dc2f5097c186b36cd
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332676"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818468"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure 备份服务器中的新增功能
 
@@ -50,7 +50,7 @@ MABS V3 可与用作 MABS 数据库的 SQL 2017 一同安装。 可将 SQL Serve
 可在 Windows Server 2019 中安装 MABS V3。 若要将 MABS V3 与 WS2019 配合使用，可以在安装/升级到 MABS V3 之前将 OS 升级到 WS2019，或者在 WS2016 中安装/升级 V3 之后升级 OS。
 
 MABS V3 是完整发行版，可直接安装在 Windows Server 2016、Windows Server 2019 中，或者从 MABS V2 升级。 在升级到或安装备份服务器 V3 之前，请阅读安装先决条件。
-在[此处](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package)可以找到有关 MABS 安装/升级步骤的详细信息。
+在[此处](/backup/backup-azure-microsoft-azure-backup#software-package)可以找到有关 MABS 安装/升级步骤的详细信息。
 
 
 > [!NOTE]

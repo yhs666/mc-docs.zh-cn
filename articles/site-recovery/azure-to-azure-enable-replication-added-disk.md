@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 04/29/2018
-ms.date: 06/10/2019
+origin.date: 04/29/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2cc614ccac2031007041c1b5d22a274403a6e670
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c10187b790f101816d9b6e0a7ce1dbcb2d1ee01d
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390944"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819673"
 ---
 # <a name="enable-replication-for-a-disk-added-to-an-azure-vm"></a>为添加到 Azure VM 的磁盘启用复制
 
@@ -24,9 +24,9 @@ ms.locfileid: "66390944"
 
 将新磁盘添加到正在复制到另一个 Azure 区域的 Azure VM 时，会发生以下情况：
 
--   VM 的复制运行状况会显示一条警告，并且门户中的注意事项会通知你有一个或多个磁盘可用于保护。
--   如果为添加的磁盘启用保护，此警告会在初始复制磁盘后消失。
--   如果选择不为磁盘启用复制，则可选择关闭此警告。
+- VM 的复制运行状况会显示一条警告，并且门户中的注意事项会通知你有一个或多个磁盘可用于保护。
+- 如果为添加的磁盘启用保护，此警告会在初始复制磁盘后消失。
+- 如果选择不为磁盘启用复制，则可选择关闭此警告。
 
 ![添加的新磁盘](./media/azure-to-azure-enable-replication-added-disk/newdisk.png)
 
@@ -50,5 +50,4 @@ ms.locfileid: "66390944"
 
 [详细了解](site-recovery-test-failover-to-azure.md)如何运行测试故障转移。
 
-<!--Update_Description: new articles on azure to azure enable replication added disk -->
-<!--ms.date: 06/03/2019-->
+<!--Update_Description: wording update -->

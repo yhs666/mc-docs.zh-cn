@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: digimobile
-ms.openlocfilehash: ce5fb8822ddc2eae3dfab37c2620a6e4d13c8892
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 4e7b240bea29ceb54addc51fa584a2ca2f0154c2
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513847"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818301"
 ---
 # <a name="start-monitoring-your-nodejs-web-application"></a>开始监视 Node.js Web 应用程序
 
@@ -46,7 +46,7 @@ Application Insights 可以从任何连接 Internet 的应用程序收集遥测�
    ![添加 Application Insights 资源](./media/nodejs-quick-start/1createresourseappinsights.png)
 
    > [!NOTE]
-   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)文档来了解更多信息。
+   >如果这是你首次创建 Application Insights 资源，可以通过访问[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)文档来了解更多信息。
 
    此时会显示配置页，请使用下表填写输入字段。 
 

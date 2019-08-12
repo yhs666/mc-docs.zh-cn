@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/30/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02cd89b5469b224ab8d7f8c3bd7c513501c447bb
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 4efab15009402ac71f1f3f115506c29f76818b79
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835620"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912929"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure 虚拟机代理概述
 Azure 虚拟机代理（VM 代理）是受保护的轻型进程，用于管理虚拟机 (VM) 与 Azure 结构控制器的交互。 VM 代理有一个主要角色，目的是启用和执行 Azure 虚拟机扩展。 VM 扩展可用于对 VM 进行部署后配置，例如安装和配置软件。 VM 扩展还可启用恢复功能，例如重置 VM 的管理密码。 没有 Azure VM 代理，VM 扩展将无法运行。
@@ -39,7 +39,7 @@ Windows 来宾代理包分为两个部分：
 - 预配代理 (PA)
 - Windows 来宾代理 (WinGA)
 
-若要启动 VM，VM 上必须已安装 PA，但无需安装 WinGA。 部署 VM 时，可以选择不安装 WinGA。 下面的示例演示如何选择 Azure 资源管理器模板的 provisionVmAgent 选项：
+若要启动 VM，VM 上必须已安装 PA，但无需安装 WinGA。 部署 VM 时，可以选择不安装 WinGA。 下面的示例演示如何选择 Azure 资源管理器模板的 provisionVmAgent 选项  ：
 
 ```json
 "resources": [{
@@ -103,7 +103,7 @@ foreach ($vm in $vms) {
 
 ### <a name="manual-detection"></a>手动检测
 
-登录到 Windows VM 后，可以使用任务管理器检查正在运行的进程。 要查看 Azure VM 代理，请打开任务管理器 > 单击“详细信息”选项卡，并查找名为 WindowsAzureGuestAgent.exe 的进程。 存在该进程表示 VM 代理已安装。
+登录到 Windows VM 后，可以使用任务管理器检查正在运行的进程。 要查看 Azure VM 代理，请打开任务管理器 > 单击“详细信息”选项卡，并查找名为 WindowsAzureGuestAgent.exe 的进程   。 存在该进程表示 VM 代理已安装。
 
 ## <a name="upgrade-the-vm-agent"></a>升级 VM 代理
 适用于 Windows 的 Azure VM 代理会自动升级。 新 VM 部署到 Azure 后，会在 VM 预配时获得最新 VM 代理。 应手动更新自定义 VM 映像，以便在创建映像时添加新的 VM 代理。
@@ -111,4 +111,4 @@ foreach ($vm in $vms) {
 ## <a name="next-steps"></a>后续步骤
 有关 VM 扩展的详细信息，请参阅 [Azure 虚拟机扩展和功能概述](overview.md)。
 
-<!-- Update_Description: update meta properties, wording update, update powershell az cmdlet -->
+<!-- Update_Description: update meta properties -->

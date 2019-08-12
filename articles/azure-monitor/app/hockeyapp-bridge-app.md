@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b77a46971863920353d370f9faf19ef7edcc7bf9
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 29a61f2e614dd2085915dff49c45e373a7e7d138
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732284"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818502"
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>在 Application Insights 中浏览 HockeyApp 数据
 
 > [!NOTE]
 > HockeyApp 不再适用于新的应用程序。 现有 HockeyApp 部署将继续发挥作用。 Visual Studio App Center 现在是 Azure 建议的用于监视新移动应用的服务。 [了解如何使用 App Center 和 Application Insights 设置应用](../../azure-monitor/learn/mobile-center-quickstart.md)。
 
-[HockeyApp](https://www.azure.cn/services/hockeyapp/) 是用于监视实时桌面和移动应用的服务。 可以从 HockeyApp 发送自定义和跟踪遥测数据，以监视使用情况和帮助进行诊断（此外，还能获取崩溃数据）。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的强大 [Analytics](../../azure-monitor/app/analytics.md) 功能可以查询此遥测数据流。 此外，可以[导出自定义和跟踪遥测数据](export-telemetry.md)。 要启用这些功能，可以设置用于将 HockeyApp 自定义数据转发到 Application Insights 的网桥。
+[HockeyApp](/hockeyapp/) 是用于监视实时桌面和移动应用的服务。 可以从 HockeyApp 发送自定义和跟踪遥测数据，以监视使用情况和帮助进行诊断（此外，还能获取崩溃数据）。 使用 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 的强大 [Analytics](../../azure-monitor/app/analytics.md) 功能可以查询此遥测数据流。 此外，可以[导出自定义和跟踪遥测数据](export-telemetry.md)。 要启用这些功能，可以设置用于将 HockeyApp 自定义数据转发到 Application Insights 的网桥。
 
 ## <a name="the-hockeyapp-bridge-app"></a>HockeyApp Bridge 应用
 HockeyApp Bridge 应用是一项核心功能，可让用户通过 Analytics 和连续导出功能来访问 Application Insights 中的 HockeyApp 自定义和跟踪遥测。 借助上述这些功能，可以访问在创建 HockeyApp Bridge 应用后由 HockeyApp 所收集的自定义和跟踪事件。 让我们了解如何设置其中一个 Bridge 应用。

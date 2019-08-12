@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/21/2018
 ms.date: 07/01/2019
-ms.openlocfilehash: 3b8b3c14b1ae2f3f8f438013ed71f6898051f544
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 818ad4381572d1eb90e266efef90b472d9958864
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236050"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878746"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>使用 HDInsight Spark 群集在 Azure SQL 数据库中读取和写入数据
 
@@ -46,7 +46,7 @@ ms.locfileid: "67236050"
    > [!NOTE]
    > 也可以在浏览器中打开以下 URL 来访问 Spark 群集中的 Jupyter Notebook。 将 **CLUSTERNAME** 替换为群集的名称：
    >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
+   > `https://CLUSTERNAME.azurehdinsight.cn/jupyter`
    > 
    > 
 

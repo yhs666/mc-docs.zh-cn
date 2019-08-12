@@ -16,12 +16,12 @@ origin.date: 05/21/2019
 ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 868de67a400711f66bd4a03ae33e4f34ce871e47
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: d20c13694f8c62e4f3522f610bc9796669d3a2b4
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513291"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908706"
 ---
 # <a name="introduction-to-key-vault-in-azure-stack"></a>Azure Stack 中的 Key Vault 简介
 
@@ -51,7 +51,7 @@ Azure Stack 中的 Key Vault 可帮助保护云应用程序和服务使用的加
 
 然后，操作员可以向开发人员提供统一资源标识符 (URI)，以便从其应用程序调用。 操作员也可以向安全管理员提供密钥用法记录信息。
 
-开发人员还可通过使用 API 直接管理密钥。 有关详细信息，请参阅 [Key Vault 开发人员指南](/azure/key-vault/key-vault-developers-guide)。
+开发人员还可通过使用 API 直接管理密钥。 有关详细信息，请参阅 [Key Vault 开发人员指南](/key-vault/key-vault-developers-guide)。
 
 ## <a name="scenarios"></a>方案
 

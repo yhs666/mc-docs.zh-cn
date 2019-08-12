@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 10/19/2016
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: c53aff52022b855bdb29a6d26ce7669df9f8c8be
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 00281f39cf41c6e5b87e18a3eeef0e329a4b2643
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666270"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912774"
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的 DNS 名称解析选项
 Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。 在 Azure 托管的虚拟机上配置自己的 DNS 服务，即可实现自己的 DNS 名称解析解决方案。 以下方案可帮助你选择适合你情况的解决方案。
@@ -70,17 +70,17 @@ Azure 默认提供单个虚拟网络内的所有虚拟机的 DNS 名称解析。
 
 可以使用多个不同的 DNS 缓存包，例如 dnsmasq。 以下是在最常见的发行版上安装 dnsmasq 的步骤：
 
-Ubuntu（使用 resolvconf）
-  * 安装 dnsmasq 包（“sudo apt-get install dnsmasq”）。
+ Ubuntu（使用 resolvconf）
+    * 安装 dnsmasq 包（“sudo apt-get install dnsmasq”）。
 
-**SUSE（使用 netconf）**：
+**SUSE（使用 netconf）** ：
 1. 安装 dnsmasq 包（“sudo zypper install dnsmasq”）。
 2. 启用 dnsmasq 服务（“systemctl enable dnsmasq.service”）。
 3. 启动 dnsmasq 服务（“systemctl start dnsmasq.service”）。
 4. 编辑“/etc/sysconfig/network/config”，并将 NETCONFIG_DNS_FORWARDER="" 更改为“dnsmasq”。
 5. 更新 resolv.conf（“netconfig update”），将缓存设置为本地 DNS 解析程序。
 
-Rogue Wave Software 的 CentOS（之前为 OpenLogic；使用 NetworkManager）
+Rogue Wave Software 的 CentOS（之前为 OpenLogic；使用 NetworkManager） 
 1. 安装 dnsmasq 包（“sudo yum install dnsmasq”）。
 2. 启用 dnsmasq 服务（“systemctl enable dnsmasq.service”）。
 3. 启动 dnsmasq 服务（“systemctl start dnsmasq.service”）。
@@ -88,7 +88,7 @@ Rogue Wave Software 的 CentOS（之前为 OpenLogic；使用 NetworkManager）
 5. 重启网络服务（“service network restart”），将缓存设置为本地 DNS 解析程序
 
 > [!NOTE]
-> :“dnsmasq”包只是适用于 Linux 的众多 DNS 缓存中的一个。 在使用之前，请检查其是否适合需求，并且确认没有安装其他缓存。
+> “dnsmasq”包只是适用于 Linux 的众多 DNS 缓存中的一个。 在使用之前，请检查其是否适合需求，并且确认没有安装其他缓存。
 >
 >
 
@@ -113,7 +113,7 @@ resolv.conf 文件是自动生成的，不应进行编辑。 添加“options”
 1. 将“timeout:1 attempts:5”添加到“/etc/sysconfig/network/config”中的 NETCONFIG_DNS_RESOLVER_OPTIONS="" 参数。
 2. 通过运行“netconfig update”进行更新。
 
-Rogue Wave Software 的 CentOS（之前为 OpenLogic）（使用 NetworkManager）
+Rogue Wave Software 的 CentOS（之前为 OpenLogic）（使用 NetworkManager） 
 1. 将“RES_OPTIONS="timeout:1 attempts:5"”添加到“/etc/sysconfig/network”。
 2. 通过运行“service network restart”进行更新。
 

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: b02aceed48cf11c623b16eb4d8af59dce5bfd253
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 249cee05cf9bf4526256ff4c8e75760dd9dc42ca
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513808"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818404"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 
@@ -33,7 +33,7 @@ ms.locfileid: "68513808"
 
 - 你的订阅必须已注册到 [Microsoft.Insights](/azure-resource-manager/resource-manager-supported-services)。 
 
-- 你需要具备任一个 [Azure PowerShell](/powershell/azure)。
+- 你需要具备任一个 [Azure PowerShell](https://docs.microsoft.com/powershell/azure)。
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>预配云服务和存储帐户 
 

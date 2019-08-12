@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dbc05aee5cc6e5c34188359d16197507dfe7456a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 22f09b7d804dfcfa951930b3941761353954cb99
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569788"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818560"
 ---
 # <a name="azure-security-center-data-security"></a>Azure 安全中心数据安全性
 为了帮助客户防止、检测和应对威胁，Azure 安全中心将收集和处理安全相关的数据，包括配置信息、元数据、事件日志、故障转储文件，等等。 从编程到服务运营，Azure 都严格遵守相关法规与安全准则。
@@ -72,7 +72,7 @@ Azure Monitoring Agent 扫描各种安全相关配置和事件，并将其收集
 
 客户可以使用与安全中心相关的数据，这些数据来自不同的数据流，如下所示：
 
-* **Azure 活动**：所有安全警报、经审核的安全中心[实时](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)请求，以及由[自适应应用程序控件](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)生成的所有警报。
+* **Azure 活动**：所有安全警报、经审核的安全中心[实时](/security-center/security-center-just-in-time)请求，以及由[自适应应用程序控件](/security-center/security-center-adaptive-application)生成的所有警报。
 * **Azure Monitor 日志**：所有安全警报。
 
 

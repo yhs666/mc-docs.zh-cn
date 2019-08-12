@@ -14,12 +14,12 @@ ms.topic: conceptual
 origin.date: 04/11/2019
 ms.date: 05/20/2019
 ms.author: v-yiso
-ms.openlocfilehash: 270b4aaa26eda9847375d4ef5120b3ee0dbd88f2
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 6600ceeee6a70dd6db3def97247e8613a3fa9a18
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520783"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878637"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>使用 HDInsight 中用于 Apache Hadoop 的 Azure PowerShell 运行 Apache Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -55,7 +55,7 @@ $destBlobName = "tutorials/usesqoop/data/sample.log"
 $sqljdbcdriver = "/user/oozie/share/lib/sqoop/mssql-jdbc-7.0.0.jre8.jar"
 
 $cluster = Get-AzHDInsightCluster -ClusterName $hdinsightClusterName
-$defaultStorageAccountName = $cluster.DefaultStorageAccount -replace '.blob.core.windows.net'
+$defaultStorageAccountName = $cluster.DefaultStorageAccount -replace '.blob.core.chinacloudapi.cn'
 $defaultStorageContainer = $cluster.DefaultStorageContainer
 $resourceGroup = $cluster.ResourceGroup
 

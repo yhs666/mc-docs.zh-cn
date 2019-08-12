@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: article
 origin.date: 04/25/2019
-ms.date: 07/29/2019
+ms.date: 08/06/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: 4f439f3e62e2f45db244ccbf38850f30efaa17f9
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: b2e27d8edbf7b56ff094cd7aa204ef7c6f264a32
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513258"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908726"
 ---
 # <a name="get-started-with-powershell-in-azure-stack"></a>Azure Stack 中的 PowerShell 入门
 
@@ -48,7 +48,7 @@ PowerShell 用于从命令行管理资源。 若要生成使用 Azure 资源管�
 
 ### <a name="azure"></a>Azure
 
-Azure PowerShell 包含一组使用最新版 Azure 资源管理器处理 Azure 资源的 cmdlet。 Azure PowerShell 使用 .NET Standard 版本，这意味着你可以使用 Windows、macOS 和 Linux 上的 PowerShell 版本。 还可以在 Azure Cloud Shell 中使用 Azure PowerShell。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
+Azure PowerShell 包含一组使用最新版 Azure 资源管理器处理 Azure 资源的 cmdlet。 Azure PowerShell 使用 .NET Standard 版本，这意味着你可以使用 Windows、macOS 和 Linux 上的 PowerShell 版本。 有关详细信息，请参阅 [Azure PowerShell 入门](https://docs.microsoft.com/powershell/azure/get-started-azureps)。
 
 ### <a name="azure-stack-resource-manager"></a>Azure Stack 资源管理器
 

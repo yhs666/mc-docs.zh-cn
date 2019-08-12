@@ -8,12 +8,12 @@ ms.date: 01/21/19
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: ce93164a6ad35dda095a40cec11ae9d7cf11c71e
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 806ee9ab028fbfb078cae7d1d63166175aa3f071
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135732"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818580"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>快速入门：使用适用于 Visual Studio 的 Azure 流分析工具创建流分析作业
 
@@ -21,7 +21,7 @@ ms.locfileid: "67135732"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/free/)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 * 登录到 [Azure 门户](https://portal.azure.cn/)。
 

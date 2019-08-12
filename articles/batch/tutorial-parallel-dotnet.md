@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: b2dfa6c54d3afe2101a75576aae8003d6649a4f3
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 93e241fb8e920b2ccd0364ea2d5aa66730400e83
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845569"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818452"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>教程：使用 .NET API 通过 Azure Batch 运行并行工作负荷
 
@@ -140,7 +140,7 @@ Elapsed time: 00:09:14.3418742
 
 ### <a name="authenticate-blob-and-batch-clients"></a>对 Blob 和 Batch 客户端进行身份验证
 
-为了与关联的存储帐户交互，应用使用用于 .NET 的 Azure 存储客户端库。 它使用 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 创建对帐户的引用，使用共享密钥身份验证进行身份验证， 然后创建 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
+为了与关联的存储帐户交互，应用使用用于 .NET 的 Azure 存储客户端库。 它使用 [CloudStorageAccount](https://docs.microsoft.com//dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 创建对帐户的引用，使用共享密钥身份验证进行身份验证， 然后创建 [CloudBlobClient](https://docs.microsoft.com//dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
 
 ```csharp
 // Construct the Storage account connection string
@@ -153,7 +153,7 @@ CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnection
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-应用创建的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 对象用于创建和管理 Batch 服务中的池、作业和任务。 示例中的 Batch 客户端使用共享密钥身份验证。 Batch 还支持通过 [Azure Active Directory](batch-aad-auth.md) 进行身份验证，以便对单个用户或无人参与应用程序进行身份验证。
+应用创建的 [BatchClient](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.batchclient) 对象用于创建和管理 Batch 服务中的池、作业和任务。 示例中的 Batch 客户端使用共享密钥身份验证。 Batch 还支持通过 [Azure Active Directory](batch-aad-auth.md) 进行身份验证，以便对单个用户或无人参与应用程序进行身份验证。
 
 ```csharp
 BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -171,7 +171,7 @@ CreateContainerIfNotExistAsync(blobClient, inputContainerName;
 CreateContainerIfNotExistAsync(blobClient, outputContainerName);
 ```
 
-然后，文件从本地 `InputFiles` 文件夹上传到输入容器。 存储中的文件定义为 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 对象，Batch 随后可以将这些对象下载到计算节点。 
+然后，文件从本地 `InputFiles` 文件夹上传到输入容器。 存储中的文件定义为 Batch [ResourceFile](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.resourcefile) 对象，Batch 随后可以将这些对象下载到计算节点。 
 
 上传文件时，涉及到 `Program.cs` 中的两个方法：
 
@@ -194,13 +194,13 @@ List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
 
 ### <a name="create-a-pool-of-compute-nodes"></a>创建计算节点池
 
-然后，该示例会调用 `CreatePoolIfNotExistAsync` 以在 Batch 帐户中创建计算节点池。 这个定义的方法使用 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 方法设置节点数、VM 大小和池配置。 在这里，[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 对象指定对 Azure 市场中发布的 Windows Server 映像的 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)。 Batch 支持 Azure 市场中的各种 VM 映像以及自定义 VM 映像。
+然后，该示例会调用 `CreatePoolIfNotExistAsync` 以在 Batch 帐户中创建计算节点池。 这个定义的方法使用 [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.pooloperations.createpool) 方法设置节点数、VM 大小和池配置。 在这里，[VirtualMachineConfiguration](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 对象指定对 Azure 市场中发布的 Windows Server 映像的 [ImageReference](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.imagereference)。 Batch 支持 Azure 市场中的各种 VM 映像以及自定义 VM 映像。
 
 节点数和 VM 大小使用定义的常数进行设置。 Batch 支持专用节点和[低优先级](batch-low-pri-vms.md)节点。可以在池中使用这其中的一种，或者两种都使用。 专用节点为池保留。 低优先级节点在 Azure 有剩余 VM 容量时以优惠价提供。 如果 Azure 没有足够的容量，低优先级节点会变得不可用。 默认情况下，此示例创建的池只包含 5 个大小为 *Standard_A1_v2* 的低优先级节点。
 
-ffmpeg 应用程序部署到计算节点的方法是添加对池配置的 [ApplicationPackageReference](/dotnet/api/microsoft.azure.batch.applicationpackagereference)。
+ffmpeg 应用程序部署到计算节点的方法是添加对池配置的 [ApplicationPackageReference](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.applicationpackagereference)。
 
-[CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 方法将池提交到 Batch 服务。
+[CommitAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudpool.commitasync) 方法将池提交到 Batch 服务。
 
 ```csharp
 ImageReference imageReference = new ImageReference(
@@ -232,9 +232,9 @@ await pool.CommitAsync();
 
 ### <a name="create-a-job"></a>创建作业
 
-Batch 作业可指定在其中运行任务的池以及可选设置，例如工作的优先级和计划。 此示例通过调用 `CreateJobAsync` 创建一个作业。 这个定义的方法使用 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 方法在池中创建作业。
+Batch 作业可指定在其中运行任务的池以及可选设置，例如工作的优先级和计划。 此示例通过调用 `CreateJobAsync` 创建一个作业。 这个定义的方法使用 [BatchClient.JobOperations.CreateJob](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.joboperations.createjob) 方法在池中创建作业。
 
-[CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) 方法将作业提交到 Batch 服务。 作业一开始没有任务。
+[CommitAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudjob.commitasync) 方法将作业提交到 Batch 服务。 作业一开始没有任务。
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
@@ -246,11 +246,11 @@ await job.CommitAsync();
 
 ### <a name="create-tasks"></a>创建任务
 
-此示例通过调用 `AddTasksAsync` 方法来创建 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 对象的列表，从而在作业中创建任务。 每个 `CloudTask` 都运行 ffmpeg，使用 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 属性处理输入 `ResourceFile` 对象。 ffmpeg 此前已在创建池时安装在每个节点上。 在这里，命令行运行 ffmpeg 将每个输入 MP4（视频）文件转换为 MP3（音频）文件。
+此示例通过调用 `AddTasksAsync` 方法来创建 [CloudTask](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask) 对象的列表，从而在作业中创建任务。 每个 `CloudTask` 都运行 ffmpeg，使用 [CommandLine](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask.commandline) 属性处理输入 `ResourceFile` 对象。 ffmpeg 此前已在创建池时安装在每个节点上。 在这里，命令行运行 ffmpeg 将每个输入 MP4（视频）文件转换为 MP3（音频）文件。
 
-此示例在运行命令行后为 MP3 文件创建 [OutputFile](/dotnet/api/microsoft.azure.batch.outputfile) 对象。 每个任务的输出文件（在此示例中为一个）都会使用任务的 [OutputFiles](/dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 属性上传到关联的存储帐户中的一个容器。 我们在前面的代码示例中获取了共享访问签名 URL (`outputContainerSasUrl`)，用于提供对输出容器的写权限。 请注意 `outputFile` 对象上设置的条件。 只有在任务成功完成后 (`OutputFileUploadCondition.TaskSuccess`)，任务中的输出文件才会上传到容器。 在 GitHub 上查看完整的[代码示例](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)，进一步了解实现的详细信息。
+此示例在运行命令行后为 MP3 文件创建 [OutputFile](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.outputfile) 对象。 每个任务的输出文件（在此示例中为一个）都会使用任务的 [OutputFiles](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask.outputfiles) 属性上传到关联的存储帐户中的一个容器。 我们在前面的代码示例中获取了共享访问签名 URL (`outputContainerSasUrl`)，用于提供对输出容器的写权限。 请注意 `outputFile` 对象上设置的条件。 只有在任务成功完成后 (`OutputFileUploadCondition.TaskSuccess`)，任务中的输出文件才会上传到容器。 在 GitHub 上查看完整的[代码示例](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial)，进一步了解实现的详细信息。
 
-然后，示例使用 [AddTaskAsync](/dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
+然后，示例使用 [AddTaskAsync](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.joboperations.addtaskasync) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
 
 ```csharp
  // Create a collection to hold the tasks added to the job.
@@ -292,7 +292,7 @@ return tasks
 
 Batch 将任务添加到作业时，该服务自动对任务排队并进行计划，方便其在关联的池中的计算节点上执行。 Batch 根据指定的设置处理所有任务排队、计划、重试和其他任务管理工作。
 
-监视任务的执行有许多方法。 此示例定义的 `MonitorTasks` 方法仅在已完成的情况下状态为“任务失败”或“任务成功”时进行报告。 `MonitorTasks` 代码指定 [ODATADetailLevel](/dotnet/api/microsoft.azure.batch.odatadetaillevel)，只选择有关任务的最少信息，十分高效。 然后，它会创建 [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor)，以便提供用于监视任务状态的帮助器实用程序。 在 `MonitorTasks` 中，示例会在某个时限内等待所有任务达到 `TaskState.Completed` 状态。 然后，它会终止作业，并对虽已完成但仍遇到故障（例如退出代码非零）的任务进行报告。
+监视任务的执行有许多方法。 此示例定义的 `MonitorTasks` 方法仅在已完成的情况下状态为“任务失败”或“任务成功”时进行报告。 `MonitorTasks` 代码指定 [ODATADetailLevel](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.odatadetaillevel)，只选择有关任务的最少信息，十分高效。 然后，它会创建 [TaskStateMonitor](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.taskstatemonitor)，以便提供用于监视任务状态的帮助器实用程序。 在 `MonitorTasks` 中，示例会在某个时限内等待所有任务达到 `TaskState.Completed` 状态。 然后，它会终止作业，并对虽已完成但仍遇到故障（例如退出代码非零）的任务进行报告。
 
 ```csharp
 TaskStateMonitor taskStateMonitor = batchClient.Utilities.CreateTaskStateMonitor();
@@ -314,7 +314,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ## <a name="clean-up-resources"></a>清理资源
 
-运行任务之后，应用自动删除所创建的输入存储容器，并允许你选择是否删除 Batch 池和作业。 BatchClient 的 [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) 和 [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 类都有相应的删除方法（在确认删除时调用）。 虽然作业和任务本身不收费，但计算节点收费。 因此，建议只在需要的时候分配池。 删除池时会删除节点上的所有任务输出。 但是，输出文件保留在存储帐户中。
+运行任务之后，应用自动删除所创建的输入存储容器，并允许你选择是否删除 Batch 池和作业。 BatchClient 的 [JobOperations](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.batchclient.joboperations) 和 [PoolOperations](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.batchclient.pooloperations) 类都有相应的删除方法（在确认删除时调用）。 虽然作业和任务本身不收费，但计算节点收费。 因此，建议只在需要的时候分配池。 删除池时会删除节点上的所有任务输出。 但是，输出文件保留在存储帐户中。
 
 若不再需要资源组、Batch 帐户和存储帐户，请将其删除。 为此，请在 Azure 门户中选择 Batch 帐户所在的资源组，然后单击“删除资源组”。 
 

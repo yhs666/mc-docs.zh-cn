@@ -1,5 +1,5 @@
 ---
-title: 适用于 Windows 的自定义脚本扩展 | Azure
+title: 适用于 Windows 的 Azure 自定义脚本扩展 | Azure
 description: 使用自定义脚本扩展自动化 Windows VM 配置任务
 services: virtual-machines-windows
 manager: digimobile
@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 05/02/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: f192ee3b101a1763fc835385d2df93e4e16c4d51
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: f6a667abfc04895aa7249d0322a80b15b49e3fa1
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570471"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913047"
 ---
 # <a name="custom-script-extension-for-windows"></a>适用于 Windows 的自定义脚本扩展
 
@@ -208,7 +208,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 * 扩展的 **Name** 参数与以前部署的扩展相同。
 * 更新配置，否则不会重新执行命令。 可以将动态属性添加到命令中，如时间戳。
 
-或者，可以将 [ForceUpdateTag](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag?view=azure-dotnet) 属性设置为 **true**。
+或者，可以将 [ForceUpdateTag](https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag?view=azure-dotnet) 属性设置为 **true**。
 
 ### <a name="using-invoke-webrequest"></a>使用 Invoke-WebRequest
 
@@ -293,6 +293,6 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)上的 Azure 专家。 还可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 还可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1f6255da6eaf8419aeebe64984c418614341f4a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 658a6bbbd71e090b82a96079a23b3f82a6db391b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571463"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818471"
 ---
 # <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -44,7 +44,7 @@ ms.locfileid: "67571463"
 
    - **名称**：输入一个友好名称以标识此保管库。 名称对于 Azure 订阅必须是唯一的。 指定的名称应至少包含 2 个字符，最多不超过 50 个字符。 名称必须以字母开头且只能包含字母、数字和连字符。
    - **订阅**：选择要使用的订阅。 如果你仅是一个订阅的成员，则会看到该名称。 如果不确定要使用哪个订阅，请使用默认的（建议的）订阅。 仅当工作或学校帐户与多个 Azure 订阅关联时，才会显示多个选项。
-   - **资源组**：使用现有资源组，或创建一个新的资源组。 要查看订阅中可用的资源组列表，请选择“使用现有资源”  ，然后从下拉列表框中选择一个资源。 若要创建新资源组，请选择“新建”，然后输入名称  。 有关资源组的完整信息，请参阅 [Azure 资源管理器概述](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)。
+   - **资源组**：使用现有资源组，或创建一个新的资源组。 要查看订阅中可用的资源组列表，请选择“使用现有资源”  ，然后从下拉列表框中选择一个资源。 若要创建新资源组，请选择“新建”，然后输入名称  。 有关资源组的完整信息，请参阅 [Azure 资源管理器概述](/azure-resource-manager/resource-group-overview)。
    - **位置**：为保管库选择地理区域。 要创建保管库以保护虚拟机，保管库必须与虚拟机位于同一区域中  。
 
       > [!IMPORTANT]

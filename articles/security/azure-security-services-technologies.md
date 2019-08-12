@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/25/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 11923c60d5d4ade6c78c9629572297871fd24f8c
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: 094c647f48aa0196576f5956db470f7a0467d689
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219569"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818168"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Azure 上可用的安全服务和技术
 
@@ -38,10 +38,10 @@ ms.locfileid: "53219569"
 
 ## <a name="azure-storage-security"></a>Azure 存储安全
 - [Azure 存储安全指南](../storage/storage-security-guide.md)
-- [Azure 存储服务身份验证](https://msdn.microsoft.com/zh-cn/library/azure/dd179428.aspx) 
+- [Azure 存储服务身份验证](https://msdn.microsoft.com/library/azure/dd179428.aspx) 
 - [管理对容器和 blob 的匿名读取访问](../storage/storage-manage-access-to-resources.md)
 - [共享访问签名，第 1 部分：了解 SAS 模型](../storage/storage-dotnet-shared-access-signature-part-1.md)
-- [共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储](https://www.azure.cn/documentation/articles/storage-dotnet-shared-access-signature-part-2.md)
+- [共享访问签名，第 2 部分：创建 SAS 并将 SAS 用于 Blob 存储](/storage/common/storage-dotnet-shared-access-signature-part-1)
 - [Azure 存储的客户端加密和 Azure 密钥保管库](../storage/storage-client-side-encryption.md)
 
 ## <a name="azure-networking"></a>Azure 网络

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/25/2018
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: b56be09327fa5b80366cb104496143c7aa9bf327
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 64ed0d048bdd382c1e41e6edf6174462d3736040
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845353"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878508"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 安全性和 DevOps 最佳做法
 
@@ -87,4 +87,4 @@ ms.locfileid: "67845353"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 了解有关 [HDInsight 4.0](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-introduction) 的详细信息
+- 了解有关 [HDInsight 4.0](/hdinsight/hadoop/apache-hadoop-introduction) 的详细信息

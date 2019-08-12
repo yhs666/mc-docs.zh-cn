@@ -1,5 +1,5 @@
 ---
-title: 了解和使用 Azure Linux 代理 | Azure
+title: Azure Linux VM 代理概述 | Azure
 description: 了解如何安装和配置 Linux 代理 (waagent) 以管理虚拟机与 Azure 结构控制器的交互。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 10/17/2016
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 18d43818591195a6724d7a8476fc351f146c0f34
-ms.sourcegitcommit: 5bfa8ecc8a61eaf814437c78ea0d12214cabcb8c
+ms.openlocfilehash: 559d4f42fd557bb73425f317aecbfc3f05d18b1b
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929324"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912928"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>了解和使用 Azure Linux 代理
 
@@ -129,7 +129,10 @@ Azure Linux 代理 (waagent) 可以管理 Linux 与 FreeBSD 预配，以及 VM �
 > 
 
 * deprovision+user：执行 -deprovision（上述）中的所有操作，同时删除最后预配的用户帐户（从 /var/lib/waagent 中获得）和关联数据。 此参数是取消对以前在 Azure 中设置的映像的设置以便捕获并重新使用该映像时的参数。
-* version：显示 waagent 的版本   <!--Not Available on * serialconsole:-->
+* version：显示 waagent 的版本
+
+    <!--Not Available on * serialconsole:-->
+
 * daemon：将 waagent 作为 daemon 运行以管理与平台的交互。 在 waagent init 脚本中为 waagent 指定此参数。
 * start：将 waagent 作为后台进程运行
 
@@ -264,7 +267,7 @@ Default: ext4
 Type: String  
 Default: /mnt/resource 
 ```
-这会指定资源磁盘的装载路径。 资源磁盘是临时磁盘，可能在取消预配 VM 时被清空。
+这会指定资源磁盘的装载路径。 资源磁盘是临时  磁盘，可能在取消预配 VM 时被清空。
 
 **ResourceDisk.MountOptions：**  
 ```
@@ -335,15 +338,15 @@ Ubuntu 云映像利用 [cloud-init](https://launchpad.net/ubuntu/+source/cloud-i
 * **Provisioning.Enabled** 在使用 cloud-init 执行预配任务的 Ubuntu 云映像上默认为“n”。
 * 以下配置参数对使用 cloud-init 来管理资源磁盘并交换空间的 Ubuntu 云映像没有影响：
 
-  * **ResourceDisk.Format**
-  * **ResourceDisk.Filesystem**
-  * **ResourceDisk.MountPoint**
-  * **ResourceDisk.EnableSwap**
-  * **ResourceDisk.SwapSizeMB**
+    * **ResourceDisk.Format**
+    * **ResourceDisk.Filesystem**
+    * **ResourceDisk.MountPoint**
+    * **ResourceDisk.EnableSwap**
+    * **ResourceDisk.SwapSizeMB**
 
 * 有关详细信息，请参阅以下资源来配置资源磁盘装入点，并在预配期间交换 Ubuntu 云映像上的空间：
 
   * [Ubuntu Wiki：配置交换分区](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [将自定义数据注入到 Azure 虚拟机中](../windows/classic/inject-custom-data.md)
   
-<!-- Update_Description: update meta properties-->
+<!-- Update_Description: update meta properties, wording update-->

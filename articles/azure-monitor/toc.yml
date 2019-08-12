@@ -387,7 +387,7 @@
                 - name: Micrometer 指标
                   href: app/micrometer-java.md
                 - name: 配置 Spring Boot Initializer 应用
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
+                  href: 'https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights'
             - name: Node.js 应用
               items:
                 - name: Node.js
@@ -982,27 +982,27 @@
         - name: 上下文
           href: app/data-model-context.md
     - name: Azure CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
+      href: /cli/monitor?view=azure-cli-latest
     - name: Azure Functions
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
         - name: 监视
-          href: /powershell/module/az.applicationinsights
+          href: 'https://docs.microsoft.com/powershell/module/az.applicationinsights'
         - name: 日志
-          href: /powershell/module/az.operationalinsights
+          href: 'https://docs.microsoft.com/powershell/module/az.operationalinsights'
     - name: REST API
       items:
         - name: 监视
-          href: /rest/api/monitor/
+          href: 'https://docs.microsoft.com//rest/api/monitor/'
         - name: 日志
-          href: /rest/api/loganalytics
+          href: 'https://docs.microsoft.com//rest/api/loganalytics'
     - name: Resource Manager 模板
       items:
         - name: 监视
-          href: /azure/templates/microsoft.insights/allversions
+          href: 'https://www.microsoft.com/azure/templates/microsoft.insights/allversions'
         - name: 日志
-          href: /azure/templates/microsoft.operationalinsights/allversions
+          href: 'https://www.microsoft.com/azure/templates/microsoft.operationalinsights/allversions'
     - name: 度量值
       items:
         - name: 支持的指标

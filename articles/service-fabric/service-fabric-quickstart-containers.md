@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/31/2019
-ms.date: 07/08/2019
+origin.date: 07/10/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 2c2ff05863f17e48c249e91bea0eaff88a11b847
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 94926b0596d3dabfa35ef5442b3ad968dc9e1331
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67844924"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819649"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric
@@ -45,7 +45,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 * 一个 Azure 订阅（可以创建[试用帐户](https://www.azure.cn/pricing/1rmb-trial)）。
 * 一台运行以下软件的开发计算机：
-    * Visual Studio 2015 或 Windows 2019。
+    * Visual Studio 2019 或 Windows 2019。
     * [Service Fabric SDK 和工具](service-fabric-get-started.md)。
 
 ## <a name="package-a-docker-image-container-with-visual-studio"></a>使用 Visual Studio 打包 Docker 映像容器
@@ -54,8 +54,9 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 
 以“管理员”身份启动 Visual Studio。  选择“文件” > “新建” > “项目”    。
 
-选择“云” > “Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“确定”。   
+选择“Service Fabric 应用程序”，将其命名为“MyFirstContainer”，并单击“创建”   。
 
+<!--Visual Studio 2017 content: Select **Cloud** > **Service Fabric application**, name it "MyFirstContainer", and click **OK**.-->
 <!--MOONCAKE: We add **Cloud** to help user search **Service Fabric application**-->
 
 从“托管的容器和应用程序”模板中选择“容器”。  
@@ -77,14 +78,14 @@ Service Fabric SDK 和工具提供服务模板，用于将容器部署到 Servic
 Azure 为不同版本的 Windows Server 上生成的 IIS 版本发布不同的映像。 若要确保 Service Fabric 部署的容器与在部署应用程序的群集节点上运行的 Windows Server 版本兼容，请将以下行添加到 *ApplicationManifest.xml* 文件。 Windows Server 2016 的内部版本为 14393，Windows Server 版本 1709 的内部版本为 16299。
 
 ```xml
-    <ContainerHostPolicies CodePackageRef="Code"> 
-      <ImageOverrides> 
-        ...
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
-      </ImageOverrides> 
-    </ContainerHostPolicies> 
+<ContainerHostPolicies CodePackageRef="Code"> 
+  <ImageOverrides> 
+    ...
+      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+      <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
+  </ImageOverrides> 
+</ContainerHostPolicies> 
 ```
 
 服务清单继续为 nanoserver (`mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`) 只指定一个映像。

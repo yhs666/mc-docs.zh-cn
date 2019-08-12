@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a7082dc2f93433c9a689e1c592b83117d516ac3c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 0b8ff25548496f0e1e37be4181e8214e9f8f7d01
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513885"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818367"
 ---
 # <a name="export-telemetry-from-application-insights"></a>从 Application Insights 导出遥测数据
 想要将遥测数据保留超过标准保留期限？ 或者要以某种专业方式处理这些数据？ 连续导出很适合此目的。 可以使用 JSON 格式将 Application Insights 门户中显示的事件导出到世纪互联 Azure 中的存储。 可以从该存储中下载这些数据，并编写所需的代码来处理这些数据。  
@@ -170,7 +170,7 @@ Where
 * [使用流分析导出到 SQL][exportasa]
 * [流分析示例 2](export-stream-analytics.md)
 
-如果数据规模较大，可以考虑 [HDInsight](https://www.azure.cn/services/hdinsight/) - 云中的 Hadoop 群集。 HDInsight 提供多种技术用于管理和分析大数据。可以使用 HDInsight 来处理从 Application Insights 导出的数据。
+如果数据规模较大，可以考虑 [HDInsight](/hdinsight/) - 云中的 Hadoop 群集。 HDInsight 提供多种技术用于管理和分析大数据。可以使用 HDInsight 来处理从 Application Insights 导出的数据。
 
 ## <a name="q--a"></a>问题解答
 * *我想要一次性下载某个图表。*  

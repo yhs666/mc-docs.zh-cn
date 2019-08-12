@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 08/24/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
+origin.date: 02/15/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 13c406c59a08ddea3fe2e1e58e876f266270f377
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: b72bdaf00f770a5f18bdb9f588ab19791a35ba83
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296715"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878618"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>在 Azure 中创建 Node.js Web 应用
 
@@ -46,12 +46,12 @@ ms.locfileid: "66296715"
 打开 _index.js_ 并找到以下行：
 
 ```javascript
-var port = process.env.PORT || 1337;
+const port = process.env.PORT || 1337;
 ```
 
 应用服务会将 process.env.PORT 注入应用程序，因此代码将使用该变量来获知要侦听的端口。 
 
-在终端窗口中，导航到示例 Node.js 项目的根目录（包含 _index.js_ 的目录）。
+在一个终端窗口中，导航到示例 Node.js 项目的**根目录**（包含 _index.js_ 的目录）。
 
 ## <a name="run-the-app-locally"></a>在本地运行应用
 
@@ -85,7 +85,6 @@ Compress-Archive -Path * -DestinationPath myAppFiles.zip
 ```
 
 命令执行完后将此 ZIP 文件上传到 Azure 并将其部署到应用服务。
-[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)] 
 
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-scus.md)] 
 
@@ -157,13 +156,13 @@ Node.js 示例代码正在 Azure 应用服务 Web 应用中运行。
 
 使用文本编辑器在 Node.js 应用中打开 `index.js` 文件，然后对 `response.end` 调用中的文本稍微进行更改：
 
-```nodejs
+```javascript
 response.end("Hello Azure!");
 ```
 
 在本地终端窗口中，导航到你的应用程序的**根目录**（包含 _index.js_ 的目录），为更新后的项目创建新的 ZIP 文件。
 
-```
+```azurecli
 # Bash
 zip -r myUpdatedAppFiles.zip .
 

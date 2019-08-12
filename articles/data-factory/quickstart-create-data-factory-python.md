@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.devlang: python
 ms.topic: quickstart
 origin.date: 01/22/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 511f334350f5132ddf389441aa1359a7fda63dcd
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ea6febff9d27a7e1f28f05530d8f4170ecded2cc
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570519"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908672"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>快速入门：使用 Python 创建数据工厂和管道
 
@@ -38,7 +38,7 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
 
 1. 启动记事本。 复制以下文本并在磁盘上将其另存为 **input.txt** 文件。
 
-    ```
+    ```text
     John|Doe
     Jane|Doe
     ```
@@ -49,12 +49,12 @@ Azure 数据工厂是基于云的数据集成服务，用于在云中创建数�
 1. 使用管理员特权打开一个终端或命令提示符。 
 2. 首先，安装 Azure 管理资源的 Python 包：
 
-    ```
+    ```python
     pip install azure-mgmt-resource
     ```
 3. 若要为数据工厂安装 Python 包，请运行以下命令：
 
-    ```
+    ```python
     pip install azure-mgmt-datafactory
     ```
 
@@ -371,7 +371,7 @@ def main():
         }
     )
 
-    # Monitor the pipeilne run
+    # Monitor the pipeline run
     time.sleep(30)
     pipeline_run = adf_client.pipeline_runs.get(rg_name, df_name, run_response.run_id)
     print("\n\tPipeline run status: {}".format(pipeline_run.status))

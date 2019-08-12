@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/10/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 62dbb4d3dad16f7f07d8820ea6b31b9b7f8d2c29
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c3ed62ca1ca743f1e54416176e90fd1a09decc74
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570284"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908678"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换云中的数据
 本教程使用 Azure 门户创建 Azure 数据工厂管道。 该管道使用 Spark 活动和按需 Azure HDInsight 链接服务转换数据。 
@@ -148,7 +148,7 @@ ms.locfileid: "67570284"
    
    b. 至于“类型”，请确认选择了“按需 HDInsight”。  
    
-   c. 至于“Azure 存储链接服务”，请选择“AzureStorage1”。   前面已创建此链接服务。 如果使用了其他名称，请在此处指定正确的名称。 
+   c. 对于“Azure 存储链接服务”，请选择“AzureBlobStorage1”。   前面已创建此链接服务。 如果使用了其他名称，请在此处指定正确的名称。 
    
    d. 至于“群集类型”，请选择“spark”。  
    
@@ -190,7 +190,7 @@ ms.locfileid: "67570284"
    ![指定 HDInsight 链接服务](./media/tutorial-transform-data-spark-portal/select-hdinsight-linked-service.png)
 1. 切换到“脚本/Jar”  选项卡，然后完成以下步骤： 
 
-   a. 至于“作业链接服务”，请选择“AzureStorage1”。  
+   a. 对于“作业链接服务”，请选择“AzureBlobStorage1”。  
    
    b. 选择“浏览存储”。 
 
@@ -207,7 +207,7 @@ ms.locfileid: "67570284"
 
 
 ## <a name="trigger-a-pipeline-run"></a>触发管道运行
-选择工具栏中的“触发器”，然后选择“立即触发”。   
+选择工具栏中的“添加触发器”，然后选择“立即触发”。   
 
 ![“触发器”和“立即触发”按钮](./media/tutorial-transform-data-spark-portal/trigger-now-menu.png)
 
@@ -223,7 +223,7 @@ ms.locfileid: "67570284"
 
    ![管道运行状态](./media/tutorial-transform-data-spark-portal/pipeline-run-succeeded.png) 
 
-   选择顶部的“管道”链接可以切换回到管道运行视图。 
+   选择顶部的“所有管道运行”链接可以切换回到管道运行视图。 
 
    ![“活动运行”视图](./media/tutorial-transform-data-spark-portal/activity-runs.png)
 

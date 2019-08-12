@@ -1,5 +1,5 @@
 ---
-title: 在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1 | Azure
+title: 在 Azure 中的 Linux VM 上运行自定义脚本 | Azure
 description: 使用自定义脚本扩展 v1 自动化 Linux VM 配置任务
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/14/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 75315122b0e007efa751dafe67e5d240f93ec56b
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 62d6ebb2f7abb66f414a535fa45e3a805f8be445
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835619"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913049"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>在 Linux 虚拟机上使用 Azure 自定义脚本扩展版本 1
 
@@ -124,10 +124,10 @@ ms.locfileid: "65835619"
 | 名称 | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| 发布者 | Microsoft.OSTCExtensions | string |
+| publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris（例如） | https://github.com/MyProject/Archive/MyPythonScript.py | 数组 |
+| fileUris（例如） | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute（例如） | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | 是 | 布尔值 |
 | storageAccountName（例如） | examplestorageacct | string |
@@ -189,13 +189,17 @@ ms.locfileid: "65835619"
 
 在使用 Azure CLI 运行自定义脚本扩展时，请创建一个或多个配置文件。 至少必须具有“commandToExecute”。
 
+<!--MOONCAKE: OUTSIDE " INNER '-->
+
 ```azurecli
 az vm extension set -n VMAccessForLinux \
   --publisher Microsoft.OSTCExtensions \
   --version 1.5 \
   --vm-name MyVm --resource-group MyResourceGroup \
-  --protected-settings '{"commandToExecute": "echo hello"}'
+  --protected-settings "{'commandToExecute': 'echo hello'}"
 ```
+
+<!--MOONCAKE: OUTSIDE " INNER '-->
 
 （可选）可以在命令中以 JSON 格式字符串的形式指定设置。 这样，便可以在执行期间指定配置，而无需使用单独的配置文件。
 
@@ -205,8 +209,10 @@ az vm extension set \
   --vm-name exttest \
   --name CustomScriptForLinux \
   --publisher Microsoft.OSTCExtensions \
-  --settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
+  --settings "{'fileUris': ['https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh'],'commandToExecute': './config-music.sh'}"
 ```
+
+<!--MOONCAKE: OUTSIDE " INNER '-->
 
 ### <a name="azure-cli-examples"></a>Azure CLI 示例
 

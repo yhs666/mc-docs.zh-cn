@@ -293,8 +293,6 @@
           href: luis-reference-prebuilt-number.md
         - name: 序号实体
           href: luis-reference-prebuilt-ordinal.md
-        - name: 序号 V2 实体
-          href: luis-reference-prebuilt-ordinal-v2.md
         - name: 百分比实体
           href: luis-reference-prebuilt-percentage.md
         - name: PersonName 实体
@@ -377,11 +375,11 @@
     - name: QnA maker
       href: 'https://qnamaker.ai/'
     - name: 必应语音 API
-      href: 'https://azure.microsoft.com/services/cognitive-services/speech/'
+      href: /cognitive-services/speech/
     - name: 必应拼写检查 API
-      href: 'https://azure.microsoft.com/services/cognitive-services/spell-check/'
+      href: /cognitive-services/spell-check/
     - name: 文本分析
-      href: 'https://azure.microsoft.com/services/cognitive-services/text-analytics/'
+      href: /cognitive-services/text-analytics/
     - name: 识别器 - 文本
       href: 'https://github.com/Microsoft/Recognizers-Text'
     - name: 智能展台
@@ -389,19 +387,17 @@
 - name: 资源
   items:
     - name: 区域可用性
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
+      href: 'https://www.azure.cn/zh-cn/home/features/products-by-region'
     - name: 语言和区域支持
       href: luis-language-support.md
       displayName: 'phrase list recommendations, multi-language, translator, locale, language, English, Chinese, subculture, dictation, speech, Bing Spell Check, foreign words, Hybrid languages, Tokenization, space, special character, compound words, tokens'
-    - name: Azure 路线图
-      href: 'https://aka.ms/luis-roadmap'
     - name: 术语表
       href: luis-glossary.md
     - name: 故障排除
       href: troubleshooting.md
       displayName: 'FAQ, import'
     - name: 定价和限制
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/'
+      href: 'https://www.azure.cn/zh-cn/pricing/details/cognitive-services'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/LUIS'
     - name: UserVoice

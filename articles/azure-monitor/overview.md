@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ec749e8aef99a65e73eed43431a6b3c9451e72b3
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: eb87ad80360d8ffc79c7a55900858cbe3850dc14
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513832"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818279"
 ---
 # <a name="azure-monitor-overview"></a>Azure Monitor 概述
 
@@ -41,7 +41,7 @@ Azure 门户中的“概述”页会直接显示 Azure Monitor 针对许多 Azur
 
 可以使用[查询](log-query/log-query-overview.md)来分析 Azure Monitor 收集的日志数据，这些查询可以快速检索、合并和分析所收集的数据。  可以使用 Azure 门户中的 Log Analytics 创建和测试查询，然后可以直接使用这些工具分析数据，或者保存查询以便与可视化效果或[警报规则](platform/alerts-overview.md)配合使用。
 
-Azure Monitor 使用 Azure 数据资源管理器使用的 [Kusto 查询语言](https://docs.microsoft.com/zh-cn/azure/kusto/query/)的某个版本，该查询语言适用于简单的日志查询，但也包括高级功能，例如聚合、联接和智能分析。 可以通过[多个课程](log-query/get-started-queries.md)快速了解此查询语言。  特定指南提供给已熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的用户。
+Azure Monitor 使用 Azure 数据资源管理器使用的 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)的某个版本，该查询语言适用于简单的日志查询，但也包括高级功能，例如聚合、联接和智能分析。 可以通过[多个课程](log-query/get-started-queries.md)快速了解此查询语言。  特定指南提供给已熟悉 [SQL](log-query/sql-cheatsheet.md) 和 [Splunk](log-query/splunk-cheatsheet.md) 的用户。
 
 ![日志](media/overview/logs.png)
 

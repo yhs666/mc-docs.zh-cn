@@ -11,31 +11,31 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 59c19214ec70634c39a51ca1b663ef06d8edfa19
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: f422fddcf2eefbbfcdd5a2d0299f149a73a4d979
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135825"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818447"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>在预测之前或预测期间更改话语数据
 LUIS 提供在预测之前或预测期间操作陈述的方法。 这些方法包括修复拼写，以及修复预生成 datetimeV2 的时区问题。 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>更正陈述中的拼写错误
-LUIS 使用[必应拼写检查 API V7](https://www.azure.cn/services/cognitive-services/spell-check/) 来更正陈述中的拼写错误。 LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加为[终结点](https://aka.ms/luis-endpoint-apis)的 querystring 参数。 
+LUIS 使用[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 来更正陈述中的拼写错误。 LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加为[终结点](https://aka.ms/luis-endpoint-apis)的 querystring 参数。 
 
 还可以通过[输入密钥](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)更正“测试”面板中的拼写错误  。 该密钥以浏览器中“测试”面板的会话变量形式保存。 在每个要更正拼写的浏览器会话中，将该密钥添加到“测试”面板。 
 
-测试面板和终结点中的密钥使用情况将计入[密钥用量](https://www.azure.cn/pricing/details/cognitive-services/spellcheck-api/)配额。 LUIS 实施必应拼写检查文本长度限制。 
+测试面板和终结点中的密钥使用情况将计入[密钥用量](https://www.azure.cn/pricing/details/cognitive-services/)配额。 LUIS 实施必应拼写检查文本长度限制。 
 
 终结点需要两个参数以进行拼写更正：
 
 |Param|Value|
 |--|--|
 |`spellCheck`|布尔值|
-|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://www.azure.cn/services/cognitive-services/spell-check/) 终结点密钥|
+|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 终结点密钥|
 
-[必应拼写检查 API V7](https://www.azure.cn/services/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
+[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
 
 ```JSON
 {

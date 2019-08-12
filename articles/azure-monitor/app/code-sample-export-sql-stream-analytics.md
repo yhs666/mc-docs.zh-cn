@@ -12,15 +12,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 95cb7800edbee52d41fb9427c16b0f7e3daf7c90
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 6d0692a33af446ea586c1441728103c96072cbf2
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513883"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818507"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>演练：使用流分析从 Application Insights 导出到 SQL
-本文说明如何使用[连续导出][export]和 [Azure 流分析](https://www.azure.cn/services/stream-analytics/)，将遥测数据从 [Azure Application Insights][start] 移入 Azure SQL 数据库。 
+本文说明如何使用[连续导出][export]和 [Azure 流分析](/stream-analytics/)，将遥测数据从 [Azure Application Insights][start] 移入 Azure SQL 数据库。 
 
 连续导出以 JSON 格式将遥测数据移入 Azure 存储。 我们将使用 Azure 流分析来分析 JSON 对象，并在数据库表中创建行。
 
@@ -251,7 +251,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 ## <a name="related-articles"></a>相关文章
 * [属性类型和值的详细数据模型参考。](../../azure-monitor/app/export-data-model.md)
 * [Application Insights 中的连续导出](../../azure-monitor/app/export-telemetry.md)
-* [Application Insights](https://www.azure.cn/services/application-insights/)
+* [Application Insights](/azure-monitor/)
 
 <!--Link references-->
 

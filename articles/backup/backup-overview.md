@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/24/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 7745d6aa20e4b68e3d24d1092b8c8cc430f63f2d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 348b7d12d9ab4784e6d02af87bbd8dc82d736dba
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570474"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818464"
 ---
 # <a name="what-is-azure-backup"></a>什么是 Azure 备份？
 
@@ -133,7 +133,7 @@ Azure 备份针对每个受保护实例实施 9999 个恢复点（也称为备�
 
 **加密** | **本地备份** | **备份 Azure VM** | **在 Azure VM 上备份 SQL Server**
 --- | --- | --- | ---
-静态加密<br/> （对保留/存储的数据进行加密） | 客户指定的密码短语用于加密数据 | Azure [存储服务加密 (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 用于加密存储在保管库中的数据。<br/><br/> 备份会在存储数据之前自动加密数据。 Azure 存储会在检索数据之前解密数据。 目前不支持使用客户托管的 SSE 密钥。<br/><br/> 可以将使用 [Azure 磁盘加密 (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) 来加密 OS 和数据磁盘的 VM 进行备份。 Azure 备份支持仅使用 BEK 加密的 VM 以及同时使用 BEK 和 [ KEK ](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/) 加密的 VM。 查看[限制](backup-azure-vms-encryption.md#encryption-support)。 | Azure 备份支持备份启用了 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 的 SQL Server 数据库或服务器。 Azure 备份支持由 Azure 托管密钥的或由客户托管密钥 (BYOK) 的 TDE。<br/><br/> Azure 备份不会在备份过程中执行任何 SQL 加密。
+静态加密<br/> （对保留/存储的数据进行加密） | 客户指定的密码短语用于加密数据 | Azure [存储服务加密 (SSE)](/storage/common/storage-service-encryption) 用于加密存储在保管库中的数据。<br/><br/> 备份会在存储数据之前自动加密数据。 Azure 存储会在检索数据之前解密数据。 目前不支持使用客户托管的 SSE 密钥。<br/><br/> 可以将使用 [Azure 磁盘加密 (ADE)](/security/azure-security-disk-encryption-overview) 来加密 OS 和数据磁盘的 VM 进行备份。 Azure 备份支持仅使用 BEK 加密的 VM 以及同时使用 BEK 和 [ KEK ](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/) 加密的 VM。 查看[限制](backup-azure-vms-encryption.md#encryption-support)。 | Azure 备份支持备份启用了 [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) 的 SQL Server 数据库或服务器。 Azure 备份支持由 Azure 托管密钥的或由客户托管密钥 (BYOK) 的 TDE。<br/><br/> Azure 备份不会在备份过程中执行任何 SQL 加密。
 传输中加密<br/> （从一个位置向另一个位置移动的数据的加密） | 数据使用 AES256 加密，并通过 HTTPS 发送到 Azure 中的保管库 | 在 Azure 中，Azure 存储与保管库之间传输的数据受 HTTPS 保护。 此数据保留在 Azure 主干网络上。<br/><br/> 对于文件恢复，iSCSI 会保护保管库和 Azure VM 之间传输的数据。 安全隧道可保护 iSCSI 通道。 | 在 Azure 中，Azure 存储与保管库之间传输的数据受 HTTPS 保护。<br/><br/> 文件恢复与 SQL 无关。
 
 ## <a name="next-steps"></a>后续步骤

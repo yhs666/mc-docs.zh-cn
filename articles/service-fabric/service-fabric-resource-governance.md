@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/09/2017
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0209252f98d22d68e24da94993eb9599fcbbac0e
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 9d777c900f218af28a18b886ef298c60eb57f165
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463560"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819645"
 ---
 # <a name="resource-governance"></a>资源调控
 
@@ -60,7 +60,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 
 * *混用调控和非调控服务与容器*：如果用户创建服务时没有指定任何资源治理，运行时将它视为不占用任何资源，能够将它放置在示例中的节点上。 在这种情况下，这一新进程实际上会占用部分 CPU，占用的是已在节点上运行的服务的份额。 此问题有两种解决方案。 在同一群集中不混用治理和非治理服务，或使用[放置约束](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)，阻止这两种类型的服务最终位于同一组节点上。
 
-* *其他进程在 Service Fabric 外的节点上启动（例如 OS 服务）*：在这种情况下，Service Fabric 外的进程也会与现有服务争用 CPU。 此问题的解决方案是，考虑 OS 开销以正确设置节点容量，如下一部分中所示。
+* *其他进程在 Service Fabric 外的节点上启动（例如 OS 服务）* ：在这种情况下，Service Fabric 外的进程也会与现有服务争用 CPU。 此问题的解决方案是，考虑 OS 开销以正确设置节点容量，如下一部分中所示。
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>启用资源治理所需的群集设置
 
@@ -81,12 +81,12 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 如果需要完全手动设置节点容量，可以使用常规机制来描述群集中的节点。 下面的示例展示了如何设置有四个内核和 2GB 内存的节点：
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+<NodeType Name="MyNodeType">
+  <Capacities>
+    <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+    <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+  </Capacities>
+</NodeType>
 ```
 
 如果已启用自动检测可用资源，并在群集清单中手动定义了节点容量，Service Fabric 会检查节点中的资源是否足以支持用户定义的容量：
@@ -118,7 +118,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <!--
   ServicePackageA has the number of CPU cores defined, but doesn't have the MemoryInMB defined.
@@ -135,7 +135,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
   </ServiceManifestImport>
 ```
 
-在此示例中，服务包 ServicePackageA 在驻留的节点上拥有一个内核的资源。 此服务包有两个代码包（CodeA1 和 CodeA2），并且都指定了 `CpuShares` 参数。 CpuShares 512:256 的比例将核心划分到两个代码包中。
+在此示例中，服务包 ServicePackageA  在驻留的节点上拥有一个内核的资源。 此服务包有两个代码包（CodeA1  和 CodeA2  ），并且都指定了 `CpuShares` 参数。 CpuShares 512:256 的比例将核心划分到两个代码包中。
 
 因此，在此示例中，CodeA1 分得三分之二个内核，CodeA2 分得三分之一个内核（和相同的软保证保留）。 如果没有为代码包指定 CpuShares，Service Fabric 会在这两个代码包之间平分内核。
 
@@ -147,7 +147,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
-<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>
+<ApplicationManifest ApplicationTypeName='TestAppTC1' ApplicationTypeVersion='vTC1' xsi:schemaLocation='http://schemas.microsoft.com/2011/01/fabric ServiceFabricServiceModel.xsd' xmlns='http://schemas.microsoft.com/2011/01/fabric' xmlns:xsi='https://www.w3.org/2001/XMLSchema-instance'>
 
   <Parameters>
     <Parameter Name="CpuCores" DefaultValue="4" />
@@ -184,7 +184,7 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 ```
 
 > [!IMPORTANT]
-> 从 Service Fabric 6.1 版开始，可使用应用程序参数指定资源调控。<br>
+> 从 Service Fabric 6.1 版开始，可使用应用程序参数指定资源调控。<br />
 >
 > 使用应用程序参数指定资源调控时，Service Fabric 无法降级到 6.1 之前的版本。
 
@@ -202,13 +202,13 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 这些资源可与 CPU 和内存组合。 以下示例显示如何为容器指定其他资源：
 
 ```xml
-    <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
-        <Policies>
-            <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuPercent="5"
-            MemorySwapInMB="4084" MemoryReservationInMB="1024" MaximumIOPS="20" />
-        </Policies>
-    </ServiceManifestImport>
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="FrontendServicePackage" ServiceManifestVersion="1.0"/>
+    <Policies>
+        <ResourceGovernancePolicy CodePackageRef="FrontendService.Code" CpuPercent="5"
+        MemorySwapInMB="4084" MemoryReservationInMB="1024" MaximumIOPS="20" />
+    </Policies>
+</ServiceManifestImport>
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -216,4 +216,4 @@ Service Fabric 运行时当前不提供资源保留。 当进程或容器打开�
 * 若要详细了解群集资源管理器，请阅读 [Service Fabric 群集资源管理器简介](service-fabric-cluster-resource-manager-introduction.md)。
 * 若要详细了解应用程序模型、服务包、代码包以及如何将副本映射到它们，请阅读 [Service Fabric 中的应用程序建模](service-fabric-application-model.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

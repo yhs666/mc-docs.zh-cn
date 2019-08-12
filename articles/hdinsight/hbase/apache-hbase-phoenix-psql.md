@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 11/10/2017
 ms.date: 01/14/2019
 ms.author: v-yiso
-ms.openlocfilehash: 73f7bc9ae4eef719e7274fe56dc3ea50f98c7ed1
-ms.sourcegitcommit: 1456ace86f950acc6908f4f5a9c773b93a4d6acc
+ms.openlocfilehash: 06a4f1a0f16f971fdabc1f0d4f128a0877125d61
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54029197"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878742"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>使用 psql 将数据批量加载到 Apache Phoenix
 
@@ -70,7 +70,7 @@ ms.locfileid: "54029197"
     SELECT Name, Income from Customers group by Country;
     ```
 
-4. 打开一个新的 Hadoop 命令窗口，以批量加载数据。 首先，使用 `cd` 命令切换到执行目录位置，然后使用 `psql` 工具（Python `psql.py` 命令）。 
+4. 打开一个新的 Hadoop 命令窗口，以批量加载数据。  首先，使用 `cd` 命令切换到执行目录位置，然后使用 `psql` 工具（Python `psql.py` 命令）。 
 
     以下示例要求已使用 `hdfs` 将 `customers.csv` 文件从存储帐户复制到本地临时目录，如上面的步骤 2 所示。
 
@@ -137,14 +137,14 @@ ms.locfileid: "54029197"
 * 对于输入和输出文件夹，请使用相同的存储媒体（WASB 或 ADLS）。 若要将数据从 WASB 传输到 ADLS，可以使用 `distcp` 命令：
 
     ```bash
-    hadoop distcp wasb://@.blob.core.windows.net/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder
+    hadoop distcp wasb://@.blob.core.chinacloudapi.cn/example/data/gutenberg adl://.azuredatalakestore.net:443/myfolder
     ```
 
 * 使用更大的工作节点。 MapReduce 批量复制过程的映射进程会生成大量的暂时输出，导致填满可用的非 DFS 空间。 若要批量加载大量数据，请使用更多且更大的工作节点。 分配给群集的工作节点数直接影响处理速度。
 
 * 将输入文件拆分成大约 10 GB 的区块。 批量加载是存储密集型操作，因此将输入文件拆分成多个区块可以提高性能。
 
-* 避免区域服务器作用点。 如果行键单调递增，HBase 顺序写入可能导致生成区域服务器作用点。 对行键进行加盐处理可以减少顺序写入。 Phoenix 提供一种可在后台以加盐字节对特定表的行键进行加盐处理的方法，如以下参考文档中所述。
+* 避免区域服务器作用点。 如果行键单调递增，HBase 顺序写入可能导致生成区域服务器作用点。 对行键进行加盐处理可以减少顺序写入。  Phoenix 提供一种可在后台以加盐字节对特定表的行键进行加盐处理的方法，如以下参考文档中所述。
 
 ## <a name="next-steps"></a>后续步骤
 

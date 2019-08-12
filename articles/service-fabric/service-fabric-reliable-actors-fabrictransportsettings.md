@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/20/2017
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 62bd736f08766e683259329685a03a69c50388d7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: e9cbf4d244faeab85c09f524ef379723879d0b9c
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626492"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819570"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>配置 Reliable Actors 的 FabricTransport 设置
 
 以下为用户可以配置的设置：
-- C#:[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
+- C#：[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 - Java:[FabricTransportRemotingSettings](https://docs.azure.cn/java/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportremotingsettings)
 
 可以通过以下方式修改 FabricTransport 的默认配置。
@@ -83,7 +83,7 @@ using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>
-  <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+  <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
     <Section Name="TransportSettings">
       <Parameter Name="SecurityCredentialsType" Value="X509" />
       <Parameter Name="OperationTimeoutInSeconds" Value="300" />
@@ -103,33 +103,33 @@ using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
   可通过添加参数 CertificateFindValuebySecondary 来添加辅助证书信息。
   以下是侦听器 TransportSettings 的示例。
 
-  ```xml
-  <Section Name="TransportSettings">
-  <Parameter Name="SecurityCredentialsType" Value="X509" />
-  <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-  <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
-  <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
-  <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
-  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-  <Parameter Name="CertificateStoreName" Value="My" />
-  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-  </Section>
-   ```
-   以下是客户端 TransportSettings 的示例。
+    ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="4FEF3950642138446CC364A396E1E881DB76B48C,a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+    ```
+    以下是客户端 TransportSettings 的示例。
 
-  ```xml
-  <Section Name="TransportSettings">
-  <Parameter Name="SecurityCredentialsType" Value="X509" />
-  <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
-  <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
-  <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
-  <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
-  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-  <Parameter Name="CertificateStoreName" Value="My" />
-  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-  </Section>
-   ```
-  * 通过使用者名称为安全执行组件服务/客户端配置 FabricTransport 设置。
+    ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindByThumbprint" />
+    <Parameter Name="CertificateFindValue" Value="4FEF3950642138446CC364A396E1E881DB76B48C" />
+    <Parameter Name="CertificateFindValuebySecondary" Value="a9449b018d0f6839a2c5d62b5b6c6ac822b6f667" />
+    <Parameter Name="CertificateRemoteThumbprints" Value="b3449b018d0f6839a2c5d62b5b6c6ac822b6f662,h9449b018d0f6839a2c5d62b5b6c6ac822b6f690" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+    ```
+* 通过使用者名称为安全执行组件服务/客户端配置 FabricTransport 设置。
     用户需提供 findType 作为 FindBySubjectName，并添加 CertificateIssuerThumbprints 和 CertificateRemoteCommonNames 值。
     以下是侦听器 TransportSettings 的示例。
 
@@ -147,15 +147,16 @@ using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
     ```
     以下是客户端 TransportSettings 的示例。
 
-  ```xml
-   <Section Name="TransportSettings">
-  <Parameter Name="SecurityCredentialsType" Value="X509" />
-  <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
-  <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
-  <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-  <Parameter Name="CertificateStoreName" Value="My" />
-  <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
-  <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
-  </Section>
-   ```
-  <!-- Update_Description: update meta properties, wording update, update link  -->
+    ```xml
+    <Section Name="TransportSettings">
+    <Parameter Name="SecurityCredentialsType" Value="X509" />
+    <Parameter Name="CertificateFindType" Value="FindBySubjectName" />
+    <Parameter Name="CertificateFindValue" Value="CN = WinFabric-Test-SAN1-Bob" />
+    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+    <Parameter Name="CertificateStoreName" Value="My" />
+    <Parameter Name="CertificateRemoteCommonNames" Value="WinFabric-Test-SAN1-Alice" />
+    <Parameter Name="CertificateProtectionLevel" Value="EncryptAndSign" />
+    </Section>
+    ```
+
+<!-- Update_Description: update meta properties, wording update, update link  -->

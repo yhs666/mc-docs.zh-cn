@@ -17,12 +17,12 @@ ms.topic: article
 origin.date: 12/11/2017
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: e92ddf759f7de6d8a89dd930a388a3f78c9069e7
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 71b4569419a3d54f05713164ad0801663adf08b0
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845442"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878730"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>在 HDInsight Hadoop 群集上安装并使用 Hue
 
@@ -86,7 +86,7 @@ https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-h
 
 1. 利用[使用 SSH 隧道来访问 Apache Ambari Web UI、ResourceManager、JobHistory、NameNode、Oozie 及其他 Web UI](hdinsight-linux-ambari-ssh-tunnel.md) 中的信息，创建从客户端系统到 HDInsight 群集的 SSH 隧道，并将 Web 浏览器配置为使用 SSH 隧道作为代理。
 
-2. 在创建 SSH 隧道并将浏览器配置为通过它代理发送流量后，必须查找主头节点的主机名。 为此，可以在端口 22 上使用 SSH 连接到群集。 例如 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.net`，其中 **USERNAME** 是 SSH 用户名，**CLUSTERNAME** 是群集的名称。
+2. 在创建 SSH 隧道并将浏览器配置为通过它代理发送流量后，必须查找主头节点的主机名。 为此，可以在端口 22 上使用 SSH 连接到群集。 例如 `ssh USERNAME@CLUSTERNAME-ssh.azurehdinsight.cn`，其中 **USERNAME** 是 SSH 用户名，**CLUSTERNAME** 是群集的名称。
 
     有关详细信息，请参阅 [将 SSH 与 HDInsight 配合使用](hdinsight-hadoop-linux-use-ssh-unix.md)。
 

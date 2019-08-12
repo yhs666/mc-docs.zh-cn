@@ -14,22 +14,21 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: d5417ac9f589db611baee8bf28f4433691363136
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 24ce5598502bcf830f7a7dcd37d5ec9310c27537
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332688"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818556"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>如何将服务总线队列与 Node.js 和 azure/service-bus 包配合使用
 > [!div class="op_multi_selector" title1="编程语言" title2="Node.js 包"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Nodejs 程序，用于向/从服务总线队列发送/接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
+本教程介绍如何使用新的 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 包编写一个 Nodejs 程序，用于向/从服务总线队列发送/接收消息。 此包使用速度更快的 [AMQP 1.0 协议](service-bus-amqp-overview.md)，而旧版 [azure-sb](https://www.npmjs.com/package/azure-sb) 包使用的是[服务总线 REST 运行时 API](https://azure.microsoft.com/rest/api/servicebus/service-bus-runtime-rest)。 示例是使用 JavaScript 编写的。
 
 ## <a name="prerequisites"></a>先决条件
-- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或[注册免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)。
+- Azure 订阅。 若要完成本教程，需要一个 Azure 帐户。 可以激活 [MSDN 订阅者权益](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)或注册[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 - 如果没有可使用的队列，请遵循[使用 Azure 门户创建服务总线队列](service-bus-quickstart-portal.md)一文来创建队列。 记下服务总线实例的连接字符串以及创建的队列的名称。 我们将在示例中使用这些值。
 
 > [!NOTE]

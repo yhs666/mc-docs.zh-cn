@@ -16,12 +16,12 @@ ms.topic: article
 origin.date: 10/08/2018
 ms.date: 02/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: ffd27a0ac3f4b5d6facf9918526b1a49253faa28
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 83fd46b861bbdb0f7dad7a667f10657f17f8b227
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665853"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912914"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>如何创建虚拟机或 VHD 的映像
 
@@ -37,7 +37,7 @@ ms.locfileid: "56665853"
 
 * 在资源管理器部署模型中使用托管磁盘创建的 Azure VM。 如果尚未创建 Linux VM，则可以使用[门户](quick-create-portal.md)、[Azure CLI](quick-create-cli.md) 或[资源管理器模板](create-ssh-secured-vm-from-template.md)。 根据需要配置 VM。 例如， [添加数据磁盘](add-disk.md)、应用更新和安装应用程序。 
 
-* 已安装最新 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest)，并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+* 已安装最新 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest)，并已使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -63,7 +63,7 @@ ms.locfileid: "56665853"
 ## <a name="step-2-create-vm-image"></a>步骤 2：创建 VM 映像
 使用 Azure CLI 将 VM 标记为通用化并捕获映像。 在以下示例中，请将示例参数名称替换成自己的值。 示例参数名称包括 *myResourceGroup*、*myVnet* 和 *myVM*。
 
-1. 对使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 取消设置的 VM 解除分配。 以下示例在名为 *myResourceGroup* 的资源组中解除分配名为 *myVM* 的 VM。
+1. 对使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 取消设置的 VM 解除分配。 以下示例在名为 *myResourceGroup* 的资源组中解除分配名为 *myVM* 的 VM。
 
     ```azurecli
     az vm deallocate \
@@ -71,7 +71,7 @@ ms.locfileid: "56665853"
       --name myVM
     ```
 
-2. 使用 [az vm generalize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-generalize) 将 VM 标记为通用化。 以下示例将名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM 标记为通用化的。
+2. 使用 [az vm generalize](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-generalize) 将 VM 标记为通用化。 以下示例将名为 *myResourceGroup* 的资源组中名为 *myVM* 的 VM 标记为通用化的。
 
     ```azurecli
     az vm generalize \
@@ -79,7 +79,7 @@ ms.locfileid: "56665853"
       --name myVM
     ```
 
-3. 使用 [az image create](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 资源的映像。 以下示例使用名为 *myVM* 的 VM 资源在名为 *myResourceGroup* 的资源组中创建名为 *myImage* 的映像。
+3. 使用 [az image create](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-image-create) 创建 VM 资源的映像。 以下示例使用名为 *myVM* 的 VM 资源在名为 *myResourceGroup* 的资源组中创建名为 *myImage* 的映像。
 
     ```azurecli
     az image create \
@@ -93,7 +93,7 @@ ms.locfileid: "56665853"
     <!-- Not Available on availability zones -->
 
 ## <a name="step-3-create-a-vm-from-the-captured-image"></a>步骤 3：从捕获的映像创建 VM
-通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 使用你已创建的映像创建 VM。 以下示例基于名为 *myImage* 的映像创建名为 *myVMDeployed* 的 VM。
+通过 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 使用你已创建的映像创建 VM。 以下示例基于名为 *myImage* 的映像创建名为 *myVMDeployed* 的 VM。
 
 ```azurecli
 az vm create \
@@ -106,7 +106,7 @@ az vm create \
 
 ### <a name="creating-the-vm-in-another-resource-group"></a>在另一个资源组中创建 VM 
 
-可在订阅内的任何资源组中根据映像创建 VM。 要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-list) 查看映像列表。 输出类似于以下示例。
+可在订阅内的任何资源组中根据映像创建 VM。 要在与映像不同的资源组中创建 VM，请指定映像的完整资源 ID。 使用 [az image list](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-image-list) 查看映像列表。 输出类似于以下示例。
 
 ```json
 "id": "/subscriptions/guid/resourceGroups/MYRESOURCEGROUP/providers/Microsoft.Compute/images/myImage",
@@ -114,7 +114,7 @@ az vm create \
    "name": "myImage",
 ```
 
-以下示例使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create)，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM。
+以下示例使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create)，通过指定映像资源 ID，在与源映像不同的资源组中创建 VM。
 
 ```azurecli
 az vm create \
@@ -127,7 +127,7 @@ az vm create \
 
 ## <a name="step-4-verify-the-deployment"></a>步骤 4：验证部署
 
-通过 SSH 连接到你创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 进行连接，请使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show)查找 VM 的 IP 地址或 FQDN。
+通过 SSH 连接到你创建的虚拟机以验证部署并开始使用新的 VM。 若要通过 SSH 进行连接，请使用 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show)查找 VM 的 IP 地址或 FQDN。
 
 ```azurecli
 az vm show \
@@ -144,6 +144,6 @@ az vm show \
 - 再次执行相关步骤，对 VM 执行取消预配、解除分配、通用化和创建操作。
 - 将此新映像用于将来的部署。 可以删除原始映像。
 
-有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+有关使用 CLI 管理 VM 的详细信息，请参阅 [Azure CLI](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 <!-- Update_Description: update meta properties, wording update, update az cmdlet -->

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e164f28440015cdadafad35a6afba81c94c7b85d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 104af22c7763f8077da09a7250da3231ef2d661f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571448"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818467"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Azure 备份的安全属性
 
@@ -51,7 +51,7 @@ ms.locfileid: "67571448"
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
 | 身份验证| 是 | 身份验证通过 Azure Active Directory 来进行。 |
-| 授权| 是 | 使用客户创建和内置的 RBAC 角色。 有关详细信息，请参阅[使用基于角色的访问控制管理 Azure 备份恢复点](/azure/backup/backup-rbac-rs-vault)。 |
+| 授权| 是 | 使用客户创建和内置的 RBAC 角色。 有关详细信息，请参阅[使用基于角色的访问控制管理 Azure 备份恢复点](/backup/backup-rbac-rs-vault)。 |
 
 
 ## <a name="audit-trail"></a>审核线索

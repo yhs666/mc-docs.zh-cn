@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d5519e631c0acdc45e3e734c6241ae4dbbd9c6bb
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: a673973689cd447628c0162f2b53e7bbe03427fa
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332794"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912735"
 ---
 ## <a name="benefits-of-managed-disks"></a>托管磁盘的优势
 
@@ -36,7 +36,7 @@ ms.locfileid: "68332794"
 
 ### <a name="azure-backup-support"></a>Azure 备份支持
 
-若要防范区域灾难，可以使用 [Azure 备份](../articles/backup/backup-overview.md)创建具有基于时间的备份和备份保留策略的备份作业。 这样就可以随意执行简单的 VM 还原。 目前，Azure 备份支持高达 4 TB (TiB) 的磁盘大小。 有关详细信息，请参阅[为具有托管磁盘的 VM 使用 Azure 备份](../articles/backup/backup-overview.md)。
+若要防范区域灾难，可以使用 [Azure 备份](../articles/backup/backup-overview.md)创建具有基于时间的备份和备份保留策略的备份作业。 这样就可以随意执行简单的 VM 还原。 目前，Azure 备份支持高达 4 TB (TiB) 的磁盘大小。 Azure 备份支持备份和还原托管磁盘。 [详细了解](../articles/backup/backup-support-matrix-iaas.md) Azure VM 备份支持。
 
 <!--MOONCAKE: URL using-managed-disk-vms-with-azure-backup DIRECT TO /backup/backup-overview.md-->
 <!--MOONCAKE: NOT EXITS ON #using-managed-disk-vms-with-azure-backup-->
@@ -83,7 +83,7 @@ Azure 磁盘加密允许加密 IaaS 虚拟机使用的 OS 磁盘和数据磁盘�
 
 ## <a name="managed-disk-snapshots"></a>托管磁盘快照
 
-托管磁盘快照是托管磁盘的只读完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘而存在，并可用来创建新的托管磁盘。 基于已使用大小对这些快照进行计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。  
+托管磁盘快照是托管磁盘的只读崩溃一致性完整副本，默认情况下它作为标准托管磁盘进行存储。 使用快照可以在任意时间点备份托管磁盘。 这些快照独立于源磁盘而存在，并可用来创建新的托管磁盘。 基于已使用大小对这些快照进行计费。 例如，如果创建预配容量为 64 GiB 且实际使用数据大小为 10 GiB 的托管磁盘的快照，则仅针对已用数据大小 10 GiB 对该快照计费。  
 
 若要了解有关如何使用托管磁盘创建快照的详细信息，请查看下列资源：
 

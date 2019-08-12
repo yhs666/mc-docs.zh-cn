@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1fff3c9ab909c3fa46a48efc9ec5d7d68b53772f
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: a4ee43e3f18dbd60bda96d5b98cb732e272fc11b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513829"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818276"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
 Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的自定义日志。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。
@@ -63,11 +63,11 @@ Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息
 有关在收集时分析数据的详细信息，请参阅[在 Azure Monitor 中创建自定义字段](../platform/custom-fields.md)。 这会在表中创建可以由查询使用的自定义属性（就如同任何其他属性一样）。
 
 ## <a name="parse-data-in-query-using-patterns"></a>使用模式在查询中分析数据
-当要分析的数据可以通过在记录间重复的某种模式进行标识时，可以使用 [Kusto 查询语言](/azure/kusto/query/)中的不同运算符将特定数据段提取到一个或多个新属性中。
+当要分析的数据可以通过在记录间重复的某种模式进行标识时，可以使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)中的不同运算符将特定数据段提取到一个或多个新属性中。
 
 ### <a name="simple-text-patterns"></a>简单文本模式
 
-在查询中使用[分析](/azure/kusto/query/parseoperator)运算符创建可以从字符串表达式中提取的一个或多个自定义属性。 指定要标识的模式以及要创建的属性的名称。 这对于具有形式类似于 _key=value_ 的键/值字符串的数据特别有用。
+在查询中使用[分析](https://docs.microsoft.com/azure/kusto/query/parseoperator)运算符创建可以从字符串表达式中提取的一个或多个自定义属性。 指定要标识的模式以及要创建的属性的名称。 这对于具有形式类似于 _key=value_ 的键/值字符串的数据特别有用。
 
 请考虑具有以下格式的数据的自定义日志。
 
@@ -79,7 +79,7 @@ Time=2018-03-10 01:38:22 Event Code=302 Status=Error Message=Application could n
 Time=2018-03-10 01:31:34 Event Code=303 Status=Error Message=Application lost connection to database
 ```
 
-以下查询会将此数据分析为各个单独属性。 会添加包含 _project_ 的行以便仅返回计算的属性，而不是 _RawData_，这是从自定义日志保存整个条目的单个属性。
+以下查询会将此数据分析为各个单独属性。 会添加包含 _project_ 的行以便仅返回计算的属性，而不是 _RawData_ ，这是从自定义日志保存整个条目的单个属性。
 
 ```Kusto
 MyCustomLog_CL
@@ -98,7 +98,7 @@ AzureActivity
 
 
 ### <a name="regular-expressions"></a>正则表达式
-如果可以使用正则表达式标识数据，则可以通过[使用正则表达式的函数](/azure/kusto/query/re2)提取各个值。 下面的示例使用[提取](/azure/kusto/query/extractfunction)分解 _AzureActivity_ 记录中的 _UPN_ 字段，然后返回非重复用户。
+如果可以使用正则表达式标识数据，则可以通过[使用正则表达式的函数](https://docs.microsoft.com/azure/kusto/query/re2)提取各个值。 下面的示例使用[提取](https://docs.microsoft.com/azure/kusto/query/extractfunction)分解 _AzureActivity_ 记录中的 _UPN_ 字段，然后返回非重复用户。
 
 ```Kusto
 AzureActivity
@@ -110,7 +110,7 @@ AzureActivity
 
 
 ## <a name="parse-delimited-data-in-a-query"></a>在查询中分析带分隔符的数据
-带分隔符的数据使用常见字符（例如 CSV 文件中的逗号）来分隔字段。 通过[拆分](/azure/kusto/query/splitfunction)函数可使用指定分隔符来分析带分隔符的数据。 可以将此方法与[扩展](/azure/kusto/query/extendoperator)运算符结合使用，以返回数据中的所有字段，或指定要包括在输出中的各个字段。
+带分隔符的数据使用常见字符（例如 CSV 文件中的逗号）来分隔字段。 通过[拆分](https://docs.microsoft.com/azure/kusto/query/splitfunction)函数可使用指定分隔符来分析带分隔符的数据。 可以将此方法与[扩展](https://docs.microsoft.com/azure/kusto/query/extendoperator)运算符结合使用，以返回数据中的所有字段，或指定要包括在输出中的各个字段。
 
 > [!NOTE]
 > 由于拆分返回动态对象，因此结果可能需要显式强制转换为数据类型（如字符串）以便在运算符和筛选器中使用。
@@ -139,16 +139,16 @@ MyCustomCSVLog_CL
 ```
 
 ## <a name="parse-predefined-structures-in-a-query"></a>在查询中分析预定义结构
-如果数据采用已知结构设置格式，则可能能够使用 [Kusto 查询语言](/azure/kusto/query/)中的一个函数来分析预定义结构：
+如果数据采用已知结构设置格式，则可能能够使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)中的一个函数来分析预定义结构：
 
-- [JSON](/azure/kusto/query/parsejsonfunction)
-- [XML](/azure/kusto/query/parse-xmlfunction)
-- [IPv4](/azure/kusto/query/parse-ipv4function)
-- [URL](/azure/kusto/query/parseurlfunction)
-- [URL 查询](/azure/kusto/query/parseurlqueryfunction)
-- [文件路径](/azure/kusto/query/parsepathfunction)
-- [用户代理](/azure/kusto/query/parse-useragentfunction)
-- [版本字符串](/azure/kusto/query/parse-versionfunction)
+- [JSON](https://docs.microsoft.com/azure/kusto/query/parsejsonfunction)
+- [XML](https://docs.microsoft.com/azure/kusto/query/parse-xmlfunction)
+- [IPv4](https://docs.microsoft.com/azure/kusto/query/parse-ipv4function)
+- [URL](https://docs.microsoft.com/azure/kusto/query/parseurlfunction)
+- [URL 查询](https://docs.microsoft.com/azure/kusto/query/parseurlqueryfunction)
+- [文件路径](https://docs.microsoft.com/azure/kusto/query/parsepathfunction)
+- [用户代理](https://docs.microsoft.com/azure/kusto/query/parse-useragentfunction)
+- [版本字符串](https://docs.microsoft.com/azure/kusto/query/parse-versionfunction)
 
 下面的示例查询分析 _AzureActivity_ 表（采用 JSON 结构）的 _Properties_ 字段。 它将结果保存到一个名为 _parsedProp_ 的动态属性，其中包含采用 JSON 的各个命名值。 这些值用于筛选和汇总查询结果。
 
@@ -161,7 +161,7 @@ AzureActivity
 
 这些分析函数可能是处理器密集型，因此仅当查询使用格式化数据中的多个属性时才应使用它们。 否则，简单模式匹配处理会更快。
 
-下面的示例演示域控制器 TGT 预身份验证类型的分解。 该类型仅存在于 EventData 字段中（这是一个 XML 字符串），但不需要此字段中的任何其他数据。 在这种情况下，[分析](/azure/kusto/query/parseoperator)用于挑选出所需数据段。
+下面的示例演示域控制器 TGT 预身份验证类型的分解。 该类型仅存在于 EventData 字段中（这是一个 XML 字符串），但不需要此字段中的任何其他数据。 在这种情况下，[分析](https://docs.microsoft.com/azure/kusto/query/parseoperator)用于挑选出所需数据段。
 
 ```Kusto
 SecurityEvent

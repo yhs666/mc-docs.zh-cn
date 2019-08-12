@@ -9,7 +9,7 @@ metadata:
   ms.service: application-gateway
   ms.topic: landing-page
 origin.date: 05/20/2019
-ms.date: 06/11/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
 abstract:
   description: 了解如何将应用程序网关（即应用程序传送控制器 (ADC)）部署为服务。 教程、API 参考及其他文档显示如何设置应用程序级路由和负载均衡服务，使你可以构建高度可用的可缩放 Web 前端。
@@ -64,6 +64,6 @@ sections:
           - title: 命令行
             html: '<p><a href="https://docs.microsoft.com/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/network/application-gateway">Azure CLI</a></p>'
           - title: 语言
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.application_gateways_operations.applicationgatewaysoperations?view=azure-python">Python</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-arm-network/ApplicationGateways">Node.js</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-network/azure.mgmt.network.v2018_08_01.operations.applicationgatewaysoperations">Python</a></p>'
           - title: REST
             html: '<p><a href="https://msdn.microsoft.com/library/mt684941">完整的 REST API 参考</a></p>'

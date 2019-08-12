@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2018
-ms.date: 04/08/2019
-ms.author: v-biyu
+origin.date: 11/30/2018
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 1c6b4fc29b315f2784751ac39e1a3a19706cafa8
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: a7b4122d85b13ac4cb295477be9ffe64b3372916
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171358"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878608"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>使用 FTP/S 将应用部署到 Azure 应用服务
 
-本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)。
+本文介绍了如何使用 FTP 或 FTPS 将 Web 应用、移动应用后端或 API 应用部署到 [Azure App Service](/app-service/overview)。
 
 应用的 FTP/S 终结点已处于活动状态。 启用 FTP/S 部署不需要进行任何配置。
 

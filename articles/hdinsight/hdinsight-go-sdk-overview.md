@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/08/2019
 ms.author: v-yiso
 ms.date: 07/22/2019
-ms.openlocfilehash: 59ce024e2249213449143262330fd93b09da4aa2
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 26d2205162ca52e952f194550ad87eeb262667db
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845132"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878692"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
@@ -379,7 +379,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 HDInsight 提供了一个称为“脚本操作”的配置函数，用以调用自定义脚本来自定义群集。
 > [!NOTE]
-> 有关如何使用脚本操作的详细信息见此处：[使用脚本操作自定义基于 Linux 的 HDInsight 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux)
+> 有关如何使用脚本操作的详细信息见此处：[使用脚本操作自定义基于 Linux 的 HDInsight 群集](/hdinsight/hdinsight-hadoop-customize-cluster-linux)
 
 ### <a name="execute-script-actions"></a>执行脚本操作
 

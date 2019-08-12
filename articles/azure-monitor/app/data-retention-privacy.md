@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 090ac0f250e6f5ccbb1ada2342d8f70b5a9c23d8
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8c261a5edfb1c81450d8c7933a42215dfd908a93
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562700"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818501"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -279,7 +279,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 可以通过[编辑 ApplicationInsights.config 来关闭某些数据][config]
 
 > [!NOTE]
-> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址，可以使用[遥测初始值设定项](./../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)完成此操作。
+> 客户端 IP 用于推断地理位置，但默认情况下，不再存储 IP 数据且将所有的零写入关联的字段。 若要了解有关个人数据处理的详细信息，推荐参阅这一篇[文章](../../azure-monitor/platform/personal-data-mgmt.md#application-data)。 如果需要存储 IP 地址，可以使用[遥测初始值设定项](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)完成此操作。
 
 ## <a name="credits"></a>致谢
 此产品包含 MaxMind 创建的 GeoLite2 数据，可从 [https://www.maxmind.com](https://www.maxmind.com) 获取。
@@ -295,7 +295,7 @@ SDK 根据平台的不同而异，可以安装多个组件。 （请参阅 [Appl
 [greenbrown]: ../../azure-monitor/app/asp-net.md
 [java]: ../../azure-monitor/app/java-get-started.md
 [platforms]: ../../azure-monitor/app/platforms.md
-[pricing]: https://www.azure.cn/pricing/details/application-insights/
+[pricing]: https://www.azure.cn/pricing/details/monitor/
 [redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
 [start]: ../../azure-monitor/app/app-insights-overview.md
 

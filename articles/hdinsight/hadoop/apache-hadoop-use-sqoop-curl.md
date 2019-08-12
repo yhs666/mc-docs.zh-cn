@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 05/16/2018
 ms.date: 04/15/2019
 ms.author: v-yiso
-ms.openlocfilehash: 194aa0407eb931159793a6b7f239240b3cbc66fe
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: be9a590201056968492de0a4c51c9bdffba63da9
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845258"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878733"
 ---
 # <a name="run-apache-sqoop-jobs-in-hdinsight-with-curl"></a>使用 Curl 在 HDInsight 中运行 Apache Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -67,7 +67,7 @@ REST API 通过 [基本身份验证](https://en.wikipedia.org/wiki/Basic_access_
 2. 将 `SQLDATABASESERVERNAME`、`USERNAME@SQLDATABASESERVERNAME`、`PASSWORD`、`SQLDATABASENAME` 替换为先决条件中的相应值。 使用以下命令 sqoop 作业：
 
     ```cmd
-    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.net/templeton/v1/sqoop
+    curl -u USERNAME:PASSWORD -d user.name=USERNAME -d command="export --connect jdbc:sqlserver://SQLDATABASESERVERNAME.database.chinacloudapi.cn;user=USERNAME@SQLDATABASESERVERNAME;password=PASSWORD;database=SQLDATABASENAME --table log4jlogs --export-dir /example/data/sample.log --input-fields-terminated-by \0x20 -m 1" -d statusdir="wasb:///example/data/sqoop/curl" https://CLUSTERNAME.azurehdinsight.cn/templeton/v1/sqoop
     ```
 
     此命令中使用的参数如下：

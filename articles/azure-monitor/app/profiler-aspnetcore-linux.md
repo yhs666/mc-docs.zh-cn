@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fed69682ecca920c703d551b78ba53037ad3451a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 4e6e31de5482d7dfa13016686c005a4dd03218a6
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732398"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818358"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 探查 ASP.NET Core Azure Linux Web 应用
 
@@ -156,7 +156,7 @@ ms.locfileid: "66732398"
 
 ## <a name="add-application-insights-to-monitor-your-web-apps"></a>添加 Application Insights 来监视 Web 应用
 
-1. [创建 Application Insights 资源](./../../azure-monitor/app/create-new-resource.md )。
+1. [创建 Application Insights 资源](../../azure-monitor/app/create-new-resource.md )。
 
 2. 复制 Application Insights 资源的 **iKey** 并在 Web 应用中指定以下设置：
 

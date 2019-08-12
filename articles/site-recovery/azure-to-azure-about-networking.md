@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 06/10/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 72e3fa40926e1a218b660463bbba31590d8e471e
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: e5b74a77d34b27bc18ae4ec5f4c49de7224595c7
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390884"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819655"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -68,53 +68,7 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 
 <!--Not Available on Storage.region useage on Mooncake-->
 <!-- Notice: Source Location: US East, China East To target location:　US Central, China North -->
-<!-- Not Available 
-
-Waiting for the PM reply
-
-
-## Example NSG configuration
-
-This example shows how to configure NSG rules for a VM to replicate.
-
-- If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules to port:443 for all the required IP address ranges.
-- The example presumes that the VM source location is "China East" and the target location is "China North".
-
-### NSG rules - China East
-
-1. Create an outbound HTTPS (443) security rule for "Storage" on the NSG as shown in the screenshot below.
-    
-    <!--Current only Storage endpoint without chinaeast-->
-    
-    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
-
-2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
-
-    ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
-
-3. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
-
-    **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
-    --- | --- | ---
-    中国北部 | 40.69.144.231 | 52.165.34.144
-
-### <a name="nsg-rules---china-north"></a>NSG 规则 - 中国北部
-
-必须创建这些规则，才能在故障转移后启用从目标区域到源区域的复制：
-
-1. 基于 NSG 为“存储”创建出站 HTTPS (443) 安全规则。
-
-    <!--Current only Storage endpoint without chinanorth-->
-    
-2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则。
-
-3. 为对应于源位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
-
-    **位置** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
-    --- | --- | ---
-    中国北部 | 13.82.88.226 | 104.45.147.24
-
-    等待 PM 答复时不可用 -->
+<!-- Not Available --Not Available on Waiting for the PM reply-->
 
 ## <a name="network-virtual-appliance-configuration"></a>网络虚拟设备配置
 

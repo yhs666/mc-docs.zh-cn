@@ -114,7 +114,7 @@
         - name: 使用用于 Java 的 SDK
           href: 'https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable'
         - name: 使用用于 Go 的 SDK（预览版）
-          href: 'https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview'
+          href: /hdinsight/hdinsight-go-sdk-overview
         - name: 使用 Azure PowerShell
           href: ../hdinsight-administer-use-powershell.md
         - name: 使用 Azure CLI

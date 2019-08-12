@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 05/14/2018
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: eae7f9987085f128e5a3be59c62ba702643f14a2
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: b7067505615e0174985311ba11c33343d0e3738d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845168"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878630"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>使用 .NET SDK 管理 HDInsight 中的 Apache Hadoop 群集
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -111,15 +111,16 @@ using Microsoft.Rest.Azure.Authentication;
             }
         }
     }
+```
 
-You shall see a prompt when you run this program.  If you don't want to see the prompt, see [Create non-interactive authentication .NET HDInsight applications](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+运行此程序时，会看到提示。  若不想看到提示，请参阅[创建非交互式身份验证 .NET HDInsight 应用程序](hdinsight-create-non-interactive-authentication-dotnet-applications.md)。
 
-## Create clusters
-See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+## <a name="create-clusters"></a>创建群集
+请参阅[使用 .NET SDK 在 HDInsight 中创建基于 Linux 的群集](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
 <a name="list-clusters"></a>
-## List clusters
-The following code snippet lists clusters and some properties:
+## <a name="list-clusters"></a>列出群集
+以下代码片段列出了群集和一些属性：
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();

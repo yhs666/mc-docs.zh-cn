@@ -9,12 +9,12 @@ ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 24bbd041986d6007be6af6eeb3591da430a95164
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d8ecf33621c0f0a7a94a79eef8526205ce3dcae7
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562681"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818174"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>从 Go（预览版）收集分布式跟踪
 
@@ -224,8 +224,8 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
 ## <a name="next-steps"></a>后续步骤
 
-* [应用程序映射](./../../azure-monitor/app/app-map.md)
-* [端到端性能监视](./../../azure-monitor/learn/tutorial-performance.md)
+* [应用程序映射](../../azure-monitor/app/app-map.md)
+* [端到端性能监视](../../azure-monitor/learn/tutorial-performance.md)
 
 
 

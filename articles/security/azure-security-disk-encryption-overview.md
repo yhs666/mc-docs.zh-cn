@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 846f7b77d154075ef79fa5f54e689ade2f386f95
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d99b44c7ad1e3a3c3b15c79194b3b1ba99fa3982
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332672"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818190"
 ---
 # <a name="azure-disk-encryption-overview"></a>Azure 磁盘加密概述
 
-Azure 磁盘加密有助于保护数据，使组织能够信守在安全性与合规性方面作出的承诺。 它使用 Windows 的 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) 功能和 Linux 的 [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) 功能，为 Azure 虚拟机 (VM) 的 OS 和数据磁盘提供卷加密。 它还与 [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/) 集成，帮助控制和管理磁盘加密密钥与机密，并确保 VM 磁盘上的所有数据在 Azure 存储中静态加密。 在标准 VM 和使用 Azure 高级存储的 VM 的所有 Azure 公共区域和 Azure 政府区域中，适用于 Windows 和 Linux VM 的 Azure 磁盘加密以正式版提供。 
+Azure 磁盘加密有助于保护数据，使组织能够信守在安全性与合规性方面作出的承诺。  它还与 [Azure Key Vault](/key-vault/) 集成，帮助控制和管理磁盘加密密钥与机密，并确保 VM 磁盘上的所有数据在 Azure 存储中静态加密。 在标准 VM 和使用 Azure 高级存储的 VM 的所有 Azure 公共区域和 Azure 政府区域中，适用于 Windows 和 Linux VM 的 Azure 磁盘加密以正式版提供。 
 
 如果使用 Azure 安全中心，当 VM 未加密时，你会收到警报。 这些警报显示为“高严重性”，建议加密这些 VM。
 
@@ -90,8 +90,8 @@ Azure 磁盘加密不支持以下方案、功能和技术：
 
 * [适用于 Windows 的磁盘加密扩展](../virtual-machines/extensions/azure-disk-enc-windows.md)。
 * [适用于 Linux 的磁盘加密扩展](../virtual-machines/extensions/azure-disk-enc-linux.md)。
-* [PowerShell 磁盘加密 cmdlet](/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0)。
-* [Azure CLI 磁盘加密 cmdlet](/cli/azure/vm/encryption?view=azure-cli-latest)。
+* [PowerShell 磁盘加密 cmdlet](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiskencryptionextension?view=azps-2.2.0)。
+* [Azure CLI 磁盘加密 cmdlet](/cli/vm/encryption?view=azure-cli-latest)。
 
 > [!NOTE]
 > 可以免费使用 Azure 磁盘加密来加密 VM 磁盘。 标准 [Key Vault 定价](https://azure.microsoft.com/pricing/details/key-vault/)适用于用来存储加密密钥的 Key Vault。 
@@ -151,14 +151,14 @@ Azure 磁盘加密不支持以下方案、功能和技术：
 
 | 术语 | 定义 |
 | --- | --- |
-| Azure AD | [Azure AD](https://azure.microsoft.com/documentation/services/active-directory/) 帐户用于身份验证、存储以及从 Key Vault 检索机密。 |
-| Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 文档。 |
+| Azure AD | [Azure AD](/active-directory/) 帐户用于身份验证、存储以及从 Key Vault 检索机密。 |
+| Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](/key-vault/) 文档。 |
 | BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) 是一种行业认可的 Windows 卷加密技术，用于在 Windows VM 上启用磁盘加密。 |
 | BEK | BitLocker 加密密钥 (BEK) 用于加密 OS 引导卷和数据卷。 BEK 在 Key Vault 中以机密形式进行保护。 |
-| Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) 经过了优化，可从命令行管理 Azure 资源。|
+| Azure CLI | [Azure CLI](/cli/install-azure-cli) 经过了优化，可从命令行管理 Azure 资源。|
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) 是基于 Linux 的透明磁盘加密子系统，用于在 Linux VM 上启用磁盘加密。 |
-| 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。 可提供硬件安全模块 (HSM) 保护的密钥或软件保护的密钥。 有关详细信息，请参阅 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) 文档。 |
-| PowerShell cmdlet | 有关详细信息，请参阅 [Azure PowerShell cmdlet](/powershell/azure/overview)。 |
+| 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。 可提供硬件安全模块 (HSM) 保护的密钥或软件保护的密钥。 有关详细信息，请参阅 [Azure Key Vault](/key-vault/) 文档。 |
+| PowerShell cmdlet | 有关详细信息，请参阅 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 |
 
 ## <a name="next-steps"></a>后续步骤
 

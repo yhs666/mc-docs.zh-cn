@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 02/28/2018
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: ac1329ffc8d394e881d6bc76756d7cb9b3811cbc
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: ca93662a4f8d903eaf2faae0cb4b31aea2cd65c0
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844901"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819679"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>使用系统运行状况报告进行故障排除
 Azure Service Fabric 组件提供有关现成群集中所有实体的系统运行状况报告。 [运行状况存储](service-fabric-health-introduction.md#health-store)根据系统报告来创建和删除实体。 它还将这些实体组织为层次结构以捕获实体交互。
@@ -93,6 +93,7 @@ Azure Service Fabric 组件提供有关现成群集中所有实体的系统运�
     ```powershell
     PS C:\> Send-ServiceFabricClusterHealthReport -SourceId "System.FM" -HealthProperty "SeedNodeStatus" -HealthState OK
     ```
+    
     <!--MOONCAKE: ORIGNAL AUTHOR MISSING ```-->
     
 ## <a name="node-system-health-reports"></a>节点系统运行状况报告

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 38a8bac108d8c93158f6f67b74ebbb1c24596905
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 84951c23351f72416365818bea2bc613bc3abfa0
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513836"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818426"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 
@@ -130,7 +130,7 @@ SecurityEvent
 ```
 
 ## <a name="next-steps"></a>后续步骤
-请参阅有关将 [Kusto 查询语言](/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
+请参阅有关将 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
 
 - [字符串操作](string-operations.md)
 - [时间和日期操作](datetime-operations.md)

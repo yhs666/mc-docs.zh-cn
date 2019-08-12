@@ -42,6 +42,8 @@
           href: role-assignments-cli.md
         - name: REST API
           href: role-assignments-rest.md
+        - name: 模板
+          href: role-assignments-template.md
     - name: 自定义角色
       items:
         - name: 概述

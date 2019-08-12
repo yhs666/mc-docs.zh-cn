@@ -1,5 +1,5 @@
 ---
-title: 绑定现有的自定义 SSL 证书 - Azure 应用服务 | Azure Docs
+title: 上传并绑定 SSL 证书 - Azure 应用服务 | Microsoft Docs
 description: 了解如何将自定义 SSL 证书绑定到 Azure 应用服务中的 Web 应用、移动应用后端或 API 应用。
 services: app-service\web
 documentationcenter: nodejs
@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-origin.date: 08/24/2018
-ms.date: 06/17/2019
-ms.author: v-biyu
+origin.date: 06/06/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: eb4b13a0cac5f9cdf8d3dac625ad62d6f0c1b5d0
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 67351bf51ee450bcc180beb39a8c6bbc64b41809
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687446"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878616"
 ---
 # <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>教程：将 SSL 证书上传并绑定到 Azure 应用服务
 
@@ -208,13 +208,13 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 ## <a name="automate-with-scripts"></a>使用脚本自动执行
 
-可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中使用脚本自动完成 Web 应用的 SSL 绑定。
+可以在 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-lastest) 或 [Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview) 中使用脚本自动完成应用的 SSL 绑定。
 
 ### <a name="azure-cli"></a>Azure CLI
 
 以下命令上传已导出的 PFX 文件并获取指纹。
 
-```bash
+```azurecli
 thumbprint=$(az webapp config ssl upload \
     --name <app-name> \
     --resource-group <resource-group-name> \
@@ -226,7 +226,7 @@ thumbprint=$(az webapp config ssl upload \
 
 以下命令使用前一命令获取的指纹添加基于 SNI 的 SSL 绑定。
 
-```bash
+```azurecli
 az webapp config ssl bind \
     --name <app-name> \
     --resource-group <resource-group-name>
@@ -236,7 +236,7 @@ az webapp config ssl bind \
 
 以下命令强制实施最低的 TLS 版本 (1.2)。
 
-```bash
+```azurecli
 az webapp config set \
     --name <app-name> \
     --resource-group <resource-group-name>

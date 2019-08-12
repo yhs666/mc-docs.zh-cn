@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 05/16/2019
 ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0f9c9d984eed517b0faa788b2ee17bc76bd051e1
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: 985b8878867ca6e209c8c6126294f40437d97d7a
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424692"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878695"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>教程：使用 Power BI 在 HDInsight 中分析 Apache Spark 数据 
 
@@ -86,7 +86,7 @@ ms.locfileid: "66424692"
 
     ![从 Apache Spark BI 中获取数据到 Power BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "从 Apache Spark BI 中获取数据到 Power BI")
 
-4. 在“服务器”  文本框中输入群集 URL（形式为 `mysparkcluster.azurehdinsight.net`）。
+4. 在“服务器”  文本框中输入群集 URL（形式为 `mysparkcluster.azurehdinsight.cn`）。
 
 5. 在“数据连接模式”  下，择“DirectQuery”  。 然后选择“确定”。 
 

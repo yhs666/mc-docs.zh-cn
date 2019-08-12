@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 86abfd33653a23d909f9c2a15ee075dd452c5b24
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 7cac1867cbe12529e1c1e3cb53163b60e97a2d19
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332079"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818542"
 ---
 # <a name="azure-storage-security-overview"></a>Azure 存储安全概述
 
@@ -76,12 +76,12 @@ SAS 是在其查询参数中包含对存储资源进行验证了身份的访问�
 
 了解有关存储服务加密的详细信息：
 
-* [Azure 存储服务加密](https://www.azure.cn/services/storage/)适用于 [Azure Blob 存储](https://www.azure.cn/services/storage/blobs/)。 有关其他 Azure 存储类型的详细信息，请参阅 [Azure 文件](https://www.azure.cn/services/storage/files/)、[磁盘（高级存储）](https://www.azure.cn/services/storage/premium-storage/)、[表存储](https://www.azure.cn/services/storage/tables/)和[队列存储](https://www.azure.cn/services/storage/queues/)。
+* [Azure 存储服务加密](/storage/)适用于 [Azure Blob 存储](/storage/blobs/)。 有关其他 Azure 存储类型的详细信息，请参阅 [Azure 文件](/storage/files/)、[磁盘（高级存储）](/storage/premium-storage/)、[表存储](/storage/tables/)和[队列存储](/storage/queues/)。
 * [静态数据的 Azure 存储服务加密](../storage/common/storage-service-encryption.md)
 
 ## <a name="azure-disk-encryption"></a>Azure 磁盘加密
 
-适用于虚拟机的 Azure 磁盘加密有助于解决组织安全性和符合性要求。 它使用 [Azure Key Vault](https://www.azure.cn/services/key-vault/) 中控制的密钥和策略来加密 VM 磁盘（包括启动盘和数据磁盘）。
+适用于虚拟机的 Azure 磁盘加密有助于解决组织安全性和符合性要求。 它使用 [Azure Key Vault](/key-vault/) 中控制的密钥和策略来加密 VM 磁盘（包括启动盘和数据磁盘）。
 
 适用于 VM 的磁盘加密可用于 Linux 与 Windows 操作系统。 它也使用密钥保管库帮助保护、管理和审核磁盘加密密钥的使用。 在 Azure 存储帐户中使用行业标准加密技术，对 VM 磁盘中的所有数据进行静态加密。 适用于 Windows 的磁盘加密解决方案是基于 [Microsoft BitLocker 驱动器加密](https://technet.microsoft.com/library/cc732774.aspx)技术，Linux 解决方案基于 [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt)。
 

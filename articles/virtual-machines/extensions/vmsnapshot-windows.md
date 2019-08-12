@@ -8,14 +8,14 @@ manager: digimobile
 ms.service: virtual-machines-windows
 ms.topic: article
 origin.date: 12/17/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3ef9038796fb76ddd4af69d8d75496db2afe6eac
-ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
+ms.openlocfilehash: 94baa2a898de8512273153669127615067333a64
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277537"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912921"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Azure 备份的 VM 快照 Windows 扩展
 
@@ -110,6 +110,6 @@ C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: update meta properties, wording update, update az cmdlet -->

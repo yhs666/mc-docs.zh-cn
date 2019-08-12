@@ -13,14 +13,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2019
-ms.date: 07/22/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6ac9ed182bc50fb1bed6389e21f752f1dd331a91
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 008a2f7d3301408a9780eec8d4830e1360a91ff5
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845030"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878700"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 群集的容量规划
 
@@ -81,7 +81,7 @@ VM 大小和类型由 CPU 处理能力、RAM 大小和网络延迟决定：
 
 * RAM：VM 大小还决定了 VM 中可用的 RAM 量。 对于在内存中存储而不是从磁盘读取待处理数据的工作负荷，请确保工作节点能够提供足够的内存来容纳这些数据。
 
-* 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Data Lake Storage 或 Azure 存储之类的外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)。
+* 网络：对于大多数群集类型，群集处理的数据并不在本地磁盘上，而是在 Data Lake Storage 或 Azure 存储之类的外部存储服务中。 考虑节点 VM 与存储服务之间的网络带宽和吞吐量。 通常，更大 VM 的可用网络带宽越高。 有关详细信息，请参阅 [VM 大小概述](/virtual-machines/linux/sizes)。
 
 ## <a name="choose-the-cluster-scale"></a>选择群集规模
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7a5e3559796772e6575845734b9226979671f8d0
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 248d5a615ff75625bf015353a55bd2c3ba6efd32
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236383"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818265"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -75,7 +75,7 @@ ms.locfileid: "67236383"
 要记住的其他要点：
 
 - 只能将 Application Insights 应用链接到一个 Log Analytics 工作区。
-- 只能将[基本或企业 Application Insights 资源](https://www.azure.cn/pricing/details/application-insights)链接到 Log Analytics。 但是，可以使用 Log Analytics 的免费层。
+- 只能将[基本或企业 Application Insights 资源](https://www.azure.cn/pricing/details/monitor)链接到 Log Analytics。 但是，可以使用 Log Analytics 的免费层。
 
 ## <a name="management-packs"></a>管理包
 

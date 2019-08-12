@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/14/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b9061efb2aac1f9301a58e0c88d2175f6aedd9a7
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 53cf71dec75ca6080e1caaefacfbb828d1364e44
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844638"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819603"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>教程：将 Service Fabric 应用程序部署到 Azure 中的群集
 
@@ -125,4 +125,4 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 > [!div class="nextstepaction"]
 > [启用 HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md)
 
-<!--Update_Description: wording update, update link -->
+<!--Update_Description: update meta propeties -->

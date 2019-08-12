@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: spelluru
-ms.openlocfilehash: 6a2503a3d5f10e72790a5028957f26d29fb8a6f3
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: e8062a2b644be6fe25a871ac02623c00e0095ad4
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332667"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818519"
 ---
 # <a name="respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应
 本教程介绍如何使用 Azure Functions 和 Azure 逻辑应用对通过 Azure 事件网格收到的 Azure 服务总线事件做出响应。 你将执行以下操作：
@@ -314,10 +314,9 @@ ms.locfileid: "68332667"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 详细了解 [Azure 事件网格](https://docs.microsoft.com/azure/event-grid/)。
-* 详细了解 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)。
-* 详细了解 [Azure 应用服务的逻辑应用功能](https://docs.microsoft.com/azure/logic-apps/)。
-* 详细了解 [Azure 服务总线](https://docs.microsoft.com/azure/service-bus/)。
+* 详细了解 [Azure Functions](/azure-functions/)。
+* 详细了解 [Azure 应用服务的逻辑应用功能](/logic-apps/)。
+* 详细了解 [Azure 服务总线](/service-bus/)。
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

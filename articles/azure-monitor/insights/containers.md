@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 02516f4c2b0f4dfcedcaef48cdb6d66711d057b3
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b0febda1217ec88c4bca9ea779c4b28aadb6011f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513868"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818333"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 
@@ -112,7 +112,7 @@ ms.locfileid: "68513868"
        - 查看“使用 Helm 在 Linux Kubernetes 上部署 Log Analytics 代理”。
      - 如果拥有 Docker Swarm 模式环境，请访问“配置适用于 Docker Swarm 的 Log Analytics 代理”了解更多信息。
 
-请参阅 [Windows 上的 Docker 引擎](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/manage-docker/configure-docker-daemon)一文，详细了解如何在运行 Windows 的计算机上安装和配置 Docker 引擎。
+请参阅 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)一文，详细了解如何在运行 Windows 的计算机上安装和配置 Docker 引擎。
 
 > [!IMPORTANT]
 > 在容器主机上安装[适用于 Linux 的 Log Analytics 代理](../../azure-monitor/learn/quick-collect-linux-computer.md)**之前**，主机上必须运行 Docker。 如果在安装 Docker 之前已经安装了代理，则需要重新安装适用于 Linux 的 Log Analytics 代理。 有关 Docker 的详细信息，请参阅 [Docker 网站](https://www.docker.com)。
@@ -505,7 +505,7 @@ dockerd --register-service -H npipe:// -H 0.0.0.0:2375
 Start-Service docker
 ```
 
-若要详细了解用于 Windows 容器的 Docker 守护程序配置，请参阅 [Windows 上的 Docker 引擎](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/manage-docker/configure-docker-daemon)。
+若要详细了解用于 Windows 容器的 Docker 守护程序配置，请参阅 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)。
 
 
 #### <a name="install-windows-agents"></a>安装 Windows 代理

@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 01/21/19
 ms.author: v-lingwu
 ms.reviewer: jasonh
-ms.openlocfilehash: 96bc14f9d5f822c9db598bdc5e3e2d289418668e
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 5a287e9685f8457169fbbb6815e22672346de6c7
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544728"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818550"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>从 Azure 流分析作业运行 Azure Functions 
 
@@ -30,7 +30,7 @@ ms.locfileid: "58544728"
 > * 创建 Azure 函数
 > * 将 Azure 函数配置为作业的输出
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/free/?WT.mc_id=A261C142F)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>创建流分析作业以运行函数 
 
@@ -53,7 +53,7 @@ ms.locfileid: "58544728"
 
 1. 使用[创建缓存](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache)中所述的步骤，在用于 Redis 的 Azure 缓存中创建缓存。  
 
-2. 创建缓存后，在“设置”下方选择“访问密钥”。 记下主要连接字符串。
+2. 创建缓存后，在“设置”  下方选择“访问密钥”  。 记下主要连接字符串  。
 
    ![用于 Redis 的 Azure 缓存连接字符串的屏幕截图](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "58544728"
 
 1. 请参阅 Functions 文档的[创建函数应用](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)一节。 该小节演示了如何通过使用 CSharp 语言，[在 Azure Functions 中创建函数应用和 HTTP 触发的函数](../azure-functions/functions-create-first-azure-function.md#create-function)。  
 
-2. 浏览到 run.csx 函数。 将其更新为以下代码。 （请务必将“\<在此处放置用于 Redis 的 Azure 缓存连接字符串\>”替换为上一节中检索到的用于 Redis 的 Azure 缓存主连接字符串。）  
+2. 浏览到 run.csx  函数。 将其更新为以下代码。 （请务必将“\<在此处放置用于 Redis 的 Azure 缓存连接字符串\>”替换为上一节中检索到的用于 Redis 的 Azure 缓存主连接字符串。）  
 
    ```csharp
    using System;
@@ -121,7 +121,7 @@ ms.locfileid: "58544728"
       }
    ```
 
-3. 在所选的文本编辑器中，创建名为 project.json 的 JSON 文件。 使用下面的代码，将其保存在本地计算机上。 此文件包含 C# 函数所需的 NuGet 包依赖项。  
+3. 在所选的文本编辑器中，创建名为 project.json  的 JSON 文件。 使用下面的代码，将其保存在本地计算机上。 此文件包含 C# 函数所需的 NuGet 包依赖项。  
    
    ```json
        {
@@ -137,11 +137,11 @@ ms.locfileid: "58544728"
 
    ```
  
-4. 返回到 Azure 门户。 从“平台功能”选项卡，浏览到你的函数。 在“开发工具”下方，选择“应用服务编辑器”。 
+4. 返回到 Azure 门户。 从“平台功能”  选项卡，浏览到你的函数。 在“开发工具”  下方，选择“应用服务编辑器”  。 
  
    ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. 在应用服务编辑器中，右键单击根目录，并上传 project.json 文件。 上传成功后，刷新页面。 现在，应可看到名为 project.lock.json 的自动生成文件。 该自动生成文件包含对 project.json 文件中指定 .dll 文件的引用。  
+5. 在应用服务编辑器中，右键单击根目录，并上传 project.json  文件。 上传成功后，刷新页面。 现在，应可看到名为 project.lock.json  的自动生成文件。 该自动生成文件包含对 project.json 文件中指定 .dll 文件的引用。  
 
    ![应用服务编辑器的屏幕截图](./media/stream-analytics-with-azure-functions/image4.png)
 
@@ -151,7 +151,7 @@ ms.locfileid: "58544728"
 
 1. 在 Azure 门户中打开流分析作业。  
 
-2. 浏览到你的函数，并选择“概述” > “输出” > “添加”。 若要添加新的输出，请选择“Azure 函数”接收器选项。 Functions 输出适配器具有以下属性：  
+2. 浏览到你的函数，并选择“概述”   > “输出”   > “添加”  。 若要添加新的输出，请选择“Azure 函数”  接收器选项。 Functions 输出适配器具有以下属性：  
 
    |**属性名称**|**说明**|
    |---|---|
@@ -163,7 +163,7 @@ ms.locfileid: "58544728"
    |最大批数|指定发送给函数的每个批次中的最大事件数。 默认值为 100。 此属性是可选的。|
    |键|可以使用其他订阅中的函数。 提供用于访问你的函数的键值。 此属性是可选的。|
 
-3. 命名输出别名。 在本教程中，我们将其命名为 saop1（可以使用你选择的任何名称）。 填写其他详细信息。  
+3. 命名输出别名。 在本教程中，我们将其命名为 saop1  （可以使用你选择的任何名称）。 填写其他详细信息。  
 
 4. 打开流分析作业，将查询更新为以下内容。 （如果已将输出接收器命名为其他名称，请务必替换“saop1”文本。）  
 
@@ -186,7 +186,7 @@ ms.locfileid: "58544728"
 
 ## <a name="check-azure-cache-for-redis-for-results"></a>在用于 Redis 的 Azure 缓存中检查结果
 
-1. 浏览到 Azure 门户，并查找你的用于 Redis 的 Azure 缓存。 选择“控制台”。  
+1. 浏览到 Azure 门户，并查找你的用于 Redis 的 Azure 缓存。 选择“控制台”  。  
 
 2. 使用[用于 Redis 的 Azure 缓存命令](https://redis.io/commands)验证你的数据是否在用于 Redis 的 Azure 缓存中。 （该命令采用 Get {key} 格式。）例如：
 
@@ -213,8 +213,8 @@ ms.locfileid: "58544728"
 
 若不再需要资源组、流式处理作业以及所有相关资源，请将其删除。 删除作业可避免对作业使用的流单元进行计费。 如果计划在将来使用该作业，可以先停止该作业，以后在需要时再重启该作业。 如果不打算继续使用该作业，请按照以下步骤删除本快速入门创建的所有资源：
 
-1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。  
-2. 在资源组页上单击“删除”，在文本框中键入要删除的资源的名称，并单击“删除”。
+1. 在 Azure 门户的左侧菜单中，单击“资源组”，然后单击已创建资源的名称。   
+2. 在资源组页上单击“删除”  ，在文本框中键入要删除的资源的名称，并单击“删除”  。
 
 ## <a name="next-steps"></a>后续步骤
 

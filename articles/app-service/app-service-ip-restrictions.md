@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 07/30/2018
-ms.author: v-biyu
+origin.date: 06/06/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.date: 07/29/2019
-ms.openlocfilehash: fd688491aa7df32d25c7d5d22057f9f62183d159
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.date: 08/12/2019
+ms.openlocfilehash: 275ef57030e74d90e7aa952e5aac73e3b1baa010
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232277"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878572"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制 #
 

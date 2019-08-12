@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/11/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: a4f047a5033afa551861125558f88bf4bb7ceb38
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9c66c883158ccc1cd79a342955cc1a3e15d54ff7
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004010"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913017"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>在 Azure 中运行 OpenSUSE Linux 的虚拟机上安装 MySQL
 
@@ -29,7 +29,7 @@ ms.locfileid: "59004010"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，则需使用 Azure CLI 2.0 或更高版本。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>创建运行 OpenSUSE Linux 的虚拟机
 

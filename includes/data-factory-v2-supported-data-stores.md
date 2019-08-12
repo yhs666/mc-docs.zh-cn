@@ -6,15 +6,15 @@ author: WenJason
 ms.service: data-factory
 ms.topic: include
 origin.date: 06/13/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: c11167a2aa6a407dc23edc2e94ace75749c49b8d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: aad009de8fbc10407d5651cb747be7588e0ecacd
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569871"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912304"
 ---
 | Category | 数据存储 | 支持用作源 | 支持用作接收器 | 受 [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) 支持 | 受[自我托管 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 支持 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -54,7 +54,7 @@ ms.locfileid: "67569871"
 | &nbsp; |[Spark](../articles/data-factory/connector-spark.md) |✓ | |✓ |✓  |
 | &nbsp; |[SQL Server](../articles/data-factory/connector-sql-server.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Sybase](../articles/data-factory/connector-sybase.md) |✓ | | |✓  |
-| &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | | |✓  |
+| &nbsp; |[Teradata](../articles/data-factory/connector-teradata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Vertica](../articles/data-factory/connector-vertica.md) |✓ | |✓ |✓  |
 | **NoSQL** |[Cassandra](../articles/data-factory/connector-cassandra.md) |✓ | |✓ |✓  |
 | &nbsp; |[Couchbase（预览）](../articles/data-factory/connector-couchbase.md) |✓ | |✓ |✓  |

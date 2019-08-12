@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 04/28/2019
 ms.date: 04/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da29b9abb995b573c8c77aeb975d3f5b43e5bb36
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 605165d9c16e1a411a847aedda541731c22abee0
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332045"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818541"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure 虚拟机安全概述
 
@@ -64,7 +64,7 @@ Azure 虚拟机让你能够灵活地进行虚拟化，而无需购买和维护�
 
 ## <a name="hardware-security-module"></a>硬件安全模块
 
-加密和身份验证无法提高安全性，除非密钥本身也受到保护。 通过将关键密码和密钥存储在 Azure 密钥保管库中，可以简化此类密码和密钥的管理和保护。 密钥保管库提供将你的密钥存储在已通过 FIPS 140-2 Level 2 标准认证的硬件安全性模块 (HSM) 中的选项。 用于备份或 [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密密钥可以存储在密钥保管库中，此外还可存储应用程序中的任意密钥或机密。 对这些受保护项的权限和访问权限通过 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)进行管理。
+加密和身份验证无法提高安全性，除非密钥本身也受到保护。 通过将关键密码和密钥存储在 Azure 密钥保管库中，可以简化此类密码和密钥的管理和保护。 密钥保管库提供将你的密钥存储在已通过 FIPS 140-2 Level 2 标准认证的硬件安全性模块 (HSM) 中的选项。 用于备份或 [透明数据加密](https://msdn.microsoft.com/library/bb934049.aspx) 的 SQL Server 加密密钥可以存储在密钥保管库中，此外还可存储应用程序中的任意密钥或机密。 对这些受保护项的权限和访问权限通过 [Azure Active Directory](/active-directory/)进行管理。
 
 了解详细信息：
 

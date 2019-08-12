@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5eb6269ab1b403690ef60bdc7836a06a2a17b355
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4858d8d69bb16a309558e3ae22c55cfa31a569a3
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562656"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818499"
 ---
 # <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring-v021-alpha"></a>状态监视器 v2 API：Enable-ApplicationInsightsMonitoring (v0.2.1-alpha)
 
@@ -26,7 +26,6 @@ ms.locfileid: "67562656"
 > [!IMPORTANT]
 > 状态监视器 v2 目前为公共预览版。
 > 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
-> 有关详细信息，请参阅[世纪互联 Azure 预览版补充使用条款](https://www.azure.cn/support/legal/preview-supplemental-terms/)
 
 ## <a name="description"></a>说明
 

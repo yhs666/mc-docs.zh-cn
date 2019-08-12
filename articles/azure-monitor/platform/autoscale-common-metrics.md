@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 03fda4c9b3476bd508b330f827ea0e792801fd1a
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 009547779be48a27d0565efb29662d55484b06c3
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731279"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818245"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
 
@@ -21,7 +21,7 @@ ms.locfileid: "66731279"
 
 利用 Azure 监视器自动缩放，可以根据遥测数据（指标）增加或减少正在运行的实例数。 本文档介绍了你可能想要使用的常用指标。 在 Azure 门户中，可以选择要作为缩放依据的资源指标。 不过，也可以选择其他资源的任何指标来作为缩放依据。
 
-Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/services/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](/api-management/api-management-key-concepts)。 其他 Azure 服务使用不同的缩放方法。
+Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/web/)和 [API 管理服务](/api-management/api-management-key-concepts)。 其他 Azure 服务使用不同的缩放方法。
 
 ## <a name="compute-metrics-for-resource-manager-based-vms"></a>基于 Resource Manager 的 VM 的计算指标
 默认情况下，基于 Resource Manager 的虚拟机和虚拟机规模集发出基本（主机级）指标。 此外，为 Azure VM 和 VMSS 配置诊断数据集合时，Azure 诊断扩展也会发出来宾 OS性能计数器（通常称为“来宾 OS 指标”）。  可在自动缩放规则中使用所有这些指标。

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: windows
 ms.workload: ''
 origin.date: 03/26/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d48c31d3d455d46040975a396df324e17e32ee3
-ms.sourcegitcommit: 1ea0f453e7dcaef67f3c52747778c7f3b82e3e38
+ms.openlocfilehash: 68b6a29dd7a376b2965afd03059a2188708954ef
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277542"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913043"
 ---
 # <a name="powershell-dsc-extension"></a>PowerShell DSC 扩展
 
@@ -75,7 +75,7 @@ Windows Server 2019、Windows Server 2016、Windows Server 2012R2、Windows Serv
             "dataCollection": "enable"
         },
         "advancedOptions": {
-            "forcePullAndApply": false
+            "forcePullAndApply": false,
             "downloadMappings": {
                 "specificDependencyKey": "https://myCustomDependencyLocation"
             }
@@ -174,6 +174,6 @@ C:\WindowsAzure\Logs\Plugins\{Extension_Name}\{Extension_Version}
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 <!-- Update_Description: update meta properties, wording update -->

@@ -14,12 +14,12 @@ ms.topic: tutorial
 origin.date: 06/24/2019
 ms.author: v-yiso
 ms.date: 07/22/2019
-ms.openlocfilehash: e03691809455848e9a74c4651925c2d64fc4494c
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: fd0ad4e8a1c35c21218c26770edbea324aa62de3
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845452"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878750"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>教程：使用 Apache Kafka 生成者和使用者 API
 
@@ -163,7 +163,7 @@ consumer = new KafkaConsumer<>(properties);
 4. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.cn/api/v1/clusters" \
   	| jq -r '.items[].Clusters.cluster_name')
     echo $clusterName, $clusterNameA
     ```
@@ -171,7 +171,7 @@ consumer = new KafkaConsumer<>(properties);
 5. 若要获取 Kafka 代理主机和 Apache Zookeeper 主机，请使用以下命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
+    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
   	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 

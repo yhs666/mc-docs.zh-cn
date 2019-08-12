@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 11/27/2018
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: a6262cf22ad89d948b39fbcad7e13e33e5cfdde7
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 983af6ab15c1148697861898f8cf1cc798e98110
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861643"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819591"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>删除 Site Recovery 服务保管库
 
@@ -82,4 +82,4 @@ ms.locfileid: "67861643"
 
 详细了解 [Get-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesvault) 和 [Remove-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)。
 
-<!--Update_Description: wording update, update meta properties, update link -->
+<!--Update_Description: wording update, update meta properties -->

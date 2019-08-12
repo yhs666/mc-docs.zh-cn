@@ -17,12 +17,12 @@ ms.workload: big-data
 origin.date: 06/28/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1fd4cc57aac963dfb0ece91d583437b2aa7f8efa
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 5217ef024d8d2fd951e6d5d62af819182f656542
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845053"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878507"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>使用 REST 在 HDInsight 中通过 Apache Hadoop 运行 Apache Hive 查询
 
@@ -40,7 +40,7 @@ ms.locfileid: "67845053"
 
 ## <a name="base-uri-for-rest-api"></a>用于 Rest API 的基 URI
 
-HDInsight 上 REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.net`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
+HDInsight 上 REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.cn`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
 
 ## <a name="authentication"></a>身份验证
 

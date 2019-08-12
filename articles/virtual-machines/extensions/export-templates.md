@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 12/05/2016
-ms.date: 10/22/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9487fbe6c1dcc3de74668922036cae6917034db0
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 6de1520c4d35af8064ec498ebe860335f5160f98
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657494"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913044"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>导出包含 VM 扩展的资源组
 
@@ -57,7 +57,7 @@ ms.locfileid: "52657494"
 3. 从列表中选择目标资源组
 4. 在“资源组”边栏选项卡中，单击“自动化脚本”
 
-![模板导出](./media/export-templates/template-export.png)
+    ![模板导出](./media/export-templates/template-export.png)
 
 Azure Resource Manager 自动化脚本生成一个 Resource Manager 模板、一个参数文件以及多个示例部署脚本（例如 PowerShell 和 Azure CLI）。 目前可以使用下载按钮下载导出的模板、将其作为新模板添加到模板库，或使用部署按钮重新对其进行部署。
 

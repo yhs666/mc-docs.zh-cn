@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 06/07/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7a5df3e5e115b2a87368db8a4c5e57a6a948447f
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 4349c9dd69b54a9d50ec1065d51c5be2034386d7
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845438"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878496"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>使用 Apache Ambari REST API 管理 HDInsight 群集
 
@@ -37,7 +37,7 @@ ms.locfileid: "67845438"
 
 ## <a name="base-uri-for-ambari-rest-api"></a>用于 Ambari Rest API 的基 URI
 
- HDInsight 上 Ambari REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.net`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
+ HDInsight 上 Ambari REST API 的基本统一资源标识符 (URI) 为 `https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME`，其中 `CLUSTERNAME` 是群集的名称。  URI 中的群集名称**区分大小写**。  虽然 URI (`CLUSTERNAME.azurehdinsight.cn`) 的完全限定域名 (FQDN) 部分中的群集名称不区分大小写，但 URI 中的其他部分是区分大小写的。
 
 ## <a name="authentication"></a>身份验证
 
@@ -210,9 +210,9 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 
 返回值类似于以下其中一个示例：
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` - 此值表示群集使用 Azure 存储帐户作为默认存储。 值 `ACCOUNTNAME` 是存储帐户的名称。 `CONTAINER` 部分是存储帐户中 Blob 容器的名称。 容器是群集的 HDFS 兼容存储的根。
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.chinacloudapi.cn` - 此值表示群集使用 Azure 存储帐户作为默认存储。 值 `ACCOUNTNAME` 是存储帐户的名称。 `CONTAINER` 部分是存储帐户中 Blob 容器的名称。 容器是群集的 HDFS 兼容存储的根。
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` - 此值表示群集使用 Azure Data Lake Storage Gen2 作为默认存储。 `ACCOUNTNAME` 和 `CONTAINER` 值对于前面提到的 Azure 存储而言意义相同。
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.chinacloudapi.cn` - 此值表示群集使用 Azure Data Lake Storage Gen2 作为默认存储。 `ACCOUNTNAME` 和 `CONTAINER` 值对于前面提到的 Azure 存储而言意义相同。
 
 * `adl://home` - 此值表示群集使用 Azure Data Lake Storage Gen1 作为默认存储。
 
@@ -428,7 +428,7 @@ $resp.Content
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
     -X PUT -d '{"RequestInfo":{"context":"_PARSE_.STOP.SPARK2","operation_level":{"level":"SERVICE","cluster_name":"CLUSTERNAME","service_name":"SPARK"}},"Body":{"ServiceInfo":{"state":"INSTALLED"}}}' \
-    "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/SPARK2"
+    "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/SPARK2"
     ```
 
     ```powershell

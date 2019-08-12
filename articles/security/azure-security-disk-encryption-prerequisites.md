@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a41e78c8ac81587ab04d424cc398cd24f4c5653
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: c57a2712a8f83ad89574fb8affb22340951e94d9
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332700"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818187"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁盘加密先决条件
 
-本文“Azure 磁盘加密先决条件”介绍了在使用 Azure 磁盘加密之前所要满足的条件。 Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，以帮助管理加密密钥。 可以使用 [Azure PowerShell](/powershell/azure/overview)、[Azure CLI](/cli/azure/) 或 [Azure 门户](https://portal.azure.com)配置 Azure 磁盘加密。
+本文“Azure 磁盘加密先决条件”介绍了在使用 Azure 磁盘加密之前所要满足的条件。 Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，以帮助管理加密密钥。 可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、[Azure CLI](/cli/) 或 [Azure 门户](https://portal.azure.com)配置 Azure 磁盘加密。
 
 针对“Azure 磁盘加密概述”一文中所述的受支持方案在 Azure IaaS VM 上启用 Azure 磁盘加密之前，请务必满足以下先决条件。 
 
@@ -113,9 +113,9 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 
 
 **组策略：**
- - Azure 磁盘加密解决方案对 Windows IaaS VM 使用 BitLocker 外部密钥保护程序。 对于已加入域的 VM，请不要推送会强制执行 TPM 保护程序的任何组策略。 有关“在没有兼容 TPM 的情况下允许 BitLocker”的组策略信息，请参阅 [BitLocker 组策略参考](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)。
+ - Azure 磁盘加密解决方案对 Windows IaaS VM 使用 BitLocker 外部密钥保护程序。 对于已加入域的 VM，请不要推送会强制执行 TPM 保护程序的任何组策略。 
 
--  具有自定义组策略的已加入域虚拟机上的 BitLocker 策略必须包含以下设置：[配置 BitLocker 恢复信息的用户存储 -> 允许 256 位恢复密钥](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 如果 BitLocker 的自定义组策略设置不兼容，Azure 磁盘加密将会失败。 在没有正确策略设置的计算机上，应用新策略，强制更新新策略 (gpupdate.exe /force)，然后可能需要重启。
+-  如果 BitLocker 的自定义组策略设置不兼容，Azure 磁盘加密将会失败。 在没有正确策略设置的计算机上，应用新策略，强制更新新策略 (gpupdate.exe /force)，然后可能需要重启。
 
 - 如果域级组策略阻止了 BitLocker 使用的 AES-CBC 算法，Azure 磁盘加密将会失败。
 
@@ -125,7 +125,7 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 
 ### <a name="install-azure-powershell-for-use-on-your-local-machine-optional"></a>安装在本地计算机上使用的 Azure PowerShell（可选）： 
 1. 遵照适用于操作系统的链接中的说明，然后继续完成下面的剩余步骤。      
-   - [安装和配置 Azure PowerShell](/powershell/azure/install-az-ps)。 
+   - [安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
      - 安装 PowerShellGet、Azure PowerShell，并加载 Az 模块。 
 
 2. 验证安装的 Az 模块版本。 如果需要，请[更新 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps#update-the-azure-powershell-module)。
@@ -153,9 +153,9 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 
 ## <a name="bkmk_CLI"></a> 安装在本地计算机上使用的 Azure CLI（可选）
 
-[Azure CLI 2.0](/cli/azure) 是用于管理 Azure 资源的命令行工具。 CLI 旨在提高数据查询灵活性、支持非阻塞进程形式的长时间操作，以及简化脚本编写。 可以在本地计算机上安装 PowerShell，并在任何 PowerShell 会话中使用它。
+[Azure CLI 2.0](/cli/) 是用于管理 Azure 资源的命令行工具。 CLI 旨在提高数据查询灵活性、支持非阻塞进程形式的长时间操作，以及简化脚本编写。 可以在本地计算机上安装 PowerShell，并在任何 PowerShell 会话中使用它。
 
-1. 安装在本地计算机上使用的 [Azure CLI](/cli/azure/install-azure-cli)（可选）：
+1. 安装在本地计算机上使用的 [Azure CLI](/cli/install-azure-cli)（可选）：
 
 2. 验证安装的版本。
      
@@ -163,7 +163,7 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
      az --version
      ``` 
 
-3. 使用 [az login](/cli/azure/authenticate-azure-cli) 登录到 Azure。
+3. 使用 [az login](/cli/authenticate-azure-cli) 登录到 Azure。
      
      ```azurecli
      az login
@@ -176,7 +176,7 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
      az account set --subscription "<subscription name or ID>"
      ```
 
-4. 根据需要查看 [Azure CLI 2.0 入门](/cli/azure/get-started-with-azure-cli)。 
+4. 根据需要查看 [Azure CLI 2.0 入门](/cli/get-started-with-azure-cli)。 
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Key Vault 的先决条件工作流
@@ -209,7 +209,7 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East China'
      ```
 
-3. 使用 [New-AzKeyVault](/powershell/module/az.keyvault/New-azKeyVault) 创建新的 Key Vault
+3. 使用 [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/New-azKeyVault) 创建新的 Key Vault
     
       ```azurepowershell-interactive
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
@@ -219,17 +219,17 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 
 
 ### <a name="bkmk_KVCLI"></a>使用 Azure CLI 创建 Key Vault
-可以在 Azure CLI 中使用 [az keyvault](/cli/azure/keyvault#commands) 命令管理 Key Vault。 若要创建 Key Vault，请使用 [az keyvault create](/cli/azure/keyvault#az-keyvault-create)。
+可以在 Azure CLI 中使用 [az keyvault](/cli/keyvault#commands) 命令管理 Key Vault。 若要创建 Key Vault，请使用 [az keyvault create](/cli/keyvault#az-keyvault-create)。
 
 1. 根据需要连接到 Azure 订阅。
-2. 根据需要，使用 [az group create](/cli/azure/group#az-group-create) 创建新资源组。 若要列出位置，请使用 [az account list-locations](/cli/azure/account#az-account-list) 
+2. 根据需要，使用 [az group create](/cli/group#az-group-create) 创建新资源组。 若要列出位置，请使用 [az account list-locations](/cli/account#az-account-list) 
      
      ```azurecli-interactive
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
-3. 使用 [az keyvault create](/cli/azure/keyvault#az-keyvault-create) 创建新 Key Vault。
+3. 使用 [az keyvault create](/cli/keyvault#az-keyvault-create) 创建新 Key Vault。
     
      ```azurecli-interactive
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
@@ -270,7 +270,7 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
      ```
 
 ### <a name="bkmk_KVperCLI"></a>使用 Azure CLI 设置 Key Vault 高级访问策略
-使用 [az keyvault update](/cli/azure/keyvault#az-keyvault-update) 为 Key Vault 启用磁盘加密。 
+使用 [az keyvault update](/cli/keyvault#az-keyvault-update) 为 Key Vault 启用磁盘加密。 
 
  - **为磁盘加密启用 Key Vault：** 需要使用 Enabled-for-disk-encryption。 
 

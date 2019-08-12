@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: multiple
 ms.topic: include
 origin.date: 05/16/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 645a6624e72a127a1e66b416f5c84c97dabdc0e4
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 5d1ca2d3a0f03368c96bd35473c23f1f6c41435c
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332788"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912997"
 ---
 本部分提供了有关先前几代虚拟机大小的信息。 这些大小仍可使用，但有新的大小可供使用。 
 
@@ -32,7 +32,7 @@ ACU：210 - 250
 
 <!--MOONCAKE: CORRECT ON Max NICs / Expected network bandwidth (Mbps)-->
 
-| 大小         | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (MBps) |
+| 大小         | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大临时存储吞吐量：IOPS/读取 MBps/写入 MBps | 最大的数据磁盘/吞吐量：IOPS | 最大 NIC 数/预期网络带宽 (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000/46/23                                           | 4/4x500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000/93/46                                           | 8/8x500                         | 2 / 1500                     |
@@ -52,7 +52,7 @@ ACU：210 - 250
 
 <!--MOONCAKE: CORRECT ON Max NICs / Expected network bandwidth (Mbps)-->
 
-| 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/MBps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/MBps | 最大 NIC 数/预期网络带宽 (MBps) |
+| 大小 | vCPU | 内存：GiB | 临时存储 (SSD) GiB | 最大数据磁盘数 | 最大缓存吞吐量和临时存储吞吐量：IOPS/Mbps（以 GiB 为单位的缓存大小） | 最大非缓存磁盘吞吐量：IOPS/Mbps | 最大 NIC 数/预期网络带宽 (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4000 / 32 (12) |3200 / 48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8000 / 64 (24) |6400 / 96 |2 / 1500 |
@@ -60,9 +60,9 @@ ACU：210 - 250
 | Standard_F8s |8 |16 |32 |32 |32000 / 256 (96) |25600 / 384 |8 / 6000 |
 | Standard_F16s |16 |32 |64 |64 |64000 / 512 (192) |51200 / 768 |8 / 12000 |
 
-MBps = 每秒 10^6 字节，GiB = 1024^3 字节。
+Mbps = 每秒 10^6 字节，GiB = 1024^3 字节。
 
-<sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 MBps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](../articles/virtual-machines/windows/premium-storage-performance.md)。  
+<sup>1</sup> Fs 系列 VM 可能的最大磁盘吞吐量（IOPS 或 Mbps）可能受限于附加磁盘的数量、大小和条带化。  有关详细信息，请参阅[为实现高性能而设计](../articles/virtual-machines/windows/premium-storage-performance.md)。  
 
 <!--Not Available on ## Ls-series-->
 

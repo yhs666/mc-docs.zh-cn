@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: c520c3589d3597e8599c51b2bd02e77d25db3805
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 2ec85ca1d24fdf0c207df76bb2879ddfaa6111e1
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562379"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818388"
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Azure 诊断日志概述
 
@@ -30,7 +30,7 @@ ms.locfileid: "67562379"
 
 这些日志也与来宾 OS 级诊断日志不同。 来宾 OS 级诊断日志是由在虚拟机内部或其他受支持的资源类型中运行的代理收集的日志。 资源级诊断日志不需要代理并从 Azure 平台本身捕获特定于资源的数据，而来宾 OS 级诊断日志从操作系统和在虚拟机上运行的应用程序捕获数据。
 
-并非所有服务都支持此处所述的诊断日志。 [本文包含的一个部分列出了哪些服务支持诊断日志](./../../azure-monitor/platform/diagnostic-logs-schema.md)。
+并非所有服务都支持此处所述的诊断日志。 [本文包含的一个部分列出了哪些服务支持诊断日志](../../azure-monitor/platform/diagnostic-logs-schema.md)。
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>可以对诊断日志执行的操作
 可以对诊断日志执行的部分操作如下：

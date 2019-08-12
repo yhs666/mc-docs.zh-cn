@@ -1,5 +1,5 @@
 ---
-title: 使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断 | Azure
+title: 在 Windows VM 上使用 Azure PowerShell 启用诊断 | Azure
 services: virtual-machines-windows
 documentationcenter: ''
 description: 了解如何使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 12/15/2015
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9ea35c630ba38b193671fee5de0742f0ec6ba487
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 75d6bb0b272bd9a997565d5add7a53b125aeb0b8
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835611"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913046"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>使用 PowerShell 在运行 Windows 的虚拟机中启用 Azure 诊断
 
@@ -41,7 +41,7 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 
 *$diagnosticsconfig_path* 是指向包含 XML 格式诊断配置的文件的路径，如以下[示例](#sample-diagnostics-configuration)中所述。  
 
-如果诊断配置文件使用某个存储帐户名称指定了 StorageAccount 元素，则 Set-AzVMDiagnosticsExtension 脚本会自动将诊断扩展设置为将诊断数据发送到该存储帐户。 为此，存储帐户需位于 VM 所在的同一订阅中。
+如果诊断配置文件使用某个存储帐户名称指定了 StorageAccount 元素，则 Set-AzVMDiagnosticsExtension 脚本会自动将诊断扩展设置为将诊断数据发送到该存储帐户   。 为此，存储帐户需位于 VM 所在的同一订阅中。
 
 如果未在诊断配置中指定 **StorageAccount**，需要将 *StorageAccountName* 参数传递给 cmdlet。 如果指定了 *StorageAccountName* 参数，则 cmdlet 会始终使用该参数中指定的存储帐户，而不使用诊断配置文件中指定的存储帐户。
 
@@ -65,16 +65,16 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-classic-deployment-model"></a>在使用经典部署模型的情况下启用诊断扩展
 在通过经典部署模型创建的 VM 上，可以使用 [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet 启用诊断扩展。 以下示例演示了如何通过经典部署模型创建启用了诊断扩展的新 VM。
 
-    $VM = New-AzureVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
+    $VM = New-AzVMConfig -Name $VM -InstanceSize Small -ImageName $VMImage
     $VM = Add-AzureProvisioningConfig -VM $VM -AdminUsername $Username -Password $Password -Windows
-    $VM = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    New-AzureVM -Location $Location -ServiceName $Service_Name -VM $VM
+    $VM = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    New-AzVM -Location $Location -ServiceName $Service_Name -VM $VM
 
 若要在通过典型部署模型创建的现有 VM 上启用诊断扩展，请先使用 [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet 获取 VM 配置。 然后，使用 [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet 更新 VM 配置，使其包含诊断扩展。 最后，使用 [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm) 将更新的配置应用到 VM。
 
-    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzureVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>诊断配置示例
 以下 XML 可用于上述脚本的诊断公共配置。 此示例配置会将各种性能计数器传输给诊断存储帐户，同时还会传输 Windows 事件日志的应用程序、安全和系统通道中的错误，以及诊断基础结构日志中的任何错误。
@@ -83,13 +83,13 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 
 * **Metrics** 元素的 *resourceID* 属性需要使用 VM 的资源 ID 进行更新。
 
-  * 资源 ID 可以使用以下模式构造：“/subscriptions/{*VM 订阅的订阅 ID*}/resourceGroups/{*VM 的资源组名称*}/providers/Microsoft.Compute/virtualMachines/{*VM 名称*}”。
-  * 例如，如果在其中运行 VM 的订阅的订阅 ID 为 **11111111-1111-1111-1111-111111111111**，资源组的资源组名称为 **MyResourceGroup**，VM 名称为 **MyWindowsVM**，则 *resourceID* 的值为：
+    * 资源 ID 可以使用以下模式构造：“/subscriptions/{*VM 订阅的订阅 ID*}/resourceGroups/{*VM 的资源组名称*}/providers/Microsoft.Compute/virtualMachines/{*VM 名称*}”。
+    * 例如，如果在其中运行 VM 的订阅的订阅 ID 为 **11111111-1111-1111-1111-111111111111**，资源组的资源组名称为 **MyResourceGroup**，VM 名称为 **MyWindowsVM**，则 *resourceID* 的值为：
 
-      ```xml
-      <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
-      ```
-  * 有关如何根据性能计数器和指标配置生成指标的详细信息，请参阅 [Azure Diagnostics metrics table in storage](diagnostics-template.md#wadmetrics-tables-in-storage)（存储中的 Azure 诊断指标表）。
+        ```xml
+        <Metrics resourceId="/subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/MyResourceGroup/providers/Microsoft.Compute/virtualMachines/MyWindowsVM" >
+        ```
+    * 有关如何根据性能计数器和指标配置生成指标的详细信息，请参阅 [Azure Diagnostics metrics table in storage](diagnostics-template.md#wadmetrics-tables-in-storage)（存储中的 Azure 诊断指标表）。
 * 需要使用诊断存储帐户的名称对 **StorageAccount** 元素进行更新。
 
     ```xml
@@ -198,6 +198,6 @@ Azure 诊断是 Azure 中可对部署的应用程序启用诊断数据收集的�
 
 ## <a name="next-steps"></a>后续步骤
 * 有关使用 Azure 诊断功能和其他方法排查问题的详细说明，请参阅 [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](../../cloud-services/cloud-services-dotnet-diagnostics.md)（在 Azure 云服务和虚拟机中启用诊断）。
-* [Diagnostics configurations schema](https://msdn.microsoft.com/library/azure/mt634524.aspx)（诊断配置架构）解释了诊断扩展的各种 XML 配置选项。
+* [Diagnostics configurations schema](https://docs.azure.cn/azure-monitor/platform/diagnostics-extension-schema/)（诊断配置架构）解释了诊断扩展的各种 XML 配置选项。
 
 <!-- Update_Description: update meta properties, wording update  -->

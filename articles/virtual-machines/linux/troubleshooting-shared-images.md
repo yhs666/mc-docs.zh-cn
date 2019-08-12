@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 04/25/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 4799cc453b4d9bcada16f79703879e2a9dee7015
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 8f9ac4b785c047cd5ef300683f631e4db567bce9
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835807"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913057"
 ---
 # <a name="troubleshooting-shared-image-galleries"></a>排查共享映像库问题
 
@@ -32,5 +33,4 @@ ms.locfileid: "65835807"
 
 详细了解[共享映像库](shared-image-galleries.md)。
 
-<!-- Update_Description: new article about troubleshooting shared images -->
-<!--ms.date: 05/20/2019-->
+<!-- Update_Description: wording update -->

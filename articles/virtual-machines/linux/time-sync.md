@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/17/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0524be0ff38fb442539109ba9f3829bf93b1900a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4784993cee77f3d079ff14865348655e015ea210
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569929"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913055"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure 中 Linux VM 的时间同步
 
@@ -40,6 +40,8 @@ Azure 受运行 Windows Server 2016 的基础设施的支持。 Windows Server 2
 计算机时钟的准确性根据计算机时钟与协调世界时 (UTC) 时间标准的接近程度来测量。 UTC 通过精确原子钟的跨国样本来定义，此类原子钟 300 年的偏差只有 1 秒。 但是，直接读取 UTC 需要专用硬件。 而时间服务器与 UTC 同步，可以从其他计算机访问，因此具备可伸缩性和可靠性。 每个计算机都有时间同步服务运行，该服务知道使用什么时间服务器，并定期检查计算机时钟是否需纠正，然后根据需要调整时间。 
 
 Azure 主机与内部 Azure 时间服务器同步，后者从 Azure 拥有的带 GPS 天线的第 1 层设备获取其时间。 Azure 中的虚拟机可以依赖其主机来获取准确的时间（主机时间）  ，也可以直接从时间服务器获取时间，或者同时采用这两种方法。 
+
+<!--MOONCAKE: CORRECT ON Azure-owned-->
 
 在独立硬件上，Linux OS 仅在启动时读取主机硬件时钟数据。 然后，时钟会通过 Linux 内核中的中断计时器来维护。 在此配置中，时钟会随着时间的推移而出现偏差。 在 Azure 上的较新的 Linux 发行版中，VM 可以使用 Linux Integration Services (LIS) 中随附的 VMICTimeSync 提供程序，从主机更频繁地查询时钟更新。
 
@@ -68,6 +70,8 @@ Azure 主机与内部 Azure 时间服务器同步，后者从 Azure 拥有的带
 - NTP 充当主要源，可以从 NTP 服务器获取时间。 例如，Ubuntu 16.04 LTS 市场映像使用 **ntp.ubuntu.com**。
 - VMICTimeSync 服务充当次要源，用于将主机时间传递给 VM，并在 VM 因维护而暂停后进行纠正。 Azure 主机使用 Azure 拥有的第 1 层设备来确保时间的准确性。
 
+    <!--MOONCAKE: CORRECT ON Azure-owned-->
+    
 在较新的 Linux 发行版中，VMICTimeSync 服务使用精度时间协议 (PTP)，但较早的发行版可能不支持 PTP，因此会求助于 NTP 从主机获取时间。
 
 若要确认 NTP 是否正确同步，请运行 `ntpq -p` 命令。

@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 07/18/2019
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 30f7789f45950e1dc8633d3c4f7e07974c5214ab
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 4d69e1112b4664d67248967a4f7dcc19f82eeed5
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332266"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818570"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>消息会话：先进先出 (FIFO) 
 
@@ -34,7 +34,7 @@ ms.locfileid: "68332266"
 
 例如，若要有意设置文件的传输序列，请将第一个、中间一个和最后一个消息的 Label  属性分别设置为 start  、content  和 end  。 content 消息相对位置的计算方式为，当前消息的 SequenceNumber 与 start 消息的 SequenceNumber 的增量值。   
 
-借助服务总线中的会话功能，可以 C# 和 Java API 编写的 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 形式执行特定接收操作。 可以通过 Azure 资源管理器或在门户中设置标志，为队列或订阅设置 [requiresSession](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 属性，从而启用此功能。 若要尝试执行相关 API 操作，必须启用此功能。
+借助服务总线中的会话功能，可以 C# 和 Java API 编写的 [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) 形式执行特定接收操作。 可以通过 Azure 资源管理器或在门户中设置标志，为队列或订阅设置 [requiresSession](https://docs.microsoft.com/azure/templates/microsoft.servicebus/namespaces/queues#property-values) 属性，从而启用此功能。 若要尝试执行相关 API 操作，必须启用此功能。
 
 在门户中，选中下图中展示的复选框设置标志：
 

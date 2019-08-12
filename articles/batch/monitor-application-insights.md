@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 1ded24c61bf6673993774acb94f75b65c3b88faf
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 8d35961ebf750bd06fdd41cd07bfa42c1af12360
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845522"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818454"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 监视和调试 Azure Batch .NET 应用程序
 
@@ -56,7 +56,7 @@ Install-Package Microsoft.ApplicationInsights.WindowsServer
 
 ## <a name="instrument-your-code"></a>检测代码
 
-若要检测代码，解决方案需要创建 Application Insights [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient)。 在本示例中，TelemetryClient 将从 [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) 文件加载其配置。 请务必使用 Application Insights 检测密钥更新以下项目中的 ApplicationInsights.config：Microsoft.Azure.Batch.Samples.TelemetryStartTask 和 TopNWordsSample。
+若要检测代码，解决方案需要创建 Application Insights [TelemetryClient](https://docs.microsoft.com//dotnet/api/microsoft.applicationinsights.telemetryclient)。 在本示例中，TelemetryClient 将从 [ApplicationInsights.config](../azure-monitor/app/configuration-with-applicationinsights-config.md) 文件加载其配置。 请务必使用 Application Insights 检测密钥更新以下项目中的 ApplicationInsights.config：Microsoft.Azure.Batch.Samples.TelemetryStartTask 和 TopNWordsSample。
 
 ```xml
 <InstrumentationKey>YOUR-IKEY-GOES-HERE</InstrumentationKey>

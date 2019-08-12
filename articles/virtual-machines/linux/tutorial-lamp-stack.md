@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
 origin.date: 01/30/2019
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8bdc32f3bd675c0f1f24d7acb4281f874748a938
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: d9d9cd25517134cf74469ba99c62761b161cae2a
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666257"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912944"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上安装 LAMP Web 服务器
 
@@ -38,7 +38,7 @@ ms.locfileid: "56666257"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: cache
 ms.workload: tbd
 origin.date: 05/11/2018
-ms.date: 06/13/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: c21d3281ab5ff082760114fa1b0e409867f5029a
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: f940cdbb18d79e2aab654a97e3bd8175c909a0ad
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046947"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878586"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-python"></a>快速入门：将 Azure Redis 缓存与 Python 配合使用
 
@@ -49,7 +49,9 @@ ms.locfileid: "67046947"
 
 以下示例通过以提升的管理员权限运行的 Visual Studio 2019 开发人员命令提示使用 Python3 的 *pip3* 在 Windows 10 上安装 redis-py 包。
 
+```python
     pip3 install redis
+```
 
 ![安装 redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -68,6 +70,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> 对于 Redis 版本 3.0 或更高版本，强制执行 SSL 证书检查。 连接到 Redis 时，必须显式设置 ssl_ca_certs。 对于 RH Linux，ssl_ca_certs 可以在“/etc/pki/tls/certs/ca-bundle.crt”证书模块中找到。
+
 ## <a name="create-a-python-script"></a>创建 Python 脚本
 
 创建一个名为 *PythonApplication1.py* 的新的脚本文本文件。
@@ -80,7 +85,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.chinacloudapi.cn"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -92,7 +98,7 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
     print("id : " + c['id'] + ", addr : " + c['addr'])
 ```

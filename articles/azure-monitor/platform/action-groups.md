@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 6645115876542fbea9fffcdb0064c14b51cb5429
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 361ba8a6bfbb8f51bc2d789bb3d4afc6ab19bbeb
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514030"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818417"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -80,7 +80,7 @@ ms.locfileid: "68514030"
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-一个操作组中可以存在有限数量的电子邮件操作。 请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
+一个操作组中可以存在有限数量的电子邮件操作。 请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
 一个操作组中可以存在有限数量的 ITSM 操作。 
 
@@ -98,12 +98,12 @@ ms.locfileid: "68514030"
 一个操作组中可以存在有限数量的 Runbook 操作。 
 
 ### <a name="sms"></a>SMS
-有关其他重要信息，请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)和[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。
+有关其他重要信息，请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)和[短信警报行为](../../azure-monitor/platform/alerts-sms-behavior.md)。
 
 一个操作组中可以存在有限数量的短信操作。  
 
 ### <a name="voice"></a>语音
-请参阅[速率限制信息](./../../azure-monitor/platform/alerts-rate-limiting.md)一文。
+请参阅[速率限制信息](../../azure-monitor/platform/alerts-rate-limiting.md)一文。
 
 一个操作组中可以存在有限数量的语音操作。
 

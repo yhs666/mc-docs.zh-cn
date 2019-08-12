@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3c513364fa560a5098b20bded1d01e312aeca9ed
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: da4c789c93203777ac8501fb0d2a5838f5dfad14
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666406"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912877"
 ---
 # <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>在 Linux VM 上使用 cloud-init 配置交换文件
 本文介绍如何使用 [cloud-init](https://cloudinit.readthedocs.io) 在各种 Linux 分发版中配置交换文件。 在传统上，交换文件由 Linux 代理 (WALA) 根据分发版的需要进行配置。  本文档概述在预配期间，使用 cloud-init 按需生成交换文件的过程。  有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -29,9 +29,10 @@ ms.locfileid: "56666406"
 在 Azure 上，Ubuntu 库映像默认不会创建交换文件。 若要在预配 VM 期间使用 cloud-init 启用交换文件配置，请参阅 Ubuntu wiki 中的 [AzureSwapPartitions 文档](https://wiki.ubuntu.com/AzureSwapPartitions)。
 
 ## <a name="create-swapfile-for-centos-based-images"></a>为基于 CentOS 的映像创建交换文件
+
 <!-- Not Available on RedHat -->
 
-在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+在当前 shell 中，创建名为 *cloud_init_swapfile.txt* 的文件并粘贴以下配置。 对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor cloud_init_swapfile.txt` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器  。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
 
 <!-- Not Available on Cloud Shell -->
 
@@ -52,13 +53,13 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data cloud_init_swapfile.txt` 指定 cloud-init 文件，如下所示：
 
 ```azurecli 
 az vm create \

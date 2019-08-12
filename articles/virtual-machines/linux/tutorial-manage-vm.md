@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/23/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: fcbdf28b1330058dd835c9642511e7de45e331a5
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4ac35cad5e64dd2863ee590315780c9a6cb14f74
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569687"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912939"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理 Linux VM
 
@@ -37,11 +37,11 @@ Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azu
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”  区域中创建了名为“myResourceGroupVM”  的资源组。 
 
@@ -53,7 +53,7 @@ az group create --name myResourceGroupVM --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
 
 创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 下面的示例创建一个名为 *myVM*、运行 Ubuntu Server 的 VM。 将在该 VM 上创建名为 *azureuser* 的用户帐户，并生成 SSH 密钥（如果这些密钥在默认密钥位置 ( *~/.ssh*) 中不存在）：
 
@@ -99,7 +99,7 @@ exit
 
 Azure 市场包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在市场中搜索 CentOS 映像，此映像稍后用于部署第二个虚拟机。 
 
-若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
+若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
 
 ```azurecli 
 az vm image list --output table
@@ -171,7 +171,7 @@ az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:C
 
 ### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
 
-若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 
+若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 
 
 ```azurecli 
 az vm list-sizes --location chinaeast --output table
@@ -202,7 +202,7 @@ az vm list-sizes --location chinaeast --output table
 
 ### <a name="create-vm-with-specific-size"></a>创建具有特定大小的 VM
 
-在前面的 VM 创建示例中未提供大小，因此会使用默认大小。 可以在创建时使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 和 `--size` 参数选择 VM 大小。 
+在前面的 VM 创建示例中未提供大小，因此会使用默认大小。 可以在创建时使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 和 `--size` 参数选择 VM 大小。 
 
 ```azurecli 
 az vm create \
@@ -215,24 +215,24 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>调整 VM 的大小
 
-部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 查看 VM 的当前大小：
+部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show) 查看 VM 的当前大小：
 
 ```azurecli
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
 ```
 
-调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-vm-resize-options) 命令返回大小列表。 
+调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-vm-resize-options) 命令返回大小列表。 
 
 ```azurecli 
 az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
 ```
-如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。 使用 [az vm resize](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-resize) 命令执行大小调整。
+如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。 使用 [az vm resize](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-resize) 命令执行大小调整。
 
 ```azurecli 
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
+如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
 
 ```azurecli 
 az vm deallocate --resource-group myResourceGroupVM --name myVM
@@ -268,7 +268,7 @@ Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的�
 
 ### <a name="find-the-power-state"></a>查找电源状态
 
-若要检索特定 VM 的状态，请使用 [az vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
+若要检索特定 VM 的状态，请使用 [az vm get-instance-view](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
 
 ```azurecli 
 az vm get-instance-view \

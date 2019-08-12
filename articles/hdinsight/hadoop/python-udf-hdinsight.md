@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 03/15/2019
 ms.date: 07/22/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 503775f28607209c010d393f0016801ff2fa338f
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: d91ff8bdf596cd1ec08ca765a7b0fb80b65161d0
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845269"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878771"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)
 
@@ -106,13 +106,13 @@ while True:
 1. 使用 `scp` 将文件复制到 HDInsight 群集。 编辑并输入以下命令：
 
     ```cmd
-    scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.net:
+    scp hiveudf.py sshuser@mycluster-ssh.azurehdinsight.cn:
     ```
 
 2. 使用 SSH 连接到群集。  编辑并输入以下命令：
 
     ```cmd
-    ssh sshuser@mycluster-ssh.azurehdinsight.net
+    ssh sshuser@mycluster-ssh.azurehdinsight.cn
     ```
 
 3. 从 SSH 会话将前面上传的 python 文件添加到群集的存储中。

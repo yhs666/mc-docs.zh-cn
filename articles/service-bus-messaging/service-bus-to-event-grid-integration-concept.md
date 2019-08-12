@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 0eb8dd0166d1abb0d4e4c9322ba678733adab58c
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 9ba4155159f2b2c6a456347555ea1b45b925b75f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332666"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818514"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Azure 服务总线到事件网格的集成概述
 
@@ -47,10 +47,6 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 
 * [ActiveMessagesWithNoListenersAvailable](#active-messages-available-event)
 * DeadletterMessagesAvailable
-
-此外，服务总线使用标准的事件网格安全性和[身份验证机制](https://docs.microsoft.com/azure/event-grid/security-authentication)。
-
-有关详细信息，请参阅 [Azure 事件网格事件架构](https://docs.microsoft.com/azure/event-grid/event-schema)。
 
 #### <a name="active-messages-available-event"></a>活动消息可用事件
 
@@ -139,7 +135,7 @@ Azure 服务总线已推出与 Azure 事件网格集成的新功能。 此功能
 
 ## <a name="azure-cli-instructions"></a>Azure CLI 说明
 
-首先，请确保已安装 Azure CLI 2.0 或更高版本。 [下载安装程序](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 按 **Windows + X**，然后使用管理员权限打开新的 PowerShell 控制台。 或者，也可以在 Azure 门户中使用命令外壳。
+首先，请确保已安装 Azure CLI 2.0 或更高版本。 [下载安装程序](/cli/install-azure-cli?view=azure-cli-latest)。 按 **Windows + X**，然后使用管理员权限打开新的 PowerShell 控制台。 或者，也可以在 Azure 门户中使用命令外壳。
 
 执行以下代码：
 
@@ -177,11 +173,9 @@ New-AzEVentGridSubscription -EventSubscriptionName "<YOUR EVENT GRID SUBSCRIPTIO
 
 ## <a name="next-steps"></a>后续步骤
 
-* 获取服务总线和事件网格的[示例](service-bus-to-event-grid-integration-example.md)。
-* 详细了解[事件网格](https://docs.microsoft.com/azure/event-grid/)。
-* 详细了解 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)。
-* 了解有关[逻辑应用](https://docs.microsoft.com/azure/logic-apps/)的详细信息。
-* 详细了解[服务总线](https://docs.microsoft.com/azure/service-bus/)。
+* 详细了解 [Azure Functions](/azure-functions/)。
+* 了解有关[逻辑应用](/logic-apps/)的详细信息。
+* 详细了解[服务总线](/service-bus/)。
 
 [1]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgrid1.png
 [19]: ./media/service-bus-to-event-grid-integration-concept/sbtoeventgriddiagram.png

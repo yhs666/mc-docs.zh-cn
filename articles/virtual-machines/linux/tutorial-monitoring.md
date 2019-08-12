@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/26/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b6ac392f9a0aa5264a687ef024bb30abff1f60f6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0f17ec12c7e2d6d54675f4693874b048f76a520a
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569680"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912936"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>教程：监视和更新 Azure 中的 Linux 虚拟机
 
@@ -42,17 +42,17 @@ ms.locfileid: "67569680"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-vm"></a>创建 VM
 
-若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroupMonitor”  的资源组。
+若要查看诊断和指标的状态，需要创建一个 VM。 首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroupMonitor”  的资源组。
 
 ```azurecli
 az group create --name myResourceGroupMonitor --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例将创建名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在于 *~/.ssh/* 中）：
+现在，请使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例将创建名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在于 *~/.ssh/* 中）：
 
 ```azurecli
 az vm create \
@@ -67,7 +67,7 @@ az vm create \
 
 Linux VM 启动时，启动诊断扩展将捕获启动输出并将其存储在 Azure 存储中。 此数据可以用于排查 VM 启动问题。 使用 Azure CLI 创建 Linux VM 时，不会自动启用启动诊断。
 
-在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 存储帐户的名称必须全局唯一，介于 3 和 24 个字符之间，并且只能包含数字和小写字母。 使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 命令创建存储帐户。 本示例使用一个随机字符串来创建唯一的存储帐户名称。
+在启用启动诊断之前，需要创建一个存储帐户来存储启动日志。 存储帐户的名称必须全局唯一，介于 3 和 24 个字符之间，并且只能包含数字和小写字母。 使用 [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 命令创建存储帐户。 本示例使用一个随机字符串来创建唯一的存储帐户名称。
 
 ```azurecli
 storageacct=mydiagdata$RANDOM
@@ -85,7 +85,7 @@ az storage account create \
 bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
 ```
 
-现在，请使用 [az vm boot-diagnostics enable](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-enable) 启用启动诊断。 `--storage` 值是在上一步骤中收集的 Blob URI。
+现在，请使用 [az vm boot-diagnostics enable](https://docs.azure.cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-enable) 启用启动诊断。 `--storage` 值是在上一步骤中收集的 Blob URI。
 
 ```azurecli
 az vm boot-diagnostics enable \
@@ -96,19 +96,19 @@ az vm boot-diagnostics enable \
 
 ## <a name="view-boot-diagnostics"></a>查看启动诊断
 
-启用引导诊断后，每当停止再启动 VM 时，会将有关启动过程的信息写入日志文件。 本示例首先使用 [az vm deallocate](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令解除分配 VM，如下所示：
+启用引导诊断后，每当停止再启动 VM 时，会将有关启动过程的信息写入日志文件。 本示例首先使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令解除分配 VM，如下所示：
 
 ```azurecli
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-现在，请使用 [az vm start](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-stop) 命令启动 VM，如下所示：
+现在，请使用 [az vm start](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-stop) 命令启动 VM，如下所示：
 
 ```azurecli
 az vm start --resource-group myResourceGroupMonitor --name myVM
 ```
 
-可以使用 [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/zh-cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log) 命令获取 *myVM* 的启动诊断数据，如下所示：
+可以使用 [az vm boot-diagnostics get-boot-log](https://docs.azure.cn/cli/vm/boot-diagnostics?view=azure-cli-latest#az-vm-boot-diagnostics-get-boot-log) 命令获取 *myVM* 的启动诊断数据，如下所示：
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM

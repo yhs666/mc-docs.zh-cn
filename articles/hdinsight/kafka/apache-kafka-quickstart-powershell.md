@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 06/12/2019
 ms.date: 07/22/2019
 ms.author: larryfr
-ms.openlocfilehash: d7591d538e78fec281c4f55ef905516aebff3616
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: c720f1c7e9eeed02a57d2da476f2728f79ada56e
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845453"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878748"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -128,7 +128,7 @@ New-AzHDInsightCluster `
         -Version $clusterVersion `
         -ComponentVersion $kafkaConfig `
         -HttpCredential $httpCredential `
-        -DefaultStorageAccountName "$storageName.blob.core.windows.net" `
+        -DefaultStorageAccountName "$storageName.blob.core.chinacloudapi.cn" `
         -DefaultStorageAccountKey $storageKey `
         -DefaultStorageContainer $clusterName `
         -SshCredential $sshCredentials `

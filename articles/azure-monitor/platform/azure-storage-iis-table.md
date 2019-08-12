@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 55ba5d601e8ad04cd37a423a262d30ae020765c6
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 4a9c78f6e57d83cfd0891037c2adf59c926ef72b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513810"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818237"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>从 Azure 存储收集 Azure 诊断日志
 
@@ -153,7 +153,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 通过[将 Azure Monitor 配置为编制 Azure 诊断索引](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage)中的步骤，将 PowerShell 用于从写入表存储的 Azure 诊断读取。
 
 使用 Azure PowerShell 可以更精确地指定要写入 Azure 存储的事件。
-有关详细信息，请参阅[在 Azure 虚拟机中启用诊断](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
+有关详细信息，请参阅[在 Azure 虚拟机中启用诊断](/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)。
 
 可以使用以下 PowerShell 脚本启用和更新 Azure 诊断。
 还可以将此脚本与自定义日志记录配置结合使用。

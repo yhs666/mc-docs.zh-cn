@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34190ab98b965ecea09b189890a2e5e7df0e7d23
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a506213874d843d12eee7528ff6648c869ce29fc
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569757"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912955"
 ---
 # <a name="apply-policies-to-linux-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Linux VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。
@@ -214,4 +214,4 @@ ms.locfileid: "67569757"
 * 有关资源策略的简介，请参阅[什么是 Azure Policy？](../../governance/policy/overview.md)。
 * 有关企业可如何使用 Resource Manager 有效管理订阅的指南，请参阅 [Azure 企业基架 - 出于合规目的监管订阅](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/subscription-governance)。
 
-<!--Update_Description: update meta properties, wording update, update link -->
+<!--Update_Description: update meta properties -->

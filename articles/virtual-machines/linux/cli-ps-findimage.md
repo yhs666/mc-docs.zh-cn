@@ -14,23 +14,25 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 01/25/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b982ec1040e125a3c596b53d519287795f917798
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: de10dab779fddf3861d8e70223c2b68045c13e7e
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835646"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912913"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>使用 Azure CLI 在 Azure 市场中查找 Linux VM 映像
 
 本主题介绍如何使用 Azure CLI 在 Azure 市场中查找 VM 映像。 使用 CLI、资源管理器模板或其他工具以编程方式创建 VM 时，使用此信息指定市场映像。
 
-还可以使用 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
+还可以使用 [Azure 市场](https://market.azure.cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure PowerShell](../windows/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
 
-请确保已安装最新版的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 且已登录到 Azure 帐户 (`az login`)。
+<!--MOONCAKE: [Azure Marketplace](https://market.azure.cn/marketplace/)-->
+
+请确保已安装最新版的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 且已登录到 Azure 帐户 (`az login`)。
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -38,13 +40,15 @@ ms.locfileid: "65835646"
 
 ## <a name="list-popular-images"></a>列出常用映像
 
-运行 [az vm image list](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令，无需选择 `--all` 选项即可在 Azure 市场中查看常用 VM 映像的列表。 例如，运行以下命令以表格形式显示缓存的常用映像列表：
+运行 [az vm image list](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令，无需选择 `--all` 选项即可在 Azure 市场中查看常用 VM 映像的列表。 例如，运行以下命令以表格形式显示缓存的常用映像列表：
 
 ```azurecli
 az vm image list --output table
 ```
 
-输出包括映像 URN（Urn 列中的值）。 使用其中一个常用市场映像创建 VM 时，可选择指定 *UrnAlias*（一种简短格式，如 *UbuntuLTS*）。
+输出包括映像 URN（Urn 列中的值）  。 使用其中一个常用市场映像创建 VM 时，可选择指定 *UrnAlias*（一种简短格式，如 *UbuntuLTS*）。
+
+<!--AVAILABLE SUCCESSFULLY ON RHEL           RedHat                  7-RAW               RedHat:RHEL:7-RAW:latest                                        RHEL                 latest-->
 
 ```
 You are viewing an offline list of images, use --all to retrieve an up-to-date list
@@ -61,7 +65,6 @@ UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServe
 ```
 
 <!--AVAILABLE SUCCESSFULLY ON RHEL           RedHat                  7-RAW               RedHat:RHEL:7-RAW:latest                                        RHEL                 latest-->
-
 
 ## <a name="find-specific-images"></a>查找特定映像
 
@@ -157,7 +160,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201901221        
 
 ## <a name="navigate-the-images"></a>浏览映像
 
-在某个位置查找映像的另一种方法是，运行序列中的 [az vm image list-publishers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers)、[az vm image list-offers](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) 和 [az vm image list-skus](https://docs.azure.cn/zh-cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-skus) 命令。 可以使用这些命令确定以下值：
+在某个位置查找映像的另一种方法是，运行序列中的 [az vm image list-publishers](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-publishers)、[az vm image list-offers](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-offers) 和 [az vm image list-skus](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list-skus) 命令。 可以使用这些命令确定以下值：
 
 1. 列出映像发布者。
 2. 对于给定的发布者，列出其产品。
@@ -248,7 +251,7 @@ chinanorth      18.04-LTS
 chinanorth      18.10-DAILY
 ```
 
-最后，使用 `az vm image list` 命令查找所需的特定版本的 SKU，例如，18.04-LTS：
+最后，使用 `az vm image list` 命令查找所需的特定版本的 SKU，例如，18.04-LTS  ：
 
 ```azurecli
 az vm image list --location chinanorth --publisher Canonical --offer UbuntuServer --sku 18.04-LTS --all --output table
@@ -282,15 +285,17 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-现在，可通过记下 URN 值准确地选择想要使用的映像。 通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM 时，可将此值与 `--image` 参数一起传递。 记住，可选择将 URN 中的版本号替换为“latest”。 此版本始终是映像的最新版本。 
+现在，可通过记下 URN 值准确地选择想要使用的映像。 通过 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM 时，可将此值与 `--image` 参数一起传递。 记住，可选择将 URN 中的版本号替换为“latest”。 此版本始终是映像的最新版本。 
 
-如果使用资源管理器模板部署 VM，请在 `imageReference` 属性中单独设置映像参数。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)。
+如果使用资源管理器模板部署 VM，请在 `imageReference` 属性中单独设置映像参数。
+
+<!--Not Available on [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)-->
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
 ### <a name="view-plan-properties"></a>查看计划属性
 
-若要查看映像的购买计划信息，请运行 [az vm image show](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-vm-image-show) 命令。 如果输出中的 `plan` 属性不是 `null`，则映像有条款，在以编程方式部署前需要接受该条款。
+若要查看映像的购买计划信息，请运行 [az vm image show](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-vm-image-show) 命令。 如果输出中的 `plan` 属性不是 `null`，则映像有条款，在以编程方式部署前需要接受该条款。
 
 例如，Canonical Ubuntu Server 18.04 LTS 映像没有附加条款，因为 `plan` 信息为 `null`：
 

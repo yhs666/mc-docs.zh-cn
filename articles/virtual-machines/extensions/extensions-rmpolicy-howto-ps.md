@@ -12,14 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 03/23/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 117ff616abcaae9e4bf9cfb46f52d5e46d8560b5
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.reviewer: cynthn
+ms.openlocfilehash: 00f8ec58a71dcd03f2d810ba1b84054dca770649
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835607"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913042"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>使用 Azure Policy 限制 Windows VM 上的扩展安装
 

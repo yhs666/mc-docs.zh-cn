@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fab533cf7d43d64f7fb4c1f8883dd026ab4e84ea
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 42f21d3ff8cb2adb9af013c607218cfaece940b1
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67845206"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818460"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 
@@ -49,7 +49,7 @@ ms.locfileid: "67845206"
 | AZ_BATCH_ACCOUNT_NAME           | 任务所属的 Batch 帐户名。                  | 所有任务。   | mybatchaccount |
 | AZ_BATCH_ACCOUNT_URL            | Batch 帐户的 URL。 | 所有任务。 | `https://myaccount.chinanorth.batch.chinacloudapi.cn` |
 | AZ_BATCH_APP_PACKAGE            | 所有应用包环境变量的前缀。 例如，如果应用程序“Foo”版本“1”已安装到池，则环境变量为 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向包下载到的位置（文件夹）。 | 包含关联应用包的任何任务。 如果节点本身拥有应用程序包，则还可用于所有任务。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
-| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](https://docs.microsoft.com/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](https://docs.microsoft.com/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
 | AZ_BATCH_CERTIFICATES_DIR       | [任务工作目录][files_dirs]内的目录，会在其中为 Linux 计算节点存储证书。 请注意，此环境变量不适用于 Windows 计算节点。                                                  | 所有任务。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
 | AZ_BATCH_HOST_LIST              | 以 `nodeIP,nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4,10.0.0.5` |
 | AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |

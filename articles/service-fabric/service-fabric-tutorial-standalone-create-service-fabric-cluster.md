@@ -13,19 +13,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/11/2018
-ms.date: 12/10/2018
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f4f137d1a888f431cd8fb595c845664df5a63b98
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: b09fb6c93a4405a113c91cf6f4ca68ae7bf04dcd
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901145"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819680"
 ---
 # <a name="tutorial-install-and-create-service-fabric-cluster"></a>教程：安装并创建 Service Fabric 群集
 
-Service Fabric 独立群集提供相应的选项让我们选择自己的环境，并创建群集作为 Service Fabric 所采用的“任意 OS、任意云”方案的一部分。 在本系列教程中，我们将创建一个托管在 AWS 上的独立群集，并将应用程序安装到其中。
+Service Fabric 独立群集提供相应的选项让我们选择自己的环境，并创建群集作为 Service Fabric 所采用的“任意 OS、任意云”方案的一部分。 在本系列教程中，将创建一个托管在 AWS 或 Azure 上的独立群集，并将应用程序安装到其中。
 
 本教程是一个系列中的第二部分。 本教程将逐步指导完成创建 Service Fabric 独立群集的步骤。
 
@@ -38,9 +38,9 @@ Service Fabric 独立群集提供相应的选项让我们选择自己的环境�
 
 ## <a name="download-the-service-fabric-for-windows-server-package"></a>下载用于 Windows Server 的 Service Fabric 包
 
-Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](https://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，通过 RDP 连接将其复制到 EC2 实例，并将其粘贴到桌面上。
+Service Fabric 提供了一个安装程序包，用于创建独立的 Service Fabric 群集。  在本地计算机上[下载安装程序包](https://go.microsoft.com/fwlink/?LinkId=730690)。  成功下载后，将其通过 RDP 连接复制到 VM，并将其粘贴到桌面上。
 
-选择 zip 文件并打开上下文菜单，然后选择“全部提取” > “提取”。  提取文件时，将在桌面上生成一个与 zip 文件名相同的文件夹。
+选择 zip 文件并打开上下文菜单，然后选择“全部提取” > “提取”。    提取文件时，将在桌面上生成一个与 zip 文件名相同的文件夹。
 
 如果想要获取更多详细信息，请参阅[安装程序包的内容](service-fabric-cluster-standalone-package-contents.md)。
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>打开 Service Fabric Explorer
 
-现在可以通过 Service Fabric Explorer 连接到群集，既可以直接从装有 http://localhost:19080/Explorer/index.html 的某台计算机进行连接，也可以通过 http://<*IPAddressofaMachine*>:19080/Explorer/index.html 进行远程连接。
+现在可以通过 Service Fabric Explorer 连接到群集，既可以直接使用 http:\//localhost:19080/Explorer/index.html 从某台计算机进行连接，也可以使用 http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html 进行远程连接。
 
 ## <a name="add-and-remove-nodes"></a>添加和删除节点
 
@@ -153,4 +153,4 @@ Your cluster is successfully created! You can connect and manage your cluster us
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties -->

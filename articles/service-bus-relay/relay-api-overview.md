@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 05/02/2018
 ms.author: v-yiso
 ms.date: 06/04/2018
-ms.openlocfilehash: 554b163c1d7e4aa44d280788a857143df02ccffb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: da9ffc0c371af026b0a5aff5fa2d9ce567f0f00b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649519"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818559"
 ---
 # <a name="available-relay-apis"></a>可用的中继 API
 
@@ -40,7 +40,7 @@ ms.locfileid: "52649519"
 
 #### <a name="net"></a>.NET
 
-.NET 生态系统具有多个运行时，因此中继有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 的详细信息，请参阅 [framework 版本](/dotnet/articles/standard/frameworks#framework-versions)。
+.NET 生态系统具有多个运行时，因此中继有多个 .NET 库。 可以使用 .NET Core 或 .NET Framework 运行 .NET Standard 库，但 .NET Framework 库只能在 .NET Framework 环境中运行。 有关 .NET Frameworks 的详细信息，请参阅 [framework 版本](https://docs.microsoft.com/dotnet/articles/standard/frameworks)。
 
 .NET Framework 库仅支持 WCF 编程模型并依赖于基于 WCF `net.tcp` 传输的专有二进制协议。 保留此协议和库是为了实现与现有应用程序的后向兼容性。
 

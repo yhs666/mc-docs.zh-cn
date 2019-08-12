@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/06/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
+ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 6b7f63e4b3f6670bdeeeb6bd398070a1cd188b39
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 8f45846c10bf0c6b4a92ab8616958ab5631782e2
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570422"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913006"
 ---
 <!--Verify sccessfully-->
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>使用 Azure CLI 创建共享映像库
@@ -46,7 +47,7 @@ ms.locfileid: "67570422"
 
 ## <a name="create-a-vm"></a>创建 VM
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 基于最新映像版本创建 VM。
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 基于最新映像版本创建 VM。
 
 ```azurecli 
 az vm create\
@@ -56,7 +57,9 @@ az vm create\
    --generate-ssh-keys
 ```
 
-也可以通过使用 `--image` 参数的映像版本 ID 来使用特定版本。 例如，若要使用映像版本 *1.0.0*，请键入：`--image "/subscriptions/\<subscription ID where the gallery is located\>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`。
+<!--Global missing < in cmdlet-->
+
+也可以通过使用 `--image` 参数的映像版本 ID 来使用特定版本。 例如，若要使用映像版本 *1.0.0*，请键入：`--image "/subscriptions/<subscription ID where the gallery is located>/resourceGroups/myGalleryRG/providers/Microsoft.Compute/galleries/myGallery/images/myImageDefinition/versions/1.0.0"`。
 
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../../includes/virtual-machines-common-gallery-list-cli.md)]
 

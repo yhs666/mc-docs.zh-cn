@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9b2985ea9ee2a0b0dc0a91836893999d4bdb8491
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: ace19a70005f0de469687a6f61f900a48355d54b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514057"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818315"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 网络性能监视器的定价变化
 
-我们听取了客户的反馈，最近已针对 Azure 中的各种监视服务推出了[新的定价体验](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)。 本文以易于阅读的“问答”形式，汇总了与 Azure [网络性能监视器](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM) 相关的定价变化。
+我们听取了客户的反馈，最近已针对 Azure 中的各种监视服务推出了[新的定价体验](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)。 
 
 以下各部分介绍了 NPM 组件的定价变化。
 
@@ -58,7 +58,7 @@ NPM 中的性能监视器功能现在根据以下各项的组合计费：
 
 **如何对性能监视器生成的数据收费？**
 
-Log Analytics 的[定价页](https://www.azure.cn/pricing/details/log-analytics/)上的“数据引入”部分中提供了针对引入（将数据上传到 Azure Monitor 的 Log Analytics 工作区，以及数据处理和编制索引）收取的费用。 [定价页](https://www.azure.cn/pricing/details/log-analytics/)上的“数据保留”部分中还提供了针对数据保留（即，在第一个月后，根据客户选项保留数据）收取的费用。
+Log Analytics 的[定价页](https://www.azure.cn/pricing/details/monitor/)上的“数据引入”部分中提供了针对引入（将数据上传到 Azure Monitor 的 Log Analytics 工作区，以及数据处理和编制索引）收取的费用。 [定价页](https://www.azure.cn/pricing/details/monitor/)上的“数据保留”部分中还提供了针对数据保留（即，在第一个月后，根据客户选项保留数据）收取的费用。
 
 
 ## <a name="expressroute-monitor"></a>ExpressRoute 监视器
@@ -110,11 +110,11 @@ ExpressRoute 监视器的费用根据监视期间生成的数据量计费。 有
 
 **服务终结点监视器的费用是多少？**
 
-请参阅[连接监视](https://www.azure.cn/pricing/details/network-watcher/)部分，了解监视终结点的整月费用。 Log Analytics 的[定价页](https://www.azure.cn/pricing/details/log-analytics/)上的“数据引入”部分中提供了数据费用。
+请参阅[连接监视](https://www.azure.cn/pricing/details/network-watcher/)部分，了解监视终结点的整月费用。 Log Analytics 的[定价页](https://www.azure.cn/pricing/details/monitor/)上的“数据引入”部分中提供了数据费用。
 
 ## <a name="references"></a>参考
 
-[Log Analytics 定价常见问题解答](https://www.azure.cn/pricing/details/log-analytics/)：常见问题解答部分提供了有关免费层、每个节点的定价和其他定价详细信息。
+[Log Analytics 定价常见问题解答](https://www.azure.cn/pricing/details/monitor/)：常见问题解答部分提供了有关免费层、每个节点的定价和其他定价详细信息。
 
 
 

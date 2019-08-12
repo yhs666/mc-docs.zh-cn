@@ -8,20 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/31/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: ccf82df42eb9a8e5586a908c8831d4fe5e34e56b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4f5caf0d2b3cdf5dffc4152052b0fe957e9695d9
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569693"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908710"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用 Spark 活动转换数据
 
 数据工厂[管道](concepts-pipelines-activities.md)中的 Spark 活动在[自己的](compute-linked-services.md#azure-hdinsight-linked-service)或[按需](compute-linked-services.md#azure-hdinsight-on-demand-linked-service) HDInsight 群集上执行 Spark 程序。 本文基于[数据转换活动](transform-data.md)一文，它概述了数据转换和受支持的转换活动。 使用按需的 Spark 链接服务时，数据工厂会自动为你实时创建用于处理数据的 Spark 群集，然后在处理完成后删除群集。 
+
 
 ## <a name="spark-activity-properties"></a>Spark 活动属性
 下面是 Spark 活动的示例 JSON 定义：    
@@ -40,7 +41,7 @@ ms.locfileid: "67569693"
             "referenceName": "MyAzureStorageLinkedService",
             "type": "LinkedServiceReference"
         },
-        "rootPath": "adfspark\\pyFiles",
+        "rootPath": "adfspark",
         "entryFilePath": "test.py",
         "sparkConfig": {
             "ConfigItem1": "Value"

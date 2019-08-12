@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 38c9dd15621ac8ce9d3094e999e3e6b8e2fbce68
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: a75e9e903b60ccd880beab66b99daa56470fe688
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562886"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818400"
 ---
-# <a name="common-alert-schema-definitions"></a>通用警报架构定义
+# <a name="common-alert-schema-definitions"></a>常见警报架构定义
 
 本文介绍 Webhook/逻辑应用/Azure Functions/自动化 Runbook 的[通用警报架构定义](https://aka.ms/commonAlertSchemaDocs)。 
 
@@ -80,7 +80,7 @@ ms.locfileid: "67562886"
 |:---|:---|
 | alertId | 用于唯一标识警报实例的 GUID。 |
 | alertRule | 已生成警报实例的警报规则的名称。 |
-| 严重性 | 警报的严重性。 可能的值：Sev0、Sev1、Sev2、Sev3、Sev4 |
+| severity | 警报的严重性。 可能的值：Sev0、Sev1、Sev2、Sev3、Sev4 |
 | signalType | 标识在其上定义了警报规则的信号。 可能的值：Metric、Log、Activity Log |
 | monitorCondition | 当警报触发后，警报的监视条件设置为“已触发”。 当导致警报触发的基础条件解除后，监视条件会设置为“已解决”。   |
 | monitoringService | 已生成警报的监视服务或解决方案。 警报上下文的字段由监视服务规定。 |
@@ -391,5 +391,5 @@ ms.locfileid: "67562886"
 ## <a name="next-steps"></a>后续步骤
 
 - [详细了解通用警报架构](https://aka.ms/commonAlertSchemaDocs)
-- [了解如何创建一个逻辑应用，利用通用警报架构来处理所有警报。](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [了解如何创建一个逻辑应用，利用通用警报架构来处理所有警报。](/azure-monitor/platform/alerts-common-schema-integrations) 
 

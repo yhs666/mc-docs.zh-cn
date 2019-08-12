@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 05/15/2017
 ms.date: 06/03/2019
 ms.author: v-yiso
-ms.openlocfilehash: b8f95ebda10a9d195df26862e5f996c80910d502
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 810bceaa52b1b1418ac797136b9532e0ed1a6747
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194971"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878703"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Azure 云服务和 ASP.NET 入门
 
@@ -38,7 +38,7 @@ ms.locfileid: "66194971"
 应用程序使用 [以队列为中心的工作模式](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) 来减轻创建缩略图到后端进程的 CPU 密集型工作。
 
 ## <a name="alternative-architecture-app-service-and-webjobs"></a>替代体系结构：应用服务和 WebJobs
-本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 应用服务](/app-service/)中运行前端，并对后端使用 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 功能。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](https://github.com/Azure/azure-webjobs-sdk/wiki)。 有关如何选择最适合方案的服务的信息，请参阅 [Azure 应用服务、云服务和虚拟机比较](../app-service/overview-compare.md)。
+本教程演示如何在 Azure 云服务中运行前端和后端。 一种替代方法是在 [Azure 应用服务](/app-service/)中运行前端，并对后端使用 [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) 功能。 有关如何使用 WebJobs 的教程，请参阅 [Azure WebJobs SDK 入门](https://github.com/Azure/azure-webjobs-sdk/wiki)。 
 
 ## <a name="what-youll-learn"></a>学习内容
 
@@ -585,7 +585,7 @@ var imagesQueue = queueClient.GetQueueReference("images");
 imagesQueue.CreateIfNotExists();
 ```
 
-### <a name="contosoadsweb---layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
+### <a name="contosoadsweb---_layoutcshtml"></a>ContosoAdsWeb - \_Layout.cshtml
 
 *_Layout.cshtml* 文件设置页眉和页脚中的应用程序，并创建“广告”菜单项。
 

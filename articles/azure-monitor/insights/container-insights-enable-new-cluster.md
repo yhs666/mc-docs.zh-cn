@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: a7021742cc31f37ee98122c8a7c0552dcaa0640d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 9f3898743d29cfbd10d16894778381cb8e7895ad
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562979"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818130"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>启用对新的 Azure Kubernetes 服务 (AKS) 群集的监视
 
-本文介绍如何设置用于容器的 Azure Monitor，以监视准备在订阅中部署的 [Azure Kubernetes 服务](https://docs.microsoft.com/azure/aks/)上托管的托管 Kubernetes 群集。
+本文介绍如何设置用于容器的 Azure Monitor，以监视准备在订阅中部署的 [Azure Kubernetes 服务](/aks/)上托管的托管 Kubernetes 群集。
 
 可以使用下述支持的方法之一，启用对 AKS 群集的监视：
 
@@ -34,7 +34,7 @@ ms.locfileid: "67562979"
 若要使用 Azure CLI 对新建的 AKS 群集启用监视，请遵循快速入门文章的[创建 AKS 群集](../../aks/kubernetes-walkthrough.md#create-aks-cluster)部分中所述的步骤。  
 
 >[!NOTE]
->如果选择使用 Azure CLI，首先需要在本地安装和使用 CLI。 必须运行 Azure CLI 2.0.59 或更高版本。 若要确定版本，请运行 `az --version`。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。 
+>如果选择使用 Azure CLI，首先需要在本地安装和使用 CLI。 必须运行 Azure CLI 2.0.59 或更高版本。 若要确定版本，请运行 `az --version`。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 >
 
 ## <a name="enable-using-terraform"></a>使用 Terraform

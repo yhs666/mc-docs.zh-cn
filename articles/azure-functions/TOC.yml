@@ -90,8 +90,6 @@
           href: functions-reference-java.md
         - name: Python
           href: functions-reference-python.md
-    - name: 诊断
-      href: ../app-service/overview-diagnostics.md
     - name: 性能注意事项
       href: functions-best-practices.md
     - name: Functions 代理

@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/05/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
+origin.date: 06/18/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: b95f751de2457de14f6bb9afaf19d42e04d4dbc2
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: e52bac9b287ea1135ade50a2b0e1c628248c8bfe
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232270"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878549"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -72,7 +72,7 @@ az webapp create --name <app-name> --resource-group <group-name> --plan <plan-na
 
 在 Cloud Shell 中运行以下命令以获取应用凭据。 请将 \<app-name> 和 \<group-name> 替换为应用和 Azure 资源组的名称。
 
-```azurecli-interactive
+```azurecli
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv
 ```
 
@@ -111,6 +111,5 @@ az webapp deployment list-publishing-credentials --name <app-name> --resource-gr
 ## <a name="additional-resources"></a>其他资源
 
 - [项目 Kudu 文档](https://github.com/projectkudu/kudu/wiki)
-- [持续部署到 Azure 应用服务](deploy-continuous-deployment.md)
 - [示例：从本地 Git 存储库创建 Web 应用和部署代码 (Azure CLI)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
 - [示例：从本地 Git 存储库创建 Web 应用和部署代码 (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

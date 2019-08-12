@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 58d2b3e9beedc3e2ea8783ce46efa88b87393e8e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: dbd7f215dbccd5729a3af402be52b2accded265a
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570623"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912975"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Azure 认可的 Linux 分发版
 合作伙伴在 Azure 市场中提供了 Linux 映像。 我们与各大 Linux 社区合作以便在认可的发行版列表中添加更多成员。 在此期间，对于市场未提供的分发，用户始终可以按照[创建并上传包含 Linux 操作系统的虚拟硬盘](/virtual-machines/linux/create-upload-generic)中的准则安装自己的 Linux。
@@ -44,7 +44,7 @@ Azure Linux 代理已预安装在 Azure 市场映像中，通常可从分发的�
 | openSUSE |openSUSE Leap 42.2+ |在内核中 |包：在“python-azure-agent”下的 [Cloud:Tools](https://build.opensuse.org/project/show/Cloud:Tools) 存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |在内核中 |包：在“walinuxagent”下的存储库中 <br/>源代码：[GitHub](https://github.com/Azure/WALinuxAgent) |
 
-  - **<sup>1</sup>** 对 Ubuntu 12.04 和 14.04 的扩展支持有关的信息可在此处找到：[Ubuntu 扩展安全维护](https://www.ubuntu.com/esm)。
+- **<sup>1</sup>** 对 Ubuntu 12.04 和 14.04 的扩展支持有关的信息可在此处找到：[Ubuntu 扩展安全维护](https://www.ubuntu.com/esm)。
 
 <!--Not Available on Oracle Linux, Red Hat Enterprise Linux -->
 

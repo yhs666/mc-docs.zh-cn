@@ -12,12 +12,12 @@ ms.topic: article
 origin.date: 11/20/2018
 ms.date: 07/29/2019
 ms.author: v-biyu
-ms.openlocfilehash: 372ce410d58b7542eab158904c5b40c4f30ef202
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: bb35d2839ed7d01e8fc9b930619050ac126eb53f
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232275"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878536"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>如何使用应用服务和 Azure Functions 的托管标识
 
@@ -168,7 +168,7 @@ Azure 资源管理器模板可以用于自动化 Azure 资源部署。 若要详
 
 首先，需要创建用户分配的标识资源。
 
-1. 创建用户分配的托管标识资源。
+1. 根据[这些说明](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)创建用户分配的托管标识资源。
 
 2. 按常规在门户中创建应用。 在门户中导航到该应用。
 
@@ -249,7 +249,7 @@ Azure 资源管理器模板可以用于自动化 Azure 资源部署。 若要详
 应用程序可以使用其标识获取其他受 AAD 保护的资源（如 Azure Key Vault）的令牌。 这些令牌代表访问资源的应用程序，而不是应用程序的任何特定用户。 
 
 > [!IMPORTANT]
-> 可能需要配置目标资源，允许从应用程序进行访问。 例如，如果请求 Key Vault 的令牌，需要确保已添加包含应用程序标识的访问策略。 否则，对 Key Vault 的调用将被拒绝，即使其中包含令牌。 
+> 可能需要配置目标资源，允许从应用程序进行访问。 例如，如果请求 Key Vault 的令牌，需要确保已添加包含应用程序标识的访问策略。 否则，对 Key Vault 的调用将被拒绝，即使其中包含令牌。 若要详细了解支持 Azure Active Directory 令牌的资源，请参阅[支持 Azure AD 身份验证的 Azure 服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)。
 
 在应用服务和 Azure Functions 中，使用简单的 REST 协议获取令牌。 对于 .NET 应用程序，Microsoft.Azure.Services.AppAuthentication 库提供此协议的摘要并支持本地开发体验。
 
@@ -312,7 +312,7 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 > |参数名称|In|说明|
 > |-----|-----|-----|
-> |resource|查询|应获取其令牌的资源的 AAD 资源 URI。|
+> |resource|查询|应获取其令牌的资源的 AAD 资源 URI。 这可以是[支持 Azure AD 身份验证的 Azure 服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)或任何其他资源 URI 之一。|
 > |api-version|查询|要使用的令牌 API 版本。 目前唯一支持的版本是 "2017-09-01"。|
 > |secret|标头|MSI_SECRET 环境变量的值。 此标头用于帮助缓解服务器端请求伪造 (SSRF) 攻击。|
 > |clientid|查询|（可选）要使用的用户分配的标识的 ID。 如果省略，则将使用系统分配的标识。|
@@ -416,4 +416,4 @@ $accessToken = $tokenResponse.access_token
 > [!div class="nextstepaction"]
 > [使用托管标识安全地访问 SQL 数据库](app-service-web-tutorial-connect-msi.md)
 
-[Microsoft.Azure.Services.AppAuthentication 参考]: https://go.microsoft.com/fwlink/p/?linkid=862452
+[Microsoft.Azure.Services.AppAuthentication 参考]: /key-vault/service-to-service-authentication

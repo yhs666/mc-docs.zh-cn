@@ -10,12 +10,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 04/15/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 0a00bddefe1ff47e3862de6c1392fd6c012e0f9f
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: f43e707aa96c197bf2fe8bfa80785390182b62e4
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520815"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878754"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
 
@@ -40,7 +40,7 @@ Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和
 
 *  ***支持 Azure Data Lake Storage Gen2*** - HDInsight 将支持 Azure Data Lake Storage Gen2 的预览版本。 在可用区域中，客户可以选择将 ADLS Gen2 帐户作为 HDInsight 群集的主要存储或辅助存储。
 
-*  ***HDInsight 企业安全性套餐更新（预览版）*** -（预览版）[虚拟网络服务终结点](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 Azure DB。
+*  ***HDInsight 企业安全性套餐更新（预览版）*** -（预览版）[虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 Azure DB。
 
 ## <a name="component-versions"></a>组件版本
 
@@ -824,73 +824,73 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
-| **摘要：** Apache Ranger 策略评估忽略“\*”通配符后面的字符 |
+| **摘要：**  Apache Ranger 策略评估忽略“\*”通配符后面的字符 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **严重性：** 关键                                                                           |
-| **供应商：** Hortonworks                                                                          |
-| **受影响的版本：** HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5.x/0.6.x/0.7.0     |
-| **受影响的用户：** 使用在“\*”通配符后面包含字符的 Ranger 策略的环境 – 如 my\*test、test\*.txt |
-| **影响：** 策略资源匹配程序将忽略“\*”通配符后面的字符，从而可能导致意外的行为。      |
-| **修复详细信息：** Ranger 策略资源匹配程序已更新，可以正确处理通配符匹配。           |
-| **建议的操作：** 升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。                                |
+| **严重性：**  关键                                                                           |
+| **供应商：**  Hortonworks                                                                          |
+| **受影响的版本：**  HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5.x/0.6.x/0.7.0     |
+| **受影响的用户：**  使用在“\*”通配符后面包含字符的 Ranger 策略的环境 – 如 my\*test、test\*.txt |
+| **影响：**  策略资源匹配程序将忽略“\*”通配符后面的字符，从而可能导致意外的行为。      |
+| **修复详细信息：**  Ranger 策略资源匹配程序已更新，可以正确处理通配符匹配。           |
+| **建议的操作：**  升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。                                |
 
 ### <a name="cve-2017-7677"></a>**CVE-2017-7677**
 
-| **摘要：** 指定了外部位置时，Apache Ranger Hive 授权者应检查 RWX 权限 |
+| **摘要：**  指定了外部位置时，Apache Ranger Hive 授权者应检查 RWX 权限 |
 |--------------------------------------------------------------------------------------------------|
-| **严重性：** 关键                                                                           |
-| **供应商：** Hortonworks                                                                          |
-| **受影响的版本：** HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5.x/0.6.x/0.7.0 |
-| **受影响的用户：** 对 hive 表使用外部位置的环境 |
-| **影响：** 在对 hive 表使用外部位置的环境中，Apache Ranger Hive 授权者应检查指定用于创建表的外部位置的 RWX 权限。 |
-| **修复详细信息：** Ranger Hive 授权者已更新，可以使用外部位置正确处理权限检查。 |
-| **建议的操作：** 用户应升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。 |
+| **严重性：**  关键                                                                           |
+| **供应商：**  Hortonworks                                                                          |
+| **受影响的版本：**  HDInsight 3.6 版本，包括 Apache Ranger 版本 0.5.x/0.6.x/0.7.0 |
+| **受影响的用户：**  对 hive 表使用外部位置的环境 |
+| **影响：**  在对 hive 表使用外部位置的环境中，Apache Ranger Hive 授权者应检查指定用于创建表的外部位置的 RWX 权限。 |
+| **修复详细信息：**  Ranger Hive 授权者已更新，可以使用外部位置正确处理权限检查。 |
+| **建议的操作：**  用户应升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。 |
 
 ### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
-| **摘要：** 可能以 Apache Storm 中错误用户的身份执行代码 |
+| **摘要：**  可能以 Apache Storm 中错误用户的身份执行代码 |
 |--------------------------------------------------------------------------------------------------|
-|**严重性：** 重要 |
-| **供应商：** Hortonworks |
-| **受影响的版本：** HDP-2.4.0、HDP-2.5.0、HDP-2.6.0 |
-| **受影响的用户：** 在安全模式下使用 Storm，并使用 Blob 存储来分发基于拓扑的项目或使用 Blob 存储来分发任何拓扑资源的用户。 |
-| **影响：** 在某些情况下使用 storm 的配置时，在理论上，拓扑的所有者能够以不同的非 root 用户身份欺骗监督程序来启动辅助角色。 在最坏的情况下，这可能导致其他用户的安全凭据泄密。 此漏洞仅适用于已启用安全性的 Apache Storm 安装。 |
-| **缓解措施：** 目前没有解决方法，只能升级到 HDP 2.6.2.1。  |
+|**严重性：**  重要 |
+| **供应商：**  Hortonworks |
+| **受影响的版本：**  HDP-2.4.0、HDP-2.5.0、HDP-2.6.0 |
+| **受影响的用户：**  在安全模式下使用 Storm，并使用 Blob 存储来分发基于拓扑的项目或使用 Blob 存储来分发任何拓扑资源的用户。 |
+| **影响：**  在某些情况下使用 storm 的配置时，在理论上，拓扑的所有者能够以不同的非 root 用户身份欺骗监督程序来启动辅助角色。 在最坏的情况下，这可能导致其他用户的安全凭据泄密。 此漏洞仅适用于已启用安全性的 Apache Storm 安装。 |
+| **缓解措施：**  目前没有解决方法，只能升级到 HDP 2.6.2.1。  |
 
 ### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
-| **摘要：** 4.0.37.Final 之前的 Netty 4.0.x 以及 4.1.1.Final 之前的 4.1.x 中的 handler/ssl/OpenSslEngine.java 允许远程攻击者造成拒绝服务（无限循环） |
+| **摘要：**  4.0.37.Final 之前的 Netty 4.0.x 以及 4.1.1.Final 之前的 4.1.x 中的 handler/ssl/OpenSslEngine.java 允许远程攻击者造成拒绝服务（无限循环） |
 |--------------------------------------------------------------------------------------------------|
 | **严重性：** 中等  |
-| **供应商：** Hortonworks  |
-| **受影响的版本：** 从 2.3.x 开始的 HDP 2.x.x  |
-| **受影响的用户：** 使用 HDFS 的所有用户。 |
-| **影响：** 影响较低，因为 Hortonworks 不直接在 Hadoop 代码库中使用 OpenSslEngine.java。     |
-| **建议的操作：** 升级到 HDP 2.6.3。   |
+| **供应商：**  Hortonworks  |
+| **受影响的版本：**  从 2.3.x 开始的 HDP 2.x.x  |
+| **受影响的用户：**  使用 HDFS 的所有用户。 |
+| **影响：**  影响较低，因为 Hortonworks 不直接在 Hadoop 代码库中使用 OpenSslEngine.java。     |
+| **建议的操作：**  升级到 HDP 2.6.3。   |
 
 ### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
-| **摘要：** 策略评估中存在 Apache Ranger 路径匹配问题                                                                    |
+| **摘要：**  策略评估中存在 Apache Ranger 路径匹配问题                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
-| **严重性：** 普通                                                                                                                   |
+| **严重性：**  普通                                                                                                                   |
 | **供应商：** Hortonworks                                                                                                                |
-| **受影响的版本：** 所有 HDP 2.5 版本，包括 Apache Ranger 版本 0.6.0/0.6.1/0.6.2                                         |
-| **受影响的用户：** Ranger 策略管理工具的所有用户。                                                                         |
-| **影响：** 在某些情况下，当策略包含通配符和递归标志时，Ranger 策略引擎不会正确匹配路径。 |
+| **受影响的版本：**  所有 HDP 2.5 版本，包括 Apache Ranger 版本 0.6.0/0.6.1/0.6.2                                         |
+| **受影响的用户：**  Ranger 策略管理工具的所有用户。                                                                         |
+| **影响：**  在某些情况下，当策略包含通配符和递归标志时，Ranger 策略引擎不会正确匹配路径。 |
 | **修复详细信息：** 已修复策略评估逻辑                                                                                          |
-| **建议的操作：** 用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）         |
+| **建议的操作：**  用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）         |
 
 ### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
-| **摘要：** Apache Ranger 存储跨站点脚本问题  |
+| **摘要：**  Apache Ranger 存储跨站点脚本问题  |
 |--------------------------------------------------------------------------------------------------|
-| **严重性：** 普通 |
-| **供应商：** Hortonworks |
-| **受影响的版本：** 所有 HDP 2.3/2.4/2.5 版本，包括 Apache Ranger 版本 0.5.x/0.6.0/0.6.1/0.6.2  |
-| **受影响的用户：** Ranger 策略管理工具的所有用户。 |
-| **影响：** 进入自定义的策略条件时，Apache Ranger 容易受到存储跨站点脚本攻击。 当普通用户登录和访问策略时，管理员用户可能会存储一些任意 javascript 代码执行。 |
-| **修复详细信息：** 添加了逻辑来清理用户输入。  |
-| **建议的操作：** 用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）  |
+| **严重性：**  普通 |
+| **供应商：**  Hortonworks |
+| **受影响的版本：**  所有 HDP 2.3/2.4/2.5 版本，包括 Apache Ranger 版本 0.5.x/0.6.0/0.6.1/0.6.2  |
+| **受影响的用户：**  Ranger 策略管理工具的所有用户。 |
+| **影响：**  进入自定义的策略条件时，Apache Ranger 容易受到存储跨站点脚本攻击。 当普通用户登录和访问策略时，管理员用户可能会存储一些任意 javascript 代码执行。 |
+| **修复详细信息：**  添加了逻辑来清理用户输入。  |
+| **建议的操作：**  用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）  |
 
 ## <a name="fixed-issues-for-support"></a>修复了支持问题
 
@@ -1373,7 +1373,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
     
   如果用户想要创建包含自定义策略条件和表达式的策略，或文本中含有特殊字符，则无法强制实施策略。 在数据库中保存策略之前，特殊字符将转换为 ASCII。
     
-  **特殊字符：** & &lt; &gt; " \` '
+  **特殊字符：**  & &lt; &gt; " \` '
     
   例如，保存策略后，条件 tags.attributes\['type'\]='abc' 将转换为以下内容。
     
@@ -1437,6 +1437,6 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 ## <a name="upgrading"></a>正在升级
 
-所有这些功能已在 HDInsight 3.6 中提供。 若要获取最新版本的 Spark、Kafka 和 R Server（机器学习服务），请在[创建 HDInsight 3.6 群集](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)时选择 Spark、Kafka 和 机器学习服务版本。 若要获取 ADLS 支持，可以选择 ADLS 存储类型作为选项。 现有群集不会自动升级到这些版本。
+所有这些功能已在 HDInsight 3.6 中提供。 若要获取最新版本的 Spark、Kafka 和 R Server（机器学习服务），请在[创建 HDInsight 3.6 群集](/hdinsight/hdinsight-hadoop-provision-linux-clusters)时选择 Spark、Kafka 和 机器学习服务版本。 若要获取 ADLS 支持，可以选择 ADLS 存储类型作为选项。 现有群集不会自动升级到这些版本。
 
-在 2018 年 6 月后创建的所有新群集将自动获取所有开源项目的 1000 多个 bug 修复。 请遵循[此指南](https://docs.microsoft.com/azure/hdinsight/hdinsight-upgrade-cluster)，获取有关升级到较新 HDInsight 版本的最佳做法。
+在 2018 年 6 月后创建的所有新群集将自动获取所有开源项目的 1000 多个 bug 修复。 请遵循[此指南](/hdinsight/hdinsight-upgrade-cluster)，获取有关升级到较新 HDInsight 版本的最佳做法。

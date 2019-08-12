@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/30/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 1815c6652602226bc8aee8164389dd416741297f
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: ab149a3e4a2ab8b278facda26e4e4c34dd0589a4
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844927"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819625"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 

@@ -1,20 +1,20 @@
 ---
 title: 快速入门 - 使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell | Microsoft Docs
-description: 了解如何使用 Azure PowerShell 创建 Azure 应用程序网关，用以将 Web 流量重定向到后端池中的虚拟机。
+description: 了解如何使用 Azure PowerShell 创建 Azure 应用程序网关，以便将 Web 流量重定向到后端池中的虚拟机。
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-origin.date: 01/11/2019
-ms.date: 06/12/2019
+origin.date: 06/11/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: b7406a802a3555b2303a050cde26c6fc7f34fe88
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 497b53cf944f9134da0dce333547f76cdb35c963
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027438"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818819"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell
 
@@ -35,7 +35,7 @@ ms.locfileid: "67027438"
 
 ### <a name="resource-group"></a>资源组
 
-在 Azure 中，可将相关的资源分配到资源组。 可以使用现有资源组，也可以创建新组。 本示例使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/Az.resources/new-Azresourcegroup) cmdlet 创建新的资源组，如下所示： 
+在 Azure 中，可将相关的资源分配到资源组。 可以使用现有资源组，也可以创建新组。 在此示例中，将使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/Az.resources/new-Azresourcegroup) cmdlet 创建新的资源组，如下所示： 
 
 ```azurepowershell
 New-AzResourceGroup -Name myResourceGroupAG -Location chinanorth
@@ -43,7 +43,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location chinanorth
 
 ### <a name="required-network-resources"></a>所需的网络资源
 
-Azure 需要一个虚拟网络才能在创建的资源之间通信。  应用程序网关子网只能包含应用程序网关。 不允许其他资源。  可为应用程序网关创建新的子网，或者使用现有的子网。 本示例将创建两个子网：一个用于应用程序网关，另一个用于后端服务器。 可根据用例将应用程序网关的前端 IP 配置为公共或专用 IP。 本示例选择了公共前端 IP。
+Azure 需要一个虚拟网络才能在创建的资源之间通信。  应用程序网关子网只能包含应用程序网关。 不允许其他资源。  可为应用程序网关创建新的子网，或者使用现有的子网。 本示例将创建两个子网：一个用于应用程序网关，另一个用于后端服务器。 可根据用例将应用程序网关的前端 IP 配置为公共或专用 IP。 本示例将选择公共前端 IP。
 
 1. 通过调用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/Az.network/new-Azvirtualnetworksubnetconfig) 创建子网配置。
 2. 通过调用 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/Az.network/new-Azvirtualnetwork) 创建带有子网配置的虚拟网络。 
@@ -108,7 +108,7 @@ for ($i=1; $i -le 2; $i++)
   Add-AzVMNetworkInterface `
     -VM $vm `
     -Id $nic.Id
-  Set-AzVMBootDiagnostics `
+  Set-AzVMBootDiagnostic `
     -VM $vm `
     -Disable
   New-AzVM -ResourceGroupName myResourceGroupAG -Location ChinaNorth -VM $vm
@@ -218,7 +218,7 @@ New-AzApplicationGateway `
 虽然不需 IIS 即可创建应用程序网关，但本快速入门中安装了它，用来验证 Azure 是否已成功创建应用程序网关。 使用 IIS 测试应用程序网关：
 
 1. 运行 [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/Az.network/get-Azpublicipaddress) 获取应用程序网关的公共 IP 地址。 
-2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 刷新浏览器时，应该会看到虚拟机的名称。 有效的响应中会确认已成功创建应用程序网关，并且它可以成功连接到后端。
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。 刷新浏览器时，应该会看到虚拟机的名称。 有效响应验证应用程序网关是否已成功创建，以及是否能够成功连接后端。
 
 ```azurepowershell
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress

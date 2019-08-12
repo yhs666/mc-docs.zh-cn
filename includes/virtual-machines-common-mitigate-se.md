@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 06/04/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 697c0d6b9dca5f4bd5434bb2288bb5c1098c483f
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 6257d8d4b945e37080dbd48b160c15fbadeadd55
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332787"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912969"
 ---
 **上次文档更新时间**：太平洋标准时间 2019 年 6 月 4 日下午 3:00。
 
@@ -22,7 +22,7 @@ ms.locfileid: "68332787"
 
 Azure 已在我们的所有云服务中部署了缓解措施。 运行 Azure 并将客户工作负荷相互隔离的基础结构是受保护的。 这意味着使用同一基础结构的潜在攻击者无法使用这些漏洞攻击你的应用程序。
 
-Azure 尽可能使用[内存保留维护](/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot)，这样可以尽量降低对客户的影响并且不需要重启。 Azure 会在对主机进行系统级更新时继续利用这些方法，对客户进行保护。
+Azure 尽可能使用[内存保留维护](/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot)，这样可以尽量降低对客户的影响并且不需要重启。 Azure 会在对主机进行系统级更新时继续利用这些方法，对客户进行保护。
 
 若要详细了解如何将安全性集成到 Azure 的各个方面，请访问 [Azure 安全文档](/security/)站点。 
 
@@ -83,7 +83,7 @@ Azure 尽可能使用[内存保留维护](/virtual-machines/windows/maintenance-
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 ```
 
-如果逻辑处理器数量大于物理处理器（核心）数量，则超线程功能已启用。  如果运行的是超线程 VM，请[联系 Azure 支持](https://support.azure.cn/zh-cn/support/support-azure/)以禁用超线程功能。  在超线程功能已禁用后，**支持人员将要求完全重启 VM**。 请参阅[核心计数](#core-count)以了解 VM 核心计数减少的原因。
+如果逻辑处理器数量大于物理处理器（核心）数量，则超线程功能已启用。  如果运行的是超线程 VM，请[联系 Azure 支持](https://support.azure.cn/support/support-azure/)以禁用超线程功能。  在超线程功能已禁用后，**支持人员将要求完全重启 VM**。 请参阅[核心计数](#core-count)以了解 VM 核心计数减少的原因。
 
 **步骤 2**：在执行步骤 1 的同时，请按照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的说明，使用 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 模块验证是否已启用了保护。
 
@@ -101,7 +101,7 @@ Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
 ```
 
-如果输出显示 `MDS mitigation is enabled: False`，请[联系 Azure 支持](https://support.azure.cn/zh-cn/support/support-azure/)以了解可用的缓解选项。
+如果输出显示 `MDS mitigation is enabled: False`，请[联系 Azure 支持](https://support.azure.cn/support/support-azure/)以了解可用的缓解选项。
 
 **步骤 3**：若要启用内核虚拟地址隐藏 (KVAS) 和分支目标注入 (BTI) OS 支持，请按照 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 中的说明，使用 `Session Manager` 注册表项启用保护。 必须重启。
 
@@ -136,7 +136,7 @@ NUMA node(s):          1
 
 ```
 
-如果运行的是超线程 VM，请[联系 Azure 支持](https://support.azure.cn/zh-cn/support/support-azure/)以禁用超线程功能。  在超线程功能已禁用后，**支持人员将要求完全重启 VM**。 请参阅[核心计数](#core-count)以了解 VM 核心计数减少的原因。
+如果运行的是超线程 VM，请[联系 Azure 支持](https://support.azure.cn/support/support-azure/)以禁用超线程功能。  在超线程功能已禁用后，**支持人员将要求完全重启 VM**。 请参阅[核心计数](#core-count)以了解 VM 核心计数减少的原因。
 
 **步骤 2**：若要针对以下任何推理执行旁道漏洞进行缓解，请参阅操作系统提供商的文档：   
 

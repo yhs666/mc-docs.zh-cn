@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 101e9dda6f72b48ed18687f2a93bd096f5dfbab9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 8d6668a180ec5054edc8cc1c5ff16d2b3b249c51
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562718"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818374"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
-[Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](https://www.azure.cn/services/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
+[Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
 
 ![“概述”仪表板](./media/cloudservices/overview-graphs.png)
 
@@ -141,7 +141,7 @@ ms.locfileid: "67562718"
 
 仅当你希望在 .NET Framework 上捕获完整的 SQL 查询时，才需要此步骤。 
 
-1. 在 `\*.csdef` 文件中为每个角色添加[启动任务](https://docs.microsoft.com/azure/cloud-services/cloud-services-startup-tasks)，如下所示 
+1. 在 `\*.csdef` 文件中为每个角色添加[启动任务](/cloud-services/cloud-services-startup-tasks)，如下所示 
 
     ```xml
     <Startup>

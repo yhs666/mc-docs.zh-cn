@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 42390f18a3b8520a4c05c5c0354853c373a16837
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: cb81d76eebd550112982bc3263405bcc9476eb5c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136015"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818435"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询预测终结点
 
@@ -34,7 +34,7 @@ ms.locfileid: "67136015"
 
 想要更多文档？
 
- * [SDK 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
+ * [SDK 参考文档](https://docs.microsoft.com/dotnet/api/overview/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
 
 
 ## <a name="get-cognitive-services-or-language-understanding-key"></a>获取认知服务或语言理解密钥
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>创建用于预测的新方法
 
-创建新方法 `GetPrediction`，以便将查询发送到查询预测终结点。 该方法会创建并配置所有必需的对象，然后返回包含 [`LuisResult`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) 预测结果的 `Task`。 
+创建新方法 `GetPrediction`，以便将查询发送到查询预测终结点。 该方法会创建并配置所有必需的对象，然后返回包含 [`LuisResult`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-dotnet) 预测结果的 `Task`。 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {
@@ -99,7 +99,7 @@ var credentials = new ApiKeyServiceClientCredentials(endpointPredictionkey);
 
 ## <a name="create-language-understanding-client"></a>创建语言理解客户端
 
-在 `GetPrediction` 方法中，在上述代码后面添加下述使用新凭据所需的代码，创建 [`LUISRuntimeClient`](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) 客户端对象。 
+在 `GetPrediction` 方法中，在上述代码后面添加下述使用新凭据所需的代码，创建 [`LUISRuntimeClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient.-ctor?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_LUIS_Runtime_LUISRuntimeClient__ctor_Microsoft_Rest_ServiceClientCredentials_System_Net_Http_DelegatingHandler___) 客户端对象。 
 
 将 `<REPLACE-WITH-YOUR-KEY-REGION>` 替换为密钥的区域，例如 `chinaeast`。 密钥区域位于 [Azure 门户](https://portal.azure.cn)中该资源的“概览”页上。
 
@@ -181,7 +181,7 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 
 ## <a name="next-steps"></a>后续步骤
 
-详细了解 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 和 [.NET 参考文档](https://docs.azure.cn/zh-cn/dotnet/api/overview/cognitiveservices/client/languageunderstanding?view=azure-dotnet)。 
+详细了解 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 和 [.NET 参考文档](https://docs.microsoft.com/dotnet/api/overview/cognitiveservices/client/languageunderstanding?view=azure-dotnet)。 
 
 > [!div class="nextstepaction"] 
 > [教程：生成 LUIS 应用，以确定用户意向](luis-quickstart-intents-only.md) 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 03/04/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 23827620f6150c397c0c1ff646c772d01a300035
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 27caa43264582ff3178e2a994b46a5320e459f83
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463585"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819622"
 ---
 # <a name="service-fabric-networking-patterns"></a>Service Fabric 网络模式
 可将 Azure Service Fabric 群集与其他 Azure 网络功能集成。 本文说明如何创建使用以下功能的群集：
@@ -34,7 +34,9 @@ Service Fabric 在标准的虚拟机规模集中运行。 可在虚拟机规模�
 
 与其他网络功能相比，Service Fabric 的独特之处体现在一个方面。 [Azure 门户](https://portal.azure.cn)在内部使用 Service Fabric 资源提供程序连接到群集，以获取有关节点和应用程序的信息。 Service Fabric 资源提供程序需要对管理终结点上的 HTTP 网关端口（默认为 19080）具有可公开访问的入站访问权限。 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 使用该管理终结点来管理群集。 Service Fabric 资源提供程序还使用此端口来查询有关群集的信息，以便在 Azure 门户中显示。 
 
-如果无法通过 Service Fabric 资源提供程序访问端口 19080，门户中会显示一条类似于“找不到节点”的消息，并且节点和应用程序列表显示为空。 如果想要在 Azure 门户中查看群集，负载均衡器必须公开一个公共 IP 地址，并且网络安全组必须允许端口 19080 上的传入流量。 如果设置不满足这些要求，Azure 门户不会显示群集的状态。
+如果无法通过 Service Fabric 资源提供程序访问端口 19080，门户中会显示一条类似于“找不到节点”  的消息，并且节点和应用程序列表显示为空。 如果想要在 Azure 门户中查看群集，负载均衡器必须公开一个公共 IP 地址，并且网络安全组必须允许端口 19080 上的传入流量。 如果设置不满足这些要求，Azure 门户不会显示群集的状态。
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>模板
 
@@ -52,7 +54,7 @@ Service Fabric 在标准的虚拟机规模集中运行。 可在虚拟机规模�
 静态公共 IP 地址通常是一个专用资源，与其所分配的 VM 分开管理。 它在专用网络资源组中（而不是在 Service Fabric 群集资源组本身中）预配。 使用 Azure 门户或 PowerShell 在同一个 ExistingRG 资源组中创建名为 staticIP1 的静态公共 IP 地址：
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location chinanorth -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location chinanorth -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -167,8 +169,8 @@ DnsSettings              : {
 6. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location chinanorth
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location chinanorth
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     部署后，虚拟网络应包含新的规模集 VM。 虚拟机规模集节点类型应显示现有虚拟网络和子网。 还可以使用远程桌面协议 (RDP) 访问虚拟网络中已有的 VM，并对新规模集 VM 执行 ping 操作：
@@ -265,7 +267,7 @@ DnsSettings              : {
         ],
     ```
 
-7. 在 `Microsoft.ServiceFabric/clusters` 资源中，将 `managementEndpoint` 更改为静态 IP 地址的 DNS FQDN。 如果使用安全群集，请确保将 *http://* 更改为 *https://*。 （请注意，此步骤仅适用于 Service Fabric 群集。 如果使用虚拟机规模集，请跳过此步骤。）
+7. 在 `Microsoft.ServiceFabric/clusters` 资源中，将 `managementEndpoint` 更改为静态 IP 地址的 DNS FQDN。 如果使用安全群集，请确保将 *http://* 更改为 *https://* 。 （请注意，此步骤仅适用于 Service Fabric 群集。 如果使用虚拟机规模集，请跳过此步骤。）
 
     ```json
     "fabricSettings": [],
@@ -276,13 +278,13 @@ DnsSettings              : {
 8. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location chinanorth
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location chinanorth
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 部署后，可以看到负载均衡器已绑定到其他资源组中的公共静态 IP 地址。 Service Fabric 客户端连接终结点和 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 终结点指向静态 IP 地址的 DNS FQDN。
@@ -367,7 +369,7 @@ DnsSettings              : {
         ],
     ```
 
-6. 在 `Microsoft.ServiceFabric/clusters` 资源中，将 `managementEndpoint` 更改为指向内部负载均衡器地址。 如果使用安全群集，请确保将 *http://* 更改为 *https://*。 （请注意，此步骤仅适用于 Service Fabric 群集。 如果使用虚拟机规模集，请跳过此步骤。）
+6. 在 `Microsoft.ServiceFabric/clusters` 资源中，将 `managementEndpoint` 更改为指向内部负载均衡器地址。 如果使用安全群集，请确保将 *http://* 更改为 *https://* 。 （请注意，此步骤仅适用于 Service Fabric 群集。 如果使用虚拟机规模集，请跳过此步骤。）
 
     ```json
     "fabricSettings": [],
@@ -378,9 +380,9 @@ DnsSettings              : {
 7. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location chinanorth
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location chinanorth
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 部署后，负载均衡器使用专用静态 IP 地址 10.0.0.250。 如果同一虚拟网络中还有其他计算机，可以转到内部 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 终结点。 可以看到，该终结点已连接到负载均衡器后面的某个节点。
@@ -407,13 +409,13 @@ DnsSettings              : {
 
     ```json
     /* Add internal load balancer networking variables */
-            "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
-            "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
-            "lbPoolID0-Int": "[concat(variables('lbID0-Int'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
-            "lbProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricGatewayProbe')]",
-            "lbHttpProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricHttpGatewayProbe')]",
-            "lbNatPoolID0-Int": "[concat(variables('lbID0-Int'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
-            /* Internal load balancer networking variables end */
+    "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
+    "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
+    "lbPoolID0-Int": "[concat(variables('lbID0-Int'),'/backendAddressPools/LoadBalancerBEAddressPool')]",
+    "lbProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricGatewayProbe')]",
+    "lbHttpProbeID0-Int": "[concat(variables('lbID0-Int'),'/probes/FabricHttpGatewayProbe')]",
+    "lbNatPoolID0-Int": "[concat(variables('lbID0-Int'),'/inboundNatPools/LoadBalancerBEAddressNatPool')]",
+    /* Internal load balancer networking variables end */
     ```
 
 4. 如果从使用应用程序端口 80、由门户生成的模板开始，则默认门户模板会在外部负载均衡器上添加 AppPort1（端口 80）。 在此情况下，请将 AppPort1 从外部负载均衡器 `loadBalancingRules` 和探测中删除，以便将其添加到内部负载均衡器中：
@@ -582,27 +584,29 @@ DnsSettings              : {
 
     ```json
     "loadBalancerBackendAddressPools": [
-                                                        {
-                                                            "id": "[variables('lbPoolID0')]"
-                                                        },
-                                                        {
-                                                            /* Add internal BE pool */
-                                                            "id": "[variables('lbPoolID0-Int')]"
-                                                        }
+        {
+            "id": "[variables('lbPoolID0')]"
+        },
+        {
+            /* Add internal BE pool */
+            "id": "[variables('lbPoolID0-Int')]"
+        }
     ],
     ```
 
 7. 部署模板：
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location chinanorth
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location chinanorth
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
 部署后，可在资源组中看到两个负载均衡器。 如果浏览这两个负载均衡器，可以看到公共 IP 地址和分配给公共 IP 地址的管理终结点（端口 19000 和 19080）。 此外，还会看到静态内部 IP 地址和分配给内部负载均衡器的应用程序终结点（端口 80）。 这两个负载均衡器使用同一个虚拟机规模集后端池。
 
 ## <a name="next-steps"></a>后续步骤
 [创建群集](service-fabric-cluster-creation-via-arm.md)
+
+部署后，可在资源组中看到两个负载均衡器。 如果浏览这两个负载均衡器，可以看到公共 IP 地址和分配给公共 IP 地址的管理终结点（端口 19000 和 19080）。 此外，还会看到静态内部 IP 地址和分配给内部负载均衡器的应用程序终结点（端口 80）。 这两个负载均衡器使用同一个虚拟机规模集后端池。
 
 <!--Update_Description: update meta properties, wording update-->

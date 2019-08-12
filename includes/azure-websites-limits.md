@@ -1,4 +1,12 @@
-| 资源 | 免费 | 共享（预览） | 基本 | 标准 | 高级 </th> |
+---
+ms.openlocfilehash: 51af4b827c52666dd668edbc1f17392dab2a97c7
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912297"
+---
+| Resource | 免费 | 共享（预览） | 基本 | 标准 | 高级 </th> |
 | --- | --- | --- | --- | --- | --- |
 | 每个[应用服务计划](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)的 [Web 应用、移动应用或 API 应用数](/app-service/)<sup>1</sup> |10 个 |100 |无限制<sup>2</sup> |无限制<sup>2</sup> |无限制<sup>2</sup> |
 | 每个[应用服务计划](../articles/app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md)的[逻辑应用数](/logic-apps/)</a><sup>1</sup> |10 个 |10 个 |10 个 |每个核心 20 个 |每个核心 20 个 |
@@ -17,7 +25,7 @@
 | [自定义域](../articles/app-service/app-service-web-tutorial-custom-domain.md)支持 | |X |X |X |X |
 | 自定义域 [SSL 支持](../articles/app-service/app-service-web-tutorial-custom-ssl.md) | | |无限制的 SNI SSL 连接 |包含无限制的 SNI SSL 连接和 1 个 IP SSL 连接 |包含无限制的 SNI SSL 连接和 1 个 IP SSL 连接 |
 | 集成负载均衡器 | |X |X |X |X |
-| [始终打开](../articles/app-service/web-sites-configure.md) | | |X |X |X |
+| [始终打开](../articles/app-service/configure-common.md) | | |X |X |X |
 | [计划备份](../articles/app-service/web-sites-backup.md) | | | | 计划每 2 小时备份一次，每天最多 12 个备份（手动 + 计划） | 计划每小时备份一次，每天最多 50 个备份（手动 + 计划） |
 | [自动缩放](../articles/app-service/web-sites-scale.md) | | | |X |X |
 | [WebJobs](../articles/app-service/web-sites-create-web-jobs.md)<sup>8</sup> |X |X |X |X |X |

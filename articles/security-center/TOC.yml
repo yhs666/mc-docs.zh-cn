@@ -47,24 +47,18 @@
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
     - name: 服务更新
-      href: 'https://azure.microsoft.com/updates/?product=security-center'
+      href: 'https://www.azure.cn/zh-cn/what-is-new/'
 - name: 资源
   items:
-    - name: 利用 Microsoft Learn 掌握技能
-      href: /learn/browse/?term=securityS
     - name: 常见问题
       href: security-center-faq.md
     - name: Azure 安全性
-      href: /azure/security/
-    - name: Azure 路线图
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+      href: /security/
     - name: Azure 安全性、隐私性与合规性博客
       href: 'https://blogs.msdn.com/b/azuresecurity/'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/search?q=security-center'
-    - name: 视频
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: 定价
-      href: 'https://azure.microsoft.com/pricing/details/security-center/'
+      href: /pricing/details/security-center/
     - name: 区域可用性
-      href: 'https://azure.microsoft.com/regions/services/'
+      href: 'https://www.azure.cn/zh-cn/home/features/products-by-region'

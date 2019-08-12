@@ -12,20 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4b16198783c4e4ef80f23a482a719162f3472a2f
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 6ed9a3937225b52e3809b8cd0008aeb766535e05
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514063"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818318"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 
 ![网络性能监视器符号](media/network-performance-monitor-faq/npm-symbol.png)
 
 本文收集了有关 Azure 中网络性能监视器 (NPM) 的常见问题 (FAQ)
-
-[网络性能监视器](/azure/networking/network-monitoring-overview)是一项基于云的[混合网络监视](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md)解决方案，可帮助你监视网络基础结构中不同点之间的网络性能。 它还可以监视网络连接，以便[监视 Azure ExpressRoute 的性能](../../azure-monitor/insights/network-performance-monitor-expressroute.md)。 
 
 网络性能监视器可检测诸如流量黑洞、路由错误之类的网络问题，以及传统网络监视方法无法检测到的问题。 只要突破网络链接的阈值，解决方案就会生成警报并进行通知。 它还可以确保及时检测到网络性能问题，然后确定问题根源所在的特定网络段或设备。 
 
@@ -100,7 +98,7 @@ NPM 使用基于跟踪路由的专属算法来发现源与目标之间的所有�
 NPM 根据每个网络路径、网段和构成网络跃点所属的不正常路径数，使用概率机制向它们分配故障概率。 随着网段和跃点属于越来越多的不正常路径，与之关联的故障概率将会增大。 如果有许多包含 NPM 代理的节点相互连接，因此增加了用于计算故障概率的数据点，则此算法的效果最佳。
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>如何在 NPM 中创建警报？
-请参阅[文档中的警报部分](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts)获取分步说明。
+请参阅[文档中的警报部分](/azure-monitor/insights/network-performance-monitor#alerts)获取分步说明。
 
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM 是否可以将路由器和服务器作为单个设备进行监视？
 NPM 只能识别源与目标 IP 之间的底层网络跃点（交换机、路由器、服务器等）的 IP 和主机名。 此外，它还能识别这些已识别的跃点之间的延迟。 它不会单独监视这些底层跃点。
@@ -133,7 +131,7 @@ NPM 可以通过某个[受支持区域](../../azure-monitor/insights/network-per
 NPM 可以通过某个[受支持区域](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)中托管的工作区，监视全球任意位置的服务的连接
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>NPM 的 ExpressRoute 监视器支持哪些区域？
-NPM 可以监视任何 Azure 区域中的 ExpressRoute 线路。 若要载入到 NPM，必须需要某个[受支持区域](/azure/expressroute/how-to-npm)中托管的 Log Analytics 工作区
+NPM 可以监视任何 Azure 区域中的 ExpressRoute 线路。 若要载入到 NPM，必须需要某个[受支持区域](/expressroute/how-to-npm)中托管的 Log Analytics 工作区
 
 ## <a name="troubleshoot"></a>故障排除
 

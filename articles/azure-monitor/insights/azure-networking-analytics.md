@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2b69cbe9f8d32ac01c0c5b191c4ffe9e720755a0
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 47fd7a158b94a54313e1f61499fc7c74a1c0e5de
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513799"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818156"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的 Azure 网络监视解决方案
 
@@ -31,18 +31,18 @@ Azure Monitor 提供了用于监视网络的以下解决方案：
     * Azure 应用程序网关日志
     * Azure 应用程序网关指标
 * 用于监视和审核云网络上的网络活动的解决方案
-    * [流量分析](https://docs.microsoft.com/azure/networking/network-monitoring-overview#traffic-analytics) 
+    * [流量分析](/networking/network-monitoring-overview#traffic-analytics) 
     * Azure 网络安全组分析
 
 ## <a name="network-performance-monitor-npm"></a>网络性能监视器 (NPM)
 
-[网络性能监视器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)管理解决方案是一个网络监视解决方案，它监视网络的运行状况、可用性和可访问性。  它用来监视以下项之间的连接：
+[网络性能监视器](/networking/network-monitoring-overview)管理解决方案是一个网络监视解决方案，它监视网络的运行状况、可用性和可访问性。  它用来监视以下项之间的连接：
 
 * 公有云与本地
 * 数据中心和用户位置（分支机构）
 * 托管多层应用程序的各个层次的子网。
 
-有关详细信息，请参阅[网络性能监视器](https://docs.microsoft.com/azure/networking/network-monitoring-overview)。
+有关详细信息，请参阅[网络性能监视器](/networking/network-monitoring-overview)。
 
 ## <a name="azure-application-gateway-and-network-security-group-analytics"></a>Azure 应用程序网关和网络安全组分析
 若要使用解决方案，请执行以下操作：

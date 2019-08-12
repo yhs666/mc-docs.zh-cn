@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: Dale.Koetke
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aa7de2af625c44be61e5bcf5211baaa93983e641
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b4ab5295dae36f425e3d75b1977c1de42b859104
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562678"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818163"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
@@ -150,7 +150,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 
 “按节点”（以前是“企业”）层按节点收费，并且每个节点都会收到每日数据限额。 在“按节点”定价层中，你需要为所引入的数据中超出规定限额的数据付费。 如果使用的是 Operations Management Suite，则应选择“按节点”层。 
 
-有关在你所在区域中以适合你的货币计价的当前价格，请参阅 [Application Insights 定价](https://www.azure.cn/pricing/details/application-insights/)。
+有关在你所在区域中以适合你的货币计价的当前价格，请参阅 [Application Insights 定价](https://www.azure.cn/pricing/details/monitor/)。
 
 > [!NOTE]
 > 在 2018 年 4 月，我们[引入了](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) Azure 监视的新定价模型。 此模型在监视服务的完整组合中采用简单的“即用即付”模型。 深入了解[新的定价模型](../../azure-monitor/platform/usage-estimated-costs.md)、如何根据使用模式[评估移到此模型的影响](../../azure-monitor/platform/usage-estimated-costs.md#assessing-the-impact-of-the-new-pricing-model)以及[如何选择加入该新模型](../../azure-monitor/platform/usage-estimated-costs.md#moving-to-the-new-pricing-model)

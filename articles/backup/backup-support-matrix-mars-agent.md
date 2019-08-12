@@ -8,12 +8,12 @@ ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: v-lingwu
-ms.openlocfilehash: fe46df458d9c22d8e2adb85bc058cbe62479114e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a882968925a880cec2f4578019c8a8edc4d633ea
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571453"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818462"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -31,7 +31,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 **安装** | **详细信息**
 --- | ---
 下载最新的 MARS 代理 | 可以从保管库下载最新版本的代理，或者[直接下载它](https://aka.ms/azurebackup_agent)。
-直接在计算机上安装 | 可以直接在本地 Windows 服务器上安装 MARS 代理，或者在运行任意[受支持操作系统](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)的 Windows VM 上安装它。
+直接在计算机上安装 | 可以直接在本地 Windows 服务器上安装 MARS 代理，或者在运行任意[受支持操作系统](/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems)的 Windows VM 上安装它。
 在备份服务器上安装 | 将 DPM 或 MABS 设置为备份到 Azure 时，可以在服务器上下载并安装 MARS 代理。 可在备份服务器支持矩阵中的[受支持操作系统](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)上安装该代理。
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 **缓存** | **详细信息**
 --- | ---
 大小 |  缓存文件夹中的可用空间应至少为备份数据总大小的 5% 到 10%。
-位置 | 缓存文件夹必须存储在要备份的计算机本地，并且该计算机必须联机。 缓存文件夹不应位于网络共享、可移动媒体或脱机卷上。
+Location | 缓存文件夹必须存储在要备份的计算机本地，并且该计算机必须联机。 缓存文件夹不应位于网络共享、可移动媒体或脱机卷上。
 文件夹 | 缓存文件夹应已加密，位于已删除重复数据的卷中，或者位于压缩、稀疏或重分析点类型的文件夹中。
 位置更改 | 可以通过停止备份引擎 (`net stop bengine`)，并将缓存文件夹复制到新驱动器来更改缓存位置。 （确保新驱动器有足够的空间。）然后，将 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 下的两个注册表项（**Config/ScratchLocation** 和 **Config/CloudBackupProvider/ScratchLocation**）更新为新位置，并重启引擎。
 

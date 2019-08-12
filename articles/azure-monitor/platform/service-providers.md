@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c9523a41db7100ab5012d44d2df9a1032da8bbb1
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: ddc8a067b8cf18586dbe98a671aefddb6243d679
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513895"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818125"
 ---
 # <a name="azure-monitor-for-service-providers"></a>适用于服务提供商的 Azure Monitor
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。 
@@ -28,7 +28,7 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 ## <a name="architectures-for-service-providers"></a>适用于服务提供商的体系结构
 
-借助 Log Analytics 工作区，管理员可控制日志流动和隔离，并创建满足其特定业务需求的日志体系结构。 [本文](/log-analytics/log-analytics-manage-access)介绍有关工作区管理的一般注意事项。 服务提供商有其他注意事项。
+借助 Log Analytics 工作区，管理员可控制日志流动和隔离，并创建满足其特定业务需求的日志体系结构。 [本文](/azure-monitor/platform/manage-access)介绍有关工作区管理的一般注意事项。 服务提供商有其他注意事项。
 
 对于 Log Analytics 工作区，有三种可能的体系结构适用于服务提供商：
 

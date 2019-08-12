@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/29/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 30999339038314ea5875e19f0dde6abff3bd9e30
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 98664cdd256d3376880e2e05c6399369edc3ebde
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845576"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818451"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>快速入门：使用 .NET API 运行第一个 Azure Batch 作业
 
@@ -113,13 +113,13 @@ stderr:
 
 ### <a name="preliminaries"></a>初步操作
 
-为了与存储帐户交互，应用使用用于 .NET 的 Azure 存储客户端库。 它使用 [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 创建帐户引用，并据此创建 [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
+为了与存储帐户交互，应用使用用于 .NET 的 Azure 存储客户端库。 它使用 [CloudStorageAccount](https://docs.microsoft.com//dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) 创建帐户引用，并据此创建 [CloudBlobClient](https://docs.microsoft.com//dotnet/api/microsoft.azure.storage.blob.cloudblobclient)。
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 ```
 
-应用使用 `blobClient` 引用在存储帐户中创建容器，然后将数据文件上传到该容器。 存储中的文件定义为 Batch [ResourceFile](/dotnet/api/microsoft.azure.batch.resourcefile) 对象，Batch 随后可以将这些对象下载到计算节点。
+应用使用 `blobClient` 引用在存储帐户中创建容器，然后将数据文件上传到该容器。 存储中的文件定义为 Batch [ResourceFile](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.resourcefile) 对象，Batch 随后可以将这些对象下载到计算节点。
 
 ```csharp
 List<string> inputFilePaths = new List<string>
@@ -137,7 +137,7 @@ foreach (string filePath in inputFilePaths)
 }
 ```
 
-应用创建的 [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) 对象用于创建和管理 Batch 服务中的池、作业和任务。 示例中的 Batch 客户端使用共享密钥身份验证。 （Batch 还支持 Azure Active Directory 身份验证。）
+应用创建的 [BatchClient](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.batchclient) 对象用于创建和管理 Batch 服务中的池、作业和任务。 示例中的 Batch 客户端使用共享密钥身份验证。 （Batch 还支持 Azure Active Directory 身份验证。）
 
 ```csharp
 BatchSharedKeyCredentials cred = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
@@ -148,11 +148,11 @@ using (BatchClient batchClient = BatchClient.Open(cred))
 
 ### <a name="create-a-pool-of-compute-nodes"></a>创建计算节点池
 
-为了创建 Batch 池，应用使用 [BatchClient.PoolOperations.CreatePool](/dotnet/api/microsoft.azure.batch.pooloperations.createpool) 方法设置节点数、VM 大小和池配置。 在这里，[VirtualMachineConfiguration](/dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 对象指定对 Azure 市场中发布的 Windows Server 映像的 [ImageReference](/dotnet/api/microsoft.azure.batch.imagereference)。 Batch 支持 Azure 市场中的各种 Linux 和 Windows Server 映像以及自定义 VM 映像。
+为了创建 Batch 池，应用使用 [BatchClient.PoolOperations.CreatePool](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.pooloperations.createpool) 方法设置节点数、VM 大小和池配置。 在这里，[VirtualMachineConfiguration](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.virtualmachineconfiguration) 对象指定对 Azure 市场中发布的 Windows Server 映像的 [ImageReference](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.imagereference)。 Batch 支持 Azure 市场中的各种 Linux 和 Windows Server 映像以及自定义 VM 映像。
 
 节点数 (`PoolNodeCount`) 和 VM 大小 (`PoolVMSize`) 是定义的常数。 此示例默认创建的池包含 2 个大小为 *Standard_A1_v2* 的节点。 就此快速示例来说，建议的大小在性能和成本之间达成了很好的平衡。
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) 方法将池提交到 Batch 服务。
+[Commit](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudpool.commit) 方法将池提交到 Batch 服务。
 
 ```csharp
 
@@ -190,9 +190,9 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 ### <a name="create-a-batch-job"></a>创建 Batch 作业
 
-Batch 作业是对一个或多个任务进行逻辑分组。 作业包含任务的公用设置，例如优先级以及运行任务的池。 应用使用 [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) 方法在池中创建作业。
+Batch 作业是对一个或多个任务进行逻辑分组。 作业包含任务的公用设置，例如优先级以及运行任务的池。 应用使用 [BatchClient.JobOperations.CreateJob](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.joboperations.createjob) 方法在池中创建作业。
 
-[Commit](/dotnet/api/microsoft.azure.batch.cloudjob.commit) 方法将作业提交到 Batch 服务。 作业一开始没有任务。
+[Commit](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudjob.commit) 方法将作业提交到 Batch 服务。 作业一开始没有任务。
 
 ```csharp
 try
@@ -208,9 +208,9 @@ try
 
 ### <a name="create-tasks"></a>创建任务
 
-此应用创建 [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) 对象的列表。 每个任务都使用 [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline) 属性来处理输入 `ResourceFile` 对象。 在示例中，命令行运行 Windows `type` 命令来显示输入文件。 此命令是一个用于演示的简单示例。 使用 Batch 时，可以在命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
+此应用创建 [CloudTask](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask) 对象的列表。 每个任务都使用 [CommandLine](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask.commandline) 属性来处理输入 `ResourceFile` 对象。 在示例中，命令行运行 Windows `type` 命令来显示输入文件。 此命令是一个用于演示的简单示例。 使用 Batch 时，可以在命令行中指定应用或脚本。 Batch 提供多种将应用和脚本部署到计算节点的方式。
 
-然后，应用使用 [AddTask](/dotnet/api/microsoft.azure.batch.joboperations.addtask) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
+然后，应用使用 [AddTask](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.joboperations.addtask) 方法将任务添加到作业，使任务按顺序在计算节点上运行。
 
 ```csharp
 for (int i = 0; i < inputFiles.Count; i++)
@@ -229,7 +229,7 @@ batchClient.JobOperations.AddTask(JobId, tasks);
 
 ### <a name="view-task-output"></a>查看任务输出
 
-应用创建 [TaskStateMonitor](/dotnet/api/microsoft.azure.batch.taskstatemonitor) 来监视任务，确保其完成。 然后，应用使用 [CloudTask.ComputeNodeInformation](/dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) 属性来显示每个已完成任务生成的 `stdout.txt` 文件。 如果任务成功运行，任务命令的输出将写入到 `stdout.txt`：
+应用创建 [TaskStateMonitor](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.taskstatemonitor) 来监视任务，确保其完成。 然后，应用使用 [CloudTask.ComputeNodeInformation](https://docs.microsoft.com//dotnet/api/microsoft.azure.batch.cloudtask.computenodeinformation) 属性来显示每个已完成任务生成的 `stdout.txt` 文件。 如果任务成功运行，任务命令的输出将写入到 `stdout.txt`：
 
 ```csharp
 foreach (CloudTask task in completedtasks)

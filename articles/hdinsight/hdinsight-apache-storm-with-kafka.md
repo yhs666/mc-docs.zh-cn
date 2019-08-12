@@ -16,12 +16,12 @@ ms.workload: big-data
 origin.date: 06/25/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: c2882d52663ce887c9ef88c99e31564476739dcc
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 2477d225633084e1403dbe2965d4b3583648390f
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845400"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878578"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>教程：将 Apache Storm 与 Apache Kafka on HDInsight 配合使用
 
@@ -418,7 +418,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
       | --- | --- |
       | 订阅 | Azure 订阅 |
       | 资源组 | 包含资源的资源组。 |
-      | 位置 | 创建资源时所在的 Azure 区域。 |
+      | Location | 创建资源时所在的 Azure 区域。 |
       | Kafka 群集名称 | Kafka 群集的名称。 |
       | Storm 群集名称 | Storm 群集的名称。 |
       | 群集登录用户名 | 群集的管理员用户名。 |
@@ -525,7 +525,7 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 4. 保存 `dev.properties` 文件，然后使用以下命令将其上传到 Storm 群集： 
 
      ```bash
-    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.cn:dev.properties
     ```
 
     将  USERNAME 替换为群集的 SSH 用户名。 将  BASENAME 替换为创建群集时使用的基名称。

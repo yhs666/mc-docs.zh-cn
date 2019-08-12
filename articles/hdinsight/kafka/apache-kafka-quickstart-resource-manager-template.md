@@ -14,12 +14,12 @@ ms.workload: big-data
 origin.date: 06/12/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8cb9e8a5c6ca4ee883290ab0f8c2a2a35573aee5
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 323b2008569af6c8c7f956bd46b13d4516256f67
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845454"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878749"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-resource-manager-template"></a>快速入门：使用资源管理器模板在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -61,7 +61,7 @@ ms.locfileid: "67845454"
     | --- | --- |
     | 订阅 | Azure 订阅。 |
     | 资源组 | 在其中创建群集的资源组。 |
-    | 位置 | 在其中创建群集的 Azure 区域。 |
+    | Location | 在其中创建群集的 Azure 区域。 |
     | 群集名称 | Kafka 群集的名称。 |
     | 群集登录用户名 | 此帐户名用于登录到群集上托管的基于 HTTP 的服务。 |
     | 群集登录密码 | 输入用户名的密码。 |
@@ -77,7 +77,7 @@ ms.locfileid: "67845454"
 1. 若要连接到 Kafka 群集的主要头节点，请使用以下命令。 将 `sshuser` 替换为 SSH 用户名。 将 `mykafka` 替换为 Kafka 群集的名称
 
     ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ssh sshuser@mykafka-ssh.azurehdinsight.cn
     ```
 
 2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表   。

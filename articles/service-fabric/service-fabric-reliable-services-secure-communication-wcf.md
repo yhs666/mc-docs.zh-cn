@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 04/20/2017
-ms.date: 05/28/2018
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba9ca93a813e2edd6117bd92fcf73e2f27ea64cd
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: c10e201d3b0c01531bb82e2615fbd56bd2a1c19b
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650568"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819644"
 ---
 # <a name="secure-wcf-based-communications-for-a-service"></a>保护服务的基于 WCF 的通信
 安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在使用服务远程处理时提高安全性。
@@ -131,4 +131,5 @@ ms.locfileid: "52650568"
     ```
 
 有关后续步骤，请阅读 [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)。
+
 <!-- Update_Description: update meta properties -->

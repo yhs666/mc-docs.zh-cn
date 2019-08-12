@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 08/23/2017
-ms.date: 07/29/2019
-ms.author: v-biyu
+origin.date: 07/25/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: dfa206d6d6db0fa96ad7032e85e9748ed048677b
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 29a585dbf02766827bbba1d3d848ad256da9ddac
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68232276"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878598"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>将应用与 Azure 虚拟网络进行集成
 本文档介绍 Azure 应用服务虚拟网络集成功能，并说明如何在 [Azure 应用服务](overview.md)中使用应用对其进行设置。 使用 [Azure 虚拟网络][VNETOverview] (VNet) 可将多个 Azure 资源置于无法通过 Internet 路由的网络中。

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a7435b985004f23412a47eda820d64942bb51691
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 86a539bfb8784ace7351011acbed836c4feb1303
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513981"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818305"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>在 Azure 中设计和生成管理解决方案（预览）
 > [!NOTE]
@@ -83,7 +83,7 @@ Log Analytics 中的视图用于可视化 Log Analytics 存储库中的数据。
 ## <a name="next-steps"></a>后续步骤
 * 了解如何为管理解决方案[创建解决方案文件]( solutions-solution-file.md)。
 * 了解[创作 Azure 资源管理器模板](../../azure-resource-manager/resource-group-authoring-templates.md)的详细信息。
-* 在 [Azure 快速启动模板](https://www.azure.cn/documentation/templates)中搜索不同 Resource Manager 模板的示例。
+* 在 [Azure 快速启动模板](https://docs.microsoft.com/azure/templates)中搜索不同 Resource Manager 模板的示例。
 
 
 

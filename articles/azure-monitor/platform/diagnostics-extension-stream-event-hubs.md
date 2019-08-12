@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.component: diagnostic-extension
-ms.openlocfilehash: 825d5bd79b6ba50e0a39b2767dd0c87ad476f5a8
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 29644699ec1e5f6448f2f8be818e20a5005eefb2
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513800"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818226"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>使用事件中心流式处理热路径中的 Azure 诊断数据
-Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](https://www.azure.cn/services/event-hubs/)在数秒内传输热路径数据。
+Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) 的指标和日志，并将结果传输到 Azure 存储。 从 2016 年 3 月 (SDK 2.9) 这一时间范围开始，可以将诊断发送到自定义数据源，并使用 [Azure 事件中心](/event-hubs/)在数秒内传输热路径数据。
 
 支持的数据类型包括：
 
@@ -40,7 +40,7 @@ Azure 诊断提供了灵活的方法用于收集来自云服务虚拟机 (VM) �
 * Azure 诊断扩展 1.6（[Azure SDK for .NET 2.9 或更高版本](https://www.azure.cn/downloads/)默认以此为目标）
 * [Visual Studio 2013 或更高版本](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * 应用程序中使用 *.wadcfgx* 文件和以下任一方法的 Azure 诊断现有配置：
-  * Visual Studio：[为 Azure 云服务和虚拟机配置诊断](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
+  * Visual Studio：[为 Azure 云服务和虚拟机配置诊断](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell：[使用 PowerShell 在 Azure 云服务中启用诊断](../../cloud-services/cloud-services-diagnostics-powershell.md)
 * 根据 [事件中心入门](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
@@ -319,7 +319,7 @@ namespace EventHubListener
     请尝试查看 Azure 存储表，其中包含日志和 Azure 诊断本身的错误：**WADDiagnosticInfrastructureLogsTable**。 可使用 [Azure 存储资源管理器](https://www.storageexplorer.com) 等工具连接到此存储帐户，查看此表，并添加过去 24 小时的时间戳查询。 可以使用此工具导出 .csv 文件，并在 Microsoft Excel 之类的应用程序中打开它。 Excel 可轻松搜索电话卡字符串（如 **EventHubs**），查看系统报告了哪些错误。  
 
 ## <a name="next-steps"></a>后续步骤
-•    [了解有关事件中心的详细信息](https://www.azure.cn/services/event-hubs/)
+•    [了解有关事件中心的详细信息](/event-hubs/)
 
 ## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>附录：完整的 Azure 诊断配置文件 (.wadcfgx) 示例
 ```xml

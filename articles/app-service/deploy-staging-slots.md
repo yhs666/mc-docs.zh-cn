@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 12/16/2016
-ms.date: 07/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: 4ca6f2921b7ad7c152fe2c7f92937a3969135171
-ms.sourcegitcommit: a829f1191e40d8940a5bf6074392973128cfe3c0
+origin.date: 06/18/2019
+ms.date: 08/12/2019
+ms.author: v-johch
+ms.openlocfilehash: a8361be6c22a56b77e7a0d1667f9ee024b2a2833
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67560272"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878554"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
@@ -80,7 +80,6 @@ ms.locfileid: "67560272"
 
 1. 将目标槽（例如生产槽）中的以下设置应用到源槽的所有实例： 
     - [特定于槽的](#which-settings-are-swapped)应用设置和连接字符串（如果适用）。
-    - [持续部署](deploy-continuous-deployment.md)设置（如果已启用）。
     - [应用服务身份验证](overview-authentication-authorization.md)设置（如果已启用）。
     
     出现其中的任何情况都会触发源槽中所有实例的重启。 在[交换并预览](#Multi-Phase)期间，这标志着第一阶段结束。 交换操作将会暂停，你可以使用目标槽的设置验证源槽是否正常工作。
@@ -316,7 +315,7 @@ ms.locfileid: "67560272"
 
 Azure PowerShell 是一个模块，可提供通过 Windows PowerShell 管理 Azure 的 cmdlet，包括对管理 Azure 应用服务的部署槽的支持。
 
-* 有关安装和配置 Azure PowerShell 的信息以及使用 Azure 订阅对 Azure PowerShell 进行身份验证的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。  
+有关安装和配置 Azure PowerShell 的信息以及使用 Azure 订阅对 Azure PowerShell 进行身份验证的信息，请参阅 [如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。  
 
 ---
 ### <a name="create-a-web-app"></a>创建 Web 应用

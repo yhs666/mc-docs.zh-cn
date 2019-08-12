@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 03/26/2019
 ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: eeef9c55365cab4efa2a62490438214aae5db2e9
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: dc44bb5e19a9d62afd4ec34395ce89fd28525294
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67136002"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878763"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 虚拟网络体系结构
 
@@ -62,16 +62,16 @@ Azure HDInsight 群集包含不同类型的虚拟机（或节点）。 每个节
 
 可通过三种方式访问 HDInsight 群集：
 
-- 虚拟网络 (`CLUSTERNAME.azurehdinsight.net`) 外部的 HTTPS 终结点。
-- 直接连接到位于 `CLUSTERNAME-ssh.azurehdinsight.net` 中的头节点的 SSH 终结点。
-- 虚拟网络 (`CLUSTERNAME-int.azurehdinsight.net`) 内部的 HTTPS 终结点。 请注意此 URL 中的“-int”。 此终结点将解析为该虚拟网络中的专用 IP，无法从公共 Internet 访问。
+- 虚拟网络 (`CLUSTERNAME.azurehdinsight.cn`) 外部的 HTTPS 终结点。
+- 直接连接到位于 `CLUSTERNAME-ssh.azurehdinsight.cn` 中的头节点的 SSH 终结点。
+- 虚拟网络 (`CLUSTERNAME-int.azurehdinsight.cn`) 内部的 HTTPS 终结点。 请注意此 URL 中的“-int”。 此终结点将解析为该虚拟网络中的专用 IP，无法从公共 Internet 访问。
 
 在这 3 个终结点中，每个终结点分配有一个负载均衡器。
 
 此外，将为 2 个终结点提供公共 IP 地址，以便从虚拟网络外部进行连接。
 
-1. 将为负载均衡器分配 1 个公共 IP，以便从 Internet `CLUSTERNAME.azurehdinsight.net` 连接到群集时使用完全限定的域名 (FQDN)。
-1. 第二个公共 IP 地址用于仅限 SSH 的域名 `CLUSTERNAME-ssh.azurehdinsight.net`。
+1. 将为负载均衡器分配 1 个公共 IP，以便从 Internet `CLUSTERNAME.azurehdinsight.cn` 连接到群集时使用完全限定的域名 (FQDN)。
+1. 第二个公共 IP 地址用于仅限 SSH 的域名 `CLUSTERNAME-ssh.azurehdinsight.cn`。
 
 ## <a name="next-steps"></a>后续步骤
 

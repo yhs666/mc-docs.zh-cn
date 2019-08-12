@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 05/07/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7fa1075cacbcad0b2ae67af4f30dcd8a6ac941b6
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 32528994f4afd596afa3485cd3150033cd54ecfa
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570040"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912767"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Linux 虚拟机映像
 从定义 Linux 分发版和操作系统版本的映像创建 Azure 中的每个虚拟机 (VM)。 映像可包括预安装的应用程序和配置。 Azure 市场为最常见的分发和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -31,7 +31,7 @@ ms.locfileid: "67570040"
 ## <a name="create-azure-resource-group"></a>创建 Azure 资源组
 生成过程中，Packer 将在生成源 VM 时创建临时 Azure 资源。 要捕获该源 VM 用作映像，必须定义资源组。 Packer 生成过程的输出存储在此资源组中。
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -42,7 +42,7 @@ az group create -n myResourceGroup -l chinaeast
 ## <a name="create-azure-credentials"></a>创建 Azure 凭据
 使用服务主体通过 Azure 对 Packer 进行身份验证。 Azure 服务主体是可与应用、服务和自动化工具（如 Packer）结合使用的安全性标识。 用户控制和定义服务主体可在 Azure 中执行的操作的权限。
 
-通过 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 创建服务主体并输出 Packer 需要的凭据：
+通过 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) 创建服务主体并输出 Packer 需要的凭据：
 
 ```azurecli
 az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
@@ -58,7 +58,7 @@ az ad sp create-for-rbac --query "{ client_id: appId, client_secret: password, t
 }
 ```
 
-若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 获取 Azure 订阅 ID：
+若要进行 Azure 身份验证，还需要通过 [az account show](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-show) 获取 Azure 订阅 ID：
 
 ```azurecli
 az account show --query "{ subscription_id: id }"
@@ -205,7 +205,7 @@ ManagedImageLocation: chinaeast
 Packer 需要几分钟时间来生成 VM、运行设置程序并清理部署。
 
 ## <a name="create-vm-from-azure-image"></a>从 Azure 映像创建 VM
-现在可以通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage  创建一个名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在）：
+现在可以通过 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 从映像创建 VM。 指定通过 `--image` 参数创建的映像。 以下示例从 myPackerImage  创建一个名为 myVM  的 VM，并生成 SSH 密钥（如果它们尚不存在）：
 
 ```azurecli
 az vm create \
@@ -216,11 +216,11 @@ az vm create \
     --generate-ssh-keys
 ```
 
-如果你希望在与 Packer 映像不同的资源组或区域中创建虚拟机，请指定映像 ID 而不是映像名称。 可以使用 [az image show](https://docs.azure.cn/zh-cn/cli/image?view=azure-cli-latest#az-image-show) 获取映像 ID。
+如果你希望在与 Packer 映像不同的资源组或区域中创建虚拟机，请指定映像 ID 而不是映像名称。 可以使用 [az image show](https://docs.azure.cn/cli/image?view=azure-cli-latest#az-image-show) 获取映像 ID。
 
 创建 VM 需要几分钟时间。 创建 VM 后，请记下 Azure CLI 显示的 `publicIpAddress`。 此地址用于通过 Web 浏览器访问 NGINX 站点。
 
-若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 从 Internet 打开端口 80：
+若要使 VM 能使用 Web 流量，请通过 [az vm open-port](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 从 Internet 打开端口 80：
 
 ```azurecli
 az vm open-port \

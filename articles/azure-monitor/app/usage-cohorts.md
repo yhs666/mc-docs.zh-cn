@@ -13,12 +13,12 @@ ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: v-lingwu
-ms.openlocfilehash: 4d46edcc5b826a7aecfcd5b9cb53f9d57bd465c6
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: b1f80f769366570af7e8ea49f21e902c6e08c9c1
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732245"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818146"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 队列
 
@@ -111,7 +111,7 @@ ms.locfileid: "66732245"
 
    * 一个查询部分，可在其中使用分析查询定义队列。
 
-     在查询部分[编写一个分析查询](/azure/kusto/query)。 该查询选择描述所要定义的队列的行集。 然后，“队列”工具将在查询中隐式添加一个“| summarize by user_Id”子句。 表中查询的下面提供了此数据的预览，使你能够确保查询返回结果。
+     在查询部分[编写一个分析查询](https://docs.microsoft.com/azure/kusto/query)。 该查询选择描述所要定义的队列的行集。 然后，“队列”工具将在查询中隐式添加一个“| summarize by user_Id”子句。 表中查询的下面提供了此数据的预览，使你能够确保查询返回结果。
 
      > [!NOTE]
      > 如果看不到查询，请尝试调整部分的大小，以增加其高度并显示查询。 本部分开头的 .gif 动画演示了大小调整行为。

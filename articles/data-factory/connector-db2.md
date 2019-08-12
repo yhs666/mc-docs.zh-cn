@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 08/17/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: ecdf32c0c86fe512aa1e7cda701d4302b6f9841f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 45f006fec6cdd2732514166ff5d9e835d7308394
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570580"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908700"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>使用 Azure 数据工厂从 DB2 复制数据
 
@@ -32,6 +32,7 @@ ms.locfileid: "67570580"
 
 * IBM DB2 for z/OS 11.1
 * IBM DB2 for z/OS 10.1
+* IBM DB2 for i 7.3
 * IBM DB2 for i 7.2
 * IBM DB2 for i 7.1
 * IBM DB2 for LUW 11

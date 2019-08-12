@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: b5d092180dc05135c5077779d847cf788215802f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 32a04e0fe7edd89550acc1275f31f58e81f2e0aa
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569675"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913009"
 ---
 <!--MOONCAKE: "Preempt" equal to low priority which not support on China-->
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure 元数据服务：适用于 Linux VM 的计划事件
@@ -52,7 +52,7 @@ ms.locfileid: "67569675"
 - 降级的硬件
 - 用户启动的维护（例如，用户重启或重新部署 VM）
 
-<!--Not Available on - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets-->
+    <!--Not Available on - [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets-->
 
 ## <a name="the-basics"></a>基础知识  
 

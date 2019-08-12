@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-origin.date: ''
-ms.date: 10/16/2017
+origin.date: 09/13/2017
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 623607e8c170ef96937d93a3c7525cabba6a461c
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: f31e5d4ff0cb4820660c5b26bb670fa3b85e94e1
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650285"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912768"
 ---
 # <a name="backup-and-restore-options-for-linux-virtual-machines-in-azure"></a>Azure 中 Linux 虚拟机的备份和还原选项
 
@@ -29,4 +29,4 @@ ms.locfileid: "52650285"
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]
 
-<!--Update_Description: new articles on backup and recovery the VM in Azure. -->
+<!--Update_Description: update meta properties -->

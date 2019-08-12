@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 14ff88b6f96d288381defe2c671a87bdf6c70eff
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 8d270154d4b72aed63f3304d9d77c63c42bd9344
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513834"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818296"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的聚合
 
@@ -147,7 +147,7 @@ Perf
 | summarize stdev(CounterValue), percentiles(CounterValue, 50) by Computer
 ```
 
-请参阅有关将 [Kusto 查询语言](/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
+请参阅有关将 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
 
 - [字符串操作](string-operations.md)
 - [时间和日期操作](datetime-operations.md)

@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 origin.date: 04/29/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 7ae732f4709ccc0feb10f232e99298719461ec0b
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 5809a4fbdf88f05ca533de82cee97777007b170b
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861725"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819653"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>常见问题：Azure 到 Azure 的灾难恢复
 
@@ -23,9 +23,9 @@ ms.locfileid: "67861725"
 ## <a name="general"></a>常规
 
 ### <a name="how-is-site-recovery-priced"></a>Site Recovery 如何计费？
-请查看 [Azure Site Recovery 定价详细信息](https://www.azure.cn/zh-cn/pricing/details/site-recovery)。
+请查看 [Azure Site Recovery 定价详细信息](https://www.azure.cn/pricing/details/site-recovery)。
 
-<!--Price is correct on https://www.azure.cn/zh-cn/pricing/details/site-recovery-->
+<!--Price is correct on https://www.azure.cn/pricing/details/site-recovery-->
 
 ### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Azure Site Recovery 的免费层是如何工作的？
 每个使用 Azure Site Recovery 保护的实例在其保护期的前 31 天内均享受免费。 从第 32 天起，将按以上收费率对实例的保护进行计费。
@@ -249,6 +249,7 @@ Site Recovery 中的恢复计划可以协调 VM 的故障转移恢复。 它有�
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>如何保证 Azure VM 在目标区域的容量？
 Site Recovery 团队会与 Azure 容量管理团队合作，规划足够的基础结构容量，确保支持灾难恢复的 VM 在启动故障转移时可以成功部署到目标区域中。
 
+<!--MOONCAKE: Not Available on  ### Does Site Recovery work with reserved instances?-->
 <!--MOONCAKE: Not Avaialble on [reserve instances](https://www.azure.cn/pricing/reserved-vm-instances/)-->
 
 ## <a name="a-namesecuritysecurity"></a><a name="security">安全性

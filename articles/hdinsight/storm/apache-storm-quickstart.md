@@ -9,12 +9,12 @@ origin.date: 06/14/2019
 ms.date: 07/22/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 435548a16149b58c1ef1fc7045d2598258c5dc15
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 647193b15a7da7a40b754926ad2fe82da609586d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845556"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878500"
 ---
 # <a name="quickstart-create-and-monitor-an-apache-storm-topology-in-azure-hdinsight"></a>快速入门：在 Azure HDInsight 中创建和监视 Apache Storm 拓扑
 
@@ -33,7 +33,7 @@ Apache Storm 是一个可扩展的、具有容错能力的分布式实时计算�
 1. 连接到 Storm 群集。 编辑以下命令，将 `CLUSTERNAME` 替换为 Storm 群集的名称，然后输入该命令：
 
     ```cmd
-    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
     ```
 
 2. **WordCount** 示例包含在位于 `/usr/hdp/current/storm-client/contrib/storm-starter/` 的 HDInsight 群集中。 此拓扑生成随机句子，并计算单词的出现次数。 使用以下命令在群集上启动 **wordcount** 拓扑：
@@ -48,7 +48,7 @@ Storm 提供一个 Web 界面用于处理正在运行的拓扑，并包含在 HD
 
 执行以下步骤以使用 Storm UI 来监视拓扑。
 
-1. 若要显示 Storm UI，请打开 Web 浏览器，访问 `https://CLUSTERNAME.azurehdinsight.net/stormui`。 将 `CLUSTERNAME` 替换为群集的名称。
+1. 若要显示 Storm UI，请打开 Web 浏览器，访问 `https://CLUSTERNAME.azurehdinsight.cn/stormui`。 将 `CLUSTERNAME` 替换为群集的名称。
 
 2. 在“拓扑摘要”  下，选择“名称”  列中的“wordcount”  条目。 显示有关拓扑的信息。
 

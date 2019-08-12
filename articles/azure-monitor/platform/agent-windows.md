@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c8b4c248e34a1a954ef8a63b888fb39aadda590a
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 49c677c8a21228963b0f2996ae6d5e28509927ce
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514024"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818260"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
@@ -123,7 +123,7 @@ ms.locfileid: "68514024"
 
 ## <a name="install-the-agent-using-dsc-in-azure-automation"></a>使用 Azure 自动化中的 DSC 安装代理
 
-可通过以下脚本示例，使用 Azure Automation DSC 安装代理。   如果没有自动化帐户，请在使用 Automation DSC 前查看 [Azure 自动化入门](/azure/automation/)，了解创建自动化账户的需求和步骤。  如果不熟悉 Automation DSC，请参阅 [Automation DSC 入门](../../automation/automation-dsc-getting-started.md)。
+可通过以下脚本示例，使用 Azure Automation DSC 安装代理。   如果没有自动化帐户，请在使用 Automation DSC 前查看 [Azure 自动化入门](/automation/)，了解创建自动化账户的需求和步骤。  如果不熟悉 Automation DSC，请参阅 [Automation DSC 入门](../../automation/automation-dsc-getting-started.md)。
 
 下面的示例安装由 `URI` 值标识的 64 位代理。 还可通过替换 URI 值，使用 32 位版本。 这两个版本的 URI 分别是：
 

@@ -66,9 +66,13 @@
     - name: Azure Resource Manager
       href: ../azure-resource-manager/resource-group-overview.md
       maintainContext: true
-    - name: 区域和可用性
-      href: ../virtual-machines/windows/regions-and-availability.md
+    - name: 性能
       maintainContext: true
+      items:
+        - name: 归置
+          href: co-location.md
+        - name: 网络性能
+          href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
     - name: VM 类型和大小
       href: ../virtual-machines/windows/sizes.md
       maintainContext: true
@@ -147,6 +151,8 @@
           maintainContext: true
     - name: 规模集常见问题解答
       href: virtual-machine-scale-sets-faq.md
+    - name: 安全属性
+      href: virtual-machine-scale-sets-security-attributes.md
 - name: 如何
   items:
     - name: 规划和设计
@@ -174,6 +180,8 @@
           items:
             - name: 使用 Azure 门户
               href: virtual-machine-scale-sets-autoscale-portal.md
+            - name: 高级自动缩放
+              href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
               maintainContext: true
             - name: 自动缩放疑难解答
               href: virtual-machine-scale-sets-troubleshoot.md
@@ -197,6 +205,8 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 实例保护（预览版）
           href: virtual-machine-scale-sets-instance-protection.md
+        - name: 创建邻近放置组
+          href: proximity-placement-groups.md
         - name: 使用 DSC 和规模集
           href: virtual-machine-scale-sets-dsc.md
         - name: 将模板转换为托管磁盘

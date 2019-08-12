@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a73e35cb31cb3272bb2ef940432be97cea7bd100
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 72043fe3655656cd51c30c025ced183dc98800fe
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562471"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818408"
 ---
 # <a name="alerts-on-activity-log"></a>根据活动日志发出警报 
 
@@ -32,7 +32,7 @@ ms.locfileid: "67562471"
 
 在上述任何情况下，活动日志警报只监视在其中创建该警报的订阅中的事件。
 
-可以基于活动日志事件的 JSON 对象中的任何顶层属性配置活动日志警报。 有关详细信息，请参阅 [Azure 活动日志概述](./../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)。 若要了解有关服务运行状况事件的详细信息，请参阅[接收有关服务通知的活动日志警报](./../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
+可以基于活动日志事件的 JSON 对象中的任何顶层属性配置活动日志警报。 有关详细信息，请参阅 [Azure 活动日志概述](../../azure-monitor/platform/activity-logs-overview.md#categories-in-the-activity-log)。 若要了解有关服务运行状况事件的详细信息，请参阅[接收有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。 
 
 活动日志警报有几个常见选项：
 

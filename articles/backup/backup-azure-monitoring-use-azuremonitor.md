@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 3e6ef7c5c641128aeea3fa0e98ce5f90d4fb4b50
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 47e5823922e8099fa221b8eb7037fc85cb1d5fb5
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332682"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818487"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure Monitor 进行大规模监视
 
@@ -126,7 +126,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
 单纯地在 Log Analytics 中就能满足所有的警报和监视要求；你也可以使用 Log Analytics 来补充内置通知。
 
-有关详细信息，请参阅[使用 Azure Monitor 创建、查看和管理日志警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)以及[在 Azure 门户中创建和管理操作组](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)。
+有关详细信息，请参阅[使用 Azure Monitor 创建、查看和管理日志警报](/azure-monitor/platform/alerts-log)以及[在 Azure 门户中创建和管理操作组](/azure-monitor/platform/action-groups)。
 
 ### <a name="sample-kusto-queries"></a>示例 Kusto 查询
 
@@ -251,7 +251,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
 1. 选择操作名称以查看相关详细信息。
 1. 选择“新建警报规则”打开“创建规则”页。   
-1. 遵循[使用 Azure Monitor 创建、查看和管理活动日志警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)中的步骤创建警报。
+1. 遵循[使用 Azure Monitor 创建、查看和管理活动日志警报](/azure-monitor/platform/alerts-activity-log)中的步骤创建警报。
 
    ![新建警报规则](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -264,8 +264,8 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 尽管你可以通过活动日志获取通知，但我们强烈建议使用 Log Analytics（而不是活动日志）进行大规模监视。 原因如下：
 
 - **方案受限**：通过活动日志发送通知仅适用于 Azure VM 备份。 必须为每个恢复服务保管库设置通知。
-- **定义适应**：计划的备份活动不能适应活动日志的最新定义。 它与[诊断日志](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)相符。 当通过活动日志通道传送数据发生变化时，这种相符性会导致意外的影响。
-- **活动日志通道的问题**：在恢复服务保管库中，从 Azure 备份传送的活动日志遵循一个新的模型。 遗憾的是，此项更改会影响 Azure 政府、Azure 德国和 Azure 中国世纪互联的活动日志生成。 如果这些云服务的用户在 Azure Monitor 中基于活动日志创建或配置了任何警报，将不会触发警报。 此外，在所有 Azure 公共区域，如果用户[将恢复服务活动日志收集到 Log Analytics 工作区中](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs)，这些日志不会显示。
+- **定义适应**：计划的备份活动不能适应活动日志的最新定义。 它与[诊断日志](/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs)相符。 当通过活动日志通道传送数据发生变化时，这种相符性会导致意外的影响。
+- **活动日志通道的问题**：在恢复服务保管库中，从 Azure 备份传送的活动日志遵循一个新的模型。 遗憾的是，此项更改会影响 Azure 政府、Azure 德国和 Azure 中国世纪互联的活动日志生成。 如果这些云服务的用户在 Azure Monitor 中基于活动日志创建或配置了任何警报，将不会触发警报。 此外，在所有 Azure 公共区域，如果用户[将恢复服务活动日志收集到 Log Analytics 工作区中](/azure-monitor/platform/collect-activity-logs)，这些日志不会显示。
 
 使用 Log Analytics 工作区可对 Azure 备份保护的所有工作负荷进行大规模监视和发出警报。
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9dfa826b5012fcc95760c42faf7f316dd986d5f3
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 0c5aa3491ce8a7503446d6c75e990466d13bdf32
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332099"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818444"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>创作和终结点用户访问权限
 所有者和协作者具有创作访问权限。 对于专用应用，所有者和协作者具有终结点访问权限。 对于公共应用，任何具有 LUIS 帐户和公共应用 ID 的人员均具有终结点访问权限。 
@@ -80,7 +80,7 @@ ms.locfileid: "68332099"
 
 ## <a name="securing-the-endpoint"></a>保护终结点安全 
 
-可以通过在服务器到服务器环境中调用终结点密钥来控制可以查看 LUIS 终结点的人员。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://www.azure.cn/services/active-directory/)）的服务器端 API（如 Azure [函数](https://www.azure.cn/services/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不会防止中间人攻击，但它针对用户模糊化处理终结点，允许跟踪访问，并允许添加终结点响应日志记录（如 [Application Insights](https://www.azure.cn/services/application-insights/)）。  
+可以通过在服务器到服务器环境中调用终结点密钥来控制可以查看 LUIS 终结点的人员。 如果在机器人上使用 LUIS，则机器人和 LUIS 之间的连接已经安全。 如果直接调用 LUIS 终结点，则应创建具有受控访问权限（如 [AAD](https://www.azure.cn/zh-cn/home/features/active-directory/)）的服务器端 API（如 Azure [函数](https://www.azure.cn/zh-cn/home/features/functions/)）。 如果调用服务器端 API 并且身份验证和授权得到验证，则将调用传递到 LUIS。 尽管此策略不会防止中间人攻击，但它针对用户模糊化处理终结点，允许跟踪访问，并允许添加终结点响应日志记录（如 [Application Insights](https://www.azure.cn/zh-cn/home/features/azure-monitor/)）。  
 
 ## <a name="security-compliance"></a>安全性和符合性
  

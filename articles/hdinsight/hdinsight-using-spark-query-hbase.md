@@ -14,12 +14,12 @@ ms.topic: article
 origin.date: 06/06/2019
 ms.author: v-yiso
 ms.date: 07/22/2019
-ms.openlocfilehash: 8e1d93f7ff09b82240c3f68ca228f1da8d540c36
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 2248c02c2b879b370b43e22cd9a08cd951378d73
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845180"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878762"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>使用 Apache Spark 读取和写入 Apache HBase 数据
 
@@ -95,7 +95,7 @@ ms.locfileid: "67845180"
 |`SPARK_STORAGE_ACCOUNT`|替换为 Spark 群集使用的默认存储帐户名称。|
 
 ```bash
-hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.windows.net/
+hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CONTAINER@SPARK_STORAGE_ACCOUNT.blob.core.chinacloudapi.cn/
 ```
 
 然后退出与 HBase 群集的 ssh 连接。

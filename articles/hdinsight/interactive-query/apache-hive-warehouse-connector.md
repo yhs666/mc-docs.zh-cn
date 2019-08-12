@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.openlocfilehash: 235bd8c2dc93020184c989af36d30d8ce2419617
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 338d3add1c07bf33028372de2686f4333b9fc4e8
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520859"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878484"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>将 Apache Spark 和 Apache Hive 与 Hive 仓库连接器相集成
 
@@ -47,25 +47,25 @@ Hive 仓库连接器支持的部分操作如下：
 
 1. 执行以下步骤配置 Spark 群集设置： 
     1. 转到 Azure 门户，选择 HDInsight 群集，然后单击群集名称。
-    1. 在右侧的**群集仪表板**下，选择“Ambari 主页”。
-    1. 在 Ambari Web UI 中，单击“SPARK2” > “配置” > “自定义 spark2-defaults”。
+    1. 在右侧的**群集仪表板**下，选择“Ambari 主页”。 
+    1. 在 Ambari Web UI 中，单击“SPARK2” > “配置” > “自定义 spark2-defaults”。   
 
         ![Spark2 Ambari 配置](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. 将 `spark.hadoop.hive.llap.daemon.service.hosts` 设置为“高级 hive-interactive-env”下的“LLAP 应用名称”属性的相同值。 例如： `@llap0`
+    1. 将 `spark.hadoop.hive.llap.daemon.service.hosts` 设置为“高级 hive-interactive-env”下的“LLAP 应用名称”属性的相同值。   例如： `@llap0`
 
     1. 将 `spark.sql.hive.hiveserver2.jdbc.url` 设置为 JDBC 连接字符串，用于连接到交互式查询群集上的 Hiveserver2。 群集的连接字符串如以下 URI 所示。 `CLUSTERNAME` 是 Spark 群集的名称，`user` 和 `password` 参数设置为群集的正确值。
 
         ```
-        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
+        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.cn:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
         ```
 
         >[!Note] 
         > JDBC URL 应包含用于连接到 Hiveserver2 的凭据（包括用户名和密码）。
 
-    1. 将 `spark.datasource.hive.warehouse.load.staging.dir` 设置为与 HDFS 兼容的适当暂存目录。 如果你有两个不同的群集，则暂存目录应是 LLAP 群集存储帐户的暂存目录中的某个文件夹，这样，HiveServer2 才能访问它。 例如 `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`，其中，`STORAGE_ACCOUNT_NAME` 是群集所用存储帐户的名称，`STORAGE_CONTAINER_NAME` 是存储容器的名称。
+    1. 将 `spark.datasource.hive.warehouse.load.staging.dir` 设置为与 HDFS 兼容的适当暂存目录。 如果你有两个不同的群集，则暂存目录应是 LLAP 群集存储帐户的暂存目录中的某个文件夹，这样，HiveServer2 才能访问它。 例如 `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.chinacloudapi.cnt/tmp`，其中，`STORAGE_ACCOUNT_NAME` 是群集所用存储帐户的名称，`STORAGE_CONTAINER_NAME` 是存储容器的名称。
 
-    1. 使用交互式查询群集的元存储 URI 值设置 `spark.datasource.hive.warehouse.metastoreUri`。 若要查找 LLAP 群集的 metastoreUri，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “常规”下查找“hive.metastore.uris”属性。 该值如以下 URI 所示：
+    1. 使用交互式查询群集的元存储 URI 值设置 `spark.datasource.hive.warehouse.metastoreUri`。 若要查找 LLAP 群集的 metastoreUri，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “常规”下查找“hive.metastore.uris”属性。     该值如以下 URI 所示：
 
         ```
         thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
@@ -73,7 +73,7 @@ Hive 仓库连接器支持的部分操作如下：
         ```
 
     1. 将 `spark.security.credentials.hiveserver2.enabled` 设置为 YARN 客户端部署模式的 `false`。
-    1. 将 `spark.hadoop.hive.zookeeper.quorum` 设置为 LLAP 群集的 Zookeeper 仲裁。 若要查找 LLAP 群集的 Zookeeper 仲裁，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “高级 hive-site”下查找“hive.zookeeper.quorum”属性。 该值如以下字符串所示：
+    1. 将 `spark.hadoop.hive.zookeeper.quorum` 设置为 LLAP 群集的 Zookeeper 仲裁。 若要查找 LLAP 群集的 Zookeeper 仲裁，请在 LLAP 群集的 Ambari UI 中的“Hive” > “高级” > “高级 hive-site”下查找“hive.zookeeper.quorum”属性。     该值如以下字符串所示：
 
         ```
         zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
@@ -228,11 +228,11 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
     ![应用 Ranger 策略之前的演示表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 1. 应用仅显示该列最后四个字符的列掩码策略。  
-    1. 转到 Ranger 管理 UI (`https://CLUSTERNAME.azurehdinsight.net/ranger/`)。
-    1. 在“Hive”下单击群集的 Hive 服务。
+    1. 转到 Ranger 管理 UI (`https://CLUSTERNAME.azurehdinsight.cn/ranger/`)。
+    1. 在“Hive”下单击群集的 Hive 服务。 
         ![应用 Ranger 策略之前的演示表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
-    1. 依次单击“掩码”选项卡、“添加新策略”![策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
-    1. 提供所需的策略名称。 从“选择掩码选项”菜单中选择数据库“默认”、Hive 表“演示”、Hive 列“名称”、用户“rsadmin2”、访问类型“选择”和“部分掩码: 显示最后 4 个”。 单击“添加” 。
+    1. 依次单击“掩码”选项卡、“添加新策略”![策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)  
+    1. 提供所需的策略名称。 从“选择掩码选项”菜单中选择数据库“默认”、Hive 表“演示”、Hive 列“名称”、用户“rsadmin2”、访问类型“选择”和“部分掩码: 显示最后 4 个”。        单击“添加”  。
                 ![策略列表](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. 再次查看该表的内容。 应用 Ranger 策略之后，我们只能看到该列的最后四个字符。
 
@@ -240,5 +240,5 @@ Spark 原生并不支持写入到 Hive 管理的 ACID 表。 但是，使用 HWC
 
 ## <a name="next-steps"></a>后续步骤
 
-* [将交互式查询与 HDInsight 配合使用](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [将交互式查询与 HDInsight 配合使用](/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [有关使用 Zeppelin、Livy、spark-submit 和 pyspark 集成 Hive 仓库连接器的示例](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)

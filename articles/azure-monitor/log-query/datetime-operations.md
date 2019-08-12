@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 9bbd822e814becdbce3c25358488e8c478ac41d9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 0340c00104d4d19157c37eec46d419fa70c9de06
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562922"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818424"
 ---
 # <a name="working-with-date-time-values-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用日期时间值
 
@@ -158,11 +158,11 @@ Event
 | 转换数据类型 | [todatetime](https://docs.microsoft.com/azure/kusto/query/todatetimefunction)  [totimespan](https://docs.microsoft.com/azure/kusto/query/totimespanfunction)  |
 | 将值舍入到箱大小 | [bin](https://docs.microsoft.com/azure/kusto/query/binfunction) |
 | 获取特定的日期或时间 | [ago](https://docs.microsoft.com/azure/kusto/query/agofunction) [now](https://docs.microsoft.com/azure/kusto/query/nowfunction)   |
-| 获取部分值 | [datetime_part](https://docs.microsoft.com/azure/kusto/query/datetime-partfunction) [getmonth](https://docs.microsoft.com/azure/kusto/query/getmonthfunction) [monthofyear](https://docs.microsoft.com/azure/kusto/query/monthofyearfunction) [getyear](https://docs.microsoft.com//azure/kusto/query/getyearfunction) [dayofmonth](https://docs.microsoft.com//azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](https://docs.microsoft.com//azure/kusto/query/dayofyearfunction) [weekofyear](https://docs.microsoft.com//azure/kusto/query/weekofyearfunction) |
-| 获取相对日期值  | [endofday](https://docs.microsoft.com/azure/kusto/query/endofdayfunction) [endofweek](https://docs.microsoft.com/azure/kusto/query/endofweekfunction) [endofmonth](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction) [endofyear](https://docs.microsoft.com//azure/kusto/query/endofyearfunction) [startofday](https://docs.microsoft.com//azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](https://docs.microsoft.com//azure/kusto/query/startofmonthfunction) [startofyear](https://docs.microsoft.com//azure/kusto/query/startofyearfunction) |
+| 获取部分值 | [datetime_part](https://docs.microsoft.com/azure/kusto/query/datetime-partfunction) [getmonth](https://docs.microsoft.com/azure/kusto/query/getmonthfunction) [monthofyear](https://docs.microsoft.com/azure/kusto/query/monthofyearfunction) [getyear](https://docs.microsoft.com//azure/kusto/query/getyearfunction) [dayofmonth](https://docs.microsoft.com//azure/kusto/query/dayofmonthfunction) [dayofweek](https://docs.microsoft.com/azure/kusto/query/dayofweekfunction) [dayofyear](https://docs.microsoft.com//azure/kusto/query/dayofyearfunction) [weekofyear](https://docs.microsoft.com//azure/kusto/query/weekofyearfunction) |
+| 获取相对日期值  | [endofday](https://docs.microsoft.com/azure/kusto/query/endofdayfunction) [endofweek](https://docs.microsoft.com/azure/kusto/query/endofweekfunction) [endofmonth](https://docs.microsoft.com/azure/kusto/query/endofmonthfunction) [endofyear](https://docs.microsoft.com//azure/kusto/query/endofyearfunction) [startofday](https://docs.microsoft.com//azure/kusto/query/startofdayfunction) [startofweek](https://docs.microsoft.com/azure/kusto/query/startofweekfunction) [startofmonth](https://docs.microsoft.com//azure/kusto/query/startofmonthfunction) [startofyear](https://docs.microsoft.com//azure/kusto/query/startofyearfunction) |
 
 ## <a name="next-steps"></a>后续步骤
-请参阅有关将 [Kusto 查询语言](/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
+请参阅有关将 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)与 Azure Monitor 日志数据配合使用的其他课程：
 
 - [字符串操作](string-operations.md)
 - [聚合函数](aggregations.md)

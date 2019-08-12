@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 475e60dfdd629cf54c75fffc6c2ba44fd93f2146
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b4bfd92c38bea5eba0b4172364e2aad1d13d022f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562883"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818401"
 ---
-# <a name="common-alert-schema"></a>通用警报架构
+# <a name="common-alert-schema"></a>常见警报架构
 
 本文介绍通用警报架构是什么、使用它的好处以及启用它的方法。
 
@@ -125,7 +125,7 @@ ms.locfileid: "67562883"
 ## <a name="next-steps"></a>后续步骤
 
 - [Webhook/逻辑应用/Azure Functions/自动化 Runbook 的通用警报架构定义。](https://aka.ms/commonAlertSchemaDefinitions)
-- [了解如何创建一个逻辑应用，利用通用警报架构来处理所有警报。](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [了解如何创建一个逻辑应用，利用通用警报架构来处理所有警报。](/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

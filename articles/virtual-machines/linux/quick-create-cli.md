@@ -14,15 +14,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/09/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f31d786426da15c8303b2596314a4a359e68ab6b
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 724837127f6da4261b3df0e6feee4949122a57f7
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666369"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912952"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>快速入门：使用 Azure CLI 创建 Linux 虚拟机
 
@@ -31,13 +31,13 @@ Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本快速�
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="launch-azure-cloud-shell"></a>启动 Azure 本地 Shell
-如果希望在本地安装并使用 CLI，则本快速入门需要 Azure CLI version 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果希望在本地安装并使用 CLI，则本快速入门需要 Azure CLI version 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
@@ -45,7 +45,7 @@ az group create --name myResourceGroup --location chinaeast
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 VM。
 
 以下示例创建一个名为 *myVM* 的 VM 并添加一个名为 *azureuser* 的用户帐户。 `--generate-ssh-keys` 参数用来自动生成一个 SSH 密钥，并将其放置在默认密钥位置 ( *~/.ssh*) 中。 若要改为使用一组特定的密钥，请使用 `--ssh-key-value` 选项。
 
@@ -60,7 +60,7 @@ az vm create \
 
 创建 VM 和支持资源需要几分钟时间。 以下示例输出表明 VM 创建操作已成功。
 
-```
+```output
 {
   "fqdns": "",
   "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
@@ -77,7 +77,7 @@ az vm create \
 
 ## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80
 
-默认情况下，在 Azure 中创建 Linux VM 时仅打开 SSH 连接。 使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 打开 TCP 端口 80 以供 NGINX Web 服务器使用：
+默认情况下，在 Azure 中创建 Linux VM 时仅打开 SSH 连接。 使用 [az vm open-port](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 打开 TCP 端口 80 以供 NGINX Web 服务器使用：
 
 ```azurecli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
@@ -110,7 +110,7 @@ sudo apt-get -y install nginx
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 
+如果不再需要资源组、VM 和所有相关的资源，可以使用 [az group delete](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete) 命令将其删除。 
 
 ```azurecli
 az group delete --name myResourceGroup

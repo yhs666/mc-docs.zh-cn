@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 462a3585696c46b13616d9266f8d1bb2688d4af4
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: d8f89f6de316a0e2fd9e37e3befa1357ec5c31b9
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513792"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818376"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>使用 Azure Log Analytics 代理收集日志数据
 
-Azure Log Analytics 代理，以前称为 Azure Monitoring Agent (MMA) 或 OMS Linux 代理，是为了对本地计算机、[System Center Operations Manager](https://docs.microsoft.com/zh-cn/system-center/scom/) 监视的计算机和任何云中的虚拟机进行全面管理而开发的。 Windows 和 Linux 代理附加到 Log Analytics 工作区，以从不同的源收集数据，并收集监视解决方案中定义的任何独特日志或指标。 
+Azure Log Analytics 代理，以前称为 Azure Monitoring Agent (MMA) 或 OMS Linux 代理，是为了对本地计算机、[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) 监视的计算机和任何云中的虚拟机进行全面管理而开发的。 Windows 和 Linux 代理附加到 Log Analytics 工作区，以从不同的源收集数据，并收集监视解决方案中定义的任何独特日志或指标。 
 
 本文提供该代理的详细概述、系统和网络要求以及不同的部署方法。   
 

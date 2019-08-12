@@ -10,12 +10,12 @@ ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 261da87859d455f2153b730d81188fec77b7a008
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4f02ef446679094baa6c897e91834b01aa8b6156
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562697"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818363"
 ---
 # <a name="what-is-distributed-tracing"></a>什么是分布式跟踪？
 
@@ -51,15 +51,15 @@ Azure Monitor 还提供[应用程序映射](/azure-monitor/app/app-map)视图，
 
 除了 Application Insights SDK，Application Insights 还可以通过 [OpenCensus](https://opencensus.io/) 来支持分布式跟踪。 OpenCensus 是库的单发行版，开源且不局限于供应商，可以针对服务进行指标收集和分布式跟踪。 它还允许开源社区针对 Redis、Memcached 或 MongoDB 之类的常用技术启用分布式跟踪。 [Microsoft 与多个其他的监视项目和云项目合作伙伴进行 OpenCensus 协作](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/)。
 
-若要通过 OpenCensus 向应用程序添加分布式跟踪功能，请先[安装并配置 Application Insights 本地转发器](./../../azure-monitor/app/opencensus-local-forwarder.md)。 然后对 OpenCensus 进行配置，以便通过本地转发器路由分布式跟踪数据。 [Python](./../../azure-monitor/app/opencensus-python.md) 和 [Go](./../../azure-monitor/app/opencensus-go.md) 均受支持。
+若要通过 OpenCensus 向应用程序添加分布式跟踪功能，请先[安装并配置 Application Insights 本地转发器](../../azure-monitor/app/opencensus-local-forwarder.md)。 然后对 OpenCensus 进行配置，以便通过本地转发器路由分布式跟踪数据。 [Python](../../azure-monitor/app/opencensus-python.md) 和 [Go](../../azure-monitor/app/opencensus-go.md) 均受支持。
 
 OpenCensus 网站保留了 [Python](https://opencensus.io/api/python/trace/usage.html) 和 [Go](https://godoc.org/go.opencensus.io) 的 API 参考文档，此外还有各种不同的 OpenCensus 使用指南。 
 
 ## <a name="next-steps"></a>后续步骤
 
 * [OpenCensus Python 使用指南](https://opencensus.io/api/python/trace/usage.html)
-* [应用程序映射](./../../azure-monitor/app/app-map.md)
-* [端到端性能监视](./../../azure-monitor/learn/tutorial-performance.md)
+* [应用程序映射](../../azure-monitor/app/app-map.md)
+* [端到端性能监视](../../azure-monitor/learn/tutorial-performance.md)
 
 
 

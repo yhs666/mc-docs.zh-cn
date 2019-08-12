@@ -12,12 +12,12 @@ ms.workload: big-compute
 origin.date: 05/22/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
-ms.openlocfilehash: 1b1e4d4084c060f39ba2525b6460b5c1be7532bf
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 6d970938738fd4c56aa4018b55ffb38d6c03c6ec
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586859"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818458"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>用于 Node.js 的 Batch SDK 入门
 
@@ -68,7 +68,7 @@ node.js 客户端通过一个准备任务（稍后详细介绍）和一系列其
 
 ### <a name="step-2-create-an-azure-batch-account"></a>步骤 2：创建 Azure Batch 帐户
 
-可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](https://docs.microsoft.com/zh-cn/cli/azure/?view=azure-cli-latest)) 创建该帐户。
+可以通过 [Azure 门户](batch-account-create-portal.md)或命令行 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli?view=azure-cli-latest)) 创建该帐户。
 
 下面是通过 Azure CLI 创建该帐户的命令。
 

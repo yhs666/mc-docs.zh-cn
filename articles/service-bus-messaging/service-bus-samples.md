@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: aa4f55b2bc6b25e2aaa60f50be6b0dd882615d5f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: adc8b1d82308678eee97ca6722d2224d697834ea
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332133"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818549"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
-服务总线消息传送示例演示[服务总线消息传送](https://www.azure.cn/services/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：
+服务总线消息传送示例演示[服务总线消息传送](/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：
 
 | 编程语言 | SDK 或示例位置 |
 | -------------------- | ----------------------- |

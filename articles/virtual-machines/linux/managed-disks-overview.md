@@ -7,15 +7,15 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: overview
 origin.date: 04/22/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 78fe6f904b2c04f11d3e7a23e677f338608db3c9
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 57411828122390af6637dd6ff3725732227c26a9
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570427"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912736"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Azure 托管磁盘简介
 

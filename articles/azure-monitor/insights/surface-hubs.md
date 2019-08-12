@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 79d5d18a7cb5b3b0a8207ad2337f85fc82bed6c8
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 41c728b30592bc20cb384bd2ad02bf481b61ef03
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513860"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818302"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>使用 Azure Monitor 监视 Surface Hub 以跟踪其运行状况
 
@@ -31,7 +31,7 @@ ms.locfileid: "68513860"
 ## <a name="install-and-configure-the-solution"></a>安装和配置解决方案
 使用以下信息安装和配置解决方案。 要在 Azure Monitor 中管理 Surface Hub，需要以下项：
 
-* [Log Analytics 订阅](https://www.azure.cn/pricing/details/log-analytics/)级别，用于支持要监视的设备数。 根据注册设备的数量以及处理的数据量，Log Analytics 定价会有所不同。 在规划 Surface Hub 的部署时需要考虑这一点。
+* [Log Analytics 订阅](https://www.azure.cn/pricing/details/monitor/)级别，用于支持要监视的设备数。 根据注册设备的数量以及处理的数据量，Log Analytics 定价会有所不同。 在规划 Surface Hub 的部署时需要考虑这一点。
 
 添加一个现有的 Log Analytics 工作区，或新建一个工作区。 有关使用这两种方法的详细说明，请参见[在 Azure 门户中创建 Log Analytics 工作区](../learn/quick-create-workspace.md)。 Log Analytics 工作区配置完成后，可通过两种方式注册 Surface Hub 设备：
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 21c8e8cc78b867e4d120caeb55676df136d00cda
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: bd8600e4214bdd4476af905fc120920254a2d53c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732248"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818500"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>.NET 应用中发生异常时的调试快照
 发生异常时，可自动从实时 Web 应用程序收集调试快照。 快照显示发生异常时源代码和变量的状态。 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 中的快照调试程序（预览版）可监视来自 Web 应用的异常遥测数据。 它可收集常出现的异常的调试快照，为诊断生产中的问题提供所需信息。 请将[快照收集器 NuGet 包](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector)添加到应用程序，并按需在 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中配置收集参数。快照显示在 Application Insights 门户中的[异常](../../azure-monitor/app/asp-net-exceptions.md)区域中。
@@ -97,7 +97,7 @@ ms.locfileid: "66732248"
 每次应用程序调用 [TrackException](../../azure-monitor/app/asp-net-exceptions.md#exceptions) 时，快照收集器都会根据引发的异常类型和引发方法计算问题 ID。
 每次应用程序调用 TrackException 时，计数器都会递增以获得相应的问题 ID。 当计数器达到 `ThresholdForSnapshotting` 值时，问题 ID 将添加到收集计划。
 
-快照收集器还通过订阅 [AppDomain.CurrentDomain.FirstChanceException](https://docs.azure.cn/zh-cn/dotnet/api/system.appdomain.firstchanceexception?view=azure-dotnet) 事件来监视引发的异常。 当该事件触发时，将计算异常的问题 ID 并将其与收集计划中的问题 ID 进行比较。
+快照收集器还通过订阅 [AppDomain.CurrentDomain.FirstChanceException](https://docs.microsoft.com/dotnet/api/system.appdomain.firstchanceexception?view=azure-dotnet) 事件来监视引发的异常。 当该事件触发时，将计算异常的问题 ID 并将其与收集计划中的问题 ID 进行比较。
 如果匹配，则将创建正在运行的进程的快照。 将为快照分配一个唯一标识符，并使用该标识符标记异常。 FirstChanceException 处理程序返回后，将按正常方式处理引发的异常。 最终，异常会再次到达 TrackException 方法，该方法将异常与快照标识符一起报告给 Application Insights。
 
 主进程会继续运行并向用户提供流量，几乎没有中断。 同时，快照将传递给快照上传程序进程。 快照上传程序会创建一个小型转储并将其连同任何相关的符号 (.pdb) 文件一起上传到 Application Insights。
@@ -142,7 +142,7 @@ ms.locfileid: "66732248"
 
 Application Insights 快照调试器之外的功能：
  
-* [在代码中设置捕捉点](https://docs.microsoft.com/zh-cn/visualstudio/debugger/debug-live-azure-applications)，无需等待出现异常即可获取快照。
+* [在代码中设置捕捉点](https://docs.microsoft.com/visualstudio/debugger/debug-live-azure-applications)，无需等待出现异常即可获取快照。
 * [诊断 Web 应用中的异常](../../azure-monitor/app/asp-net-exceptions.md)介绍了如何在 Application Insights 中显示更多的异常。
 * [智能检测](../../azure-monitor/app/proactive-diagnostics.md)可自动发现性能异常。
 

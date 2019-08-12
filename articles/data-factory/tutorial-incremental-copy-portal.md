@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 origin.date: 01/11/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 1f876ccdbf11bd47d42b75e88afebccca983832e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a09215acfbd4892d5b367f582c59dfc26982b24d
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570310"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908696"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>以增量方式将 Azure SQL 数据库中的数据加载到 Azure Blob 存储
 在本教程中，请创建一个带管道的 Azure 数据工厂，将增量数据从 Azure SQL 数据库中的表加载到 Azure Blob 存储。 
@@ -239,7 +239,7 @@ END
 
         ![第二个查找活动 - 新建数据集](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
 17. 通过单击顶部的管道选项卡，或者单击左侧树状视图中管道的名称，切换到管道编辑器。 在**查找**活动的属性窗口中，确认对于“源数据集”字段，是否已选择 **SourceDataset**。  
-18. 对于“使用查询”字段，请选择“查询”，   然后输入以下查询：仅从 **data_source_table** 中选择 **LastModifytime** 的最大值。 如果没有此查询，数据集会从表中获取所有行，因为已在数据集定义中指定了表名 (data_source_table)。
+18. 对于“使用查询”字段，请选择“查询”，   然后输入以下查询：仅从 **data_source_table** 中选择 **LastModifytime** 的最大值。 请确保还选中了“仅第一行”  。
 
     ```sql
     select MAX(LastModifytime) as NewWatermarkvalue from data_source_table

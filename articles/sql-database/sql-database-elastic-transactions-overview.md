@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 03/12/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 8fc925ea8864a997d5526e054824d89d159eecf8
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: 811dd9b40d638aff0f56fece05ec45ee8ea01cc7
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003436"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878690"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>跨云数据库的分布式事务
 
@@ -100,7 +100,7 @@ SQL DB 的弹性数据库事务还支持协调分布式事务，这需要使用�
 
 ## <a name="net-installation-for-azure-cloud-services"></a>适用于 Azure 云服务的 .NET 安装
 
-Azure 为托管 .NET 应用程序提供了多个产品。 不同产品的比较可见于 [Azure 应用服务、云服务和虚拟机比较](../app-service/overview-compare.md)。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，需要将来宾 OS 升级到 4.6.1。 
+Azure 为托管 .NET 应用程序提供了多个产品。 如果产品的来宾 OS 版本低于弹性事务所需的 .NET 4.6.1，需要将来宾 OS 升级到 4.6.1。 
 
 对于 Azure 应用服务，当前不支持升级到来宾 OS。 对于 Azure 虚拟机，只需要登录到 VM 并运行最新的 .NET framework 安装程序即可。 对于 Azure 云服务，需要将更高版本的 .NET 安装包括到部署的启动任务中。 [在云服务角色上安装 .NET](../cloud-services/cloud-services-dotnet-install-dotnet.md) 中说明了概念和步骤。  
 

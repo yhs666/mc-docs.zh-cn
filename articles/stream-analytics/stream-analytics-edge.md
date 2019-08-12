@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc5259fb07bcfa43f765d4d252fd327492043fe5
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: ecdb84d086ab86287070cfe9551833e057a43c49
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609870"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818207"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -47,10 +47,10 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 |      |步骤   | 注释   |
 | ---   | ---   |  ---      |
-| 1   | 创建存储容器   | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
-| 2   | 创建 ASA 边缘作业   |  创建新的作业，选择“Edge”作为“宿主环境”。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
+| 1   | 创建存储容器    | 存储容器用于保存作业定义，IoT 设备可在其中进行访问它们。 <br>  你可以重用任何现有的存储容器。     |
+| 2   | 创建 ASA 边缘作业    |  创建新的作业，选择“Edge”  作为“宿主环境”  。 <br> 这些作业从云创建/管理，并在你自己的 IoT Edge 设备上运行。     |
 | 3   | **在设备上设置 IoT Edge 环境**   | [Windows](/iot-edge/quickstart) 或 [Linux](/iot-edge/quickstart-linux) 说明。          |
-| 4   | 在 IoT Edge 设备上部署 ASA   |  ASA 作业定义被导出到之前创建的存储容器。       |
+| 4   | 在 IoT Edge 设备上部署 ASA    |  ASA 作业定义被导出到之前创建的存储容器。       |
 
 <!-- Not Available on [Windows](/iot-edge/quickstart)-->
 <!-- Not Available on [Linux](/iot-edge/quickstart-linux)-->
@@ -62,8 +62,8 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 需要存储容器才能导出 ASA 已编译查询和作业配置。 它用于使用特定查询来配置 ASA Docker 映像。 
 1. 请按照[这些说明](/storage/common/storage-create-storage-account)在 Azure 门户创建存储帐户。 你可以保留所有默认选项以在 ASA 中使用此帐户。
 2. 在新创建的存储帐户中，创建一个 blob 存储容器：
-    1. 依次单击“Blob”和“+ 容器”。 
-    2. 输入名称，并将容器保留为“专用”。
+    1. 依次单击“Blob”和“+ 容器”   。 
+    2. 输入名称，并将容器保留为“专用”  。
 
 #### <a name="create-an-asa-edge-job"></a>创建 ASA Edge 作业
 > [!Note]
@@ -73,18 +73,18 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 
 1. 在 Azure 门户创建一个新的“流分析作业”。 [在此处创建新的 ASA 作业的直接链接](https://portal.azure.cn/#create/Microsoft.StreamAnalyticsJob)。
 
-2. 在“创建”屏幕中，选择“Edge”作为“宿主环境”（请参阅下图）
+2. 在“创建”屏幕中，选择“Edge”  作为“宿主环境”  （请参阅下图）
 
    ![在 Edge 上创建流分析作业](media/stream-analytics-edge/create-asa-edge-job.png)
 3. 作业定义
-    1. 定义输入流。 为作业定义一个或多个输入流。
+    1.  定义输入流。 为作业定义一个或多个输入流。
     2. 定义参考数据（可选）。
-    3. 定义输出流。 为作业定义一个或多个输出流。 
-    4. 定义查询。 在云中使用内联编辑器定义 ASA 查询。 编译器将为 ASA Edge 自动启用语法检查。 此外，还可以通过上传示例数据来测试你的查询。 
-4. 在“IoT Edge 设置”菜单中设置存储容器信息。
+    3.  定义输出流。 为作业定义一个或多个输出流。 
+    4.  定义查询。 在云中使用内联编辑器定义 ASA 查询。 编译器将为 ASA Edge 自动启用语法检查。 此外，还可以通过上传示例数据来测试你的查询。 
+4. 在“IoT Edge 设置”  菜单中设置存储容器信息。
 5. 设置可选设置
-    1. 事件排序。 你可以在门户中配置无序策略。 [此处](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)可获取文档。
-    2. 区域设置。 设置内部化格式。
+    1.  事件排序。 你可以在门户中配置无序策略。 [此处](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396)可获取文档。
+    2.  区域设置。 设置内部化格式。
 
 > [!Note]
 > 创建部署时，ASA 将作业定义导出到存储容器。 此作业定义在部署期间保持不变。 因此，如果要更新在 Edge 上运行的作业，则需要在 ASA 中编辑作业，然后在 IoT 中心创建新的部署。
@@ -94,7 +94,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 为此，需要执行以下步骤：
 - 创建 IoT 中心。
 - 在 Edge 设备上安装 Docker 和 IoT Edge 运行时。
-- 在 IoT 中心将设备设置为“IoT Edge 设备”。
+- 在 IoT 中心将设备设置为“IoT Edge 设备”  。
 
 这些步骤在针对 Windows 或 Linux 的 IoT Edge 文档中有相关描述。  
 
@@ -104,7 +104,7 @@ ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>在 IoT Edge 设备上部署 ASA
 ##### <a name="add-asa-to-your-deployment"></a>将 ASA 添加到部署
 - 在 Azure 门户中，打开 IoT 中心，导航到 **IoT Edge**，并单击要用于此部署的设备。
-- 选择“设置模块”，然后依次选择“+ 添加”、“Azure 流分析模块”。
+- 选择“设置模块”  ，然后依次选择“+ 添加”  、“Azure 流分析模块”  。
 - 选择订阅和你创建的 ASA Edge 作业。 单击“保存”。
 ![在部署中添加 ASA 模块](media/stream-analytics-edge/add-stream-analytics-module.png)
 
@@ -131,13 +131,13 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 }
 }   
 ```
-此示例演示下图中所述的方案的路由。 它包含名为“ASA”的边缘作业，以及名为“temperature”的输入和和名为“alert”的输出。
+此示例演示下图中所述的方案的路由。 它包含名为“ASA”  的边缘作业，以及名为“temperature”的输入和  和名为“alert”  的输出。
 ![消息路由关系图示例](media/stream-analytics-edge/edge-message-routing-example.png)
 
 以下示例定义了以下路由：
-- 来自 tempSensor 的每个消息均发送到名为 ASA 的模块，再到名为“temperature”的输入，
-- ASA 模块的所有输出均发送到链接此设备的 IoT 中心 ($upstream)，
-- ASA 模块的所有输出均发送到 tempSensor 的控制终结点。
+- 来自 tempSensor  的每个消息均发送到名为 ASA 的模块，再  到名为“temperature”的输入  ，
+- ASA  模块的所有输出均发送到链接此设备的 IoT 中心 ($upstream)，
+- ASA  模块的所有输出均发送到 tempSensor  的控制  终结点。
 
 ## <a name="technical-information"></a>技术信息
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>与云作业相比，IoT Edge 作业当前受限制
@@ -155,7 +155,7 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 ### <a name="runtime-and-hardware-requirements"></a>运行时和硬件要求
 <!--Not Available on [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/)-->
 
-ASA 和 Azure IoT Edge 使用 Docker 容器来提供可在多个主机操作系统（Windows、Linux）上运行的便携式解决方案。
+ASA 和 Azure IoT Edge 使用 Docker  容器来提供可在多个主机操作系统（Windows、Linux）上运行的便携式解决方案。
 
 IoT Edge 上的 ASA 可用作 Windows 和 Linux 映像运行于 x86-64 或 ARM（高级 RISC 计算机）架构之上。 
 
@@ -181,7 +181,7 @@ ASA Edge 作业可以从在 IoT Edge 设备上运行的其他模块获取输入�
 
 1. 为作业创建一个新输入。
 
-2. 选择“参考数据”作为”源类型“。
+2. 选择“参考数据”  作为”源类型“  。
 
 3. 在设备上将参考数据文件准备就绪。 对于 Windows 容器，请将参考数据文件放置在本地驱动器上并通过 Docker 容器共享本地驱动器。 对于 Linux 容器，请创建一个 Docker 卷并将该数据文件填充到该卷。
 
@@ -210,7 +210,7 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 <!--Not Available on* [Develop Stream Analytics Edge jobs using Visual Studio tools](/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)-->
 
 <!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
+[stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

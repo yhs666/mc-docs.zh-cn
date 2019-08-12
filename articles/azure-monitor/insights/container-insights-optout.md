@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3fd58d015cb9099e168adf6eb6b6f9b394da3f44
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: cbc982e05d4a652e828052160104009a80383e1f
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513864"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818133"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -26,7 +26,7 @@ ms.locfileid: "68513864"
 
 
 ## <a name="azure-cli"></a>Azure CLI
-使用 [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
+使用 [az aks disable-addons](/cli//aks?view=azure-cli-latest#az-aks-disable-addons) 命令禁用容器的 Azure Monitor。 该命令从群集节点中删除代理，它不会删除已收集并存储在 Azure Monitor 资源中的解决方案或数据。  
 
 ```azurecli
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG

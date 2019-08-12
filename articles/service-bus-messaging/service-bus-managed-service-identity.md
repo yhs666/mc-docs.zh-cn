@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 34532cbb68a253090c8f25cbeda8bca5cf526ce7
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 66cb529b5e5315c19aedba271df6a4f166a3d524
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332690"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818578"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>结合使用 Azure 资源的托管标识与 Azure 服务总线 
 
@@ -51,7 +51,7 @@ Azure 资源的托管标识是一项跨 Azure 功能，可便于你创建与其�
 
 下面的部分介绍了创建和部署在托管标识下运行的示例应用程序所需的步骤、如何向相应标识授予对服务总线消息传递命名空间的访问权限，以及应用程序如何使用相应标识与服务总线实体进行交互。
 
-此介绍描述的是 [Azure 应用服务](https://azure.microsoft.com/services/app-service/)中托管的 Web 应用程序。 VM 托管的应用程序所需的步骤与之类似。
+此介绍描述的是 [Azure 应用服务](/app-service/)中托管的 Web 应用程序。 VM 托管的应用程序所需的步骤与之类似。
 
 ### <a name="create-an-app-service-web-application"></a>创建应用服务 Web 应用程序
 
