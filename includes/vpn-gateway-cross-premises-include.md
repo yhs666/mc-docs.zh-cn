@@ -1,7 +1,21 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author: cherylmc ms.service: vpn-gateway ms.topic: include origin.date:05/16/2018 ms.date:06/13/2018 ms.author: v-junlch ms.custom: include file
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 05/16/2018
+ms.date: 06/13/2018
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: d8380022aa868f746f9dcf8b1c0cd9f58d5b8697
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951402"
 ---
-
 |  | **点到站点** | **站点到站点** | **ExpressRoute** |
 | --- | --- | --- | --- |
 | **Azure 支持的服务** |云服务和虚拟机 |云服务和虚拟机 |[服务列表](../articles/expressroute/expressroute-faqs.md#supported-services) |

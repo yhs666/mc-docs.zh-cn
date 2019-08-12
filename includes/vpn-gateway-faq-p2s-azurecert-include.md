@@ -10,11 +10,11 @@ ms.date: 12/24/2018
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 34e0a99001c7015e24b443cb4886b1b41903c21c
-ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53656618"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "63821021"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 

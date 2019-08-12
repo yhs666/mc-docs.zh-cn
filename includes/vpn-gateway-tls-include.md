@@ -10,13 +10,13 @@ ms.date: 01/21/2019
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 92a6067aa8c1c04f39cb1e62853580a71634084f
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334323"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "63821017"
 ---
-1. 右键单击“命令提示符”并选择“以管理员身份运行”，使用提升的权限打开命令提示符。
+1. 右键单击“命令提示符”  并选择“以管理员身份运行”  ，使用提升的权限打开命令提示符。
 2. 在命令提示符窗口中运行以下命令：
 
    ```

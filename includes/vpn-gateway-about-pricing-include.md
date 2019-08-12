@@ -10,11 +10,11 @@ ms.date: 01/21/2019
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: b958e2ae67ce901b17a15c9a83b18bb923f1d9c7
-ms.sourcegitcommit: 04392fdd74bcbc4f784bd9ad1e328e925ceb0e0e
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334361"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "63844498"
 ---
 需要为两件事情付费：虚拟网络网关的小时计算成本和来自虚拟网络网关的出口数据传输。 可在 [定价](https://www.azure.cn/pricing/details/vpn-gateway) 页上找到定价信息。
 

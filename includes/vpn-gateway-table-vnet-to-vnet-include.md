@@ -10,10 +10,10 @@ ms.date: 05/27/2019
 ms.author: v-jay
 ms.custom: include file
 ms.openlocfilehash: 1dce28e030265ca3df0128224dde1523629c152e
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 08/12/2019
 ms.locfileid: "68912302"
 ---
 | **部署模型/方法** | **Azure 门户** | **PowerShell** | **Azure CLI** |
