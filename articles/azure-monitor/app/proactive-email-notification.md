@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 491232b3830ba40ec16e3904b39c5c15df54f22b
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 6a08ada6ecc4de067e73666b18cde8d8c4cfbf52
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732132"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818153"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>智能检测电子邮件通知更改
 
@@ -22,7 +22,7 @@ ms.locfileid: "66732132"
 
 ## <a name="what-is-changing"></a>有什么变化？
 
-目前，智能检测电子邮件通知默认发送给_订阅所有者_、_订阅参与者_和_订阅读者_角色。 这些角色通常包括未积极参与监视的用户，这将导致其中许多用户不必要地接收通知。 为了改进此体验，我们会进行更改，以便电子邮件通知仅默认发送给[监视读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)和[监视参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)角色。
+目前，智能检测电子邮件通知默认发送给 _、 _和 _角色。 这些角色通常包括未积极参与监视的用户，这将导致其中许多用户不必要地接收通知。 为了改进此体验，我们会进行更改，以便电子邮件通知仅默认发送给[监视读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)和[监视参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)角色。
 
 ## <a name="scope-of-this-change"></a>此更改的范围
 
@@ -30,13 +30,13 @@ ms.locfileid: "66732132"
 
 * 标记为预览版的智能检测规则。 这些智能检测规则目前不支持电子邮件通知。
 
-* 故障异常规则。 如果新的默认角色从经典警报迁移到统一警报平台，此规则将开始针对新的默认角色（[此处](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)提供了详细信息）。
+* 故障异常规则。 如果新的默认角色从经典警报迁移到统一警报平台，此规则将开始针对新的默认角色（[此处](/azure-monitor/platform/monitoring-classic-retirement)提供了详细信息）。
 
 ## <a name="how-to-prepare-for-this-change"></a>如何为此更改做准备？
 
 若要确保将来自智能检测的电子邮件通知发送给相关用户，必须将这些用户分配到订阅的[监视读者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)或[监视参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)角色。
 
-若要通过 Azure 门户将用户分配到“监视读者”或“监视参与者”角色，请按照[添加角色分配](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)一文中所述的步骤执行操作。 确保选择_监视读者_或_监视参与者_作为用户分配到的角色。
+若要通过 Azure 门户将用户分配到“监视读者”或“监视参与者”角色，请按照[添加角色分配](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment)一文中所述的步骤执行操作。 确保选择 _或 _作为用户分配到的角色。
 
 > [!NOTE]
 > 使用规则设置中的“其他电子邮件收件人”选项配置的智能检测通知特定收件人将不会受此更改影响  。 这些收件人将继续接收电子邮件通知。

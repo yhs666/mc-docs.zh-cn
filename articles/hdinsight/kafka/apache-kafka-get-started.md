@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 06/12/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 6a8099ec65c637fbeaa7bc2351c531e7bde3ae71
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 400135734df1f42bd13467b6f1c5ad2eb1a6b27d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845484"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878761"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Kafka 群集
 
@@ -76,7 +76,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
     | 位置 | 要在其中创建群集的 Azure 区域。 |
 
     > [!TIP]
-    > 每个 Azure 区域（位置）均提供_容错域_。 容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 在 HDInsight 群集中实现节点的虚拟机和托管磁盘跨这些容错域分布。 此体系结构可限制物理硬件故障造成的潜在影响。
+    > 每个 Azure 区域（位置）均提供 _。 容错域是 Azure 数据中心基础硬件的逻辑分组。 每个容错域共享公用电源和网络交换机。 在 HDInsight 群集中实现节点的虚拟机和托管磁盘跨这些容错域分布。 此体系结构可限制物理硬件故障造成的潜在影响。
     >
     > 为实现数据的高可用性，请选择包含三个容错域的区域（位置）  。 有关区域中容错域数的信息，请参阅 [Linux 虚拟机的可用性](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set)文档。
 
@@ -111,7 +111,7 @@ SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (
 1. 若要连接到 Apache Kafka 群集的主要头节点，请使用以下命令。 将 `sshuser` 替换为 SSH 用户名。 将 `mykafka` 替换为 Apache Kafka 群集的名称。
 
     ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ssh sshuser@mykafka-ssh.azurehdinsight.cn
     ```
 
 2. 首次连接到群集时，SSH 客户端可能会显示一个警告，提示无法验证主机。 当系统提示时，请键入“yes”，然后按 Enter，将主机添加到 SSH 客户端的受信任服务器列表   。
@@ -164,7 +164,7 @@ ssuhuser@hn0-mykafk:~$
 3. 提取具有正确大小写格式的群集名称。 群集名称的实际大小写格式可能出乎预期，具体取决于群集的创建方式。 此命令会获取实际的大小写格式，将其存储在变量中，然后显示具有正确大小写格式的名称，以及此前提供的名称。 输入以下命令：
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.cn/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     echo $clusterName, $clusterNameA
     ```
 

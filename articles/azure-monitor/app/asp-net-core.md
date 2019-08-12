@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da0c4c4e5a937b4b6c0aab95c0f3e045c19efa7b
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b072e10f4c57d6dc0317d11040de2a97f585cff8
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562733"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818505"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
@@ -38,7 +38,7 @@ ms.locfileid: "67562733"
 ## <a name="prerequisites"></a>先决条件
 
 - 一个正常运行的 ASP.NET Core 应用程序。 如果需要创建 ASP.NET Core 应用程序，请遵循此 [ASP.NET Core 教程](https://docs.microsoft.com/aspnet/core/getting-started/)。
-- 有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)。
+- 有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)。
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>启用 Application Insights 服务器端遥测 (Visual Studio)
 
@@ -135,7 +135,7 @@ ms.locfileid: "67562733"
 
 ### <a name="performance-counters"></a>性能计数器
 
-对 ASP.NET Core 中的[性能计数器](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/)的支持限制如下：
+对 ASP.NET Core 中的[性能计数器](/azure-monitor/app/web-monitor-performance)的支持限制如下：
 
    * 如果应用程序在 Web 应用 (Windows) 中运行，则 SDK 2.4.1 和更高版本将收集性能计数器。
    * 如果应用程序在 Windows 中运行，并且面向 `NETSTANDARD2.0` 或更高版本，则 SDK 2.7.0-beta3 和更高版本将收集性能计数器。
@@ -145,15 +145,15 @@ ms.locfileid: "67562733"
 
 ### <a name="ilogger-logs"></a>ILogger 日志
 
-SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILogger 日志](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)。
+SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILogger 日志](/azure-monitor/app/ilogger)。
 
 ### <a name="live-metrics"></a>实时指标
 
-可能需要在几分钟后，遥测数据才开始显示在门户中。 若要快速确认是否一切正常，最好是在向运行中的应用程序发出请求时使用[实时指标](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream)。
+可能需要在几分钟后，遥测数据才开始显示在门户中。 若要快速确认是否一切正常，最好是在向运行中的应用程序发出请求时使用[实时指标](/azure-monitor/app/live-stream)。
 
 ## <a name="enable-client-side-telemetry-for-web-applications"></a>为 Web 应用程序启用客户端遥测
 
-完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](https://docs.microsoft.com/azure/azure-monitor/app/usage-overview)。
+完成前面所述的步骤足以开始收集服务器端遥测数据。 如果应用程序包含客户端组件，请遵循后续步骤开始收集[使用情况遥测数据](/azure-monitor/app/usage-overview)。
 
 1. 在 `_ViewImports.cshtml` 中添加注入代码：
 
@@ -170,7 +170,7 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 
 前面引用的 `.cshtml` 文件名取自默认的 MVC 应用程序模板。 从根本上讲，若要为应用程序正确启用客户端监视，JavaScript 代码片段必须出现在所要监视的应用程序的每个页面的 `<head>` 节中。 将 JavaScript 代码片段添加到 `_Layout.cshtml` 即可实现此应用程序模板的此目标。 
 
-如果项目不包含 `_Layout.cshtml`，你仍然可以添加[客户端监视](https://docs.microsoft.com/azure/azure-monitor/app/website-monitoring)。 为此，可将 JavaScript 代码片段添加到用于控制应用中所有页面的 `<head>` 的等效文件。 或者，可将代码片段添加到多个页面中，但这种解决方法很难掌控，因此我们一般不建议。
+如果项目不包含 `_Layout.cshtml`，你仍然可以添加[客户端监视](/azure-monitor/app/website-monitoring)。 为此，可将 JavaScript 代码片段添加到用于控制应用中所有页面的 `<head>` 的等效文件。 或者，可将代码片段添加到多个页面中，但这种解决方法很难掌控，因此我们一般不建议。
 
 ## <a name="configure-the-application-insights-sdk"></a>配置 Application Insights SDK
 
@@ -203,11 +203,11 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 
 适用于 ASP.NET Core 的 Application Insights SDK 支持固定频率和自适应采样。 自适应采样默认已启用。 
 
-有关详细信息，请参阅](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)配置 ASP.NET Core 应用程序的自适应采样[。
+有关详细信息，请参阅 [配置 ASP.NET Core 应用程序的自适应采样](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications)。
 
 ### <a name="adding-telemetryinitializers"></a>添加 TelemetryInitializer
 
-若要定义连同所有遥测数据一起发送的全局属性，请使用[遥测初始化表达式](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer)。
+若要定义连同所有遥测数据一起发送的全局属性，请使用[遥测初始化表达式](/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer)。
 
 将任何新的 `TelemetryInitializer` 添加到 `DependencyInjection` 容器，如以下代码所示。 SDK 会自动拾取添加到 `DependencyInjection` 容器的任何 `TelemetryInitializer`。
 
@@ -243,7 +243,7 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 
 ### <a name="adding-telemetry-processors"></a>添加遥测处理程序
 
-可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
+可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -259,7 +259,7 @@ SDK 2.7.0-beta3 或更高版本自动捕获 `Warning` 或更高严重性的 [ILo
 
 ### <a name="configuring-or-removing-default-telemetrymodules"></a>配置或删除默认的 TelemetryModule
 
-Application Insights 使用遥测模块[自动收集有关特定工作负荷的有用信息](https://docs.microsoft.com/azure/azure-monitor/app/auto-collect-dependencies)，而无需进行额外的配置。
+Application Insights 使用遥测模块[自动收集有关特定工作负荷的有用信息](/azure-monitor/app/auto-collect-dependencies)，而无需进行额外的配置。
 
 默认已启用以下自动收集模块。 这些模块负责自动收集遥测数据。 可以禁用或配置这些模块，以改变其默认行为。
 
@@ -344,7 +344,7 @@ public class HomeController : Controller
     }
 ```
 
-有关 Application Insights 中自定义数据报告的详细信息，请参阅 [Application Insights 自定义指标 API 参考](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics/)。
+有关 Application Insights 中自定义数据报告的详细信息，请参阅 [Application Insights 自定义指标 API 参考](/azure-monitor/app/api-custom-events-metrics/)。
 
 ### <a name="some-visual-studio-templates-used-the-useapplicationinsights-extension-method-on-iwebhostbuilder-to-enable-application-insights-is-this-usage-still-valid"></a>某些 Visual Studio 模板使用 IWebHostBuilder 中的 UseApplicationInsights() 扩展方法来启用 Application Insights。 这种用法是否仍然有效？
 
@@ -365,7 +365,7 @@ public class HomeController : Controller
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>是否可以使用状态监视器之类的工具来启用 Application Insights 监视？
 
-否。 [状态监视器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)和[状态监视器 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 目前仅支持 ASP.NET 4.x。
+否。 [状态监视器](/azure-monitor/app/monitor-performance-live-website-now)和[状态监视器 v2](/azure-monitor/app/status-monitor-v2-overview) 目前仅支持 ASP.NET 4.x。
 
 ### <a name="is-application-insights-automatically-enabled-for-my-aspnet-core-20-application"></a>系统是否会自动为 ASP.NET Core 2.0 应用程序启用 Application Insights？
 

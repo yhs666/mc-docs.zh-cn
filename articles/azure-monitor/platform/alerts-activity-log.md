@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89e279661bbda0c8cba82569fadc00b359d8cd3c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 61143fe5eaa4f95bd0a4b98299e2bd1873520dd6
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514025"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818269"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -230,17 +230,17 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 ## <a name="azure-cli"></a>Azure CLI
 
-set [az monitor activity-log alert](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert) 下的专用 Azure CLI 命令可用于管理活动日志警报规则。
+set [az monitor activity-log alert](/cli/monitor/activity-log/alert?view=azure-cli-latest) 下的专用 Azure CLI 命令可用于管理活动日志警报规则。
 
 若要创建新的活动日志警报规则，请依序使用以下命令：
 
-1. [az monitor activity-log alert create](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create)：创建新的活动日志警报规则资源。
-1. [az monitor activity-log alert scope](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope)：为已创建的活动日志警报规则添加范围。
-1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group)：向活动日志警报规则中添加操作组。
+1. [az monitor activity-log alert create](/cli/monitor/activity-log/alert?view=azure-cli-latest#az-monitor-activity-log-alert-create)：创建新的活动日志警报规则资源。
+1. [az monitor activity-log alert scope](/cli/monitor/activity-log/alert/scope)：为已创建的活动日志警报规则添加范围。
+1. [az monitor activity-log alert action-group](/cli/monitor/activity-log/alert/action-group)：向活动日志警报规则中添加操作组。
 
-若要检索一个活动日志警报规则资源，请使用 Azure CLI 命令 [az monitor activity-log alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)。 若要查看某个资源组中的所有活动日志警报规则资源，请使用 [az monitor activity-log alert list](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list)。
-可以使用 Azure CLI 命令 [az monitor activity-log alert delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) 删除活动日志警报规则资源。
+若要检索一个活动日志警报规则资源，请使用 Azure CLI 命令 [az monitor activity-log alert show](/cli/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+)。 若要查看某个资源组中的所有活动日志警报规则资源，请使用 [az monitor activity-log alert list](/cli/monitor/activity-log/alert#az-monitor-activity-log-alert-list)。
+可以使用 Azure CLI 命令 [az monitor activity-log alert delete](/cli/monitor/activity-log/alert#az-monitor-activity-log-alert-delete) 删除活动日志警报规则资源。
 
 ## <a name="next-steps"></a>后续步骤
 

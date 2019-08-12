@@ -9,22 +9,22 @@ ms.date: 6/4/2019
 ms.service: application-insights
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f76a67da9a5e678b88fa9e9a7d209cba1ad1612f
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: e3dd5639806bb805ef9e1d9e93f9f7b1ed96caf5
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562682"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818171"
 ---
 # <a name="collect-distributed-traces-from-python-preview"></a>从 Python（预览版）收集分布式跟踪
 
-Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) 和我们新的[本地转发器](./../../azure-monitor/app/opencensus-local-forwarder.md)集成来对 Python 应用程序进行分布式跟踪。 本文将逐步介绍设置 OpenCensus for Python 并将跟踪数据提供给 Application Insights 的过程。
+Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) 和我们新的[本地转发器](../../azure-monitor/app/opencensus-local-forwarder.md)集成来对 Python 应用程序进行分布式跟踪。 本文将逐步介绍设置 OpenCensus for Python 并将跟踪数据提供给 Application Insights 的过程。
 
 ## <a name="prerequisites"></a>先决条件
 
 - 需要一个 Azure 订阅。
 - 应该安装 Python。本文使用 [Python 3.7.0](https://www.python.org/downloads/)，不过更早的版本在进行微调后也可能适用。
-- 按照说明安装 [Windows 服务形式的本地转发器](./../../azure-monitor/app/opencensus-local-forwarder.md)
+- 按照说明安装 [Windows 服务形式的本地转发器](../../azure-monitor/app/opencensus-local-forwarder.md)
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -57,7 +57,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 
    ![检测密钥的屏幕截图](./media/opencensus-python/0003-instrumentation-key.png)
 
-2. 编辑 `LocalForwarder.config` 文件并添加检测密钥。 如果已按照[先决条件](./../../azure-monitor/app/opencensus-local-forwarder.md)中的说明操作，则该文件位于 `C:\LF-WindowsServiceHost`
+2. 编辑 `LocalForwarder.config` 文件并添加检测密钥。 如果已按照[先决条件](../../azure-monitor/app/opencensus-local-forwarder.md)中的说明操作，则该文件位于 `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -110,7 +110,7 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
     
     ```
 
-3. 运行代码时，系统会重复提示你输入一个值。 每次输入时，值都会输出到 shell，并会由 OpenCensus Python 模块生成相应的 **SpanData** 块。 OpenCensus 项目将[_跟踪定义为 span 树_](https://opencensus.io/core-concepts/tracing/)。
+3. 运行代码时，系统会重复提示你输入一个值。 每次输入时，值都会输出到 shell，并会由 OpenCensus Python 模块生成相应的 **SpanData** 块。 OpenCensus 项目将[ _](https://opencensus.io/core-concepts/tracing/)。
     
     ```python
     Enter a value: 4
@@ -205,8 +205,8 @@ Application Insights 现在支持通过与 [OpenCensus](https://opencensus.io) �
 ## <a name="next-steps"></a>后续步骤
 
 * [OpenCensus Python 使用指南](https://opencensus.io/api/python/trace/usage.html)
-* [应用程序映射](./../../azure-monitor/app/app-map.md)
-* [端到端性能监视](./../../azure-monitor/learn/tutorial-performance.md)
+* [应用程序映射](../../azure-monitor/app/app-map.md)
+* [端到端性能监视](../../azure-monitor/learn/tutorial-performance.md)
 
 
 

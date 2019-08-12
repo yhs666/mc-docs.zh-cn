@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/25/2017
-ms.date: 06/17/2019
-ms.author: v-biyu
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: b4f852c8df7a27021a9d92188b9b734abc3c7cf5
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: c5614b65e8ceac17251b344f84ea0a746b751da8
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687489"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878609"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 
@@ -209,7 +209,7 @@ ms.locfileid: "66687489"
 [在 Azure 应用服务中配置自定义域名]: ./app-service-web-tutorial-custom-domain.md
 [设置 Azure 应用服务中的过渡环境]: ./deploy-staging-slots.md
 [为 Azure 应用服务中的应用启用 HTTPS]: ./app-service-web-tutorial-custom-ssl.md
-[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[How to: Monitor web endpoint status]: /app-service/web-sites-monitor#webendpointstatus
 [在 Azure 应用服务中监视基础知识]: ./web-sites-monitor.md
 [管道模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
 [在 Azure 应用服务中缩放应用]: ./web-sites-scale.md

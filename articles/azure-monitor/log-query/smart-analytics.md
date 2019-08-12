@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 56d4ac55278203053f2ea6482d01f7d39e2a42f9
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 92658bcbf84715eef55cadd54e2de8c26921dd96
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732462"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818281"
 ---
 # <a name="log-analytics-smart-analytics-examples"></a>Log Analytics 智能分析示例
 本文包含使用 Log Analytics 中的智能分析函数执行用户活动分析的示例。 可以使用这些示例来分析你自己的由 Application Insights 监视的应用程序，或者使用这些查询中的概念来对其他数据进行类似的分析。 
@@ -95,7 +95,7 @@ week
 ![队列分析输出](media/smart-analytics/cohorts.png)
 
 ## <a name="rolling-monthly-active-users-and-user-stickiness"></a>滚动每月活动用户数和用户粘性
-以下示例结合 [series_fir](/azure/kusto/query/series-firfunction) 函数使用时序分析，该函数用于执行滑动窗口计算。 受监视的示例应用程序是一个通过自定义事件跟踪用户活动的网上商店。 查询跟踪两种类型的用户活动：_AddToCart_和 _Checkout_，并将活动用户定义为在给定的一天内至少执行了一次结算的用户。 
+以下示例结合 [series_fir](https://docs.microsoft.com/azure/kusto/query/series-firfunction) 函数使用时序分析，该函数用于执行滑动窗口计算。 受监视的示例应用程序是一个通过自定义事件跟踪用户活动的网上商店。 查询跟踪两种类型的用户活动： _和 _Checkout_ ，并将活动用户定义为在给定的一天内至少执行了一次结算的用户。 
 
 
 
@@ -189,8 +189,8 @@ on Timestamp
 
 使用两种方法来根据跟踪日志数据评估服务状态：
 
-- 使用 [make-series](/azure/kusto/query/make-seriesoperator) 将半结构化文本跟踪日志转换为指标，用于表示正跟踪线与负跟踪线之间的比率。
-- 结合时序分析和双线线性回归，使用 [series_fit_2lines](/azure/kusto/query/series-fit-2linesfunction) 和 [series_fit_line](/azure/kusto/query/series-fit-linefunction) 执行高级跳步检测。
+- 使用 [make-series](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) 将半结构化文本跟踪日志转换为指标，用于表示正跟踪线与负跟踪线之间的比率。
+- 结合时序分析和双线线性回归，使用 [series_fit_2lines](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) 和 [series_fit_line](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) 执行高级跳步检测。
 
 ``` Kusto
 let startDate = startofday(datetime("2017-02-01"));
@@ -221,7 +221,7 @@ traces
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关语言的详细信息，请参阅[数据资源管理器语言参考](/azure/kusto/query)。
+- 有关语言的详细信息，请参阅[数据资源管理器语言参考](https://docs.microsoft.com/azure/kusto/query)。
 - 演练[有关在 Log Analytics 中编写查询的课程](get-started-queries.md)。
 
 

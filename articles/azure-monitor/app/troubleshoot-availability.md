@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 81dda8e33f4ce3b755dd6bb9acd5f5fb3e1f6d7c
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 79fa288ae92cc2aba9567a560f0b30ae5a685271
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562992"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818142"
 ---
 # <a name="troubleshooting"></a>故障排除
 
@@ -42,7 +42,7 @@ ms.locfileid: "67562992"
 |----|---------|
 |连接尝试失败，因为已连接方在一段时间后尚未做出正确的响应  | 某些位置的测试代理正被防火墙阻止。|
 |    |正在通过（负载均衡器、异地流量管理器、Azure Express Route）重新路由某些 IP 地址。 
-|    |如果使用的是 Azure ExpressRoute，则在[发生非对称路由](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing)时，存在着数据包可能被丢弃的情况。|
+|    |如果使用的是 Azure ExpressRoute，则在[发生非对称路由](/expressroute/expressroute-asymmetric-routing)时，存在着数据包可能被丢弃的情况。|
 
 ## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>间歇性测试失败，出现违反协议错误
 
@@ -74,7 +74,7 @@ ms.locfileid: "67562992"
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>我尚未收到 Webhook 通知？
 
-检查以确保接收 Webhook 通知的应用程序可用并成功处理 Webhook 请求。 有关详细信息，请参阅[此文](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook)。
+检查以确保接收 Webhook 通知的应用程序可用并成功处理 Webhook 请求。 有关详细信息，请参阅[此文](/azure-monitor/platform/alerts-log-webhook)。
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>间歇性测试失败，出现违反协议错误？
 
@@ -125,7 +125,7 @@ ms.locfileid: "67562992"
 
 * 建议将经典警报通知用于特定接收人。
 
-* 对于 Y 个位置中 X 个位置的失败相关警报，如已启用“批/组”  复选框选项，会向具有管理员/共同管理员角色的用户发送相关通知。  实质上是_订阅_的_所有_管理员均会收到通知。
+* 对于 Y 个位置中 X 个位置的失败相关警报，如已启用“批/组”  复选框选项，会向具有管理员/共同管理员角色的用户发送相关通知。  实质上是 _的 _管理员均会收到通知。
 
 * 对于可用性指标警报，“批量/组”复选框选项（如果已启用）将发送给订阅中具有所有者、参与者或阅读者角色的用户  。 实际上，可以访问包含 Application Insights 资源在内的订阅的所有用户均会收到通知  。 
 

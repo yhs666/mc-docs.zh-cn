@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9beed86971537268d3ea0609c1aa10537b4b681a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c3813c30dd78343907fc78090186518017958dda
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570603"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818472"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 
@@ -33,7 +33,7 @@ ms.locfileid: "67570603"
 
 为了备份 Azure VM，Azure 备份会在 VM 代理上安装一个扩展，该代理在计算机上运行。 如果 VM 是根据 Azure 市场映像创建的，则代理将运行。 在某些情况下（例如创建自定义 VM，或者从本地迁移计算机）， 可能需要手动安装代理。 
 
-- 如果需要手动安装 VM 代理，请按 [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 或 [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) VM 的说明操作。 
+- 如果需要手动安装 VM 代理，请按 [Windows](/virtual-machines/extensions/agent-windows) 或 [Linux](/virtual-machines/extensions/agent-linux) VM 的说明操作。 
 - 在安装代理后启用备份时，Azure 备份会将备份扩展安装到代理。 它可以在没有用户干预的情况下更新和修补扩展。
 
 ## 通过 Azure VM 设置进行备份 <a name="defining-a-backup-policy"></a>

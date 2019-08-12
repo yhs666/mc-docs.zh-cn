@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9a2f1b945a018f3637c88c680bb8fac86bcd6368
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 9310abd92ce1f4024703cf75ab2abdc870abf85d
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513804"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818238"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -173,7 +173,7 @@ Azure Monitor 中的详细应用程序监视是通过 [Application Insights](/az
 
 
 ### <a name="azure-monitor-for-containers"></a>用于容器的 Azure Monitor
-[用于容器的 Azure Monitor](../insights/container-insights-overview.md) 为 [Azure Kubernetes 服务 (AKS)](/azure/aks/) 提供自定义的监视体验。 它会收集有关这些资源的其他数据，如下表中所述。
+[用于容器的 Azure Monitor](../insights/container-insights-overview.md) 为 [Azure Kubernetes 服务 (AKS)](/aks/) 提供自定义的监视体验。 它会收集有关这些资源的其他数据，如下表中所述。
 
 | 目标 | 说明 | 参考 |
 |:---|:---|:---|

@@ -7,12 +7,12 @@ ms.author: v-lingwu
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/2/2019
-ms.openlocfilehash: afac49ab3fc381d5de1c4ccd93abe6d27c20b075
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 31434668f58d64af6ac8147dcf87bd361d165045
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135978"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818211"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure 流分析作业的兼容性级别
 
@@ -36,7 +36,7 @@ Azure 流分析目前支持三种兼容性级别：
 
 ## <a name="set-the-compatibility-level"></a>设置兼容性级别
 
-可以使用 Azure 门户或[创建作业 REST API 调用](/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。
+可以使用 Azure 门户或[创建作业 REST API 调用](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)来设置流分析作业的兼容性级别。
 
 若要在 Azure 门户中更新作业的兼容性级别：
 

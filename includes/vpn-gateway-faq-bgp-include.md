@@ -1,8 +1,23 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:02/12/2019 ms.date:03/04/2019 ms.author: v-jay ms.custom: include file
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 02/12/2019
+ms.date: 08/05/2019
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 31c01a98563985e409129a5c79da6e7967779625
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68951404"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>BGP 是否在所有 Azure VPN 网关 SKU 上受支持？
-否，BGP 在 Azure **VpnGw1**、**VpnGw2**、**VpnGw3**、标准 VPN 网关和高性能 VPN 网关上受支持。 **基本** SKU。
+否，BGP 在 Azure **VpnGw1**、**VpnGw2**、**VpnGw3**、标准  VPN 网关和高性能  VPN 网关上受支持。 **基本** SKU。
 
 ### <a name="can-i-use-bgp-with-azure-policy-based-vpn-gateways"></a>能否将 BGP 用于基于 Azure Policy 的 VPN 网关？
 否，只有基于路由的 VPN 网关支持 BGP。
@@ -71,7 +86,7 @@ Azure VPN 网关会将以下路由播发到本地 BGP 设备：
 是的。 
 
 ### <a name="what-address-does-azure-vpn-gateway-use-for-bgp-peer-ip"></a>Azure VPN 网关将哪个地址用于 BGP 对等节点 IP？
-Azure VPN 网关将从为虚拟网络定义的 GatewaySubnet 范围内分配单个 IP 地址。 默认情况下，它是该范围的倒数第二个地址。 例如，如果 GatewaySubnet 是 10.12.255.0/27（范围从 10.12.255.0 到 10.12.255.31），则 Azure VPN 网关上的 BGP 对等 IP 地址是 10.12.255.30。 当列出 Azure VPN 网关信息时，可以找到此信息。
+Azure VPN 网关将从 GatewaySubnet 范围中为主动-待机 VPN 网关分配一个 IP 地址，或为主动-主动 VPN 网关分配两个 IP 地址。 可以使用 PowerShell（Get-AzVirtualNetworkGateway，查找 bgpPeeringAddress 属性）或通过 Azure 门户（在“网关配置”页上的“配置 BGP ASN”属性下）获取实际分配的 BGP IP 地址。
 
 ### <a name="what-are-the-requirements-for-the-bgp-peer-ip-addresses-on-my-vpn-device"></a>VPN 设备上的 BGP 对等节点 IP 地址的要求是什么？
 本地 BGP 对等节点地址 **不能** 与 VPN 设备的公共 IP 地址相同。 在 VPN 设备上对 BGP 对等节点 IP 使用不同的 IP 地址。 它可以是一个分配给设备上环回接口的地址，但请注意，它不能是 APIPA (169.254.x.x) 地址。 在表示该位置的相应本地网关中指定此地址。

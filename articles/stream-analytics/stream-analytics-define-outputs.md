@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/21/19
 ms.custom: seodec18
-ms.openlocfilehash: 0567621796b2154a7eb1d25f030e1e6089289a75
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: a63dd808ee60ac5db73657d93a0d0eb7eedbe6c7
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609874"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818208"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -68,7 +68,7 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 事件序列化格式 | 输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
 | 编码    | 如果使用 CSV 或 JSON 格式，则必须指定一种编码格式。 目前只支持 UTF-8 这种编码格式。 |
 | 分隔符   | 仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
-| 格式      | 仅适用于 JSON 序列化。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出。 “数组”指定输出会被格式化为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般而言，最好使用分隔行 JSON，因为在继续写入输出文件时，无需任何特殊处理。 |
+| 格式      | 仅适用于 JSON 序列化。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出  。 “数组”指定输出会被格式化为 JSON 对象的数组  。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般而言，最好使用分隔行 JSON，因为在继续写入输出文件时，无需任何特殊处理。 |
 
 使用 blob 存储作为输出时，在以下情况下 blob 中创建一个新文件：
 
@@ -82,7 +82,7 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 * 如果按照自定义字段对输出进行分区（其中分区键基数超过 8000），则可能每个分区键创建一个新的 blob。
 
 ## <a name="event-hub"></a>事件中心
-[Azure 事件中心](https://www.azure.cn/services/event-hubs/)服务是具有高扩展性的发布 - 订阅事件引入器。 事件中心每秒可收集数百万个事件。 当流分析作业的输出成为另一个流式处理作业的输入时，可以将事件中心用作输出。
+[Azure 事件中心](/event-hubs/)服务是具有高扩展性的发布 - 订阅事件引入器。 事件中心每秒可收集数百万个事件。 当流分析作业的输出成为另一个流式处理作业的输入时，可以将事件中心用作输出。
 
 需要使用几个参数才能将事件中心内的数据流配置为输出。
 
@@ -91,13 +91,13 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 输出别名 | 查询中使用的易记名称，用于将查询输出定向到此事件中心。 |
 | 事件中心命名空间 |一组消息处理实体的容器。 创建新的事件中心后，还创建了事件中心命名空间。 |
 | 事件中心名称 | 事件中心输出的名称。 |
-| 事件中心策略名称 | 共享访问策略，可以在事件中心的“配置”选项卡上创建。每个共享访问策略具有名称、所设权限以及访问密钥。 |
+| 事件中心策略名称 | 共享访问策略，可以在事件中心的“配置”选项卡上创建。  每个共享访问策略具有名称、所设权限以及访问密钥。 |
 | 事件中心策略密钥 | 用于对事件中心命名空间的访问权限进行身份验证的共享访问密钥。 |
 | 分区键列 | 可选。 包含事件中心输出的分区键的列。 |
 | 事件序列化格式 | 输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
 | 编码 | 对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
 | 分隔符 | 仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
-| 格式 | 仅适用于 JSON 序列化。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出。 “数组”指定输出会被格式化为 JSON 对象的数组。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般而言，最好使用分隔行 JSON，因为在继续写入输出文件时，无需任何特殊处理。 |
+| 格式 | 仅适用于 JSON 序列化。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出  。 “数组”指定输出会被格式化为 JSON 对象的数组  。 仅当作业停止或流分析移动到下个时间段时，才关闭此数组。 一般而言，最好使用分隔行 JSON，因为在继续写入输出文件时，无需任何特殊处理。 |
 | 属性列 | 可选。 需要作为传出消息的用户属性而不是有效负载附加的逗号分隔列。 [输出的自定义元数据属性](#custom-metadata-properties-for-output)部分详细介绍了此功能。 |
 
 <!-- Not Available ## Power BI-->
@@ -137,12 +137,12 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 输出别名 |该名称是在查询中使用的易记名称，用于将查询输出定向到此服务总线队列。 |
 | 服务总线命名空间 |一组消息处理实体的容器。 |
 | 队列名称 |服务总线队列的名称。 |
-| 队列策略名称 |创建队列时，还可以在“队列配置”选项卡上创建共享的访问策略。每个共享访问策略具有名称、所设权限以及访问密钥。 |
+| 队列策略名称 |创建队列时，还可以在“队列配置”选项卡上创建共享的访问策略  。每个共享访问策略具有名称、所设权限以及访问密钥。 |
 | 队列策略密钥 |用于对服务总线命名空间的访问权限进行身份验证的共享访问密钥。 |
 | 事件序列化格式 |输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
 | 编码 |对于 CSV 和 JSON，目前只支持 UTF-8 这种编码格式。 |
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
-| 格式 |仅适用于 JSON 类型。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出。 “数组”指定输出会被格式化为 JSON 对象的数组。 |
+| 格式 |仅适用于 JSON 类型。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出  。 “数组”指定输出会被格式化为 JSON 对象的数组  。 |
 | 属性列 | 可选。 需要作为传出消息的用户属性而不是有效负载附加的逗号分隔列。 [输出的自定义元数据属性](#custom-metadata-properties-for-output)部分详细介绍了此功能。 |
 
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
@@ -166,12 +166,12 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
-[Azure Cosmos DB](https://www.azure.cn/services/documentdb/) 是一种分布全球的多模型数据库服务，它提供全球范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
+[Azure Cosmos DB](/documentdb/) 是一种分布全球的多模型数据库服务，它提供全球范围内不设限的弹性缩放、丰富查询和自动索引（经由与架构无关的数据模型）、可靠的低延迟及行业领先的综合 SLA。 若要了解流分析的 Cosmos DB 集合选项，请参阅[将 Cosmos DB 用作输出的流分析](stream-analytics-documentdb-output.md)一文。
 
 <!-- Not Available on Azure Cosmos DB output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.-->
 
 > [!Note]
-> 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB。
+> 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB  。
 > 尚不支持使用其他 Azure Cosmos DB API。 如果使用其他 API 将 Azure 流分析指向 创建的 Azure Cosmos DB 帐户，则可能无法正确存储数据。
 
 下表描述了用于创建 Azure Cosmos DB 输出的属性。 <a name="custom-metadata-properties-for-output"></a>
@@ -180,11 +180,11 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | --- | --- |
 | 输出别名 | 用于在流分析查询中引用此输出的别名。 |
 | 接收器 | Azure Cosmos DB。 |
-| 导入选项 | 选择“从订阅中选择 Cosmos DB”或“手动提供 Cosmos DB 设置”。
+| 导入选项 | 选择“从订阅中选择 Cosmos DB”或“手动提供 Cosmos DB 设置”   。
 | 帐户 ID | Azure Cosmos DB 帐户的名称或终结点 URI。 |
 | 帐户密钥 | Azure Cosmos DB 帐户的共享访问密钥。 |
 | 数据库 | Azure Cosmos DB 数据库名称。 |
-| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br /><ul><li> _MyCollection_：必须存在一个名为“MyCollection”的集合。</li>  <li> _MyCollection{partition}_ ：基于分区依据列。</li></ul> 分区依据列集合必须存在：“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
+| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br /><ul><li> _MyCollection_ ：必须存在一个名为“MyCollection”的集合。</li>  <li> _MyCollection{partition}_ ：基于分区依据列。</li></ul> 分区依据列集合必须存在：“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
 | 分区键 | 可选。 仅当在集合名称模式中使用 partition 令牌时，才需要此项。<br /> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br /> 对于单个集合输出，可以使用任何任意输出列。 例如 PartitionId。 |
 | 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。
 

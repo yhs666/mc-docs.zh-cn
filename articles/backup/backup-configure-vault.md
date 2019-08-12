@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4bd9bf9cb8bafed13bda3c0d0c492ca00422c5cc
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4133d300262874b3ce47fe38ef0749322b5e0c8b
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570604"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818476"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>使用 Azure 备份 MARS 代理备份 Windows 计算机
 
@@ -221,7 +221,7 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
 1. 将备份数据写入暂存位置。
 2. 使用 AzureOfflineBackupDiskPrep 工具将暂存位置中的数据复制到一个或多个 SATA 磁盘。
-3. 该工具会创建 Azure 导入作业。 [详细了解](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) Azure 导入和导出。
+3. 该工具会创建 Azure 导入作业。 [详细了解](/storage/common/storage-import-export-service) Azure 导入和导出。
 4. 将 SATA 磁盘寄送到 Azure 数据中心。
 5. 在数据中心，磁盘数据将复制到 Azure 存储帐户。
 6. Azure 备份将数据从存储帐户复制到保管库，并计划增量备份。
