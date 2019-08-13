@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: v-lingwus
 ms.subservice: logs
-ms.openlocfilehash: dd8fea8248f5dcd9ce50a357aee05d067551ff0f
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 89c5922f090cbda4e6d297d01baa814ddf94fe60
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562899"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818267"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>将 Azure 活动日志导出到存储或 Azure 事件中心
 [Azure 活动日志](activity-logs-overview.md)提供 Azure 订阅中发生的订阅级事件的见解。 除了在 Azure 门户中查看活动日志或者将其复制到 Log Analytics 工作区（在其中可以结合 Azure Monitor 收集的其他数据一起分析这些日志）以外，还可以创建一个日志配置文件，以将活动日志存档到 Azure 存储帐户或流式传输到事件中心。
@@ -23,7 +23,7 @@ ms.locfileid: "67562899"
 若要将日志数据保留 90 天以上（可以全面控制保留策略）以进行审核、静态分析或备份，则将活动日志存档到存储帐户的做法非常有效。 如果只需将事件保留 90 天或更短的时间，则无需设置为存档到存储帐户，因为活动日志事件保留在 Azure 平台中的时间是 90 天。
 
 ## <a name="stream-activity-log-to-event-hub"></a>将活动日志流式传输到事件中心
-[Azure 事件中心](/azure/event-hubs/)是一个数据流平台和事件引入服务，每秒能够接收和处理数百万个事件。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到事件中心的数据。 可通过下述两种方式将流式传输功能用于活动日志：
+[Azure 事件中心](/event-hubs/)是一个数据流平台和事件引入服务，每秒能够接收和处理数百万个事件。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到事件中心的数据。 可通过下述两种方式将流式传输功能用于活动日志：
 * **流式传输到第三方日志记录和遥测系统**：一段时间后，Azure 事件中心的流式传输就会成为一种机制，用于将活动日志通过管道传输到第三方 SIEM 和日志分析解决方案。
 * **生成自定义遥测和日志记录平台**：如果已经有一个自定义生成的遥测平台，或者正想生成一个，则可利用事件中心高度可缩放的发布-订阅功能，灵活地引入活动日志。 
 
@@ -117,7 +117,7 @@ ms.locfileid: "67562899"
     | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 这是采用以下格式的字符串：`{service bus resource ID}/authorizationrules/{key name}`。 |
     | Location |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
     | RetentionInDays |是 |事件应在存储帐户中保留的天数，介于 1 和 2147483647 之间。 值为零时，将无限期存储日志。 |
-    | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_、_Delete_ 和 _Action_。 |
+    | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_ 、 _ 和 _Action_ 。 |
 
 ### <a name="example-script"></a>示例脚本
 以下示例 PowerShell 脚本创建一个日志配置文件，用于将活动日志写入到存储帐户和事件中心。
@@ -237,7 +237,7 @@ ms.locfileid: "67562899"
 | correlationId |通常为字符串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
 | identity |描述授权和声明的 JSON blob。 |
 | authorization |包含事件的 RBAC 属性的 Blob。 通常包括“action”、“role”和“scope”属性。 |
-| 级别 |事件的级别。 以下值之一：_Critical_、_Error_、_Warning_、_Informational_ 和 _Verbose_ |
+| 级别 |事件的级别。 以下值之一： _、 _、 _、 _ 和 _Verbose_ |
 | location |位置所在的区域（或全局）。 |
 | properties |`<Key, Value>` 对集合（即字典），描述事件的详细信息。 |
 

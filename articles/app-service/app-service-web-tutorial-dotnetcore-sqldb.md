@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL 数据库构建 .NET Core 应用 - Azure 应用服务 | Azure Docs
+title: ASP.NET Core 和 SQL 数据库 - Azure 应用服务 |Microsoft Docs
 description: 了解如何在 Azure 应用服务中运行 .NET Core 应用，同时使其连接到 SQL 数据库。
 services: app-service\web
 documentationcenter: dotnet
@@ -11,18 +11,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 04/11/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
+origin.date: 01/31/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 3ae3120a39893dc12e9eba24b8d8637a4f09999e
-ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.openlocfilehash: 0a1b99ecbedda9a17e75b7fd104b6d33254fae1e
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222588"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878612"
 ---
-# <a name="tutorial-build-a-net-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 .NET Core 和 SQL 数据库应用
+# <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 ASP.NET Core 和 SQL 数据库应用
 
 
 [应用服务](overview.md)在 Azure 中提供高度可缩放、自修补的 Web 托管服务。 本教程演示如何创建 .NET Core 应用，并将其连接至 SQL 数据库。 完成操作后，将拥有一个在应用服务中运行的 .NET Core MVC 应用。
@@ -177,7 +177,7 @@ Server=tcp:<server_name>.database.chinacloudapi.cn,1433;Database=coreDB;User ID=
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
 
-接下来，将 `ASPNETCORE_ENVIRONMENT` 应用设置设置为_生产_。 由于对本地开发环境使用 SQLite，并对 Azure 环境使用 SQL 数据库，因此通过此设置，你可以了解应用是否正在 Azure 中运行。
+接下来，将 `ASPNETCORE_ENVIRONMENT` 应用设置设置为 _。 由于对本地开发环境使用 SQLite，并对 Azure 环境使用 SQL 数据库，因此通过此设置，你可以了解应用是否正在 Azure 中运行。
 
 下面的示例在 Azure 应用中配置 `ASPNETCORE_ENVIRONMENT` 应用设置。 替换 \<app_name> 占位符  。
 
@@ -270,7 +270,7 @@ http://<app_name>.chinacloudsite.cn
 
 ### <a name="update-your-data-model"></a>更新数据模型
 
-在代码编辑器中打开 _Models\Todo.cs_。 将以下属性添加到 `ToDo` 类：
+在代码编辑器中打开 _Models\Todo.cs_ 。 将以下属性添加到 `ToDo` 类：
 
 ```csharp
 public bool Done { get; set; }
@@ -294,7 +294,7 @@ dotnet ef database update
 
 为了使用 `Done` 属性，请对代码做一些更改。 简单起见，本教程中将仅更改 `Index` 和 `Create` 视图，以便在操作中查看属性。
 
-打开 _Controllers\TodosController.cs_。
+打开 _Controllers\TodosController.cs_ 。
 
 找到 `Create([Bind("ID,Description,CreatedDate")] Todo todo)` 方法，并将 `Done` 添加到 `Bind` 属性中的属性列表。 完成后，`Create()` 方法签名如以下代码所示：
 
@@ -302,7 +302,7 @@ dotnet ef database update
 public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")] Todo todo)
 ```
 
-打开 _Views\Todos\Create.cshtml_。
+打开 _Views\Todos\Create.cshtml_ 。
 
 在 Razor 代码中，应能看到用于 `Description` 的 `<div class="form-group">` 元素，以及另一个用于 `CreatedDate` 的 `<div class="form-group">` 元素。 紧跟在这两个元素之后，添加另一个用于 `Done` 的 `<div class="form-group">` 元素：
 
@@ -316,7 +316,7 @@ public async Task<IActionResult> Create([Bind("ID,Description,CreatedDate,Done")
 </div>
 ```
 
-打开 _Views\Todos\Index.cshtml_。
+打开 _Views\Todos\Index.cshtml_ 。
 
 搜索空的 `<th></th>` 元素。 在此元素的正上方，添加下列 Razor 代码：
 
@@ -364,7 +364,7 @@ git push azure master
 
 当 ASP.NET Core 应用在 Azure 应用服务中运行时，可以将控制台日志传输到 CLI。 这样可以获得相同的诊断消息，以帮助调试应用程序错误。
 
-示例项目已遵循了 [Azure 中的 ASP.NET Core 日志记录](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure)中的指南，并且进行了两个配置更改：
+示例项目已遵循了 [Azure 中的 ASP.NET Core 日志记录](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider)中的指南，并且进行了两个配置更改：
 
 - 在 *DotNetCoreSqlDb.csproj* 中包括了对 `Microsoft.Extensions.Logging.AzureAppServices` 的引用。
 - 在 *Startup.cs* 中调用了 `loggerFactory.AddAzureWebAppDiagnostics()`。
@@ -385,7 +385,7 @@ az webapp log config --name <app_name> --resource-group myResourceGroup --applic
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ```
 
-启动日志流式处理后，请在浏览器中刷新 Azure 应用，以获取一些 Web 流量。 现在可以看到传送到终端的控制台日志。 如果没有立即看到控制台日志，请在 30 秒后重新查看。
+启动日志流式处理后，请在浏览器中刷新 Azure 应用，以获取一些 Web 流量。 现在可以看到通过管道传送到终端的控制台日志。 如果没有立即看到控制台日志，请在 30 秒后重新查看。
 
 若要随时停止日志流式处理，请键入 `Ctrl`+`C`。
 

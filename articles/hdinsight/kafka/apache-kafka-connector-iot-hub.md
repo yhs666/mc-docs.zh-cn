@@ -15,12 +15,12 @@ ms.workload: big-data
 origin.date: 11/06/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: d0dea1c9454c1240d7b938f033d79eb9ad4fe070
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1632c9e1762ca6314a39c75fdc21ab60f7523f32
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626478"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878752"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>将 Apache Kafka on HDInsight 与 Azure IoT 中心配合使用
 
@@ -28,7 +28,7 @@ ms.locfileid: "58626478"
 
 使用 Kafka Connect API 可以实施所需的连接器，用于将数据连续提取到 Kafka，或者将数据从 Kafka 推送到另一个系统。 [Apache Kafka Connect Azure IoT 中心](https://github.com/Azure/toketi-kafka-connect-iothub)是可将数据从 Azure IoT 中心提取到 Kafka 的连接器。 该连接器还能将数据从 Kafka 推送到 IoT 中心。 
 
-从 IoT 中心提取数据时，可以使用__源__连接器。 将数据推送到 IoT 中心时，可以使用__接收器__连接器。 IoT 中心连接器同时提供源连接器和接收器连接器。
+从 IoT 中心提取数据时，可以使用 __连接器。 将数据推送到 IoT 中心时，可以使用 __连接器。 IoT 中心连接器同时提供源连接器和接收器连接器。
 
 下图显示了在使用连接器时，Azure IoT 中心与 Kafka on HDInsight 之间的数据流。
 
@@ -58,13 +58,13 @@ ms.locfileid: "58626478"
     > 将 `sshuser` 替换为 HDInsight 群集的 SSH 用户帐户。 将 `new-edgenode` 替换为边缘节点名称。 将 `clustername` 替换为群集名称。 有关边缘节点的 SSH 终结点的详细信息，请参阅[将边缘节点与 HDInsight 配合使用](../hdinsight-apps-use-edge-node.md#access-an-edge-node)文档。
 
     ```bash
-    scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.clustername-ssh.azurehdinsight.net:
+    scp kafka-connect-iothub-assembly*.jar sshuser@new-edgenode.clustername-ssh.azurehdinsight.cn:
     ```
 
 3. 文件复制完成后，使用 SSH 连接到边缘节点：
 
     ```bash
-    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.net
+    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.cn
     ```
 
     有关详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)文档。
@@ -109,7 +109,7 @@ ms.locfileid: "58626478"
 3. 获取 Kafka 代理的地址。 群集中可能有许多的代理，但只需引用其中的一到两个。 若要获取两个代理主机的地址，请使用以下命令：
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     echo $KAFKABROKERS
     ```
 
@@ -120,7 +120,7 @@ ms.locfileid: "58626478"
 4. 获取 Apache Zookeeper 节点的地址。 群集中有多个 Zookeeper 节点，但只需引用其中的一到两个。 若要获取两个 Zookeeper 节点的地址，请使用以下命令：
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin -G https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
 5. 在独立模式下运行连接器时，将使用 `/usr/hdp/current/kafka-broker/config/connect-standalone.properties` 文件来与 Kafka 代理通信。 若要编辑 `connect-standalone.properties` 文件，请使用以下命令：
@@ -150,7 +150,7 @@ ms.locfileid: "58626478"
         > [!TIP]
         > 此项更改会将接收器连接器限制为每次处理 10 条记录，防止该连接器发生超时。 有关详细信息，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
-6. 若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。
+6. 若要保存文件，请使用 Ctrl+X、Y，然后按 Enter。   
 
 7. 若要创建连接器使用的主题，请使用以下命令：
 
@@ -174,11 +174,11 @@ ms.locfileid: "58626478"
 
 1. 获取事件中心兼容的终结点，以及 IoT 中心的事件中心兼容终结点名称。 若要获取此信息，请使用以下方法之一：
 
-   * __在 [Azure 门户](https://portal.azure.cn/)中__使用以下步骤：
+   * __在 [Azure 门户](https://portal.azure.cn/)中__ 使用以下步骤：
 
-     1. 导航到 IoT 中心并选择“终结点”。
-     2. 在“内置终结点”中，选择“事件”。
-     3. 在“属性”中，复制以下字段的值：
+     1. 导航到 IoT 中心并选择“终结点”。 
+     2. 在“内置终结点”中，选择“事件”。  
+     3. 在“属性”中，复制以下字段的值： 
 
          * __与事件中心兼容的名称__
          * __与事件中心兼容的终结点__
@@ -201,13 +201,13 @@ ms.locfileid: "58626478"
        "Partitions": 2
        ```
 
-2. 获取__共享访问策略__和__密钥__。 本示例使用__服务__密钥。 若要获取此信息，请使用以下方法之一：
+2. 获取 __和 __。 本示例使用 __密钥。 若要获取此信息，请使用以下方法之一：
 
-    * __在 [Azure 门户](https://portal.azure.cn/)中__使用以下步骤：
+    * __在 [Azure 门户](https://portal.azure.cn/)中__ 使用以下步骤：
 
-        1. 依次选择“共享访问策略”、“服务”。
-        2. 复制“主密钥”值。
-        3. 复制“连接字符串 - 主键”值。
+        1. 依次选择“共享访问策略”、“服务”。  
+        2. 复制“主密钥”值。 
+        3. 复制“连接字符串 - 主键”  值。
 
     * __在 [Azure CLI](/cli/get-started-with-azure-cli)__ 中使用以下命令：
 
@@ -256,7 +256,7 @@ ms.locfileid: "58626478"
 
      有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)。
 
-3. 若要保存更改，请依次按 __Ctrl + X__、__Y__、__Enter__。
+3. 若要保存更改，请依次按 __Ctrl + X__ 、 __、 __。
 
 有关配置连接器源的详细信息，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md)。
 
@@ -283,7 +283,7 @@ ms.locfileid: "58626478"
 
      有关示例配置，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
-3. 若要保存更改，请依次按 __Ctrl + X__、__Y__、__Enter__。
+3. 若要保存更改，请依次按 __Ctrl + X__ 、 __、 __。
 
 有关配置连接器接收器的详细信息，请参阅 [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md)。
 
@@ -307,7 +307,7 @@ org.apache.kafka.connect.runtime.WorkerSourceTask:356)
 > [!NOTE]
 > 连接器启动时，可能会出现几条警告。 这些警告不会影响从 IoT 中心接收消息。
 
-若要停止连接器，请按 __Ctrl + C__。
+若要停止连接器，请按 __Ctrl + C__ 。
 
 ## <a name="start-the-sink-connector"></a>启动接收器连接器
 
@@ -334,7 +334,7 @@ t.runtime.WorkerSinkTask:262)
 1. 与 Kafka 群集建立另一个 SSH 会话：
 
     ```bash
-    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.net
+    ssh sshuser@new-edgenode.clustername-ssh.azurehdinsight.cn
     ```
 2. 若要将消息发送到 `iotout` 主题，请使用以下命令：
 

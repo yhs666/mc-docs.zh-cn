@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 03/14/2018
-ms.date: 07/01/2019
-ms.author: v-biyu
+origin.date: 11/08/2018
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 9c8cab709a6f407364d8fc9de9a4fad131d7bb2e
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 03ba15d6235c2ada4b4510d50aa295f6a7793a77
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171357"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878565"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Azure 应用服务中的身份验证和授权的高级用法
 
@@ -172,7 +172,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 - **Microsoft 帐户**：[配置 Microsoft 帐户身份验证设置](configure-authentication-provider-microsoft.md)时，请选择 `wl.offline_access` 范围。
 - **Azure Active Directory**：在 [https://resources.azure.com](https://resources.azure.com) 中，执行以下步骤：
     1. 在页面顶部，选择“读/写”。 
-    2. 在左侧浏览器中，导航到 **subscriptions** >  ** _\<subscription\_name_**  > **resourceGroups** >  _ **\<resource\_group\_name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\<app\_name>** _ > **config** > **authsettings**。 
+    2. 在左侧浏览器中，导航到 **subscriptions** >  ** _**  > **resourceGroups** >  ** _**  > **providers** > **Microsoft.Web** > **sites** >  ** _**  > **config** > **authsettings**。 
     3. 单击“编辑”。 
     4. 修改以下属性。 将 _\<app\_id>_ 替换为要访问的服务的 Azure Active Directory 应用程序 ID。
 
@@ -188,7 +188,7 @@ az webapp config appsettings set --name <app_name> --resource-group <group_name>
 
 ```JavaScript
 function refreshTokens() {
-  var refreshUrl = "/.auth/refresh";
+  let refreshUrl = "/.auth/refresh";
   $.ajax(refreshUrl) .done(function() {
     console.log("Token refresh completed successfully.");
   }) .fail(function() {
@@ -214,19 +214,3 @@ az webapp auth update --resource-group <group_name> --name <app_name> --token-re
 > [!NOTE]
 > 宽限期仅适用于应用服务的已经身份验证的会话，而不适用于来自标识提供者的令牌。 已过期的提供程序令牌没有宽限期。 
 >
-
-## <a name="limit-the-domain-of-sign-in-accounts"></a>限制登录帐户的域
-
-Microsoft 帐户和 Azure Active Directory 都允许从多个域登录。 例如，Microsoft 帐户允许 _outlook.com_、_live.com_ 和 _hotmail.com_ 帐户。 Azure Active Directory 允许对登录帐户使用任意数量的自定义域。 对于内部应用，此行为可能不符合需要，因为你不希望具有 _outlook.com_ 帐户的任何人都拥有访问权限。 若要限制登录帐户的域名，请执行以下步骤。
-
-在 [https://resources.azure.com](https://resources.azure.com) 中，导航到 **subscriptions** >  ** _\< subscription\_ name_**  > **resourceGroups** >  _ **\< resource\_ group\_ name>** _ > **providers** > **Microsoft.Web** > **sites** >  _ **\< app\_ name>** _ > **config** > **authsettings**。 
-
-单击“编辑”，修改以下属性，然后单击“放置”。   请务必将 _\<domain\_name>_ 替换为所需的域。
-
-```json
-"additionalLoginParams": ["domain_hint=<domain_name>"]
-```
-## <a name="next-steps"></a>后续步骤
-
-> [!div class="nextstepaction"]
-

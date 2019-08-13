@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/18/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
+origin.date: 03/01/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 771ca7741cf4454559c3c277c0a5e01833c573e3
-ms.sourcegitcommit: 5f260ee1d8ac487702b554a94cb971a3ee62a40b
+ms.openlocfilehash: 4eb6efd72aa4bdb2284ec48ff1f094dceccda5dc
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68232268"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878594"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 SSL 证书问题
 
@@ -97,7 +97,7 @@ ms.locfileid: "68232268"
 
     1. 登录到 [Azure 门户](https://portal.azure.cn)。
     2. 转到“应用服务证书”，选择该证书。 
-    3. 选择  “证书配置” > “步骤 2：验证” > “域验证”。   此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
+    3. 选择  “证书配置” > “步骤 2：验证” > “域验证”。**  此步骤会向 Azure 证书提供者发送一份电子邮件通知，让他们解决问题。
 
 ## <a name="custom-domain-problems"></a>自定义域问题
 
@@ -168,7 +168,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 订阅所有者可能意外删除了该域。
 
 #### <a name="solution"></a>解决方案
-如果域的删除时间不超过七天，则尚未对该域启动删除过程。 在这种情况下，可以在 Azure 门户中的同一个订阅下再次购买同一个域。 （请务必在搜索框中键入确切的域名。）此域不会重复产生费用。 如果该域的删除时间超过七天，请求助 [Azure 支持](https://portal.azure.cn/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)来还原该域。
+如果域的删除时间不超过七天，则尚未对该域启动删除过程。 在这种情况下，可以在 Azure 门户中的同一个订阅下再次购买同一个域。 （请务必在搜索框中键入确切的域名。）此域不会重复产生费用。 如果该域的删除时间超过七天，请求助 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)来还原该域。
 
 ## <a name="domain-problems"></a>域问题
 
@@ -281,7 +281,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 **是否可以使用在 Azure 门户中购买的域来指向 Azure VM？**
 
-是的，可将该域指向 VM。 有关详细信息，请参阅[在 Azure 门户中创建 Windows VM 的自定义 FQDN](../virtual-machines/windows/portal-create-fqdn.md)。
+是的，可将该域指向 VM。 有关详细信息，请参阅[使用 Azure DNS 为 Azure 服务提供自定义域设置](../dns/dns-custom-domain.md)。
 
 **我的域是由 GoDaddy 还是 Azure DNS 托管？**
 
@@ -293,7 +293,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
 
 **在 Azure DNS 中托管域是否要付费？**
 
-最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://www.azure.cn/zh-cn/home/features/dns)。
+最初的域购买费用仅适用于域注册。 除了注册费用以外，Azure DNS 还会根据用量收费。 有关详细详细，请参阅 [Azure DNS 定价](https://www.azure.cn/zh-cn/pricing/details/dns/)。
 
 **我的域是之前在 Azure 门户中购买的，现在想要从 GoDaddy 托管改为 Azure DNS 托管。该如何处理？**
 
