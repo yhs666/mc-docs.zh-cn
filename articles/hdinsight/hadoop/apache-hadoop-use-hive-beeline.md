@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 04/20/2018
-ms.date: 04/15/2019
+origin.date: 04/03/2019
+ms.date: 04/29/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0a2b16b75306ed3f1e611695fd97012db082c0df
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 27a26bed8eb00c2a7245385ed8ed4a61f5a57e92
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004123"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878745"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>将 Apache Beeline 客户端与 Apache Hive 配合使用
 
@@ -31,51 +31,106 @@ ms.locfileid: "59004123"
 
 Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 Beeline 使用 JDBC 连接到 HiveServer2，后者是 HDInsight 群集上托管的一项服务。 还可以使用 Beeline 通过 Internet 远程访问 Hive on HDInsight。 以下示例提供最常见的连接字符串，用于从 Beeline 连接到 HDInsight：
 
-* __通过与头节点或边缘节点的 SSH 连接使用 Beeline__： `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __在通过 Azure 虚拟网络连接到 HDInsight 的客户端上使用 Beeline__： `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __在通过公共 Internet 连接到 HDInsight 的客户端上使用 Beeline__： `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+## <a name="types-of-connections"></a>连接类型
 
-> [!NOTE]
-> 将 `admin` 替换为群集的群集登录帐户。
->
-> 将 `password` 替换为群集登录帐户的密码。
->
-> 将 `clustername` 替换为 HDInsight 群集的名称。
->
-> 通过虚拟网络连接到群集时，将 `<headnode-FQDN>` 替换为群集头节点的完全限定域名。
+### <a name="from-an-ssh-session"></a>从 SSH 会话
+
+如果从 SSH 会话连接到群集头节点，则可随后连接到端口 `headnodehost` 上的 `10001` 地址：
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+```
+
+---
+
+### <a name="over-an-azure-virtual-network"></a>通过 Azure 虚拟网络
+
+通过 Azure 虚拟网络从客户端连接到 HDInsight 时，必须提供群集头节点的完全限定域名 (FQDN)。 由于直接与群集节点建立此连接，因此此连接使用端口 `10001`：
+
+```bash
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+将 `<headnode-FQDN>` 替换为群集头节点的完全限定域名。 若要查找头节点的完全限定域名，请使用[使用 Apache Ambari REST API 管理 HDInsight](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档中的信息。
+
+---
+
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster"></a>连接到 HDInsight 企业安全性套餐 (ESP) 群集
+
+从客户端连接到已加入 Azure Active Directory (AAD) 的企业安全性套餐 (ESP) 群集时，还必须指定域名 `<AAD-Domain>` 和有权访问群集 `<username>` 的一个域用户帐户的名称：
+
+```bash
+kinit <username>
+beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
+```
+
+将 `<username>` 替换为域中有权访问群集的帐户的名称。 将 `<AAD-DOMAIN>` 替换为群集加入到的 Azure Active Directory (AAD) 的名称。 对于 `<AAD-DOMAIN>` 值，请使用大写字符串，否则会找不到凭据。 如果需要，请查看 `/etc/krb5.conf` 中是否有领域名。
+
+---
+
+### <a name="over-public-internet"></a>通过公共 Internet
+
+通过公共 Internet 连接时，必须提供群集登录帐户名（默认 `admin`）和密码。 例如，使用 Beeline 从客户端系统连接到 `<clustername>.azurehdinsight.cn` 地址。 此连接通过端口 `443` 建立，并使用 SSL 进行加密：
+
+```bash
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
+```
+
+将 `clustername` 替换为 HDInsight 群集的名称。 将 `admin` 替换为群集的群集登录帐户。 将 `password` 替换为群集登录帐户的密码。
+
+---
+
+### <a id="sparksql"></a>将 Beeline 与 Apache Spark 配合使用
+
+Apache Spark 提供自己的 HiveServer2 实现（有时称为 Spark Thrift 服务器）。 此服务使用 Spark SQL 而不是 Hive 来解析查询，并且可以根据查询改善性能。
+
+#### <a name="over-public-internet-with-apache-spark"></a>使用 Apache Spark 通过公共 Internet
+
+通过 Internet 进行连接时使用的连接字符串略有不同。 它是 `httpPath/sparkhive2`，不包含 `httpPath=/hive2`：
+
+```bash 
+beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
+```
+
+---
+
+#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>使用 Apache Spark 从群集头或 Azure 虚拟网络中
+
+当直接从群集头节点或者从 HDInsight 群集所在的 Azure 虚拟网络中的资源进行连接时，应当为 Spark Thrift 服务器使用端口 `10002` 而非 `10001`。 以下示例演示如何直接连接到头节点：
+
+```bash
+beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
+```
+
+---
 
 ## <a id="prereq"></a>先决条件
 
-* 基于 Linux 的 Hadoop on HDInsight 群集版本 3.4 或更高版本。
+* HDInsight 上的 Hadoop 群集。 请参阅 [Linux 上的 HDInsight 入门](./apache-hadoop-linux-tutorial-get-started.md)。
 
-  > [!IMPORTANT]
-  > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 在 Windows 上停用](../hdinsight-component-versioning.md#hdinsight-windows-retirement)。
+* 请记下群集主存储的 [URI 方案](../hdinsight-hadoop-linux-information.md#URI-and-scheme)。 例如，对于 Azure 存储，此值为 `wasb://`；对于Azure Data Lake Storage Gen2，此值为 `abfs://`；对于 Azure Data Lake Storage Gen1，此值为 `adl://`。 如果为 Azure 存储或 Data Lake Storage Gen2 启用了安全传输，则 URI 分别是 `wasbs://` 或 `abfss://`。 有关详细信息，请参阅[安全传输](../../storage/common/storage-require-secure-transfer.md)。
 
-* SSH 客户端或本地 Beeline 客户端。 本文档中的大多数步骤都假定从与群集的 SSH 会话使用 Beeline。 有关从群集外部运行 Beeline 的信息，请参阅[远程使用 Beeline](#remote) 部分。
 
-    有关使用 SSH 的详细信息，请参阅[将 SSH 与 HDInsight 配合使用](../hdinsight-hadoop-linux-use-ssh-unix.md)。
+* 选项 1：SSH 客户端。 有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md)。 本文档中的大多数步骤都假定从与群集的 SSH 会话使用 Beeline。
+
+* 选项 2：本地 Beeline 客户端。
+
 
 ## <a id="beeline"></a>运行 Hive 查询
 
-1. 启动 Beeline 时，必须提供用于 HDInsight 群集上的 HiveServer2 的连接字符串：
+此示例的基础是通过 SSH 连接使用 Beeline 客户端。
 
-    * 通过公共 Internet 连接时，必须提供群集登录帐户名（默认 `admin`）和密码。 例如，使用 Beeline 从客户端系统连接到 `<clustername>.azurehdinsight.cn` 地址。 此连接通过端口 `443` 建立，并使用 SSL 进行加密：
+1. 使用以下代码打开到群集的 SSH 连接。 将 `sshuser` 替换为群集的 SSH 用户，并将 `CLUSTERNAME` 替换为群集的名称。 出现提示时，输入 SSH 用户帐户的密码。
 
-        ```bash
-        beeline -u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
-        ```
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.cn
+    ```
 
-    * 从 SSH 会话连接到群集头节点时，可以连接到端口 `headnodehost` 上的 `10001` 地址：
+2. 输入以下命令，通过 Beeline 客户端从打开的 SSH 会话连接到 HiveServer2：
 
-        ```bash
-        beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
-        ```
-
-    * 通过 Azure 虚拟网络连接时，必须提供群集头节点的完全限定域名 (FQDN)。 由于直接与群集节点建立此连接，因此此连接使用端口 `10001`：
-
-        ```bash
-        beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
-        ```
+    ```bash
+    beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
+    ```
 
 2. Beeline 命令以 `!` 字符开头，例如，`!help` 显示帮助。 但是，`!` 对于某些命令可以省略。 例如，`help` 也是有效的。
 
@@ -114,7 +169,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
 
     此信息描述表中的列。
 
-4. 输入以下语句，以使用 HDInsight 群集随附的示例数据来创建名为 **log4jLogs** 的表：
+5. 输入以下语句，以使用 HDInsight 群集随附的示例数据来创建名为 **log4jLogs** 的表：（基于 [URI 方案](../hdinsight-hadoop-linux-information.md#URI-and-scheme)根据需要进行修改。）
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -127,7 +182,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
         t6 string,
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-    STORED AS TEXTFILE LOCATION 'wasb:///example/data/';
+    STORED AS TEXTFILE LOCATION 'wasbs:///example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs 
         WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log' 
         GROUP BY t4;
@@ -178,11 +233,11 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
     1 row selected (47.351 seconds)
     ```
 
-5. 若要退出 Beeline，请使用 `!exit`。
+6. 若要退出 Beeline，请使用 `!exit`。
 
-### <a id="file"></a>使用 Beeline 运行 HiveQL 文件
+## <a id="file"></a>运行 HiveQL 文件
 
-使用以下步骤创建文件，并使用 Beeline 运行该文件。
+这是上一示例的继续。 使用以下步骤创建文件，并使用 Beeline 运行该文件。
 
 1. 使用以下命令创建一个名为 **query.hql** 的文件：
 
@@ -206,7 +261,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
      > [!NOTE]
      > 与外部表不同，删除内部表会同时删除基础数据。
 
-3. 如果要保存文件，请使用 **Ctrl**+**_X**，并输入 **Y**，最后按 **Enter**。
+3. 如果要保存文件，请使用 **Ctrl**+ **_X**，并输入 **Y**，最后按 **Enter**。
 
 4. 使用以下命令通过 Beeline 运行该文件：
 
@@ -223,7 +278,7 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
     SELECT * from errorLogs;
     ```
 
-    应返回三行数据，所有行都包含 t4 列中的 **[ERROR]**：
+    应返回三行数据，所有行都包含 t4 列中的 **[ERROR]** ：
 
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
@@ -234,41 +289,8 @@ Beeline 是一个 Hive 客户端，包含在 HDInsight 群集的头节点上。 
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-## <a id="remote"></a>远程使用 Beeline
 
-如果本地安装了 Beeline 并通过公共 Internet 进行连接，请使用以下参数：
 
-* __连接字符串__： `-u 'jdbc:hive2://clustername.azurehdinsight.cn:443/;ssl=true;transportMode=http;httpPath=/hive2'`
-
-* __群集登录名__： `-n admin`
-
-* __群集登录密码__ `-p 'password'`
-
-将连接字符串中的 `clustername` 替换为 HDInsight 群集名称。
-
-将 `admin` 替换为群集登录名称，并将 `password` 替换为群集登录密码。
-
-如果本地安装了 Beeline 并通过 Azure 虚拟网络进行连接，请使用以下参数：
-
-* __连接字符串__： `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-
-若要查找头节点的完全限定域名，请使用[使用 Apache Ambari REST API 管理 HDInsight](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 文档中的信息。
-
-## <a id="sparksql"></a>将 Beeline 与 Apache Spark 配合使用
-
-Apache Spark 提供自己的 HiveServer2 实现（有时称为 Spark Thrift 服务器）。 此服务使用 Spark SQL 而不是 Hive 来解析查询，并且可以根据查询改善性能。
-
-通过 Internet 进行连接时使用的__连接字符串__略有不同。 它是 `httpPath/sparkhive2` 而不包含 `httpPath=/hive2`。 下面是通过 Internet 进行连接的示例：
-
-```bash 
-beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
-```
-
-当直接从群集头节点或者从 HDInsight 群集所在的 Azure 虚拟网络中的资源进行连接时，应当为 Spark Thrift 服务器使用端口 `10002` 而非 `10001`。 下面是直接连接到头节点的示例：
-
-```bash
-beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
-```
 
 ## <a id="summary"></a><a id="nextsteps"></a>后续步骤
 
@@ -280,9 +302,6 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 * [将 Apache Pig 与 Apache Hadoop on HDInsight 配合使用](hdinsight-use-pig.md)
 * [将 MapReduce 与 HDInsight 上的 Apache Hadoop 配合使用](hdinsight-use-mapreduce.md)
-
-如果将 Tez 与 Hive 配合使用，请参阅以下文档：[在基于 Linux 的 HDInsight 上使用 Apache Ambari Tez 视图](../hdinsight-debug-ambari-tez-view.md)。
-
 
 [azure-purchase-options]: https://www.azure.cn/pricing/overview/
 [azure-member-offers]: https://www.azure.cn/pricing/member-offers/

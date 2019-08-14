@@ -5,31 +5,35 @@ services: virtual-machines
 author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 05/02/2019
-ms.date: 07/01/2019
+origin.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 58bf00ce4afeb21575c422c514f588a1fabd1f91
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 8fedcbd1927c7172be8d8b2d71df4b8e26889184
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332773"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912971"
 ---
-临时 OS 磁盘在本地虚拟机 (VM) 存储中创建，不保存到远程 Azure 存储。 临时 OS 磁盘适用于无状态工作负荷，在此类工作负荷中，应用程序可以容忍单个 VM 故障，但更加关注进行大规模部署所需的时间或者重置单个 VM 实例所需的时间。 它还适合将通过经典部署模型部署的应用程序移到资源管理器部署模型。 使用临时 OS 磁盘时，会观察到通过 OS 磁盘进行读取/写入时的延迟更低，VM 重置映像速度会更快。 另外，临时 OS 磁盘免费，因此不需为 OS 磁盘支付存储费用。 
+<!--Verify successfully-->
+
+临时 OS 磁盘在本地虚拟机 (VM) 存储中创建，不保存到远程 Azure 存储。 临时 OS 磁盘适用于无状态工作负荷，在此类工作负荷中，应用程序可以容忍单个 VM 故障，但受 VM 部署时间或单个 VM 实例的映像重置的影响更大。 使用临时 OS 磁盘时，通过 OS 磁盘进行读取/写入的延迟更低，VM 重置映像速度会更快。 
 
 临时磁盘 (ephemeral disk) 的重要功能包括： 
-- 可以与市场映像和自定义映像配合使用。
-- 部署 VM 映像时，其大小上限取决于 VM 缓存的大小。
-- 能够将其 VM 或 VM 映像快速重置为原始启动状态。  
-- 与临时磁盘 (temporary disk) 一样降低运行时延迟。 
-- OS 磁盘免费。 
+- 适用于无状态应用程序。
+- 可以与市场和自定义映像配合使用。
+- 能够将 VM 和规模集实例或其映像快速重置为原始启动状态。  
+- 与临时磁盘一样降低延迟。 
+- 临时 OS 磁盘免费，因此不需为 OS 磁盘支付存储费用。
+- 它们在所有 Azure 区域中提供。 
+- [共享映像库](/virtual-machines/linux/shared-image-galleries)支持临时 OS 磁盘。 
 
 持久 OS 磁盘和临时 OS 磁盘的主要区别：
 
 |                             | 持久 OS 磁盘                          | 临时 OS 磁盘                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
-| OS 磁盘的大小限制      | 2 TiB                                                                                        | 与 VM 大小相对应的缓存大小或 2TiB，具体取决于哪一个更小 - [DS](../articles/virtual-machines/linux/sizes-general.md)、[ES](../articles/virtual-machines/linux/sizes-memory.md)、[M](../articles/virtual-machines/linux/sizes-memory.md) 和 [FS](../articles/virtual-machines/linux/sizes-compute.md)              |
+| OS 磁盘的大小限制      | 2 TiB                                                                                        | 与 VM 大小相对应的缓存大小或 2TiB，具体取决于哪一个更小。 对于“缓存大小(GiB)”，请参阅  [DS](../articles/virtual-machines/linux/sizes-general.md)、[ES](../articles/virtual-machines/linux/sizes-memory.md)、[M](../articles/virtual-machines/linux/sizes-memory.md) 和 [FS](../articles/virtual-machines/linux/sizes-compute.md)              |
 | 支持的 VM 大小          | 全部                                                                                          | DSv1、DSv2、DSv3、Esv3、Fs、FsV2、M                                               |
 | 磁盘类型支持           | 托管和非托管 OS 磁盘                                                                | 仅托管 OS 磁盘                                                               |
 | 区域支持              | 所有区域                                                                                  | 所有区域                              |
@@ -42,7 +46,46 @@ ms.locfileid: "68332773"
 <!--Not Available on Line 27 , and [GS](../articles/virtual-machines/linux/sizes-memory.md)-->
 <!--Not Available on Line 28 GS -->
 
-## <a name="scale-set-deployment"></a>规模集部署  
+## <a name="size-requirements"></a>大小要求
+
+部署 VM 和实例的映像时，其大小上限取决于 VM 缓存的大小。 例如，市场中的标准 Windows Server 映像大约为 127 GiB，这意味着所需 VM 大小的缓存大于 127 GiB。 在此示例中，[Standard_DS2_v2](/virtual-machines/windows/sizes-general#dsv2-series) 的缓存大小为 86 GiB，不够大。 Standard_DS2_v2 的缓存大小为 172 GiB，足够大。 在此示例中，Standard_DS3_v2 是 DSv2 系列中能够用于此映像的最小大小。 市场中的基本 Linux 映像以及 `[smallsize]` 所表示的 Windows Server 映像通常为大约 30 GiB，可以使用大多数可用的 VM 大小。
+
+临时磁盘还要求 VM 大小支持高级存储。 大小通常（但并非总是）在名称中包含 `s`，例如 DSv2 和 EsV3。 有关详细信息，请参阅 [Azure VM 大小](../articles/virtual-machines/linux/sizes.md)，其中详述了哪些大小支持高级存储。
+
+## <a name="powershell"></a>PowerShell
+
+若要将临时磁盘用于 PowerShell VM 部署，请在 VM 配置中使用 [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)。 将 `-DiffDiskSetting` 设置为 `Local`，将 `-Caching` 设置为 `ReadOnly`。     
+
+```powershell
+Set-AzVMOSDisk -DiffDiskSetting Local -Caching ReadOnly
+```
+
+对于规模集部署，请在配置中使用 [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssstorageprofile) cmdlet。 将 `-DiffDiskSetting` 设置为 `Local`，将 `-Caching` 设置为 `ReadOnly`。
+
+```powershell
+Set-AzVmssStorageProfile -DiffDiskSetting Local -OsDiskCaching ReadOnly
+```
+
+## <a name="cli"></a>CLI
+
+若要将临时磁盘用于 CLI VM 部署，请将 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 中的 `--ephemeral-os-disk` 参数设置为 `true`，将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+
+```azurecli
+az vm create \
+  --resource-group myResourceGroup \
+  --name myVM \
+  --image UbuntuLTS \
+  --ephemeral-os-disk true \
+  --os-disk-caching ReadOnly \
+  --admin-username azureuser \
+  --generate-ssh-keys
+```
+
+对于规模集，请对 [az-vmss-create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) 使用相同的 `--ephemeral-os-disk true` 参数，并将 `--os-disk-caching` 参数设置为 `ReadOnly`。
+
+<!--Not Available on ## Portal-->
+<!-- ephemeral disk option is unable with gray color-->
+## <a name="scale-set-template-deployment"></a>规模集模板部署  
 创建一个使用临时 OS 磁盘的规模集时，其过程很简单，就是将 `diffDiskSettings` 属性添加到模板中的 `Microsoft.Compute/virtualMachineScaleSets/virtualMachineProfile` 资源类型。 另外，对于临时 OS 磁盘，必须将缓存策略设置为 `ReadOnly`。 
 
 
@@ -86,7 +129,7 @@ ms.locfileid: "68332773"
 }  
 ```
 
-## <a name="vm-deployment"></a>VM 部署 
+## <a name="vm-template-deployment"></a>VM 模板部署 
 可以通过模板部署使用临时 OS 磁盘的 VM。 创建一个使用临时 OS 磁盘的 VM 时，其过程很简单，就是将 `diffDiskSettings` 属性添加到模板中的 Microsoft.Compute/virtualMachines 资源类型。 另外，对于临时 OS 磁盘，必须将缓存策略设置为 `ReadOnly`。 
 
 ```json
@@ -135,7 +178,7 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 
 **问：本地 OS 磁盘的大小是多少？**
 
-答：对于预览版，我们支持的平台和/或映像的大小上限取决于 VM 缓存大小，其中的 OS 磁盘的所有读取/写入操作都将在本地进行，使用与虚拟机相同的节点。 
+答：我们支持的平台和自定义映像的大小上限取决于 VM 缓存大小，其中的 OS 磁盘的所有读取/写入操作都将在本地进行，使用与虚拟机相同的节点。 
 
 **问：可以重设临时 OS 磁盘的大小吗？**
 
@@ -171,5 +214,5 @@ id}/resourceGroups/{rgName}/providers/Microsoft.Compute/VirtualMachines/{vmName}
 - Azure 磁盘加密 
 - Azure 备份
 - Azure Site Recovery  
-- OS 磁盘交换 
+- OS 磁盘交换
 

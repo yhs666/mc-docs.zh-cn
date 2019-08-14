@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe4d9810b803dfd9b6534173d250e8b6c4fc3885
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: e15bc437edaa3dcc1597a27f9cf8d7a9445ede41
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861677"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819637"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -178,6 +178,8 @@ ms.locfileid: "67861677"
 > [!NOTE]
 > 如果虚拟机位于**标准**内部负载均衡器之后，则默认情况下无法访问 O365 IP，即 login.partner.microsoftonline.cn。 请将其更改为**基本**内部负载均衡器类型或创建[此文](../load-balancer/configure-load-balancer-outbound-cli.md)中提到的出站访问权限。
 
+<!--MOONCAKE: CORRECT ON login.partner.microsoftonline.cn-->
+
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>问题 3：Site Recovery 配置失败 (151197)
 - 可能的原因  <br />
     - 无法建立到 Azure Site Recovery 服务终结点的连接。
@@ -187,21 +189,21 @@ ms.locfileid: "67861677"
 
 ### <a name="issue-4-a2a-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>问题 4：当网络流量通过本地代理服务器时 A2A 复制失败 (151072)
 - 可能的原因  <br />
-    - 自定义代理设置无效，并且 ASR 移动服务代理未在 IE 中自动检测到代理设置
+    - 自定义代理设置无效，并且 Azure Site Recovery 移动服务代理未在 IE 中自动检测到代理设置
 
 - **解决方法**
     1. 移动服务代理通过 Windows 上的 IE 和 Linux 上的 /etc/environment 检测代理设置。
-    2. 如果只想对 ASR 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：<br />
+    2. 如果只想对 Azure Site Recovery 移动服务设置代理，可在位于以下路径的 ProxyInfo.conf 中提供代理详细信息：<br />
         - ***Linux*** 上的 ``/usr/local/InMage/config/``
         - ***Windows*** 上的 ``C:\ProgramData\Microsoft Azure Site Recovery\Config``
     3. ProxyInfo.conf 应包含采用以下 INI 格式的代理设置。<br />
         *[proxy]*<br />
         *Address=http://1.2.3.4*<br />
         *Port=567*<br />
-    4. ASR 移动服务代理仅支持***未经身份验证的代理***。
+    4. Azure Site Recovery 移动服务代理仅支持未经身份验证的代理。
 
 ### <a name="fix-the-problem"></a>解决问题
-要将[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)列入允许列表，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
+若要允许[所需 URL](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) 或[所需 IP 范围](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)，请按照[网络指南文档](site-recovery-azure-to-azure-networking-guidance.md)中的步骤进行操作。
 
 ## <a name="disk-not-found-in-the-machine-error-code-150039"></a>计算机中找不到磁盘（错误代码 150039）
 
@@ -231,17 +233,38 @@ ms.locfileid: "67861677"
 2. 要关闭警告， 请转到“复制的项”>“VM”> 在“概述”部分下单击“关闭警报”。
     ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 
-## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>无法在“启用复制”中看到要选择的 Azure VM 或资源组
+## <a name="remove-the-virtual-machine-from-the-vault-completed-with-information--error-code-150225"></a>已完成从保管库删除虚拟机的操作，但出现错误信息（错误代码为 150225）
+在保护虚拟机时，Azure Site Recovery 会在源虚拟机上创建一些链接。 去除保护或禁用复制时，Azure Site Recovery 会在完成清理作业的过程中删除这些链接。 如果虚拟机存在资源锁定，则此作业在完成时会显示错误信息。 它会告知用户，虚拟机已从恢复服务保管库中删除，但某些过期链接无法从源计算机中清除。
 
-**原因 1：资源组和源虚拟机位于不同的位置** <br />
-Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同一位置。 如果不是这种情况，那么在保护期间将无法找到虚拟机。 一种解决方法是，可以从 VM 而不是从恢复服务保管库启用复制。 转到“源 VM”>“属性”>“灾难恢复”并启用复制。
+如果不打算在以后再次保护此虚拟机，可以忽略此警告。 但是，如果必须在以后保护此虚拟机，则应清理这些链接，如以下步骤所述。 
 
-**原因 2：资源组不是所选订阅的一部分** <br />
-如果资源组不是给定订阅的一部分，则可能无法在保护期间找到该资源组。 确保资源组属于正在使用的订阅。
+**如果不进行清理，则会出现以下情况：**
 
-**原因 3：过时配置** <br />
-如果看不到要为其启用复制的虚拟机，可能是因为有过时的 Site Recovery 配置保留在 Azure VM 中。 在以下情况下，Azure VM 中可能留有过时的配置：
+1. 通过恢复服务启用复制时，不会列出虚拟机。 
+2. 如果尝试通过“虚拟机>“设置”>“灾难恢复”来保护 VM，则会失败并出现“无法启用复制，因为 VM 上存在过期的资源链接”错误。  
 
+### <a name="fix-the-problem"></a>解决问题
+
+>[!NOTE]
+>
+>在执行以下步骤时，Azure Site Recovery 不会删除源虚拟机或以任何方式影响它。
+>
+
+1. 删除 VM 或 VM 资源组的锁。 例如：VM 名称“MoveDemo”下的资源锁需删除。
+
+    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下载脚本：[删除过期的 Azure Site Recovery 配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 执行脚本 *Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供订阅 ID、VM 资源组和 VM 名称作为参数。
+5. 如果系统要求提供 Azure 凭据，请提供该凭据，并检查脚本是否已成功执行。 
+
+## <a name="replication-cannot-be-enabled-because-of-the-existing-stale-resource-links-on-the-vm-error-code-150226"></a>无法启用复制，因为 VM 上存在过期的资源链接（错误代码为 150226）
+
+原因：**虚拟机的配置已过时，是上一次 Site Recovery 保护遗留下来的**
+
+在以下情况下，Azure VM 中可能留有过时的配置：
+
+- 你使用 Site Recovery 为 Azure VM 启用了复制，然后又禁用复制，但**源 VM 存在资源锁**。
 - 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除 Site Recovery 保管库时未显式禁用 VM 上的复制。
 - 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除包含 Site Recovery 保管库的资源组时未显式禁用 VM 上的复制。
 
@@ -249,13 +272,51 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 
 >[!NOTE]
 >
->请确保在使用以下脚本之前更新“AzureRM.Resources”模块。
+>在执行以下步骤时，Azure Site Recovery 不会删除源虚拟机或以任何方式影响它。
 
-可以使用[删除过时的 ASR 配置脚本](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)，删除 Azure VM 上过时的 Site Recovery 配置。 删除过时配置后，应能够看到该 VM。
+1. 删除 VM 或 VM 资源组的锁（如果有）。 例如：  VM 名称“MoveDemo”下的资源锁需删除。
 
->[!NOTE]
+    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下载脚本：[删除过期的 Azure Site Recovery 配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 执行脚本 *Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供订阅 ID、VM 资源组和 VM 名称作为参数。
+5. 如果系统要求提供 Azure 凭据，请提供该凭据，并检查脚本是否已成功执行。  
+
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>无法在“启用复制”中看到要选择的 Azure VM 或资源组
+
+**原因 1：资源组和源虚拟机位于不同的位置**
+
+Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同一位置。 如果不是这种情况，那么在保护期间将无法找到虚拟机或资源组。 
+
+**一种解决方法是**，从 VM 而不是从恢复服务保管库启用复制。 转到“源 VM”>“属性”>“灾难恢复”并启用复制。
+
+**原因 2：资源组不是所选订阅的一部分**
+
+如果资源组不是给定订阅的一部分，则可能无法在保护期间找到该资源组。 确保资源组属于正在使用的订阅。
+
+**原因 3：过时配置**
+
+如果看不到要为其启用复制的虚拟机，可能是因为有过时的 Site Recovery 配置保留在 Azure VM 中。 在以下情况下，Azure VM 中可能留有过时的配置：
+
+- 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除 Site Recovery 保管库时未显式禁用 VM 上的复制。
+- 使用 Site Recovery 启用了 Azure VM 的复制，然后在删除包含 Site Recovery 保管库的资源组时未显式禁用 VM 上的复制。
+
+- 你使用 Site Recovery 为 Azure VM 启用了复制，然后又禁用复制，但源 VM 存在资源锁。
+
+### <a name="fix-the-problem"></a>解决问题
+
+> [!NOTE]
 >
-> 请确保在下载的[删除过时的 ASR 配置脚本](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)中将 `Login-AzureRmAccount` 替换为 `Login-AzureRmAccount -Environment AzureChinaCloud`。
+> 请确保在使用以下脚本之前更新“AzureRM.Resources”模块。 在执行以下步骤时，Azure Site Recovery 不会删除源虚拟机或以任何方式影响它。
+>
+
+1. 删除 VM 或 VM 资源组的锁（如果有）。 例如：  VM 名称“MoveDemo”下的资源锁需删除。
+
+    ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/vm-locks.png)
+2. 下载脚本：[删除过期的配置](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1)。
+3. 执行脚本 *Cleanup-stale-asr-config-Azure-VM.ps1*。
+4. 提供订阅 ID、VM 资源组和 VM 名称作为参数。
+5. 如果系统要求提供 Azure 凭据，请提供该凭据，并检查脚本是否已成功执行。
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>无法选择虚拟机进行保护
 **原因 1：虚拟机安装的某些扩展处于失败或无响应状态** <br />
@@ -359,8 +420,8 @@ GRUB 配置文件 ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 
 如果 LVM 设备不存在，解决方法是创建该设备，或者从 GRUB 配置文件中删除该设备对应的参数，然后重试启用保护。 <br />
 
-## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>Site Recovery 移动服务更新完成但出现警告（错误代码 151083）
-Site Recovery 移动服务有多个组件，其中一个称为筛选器驱动程序。 筛选器驱动程序只有在系统重启时才会加载到系统内存中。 每当 Site Recovery 移动服务更新涉及到筛选器驱动程序的更改时，我们都会更新计算机，但仍会发出警告，指出某些修复措施需要重新启动。 这意味着，仅当已加载新的筛选器驱动程序（只有在系统重新启动时才能发生）时，才能实现筛选器驱动程序的修复。<br />
+## <a name="site-recovery-mobility-service-update-completed-with-warnings--error-code-151083"></a>Site Recovery 移动服务更新完成，但出现警告（错误代码为 151083）
+Site Recovery 移动服务有多个组件，其中一个称为筛选器驱动程序。 筛选器驱动程序只有在系统重启时才会加载到系统内存中。 每当 Site Recovery 移动服务更新涉及到筛选器驱动程序的更改时，我们都会更新计算机，但仍会发出警告，指出某些修复措施需要重启。 这意味着，仅当已加载新的筛选器驱动程序（只有在系统重新启动时才能发生）时，才能实现筛选器驱动程序的修复。<br />
 **请注意**这只是一条警告，即使在新代理更新后，现有的复制也能保持正常工作。 可以选择在需要使用新筛选器驱动程序的时候重启，但如果不重启，则旧筛选器驱动程序仍可继续使用。 除了筛选器驱动程序以外，**在更新代理后，无需重新启动，移动服务中也能获得其他任何增强和修复。**  
 
 ## <a name="protection-couldnt-be-enabled-as-replica-managed-disk-diskname-replica-already-exists-without-expected-tags-in-the-target-resource-group-error-code-150161"></a>无法启用保护，因为副本托管磁盘“diskname-replica”已存在，但目标资源组中不包含预期的标记（错误代码 150161）

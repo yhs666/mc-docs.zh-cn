@@ -14,59 +14,60 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 07/01/2019
-ms.date: 07/22/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: ad9a96eb5a46aab08ac8443979a475be7cd8d94f
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 574620d760f29d61669b8da55a978ea925508116
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845430"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878756"
 ---
-# <a name="os-patching-for-hdinsight"></a>针对 HDInsight 的 OS 修补 
+# <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>为基于 Linux 的 HDInsight 群集配置 OS 修补计划 
 
 > [!IMPORTANT]
-> Ubuntu 映像可在发布后的三 个月内用于创建新的 HDInsight 群集。 自 2019 年 1 月起，系统**不**会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 新创建的群集将始终包含最新的可用更新，其中包括最新的安全修补程序。
+> Ubuntu 映像可在发布后的三 个月内用于创建新的 Azure HDInsight 群集。 自 2019 年 1 月起，系统不会自动修补正在运行的群集。 客户必须使用脚本操作或其他机制来修补正在运行的群集。 新创建的群集将始终包含最新的可用更新，其中包括最新的安全修补程序。
 
-## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>如何为基于 Linux 的 HDInsight 群集配置 OS 修补计划
-需不定期重启 HDInsight 群集中的虚拟机，以便安装重要的安全修补程序。 
+偶然情况下，必须重启 HDInsight 群集中的虚拟机 (VM)，以便安装重要的安全修补程序。
 
 可以使用本文中介绍的脚本操作将 OS 修补计划修改如下：
+
 1. 安装所有更新、仅安装内核 + 安全更新，或者仅安装内核更新。
 2. 立即重启 VM 或计划重启 VM。
 
 > [!NOTE]  
-> 这些脚本操作将仅适用于在 2016 年 8 月 1 日以后创建的基于 Linux 的 HDInsight 群集。 修补程序在 VM 重新启动后才生效。 这些脚本不会自动应用所有未来更新周期的更新。 每次需要应用新更新以安装更新并重新启动 VM 时，请运行这些脚本。
+> 本文中介绍的脚本操作将仅适用于 2016 年 8 月 1 日以后创建的基于 Linux 的 HDInsight 群集。 修补程序仅在重启 VM 后生效。
+> 脚本操作不会自动应用所有未来更新周期的更新。 每次必须应用新更新以安装更新并重启 VM 时，请运行这些脚本。
 
-## <a name="how-to-use-the-script"></a>如何使用此脚本 
+## <a name="add-information-to-the-script"></a>将信息添加到脚本
 
-使用此脚本需要以下信息：
-1. install-updates-schedule-reboots 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh 。
+使用脚本需要以下信息：
+- install-updates-schedule-reboots 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/install-updates-schedule-reboots.sh 。
     
-   HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。 此脚本提供安装更新并重启 VM 的选项。
+   HDInsight 使用此 URI 在群集中的所有 VM 上查找并运行脚本。 此脚本提供安装更新并重启 VM 的选项。
   
-2. schedule-reboots 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh 。
+- schedule-reboots 脚本位置： https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/schedule-reboots.sh 。
     
-   HDInsight 使用此 URI 在群集中的所有虚拟机上查找并运行脚本。 此脚本可重启 VM。
+   HDInsight 使用此 URI 在群集中的所有 VM 上查找并运行脚本。 此脚本可重启 VM。
   
-3. 脚本所适用的群集节点类型：头节点、辅助角色节点、zookeeper。 此脚本必须适用于群集中的所有节点类型。 如果未将此脚本应用于某个节点类型，则不会更新或重启该节点类型的虚拟机。
+- 脚本所适用的群集节点类型为头节点、辅助角色节点和 zookeeper。 将此脚本应用于群集中的所有节点类型。 如果未将此脚本应用于某个节点类型，则不会更新或重启该节点类型的 VM。
 
-4. 参数：install-updates-schedule-reboots 脚本接受两个数字参数：
+- install-updates-schedule-reboots 脚本接受两个数字参数：
 
     | 参数 | 定义 |
     | --- | --- |
-    | 仅安装内核更新/安装所有更新/仅安装内核 + 安全更新 |0 或 1 或 2。 值为 0 表示仅安装内核更新，为 1 表示安装所有更新，为 2 表示仅安装内核 + 安全更新。 如果未提供任何参数，则默认值为 0。 |
-    | 不重启/启用计划重启/启用即时重启 |0 或 1 或 2。 值为 0 表示禁用重启，为 1 表示启用计划重启，为 2 表示启用即时重启。 如果未提供任何参数，则默认值为 0。 用户必须输入参数 1 才能输入参数 2。 |
+    | 仅安装内核更新/安装所有更新/仅安装内核 + 安全更新|0、1 或 2。 值为 0 表示仅安装内核更新。 值为 1 表示安装所有更新，为 2 表示仅安装内核 + 安全更新。 如果未提供任何参数，则默认值为 0。 |
+    | 不重启/启用计划重启/启用即时重启 |0、1 或 2。 值为 0 表示禁用重启。 值为 1 表示启用计划重启，为 2 表示启用即时重启。 如果未提供任何参数，则默认值为 0。 用户必须更改输入参数 1 才能输入参数 2。 |
    
- 5. 参数：schedule-reboots 脚本接受一个数字参数：
+- schedule-reboots 脚本接受一个数字参数：
 
     | 参数 | 定义 |
     | --- | --- |
-    | 启用计划重启/启用即时重启 |1 或 2。 值为 1 表示启用计划重启（计划在随后的 12-24 小时内重启），为 2 表示启用即时重启（在 5 分钟内重启）。 如果未提供任何参数，则默认值为 1。 |  
+    | 启用计划重启/启用即时重启 |1 或 2。 值为 1 表示启用计划重启（计划在 12-24 小时内重启）。 值为 2 表示启用即时重启（在 5 分钟内重启） 如果未提供任何参数，则默认值为 1。 |  
 
-> [!NOTE] 
-> 在应用到现有群集时，必须将脚本标记为持久性脚本。 否则，任何通过缩放操作创建的新节点都会使用默认的修补计划。  如果在群集创建过程中应用该脚本，则其会自动持久化。
->
+> [!NOTE]
+> 在将某个脚本应用到现有群集后，必须将其标记为持久性脚本。 否则，任何通过缩放操作创建的新节点都会使用默认的修补计划。 如果在群集创建过程中应用该脚本，则其会自动持久化。
+
 
 ## <a name="next-steps"></a>后续步骤
 
