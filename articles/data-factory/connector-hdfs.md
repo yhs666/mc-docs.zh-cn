@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 04/29/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 2963f145b63987ee5c2f3edfbd74483e1b95de7b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 4e2aa710cee30b6058c17414fab2282b46773f7e
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570569"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908701"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>使用 Azure 数据工厂从 HDFS 复制数据
 
@@ -437,7 +437,7 @@ HDFS 链接的服务支持以下属性：
 
     1. 转到“服务器管理器”>“组策略管理”>“域”>“组策略对象”>“默认或活动的域策略”，单击“编辑”。
 
-    2. 在“组策略管理编辑器”  弹出窗口中，转到“计算机配置”>“策略”>“Windows 设置”>“安全设置”>“本地策略”>“安全选项”，配置“网络安全:  配置 Kerberos 允许使用的加密类型”。
+    2. 在“组策略管理编辑器”弹出窗口中，转到“计算机配置”>“策略”>“Windows 设置”>“安全设置”>“本地策略”>“安全选项”，配置“网络安全:   配置 Kerberos 允许使用的加密类型”。
 
     3. 选择连接到 KDC 时要使用的加密算法。 通常情况下，可以简单地选择所有选项。
 
