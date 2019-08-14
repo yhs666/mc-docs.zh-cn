@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/08/2017
-ms.date: 06/03/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ea1cc644dd17f12f2ab9faf3319907e36c437d6
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 0ca1d6d46fa6086f7fdb664de533759b2c193cd4
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195419"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819682"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 对象序列化
 Reliable Collections 通过复制和保留项目，确保这些项目在机器故障和电力中断时能够持久。
@@ -41,7 +41,7 @@ Reliable State Manager 拥有针对以下类型的内置串行化程序：
 - sbyte
 - byte[]
 - char
-- 字符串
+- string
 - decimal
 - Double
 - float
@@ -56,7 +56,7 @@ Reliable State Manager 拥有针对以下类型的内置串行化程序：
 
 自定义串行化程序通常用于提高性能，或用于在网络传输时以及在磁盘上加密数据。 除了其他原因外，自定义序列化程序还通常比通用序列化程序更高效，因为它们不需要串行化有关类型的信息。 
 
-[IReliableStateManager.TryAddStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义串行化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有 Reliable Collections 都有权访问相关串行化程序来读取其保留的数据。
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义序列化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有可靠集合都有权访问相关序列化程序来读取其保留的数据。
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -74,10 +74,10 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>如何实现自定义串行化程序
 
-自定义串行化程序需要实现 [IStateSerializer<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.istateserializer-1?view=azure-dotnet) 接口。
+自定义序列化程序需要实现 [IStateSerializer\<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.istateserializer-1?view=azure-dotnet) 接口。
 
 > [!NOTE]
-> IStateSerializer<T> 包含读取和写入重载，可接受名为基值的附加 T。 此 API 用于差分序列化。 当前未公开差分序列化功能。 因此，在公开和启用差分序列化前，不会调用这两个重载。
+> IStateSerializer\<T> 包含读取和写入重载，可接受名为基值的附加 T。 此 API 用于差分序列化。 当前未公开差分序列化功能。 因此，在公开和启用差分序列化前，不会调用这两个重载。
 
 以下是名为 OrderKey 的自定义类型示例，它包含四个属性
 
@@ -158,4 +158,4 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
   * 参考[高级主题](service-fabric-application-upgrade-advanced.md)，了解如何在升级应用程序时使用高级功能。
   * 参考[对应用程序升级进行故障排除](service-fabric-application-upgrade-troubleshooting.md)中的步骤来解决应用程序升级时的常见问题。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

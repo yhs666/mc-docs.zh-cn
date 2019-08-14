@@ -16,12 +16,12 @@ origin.date: 04/08/2019
 ms.date: 04/29/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 1c078868fedbed3dce719dd9d048e1ac9a51cbed
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 95a9d8d925e9cb1b37bf1f1930f47e065e738a51
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845448"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878686"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>将其他存储帐户添加到 HDInsight
 
@@ -135,7 +135,7 @@ az hdinsight script-action execute ^
 # getting service_config_version
 $clusterName = "CLUSTERNAME"
 
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
+$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName`?fields=Clusters/desired_service_config_versions/HDFS" `
     -Credential $creds -UseBasicParsing
 $respObj = ConvertFrom-Json $resp.Content
 $respObj.Clusters.desired_service_config_versions.HDFS.service_config_version
@@ -161,17 +161,17 @@ $respObj.items.configurations.properties."fs.azure.account.key.$accountName.blob
 ```bash
 export CLUSTERNAME='myCluster'
 
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" \
+curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" \
 | jq ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
 将 `myAccount` 替换为实际的存储帐户名称。 然后将 `4` 替换为实际的服务配置版本并输入以下命令：
 
 ```bash
-export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.windows.net"'
+export ACCOUNTNAME='"fs.azure.account.key.myAccount.blob.core.chinacloudapi.cn"'
 export VERSION='4'
 
-curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=$VERSION" \
+curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=$VERSION" \
 | jq ".items[].configurations[].properties[$ACCOUNTNAME] | select(. != null)"
 ```
 
@@ -180,15 +180,15 @@ curl --silent -u admin -G "https://$CLUSTERNAME.azurehdinsight.net/api/v1/cluste
 在两个脚本中将 `CLUSTERNAME` 替换为大小写正确的群集名称。 首先输入以下命令，确定正在使用的服务配置版本：
 
 ```cmd
-curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
+curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME?fields=Clusters/desired_service_config_versions/HDFS" | ^
 jq-win64 ".Clusters.desired_service_config_versions.HDFS[].service_config_version" 
 ```
 
 将 `ACCOUNTNAME` 替换为实际的存储帐户名称。 然后将 `4` 替换为实际的服务配置版本并输入以下命令：
 
 ```cmd
-curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
-jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.windows.net"""] | select(. != null)"
+curl --silent -u admin -G "https://CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=4" | ^
+jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNAME.blob.core.chinacloudapi.cn"""] | select(. != null)"
 ```
 ---
 
@@ -236,5 +236,5 @@ jq-win64 ".items[].configurations[].properties["""fs.azure.account.key.ACCOUNTNA
 
 ## <a name="next-steps"></a>后续步骤
 
-已学习如何将其他存储帐户添加到现有 HDInsight 群集。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)
+已学习如何将其他存储帐户添加到现有 HDInsight 群集。 有关脚本操作的详细信息，请参阅[使用脚本操作自定义基于 Linux 的 HDInsight 群集](hdinsight-hadoop-customize-cluster-linux.md)。
 <!--Update_Description: wording update-->

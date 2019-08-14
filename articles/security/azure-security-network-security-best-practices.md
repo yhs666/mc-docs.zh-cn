@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 09/17/2018
 ms.date: 11/06/18
 ms.author: v-lingwu
-ms.openlocfilehash: c1c13db280c0f33912b07ed2c3f6c727b8072661
-ms.sourcegitcommit: 579d4e19c2069ba5c7d5cb7e9b233744cc90d1f5
+ms.openlocfilehash: b3cf0ff2b23069d2d41cadd3f2470063256dfe77
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53219560"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818172"
 ---
 # <a name="azure-network-security-best-practices"></a>Azure 网络安全最佳实践
 你可以将 [Azure虚拟机 (VM)](https://www.azure.cn/home/features/virtual-machines/) 和设备放在 [Azure虚拟网络](/virtual-network/)上，从而将它们连接到其他网络设备。 也就是说，可以将虚拟网络接口卡连接到虚拟网络，允许启用了网络的设备之间进行基于 TCP/IP 的通信。 连接到 Azure 虚拟网络的虚拟机能够连接到相同虚拟网络、不同虚拟网络、Internet 或自己的本地网络上的设备。
@@ -90,7 +90,7 @@ Azure 网络安全设备可提供比网络级控制所提供的更高的安全�
 若要查找可用的 Azure 虚拟网络安全设备，请转到 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)并搜索“安全”和“网络安全”。
 
 ## <a name="deploy-perimeter-networks-for-security-zones"></a>为安全区部署外围网络
-[外围网格](/best-practices-network-security)（也称为 DMZ）是物理或逻辑网络区段，可在资产与 Internet 之间提供额外的安全层。 外围网络边缘的专用网络访问控制设备只允许所需流量流入虚拟网络。
+外围网络（也称为 DMZ）是物理或逻辑网络段，可在资产与 Internet 之间提供额外的安全层。 外围网络边缘的专用网络访问控制设备只允许所需流量流入虚拟网络。
 
 外围网络非常有用，因为可以将网络访问控制管理、监视、日志记录和报告的重点放在位于 Azure 虚拟网络边缘的设备上。 在此通常将启用分布式拒绝服务 (DDoS) 预防、入侵检测/入侵防护系统 (IDS/IPS)、防火墙规则和策略、Web 筛选、网络反恶意软件等。 网络安全设备位于 Internet 与 Azure 虚拟网络之间，在两个网络上均有接口。
 

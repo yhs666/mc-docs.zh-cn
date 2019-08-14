@@ -3,16 +3,16 @@ title: 使用 Azure Site Recovery 将 VMware VM 复制到 Azure 以实现灾难�
 description: 本文介绍如何使用 Azure Site Recovery 将 VMware VM 复制到 Azure，以实现灾难恢复。
 author: rockboyfor
 ms.service: site-recovery
-origin.date: 04/18/2019
-ms.date: 06/10/2019
+origin.date: 06/28/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 93bc0042de90814572a2b9fd25287050ba84a76a
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c975873f636d0f6b7d4f0fb8b48b2d0c05d01238
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390714"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819652"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>为 VMware VM 启用到 Azure 的复制
 
@@ -38,18 +38,22 @@ ms.locfileid: "66390714"
 ## <a name="enable-replication"></a>启用复制
 
 在遵循本部分中的步骤之前，请注意以下信息：
-* Azure Site Recovery 现在会将所有新复制项直接复制到托管磁盘。 进程服务器将复制日志写入到目标区域中的缓存存储帐户。 这些日志用于在副本托管磁盘中创建恢复点。
+* Azure Site Recovery 现在会将所有新复制项直接复制到托管磁盘。 进程服务器将复制日志写入到目标区域中的缓存存储帐户。 这些日志用于在具有 asrseeddisk 命名约定的副本托管磁盘中创建恢复点。
+* [Az.RecoveryServices 模块 2.0.0 版及更高版本](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview)提供了对复制到托管磁盘的 PowerShell 支持 
 * 故障转移时，所选的恢复点将用于创建目标托管磁盘。
 * 以前配置为复制到目标存储帐户的 VM 不受影响。
 * 只能通过表述性状态转移 (REST) API 或 Powershell 复制到新虚拟机的存储帐户。 使用 Azure REST API 版本 2016-08-10 或 2018-01-10 复制到存储帐户。
 
+请按照以下步骤启用复制：
 1. 转到“步骤 2：  复制应用程序” > “源”。  首次启用复制后，请在保管库中选择“+复制”，对其他虚拟机启用复制  。
 2. 在“源”  页 >“源”  中，选择配置服务器。
 3. 对于“计算机类型”，请选择“虚拟机”或“物理机”。   
 4. 在“vCenter/vSphere 虚拟机监控程序”中，选择管理 vSphere 主机的 vCenter 服务器，或选择该主机  。 如果要复制物理计算机，则此设置无关紧要。
-5. 选择进程服务器，如果未创建任何额外的进程服务器，则该服务器是配置服务器。 然后选择“确定”。 
+5. 选择进程服务器。 如果没有创建其他进程服务器，则下拉列表中将提供配置服务器的内置进程服务器。 每个进程服务器的运行状况状态是根据建议的限制和其他参数指示的。 选择一个正常运行的进程服务器。 不能选择[有严重错误的](vmware-physical-azure-monitor-process-server.md#process-server-alerts)进程服务器。 你可以[进行故障排除并解决](vmware-physical-azure-troubleshoot-process-server.md)错误**或者**设置一个[横向扩展进程服务器](vmware-azure-set-up-process-server-scale.md)。
+    ![“启用复制源”窗口](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![“启用复制源”窗口](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> 从 [9.24 版本](service-updates-how-to.md#links-to-currently-supported-update-rollups)开始，引入了其他警报，以增强进程服务器的运行状况警报。 将 Site Recovery 组件升级到 9.24 版或更高版本，以便生成所有警报。
 
 6. 对于“目标”，请选择要在其中创建故障转移虚拟机的订阅和资源组。  选择要在 Azure 中对故障转移的 VM 使用的部署模型。
 
@@ -84,13 +88,13 @@ ms.locfileid: "66390714"
 接下来，验证源虚拟机的属性。 请记住，Azure VM 名称需要符合 [Azure 虚拟机要求](vmware-physical-azure-support-matrix.md#replicated-machines)。
 
 1. 转到“设置” > “复制的项”，然后选择虚拟机   。 “概要”  页显示有关 VM 设置和状态的信息。
-2. 在“属性”  中，可以查看 VM 的复制和故障转移信息。
-3. 在“计算和网络”   > “计算属性”  中，可以更改多个 VM 属性： 
+1. 在“属性”  中，可以查看 VM 的复制和故障转移信息。
+1. 在“计算和网络”   > “计算属性”  中，可以更改多个 VM 属性： 
 
     ![“计算和网络属性”窗口](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM 名称：根据需要修改名称以使其符合 Azure 要求。
-    * 目标 VM 大小或 VM 类型：默认 VM 大小是根据源 VM 大小选择的。 在故障转移之前，随时可以根据需要选择不同的 VM 大小。 请注意，VM 磁盘大小也取决于源磁盘大小，并且它只能在故障转移后进行更改。 在 [Windows 上的 VM 磁盘的可伸缩性和性能目标](../virtual-machines/windows/disk-scalability-targets.md)中了解磁盘大小和 IOPS 速率。
+    * 目标 VM 大小或 VM 类型：默认 VM 大小是根据一些参数选择的，这些参数包括目标 Azure 区域中的磁盘计数、NIC 计数、CPU 核心计数、内存和可用 VM 角色大小。 Azure Site Recovery 选取满足所有条件的第一个可用 VM 大小。 在故障转移之前，随时可以根据需要选择不同的 VM 大小。 请注意，VM 磁盘大小也取决于源磁盘大小，并且它只能在故障转移后进行更改。 在 [Windows 上的 VM 磁盘的可伸缩性和性能目标](../virtual-machines/windows/disk-scalability-targets.md)中了解磁盘大小和 IOPS 速率。
 
     *  资源组：可以选择虚拟机会在故障转移后成为其中一部分的[资源组](/virtual-machines/windows/infrastructure-resource-groups-guidelines)。 在故障转移之前，随时可以更改此设置。 故障转移之后，如果将虚拟机迁移到其他资源组，则会中断该虚拟机的保护设置。
     * 可用性集：如果需要虚拟机在故障转移后成为某个[可用性集](/virtual-machines/windows/infrastructure-availability-sets-guidelines)的一部分，可以选择一个可用性集。 选择可用性集时，请注意以下信息：
@@ -98,8 +102,8 @@ ms.locfileid: "66390714"
         * 仅会列出属于指定资源组的可用性集。  
         * 位于不同虚拟网络中的 VM 不能属于同一个可用性集。
         * 仅大小相同的虚拟机可以属于同一可用性集。
-4. 还可以添加有关目标网络、子网和分配给 Azure VM 的 IP 地址的信息。
-5. 在“磁盘”中，可以看到 VM 上将要复制的操作系统和数据磁盘。 
+1. 还可以添加有关目标网络、子网和分配给 Azure VM 的 IP 地址的信息。
+2. 在“磁盘”中，可以看到 VM 上将要复制的操作系统和数据磁盘。 
 
 ### <a name="configure-networks-and-ip-addresses"></a>配置网络和 IP 地址
 

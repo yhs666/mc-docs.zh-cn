@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 03/18/2019
-ms.author: v-biyu
-ms.openlocfilehash: 57bb731a35aa2a53ecb430f51a9126d898c7a89b
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+origin.date: 10/30/2018
+ms.date: 08/12/2019
+ms.author: v-johch
+ms.openlocfilehash: 227b1695ee022c1077ff7aa0283e118b9ada8c1c
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347179"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878606"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -49,21 +49,21 @@ ms.locfileid: "57347179"
 
 为 Web 应用设置服务器时区：
 
-1. 在 Azure 门户的应用服务订阅中，转到“应用程序设置”菜单。
-2. 在“应用设置”下，添加此设置：
+1. 在 Azure 门户的应用服务订阅中，转到“应用程序设置”  菜单。
+2. 在“应用设置”  下，添加此设置：
     * 键 = WEBSITE_TIME_ZONE
     * 值 = *所需时区*
-3. 选择“其他安全性验证” 。
+3. 选择“其他安全性验证”  。
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 
-默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样可以让系统节省资源。 在基本和标准计划中，可打开“Always On”设置，保持 Web 应用一直处于已加载的状态。 如果 Web 应用运行连续的 Web 作业，应启用“Always On”；否则，这些 Web 作业可能无法可靠运行。 有关详细信息，请参阅[创建连续运行的 Web 作业](webjobs-create.md#CreateContinuous)。
+默认情况下，如果 Web 应用已处于空闲状态相当一段时间，则其处于未加载的状态。 这样可以让系统节省资源。 在基本和标准计划中，可打开“Always On”  设置，保持 Web 应用一直处于已加载的状态。 如果 Web 应用运行连续的 Web 作业，应启用“Always On”  ；否则，这些 Web 作业可能无法可靠运行。 有关详细信息，请参阅[创建连续运行的 Web 作业](webjobs-create.md#CreateContinuous)。
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>如何获取 Web 应用的出站 IP 地址？
 
 获取 Web 应用出站 IP 地址列表：
 
-1. 在 Azure 门户中的 Web 应用边栏选项卡上，转到“属性”菜单。
+1. 在 Azure 门户中的 Web 应用边栏选项卡上，转到“属性”  菜单。
 2. 搜索**出站 IP 地址**。
 
 随即显示出站 IP 地址列表。
@@ -113,10 +113,10 @@ PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多
 
 1. 登录到 [Kudu 网站](https://*yourwebsitename*.scm.chinacloudsites.cn)。
 2. 选择 Web 作业。
-3. 选择“切换输出”按钮。
-4. 若要下载输出文件，请选择“下载”链接。
-5. 对于单个运行，选择“单个调用”。
-6. 选择“切换输出”按钮。
+3. 选择“切换输出”  按钮。
+4. 若要下载输出文件，请选择“下载”  链接。
+5. 对于单个运行，选择“单个调用”  。
+6. 选择“切换输出”  按钮。
 7. 选择下载链接。
 
 ## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>我在尝试对 SQL Server 使用混合连接。 为什么会看到消息“System.OverflowException: 算术运算导致了溢出”？
@@ -131,12 +131,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 该异常是由于混合连接管理器存在问题而导致，该问题现已修复。 请务必[更新混合连接管理器](https://go.microsoft.com/fwlink/?LinkID=841308)以解决此问题。
 
-## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>如何添加或编辑 URL 重写规则？
+## <a name="how-do-i-add-a-url-rewrite-rule"></a>如何添加 URL 重写规则？
 
-添加或编辑 URL 重写规则：
-
-1. 设置 Internet Information Services (IIS) 管理器，以便将其连接到应用服务 Web 应用。 若要了解如何将 IIS 管理器连接到应用服务，请参阅[使用 IIS 管理器远程管理 Azure 网站](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/)。
-2. 在 IIS 管理器中，添加或编辑 URL 重写规则。 若要了解如何添加或编辑一个 URL 重写规则，请参阅[为 URL 重写模块创建重写规则](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module)。
+若要添加 URL 重写规则，请使用 **wwwroot** 文件夹中的相关配置条目创建一个 web.config 文件。 有关详细信息，请参阅 [Azure 应用服务：了解 URL 重写](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/)。
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>如何控制应用服务的入站流量？
 
@@ -160,16 +157,16 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 1. 在 Internet Explorer 中，转到网站。 请务必先登录，然后再执行后续步骤。 否则，F12 跟踪会捕获敏感登录数据。
 2. 按 F12。
-3. 确认已选中“网络”选项卡，然后选中绿色“播放”按钮。
+3. 确认已选中“网络”  选项卡，然后选中绿色“播放”  按钮。
 4. 执行可重现问题的步骤。
-5. 选择红色“停止”按钮。
-6. 选择“保存”按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”（在 Chrome 中）。
+5. 选择红色“停止”  按钮。
+6. 选择“保存”  按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”  （在 Chrome 中）。
 
 ### <a name="f12-console-output"></a>F12 控制台输出
 
-1. 选择“控制台”选项卡。
-2. 对于每个至少包含一项的选项卡，选择选项卡（“错误”、“警告”或“信息”）。 如果未选中选项卡，移开光标时，选项卡图标呈灰色或黑色。
-3. 右键单击窗格中的信息区域，然后选择“全部复制”。
+1. 选择“控制台”选项卡。 
+2. 对于每个至少包含一项的选项卡，选择选项卡（“错误”  、“警告”  或“信息”  ）。 如果未选中选项卡，移开光标时，选项卡图标呈灰色或黑色。
+3. 右键单击窗格中的信息区域，然后选择“全部复制”  。
 4. 将复制的文本粘贴到文件中，然后保存该文件。
 
 若要查看 HAR 文件，可以使用 [HAR 查看器](https://www.softwareishard.com/har/viewer/)。

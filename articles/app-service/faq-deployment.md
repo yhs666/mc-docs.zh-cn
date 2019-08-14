@@ -13,16 +13,16 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-origin.date: 05/11/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
+origin.date: 11/01/2018
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 8246b1f25c11466e3c57d6645ed29ec654e1fbcb
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: 35840863c2b8a1b9a61f1ce4ac0a7b62cbba796c
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296701"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878543"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure 中 Web 应用的部署常见问题解答
 
@@ -41,9 +41,9 @@ ms.locfileid: "66296701"
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>尝试从 Visual Studio 进行部署时，收到了一条错误消息。 如何解决此错误？
 
-如果看到以下消息，则可能使用的是旧版本的 SDK：“在资源组 'YourResourceGroup' 中部署资源 'YourResourceName' 时出错: MissingRegistrationForLocation: 订阅未在 '中国北部' 位置注册资源类型 'components'。 若要访问此位置，请重新注册此提供程序。” 
+如果看到以下消息，则可能使用的是旧版本的 SDK：“在资源组 'YourResourceGroup' 中部署资源 'YourResourceName' 时出错: MissingRegistrationForLocation: 未为 ‘中国北部’ 位置中的资源类型 ‘组件’ 注册订阅。请重新注册此提供程序，以便访问该位置。” 
 
-若要解决此错误，请升级到[最新 SDK](/downloads/)。 如果使用的是最新 SDK 但也收到了此消息，请提交支持请求。
+若要解决此错误，请升级到[最新 SDK](https://azure.microsoft.com/downloads/)。 如果使用的是最新 SDK 但也收到了此消息，请提交支持请求。
 
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>如何将 ASP.NET 应用程序从 Visual Studio 部署到应用服务？
 <a id="deployasp"></a>
@@ -61,10 +61,6 @@ ms.locfileid: "66296701"
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>尝试通过 FTP 传输文件时出现“FTP 错误 550 - 磁盘空间不足”，应如何解决？
 
 如果看到此消息，磁盘空间可能即将达到 Web 应用服务计划中的磁盘配额。 可能需要基于磁盘空间需求提升到较高服务层级。 有关定价计划和资源限制的详细信息，请参阅[应用服务定价](https://www.azure.cn/pricing/details/app-service/)。
-
-## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>如何为应用服务 Web 应用设置连续部署？
-
-可以从多个资源（包括 Azure DevOps、OneDrive、GitHub、Bitbucket、Dropbox 和其他 Git 存储库）设置持续部署。 这些选项可在门户中使用。 [持续部署到应用服务](deploy-continuous-deployment.md)是很有帮助的教程，其中说明了如何设置持续部署。
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>如何对从 GitHub 和 Bitbucket 进行持续部署的问题进行故障排除？
 

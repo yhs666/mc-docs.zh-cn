@@ -8,18 +8,18 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 06/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e10d7f6df981562bb3aa26ba596f370da429c6aa
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: abbcc5949985b34d5f373bced149244c8325ec12
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514036"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818422"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 日志的结构
 使用[日志查询](log-query-overview.md)快速洞察数据是 Azure Monitor 提供的一项强大功能。 若要创建高效且有用的查询，应该了解一些基本概念，例如，所需数据的位置及其构建方式。 本文将会介绍可帮助你入门的基本概念。
 
 ## <a name="overview"></a>概述
-Azure Monitor 日志中的数据存储在 Log Analytics 工作区或 Application Insights 应用程序中。 两者都由 [Azure 数据资源管理器](/azure/data-explorer/)提供支持，这意味着，它们将利用数据资源管理器的强大数据引擎和查询语言。
+Azure Monitor 日志中的数据存储在 Log Analytics 工作区或 Application Insights 应用程序中。 两者都由 [Azure 数据资源管理器](/data-explorer/)提供支持，这意味着，它们将利用数据资源管理器的强大数据引擎和查询语言。
 
 工作区和应用程序中的数据组织成表，每个表存储不同类型的数据，并且有自身独特的属性集。 大多数[数据源](../platform/data-sources.md)将数据写入到 Log Analytics 工作区中其自身的表内，而 Application Insights 将数据写入到 Application Insights 应用程序中一组预定义的表内。 日志查询非常灵活，可让你轻松组合多个表的数据，甚至使用跨资源查询组合多个工作区中的表的数据，或者编写查询来组合工作区数据和应用程序数据。
 
@@ -28,7 +28,7 @@ Azure Monitor 日志中的数据存储在 Log Analytics 工作区或 Application
 ![表](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 工作区
-Azure Monitor 日志收集的所有数据（Application Insights 数据除外）存储在 [Log Analytics 工作区](../platform/manage-access.md)中。 你可以根据特定的要求创建一个或多个工作区。 [数据源](../platform/data-sources.md)（例如 Azure 资源中的活动日志和诊断日志、虚拟机上的代理以及见解和监视解决方案中的数据）会将数据写入到在加入过程中配置的一个或多个工作区。 其他服务（例如 [Azure 安全中心](/azure/security-center/)和 [Azure Sentinel](/azure/sentinel/)）还会使用 Log Analytics 工作区来存储其数据，因此，可以使用日志查询结合来自其他源的数据对其进行分析。
+Azure Monitor 日志收集的所有数据（Application Insights 数据除外）存储在 [Log Analytics 工作区](../platform/manage-access.md)中。 你可以根据特定的要求创建一个或多个工作区。 [数据源](../platform/data-sources.md)（例如 Azure 资源中的活动日志和诊断日志、虚拟机上的代理以及见解和监视解决方案中的数据）会将数据写入到在加入过程中配置的一个或多个工作区。 其他服务（例如 [Azure 安全中心](/security-center/)）会使用 Log Analytics 工作区来存储其数据，以便使用日志查询以及来自其他源的监视数据对其进行分析。
 
 不同类型的数据存储在工作区中的不同表内，每个表具有独特的属性集。 创建工作区后，会将一组标准表添加到其中；加入不同的数据源、解决方案和服务后，将添加其新表。 还可以使用[数据收集器 API](../platform/data-collector-api.md) 创建自定义表。
 

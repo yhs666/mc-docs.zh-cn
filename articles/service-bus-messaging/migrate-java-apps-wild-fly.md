@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: c0aa19058814219e591302b5ff58141cb9c7cea7
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 4de9bc2bc1900e7bd1dc31677bb9ef7243c07962
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332698"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818569"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>将 Java Enterprise Edition (EE) 应用迁移到 Azure
 本文引导你完成将现有 Java EE 工作负荷迁移到 Azure 的过程：
@@ -67,11 +67,11 @@ ms.locfileid: "68332698"
 迁移后，你将使用 Azure 服务总线来运行这些应用。
 
 ## <a name="prerequisites"></a>先决条件
-若要将 Java Web 应用部署到 Azure，需要一个 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或注册获取[免费 Azure 帐户](https://azure.microsoft.com/free/)。
+若要将 Java Web 应用部署到 Azure，需要一个 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或注册 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 此外，需要符合以下先决条件：
 
-- [Azure CLI](/cli/azure/get-started-with-azure-cli) 
+- [Azure CLI](/cli/get-started-with-azure-cli) 
 - [Java 8](https://www.azul.com/downloads/azure-only/zulu/) 
 - [Maven 3](https://maven.apache.org/) 
 - [Git](https://github.com/)
@@ -1067,7 +1067,7 @@ open https://websocket-hello-app.azurewebsites.net
 ## <a name="next-steps"></a>后续步骤
 请参阅以下文章： 
 
-- [Azure 应用服务的 Maven 插件](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
+- [Azure 应用服务的 Maven 插件](/java/api/overview/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable)
 - [在 JBoss/WildFly 中部署通用 JMS RA 适配器](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
 - [WildFly/JBoss 消息传送配置](https://docs.jboss.org/author/display/WFLY/Messaging+configuration)
 - [JBoss/WildFly CLI 指南](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)

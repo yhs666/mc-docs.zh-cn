@@ -1,5 +1,5 @@
 ---
-title: 移动 Azure 中的 Linux VM | Azure
+title: 将 Linux VM 移到其他订阅或资源组 | Azure
 description: 在 Resource Manager 部署模型中将 Linux VM 移到其他 Azure 订阅或资源组。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 09/12/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 107e17f416e650640e3b3f052a1a75423ee8f39e
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: dc2f21967d010b804b25df3ca426318959ce28c2
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666315"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912965"
 ---
 # <a name="move-a-linux-vm-to-another-subscription-or-resource-group"></a>将 Linux VM 移到其他订阅或资源组
 本文逐步说明如何在资源组或订阅之间移动 Linux 虚拟机 (VM)。 如果在个人订阅中创建了 VM，现在想要将其移到公司的订阅，则在订阅之间移动 VM 会很方便。
@@ -35,7 +35,7 @@ ms.locfileid: "56666315"
 
 ## <a name="use-the-azure-cli-to-move-a-vm"></a>使用 Azure CLI 移动 VM
 
-在使用 Azure CLI 移动 VM 之前，需确保源订阅和目标订阅存在于同一租户中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 命令。
+在使用 Azure CLI 移动 VM 之前，需确保源订阅和目标订阅存在于同一租户中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 [az account show](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-show) 命令。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -43,15 +43,15 @@ ms.locfileid: "56666315"
 az account show --subscription mySourceSubscription --query tenantId
 az account show --subscription myDestinationSubscription --query tenantId
 ```
-如果源和目标订阅的租户 ID 不相同，则必须联系[支持人员](https://support.azure.cn/zh-cn/support/support-azure/)才能将资源移动到新租户。
+如果源和目标订阅的租户 ID 不相同，则必须联系[支持人员](https://support.azure.cn/support/support-azure/)才能将资源移动到新租户。
 
-若要成功移动 VM，需要移动 VM 及其所有支持资源。 使用 [az resource list](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令列出资源组中的所有资源及其 ID。 这有助于通过管道将此命令的输出发送到文件，以便将 ID 复制并粘贴到后续命令中。
+若要成功移动 VM，需要移动 VM 及其所有支持资源。 使用 [az resource list](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-list) 命令列出资源组中的所有资源及其 ID。 这有助于通过管道将此命令的输出发送到文件，以便将 ID 复制并粘贴到后续命令中。
 
 ```azurecli
 az resource list --resource-group "mySourceResourceGroup" --query "[].{Id:id}" --output table
 ```
 
-若要将 VM 及其资源移到其他资源组，请使用 [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-move) 命令。 以下示例说明如何移动 VM 及其所需的大多数通用资源。 使用 **-ids** 参数，并针对要移动的资源传入逗号分隔的 ID 列表（不包含空格）。
+若要将 VM 及其资源移到其他资源组，请使用 [az resource move](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-move) 命令。 以下示例说明如何移动 VM 及其所需的大多数通用资源。 使用 **-ids** 参数，并针对要移动的资源传入逗号分隔的 ID 列表（不包含空格）。
 
 ```azurecli
 vm=/subscriptions/mySourceSubscriptionID/resourceGroups/mySourceResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM

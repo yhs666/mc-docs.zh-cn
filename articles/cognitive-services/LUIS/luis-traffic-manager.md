@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 77a2295c81dcb7f43584cb74e5abd54c3e098cbd
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 6eeefe75e4c58a42485ff828328dd9bb2a55e0fb
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135981"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818441"
 ---
 # <a name="use-21vianet-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用世纪互联 Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。 
@@ -28,7 +28,7 @@ ms.locfileid: "67135981"
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="connect-to-powershell-in-the-azure-portal"></a>在 Azure 门户中连接到 PowerShell
-在 [Azure][azure-portal] 门户中，打开 PowerShell 窗口。 PowerShell 窗口的图标是顶部导航栏中的“>_”  。 从门户中使用 PowerShell，即表示已获得最新 PowerShell 版本并且通过了身份验证。 门户中的 PowerShell 需要 [Azure 存储](https://www.azure.cn/services/storage/)帐户。 
+在 [Azure][azure-portal] 门户中，打开 PowerShell 窗口。 PowerShell 窗口的图标是顶部导航栏中的“>_”  。 从门户中使用 PowerShell，即表示已获得最新 PowerShell 版本并且通过了身份验证。 门户中的 PowerShell 需要 [Azure 存储](/storage/)帐户。 
 
 ![打开 Powershell 窗口的 Azure 门户的屏幕截图](./media/traffic-manager/azure-portal-powershell.png)
 
@@ -379,9 +379,9 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 [traffic-manager-docs]: https://docs.azure.cn/zh-cn/traffic-manager/
 [LUIS]: https://docs.azure.cn/cognitive-services/LUIS/luis-reference-regions#luis-website
 [azure-portal]: https://portal.azure.cn/
-[azure-storage]: https://www.azure.cn/services/storage/
-[routing-methods]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods
-[traffic-manager-endpoints]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-endpoint-types
+[azure-storage]: /storage/
+[routing-methods]: /traffic-manager/traffic-manager-routing-methods
+[traffic-manager-endpoints]: /traffic-manager/traffic-manager-endpoint-types
 
 
 

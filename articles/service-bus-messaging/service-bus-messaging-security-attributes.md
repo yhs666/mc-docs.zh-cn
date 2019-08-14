@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c6c641381a8b7bb603c6a8ca0acf30ccf8ee3d81
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 7bf417b76e278a3632329ff01879be1c84ead117
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332686"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818575"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure 服务总线消息传送的安全属性
 
@@ -51,7 +51,7 @@ ms.locfileid: "68332686"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| 身份验证| 是 | 通过 [Azure Active Directory 托管服务标识](service-bus-managed-service-identity.md)进行管理；请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。|
+| 身份验证| 是 | 请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。|
 | 授权| 是 | 支持通过 [RBAC](service-bus-role-based-access-control.md)（预览版）和 SAS 令牌进行授权；请参阅[服务总线身份验证和授权](service-bus-authentication-and-authorization.md)。 |
 
 
@@ -67,4 +67,4 @@ ms.locfileid: "68332686"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| 配置管理支持（配置的版本控制等）| 是 | 支持通过 [Azure 资源管理器 API](/rest/api/resources/) 进行资源提供程序版本控制。|
+| 配置管理支持（配置的版本控制等）| 是 | 支持通过 [Azure 资源管理器 API](https://azure.microsoft.com/rest/api/resources/) 进行资源提供程序版本控制。|

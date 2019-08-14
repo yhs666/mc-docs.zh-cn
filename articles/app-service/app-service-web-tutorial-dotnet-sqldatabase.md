@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: csharp
 ms.topic: tutorial
 origin.date: 06/25/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: ce49767da0cdc13eaa02cfab1c297a7ae0341001
-ms.sourcegitcommit: df835d7fa96d783060311bf7c1dbffb10571bcfc
+ms.openlocfilehash: 0a7f2d8bde8e3a673d3a40ae28cba0d9b422a5ea
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66296714"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878574"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>教程：使用 SQL 数据库在 Azure 中生成 ASP.NET 应用
 
@@ -120,7 +120,7 @@ ms.locfileid: "66296714"
 | 设置  | 建议的值 | 更多信息 |
 | ----------------- | ------------ | ----|
 |**应用服务计划**| myAppServicePlan | [应用服务计划](../app-service/overview-hosting-plans.md) |
-|**位置**| 中国北部 | - |
+|**Location**| 中国北部 | - |
 |**大小**| 免费 | [定价层](https://www.azure.cn/pricing/details/app-service/)|
 
 ### <a name="create-a-sql-server-instance"></a>创建 SQL Server 实例
@@ -228,19 +228,19 @@ public bool Done { get; set; }
 
 在“程序包管理器控制台”窗口中，启用“Code First 迁移”：
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 添加迁移：
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 更新本地数据库：
 
-```PowerShell
+```powershell
 Update-Database
 ```
 
@@ -374,7 +374,7 @@ public ActionResult Create([Bind(Include = "Description,CreatedDate,Done")] Todo
 >
 >
 
-在浏览器中再次导航到 Web 应用（*http://&lt;应用名称>.chinacloudsites.cn*），然后尝试在 Azure 中的待办事项列表应用程序周围单击。 现在，跟踪消息已流式传输到 Visual Studio 中的“输出”  窗口。
+在浏览器中再次导航到应用（ http://&lt;应用名称>.chinacloudsites.cn  ），然后尝试在 Azure 中的待办事项列表应用程序周围单击。 现在，跟踪消息已流式传输到 Visual Studio 中的“输出”  窗口。
 
 ```console
 Application: 2017-04-06T23:30:41  PID[8132] Verbose     GET /Todos/Index
@@ -393,7 +393,7 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看已创建的 Web 应用。 
+转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。 
 
 
 

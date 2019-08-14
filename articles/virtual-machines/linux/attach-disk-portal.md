@@ -1,5 +1,5 @@
 ---
-title: 将数据磁盘附加到 Linux VM | Azure
+title: 使用门户将数据磁盘附加到 Linux VM | Azure
 description: 使用门户将新的或现有数据磁盘附加到 Linux VM。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 07/12/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: ae869c5f12af5169da3c77d6510734ac25119068
-ms.sourcegitcommit: 5bfa8ecc8a61eaf814437c78ea0d12214cabcb8c
+ms.openlocfilehash: 2c978697c86fdc30a031e8b387345830df992e04
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929323"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912916"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>使用门户将数据磁盘附加到 Linux VM 
 本文介绍如何通过 Azure 门户将新磁盘和现有磁盘附加到 Linux 虚拟机。 也可以[在 Azure 门户中将数据磁盘附加到 Windows VM](../windows/attach-managed-disk-portal.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
@@ -35,42 +35,42 @@ ms.locfileid: "64929323"
 
 ## <a name="find-the-virtual-machine"></a>查找虚拟机
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 单击左侧菜单中的“虚拟机” 。
+2. 单击左侧菜单中的“虚拟机”  。
 3. 从列表中选择虚拟机。
-4. 在“虚拟机”页的“概要”中，单击“磁盘”。
+4. 在“虚拟机”页的“概要”中，单击“磁盘”   。
 
     ![打开磁盘设置](./media/attach-disk-portal/find-disk-settings.png)
 
 ## <a name="attach-a-new-disk"></a>附加新磁盘
 
-1. 在“磁盘”窗格上，单击“+ 添加数据磁盘”。
-2. 单击“名称”的下拉列表菜单，并选择“创建磁盘”：
+1. 在“磁盘”窗格上，单击“+ 添加数据磁盘”   。
+2. 单击“名称”  的下拉列表菜单，并选择“创建磁盘”  ：
 
     ![创建 Azure 托管磁盘](./media/attach-disk-portal/create-new-md.png)
 
-3. 输入托管磁盘的名称。 查看默认设置，根据需要更新，并单击“创建”。
+3. 输入托管磁盘的名称。 查看默认设置，根据需要更新，并单击“创建”  。
 
     ![检查磁盘设置](./media/attach-disk-portal/create-new-md-settings.png)
 
-4. 单击“保存”以创建托管磁盘并更新 VM 配置：
+4. 单击“保存”  以创建托管磁盘并更新 VM 配置：
 
     ![保存新的 Azure 托管磁盘](./media/attach-disk-portal/confirm-create-new-md.png)
 
-5. 在 Azure 创建磁盘并将磁盘附加到虚拟机之后，新磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。 托管磁盘是顶级资源，因此磁盘会显示在资源组的根部：
+5. 在 Azure 创建磁盘并将磁盘附加到虚拟机之后，新磁盘出现在“数据磁盘”  下的虚拟机磁盘设置中。 托管磁盘是顶级资源，因此磁盘会显示在资源组的根部：
 
     ![资源组中的 Azure 托管磁盘](./media/attach-disk-portal/view-md-resource-group.png)
 
 ## <a name="attach-an-existing-disk"></a>附加现有磁盘
-1. 在“磁盘”窗格上，单击“+ 添加数据磁盘”。
-2. 单击“名称”的下拉列表菜单，查看 Azure 订阅可访问的现有托管磁盘列表。 选择要附加的托管磁盘：
+1. 在“磁盘”窗格上，单击“+ 添加数据磁盘”   。
+2. 单击“名称”  的下拉列表菜单，查看 Azure 订阅可访问的现有托管磁盘列表。 选择要附加的托管磁盘：
 
     ![附加现有 Azure 管理磁盘](./media/attach-disk-portal/select-existing-md.png)
 
-3. 单击“保存”以附加现有托管磁盘并更新 VM 配置：
+3. 单击“保存”  以附加现有托管磁盘并更新 VM 配置：
 
     ![保存 Azure 托管磁盘更新](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. 在 Azure 将磁盘附加到虚拟机之后，磁盘出现在“数据磁盘” 下的虚拟机磁盘设置中。
+4. 在 Azure 将磁盘附加到虚拟机之后，磁盘出现在“数据磁盘”  下的虚拟机磁盘设置中。
 
     <!-- Verify successfully on  The Connect to the Linux VM to mount the new disk-->
 
@@ -219,7 +219,7 @@ sudo -i blkid
 sudo vi /etc/fstab
 ```
 
-在此示例中，使用在之前的步骤中创建的 /dev/sdc1 设备的 UUID 值并使用装入点 /datadrive。 将以下行添加到 */etc/fstab* 文件的末尾：
+在此示例中，使用在之前的步骤中创建的 /dev/sdc1  设备的 UUID 值并使用装入点 /datadrive  。 将以下行添加到 */etc/fstab* 文件的末尾：
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2

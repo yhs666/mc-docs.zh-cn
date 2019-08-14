@@ -1,5 +1,5 @@
 ---
-title: 安装并配置 Terraform 以与 Azure 配合使用 | Azure
+title: 安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构 | Azure
 description: 了解如何安装和配置用于创建 Azure 资源的 Terraform
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,20 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/19/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9184de59f8dc9135e0b8b799f6c3ce92a2af8862
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: fe965a64ef4cb81809e60ce8624bf850c416efaa
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666169"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912988"
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>安装和配置 Terraform 以在 Azure 中预配 VM 和其他基础结构
 
 借助 Terraform，可以轻松使用[简单模板语言](https://www.terraform.io/docs/configuration/syntax.html)来定义、预览和部署云基础结构。 本文介绍使用 Terraform 在 Azure 中预配资源的必要步骤。
 
-<!--Not Available on Cloud Shell --> 如果选择在本地安装 Terraform，请完成下一步，否则请继续[设置 Terraform 对 Azure 的访问权限](#set-up-terraform-access-to-azure)。
+<!--Not Available on Cloud Shell -->
+
+如果选择在本地安装 Terraform，请完成下一步，否则请继续[设置 Terraform 对 Azure 的访问权限](#set-up-terraform-access-to-azure)。
 
 <!--Not Available on [Cloud Shell](/terraform/terraform-cloud-shell)-->
 
@@ -44,9 +46,9 @@ Usage: terraform [--version] [--help] <command> [args]
 
 ## <a name="set-up-terraform-access-to-azure"></a>设置 Terraform 对 Azure 的访问权限
 
-要使 Terraform 能够将资源预配到 Azure，请创建 [Azure AD 服务主体](https://docs.azure.cn/zh-cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)。 服务主体允许你的 Terraform 脚本在 Azure 订阅中预配资源。
+要使 Terraform 能够将资源预配到 Azure，请创建 [Azure AD 服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)。 服务主体允许你的 Terraform 脚本在 Azure 订阅中预配资源。
 
-如果有多个 Azure 订阅，请先使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 查询帐户，以获取订阅 ID 和租户 ID 值列表：
+如果有多个 Azure 订阅，请先使用 [az account show](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-show) 查询帐户，以获取订阅 ID 和租户 ID 值列表：
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -54,13 +56,13 @@ Usage: terraform [--version] [--help] <command> [args]
 az account show --query "{subscriptionId:id, tenantId:tenantId}"
 ```
 
-若要使用所选订阅，请使用 [az account set](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-set) 为此会话设置订阅。 设置 `SUBSCRIPTION_ID` 环境变量，用于保存从要使用的订阅返回的 `id` 字段值：
+若要使用所选订阅，请使用 [az account set](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-set) 为此会话设置订阅。 设置 `SUBSCRIPTION_ID` 环境变量，用于保存从要使用的订阅返回的 `id` 字段值：
 
 ```azurecli
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-现在，可以创建一个服务主体以与 Terraform 一起使用。 使用 [az ad sp create-for-rbac](https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)，并将“范围”设置为你的订阅，如下所示  ：
+现在，可以创建一个服务主体以与 Terraform 一起使用。 使用 [az ad sp create-for-rbac](https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)，并将“范围”设置为你的订阅，如下所示  ：
 
 ```azurecli
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"
@@ -78,6 +80,8 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRI
 - `ARM_TENANT_ID`
 - `ARM_ENVIRONMENT`
 
+<!-- MOONCAKE: Configure the ARM_ENVIRONMENT=china -->
+
 可以使用以下示例 shell 脚本设置这些变量：
 
 ```bash
@@ -91,7 +95,7 @@ export ARM_TENANT_ID=your_tenant_id
 # Not needed for public, required for usgovernment, german, china
 export ARM_ENVIRONMENT=china
 ```
-<!-- Notice: Configure the ARM_ENVIRONMENT=china -->
+<!-- MOONCAKE: Configure the ARM_ENVIRONMENT=china -->
 
 ## <a name="run-a-sample-script"></a>运行示例脚本
 

@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 04/27/2018
+origin.date: 02/18/2019
 ms.date: 08/12/2019
-ms.author: v-biyu
-ms.openlocfilehash: f495d4e142680ba38f63a39b4092773658443422
-ms.sourcegitcommit: 84f6eb9f6eb8d5382a05e5850f2c222ef394943b
+ms.author: v-johch
+ms.openlocfilehash: 9b840eaa791aed2e64c9a3a4ed1fbc5e9e7f02ab
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68633011"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878595"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -88,7 +88,7 @@ static void Main(string[] args)
 
 #### <a name="version-3x"></a>版本 3.*x*
 
-版本 3.x 使用标准 ASP.NET Core API。 对 [`HostBuilder`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例调用 [UseEnvironment](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 方法。 传递名为 `development` 的字符串，如以下示例中所示：
+版本 3.x  使用标准 ASP.NET Core API。 对 [`HostBuilder`](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例调用 [UseEnvironment](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.useenvironment) 方法。 传递名为 `development` 的字符串，如以下示例中所示：
 
 ```cs
 static void Main()
@@ -130,7 +130,7 @@ static void Main()
 
 在版本 3.*x* 中，连接限制默认为无限次连接。 如果出于某种原因需要更改此限制，则可以使用 [WinHttpHander](https://docs.microsoft.com/zh-cn/dotnet/api/system.net.http.winhttphandler) 类的 [MaxConnectionsPerServer](https://docs.microsoft.com/zh-cn/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 属性。
 
-在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
+在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
 
 使用 `HttpClient` 从某个函数发出的所有传出 HTTP 请求都会流经 `ServicePointManager`。 达到 `DefaultConnectionLimit` 中设置的值后，`ServicePointManager` 会开始将请求排队，然后再发送请求。 假设 `DefaultConnectionLimit` 设置为 2，并且代码发出了 1,000 个 HTTP 请求。 最初，只允许 2 个请求传入 OS。 其他 998 个请求将会排队，直到有可用的空间。 这意味着 `HttpClient` 可能会超时，因为它似乎已发出请求，但是，OS 从未将此请求发送到目标服务器。 因此，可能会出现看似不合理的行为：本地 `HttpClient` 花费了 10 秒来完成请求，但服务在 200 毫秒内就返回了每个请求。 
 
@@ -594,7 +594,7 @@ public static void CreateThumbnail(
 }
 ```
 
-有关绑定表达式的详细信息，请参阅 Azure Functions 文档中的[绑定表达式和模式](https://docs.azure.cn/zh-cn/azure-functions/functions-triggers-bindings#binding-expressions-and-patterns)。
+有关绑定表达式的详细信息，请参阅 Azure Functions 文档中的[绑定表达式和模式](../azure-functions/functions-bindings-expressions-patterns.md)。
 
 ### <a name="custom-binding-expressions"></a>自定义绑定表达式
 
@@ -633,7 +633,7 @@ public class CustomNameResolver : INameResolver
 using Microsoft.Extensions.DependencyInjection;
 ```
 
-通过对 [HostBuilder](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.hostbuilder) 调用 [`ConfigureServices`] 扩展方法添加解析程序，如下面的示例中所示：
+可以通过调用 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 上的 [`ConfigureServices`] 扩展方法来添加解析程序，如下例所示：
 
 ```cs
 static async Task Main(string[] args)
@@ -844,7 +844,7 @@ WebJobs SDK 在幕后使用 [Azure Blob 租约](../storage/common/storage-concur
 |关键    | 5 |
 |无        | 6 |
 
-可以根据特定的 [LogLevel](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.logging.loglevel) 独立筛选每个类别。 例如，你可能想要查看有关 Blob 触发器处理的所有日志，但对于其他任何操作，只想查看 `Error` 和更高级别的日志。
+可以将每个类别单独筛选为特定的 [`LogLevel`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loglevel)。 例如，你可能想要查看有关 Blob 触发器处理的所有日志，但对于其他任何操作，只想查看 `Error` 和更高级别的日志。
 
 #### <a name="version-3x"></a>版本 3.*x*
 
@@ -903,6 +903,9 @@ config.LoggerFactory = new LoggerFactory()
     .AddConsole(filter.Filter);
 ```
 
+### <a name="custom-telemetry-for-application-insights"></a>Application Insights 的自定义遥测
+
+为 [Application Insights](../azure-monitor/app/app-insights-overview.md) 实现自定义遥测的过程取决于 SDK 版本。 要了解如何配置 Application Insights，请参阅[添加 Application Insights 日志记录](webjobs-sdk-get-started.md#add-application-insights-logging)。
 
 #### <a name="version-3x"></a>版本 3.*x*
 
@@ -993,7 +996,7 @@ private class CustomTelemetryClientFactory : DefaultTelemetryClientFactory
 }
 ```
 
-`SamplingPercentageEstimatorSettings` 对象配置自适应采样。 这意味着，在某些大容量方案中，Applications Insights 会向服务器发送选定的遥测数据子集。
+`SamplingPercentageEstimatorSettings` 对象配置[自适应采样](/azure-monitor/app/sampling)。 这意味着，在某些大容量方案中，Applications Insights 会向服务器发送选定的遥测数据子集。
 
 创建遥测工厂后，可将其传入 Application Insights 日志记录提供程序：
 

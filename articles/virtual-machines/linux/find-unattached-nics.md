@@ -1,5 +1,5 @@
 ---
-title: 找到并删除未连接的 Azure NIC | Azure
+title: 如何找到并删除 Azure VM 的未连接网络接口卡 (NIC) | Azure
 description: 如何通过 Azure CLI 找到并删除未连接到 VM 的 Azure NIC
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 04/10/2018
-ms.date: 10/22/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: adfaa1af2460352f591a06a21f84b94b36e49691
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: b56cb0853f40ecaae01b157b33e6f9f7b32a27f1
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52643756"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912970"
 ---
 # <a name="how-to-find-and-delete-unattached-network-interface-cards-nics-for-azure-vms"></a>如何找到并删除 Azure VM 的未连接网络接口卡 (NIC)
 在 Azure 中删除虚拟机 (VM) 时，网络接口卡 (NIC) 不会默认删除。 如果在创建多个 VM 后又将其删除，则未使用过的 NIC 会继续使用内部 IP 地址租约。 创建其他 VM NIC 时，这些 NIC 可能无法在子网的地址空间中获得 IP 租约。 本文介绍如何找到并删除未连接的 NIC。

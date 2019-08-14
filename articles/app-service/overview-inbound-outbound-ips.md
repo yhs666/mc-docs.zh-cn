@@ -11,16 +11,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/20/2018
-ms.date: 07/01/2019
-ms.author: v-biyu
+origin.date: 06/06/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: d8775cac0d995d55fc6692841e6e8d5145b04693
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: bd49e4a54b09382146745760fabc830819067fc3
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171350"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878538"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 
@@ -59,7 +59,7 @@ nslookup <app-name>.chinacloudsites.cn
 
 若要在 Azure 门户中查找应用当前使用的出站 IP 地址，请单击应用左侧导航窗格中的“属性”。  它们列出在“出站 IP 地址”  字段中。
 
-可通过在命令提示符窗口中运行以下命令来查找相同的信息。
+通过在 CLI 中运行以下命令可以找到相同的信息。
 
 ```azurecli
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv

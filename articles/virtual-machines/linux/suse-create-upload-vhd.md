@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中创建和上传 SUSE Linux VHD
+title: 为 Azure 准备 SLES 或 openSUSE 虚拟机 | Azure
 description: 了解如何创建和上传包含 SUSE Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fb959caa296179ecac7e49ba8cfa1dc8daff821
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 7bbce8bc2102830f0d7b0c57ea4c62baf3e82c88
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004104"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912990"
 ---
 # <a name="prepare-a-sles-or-opensuse-virtual-machine-for-azure"></a>为 Azure 准备 SLES 或 openSUSE 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -43,7 +43,7 @@ ms.locfileid: "59004104"
 
 ## <a name="prepare-suse-linux-enterprise-server-11-sp4"></a>准备 SUSE Linux Enterprise Server 11 SP4
 1. 在 Hyper-V 管理器的中间窗格中，选择虚拟机。
-2. 单击“连接”打开虚拟机窗口。
+2. 单击“连接”打开虚拟机窗口。 
 3. 注册 SUSE Linux Enterprise 系统以允许其下载更新并安装程序包。
 4. 使用最新修补程序更新系统：
 
@@ -103,9 +103,9 @@ ms.locfileid: "59004104"
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
-16. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
+16. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 现在，准备将 Linux VHD 上传到 Azure。
 
-- - -
+---
 ## <a name="prepare-opensuse-131"></a>准备 openSUSE 13.1+
 1. 在 Hyper-V 管理器的中间窗格中，选择虚拟机。
 2. 单击 **“连接”** 以打开虚拟机窗口。
@@ -168,7 +168,7 @@ ms.locfileid: "59004104"
 12. 确保在启动时运行 Azure Linux 代理：
 
         # sudo systemctl enable waagent.service
-13. 在 Hyper-V 管理器中单击“操作”->“关闭”。 Linux VHD 现已准备好上传到 Azure。
+13. 在 Hyper-V 管理器中单击“操作”->“关闭”。  Linux VHD 现已准备好上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用 SUSE Linux 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。

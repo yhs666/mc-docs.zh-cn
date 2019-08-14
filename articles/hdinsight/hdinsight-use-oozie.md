@@ -16,19 +16,19 @@ origin.date: 05/25/2017
 ms.date: 04/15/2019
 ms.author: v-yiso
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1bfc623033079f39b18dfb9373465094794ec128
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: c7f9a3cc8de9f16e982b964a0052c21279eaa409
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004033"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878764"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>在 HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 
 
-了解如何使用 Apache Oozie 定义工作流以及如何在 HDInsight 上运行工作流。 要了解 Oozie 协调器，请参阅[将基于时间的 Apache Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]。
+了解如何使用 Apache Oozie 定义工作流以及如何在 HDInsight 上运行工作流。 若要了解 Oozie 协调器，请参阅[将基于时间的 Apache Oozie 协调器与 HDInsight 配合使用][hdinsight-oozie-coordinator-time]。
 
 Apache Oozie 是一个管理 Hadoop 作业的工作流/协调系统。 它与 Hadoop 堆栈集成，支持 Apache MapReduce、Apache Pig、Apache Hive 和 Apache Sqoop 的 Hadoop 作业。 它也能用于安排特定于某系统的作业，例如 Java 程序或 shell 脚本。
 
@@ -136,9 +136,9 @@ RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 O
 
 |工作流变量|说明|
 |---|---|
-|${jobTracker}|指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010。|
-|${nameNode}|指定 Hadoop 名称节点的 URL。 请使用默认的文件系统地址，例如 wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.windows.net。|
-|${queueName}|指定作业将提交到的队列名称。 使用默认值。|
+|${jobTracker}|指定 Hadoop 作业跟踪器的 URL。 在 HDInsight 版本 3.0 和 2.1 中使用 jobtrackerhost:9010  。|
+|${nameNode}|指定 Hadoop 名称节点的 URL。 使用默认的文件系统地址，例如 *wasb://&lt;containerName&gt;\@&lt;storageAccountName&gt;.blob.core.chinacloudapi.cn*。|
+|${queueName}|指定作业将提交到的队列名称。 使用默认值  。|
 
 |Hive 操作变量|说明|
 |---|---|
@@ -175,7 +175,7 @@ RunHiveScript 有几个变量。 在使用 Azure PowerShell 从工作站提交 O
 工作流文件和 HiveQL 文件存储在 Blob 容器中。  本教程后面要使用的 PowerShell 脚本会将这两个文件复制到默认存储帐户。 
 
 ## <a name="submit-oozie-jobs-using-powershell"></a>使用 PowerShell 提交 Oozie 作业
-Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可以使用 **Invoke-RestMethod** cmdlet 调用 Oozie Web 服务。 Oozie Web 服务 API 是 HTTP REST JSON API。 有关 Oozie Web 服务 API 的详细信息，请参阅 [Apache Oozie 4.0 文档][apache-oozie-400]（用于 HDInsight 版本 3.0）或 [Apache Oozie 3.3.2 文档][apache-oozie-332]（用于 HDInsight 版本 2.1）。
+Azure PowerShell 目前不提供任何用于定义 Oozie 作业的 cmdlet。 可以使用 **Invoke-RestMethod** cmdlet 调用 Oozie Web 服务。 Oozie Web 服务 API 是 HTTP REST JSON API。 有关 Oozie Web 服务 API 的详细信息，请参阅 [Apache Oozie 4.0 文档][apache-oozie-400]（适用于 HDInsight 版本 3.0）或 [Apache Oozie 3.3.2 文档][apache-oozie-332]（适用于 HDInsight 版本 2.1）。
 
 本部分中的 PowerShell 脚本执行以下步骤：
 

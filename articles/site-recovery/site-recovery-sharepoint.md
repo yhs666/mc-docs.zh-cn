@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 01/21/2019
+origin.date: 06/27/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: d2a757abe338f9af0e37b59d5f57db2c5d88be70
-ms.sourcegitcommit: 26957f1f0cd708f4c9e6f18890861c44eb3f8adf
+ms.openlocfilehash: b87f14e796159b1b6b392c7ad737e7635b3b3dcc
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363425"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819585"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复
 
@@ -28,6 +28,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 良好的灾难恢复解决方案应允许围绕 SharePoint 等复杂应用程序体系结构为恢复计划建模。 此外，还应该能够添加自定义步骤来处理不同层之间的应用程序映射，因此，能够在发生灾难时，以较低的 RTO 提供一键式故障转移。
 
 本文详细介绍如何使用 [Azure Site Recovery](site-recovery-overview.md) 保护 SharePoint 应用程序。 内容包括如何将三层 SharePoint 应用程序复制到 Azure、如何执行灾难恢复演练，以及如何将应用程序故障转移到 Azure 的最佳做法。
+
 <!-- Not Available on VIDEO-->
 
 ## <a name="prerequisites"></a>先决条件
@@ -92,7 +93,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
     ![选择网络](./media/site-recovery-sharepoint/select-network.png)
 
-* 如果使用的是静态 IP，请在“目标 IP”字段中指定希望虚拟机采用的 IP
+* 如果使用的是静态 IP，请在“目标 IP”字段中指定希望虚拟机采用的 IP 
 
     ![设置静态 IP](./media/site-recovery-sharepoint/set-static-ip.png)
 
@@ -100,7 +101,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 用于面向 Internet 的站点，请在 Azure 订阅中[创建“优先级”类型的流量管理器配置文件](../traffic-manager/traffic-manager-create-profile.md)。 然后按以下方式配置 DNS 和流量管理器配置文件。
 
-| **Where** | Source | **目标**|
+| **Where** | **Source** | **目标**|
 | --- | --- | --- |
 | 公共 DNS | SharePoint 站点的公共 DNS <br/><br/> 例如：sharepoint.contoso.com | 流量管理器 <br/><br/> contososharepoint.trafficmanager.cn |
 | 本地 DNS | sharepointonprem.contoso.com | 本地场中的公共 IP |
@@ -177,26 +178,26 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 ## <a name="doing-a-test-failover"></a>执行测试故障转移
 遵循[此指南](site-recovery-test-failover-to-azure.md)执行测试故障转移。
 
-1.  转到 Azure 门户并选择恢复服务保管库。
-2.  单击针对 SharePoint 应用程序创建的恢复计划。
-3.  单击“测试故障转移”。
-4.  选择恢复点和 Azure 虚拟网络开始测试故障转移过程。
-5.  辅助环境启动后，可以执行验证。
-6.  完成验证后，可以在恢复计划中单击“清理测试故障转移”，这样即可清理测试故障转移环境。
+1. 转到 Azure 门户并选择恢复服务保管库。
+2. 单击针对 SharePoint 应用程序创建的恢复计划。
+3. 单击“测试故障转移”。
+4. 选择恢复点和 Azure 虚拟网络开始测试故障转移过程。
+5. 辅助环境启动后，可以执行验证。
+6. 完成验证后，可以在恢复计划中单击“清理测试故障转移”，这样即可清理测试故障转移环境。
 
 有关针对 AD 和 DNS 执行测试故障转移的指导，指参阅[针对 AD 和 DNS 的测试故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)文档。
 
-有关针对 SQL Always ON 可用性组执行测试故障转移的指导，请参阅[针对 SQL Server Always On 执行测试故障转移](site-recovery-sql.md#steps-to-do-a-test-failover)文档。
+有关为 SQL Always ON 可用性组执行测试故障转移的指导，请参阅[使用 Azure Site Recovery 执行应用程序 DR 并执行测试故障转移](site-recovery-sql.md#disaster-recovery-of-application)一文。
 
 ## <a name="doing-a-failover"></a>执行故障转移
 执行故障转移时，请遵循[此指南](site-recovery-failover.md)。
 
-1.  转到 Azure 门户并选择恢复服务保管库。
-2.  单击针对 SharePoint 应用程序创建的恢复计划。
-3.  单击“故障转移”。
-4.  选择恢复点开始故障转移过程。
+1. 转到 Azure 门户并选择恢复服务保管库。
+2. 单击针对 SharePoint 应用程序创建的恢复计划。
+3. 单击“故障转移”。
+4. 选择恢复点开始故障转移过程。
 
 ## <a name="next-steps"></a>后续步骤
 详细了解如何使用 Site Recovery [复制其他应用程序](site-recovery-workload.md)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

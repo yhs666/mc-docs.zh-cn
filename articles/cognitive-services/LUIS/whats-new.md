@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1fa0a37a0c39dc2451aaafc20b30ce40369857ce
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: c74bdc87e78d307c1fa0a7780e05b637206c6741
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332664"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818432"
 ---
 # <a name="whats-new-in-language-understanding"></a>语言理解中的新增功能
 
@@ -26,7 +26,7 @@ ms.locfileid: "68332664"
 
 ### <a name="june-24-2019"></a>2019 年 6 月 24 日
 
-* [序号 V2 预生成实体](luis-reference-prebuilt-ordinal-v2.md)，以支持排序，如下一个、上一个和最后一个。 仅限英语区域性。
+* 序号 V2 预生成实体，以支持排序，如下一个、上一个和最后一个。 仅限英语区域性。
 
 ### <a name="may-6-2019---build-conference"></a>2019 年 5 月 6 日 - //Build 会议
 

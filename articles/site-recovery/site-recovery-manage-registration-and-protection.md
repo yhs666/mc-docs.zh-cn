@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 07/08/2019
+origin.date: 06/18/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: d20d7f4a499795ccab9edb81e716c371decbad54
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 7e23e2bfa130190611994c865c27edc389e038f3
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861642"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819560"
 ---
 # <a name="remove-servers-and-disable-protection"></a>删除服务器并禁用保护
 
@@ -148,6 +148,9 @@ ms.locfileid: "67861642"
 > [!NOTE]
 > 这两个选项都不会从受保护的服务器中卸载移动服务，需要手动卸载。 如果打算使用相同的配置服务器重新保护服务器，可以跳过卸载移动服务这一步。
 
+> [!NOTE]
+> 如果已对 VM 进行了故障转移并且该 VM 正在 Azure 中运行，请注意，禁用保护不会删除/影响故障转移的 VM。
+
 ## <a name="disable-protection-for-a-azure-vm-azure-to-azure"></a>禁用对 Azure VM 的保护（Azure 到 Azure）
 
 -  依次转到“受保护的项”   > “复制的项”  ，右键单击计算机，再单击“禁用复制”  。
@@ -164,8 +167,12 @@ ms.locfileid: "67861642"
     - **禁用复制并删除(推荐)** - 此选项从 Azure Site Recovery 中删除复制的项，并停止复制计算机。 此外，还将清理本地虚拟机上的复制配置，并停止对这个受保护的服务器收取 Site Recovery 费用。
     - **删除** - 只有在源环境已删除或无法访问（未连接）时，才应使用此选项。 此选项会从 Azure Site Recovery 中删除复制的项（停止计费）。 不过，并不会  清理本地虚拟机上的复制配置。 
 
-     > [!NOTE]
-     > 如果选择“删除”  选项，请运行下面的一组脚本，清理本地 Hyper-V 服务器上的复制设置。
+        > [!NOTE]
+        > 如果选择“删除”  选项，请运行下面的一组脚本，清理本地 Hyper-V 服务器上的复制设置。
+
+> [!NOTE]
+> 如果已对 VM 进行了故障转移并且该 VM 正在 Azure 中运行，请注意，禁用保护不会删除/影响故障转移的 VM。
+
 1. 在源 Hyper-V 主机服务器上，取消复制虚拟机。 将 SQLVM1 替换为虚拟机名称，并通过管理 PowerShell 运行以下脚本
 
     ```powershell
@@ -207,6 +214,7 @@ ms.locfileid: "67861642"
 
     - **禁用复制并删除(推荐)** - 此选项从 Azure Site Recovery 中删除复制的项，并停止复制计算机。 此外，还将清理本地虚拟机上的复制配置，并停止对这个受保护的服务器收取 Site Recovery 费用。
     - **删除** - 只有在源环境已删除或无法访问（未连接）时，才应使用此选项。 此选项会从 Azure Site Recovery 中删除复制的项（停止计费）。 不过，并不会  清理本地虚拟机上的复制配置。 运行下面的一组脚本，清理本地虚拟机上的复制设置。
+        
         > [!NOTE]
         > 如果选择“删除”  选项，请运行下面的脚本，清理本地 VMM 服务器上的复制设置。
 

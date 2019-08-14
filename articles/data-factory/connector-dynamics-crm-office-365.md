@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 07/08/2019
+origin.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 2e6ea5b7256bcae1923708c5eec56eba2dbac062
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0397990623a14aaf66add2d787fdc10b21fec2de
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570577"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908699"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>使用 Azure 数据工厂从/向 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制数据
 
@@ -28,7 +28,13 @@ ms.locfileid: "67570577"
 
 可以将数据从 Dynamics 365 (Common Data Service) 或 Dynamics CRM 复制到任何支持的接收器数据存储。 还可以将数据从任何支持的源数据存储复制到 Dynamics 365 (Common Data Service) 或 Dynamics CRM。 有关复制活动支持作为源或接收器的数据存储列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)表。
 
-此 Dynamics 连接器支持以下 Dynamics 版本和身份验证类型。 IFD 是“Internet Facing Deployment”（面向 Internet 的部署）的缩写。
+此 Dynamics 连接器支持联机或本地的 Dynamics 版本 7.x 到 9.x。 更具体地说，
+
+- 版本 7.x 映射到 Dynamics CRM 2015
+- 版本 8.x 映射到 Dynamics CRM 2016 和 Dynamics 365 的早期版本
+- 版本 9.x 映射到 Dynamics 365 的更高版本
+
+请参阅下表，了解各种 Dynamics 版本/产品支持的身份验证类型和配置。 IFD 是“Internet Facing Deployment”（面向 Internet 的部署）的缩写。
 
 | Dynamics 版本 | 身份验证类型 | 链接的服务示例 |
 |:--- |:--- |:--- |
@@ -44,6 +50,8 @@ ms.locfileid: "67570577"
 - Dynamics 365 for Marketing
 
 此连接器不支持其他应用程序类型，如 Finance and Operations、Talent 等。
+
+此 Dynamics 连接器基于 [Dynamics XRM 工具](https://docs.microsoft.com/dynamics365/customer-engagement/developer/build-windows-client-applications-xrm-tools)构建。
 
 >[!TIP]
 >若要从 **Dynamics 365 Finance and Operations** 复制数据，可以使用 [Dynamics AX 连接器](connector-dynamics-ax.md)。
@@ -342,9 +350,8 @@ Dynamics 链接服务支持以下属性。
 | AttributeType.State | Int32 | ✓ | ✓ |
 | AttributeType.Status | Int32 | ✓ | ✓ |
 
-
 > [!NOTE]
-> Dynamics 数据类型 AttributeType.CalendarRules 和 AttributeType.PartyList 不受支持。
+> Dynamics 数据类型 AttributeType.CalendarRules、AttributeType.MultiSelectPicklist 和 AttributeType.PartyList 不受支持。
 
 ## <a name="next-steps"></a>后续步骤
 有关数据工厂中复制活动支持作为源和接收器的数据存储的列表，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中为 Linux VM 创建 FQDN | Azure
+title: 在 Azure 门户中为 Linux VM 创建完全限定的域名 | Azure
 description: 了解如何在 Azure 门户中为基于 Resource Manager 的虚拟机创建完全限定域名或 FQDN。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 11/26/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c5502dd83ab30e200e8362e2016e8664855d216
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: bd5a325c40bab68cb6c80a821beef5f17605b567
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674355"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912960"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 门户中为 Linux VM 创建完全限定的域名
 
@@ -34,7 +34,8 @@ ms.locfileid: "52674355"
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
 现在可以使用此 DNS 名称（例如搭配 `ssh azureuser@mydns.chinanorth.cloudapp.chinacloudapi.cn`）远程连接至 VM。
-<!-- cloudapp.azure.com to cloudapp.chinacloudapi.cn is Correct -->
+
+<!--MOONCAKE: CORRECT ON cloudapp.azure.com to cloudapp.chinacloudapi.cn -->
 
 ## <a name="next-steps"></a>后续步骤
 VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框架或服务，例如 nginx、MongoDB、Docker 等等。

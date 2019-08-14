@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a1dcbaeb20fa69b0d92771b0ae2d275d46c65c1a
-ms.sourcegitcommit: 71ec68c5d696abd9704363e26d09a80afed2c7a6
+ms.openlocfilehash: 084df79599498cc627c7dc35a39190d8f342426c
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828525"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818189"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Azure 数据安全与加密最佳做法
 本文介绍了针对数据安全和加密的最佳做法。
@@ -111,19 +111,13 @@ Azure 存储和 Azure SQL 数据库默认对静态数据进行加密，并且许
 无法保护传输中数据的组织更容易遭受[中间人攻击](https://technet.microsoft.com/library/gg195821.aspx)、[窃听](https://technet.microsoft.com/library/gg195641.aspx)和会话劫持。 这些攻击可能是获取机密数据访问权限的第一步。
 
 ## <a name="secure-email-documents-and-sensitive-data"></a>保护电子邮件、文档和敏感数据
-你希望控制并帮助保护在公司外部共享的电子邮件、文档和敏感数据。 [Azure 信息保护](/information-protection/)是基于云的解决方案，可帮助组织对其文档和电子邮件进行分类、标记和保护。 这可以由定义了规则和条件的管理员自动执行、由用户手动执行，或者以组合方式执行，在组合方式中，用户可获得建议。
+你希望控制并帮助保护在公司外部共享的电子邮件、文档和敏感数据。 Azure 信息保护是基于云的解决方案，可帮助组织对其文档和电子邮件进行分类、标记和保护。 这可以由定义了规则和条件的管理员自动执行、由用户手动执行，或者以组合方式执行，在组合方式中，用户可获得建议。
 
 分类始终是可标识的，不管数据存储在什么位置，也不管数据是与谁共享的。 标签包括视觉标记，如页眉、页脚或水印。 元数据以明文形式添加到文件和电子邮件标题中。 明文形式确保其他服务（如防止数据丢失的解决方案）可以识别分类并采取相应的操作。
 
 保护技术使用 Azure Rights Management (Azure RMS)。 此技术与其他 Azure 云服务和应用程序（如 Office 365 和 Azure Active Directory）集成。 此保护技术使用加密、标识和授权策略。 通过 Azure RMS 应用的保护与文档和电子邮件保留在一起，不受位置影响，也无论是在组织、网络、文件服务器和应用程序内部还是外部。
 
 此信息保护解决方案可用于控制数据，即使是与他人共享的数据，也可控制。 还可以将 Azure RMS 用于自己的业务线应用程序和软件供应商提供的信息保护解决方案，而无论这些应用程序和解决方案是在本地还是在云中。
-
-建议：
-
-- 为组织[部署 Azure 信息保护](/information-protection/deployment-roadmap)。
-- 应用可反映业务需求的标签。 例如：将名为“高度机密”的标签应用于包含绝密数据的所有文档和电子邮件，以对这些数据进行分类和保护。 然后，只有授权的用户才能访问此数据，并具有指定的任何限制。
-- 配置 [Azure RMS 的使用情况日志记录](/information-protection/log-analyze-usage)，以便监视组织使用保护服务的方式。
 
 [数据分类](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf)和文件保护能力不佳的组织可能更容易遭到数据泄漏或数据滥用。 使用适当的文件保护，可以分析数据流，以深入了解业务、检测风险行为并采取纠正措施、跟踪对文档的访问等等。
 

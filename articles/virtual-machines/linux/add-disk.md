@@ -13,16 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 06/13/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: e74ed39d49136ff0b820b5bbc3efdb0ed9680312
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6b9e4f2c48eb267f12b11cf0d67d6cd71e0a7596
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570337"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912919"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
 本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。
@@ -31,7 +31,7 @@ ms.locfileid: "67570337"
 
 ## <a name="attach-a-new-disk-to-a-vm"></a>将新磁盘附加到 VM
 
-如果只需要在 VM 上添加新的空数据磁盘，请使用 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令以及 `--new` 参数。 以下示例创建一个名为“myDataDisk”  且大小为 50 GB 的磁盘：
+如果只需要在 VM 上添加新的空数据磁盘，请使用 [az vm disk attach](https://docs.azure.cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令以及 `--new` 参数。 以下示例创建一个名为“myDataDisk”  且大小为 50 GB 的磁盘：
 
 <!-- Not Available on [Overview of Availability Zones](../../availability-zones/az-overview.md) -->
 
@@ -46,7 +46,7 @@ az vm disk attach \
 
 ## <a name="attach-an-existing-disk"></a>附加现有磁盘
 
-若要附加现有磁盘，请查找磁盘 ID 并将该 ID 传递到 [az vm disk attach](https://docs.azure.cn/zh-cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令。 以下示例查询 *myResourceGroup* 中名为 *myDataDisk* 的磁盘，然后将其附加到名为 *myVM* 的 VM：
+若要附加现有磁盘，请查找磁盘 ID 并将该 ID 传递到 [az vm disk attach](https://docs.azure.cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令。 以下示例查询 *myResourceGroup* 中名为 *myDataDisk* 的磁盘，然后将其附加到名为 *myVM* 的 VM：
 
 ```azurecli
 diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
@@ -77,6 +77,9 @@ dmesg | grep SCSI
 [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
+
+> [!NOTE]
+> 建议你使用适用于你的发行版的最新版 fdisk 或 parted。
 
 此处，*sdc* 是我们需要的磁盘。 使用 `parted` 对磁盘进行分区，如果磁盘大小为 2TiB 或更大，则必须使用 GPT 进行分区，如果小于 2TiB，则可以使用 MBR 或 GPT 进行分区。 如果使用 MBR 分区，则可以使用 `fdisk`。 将其设置为分区 1 中的主磁盘，并接受其他默认值。 以下示例在 */dev/sdc* 上启动 `fdisk` 进程：
 
@@ -208,7 +211,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 > [!NOTE]
 > 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版都提供 *nofail* 和/或 *nobootwait* fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
-> 
+>
 > 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 
 <!--Not Available on [Serial Console documentation](/virtual-machines/troubleshooting/serial-console-linux)-->

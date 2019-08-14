@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: howto
 origin.date: 05/30/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 9fbc7a9a2243c0c4d1b5972b8c0bfc5932b8b084
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 0b4603647ad93d1a3028941983f5de9c982d1afb
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845393"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878768"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>使用防火墙配置 Azure HDInsight 群集的出站网络流量（预览）
 
@@ -63,8 +63,8 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
 
    | **名称** | **源地址** | **Protocol:Port** | **目标 FQDN** | **说明** |
    | --- | --- | --- | --- | --- |
-   | Rule_2 | * | https:443 | login.windows.net | 允许 Windows 登录活动 |
-   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.chinacloudapi.cn> | 如果群集由 WASB 提供支持，则为 WASB 添加一个规则。 若只使用 https 连接，请确保在存储帐户上启用 [需要安全传输](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer)。 |
+   | Rule_2 | * | https:443 | login.chinacloudapi.cn | 允许 Windows 登录活动 |
+   | Rule_3 | * | https:443,http:80 | <storage_account_name.blob.core.chinacloudapi.cn> | 如果群集由 WASB 提供支持，则为 WASB 添加一个规则。 若只使用 https 连接，请确保在存储帐户上启用 [需要安全传输](/storage/common/storage-require-secure-transfer)。 |
 
 1. 单击“添加”  。
 
@@ -83,7 +83,7 @@ HDInsight 出站流量依赖项几乎完全是使用 FQDN 定义的，而这些 
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 时间服务 |
    | Rule_2 | 任意 | * | DC_IP_Address_1、DC_IP_Address_2 | `*` | 如果你正在使用企业安全性套餐 (ESP)，请在“IP 地址”部分添加一个允许与 ESP 群集的 AAD-DS 通信的网络规则。 可以在门户的 AAD-DS 部分找到域控制器的 IP 地址 | 
-   | Rule_3 | TCP | * | Data Lake Storage 帐户的 IP 地址 | `*` | 如果正在使用 Azure Data Lake Storage，则可以在“IP 地址”部分中添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会在防火墙日志中记录并且可供审核。 确定 Data Lake Storage 帐户的 IP 地址。 可以使用 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.windows.net")` 等 PowerShell 命令将 FQDN 解析成 IP 地址。|
+   | Rule_3 | TCP | * | Data Lake Storage 帐户的 IP 地址 | `*` | 如果正在使用 Azure Data Lake Storage，则可以在“IP 地址”部分中添加一个网络规则来解决 ADLS Gen1 和 Gen2 的 SNI 问题。 此选项会将流量路由到防火墙，而这可能会导致增大较大数据负载的费用，但流量将会在防火墙日志中记录并且可供审核。 确定 Data Lake Storage 帐户的 IP 地址。 可以使用 `[System.Net.DNS]::GetHostAddresses("STORAGEACCOUNTNAME.blob.core.chinacloudapi.cn")` 等 PowerShell 命令将 FQDN 解析成 IP 地址。|
    | Rule_4 | TCP | * | * | `12000` | （可选）如果正在使用 Log Analytics，请在“IP 地址”部分中创建一个网络规则以实现与 Log Analytics 工作区的通信。 |
 
 1. 在“服务标记”部分创建以下规则： 
@@ -193,7 +193,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 | security.ubuntu.com:80                                                |
 | ocsp.msocsp.com:80                                                    |
 | ocsp.digicert.com:80                                                  |
-| wawsinfraprodbay063.blob.core.windows.net:443                         |
+| wawsinfraprodbay063.blob.core.chinacloudapi.cn:443                         |
 | registry-1.docker.io:443                                              |
 | auth.docker.io:443                                                    |
 | production.cloudflare.docker.com:443                                  |

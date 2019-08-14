@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 04/14/2019
-ms.date: 06/10/2019
+origin.date: 07/03/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: a2fdba3b9b5ce26ba32473a7f984a54ca1a75e9e
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 7b1653b0fda38dec10aa8d2e564c1d1bdb379197
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390837"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819595"
 ---
 # <a name="set-up-the-configuration-server-for-disaster-recovery-of-physical-servers-to-azure"></a>设置配置服务器，以便将物理服务器灾难恢复到 Azure
 
@@ -25,7 +25,7 @@ ms.locfileid: "66390837"
 本文假设已有：
 - [Azure 门户](https://portal.azure.cn "Azure 门户")中的恢复服务保管库。
 - 要在其上安装配置服务器的物理计算机。
-- 如果已在要安装配置服务器的计算机上禁用了 TLS 1.0，请确保该计算机上已启用 TLS 1.2 并已安装 .NET Framework 4.6 或更高版本（已禁用强加密）。 [了解详细信息](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
+- 如果已在要安装配置服务器的计算机上禁用了 TLS 1.0，请确保该计算机上已启用 TLS 1.2 并已安装 .NET Framework 4.6 或更高版本（已启用强加密）。 [了解详细信息](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1)。
 
 ### <a name="configuration-server-minimum-requirements"></a>配置服务器的最低要求
 下表列出了配置服务器的最低硬件、软件和网络要求。

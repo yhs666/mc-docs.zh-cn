@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/14/2019
-ms.date: 07/08/2019
+origin.date: 07/10/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 96a04c1967a15cf8019662fc8a525d16916bd49b
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f1cae7ea66b04381d997d03cfb1bf4d4111e839e
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844680"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819616"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序
 
@@ -51,7 +51,8 @@ ms.locfileid: "67844680"
 
 在开始学习本教程之前：
 * 如果还没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)
-* [安装 Visual Studio 2017](https://www.visualstudio.com/) 版本 15.5 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+* [安装 Visual Studio 2019](https://www.visualstudio.com/) 版本 16.2 或更高版本，其中包含 **Azure 开发**以及 **ASP.NET 和 Web 开发**工作负荷。
+    <!--Correct on version 16.2 for VS2019-->
 * [安装 Service Fabric SDK](service-fabric-get-started.md)
 
 ## <a name="create-an-aspnet-web-api-service-as-a-reliable-service"></a>将 ASP.NET Web API 服务作为 Reliable Services 创建
@@ -184,7 +185,7 @@ app.controller('VotingAppController', ['$rootScope', '$scope', '$http', '$timeou
 </div>
 ```
 
-### <a name="update-the-layoutcshtml-file"></a>更新 _Layout.cshtml 文件
+### <a name="update-the-_layoutcshtml-file"></a>更新 _Layout.cshtml 文件
 
 打开 ASP.NET 应用的默认布局 **Views/Shared/_Layout.cshtml**。  将其内容替换为以下内容，然后保存所做更改。
 

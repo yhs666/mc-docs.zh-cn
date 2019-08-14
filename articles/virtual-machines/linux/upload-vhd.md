@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 上传或复制自定义 Linux VM | Azure
+title: 使用 Azure CLI 从自定义磁盘创建 Linux VM | Azure
 description: 使用资源管理器部署模型和 Azure CLI 上传或复制自定义的虚拟机
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 10/17/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 16c6941cca4d9d6f5697c81261746e661e4f080c
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 7d4e98050f687074e4e7a9d87472e257efcb00db
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003759"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912934"
 ---
 # <a name="create-a-linux-vm-from-a-custom-disk-with-the-azure-cli"></a>使用 Azure CLI 从自定义磁盘创建 Linux VM
 
@@ -39,7 +39,7 @@ ms.locfileid: "59003759"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 从自定义或专用的磁盘创建新 VM 时，请**附加**该磁盘 (--attach-os-disk)，而不要指定自定义映像或市场映像 (--image)。 以下示例使用从自定义 VHD 创建的、名为 *myManagedDisk* 的托管磁盘，创建名为 *myVM* 的 VM：
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 从自定义或专用的磁盘创建新 VM 时，请**附加**该磁盘 (--attach-os-disk)，而不要指定自定义映像或市场映像 (--image)。 以下示例使用从自定义 VHD 创建的、名为 *myManagedDisk* 的托管磁盘，创建名为 *myVM* 的 VM：
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
@@ -59,7 +59,7 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 > 
 > 
 
-* 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+* 确保已安装了最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest) 并已使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 <!-- URL is CORRECT ON install-az-cli2 redirect to install-azure-cli -->
 
@@ -71,13 +71,13 @@ az vm create --resource-group myResourceGroup --location chinaeast --name myVM \
 
 Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)）。 以下文章介绍了如何准备 Azure 支持的各种 Linux 分发版：
 
-* [基于 CentOS 的发行版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [基于 CentOS 的分发版](create-upload-centos.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Debian Linux](debian-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Oracle Linux](oracle-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Red Hat Enterprise Linux](redhat-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [SLES 和 openSUSE](suse-create-upload-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 * [Ubuntu](create-upload-ubuntu.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
-* [其他：非认可的发行版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+* [其他：非认可的分发版](create-upload-generic.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
 
 另请参阅 [Linux 安装说明](create-upload-generic.md#general-linux-installation-notes)，获取更多有关如何为 Azure 准备 Linux 映像的一般提示。
 
@@ -93,9 +93,9 @@ Azure 支持各种 Linux 分发（请参阅[认可的分发](endorsed-distros.md
 
 ### <a name="create-a-resource-group"></a>创建资源组
 
-在上传自定义磁盘和创建 VM 之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。
+在上传自定义磁盘和创建 VM 之前，需要使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建一个资源组。
 
-以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create \
@@ -105,7 +105,7 @@ az group create \
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
-可以使用 [az storage account create](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create)为自定义磁盘和 VM 创建存储帐户。 以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
+可以使用 [az storage account create](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-create)为自定义磁盘和 VM 创建存储帐户。 以下示例在前面创建的资源组中创建名为 *mystorageaccount* 的存储帐户：
 
 ```azurecli
 az storage account create \
@@ -119,7 +119,7 @@ az storage account create \
 ### <a name="list-storage-account-keys"></a>列出存储帐户密钥
 Azure 为每个存储帐户生成两个 512 位的访问密钥。 在向存储帐户进行身份验证以执行操作（例如执行写入操作）时，将使用这些访问密钥。 有关详细信息，请参阅[管理对存储的访问](../../storage/common/storage-account-manage.md#access-keys)。 
 
-可以使用 [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)查看访问密钥。 例如，若要查看创建的存储帐户的访问密钥：
+可以使用 [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list)查看访问密钥。 例如，若要查看创建的存储帐户的访问密钥：
 
 ```azurecli
 az storage account keys list \
@@ -141,7 +141,7 @@ info:    storage account keys list command OK
 记下 **key1**，因为在后续步骤中需要使用它来与存储帐户交互。
 
 ### <a name="create-a-storage-container"></a>创建存储容器
-在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含多个容器。 可以使用 [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 创建容器。
+在存储帐户中创建用于整理磁盘的容器的方式，与创建各种目录以便有条理地整理本地文件系统的方式相同。 一个存储帐户可以包含多个容器。 可以使用 [az storage container create](https://docs.azure.cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 创建容器。
 
 以下示例创建名为 *mydisks* 的容器：
 
@@ -152,7 +152,7 @@ az storage container create \
 ```
 
 ### <a name="upload-the-vhd"></a>上传 VHD
-使用 [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) 上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
+使用 [az storage blob upload](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) 上传自定义磁盘。 可以页 Blob 的形式上传和存储自定义磁盘。
 
 指定访问密钥、在上一步中创建的容器，以及自定义磁盘在本地计算机上的路径：
 
@@ -168,7 +168,7 @@ az storage blob upload --account-name mystorageaccount \
 
 ### <a name="create-a-managed-disk"></a>创建托管磁盘
 
-使用 [az disk create](https://docs.azure.cn/zh-cn/cli/disk?view=azure-cli-latest#az-disk-create) 从 VHD 创建托管磁盘。 以下示例从已上传到命名存储帐户和容器的 VHD 创建名为 *myManagedDisk* 的托管磁盘：
+使用 [az disk create](https://docs.azure.cn/cli/disk?view=azure-cli-latest#az-disk-create) 从 VHD 创建托管磁盘。 以下示例从已上传到命名存储帐户和容器的 VHD 创建名为 *myManagedDisk* 的托管磁盘：
 
 ```azurecli
 az disk create \
@@ -180,7 +180,7 @@ az disk create \
 <a name="option-2-copy-an-existing-azure-vm"></a>
 ## <a name="option-2-copy-an-existing-vm"></a>选项 2：复制现有 VM
 
-也可以在 Azure 中创建自定义的 VM，然后复制 OS 磁盘并将其附加到新 VM 以创建另一个副本。 这种做法在测试中不会有任何问题，但若要将现有 Azure VM 作为多个新 VM 的模型，请改为创建映像。 有关从现有 Azure VM 创建映像的详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
+也可以在 Azure 中创建自定义的 VM，然后复制 OS 磁盘并将其附加到新 VM 以创建另一个副本。 这种做法在测试中不会有任何问题，但若要将现有 Azure VM 作为多个新 VM 的模型，请改为创建映像。  有关从现有 Azure VM 创建映像的详细信息，请参阅[使用 CLI 创建 Azure VM 的自定义映像](tutorial-custom-images.md)。
 
 ### <a name="create-a-snapshot"></a>创建快照
 
@@ -193,7 +193,7 @@ az snapshot create \
     --source "$osDiskId" \
     --name osDiskSnapshot
 ```
-###  <a name="create-the-managed-disk"></a>创建托管磁盘
+### <a name="create-the-managed-disk"></a>创建托管磁盘
 
 从快照创建新的托管磁盘。
 
@@ -216,7 +216,7 @@ az disk create \
 
 ## <a name="create-the-vm"></a>创建 VM
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并将托管磁盘附加为 OS 磁盘 (--attach-os-disk)。 以下示例使用基于上传的 VHD 创建的托管磁盘创建名为 *myNewVM* 的 VM：
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并将托管磁盘附加为 OS 磁盘 (--attach-os-disk)。 以下示例使用基于上传的 VHD 创建的托管磁盘创建名为 *myNewVM* 的 VM：
 
 ```azurecli
 az vm create \

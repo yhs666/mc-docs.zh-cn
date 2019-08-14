@@ -1,20 +1,20 @@
 ---
-title: 在 Azure 上的 Linux VM 中创建 shell 脚本
+title: 使用“运行命令”在 Linux VM 中运行 shell 脚本 | Azure
 description: 本主题介绍如何使用“运行命令”在 Azure Linux 虚拟机中运行脚本
 services: automation
 ms.service: automation
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 04/26/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: 1038c33659b5c39df49fc50f881670de76f2ac21
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: daaf300abd979df40fd12b15293e594ca83adb7f
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835841"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913012"
 ---
 <!--Verify sccessfully-->
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>使用“运行命令”在 Linux VM 中运行 shell 脚本
@@ -23,7 +23,7 @@ ms.locfileid: "65835841"
 
 ## <a name="benefits"></a>优点
 
-有多个选项可以用来访问虚拟机。 “运行命令”可以使用 VM 代理在虚拟机上以远程方式运行脚本。 对于 Linux VM，可以通过 Azure 门户、[REST API](https://docs.microsoft.com/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 或 [Azure CLI](https://docs.azure.cn/zh-cn/cli/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 使用“运行命令”。
+有多个选项可以用来访问虚拟机。 “运行命令”可以使用 VM 代理在虚拟机上以远程方式运行脚本。 对于 Linux VM，可以通过 Azure 门户、[REST API](https://docs.microsoft.com/rest/api/compute/virtual%20machines%20run%20commands/runcommand) 或 [Azure CLI](https://docs.azure.cn/cli/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 使用“运行命令”。
 
 此功能适用于要在虚拟机中运行脚本的所有方案，并且是排查和修正因网络或管理用户配置错误而未打开 RDP 或 SSH 端口的虚拟机的唯一方法。
 
@@ -45,7 +45,7 @@ ms.locfileid: "65835841"
 
 ## <a name="azure-cli"></a>Azure CLI
 
-下面是使用 [az vm run-command](https://docs.azure.cn/zh-cn/cli/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 命令在 Azure Linux VM 上运行 shell 脚本的示例。
+下面是使用 [az vm run-command](https://docs.azure.cn/cli/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) 命令在 Azure Linux VM 上运行 shell 脚本的示例。
 
 ```azurecli
 az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
@@ -77,5 +77,4 @@ az vm run-command invoke -g myResourceGroup -n myVm --command-id RunShellScript 
 
 请参阅[在 Linux VM 中运行脚本](run-scripts-in-vm.md)，了解以远程方式在 VM 中运行脚本和命令的其他方式。
 
-<!--Update_Description: new articles on linux run command -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: wording update -->

@@ -1,5 +1,5 @@
 ---
-title: 适用于 Linux 的 NVIDIA GPU 驱动程序扩展 | Azure
+title: NVIDIA GPU 驱动程序扩展 - Azure Linux VM | Azure
 description: 用于在运行 Linux 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 02/11/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f30243058614a74041dbe382b68931711a43e35
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: 9d5c4ae05296d248040888fee774e5e75c3187e3
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835595"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912807"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>适用于 Linux 的 NVIDIA GPU 驱动程序扩展
 
@@ -30,6 +30,7 @@ ms.locfileid: "65835595"
 
 <!--Not Available on or GRID-->
 
+[此处](https://docs.azure.cn/virtual-machines/linux/n-series-driver-setup)提供了有关手动安装驱动程序和当前支持的版本的说明。
 此扩展也可用于在 [Windows N 系列 VM](hpccompute-gpu-windows.md) 上安装 NVIDIA GPU 驱动程序。
 
 ## <a name="prerequisites"></a>先决条件
@@ -78,8 +79,8 @@ ms.locfileid: "65835595"
 | Name | 值/示例 | 数据类型 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| 发布者 | Microsoft.HpcCompute | 字符串 |
-| type | NvidiaGpuDriverLinux | 字符串 |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>设置
@@ -89,7 +90,7 @@ ms.locfileid: "65835595"
 | Name | 说明 | 默认值 | 有效值 | 数据类型 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 更新内核，即使安装驱动程序时不需要更新 | false | true、false | 布尔值 |
-| driverVersion | NC：CUDA 工具包版本。 将自动安装所选 CUDA 的最新驱动程序。 | 最新 | CUDA：“10.0.130”、“9.2.88”、“9.1.85” | 字符串 |
+| driverVersion | NC：CUDA 工具包版本。 将自动安装所选 CUDA 的最新驱动程序。 | 最新 | CUDA：“10.0.130”、“9.2.88”、“9.1.85” | string |
 | installCUDA | 安装 CUDA 工具包。 仅适用于 NC/ND 系列 VM。 | 是 | true、false | 布尔值 |
 
 <!--Not Available on NV: GRID driver version<br>-->
@@ -192,7 +193,7 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://www.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="next-steps"></a>后续步骤
 有关扩展的详细信息，请参阅[适用于 Linux 的虚拟机扩展和功能](features-linux.md)。

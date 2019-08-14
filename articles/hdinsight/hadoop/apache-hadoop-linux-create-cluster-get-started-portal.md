@@ -12,15 +12,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 06/12/2019
-ms.date: 07/22/2019
+origin.date: 07/02/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: c44c6a8088dccc2a052cfc9e2c1bd4be3314103e
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 084ff9c4b8fba8dcc9303d28bf6dbb93fa3b6890
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845370"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878518"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>快速入门：使用 Azure 门户在 Azure HDInsight 中创建 Apache Hadoop 群集
 
@@ -53,7 +53,7 @@ ms.locfileid: "67845370"
     |安全外壳 (SSH) 用户名 | 默认用户名为“sshuser”  。  可以提供其他名称作为 SSH 用户名。 |
     |对 SSH 使用群集登录密码| 选中此复选框，让 SSH 用户使用与提供给群集登录用户相同的密码。|
     |资源组     | 创建资源组，或选择现有资源组。  资源组是 Azure 组件的容器。  在此示例中，资源组包含 HDInsight 群集和依赖的 Azure 存储帐户。 |
-    |位置    | 选择要在其中创建群集的 Azure 位置。  为获得更佳性能，请选择离你较近的位置。 |
+    |Location    | 选择要在其中创建群集的 Azure 位置。  为获得更佳性能，请选择离你较近的位置。 |
 
     ![HDInsight Linux 入门提供群集基本值](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics.png "为创建 HDInsight 群集提供基本值")
 
@@ -74,7 +74,7 @@ ms.locfileid: "67845370"
     |---------|---------|
     |主存储类型    | 对于本文，选择“Azure 存储”以使用 Azure 存储 Blob 作为默认存储帐户。 还可以将 Azure Data Lake Storage 用作默认存储。 |
     |选择方法     |  在本文中，选择“我的订阅”，使用 Azure 订阅中的存储帐户  。 若要使用其他订阅中的存储帐户，请选择“访问密钥”，然后提供该帐户的访问密钥  。 |
-    |选择存储帐户   | 选择“选择存储帐户”  以选择现有存储帐户，或选择“新建”  。|
+    |选择存储帐户   | 选择“选择存储帐户”  以选择现有存储帐户，或选择“新建”  。 如果创建新帐户，帐户名称必须为 3 到 24 个字符，并且只能包含数字和小写字母。|
 
     接受所有其他默认值，然后选择“下一步”  以转到摘要页。
 
@@ -156,8 +156,8 @@ ms.locfileid: "67845370"
 
 本快速入门介绍了如何使用资源管理器模板创建基于 Linux 的 HDInsight 群集，以及如何执行基本 Hive 查询。 下一篇文章将介绍如何使用 Hadoop on HDInsight 执行提取、转换和加载 (ETL) 操作。
 
-
-[1]: ../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
+> [!div class="nextstepaction"]
+>[使用 HDInsight 上的交互式查询提取、转换和加载数据](../interactive-query/interactive-query-tutorial-analyze-flight-data.md) [1]：../HDInsight/apache-hadoop-visual-studio-tools-get-started.md
 
 [hdinsight-provision]: hdinsight-provision-linux-clusters.md
 [hdinsight-upload-data]: hdinsight-upload-data.md

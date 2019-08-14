@@ -9,12 +9,12 @@ origin.date: 03/27/2018
 ms.date: 07/01/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 9e85734b98803a3a1181e8cfce464cdb1027dbb4
-ms.sourcegitcommit: c61b10764d533c32d56bcfcb4286ed0fb2bdbfea
+ms.openlocfilehash: 203cbf2887fd57e3a0acfa8ffa59c39d97b66d2b
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332776"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819698"
 ---
 # <a name="regions-and-availability-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域和可用性
 Azure 在中国的四个数据中心运行。 这些数据中心分组到地理区域，让用户可灵活选择构建应用程序的位置。 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
@@ -36,7 +36,9 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 
 * 出现范围较广的 Azure 区域中断时，每个区域对中有一个区域优先级更高，这样可以缩短应用程序的还原时间。 
 * 将逐一对配对的区域进行计划内 Azure 更新，尽量减少停机时间并降低应用程序中断风险。
-* 出于税务和执法管辖权方面的考虑，数据仍以配对的形式驻留在同一地域内（巴西南部除外）。
+* 出于税务和执法管辖权方面的考虑，数据仍以配对的形式驻留在同一地域内。
+
+<!--MOONCAKE: Remove  (except for Brazil South)-->
 
 区域对的示例包括：
 
@@ -46,6 +48,7 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 | 中国北部 2 |中国东部 2 |
 
 <!-- Not Available on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions) -->
+
 ## <a name="feature-availability"></a>功能可用性
 某些服务或 VM 功能（例如特定的 VM 大小或存储类型）仅在特定区域提供。 也有一些全球性 Azure 服务不需要用户选择特定的区域，例如 [Azure Active Directory](../articles/active-directory/fundamentals/active-directory-whatis.md)、[流量管理器](../articles/traffic-manager/traffic-manager-overview.md)或 [Azure DNS](../articles/dns/dns-overview.md)。 若要更好地设计应用程序环境，可查看 [Azure 服务在每个区域的可用性](https://www.azure.cn/support/service-dashboard/#services)。 此外，还可以[以编程方式查询受支持的 VM 大小和每个区域中的限制](../articles/azure-resource-manager/resource-manager-sku-not-available-errors.md)。
 
@@ -59,8 +62,9 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 **基于存储帐户的磁盘**
 * 本地冗余存储 (LRS)
     * 在创建存储帐户时所在的区域复制数据三次。
-* 区域冗余存储 (ZRS)
-    * 在两到三个设施之间复制数据三次（在单个区域内或两个区域之间）。
+    
+    <!--Not Available on * Zone redundant storage (ZRS)-->
+
 * 异地冗余存储 (GRS)
     * 将数据复制到距主要区域数百英里以外的次要区域。
 * 读取访问异地冗余存储 (RA-GRS)
@@ -68,11 +72,15 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 
 下表提供存储复制类型之间差异的简要概述：
 
-| 复制策略 | LRS | ZRS | GRS | RA-GRS |
-|:--- |:--- |:--- |:--- |:--- |
-| 数据在多个设施之间进行复制。 |否 |是 |是 |是 |
-| 可以从辅助位置和主位置读取数据。 |否 |否 |否 |是 |
-| 在单独的节点上维护的数据副本数。 |3 |3 |6 |6 |
+<!--MOONCAKE: Not Available on ZRS-->
+
+| 复制策略 | LRS | GRS | RA-GRS |
+|:--- |:--- |:--- |:--- |
+| 数据在多个设施之间进行复制。 |否 |是 |是 |
+| 可以从辅助位置和主位置读取数据。 |否 |否 |是 |
+| 在单独的节点上维护的数据副本数。 |3 |6 |6 |
+
+<!--MOONCAKE: Not Available on ZRS-->
 
 可以在[此处](../articles/storage/common/storage-redundancy.md)详细了解 Azure 存储复制选项。 有关托管磁盘的详细信息，请参阅 [Azure 托管磁盘概述](../articles/virtual-machines/windows/managed-disks-overview.md)。
 
@@ -85,7 +93,7 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 **非托管磁盘**
 * 高级存储以固态硬盘 (SSD) 为基础，收费方式根据磁盘容量而定。
 * 标准存储以普通的旋转式磁盘为基础，收费方式根据所用容量和所需的存储可用性而定。
-  * 对于 RA-GRS，有一个额外的异地复制数据传输费用，它是将该数据复制到另一个 Azure 区域收取的带宽费用。
+    * 对于 RA-GRS，有一个额外的异地复制数据传输费用，它是将该数据复制到另一个 Azure 区域收取的带宽费用。
 
 有关不同存储类型和可用性选项的定价信息，请参阅 [Azure 存储器定价](https://www.azure.cn/pricing/details/storage/)。
 
@@ -110,6 +118,7 @@ Azure 在中国的四个数据中心运行。 这些数据中心分组到地理�
 ![托管可用性集](./media/virtual-machines-common-manage-availability/md-fd-updated.png)
 
 <!--Not Available ## Availability zones-->
+
 ## <a name="next-steps"></a>后续步骤
 现在即可开始使用这些可用性和冗余功能构建 Azure 环境。 有关最佳做法的信息，请参阅 [Azure 可用性最佳做法](../articles/best-practices-availability-checklist.md)。
 

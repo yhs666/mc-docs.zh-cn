@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure REST API 创建 Linux 虚拟机 | Azure
+title: 使用 REST API 创建使用 SSH 身份验证的 Linux 虚拟机 | Azure
 description: 了解如何使用 Azure REST API 在 Azure 中创建使用托管磁盘和 SSH 身份验证的 Linux 虚拟机。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/05/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: c43a73b36fdf18d37c29d9ca73fc2f38c73fe080
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: c70501dc8962fe9fda81a5a5ed4167d225292f60
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626538"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912761"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>使用 REST API 创建使用 SSH 身份验证的 Linux 虚拟机
 
@@ -36,7 +36,7 @@ Azure 中的 Linux 虚拟机 (VM) 包含各种资源（例如磁盘和网络接�
 在创建并提交请求之前，你需要具有以下项：
 
 * 你的订阅的 `{subscription-id}`
-  * 如果你有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
+    * 如果你有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * 提前创建的 `{resourceGroupName}`
 * 位于同一资源组中的[虚拟网络接口](../../virtual-network/virtual-network-network-interface.md)
 * SSH 密钥对（如果还没有，可以[生成一个新的](mac-create-ssh-keys.md)）
@@ -55,8 +55,8 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 | 请求标头   | 说明 |
 |------------------|-----------------|
-| Content-Type：  | 必需。 设置为 `application/json`。 |
-| Authorization： | 必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
+| Content-Type：   | 必需。 设置为 `application/json`。 |
+| Authorization：  | 必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |
 
 有关使用 REST API 请求的一般信息，请参阅 [REST API 请求/响应的组件](https://docs.microsoft.com/rest/api/azure/#components-of-a-rest-api-requestresponse)。
 
@@ -66,14 +66,14 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 | Name                       | 必须 | 类型                                                                                | 说明  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| location                   | True     | 字符串                                                                              | 资源位置。 |
-| name                       |          | 字符串                                                                              | 虚拟机的名称。 |
+| location                   | True     | string                                                                              | 资源位置。 |
+| name                       |          | string                                                                              | 虚拟机的名称。 |
 | properties.hardwareProfile |          | [HardwareProfile](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 指定虚拟机的硬件设置。 |
 | properties.storageProfile  |          | [StorageProfile](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 指定虚拟机磁盘的存储设置。 |
 | properties.osProfile       |          | [OSProfile](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 指定虚拟机的操作系统设置。 |
 | properties.networkProfile  |          | [NetworkProfile](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 指定虚拟机的网络接口。 |
 
-下面是一个示例请求正文。 请确保在 `{computerName}` 和 `{name}` 参数中指定 VM 名称，在 `networkInterfaces` 下指定你创建的网络接口的名称，在 `adminUsername` 和 `path` 中指定用户名，在 `keyData` 中指定 SSH 密钥的公共部分（例如位于 `~/.ssh/id_rsa.pub` 中）。 你可能希望更改的其他参数包括 `location` 和 `vmSize`。  
+下面是一个示例请求正文。 请确保在 `{computerName}` 和 `{name}` 参数中指定 VM 名称，在 `networkInterfaces` 下指定你创建的网络接口的名称，在 `adminUsername` 和 `path` 中指定用户名，在 `keyData` 中指定 SSH 密钥的公共  部分（例如位于 `~/.ssh/id_rsa.pub` 中）。 你可能希望更改的其他参数包括 `location` 和 `vmSize`。  
 
 ```json
 {
@@ -132,7 +132,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 ## <a name="sending-the-request"></a>发送请求
 
-可以使用你喜欢使用的客户端发送此 HTTP 请求。 还可以通过单击“试用”按钮使用某个[浏览器中工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)。
+可以使用你喜欢使用的客户端发送此 HTTP 请求。 还可以通过单击“试用”按钮使用某个[浏览器中工具](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)。 
 
 ### <a name="responses"></a>响应
 
@@ -160,7 +160,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resource
 
 - [Azure 计算提供程序 REST API](https://docs.microsoft.com/rest/api/compute/)
 - [Azure REST API 入门](https://docs.microsoft.com/rest/api/azure/)
-- [Azure CLI](https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest)
+- [Azure CLI](https://docs.azure.cn/cli/?view=azure-cli-latest)
 - [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)
 
 <!-- Update_Description: update meta properties, wording update, update link -->

@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 03/14/2019
-ms.date: 06/10/2019
+origin.date: 06/27/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: c1ff8d39d8585236131b8530d7e24f73acf93bda
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c6382836b3a9602d0565fab409a936262e2971b6
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390735"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819636"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>解决 VMware VM 和物理服务器的复制问题
 
@@ -77,6 +77,12 @@ Site Recovery 使用[进程服务器](vmware-physical-azure-config-process-serve
         - Azure Site Recovery VSS 提供程序
         - VDS 服务
 
+- 如果正在运行 SQL 或 Exchange 工作负荷，请检查这些应用程序编写器的日志是否存在故障。 以下文章中列出了常见错误及其解决方法：
+    - [SQL Server 数据库的“自动关闭”选项设置为 TRUE](https://support.microsoft.com/help/4504104)
+    - [SQL Server 2008 R2 引发不可重试的错误](https://support.microsoft.com/help/4504103)
+    - [SQL Server 2016 和 2017 中的已知问题](https://support.microsoft.com/help/4493364)
+    - [Exchange Server 2013 和 2016 的常见问题](https://support.microsoft.com/help/4037535)
+
 ### <a name="source-machines-with-high-churn-error-78188"></a>源计算机的变动率较高 [错误 78188]
 
 可能的原因：
@@ -123,10 +129,66 @@ Site Recovery 使用[进程服务器](vmware-physical-azure-config-process-serve
     - 确认 svagents 服务正在运行。 如果它正在运行，请重启服务
     - 检查位于以下位置的日志以查看错误详细信息：
 
-            C:\Program Files (X86)\Azure Site Recovery\agent\svagents*log
+        C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+
+## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>错误 ID 78144 - 在过去“XXX”分钟内没有可供 VM 使用的应用一致性恢复点
+
+下面列出了其中的一些最常见
+
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>原因 1：SQL Server 2008/2008 R2 中的已知问题 
+**如何解决**：SQL Server 2008/2008 R2 有一个已知问题。 请参阅此知识库文章：[托管 SQL Server 2008 R2 的服务器的 Azure Site Recovery 代理或其他非组件 VSS 备份失败](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
+
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>原因 2：在使用 AUTO_CLOSE DB 托管任何版本的 SQL Server 实例的服务器上，Azure Site Recovery 作业失败 
+**如何解决**：请参阅知识库[文章](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+
+#### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>原因 3：SQL Server 2016 和 2017 中的已知问题
+**如何解决**：请参阅知识库[文章](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+
+### <a name="more-causes-due-to-vss-related-issues"></a>更多 VSS 相关问题原因：
+
+若要进一步排查问题，请查看源计算机上的文件，获取故障的具体错误代码：
+
+    C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
+
+如何在文件中查找错误？
+在编辑器中打开 vacp.log 文件，搜索字符串“vacpError”
+
+    Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
+
+在上面的示例中，**2147754994** 是介绍故障情况的错误代码，如下所示
+
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS 编写器未安装 - 错误 2147221164 
+
+*如何解决*：为了生成应用程序一致性标记，Azure Site Recovery 会使用 Azure 卷影复制服务 (VSS)。 它安装适用于其操作的 VSS 提供程序，以便拍摄应用一致性快照。 此 VSS 提供程序作为服务安装。 如果 VSS 提供程序服务未安装，则应用程序一致性快照创建会失败，并出现 ID 为 0x80040154 的错误“类未注册”。 <br />
+请参阅[有关 VSS 编写器安装故障排除的文章](/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
+
+#### <a name="vss-writer-is-disabled---error-2147943458"></a>VSS 编写器已禁用 - 错误 2147943458
+
+**如何解决**：为了生成应用程序一致性标记，Azure Site Recovery 会使用 Azure 卷影复制服务 (VSS)。 它安装适用于其操作的 VSS 提供程序，以便拍摄应用一致性快照。 此 VSS 提供程序作为服务安装。 如果 VSS 提供程序服务已禁用，则应用程序一致性快照创建会失败，并出现 错误“指定的服务已禁用，无法启动(0x80070422)”。 <br />
+
+- 如果已禁用 VSS：
+    - 确认 VSS 提供程序服务的启动类型是否设置为“自动”。 
+    - 重启以下服务：
+        - VSS 服务
+        - Azure Site Recovery VSS 提供程序
+        - VDS 服务
+
+#### <a name="vss-provider-not_registered---error-2147754756"></a>VSS 提供程序未注册 - 错误 2147754756
+
+**如何解决**：为了生成应用程序一致性标记，Azure Site Recovery 会使用 Azure 卷影复制服务 (VSS)。 检查 Azure Site Recovery VSS 提供程序服务是否已安装。 <br />
+
+- 使用以下命令重试提供程序安装：
+- 卸载现有的提供程序：C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
+- 重新安装：C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+
+确认 VSS 提供程序服务的启动类型是否设置为“自动”。 
+    - 重启以下服务：
+        - VSS 服务
+        - Azure Site Recovery VSS 提供程序
+        - VDS 服务
 
 ## <a name="next-steps"></a>后续步骤
 
-如需更多帮助，请在 [Azure Site Recovery 论坛](https://www.azure.cn/support/contact/)中提问。 我们的社区非常活跃，将有一位工程师为你提供帮助。
+如需更多帮助，请在 [Azure Site Recovery 论坛](https://support.azure.cn/support/contact/)中提问。 我们的社区非常活跃，将有一位工程师为你提供帮助。
 
 <!--Update_Description: update meta properties, wording update -->

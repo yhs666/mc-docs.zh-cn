@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe613762a4838237b8b9ea58d2f52c4a72995f40
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: b925d1a6304eeb4e6b083706d07279b793b109c3
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861727"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819675"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
@@ -29,7 +29,7 @@ ms.locfileid: "67861727"
 **源区域中的 VM** | [受支持源区域](azure-to-azure-support-matrix.md#region-support)中的一个或多个 Azure VM。<br/><br/> VM 可以运行任何[受支持的操作系统](azure-to-azure-support-matrix.md#replicated-machine-operating-systems)。
 **源 VM 存储** | 可以管理 Azure VM；它们还可以包含分散在不同存储帐户之间的非托管磁盘。<br/><br/>[了解](azure-to-azure-support-matrix.md#replicated-machines---storage)支持的 Azure 存储。
 **源 VM 网络** | VM 可以位于源区域中虚拟网络 (VNet) 上的一个或多个子网内。 [详细了解](azure-to-azure-support-matrix.md#replicated-machines---networking)网络要求。
-**缓存存储帐户** | 源网络中需要一个缓存存储帐户。 在复制期间，VM 更改将存储在缓存中，然后再发送到目标存储。<br/><br/> 使用缓存可确保尽量减少对 VM 上运行的生产应用程序造成的影响。<br/><br/> [详细了解](azure-to-azure-support-matrix.md#cache-storage)缓存存储要求。 
+**缓存存储帐户** | 源网络中需要一个缓存存储帐户。 在复制期间，VM 更改将存储在缓存中，然后再发送到目标存储。  缓存存储帐户必须是标准存储帐户。<br/><br/> 使用缓存可确保尽量减少对 VM 上运行的生产应用程序造成的影响。<br/><br/> [详细了解](azure-to-azure-support-matrix.md#cache-storage)缓存存储要求。 
 **目标资源** | 在复制期间以及发生故障转移时将使用目标资源。 Site Recovery 默认可以设置目标资源，你也可以自行创建/自定义目标资源。<br/><br/> 在目标区域中，请检查是否能够创建 VM，以及你的订阅是否有足够的资源用于支持目标区域中所需的 VM 大小。 
 
 ![源和目标复制](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
@@ -137,14 +137,16 @@ Site Recovery 按如下所述创建快照：
 
 #### <a name="source-region-rules"></a>源区域规则
 
+<!--MOONCAKE: Not Available on .<region-name>-->
+
 **规则** |  **详细信息** | **服务标记**
 --- | --- | --- 
 允许 HTTPS 出站通信：端口 443 | 允许对应于源区域中存储帐户的范围 | 存储。
 允许 HTTPS 出站通信：端口 443 | 允许对应于 Azure Active Directory (Azure AD) 的范围。<br/><br/> 如果将来添加了 Azure AD 地址，则需要创建新的网络安全组 (NSG) 规则。  | AzureActiveDirectory
 允许 HTTPS 出站通信：端口 443 | 允许访问对应于目标位置的 Site Recovery 终结点。 
 
-<!--Not Available on .<region-name>-->
-<!--Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->
+<!--MOONCAKE: Not Available on .<region-name>-->
+<!--MOONCAKE: Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->
 
 #### <a name="target-region-rules"></a>目标区域规则
 
@@ -154,8 +156,8 @@ Site Recovery 按如下所述创建快照：
 允许 HTTPS 出站通信：端口 443 | 允许对应于 Azure AD 的范围。<br/><br/> 如果将来添加了 Azure AD 地址，则需要创建新的 NSG 规则。  | AzureActiveDirectory
 允许 HTTPS 出站通信：端口 443 | 允许访问对应于源位置的 Site Recovery 终结点。 
 
-<!--Not Available on .<region-name>-->
-<!--Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->
+<!--MOONCAKE: Not Available on .<region-name>-->
+<!--MOONCAKE: Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->
 
 #### <a name="control-access-with-nsg-rules"></a>使用 NSG 规则控制访问
 

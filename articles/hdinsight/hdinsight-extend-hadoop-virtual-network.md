@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/17/2019
-ms.date: 07/22/2019
+origin.date: 07/10/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: 65b1e76c9a8181c87c2dfea4c3f7c02949127052
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 1251da49834be19bebc8505218b8276fb507de27
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845135"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878697"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>使用 Azure 虚拟网络扩展 Azure HDInsight
 
@@ -31,7 +31,9 @@ ms.locfileid: "67845135"
 * 直接访问无法通过 Internet 公开访问的 [Apache Hadoop](https://hadoop.apache.org/) 服务。 例如，[Apache Kafka](https://kafka.apache.org/) API 或 [Apache HBase](https://hbase.apache.org/) Java API。
 
 > [!IMPORTANT]  
-> 2019 年 2 月 28 日以后，在 VNET 中创建的新群集的网络资源（例如 NIC、LB 等）会在同一 HDInsight 群集资源组中进行预配。 以前，这些资源在 VNET 资源组中预配。 当前运行的群集以及那些在没有 VNET 的情况下创建的群集没有任何更改。
+> 在 VNET 中创建 HDInsight 群集时会创建多个网络资源，例如 NIC 和负载均衡器。 请**勿**删除这些网络资源，因为群集需要它们才能在 VNET 中正常运行。
+>
+> 2019 年 2 月 28 日以后，在 VNET 中为新群集创建的这些网络资源（例如 NIC、LB 等）会在同一 HDInsight 群集资源组中进行预配。 以前，这些资源在 VNET 资源组中预配。 当前运行的群集以及那些在没有 VNET 的情况下创建的群集没有任何更改。
 
 ## <a name="prerequisites-for-code-samples-and-examples"></a>代码示例和示例的先决条件
 
@@ -73,9 +75,7 @@ ms.locfileid: "67845135"
 
     连接后，安装在 Resource Manager 网络中的 HDInsight 即可与经典网络中的资源交互。
 
-2. 是否使用强制隧道？ 强制隧道是一种子网设置，可以强制出站 Internet 流量流向某个设备，以便进行检查和日志记录。 HDInsight 不支持强制隧道。 请在将 HDInsight 部署到现有子网之前删除强制隧道，或者为 HDInsight 创建没有强制隧道的新子网。
-
-3. 是否使用网络安全组、用户定义路由或虚拟网络设备来限制进出虚拟网络的流量？
+2. 是否使用网络安全组、用户定义路由或虚拟网络设备来限制进出虚拟网络的流量？
 
     作为托管服务，HDInsight 要求对 Azure 数据中心的多个 IP 地址进行不受限制的访问。 请更新任何现有的网络安全组或用户定义路由，以便与这些 IP 地址通信。
 

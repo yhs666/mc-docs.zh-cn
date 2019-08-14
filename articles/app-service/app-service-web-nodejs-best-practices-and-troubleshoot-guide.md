@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 04/22/2019
-ms.author: v-biyu
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: c970709d28a1b871fbfce29eb6fb99cc2cfb222f
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: e2b4870d331f3b6adc7bb176d15ff685f1811748
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355899"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878560"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure 应用服务 Windows 版上节点应用程序的最佳做法和故障排除指南
 
@@ -91,15 +91,15 @@ IIS 的默认行为是在刷新之前或直到响应结束时（以较早出现�
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-一个以分号分隔的文件列表，系统将监视其更改。 任何文件更改会导致应用程序回收。 每个条目都包含可选目录名称，以及相对于主要应用程序入口点所在目录的必要文件名。 只有文件名部分可以使用通配符。 默认值为 `*.js;web.config`
+一个以分号分隔的文件列表，系统将监视其更改。 任何文件更改会导致应用程序回收。 每个条目都包含可选目录名称，以及相对于主要应用程序入口点所在目录的必要文件名。 只有文件名部分可以使用通配符。 默认值为 `*.js;iisnode.yml`
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-默认值为 false。 如果启用，Node 应用程序可以连接到命名管道（环境变量 IISNODE\_CONTROL\_PIPE）并发送 `recycle` 消息。 可以通过此方式正常回收 w3wp。
+默认值为 false。 如果启用，节点应用程序可以连接到命名管道（环境变量 IISNODE\_CONTROL\_PIPE）并发送“回收”消息。 可以通过此方式正常回收 w3wp。
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-默认值为 0，表示已禁用此功能。 如果设置为某个大于 0 的值，iisnode 会每隔 `idlePageOutTimePeriod` 毫秒将其所有子进程移出分页。 若要了解移出分页的含义，请参考[文档](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx)。 对于消耗大量内存并且偶尔想要将内存页出至磁盘以释放 RAM 的应用程序，此设置很有用。
+默认值为 0，表示已禁用此功能。 如果设置为大于 0 的值，iisnode 会每隔“idlePageOutTimePeriod”毫秒将其所有子进程移出分页。 若要了解移出分页的含义，请参考[文档](https://docs.microsoft.com/windows/desktop/api/psapi/nf-psapi-emptyworkingset)。 对于消耗大量内存并且偶尔想要将内存页出至磁盘以释放 RAM 的应用程序，此设置很有用。
 
 > [!WARNING]
 > 在生产应用程序上启用以下配置设置时，请格外小心。 建议不要在实际生产应用程序上启用它们。
@@ -111,7 +111,7 @@ IIS 的默认行为是在刷新之前或直到响应结束时（以较早出现�
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
-此设置控制 iisnode 记录 stdout 和 stderr 的功能。 Iisnode 从它所启动的节点进程捕获 stdout/stderr，并将内容写入到 `logDirectory` 设置中指定的目录。 一旦启用，应用程序会将日志写入文件系统，这可能会影响性能，但具体要视应用程序完成的日志记录量而定。
+此设置控制 iisnode 记录 stdout 和 stderr 的功能。 Iisnode 从它所启动的节点进程捕获 stdout/stderr，并写入到“logDirectory”设置中指定的目录。 一旦启用，应用程序会将日志写入文件系统，这可能会影响性能，但具体要视应用程序完成的日志记录量而定。
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
@@ -119,7 +119,7 @@ IIS 的默认行为是在刷新之前或直到响应结束时（以较早出现�
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled（请勿在实际生产站点上启用）
 
-此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 Node 应用程序发出第一个调试请求时，在 `debuggerVirtualDir` 目录中创建 node-inspector 文件。 可将请求发送到 http://yoursite/server.js/debug，以加载 node-inspector。 可以使用 `debuggerPathSegment` 设置来控制调试 URL 段。 默认情况下，debuggerPathSegment="debug"。 可将 `debuggerPathSegment` 设置为 GUID 之类的值，这样，其他人就更难发现。
+此设置控制调试功能。 Iisnode 与节点检查器集成。 通过启用此设置，可启用节点应用程序的调试功能。 启用此设置后，iisnode 会在对 Node 应用程序发出第一个调试请求时，在“debuggerVirtualDir”目录中创建 node-inspector 文件。 可将请求发送到 `http://yoursite/server.js/debug`，以加载 node-inspector。 可以使用“debuggerPathSegment”设置来控制调试 URL 段。 默认情况下，debuggerPathSegment='debug'。 可将 `debuggerPathSegment` 设置为 GUID 之类的值，这样，其他人就更难发现。
 
 有关调试的详细信息，请参阅[在 Windows 上调试 node.js 应用程序](https://tomasz.janczuk.org/2011/11/debug-nodejs-applications-on-windows.html)。
 
@@ -148,7 +148,7 @@ let keepaliveAgent = new Agent({
 
 #### <a name="my-node-application-is-consuming-too-much-cpu"></a>节点应用程序消耗过多的 CPU
 
-门户上可能会显示 Azure Web 应用针对高 CPU 消耗量提供的建议。 也可以设置监视器，监视某些[指标](web-sites-monitor.md)。 在 Azure 门户仪表板上检查 CPU 使用率时，请检查 CPU 的最大值，这样才不会错过峰值。
+门户上可能会显示 Azure 应用服务针对高 CPU 消耗量提供的建议。 也可将监视器设置为监视某些[指标](web-sites-monitor.md)。 在 [Azure 门户仪表板](../azure-monitor/app/web-monitor-performance.md)上检查 CPU 使用率时，请检查 CPU 的最大值，这样才不会错过峰值。
 如果你认为应用程序消耗了过多的 CPU，但又无法做出解释，可以分析 Node 应用程序来找出原因。
 
 #### <a name="profiling-your-node-application-on-azure-app-service-with-v8-profiler"></a>在 Azure 应用服务中使用 V8 探查器分析 node 应用程序
@@ -163,18 +163,18 @@ function WriteConsoleLog() {
     }
 }
 
-function HandleRequest() {    
-    WriteConsoleLog();    
+function HandleRequest() {
+    WriteConsoleLog();
 }
 
-http.createServer(function (req, res) {    
-    res.writeHead(200, {'Content-Type': 'text/html'});    
-    HandleRequest();    
-    res.end('Hello world!');    
+http.createServer(function (req, res) {
+    res.writeHead(200, {'Content-Type': 'text/html'});
+    HandleRequest();
+    res.end('Hello world!');
 }).listen(process.env.PORT);
 ```
 
-转到调试控制台站点 https://yoursite.scm.chinacloudsites.cn/DebugConsole。
+转到调试控制台站点 https://yoursite.scm.chinacloudsites.cn/DebugConsole 。
 
 进入 site/wwwroot 目录。 将会看到一个命令提示符，如以下示例所示：
 
@@ -213,19 +213,20 @@ http.createServer(function (req, res) {
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-请下载此文件，并使用 Chrome F12 工具将其打开。 在 Chrome 中按 F12，并选择“配置文件”选项卡。单击“加载”按钮。 选择下载的 profile.cpuprofile 文件。 单击刚加载的配置文件。
+请下载此文件，并使用 Chrome F12 工具将其打开。 在 Chrome 中按 F12，并选择“配置文件”选项卡。  单击“加载”按钮。  选择下载的 profile.cpuprofile 文件。 单击刚加载的配置文件。
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 
 可以看到，WriteConsoleLog 函数已耗用 95% 的时间。 输出中还会显示造成此问题的具体行号和源文件。
 
 ### <a name="my-node-application-is-consuming-too-much-memory"></a>node 应用程序消耗过多的内存
-如果应用程序消耗过多的内存，门户中会显示 Azure Web 应用针对高内存消耗量提供的建议。 可将监视器设置为监视某些[指标](web-sites-monitor.md)。 在 Azure 门户仪表板上检查内存使用率时，请务必检查内存的最大值，这样才不会错过峰值。
+
+如果应用程序消耗过多的内存，门户中会显示 Azure 应用服务针对高内存消耗量提供的建议。 可将监视器设置为监视某些[指标](web-sites-monitor.md)。 在 [Azure 门户仪表板](../azure-monitor/app/web-monitor-performance.md)上检查内存使用率时，请务必检查内存的最大值，这样才不会错过峰值。
 
 #### <a name="leak-detection-and-heap-diff-for-nodejs"></a>node.js 的泄漏检测和堆区分
 
 可以使用 [node-memwatch](https://github.com/lloyd/node-memwatch) 帮助识别内存泄漏。
-可以像安装 v8 探查器一样安装 memwatch，并编辑代码来捕获和区分堆，找出应用程序中的内存泄漏。
+可以像安装 v8-profiler 一样安装 `memwatch`，并编辑代码来捕获和区分堆，以找出应用程序中的内存泄漏。
 
 ### <a name="my-nodeexes-are-getting-killed-randomly"></a>node.exe 随机终止
 
@@ -274,14 +275,14 @@ node.exe 随机关闭的原因有多种：
 | 503 |1002 |检查 win32 错误代码的实际原因 - 无法将请求分派到 node.exe。 |
 | 503 |1003 |命名管道太忙 - 验证 node.exe 是否正在消耗过多的 CPU |
 
-NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 在 Azure 应用服务中，此值设置为 5000。 这表示 node.exe 在命名管道上一次可以接受 5000 个请求。 此值应足以满足 Azure 应用服务中运行的大多数 node 应用程序。 Azure 应用服务中不应出现 503.1003，因为较高值 `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe 具有名为 `NODE_PENDING_PIPE_INSTANCES` 的设置。 在 Azure 应用服务中，此值设置为 5000。 这表示 node.exe 在命名管道上一次可以接受 5000 个请求。 此值应足以满足 Azure 应用服务中运行的大多数 node 应用程序。 Azure 应用服务中不应出现 503.1003，因为 `NODE_PENDING_PIPE_INSTANCES` 的值较高
 
 ## <a name="more-resources"></a>更多资源
 
 请访问以下链接，详细了解 Azure App Service 上的 node.js 应用程序。
 
-* [在 Azure 应用服务中 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
-* [如何在 Azure 应用服务中调试 Node.js Web 应用](app-service-web-tutorial-nodejs-mongodb-app.md)
+* [Azure 应用服务中的 Node.js Web 应用入门](app-service-web-get-started-nodejs.md)
+* [如何在 Azure App Service 中调试 Node.js Web 应用](https://blogs.msdn.microsoft.com/azureossds/2018/08/03/debugging-node-js-apps-on-azure-app-services/)
 * [将 Node.js 模块与 Azure 应用程序一起使用](../nodejs-use-node-modules-azure-apps.md)
 * [Azure 应用服务 Web 应用：Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Node.js 开发人员中心](../nodejs-use-node-modules-azure-apps.md)

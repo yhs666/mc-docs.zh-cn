@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/26/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a3275e0703eb0e008cb6d39075e5736b58ab02c8
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: dab4db703bfd464224731f6c7c3eec8cf1101c0a
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332061"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818544"
 ---
 # <a name="trust-center"></a>信任中心
 
@@ -37,6 +37,6 @@ Azure.cn 上的 Azure 安全信息站点提供所需的信息用于规划、设�
 - [透明性](https://www.trustcenter.cn/zh-cn/transparency/default.html) – 查看 Microsoft 如何相信可以控制在云中的数据，以及 Microsoft 如何帮助你更深入地了解该数据的处理方式。
 - [产品和服务](https://www.trustcenter.cn/zh-cn/cloudservices/default.html) – 在一个位置查看所有 Microsoft 云产品和服务
 - [新增功能](https://www.trustcenter.cn/zh-cn/what-is-new/default.html) – 了解云信任的新增功能
-- [资源](https://www.trustcenter.cn/zh-cn/resources/default.html) – 查看有关受信任云的白皮书、视频和案例研究
+- [资源](https://www.trustcenter.cn/zh-cn/resources/default.html) – 查看有关受信任云的白皮书和案例研究
 
 通过 [信任中心](https://www.trustcenter.cn/) ，可以了解我们为了保护 Azure 服务所做的努力。

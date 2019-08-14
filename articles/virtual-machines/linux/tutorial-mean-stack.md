@@ -1,5 +1,5 @@
 ---
-title: 教程 - 在 Azure 中的 Linux 虚拟机上创建 MEAN 堆栈 | Azure
+title: 教程 - 在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈 | Azure
 description: 本教程介绍如何在 Azure 中的 Linux VM 上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 08/08/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6b57bc45952379e35a4370dad83a5c9e1e77046c
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: f40826fb6501527403d9afefe62f959cabad0c28
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004149"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912940"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>教程：在 Azure 中的 Linux 虚拟机上创建 MongoDB、Express、AngularJS 和 Node.js (MEAN) 堆栈
 
@@ -38,11 +38,11 @@ ms.locfileid: "59004149"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-linux-vm"></a>创建 Linux VM
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组，并使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建 Linux VM。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 以下示例使用 Azure CLI 在“chinaeast”位置创建名为 *myResourceGroupMEAN* 的资源组。  将会创建一个包含 SSH 密钥（如果默认密钥位置不存在这些密钥）的、名为 *myVM* 的 VM。 若要使用一组特定的密钥，请使用 --ssh-key-value 选项。
 
@@ -320,7 +320,7 @@ sudo apt-get install -y nodejs
     </html>
     ```
 
-##  <a name="run-the-application"></a>运行应用程序
+## <a name="run-the-application"></a>运行应用程序
 
 1. 将目录切换回到 *Books* (`cd ..`)，并通过运行以下命令启动服务器：
 
@@ -328,7 +328,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如， *http://13.72.77.9:3300* 。 应显示以下页面所示的内容：
+2. 打开 Web 浏览器并导航到针对 VM 记录的地址。 例如，*http:\//13.72.77.9:3300*。 应显示以下页面所示的内容：
 
     ![书籍记录](media/tutorial-mean/meanstack-init.png)
 

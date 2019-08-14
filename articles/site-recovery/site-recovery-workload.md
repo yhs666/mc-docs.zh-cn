@@ -5,15 +5,15 @@ author: rockboyfor
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 06/27/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 66b1eb893f4d764ee0ddead1b23686ddc186046a
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 32514e9c8013fed0a0b331406a178587910e1791
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861689"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819578"
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>可以通过 Azure Site Recovery 保护哪些工作负荷？
 
@@ -36,7 +36,7 @@ Site Recovery 可帮助实现应用程序级的保护和恢复，如下所示：
 * 不区分应用，为受支持计算机上运行的任何工作负荷提供复制。
 * 几乎同步的复制，RPO 低至 30 秒，满足大多数关键业务应用的需要。
 * 针对单层或多层应用程序的应用一致性快照。
-* 集成 SQL Server AlwaysOn，纳入了其他应用程序级复制技术，其中包括 AD 复制、SQL AlwaysOn、Exchange 数据库可用性组 (DAG) 和 Oracle 数据防护。
+* 集成 SQL Server AlwaysOn，纳入了其他应用程序级复制技术，其中包括 AD 复制、SQL AlwaysOn、Exchange 数据库可用性组 (DAG)。
 * 灵活的恢复计划，一次单击即可恢复整个应用程序堆栈，包括在计划中使用外部脚本和手动操作。
 * Site Recovery 和 Azure 中的高级网络管理可以简化应用的网络要求，包括保留 IP 地址、配置负载均衡或集成 Azure 流量管理器以降低 RTO 网络切换数。
 * 丰富的自动化库，提供特定于应用程序的生产就绪型脚本，可以下载并与恢复计划集成。
@@ -129,7 +129,7 @@ Site Recovery 可按如下所示帮助保护 Exchange：
 * 使用 Site Recovery 将 SAP 部署迁移到 Azure，从而简化云迁移。
 * 通过创建一个按需生产克隆来测试 SAP 应用程序，简化 SAP 项目的升级、测试和原型制作。
 
-<!-- Not Avaiable on [Learn more](site-recovery-sap.md) --> 
+[详细了解](site-recovery-sap.md) 如何保护 SAP。
 
 ## <a name="protect-iis"></a>保护 IIS
 按如下所述使用 Site Recovery 来保护 IIS 部署：

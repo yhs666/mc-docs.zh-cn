@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 06/29/2017
-ms.date: 11/12/2018
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 396e6b81e53a2a6c3588e2158666dda9803302c4
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a36f1f012e5e142bf68177ce19bb3d043d8b6a12
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650211"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819640"
 ---
 # <a name="reliable-services-notifications"></a>Reliable Services 通知
-通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 两种类型的对象支持通知：*可靠状态管理器*和*可靠字典*。
+通知可让客户端跟踪对它们感兴趣的对象所进行的更改。 有两种类型的对象支持通知：可靠状态管理器  和可靠字典  。
 
 使用通知的常见原因如下：
 
@@ -36,11 +36,11 @@ ms.locfileid: "52650211"
 可靠状态管理器为以下事件提供通知：
 
 * 事务
-  * 提交
+    * 提交
 * 状态管理器
-  * 重新生成
-  * 添加可靠状态
-  * 删除可靠状态
+    * 重新生成
+    * 添加可靠状态
+    * 删除可靠状态
 
 可靠状态管理器会跟踪当前正在进行的事务。 唯一会导致通知触发的事务状态更改是提交事务。
 
@@ -48,8 +48,8 @@ ms.locfileid: "52650211"
 可靠状态管理器集合会在以下三种情况下重新生成：
 
 * 恢复：当副本启动时，它会从磁盘恢复其先前的状态。 恢复结束时，它会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组已恢复的可靠状态。
-* 完整副本：必须先生成副本，它才能加入配置集。 有时，这需要将主要副本中可靠状态管理器状态的完整副本应用到空闲的次要副本。 次要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从主要副本获取的可靠状态。
-* 还原：在灾难恢复方案中，副本的状态可通过 **RestoreAsync**从备份还原。 在这种情况下，主要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从备份还原的可靠状态。
+* 完整副本：必须先生成副本，然后它才能加入配置集。 有时，这需要将主要副本中可靠状态管理器状态的完整副本应用到空闲的次要副本。 次要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从主要副本获取的可靠状态。
+* 还原：在灾难恢复方案中，副本的状态可通过 **RestoreAsync** 从备份还原。 在这种情况下，主要副本上的可靠状态管理器会使用 **NotifyStateManagerChangedEventArgs** 触发事件，其中包含一组它从备份还原的可靠状态。
 
 若要注册事务通知和/或状态管理器通知，需要在可靠状态管理器上注册 **TransactionChanged** 或 **StateManagerChanged** 事件。 注册这些事件处理程序的常见位置是有状态服务的构造函数。 在构造函数上注册时，也不会错过 **IReliableStateManager** 生存期内的更改所导致的任何通知。
 
@@ -168,7 +168,7 @@ public async Task OnDictionaryRebuildNotificationHandlerAsync(
 
 * **NotifyDictionaryChangedAction.Rebuild**：**NotifyDictionaryRebuildEventArgs**
 * **NotifyDictionaryChangedAction.Clear**：**NotifyDictionaryClearEventArgs**
-* **NotifyDictionaryChangedAction.Add** 和 **NotifyDictionaryChangedAction.Remove**：**NotifyDictionaryItemAddedEventArgs**
+* **NotifyDictionaryChangedAction.Add**：**NotifyDictionaryItemAddedEventArgs**
 * **NotifyDictionaryChangedAction.Update**：**NotifyDictionaryItemUpdatedEventArgs**
 * **NotifyDictionaryChangedAction.Remove**：**NotifyDictionaryItemRemovedEventArgs**
 

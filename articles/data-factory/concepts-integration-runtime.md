@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 05/31/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: c836efe13c0668f13f6bf11634167f335354e15b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: edf086086012b0b18fd2b97b70ef8331c2173891
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569889"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908715"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure 数据工厂中的集成运行时
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供以下数据集成功能的计算基础结构：
@@ -71,7 +71,7 @@ Azure 集成运行时提供了使用安全、可靠和高性能的方式在云�
 自承载 IR 能够：
 
 - 在专用网络中的云数据存储和数据存储之间运行复制活动。
-- 对本地或 Azure 虚拟网络中的计算资源分派以下转换活动：HDInsight Hive 活动（BYOC-自带群集）、HDInsight Pig 活动 (BYOC)、HDInsight MapReduce 活动 (BYOC)、HDInsight Spark 活动 (BYOC)、HDInsight Streaming 活动 (BYOC)、Stored Procedure 活动、.NET 自定义活动、Lookup 活动和 Get Metadata 活动。
+- 对本地或 Azure 虚拟网络中的计算资源分派以下转换活动：HDInsight Hive 活动（BYOC-自带群集）、HDInsight Pig 活动 (BYOC)、HDInsight MapReduce 活动 (BYOC)、HDInsight Spark 活动 (BYOC)、HDInsight Streaming 活动 (BYOC)、存储过程活动、自定义活动（在 Azure Batch 上运行）、Lookup 活动和 Get Metadata 活动。
 
 > [!NOTE] 
 > 使用自承载集成运行时支持需要自带驱动程序（如 SAP Hana、MySQL 等）的数据存储。有关详细信息，请参阅[支持的数据存储](copy-activity-overview.md#supported-data-stores-and-formats)。
@@ -82,7 +82,7 @@ Azure 集成运行时提供了使用安全、可靠和高性能的方式在云�
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>自承载 IR 计算资源和缩放
 需要在本地计算机或专用网络中的虚拟机上安装自承载 IR。 目前，仅支持在 Windows 操作系统上运行自承载 IR。  
 
-为了获得高可用性和可伸缩性，可以通过在主动-主动模式中将逻辑实例与多个本地计算机相关联来向外扩展自承载 IR。  有关详细信息，请参阅操作方法指南下的“如何创建和配置自承载 IR”一文。
+为了获得高可用性和可伸缩性，可以通过在主动-主动模式中将逻辑实例与多个本地计算机相关联来向外扩展自承载 IR。  有关详细信息，请参阅操作指南下的[如何创建和配置自承载 IR](create-self-hosted-integration-runtime.md) 一文。
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure-SSIS 集成运行时
 若要提升和切换现有 SSIS 工作负荷，可以创建 Azure-SSIS IR 以本机执行 SSIS 包。

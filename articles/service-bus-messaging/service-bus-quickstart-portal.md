@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1ab8596bb88db0540ca83730ad18cacac4ca0dbf
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: d19b710bada4076c2583eeb4663799c1dab3c699
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609837"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818557"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>快速入门：使用 Azure 门户创建服务总线队列
 本快速入门介绍如何使用 [Azure 门户][Azure portal]创建消息命名空间并在该命名空间中创建队列，以及如何获取该命名空间上的授权凭据，以便将消息发送到服务总线队列以及从中接收消息。 然后该过程展示了如何使用 [.NET Standard 库](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)从此队列发送和接收消息。
@@ -25,7 +25,7 @@ ms.locfileid: "65609837"
 
 若要完成本教程，请确保已安装：
 
-- Azure 订阅。 如果没有 Azure 订阅，可以在开始前创建一个[免费帐户][]。
+- Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户][]。
 - [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。 请使用 Visual Studio 生成一个向队列发送消息以及从队列接收消息的示例。 该示例用于测试使用 PowerShell 创建的队列。 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
@@ -206,7 +206,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>后续步骤
 
-本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读教程的“发送和接收消息”部分。 
+本文介绍了如何创建一个服务总线命名空间并从队列发送和接收消息所需的其他资源。 若要详细了解如何编写收发消息的代码，请继续阅读教程的“发送和接收消息”部分  。 
 
 > [!div class="nextstepaction"]
 > [发送和接收消息](service-bus-dotnet-get-started-with-queues.md)

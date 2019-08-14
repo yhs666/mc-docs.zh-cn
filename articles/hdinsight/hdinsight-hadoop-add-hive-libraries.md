@@ -16,12 +16,12 @@ origin.date: 02/27/2018
 ms.date: 07/22/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 96bdef3bd9f7c1c218d7bad4573ce2adabb206e4
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: e8261ea93a3079fd58b10ad91fd854df11d575bb
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845449"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878696"
 ---
 # <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>创建 HDInsight 群集时添加自定义 Apache Hive 库
 
@@ -97,6 +97,6 @@ ms.locfileid: "67845449"
 
 ## <a name="next-steps"></a>后续步骤
 
-有关使用 Hive 的详细信息，请参阅[将 Apache Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)
+有关使用 Hive 的详细信息，请参阅[将 Apache Hive 与 HDInsight 配合使用](hadoop/hdinsight-use-hive.md)。
 
 <!--Update_Description: change 'wasbs' into 'wasb'-->

@@ -1,5 +1,5 @@
 ---
-title: 准备 Azure 中的 Debian Linux VHD | Azure
+title: 为 Azure 准备 Debian VHD | Azure
 description: 了解如何创建 Debian VHD 映像，以便在 Azure 中进行部署。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 11/13/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4d9a105b9dd37db8a38cf340f56896345c2f412b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 1a5fa526c620a95fb5d9f6d9efbd4b44930c4e73
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625318"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913029"
 ---
 # <a name="prepare-a-debian-vhd-for-azure"></a>为 Azure 准备 Debian VHD
 ## <a name="prerequisites"></a>先决条件
@@ -104,9 +104,9 @@ ms.locfileid: "58625318"
         # export HISTSIZE=0
         # logout
 
-10. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
+10. 在 Hyper-V 管理器中单击“操作”->“关闭”。  现在，准备将 Linux VHD 上传到 Azure。
 
 ## <a name="next-steps"></a>后续步骤
 现在，可以使用 Debian 虚拟硬盘在 Azure 中创建新的 Azure 虚拟机了。 如果是首次将 .vhd 文件上传到 Azure，请参阅[从自定义磁盘创建 Linux VM](upload-vhd.md#option-1-upload-a-vhd)。
 
-<!-- Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties -->

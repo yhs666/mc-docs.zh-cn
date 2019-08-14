@@ -9,16 +9,16 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 origin.date: 5/14/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 721adafb5a6c2ef14e45bf9e75992e8321144e04
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d462d018684c1d9f2608e25749b96daf3bf37099
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570621"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908727"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>为 Azure-SSIS 集成运行时启用 Azure Active Directory 身份验证
 
@@ -147,17 +147,7 @@ Azure SQL 数据库托管实例支持直接使用 ADF 的托管标识创建数�
 
 ### <a name="configure-azure-ad-authentication-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置 Azure AD 身份验证
 
-1.   在 Azure 门户中，从左侧导航栏中选择“所有服务” -> “SQL 服务器”   。
-
-2.   选择要使用 Azure AD 身份验证配置的托管实例。
-
-3.   在边栏选项卡的“设置”部分中，选择“Active Directory 管理员”。  
-
-4.   在命令栏中，选择“设置管理员”  。
-
-5.   选择要设为服务器管理员的 Azure AD 用户帐户，然后选择“选择”  。
-
-6.   在命令栏中，选择“保存”。 
+按照[为托管实例预配 Azure Active Directory 管理员](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-managed-instance)中的步骤进行操作。
 
 ### <a name="add-the-managed-identity-for-your-adf-as-a-user-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中以用户身份添加 ADF 的托管标识
 
@@ -165,7 +155,7 @@ Azure SQL 数据库托管实例支持直接使用 ADF 的托管标识创建数�
 
 1.  启动 SSMS。
 
-2.  使用 SQL/Active Directory 管理员帐户连接到托管实例。
+2.  使用名为 **sysadmin** 的 SQL Server 帐户连接到托管实例。 这是一个临时限制，Azure SQL 数据库托管实例的 Azure AD 服务器主体（登录名）变为 GA 后，就会去除该限制。 如果尝试使用 Azure AD 管理员帐户创建登录名，将会看到以下错误：消息 15247、级别 16、状态 1、行 1 用户无权执行此操作。
 
 3.  在“对象资源管理器”中，展开“数据库” -> “系统数据库”文件夹    。
 

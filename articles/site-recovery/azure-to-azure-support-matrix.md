@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 06/09/2019
-ms.date: 07/08/2019
+origin.date: 07/07/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c0c65010c9a054f86019cf86d9671c194593e0e
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: b1adaca735bd03287143c6747953f4a1619e54de
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861672"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819635"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>用于将 Azure VM 从一个区域复制到另一个区域的支持矩阵
 
@@ -45,10 +45,15 @@ ms.locfileid: "67861672"
 地理群集  | **Azure 区域**
 -- | --
 中国 | 中国东部、中国北部、中国东部 2、中国北部 2
+
+<!--MOONCAKE: Not Available on **Brazil South**-->
+
 >[!NOTE]
 > - 可以在你对其拥有相应访问权限的区域中操作。
 > - 如果你要在其中创建保管库的区域未显示，请确保你的订阅有权在该区域中创建资源。
 > - 如果在启用复制时无法在地理群集中看到某个区域，请确保你的订阅有权在该区域中创建 VM。
+
+<!--MOONCAKE: Not Available on **Brazil South**-->
 
 ## <a name="cache-storage"></a>缓存存储
 
@@ -56,7 +61,7 @@ ms.locfileid: "67861672"
 
 **设置** | **支持** | **详细信息**
 --- | --- | ---
-常规用途 V2 存储帐户（热存储层和冷存储层） | 不支持。 | 因为 V2 的事务成本远高于 V1 存储帐户，因此缓存存储存在限制。
+常规用途 V2 存储帐户（热存储层和冷存储层） | 支持 | 建议不要使用 GPv2，因为 V2 的事务成本远高于 V1 存储帐户。
 虚拟网络的 Azure 存储防火墙  | 支持 | 如果你使用的是启用了防火墙的缓存存储帐户或目标存储帐户，请确保[“允许受信任的 Azure 服务”](/storage/common/storage-network-security#exceptions)。
 
 ## <a name="replicated-machine-operating-systems"></a>复制的计算机操作系统
@@ -67,7 +72,7 @@ Site Recovery 支持复制那些运行本节中所列操作系统的 Azure VM。
 
 **操作系统** | **详细信息**
 --- | ---
-Windows Server 2019 |
+Windows Server 2019 | 服务器核心、带桌面体验的服务器
 Windows Server 2016  | 服务器核心、带桌面体验的服务器
 Windows Server 2012 R2 |
 Windows Server 2012 |
@@ -98,33 +103,33 @@ SUSE Linux Enterprise Server 11 | SP4
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
+14.04 LTS | 9.26 | 3.13.0-24-generic 到 3.13.0-170-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-148-generic、<br/>4.15.0-1023-azure 到 4.15.0-1045-azure |
 14.04 LTS | 9.25 | 3.13.0-24-generic 到 3.13.0-169-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-146-generic、<br/>4.15.0-1023-azure 到 4.15.0-1042-azure |
 14.04 LTS | 9.24 | 3.13.0-24-generic 到 3.13.0-167-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-143-generic、<br/>4.15.0-1023-azure 到 4.15.0-1040-azure |
 14.04 LTS | 9.23 | 3.13.0-24-generic 到 3.13.0-165-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-142-generic、<br/>4.15.0-1023-azure 到 4.15.0-1037-azure |
-14.04 LTS | 9.22 | 3.13.0-24-generic 到 3.13.0-164-generic、<br/>3.16.0-25-generic 到 3.16.0-77-generic、<br/>3.19.0-18-generic 到 3.19.0-80-generic、<br/>4.2.0-18-generic 到 4.2.0-42-generic、<br/>4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.15.0-1023-azure 到 4.15.0-1036-azure |
 |||
+16.04 LTS | 9.26 | 4.4.0-21-generic 到 4.4.0-148-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-50-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1045-azure|
 16.04 LTS | 9.25 | 4.4.0-21-generic 到 4.4.0-146-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-48-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1042-azure|
 16.04 LTS | 9.24 | 4.4.0-21-generic 到 4.4.0-143-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-46-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1040-azure|
 16.04 LTS | 9.23 | 4.4.0-21-generic 到 4.4.0-142-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-45-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1037-azure|
-16.04 LTS | 9.22 | 4.4.0-21-generic 到 4.4.0-140-generic、<br/>4.8.0-34-generic 到 4.8.0-58-generic、<br/>4.10.0-14-generic 到 4.10.0-42-generic、<br/>4.11.0-13-generic 到 4.11.0-14-generic、<br/>4.13.0-16-generic 到 4.13.0-45-generic、<br/>4.15.0-13-generic 到 4.15.0-43-generic<br/>4.11.0-1009-azure 到 4.11.0-1016-azure、<br/>4.13.0-1005-azure 到 4.13.0-1018-azure <br/>4.15.0-1012-azure 到 4.15.0-1036-azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Azure 虚拟机支持的 Debian 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-Debian 7 | 9.22、9.23、9.24、9.25 | 3.2.0-4-amd64 到 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
+Debian 7 | 9.23、9.24、9.25、9.26 | 3.2.0-4-amd64 到 3.2.0-6-amd64、3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 | 9.25 | 3.16.0-4-amd64 到 3.16.0-8-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
-Debian 8 | 9.22、9.23、9.24 | 3.16.0-4-amd64 到 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
+Debian 8 | 9.25、9.26 | 3.16.0-4-amd64 到 3.16.0-8-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
+Debian 8 | 9.23、9.24 | 3.16.0-4-amd64 到 3.16.0-7-amd64、4.9.0-0.bpo.4-amd64 到 4.9.0-0.bpo.8-amd64 |
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Azure 虚拟机支持的 SUSE Linux Enterprise Server 12 内核版本
 
 **版本** | **移动服务版本** | **内核版本** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.25 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.104-default<br /><br />SP3 4.4.73-5-default 到 4.4.176-94.88-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.13-default |
+SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.26 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.110-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.109-default<br /><br />SP3 4.4.73-5-default 到 4.4.178-94.91-default<br /><br />SP3 4.4.138-4.7-azure 到 4.4.178-4.28-azure<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.16-default<br />SP4 4.12.14-6.3-azure 到 4.12.14-6.9-azure |
+SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.25 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.104-default<br /><br />SP3 4.4.73-5-default 到 4.4.176-94.88-default<br /><br />SP3 4.4.138-4.7-azure 到 4.4.176-4.25-azure<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.13-default<br />SP4 4.12.14-6.3-azure 到 4.12.14-6.9-azure |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.24 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.104-default<br /><br />SP3 4.4.73-5-default 到 4.4.176-94.88-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.13-default |
 SUSE Linux Enterprise Server 12（SP1、SP2、SP3、SP4） | 9.23 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.101-default<br /><br />SP3 4.4.73-5-default 到 4.4.162-94.69-default<br /><br />SP4 4.12.14-94.41-default 到 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12（SP1、SP2、SP3） | 9.22 | SP1 3.12.49-11-default 到 3.12.74-60.64.40-default<br /><br /> SP1(LTSS) 3.12.74-60.64.45-default 到 3.12.74-60.64.107-default<br /><br /> SP2 4.4.21-69-default 到 4.4.120-92.70-default<br /><br />SP2(LTSS) 4.4.121-92.73-default 到 4.4.121-92.98-default<br /><br />SP3 4.4.73-5-default 到 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>复制的计算机 - Linux 文件系统/来宾存储
 
@@ -154,7 +159,7 @@ RBAC 策略 | 不支持 | VM 上的基于角色的访问控制 (RBAC) 策略不�
 **操作** | **详细信息**
 -- | ---
 调整复制的 VM 上的磁盘大小 | 支持
-将磁盘添加到复制的 VM | 不支持。<br/><br/> 需要为 VM 禁用复制，添加磁盘，然后再次启用复制。
+将磁盘添加到复制的 VM | 支持
 
 ## <a name="replicated-machines---storage"></a>复制的计算机 - 存储
 
@@ -193,7 +198,7 @@ RA-GRS | 支持 |
 ZRS | 不支持 |
 冷存储和热存储 | 不支持 | 冷存储和热存储不支持虚拟机磁盘
 虚拟网络的 Azure 存储防火墙  | 支持 | 如果限制通过虚拟网络访问存储帐户，请启用[允许受信任的 Azure 服务](/storage/common/storage-network-security#exceptions)。
-常规用途 V2 存储帐户（包括热存储层和冷存储层） | 否 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
+常规用途 V2 存储帐户（包括热存储层和冷存储层） | 是 | 与常规用途 V1 存储帐户相比，事务成本大幅增加
 
 <!--Not Available on Line 171 [encryption with Azure AD app](/security/azure-security-disk-encryption-windows-aad)-->
 
@@ -234,7 +239,7 @@ NIC 上的 NSG | 支持 | 在恢复计划中使用 Azure 自动化脚本将 NSG 
 流量管理器     | 支持 | 可以预配置流量管理器，这样在正常情况下，流量路由到源区域中的终结点；发生故障转移时，流量路由到目标区域中的终结点。
 Azure DNS | 支持 |
 自定义 DNS  | 支持 |
-未经身份验证的代理 | 支持 | [了解详细信息].(site-recovery-azure-to-azure-networking-guidance.md)   
+未经身份验证的代理 | 支持 | [了解详细信息](site-recovery-azure-to-azure-networking-guidance.md)    
 经过身份验证的代理 | 不支持 | 如果 VM 正在使用经过身份验证的代理进行出站连接，则不可使用 Azure Site Recovery 进行复制。    
 与本地建立 VPN 站点到站点连接<br/><br/>（使用或不使用 ExpressRoute）| 支持 | 确保将 UDR 和 NSG 配置为 Site Recovery 流量不会路由到本地。 [了解详细信息](site-recovery-azure-to-azure-networking-guidance.md)    
 VNET 到 VNET 连接 | 支持 | [了解详细信息](site-recovery-azure-to-azure-networking-guidance.md)  

@@ -13,12 +13,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c9a9abd59d1081c51e301ce4ab4e60b6b145f8e2
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 4dbf769f87e4a6e738b21d6ef1ca82b26253f042
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046961"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818581"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>如何通过 Java 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "67046961"
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用 Eclipse，则可以安装包含 Azure SDK for Java 的[用于 Eclipse 的 Azure 工具包][Azure Toolkit for Eclipse]。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
+在生成本示例之前，请确保已安装 [Azure SDK for Java][Azure SDK for Java]。 如果使用了 Eclipse，则可以安装包含 Azure SDK for Java 的 [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] 。 然后，用户可以将**21Vianet Azure Libraries for Java** 添加到项目：
 
 ![](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
 
@@ -182,12 +182,12 @@ public void run() throws Exception {
 如果在处理消息之后，发出 deleteMessage 请求之前，应用程序发生崩溃，该消息会在应用程序重新启动时重新传送给它  。 此情况通常称作至少处理一次，即每条消息至少被处理一次，但在某些情况下，同一消息可能会被重新传送  。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 通常可使用消息的 **getMessageId** 方法实现此操作，这在多个传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
-现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
+了解服务总线队列的基础知识后，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]以获取更多信息。
 
 有关详细信息，请参阅 [Java 开发人员中心](https://www.azure.cn/develop/java/)。
 
 [Azure SDK for Java]: https://www.azure.cn/develop/java/
-[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/zh-cn/library/azure/hh694271.aspx
+[Azure Toolkit for Eclipse]: https://msdn.microsoft.com/library/azure/hh694271.aspx
 
 [Queues, topics, and subscriptions]: ./service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.brokeredmessage

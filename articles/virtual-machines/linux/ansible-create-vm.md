@@ -8,13 +8,13 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 04/30/2019
-ms.date: 07/01/2019
-ms.openlocfilehash: 978a4ab08b4aa9bfb28dd0b4803bd4c6d9add079
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: bcbc10ede6dd113dd956f4fa7228a3b488d5f079
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570333"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912918"
 ---
 <!-- Verify successfully-->
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 在 Azure 中配置 Linux 虚拟机
@@ -64,8 +64,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 ## <a name="create-a-public-ip-address"></a>创建公共 IP 地址
 
-[公共 IP 地址](/virtual-network/virtual-network-ip-addresses-overview-arm)允许 Internet 资源与 Azure 资源进行入站通信。
-公共 IP 地址还使 Azure 资源能够与面向公众的 Azure 服务进行出站通信。 在这两种方案中，为分配给正在访问的资源的 IP 地址。 此地址专门用于该资源，直到你对其取消分配。 如果未将资源分配给公共 IP 地址，则资源仍可以通过 Internet 进行出站通信。 此连接通过 Azure 动态分配可用的 IP 地址进行创建。 动态分配的地址不专用于该资源。
+[公共 IP 地址](/virtual-network/virtual-network-ip-addresses-overview-arm)允许 Internet 资源与 Azure 资源进行入站通信。 公共 IP 地址还使 Azure 资源能够与面向公众的 Azure 服务进行出站通信。 在这两种方案中，为分配给正在访问的资源的 IP 地址。 此地址专门用于该资源，直到你对其取消分配。 如果未将资源分配给公共 IP 地址，则资源仍可以通过 Internet 进行出站通信。 此连接通过 Azure 动态分配可用的 IP 地址进行创建。 动态分配的地址不专用于该资源。
 
 以下示例 Ansible playbook 部分创建名为 `myPublicIP` 的公共 IP 地址：
 
@@ -104,7 +103,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 示例 Ansible playbook 部分中的以下部分创建名为 `myNIC` 的虚拟网络接口卡，该卡连接到已创建的虚拟网络资源：
 
 ```yaml
-- name: Create virtual network inteface card
+- name: Create virtual network interface card
   azure_rm_networkinterface:
     resource_group: myResourceGroup
     name: myNIC
@@ -120,7 +119,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
 在此部分提供的示例 Ansible playbook 部分创建名为 `myVM` 的虚拟机，并附加名为 `myNIC` 的虚拟网络接口卡。 将 \<your-ssh-public-key-data\> 占位符替换为你自己的完整公钥数据。
 
-<!--Notice: clear for <your-ssh-public-key-data> -->
+<!--MOONCAKE: Notice: clear for <your-ssh-public-key-data> -->
 
 ```yaml
 - name: Create VM
@@ -141,7 +140,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
       version: latest
 ```
 
-<!--Notice: clear for <your-ssh-public-key-data> -->
+<!--MOONCAKE: Notice: clear for <your-ssh-public-key-data> -->
 
 ## <a name="complete-sample-ansible-playbook"></a>完整的示例 Ansible playbook
 
@@ -187,7 +186,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
           access: Allow
           priority: 1001
           direction: Inbound
-  - name: Create virtual network inteface card
+  - name: Create virtual network interface card
     azure_rm_networkinterface:
       resource_group: myResourceGroup
       name: myNIC
@@ -213,7 +212,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
         version: latest
 ```
 
-<!--Notice: clear for <your-ssh-public-key-data> -->
+<!--MOONCAKE: Notice: clear for <your-ssh-public-key-data> -->
 
 ## <a name="run-the-sample-ansible-playbook"></a>运行示例 Ansible playbook
 
@@ -225,7 +224,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
 
     <!-- Not Available on [Cloud Shell](/cloud-shell/overview)-->
 
-1. 使用 SSH 命令访问已安装的 Linux VM，并在[先决条件](#prerequisites)部分成功配置 Ansible。 将 \<ip-address\> 占位符替换为 Linux VM 中的 IP 地址。
+1. 使用 SSH 命令访问已在[先决条件](#prerequisites)部分中成功安装并配置了 Ansible 的 Linux 虚拟机。 将 \<ip-address\> 占位符替换为 Linux VM 中的实际 IP 地址。
     
     ```bash
     ssh azureuser@<ip-address>
@@ -283,7 +282,7 @@ Ansible 需要一个在其中部署了资源的资源组。 以下示例 Ansible
     TASK [Create Network Security Group that allows SSH] **********************
     changed: [localhost]
 
-    TASK [Create virtual network inteface card] *******************************
+    TASK [Create virtual network interface card] *******************************
     changed: [localhost]
 
     TASK [Create VM] **********************************************************

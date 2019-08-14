@@ -5,15 +5,15 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 origin.date: 05/15/2019
-ms.date: 06/11/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
 ms.topic: conceptual
-ms.openlocfilehash: 03c8e2fedfeea644659664d2481cb7be2691d00a
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: a334c05fadba02e7b26312fc0922197f8134926a
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027442"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818834"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Web 应用程序防火墙请求大小限制和排除列表
 
@@ -36,16 +36,16 @@ WAF 还提供了可配置的旋钮以打开或关闭请求正文检查。 默认
 
 WAF 排除列表允许你忽略 WAF 评估中的某些请求属性。 常见示例是 Active Directory 插入的令牌，这些令牌用于身份验证或密码字段。 此类属性容易在 WAF 规则中包含可能触发误报的特殊字符。 将某个属性添加到 WAF 排除列表后，任何已配置且激活的 WAF 规则都不会考虑该属性。 排除列表的范围具有全局性。
 
-可以向排除列表添加以下属性：
+可以向排除列表添加以下属性。 所选字段的值不会根据 WAF 规则进行评估。 排除列表删除了对该字段值的检查。
 
 * 请求标头
 * 请求 Cookie
-* 请求属性名称（参数）
+* 请求属性名称（参数）可以添加为排除元素，例如：
 
-   * 形成多部分数据
-   * XML
-   * JSON
-   * URL 查询参数
+   * 表单字段名称
+   * XML 实体
+   * JSON 实体
+   * URL 查询字符串参数
 
 可以指定请求标头、正文、cookie 或查询字符串属性的完全匹配项。  也可以选择指定部分匹配项。 排除始终应用于标头字段，而不应用于其值。 排除规则的范围具有全局性，将应用于所有页面和所有规则。
 

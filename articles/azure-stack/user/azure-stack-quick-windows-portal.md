@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.custom: mvc
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 49415678114b402adf96cf9ec09e3482a12e2327
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: dffd9a7baf04cb248a57f30bbdcbb4b81e5a9b13
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513235"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908708"
 ---
 # <a name="quickstart-create-a-windows-server-vm-with-the-azure-stack-portal"></a>快速入门：使用 Azure Stack 门户创建 Windows 服务器 VM
 
@@ -38,7 +38,7 @@ ms.locfileid: "68513235"
 
 ## <a name="create-a-vm"></a>创建 VM
 
-1. 单击“+ 创建资源”   > “计算”   > “Windows Server 2016 Datacenter - 即用即付”   > “创建”  。 <br> 如果未看到“Windows Server 2016 Datacenter - 即用即付”项，请联系 Azure Stack 运营商，  并根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../operator/azure-stack-create-and-publish-marketplace-item.md)一文中所述，请求运营商将此映像添加到市场。
+1. 单击“+ 创建资源”   > “计算”   > “Windows Server 2016 Datacenter - 预付费”   > “创建”  。 <br> 如果未看到“Windows Server 2016 Datacenter - 预付费”项，请联系 Azure Stack 运营商，  并根据[将 Windows Server 2016 VM 映像添加到 Azure Stack 市场](../operator/azure-stack-create-and-publish-marketplace-item.md)一文中所述，请求运营商将此映像添加到市场。
 
     ![在门户中创建 Windows VM 的步骤](media/azure-stack-quick-windows-portal/image01.png)
 

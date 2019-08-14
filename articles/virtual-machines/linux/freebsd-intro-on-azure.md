@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 09/13/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d0ebe08e4be0757c2f35ab0381af09818fa54dbd
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 1715081a016135e08b7376b8f6f61fb29dd22d93
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666119"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913024"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure FreeBSD 简介
 本文概述如何在 Azure 中运行 FreeBSD 虚拟机。
@@ -29,9 +29,10 @@ ms.locfileid: "56666119"
 ## <a name="overview"></a>概述
 Azure FreeBSD 是一种高级的计算机操作系统，用于增强新式服务器、台式机和嵌入式平台的功能。
 
-Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 的 FreeBSD 映像。 目前，以下 FreeBSD 版本由 Microsoft 以映像形式提供：
+我们在 Azure 上提供预先配置了 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 的 FreeBSD 映像。 目前，以下 FreeBSD 版本由 Azure 以映像形式提供：
 
 <!--Not Available on - FreeBSD 10.3-RELEASE-->
+
 - FreeBSD 10.4-RELEASE
 - FreeBSD 11.1-RELEASE
 
@@ -42,15 +43,13 @@ Microsoft Corporation 在 Azure 上提供预先配置了 [Azure VM 来宾代理]
 ## <a name="deploying-a-freebsd-virtual-machine"></a>部署 FreeBSD 虚拟机
 在 Azure 门户中使用来自 Azure 市场的映像部署 FreeBSD 虚拟机是一个非常简单的过程：
 
-- [Azure 市场中的 FreeBSD 10.4](https://portal.azure.cn/#create/Microsoft.FreeBSD104-ARM)
-- [Azure 市场中的 FreeBSD 11.1](https://portal.azure.cn/#create/Microsoft.FreeBSD111-ARM)
-- [Azure 市场中的 FreeBSD 11.2](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD112)
+- [Azure 中国门户上的 FreeBSD 10.4](https://portal.azure.cn/#create/Microsoft.FreeBSD104-ARM)
+- [Azure 中国门户上的 FreeBSD 11.2](https://portal.azure.cn/#create/Microsoft.FreeBSD112-ARM)
 
-<!-- Notice: Current contain 10.4 and 11.1 images in Mooncake -->
-<!-- Notice: Current contain FreeBSD 11.2 in Azure Marketplace -->
+<!-- Notice: Current FreeBSD 10.4 and 11.2 images are valid in Mooncake Portal -->
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>在 FreeBSD 上通过 Azure CLI 创建 FreeBSD VM
-首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
+首先需要通过以下命令在 FreeBSD 计算机上安装 [Azure CLI](https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest)。
 
 ```bash 
 curl -L https://aka.ms/InstallAzureCli | bash
@@ -140,7 +139,7 @@ $ sudo <COMMAND>
 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.2 存在[已知问题](https://github.com/Azure/WALinuxAgent/pull/517)，此问题导致 Azure 上的 FreeBSD VM 预配失败。 [Azure VM 来宾代理](https://github.com/Azure/WALinuxAgent/) 2.2.3 及更高版本已修复此问题。 
 
 ## <a name="next-steps"></a>后续步骤
-* 转到 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/Microsoft.FreeBSD112)创建 FreeBSD VM。
+* 转到 [Azure 中国门户](https://portal.azure.cn/#create/Microsoft.FreeBSD112-ARM)创建 FreeBSD VM。
 
-<!--Notice: Microsoft.FreeBSD112 is correct on Azure Marketplace -->
+<!-- Notice: Current FreeBSD 10.4 and 11.2 images are valid in Mooncake Portal -->
 <!--Update_Description: update meta properties， update link, wording update -->

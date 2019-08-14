@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/14/2018
-ms.date: 04/16/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8ad39d231031e819adb51a06f263582b7d525b4a
-ms.sourcegitcommit: bf3df5d77e5fa66825fe22ca8937930bf45fd201
+ms.openlocfilehash: 0fef759a81805d32890fa83b531fc1c04f7ee3a7
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59686402"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818817"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>使用 Azure CLI 创建支持内部重定向的应用程序网关
 
@@ -41,7 +41,7 @@ ms.locfileid: "59686402"
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group) 创建资源组。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroupAG”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroupAG”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroupAG --location chinanorth
@@ -212,11 +212,11 @@ az network public-ip show `
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如， http://www.contoso.com。
+在浏览器的地址栏中输入域名。 例如，http:\//www.contoso.com。
 
 ![在应用程序网关中测试 contoso 站点](./media/redirect-internal-site-cli/application-gateway-nginxtest.png)
 
-将地址更改为其他域（例如 http://www.contoso.org），应会看到流量已被重定向回 www\.contoso.com 的侦听器。
+将地址更改为其他域（例如 http:\//www.contoso.org），应会看到流量已被重定向回 www\.contoso.com 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 

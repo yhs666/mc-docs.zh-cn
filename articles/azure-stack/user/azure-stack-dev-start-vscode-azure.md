@@ -6,22 +6,22 @@ author: WenJason
 ms.service: azure-stack
 ms.topic: Howto
 origin.date: 06/25/2019
-ms.date: 07/29/2019
+ms.date: 08/06/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 06/25/2019
-ms.openlocfilehash: af77c789750fc4c0994377bfab5fe3797391bf18
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 1de4a282281542cc560d05d789f66abe10ab7808
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513532"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908703"
 ---
 # <a name="connect-to-azure-stack-using-azure-account-extension-in-visual-studio-code"></a>使用 Visual Studio Code 中的 Azure 帐户扩展连接到 Azure Stack
 
 本文逐步说明如何使用 Azure 帐户扩展连接到 Azure Stack。 需要更新 Visual Studio Code (VS Code) 设置。
 
-VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP.NET Core、Python、NodeJS、Go 和其他语言的开发人员都可以使用 VS Code。 使用 Azure 帐户扩展可以配合订阅筛选使用 Azure 单一登录，以获取更多的 Azure 扩展。 借助该扩展可以在与 VS Code 集成的终端中使用 Azure Cloud Shell。 通过该扩展，可以使用标识管理器的 Azure AD (Azure AD) 和 Active Directory 联合身份验证服务 (AD FS) 连接到 Azure Stack 订阅。 这样，你便可以登录到 Azure Stack，选择自己的订阅，并在 shell 中打开新的命令行。 
+VS Code 是用于生成和调试 Web 与云应用程序的轻型编辑器。 ASP.NET Core、Python、NodeJS、Go 和其他语言的开发人员都可以使用 VS Code。 使用 Azure 帐户扩展可以配合订阅筛选使用 Azure 单一登录，以获取更多的 Azure 扩展。 借助该扩展可以在与 VS Code 集成的终端中使用 Shell。 通过该扩展，可以使用标识管理器的 Azure AD (Azure AD) 和 Active Directory 联合身份验证服务 (AD FS) 连接到 Azure Stack 订阅。 这样，你便可以登录到 Azure Stack，选择自己的订阅，并在 shell 中打开新的命令行。 
 
 > [!Note]  
 > 可对 Active Directory 联合身份验证服务 (AD FS) 环境使用本文所述的步骤。 使用 AD FS 凭据和终结点。

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 04/29/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: ae723725db005a384a7349ce2448b22aead0974f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 7beee62be25524aaa75efe13c495eafae560dcd3
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570532"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912809"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>适用于 Windows 的 Azure Monitor 虚拟机扩展
 
@@ -41,17 +41,18 @@ Windows 的 Log Analytics 代理扩展支持以下版本的 Windows 操作系统
 - Windows Server 2008 R2、2012、2012 R2、2016，版本 1709 和 1803
 
 ### <a name="agent-and-vm-extension-version"></a>代理和 VM 扩展版本
-下表提供每次发布的 Azure Monitor VM 扩展和 Log Analytics 代理捆绑包的版本映射。 
+下表提供每次发布的 Windows Azure Monitor VM 扩展和 Log Analytics 代理捆绑包的版本映射。 
 
-| Azure Monitor Linux VM 扩展版本 | Log Analytics 代理捆绑包版本 | 发布日期 | 发行说明 |
+| Log Analytics Windows 代理捆绑包版本 | Azure Monitor Windows VM 扩展版本 | 发布日期 | 发行说明 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 8.0.11049.0 | 1.0.11049.1 | 2017 年 2 月 | |
-| 8.0.11072.0 | 1.0.11072.1 | 2017 年 9 月 | |
-| 8.0.11081.0 | 1.0.11081.5 | 2017 年 11 月 | | 
-| 8.0.11103.0 | 不适用 |  2018 年 4 月 | |
-| 8.0.11136.0 | 不适用 | 2018 年 9 月 |  <ul><li> 添加了对 VM 移动时检测资源 ID 更改的支持 </li><li> 添加了对使用非扩展安装时报告资源 ID 的支持 </li></ul>| 
-| 10.19.10006.0 | 不适用 | 2018 年 12 月 | <ul><li> 次要稳定性修复 </li></ul> | 
-| 10.19.13515.0 | 1.0.13515.1 | 2019 年 3 月 | <ul><li>次要稳定性修复 </li></ul> |
+| 10.20.18001 | 1.0.18001 | 2019 年 7 月 | <ul><li> 次要 bug 修复和稳定性改进 </li><li> 添加了在建立代理连接时禁用默认凭据的功能（支持 WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH） </li></ul>|
+| 10.19.13515 | 1.0.13515 | 2019 年 3 月 | <ul><li>次要稳定性修复 </li></ul> |
+| 10.19.10006 | 不适用 | 2018 年 12 月 | <ul><li> 次要稳定性修复 </li></ul> | 
+| 8.0.11136 | 不适用 | 2018 年 9 月 |  <ul><li> 添加了对 VM 移动时检测资源 ID 更改的支持 </li><li> 添加了对使用非扩展安装时报告资源 ID 的支持 </li></ul>| 
+| 8.0.11103 | 不适用 |  2018 年 4 月 | |
+| 8.0.11081 | 1.0.11081 | 2017 年 11 月 | | 
+| 8.0.11072 | 1.0.11072 | 2017 年 9 月 | |
+| 8.0.11049 | 1.0.11049 | 2017 年 2 月 | |
 
 <!--Not Available on ### Azure Security Center-->
 
@@ -103,9 +104,7 @@ Windows 的 Log Analytics 代理扩展支持以下版本的 Windows 操作系统
 可使用 Azure Resource Manager 模板部署 Azure VM 扩展。 可以在 Azure 资源管理器模板中使用上一部分中详细介绍的 JSON 架构，以便在 Azure 资源管理器模板部署过程中运行 Log Analytics 代理扩展。 包含 Log Analytics 代理 VM 扩展的示例模板可以在 [Azure 快速入门库](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm)中找到。 
 
 >[!NOTE]
->需要将代理配置为向多个工作区报告时，此模板不支持指定多个工作区 ID 和工作区密钥。
-
-<!--Not Available on  To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)-->
+>需要将代理配置为向多个工作区报告时，此模板不支持指定多个工作区 ID 和工作区密钥。 若要将代理配置为向多个工作区报告，请参阅[添加或删除工作区](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace)。  
 
 虚拟机扩展的 JSON 可以嵌套在虚拟机资源内，或放置在 Resource Manager JSON 模板的根级别或顶级别。 JSON 的位置会影响资源名称和类型的值。 有关详细信息，请参阅[设置子资源的名称和类型](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources)。 
 
@@ -198,7 +197,6 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonit
 
 ### <a name="support"></a>支持
 
-如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/zh-cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
-<!-- Update_Description: new article about oms windows-->
-<!--ms.date: 04/20/2018-->
+<!-- Update_Description: wording update-->

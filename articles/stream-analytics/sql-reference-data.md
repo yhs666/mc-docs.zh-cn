@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2b6bef00da21925653b936588845dece840ce947
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 73edeab1aa08bc59d41ea7521a45bb074d2a6122
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732374"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818561"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>对 Azure 流分析作业使用 SQL 数据库中的参考数据（预览）
 
@@ -37,7 +37,7 @@ Azure 流分析支持将 Azure SQL 数据库用作参考数据的输入源。 �
 
    ![流分析作业输入](./media/sql-reference-data/stream-analytics-inputs.png)
 
-2. 填写“流分析输入配置”。 选择数据库名称、服务器名称、用户名和密码。 如果希望参考数据输入定期刷新，请选择“打开”以指定刷新频率（采用 DD:HH:MM 格式）。 如果你的数据集较大且刷新频率较短，可以使用[增量查询](sql-reference-data.md#delta-query)。
+2. 填写“流分析输入配置”。 选择数据库名称、服务器名称、用户名和密码。 如果希望参考数据输入定期刷新，请选择“打开”以指定刷新频率（采用 DD:HH:MM 格式）。 如果你的数据集较大且刷新频率较短，可以使用[增量查询](sql-reference-data.md)。
 
    ![SQL 数据库参考配置](./media/sql-reference-data/sql-input-config.png)
 
@@ -130,7 +130,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 将作业部署到 Azure 之前，可在本地针对实时输入数据测试查询逻辑。 有关此功能的详细信息，请参阅[使用用于 Visual Studio 的 Azure 流分析工具在本地测试实时数据（预览）](stream-analytics-live-data-local-testing.md)。 完成测试后，单击“提交到 Azure”。  请参考[使用用于 Visual Studio 的 Azure 流分析工具创建流分析](stream-analytics-quick-create-vs.md)快速入门来了解如何启动作业。
 
-## <a name="delta-query"></a>增量查询
+## 增量查询 <a name="delta-query"></a>
 
 使用增量查询时，建议使用 [Azure SQL 数据库中的时态表](../sql-database/sql-database-temporal-tables.md)。
 

@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/13/2018
-ms.date: 06/12/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: cf543abf8849ae403b180c37ef7da9f0f5d9deb8
-ms.sourcegitcommit: 756a4da01f0af2b26beb17fa398f42cbe7eaf893
+ms.openlocfilehash: 9860e4f657749385f54e96747442f4e69f11abc4
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/12/2019
-ms.locfileid: "67027433"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818820"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>使用 Azure PowerShell 创建支持内部重定向的应用程序网关
 
@@ -295,11 +295,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-在浏览器的地址栏中输入域名。 例如， http://www.contoso.com 。
+在浏览器的地址栏中输入域名。 例如，http\://www.contoso.com。
 
 ![在应用程序网关中测试 contoso 站点](./media/redirect-internal-site-powershell/application-gateway-iistest.png)
 
-将地址更改为其他域（例如 http://www.contoso.org ），应会看到流量已被重定向回 www\. contoso.com 的侦听器。
+将地址更改为其他域（例如 http\://www.contoso.org），应会看到流量已被重定向回 www\.contoso.com 的侦听器。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -312,4 +312,4 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 > * 使用后端池创建虚拟机规模集
 > * 在域中创建 CNAME 记录
 
-<!-- Update_Description: code and link update -->
+<!-- Update_Description: wording update -->

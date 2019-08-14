@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 03d63e50f3a79ea38547162bd77ca8287fb31149
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: dfe0bb9769885fc41a3ba6f1e5a333893da94cbe
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046897"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818353"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>用于 Java 的 Application Insights 的故障排除与常见问题解答
 使用 [Java 中的 Azure Application Insights][java] 时有疑问或遇到问题？ 请参考下面的提示。
@@ -43,7 +43,7 @@ ms.locfileid: "67046897"
 
 #### <a name="i-used-to-see-data-but-it-has-stopped"></a>我以前看到了数据，但现在看不到
 * 请查看[状态博客](https://blogs.msdn.com/b/applicationinsights-status/)。
-* 是否达到了数据点的每月配额？ 打开“设置/配额和定价”即可检查。如果达到了配额，可以升级计划，或付费购买更多的容量。 请参阅[定价方案](https://www.azure.cn/pricing/details/application-insights/)。
+* 是否达到了数据点的每月配额？ 打开“设置/配额和定价”即可检查。如果达到了配额，可以升级计划，或付费购买更多的容量。 请参阅[定价方案](https://www.azure.cn/pricing/details/monitor/)。
 * 最近是否升级了 SDK？ 请确保项目目录内仅存在唯一 SDK jar。 不应存在两个不同版本的 SDK。
 * 是否正在查看正确的 AI 资源？ 请将应用程序的 iKey 与预期遥测的资源的 iKey 相匹配。 它们应相同。
 
@@ -62,7 +62,7 @@ ms.locfileid: "67046897"
 ## <a name="no-usage-data"></a>无使用情况数据
 **我看到了请求和响应时间的相关数据，但没有看到页面视图、浏览器或用户数据。**
 
-已成功将应用设置为从服务器发送遥测数据。 下一步是[将网页设置为从 Web 浏览器发送遥测数据][usage]。
+已成功将应用设置为从服务器发送遥测数据。 现在，下一步是[将网页设置为从 Web 浏览器发送遥测数据][usage]。
 
 或者，如果客户端是[手机或其他设备][platforms]中的应用，可以从该处发送遥测数据。
 
@@ -94,7 +94,7 @@ ms.locfileid: "67046897"
 ## <a name="changing-the-target"></a>更改目标
 **如何更改项目要将数据发送到的 Azure 资源？**
 
-* [获取新资源的检测密钥][java]
+* [获取新资源的检测密钥。][java]
 * 如果使用用于 Eclipse 的 Azure 工具包将 Application Insights 添加到项目，请右键单击 Web 项目，选择“Azure”、“配置 Application Insights”，然后更改密钥。  
 * 如果已将检测密钥配置为环境变量，请使用新 iKey 更新环境变量的值。
 * 否则，请更新项目的 resources 文件夹中 ApplicationInsights.xml 内的密钥。
@@ -125,7 +125,6 @@ ms.locfileid: "67046897"
 azure.application-insights.logger.type=file
 azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
-azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.azure.cn/v2/track
 ```
 
 ### <a name="java-agent"></a>Java 代理

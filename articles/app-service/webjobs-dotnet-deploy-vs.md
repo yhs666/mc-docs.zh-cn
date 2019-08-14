@@ -12,15 +12,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.custom: vs-azure
 ms.workload: azure-vs
-origin.date: 09/12/2017
-ms.date: 07/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: c57784ea70d75262db3b04946dc11b3023a3ef6b
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+origin.date: 02/18/2019
+ms.date: 08/12/2019
+ms.author: v-johch
+ms.openlocfilehash: 22b5ed0c6f55ebc2d43be76bbfdcf26f74e311ba
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171378"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878532"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>使用 Visual Studio 开发和部署 WebJobs - Azure 应用服务
 
@@ -71,10 +71,7 @@ ms.locfileid: "67171378"
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>用作 .NET Framework 控制台应用的 WebJob  
 
-当 Visual Studio 部署支持 WebJobs 的 .NET Framework 控制台应用程序项目时，会执行两个任务：
-
-* 将运行时文件复制到 Web 应用中的相应文件夹（对于连续运行的 WebJob，该文件夹为 *App_Data/jobs/continuous*，对于按计划运行或按需运行的 WebJob，该文件夹为 *App_Data/jobs/triggered*）。
-* 为已计划在特定时间运行的 Web 作业设置 [Azure 计划程序](/scheduler/)作业。 （无需为连续 Web 作业执行此操作。）
+当 Visual Studio 部署启用 WebJobs 的 .NET Framework 控制台应用程序项目时，它会将运行时文件复制到 Web 应用中的相应文件夹（对于连续运行的 WebJobs，该文件夹为 *App_Data/jobs/continuous*，对于按计划运行或按需运行的 WebJobs，该文件夹为 *App_Data/jobs/triggered*）。
 
 已启用 Web 作业的项目中添加了以下项：
 
@@ -231,7 +228,7 @@ WebJobs 使用 *settings.job* 文件确定某个 WebJob 是否已运行。 使�
 
 ### <a name="cron-expressions"></a>CRON 表达式
 
-WebJobs 使用的 CRON 计划表达式与 Azure Functions 中的计时器触发器相同。 若要详细了解 CRON 支持，请参阅[计时器触发器参考文章](../azure-functions/functions-bindings-timer.md#cron-expressions)。
+WebJobs 使用的 CRON 计划表达式与 Azure Functions 中的计时器触发器相同。 若要详细了解 CRON 支持，请参阅[计时器触发器参考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。
 
 ### <a name="settingjob-reference"></a>setting.job 参考
 
@@ -241,7 +238,7 @@ WebJobs 支持以下设置：
 | ----------- | --------- | --------------- |
 | `is_in_place` | 全部 | 允许作业在原地运行，而无需首先将其复制到临时文件夹。 有关详细信息，请参阅 [WebJobs 工作目录](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)。 |
 | `is_singleton` | 连续 | 仅在横向扩展的单个实例上运行 WebJob。有关详细信息，请参阅[将连续作业设为单一实例](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)。 |
-| `schedule` | 触发 | 根据基于 CRON 的计划运行 WebJob。 有关详细信息，请参阅[计时器触发器参考文章](../azure-functions/functions-bindings-timer.md#cron-expressions)。 |
+| `schedule` | 触发 | 根据基于 CRON 的计划运行 WebJob。 有关详细信息，请参阅[计时器触发器参考文章](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)。 |
 | `stopping_wait_time`| 全部 | 允许控制关闭行为。 有关详细信息，请参阅[正常关闭](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)。 |
 
 ## <a name="next-steps"></a>后续步骤

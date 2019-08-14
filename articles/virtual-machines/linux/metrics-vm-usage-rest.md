@@ -1,5 +1,5 @@
 ---
-title: 使用 REST API 获取 Azure 虚拟机使用情况数据 | Azure
+title: 使用 REST API 获取虚拟机使用情况指标 | Azure
 description: 使用 Azure REST API 收集虚拟机的使用情况指标。
 services: virtual-machines
 author: rockboyfor
@@ -9,14 +9,14 @@ ms.service: load-balancer
 ms.custom: REST
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 18a7102e6c956a604b945d4c0ad877a011106c2c
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 3b66fcb9830997a6b88b012987a42f540b2831de
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666098"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912815"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>使用 REST API 获取虚拟机使用情况指标
 
@@ -38,14 +38,14 @@ GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 |请求标头|说明|  
 |--------------------|-----------------|  
-|Content-Type：|必需。 设置为 `application/json`。|  
-|Authorization：|必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |  
+|Content-Type： |必需。 设置为 `application/json`。|  
+|Authorization： |必需。 设置为有效的 `Bearer` [访问令牌](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)。 |  
 
 ### <a name="uri-parameters"></a>URI 参数
 
 | Name | 说明 |
 | :--- | :---------- |
-| subscriptionId | 用于标识 Azure 订阅的订阅 ID。 如果拥有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/zh-cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
+| subscriptionId | 用于标识 Azure 订阅的订阅 ID。 如果拥有多个订阅，请参阅[使用多个订阅](https://docs.azure.cn/cli/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)。 |
 | resourceGroupName | 与资源关联的 Azure 资源组的名称。 可从 Azure 资源管理器 API、CLI 或门户获取此值。 |
 | vmname | Azure 虚拟机的名称。 |
 | metricnames | 包含有效[负载均衡器指标](/load-balancer/load-balancer-standard-diagnostics)的逗号分隔的列表。 |

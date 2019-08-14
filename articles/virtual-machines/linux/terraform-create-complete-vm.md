@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中使用 Terraform 创建完整的 Linux VM | Azure
+title: 在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构 | Azure
 description: 了解如何在 Azure 中使用 Terraform 创建和管理完整的 Linux 虚拟机环境
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 09/14/2017
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5361f3da414ce31f2f754e240d8f358a5d30e51e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 223e5336619d6b0bb0eb8fe0318f8b475b529e54
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569930"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912989"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>在 Azure 中使用 Terraform 创建完整的 Linux 虚拟机基础结构
 
@@ -460,7 +460,7 @@ Plan: 7 to add, 0 to change, 0 to destroy.
 terraform apply
 ```
 
-Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show) 获取 VM 的 公共 IP 地址：
+Terraform 完成后，VM 基础结构即已准备完毕。 可使用 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show) 获取 VM 的 公共 IP 地址：
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv

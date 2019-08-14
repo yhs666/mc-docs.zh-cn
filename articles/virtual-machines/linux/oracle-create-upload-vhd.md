@@ -1,5 +1,5 @@
 ---
-title: 创建和上传 Oracle Linux VHD | Azure
+title: 为 Azure 准备 Oracle Linux 虚拟机 | Azure
 description: 了解如何创建和上传包含 Oracle Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/12/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: c9c06ad240f11e29d9856d51790cf3b51ccc56ed
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 1c3105c7301089f2a08d6786c3cfbfd200f8e70b
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004250"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912963"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>为 Azure 准备 Oracle Linux 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -108,7 +108,6 @@ ms.locfileid: "66004250"
         # logout
 14. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 现在，准备将 Linux VHD 上传到 Azure。
 
-- - -
 ## <a name="oracle-linux-70"></a>Oracle Linux 7.0+
 **Oracle Linux 7 中的更改**
 

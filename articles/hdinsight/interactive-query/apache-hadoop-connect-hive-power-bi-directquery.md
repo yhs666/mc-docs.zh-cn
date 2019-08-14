@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 02/25/2018
 ms.date: 06/10/2019
 ms.author: v-yiso
-ms.openlocfilehash: fa185466d0880b773ff0166e1b53f0929816c17e
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: c7128e462d9bac1201b0641a0fe3ec41003b1211
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424694"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878744"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>在 Azure HDInsight 中使用 Microsoft Power BI 通过直接查询直观显示交互式查询 Apache Hive 数据
 
@@ -50,7 +50,7 @@ ms.locfileid: "66424694"
 
     |属性 | Value |
     |---|---|
-    |服务器 |输入群集名称，例如，*myiqcluster.azurehdinsight.net*。|
+    |服务器 |输入群集名称，例如，myiqcluster.azurehdinsight.cn  。|
     |数据库 |就本文来说，请输入“default”。 |
     |数据连接模式 |就本文来说，请选择“DirectQuery”。 |
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e567e9f319fb65c70febe822c339ad9b2e14fab2
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: adbc213a05e868f762addccfcd90101295b015cb
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513881"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818510"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>用于处理自定义事件和指标的 Application Insights API
 
@@ -585,7 +585,7 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: AI.S
  参数 | 说明
 ---|---
 `message` | 诊断数据。 可以比名称长很多。
-`properties` | 字符串到字符串的映射：用于在门户中[筛选异常](https://www.azure.cn/documentation/articles/app-insights-api-custom-events-metrics/#properties)的其他数据。 默认为空。
+`properties` | 字符串到字符串的映射：用于在门户中筛选异常的其他数据。 默认为空。
 `severityLevel` | 支持的值：[SeverityLevel.ts](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/JavaScript/JavaScriptSDK.Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 可以搜索消息内容，但是（不同于属性值）无法在其中进行筛选。

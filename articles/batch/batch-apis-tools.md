@@ -9,12 +9,12 @@ ms.topic: get-started-article
 origin.date: 06/18/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d6d3b316de31e11cd0e5b63ab90d6e7dcdc7c7bf
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: d73acddad30587f20ba1bfa95f3a5ee6fc554479
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135907"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818461"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
@@ -81,12 +81,12 @@ ms.locfileid: "67135907"
 ## <a name="next-steps"></a>后续步骤
 
 - 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
-- 下载 [GitHub 上的代码示例][github_samples]，了解如何通过综合使用 C# 和 Python 与批处理来计划和处理示例工作负荷。
+- 下载 [GitHub 上的代码示例][github_samples]，了解 C# 和 Python 如何与 Batch 交互以计划和处理示例工作负荷。
 
 
 [azure_storage]: https://www.azure.cn/home/features/storage/
-[api_java]: /java/api/overview/batch
-[api_java_mgmt]: https://docs.azure.cn/zh-cn/java/api/batch/managementapi?view=azure-java-stable
+[api_java]: https://docs.microsoft.com/java/api/overview/batch
+[api_java_mgmt]: /java/api/batch/managementapi?view=azure-java-stable
 [api_java_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-batch%22
 [api_java_mgmt_jar]: http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-mgmt-batch%22
 [api_net]: /dotnet/api/overview/batch/

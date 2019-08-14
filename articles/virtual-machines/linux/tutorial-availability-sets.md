@@ -1,5 +1,5 @@
 ---
-title: 教程 - Azure 中 Linux VM 的高可用性 | Azure
+title: 教程 - 使用 Azure CLI 创建和部署高度可用的虚拟机 | Azure
 description: 本教程介绍了如何使用 Azure CLI 在可用性集中部署高度可用的虚拟机
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 08/24/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 183368179dc8f449c795f2ccd53e60f84eae6d30
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9b3784e3d414c4a0abffa95ac7c22fa3ff09d262
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666438"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913054"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和部署高度可用的虚拟机
 
@@ -37,7 +37,7 @@ ms.locfileid: "56666438"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="availability-set-overview"></a>可用性集概述
 
@@ -49,9 +49,9 @@ ms.locfileid: "56666438"
 
 ## <a name="create-an-availability-set"></a>创建可用性集
 
-可使用 [az vm availability-set create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 在本示例中，*myResourceGroupAvailability* 资源组中名为 *myAvailabilitySet* 的可用性集的更新域数和容错域数均设置为 *2*。
+可使用 [az vm availability-set create](https://docs.azure.cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) 创建可用性集。 在本示例中，*myResourceGroupAvailability* 资源组中名为 *myAvailabilitySet* 的可用性集的更新域数和容错域数均设置为 *2*。
 
-首先，使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后创建可用性集：
+首先，使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后创建可用性集：
 
 ```azurecli
 az group create --name myResourceGroupAvailability --location chinaeast
@@ -69,7 +69,7 @@ az vm availability-set create \
 
 必须在可用性集中创建 VM，确保它们正确地分布在硬件中。 在创建可用性集后，无法将现有 VM 添加到可用性集中。
 
-通过 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 时，请使用 `--availability-set` 参数指定可用性集的名称。
+通过 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM 时，请使用 `--availability-set` 参数指定可用性集的名称。
 
 ```azurecli
 for i in `seq 1 2`; do
@@ -94,7 +94,7 @@ done
 
 ## <a name="check-for-available-vm-sizes"></a>检查可用的 VM 大小
 
-以后可以向可用性集添加更多 VM（VM 大小可在硬件上获得）。 使用 [az vm availability-set list-sizes](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) 列出可用性集的硬件群集上所有可用的大小：
+以后可以向可用性集添加更多 VM（VM 大小可在硬件上获得）。 使用 [az vm availability-set list-sizes](https://docs.azure.cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-list-sizes) 列出可用性集的硬件群集上所有可用的大小：
 
 ```azurecli
 az vm availability-set list-sizes \

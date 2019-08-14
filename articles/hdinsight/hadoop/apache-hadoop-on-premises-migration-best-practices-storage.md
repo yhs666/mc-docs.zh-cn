@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/25/2018
 ms.date: 02/25/2019
 ms.author: v-yiso
-ms.openlocfilehash: 857915b9ab31151d12d7a4712e8b441b49196477
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 629c8a0e32c52930d06a77579102d72a7756b137
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520786"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878506"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>将本地 Apache Hadoop 群集迁移到 Azure HDInsight - 存储最佳做法
 
@@ -39,7 +39,7 @@ HDInsight 群集可将 Azure 存储中的 blob 容器用作默认文件系统或
 |---|---|
 |`wasb:///`|使用未加密通信访问默认存储。|
 |`wasbs:///`|使用加密通信访问默认存储。|
-|`wasb://<container-name>@<account-name>.blob.core.windows.net/`|与非默认存储帐户通信时使用。 |
+|`wasb://<container-name>@<account-name>.blob.core.chinacloudapi.cn/`|与非默认存储帐户通信时使用。 |
 
 
 [Azure 存储可伸缩性和性能目标](../../storage/common/storage-scalability-targets.md)列出了 Azure 存储帐户的当前限制。 如果应用程序的需求超过单个存储帐户的伸缩性目标，则在构建时让应用程序使用多个存储帐户，并将数据对象分布到这些存储帐户中。
@@ -58,7 +58,7 @@ Azure 存储现提供 [Blob 对象软删除](../../storage/blobs/storage-blob-so
 将 Azure Blob SSL 证书下载到文件
 
 ```bash
-echo -n | openssl s_client -connect <storage-account>.blob.core.windows.net:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
+echo -n | openssl s_client -connect <storage-account>.blob.core.chinacloudapi.cn:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' > Azure_Storage.cer
 ```
 
 将上述文件导入所有节点上的 Java 信任存储区
@@ -102,11 +102,11 @@ Data Lake Storage Gen2 的一个基本功能是，在 Blob 存储服务中添加
 
 - **使用 Blob 存储工具、框架和应用**：Data Lake Storage Gen2 可以继续使用目前适用于 Blob 存储的各种工具、框架和应用程序。
 
-- **已优化的驱动程序**：Azure Blob 文件系统驱动程序 (ABFS) 针对大数据分析进行了 [专门优化](../../storage/data-lake-storage/abfs-driver.md) 。 相应的 REST API 通过 dfs 终结点 dfs.core.windows.net 进行显示。
+- **已优化的驱动程序**：Azure Blob 文件系统驱动程序 (ABFS) 针对大数据分析进行了 [专门优化](../../storage/data-lake-storage/abfs-driver.md) 。 相应的 REST API 通过 dfs 终结点 dfs.core.chinacloudapi.cn 进行显示。
 
 可以使用以下格式之一访问存储在 ADLS Gen2 中的数据：
 - `abfs:///`：访问群集的默认 Data Lake Storage。
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`：与非默认 Data Lake Storage 通信时使用。
+- `abfs[s]://file_system@account_name.dfs.core.chinacloudapi.cn`：与非默认 Data Lake Storage 通信时使用。
 有关详细信息，请参阅以下文章：
 
 - [Azure Data Lake Storage Gen2 简介](../../storage/data-lake-storage/introduction.md)
@@ -120,7 +120,7 @@ Data Lake Storage Gen2 的一个基本功能是，在 Blob 存储服务中添加
 **预配凭据：**
 
 ```bash
-hadoop credential create fs.azure.account.key.account.blob.core.windows.net -value <storage key> -provider jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks/file
+hadoop credential create fs.azure.account.key.account.blob.core.chinacloudapi.cn -value <storage key> -provider jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks/file
 ```
 
 **将上述提供程序路径添加到 core-site.xml 或自定义核心站点下的 Ambari 配置：**
@@ -139,7 +139,7 @@ hadoop credential create fs.azure.account.key.account.blob.core.windows.net -val
 > 也可将提供程序路径属性添加到 distcp 命令行，而不是将密钥存储在 core-site.xml 的群集级别，如下所示：
 
 ```bash
-hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.windows.net/>user1
+hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode.xx.internal.cloudapp.net/path/to/jceks /user/user1/ wasb:<//yourcontainer@youraccount.blob.core.chinacloudapi.cn/>user1
 ```
 
 ## <a name="restrict-azure-storage-data-access-using-sas"></a>使用 SAS 限制 Azure 存储数据访问
@@ -166,13 +166,13 @@ hadoop distcp -D hadoop.security.credential.provider.path=jceks://hdfs@headnode
 
 5. 要限制对具有共享访问签名的容器的访问，请在“Ambari HDFS 配置高级自定义”核心站点的“添加”属性下为群集的核心站点配置添加自定义条目。
 
-6. 将以下值用于“密钥”和“值”字段 ****  **** ：
+6. 将以下值用于“密钥”和“值”字段 ****   ****  ：
 
-    **密钥**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **值**：Python 应用程序从上面的步骤 4 返回的 SAS 密钥。
+    **密钥**：`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.chinacloudapi.cn` **值**：Python 应用程序从上面的步骤 4 返回的 SAS 密钥。
 
-7. 单击“添加”按钮以保存此密钥和值，并单击“保存”按钮以保存配置更改 ****  **** 。 出现提示时，请添加更改的说明（例如，“添加 SAS 存储访问”），并单击“保存” ****。
+7. 单击“添加”按钮以保存此密钥和值，并单击“保存”按钮以保存配置更改 ****   ****  。 出现提示时，请添加更改的说明（例如，“添加 SAS 存储访问”），并单击“保存” **** 。
 
-8. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，并从右侧的“服务操作”下拉列表中选择“重启所有受影响项” **** 。 出现提示时，选择“确认全部重启” ****。
+8. 在 Ambari Web UI 中，从左侧的列表中选择“HDFS”，并从右侧的“服务操作”下拉列表中选择“重启所有受影响项” ****  。 出现提示时，选择“确认全部重启” **** 。
 
 9. 对 MapReduce2 和 YARN 重复此过程。
 

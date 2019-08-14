@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 05/07/2019
 ms.date: 06/10/2019
-ms.openlocfilehash: fcecc9c3174ae47f1e346b7fda01db4f1a4a045f
-ms.sourcegitcommit: 58df3823ad4977539aa7fd578b66e0f03ff6aaee
+ms.openlocfilehash: fdf726a31662fdcb9bb593b18e14aa85efec9b3e
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424690"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878640"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>将交互式查询与 HDInsight 配合使用
 交互式查询（也称为 Apache Hive LLAP 或[低延迟分析处理](https://cwiki.apache.org/confluence/display/Hive/LLAP)）是一种 Azure HDInsight [群集类型](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)。 交互式查询支持内存中缓存，可提高 Apache Hive 查询速度和交互性。
@@ -61,7 +61,7 @@ ms.locfileid: "66424690"
 
 若要查找 Java Database Connectivity (JDBC) 连接字符串：
 
-1. 使用以下 URL 登录到 Apache Ambari： https://\<cluster name\>.AzureHDInsight.net。
+1. 使用以下 URL 登录到 Apache Ambari： https://\<群集名称\>.azurehdinsight.cn。
 2. 在左侧菜单中，选择“Hive”  。
 3. 若要复制 URL，请选择剪贴板图标：
    

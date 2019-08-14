@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fbf4826755a0b6494ead563a2f3cb774eb0a6e8
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 1dc16b4d800e9638e305efc9b41e9c5cd72207ab
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861676"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819670"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>使用 Azure PowerShell 为 Azure 虚拟机设置灾难恢复
 
@@ -160,6 +160,14 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 #Delete the downloaded vault settings file
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
+
+对于 Azure 到 Azure 迁移，可以将保管库上下文设置为新创建的保管库： 
+
+```azurepowershell
+#Set the vault context for the PowerShell session.
+Set-AzRecoveryServicesAsrVaultContext -Vault $vault
+```
+
 ## <a name="prepare-the-vault-to-start-replicating-azure-virtual-machines"></a>准备保管库以开始复制 Azure 虚拟机
 
 ### <a name="create-a-site-recovery-fabric-object-to-represent-the-primary-source-region"></a>创建用于表示主要（源）区域的 Site Recovery 结构对象
@@ -624,6 +632,14 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 ```
 
 重新保护完成后，可以启动反向故障转移（从中国北部到中国东部）并故障回复到源区域。
+
+## <a name="disable-replication"></a>禁用复制
+
+可以使用 Remove-ASRReplicationProtectedItem cmdlet 禁用复制。
+
+```azurepowershell
+Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
+```
 
 ## <a name="next-steps"></a>后续步骤
 查看 [Azure Site Recovery PowerShell 参考](https://docs.microsoft.com/powershell/module/az.RecoveryServices)来了解如何通过 PowerShell 执行其他任务，例如创建恢复计划，以及对恢复计划执行测试性故障转移。

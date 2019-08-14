@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: azure-vs
-origin.date: 03/26/2018
-ms.date: 07/08/2019
+origin.date: 06/26/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc, devcenter, vs-azure
-ms.openlocfilehash: 085f91a033d4867e800375900a2558365fa46353
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 5b8d4d930abdea4b1ba963df443139c5927e9a7e
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844925"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819623"
 ---
 # <a name="quickstart-deploy-a-net-reliable-services-application-to-service-fabric"></a>快速入门：将 .NET Reliable Services 应用程序部署到 Service Fabric
 
@@ -180,6 +180,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 11. 打开浏览器，并在端口 19080 上转到群集地址。 例如，`http://localhost:19080/`。
 12. 单击树视图中的“应用程序”  节点，再单击右侧窗格中的“进行中的升级”  。 可以了解如何通过群集中的升级域滚动升级，同时确保在继续执行下一步之前每个域都能够正常运行。 在验证域运行状况后，进度栏中的升级域将显示为绿色。
+    
     ![Service Fabric Explorer 中的升级视图](./media/service-fabric-quickstart-dotnet/upgrading.png)
 
     Service Fabric 在升级群集中每个节点上的服务后等待两分钟，从而确保升级安全性。 预计整个更新大约需要 8 分钟的时间。
@@ -199,4 +200,4 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 > [!div class="nextstepaction"]
 > [Service Fabric 上的 .NET 应用程序](service-fabric-tutorial-create-dotnet-app.md)
 
-<!--Update_Description: update meta properties, wording update, update link  -->
+<!--Update_Description: update meta properties, wording update -->

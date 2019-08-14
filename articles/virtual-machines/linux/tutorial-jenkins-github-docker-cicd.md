@@ -1,5 +1,5 @@
 ---
-title: 教程 - 在 Azure 中使用 Jenkins 创建开发管道 | Azure
+title: 教程 - 使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构 | Azure
 description: 教程 - 本教程介绍如何在 Azure 中创建一个 Jenkins 虚拟机，用于在每次提交代码后从 GitHub 拉取数据，并生成新的 Docker 容器来运行应用。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/27/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 4b118de3589943cbaf50bcc9e0e33b23127d2817
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7e85bd029d4ec263089330194a11fdc80b52aae1
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665903"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912943"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>教程：使用 Jenkins、GitHub 和 Docker 在 Azure 中的 Linux VM 上创建开发基础结构
 
@@ -38,7 +38,7 @@ ms.locfileid: "56665903"
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-jenkins-instance"></a>创建 Jenkins 实例
 在有关[如何在首次启动时自定义 Linux 虚拟机](tutorial-automate-vm-deployment.md)的上一个教程中，你已了解如何使用 cloud-init 自动执行 VM 自定义。 本教程使用 cloud-init 文件在 VM 上安装 Jenkins 和 Docker。 Jenkins 是一种常用的开放源代码自动化服务器，它与 Azure 无缝集成以支持持续集成 (CI) 和持续交付 (CD)。
@@ -64,9 +64,9 @@ write_files:
         "hosts": ["fd://","tcp://127.0.0.1:2375"]
       }
 runcmd:
-  - apt install default-jre -y
+  - apt install openjdk-8-jre-headless -y
   - wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
-  - sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+  - sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
   - apt-get update && apt-get install jenkins -y
   - curl -sSL https://get.docker.com/ | sh
   - usermod -aG docker azureuser
@@ -76,13 +76,13 @@ runcmd:
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后才能创建 VM。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroupJenkins* 的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组，然后才能创建 VM。 以下示例在 *chinaeast* 位置创建名为 *myResourceGroupJenkins* 的资源组：
 
 ```azurecli 
 az group create --name myResourceGroupJenkins --location chinaeast
 ```
 
-现在，请使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 使用 `--custom-data` 参数传递到 cloud-init 配置文件中。 如果已将 *cloud-init-jenkins.txt* 文件保存在现有工作目录的外部，请提供该文件的完整路径。
+现在，请使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 使用 `--custom-data` 参数传递到 cloud-init 配置文件中。 如果已将 *cloud-init-jenkins.txt* 文件保存在现有工作目录的外部，请提供该文件的完整路径。
 
 ```azurecli 
 az vm create --resource-group myResourceGroupJenkins \
@@ -95,7 +95,7 @@ az vm create --resource-group myResourceGroupJenkins \
 
 创建并配置 VM 需要几分钟的时间。
 
-若要允许 Web 流量抵达 VM，请使用 [az vm open-port](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 为 Jenkins 流量打开端口 *8080*，并为用于运行示例应用的 Node.js 应用打开端口 *1337*：
+若要允许 Web 流量抵达 VM，请使用 [az vm open-port](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-open-port) 为 Jenkins 流量打开端口 *8080*，并为用于运行示例应用的 Node.js 应用打开端口 *1337*：
 
 ```azurecli 
 az vm open-port --resource-group myResourceGroupJenkins --name myVM --port 8080 --priority 1001
@@ -115,6 +115,21 @@ az vm show --resource-group myResourceGroupJenkins --name myVM -d --query [publi
 ssh azureuser@<publicIps>
 ```
 
+使用 `service` 命令验证 Jenkins 是否正在运行。
+
+```bash
+$ service jenkins status
+● jenkins.service - LSB: Start Jenkins at boot time
+   Loaded: loaded (/etc/init.d/jenkins; generated)
+   Active: active (exited) since Tue 2019-02-12 16:16:11 UTC; 55s ago
+     Docs: man:systemd-sysv-generator(8)
+    Tasks: 0 (limit: 4103)
+   CGroup: /system.slice/jenkins.service
+
+Feb 12 16:16:10 myVM systemd[1]: Starting LSB: Start Jenkins at boot time...
+...
+```
+
 查看并复制 Jenkins 安装程序的 `initialAdminPassword`：
 
 ```bash
@@ -131,18 +146,20 @@ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 - 选择“保存并完成” 
 - 准备好 Jenkins 后，选择“开始使用 Jenkins” 
   - 如果开始使用 Jenkins 时 Web 浏览器显示空白页，请重启 Jenkins 服务。 在 SSH 会话中键入 `sudo service jenkins restart`，然后刷新 Web 浏览器。
-- 使用创建的用户名和密码登录到 Jenkins。
+- 根据需要使用创建的用户名和密码登录到 Jenkins。
 
 ## <a name="create-github-webhook"></a>创建 GitHub Webhook
 若要配置与 GitHub 的集成，请从 Azure 示例存储库中打开 [Node.js Hello World 示例应用](https://github.com/Azure-Samples/nodejs-docs-hello-world)。 若要将存储库分叉到自己的 GitHub 帐户，请选择右上角的“分叉”按钮  。
 
 在创建的分叉中创建 Webhook：
 
-- 选择“设置”  ，然后在左侧选择“集成和服务”  。
-- 选择“添加服务”  ，并在筛选框中输入 Jenkins  。
-- 选择“Jenkins (GitHub 插件)” 
-- 对于“Jenkins 挂钩 URL”，请输入 `http://<publicIps>:8080/github-webhook/`。  请确保包含尾部的 /
-- 选择“添加服务” 
+- 选择“设置”  ，然后在左侧选择“Webhook”  。
+- 选择“添加 Webhook”  ，并在筛选框中输入 Jenkins  。
+- 对于“有效负载 URL”  ，输入 `http://<publicIps>:8080/github-webhook/`。 请确保包含尾部的 /
+-  选择 *application/x-www-form-urlencoded* 作为“内容类型”。
+- 对于“希望通过哪些事件来触发此 webhook?”选项，请选择“仅推送事件”。  
+- 将“活动”设置为已勾选。 
+- 单击“添加 Webhook”  。
 
 ![将 GitHub Webhook 添加到分叉的存储库](media/tutorial-jenkins-github-docker-cicd/github_webhook.png)
 
@@ -169,7 +186,7 @@ response.end("Hello World!");
 
 若要提交更改，请选择底部的“提交更改”按钮  。
 
-在 Jenkins 中，作业页左下角的“生成历史记录”部分下面启动了一个新的生成。  选择生成号链接，并选择左侧的“控制台输出”  。 从 GitHub 提取代码以及生成操作将消息 `Testing` 输出到控制台时，可以查看 Jenkins 执行的步骤。 每次在 GitHub 中提交内容时，Webhook 都以此方式访问 Jenkins 并触发新的生成。
+在 Jenkins 中，作业页左下角的“生成历史记录”部分下面启动了一个新的生成。  选择生成号链接，并选择左侧的“控制台输出”  。 从 GitHub 提取代码以及生成操作将消息 `Test` 输出到控制台时，可以查看 Jenkins 执行的步骤。 每次在 GitHub 中提交内容时，Webhook 都以此方式访问 Jenkins 并触发新的生成。
 
 ## <a name="define-docker-build-image"></a>定义 Docker 生成映像
 为了查看基于 GitHub 提交内容运行的 Node.js 应用，让我们生成一个 Docker 映像用于运行该应用。 该映像是从定义如何配置运行应用的容器的 Dockerfile 生成的。 

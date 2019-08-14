@@ -13,14 +13,14 @@ ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 origin.date: 04/29/2019
-ms.date: 06/13/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: 3271950c3124eaee1a1abff150278ffba87cca6d
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: d73ed1c3f18287a7147f3afb7f7c3d1311d26774
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046945"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878516"
 ---
 # <a name="azure-cache-for-redis-faq"></a>用于 Redis 的 Azure 缓存常见问题解答
 了解 Azure Redis 缓存的常见问题、模式和最佳做法。
@@ -231,7 +231,7 @@ Azure Redis 缓存没有本地模拟器，但可以在本地计算机上从 [Red
 * `redis-cli -h <Azure Cache for Redis name>.redis.cache.chinacloudapi.cn -a <key>`
 
 > [!NOTE]
-> Redis 命令行工具对 SSL 端口不起作用，但是，可以[根据适用于 Redis 预览版的 ASP.NET 会话状态提供程序通告](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx)中的说明，使用 `stunnel` 等实用程序安全地将这些工具连接到 SSL。
+> Redis 命令行工具不适用于 SSL 端口，但你可以按照[如何将 Redis 命令行工具与 Azure Redis 缓存配合使用](/azure-cache-for-redis/cache-how-to-redis-cli-tool)一文中的说明，使用 `stunnel` 等实用程序将工具安全地连接到 SSL 端口。
 >
 >
 

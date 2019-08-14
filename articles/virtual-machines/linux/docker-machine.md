@@ -1,5 +1,5 @@
 ---
-title: 使用 Docker Machine 在 Azure 中创建 Linux 主机 | Azure
+title: 如何使用 Docker Machine 在 Azure 中创建主机 | Azure
 description: 介绍如何使用 Docker Machine 在 Azure 中创建 Docker 主机。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 origin.date: 12/15/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 473757aab9ed29e7764cf6b375789901f5481ad9
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4201e9a3805090d3911fdf3d35f1480293e51065
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626059"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913028"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>如何使用 Docker Machine 在 Azure 中创建主机
 本文详细介绍如何使用 [Docker Machine](https://docs.docker.com/machine/) 在 Azure 中创建主机。 `docker-machine` 命令在 Azure 中创建一个 Linux 虚拟机 (VM)，然后安装 Docker。 然后，可以使用相同的本地工具和工作流来管理 Azure 中的 Docker 主机。 若要在 Windows 10 中使用 docker-machine，必须使用 Linux bash。
 
 ## <a name="create-vms-with-docker-machine"></a>使用 Docker 计算机创建 VM
-首先，使用 [az account show](https://docs.azure.cn/zh-cn/cli/account?view=azure-cli-latest#az-account-show) 获取 Azure 订阅 ID，如下所示：
+首先，使用 [az account show](https://docs.azure.cn/cli/account?view=azure-cli-latest#az-account-show) 获取 Azure 订阅 ID，如下所示：
 
 ```azurecli
 sub=$(az account show --query "id" -o tsv)
@@ -34,16 +34,25 @@ sub=$(az account show --query "id" -o tsv)
 
 通过指定 *azure* 作为驱动程序，在 Azure 中使用 `docker-machine create` 创建 Docker 主机 VM。 有关详细信息，请参阅 [Docker Azure 驱动程序文档](https://docs.docker.com/machine/drivers/azure/)
 
-以下示例基于“标准 D2 v2”计划创建一个名为“myVM”的 VM，创建一个名为“azureuser”的用户帐户，并在主 VM 上打开端口 *80*。 按照任何提示登录 Azure 帐户，并授予 Docker Machine 创建和管理资源的权限。
+以下示例基于“标准 D2 v2”计划创建一个名为“myVM”  的 VM，创建一个名为“azureuser”  的用户帐户，并在主 VM 上打开端口 *80*。 按照任何提示登录 Azure 帐户，并授予 Docker Machine 创建和管理资源的权限。
+
+<!--MOONCAKE: ADD --azure-environment AND --azure-location-->
+<!--MOONCAKE: CORRECT ON --azure-image Canonical:UbuntuServer:16.04-LTS:latest -->
 
 ```bash
 docker-machine create -d azure \
     --azure-subscription-id $sub \
+    --azure-environment AzureChinaCloud \
+    --azure-location chinanorth \
+    --azure-image Canonical:UbuntuServer:16.04-LTS:latest \
     --azure-ssh-user azureuser \
     --azure-open-port 80 \
     --azure-size "Standard_DS2_v2" \
     myvm
 ```
+
+<!--MOONCAKE: ADD --azure-environment AND --azure-location-->
+<!--MOONCAKE: CORRECT ON --azure-image Canonical:UbuntuServer:16.04-LTS:latest -->
 
 输出与以下示例类似：
 
@@ -63,7 +72,7 @@ Creating machine...
 (myvm) Creating public IP address.  name="myvm-ip" static=false
 (myvm) Creating network interface.  name="myvm-nic"
 (myvm) Creating storage account.  sku=Standard_LRS name="vhdski0hvfazyd8mn991cg50" location="chinanorth"
-(myvm) Creating virtual machine.  location="chinanorth" size="Standard_A2" username="azureuser" osImage="canonical:UbuntuServer:16.04.0-LTS:latest" name="myvm"
+(myvm) Creating virtual machine.  location="chinanorth" size="Standard_A2" username="azureuser" osImage="Canonical:UbuntuServer:16.04-LTS:latest" name="myvm"
 Waiting for machine to be running, this may take a few minutes...
 Detecting operating system of created instance...
 Waiting for SSH to be available...

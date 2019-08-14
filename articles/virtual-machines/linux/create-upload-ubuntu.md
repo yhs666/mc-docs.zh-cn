@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中创建和上传 Ubuntu Linux VHD
+title: 为 Azure 准备 Ubuntu 虚拟机 | Azure
 description: 了解如何创建和上传包含 Ubuntu Linux 操作系统的 Azure 虚拟硬盘 (VHD)。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-origin.date: 03/12/2018
-ms.date: 04/01/2019
+origin.date: 06/24/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1bc28944801e3e897f2ee519f749512b88ae1ed7
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 83c1c76d63a48a0c74f9cb7fb6b427bd49ba6e88
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626268"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913052"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>为 Azure 准备 Ubuntu 虚拟机
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -125,24 +125,13 @@ Ubuntu 现已发布正式 Azure VHD，可从 [https://cloud-images.ubuntu.com/](
      > [!Note]
      >  安装 `walinuxagent` 包时会删除 `NetworkManager` 和 `NetworkManager-gnome` 包（如果已安装它们）。
 
-
-    对于 Ubuntu 18.04/18.10，更新 Azure 数据源，编辑 /etc/cloud/cloud.cfg.d/90-azure.cfg，将此代码添加到该文件末尾：
-
-    **重要提示：必须严格按照所示添加代码，包括空格。**
-
-    ```bash
-    datasource:
-       Azure:
-         agent_command: [service, walinuxagent, start]
-    ```
-
-1. 运行以下命令可取消对虚拟机的预配并且对其进行准备以便在 Azure 上进行预配：
+1. 运行以下命令可取消对虚拟机的设置并且对其进行准备以便在 Azure 上进行设置：
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-1. 在 Hyper-V 管理器中单击“操作”->“关闭”。 现在，准备将 Linux VHD 上传到 Azure。
+1. 在 Hyper-V 管理器中单击“操作”->“关闭”  。 现在，准备将 Linux VHD 上传到 Azure。
 
 ## <a name="references"></a>参考
 [Ubuntu 硬件支持 (HWE) 内核](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)

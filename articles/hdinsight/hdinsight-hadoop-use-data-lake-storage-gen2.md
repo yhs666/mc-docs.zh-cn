@@ -7,14 +7,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: howto
 origin.date: 05/30/2019
-ms.date: 06/24/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7e106e4fd9252cdb8e18f8609b2e2d5a52825dc4
-ms.sourcegitcommit: d15a1a8d21b27196b9097ac24e4e110af5436a99
+ms.openlocfilehash: 87bf54af29c3dfd2f96bed2b9b6b71de1a2236b7
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67307573"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878760"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>配合使用 Azure Data Lake Storage Gen2 和 Azure HDInsight 群集
 
@@ -47,7 +47,7 @@ Data Lake Storage Gen2 能够以默认存储和附加存储帐户的形式用作
 
 将托管标识分配到存储帐户上的“存储 Blob 数据所有者”角色  。 有关详细信息，请参阅[使用 RBAC 管理对 Azure Blob 和队列数据的访问权限（预览版）](../storage/common/storage-auth-aad-rbac.md)。
 
-1. 在 [Azure 门户](https://portal.azure.com)中转到自己的存储帐户。
+1. 在 [Azure 门户](https://portal.azure.cn)中转到自己的存储帐户。
 1. 选择存储帐户，然后选择“访问控制(IAM)”以显示该帐户的访问控制设置  。 选择“角色分配”  选项卡以查看角色分配列表。
     
 ![显示存储访问控制设置的屏幕截图](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
@@ -74,31 +74,40 @@ Data Lake Storage Gen2 能够以默认存储和附加存储帐户的形式用作
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>通过 Azure CLI 创建使用 Data Lake Storage Gen2 的群集
 
-可以[下载示例模板文件](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json)并[下载示例参数文件](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)。 使用模板之前，请将字符串 `<SUBSCRIPTION_ID>` 替换为实际的 Azure 订阅 ID。 此外，请将字符串 `<PASSWORD>` 替换为所选的密码，以设置用于登录到群集的密码以及 SSH 密码。
+可以[下载示例模板文件](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json)并[下载示例参数文件](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)。 在使用下面的模板和 Azure CLI 代码片段之前，请将以下占位符替换为其正确值：
+
+| 占位符 | 说明 |
+|---|---|
+| `<SUBSCRIPTION_ID>` | Azure 订阅的 ID |
+| `<RESOURCEGROUPNAME>` | 要在其中创建新群集和存储帐户的资源组。 |
+| `<MANAGEDIDENTITYNAME>` | 将获得 Azure Data Lake Storage Gen2 帐户的权限的托管标识的名称。 |
+| `<STORAGEACCOUNTNAME>` | 要创建的新 Azure Data Lake Storage Gen2 帐户。 |
+| `<CLUSTERNAME>` | 你的 HDInsight 群集的名称。 |
+| `<PASSWORD>` | 你选择的使用 SSH 及 Ambari 仪表板登录群集的密码。 |
 
 以下代码片段将会执行下述初始步骤：
 
 1. 登录到 Azure 帐户。
 1. 设置要在其中执行创建操作的活动订阅。
-1. 为新的部署活动创建名为 `hdinsight-deployment-rg` 的新资源组。
-1. 创建名为 `test-hdinsight-msi` 的用户分配的托管标识。
+1. 为新的部署活动创建新的资源组。 
+1. 创建用户分配的托管标识。
 1. 将一个扩展添加到 Azure CLI，以使用 Data Lake Storage Gen2 的功能。
-1. 使用 `--hierarchical-namespace true` 标志创建名为 `hdinsightadlsgen2` 的新 Data Lake Storage Gen2 帐户。
+1. 使用 `--hierarchical-namespace true` 标志创建新的 Data Lake Storage Gen2 帐户。 
 
 ```azurecli
 az login
-az account set --subscription <subscription_id>
+az account set --subscription <SUBSCRIPTION_ID>
 
 # Create resource group
-az group create --name hdinsight-deployment-rg --location chinaeast
+az group create --name <RESOURCEGROUPNAME> --location chinaeast
 
 # Create managed identity
-az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+az identity create -g <RESOURCEGROUPNAME> -n <MANAGEDIDENTITYNAME>
 
 az extension add --name storage-preview
 
-az storage account create --name hdinsightadlsgen2 \
-    --resource-group hdinsight-deployment-rg \
+az storage account create --name <STORAGEACCOUNTNAME> \
+    --resource-group <RESOURCEGROUPNAME> \
     --location eastus --sku Standard_LRS \
     --kind StorageV2 --hierarchical-namespace true
 ```
@@ -109,7 +118,7 @@ az storage account create --name hdinsightadlsgen2 \
 
 ```azurecli
 az group deployment create --name HDInsightADLSGen2Deployment \
-    --resource-group hdinsight-deployment-rg \
+    --resource-group <RESOURCEGROUPNAME> \
     --template-file hdinsight-adls-gen2-template.json \
     --parameters parameters.json
 ```

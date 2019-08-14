@@ -12,16 +12,16 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 09/26/2018
-ms.date: 07/08/2019
+origin.date: 07/10/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: d505ed0e945b07a1cebe2ab390fa3ed744ba24a8
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: a61d2456c770fafbda93ea882f44add6a2259379
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844687"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819569"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>在 Azure 中将 API 管理与 Service Fabric 集成
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId <guid>
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az cloud set -n AzureCloud
+az cloud set -n AzureChinaCloud
 az login
 az account set --subscription <guid>
 ```
@@ -80,7 +80,7 @@ az account set --subscription <guid>
 1. 在 Visual Studio 中，选择“文件”->“新建项目”。
 2. 选择“云”下的 Service Fabric 应用程序模板并将其命名为“ApiApplication”  。
 3. 选择无状态 ASP.NET Core 服务模板并将项目命名为“WebApiService”  。
-4. 选择 Web API ASP.NET Core 2.0 项目模板。
+4. 选择 Web API ASP.NET Core 2.1 项目模板。
 5. 创建项目后，打开 `PackageRoot\ServiceManifest.xml` 并从终结点资源配置中删除 `Port` 属性：
 
     ```xml
@@ -122,29 +122,29 @@ az account set --subscription <guid>
 
 ### <a name="microsoftapimanagementservice"></a>Microsoft.ApiManagement/service
 
-[Microsoft.ApiManagement/service](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service) 描述了 API 管理服务实例：名称、SKU 或层级、资源组位置、发布者信息和虚拟网络。
+[Microsoft.ApiManagement/service](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service) 描述了 API 管理服务实例：名称、SKU 或层级、资源组位置、发布者信息和虚拟网络。
 
 ### <a name="microsoftapimanagementservicecertificates"></a>Microsoft.ApiManagement/service/certificates
 
-[Microsoft.ApiManagement/service/certificates](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/certificates) 用于配置 API 管理安全性。 API 管理必须使用有权访问群集的客户端证书对用于服务发现的 Service Fabric 群集进行身份验证。 本文使用之前在创建 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)时指定的同一证书，该证书默认可用于访问群集。
+[Microsoft.ApiManagement/service/certificates](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/certificates) 用于配置 API 管理安全性。 API 管理必须使用有权访问群集的客户端证书对用于服务发现的 Service Fabric 群集进行身份验证。 本文使用之前在创建 [Windows 群集](service-fabric-tutorial-create-vnet-and-windows-cluster.md#createvaultandcert_anchor)时指定的同一证书，该证书默认可用于访问群集。
 
 本文对客户端身份验证和群集节点到节点安全性使用相同的证书。 如果配置了一个单独的客户端证书，则可以使用它来访问 Service Fabric 群集。 提供创建 Service Fabric 群集时指定的群集证书私钥文件 (.pfx) 的“名称”、“密码”和“数据”（base-64 编码字符串）    。
 
 ### <a name="microsoftapimanagementservicebackends"></a>Microsoft.ApiManagement/service/backends
 
-[Microsoft.ApiManagement/service/backends](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/backends) 描述了流量转发到的后端服务。
+[Microsoft.ApiManagement/service/backends](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/backends) 描述了流量转发到的后端服务。
 
 对于 Service Fabric 后端，后端是 Service Fabric 群集，而不是特定的 Service Fabric 服务。 这允许单个策略路由到群集中的多个服务。 如果后端策略中未指定任何服务名称，那么此处的 url 字段是群集中一个服务的完全限定的服务名称，默认情况下所有请求都路由到该服务  。 如果你不打算获取回退服务，可以使用一个假的服务名称，如“fabric:/fake/service”。 resourceId 指定群集管理终结点  。  clientCertificateThumbprint 和 serverCertificateThumbprints 标识用于对群集进行身份验证的证书   。
 
 ### <a name="microsoftapimanagementserviceproducts"></a>Microsoft.ApiManagement/service/products
 
-[Microsoft.ApiManagement/service/products](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/products) 用于创建产品。 在 Azure API 管理中，产品包含一个或多个 API 以及使用配额和使用条款。 一旦产品发布，开发人员可以订阅该产品，并开始使用产品的 API。
+[Microsoft.ApiManagement/service/products](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/products) 用于创建产品。 在 Azure API 管理中，产品包含一个或多个 API 以及使用配额和使用条款。 一旦产品发布，开发人员可以订阅该产品，并开始使用产品的 API。
 
 为产品输入描述性“displayName”和“description”   。 对于本文，订阅是必需的，但不需要管理员批准订阅。  产品“state”为“已发布”，并对订阅者可见  。
 
 ### <a name="microsoftapimanagementserviceapis"></a>Microsoft.ApiManagement/service/apis
 
-[Microsoft.ApiManagement/service/apis](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis) 用于创建 API。 API 管理中的 API 表示一组可由客户端应用程序调用的操作。 一旦添加操作，该 API 添加到某一产品并可以发布。 发布 API 后，它可供开发人员订阅和使用。
+[Microsoft.ApiManagement/service/apis](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/apis) 用于创建 API。 API 管理中的 API 表示一组可由客户端应用程序调用的操作。 一旦添加操作，该 API 添加到某一产品并可以发布。 发布 API 后，它可供开发人员订阅和使用。
 
 * “displayName”可以是 API 的任意名称  。 对于本文，请使用“Service Fabric App”。
 * “name”为 API 提供一个唯一且有描述性的名称，例如“service-fabric-app”  。 它显示在开发人员和发布者门户中。
@@ -155,7 +155,7 @@ az account set --subscription <guid>
 
 ### <a name="microsoftapimanagementserviceapisoperations"></a>Microsoft.ApiManagement/service/apis/operations
 
-[Microsoft.ApiManagement/service/apis/operations](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis/operations) 在使用 API 管理中的 API 前，必须向 API 添加操作。  外部客户端使用操作与 Service Fabric 群集中运行的 ASP.NET Core 无状态服务进行通信。
+[Microsoft.ApiManagement/service/apis/operations](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/apis/operations) 在使用 API 管理中的 API 前，必须向 API 添加操作。  外部客户端使用操作与 Service Fabric 群集中运行的 ASP.NET Core 无状态服务进行通信。
 
 要添加前端 API 操作，请填写以下值：
 
@@ -165,7 +165,7 @@ az account set --subscription <guid>
 
 ### <a name="microsoftapimanagementserviceapispolicies"></a>Microsoft.ApiManagement/service/apis/policies
 
-[Microsoft.ApiManagement/service/apis/policies](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.apimanagement/service/apis/policies) 创建将所有内容联系在一起的后端策略。 你可以在其中配置将请求路由到的后端 Service Fabric 服务。 可以将此策略应用到任何 API 操作。  有关详细信息，请参阅[策略概述](/api-management/api-management-howto-policies)。
+[Microsoft.ApiManagement/service/apis/policies](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/apis/policies) 创建将所有内容联系在一起的后端策略。 你可以在其中配置将请求路由到的后端 Service Fabric 服务。 可以将此策略应用到任何 API 操作。  有关详细信息，请参阅[策略概述](/api-management/api-management-howto-policies)。
 
 [Service Fabric 的后端配置](/api-management/api-management-transformation-policies#SetBackendService)提供以下请求路由控件：
 
@@ -200,19 +200,18 @@ az account set --subscription <guid>
 
 在部署的 apim.parameters.json 中填写以下空参数  。
 
-
-|             参数              |                             值                             |
-|------------------------------------|---------------------------------------------------------------|
-|          apimInstanceName          |                            sf-apim                            |
-|         apimPublisherEmail         |                     myemail@contosos.com                      |
-|              apimSku               |                           开发人员                           |
-|    serviceFabricCertificateName    |             sfclustertutorialgroup320171031144217             |
-|        certificatePassword         |                         q6D7nN%6ck@6                          |
-| serviceFabricCertificateThumbprint |           C4C1E541AD512B8065280292A8BA6079C3F26F10            |
-|      serviceFabricCertificate      |                &lt;base-64 编码字符串&gt;                 |
-|              url_path              |                          /api/values                          |
-|   clusterHttpManagementEndpoint    | https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080 |
-|           inbound_policy           |                      &lt;XML 字符串&gt;                       |
+|参数|值|
+|---|---|
+|apimInstanceName|sf-apim|
+|apimPublisherEmail|myemail@contosos.com|
+|apimSku|开发人员|
+|serviceFabricCertificateName|sfclustertutorialgroup320171031144217|
+|certificatePassword|q6D7nN%6ck@6|
+|serviceFabricCertificateThumbprint|C4C1E541AD512B8065280292A8BA6079C3F26F10 |
+|serviceFabricCertificate|&lt;base-64 编码字符串&gt;|
+|url_path|/api/values|
+|clusterHttpManagementEndpoint|https://mysfcluster.chinaeast.cloudapp.chinacloudapi.cn:19080|
+|inbound_policy|&lt;XML 字符串&gt;|
 
 “certificatePassword”和“serviceFabricCertificateThumbprint”必须与用于设置群集的群集证书匹配   。
 

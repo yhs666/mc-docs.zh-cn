@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/10/2018
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 3d9f48bdaffe5adecc630dd4bfc086185a5fa4d7
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 62ba45090dd8c1f468676f30bf34675bfb21703d
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570373"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908669"
 ---
 # <a name="expressions-and-functions-in-azure-data-factory"></a>Azure 数据工厂中的表达式和函数
 
@@ -137,6 +137,9 @@ ms.locfileid: "67570373"
     }
 }
 ```
+#### <a name="tutorial"></a>教程
+本[教程](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf)逐步讲解如何在管道和活动之间以及活动之间传递参数。
+
   
 ## <a name="functions"></a>函数  
  可以在表达式中调用函数。 以下各节提供了有关可以在表达式中使用的函数的信息。  

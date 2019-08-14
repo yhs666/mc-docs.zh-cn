@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 origin.date: 05/30/2019
-ms.date: 07/22/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: 25aff627678570d3eb686eaac0f2373d4e807301
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 9e9e9aaa8eee4b7614e5613a76cb8e5e37377914
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845465"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878728"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>使用用于 Visual Studio Code 的 Azure HDInsight 工具
 
@@ -68,7 +68,7 @@ ms.locfileid: "67845465"
 
    ![新建文件](./media/hdinsight-for-vscode/new-file.png)
 
-3. 为新文件命名，以 .hql（Hive 查询）或 .py（Spark 脚本）作为文件扩展名。  本示例使用 **HelloWorld.hql**。
+3. 为新文件命名，以 `.hql`（Hive 查询）或 `.py`（Spark 脚本）作为文件扩展名。  本示例使用 **HelloWorld.hql**。
 
 ## <a name="set-the-azure-environment"></a>设置 Azure 环境
 
@@ -402,7 +402,7 @@ Visual Studio Code 的 HDInsight 支持以下功能：
 
 ## <a name="reader-only-role"></a>仅限读取者角色
 
-具有群集“仅限读取者”角色的用户不再可以将作业提交到 HDInsight 群集，也不可以查看 Hive 数据库。    需要在 [Azure 门户](https://ms.portal.azure.com/)中联系群集管理员将你的角色升级到“HDInsight 群集操作员”。[    ](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 如果你知道 Ambari 凭据，可遵照以下说明手动链接群集。
+具有群集“仅限读取者”角色的用户不再可以将作业提交到 HDInsight 群集，也不可以查看 Hive 数据库。    需要在 [Azure 门户](https://ms.portal.azure.cn/)中联系群集管理员将你的角色升级到“HDInsight 群集操作员”。[    ](/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) 如果你知道 Ambari 凭据，可遵照以下说明手动链接群集。
 
 ### <a name="browse-hdinsight-cluster"></a>浏览 HDInsight 群集  
 
@@ -441,7 +441,7 @@ Visual Studio Code 的 HDInsight 支持以下功能：
 
 > [!NOTE]
 > 
->可以在 Azure 门户中获取存储帐户的访问密钥。 有关信息，请参阅[查看和复制访问密钥](https://docs.microsoft.com/azure/storage/common/storage-account-manage#view-and-copy-access-keys)。
+>可以在 Azure 门户中获取存储帐户的访问密钥。 有关信息，请参阅[查看和复制访问密钥](/storage/common/storage-account-manage#access-keys)。
 
 ## <a name="unlink-cluster"></a>取消链接群集
 

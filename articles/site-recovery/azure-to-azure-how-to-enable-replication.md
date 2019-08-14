@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/29/2018
-ms.date: 06/10/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4ac35da34690aa0d10dcf2c56ae752a19c0ec809
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 510a5f3898ef42f6e9afe7506c67ad4d5bb4e5d8
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390883"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819677"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
@@ -48,28 +48,28 @@ ms.locfileid: "66390883"
 
 4. 在“设置”中，可以选择性地配置目标站点设置： 
 
-   - **目标位置**：要在其中复制源虚拟机数据的位置。 根据所选的计算机位置，Site Recovery 会提供合适目标区域的列表。 我们建议将目标位置与恢复服务保管库位置保持相同。
-   - **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅将与源订阅相同。
-   - **目标资源组**：复制的虚拟机所属的资源组。
-       - 默认情况下，Site Recovery 会在目标位置中创建一个名称带“asr”后缀的新资源组。
-       - 如果 Site recovery 创建的资源组已存在，则会重复使用。
-       - 可以自定义资源组设置。
-       - 目标资源组的位置可以是除托管源 VM 区域以外的任何 Azure 区域。
-   - **目标虚拟网络**：默认情况下，Site Recovery 会在目标位置中创建一个名称带“asr”后缀的新虚拟网络。 这会映射到源网络并会用于任何将来的保护。 [详细了解](site-recovery-network-mapping-azure-to-azure.md)网络映射。
-   - **目标存储帐户（源 VM 不使用托管磁盘）** ：默认情况下，Site Recovery 会创建模拟源 VM 存储配置的新目标存储帐户。 如果存储帐户已存在，则重复使用。
-   - **副本托管磁盘（源 VM 使用托管磁盘）** ：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
-   - **缓存存储帐户**：Site Recovery 需要源区域中称为“缓存存储”的额外存储帐户。 在复制到目标位置前，系统会跟踪源 VM 上发生的所有更改并发送到缓存存储帐户。
-   - **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个名称带“asr”后缀（针对源区域中属于可用性集的 VM）的新可用性集。 如果 Site recovery 创建的可用性集已存在，则重复使用它。
+    - **目标位置**：要在其中复制源虚拟机数据的位置。 根据所选的计算机位置，Site Recovery 会提供合适目标区域的列表。 我们建议将目标位置与恢复服务保管库位置保持相同。
+    - **目标订阅**：用于灾难恢复的目标订阅。 默认情况下，目标订阅将与源订阅相同。
+    - **目标资源组**：复制的虚拟机所属的资源组。
+        - 默认情况下，Site Recovery 会在目标位置中创建一个名称带“asr”后缀的新资源组。
+        - 如果 Site recovery 创建的资源组已存在，则会重复使用。
+        - 可以自定义资源组设置。
+        - 目标资源组的位置可以是除托管源 VM 区域以外的任何 Azure 区域。
+    - **目标虚拟网络**：默认情况下，Site Recovery 会在目标位置中创建一个名称带“asr”后缀的新虚拟网络。 这会映射到源网络并会用于任何将来的保护。 [详细了解](site-recovery-network-mapping-azure-to-azure.md)网络映射。
+    - **目标存储帐户（源 VM 不使用托管磁盘）** ：默认情况下，Site Recovery 会创建模拟源 VM 存储配置的新目标存储帐户。 如果存储帐户已存在，则重复使用。
+    - **副本托管磁盘（源 VM 使用托管磁盘）** ：Site Recovery 在目标区域新建托管磁盘副本，以生成和源 VM 的托管磁盘存储类型一致（标准或高级）的镜像磁盘。
+    - **缓存存储帐户**：Site Recovery 需要源区域中称为“缓存存储”的额外存储帐户。 在复制到目标位置前，系统会跟踪源 VM 上发生的所有更改并发送到缓存存储帐户。 此存储帐户应是标准存储帐户。
+    - **目标可用性集**：默认情况下，Site Recovery 会在目标区域中创建一个名称带“asr”后缀（针对源区域中属于可用性集的 VM）的新可用性集。 如果 Site recovery 创建的可用性集已存在，则重复使用它。
     
-     <!--Not Available on - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones-->
+        <!--Not Available on - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones-->
 
-     >[!NOTE]
-     >在启用复制以后，不能更改可用性类型 - 单一实例、可用性集。 若要更改可用性类型，需要先禁用复制，然后再启用复制。
-     >
+        >[!NOTE]
+        >在启用复制以后，不能更改可用性类型 - 单一实例、可用性集。 若要更改可用性类型，需要先禁用复制，然后再启用复制。
+        >
 
-     <!--Not Available on or availability zone-->
+        <!--Not Available on or availability zone-->
     
-    - **复制策略**：定义恢复点保留期历史记录和应用一致性快照频率的设置。 默认情况下，Azure Site Recovery 使用恢复点保留期为“24 小时”、应用一致性快照频率为“60 分钟”的默认设置创建新的复制策略。
+    - **复制策略**：定义恢复点保留期历史记录和应用一致性快照频率的设置。 默认情况下，Azure Site Recovery 使用恢复点保留期为“24 小时”、应用一致性快照频率为“4 小时”的默认设置创建新的复制策略。
 
         ![启用复制](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
@@ -114,6 +114,7 @@ ms.locfileid: "66390883"
     - 如果启用了多 VM 一致性，则复制组中的计算机将通过端口 20004 相互通信。
     - 确保防火墙设备没有阻止 VM 之间通过端口 20004 进行的内部通信。
     - 如果想要 Linux VM 成为复制组的一部分，请确保按照特定 Linux 版本的指南手动打开端口 20004 上的出站流量。
+
     ![启用复制](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
 
 5. 单击“创建目标资源” > “启用复制”。  

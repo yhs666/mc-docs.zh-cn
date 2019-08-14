@@ -12,16 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/01/2016
-ms.date: 07/01/2019
-ms.author: v-biyu
+origin.date: 10/30/2018
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: f429a8ef025aac005ce58e4925b786ee56f35c60
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 55bb3e4ac20b0d9905b2300e1b7a47b931b84c1b
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171311"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878605"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure 应用服务上的操作系统功能
 本文介绍了可供在 [Azure 应用服务](overview.md)上运行的所有 Windows 应用使用的常见基准操作系统功能。 这些功能包括文件、网络和注册表访问以及诊断日志和事件。 
@@ -93,7 +93,7 @@ ms.locfileid: "67171311"
 <a id="NetworkAccess"></a>
 
 ## <a name="network-access"></a>网络访问
-应用程序代码可以使用基于 TCP/IP 和 UDP 的协议建立与公开外部服务的 Internet 可访问终结点的出站网络连接。 应用可以使用这些相同协议连接到 Azure 内的服务&#151;例如，建立与 SQL 数据库的 HTTPS 连接即可实现此目的。
+应用程序代码可以使用基于 TCP/IP 和 UDP 的协议建立与公开外部服务的 Internet 可访问终结点的出站网络连接。 应用可以使用这些相同协议连接到 Azure 中的服务；例如，建立与 SQL 数据库的 HTTPS 连接即是如此。
 
 还有有限容量以便为应用建立一个本地环回连接，并且让应用侦听该本地环回套接字。 此功能存在主要是为了实现作为其功能的一部分侦听本地环回套接字的应用。 每个应用监视一个“专用”环回连接。 应用“A”无法侦听应用“B”创建的本地环回套接字。
 

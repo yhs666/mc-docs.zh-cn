@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 06/27/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: a217d838d4d94c232621c973f73fc0e567e6c0db
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: c99d2be148e15a40f0030fcefcbacbb54d7e5586
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861637"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819639"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery：常见问题解答 (FAQ)
 本文汇总了有关 Azure Site Recovery 的常见问题。<br />
@@ -137,7 +137,9 @@ Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>为何不能通过 VPN 复制？
 
-复制到 Azure 时，复制流量将进入 Azure 存储的公共终结点。 因此，只能使用 ExpressRoute（公共对等互连）通过公共 Internet 进行复制，VPN 不起作用。
+复制到 Azure 时，复制流量将进入 Azure 存储的公共终结点。 因此，只能使用 ExpressRoute（现有的公共对等互连）通过公共 Internet 进行复制，VPN 不起作用。
+
+<!--Not Available on Microsoft peering-->
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>是否可以使用 Riverbed SteelHeads 进行复制？
 
@@ -146,12 +148,15 @@ Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储帐户�
 ### <a name="can-i-use-expressroute-to-replicate-virtual-machines-to-azure"></a>能否使用 ExpressRoute 将虚拟机复制到 Azure？
 能，[可以使用 ExpressRoute](concepts-expressroute-with-site-recovery.md) 将本地虚拟机复制到 Azure。
 
-- Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储。 需要设置[公共对等互连](../expressroute/expressroute-circuit-peerings.md#publicpeering)将 ExpressRoute 用于 Site Recovery 复制。
+- Azure Site Recovery 通过公共终结点将数据复制到 Azure 存储。 需要通过现有的[公共对等互连](../expressroute/expressroute-circuit-peerings.md)来使用 ExpressRoute 进行 Site Recovery 复制。
+    
     <!--Not Available on or [Azure peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering)-->
+    <!--MOONCAKE: MISSING #publicpeering-->
+    
 - 在复制时，建议使用 Azure 对等互连作为路由域。
-- 将虚拟机故障转移到 Azure 虚拟网络以后，即可使用通过 Azure 虚拟网络设置的[专用对等互连](../expressroute/expressroute-circuit-peerings.md#privatepeering)对其进行访问。
 - 私有对等互连不支持复制。
-- 保护 VMware 计算机或物理机时，请确保配置服务器符合复制的[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 
+- 如果要保护 VMware 计算机或物理计算机，请确保还满足配置服务器的[网络要求](vmware-azure-configuration-server-requirements.md#network-requirements)。 配置服务器需要连接到特定 URL，以便编排 Site Recovery 复制。 ExpressRoute 不能用于此连接。
+- 将虚拟机故障转移到 Azure 虚拟网络以后，即可使用通过 Azure 虚拟网络设置的[专用对等互连](../expressroute/expressroute-circuit-peerings.md#privatepeering)对其进行访问。
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>如果复制到 Azure，需要哪种类型的存储帐户或托管磁盘？
 

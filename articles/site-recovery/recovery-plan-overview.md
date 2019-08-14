@@ -7,20 +7,20 @@ services: site-recovery
 ms.service: site-recovery
 ms.topic: article
 origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 74286100a5f8c0ea8bb476ada69206e043ffaf05
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 468bea649224b915da3dac9511ed0d71afcad9cb
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861731"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819648"
 ---
 # <a name="about-recovery-plans"></a>关于恢复计划
 
 本文介绍了 [Azure Site Recovery](site-recovery-overview.md) 中的恢复计划。
 
-恢复计划将计算机汇集到恢复组中。 可以通过向计划中添加顺序、说明和任务来自定义计划。 在定义计划后，可以根据它运行故障转移。
+恢复计划将计算机汇集到恢复组中。 可以通过向计划中添加顺序、说明和任务来自定义计划。 在定义计划后，可以根据它运行故障转移。  可以在多个恢复计划中引用计算机，如果先前已通过其他恢复计划部署了计划，则后续计划将跳过计算机的部署/启动。
 
 ## <a name="why-use-a-recovery-plan"></a>为何使用恢复计划？
 

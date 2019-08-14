@@ -8,21 +8,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 06/18/2019
-ms.date: 07/08/2019
+ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 98d3aabf74644b2adbd78caea5aef66c3dd50d3a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 89d99f1cb27b3dd65ff22fefcdac94c9c176d0a1
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569740"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908734"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>创建和配置自承载集成运行时
 集成运行时 (IR) 是 Azure 数据工厂用于在不同的网络环境之间提供数据集成功能的计算基础结构。 有关 IR 的详细信息，请参阅[集成运行时概述](concepts-integration-runtime.md)。
 
-自承载集成运行时能够在云数据存储和专用网络中数据存储之间运行复制活动，并针对本地网络或 Azure 虚拟网络中的计算资源调度转换活动。 在专用网络的本地计算机上安装自承载集成运行时的需求。  
+自承载集成运行时能够在云数据存储和专用网络中数据存储之间运行复制活动，并针对本地网络或 Azure 虚拟网络中的计算资源调度转换活动。 在本地计算机或专用网络中的虚拟机 (VM) 上安装自承载集成运行时的需求。  
 
 本文档介绍如何创建和配置自承载 IR。
 
@@ -72,7 +72,7 @@ ms.locfileid: "67569740"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 支持的操作系统版本有 Windows 7 Service Pack 1、Windows 8.1、Windows 10、Windows Server 2008 R2 SP1、Windows Server 2012、Windows Server 2012 R2 和 Windows Server 2016。 不支持在域控制器上安装自承载集成运行时。
+- 支持的操作系统版本有 Windows 7 Service Pack 1、Windows 8.1、Windows 10、Windows Server 2008 R2 SP1、Windows Server 2012、Windows Server 2012 R2、Windows Server 2016 和 Windows Server 2019。 不支持在域控制器上安装自承载集成运行时。
 - 需要 .NET Framework 4.6.1 或更高版本。 如果在 Windows 7 计算机上安装自承载集成运行时，请安装 .NET Framework 4.6.1 或更高版本。 有关详细信息，请参阅 [.NET Framework 系统需求](https://docs.microsoft.com/dotnet/framework/get-started/system-requirements)。
 - 推荐的自承载集成运行时计算机配置至少为 2 GHz，4 核，8 GB RAM 和 80 GB 磁盘。
 - 如果主机计算机进入休眠状态，则自承载集成运行时不响应数据请求。 安装自承载集成运行时之前，请在计算机上配置相应的电源计划。 如果计算机配置为休眠，则自承载集成运行时安装会提示消息。

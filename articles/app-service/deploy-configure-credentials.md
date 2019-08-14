@@ -10,21 +10,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-origin.date: 01/05/2017
-ms.date: 06/17/2019
-ms.author: v-biyu
+origin.date: 03/10/2019
+ms.date: 08/12/2019
+ms.author: v-johch
 ms.custom: seodec18
-ms.openlocfilehash: 0a5cb685d6bdeab07e7f61495fd2f5cd3a1b7cdd
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.openlocfilehash: 0107f7f65d106dbd95b4e64026de48cd26202382
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687434"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878551"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>为 Azure 应用服务配置部署凭据
 [Azure 应用服务](app-service-web-overview.md)支持两种类型的凭据，这些凭据适用于[本地 GIT 部署](deploy-local-git.md)和 [FTP/S 部署](deploy-ftp.md)。 这些凭据与 Azure Active Directory 凭据不同。
 
-* **用户级凭据**：一组适用于整个 Azure 帐户的凭据。 在任何订阅中，它均可用于为 Azure 帐户有权访问的任何应用部署应用服务。 这是在门户 GUI（例如应用的[资源页](https://docs.azure.cn/zh-cn/azure-resource-manager/manage-resources-portal#manage-resources)的“概览”和“属性”）中呈现的默认组。   当通过基于角色的访问控制 (RBAC) 或共同管理员权限授予用户应用访问权限时，该用户便可使用其用户级别的凭据直到被撤销访问权限。 请勿与其他 Azure 用户共享这些凭据。
+* **用户级凭据**：一组适用于整个 Azure 帐户的凭据。 在任何订阅中，它均可用于为 Azure 帐户有权访问的任何应用部署应用服务。 这是在门户 GUI（例如应用的[资源页](https://docs.azure.cn/zh-cn/azure-resource-manager/manage-resources-portal#manage-resources)的“概览”和“属性”）中呈现的默认组。   当通过基于角色的访问控制 (RBAC) 或共同管理员权限授予用户应用访问权限时，该用户便可使用其自己的用户级别凭据直到被撤销访问权限。 请勿与其他 Azure 用户共享这些凭据。
 
 * **应用级凭据**：用于每个应用的一组凭据。 只能使用它部署到该应用。 每个应用的凭据在其创建时自动生成。 这些凭据不能手动进行配置，但可随时进行重置。 如果要通过 (RBAC) 授予用户访问应用级别凭据的权限，该用户必须是应用的参与者或更高级别身份。 读者不可进行发布，因此无法访问这些凭据。
 

@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/24/2018
-ms.date: 06/03/2019
+ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: f1cb0839b8cc6c2e67fd14fe4f832c02bc66c7cb
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 6ca7c823be4de7e90f2ac9b5360b7f745e8f967a
+ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195487"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68819620"
 ---
 # <a name="azure-service-fabric-support-options"></a>Azure Service Fabric 支持选项
 
@@ -61,7 +61,7 @@ ms.locfileid: "66195487"
 
 在 [Service-Fabric-issues git 存储库](https://github.com/Azure/service-fabric-issues)中报告 Azure Service Fabric 问题。 此存储库用于报告和跟踪 Azure Service Fabric 问题，以及进行小型功能请求。 **请勿使用此存储库报告实时站点问题**。
 
-###  <a name="msdn-forums"></a>MSDN 论坛
+### <a name="msdn-forums"></a>MSDN 论坛
 
 [MSDN 上的 Service Fabric 论坛][msdn-forum]最适合提问有关平台工作方式以及如何通过该平台完成某些任务的问题。
 
@@ -78,12 +78,9 @@ ms.locfileid: "66195487"
 [支持的 Service Fabric 版本](service-fabric-versions.md)
 
 <!--references-->
-[msdn-forum]: https://www.azure.cn/support/contact/
+[msdn-forum]: https://support.azure.cn/support/contact/
 
 <!--Not Available on [stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric-->
-
-[uservoice-forum]: https://support.azure.cn/zh-cn/support/support-azure/
-
 <!-- Not Referenced on [acom-docs]: ../service-fabric/index.yml-->
 <!-- Not Referenced on [sample-repos]: http://aka.ms/servicefabricsamples-->
 

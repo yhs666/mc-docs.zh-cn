@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 示例 | Azure
+title: 适用于 Linux 虚拟机的 Azure CLI 示例 | Azure
 description: Azure CLI 示例
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/01/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 68b6cb1d5401e6179459b28cc29b731f9b1b9543
-ms.sourcegitcommit: 70289159901086306dd98e55661c1497b7e02ed9
+ms.openlocfilehash: 4d7d6b7a7db02259fc3a34ca5ca9763e960999eb
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276466"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912905"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>适用于 Linux 虚拟机的 Azure CLI 示例
 

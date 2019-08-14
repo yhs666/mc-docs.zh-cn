@@ -12,15 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 07/26/2018
-ms.date: 07/01/2019
+origin.date: 06/06/2019
+ms.date: 08/12/2019
 ms.author: ccompy
-ms.openlocfilehash: 8229304801e520ec3026fba74f7951fde60da074
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.custom: seodec18
+ms.openlocfilehash: 0162cbbdd7f8191bba6529ab9c440091f1c4da85
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171386"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878619"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接 #
 
@@ -66,7 +67,7 @@ ms.locfileid: "67171386"
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>在应用中添加和创建混合连接 ##
 
-要创建混合连接，请转到 [Azure 门户][portal]，并选择应用。 选择“网络” > “配置混合连接终结点”。   在此处，可以看到为应用配置的混合连接。  
+若要创建混合连接，请转到 [Azure 门户][portal]，并选择应用。 选择“网络” > “配置混合连接终结点”。   在此处，可以看到为应用配置的混合连接。  
 
 ![混合连接列表的屏幕截图][2]
 
@@ -166,7 +167,7 @@ ms.locfileid: "67171386"
 
 ### <a name="manually-add-a-hybrid-connection"></a>手动添加混合连接 ###
 
-若要让订阅外部的某人托管给定混合连接的 HCM 实例，可与他（她）共享该混合连接的网关连接字符串。 可以在 [Azure 门户][portal]中的“混合连接属性”中看到网关连接字符串。 要使用该字符串，请在 HCM 中选择“手动输入”，并粘贴网关连接字符串  。
+若要让订阅外部的某人托管给定混合连接的 HCM 实例，可与他（她）共享该混合连接的网关连接字符串。 可以在 [Azure 门户][portal]的“混合连接”属性中看到网关连接字符串。 要使用该字符串，请在 HCM 中选择“手动输入”，并粘贴网关连接字符串  。
 
 ![手动添加混合连接][11]
 
@@ -197,7 +198,7 @@ ms.locfileid: "67171386"
       }
     }
 
-要使用此信息，一种方式是使用 armclient（可从 [ARMClient][armclient] GitHub 项目中获取）。 下面是将预先存在的混合连接附加到应用的示例。 按以上架构创建一个 JSON 文件，例如：
+使用此信息的一种方式是使用 armclient（可以从 [ARMClient][armclient] GitHub 项目中获取）。 下面是将预先存在的混合连接附加到应用的示例。 按以上架构创建一个 JSON 文件，例如：
 
     {
       "name": "relay-demo-hc",
@@ -251,8 +252,8 @@ ms.locfileid: "67171386"
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[HCService]: /service-bus-relay/relay-hybrid-connections-protocol/
 [portal]: http://portal.azure.cn/
 [oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[sbpricing]: http://www.azure.cn/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

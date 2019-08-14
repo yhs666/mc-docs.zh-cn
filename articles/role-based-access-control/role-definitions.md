@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 02/09/2019
-ms.date: 06/13/2019
+origin.date: 06/18/2019
+ms.date: 08/07/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 58c039350204772b0cac20cff85098c604b19af1
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 14df7229a324eb4f5d5038f6a7439911999ec075
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046948"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878652"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>了解 Azure 资源的角色定义
 
@@ -53,7 +53,8 @@ AssignableScopes []
 | ------------------- | ------------------- |
 | `*` | 通配符授予对与字符串匹配的所有操作的访问权限。 |
 | `read` | 允许读取操作 (GET)。 |
-| `write` | 允许写入操作（PUT、POST 和 PATCH）。 |
+| `write` | 允许写入操作（PUT 或 PATCH）。 |
+| `action` | 允许自定义操作，如重启虚拟机 (POST)。 |
 | `delete` | 允许删除操作 (DELETE)。 |
 
 下面是 JSON 格式的[参与者](built-in-roles.md#contributor)角色定义。 `Actions` 下的通配符 (`*`) 操作表示分配给此角色的主体可以执行所有操作，换句话说，它可以管理所有内容。 这包括将来定义的操作，因为 Azure 会添加新的资源类型。 `NotActions` 下的操作会从 `Actions` 中减去。 就[参与者](built-in-roles.md#contributor)角色而言，`NotActions` 去除了此角色管理资源访问权限以及分配资源访问权限的能力。
@@ -80,7 +81,7 @@ AssignableScopes []
 }
 ```
 
-## <a name="management-and-data-operations-preview"></a>管理和数据操作（预览版）
+## <a name="management-and-data-operations"></a>管理和数据操作
 
 管理操作的基于角色的访问控制在角色定义的 `Actions` 和 `NotActions` 属性中指定。 下面是 Azure 中管理操作的一些示例：
 
@@ -90,7 +91,7 @@ AssignableScopes []
 
 数据不会继承管理访问权限。 此分隔可防止带通配符 (`*`) 的角色无限制地访问数据。 例如，如果用户对订阅具有[读取者](built-in-roles.md#reader)角色，则他们可以查看存储帐户，但他们默认无法查看基础数据。
 
-以前，基于角色的访问控制不用于数据操作。 数据操作的授权根据资源提供程序的不同而异。 用于管理操作的同一基于角色的访问控制授权模型已扩展到数据操作（当前为预览版）。
+以前，基于角色的访问控制不用于数据操作。 数据操作的授权根据资源提供程序的不同而异。 用于管理操作的同一基于角色的访问控制授权模型已扩展到数据操作。
 
 为了支持数据操作，已将新的数据属性添加到角色定义结构。 数据操作在 `DataActions` 和 `NotDataActions` 属性中指定。 通过添加这些数据属性，可在管理与数据之间保持隔离。 这可以防止包含通配符 (`*`) 的当前角色分配突然访问数据。 下面是可在 `DataActions` 和 `NotDataActions` 中指定的一些数据操作：
 
@@ -170,11 +171,7 @@ Bob 的权限限制为[存储 Blob 数据参与者](built-in-roles.md#storage-bl
 
 若要查看和使用 REST API 中的数据操作，必须将 **api-version** 参数设置为以下版本或更高版本：
 
-- 2018-01-01-preview
-
-Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 Blob 容器的内容。 若要查看和管理队列或 Blob 容器的内容，请单击“存储帐户概述”上的“使用 Azure AD 预览版浏览数据”  。
-
-![使用 Azure AD 预览版探索队列和 Blob 容器](./media/role-definitions/rbac-dataactions-browsing.png)
+- 2018-07-01
 
 ## <a name="actions"></a>操作
 
@@ -196,7 +193,7 @@ Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 
 > 如果用户分配到的一个角色排除了 `NotActions` 中的一个操作，而分配到的第二个角色向同一操作授予访问权限，则用户可以执行该操作。 `NotActions` 不是拒绝规则 - 它只是一个简便方法，可在需要排除特定操作时创建一组允许的操作。
 >
 
-## <a name="dataactions-preview"></a>DataActions（预览版）
+## <a name="dataactions"></a>DataActions
 
 `DataActions` 权限指定该角色允许对该对象中的数据执行的数据操作。 例如，如果某个用户对某个存储帐户拥有读取 Blob 数据的访问权限，则该用户可以读取该存储帐户中的 Blob。 下面是可在 `DataActions` 中使用的一些数据操作的示例。
 
@@ -207,7 +204,7 @@ Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/read` | 返回消息。 |
 | `Microsoft.Storage/storageAccounts/ queueServices/queues/messages/*` | 返回消息，或返回写入或删除消息的结果。 |
 
-## <a name="notdataactions-preview"></a>NotDataActions（预览版）
+## <a name="notdataactions"></a>NotDataActions
 
 `NotDataActions` 权限指定从允许的 `DataActions` 中排除的数据操作。 通过从 `DataActions` 操作中减去 `NotDataActions` 操作可以计算出角色授予的访问权限（有效权限）。 每个资源提供程序提供相应的一组 API 用于实现数据操作。
 
@@ -217,7 +214,7 @@ Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` 属性指定角色可供分配的范围（订阅、资源组或资源）。 可以让角色只在需要它的订阅或资源组中进行分配，而不影响其他订阅或资源组的用户体验。 必须使用至少一个订阅、资源组或资源 ID。
+`AssignableScopes` 属性指定具有此角色定义的范围（订阅、资源组或资源）。 可以让角色只在需要它的订阅或资源组中进行分配，而不影响其他订阅或资源组的用户体验。 必须使用至少一个订阅、资源组或资源 ID。
 
 内置角色已将 `AssignableScopes` 设置为根范围 (`"/"`)。 根范围指示角色可供在所有范围中进行分配。 有效的可分配范围的示例包括：
 
@@ -226,7 +223,7 @@ Azure 门户还允许用户通过 Azure AD 预览体验浏览和管理队列和 
 | 角色可供在单个订阅中进行分配 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
 | 角色可供在两个订阅中进行分配 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
 | 角色只能在网络资源组中进行分配 | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| 角色可供在所有范围中进行分配 | `"/"` |
+| 角色可以在所有范围中进行分配（仅适用于内置角色） | `"/"` |
 
 有关自定义角色的 `AssignableScopes` 的信息，请参阅 [Azure 资源的自定义角色](custom-roles.md)。
 

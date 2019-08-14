@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上的 Linux VM 中使用 cloud-init 运行 bash 脚本 | Azure
+title: 在 Azure 的 Linux VM 中使用 cloud-init 运行 bash 脚本 | Azure
 description: 如何在使用 Azure CLI 进行创建时在 Linux VM 中使用 cloud-init 运行 bash 脚本
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
 origin.date: 11/29/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: dffe6da7d830f41d5121bc9afa8cbb783e9a428e
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 9cf7f1dd45234fe6afcff0356855480e28671df2
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665917"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912898"
 ---
 # <a name="use-cloud-init-to-run-a-bash-script-in-a-linux-vm-in-azure"></a>在 Azure 上的 Linux VM 中使用 cloud-init 运行 bash 脚本
 本文介绍如何在 Azure 中使用 [cloud-init](https://cloudinit.readthedocs.io) 在预配时在 Linux 虚拟机 (VM) 或虚拟机规模集 (VMSS) 中运行现有的 bash 脚本。 Azure 预配资源后首次启动时，会运行这些 cloud-init 脚本。 有关 cloud-init 如何在 Azure 以及受支持的 Linux 发行版中本机工作的详细信息，请参阅 [cloud-init 概述](using-cloud-init.md)
@@ -30,7 +30,7 @@ ms.locfileid: "56665917"
 
 如果已在使用 Linux 自定义脚本 Azure 扩展运行脚本，则可以迁移它们以使用 cloud-init。 但是，Azure 扩展已集成报告功能，当脚本失败时会发出警报，因此如果脚本失败，cloud-init 映像部署不会失败。
 
-若要了解此功能的工作原理，请创建一个简单的 bash 脚本用于测试。 与 cloud-init `#cloud-config` 文件一样，此脚本必须位于预配虚拟机时运行 AzureCLI 命令的本地位置。  对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor simple_bash.sh` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
+若要了解此功能的工作原理，请创建一个简单的 bash 脚本用于测试。 与 cloud-init `#cloud-config` 文件一样，此脚本必须位于预配虚拟机时运行 AzureCLI 命令的本地位置。  对于此示例，请在本地计算机中创建文件。 可使用任何想要使用的编辑器。 输入 `sensible-editor simple_bash.sh` 以创建文件并查看可用编辑器的列表。 选择 #1 以使用 nano 编辑器  。 请确保已正确复制整个 cloud-init 文件，尤其是第一行。  
 
 <!-- Not Available on Cloud Shell -->
 
@@ -39,13 +39,13 @@ ms.locfileid: "56665917"
 echo "this has been written via cloud-init" + $(date) >> /tmp/myScript.txt
 ```
 
-在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组。
+在部署此映像之前，需要使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli 
 az group create --name myResourceGroup --location chinaeast
 ```
 
-现在，使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data simple_bash.sh` 指定 bash 脚本文件，如下所示：
+现在，使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM，并通过 `--custom-data simple_bash.sh` 指定 bash 脚本文件，如下所示：
 
 ```azurecli 
 az vm create \

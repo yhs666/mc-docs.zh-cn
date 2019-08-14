@@ -1,5 +1,5 @@
 ---
-title: Azure 的 vCPU 配额 | Azure
+title: 虚拟机 vCPU 配额 | Azure
 description: 了解 Azure 的 vCPU 配额。
 keywords: ''
 services: virtual-machines-linux
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 05/31/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4481b34980c0d7a44fbe3462b8595644c689e907
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 820a68a7f180408ad0b3ada36357d10085b25dc7
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520773"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912947"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>虚拟机 vCPU 配额
 
-虚拟机和虚拟机规模集的 vCPU 配额已根据每个区域中的每个订阅划分成两层。 第一层是区域的 vCPU 总数，第二层是各种 VM 大小系列核心（如 D 系列 vCPU）。 每当部署新 VM 时，VM 的 vCPU 数不能超过 VM 大小系列的 vCPU 配额或区域 vCPU 配额总数。 如果超过了上述任一配额，将不允许部署 VM。 此外，区域中的虚拟机总数也有一个配额。 有关上述每个配额的详细信息，可以在 [Azure 门户](https://portal.azure.cn)的“订阅”页的“使用情况 + 配额”部分中查看，也可以使用 Azure CLI 查询值。
+虚拟机和虚拟机规模集的 vCPU 配额已根据每个区域中的每个订阅划分成两层。 第一层是区域的 vCPU 总数，第二层是各种 VM 大小系列核心（如 D 系列 vCPU）。 每当部署新 VM 时，VM 的 vCPU 数不能超过 VM 大小系列的 vCPU 配额或区域 vCPU 配额总数。 如果超过了上述任一配额，将不允许部署 VM。 此外，区域中的虚拟机总数也有一个配额。 有关上述每个配额的详细信息，可以在 [Azure 门户](https://portal.azure.cn)的“订阅”  页的“使用情况 + 配额”  部分中查看，也可以使用 Azure CLI 查询值。
 
 ## <a name="check-usage"></a>检查使用情况
 
-可以使用 [az vm list-usage](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-usage) 检查配额用量。
+可以使用 [az vm list-usage](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-usage) 检查配额用量。
 
 ```azurecli
 az vm list-usage --location "China East" -o table

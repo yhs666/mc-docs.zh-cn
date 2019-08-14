@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1a5a6836dd126df6bee9c015cd0cf946421a26d4
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 32879054b48991078534eec2de62be9196661aca
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562997"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818496"
 ---
 # <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v031-alpha"></a>状态监视器 v2 API：Start-ApplicationInsightsMonitoringTrace (v0.3.1-alpha)
 
@@ -25,7 +25,7 @@ ms.locfileid: "67562997"
 
 > [!IMPORTANT]
 > 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们建议不要将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
+> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
 
 ## <a name="description"></a>说明
 
@@ -119,7 +119,7 @@ Timeout Reached. Stopping...
 
 其他故障排除方法：
 
-- 在此处查看其他故障排除步骤： https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
+- 在此处查看其他故障排除步骤：/azure-monitor/app/status-monitor-v2-troubleshoot
 - 请查看 [API 参考](status-monitor-v2-overview.md#powershell-api-reference)，以了解你可能错过的参数。
 - 如果需要更多帮助，可以通过 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues) 联系我们。
 

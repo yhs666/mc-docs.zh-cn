@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
 origin.date: 05/18/2018
-ms.date: 06/04/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 8bc0c689052479e40496f4fd6a36db0de1ee9cc5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 93faca5424659b83e396aa0799773c51dbeb7579
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52646063"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913014"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>有关从经典部署模型迁移到 Azure Resource Manager 部署模型的常见问题
 
@@ -40,7 +40,7 @@ ms.locfileid: "52646063"
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>提交操作失败时，是否可以回滚迁移？ 
 
-如果提交操作失败，就无法中止迁移。 包括提交操作在内的所有迁移操作都是幂等的。 因此，建议在片刻之后重试操作。 如果仍遇到错误，请创建支持票证，或在 [VM 论坛](https://www.azure.cn/support/contact/)上创建标记为 ClassicIaaSMigration 的论坛帖子。
+如果提交操作失败，就无法中止迁移。 包括提交操作在内的所有迁移操作都是幂等的。 因此，建议在片刻之后重试操作。 如果仍遇到错误，请创建支持票证，或在 [VM 论坛](https://support.azure.cn/support/contact/)上创建标记为 ClassicIaaSMigration 的论坛帖子。
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>如果我必须使用 Resource Manager 下的 IaaS，是否必须购买其他 ExpressRoute 线路？ 
 
@@ -54,8 +54,8 @@ ms.locfileid: "52646063"
 
 将 VM 从<a name="vault">经典</a>模式移到资源管理器模式时，在迁移之前进行的备份不会迁移到新迁移的资源管理器 VM 中。 但是，如果希望保留经典 VM 的备份，请在迁移之前执行以下步骤。 
 
-1. 在恢复服务保管库中，转到“受保护的项”选项卡并选择 VM。 
-2. 单击[停止保护](../articles/backup/backup-azure-manage-vms.md#stop-protecting-virtual-machines)。 将“删除关联的备份数据”选项保留为“未选中”状态。
+1. 在恢复服务保管库中，转到“受保护的项”选项卡并选择 VM  。 
+2. 单击停止保护。 将“删除关联的备份数据”  选项保留为“未选中”  状态。
 
 > [!NOTE]
 > 在保留数据前将收取备份实例成本。 备份副本将按保持期进行删除。 但是，最后的备份副本会始终保留，直至你显式删除备份数据。 建议检查虚拟机的保留期，并在保留期结束后对保管库中受保护项触发“删除备份数据”。 
@@ -79,11 +79,11 @@ ms.locfileid: "52646063"
 
 ## <a name="how-do-i-report-an-issue"></a>如何报告问题？ 
 
-请在我们的 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/) 上使用关键字 ClassicIaaSMigration 发布有关迁移的问题和疑惑。 建议将所有问题都发布在此论坛上。 如果有支持协定，也欢迎你记录支持票证。
+请在 [Azure 支持](https://support.azure.cn/support/contact/)上使用关键字 ClassicIaaSMigration 发布有关迁移的问题和疑惑。 建议将所有问题都发布在此论坛上。 如果有支持协定，也欢迎你记录支持票证。
 
 ## <a name="what-if-i-dont-like-the-names-of-the-resources-that-the-platform-chose-during-migration"></a>如果我不喜欢平台在迁移期间选择的资源名称，该怎么做？ 
 
-在经典部署模型中为其显式提供名称的所有资源都会在迁移期间得到保留。 在某些情况下，会创建新资源。 例如：为每个 VM 创建网络接口。 目前无法控制迁移期间所创建的这些新资源的名称。 请在 [Azure 反馈论坛](http://feedback.azure.com)上针对此功能进行投票。
+在经典部署模型中为其显式提供名称的所有资源都会在迁移期间得到保留。 在某些情况下，会创建新资源。 例如：为每个 VM 创建网络接口。 目前无法控制迁移期间所创建的这些新资源的名称。 请在 [Azure 反馈论坛](https://support.azure.cn/support/contact/)上针对此功能进行投票。
 
 ## <a name="can-i-migrate-expressroute-circuits-used-across-subscriptions-with-authorization-links"></a>是否可以使用授权链接迁移跨订阅使用的 ExpressRoute 线路？ 
 
@@ -92,4 +92,3 @@ ms.locfileid: "52646063"
 ## <a name="i-got-the-message-vm-is-reporting-the-overall-agent-status-as-not-ready-hence-the-vm-cannot-be-migrated-ensure-that-the-vm-agent-is-reporting-overall-agent-status-as-ready-or-vm-contains-extension-whose-status-is-not-being-reported-from-the-vm-hence-this-vm-cannot-be-migrated"></a>我收到消息，指出 *“VM 报告总体代理状态为‘未就绪’。因此，此 VM 无法迁移。请确保 VM 代理报告总体代理状态为‘就绪’”* 或 *“VM 包含未报告其状态的扩展。因此，此 VM 无法迁移。”*
 
 当 VM 未建立到 Internet 的出站连接时，会收到此消息。 VM 代理使用出站连接访问 Azure 存储帐户，每隔五分钟更新一次代理状态。
-<!--ms.date: 06/04/2018-->

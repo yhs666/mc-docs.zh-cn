@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 141d2ec21e61d924ac2265c127c677efb0aeda5d
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: ab31d5365e4daf6cd866eb036d939d62a50727da
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586890"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818391"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 数据安全
 本文档旨在提供特定于 Azure Log Analytics 的信息（Azure Monitor 的功能），用于补充有关 [Azure 信任中心](../../security/security-microsoft-trust-center.md)的信息。  
@@ -57,9 +57,9 @@ Log Analytics 服务使用以下方法安全地管理你基于云的数据：
 Log Analytics 服务引入数据后，数据将在该服务的每个组件上都保持逻辑隔离。 所有数据按工作区进行标记。 此标记方式贯穿数据的整个生命周期，在服务的每个层强制实施。 数据存储在所选区域的群集存储中的专用数据库内。
 
 ## <a name="data-retention"></a>数据保留
-编入索引的日志搜索数据基于定价计划进行存储和保留。 有关详细信息，请参阅 [Log Analytics 定价](https://www.azure.cn/pricing/details/log-analytics/)。
+编入索引的日志搜索数据基于定价计划进行存储和保留。 有关详细信息，请参阅 [Log Analytics 定价](https://www.azure.cn/pricing/details/monitor/)。
 
-在履行[订阅协议](https://www.azure.cn/support/legal/subscription-agreement/)的过程中，Azure 会根据协议条款保留数据。  在删除客户数据时，不会销毁任何物理驱动器。  
+在履行[订阅协议](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)的过程中，Azure 会根据协议条款保留数据。  在删除客户数据时，不会销毁任何物理驱动器。  
 
 下表列出了可用的一些解决方案并提供了它们会收集的数据类型示例。
 
@@ -83,7 +83,7 @@ Log Analytics 服务引入数据后，数据将在该服务的每个组件上都
 | 状态 |StateChangeEventId、StateId、NewHealthState、OldHealthState、Context、TimeGenerated、TimeAdded、StateId2、BaseManagedEntityId、MonitorId、HealthState、LastModified、LastGreenAlertGenerated、DatabaseTimeModified |
 
 ## <a name="physical-security"></a>物理安全性
-Log Analytics 服务由 Azure 人员负责操控，将记录所有活动并且可进行审核。 Log Analytics 作为 Azure 服务运行，满足所有 Azure 符合性与安全要求。 可以在[世纪互联 Azure 安全性概述](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 页上查看有关 Azure 资产的物理安全性的详细信息。 对于不再负责 Log Analytics 服务的任何人员，会在一个工作日内更改该人员对安全区域的物理访问权限，包括传输和终止。 可在 [Microsoft 数据中心](https://www.azure.cn/global-infrastructure/)阅读有关我们使用的全球物理基础设施的信息。
+Log Analytics 服务由 Azure 人员负责操控，将记录所有活动并且可进行审核。 Log Analytics 作为 Azure 服务运行，满足所有 Azure 符合性与安全要求。 可以在[世纪互联 Azure 安全性概述](https://download.microsoft.com/download/6/0/2/6028B1AE-4AEE-46CE-9187-641DA97FC1EE/Windows%20Azure%20Security%20Overview%20v1.01.pdf)的第 18 页上查看有关 Azure 资产的物理安全性的详细信息。 对于不再负责 Log Analytics 服务的任何人员，会在一个工作日内更改该人员对安全区域的物理访问权限，包括传输和终止。
 
 ## <a name="incident-management"></a>事件管理
 Log Analytics 具有所有 Azure 服务都遵循的事件管理过程。 总而言之，我们：
@@ -168,12 +168,12 @@ Azure Log Analytics 满足以下要求：
 
 Windows 或管理服务器代理缓存的数据受操作系统的凭据存储的保护。 如果服务在两小时后无法处理数据，代理会将该数据加入队列。 如果队列已满，代理会开始丢弃数据类型，从性能数据开始。 代理队列限制是一个注册表项，因此必要时可以对它进行修改。 向服务发送（绕过 Operations Manager 管理组数据库）已收集的数据时会先对数据进行压缩，因此不会向数据库添加任何负载。 已收集的数据完成发送后，会从缓存中删除它。
 
-如上所述，来自管理服务器或直连代理的数据通过 SSL 发送到世纪互联 Azure 数据中心。 可以选择使用 ExpressRoute 为数据提供额外的安全性。 借助 ExpressRoute，可以从网络服务提供商提供的现有 WAN 网络（例如多协议标签交换 (MPLS) VPN）直接连接到 Azure。 有关详细信息，请参阅 [ExpressRoute](https://www.azure.cn/services/expressroute/)。
+如上所述，来自管理服务器或直连代理的数据通过 SSL 发送到世纪互联 Azure 数据中心。 可以选择使用 ExpressRoute 为数据提供额外的安全性。 借助 ExpressRoute，可以从网络服务提供商提供的现有 WAN 网络（例如多协议标签交换 (MPLS) VPN）直接连接到 Azure。 有关详细信息，请参阅 [ExpressRoute](/expressroute/)。
 
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3.Log Analytics 服务接收并处理数据
 Log Analytics 服务通过使用 Azure 身份验证对证书和数据完整性进行验证，来确保传入数据来自受信任的源。 然后，将未处理的原始数据存储在区域中的 Azure 事件中心，并最终存储静态数据。 存储的数据类型取决于导入的并用于收集数据的解决方案的类型。 然后，Log Analytics 服务处理原始数据并将其引入数据库。
 
-存储在数据库中的已收集数据的保留期取决于所选的定价计划。 对于“免费”层，收集的数据可以使用 7 天。 对于*付费*层，收集的数据默认情况下可以使用 31 天，但可以延长到 730 天。 数据在 Azure 存储中采用静态加密存储，以确保数据机密性，并且数据通过本地冗余存储 (LRS) 在本地区域内进行复制。 过去两周的数据也存储在基于 SSD 的缓存中，此缓存未加密。
+存储在数据库中的已收集数据的保留期取决于所选的定价计划。 对于“免费”层，收集的数据可以使用 7 天  。 对于*付费*层，收集的数据默认情况下可以使用 31 天，但可以延长到 730 天。 数据在 Azure 存储中采用静态加密存储，以确保数据机密性，并且数据通过本地冗余存储 (LRS) 在本地区域内进行复制。 过去两周的数据也存储在基于 SSD 的缓存中，此缓存未加密。
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4.使用 Log Analytics 访问数据
 若要访问 Log Analytics 工作区，请使用先前设置的组织帐户或 Azure 帐户登录到 Azure 门户。 门户与 Log Analytics 服务之间的所有流量通过安全 HTTPS 通道发送。 使用门户时，会在用户客户端（Web 浏览器）上生成会话 ID，会将数据存储在本地缓存中，直到该会话终止。 终止后，会删除该缓存。 不会自动删除不包含个人身份信息的客户端 Cookie。 会话 Cookie 标记为 HTTPOnly，并且受到保护。 在预先确定的空闲期过后，会终止 Azure 门户会话。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure CLI 将 VM 迁移到 Resource Manager | Azure
+title: 使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型 | Azure
 description: 本文逐步讲解如何使用 Azure CLI 对资源进行平台支持的从经典部署模型到 Azure Resource Manager 部署模型的迁移
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 03/30/2017
-ms.date: 10/22/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: b192faa5a112f5f03757a40972ef9964208a21e7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a6c2c4d7addecfc50477efe3c34ce1d86b59da0c
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660533"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68913022"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>使用 Azure CLI 将 IaaS 资源从经典部署模型迁移到 Azure Resource Manager 部署模型
 以下步骤演示如何使用 Azure 命令行接口 (CLI) 命令将基础结构即服务 (IaaS) 资源从经典部署模型迁移到 Azure Resource Manager 部署模型。 本文中的操作需要 [Azure 经典 CLI](../../cli-install-nodejs.md)。 由于 Azure CLI 仅适用于 Azure 资源管理器资源，因此它不能用于此迁移。
@@ -31,7 +31,7 @@ ms.locfileid: "52660533"
 > 
 > 
 
-<br>
+<br />
 下面是一个流程图，用于确定在迁移过程中需要执行步骤的顺序
 
 ![Screenshot that shows the migration steps](../windows/media/migration-classic-resource-manager/migration-flow.png)
@@ -50,7 +50,7 @@ ms.locfileid: "52660533"
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>步骤 2：设置订阅并注册提供程序
-对于迁移方案，需要针对经典部署模型和 Resource Manager 部署模型设置环境。 [安装 Azure CLI](../../cli-install-nodejs.md) 并[选择订阅](https://docs.azure.cn/zh-cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
+对于迁移方案，需要针对经典部署模型和 Resource Manager 部署模型设置环境。 [安装 Azure CLI](../../cli-install-nodejs.md) 并[选择订阅](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest)。
 
 登录到帐户。
 
@@ -63,7 +63,7 @@ ms.locfileid: "52660533"
 > [!NOTE]
 > 注册是一次性步骤，但必须在尝试迁移之前完成。 如果不注册，会看到以下错误消息 
 > 
-> *BadRequest : Subscription is not registered for migration.* 
+> *BadRequest:Subscription is not registered for migration.* （BadRequest：订阅尚未注册迁移。） 
 > 
 > 
 
@@ -86,7 +86,7 @@ ms.locfileid: "52660533"
 azure config mode arm
 ```
 
-可以使用以下 CLI 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-the-azure-resource-manager)
+可以使用以下 CLI 命令检查 Azure 资源管理器中目前的 vCPU 数量。 若要了解有关 vCPU 配额的详细信息，请参阅[限制和 Azure 资源管理器](../../azure-subscription-service-limits.md#limits-and-azure-resource-manager)
 
 ```
 azure vm list-usage -l "<Your VNET or Deployment's Azure region"
@@ -144,7 +144,7 @@ azure service deployment validate-migration <serviceName> <deploymentName> new "
 
 ![命令行屏幕截图，其中整个虚拟网络名称已突出显示。](../media/virtual-machines-linux-cli-migration-classic-resource-manager/vnet.png)
 
-在上面的示例中，**virtualNetworkName** 是完整名称 **"Group classicubuntu16 classicubuntu16"**。
+在上面的示例中，**virtualNetworkName** 是完整名称 **"Group classicubuntu16 classicubuntu16"** 。
 
 首先，请使用以下命令验证用户是否可以迁移虚拟网络：
 

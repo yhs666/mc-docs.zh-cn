@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 04/30/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2ad714043be7447d4b902e4730b57032dd5a1a0e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 0345ba7d4a25a0e2d47441287a5287da1e1d5ccc
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570429"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912729"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>处理 Linux 虚拟机的计划内维护通知
 
@@ -69,7 +69,7 @@ Azure 定期执行更新，以提高虚拟机的主机基础结构的可靠性�
 
 ## <a name="find-vms-scheduled-for-maintenance-using-cli"></a>使用 CLI 查找计划用于维护的 VM
 
-可以使用 [azure vm get-instance-view](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest) 查看计划内维护信息。
+可以使用 [azure vm get-instance-view](https://docs.azure.cn/cli/vm?view=azure-cli-latest) 查看计划内维护信息。
 
 仅当有计划内维护时，才会返回维护信息。 如果未计划任何影响 VM 的维护，该命令不返回任何维护信息。 
 
@@ -130,7 +130,9 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **答:** 对于部署在可用性集或虚拟机规模集中的虚拟机，我们有一个概念：更新域 (UD)。 执行维护时，Azure 遵循 UD 约束，不会从不同 UD（在同一可用性集中）重新启动虚拟机。  Azure 还会至少等待 30 分钟，然后才移到下一组虚拟机。 
 
-有关高可用性的详细信息，请参阅 [Azure 中虚拟机的区域和可用性](regions-and-availability.MD)。
+有关高可用性的详细信息，请参阅 [Azure 中虚拟机的可用性](availability.md)。
+
+<!--MOONCAKE CORRECT ON .md-->
 
 **问：如何收到有关计划内维护的通知？**
 
@@ -150,7 +152,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **问：使用虚拟机规模集时的体验如何？**
 
-**答:** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助维护的说明，请参阅 [VMSS 的计划内维护](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文档。
+**答:** 计划内维护现在适用于虚拟机规模集。 有关如何启动自助维护的说明，请参阅[虚拟机规模集的计划内维护](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md)文档。
 
 **问：使用云服务（Web/辅助角色）和 Service Fabric 时的体验如何？**
 

@@ -8,15 +8,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 04/15/2019
+origin.date: 03/21/2019
+ms.date: 08/19/2019
 ms.author: v-yiso
-ms.openlocfilehash: fd30d50d69bece87fdbf0886f8765ca1764874ad
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: acfd11fc3591aaac7595c7153e9b41ae5ac822d0
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003801"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878495"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>优化 Azure HDInsight 中的 Apache Hive 查询
 
@@ -42,19 +42,19 @@ ms.locfileid: "59003801"
 
 ## <a name="use-apache-tez-instead-of-map-reduce"></a>使用 Apache Tez 而不是 Map Reduce
 
-[Apache Tez](https://hortonworks.com/hadoop/tez/) 是 MapReduce 引擎的替代执行引擎。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
+[Apache Tez](https://tez.apache.org/) 是 MapReduce 引擎的替代执行引擎。 基于 Linux 的 HDInsight 群集在默认情况下会启用 Tez。
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
 Tez 速度更快，因为：
 
-* **作为 MapReduce 引擎中的单个作业执行有向无环图 (DAG)**。 DAG 要求每组映射器后接一组化简器。 这会导致针对每个 Hive 查询运行多个 MapReduce 作业。 Tez 没有这种局限性，它可以将复杂的 DAG 作为一个作业进行处理，因此将作业启动开销降到最低。
+* **作为 MapReduce 引擎中的单个作业执行有向无环图 (DAG)** 。 DAG 要求每组映射器后接一组化简器。 这会导致针对每个 Hive 查询运行多个 MapReduce 作业。 Tez 没有这种局限性，它可以将复杂的 DAG 作为一个作业进行处理，因此将作业启动开销降到最低。
 * **避免不必要的写入**。 多个作业用于处理 MapReduce 引擎中的同一 Hive 查询。 每个 MapReduce 作业的输出将作为中间数据写入 HDFS。 Tez 最大程度地减少了对每个 Hive 查询运行的作业数，因此能够避免不必要的写入。
 * **最大限度地降低启动延迟**。 Tez 可以减少需要启动的映射器数目，同时还能提高优化吞吐量，因此，更有利于最大限度地降低启动延迟。
 * **重复使用容器**。 Tez 会尽可能地重复使用容器，以确保降低由于启动容器而产生的延迟。
 * **连续优化技术**。 传统上，优化是在编译阶段完成的。 但是，由于可以提供有关输入的详细信息，因此可以在运行时更好地进行优化。 Tez 使用连续优化技术，从而可以在运行时阶段进一步优化计划。
 
-有关这些概念的详细信息，请参阅 [Apache TEZ](https://hortonworks.com/hadoop/tez/)。
+有关这些概念的详细信息，请参阅 [Apache TEZ](https://tez.apache.org/)。
 
 可以使用以下 set 命令设置查询的前缀，来执行 Tez 支持的任何 Hive 查询：
 
@@ -66,7 +66,7 @@ Tez 速度更快，因为：
 
 I/O 操作是运行 Hive 查询的主要性能瓶颈。 如果可以减少需要读取的数据量，即可改善性能。 默认情况下，Hive 查询会扫描整个 Hive 表。 但是，对于只需扫描少量数据的查询（例如，使用筛选进行查询），此行为会产生不必要的开销。 使用 Hive 分区，Hive 查询只需访问 Hive 表中必要的数据量。
 
-Hive 分区的实现方法是将原始数据重新组织成新目录。 每个分区都有自身的文件目录。 分区由用户定义。 下图说明如何根据年列来分区 Hive 表。 每年都会创建新的目录。
+Hive 分区的实现方法是将原始数据重新组织成新目录。 每个分区都有自身的文件目录。 分区由用户定义。 下图说明如何根据年  列来分区 Hive 表。 每年都会创建新的目录。
 
 ![Hive 分区][image-hdi-optimize-hive-partitioning_1]
 
@@ -74,7 +74,7 @@ Hive 分区的实现方法是将原始数据重新组织成新目录。 每个�
 
 * **不要分区不足** - 根据仅包含少量值的列进行分区可能会导致创建很少的分区。 例如，根据性别（男性和女性）分区只会创建两个分区，从而最多只会将延迟降低一半。
 * **不要创建过多分区** - 另一种极端情况是，根据包含唯一值的列（例如，userid）创建分区会导致创建多个分区。 创建过多分区会给群集 namenode 带来很大压力，因为它必须处理大量的目录。
-* **避免数据倾斜** - 明智选择分区键，以便所有分区的大小均等。 例如，按“州”列分区可能会导致数据分布出现偏斜。 因为加利福尼亚州的人口几乎是佛蒙特州的 30 倍，分区大小可能会出现偏差，性能可能有极大的差异。
+* **避免数据倾斜** - 明智选择分区键，以便所有分区的大小均等。 例如，按“州”列分区可能会导致数据分布出现偏斜。  因为加利福尼亚州的人口几乎是佛蒙特州的 30 倍，分区大小可能会出现偏差，性能可能有极大的差异。
 
 要创建分区表，请使用 *Partitioned By* 子句：
 
@@ -95,46 +95,47 @@ Hive 分区的实现方法是将原始数据重新组织成新目录。 每个�
 * **静态分区**表示已在相应目录中创建了分片数据。 使用静态分区可以根据目录位置手动添加 Hive 分区。 以下代码片段是一个示例。
 
    ```hive
-        INSERT OVERWRITE TABLE lineitem_part
-        PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
-        SELECT * FROM lineitem 
-        WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
+   INSERT OVERWRITE TABLE lineitem_part
+   PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM')
+   SELECT * FROM lineitem 
+   WHERE lineitem.L_SHIPDATE = '5/23/1996 12:00:00 AM'
 
-        ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
-        LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = '5/23/1996 12:00:00 AM'))
+   LOCATION 'wasb://sampledata@ignitedemo.blob.core.chinacloudapi.cn/partitions/5_23_1996/'
    ```
    
 * **动态分区** 表示希望 Hive 自动创建分区。 由于已基于暂存表创建了分区表，因此需要做的就是将数据插入分区表：
   
    ```hive
-        SET hive.exec.dynamic.partition = true;
-        SET hive.exec.dynamic.partition.mode = nonstrict;
-        INSERT INTO TABLE lineitem_part
-        PARTITION (L_SHIPDATE)
-        SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
-             L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
-             L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-         L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
-         L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
-         L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
-         L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
-         L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
+   SET hive.exec.dynamic.partition = true;
+   SET hive.exec.dynamic.partition.mode = nonstrict;
+   INSERT INTO TABLE lineitem_part
+   PARTITION (L_SHIPDATE)
+   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+       L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
+       L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+       L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
+       L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
+       L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
+       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
+       L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
    ```
-  有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
+   
+有关详细信息，请参阅[分区表](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables)。
 
 ## <a name="use-the-orcfile-format"></a>使用 ORCFile 格式
 Hive 支持不同的文件格式。 例如：
 
-* **文本**：默认的文件格式，适用于大多数情况
-* **Avro**：非常适合互操作方案
-* **ORC/Parquet**：最适合用于提高性能
+* **文本**：默认的文件格式，适用于大多数情况。
+* **Avro**：非常适合互操作性方案。
+* **ORC/Parquet**：最适合用于提高性能。
 
 ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其他格式相比，ORC 具有以下优点：
 
-* 支持复杂类型（包括 DateTime）和复杂的半结构化类型
-* 高达 70% 的压缩率
-* 每 10,000 行编制一次索引并允许跳过行
-* 大幅减少运行时执行时间
+* 支持复杂类型（包括 DateTime）和复杂的半结构化类型。
+* 高达 70% 的压缩率。
+* 每 10,000 行编制一次索引并允许跳过行。
+* 大幅减少运行时执行时间。
 
 要启用 ORC 格式，请先使用 *Stored as ORC*子句创建一个表：
 
@@ -197,6 +198,7 @@ ORC（优化行纵栏式）格式是存储 Hive 数据的高效方式。 与其�
 在本文中，学习了几种常见的 Hive 查询优化方法。 要了解更多信息，请参阅下列文章：
 
 * [使用 HDInsight 中的 Apache Hive](hadoop/hdinsight-use-hive.md)
+* [使用 HDInsight 中的交互式查询分析航班延误数据](/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [使用 HDInsight 中的 Apache Hive 分析航班延误数据](hdinsight-analyze-flight-delay-data-linux.md)
 
 [image-hdi-optimize-hive-scaleout_1]: ./media/hdinsight-hadoop-optimize-hive-query/scaleout_1.png

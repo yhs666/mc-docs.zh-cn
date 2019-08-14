@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 7d7d8456e213e6b5163f33996d44634f6774d216
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 3e37cc846e01d4445695cc90e21beaae2565f17a
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586839"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818457"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
@@ -32,7 +32,7 @@ ms.locfileid: "65586839"
 
 ## <a name="prerequisites"></a>先决条件
 
-* [下载并配置 Azure PowerShell 模块](/powershell/azure/overview)。 若要安装特定的 Azure Batch 模块，例如预发行模块，请参阅 [PowerShell 库](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)。
+* [下载并配置 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/overview)。 若要安装特定的 Azure Batch 模块，例如预发行模块，请参阅 [PowerShell 库](https://www.powershellgallery.com/packages/Az.Batch/1.0.0)。
 
 * 运行 **Connect-AzAccount** cmdlet 连接到订阅（Azure 资源管理器模块中随附了 Azure Batch cmdlet）：
 
@@ -49,7 +49,7 @@ ms.locfileid: "65586839"
 ## <a name="manage-batch-accounts-and-keys"></a>管理 Batch 帐户和密钥
 ### <a name="create-a-batch-account"></a>创建批处理帐户
 
-**New-AzBatchAccount** 可在指定的资源组中创建 Batch 帐户。 如果没有资源组，可以运行 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建一个资源组。 在“位置”参数中指定一个 Azure 区域，如“美国中部”。 例如：
+**New-AzBatchAccount** 可在指定的资源组中创建 Batch 帐户。 如果没有资源组，可以运行 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) cmdlet 创建一个资源组。 在“位置”参数中指定一个 Azure 区域，如“美国中部”。  例如：
 
 ```powershell
     New-AzResourceGroup -Name MyBatchResourceGroup -location "China North"

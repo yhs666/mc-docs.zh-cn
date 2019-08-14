@@ -18,12 +18,12 @@ ms.workload: big-data
 origin.date: 05/28/2019
 ms.date: 06/24/2019
 ms.author: v-yiso
-ms.openlocfilehash: c759c2671b37f2167e598a7b389db571d3060625
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 332ff8827b3dace03ec43674d91343357d4a597d
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135866"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878478"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 Azure HDInsight 中的 Apache Hadoop
 
@@ -31,7 +31,7 @@ ms.locfileid: "67135866"
 
 Microsoft 的大数据解决方案可将 Microsoft 商业智能 (BI) 组件与已在 Azure HDInsight 中部署的 Apache Hadoop 群集集成。 此集成的一个例子是，能够使用 Microsoft Hive 开放式数据库连接 (ODBC) 驱动程序将 Excel 连接到 HDInsight 中的 Hadoop 群集的 Hive 数据仓库。
 
-还可以使用用于 Excel 的 Microsoft Power Query 外接程序从 Excel 连接与 HDInsight 群集和其他数据源（包括其他非 HDInsight Hadoop 群集）关联的数据。 有关安装和使用 Power Query 的信息，请参阅[利用 Power Query 将 Excel 连接到 HDInsight][hdinsight-power-query]。
+还可以使用用于 Excel 的 Microsoft Power Query 外接程序从 Excel 连接与 HDInsight 群集和其他数据源（包括其他非 HDInsight Hadoop 群集）关联的数据。 有关安装和使用 Power Query 的信息，请参阅[使用 Power Query 将 Excel 连接到 HDInsight][hdinsight-power-query]。
 
 
 ## <a name="prerequisites"></a>先决条件
@@ -60,7 +60,7 @@ Microsoft 的大数据解决方案可将 Microsoft 商业智能 (BI) 组件与�
    | 属性 | 说明 |
    | --- | --- |
    |  数据源名称 |为数据源提供名称 |
-   |  主机 |输入 `HDInsightClusterName.azurehdinsight.net`。 例如： `myHDICluster.azurehdinsight.net` |
+   |  主机 |输入 `HDInsightClusterName.azurehdinsight.cn`。 例如： `myHDICluster.azurehdinsight.cn` |
    |  端口 |使用 **443**。 （此端口已从 563 更改为 443。） |
    |  数据库 |使用“默认”  。 |
    |  机制 |选择“Windows Azure HDInsight 服务”  |

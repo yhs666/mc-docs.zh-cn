@@ -6,14 +6,14 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: article
 origin.date: 02/20/2019
-ms.date: 05/20/2019
+ms.date: 08/06/2019
 ms.author: v-junlch
-ms.openlocfilehash: e6726f0f0a375a7d9c7226deb6b9d4c9081dab71
-ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.openlocfilehash: cd9f52b7a1461f76127f09f8352ff478931eff14
+ms.sourcegitcommit: 17cd5461e7d99f40b9b1fc5f1d579f82b2e27be9
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65960912"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818836"
 ---
 # <a name="application-gateway-components"></a>应用程序网关组件
 
@@ -27,7 +27,7 @@ ms.locfileid: "65960912"
 
 ### <a name="static-versus-dynamic-public-ip-address"></a>静态与动态公共 IP 地址
 
-v1 SKU 支持静态内部 IP 地址，但不支持静态公共 IP 地址。 如果停止再启动应用程序网关，虚拟 IP (VIP) 地址可能会变化。
+V1 SKU 可配置为支持静态内部 IP 地址和动态公共 IP 地址、仅支持静态内部 IP 地址，或仅支持动态公共 IP 地址。 在正在运行的网关上，应用程序网关的动态 IP 地址不会更改。 只有在停止或启动网关时，它才能更改。 它不会因系统故障、更新、Azure 主机更新等而发生更改。 
 
 与应用程序网关关联的 DNS 名称在网关的整个生命周期内不会变化。 出于此原因，应使用 CNAME 别名并使其指向应用程序网关的 DNS 地址。
 

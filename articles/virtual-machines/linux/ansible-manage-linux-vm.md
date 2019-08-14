@@ -8,13 +8,13 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 04/30/2019
-ms.date: 07/01/2019
-ms.openlocfilehash: e91b2d96c8ce9df20968b296a140ea49a165c3aa
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 583666592be2c82e8c21835f31eef9cf4757caaa
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570330"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912915"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>快速入门：使用 Ansible 管理 Azure 中的 Linux 虚拟机
 
@@ -35,7 +35,7 @@ ms.locfileid: "67570330"
 
     <!--Not Available on [Cloud Shell](/cloud-shell/overview)-->
 
-1.  连接已成功安装 ansible 的 linux 虚拟机。
+1. 使用 SSH 命令访问已成功安装并配置了 Ansible 的 Linux 虚拟机。 将 \<your-linux-public-ip-address\> 占位符替换为 Linux 虚拟机中的实际 IP 地址。
 
     ```
     ssh <your-linux-account>@<your-linux-public-ip-address>
@@ -47,9 +47,9 @@ ms.locfileid: "67570330"
     vi azure-vm-stop.yml
     ```
 
-1.  按 **I** 键进入插入模式。
+1. 通过选择 **I** 键选择插入模式。
 
-1.  将以下示例代码粘贴到编辑器中：
+1. 将以下示例代码粘贴到编辑器中：
 
     ```yaml
     - name: Stop Azure VM
@@ -67,7 +67,7 @@ ms.locfileid: "67570330"
 
 1.  按 **Esc** 键退出插入模式。
 
-1.  保存文件，然后输入以下命令退出 vi 编辑器：
+1.  保存文件，然后键入以下命令退出 vi 编辑器：
 
     ```bash
     :wq
@@ -106,15 +106,15 @@ ms.locfileid: "67570330"
     ssh <your-linux-account>@<your-linux-public-ip-address>
     ```
 
-1.  创建一个名为 `azure-vm-start.yml` 的文件，并在编辑器中将其打开：
+1. 创建一个名为 `azure-vm-start.yml` 的文件，并在编辑器中将其打开：
 
     ```azurecli
     vi azure-vm-start.yml
     ```
 
-1.  按 **I** 键进入插入模式。
+1.  通过选择 **I** 键选择插入模式。
 
-1.  将以下示例代码粘贴到编辑器中：
+1. 将以下示例代码粘贴到编辑器中：
 
     ```yaml
     - name: Start Azure VM
@@ -131,7 +131,7 @@ ms.locfileid: "67570330"
 
 1.  按 **Esc** 键退出插入模式。
 
-1.  保存文件，然后输入以下命令退出 vi 编辑器：
+1.  保存文件，然后键入以下命令退出 vi 编辑器：
 
     ```bash
     :wq

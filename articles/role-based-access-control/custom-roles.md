@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/13/2019
-ms.date: 06/13/2019
+origin.date: 06/07/2019
+ms.date: 08/07/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 790c79b466ce2ee51a7e504f5b48ee06d3e0eb85
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 04c60ef18a44a24071542f4fa6e447d182385016
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046962"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878731"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Azure 资源的自定义角色
 
@@ -99,9 +99,9 @@ ms.locfileid: "67046962"
 | `Description` | 是 | String | 自定义角色的说明。 可以包含字母、数字、空格和特殊字符。 最多包含 1024 个字符。 |
 | `Actions` | 是 | String[] | 一个字符串数组，指定该角色允许执行的管理操作。 有关详细信息，请参阅 [Actions](role-definitions.md#actions)。 |
 | `NotActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `Actions` 中排除的管理操作。 有关详细信息，请参阅 [NotActions](role-definitions.md#notactions)。 |
-| `DataActions` | 否 | String[] | 一个字符串数组，指定该角色允许对该对象中的数据执行的数据操作。 有关详细信息，请参阅 [DataActions（预览）](role-definitions.md#dataactions-preview)。 |
-| `NotDataActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `DataActions` 中排除的数据操作。 有关详细信息，请参阅 [NotDataActions（预览）](role-definitions.md#notdataactions-preview)。 |
-| `AssignableScopes` | 是 | String[] | 一个字符串数组，指定自定义角色的可分配范围。 当前不能设置为根范围 (`"/"`) 或管理组范围。 有关详细信息，请参阅 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理组来组织资源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
+| `DataActions` | 否 | String[] | 一个字符串数组，指定该角色允许对该对象中的数据执行的数据操作。 有关详细信息，请参阅 [DataActions](role-definitions.md#dataactions)。 |
+| `NotDataActions` | 否 | String[] | 一个字符串数组，指定要从允许的 `DataActions` 中排除的数据操作。 有关详细信息，请参阅 [NotDataActions](role-definitions.md#notdataactions)。 |
+| `AssignableScopes` | 是 | String[] | 一个字符串数组，指定自定义角色的可分配范围。 对于自定义角色，当前不能将 `AssignableScopes` 设置为根范围 (`"/"`) 或管理组范围。 有关详细信息，请参阅 [AssignableScopes](role-definitions.md#assignablescopes) 和[使用 Azure 管理组来组织资源](../governance/management-groups/index.md#custom-rbac-role-definition-and-assignment)。 |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>谁可以创建、删除、更新或查看自定义角色
 

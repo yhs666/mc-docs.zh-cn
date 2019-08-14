@@ -1,5 +1,5 @@
 ---
-title: 在运行 Linux 的虚拟机上配置 LVM | Azure
+title: 在 Azure 中的 Linux VM 上配置 LVM | Azure
 description: 了解如何在 Azure 中的 Linux 上配置 LVM。
 services: virtual-machines-linux
 documentationcenter: na
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.subservice: disks
-ms.openlocfilehash: 7ef89e23543de3abb0ced8cacdfb476d2f7e772d
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: b08f22b8d1eb92e6bae04d95cc7eced554e8ff95
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666271"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912982"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>在 Azure 中的 Linux VM 上配置 LVM
 本文档介绍如何在 Azure 虚拟机中配置逻辑卷管理器 (LVM)。 LVM 可以在 Azure VM 中的 OS 磁盘或数据磁盘上使用，但是，默认情况下，大多数云映像都不会在 OS 磁盘上配置 LVM。 以下步骤将重点介绍如何为数据磁盘配置 LVM。
@@ -103,6 +103,7 @@ LVM 可用于将多个物理磁盘合并成单个存储卷。 默认情况下，
    > 在 SLES11 上，请使用 `-t ext3` 而不是 ext4。 SLES11 仅支持对 ext4 文件系统进行只读访问。
 
 ## <a name="add-the-new-file-system-to-etcfstab"></a>将新文件系统添加到 /etc/fstab
+
 > [!IMPORTANT]
 > 错误地编辑 `/etc/fstab` 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑之前创建 `/etc/fstab` 文件的备份。
 

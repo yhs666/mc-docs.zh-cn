@@ -8,18 +8,18 @@ manager: barbkess
 ms.service: app-service
 ms.topic: conceptual
 origin.date: 05/08/2019
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: fc7a9efcc155d6d6ef2bf786a376e731f7dbdeae
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.date: 08/12/2019
+ms.author: v-johch
+ms.openlocfilehash: 41aff175b9a9413f00b9ed00728fd3be665baa14
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687490"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878611"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Azure 应用服务的安全属性
 
-本文记录了内置到 Azure 应用服务中的常见安全属性。
+本文介绍 Azure 应用服务中内置的安全属性。
 
 [!INCLUDE [Security attributes header](../../includes/security-attributes-header.md)]
 
@@ -40,12 +40,17 @@ ms.locfileid: "66687490"
 | 服务终结点支持| 是 | 目前提供适用于应用服务的预览版。 请参阅 [Azure 应用服务访问限制](app-service-ip-restrictions.md)。 |
 | 网络隔离和防火墙支持| 是 | 对于应用服务的公共多租户变体，客户可以配置网络 ACL（IP 限制），锁定允许的入站流量。  请参阅 [Azure 应用服务访问限制](app-service-ip-restrictions.md)。  应用服务环境直接部署到虚拟网络中，因此可以通过 NSG 来确保安全。 |
 
+## <a name="detection"></a>检测
+
+| 安全属性 | Yes/No | 注释|
+|---|---|--|
+| Azure 监视支持（Log Analytics、App Insights 等）| 是 | 应用服务通过支持 Application Insights 的语言（完整版 .NET Framework、.NET Core、Java 和 Node.js）与 Application Insights 集成。  请参阅[监视 Azure 应用服务性能](../azure-monitor/app/azure-web-apps.md)。 应用服务还会将应用程序指标发送到 Azure Monitor。 请参阅[在 Azure 应用服务中监视应用](web-sites-monitor.md)。 |
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| 身份验证| 是 | 客户可以构建基于应用服务的应用程序，这些应用程序自动集成 [Azure Active Directory (Azure AD)](../active-directory/index.md) 以及其他与 OAuth 兼容的标识提供者；请参阅 [Azure 应用服务中的身份验证和授权](overview-authentication-authorization.md)。 对应用服务资产进行管理访问时，所有访问都可以通过组合使用经 Azure AD 验证的主体和 Azure 资源管理器 RBAC 角色进行控制。 |
+| 身份验证| 是 | 客户可以构建基于应用服务的应用程序，这些应用程序自动集成 [Azure Active Directory (Azure AD)](../active-directory/index.yml) 以及其他与 OAuth 兼容的标识提供者；请参阅 [Azure 应用服务中的身份验证和授权](overview-authentication-authorization.md)。 对应用服务资产进行管理访问时，所有访问都可以通过组合使用经 Azure AD 验证的主体和 Azure 资源管理器 RBAC 角色进行控制。 |
 | 授权| 是 | 对应用服务资产进行管理访问时，所有访问都可以通过组合使用经 Azure AD 验证的主体和 Azure 资源管理器 RBAC 角色进行控制。  |
 
 
