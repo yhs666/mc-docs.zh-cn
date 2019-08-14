@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/17/2019
-ms.date: 05/21/2019
+origin.date: 06/12/2019
+ms.date: 08/07/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: e35406552b6ab2b624e5b7fd0b690aee7bc2a191
-ms.sourcegitcommit: 932a335a0e5526ea70be496c393484702722f900
+ms.openlocfilehash: 1532d0e4c59e2b417873c22377943182c242d7dd
+ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "65997329"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68878659"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限
 
@@ -284,7 +284,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-以下示例将“虚拟机参与者”角色[](built-in-roles.md#virtual-machine-contributor)分配给 *pharma-sales* 资源组范围内的 *alain@example.com* 用户。 若要获取唯一的角色 ID，可以使用 [Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 资源的内置角色](built-in-roles.md)。
+以下示例将[“虚拟机参与者”角色](built-in-roles.md#virtual-machine-contributor)分配给 *pharma-sales* 资源组范围内的 *alain@example.com* 用户。 若要获取唯一的角色 ID，可以使用 [Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 资源的内置角色](built-in-roles.md)。
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -364,6 +364,8 @@ Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -S
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
+
+如果收到错误消息：“提供的信息未映射到角色分配”，请确保还指定了 `-Scope` 或 `-ResourceGroupName` 参数。 有关详细信息，请参阅[对 Azure 资源的 RBAC 进行故障排除](troubleshooting.md#role-assignments-without-a-security-principal)。
 
 ## <a name="next-steps"></a>后续步骤
 
