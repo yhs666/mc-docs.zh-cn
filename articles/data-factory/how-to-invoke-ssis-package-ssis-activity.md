@@ -8,27 +8,27 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-origin.date: 03/19/2019
-ms.date: 07/08/2019
+origin.date: 07/01/2019
+ms.date: 08/12/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 41ef0a91fa3309d9eb52f3706598d13bcd1981f4
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 1f1528600b728d56755508d0d6a7800fbf3713ba
+ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569843"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68908733"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用“执行 SSIS 包”活动运行 SSIS 包
-本文介绍如何使用“执行 SSIS 包”活动在 Azure 数据工厂 (ADF) 管道中运行 SSIS 包。 
+本文介绍如何使用“执行 SSIS 包”活动在 Azure 数据工厂 (ADF) 管道中运行 SQL Server Integration Services (SSIS) 包。 
 
 ## <a name="prerequisites"></a>先决条件
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果还没有 Azure-SSIS Integration Runtime (IR)，请按照[教程：将 SSIS 包部署到 Azure](tutorial-create-azure-ssis-runtime-portal.md) 中的分步说明创建一个。
+如果还没有 Azure-SSIS Integration Runtime (IR)，请按照[教程：预配 Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)。
 
 ## <a name="run-a-package-in-the-azure-portal"></a>在 Azure 门户中运行包
 在本部分中，将使用 ADF 用户界面 (UI)/应用创建一个 ADF 管道，管道中包含运行 SSIS 包的“执行 SSIS 包”活动。
@@ -52,7 +52,11 @@ ms.locfileid: "67569843"
 
    ![在“常规”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. 在“执行 SSIS 包”活动的“设置”选项卡上，选择与部署包的 SSISDB 数据库关联的 Azure-SSIS IR  。 如果你的包使用 Windows 身份验证访问数据存储，例如本地的 SQL Server/文件共享、Azure 文件存储等，请选中“Windows 身份验证”  复选框，并输入用于执行该包的域/用户名/密码。 如果包需要 32 位运行时才能运行，请选中“32 位运行时”复选框  。 对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 如果 Azure-SSIS IR 正在运行且未选中“手动输入内容”复选框，可以从 SSISDB 浏览并选择现有的文件夹/项目/包/环境  。 单击“刷新”按钮可从 SSISDB 获取新添加的文件夹/项目/包/环境，以便可以进行浏览和选择  。 
+4. 在“执行 SSIS 包”活动的“设置”选项卡上，选择要在其中运行包的 Azure-SSIS IR。  如果你的包使用 Windows 身份验证访问数据存储，例如本地的 SQL Server/文件共享、Azure 文件存储等，请选中“Windows 身份验证”复选框，并输入包执行凭据（**域**/**用户名**/**密码**）的值。  或者，可以将 Azure Key Vault (AKV) 中存储的机密用作其值。 为此，请单击相关凭据旁的“AZURE KEY VAULT”复选框  ，选择/编辑现有的 AKV 链接服务或新建该链接服务，然后为凭据值选择机密名称/版本。  创建/编辑 AKV 链接服务时，可以选择/编辑现有的 AKV 链接服务或新建该链接服务，但是，请授予对 AKV 的 ADF 托管标识访问权限（如果你尚未这样做）。 此外，还可以采用以下格式直接输入机密：`<AKV linked service name>/<secret name>/<secret version>`。 如果包需要 32 位运行时才能运行，请选中“32 位运行时”复选框  。 
+
+   对于“包位置”，请选择“SSISDB”、“文件系统(包)”或“文件系统(项目)”。     如果选择“SSISDB”作为包位置（如果为 Azure-SSIS IR 预配了 Azure SQL 数据库服务器/托管实例托管的 SSIS 目录 (SSISDB)，则会自动选择该选项），则需要指定要运行的、已部署到 SSISDB 中的包。  如果 Azure-SSIS IR 正在运行且未选中“手动输入内容”复选框，可以从 SSISDB 浏览并选择现有的文件夹/项目/包/环境  。 单击“刷新”按钮可从 SSISDB 获取新添加的文件夹/项目/包/环境，以便可以进行浏览和选择  。 
+   
+   对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 
 
    ![在“设置”选项卡上设置属性 - 自动](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
@@ -60,17 +64,51 @@ ms.locfileid: "67569843"
 
    ![在“设置”选项卡上设置属性 - 手动](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-5. 在“执行 SSIS 包”活动的“SSIS 参数”选项卡上，如果 Azure-SSIS IR 正在运行且未选中“设置”选项卡上的“手动输入内容”复选框，则会显示 SSISDB 中选定项目/包中现有的 SSIS 参数，以便为它们赋值    。 否则，可以逐个输入以便手动为它们赋值 - 为了使包成功执行，请确保它们存在并已正确输入。 可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量将动态内容添加到其值中。 或者，可以将 Azure Key Vault (AKV) 中存储的机密用作其值。 为此，请单击相关参数旁的“AZURE KEY VAULT”复选框  ，选择/编辑现有的 AKV 链接服务或新建该链接服务，然后为参数值选择机密名称/版本。  创建/编辑 AKV 链接服务时，可以选择/编辑现有的 AKV 链接服务或新建该链接服务，但是，请授予对 AKV 的 ADF 托管标识访问权限（如果你尚未这样做）。 此外，还可以采用以下格式直接输入机密：`<AKV linked service name>/<secret name>/<secret version>`。
+   如果选择“文件系统(包)”作为包位置（如果未为 Azure-SSIS IR 预配 SSISDB，则会自动选择该选项），则需要通过在“包路径”中提供包文件 (`.dtsx`) 的通用命名约定 (UNC) 路径来指定要运行的包。   例如，如果将包存储在 Azure 文件中，则其包路径为 `\\<storage account name>.file.core.chinacloudapi.cn\<file share name>\<package name>.dtsx`。 
+   
+   如果在单独的文件中配置包，则还需要在“配置路径”中提供配置文件 (** ) 的 UNC 路径。`.dtsConfig`** 例如，如果将配置存储在 Azure 文件中，则其配置路径为 `\\<storage account name>.file.core.chinacloudapi.cn\<file share name>\<configuration name>.dtsConfig`。
+
+   ![在“设置”选项卡上设置属性 - 手动](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+
+   如果选择“文件系统(项目)”作为包位置，则需要通过在“项目路径”中提供项目文件 (`.ispac`) 的 UNC 路径，并在“包名称”中提供项目中某个包文件 (`.dtsx`) 的 UNC 路径，来指定要运行的包。    例如，如果将项目存储在 Azure 文件中，则其项目路径为 `\\<storage account name>.file.core.chinacloudapi.cn\<file share name>\<project name>.ispac`。
+
+   ![在“设置”选项卡上设置属性 - 手动](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+
+   接下来，需要指定用于访问项目/包/配置文件的凭据。 如果先前已输入包执行凭据的值（参阅上文），则可以通过选中“与包执行凭据相同”复选框来重复使用这些值。  否则，需要输入包访问凭据（**域**/**用户名**/**密码**）的值。 例如，如果将项目/包/配置存储在 Azure 文件中，则“域”为 `Azure`，“用户名”为 `<storage account name>`，“密码”为 `<storage account key>`。    或者，可将 AKV 中存储的机密用作其值（参阅上文）。 这些凭据用于访问“执行包任务”中的包和子包，全部来自其自身的路径/相同的项目以及配置（包括包中指定的配置）。 
+   
+   如果在通过 SQL Server Data Tools ( SSDT) 创建包时使用了 **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** 保护级别，则需要在“加密密码”中输入密码的值。  或者，可将 AKV 中存储的机密用作其值（参阅上文）。 如果使用了 **EncryptSensitiveWithUserKey** 保护级别，则需要在配置文件中或在“SSIS 参数”/“连接管理器”/“属性替代”选项卡上重新输入敏感值（参阅下文）。    如果使用了 **EncryptAllWithUserKey** 保护级别，将不支持该设置，因此，需要通过 SSDT 或 `dtutil` 命令行实用工具将包重新配置为使用其他保护级别。 
+   
+   对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 若要记录包执行但不使用可在包中指定的标准日志提供程序，需要通过在“日志记录路径”中提供其 UNC 路径来指定日志文件夹。  例如，如果将日志存储在 Azure 文件中，则日志记录路径为 `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`。 将在此路径中为每个包运行创建一个与“执行 SSIS 包”活动运行 ID 同名的子文件夹，其中的日志文件每隔 5 分钟生成一次。 
+   
+   最后，还需要指定用于访问日志文件夹的凭据。 如果先前已输入包访问凭据的值（参阅上文），则可以通过选中“与包访问凭据相同”复选框来重复使用这些值。  否则，需要输入日志访问凭据（**域**/**用户名**/**密码**）的值。 例如，如果将日志存储在 Azure 文件中，则“域”为 `Azure`，“用户名”为 `<storage account name>`，“密码”为 `<storage account key>`。    或者，可将 AKV 中存储的机密用作其值（参阅上文）。 这些凭据用于存储日志。 
+   
+   对于上面提到的所有 UNC 路径，完全限定的文件名必须短于 260 个字符，目录名称必须短于 248 个字符。
+
+5. 在“执行 SSIS 包”活动的“SSIS 参数”选项卡上，如果 Azure-SSIS IR 正在运行、已选择“SSISDB”作为包位置，且未选中“设置”选项卡上的“手动输入内容”复选框，则会显示 SSISDB 中选定项目/包中现有的 SSIS 参数，以便为它们赋值     。 否则，可以逐个输入以便手动为它们赋值 - 为了使包成功执行，请确保它们存在并已正确输入。 
+   
+   如果通过 SSDT 创建包时使用了 **EncryptSensitiveWithUserKey** 保护级别，且已选择“文件系统(包)”/“文件系统(项目)”作为包位置，则还需要重新输入敏感参数，以便在配置文件或此选项卡上为它们赋值。   
+   
+   为参数赋值时，可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量添加动态内容。 或者，可将 AKV 中存储的机密用作其值（参阅上文）。
 
    ![在“SSIS 参数”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. 在用于“执行 SSIS 包”活动的“连接管理器”选项卡上，如果 Azure-SSIS IR 正在运行，并且“设置”选项卡上的“手动输入内容”复选框处于选中状态，则 SSISDB 中的选定项目/包中的现有连接管理器将会显示，供你为其属性赋值    。 否则，可以逐个输入这些机密，以便手动为其属性赋值 - 为了使你的包成功执行，请确保它们存在并已正确输入。 可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量将动态内容添加到其属性值中。 或者，可以将 Azure Key Vault (AKV) 中存储的机密用作其属性值。 为此，请单击相关属性旁的“AZURE KEY VAULT”复选框  ，选择/编辑现有的 AKV 链接服务或新建该链接服务，然后为属性值选择机密名称/版本。  创建/编辑 AKV 链接服务时，可以选择/编辑现有的 AKV 链接服务或新建该链接服务，但是，请授予对 AKV 的 ADF 托管标识访问权限（如果你尚未这样做）。 此外，还可以采用以下格式直接输入机密：`<AKV linked service name>/<secret name>/<secret version>`。
+6. 在用于“执行 SSIS 包”活动的“连接管理器”选项卡上，如果 Azure-SSIS IR 正在运行、已选择“SSISDB”作为包位置，且未选中“设置”选项卡上的“手动输入内容”复选框，则 SSISDB 中的选定项目/包中的现有连接管理器将会显示，供你为其属性赋值     。 否则，可以逐个输入这些机密，以便手动为其属性赋值 - 为了使你的包成功执行，请确保它们存在并已正确输入。 
+   
+   如果通过 SSDT 创建包时使用了 **EncryptSensitiveWithUserKey** 保护级别，且已选择“文件系统(包)”/“文件系统(项目)”作为包位置，则还需要重新输入敏感的连接管理器属性，以便在配置文件或此选项卡上为它们赋值。   
+   
+   为连接管理器属性赋值时，可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量添加动态内容。 或者，可将 AKV 中存储的机密用作其值（参阅上文）。
 
    ![在“连接管理器”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. 在“执行 SSIS 包”活动的“属性替代”选项卡上，可以逐个输入 SSISDB 中选定包的现有属性的路径，以便手动为其赋值 - 为了使包成功执行，请确保它们存在并已正确输入，例如，若要替代用户变量的值，请按以下格式输入其路径：`\Package.Variables[User::YourVariableName].Value`  。 还可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量将动态内容添加到其值中。
+7. 在“执行 SSIS 包”活动的“属性替代”选项卡上，可以逐个输入选定包的现有属性的路径，以便手动为其赋值 - 为了使包成功执行，请确保它们存在并已正确输入，例如，若要替代用户变量的值，请按以下格式输入其路径：`\Package.Variables[User::<variable name>].Value`  。 
+   
+   如果通过 SSDT 创建包时使用了 **EncryptSensitiveWithUserKey** 保护级别，且已选择“文件系统(包)”/“文件系统(项目)”作为包位置，则还需要重新输入敏感属性，以便在配置文件或此选项卡上为它们赋值。   
+   
+   为属性赋值时，可以使用表达式、函数、ADF 系统变量和 ADF 管道参数/变量添加动态内容。
 
    ![在“属性替代”选项卡上设置属性](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+
+   可以使用“连接管理器”/“属性替代”选项卡替代配置文件中和“SSIS 参数”选项卡上的赋值，同时，还可以使用“属性替代”选项卡替代“连接管理器”选项卡上的赋值。     
 
 8. 若要验证管道配置，请单击工具栏中的“验证”  。 若要关闭“管道验证报告”，  请单击 **>>** 。
 
@@ -103,7 +141,7 @@ ms.locfileid: "67569843"
 
    ![验证包执行](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. 还可以从管道活动运行的输出中获取 SSISDB 执行 ID，并使用此 ID 在 SSMS 中查看更全面的执行日志和错误消息。
+4. 还可以从管道活动运行的输出中获取 SSISDB 执行 ID，并使用此 ID 在 SQL Server Management Studio (SSMS) 中查看更全面的执行日志和错误消息。
 
    ![获取执行 ID。](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
