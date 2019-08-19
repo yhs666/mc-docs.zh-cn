@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/06/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 7363f2e3adf5fb9b0f25ab5caa62aeb448a4ea1b
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 68c5144d4ef6809bdf7ec7131de242057fef96dc
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513796"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969675"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
@@ -51,7 +51,7 @@ Azure Monitor 日志用于调整和支持来自任何源的巨量数据的每日
 
 从“使用情况和估计成本”页面，可以查看当月的数据量  。 这包括 Log Analytics 工作区中收到和保留的所有数据。  单击页面顶部的“使用情况详细信息”查看使用情况仪表板，其中按源、计算机和产品/服务显示了有关数据量趋势的信息。  若要查看和设置每日上限或修改保留期，请单击“数据量管理”。 
  
-Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计费”部分或在 [Azure 计费门户](https://account.windowsazure.com/Subscriptions)中查看 Azure 账单详细信息。  
+Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计费”部分或在 [Azure 计费门户](https://account.windowsazure.cn)中查看 Azure 账单详细信息。  
 
 ## <a name="daily-cap"></a>每日上限
 
@@ -107,7 +107,7 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 
 ## <a name="legacy-pricing-tiers"></a>旧版定价层
 
-如果订阅在 2018 年 4 月 2 日前已有 Log Analytics 工作区或 Application Insights 资源，或者链接到了 2019 年 2 月 1 日前启动的企业协议，则这些订阅将继续可以使用以下旧定价层：“免费”  、“独立(按 GB)”  和“按节点(OMS)”  。  对于“免费”定价层中的工作区，其每日数据引入量限制为 500 MB（由 Azure 安全中心收集的安全数据类型除外），并且其数据保留期限制为 7 天。 “免费”定价层仅用于评估目的。 对于“独立”或“按节点”定价层中的工作区，其用户可配置的保留期长达 2 年。 在 2016 年 4 月前创建的工作区也可以使用原有的“标准”和“高级”定价层   。 [此处](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces)提供了定价层限制的更多详细信息。
+如果订阅在 2018 年 4 月 2 日前已有 Log Analytics 工作区或 Application Insights 资源，或者链接到了 2019 年 2 月 1 日前启动的企业协议，则这些订阅将继续可以使用以下旧定价层：“免费”  、“独立(按 GB)”  和“按节点(OMS)”  。  对于“免费”定价层中的工作区，其每日数据引入量限制为 500 MB（由 Azure 安全中心收集的安全数据类型除外），并且其数据保留期限制为 7 天。 “免费”定价层仅用于评估目的。 对于“独立”或“按节点”定价层中的工作区，其用户可配置的保留期长达 2 年。 在 2016 年 4 月前创建的工作区也可以使用原有的“标准”和“高级”定价层   。 [此处](/azure-subscription-service-limits#log-analytics-workspaces)提供了定价层限制的更多详细信息。
 
 > [!NOTE]
 > 若要使用通过购买用于 System Center 的 OMS E1 套件、OMS E2 套件或 OMS 附加产品所获得的权利，请选择 Log Analytics 的“按节点”定价层  。

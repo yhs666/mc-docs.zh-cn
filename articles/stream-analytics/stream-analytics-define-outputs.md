@@ -4,17 +4,18 @@ description: 本文介绍 Azure 流分析提供的数据输出选项，包括用
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.custom: seodec18
-ms.openlocfilehash: a63dd808ee60ac5db73657d93a0d0eb7eedbe6c7
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+origin.date: 08/09/2019
+ms.date: 05/31/2019
+ms.openlocfilehash: 469a68b2fe111bb547c4592ecf9f5f477f286970
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818208"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969594"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
 本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
@@ -184,7 +185,7 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 帐户 ID | Azure Cosmos DB 帐户的名称或终结点 URI。 |
 | 帐户密钥 | Azure Cosmos DB 帐户的共享访问密钥。 |
 | 数据库 | Azure Cosmos DB 数据库名称。 |
-| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br /><ul><li> _MyCollection_ ：必须存在一个名为“MyCollection”的集合。</li>  <li> _MyCollection{partition}_ ：基于分区依据列。</li></ul> 分区依据列集合必须存在：“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
+| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br /><ul><li> _MyCollection_：必须存在一个名为“MyCollection”的集合。</li>  <li> _MyCollection{partition}_ ：基于分区依据列。</li></ul> 分区依据列集合必须存在：“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
 | 分区键 | 可选。 仅当在集合名称模式中使用 partition 令牌时，才需要此项。<br /> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br /> 对于单个集合输出，可以使用任何任意输出列。 例如 PartitionId。 |
 | 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。
 

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/23/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9e382d9c33cc8e80f1f9647a55eb659474400fe1
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 70f1562668e7bade6c2bd73a4fc90a6a26c66715
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845564"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969660"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>教程：使用 Azure Batch 运行并行 R 模拟 
 
@@ -40,7 +40,7 @@ ms.locfileid: "67845564"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 [https://portal.azure.com](https://portal.azure.cn) 中登录 Azure 门户。
+在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)] 
 ## <a name="install-doazureparallel"></a>安装 doAzureParallel

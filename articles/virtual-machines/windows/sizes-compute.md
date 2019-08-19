@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 07/06/2018
-ms.date: 07/30/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: edd356d6e066511ad1edf95fb610108420d8e904
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 777d1c29d262c15e710f216241446641140b3bec
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52650574"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538770"
 ---
 # <a name="compute-optimized-virtual-machine-sizes"></a>计算优化虚拟机大小
 
@@ -32,6 +32,9 @@ ms.locfileid: "52650574"
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [内存优化](sizes-memory.md)
+    <!--Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
+- [GPU 优化](sizes-gpu.md)
+    <!--Not Available on - [High performance compute](sizes-hpc.md)-->
 - [前几代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>后续步骤

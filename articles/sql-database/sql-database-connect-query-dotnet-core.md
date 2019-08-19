@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/25/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: ee99d8660204992bfad2fafdedaefefd365d6a19
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/19/2019
+ms.openlocfilehash: 32ba8d2ec4370701bd1663137c4f0024c9bda277
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529192"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544395"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 
@@ -30,19 +30,24 @@ ms.locfileid: "59529192"
 
 - Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-  || 单一数据库 |
-  |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
-  |加载数据|根据快速入门加载的 Adventure Works|
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
   |||
+
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
 - 已安装[适用于操作系统的 .NET Core](https://www.microsoft.com/net/core)。
 
 > [!NOTE]
-> 本快速入门使用 mySampleDatabase 数据库。 若要使用其他数据库，需更改数据库引用并修改 C# 代码中的 `SELECT` 查询。
+> 本快速入门使用 mySampleDatabase 数据库  。 若要使用其他数据库，需更改数据库引用并修改 C# 代码中的 `SELECT` 查询。
 
 ## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
@@ -50,19 +55,19 @@ ms.locfileid: "59529192"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”页面。
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。
 
 ## <a name="get-adonet-connection-information-optional"></a>获取 ADO.NET 连接信息（可选）
 
-1. 导航到“mySampleDatabase”页，并在“设置”下选择“连接字符串”。
+1. 导航到“mySampleDatabase”页，并在“设置”下选择“连接字符串”    。
 
-2. 查看完整的 ADO.NET 连接字符串。
+2. 查看完整的 ADO.NET  连接字符串。
 
     ![ADO.NET 连接字符串](./media/sql-database-connect-query-dotnet/adonet-connection-string2.png)
 
-3. 如果想要使用 ADO.NET 连接字符串，请复制它。
+3. 如果想要使用 ADO.NET 连接字符串，请复制它  。
   
 ## <a name="create-a-new-net-core-project"></a>创建新的 .NET Core 项目
 
@@ -73,7 +78,7 @@ ms.locfileid: "59529192"
     ```
     此命令将创建新的应用项目文件，包括初始 C# 代码文件 (**Program.cs**)、XML 配置文件 (**sqltest.csproj**) 和所需的二进制文件。
 
-2. 在文本编辑器中，打开 sqltest.csproj 并在 `<Project>` 标记之间粘贴以下 XML。 此 XML 会添加 `System.Data.SqlClient` 作为依赖项。
+2. 在文本编辑器中，打开 sqltest.csproj 并在 `<Project>` 标记之间粘贴以下 XML  。 此 XML 会添加 `System.Data.SqlClient` 作为依赖项。
 
     ```xml
     <ItemGroup>
@@ -83,7 +88,7 @@ ms.locfileid: "59529192"
 
 ## <a name="insert-code-to-query-sql-database"></a>插入用于查询 SQL 数据库的代码
 
-1. 在文本编辑器中打开 Program.cs 文件。
+1. 在文本编辑器中打开 Program.cs 文件  。
 
 2. 将内容替换为以下代码，为服务器、数据库、用户名和密码添加相应的值。
 

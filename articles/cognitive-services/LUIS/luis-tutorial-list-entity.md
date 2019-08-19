@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: d1af6653f8afff7192ba0fa7af82a65a3f0a3867
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 1a1423ad65e8f6801f01ff128ded15dba332740b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332077"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544208"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用列表实体提升实体检测 
 本教程展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
@@ -103,7 +103,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     const region = "chinaeast";
 
     // Construct HTTP uri
-    const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
+    const uri= `https://${region}.api.cognitive.azure.cn/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
 
     // create list entity
     var addListEntity = async () => {
@@ -191,7 +191,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     const region = "chinaeast";
 
     // Construct HTTP uri
-    const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
+    const uri= `https://${region}.api.cognitive.azure.cn/luis/api/v2.0/apps/${appId}/versions/${versionId}/closedlists`;
 
     // create list entity
     var addListEntity = async () => {
@@ -291,7 +291,7 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
   const region = "chinaeast";
 
   // Construct HTTP uri
-  const uri= `https://${region}.api.cognitive.microsoft.com/luis/api/v2.0/apps/${appId}/publish`;
+  const uri= `https://${region}.api.cognitive.azure.cn/luis/api/v2.0/apps/${appId}/publish`;
 
   // publish
   var publish = async () => {

@@ -12,15 +12,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 12/05/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: a55031aa4f5e3dd25d84fa395eb03790fca3b457
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 7a39509b99d92a0b4947d8c153ca0355a5ad556c
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004098"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539137"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>教程：了解如何使用 Azure PowerShell 管理 Windows 虚拟机
 
@@ -29,7 +29,6 @@ ms.locfileid: "66004098"
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 
 ## <a name="understand-scope"></a>了解范围
 

@@ -7,22 +7,22 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 0d3fd9f435aa66878116a704a02a286d4dbaedd2
-ms.sourcegitcommit: e38a4405fea7606b01e5fa143e2069d93043da97
+ms.subservice: alerts
+ms.openlocfilehash: aedf75571e76046aeaf0545d945d270bd58d0454
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56334183"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969672"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>使用资源管理器模板创建操作组
-本文说明如何使用 [Azure 资源管理器模板](https://docs.microsoft.cn/azure/azure-resource-manager/resource-group-authoring-templates)配置操作组。 使用模板，可以自动设置可以在某些类型的警报中重复使用的操作组。 这些操作组可确保警报触发时所有相应的当事方可以收到通知。
+本文说明如何使用 [Azure 资源管理器模板](/azure-resource-manager/resource-group-authoring-templates)配置操作组。 使用模板，可以自动设置可以在某些类型的警报中重复使用的操作组。 这些操作组可确保警报触发时所有相应的当事方可以收到通知。
 
 基本步骤如下：
 
 1. 以 JSON 文件的形式创建一个描述如何创建操作组的模板。
 
-2. 使用[任意部署方法](https://docs.microsoft.cn/azure/azure-resource-manager/resource-group-template-deploy)部署模板。
+2. 使用[任意部署方法](/azure-resource-manager/resource-group-template-deploy)部署模板。
 
 首先，我们将介绍如何为操作定义在模板中进行了硬编码的操作组创建资源管理器模板。 其次，我们将介绍如何创建在部署模板时以输入参数形式接受 webhook 配置信息的模板。
 

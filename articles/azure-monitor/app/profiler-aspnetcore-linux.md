@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4e6e31de5482d7dfa13016686c005a4dd03218a6
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c851a3459cb763147a0511171e775bf1b86a961d
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818358"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969680"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>使用 Application Insights Profiler 探查 ASP.NET Core Azure Linux Web 应用
 
@@ -111,8 +111,6 @@ ms.locfileid: "68818358"
 3. 选择部署选项。 遵照 Azure 门户中的说明在 Web 应用中设置本地 Git 存储库。 系统将自动创建一个 Git 存储库。
 
     ![设置 Git 存储库](./media/profiler-aspnetcore-linux/setup-git-repo.png)
-
-有关其他部署选项，请参阅[此文](https://docs.microsoft.com/azure/app-service/containers/choose-deployment-type)。
 
 ## <a name="deploy-your-project"></a>部署项目
 

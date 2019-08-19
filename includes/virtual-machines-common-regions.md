@@ -9,12 +9,12 @@ origin.date: 05/28/2019
 ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 2bcd1023f372618f441f1ff94b29330e7e5357d5
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: 69ae8bde9b8d6fe1be1e1e863b639f95feaf275d
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913063"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539208"
 ---
 # <a name="regions-for-virtual-machines-in-azure"></a>Azure 中虚拟机的区域
 请务必了解 Azure 中虚拟机 (VM) 运行的方式和位置，以及最大化性能、可用性和冗余的选项。 本文提供了 Azure 的可用性和冗余功能的概述。
@@ -39,11 +39,10 @@ Azure 在世界各地的多个数据中心运行。 这些数据中心分组到�
 
 | 主要 | 次要 |
 |:--- |:--- |
-| 中国东部 |中国北部 |
-| 中国东部 2 |中国北部 2 |
+| 中国北部  | 中国东部 |
+| 中国北部 2 | 中国东部 2 |
 
-可以在[此处](../articles/best-practices-availability-paired-regions.md)查看完整的区域对列表。
-
+<!--Not Avaiable on  [list of regional pairs here](../articles/best-practices-availability-paired-regions.md)-->
 <!--Not Avaiable on #what-are-paired-regions-->
 
 ## <a name="feature-availability"></a>功能可用性

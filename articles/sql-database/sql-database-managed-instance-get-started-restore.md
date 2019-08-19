@@ -12,19 +12,20 @@ ms.author: v-jay
 ms.reviewer: carlrab, bonova
 manager: digimobile
 origin.date: 12/14/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: 50bc59b3b0f73f55c12541522074817cdbbd1718
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.date: 08/19/2019
+ms.openlocfilehash: 6b7bd464fb3b3de9dce4da0cae4d3fe08789468b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277020"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544093"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>快速入门：将数据库还原到托管实例
 
 本快速入门介绍如何使用 SQL Server Management Studio (SSMS) 将某个数据库（Wide World Importers - Standard 备份文件）从 Azure Blob 存储还原到 Azure SQL 数据库[托管实例](sql-database-managed-instance.md)。
 
 > [!NOTE]
+> 有关使用 Azure 数据库迁移服务 (DMS) 进行迁移的详细信息，请参阅[使用 DMS 进行托管实例迁移](../dms/tutorial-sql-server-to-managed-instance.md)。
 > 有关各种迁移方法的详细信息，请参阅[将 SQL Server 实例迁移到 Azure SQL 数据库托管实例](sql-database-managed-instance-migrate.md)。
 
 ## <a name="prerequisites"></a>先决条件

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9d485ee2cded35f309c3bc1f876de00d978852f5
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 9f28f4b8e4b269481dc13d15cf163c2602a4ee58
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818566"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544366"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>存储队列和服务总线队列 - 比较与对照
 本文分析 Azure 目前提供的以下两种队列类型之间的差异和相似性：存储队列和服务总线队列。 使用该信息可以比较和对照这两种技术，并可以明智地决定哪种解决方案最符合需要。
@@ -106,7 +106,7 @@ Azure 支持两种队列机制：“存储队列”和“服务总线队列”  
 | 有害消息支持 |**是** |**是** |
 | 就地更新 |**是** |**是** |
 | 服务器端事务日志 |**是** |**否** |
-| 存储度量值 |**是**<br/><br/>**分钟度量值**：提供可用性、TPS、API 调用计数、错误计数等指标的实时度量值，所有这些值都是实时的（每分钟进行汇总，并在生产过程中发生后几分钟之内报告）。 有关详细信息，请参阅[关于存储分析度量值](https://azure.microsoft.com/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics)。 |**是**<br/><br/>（通过调用 [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues) 进行大容量查询） |
+| 存储度量值 |**是**<br/><br/>**分钟度量值**：提供可用性、TPS、API 调用计数、错误计数等指标的实时度量值，所有这些值都是实时的（每分钟进行汇总，并在生产过程中发生后几分钟之内报告）。 有关详细信息，请参阅[关于存储分析度量值](https://docs.microsoft.com/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics)。 |**是**<br/><br/>（通过调用 [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues) 进行大容量查询） |
 | 状态管理 |**否** |**是**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus)、[Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | 消息自动转发 |**否** |**是** |
 | 清除队列函数 |**是** |**否** |
@@ -167,7 +167,7 @@ Azure 支持两种队列机制：“存储队列”和“服务总线队列”  
 * 存储队列为可应用于队列说明的任意属性提供支持（以名称/值对形式）。
 * 两种队列技术还提供无需锁定消息即可进行消息扫视的功能，这在实现队列资源管理器/浏览器工具时可能非常有用。
 * 服务总线 .NET 中转消息传送 API 利用全双工 TCP 连接，因此与基于 HTTP 的 REST 相比提高了性能，另外它们还支持 AMQP 1.0 标准协议。
-* 存储队列名称长度可以在 3-63 个字符之间，可以包含小写字母、数字和连字符。 有关详细信息，请参阅 [命名队列和元数据](https://azure.microsoft.com/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)。
+* 存储队列名称长度可以在 3-63 个字符之间，可以包含小写字母、数字和连字符。 有关详细信息，请参阅 [命名队列和元数据](https://docs.microsoft.com/rest/api/storageservices/fileservices/Naming-Queues-and-Metadata)。
 * 服务总线队列名称长度最大可达 260 个字符，且命名规则限制较少。 服务总线队列名称可以包含字母、数字、句点、连字符和下划线。
 
 ## <a name="authentication-and-authorization"></a>身份验证和授权

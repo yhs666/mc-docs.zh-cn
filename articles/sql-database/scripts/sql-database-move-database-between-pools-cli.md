@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 25c46f5ce256297712c44839e1f448b1f9a12847
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: d86374ee56701c3366545b98748910d5d09a11fb
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855448"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544114"
 ---
 # <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
@@ -33,61 +33,73 @@ ms.locfileid: "64855448"
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
-export adminlogin=ServerAdmin
-export password=ChangeYourAdminPassword1
+adminlogin=ServerAdmin
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
 # The logical server name has to be unique in the system
-export servername=server-$RANDOM
+servername=server$RANDOM
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    --location "China East" 
+    --name $resourceGroupName \
+    --location $location
 
 # Create a logical server in the resource group
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location "China East" \
+    --resource-group $resourceGroupName \
+    --location $location \
     --admin-user $adminlogin \
     --admin-password $password
 
 # Create two pools in the logical server
-az sql elastic-pools create \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+az sql elastic-pool create \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name myFirstPool \
-    --dtu 50 \
-    --database-dtu-max 20
-az sql elastic-pools create \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1
+az sql elastic-pool create \
+    --resource-group $resourceGroupName \
     --server $servername \
-    --name MySecondPool \
-    --dtu 50 \
-    --database-dtu-max 50
+    --name mySecondPool \
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1
 
 # Create a database in the first pool
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --elastic-pool-name myFirstPool
+    --elastic-pool myFirstPool
 
 # Move the database to the second pool - create command updates the db if it exists
 az sql db create \
-    --resource-group myResourceGroup \
-    --server-name $servername \
-    --name mySampleDatabase \
-    --elastic-pool-name mySecondPool
-
-# Move the database to standalone S1 performance level
-az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --service-objective S1
+    --elastic-pool mySecondPool
+
+# Move the database to standalone S0 service tier
+az sql db create \
+    --resource-group $resourceGroupName \
+    --server $servername \
+    --name mySampleDatabase \
+    --service-objective S0
+
+# Echo random password
+echo $password
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -95,7 +107,7 @@ az sql db create \
 使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明

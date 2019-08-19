@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d76599e3c5d1548e37e81a86f97f327eb5a3ce19
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a6703dc8d38075a391d516ec8c2fe80cc83019ae
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570620"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539193"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>使用 C# 创建和管理 Azure 中的 Windows VM
 
@@ -40,7 +40,7 @@ ms.locfileid: "67570620"
 
 ## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“.NET 桌面开发”，然后单击“安装”。   在摘要中，可以看到系统自动选择了“.NET Framework 4 - 4.6 开发工具”。  如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 .NET 工作负荷。
+1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“.NET 桌面开发”，然后单击“安装”。   在摘要中，可以看到系统自动选择了“.NET Framework 4 - 4.6 开发工具”。  如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 .NET 工作负荷。
 2. 在 Visual Studio 中，单击“文件”   > “新建”   > “项目”  。
 3. 在“模板” > “Visual C#”中，选择“控制台应用(.NET Framework)”，输入 *myDotnetProject* 作为项目名称，选择项目的位置，然后单击“确定”。    
 
@@ -397,6 +397,6 @@ azure.ResourceGroups.DeleteByName(groupName);
 
 ## <a name="next-steps"></a>后续步骤
 * 参考[使用 C# 和 Resource Manager 模板部署 Azure 虚拟机](csharp-template.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中的信息，利用模板创建虚拟机。
-* 详细了解如何使用[适用于 .NET 的 Azure 库](https://docs.azure.cn/zh-cn/dotnet/?view=azure-dotnet)。
+* 详细了解如何使用[适用于 .NET 的 Azure 库](https://docs.azure.cn/dotnet/?view=azure-dotnet)。
 
 <!--Update_Description: wording update, update link -->

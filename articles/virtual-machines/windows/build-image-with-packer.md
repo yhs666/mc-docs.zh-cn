@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/22/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: ed99c1b9043ed836099a78b5ebd27ea3dd9d8aee
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 48a9d85622390671f87e659bc24e6281cda42790
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569333"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539068"
 ---
 # <a name="how-to-use-packer-to-create-windows-virtual-machine-images-in-azure"></a>如何使用 Packer 在 Azure 中创建 Windows 虚拟机映像
 Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系统版本的映像创建的。 映像可以包括预安装的应用程序和配置。 Azure 市场为最常见的操作系统和应用程序环境提供许多第一和第三方映像，或者也可创建满足自身需求的自定义映像。 本文详细介绍了如何使用开源工具 [Packer](https://www.packer.io/) 在 Azure 中定义和生成自定义映像。
@@ -34,8 +34,8 @@ Azure 中的每个虚拟机 (VM) 都是基于定义 Windows 分发和操作系�
 
 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
-```powershell
-$rgName = "mypackerGroup"
+```azurepowershell
+$rgName = "myResourceGroup"
 $location = "China East"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 使用 [New-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal) 创建服务主体，并为服务主体分配权限，以使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment) 创建和管理资源。 `-DisplayName` 的值必须唯一；请根据需要将其替换为你自己的值。  
 
-```powershell
+```azurepowershell
 $sp = New-AzADServicePrincipal -DisplayName "PackerServicePrincipal"
 $BSTR = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($sp.Secret)
 $plainPassword = [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)
@@ -79,6 +79,8 @@ Get-AzSubscription
 | *managed_image_resource_group_name* | 在第一步中创建的资源组的名称 |
 | *managed_image_name*                | 创建的托管磁盘映像的名称 |
 
+<!-- Parameter is correct to add "cloud_environment_name": "Public, China, Germany, or USGovernment" -->
+
 ```json
 {
   "builders": [{
@@ -89,7 +91,7 @@ Get-AzSubscription
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myPackerGroup",
+    "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",

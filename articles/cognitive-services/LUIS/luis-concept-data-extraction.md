@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 6c6dfd500b063ba2b9eda61afa95d0d0df2bb343
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 95120d0443e2fb9dcdc837c34a018642ec115001
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135828"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544100"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -48,7 +48,7 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |数据对象|数据类型|数据位置|Value|
 |--|--|--|--|
-|意向|String|topScoringIntent.intent|"GetStoreInfo"|
+|Intent|String|topScoringIntent.intent|"GetStoreInfo"|
 
 如果机器人或 LUIS 调用应用基于不止一个意向评分来进行决策，则通过设置查询字符串参数 `verbose=true` 来返回所有意向的评分。 终结点响应为：
 
@@ -77,8 +77,8 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |数据对象|数据类型|数据位置|Value|Score|
 |--|--|--|--|:--|
-|意向|String|intents[0].intent|"GetStoreInfo"|0.984749258|
-|意向|String|intents[1].intent|"None"|0.0168218873|
+|Intent|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intent|String|intents[1].intent|"None"|0.0168218873|
 
 如果添加预构建的域，则意向名称指示该域，例如 `Utilties` 或 `Communication` 以及意向：
 
@@ -108,9 +108,9 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 |域|数据对象|数据类型|数据位置|Value|
 |--|--|--|--|--|
-|实用程序|意向|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|通信|意向|String|intents[1].intent|<b>Communication</b>.StartOver"|
-||意向|String|intents[2].intent|"None"|
+|实用程序|Intent|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|通信|Intent|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intent|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>实体中的数据
@@ -526,7 +526,7 @@ Pattern.any 实体是长度可变的实体，用于某个[模式](luis-concept-p
 
 
 ## <a name="sentiment-analysis"></a>情绪分析
-如果配置了情绪分析，LUIS json 响应会包含情绪分析内容。 请在[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)文档中详细了解情绪分析。
+如果配置了情绪分析，LUIS json 响应会包含情绪分析内容。 请在[文本分析](/cognitive-services/text-analytics/)文档中详细了解情绪分析。
 
 ### <a name="sentiment-data"></a>情绪数据
 情绪数据是一个介于 0 到 1 之间的分数，指示数据的正面情绪（分数接近 1）或负面情绪（分数接近 0）。
@@ -550,7 +550,7 @@ Pattern.any 实体是长度可变的实体，用于某个[模式](luis-concept-p
 
 
 ### <a name="key-phrase-extraction-entity-data"></a>关键短语提取实体数据
-关键短语提取实体返回陈述中的关键短语，由[文本分析](https://docs.microsoft.com/azure/cognitive-services/text-analytics/)提供。
+关键短语提取实体返回陈述中的关键短语，由[文本分析](/cognitive-services/text-analytics/)提供。
 
 ```JSON
 {

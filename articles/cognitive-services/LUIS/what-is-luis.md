@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d5ce2d6ee311b8805895c61d9dcc3f7d761751ab
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 7130213df11cf9684db2044a0f893974548c1a9e
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332271"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544122"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 
@@ -100,9 +100,6 @@ LUIS 提供工具、版本控制以及与其他 LUIS 创建者的协作，以便
 ## <a name="implementing-luis"></a>实现 LUIS
 作为 REST API，LUIS 可以与任何发送 HTTP 请求的产品、服务或框架配合使用。 以下列表包含与 LUIS 配合使用的顶级 Azure 产品和服务。
 
-LUIS 的顶级客户端应用程序是：
-* [Web 应用机器人](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)可以快速创建支持 LUIS 的聊天机器人，该机器人可以通过文本输入与用户交谈。 使用 [Bot Framework][bot-framework] [4.x](https://github.com/Microsoft/botbuilder-dotnet) 版以获取完整的机器人体验。
-
 通过机器人快速轻松地使用 LUIS 的工具：
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS)：NPM 包以独立命令行工具或导入的形式提供创作和预测。 
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen)：LUISGen 是一个用于从导出的 LUIS 模型生成强类型 C# 和 typescript 源代码的工具。
@@ -112,8 +109,6 @@ LUIS 的顶级客户端应用程序是：
 与 LUIS 配合使用的其他认知服务：
 * [QnA Maker][qnamaker] 可将多种类型的文本组合到一个问题答案知识库中。
 * [语音服务](../Speech-Service/overview.md)可将口述语言请求转化成文本。 
-* 可以使用[聊天学习器](https://docs.microsoft.com/azure/cognitive-services/labs/conversation-learner/overview)，通过 LUIS 更快速地生成机器人聊天内容。
-* [项目个性聊天](https://docs.microsoft.com/azure/cognitive-services/project-personality-chat/overview)，用于处理机器人小型谈话。
 
 使用 LUIS 的示例：
 * [对话 AI](https://github.com/Microsoft/AI) GitHub 存储库。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 361ba8a6bfbb8f51bc2d789bb3d4afc6ab19bbeb
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 137c8b425993556ac3bbc15c2fc520961b8bb411
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818417"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969638"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -133,15 +133,15 @@ Webhook 使用以下规则进行重试。 当返回的 HTTP 状态代码为 408�
 #### <a name="secure-webhook"></a>安全 Webhook
 **安全 Webhook 功能目前为预览版。**
 
-可以通过“操作组 Webhook”操作利用 Azure Active Directory 来保护操作组和受保护 Web API（Webhook 终结点）之间的连接。 利用此功能的完整工作流如下所述。 有关 Azure AD 应用程序和服务主体的概述，请参阅 [Microsoft 标识平台 (v2.0) 概述](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)。
+可以通过“操作组 Webhook”操作利用 Azure Active Directory 来保护操作组和受保护 Web API（Webhook 终结点）之间的连接。 利用此功能的完整工作流如下所述。 有关 Azure AD 应用程序和服务主体的概述，请参阅 [Microsoft 标识平台 (v2.0) 概述](/active-directory/develop/v2-overview)。
 
-1. 针对受保护的 Web API 创建 Azure AD 应用程序。 请参阅 https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 。
+1. 针对受保护的 Web API 创建 Azure AD 应用程序。 [请参阅](/active-directory/develop/scenario-protected-web-api-overview)。
     - 将受保护的 API 配置为通过守护程序应用进行调用。
     
 1. 允许操作组使用 Azure AD 应用程序。
 
     > [!NOTE]
-    > 你必须是 [Azure AD 应用程序管理员角色](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)的成员才能执行此脚本。
+    > 你必须是 [Azure AD 应用程序管理员角色](/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles)的成员才能执行此脚本。
     
     - 修改 PowerShell 脚本的 Connect-AzureAD 调用，以便使用 Azure AD 租户 ID。
     - 修改 PowerShell 脚本的变量 $myAzureADApplicationObjectId，以便使用 Azure AD 应用程序的对象 ID。

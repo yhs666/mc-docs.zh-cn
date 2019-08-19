@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 01/25/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: c0d76f4e1d7182b78baf4654b0b5b3e97e1826c5
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+origin.date: 06/21/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: c9290c35a7fc23b774a22c8580d2bf43f6461945
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529184"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544339"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>还原 Azure SQL 数据库或故障转移到辅助数据库
 
@@ -35,11 +35,11 @@ Azure SQL 数据库提供以下功能，以便在服务中断后进行恢复：
 > 如果使用区域冗余高级或业务关键数据库或池，将自动执行恢复过程，此材料的其余部分将不适用。
 
 > [!NOTE]
-> 主数据库和辅助数据库都需要有相同的服务层。 另外，强烈建议创建与主数据库具有相同计算大小（DTU 或 vCore）的辅助数据库。 有关详细信息，请参阅[作为主数据库进行升级或降级](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database)。
+> 主数据库和辅助数据库都需要有相同的服务层级。 另外，强烈建议创建与主数据库具有相同计算大小（DTU 或 vCore）的辅助数据库。 有关详细信息，请参阅[作为主数据库进行升级或降级](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database)。
 
 > [!NOTE]
 > 使用一个或多个故障转移组来管理多个数据库的故障转移。
-> 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务层和计算大小来配置异地辅助数据库。 有关详细信息，请参阅[使用自动故障转移组可以实现多个数据库的透明、协调式故障转移](sql-database-auto-failover-group.md)。
+> 如果将现有的异地复制关系添加到故障转移组，请确保使用与主数据库相同的服务层级和计算大小来配置异地辅助数据库。 有关详细信息，请参阅[使用自动故障转移组可以实现多个数据库的透明、协调式故障转移](sql-database-auto-failover-group.md)。
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>准备好应对中断事件
 

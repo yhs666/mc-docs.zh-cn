@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9833b12e33d7bb55d6f9f6c5d6f183384d149787
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 5ad639a6464d4657017a24de9ba50fbd896e63e2
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818450"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969662"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入门：使用 Python API 运行你的第一个 Batch 作业
 
@@ -35,7 +35,7 @@ ms.locfileid: "68818450"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 [https://portal.azure.com](https://portal.azure.cn) 中登录 Azure 门户。
+在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 
 [!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
 
@@ -75,7 +75,7 @@ python python_quickstart_client.py
 
 运行脚本后，请查看代码，了解应用程序的每个部分的作用。 
 
-运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，会遇到暂停并看到`Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`。 任务会排队，在第一个计算节点运行后马上运行。 转到 [Azure 门户](https://portal.azure.com)中的 Batch 帐户，监视 Batch 帐户中的池、计算节点、作业和任务。
+运行示例应用程序时，控制台输出如下所示。 在执行期间启动池的计算节点时，会遇到暂停并看到`Monitoring all tasks for 'Completed' state, timeout in 00:30:00...`。 任务会排队，在第一个计算节点运行后马上运行。 转到 [Azure 门户](https://portal.azure.cn)中的 Batch 帐户，监视 Batch 帐户中的池、计算节点、作业和任务。
 
 ```
 Sample start: 11/26/2018 4:02:54 PM

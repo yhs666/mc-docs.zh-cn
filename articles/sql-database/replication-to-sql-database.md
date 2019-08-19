@@ -12,24 +12,25 @@ ms.author: v-jay
 ms.reviewer: mathoma
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: df8007f34eac4af2472ef4ca90b142c1d598132d
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: 897f1ba2f25baca0d3698af023bff658e7e343c4
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003487"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544415"
 ---
-# <a name="replication-to-sql-database-single-and-pooled-databases"></a>复制到 SQL 数据库的单个数据库和池化数据库
+# <a name="replication-to-sql-database-single-and-pooled-databases"></a>复制到 SQL 数据库的单一数据库和共用数据库
 
-可以对 SQL Server 复制进行配置，以便复制到 Azure SQL 数据库中 [SQL 数据库服务器](sql-database-servers.md)上的单一数据库和入池数据库。  
+可以对 SQL Server 复制进行配置，以便复制到 Azure SQL 数据库中 [SQL 数据库服务器](sql-database-servers.md)上的单一数据库和共用数据库。  
 
-## **<a name="supported-configurations"></a>支持的配置：**
+## <a name="supported-configurations"></a>**支持的配置：**
   
 - SQL Server 可以是在本地运行的 SQL Server 实例，也可以是在云端的 Azure 虚拟机中运行的 SQL Server 实例。 有关详细信息，请参阅 [Azure 虚拟机上的 SQL Server 概述](/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)。  
 - Azure SQL 数据库必须是 SQL Server 发布服务器的推送订阅者。  
 - 不能将分发数据库和复制代理置于一个 Azure SQL 数据库上。  
 - 支持快照和单向事务复制。 不支持对等事务复制和合并复制。
+- Azure SQL 数据库托管实例上的公共预览版可以使用复制。 托管实例可以托管发布服务器、分发服务器和订阅服务器数据库。 有关详细信息，请参阅[通过 SQL 数据库托管实例进行复制](replication-with-sql-database-managed-instance.md)。
 
 ## <a name="versions"></a>版本  
 
@@ -65,7 +66,7 @@ ms.locfileid: "59003487"
 
 1. 在本地 SQL Server 数据库上创建事务复制发布。  
 2. 在本地 SQL Server 上使用**新建订阅向导**或 Transact-SQL 语句创建一个推送，以便推送到 Azure SQL 数据库的订阅。  
-3. 对于 Azure SQL 数据库中的单一数据库和入池数据库，初始数据集是由快照代理创建并由分发代理分发和应用的快照。 
+3. 对于 Azure SQL 数据库中的单一数据库和共用数据库，初始数据集是由快照代理创建并由分发代理分发和应用的快照。 使用托管实例数据库，还可以使用数据库备份来植入订阅服务器数据库。
 
 ### <a name="data-migration-scenario"></a>数据迁移方案  
 
@@ -107,10 +108,11 @@ Azure SQL 数据库订阅不支持以下选项：
 创建发布和推送订阅。 有关详细信息，请参阅：
   
 - [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是将 Azure SQL 数据库服务器名称用作订阅服务器（例如 **N'azuresqldbdns.database.chinacloudapi.cn'**），将 Azure SQL 数据库名称用作目标数据库（例如 **AdventureWorks**）。  
+- [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)，方法是将 Azure SQL 数据库服务器名称用作订阅服务器（例如 **N'azuresqldbdns.database.chinacloudapi.cn'** ），将 Azure SQL 数据库名称用作目标数据库（例如 **AdventureWorks**）。  
 
 ## <a name="see-also"></a>另请参阅  
 
+- [事务复制](sql-database-managed-instance-transactional-replication.md)
 - [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [复制类型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)

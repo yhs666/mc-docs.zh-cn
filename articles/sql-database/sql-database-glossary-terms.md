@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 1a26db0dc0fc3cb1781196249c532ba298a6c3d3
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+origin.date: 04/26/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 8789121fbd3f82399c19bc661efdb66afb0b84f1
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629160"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544195"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL 数据库术语表
 
@@ -29,10 +29,13 @@ ms.locfileid: "65629160"
 ||已预配|[无服务器计算层](sql-database-serverless.md)
 |部署选项 |单一数据库|[单一数据库](sql-database-single-database.md)|
 ||弹性池|[弹性池](sql-database-elastic-pool.md)|
+||托管实例|[托管实例](sql-database-managed-instance.md)|
 |服务器对象|SQL 数据库服务器或数据库服务器|[数据库服务器](sql-database-servers.md)|
+||SQL 数据库托管实例服务器、托管实例服务器或实例服务器|[托管实例](sql-database-managed-instance.md)|
 数据库对象|Azure SQL 数据库|Azure SQL 数据库中的任何数据库|
-||单一数据库|使用单一数据库部署选项作为独立数据库创建的数据库|
+||单一数据库|使用单一数据库部署选项创建的数据库|
 ||共用数据库|在弹性池内创建或移入其中的数据库|
+||实例数据库|在托管实例中创建的数据库|
 ||基本数据库|在基于 DTU 的购买模型的“基本”服务层级内创建或移入其中的数据库|
 ||标准数据库|在基于 DTU 的购买模型的“标准”服务层级内创建或移入其中的数据库|
 ||高级数据库|在基于 DTU 的购买模型的“高级”服务层级内创建或移入其中的数据库|

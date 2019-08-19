@@ -364,8 +364,6 @@
                   href: app/performance-counters.md
                 - name: 依赖项
                   href: app/asp-net-dependencies.md
-                - name: 版本注释
-                  href: app/annotations.md
                 - name: ApplicationInsights.config
                   href: app/configuration-with-applicationinsights-config.md
                 - name: 快照调试器
@@ -574,8 +572,6 @@
           href: insights/resource-group-insights.md
         - name: 监视数据库
           items:
-            - name: Azure SQL
-              href: insights/azure-sql.md
             - name: SQL Server
               href: insights/sql-assessment.md
         - name: 监视网络

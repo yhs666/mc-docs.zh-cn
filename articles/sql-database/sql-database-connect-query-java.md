@@ -12,12 +12,12 @@ ms.reviewer: v-masebo
 manager: digimobile
 origin.date: 03/25/2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 88858c97a3db8a1b3f634bceb6892f25a32eaa7e
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 7d8683db5160c7b6c96db4122cd43c2814bef711
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529334"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544385"
 ---
 # <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
 
@@ -29,14 +29,19 @@ ms.locfileid: "59529334"
 
 - Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-  || 单一数据库 |
-  |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
-  |加载数据|根据快速入门加载的 Adventure Works|
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
   |||
+
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
 - 已为操作系统安装与 Java 相关的软件：
 
@@ -52,19 +57,19 @@ ms.locfileid: "59529334"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”页面。
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。 
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。 
 
 ## <a name="create-the-project"></a>创建项目
 
-1. 从命令提示符创建名为 sqltest 的新 Maven 项目。
+1. 从命令提示符创建名为 sqltest 的新 Maven 项目。 
 
     ```bash
     mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
 
-1. 将文件夹更改为 *sqltest*，然后使用喜欢的文本编辑器打开 pom.xml。 使用以下代码，将 **Microsoft JDBC Driver for SQL Server** 添加到项目的依赖项。
+1. 将文件夹更改为 *sqltest*，然后使用喜欢的文本编辑器打开 pom.xml  。 使用以下代码，将 **Microsoft JDBC Driver for SQL Server** 添加到项目的依赖项。
 
     ```xml
     <dependency>
@@ -74,7 +79,7 @@ ms.locfileid: "59529334"
     </dependency>
     ```
 
-1. 另请在 pom.xml 中向项目添加以下属性。 如果没有 properties 节，可以将其添加到 dependencies 后面。
+1. 另请在 pom.xml  中向项目添加以下属性。 如果没有 properties 节，可以将其添加到 dependencies 后面。
 
    ```xml
    <properties>
@@ -83,11 +88,11 @@ ms.locfileid: "59529334"
    </properties>
    ```
 
-1. 保存并关闭 pom.xml。
+1. 保存并关闭  pom.xml。
 
 ## <a name="add-code-to-query-database"></a>添加用于查询数据库的代码
 
-1. 此时，你应该在 Maven 项目中有了一个名为 App.java 的文件，其位置为：
+1. 此时，你应该在 Maven 项目中有了一个名为  App.java 的文件，其位置为：
 
    *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 

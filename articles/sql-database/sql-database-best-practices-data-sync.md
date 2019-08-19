@@ -9,22 +9,25 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: carlrab
 manager: digimobile
-origin.date: 10/22/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 49d316f03b89ebdff993762cf7caf645486c6cc2
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+origin.date: 12/20/2018
+ms.date: 08/19/2019
+ms.openlocfilehash: e9f8c60c899c2203f847f6d3af8d5e10a068bb7b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806334"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544397"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>SQL 数据同步最佳做法 
 
 本文介绍了针对 Azure SQL 数据同步的最佳做法。
 
 有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 目前，Azure SQL 数据同步**不**支持 Azure SQL 数据库托管实例。
 
 ## <a name="security-and-reliability"></a>安全性和可靠性
 
@@ -38,15 +41,15 @@ ms.locfileid: "53806334"
 
 ### <a name="database-accounts-with-least-required-privileges"></a>具有所需最小特权的数据库帐户
 
--   对于同步设置。 创建/更改表、更改数据库、创建过程、选择/更改架构、创建用户定义的类型。
+-    对于同步设置。 创建/更改表、更改数据库、创建过程、选择/更改架构、创建用户定义的类型。
 
--   对于正在进行的同步。在选择用于同步的表上以及同步元数据和跟踪表上为“选择/插入/更新/删除”权限，在服务创建的存储过程上为“执行”权限，在用户定义的表类型上为“执行”权限。
+-    对于正在进行的同步。在选择用于同步的表上以及同步元数据和跟踪表上为“选择/插入/更新/删除”权限，在服务创建的存储过程上为“执行”权限，在用户定义的表类型上为“执行”权限。
 
--   对于取消预配。 在同步的表部分为“更改”权限，在同步元数据表上为“选择/删除”权限，在同步跟踪表、存储的过程和用户定义类型上为“控制”权限。
+-    对于取消预配。 在同步的表部分为“更改”权限，在同步元数据表上为“选择/删除”权限，在同步跟踪表、存储的过程和用户定义类型上为“控制”权限。
 
 Azure SQL 数据库仅支持单组凭据。 若要在此约束内完成这些任务，请考虑使用以下选项：
 
--   针对不同阶段更改凭据（例如 credential1 用于安装，credential2 用于正在运行）。  
+-   针对不同阶段更改凭据（例如 credential1  用于安装，credential2  用于正在运行）。  
 -   更改凭据的权限（即，在设置同步后更改权限）。
 
 ## <a name="setup"></a>设置
@@ -149,7 +152,7 @@ SQL 数据同步自动预配的限制如下：
 
 #### <a name="what-happens-when-changes-fail-to-propagate"></a>如果更改无法传播，会发生什么情况？
 
--   同步组显示它处于警告状态。
+-   同步组显示它处于警告  状态。
 -   详细信息显示在门户 UI 日志查看器中。
 -   如果问题在 45 天未解决，数据库将过时。
 
@@ -165,15 +168,15 @@ SQL 数据同步自动预配的限制如下：
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a> 避免过时的数据库和同步组
 
-同步组或同步组中的数据库可能会过时。 如果同步组的状态为“过时”，则会停止运行。 如果数据库的状态为“过时”，数据可能会丢失。 最好避免这种情况，而不是尝试基于其还原。
+同步组或同步组中的数据库可能会过时。 如果同步组的状态为“过时”  ，则会停止运行。 如果数据库的状态为“过时”  ，数据可能会丢失。 最好避免这种情况，而不是尝试基于其还原。
 
 #### <a name="avoid-out-of-date-databases"></a>避免过时的数据库
 
-如果数据库离线长达 45 天或更多，其状态将设置为“过时”。 请确保没有任何数据库离线长达 45 天或更多，以避免数据库出现“过时”状态。
+如果数据库离线长达 45 天或更多，其状态将设置为“过时”  。 请确保没有任何数据库离线长达 45 天或更多，以避免数据库出现“过时”  状态。
 
 #### <a name="avoid-out-of-date-sync-groups"></a>避免过时的同步组
 
-如果同步组中的任何更改在 45 天或更长时间内无法传播到同步组中的其他数据库，则同步组的状态将设置为“过时”。 请定期检查同步组的历史记录日志，以避免同步组出现“过时”状态。 确保所有冲突已解决，且更改在同步组数据库之间成功传播。
+如果同步组中的任何更改在 45 天或更长时间内无法传播到同步组中的其他数据库，则同步组的状态将设置为“过时”  。 请定期检查同步组的历史记录日志，以避免同步组出现“过时”  状态。 确保所有冲突已解决，且更改在同步组数据库之间成功传播。
 
 同步组可能会由于下列原因之一无法应用更改：
 
@@ -226,7 +229,7 @@ SQL 数据同步自动预配的限制如下：
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
--   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [Azure SQL 数据同步的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 -   更新同步架构
     -   使用 Transact-SQL - [在 Azure SQL 数据同步中自动复制架构更改](sql-database-update-sync-schema.md)

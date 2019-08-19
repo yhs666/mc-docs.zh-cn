@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 03/09/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 32a70ce897285bf0217ee324654ec2c8d1a7eb5b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: bc2c0405f30fa907dc745b56c8e06241411e73cb
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003682"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539040"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>使用虚拟硬盘创建 VM
 
@@ -40,6 +40,10 @@ ms.locfileid: "59003682"
 
 ```azurecli
 #!/bin/bash
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login 
 
 # Create a resource group
 az group create -n myResourceGroup -l chinanorth
@@ -84,21 +88,23 @@ az group delete -n az-cli-vhd
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az storage account list](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-list) | 列出存储帐户 |
-| [az storage account check-name](https://docs.azure.cn/zh-cn/cli/storage/account?view=azure-cli-latest#az-storage-account-check-name) | 检查存储帐户名称是否有效且目前还不存在 |
-| [az storage account keys list](https://docs.azure.cn/zh-cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) | 列出存储帐户的密钥 |
-| [az storage blob exists](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-exists) | 检查 Blob 是否存在 |
-| [az storage container create](https://docs.azure.cn/zh-cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) | 在存储帐户中创建一个容器。 |
-| [az storage blob upload](https://docs.azure.cn/zh-cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
-| [az vm list](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建虚拟机。 |
-| [az vm list-ip-addresses](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
+| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az storage account list](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-list) | 列出存储帐户 |
+| [az storage account check-name](https://docs.azure.cn/cli/storage/account?view=azure-cli-latest#az-storage-account-check-name) | 检查存储帐户名称是否有效且目前还不存在 |
+| [az storage account keys list](https://docs.azure.cn/cli/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) | 列出存储帐户的密钥 |
+| [az storage blob exists](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-exists) | 检查 Blob 是否存在 |
+| [az storage container create](https://docs.azure.cn/cli/storage/container?view=azure-cli-latest#az-storage-container-create) | 在存储帐户中创建一个容器。 |
+| [az storage blob upload](https://docs.azure.cn/cli/storage/blob?view=azure-cli-latest#az-storage-blob-upload) | 通过上传 VHD，在容器中创建一个 Blob。 |
+| [az vm list](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list) | 与 `--query` 一起使用，用于检查 VM 名称是否已使用。 | 
+| [az vm create](https://docs.azure.cn/cli/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create) | 创建虚拟机。 |
+| [az vm list-ip-addresses](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses) | 获取已创建虚拟机的 IP 地址。 |
+
+<!--MOONCAKE: URL CORRECT ON #az-vm-availability-set-create-->
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update link, wording update, update cmdlet -->
+<!--Update_Description: update link, wording update  -->

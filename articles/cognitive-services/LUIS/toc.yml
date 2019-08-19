@@ -79,24 +79,6 @@
           href: luis-tutorial-pattern-roles.md
         - name: 提取自由格式数据
           href: luis-tutorial-pattern-any.md
-    - name: 用于机器人
-      items:
-        - name: '利用 C#'
-          items:
-            - name: 1. 创建基本机器人
-              href: luis-csharp-tutorial-bf-v4.md
-              displayName: 'bot framework, framework, sdk, abs'
-            - name: 2. 将遥测数据添加到 Application Insights
-              href: luis-tutorial-bot-csharp-appinsights.md
-              displayName: 'Application insight, kusto'
-        - name: 利用 Node.js
-          items:
-            - name: 1. 创建基本机器人
-              displayName: 'bot framework, framework, sdk, abs'
-              href: luis-nodejs-tutorial-bf-v4.md
-            - name: 2. 将遥测数据添加到 Application Insights
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
 - name: 示例
   items:
     - name: 代码示例
@@ -198,10 +180,6 @@
               href: luis-tutorial-node-import-utterances-csv.md
             - name: 通过 Node.js 使用列表实体匹配确切文本
               href: luis-tutorial-list-entity.md
-    - name: 集成
-      items:
-        - name: 使用必应拼写检查 v7
-          href: luis-tutorial-bing-spellcheck.md
     - name: 提高预测准确性
       items:
         - name: 使用仪表板
@@ -374,10 +352,6 @@
       href: 'https://github.com/Microsoft/botbuilder-dotnet'
     - name: QnA maker
       href: 'https://qnamaker.ai/'
-    - name: 必应语音 API
-      href: /cognitive-services/speech/
-    - name: 必应拼写检查 API
-      href: /cognitive-services/spell-check/
     - name: 文本分析
       href: /cognitive-services/text-analytics/
     - name: 识别器 - 文本

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-origin.date: 06/07/2019
-ms.date: 07/01/2019
+origin.date: 07/02/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: cf0afdc5063506fc77505d5153636c673873281a
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 693f811fdb5d81e01cb7d114669d4e901d8df7f3
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570340"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538959"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Azure 中 Windows 虚拟机的大小
 
@@ -68,11 +68,14 @@ ms.locfileid: "67570340"
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
 - [内存优化](../virtual-machines-windows-sizes-memory.md)
+    
     <!--Not Avaialble on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
+    
 - [GPU 优化](sizes-gpu.md)
+    
     <!-- Not Available on - [High performance compute](sizes-hpc.md)-->
+    
 - 查看[上一代](sizes-previous-gen.md)页，了解 A Standard 和 Dv1（D1-4 和 D11-14 v1）系列
-
 
 <!-- Not Available on A8-A11 series-->
 <!--Update_Description: update meta properties, update link, wording update -->

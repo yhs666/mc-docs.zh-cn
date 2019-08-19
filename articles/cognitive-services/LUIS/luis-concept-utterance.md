@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8eedf096e8325a0c67234603b3bf053aa9131d90
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: eac8b0e560c1808247eefcac0f28a49b0b8deb9c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332094"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544132"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -39,7 +39,7 @@ ms.locfileid: "68332094"
 
 ### <a name="utterances-arent-always-well-formed"></a>陈述并非始终格式正确
 
-它可能是一个句子，比如“为我预订到巴黎的机票”，也可能是句子的片段，比如“预订”或“巴黎航班”。  用户常犯拼写错误。 在规划应用时，请考虑在将用户输入传递给 LUIS 之前是否使用[必应拼写检查](luis-tutorial-bing-spellcheck.md)进行更正。 
+它可能是一个句子，比如“为我预订到巴黎的机票”，也可能是句子的片段，比如“预订”或“巴黎航班”。  用户常犯拼写错误。
 
 如果你没有对用户陈述进行拼写检查，则应该针对包含拼写错误的陈述训练 LUIS。
 

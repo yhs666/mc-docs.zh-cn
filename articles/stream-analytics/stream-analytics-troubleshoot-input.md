@@ -9,37 +9,39 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 10/11/2018
 ms.date: 11/06/18
-ms.openlocfilehash: 8ab7449398130fa04c308cf925debdcc31042eab
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: 587606a85b36e6e9dff3f420d37fef934677c99b
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544684"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969539"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 
 此页介绍输入连接的常见问题和如何解决这些问题。
 
 ## <a name="input-events-not-received-by-job"></a>作业未收到输入事件 
-1.  测试连接。 使用每项输入和输出对应的“测试连接”按钮来验证与输入和输出的连接。
+1.  测试连接。 使用每项输入和输出对应的“测试连接”  按钮来验证与输入和输出的连接。
 
 2.  检查输入数据。
 
     若要验证输入数据是否流入事件中心，请使用[服务总线资源管理器](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)连接到 Azure 事件中心（如果使用了事件中心输入）。
 
-    使用每项输入对应的[“示例数据”](stream-analytics-sample-data-input.md)按钮，并下载输入示例数据。
+    使用每项输入对应的[“示例数据”  ](stream-analytics-sample-data-input.md)按钮，并下载输入示例数据。
 
     检查示例数据，以了解数据的形式：架构和[数据类型](https://msdn.microsoft.com/library/azure/dn835065.aspx)。
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>格式不正确的输入事件导致反序列化错误 
 当流分析作业的输入流包含格式不当的消息时，会导致反序列化问题。 例如，JSON 对象中缺少圆括号或大括号，或者时间字段中的时间戳格式不当，都可能导致消息格式不当。 
 
-当流分析作业从某个输入收到格式不当的消息时，它会丢弃该消息并通过警告来通知你。 流分析作业的“输入”磁贴上会显示一个警告符号。 只要作业处于运行状态，此警告符号就存在：
+当流分析作业从某个输入收到格式不当的消息时，它会丢弃该消息并通过警告来通知你。 流分析作业的“输入”磁贴上会显示一个警告符号  。 只要作业处于运行状态，此警告符号就存在：
 
-![Azure 流分析输入磁贴](media/stream-analytics-malformed-events/inputs_tile.png)
+![Azure 流分析输入磁贴](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
-启用诊断日志，查看警告的详细信息。 对于格式不正确的输入事件，执行日志包含具有如下所示消息的条目： 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+启用诊断日志，以便查看警告的详细信息。 对于格式不正确的输入事件，执行日志包含一条类似于以下内容的消息： 
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>导致反序列化错误的原因
 可以执行以下步骤，详细分析输入事件，清晰了解反序列化错误的原因。 然后，可以修复事件源，生成格式正确的事件，防止再次发生此问题。
@@ -48,8 +50,8 @@ ms.locfileid: "58544684"
 
 2. 输入详细信息磁贴会显示含各问题详细信息的警告的列表。 下面的示例警告消息包含格式不正确的 JSON 数据所在的分区、偏移量和序列号。 
 
-   ![包含偏移量的警告消息](media/stream-analytics-malformed-events/warning_message_with_offset.png)
-
+   ![包含偏移量的流分析警告消息](media/stream-analytics-malformed-events/warning-message-with-offset.png)
+   
 3. 要找到格式正确的 JSON 数据，可在 [GitHub 示例存储库](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/CheckMalformedEventsEH)中运行可用的 CheckMalformedEvents.cs 代码。 此代码读取分区 ID、偏移量并列显位于该偏移位置的数据。 
 
 4. 在阅读数据后，你可以分析并更正序列化格式。
@@ -62,7 +64,7 @@ ms.locfileid: "58544684"
 当接收器的数量超出了最大数量时显示的错误为：`The streaming job failed: Stream Analytics job has validation errors: Job will exceed the maximum amount of Event Hub Receivers.`
 
 > [!NOTE]
-> 当读取器的数量在作业升级期间发生更改时，暂时性警告将被写入到审核日志中。 在发生这些暂时性问题后，流分析作业会自动恢复。
+> 当读取器的数量在作业升级期间发生更改时，暂时性警告会被写入到审核日志中。 在发生这些暂时性问题后，流分析作业会自动恢复。
 
 ### <a name="add-a-consumer-group-in-event-hubs"></a>在事件中心内添加使用者组
 若要在事件中心实例内添加新的使用者组，请执行以下步骤：
@@ -71,13 +73,13 @@ ms.locfileid: "58544684"
 
 2. 找到你的事件中心。
 
-3. 选择“实体”标题下的“事件中心”。
+3. 选择“实体”标题下的“事件中心”。  
 
 4. 通过名称选择事件中心。
 
-5. 在“事件中心实例”页面上，在“实体”标题下，选择“使用者组”。 此时将列出名为 **$Default** 的使用者组。
+5. 在“事件中心实例”页面上，在“实体”标题下，选择“使用者组”。    此时将列出名为 **$Default** 的使用者组。
 
-6. 选择“+ 使用者组”添加新的使用者组。 
+6. 选择“+ 使用者组”添加新的使用者组  。 
 
    ![在事件中心内添加使用者组](media/stream-analytics-event-hub-consumer-groups/new-eh-consumer-group.png)
 
@@ -89,9 +91,9 @@ ms.locfileid: "58544684"
 
 每个分区的读取器数超过数据中心限制（5 个）的情况如下：
 
-* 多个 SELECT 语句：如果使用引用“同一个”事件中心输入的多个 SELECT 语句，则每个 SELECT 语句都将导致新建一个接收器。
-* UNION：使用 UNION 时，可能存在引用“同一个”事件中心或使用者组的多个输入。
-* SELF JOIN：使用 SELF JOIN 操作时，可能会多次引用“同一个”事件中心。
+* 多个 SELECT 语句：如果使用引用“同一个”事件中心输入的多个 SELECT 语句，则每个 SELECT 语句都将导致新建一个接收器  。
+* UNION：使用 UNION 时，可能存在引用“同一个”事件中心或使用者组的多个输入  。
+* SELF JOIN：使用 SELF JOIN 操作时，可能会多次引用“同一个”事件中心  。
 
 下列最佳做法可帮助缓解每个分区的读取器数超过数据中心限制（5 个）的情况。
 

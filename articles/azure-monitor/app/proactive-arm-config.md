@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: c0114655073f8c752b77e8aabe566986efa15413
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 381ef84d4e6af9e894a2d088f63efe57460c4e2b
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562677"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969665"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Application Insights 智能检测规则
 
@@ -138,7 +138,7 @@ ms.locfileid: "67562677"
 
 ### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>故障异常 v2（非经典）警报规则
 
-此 Azure 资源管理器模板演示如何配置严重性为 2 的故障异常 v2 警报规则。 此新版本的故障异常警报规则是新 Azure 警报平台的一部分，它取代了在[经典警报停用流程](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)中停用的经典版本。
+此 Azure 资源管理器模板演示如何配置严重性为 2 的故障异常 v2 警报规则。 此新版本的故障异常警报规则是新 Azure 警报平台的一部分，它取代了在[经典警报停用流程](https://www.azure.cn/zh-cn/what-is-new/)中停用的经典版本。
 
 ```json
 {

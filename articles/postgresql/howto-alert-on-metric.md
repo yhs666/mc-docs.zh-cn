@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 origin.date: 5/6/2019
 ms.date: 08/05/2019
-ms.openlocfilehash: 9f3cae6c461d031f03d7fb867a76d54895a5eb37
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: dc605dde54dcf75c24d7733e8aad2146c6d6c5fa
+ms.sourcegitcommit: 0de1021cff162a602777858b3f0b7949557fd22c
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732403"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69013552"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>使用 Azure 门户设置针对 Azure Database for PostgreSQL（单一服务器）指标的警报
 
@@ -49,7 +49,7 @@ ms.locfileid: "68732403"
    
    ![选择指标](./media/howto-alert-on-metric/6-configure-signal-logic.png)
 
-7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   “分钟”）以及“频率”  。
+7. 配置警报逻辑，包括“条件”（例如，  “大于”）、“阈值”（例如，  85%）、“时间聚合”、触发警报前必须满足指标规则的“时间段”。（例如，   “30 分钟”）、以及“频率”  。
    
    完成后选择“完成”  。
 

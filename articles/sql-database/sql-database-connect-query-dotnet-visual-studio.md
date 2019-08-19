@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/25/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 7c8c59daf5a473fb883f21d38c6b63e257cf3910
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/17/2019
+ms.openlocfilehash: b8e62b3e05a4973089f88ffcd0e679f7c08ac15c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529166"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544394"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>快速入门：使用 Visual Studio 中的 .NET 和 C# 来连接和查询 Azure SQL 数据库
 
@@ -30,16 +30,21 @@ ms.locfileid: "59529166"
 
 - Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-  || 单一数据库 |
-  |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
-  |加载数据|根据快速入门加载的 Adventure Works|
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
   |||
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) Community、Professional 或 Enterprise 版本。
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
+
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) Community、Professional 或 Enterprise 版本。
 
 ## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
@@ -47,29 +52,29 @@ ms.locfileid: "59529166"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”页面。
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。 
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。 
 
 ## <a name="create-code-to-query-the-sql-database"></a>创建代码来查询 SQL 数据库
 
-1. 在 Visual Studio 中，选择“文件” > “新建” > “项目”。 
+1. 在 Visual Studio 中，选择“文件”   > “新建”   > “项目”  。 
    
-1. 在“新建项目”对话框中，选择“Visual C#”，然后选择“控制台应用(.NET Framework)”。
+1. 在“新建项目”对话框中，选择“Visual C#”，然后选择“控制台应用(.NET Framework)”    。
    
-1. 输入“sqltest”作为项目名称，然后选择“确定”。 创建新项目。 
+1. 输入“sqltest”作为项目名称，然后选择“确定”   。 创建新项目。 
    
-1. 选择“项目” > “管理 NuGet 包”。 
+1. 选择“项目” > “管理 NuGet 包”   。 
    
-1. 在“NuGet 包管理器”中，选择“浏览”选项卡，然后搜索并选择“System.Data.SqlClient”。
+1. 在“NuGet 包管理器”中，选择“浏览”选项卡，然后搜索并选择“System.Data.SqlClient”    。
    
-1. 在“System.Data.SqlClient”页上选择“安装”。 
-   - 如果出现提示，请选择“确定”继续安装。 
-   - 如果显示“接受许可证”窗口，则选择“我接受”。
+1. 在“System.Data.SqlClient”页上选择“安装”   。 
+   - 如果出现提示，请选择“确定”继续安装  。 
+   - 如果显示“接受许可证”窗口，则选择“我接受”   。
    
-1. 安装完成后，可以关闭“NuGet 包管理器”。 
+1. 安装完成后，可以关闭“NuGet 包管理器”  。 
    
-1. 在代码编辑器中，将 Program.cs 内容替换为以下代码。 将值替换为 `<server>`、`<username>`、`<password>` 和 `<database>`。
+1. 在代码编辑器中，将 Program.cs 内容替换为以下代码  。 替换 `<server>`、`<username>`、`<password>` 和 `<database>` 的值。
    
    >[!IMPORTANT]
    >本示例中的代码使用示例 AdventureWorksLT 数据，在创建数据库时可以选择该数据作为源。 如果数据库有不同数据，请在 SELECT 查询中使用自己数据库中的表。 
@@ -130,7 +135,7 @@ ms.locfileid: "59529166"
 
 ## <a name="run-the-code"></a>运行代码
 
-1. 若要运行该应用，请选择“调试” > “开始调试”，或选择工具栏上的“开始”，或按 F5。
+1. 若要运行该应用，请选择“调试” > “开始调试”，或选择工具栏上的“开始”，或按 F5     。
 1. 验证是否返回了数据库中的前 20 个类别/产品行，然后关闭应用窗口。
 
 ## <a name="next-steps"></a>后续步骤

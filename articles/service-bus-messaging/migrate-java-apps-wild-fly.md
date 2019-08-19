@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: 4de9bc2bc1900e7bd1dc31677bb9ef7243c07962
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: dea3332710033db9e5d0f4af9a0dbbbcf1a72e81
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818569"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544305"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>将 Java Enterprise Edition (EE) 应用迁移到 Azure
 本文引导你完成将现有 Java EE 工作负荷迁移到 Azure 的过程：
@@ -67,7 +67,7 @@ ms.locfileid: "68818569"
 迁移后，你将使用 Azure 服务总线来运行这些应用。
 
 ## <a name="prerequisites"></a>先决条件
-若要将 Java Web 应用部署到 Azure，需要一个 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)或注册 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
+若要将 Java Web 应用部署到 Azure，需要一个 Azure 订阅。 如果还没有 Azure 订阅，可以激活 [MSDN 订户权益](https://www.azure.cn/zh-cn/support/legal/offer-rate-plans/)或注册 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 此外，需要符合以下先决条件：
 

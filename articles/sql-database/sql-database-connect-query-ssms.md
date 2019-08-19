@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 77b09552819f6f22e1707d2745bfecfc514e07a9
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/19/2019
+ms.openlocfilehash: e3fe0322fe73319a24f5d8be27cd79eac88113a4
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854473"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544141"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -27,16 +27,20 @@ ms.locfileid: "64854473"
 
 ## <a name="prerequisites"></a>先决条件
 
-- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-  || 单一数据库 |
-  |:--- |:--- |
-  | 创建| [Portal](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)|
-  |加载数据|根据快速入门加载的 Adventure Works|
-  |||
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
+
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
 ## <a name="install-the-latest-ssms"></a>安装最新的 SSMS
 
@@ -48,9 +52,9 @@ ms.locfileid: "64854473"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”页面。
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。
 
 ## <a name="connect-to-your-database"></a>连接到数据库
 
@@ -60,7 +64,7 @@ ms.locfileid: "64854473"
 > Azure SQL 数据库服务器在端口 1433 上进行侦听。 若要从公司防火墙后连接到 SQL 数据库服务器，该防火墙必须打开此端口。
 >
 
-1. 打开 SSMS。 此时会显示“连接到服务器”对话框。
+1. 打开 SSMS。 此时会显示“连接到服务器”  对话框。
 
 2. 输入以下信息：
 
@@ -75,21 +79,21 @@ ms.locfileid: "64854473"
 
    ![连接到服务器](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. 选择“连接到服务器”对话框中的“选项”。 在“连接到数据库”下拉菜单中，选择“mySampleDatabase”。
+3. 选择“连接到服务器”对话框中的“选项”   。 在“连接到数据库”下拉菜单中，选择“mySampleDatabase”   。
 
    ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. 选择“连接” 。 此时会打开“对象资源管理器”窗口。
+4. 选择“连接”  。 此时会打开“对象资源管理器”窗口。
 
-5. 要查看数据库的对象，请展开“数据库”，然后展开“mySampleDatabase”。
+5. 要查看数据库的对象，请展开“数据库”，然后展开“mySampleDatabase”   。
 
-   ![查看数据库对象](./media/sql-database-connect-query-ssms/connected.png)  
+   ![mySampleDatabase 对象](./media/sql-database-connect-query-ssms/connected.png)  
 
 ## <a name="query-data"></a>查询数据
 
 运行此 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 代码，按类别查询前 20 个产品。
 
-1. 在对象资源管理器中，右键单击“mySampleDatabase”，并选择“新建查询”。 此时会打开一个连接到数据库的新查询窗口。
+1. 在对象资源管理器中，右键单击“mySampleDatabase”，并选择“新建查询”   。 此时会打开一个连接到数据库的新查询窗口。
 
 2. 在查询窗口中，粘贴此 SQL 查询。
 
@@ -100,9 +104,9 @@ ms.locfileid: "64854473"
    ON pc.productcategoryid = p.productcategoryid;
    ```
 
-3. 在工具栏上，选择“执行”，以便从 `Product` 和 `ProductCategory` 表检索数据。
+3. 在工具栏上，选择“执行”，以便从 `Product` 和 `ProductCategory` 表检索数据  。
 
-    ![从两个表中检索数据的查询](./media/sql-database-connect-query-ssms/query2.png)
+    ![从表 Product 和 ProductCategory 中检索数据的查询](./media/sql-database-connect-query-ssms/query2.png)
 
 ## <a name="insert-data"></a>插入数据
 
@@ -129,7 +133,7 @@ ms.locfileid: "64854473"
            ,GETDATE() );
    ```
 
-2. 选择“执行”在 `Product` 表中插入新行。 “消息”面板显示“(受影响的 1 行)”。
+2. 选择“执行”在 `Product` 表中插入新行  。 “消息”面板显示“(受影响的 1 行)”   。
 
 ## <a name="view-the-result"></a>查看结果
 
@@ -140,9 +144,9 @@ ms.locfileid: "64854473"
    WHERE Name='myNewProduct'
    ```
 
-2. 选择“执行”。 将显示以下结果。
+2. 选择“执行”  。 将显示以下结果。
 
-   ![结果](./media/sql-database-connect-query-ssms/result.png)
+   ![Product 表查询的结果](./media/sql-database-connect-query-ssms/result.png)
 
 ## <a name="update-data"></a>更新数据
 
@@ -156,7 +160,7 @@ ms.locfileid: "64854473"
    WHERE Name = 'myNewProduct';
    ```
 
-2. 选择“执行”更新 `Product` 表中的指定行。 “消息”面板显示“(受影响的 1 行)”。
+2. 选择“执行”更新 `Product` 表中的指定行  。 “消息”面板显示“(受影响的 1 行)”   。
 
 ## <a name="delete-data"></a>删除数据
 
@@ -169,7 +173,7 @@ ms.locfileid: "64854473"
    WHERE Name = 'myNewProduct';
    ```
 
-2. 选择“执行”删除 `Product` 表中的指定行。 “消息”面板显示“(受影响的 1 行)”。
+2. 选择“执行”删除 `Product` 表中的指定行  。 “消息”面板显示“(受影响的 1 行)”   。
 
 ## <a name="next-steps"></a>后续步骤
 

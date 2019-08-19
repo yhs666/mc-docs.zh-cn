@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/30/2016
 ms.date: 08/08/2016
 ms.author: v-junlch
-ms.openlocfilehash: e144ad4eca1b8991c4566e5496397fada13e3f27
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: d0d24cc094492915023a979daf9346701a9ed498
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627604"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969609"
 ---
 # <a name="what-is-the-azure-sdk-for-net"></a>什么是 Azure SDK for .NET？
 
@@ -41,7 +41,6 @@ Azure SDK for .NET 将安装以下产品：
 - [Microsoft Azure PowerShell](#ps)
 - [Microsoft Azure Tools for Microsoft Visual Studio](#tools)
 - [Microsoft ASP.NET 和 Web Tools for Visual Studio](#wte)
-- [Microsoft Azure Data Lake Tools for Visual Studio](#datalake)
 
 ### <a id="vwd"></a>Visual Studio Community Edition 2015
 
@@ -146,10 +145,6 @@ Azure SDK for .NET 将安装以下产品：
 
 该 SDK 仅安装客户端库，因此在没有连接到 Internet 的情况下，你也可以创建云服务项目。 最新的客户端库在 [NuGet.org](http://go.microsoft.com/fwlink/?LinkId=510472) 的 NuGet 包中提供。有关详细信息，请参阅本文档前面部分的[安装 Azure SDK for .NET 时未获得的内容](#notincluded)。
 
-### <a id="olderversions"></a>哪里可以找到较旧版本的 Azure SDK for .NET？
-
-若需较旧版本，请参阅 [Azure SDK for .NET](/downloads/archive-net-downloads/) 下载页。 
-
 ### <a id="lifecycle"></a>Azure SDK for .NET 版本的生命周期策略是什么？
 
 请参阅 [Microsoft Azure 云服务支持生命周期策略](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq)。
@@ -160,26 +155,21 @@ Azure SDK for .NET 将安装以下产品：
 
 ### <a id="uninstall"></a>我如何卸载 Azure SDK for .NET？
 
-在 [Azure SDK for .NET 中包含的内容](#included)一文中所列出的每一个项目在 Windows 控制面板的“程序和功能”中作为单独的程序列出。  因此，无法将所有项目作为组一起卸载；必须单独卸载每个程序。
+在 [Azure SDK for .NET 中包含的内容](#included)一文中所列出的每一个项目在 Windows 控制面板的“程序和功能”  中作为单独的程序列出。  因此，无法将所有项目作为组一起卸载；必须单独卸载每个程序。
 
 如果已经安装了 Azure SDK for.NET，在安装新版本时，通常无需卸载旧版本。 在大多数情况下，SDK 安装会更新现有程序，而不是添加一个新程序并保留旧程序。 
-
+<a name="olderversions"></a>
 但是，如果想要删除不再需要的早期版本的残留文件，只有在显示存在同一程序的更新版本时才能进行卸载，并且只能卸载指明了较旧版本号的程序。 例如，在从 2.5 版本更新到 2.6 后，你可能会同时看到“Micrsoft Azure Tools for Microsoft Visual Studio 2013”存在 2.5 和 2.6 两个版本。在此情况下，你可以卸载 2.5 版本。 但是，你也可能只看到“Microsoft Azure 创作工具”的 2.5 版本。在此情况下，卸载程序则是不安全的。
 
-请注意，在“程序和功能”中所显示的程序版本号可能会产生误导。  例如，SDK 2.6 版包括“Micrsoft Azure Mobile App SDK V1.0”。如果你安装了适用于 Visual Studio 2013 的 SDK 和适用于 Visual Studio 2015 的”Micrsoft Azure Mobile App SDK V2.0”，在此情况下，显示的版本号并非 SDK 版本号，而是该程序适用的 Visual Studio 版本号。
+请注意，在“程序和功能”  中所显示的程序版本号可能会产生误导。  例如，SDK 2.6 版包括“Micrsoft Azure Mobile App SDK V1.0”。如果你安装了适用于 Visual Studio 2013 的 SDK 和适用于 Visual Studio 2015 的”Micrsoft Azure Mobile App SDK V2.0”，在此情况下，显示的版本号并非 SDK 版本号，而是该程序适用的 Visual Studio 版本号。
 
-本文不会列出 Azure SDK 每个旧版本所包括的所有程序；因为在 SDK 的更高版本中有时会删除旧版本中的一些程序，所以你可以从较早的版本卸载这些程序。 例如，版本 2.5 安装有“适用于 Visual Studio 的 Azure Resource Manager 工具”，但是因为在“程序和功能”中不再将其作为单独的程序列出，所以本文也未将它列出。  本文仅列出包含在 Azure SDK for.NET 版本 2.6 中的那些程序。  
+本文不会列出 Azure SDK 每个旧版本所包括的所有程序；因为在 SDK 的更高版本中有时会删除旧版本中的一些程序，所以你可以从较早的版本卸载这些程序。 例如，版本 2.5 安装有“适用于 Visual Studio 的 Azure Resource Manager 工具”，但是因为在“程序和功能”  中不再将其作为单独的程序列出，所以本文也未将它列出。  本文仅列出包含在 Azure SDK for.NET 版本 2.6 中的那些程序。  
 
 > **注意：** 在其他环境中可能会单独安装 SDK 包含的某些程序，因此，即使不需要完整的 SDK，但也可能需要这些程序。 同样地，即使在新版本的 SDK 中删除了旧版本中的某些程序，但仍然可能需要这些程序。 因此，在卸载程序时，请务必小心谨慎，以免删除了计算机上仍然需要的内容。
 
-## <a id="versions"></a>版本
-
-若要查看哪一个版本是最新版本或者需要下载较旧版本，请参阅 [Azure SDK for .NET 版本历史记录](/downloads/archive-net-downloads/)页。 
 
 ## <a id="resources"></a>资源
 
 若要下载最新的 Azure SDK for .NET 或客户端库，请参阅 [Azure 下载页](/downloads/)。
 
 有关 Azure SDK for .NET 源代码，包括客户端库，请参阅 [GitHub.com/Azure](https://github.com/azure/)。
-
-有关 Azure 客户端库的参考文档，请参阅 [Azure.NET 参考](/documentation/api/)。

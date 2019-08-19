@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0f7f68f1819ac173386c4ef5b129b912721cfe6c
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 942bd01cfc599f77819c347644619a63712e4403
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332275"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544096"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>实体类型及其在 LUIS 中的目的
 
@@ -265,7 +265,7 @@ Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中�
 
 LUIS 还提供非机器学习的列表实体类型，可让 LUIS 应用指定固定的值列表。 请参阅 [LUIS 边界](luis-boundaries.md)参考内容，查看列表实体类型的限制。 
 
-如果已考虑这些实体，但所需仍超过限制，请与支持部门联系。 为此，请收集有关系统的详细信息，转到 [LUIS](luis-reference-regions.md#luis-website) 网站，然后选择“支持”  。 如果所持 Azure 订阅包含支持服务，请与 [Azure 技术支持](https://azure.microsoft.com/support/options/)联系。 
+如果已考虑这些实体，但所需仍超过限制，请与支持部门联系。 为此，请收集有关系统的详细信息，转到 [LUIS](luis-reference-regions.md#luis-website) 网站，然后选择“支持”  。 如果所持 Azure 订阅包含支持服务，请与 [Azure 技术支持](https://support.azure.cn/zh-cn/support/contact/)联系。 
 
 ## <a name="next-steps"></a>后续步骤
 

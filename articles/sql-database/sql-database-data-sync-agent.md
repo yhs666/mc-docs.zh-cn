@@ -9,20 +9,23 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: douglasl
+ms.reviewer: carlrab
 manager: digimobile
-origin.date: 11/12/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 2f246183d2b97e5537f8c27ac3c54dd31274ef09
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+origin.date: 12/20/2018
+ms.date: 08/19/2019
+ms.openlocfilehash: 5ddcb2dfb491fc6e2a2bf7818b7db06e31ab3ab8
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627586"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544346"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 数据同步的 Data Sync Agent
 
 通过安装并配置 Azure SQL 数据同步的 Data Sync Agent 来将数据与本地 SQL Server 数据库进行同步。有关 SQL 数据同步的详细信息，请参阅[使用 SQL 数据同步跨多个云和本地数据库同步数据](sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 目前，Azure SQL 数据同步**不**支持 Azure SQL 数据库托管实例。
 
 ## <a name="download-and-install"></a>下载并安装
 
@@ -50,7 +53,7 @@ msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\
 
 ### <a name="why-do-i-need-a-client-agent"></a>为什么需要客户端代理
 
-SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信。 此安全功能可防止与防火墙后的数据库进行直接通信。 SQL 数据同步服务与代理通信时，使用加密连接和唯一令牌或代理密钥来执行此操作。 SQL Server 数据库使用连接字符串和代理密钥对代理进行身份验证。 这种设计为数据提供高度安全性。
+SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信。 此安全功能可防止与防火墙后的数据库进行直接通信。 SQL 数据同步服务与代理通信时，使用加密连接和唯一令牌或代理密钥来执行此操作  。 SQL Server 数据库使用连接字符串和代理密钥对代理进行身份验证。 这种设计为数据提供高度安全性。
 
 ### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>可以运行多少个本地代理 UI 实例
 
@@ -146,18 +149,18 @@ SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信�
 - **解决方法**。 将代理的密码更新为当前服务器密码：
 
   1. 找到 SQL 数据同步客户端代理服务。  
-    a. 选择“启动”。  
+    a. 选择“启动”。   
     b. 在搜索框中输入 **services.msc**。  
-    c. 在搜索结果中，选择“服务”。  
-    d. 在“服务”窗口中，滚动到 **SQL Data Sync Agent** 所对应的条目。  
-  1. 右键单击“SQL Data Sync Agent”并选择“停止”。
-  1. 右键单击“SQL Data Sync Agent”并选择“属性”。
-  1. 在“SQL Data Sync Agent 属性”中，选择“登录”选项卡。
-  1. 在“密码”框中输入自己的密码。
-  1. 在“确认密码”框中再次输入自己的密码。
-  1. 依次选择“应用”、“确定”。
-  1. 在“服务”窗口中，右键单击“SQL Data Sync Agent”服务并单击“启动”。
-  1. 关闭“服务”窗口。
+    c. 在搜索结果中，选择“服务”。   
+    d. 在“服务”  窗口中，滚动到 **SQL Data Sync Agent** 所对应的条目。  
+  1. 右键单击“SQL Data Sync Agent”并选择“停止”。  
+  1. 右键单击“SQL Data Sync Agent”并选择“属性”。  
+  1. 在“SQL Data Sync Agent 属性”中，选择“登录”选项卡。  
+  1. 在“密码”框中输入自己的密码。 
+  1. 在“确认密码”框中再次输入自己的密码。 
+  1. 依次选择“应用”、“确定”   。
+  1. 在“服务”窗口中，右键单击“SQL Data Sync Agent”服务并单击“启动”。   
+  1. 关闭“服务”  窗口。
 
 ### <a name="agent-key"></a>无法提交代理密钥
 
@@ -190,9 +193,9 @@ SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信�
   1. 在文件资源管理器中，转到代理安装目录。 默认安装目录为 C:\\Program Files (x86)\\Microsoft SQL Data Sync。
   1. 双击“bin”子目录。
   1. 打开 SqlAzureDataSyncAgent 应用程序。
-  1. 选择“提交代理密钥”。
+  1. 选择“提交代理密钥”  。
   1. 在提供的空白处粘贴剪贴板中的密钥。
-  1. 选择“确定” 。
+  1. 选择“确定”  。
   1. 关闭程序。
 
 ### <a name="agent-delete"></a>如果与客户端代理关联的本地数据库不可访问，则无法从门户删除该客户端代理
@@ -213,9 +216,9 @@ SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信�
   1. 退出应用。  
   1. 打开组件服务面板。  
     a. 在任务栏上的搜索框中输入 **services.msc**。  
-    b. 在搜索结果中，双击“服务”。  
-  1. 停止“SQL 数据同步”服务。
-  1. 重启“SQL 数据同步”服务。  
+    b. 在搜索结果中，双击“服务”。   
+  1. 停止“SQL 数据同步”  服务。
+  1. 重启“SQL 数据同步”  服务。  
   1. 重新打开应用。
 
 ## <a name="run-the-data-sync-agent-from-the-command-prompt"></a>从命令提示符运行 Data Sync Agent

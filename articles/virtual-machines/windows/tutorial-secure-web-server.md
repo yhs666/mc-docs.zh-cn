@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 02/09/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 05b810213c7239d07dc6d563c76e1150bfd673b8
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c4aa3adb04d439ca7c300dbbf5086b6f447b5d9f
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570484"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539162"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>教程：在 Azure 中使用 Key Vault 中存储的 SSL 证书保护 Windows 虚拟机上的 Web 服务器
 
@@ -33,7 +33,6 @@ ms.locfileid: "67570484"
 > * 生成证书或将其上传到 Key Vault
 > * 创建 VM 并安装 IIS Web 服务器
 > * 将证书注入 VM 并使用 SSL 绑定配置 IIS
-
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 

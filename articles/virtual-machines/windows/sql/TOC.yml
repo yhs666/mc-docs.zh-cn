@@ -32,6 +32,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: 管理
       items:
+        - name: 扩展对 SQL 2008 和 R2 的支持
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: 连接到 VM
           href: virtual-machines-windows-sql-connect.md
         - name: 配置存储
@@ -83,7 +85,7 @@
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/azure/overview'
     - name: Azure CLI
-      href: 'https://docs.azure.cn/zh-cn/cli/?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/?view=azure-cli-latest'
     - name: T-SQL
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
     - name: SQL Server 驱动程序

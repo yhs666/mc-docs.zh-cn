@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 07/17/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 178592eeceaaded48df3f649a9039fd7d0d9e487
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 362dcd89bdf04e53a1902adfa0a59f0ffc66553f
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004157"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538976"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>使用 Java 创建和管理 Azure 中的 Windows VM
 
@@ -40,7 +40,7 @@ ms.locfileid: "59004157"
 
 ## <a name="create-a-maven-project"></a>创建 Maven 项目
 
-1. 如果尚未安装 [Java](https://docs.azure.cn/zh-cn/java/java-supported-jdk-runtime?view=azure-java-stable)，请安装。
+1. 如果尚未安装 [Java](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)，请安装。
 2. 安装 [Maven](https://maven.apache.org/download.cgi)。
 3. 创建新文件夹和项目：
 
@@ -97,7 +97,7 @@ ms.locfileid: "59004157"
       <artifactId>okio</artifactId>
       <version>1.13.0</version>
     </dependency>
-    <dependency> 
+    <dependency>
       <groupId>com.nimbusds</groupId>
       <artifactId>nimbus-jose-jwt</artifactId>
       <version>3.6</version>
@@ -135,7 +135,7 @@ ms.locfileid: "59004157"
     graphURL=https://graph.chinacloudapi.cn/
     ```
 
-    将 &lt;subscription-id&gt; 替换为订阅标识符，将 &lt;application-id&gt; 替换为 Active Directory 应用程序标识符，将 &lt;authentication-key&gt; 替换为应用程序密钥，将 &lt;tenant-id&gt; 替换为租户标识符。
+    将 &lt;subscription-id&gt; 替换为订阅标识符，将 &lt;application-id&gt; 替换为 Active Directory 应用程序标识符，将 &lt;authentication-key&gt; 替换为应用程序密钥，将 &lt;tenant-id&gt; 替换为租户标识符     。
 
 2. 保存文件。
 3. 在 shell 中将包含完整路径的环境变量 AZURE_AUTH_LOCATION 设置为身份验证文件。
@@ -385,7 +385,7 @@ for(InstanceViewStatus status : vm.instanceView().statuses()) {
     System.out.println("  displayStatus: " + status.displayStatus());
 }
 System.out.println("Press enter to continue...");
-input.nextLine();   
+input.nextLine();
 ```
 
 ### <a name="stop-the-vm"></a>停止 VM

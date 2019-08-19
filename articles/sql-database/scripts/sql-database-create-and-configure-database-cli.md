@@ -11,14 +11,14 @@ author: WenJason
 manager: digimobile
 ms.author: v-jay
 ms.reviewer: ''
-origin.date: 02/08/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 312c2e6f312348de0600435703b80f72224691b9
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 8677ef3c64912f77296219b17d0f94553b268ce8
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854662"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544414"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
@@ -33,31 +33,41 @@ ms.locfileid: "64854662"
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup-$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
-export adminlogin=ServerAdmin
-export password=ChangeYourAdminPassword1
+adminlogin=ServerAdmin
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
 # The logical server name has to be unique in the system
-export servername=server-$RANDOM
+servername=server-$RANDOM
+
 # The ip address range that you want to allow to access your DB
-export startip=0.0.0.0
-export endip=0.0.0.0
+startip=0.0.0.0
+endip=0.0.0.0
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    --location chinaeast
+    --name $resourceGroupName \
+    --location $location
 
 # Create a logical server in the resource group
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location chinaeast  \
+    --resource-group $resourceGroupName \
+    --location $location  \
     --admin-user $adminlogin \
     --admin-password $password
 
 # Configure a firewall rule for the server
 az sql server firewall-rule create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     -n AllowYourIp \
     --start-ip-address $startip \
@@ -65,19 +75,23 @@ az sql server firewall-rule create \
 
 # Create a database in the server
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
     --sample-name AdventureWorksLT \
-    --service-objective S0
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1 
 
+# Echo random password
+echo $password
 ```
 ## <a name="clean-up-deployment"></a>清理部署
 
 使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -97,5 +111,3 @@ az group delete --name myResourceGroup
 有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
-<!--Update_Description: update sample scripts; update Global CLI 2.0 links to Mooncake CLI 2.0-->

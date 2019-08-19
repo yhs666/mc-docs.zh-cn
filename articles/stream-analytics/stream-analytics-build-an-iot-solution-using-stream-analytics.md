@@ -4,21 +4,22 @@ description: 使用收费站方案了解流分析 IoT 解决方案的入门教�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.custom: seodec18
-ms.openlocfilehash: 803015a5e9d59182143237a9ef91baa0b1a375f5
-ms.sourcegitcommit: 7e3f2692997502cc8ba548b94f4d1937314e3e77
+origin.date: 08/09/2018
+ms.date: 06/11/2019
+ms.openlocfilehash: 2f5885919409450cc1e489e4bc8e3df2814d3b33
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54905064"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969601"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>使用流分析生成 IoT 解决方案
 ## <a name="introduction"></a>简介
-本解决方案演示如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松地将数据流（例如点击流、日志和设备生成的事件）与历史记录或参考数据结合，从中获得业务见解。 由世纪互联 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及伸缩性，可让你在几分钟内上手。
+本解决方案演示如何使用 Azure 流分析从数据获得实时见解。 开发人员可以轻松将数据流（例如点击流、日志和设备生成的时间）与历史记录或参考数据结合起来，获取业务信息。 由世纪互联 Azure 托管的 Azure 流分析是可完全托管的实时流计算服务，它具有内置的复原性、低延迟及伸缩性，可让你在几分钟内上手。
 
 完成后此解决方案，你将可以：
 
@@ -126,17 +127,18 @@ ms.locfileid: "54905064"
 
 5. 选择 Azure 位置。
 
-6. 在“间隔”中指定若干秒。 此值将在示例 Web 应用中使用，指定将数据发送到事件中心的频率。 
+6. 在“间隔”中指定若干秒。  此值将在示例 Web 应用中使用，指定将数据发送到事件中心的频率。 
 
 7. **选中**表示同意条款和条件的复选框。
 
-8. 选择“固定到仪表板”，以便稍后可以轻松找到资源。
+8. 选择“固定到仪表板”，以便稍后可以轻松找到资源。 
 
-9. 选择“购买”以部署示例模板。
+9. 选择“购买”以部署示例模板。 
 
 10. 片刻之后，将会显示一条通知来确认**部署成功**。
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>查看 Azure 流分析 TollApp 资源
+
 1. 登录到 Azure 门户
 
 2. 找到在上一部分命名的资源组。
@@ -151,7 +153,7 @@ ms.locfileid: "54905064"
 ## <a name="examine-the-sample-tollapp-job"></a>检查示例 TollApp 作业 
 1. 从上一部分创建的资源组着手，选择以名称 **tollapp** 开头的流分析流式处理作业（名称包含随机字符，以确保唯一性）。
 
-2. 在该作业的“概述”页上，观察“查询”框以查看查询语法。
+2. 在该作业的“概述”页上，观察“查询”框以查看查询语法。  
 
    ```sql
    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
@@ -175,20 +177,20 @@ ms.locfileid: "54905064"
 ## <a name="start-the-tollapp-streaming-job"></a>启动 TollApp 流式处理作业
 遵循以下步骤启动流式处理作业：
 
-1. 在作业的“概述”页上选择“启动”。
+1. 在作业的“概述”页上选择“启动”。  
 
-2. 在“启动作业”窗格中选择“立即”。
+2. 在“启动作业”窗格中选择“立即”。  
 
-3. 等待片刻，作业运行后，请在流式处理作业的“概述”页上查看“监视”图表。 此图应显示数千个输入事件和数十个输出事件。
+3. 等待片刻，作业运行后，请在流式处理作业的“概述”页上查看“监视”图表。   此图应显示数千个输入事件和数十个输出事件。
 
 ## <a name="review-the-cosmosdb-output-data"></a>查看 CosmosDB 输出数据
 1. 找到包含 TollApp 资源的资源组。
 
 2. 选择名称模式为 **tollapp<random>-cosmos** 的 Azure Cosmos DB 帐户。
 
-3. 选择“数据资源管理器”标题打开“数据资源管理器”页。
+3. 选择“数据资源管理器”标题打开“数据资源管理器”页。 
 
-4. 展开“tollAppDatabase” > “tollAppCollection” > “文档”。
+4. 展开“tollAppDatabase” > “tollAppCollection” > “文档”。   
 
 5. 提供输出后，ID 列表中会显示多个文档。
 
@@ -212,19 +214,19 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>更新 TollApp 流式处理作业查询语法：
 
-1. 在作业的“概述”页上选择“停止”。
+1. 在作业的“概述”页上选择“停止”。  
 
 2. 片刻之后，将出现作业已停止的通知。
 
-3. 在“作业拓扑”标题下，选择“< > 查询”
+3. 在“作业拓扑”标题下，选择“< > 查询” 
 
 4. 粘贴调整后的流式处理 SQL 查询。
 
-5. 选择“保存”以保存查询。 选择“是”确认保存更改。
+5. 选择“保存”以保存查询。  选择“是”确认保存更改。 
 
-6. 在作业的“概述”页上选择“启动”。
+6. 在作业的“概述”页上选择“启动”。  
 
-7. 在“启动作业”窗格中选择“立即”。
+7. 在“启动作业”窗格中选择“立即”。  
 
 ### <a name="review-the-total-time-in-the-output"></a>查看输出中的总时间
 重复前一部分所述的步骤，查看流式处理作业返回的 CosmosDB 输出数据。 查看最新的 JSON 文档。 
@@ -297,27 +299,27 @@ GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
 1. **停止**当前作业。 
 
-2. 在“< > 查询”页中更新查询语法，然后保存更改。
+2. 在“< > 查询”页中更新查询语法，然后保存更改。 
 
-3. 在流式处理作业的“配置”标题下，选择“缩放”。
+3. 在流式处理作业的“配置”标题下，选择“缩放”。 
 
-4. 将“流单元”滑块从 1 滑到 6。 流单元定义作业能够接收的计算能力大小。 选择“其他安全性验证” 。
+4. 将“流单元”滑块从 1 滑到 6。  流单元定义作业能够接收的计算能力大小。 选择“其他安全性验证”  。
 
 5. **启动**流式处理作业，以演示其他缩放操作。 Azure 流分析可在更多的计算资源之间分配工作，并可以使用 PARTITION BY 子句中指定的列将不同资源中的工作分区，从而提高吞吐量。 
 
 ## <a name="monitor-the-job"></a>监视作业
-“监视器”区域包含正在运行的作业的相关统计信息。 需要完成首次配置，才能使用同一区域中的存储帐户（按本文档其余部分命名收费站）。   
+“监视器”  区域包含正在运行的作业的相关统计信息。 需要完成首次配置，才能使用同一区域中的存储帐户（按本文档其余部分命名收费站）。   
 
 ![Azure 流分析作业监视](media/stream-analytics-build-an-iot-solution-using-stream-analytics/stream-analytics-job-monitoring.png)
 
-还可通过作业仪表板的“设置”区域访问“活动日志”。
+还可通过作业仪表板的“设置”区域访问“活动日志”   。
 
 ## <a name="clean-up-the-tollapp-resources"></a>清理 TollApp 资源
 1. 在 Azure 门户中停止流分析作业。
 
 2. 找到包含与 TollApp 模板相关的八个资源的资源组。
 
-3. 选择“删除资源组”。 键入资源组名称以确认删除。
+3. 选择“删除资源组”  。 键入资源组名称以确认删除。
 
 ## <a name="conclusion"></a>结论
 本解决方案介绍了 Azure 流分析服务。 其中演示如何为流分析作业配置输入和输出。 本解决方案还使用收费站数据场景来解释在数据空间不断变化时所引发的常见问题类型，以及如何在 Azure 流分析中使用类似于 SQL 的简单查询来解决这些问题。 本解决方案介绍了用于处理时态数据的 SQL 扩展构造。 其中说明如何联接不同的数据流、如何使用静态参考数据来扩充数据流，以及如何扩大查询来获得更高的吞吐量。

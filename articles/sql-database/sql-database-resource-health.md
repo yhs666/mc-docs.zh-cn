@@ -12,19 +12,19 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/26/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: d9ed8856c61fbd82ce429360135712e30ee99cab
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 08/19/2019
+ms.openlocfilehash: ea3009e496ec66650a35b6a67b5f21281209ad81
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318888"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544165"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>使用资源运行状况排查 Azure SQL 数据库的连接问题
 
 ## <a name="overview"></a>概述
 
-适用于 SQL 数据库的[资源运行状况](../service-health/resource-health-overview.md#getting-started)可以帮助你在 Azure 问题影响到 SQL 资源时进行诊断和获取支持。 它通知你有关资源的当前和过去运行状况的信息，并帮助你缓解问题。 在需要有关 Azure 服务问题的帮助时，资源运行状况将提供技术支持。
+适用于 SQL 数据库的[资源运行状况](../service-health/resource-health-overview.md#get-started)可以帮助你在 Azure 问题影响到 SQL 资源时进行诊断和获取支持。 它通知你有关资源的当前和过去运行状况的信息，并帮助你缓解问题。 在需要有关 Azure 服务问题的帮助时，资源运行状况将提供技术支持。
 
 ![概述](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
@@ -36,25 +36,25 @@ ms.locfileid: "58318888"
 
 ### <a name="available"></a>可用
 
-“可用”状态表示资源运行状况未检测到 SQL 资源中的系统错误导致的登录失败。
+“可用”状态表示资源运行状况未检测到 SQL 资源中的系统错误导致的登录失败。 
 
 ![可用](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
 ### <a name="degraded"></a>已降级
 
-“已降级”状态表示资源运行状况检测到大多数登录成功，但也有一部分登录失败。 这些问题很有可能是暂时性登录错误。 若要减轻暂时性登录错误导致的连接问题所造成的影响，请在代码中实施[重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
+“已降级”状态表示资源运行状况检测到大多数登录成功，但也有一部分登录失败。  这些问题很有可能是暂时性登录错误。 若要减轻暂时性登录错误导致的连接问题所造成的影响，请在代码中实施[重试逻辑](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)。
 
 ![已降级](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### <a name="unavailable"></a>不可用
 
-“不可用”状态表示资源运行状况检测到 SQL 资源登录一直失败。 如果资源长时间保持此状态，请与支持人员联系。
+“不可用”状态表示资源运行状况检测到 SQL 资源登录一直失败。  如果资源长时间保持此状态，请与支持人员联系。
 
 ![不可用](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
 ### <a name="unknown"></a>Unknown
 
-运行状况为“未知”指示资源运行状况未收到此资源的相关信息已超过 10 分钟。 尽管此状态不是资源状态的最终指示，但它是故障排除过程中一个重要的数据点。 如果资源正在按预期方式运行，资源状态会在几分钟后更改为“可用”。 如果资源遇到问题，“未知”运行状态可能暗示平台中的事件正在影响资源。
+运行状况为“未知”  指示资源运行状况未收到此资源的相关信息已超过 10 分钟。 尽管此状态不是资源状态的最终指示，但它是故障排除过程中一个重要的数据点。 如果资源正在按预期方式运行，资源状态会在几分钟后更改为“可用”。 如果资源遇到问题，“未知”运行状态可能暗示平台中的事件正在影响资源。
 
 ![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
 

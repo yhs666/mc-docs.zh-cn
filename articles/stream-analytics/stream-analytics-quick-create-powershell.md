@@ -4,16 +4,18 @@ description: 本快速入门演示如何使用 Azure PowerShell 模块来部署�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
-ms.date: 01/21/19
-ms.topic: quickstart
+manager: digimobile
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.custom: mvc
-ms.openlocfilehash: 56f40146b021b18814e5f6494c237f79c898b863
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.topic: conceptual
+origin.date: 08/09/2019
+ms.date: 06/21/2019
+ms.openlocfilehash: 1fd67d8b2fc4c8ad2b6cd93eabe771c9ca9f4d58
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818546"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969570"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建流分析作业
 
@@ -209,7 +211,7 @@ New-AzStreamAnalyticsJob `
 }
 ```
 
-接下来运行 `New-AzStreamAnalyticsInput` cmdlet，确保将 `jobDefinitionFile` 变量的值替换为在其中存储了作业输入定义 JSON 文件的路径。 
+接下来运行 `New-AzStreamAnalyticsInput` cmdlet，确保将 `jobDefinitionFile` 变量的值替换为在其中存储了作业输入定义 JSON 文件的路径。
 
 ```powershell
 $jobInputName = "IoTHubInput"
@@ -218,7 +220,7 @@ New-AzStreamAnalyticsInput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobInputDefinitionFile `
-  -Name $jobInputName 
+  -Name $jobInputName
 ```
 
 ## <a name="configure-output-to-the-job"></a>配置作业输出
@@ -267,7 +269,7 @@ New-AzStreamAnalyticsOutput `
   -ResourceGroupName $resourceGroup `
   -JobName $jobName `
   -File $jobOutputDefinitionFile `
-  -Name $jobOutputName -Force 
+  -Name $jobOutputName -Force
 ```
 
 ## <a name="define-the-transformation-query"></a>定义转换查询
@@ -275,14 +277,14 @@ New-AzStreamAnalyticsOutput `
 使用 [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation) cmdlet 将转换添加到作业。 此 cmdlet 使用作业名称、作业转换名称、资源组名称和作业转换定义作为参数。 在本地计算机上创建名为 `JobTransformationDefinition.json` 的文件，并向其添加以下 JSON 数据。 此 JSON 文件包含一个查询参数，用于定义转换查询：
 
 ```json
-{     
-   "name":"MyTransformation",  
-   "type":"Microsoft.StreamAnalytics/streamingjobs/transformations",  
-   "properties":{    
-      "streamingUnits":1,  
-      "script":null,  
-      "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"  
-   }  
+{
+    "name":"MyTransformation",
+    "type":"Microsoft.StreamAnalytics/streamingjobs/transformations",
+    "properties":{
+        "streamingUnits":1,
+        "script":null,
+        "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
+    }
 }
 ```
 
@@ -305,13 +307,13 @@ New-AzStreamAnalyticsTransformation `
 
 3. 单击“运行”  。 输出会显示传感器数据和发送到 IoT 中心的消息。
 
-   ![Raspberry Pi Azure IoT 联机模拟器](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
+    ![Raspberry Pi Azure IoT 联机模拟器](./media/stream-analytics-quick-create-powershell/ras-pi-connection-string.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>启动流分析作业并检查输出
 
 请使用 [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) cmdlet 启动作业。 此 cmdlet 使用作业名称、资源组名称、输出启动模式和启动时间作为参数。 `OutputStartMode` 接受的值为 `JobStartTime`、`CustomTime` 或 `LastOutputEventTime`。 若要详细了解每个值是指什么，请参阅 PowerShell 文档中的[参数](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob)部分。
 
-以下 cmdlet 在运行以后会返回 `True` 作为输出（如果作业启动）。 在存储容器中，创建的输出文件夹包含已转换的数据。 
+以下 cmdlet 在运行以后会返回 `True` 作为输出（如果作业启动）。 在存储容器中，创建的输出文件夹包含已转换的数据。
 
 ```powershell
 Start-AzStreamAnalyticsJob `

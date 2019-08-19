@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 01/04/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 0ddfbbbc1d945294d90be640ea1906f66037dc8a
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 08/19/2019
+ms.openlocfilehash: f4bdd69c08400b931062afdb0e7fbd5fe3d0b8f5
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663669"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544254"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>弹性数据库客户端库与实体框架
 
@@ -32,7 +32,7 @@ ms.locfileid: "56663669"
 * 从 MSDN 下载 [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba)（Azure SQL 弹性数据库工具 - Entity Framework 集成示例）。 将示例解压缩到所选位置。
 * 启动 Visual Studio。 
 * 在 Visual Studio 中，选择“文件”->“打开项目/解决方案”。 
-* 在“打开项目”对话框中，导航到已下载的示例，并选择 **EntityFrameworkCodeFirst.sln** 打开该示例。 
+* 在“打开项目”  对话框中，导航到已下载的示例，并选择 **EntityFrameworkCodeFirst.sln** 打开该示例。 
 
 要运行该示例，需要在 Azure SQL 数据库中创建三个空数据库：
 
@@ -40,14 +40,14 @@ ms.locfileid: "56663669"
 * 分片 1 数据库
 * 分片 2 数据库
 
-创建这些数据库后，使用 Azure SQL DB 服务器名称、数据库名称以及连接到数据库的凭据填充 Program.cs 中的占位符。 在 Visual Studio 中生成解决方案。 在生成过程中，Visual Studio 会下载弹性数据库客户端库、Entity Framework 和暂时性故障处理所需的 NuGet 包。 确保已为解决方案启用还原 NuGet 包。 可以通过右键单击 Visual Studio 解决方案资源管理器中的解决方案文件启用此设置。 
+创建这些数据库后，使用 Azure SQL DB 服务器名称、数据库名称以及连接到数据库的凭据填充 Program.cs 中的占位符。  在 Visual Studio 中生成解决方案。 在生成过程中，Visual Studio 会下载弹性数据库客户端库、Entity Framework 和暂时性故障处理所需的 NuGet 包。 确保已为解决方案启用还原 NuGet 包。 可以通过右键单击 Visual Studio 解决方案资源管理器中的解决方案文件启用此设置。 
 
 ## <a name="entity-framework-workflows"></a>实体框架工作流
 
 实体框架开发人员依靠以下四个工作流之一构建应用程序并确保应用程序对象的持久性：
 
-* **Code First（新数据库）**：EF 开发人员在应用程序代码中创建模型，然后 EF 从中生成数据库。 
-* **Code First（现有数据库）**：开发人员让 EF 从现有数据库生成模型的应用程序代码。
+* **Code First（新数据库）** ：EF 开发人员在应用程序代码中创建模型，然后 EF 从中生成数据库。 
+* **Code First（现有数据库）** ：开发人员让 EF 从现有数据库生成模型的应用程序代码。
 * **Model First**：开发人员在 EF 设计器中创建模型，EF 从该模型创建数据库。
 * **Database First**：开发人员使用 EF 工具从现有数据库推断模型。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "56663669"
 
 有关术语定义，请参阅[弹性数据库工具词汇表](sql-database-elastic-scale-glossary.md)。
 
-借助弹性数据库客户端库，可以定义称为 shardlet 的应用程序数据分区。 Shardlet 由分片键标识，并且映射到特定数据库。 应用程序可以具有任意所需数量的数据库，并根据当前业务需求分发 shardlet 以提供足够的容量或性能。 分片键值到数据库的映射由弹性数据库客户端 API 提供的分片映射存储。 此功能称为“分片映射管理”或简称为 SMM。 分片映射还为带有分片键的请求充当数据库连接的代理。 此功能称为“数据依赖型路由”。 
+借助弹性数据库客户端库，可以定义称为 shardlet 的应用程序数据分区。 Shardlet 由分片键标识，并且映射到特定数据库。 应用程序可以具有任意所需数量的数据库，并根据当前业务需求分发 shardlet 以提供足够的容量或性能。 分片键值到数据库的映射由弹性数据库客户端 API 提供的分片映射存储。 此功能称为“分片映射管理”或简称为 SMM。  分片映射还为带有分片键的请求充当数据库连接的代理。 此功能称为“数据依赖型路由”。  
 
 分片映射管理器防止用户在 shardlet 数据中出现不一致视图，当发生并发 shardlet 管理操作时（例如将数据从一个分片重新分配到另一个分片）可能发生此情况。 为此，客户端库管理的分片映射会代理应用程序的数据库连接。 当分片管理操作可能影响为其创建数据库连接的 shardlet 时，此操作允许分片映射功能自动终止该连接。 此方法需要与 EF 的一些功能集成，例如从现有连接创建新连接以检查数据库是否存在。 在通常情况下，我们观察到标准 DbContext 构造函数仅对可安全克隆用于 EF 工作的关闭数据库连接有效。 弹性数据库的设计原则是仅代理打开的连接。 有人可能认为，在交付给 EF DbContext 之前关闭由客户端库代理的连接可能解决此问题。 但是，通过关闭连接并依靠 EF 重新打开它，将放弃由该库执行的验证和一致性检查。 但是，EF 中的迁移功能使用这些连接以对应用程序透明的方式管理基础数据库架构。 理想情况下，将在相同的应用程序中保留和合并所有这些来自弹性数据库客户端库和 EF 的功能。 以下部分更详细地讨论这些属性和要求。 
 
@@ -156,7 +156,7 @@ using (var db = new ElasticScaleContext<int>(
     var query = from b in db.Blogs 
                 orderby b.Name 
                 select b; 
-    ... 
+    � 
 }
 ```
 
@@ -179,14 +179,14 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
                 var blog = new Blog { Name = name }; 
                 db.Blogs.Add(blog); 
                 db.SaveChanges(); 
-            ... 
+        � 
         } 
     }); 
 ```
 
 上述代码中的 **SqlDatabaseUtils.SqlRetryPolicy** 定义为 **SqlDatabaseTransientErrorDetectionStrategy**，重试计数为 10，每两次重试的等待时间为 5 秒。 此方法类似于 EF 和用户启动事务的指南（请参阅[重试执行策略的限制（从 EF6 开始）](https://msdn.microsoft.com/data/dn307226)。 这两种情况都要求应用程序控制返回暂时性异常的范围：重新打开事务，或者（如下所示）从使用弹性数据库客户端库的适当构造函数重新创建上下文。
 
-需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 会重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。 有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](https://msdn.microsoft.com/data/dn456835.aspx)。     
+需要控制其中暂时性异常返回范围还使该列不能使用 EF 随附的内置 **SqlAzureExecutionStrategy**。 **SqlAzureExecutionStrategy** 会重新打开连接，但不会使用 **OpenConnectionForKey**，从而绕过了调用 **OpenConnectionForKey** 期间执行的所有验证。 该代码示例使用的是 EF 也已随附的内置 **DefaultExecutionStrategy**。 与 **SqlAzureExecutionStrategy**相反，它能与暂时性故障处理中的重试策略正常配合工作。 执行策略在 **ElasticScaleDbConfiguration** 类中设置。 请注意，我们决定不使用 DefaultSqlExecutionStrategy，因为在发生暂时性异常时，最好使用 SqlAzureExecutionStrategy - 这会导致所述的错误行为。   有关不同重试策略和 EF 的详细信息，请参阅 [EF 中的连接弹性](https://msdn.microsoft.com/data/dn456835.aspx)。     
 
 #### <a name="constructor-rewrites"></a>构造函数重写
 
@@ -214,7 +214,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 * 该数据库为空 - 它未保存任何用户架构和用户数据。
 * 该数据库无法通过数据相关的路由的弹性数据库客户端 API 访问。 
 
-具备这些先决条件后，可以创建一个常规的未打开的 SqlConnection，以便为架构部署启动 EF 迁移。 以下代码示例演示了此方法。 
+具备这些先决条件后，可以创建一个常规的未打开的 SqlConnection，以便为架构部署启动 EF 迁移。  以下代码示例演示了此方法。 
 
 ```csharp
 // Enter a new shard - i.e. an empty database - to the shard map, allocate a first tenant to it  
@@ -277,7 +277,7 @@ new CreateDatabaseIfNotExists<ElasticScaleContext<T>>());
 
 ## <a name="conclusion"></a>结论
 
-通过本文档中概述的步骤，EF 应用程序可以通过重构 EF 应用程序中使用的 DbContext 子类的构造函数来使用弹性数据库客户端库的数据依赖型路由功能。 这将所需的更改限制到 **DbContext** 类已经存在的位置。 此外，EF 应用程序可以通过将调用必要的 EF 迁移的步骤与新分片的注册和分片映射中的映射结合，继续从自动架构部署中受益。 
+通过本文档中概述的步骤，EF 应用程序可以通过重构 EF 应用程序中使用的 DbContext 子类的构造函数来使用弹性数据库客户端库的数据依赖型路由功能。  这将所需的更改限制到 **DbContext** 类已经存在的位置。 此外，EF 应用程序可以通过将调用必要的 EF 迁移的步骤与新分片的注册和分片映射中的映射结合，继续从自动架构部署中受益。 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

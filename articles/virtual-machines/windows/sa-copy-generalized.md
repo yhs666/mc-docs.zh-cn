@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: ceceabfa0f6f13820d866778bde118b0a9f3cadb
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: e53c8b94e892d87fa1dfca0b405a520a8c78a867
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004190"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539205"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>如何从 Azure VM 创建非托管 VM 映像
 
@@ -46,8 +46,8 @@ ms.locfileid: "66004190"
 
 1. 登录到 Windows 虚拟机。
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 **%windir%\system32\sysprep**，然后运行 `sysprep.exe`。
-3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
-4. 在“关机选项”中选择“关机”。
+3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。   
+4. 在“关机选项”中选择“关机”。  
 5. 单击 **“确定”** 。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
@@ -89,13 +89,13 @@ ms.locfileid: "66004190"
     Stop-AzVM -ResourceGroupName <resourceGroup> -Name <vmName>
     ```
 
-    Azure 门户中该 VM 的“状态”将从“已停止”更改为“已停止(已解除分配)”。
-2. 将虚拟机的状态设置为“通用化”。 
+    Azure 门户中该 VM 的“状态”将从“已停止”更改为“已停止(已解除分配)”    。
+2. 将虚拟机的状态设置为“通用化”  。 
 
     ```powershell
     Set-AzVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
     ```
-3. 检查 VM 的状态。 VM 的“OSState/通用化”部分中的“DisplayStatus”应设置为“VM 已通用化”。  
+3. 检查 VM 的状态。 VM 的“OSState/通用化”部分中的“DisplayStatus”应设置为“VM 已通用化”    。  
 
     ```powershell
     $vm = Get-AzVM -ResourceGroupName <resourceGroup> -Name <vmName> -Status
@@ -112,7 +112,7 @@ Save-AzVMImage -ResourceGroupName <resourceGroupName> -Name <vmName> `
     -Path <C:\local\Filepath\Filename.json>
 ```
 
-可以从 JSON 文件模板获取映像的 URL。 转到“资源” > “storageProfile” > “osDisk” > “映像” > “URI”部分即可查找映像的完整路径。 `https://<storageAccountName>.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`。
+可以从 JSON 文件模板获取映像的 URL。 转到“资源” > “storageProfile” > “osDisk” > “映像” > “URI”部分即可查找映像的完整路径      。 `https://<storageAccountName>.blob.core.chinacloudapi.cn/system/Microsoft.Compute/Images/<imagesContainer>/<templatePrefix-osDisk>.xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.vhd`。
 
 也可以在门户中验证 URI。 映像将复制到存储帐户中名为 **system** 的容器。 
 
@@ -248,7 +248,7 @@ $vnet = Get-AzVirtualNetwork -ResourceGroupName $rgName -Name $vnetName
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
-完成后，应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：
+完成后，应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM：  
 
 ```powershell
     $vmList = Get-AzVM -ResourceGroupName $rgName

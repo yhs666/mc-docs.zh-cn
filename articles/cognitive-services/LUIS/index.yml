@@ -91,13 +91,6 @@ sections:
         style: unordered
         items:
           - html: '<a href="https://aka.ms/luis-code-samples">GitHub 上的示例</a><br/>'
-  - title: 视频
-    items:
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player" >Build 2018 中的 Azure Friday - 认知服务 - 语言 (LUIS)</a>'
-          - html: '<a href="https://channel9.msdn.com/events/Build/2018/BRK3208" >Build 2018 会议 - 机器人智能、语音功能和 NLU 最佳做法</a>'
   - title: 参考
     items:
       - type: list

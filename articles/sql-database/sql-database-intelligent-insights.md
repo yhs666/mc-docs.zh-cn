@@ -12,17 +12,17 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 12/19/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 65635f3fc591a157eec9e65bf27017eb675998bd
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 08/19/2019
+ms.openlocfilehash: ec73365a5994e9f547e9676bfe47d93010c99647
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663838"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544276"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>智能见解：使用 AI 监视数据库性能并对其进行故障排除
 
-使用 Azure SQL 数据库 Intelligent Insights 可以知道 SQL 数据库性能的变化情况。
+使用 Azure SQL 数据库智能见解可以了解 SQL 数据库和托管实例数据库的性能情况。
 
 Intelligent Insights 使用内置智能，通过人工智能持续监视数据库使用情况，并检测导致性能不佳的干扰性事件。 检测后，将执行详细分析，并生成包含对问题的智能评估的诊断日志。 此评估包含对数据库性能问题的根本原因分析，以及为性能改进而提供的可行性建议。
 
@@ -61,7 +61,7 @@ Intelligent Insights 可分析数据库性能，方法是比较前一个小时�
 | 根本原因分析 | 对已识别问题的根本原因分析采用人类可读的格式。 一些见解可能包含可行的性能改进建议。 |
 |||
 
-Intelligent Insights 在发现和排查 SQL 数据库性能问题方面出类拔萃。 若要使用 Intelligent Insights 排查 SQL 数据库性能问题，请参阅[使用 Intelligent Insights 解决 Azure SQL 数据库性能问题](sql-database-intelligent-insights-troubleshoot-performance.md)。
+Intelligent Insights 在发现和排查 SQL 数据库性能问题方面出类拔萃。 若要使用智能见解排查 SQL 数据库和托管实例数据库的性能问题，请参阅[使用智能见解解决 Azure SQL 数据库性能问题](sql-database-intelligent-insights-troubleshoot-performance.md)。
 
 ## <a name="configure-intelligent-insights"></a>配置智能见解
 
@@ -76,7 +76,7 @@ Intelligent Insights 与其他产品（Azure 事件中心、Azure 存储或第�
 
 ### <a name="set-up-with-event-hubs"></a>通过事件中心进行设置
 
-若要将 Intelligent Insights 与事件中心配合使用，配置要流式传输到事件中心的 Intelligent Insights 日志数据，请参阅[将 Azure 诊断日志流式传输到事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)。
+若要将智能见解与事件中心配合使用，配置要流式传输到事件中心的智能见解日志数据，请参阅[将 Azure 诊断日志流式传输到事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)。
 
 若要使用事件中心设置自定义监视和警报，请参阅[如何在事件中心处理指标和诊断日志](sql-database-metrics-diag-logging.md#what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs)。
 

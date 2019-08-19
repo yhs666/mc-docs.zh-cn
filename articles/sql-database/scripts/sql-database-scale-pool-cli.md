@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
-origin.date: 02/08/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: db618397ef047fee4376f6cbd73ed05a8bbc0607
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 2bcd3bcf44658dbba44f645a11a3c7a254133ef1
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854834"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544113"
 ---
 # <a name="use-cli-to-scale-an-elastic-pool-in-azure-sql-database"></a>使用 CLI 在 Azure SQL 数据库中缩放弹性池
 
@@ -33,52 +33,69 @@ ms.locfileid: "64854834"
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup-$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
-export adminlogin=ServerAdmin
-export password=ChangeYourAdminPassword1
-# the logical server name has to be unique in the system
-export servername=server-$RANDOM
+adminlogin=ServerAdmin
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
+# The logical server name has to be unique in the system
+servername=server-$RANDOM
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    --location "China East" 
+--name $resourceGroupName \
+--location $location
 
 # Create a server
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location "China East" \
+    --resource-group $resourceGroupName \
+    --location $location \
     --admin-user $adminlogin \
     --admin-password $password
 
-# Create a pool
-az sql elastic-pools create \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+# Create a pool with 5 vCores and a max storage of 756 GB
+az sql elastic-pool create \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name samplepool \
-    --dtu 50 \
-    --database-dtu-max 20
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 5 \
+    --db-max-capacity 4 \
+    --db-min-capacity 1 \
+    --max-size 756GB
 
 # Create two database in the pool
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name myFirstSampleDatabase \
-    --elastic-pool-name samplepool
+    --elastic-pool samplepool
+
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySecondSampleDatabase \
-    --elastic-pool-name samplepool
+    --elastic-pool samplepool
 
-# Scale up to the pool to 100 eDTU
-az sql elastic-pools update \
-    --resource-group myResourceGroup \
+# Scale up to the pool to 10 vCores
+az sql elastic-pool update \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name samplepool \
-    --set dtu=100
+    --capacity 10 \
+    --max-size 1536GB
+
+# Echo random password
+echo $password
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -86,7 +103,7 @@ az sql elastic-pools update \
 使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明

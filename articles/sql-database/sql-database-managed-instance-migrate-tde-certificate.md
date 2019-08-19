@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, jovanpop
 manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: ab6299695e26bcd60026670f9e383cc70bec5e4e
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+origin.date: 04/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: a31b66fc5b43e1ca81c79c70128301eff5d0ed6e
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277021"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543959"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>将 TDE 保护的数据库的证书迁移到 Azure SQL 数据库托管实例
 
@@ -28,6 +28,8 @@ ms.locfileid: "67277021"
 > * 将证书导出到个人信息交换 (.pfx) 文件
 > * 将文件中的证书提取成 base-64 字符串
 > * 使用 PowerShell cmdlet 上传证书
+
+有关使用完全托管服务无缝迁移 TDE 保护的数据库和相应证书的替代选项，请参阅[如何使用 Azure 数据库迁移服务将本地数据库迁移到托管实例](../dms/tutorial-sql-server-to-managed-instance.md)。
 
 > [!IMPORTANT]
 > 迁移的证书仅用于还原 TDE 保护的数据库。 还原后不久，迁移的证书即会替换为不同的保护程序，可能是服务托管证书，也可能是密钥保管库中的非对称密钥，具体取决于在实例上设置的透明数据加密类型。

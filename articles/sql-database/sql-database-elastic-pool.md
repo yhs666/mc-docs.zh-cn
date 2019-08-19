@@ -11,14 +11,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ninarn, carlrab
 manager: digimobile
-origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: fc119bf1c5df983deff3ebedbf6e46c7eda8b67e
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+origin.date: 02/28/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: aea4a1d6451a697eb167c52f5e8c9802a0f25d9e
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663521"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544333"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>弹性池有助于管理和缩放多个 Azure SQL 数据库
 
@@ -59,7 +59,7 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 池可让这些未使用的 DTU 跨多个数据库共享，因此减少了所需的 DTU 数和总体成本。
 
-以上一个示例为基础，假设有其他数据库具有与 DB1 类似的使用模式。 在接下来的两个图形中，4 个数据库和 20 个数据库的使用量分层放在相同的图形，以使用基于 DTU 的购买模型演示随时间推移，它们的使用率非重叠的性质：
+以上一个示例为基础，假设有其他数据库具有与 DB1 类似的使用模式。 在接下来的两个图中，4 个数据库和 20 个数据库的使用量分层放在同一图形中，以演示在使用基于 DTU 的购买模型时数据库使用量在整个时间段上非重叠的性质：
 
    ![使用模式适用于池的 4 个数据库](./media/sql-database-elastic-pool/four-databases.png)
 
@@ -107,14 +107,14 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 - 池中所有数据库使用的最大资源（最大 DTU 数或最大 vCore 数，具体取决于所选的资源模型）。
 - 池中所有数据库使用的最大存储字节。
 
-有关每个资源模型提供的服务层，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
+有关每个资源模型提供的服务层级，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 
 在无法使用工具的情况下，以下分步步骤有助于评估池是否比单一数据库更具成本效益：
 
 1. 通过如下方式来估算池所需的 eDTU 或 vCore：
 
-   对于基于 DTU 的购买模型：MAX(<数据库的总数目 X 每一数据库的平均 DTU 使用率>,<br>  
-   <并发高峰数据库的数目 X 每一数据库的高峰 DTU 使用率)
+   对于基于 DTU 的购买模型：MAX(<数据库的总数目  X 每一数据库的平均 DTU 使用率  >,<br>  
+   <并发高峰数据库的数目  X 每一数据库的高峰 DTU 使用率  )
 
    对于基于 vCore 的购买模型：MAX（<*数据库的总数目* X *每一数据库的平均 vCore 使用率*>、<br>  
    <*并发高峰数据库的数目* X *每一数据库的高峰 vCore 使用率*)
@@ -128,13 +128,13 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 ### <a name="elastic-jobs-and-elastic-pools"></a>弹性作业和弹性池
 
-借助池，可以通过在**弹性作业**中运行脚本来简化管理任务。 弹性作业可消除与大量数据库有关的大部分问题。
+借助池，可以通过在 **[elastic jobs](elastic-jobs-overview.md)** 。 弹性作业可消除与大量数据库有关的大部分问题。
 
 有关用于操作多个数据库的其他数据库工具的详细信息，请参阅 [使用 Azure SQL 数据库进行扩展](sql-database-elastic-scale-introduction.md)。
 
 ### <a name="business-continuity-options-for-databases-in-an-elastic-pool"></a>弹性池中的数据库的业务连续性选项
 
-入池数据库通常支持可用于单一数据库的相同的[业务连续性功能](sql-database-business-continuity.md)。
+共用数据库通常支持和可用于单一数据库相同的[业务连续性功能](sql-database-business-continuity.md)。
 
 - **时间点还原**
 
@@ -152,15 +152,15 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 在 Azure 门户中可以通过两种方法创建弹性池。
 
-1. 可以通过在**市场**中搜索“SQL 弹性池”或者通过在 SQL 弹性池浏览边栏选项卡中单击“+添加”来创建弹性池。 可以通过此池预配工作流指定新的或现有的服务器。
-2. 或者可以创建一个弹性池：导航到现有 SQL 服务器，然后单击“创建池”，直接在该服务器中创建一个池。 此处的唯一差别是要跳过在池预配工作流期间指定服务器的步骤。
+1. 可以通过在**市场**中搜索“SQL 弹性池”  或者通过在 SQL 弹性池浏览边栏选项卡中单击“+添加”  来创建弹性池。 可以通过此池预配工作流指定新的或现有的服务器。
+2. 或者可以创建一个弹性池：导航到现有 SQL 服务器，然后单击“创建池”，直接在该服务器中创建一个池。  此处的唯一差别是要跳过在池预配工作流期间指定服务器的步骤。
 
 > [!NOTE]
 > 可以在服务器上创建多个池，但不能将数据库从不同的服务器添加到同一个池中。
 
-该池的服务层决定了池中弹性数据库的可用功能，以及每个数据库可用的最大资源量。 有关详细信息，请参阅 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)中弹性池的资源限制。 有关弹性池的基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
+该池的服务层级决定了池中弹性数据库的可用功能，以及每个数据库可用的最大资源量。 有关详细信息，请参阅 [DTU 模型](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes)中弹性池的资源限制。 有关弹性池的基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
 
-若要配置池的资源和定价，请单击“配置池”。 然后选择服务层，将数据库添加到池，并配置池及其数据库的资源限制。
+若要配置池的资源和定价，请单击“配置池”。  然后选择服务层级，将数据库添加到池，并配置池及其数据库的资源限制。
 
 完成配置池后，可以单击“应用”，将池命名，然后单击“确定”以创建池。
 
@@ -177,9 +177,9 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 ![池视图](./media/sql-database-elastic-pool-manage-portal/basic.png)
 
-如需有关池的详细信息，可在此概述中单击任何可用信息。 单击“资源利用率”图表会转到“Azure 监视”视图，在其中可以自定义图表中显示的指标和时间段。 单击任何显示的通知会转到一个边栏选项卡，其中显示了该警报或建议的完整详细信息。
+如需有关池的详细信息，可在此概述中单击任何可用信息。 单击“资源利用率”图表会转到“Azure 监视”视图，在其中可以自定义图表中显示的指标和时间段。  单击任何显示的通知会转到一个边栏选项卡，其中显示了该警报或建议的完整详细信息。
 
-若要监视池中的数据库，可在左侧资源菜单“监视”部分中单击“数据库资源利用率”。
+若要监视池中的数据库，可在左侧资源菜单“监视”部分中单击“数据库资源利用率”。  
 
 ![数据库资源利用率页](./media/sql-database-elastic-pool-manage-portal/db-utilization.png)
 
@@ -187,11 +187,11 @@ SaaS 开发人员构建在由多个数据库组成的大规模数据层上的应
 
 可以编辑图表和指标页以显示其他指标，如 CPU 百分比、数据 IO 百分比和已用日志 IO 百分比。
 
-在“编辑图表”窗体中，可选择固定时间范围，或单击“自定义”选择过去两周内的任何 24 小时时间段，然后选择要监视的资源。
+在“编辑图表”窗体中，可选择固定时间范围，或单击“自定义”选择过去两周内的任何 24 小时时间段，然后选择要监视的资源   。
 
 ### <a name="to-select-databases-to-monitor"></a>选择要监视的数据库
 
-默认情况下，“数据库资源利用率”边栏选项卡中的图表按 DTU 或 CPU（取决于服务层）显示排名靠前的 5 个数据库。 可以在图表下面的列表中，通过选中和取消选中左侧的复选框，在此图表中显示或隐藏相应的数据库。
+默认情况下，“数据库资源利用率”边栏选项卡中的图表按 DTU 或 CPU（取决于服务层级）显示排名靠前的 5 个数据库。  可以在图表下面的列表中，通过选中和取消选中左侧的复选框，在此图表中显示或隐藏相应的数据库。
 
 还可以选择在此数据库表中并列查看更多的指标，以获取更完整的数据库性能视图。
 

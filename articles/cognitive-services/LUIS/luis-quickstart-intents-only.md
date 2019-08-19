@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: fd8b072c6d23e756e599b4f0c499740da05fd474
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 5649ee6d9c1c90b592d4b6b9d6455ca8bc02ccf9
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65561732"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544152"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>教程：生成 LUIS 应用，以确定用户意向
 
@@ -45,7 +45,7 @@ ms.locfileid: "65561732"
 
 此应用具有多个意向。 
 
-|意向|目的|
+|Intent|目的|
 |--|--|
 |ApplyForJob|确定用户是否正在申请工作。|
 |GetJobInformation|确定用户是否正在寻找有关常规工作或特定工作的信息。|
@@ -57,11 +57,11 @@ ms.locfileid: "65561732"
 
 ## <a name="create-intent-for-job-information"></a>创建工作信息的意向
 
-1. 选择“创建新意向”。 输入新意向名称 `GetJobInformation`。 当某位用户想要获取公司空缺职位的信息时，就会预测此意向。 
+1. 选择“创建新意向”  。 输入新意向名称 `GetJobInformation`。 当某位用户想要获取公司空缺职位的信息时，就会预测此意向。 
 
     ![语言理解 (LUIS) 新建意向对话框的屏幕截图](media/luis-quickstart-intents-only/create-intent.png "Screenshot of Language Understanding (LUIS) New intent dialog")
 
-1. 选择“完成” 。
+1. 选择“完成”  。
 
 2. 将多个示例话语添加到你预期用户会请求的此意向：
 
@@ -86,7 +86,7 @@ ms.locfileid: "65561732"
 
     [![为 MyStore 意向输入新话语的屏幕截图](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Screenshot of entering new utterances for MyStore intent")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    可通过提供示例话语来训练 LUIS，让其了解应该根据哪些类型的话语预测出此意向。 
+    可通过提供示例话语来训练 LUIS，让其了解应该根据哪些类型的话语预测出此意向  。 
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
@@ -129,7 +129,7 @@ ms.locfileid: "65561732"
     }
     ```
 
-    `verbose=true` 查询字符串参数意味着在应用的查询结果中包含“所有意向”。 实体数组为空，因为此应用当前没有任何实体。 
+    `verbose=true` 查询字符串参数意味着在应用的查询结果中包含“所有意向”  。 实体数组为空，因为此应用当前没有任何实体。 
 
     JSON 结果中标识了评分最高的意向作为 **`topScoringIntent`** 属性。 所有评分介于 1 和 0 之间，评分越接近 1 越好。 
 
@@ -137,11 +137,11 @@ ms.locfileid: "65561732"
 
 返回到 LUIS 门户并创建一个新的意向，以便确定用户话语是否与申请工作有关。
 
-1. 在右上侧菜单中选择“生成”，返回到应用生成界面。
+1. 在右上侧菜单中选择“生成”，返回到应用生成界面。 
 
-1. 从左侧菜单中选择“意向”以进入意向列表。
+1. 从左侧菜单中选择“意向”以进入意向列表  。
 
-1. 选择“创建新意向”，并输入名称 `ApplyForJob`。 
+1. 选择“创建新意向”，并输入名称 `ApplyForJob`。  
 
     ![用于创建新意向的 LUIS 对话框](./media/luis-quickstart-intents-only/create-applyforjob-intent.png)
 
@@ -228,7 +228,6 @@ LUIS 在返回 JSON 响应后，就已经完成了此请求。 LUIS 不提供用
 * [如何训练](luis-how-to-train.md)
 * [如何发布](luis-how-to-publish-app.md)
 * [如何在 LUIS 门户中测试](luis-interactive-test.md)
-* [Azure 机器人](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 
 ## <a name="next-steps"></a>后续步骤

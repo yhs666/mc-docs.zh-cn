@@ -13,12 +13,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 01/01/2018
 ms.date: 04/08/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2e482a430e020483b628ee48c78ac04d32612b7f
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 4348b6a4b314b65d2e759e25489ca187e09b90b0
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529356"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539010"
 ---
 # <a name="create-edit-or-extend-json-for-logic-app-definitions-in-azure-logic-apps"></a>为 Azure 逻辑应用中的逻辑应用定义创建、编辑或扩展 JSON
 
@@ -33,9 +33,9 @@ ms.locfileid: "59529356"
 
 1. 登录到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>。
 
-2. 在左侧菜单中选择“所有服务”。 在搜索框中查找“逻辑应用”，然后在结果中选择择自己的逻辑应用。
+2. 在左侧菜单中选择“所有服务”。  在搜索框中查找“逻辑应用”，然后在结果中选择择自己的逻辑应用。
 
-3. 在逻辑应用菜单中的“开发工具”下，选择“逻辑应用代码视图”。
+3. 在逻辑应用菜单中的“开发工具”  下，选择“逻辑应用代码视图”  。
 
    “代码视图”编辑器将会打开并显示 JSON 格式的逻辑应用定义。
 
@@ -49,15 +49,18 @@ ms.locfileid: "59529356"
 
 2. 找到并打开逻辑应用的定义，默认情况下，该定义显示在[资源管理器模板](../azure-resource-manager/resource-group-overview.md#template-deployment)中，其名为 **LogicApp.json**。 可以使用并自定义此模板，以部署到不同的环境中。
 
-3. 打开逻辑应用定义和模板的快捷菜单。 选择“使用逻辑应用设计器打开”。
+3. 打开逻辑应用定义和模板的快捷菜单。 选择“使用逻辑应用设计器打开”  。
 
    ![在 Visual Studio 解决方案中打开逻辑应用](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
-4. 在设计器底部，选择“代码视图”。 
+   > [!TIP]
+   > 如果你的 Visual Studio 2019 中没有此命令，请检查是否安装了 Visual Studio 的最新更新。
+
+4. 在设计器底部，选择“代码视图”  。 
 
    “代码视图”编辑器将会打开并显示 JSON 格式的逻辑应用定义。
 
-5. 若要返回设计器视图，请在“代码视图”编辑器的底部选择“设计”。
+5. 若要返回设计器视图，请在“代码视图”编辑器的底部选择“设计”  。
 
 ## <a name="parameters"></a>parameters
 
@@ -102,7 +105,7 @@ ms.locfileid: "59529356"
    若要联接两个或更多符串，还可以使用 `concat` 函数。 
    例如，`"@concat('#',parameters('currentFeedUrl'))"` 的工作方式与前面的示例相同。
 
-3. 完成后，选择“保存”。 
+3. 完成后，选择“保存”  。 
 
 现在，可通过将其他 URL 传递到 `currentFeedURL` 对象来更改网站的 RSS 源。
 

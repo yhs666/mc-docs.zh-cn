@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 03/09/2018
-ms.date: 04/16/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8cb0ac15b7f06666067287075e5bced94dbed26f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 2852e46fee4f6aa79fd1acb668aef71103fe2ecc
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52649844"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539119"
 ---
 # <a name="constrained-vcpu-capable-vm-sizes"></a>支持受约束 vCPU 的 VM 大小
 
@@ -29,9 +29,12 @@ ms.locfileid: "52649844"
 ## <a name="other-sizes"></a>其他大小
 - [计算优化](../windows/sizes-compute.md)
 - [内存优化](sizes-memory.md)
-<!--Not Available on - [Storage optimized](sizes-storage.md)-->
-<!--Not Available on - [GPU](sizes-gpu.md)-->
-<!--Not Available on - [High performance compute](sizes-hpc.md)-->
+
+    <!--Not Available on - [Storage optimized](sizes-storage.md)-->
+    
+- [GPU](sizes-gpu.md)
+    
+    <!--Not Available on - [High performance compute](sizes-hpc.md)-->
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 9bca0a0811a8f768469254cf535a8baf6529c9ab
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: f1affdb74d53989be0e083589943b392918580bd
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514019"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969513"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>用于日志警报规则的 Webhook 操作
 [在 Azure 中创建日志警报](alerts-log.md)时，可以选择[使用操作组配置](action-groups.md)以执行一个或多个操作。 本文介绍可用的不同 Webhook 操作，以及如何配置基于 JSON 的自定义 Webhook。
@@ -57,7 +57,7 @@ Webhooks 包括 URL 和 JSON 格式的有效负载（即发送到外部服务的
 | *订阅 ID* |#subscriptionid |使用的 Azure 订阅的 ID。 
 
 > [!NOTE]
-> *LinkToSearchResults* 将参数（如 *SearchQuery*、“搜索时间间隔开始时间”和“搜索时间间隔结束时间”）传递到 Azure 门户的 URL，以便在“Analytics”部分中查看   。 Azure 门户的 URI 大小限制约为 2,000 个字符。 如果参数值超过此限制，将不会打开警报中提供的链接  。 可以手动输入详细信息，以在 Analytics 门户中查看结果。 或者，可以使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](/rest/api/loganalytics/) 以编程方式检索结果。 
+> *LinkToSearchResults* 将参数（如 *SearchQuery*、“搜索时间间隔开始时间”和“搜索时间间隔结束时间”）传递到 Azure 门户的 URL，以便在“Analytics”部分中查看   。 Azure 门户的 URI 大小限制约为 2,000 个字符。 如果参数值超过此限制，将不会打开警报中提供的链接  。 可以手动输入详细信息，以在 Analytics 门户中查看结果。 或者，可以使用 [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) 或 [Log Analytics REST API](https://docs.microsoft.com/rest/api/loganalytics/) 以编程方式检索结果。 
 
 例如，可以指定以下自定义负载，其中包含名为 *text* 的单一参数。 此 Webhook 调用的服务需要此参数。
 

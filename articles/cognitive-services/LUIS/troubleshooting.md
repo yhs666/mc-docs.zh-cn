@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5463bd31cbc4419d5991ec779a8192019f35683b
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 9ad253df07b434916db7f736f42e8c9e61ecd027
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332056"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544123"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -45,9 +45,6 @@ ms.locfileid: "68332056"
 
 是的，在向其他意向添加更多标签时，不妨使用更多表述训练 **None** 意向。 每次向某个意向添加 10 个标签时，可以向 **None** 添加 1 到 2 个标签，这种比例比较适当。 此比例可以提高 LUIS 的区分能力。
 
-### <a name="how-can-i-correct-spelling-mistakes-in-utterances"></a>如何更正表述中的拼写错误？
-
-请参阅[必应拼写检查 API V7](luis-tutorial-bing-spellcheck.md) 教程。 LUIS 强制实施必应拼写检查 API V7 施加的限制。
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>如何以编程方式编辑 LUIS 应用？
 若要以编程方式编辑 LUIS 应用，请使用[创作 API](https://aka.ms/luis-authoring-apis)。 创作 API 要求使用[创作密钥](luis-concept-keys.md#authoring-key)而不是终结点密钥。 编程创作最多允许每个月进行 1,000,000 次调用，每秒处理五个事务。 若要详细了解可与 LUIS 配合使用的密钥，请参阅[管理密钥](./luis-concept-keys.md)。
@@ -102,7 +99,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 LUIS 根据[区域性](luis-language-support.md#tokenization)将表述[标记化](luis-glossary.md#token)。 原始值和标记化值均可用于[数据提取](luis-concept-data-extraction.md#tokenized-entity-returned)。
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>如何创建并分配 LUIS 终结点密钥？
-根据[服务](https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/)级别在 Azure 中[创建终结点密钥](luis-how-to-azure-subscription.md)。 在 **[密钥和终结点](luis-how-to-azure-subscription.md)** 页上[分配密钥](luis-how-to-azure-subscription.md)。 此操作没有相应的 API。 然后，必须更改针对此终结点的 HTTP 请求才能[使用新终结点密钥](luis-concept-keys.md#use-endpoint-key-in-query)。
+根据[服务](https://www.azure.cn/pricing/details/cognitive-services/)级别在 Azure 中[创建终结点密钥](luis-how-to-azure-subscription.md)。 在 **[密钥和终结点](luis-how-to-azure-subscription.md)** 页上[分配密钥](luis-how-to-azure-subscription.md)。 此操作没有相应的 API。 然后，必须更改针对此终结点的 HTTP 请求才能[使用新终结点密钥](luis-concept-keys.md#use-endpoint-key-in-query)。
 
 ### <a name="how-do-i-interpret-luis-scores"></a>如何解释 LUIS 分数？
 系统应该使用最高得分意向，不管其值如何。 例如，分数低于 0.5（不到 50%）不一定意味着 LUIS 的置信度低。 提供更多训练数据有助于提高最可能意向的[分数](luis-concept-prediction-score.md)。
@@ -220,7 +217,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="how-does-azure-manage-data-i-send-to-luis"></a>Azure 如何管理我发送给 LUIS 的数据？
 
-[信任中心](https://www.microsoft.com/trustcenter)解释了我们的承诺以及用于在 Azure 服务中进行数据管理和访问的选项。
+[信任中心](https://www.trustcenter.cn/)解释了我们的承诺以及用于在 Azure 服务中进行数据管理和访问的选项。
 
 ## <a name="language-and-translation-support"></a>语言和翻译支持
 
@@ -270,9 +267,6 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 如果选择一个 LUIS 模板，然后在模板窗格中选择“选择”按钮，  则左侧窗格在更改后会包括模板类型，并询问在什么区域创建 LUIS 模板。 不过，Web 应用机器人过程不会创建 LUIS 订阅。
 
 ![LUIS 模板 Web 应用机器人区域](./media/luis-faq/web-app-bot-location.png)
-
-### <a name="what-luis-regions-support-bot-framework-speech-priming"></a>什么 LUIS 区域支持 Bot Framework 语音启动？
-仅中部（美国）实例中的 LUIS 应用支持[语音启动](https://docs.microsoft.com/bot-framework/bot-service-manage-speech-priming)。
 
 ## <a name="api-programming-strategies"></a>API 编程策略
 

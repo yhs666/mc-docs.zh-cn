@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: cd9eb7d2c4b1052cb3ff319b82f0e7c085056d5e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: e8ec58eadcaceaa31214b493a8fd34763223528a
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818448"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544354"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>LUIS 中的创作密钥和查询预测终结点密钥
 LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpoint-key)密钥。 在创建 LUIS 帐户时会自动创建创作密钥。 准备好发布 LUIS 应用时，需要[创建终结点密钥](luis-how-to-azure-subscription.md)、将[终结点密钥分配](luis-how-to-azure-subscription.md)到 LUIS 应用并[将其与终结点查询配合使用](#use-endpoint-key-in-query)。 
@@ -37,7 +37,7 @@ LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpo
 
 ![创作密钥](./media/luis-concept-keys/programatic-key.png)
 
-如果想进行生产终结点查询，请创建 Azure [LUIS 订阅](https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/)  。 
+如果想进行生产终结点查询，请创建 Azure [LUIS 订阅](https://www.azure.cn/pricing/details/cognitive-services)  。 
 
 > [!CAUTION]
 > 为了方便起见，很多示例都采用创作密钥，因为它在[配额](luis-boundaries.md#key-limits)中提供了几个终结点调用。  
@@ -49,7 +49,7 @@ LUIS 使用两种密钥：[创作](#programmatic-key)密钥和[终结点](#endpo
 
 Azure 资源创建过程完成后，[将密钥分配](luis-how-to-azure-subscription.md)给应用。 
 
-    * 终结点密钥支持的终结点命中次数配额取决于创建密钥时所指定的使用计划。 请参阅[认知服务定价](https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h)了解定价信息。
+    * 终结点密钥支持的终结点命中次数配额取决于创建密钥时所指定的使用计划。 请参阅[认知服务定价](https://www.azure.cn/pricing/details/cognitive-services)了解定价信息。
 
     * 终结点密钥可用于所有 LUIS 应用或特定 LUIS 应用。 
 

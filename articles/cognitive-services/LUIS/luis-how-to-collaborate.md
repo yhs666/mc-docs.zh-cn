@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 204d7a8f395fbe0787b89cc6d0836633f37719da
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 46deb115fc42ee9c2d5a6df60c7d70ce2287a68c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556989"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544215"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理作者和协作者 
 
@@ -28,9 +28,9 @@ ms.locfileid: "65556989"
 
 一个应用只有一个作者、所有者，但可以有许多协作者。 若要允许协作者编辑你的 LUIS 应用，必须将他们用来访问 LUIS 门户的电子邮件添加到协作者列表中。 在添加后，应用将显示在他们的 LUIS 门户中。
 
-1. 从右上角的菜单中选择“管理”，然后在左侧菜单中选择“协作者”。
+1. 从右上角的菜单中选择“管理”  ，然后在左侧菜单中选择“协作者”。 
 
-2. 从工具栏中选择“添加协作者”。
+2. 从工具栏中选择“添加协作者”  。
 
     [![添加协作者](./media/luis-how-to-collaborate/add-collaborator.png "添加协作者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
@@ -44,7 +44,7 @@ ms.locfileid: "65556989"
 
 ## <a name="azure-active-directory-resources"></a>Azure Active Directory 资源
 
-如果你在组织中使用了 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) (Azure AD)，则在用户希望使用语言理解 (LUIS) 时，LUIS 需要有权访问用户的访问权限相关信息。 LUIS 需要的资源是最少的。 
+如果你在组织中使用了 [Azure Active Directory](/active-directory/) (Azure AD)，则在用户希望使用语言理解 (LUIS) 时，LUIS 需要有权访问用户的访问权限相关信息。 LUIS 需要的资源是最少的。 
 
 尝试使用已获得管理员同意或不需要管理员同意的帐户进行登录时，你将看到详细说明，例如管理员同意：
 

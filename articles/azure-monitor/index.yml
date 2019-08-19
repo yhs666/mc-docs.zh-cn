@@ -35,7 +35,7 @@ sections:
           - image:
               src: 'https://docs.microsoft.com/media/common/Chart.svg'
             text: 监控指标
-            href: /azure/azure-monitor/platform/alerts-metric
+            href: /azure-monitor/platform/alerts-metric
           - image:
               src: /azure-monitor/media/index/log-analytics.svg
             text: 分析日志

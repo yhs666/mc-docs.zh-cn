@@ -3,21 +3,21 @@ title: 教程：使用 Azure 流分析作业运行 Azure Functions | Azure Docs
 description: 本教程介绍如何将 Azure Functions 配置为流分析作业的输出接收器。
 services: stream-analytics
 author: lingliw
-ms.service: stream-analytics
-ms.topic: tutorial
-ms.custom: mvc
-ms.workload: data-services
-ms.date: 01/21/19
 ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
-ms.openlocfilehash: 5a287e9685f8457169fbbb6815e22672346de6c7
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.service: stream-analytics
+ms.topic: conceptual
+origin.date: 08/09/2019
+ms.date: 06/05/2019
+ms.openlocfilehash: 253af642b742f26f86cc99c8ca222520ed79fb79
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818550"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969520"
 ---
-# <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>从 Azure 流分析作业运行 Azure Functions 
+# <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>教程：从 Azure 流分析作业运行 Azure Functions 
 
 可将 Functions 配置为流分析作业的输出接收器之一，以便通过 Azure 流分析运行 Azure Functions。 Functions 是事件驱动的按需计算体验，它允许实现由 Azure 或第三方服务中出现的事件所触发的代码。 Functions 响应触发的这一功能使其成为流分析作业的自然输出。
 
@@ -26,9 +26,10 @@ ms.locfileid: "68818550"
 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
-> * 创建流分析作业
+> * 创建和运行流分析作业
+> * 创建用于 Redis 的 Azure 缓存实例
 > * 创建 Azure 函数
-> * 将 Azure 函数配置为作业的输出
+> * 在用于 Redis 的 Azure 缓存中检查结果
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
@@ -38,16 +39,9 @@ ms.locfileid: "68818550"
 
 ![显示各项 Azure 服务间关系的图表](./media/stream-analytics-with-azure-functions/image1.png)
 
-需要执行以下步骤来完成此任务：
-* [创建以事件中心为输入的流分析作业](#create-a-stream-analytics-job-with-event-hubs-as-input)  
-* 创建用于 Redis 的 Azure 缓存实例  
-* 在 Azure Functions 中创建可将数据写入到用于 Redis 的 Azure 缓存的函数    
-* [更新流分析作业，以函数作为输出](#update-the-stream-analytics-job-with-the-function-as-output)  
-* 在用于 Redis 的 Azure 缓存中检查结果  
-
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>创建以事件中心为输入的流分析作业
 
-按照[实时欺诈检测](stream-analytics-real-time-fraud-detection.md)教程以创建事件中心，启动事件生成器应用程序，并创建流分析作业。 （跳过创建查询和输出的步骤。 改为按以下各节所述设置 Functions 输出。）
+按照[实时欺诈检测](stream-analytics-real-time-fraud-detection.md)教程以创建事件中心，启动事件生成器应用程序，并创建流分析作业。 跳过创建查询和输出的步骤。 改为按以下各节所述设置 Azure Functions 输出。
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>创建用于 Redis 的 Azure 缓存实例
 
@@ -61,7 +55,7 @@ ms.locfileid: "68818550"
 
 1. 请参阅 Functions 文档的[创建函数应用](../azure-functions/functions-create-first-azure-function.md#create-a-function-app)一节。 该小节演示了如何通过使用 CSharp 语言，[在 Azure Functions 中创建函数应用和 HTTP 触发的函数](../azure-functions/functions-create-first-azure-function.md#create-function)。  
 
-2. 浏览到 run.csx  函数。 将其更新为以下代码。 （请务必将“\<在此处放置用于 Redis 的 Azure 缓存连接字符串\>”替换为上一节中检索到的用于 Redis 的 Azure 缓存主连接字符串。）  
+2. 浏览到 run.csx  函数。 将其更新为以下代码。 将“\<在此处放置用于 Redis 的 Azure 缓存连接字符串\>”  替换为上一节中检索到的用于 Redis 的 Azure 缓存主连接字符串。 
 
    ```csharp
    using System;
@@ -112,16 +106,16 @@ ms.locfileid: "68818550"
 
    ```
 
-   当流分析从函数收到“HTTP 请求实体过大”异常时，将减小发送到 Azure Functions 的批次的大小。 在函数中，使用下面的代码检查流分析，确保其不会发送过大的批次。 确保函数中使用的最大批次数和最大批次大小值与在流分析门户中输入的值一致。
+   当流分析从函数收到“HTTP 请求实体过大”异常时，将减小发送到 Azure Functions 的批次的大小。 下面的代码确保流分析不会发送过大的批。 确保函数中使用的最大批次数和最大批次大小值与在流分析门户中输入的值一致。
 
-   ```csharp
-   if (dataArray.ToString().Length > 262144)
-      {        
-        return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
-      }
+    ```csharp
+    if (dataArray.ToString().Length > 262144)
+        {
+            return new HttpResponseMessage(HttpStatusCode.RequestEntityTooLarge);
+        }
    ```
 
-3. 在所选的文本编辑器中，创建名为 project.json  的 JSON 文件。 使用下面的代码，将其保存在本地计算机上。 此文件包含 C# 函数所需的 NuGet 包依赖项。  
+3. 在所选的文本编辑器中，创建名为 project.json  的 JSON 文件。 粘贴下面的代码，并将其保存在本地计算机上。 此文件包含 C# 函数所需的 NuGet 包依赖项。  
    
    ```json
        {
@@ -163,9 +157,9 @@ ms.locfileid: "68818550"
    |最大批数|指定发送给函数的每个批次中的最大事件数。 默认值为 100。 此属性是可选的。|
    |键|可以使用其他订阅中的函数。 提供用于访问你的函数的键值。 此属性是可选的。|
 
-3. 命名输出别名。 在本教程中，我们将其命名为 saop1  （可以使用你选择的任何名称）。 填写其他详细信息。  
+3. 命名输出别名。 在本教程中，我们将其命名为 saop1  ，但你可以使用所选的任何名称。 填写其他详细信息。
 
-4. 打开流分析作业，将查询更新为以下内容。 （如果已将输出接收器命名为其他名称，请务必替换“saop1”文本。）  
+4. 打开流分析作业，将查询更新为以下内容。 如果没有将输出接收器命名为 **saop1**，请记住在查询中更改它。  
 
    ```sql
     SELECT 
@@ -180,7 +174,9 @@ ms.locfileid: "68818550"
 
 5. 在命令行运行以下命令，启动 telcodatagen.exe 应用程序（使用格式 `telcodatagen.exe [#NumCDRsPerHour] [SIM Card Fraud Probability] [#DurationHours]`）：  
    
-   **telcodatagen.exe 1000 .2 2**
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
     
 6.  启动流分析作业。
 

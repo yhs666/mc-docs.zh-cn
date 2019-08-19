@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 6f6d732ba183b51e738d470b36d8992d2ea66252
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 08/19/2019
+ms.openlocfilehash: 22dbe2e10a1d0f6d613f3768f3f1b71b477e951f
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347195"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544309"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>如何在 Azure SQL 数据库中使用单一数据库
 
@@ -72,3 +72,5 @@ ms.locfileid: "57347195"
 - [使用实体框架](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)查询分片的数据。
 - [使用 Dapper 框架](sql-database-elastic-scale-working-with-dapper.md)查询分片的数据。
 
+## <a name="next-steps"></a>后续步骤
+- 详细了解[托管实例操作指南](sql-database-howto-managed-instance.md)

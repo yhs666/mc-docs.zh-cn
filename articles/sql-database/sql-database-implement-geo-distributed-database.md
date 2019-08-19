@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: fe9802894b965ce9be4cba3d8c14060f3acddaf5
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: 74bdff03fde60c78c079974206717d7bc119888d
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003486"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544201"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>教程：实现地理分散的数据库
 
@@ -41,7 +41,7 @@ ms.locfileid: "59003486"
 
 - [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。
 - Azure SQL 数据库。 若要创建一个，请使用：
-  - [门户](sql-database-single-database-get-started.md)
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -103,7 +103,7 @@ ms.locfileid: "59003486"
        -FailoverGroupName $myfailovergroupname
    ```
 
-异地复制设置也可在 Azure 门户中更改，方法是：选择数据库，然后选择“设置” > “异地复制”。
+异地复制设置也可在 Azure 门户中更改，方法是：选择数据库，然后选择“设置”   >   “异地复制”。
 
 ![异地复制设置](./media/sql-database-implement-geo-distributed-database/geo-replication.png)
 
@@ -322,7 +322,7 @@ ms.locfileid: "59003486"
       -FailoverGroupName $myfailovergroupname
    ```
 
-1. 将故障转移组还原到主服务器：
+1. 将故障转移组还原为主服务器：
 
    ```powershell
    Switch-AzSqlDatabaseFailoverGroup `
@@ -331,3 +331,16 @@ ms.locfileid: "59003486"
       -FailoverGroupName $myfailovergroupname
    ```
 
+## <a name="next-steps"></a>后续步骤
+
+在本教程中，已配置 Azure SQL 数据库和应用程序以便故障转移到远程区域中，并测试了故障转移计划。 你已了解如何：
+
+> [!div class="checklist"]
+> - 创建异地复制故障转移组
+> - 运行 Java 应用程序以查询 Azure SQL 数据库
+> - 测试故障转移
+
+转到下一教程，其中介绍了如何使用 DMS 进行迁移。
+
+> [!div class="nextstepaction"]
+> [使用 DMS 将 SQL Server 迁移到 Azure SQL 数据库托管实例](../dms/tutorial-sql-server-to-managed-instance.md)

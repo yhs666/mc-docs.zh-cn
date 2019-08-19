@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 09/27/2017
 ms.date: 11/26/2018
-ms.openlocfilehash: e856cda41b865f24ae8acbb0b06e773025c9040d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 434bf38c66da31e31cccaf58734a5c706ec3db3d
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626980"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969540"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>使用流分析工具进行持续集成和开发
 本文介绍如何使用适用于 Visual Studio 的 Azure 流分析工具设置持续集成和部署过程。
@@ -29,12 +29,12 @@ ms.locfileid: "58626980"
 有关详细信息，请参阅[适用于 Visual Studio 的流分析工具](/stream-analytics/stream-analytics-tools-for-visual-studio)。
 
 ## <a name="msbuild"></a>MSBuild
-同标准 Visual Studio MSBuild 体验一样，可通过两种方式生成项目。 可右键单击该项目，然后选择“生成”。 还可从命令行使用 NuGet 包中的 MSBuild。
+同标准 Visual Studio MSBuild 体验一样，可通过两种方式生成项目。 可右键单击该项目，然后选择“生成”  。 还可从命令行使用 NuGet 包中的 MSBuild  。
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 ```
 
-成功生成流分析 Visual Studio 项目后，会在 bin/[Debug/Retail]/Deploy 文件夹下生成以下两个 Azure 资源管理器模板文件： 
+成功生成流分析 Visual Studio 项目后，会在 bin/[Debug/Retail]/Deploy 文件夹下生成以下两个 Azure 资源管理器模板文件  ： 
 
 *  资源管理器模板文件
 
@@ -46,20 +46,20 @@ ms.locfileid: "58626980"
 
 parameters.json 文件中的默认参数来自 Visual Studio 项目中的设置。 如果要部署到其他环境，请相应地替换参数。
 
-> [!NOTE] 
-> 对于所有凭据，默认值均设置为 null。 部署到云之前，必须先设置这些值。
+> [!NOTE]
+> 对于所有凭据，默认值均设置为 null。 部署到云之前，必须先设置这些值  。
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
       "value": null
     },
 ```
-深入了解如何[使用资源管理器模板文件和 Azure PowerShell 进行部署](/azure-resource-manager/resource-group-template-deploy)。 深入了解如何 [use an object as a parameter in a Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)（将对象用作资源管理器模板中的参数）。
+深入了解如何[使用资源管理器模板文件和 Azure PowerShell 进行部署](/azure-resource-manager/resource-group-template-deploy)。 
 
 ## <a name="command-line-tool"></a>命令行工具
 
 ### <a name="build-the-project"></a>生成项目
-NuGet 包具有一个名为 SA.exe 的命令行工具。 该工具支持在任意计算机上生成项目并进行本地测试，可在持续集成和持续交付进程中使用。 
+NuGet 包具有一个名为 SA.exe 的命令行工具  。 该工具支持在任意计算机上生成项目并进行本地测试，可在持续集成和持续交付进程中使用。 
 
 默认情况下，部署文件位于当前目录下。 可通过使用以下 -OutputPath 参数指定输出路径：
 
@@ -69,7 +69,7 @@ NuGet 包具有一个名为 SA.exe 的命令行工具。 该工具支持在任�
 
 ### <a name="test-the-script-locally"></a>在本地测试脚本
 
-如果项目已在 Visual Studio 中指定本地输入文件，则可使用 localrun 命令运行自动化脚本测试。 输出结果位于当前目录下。
+如果项目已在 Visual Studio 中指定本地输入文件，则可使用 localrun 命令运行自动化脚本测试  。 输出结果位于当前目录下。
 
 ```
 localrun -Project [ProjectFullPath]
@@ -77,7 +77,7 @@ localrun -Project [ProjectFullPath]
 
 ### <a name="generate-a-job-definition-file-to-use-with-the-stream-analytics-powershell-api"></a>生成与流分析 PowerShell API 配合使用的作业定义文件
 
-arm 命令将通过内部版本生成的作业模板和作业模板参数文件视为输入。 然后将其合并为可与流分析 PowerShell API 配合使用的作业定义 JSON 文件。
+ arm 命令将通过内部版本生成的作业模板和作业模板参数文件视为输入。 然后将其合并为可与流分析 PowerShell API 配合使用的作业定义 JSON 文件。
 
 ```
 arm -JobTemplate <templateFilePath> -JobParameterFile <jobParameterFilePath> [-OutputFile <asaArmFilePath>]

@@ -14,14 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 07/12/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4be8fc6b3ad334ec3e6c820644f8f6bf4818144
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2db32550e3809be13c93d4aba25c0655c053b81e
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004106"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539020"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure 的 Windows 虚拟机上运行的 SQL Server 常见问题解答
 
@@ -39,7 +39,7 @@ ms.locfileid: "66004106"
 <a name="images"></a>
 ## <a name="images"></a>映像
 
-1. **有哪些 SQL Server 虚拟机库映像可用？**
+1. **有哪些 SQL Server 虚拟机库映像可用？** 
 
     Azure 为所有 Windows 和 Linux 版本中的所有受支持 SQL Server 主要发行版维护虚拟机映像。 有关详细信息，请参阅 [Windows VM 映像](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo)和 [Linux VM 映像](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create)的完整列表。
 
@@ -85,6 +85,7 @@ ms.locfileid: "66004106"
 
 <!--Not Available on 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**-->
 <!--Not Available on [Changing the licensing model](virtual-machines-windows-sql-ahb.md)-->
+<!-- Currently, this facility(Change SQL Server licensing) is available only for Public Cloud customers.-->
 
 1. **我应该使用 BYOL 映像还是 SQL VM RP 来创建新的 SQL VM？**
 
@@ -101,7 +102,7 @@ ms.locfileid: "66004106"
 
 1. **SQL VM 资源提供程序是否适用于所有客户？**
 
-   是的。 所有客户都可以将 VM 注册到新的 SQL VM 资源提供程序。 但是，只有享受软件保障权益的客户能够在 SQL Server VM 上激活 [Azure 混合权益 (AHB)](https://www.azure.cn/pricing/hybrid-use-benefit)（或 BYOL）。 
+    是的。 所有客户都可以将 VM 注册到新的 SQL VM 资源提供程序。 但是，只有享受软件保障权益的客户能够在 SQL Server VM 上激活 [Azure 混合权益 (AHB)](https://www.azure.cn/pricing/hybrid-use-benefit/)（或 BYOL）。 
 
 1. **如果移动或删除 VM 资源，_Microsoft.SqlVirtualMachine_ 资源会发生什么情况？** 
 
@@ -139,9 +140,8 @@ ms.locfileid: "66004106"
 
 ## <a name="updating-and-patching"></a>更新和修补
 
-1. **如何更改为 Azure VM 中 SQL Server 的新版本？**
-
-    享有软件保障的客户可以使用批量许可门户中的安装媒体对 Azure VM 上运行的 SQL Server 执行就地升级。 但是，目前没有任何办法可以更改 SQL Server 实例的版本。 请使用所需的 SQL Server 版本创建新的 Azure 虚拟机，然后使用[标准数据迁移技术](virtual-machines-windows-migrate-sql.md)，将数据库迁移到新的服务器。
+<!--Not Available on 1. **How do I change to a new version/edition of the SQL Server in an Azure VM?**-->
+<!--MOONCAKE: CAN NOT CHANGE SQL VERSION-->
 
 1. **如何将更新和服务包应用于 SQL Server VM？**
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 00f7cc6d67ffc5d67ffdabeee24bb9db94410741
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 42a7c837c7b40ac96d76a7b12977106abceed195
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562583"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544144"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Azure 中的监视解决方案的清单和数据收集详细信息
 [监视解决方案](solutions.md)利用 Azure 中的服务来提供特定应用程序或服务的更多操作见解。 监视解决方案通常收集日志数据并提供查询和视图，用于分析收集的数据。 可以在 Azure Monitor 中针对你使用的任何应用程序和服务添加监视解决方案。 这些解决方案是免费提供的，但收集数据可能会产生使用费。
@@ -54,7 +54,6 @@ ms.locfileid: "67562583"
 | [Azure 应用程序网关分析](azure-networking-analytics.md) | Azure |  |  |  |  |  | 通知时 |
 | **监视解决方案** | 平台  | **Microsoft Monitoring Agent** | **Operations Manager 代理** | **Azure 存储** | **是否需要 Operations Manager？** | **通过管理组发送 Operations Manager 代理数据** | **收集频率** |
 | [Azure 网络安全组分析（已弃用）](azure-networking-analytics.md) | Azure |  |  |  |  |  | 通知时 |
-| [Azure SQL Analytics（预览版）](azure-sql.md) | Windows | | | | | | 1 分钟 |
 | [备份](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | 通知时 |
 | [容量和性能（预览版）](capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |到达时 |
 | [容器](containers.md) | Windows 和 Linux | &#8226; | &#8226; |  |  |  | 3 分钟 |

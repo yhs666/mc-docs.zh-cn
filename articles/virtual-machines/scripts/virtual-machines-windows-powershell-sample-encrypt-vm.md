@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 12/12/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: ac1557d4e9de313af75fed68fc304c1af4dcd64b
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 5ce93e87b810b0f382a7dbb6ec397c9d2dd58a04
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003979"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538909"
 ---
 # <a name="encrypt-a-windows-virtual-machine-with-azure-powershell"></a>使用 Azure PowerShell 加密 Windows 虚拟机
 
@@ -45,7 +45,8 @@ $rgName = "myResourceGroup"
 #Region
 $location = "China East"
 #Password to place w/in the KeyVault
-$securePassword = ConvertTo-SecureString -String "P@ssword!" -AsPlainText -Force
+$password = $([guid]::NewGuid()).Guid)
+$securePassword = ConvertTo-SecureString -String $password -AsPlainText -Force
 #Name for the Azure AD Application
 $appName = "My App"
 #Name for the VM to be encrypt
@@ -72,7 +73,7 @@ Add-AzKeyVaultKey `
 # Put the password in the Key Vault as a Key Vault Secret so we can use it later
 # We should never put passwords in scripts.
 Set-AzKeyVaultSecret -VaultName $keyVaultName -Name adminCreds -SecretValue $securePassword
-Set-AzKeyVaultSecret -VaultName $keyVaultName -Name protectValue -SecretValue $password
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name protectValue -SecretValue $securePassword
 
 # Create Azure Active Directory app and service principal
 $app = New-AzADApplication -DisplayName $appName `
@@ -108,7 +109,7 @@ New-AzVM `
 $keyVault = Get-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName;
 $diskEncryptionKeyVaultUrl = $keyVault.VaultUri;
 $keyVaultResourceId = $keyVault.ResourceId;
-$keyEncryptionKeyUrl = (Get-AzureKeyVaultKey -VaultName $keyVaultName -Name "myKey").Key.kid;
+$keyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $keyVaultName -Name "myKey").Key.kid;
 
 # Encrypt our virtual machine
 Set-AzVMDiskEncryptionExtension `

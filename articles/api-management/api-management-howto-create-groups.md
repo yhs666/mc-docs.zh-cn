@@ -15,11 +15,11 @@ origin.date: 02/13/2018
 ms.author: v-yiso
 ms.date: 12/31/2018
 ms.openlocfilehash: 62971b4b25f0cf2a447e3ccdecc5f888d9c8c1dc
-ms.sourcegitcommit: a6973cb776f57b886145156077da7c301a414cf6
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736702"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "68969640"
 ---
 # <a name="how-to-create-and-use-groups-to-manage-developer-accounts-in-azure-api-management"></a>如何创建和使用组来管理 Azure API 管理中的开发人员帐户
 在 API 管理中，使用组来管理产品对开发人员的可见性。 产品首次对组可见，然后这些组中的开发人员才能查看和订阅与组关联的产品。 
@@ -48,30 +48,30 @@ API 管理具有下列不可变的系统组：
 
 本部分说明如何将新组添加到 API 管理帐户。
 
-1. 选择屏幕左侧的“组”选项卡。
-2. 单击“+添加”。
+1. 选择屏幕左侧的“组”  选项卡。
+2. 单击“+添加”  。
 3. 输入组的唯一名称和可选说明。
-4. 按“创建”。
+4. 按“创建”  。
 
     ![添加新组](./media/api-management-howto-create-groups/groups001.png)
 
-创建组后，该组将添加到“组”列表。 <br/>若要编辑组的“名称”或“说明”，请单击组的名称和“设置”。<br/>若要删除组，请单击组的名称并按“删除”。
+创建组后，该组将添加到“组”  列表。 <br/>若要编辑组的“名称”  或“说明”  ，请单击组的名称和“设置”  。<br/>若要删除组，请单击组的名称并按“删除”  。
 
 现在已创建组，可以将其与产品和开发人员相关联。
 
 ## <a name="associate-group-product"> </a>将组与产品关联
 
-1. 选择左侧的“产品”选项卡。
+1. 选择左侧的“产品”  选项卡。
 2. 单击所需产品的名称。
-3. 按“访问控制”。
-4. 单击“+ 添加组”。
+3. 按“访问控制”  。
+4. 单击“+ 添加组”。 
 
     ![将组与产品关联](./media/api-management-howto-create-groups/groups002.png)
 5. 选择要添加的组。
 
     ![将组与产品关联](./media/api-management-howto-create-groups/groups003.png)
 
-    若要从产品中删除组，请单击“删除”。
+    若要从产品中删除组，请单击“删除”  。
 
     ![删除组](./media/api-management-howto-create-groups/groups004.png)
 
@@ -84,17 +84,17 @@ API 管理具有下列不可变的系统组：
 
 本部分演示如何将组与成员相关联。
 
-1. 选择屏幕左侧的“组”选项卡。
-2. 选择“成员”。
+1. 选择屏幕左侧的“组”  选项卡。
+2. 选择“成员”  。
 
     ![添加成员](./media/api-management-howto-create-groups/groups005.png)
-3. 按“+添加”并选择成员。
+3. 按“+添加”  并选择成员。
 
     ![添加成员](./media/api-management-howto-create-groups/groups006.png)
     
-4. 按“选择”。
+4. 按“选择”  。
 
-开发人员和组之间添加关联后，便可以在“用户”选项卡中查看它。
+开发人员和组之间添加关联后，便可以在“用户”  选项卡中查看它。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/13/2019
 ms.author: v-yiso
-ms.date: 04/08/2019
-ms.openlocfilehash: 845290a74c8f1d71e2f8047ab663b9265eae65cb
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 08/26/2019
+ms.openlocfilehash: 3615a117050bc5aa0147ff5821ddf62c13eaf4eb
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626790"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538748"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>使用 Azure 逻辑应用连接到本地文件系统
 
@@ -66,7 +66,7 @@ ms.locfileid: "58626790"
 
 ## <a name="add-actions"></a>添加操作
 
-1. 在触发器下，选择“下一步”。 在搜索框中，输入“文件系统”作为筛选器。 在操作列表中选择此操作：**创建文件 - 文件系统**
+1. 在触发器下，选择“下一步”。  在搜索框中，输入“文件系统”作为筛选器。 在操作列表中选择此操作：**创建文件 - 文件系统**
 
    ![查找文件系统连接器](media/logic-apps-using-file-connector/find-file-system-action.png)
 
@@ -84,12 +84,12 @@ ms.locfileid: "58626790"
    | **gateway** | 是 | <*installed-gateway-name*> | 以前安装的网关的名称 | 
    ||| 
 
-1. 完成后，选择“创建”。 
+1. 完成后，选择“创建”  。 
 
    逻辑应用会配置和测试连接，以确保连接正常运行。 
    如果正确建立连接，会显示用于之前所选操作的选项。 
 
-1. 在“创建文件”操作中，提供用于将文件从 Dropbox 复制到本地文件共享中的根文件夹的详细信息。 若要添加前面步骤的输出，请在框中单击，然后在显示动态内容列表时从可用字段中进行选择。
+1. 在“创建文件”操作中，提供用于将文件从 Dropbox 复制到本地文件共享中的根文件夹的详细信息  。 若要添加前面步骤的输出，请在框中单击，然后在显示动态内容列表时从可用字段中进行选择。
 
    ![创建文件操作](media/logic-apps-using-file-connector/create-file-filled.png)
 
@@ -105,11 +105,6 @@ ms.locfileid: "58626790"
 
 有关触发器、操作和限制（请参阅连接器的 OpenAPI（以前称为 Swagger）说明）的技术详细信息，请查看连接器的[参考页](/connectors/fileconnector/)。
 
-## <a name="get-support"></a>获取支持
-
-* 有关问题，请访问 [Azure 逻辑应用论坛](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps)。
-
-* 为了帮助我们改进 Azure 逻辑应用和连接器，请在 [Azure 逻辑应用用户之声网站](https://aka.ms/logicapps-wish)上投票或发表看法。
 
 ## <a name="next-steps"></a>后续步骤
 

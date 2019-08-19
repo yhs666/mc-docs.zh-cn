@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 manager: digimobile
 origin.date: 03/07/2019
 ms.date: 03/25/2019
-ms.openlocfilehash: 36811998b01b7efebe3d346348401acd6453e998
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.openlocfilehash: 77294cff393cb42aefb188ac66523e7159d854f9
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319003"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544107"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>使用 PowerShell 在 SQL 数据库和 SQL Server 本地数据库之间进行同步
 
@@ -30,6 +30,9 @@ ms.locfileid: "58319003"
 本教程需要 AZ PowerShell 1.4.0 或更高版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨多个云和本地数据库同步数据](../sql-database-sync-data.md)。
+
+> [!IMPORTANT]
+> 目前，Azure SQL 数据同步不  支持 Azure SQL 数据库托管实例。
 
 ## <a name="sample-script"></a>示例脚本
 

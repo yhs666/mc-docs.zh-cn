@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 8d270154d4b72aed63f3304d9d77c63c42bd9344
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: feabdcd0a5aba6ac916faa6306e859424c0b5822
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818296"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969669"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 日志查询中的聚合
 
@@ -89,11 +89,7 @@ Heartbeat
 
 |RemoteIPCountry  | distinct_computers  |
 ------------------|---------------------|
-|美国    | 19                  |
-|加拿大           | 3                   |
-|爱尔兰          | 0                   |
-|英国   | 0                   |
-|荷兰      | 2                   |
+|中国            | 19                  |
 
 
 要分析更小的数据子组，请在 `by` 部分中添加其他列名称。 例如，想要根据每个 OSType 来计算来自每个国家/地区的非重复计算机的数量：

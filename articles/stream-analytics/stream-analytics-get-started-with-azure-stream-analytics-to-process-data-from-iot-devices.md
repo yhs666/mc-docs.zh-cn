@@ -7,15 +7,15 @@ ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: v-lingwu
-ms.openlocfilehash: b7f7274b481803eca573cc93ba863fd6366e2012
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.topic: quickstart
+origin.date: 08/09/2019
+ms.date: 06/11/2019
+ms.openlocfilehash: 405a149d37ec065c67b0a84be045e400f973f91a
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544750"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969588"
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>开始使用 Azure 流分析处理来自 IoT 设备的数据
 在本教程中，会学习如何创建流处理逻辑，以从物联网 (IoT) 设备收集数据。 我们会使用真实的物联网 (IoT) 用例来演示如何经济实惠地快速生成解决方案。
@@ -55,7 +55,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
     > 只应为每个区域创建此存储帐户一次。 跨该区域中创建的所有流分析作业共享此存储。
     > 
     > 
-4. 勾选框以将作业放在仪表板上，并单击“创建” 。
+4. 勾选框以将作业放在仪表板上，并单击“创建”  。
 
     ![正在创建作业](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03a.png)
 5. 此时会在浏览器窗口右上角显示“部署已启动...”。 很快它会变为已完成的窗口，如下所示。
@@ -67,7 +67,7 @@ Contoso 是一家工业自动化公司，该公司已将其制造流程完全自
 
 ![作业磁贴](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)
 
-在“作业拓扑”窗格中，单击“查询”框以转到查询编辑器。 “查询”编辑器允许输入针对传入事件数据执行转换的 T-SQL 查询。
+在“作业拓扑”  窗格中，单击“查询”  框以转到查询编辑器。 “查询”  编辑器允许输入针对传入事件数据执行转换的 T-SQL 查询。
 
 ![查询框](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-05.png)
 

@@ -6,16 +6,17 @@ ms.service: automation
 author: rockboyfor
 ms.author: v-yeche
 origin.date: 04/26/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.topic: article
 manager: digimobile
-ms.openlocfilehash: 61c91f34a26d505e9bdd1546a51af677bdaaf5e3
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 891996e87ce3538a08538598b3cff105273f3bbf
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004562"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539206"
 ---
+<!--Verfiy succesfully-->
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>使用“运行命令”在 Windows VM 中运行 PowerShell 脚本
 
 “运行命令”使用 VM 代理在 Azure Windows VM 中运行 PowerShell 脚本。 这些脚本可以用于常规的计算机或应用程序管理，并且可以用来快速诊断和修正 VM 访问和网络问题并使 VM 恢复正常运行状态。

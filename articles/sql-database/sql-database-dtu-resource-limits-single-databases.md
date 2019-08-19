@@ -12,28 +12,28 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 03/20/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 78f39113cf76e6c626a5c22546ef4deb21505548
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: 55bb384bb62a76a088e526de775e0cb2f5829bb7
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003475"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544334"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>使用基于 DTU 的购买模型的单一数据库的资源限制
 
 本文提供了针对使用基于 DTU 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
-有关弹性池的基于 DTU 的购买模型资源限制，请参阅[基于 DTU 的资源限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)。 有关基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。 有关不同购买模型的更多信息，请参阅[购买模型和服务层](sql-database-purchase-models.md)。
+有关弹性池的基于 DTU 的购买模型资源限制，请参阅[基于 DTU 的资源限制 - 弹性池](sql-database-dtu-resource-limits-elastic-pools.md)。 有关基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。 有关不同购买模型的更多信息，请参阅[购买模型和服务层级](sql-database-purchase-models.md)。
 
 ## <a name="single-database-storage-sizes-and-compute-sizes"></a>单一数据库：存储大小和计算大小
 
-下表显示了可用于每个服务层和计算大小的单一数据库的资源。 可通过 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 为单一数据库设置服务层、计算大小和存储量。
+下表显示了可用于每个服务层级和计算大小的单一数据库的资源。 可通过 [Azure 门户](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server)、[Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases)、[PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases)、[Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases) 或 [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases) 为单一数据库设置服务层级、计算大小和存储量。
 
 > [!IMPORTANT]
 > 有关缩放指南和注意事项，请参阅[缩放单一数据库](sql-database-single-database-scale.md)
 
-### <a name="basic-service-tier"></a>基本服务层
+### <a name="basic-service-tier"></a>“基本”服务层级
 
 | **计算大小** | **基本** |
 | :--- | --: |
@@ -45,11 +45,11 @@ ms.locfileid: "59003475"
 | 最大并发会话数 | 300 |
 |||
 
-### <a name="standard-service-tier"></a>标准服务层
+### <a name="standard-service-tier"></a>“标准”服务层级
 
 | **计算大小** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
-| 最大 DTU 数 | 10 个 | 20 | 50 | 100 |
+| 最大 DTU | 10 个 | 20 | 50 | 100 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 |
 | 最大存储选择 (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
 | 最大内存中 OLTP 存储 (GB) | 不适用 | 不适用 | 不适用 | 不适用 |
@@ -57,9 +57,9 @@ ms.locfileid: "59003475"
 | 最大并发会话数 |600 | 900 | 1200 | 2400 |
 ||||||
 
-### <a name="standard-service-tier-continued"></a>标准服务层（续）
+### <a name="standard-service-tier-continued"></a>“标准”服务层级（续）
 
-| **计算大小** | **S4** | **S6** | **S7** | **S9** | **S12** |
+| **计算大小** | **S4** | **S6** |  S7 |  S9 |  S12 |
 | :--- |---:| ---:|---:|---:|---:|
 | 最大 DTU 数 | 200 | 400 | 800 | 1600 | 3000 |
 | 包含的存储 (GB) | 250 | 250 | 250 | 250 | 250 |
@@ -69,7 +69,7 @@ ms.locfileid: "59003475"
 | 最大并发会话数 |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
 
-### <a name="premium-service-tier"></a>高级服务层
+### <a name="premium-service-tier"></a>“高级”服务层级
 
 | **计算大小** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
@@ -88,8 +88,9 @@ ms.locfileid: "59003475"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关单个数据库的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的单个数据库的资源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 有关单一数据库的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的单一数据库的资源限制](sql-database-vcore-resource-limits-single-databases.md)
 - 有关弹性池的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的弹性池的资源限制](sql-database-vcore-resource-limits-elastic-pools.md)
 - 有关弹性池的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 有关托管实例的资源限制，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关数据库服务器上的资源限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)了解有关服务器级别和订阅级别限制的信息。

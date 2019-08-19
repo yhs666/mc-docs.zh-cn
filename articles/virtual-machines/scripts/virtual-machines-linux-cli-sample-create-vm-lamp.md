@@ -14,15 +14,15 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 04/05/2017
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: b022dd30cc99405d7e62b11989689de0f45906f9
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 8782d67e96b2af69863bbb9f5e07e517245d7e8c
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665909"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539044"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在负载均衡虚拟机规模集中部署 LAMP 堆栈
 
@@ -34,6 +34,10 @@ ms.locfileid: "56665909"
 
 ```azurecli
 #!/bin/bash
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login 
 
 # Create the resource group if it doesn't exist
 az group create -n myResourceGroup -l chinanorth
@@ -99,19 +103,19 @@ az group delete -n myResourceGroup
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az vmss create](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-create) | 创建虚拟机规模集 |
-| [az network lb rule create](https://docs.azure.cn/zh-cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) | 添加负载均衡终结点 |
-| [az vmss extension set](https://docs.azure.cn/zh-cn/cli/vmss/extension?view=azure-cli-latest#az-vmss-extension-set) | 创建对 VM 部署运行自定义脚本的扩展 |
-| [az vmss update-instances](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-update-instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
-| [az vmss scale](https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
-| [az network public-ip list](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) | 获取示例创建的 VM 的 IP 地址。 |
-| [az network lb show](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest#az-network-lb-show) | 获取负载均衡器使用的前端和后端端口。 |
+| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az vmss create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) | 创建虚拟机规模集 |
+| [az network lb rule create](https://docs.azure.cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) | 添加负载均衡终结点 |
+| [az vmss extension set](https://docs.azure.cn/cli/vmss/extension?view=azure-cli-latest#az-vmss-extension-set) | 创建对 VM 部署运行自定义脚本的扩展 |
+| [az vmss update-instances](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-update-instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
+| [az vmss scale](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
+| [az network public-ip list](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) | 获取示例创建的 VM 的 IP 地址。 |
+| [az network lb show](https://docs.azure.cn/cli/network/lb?view=azure-cli-latest#az-network-lb-show) | 获取负载均衡器使用的前端和后端端口。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
-<!--Update_Description: update meta properties, update cmdlet -->
+<!--Update_Description: update meta properties -->

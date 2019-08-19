@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 66cb529b5e5315c19aedba271df6a4f166a3d524
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: bece4a54784cc8086e7defb510ff0b2534e4f9b3
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818578"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969604"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>结合使用 Azure 资源的托管标识与 Azure 服务总线 
 
@@ -38,7 +38,7 @@ Azure 资源的托管标识是一项跨 Azure 功能，可便于你创建与其�
 
 若要使用新的内置角色，请完成以下步骤 -
 
-1. 转到 [Azure 门户](https://portal.azure.com)
+1. 转到 [Azure 门户](https://portal.azure.cn)
 2. 导航到当前已设置“所有者”或“参与者”角色的服务总线命名空间。
 3. 单击左窗格菜单中的“访问控制(IAM)”。
 4. 继续添加新的角色分配，如下所示

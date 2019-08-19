@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2f71012b5a6c7644677ca87c5553fd4c0fb9111f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: f23f161a6c71a119ad3e6cbb847f2f07f2dd71d4
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818445"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544222"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 门户中测试 LUIS 应用
 对应用进行<a name="train-your-app"></a>
@@ -98,7 +98,6 @@ ms.locfileid: "68818445"
 
 * 已发布的应用
 
-按照以下流程，将[必应拼写检查 v7](https://www.azure.cn/cognitive-services/spell-check/) 服务包括在“测试”窗格结果中。 
 
 1. 在“测试”窗格中输入一个陈述  。 预测陈述后，选择输入的陈述下方的“[检查](#inspect-score)”  。 
 

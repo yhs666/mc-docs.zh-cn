@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: workload management
 origin.date: 05/01/2019
-ms.date: 06/24/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5b06f0a65dcba98bc338625832dadc8813b6c90
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 3e716025ce290633377e02db448f03a398f7b257
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151757"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544411"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入门：使用 T-SQL 创建工作负荷分类器
 
@@ -110,3 +110,4 @@ DROP USER [TheCEO]
 
 - 现已创建一个工作负荷分类器。 以 TheCEO 身份运行一些查询，以查看该分类器的执行情况。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
 - 有关 Azure SQL 数据仓库工作负荷管理的详细信息，请参阅[工作负荷重要性](sql-data-warehouse-workload-importance.md)和[工作负荷分类](sql-data-warehouse-workload-classification.md)。
+- 请参阅有关[配置工作负荷重要性](sql-data-warehouse-how-to-configure-workload-importance.md)和[管理和监视工作负荷管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)的操作指南文章。

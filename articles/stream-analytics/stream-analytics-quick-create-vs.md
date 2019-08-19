@@ -8,12 +8,12 @@ ms.date: 01/21/19
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 806ee9ab028fbfb078cae7d1d63166175aa3f071
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 0aa356cdca0a447ed113fe6ecd66cf3abbd4f9d8
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818580"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969577"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>快速入门：使用适用于 Visual Studio 的 Azure 流分析工具创建流分析作业
 
@@ -27,7 +27,7 @@ ms.locfileid: "68818580"
 
 * 安装 Visual Studio 2017、Visual Studio 2015 或 Visual Studio 2013 Update 4。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。
 
-* 按照[安装说明](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install)安装用于 Visual Studio 的流分析工具。
+* 按照[安装说明](/stream-analytics/stream-analytics-tools-for-visual-studio-install)安装用于 Visual Studio 的流分析工具。
 
 ## <a name="prepare-the-input-data"></a>对输入数据进行准备
 

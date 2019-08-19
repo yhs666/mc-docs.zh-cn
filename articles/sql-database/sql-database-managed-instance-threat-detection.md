@@ -12,19 +12,19 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 02/04/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: e8a481f2f167495aa495fc5354931a46d2016cd4
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.date: 08/19/2019
+ms.openlocfilehash: c4d503efa5d6d432c541e8499b86481cb614928c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277011"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543945"
 ---
 # <a name="configure-threat-detection-preview-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中配置威胁检测（预览版）
 
 [托管实例](sql-database-managed-instance-index.yml)的[威胁检测](sql-database-threat-detection-overview.md)可检测异常活动，这些活动指示对数据库的异常和可能有害的访问或利用企图。 威胁检测可以识别**潜在的 SQL 注入**、**来自异常位置或数据中心的访问**、**来自陌生主体或可能有害的应用程序的访问**以及**暴力攻击 SQL 凭据** - 请在[威胁检测警报](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts)中查看更多详细信息。
 
-可以通过 [Azure 门户](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)接收有关检测到的威胁的通知
+你可以通过[电子邮件通知](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event)或 [Azure 门户](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)接收有关检测到的威胁的通知
 
 [威胁检测](sql-database-threat-detection-overview.md)是[高级数据安全](sql-database-advanced-data-security.md) (ADS) 产品/服务（它是高级 SQL 安全功能的一个统一包）的一部分。 可通过中心 SQL ADS 门户访问和管理威胁检测。
 
@@ -46,3 +46,4 @@ ms.locfileid: "67277011"
 - 如需了解有关托管实例的信息，请参阅[什么是托管实例](sql-database-managed-instance.md)。
 - 详细了解[单一数据库中的威胁检测](sql-database-threat-detection.md)。
 - 详细了解[托管实例审核](/sql-database/sql-database-managed-instance-auditing)。
+- 详细了解 [Azure 安全中心](/security-center/)。

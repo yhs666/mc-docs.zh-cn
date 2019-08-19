@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: fed94072cf883f656d70e10933b0752ddb92b763
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: a6f4d48c3bb719dcf5c0bb7c09ee00d7356f402a
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878735"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539196"
 ---
 # <a name="Migrate-to-granular-role-based-access-for-cluster-configurations"></a> 迁移到群集配置的基于角色的细化访问权限
 
-我们正在引入一些重要更改，以支持使用更细化的基于角色的访问来获取敏感信息。 在这些更改中，如果你正在使用某个[受影响的实体/方案](#Am-I-affected-by-these-changes)，则**可能需要采取某种措施**。
+我们正在引入一些重要更改，以支持使用更细化的基于角色的访问来获取敏感信息。 在这些更改中，如果你正在使用某个[受影响的实体/方案](#am-i-affected-by-these-changes)，则**可能需要采取某种措施**。
 
 ## <a name="What-is-changing"></a> 有什么变化？
 
@@ -33,7 +33,7 @@ ms.locfileid: "68878735"
 | 参与者                           | - 读/写访问权限，包括机密<br>- 创建和管理所有类型的 Azure 资源。     | 无变化 |
 | 所有者                                 | - 读/写访问权限，包括机密<br>- 对所有资源的完全访问权限<br>- 将访问权限委托给其他人 | 无变化 |
 
-了解如何向用户添加 HDInsight 群集操作员角色分配，以授予其对群集机密的读/写访问权限的信息，请参阅以下部分[将 HDInsight 群集操作员角色分配添加到用户](#Add-the-HDInsight-Cluster-Operator-role-assignment-to-a-user)。
+了解如何向用户添加 HDInsight 群集操作员角色分配，以授予其对群集机密的读/写访问权限的信息，请参阅以下部分[将 HDInsight 群集操作员角色分配添加到用户](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user)。
 
 ## <a name="Am-I-affected-by-these-changes"></a> 我是否受这些更改的影响？
 
@@ -51,8 +51,8 @@ ms.locfileid: "68878735"
      - [版本 1.x 和 2.x](#Versions-1x-and-2x)
       - [版本 3.x 及更高版本](#Versions-3x-and-up)
     - [SDK for Python](#SDK-for-Python)
-    - [SDK For Java](#SDK-for-Java)
-    - [SDK For Go](#SDK-for-Go)
+    - [SDK For Java](#SDK-For-Java)
+    - [SDK For Go](#SDK-For-Go)
     - [Az.HDInsight PowerShell](#AzHDInsight-PowerShell)
   - [向用户添加 HDInsight 群集操作员角色分配](#Add-the-HDInsight-Cluster-Operator-role-assignment-to-a-user)
     - [使用 Azure CLI](#Using-the-Azure-CLI)

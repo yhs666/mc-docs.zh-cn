@@ -6,23 +6,23 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlr
+ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 2c77e68384725b2eeb2fcccc22bac07735ecc220
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/19/2019
+ms.openlocfilehash: 809f02bf51caeb8fdf2d35d445c844cdac730932
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629159"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544304"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL 数据库
 
-在本部分中，你可以找到可帮助你管理和配置 Azure SQL 数据库的各种指南、脚本和说明。 还可以找到适用于[单一数据库](sql-database-howto-single-database.md)的特定操作指南。
+在本部分中，你可以找到可帮助你管理和配置 Azure SQL 数据库的各种指南、脚本和说明。 还可以找到具体的[单一数据库](sql-database-howto-single-database.md)和[托管实例](sql-database-howto-managed-instance.md)操作指南。
 
 ## <a name="load-data"></a>加载数据
 
@@ -30,6 +30,7 @@ ms.locfileid: "65629159"
 - [从 BACPAC 导入 DB](sql-database-import.md)
 - [将 DB 导出到 BACPAC](sql-database-export.md)
 - [使用 BCP 加载数据](sql-database-load-from-csv-with-bcp.md)
+- [使用 ADF 加载数据](../data-factory/connector-azure-sql-database.md?toc=/sql-database/toc.json)
 
 ### <a name="data-sync"></a>数据同步
 
@@ -74,6 +75,8 @@ ms.locfileid: "65629159"
 - [错误消息](sql-database-develop-error-messages.md)
 - [使用批处理提高性能](sql-database-use-batching-to-improve-performance.md)
 - [连接指南](sql-database-connectivity-issues.md)
+- [DNS 别名](dns-alias-overview.md)
+- [设置 DNS 别名 PowerShell](dns-alias-powershell.md)
 - [端口 - ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C 和 C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)
@@ -86,4 +89,5 @@ ms.locfileid: "65629159"
 
 ## <a name="next-steps"></a>后续步骤
 
+- 详细了解[托管实例操作指南](sql-database-howto-managed-instance.md)。
 - 详细了解[单一数据库操作指南](sql-database-howto-single-database.md)。

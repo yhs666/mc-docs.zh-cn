@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: ff9f94ab190629c6b6468f7b23ab1331e819c67b
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 9c23b3393c504e61efaef2beb46fb00cc8d6169a
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135993"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544353"
 ---
 # <a name="quickstart-get-intent-using-python"></a>快速入门：使用 Python 获取意向
 在本快速入门中，你将向 LUIS 终结点传递话语并返回意向和实体。
@@ -65,7 +65,7 @@ ms.locfileid: "67135993"
     # HTTP Request
     try:
         # LUIS endpoint HOST for chinaeast region
-        conn = httplib.HTTPSConnection('chinaeast.api.cognitive.microsoft.com')
+        conn = httplib.HTTPSConnection('chinaeast.api.cognitive.azure.cn')
 
         # LUIS endpoint path
         # includes public app ID

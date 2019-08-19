@@ -12,39 +12,39 @@ ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 2ad93e9ecb16290290c7263c45f2dd7c17fe89be
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.date: 08/19/2019
+ms.openlocfilehash: 1007bfd9865b429dd91007a254d07ca3bdc0413b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890217"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544275"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 排查 Azure SQL 数据库性能问题
 
-本页提供有关通过 [Intelligent Insights](sql-database-intelligent-insights.md) 数据库性能诊断日志检测到的 Azure SQL 数据库性能问题的信息。 可将诊断日志遥测数据流式传输到 [Azure 事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 存储](sql-database-metrics-diag-logging.md#stream-into-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
+本页提供有关通过 [Intelligent Insights](sql-database-intelligent-insights.md) 数据库性能诊断日志检测到的 Azure SQL 数据库和托管实例性能问题的信息。 可将诊断日志遥测数据流式传输到 [Azure 事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 存储](sql-database-metrics-diag-logging.md#stream-into-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
 
 ## <a name="detectable-database-performance-patterns"></a>可检测的数据库性能模式
 
-Intelligent Insights 可根据查询执行等待时间、错误或超时自动检测 SQL 数据库和托管实例数据库的性能问题， 它会将检测到的性能模式输出到诊断日志。 下表汇总了可检测的性能模式。
+智能见解可根据查询执行等待时间、错误或超时自动检测 SQL 数据库和托管实例数据库的性能问题， 它会将检测到的性能模式输出到诊断日志。 下表汇总了可检测的性能模式。
 
-| 可检测性能模式 | Azure SQL 数据库和弹性池的说明 |
+| 可检测性能模式 | Azure SQL 数据库和弹性池的说明 | 托管实例中的数据库的说明 |
 | :------------------- | ------------------- | ------------------- |
-| [达到资源限制](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 受监视订阅上的可用资源 (DTU)、数据库工作线程或数据库登录会话消耗量已达到限制。 这会影响 SQL 数据库性能。 |
-| [工作负荷增大](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 检测到工作负荷增大，或数据库上的工作负荷持续累积。 这会影响 SQL 数据库性能。 |
-| [内存压力](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 请求内存授予的工作线程必须等待内存分配相当长的时间。 否则，请求内存授予的工作线程数会不断增加。 这会影响 SQL 数据库性能。 |
-| [锁定](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | 检测到过度的数据库锁定，这影响 SQL 数据库性能。 |
-| [增加的 MAXDOP](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 最大并行度选项 (MAXDOP) 发生更改，影响查询执行效率。 这会影响 SQL 数据库性能。 |
-| [Pagelatch 争用](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 多个线程同时尝试访问相同的内存中数据缓冲区页面，导致等待时间变长并引发 Pagelatch 争用。 这会影响 SQL 数据库性能。 |
-| [缺失的索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 检测到索引缺失，这影响 SQL 数据库性能。 |
-| [新查询](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 检测到新查询，这影响 SQL 数据库的总体性能。 |
-| [等待时间延长统计信息](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | 检测到数据库等待时间延长，这影响 SQL 数据库的性能。 |
-| [TempDB 争用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多个线程尝试访问相同的 TempDB 资源，导致出现瓶颈。 这会影响 SQL 数据库性能。 |
-| [弹性池 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 弹性池中的可用 eDTU 不足，影响了 SQL 数据库的性能。 |
-| [计划回归](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 检测到新计划，或现有计划的工作负荷发生更改。 这会影响 SQL 数据库性能。 |
-| [数据库范围的配置值更改](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 检测到 SQL 数据库中的配置更改，这影响数据库的性能。 |
-| [客户端缓慢](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 应用程序客户端运行缓慢，无法以足够快的速度使用数据库的输出。 这会影响 SQL 数据库性能。 |
-| [定价层降级](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定价层降级操作减少了可用资源。 这会影响 SQL 数据库性能。 |
+| [达到资源限制](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 受监视订阅上的可用资源 (DTU)、数据库工作线程或数据库登录会话消耗量已达到限制。 这会影响 SQL 数据库性能。 | CPU 资源的使用达到托管实例限制。 这会影响数据库性能。 |
+| [工作负荷增大](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 检测到工作负荷增大，或数据库上的工作负荷持续累积。 这会影响 SQL 数据库性能。 | 检测到工作负荷增加。 这会影响数据库性能。 |
+| [内存压力](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 请求内存授予的工作线程必须等待内存分配相当长的时间。 否则，请求内存授予的工作线程数会不断增加。 这会影响 SQL 数据库性能。 | 请求内存授予的工作线程会等待内存分配相当长的时间（就统计学意义来说）。 这会影响数据库性能。 |
+| [锁定](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | 检测到过度的数据库锁定，这影响 SQL 数据库性能。 | 检测到过度的数据库锁定，这影响数据库性能。 |
+| [MAXDOP 提升](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | 最大并行度选项 (MAXDOP) 发生更改，影响查询执行效率。 这会影响 SQL 数据库性能。 | 最大并行度选项 (MAXDOP) 发生更改，影响查询执行效率。 这会影响数据库性能。 |
+| [Pagelatch 争用](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 多个线程同时尝试访问相同的内存中数据缓冲区页面，导致等待时间变长并引发 Pagelatch 争用。 这会影响 SQL 数据库性能。 | 多个线程同时尝试访问相同的内存中数据缓冲区页面，导致等待时间变长并引发 Pagelatch 争用。 这会影响数据库性能。 |
+| [缺少索引](sql-database-intelligent-insights-troubleshoot-performance.md#missing-index) | 检测到索引缺失，这影响 SQL 数据库性能。 | 检测到索引缺失，这影响数据库性能。 |
+| [新建查询](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | 检测到新查询，这影响 SQL 数据库的总体性能。 | 检测到新查询，这影响数据库的总体性能。 |
+| [等待时间延长统计信息](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | 检测到数据库等待时间延长，这影响 SQL 数据库的性能。 | 检测到数据库等待时间延长，这影响数据库的性能。 |
+| [TempDB 争用](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | 多个线程尝试访问相同的 TempDB 资源，导致出现瓶颈。 这会影响 SQL 数据库性能。 | 多个线程尝试访问相同的 TempDB 资源，导致出现瓶颈。 这会影响数据库性能。 |
+| [弹性池 DTU 不足](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | 弹性池中的可用 eDTU 不足，影响了 SQL 数据库的性能。 | 不适用于托管实例，因为它使用 vCore 模型。 |
+| [计划回归](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | 检测到新计划，或现有计划的工作负荷发生更改。 这会影响 SQL 数据库性能。 | 检测到新计划，或现有计划的工作负荷发生更改。 这会影响数据库性能。 |
+| [数据库范围的配置值更改](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | 检测到 SQL 数据库中的配置更改，这影响数据库的性能。 | 检测到数据库中的配置更改，这影响数据库的性能。 |
+| [客户端缓慢](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | 应用程序客户端运行缓慢，无法以足够快的速度使用数据库的输出。 这会影响 SQL 数据库性能。 | 应用程序客户端运行缓慢，无法以足够快的速度使用数据库的输出。 这会影响数据库性能。 |
+| [定价层降级](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | 定价层降级操作减少了可用资源。 这会影响 SQL 数据库性能。 | 定价层降级操作减少了可用资源。 这会影响数据库性能。 |
 
 > [!TIP]
 > 若要持续进行 SQL 数据库性能优化，请启用 [Azure SQL 数据库自动优化](sql-database-automatic-tuning.md)。 SQL 数据库内置智能的这项独特功能可以持续监视 SQL 数据库、自动优化索引，并应用查询执行计划更正。
@@ -70,7 +70,7 @@ SQL 数据库上的资源通常称为 [DTU](sql-database-what-is-a-dtu.md) 或 [
 
 如果已达到可用会话限制，可以通过减少数据库登录次数来优化应用程序。 如果无法减少从应用程序到数据库的登录数，可以考虑提高数据库的定价层。 也可以将数据库拆分成多个数据库并进行移动，使工作负荷的分配更为均衡。
 
-有关解决会话限制的更多建议，请参阅 [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)（如何处理 SQL 数据库最大登录数的限制）。 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器上的资源限制概述](sql-database-resource-limits-database-server.md)。
+有关解决会话限制的更多建议，请参阅 [How to deal with the limits of SQL Database maximum logins](https://blogs.technet.microsoft.com/latam/20../../how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/)（如何处理 SQL 数据库最大登录数的限制）。 有关服务器和订阅级别限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)。
 
 ## <a name="workload-increase"></a>工作负载增加
 
@@ -206,7 +206,7 @@ Latch（闩锁）是一种轻量同步机制，允许 SQL 数据库启用多线�
 
 这种可检测的性能模式表示确定的性能不佳的查询导致工作负荷的性能相比过去七天的工作负荷基线有所降级。
 
-在这种情况下，系统无法将性能不佳的查询归到任何其他标准的可检测性能类别下，但确实检测到导致性能回归的等待统计信息。 因此，系统会将其视为具有等待时间延长统计信息的查询，并会在其中公开导致性能回归的等待时间统计信息。 
+在这种情况下，系统无法将性能不佳的查询归到任何其他标准的可检测性能类别下，但确实检测到导致性能回归的等待统计信息。 因此，系统会将其视为具有  等待时间延长统计信息的查询，并会在其中公开导致性能回归的等待时间统计信息。 
 
 ### <a name="troubleshooting"></a>故障排除
 
@@ -252,7 +252,7 @@ SQL 数据库中的资源通常称为 [DTU 资源](sql-database-purchase-models.
 
 SQL 数据库可以确定查询执行开销最低的查询执行计划。 由于查询和工作负荷的类型会发生变化，有时现有的计划不再有效，或者 SQL 数据库未能做出合理的评估。 作为一种纠正措施，可以手动强制查询执行计划。
 
-这种可检测的性能模式合并了三种不同的计划回归情况：新计划回归、旧计划回归和现有计划更改的工作负荷。 诊断日志的“详细信息”属性中提供了出现的计划回归的特定类型。
+这种可检测的性能模式合并了三种不同的计划回归情况：新计划回归、旧计划回归和现有计划更改的工作负荷。  诊断日志的“详细信息”属性中提供了出现的计划回归的特定类型。
 
 新计划回归状况表示这样一种状态：SQL 数据库开始执行不如旧计划那么有效的新查询执行计划。 旧计划回归状况表示这样一种状态：SQL 数据库弃用更有效的新计划，改用不如新计划那么有效的旧计划。 现有计划更改的工作负荷回归表示这样一种状态：不断交替使用旧计划和新计划，天平逐渐倾向于性能不佳的计划。
 

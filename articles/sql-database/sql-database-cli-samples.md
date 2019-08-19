@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 02/03/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 61ffeca3d33027097bacd1d37166e037a380ba61
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 08/19/2019
+ms.openlocfilehash: 2c264b9ce49105f6430b005a87c97bd494fff110
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318879"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544398"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>适用于 Azure SQL 数据库的 Azure CLI 示例
 
@@ -36,7 +36,7 @@ ms.locfileid: "58318879"
 |---|---|
 |**创建单一数据库和弹性池**||
 | [创建单一数据库和配置防火墙规则](scripts/sql-database-create-and-configure-database-cli.md) | 此 CLI 脚本示例创建单个 Azure SQL 数据库并配置服务器级防火墙规则。 |
-| [创建弹性池并移动入池数据库](scripts/sql-database-move-database-between-pools-cli.md) | 此 CLI 脚本示例创建 SQL 弹性池，移动入池 Azure SQL 数据库，并更改计算大小。|
+| [创建弹性池并移动共用数据库](scripts/sql-database-move-database-between-pools-cli.md) | 此 CLI 脚本示例创建 SQL 弹性池，移动共用 Azure SQL 数据库，并更改计算大小。|
 |**缩放单一数据库和弹性池**||
 | [缩放单一数据库](scripts/sql-database-monitor-and-scale-database-cli.md) | 此 CLI 脚本示例在查询数据库的大小信息后，将单个 Azure SQL 数据库缩放为不同的计算大小。 |
 | [缩放弹性池](scripts/sql-database-scale-pool-cli.md) | 此 CLI 脚本示例将 SQL 弹性池缩放为不同的计算大小。  |
@@ -44,3 +44,15 @@ ms.locfileid: "58318879"
 
 详细了解[单一数据库 Azure CLI API](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases)。
 
+## <a name="managed-instance"></a>托管实例
+
+下表包括适用于 Azure SQL 数据库 - 托管实例的 Azure CLI 脚本示例的链接。
+
+| |  |
+|---|---|
+| [创建托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/) | 此 CLI 脚本展示了如何创建托管实例。 |
+| [更新托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/) | 此 CLI 脚本展示了如何更新托管实例。 |
+| [将数据库移动到另一个托管实例](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) | 此 CLI 脚本展示了如何将数据库的备份从一个实例还原到另一个实例。 |
+|||
+
+详细了解[托管实例 Azure CLI API](sql-database-managed-instance-create-manage.md#azure-cli-create-and-manage-managed-instances) 并[在此处查找更多示例](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)。

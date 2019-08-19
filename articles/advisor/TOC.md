@@ -14,7 +14,7 @@
 
 # 引用
 ## [REST API](https://docs.microsoft.com/rest/api/advisor)
-## [CLI](https://docs.microsoft.com/cli/azure/advisor)
+## [CLI](/cli/advisor)
 
 # 相关内容
 ## [SQL DB 顾问](/sql-database/sql-database-advisor/)

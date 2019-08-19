@@ -9,12 +9,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bf417b76e278a3632329ff01879be1c84ead117
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c10d5cab49c06afe18968f69093b68c410969a34
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818575"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544365"
 ---
 # <a name="security-attributes-for-azure-service-bus-messaging"></a>Azure 服务总线消息传送的安全属性
 
@@ -67,4 +67,4 @@ ms.locfileid: "68818575"
 
 | 安全属性 | Yes/No | 注释|
 |---|---|--|
-| 配置管理支持（配置的版本控制等）| 是 | 支持通过 [Azure 资源管理器 API](https://azure.microsoft.com/rest/api/resources/) 进行资源提供程序版本控制。|
+| 配置管理支持（配置的版本控制等）| 是 | 支持通过 [Azure 资源管理器 API](https://docs.microsoft.com/rest/api/resources/) 进行资源提供程序版本控制。|

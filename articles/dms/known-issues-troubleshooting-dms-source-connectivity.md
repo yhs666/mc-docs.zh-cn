@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.topic: article
 origin.date: 06/28/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 001201043afc19d81ec345c4892fcadd522d74e7
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.openlocfilehash: 644a8895fc8af812c3cdc1611955422b6f7236d1
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308966"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952141"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>排查连接到源数据库时出现的 DMS 错误
 
@@ -30,7 +30,7 @@ ms.locfileid: "68308966"
 | 错误         | 原因和故障排除详细信息 |
 | ------------- | ------------- |
 | SQL 连接失败。 建立与 SQL Server 的连接时，出现网络相关或特定于实例的错误。 找不到或无法访问服务器。 验证实例名称是否正确，以及 SQL Server 是否已配置为允许远程连接。<br> | 如果服务找不到源服务器，则会发生此错误。 若要解决该问题，请参阅[使用动态端口或命名实例连接到源 SQL Server 时出错](/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance)。 |
-| **错误 53** - SQL 连接失败。 （同样适用于错误代码 1、2、5、53、233、258、1225、11001）<br><br> | 如果服务无法连接到源服务器，则会发生此错误。 若要解决该问题，请参考以下资源，然后重试。 <br><br>  [有关排查连接问题的交互式用户指南](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [将 SQL Server 迁移到 Azure SQL 数据库的先决条件](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [将 SQL Server 迁移到 Azure SQL 数据库托管实例的先决条件](/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
+| **错误 53** - SQL 连接失败。 （同样适用于错误代码 1、2、5、53、233、258、1225、11001）<br><br> | 如果服务无法连接到源服务器，则会发生此错误。 若要解决该问题，请参考以下资源，然后重试。 <br><br>  [有关排查连接问题的交互式用户指南](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [将 SQL Server 迁移到 Azure SQL 数据库的先决条件](/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [将 SQL Server 迁移到 Azure SQL 数据库托管实例的先决条件](/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **错误 18456** - 登录失败。<br> | 如果服务无法使用提供的 T-SQL 凭据连接到源数据库，则会发生此错误。 若要解决该问题，请检查输入的凭据。 还可以参考 [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 或此表下面的注释中列出的故障排除文档，然后重试。 |
 | 提供了格式不当的 AccountName 值“{0}”。 AccountName 的所需格式为“域名\用户名”<br> | 如果用户选择了 Windows 身份验证但提供了格式无效的用户名，则会发生此错误。 若要解决该问题，请为 Windows 身份验证提供正确格式的用户名，或选择“SQL 身份验证”。  |
 
@@ -92,6 +92,6 @@ ms.locfileid: "68308966"
 ## <a name="next-steps"></a>后续步骤
 
 * 参阅[Azure 数据库迁移服务 PowerShell](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)一文。
-* 查看[如何使用 Azure 门户在 Azure Database for MySQL 中配置服务器参数](https://docs.microsoft.com/azure/mysql/howto-server-parameters)一文。
-* 查看[使用 Azure 数据库迁移服务的先决条件概述](https://docs.microsoft.com/azure/dms/pre-reqs)一文。
-* 参阅[有关使用 Azure 数据库迁移服务的常见问题解答](https://docs.microsoft.com/azure/dms/faq)。
+* 查看[如何使用 Azure 门户在 Azure Database for MySQL 中配置服务器参数](/mysql/howto-server-parameters)一文。
+* 查看[使用 Azure 数据库迁移服务的先决条件概述](/dms/pre-reqs)一文。
+* 参阅[有关使用 Azure 数据库迁移服务的常见问题解答](/dms/faq)。

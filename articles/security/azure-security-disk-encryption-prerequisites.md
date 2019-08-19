@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c57a2712a8f83ad89574fb8affb22340951e94d9
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 23acd4b71a00583d773c38482cfcc4c328fc296d
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818187"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969605"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁盘加密先决条件
 
-本文“Azure 磁盘加密先决条件”介绍了在使用 Azure 磁盘加密之前所要满足的条件。 Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，以帮助管理加密密钥。 可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、[Azure CLI](/cli/) 或 [Azure 门户](https://portal.azure.com)配置 Azure 磁盘加密。
+本文“Azure 磁盘加密先决条件”介绍了在使用 Azure 磁盘加密之前所要满足的条件。 Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，以帮助管理加密密钥。 可以使用 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)、[Azure CLI](/cli/) 或 [Azure 门户](https://portal.azure.cn)配置 Azure 磁盘加密。
 
 针对“Azure 磁盘加密概述”一文中所述的受支持方案在 Azure IaaS VM 上启用 Azure 磁盘加密之前，请务必满足以下先决条件。 
 

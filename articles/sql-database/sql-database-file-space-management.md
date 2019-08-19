@@ -1,6 +1,6 @@
 ---
-title: Azure SQL 数据库单一/池化数据库文件空间管理 | Microsoft Docs
-description: 本页介绍了如何管理 Azure SQL 数据库中的单一和池化数据库的文件空间，并提供了代码示例来演示如何确定是否需要收缩单一或池化数据库，以及如何执行数据库收缩操作。
+title: Azure SQL 数据库单一/共用数据库文件空间管理 | Microsoft Docs
+description: 本页介绍了如何管理 Azure SQL 数据库中的单一数据库和共用数据库的文件空间，并提供了代码示例来演示如何确定是否需要收缩单一数据库或共用数据库，以及如何执行数据库收缩操作。
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -12,17 +12,20 @@ ms.author: v-jay
 ms.reviewer: jrasnick, carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 3da8d5ab9ace09ca0e54013181ad2620fee14639
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: 03f6b42e8821db0700af7d6ee7a020d4f46db338
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003449"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544205"
 ---
-# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>管理 Azure SQL 数据库中的单一和池化数据库的文件空间
+# <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>管理 Azure SQL 数据库中的单一数据库和共用数据库的文件空间
 
-本文介绍了 Azure SQL 数据库中单一和池化数据库的各种类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。
+本文介绍了 Azure SQL 数据库中单一数据库和共用数据库的各种类型的存储空间，以及当需要显式管理分配给数据库和弹性池的文件空间时可以执行的步骤。
+
+> [!NOTE]
+> 本文不适用于 Azure SQL 数据库中的托管实例部署选项。
 
 ## <a name="overview"></a>概述
 
@@ -30,13 +33,13 @@ ms.locfileid: "59003449"
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
-使用 Azure SQL 数据库中的单一和池化数据库时，可能存在如下所述的工作负荷模式：其中数据库基础数据文件的分配可能会大于已使用数据页的数量。 如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。 这是因为分配的文件空间不会自动回收。
+使用 Azure SQL 数据库中的单一数据库和共用数据库时，可能存在如下所述的工作负荷模式：其中数据库基础数据文件的分配可能会大于已使用数据页的数量。 如果使用的空间不断增大，并且后续删除了数据，则可能会出现这种情况。 这是因为分配的文件空间不会自动回收。
 
 在以下情况下，可能需要监视文件空间用量并收缩数据文件：
 
 - 当分配给数据库的文件空间达到池的最大大小时，允许在弹性池中增大数据。
 - 允许减少单一数据库或弹性池的最大大小。
-- 允许将单一数据库或弹性池更改为最大大小更小的其他服务层或性能层。
+- 允许将单一数据库或弹性池更改为最大大小更小的其他服务层级或性能层。
 
 ### <a name="monitoring-file-space-usage"></a>监视文件空间用量
 
@@ -215,6 +218,9 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>回收已分配但未使用的空间
 
+> [!NOTE]
+> 此命令在运行时可能会影响数据库的性能，请尽量在使用率较低的时候运行它。
+
 ### <a name="dbcc-shrink"></a>DBCC 收缩
 
 识别可回收已分配但未使用的空间的数据库后，请修改以下命令中的数据库名称，以收缩每个数据库的数据文件。
@@ -250,7 +256,7 @@ ALTER DATABASE [db1] SET AUTO_SHRINK ON
 - 有关数据库最大大小的信息，请参阅：
   - [适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-single-databases.md)
   - [使用基于 DTU 的购买模型的单一数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
-  - [Azure SQL 数据库基于 vCore 的购买模型针对弹性池的限制](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [适用于弹性池的 Azure SQL 数据库基于 vCore 的购买模型限制](sql-database-vcore-resource-limits-elastic-pools.md)
   - [使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
 - 有关 `SHRINKDATABASE` 命令的详细信息，请参阅 [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql)。 
 - 有关碎片和重新生成索引的详细信息，请参阅[重新组织和重新生成索引](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes)。

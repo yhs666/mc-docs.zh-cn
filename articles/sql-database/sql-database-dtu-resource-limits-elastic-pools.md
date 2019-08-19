@@ -12,28 +12,28 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/14/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 68f3807fdaaee55a10797dd4f343bf9b5c23064b
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: ec8857f14e20e3e46056d7f449731b20cec5c956
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003464"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544337"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>使用基于 DTU 的购买模型的弹性池的资源限制
 
-本文详细介绍了 Azure SQL 数据库中使用基于 DTU 的购买模型的 弹性池和合并数据库的资源限制。
+本文详细介绍了 Azure SQL 数据库中使用基于 DTU 的购买模型的弹性池和共用数据库的资源限制。
 
 若要了解使用基于 DTU 的购买模型的单一数据库的资源限制，请参阅[基于 DTU 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-elastic-pools.md)。 有关基于 vCore 的资源限制，请参阅[基于 vCore 的资源限制 - 单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[基于 vCore 的资源限制 - 弹性池](sql-database-vcore-resource-limits-elastic-pools.md)。
 
 ## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>弹性池：存储大小和计算大小
 
-对于 SQL 数据库弹性池，下表显示了每个服务层可用的资源和计算大小。 可通过 [Azure 门户](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases) 设置服务层、计算大小和存储量。
+对于 SQL 数据库弹性池，下表显示了每个服务层级可用的资源和计算大小。 可通过 [Azure 门户](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases)、[PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases)、[Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases) 或 [REST API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases) 设置服务层级、计算大小和存储量。
 
 > [!IMPORTANT]
 > 有关缩放指南和注意事项，请参阅[缩放弹性池](sql-database-elastic-pool-scale.md)
 > [!NOTE]
-> 弹性池中各个数据库的资源限制通常与池外部基于 DTU 和服务层的各个数据库相同。 例如，S2 数据库的最大并发辅助进程数为 120 个。 因此，如果池中每个数据库的最大 DTU 是 50 个 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
+> 弹性池中各个数据库的资源限制通常与池外部基于 DTU 和服务层级的各个数据库相同。 例如，S2 数据库的最大并发辅助进程数为 120 个。 因此，如果池中每个数据库的最大 DTU 是 50 个 DTU（这等效于 S2），则标准池中数据库的最大并发辅助进程数也是 120 个辅助进程。
 
 ### <a name="basic-elastic-pool-limits"></a>基本弹性池限制
 
@@ -115,21 +115,22 @@ ms.locfileid: "59003464"
 > [!NOTE]
 > 有关 `tempdb` 限制，请参阅 [tempdb 限制](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。
 
-### <a name="database-properties-for-pooled-databases"></a>入池数据库的数据库属性
+### <a name="database-properties-for-pooled-databases"></a>共用数据库的数据库属性
 
-下表介绍了入池数据库的属性。
+下表介绍了共用数据库的属性。
 
 | 属性 | 说明 |
 |:--- |:--- |
 | 每个数据库的最大 eDTU 数 |根据池中其他数据库的 eDTU 使用率，池中任何数据库可以使用的 eDTU 的最大数目。 每个数据库的 eDTU 上限并不是数据库的资源保障。 这是应用于池中所有数据库的全局设置。 将每个数据库的最大 eDTU 数设置得足够高，以处理数据库使用高峰情况。 因为池通常会假定数据库存在热使用模式和冷使用模式，在这些模式中并非所有数据库同时处于高峰使用状态，所以预期会存在某种程度的过量使用情况。 例如，假设每个数据库的高峰使用量为 20 个 eDTU，并且池中 100 个数据库仅有 20% 同时处于高峰使用中。 如果将每个数据库的 eDTU 最大值设为 20 个 eDTU，则可以认为超量 5 倍使用该池是合理的，并且将每个池的 eDTU 数设为 400。 |
 | 每个数据库的最小 eDTU 数 |池中任何数据库可以保证的 eDTU 最小数目。 这是应用于池中所有数据库的全局设置。 每个数据库的最小 eDTU 可能设为 0，这也是默认值。 此属性值可以设置为介于 0 和每个数据库的平均 eDTU 使用量之间的任意值。 池中数据库的数目和每个数据库的 eDTU 下限的积不能超过每个池的 eDTU 数。 例如，如果一个池有 20 个数据库，每个数据库的 eDTU 最小值设为 10 个 eDTU，则池的 eDTU 数目必须大于或等于 200 个 eDTU。 |
-| 每个数据库的最大存储 |用户为池中的数据库设置的最大数据库大小。 但是，入池数据库共享已分配的池存储。 即使每个数据库的总存储空间上限设置为大于池的可用总存储空间，所有数据库实际使用的总空间也不能超出可用的池限制。 最大数据库大小是指数据文件的最大大小，不包括日志文件使用的空间。 |
+| 每个数据库的最大存储 |用户为池中的数据库设置的最大数据库大小。 但是，共用数据库共享已分配的池存储。 即使每个数据库  的总存储空间上限设置为大于池的可用总存储  空间，所有数据库实际使用的总空间也不能超出可用的池限制。 最大数据库大小是指数据文件的最大大小，不包括日志文件使用的空间。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关单个数据库的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的单个数据库的资源限制](sql-database-vcore-resource-limits-single-databases.md)
-- 有关单个数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单个数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
+- 有关单一数据库的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的单一数据库的资源限制](sql-database-vcore-resource-limits-single-databases.md)
+- 有关单一数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单一数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 有关弹性池的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的弹性池的资源限制](sql-database-vcore-resource-limits-elastic-pools.md)
+- 有关托管实例的资源限制，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关数据库服务器上的资源限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)了解有关服务器级别和订阅级别限制的信息。

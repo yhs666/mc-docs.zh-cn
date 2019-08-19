@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bd50b72b45b00d4e22a935f9d0bc9e517cdf8314
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: a3167c77e898ac26c100cddc7008c1a320407704
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818582"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544369"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure 服务总线异地灾难恢复
 
@@ -137,7 +137,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 请参阅此处的异地灾难恢复 [REST API 参考](https://azure.microsoft.com/rest/api/servicebus/disasterrecoveryconfigs)。
+- 请参阅此处的异地灾难恢复 [REST API 参考](https://docs.microsoft.com/rest/api/servicebus/disasterrecoveryconfigs)。
 - 在 GitHub 上运行异地灾难恢复[示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)。
 - 请参阅异地灾难恢复[将消息发送到别名的示例](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/TestGeoDR/ConsoleApp1)。
 
@@ -146,7 +146,7 @@ Azure 服务总线的异地灾难恢复功能是一项面向灾难恢复的解�
 * [服务总线队列、主题和订阅](service-bus-queues-topics-subscriptions.md)
 * [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
 * [如何使用服务总线主题和订阅](service-bus-dotnet-how-to-use-topics-subscriptions.md)
-* [Rest API](https://azure.microsoft.com/rest/api/servicebus/) 
+* [Rest API](https://docs.microsoft.com/rest/api/servicebus/) 
 
 [1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png

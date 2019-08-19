@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/01/2019
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 75a64db19ed6a52cbaea7fb0ade16d58bcbe77a4
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: dc603420a0a9bc146bdbc0a3cb53bc3630f7542d
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004191"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539164"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
@@ -49,8 +49,9 @@ ms.locfileid: "59004191"
 | [将快照复制到相同或不同的订阅](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) | 将快照复制到父快照所在区域中的相同或不同订阅。 |
 |**保护虚拟机安全**||
 | [加密 VM 及其数据磁盘](./../scripts/virtual-machines-windows-powershell-sample-encrypt-vm.md?toc=%2fpowershell%2fazure%2ftoc.json) | 创建 Azure Key Vault、加密密钥和服务主体，然后对 VM 进行加密。 |
+|**监视虚拟机**||
+| [使用 Azure Monitor 监视 VM](./../scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) | 创建一个虚拟机，安装 Azure Log Analytics 代理，然后在 Log Analytics 工作区中注册该 VM。  |
+| [使用 PowerShell 收集订阅中所有 VM 的详细信息](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) | 创建一个 csv，其中包含所提供订阅中 VM 的 VM 名称、资源组名称、区域、虚拟网络、子网、专用 IP 地址、OS 类型和公共 IP 地址。
 | | |
-
-<!-- Not Available on Line 46  |**Monitor virtual machines**||-->
 
 <!--Update_Description: update meta properties, wording update, update link -->

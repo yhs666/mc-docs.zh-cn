@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: aca87fc644e61a52249f7c2ed92e84d1512972b6
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: dc47cdb83b6c085d4f11a839443f7ab364ec813d
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513987"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969673"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>收集 Azure 虚拟机相关数据
 [Azure Log Analytics](../../azure-monitor/log-query/log-query-overview.md) 可直接从 Azure 虚拟机及环境中的其他资源收集数据，并将数据置于单个存储库进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Azure Linux 或 Windows VM 中配置或收集数据。  
@@ -42,7 +42,7 @@ ms.locfileid: "68513987"
    * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/support/service-dashboard/)。
    * 如果在 2018 年 4 月 2 日后创建的新订阅中创建工作区，则它将自动使用“每 GB”  定价计划，并且不提供用于选择定价层的选项。  如果是为 4 月 2 日之前创建的现有订阅创建工作区，或者是为绑定到现有 EA 注册的订阅创建工作区，则可以选择首选定价层。  有关特定层的其他信息，请参阅 [Log Analytics 定价详细信息](https://www.azure.cn/pricing/details/monitor/)。
   
-        ![创建 Log Analytics 资源边栏选项卡](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+
 
 3. 在“Log Analytics 工作区”窗格上提供所需信息后，单击“确定”   。  
 
@@ -50,7 +50,7 @@ ms.locfileid: "68513987"
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>启用 Log Analytics VM 扩展
 
-[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
 
 对于已在 Azure 中部署的 Windows 和 Linux 虚拟机，可使用 Log Analytics VM 扩展安装 Log Analytics 代理。 使用扩展可简化安装流程，并可自动配置代理，以将数据发送至指定的 Log Analytics 工作区。 代理还会自动升级，以确保拥有最新的功能和修补程序。 在继续之前，请验证 VM 是否正在运行，否则此过程将无法成功完成。  
 

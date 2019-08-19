@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/27/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9f0da033209409ee5bc06d989685f4d19d7f159f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: b4996ad864ab4d30f56b1c1df0a6ec9e8a2390c0
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004092"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539069"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>在 Azure 中创建通用 VM 的托管映像
 
@@ -127,7 +127,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
     ```powershell
     New-AzImage -Image $image -ImageName $imageName -ResourceGroupName $rgName
-    ``` 
+    ```
 
 ## <a name="create-an-image-from-a-managed-disk-using-powershell"></a>使用 PowerShell 从托管磁盘创建映像
 
@@ -165,7 +165,7 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
     ```powershell
     New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ``` 
+    ```
 
 ## <a name="create-an-image-from-a-snapshot-using-powershell"></a>使用 PowerShell 从快照创建映像
 
@@ -196,13 +196,13 @@ Sysprep 将删除所有个人帐户和安全信息，并准备好要用作映像
 
     ```powershell
     New-AzImage -ImageName $imageName -ResourceGroupName $rgName -Image $imageConfig
-    ``` 
+    ```
 
 ## <a name="create-an-image-from-a-vhd-in-a-storage-account"></a>从存储帐户中的 VHD 创建映像
 
 从存储帐户中的通用 OS VHD 创建托管映像。 需要存储帐户中 VHD 的 URI，其格式如下： https://*mystorageaccount*.blob.core.chinacloudapi.cn/*vhdcontainer*/*vhdfilename.vhd*。 在本示例中，VHD 位于名为 vhdcontainer  的容器中的 mystorageaccount  中，且 VHD 文件名为 vhdfilename.vhd  。
 
-1.  创建一些变量。
+1. 创建一些变量。
 
     ```powershell
     $vmName = "myVM"

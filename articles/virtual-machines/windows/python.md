@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/22/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: c38f06acfc1c731f3fc9d34c25279869a9da865b
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: a93ac981b8276235a29e49e2d1f19b98f3b82621
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003895"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539156"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>在 Azure 中使用 Python 创建和管理 Windows VM
 
@@ -40,15 +40,15 @@ ms.locfileid: "59003895"
 
 ## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
 
-1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“Python 开发”，然后单击“安装”。 在摘要中，可以看到系统已自动选择“Python 3 64 位 (3.6.0)”。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 Python 工作负荷。
-2. 安装并启动 Visual Studio 后, 单击“文件” > “新建” > “项目”。
-3. 单击“模板” > “Python” > “Python 应用程序”，输入“myPythonProject” 作为项目名称并选择该项目的位置，然后单击“确定”。
+1. 如果尚未安装，请安装 [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。 在“工作负荷”页上选择“Python 开发”  ，然后单击“安装”  。 在摘要中，可以看到系统已自动选择“Python 3 64 位 (3.6.0)”  。 如果已安装 Visual Studio，则可以使用 Visual Studio 启动器添加 Python 工作负荷。
+2. 安装并启动 Visual Studio 后, 单击“文件”   > “新建”   > “项目”  。
+3. 单击“模板”   > “Python”   > “Python 应用程序”  ，输入“myPythonProject”  作为项目名称并选择该项目的位置，然后单击“确定”  。
 
 ## <a name="install-packages"></a>安装包
 
-1. 在解决方案资源管理器的“myPythonProject”下，右键单击“Python 环境”，然后选择“添加虚拟环境”。
-2. 在“添加虚拟环境”屏幕上，接受默认名称“env”，确保已选择“Python 3.6（64 位）”作为基础解释器，然后单击“创建”。
-3. 右键单击所创建的 env 环境，然后单击“安装 Python 包”，并在搜索框中输入“azure”，然后按 Enter 键。
+1. 在解决方案资源管理器的“myPythonProject”  下，右键单击“Python 环境”  ，然后选择“添加虚拟环境”  。
+2. 在“添加虚拟环境”屏幕上，接受默认名称“env”  ，确保已选择“Python 3.6（64 位）”  作为基础解释器，然后单击“创建”  。
+3. 右键单击所创建的 env  环境，然后单击“安装 Python 包”  ，并在搜索框中输入“azure”  ，然后按 Enter 键。
 
 会在输出窗口中看见 Azure 包已成功安装。 
 
@@ -56,7 +56,7 @@ ms.locfileid: "59003895"
 
 在开始此步骤之前，请确保拥有 [Active Directory 服务主体](../../active-directory/develop/howto-create-service-principal-portal.md)。 此外，应记下应用程序 ID、身份验证密钥和租户 ID，以便在后面的步骤中使用。
 
-1. 打开创建的 myPythonProject.py 文件，然后添加此代码，使应用程序运行：
+1. 打开创建的 myPythonProject.py  文件，然后添加此代码，使应用程序运行：
 
     ```python
     if __name__ == "__main__":
@@ -81,10 +81,12 @@ ms.locfileid: "59003895"
     VM_NAME = 'myVM'
     ```
 
-    将 subscription-id 替换为订阅标识符。
+    将 subscription-id  替换为订阅标识符。
 
 4. 若要创建发出请求所需的 Active Directory 凭据，请将此函数添加到 .py 文件中的变量之后：
-
+    
+    <!--MOONCAKE CUSTOMIZED: Add China = True -->
+    
     ```python
     def get_credentials():
         credentials = ServicePrincipalCredentials(
@@ -99,9 +101,9 @@ ms.locfileid: "59003895"
     
     <!--MOONCAKE CUSTOMIZED: Add China = True -->
     
-    将 application-id、authentication-key 和 tenant-id 替换为前面在创建 Azure Active Directory 服务主体时收集的值。
+    将 application-id  、authentication-key  和 tenant-id  替换为前面在创建 Azure Active Directory 服务主体时收集的值。
 
-5. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+5. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     credentials = get_credentials()
@@ -111,7 +113,7 @@ ms.locfileid: "59003895"
 
 ### <a name="initialize-management-clients"></a>初始化管理客户端
 
-在 Azure 中使用 Python SDK 创建和管理资源时需要用到管理客户端。 若要创建管理客户端，请在 .py 文件末尾处的 if 语句下添加此代码：
+在 Azure 中使用 Python SDK 创建和管理资源时需要用到管理客户端。 若要创建管理客户端，请在 .py 文件末尾处的 if  语句下添加此代码：
 
 ```python
 resource_group_client = ResourceManagementClient(
@@ -143,7 +145,7 @@ compute_client = ComputeManagementClient(
         )
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     create_resource_group(resource_group_client)
@@ -168,7 +170,7 @@ compute_client = ComputeManagementClient(
         )
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     create_availability_set(compute_client)
@@ -195,7 +197,7 @@ compute_client = ComputeManagementClient(
         return creation_result.result()
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     creation_result = create_public_ip_address(network_client)
@@ -224,7 +226,7 @@ compute_client = ComputeManagementClient(
         return creation_result.result()
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     creation_result = create_vnet(network_client)
@@ -250,7 +252,7 @@ compute_client = ComputeManagementClient(
         return creation_result.result()
     ```
 
-4. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+4. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     creation_result = create_subnet(network_client)
@@ -293,7 +295,7 @@ compute_client = ComputeManagementClient(
         return creation_result.result()
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     creation_result = create_nic(network_client)
@@ -357,7 +359,7 @@ compute_client = ComputeManagementClient(
     > 
     > 
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     creation_result = create_vm(network_client, compute_client)
@@ -425,7 +427,7 @@ compute_client = ComputeManagementClient(
             print("  code: ", stat.code)
             print("  displayStatus: ", stat.display_status)
     ```
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     get_vm(compute_client)
@@ -450,7 +452,7 @@ compute_client = ComputeManagementClient(
     compute_client.virtual_machines.deallocate(GROUP_NAME, VM_NAME)
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     stop_vm(compute_client)
@@ -466,7 +468,7 @@ compute_client = ComputeManagementClient(
         compute_client.virtual_machines.start(GROUP_NAME, VM_NAME)
     ```
 
-2. 若要调用先前添加的函数，请将此代码添加在 .py 文件末尾的 if 语句下：
+2. 若要调用先前添加的函数，请将此代码添加在 .py 文件末尾的 if  语句下：
 
     ```python
     start_vm(compute_client)
@@ -492,7 +494,7 @@ compute_client = ComputeManagementClient(
     return update_result.result()
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     update_result = update_vm(compute_client)
@@ -538,7 +540,7 @@ compute_client = ComputeManagementClient(
         return add_result.result()
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     add_result = add_datadisk(compute_client)
@@ -558,19 +560,19 @@ compute_client = ComputeManagementClient(
         resource_group_client.resource_groups.delete(GROUP_NAME)
     ```
 
-2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if 语句下添加此代码：
+2. 若要调用之前添加的函数，请在 .py 文件末尾处的 if  语句下添加此代码：
 
     ```python
     delete_resources(resource_group_client)
     ```
 
-3. 保存 myPythonProject.py。
+3. 保存 myPythonProject.py  。
 
 ## <a name="run-the-application"></a>运行应用程序
 
-1. 若要运行控制台应用程序，请在 Visual Studio 中单击“启动”。
+1. 若要运行控制台应用程序，请在 Visual Studio 中单击“启动”  。
 
-2. 所有资源的状态都返回后，请按 Enter。 在状态信息中，应会看到“成功”预配状态。 创建虚拟机后，可以删除所创建的所有资源。 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 如果已打开 Azure 门户，则可能需要刷新边栏选项卡才能看到新资源。  
+2. 所有资源的状态都返回后，请按 Enter  。 在状态信息中，应会看到“成功”预配状态。  创建虚拟机后，可以删除所创建的所有资源。 在按 **Enter** 开始删除资源之前，可能需要在 Azure 门户中花几分钟时间来验证资源的创建。 如果已打开 Azure 门户，则可能需要刷新边栏选项卡才能看到新资源。  
 
     控制台应用程序从头到尾完成运行大约需要五分钟时间。 应用程序完成运行之后，可能需要花费几分钟时间来删除所有资源和资源组。
 

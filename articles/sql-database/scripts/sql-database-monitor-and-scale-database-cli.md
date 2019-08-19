@@ -13,12 +13,12 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 04/29/2019
-ms.openlocfilehash: f8b0b4207a1cdeb2b73afecc4b35e5c75fefebc8
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 222b2158fe4da475212286ca38275b2daf8e33c9
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855402"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544117"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>使用 CLI 监视和缩放单一 SQL 数据库
 
@@ -33,44 +33,60 @@ ms.locfileid: "64855402"
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup-$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
-export adminlogin=ServerAdmin
-export password=ChangeYourAdminPassword1
-# the logical server name has to be unique in the system
-export servername=server-$RANDOM
+adminlogin=ServerAdmin
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
+# The logical server name has to be unique in the system
+servername=server-$RANDOM
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    -location "China East" 
+    --name $resourceGroupName \
+    --location $location
 
 # Create a server
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location "China East" \
+    --resource-group $resourceGroupName \
+    --location $location \
     --admin-user $adminlogin \
     --admin-password $password
 
-# Create a database
+# Create a General Purpose Gen4 database with 1 vCore
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --service-objective S0
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1 
 
 # Monitor database size
 az sql db list-usages \
     --name mySampleDatabase \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername
 
-# Scale up database to S1 performance level (create command executes update if DB already exists)
+# Scale up database to 2 vCores (create command executes update if DB already exists)
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --service-objective S1
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 2
+
+# Echo random password
+echo $password
 ```
 
 > [!TIP]

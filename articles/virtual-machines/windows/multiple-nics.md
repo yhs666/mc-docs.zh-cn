@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 09/26/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4fe4e145d09734867c93702e74d2cbcd7a5d474a
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0908d8cc392046c2c155132a5fd31b3907245952
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004115"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539150"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>创建并管理具有多个 NIC 的 Windows 虚拟机
 Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种常见方案是为前端和后端连接设置不同的子网。 可以将 VM 上的多个 NIC 关联到多个子网，但这些子网必须全都位于同一个虚拟网络 (vNet) 中。 本文详述了如何创建附有多个 NIC 的 VM。 还可以了解如何从现有 VM 中添加或删除 NIC。 不同的 [VM 大小](sizes.md)支持不同数目的 NIC，因此请相应地调整 VM 的大小。
@@ -32,7 +32,7 @@ Azure 中的虚拟机 (VM) 可附有多个虚拟网络接口卡 (NIC)。 一种�
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-vm-with-multiple-nics"></a>创建具有多个 NIC 的 VM
-首先创建一个资源组。 以下示例在“chinaeast”位置创建名为“myResourceGroup”的资源组：
+首先创建一个资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```powershell
 New-AzResourceGroup -Name "myResourceGroup" -Location "chinaeast"
@@ -108,7 +108,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
         -Offer "WindowsServer" `
         -Skus "2016-Datacenter" `
         -Version "latest"
-   ```
+    ```
 
 4. 通过 [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface) 附加之前创建的两个 NIC：
 
@@ -196,7 +196,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $vm = Get-AzVm -Name "myVM" -ResourceGroupName "myResourceGroup"
     ```
 
-3. 通过 [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) 获取有关删除 NIC 的信息。 以下示例获取有关“myNic3”的信息：
+3. 通过 [Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) 获取有关删除 NIC 的信息。 以下示例获取有关“myNic3”的信息  ：
 
     ```powershell
     # List existing NICs on the VM if you need to determine NIC name
@@ -205,7 +205,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     $nicId = (Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" -Name "myNic3").Id   
     ```
 
-4. 通过 [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) 删除 NIC，然后通过 [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) 更新 VM。 以下示例删除上一步中由 `$nicId` 获得的“myNic3”：
+4. 通过 [Remove-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmnetworkinterface) 删除 NIC，然后通过 [Update-AzVm](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) 更新 VM。 以下示例删除上一步中由 `$nicId` 获得的“myNic3”  ：
 
     ```powershell
     Remove-AzVMNetworkInterface -VM $vm -NetworkInterfaceIDs $nicId | `
@@ -219,7 +219,7 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
     ```   
 
 ## <a name="create-multiple-nics-with-templates"></a>使用模板创建多个 NIC
-使用 Azure 资源管理器模板可在部署期间创建资源的多个实例，例如，创建多个 NIC。 资源管理器模板使用声明性 JSON 文件来定义环境。 有关详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。 使用“copy”指定要创建的实例数：
+使用 Azure 资源管理器模板可在部署期间创建资源的多个实例，例如，创建多个 NIC。 资源管理器模板使用声明性 JSON 文件来定义环境。 有关详细信息，请参阅 [Azure 资源管理器概述](../../azure-resource-manager/resource-group-overview.md)。 使用“copy”  指定要创建的实例数：
 
 ```json
 "copy": {
@@ -228,9 +228,9 @@ $myNic2 = New-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
 }
 ```
 
-有关详细信息，请参阅[使用“copy”创建多个实例](../../resource-group-create-multiple.md)。 
+有关详细信息，请参阅[使用“copy”创建多个实例](../../resource-group-create-multiple.md)  。 
 
-也可使用 `copyIndex()` 向资源名追加数字。 然后可创建“myNic1”、“MyNic2”等。 以下代码显示了追加索引值的示例：
+也可使用 `copyIndex()` 向资源名追加数字。 然后可创建“myNic1”、“MyNic2”等   。 以下代码显示了追加索引值的示例：
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 
@@ -254,7 +254,7 @@ Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络�
     ===========================================================================
     ```
 
-    在本例中，Microsoft Hyper-V 网络适配器 #4（接口 7）是辅助网络接口，系统不会向其分配默认网关。
+    在本例中，Microsoft Hyper-V 网络适配器 #4（接口 7）是辅助网络接口，系统不会向其分配默认网关  。
 
 2. 从命令提示符处，运行 `ipconfig` 命令查看分配给辅助网络接口的 IP 地址。 在本例中，192.168.2.4 被分配到接口 7。 辅助网络接口没有返回任何默认网关地址。
 
@@ -292,7 +292,7 @@ Azure 会将默认网关分配给附加到虚拟机的第一个（主）网络�
               0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
     ```
 
-    “网关”下列出的路由 192.168.1.1 是主网络接口的默认路由。 “网关”下列出的路由 192.168.2.1 是你所添加的路由。
+    “网关”下列出的路由 192.168.1.1 是主网络接口的默认路由   。 “网关”下列出的路由 192.168.2.1 是你所添加的路由   。
 
 ## <a name="next-steps"></a>后续步骤
 尝试创建具有多个 NIC 的 VM 时，请查看 [Windows VM 大小](sizes.md)。 注意每个 VM 大小支持的 NIC 数目上限。

@@ -4,7 +4,7 @@ description: 了解 Azure SQL 数据库托管实例的通信和连接体系结�
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: digimobile
 origin.date: 04/16/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 9ae8201a94cb6cf2fee4160ecdee63bb8c6d5a1d
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.date: 08/19/2019
+ms.openlocfilehash: 22fbc6f3fabbcbf288bf4d11ce39cc9c89381559
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277017"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544306"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL 数据库中托管实例的连接体系结构
 
@@ -238,6 +238,6 @@ Azure 使用一个管理终结点来管理托管实例。 此终结点位于该�
 - [计算用于部署托管实例的子网的大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。
 - 了解如何通过以下方式创建托管实例：
   - 通过 [Azure 门户](sql-database-managed-instance-get-started.md)。
-  - 通过使用 PowerShell 设置。
+  - 使用 [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)。
   - 使用 [Azure 资源管理器模板](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/)。
   - 使用 [Azure 资源管理器模板（使用包含 SSMS 的 JumpBox）](https://portal.azure.cn/)。

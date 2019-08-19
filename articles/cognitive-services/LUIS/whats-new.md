@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: diberry
-ms.openlocfilehash: c74bdc87e78d307c1fa0a7780e05b637206c6741
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 9d1f001b55edf555448389d0a386bab06072643d
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818432"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544115"
 ---
 # <a name="whats-new-in-language-understanding"></a>语言理解中的新增功能
 
@@ -38,16 +38,7 @@ ms.locfileid: "68818432"
 * [动态列表实体](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [外部实体](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
 
-## <a name="blogs"></a>博客
-
-[Bot Framework](https://blog.botframework.com/)
-
-## <a name="videos"></a>视频
-
-### <a name="2019-build-videos"></a>2019 Build 视频
-
-[如何使用 Azure 对话 AI 为下一代扩展业务](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="service-updates"></a>服务更新
 
-[有关认知服务的 Azure 更新公告](https://azure.microsoft.com/updates/?product=cognitive-services)
+[有关认知服务的 Azure 更新公告](https://www.azure.cn/zh-cn/what-is-new/)

@@ -11,31 +11,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: f422fddcf2eefbbfcdd5a2d0299f149a73a4d979
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: d86ac6c821a745fcb9047039864d97c4a5da8a41
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818447"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544097"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>在预测之前或预测期间更改话语数据
 LUIS 提供在预测之前或预测期间操作陈述的方法。 这些方法包括修复拼写，以及修复预生成 datetimeV2 的时区问题。 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>更正陈述中的拼写错误
-LUIS 使用[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 来更正陈述中的拼写错误。 LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加为[终结点](https://aka.ms/luis-endpoint-apis)的 querystring 参数。 
+LUIS 需要与该服务关联的密钥。 创建密钥，然后将密钥添加为[终结点](https://aka.ms/luis-endpoint-apis)的 querystring 参数。 
 
 还可以通过[输入密钥](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)更正“测试”面板中的拼写错误  。 该密钥以浏览器中“测试”面板的会话变量形式保存。 在每个要更正拼写的浏览器会话中，将该密钥添加到“测试”面板。 
 
 测试面板和终结点中的密钥使用情况将计入[密钥用量](https://www.azure.cn/pricing/details/cognitive-services/)配额。 LUIS 实施必应拼写检查文本长度限制。 
 
 终结点需要两个参数以进行拼写更正：
-
-|Param|Value|
-|--|--|
-|`spellCheck`|布尔值|
-|`bing-spell-check-subscription-key`|[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 终结点密钥|
-
-[必应拼写检查 API V7](https://www.azure.cn/cognitive-services/spell-check/) 检测到错误时，将一并从终结点返回原始陈述、已更正陈述和预测。
 
 ```JSON
 {
@@ -74,7 +67,7 @@ https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/{appId}?q=Turn the lights
 https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
 ## <a name="c-code-determines-correct-value-of-timezoneoffset"></a>C# 代码确定正确的 timezoneOffset 值
-下面的 C# 代码使用 [TimeZoneInfo](https://docs.azure.cn/zh-cn/dotnet/api/system.timezoneinfo?view=azure-dotnet?view=netframework-4.7.1) 类的 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) 方法基于系统时间来确定正确的 `timezoneOffset`：
+下面的 C# 代码使用 [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo?view=azure-dotnet?view=netframework-4.7.1) 类的 [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=netframework-4.7.1#examples) 方法基于系统时间来确定正确的 `timezoneOffset`：
 
 ```CSharp
 // Get CST zone id
@@ -90,10 +83,7 @@ DateTime cstDatetime = TimeZoneInfo.ConvertTimeFromUtc(utcDatetime, targetZone);
 int timezoneOffset = (int)((cstDatetime - utcDatetime).TotalMinutes);
 ```
 
-## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [通过本教程更正拼写错误](luis-tutorial-bing-spellcheck.md)
 
 
 

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 12/12/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: ebd821518977be32c8037b98b6a9d8e20a3b1e8d
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 051d0674e7092847c498ccd888e4f756c151d984
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427824"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538835"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>连接到 Azure 上的 SQL Server 虚拟机
 
@@ -98,6 +98,9 @@ Server=mysqlvm;Integrated Security=true
 
 可以更改 Azure 门户中的 SQL Server 虚拟机的连接设置。
 
+<!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+
 1. 在 Azure 门户中，选择“虚拟机”  。
 
 2. 选择 SQL Server VM。
@@ -111,6 +114,9 @@ Server=mysqlvm;Integrated Security=true
 5. 请等待几分钟时间以完成更新。
 
     ![SQL VM 更新通知](./media/virtual-machines-windows-sql-connect/sql-vm-updating-notification.png)
+
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
 
 <a name="manualtcp"></a>
 <a name="manualTCP"></a>
@@ -156,4 +162,4 @@ Server=mysqlvm;Integrated Security=true
 
 有关其他与在 Azure VM 中运行 SQL Server 相关的主题，请参阅 [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md)（Azure 虚拟机上的 SQL Server）。
 
-<!--Update_Description: update meta properties -->
+<!--Update_Description: update meta properties, wording update -->

@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/09/2018
-ms.date: 08/27/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: f623385fa47e09f760f8d50c9a03d96e773064c7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 02f353d40e32897f796d45c28682b0c37d1f04a7
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656819"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539121"
 ---
 # <a name="virtual-machines-lifecycle-and-states"></a>虚拟机生命周期和状态
 
@@ -29,5 +29,6 @@ ms.locfileid: "52656819"
 ## <a name="next-steps"></a>后续步骤
 
 若要详细了解如何监视 VM，请参阅[如何监视 Azure 中的虚拟机](monitor.md)。
-<!-- Update_Description: new articles on state lifecycle -->
-<!--ms.date: 08/27/2018-->
+
+<!-- Update_Description: update meta properties -->
+

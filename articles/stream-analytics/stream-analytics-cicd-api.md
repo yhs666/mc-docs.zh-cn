@@ -4,16 +4,18 @@ description: 了解如何使用 REST API 实现 Azure 流分析的持续集成�
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/21/19
-ms.openlocfilehash: 6346a8d213b9825f742099263a57da4ef2bea284
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+origin.date: 08/09/2018
+ms.date: 06/11/2019
+ms.openlocfilehash: 925e7e55f09d218e3212de3bf9341af5a3f3ace8
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544808"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969599"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>使用 API 实现 IoT Edge 流分析的 CI/CD
 
@@ -60,7 +62,7 @@ echo $response
 |------|-----------|
 |PUT|https://management.chinacloudapi.cn/subscriptions/{**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview|
  
-使用 curl 的命令示例：
+使用 curl 的命令示例  ：
 
 ```curl
 curl -u { <username:password> }  -H "Content-Type: application/json" -X { <method> } -d "{ <request body>}” https://management.chinacloudapi.cn/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -149,7 +151,7 @@ JSON 中的请求正文示例：
 
 在作业成功发布前，此异步操作会返回状态 202。 位置响应标头包含用于获取进程状态的 URI。 进程正在运行时，若调用位置标头中的 URI，则会返回状态 202。 进程结束时，位置标头中的 URI 会返回状态 200。 
 
-使用 curl 的 Edge 程序包发布调用示例： 
+使用 curl 的 Edge 程序包发布调用示例  ： 
 
 ```bash
 curl -d -X POST https://management.chinacloudapi.cn/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -164,7 +166,7 @@ https://management.chinacloudapi.cn/subscriptions/{**subscriptionid**}/resourceg
 ```
 在运行以下命令前等待一到两分钟，先通过在响应的 HEAD 中发现的 URL 调用 API。 如果未获得 200 响应，请重新运行该命令。
  
-使用 curl 通过返回的 URL 调用 API 的示例：
+使用 curl 通过返回的 URL 调用 API 的示例  ：
 
 ```bash
 curl -d –X GET https://management.chinacloudapi.cn/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 
@@ -259,5 +261,5 @@ curl -d –X GET https://management.chinacloudapi.cn/subscriptions/{subscription
 ## <a name="next-steps"></a>后续步骤 
  
 * [Azure IoT Edge 流分析](stream-analytics-edge.md)
-* [IoT Edge 教程上的 ASA ](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [IoT Edge 教程上的 ASA ](/iot-edge/tutorial-deploy-stream-analytics)
 * [使用 Visual Studio 工具开发流分析 Edge 作业](stream-analytics-tools-for-visual-studio-edge-jobs.md)

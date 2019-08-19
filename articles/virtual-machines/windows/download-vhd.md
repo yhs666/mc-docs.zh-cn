@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 08f9df8ede4c0956cb7119c53ef00bc48cd0818e
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: f08744bb81005eb64457ca0bf42d07ab923c2d8a
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003726"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538855"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>从 Azure 下载 Windows VHD
 
@@ -33,18 +33,18 @@ ms.locfileid: "59003726"
 
 若要使用 VHD 作为映像创建其他 VM，请完成以下步骤：
 
-1.  登录到 [Azure 门户](https://portal.azure.cn/)（如果未登录）。
-2.  [连接到 VM](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
-3.  在 VM 上，以管理员身份打开“命令提示符”窗口。
-4.  将目录切换到 *%windir%\system32\sysprep*，然后运行 sysprep.exe。
-5.  在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”。
-6.  在“关闭选项”中选择“关闭”，然后单击“确定”。 
+1. 登录到 [Azure 门户](https://portal.azure.cn/)（如果未登录）。
+2. [连接到 VM](connect-logon.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。 
+3. 在 VM 上，以管理员身份打开“命令提示符”窗口。
+4. 将目录切换到 *%windir%\system32\sysprep*，然后运行 sysprep.exe。
+5. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”。  
+6. 在“关闭选项”中选择“关闭”  ，然后单击“确定”  。 
 
 若要使用 VHD 作为现有 VM 的新实例的磁盘或数据磁盘，请完成以下步骤：
 
-1.  在 Azure 门户的“中心”菜单上，单击“虚拟机”。
-2.  从列表中选择 VM。
-3.  在 VM 的边栏选项卡上，单击“停止”。
+1. 在 Azure 门户的“中心”菜单上，单击“虚拟机”  。
+2. 从列表中选择 VM。
+3. 在 VM 的边栏选项卡上，单击“停止”  。
 
     ![停止 VM](./media/download-vhd/export-stop.png)
 
@@ -52,10 +52,10 @@ ms.locfileid: "59003726"
 
 若要下载 VHD 文件，需要生成[共享访问签名 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json) URL。 生成 URL 时，将为 URL 分配到期时间。
 
-1.  在 VM 的边栏选项卡的菜单上，单击“磁盘”。
-2.  为 VM 选择操作系统磁盘，然后单击“导出”。
-3.  将 URL 的到期时间设置为 *36000*。
-4.  单击“生成 URL”。
+1. 在 VM 的边栏选项卡的菜单上，单击“磁盘”  。
+2. 为 VM 选择操作系统磁盘，然后单击“导出”  。
+3. 将 URL 的到期时间设置为 *36000*。
+4. 单击“生成 URL”。 
 
     ![生成 URL](./media/download-vhd/export-generate.png)
 
@@ -66,11 +66,11 @@ ms.locfileid: "59003726"
 
 ## <a name="download-vhd"></a>下载 VHD
 
-1.  在生成的 URL 下，单击“下载 VHD 文件”。
+1. 在生成的 URL 下，单击“下载 VHD 文件”。
 
     ![下载 VHD](./media/download-vhd/export-download.png)
 
-2.  可能需要单击浏览器中的“保存”以开始下载。 VHD 文件的默认名称为 *abcd*。
+2. 可能需要单击浏览器中的“保存”  以开始下载。 VHD 文件的默认名称为 *abcd*。
 
     ![单击浏览器中的“保存”](./media/download-vhd/export-save.png)
 

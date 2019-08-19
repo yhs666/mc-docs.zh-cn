@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab, bonova, jovanpop
 manager: digimobile
 origin.date: 03/13/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 1761b1930fad777eba13ee7f2dd3cb1b39180be1
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 08/19/2019
+ms.openlocfilehash: 7754170448b07bc2180d383b80ddaffcbdc11767
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003481"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544268"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接
 
@@ -53,7 +53,7 @@ ms.locfileid: "59003481"
        certificateNamePrefix  = '<certificateNamePrefix>'
        }
 
-     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGatewayAz.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
+     Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/attachVPNGateway.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters, $scriptUrlBase
      ```
 
      > [!IMPORTANT]
@@ -70,28 +70,28 @@ ms.locfileid: "59003481"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 打开在其中创建了虚拟网关的资源组，然后打开虚拟网关资源。
-3. 选择“点到站点配置”，然后选择“下载 VPN 客户端”。
+3. 选择“点到站点配置”，然后选择“下载 VPN 客户端”  。 
 
     ![下载 VPN 客户端](./media/sql-database-managed-instance-configure-p2s/download-vpn-client.png)  
 4. 在本地客户端计算机上，从 zip 文件中提取文件，然后打开包含已提取文件的文件夹。
 5. 打开 **WindowsAmd64** 文件夹，然后打开 **VpnClientSetupAmd64.exe** 文件。
-6. 如果收到“Windows 已保护你的电脑”消息，请单击“更多信息”，然后单击“仍然运行”。
+6. 如果收到“Windows 已保护你的电脑”消息，请单击“更多信息”，然后单击“仍然运行”。   
 
     ![安装 VPN 客户端](./media/sql-database-managed-instance-configure-p2s/vpn-client-defender.png)\
-7. 在“用户帐户控制”对话框中单击“是”，继续下一步。
-8. 在引用虚拟网络的对话框中选择“是”，为虚拟网络安装 VPN 客户端。
+7. 在“用户帐户控制”  对话框中单击“是”，继续下一步。
+8. 在引用虚拟网络的对话框中选择“是”，为虚拟网络安装 VPN 客户端。 
 
 ## <a name="connect-to-the-vpn-connection"></a>连接到 VPN 连接
 
-1. 在本地客户端计算机上的“网络和 Internet”中转到“VPN”，选择“托管实例”虚拟网络，以便建立到此 VNet 的连接。 在下图中，VNet 名为 **MyNewVNet**。
+1. 在本地客户端计算机上的“网络和 Internet”中转到“VPN”，选择“托管实例”虚拟网络，以便建立到此 VNet 的连接。   在下图中，VNet 名为 **MyNewVNet**。
 
     ![VPN 连接](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2. 选择“连接” 。
-3. 在对话框中，选择“连接”。
+2. 选择“连接”  。
+3. 在对话框中，选择“连接”  。
 
     ![VPN 连接](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  
-4. 当系统提示你连接管理器需要提升的特权才能更新路由表时，请选择“继续”。
-5. 在“用户帐户控制”对话框中选择“是”，继续下一步。
+4. 当系统提示你连接管理器需要提升的特权才能更新路由表时，请选择“继续”。 
+5. 在“用户帐户控制”  对话框中选择“是”，继续下一步。
 
    已建立连接到托管实例 VNet 的 VPN 连接。
 
@@ -100,8 +100,8 @@ ms.locfileid: "59003481"
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>使用 SSMS 连接到托管实例
 
 1. 在本地客户端计算机上，打开 SQL Server Management Studio (SSMS)。
-2. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的完全限定**主机名**。
-3. 选择“SQL Server 身份验证”，提供用户名和密码，然后选择“连接”。
+2. 在“连接到服务器”对话框的“服务器名称”框中输入托管实例的完全限定  **主机名**。 
+3. 选择“SQL Server 身份验证”，提供用户名和密码，然后选择“连接”。  
 
     ![ssms 连接](./media/sql-database-managed-instance-configure-vm/ssms-connect.png)  
 
@@ -111,4 +111,4 @@ ms.locfileid: "59003481"
 
 - 如需介绍如何从 Azure 虚拟机进行连接的快速入门，请参阅[配置点到站点连接](sql-database-managed-instance-configure-p2s.md)。
 - 如需应用程序的连接选项的概述，请参阅[将应用程序连接到托管实例](sql-database-managed-instance-connect-app.md)。
-- 若要将现有 SQL Server 数据库从本地还原到托管实例，可以使用 [T-SQL RESTORE 命令](sql-database-managed-instance-get-started-restore.md)从数据库备份文件还原。
+- 若要将现有 SQL Server 数据库从本地还原到托管实例，可以使用[用于迁移的 Azure 数据库迁移服务 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md)，或使用 [T-SQL RESTORE 命令](sql-database-managed-instance-get-started-restore.md)从数据库备份文件还原。

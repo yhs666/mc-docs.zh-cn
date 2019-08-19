@@ -52,11 +52,19 @@
   items:
     - name: Azure Resource Manager
       href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: 区域和可用性
-      href: regions-and-availability.md
+    - name: Regions
+      href: regions.md
+    - name: 可用性和性能
+      items:
+        - name: 可用性
+          href: availability.md
+        - name: 网络性能
+          href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: VM 类型和大小
       href: sizes.md
       items:
+        - name: 第 2 代 VM
+          href: generation-2.md
         - name: 常规用途
           href: sizes-general.md
           displayName: Dsv3 Dv3 DSv2 Dv2 Av2
@@ -101,10 +109,12 @@
           href: disk-scalability-targets.md
         - name: 磁盘的备份和灾难恢复
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: 临时 OS 磁盘
+          href: ephemeral-os-disks.md
     - name: 网络
       href: network-overview.md
-    - name: 自动缩放应用程序
-      href: autoscale.md
+    - name: 规模集
+      href: ../../virtual-machine-scale-sets/overview.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json
     - name: 基础结构自动化
       href: infrastructure-automation.md
     - name: 安全和策略
@@ -117,6 +127,8 @@
       href: backup-recovery.md
     - name: 基础结构示例
       href: infrastructure-example.md
+    - name: 安全属性
+      href: virtual-machines-windows-security-attributes.md
 - name: 操作指南
   items:
     - name: 创建 VM
@@ -255,7 +267,7 @@
     - name: 运行应用程序
       items:
         - name: SQL Server
-          href: 'https://docs.azure.cn/zh-cn/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview'
+          href: 'https://docs.azure.cn/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview'
         - name: MongoDB
           href: install-mongodb.md
         - name: MATLAB 群集
@@ -369,13 +381,13 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/vm?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/azureps-cmdlets-docs'
     - name: .NET
-      href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.compute'
+      href: 'https://docs.azure.cn/dotnet/api/microsoft.azure.management.compute'
     - name: Java
-      href: 'https://docs.azure.cn/zh-cn/java/?view=azure-java-stable'
+      href: 'https://docs.azure.cn/java/?view=azure-java-stable'
     - name: Node.js
       href: 'https://docs.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python

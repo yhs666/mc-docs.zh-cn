@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aa3c5e8a2b10afd7b1609316aaec3b3a2b231609
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 136fed7074d70b639dbf16e79860bd6eff96246f
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562665"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969682"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights 中的资源、角色和访问控制
 
@@ -146,7 +146,7 @@ $resourceGroup = “RGNAME”
 
 <!--Link references-->
 
-[account]: https://account.microsoft.com
+[account]: https://account.windowsazure.cn
 [group]: ../../azure-resource-manager/resource-group-overview.md
 [portal]: https://portal.azure.cn/
 [start]: ../../azure-monitor/app/app-insights-overview.md

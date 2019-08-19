@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/07/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2e4b91e7fcb8c79ee4b0c0ca6615818641afa590
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 43503dbaa8353bf01f550b4c1a8535017f8299ac
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003969"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539071"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B 系列可突增虚拟机大小
 
@@ -30,14 +30,15 @@ ms.locfileid: "66003969"
 ## <a name="other-sizes"></a>其他大小
 - [常规用途](sizes-general.md)
 - [计算优化](sizes-compute.md)
-- [内存优化](../virtual-machines-windows-sizes-memory.md)
+- [内存优化](sizes-memory.md)
+    
     <!-- Not Available on - [Storage optimized](../virtual-machines-windows-sizes-storage.md)-->
+    
 - [GPU 优化](sizes-gpu.md)
+    
     <!-- Not Available on - [High performance compute](sizes-hpc.md)--> 
 
 ## <a name="next-steps"></a>后续步骤
 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
 
-<!-- Update_Description: new article on widnows b series burstable -->
-<!--PENDING FOR B-SERIES GA ANOUNCEMENT -->
-<!--ms.date: 04/10/2018-->
+<!-- Update_Description: wording update -->

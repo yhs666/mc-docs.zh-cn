@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4f28548c03ee43be3ea7d80542350ce597df32c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 74ce9b71c252f7c570d173f570c33b4f84ac16d0
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513855"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969654"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>有关启用用于 VM 的 Azure Monitor（预览版）的概述
 
@@ -39,13 +39,7 @@ ms.locfileid: "68513855"
 
 用于 VM 的 Azure Monitor 支持以下区域中的 Log Analytics 工作区：
 
-- 美国中西部
-- 美国西部 2<sup>1</sup>
-- 美国东部
-- 加拿大中部
-- 英国南部
-- 西欧
-- 东南亚
+- 中国东部 2
 
 <sup>1</sup> 此区域目前不支持用于 VM 的 Azure Monitor 的“运行状况”功能。
 

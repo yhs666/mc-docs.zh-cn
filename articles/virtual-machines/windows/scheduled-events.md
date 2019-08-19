@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: dcfafbf2b140fc412501dca95ed63aa0825ed23b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: ddf74388023e98e7c6873932e0d652c2f41c8739
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570490"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538961"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Azure 元数据服务：适用于 Windows VM 的计划事件
 
@@ -100,6 +100,9 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
 
 响应包含计划事件的数组。 数组为空意味着目前没有计划事件。
 如果有计划事件，响应会包含事件的数组： 
+
+<!--MOONCAKE: Not Avaialble on | "Preempt" -->
+
 ```
 {
     "DocumentIncarnation": {IncarnationID},
@@ -115,11 +118,15 @@ curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @
     ]
 }
 ```
-<!--Not Avaialble on | "Preempt" -->
+
+<!--MOONCAKE: Not Avaialble on | "Preempt" -->
 
 DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查自上次查询以来事件有效负载是否已更改。
 
 ### <a name="event-properties"></a>事件属性
+
+<!--MOONCAKE: Not Available on EventType <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).-->
+
 |属性  |  说明 |
 | - | - |
 | EventId | 此事件的全局唯一标识符。 <br /><br /> 示例： <br /><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
@@ -129,7 +136,7 @@ DocumentIncarnation 是一个 ETag，它提供了一种简单的方法来检查�
 | 事件状态 | 此事件的状态。 <br /><br /> 值： <ul><li>`Scheduled`：此事件计划在 `NotBefore` 属性指定的时间之后启动。<li>`Started`：此事件已启动。</ul> 不提供 `Completed` 或类似状态；事件完成后，将不再返回事件。
 | NotBefore| 此事件可能会在之后启动的时间。 <br /><br /> 示例： <br /><ul><li> 2016 年 9 月 19 日星期一 18:29:47 GMT  |
 
-<!--Not Available on EventType <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).-->
+<!--MOONCAKE: Not Available on EventType <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).-->
 
 ### <a name="event-scheduling"></a>事件计划
 将根据事件类型为每个事件计划将来的最小量时间。 此时间反映在某个事件的 `NotBefore` 属性上。 

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 11/26/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: daa960e63106827c6d4e4f80b80e5a5e7be62a2f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: e9ecac73b945bebfe3c811e1c483f605ed0a1f57
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004140"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539123"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>如何连接并登录到运行 Windows 的 Azure 虚拟机
 可以从 Windows 桌面使用 Azure 门户中的“连接”  按钮来启动远程桌面 (RDP) 会话。 首先连接到虚拟机，然后登录。
@@ -34,7 +34,9 @@ ms.locfileid: "66004140"
 3. 从列表中选择虚拟机。
 4. 在虚拟机页顶部，选择“连接”  。
 2. 在“连接到虚拟机”  页上，选择相应的 IP 地址和端口。 在大多数情况下，应使用默认的 IP 地址和端口。 选择“下载 RDP 文件”。 
+    
     <!--Not Available on just-in-time policy,[Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md)-->
+    
 2. 打开下载的 RDP 文件，然后在出现提示时选择“连接”  。 
 2. 将收到 `.rdp` 文件来自未知发布服务器的警告。 这是正常情况。 在“远程桌面连接”  窗口中，选择“连接”  以继续。
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 03/19/2018
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 3111c71163e88449664915d86ddfa48f81754541
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: e2ffd32e4dcb061013df0f895de2cb14c6a6d226
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845520"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969677"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>将低优先级 VM 与 Batch 配合使用
 
@@ -166,7 +166,7 @@ VM 有时会被占用；如果发生占用情况，Batch 将执行以下操作�
 
 ## <a name="metrics"></a>度量值
 
-[Azure 门户](https://portal.azure.com)提供了低优先级节点的新指标。 这些指标是：
+[Azure 门户](https://portal.azure.cn)提供了低优先级节点的新指标。 这些指标是：
 
 - 低优先级节点计数
 - 低优先级核心计数 

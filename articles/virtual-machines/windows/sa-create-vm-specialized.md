@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 05/23/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ROBOTS: NOINDEX
-ms.openlocfilehash: f938ad6c05be4256c97872c79943ffd5dcd907b0
-ms.sourcegitcommit: 96fd24c7297c4dacb67764cee86beb6270895766
+ms.openlocfilehash: 294bc459200670c2282e687010e83d2d16b51947
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67479402"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538979"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>从存储帐户中的专用 VHD 创建 VM
 

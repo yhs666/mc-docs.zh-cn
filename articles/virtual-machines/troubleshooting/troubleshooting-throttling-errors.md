@@ -12,14 +12,15 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
 origin.date: 09/18/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 456db14dba87eedef495c6f521e88c274bba6361
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.reviewer: vashan, rajraj
+ms.openlocfilehash: ee81cb6c214e019fbfe34002cb6012463b7627fd
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569928"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538778"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>排查 API 限制错误 
 

@@ -11,17 +11,17 @@ ms.author: v-jay
 ms.reviewer: v-masebo
 manager: digimobile
 origin.date: 02/12/2019
-ms.date: 03/11/2019
-ms.openlocfilehash: 32bfa6174c851971e79b1e954c4f4e40afc05777
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 08/19/2019
+ms.openlocfilehash: 0fc2f1647f2330eda425b197323d8aca50aa387f
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626614"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544382"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>快速入门：使用 PHP 查询 Azure SQL 数据库
 
-本文演示了如何使用 [PHP](http://php.net/manual/en/intro-whatis.php) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
+本文演示了如何使用 [PHP](https://php.net/manual/en/intro-whatis.php) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -29,16 +29,19 @@ ms.locfileid: "58626614"
 
 - Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
+  |||
 
-  |           | 单一数据库                                                                |
-  |:----------|:-------------------------------------------------------------------------------|
-  | 创建    | [Portal](sql-database-single-database-get-started.md)                          |
-  |           | [CLI](scripts/sql-database-create-and-configure-database-cli.md)               |
-  |           | [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)    |
-  | 加载数据 | 根据快速入门加载的 Adventure Works                                          |
-  |           |                                                                                |
-
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
 - 已为操作系统安装与 PHP 相关的软件：
 
@@ -54,13 +57,13 @@ ms.locfileid: "58626614"
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 导航到“SQL 数据库”页面。
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 在“概述”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标。
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。
 
 ## <a name="add-code-to-query-database"></a>添加用于查询数据库的代码
 
-1. 在喜欢的文本编辑器中，创建新文件 sqltest.php。  
+1. 在喜欢的文本编辑器中，创建新文件 sqltest.php  。  
 
 1. 将其内容替换为以下代码。 然后，为服务器、数据库、用户和密码添加相应的值。
 
