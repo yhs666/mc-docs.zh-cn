@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2e348147f0bee7003792038edeaa18c2f1ff5233
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: d0663b90b85a210aa9545d87f245e88a10de30d6
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513835"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969676"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何排查 Log Analytics Windows 代理的问题 
 
@@ -26,7 +26,6 @@ ms.locfileid: "68513835"
 
 如果这些步骤对你均无效，我们还提供了以下支持渠道：
 
-* 具有顶级支持权益的客户可以通过[顶级支持](https://premier.microsoft.com/)提出支持请求。
 * 签订了 Azure 支持协议的客户可以在 [Azure 门户](https://manage.windowsazure.com/?getsupport=true)中提出支持请求。
 * 请访问 Log Analytics 反馈页面，查看已提交的想法和 bug [https://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback)或提交新的想法或 bug。 
 

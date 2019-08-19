@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a50b8bc359525c8e848483b9976640010681b037
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: c9c96e01cee02c2ab0c3794d3a07febf33661f6a
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513825"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969658"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>如何排查 Log Analytics Linux 代理的问题 
 
@@ -26,7 +26,6 @@ ms.locfileid: "68513825"
 
 如果这些步骤对你均无效，我们还提供了以下支持渠道：
 
-* 具有顶级支持权益的客户可以通过[顶级支持](https://premier.microsoft.com/)提出支持请求。
 * 签订了 Azure 支持协议的客户可以在 [Azure 门户](https://portal.azure.cn)中提出支持请求。
 * 借助 [OMI 故障排除指南](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md)诊断 OMI 问题。
 * 提交 [GitHub 问题](https://github.com/Microsoft/OMS-Agent-for-Linux/issues)。

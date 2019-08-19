@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 06/06/2019
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3a4e066a945f82b14752c6179e98603e6d2fcb6e
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 90b59000a69a025316f9890d054b2c84e805648d
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570485"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539139"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>教程：在 Azure 中备份和还原 Windows 虚拟机的文件
 
@@ -78,8 +78,8 @@ ms.locfileid: "67570485"
 1. 在左侧菜单中，选择“虚拟机”，并从列表中选择 VM。 
 1. 在 VM 边栏选项卡上的“操作”部分中，单击“备份”。   此时会打开“备份”边栏选项卡。  
 1. 在边栏选项卡顶部的菜单中，选择“文件恢复”。  此时会打开“文件恢复”边栏选项卡。 
-1. 在“步骤 1: 选择恢复点”中，从下拉列表中选择一个恢复点。 
-1. 在“步骤 2: **下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮。   复制该文件的密码，并将其保存到安全的位置。
+1. 在“步骤 1: 选择恢复点”中，从下拉列表中选择一个恢复点。**
+1. 在“步骤 2: **下载脚本以浏览并恢复文件”中，单击“下载可执行文件”按钮。**  复制该文件的密码，并将其保存到安全的位置。
 1. 在本地计算机上，打开**文件资源管理器**，导航到**下载**文件夹并复制所下载的 .exe 文件。 该文件名以 VM 名称作为前缀。 
 1. 在 VM 上（使用 RDP 连接），将该 .exe 文件粘贴到 VM 的桌面。 
 1. 导航到 VM 的桌面并双击该 .exe 文件。 此时会启动命令提示符。 程序会将恢复点装载为可供你访问的文件共享。 完成该共享创建时，键入 **q** 以关闭命令提示符。

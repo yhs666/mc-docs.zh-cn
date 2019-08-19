@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9310abd92ce1f4024703cf75ab2abdc870abf85d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 0c176a729fe3e564438e449529404b2105de99b8
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818238"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969607"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -138,7 +138,7 @@ Azure 中的、其他云中的以及本地的计算资源都有要监视的来�
 | 目标 | 说明 | 参考 |
 |:---|:---|:---|
 | Azure Monitor 日志 | 存储有关代理中的进程和依赖项的数据。 | [使用用于 VM 的 Azure Monitor（预览版）映射了解应用程序组件](../insights/vminsights-maps.md) |
-| VM 存储 | 用于 VM 的 Azure Monitor 在自定义位置存储运行状态信息。 这仅适用于 Azure 门户以及 [Azure 资源运行状况 REST API](/rest/api/resourcehealth/) 中的用于 VM 的 Azure Monitor。 | [了解 Azure 虚拟机的运行状况](../insights/vminsights-health.md)<br>[Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| VM 存储 | 用于 VM 的 Azure Monitor 在自定义位置存储运行状态信息。 这仅适用于 Azure 门户以及 [Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) 中的用于 VM 的 Azure Monitor。 | [了解 Azure 虚拟机的运行状况](../insights/vminsights-health.md)<br>[Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
