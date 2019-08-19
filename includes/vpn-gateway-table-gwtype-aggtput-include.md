@@ -1,7 +1,21 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:12/05/2018 ms.date:12/24/2018 ms.author: v-jay ms.custom: include 文件
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 12/05/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 7ecc567b73d655465264e80249a9daf143612b79
+ms.sourcegitcommit: 15a80d044339dab8bce43eb7be110ba01f630056
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578659"
 ---
-
 |**SKU**   | **S2S/VNet 到 VNet<br>隧道** | **P2S<br> SSTP 连接** | **P2S<br> IKEv2 连接** | **聚合<br>吞吐量基准** | **BGP** |
 |---       | ---        | ---       | ---            | ---       | --- |
 |**基本** | 最大 10 个    | 最大 128  | 不支持  | 100 Mbps  | 不支持|
