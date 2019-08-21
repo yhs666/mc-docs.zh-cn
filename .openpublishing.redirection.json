@@ -10610,11 +10610,6 @@
       "redirect_document_id": false
   },
   {
-      "source_path": "articles/media-services/media-services-fmp4-live-ingest-overview.md",
-      "redirect_url": "/media-services/previous/media-services-fmp4-live-ingest-overview",
-      "redirect_document_id": false
-  },
-  {
       "source_path": "articles/media-services/media-services-frequently-asked-questions.md",
       "redirect_url": "/media-services/previous/media-services-frequently-asked-questions",
       "redirect_document_id": false
@@ -11092,16 +11087,6 @@
   {
       "source_path": "articles/media-services/media-services-set-up-computer.md",
       "redirect_url": "/media-services/previous/media-services-set-up-computer",
-      "redirect_document_id": false
-  },
-  {
-      "source_path": "articles/media-services/media-services-specifications-live-timed-metadata.md",
-      "redirect_url": "/media-services/previous/media-services-specifications-live-timed-metadata",
-      "redirect_document_id": false
-  },
-  {
-      "source_path": "articles/media-services/media-services-specifications-ms-sstr-amendment-hevc.md",
-      "redirect_url": "/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc",
       "redirect_document_id": false
   },
   {
@@ -16146,12 +16131,135 @@
       "source_path": "articles/azure-stack/user/azure-stack-create-service-principals.md",
       "redirect_url": "/azure-stack/operator/azure-stack-create-service-principals",
       "redirect_document_id": false
-    }
+    },
+    {
+        "source_path": "articles/analysis-services/analysis-services-create-model-portal.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/aks/aad-integration.md",
+        "redirect_url": "/aks/azure-ad-integration",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/aks/container-service-quotas.md",
+        "redirect_url": "/aks/quotas-skus-regions",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/azure-resource-manager/resource-manager-policy.md",
+        "redirect_url": "/governance/policy/overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/create-sql-api-dotnet-preview.md",
+        "redirect_url": "/cosmos-db/create-sql-api-dotnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/how-to-sql-query.md",
+        "redirect_url": "/cosmos-db/sql-query-getting-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/index-paths.md",
+        "redirect_url": "/cosmos-db/index-policy#including-and-excluding-property-paths",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/index-types.md",
+        "redirect_url": "/cosmos-db/index-overview#index-kinds",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
+        "redirect_url": "/cosmos-db/manage-with-powershell",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/mongodb-migrate.md",
+        "redirect_url": "/dms/tutorial-mongodb-cosmos-db?toc=/cosmos-db/toc.json",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/powershell-samples.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/programming.md",
+        "redirect_url": "/cosmos-db/stored-procedures-triggers-udfs",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-dotnet-application-preview.md",
+        "redirect_url": "/cosmos-db/sql-api-dotnet-application",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-dotnet-core-get-started-preview.md",
+        "redirect_url": "/cosmos-db/sql-api-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-dotnet-get-started-preview.md",
+        "redirect_url": "/cosmos-db/sql-api-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
+        "redirect_url": "/cosmos-db/sql-api-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-python-application.md",
+        "redirect_url": "/cosmos-db/create-sql-api-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/sql-api-query-reference.md",
+        "redirect_url": "/cosmos-db/sql-query-getting-started",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/service-fabric/service-fabric-patch-orchestration-application-linux.md",
+        "redirect_url": "/service-fabric/service-fabric-patch-orchestration-application#frequently-asked-questions",
+        "redirect_document_id": false
+    },
+    {
+		"source_path": "articles/virtual-machines/linux/about-disks-and-vhds.md",
+		"redirect_url": "/virtual-machines/linux/managed-disks-overview",
+		"redirect_document_id": false
+	},
+	{
+		"source_path": "articles/virtual-machines/windows/about-disks-and-vhds.md",
+		"redirect_url": "/virtual-machines/windows/managed-disks-overview",
+		"redirect_document_id": false
+	},
+	{
+			"source_path": "articles/media-services/previous/media-services-specifications-live-timed-metadata.md",
+			"redirect_url": "/media-services/media-services-specifications-live-timed-metadata",
+			"redirect_document_id": false
+		},
+		{
+			"source_path": "articles/media-services/previous/media-services-specifications-ms-sstr-amendment-hevc.md",
+			"redirect_url": "/media-services/media-services-specifications-ms-sstr-amendment-hevc",
+			"redirect_document_id": false
+		},
+
+		{
+			"source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
+			"redirect_url": "/media-services/media-services-fmp4-live-ingest-overview",
+			"redirect_document_id": false
+		}
 
 
 
 
 
-	  ]
+
+
+  ]
 }
 
