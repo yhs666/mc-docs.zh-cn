@@ -16078,6 +16078,7 @@
       "redirect_document_id": false
     },
     {
+
       "source_path": "articles/azure-stack/user/azure-stack-solution-staged-data-analytics.md",
       "redirect_url": "/azure-stack/user/azure-stack-solution-staged-data",
       "redirect_document_id": false
@@ -16252,13 +16253,22 @@
 			"source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
 			"redirect_url": "/media-services/media-services-fmp4-live-ingest-overview",
 			"redirect_document_id": false
-		}
-
-
-
-
-
-
+		},
+    {
+      "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
+      "redirect_url": "/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/alerts-activity-log-service-notifications.md",
+      "redirect_url": "/service-health/alerts-activity-log-service-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/service-notifications.md",
+      "redirect_url": "/service-health/service-notifications",
+      "redirect_document_id": false
+    }
 
   ]
 }
