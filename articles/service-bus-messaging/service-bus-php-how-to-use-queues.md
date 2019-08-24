@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 08/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d78edae53f58d39536728e6003d2b1d6b1310e6a
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 3a7275d0d66b4a678dfd9913e547f3317a8a2c98
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046967"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544362"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>如何通过 PHP 使用服务总线队列
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -169,7 +169,7 @@ catch(ServiceException $e){
 }
 ```
 
-发送到服务总线（以及从服务总线收到）的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和属性，用于保存特定于自定义应用程序的属性，以及大量随机应用程序数据。
+在服务总线队列中发送和接收的消息是 [BrokeredMessage][BrokeredMessage] 类的实例。 [BrokeredMessage][BrokeredMessage] 对象包含一组标准方法和用来保存特定于应用程序的自定义属性的属性，以及大量的任意应用程序数据。
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列中包含的消息数量不受限制，但消息的总大小受限制。 队列大小的上限为 5 GB。
 
@@ -230,9 +230,9 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果在处理消息之后，发出 `deleteMessage` 请求之前，应用程序发生崩溃，则在应用程序重启时会将该消息重新传送给它。 此情况通常称作*至少处理一次*，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果某个场景不允许重复处理，则建议向应用程序添加其他逻辑来处理重复消息传送。 这通常可以通过使用消息的 `getMessageId` 方法来实现，消息在多次传送尝试中保持不变。
 
 ## <a name="next-steps"></a>后续步骤
-了解服务总线队列的基础知识后，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]以获取更多信息。
+现在，已了解服务总线队列的基础知识，请参阅[队列、主题和订阅][Queues, topics, and subscriptions] 以获取更多信息。
 
-有关详细信息，另请访问 [PHP 开发人员中心](https://azure.microsoft.com/develop/php/)。
+有关详细信息，另请访问 [PHP 开发人员中心](https://docs.microsoft.com/develop/php/)。
 
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, Topics, and Subscriptions]: ./service-bus-queues-topics-subscriptions.md

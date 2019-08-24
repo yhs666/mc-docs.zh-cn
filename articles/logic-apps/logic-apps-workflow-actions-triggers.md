@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: reference
 origin.date: 05/13/2019
 ms.date: 06/03/2019
-ms.openlocfilehash: 12adf2f848345788ab9b12abfb12042cfb8674af
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 27896bd55645735699ef87feb732606b5aea0f1d
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194962"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538733"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Azure 逻辑应用的工作流定义语言中的触发器和操作类型参考
 
@@ -824,7 +824,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 | 操作类型 | 说明 | 
 |-------------|-------------| 
 | [Compose](#compose-action)  | 从输入创建单个输出，可具有多种类型。 | 
-| [**执行 JavaScript 代码**](#run-javascript-code) | 运行符合特定条件的 JavaScript 代码片段。 |
+| [**执行 JavaScript 代码**](#run-javascript-code) | 运行符合特定条件的 JavaScript 代码片段。  |
 | [Function](#function-action)  | 调用 Azure Function。 | 
 | [**HTTP**](#http-action) | 调用 HTTP 终结点。 | 
 | [Join](#join-action)  | 基于数组中的所有项创建一个字符串，并使用指定的分隔符字符分隔这些项。 | 
@@ -1074,7 +1074,7 @@ Azure 逻辑应用提供多种操作类型，每个类型均具有定义操作�
 
 | Value | 类型 | 说明 |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | 多种多样 | 要运行的 JavaScript 代码。 <p>在 `code` 特性中，代码片段可以使用只读的 `workflowContext` 对象作为输入。 此对象中的子属性可让代码访问触发器和工作流中先前操作提供的结果。  |
+| <*JavaScript-code-snippet*> | 多种多样 | 要运行的 JavaScript 代码。 <p>在 `code` 特性中，代码片段可以使用只读的 `workflowContext` 对象作为输入。 此对象中的子属性可让代码访问触发器和工作流中先前操作提供的结果。 |
 ||||
 
 在某些情况下是必需的 
@@ -2623,7 +2623,7 @@ ID,Product_Name
 
 ### <a name="run-in-high-throughput-mode"></a>在高吞吐量模式下运行
 
-对于单个逻辑应用运行，每 5 分钟执行的操作数具有[默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要将此限制提高到可能的[最大值](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)，请将 `operationOptions` 属性设为 `OptimizedForHighThroughput`。 此设置将逻辑应用置于“高吞吐量”模式之中。 
+对于单个逻辑应用定义，每 5 分钟执行的操作数具有[默认限制](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)。 若要将此限制提高到可能的[最大值](../logic-apps/logic-apps-limits-and-config.md#throughput-limits)，请将 `operationOptions` 属性设为 `OptimizedForHighThroughput`。 此设置将逻辑应用置于“高吞吐量”模式之中。 
 
 > [!NOTE]
 > 高吞吐量模式处于预览状态。 此外，还可根据需要在多个逻辑应用之间分配工作负荷。

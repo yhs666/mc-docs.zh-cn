@@ -13,16 +13,16 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-origin.date: 05/23/2019
-ms.date: 07/01/2019
+origin.date: 06/24/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 keywords: visualstudio
-ms.openlocfilehash: 37b7a163f9e6f5b76aef3aa50c30a4e641f91a52
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 6579725bcf3ccf47154f710746c9624a0d0b153e
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569809"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539161"
 ---
 <a name="top"></a>
 # <a name="visual-studio-images-on-azure"></a>Azure 上的 Visual Studio 映像
@@ -37,11 +37,11 @@ ms.locfileid: "67569809"
 
 | 发行版本                                                                                                                                                | 版本              | 产品版本   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019：最新（版本 16.1）](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.1.0    |
-| [Visual Studio 2019：RTW](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本 16.0.4    |
-| [Visual Studio 2017：最新（版本 15.9）](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本 15.9.12   |
-| [Visual Studio 2017：RTW](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本 15.0.23   |
-| [Visual Studio 2015：最新 (Update 3)](https://market.azure.cn/zh-cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise、Community | 版本 14.0.25431.01 |
+| [Visual Studio 2019：最新（版本 16.1）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise、Community | 版本 16.1.3    |
+| [Visual Studio 2019：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise、Community | 版本 16.0.5    |
+| [Visual Studio 2017：最新（版本 15.9）](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise、Community | 版本 15.9.13   |
+| [Visual Studio 2017：RTW](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise、Community | 版本 15.0.24   |
+| [Visual Studio 2015：最新 (Update 3)](https://market.azure.cn/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise、Community | 版本 14.0.25431.01 |
 
 > [!NOTE]
 > 根据 Azure 服务策略，Visual Studio 2015 最初发布的 (RTW) 版本已过期，无法提供服务。 Visual Studio 2015 Update 3 是为 Visual Studio 2015 产品线提供的唯一剩余版本。
@@ -93,7 +93,7 @@ Visual Studio 遵循 Azure 中的“自带许可”模式。 与专有硬件上�
 - 使用与 Visual Studio 订阅关联的 Azure 帐户登录 
 - 使用最初购买附带的产品密钥解锁 Visual Studio
 
-有关详细信息，请参阅[登录 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/signing-in-to-visual-studio) 和[如何解锁 Visual Studio](https://docs.microsoft.com/zh-cn/visualstudio/ide/how-to-unlock-visual-studio)。
+有关详细信息，请参阅[登录 Visual Studio](https://docs.microsoft.com/visualstudio/ide/signing-in-to-visual-studio) 和[如何解锁 Visual Studio](https://docs.microsoft.com/visualstudio/ide/how-to-unlock-visual-studio)。
 
 ## <a name="how-do-i-save-the-development-vm-for-future-or-team-use"></a>如何保存开发 VM 供将来使用或供团队使用？
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: dfe9351e2cf9a80ce45617bd9074f08104f27b0f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 0e67e7d39b7bda6ddf53a58f3336e69fce50b31b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332196"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544130"
 ---
 # <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>预览版：迁移到 LUIS 应用的 API 版本 3.x
 
@@ -50,8 +50,8 @@ V3 终结点 HTTP 调用的格式已更改。
 
 |方法|URL|
 |--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
+|GET|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |||
 
 ## <a name="endpoint-url-changes-by-version-id"></a>终结点 URL 按版本 ID 更改
@@ -61,8 +61,8 @@ V3 终结点 HTTP 调用的格式已更改。
 
 |方法|URL|
 |--|--|
-|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|GET|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
+|POST|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 |||
 
 ## <a name="prebuilt-entities-with-new-json"></a>使用新 JSON 的预生成实体

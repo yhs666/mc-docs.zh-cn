@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: fdecb2a06f1b3fad7d7f47b0e85faeac2d1b768b
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 6bf411afeb3308d71e6089f8038e2a57b98d7b4c
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513813"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969610"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
 
@@ -29,9 +29,9 @@ Azure Monitor [诊断扩展](../../azure-monitor/platform/diagnostics-extension-
 
 ## <a name="prerequisites"></a>先决条件
 
-- 你的订阅必须已注册到 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal)。 
+- 你的订阅必须已注册到 [Microsoft.Insights](/azure-resource-manager/resource-manager-supported-services#portal)。 
 
-- 需要安装 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 或 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)。
+- 需要安装任一个 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1)。
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>创建经典虚拟机和存储帐户
 

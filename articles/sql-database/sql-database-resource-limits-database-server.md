@@ -12,17 +12,20 @@ ms.author: v-jay
 ms.reviewer: sashan,moslake,josack
 manager: digimobile
 origin.date: 04/18/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 37f263ae3634c7daa51cee4042e29b18b8043277
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/19/2019
+ms.openlocfilehash: 0ba62e9cf408466ddb292008ce1343c4ce9aed39
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855619"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544160"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL 数据库服务器的 SQL 数据库资源限制
 
 本文概述了管理单一数据库和弹性池的 SQL 数据库服务器的 SQL 数据库资源限制。 它还提供了有关在达到或超过这些资源限制时会发生什么情况的信息。
+
+> [!NOTE]
+> 有关托管实例限制，请参阅[托管实例的 SQL 数据库资源限制](sql-database-managed-instance-resource-limits.md)。
 
 ## <a name="maximum-resource-limits"></a>最大资源限制
 
@@ -42,6 +45,9 @@ ms.locfileid: "64855619"
 > 随着数据库的数量接近每个 SQL 数据库服务器的限制，可能出现以下情况：
 > - 对主数据库运行查询的延迟增加。  这包括资源利用率统计信息的视图，如 sys.resource_stats。
 > - 管理操作和呈现门户视点（涉及枚举服务器中的数据库）的延迟增加。
+
+### <a name="storage-size"></a>存储大小
+- 对于单个数据库资源，请参阅[基于 DTU 的资源限制](sql-database-dtu-resource-limits-single-databases.md)或[基于 vCore 的资源限制](sql-database-vcore-resource-limits-single-databases.md)，了解每个定价层的存储大小限制。
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>如果达到数据库资源限制，会发生什么？
 

@@ -11,13 +11,13 @@ manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 origin.date: 05/22/2019
-ms.date: 06/17/2019
-ms.openlocfilehash: 0b58d94390157567e31c3fc1c9a81bd5cb16f551
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 08/26/2019
+ms.openlocfilehash: 495b4e8dcba5975b80e89e6b8262eff7328e87f2
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732580"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538749"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure 逻辑应用的定价模型
 
@@ -40,7 +40,8 @@ Azure 逻辑应用对逻辑应用中运行的所有操作进行计量。 详细�
 
 ## <a name="connectors"></a>连接器
 
-Azure 逻辑应用连接器通过提供[触发器](#triggers)和/或[操作](#actions)，帮助逻辑应用访问云中或本地的应用、服务和系统。 连接器分类为“标准”或“企业”连接器。 有关这些连接器的概述，请参阅[适用于 Azure 逻辑应用的连接器](../connectors/apis-list.md)。 以下部分提供有关触发器和操作的计费方式的详细信息。
+Azure 逻辑应用连接器通过提供[触发器](#triggers)和/或[操作](#actions)，帮助逻辑应用访问云中或本地的应用、服务和系统。 连接器分类为“标准”或“企业”连接器。 有关这些连接器的概述，请参阅[适用于 Azure 逻辑应用的连接器](../connectors/apis-list.md)。 如果没有预生成的连接器可用于要在逻辑应用中使用的 REST API，则可以创建[自定义连接器](https://docs.microsoft.com/connectors/custom-connectors)，这些连接器只是这些 REST API 的包装器。 自定义连接器按标准连接器计费。 以下部分提供有关触发器和操作的计费方式的详细信息。
+
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>触发器
@@ -75,10 +76,5 @@ Azure 逻辑应用将所有成功和不成功的操作作为执行进行计量�
 
 ## <a name="next-steps"></a>后续步骤
 
-* [了解有关逻辑应用的详细信息][whatis]
-* [创建第一个逻辑应用][create]
-
-[pricing]: https://www.azure.cn/pricing/details/logic-apps/
-[whatis]: logic-apps-overview.md
-[create]: quickstart-create-first-logic-app-workflow.md
-
+* [详细了解 Azure 逻辑应用](logic-apps-overview.md)
+* [创建第一个逻辑应用](quickstart-create-first-logic-app-workflow.md)

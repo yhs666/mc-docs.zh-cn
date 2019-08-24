@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 07/09/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: ba1399b7036dc7051ad83af39348133367786013
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 08/12/2019
+ms.openlocfilehash: 2689a60efb2403eaec2c484a6934c57201fdeaa1
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308917"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952144"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-offline-using-dms"></a>教程：使用 DMS 将 SQL Server 脱机迁移到 Azure SQL 数据库中的单一数据库或共用数据库
 
@@ -153,7 +153,7 @@ ms.locfileid: "68308917"
 
     ![显示资源提供程序](media/tutorial-sql-server-to-azure-sql/portal-select-resource-provider.png)
 
-3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”   。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-sql-server-to-azure-sql/portal-register-resource-provider.png)    
 
@@ -220,7 +220,7 @@ ms.locfileid: "68308917"
    ![源详细信息](media/tutorial-sql-server-to-azure-sql/dms-source-details2.png)
 
     > [!IMPORTANT]
-    > 如果你使用 SSIS，则 DMS 目前不支持迁移源 SSISDB，但你可以将 SSIS 项目/包重新部署到由 Azure SQL 数据库托管的目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages)。
+    > 如果你使用 SSIS，则 DMS 目前不支持迁移源 SSISDB，但你可以将 SSIS 项目/包重新部署到由 Azure SQL 数据库托管的目标 SSISDB。 有关如何迁移 SSIS 包的详细信息，请参阅[将 SQL Server Integration Services 包迁移到 Azure](/dms/how-to-migrate-ssis-packages)。
 
 ## <a name="specify-target-details"></a>指定目标详细信息
 

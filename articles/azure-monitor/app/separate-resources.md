@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d632c630e246e342b532aa15d9a803ef35c08de0
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 82a79dd0623761315e7c2eafce507bd2e5289fd5
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732359"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969674"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>分隔开发、测试和生产阶段的遥测
 
@@ -154,7 +154,7 @@ ms.locfileid: "66732359"
 但请注意，内部版本号只能由 Azure 生成引擎生成，而不能由 Visual Studio 中的开发人员生成引擎生成。
 
 ### <a name="release-annotations"></a>版本注释
-如果使用 Azure DevOps，则可以在每次发布新版本时将[批注标记](../../azure-monitor/app/annotations.md)添加到图表中。 下图显示了此标记的形式。
+如果使用 Azure DevOps，则可以在每次发布新版本时将批注标记添加到图表中。 下图显示了此标记的形式。
 
 ![图表中示例版本批注的屏幕截图](media/separate-resources/release-annotation.png)
 ## <a name="next-steps"></a>后续步骤

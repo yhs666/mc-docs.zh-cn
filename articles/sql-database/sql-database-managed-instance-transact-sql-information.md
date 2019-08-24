@@ -10,15 +10,15 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, bonova
 manager: digimobile
-origin.date: 03/13/2019
-ms.date: 05/20/2019
+origin.date: 07/07/2019
+ms.date: 08/19/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7183fac19f36f9749f10e462e831c6855915cf8d
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.openlocfilehash: f922331aa5cdf240dd30fcd9a53f27c805f6148f
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277013"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543944"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL 数据库托管实例与 SQL Server 之间的 T-SQL 差异
 
@@ -28,6 +28,7 @@ ms.locfileid: "67277013"
 - [安全性](#security)包括[审核](#auditing)、[证书](#certificates)、[凭据](#credential)、[加密提供程序](#cryptographic-providers)、[登录名和用户名](#logins-and-users)以及[服务密钥和服务主密钥](#service-key-and-service-master-key)方面的差异。
 - [配置](#configuration)包括[缓冲池扩展](#buffer-pool-extension)、[排序规则](#collation)、[兼容性级别](#compatibility-levels)、[数据库镜像](#database-mirroring)、[数据库选项](#database-options)、[SQL Server 代理](#sql-server-agent)以及[表选项](#tables)方面的差异。
 - [功能](#functionalities)包括 [BULK INSERT/OPENROWSET](#bulk-insert--openrowset)、[CLR](#clr)、[DBCC](#dbcc)、[分布式事务](#distributed-transactions)、[已扩展事件](#extended-events)、[外部库](#external-libraries)、[文件流和文件表](#filestream-and-filetable)、[全文语义搜索](#full-text-semantic-search)、[链接服务器](#linked-servers)、[Polybase](#polybase)、[复制](#replication)、[还原](#restore-statement)、[Service Broker](#service-broker)、[存储过程、函数和触发器](#stored-procedures-functions-and-triggers)方面的差异。
+- [环境设置](#Environment)，例如 VNet 和子网配置。
 - [在托管实例中行为不同的功能](#Changes)。
 - [暂时性的限制和已知问题](#Issues)。
 
@@ -217,7 +218,7 @@ WITH PRIVATE KEY (<private_key_options>)
 ### <a name="database-options"></a>数据库选项
 
 - 不支持多个日志文件。
-- “常规用途”服务层级不支持内存中对象。  
+- “常规用途”服务层级不支持内存中对象。 
 - 每个“常规用途”实例限制为 280 个文件，这意味着，每个数据库最多只能有 280 个文件。 “常规用途”层级中的数据文件和日志文件都会计入此限制。 [“业务关键”层级支持每个数据库 32,767 个文件](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)。
 - 数据库中不能有包含文件流数据的文件组。 如果 .bak 包含 `FILESTREAM` 数据，还原将会失败。 
 - 每个文件都被放置在 Azure Blob 存储中。 每个文件的 IO 和吞吐量取决于每个单独文件的大小。
@@ -276,6 +277,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="sql-server-agent"></a>SQL Server 代理
 
+- 目前，托管实例不支持启用和禁用 SQL Server 代理。 SQL 代理始终运行。
 - SQL Server 代理设置为只读。 托管实例不支持过程 `sp_set_agent_properties`。 
 - 作业
   - 支持 T-SQL 作业步骤。
@@ -292,13 +294,13 @@ WITH PRIVATE KEY (<private_key_options>)
   - 不支持 SQL Server Analysis Services。
 - 部分支持通知。
 - 支持电子邮件通知，不过需要配置数据库邮件配置文件。 SQL Server 代理只能使用一个数据库邮件配置文件，并且该配置文件必须命名为 `AzureManagedInstance_dbmail_profile`。 
-  - 不支持寻呼机。 
+  - 不支持寻呼机。
   - 不支持 NetSend。
   - 尚不支持警报。
-  - 不支持代理。 
+  - 不支持代理。
 - 不支持事件日志。
 
-目前不支持以下功能，但以后会支持：
+目前不支持以下 SQL 代理功能：
 
 - 代理
 - 针对空闲 CPU 计划作业
@@ -397,7 +399,13 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="replication"></a>复制
 
-复制功能适用于托管实例公共预览版。 有关复制的信息，请参阅 [SQL Server 复制](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance)。
+[事务复制](sql-database-managed-instance-transactional-replication.md)在托管实例上为公共预览版，但存在一些约束：
+- 所有类型的复制参与者（发布服务器、分发服务器、拉取订阅服务器和推送订阅服务器）都可以放置在托管实例上，但发布服务器和分发服务器不能放置在不同的实例上。
+- 支持事务、快照和双向复制类型。 不支持合并复制、对等复制和可更新订阅。
+- 托管实例可以与最新版 SQL Server 通信。 请在[此处](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems)查看支持的版本。
+- 事务复制有一些[其他的网络要求](sql-database-managed-instance-transactional-replication.md#requirements)。
+
+若要了解如何配置复制，请参阅[复制教程](replication-with-sql-database-managed-instance.md)。
 
 ### <a name="restore-statement"></a>RESTORE 语句 
 
@@ -455,6 +463,20 @@ WITH PRIVATE KEY (<private_key_options>)
 - 不支持 `xp_cmdshell`。 请参阅 [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)。
 - 不支持 `Extended stored procedures`，其中包括 `sp_addextendedproc` 和 `sp_dropextendedproc`。 请参阅[扩展存储过程](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)。
 - 不支持 `sp_attach_db`、`sp_attach_single_file_db` 和 `sp_detach_db`。 请参阅 [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql)、[sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 和 [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)。
+
+## <a name="Environment"></a>环境约束
+
+### <a name="subnet"></a>子网
+- 在为托管实例预留的子网中，不能放置任何其他的资源（例如虚拟机）。 将这些资源放置在其他子网中。
+- 子网必须有足够数量的可用 [IP 地址](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 至少为 16 个，但建议在子网中至少有 32 个 IP 地址。
+- [不能将服务终结点与托管实例的子网相关联](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。 创建虚拟网络时，请务必禁用“服务终结点”选项。
+- 可以在某个区域部署的 vCore 数和实例类型存在一些[约束和限制](sql-database-managed-instance-resource-limits.md#regional-resource-limitations)。
+- 存在一些[必须在子网上应用的安全规则](sql-database-managed-instance-connectivity-architecture.md#network-requirements)。
+
+### <a name="vnet"></a>VNET
+- VNet 可以使用资源模型进行部署 - 不支持适用于 VNet 的经典模型。
+- 创建托管实例后，不支持将托管实例或 VNet 移到另一个资源组或订阅。
+- 应用服务环境、逻辑应用和托管实例之类的某些服务（用于异地复制、事务复制，或者通过链接服务器来使用）在其 VNet 是通过[全局对等互连](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)进行连接的情况下不能访问不同区域中的托管实例。 你可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
 ## <a name="Changes"></a>行为更改
 
@@ -571,6 +593,11 @@ using (var scope = new TransactionScope())
 不能在使用服务托管透明数据加密 (TDE) 加密的数据库上执行 `BACKUP DATABASE ... WITH COPY_ONLY`。 服务托管的 TDE 强制使用内部 TDE 密钥对备份进行加密。 无法导出该密钥，因此无法还原备份。
 
 **解决方法：** 使用自动备份和时间点还原，或者改用[客户托管 (BYOK) TDE](/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key)。 也可以在数据库上禁用加密。
+
+### <a name="point-in-time-restore-follows-time-by-the-time-zone-set-on-the-source-instance"></a>时间点还原遵循时区在源实例上设置的时间
+
+时间点还原目前在解释要还原到的时间时，遵循源实例的时区，而不是以下 UTC。
+如需更多详细信息，请参阅[托管实例时区的已知问题](/sql-database/sql-database-managed-instance-timezone#known-issues)。
 
 ## <a name="next-steps"></a>后续步骤
 

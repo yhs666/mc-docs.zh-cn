@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: jrasnik, carlrab
 manager: digimobile
-origin.date: 10/05/2018
-ms.date: 05/20/2019
-ms.openlocfilehash: 4b53a00f14a0668b62bc7dfc6981ca5c143968c4
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: fe534084a72b6b2863a06c2bb2bda2688113a221
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629164"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544161"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>以最短的停机时间动态缩放数据库资源
 
-Azure SQL 数据库允许以最短的停机时间向数据库动态添加更多资源。
+Azure SQL 数据库使你能够以最小的[停机时间](https://www.azure.cn/support/sla/sql-data/)向数据库动态添加更多资源；但是，存在一个切换期间，在此期间与数据库的连接会短时间丢失，可以使用重试逻辑来缓解这种情况。
 
 ## <a name="overview"></a>概述
 
@@ -42,7 +42,7 @@ Azure SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers
 可以在小型单一数据库中构建第一个应用，每个月只需在“常规用途”服务层级中花费少量资金。然后可以根据解决方案的需要，随时手动或以编程方式将服务层级更改为“业务关键”服务层级。 可在不给应用或客户造成停机的情况下调整性能。 动态可伸缩性可让数据库以透明方式响应快速变化的资源要求，使用户只需为用到的资源付费。
 
 > [!NOTE]
-> 动态可伸缩性不同于自动缩放。 自动缩放是指服务根据条件自动缩放，而动态可伸缩性允许在无停机时间的情况下进行手动缩放。
+> 动态可伸缩性不同于自动缩放。 自动缩放是指服务根据条件自动缩放，而动态可伸缩性允许在最短停机时间的情况下进行手动缩放。
 
 单个 Azure SQL 数据库支持手动动态可伸缩性，但不支持自动缩放。 若要获得更多*自动*体验，请考虑使用弹性池，它允许数据库根据各个数据库需求共享池中的资源。
 但是，有一些脚本可帮助自动执行单个 Azure SQL 数据库的可伸缩性。 有关示例，请参阅[使用 PowerShell 监视和缩放单个 SQL 数据库](scripts/sql-database-monitor-and-scale-database-powershell.md)。
@@ -54,7 +54,11 @@ Azure SQL 数据库提供[基于 DTU 的购买模型](sql-database-service-tiers
 所有三种 Azure SQL 数据库都提供一些动态缩放数据库的功能：
 
 - 在[单一数据库](sql-database-single-database-scale.md)中，可以使用 [DTU](sql-database-dtu-resource-limits-single-databases.md) 或 [vCore](sql-database-vcore-resource-limits-single-databases.md) 模型来定义将分配给每个数据库的最大资源量。
+- [托管实例](sql-database-managed-instance.md)使用 [vCore](sql-database-managed-instance.md#vcore-based-purchasing-model) 模式，并允许定义分配给实例的最大 CPU 核心数和最大存储空间。 该实例中的所有数据库都将共享分配给该实例的资源。
 - [弹性池](sql-database-elastic-pool-scale.md)允许定义池中每组数据库的最大资源限制。
+
+> [!NOTE]
+> 当放大/缩小过程完成时，可能会出现短暂的连接中断。 如果已实现了[标准暂时性错误的重试逻辑](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)，则不会注意到故障转移。
 
 ## <a name="alternative-scale-methods"></a>替代缩放方法
 

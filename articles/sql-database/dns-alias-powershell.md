@@ -11,26 +11,24 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi,amagarwa,maboja, jrasnick
 manager: digimobile
-origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 1306436160a062501cc89db40030b718fa2dce3a
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+origin.date: 05/14/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 1f5e4c766347e1e20c0014b831cdd186ef9acf01
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003431"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544229"
 ---
 # <a name="powershell-for-dns-alias-to-azure-sql-database"></a>用于管理 Azure SQL 数据库 DNS 别名的 PowerShell
 
 本文提供如何为 Azure SQL 数据库管理 DNS 别名的 PowerShell 脚本。 该脚本运行以下 cmdlet 采用以下操作：
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 代码示例中使用的 cmdlet 如下：
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名引用 Azure SQL 数据库服务器 1。
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias)：在 Azure SQL 数据库服务系统中创建新的 DNS 别名。 该别名指向 Azure SQL 数据库服务器 1。
 - [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias)：获取并列出分配给 SQL 数据库服务器 1 的所有 DNS 别名。
 - [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias)：从服务器1 到 SQL 数据库服务器 2 修改别名配置为引用的服务器名称。
 - [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias)：使用别名从 SQL 数据库服务器 2 删除 DNS 别名。

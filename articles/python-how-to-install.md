@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: v-junlch
-ms.openlocfilehash: 33f8e6505d3d03265fad843b0f7591ba2049456a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a3e0bd39e1d6f3bad41eeeb42d721a23edaf9960
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52644812"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969666"
 ---
 # <a name="installing-python-and-the-sdk"></a>安装 Python 和 SDK
 
@@ -102,7 +102,7 @@ Azure SDK for Python 包括允许针对 Azure 开发、部署和管理 Python �
 
 可以选择是否使用 PTVS，但建议使用，因为它能够提供 Python 和 Web 项目/解决方案支持、调试、分析、交互式窗口、模板编辑和智能感知。
 
-PTVS 还可以轻松实现部署到 Microsoft Azure，同时支持部署到[云服务][]和[网站][]。
+PTVS 还可以轻松实现部署到 Microsoft Azure，并支持部署到[云服务][]。
 
 PTVS 适用于现有的 Visual Studio 2013 或 2015 版本的安装。  有关文档、下载和讨论的信息，请参阅 [Python Tools for Visual Studio]。  
 
@@ -123,8 +123,6 @@ PTVS 适用于现有的 Visual Studio 2013 或 2015 版本的安装。  有关�
 有关如何安装 Linux VM 的信息，请参阅 [创建运行 Linux 的虚拟机][] 教程。
 
 使用 Git 部署，可以从任何操作系统开发 Python web 应用程序并将其发布到 Azure 网站。  当将存储库推送到 Azure 时，它会自动创建虚拟环境和 pip 安装所需的包。
-
-有关开发和发布 Azure 网站的详细信息，请参阅有关教程：[使用 Django 创建网站][]（使用 Django 创建网站）、[使用 Bottle 创建网站][]（使用 Bottle 创建网站）和 [使用 Flask 创建网站][]（使用 Flask 创建网站）。 有关使用任何 WSGI 合规框架的更多常规信息，请参阅 [配置 Azure 网站的 Python][]。
 
 ## <a name="additional-software-and-resources"></a>其他软件和资源：
 
@@ -156,7 +154,6 @@ PTVS 适用于现有的 Visual Studio 2013 或 2015 版本的安装。  有关�
 [IPython]: http://ipython.org
 [Azure 上的 IPython Notebook]:./virtual-machines/virtual-machines-linux-jupyter-notebook.md
 [云服务]:./cloud-services/cloud-services-python-ptvs.md
-[网站]:./app-service-web/web-sites-python-ptvs-django-mysql.md
 [Python Tools for Visual Studio]: http://aka.ms/ptvs
 [GitHub 上的 Python Tools for Visual Studio]: https://github.com/microsoft/ptvs
 [Python 包索引]: http://pypi.python.org/pypi
@@ -165,10 +162,6 @@ PTVS 适用于现有的 Visual Studio 2013 或 2015 版本的安装。  有关�
 [Setting up a Linux VM via the Azure portal]:../includes/create-and-configure-opensuse-vm-in-portal.md
 [How to use the Azure Command-Line Interface]:../includes/crossplat-cmd-tools.md
 [创建运行 Linux 的虚拟机]:./virtual-machines/virtual-machines-linux-quick-create-cli.md
-[使用 Django 创建网站]:./app-service-web/web-sites-python-create-deploy-django-app.md
-[使用 Bottle 创建网站]:./app-service-web/web-sites-python-create-deploy-bottle-app.md
-[使用 Flask 创建网站]:./app-service-web/web-sites-python-create-deploy-flask-app.md
-[配置 Azure 网站的 Python]:./app-service-web/web-sites-python-configure.md
 [表存储]:./cosmos-db/table-storage-how-to-use-python.md
 [队列存储]:./storage/queues/storage-python-how-to-use-queue-storage.md
 [Blob 存储]:./storage/blobs/storage-python-how-to-use-blob-storage.md

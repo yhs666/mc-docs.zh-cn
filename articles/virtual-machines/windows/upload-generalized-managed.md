@@ -1,5 +1,5 @@
 ---
-title: 从通用化本地 VHD 创建托管 Azure VM | Azure
+title: 上传通用化 VHD 并使用它在 Azure 中创建新 VM | Azure
 description: 将通用化 VHD 上传到 Azure，然后在 Resource Manager 部署模型中使用它来创建新的 VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 09/25/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2c6d270c48619cdb014e92654233a762098d0a97
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 4abcdef0e13a35a5e095e6fc067923c7d6d9ca3a
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004097"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538891"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>上传通用化 VHD 并使用它在 Azure 中创建新 VM
 
@@ -49,9 +49,9 @@ Sysprep 将删除所有个人帐户信息及其他某些数据，并准备好要
 
 1. 登录到 Windows 虚拟机。
 2. 以管理员身份打开“命令提示符”窗口。 将目录切换到 %windir%\system32\sysprep，然后运行 `sysprep.exe`。
-3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。
-4. 在“关机选项”中选择“关机”。
-5. 选择“确定” 。
+3. 在“系统准备工具”对话框中，选择“进入系统全新体验(OOBE)”，确保已选中“通用化”复选框。   
+4. 在“关机选项”  中选择“关机”  。
+5. 选择“确定”  。
 
     ![启动 Sysprep](./media/upload-generalized-managed/sysprepgeneral.png)
 6. 在 Sysprep 完成时，它会关闭虚拟机。 不要重新启动 VM。
@@ -70,7 +70,7 @@ Get-AzStorageAccount | Format-Table
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>将 VHD 上传到存储帐户
 
-使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 myVHD.vhd 从 C:\Users\Public\Documents\Virtual hard disks\\ 上传到 myResourceGroup 资源组中名为 mystorageaccount 的存储帐户。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
+使用 [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet 将 VHD 上传到存储帐户中的容器。 本示例将文件 myVHD.vhd 从 C:\Users\Public\Documents\Virtual hard disks\\ 上传到 myResourceGroup 资源组中名为 mystorageaccount 的存储帐户     。 该文件将放入名为 *mycontainer* 的容器，新文件名为 *myUploadedVHD.vhd*。
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -110,6 +110,8 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 > 如果使用 AzCopy 将 VHD 上传至 Azure，请确保在运行上传脚本前已设置 [ **/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append)。 如果目标是一个 Blob 并且未指定此选项，则默认情况下 AzCopy 会创建块 Blob。
 > 
 > 
+
+<!--MOONCAKE: CORRECT ON [**/BlobType:page**](/storage/common/storage-use-azcopy#blobtypeblock--page--append) TILL 08/15/2019-->
 
 ## <a name="create-a-managed-image-from-the-uploaded-vhd"></a>通过上传的 VHD 创建托管映像 
 

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 06/28/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: a42c8f033a5ba5daa9e10c1b998616c8a054660c
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 08/12/2019
+ms.openlocfilehash: 4ae2f1e96c717fc4908b3da600540e7e5fa804fa
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68331932"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952157"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教程：使用 DMS 以将 RDS PostgreSQL 联机迁移到 Azure Database for PostgreSQL
 
@@ -151,7 +151,7 @@ ms.locfileid: "68331932"
 
     ![显示资源提供程序](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-select-resource-provider.png)
 
-3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”   。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-rds-postgresql-server-azure-db-for-postgresql-online/portal-register-resource-provider.png)
 

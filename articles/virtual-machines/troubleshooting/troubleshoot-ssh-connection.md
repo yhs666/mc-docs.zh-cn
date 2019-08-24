@@ -1,5 +1,5 @@
 ---
-title: 排查到 Azure VM 的 SSH 连接问题 | Azure
+title: 针对通过 SSH 连接到 Azure Linux VM 时发生的失败、出错或被拒绝问题进行故障排除 | Azure
 description: 如何排查运行 Linux 的 Azure VM 上发生的“SSH 连接失败”或“SSH 连接被拒绝”等问题。
 keywords: ssh 连接被拒绝, ssh 错误, azure ssh, SSH 连接失败
 services: virtual-machines-linux
@@ -14,21 +14,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 origin.date: 05/30/2017
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 699748dbe5858fd4317234bc26008949a20bf23e
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 4c6ec51e08600f257c1dadf5e9fb33a8ff3d0fcf
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427812"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538785"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>针对通过 SSH 连接到 Azure Linux VM 时发生的失败、错误或被拒绝问题进行故障排除
 尝试连接到 Linux 虚拟机 (VM) 时，可能会由于安全外壳 (SSH) 错误、SSH 连接失败或 SSH 被拒绝而发生问题，本文可帮助你查找并更正这些问题。 可以使用 Azure 门户、Azure CLI 或适用于 Linux 的 VM 访问扩展来排查和解决连接问题。
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“获取支持”  。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。 有关使用 Azure 支持的信息，请阅读 [Azure 支持常见问题](https://www.azure.cn/support/faq/)。
 
 ## <a name="quick-troubleshooting-steps"></a>快速故障排除步骤
 执行每个故障排除步骤后，请尝试重新连接到 VM。
@@ -53,7 +53,9 @@ ms.locfileid: "67427812"
 可以使用以下方法之一重置凭据或 SSH 配置：
 
 * [Azure 门户](#use-the-azure-portal) - 如果需要快速重置 SSH 配置或 SSH 密钥，并且没有安装 Azure 工具，则很适合使用此方法。
+    
     <!--Not Available on * [Azure VM Serial Console](https://aka.ms/serialconsolelinux)-->
+
 * [Azure CLI](#use-the-azure-cli) - 如果已打开命令行，则可以快速重置 SSH 配置或凭据。 如果要处理经典 VM，则可以使用 [Azure 经典 CLI](#use-the-azure-classic-cli)。
 * [Azure VMAccessForLinux 扩展](#use-the-vmaccess-extension) - 创建和重复使用 json 定义文件来重置 SSH 配置或用户凭据。
 
@@ -79,14 +81,16 @@ ms.locfileid: "67427812"
 <a name="security-rules"></a>
 ### <a name="check-security-rules"></a>检查安全规则
 
-使用 [IP 流验证](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 SSH 端口（默认值 22）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
+使用 [IP 流验证](../../network-watcher/diagnose-vm-network-traffic-filtering-problem.md)来确认网络安全组中的规则是否阻止了传入或传出虚拟机的流量。 还可以查看有效的安全组规则，确保入站“允许”NSG 规则存在并已针对 SSH 端口（默认值 22）进行优化。 有关详细信息，请参阅[使用有效的安全规则排查 VM 流量流问题](../../virtual-network/diagnose-network-traffic-filter-problem.md)。
 
 ### <a name="check-routing"></a>检查路由
 
-使用网络观察程序的[下一跃点](../../network-watcher/network-watcher-check-next-hop-portal.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
+使用网络观察程序的[下一跃点](../../network-watcher/diagnose-vm-network-routing-problem.md)功能确认路由未阻止将流量路由到虚拟机或从虚拟机路由流量。 还可以查看有效路由，以了解网络接口的所有有效路由。 有关详细信息，请参阅[使用有效路由排查 VM 流量流问题](../../virtual-network/diagnose-network-routing-problem.md)。
+
+<!--MOONCAKE: Not Available on ## Use the Azure VM Serial Console-->
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
-安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户（如果尚未这样做）。
+安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户（如果尚未这样做）。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
@@ -94,14 +98,14 @@ ms.locfileid: "67427812"
 
 ### <a name="reset-ssh-configuration"></a>重置 SSH 配置
 最初可尝试将 SSH 配置重置为默认值，然后重新启动 VM 上的 SSH 服务器。 这不会更改用户帐户名、密码或 SSH 密钥。
-以下示例使用 [az vm user reset-ssh](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上重置 SSH 配置。 请如下所示使用自己的值：
+以下示例使用 [az vm user reset-ssh](https://docs.azure.cn/cli/vm/user?view=azure-cli-latest#az-vm-user-reset-ssh)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上重置 SSH 配置。 请如下所示使用自己的值：
 
 ```azurecli
 az vm user reset-ssh --resource-group myResourceGroup --name myVM
 ```
 
 ### <a name="reset-ssh-credentials-for-a-user"></a>重置用户的 SSH 凭据
-以下示例使用 [az vm user update](https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上， 将 `myUsername` 的凭据重置为 `myPassword` 中指定的值。 请如下所示使用自己的值：
+以下示例使用 [az vm user update](https://docs.azure.cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上， 将 `myUsername` 的凭据重置为 `myPassword` 中指定的值。 请如下所示使用自己的值：
 
 ```azurecli
 az vm user update --resource-group myResourceGroup --name myVM \
@@ -127,7 +131,7 @@ az vm user update --resource-group myResourceGroup --name myVM \
 }
 ```
 
-使用 Azure CLI，并调用 `VMAccessForLinux` 扩展并指定 json 文件来重置 SSHD 连接。 以下示例使用 [az vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上重置 SSHD。 请如下所示使用自己的值：
+使用 Azure CLI，并调用 `VMAccessForLinux` 扩展并指定 json 文件来重置 SSHD 连接。 以下示例使用 [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set)，在 `myResourceGroup` 中名为 `myVM` 的 VM 上重置 SSHD。 请如下所示使用自己的值：
 
 ```azurecli
 az vm extension set --resource-group philmea --vm-name Ubuntu \
@@ -202,7 +206,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
 ![在 Azure 门户中重新启动 VM](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-以下示例使用 [az vm restart](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-restart) 重新启动名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM。 请如下所示使用自己的值：
+以下示例使用 [az vm restart](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-restart) 重新启动名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM。 请如下所示使用自己的值：
 
 ```azurecli
 az vm restart --resource-group myResourceGroup --name myVM
@@ -230,7 +234,7 @@ azure vm restart --resource-group myResourceGroup --name myVM
 ![在 Azure 门户中重新部署 VM](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
 ### <a name="azure-cli"></a>Azure CLI
-以下示例使用 [az vm redeploy](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-redeploy) 重新部署名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM。 请如下所示使用自己的值：
+以下示例使用 [az vm redeploy](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-redeploy) 重新部署名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM。 请如下所示使用自己的值：
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM

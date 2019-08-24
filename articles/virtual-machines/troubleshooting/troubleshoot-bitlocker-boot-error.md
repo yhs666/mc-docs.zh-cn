@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure VM 上的 BitLocker 启动错误 | Azure
+title: Azure VM 上的 BitLocker 启动错误 | Azure
 description: 了解如何排查 Azure VM 中的 BitLocker 启动错误
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 03/25/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: bae2d2dc4d0119a0bc53c6ce935f996f51efd6fa
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 6eb0724f345230223a01d0693ff593e874b13a6e
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003976"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539198"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM 上的 BitLocker 启动错误
 
@@ -33,7 +33,7 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
 
 - 插入含 BitLocker 密钥的 USB 驱动程序
 
-- 你被锁定！ 输入恢复密钥，以便再次开始操作（键盘布局：美式键盘）错误登录信息输入次数过多，因此，你的 PC 被锁定以保护你的隐私。 若要检索恢复密钥，请从另一电脑或移动设备转到 https://windows.microsoft.com/recoverykeyfaq。 如果需要，密钥 ID 为 XXXXXXX。 或者，可以重置电脑。
+- 你被锁定！ 输入恢复密钥，以便再次开始操作（键盘布局：美式键盘）错误登录信息输入次数过多，因此，你的 PC 被锁定以保护你的隐私。 若要检索恢复密钥，请从另一电脑或移动设备转到 https://windows.microsoft.com/recoverykeyfaq 。 如果需要，密钥 ID 为 XXXXXXX。 或者，可以重置电脑。
 
 - 输入密码以解锁此驱动器 [ ] 按 Insert 键在键入时查看密码。
 
@@ -50,7 +50,7 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
 如果此方法未能解决此问题，请执行以下步骤，手动还原 BEK 文件：
 
 1. 拍摄受影响的 VM 的系统磁盘的快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
-2. [将系统磁盘附加到由 BitLocker 加密的恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。 如果要运行仅可在 BitLocker 加密的 VM 上使用的 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 命令，这是必需的。
+2. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。 若要在步骤 7 中运行 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 命令，必须在恢复 VM 中启用“BitLocker 驱动器加密”  功能。
 
     附加托管磁盘时，可能会收到“包含加密设置，因此不能用作数据磁盘”错误消息。 在此情况下，运行以下脚本，重试附加磁盘：
 
@@ -106,9 +106,9 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
 
     如果看到两个重复的卷，具有较新时间戳的卷为恢复 VM 使用的当前 BEK 文件。
 
-    如果“内容类型”值为“包装的 BEK”，请转到[密钥加密密钥 (KEK) 方案](#key-encryption-key-scenario)。
+    如果“内容类型”  值为“包装的 BEK”  ，请转到[密钥加密密钥 (KEK) 方案](#key-encryption-key-scenario)。
 
-    获取驱动器的 BEK 文件名称后，须创建 secret-file-name.BEK 文件以解锁驱动器。 
+    获取驱动器的 BEK 文件名称后，须创建 secret-file-name.BEK 文件以解锁驱动器。
 
 6. 将 BEK 文件下载到恢复磁盘。 以下示例将 BEK 文件保存到 C:\BEK 文件夹。 运行脚本前，请确保 `C:\BEK\` 路径存在。
 
@@ -122,14 +122,14 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
     [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
     ```
 
-7. 若要使用 BEK 文件解锁附加磁盘，请运行以下命令：
+7. 若要使用 BEK 文件解锁附加磁盘，请运行以下命令。
 
     ```powershell
     manage-bde -unlock F: -RecoveryKey "C:\BEK\EF7B2F5A-50C6-4637-9F13-7F599C12F85C.BEK
     ```
     在此示例中，附加的 OS 磁盘为驱动器 F。请确保使用正确的驱动器号。 
 
-    - 如果使用 BEK 密钥成功解锁了磁盘。 可以认为 BItLocker 问题已解决。 
+    - 如果使用 BEK 密钥成功解锁了磁盘。 可以认为 BitLocker 问题已解决。 
 
     - 如果使用 BEK 密钥未能解锁磁盘，则可以使用暂停保护，通过运行以下命令暂时关闭 BitLocker
 
@@ -147,7 +147,7 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
 
 对于密钥加密密钥方案，请执行以下步骤：
 
-1. 请确保登录的用户帐户需要“用户|密钥权限|加密操作|解包密钥”中 Key Vault 访问策略中的“解包”权限。
+1. 请确保登录的用户帐户需要“用户|密钥权限|加密操作|解包密钥”  中 Key Vault 访问策略中的“解包”权限。
 2. 将以下脚本保存到 .PS1 文件：
 
     ```powershell
@@ -255,7 +255,7 @@ Windows VM 不启动。 检查[启动诊断](../windows/boot-diagnostics.md)窗�
     ```
     在此示例中，附加的 OS 磁盘为驱动器 F。请确保使用正确的驱动器号。 
 
-    - 如果使用 BEK 密钥成功解锁了磁盘。 可以认为 BItLocker 问题已解决。 
+    - 如果使用 BEK 密钥成功解锁了磁盘。 可以认为 BitLocker 问题已解决。 
 
     - 如果使用 BEK 密钥未能解锁磁盘，则可以使用暂停保护，通过运行以下命令暂时关闭 BitLocker
 

@@ -4,17 +4,18 @@ description: 在 Azure 流分析中创建 edge 作业，并将其部署到运行
 services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 4/2/2019
-ms.custom: seodec18
-ms.openlocfilehash: ecdb84d086ab86287070cfe9551833e057a43c49
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+origin.date: 08/09/2019
+ms.date: 07/12/2019
+ms.openlocfilehash: 74109e9b13437f69e8eb78ae39d0f284705bc5d4
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818207"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969589"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure IoT Edge 流分析
  
@@ -33,11 +34,11 @@ IoT Edge 上的 Azure 流分析在 [Azure IoT Edge](https://azure.microsoft.com/
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Azure 流分析作业中的 Edge 作业
 ### <a name="what-is-an-edge-job"></a>什么是“Edge”作业？
 
-ASA Edge 作业在部署到 [Azure IoT Edge 设备](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)的容器中运行。 它们由两个部分组成：
+ASA Edge 作业在部署到 [Azure IoT Edge 设备](/iot-edge/how-iot-edge-works)的容器中运行。 它们由两个部分组成：
 1.  负责作业定义的云部分：用户在云中定义输入、输出、查询和其他设置（无序事件等）。
 2.  在 IoT 设备上运行的模块。 它包含 ASA 引擎，并从云接收作业定义。 
 
-ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring)的详细信息。
+ASA 使用 IoT 中心将 Edge 作业部署到设备。 [可在此处查看有关 IoT Edge 部署](/iot-edge/module-deployment-monitoring)的详细信息。
 
 ![Azure 流分析 Edge 作业](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
@@ -141,9 +142,9 @@ IoT Edge 提供了一种在模块之间，以及模块和 IoT 中心之间以声
 
 ## <a name="technical-information"></a>技术信息
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>与云作业相比，IoT Edge 作业当前受限制
-目标是在 IoT Edge 作业和云作业之间进行平衡。 已支持大多数 SQL 查询语言功能。
+目标是在 IoT Edge 作业和云作业之间进行平衡。 支持大多数 SQL 查询语言功能，从而能够在云和 IoT Edge 上运行相同的逻辑。
 但是，以下功能尚不支持 Edge 作业：
-* JavaScript 中的用户定义函数 (UDF)。 [用于 IoT Edge 作业的 C#](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-edge-csharp-udf)（预览版）中提供了 UDF。
+* JavaScript 中的用户定义函数 (UDF)。 [用于 IoT Edge 作业的 C#](/stream-analytics/stream-analytics-edge-csharp-udf)（预览版）中提供了 UDF。
 * 用户定义聚合 (UDA)。
 * Azure ML 函数
 * 在单个步骤中使用超过 14 个聚合。
@@ -199,6 +200,29 @@ IoT Edge 上的参考数据更新将由部署触发。 在触发后，ASA 模块
 * [IoT Edge 上的 Azure 流分析许可证](https://go.microsoft.com/fwlink/?linkid=862827)。 
 * [IoT Edge 上的 Azure 流分析的第三方通知](https://go.microsoft.com/fwlink/?linkid=862828)。
 
+## <a name="azure-stream-analytics-module-image-information"></a>Azure 流分析模块映像信息 
+
+此版本信息上次更新时间为 2019-06-27：
+
+- 映像：`asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-amd64`
+   - 基础映像：microsoft/dotnet:2.1.6-runtime-alpine3.7
+   - 平台：
+      - 体系结构：amd64
+      - os：linux
+  
+- 映像：`asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-linux-arm32v7`
+   - 基础映像：microsoft/dotnet:2.1.6-runtime-bionic-arm32v7
+   - 平台：
+      - 体系结构：arm
+      - os：linux
+  
+- 映像：`asaedge.azurecr.io/public/azure-stream-analytics/azureiotedge:1.0.3-windows-amd64`
+   - 基础映像：microsoft/dotnet:2.1.6-runtime-nanoserver-1809
+   - 平台：
+      - 体系结构：amd64
+      - os：windows
+      
+      
 ## <a name="get-help"></a>获取帮助
 如需进一步的帮助，请尝试参考 [Azure 流分析论坛](https://www.azure.cn/support/contact/)。
 

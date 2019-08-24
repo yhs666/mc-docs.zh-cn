@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: dd653adc94e7eeec9a9ab90a8b5a1971e63a951c
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: 24de1541822da3b7fb3d89c442fad458d6c6d603
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52675516"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538787"
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>排查发送到 Azure 中 Windows VM 的特定 RDP 错误消息
 使用远程桌面连接到 Azure 中的 Windows 虚拟机 (VM) 时，可能会收到特定错误消息。 本文详细介绍遇到的一些更常见的错误消息，以及解决这些错误消息的故障排除步骤。 如果在使用 RDP 连接到 VM 时出现问题，但没有收到特定错误消息，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md)。
@@ -32,7 +32,7 @@ ms.locfileid: "52675516"
 * [由于没有可用于提供许可证的远程桌面许可证服务器，远程会话已断开连接](#rdplicense)。
 * [远程桌面找不到计算机“名称”。](#rdpname)
 * [身份验证出错。无法联系本地安全机构](#rdpauth)。
-* [Windows 安全性错误：凭据无效](#wincred)。
+* [Windows 安全性错误：你的凭据不起作用](#wincred)。
 * [此计算机无法连接到远程计算机。](#rdpconnect)
 
 <a name="rdplicense"></a>
@@ -51,7 +51,7 @@ ms.locfileid: "52675516"
 <a name="rdpname"></a>
 
 ## <a name="remote-desktop-cant-find-the-computer-name"></a>远程桌面找不到计算机“名称”。
-原因：计算机的远程桌面客户端无法解析 RDP 文件设置中的计算机名称。
+原因：计算机上的远程桌面客户端无法解析 RDP 文件设置中的计算机名称。
 
 可能的解决方法：
 
@@ -67,15 +67,16 @@ ms.locfileid: "52675516"
 
 * 包含 VM 的云服务的完全限定域名（在本例中为“tailspin-azdatatier.chinacloudapp.cn”）。
 
-<!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
+    <!-- DNS cloudapp.net SHOULD BE chinacloudapp.cn -->
+    
 * 远程桌面流量终结点的外部 TCP 端口 (55919)。
 
 <a name="rdpauth"></a>
 
 ## <a name="an-authentication-error-has-occurred-the-local-security-authority-cannot-be-contacted"></a>发生身份验证错误。 无法联系本地安全机构。
-原因：目标 VM 在凭据的用户名部分找不到安全机构。
+原因：目标 VM 在凭据的用户名部分中找不到安全机构。
 
-如果用户名格式为 *SecurityAuthority*\\*UserName*（例如：CORP\User1），则 *SecurityAuthority* 部分是 VM 的计算机名（表示本地安全机构）或 Active Directory 域名。
+如果用户名格式为 SecurityAuthority  \\UserName  （例如：CORP\User1），则 SecurityAuthority  部分是 VM 的计算机名（表示本地安全机构）或 Active Directory 域名。
 
 可能的解决方法：
 
@@ -85,13 +86,13 @@ ms.locfileid: "52675516"
 
 <a name="wincred"></a>
 
-## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 安全性错误：凭据无效。
+## <a name="windows-security-error-your-credentials-did-not-work"></a>Windows 安全性错误：你的凭据无效。
 原因：目标 VM 无法验证帐户名和密码。
 
 基于 Windows 的计算机可以验证本地帐户或域帐户的凭据。
 
-* 对于本地帐户，请使用 *ComputerName*\\*UserName* 语法（例如：SQL1\Admin4798）。
-* 对于域帐户，请使用 *DomainName*\\*UserName* 语法（例如：CONTOSO\peterodman）。
+* 对于本地帐户，请使用 ComputerName  \\UserName  语法（例如：SQL1\Admin4798）。
+* 对于域帐户，请使用 DomainName  \\UserName  语法（例如：CONTOSO\peterodman）。
 
 如果已将 VM 提升为新的 Active Directory 林中的域控制器，则会将用于登录的本地管理员帐户转换为新的林和域中具有相同密码的等效帐户。 然后会删除本地帐户。
 
@@ -108,7 +109,7 @@ ms.locfileid: "52675516"
 
 每台 Windows 计算机都具有远程桌面用户本地组，包含可以远程登录的帐户和组。 本地 Administrators 组的成员也具有访问权限，即使在远程桌面用户本地组中未列出这些帐户。 对于已加入域的计算机，本地 Administrators 组还包含该域的域管理员。
 
-确保用于连接的帐户具有远程桌面登录权限。 解决方法是使用域管理员或本地管理员帐户通过远程桌面建立连接。 若要将所需帐户添加到远程桌面用户本地组，请使用 Microsoft 管理控制台管理单元（“系统工具”>“本地用户和组”>“组”>“远程桌面用户”）。
+确保用于连接的帐户具有远程桌面登录权限。 解决方法是使用域管理员或本地管理员帐户通过远程桌面建立连接。 若要将所需帐户添加到远程桌面用户本地组，请使用 Microsoft 管理控制台管理单元（“系统工具”>“本地用户和组”>“组”>“远程桌面用户”  ）。
 
 ## <a name="next-steps"></a>后续步骤
 如果没有发生这些错误，但在使用 RDP 连接时出现未知问题，请参阅[远程桌面故障排除指南](troubleshoot-rdp-connection.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)。

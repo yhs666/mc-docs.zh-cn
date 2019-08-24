@@ -8,16 +8,16 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
 origin.date: 05/31/2019
-ms.date: 06/24/2019
+ms.date: 08/12/2019
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 2fa173a37bd53d224d76efd13e48cb6f0f2d6d94
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 44405f38922e4f4a3ee656881c1e7a63a83ba51d
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151756"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544373"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 9a536333f660c881500a8231d0f66cdde7a527f6
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c75fda95b59280da1f4bc39861b1adc19967f3c9
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562723"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969678"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>使用 Azure Application Insights 数据自动化自定义报表
 
@@ -78,7 +78,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 计划的摘要报表
 
-1. 在 Azure 门户中，选择“创建资源” > “计算” > “Function App”。   
+1. 在 Azure 门户中，选择“创建资源” > “函数应用”。  
 
    ![“创建 Azure 资源函数应用”屏幕截图](./media/automate-custom-reports/function-app-01.png)
 
@@ -95,7 +95,7 @@ availabilityResults
 5. 选择“Application Insights 计划的摘要模板”  。
 
      > [!NOTE]
-     > 默认情况下，使用运行时版本 2.x 创建函数应用。 必须[以 Azure Functions 运行时版本 1.x 为目标](https://docs.microsoft.com/azure/azure-functions/set-runtime-version)才能使用 Application Insights 计划摘要模板。
+     > 默认情况下，使用运行时版本 2.x 创建函数应用。 必须[以 Azure Functions 运行时版本 1.x 为目标](/azure-functions/set-runtime-version)才能使用 Application Insights 计划摘要模板。
 
    ![“新建函数 Application Insights 模板”屏幕截图](./media/automate-custom-reports/function-app-04.png)
 

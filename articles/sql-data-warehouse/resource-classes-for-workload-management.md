@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
 origin.date: 03/15/2019
-ms.date: 04/01/2019
+ms.date: 04/22/2019
 ms.author: v-jay
-ms.reviewer: igorstan
-ms.openlocfilehash: 83bc870718c168f5e050b8138ef6a8a3a3aa1067
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.reviewer: jrasnick
+ms.openlocfilehash: c6da0d9c564a371af443be0170b800bc7ad688e7
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627259"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544408"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>使用 Azure SQL 数据仓库中的资源类管理工作负荷
 
@@ -80,11 +80,12 @@ ms.locfileid: "58627259"
 
 第 1 代挖掘动态资源类的详细信息时，有些详细信息会让理解其行为变得更加复杂：
 
-- Smallrc 资源类和静态资源类相似，也是通过固定的内存模型进行操作。  Smallrc 查询的内存不会随着服务级别的提高而动态增高。
+**在 第 1 代上**
+- Smallrc 资源类和静态资源类相似，也是通过固定的内存模型进行操作。  Smallrc 查询的内存不会随着服务级别的提高而动态增高。 
 - 服务级别更改时，可用的查询并发性可能会上下浮动。
 - 缩放服务级别不会让分配至相同资源类的内存产生对应比例的变化。
 
-只有第 2 代动态资源类真正实现了动态处理上述几点。  小型-中型-大型-超大型资源类对应的内存百分比分配的新规则为 3-10-22-70，与服务级别无关。  下表综合了内存分配百分比的详细信息以及运行的并发查询的最小数量，与服务级别无关。
+**在第 2 代上**，动态资源类真正实现了动态处理上述几点。  小型-中型-大型-超大型资源类对应的内存百分比分配的新规则为 3-10-22-70，与服务级别无关  。  下表综合了内存分配百分比的详细信息以及运行的并发查询的最小数量，与服务级别无关。
 
 | 资源类 | 内存百分比 | 最小并发查询数 |
 |:--------------:|:-----------------:|:----------------------:|
@@ -131,7 +132,21 @@ ms.locfileid: "58627259"
 
 以下语句属于资源类的例外情况，始终在 smallrc 中运行：
 
--CREATE 或 DROP TABLE -ALTER TABLE ...SWITCH、SPLIT、MERGE PARTITION -ALTER INDEX DISABLE -DROP INDEX -CREATE、UPDATE、DROP STATISTICS -TRUNCATE TABLE -ALTER AUTHORIZATION -CREATE LOGIN -CREATE、ALTER、DROP USER -CREATE、ALTER、DROP PROCEDURE -CREATE 或 DROP VIEW -INSERT VALUES -SELECT（从系统视图和 DMV）-EXPLAIN -DBCC
+- CREATE 或 DROP TABLE
+- ALTER TABLE ...SWITCH、SPLIT 或 MERGE PARTITION
+- ALTER INDEX DISABLE
+- DROP INDEX
+- CREATE、UPDATE 或 DROP STATISTICS
+- TRUNCATE TABLE
+- ALTER AUTHORIZATION
+- CREATE LOGIN
+- CREATE、ALTER 或 DROP USER
+- CREATE、ALTER 或 DROP PROCEDURE
+- CREATE 或 DROP VIEW
+- INSERT VALUES
+- SELECT（从系统视图和 DMV）
+- EXPLAIN
+- DBCC
 
 <!--
 Removed as these two are not confirmed / supported under SQL DW
@@ -215,20 +230,27 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 下面是此存储过程的用途：
 
 1. 用于查看每个资源类的、根据给定 SLO 推算的并发性和内存授予。 如此示例中所示，用户需要为架构和表名提供 NULL。  
-2. 用于查看根据给定资源类推算的、对非分区 CCI 表执行内存密集型 CCI 操作（加载、复制表、重建索引等）时可用的尽量最佳资源类。 该存储过程使用表架构来找出所需的内存授予。
+2. 用于查看根据给定的资源类推算对非分区 CCI 表执行内存密集型 CCI 操作（加载、复制表、重建索引等）时可用的最佳资源类。 该存储过程使用表架构来找出所需的内存授予。
 
-### <a name="dependencies--restrictions"></a>依赖关系和限制：
-- 此存储过程并不旨在计算分区 CCI 表的内存要求。    
+### <a name="dependencies--restrictions"></a>依赖关系和限制
+
+- 此存储过程并不旨在计算分区 CCI 表的内存要求。
 - 此存储过程不会针对 CTAS/INSERT-SELECT 的 SELECT 部分考虑内存要求，而是假设它是一个 SELECT。
-- 此存储过程使用其创建时所在的会话中提供的临时表。    
-- 此存储过程依赖于当前的供应值（例如硬件配置、DMS 配置），如果其中的任何值发生更改，则此存储过程无法正常工作。  
-- 此存储过程依赖于现有提供的并发限制，如果此限制发生更改，则此存储过程无法正常工作。  
-- 此存储过程依赖于现有的资源类供应值，如果这些值发生更改，则此存储过程无法正常工作。  
+- 此存储过程使用其创建时所在的会话中提供的临时表。
+- 此存储过程依赖于当前的供应值（例如硬件配置、DMS 配置），如果其中的任何值发生更改，则此存储过程将无法正常工作。  
+- 此存储过程依赖于现有的并发限制选项，如果这些选项发生更改，则此存储过程将无法正常工作。  
+- 此存储过程依赖于现有的资源类选项，如果这些选项发生更改，则此存储过程将无法正常工作。  
 
-> [!NOTE]
->  如果结合提供的参数执行存储过程后未获得输出，则可能存在两种情况。 <br />1.DW 参数包含无效的 SLO 值 <br />2.或者，针对表执行的 CCI 操作没有匹配的资源类。 <br />例如，在 DW100 级别，可用的最高内存授予是 400 MB。如果表架构很宽，则就会超过 400 MB 的要求。
-      
-### <a name="usage-example"></a>用法示例：
+>[!NOTE]  
+>如果结合提供的参数执行存储过程后未获得输出，则可能存在两种情况。
+>
+>1. DW 参数包含无效的 SLO 值
+>2. 或者，针对表执行的 CCI 操作没有匹配的资源类。
+>
+>例如，在 DW100 级别，可用的最高内存授予是 400 MB。如果表架构很宽，则就会超过 400 MB 的要求。
+
+### <a name="usage-example"></a>用例
+
 语法：  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
@@ -254,7 +276,7 @@ EXEC dbo.prc_workload_management_by_DWU NULL, NULL, NULL;
 -------------------------------------------------------------------------------
 -- Dropping prc_workload_management_by_DWU procedure if it exists.
 -------------------------------------------------------------------------------
-IF EXISTS (SELECT -FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
+IF EXISTS (SELECT * FROM sys.objects WHERE type = 'P' AND name = 'prc_workload_management_by_DWU')
 DROP PROCEDURE dbo.prc_workload_management_by_DWU
 GO
 
@@ -911,7 +933,7 @@ GO
 
 ## <a name="next-step"></a>后续步骤
 
-有关如何管理数据库用户和安全性的详细信息，请参阅[保护 SQL 数据仓库中的数据库][Secure a database in SQL Data Warehouse]。 有关较大资源类如何改进聚集列存储索引质量的详细信息，请参阅[列存储压缩的内存优化](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
+有关如何管理数据库用户和安全性的详细信息，请参阅 [保护 SQL 数据仓库中的数据库][Secure a database in SQL Data Warehouse]。 有关较大资源类如何改进聚集列存储索引质量的详细信息，请参阅[列存储压缩的内存优化](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)。
 
 <!--Image references-->
 

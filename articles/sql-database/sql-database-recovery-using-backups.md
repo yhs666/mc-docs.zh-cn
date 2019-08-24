@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 04/30/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: c4d34a000cd9b65864f9cfee048a2162dc259c97
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/19/2019
+ms.openlocfilehash: ccab4f55c51d449bd400eec0659fbea14eb3c1b3
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629173"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544181"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>使用自动数据库备份恢复 Azure SQL 数据库
 
@@ -84,7 +84,7 @@ ms.locfileid: "65629173"
 
   如果你打算从还原的数据库检索数据以从用户或应用程序错误中恢复，则需要编写并执行一个数据恢复脚本，用于从还原的数据库提取数据并将其应用到原始数据库。 尽管还原操作可能需要很长时间才能完成，但整个还原过程中，都可在数据库列表中看到还原数据库。 如果在还原期间删除数据库，将取消还原操作，则不会针对未完成还原的数据库向你收费。
 
-要使用 Azure 门户将单一数据库、共用数据库或实例数据库恢复到某个时间点，请打开该数据库的页面，并在工具栏上单击“还原”。
+要使用 Azure 门户将单一数据库、共用数据库或实例数据库恢复到某个时间点，请打开该数据库的页面，并在工具栏上单击“还原”  。
 
 ![时间点还原](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
@@ -93,7 +93,7 @@ ms.locfileid: "65629173"
 
 ## <a name="deleted-database-restore"></a>已删除的数据库还原
 
-使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上的删除时间或早期的时间点。 
+使用 Azure 门户、[PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) 或 [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)，可将已删除的数据库还原到同一 SQL 数据库服务器上的删除时间或早期的时间点。 可以[使用 PowerShell 在托管实例上还原已删除的数据库](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)。 
 
 > [!TIP]
 > 有关展示如何还原已删除数据库的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
@@ -102,7 +102,7 @@ ms.locfileid: "65629173"
 
 ### <a name="deleted-database-restore-using-the-azure-portal"></a>使用 Azure 门户还原已删除的数据库
 
-若要使用 Azure 门户恢复已删除的数据库，请打开服务器的页面，然后在“操作”区中单击“已删除的数据库”。
+若要使用 Azure 门户恢复已删除的数据库，请打开服务器的页面，然后在“操作”区中单击“已删除的数据库”  。
 
 ![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
@@ -129,7 +129,10 @@ ms.locfileid: "65629173"
 
 ### <a name="geo-restore-using-the-azure-portal"></a>使用 Azure 门户进行异地还原
 
-要在其[基于 DTU 的模型保留期](sql-database-service-tiers-dtu.md)或[基于 vCore 的模型保留期](sql-database-service-tiers-vcore.md)期间使用 Azure 门户对数据库进行异地还原，请打开 SQL 数据库页，并单击“添加”。 在“选择源”文本框中，选择“备份”。 在所选的区域和服务器上指定要从中执行恢复的备份。
+要在其[基于 DTU 的模型保留期](sql-database-service-tiers-dtu.md)或[基于 vCore 的模型保留期](sql-database-service-tiers-vcore.md)期间使用 Azure 门户对数据库进行异地还原，请打开 SQL 数据库页，并单击“添加”  。 在“选择源”  文本框中，选择“备份”  。 在所选的区域和服务器上指定要从中执行恢复的备份。
+
+> [!Note]
+> 托管实例不支持使用 Azure 门户异地还原， 请改用 PowerShell。
 
 ## <a name="programmatically-performing-recovery-using-automated-backups"></a>使用自动备份以编程方式执行恢复
 
@@ -153,6 +156,14 @@ ms.locfileid: "65629173"
   > [!TIP]
   > 有关展示如何执行数据库的时间点还原的示例 PowerShell 脚本，请参阅[使用 PowerShell 还原 SQL 数据库](scripts/sql-database-restore-database-powershell.md)。
 
+- 若要还原托管实例数据库，请参阅 [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)。
+
+  | Cmdlet | 说明 |
+  | --- | --- |
+  | [Get-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstance) |获取一个或多个托管实例。 |
+  | [Get-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabase) | 获取实例数据库。 |
+  | [Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |还原实例数据库。 |
+
 ### <a name="rest-api"></a>REST API
 
 使用 REST API 还原单一数据库或共用数据库：
@@ -165,6 +176,7 @@ ms.locfileid: "65629173"
 ### <a name="azure-cli"></a>Azure CLI
 
 若要使用 Azure CLI 还原单一数据库或共用数据库，请参阅 [az sql db restore](/cli/sql/db#az-sql-db-restore)。
+- 若要使用 Azure CLI 还原托管实例，请参阅 [az sql midb restore](/cli/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>摘要
 

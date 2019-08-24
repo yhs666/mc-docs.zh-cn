@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 05/08/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: f12daf817a4180f4d0aae3753d67f7e4a1f3af21
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: f6ae4f146c528d3c5e087525340667cc82821879
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571483"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952146"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>教程：使用 DMS 将 RDS SQL Server 联机迁移到 Azure SQL 数据库或 Azure SQL 数据库托管实例
 可以使用 Azure 数据库迁移服务将数据库从 RDS SQL Server 实例迁移到 [Azure SQL 数据库](/sql-database/)或 [Azure SQL 数据库托管实例](/sql-database/sql-database-managed-instance-index)，且几乎不用停机。 在本教程中，我们使用 Azure 数据库迁移服务，将还原到 SQL Server 2012（或更高版本） RDS SQL Server 实例的 Adventureworks2012 数据库迁移到 Azure SQL 数据库或 Azure SQL 数据库托管实例  。
@@ -55,7 +55,7 @@ ms.locfileid: "67571483"
 * 使用 Azure 资源管理器部署模型为 Azure 数据库迁移服务创建 Azure 虚拟网络 (VNet)。 若要迁移到 Azure SQL 数据库托管实例，请确保在用于 Azure SQL 数据库托管实例的同一 VNet 中（但在不同的子网）中创建 DMS 实例。  或者，如果对 DMS 使用不同的 VNet，则需要在两个 VNet 之间创建 VNet 对等互连。 有关创建 VNet 的详细信息，请参阅[虚拟网络文档](/virtual-network/)，尤其是提供了分步详细信息的快速入门文章。
 
     > [!NOTE]
-    > 在 VNet 设置期间，如果将 ExpressRoute 与 Microsoft 的网络对等互连一起使用，请将以下服务[终结点](/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
+    > 在设置 VNet 期间，如果将 ExpressRoute 与 Azure 的网络对等互连一起使用，请将以下服务[终结点](/virtual-network/virtual-network-service-endpoints-overview)添加到将在其中预配服务的子网：
     >
     > * 目标数据库终结点（例如，SQL 终结点、Cosmos DB 终结点等）
     > * 存储终结点
@@ -146,7 +146,7 @@ ms.locfileid: "67571483"
 
     ![显示资源提供程序](media/tutorial-sql-server-to-azure-sql-online/portal-select-resource-provider.png)
 
-3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”   。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/portal-register-resource-provider.png)    
 

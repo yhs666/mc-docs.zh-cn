@@ -1,5 +1,5 @@
 ---
-title: 教程 - 使用 Azure PowerShell 创建自定义 VM 映像 | Azure
+title: 教程 - 使用 Azure PowerShell 创建 Azure VM 的自定义映像 | Azure
 description: 本教程介绍如何使用 Azure PowerShell 在 Azure 中创建自定义虚拟机映像
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 11/30/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 05cee24aa5377b5508f44feb0d42829e31147585
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 9d722db759e211e5cebd2908a4815bd6d5d3b409
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003965"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538846"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建 Azure VM 的自定义映像
 
@@ -43,7 +43,7 @@ ms.locfileid: "59003965"
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="prepare-vm"></a>准备 VM
 

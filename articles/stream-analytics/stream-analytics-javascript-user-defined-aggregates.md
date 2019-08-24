@@ -2,19 +2,20 @@
 title: Azure 流分析中 JavaScript 用户定义的聚合
 description: 本文介绍如何在 Azure 流分析中通过 JavaScript 用户定义的聚合执行高级查询机制。
 services: stream-analytics
-author: rockboyfor
+author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2017
-ms.openlocfilehash: 3ddacd9305a87c36f5184edba20d171981846329
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+origin.date: 08/09/2019
+ms.date: 07/12/2019
+ms.openlocfilehash: 2f5c5f1b5b1d01c2545a79dc690188b5ad36f360
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544818"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969584"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure 流分析 JavaScript 用户定义的聚合（预览）
 
@@ -28,7 +29,7 @@ Azure 流分析支持以 JavaScript 编写的用户定义的聚合 (UDA)，可�
 
 AccumulateOnly 聚合只能将新事件累积到其状态中，算法不允许将值分散。 无法实现从状态值中分散事件信息时，请选择此聚合类型。 下面是 AccumulatOnly 聚合的 JavaScript 模板：
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +44,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate 聚合
 
 AccumulateDeaccumulate 聚合允许从状态中分散以前积累的某个值，例如，从事件值列表中删除某个键值对，或者从求和聚合的状态中减去某个值。 下面是 AccumulateDeaccumulate 聚合的 JavaScript 模板：
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +73,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - JavaScript 函数声明
 
@@ -92,7 +93,7 @@ function main() {
 
 ### <a name="function-name"></a>函数名称
 
-此函数对象的名称。 函数名称在字面上应与 UDA 别名匹配（这是预览版中的行为，我们正考虑在正式版中支持匿名函数）。
+此函数对象的名称。 函数名称应与 UDA 别名匹配。
 
 ### <a name="method---init"></a>方法 - init()
 
@@ -124,12 +125,12 @@ computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（
 现在，让我们执行以下步骤，在现有的 ASA 作业下创建一个 JavaScript UDA。
 
 1. 登录到 Azure 门户，并找到现有的流分析作业。
-1. 然后单击“作业拓扑”下的函数链接。
-1. 单击“添加”图标添加新函数。
-1. 在“新建函数”视图中，选择“JavaScript UDA”作为函数类型，然后，编辑器中会显示默认的 UDA 模板。
+1. 然后单击“作业拓扑”下的函数链接。 
+1. 单击“添加”图标添加新函数。 
+1. 在“新建函数”视图中，选择“JavaScript UDA”作为函数类型，然后，编辑器中会显示默认的 UDA 模板。 
 1. 填入“TWA”作为 UDA 别名，并按如下所示更改函数实现：
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +168,7 @@ computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（
             return result;
         }
     }
-    ````
+    ```
 
 1. 单击“保存”按钮后，该 UDA 会显示在函数列表中。
 
@@ -177,7 +178,7 @@ computeResult() 方法基于当前状态返回聚合结果。 在时间窗口（
 
 在 Azure 门户中打开作业，编辑查询，并调用具有必需前缀“uda.”的 TWA() 函数。 例如：
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +192,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>使用 UDA 测试查询
 
 创建包含以下内容的本地 JSON 文件，将该文件上传到流分析作业，并测试上述查询。
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +224,7 @@ GROUP BY TumblingWindow(minute, 5)
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>获取帮助
 

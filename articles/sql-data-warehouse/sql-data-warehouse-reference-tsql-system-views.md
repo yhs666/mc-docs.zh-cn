@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 06/13/2018
-ms.date: 04/01/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 75e7b200bf2acf5967dde2ed6a8a3a69a651b6af
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: dbbecf3ff3a4d244eb1ef7983422412a396267b3
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627704"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544243"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库支持的系统视图
 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
@@ -27,6 +27,9 @@ ms.locfileid: "58627704"
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
 * [sys.pdw_loader_backup_run_details](https://msdn.microsoft.com/library/mt203877.aspx)
 * [sys.pdw_loader_backup_runs](https://msdn.microsoft.com/library/mt203884.aspx)
+* [sys.pdw_materialized_view_column_distribution_properties](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-column-distribution-properties-transact-sql?view=azure-sqldw-latest)（预览版）
+* [sys.pdw_materialized_view_distribution_properties](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-distribution-properties-transact-sql?view=azure-sqldw-latest)（预览版）
+* [sys.pdw_materialized_view_mappings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-pdw-materialized-view-mappings-transact-sql?view=azure-sqldw-latest)（预览版）
 * [sys.pdw_nodes_column_store_dictionaries](https://msdn.microsoft.com/library/mt203902.aspx)
 * [sys.pdw_nodes_column_store_row_groups](https://msdn.microsoft.com/library/mt203880.aspx)
 * [sys.pdw_nodes_column_store_segments](https://msdn.microsoft.com/library/mt203916.aspx)
@@ -221,7 +224,7 @@ SQL 数据仓库和分析平台系统的并行数据仓库 (PDW) 使用相同的
 * [sys.dm_exec_external_operations](https://msdn.microsoft.com/library/mt146391.aspx)
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
-## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA 视图
+## <a name="sql-server-information_schema-views"></a>SQL Server INFORMATION_SCHEMA 视图
 * [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
 * [列](https://msdn.microsoft.com/library/ms188348.aspx)
 * [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)

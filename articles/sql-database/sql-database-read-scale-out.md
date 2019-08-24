@@ -13,18 +13,16 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 04/19/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 0093e52e303d66175a22d0d0b317104c7d2a401c
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: c3e032985e9c146f684d5da9e9c570513cf46426
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629179"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544172"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用只读副本对只读的查询工作负荷进行负载均衡
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 作为[高可用性体系结构](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)的一部分，“高级”、“业务关键”或“超大规模”服务层级中的每个数据库会自动预配有一个主要副本和多个次要副本。 为次要副本预配的计算大小与主要副本相同。 **读取扩展**功能允许使用一个只读副本的容量而不是共享读写副本，对 SQL 数据库只读工作负载进行负载均衡。 这样，只读工作负荷将与主要的读写工作负荷相隔离，不会影响其性能。 该功能适用于包含逻辑隔离的只读工作负荷（例如分析）的应用程序。 这些应用程序可以在不增大成本的情况下使用此额外容量来获得性能优势。
 
@@ -94,7 +92,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ### <a name="azure-portal"></a>Azure 门户
 
-可以在“配置数据库”边栏选项卡上管理“读取扩展”设置。 
+可以在“配置数据库”边栏选项卡上管理“读取扩展”设置。  
 
 ### <a name="powershell"></a>PowerShell
 

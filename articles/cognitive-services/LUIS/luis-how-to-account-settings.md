@@ -1,7 +1,7 @@
 ---
 title: 管理帐户和密钥
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 account.microsoft.com 上进行管理。 创作密钥在 LUIS 门户的“设置”页面上进行管理。
+description: LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 account.windowsazure.cn 上进行管理。 创作密钥在 LUIS 门户的“设置”页面上进行管理。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -11,20 +11,20 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 7999e41985876b1ce66c569ee58fff3c3c4135ec
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 249bdf064ec2a511ac5356f43db87ef1d4dbfc52
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556911"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544352"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帐户和创作密钥
 
-LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 [account.microsoft.com](https://account.microsoft.com) 上进行管理。 创作密钥在 [LUIS](luis-reference-regions.md) 门户的“设置”页面上进行管理。
+LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 [account.windowsazure.cn](https://account.windowsazure.cn) 上进行管理。 创作密钥在 [LUIS](luis-reference-regions.md) 门户的“设置”  页面上进行管理。
 
 ## <a name="authoring-key"></a>创作密钥
 
-使用“设置”页面上的这个区域特定的单个创作密钥，可通过 [LUIS](luis-reference-regions.md) 门户和[创作 API](https://aka.ms/luis-authoring-api) 创作所有应用。 为方便起见，创作密钥每月可执行[有限](luis-boundaries.md)数量的终结点查询。
+使用“设置”页面上的这个区域特定的单个创作密钥，可通过 [LUIS](luis-reference-regions.md) 门户和[创作 API](https://aka.ms/luis-authoring-api) 创作所有应用  。 为方便起见，创作密钥每月可执行[有限](luis-boundaries.md)数量的终结点查询。
 
 [![LUIS 设置页](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

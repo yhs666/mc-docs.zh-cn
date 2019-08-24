@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 03/29/2019
 ms.date: 08/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: e5b74a77d34b27bc18ae4ec5f4c49de7224595c7
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: c7b992737447b4b91f2c8372ad8071d1ce1a3619
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819655"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538767"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -60,15 +60,75 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
     - 允许这些地址，才能从 VM 将数据写入到缓存存储帐户。
 - 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
     - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
-    
-    <!-- Notice: Pending the Manager's respond [XML file](https://aka.ms/site-recovery-public-ips)-->
-    
+- Site Recovery 服务终结点 IP 地址（在[中国的 Site Recovery 服务终结点](#site-recovery-ip-in-china)中提供），具体取决于目标位置。
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
 
+Site Recovery IP 地址范围如下：
 
-<!--Not Available on Storage.region useage on Mooncake-->
-<!-- Notice: Source Location: US East, China East To target location:　US Central, China North -->
-<!-- Not Available --Not Available on Waiting for the PM reply-->
+<!--MOONCAKE: CUSTOMIZE, UPDATE CAREFULLY-->
+    
+<a name="site-recovery-ip-in-china"></a>
+**目标** | **Site Recovery IP** |  **Site Recovery 监视 IP**
+--- | --- | ---
+中国东部 | 42.159.205.45 | 42.159.132.40
+中国北部 | 40.125.202.254 | 42.159.4.151
+中国东部 2 | 40.73.118.52 | 40.73.100.125          
+中国北部 2 | 40.73.35.193 | 40.73.33.230
+
+## <a name="example-nsg-configuration"></a>NSG 配置示例
+
+此示例演示如何为要复制的 VM 配置 NSG 规则。
+
+- 如果使用 NSG 规则控制出站连接，请对所有必需的 IP 地址范围使用端口 443 的“允许 HTTPS 出站”规则。
+- 此示例假设 VM 源位置是“中国东部”，目标位置是“中国中部”。
+
+### <a name="nsg-rules---china-east"></a>NSG 规则 - 中国东部
+
+<!--MOONCAKE: CORRECT ON Storage WITHOUT .ChinaEast-->
+
+1. 在 NSG 上为“Storage”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
+
+    <!--MOONCAKE: CORRECT ON Storage WITHOUT .ChinaEast-->
+    
+    ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则，如以下屏幕截图所示。
+
+    ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
+3. 为对应于目标位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
+    
+    <!--MOONCAKE: CORRECT ON China North | 40.125.202.254 | 42.159.4.151 -->
+    
+    **Location** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
+    --- | --- | ---
+    中国北部 | 40.125.202.254 | 42.159.4.151
+    
+    <!--MOONCAKE: CORRECT ON China North | 40.125.202.254 | 42.159.4.151-->
+
+### <a name="nsg-rules---china-north"></a>NSG 规则 - 中国北部
+
+必须创建这些规则，才能在故障转移后启用从目标区域到源区域的复制：
+
+<!--MOONCAKE: CORRECT ON Storage WITHOUT .chinanorth--> 
+
+1. 在 NSG 上为“Storage.chinanorth”创建出站 HTTPS (443) 安全规则。
+    
+    <!--MOONCAKE: CORRECT ON Storage WITHOUT .chinanorth--> 
+    
+2. 基于 NSG 规则为“AzureActiveDirectory”创建出站 HTTPS (443) 安全规则。
+
+3. 为对应于源位置的 Site Recovery IP 创建出站 HTTPS (443) 规则：
+    
+    <!--MOONCAKE: CORRECT ON China East | 42.159.205.45 | 42.159.132.40 -->
+    
+    **Location** | **Site Recovery IP 地址** |  **Site Recovery 监视 IP 地址**
+    --- | --- | ---
+    中国东部 | 42.159.205.45 | 42.159.132.40
+    
+    <!--MOONCAKE: CORRECT ON China East | 42.159.205.45 | 42.159.132.40 -->
+
+<!--MOONCAKE: CUSTOMIZE, UPDATE CAREFULLY-->
 
 ## <a name="network-virtual-appliance-configuration"></a>网络虚拟设备配置
 

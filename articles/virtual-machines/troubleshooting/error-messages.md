@@ -1,5 +1,5 @@
 ---
-title: Azure 中的常见 VM 错误代码 | Azure
+title: 了解在 Azure 中管理虚拟机时遇到的常见错误消息 | Azure
 description: 了解在 Azure 中预配和管理虚拟机时遇到的一些常见错误代码
 services: virtual-machines
 documentationcenter: ''
@@ -11,21 +11,21 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure
 origin.date: 05/22/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2f34f8ee97fcb606b8784857839b34c59d271a57
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 51d0a24cb92e8893705d7797d40298bc3c5d4005
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004099"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538887"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>了解在 Azure 中管理虚拟机时遇到的常见错误消息
 
 本文介绍在 Azure 中创建或管理虚拟机 (VM) 时可能会遇到的一些最常见的错误代码和消息。
 
 >[!NOTE]
-> 可以通过 [Azure 反馈](https://www.azure.cn/support/contact/)使用 #azerrormessage 标记给我们留言。
+> 可以通过 [Azure 反馈](https://support.azure.cn/en-us/support/contact/)使用 #azerrormessage 标记给我们留言。
 
 <!--Not Available on on this page for feedback or-->
 
@@ -121,8 +121,8 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  InvalidParameter  |  如果未预配 VM 代理，则无法将证书添加到 VM。  |
 |  InvalidParameter  |  LUN {0} 处已存在磁盘。  |
 |  InvalidParameter  |  无法创建 VM，因为请求的大小 {0} 不可用于当前分配有可用性集的群集。 可用的大小为: {1}。 访问 https://aka.ms/azure-resizevm 详细了解重设 VM 大小的策略。  |
-|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 可用于当前区域的大小为: {1}。 访问 https://www.azure.cn/zh-cn/home/features/products-by-region 详细了解每个区域可用的 VM 大小。  |
-|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 访问 https://www.azure.cn/zh-cn/home/features/products-by-region 详细了解每个区域可用的 VM 大小。  |
+|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 可用于当前区域的大小为: {1}。 访问 https://www.azure.cn/home/features/products-by-region 详细了解每个区域可用的 VM 大小。  |
+|  InvalidParameter  |  请求的 VM 大小 {0} 不可用于当前区域。 访问 https://www.azure.cn/home/features/products-by-region 详细了解每个区域可用的 VM 大小。  |
 |  InvalidParameter  |  Windows 管理员用户名的长度不能超过 {0} 个字符，并且不能以句点(.)结束或包含以下字符: {1}。  |
 |  InvalidParameter  |  Windows 计算机名的长度不能超过 {0} 个字符，并且不能全部都是数字或包含以下字符: {1}。  |
 |  MissingMoveDependentResources  |  移动资源请求不包含所有从属资源。 请查看详细信息了解缺少的资源 ID。  |
@@ -217,6 +217,6 @@ Azure VM 使用以下 JSON 格式提供错误响应：
 |  VMStartTimedOut  |  VM“{0}”未在分配的时间内启动。 该 VM 仍可能成功启动。 请于稍后检查电源状态。  |
 
 ## <a name="next-steps"></a>后续步骤
-如果需要更多帮助，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择 **获取支持**。
+如果需要更多帮助，可以联系 [Azure 支持](https://support.azure.cn/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。
 
 <!-- Update_Description: wording update -->

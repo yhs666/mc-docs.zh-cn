@@ -8,108 +8,40 @@ ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 05/20/2019
+origin.date: 05/15/2019
+ms.date: 08/19/2019
 ms.author: carlrab
-ms.openlocfilehash: c752ebc522814bf99e538ee2922c813fa47f2fdf
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: bd940b64a897c4335ea520c24a3ca0db7434880c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629172"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544166"
 ---
 # <a name="sql-database-release-notes"></a>SQL 数据库发行说明
 
-本文列出了 SQL 数据库服务和 SQL 数据库文档中的新功能和改进。
+本文列出了当前以公共预览版提供的 SQL 数据库功能。
 
 ## <a name="features-in-public-preview"></a>处于公共预览版的功能
 
 | 功能 | 详细信息 |
 | ---| --- |
-| 无服务器计算层 | 有关信息，请参阅 [SQL 数据库无服务器（预览版）](sql-database-serverless.md)。|
-| 弹性数据库作业 | 有关信息，请参阅[创建、配置和管理弹性作业](elastic-jobs-overview.md) |
-| 弹性事务 | [跨云数据库的分布式事务](sql-database-elastic-transactions-overview.md) |
-| 弹性查询 | 有关信息，请参阅[弹性查询概述](sql-database-elastic-query-overview.md) |
-| 数据发现和分类  |有关信息，请参阅 [Azure SQL 数据库和 SQL 数据仓库数据发现和分类](sql-database-data-discovery-and-classification.md)|
-| 托管实例的透明数据加密 (TDE) 和自带密钥 (BYOK) |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)|
-| 使用单一数据库的超大规模服务层级 |有关信息，请参阅[最多 100 TB 的“超大规模”服务层级](sql-database-service-tier-hyperscale.md)|
-| Azure 门户中的查询编辑器 |有关信息，请参阅[使用 Azure 门户的 SQL 查询编辑器进行连接并查询数据](sql-database-connect-query-portal.md)|
 |估计非重复计数|有关信息，请参阅[估计非重复计数](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
-|行存储上的批处理模式（在兼容性级别 150 下）|有关信息，请参阅[行存储上的批处理模式](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
-|内存授予反馈（行模式）（在兼容性级别 150 下）|有关信息，请参阅[内存授予反馈（行模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
-|表变量延迟编译（在兼容性级别 150 下）|有关信息，请参阅[表变量延迟的编译](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
-
-## <a name="may-2019"></a>2019 年 5 月
-
-### <a name="service-improvements"></a>服务改进
-
-| 服务改进 | 详细信息 |
-| --- | --- |
-|“超大规模”服务层级| 有关详细信息，请参阅[最多 100 TB 的“超大规模”服务层级](sql-database-service-tier-hyperscale.md)。|
-|无服务器计算层| 有关详细信息，请参阅 [SQL 数据库无服务器（预览版）](sql-database-serverless.md)。|
-
-## <a name="march-2019"></a>2019 年 3 月
-
-### <a name="service-improvements"></a>服务改进
-
-| 服务改进 | 详细信息 |
-| --- | --- |
-| 正式版：支持针对 Azure SQL 数据库的读取扩展 | 有关详细信息，请参阅[读取扩展](sql-database-read-scale-out.md)|
+|行存储上的批处理模式（在兼容性级别 150 下）|有关信息，请参阅[行存储上的批处理模式](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)。|
+| 数据发现和分类  |有关信息，请参阅 [Azure SQL 数据库和 SQL 数据仓库数据发现和分类](sql-database-data-discovery-and-classification.md)。|
+| 弹性数据库作业 | 有关信息，请参阅[创建、配置和管理弹性作业](elastic-jobs-overview.md)。 |
+| 弹性查询 | 有关信息，请参阅[弹性查询概述](sql-database-elastic-query-overview.md)。 |
+| 弹性事务 | [跨云数据库的分布式事务](sql-database-elastic-transactions-overview.md)。 |
+| 内存授予反馈（行模式）（在兼容性级别 150 下）|有关信息，请参阅[内存授予反馈（行模式）](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)。|
+| Azure 门户中的查询编辑器 |有关信息，请参阅[使用 Azure 门户的 SQL 查询编辑器进行连接并查询数据](sql-database-connect-query-portal.md)。|
+| 使用托管实例重新创建已删除的数据库 |有关信息，请参阅[在 Azure SQL 托管实例中重新创建已删除的数据库](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)。|
+| 使用托管实例进行复制 |有关信息，请参阅[在 Azure SQL 数据库托管实例数据库中配置复制](replication-with-sql-database-managed-instance.md)。|
+| 无服务器计算层 | 有关信息，请参阅 [SQL 数据库无服务器（预览版）](sql-database-serverless.md)。|
+|表变量延迟编译（在兼容性级别 150 下）|有关信息，请参阅[表变量延迟的编译](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)。|
+| 使用托管实例进行威胁检测 |有关信息，请参阅[在 Azure SQL 数据库托管实例中配置威胁检测](sql-database-managed-instance-threat-detection.md)。|
+| 托管实例的透明数据加密 (TDE) 和自带密钥 (BYOK) |有关信息，请参阅[使用 Azure Key Vault 中由客户管理的密钥进行 Azure SQL 透明数据加密：自带密钥支持](transparent-data-encryption-byok-azure-sql.md)。|
 | &nbsp; |
 
-### <a name="documentation-improvements"></a>文档改进
+## <a name="contribute-to-content"></a>参与内容制作
 
-| 文档改进 | 详细信息 |
-| --- | --- |
-| 添加了单一数据库的日志限制|有关详细信息，请参阅[单一数据库 vCore 资源限制](sql-database-vcore-resource-limits-single-databases.md)。|
-| 添加了弹性池和共用数据库的日志限制|有关详细信息，请参阅[弹性池 vCore 资源限制](sql-database-vcore-resource-limits-elastic-pools.md)。|
-| 添加了事务日志速率调控| 为[事务日志速率调控](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)添加了新内容。|
-| 更新了单一数据库和弹性池的 PowerShell 示例，使其能够使用 az.sql 模块 | 有关详细信息，请参阅[单一数据库和弹性池的 PowerShell 示例](sql-database-powershell-samples.md#single-database-and-elastic-pools)。|
-| &nbsp; |
-
-## <a name="february-2019"></a>2019 年 2 月
-
-### <a name="service-improvements"></a>服务改进
-
-| 服务改进 | 详细信息 |
-| --- | --- |
-|托管实例支持数据库重命名 | 有关更多详细信息，请参阅 [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) 和 [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) 语法。|
-|SQL 数据库充当流分析的参考数据源。 | 有关详细信息，请参阅[流分析](/stream-analytics/)。|
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>文档改进
-
-| 文档改进 | 详细信息 |
-| --- | --- |
-|更新了基于 DTU 的购买模型的 tempdb 大小 | 有关详细信息，请参阅 [SQL 数据库中的 Tempdb 数据库](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)。|
-| &nbsp; |
-
-
-## <a name="january-2019"></a>2019 年 1 月
-
-### <a name="service-improvements"></a>服务改进
-
-| 服务改进 | 详细信息 |
-| --- | --- |
-| 计算资源的其他粒度选项 | [单一数据库](sql-database-vcore-resource-limits-single-databases.md)和[弹性池](sql-database-vcore-resource-limits-elastic-pools.md)的“常规用途”和“业务关键”服务层现在有更多细致的计算选项。|
-| 高级威胁检测功能已重命名为“高级数据安全” | 单一数据库和弹性池的高级威胁检测功能已重命名为[高级数据安全](sql-advanced-threat-protection.md)。 |
-| &nbsp; |
-
-### <a name="documentation-improvements"></a>文档改进
-
-| 文档改进 | 详细信息 |
-| --- | --- |
-| 更新了使用 Transact-SQL 脚本进行的作业自动化的内容 | 更新并澄清了将[使用 Transact-SQL 脚本进行的作业自动化](sql-database-job-automation-overview.md)用于单一数据库和弹性池的内容。 |
-| 刷新了所有快速入门和教程 | [文档](/sql-database)中的所有快速入门和教程都已根据 Azure 门户中的更改进行更新和刷新 |
-| 添加了快速入门概述指南 | 添加了[单一数据库](sql-database-quickstart-guide.md)的快速入门概述指南 |
-| 添加了 SQL 数据库术语表 | 此[术语表](sql-database-glossary-terms.md)文章提供了一个最终列表，其中包含 SQL 数据库术语以及在上下文中解释术语的主要概念页的链接。 |
-| &nbsp; |
-
-## <a name="contribute-to-content-improvement"></a>参与内容改进
-
-Azure SQL 文档集是开源的。 采用开源方式有几项优势：
-
-- 开源存储库公开进行计划，可以通过反馈了解用户最需要什么样的文档。
-- 开源存储库公开进行评审，可以在初次发布时就发布最有用的内容。
-- 开源存储库公开进行更新，更容易持续改进内容。
-
+若要参与 Azure SQL 数据库文档制作，请参阅[文档参与者指南](https://docs.microsoft.com/contribute/)。

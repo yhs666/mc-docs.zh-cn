@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 08/09/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: fc4028ccc7120a793018c9fae5f72b4bf4790e97
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 28fbd36dc386d248af0864b3815a0eaa1c056e3c
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570005"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539015"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM 的定价指南
 
@@ -117,11 +117,11 @@ ms.locfileid: "67570005"
 
 | BYOL 权益 | 说明 |
 |-----|-----|
-| 节省费用  | 如果工作负荷将连续运行 SQL Server Standard 或 Enterprise 超过 10 个月  ，则自带 SQL Server 许可证比按使用情况付费更具成本效益。 |
-| 长期节省  | 通常，若购买或续订 SQL Server 许可证，前 3 年每年要便宜 30%  。 此外，3 年之后，无需再续订许可证，只需支付软件保障费用。 此时，它将便宜两倍  。 |
+| 节省费用  | [Azure 混合权益](https://www.azure.cn/pricing/hybrid-use-benefit/)可节省高达 55% 的成本。 |
 | 免费的被动辅助副本  | 自带许可证的另一项好处是每个 SQL Server 免费许可 1 个被动辅助副本以实现高可用性。 这会高度可用的 SQL Server 部署（例如使用 Always On 可用性组）的许可成本减少了一半。 通过故障转移服务器软件保障权益，可享用被动辅助副本的运行权限。 |
 
 <!-- URL is invalid on [free licensing for one passive secondary replica](https://www.azure.cn/pricing/licensing-faq/)-->
+<!-- Not Available on [Switch licensing model](virtual-machines-windows-sql-ahb.md)-->
 
 若要使用上述某个自带许可证映像创建 SQL Server 2017 Azure VM，请参阅前缀为“{BYOL}”的 VM：
 

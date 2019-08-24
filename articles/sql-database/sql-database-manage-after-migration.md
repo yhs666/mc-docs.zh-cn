@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/13/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 64532148c31354f0a632255fc39de916718b9418
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/19/2019
+ms.openlocfilehash: bf9e5e515d4607c9f4149ab6e4676628988b3825
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854892"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544274"
 ---
 # <a name="new-dba-in-the-cloud---managing-your-single-and-pooled-databases-in-azure-sql-database"></a>云中的新 DBA - 管理 Azure SQL 数据库中单一和共用数据库
 
@@ -30,10 +30,33 @@ ms.locfileid: "64854892"
 
 本文讨论 Azure SQL 数据库的一些核心特性。作为一个平台，Azure SQL 数据库非常便于你在使用单一数据库和弹性池中的共用数据库时加以利用。 这些特征包括：
 
+- 使用 Azure 门户监视数据库
 - 业务连续性和灾难恢复 (BCDR)
 - 安全性与符合性
 - 智能数据库监视和维护
 - 数据移动
+
+> [!NOTE]
+> 本文适用于 Azure SQL 数据库中的下列部署选项：单一数据库和弹性池。 它不适用于 SQL 数据库中的托管实例部署选项。
+
+## <a name="monitor-databases-using-the-azure-portal"></a>使用 Azure 门户监视数据库
+
+在 [Azure 门户](https://portal.azure.cn/)中，可以通过选择数据库并单击“监视”  图表来监视各个数据库的利用率。 这将显示“指标”  窗口，可通过单击“编辑图表”  按钮来对其进行更改。 添加以下指标：
+
+- CPU 百分比
+- DTU 百分比
+- 数据 IO 百分比
+- 数据库大小百分比
+
+添加这些指标后，可以继续在“监视”  图表上查看它们，并可在“指标”  窗口上查看更多详细信息。 **DTU** 的平均利用率百分比。 有关服务层级的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)和[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)文章。  
+
+![在服务层监视数据库性能。](./media/sql-database-single-database-monitoring/sqldb_service_tier_monitoring.png)
+
+还可针对性能指标配置警报。 在“指标”  窗口中单击“新建预警规则”  按钮。 按照向导说明来配置警报。 可选择在指标超出或低于特定阈值时显示警报。
+
+例如，如果期望数据库上的工作负荷增长，可选择配置在数据库的任意性能指标达到 80% 时发出电子邮件警报。 可以将此警报用作预警，以确定你何时需要切换到下一个更高的计算大小。
+
+性能指标还可以帮助你确定是否能够降级到更低的计算大小。 假定正在使用标准 S2 数据库，所有性能指标均显示该数据库在任意给定时间的平均使用率都不超过 10%。 采用标准 S1 很可能使该数据库正常工作。 但是，在决定转换到更低的计算大小之前，请注意出现峰值或波动情况的工作负荷。
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr"></a>业务连续性和灾难恢复 (BCDR)
 
@@ -75,7 +98,9 @@ SQL 数据库严肃对待安全性和隐私性。 SQL 数据库中的安全性�
 - 保护实际数据（[透明数据加密 [TDE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 和 [Always Encrypted [AE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)）。 
 - 控制对敏感和特权数据的访问（[行级安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)和[动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)）。
 
-### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>SQL 数据库中提供哪些用户身份验证方法
+[Azure 安全中心](/security-center/)为 Azure、本地和其他云中运行的工作负载提供集中式安全管理。 你可以查看是否已在所有资源上配置诸如[审计](sql-database-auditing.md)和[透明数据加密 [TDE]](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)之类的基本 SQL 数据库保护，并根据你自己的需求创建策略。
+
+### <a name="what-user-authentication-methods-are-offered-in-sql-database"></a>SQL 数据库中提供了哪些用户身份验证方法
 
 SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#authentication)：
 
@@ -122,7 +147,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>要通过哪个端口连接到 SQL 数据库
 
-端口 1433。 SQL 数据库通过此端口通信。 若要从企业网络内部建立连接，必须在组织的防火墙设置中添加出站规则。 作为一项准则，应避免在 Azure 边界外部公开端口 1433。 可以使用 [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps) 在 Azure 中运行 SSMS。 此操作不需要与端口 1433 端口建立出站连接，因为 IP 是静态的，数据库可以只对 RemoteApp 开放，并支持多重身份验证 (MFA)。
+端口 1433。 SQL 数据库通过此端口通信。 若要从企业网络内部建立连接，必须在组织的防火墙设置中添加出站规则。 作为一项准则，应避免在 Azure 边界外部公开端口 1433。
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>如何监控服务器上以及 SQL 数据库中的数据库上的活动
 
@@ -154,7 +179,7 @@ SQL 数据库中提供[两种身份验证方法](sql-database-control-access.md#
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>如何限制对数据库中敏感数据的访问
 
-每个应用程序在数据库中都有一个特定的敏感数据位，需要防止向任何人透露该位。 组织中的特定人员需要查看此数据，但是，其他人不应能够查看此数据。 一个示例是员工工资。 经理需要访问其下属的工资信息，但是，单个团队成员不应有权访问其同级的工资信息。 另一种情况是数据开发人员在开发或测试阶段可能要与敏感数据（例如客户的 SSN）交互。 同样，不需要向开发人员公开此信息。 在此情况下，敏感数据需要掩码，或者根本不公开。 SQL 数据库提供以下两种方案用于防止未经授权的用户查看敏感数据：
+每个应用程序在数据库中都有一个特定的敏感数据位，需要防止向任何人透露该位。 组织中的特定人员需要查看此数据，但是，其他人不应能够查看此数据。 一个示例是员工工资。 经理需要访问其直接下属的工资信息，但是，单个团队成员不应有权访问其同级的工资信息。 另一种情况是数据开发人员在开发或测试阶段可能要与敏感数据（例如客户的 SSN）交互。 同样，不需要向开发人员公开此信息。 在此情况下，敏感数据需要掩码，或者根本不公开。 SQL 数据库提供以下两种方案用于防止未经授权的用户查看敏感数据：
 
 [动态数据掩码](sql-database-dynamic-data-masking-get-started.md)是一种数据掩码功能，它通过掩码应用层上的非特权用户来限制敏感数据的公开。 可以定义屏蔽规则来创建屏蔽模式（例如，只显示国家/地区 ID 号的最后 4 位数：XXX-XX-0000，并将大部分编号标记为 X），并确定哪些用户被排除在屏蔽规则之外。 掩码是即时发生的，对于不同的数据类别，可以使用不同的掩码功能。 动态数据掩码可以自动检测数据库中的敏感数据并对其应用掩码。
 
@@ -171,7 +196,7 @@ TDE 中有一个双密钥层次结构 - 每个用户数据库中的数据都通�
 - 由平台 - SQL 数据库自动管理。
 - 由你使用 [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md)（用作密钥存储）进行管理。
 
-为方便起见，透明数据加密的主密钥默认由 SQL 数据库服务托管。 如果组织想要控制主密钥，可以使用 Azure Key Vault (sql-database-always-encrypted-azure-key-vault.md) 作为密钥存储。 通过使用 Azure Key Vault，组织假定控制密钥预配、轮换使用和权限控制。 [轮换或切换 TDE 主密钥类型](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)非常快，因为它仅重新加密 DEK。 对于安全性与数据管理角色分开的组织来说，安全管理员可以为 Azure Key Vault 中的 TDE 主密钥预配密钥材料，并为数据库管理员提供 Azure Key Vault 密钥标识符，用于在服务器上进行静态加密。 Key Vault 的设计可确保 Microsoft 不会看到或提取任何加密密钥。 此外，可对组织的密钥进行集中式管理。
+为方便起见，透明数据加密的主密钥默认由 SQL 数据库服务托管。 如果组织想要控制主密钥，可以使用 Azure Key Vault (sql-database-always-encrypted-azure-key-vault.md) 作为密钥存储。 通过使用 Azure Key Vault，组织假定控制密钥预配、轮换使用和权限控制。 [轮换或切换 TDE 主密钥类型](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql-key-rotation)非常快，因为它仅重新加密 DEK。 对于安全性与数据管理角色分开的组织来说，安全管理员可以为 Azure Key Vault 中的 TDE 主密钥预配密钥材料，并为数据库管理员提供 Azure Key Vault 密钥标识符，用于在服务器上进行静态加密。 Key Vault 的设计可确保 Azure 不会看到或提取任何加密密钥。 此外，可对组织的密钥进行集中式管理。
 
 #### <a name="always-encrypted"></a>始终加密
 

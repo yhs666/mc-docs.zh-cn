@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 6dae00eef422892d5b853e30c99f95e24efdc373
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/19/2019
+ms.openlocfilehash: 09774805f08b2ee8d3b5a82dc80f57a677a042a3
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629155"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544102"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Azure SQL 数据库和 SQL 数据仓库 IP 防火墙规则
 
@@ -26,6 +26,8 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 > [!NOTE]
 > 本文适用于 Azure SQL 服务器，同时也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。
+> [!IMPORTANT]
+> 本文不  适用于 **Azure SQL 数据库托管实例**。 有关所需网络配置的详细信息，请参阅以下有关[连接到托管实例](sql-database-managed-instance-connect-app.md)的文章。
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>将虚拟网络规则作为 IP 规则的替代
 
@@ -50,7 +52,7 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 - **数据库级别 IP 防火墙规则：**
 
-  这些规则允许客户端访问同一 SQL 数据库服务器内的某些（安全）数据库。 可以为每个数据库创建这些规则（包括 master 数据库），它们将存储在单独的数据库中。 只有在配置了第一个服务器级别防火墙后，才只能使用 Transact-SQL 语句创建和管理用于 master 数据库和用户数据库的数据库级别 IP 防火墙规则。 如果在数据库级别 IP 防火墙规则中指定的 IP 地址范围超出了在服务器级别 IP 防火墙规则中指定的范围，只有 IP 地址处于数据库级别范围内的客户端才能访问数据库。 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级别 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://msdn.microsoft.com/library/dn270010.aspx)。
+  这些规则允许客户端访问同一 SQL 数据库服务器内的某些（安全）数据库。 可以为每个数据库创建这些规则（包括 master 数据库），它们将存储在单独的数据库中  。 只有在配置了第一个服务器级别防火墙后，才只能使用 Transact-SQL 语句创建和管理用于 master 数据库和用户数据库的数据库级别 IP 防火墙规则。 如果在数据库级别 IP 防火墙规则中指定的 IP 地址范围超出了在服务器级别 IP 防火墙规则中指定的范围，只有 IP 地址处于数据库级别范围内的客户端才能访问数据库。 对于每个数据库，最多可以有 128 个数据库级别 IP 防火墙规则。 若要详细了解如何配置数据库级别 IP 防火墙规则，请参阅本文后面部分中的示例，以及 [sp_set_database_firewall_rule（Azure SQL 数据库）](https://msdn.microsoft.com/library/dn270010.aspx)。
 
 ### <a name="recommendation"></a>建议
 
@@ -100,11 +102,11 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 ### <a name="from-database-overview-page"></a>从数据库概述页
 
-1. 若要在数据库概述页中设置服务器级别 IP 防火墙规则，请单击工具栏上的“设置服务器防火墙”，如下图所示：此时会打开 SQL 数据库服务器的“防火墙设置”页。
+1. 若要在数据库概述页中设置服务器级别 IP 防火墙规则，请单击工具栏上的“设置服务器防火墙”  ，如下图所示：此时会打开 SQL 数据库服务器的“防火墙设置”页。 
 
       ![服务器 IP 防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule.png)
 
-2. 单击工具栏上的“添加客户端 IP”以添加当前使用的计算机的 IP 地址，并单击“保存”。 此时，系统针对当前 IP 地址创建服务器级别 IP 防火墙规则。
+2. 单击工具栏上的“添加客户端 IP”  以添加当前使用的计算机的 IP 地址，并单击“保存”  。 此时，系统针对当前 IP 地址创建服务器级别 IP 防火墙规则。
 
       ![设置服务器级别 IP 防火墙规则](./media/sql-database-get-started-portal/server-firewall-rule-set.png)
 
@@ -112,9 +114,9 @@ Azure [SQL 数据库](sql-database-technical-overview.md)和 [SQL 数据仓库](
 
 此时会打开服务器的概览页，其中显示了完全限定的服务器名称（例如 **mynewserver20170403.database.chinacloudapi.cn**），并提供了其他配置的选项。
 
-1. 若要从服务器概述页设置服务器级规则，请在“设置”下方单击左侧菜单中的“防火墙”：
+1. 若要从服务器概述页设置服务器级规则，请在“设置”下方单击左侧菜单中的“防火墙”  ：
 
-2. 单击工具栏上的“添加客户端 IP”以添加当前使用的计算机的 IP 地址，并单击“保存”。 此时，系统针对当前 IP 地址创建服务器级别 IP 防火墙规则。
+2. 单击工具栏上的“添加客户端 IP”  以添加当前使用的计算机的 IP 地址，并单击“保存”  。 此时，系统针对当前 IP 地址创建服务器级别 IP 防火墙规则。
 
 ## <a name="manage-ip-firewall-rules-using-transact-sql"></a>使用 Transact-SQL 管理 IP 防火墙规则
 
@@ -248,6 +250,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="next-steps"></a>后续步骤
 
+- 确认公司网络环境允许来自 Azure 数据中心使用的计算 IP 地址范围（包括 SQL 范围）的入站通信。 可能需要将这些 IP 地址加入允许列表，请参阅 [Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=42064)  
 - 有关介绍了如何创建服务器级别 IP 防火墙规则的快速入门，请参阅[创建 Azure SQL 数据库](sql-database-single-database-get-started.md)。
 - 有关从开放源或第三方应用程序连接到 Azure SQL 数据库的帮助，请参阅 [SQL 数据库的客户端快速入门代码示例](https://msdn.microsoft.com/library/azure/ee336282.aspx)。
 - 有关可能需要打开的其他端口的信息，请参阅 **SQL 数据库：外部与内部**部分（在[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)中）
@@ -255,4 +258,3 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 <!--Image references-->
 [1]: ./media/sql-database-firewall-configure/sqldb-firewall-1.png
-<!--Update_Description: update Global CLI 2.0 links to Mooncake CLI 2.0 links-->

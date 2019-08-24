@@ -2,19 +2,20 @@
 title: 了解 Azure 流分析中的作业监视
 description: 本文介绍如何在 Azure 流分析中监视作业
 services: stream-analytics
-author: rockboyfor
-ms.author: v-lingliwu
+author: lingliw
+ms.author: v-lingwu
 manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: 025e9f51afb73cd390a555c836ab566a5d36f971
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+origin.date: 08/09/2019
+ms.date: 06/21/2019
+ms.openlocfilehash: 8df040a2d4f30b0d03f601d1bda9be838175df92
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609831"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969583"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>了解流分析作业监视以及如何监视查询
 

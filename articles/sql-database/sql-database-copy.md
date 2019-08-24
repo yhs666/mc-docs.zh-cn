@@ -9,20 +9,20 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: ''
+ms.reviewer: carlrab
 manager: digimobile
-origin.date: 04/11/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: d8015b103b4f3dd963cc55d4124f96f1f4f94a2d
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 06/03/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: c235a1df79e5f9d30f034980e7993feb329261fc
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854476"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544372"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>复制 Azure SQL 数据库的事务一致性副本
 
-通过 Azure SQL 数据库，可以以多种方式在相同或不同的服务器上创建现有 Azure SQL 数据库的事务一致性副本。 可以使用 Azure 门户、PowerShell 或 T-SQL 复制 SQL 数据库。 
+通过 Azure SQL 数据库，可以以多种方式在相同或不同的服务器上创建现有 Azure SQL 数据库（[单一数据库](sql-database-single-database.md)）的事务一致性副本。 可以使用 Azure 门户、PowerShell 或 T-SQL 复制 SQL 数据库。 
 
 ## <a name="overview"></a>概述
 
@@ -43,15 +43,13 @@ ms.locfileid: "64854476"
 
 ## <a name="copy-a-database-by-using-the-azure-portal"></a>使用 Azure 门户复制数据库
 
-要使用 Azure 门户复制数据库，请打开数据库页，并单击“复制”。 
+要使用 Azure 门户复制数据库，请打开数据库页，并单击“复制”  。 
 
    ![数据库复制](./media/sql-database-copy/database-copy.png)
 
 ## <a name="copy-a-database-by-using-powershell"></a>使用 PowerShell 复制数据库
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 若要使用 PowerShell 复制数据库，请使用 [New-AzSqlDatabaseCopy](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet。 
 

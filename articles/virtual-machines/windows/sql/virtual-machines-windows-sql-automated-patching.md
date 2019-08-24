@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 03/07/2018
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 13908b0621f4ce2dd9bf50d20378ffb6125ea3bf
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: e6022ca7bc37354510448fb2204f56636f60ef8c
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570022"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538818"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Azure 虚拟机中 SQL Server 的自动修补 (Resource Manager)
 > [!div class="op_single_selector"]
@@ -82,13 +82,17 @@ ms.locfileid: "67570022"
 ### <a name="new-vms"></a>新的 VM
 在 Resource Manager 部署模型中创建新的 SQL Server 虚拟机时，可以使用 Azure 门户配置自动修补。
 
-在“SQL Server 设置”  边栏选项卡中，选择“自动修补”  。 下面的 Azure 门户屏幕截图显示了“SQL 自动修补”  边栏选项卡。
+在“SQL Server 设置”  选项卡中，选择“自动修补”  下的“更改配置”  。 下面的 Azure 门户屏幕截图显示了“SQL 自动修补”  边栏选项卡。
 
 ![Azure 门户中的 SQL 自动修补](./media/virtual-machines-windows-sql-automated-patching/azure-sql-arm-patching.png)
 
 若要了解上下文，请参阅有关[在 Azure 中预配 SQL Server 虚拟机](virtual-machines-windows-portal-sql-server-provision.md)的完整主题。
 
 ### <a name="existing-vms"></a>现有 VM
+
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
+
 对于现有的 SQL Server 虚拟机，请选择 SQL Server 虚拟机。 然后选择“设置”边栏选项卡的“SQL Server 配置”部分。  
 
 ![现有 VM 的 SQL 自动修补](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-existing-vms.png)
@@ -96,6 +100,9 @@ ms.locfileid: "67570022"
 在“SQL Server 配置”  边栏选项卡的“自动修补”部分中，单击“编辑”  按钮。
 
 ![配置现有 VM 的 SQL 自动修补](./media/virtual-machines-windows-sql-automated-patching/azure-sql-rm-patching-configuration.png)
+
+<!--Not Available on virtual-machines-windows-sql-manage-portal.md-->
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
 
 完成后，单击“SQL Server 配置”边栏选项卡底部的“确定”按钮保存更改。  
 

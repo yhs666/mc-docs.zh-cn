@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure 中 VM 应用程序访问问题 | Azure
+title: 排查 Azure 中虚拟机上的应用程序连接问题 | Azure
 description: 使用以下详细故障排除步骤可以查明连接到 Azure 中虚拟机上运行的应用程序时遇到的问题。
 services: virtual-machines
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 10/31/2018
-ms.date: 11/26/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: a926c2b67b672e27ed7564cc706d91ac6f1c793a
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: b0e4f4a0ad8d8bc4b0cdffa244cfae8114b0df70
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674627"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539124"
 ---
 # <a name="troubleshoot-application-connectivity-issues-on-virtual-machines-in-azure"></a>排查 Azure 中虚拟机上的应用程序连接问题
 
@@ -33,19 +33,19 @@ ms.locfileid: "52674627"
 * [对与基于 Windows 的 Azure 虚拟机的远程桌面连接进行故障排除](troubleshoot-rdp-connection.md)
 * [对与基于 Linux 的 Azure 虚拟机的 Secure Shell (SSH) 连接进行故障排除](troubleshoot-ssh-connection.md)。
 
-如果对本文中的任何观点存在疑问，可以联系 [MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/forums/) 上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/contact/)并选择“微信支持”。
+如果对本文中的任何观点存在疑问，可以联系 [Azure 支持](https://support.azure.cn/en-us/support/contact/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/support-azure/)提交请求。
 
 ## <a name="quick-start-troubleshooting-steps"></a>快速入门故障排除步骤
 如果在连接到应用程序时发生问题，请尝试以下一般故障排除步骤。 执行每个步骤之后，尝试重新连接到应用程序：
 
 * 重启虚拟机
 * 重新创建终结点/防火墙规则/网络安全组 (NSG) 规则
-  * [Resource Manager 模型 - 管理网络安全组](../../virtual-network/manage-network-security-group.md)
-  * [经典模型 - 管理云服务终结点](../../cloud-services/cloud-services-enable-communication-role-instances.md)
+    * [Resource Manager 模型 - 管理网络安全组](../../virtual-network/manage-network-security-group.md)
+    * [经典模型 - 管理云服务终结点](../../cloud-services/cloud-services-enable-communication-role-instances.md)
 * 从不同的位置（例如不同的 Azure 虚拟网络）进行连接
 * 重新部署虚拟机
-  * [重新部署 Windows VM](redeploy-to-new-node-windows.md)
-  * [重新部署 Linux VM](redeploy-to-new-node-linux.md)
+    * [重新部署 Windows VM](redeploy-to-new-node-windows.md)
+    * [重新部署 Linux VM](redeploy-to-new-node-linux.md)
 * 重新创建虚拟机
 
 有关详细信息，请参阅[对终结点连接（RDP/SSH/HTTP 等故障）进行故障排除](https://social.msdn.microsoft.com/Forums/azure/538a8f18-7c1f-4d6e-b81c-70c00e25c93d/troubleshooting-endpoint-connectivity-rdpsshhttp-etc-failures?forum=WAVirtualMachinesforWindows)。
@@ -56,15 +56,15 @@ ms.locfileid: "52674627"
 ![对无法启动应用程序进行故障排除](./media/virtual-machines-common-troubleshoot-app-connection/tshoot_app_access1.png)
 
 1. 在 Azure 虚拟机上运行的应用程序。
-   * 应用程序本身是否正常运行？
+    * 应用程序本身是否正常运行？
 2. Azure 虚拟机。
-   * VM 本身是否正常运行并响应请求？
+    * VM 本身是否正常运行并响应请求？
 3. Azure 网络终结点。
-   * 用于经典部署模型中虚拟机的云服务终结点。
-   * 用于 Resource Manager 部署模型中虚拟机的网络安全组和入站 NAT 规则。
-   * 流量是否可以通过预期的端口从用户流向 VM/应用程序？
+    * 用于经典部署模型中虚拟机的云服务终结点。
+    * 用于 Resource Manager 部署模型中虚拟机的网络安全组和入站 NAT 规则。
+    * 流量是否可以通过预期的端口从用户流向 VM/应用程序？
 4. Internet 边缘设备。
-   * 是否有防火墙规则阻止流量正常流动？
+    * 是否有防火墙规则阻止流量正常流动？
 
 对于通过站点到站点 VPN 或 ExpressRoute 连接访问应用程序的客户端计算机，可能会导致问题的主要区域是应用程序和 Azure 虚拟机。
 
@@ -101,8 +101,8 @@ ms.locfileid: "52674627"
 * 目标 VM 上的主机防火墙允许入站请求和出站响应流量。
 * 目标 VM 上运行的入侵检测或网络监视软件允许流量。
 * 云服务终结点或网络安全组允许流量：
-  * [经典模型 - 管理云服务终结点](../../cloud-services/cloud-services-enable-communication-role-instances.md)
-  * [Resource Manager 模型 - 管理网络安全组](../../virtual-network/manage-network-security-group.md)
+    * [经典模型 - 管理云服务终结点](../../cloud-services/cloud-services-enable-communication-role-instances.md)
+    * [Resource Manager 模型 - 管理网络安全组](../../virtual-network/manage-network-security-group.md)
 * VM 中在测试 VM 和 VM 之间的路径运行的单独组件（例如负载均衡器或防火墙）允许流量。
 
 在基于 Windows 的虚拟机上，使用具有高级安全性的 Windows 防火墙确定防火墙规则是否排除应用程序的入站和出站流量。
@@ -119,21 +119,21 @@ ms.locfileid: "52674627"
 
 * 对于使用经典部署模型创建的 VM：
 
-  * 确保 VM 的终结点配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
-  * 确保终结点上的访问控制列表 (ACL) 不会阻止来自 Internet 的传入流量。
-  * 有关详细信息，请参阅[如何对虚拟机设置终结点](../windows/classic/setup-endpoints.md)。
+    * 确保 VM 的终结点配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
+    * 确保终结点上的访问控制列表 (ACL) 不会阻止来自 Internet 的传入流量。
+    * 有关详细信息，请参阅[如何对虚拟机设置终结点](../windows/classic/setup-endpoints.md)。
 * 对于使用 Resource Manager 部署模型创建的 VM：
 
-  * 确保 VM 的入站 NAT 规则配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
-  * 确保网络安全组允许入站请求和出站响应流量。
-  * 有关详细信息，请参阅[什么是网络安全组？](../../virtual-network/security-overview.md)
+    * 确保 VM 的入站 NAT 规则配置允许传入流量，尤其是协议（TCP 或 UDP）及公用和专用端口号。
+    * 确保网络安全组允许入站请求和出站响应流量。
+    * 有关详细信息，请参阅[什么是网络安全组？](../../virtual-network/security-overview.md)
 
 如果虚拟机或终结点是负载均衡集的成员，则：
 
 * 验证探测协议（TCP 或 UDP）和端口号是否正确。
 * 如果探测协议和端口与负载均衡集协议和端口不同，则：
-  * 验证应用程序是否在探测协议（TCP 或 UDP）和端口号（在目标 VM 上使用 **netstat –a**）上侦听。
-  * 确保目标 VM 上的主机防火墙允许入站探测请求和出站探测响应流量。
+    * 验证应用程序是否在探测协议（TCP 或 UDP）和端口号（在目标 VM 上使用 **netstat –a**）上侦听。
+    * 确保目标 VM 上的主机防火墙允许入站探测请求和出站探测响应流量。
 
 如果可以访问应用程序，请确保 Internet 边缘设备允许：
 

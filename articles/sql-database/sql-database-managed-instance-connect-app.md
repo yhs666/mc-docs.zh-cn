@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sstein, bonova, carlrab
 manager: digimobile
 origin.date: 11/09/2018
-ms.date: 05/20/2019
-ms.openlocfilehash: b86cea2e688319bbf53bb3efaf3582615000e3c4
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.date: 08/19/2019
+ms.openlocfilehash: dc2036fcb2cb5b79c3d477140b1155e6f255ca66
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277012"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544197"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>将应用程序连接到 Azure SQL 数据库托管实例
 
@@ -46,7 +46,7 @@ ms.locfileid: "67277012"
 对等互连是首选的选项，因为对等互连使用 Azure 主干网络，因此，从连接角度看，对等互连 VNet 中的虚拟机与同一 VNet 中虚拟机之间的延迟没有明显差别。 VNet 对等互连限于相同区域内的网络。  
 
 > [!IMPORTANT]
-> 适用于托管实例的 VNet 对等互连方案仅限同一区域中的网络，因为存在[全局虚拟网络对等互连约束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。
+> 适用于托管实例的 VNet 对等互连方案仅限同一区域中的网络，因为存在[全局虚拟网络对等互连约束](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)。 有关更多详细信息，另请参阅 [Azure 虚拟网络常见问题解答](/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)一文的相关部分。 
 
 ## <a name="connect-an-on-premises-application"></a>连接本地应用程序
 
@@ -57,7 +57,7 @@ ms.locfileid: "67277012"
 - 站点到站点 VPN 连接（[Azure 门户](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)、[PowerShell](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)、[Azure CLI](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)）
 - [ExpressRoute](../expressroute/expressroute-introduction.md) 连接  
 
-如果已成功建立本地到 Azure 的连接，但无法与托管实例建立连接，请检查防火墙中是否在 SQL 端口 1433 上打开了出站连接，并且打开了 11000-12000 端口范围，以便重定向。
+如果已成功建立本地到 Azure 的连接，但无法与托管实例建立连接，请检查防火墙中是否在 SQL 端口 1433 上打开了出站连接，并且打开了 11000-11999 范围的端口，以便重定向。
 
 ## <a name="connect-an-application-on-the-developers-box"></a>在开发人员工具箱中连接应用程序
 
@@ -97,7 +97,7 @@ ms.locfileid: "67277012"
 
 若要排查连接问题，请查看以下内容：
 
-- 如果无法从同一 VNet 的不同子网中的 Azure 虚拟机连接到托管实例，请检查是否在 VM 子网上设置了可能会阻止访问的网络安全组。另请注意，需在 SQL 端口 1433 上以及 11000-12000 范围的端口上打开出站连接，因为在 Azure 边界内通过重定向进行连接时，这些都是必需的。
+- 如果无法从同一 VNet 的不同子网中的 Azure 虚拟机连接到托管实例，请检查是否在 VM 子网上设置了可能会阻止访问的网络安全组。另请注意，需在 SQL 端口 1433 上以及 11000-11999 范围的端口上打开出站连接，因为在 Azure 边界内通过重定向进行连接时，这些都是必需的。
 - 对于与 VNet 关联的路由表，请确保将“BGP 传播”设置为“启用”。 
 - 如果使用 P2S VPN，请在 Azure 门户中检查配置，确定能否看到“入口/出口”编号。  如果编号不为零，则表示 Azure 在本地进行流量的出入路由。
 

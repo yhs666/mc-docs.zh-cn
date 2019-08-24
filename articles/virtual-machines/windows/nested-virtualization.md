@@ -7,17 +7,17 @@ author: rockboyfor
 manager: digimobile
 ms.author: v-yeche
 origin.date: 10/09/2017
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: bfeb96cb7d876393e684eead4aa9d6561898480b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a61aa5d1422d352b586483145aa5f9316d1b98cd
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569837"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539148"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>如何在 Azure VM 中启用嵌套虚拟化
 
@@ -31,9 +31,9 @@ ms.locfileid: "67569837"
 
 请记住选择足够大的 VM 大小来支持来宾虚拟机的需求。 在此示例中，我们将使用 D3_v3 大小的 Azure VM。 
 
-可以在[此处](https://www.azure.cn/zh-cn/home/features/products-by-region)查看 Dv3 或 Ev3 系列虚拟机的区域可用性。
+可以在[此处](https://www.azure.cn/home/features/products-by-region)查看 Dv3 或 Ev3 系列虚拟机的区域可用性。
 
-<!--Notice: URL is correct on [here](https://www.azure.cn/zh-cn/home/features/products-by-region)-->
+<!--Notice: URL is correct on [here](https://www.azure.cn/home/features/products-by-region)-->
 
 >[!NOTE]
 >
@@ -122,6 +122,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 ## <a name="create-the-guest-virtual-machine"></a>创建来宾虚拟机
 
+>[!IMPORTANT] 
+>
+>Azure 来宾代理在嵌套 VM 上不受支持，并且可能会在主机和嵌套 VM 上导致问题。 请勿在嵌套 VM 上安装 Azure 代理，也不要使用映像创建已安装 Azure 来宾代理的嵌套 VM。
+
 1. 打开 Hyper-V 管理器并创建新的虚拟机。 配置虚拟机以使用你创建的新内部网络。
 
     ![NetworkConfig](./media/virtual-machines-nested-virtualization/configure-networking.png)
@@ -181,10 +185,11 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 ## <a name="test-connectivity-in-guest-virtual-machine"></a>在来宾虚拟机中测试连接
 
 在来宾虚拟机中，打开浏览器并导航到网页。
+
 ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
 ## <a name="set-up-intranet-connectivity-for-the-guest-virtual-machine"></a>设置来宾虚拟机的 Intranet 连接
 
-有关如何在来宾 VM 和 Azure VM 之间启用透明连接的说明，请参阅[此文档](https://docs.microsoft.com/zh-cn/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network)。
+有关如何在来宾 VM 和 Azure VM 之间启用透明连接的说明，请参阅[此文档](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network)。
 
 <!-- Update_Description: Update meta properties, wording update -->

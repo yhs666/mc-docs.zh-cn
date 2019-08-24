@@ -13,18 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-multiple
 ms.devlang: na
 ms.topic: article
-origin.date: 05/30/2017
-ms.date: 05/20/2019
+origin.date: 07/09/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 25f7bcbdd58a796411cd9cfcc7e48af5de4851fd
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 3beefed89d8bb2cdaeb994cdf3ef7f68b5805cb6
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004150"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539065"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>使用 Chef 自动部署 Azure 虚拟机
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Chef 是一个强大的工具，用于提供自动化和所需的状态配置。
 
@@ -47,8 +46,8 @@ Chef 客户端（节点）是位于所管理的服务器上的代理。
 
 Chef 工作站是在其中创建策略和执行管理命令与 Chef 工具软件包的管理工作站的名称。
 
-一般情况下，可将自己的工作站视为在其中执行操作的位置，以及用于运行软件包的 Chef 工作站。
-例如，你要在 Chef 工作站中下载 knife 命令，但要从自己的工作站运行 knife 命令来管理基础结构。
+一般情况下，可将自己的工作站视为在其中执行操作的位置，以及用于运行软件包的 Chef 工作站。  
+例如，你要在 Chef 工作站中下载 knife 命令，但要从自己的工作站运行 knife 命令来管理基础结构。  
 
 Chef 还使用“食谱”和“配方”的概念，它们实际上是我们要定义并应用到服务器的策略。
 
@@ -56,9 +55,24 @@ Chef 还使用“食谱”和“配方”的概念，它们实际上是我们要
 
 首先，通过创建一个用于存储 Chef 配置文件和食谱的目录来准备工作站。
 
-创建名为 C:\chef 的目录。
+创建名为 C:\Chef 的目录。
 
-下载 Azure PowerShell [发布设置](https://docs.microsoft.com/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information)。
+下载最新的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 版本，并将其安装到工作站上。
+
+## <a name="configure-azure-service-principal"></a>配置 Azure 服务主体
+
+用最简单的术语来说，Azure 服务主体就是一个服务帐户。   我们将使用一个服务主体来帮助我们从 Chef 工作站创建 Azure 资源。  若要创建具有所需权限的相关服务主体，我们需要在 PowerShell 中运行以下命令：
+
+```powershell
+Login-AzureRmAccount -Environment AzureChinaCloud
+Get-AzureRmSubscription
+Select-AzureRmSubscription -SubscriptionName "<yourSubscriptionName>"
+$myApplication = New-AzureRmADApplication -DisplayName "automation-app" -HomePage "https://chef-automation-test.com" -IdentifierUris "https://chef-automation-test.com" -Password "#1234p$wdchef19"
+New-AzureRmADServicePrincipal -ApplicationId $myApplication.ApplicationId
+New-AzureRmRoleAssignment -RoleDefinitionName Contributor -ServicePrincipalName $myApplication.ApplicationId
+```
+
+请记下 SubscriptionID、TenantID、ClientID 和客户端密码（前面设置的密码），稍后将需要这些项。 
 
 ## <a name="setup-chef-server"></a>设置 Chef 服务器
 
@@ -87,7 +101,7 @@ Chef 还使用“食谱”和“配方”的概念，它们实际上是我们要
 
 此初学者工具包 zip 文件的 `.chef` 目录中包含组织配置文件和用户密钥。
 
-必须单独下载 `organization-validator.pem`，因为它是一个私钥，而私钥不应存储在 Chef 服务器上。 在 [Chef 管理](https://manage.chef.io/) 中，选择“重置验证密钥”，此时会提供一个可单独下载的文件。 将该文件保存到 c:\chef。
+必须单独下载 `organization-validator.pem`，因为它是一个私钥，而私钥不应存储在 Chef 服务器上。 在 [Chef 管理](https://manage.chef.io/)中，进入“管理”部分并选择“重置验证密钥”，此时会提供一个文件供你单独下载。 将该文件保存到 c:\chef。
 
 ### <a name="configuring-your-chef-workstation"></a>配置 Chef 工作站
 
@@ -139,19 +153,19 @@ cookbook_path       ["#{current_dir}/cookbooks"]
 
     validation_key           "#{current_dir}/myorg.pem"
 
-另外，请添加以下行，反映 Azure 发布设置文件的名称。
+    knife[:azure_tenant_id] =         "0000000-1111-aaaa-bbbb-222222222222"
 
-    knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+    knife[:azure_subscription_id] =   "11111111-bbbbb-cccc-1111-222222222222"
 
-通过删除路径中的 /../ 来修改“cookbook_path”，使之如下所示：
+    knife[:azure_client_id] =         "11111111-bbbbb-cccc-1111-2222222222222"
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+    knife[:azure_client_secret] =     "#1234p$wdchef19"
 
-这些行将确保 Knife 在执行 Azure 操作期间引用 c:\chef\cookbooks 下的 cookbooks 目录并且还使用 Azure 发布设置文件。
+这些行将确保 Knife 引用 c:\chef\cookbooks 下的 cookbooks 目录，并且还使用你在 Azure 操作期间创建的 Azure 服务主体。
 
 knife.rb 文件现在应类似于以下示例：
 
-![][6]
+![][14]
 
 <!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
 // However, the starter kit hasn't been updated
@@ -160,17 +174,19 @@ knife.rb 文件现在应类似于以下示例：
 <!--- update image [6] knife.rb -->
 
 ```rb
-knife.rb
 current_dir = File.dirname(__FILE__)
 log_level                :info
 log_location             STDOUT
-node_name                "mynode"
-client_key               "#{current_dir}/user.pem"
-chef_server_url          "https://api.chef.io/organizations/myorg"
+node_name                "myorg"
+client_key               "#{current_dir}/myorg.pem"
 validation_client_name   "myorg-validator"
-validation_key           ""#{current_dir}/myorg.pem"
-cookbook_path            ["#{current_dir}/cookbooks"]
-knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+validation_key           "#{current_dir}/myorg-validator.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+cookbook_path            ["#{current_dir}/../cookbooks"]
+knife[:azure_tenant_id] = "0000000-1111-aaaa-bbbb-222222222222"
+knife[:azure_subscription_id] = "11111111-bbbbb-cccc-1111-222222222222"
+knife[:azure_client_id] = "11111111-bbbbb-cccc-1111-2222222222222"
+knife[:azure_client_secret] = "#1234p$wdchef19"
 ```
 
 ## <a name="install-chef-workstation"></a>安装 Chef 工作站
@@ -183,13 +199,13 @@ knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 `chef --version` 应返回如下所示的输出：
 
 ```
-Chef Workstation: 0.2.29
-  chef-run: 0.2.2
-  Chef Client: 14.6.47x
-  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
-  berks: 7.0.6
-  test-kitchen: 1.23.2
-  inspec: 3.0.12
+Chef Workstation: 0.4.2
+  chef-run: 0.3.0
+  chef-client: 15.0.300
+  delivery-cli: 0.0.52 (9d07501a3b347cc687c902319d23dc32dd5fa621)
+  berks: 7.0.8
+  test-kitchen: 2.2.5
+  inspec: 4.3.2
 ```
 
 > [!NOTE]
@@ -219,7 +235,7 @@ Chef Workstation: 0.2.29
 
 为确保已正确配置所有项，请运行以下命令。
 
-    knife azure image list
+    knife azurerm server list
 
 如果所有项都已正确配置，用户可看到可用 Azure 映像的列表滚动显示。
 
@@ -265,7 +281,7 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 导航到 `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` 文件。 通过添加一些简单的“Hello World”HTML 代码来编辑该文件，然后保存该文件。
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>将指南上传到 Chef 服务器
-此步骤生成在本地计算机上创建的食谱的副本，并将其上传到 Chef 托管服务器。 上传后，食谱将显示在“策略”选项卡下。
+此步骤生成在本地计算机上创建的食谱的副本，并将其上传到 Chef 托管服务器。 上传后，食谱将显示在“策略”选项卡下  。
 
     knife cookbook upload webserver
 
@@ -274,13 +290,26 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>使用 Knife Azure 部署虚拟机
 部署 Azure 虚拟机，并应用“Webserver”食谱来安装 IIS Web 服务和默认网页。
 
-若要执行此操作，请使用 knife azure server create 命令。
+若要执行此操作，请使用 **knife azurerm server create** 命令。
 
 下面显示了命令示例。
 
-    knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'China East' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
+    knife azurerm server create `
+    --azure-resource-group-name rg-chefdeployment `
+    --azure-storage-account store `
+    --azure-vm-name chefvm `
+    --azure-vm-size 'Standard_DS2_v2' `
+    --azure-service-location 'chinanorth' `
+    --azure-image-reference-offer 'WindowsServer' `
+    --azure-image-reference-publisher 'MicrosoftWindowsServer' `
+    --azure-image-reference-sku '2016-Datacenter' `
+    --azure-image-reference-version 'latest' `
+    -x myuser -P myPassword123 `
+    --tcp-endpoints '80,3389' `
+    --chef-daemon-interval 1 `
+    -r "recipe[webserver]"
 
-各个参数的意义不言自明。 替换特定变量并运行。
+上面的示例将在中国北部区域中创建安装了 Windows Server 2016 的 Standard_DS2_v2 虚拟机。 替换特定变量并运行。
 
 > [!NOTE]
 > 通过命令行，还使用 -tcp-endpoints 参数自动执行终结点网络筛选规则。 我已打开端口 80 和 3389，提供对网页和 RDP 会话的访问。
@@ -289,23 +318,28 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 
 运行该命令后，请转到 Azure 门户，此时会看到计算机已开始预配。
 
-![][13]
+![][15]
 
 下面显示的是命令提示符。
 
-![][10]
+![][16]
 
-部署完成后，应当能够通过端口 80 连接到 Web 服务，因为在使用 Knife Azure 命令预配虚拟机时已打开了该端口。 由于此虚拟机是此云服务中的唯一虚拟机，因此可以使用云服务 URL 来连接它。
+部署完成后，新虚拟机的公共 IP 地址将在部署完成时显示，你可以复制此地址并将其粘贴到 Web 浏览器中，然后查看你部署的网站。 我们部署虚拟机时，打开了端口 80，因此它应该在外部可用。   
 
 ![][11]
 
 此示例使用了富有创造性的 HTML 代码。
+
+你还可以查看节点的状态 [Chef 管理](https://manage.chef.io/)。 
+
+![][17]
 
 请记住，也可以在 Azure 门户中使用端口 3389 通过 RDP 会话进行连接。
 
 谢谢！ 现在就使用 Azure 开始基础结构即代码之旅吧！
 
 <!--Image references-->
+
 [2]: media/chef-automation/2.png
 [3]: media/chef-automation/3.png
 [4]: media/chef-automation/4.png
@@ -317,6 +351,10 @@ Chef 使用指南定义用户希望在托管客户端上执行的一组命令。
 [10]: media/chef-automation/10.png
 [11]: media/chef-automation/11.png
 [13]: media/chef-automation/13.png
+[14]: media/chef-automation/14.png
+[15]: media/chef-automation/15.png
+[16]: media/chef-automation/16.png
+[17]: media/chef-automation/17.png
 
 <!--Link references-->
 

@@ -11,27 +11,27 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab, vanto
 manager: digimobile
-origin.date: 04/16/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: 92168f75f065b36ac8e636ee18b9f6ce5774c2a3
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+origin.date: 06/26/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: d6c0236df43db89fc9e67aa6d3b7684bdee963f5
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854575"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543947"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>使用具有虚拟网络和近 100% 兼容性的 SQL 数据库高级数据安全性
 
 托管实例是 Azure SQL 数据库的一个新部署选项，几乎与最新的 SQL Server 本地 (Enterprise Edition) 数据库引擎完全兼容。它提供一个本机[虚拟网络 (VNet)](../virtual-network/virtual-networks-overview.md) 实现来解决常见的安全问题，并提供本地 SQL Server 客户惯用的[业务模型](https://azure.cn/pricing/details/sql-database/)。 托管实例部署模型允许现有 SQL Server 客户将其本地应用程序即时转移到云中，而只需对应用程序和数据库做出极少量的更改。 同时，托管实例部署选项保留了所有 PaaS 功能（自动修补和版本更新、[自动备份](sql-database-automated-backups.md)、[高可用性](sql-database-high-availability.md)），可大幅降低管理开销和总拥有成本。
 
 > [!IMPORTANT]
-> 若要查看托管实例部署选项当前可用的区域列表，请参阅[支持区域](sql-database-managed-instance-resource-limits.md)。
+> 若要查看托管实例部署选项当前可用的区域列表，请参阅[支持区域](sql-database-managed-instance-resource-limits.md#supported-regions)。
 
 下图概括描绘了托管实例的主要功能：
 
 ![主要功能](./media/sql-database-managed-instance/key-features.png)
 
-托管实例部署模型面向想要以最少的迁移工作量，将大量应用从本地或 IaaS、自我构建的或 ISV 提供的环境迁移到完全托管的 PaaS 云环境的客户。 借助软件保障，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)交换现有许可证，以获得托管实例的折扣价格。  托管实例是 SQL Server 实例在云中的最佳迁移目标，需要很高的安全性和丰富的编程接口。
+托管实例部署模型面向想要以最少的迁移工作量，将大量应用从本地或 IaaS、自我构建的或 ISV 提供的环境迁移到完全托管的 PaaS 云环境的客户。 使用 Azure 中完全自动化的[数据迁移服务 (DMS)](../dms/tutorial-sql-server-to-managed-instance.md#create-an-azure-database-migration-service-instance)，客户可将其本地 SQL Server 即时转移到托管实例，从而实现与本地 SQL Server 的兼容，并通过本机 VNet 支持实现客户实例的完全隔离。 借助软件保障，可以使用[适用于 SQL Server 的 Azure 混合权益](https://azure.cn/pricing/hybrid-benefit/)交换现有许可证，以获得托管实例的折扣价格。  托管实例是 SQL Server 实例在云中的最佳迁移目标，需要很高的安全性和丰富的编程接口。
 
 托管实例部署选项旨在通过分阶段的发布计划，实现外围应用与最新本地 SQL Server 版本的近乎 100% 的兼容性。
 
@@ -48,7 +48,7 @@ ms.locfileid: "64854575"
 | --- | --- |
 |无需采购和管理硬件 <br>不产生底层基础结构的管理开销 <br>快速预配和服务缩放 <br>自动修补和版本升级 <br>与其他 PaaS 数据服务集成 |99.99% 的运行时间 SLA  <br>内置[高可用性](sql-database-high-availability.md) <br>使用[自动备份](sql-database-automated-backups.md)保护数据 <br>客户可配置的备份保留期 <br>用户发起的[备份](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) <br>[数据库时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)功能 |
 |**安全性和符合性** | **Management**|
-|隔离的环境（[VNet 集成](sql-database-managed-instance-connectivity-architecture.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 身份验证](sql-database-aad-authentication.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 服务器主体（登录名）</a>（公开预览版） <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>[SQL 审核](sql-database-managed-instance-auditing.md) <br>[威胁检测](sql-database-managed-instance-threat-detection.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
+|隔离的环境（[VNet 集成](sql-database-managed-instance-connectivity-architecture.md)、单租户服务、专用的计算和存储资源） <br>[透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Azure AD 身份验证](sql-database-aad-authentication.md)、单一登录支持 <br> <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Azure AD 服务器主体（登录名）</a>（公开预览版）  <br>符合 Azure SQL 数据库遵循的相同法规标准 <br>[SQL 审核](sql-database-managed-instance-auditing.md) <br>[威胁检测](sql-database-managed-instance-threat-detection.md) |用于自动预配和缩放服务的 Azure 资源管理器 API <br>用于手动预配和缩放服务的 Azure 门户功能 <br>数据迁移服务
 
 > [!IMPORTANT]
 > Azure SQL 数据库（所有部署选项）已通过了许多符合性标准的认证。 有关详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/compliance/default.html)，可以从中找到 SQL 数据库符合性认证的最新列表。
@@ -67,6 +67,7 @@ ms.locfileid: "64854575"
 | VNet - Azure 资源管理器部署 | 是 |
 | VNet - 经典部署模型 | 否 |
 | 门户支持 | 是|
+| 内置集成服务 (SSIS) | 否 - SSIS 属于 [Azure 数据工厂 PaaS](/data-factory/tutorial-deploy-ssis-packages-azure) |
 | 内置分析服务 (SSAS) | 否 - SSAS 是单独的 [PaaS](/analysis-services/analysis-services-overview) |
 | 内置报表服务 (SSRS) | 否 - 使用 Power BI 或 SSRS IaaS |
 |||
@@ -78,7 +79,7 @@ ms.locfileid: "64854575"
 在 vCore 模型中，可在以下两代硬件中进行选择。
 
 - **第 4 代**逻辑 CPU 基于 Intel E5-2673 v3 (Haswell) 2.4-GHz 处理器，采用附加 SSD，物理核心（每个核心 7 GB RAM），计算大小为 8 到 24 个 vCore。
-- **第 5 代**逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器，采用快速 NVMe SSD，超线程逻辑核心，计算大小为 8 到 80 个核心。
+- **第 5 代**逻辑 CPU 基于 Intel E5-2673 v4 (Broadwell) 2.3-GHz 处理器，采用快速 NVMe SSD，超线程逻辑核心，计算大小为 4 到 80 个核心。
 
 若要详细了解两代硬件之间的区别，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)。
 
@@ -144,16 +145,18 @@ Azure SQL 数据库提供一组可用于保护数据的高级安全功能。
 
 - [托管实例审核](sql-database-managed-instance-auditing.md)功能可跟踪数据库事件，并将其写入 Azure 存储帐户中的审核日志文件。 借助审核可以保持合规、了解数据库活动，以及深入了解可能指示业务考量因素或疑似安全违规的偏差和异常。
 - 动态数据加密 - 托管实例提供动态数据加密，使用传输层安全性保护数据。 除传输层安全性以外，托管实例部署选项使用 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 在动态、静态和查询处理期间提供敏感数据的保护。 Always Encrypted 是业界首创功能，可针对涉及关键数据被盗的漏洞提供无与伦比的数据安全性。 例如，借助 Always Encrypted，信用卡号即使在查询处理期间也始终加密存储在数据库中，允许经授权员工或需要处理该数据的应用程序在使用时进行解密。
-- [威胁检测](sql-database-managed-instance-threat-detection.md)是[审核](sql-database-managed-instance-auditing.md)的补充，它在服务中提供一个内置的附加安全智能层，用于检测企图访问或使用数据库的异常的潜在有害尝试。 出现可疑活动、潜在漏洞、 SQL 注入攻击和异常数据库访问模式时，它会发出警报。 
+- [威胁检测](sql-database-managed-instance-threat-detection.md)是[审核](sql-database-managed-instance-auditing.md)的补充，它在服务中提供一个内置的附加安全智能层，用于检测企图访问或使用数据库的异常的潜在有害尝试。 出现可疑活动、潜在漏洞、 SQL 注入攻击和异常数据库访问模式时，它会发出警报。 可在 [Azure 安全中心](https://azure.microsoft.com/services/security-center/)查看威胁检测警报，此警报提供可疑活动的详细信息以及如何调查和缓解威胁的建议操作。  
 - [动态数据掩码](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking)功能通过对非特权用户模糊化敏感数据来限制此类数据的泄漏。 动态数据掩码允许指定在对应用层产生最小影响的前提下可以透露的敏感数据量，从而帮助防止未经授权的用户访问敏感数据。 它是一种基于策略的安全功能，会在针对指定的数据库字段运行查询后返回的结果集中隐藏敏感数据，同时保持数据库中的数据不变。
 - 使用[行级别安全性](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)可以根据执行查询的用户特征（例如，按组成员身份或执行上下文），控制对数据库表中的行的访问。 行级别安全性 (RLS) 简化了应用程序中的安全性设计和编程。 使用 RLS 可针对数据行访问实施限制。 例如，确保工作人员只能访问与其部门相关的数据行，或者将可访问的数据限制为相关的数据。
 - [透明数据加密 (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) 可以加密托管实例数据文件，称为静态数据加密。 TDE 针对数据和日志文件执行实时 I/O 加密和解密。 加密使用数据库加密密钥 (DEK)，它存储在数据库引导记录中，可在恢复时使用。 可使用透明数据加密保护托管实例中的所有数据库。 TDE 是 SQL Server 经验证的静态加密技术，许多符合性标准都需要它来防止存储介质被盗。
 
+通过 Azure 数据库迁移服务 (DMS) 或本机还原，支持将加密数据库迁移到托管实例。 如果打算使用本机还原迁移加密数据库，则必须将现有 TDE 证书从本地 SQL Server 或虚拟机中的 SQL Server 迁移到托管实例。 有关迁移选项的详细信息，请参阅[将 SQL Server 实例迁移到托管实例](sql-database-managed-instance-migrate.md)。
+
 ## <a name="azure-active-directory-integration"></a>Azure Active Directory 集成
 
-托管实例部署选项支持传统的 SQL Server 数据库引擎登录名，以及与 Azure Active Directory (AAD) 集成的登录名。 Azure AD 服务器主体（登录名）（公共预览版）是在本地环境中使用的本地数据库登录名的 Azure 云版本。 使用 Azure AD 服务器主体（登录名），可以将你的 Azure Active Directory 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
+托管实例部署选项支持传统的 SQL Server 数据库引擎登录名，以及与 Azure Active Directory (AAD) 集成的登录名。 Azure AD 服务器主体（登录名）（公共预览版）是在本地环境中使用的本地数据库登录名的 Azure 云版本  。 使用 Azure AD 服务器主体（登录名），可以将你的 Azure Active Directory 租户中的用户和组指定为真正的实例范围的主体，能够执行任何实体级操作，包括在同一托管实例内执行跨数据库查询。
 
-引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法：FROM EXTERNAL PROVIDER。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为托管实例预配 Azure Active Directory 管理员](sql-database-aad-authentication-configure.md)一文。
+引入了用来创建 Azure AD 服务器主体（登录名）（公共预览版）的一个新语法：FROM EXTERNAL PROVIDER   。 有关该语法的详细信息，请参阅 <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>，并查看[为托管实例预配 Azure Active Directory 管理员](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance)一文。
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Azure Active Directory 集成和多重身份验证
 
@@ -190,7 +193,7 @@ Azure SQL 数据库提供一组可用于保护数据的高级安全功能。
 
 ### <a name="data-migration-service"></a>数据迁移服务
 
-Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移动到 Azure SQL 数据库（单一数据库、弹性池中的共用数据库和托管实例中的实例数据库）以及移到 Azure VM 中的 SQL Server 时需要执行的任务。
+Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多个数据库源到 Azure 数据平台的无缝迁移，并且最小化停机时间。 此服务简化了将现有的第三方数据库和 SQL Server 数据库移动到 Azure SQL 数据库（单一数据库、弹性池中的共用数据库和托管实例中的实例数据库）以及移到 Azure VM 中的 SQL Server 时需要执行的任务。 请参阅[如何使用 DMS 将本地数据库迁移到托管实例](/dms/tutorial-sql-server-to-managed-instance)。
 
 ## <a name="sql-features-supported"></a>支持的 SQL 功能
 
@@ -211,6 +214,7 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 托管实例不允许指定完整的物理路径，因此必须以不同的方式为相应的方案提供支持：RESTORE DB 不支持 WITH MOVE，CREATE DB 不允许使用物理路径，BULK INSERT 仅适用于 Azure Blob，等等。
 - 托管实例支持使用 [Azure AD 身份验证](sql-database-aad-authentication.md)作为 Windows 身份验证的云替代方法。
 - 对于包含内存中 OLTP 对象的数据库，托管实例会自动管理 XTP 文件组和文件
+- 托管实例支持 SQL Server Integration Services (SSIS)，并且可以托管存储 SSIS 包的 SSIS 目录 (SSISDB)，但它们在 Azure 数据工厂 (ADF) 的托管 Azure-SSIS 集成运行时 (IR) 上执行，请参阅[在 ADF 中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 若要比较 SQL 数据库中的 SSIS 功能，请参阅[比较 Azure SQL 数据库单一数据库/弹性池和托管实例](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance)。
 
 ### <a name="managed-instance-administration-features"></a>托管实例管理功能
 
@@ -236,4 +240,5 @@ Azure 数据库迁移服务是一项完全托管的服务，旨在实现从多�
 - 有关功能和比较列表，请参阅 [SQL 常用功能](sql-database-features.md)。
 - 有关 VNet 配置的详细信息，请参阅[托管实例 VNet 配置](sql-database-managed-instance-connectivity-architecture.md)。
 - 有关创建托管实例以及从备份文件还原数据库的快速入门，请参阅[创建托管实例](sql-database-managed-instance-get-started.md)。
+- 有关使用 Azure 数据库迁移服务 (DMS) 进行迁移的教程，请参阅[使用 DMS 进行托管实例迁移](../dms/tutorial-sql-server-to-managed-instance.md)。
 - 有关定价信息，请参阅 [SQL 数据库托管实例定价](https://azure.cn/pricing/details/sql-database)。

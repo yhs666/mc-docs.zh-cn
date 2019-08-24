@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: sstein, bonova, carlrab
 manager: digimobile
 origin.date: 01/15/2019
-ms.date: 04/29/2019
-ms.openlocfilehash: f1176bbe6f753e10b7cc49b622c0bb3c3710c8ae
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.date: 08/19/2019
+ms.openlocfilehash: 2a359de1858ee859ab4ca77f908417eebcda0459
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854713"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544255"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例配置现有虚拟网络
 
@@ -32,6 +32,8 @@ Azure SQL 数据库托管实例必须部署在专用于托管实例的 Azure [�
 
 > [!Note]
 > 只能在通过 Azure 资源管理器部署模型创建的虚拟网络中创建托管实例。 不支持通过经典部署模型创建的 Azure 虚拟网络。 根据[确定托管实例的子网大小](sql-database-managed-instance-determine-size-vnet-subnet.md)一文中的指导计算子网大小。 在子网中部署资源后，无法调整子网大小。
+>
+> 创建托管实例后，不支持将托管实例或 VNet 移到另一个资源组或订阅。
 
 ## <a name="validate-and-modify-an-existing-virtual-network"></a>验证并修改现有虚拟网络
 

@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure 中 Windows VM 的 RDP 问题 | Azure
+title: 排查 RDP 问题 | Azure
 description: 在 Azure 中排查 Windows VM 的 RDP 问题。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 origin.date: 12/13/2018
-ms.date: 12/24/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 75f08747e181187bcb0f4854ec7a18b4574a5a44
-ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.openlocfilehash: 0ad9e5333bbaaea0b23dc610cf03cff413debf88
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53736244"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539052"
 ---
 # <a name="troubleshoot-rdp-issues"></a>排查 RDP 问题
 
@@ -48,5 +48,4 @@ ms.locfileid: "53736244"
 - [来宾 OS 防火墙配置不正确](guest-os-firewall-misconfigured.md) 
 - [排查由 netvsc.sys 导致的 RDP 错误](troubleshoot-rdp-driver-netvsc.md)
 
-<!-- Update_Description: new articles on VM rdp troubleshooting  -->
-<!--ms.date: 12/24/2018-->
+<!-- Update_Description: update meta properties  -->

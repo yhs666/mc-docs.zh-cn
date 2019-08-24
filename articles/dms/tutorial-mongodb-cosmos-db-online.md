@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 05/29/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: f586b2789fe41a4e2fb8c3d6a2f2a0e288181746
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 08/12/2019
+ms.openlocfilehash: 1a168bae337d732e23cdf55031d0cbb22cf12306
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308920"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952153"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>教程：使用 DMS 将 MongoDB 联机迁移到 Azure Cosmos DB 的用于 MongoDB 的 API
 
@@ -38,7 +38,7 @@ ms.locfileid: "68308920"
 > 使用 Azure 数据库迁移服务执行联机迁移需要基于“高级”定价层创建实例。
 
 > [!IMPORTANT]
-> 为获得最佳迁移体验，Microsoft 建议在目标数据库所在的 Azure 区域中创建 Azure 数据库迁移服务的实例。 跨区域或地理位置移动数据可能会减慢迁移过程。
+> 为获得最佳迁移体验，Azure 建议在目标数据库所在的 Azure 区域中创建 Azure 数据库迁移服务的实例。 跨区域或地理位置移动数据可能会减慢迁移过程。
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -75,7 +75,7 @@ ms.locfileid: "68308920"
 
     ![显示资源提供程序](media/tutorial-mongodb-to-cosmosdb-online/portal-select-resource-provider.png)
 
-3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”   。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-mongodb-to-cosmosdb-online/portal-register-resource-provider.png)    
 
@@ -124,7 +124,7 @@ ms.locfileid: "68308920"
 
 3. 选择“+ 新建迁移项目”  。
 
-4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“MongoDB”，在“目标服务器类型”文本框中选择“CosmosDB (MongoDB API)”，然后在“选择活动类型”中选择“联机数据迁移 [预览]”。       
+4. 在“新建迁移项目”屏幕上指定项目名称，在“源服务器类型”文本框中选择“MongoDB”，在“目标服务器类型”文本框中选择“CosmosDB (MongoDB API)”，然后在“选择活动类型”中选择“联机数据迁移”。       
 
     ![创建数据库迁移服务项目](media/tutorial-mongodb-to-cosmosdb-online/dms-create-project1.png)
 
@@ -246,5 +246,5 @@ ms.locfileid: "68308920"
 
 ## <a name="additional-resources"></a>其他资源
 
-* [Cosmos DB 服务信息](https://azure.microsoft.com/services/cosmos-db/)
+* [Cosmos DB 服务信息](/cosmos-db/)
 

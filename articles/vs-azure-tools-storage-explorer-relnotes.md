@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: 0d1cad76d46098aa08f4a6336fc452ffc56ea018
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: a38bb10839e701dd1f6263e2808813d297ba262e
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586899"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969667"
 ---
 # <a name="21vianet-azure-storage-explorer-release-notes"></a>世纪互联 Azure 存储资源管理器发行说明
 
@@ -59,7 +59,7 @@ ms.locfileid: "65586899"
 ### <a name="known-issues"></a>已知问题
 
 * 在执行非 AzCopy Blob 下载时，不会验证大型文件的 MD5。 这是由存储 SDK 中的一个 bug 导致的。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
-* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](/storage/common/storage-explorer-troubleshooting)。
 * 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
 * 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
 * 如果使用用于 Mac 的 VS 并曾经创建过自定义 AAD 配置，可能无法登录。 若要解决此问题，请删除 ~/.IdentityService/AadConfigurations 的内容。 如果这样做不能对你解除阻止，请对此问题发表评论。
@@ -80,7 +80,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 在 Linux 上运行存储资源管理器需要首先安装某些依赖项。 有关详细信息，请查看存储资源管理器[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)。
+* 在 Linux 上运行存储资源管理器需要首先安装某些依赖项。 有关详细信息，请查看存储资源管理器[故障排除指南](/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)。
 
 ## <a name="previous-releases"></a>以前的版本
 
@@ -145,14 +145,14 @@ ms.locfileid: "65586899"
 * 在 Blob 编辑器中，不再能够按剩余保留天数或状态进行排序。 此问题已解决。 #1106
 * 在版本 1.5.0 之后，存储资源管理器不再会先等待服务器端复制完成，然后在重命名或复制/粘贴操作期间报告成功结果。 此问题已解决。 #976
 * 使用试验性的 AzCopy 功能时，单击“将命令复制到剪贴板”后复制的命令本身不一定始终可运行。 现在，将会复制手动运行传输所需的所有命令。 #1079
-* 以前，如果在代理后面操作，则无法访问 ADLS Gen2 Blob。 这是因为存储 SDK 使用的新网络库中存在一个 bug。 1.7.0 会尝试缓解此问题，但有些人仍可能会遇到问题。 在将来的更新中会发布完整修复措施。 #1090
+* 以前，如果在代理后面操作，则无法访问 ADLS Gen2 Blob。 这是因为存储 SDK 使用的新网络库中存在一个 bug。 1\.7.0 会尝试缓解此问题，但有些人仍可能会遇到问题。 在将来的更新中会发布完整修复措施。 #1090
 * 在 1.7.0 中，“保存文件”对话框现在会正确记住文件的上次保存位置。 #16
 * 在“属性”窗格中，存储帐户的 SKU 层显示为帐户类型。 此问题已解决。 #654
 * 有时，即使正确输入 Blob 的名称，也无法中断该 Blob 的租约。 此问题已解决。 #1070
 
 ### <a name="known-issues"></a>已知问题
 
-* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](/storage/common/storage-explorer-troubleshooting)。
 * 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
 * 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
 * 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
@@ -246,7 +246,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -315,7 +315,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -370,7 +370,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -434,7 +434,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -491,7 +491,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -547,7 +547,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -602,7 +602,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -662,7 +662,7 @@ ms.locfileid: "65586899"
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -719,7 +719,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -776,7 +776,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -830,7 +830,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -896,7 +896,7 @@ ms.locfileid: "65586899"
 ./StorageExplorer.exe --disable-gpu
 ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.azure.cn/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -1074,7 +1074,7 @@ ms.locfileid: "65586899"
 * 过去，如果尝试下载具有无效 Windows 文件名的 blob，则操作将失败。 现在，存储资源管理器将检测 blob 名称是否有效，并且会询问你是要对其进行编码还是跳过该 blob。 存储资源管理器还会检测文件名看起来是否已编码并且在上传前会询问是否要对其进行解码。
 * 在上传 blob 期间，目标 blob 容器的编辑器有时候不能正确刷新。 现在已修复此问题。
 * 支持多种形式的连接字符串和回归的 SAS URI。 我们已解决了所有已知问题，但是如果遇到了进一步的问题，请向我们发送反馈。
-* 在 0.9.0 版中，对于某些用户，更新通知损坏。 此问题已修复，并且受此 bug 影响的用户可[从此处](https://www.azure.cn/en-us/features/storage-explorer/)手动下载最新版本的存储资源管理器。
+* 在 0.9.0 版中，对于某些用户，更新通知损坏。 
 
 ### <a name="known-issues"></a>已知问题
 * 存储资源管理器不支持 ADFS 帐户。
@@ -1128,7 +1128,7 @@ ms.locfileid: "65586899"
 * 过去，如果尝试下载具有无效 Windows 文件名的 blob，则操作将失败。 现在，存储资源管理器将检测 blob 名称是否有效，并且会询问你是要对其进行编码还是跳过该 blob。 存储资源管理器还会检测文件名看起来是否已编码并且在上传前会询问是否要对其进行解码。
 * 在上传 blob 期间，目标 blob 容器的编辑器有时候不能正确刷新。 现在已修复此问题。
 * 支持多种形式的连接字符串和回归的 SAS URI。 我们已解决了所有已知问题，但是如果遇到了进一步的问题，请向我们发送反馈。
-* 在 0.9.0 版中，对于某些用户，更新通知损坏。 此问题已修复，对于受此 bug 影响的那些用户，可以手动[从此处](https://www.azure.cn/en-us/features/storage-explorer/)下载最新版本的存储资源管理器。
+* 在 0.9.0 版中，对于某些用户，更新通知损坏。 
 
 ### <a name="known-issues"></a>已知问题
 * 存储资源管理器不支持 ADFS 帐户。
@@ -1204,7 +1204,7 @@ ms.locfileid: "65586899"
 * 已将 Electron 版本更新为 1.7.2，以便利用若干关键安全更新
 * 现可从帮助菜单快速访问联机故障排除指南
 * 存储资源管理器故障排除[指南][2]
-* 连接到 Azure Stack 订阅相关[说明][3]
+* 有关连接到 Azure Stack 订阅的[说明][3]
 
 ### <a name="known-issues"></a>已知问题
 
@@ -1229,7 +1229,7 @@ ms.locfileid: "65586899"
 #### <a name="new"></a>新建
 
 * 存储资源管理器故障排除[指南][2]
-* 连接到 Azure Stack 订阅相关[说明][3]
+* 有关连接到 Azure Stack 订阅的[说明][3]
 
 #### <a name="fixes"></a>修复项
 

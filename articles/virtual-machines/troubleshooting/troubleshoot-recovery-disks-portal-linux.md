@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中使用 Linux 故障排除 VM | Azure
+title: 通过使用 Azure 门户将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除 | Azure
 description: 了解如何通过使用 Azure 门户将 OS 磁盘连接到恢复 VM 来排查 Linux 虚拟机问题
 services: virtual-machines-linux
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 11/14/2016
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 899a74eb52ff937541a1c08ede7f71e591c22656
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 7bc2a6be76cbfa15281a421234d0ed354a934dc8
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003718"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539174"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>通过使用 Azure 门户将 OS 磁盘附加到恢复 VM 来对 Linux VM 进行故障排除
 如果 Linux 虚拟机 (VM) 遇到启动或磁盘错误，则可能需要对虚拟硬盘本身执行故障排除步骤。 一个常见示例是 `/etc/fstab` 中存在无效条目，使 VM 无法成功启动。 本文详细介绍如何使用 Azure 门户将虚拟硬盘连接到另一个 Linux VM 来修复所有错误，然后重新创建原始 VM。
@@ -38,11 +38,11 @@ ms.locfileid: "59003718"
 ## <a name="determine-boot-issues"></a>确定启动问题
 检查启动诊断信息和 VM 屏幕截图，确定 VM 不能正常启动的原因。 一个常见的例子是 `/etc/fstab`中存在无效条目，或底层虚拟硬盘已删除或移动。
 
-在门户中选择 VM，然后向下滚动到“支持 + 故障排除”部分。  单击“启动诊断”，查看从 VM 流式传输的控制台消息。 检查控制台日志，看看是否能够确定 VM 遇到问题的原因。 以下示例显示某个 VM 停滞在维护模式，需要人工干预：
+在门户中选择 VM，然后向下滚动到“支持 + 故障排除”部分。   单击“启动诊断”，查看从 VM 流式传输的控制台消息。 查看控制台日志，以便了解是否能够确定 VM 遇到问题的原因。 以下示例显示某个 VM 停滞在维护模式，需要人工干预：
 
 ![查看 VM 启动诊断控制台日志](./media/troubleshoot-recovery-disks-portal-linux/boot-diagnostics-error.png)
 
-也可以单击启动诊断日志顶部的“屏幕截图”，下载捕获的 VM 屏幕截图。
+也可以单击启动诊断日志顶部的“屏幕截图”，下载捕获的 VM 屏幕截图。 
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>查看现有虚拟硬盘的详细信息
 在将虚拟硬盘附加到另一个 VM 之前，需要标识虚拟硬盘 (VHD) 的名称。 
@@ -73,7 +73,7 @@ ms.locfileid: "59003718"
 ## <a name="attach-existing-virtual-hard-disk-to-another-vm"></a>将现有虚拟硬盘附加到另一个 VM
 在后续几个步骤中，使用另一个 VM 进行故障排除。 将现有虚拟硬盘附加到此故障排除 VM，以便浏览和编辑磁盘的内容。 例如，此过程允许用户更正任何配置错误或者查看其他应用程序或系统日志文件。 选择或创建另一个 VM 用于故障排除。
 
-1. 在门户中选择资源组，并选择故障排除 VM。 选择“磁盘”，然后单击“附加现有磁盘”：
+1. 在门户中选择资源组，并选择故障排除 VM。 选择“磁盘”，然后单击“附加现有磁盘”：  
 
     ![在门户中附加现有磁盘](./media/troubleshoot-recovery-disks-portal-linux/attach-existing-disk.png)
 
@@ -150,7 +150,7 @@ ms.locfileid: "59003718"
     sudo umount /dev/sdc1
     ```
 
-2. 现在从 VM 中分离虚拟硬盘。 在门户中选择 VM，然后单击“磁盘”。 Select your existing virtual hard disk and then click <bpt id="p1">**</bpt>Detach<ept id="p1">**</ept>:
+2. 现在从 VM 中分离虚拟硬盘。 在门户中选择 VM，然后单击“磁盘”。  Select your existing virtual hard disk and then click <bpt id="p1">**</bpt>Detach<ept id="p1">**</ept>:
 
     ![分离现有虚拟硬盘](./media/troubleshoot-recovery-disks-portal-linux/detach-disk.png)
 
@@ -166,7 +166,7 @@ ms.locfileid: "59003718"
 ![从模板部署 VM](./media/troubleshoot-recovery-disks-portal-linux/deploy-from-image.png)
 
 ## <a name="re-enable-boot-diagnostics"></a>重新启用启动诊断
-从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择 VM。 在“监视”下面，单击“诊断设置”。 确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。 If you make any changes, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>:
+从现有虚拟硬盘创建 VM 时，启动诊断可能不会自动启用。 要检查启动诊断的状态并根据需要打开启动诊断，请在门户中选择 VM。 在“监视”下面，单击“诊断设置”。   确保状态为“打开”，并检查“启动诊断”旁边的复选标记是否为选中状态。   If you make any changes, click <bpt id="p1">**</bpt>Save<ept id="p1">**</ept>:
 
 ![更新启动诊断设置](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
 

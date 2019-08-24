@@ -10,13 +10,13 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 origin.date: 04/03/2019
-ms.date: 05/27/2019
-ms.openlocfilehash: 319dc3d759ecc883e59d3e11ca9830f5ad6c8a7a
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.date: 08/19/2019
+ms.openlocfilehash: 2726c8fd9777b05564223b4ae13ec133fb4af081
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151759"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544374"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>将数据仓库升级到 Gen2
 
@@ -34,13 +34,13 @@ Azure 有助于降低运行数据仓库的入门级成本。  能够处理高要
 | **区域** | **较低的 Gen2 可用** | **自动升级开始时间** |
 |:--- |:--- |:--- |
 | 中国东部 |\* |\* |
-| 中国东部 2 |\* |仅 Gen2 |
+| 中国东部 2 |可用 |仅 Gen2 |
 | 中国北部 |\* |\* |
 | 中国北部 2 |可用 |仅 Gen2 |
 
 ## <a name="automatic-upgrade-process"></a>自动升级过程
 
-我们会根据上面的可用性图表，为你的 Gen1 实例安排自动升级。 为了避免数据仓库可用性发生任何意外中断，将在维护计划期间安排自动升级。 在正自动升级到 Gen2 的区域，将禁用新建 Gen1 实例的功能。 有关计划的详细信息，请参阅[查看维护计划](viewing-maintenance-schedule.md)
+我们会根据上面的可用性图表，为你的 Gen1 实例安排自动升级。 为了避免数据仓库可用性发生任何意外中断，将在维护计划期间安排自动升级。 在正自动升级到 Gen2 的区域，将禁用新建 Gen1 实例的功能。 自动升级完成后，将弃用 Gen1。 有关计划的详细信息，请参阅[查看维护计划](viewing-maintenance-schedule.md)
 
 重启数据仓库时，升级过程会导致连接性短暂下降（大约 5 分钟）。  重启数据仓库后，它将完全可用。 但是，升级过程继续在后台升级数据文件时，可能会出现性能下降的情况。 性能下降的总时间将根据数据文件的大小而有所不同。
 

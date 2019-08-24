@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ab31d5365e4daf6cd866eb036d939d62a50727da
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1d81ab0386906c22b870863764c60b4494a8074e
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818391"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969606"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics 数据安全
 本文档旨在提供特定于 Azure Log Analytics 的信息（Azure Monitor 的功能），用于补充有关 [Azure 信任中心](../../security/security-microsoft-trust-center.md)的信息。  
@@ -110,7 +110,8 @@ Log Analytics 具有所有 Azure 服务都遵循的事件管理过程。 总而�
 有关 Azure 如何响应安全事件的详细信息，请参阅 [21Vianet Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/4/Microsoft%20Azure%20Security%20Response%20in%20the%20cloud.pdf)（在云中进行世纪互联 Azure 安全响应）。
 
 ## <a name="compliance"></a>合规性
-Log Analytics 软件开发和服务团队的信息安全和治理计划支持其业务需求，并遵循[世纪互联 Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)和 [Microsoft 信任中心符合性](https://www.microsoft.com/en-us/trustcenter/compliance/default.aspx)中所述的法律和法规。 其中还介绍了 Log Analytics 如何建立安全要求、识别安全控制、管理和监控风险。 每年，我们都会对策略、标准、过程和指导原则进行评审。
+Log Analytics 软件开发和服务团队的信息安全和监管计划支持其业务需求，并遵循[世纪互联 Azure 信任中心](https://www.trustcenter.cn/
+)中所述的法律和法规。 其中还介绍了 Log Analytics 如何建立安全要求、识别安全控制、管理和监控风险。 每年，我们都会对策略、标准、过程和指导原则进行评审。
 
 每个开发团队成员都会接受正式的应用程序安全培训。 在内部，我们将版本控制系统用于软件开发。 每个软件项目都受版本控制系统保护。
 
@@ -147,7 +148,7 @@ Azure Log Analytics 满足以下要求：
 要使组织能够将数据发送到 Log Analytics，请配置在 Azure 虚拟机中运行的，或者在自己环境或其他云提供程序中的虚拟机或物理机上运行的 Windows/Linux 代理。  如果使用 Operations Manager，请通过管理组配置 Operations Manager 代理。 用户（可能是你、其他个别用户，也可能是一组用户）会创建一个或多个 Log Analytics 工作区，并使用以下帐户之一注册代理：
 
 * [组织 ID](../../active-directory/fundamentals/sign-up-organization.md)
-* [Microsoft 帐户 - Outlook、Office Live、MSN](https://account.microsoft.com/account)
+* [Microsoft 帐户 - Outlook、Office Live、MSN](https://account.windowsazure.cn)
 
 在 Log Analytics 工作区中对数据进行收集、聚合、分析和呈现。 工作区主要用作划分数据的一种方式，每个工作区都是唯一的。 例如，可能希望生产数据受一个工作区管理，测试数据受另一个工作区管理。 工作区还有助于管理员控制用户对数据的访问。 每个工作区可以有多个与它关联的用户帐户，每个用户帐户可以访问多个 Log Analytics 工作区。 基于数据中心区域创建工作区。
 

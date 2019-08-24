@@ -6,26 +6,26 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi
 manager: digimobile
 origin.date: 02/07/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 7171d4b152e245d105a2b425fb4576c9b4f740b5
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 08/19/2019
+ms.openlocfilehash: aa3de181c82c7b75795133bd180afbc91c0d07f4
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663740"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544344"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL 数据库应用程序开发概述
 
-本文逐步讲解开发人员在编写代码以连接到 Azure SQL 数据库时应考虑的基本注意事项。 本文适用于 Azure SQL 数据库的所有部署模型（单一数据库、弹性池）。
+本文逐步讲解开发人员在编写代码以连接到 Azure SQL 数据库时应考虑的基本注意事项。 本文适用于 Azure SQL 数据库的所有部署模型（单一数据库、弹性池、托管实例）。
 
 > [!TIP]
-> 如果需要设置 Azure SQL 数据库，请查看[单一数据库](sql-database-single-database-quickstart-guide.md)的入门指南。
+> 如果需要设置 Azure SQL 数据库，请查看[单一数据库](sql-database-single-database-quickstart-guide.md)和[托管实例](sql-database-managed-instance-quickstart-guide.md)的入门指南。
 >
 
 ## <a name="language-and-platform"></a>语言和平台
@@ -36,7 +36,7 @@ ms.locfileid: "56663740"
 
 ## <a name="authentication"></a>身份验证
 
-对 Azure SQL 数据库的访问使用登录名和防火墙进行保护。 Azure SQL 数据库支持 SQL Server 和 [Azure Active Directory (AAD) 身份验证](sql-database-aad-authentication.md)用户和登录名。 
+对 Azure SQL 数据库的访问使用登录名和防火墙进行保护。 Azure SQL 数据库支持 SQL Server 和 [Azure Active Directory (AAD) 身份验证](sql-database-aad-authentication.md)用户和登录名。 AAD 登录名仅在托管实例中可用。 
 
 详细了解[管理数据库访问和登录名](sql-database-manage-logins.md)。
 
@@ -59,6 +59,7 @@ Azure SQL 数据库是一种云服务，在其中可能会遇到在底层基础�
 - 在托管客户端程序的计算机上，确保防火墙允许端口 1433 上的传出 TCP 通信。  详细信息：[配置 Azure SQL 数据库防火墙](sql-database-configure-firewall-settings.md)。
 - 客户端在 Azure 虚拟机 (VM) 上运行时，如果客户端程序连接到 SQL 数据库，则必须打开 VM 上的某些端口范围。 详细信息：[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 - 与 Azure SQL 数据库建立的客户端连接有时会绕过代理直接与数据库交互。 除 1433 以外的端口变得非常重要。 有关详细信息，请参阅 [Azure SQL 数据库连接体系结构](sql-database-connectivity-architecture.md)和[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
+- 有关托管实例的网络配置，请参阅[托管实例的网络配置](sql-database-howto-managed-instance.md#network-configuration)。
 
 ## <a name="next-steps"></a>后续步骤
 

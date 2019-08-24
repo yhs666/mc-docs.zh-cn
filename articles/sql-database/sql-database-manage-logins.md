@@ -13,13 +13,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 03/26/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 58e2b86a2bee917cbacd2ee1db028156c5ca9041
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/19/2019
+ms.openlocfilehash: 7d3c14af5e2d6c1e8471b190274578d21a8ffb2b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529311"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544263"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>控制和授予对 SQL 数据库和 SQL 数据仓库的数据库访问权限
 
@@ -28,7 +28,7 @@ ms.locfileid: "59529311"
 > [!NOTE]  
 > 本主题适用于 Azure SQL 服务器，也适用于在 Azure SQL 服务器中创建的 SQL 数据库和 SQL 数据仓库数据库。 为简单起见，在提到 SQL 数据库和 SQL 数据仓库时，本文统称 SQL 数据库。 
 > [!TIP]
-> 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。
+> 有关教程，请参阅[保护 Azure SQL 数据库](sql-database-security-tutorial.md)。 本教程不适用于 Azure SQL 数据库托管实例  。
 
 ## <a name="unrestricted-administrative-accounts"></a>非受限管理帐户
 
@@ -41,11 +41,11 @@ ms.locfileid: "59529311"
   创建 Azure SQL 服务器时，必须指定**服务器管理员登录名**。 SQL 服务器创建该帐户作为 master 数据库中的登录名。 此帐户通过 SQL Server 身份验证（用户名和密码）进行连接。 此类帐户只能存在一个。
 
   > [!NOTE]
-  > 若要重置服务器管理员的密码，请转到 [Azure 门户](https://portal.azure.cn)，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”。
+  > 若要重置服务器管理员的密码，请转到 [Azure 门户](https://portal.azure.cn)，单击“SQL Server”，从列表中选择服务器，然后单击“重置密码”   。
 
 - **Azure Active Directory 管理员**
 
-  也可以将某个 Azure Active Directory 帐户（个人帐户或安全组帐户）配置为管理员。 配置 Azure AD 管理员是选择性的，但如果需要使用 Azure AD 帐户连接到 SQL 数据库，则必须配置 Azure AD 管理员。 有关配置 Azure Active Directory 访问权限的详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](sql-database-aad-authentication.md)和 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。
+  也可以将某个 Azure Active Directory 帐户（个人帐户或安全组帐户）配置为管理员。 配置 Azure AD 管理员是选择性的，但如果需要使用 Azure AD 帐户连接到 SQL 数据库，则必须配置 Azure AD 管理员。  有关配置 Azure Active Directory 访问权限的详细信息，请参阅[使用 Azure Active Directory 身份验证连接到 SQL 数据库或 SQL 数据仓库](sql-database-aad-authentication.md)和 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。
 
 **服务器管理员**和 **Azure AD 管理员**帐户具有以下特征：
 
@@ -65,7 +65,7 @@ ms.locfileid: "59529311"
 
 适当地配置服务器级防火墙后，**SQL 服务器管理员**和 **Azure Active Directory 管理员**可以使用 SQL Server Management Studio 或 SQL Server Data Tools 等客户端工具进行连接。 仅最新工具提供所有的特性和功能。 下图显示了这两个管理员帐户的典型配置。
 
-![管理员访问路径](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![配置两个管理帐户](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 使用服务器级防火墙中的开放端口时，管理员可以连接到任何 SQL 数据库。
 
@@ -77,6 +77,9 @@ ms.locfileid: "59529311"
 > 建议始终使用最新版本的 Management Studio 以保持与 Azure 和 SQL 数据库的更新同步。 [更新 SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)。
 
 ## <a name="additional-server-level-administrative-roles"></a>其他服务器级管理角色
+
+>[!IMPORTANT]
+>本部分不适用于 Azure SQL 数据库托管实例  ，因为这些角色特定于 Azure SQL 数据库  。
 
 除了上述服务器级管理角色以外，SQL 数据库还在可以添加用户帐户的 master 数据库中提供了两个受限的管理角色，这些角色可授予创建数据库或管理登录名的权限。
 
@@ -104,7 +107,7 @@ ms.locfileid: "59529311"
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 语句将新用户添加到 `master` 中的 dbmanager 数据库角色。 示例语句：
+4. 使用 [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 语句将新用户添加到 `master` 中的 dbmanager 数据库角色  。 示例语句：
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -139,7 +142,7 @@ CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER;
 GRANT ALTER ANY USER TO Mary;
 ```
 
-若要向其他用户授予对数据库的完全控制权限，可让这些用户成为 db_owner 固定数据库角色的成员。
+若要向其他用户授予对数据库的完全控制权限，可让这些用户成为 db_owner 固定数据库角色的成员  。
 
 在 Azure SQL 数据库中使用 `ALTER ROLE` 语句。
 
@@ -212,7 +215,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 - 在使用 `FOR/FROM LOGIN` 选项执行 `CREATE USER` 语句时，该语句必须是 Transact-SQL 批中的唯一语句。
 - 在使用 `WITH LOGIN` 选项执行 `ALTER USER` 语句时，该语句必须是 Transact-SQL 批处理中的唯一语句。
 - 若要执行 `CREATE/ALTER/DROP` 操作，用户需要对数据库拥有 `ALTER ANY USER` 权限。
-- 在数据库角色的所有者尝试在该数据库角色中添加或删除其他数据库用户时，可能会发生以下错误：“此数据库中不存在用户或角色‘Name’”。 在用户对所有者不可见时，将会发生此错误。 若要解决此问题，请向角色所有者授予对该用户的 `VIEW DEFINITION` 权限。 
+- 在数据库角色的所有者尝试在该数据库角色中添加或删除其他数据库用户时，可能会发生以下错误：“此数据库中不存在用户或角色‘Name’”  。 在用户对所有者不可见时，将会发生此错误。 若要解决此问题，请向角色所有者授予对该用户的 `VIEW DEFINITION` 权限。 
 
 
 ## <a name="next-steps"></a>后续步骤

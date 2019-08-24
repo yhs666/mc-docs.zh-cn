@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
 origin.date: 05/01/2019
-ms.date: 05/20/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 60546eeab7012d90f27b1f7e1bd2c9c83be88716
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: 37fe74deabd69e846b429ccf58b98b14cc159041
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828822"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544245"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中支持的 T-SQL 语句
 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
@@ -24,6 +24,7 @@ ms.locfileid: "65828822"
 ## <a name="data-definition-language-ddl-statements"></a>数据定义语言 (DDL) 语句
 * [ALTER DATABASE](https://msdn.microsoft.com/zh-cn/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/zh-cn/library/ms188388.aspx)
+* [ALTER MATERIALIZED VIEW](https://docs.microsoft.com/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest)（预览版） 
 * [ALTER PROCEDURE](https://msdn.microsoft.com/zh-cn/library/ms189762.aspx)
 * [ALTER SCHEMA](https://msdn.microsoft.com/zh-cn/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/zh-cn/library/ms190273.aspx)
@@ -34,7 +35,8 @@ ms.locfileid: "65828822"
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/zh-cn/library/dn935026.aspx)
 * [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/zh-cn/library/dn935021.aspx)
 * [CREATE FUNCTION](https://msdn.microsoft.com/zh-cn/library/mt203952.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/zh-cn/library/ms188783.aspx)
+* [创建索引](https://msdn.microsoft.com/zh-cn/library/ms188783.aspx)
+* [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)（预览版） 
 * [CREATE PROCEDURE](https://msdn.microsoft.com/zh-cn/library/ms187926.aspx)
 * [CREATE SCHEMA](https://msdn.microsoft.com/zh-cn/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/zh-cn/library/ms188038.aspx)
@@ -53,6 +55,7 @@ ms.locfileid: "65828822"
 * [DROP VIEW](https://msdn.microsoft.com/zh-cn/library/ms173492.aspx)
 * [DROP WORKLOAD CLASSIFIER](https://docs.microsoft.com/zh-cn/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/zh-cn/library/mt631611.aspx)
+* [SET RESULT_SET_CACHING](https://docs.microsoft.com/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TRUNCATE TABLE](https://msdn.microsoft.com/zh-cn/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/zh-cn/library/ms187348.aspx)
 
@@ -63,9 +66,12 @@ ms.locfileid: "65828822"
 
 ## <a name="database-console-commands"></a>数据库控制台命令
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/zh-cn/library/ms187762.aspx)
+* [DBCC DROPRESULTSETCACHE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)（预览版）
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/zh-cn/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/zh-cn/library/mt204020.aspx)
 * [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/zh-cn/library/mt204017.aspx)
+* [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
+* [DBCC SHOWRESULTCACHESPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql)（预览版）
 * [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/zh-cn/library/mt204013.aspx)
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/zh-cn/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/zh-cn/library/mt204043.aspx)

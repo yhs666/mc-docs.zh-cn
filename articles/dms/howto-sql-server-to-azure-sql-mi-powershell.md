@@ -11,16 +11,16 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 04/29/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: b2d9841842ea6f157dacdc6326ca5d5302976e6d
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 0a93a5615b4d874228c4b180e36a7d81e9026450
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571478"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952150"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>使用 Azure PowerShell 将本地 SQL Server 迁移到 Azure SQL 数据库托管实例
-在本文中，我们将使用 Azure PowerShell 将还原为 SQL Server 2005 或更高版本的本地实例的 **Adventureworks2016** 数据库迁移到 Azure SQL 数据库托管实例。 可以使用 Microsoft Azure PowerShell 中的 `Az.DataMigration` 模块，将数据库从本地 SQL Server 实例迁移到 Azure SQL 数据库托管实例。
+在本文中，我们将使用 Azure PowerShell 将还原为 SQL Server 2005 或更高版本的本地实例的 **Adventureworks2016** 数据库迁移到 Azure SQL 数据库托管实例。 可以使用 Azure PowerShell 中的 `Az.DataMigration` 模块，将数据库从本地 SQL Server 实例迁移到 Azure SQL 数据库托管实例。
 
 在本文中，学习如何：
 > [!div class="checklist"]
@@ -64,7 +64,7 @@ Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
 使用 [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。
 
-以下示例在“美国东部”区域创建名为 *myResourceGroup* 的资源组  。
+以下示例在“中国东部 2”区域创建名为“myResourceGroup”   的资源组。
 
 ```powershell
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast2
@@ -77,7 +77,7 @@ New-AzResourceGroup -ResourceGroupName myResourceGroup -Location ChinaEast2
 
 *  Azure 资源组名称。 可以使用 [`New-AzResourceGroup`](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建前述 Azure 资源组，并提供其名称作为参数。
 *  服务名称。 与 Azure 数据库迁移服务的所需唯一服务名称相对应的字符串。
-* *位置*。 指定服务的位置。 指定 Azure 数据中心位置，例如“中国东部 2”或“中国北部”。
+* *位置*。 指定服务的位置。 指定 Azure 数据中心位置，例如“ChinaEast 2”。
 *  Sku。 此参数对应于 DMS Sku 名称。 目前支持的 SKU 名称为 *Basic_1vCore*、*Basic_2vCores* 和 *GeneralPurpose_4vCores*。
 *  虚拟子网标识符。 可以使用 cmdlet [`New-AzVirtualNetworkSubnetConfig`](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 创建子网。
 
@@ -361,13 +361,13 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
     若要合并迁移详细信息（例如，与迁移相关的属性、状态和数据库信息），请使用以下代码片段：
 
     ```powershell
-    $CheckTask= Get-AzDataMigrationTask     -ResourceGroupName myResourceGroup `
-                                            -ServiceName $service.Name `
+    $CheckTask= Get-AzDataMigrationTask -ResourceGroupName myResourceGroup `
+                                        -ServiceName $service.Name `
                                         -ProjectName $project.Name `
-                                            -Name myDMSTask `
-                                            -ResultType DatabaseLevelOutput `
+                                        -Name myDMSTask `
+                                        -ResultType DatabaseLevelOutput `
                         -Expand 
-    Write-Host ‘$CheckTask.ProjectTask.Properties.Output’
+    Write-Host '$CheckTask.ProjectTask.Properties.Output'
     ```
 
 2. 使用 `$CheckTask` 变量获取迁移任务的当前状态。
@@ -385,7 +385,7 @@ $migTask = New-AzDataMigrationTask -TaskType MigrateSqlServerSqlDbMiSync `
     }
     Else if($CheckTask.ProjectTask.Properties.State -eq "Failed" -or $CheckTask.ProjectTask.Properties.State -eq "FailedInputValidation"  -or $CheckTask.ProjectTask.Properties.State -eq "Faulted")
     { 
-      write-host “Migration Task Failed”
+      write-host "Migration Task Failed"
     }
     ```
 

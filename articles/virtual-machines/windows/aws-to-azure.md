@@ -1,5 +1,5 @@
 ---
-title: 将 Windows AWS VM 移到 Azure | Azure
+title: 将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机 | Azure
 description: 将 Amazon Web Services (AWS) EC2 Windows 实例移到 Azure 虚拟机。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 06/01/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7b643a20504f0ace9cefeb3343368a7c1449f26
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0377021d1f3d9da0bfc110506cbbb1a42ceebbab
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004127"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539072"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>将 Windows VM 从 Amazon Web Services (AWS) 移到 Azure 虚拟机
 

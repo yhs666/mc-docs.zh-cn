@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure 中的 Linux VM 设备名称更改问题 | Azure
+title: Linux VM 设备名称更改故障排除 | Azure
 description: 说明 Linux VM 设备名更改的原因以及解决此问题的方法。
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 origin.date: 11/01/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 257f1cbf0a22a9b95d9ef947758d1e4aaa764a7f
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 2525c5e172b71d04cc9d23821feb0c7f8f01b679
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004130"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538930"
 ---
 # <a name="troubleshoot-linux-vm-device-name-changes"></a>排查 Linux VM 设备名更改问题
 
@@ -153,7 +153,9 @@ Azure Linux 代理 Udev 规则在 /dev/disk/azure 路径下构造一组符号链
 有关详细信息，请参阅以下文章：
 
 - [Ubuntu：使用 UUID](https://help.ubuntu.com/community/UsingUUID)
+    
     <!-- Not Avaiable on Line 150- [Red Hat: Persistent naming](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/7/html/Storage_Administration_Guide/persistent_naming.html) -->
+
 - [Linux：UUID 有什么作用](https://www.linux.com/news/what-uuids-can-do-you)
 - [Udev：新式 Linux 系统中的设备管理简介](https://www.linux.com/news/udev-introduction-device-management-modern-linux-system)
 

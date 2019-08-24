@@ -1,5 +1,5 @@
 ---
-title: 启动 Azure VM 时关键服务失败 | Azure
+title: 启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”| Azure
 description: 了解如何解决在启动时出现的“0x0000005A-关键服务失败”错误 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/08/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 63afe572e02d365dc59b521b6bf316fde7667227
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: f42534e4385f4a9909c5967c3b0238b414554f2b
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004053"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538945"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>启动 Azure VM 时 Windows 在蓝色屏幕上显示“关键服务失败”
 本文介绍在 Azure 中启动 Windows 虚拟机 (VM) 时可能会遇到的“关键服务失败”错误， 并提供用于解决问题的故障排除步骤。 
@@ -31,7 +31,7 @@ ms.locfileid: "59004053"
 
 Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动屏幕截图时，在蓝色屏幕上看到以下错误消息之一：
 
-- “你的电脑遇到问题，需要重启。 你可以重启。 有关此问题和可能的修补程序的详细信息，请访问 http://windows.com/stopcode。 如果致电支持人员，请向他们提供以下信息：“终止代码: 关键服务失败” 
+- “你的电脑遇到问题，需要重启。 你可以重启。 有关此问题和可能的修补程序的详细信息，请访问 https://windows.com/stopcode 。 如果致电支持人员，请向他们提供以下信息：“终止代码: 关键服务失败” 
 - “你的电脑遇到问题，需要重启。 我们将收集一些错误信息，然后为你重启电脑。 如果想了解更多信息，可以稍后联机搜索以下错误：CRITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>原因
@@ -64,15 +64,15 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
         bcdedit /store F: boot\bcd /set {default} safeboot minimal
 
 2. [分离 OS 磁盘，然后将 OS 磁盘重新附加到受影响的 VM](troubleshoot-recovery-disks-portal-windows.md)。 VM 会以安全模式启动。 如果仍然遇到错误，请转到可选步骤。
-3. 打开“运行”框，运行 **verifier** 来启动驱动程序验证程序管理器工具。
-4. 选择“自动选择未经签名的驱动程序”，然后单击“下一步”。
+3. 打开“运行”  框，运行 **verifier** 来启动驱动程序验证程序管理器工具。
+4. 选择“自动选择未经签名的驱动程序”  ，然后单击“下一步”  。
 5. 此时会显示未经签名的驱动程序文件的列表。 请记住这些文件名。
 6. 从正常工作的 VM 复制这些文件的相同版本，然后替换这些未签名的文件。 
 
 7. 删除安全启动设置：
 
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
-8.  重启 VM。 
+8. 重启 VM。 
 
 ### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>可选：在故障转储模式下分析转储日志
 
@@ -81,15 +81,15 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
 1. 将 OS 磁盘附加到恢复 VM。
 2. 在附加的 OS 磁盘上，浏览到 **\windows\system32\config**。将所有文件复制为一个备份，以备回退之需。
 3. 启动**注册表编辑器** (regedit.exe)。
-4. 选择“HKEY_LOCAL_MACHINE”项。 在菜单上，选择“文件” > “加载配置单元”。
-5. 浏览到已附加 OS 磁盘上的 **\windows\system32\config\SYSTEM** 文件夹。 输入“BROKENSYSTEM”作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”项之下。
+4. 选择“HKEY_LOCAL_MACHINE”  项。 在菜单上，选择“文件” > “加载配置单元”。  
+5. 浏览到已附加 OS 磁盘上的 **\windows\system32\config\SYSTEM** 文件夹。 输入“BROKENSYSTEM”  作为配置单元名称。 新的注册表配置单元将显示在“HKEY_LOCAL_MACHINE”  项之下。
 6. 浏览到 **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** 并进行以下更改：
 
     Autoreboot = 0
 
     CrashDumpEnabled = 2
-7.  选择“BROKENSYSTEM”。 在菜单上，选择“文件” > “卸载配置单元”
-8.  修改 BCD 设置以在调试模式下启动。 在提升的命令提示符下运行以下命令：
+7. 选择“BROKENSYSTEM”  。 在菜单上，选择“文件”   > “卸载配置单元” 
+8. 修改 BCD 设置以在调试模式下启动。 在提升的命令提示符下运行以下命令：
 
     ```cmd
     REM Setup some debugging flags on the boot manager
@@ -145,4 +145,3 @@ Windows VM 不启动。 在[启动诊断](./boot-diagnostics.md)中检查启动�
     ```
     
 <!-- Update_Description: wording update -->
-

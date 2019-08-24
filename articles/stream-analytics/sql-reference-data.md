@@ -1,21 +1,23 @@
 ---
-title: 对 Azure 流分析作业使用 SQL 数据库中的参考数据（预览）
+title: 将 SQL 数据库中的参考数据用于 Azure 流分析作业
 description: 本文介绍如何在 Azure 门户和 Visual Studio 中对 Azure 流分析作业使用 SQL 数据库作为参考数据输入。
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
+author: lingliw
+ms.author: v-lingwu
+manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
+origin.date: 07/29/2019
 ms.date: 01/29/2019
-ms.openlocfilehash: 73edeab1aa08bc59d41ea7521a45bb074d2a6122
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 292cdd77a014ab86012dc6140c2e5bc5a7ad5887
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818561"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969603"
 ---
-# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>对 Azure 流分析作业使用 SQL 数据库中的参考数据（预览）
+# <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>将 SQL 数据库中的参考数据用于 Azure 流分析作业
 
 Azure 流分析支持将 Azure SQL 数据库用作参考数据的输入源。 可以在 Azure 门户和 Visual Studio 中配合流分析工具将 SQL 数据库用作流分析作业的参考数据。 本文演示如何使用这两种方法。
 
@@ -37,7 +39,7 @@ Azure 流分析支持将 Azure SQL 数据库用作参考数据的输入源。 �
 
    ![流分析作业输入](./media/sql-reference-data/stream-analytics-inputs.png)
 
-2. 填写“流分析输入配置”。 选择数据库名称、服务器名称、用户名和密码。 如果希望参考数据输入定期刷新，请选择“打开”以指定刷新频率（采用 DD:HH:MM 格式）。 如果你的数据集较大且刷新频率较短，可以使用[增量查询](sql-reference-data.md)。
+2. 填写“流分析输入配置”。 选择数据库名称、服务器名称、用户名和密码。 如果希望参考数据输入定期刷新，请选择“打开”以指定刷新频率（采用 DD:HH:MM 格式）。 如果你的数据集较大且刷新频率较短，可以使用[增量查询](sql-reference-data.md#delta-query)。
 
    ![SQL 数据库参考配置](./media/sql-reference-data/sql-input-config.png)
 
@@ -59,16 +61,14 @@ Azure 流分析支持将 Azure SQL 数据库用作参考数据的输入源。 �
 
 ### <a name="visual-studio-prerequisites"></a>Visual Studio 先决条件
 
-1. 如果使用 Visual Studio 2017，请更新到 15.8.2 或更高版本。 请注意，目前不支持 16.0 和更高版本。
-
-2. [安装用于 Visual Studio 的流分析工具](stream-analytics-tools-for-visual-studio-install.md)。 支持以下 Visual Studio 版本：
+1. [安装用于 Visual Studio 的流分析工具](stream-analytics-tools-for-visual-studio-install.md)。 支持以下 Visual Studio 版本：
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. 通过[用于 Visual Studio 的流分析工具](stream-analytics-quick-create-vs.md)快速入门来熟悉工具。
+2. 通过[用于 Visual Studio 的流分析工具](stream-analytics-quick-create-vs.md)快速入门来熟悉工具。
 
-4. 创建存储帐户。
+3. 创建存储帐户。
 
 ### <a name="create-a-sql-database-table"></a>创建 SQL 数据库表
 
@@ -118,7 +118,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. 在编辑器中打开 SQL 文件并编写 SQL 查询。
 
-5. 如果使用 Visual Studio 2017 并且已安装 SQL Server Data Tools，可以单击“执行”来测试查询。  此时会弹出一个向导窗口帮助你连接到 SQL 数据库；查询结果将显示在窗口底部。
+5. 如果使用 Visual Studio 2019 并且已安装 SQL Server Data Tools，可以单击“执行”来测试查询。  此时会弹出一个向导窗口帮助你连接到 SQL 数据库；查询结果将显示在窗口底部。
 
 ### <a name="specify-storage-account"></a>指定存储帐户
 
@@ -175,6 +175,9 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
  
    请注意，除了运行用于存储检查点的增量查询以外，流分析运行时还可以定期运行快照查询。
 
+## <a name="test-your-query"></a>测试查询
+   请务必验证查询是否返回流分析作业将用作参考数据的所需数据集。 若要测试查询，请转到门户上“作业拓扑”部分下的“输入”。 然后，可以在“SQL 数据库参考输入”中选择“示例数据”。 示例可用后，可以下载该文件并检查返回的数据是否符合预期。 如果希望优化开发和测试迭代，建议使用[适用于 Visual Studio 的流分析工具](/stream-analytics/stream-analytics-tools-for-visual-studio-install)。 也可以使用你喜欢的任何其他工具，首先确保查询从 Azure SQL 数据库返回正确的结果，然后在流分析作业中使用该查询。 
+
 ## <a name="faqs"></a>常见问题
 
 **在 Azure 流分析中使用 SQL 参考数据输入是否会产生额外的费用？**
@@ -193,10 +196,6 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 **是否需要特殊类型的 Azure SQL 数据库？**
 
 Azure 流分析可与任何类型的 Azure SQL 数据库配合工作。 但必须知道，针对参考数据输入设置的刷新频率可能会影响查询负载。 若要使用增量查询选项，我们建议使用 Azure SQL 数据库中的时态表。
-
-**是否可以针对 SQL 数据库参考数据输入中的输入采样？**
-
-此功能不可用。
 
 **Azure 流分析为何在 Azure 存储帐户中存储快照？**
 

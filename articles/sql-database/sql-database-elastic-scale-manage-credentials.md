@@ -12,19 +12,19 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: craigg
 origin.date: 01/03/2019
-ms.date: 01/21/2019
-ms.openlocfilehash: 9b3f2e6d7c53a540bb54e51a99a03fca601e136d
-ms.sourcegitcommit: 2edae7e4dca37125cceaed89e0c6e4502445acd0
+ms.date: 08/19/2019
+ms.openlocfilehash: 11caa4b5606c287b18082f0d74d303028a86ad45
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363750"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544257"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>用于访问弹性数据库客户端库的凭据
 
 [弹性数据库客户端库](sql-database-elastic-database-client-library.md)使用三种不同的凭据来访问[分片映射管理器](sql-database-elastic-scale-shard-map-management.md)。 使用凭据时，应根据需要尽可能采用最低访问级别。
 
-* 管理凭据：用于创建或操作分片映射管理器。 （请参阅[词汇表](sql-database-elastic-scale-glossary.md)。）
+* 管理凭据：用于创建或操作分片映射管理器。  （请参阅[词汇表](sql-database-elastic-scale-glossary.md)。）
 * **访问凭据**：用于访问现有分片映射管理器以获取有关分片的信息。
 * **连接凭据**：用于连接到分片。
 
@@ -56,7 +56,7 @@ ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(s
 ShardMapManager shardMapManager = ShardMapManagerFactory.GetSqlShardMapManager(smmReadOnlyConnectionString, ShardMapManagerLoadPolicy.Lazy);  
 ```
 
-记下 smmReadOnlyConnectionString 的使用，以代表非管理员用户反映用于此访问的其他凭据的使用：这些凭据不应在全局分片映射上提供写入权限。
+记下 smmReadOnlyConnectionString 的使用，以代表非管理员用户反映用于此访问的其他凭据的使用：这些凭据不应在全局分片映射上提供写入权限。  
 
 ## <a name="connection-credentials"></a>连接凭据
 
@@ -80,5 +80,6 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 [保护 SQL 数据库](sql-database-security-overview.md)
 
+[弹性数据库作业](elastic-jobs-overview.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]

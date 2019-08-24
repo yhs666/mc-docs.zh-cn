@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 示例 - 创建运行 Azure Monitor 的 Azure VM | Microsoft Docs
+title: Azure CLI 示例 - 创建运行 Azure Monitor 的 Azure VM | Azure
 description: Azure CLI 示例 - 创建运行 Windows Server 2016 VM 和 Azure Monitor 的 Azure VM。
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -13,15 +13,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
-ms.date: 02/23/2017
+origin.date: 02/23/2017
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 3521286e632896e09bedc812c3f92e9fb9fc4f89
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 7aa5e612323c1c4ba1706838602af2a2fd8a5e49
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004350"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539190"
 ---
 # <a name="monitor-a-vm-with-azure-monitor-logs"></a>使用 Azure Monitor 日志监视 VM
 
@@ -35,6 +36,10 @@ ms.locfileid: "66004350"
 
 ```azurecli
 #!/bin/sh
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login
 
 # Update for your admin password
 AdminPassword=ChangeYourAdminPassword1
@@ -63,12 +68,11 @@ az vm extension set \
   --settings '{"workspaceId": "'"$omsid"'"}'
 ```
 
-
 ## <a name="clean-up-deployment"></a>清理部署 
 
 运行以下命令来删除资源组、VM 和所有相关资源。
 
-```azurecli-interactive 
+```azurecli 
 az group delete --name myResourceGroup --yes
 ```
 
@@ -78,13 +82,13 @@ az group delete --name myResourceGroup --yes
 
 | 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
-| [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
-| [azure vm extension set](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest) | 针对虚拟机运行 VM 扩展。 在此示例中，使用 Azure Monitor 代理扩展安装 Log Analytics 代理，并在 Log Analytics 工作区中注册 VM。 |
-| [az group delete](https://docs.azure.cn/zh-cn/cli/vm/extension?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) | 创建虚拟机并将其连接到网卡、虚拟网络、子网和 NSG。 此命令还指定要使用的虚拟机映像和管理凭据。  |
+| [az vm extension set](https://docs.azure.cn/cli/vm/extension?view=azure-cli-latest#az-vm-extension-set) | 针对虚拟机运行 VM 扩展。 |
+| [az group delete](https://docs.azure.cn/cli/group/extension?view=azure-cli-latest#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/zh-cn/cli/index?view=azure-cli-latest)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Windows VM 文档](../windows/cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。

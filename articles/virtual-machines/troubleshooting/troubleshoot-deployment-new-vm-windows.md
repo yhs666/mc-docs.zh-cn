@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中排查 Windows VM 部署问题 | Azure
+title: 排查在 Azure 中新建 Windows VM 时遇到的部署问题 | Azure
 description: 排查在 Azure 中新建 Windows 虚拟机时遇到的 Resource Manager 部署问题
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 06/15/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b457fbb1342833e529eb930ece7b85cf4304a348
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 803e6aaa5d7c70af5853f2bffaceba599bbd8b52
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666323"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538935"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>排查在 Azure 中新建 Windows VM 时遇到的部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -76,10 +76,10 @@ ms.locfileid: "56666323"
 
 * 使用更小的 VM 大小来重试请求。
 * 如果无法更改请求的 VM 大小：
-  * 停止可用性集中的所有 VM。
-    单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
-  * 所有 VM 都停止后，创建所需大小的新 VM。
-  * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。
+    * 停止可用性集中的所有 VM。
+        单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。    
+    * 所有 VM 都停止后，创建所需大小的新 VM。
+    * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。 
 
 **原因 2：** 群集没有空闲的资源。
 
@@ -87,8 +87,8 @@ ms.locfileid: "56666323"
 
 * 稍后重试请求。
 * 如果新 VM 属于不同的可用性集
-  * 在不同的可用性集（位于同一区域）中创建新 VM。
-  * 将新 VM 添加到同一虚拟网络。
+    * 在不同的可用性集（位于同一区域）中创建新 VM。
+    * 将新 VM 添加到同一虚拟网络。
 
 ## <a name="next-steps"></a>后续步骤
 如果在 Azure 中启动已停止的 Windows VM 或调整现有 Windows VM 的大小时遇到问题，请参阅[排查在 Azure 中重新启动现有 Windows 虚拟机或调整其大小时遇到的 Resource Manager 部署问题](restart-resize-error-troubleshooting.md)。

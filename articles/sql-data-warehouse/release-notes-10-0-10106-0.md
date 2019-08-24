@@ -5,18 +5,18 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: ''
-origin.date: 05/13/2019
-ms.date: 06/24/2019
+origin.date: 07/03/2019
+ms.date: 08/19/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnick
 manager: digimobile
-ms.openlocfilehash: fd819634deb3220fb2b8620fe6503109c817e198
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 489725f4fbc81cdb35e30aff300f019fc52116d5
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151770"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544409"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL 数据仓库发行说明
 
@@ -26,9 +26,20 @@ ms.locfileid: "67151770"
 
 我们即将在所有区域中推出新的功能用于检查实例中部署的版本，以及最新 Azure SQL 数据仓库可用功能的发行说明。 若要检查 Azure SQL 数据仓库的版本，请通过 SQL Server Management Studio (SSMS) 连接到数据仓库，然后运行 `SELECT @@VERSION AS 'SQL Data Warehouse';` 返回 Azure SQL 数据仓库的当前版本。
 
-示例输出：![SQL 数据仓库版本](./media/release-notes/sql_data_warehouse_version.png)
+示例输出：
+
+![SQL 数据仓库版本](./media/release-notes/sql_data_warehouse_version.png)
 
 使用标识的日期确认已将哪个版本应用到 Azure SQL 数据仓库。
+
+## <a name="july-2019"></a>2019 年 7 月
+
+| 服务改进 | 详细信息 |
+| --- | --- |
+|**具体化视图（预览版）**|具体化视图会保留从视图定义查询返回的数据，并在基础表中的数据更改时自动更新。 它提高了复杂查询（通常是使用联接和聚合的查询）的性能，同时提供了简单的维护操作。 有关详细信息，请参阅： </br> - [CREATE MATERIALIZED VIEW AS SELECT &#40;Transact-SQL&#41;](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)</br> - [ALTER MATERIALIZED VIEW &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> - [Azure SQL 数据仓库中支持的 T-SQL 语句](/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**更多 T-SQL 支持**|SQL 数据仓库的 T-SQL 语言外围应用已扩展，现在支持： </br> - [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG](https://docs.microsoft.com/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
+|**结果集缓存（预览版）**|添加了 DBCC 命令以管理之前公布的结果集缓存。 有关详细信息，请参阅： </br> - [DBCC DROPRESULTSETCACHE &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;Transact-SQL&#41;](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 另请参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest) 中新的 result_set_cache 列，该列显示执行的查询何时使用结果集缓存。|
+|**排序聚集列存储索引（预览版）**|新列 column_store_order_ordinal 已添加到 [sys.index_columns](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest)，以标识已排序聚集列存储索引中列的顺序。|
 
 ## <a name="may-2019"></a>2019 年 5 月
 

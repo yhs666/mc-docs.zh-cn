@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中重新部署 Windows 虚拟机 | Azure
+title: 将 Windows 虚拟机重新部署到新的 Azure 节点 | Azure
 description: 如何通过在 Azure 中重新部署 Windows 虚拟机来缓解 RDP 连接问题。
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: ef5f9c30f8f98a2092687fd75a7d39c155a8142b
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 63aa675e2cdb36f5a71b055c6e628587add3f95d
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665837"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538768"
 ---
 # <a name="redeploy-windows-virtual-machine-to-new-azure-node"></a>将 Windows 虚拟机重新部署到新的 Azure 节点
 如果在对远程桌面 (RDP) 连接或应用程序对基于 Windows 的 Azure 虚拟机 (VM) 的访问进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，Azure 会关闭该 VM，并将其移到 Azure 基础结构中的新节点，然后重新打开它，同时保留所有配置选项和关联的资源。 本文介绍了如何使用 Azure PowerShell 或 Azure 门户重新部署 VM。

@@ -12,14 +12,14 @@ ms.reviewer: ''
 manager: digimobile
 origin.date: 04/25/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: d3b3ab108dddc47c02e71c138ed25b5873951d14
-ms.sourcegitcommit: 666b43a8f208bbbfd46e50eda7b342b0cd382258
+ms.openlocfilehash: 4f808ae1d8455fadee9001bc97cc6bc3ee4de7f6
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67277016"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543950"
 ---
-# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Azure SQL 数据库托管实例中的时区（预览版）
+# <a name="time-zones-in-azure-sql-database-managed-instance"></a>Azure SQL 数据库托管实例中的时区
 
 协调世界时 (UTC) 是云解决方案数据层的建议时区。 Azure SQL 数据库托管实例还提供时区的选项，来满足存储日期和时间值以及使用特定时区的隐式上下文调用日期和时间函数的现有应用程序的需求。
 
@@ -31,7 +31,9 @@ ms.locfileid: "67277016"
 
 ## <a name="supported-time-zones"></a>支持的时区
 
-支持的时区集继承自托管实例的底层操作系统。 它会定期更新，以获取新的时区定义并反映对现有时区所做的更改。 
+支持的时区集继承自托管实例的底层操作系统。 它会定期更新，以获取新的时区定义并反映对现有时区所做的更改。
+
+[夏时制/时区更改策略](https://aka.ms/time)保证了 2010 年以来的历史记录的准确性。
 
 受支持时区名称的列表是通过 [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) 系统视图公开的。
 
@@ -44,7 +46,7 @@ ms.locfileid: "67277016"
 
 ### <a name="set-the-time-zone-through-the-azure-portal"></a>通过 Azure 门户设置时区
 
-输入新实例的参数时，请从受支持时区列表中选择一个时区。 
+输入新实例的参数时，请从受支持时区列表中选择一个时区。
   
 ![在创建实例期间设置时区](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
@@ -83,7 +85,10 @@ ms.locfileid: "67277016"
 
 ### <a name="point-in-time-restore"></a>时间点还原
 
-执行时间点还原时，要还原到的时间将解释为 UTC 时间。 此设置可避免夏时制及其潜在更改造成任何多义性。
+<del>执行时间点还原时，要还原到的时间将解释为 UTC 时间。 此设置可避免夏时制及其潜在更改造成任何多义性。<del>
+
+ >[!WARNING]
+  > 当前行为与上述陈述不符，要还原到的时间按源托管实例的时区解释，在该时区中进行自动数据库备份。 我们正努力纠正此行为，会将给定的时间点解释为 UTC 时间。 有关更多详细信息，请参阅[已知问题](sql-database-managed-instance-timezone.md#known-issues)。
 
 ### <a name="auto-failover-groups"></a>自动故障转移组
 
@@ -96,6 +101,21 @@ ms.locfileid: "67277016"
 
 - 无法更改现有托管实例的时区。
 - 从 SQL Server 代理作业启动的外部进程不会观察实例的时区。
+
+## <a name="known-issues"></a>已知问题
+
+执行时间点还原 (PITR) 操作时，要还原到的时间按托管实例上设置的时区解释，在该时区中进行自动数据库备份，即使 PITR 的门户页建议将时间解释为 UTC。
+
+示例：
+
+假设在其中进行自动备份的实例设置的时区为东部标准时间 (UTC-5)。
+时间点还原的门户页建议将你选择还原到的时间设置为 UTC 时间：
+
+![通过门户使用本地时间进行的 PITR](media/sql-database-managed-instance-timezone/02-pitr-with-nonutc-timezone.png)
+
+但是，要还原到的时间实际上会被解释为东部标准时间。在这个具体的示例中，数据库将还原到东部标准时间（而不是 UTC 时间）上午 9 点的状态。
+
+若要使用时间点还原来还原到特定的 UTC 时间，请先在源实例的时区中计算等效时间，然后在门户或 PowerShell/CLI 脚本中使用该时间。
 
 ## <a name="list-of-supported-time-zones"></a>支持的时区列表
 

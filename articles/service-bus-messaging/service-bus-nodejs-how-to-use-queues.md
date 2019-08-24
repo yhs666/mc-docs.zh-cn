@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b80bb4cf9ba6d01462e7c4f38ba99ee87dd9c353
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: 12b98d4d81f05682642f8f867395aff7941704e1
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046969"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544363"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>如何通过 Node.js 使用服务总线队列
 
@@ -41,7 +41,7 @@ ms.locfileid: "67046969"
 ## <a name="create-a-nodejs-application"></a>创建 Node.js 应用程序
 创建一个空的 Node.js 应用程序。 有关如何创建 Node.js 应用程序的说明，请参阅[创建 Node.js 应用程序并将其部署到 Azure 网站][Create and deploy a Node.js application to an Azure Website]或 [Node.js 云服务][Node.js Cloud Service]（使用 Windows PowerShell）。
 
-## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
+## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用 Service Bus
 若要使用 Azure 服务总线，请下载并使用 Node.js Azure 包。 此程序包包括一组用来与服务总线 REST 服务通信的库。
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>使用 Node 包管理器 (NPM) 可获取该程序包
@@ -147,7 +147,7 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小是在创建时定义的，上限为 5 GB。 有关配额的详细信息，请参阅[服务总线配额][Service Bus quotas]。
+服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][Service Bus quotas]。
 
 ## <a name="receive-messages-from-a-queue"></a>从队列接收消息
 对 ServiceBusService 对象使用 `receiveQueueMessage` 方法可从队列接收消息  。 默认情况下，消息被读取后即从队列删除；但是可以读取（速览）并锁定消息而不将其从队列删除，只要将可选参数 `isPeekLock` 设置为“true”即可  。
@@ -187,8 +187,8 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 若要了解有关队列的详细信息，请参阅以下资源。
 
 * [队列、主题和订阅][Queues, topics, and subscriptions]
-* GitHub 上的 [Azure SDK for Node][Azure SDK for Node] 存储库
-* [Node.js 开发人员中心](https://azure.microsoft.com/develop/nodejs/)
+* [Azure SDK for Node][Azure SDK for Node] 存储库
+* [Node.js 开发人员中心](https://docs.microsoft.com/develop/nodejs/)
 
   [Azure SDK for Node]: https://github.com/Azure/azure-sdk-for-node
 [Azure portal]: https://portal.azure.cn

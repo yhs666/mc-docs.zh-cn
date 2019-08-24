@@ -9,13 +9,13 @@ ms.author: v-yiso
 ms.reviewer: klam, LADocs
 ms.topic: reference
 origin.date: 08/15/2018
-ms.date: 06/17/2019
-ms.openlocfilehash: 79e4abbb3af22879f15c0170bbdb5d302dbf6159
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 08/26/2019
+ms.openlocfilehash: 21b0f35d7e40dc56b117d2df12898dcbd984d6ce
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732572"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539184"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Azure 逻辑应用和 Microsoft Flow 中工作流定义语言的函数引用
 
@@ -285,6 +285,11 @@ ms.locfileid: "66732572"
 ||| 
 
 <a name="alphabetical-list"></a>
+
+## <a name="all-functions---alphabetical-list"></a>所有函数 - 字母列表
+
+此部分按字母顺序列出所有可用函数。
+
 <a name="action"></a>
 
 ### <a name="action"></a>action
@@ -419,8 +424,6 @@ actionOutputs('Get_user')
   }
 }
 ```
-
-## <a name="all-functions---alphabaetical-list"></a>所有函数 - 字母列表
 
 <a name="actions"></a>
 
@@ -625,14 +628,14 @@ addProperty(<object>, '<property>', <value>)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*object*> | 是 | 对象 | 要将属性添加到的 JSON 对象 | 
+| <*object*> | 是 | Object | 要将属性添加到的 JSON 对象 | 
 | <*property*> | 是 | String | 要添加的属性的名称 | 
 | <*value*> | 是 | 任意 | 属性的值 |
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| <*updated-object*> | 对象 | 具有指定属性的更新后 JSON 对象 | 
+| <*updated-object*> | Object | 具有指定属性的更新后 JSON 对象 | 
 |||| 
 
 *示例*
@@ -716,7 +719,7 @@ addToTime('<timestamp>', <interval>, '<timeUnit>', '<format>'?)
 addToTime('2018-01-01T00:00:00Z', 1, 'Day') 
 ```
 
-并返回以下结果：`"2018-01-02T00:00:00:0000000Z"`
+并返回以下结果：`"2018-01-02T00:00:00.0000000Z"`
 
 *示例 2*
 
@@ -782,7 +785,7 @@ and(equals(1, 2), equals(1, 3))
 
 <a name="array"></a>
 
-### <a name="array"></a>数组
+### <a name="array"></a>array
 
 从单个指定的输入返回数组。 对于多个输入，请参阅 [createArray()](#createArray)。 
 
@@ -3035,13 +3038,13 @@ removeProperty(<object>, '<property>')
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*object*> | 是 | 对象 | 要从中删除属性的 JSON 对象 | 
+| <*object*> | 是 | Object | 要从中删除属性的 JSON 对象 | 
 | <*property*> | 是 | String | 要删除的属性的名称 | 
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| <*updated-object*> | 对象 | 不具有指定属性的更新后 JSON 对象 | 
+| <*updated-object*> | Object | 不具有指定属性的更新后 JSON 对象 | 
 |||| 
 
 *示例*
@@ -3064,14 +3067,14 @@ setProperty(<object>, '<property>', <value>)
 
 | 参数 | 必须 | 类型 | 说明 | 
 | --------- | -------- | ---- | ----------- | 
-| <*object*> | 是 | 对象 | 要设置其属性的 JSON 对象 | 
+| <*object*> | 是 | Object | 要设置其属性的 JSON 对象 | 
 | <*property*> | 是 | String | 要设置的现有属性或新属性的名称 | 
 | <*value*> | 是 | 任意 | 要为指定属性设置的值 |
 ||||| 
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| <*updated-object*> | 对象 | 设置了其属性的更新后 JSON 对象 | 
+| <*updated-object*> | Object | 设置了其属性的更新后 JSON 对象 | 
 |||| 
 
 *示例*
@@ -3280,7 +3283,7 @@ startsWith('hello world', 'greetings')
 
 <a name="string"></a>
 
-### <a name="string"></a>字符串
+### <a name="string"></a>string
 
 返回值的字符串版本。
 
@@ -4120,7 +4123,7 @@ xml('<value>')
 
 | 返回值 | 类型 | 说明 | 
 | ------------ | ---- | ----------- | 
-| <*xml-version*> | 对象 | 指定的字符串或 JSON 对象的编码 XML | 
+| <*xml-version*> | Object | 指定的字符串或 JSON 对象的编码 XML | 
 |||| 
 
 *示例 1*
@@ -4224,7 +4227,7 @@ xpath('<xml>', '<xpath>')
 
 * *表达式 2* 
 
-  `xpath(xml(body('Http')), '/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]')`
+  `xpath(xml(body('Http')), '/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]')`
 
 下面是参数：
 
@@ -4238,9 +4241,9 @@ xpath('<xml>', '<xpath>')
 
   * `/*[name()=\"file\"]/*[name()=\"location\"]`
 
-  * `/*[local-name=()=\"file\"] and namespace-uri()=\"http://contoso.com\"/*[local-name()]=\"location\" and namespace-uri()=\"\"]`
+  * `/*[local-name()=\"file\" and namespace-uri()=\"http://contoso.com\"]/*[local-name()=\"location\"]`
 
-下面是与 `<location></location` 节点匹配的结果节点：
+下面是与 `<location></location>` 节点匹配的结果节点：
 
 ```xml
 <location xmlns="https://contoso.com">Paris</location>

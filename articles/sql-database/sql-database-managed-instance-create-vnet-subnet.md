@@ -6,19 +6,19 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, carlrab
 manager: craigg
 origin.date: 01/15/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 669fdc15962fb96282727cfd448a5df9322521df
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 08/19/2019
+ms.openlocfilehash: b88c1a4ab57d2d12c5a1bf65ea46f320f7bf27f3
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625864"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544192"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>为 Azure SQL 数据库托管实例创建虚拟网络
 
@@ -35,6 +35,9 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络](../virtual-n
 > 在部署第一个实例之前，应[确定托管实例的子网大小](sql-database-managed-instance-determine-size-vnet-subnet.md)。 在资源放入子网后，无法调整子网大小。
 >
 > 如果打算使用现有的虚拟网络，则需要修改该网络的配置，以适应托管实例。 有关详细信息，请参阅[根据托管实例修改现有的虚拟网络](sql-database-managed-instance-configure-vnet-subnet.md)。
+>
+> 创建托管实例后，不支持将托管实例或 VNet 移到另一个资源组或订阅。
+
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
@@ -42,7 +45,7 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络](../virtual-n
 
 1. 登录到 Azure 门户。
 
-2. 选择“部署到 Azure”按钮：
+2. 选择“部署到 Azure”按钮： 
 
    <a target="_blank" href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
@@ -55,7 +58,7 @@ Azure SQL 数据库托管实例必须部署在 Azure [虚拟网络](../virtual-n
 
    ![用于配置 Azure 网络的资源管理器模板](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
-   可以更改虚拟网络和子网的名称，并调整与网络资源关联的 IP 范围。 选择“购买”按钮后，此窗体将创建并配置环境。 如果不需要两个子网，可以删除默认子网。
+   可以更改虚拟网络和子网的名称，并调整与网络资源关联的 IP 范围。 选择“购买”按钮后，此窗体将创建并配置环境。  如果不需要两个子网，可以删除默认子网。
 
 ## <a name="next-steps"></a>后续步骤
 

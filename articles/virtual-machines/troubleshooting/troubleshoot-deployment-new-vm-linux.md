@@ -1,5 +1,5 @@
 ---
-title: 排查 Linux VM 部署问题 | Azure
+title: 排查在 Azure 中创建新 Linux 虚拟机时遇到的资源管理器部署问题 | Azure
 description: 排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 services: virtual-machines-linux, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 09/09/2016
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: d3524d9b0a170c3724835486ad35990a00280301
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 2e4ead677345b611a6e2eb5575088da2c90d0a00
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003705"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538938"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>排查在 Azure 中创建新 Linux 虚拟机时遇到的 Resource Manager 部署问题
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -76,9 +76,9 @@ ms.locfileid: "59003705"
 * 使用更小的 VM 大小来重试请求。
 * 如果无法更改请求的 VM 大小：
     * 停止可用性集中的所有 VM。
-    单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。
+        单击“资源组” >  *你的资源组*  > “资源” >  *你的可用性集*  > “虚拟机” >  *你的虚拟机*  > “停止”。    
     * 所有 VM 都停止后，创建所需大小的新 VM。
-    * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。
+    * 先启动新 VM，选择每个已停止的 VM，然后单击“启动”。 
 
 **原因 2：** 群集没有空闲的资源。
 

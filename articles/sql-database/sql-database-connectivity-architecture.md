@@ -1,5 +1,5 @@
 ---
-title: 将 Azure 流量定向到 Azure SQL 数据库和 SQL 数据仓库 | Microsoft Docs
+title: Azure SQL 数据库和 SQL 数据仓库连接体系结构 | Microsoft Docs
 description: 本文档介绍了用于从 Azure 内部或 Azure 外部进行数据库连接的 Azure SQL 连接体系结构。
 services: sql-database
 ms.service: sql-database
@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: carlrab, vanto
 manager: digimobile
-origin.date: 04/03/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: ac8d5038d9bc68965a44054f6a44618133b71ff5
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+origin.date: 07/02/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 296628d170cbc88e1a215641af4021b3bdbdaf87
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629253"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544347"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 连接体系结构
 
@@ -58,16 +58,17 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL 数据库网关 IP 地址
 
-若要从本地资源连接到 Azure SQL 数据库，需要允许到你的 Azure 区域的 Azure SQL 数据库网关的出站网络流量。 在 `Proxy` 模式下连接时，连接仅通过网关建立，从本地资源进行连接时这是默认设置。
+下表按区域列出了网关的 IP 地址。 若要连接到 Azure SQL 数据库，需要允许到/来自该区域的**所有**网关的网络流量。
 
-下表列出了所有数据区域的 Azure SQL 数据库网关的主 IP 和次要 IP。 某些区域中存在两个 IP 地址。 在这些区域中，主 IP 地址是网关的当前 IP 地址，第二个 IP 地址是故障转移 IP 地址。 故障转移地址是我们可能会将服务器移动到该位置以保持服务的高可用性的地址。 对于这些区域，我们建议允许出站到这两个 IP 地址。 第二个 IP 地址由 Microsoft 拥有，并且不侦听任何服务，除非 Azure SQL 数据库激活该地址以接受连接。 现在，中国区域只有主 IP 地址。
+接下来，我们将在每个区域中添加更多网关，并停用下表的“已解除授权的网关 IP 地址”列中的网关。
 
-| 区域名称 | 主 IP 地址 | 次要 IP 地址 |
-| --- | --- |--- |
-| 中国东部 | 139.219.130.35 | |
-| 中国东部 2 | 40.73.82.1 | |
-| 中国北部 | 139.219.15.17 | |
-| 中国北部 2 | 40.73.50.0 | |
+
+| 区域名称          | 网关 IP 地址 | 已解除授权的网关 </br> IP 地址| 关于解除授权的说明 | 
+| --- | --- | --- | --- |
+| 中国东部         | 139.219.130.35     |                 | |
+| 中国东部 2         | 40.73.82.1         |                 | |
+| 中国北部        | 139.219.15.17      |                 | |
+| 中国北部 2        | 40.73.50.0         |                 | |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>更改 Azure SQL 数据库连接策略
 
@@ -80,10 +81,7 @@ Azure SQL 数据库支持 SQL 数据库服务器连接策略设置的以下三�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
-
-> [!IMPORTANT]
-> 此脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 以下脚本需要 [Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
 以下 PowerShell 脚本演示如何更改连接策略。
 
@@ -106,20 +104,43 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > 此脚本需要 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli)。
 
-以下 CLI 脚本演示如何更改连接策略。
+### <a name="azure-cli-in-a-bash-shell"></a>bash shell 中的 Azure CLI
+
+> [!IMPORTANT]
+> 此脚本需要 [Azure CLI](/cli/install-azure-cli)。
+
+以下 CLI 脚本演示如何在 bash shell 中更改连接策略。
 
 ```azurecli
 # Get SQL Server ID
 sqlserverid=$(az sql server show -n sql-server-name -g sql-server-group --query 'id' -o tsv)
 
 # Set URI
-id="$sqlserverid/connectionPolicies/Default"
+ids="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-az resource show --ids $id
+az resource show --ids $ids
 
 # Update connection policy
-az resource update --ids $id --set properties.connectionType=Proxy
+az resource update --ids $ids --set properties.connectionType=Proxy
+```
+
+### <a name="azure-cli-from-a-windows-command-prompt"></a>从 Windows 命令提示符运行 Azure CLI
+
+> [!IMPORTANT]
+> 此脚本需要 [Azure CLI](/cli/install-azure-cli)。
+
+以下 CLI 脚本演示如何从 Windows 命令提示符（安装了 Azure CLI）更改连接策略。
+
+```azurecli
+# Get SQL Server ID and set URI
+FOR /F "tokens=*" %g IN ('az sql server show --resource-group myResourceGroup-571418053 --name server-538465606 --query "id" -o tsv') do (SET sqlserverid=%g/connectionPolicies/Default)
+
+# Get current connection policy
+az resource show --ids %sqlserverid%
+
+# Update connection policy
+az resource update --ids %sqlserverid% --set properties.connectionType=Proxy
 ```
 
 ## <a name="next-steps"></a>后续步骤

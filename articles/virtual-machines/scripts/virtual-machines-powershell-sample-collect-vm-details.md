@@ -17,12 +17,12 @@ origin.date: 07/01/2019
 ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 235c94b7c040f55f0b1429891616251bc7a2abfe
-ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.openlocfilehash: ec3a7c97345a7f9e12ef40aaa74b56a96f9badc3
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68913066"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539199"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>使用 PowerShell 收集订阅中所有 VM 的详细信息
 
@@ -32,7 +32,7 @@ ms.locfileid: "68913066"
 
 ## <a name="launch-azure-local-shell"></a>启动 Azure 本地 Shell
 
-若要打开本地 Shell，请使用管理员权限运行以下示例脚本。
+若要打开本地 Shell，请使用管理员权限在 PowerShell 控制台中运行以下示例脚本。
 
 ## <a name="sample-script"></a>示例脚本
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
 origin.date: 11/15/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 47bc70c7de361a6179c8560150022ee08970bc5b
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: da6ca16121cd705972e0d22c3b0281d7b8c92b00
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427826"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538775"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>排查 Azure Windows 虚拟机激活问题
 
@@ -58,11 +58,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 >
 >如果使用的是 ExpressRoute 且已发布默认路由，请参阅 [Azure VM 可能无法通过 ExpressRoute 激活](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx)。
 
-### <a name="step-1-configure-the-appropriate-kms-client-setup-key-for-windows-server-2016-and-windows-server-2012-r2"></a>第 1 步：配置相应的 KMS 客户端安装密钥（对于 Windows Server 2016 和 Windows Server 2012 R2）
+### <a name="step-1-configure-the-appropriate-kms-client-setup-key"></a>步骤 1 配置相应的 KMS 客户端安装密钥
 
-对于通过 Windows Server 2016 或 Windows Server 2012 R2 自定义映像创建的 VM，必须为 VM 配置相应的 KMS 客户端安装密钥。
-
-这一步不适用于 Windows 2012 或 Windows 2008 R2。 因为使用的自动虚拟机激活 (AVMA) 功能仅受 Windows Server 2016 和 Windows Server 2012 R2 支持。
+对于通过自定义映像创建的 VM，必须为 VM 配置相应的 KMS 客户端安装密钥。
 
 1. 在提升的命令提示符处，运行 **slmgr.vbs /dlv**。 检查输出中的 Description 值，并确定它是通过零售（RETAIL 渠道）还是批量 (VOLUME_KMSCLIENT) 许可证介质创建的：
 
@@ -112,7 +110,7 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
     请注意，如果从虚拟网络中删除所有 DNS 服务器，VM 会使用 Azure 的内部 DNS 服务。 此服务可以解析 kms.core.chinacloudapi.cn。
 
-    另请验证是否未以会阻止激活尝试的方式配置来宾防火墙。
+    另外，请确保到具有 1688 端口的 KMS 终结点的出站网络流量未被 VM 上的防火墙阻止。
 
 5. 验证成功连接到 kms.core.chinacloudapi.cn 后，在提升的 Windows PowerShell 提示符处运行以下命令。 此命令可多次尝试激活。
 
@@ -120,9 +118,9 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
     1..12 | ForEach-Object { Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato" ; start-sleep 5 }
     ```
 
-如果激活成功，会返回如下信息：
+    如果激活成功，会返回如下信息：
 
-正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) … 产品。 
+    正在激活 Windows(R)，已成功激活服务器数据中心版本(12345678-1234-1234-1234-12345678) … 产品。 
 
 ## <a name="faq"></a>常见问题 
 
@@ -140,6 +138,6 @@ Azure 使用不同的终结点进行 KMS 激活，具体取决于 VM 所在的�
 
 ## <a name="need-help-contact-support"></a>需要帮助？ 请联系支持人员。
 
-如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/zh-cn/support/support-azure/) 来快速解决问题。
+如果仍需要帮助，可 [联系支持人员](https://support.azure.cn/support/support-azure/) 来快速解决问题。
 
 <!--Update_Description: update meta properties, wording update -->

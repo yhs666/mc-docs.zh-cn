@@ -8,32 +8,36 @@ ms.reviewer: jasonh
 manager: digimobile
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/27/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: bc035d0bdc3a14ab5476b4492e4aeb7e8b2474d8
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+origin.date: 8/9/2019
+ms.date: 6/21/2019
+ms.openlocfilehash: f224309d5464d8878a705178509eea02b573fae0
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609827"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969544"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>使用样本数据测试流分析查询
 
-使用 Azure 流分析，可以在 Azure 门户中上传样本数据并测试查询，而不需要启动或停止作业。
+使用 Azure 流分析，可以从输入采样数据或在 Azure 门户中上传样本数据以测试查询，而不需要启动或停止作业。
 
-## <a name="upload-sample-data-and-test-the-query"></a>上传样本数据并测试查询
+## <a name="upload-or-sample-data-from-a-live-source-to-test-the-query"></a>从实时源上传或采样数据以测试查询
 
 1. 登录到 Azure 门户。 
 
 2. 找到现有流分析作业并选择它。
 
-3. 在“流分析作业”页上的“作业拓扑”标题下，选择“查询”以打开“查询编辑器”窗口。 
+3. 在“流分析作业”页上的“作业拓扑”  标题下，选择“查询”  以打开“查询编辑器”窗口。 
 
-4. 若要使用样本输入数据来测试查询，请右键单击任意输入，  并选择“上传文件中的样本数据”。 此数据必须以 JSON、CSV 或 AVRO 进行序列化。 示例输入必须以 UTF-8 编码并且未压缩。 仅支持使用逗号 (,) 分隔符来测试门户上的 CSV 输入。
+4. 若要测试查询，可以从实时输入采样数据，或从文件上传数据。 此数据必须以 JSON、CSV 或 AVRO 进行序列化。 示例输入必须以 UTF-8 编码并且未压缩。 仅支持使用逗号 (,) 分隔符来测试门户上的 CSV 输入。
+
+    1. 使用实时输入：右键单击任意输入。 然后选择“从输入采样数据”  。 在下一个屏幕中，可以设置采样的持续时间。 从实时源采样事件将检索最多 1000 个事件或 1 MB（以先达到的为准），因此采样的数据可能不代表指定的完整时间间隔。
+
+    1. 使用文件：右键单击任意输入。 并选择“上传文件中的样本数据”  。 
 
     ![流分析查询编辑器测试查询](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. 完成上传后，选择“测试”，以针对已提供的样本数据来测试此查询。
+5. 完成采样或上传后，选择“测试”  ，以针对已提供的样本数据测试此查询。
 
     ![流分析查询编辑器测试示例数据](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 

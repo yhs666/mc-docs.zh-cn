@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: 08facd0ac8c626e0a0be89bfba69736881653a76
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: 600cf80db978e7e3c452a32aa76f117a00568d51
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67571490"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952161"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>使用 Azure 数据库迁移服务迁移 Azure SQL 数据库托管实例的网络拓扑
 
@@ -46,7 +46,7 @@ ms.locfileid: "67571490"
 
 **要求**
 
-- Azure 数据库迁移服务用于此方案的 VNet 还必须使用 (/expressroute/expressroute-introduction) 或 [VPN](/vpn-gateway/vpn-gateway-about-vpngateways) 连接到本地网络。
+- Azure 数据库迁移服务针对本方案使用的 VNet 还需通过使用 [ExpressRoute](/expressroute/expressroute-introduction) 或 [VPN](/vpn-gateway/vpn-gateway-about-vpngateways) 连接到本地网络。
 - 在用于 Azure SQL 数据库托管实例的 VNet 和 Azure 数据库迁移服务之间设置 [VNet 网络对等互连](/virtual-network/virtual-network-peering-overview)。
 
 ## <a name="cloud-to-cloud-migrations-shared-vnet"></a>云到云的迁移：共享 VNet
@@ -83,7 +83,7 @@ ms.locfileid: "67571490"
 
 | **NAME**                  | **PORT**                                              | **PROTOCOL** | **源** | **DESTINATION**           | **ACTION** | **规则的原因**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 管理                | 443,9354                                              | TCP          | 任意        | 任意                       | 允许      | 通过服务总线和 Azure blob 存储进行管理平面通信。 <br/>（如果启用了 Microsoft 对等互连，可能不需要此规则。）                                                             |
+| 管理                | 443,9354                                              | TCP          | 任意        | 任意                       | 允许      | 通过服务总线和 Azure blob 存储进行管理平面通信。 <br/>（如果启用了 Azure 对等互连，可能不需要此规则。）                                                             |
 | 诊断               | 12000                                                 | TCP          | 任意        | 任意                       | 允许      | DMS 使用此规则收集诊断信息以进行故障排除。                                                                                                                      |
 | SQL 源服务器         | 1433（或 SQL Server 正在侦听的 TCP IP 端口） | TCP          | 任意        | 本地地址空间 | 允许      | 来自 DMS 的 SQL Server 源连接 <br/>（如果使用站点到站点连接，则可能不需要此规则。）                                                                                       |
 | SQL Server 命名实例 | 1434                                                  | UDP          | 任意        | 本地地址空间 | 允许      | 来自 DMS 的 SQL Server 命名实例源连接 <br/>（如果使用站点到站点连接，则可能不需要此规则。）                                                                        |

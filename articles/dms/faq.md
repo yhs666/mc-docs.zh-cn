@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 origin.date: 07/10/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: ab7453ee1f77f6351fdf052854cbff8a301c5944
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 08/12/2019
+ms.openlocfilehash: 5bc3c45252c81d9218871cd791f0e55c8ba82537
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308911"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952151"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>有关使用 Azure 数据库迁移服务的常见问题解答
 
@@ -87,7 +87,7 @@ Azure 迁移服务可以帮助将本地虚拟机迁移到 Azure IaaS。 该服�
 ```
 
 **问：如何设置 Azure 虚拟网络？**
-有多篇 Microsoft 教程逐步讲解了如何完成设置 Azure VNET 的过程，另外，还可以参阅 [Azure 虚拟网络](/virtual-network/virtual-networks-overview)一文中提到的官方文档。
+虽然有多篇 Azure 教程可以指导你完成设置 Azure VNET 的过程，但官方文档出现在 [Azure 虚拟网络](/virtual-network/virtual-networks-overview)一文中。
 
 ## <a name="usage"></a>使用情况
 

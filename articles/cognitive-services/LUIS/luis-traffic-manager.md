@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 6eeefe75e4c58a42485ff828328dd9bb2a55e0fb
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8f8b271cca7cdec798372c493e5c9d529d29453c
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818441"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544230"
 ---
 # <a name="use-21vianet-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用世纪互联 Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。 
@@ -93,7 +93,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
 2. 使用 **[Add-AzTrafficManagerEndpointConfig](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanagerendpointconfig)** cmdlet 添加中国东部终结点
 
     ```powerShell
-    Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target chinaeast.api.cognitive.microsoft.com -EndpointLocation "chinaeast" -EndpointStatus Enabled
+    Add-AzTrafficManagerEndpointConfig -EndpointName luis-east-endpoint -TrafficManagerProfile $eastprofile -Type ExternalEndpoints -Target chinaeast.api.cognitive.azure.cn -EndpointLocation "chinaeast" -EndpointStatus Enabled
     ```
     此表介绍了 cmdlet 中的每个变量：
 
@@ -102,7 +102,7 @@ New-AzResourceGroup -Name luis-traffic-manager -Location "China East"
     |-EndpointName|luis-east-endpoint|配置文件下显示的终结点名称|
     |-TrafficManagerProfile|$eastprofile|使用步骤 1 中创建的配置文件对象|
     |-Type|ExternalEndpoints|有关详细信息，请参阅[流量管理器终结点][traffic-manager-endpoints] |
-    |-Target|chinaeast.api.cognitive.microsoft.com|这是 LUIS 终结点的域。|
+    |-Target|chinaeast.api.cognitive.azure.cn|这是 LUIS 终结点的域。|
     |-EndpointLocation|"chinaeast"|终结点的区域|
     |-EndpointStatus|已启用|创建时启用终结点|
 
@@ -370,10 +370,6 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 ## <a name="clean-up"></a>清理
 删除两个 LUIS 终结点密钥、三个流量管理器配置文件以及包含这五个资源的资源组。 此操作在 Azure 门户中完成。 从资源列表中删除五个资源。 然后删除资源组。 
-
-## <a name="next-steps"></a>后续步骤
-
-查看 BotFramework v4 中的“[中间件](https://docs.microsoft.com/azure/bot-service/bot-builder-create-middleware?view=azure-bot-service-4.0&tabs=csaddmiddleware%2Ccsetagoverwrite%2Ccsmiddlewareshortcircuit%2Ccsfallback%2Ccsactivityhandler)”选项，了解如何将此流量管理代码添加到 BotFramework 机器人。 
 
 [traffic-manager-marketing]: https://docs.azure.cn/zh-cn/traffic-manager/
 [traffic-manager-docs]: https://docs.azure.cn/zh-cn/traffic-manager/

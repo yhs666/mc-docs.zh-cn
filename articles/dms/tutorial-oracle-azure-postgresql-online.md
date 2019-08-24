@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 05/24/2019
-ms.date: 07/08/2019
-ms.openlocfilehash: 72aac74f82bbf104b895be0803d0e9486ab94887
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 08/12/2019
+ms.openlocfilehash: ee3e7d99023c7d92541370344b75d57f59ca99c5
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570099"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952158"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>教程：使用 DMS（预览版）将 Oracle 联机迁移到 Azure Database for PostgreSQL
 
@@ -288,7 +288,7 @@ Oracle 默认将 schema.table.column 保留为全大写，而 PostgreSQL 将 sch
 
     ![显示资源提供程序](media/tutorial-oracle-azure-postgresql-online/portal-select-resource-provider.png)
 
-3. 搜索迁移服务，再选择“Microsoft.DataMigration”右侧的“注册”   。
+3. 搜索“迁移”，然后选择“注册”  。
 
     ![注册资源提供程序](media/tutorial-oracle-azure-postgresql-online/portal-register-resource-provider.png)
 

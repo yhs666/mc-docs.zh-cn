@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
 origin.date: 05/01/2019
-ms.date: 06/24/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 49255f7fbbb43405ffa44132ebdb3b01cc616dc8
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 16fa4ff65f29da9d0fe3e71494e6b8629afa692e
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151751"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544226"
 ---
 # <a name="azure-sql-data-warehouse-workload-importance"></a>Azure SQL 数据仓库工作负荷重要性
 
@@ -60,4 +60,8 @@ Q6 是在上午 9:01 提交的，具有 smallrc 资源类。
 
 ## <a name="next-steps"></a>后续步骤
 
-若要开始创建分类器，请参阅 [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  有关 SQL 数据仓库工作负荷分类的详细信息，请参阅 [SQL 数据仓库工作负荷分类](sql-data-warehouse-workload-classification.md)。  有关如何创建工作负荷分类器的信息，请参阅快速入门[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。
+- 若要详细了解如何创建分类器，请参阅 [CREATE WORKLOAD CLASSIFIER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)。  
+- 有关 SQL 数据仓库工作负荷分类的详细信息，请参阅[工作负荷分类](sql-data-warehouse-workload-classification.md)。  
+- 有关如何创建工作负荷分类器的信息，请参阅快速入门[创建工作负荷分类器](quickstart-create-a-workload-classifier-tsql.md)。
+- 请参阅有关[配置工作负荷重要性](sql-data-warehouse-how-to-configure-workload-importance.md)和[管理和监视工作负荷管理](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)的操作指南文章。
+- 参阅 [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 以查看查询和分配的重要性。

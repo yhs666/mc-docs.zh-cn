@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 origin.date: 06/28/2019
-ms.date: 07/22/2019
-ms.openlocfilehash: 6e884928c4bfdf0e7d3c115676d70f3a17bd3aae
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.date: 08/12/2019
+ms.openlocfilehash: 6b37012712e7ebb1f5e131fb70fb766b7bf46e81
+ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308914"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68952156"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>教程：使用 DMS 以联机方式将 PostgreSQL 迁移到 Azure Database for PostgreSQL
 
@@ -64,11 +64,7 @@ ms.locfileid: "68308914"
 * 打开 Windows 防火墙，使 Azure 数据库迁移服务能够访问源 PostgreSQL 服务器（默认情况下为 TCP 端口 5432）。
 * 在源数据库的前面使用了防火墙设备时，可能需要添加防火墙规则以允许 Azure 数据库迁移服务访问要迁移的源数据库。
 * 为 Azure Database for PostgreSQL 创建服务器级[防火墙规则](/sql-database/sql-database-firewall-configure)，以允许 Azure 数据库迁移服务访问目标数据库。 提供用于 Azure 数据库迁移服务的 VNet 子网范围。
-* 可以通过两种方法来调用 CLI：
-
-  * 在 Azure 门户右上角选择“Cloud Shell”按钮：
-
-       ![Azure 门户中的“Cloud Shell”按钮](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
+* 有一种方法可调用 CLI：
 
   * 在本地安装并运行 CLI。 CLI 2.0 是用于管理 Azure 资源的命令行工具。
 
@@ -212,13 +208,13 @@ ms.locfileid: "68308914"
 
    例如，以下命令会创建一项具有下述参数的服务：
 
-   * 位置：美国东部 2
+   * 位置：ChinaEast2
    * 订阅：97181df2-909d-420b-ab93-1bff15acb6b7
    * 资源组名称：PostgresDemo
    * DMS 服务名称：PostgresCLI
 
    ```
-   az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
+   az dms create -l chinaeast2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
    ```
 
    创建 DMS 服务的实例需要大约 10-12 分钟。
@@ -261,7 +257,7 @@ ms.locfileid: "68308914"
 
     例如，以下命令会创建一个使用下述参数的项目：
 
-   * 位置：美国中西部
+   * 位置：ChinaEast2
    * 资源组名称：PostgresDemo
    * 服务名称：PostgresCLI
    * 项目名称：PGMigration
@@ -269,7 +265,7 @@ ms.locfileid: "68308914"
    * 目标平台：AzureDbForPostgreSql
 
      ```
-     az dms project create -l eastus2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
+     az dms project create -l chinaeast2 -n PGMigration -g PostgresDemo --service-name PostgresCLI --source-platform PostgreSQL --target-platform AzureDbForPostgreSql
      ```
 
 6. 使用以下步骤创建 PostgreSQL 迁移任务。

@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure 门户打开 VM 的端口 | Azure
+title: 如何使用 Azure 门户打开虚拟机端口 | Azure
 description: 了解如何在 Azure 门户中使用 Resource Manager 部署模型为 Windows VM 打开端口/创建终结点
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 09/27/2018
-ms.date: 10/22/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: b05111364eda08360d1a2a2d82a0169bd6c7787f
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 9a0f400ba43bbc4bac75cc9be407c1a85ff58478
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662791"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539149"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>如何使用 Azure 门户打开虚拟机端口
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -30,11 +30,11 @@ ms.locfileid: "52662791"
 
 ## <a name="create-a-network-security-group"></a>创建网络安全组
 
-1. 搜索并选择 VM 的资源组，选择“添加”，然后搜索并选择“网络安全组”。
+1. 搜索并选择 VM 的资源组，选择“添加”  ，然后搜索并选择“网络安全组”  。
 
-2. 选择“创建” 。
+2. 选择“创建”  。
 
-    此时将打开“创建网络安全组”窗口。
+    此时将打开“创建网络安全组”  窗口。
 
     ![创建网络安全组](./media/nsg-quickstart-portal/create-nsg.png)
 
@@ -42,29 +42,29 @@ ms.locfileid: "52662791"
 
 3. 选择或创建一个资源组，然后选择位置。
 
-4. 选择“创建”以创建网络安全组。
+4. 选择“创建”  以创建网络安全组。
 
 ## <a name="create-an-inbound-security-rule"></a>创建入站安全规则
 
 1. 选择新的网络安全组。 
 
-2. 选择“入站安全规则”，并选择“添加”。
+2. 选择“入站安全规则”  ，并选择“添加”  。
 
     ![添加入站规则](./media/nsg-quickstart-portal/add-inbound-rule.png)
 
-3. 选择“高级”。 
+3. 选择“高级”。  
 
-4. 从下拉菜单中选择常见的“服务”，如 HTTP。 如果要提供要使用的特定端口，也可以选择“自定义”。 
+4. 从下拉菜单中选择常见的“服务”，如 HTTP   。 如果要提供要使用的特定端口，也可以选择“自定义”  。 
 
 5. （可选）更改**优先级**或**名称**。 优先级会影响应用规则的顺序：数值越小，越先应用规则。
 
-6. 选择“添加”以创建规则。
+6. 选择“添加”  以创建规则。
 
 ## <a name="associate-your-network-security-group-with-a-subnet"></a>将网络安全组与子网相关联
 
 最后一步是将网络安全组与子网或特定网络接口相关联。 对于此示例，我们将网络安全组与子网相关联。 
 
-1. 选择“子网”，然后选择“关联”。
+1. 选择“子网”，然后选择“关联”   。
 
     ![将网络安全组与子网相关联](./media/nsg-quickstart-portal/associate-subnet.png)
 

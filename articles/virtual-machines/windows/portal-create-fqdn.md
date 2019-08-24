@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 门户中为 Windows VM 创建 FQDN | Azure
+title: 在 Azure 门户中为 Windows VM 创建完全限定的域名 | Azure
 description: 了解如何在 Azure 门户中为基于 Resource Manager 的虚拟机创建完全限定域名或 FQDN。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 origin.date: 08/15/2018
-ms.date: 08/27/2018
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e762a551ea3884b8c477b704f86c47f800a0b644
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: e2c9a2ae2a1efd9f73ce4d99d90c3677e10ab429
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645445"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539168"
 ---
 # <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-windows-vm"></a>在 Azure 门户中为 Windows VM 创建完全限定的域名
 

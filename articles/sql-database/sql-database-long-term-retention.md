@@ -11,18 +11,22 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 manager: digimobile
-origin.date: 04/23/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: dbf2d06946730dba4d3309627457d4860065eeb9
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+origin.date: 05/18/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: a2cf05ce4e1c39bf5217a0093fb65e4f559d0c94
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629257"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544267"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>将 Azure SQL 数据库备份存储 10 年之久
 
 出于法规要求、符合性或其他商业目的，许多应用程序要求保留 Azure SQL 数据库的[自动备份](sql-database-automated-backups.md)功能提供的过去 7-35 天的数据库备份。 通过使用长期保留 (LTR) 功能，可以将指定的 SQL 数据库完整备份存储在 [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob 存储中长达 10 年。 然后，可以将任何备份还原为新数据库。
+
+> [!NOTE]
+> 可以为单一数据库和共用数据库启用 LTR。 对于托管实例中的实例数据库，它还不可用。 可以使用 SQL 代理作业来安排[仅复制数据库备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server)作为超过 35 天的 LTR 的替代方案。
+> 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL 数据库长期保留的工作原理
 
@@ -56,8 +60,8 @@ W=12 周（84 天）、M=12 个月（365 天）、Y=10 年（3650 天）、WeekO
 
 如果修改以上策略并设置 W=0（无每周备份），则备份副本的节奏将更改，如上表中突出显示的日期所示。 保留这些备份所需的存储量将相应减少。 
 
-> [!NOTE]
-> 单个 LTR 备份的时间由 Azure SQL 数据库控制。 无法手动创建 LTR 备份，或控制备份创建时间。
+> [!IMPORTANT]
+> 单个 LTR 备份的时间由 Azure SQL 数据库控制。 无法手动创建 LTR 备份，或控制备份创建时间。 配置 LTR 策略后，最多可能需要 7 天才能在可用备份列表中显示第一个 LTR 备份。  
 > 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>异地复制和长期备份保留

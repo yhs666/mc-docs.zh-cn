@@ -9,18 +9,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
 origin.date: 04/05/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 36d203396413ceb427b2fe3e6aa658626a815f48
-ms.sourcegitcommit: 878a2d65e042b466c083d3ede1ab0988916eaa3d
+ms.openlocfilehash: dc9fe83db254bd350bdf11a6e425d59c367563a6
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835817"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538971"
 ---
 # <a name="share-gallery-vm-images-across-azure-tenants"></a>跨 Azure 租户共享库 VM 映像
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../../includes/virtual-machines-share-images-across-tenants.md)]
+
+> [!IMPORTANT]
+> 不能使用门户从另一个 Azure 租户中的映像部署 VM。 若要从租户之间共享的映像创建 VM，必须使用 [Azure CLI](../linux/share-images-across-tenants.md) 或 Powershell。
 
 ## <a name="create-a-vm-using-powershell"></a>使用 PowerShell 创建 VM
 
@@ -58,5 +61,4 @@ New-AzVm `
 
 <!--Not Available on [Azure portal](shared-images-portal.md)-->
 
-<!--Update_Description: new articles on share image accross tenants -->
-<!--ms.date: 05/20/2019-->
+<!--Update_Description: wording update -->

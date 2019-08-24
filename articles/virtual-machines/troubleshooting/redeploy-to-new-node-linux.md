@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中重新部署 Linux 虚拟机 | Azure
+title: 将 Linux 虚拟机重新部署到新的 Azure 节点 | Azure
 description: 如何通过在 Azure 中重新部署 Linux 虚拟机来解决 SSH 连接问题。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -12,14 +12,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 origin.date: 10/31/2018
-ms.date: 02/18/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e7f076c04e6e4335c1a95733a26ea45dee28d76
-ms.sourcegitcommit: dd6cee8483c02c18fd46417d5d3bcc2cfdaf7db4
+ms.openlocfilehash: 7132db431bf3e28137b670b7e274e7fb7c188605
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56666258"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539125"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>将 Linux 虚拟机重新部署到新的 Azure 节点
 如果在对 SSH 或应用程序访问 Azure 中 Linux 虚拟机 (VM) 进行故障排除时遇到困难，重新部署 VM 可能会有帮助。 重新部署 VM 时，将 VM 移到 Azure 基础结构中的新节点，并重新提供支持。 所有配置选项和关联资源均保留。 本文介绍如何使用 Azure CLI 或 Azure 门户重新部署 VM。
@@ -29,11 +29,11 @@ ms.locfileid: "56666258"
 
 <a name="azure-cli-20"></a>
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
-安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
+安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-az-cli2?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用 [az vm redeploy](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-redeploy) 重新部署 VM。 以下示例在名为 *myResourceGroup* 的资源组中重新部署名为 *myVM* 的 VM：
+使用 [az vm redeploy](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-redeploy) 重新部署 VM。 以下示例在名为 *myResourceGroup* 的资源组中重新部署名为 *myVM* 的 VM：
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

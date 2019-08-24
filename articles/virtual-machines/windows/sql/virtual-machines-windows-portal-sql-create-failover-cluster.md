@@ -1,5 +1,5 @@
 ---
-title: SQL Server FCI - Azure 虚拟机 | Azure
+title: 在 Azure 虚拟机上配置 SQL Server 故障转移群集实例 | Azure
 description: 本文介绍如何在 Azure 虚拟机上创建 SQL Server 故障转移群集实例。
 services: virtual-machines
 documentationCenter: na
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 origin.date: 06/11/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: bdcf95ff972afdcf32785ad931f0fdfd9523e628
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: cfc72c2bbe4b0f036fbb1909a0d80c5272c6670e
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427820"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538840"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>在 Azure 虚拟机上配置 SQL Server 故障转移群集实例
 

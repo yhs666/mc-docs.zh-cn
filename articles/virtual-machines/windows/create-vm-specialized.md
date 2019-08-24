@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 专用 VHD 中创建 Windows VM | Azure
+title: 使用 PowerShell 从专用磁盘创建 Windows VM | Azure
 description: 使用资源管理器部署模型，通过将专用托管磁盘附加为 OS 磁盘来创建新的 Windows VM。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 10/10/2018
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1fc46718ccd3b7d8243fcbf6c3ec3f7ded4f0bc4
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: df53f61d5779a41a9b4ee975f0d7552de8682996
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004126"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539197"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>使用 PowerShell 从专用磁盘创建 Windows VM
 
@@ -83,7 +83,7 @@ Get-AzStorageAccount
     Get-AzResourceGroup
     ```
 
-    在“中国北部”区域中创建名为 *myResourceGroup* 的资源组。
+    在“中国北部”区域中创建名为 *myResourceGroup* 的资源组。 
 
     ```powershell
     New-AzResourceGroup `
@@ -131,7 +131,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.chinacloudapi.cn/myco
 
 ### <a name="create-a-managed-disk-from-the-vhd"></a>从 VHD 创建托管磁盘
 
-使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)，基于存储帐户中的专用 VHD 创建托管磁盘。 此示例使用“myOSDisk1”作为磁盘名称，将磁盘放置在“Standard_LRS”存储中，并使用 *https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd* 作为源 VHD 的 URI。
+使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk)，基于存储帐户中的专用 VHD 创建托管磁盘。 此示例使用“myOSDisk1”作为  磁盘名称，将磁盘放置在“Standard_LRS”  存储中，并使用 *https://storageaccount.blob.core.chinacloudapi.cn/vhdcontainer/osdisk.vhd* 作为源 VHD 的 URI。
 
 创建适用于新 VM 的新资源组。
 
@@ -206,7 +206,7 @@ $snapShot = New-AzSnapshot `
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>从快照创建新磁盘
 
-使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) 基于快照创建托管磁盘。 此示例使用“myOSDisk”作为磁盘名称。
+使用 [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk) 基于快照创建托管磁盘。 此示例使用“myOSDisk”作为磁盘名称  。
 
 创建适用于新 VM 的新资源组。
 
@@ -239,7 +239,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
 
 为 VM 创建[虚拟网络](../../virtual-network/virtual-networks-overview.md)和子网。
 
-1. 创建子网。 本示例在资源组“myDestinationResourceGroup”中创建名为“mySubNet”的子网，并将子网地址前缀设置为 10.0.0.0/24。
+1. 创建子网。 本示例在资源组“myDestinationResourceGroup”中创建名为“mySubNet”的子网，并将子网地址前缀设置为 10.0.0.0/24    。
 
     ```powershell
     $subnetName = 'mySubNet'
@@ -248,7 +248,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
        -AddressPrefix 10.0.0.0/24
     ```
 
-2. 创建虚拟网络。 本示例将虚拟网络名称设置为 *myVnetName*，将位置设置为“中国北部”，将虚拟网络的地址前缀设置为 *10.0.0.0/16*。 
+2. 创建虚拟网络。 本示例将虚拟网络名称设置为 *myVnetName*，将位置设置为“中国北部”  ，将虚拟网络的地址前缀设置为 *10.0.0.0/16*。 
 
     ```powershell
     $vnetName = "myVnetName"
@@ -306,7 +306,7 @@ $nsg = New-AzNetworkSecurityGroup `
 
 ### <a name="set-the-vm-name-and-size"></a>设置 VM 名称和大小
 
-此示例将 VM 名称设置为“myVM”，将 VM 大小设置为“Standard_A2”。
+此示例将 VM 名称设置为“myVM”，将 VM 大小设置为“Standard_A2”   。
 
 ```powershell
 $vmName = "myVM"
@@ -346,7 +346,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>验证是否已创建 VM
-应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM。
+应会在 [Azure 门户](https://portal.azure.cn)的“浏览” > “虚拟机”下看到新建的 VM，也可以使用以下 PowerShell 命令查看该 VM。  
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

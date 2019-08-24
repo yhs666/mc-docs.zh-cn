@@ -1,5 +1,5 @@
 ---
-title: 教程 - Azure 中 Windows VM 的高可用性 | Azure
+title: 教程 - 使用 Azure PowerShell 创建和部署高度可用的虚拟机 | Azure
 description: 本教程介绍如何使用 Azure PowerShell 在可用性集中部署高度可用的虚拟机
 documentationcenter: ''
 services: virtual-machines-windows
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: tutorial
 origin.date: 11/30/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 08179a8125172d841e2bfc38ee23d185c102111e
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: b8f5e9d1885a6704e57b9c9f6b12d05d0bc79ee1
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59004027"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539140"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>教程：使用 Azure PowerShell 创建和部署高度可用的虚拟机
 
@@ -46,7 +46,7 @@ ms.locfileid: "59004027"
 
 ## <a name="launch-azure-powershell"></a>启动 Azure PowerShell
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## <a name="create-an-availability-set"></a>创建可用性集

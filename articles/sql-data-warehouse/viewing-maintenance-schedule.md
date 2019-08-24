@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 origin.date: 11/27/2018
-ms.date: 03/25/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 5f24e9f9ca0642b2bf34b9c16f29ceb506f1486d
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 9ce5c11ac536901d8da5e41d5e50cd29fb81813a
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348053"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544231"
 ---
 # <a name="view-a-maintenance-schedule"></a>查看维护计划 
 
@@ -28,7 +28,7 @@ ms.locfileid: "58348053"
 
 1.  登录到 [Azure 门户](https://portal.azure.cn/)。
 2.  选择要查看的数据仓库。 
-3.  所选的数据仓库将在“概述”边栏选项卡上打开。 应用于所选数据仓库的维护计划将显示在“维护计划(预览版)”下方。
+3.  所选的数据仓库将在“概述”边栏选项卡上打开。 应用于该数据仓库的维护计划将显示在“维护计划”下方。 
 
 ![概述边栏选项卡](media/sql-data-warehouse-maintenance-scheduling/clear-overview-blade.PNG)
 
@@ -36,6 +36,6 @@ ms.locfileid: "58348053"
 - [详细了解](/azure-monitor/platform/alerts-metric)如何使用 Azure Monitor 创建、查看和管理警报。
 - [详细了解](/azure-monitor/platform/alerts-log-webhook)用于日志警报规则的 Webhook 操作。
 - [深入了解](/azure-monitor/platform/action-groups)创建和管理操作组。
-[详细了解](/service-health/service-health-overview) Azure 服务运行状况。
+- [详细了解](/service-health/service-health-overview) Azure 服务运行状况。
 
 

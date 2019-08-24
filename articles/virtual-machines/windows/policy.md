@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中的 Windows VM 上通过策略强制执行安全措施 | Azure
+title: 使用 Azure 资源管理器向 Windows VM 应用策略 | Azure
 description: 如何向 Azure Resource Manager Windows 虚拟机应用策略
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 origin.date: 08/02/2017
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: b3a57a6199a5efe66477d4c35b34b7ed913ea531
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: d64ec7a7756dd7dc98231176593b7c2f47ec4108
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003996"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539165"
 ---
 # <a name="apply-policies-to-windows-vms-with-azure-resource-manager"></a>使用 Azure 资源管理器向 Windows VM 应用策略
 通过使用策略，组织可以在整个企业中强制实施各种约定和规则。 强制实施所需行为有助于消除风险，同时为组织的成功做出贡献。 本文介绍如何使用 Azure 资源管理器策略，为组织中的虚拟机定义所需的行为。

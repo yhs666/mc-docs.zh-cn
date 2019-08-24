@@ -12,14 +12,14 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 11/14/2018
-ms.date: 03/25/2019
-ms.openlocfilehash: f88947bf0ad12a057a6f608b615985bc06fc5a46
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+origin.date: 06/14/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: c1317b8e4fe1b5332354d3681d91d51333c984c5
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318981"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544140"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>处理 SQL 数据库连接问题和暂时性错误
 
@@ -78,7 +78,7 @@ ms.locfileid: "58318981"
 
 以下文档提供了有关重试逻辑的代码示例：
 
-- [使用 ADO.NET 弹性连接到 SQL][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connect resiliently to SQL with ADO.NET（使用 ADO.NET 弹性连接到 SQL）][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
 - [使用 PHP 弹性连接到 SQL][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
@@ -94,7 +94,7 @@ ms.locfileid: "58318981"
 - **SqlException.Number** = 11001
 - 消息：“此主机不存在”
 
-在首次重试过程中，程序可以更正拼写错误，并尝试连接。
+第一次重试时，可以将客户端计算机重新连接到网络，然后尝试连接。
 
 要使此测试可行，请从网络中断开计算机的连接，再启动程序。 然后，程序将识别促使它执行以下操作的运行时参数：
 
@@ -135,7 +135,7 @@ ms.locfileid: "58318981"
 为 **SqlConnection** 对象生成[连接字符串](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)时，请在以下参数之间协调值：
 
 - **ConnectRetryCount**：&nbsp;&nbsp;默认值为 1。 范围为 0 到 255。
-- **ConnectRetryInterval**：&nbsp;&nbsp;默认值为 1 秒。 范围为 1 到 60。
+- **ConnectRetryInterval**：&nbsp;&nbsp;默认值为 10 秒。 范围为 1 到 60。
 - **Connection Timeout**：&nbsp;&nbsp;默认值为 15 秒。 范围为 0 到 2147483647。
 
 具体而言，所选的值应使以下等式成立：连接超时值 = ConnectRetryCount * ConnectionRetryInterval
@@ -151,7 +151,7 @@ ms.locfileid: "58318981"
 - mySqlConnection.Open 方法调用
 - mySqlConnection.Execute 方法调用
 
-有个很微妙的地方。 如果正在执行查询时发生暂时性错误，**SqlConnection** 对象不会重试连接操作。 肯定不会重试查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
+有个很微妙的地方。 如果正在执行查询  时发生暂时性错误，**SqlConnection** 对象不会重试连接操作。 肯定不会重试查询。 但是， **SqlConnection** 在发送要执行的查询前会非常快速地检查连接。 如果快速检查检测到连接问题， **SqlConnection** 会重试连接操作。 如果重试成功，则会发送查询以执行。
 
 ### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount 是否应结合应用程序重试逻辑？
 
@@ -189,7 +189,7 @@ ms.locfileid: "58318981"
 例如，当客户端程序托管在 Windows 计算机上时，则可以使用主机上的 Windows 防火墙打开端口 1433。
 
 1. 打开控制面板。
-2. 选择“所有控制面板项” > “Windows 防火墙” > “高级设置” > “出站规则” > “操作” > “新建规则”。
+2. 选择“所有控制面板项” > “Windows 防火墙” > “高级设置” > “出站规则” > “操作” > “新建规则”。      
 
 如果客户端程序托管在 Azure 虚拟机 (VM) 上，请阅读[用于 ADO.NET 4.5 和 SQL 数据库的非 1433 端口](sql-database-develop-direct-route-ports-adonet-v12.md)。
 
@@ -312,7 +312,7 @@ ORDER BY
 ;
 ```
 
-#### <a name="a-few-returned-rows-from-sysfnxetelemetryblobtargetreadfile"></a>将返回 sys.fn_xe_telemetry_blob_target_read_file 中的若干行
+#### <a name="a-few-returned-rows-from-sysfn_xe_telemetry_blob_target_read_file"></a>将返回 sys.fn_xe_telemetry_blob_target_read_file 中的若干行
 
 以下示例显示返回的行的类似内容。 显示的 null 值在其他行中通常不是 null。
 
@@ -356,7 +356,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 以下是 EntLib60 相关信息的某些链接：
 
 - 免费书籍下载：[Microsoft Enterprise Library 版本 2 开发人员指南](https://www.microsoft.com/download/details.aspx?id=41145)
-- NuGet 下载：[Enterprise Library - 暂时性故障处理应用程序块 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
+- NuGet 下载：[Enterprise Library - 暂时性故障处理应用程序块 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 

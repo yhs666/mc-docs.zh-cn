@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 04/25/2018
-ms.date: 11/26/2018
-ms.openlocfilehash: 606c50b20d67b57ac58b0d1673f22cd7b2ed0317
-ms.sourcegitcommit: c01292a935bd307a3326e86cb454d8fa2b561399
+origin.date: 08/09/2018
+ms.date: 06/11/2019
+ms.openlocfilehash: 44c3198e15ba07f0d42cfb94efb4c0d49acced26
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54363635"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969600"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>理解 Azure 流分析的输入
 
@@ -28,7 +28,7 @@ Azure 流分析作业连接到一个或多个数据输入。 每个输入定义�
 
 这些输入资源与流分析作业可以属于同一 Azure 订阅，也可以属于不同的订阅。
 
-可以使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-input)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/New-AzureRmStreamAnalyticsInput)、[.Net API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions?view=azure-dotnet)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) 和 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 来创建、编辑和测试流分析作业输入。
+可以使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-input)、[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput)、[.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input) 和 [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) 来创建、编辑和测试流分析作业输入。
 
 ## <a name="stream-and-reference-inputs"></a>流输入和引用输入
 将数据推送到数据源后，流分析作业就可使用该数据并对其进行实时处理。 输入分为两种类型：数据流输入和引用数据输入。
@@ -39,11 +39,9 @@ Azure 流分析作业连接到一个或多个数据输入。 每个输入定义�
 有关流式处理数据输入的详细信息，请参阅[将数据作为输入流式传输到流分析中](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>引用数据输入
-流分析还支持称为“引用数据”的输入。 引用数据是完全静态的或更改缓慢。 它通常用于执行关联和查找。 例如，可以将数据流输入中的数据联接到引用数据中的数据，就像执行 SQL 联接以查找静态值一样。 目前只支持使用 Azure Blob 存储作为引用数据的输入源。 参考数据源 blob 的大小限制为最多 300 MB，具体取决于查询复杂性和分配的流单元。
+流分析还支持称为“引用数据”  的输入。 引用数据是完全静态的或更改缓慢。 它通常用于执行关联和查找。 例如，可以将数据流输入中的数据联接到引用数据中的数据，就像执行 SQL 联接以查找静态值一样。 当前支持将 Azure Blob 存储和 Azure SQL 数据库作为参考数据的输入源。 参考数据源 blob 的大小限制最多为 300 MB，具体取决于查询复杂性和分配的流单元（有关详细信息，请参阅参考数据文档的[大小限制](stream-analytics-use-reference-data.md#size-limitation)部分）。
 
 有关引用数据输入的详细信息，请参阅[在流分析中使用引用数据进行查找](stream-analytics-use-reference-data.md)
-
-<!-- Not Available on [Stream Analytics learning path](/documentation/learning-paths/stream-analytics/)-->
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]

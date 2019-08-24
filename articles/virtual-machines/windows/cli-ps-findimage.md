@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 中选择 Windows VM 映像 | Azure
+title: 使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像 | Azure
 description: 使用 Azure PowerSHell 来确定市场 VM 映像的发布者、产品/服务、SKU 和版本。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,20 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/25/2019
-ms.date: 05/20/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4324ae2a04c184ee1a2b47c16ce742c89bda27ac
-ms.sourcegitcommit: 0e83be63445bc68bcf7b9a7ea1cd9a42f3ed2b25
+ms.openlocfilehash: 949e880e538f31e4d2e28dad8163dbf7c362eb91
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427811"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539122"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>使用 Azure PowerShell 在 Azure 市场中查找 Windows VM 映像
 
 本文介绍如何使用 Azure PowerShell 在 Azure 市场中查找 VM 映像。 然后，使用 PowerShell、资源管理器模板或其他工具以编程方式创建 VM 时，你可以指定市场映像。
 
 你还可以使用 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/)店面、[Azure 门户](https://portal.azure.cn)或 [Azure CLI](../linux/cli-ps-findimage.md) 浏览可用的映像和产品/服务。 
+
+<!--MOONCAKE: CORRECT ON [Azure Marketplace](https://market.azure.cn/zh-cn/marketplace/)-->
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -202,7 +204,9 @@ Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku 
 
 现在可以将所选发布者、产品/服务、SKU 和版本合并到 URN 中（由“:”分隔的值）。 使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet 创建 VM 时，使用 `--image` 参数传递此 URN。 还可以将 URN 中的版本号替换为 "latest" 以获取映像的最新版本。
 
-如果使用资源管理器模板部署 VM，请在 `imageReference` 属性中单独设置映像参数。 请参阅[模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)。
+如果使用资源管理器模板部署 VM，请在 `imageReference` 属性中单独设置映像参数。
+
+<!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/virtualmachines)-->
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 

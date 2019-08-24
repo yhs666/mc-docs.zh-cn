@@ -1,6 +1,6 @@
 ---
 title: 教程：将数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 教程使用 Azure 门户和 SQL Server Management Studio 将 WideWorldImportersDW 数据仓库从公共 Azure Blob 加载到 Azure SQL 数据仓库。
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将 WideWorldImportersDW 数据仓库从 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load data
 origin.date: 04/17/2018
-ms.date: 06/24/2019
+ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: aa9cc063a11ec73cba5f093203dbc41e8da05bf9
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: e160a3c582c38d881b4145fa7647553fc6c1e4de
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151750"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544377"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教程：将数据加载到 Azure SQL 数据仓库
 
@@ -39,7 +39,7 @@ ms.locfileid: "67151750"
 
 开始本教程之前，请下载并安装最新版 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS)。
 
-## <a name="log-in-to-the-azure-portal"></a>登录到 Azure 门户
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
@@ -159,7 +159,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 4. 单击“连接”  。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
 
-5. 在对象资源管理器中，展开“数据库”  。 然后展开“系统数据库”  和“master”  ，查看 master 数据库中的对象。  展开“mySampleDatabase”  ，查看新数据库中的对象。
+5. 在对象资源管理器中，展开“数据库”  。 然后展开“系统数据库”  和“master”  ，查看 master 数据库中的对象。  展开“SampleDW”  ，查看新数据库中的对象。
 
     ![数据库对象](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -218,7 +218,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 已准备好开始将数据加载到新的数据仓库。 今后若要了解如何将数据移入 Azure Blob 存储，或者将数据直接从源载入 SQL 数据仓库，请参阅[有关加载的概述](sql-data-warehouse-overview-load.md)。
 
-运行以下 SQL 脚本，指定有关想要加载的数据的信息。 此信息包括数据所在的位置、数据内容的格式以及数据的表定义。 数据位于公共 Azure Blob 中。
+运行以下 SQL 脚本，指定有关想要加载的数据的信息。 此信息包括数据所在的位置、数据内容的格式以及数据的表定义。 数据位于全局 Azure Blob 中。
 
 1. 在前一部分，我们以 LoaderRC60 的身份登录到了数据仓库。 在 SSMS 中，右键单击 LoaderRC60 连接下面的“SampleDW”，并选择“新建查询”。    此时会显示一个新的查询窗口。 
 
@@ -239,7 +239,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     WITH
     (
         TYPE = Hadoop,
-        LOCATION = 'wasbs://wideworldimporters@sqldwholdata.blob.core.chinacloudapi.cn'
+        LOCATION = 'wasbs://wideworldimporters@sqldwholdata.blob.core.windows.net'
     );
     ```
 
@@ -541,13 +541,13 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     );
     ```
 
-8. 在对象资源管理器中展开“SampleDW”，查看刚刚创建的外部表列表。
+8. 在对象资源管理器中展开“SampleDW”，查看已创建的外部表列表。
 
     ![查看外部表](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## <a name="load-the-data-into-your-data-warehouse"></a>将数据加载到数据仓库
 
-本部分使用刚刚定义的外部表将示例数据从 Azure Blob 加载到 SQL 数据仓库。  
+本部分使用已定义的外部表将示例数据从 Azure Blob 加载到 SQL 数据仓库。  
 
 > [!NOTE]
 > 本教程直接将数据加载到最终表。 在生产环境中，通常使用 CREATE TABLE AS SELECT 将数据加载到临时表。 数据在临时表中时，可以执行任何必要的转换。 要将临时表中的数据追加到生产表，可以使用 INSERT...SELECT 语句。 有关详细信息，请参阅[将数据插入到生产表](guidance-for-loading-data.md#inserting-data-into-a-production-table)。
@@ -555,7 +555,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 下面的脚本使用 [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 语句将数据从 Azure 存储 Blob 加载到数据仓库中的新表。 CTAS 基于 select 语句的结果创建新表。 新表包含与 select 语句结果相同的列和数据类型。 当 select 语句从外部表进行选择时，SQL 数据仓库将数据导入数据仓库中的关系表。 
 
-此脚本不会将数据载入 wwi.dimension_Date 和 wwi.fact_Sales 表。 稍后的步骤会生成这些表，使表中包含数目可调整的行。
+此脚本不会将数据载入 wwi.dimension_Date 和 wwi.fact_Sale 表。 稍后的步骤会生成这些表，使表中包含数目可调整的行。
 
 1. 运行以下脚本，将数据加载到数据仓库中的新表。
 
@@ -751,7 +751,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>创建表以及用于生成日期和销售表的过程
 
-本部分将创建 wwi.dimension_Date 和 wwi.fact_Sales 表。 此外，还会创建可在 wwi.dimension_Date 和 wwi.fact_Sales 表中生成数百万行的存储过程。
+本部分将创建 wwi.dimension_Date 和 wwi.fact_Sale 表。 此外，还会创建可在 wwi.dimension_Date 和 wwi.fact_Sale 表中生成数百万行的存储过程。
 
 1. 创建 dimension_Date 和 fact_Sale 表。  
 
@@ -894,7 +894,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     DROP table #days;
     END;
     ```
-4. 创建此过程，以便填充 wwi.dimension_Date 和 wwi.fact_Sales 表。 此过程调用 [wwi].[PopulateDateDimensionForYear] 来填充 wwi.dimension_Date。
+4. 创建此过程，以便填充 wwi.dimension_Date 和 wwi.fact_Sale 表。 此过程调用 [wwi].[PopulateDateDimensionForYear] 来填充 wwi.dimension_Date。
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -950,7 +950,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     ```
 
 ## <a name="generate-millions-of-rows"></a>生成数百万行
-使用创建的存储过程在 wwi.fact_Sales 表中生成数百万行，并在 wwi.dimension_Date 表中生成相应的数据。 
+使用创建的存储过程在 wwi.fact_Sale 表中生成数百万行，并在 wwi.dimension_Date 表中生成相应的数据。 
 
 
 1. 运行此过程，在 [wwi].[seed_Sale] 中播种更多行。
@@ -959,7 +959,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 运行此过程，以便每天在 wwi.fact_Sales 中填充 100,000 行，这些行对应于 2000 年的每一天。
+2. 运行此过程，以便每天在 wwi.fact_Sale 中填充 100,000 行，这些行对应于 2000 年的每一天。
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

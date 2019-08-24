@@ -1,5 +1,5 @@
 ---
-title: 使用 SQL Server 代理扩展（资源管理器）在 Azure 虚拟机上自动执行管理任务 | Azure
+title: 使用 SQL Server IaaS 代理扩展在 Azure 虚拟机上自动完成管理任务 | Azure
 description: 本文介绍如何管理可以自动执行特定 SQL Server 管理任务的 SQL Server 代理扩展。 这些任务包括自动备份、自动修补和 Azure 密钥保管库集成。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-origin.date: 07/12/2018
-ms.date: 07/01/2019
+origin.date: 06/24/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: 3a6526a787f95b605dbac3acd89348fbb2c41537
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: a60cc952eae266179d8819c6482a9dd38cd8c4ea
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570018"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538803"
 ---
-# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>使用 SQL Server 代理扩展 (Resource Manager) 在 Azure 虚拟机上自动完成管理任务
+# <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-iaas-agent-extension"></a>使用 SQL Server IaaS 代理扩展在 Azure 虚拟机上自动完成管理任务
 > [!div class="op_single_selector"]
 > * [Resource Manager](virtual-machines-windows-sql-server-agent-extension.md)
 > * [经典](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md)
@@ -55,6 +55,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
+* Windows Server 2019 
 
 **SQL Server 版本**：
 
@@ -63,6 +64,7 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 * SQL Server 2012
 * SQL Server 2014
 * SQL Server 2016
+* SQL Server 2017
 
 **Azure PowerShell**：
 
@@ -70,8 +72,14 @@ SQL Server IaaS 代理扩展支持以下管理任务：
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
+
+
 > [!IMPORTANT]
 > 目前，Azure 上的 SQL Server FCI 不支持 [SQL Server IaaS 代理扩展](virtual-machines-windows-sql-server-agent-extension.md)。 建议从参与 FCI 的 VM 中卸载此扩展。 卸载代理以后，此扩展支持的功能将不可供 SQL VM 使用。
+
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--Not Available on ## Change Management Modes-->
+<!--Not Available on resource provider of Microsoft.SqlVirtualMachine-->
 
 ## <a name="installation"></a>安装
 预配某个 SQL Server 虚拟机库映像时，系统会自动安装 SQL Server IaaS 代理扩展。 SQL IaaS 扩展为 SQL Server VM 上的单一实例提供可管理性。 如果有默认实例，则此扩展可以用于该默认实例，不支持对其他实例进行管理。 如果没有默认实例，而是只有一个命名实例，则会管理命名实例。 如果没有默认实例，但是有多个命名实例，则此扩展无法安装。 
@@ -91,7 +99,7 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 <!--Not Available on [changing the license type](virtual-machines-windows-sql-ahb.md)-->
 
 ### <a name="use-a-single-named-instance"></a>使用单个命名实例
-如果默认实例未正确卸载，同时 IaaS 扩展已重新安装，则 SQL IaaS 扩展可以与 SQL Server 映像上的命名实例一起使用。
+如果卸载了默认实例并重新安装了 IaaS 扩展，则 SQL IaaS 扩展可与 SQL Server 上的命名实例一起使用。
 
 若要使用 SQL Server 的命名实例，请执行以下操作：
 1. 从市场部署 SQL Server VM。 
@@ -100,20 +108,29 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 1. 在 SQL Server VM 中将 SQL Server 与命名实例一起安装。 
 1. 在 Azure 门户中安装 IaaS 扩展。  
 
-## <a name="status"></a>状态
+
+<!--MOONCAKE: CUSTOMIZATION ON 08/13/2019-->
+<!--Not Available on ## Change Management Modes-->
+<!--Not Available on resource provider of Microsoft.SqlVirtualMachine-->
+
+## <a name="get-status-of-sql-iaas-extension"></a>获取 SQL IaaS 扩展的状态
 验证是否已安装扩展的方法之一是在 Azure 门户中查看代理状态。 在虚拟机窗口中选择“所有设置”，并单击“扩展”。   应看到列出“SqlIaasExtension”扩展。 
 
 ![Azure 门户中的 SQL Server IaaS 代理扩展](./media/virtual-machines-windows-sql-server-agent-extension/azure-rm-sql-server-iaas-agent-portal.png)
 
 也可以使用 **Get-AzVMSqlServerExtension** Azure PowerShell cmdlet。
 
-    Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```powershell
+   Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   ```
 
 上一个命令确认已安装代理并提供常规状态信息。 还可使用以下命令获取有关自动备份和修补的特定状态信息。
 
-    $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
-    $sqlext.AutoPatchingSettings
-    $sqlext.AutoBackupSettings
+   ```powershell
+   $sqlext = Get-AzVMSqlServerExtension -VMName "vmname" -ResourceGroupName "resourcegroupname"
+   $sqlext.AutoPatchingSettings
+   $sqlext.AutoBackupSettings
+   ```
 
 ## <a name="removal"></a>删除
 在 Azure 门户中，可以通过单击虚拟机属性的“扩展”窗口中的省略号来卸载扩展。  然后单击“删除”  。
@@ -122,7 +139,9 @@ Set-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmnam
 
 也可以使用 **Remove-AzVMSqlServerExtension** PowerShell cmdlet。
 
-    Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+   ```powershell
+   Remove-AzVMSqlServerExtension -ResourceGroupName "resourcegroupname" -VMName "vmname" -Name "SqlIaasExtension"
+   ```
 
 ## <a name="next-steps"></a>后续步骤
 开始使用扩展支持的服务之一。 有关详细信息，请参阅本文的[支持的服务](#supported-services)部分中提到的文章。

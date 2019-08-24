@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/19/19
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 1703270eaf01890d4ffd23f9b49c689e797b21b1
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 51a6a61d41160584272519f2db93e70949e6fc8b
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135771"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544207"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的边界
 LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 边界的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[世界区域映射](luis-reference-regions.md)。 
@@ -43,7 +43,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 | [正则表达式实体](./luis-concept-entity-types.md)|20 个实体<br>每个正则表达式实体模式 最多 500 个字符|
 | [角色](luis-concept-roles.md)|每个应用程序 300 个角色。 每个实体 10 个角色|
 | [单条话语][utterances] | 500 个字符|
-| [话语][utterances] | 每个应用程序 15,000 条 - 对每个意向的话语数量没有限制|
+| [多条话语][utterances] | 每个应用程序 15,000 条 - 对每个意向的话语数量没有限制|
 | [版本](luis-concept-version.md)| 无限制 |
 | [版本名称][luis-how-to-manage-versions] | 10 个字符，仅限字母数字和句点 (.) |
 
@@ -55,7 +55,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 
 请勿在下列名称中使用下列字符。
 
-|对象|排除字符|
+|Object|排除字符|
 |--|--|
 |意向、实体和角色名称|`:`<br>`$`|
 |版本名称|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
@@ -74,7 +74,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 |语言理解创作/入门|1 百万/月，5/秒|1 千/月，5/秒|创作 LUIS 应用|
 |语言理解[订阅][pricing] - F0 - 免费层 |无效|1 万/月，5/秒|查询 LUIS 终结点|
 |语言理解[订阅][pricing] - S0 - 基本层|无效|50/秒|查询 LUIS 终结点|
-|认知服务[订阅][ pricing] - S0 - 标准层|无效|50/秒|查询 LUIS 终结点|
+|认知服务[订阅][pricing] - S0 - 标准层|无效|50/秒|查询 LUIS 终结点|
 |[情绪分析集成](luis-how-to-publish-app.md#enable-sentiment-analysis)|无效|免费|添加情绪信息，包括关键短语数据提取 |
 |语音集成|无效|5\.50 美元/1 千终结点请求|将口语话语转为文本话语并返回 LUIS 结果|
 
@@ -94,9 +94,9 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 [phrase-list]: https://docs.azure.cn/cognitive-services/LUIS/luis-concept-feature
 [utterances]: https://docs.azure.cn/cognitive-services/LUIS/luis-concept-utterance
 [luis-how-to-manage-versions]: https://docs.azure.cn/cognitive-services/LUIS/luis-how-to-manage-versions
-[pricing]: https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/
+[pricing]: https://www.azure.cn/pricing/details/cognitive-services/
 <!-- TBD: fix this link -->
-[speech-to-intent-pricing]: https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/
+[speech-to-intent-pricing]: https://www.azure.cn/pricing/details/cognitive-services/
 
 
 

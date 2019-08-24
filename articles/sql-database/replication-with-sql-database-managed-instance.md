@@ -13,12 +13,12 @@ ms.reviewer: mathoma
 manager: digimobile
 origin.date: 02/07/2019
 ms.date: 05/20/2019
-ms.openlocfilehash: 1ff41710499baa0b27a9fd52c627b4ab5622c50a
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.openlocfilehash: 32833de7c29998334c25cc744065fea5420ba6f7
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629258"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544413"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>在 Azure SQL 数据库托管实例数据库中配置复制
 
@@ -37,10 +37,10 @@ ms.locfileid: "65629258"
 
 ## <a name="requirements"></a>要求
 
-配置充当发布服务器或分发服务器的托管实例需要满足以下要求：
+配置充当发布服务器和/或分发服务器的托管实例需要满足以下要求：
 
 - 该托管实例当前未加入异地复制关系。
-- 发布服务器托管实例位于分发服务器和订阅服务器所在的同一个虚拟网络中，或者已在所有三个实体的虚拟网络之间建立 [vNet 对等互连]()。 
+- 发布服务器托管实例位于分发服务器和订阅服务器所在的同一个虚拟网络中，或者已在所有三个实体的虚拟网络之间建立 [vNet 对等互连](../virtual-network/tutorial-connect-virtual-networks-powershell.md)。 
 - 连接时，在复制参与者之间使用 SQL 身份验证。
 - 适用于复制工作目录的 Azure 存储帐户共享。
 - 需要在托管实例的 NSG 安全规则中打开端口 445（TCP 出站）才能访问 Azure 文件共享。 
@@ -78,13 +78,13 @@ Azure SQL 数据库中的托管实例不支持以下功能：
 
 ## <a name="3---create-azure-storage-account"></a>3 - 创建 Azure 存储帐户
 
-为工作目录[创建一个 Azure 存储帐户]()，然后在该存储帐户中创建一个[文件共享]()。 
+为工作目录[创建一个 Azure 存储帐户](/storage/common/storage-create-storage-account#create-a-storage-account)，然后在该存储帐户中创建一个[文件共享](../storage/files/storage-how-to-create-file-share.md)。 
 
 复制采用 `\\storage-account-name.file.core.chinacloudapi.cn\file-share-name` 格式的文件共享路径
 
 复制采用 `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.chinacloudapi.cn` 格式的存储访问密钥
 
- 有关详细信息，请参阅 [查看和复制存储访问密钥]()。 
+ 有关详细信息，请参阅 [查看和复制存储访问密钥](../storage/common/storage-account-manage.md#access-keys)。 
 
 ## <a name="4---create-a-publisher-database"></a>4 - 创建发布服务器数据库
 
@@ -173,7 +173,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 此脚本将在托管实例上配置一个本地发布服务器，添加链接服务器，并为 SQL Server 代理创建一组作业。 
@@ -324,7 +324,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-可以通过[从资源组中删除托管实例资源]()，然后删除资源组 `SQLMI-Repl`，来清理 Azure 资源。 
+可以通过[从资源组中删除托管实例资源](../azure-resource-manager/manage-resources-portal.md#delete-resources)，然后删除资源组 `SQLMI-Repl`，来清理 Azure 资源。 
 
    
 ## <a name="see-also"></a>另请参阅

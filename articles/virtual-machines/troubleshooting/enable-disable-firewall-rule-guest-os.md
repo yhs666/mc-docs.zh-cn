@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 origin.date: 11/22/2018
-ms.date: 04/01/2019
+ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 11bd019e4f29ba581f9aeb1905eea46d03bbb1ab
-ms.sourcegitcommit: 3b05a8982213653ee498806dc9d0eb8be7e70562
+ms.openlocfilehash: 8b9332171accd44c3cc784f8e8ff9421977c56a8
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003976"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69538894"
 ---
 <!-- Verify part successfully-->
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>在 Azure VM 来宾 OS 中启用或禁用防火墙规则
@@ -39,19 +39,19 @@ ms.locfileid: "59003976"
 
 #### <a name="mitigation-1-custom-script-extension"></a>缓解措施 1：自定义脚本扩展
 
-1.  使用以下模板创建脚本。
+1. 使用以下模板创建脚本。
 
-    *   启用规则：
+    * 启用规则：
         ```cmd
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=yes
         ```
 
-    *   禁用规则：
+    * 禁用规则：
         ```cmd
         netsh advfirewall firewall set rule dir=in name="Remote Desktop - User Mode (TCP-In)" new enable=no
         ```
 
-2.  使用[自定义脚本扩展](../extensions/custom-script-windows.md)功能在 Azure 门户中上传此脚本。 
+2. 使用[自定义脚本扩展](../extensions/custom-script-windows.md)功能在 Azure 门户中上传此脚本。 
 
 <!--Not Avaialble on #### Mitigation 2: Remote PowerShell-->
 
@@ -59,9 +59,9 @@ ms.locfileid: "59003976"
 
 如果 VM 处于联机状态且可以在同一虚拟网络中的另一个 VM 上对其进行访问，则可以使用另一个 VM 执行以下缓解措施。
 
-1.  在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/zh-cn/sysinternals/downloads/pstools)。
+1. 在故障排除 VM 上，下载 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)。
 
-2.  打开 CMD 实例，然后通过 VM 的内部 IP (DIP) 访问该 VM。 
+2. 打开 CMD 实例，然后通过 VM 的内部 IP (DIP) 访问该 VM。 
 
     * 启用规则：
         ```cmd
@@ -79,7 +79,7 @@ ms.locfileid: "59003976"
 
 如果 VM 处于联机状态且可以在同一虚拟网络中的另一个 VM 上对其进行访问，则可以在另一个 VM 上使用[远程注册表](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry)。
 
-1. 在故障排除 VM 上启动注册表编辑器 (regedit.exe)，然后选择“文件” > “连接网络注册表”。
+1. 在故障排除 VM 上启动注册表编辑器 (regedit.exe)，然后选择“文件” > “连接网络注册表”   。
 
 2. 打开 *TARGET MACHINE*\SYSTEM 分支，然后指定以下值：
 
@@ -97,7 +97,7 @@ ms.locfileid: "59003976"
 
         然后，将 **Active=TRUE** 更改为 **Active=FALSE**：
 
-        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=@FirewallAPI.dll,-28775|Desc=@FirewallAPI.dll,-28756|EmbedCtxt=@FirewallAPI.dll,-28752|**
+        **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
 3. 重启 VM 以应用更改。
 
@@ -105,19 +105,19 @@ ms.locfileid: "59003976"
 
 如果无法通过任何方法访问该 VM，则无法使用自定义脚本扩展，此时，必须直接通过系统磁盘在脱机模式下工作。
 
-在执行这些步骤之前，请创建受影响 VM 的系统磁盘的快照作为备份。 有关详细信息，请参阅 [创建磁盘快照](../windows/snapshot-copy-managed-disk.md)。
+在执行这些步骤之前，请创建受影响 VM 的系统磁盘快照作为备份。 有关详细信息，请参阅[拍摄磁盘快照](../windows/snapshot-copy-managed-disk.md)。
 
 1. [将系统磁盘附加到恢复 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
 2. 开始与恢复 VM 建立远程桌面连接。
 
-3. 确保磁盘在磁盘管理控制台中标记为“联机”。 请注意分配给附加的系统磁盘的驱动器号。
+3. 确保磁盘在磁盘管理控制台中标记为“联机”。  请注意分配给附加的系统磁盘的驱动器号。
 
 4. 在进行任何更改之前，请创建 \windows\system32\config 文件夹的副本，以防需要回退更改。
 
 5. 在故障排除 VM 上，启动注册表编辑器 (regedit.exe)。
 
-6. 突出显示 **HKEY_LOCAL_MACHINE** 项，然后从菜单中选择“文件” > “加载配置单元”。
+6. 突出显示 **HKEY_LOCAL_MACHINE** 项，然后从菜单中选择“文件” > “加载配置单元”。  
 
     ![Regedit](./media/enable-or-disable-firewall-rule-guest-os/load-registry-hive.png)
 
@@ -146,7 +146,7 @@ ms.locfileid: "59003976"
 
         **v2.22|Action=Allow|Active=FALSE|Dir=In|Protocol=6|Profile=Domain|Profile=Private|Profile=Public|LPort=3389|App=%SystemRoot%\system32\svchost.exe|Svc=termservice|Name=\@FirewallAPI.dll,-28775|Desc=\@FirewallAPI.dll,-28756|EmbedCtxt=\@FirewallAPI.dll,-28752|**
 
-9. 突出显示 BROKENSYSTEM，然后选择菜单中的“文件” > “卸载配置单元”。
+9. 突出显示 BROKENSYSTEM，然后选择菜单中的“文件” > “卸载配置单元”    。
 
 10. [拆离系统磁盘并重新创建 VM](troubleshoot-recovery-disks-portal-windows.md)。
 
