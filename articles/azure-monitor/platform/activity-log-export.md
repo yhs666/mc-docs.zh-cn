@@ -3,18 +3,19 @@ title: 导出 Azure 活动日志
 description: 将 Azure 活动日志导出到存储以进行存档，或导出到 Azure 事件中心以便导出到 Azure 外部。
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: v-lingwus
 ms.subservice: logs
-ms.openlocfilehash: 89c5922f090cbda4e6d297d01baa814ddf94fe60
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: e7c50b129704445f31276aa2358813a6438097f0
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818267"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989537"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>将 Azure 活动日志导出到存储或 Azure 事件中心
 [Azure 活动日志](activity-logs-overview.md)提供 Azure 订阅中发生的订阅级事件的见解。 除了在 Azure 门户中查看活动日志或者将其复制到 Log Analytics 工作区（在其中可以结合 Azure Monitor 收集的其他数据一起分析这些日志）以外，还可以创建一个日志配置文件，以将活动日志存档到 Azure 存储帐户或流式传输到事件中心。
@@ -117,7 +118,7 @@ ms.locfileid: "68818267"
     | serviceBusRuleId |否 |服务总线命名空间（需在其中创建事件中心）的服务总线规则 ID。 这是采用以下格式的字符串：`{service bus resource ID}/authorizationrules/{key name}`。 |
     | Location |是 |要为其收集活动日志事件的逗号分隔区域的列表。 |
     | RetentionInDays |是 |事件应在存储帐户中保留的天数，介于 1 和 2147483647 之间。 值为零时，将无限期存储日志。 |
-    | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_ 、 _ 和 _Action_ 。 |
+    | Category |否 |应收集的事件类别的逗号分隔列表。 可能的值为 _Write_、_Delete_ 和 _Action_。 |
 
 ### <a name="example-script"></a>示例脚本
 以下示例 PowerShell 脚本创建一个日志配置文件，用于将活动日志写入到存储帐户和事件中心。
@@ -237,7 +238,7 @@ ms.locfileid: "68818267"
 | correlationId |通常为字符串格式的 GUID。 共享 correlationId 的事件属于同一 uber 操作。 |
 | identity |描述授权和声明的 JSON blob。 |
 | authorization |包含事件的 RBAC 属性的 Blob。 通常包括“action”、“role”和“scope”属性。 |
-| 级别 |事件的级别。 以下值之一： _、 _、 _、 _ 和 _Verbose_ |
+| 级别 |事件的级别。 以下值之一：_Critical_、_Error_、_Warning_、_Informational_ 和 _Verbose_ |
 | location |位置所在的区域（或全局）。 |
 | properties |`<Key, Value>` 对集合（即字典），描述事件的详细信息。 |
 

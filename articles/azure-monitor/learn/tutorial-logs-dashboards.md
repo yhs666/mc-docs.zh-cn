@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 8027b285e616e4aa8511797d0828e5ca9218a085
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 8ed33241ed26756a85361aee452da95428ea4948
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513839"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989268"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>创建和共享 Log Analytics 数据的仪表板
 
@@ -75,7 +75,7 @@ Perf
 
 ![保存查询](media/tutorial-logs-dashboards/save-query.png)
 
-在“保存查询”控制面板中提供名称（例如“Azure VM - 处理器利用率”）和类别（例如“仪表板”），然后单击“保存”     。  这样，便可创建可以使用和修改的常见查询的库。  最后，从页面右上角选择“固定”按钮，然后再选择仪表板名称，以将其固定到之前创建的共享仪表板  。
+在“保存查询”控制面板中提供名称（例如“Azure VM - 处理器利用率”）和类别（例如“仪表板”），然后单击“保存”     。  这样，便可创建可以使用和修改的常见查询的库。  最后，从页面右上角选择“固定到仪表板”按钮，然后再选择仪表板名称，以将其固定到之前创建的共享仪表板  。
 
 将查询固定到仪表板之后，可发现该查询下方有一个通用标题和注释。
 

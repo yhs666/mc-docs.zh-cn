@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 79fa288ae92cc2aba9567a560f0b30ae5a685271
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1eadee41689b3c5b52f472ab9780b1359d6699ab
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818142"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989066"
 ---
 # <a name="troubleshooting"></a>故障排除
 
@@ -125,7 +126,7 @@ ms.locfileid: "68818142"
 
 * 建议将经典警报通知用于特定接收人。
 
-* 对于 Y 个位置中 X 个位置的失败相关警报，如已启用“批/组”  复选框选项，会向具有管理员/共同管理员角色的用户发送相关通知。  实质上是 _的 _管理员均会收到通知。
+* 对于 Y 个位置中 X 个位置的失败相关警报，如已启用“批/组”  复选框选项，会向具有管理员/共同管理员角色的用户发送相关通知。  实质上是_订阅_的_所有_管理员均会收到通知。
 
 * 对于可用性指标警报，“批量/组”复选框选项（如果已启用）将发送给订阅中具有所有者、参与者或阅读者角色的用户  。 实际上，可以访问包含 Application Insights 资源在内的订阅的所有用户均会收到通知  。 
 

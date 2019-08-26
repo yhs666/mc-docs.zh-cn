@@ -1,5 +1,20 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:02/14/2019 ms.date:03/04/2019 ms.author: v-jay ms.custom: include file
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 02/14/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 13798208963944e379dd85f40e28241346f77d25
+ms.sourcegitcommit: 15a80d044339dab8bce43eb7be110ba01f630056
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578648"
 ---
 **下载 VPN 设备配置脚本：**
 

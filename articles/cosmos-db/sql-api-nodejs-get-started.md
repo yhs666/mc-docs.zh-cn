@@ -10,12 +10,12 @@ origin.date: 06/05/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 933761bec96691fd81d31431273db83c766abe50
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: 9673faa8cb3b653d3eb78d998aedf9f50700469b
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672232"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578620"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>教程：使用 JavaScript SDK 生成 Node.js 控制台应用以管理 Azure Cosmos DB SQL API 数据
 
@@ -828,42 +828,42 @@ node app.js
 
 应该看到已启动应用的输出。 输出应该匹配下面的示例文本。
 
-    ```
-    Created database:
-    FamilyDatabase
+```
+Created database:
+FamilyDatabase
 
-    Reading database:
-    FamilyDatabase
+Reading database:
+FamilyDatabase
 
-    Created container:
-    FamilyContainer
+Created container:
+FamilyContainer
 
-    Reading container:
-    FamilyContainer
+Reading container:
+FamilyContainer
 
-    Created family item with id:
-    Anderson.1
+Created family item with id:
+Anderson.1
 
-    Created family item with id:
-    Wakefield.7
+Created family item with id:
+Wakefield.7
 
-    Querying container:
-    FamilyContainer
-            Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
+Querying container:
+FamilyContainer
+        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":5,"pets":[{"givenName":"Fluffy"}]}]
 
-    Replacing item:
-    Anderson.1
+Replacing item:
+Anderson.1
 
-    Querying container:
-    FamilyContainer
-            Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
+Querying container:
+FamilyContainer
+        Query returned [{"firstName":"Henriette Thaulow","gender":"female","grade":6,"pets":[{"givenName":"Fluffy"}]}]
 
-    Deleted item:
-    Anderson.1
+Deleted item:
+Anderson.1
 
-    Completed successfully
-    Press any key to exit
-    ```
+Completed successfully
+Press any key to exit
+```
 
 <a name="GetSolution"></a>
 ## <a name="get-the-complete-nodejs-tutorial-solution"></a>获取完整的 Node.js 教程解决方案 

@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5268a7237102c2aa8f9e1837944bda8f315cfd0f
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 5e1ebacca167f59a49628e1caa7125023318e7c2
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562662"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989566"
 ---
 <a name="troubleshooting"></a>
 #  <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a>排查启用 Application Insights 快照调试器或查看快照时遇到的问题

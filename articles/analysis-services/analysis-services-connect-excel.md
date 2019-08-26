@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5badf2c842272445fd153dc56caa71d35d574663
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 2439f342adeb5a9515fa8191d664541eafcff0f8
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085646"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993552"
 ---
 # <a name="connect-with-excel"></a>使用 Excel 进行连接
 
@@ -28,9 +28,9 @@ ms.locfileid: "55085646"
 
 可通过使用 Excel 2016 及更高版本中的“获取数据”在 Excel 中连接到服务器。 不支持使用 Power Pivot 中的“导入表向导”进行连接。 
 
-1. 在 Excel 的“数据”功能区上，单击“获取外部数据” > “从其他源获取” > “从 Analysis Services 获取”。
+1. 在 Excel 的“数据”功能区上，单击“获取外部数据” > “从其他源获取” > “从 Analysis Services 获取”     。
 
-2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。 例如，asazure://chinaeast.asazure.chinacloudapi.cn/advworks。 然后，在“登录凭据”中，选择“使用以下用户名和密码”，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
+2. 在“数据连接向导”的“服务器名称”中，输入服务器名称，包括协议和 URI。  例如，asazure://chinaeast.asazure.chinacloudapi.cn/advworks。 然后，在“登录凭据”  中，选择“使用以下用户名和密码”  ，并键入组织的用户名（例如 nancy@adventureworks.com）和密码。
 
     > [!IMPORTANT]
     > 如果使用 Microsoft 帐户、Live ID、Yahoo 等登录或被要求使用多重身份验证登录，请将密码字段留空。 单击“下一步”后，系统会提示输入密码。
@@ -39,7 +39,7 @@ ms.locfileid: "55085646"
     
     ![“从 Excel 中连接”登录](./media/analysis-services-connect-excel/aas-connect-excel-logon.png)
 
-3. 在“选择数据库和表”中，选择数据库和模型或透视，并单击“完成”。
+3. 在“选择数据库和表”  中，选择数据库和模型或透视，并单击“完成”  。
 
     ![“从 Excel 中连接”选择模型](./media/analysis-services-connect-excel/aas-connect-excel-select.png)
 

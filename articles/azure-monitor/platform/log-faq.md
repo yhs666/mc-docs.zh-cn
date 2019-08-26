@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ad536ff7-2c60-4850-a46d-230bc9e1ab45
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3a370b2f486a971bafbb8fdb1f782de351ddd0fe
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: d08bb4f3cef98c01efd5968d4e96fd5553d90871
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513997"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989427"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -29,7 +30,7 @@ ms.locfileid: "68513997"
 
 ### <a name="q-whats-the-difference-between-the-new-logs-experience-and-log-analytics"></a>问：新的日志体验和 Log Analytics 的区别在哪里？
 
-答：没有区别。 Log Analytics 作为一项功能集成到 Azure Monitor 中，目的是提供更统一的监视体验。 Azure Monitor 中的新的日志体验与许多客户一直在使用的 Log Analytics 查询完全相同。
+答：没有区别。 [Log Analytics 是作为一项功能集成到 Azure Monitor 中的](../../azure-monitor/terminology.md)，目的是提供更统一的监视体验。 Azure Monitor 中的新的日志体验与许多客户一直在使用的 Log Analytics 查询完全相同。
 
 ### <a name="q-can-i-still-use-log-search"></a>问：是否仍然可以使用日志搜索？ 
 
@@ -40,7 +41,7 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 
 ### <a name="q-why-cant-i-see-query-explorer-and-save-buttons-in-the-new-logs-experience"></a>问： 为何在新的日志体验中看不到“查询资源管理器”按钮和“保存”按钮？
 
-在特定资源的上下文中浏览日志时，“查询资源管理器”、“保存”和“设置警报”按钮不可用。    若要创建警报以及保存或加载查询，日志的范围必须局限于某个工作区。 若要在工作区上下文中打开日志，请选择“所有服务”   >   “监视” >   “日志”。 选择的是上次使用的工作区，但可以选择任何其他的工作区。 有关详细信息，请参阅“查看和分析 Log Analytics 中的数据”。
+在特定资源的上下文中浏览日志时，“查询资源管理器”、“保存”和“设置警报”按钮不可用。    若要创建警报以及保存或加载查询，日志的范围必须局限于某个工作区。 若要在工作区上下文中打开日志，请选择“所有服务”   >   “监视” >   “日志”。 选择的是上次使用的工作区，但可以选择任何其他的工作区。 有关详细信息，请参阅[查看和分析 Log Analytics 中的数据](../log-query/log-query-overview.md)。
 
 ### <a name="q-how-do-i-extract-custom-fields-in-the-new-logs-experience"></a>问： 在新的日志体验中，如何提取自定义字段？ 
 
@@ -62,6 +63,9 @@ Azure 门户中的新的日志体验基于高级分析门户，但是仍然可�
 
 答：若要查看 VM 日志，需获得存储 VM 日志的工作区的读取权限。 在这些示例中，管理员必须在 Azure 中为你授予相关权限。
 
+### <a name="q-why-can-i-can-access-my-workspace-in-oms-portal-but-i-get-the-error-you-have-no-access-in-the-azure-portal"></a>问： 为什么我可以访问 OMS 门户中的工作区，但在 Azure 门户中却获得“你没有访问权限”错误？  
+
+答：若要访问 Azure 中的工作区，必须获得 Azure 权限。 在某些情况下，你可能没有相应的访问权限。 
 
 ### <a name="q-why-cant-i-cant-see-view-designer-entry-in-logs"></a>问： 为什么在日志中看不到“视图设计器”条目？ 
 答：视图设计器在日志中仅供分配了“参与者”权限或更高权限的用户使用。
@@ -231,7 +235,7 @@ A. 每个代理发送的数据量取决于：
 * 正在收集的日志和性能计数器的数量
 * 日志中的数据量
 
-一个好的方法就是利用免费定价层来搭载数台服务器并测量典型数据量。
+一个好的方法就是利用免费定价层来搭载数台服务器并测量典型数据量。 
 
 对于能够运行 WireData 代理的计算机，可以使用以下查询了解正在发送的数据量：
 

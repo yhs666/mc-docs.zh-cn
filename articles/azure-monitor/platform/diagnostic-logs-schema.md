@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: da7ed4d0d10b3f1a5e805631c8ab091e65187788
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: e15ccb41a056e2308aeada977c524a08c7af3821
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562369"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989347"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Azure 诊断日志支持的服务、架构和类别
 
@@ -195,5 +195,5 @@ ms.locfileid: "67562369"
 * [详细了解诊断日志](../../azure-monitor/platform/diagnostic-logs-overview.md)
 * [将资源诊断日志流式传输到事件中心  ](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)
 * [使用 Azure Monitor REST API 更改资源诊断设置](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)
-* [使用 Log Analytics 分析 Azure 存储中的日志](../../azure-monitor/platform/collect-azure-metrics-logs.md)
+* [使用 Log Analytics 分析 Azure 存储中的日志](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md)
 

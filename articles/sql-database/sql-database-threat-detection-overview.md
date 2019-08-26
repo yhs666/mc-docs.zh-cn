@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto, carlrab
 manager: digimobile
 origin.date: 03/31/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: e7137632f7880ef613922000a975391af13a2e77
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/19/2019
+ms.openlocfilehash: 1a12f5fa5b423f003e80dbab94445259b45ed0e7
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529295"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544359"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL 数据库的高级威胁防护
 
@@ -31,7 +31,7 @@ ms.locfileid: "59529295"
 
 ## <a name="what-is-advanced-threat-protection"></a>什么是高级威胁防护
 
- 高级威胁防护提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。 出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问和查询模式时，用户将收到警报。 高级威胁防护将警报与 Azure 安全中心集成，其中包含可疑活动的详细信息以及如何调查和缓解威胁的建议操作。 不必是安全专家，也不需要管理先进的安全监视系统，就能使用高级威胁防护轻松解决数据库的潜在威胁。
+ 高级威胁防护提供新的安全层，在发生异常活动时会提供安全警报，让客户检测潜在威胁并做出响应。 出现可疑数据库活动、潜在漏洞、SQL 注入攻击和异常数据库访问和查询模式时，用户将收到警报。 高级威胁防护将警报与 [Azure 安全中心](/security-center/)集成，其中包含可疑活动的详细信息以及有关如何调查和缓解威胁的建议操作。 不必是安全专家，也不需要管理先进的安全监视系统，就能使用高级威胁防护轻松解决数据库的潜在威胁。
 
 为了提供完整的调查体验，建议启用 [SQL 数据库审核](sql-database-auditing.md)，它会将数据库事件写入到 Azure 存储帐户中的审核日志。  
 
@@ -50,11 +50,27 @@ ms.locfileid: "59529295"
 - **来自可能有害的应用程序的访问**：当使用可能有害的应用程序访问数据库时，会触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测使用常见攻击工具执行的攻击。
 - **暴力破解 SQL 凭据**：当有人使用不同的凭据异常登录并失败很多次时，会触发此警报。 在某些情况下，警报会检测操作中的渗透测试。 在其他情况下，警报会检测暴力破解攻击。
 
+## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>检测到可疑事件时探查异常数据库活动
+
+检测到异常数据库活动时，将收到电子邮件通知。 电子邮件将提供可疑安全事件的相关信息，包括异常活动的性质、数据库名称、服务器名称、应用程序名称和事件时间。 此外，电子邮件还会提供可能原因和建议操作的相关信息，帮助调查和缓解数据库的潜在威胁。
+
+![异常活动报告](./media/sql-database-threat-detection/anomalous_activity_report.png)
+
+1. 单击电子邮件中“查看最近的 SQL 警报”  链接以启动 Azure 门户并显示“Azure 安全中心警报”页，该页面提供在 SQL 数据库上检测到的活动威胁的概述。
+
+   ![活动威胁](./media/sql-database-threat-detection/active_threats.png)
+
+2. 单击特定警报可获得其他详细信息以及用于调查此威胁和解决潜在威胁的操作。
+
+   例如，SQL 注入是 Internet 上最常见的 Web 应用程序安全问题之一，用于攻击数据驱动的应用程序。 攻击者利用应用程序漏洞将恶意 SQL 语句注入应用程序入口字段，以破坏或修改数据库中的数据。 对于 SQL 注入警报，警报的详细信息包括被利用的有漏洞的 SQL 语句。
+
+   ![特定警报](./media/sql-database-threat-detection/specific_alert.png)
+
 ## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>在 Azure 门户中浏览针对数据库发出的高级威胁防护警报
 
-高级威胁防护功能将其警报与 Azure 安全中心集成。 Azure 门户中“数据库和 SQL ADS”边栏选项卡内的“实时 SQL 高级威胁防护”磁贴会跟踪活动威胁的状态。
+高级威胁防护将其警报与 [Azure 安全中心](/security-center/)集成。 Azure 门户中“数据库和 SQL ADS”边栏选项卡内的“实时 SQL 高级威胁防护”磁贴会跟踪活动威胁的状态。
 
-单击“高级威胁防护警报”以启动“Azure 安全中心警报”页，并获取在数据库或数据仓库中检测到的活动 SQL 威胁的概述。
+单击“高级威胁防护警报”以启动“Azure 安全中心警报”页，并获取在数据库或数据仓库中检测到的活动 SQL 威胁的概述  。
 
    ![高级威胁防护警报](./media/sql-database-threat-detection/threat_detection_alert.png)
 
@@ -63,6 +79,8 @@ ms.locfileid: "59529295"
 ## <a name="next-steps"></a>后续步骤
 
 - 详细了解[单一数据库和共用数据库中的高级威胁防护](sql-database-threat-detection.md)。
+- 详细了解[托管实例中的高级威胁防护](sql-database-managed-instance-threat-detection.md)。
 - 详细了解[高级数据安全性](sql-database-advanced-data-security.md)。
 - 详细了解 [Azure SQL 数据库审核](sql-database-auditing.md)
+- 详细了解 [Azure 安全中心](/security-center/security-center-intro)
 - 有关定价的详细信息，请参阅 [SQL 数据库定价页](https://azure.cn/pricing/details/sql-database/)  

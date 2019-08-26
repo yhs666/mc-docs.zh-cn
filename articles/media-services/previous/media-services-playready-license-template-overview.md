@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 540244c13ad1fed251229b01c4cdd23c9851257f
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 29fd031b0be9a293d8cfaca4a45dbfa2db8959e2
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624151"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69671001"
 ---
 # <a name="media-services-playready-license-template-overview"></a>媒体服务 PlayReady 许可证模板概述
 Azure 媒体服务现在提供了用于交付 PlayReady 许可证的服务。 当播放器（例如 Silverlight）尝试播放受 PlayReady 保护的内容时，将向许可证交付服务发送请求以获取许可证。 如果许可证服务批准了该请求，则会颁发该许可证，该许可证将发送到客户端，并用来解密和播放指定的内容。
@@ -59,6 +59,7 @@ XML 遵循“PlayReady 许可证模板 XML 架构”部分中定义的 PlayReady
 
 媒体服务还可定义一组可用于序列化到 XML 和从 XML 反序列化的 .NET 类。 有关主要类的说明，请参阅用于配置许可证模板的[媒体服务 .NET 类](media-services-playready-license-template-overview.md#classes)。
 
+有关使用 .NET 类来配置 PlayReady 许可证模板的端到端示例，请参阅[使用 PlayReady 动态加密和许可证交付服务](media-services-protect-with-playready-widevine.md)。
 
 ## <a id="classes"></a>用于配置许可证模板的媒体服务 .NET 类
 下列类是用于配置媒体服务 PlayReady 许可证模板的主要 .NET 类。 这些类映射到 [PlayReady 许可证模板 XML 架构](media-services-playready-license-template-overview.md#schema)中定义的类型。

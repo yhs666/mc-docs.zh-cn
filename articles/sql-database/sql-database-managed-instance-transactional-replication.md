@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
 origin.date: 02/08/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 1812e9312e84c0a7107c1cde5533d043a2f0320f
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/19/2019
+ms.openlocfilehash: 900750b13f310db110dfaadae113743a3c1e5d89
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629185"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69543949"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>对 Azure SQL 数据库中的单一数据库、共用数据库和实例数据库进行事务复制
 
@@ -59,16 +59,18 @@ ms.locfileid: "65629185"
 | **推送订阅服务器**| 是 | 是|
 | &nbsp; | &nbsp; | &nbsp; |
 
+  >[!NOTE]
+  > 当分发服务器是实例数据库而订阅服务器不是时，不支持请求订阅。 
+
 有不同的[复制类型](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)：
 
 
 | 复制 | 单一数据库和共用数据库 | 实例数据库|
 | :----| :------------- | :--------------- |
-| [**事务**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是（仅用作订阅服务器） | 是 | 
+| [**标准事务**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | 是（仅用作订阅服务器） | 是 | 
 | [**快照**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | 是（仅用作订阅服务器） | 是|
 | [**合并复制**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | 否 | 否|
 | [**对等**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | 否 | 否|
-| **单向** | 是 | 是|
 | [**双向**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | 否 | 是|
 | [**可更新订阅**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | 否 | 否|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -138,7 +140,7 @@ ms.locfileid: "65629185"
 
 ## <a name="next-steps"></a>后续步骤
 
-1. [为托管实例配置事务复制](replication-with-sql-database-managed-instance.md)。 
+1. [配置两个托管实例之间的复制](replication-with-sql-database-managed-instance.md)。 
 1. [创建发布](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)。
 1. 使用 Azure SQL 数据库服务器名称作为订阅服务器（例如 `N'azuresqldbdns.database.chinacloudapi.cn`）并使用 Azure SQL 数据库名称作为目标数据库（例如 **Adventureworks**）来[创建推送订阅](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)。 )
 

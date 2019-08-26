@@ -4,17 +4,18 @@ description: 通过 Azure 应用服务或 Nuget 包将 Snapshot Debugger 升级�
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4e2df7da6a87864ac70c6d3c3bcaa209e9edecd6
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: a7abfe72382b7039c8ad5af5589e2fb1c9cdf21c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732455"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989568"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>升级 Snapshot Debugger
 

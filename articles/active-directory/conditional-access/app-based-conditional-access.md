@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 origin.date: 06/13/2018
-ms.date: 08/07/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4b52ce8c1c71d4146587fee3eafdc6ca1abdc7d
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 68cfe90e14553d340f65969639cd11164ed3b4ef
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973031"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993195"
 ---
 # <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>如何：使用条件访问要求使用经批准的客户端应用进行云应用访问 
 
@@ -79,23 +79,12 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/01.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”  。
-
-   ![条件性访问](./media/app-based-conditional-access/07.png)
-
 1. **条件：** 对于“条件”，需要配置“设备平台”和“客户端应用”    ：
    1. 对于“设备平台”，请选择 Android 和 iOS    。
-
-      ![条件性访问](./media/app-based-conditional-access/03.png)
-
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面应用”  以及“新式身份验证客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/91.png)
-
 1. 对于“访问控制”，需选中“需要批准的客户端应用(预览)”   。
 
    ![条件性访问](./media/app-based-conditional-access/05.png)
@@ -104,26 +93,16 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/06.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”  。
-
-   ![条件性访问](./media/app-based-conditional-access/07.png)
-
 1. **条件：** 对于“条件”  ，需要配置“客户端应用(预览版)”  。 
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/92.png)
-
    1. 对于“访问控制”，需选中“需要批准的客户端应用(预览)”   。
 
       ![条件性访问](./media/app-based-conditional-access/05.png)
 
 **步骤 3 - 为 iOS 和 Android 客户端应用程序配置 Intune 应用保护策略**
-
-![条件性访问](./media/app-based-conditional-access/09.png)
 
 请参阅[使用 Microsoft Intune 保护应用和数据](https://docs.microsoft.com/intune-classic/deploy-use/protect-apps-and-data-with-microsoft-intune)了解详细信息。
 
@@ -145,23 +124,12 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/71.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”和“Office 365 SharePoint Online”   。 
-
-   ![条件性访问](./media/app-based-conditional-access/02.png)
-
 1. **条件：** 对于“条件”，需要配置“设备平台”和“客户端应用”    ：
    1. 对于“设备平台”，请选择 Android 和 iOS    。
-
-      ![条件性访问](./media/app-based-conditional-access/03.png)
-
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“新式身份验证客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/91.png)
-
 1. 对于“访问控制”，需选中“需要批准的客户端应用(预览)”   。
 
    ![条件性访问](./media/app-based-conditional-access/05.png)
@@ -170,19 +138,11 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/06.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”  。 联机 
-
-   ![条件性访问](./media/app-based-conditional-access/07.png)
-
 1. **条件：** 对于“条件”，需要配置“客户端应用”   ：
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/92.png)
-
    1. 对于“访问控制”，需选中“需要批准的客户端应用(预览)”   。
 
       ![条件性访问](./media/app-based-conditional-access/05.png)
@@ -211,23 +171,12 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/62.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”和“Office 365 SharePoint Online”   。 
-
-     ![条件性访问](./media/app-based-conditional-access/02.png)
-
 1. **条件：** 对于“条件”，需要配置“设备平台”和“客户端应用”    。 
    1. 对于“设备平台”，请选择 Android 和 iOS    。
-
-      ![条件性访问](./media/app-based-conditional-access/03.png)
-
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“新式身份验证客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/91.png)
-
 1. 对于“访问控制”，需选中以下内容  ：
    - “要求将设备标记为合规” 
    - “需要批准的客户端应用(预览)” 
@@ -239,20 +188,11 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/61.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”  。 
-
-   ![条件性访问](./media/app-based-conditional-access/07.png)
-
 1. **条件：** 对于“条件”，需要配置“客户端应用”   。 
-
-   对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
-
-   ![条件性访问](./media/app-based-conditional-access/91.png)
-
+   1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
 1. 对于“访问控制”，需选中“需要批准的客户端应用(预览)”   。
  
    ![条件性访问](./media/app-based-conditional-access/11.png)
@@ -287,23 +227,12 @@ ms.locfileid: "68973031"
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/62.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”和“Office 365 SharePoint Online”   。 
-
-   ![条件性访问](./media/app-based-conditional-access/02.png)
-
 1. **条件：** 对于“条件”，需要配置“设备平台”和“客户端应用”    。 
    1. 对于“设备平台”，请选择 Android 和 iOS    。
-
-      ![条件性访问](./media/app-based-conditional-access/03.png)
-
    1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面应用”  以及“新式身份验证客户端”  。
-
-      ![条件性访问](./media/app-based-conditional-access/91.png)
-
 1. 对于“访问控制”，需选中以下内容  ：
    - “要求将设备标记为合规” 
    - “需要批准的客户端应用(预览)” 
@@ -311,23 +240,15 @@ ms.locfileid: "68973031"
  
       ![条件性访问](./media/app-based-conditional-access/13.png)
 
-
-
 **步骤 2 - 为 Exchange Online with Active Sync (EAS) 配置 Azure AD 条件访问策略**
 
 对于此步骤中的条件访问策略，需配置以下各项内容：
 
-![条件性访问](./media/app-based-conditional-access/61.png)
-
 1. 条件访问策略的“名称”  。
 1. **用户和组**：每个条件访问策略必须选定至少一个用户或组。
 1. **云应用：** 对于云应用，需要选择“Office 365 Exchange Online”  。 
-
-   ![条件性访问](./media/app-based-conditional-access/07.png)
-
 1. **条件：** 对于“条件”  ，需要配置“客户端应用(预览版)”  。 
-
-   对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
+   1. 对于“客户端应用(预览版)”  ，选择“移动应用和桌面客户端”  以及“Exchange ActiveSync 客户端”  。
 
    ![条件性访问](./media/app-based-conditional-access/92.png)
 
@@ -335,8 +256,6 @@ ms.locfileid: "68973031"
    - “要求将设备标记为合规” 
    - “需要批准的客户端应用(预览)” 
    - ”需要所有已选控件“    
- 
-      ![条件性访问](./media/app-based-conditional-access/64.png)
 
 **步骤 3 - 为 iOS 和 Android 客户端应用程序配置 Intune 应用保护策略**
 
@@ -350,3 +269,4 @@ ms.locfileid: "68973031"
 
 如果已准备好针对环境配置条件访问策略，请参阅 [Azure Active Directory 中条件访问的最佳做法](best-practices.md)。 
 
+<!-- Update_Description: wording update -->

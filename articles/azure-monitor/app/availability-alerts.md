@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 098714f7d5354c4c223dc6354f15485860b8fe5a
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 657df59217aaf40c91fd6458d436312a7ce029fd
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818503"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989448"
 ---
 # <a name="availability-alerts"></a>可用性警报
 

@@ -3,8 +3,9 @@ title: 如何从用于容器的 Azure Monitor 查询日志 | Microsoft Docs
 description: 用于容器的 Azure Monitor 收集指标和日志数据，本文介绍了这些记录并包含了示例查询。
 services: azure-monitor
 documentationcenter: ''
-author: mgoedtel
-manager: carmonm
+author: lingliw
+manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
@@ -12,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 462380e76e2a01223654d2fbbfe2649025004735
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.author: v-lingwu
+ms.openlocfilehash: 907aef8dd61aa7c43059d2bc1c80b9502e038344
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513866"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989081"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>如何从用于容器的 Azure Monitor 查询日志
 用于容器的 Azure Monitor 从容器主机和容器收集性能指标、清单数据和运行状况状态信息，并将其转发到 Azure Monitor 中的 Log Analytics 工作区。 每隔三分钟收集数据。 此数据可用于 Azure Monitor 中的[查询](../../azure-monitor/log-query/log-query-overview.md)。 此数据可应用于包括迁移计划、容量分析、发现和按需性能故障排除在内的方案。

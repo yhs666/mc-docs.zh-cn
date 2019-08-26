@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: log-analytics
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -14,17 +15,17 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 4d0293fb6b498494b23e4635e069395bae8f3b84
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 748ca54384d77c71fec7b42bd62fabfababf2b6d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513985"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989183"
 ---
-# <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>在混合环境中为 Windows 计算机配置 Log Analytics 代理
-[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可将物理或虚拟 Windows 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。  本快速入门介绍如何通过几个简单步骤，从 Windows 计算机中配置或收集数据。  有关 Azure Windows VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](../../azure-monitor/learn/quick-collect-azurevm.md)。  
+# <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>在混合环境中为 Windows 计算机配置 Log Analytics 代理
+[Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) 可直接从物理或虚拟 Windows 计算机收集数据，并将数据置于单个存储库进行详细的分析和关联。 Log Analytics 可从数据中心或其他云环境收集数据。 本快速入门介绍如何通过几个简单步骤，从 Windows 计算机中配置或收集数据。  有关 Azure Windows VM 的信息，请参阅[收集有关 Azure 虚拟机的数据](../../azure-monitor/learn/quick-collect-azurevm.md)。  
 
-若要了解支持的配置，请查看[支持的 Windows 操作系统](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)。
+若要了解支持的配置，请参阅[支持的 Windows 操作系统](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)。
  
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。
 
@@ -135,4 +136,4 @@ Log Analytics 可从 Windows 事件日志以及性能计数器中收集指定的
 若要了解如何查看和分析数据，请继续学习以下教程：
 
 > [!div class="nextstepaction"]
-> [在 Log Analytics 中查看或分析数据](../log-query/get-started-portal.md)
+> [在 Log Analytics 中查看或分析数据](/azure-monitor/log-query/get-started-portal)

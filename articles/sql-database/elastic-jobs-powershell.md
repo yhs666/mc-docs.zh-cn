@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviwer: sstein
 manager: digimobile
 origin.date: 03/13/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 285b5f2d0a3f69b6c5b205a7066c50d6b5a6c0f0
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.date: 08/19/2019
+ms.openlocfilehash: 081936b4ae89e7fd7ed79a0b172a2f6b4e4fa8a4
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566315"
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544227"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>使用 PowerShell 创建弹性作业代理
 
@@ -72,7 +72,7 @@ Get-Module Az.Sql
 
 创建弹性作业代理需要一个用作[作业数据库](sql-database-job-automation-overview.md#job-database)的数据库（S0 或更高级别）。 
 
-*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含 2 个可以对其执行作业的空数据库。*
+*下面的脚本创建新的资源组、服务器以及可用作作业数据库的数据库。下面的脚本还创建了另外一个服务器，其中包含两个用于对其执行作业的空数据库* 。
 
 弹性作业没有特定的命名要求，因此可以使用所需的任何命名约定，只要其符合 [Azure 要求](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)即可。
 
@@ -286,6 +286,23 @@ $JobExecution | Get-AzSqlElasticJobStepExecution
 # Get the job target execution details
 $JobExecution | Get-AzSqlElasticJobTargetExecution -Count 2
 ```
+
+### <a name="job-execution-states"></a>作业执行状态
+
+下表列出了可能的作业执行状态：
+
+|状态|说明|
+|:---|:---|
+|**创建时间** | 作业执行刚刚创建，还没有进行。|
+|**InProgress** | 作业执行目前正在进行中。|
+|**WaitingForRetry** | 作业执行无法完成其操作，正在等待重试。|
+|成功  | 作业执行已成功完成。|
+|**SucceededWithSkipped** | 作业执行已成功完成，但跳过了它的一些子项。|
+|失败  | 作业执行失败，已用尽重试次数。|
+|**TimedOut** | 作业执行已超时。|
+|**已取消** | 作业执行已取消。|
+|已跳过  | 已跳过作业执行，因为同一作业步骤的另一个执行已在同一目标上运行。|
+|**WaitingForChildJobExecutions** | 作业执行正在等待其子执行完成。|
 
 ## <a name="schedule-the-job-to-run-later"></a>计划要在以后运行的作业
 

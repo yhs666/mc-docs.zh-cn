@@ -14,23 +14,23 @@ ms.topic: article
 origin.date: 03/20/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: a8db49d08c9036d8196332f38d6348b432792b6f
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: ac9b175ef44c1f82376493e5b40a8c59344704c8
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624154"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670977"
 ---
 # <a name="import-a-postman-collection-with-on-demand-streaming-operations"></a>使用按需流式处理操作导入一个 Postman 集合 
 
-本文包含 Postman 集合的定义，该集合包含调用 Azure 媒体服务 REST API 的分组 HTTP 请求。 有关如何配置 Postman 以用于调用媒体服务 REST API 的信息，请参阅[配置 Postman 以便进行媒体服务 REST API 调用](media-rest-apis-with-postman.md)教程。
+本文包含 Postman  集合的定义，该集合包含调用 Azure 媒体服务 REST API 的分组 HTTP 请求。 有关如何配置 Postman  以用于调用媒体服务 REST API 的信息，请参阅[配置 Postman 以便进行媒体服务 REST API 调用](media-rest-apis-with-postman.md)教程。
 
 ```json
 {
     "info": {
         "name": "Azure Media Services Operations",
         "_postman_id": "3a9a704f-ec11-3433-a0dc-54e4fe39e9d8",
-        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.microsoft.com/azure/media-services/media-services-rest-connect-with-aad\n\n",
+        "description": "Azure Media Service REST API v 2.0 Collection\n\nSupports AD service principal authentication\nFor details see:https://docs.azure.cn/media-services/media-services-rest-connect-with-aad\n\n",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
     },
     "item": [
@@ -3338,7 +3338,7 @@ ms.locfileid: "58624154"
                                 "Jobs"
                             ]
                         },
-                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](https://docs.microsoft.com/azure/media-services/media-services-custom-mes-presets-with-dotnet)\nOr for JSON samples of our system presets, see the [Sample Presets page](https://docs.microsoft.com/azure/media-services/media-services-mes-presets-overview)\n\n[Job Entity REST API](https://msdn.microsoft.com/library/azure/hh974289.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Job\nA job is an entity that contains metadata about a set of tasks. Each task performs an atomic operation on the input asset(s). A job is typically used to process one audio/video presentation. If you are processing multiple videos, create a job for each video to be encoded. \n\n    NOTE: It is very important to use the JSON Verbose Accept header for the Job to submit properly. Set the Accept header to application/json;odata=verbose\n    \nThis sample creates a Job with a custom encoding profile.  For details see [Customizing Media Encoder Standard presets](https://docs.azure.cn/media-services/media-services-custom-mes-presets-with-dotnet)\nOr for JSON samples of our system presets, see the [Sample Presets page](https://docs.azure.cn/media-services/media-services-mes-presets-overview)\n\n[Job Entity REST API](https://msdn.microsoft.com/library/azure/hh974289.aspx)\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": [
                         {
@@ -3541,7 +3541,7 @@ ms.locfileid: "58624154"
                                 "Jobs"
                             ]
                         },
-                        "description": "Create Indexer Job\n\nThis job submits a Speech Analytics job with custom configuration settings. \nNote that it uses the Media Processor ID for Indexer: \n\t\"MediaProcessorId\": \"nb:mpid:UUID:1927f26d-0aa5-4ca1-95a3-1a3f95b0f706\"\n\nAnd it uses a custom configuration JSON:\n\t \"Configuration\": \"{'Version':'1.0','Features':[{'Options':{'Formats':['WebVtt','TTML'],'Language':'EnUs','Type':'RecoOptions'},'Type':'SpReco'}]}\",\n\t \nFor details on configuring the settings of the speech analyzer, read the [Indexing Media Files](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) article\n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "Create Indexer Job\n\nThis job submits a Speech Analytics job with custom configuration settings. \nNote that it uses the Media Processor ID for Indexer: \n\t\"MediaProcessorId\": \"nb:mpid:UUID:1927f26d-0aa5-4ca1-95a3-1a3f95b0f706\"\n\nAnd it uses a custom configuration JSON:\n\t \"Configuration\": \"{'Version':'1.0','Features':[{'Options':{'Formats':['WebVtt','TTML'],'Language':'EnUs','Type':'RecoOptions'},'Type':'SpReco'}]}\",\n\t \n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },
@@ -3610,7 +3610,7 @@ ms.locfileid: "58624154"
                                 "Jobs"
                             ]
                         },
-                        "description": "This example submits a redaction job.\nFor details on configuration settings, refer to the [Redact faces with Azure Media Analytics](https://docs.microsoft.com/azure/media-services/media-services-face-redaction) article. \n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
+                        "description": "This example submits a redaction job.\nFor details on configuration settings, refer to the [Redact faces with Azure Media Analytics](https://docs.azure.cn/media-services/media-services-face-redaction) article. \n\n[Full REST API documentation](https://msdn.microsoft.com/library/azure/hh973617.aspx)"
                     },
                     "response": []
                 },

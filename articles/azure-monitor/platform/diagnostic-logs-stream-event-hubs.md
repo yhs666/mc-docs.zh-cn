@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: e7bc8fcaedf437edb2979588ff8946051d0f37cb
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 91c6ae2b8ed44efbe6ff347a8101bdb768d837dd
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514002"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989358"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>将 Azure 诊断日志流式传输到事件中心
 可将 **[Azure 诊断日志](diagnostic-logs-overview.md)** 以近实时方式流式传输到任何应用程序，方法是使用门户中的内置“导出到事件中心”选项，或者通过 Azure PowerShell Cmdlet 或 Azure CLI 在诊断设置中启用事件中心授权规则 ID。
@@ -22,7 +22,6 @@ ms.locfileid: "68514002"
 可以通过下述几种方式将流式处理功能用于诊断日志：
 
 * **将日志流式传输到第三方日志记录和遥测系统** - 可以将所有诊断日志流式传输到单个事件中心，以便将日志数据通过管道传送到第三方 SIEM 或日志分析工具。
-* **通过将“热路径”数据流式传输到 Power BI 查看服务运行状况** – 可以通过事件中心、流分析和 Power BI 在 Azure 服务中轻松将诊断数据转化成准实时分析结果。 下面是有关如何设置诊断日志的一些提示：
 
   * 在门户中选中相关选项或通过 PowerShell 启用相关选项以后，即可自动创建用于某类诊断日志的事件中心，因此需在命名空间中选择名称以 **insights-** 开头的事件中心。
   * 以下 SQL 代码是一个流分析查询示例，可用于将所有日志数据解析成 Power BI 表：

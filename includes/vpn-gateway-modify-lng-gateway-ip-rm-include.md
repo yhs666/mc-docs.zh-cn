@@ -1,5 +1,20 @@
 ---
- title: include 文件 description: include 文件 services: vpn-gateway author:WenJason ms.service: vpn-gateway ms.topic: include origin.date:02/14/2019 ms.date:03/04/2019 ms.author: v-jay ms.custom: include file
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 02/14/2019
+ms.date: 03/04/2019
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 308be0eec87afaa2aa073df3fc5afa25b7469b52
+ms.sourcegitcommit: 15a80d044339dab8bce43eb7be110ba01f630056
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578658"
 ---
 ### <a name="gwipnoconnection"></a> 修改本地网关的“GatewayIpAddress”- 无网关连接
 

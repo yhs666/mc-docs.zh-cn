@@ -8,12 +8,12 @@ origin.date: 05/21/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: fe9c81812fbf7271c7d851909d2e465d61c7ee08
-ms.sourcegitcommit: 153236e4ad63e57ab2ae6ff1d4ca8b83221e3a1c
+ms.openlocfilehash: 727b7c36ccc1ce79c63cfb958106a294c5baaf9d
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67171406"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578628"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联机备份和按需数据还原
 
@@ -33,7 +33,7 @@ Azure Cosmos DB 会定期自动备份数据。 自动备份不会影响数据库
 
 * 备份不会影响应用程序的性能或可用性。 Azure Cosmos DB 在后台执行数据备份，不会消耗任何其他预配吞吐量 (RU)，也不会影响数据库的性能和可用性。
 
-* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://www.azure.cn/support/contact/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
+* 如果意外删除或损坏了数据，则应在 8 小时内联系 [Azure 支持](https://support.azure.cn/support/contact/)，以便 Azure Cosmos DB 团队帮助你从备份中还原数据。
 
 下图显示了如何在中国北部的远程 Azure Blob 存储帐户中备份 Azure Cosmos 容器（其三个主要物理分区全部位于中国北部），然后将其复制到中国东部：
 

@@ -5,6 +5,7 @@ services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.service: log-analytics
 ms.workload: na
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1fc76c333f25de322d45a33bdc2ddecfc36e343b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 5982963f834196b000fdf193e5dd7650c08294cc
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818284"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989229"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>跨 Azure Active Directory 租户将 Azure 活动日志收集到 Azure Monitor 中
 

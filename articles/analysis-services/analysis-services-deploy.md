@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 01/09/2019
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8a7092dab4876308782580c6cefcbeb1f961182e
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 05094ea425369241f3ed6550e8944c212410181e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529435"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993338"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>从 Visual Studio 部署模型
 
@@ -25,26 +25,26 @@ ms.locfileid: "59529435"
 要开始，需要：
 
 * Azure 中的 **Analysis Services 服务器**。 若要了解详细信息，请参阅[创建 Azure Analysis Services 服务器](analysis-services-create-server.md)。
-* SSDT 中的表格模型项目或兼容级别为 1200 或更高的现有表格模型。 从未创建过？ 尝试 [Adventure Works Internet 销售表格建模教程](https://docs.microsoft.com/sql/analysis-services/tabular-modeling-adventure-works-tutorial)。
+* SSDT 中的表格模型项目  或兼容级别为 1200 或更高的现有表格模型。 从未创建过？ 尝试 [Adventure Works Internet 销售表格建模教程](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)。
 * **本地网关** - 如果组织的网络中有一个或多个本地数据源，则需要安装[本地数据网关](analysis-services-gateway.md)。 网关对于云中的服务器是必需的，可帮助服务器连接到本地数据源，以在模型中处理和刷新数据。
 
 > [!TIP]
-> 在部署之前，请确保可以在表中处理数据。 在 SSDT 中，单击“模型” > “处理” > “全部处理”。 如果处理失败，将无法成功部署。
+> 在部署之前，请确保可以在表中处理数据。 在 SSDT 中，单击“模型”   > “处理”   > “全部处理”  。 如果处理失败，将无法成功部署。
 > 
 > 
 
 ## <a name="get-the-server-name"></a>获取服务器名称
 
-在 **Azure 门户**中，单击“服务器”>“概述” > “服务器名称”，并复制服务器名称。
+在 **Azure 门户**中，单击“服务器”>“概述”   > “服务器名称”  ，并复制服务器名称。
 
 ![在 Azure 中获取服务器名称](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 ## <a name="to-deploy-from-ssdt"></a>若要从 SSDT 部署
 
-1. 在SSDT > “解决方案资源管理器”中，右键单击项目，并选择“属性”。 在“部署” > “服务器”中，粘贴服务器名称。   
+1. 在SSDT > “解决方案资源管理器”  中，右键单击项目，并选择“属性”  。 在“部署” > “服务器”中，粘贴服务器名称。     
 
     ![将服务器名称粘贴到部署服务器属性](./media/analysis-services-deploy/aas-deploy-deployment-server-property.png)
-2. 在“解决方案资源管理器”中，右键单击“属性”，并单击“部署”。 系统可能会提示登录到 Azure。
+2. 在“解决方案资源管理器”  中，右键单击“属性”  ，并单击“部署”  。 系统可能会提示登录到 Azure。
 
     ![部署到服务器](./media/analysis-services-deploy/aas-deploy-deploy.png)
 
@@ -64,5 +64,4 @@ ms.locfileid: "59529435"
 
 现在，已将表格模型部署到服务器，可以与其进行连接了。 可以[使用 SSMS 连接到它](analysis-services-manage.md)以对其进行管理。 并且，可以[使用客户端工具连接到它](analysis-services-connect.md)，如 Power BI、Power BI Desktop 或 Excel，并开始创建报表。
 
-<!-- Update_Description: new articles on analysis service deploy -->
-<!--ms.date: 01/27/2019-->
+<!-- Update_Description: wording update -->

@@ -4,6 +4,7 @@ description: 使用 Azure Application Insights 设置性能和负载测试
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: a6e02ca707d34f597192bb69c87e7b8c9e65cd00
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d258663dd4a75c5cb2dacd538a2b9203c309e6aa
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67563004"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989615"
 ---
 # <a name="performance-testing"></a>性能测试
 

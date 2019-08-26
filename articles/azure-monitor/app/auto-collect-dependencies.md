@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,16 +13,16 @@ ms.topic: reference
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: fbd6fc73b79fcb124ca828e6f6641341ad956fd2
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 275307946f7ba840f0749069823712b8695dde27
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562719"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989450"
 ---
 # <a name="dependency-auto-collection"></a>依赖项自动收集
 
-下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这包括对通信库、存储客户端、日志记录和指标库的传出调用，以及对应用程序框架和服务器的传入调用。 这些依赖项在 Application Insights 的[应用程序映射](/azure-monitor/app/app-map)和[事务诊断](/azure-monitor/app/transaction-diagnostics)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](/azure-monitor/app/api-custom-events-metrics#trackdependency)手动跟踪它。
+下面是当前支持的依赖项调用的列表，系统会自动将其检测为依赖项，不需对应用程序的代码进行额外的修改。 这些依赖项在 Application Insights 的[应用程序映射](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)和[事务诊断](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics)视图中可视化。 如果依赖项不在下面的列表中，仍可通过[跟踪依赖项调用](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency)手动跟踪它。
 
 ## <a name="net"></a>.NET
 
@@ -38,11 +39,6 @@ ms.locfileid: "67562719"
 | [ServiceBus 客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | 3.0.0 |
 | <b>存储客户端</b>|  |
 | ADO.NET | 4.5+ |
-| <b>日志记录库</b> |  |
-| ILogger | 1.1+ |
-| System.Diagnostics.Trace | 4.5+ |
-| [nLog](https://www.nuget.org/packages/NLog/) | 4.4.12+ |
-| [log4net](https://www.nuget.org/packages/log4net/) | NetStandard 1.3 上的 2.0.8+、.NET 4.5+ 上的 2.0.6+ |
 
 ## <a name="java"></a>Java
 | 应用服务器 | 版本 |

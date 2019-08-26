@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: harelbr
 ms.author: v-lingwu
-ms.openlocfilehash: 556a2704d1b2cd4b343baa2758c5e1e5016573f4
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 74fbf2e6f48495ca871a7da0c384736132842f8b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732136"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989332"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>使用 Azure 诊断与 Azure Application Insights 的集成针对 Azure 云服务中的问题发出警报
 

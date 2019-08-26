@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: fe5d534e-0418-4e2f-9073-8025e13271a8
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fb1c51d74cbe351c1c7ca2ca13cc5daae0271b23
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 41d140c84f09f4c6fb22e22db2f273ac8e1e5bf7
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513824"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989191"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Azure Log Analytics 中的警报管理解决方案
 
@@ -85,26 +86,26 @@ ms.locfileid: "68513824"
 
 | 属性 | 说明 |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*OpsManager* |
-| AlertContext |导致生成警报的数据项的详细信息（XML 格式）。 |
-| AlertDescription |警报的详细说明。 |
-| AlertId |警报的 GUID。 |
-| AlertName |警报的名称。 |
-| AlertPriority |警报的优先级。 |
-| AlertSeverity |警报的严重级别。 |
-| AlertState |警报最新的解决状态。 |
-| LastModifiedBy |上次修改警报的用户的名称。 |
-| ManagementGroupName |生成警报的管理组的名称。 |
-| RepeatCount |针对同一个监视对象生成的相同警报的次数（自该警报解决之后）。 |
-| ResolvedBy |解决警报的用户的名称。 空（如果警报尚未解决）。 |
-| SourceDisplayName |已生成警报的监视对象的显示名称。 |
-| SourceFullName |已生成警报的监视对象的完整名称。 |
-| TicketId |警报的票证 ID（如果 System Center Operations Manager 环境与分配警报票证的过程集成）。  空（如果未分配任何票证 ID）。 |
-| TimeGenerated |警报的创建日期和时间。 |
-| TimeLastModified |上次更改警报的日期和时间。 |
-| TimeRaised |警报的生成日期和时间。 |
-| TimeResolved |警报的解决日期和时间。 空（如果警报尚未解决）。 |
+| `Type` |*Alert* |
+| `SourceSystem` |*OpsManager* |
+| `AlertContext` |导致生成警报的数据项的详细信息（XML 格式）。 |
+| `AlertDescription` |警报的详细说明。 |
+| `AlertId` |警报的 GUID。 |
+| `AlertName` |警报的名称。 |
+| `AlertPriority` |警报的优先级。 |
+| `AlertSeverity` |警报的严重级别。 |
+| `AlertState` |警报最新的解决状态。 |
+| `LastModifiedBy` |上次修改警报的用户的名称。 |
+| `ManagementGroupName` |生成警报的管理组的名称。 |
+| `RepeatCount` |针对同一个监视对象生成的相同警报的次数（自该警报解决之后）。 |
+| `ResolvedBy` |解决警报的用户的名称。 空（如果警报尚未解决）。 |
+| `SourceDisplayName` |已生成警报的监视对象的显示名称。 |
+| `SourceFullName` |已生成警报的监视对象的完整名称。 |
+| `TicketId` |警报的票证 ID（如果 System Center Operations Manager 环境与分配警报票证的过程集成）。  空（如果未分配任何票证 ID）。 |
+| `TimeGenerated` |警报的创建日期和时间。 |
+| `TimeLastModified` |上次更改警报的日期和时间。 |
+| `TimeRaised` |警报的生成日期和时间。 |
+| `TimeResolved` |警报的解决日期和时间。 空（如果警报尚未解决）。 |
 
 ## <a name="sample-log-searches"></a>示例日志搜索
 下表提供了此解决方案收集的警报记录的示例日志搜索： 

@@ -6,16 +6,17 @@ description: Azure Monitor Application Insights 提供深度代码级的应用�
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a72cfade8c464666899b027c35627b8dea094b31
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: eb3178cddba0edbcf43b249f47de79e84c6109ea
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818331"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989400"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -75,7 +76,7 @@ ms.locfileid: "68818331"
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
                                                             <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-                                                            <a href="./learn/java-quick-start.md">Java</a><br>
+                                                            <a href="./app/java-get-started.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
                                                             <a href="./app/website-monitoring.md">浏览器/客户端监视</a>
                                                         </p>
@@ -104,7 +105,7 @@ ms.locfileid: "68818331"
                                                             <a href="./app/proactive-trace-severity.md">跟踪降级</a><br>
                                                             <a href="./app/proactive-exception-volume.md">异常情况反常增加</a><br>
                                                             <a href="./app/proactive-potential-memory-leak.md">内存泄漏</a><br>
-                                                            <a href="./app/proactive-low-utilization-cloud-resources.md">低 CPU 利用率</a><br>
+                                                            <a href="./app/proactive-diagnostics.md">低 CPU 利用率</a><br>
                                                             <a href="./app/proactive-application-security-detection-pack.md">安全问题</a><br>
                                                             <a href="./app/proactive-cloud-services.md">Azure 云服务</a><br>
                                                             <a href="./app/proactive-arm-config.md">使用模板管理智能检测</a>

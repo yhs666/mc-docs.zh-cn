@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 6dbdd4b7a7a9de33b7bd0193b197daee42a41baf
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 40880de4b7709c641957f4e46c3f2c39aff938a1
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731236"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993558"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>教程：在 Azure Kubernetes 服务 (AKS) 中缩放应用程序
 
@@ -77,12 +77,13 @@ Kubernetes 支持[水平 Pod 自动缩放][kubernetes-hpa]以根据 CPU 利用�
 az aks show --resource-group myResourceGroup --name myAKSCluster --query kubernetesVersion
 ```
 
-如果 AKS 群集的版本低于 *1.10*，请安装指标服务器，否则请跳过此步骤。 若要进行安装，请克隆 `metrics-server` GitHub 存储库并安装示例资源定义。 若要查看这些 YAML 定义的内容，请参阅[适用于 Kuberenetes 1.8+ 的指标服务器][metrics-server-github]。
-
-```console
-git clone https://github.com/kubernetes-incubator/metrics-server.git
-kubectl create -f metrics-server/deploy/1.8+/
-```
+> [!NOTE]
+> 如果 AKS 群集小于 *1.10*，则不会自动安装指标服务器。 若要进行安装，请克隆 `metrics-server` GitHub 存储库并安装示例资源定义。 若要查看这些 YAML 定义的内容，请参阅[适用于 Kuberenetes 1.8+ 的指标服务器][metrics-server-github]。
+> 
+> ```console
+> git clone https://github.com/kubernetes-incubator/metrics-server.git
+> kubectl create -f metrics-server/deploy/1.8+/
+> ```
 
 若要使用自动缩放程序，你的 Pod 中的所有容器和你的 Pod 必须定义了 CPU 请求和限制。 在 `azure-vote-front` 部署中，前端容器已请求了 0.25 个 CPU，限制为 0.5 个 CPU。 这些资源请求和限制的定义方式如以下示例代码片段所示：
 
@@ -154,6 +155,7 @@ az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3
 > [在 Kubernetes 中更新应用程序][aks-tutorial-update-app]
 
 <!-- LINKS - external -->
+
 [kubectl-autoscale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-scale]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#scale

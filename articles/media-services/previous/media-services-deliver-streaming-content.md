@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 02/09/2019
-ms.date: 03/04/2019
+origin.date: 03/18/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 749b82a9eb3b767be31e818b66c45a561eab96d0
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: a12ee3e08ff69f740d3859d0f24218902d09aed2
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833402"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670959"
 ---
 # <a name="publish-media-services-content-using-net"></a>使用 .NET 发布媒体服务内容  
 > [!div class="op_single_selector"]
@@ -81,7 +81,7 @@ ms.locfileid: "56833402"
 
         // Get a reference to the streaming manifest file from the  
         // collection of files in the asset. 
-        var manifestFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+        var manifestFile = asset.AssetFiles.ToList().Where(f => f.Name.ToLower().
                                     EndsWith(".ism")).
                                     FirstOrDefault();
 

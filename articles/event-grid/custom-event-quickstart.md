@@ -6,16 +6,16 @@ keywords: ''
 author: spelluru
 ms.author: v-yiso
 origin.date: 12/07/2018
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 7f7252e4c3e64f4e9b9f3ddff109d8b45d0a3e99
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: a1d71585644d516cfb2988fa1d1207e7c3f6ea7c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195178"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993563"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>快速入门：使用 Azure CLI 和事件网格将自定义事件路由到 Web 终结点
 
@@ -85,9 +85,8 @@ Web 应用的终结点必须包括后缀 `/api/updates/`。
 endpoint=https://$sitename.chinacloudsites.cn/api/updates
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name $topicname \
-  --name demoViewerSub \
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" 
+  --name demoViewerSub 
   --endpoint $endpoint
 ```
 

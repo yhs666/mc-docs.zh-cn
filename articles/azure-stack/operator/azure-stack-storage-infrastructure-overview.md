@@ -16,12 +16,12 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: b76ed16377777d33e3e29fbfdc58f5210bb6dacc
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: 4d6c667ff025d44b71e330f36e664201c95d4a50
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513389"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69671003"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>管理 Azure Stack 的存储基础结构
 

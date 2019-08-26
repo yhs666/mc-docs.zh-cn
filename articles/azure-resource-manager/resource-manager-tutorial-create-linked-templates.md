@@ -11,17 +11,18 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 03/18/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 2233cef37cc3ed874ea9e5cc05bbe177d82ea3b5
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 1edb73fba3d58d54acfcaabca657fd486f38d442
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337389"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993587"
 ---
 <!--Verify successfully-->
+
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>教程：创建 Azure 资源管理器链接模板
 
 了解如何创建 Azure 资源管理器链接模板。 使用链接模板时，可以通过一个模板调用另一个模板。 它非常适用于模板的模块化。 在本教程中使用的模板与在[教程：使用依赖资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的模板相同，该模板用于创建虚拟机、虚拟网络以及其他依赖资源（包括存储帐户）。 请将存储帐户资源创建功能分隔到链接的模板。
@@ -231,7 +232,7 @@ echo "Linked template URI with SAS token: $templateURI"
 
 <!--Not Available on Azure cloud shell-->
 
-在实践中，请在部署主模板时生成一个 SAS 令牌，让该 SAS 令牌在更短的时间范围内到期，以增强安全性。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+在实践中，请在部署主模板时生成一个 SAS 令牌，让该 SAS 令牌在更短的时间范围内到期，以增强安全性。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)。
 
 ## <a name="call-the-linked-template"></a>调用链接模板
 
@@ -331,7 +332,7 @@ echo "Linked template URI with SAS token: $templateURI"
 若要改进项目，请对已完成的项目进行下述其他更改：
 
 1. 修改主模板 (azuredeploy.json)，使之通过参数获取链接模板 URI 值。
-2. 请在部署主模板时生成 SAS 令牌，而不是在上传链接模板时生成该令牌。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./resource-manager-powershell-sas-token.md#provide-sas-token-during-deployment)。
+2. 请在部署主模板时生成 SAS 令牌，而不是在上传链接模板时生成该令牌。 有关详细信息，请参阅[在部署期间提供 SAS 令牌](./secure-template-with-sas-token.md#provide-sas-token-during-deployment)。
 
 ## <a name="next-steps"></a>后续步骤
 

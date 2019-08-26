@@ -4,6 +4,7 @@ description: 介绍 Azure Monitor 中的用于对监视数据进行高级分析�
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.service: monitoring
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b395e4621936507101e24af2e154b11bca11f729
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c2cb28cccb1babf8e581742d05dd17d998c91353
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818235"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989513"
 ---
 # <a name="logs-in-azure-monitor"></a>Azure Monitor 中的日志
 
@@ -43,16 +44,15 @@ Azure Monitor 中的日志包含已整理成记录的各种数据，每种数据
 
 |  |  |
 |:---|:---|
-| 分析 | 使用 Azure 门户中的 [Log Analytics](../log-query/get-started-portal.md) 可以编写[日志查询](../log-query/log-query-overview.md)，并通过强大的数据资源管理器分析引擎以交互方式分析日志数据。<br>使用 Azure 门户中的 [Application Insights 分析控制台](../app/analytics.md)可以编写日志查询，并在 Application Insights 中以交互方式分析日志数据。 |
+| 分析 | 使用 Azure 门户中的 [Log Analytics](../log-query/get-started-portal.md) 可以编写[日志查询](../log-query/log-query-overview.md)，并通过强大的数据资源管理器分析引擎以交互方式分析日志数据。<br>使用 Azure 门户中的 [Application Insights 分析控制台](../log-query/log-query-overview.md)可以编写日志查询，并在 Application Insights 中以交互方式分析日志数据。 |
 | 可视化 | 将以表格或图表形式呈现的查询结果固定到 [Azure 仪表板](../../azure-portal/azure-portal-dashboards.md)。<br>创建一个[工作簿](../app/usage-workbooks.md)，用于在交互式报表中合并多个数据集。|
 | 警报 | 配置[日志警报规则](alerts-log.md)，以便在查询结果与特定的结果匹配时发送通知或执行[自动化操作](action-groups.md)。<br>针对作为指标提取的特定日志数据配置[指标警报规则](alerts-metric-logs.md)。 |
-| 检索 | 从命令行访问日志查询结果（使用 [Azure CLI](/cli/ext/log-analytics/monitor/log-analytics?view=azure-cli-latest
-）。<br>使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights) 从命令行访问日志查询结果。<br>使用 [REST API](https://dev.loganalytics.io/) 从自定义应用程序访问日志查询结果。 |
+| 检索 | 使用 [Azure CLI](https://docs.microsoft.com/cli/azure/ext/log-analytics/monitor/log-analytics) 从命令行访问日志查询结果。<br>使用 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights) 从命令行访问日志查询结果。<br>使用 [REST API](https://dev.loganalytics.io/) 从自定义应用程序访问日志查询结果。 |
 | 导出 | 使用[逻辑应用](~/articles/logic-apps/index.yml)生成一个工作流，以检索日志数据并将其复制到外部位置。 |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>Azure Monitor 日志中的数据是如何构建的？
-Azure Monitor 日志收集的数据存储在 [Log Analytics 工作区](../platform/manage-access.md)中。 可以在订阅中[创建多个工作区](manage-access.md#determine-the-number-of-workspaces-you-need)用于管理不同的日志数据集。 每个工作区包含多个表，每个表存储来自特定源的数据。 新工作区具有标准的表集，不同的监视解决方案以及在工作区中写入数据的其他服务会添加更多的表。
+Azure Monitor 日志收集的数据存储在 [Log Analytics 工作区](../platform/design-logs-deployment.md)中。 每个工作区包含多个表，每个表存储来自特定源的数据。 所有表共享[一些通用属性](log-standard-properties.md)，每个表根据它所存储的数据类型具有唯一的属性集。 新工作区具有标准的表集，不同的监视解决方案以及在工作区中写入数据的其他服务会添加更多的表。
 
 Application Insights 中的日志数据使用与工作区相同的 Log Analytics 引擎，但这些数据是针对每个受监视的应用程序单独存储的。 每个应用程序使用标准的表集来保存应用程序请求、异常和页面视图等数据。
 
@@ -61,11 +61,11 @@ Application Insights 中的日志数据使用与工作区相同的 Log Analytics
 ![工作区](media/data-platform-logs/workspaces.png)
 
 ## <a name="log-queries"></a>日志查询
-Azure Monitor 日志中的日志数据都是使用以 [Kusto 查询语言](../log-query/get-started-queries.md)编写的[日志查询](../log-query/log-query-overview.md)检索的，这使得你可以快速检索、合并和分析所收集的数据。 可以在 Azure 门户中使用 Log Analytics 编写和测试日志查询。 这可以通过交互方式使用结果，也可以将其固定到某个仪表板，与其他可视化效果一起查看。
+Azure Monitor 日志中的日志数据都是使用以 [Kusto 查询语言](../log-query/get-started-queries.md)编写的[日志查询](../log-query/log-query-overview.md)检索的，这使得你可以快速检索、合并和分析所收集的数据。 可以在 Azure 门户中使用 [Log Analytics](../log-query/log-query-overview.md) 编写和测试日志查询。 这可以通过交互方式使用结果，也可以将其固定到某个仪表板，与其他可视化效果一起查看。
 
 ![Log Analytics](media/data-platform-logs/log-analytics.png)
 
-打开 [Application Insights 中的 Log Analytics](../app/analytics.md) 可以分析 Application Insights 数据。
+打开 [Application Insights 中的 Log Analytics](../log-query/log-query-overview.md) 可以分析 Application Insights 数据。
 
 ![Application Insights Analytics](media/data-platform-logs/app-insights-analytics.png)
 

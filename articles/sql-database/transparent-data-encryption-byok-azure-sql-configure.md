@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: e883f2c37dde811ee7f7399321bb9a46c40b3655
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/26/2019
+ms.openlocfilehash: 62af1e20c20a8032fcf366603d0179facbe29c08
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629239"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578516"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell 和 CLI：使用 Azure Key Vault 中由客户管理的密钥启用透明数据加密
 
@@ -40,7 +40,7 @@ ms.locfileid: "65629239"
 - 密钥必须包含用于 TDE 的以下特性：
    - 无过期日期
    - 未禁用
-   - 能够执行“获取”、“包装密钥”和“解包密钥”操作
+   - 能够执行“获取”、“包装密钥”和“解包密钥”操作   
 
 ## <a name="step-1-assign-an-azure-ad-identity-to-your-server"></a>步骤 1。 将 Azure AD 标识分配到服务器 
 
@@ -185,7 +185,7 @@ ms.locfileid: "65629239"
 
 - 如果无法将新密钥添加到服务器，或无法将新密钥更新为 TDE 保护器，请检查以下项：
    - 密钥不应有过期日期
-   - 密钥必须支持“获取”、“包装密钥”和“解包密钥”操作。
+   - 密钥必须支持“获取”、“包装密钥”和“解包密钥”操作。   
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -204,7 +204,7 @@ ms.locfileid: "65629239"
 - 密钥必须包含用于 TDE 的以下特性：
    - 无过期日期
    - 未禁用
-   - 能够执行“获取”、“包装密钥”和“解包密钥”操作
+   - 能够执行“获取”、“包装密钥”和“解包密钥”操作   
    
 ## <a name="step-1-create-a-server-with-an-azure-ad-identity"></a>步骤 1。 创建具有 Azure AD 标识的服务器
       cli
@@ -262,11 +262,11 @@ ms.locfileid: "65629239"
 
 ## <a name="sql-cli-references"></a>SQL CLI 参考
 
-/cli/sql 
+https://docs.azure.cn/cli/sql 
 
-/cli/sql/server/key 
+https://docs.azure.cn/cli/sql/server/key 
 
-/cli/sql/server/tde-key 
+https://docs.azure.cn/cli/sql/server/tde-key 
 
-/cli/sql/db/tde 
+https://docs.azure.cn/cli/sql/db/tde 
 

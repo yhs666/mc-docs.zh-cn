@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3c18d0031679695fba8be24122ae88bb6c87ed6a
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 1f48cd262849e12f985712c516a9358b351d2f3d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731239"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993560"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>教程：部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -109,6 +109,7 @@ az aks install-cli --install-location <kubectl-download-path>
 > 原始的 `az aks install-cli` 命令在 Azure 中国区无效，详见[此文](https://mirror.azk8s.cn/help/kubernetes.html)。
 
 * 可以通过 PR [添加适用于 Azure 中国区的“az aks install-cli”支持](https://github.com/Azure/azure-cli/pull/8675)来修复此问题。以下命令会在 Linux 上启动容器化的 azure-cli(`dockerhub.azk8s.cn/andyzhangx/azure-cli:v2.0.60-china`) 将最新的 `kubectl` 版本下载到 `/usr/local/bin/`：
+    
     ```
     # docker run -v ${HOME}:/root -v /usr/local/bin/:/kube -it dockerhub.azk8s.cn/andyzhangx/azure-cli:v2.0.60-china
     root@09feb993f352:/# az cloud set --name AzureChinaCloud
@@ -130,8 +131,8 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 $ kubectl get nodes
 
-NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
+NAME                       STATUS   ROLES   AGE   VERSION
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.9
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -150,19 +151,21 @@ aks-nodepool1-28993262-0   Ready    agent   3m18s   v1.9.11
 > [在 Kubernetes 中部署应用程序][aks-tutorial-deploy-app]
 
 <!-- LINKS - external -->
+
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
+
 [aks-tutorial-deploy-app]: ./tutorial-kubernetes-deploy-application.md
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
-[az ad sp create-for-rbac]: https://docs.azure.cn/zh-cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
-[az acr show]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az role assignment create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az ad sp create-for-rbac]: https://docs.azure.cn/cli/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az acr show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
+[az role assignment create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
 [az aks create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az aks install-cli]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
 [az aks get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!-- Update_Description: wording update, update link -->

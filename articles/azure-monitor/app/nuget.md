@@ -4,18 +4,19 @@ description: Application Insights 自动收集和可视化依赖项
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: reference
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2bbe39c7faffdc652f55fa027dfae86ee61fa75f
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: ea2539d25e06fa898e79187a735d03e75d622973
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732173"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989686"
 ---
 # <a name="application-insights-nuget-packages"></a>Application Insights NuGet 包
 

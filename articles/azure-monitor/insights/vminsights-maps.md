@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6b0ad1e39ad82bde7ab757149708a52c9c999a3e
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 839c3547caf835a4de79ccc7fbdb0c657b8c2aaa
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513853"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989118"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-preview-to-understand-application-components"></a>使用用于 VM 的 Azure Monitor（预览版）的映射功能了解应用程序组件
 在用于 VM 的 Azure Monitor 中，可以查看在 Azure 或你的环境中运行的 Windows 和 Linux 虚拟机 (VM) 上发现的应用程序组件。 可通过两种方式观察 VM。 查看直接从 VM 建立的映射，或查看从 Azure Monitor 建立的映射，以查看各个 VM 组中的组件。 本文将帮助你了解这两种查看方法，以及如何使用映射功能。 
@@ -140,4 +141,3 @@ ms.locfileid: "68513853"
 
 ## <a name="next-steps"></a>后续步骤
 - 若要了解如何使用运行状况功能，请参阅[查看 Azure VM 的运行状况](vminsights-health.md)。 
-- 若要标识瓶颈、检查性能和了解 VM 的总体利用率，请参阅[查看用于 VM 的 Azure Monitor 的性能状态](vminsights-performance.md)。 

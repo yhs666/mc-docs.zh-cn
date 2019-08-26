@@ -13,12 +13,12 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 32f88c90d050546763f4fe73d64316008b35d135
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 236ea2977c20113827b5f2bb60552ef6bd03b81f
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908730"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670998"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>在 Azure 数据工厂中创建 Azure-SSIS 集成运行时
 
@@ -621,7 +621,7 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
                         },
                         "ssisProperties": {
                             "catalogInfo": {
-                                "catalogServerEndpoint": "<Azure SQL Database server name>.database.windows.net",
+                                "catalogServerEndpoint": "<Azure SQL Database server name>.database.chinacloudapi.cn",
                                 "catalogAdminUserName": "<Azure SQL Database server admin username>",
                                 "catalogAdminPassword": {
                                     "type": "SecureString",

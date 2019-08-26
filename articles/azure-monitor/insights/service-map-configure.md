@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6d2104b22edd9c786f780a4e5b4f69f085923310
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 52bee50d2b7cbb2e2f73d5f08adb0e30025d4a15
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514056"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989662"
 ---
 # <a name="configure-service-map-in-azure"></a>在 Azure 中配置服务映射
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 借助它，你可以按照自己的想法，将服务器作为提供重要服务的互连系统。 服务映射显示任何 TCP 连接的体系结构中服务器、进程和端口之间的连接，只需安装代理，无需任何其他配置。
@@ -349,7 +350,7 @@ sudo apt -y purge dependency-agent
 #### <a name="installer-prompts-for-a-reboot"></a>安装程序提示重新启动
 安装或卸载 Dependency Agent 时，通常不需要重启  。 在极少数的某些情况下，Windows Server 需要重启才能继续安装。 依赖关系（通常是 Microsoft Visual C++ 可再发行组件）因锁定的文件而需要重启时会发生这种情况。
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>出现消息“无法安装 Dependency Agent:Visual Studio 运行时库安装失败(code = [code_number])”
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>出现消息“无法安装 Dependency Agent:Visual Studio 运行时库安装失败(code = [code_number])”
 
 Azure Dependency Agent 基于 Microsoft Visual Studio 运行时库。 如果安装库时出现问题，将收到一条消息。 
 

@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
 ms.service: monitoring
@@ -13,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 266a0d059a5dbac8a810ad3a732d0befdfb07b2c
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8d105277175ce9d42998b3e0118ca17e1855995e
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818143"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989170"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>使用 Azure 自动化 runbook 收集 Log Analytics 中的数据
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-可以从各种源中收集 Log Analytics 中的大量数据，包括代理上的[数据源](../../azure-monitor/platform/agent-data-sources.md)以及[从 Azure 中收集的数据](../../azure-monitor/platform/collect-azure-metrics-logs.md)。 尽管某些情况下，需要收集无法通过这些标准源访问的数据。 这时，可以使用 [HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 将数据从任何 REST API 客户端写入到 Log Analytics。 一种执行此数据收集的常用方法是使用 Azure 自动化中的 runbook。
+可以从各种源中收集 Log Analytics 中的大量数据，包括代理上的[数据源](../../azure-monitor/platform/agent-data-sources.md)以及[从 Azure 中收集的数据](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md)。 尽管某些情况下，需要收集无法通过这些标准源访问的数据。 这时，可以使用 [HTTP 数据收集器 API](../../azure-monitor/platform/data-collector-api.md) 将数据从任何 REST API 客户端写入到 Log Analytics。 一种执行此数据收集的常用方法是使用 Azure 自动化中的 runbook。
 
 本教程将逐步介绍在 Azure 自动化中创建和计划 runbook，将数据写入 Log Analytics 的过程。
 

@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 03/18/2019
 ms.date: 04/01/2019
 ms.author: v-jay
-ms.openlocfilehash: f8756ba8000167b03cb95b743f6a6425feebdffd
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 737560bd9e7738c4fd5d351c54c792b09019e75d
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236638"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670941"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>使用 Azure 媒体服务执行实时流式处理以创建多比特率流
 
@@ -350,7 +350,7 @@ ms.locfileid: "67236638"
 
 [媒体服务概念](media-services-concepts.md)
 
-[Azure 媒体服务零碎的 MP4 实时引入规范](media-services-fmp4-live-ingest-overview.md)
+[Azure 媒体服务零碎的 MP4 实时引入规范](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
 

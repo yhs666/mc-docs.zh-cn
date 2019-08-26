@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: e1c0048937b10e3e71bf3a898ee8625b1576e067
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 53ca2882da049eaa5d732a03e65d4e3b02093142
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818250"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989033"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Azure Monitor 中的日志警报
 [基于 Azure Monitor 日志的警报规则](alerts-unified-log.md)定期运行，因此应确保这些规则旨在将开销和延迟降至最低。 本文提供了有关编写日志警报的高效查询以及转换现有查询的过程的建议。 
@@ -51,6 +51,8 @@ app('Contoso-app2').requests,
 workspace('Contoso-workspace1').Perf 
 ```
 
+>[!NOTE]
+>新的 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 支持日志警报中的[跨资源查询](../log-query/cross-workspace-query.md)。 默认情况下，除非从[旧版日志警报 API](alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 切换，否则 Azure Monitor 会使用[旧版 Log Analytics 警报 API](api-alerts.md) 从 Azure 门户创建新的日志警报规则。 切换之后，新的 API 成为 Azure 门户中新警报规则的默认设置，借助它可以创建跨资源查询日志警报规则。 可以使用 [scheduledQueryRules API 的 ARM 模板](alerts-log.md#log-alert-with-cross-resource-query-using-azure-resource-template)创建[跨资源查询](../log-query/cross-workspace-query.md)日志警报规则，而无需进行切换。但是，此警告规则可通过 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 进行管理，而不可通过 Azure 门户进行管理。
 
 ## <a name="examples"></a>示例
 以下示例包括使用 `search` 和 `union` 的日志查询，并提供可用于修改这些查询以与预警规则配合使用的步骤。

@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: quickstart
 origin.date: 05/20/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: bd6a6f9185ebe53cca643d6ff05822d870706f1f
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: b40fa0bf2fc83ec0551664d03da7d2a94be9b634
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731248"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993196"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>快速入门：使用 Azure CLI 部署 Azure Kubernetes 服务 (AKS) 群集
 
@@ -246,16 +246,16 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 1. 将 Web 浏览器打开到 Azure 门户 [https://portal.azure.cn][azure-portal] 的位置。
 1. 选择资源组（例如 *myResourceGroup*），然后选择 AKS 群集（例如 *myAKSCluster*）。
-1. 在左侧的“监视”  下，选择“见解” 
-1. 在顶部，选择“+ 添加筛选器” 
-1. 选择“命名空间”  作为属性，然后选择“\<除 kube-system 之外的所有项\>” 
-1. 选择查看“容器”  。
+1. 在左侧的“监视”  下，选择“见解”  。
+1. 在顶部，选择“+添加筛选器”  。
+1. 选择“命名空间”  作为属性，然后选择“\<除 kube-system 之外的所有项\>”  。
+1. 选择“容器”  。
 
 将显示 *azure-vote-back* 和 *azure-vote-front* 容器，如下面的示例中所示：
 
 ![查看在 AKS 中运行的容器的运行状况](media/kubernetes-walkthrough/monitor-containers.png)
 
-若要查看 `azure-vote-back` Pod 的日志，请选择“在分析中查看”选项，然后单击容器列表右侧的“查看容器日志”链接   。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
+若要查看 `azure-vote-back` Pod 的日志，请选择“在分析中查看”选项，然后选择容器列表右侧的“查看容器日志”链接   。 这些日志包括容器中的 *stdout* 和 *stderr* 流。
 
 ![查看 AKS 中的容器日志](media/kubernetes-walkthrough/monitor-container-logs.png)
 
@@ -286,6 +286,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [AKS 教程][aks-tutorial]
 
 <!-- LINKS - external -->
+
 [azure-vote-app]: https://github.com/Azure-Samples/azure-voting-app-redis.git
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
@@ -294,6 +295,7 @@ az group delete --name myResourceGroup --yes --no-wait
 <!--Not Available on [azure-dev-spaces]: /dev-spaces/-->
 
 <!-- LINKS - internal -->
+
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [aks-monitor]: https://aka.ms/coingfonboarding
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md
@@ -301,9 +303,9 @@ az group delete --name myResourceGroup --yes --no-wait
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-aks-install-cli]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
+[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
 [azure-portal]: https://portal.azure.cn
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests

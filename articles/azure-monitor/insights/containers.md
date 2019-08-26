@@ -5,20 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: e1e4b52b-92d5-4bfa-8a09-ff8c6b5a9f78
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 07/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b0febda1217ec88c4bca9ea779c4b28aadb6011f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: e15e84ef0a7f5ca825a5e2fdce9cbe8f5ec1d906
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818333"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989606"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 
@@ -198,18 +199,18 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 2. 运行以下命令，为 Azure Monitor 创建项目并设置用户帐户。
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'
+    oc adm new-project omslogging --node-selector='zone=default'
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. 若要部署 daemon-set，请运行以下命令：
+3. 若要部署 daemon-set，请运行以下命令：
 
     `oc create -f ocp-omsagent.yaml`
 
-5. 若要验证其配置和运行是否正确，请键入以下命令：
+4. 若要验证其配置和运行是否正确，请键入以下命令：
 
     `oc describe daemonset omsagent`  
 
@@ -234,21 +235,21 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 在使用 Log Analytics 代理 daemon-set yaml 文件时，若要使用机密来保护 Log Analytics 工作区 ID 和主键，请执行以下步骤。
 
 1. 登录到 OpenShift 主节点并从 GitHub 复制 yaml 文件 [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) 和机密生成脚本 [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh)。  该脚本将为 Log Analytics 工作区 ID 和主键生成机密 yaml 文件，用于保护机密信息。  
-2. 运行以下命令，为 Azure Monitor 创建项目并设置用户帐户。 机密生成脚本需要 Log Analytics 工作区 ID <WSID> 和主键 <KEY>，并且会在完成时创建 ocp-secret.yaml 文件。  
+2. 运行以下命令，为 Azure Monitor 创建项目并设置用户帐户。 机密生成脚本需要 Log Analytics 工作区 ID `<WSID>` 和主键 `<KEY>`，并且会在完成时创建 ocp-secret.yaml 文件。  
 
     ```
-    oadm new-project omslogging --node-selector='zone=default'  
+    oc adm new-project omslogging --node-selector='zone=default'  
     oc project omslogging  
     oc create serviceaccount omsagent  
-    oadm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
-    oadm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-cluster-role-to-user cluster-reader   system:serviceaccount:omslogging:omsagent  
+    oc adm policy add-scc-to-user privileged system:serviceaccount:omslogging:omsagent  
     ```
 
-4. 通过运行以下命令部署机密文件：
+3. 通过运行以下命令部署机密文件：
 
     `oc create -f ocp-secret.yaml`
 
-5. 通过运行以下命令验证部署：
+4. 通过运行以下命令验证部署：
 
     `oc describe secret omsagent-secret`  
 
@@ -270,11 +271,11 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     No events.  
     ```
 
-6. 通过运行以下命令部署 Log Analytics 代理 daemon-set yaml 文件：
+5. 通过运行以下命令部署 Log Analytics 代理 daemon-set yaml 文件：
 
     `oc create -f ocp-ds-omsagent.yaml`  
 
-7. 通过运行以下命令验证部署：
+6. 通过运行以下命令验证部署：
 
     `oc describe ds oms`
 
@@ -363,7 +364,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
         KEY:    88 bytes
         ```
 
-    5. 通过运行 ``` sudo kubectl create -f omsagent-ds-secrets.yaml ``` 创建 omsagent daemon-set
+    5. 通过运行 ```sudo kubectl create -f omsagent-ds-secrets.yaml``` 创建 omsagent daemon-set
 
 2. 验证 Log Analytics 代理 DaemonSet 是否正在运行，命令如下：
 
@@ -375,7 +376,6 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     NAME       DESIRED   CURRENT   NODE-SELECTOR   AGE
     omsagent   3         3         <none>          1h
     ```
-
 
 对于 Kubernetes，使用脚本为适用于 Linux 的 Log Analytics 代理的工作区 ID 和主密钥生成机密 yaml 文件。 将以下示例信息与 [omsagent yaml 文件](https://github.com/Microsoft/OMS-docker/blob/master/Kubernetes/omsagent.yaml)配合使用来保护机密信息。
 
@@ -402,7 +402,7 @@ KEY:    88 bytes
         - 生成机密的脚本 - secret-gen.sh
         - 机密模板 - secret-template.yaml
 
-    2. 运行脚本，如下例所示。 脚本会要求你输入 Log Analytics 工作区 ID 和主密钥，而在你输入这些值后，脚本会创建一个可运行的机密 .yaml 文件。   
+    2. 运行脚本，如下例所示。 脚本会要求你输入 Log Analytics 工作区 ID 和主密钥，而在你输入这些值后，脚本会创建一个可运行的机密 .yaml 文件。
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -507,7 +507,6 @@ Start-Service docker
 
 若要详细了解用于 Windows 容器的 Docker 守护程序配置，请参阅 [Windows 上的 Docker 引擎](https://docs.microsoft.com/virtualization/windowscontainers/manage-docker/configure-docker-daemon)。
 
-
 #### <a name="install-windows-agents"></a>安装 Windows 代理
 
 若要启用 Windows 和 Hyper-V 容器监视，请在属于容器主机的 Windows 计算机上安装 Azure Monitoring Agent (MMA)。 要了解在本地环境中运行 Windows 的计算机，请参阅[将 Windows 计算机连接到 Azure Monitor](../../azure-monitor/platform/agent-windows.md)。 为使虚拟机在 Azure 中运行，请使用[虚拟机扩展](../../azure-monitor/learn/quick-collect-azurevm.md)将其连接到 Azure Monitor。
@@ -515,7 +514,6 @@ Start-Service docker
 可以监视在 Service Fabric 上运行的 Windows 容器。 但是，目前 Service Fabric 仅支持[在 Azure 中运行的虚拟机](../../azure-monitor/learn/quick-collect-azurevm.md)和[在本地环境中运行 Windows 的计算机](../../azure-monitor/platform/agent-windows.md)。
 
 可以验证已为 Windows 正确设置容器监视解决方案。 要检查是否已正确下载管理包，请查找 ContainerManagement.xxx  。 文件应位于 C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs 文件夹中。
-
 
 ## <a name="solution-components"></a>解决方案组件
 
@@ -531,7 +529,6 @@ Start-Service docker
 - [适用于 Linux 的 Log Analytics 代理](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Windows 代理](../../azure-monitor/platform/agent-windows.md)
 - [Log Analytics VM 扩展](../../azure-monitor/learn/quick-collect-azurevm.md)
-
 
 ### <a name="container-records"></a>容器记录
 
@@ -551,10 +548,8 @@ Start-Service docker
 
 追加到 PodLabel 数据类型的标签是你自己的自定义标签  。 表中显示的追加的 PodLabel 标签是示例。 因此，`PodLabel_deployment_s`、`PodLabel_deploymentconfig_s` 和 `PodLabel_docker_registry_s` 在你环境的数据集中存在差异，但通常类似于 `PodLabel_yourlabel_s`。
 
-
 ## <a name="monitor-containers"></a>监视容器
 在 Azure 门户中启用解决方案后，“容器”磁贴显示有关容器主机和在主机中运行的容器的摘要信息  。
-
 
 ![容器磁贴](./media/containers/containers-title.png)
 
@@ -641,8 +636,5 @@ Log Analytics 将打开，显示有关容器状态的信息。
 创建一个对你有用的查询后，单击“日志搜索”页面底部的“收藏夹”  将其保存。 稍后可以从“**我的仪表板**”页轻松访问它。
 
 ## <a name="next-steps"></a>后续步骤
-* [查询日志](../log-query/log-query-overview.md)以查看详细的容器数据记录。
 
-
-
-
+[查询日志](../log-query/log-query-overview.md)以查看详细的容器数据记录。

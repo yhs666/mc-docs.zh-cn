@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: c2051a27bdda821b662d0911c8f8e9b5ba928f97
-ms.sourcegitcommit: b24f0712fbf21eadf515481f0fa219bbba08bd0a
+ms.openlocfilehash: 489b46af7d69af3ed18ffd09ce3a47fd1efe5cdd
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55085651"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993551"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 高可用性
 

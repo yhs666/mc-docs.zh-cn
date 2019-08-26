@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/11/2019
-ms.date: 07/01/2019
+origin.date: 07/16/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b59473b10554aa16b10b4c59d01fbd2df9b50714
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 6a6ec50cdf316595a81f3aec1207c96494500b65
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568707"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993357"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>从通用 Windows 平台应用程序 (XAML) 调用 Microsoft 图形 API
 
@@ -116,7 +116,7 @@ ms.locfileid: "67568707"
         //Set the API Endpoint to Graph 'me' endpoint
         string graphAPIEndpoint = "https://microsoftgraph.chinacloudapi.cn/v1.0/me";
 
-        //Set the scope for API call to user.read
+        //Set the scope for API call to https://microsoftgraph.chinacloudapi.cn/user.read
         string[] scopes = new string[] { "https://microsoftgraph.chinacloudapi.cn/user.read" };
 
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
@@ -144,7 +144,7 @@ ms.locfileid: "67568707"
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {

@@ -2,31 +2,24 @@
 title: 如何在 Azure Active Directory 标识保护（已刷新）中配置风险策略 | Microsoft Docs
 description: 如何在 Azure Active Directory 标识保护（已刷新）中配置风险策略。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: mtillman
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 02/07/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65b19142f02ee9361c2532e1beb55eb6693f4329
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 0e21fa665d1171df02309d1aa53d1d5432ab24ce
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973394"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993404"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>如何：在 Azure Active Directory 标识保护（已刷新）中配置风险策略
-
 
 Azure AD 可以检测指示标识可能遭到入侵的风险事件。 通过配置风险策略，可以定义对检测结果的自动响应：
 
@@ -47,27 +40,25 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
    
 ![登录风险策略](./media/howto-configure-risk-policies/1014.png "登录风险策略")
 
-
 ## <a name="sign-in-risk-policy-settings"></a>登录风险策略设置
 
 配置登录风险策略时，需要设置：
 
 - 该策略应用到的用户和组：
 
-    ![用户和组](./media/howto-configure-risk-policies/11.png)
+   ![用户和组](./media/howto-configure-risk-policies/11.png)
 
 - 触发该策略的登录风险级别：
 
-    ![登录风险级别](./media/howto-configure-risk-policies/12.png)
+   ![登录风险级别](./media/howto-configure-risk-policies/12.png)
 
 - 当满足登录风险级别时要强制实施的访问类型：  
 
-    ![访问](./media/howto-configure-risk-policies/13.png)
+   ![访问](./media/howto-configure-risk-policies/13.png)
 
 - 策略的状态：
 
-    ![强制实施策略](./media/howto-configure-risk-policies/14.png)
-
+   ![强制实施策略](./media/howto-configure-risk-policies/14.png)
 
 策略配置对话框提供了一个选项来评估重新配置的影响。
 
@@ -84,7 +75,6 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 如果希望要求有风险的登录进行 MFA，则应当：
 
 1. 对受影响的用户启用多重身份验证注册策略。
-
 2. 要求受影响的用户在无风险会话中登录以执行 MFA 注册。
 
 完成这些步骤可确保对有风险的登录要求执行多重身份验证。
@@ -92,23 +82,13 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 登录风险策略：
 
 - 应用到所有使用新式身份验证的浏览器流量和登录。
-
 - 不会应用到使用旧式安全协议并在联合 IDP 上禁用 WS-Trust 终结点的应用程序，例如 ADFS。
-
 
 如需相关用户体验的概述，请参阅：
 
 * [有风险的登录恢复](flows.md#risky-sign-in-recovery)
 * [有风险的登录已阻止](flows.md#risky-sign-in-blocked)  
 * [Azure AD 标识保护中的登录体验](flows.md)  
-
-
-
-
-
-
-
-
 
 ## <a name="what-is-a-user-risk-policy"></a>什么是用户风险策略？
 
@@ -120,14 +100,11 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 用户风险策略是可为特定用户风险级别配置的自动响应。 使用用户风险策略可以阻止对资源的访问，或者要求更改密码，使用户帐户恢复安全状态。
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>如何访问用户风险策略？
    
 用户风险策略位于[“Azure AD 标识保护”页](https://portal.azure.cn/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)上的“配置”  部分。
    
 ![用户风险策略](./media/howto-configure-risk-policies/11014.png)
-
-
 
 ## <a name="user-risk-policy-settings"></a>用户风险策略设置
 
@@ -135,19 +112,19 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 - 该策略应用到的用户和组：
 
-    ![用户和组](./media/howto-configure-risk-policies/111.png)
+   ![用户和组](./media/howto-configure-risk-policies/111.png)
 
 - 触发该策略的登录风险级别：
 
-    ![用户风险级别](./media/howto-configure-risk-policies/112.png)
+   ![用户风险级别](./media/howto-configure-risk-policies/112.png)
 
 - 当满足登录风险级别时要强制实施的访问类型：  
 
-    ![访问](./media/howto-configure-risk-policies/113.png)
+   ![访问](./media/howto-configure-risk-policies/113.png)
 
 - 策略的状态：
 
-    ![强制实施策略](./media/howto-configure-risk-policies/114.png)
+   ![强制实施策略](./media/howto-configure-risk-policies/114.png)
 
 策略配置对话框提供了一个选项用于评估配置的影响。
 
@@ -159,36 +136,10 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 ![阻止](./media/howto-configure-risk-policies/116.png)
 
-
 阻止登录：
 
 * 避免针对受影响用户生成新的用户风险事件
 * 允许管理员手动补救影响用户标识的风险事件，并将它还原到安全状态
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="best-practices"></a>最佳实践
 
@@ -199,23 +150,15 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 设置策略时：
 
 - 排除没有/无法注册多重身份验证的用户
-
 - 排除无法启用策略（例如无法访问技术支持）的区域中的用户
-
 - 排除可能会生成大量误报的用户（开发人员、安全分析人员）
-
 - 在首次实施策略期间，或者必须尽量减少向最终用户显示质询时，请使用“高”阈值。 
-
 - 如果组织需要更高的安全性，请使用“低”阈值。  选择“低”阈值会显示更多的用户登录质询，但可以提高安全性。 
 
 对于大多数组织而言，建议的默认值是设置“中”阈值的规则，以便在可用性与安全性之间取得均衡。 
-
-
-
-
 
 ## <a name="next-steps"></a>后续步骤
 
  [第 9 频道：Azure AD 和标识展示：“标识保护”预览版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-
+<!-- Update_Description: update metedata properties -->

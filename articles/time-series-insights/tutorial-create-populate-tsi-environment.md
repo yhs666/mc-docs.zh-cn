@@ -5,17 +5,17 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-origin.date: 06/18/2019
-ms.date: 07/08/2019
+origin.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 24aeabe532a1c21ddbb6be43065828180102f85d
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: b3a0c536c8757f0ca2b55a1f7278b8c4122dd3ef
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456507"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993149"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>教程：创建 Azure 时序见解环境
 
@@ -28,11 +28,11 @@ ms.locfileid: "67456507"
 > * 运行设备模拟，将数据流式传输到时序见解环境。
 > * 验证模拟的遥测数据。
 
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://wwww.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-* 所用的 Azure 登录帐户还必须是订阅的“所有者”角色的成员。  有关详细信息，请参阅[使用基于角色的访问控制和 Azure 门户管理访问权限](/role-based-access-control/role-assignments-portal)。
+* 所用的 Azure 登录帐户还必须是订阅的“所有者”角色的成员。  有关详细信息，请参阅[使用基于角色的访问控制和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="overview"></a>概述
 
@@ -110,7 +110,7 @@ Azure IoT 中心是事件源，本教程中的所有设备（模拟设备或物�
 
    [![时序见解环境部署成功](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## <a name="run-device-simulation-to-stream-data"></a>运行设备模拟以流式传输数据
+## <a name="run-device-simulation"></a>运行设备模拟
 
 完成部署和初始配置后，使用[加速器创建的模拟设备](#create-a-device-simulation)中的示例数据填充时序见解环境。
 

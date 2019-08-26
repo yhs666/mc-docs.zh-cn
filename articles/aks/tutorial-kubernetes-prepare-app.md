@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: tutorial
 origin.date: 12/19/2018
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 069b8ef30802a7196a9a1487697a60d33d7b39b5
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 72460bc21a1939b0bd51cf3838c2ea7843f6208d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731238"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993562"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>教程：准备用于 Azure Kubernetes 服务 (AKS) 的应用程序
 
@@ -104,7 +104,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 docker-compose down
 ```
 
-删除本地应用程序以后，你就有了一个包含 Azure 投票应用程序的 Docker 映像 *azure-front-front*，可以在下一教程中使用。
+删除本地应用程序以后，你就有了一个包含 Azure 投票应用程序的 Docker 映像 azure-vote-front  ，可以在下一教程中使用。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -121,6 +121,7 @@ docker-compose down
 > [向 Azure 容器注册表推送映像][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
+
 [docker-compose]: https://docs.docker.com/compose/
 [docker-for-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-for-mac]: https://docs.docker.com/docker-for-mac/
@@ -132,6 +133,7 @@ docker-compose down
 [git]: https://git-scm.com/downloads
 
 <!-- LINKS - internal -->
+
 [aks-tutorial-prepare-acr]: ./tutorial-kubernetes-prepare-acr.md
 
 <!-- Update_Description: update meta properties -->

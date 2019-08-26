@@ -7,13 +7,14 @@ ms.topic: sample
 origin.date: 05/06/2019
 ms.date: 06/03/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6bf0c02f6a75e4726abdbc878dd1a94c4a9e114e
-ms.sourcegitcommit: 10458f9a72d4648fd5c9953136bb9581bb216015
+ms.openlocfilehash: cc3aa61d9b4c6bb8288736c35dae4f35f4cca48d
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/31/2019
-ms.locfileid: "66424251"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578636"
 ---
+<!--Previewed only, must submit with request-->
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>如何将 Azure Kubernetes 与 Azure Cosmos DB（预览版）配合使用
 
 通过使用 Azure Cosmos DB 中的 etcd API，可将 Azure Cosmos DB 用作 Azure Kubernetes 的后端存储。 Azure Cosmos DB 实现 etcd 线路协议，从而允许主节点的 API 服务器使用 Azure Cosmos DB，就像访问一个本地安装的 etcd 一样。 Azure Cosmos DB 中的 etcd API 目前处于预览状态。 将 Azure Cosmos etcd API 用作 Kubernetes 的后备存储，可以获得以下优势： 
@@ -24,8 +25,8 @@ ms.locfileid: "66424251"
 * 默认保护且面向企业。
 * 业界领先的复合型 SLA。
 
-若要详细了解 Azure Cosmos DB 中的 etcd API，请参阅[概述](etcd-api-introduction.md)文章。 本文介绍如何使用 [Azure Kubernetes 引擎](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md) (aks-engine) 在 Azure 上启动使用 [Azure Cosmos DB](/cosmos-db/) 而不是本地安装和本地配置的 etcd 的 Kubernetes 群集。 
 
+<!--Not Available on  [overview](etcd-api-introduction.md)-->
 ## <a name="prerequisites"></a>先决条件
 
 1. 安装最新版本的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 可以下载特定于自己的操作系统的 Azure CLI 并进行安装。
@@ -34,14 +35,14 @@ ms.locfileid: "66424251"
 
     Azure Kubernetes 引擎 (aks-engine) 可以生成 Azure 资源管理器模板，用于 Azure 上的 Kubernetes 群集  。 aks-engine 的输入内容是群集定义文件，该文件描述所需的群集，包括业务流程协调程序、功能和代理。 输入文件的结构类似于 Azure Kubernetes 服务的公共 API。
 
-1. Azure Cosmos DB 中的 etcd API 目前处于预览状态。 登录并使用此处的预览版： https://aka.ms/cosmosetcdapi-signup。 提交表单后，订阅将被列入允许列表，以使用 Azure Cosmos etcd API。 
+1. Azure Cosmos DB 中的 etcd API 目前处于预览状态。 登录并使用此处的预览版： https://aka.ms/cosmosetcdapi-signup 。 提交表单后，订阅将被列入允许列表，以使用 Azure Cosmos etcd API。 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>使用 Azure Cosmos DB 部署群集
 
 1. 打开命令提示符窗口，使用以下命令登录至 Azure：
 
     ```azurecli
-    az login -e 
+    az login
     ```
 
 1. 如果有多个订阅，请切换到已列入 Azure Cosmos DB etcd API 允许列表的订阅。 可以使用以下命令切换至所需订阅：

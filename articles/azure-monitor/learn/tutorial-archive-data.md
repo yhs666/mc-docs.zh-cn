@@ -9,12 +9,12 @@ ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 0327c7cd757fda14890b6e25a413600d106f5278
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 40733364f951abb672115329df3ac9cd1c5b2658
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818434"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989270"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>使用 Azure 存储将 Azure 指标和日志数据存档
 
@@ -150,7 +150,7 @@ Azure 环境的很多层都会生成可存档到 Azure 存储帐户的日志和�
 
 如果已执行前述步骤，则数据已开始流向存储帐户。
 
-1. 对于某些数据类型（例如活动日志），需要有一些在存储帐户中生成事件的活动。 可能最多需等待 5 分钟，事件即会在存储帐户中显示。
+1. 对于某些数据类型（例如活动日志），需要有一些在存储帐户中生成事件的活动。 若要在活动日志中生成活动，请按照[这些说明](../platform/alerts-activity-log.md)操作。 可能最多需等待 5 分钟，事件即会在存储帐户中显示。
 
 2. 在门户中，导航到左侧导航栏上的“存储帐户”部分  。
 

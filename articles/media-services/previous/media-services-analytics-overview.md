@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 05/20/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: c50d8e758b0ab38afb88c899e98c1eddcd8d2df0
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.reviewer: milanga; johndeu
+ms.openlocfilehash: aca61e9c8877fc387badd70e77b8081130b452c0
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550016"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670964"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析 
 
@@ -59,14 +60,12 @@ Azure 媒体修订器是一种媒体分析媒体处理器，可用于在云中�
 
 * **呼叫中心**。 即使出现了社交媒体，客户呼叫中心仍能帮助解决大量的客户服务事务。 此音频数据中编码了大量客户信息，分析这些信息可实现更高的客户满意度。 通过使用媒体索引器，组织可以提取文本并生成搜索索引和仪表板。 然后，他们可以围绕常见抱怨、投诉源和其他相关数据提取情报。
 * **用户生成的内容仲裁**。 从新闻媒体分支机构到公安部门，许多组织都设立了对外公开的门户，用于在其中接受用户生成的媒体，例如视频和图像。 内容的数量可能因意外事件而激增。 在这些情况下，仅凭人力几乎不可能有效地审查内容的适宜性。 客户可以依赖于内容仲裁服务，将工作重点放在适当的内容上。
-* **监控**。 由于 IP 相机使用量的增加，监控视频的数量呈爆炸式增长。 人工审查监控视频既耗时又容易发生人为错误。 媒体分析提供多项服务（例如动作检测、面部检测和 Hyperlapse），以简化审查、管理和创建衍生对象的过程。
 
 ## <a name="media-analytics-media-processors"></a>媒体分析媒体处理器
 本节列出媒体分析媒体处理器，并说明如何使用 .NET 或 REST 来获取媒体处理器 (MP) 对象。
 
 ### <a name="mp-names"></a>MP 名称
 * Azure Media Indexer
-* Azure Media Hyperlapse
 * Azure 媒体面部检测器
 * Azure 媒体动作检测器
 * Azure 媒体视频缩略图

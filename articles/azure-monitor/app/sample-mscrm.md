@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 04c66338-687e-49e5-9975-be935f98f156
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mazhar
 ms.author: v-lingwu
-ms.openlocfilehash: 1cf7db454e56fe20e3e40904f2e0c75e99c5b2f3
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8ef97f427d3b9ea117abb6a5d87bdec89115aa91
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818508"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989592"
 ---
 # <a name="walkthrough-enabling-telemetry-for-azure-dynamics-crm-online-using-application-insights"></a>演练：使用 Application Insights 为 Azure Dynamics CRM Online 启用遥测
 本文演示如何使用 [Azure Application Insights](/azure-monitor/) 从 [Microsoft Dynamics CRM Online](https://www.dynamics.com/) 获取遥测数据。 我们将引导完成向应用程序添加 Application Insights 脚本、捕获数据和数据可视化的完整过程。
@@ -38,7 +39,7 @@ ms.locfileid: "68818508"
     ![依次单击“+”、“开发人员服务”、“Application Insights”。](./media/sample-mscrm/01.png)
 
     选择 ASP.NET 作为应用程序类型。
-3. 按照说明[获取应用的 JavaScript SDK 脚本](../../azure-monitor/app/javascript.md#set-up-application-insights-for-your-web-page)，复制 JavaScript 代码片段并确保将检测密钥替换为 Application Insights 资源的正确值。
+3. 按照说明[获取应用的 JavaScript SDK 脚本](../../azure-monitor/app/javascript.md)，复制 JavaScript 代码片段并确保将检测密钥替换为 Application Insights 资源的正确值。
 
 ### <a name="create-a-javascript-web-resource-in-azure-dynamics-crm"></a>在 Azure Dynamics CRM 中创建 JavaScript Web 资源
 1. 打开 CRM Online 实例并使用管理员特权登录。

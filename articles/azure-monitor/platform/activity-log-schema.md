@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: d6c9955372dbc3cbbc15dc1a390a646f64f8691e
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 6007f784c42f4ec2879aa5a8c62a198f2b218c4a
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818399"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989532"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
 通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件  。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](activity-log-export.md)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 本文末尾提供了这些属性到 [Azure 诊断日志架构](diagnostic-logs-schema.md)的映射。
@@ -194,7 +194,7 @@ ms.locfileid: "68818399"
   }
 }
 ```
-请参阅[服务运行状况通知](../../azure-monitor/platform/service-notifications.md)一文，获取有关属性的值的说明。
+请参阅[服务运行状况通知](/service-health/service-notifications)一文，获取有关属性的值的说明。
 
 ## <a name="resource-health"></a>资源运行状况
 此类别包含 Azure 资源发生的任何资源运行状况事件的记录。 你将在此类别中看到的事件类型的示例是“虚拟机运行状况已更改为不可用”。 资源运行状况事件可以表示四种运行状况之一：Available、Unavailable、Degraded 和 Unknown。 此外，资源运行状况事件可以分为“平台启动”或“用户启动”。

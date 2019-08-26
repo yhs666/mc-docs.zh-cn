@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 015ab744-d514-42c0-8553-8410eef00368
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: vitalyg
 ms.author: v-lingwu
-ms.openlocfilehash: 9fa5cfdae5687ff45b0efd39064aded35426d807
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 836af2fe4bd96f1c5cb45da4ac7c8e5e9d9565e4
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562660"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989574"
 ---
 # <a name="sampling-in-application-insights"></a>在 Application Insights 中采样
 
@@ -417,7 +418,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ## <a name="how-do-i-know-whether-sampling-is-in-operation"></a>如何知道采样是否在运行？
 
-若要查找实际采样率（无论是否已应用），请使用如下所示的[分析查询](../../azure-monitor/app/analytics.md)：
+若要查找实际采样率（无论是否已应用），请使用如下所示的[分析查询](../../azure-monitor/log-query/log-query-overview.md)：
 
 ```
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

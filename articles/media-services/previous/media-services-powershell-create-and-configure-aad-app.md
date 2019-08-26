@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 75d310f36651dff80036ffc1b6c27266a4788341
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: c56c55e2cd3ddd2487c708bf7d156f3101c5a792
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390758"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670993"
 ---
 # <a name="use-powershell-to-create-an-azure-ad-app-to-use-with-the-azure-media-services-api"></a>使用 PowerShell 创建要与 Azure 媒体服务 API 配合使用的 Azure AD 应用
 
@@ -60,7 +60,6 @@ $Retries = 0;While ($NewRole -eq $null -and $Retries -le 6)
 
 - [使用 Azure PowerShell 创建服务主体来访问资源](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 - [使用 Azure PowerShell 管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
-- [如何使用证书手动配置守护程序应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 ## <a name="next-steps"></a>后续步骤
 

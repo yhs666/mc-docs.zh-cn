@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/20/2019
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8c261a5edfb1c81450d8c7933a42215dfd908a93
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: ca8cf3534aff65cc256b4ab49d804b74269fcc89
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818501"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989650"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -197,8 +198,8 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 | --- | --- | --- |
 | Azure 应用服务  | 受支持，可能需要配置。 | 已在 2018 年 4 月宣告支持。 阅读有关[配置详细信息](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)的宣告。  |
 | Azure 函数应用 | 受支持，可能需要配置。 | 已在 2018 年 4 月宣告支持。 阅读有关[配置详细信息](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)的宣告。 |
-|.NET | 受支持，配置因版本而异。 | 有关 .NET 4.7 和更低版本的详细配置信息，请参阅[这些说明](https://docs.microsoft.com/dotnet/framework/network-programming/tls?view=azure-dotnet#support-for-tls-12)。  |
-|状态监视器 | 受支持，需要配置 | 状态监视器依赖于使用 [OS 配置](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 配置](https://docs.microsoft.com/dotnet/framework/network-programming/tls?view=azure-dotnet#support-for-tls-12)来支持 TLS 1.2。
+|.NET | 受支持，配置因版本而异。 | 有关 .NET 4.7 和更低版本的详细配置信息，请参阅[这些说明](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)。  |
+|状态监视器 | 受支持，需要配置 | 状态监视器依赖于使用 [OS 配置](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 配置](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)来支持 TLS 1.2。
 |Node.js |  受支持，在 v10.5.0 中可能需要配置。 | 使用[官方的 Node.js TLS/SSL 文档](https://nodejs.org/api/tls.html)完成任何特定于应用程序的配置。 |
 |Java | 受支持，[JDK 6 Update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 和 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html) 中添加了对 TLS 1.2 的 JDK 支持。 | JDK 8 [默认使用 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)。  |
 |Linux | Linux 分发版往往依赖于 [OpenSSL](https://www.openssl.org) 来提供 TLS 1.2 支持。  | 请检查 [OpenSSL 变更日志](https://www.openssl.org/news/changelog.html)，确认你的 OpenSSL 版本是否受支持。|

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: ea948c4eb10cd20930040fc4740d4d700c42ff4e
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.openlocfilehash: bffe6ddc015c9aeca56467fdfc2b6d91e186d583
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560646"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014687"
 ---
 ## <a name="customize-and-extend-the-device-management-actions"></a>自定义和扩展设备管理操作
 
@@ -18,6 +18,6 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 
 本教程使用直接方法触发设备上的远程重新启动。 使用报告属性报告设备上次重新启动时间，并查询设备孪生从云中发现设备上次重新启动时间。
 
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[如何更新固件](../articles/iot-hub/tutorial-firmware-update.md)
+若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅[如何更新固件](../articles/iot-hub/tutorial-firmware-update.md)。
 
 若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅[计划和广播作业](../articles/iot-hub/iot-hub-node-node-schedule-jobs.md)。

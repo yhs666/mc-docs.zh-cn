@@ -54,7 +54,7 @@
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/zh-cn/cli/network?view=azure-cli-latest'
+      href: 'https://docs.microsoft.com/zh-cn/cli/azure/ext/azure-firewall/network/firewall?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.network/new-azfirewall'
     - name: .NET
@@ -62,9 +62,9 @@
     - name: Java
       href: 'https://docs.azure.cn/java/api/overview/'
     - name: Node.js
-      href: 'https://docs.azure.cn//develop/nodejs/#azure-sdk'
+      href: 'https://docs.azure.cn/develop/nodejs/#azure-sdk'
     - name: Python
-      href: 'https://docs.azure.cn//develop/python/'
+      href: 'https://docs.azure.cn/develop/python/'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/firewall'
     - name: Azure 资源管理器

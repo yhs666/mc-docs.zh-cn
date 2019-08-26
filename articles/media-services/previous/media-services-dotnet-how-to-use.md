@@ -13,17 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 04/01/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: c215a43e424c950773f3a97706b37898fb061d71
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 461fb0841cf1bbdee9f58c7d3e129e2a2fcfe09e
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624124"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670949"
 ---
 # <a name="media-services-development-with-net"></a>使用 .NET 进行媒体服务开发 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
 
 本文介绍了如何开始使用 .NET 开发媒体服务应用程序。
 
@@ -42,26 +41,26 @@ ms.locfileid: "58624124"
 
 此外，可以从 GitHub（[github.com/Azure/azure-sdk-for-media-services](https://github.com/Azure/azure-sdk-for-media-services) 或 [github.com/Azure/azure-sdk-for-media-services-extensions](https://github.com/Azure/azure-sdk-for-media-services-extensions)）获取最新的媒体服务 .NET SDK 资料、生成解决方案并添加对客户端项目的引用。 自动下载并提取所有必需的依赖项。
 
-1. 在 Visual Studio 中创建新的 C# 控制台应用程序。 输入“名称”、“位置”和“解决方案名称”，并单击“确定”。
+1. 在 Visual Studio 中创建新的 C# 控制台应用程序。 输入“名称”  、“位置”  和“解决方案名称”  ，并单击“确定”。
 2. 生成解决方案。
 3. 使用 **NuGet** 安装和添加 **Azure 媒体服务 .NET SDK 扩展** (**windowsazure.mediaservices.extensions**)。 安装此包也会安装 **媒体服务 .NET SDK** 并添加所有其他必需的依赖项。
    
     确保已安装最新版本的 NuGet。 有关详细信息和安装说明，请参阅 [NuGet](https://nuget.codeplex.com/)。
 
-    1. 在“解决方案资源管理器”中，右键单击项目名称，并选择“管理 NuGet 包”。
+    1. 在“解决方案资源管理器”中，右键单击项目名称，并选择“管理 NuGet 包”  。
 
     2. 此时显示“管理 NuGet 包”对话框。
 
-    3. 在联机库中，搜索 Azure 媒体服务扩展，选择“Azure 媒体服务.NET SDK 扩展”(windowsazure.mediaservices.extensions)，然后单击“安装”按钮。
+    3. 在联机库中，搜索 Azure 媒体服务扩展，选择“Azure 媒体服务.NET SDK 扩展”  (windowsazure.mediaservices.extensions  )，然后单击“安装”  按钮。
    
     4. 此时会修改项目并添加对媒体服务 .NET SDK 扩展、媒体服务 .NET SDK 和其他依赖程序集的引用。
 4. 若要升级更干净的开发环境，请考虑启用 NuGet 包还原。 有关详细信息，请参阅 [NuGet 包还原](https://docs.nuget.org/consume/package-restore)。
 5. 添加对 **System.Configuration** 程序集的引用。 此程序集包含用于访问配置文件（例如，App.config）的 System.Configuration.**ConfigurationManager** 类。
    
-    1. 若要使用“管理引用”对话框添加引用，请在“解决方案资源管理器”中右键单击项目名称。 然后单击“添加”，并单击“引用...”。
+    1. 若要使用“管理引用”对话框添加引用，请在“解决方案资源管理器”中右键单击项目名称。 然后单击“添加”  ，并单击“引用...”  。
    
     2. 此时显示“管理引用”对话框。
-    3. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”。
+    3. 在 .NET Framework 程序集下，找到并选择 System.Configuration 程序集，并按“确定”  。
 6. 打开 App.config 文件并将 **appSettings** 节添加到文件。 设置连接到媒体服务 API 所需的值。 有关详细信息，请参阅[通过 Azure AD 身份验证访问 Azure 媒体服务 API](media-services-use-aad-auth-to-access-ams-api.md)。 
 
     设置使用**服务主体**身份验证方法进行连接所需的值。

@@ -2,35 +2,28 @@
 title: 如何在 Azure Active Directory 标识保护中配置用户风险策略| Microsoft Docs
 description: 了解如何配置“Azure AD 标识保护”用户风险策略。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14df353f5646c8d4168e9e5b86c6e106d93164a3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: f494d78664259d23d7807aab7741f2165dca605f
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973344"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993389"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>如何：配置用户风险策略
 
 Azure AD 使用用户风险检测用户帐户泄露的可能性。 管理员可将用户风险条件访问策略配置为自动对特定的用户风险级别做出响应。
  
 本文提供配置用户风险策略所需的信息。
-
 
 ## <a name="what-is-a-user-risk-policy"></a>什么是用户风险策略？
 
@@ -42,14 +35,11 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 用户风险策略是可为特定用户风险级别配置的自动响应。 使用用户风险策略可以阻止对资源的访问，或者要求更改密码，使用户帐户恢复安全状态。
 
-
 ## <a name="how-do-i-access-the-user-risk-policy"></a>如何访问用户风险策略？
    
 登录风险策略位于[“Azure AD 标识保护”页](https://portal.azure.cn/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy)上的“配置”  部分中。
    
 ![用户风险策略](./media/howto-user-risk-policy/1014.png)
-
-
 
 ## <a name="policy-settings"></a>策略设置
 
@@ -81,7 +71,6 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
 ![阻止](./media/howto-user-risk-policy/16.png)
 
-
 阻止登录：
 
 * 避免针对受影响用户生成新的用户风险事件
@@ -112,10 +101,8 @@ Azure AD 会分析用户的每次登录。 分析的目的是检测伴随登录�
 
     ![用户风险策略](./media/howto-user-risk-policy/1009.png "用户风险策略")
 
-
-
-
 ## <a name="next-steps"></a>后续步骤
 
 若要获取“Azure AD 标识保护”的概述，请参阅 [Azure AD 标识保护概述](overview.md)。
 
+<!-- Update_Description: update metedata properties -->

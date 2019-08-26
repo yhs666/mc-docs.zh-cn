@@ -9,14 +9,15 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/01/2019
+origin.date: 08/06/2019
+ms.date: 09/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3235f8aea821cdf25f3826909d24306f9ef46e6d
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 6a590a4f1e6295ed468476756be8a1ef52c833cb
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456428"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993521"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>向时序见解环境添加 IoT 中心事件源
 
@@ -42,7 +43,7 @@ ms.locfileid: "67456428"
 
 1. 在“设置”下，选择“内置终结点”，然后选择“事件”终结点    。
 
-   [![在“内置终结点”页上，选择“事件”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_one.png#lightbox)
+   [![在“内置终结点”页上，选择“事件”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-one.png#lightbox)
 
 1. 在  “使用者组”下，为使用者组输入唯一名称。 创建新的事件源时，请在时序见解环境中使用此相同名称。
 
@@ -56,7 +57,7 @@ ms.locfileid: "67456428"
 
 1. 在“环境拓扑”下，依次选择“事件源”、“添加”。   
 
-   [![选择“事件源”，然后选择“添加”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_two.png#lightbox)
+   [![选择“事件源”，然后选择“添加”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-two.png#lightbox)
 
 1. 在“新建事件源”窗格中  ，输入一个特定于此时序见解环境的名称作为“事件源名称”  。 例如，输入 **event-stream**。
 
@@ -66,11 +67,11 @@ ms.locfileid: "67456428"
 
    * 在其中一个订阅上已有 IoT 中心时，请选择“从可用订阅使用 IoT 中心”  。 此选项是最简单的方法。
    
-     [![在“新建事件源”窗格中选择选项](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_three.png#lightbox)
+     [![在“新建事件源”窗格中选择选项](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-three.png#lightbox)
 
     * 下表介绍的属性是“通过可用订阅使用 IoT 中心”  选项所需的：
 
-       [![“新建事件源”窗格 - 需要在“通过可用订阅使用 IoT 中心”选项中设置的属性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_four.png#lightbox)
+       [![“新建事件源”窗格 - 需要在“通过可用订阅使用 IoT 中心”选项中设置的属性](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-four.png#lightbox)
 
        | 属性 | 说明 |
        | --- | --- |
@@ -101,7 +102,7 @@ ms.locfileid: "67456428"
 
 1. 选择“创建”  。
 
-   [![“创建”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub_five.png#lightbox)
+   [![“创建”按钮](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png)](media/time-series-insights-how-to-add-an-event-source-iothub/iothub-five.png#lightbox)
 
 1. 创建事件源以后，时序见解就会自动将数据流式传输到环境中。
 

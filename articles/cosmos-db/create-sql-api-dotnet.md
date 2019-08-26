@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/012/2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 055255f1002a4971610fe2c95eff68b3c6f4bf49
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 5a19799db26d3d9fb057fb199809541bbd7a2b37
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514313"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578629"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 
@@ -40,7 +40,9 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 ## <a name="prerequisites"></a>先决条件
 
 * Azure 订阅 - [免费创建订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+    
     <!--Not Available on [Try Azure Cosmos DB for free](https://www.azure.cn/try/cosmosdb/)--> 
+    
 * [.NET Core 2.1 SDK 或更高版本](https://dotnet.microsoft.com/download/dotnet-core/2.1)。
 * [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)
 
@@ -53,7 +55,8 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 ### <a name="create-an-azure-cosmos-account"></a>创建 Azure Cosmos 帐户
 
 以下代码将创建具有会话一致性的 Azure Cosmos 帐户。 该帐户在 `China East` 和 `China North` 中复制。
-    <!--Not Available on  Select the **Try It** button and paste the code to run it in the Azure local Shell.-->
+
+<!--Not Available on  Select the **Try It** button and paste the code to run it in the Azure local Shell.-->
 
 ```azurecli
 

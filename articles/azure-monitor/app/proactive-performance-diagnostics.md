@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: antonfr
 ms.author: v-lingwu
-ms.openlocfilehash: 7e86da7d5e494f32bb37a8d06ae4739e1ccb0668
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: ed8c1d118560a36eed843eb5aa92ea04907b76ec
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513878"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989320"
 ---
 # <a name="smart-detection---performance-anomalies"></a>智能检测 - 性能异常
 
@@ -184,7 +185,7 @@ Application Insights 可以找到只会影响一部分用户，或者只会在�
 * [探查器](profiler.md) 
 * [快照调试器](../../azure-monitor/app/snapshot-debugger.md)
 * [分析](../../azure-monitor/log-query/get-started-portal.md)
-* [分析智能诊断](../../azure-monitor/app/analytics.md)
+* [分析智能诊断](../../azure-monitor/log-query/log-query-overview.md)
 
 智能检测是完全自动执行的。 但是或许你想要设置更多的警报？
 

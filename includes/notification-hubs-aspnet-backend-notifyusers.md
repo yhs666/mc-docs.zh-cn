@@ -1,8 +1,21 @@
 ---
- title: include 文件 description: 所含代码用于创建后端 ASP .NET WebAPI 项目的 include 文件。
-services: notification-hubs author: spelluru ms.service: notification-hubs ms.topic: include origin.date:04/04/2018 ms.date:07/09/2018 ms.author: v-junlch ms.custom: include file
+title: include 文件
+description: include 文件包含用于创建后端 ASP .NET WebAPI 项目的代码。
+services: notification-hubs
+author: spelluru
+ms.service: notification-hubs
+ms.topic: include
+origin.date: 04/04/2018
+ms.date: 07/09/2018
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: 41359f0aa48de22ada56044751af6d47503910ea
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578672"
 ---
-
 ## <a name="create-the-webapi-project"></a>创建 WebAPI 项目
 后续部分讨论如何创建新的 ASP.NET WebAPI 后端。 此过程有三个主要目的：
 
@@ -15,7 +28,7 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 > [!IMPORTANT]
 > 如果使用 Visual Studio 2015 或更低版本，则在开始学习本教程之前，请确保已安装用于 Visual Studio 的最新版 NuGet 包管理器。 
 >
->若要进行检查，请启动 Visual Studio。 在“工具”菜单上，选择“扩展和更新”。 在你的 Visual Studio 版本中搜索“NuGet 包管理器”，确保你的版本为最新。 如果你的版本不是最新版本，请卸载它，然后重新安装 NuGet 包管理器。
+>若要进行检查，请启动 Visual Studio。 在“工具”  菜单上，选择“扩展和更新”  。 在你的 Visual Studio 版本中搜索“NuGet 包管理器”，确保你的版本为最新  。 如果你的版本不是最新版本，请卸载它，然后重新安装 NuGet 包管理器。
  
 ![][B4]
 
@@ -25,34 +38,34 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 
 1. 启动 Visual Studio 或 Visual Studio Express。 
 
-2. 选择“服务器资源管理器”并登录到 Azure 帐户。 若要在帐户中创建网站资源，必须先登录。
+2. 选择“服务器资源管理器”并登录到 Azure 帐户  。 若要在帐户中创建网站资源，必须先登录。
 
-3. 在 Visual Studio 中，右键单击 Visual Studio 解决方案，指向“添加”，然后单击“新建项目”。 
-4. 展开“Visual C#”，选择“Web”，然后单击“ASP.NET Web 应用程序”。
+3. 在 Visual Studio 中，右键单击 Visual Studio 解决方案，指向“添加”，然后单击“新建项目”   。 
+4. 展开“Visual C#”，选择“Web”，然后单击“ASP.NET Web 应用程序”    。
 
-5. 在“名称”框中，键入 **AppBackend**，然后选择“确定”。 
+5. 在“名称”  框中，键入 **AppBackend**，然后选择“确定”  。 
    
     ![“新建项目”窗口][B1]
 
-6. 在“新建 ASP.NET 项目”窗口中，选择“Web API”复选框，然后选择“确定”。
+6. 在“新建 ASP.NET 项目”  窗口中，选择“Web API”  复选框，然后选择“确定”  。
    
     ![“新建 ASP.NET 项目”窗口][B2]
 
-7. 在“配置 Azure Web 应用”窗口中选择一个订阅，然后在“应用服务计划”列表中执行以下任一操作：
+7. 在“配置 Azure Web 应用”  窗口中选择一个订阅，然后在“应用服务计划”  列表中执行以下任一操作：
 
     - 选择已创建的应用服务计划。 
-    - 选择“创建新的应用服务计划”，然后新建一个应用服务计划。 
+    - 选择“创建新的应用服务计划”，然后新建一个应用服务计划  。 
     
-   在本教程中，不需要使用数据库。 选择应用服务计划后，选择“确定”以创建项目。
+   在本教程中，不需要使用数据库。 选择应用服务计划后，选择“确定”以创建项目  。
    
 ![“配置 Azure Web 应用”窗口][B5]
 
 ## <a name="authenticate-clients-to-the-webapi-backend"></a>在 WebAPI 后端对客户端进行身份验证
-在本部分中，将为新的后端创建名为“AuthenticationTestHandler”的新消息处理程序类。 此类派生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 并已添加为消息处理程序，使它可以处理传入后端的所有请求。 
+在本部分中，将为新的后端创建名为“AuthenticationTestHandler”的新消息处理程序类  。 此类派生自 [DelegatingHandler](https://msdn.microsoft.com/library/system.net.http.delegatinghandler.aspx) 并已添加为消息处理程序，使它可以处理传入后端的所有请求。 
 
-1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，依次选择“添加”、“类”。 
+1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，依次选择“添加”、“类”    。 
  
-2. 将新类命名为 **AuthenticationTestHandler.cs**，并选择“添加”生成该类。 为简单起见，此类将通过使用*基本身份验证*对用户进行身份验证。 请注意，应用可以使用任何身份验证方案。
+2. 将新类命名为 **AuthenticationTestHandler.cs**，并选择“添加”生成该类  。 为简单起见，此类将通过使用*基本身份验证*对用户进行身份验证。 请注意，应用可以使用任何身份验证方案。
 
 3. 在 AuthenticationTestHandler.cs 中，添加以下 `using` 语句：
    
@@ -70,7 +83,7 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
     当以下三个条件都成立时，此处理程序授权请求：
    
    - 请求包含 *Authorization* 标头。 
-   - 请求使用基本身份验证。 
+   - 请求使用基本身份验证  。 
    - 用户名字符串和密码字符串是相同的字符串。
      
      否则，会拒绝该请求。 此身份验证不是真正的身份验证和授权方法。 它只是本教程中一个简单的示例。
@@ -137,15 +150,15 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 ## <a name="register-for-notifications-by-using-the-webapi-backend"></a>使用 WebAPI 后端注册通知
 在本部分中，要将新的控制器添加到 WebAPI 后端来处理请求，以使用通知中心的客户端库为用户和设备注册通知。 控制器将为已由 `AuthenticationTestHandler` 验证并附加到 HttpContext 的用户添加用户标记。 该标记采用以下字符串格式：`"username:<actual username>"`。
 
-1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，并选择“管理 NuGet 包”。
+1. 在“解决方案资源管理器”中，右键单击“AppBackend”项目，并选择“管理 NuGet 包”   。
 
-2. 在左窗格中，选择“联机”，然后在“搜索”框中，键入 **Microsoft.Azure.NotificationHubs**。
+2. 在左窗格中，选择“联机”  ，然后在“搜索”  框中，键入 **Microsoft.Azure.NotificationHubs**。
 
-3. 在结果列表中选择“Azure 通知中心”，然后选择“安装”。 完成安装后，关闭“NuGet 程序包管理器”窗口。
+3. 在结果列表中选择“Azure 通知中心”，然后选择“安装”   。 完成安装后，关闭“NuGet 程序包管理器”窗口。
    
     此操作会使用 <a href="http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/">Microsoft.Azure.Notification Hubs NuGet 包</a>添加对 Azure 通知中心 SDK 的引用。
 
-4. 创建新的类文件，以表示与用于发送通知的通知中心的连接。 在“解决方案资源管理器”中，右键单击“模型”文件夹，选择“添加”，并选择“类”。 将新类命名为 **Notifications.cs**，并选择“添加”生成该类。 
+4. 创建新的类文件，以表示与用于发送通知的通知中心的连接。 在“解决方案资源管理器”中，右键单击“模型”文件夹，选择“添加”，并选择“类”。    将新类命名为 **Notifications.cs**，并选择“添加”生成该类  。 
    
     ![“添加新项”窗口][B6]
 
@@ -170,13 +183,13 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
         }
     }
     ```
-7. 接下来将创建一个名为 **RegisterController** 的新控制器。 在“解决方案资源管理器”中，右键单击“控制器”文件夹，选择“添加”，并选择“控制器”。 
+7. 接下来将创建一个名为 **RegisterController** 的新控制器。 在“解决方案资源管理器”中，右键单击“控制器”文件夹，选择“添加”，并选择“控制器”。    
 
-8. 选择“Web API 2 控制器 - 空”，并选择“添加”。
+8. 选择“Web API 2 控制器 - 空”  ，并选择“添加”  。
    
     ![“添加基架”窗口][B7]
    
-9. 在“控制器名称”框中，键入 **RegisterController** 以命名新类，并选择“添加”。
+9. 在“控制器名称”  框中，键入 **RegisterController** 以命名新类，并选择“添加”  。
 
     ![“添加控制器”窗口][B8]
 
@@ -312,7 +325,7 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
     ```
 3. 在 **NotificationsController** 类中添加以下方法：
    
-    此代码会发送基于平台通知服务 (PNS) `pns` 参数的通知类型。 `to_tag` 的值用于设置消息中的 username 标记。 此标记必须与活动的通知中心注册的用户名标记相匹配。 将从 POST 请求正文提取通知消息，并根据目标 PNS 将其格式化。 
+    此代码会发送基于平台通知服务 (PNS) `pns` 参数的通知类型。 `to_tag` 的值用于设置消息中的 username 标记  。 此标记必须与活动的通知中心注册的用户名标记相匹配。 将从 POST 请求正文提取通知消息，并根据目标 PNS 将其格式化。 
    
     通知受多种格式支持，具体取决于受支持设备用来接收通知的 PNS。 例如，在 Windows 设备上，可能会将 [toast 通知与其他 PNS 不直接支持的 WNS 配合使用](https://msdn.microsoft.com/library/windows/apps/br230849.aspx)。 在这种情况下，后端需要将通知格式化为打算使用的设备 PNS 所支持的通知。 然后针对 [NotificationHubClient 类](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.notificationhubclient_methods.aspx)使用相应的发送 API。
    
@@ -364,19 +377,19 @@ services: notification-hubs author: spelluru ms.service: notification-hubs ms.to
 ## <a name="publish-the-new-webapi-backend"></a>发布新的 WebAPI 后端
 接下来会将此应用部署到 Azure 网站，以便可以从任意设备访问它。 
 
-1. 右键单击 **AppBackend** 项目，并选择“发布”。
+1. 右键单击 **AppBackend** 项目，并选择“发布”  。
 
-2. 选择“Azure 应用服务”作为发布目标，然后选择“发布”**。 “创建应用服务”窗口将打开。 可以在这里创建在 Azure 中运行 ASP.NET Web 应用所需的全部 Azure 资源。
+2. 选择“Azure 应用服务”  作为发布目标，然后选择“发布”**。 “创建应用服务”窗口将打开。 可以在这里创建在 Azure 中运行 ASP.NET Web 应用所需的全部 Azure 资源。
 
     ![“Azure 应用服务”磁贴][B15]
 
-3. 在“创建应用服务”窗口中，选择 Azure 帐户。 选择“更改类型” > “Web 应用”。 保留默认的“Web 应用名称”，然后依次选择“订阅”、“资源组”和“应用服务计划”。 
+3. 在“创建应用服务”窗口中，选择 Azure 帐户  。 选择“更改类型”   > “Web 应用”  。 保留默认的“Web 应用名称”，然后依次  选择“订阅”、“资源组”和“应用服务计划”。    
 
-4. 选择“创建” 。
+4. 选择“创建”  。
 
-5. 记下“摘要”部分的“站点 URL”属性。 此 URL 是本教程中稍后提到的*后端终结点*。 
+5. 记下“摘要”部分的“站点 URL”属性。   此 URL 是本教程中稍后提到的*后端终结点*。 
 
-6. 选择“发布”。
+6. 选择“发布”  。
 
 完成向导后，它会将 ASP.NET Web 应用发布到 Azure，然后在默认浏览器中打开该应用。  可以在 Azure 应用服务中查看应用程序。
 

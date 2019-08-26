@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: azure-monitor
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: accdcbbc0be176b8918a1d7b880007946206d679
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 81bec8b9992b4f9571a1dc6fd88d541cd275af33
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513821"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989440"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Azure 监视代理概述 
 世纪互联 Azure 提供多种方式用于从 Azure、数据中心或其他云提供商托管的，运行 Azure Windows 和 Linux 的虚拟机收集各种数据。 可用于监视 VM 的三种代理包括：

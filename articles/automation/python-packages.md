@@ -7,31 +7,31 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 02/25/2019
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimonbile
-ms.openlocfilehash: 4d7002dc4b68d9015e97ac6e1cc8acc4cdfaede5
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 958ae3efe4bac645358de031e0a6e9cef5deab1d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502631"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993570"
 ---
-# <a name="manage-python-2-packages-in-azure-automation"></a>管理 Azure 自动化中的 Python 2 程序包
+# <a name="manage-python-2-packages-in-azure-automation"></a>在 Azure 自动化中管理 Python 2 包
 
-使用 Azure 自动化，可以在 Azure 上运行 Python 2 runbook。 为了帮助简化 runbook，可以使用 Python 程序包导入所需的模块。 本文介绍了如何在 Azure 自动化中管理和使用 Python 程序包。
+通过 Azure 自动化，可以在 Azure 和 Linux 混合 Runbook 辅助角色上运行 Python 2 runbook。 为了帮助简化 runbook，可以使用 Python 包导入所需的模块。 本文介绍了如何在 Azure 自动化中管理和使用 Python 程序包。
 
 ## <a name="import-packages"></a>导入程序包
 
-在自动化帐户中，在“共享资源”下选择“Python 2 程序包”。 单击“+ 添加 Python 2 程序包”。
+在自动化帐户中，在“共享资源”  下选择“Python 2 程序包”  。 单击“+ 添加 Python 2 程序包”  。
 
 ![添加 Python 程序包](media/python-packages/add-python-package.png)
 
-在“添加 Python 2 程序包”页面上，选择要上传的本地程序包。 该程序包可以是 `.whl` 文件或 `.tar.gz` 文件。 在选择后，单击“确定”以上传程序包。
+在“添加 Python 2 程序包”  页面上，选择要上传的本地程序包。 该程序包可以是 `.whl` 文件或 `.tar.gz` 文件。 在选择后，单击“确定”  以上传程序包。
 
 ![添加 Python 程序包](media/python-packages/upload-package.png)
 
-导入包之后，该包将在自动化帐户中的“Python 2 包”页中列出。 如果需要删除某个程序包，请在程序包页面上选择该程序包并选择“删除”。
+导入包之后，该包将在自动化帐户中的“Python 2 包”页中列出  。 如果需要删除某个程序包，请在程序包页面上选择该程序包并选择“删除”。 
 
 ![程序包列表](media/python-packages/package-list.png)
 

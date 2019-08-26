@@ -2,32 +2,26 @@
 title: Azure Active Directory 标识保护常见问题解答 | Microsoft Docs
 description: 有关 Azure AD 标识保护的常见问题解答
 services: active-directory
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 14f7fc83-f4bb-41bf-b6f1-a9bb97717c34
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 origin.date: 11/03/2017
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6b960367c8470027b20374abfa1fe14a1a9dad1
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: fe5e123df025bf54f8cff8c401ae445347164009
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973447"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993403"
 ---
 # <a name="azure-active-directory-identity-protection-faq"></a>Azure Active Directory 标识保护常见问题解答
 
 本文包括了对 Azure Active Directory (Azure AD) 标识保护常见问题的解答。 有关详细信息，请参阅 [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)。 
-
 
 ## <a name="why-do-some-risk-events-have-closed-system-status"></a>为何某些风险事件具有“已关闭(系统)”状态？
 
@@ -52,3 +46,4 @@ ms.locfileid: "68973447"
 
 ---
 
+<!-- Update_Description: update metedata properties -->

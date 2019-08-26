@@ -2,30 +2,25 @@
 title: Azure Active Directory 标识保护术语表 | Microsoft Docs
 description: Azure Active Directory 标识保护术语表
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略, 术语表
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: reference
 origin.date: 01/15/2018
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee81053ef4ae0c5176daa0dd94feeb68e3d0d5c
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: f1a0e927c465262d1715bbef97d2440f4eb09f23
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973420"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993401"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Azure Active Directory 标识保护术语表
+
 ### <a name="at-risk-user"></a>有风险（用户）
 具有一个或多个活动风险事件的用户。 
 
@@ -167,4 +162,4 @@ Azure Active Directory 中导致目录容易遭到入侵或威胁的配置或状
 ## <a name="see-also"></a>另请参阅
 * [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
-
+<!-- Update_Description: update metedata properties -->

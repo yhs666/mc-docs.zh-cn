@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: bf444752-ecc1-4306-9489-c29cb37d6045
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4a9c78f6e57d83cfd0891037c2adf59c926ef72b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 042bf9113606a2cc7a4a78d1809f3fb9fee622a3
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818237"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989700"
 ---
 # <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>从 Azure 存储收集 Azure 诊断日志
 
@@ -195,7 +196,7 @@ Azure 诊断是用于从 Azure 中运行的辅助角色、Web 角色或虚拟机
 
 
 ## <a name="next-steps"></a>后续步骤
-* 针对支持的 Azure 服务[收集 Azure 服务的日志和指标](collect-azure-metrics-logs.md)。
+* 针对支持的 Azure 服务[收集 Azure 服务的日志和指标](diagnostic-logs-stream-log-store.md)。
 * [启用解决方案](../../azure-monitor/insights/solutions.md)深入分析数据。
 * [使用搜索查询](../../azure-monitor/log-query/log-query-overview.md)分析数据。
 

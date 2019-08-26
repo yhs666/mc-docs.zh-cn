@@ -4,16 +4,17 @@ description: Azure Monitor 使用 Kubernetes 群集上的服务网格技术 Isti
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e88c9b529752d3cea1789025e08cedc2e3853572
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fc7e7b8eb735200335ed8cb02a70d4e812eec52c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818351"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989628"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 托管应用程序的零检测应用程序监视
 
@@ -31,7 +32,7 @@ Azure Monitor 现在使用 Kubernetes 群集上的服务网格技术提供针对
 - 一个 [Kubernetes 群集](/aks/concepts-clusters-workloads)。
 - 可在控制台中访问群集，以运行 *kubectl*。
 - 一个 [Application Insights 资源](create-new-resource.md)。
-- 有一个服务网格 如果群集中未部署 Istio，你可以了解如何[在 Azure Kubernetes 服务中安装和使用 Istio](/aks/istio-install)。
+- 有一个服务网格 如果群集中未部署 Istio，你可以了解如何[在 Azure Kubernetes 服务中安装和使用 Istio](https://docs.microsoft.com/azure/aks/istio-install)。
 
 ## <a name="capabilities"></a>功能
 

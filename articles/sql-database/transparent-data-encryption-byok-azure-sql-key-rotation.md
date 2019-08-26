@@ -12,17 +12,19 @@ ms.author: v-jay
 ms.reviewer: vanto
 manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/15/2019
-ms.openlocfilehash: 223a365d48d61c1d65b12621e56c0cc6b3e02e81
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.date: 08/26/2019
+ms.openlocfilehash: 5b123680b1cbc2fea2602d6ea9e46592bbdda838
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529503"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578518"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>使用 PowerShell 轮换透明数据加密 (TDE) 保护器
 
 本文介绍使用 Azure Key Vault 中的 TDE 保护器针对 Azure SQL Server 进行的密钥轮换。 轮换 Azure SQL Server 的 TDE 保护器意味着切换到新的非对称密钥，后者可以对服务器上的数据库进行保护。 密钥轮换是一种联机操作，应该只需数秒即可完成，因为只需在解密数据库的数据加密密钥后重新将其加密即可，不需对整个数据库进行操作。
+
+本指南介绍在服务器上轮换 TDE 保护器的两个选项。
 
 > [!NOTE]
 > 在密钥轮换之前，必须恢复暂停的 SQL 数据仓库。
@@ -68,7 +70,8 @@ ms.locfileid: "59529503"
    -ServerName <LogicalServerName> `
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
-  
+
+
 ## <a name="other-useful-powershell-cmdlets"></a>其他有用的 PowerShell cmdlet
 
 - 若要将 TDE 保护器从 Microsoft 托管模式切换到 BYOK 模式，请使用 [Set-AzSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet。

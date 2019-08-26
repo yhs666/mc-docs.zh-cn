@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 5ace9af69dc41a5450a855ddc30019c852bbba9a
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 4caa617dba8cb28e75f830edada48e9a1f707a16
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627746"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993120"
 ---
 > [!div class="op_single_selector"]
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-c2d.md)
+> * [.NET](../articles/iot-hub/iot-hub-csharp-csharp-c2d.md)
 > * [Java](../articles/iot-hub/iot-hub-java-java-c2d.md)
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-c2d.md)
 > * [Python](../articles/iot-hub/iot-hub-python-python-c2d.md)

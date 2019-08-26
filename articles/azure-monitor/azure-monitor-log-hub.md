@@ -5,16 +5,17 @@ title: Azure Monitor 日志数据文档 | Microsoft Docs
 description: Azure Monitor 可以收集不同的数据源作为日志数据，将其存储以进行关联并使用其查询语言进行分析。
 author: lingliw
 manager: carmonm
+origin.date: 08/22/2019
 ms.service: azure-monitor
 ms.topic: hub-page
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9dcaaf223d5c2954b92b85924791aad5d6010018
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: dae684e2d815e20cd40f3cbb3aee8b0a794483e3
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562991"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989407"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -48,7 +49,7 @@ ms.locfileid: "67562991"
                                                                     <h3>了解基础知识</h3> 
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">Azure Monitor 是什么？</a><br/>
-                                                                        <a href="/azure/azure-monitor/azure-monitor-rebrand">品牌更改</a><br/>
+                                                                        <a href="/azure/azure-monitor/terminology">品牌更改</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/data-sources">监视数据源</a><br/>
                                                                         <a href="/azure/azure-monitor/platform/service-providers">服务提供程序的设计注意事项</a><br/>
                                                                     </p>
@@ -136,7 +137,7 @@ ms.locfileid: "67562991"
                                                         <p>
                                                             <a href="/azure/azure-monitor/log-query/get-started-queries">查询入门</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/search-queries">了解日志查询</a><br/>
-                                                            <a href="/azure/azure-monitor/log-query/portals">日志查询门户</a><br/>
+                                                            <a href="/azure/azure-monitor/log-query/log-query-overview">日志查询门户</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/query-language">日志查询语言参考</a><br/>
                                                             <a href="/azure/azure-monitor/log-query/cross-workspace-query">跨资源查询</a><br/>
                                                         </p>

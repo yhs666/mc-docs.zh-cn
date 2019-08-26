@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: overview
 origin.date: 07/01/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: dbedb1cc675fb863a80e4c6dd0c90c11444da859
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: 1b5db46fe77d3170f623a289da5537bec259560f
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308837"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993333"
 ---
 # <a name="what-is-azure-analysis-services"></a>什么是 Azure Analysis Services？
 
@@ -32,17 +32,16 @@ Azure Analysis Services 是一个完全托管的平台即服务 (PaaS)，它在�
 
 <!-- Not Available VIDEO on [Automating deployent](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation)-->
 
-Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 用于模型的轻型业务流程。 
-
-<!-- Not Available on [Azure Data Factory](../data-factory/introduction.md)-->
+Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的分析解决方案。 集成 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 后可以对关键数据进行安全的基于角色的访问。 只需包括一项将数据加载到模型中的活动，即可集成 [Azure 数据工厂](../data-factory/introduction.md)管道。 可通过自定义代码将 [Azure 自动化](../automation/automation-intro.md)和 [Azure Functions](../azure-functions/functions-overview.md) 用于模型的轻型业务流程。 
 
 ## <a name="the-right-tier-when-you-need-it"></a>符合需要的层级
 
-可在基本层  和标准层  中使用 Azure Analysis Services。 每个层中的计划成本因处理能力、QPU 数和内存大小而异。 创建服务器时，会在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
-
 <!--MOONCAKE Not Available on **Developer** -->
 
+可在基本层  和标准层  中使用 Azure Analysis Services。 每个层中的计划成本因处理能力、QPU 数和内存大小而异。 创建服务器时，会在层内选择计划。 可以在同一层内上下更改计划，或者升级到更高的层，但不能从较高的层降级到较低的层。
+
 <!--MOONCAKE Not Available on ### Developer tier-->
+
 ### <a name="basic-tier"></a>基本层
 
 建议在具有小型表格模型的生产解决方案、限制用户并发性和要求简单数据刷新的场合下使用该层。 查询副本横向扩展不适用于此层。  此层不支持透视图、多个分区和 DirectQuery 表格模型功能。   
@@ -74,7 +73,7 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 
 ### <a name="china"></a>中国
 
-|区域  | 支持的计划 |查询副本（仅限标准计划） |
+|区域  | 支持的计划 | 查询副本（仅限标准计划） |
 |---------|---------|---------|
 |中国北部     |    B1, B2, S0, S1, S2, S4    | 1 |
 
@@ -90,6 +89,8 @@ Azure Analysis Services 集成许多 Azure 服务，因此可以生成复杂的�
 ### <a name="scale-out-resources-for-fast-query-responses"></a>进行快速查询响应的横向扩展资源
 
 启用横向扩展后，客户端查询就会分布在查询池中的多个查询副本中。  查询副本已同步表格模型的副本。 可以通过分散查询工作负荷，缩短查询工作负荷高峰期间的响应时间。 可以将模型处理操作与查询池分开，确保客户端查询不受处理操作的负面影响。 
+
+<!--MOONCAKE: Replicas is one on China-->
 
 创建查询池时，最多可以有一个其他的查询副本（总共为两个，包括你自己的服务器在内）。 可以在池中创建的查询副本数取决于所选的计划和区域。 查询副本不能分散到服务器区域的外部。 查询副本的计费方式与服务器相同。
 
@@ -107,7 +108,7 @@ Azure Analysis Services 兼容 SQL Server Analysis Services Enterprise Edition �
 
 支持内存中模式和 DirectQuery 模式的表格模型。 内存中模式（默认）表格模型支持多个数据源。 由于模型数据经过高度压缩并缓存在内存中，因此，此模式可针对大量数据提供最快的查询响应。 此外，它还针对复杂数据集和查询提供最高的灵活性。 分区可以实现增量加载、提高并行度，并减少内存消耗。 其他高级数据建模功能（例如计算表）和所有 DAX 函数均受支持。 必须刷新（处理）内存中模型才能更新数据源中的缓存数据。 借助 Azure 服务主体支持，使用 PowerShell、TOM、TMSL 和 REST 的无人参与刷新操作可灵活确保模型数据始终保持最新。 
 
-DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 支持单个 SQL Server、SQL Server 数据仓库、Azure SQL 数据库、Azure SQL 数据仓库、Oracle 和 Teradata 数据源中的极大型数据集。 后端数据集可以超出可用的服务器资源内存。 不需要复杂的数据模型刷新方案。 此外还存在一些限制（例如，受限的数据源类型、DAX 公式限制），并且某些高级数据建模功能不受支持。 在确定最合适的模式之前，请参阅[直接查询模式](https://docs.microsoft.com/sql/analysis-services/tabular-models/directquery-mode-ssas-tabular)。
+DirectQuery 模式* 利用后端关系数据库进行存储和查询执行。 支持单个 SQL Server、SQL Server 数据仓库、Azure SQL 数据库、Azure SQL 数据仓库、Oracle 和 Teradata 数据源中的极大型数据集。 后端数据集可以超出可用的服务器资源内存。 不需要复杂的数据模型刷新方案。 此外还存在一些限制（例如，受限的数据源类型、DAX 公式限制），并且某些高级数据建模功能不受支持。 在确定最合适的模式之前，请参阅[直接查询模式](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular)。
 
 \* 功能是否可用取决于层。
 
@@ -145,7 +146,7 @@ Azure Analysis Services 使用 Azure Blob 存储来持久保留 Analysis Service
 
 ### <a name="roles"></a>角色
 
-Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/sql/analysis-services/tabular-models/roles-ssas-tabular)，授予对服务器和模型数据库操作、对象与数据的访问权限。 访问服务器或数据库的所有用户都在分配的角色中使用其 Azure AD 用户帐户执行此操作。 服务器管理员角色位于服务器资源级别。 默认情况下，创建服务器时使用的帐户将自动包含在服务器管理员角色中。 使用门户、SSMS 或 PowerShell 添加其他用户和组帐户。
+Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/analysis-services/tabular-models/roles-ssas-tabular)，授予对服务器和模型数据库操作、对象与数据的访问权限。 访问服务器或数据库的所有用户都在分配的角色中使用其 Azure AD 用户帐户执行此操作。 服务器管理员角色位于服务器资源级别。 默认情况下，创建服务器时使用的帐户将自动包含在服务器管理员角色中。 使用门户、SSMS 或 PowerShell 添加其他用户和组帐户。
 
 通过数据库角色向查询数据的非管理最终用户授予访问权限。 数据库角色作为数据库中的单独对象创建，并且仅适用于创建该角色的数据库。 数据库角色按（数据库）“管理员”、“读取”与“读取和处理”权限来定义。 使用 SSMS 或 PowerShell 添加用户和组帐户。
 
@@ -155,7 +156,7 @@ Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/sql/a
 
 ### <a name="object-level-security"></a>对象级安全性 
 
-1400 兼容级别的表格模型支持对象级安全性，包括表级安全性和列级安全性。 对象级安全性是使用 TMSL 或 TOM 在 Model.bim 文件中基于 JSON 的元数据内设置的。 有关详细信息，请参阅[对象级安全性](https://docs.microsoft.com/sql/analysis-services/tabular-models/object-level-security)。
+1400 兼容级别的表格模型支持对象级安全性，包括表级安全性和列级安全性。 对象级安全性是使用 TMSL 或 TOM 在 Model.bim 文件中基于 JSON 的元数据内设置的。 有关详细信息，请参阅[对象级安全性](https://docs.microsoft.com/analysis-services/tabular-models/object-level-security)。
 
 ### <a name="automation-through-service-principals"></a>通过服务主体进行自动化
 
@@ -164,7 +165,7 @@ Analysis Services 使用[基于角色的授权](https://docs.microsoft.com/sql/a
 ### <a name="azure-governance"></a>Azure 监管
 
 Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)和 [Microsoft 隐私声明](https://privacy.microsoft.com/privacystatement)的约束。
-若要详细了解 Azure 安全性，请参阅 [Azure 信任中心](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。
+若要详细了解 Azure 安全性，请参阅 [Azure 信任中心](https://www.trustcenter.cn/cloudservices/azure.html)。
 
 ## <a name="use-the-tools-you-already-know"></a>使用熟悉的工具
 
@@ -186,9 +187,7 @@ Azure Analysis Services 受 [Microsoft 联机服务条款](https://www.microsoft
 
 ### <a name="object-model-and-scripting"></a>对象模型和脚本
 
-表格模型提供快速开发功能，其自定义程度可以很高。 表格模型包括用于描述模型对象的[表格对象模型](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 通过[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) 在 JSON 中公开，通过 [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.analysisservices.tabular?view=analysisservices-dotnet) 命名空间在 AMO 数据定义语言中公开。 
-
-<!--MOONCAKE URL correct on [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.analysisservices.tabular?view=analysisservices-dotnet)-->
+表格模型提供快速开发功能，其自定义程度可以很高。 表格模型包括用于描述模型对象的[表格对象模型](https://docs.microsoft.com/bi-reference/tom/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM)。 TOM 通过[表格模型脚本语言 (TMSL)](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) 在 JSON 中公开，通过 [Microsoft.AnalysisServices.Tabular](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.tabular) 命名空间在 AMO 数据定义语言中公开。 
 
 ## <a name="supports-the-latest-client-tools"></a>支持最新的客户端工具
 
@@ -203,13 +202,13 @@ Azure Analysis Services 与 Azure 指标集成，提供多种多样的资源特�
 <!--Not Avaialble on  [Azure Monitor logs](https://www.azure.cn/home/features/log-analytics/)-->
 <!--Not Avaialble on  [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite)-->
 
-Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/sql/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
+Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.microsoft.com/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services)。 DMV 基于 SQL 语法，能够与返回元数据和监视有关服务器实例的信息的架构行集相对接。
 
 ## <a name="documentation"></a>文档
 
 本部分列出了特定于 Azure Analysis Services 的文档。 使用浏览器屏幕左侧的目录可查找文章。 
 
-由于 Azure Analysis Services 表格模型与 SQL Server Analysis Services 中的表格模型非常类似，因此可以参考 [SQL Server Analysis Services文档](https://docs.microsoft.com/sql/analysis-services/analysis-services)中分享的众多概念性、过程性、开发人员和参考文章库。 SQL Server Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。
+由于 Azure Analysis Services 表格模型与 SQL Server Analysis Services 中的表格模型非常类似，因此可以参考 [SQL Server Analysis Services文档](https://docs.microsoft.com/analysis-services/analysis-services-overview)中分享的众多概念性、过程性、开发人员和参考文章库。 SQL Server Analysis Services 文档中的文章在标题下方的“适用于”段落中说明了它们是否也适用于 Azure Analysis Services。
 
 ![分享的文档](./media/analysis-services-overview/aas-overview-applies-to.png)
 
@@ -219,9 +218,8 @@ Azure Analysis Services 还支持使用[动态管理视图 (DMV)](https://docs.m
 
 ![分享的文档](./media/analysis-services-overview/aas-overview-edit.png)
 
-文档团队会审查你的供稿，如果获得批准，你的 GitHub 帐户名会显示为供稿人。
+文档团队会审查你的供稿，如果获得批准，你的 GitHub 帐户名会显示为供稿人。 有关详细信息，请参阅[文档供稿人指南](https://docs.microsoft.com/contribute/)。
 
-<!--Not Avaible on [Docs contributor guide](/contribute/)-->
 <!--Not Suitable on [GitHub Issues](https://docs.microsoft.com/zh-cn/teamblog/a-new-feedback-system-is-coming-to-docs)-->
 <!-- Not Available on ## Blogs-->
 <!-- Not Available on ## Community-->

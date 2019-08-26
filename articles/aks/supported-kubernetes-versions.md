@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 05/20/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 77794046a55898f72afdb1d3ca469ad29e75a51a
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 0c271231dc11bb398abd36f1726b6f6b862cf0db
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731204"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993483"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中支持的 Kubernetes 版本
 
@@ -63,9 +63,16 @@ AKS 支持以下四个 Kubernetes 次要版本：
 
 引入新的次要版本后，支持的最早次要版本和修补程序版本将被弃用并删除。 例如，如果当前支持的版本列表为：
 
-<a name="supported-version-list"></a>支持的版本列表
-----------------------
-1.12.a、1.12.b、1.11.a、1.11.b、1.10.a、1.10.b、1.9.a、1.9.b
+```
+1.12.a
+1.12.b
+1.11.a
+1.11.b
+1.10.a
+1.10.b
+1.9.a
+1.9.b
+```
 
 而 AKS 发布了 1.13.x，则意味着，1.9.x 版本（所有 1.9 版本）将被删除并停止支持。
 
@@ -74,15 +81,19 @@ AKS 支持以下四个 Kubernetes 次要版本：
 
 除了上述次要版本以外，AKS 还支持给定次要版本的两个最新修补程序* 版本。  例如，假设支持的版本如下：
 
-<a name="supported-version-list"></a>支持的版本列表
-----------------------
-1.12.1、1.12.2、1.11.4、1.11.5
+```
+Current Supported Version List
+------------------------------
+1.12.1, 1.12.2, 1.11.4, 1.11.5
+```
 
 如果上游 Kubernetes 发布了 1.12.3 和 1.11.6，而 AKS 发布了这些修补程序版本，则最早的修补程序版本将被弃用并删除，支持的版本列表现为：
 
-<a name="supported-version-list"></a>支持的版本列表
+```
+New Supported Version List
 ----------------------
-1.12.*2*、1.12.*3*、1.11.*5*、1.11.*6*
+1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
+```
 
 > [!NOTE]
 > 客户不应将群集创建、CI 或其他自动化作业限定为特定的修补程序版本。 
@@ -133,13 +144,14 @@ az aks get-versions --location chinaeast2 --output table
 ```
 KubernetesVersion    Upgrades
 -------------------  ------------------------
-1.13.5               None available
-1.12.7               1.13.5
-1.12.6               1.12.7, 1.13.5
-1.11.9               1.12.6, 1.12.7
-1.11.8               1.11.9, 1.12.6, 1.12.7
-1.10.13              1.11.8, 1.11.9
-1.10.12              1.10.13, 1.11.8, 1.11.9
+1.14.5               None available
+1.13.9               1.14.5
+1.12.8               1.13.9
+1.12.7               1.12.8, 1.13.9
+1.11.10              1.12.7, 1.12.8
+1.11.9               1.11.10, 1.12.7, 1.12.8
+1.10.13              1.11.9, 1.11.10
+1.10.12              1.10.13, 1.11.9, 1.11.10
 ```
 
 ## <a name="faq"></a>常见问题
@@ -174,10 +186,12 @@ KubernetesVersion    Upgrades
 有关如何升级群集的信息，请参阅[升级 Azure Kubernetes 服务 (AKS) 群集][aks-upgrade]。
 
 <!-- LINKS - External -->
+
 [aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://www.azure.cn/what-is-new/
 
 <!-- LINKS - Internal -->
+
 [aks-upgrade]: upgrade-cluster.md
 [az-aks-get-versions]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
 

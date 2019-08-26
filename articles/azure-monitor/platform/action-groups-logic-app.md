@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: dd644ab4e1df388b737ad0c023336faff905fe41
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: ca99af5ba0922c43577f96a2dcf4c0af41a68fae
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562481"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989594"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>如何使用 Azure Monitor 警报触发复杂操作
 
@@ -296,5 +296,5 @@ Azure Service Health 条目包含在活动日志中。 创建警报的过程类�
 
 ## <a name="next-steps"></a>后续步骤
 * 参阅 [Azure 活动日志警报概述](../../azure-monitor/platform/alerts-overview.md)，了解如何接收警报。  
-* 了解如何[配置发布 Azure 服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+* 了解如何[配置发布 Azure 服务运行状况通知时的警报](/service-health/alerts-activity-log-service-notifications)。
 * 详细了解[操作组](../../azure-monitor/platform/action-groups.md)。

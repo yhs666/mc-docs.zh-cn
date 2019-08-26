@@ -3,8 +3,8 @@ title: 教程 - 在 Azure AD 权利管理（预览版）中创建第一个访问
 description: 有关如何在 Azure Active Directory 权利管理（预览版）中创建第一个访问包的分步教程。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-origin.date: 04/27/2019
-ms.date: 08/09/2019
+origin.date: 07/23/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85c0a102f31a2722317eb7fb7cc14e4d83c11327
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: d665413062f3ca48fde54ff1d56e2519867683e0
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972860"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993361"
 ---
 # <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management-preview"></a>教程：在 Azure AD 权利管理（预览版）中创建第一个访问包
 
@@ -44,8 +44,6 @@ ms.locfileid: "68972860"
 > * 指定审批者
 > * 演示内部用户如何请求该访问包
 > * 审批访问请求
-
-如果你没有 Azure AD Premium P2 或企业移动性 + 安全性 E5 许可证，请创建一个免费的[企业移动性 + 安全性 E5 试用版](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -327,3 +325,4 @@ ms.locfileid: "68972860"
 > [!div class="nextstepaction"]
 > [常见方案](entitlement-management-scenarios.md)
 
+<!-- Update_Description: wording update -->

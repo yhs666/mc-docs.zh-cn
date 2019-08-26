@@ -2,29 +2,22 @@
 title: “Azure Active Directory 标识保护”通知 | Microsoft Docs
 description: 了解通知如何支持调查活动。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-editor: ''
-ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 12/07/2017
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9518a7f7b6e8225c21da405bc8e9b258196c736e
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 1602f056f51e16e1278fd0dbe35d5dfdd37a80cc
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973330"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993386"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>“Azure Active Directory 标识保护”通知
 
@@ -35,7 +28,6 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 本文概述了两种通知电子邮件。
 
-
 ## <a name="users-at-risk-detected-email"></a>检测到有风险的用户电子邮件
 
 当“Azure AD 标识保护”检测到帐户受到威胁时，会生成“检测到有风险的用户”  的警报电子邮件。 建议立即调查有风险的用户。
@@ -44,7 +36,6 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 ![检测到有风险的用户电子邮件](./media/notifications/01.png)
 
-
 ### <a name="configuration"></a>配置
 
 管理员可以设置：
@@ -52,11 +43,9 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 - **触发生成此电子邮件的用户风险级别** - 默认情况下，此风险级别设置为“高”风险。
 - **此邮件的收件人** - 收件人默认包括所有全局管理员。 全局管理员还可将其他全局管理员、安全管理员、安全读取者添加为收件人。  
 
-
 要打开相关对话框，请单击“标识保护”页中“设置”部分的“警报”    。
 
 ![检测到有风险的用户电子邮件](./media/notifications/05.png)
-
 
 ## <a name="weekly-digest-email"></a>每周摘要电子邮件
 
@@ -64,11 +53,8 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 其中包括：
 
 - 有风险的用户
-
 - 可疑活动
-
 - 检测到的漏洞
-
 - 指向“标识保护”中相关报告的链接
 
     ![补救](./media/notifications/400.png "补救")
@@ -83,8 +69,8 @@ Azure AD 标识保护会发送两种类型的自动生成的通知电子邮件�
 
 ![检测到有风险的用户电子邮件](./media/notifications/04.png)
 
-
 ## <a name="see-also"></a>另请参阅
 
 - [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
+<!-- Update_Description: update metedata properties -->

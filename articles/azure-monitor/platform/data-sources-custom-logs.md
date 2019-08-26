@@ -5,20 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: aca7f6bb-6f53-4fd4-a45c-93f12ead4ae1
 ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/19/2019
+ms.date: 07/26/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5c1e819c98e18e197936fa54a708cda048f7f9f9
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 95a28d507282e9fa2bf9c6f49396f98ad1b7cb1e
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514007"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989387"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor 中的自定义日志
 Azure Monitor 中的自定义日志数据源可以从 Windows 和 Linux 计算机上的文本文件中收集事件。 许多应用程序将信息记录到文本文件，而不是标准日志记录服务（例如 Windows 事件日志或 Syslog）。 在收集后，可以将数据分析到查询中的各个字段，或者在收集期间将数据提取到各个字段。
@@ -76,9 +77,6 @@ Azure Monitor 中的自定义日志数据源可以从 Windows 和 Linux 计算�
 
 例如，应用程序可能会每天创建日志文件，其日期包含在名称中，例如 log20100316.txt。 此类日志的模式可能是 *log\*.txt*，它将按照应用程序命名方案应用于任何日志文件。
 
->[!NOTE]
-> 如果应用程序每天或在日志达到一定大小时创建新的日志文件，则适用于 Linux 的 Log Analytics 代理在重启之前不会发现这些日志文件。 这是因为代理仅在启动时才通过指定的日志枚举并开始监视模式，因此需要通过自动重启代理来进行进一步的安排。  适用于 Windows 的 Log Analytics 代理不存在此限制。  
->
 
 下表提供了有效模式示例，用来指定不同的日志文件。
 

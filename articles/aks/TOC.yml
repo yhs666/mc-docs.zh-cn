@@ -116,6 +116,8 @@
           href: azure-files-dynamic-pv.md
         - name: Azure 文件 - 静态
           href: azure-files-volume.md
+        - name: NFS 服务器 - 静态
+          href: azure-nfs-volume.md
     - name: 配置网络
       items:
         - name: 创建虚拟网络或使用现有虚拟网络
@@ -144,6 +146,8 @@
                   href: ingress-static-ip.md
         - name: 出口流量
           href: egress.md
+        - name: 自定义 CoreDNS
+          href: coredns-custom.md
     - name: 安全性和身份验证
       items:
         - name: 创建服务主体
@@ -174,8 +178,6 @@
       items:
         - name: 使用 Helm 运行应用程序
           href: kubernetes-helm.md
-        - name: 使用 Draft 开发应用程序
-          href: kubernetes-draft.md
         - name: 使用 OpenFaaS
           href: openfaas.md
         - name: 运行 Spark 作业
@@ -203,13 +205,13 @@
 - name: 引用
   items:
     - name: Azure CLI
-      href: 'https://docs.microsoft.com/zh-cn/cli/azure/aks?view=azure-cli-latest'
+      href: 'https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/aks'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.aks#aks'
     - name: .NET
-      href: 'https://docs.microsoft.com/zh-cn/dotnet/api/overview/azure/containerservice'
+      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/containerservice'
     - name: Python
       href: /python/api/overview/azure/containerservice
     - name: Java
@@ -223,7 +225,7 @@
     - name: 支持策略
       href: support-policies.md
     - name: 提供产品反馈
-      href: 'https://www.azure.cn/support/contact/'
+      href: 'https://support.azure.cn/support/contact/'
     - name: 视频
       href: 'https://www.azure.cn/video-center/'
     - name: 常见问题解答

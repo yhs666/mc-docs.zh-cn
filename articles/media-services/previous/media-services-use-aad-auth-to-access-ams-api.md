@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 04/01/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: d1fd7d526ee84fbc9274e6f5dd02d9655d3c119a
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 2991ad32ec908f425d73d5106656c9ce023144a8
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390747"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69671007"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>通过 Azure AD 身份验证访问 Azure 媒体服务 API  
 
@@ -77,13 +77,13 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
        可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
    * 媒体服务资源 URI。 
 
-       对于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn)。
+       对于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn) 。
 
    * 媒体服务（本机）应用程序客户端 ID。
    * 媒体服务（本机）应用程序重定向 URI。
    * REST 媒体服务的资源 URI。
         
-       该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
+       该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/) 。
 
      若要获取这些参数的值，请参阅[使用 Azure 门户访问 Azure AD 身份验证设置](media-services-portal-get-started-with-aad.md)（使用用户身份验证选项）。
 
@@ -119,11 +119,11 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
        可以在 Azure 门户中检索租户信息。 将光标悬停在右上角的登录用户名之上。
    * 媒体服务资源 URI。 
 
-       对于位于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn)。
+       对于位于同一 Azure 环境中的媒体服务帐户，此 URI 相同（例如， https://rest.media.chinacloudapi.cn) 。
 
    * REST 媒体服务的资源 URI。
 
-       该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/)。
+       该 URI 表示 REST API 终结点（例如， https://test03.restv2.chinanorth.media.chinacloudapi.cn/api/) 。
 
    * Azure AD 应用程序值：客户端 ID和客户端机密。
     
@@ -148,7 +148,7 @@ Azure 媒体服务 API 是 RESTful API。 可用于通过 REST API 或可用的�
 下面的文章概述了 Azure AD 身份验证概念： 
 
 - [Azure AD 解决的身份验证方案](../../active-directory/develop/authentication-scenarios.md)
-- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/quickstart-register-app.md)
+- [在 Azure AD 中添加、更新或删除应用程序](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [使用 PowerShell 配置和管理基于角色的访问控制](../../role-based-access-control/role-assignments-powershell.md)
 
 ## <a name="next-steps"></a>后续步骤

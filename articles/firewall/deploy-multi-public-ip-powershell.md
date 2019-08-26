@@ -5,27 +5,24 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 07/10/2019
-ms.date: 07/22/2019
+origin.date: 07/19/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: ffec26b7370d4eac86dc1916fd1dc9587e0e0378
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a7e5e1dc7a5e5ca293e7ee977d19f780b3038dcf
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337560"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993559"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>使用 Azure PowerShell 部署具有多个公共 IP 地址的 Azure 防火墙
-
-> [!IMPORTANT]
-> 可通过 Azure PowerShell、Azure CLI、REST 和模板来使用具有多个公共 IP 地址的 Azure 防火墙。 门户用户界面将以增量方式添加到区域，并在完成推出时在所有区域均可用。
-
-可以部署最多具有 100 个公共 IP 地址的 Azure 防火墙。
 
 此功能支持以下方案：
 
 - **DNAT** - 可将多个标准端口实例转换为后端服务器。 例如，如果你有两个公共 IP 地址，可以转换这两个 IP 地址的 TCP 端口 3389 (RDP)。
 - **SNAT** - 其他端口可用于出站 SNAT 连接，以减少 SNAT 端口耗尽的可能性。 目前，Azure 防火墙会随机选择用于建立连接的源公共 IP 地址。 如果你在网络中进行任何下游筛选，则需要允许与防火墙关联的所有公共 IP 地址。
+
+可通过 Azure 门户、Azure PowerShell、Azure CLI、REST 和模板来使用具有多个公共 IP 地址的 Azure 防火墙。 可以部署最多具有 100 个公共 IP 地址的 Azure 防火墙。
 
 以下 Azure PowerShell 示例显示如何配置、添加和删除 Azure 防火墙的公共 IP 地址。
 

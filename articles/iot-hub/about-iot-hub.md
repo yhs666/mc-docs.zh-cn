@@ -3,20 +3,20 @@ title: Azure IoT 中心简介
 description: 了解 Azure IoT 中心。 此 IoT 服务针对可缩放数据引入、设备管理和安全性而构建。
 author: nberdy
 ms.author: v-yiso
-origin.date: 07/04/2018
-ms.date: 07/15/2018
+origin.date: 08/08/2019
+ms.date: 09/02/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-hub
 documentationcenter: ''
 manager: timlt
 ms.devlang: na
-ms.openlocfilehash: fcb7e1248f36eb32581726efddc71b7a81dd079c
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 674de4f41b19e0d6b66fc5a1c0c31f307db6711b
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569960"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993454"
 ---
 # <a name="what-is-azure-iot-hub"></a>Azure IoT 中心是什么？
 
@@ -56,6 +56,7 @@ IoT 中心为发送数据的设备提供保护信道。
 
 可以将 IoT 中心与其他 Azure 服务集成，生成完整的端对端解决方案。 例如，使用：
 
+* [Azure 事件网格](/event-grid/)，可以采用可靠、可缩放且安全的方式快速地让你的业务响应关键事件。
 * [Azure 逻辑应用](/logic-apps/)，可以自动执行业务流程。
 
 * [Azure 流分析](https://docs.microsoft.com/azure/stream-analytics/)，可从设备对数据流执行实时分析计算。
@@ -99,7 +100,7 @@ IoT 中心和设备 SDK 支持用于连接设备的以下协议：
 
 ## <a name="quotas-and-limits"></a>配额和限制
 
-每个 Azure 订阅都有默认的配额限制以防止服务滥用，并且这些限制可能会影响 IoT 解决方案的作用域。 每个订阅的当前限制是每个订阅 50 个 IoT 中心。 可以通过联系支持人员，请求增加配额。 有关配额限制的更多详细信息，请参阅：
+每个 Azure 订阅都有默认的配额限制以防止服务滥用，并且这些限制可能会影响 IoT 解决方案的作用域。 每个订阅的当前限制是每个订阅 50 个 IoT 中心。 可以通过联系支持人员，请求增加配额。 有关详细信息，请参阅 [IoT 中心配额和限制](iot-hub-devguide-quotas-throttling.md)。 有关配额限制的详细信息，请参阅以下文章之一：
 
 * [Azure 订阅服务限制](../azure-subscription-service-limits.md)
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)（IoT 中心限制和你）

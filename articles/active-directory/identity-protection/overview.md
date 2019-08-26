@@ -2,28 +2,22 @@
 title: Azure Active Directory 标识保护 | Microsoft Docs
 description: 了解如何使用 Azure AD 标识保护来限制攻击者利用已泄露标识或设备的能力，以及保护之前怀疑或已知受到威胁的标识或设备。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 origin.date: 01/29/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a57cfb0227220b65e645c4480e0ade50e9421ff4
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 50ba7211fbb346780e371a9d7b90b1b341522e1e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973320"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993379"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Azure Active Directory 标识保护是什么？
 
@@ -38,7 +32,6 @@ Microsoft 在基于云的标识保护方面拥有数十载的经验。 通过 Az
 因此需要：
 
 - 保护任何权限级别的所有标识
-
 - 主动防止滥用遭到入侵的标识
 
 发现标识是否遭到入侵并不容易。 Azure Active Directory 使用自适应机器学习算法和试探法来检测异常和可疑事件，这些事件能指示可能遭到入侵的标识。 “标识保护”使用此数据生成报告和警报，使你能够评估检测到的问题并采取相应的缓解措施或补救措施。
@@ -120,3 +113,4 @@ Azure Active Directory 使用自适应机器学习算法和试探法来检测与
 - [第 9 频道：Azure AD 和标识展示：“标识保护”预览版](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 - [启用 Azure Active Directory 标识保护](enable.md)
 
+<!-- Update_Description: update metedata properties -->

@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/20/2019
 ms.date: 07/29/2019
-ms.openlocfilehash: 2c316de7a637d2d42220a3d941b63dec36c1622f
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: c0d33cbea47a6f1a6b8e39e6ceaeb540e3fa1964
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514335"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578613"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Azure Cosmos DB 中的一致性级别
 
@@ -81,7 +81,9 @@ Azure Cosmos 容器保存客队和主队的本垒打总次数。 当比赛正在
 若要详细了解一致性的概念，请阅读以下文章：
 
 - [Azure Cosmos DB 提供的五个一致性级别的高级 TLA+ 规范](https://github.com/Azure/azure-cosmos-tla)
+    
     <!--Not Available on - [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)-->
+
 - [Doug Terry 借助棒球阐释复制数据一致性（白皮书）](https://www.microsoft.com/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
 - [弱一致性重复数据的会话保证](https://dl.acm.org/citation.cfm?id=383631)
 - [现代分布式数据库系统设计中的一致性利弊：CAP 只是冰山一角](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)

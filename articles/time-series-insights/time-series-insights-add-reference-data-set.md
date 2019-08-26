@@ -9,14 +9,15 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/13/2019
+origin.date: 06/26/2019
+ms.date: 09/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: b021d540156e53012ce24ece052cd27d54133c9a
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 982016eb60bfa1a5b59d846851cac669975d896e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456458"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993539"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>使用 Azure 门户为时序见解环境创建引用数据集
 
@@ -38,35 +39,35 @@ ms.locfileid: "67456458"
 
 1. 在 TSI 资源管理器中展开环境选择器。 选择活动的环境。 选择资源管理器页面右上角的参考数据图标。
 
-   [![添加参考数据](media/add-reference-data-set/add_reference_data.png)](media/add-reference-data-set/add_reference_data.png#lightbox)
+   [![添加参考数据](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
 
 1. 选择“+ 添加数据集”  按钮以开始添加新数据集。
 
-   [![添加数据集](media/add-reference-data-set/add_data_set.png)](media/add-reference-data-set/add_data_set.png#lightbox)
+   [![添加数据集](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
 
 1. 在“新建参考数据集”  页面上，选择数据格式：
    - 选择“CSV”  表示以逗号分隔的数据。 第一行被视为标题行。
    - 选择“JSON 数组”  表示 javascript 对象表示法 (JSON) 格式的数据。
 
-   [![选择数据格式。](media/add-reference-data-set/add_data.png)](media/add-reference-data-set/add_data.png#lightbox)
+   [![选择数据格式。](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
 
 1. 使用下列两种方法之一提供数据：
    - 将数据粘贴到文本编辑器中。 然后，选择“分析参考数据”  按钮。
    - 选择“选择文件”  按钮来从本地文本文件添加数据。
 
-   例如，粘贴 CSV 数据：[![粘贴的 CSV 数据](media/add-reference-data-set/csv_data_pasted.png)](media/add-reference-data-set/csv_data_pasted.png#lightbox)
+   例如，粘贴 CSV 数据：[![粘贴的 CSV 数据](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
 
-   例如，粘贴 JSON 数组数据：[![粘贴 JSON 数据](media/add-reference-data-set/json_data_pasted.png)](media/add-reference-data-set/json_data_pasted.png#lightbox)
+   例如，粘贴 JSON 数组数据：[![粘贴 JSON 数据](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
 
    如果分析数据值时发生错误，则错误将以红色显示在页面底部，例如 `CSV parsing error, no rows extracted`。
 
 1. 在成功分析数据后，会显示一个数据网格，其中显示了表示数据的行和列。  查看数据网格以确保正确性。
 
-   [![添加参考数据](media/add-reference-data-set/parse_data.png)](media/add-reference-data-set/parse_data.png#lightbox)
+   [![添加参考数据](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
 
 1. 检查每个列以查看采用的数据类型，并根据需要更改数据类型。  在列标题中选择数据类型符号： **#** 表示双精度（数字数据）、**T|F** 表示布尔值，**Abc** 表示字符串。
 
-   [![在列标题上选择数据类型。](media/add-reference-data-set/choose_datatypes.png)](media/add-reference-data-set/choose_datatypes.png#lightbox)
+   [![在列标题上选择数据类型。](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
 
 1. 如果需要，重命名列标题。 键列名称是联接到事件源中的对应属性所必需的。 请确保参考数据键列名称与传入数据中的事件名称完全匹配，包括区分大小写。 非键列名称用来使用对应的参考数据值增强传入数据。
 
@@ -76,17 +77,17 @@ ms.locfileid: "67456458"
 
 1. 通过填写数据网格上方的“数据集名称”  字段为数据集命名。
 
-    [![为数据集命名。](media/add-reference-data-set/name_reference_dataset.png)](media/add-reference-data-set/name_reference_dataset.png#lightbox)
+    [![为数据集命名。](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
 
 1. 通过选择数据网格上方的下拉列表，提供数据集中的**主键**列。
 
-    [![选择键列。](media/add-reference-data-set/set_primary_key.png)](media/add-reference-data-set/set_primary_key.png#lightbox)
+    [![选择键列。](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
 
     （可选）选择 **+** 按钮来将一个辅键列添加为复合主键。 如果需要撤消选择，请从下拉列表中选择空值来删除辅键。
 
 1. 若要上传数据，请选择“上传行”  按钮。
 
-    [![上传](media/add-reference-data-set/upload_rows.png)](media/add-reference-data-set/upload_rows.png#lightbox)
+    [![上传](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
 
     页面会确认完成的上传并显示消息“已成功上传数据集”。 
 

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 04/22/2019
 origin.date: 07/08/2019
-ms.openlocfilehash: 2e343996007e68dd8ba73794fac025a8e42ce941
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 7190b2982cbee1f172cbf3e99663818508cf3fc4
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456501"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993148"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>快速入门：浏览 Azure 时序见解预览版演示环境
 
@@ -27,11 +27,12 @@ ms.locfileid: "67456501"
 
 本快速入门介绍如何使用时序见解在 Contoso 数据中找到可行的见解。 此外，你还执行一项简单的根本原因分析，以便更好地预测严重故障和执行维护。
 
+> [!IMPORTANT]
+> 如果没有 Azure 帐户，请创建一个 [试用的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial) 。
 ## <a name="explore-the-time-series-insights-explorer-in-a-demo-environment"></a>在演示环境中浏览时序见解资源管理器
 
 时序见解预览版资源管理器演示历史数据和根本原因分析。 开始操作：
 
-1. 如果没有 Azure 帐户，请创建一个 [试用的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial) 。
 
 1. 转到  [Contoso 风力发电厂演示](https://insights.timeseries.azure.com/preview/samples)环境。  
 
@@ -74,10 +75,9 @@ ms.locfileid: "67456501"
 
 使用时序见解和传感器遥测数据，我们发现历史数据中隐藏着长期的有问题趋势。 使用这些新的见解，我们可以：
 
-> [!div class="checklist"]
-> * 解释实际发生了什么问题。
-> * 纠正问题。
-> * 部署高级警报通知系统。
+* 解释实际发生了什么问题。
+* 纠正问题。
+* 部署高级警报通知系统。
 
 ## <a name="root-cause-analysis"></a>根本原因分析
 
@@ -116,6 +116,13 @@ ms.locfileid: "67456501"
     * 更改显示内容，以将所有“发电机系统”传感器按同一图表比例叠加显示。 
 
       [![更改显示内容以包含所有信息](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## <a name="clean-up-resources"></a>清理资源
+
+现在你已完成本教程，请清除已创建的资源：
+
+1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”  ，找到“Azure 时序见解”资源组。
+1. 通过选择“删除”  来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
 
 ## <a name="next-steps"></a>后续步骤
 

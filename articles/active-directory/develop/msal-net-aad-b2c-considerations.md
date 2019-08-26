@@ -3,7 +3,7 @@ title: Azure AD B2C（适用于 .NET 的 Microsoft 身份验证库）| Azure
 description: 了解将 Azure AD B2C 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/24/2019
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccf538ff0c0ae05c9212a6f2e8541ad2d879b930
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: dbce2b97ceb4740e10dee2c3d6f21ce42ed8ef38
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305921"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993261"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>使用 MSAL.NET 通过社交标识将用户登录
 
@@ -127,7 +127,6 @@ private async void EditProfileButton_Click(object sender, RoutedEventArgs e)
 使用用户名/密码意味着会丧失许多功能：
 - 新式标识的核心租户：密码被盗用、重放。 我们的观点是共享机密可能会被截获。 此方法与无密码登录是不兼容的。
 - 需要执行 MFA 的用户将无法登录（因为没有交互）。
-- 用户无法执行单一登录。
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>在 Azure AD B2C 配置 ROPC 流
 在 Azure AD B2C 租户中创建一个新的用户流，然后选择“使用 ROPC 登录”。  这会为租户启用 ROPC 策略。 有关更多详细信息，请参阅[配置资源所有者密码凭据流](/active-directory-b2c/configure-ropc)。
@@ -172,7 +171,7 @@ MSAL.Net 支持[令牌缓存](/dotnet/api/microsoft.identity.client.tokencache?v
 或者，如果使用了 `B2C custom policies`，可以使用 `tid` 声明，因为这样可以提供向应用程序返回其他声明的功能。 
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>“在令牌响应中缺失”的缓解措施
-一种做法是使用“name”声明作为首选用户名。 [B2C 文档](/active-directory-b2c/active-directory-b2c-reference-policies#frequently-asked-questions)中提到了该过程 ->“在‘返回声明’列中，选择需要在成功获得配置文件编辑体验后发回到应用程序的授权令牌中返回的声明。 例如，选择‘显示名称’、‘邮政编码’。”
+一种做法是使用“name”声明作为首选用户名。 [B2C 文档](../../active-directory-b2c/active-directory-b2c-reference-policies.md)中提到了该过程 ->“在‘返回声明’列中，选择需要在成功获得配置文件编辑体验后发回到应用程序的授权令牌中返回的声明。 例如，选择‘显示名称’、‘邮政编码’。”
 
 ## <a name="next-steps"></a>后续步骤 
 
@@ -182,3 +181,4 @@ MSAL.Net 支持[令牌缓存](/dotnet/api/microsoft.identity.client.tokencache?v
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS、Xamarin Android、UWP | 一个简单的 Xamarin Forms 应用，演示如何使用 MSAL.NET 通过 Azure AD B2C 对用户进行身份验证，并使用生成的令牌访问 Web API。|
 
+<!-- Update_Description: link update -->

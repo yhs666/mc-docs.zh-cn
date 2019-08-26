@@ -1,7 +1,21 @@
 ---
- title: include 文件 description: include 文件 services: billing author: rothja ms.service: billing ms.topic: include origin.date: 05/18/2018 ms.date: 09/26/2018 ms.author: v-junlch ms.custom: include 文件
+title: include 文件
+description: include 文件
+services: billing
+author: rothja
+ms.service: billing
+ms.topic: include
+origin.date: 05/18/2018
+ms.date: 09/26/2018
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: 7cb7d0e12b2b0fdde7ebc38a291bfdd521132636
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578674"
 ---
-
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
 | 每个[订阅](https://www.azure.cn/pricing)的 vCPU 数量 <sup>1</sup> |20 |10,000 |

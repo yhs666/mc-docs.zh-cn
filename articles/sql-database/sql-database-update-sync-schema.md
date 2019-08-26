@@ -13,12 +13,12 @@ ms.reviewer: douglasl
 manager: digimobile
 origin.date: 09/20/2018
 ms.date: 12/31/2018
-ms.openlocfilehash: 4c2bd308ec402003dcccb7b3930256904cae248f
-ms.sourcegitcommit: e96e0c91b8c3c5737243f986519104041424ddd5
+ms.openlocfilehash: 0f5689b52fc618ca533e38fd7d8a083daf9ee294
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53806317"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578538"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>在 Azure SQL 数据同步中自动复制架构更改
 
@@ -97,23 +97,23 @@ CREATE TRIGGER SchemaChangesTrigger
 ON SchemaChanges
 AFTER INSERT
 AS
-DECLARE @lastAppliedId bigint
-DECLARE @id bigint
-DECLARE @sqlStmt nvarchar(max)
-SELECT TOP 1 @lastAppliedId=LastAppliedId FROM SchemaChangeHistory
-SELECT TOP 1 @id = id, @SqlStmt = SqlStmt FROM SchemaChanges WHERE id > @lastAppliedId ORDER BY id
-IF (@id = @lastAppliedId + 1)
+DECLARE \@lastAppliedId bigint
+DECLARE \@id bigint
+DECLARE \@sqlStmt nvarchar(max)
+SELECT TOP 1 \@lastAppliedId=LastAppliedId FROM SchemaChangeHistory
+SELECT TOP 1 \@id = id, \@SqlStmt = SqlStmt FROM SchemaChanges WHERE id \> \@lastAppliedId ORDER BY id
+IF (\@id = \@lastAppliedId + 1)
 BEGIN
-    EXEC sp_executesql @SqlStmt
-        UPDATE SchemaChangeHistory SET LastAppliedId = @id
+    EXEC sp_executesql \@SqlStmt
+        UPDATE SchemaChangeHistory SET LastAppliedId = \@id
     WHILE (1 = 1)
     BEGIN
-        SET @id = @id + 1
-        IF exists (SELECT id FROM SchemaChanges WHERE ID = @id)
+        SET \@id = \@id + 1
+        IF exists (SELECT id FROM SchemaChanges WHERE ID = \@id)
             BEGIN
-                SELECT @sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = @id
-                EXEC sp_executesql @SqlStmt
-                UPDATE SchemaChangeHistory SET LastAppliedId = @id
+                SELECT \@sqlStmt = SqlStmt FROM SchemaChanges WHERE ID = \@id
+                EXEC sp_executesql \@SqlStmt
+                UPDATE SchemaChangeHistory SET LastAppliedId = \@id
             END
         ELSE
             BREAK;
@@ -229,7 +229,7 @@ END
     - 使用 PowerShell
         -  [使用 PowerShell 在多个 Azure SQL 数据库之间进行同步](scripts/sql-database-sync-data-between-sql-databases.md)
         -  [使用 PowerShell 在 Azure SQL 数据库和 SQL Server 本地数据库之间进行同步](scripts/sql-database-sync-data-between-azure-onprem.md)
--   数据同步代理 - [Azure SQL 数据同步的数据同步代理](sql-database-data-sync-agent.md)
+-   Data Sync Agent - [Azure SQL 数据同步的 Data Sync Agent](sql-database-data-sync-agent.md)
 -   最佳做法 - [Azure SQL 数据同步最佳做法](sql-database-best-practices-data-sync.md)
 -   故障排除 - [排查 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
 -   更新同步架构

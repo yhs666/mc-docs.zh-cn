@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ce41dc30-e568-43c1-97fa-81e5997c946a
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cd973c68eb9c1cfb0dee85bd321b052ff6a34f5a
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b8689b0a49352e73549b760c0a71f7ab47ea014f
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513994"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989499"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>在 Azure Monitor 中使用视图设计器创建自定义视图
 在 Azure Monitor 中使用视图设计器即可在 Azure 门户中创建各种自定义视图，使 Log Analytics 工作区中的数据可视化。 本文概述了视图设计器以及创建和编辑自定义视图的过程。
@@ -57,7 +58,7 @@ ms.locfileid: "68513994"
 | 选项 | 说明 |
 |:--|:--|
 | 刷新   | 使用最新数据刷新视图。 | 
-| 日志      | 打开 Log Analytics，以使用日志查询对数据进行分析。 |
+| 日志      | 打开 [Log Analytics](../log-query/log-query-overview.md)，使用日志查询对数据进行分析。 |
 | 编辑       | 在视图设计器中打开视图，以便编辑其内容和配置。  |
 | 克隆      | 创建一个新视图，并在视图设计器中打开它。 新视图的名称与原始名称相同，但其末尾附加了 *Copy* 字样。 |
 | 日期范围 | 为视图中包含的数据设置日期和时间范围筛选器。 在视图中的查询中设置任何日期范围前，将应用此日期范围。  |

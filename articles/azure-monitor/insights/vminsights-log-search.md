@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 47f767311dc516b2f885da173e3c0e840174b320
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 35db0aa9b82f9a281c29c1005ecc037a409a46b7
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513851"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989107"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>如何从用于 VM 的 Azure Monitor（预览版）查询日志
 用于 VM 的 Azure Monitor 收集性能和连接指标、计算机和进程库存数据以及运行状况信息，并将其转发到 Azure Monitor 中的 Log Analytics 工作区。  此数据可用于 Azure Monitor 中的[查询](../../azure-monitor/log-query/log-query-overview.md)。 此数据可应用于包括迁移计划、容量分析、发现和按需性能故障排除在内的方案。
@@ -150,7 +151,7 @@ VMBoundPort 中的每个记录按以下字段标识：
 - 为了降低详细程度和数据量，存在带有特定 IP 地址的匹配记录（适用于相同的进程、端口和协议）时，将省略带通配符 IP 的记录。 省略了通配符 IP 记录后，具有特定 IP 地址的记录的 *IsWildcardBind* 属性将设置为 *True*。  这表示已通过报告计算机的每个接口公开了该端口。 
 - 仅在特定接口上绑定的端口的 IsWildcardBind 设置为 *False*。 
 
-### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 记录
+### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL 记录
 类型为 *ServiceMapComputer_CL* 的记录包含具有依赖项代理的服务器的库存数据。 这些记录的属性在下表中列出：
 
 | 属性 | 说明 |
@@ -175,7 +176,7 @@ VMBoundPort 中的每个记录按以下字段标识：
 | VirtualMachineName_s | VM 的名称 |
 | BootTime_t | 引导时间 |
 
-### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 类型记录
+### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL 类型记录
 类型为 *ServiceMapProcess_CL* 的记录包含具有依赖项代理的服务器上 TCP 连接进程的库存数据。 这些记录的属性在下表中列出：
 
 | 属性 | 说明 |

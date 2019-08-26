@@ -1,20 +1,21 @@
 ---
 title: 教程：探索 Azure 时序见解 JavaScript 客户端库 | Microsoft Docs
-description: 了解 Azure 时序见解 JavaScript 客户端库和相关的编程模型。
+description: 本教程介绍 Azure 时序见解 JavaScript 客户端库和相关的编程模型。
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/06/2019
+origin.date: 07/29/2019
+ms.date: 09/02/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 45e37204f965fa3434f0a0c64edddd740060bb66
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: fbd269763fea5b245efb166bcb2b49e04a44946e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456472"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993138"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>教程：探索 Azure 时序见解 JavaScript 客户端库
 
@@ -34,11 +35,13 @@ ms.locfileid: "67456472"
 > * 时序见解示例应用源文件在 [GitHub 示例存储库](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)中提供。
 > * 请阅读[时序见解客户端参考文档](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)。
 
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://wwww.azure.cn/pricing/1rmb-trial)。
+
 ## <a name="prerequisites"></a>先决条件
 
 本教程使用浏览器的“开发人员工具”功能  。 现代 Web 浏览器（[Microsoft Edge](https://docs.microsoft.com/microsoft-edge/devtools-guide)、[Chrome](https://developers.google.com/web/tools/chrome-devtools/)、[Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools)、[Safari](https://developer.apple.com/safari/tools/) 等）通常可以通过键盘上的 F12 热键访问“Web 检查器视图”  。 访问该视图的另一种方法是右键单击网页，然后选择“检查元素”  。
 
-## <a name="time-series-insights-sample-application"></a>时序见解示例应用程序
+## <a name="sample-application"></a>示例应用程序
 
 整篇教程都使用免费的托管时序见解示例应用来探索应用程序背后的源代码和时序见解 JavaScript 客户端库。 通过使用示例应用，你将了解如何在 JavaScript 中与时序见解进行交互并通过图表和图形可视化数据。
 
@@ -91,9 +94,9 @@ ms.locfileid: "67456472"
 
    [![正文脚本](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png)](media/tutorial-explore-js-client-lib/tcs-devtools-callouts-body-script.png#lightbox)
 
-## <a name="time-series-insights-javascript-client-library-concepts"></a>时序见解 JavaScript 客户端库概念
+## <a name="javascript-client-library"></a>JavaScript 客户端库
 
-时序见解客户端库 (*tsclient.js*) 为两个重要的 JavaScript 功能提供抽象：
+时序见解客户端库 (*tsiclient.js*) 为两个重要的 JavaScript 功能提供抽象：
 
 * **用于调用时序见解查询 API 的包装器方法**：可用于通过聚合表达式查询时序见解数据的 REST API。 这些方法组织在库的 TsiClient.Server 命名空间下。
 
@@ -110,7 +113,66 @@ ms.locfileid: "67456472"
 3. 稍后，应用会从 Azure AD 请求*访问令牌*。 将会针对特定的服务或 API 标识符 (https:\//api.timeseries.azure.com) 颁发拥有一组有限权限的访问令牌。 令牌权限是代表登录用户颁发的。 服务或 API 的标识符是包含在应用的 Azure AD 注册中的另一个属性。
 4. ADAL 向应用返回访问令牌后，在访问时序见解服务 API 时，系统会将该令牌作为*持有者令牌*传递。
 
-   <!--[!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]-->
+```javascript
+// START: AUTHENTICATION RELATED CODE USING ADAL.JS
+    // Set up ADAL
+    var authContext = new AuthenticationContext({
+        clientId: '000000-000000-000000-000000',
+        postLogoutRedirectUri: 'https://tsiapp.azurewebsites.net/',
+        cacheLocation: 'localStorage'
+    });
+    
+    if (authContext.isCallback(window.location.hash)) {
+    
+        // Handle redirect after token requests
+        authContext.handleWindowCallback();
+        var err = authContext.getLoginError();
+        if (err) {
+            // TODO: Handle errors signing in and getting tokens
+            document.getElementById('api_response').textContent = err;
+            document.getElementById('loginModal').style.display = "block";
+        }
+    
+    } else {
+        var user = authContext.getCachedUser();
+        if (user) {
+            document.getElementById('username').textContent = user.userName;
+            
+        } else {
+            document.getElementById('username').textContent = 'Not signed in.';
+        }
+    }
+    
+    authContext.getTsiToken = function(){
+        document.getElementById('api_response2').textContent = 'Getting tsi token...';
+        
+        // Get an access token to the Microsoft TSI API
+        var promise = new Promise(function(resolve,reject){
+            authContext.acquireToken(
+            'https://api.timeseries.azure.com/',
+            function (error, token) {
+    
+                if (error || !token) {
+                    // TODO: Handle error obtaining access token
+                    document.getElementById('api_response').textContent = error;
+                    document.getElementById('loginModal').style.display = "block";
+                    document.getElementById('api_response2').textContent = '';
+                    return;
+                }
+    
+                // Use the access token
+                document.getElementById('api_response').textContent = '';
+                document.getElementById('api_response2').textContent = '';
+                document.getElementById('loginModal').style.display = "none";
+                resolve(token);
+                }
+            );
+        });
+        
+        return promise;
+    }
+// END: AUTHENTICATION RELATED CODE USING ADAL.JS
+```
 
 > [!TIP]
 > 若要了解有关 Microsoft 支持的 Azure AD 身份验证库的详细信息，请参阅 [Azure Active Directory 身份验证库参考文档](/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries)。
@@ -212,17 +274,56 @@ ms.locfileid: "67456472"
 
 回顾[页面源代码和结构部分](#page-source-and-structure)的步骤 3，图表控件在页面上按行排列。 每个图表控件都有一个描述性的标题行。 在本示例中，要填充的三个图表都位于 `Multiple Chart Types From the Same Data` 标题 `<div>` 元素下面，并已绑定到标题下面的三个 `<div>` 元素：
 
-<!--[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]-->
+```html
+<div class="rowOfCardsTitle">Multiple Chart Types From the Same Data</div>
+<div class="rowOfCards">
+    <div class="card" style="flex-shrink: 1; height: 100%; width: 30%;">
+        <div style="color: black; background: white; border-bottom: 1px solid silver;" class="cardTitle">Factory Temps Split by Station as a Line Chart, Light Theme</div>
+        <div class="cardChart" id="chart3"></div>
+    </div>
+    <div class="card" style="flex-shrink: 1; height: 100%; width: 30%;">
+        <div class="cardTitle">Factory Temps Split by Station as a Bar Chart</div>
+        <div class="cardChart" id="chart4"></div>
+    </div>
+    <div class="card" style="flex-shrink: 1; height: 100%; width: 30%;">
+        <div style="color: black; background: white; border-bottom: 1px solid silver;" class="cardTitle">Factory Temps Split by Station as a Pie Chart, Light Theme</div>
+        <div class="cardChart" id="chart5"></div>
+    </div>
+</div>
+```
 
 以下 JavaScript 代码节使用前面所述的模式：生成时序见解聚合表达式，使用它们来查询时序见解数据，然后呈现三个图表。 使用 tsiClient.ux 命名空间中的三个图表类型：`LineChart`、`BarChart` 和 `PieChart`。 图表类型用于创建并呈现相应的图表。 所有三个图表都可以使用相同的聚合表达式数据 `transformedResult`：
 
-<!--[!code-javascript[code-sample2-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=241-262&highlight=13-14,16-17,19-20)]-->
+```javascript
+// Example 3/4/5
+var aggregateExpressions4 = [];
+var startDate = new Date('2017-04-19T13:00:00Z');
+var endDate = new Date(startDate.valueOf() + 1000*60*60*1);
+aggregateExpressions4.push(new tsiClient.ux.AggregateExpression({predicateString: "Factory = 'Factory3'"}, {property: 'Temperature', type: "Double"}, ['avg', 'min', 'max'],
+    { from: startDate, to: endDate, bucketSize: '2m' }, {property: 'Station', type: 'String'}, 'green', 'Factory3Temperature'));
+aggregateExpressions4.push(new tsiClient.ux.AggregateExpression({predicateString: "Factory = 'Factory1'"}, {property: 'Temperature', type: "Double"}, ['min', 'avg', 'max'],
+    { from: startDate, to: endDate, bucketSize: '3m' }, {property: 'Station', type: 'String'}, 'purple', 'Factory1Temp'));
+authContext.getTsiToken().then(function(token){
+    tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions4.map(function(ae){return ae.toTsx()})).then(function(result){
+        var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions4);
+        
+        var lineChart = new tsiClient.ux.LineChart(document.getElementById('chart3'));
+        lineChart.render(transformedResult, {grid: true, legend: 'compact', theme: 'light'}, aggregateExpressions4);
+        
+        var barChart =  new tsiClient.ux.BarChart(document.getElementById('chart4'));
+        barChart.render(transformedResult, {grid: true, timestamp: '2017-04-19T13:00:00Z', legend: 'compact'}, aggregateExpressions4);
+
+        var pieChart =  new tsiClient.ux.PieChart(document.getElementById('chart5'));
+        pieChart.render(transformedResult, {grid: true, theme: 'light', timestamp: '2017-04-19T13:00:00Z', arcWidthRatio: .4, legend: 'compact'}, aggregateExpressions4);
+    });
+});
+```
 
 在呈现时，三个图表如下所示：
 
 [![基于相同数据的多个图表类型](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png)](media/tutorial-explore-js-client-lib/tcs-multiple-chart-types-from-the-same-data.png#lightbox)
 
-## <a name="advanced-features"></a>高级功能
+## <a name="learn-about-advanced-features"></a>了解高级功能
 
 时序见解客户端库具有一些其他功能，你可以使用它们创造性地实现数据可视化。
 
@@ -245,7 +346,61 @@ ms.locfileid: "67456472"
 
 1. 呈现折线图，并结合图表选项参数传入两个结构：`events:` 和 `states:`。 请注意用于指定 `tooltip:`、`theme:` 或 `grid:` 的其他选项参数。
 
-<!--[!code-javascript[code-sample-states-events](~/samples-javascript/pages/tutorial/index.html?range=337-389&highlight=5,26,51)]-->
+```javascript
+//Example 10
+var startDate = new Date('2017-04-19T13:00:00Z');
+var endDate = new Date(startDate.valueOf() + 1000*60*60*1);
+
+var events4 = {"Component States" : [
+    {
+        '2017-04-19T13:05:00Z' : {
+            'color': 'lightblue',
+            'description' : 'Cooling fan on'
+        }
+    },
+    {
+        '2017-04-19T13:27:00Z' : {
+            'color': 'yellow',
+            'description' : 'Filling tank at maximum pressure'
+        }
+    },
+    {
+        '2017-04-19T13:47:00Z' : {
+            'color': 'red',
+            'description' : 'Pressing machine overheated'
+        }
+    }
+]};
+
+var events5 = {"Incidents" : [
+    {
+        '2017-04-19T13:12:00Z' : {
+            'color': 'Yellow',
+            'description' : 'Recoverable failure'
+        }
+    },
+    {
+        '2017-04-19T13:25:00Z' : {
+            'color': 'red',
+            'description' : 'Catastrophic failure'
+        }
+    },
+        {
+        '2017-04-19T13:47:00Z' : {
+            'color': 'purple',
+            'description' : 'Informational event'
+        }
+    }
+]}
+
+authContext.getTsiToken().then(function(token){
+    tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions4.map(function(ae){return ae.toTsx()})).then(function(result){
+        var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions4);
+        var lineChart = new tsiClient.ux.LineChart(document.getElementById('chart10'));
+        lineChart.render(transformedResult, {tooltip: true, grid: true, theme: "dark", events: [events5], states: [events4]}, aggregateExpressions4);
+    });
+});
+```
 
 菱形标记/弹出窗口用于指示事件，沿时间刻度显示的彩色条块/弹出窗口指示状态更改：
 
@@ -277,7 +432,88 @@ ms.locfileid: "67456472"
 
 1. 一开始只呈现折线图，在运行时，即可从折线图呈现饼图和条形图。
 
-<!--[!code-javascript[code-sample-context-menus](~/samples-javascript/pages/tutorial/index.html?range=461-540&highlight=7,16,29,61-64,78)]-->
+```javascript
+// example 13/14/15
+// Line chart with a context menu which generates pie and bar chart
+var aggregateExpressions9 = [];
+var pieChart2 = new tsiClient.ux.PieChart(document.getElementById('chart14'));
+var barChart2 = new tsiClient.ux.BarChart(document.getElementById('chart15'));
+
+var barChartActions = [{
+    name: "Print parameters to console",
+    action: function(ae, splitBy, timestamp) {
+        console.log(ae);
+        console.log(splitBy);
+        console.log(timestamp);
+    }
+}];
+
+var pieChartActions = [{
+    name: "Copy to Bar Chart",
+    action: function(ae, splitBy, timestamp) {
+        ae.contextMenu = barChartActions;
+        authContext.getTsiToken().then(function(token){
+            tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', [ae].map(function(ae){return ae.toTsx()})).then(function(result){
+                var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, [ae]); 
+                barChart2.render(transformedResult, {grid: true, theme: 'light', timestamp: timestamp, arcWidthRatio: .6}, [ae]);
+            });
+        });
+    }
+}]
+
+var contextMenuActions = [{
+    name: "Print parameters to console",
+    action: function(ae, splitBy, timestamp) {
+        console.log(ae);
+        console.log(splitBy);
+        console.log(timestamp);
+    }
+}, 
+{
+    name: "Plot as a Pie Chart",
+    action: function(ae, splitBy, timestamp) {
+        ae.contextMenu = pieChartActions;
+        authContext.getTsiToken().then(function(token){
+            tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', [ae].map(function(ae){return ae.toTsx()})).then(function(result){
+                var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, [ae]); 
+                pieChart2.render(transformedResult, {grid: true, theme: 'light', timestamp: timestamp, arcWidthRatio: .6}, [ae]);
+            });
+        });
+    }
+}, {
+    name: "Plot as a Bar Chart",
+    action: function(ae, splitBy, timestamp) {
+        ae.contextMenu = barChartActions;
+        authContext.getTsiToken().then(function(token){
+            tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', [ae].map(function(ae){return ae.toTsx()})).then(function(result){
+                var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, [ae]); 
+                barChart2.render(transformedResult, {grid: true, theme: 'light', timestamp: timestamp }, [ae]);
+            });
+        });
+    }
+}];
+
+aggregateExpressions9.push(new tsiClient.ux.AggregateExpression({predicateString: "Factory = 'Factory3'"}, {property: 'Temperature', type: "Double"}, ['avg', 'min'],
+    { from: startDate, to: endDate, bucketSize: '2m' }, {property: 'Station', type: 'String'}, 'pink', 'Factory3Temperature', contextMenuActions));
+aggregateExpressions9.push(new tsiClient.ux.AggregateExpression({predicateString: "Factory = 'Factory1'"}, {property: 'Temperature', type: "Double"}, ['avg', 'min'],
+    { from: startDate, to: endDate, bucketSize: '2m' }, {property: 'Station', type: 'String'}, 'green', 'Factory1Temperature', contextMenuActions));
+
+var brushActions = [{
+    name: "Print parameters to console",
+    action: function(fromTime, toTime) {
+        console.log(fromTime);
+        console.log(toTime);
+    }
+}];
+
+authContext.getTsiToken().then(function(token){
+    tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions9.map(function(ae){return ae.toTsx()})).then(function(result){
+        var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions9);
+        var lineChart = new tsiClient.ux.LineChart(document.getElementById('chart13'));
+        lineChart.render(transformedResult, {theme: "light", legend: "compact", brushContextMenuActions: brushActions, grid: true, snapBrush: true}, aggregateExpressions9);
+    });
+});
+```
 
 下面的屏幕截图显示了这些图表及其各自的弹出上下文菜单。 饼图和条形图是使用折线图上下文菜单选项动态创建的。
 
@@ -297,9 +533,32 @@ ms.locfileid: "67456472"
 
 * 画笔操作将添加为另一个图表选项属性。 `brushContextMenuActions: brushActions` 属性传递给 `linechart.Render` 调用。
 
-<!--[!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]-->
+```javascript
+var brushActions = [{
+    name: "Print parameters to console",
+    action: function(fromTime, toTime) {
+        console.log(fromTime);
+        console.log(toTime);
+    }
+}];
+
+authContext.getTsiToken().then(function(token){
+    tsiClient.server.getAggregates(token, '10000000-0000-0000-0000-100000000108.env.timeseries.azure.com', aggregateExpressions9.map(function(ae){return ae.toTsx()})).then(function(result){
+        var transformedResult = tsiClient.ux.transformAggregatesForVisualization(result, aggregateExpressions9);
+        var lineChart = new tsiClient.ux.LineChart(document.getElementById('chart13'));
+        lineChart.render(transformedResult, {theme: "light", legend: "compact", brushContextMenuActions: brushActions, grid: true, snapBrush: true}, aggregateExpressions9);
+    });
+});
+```
 
 [![包含用于通过画笔创建饼图和条形图的上下文菜单的折线图](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## <a name="clean-up-resources"></a>清理资源
+
+现在你已完成本教程，请清除已创建的资源：
+
+1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”  ，找到“Azure 时序见解”资源组。
+1. 通过选择“删除”  来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
 
 ## <a name="next-steps"></a>后续步骤
 

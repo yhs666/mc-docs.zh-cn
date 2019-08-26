@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
 ms.service: application-insights
 ms.workload: mobile
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0fb048cfb0a00defeeb0f4f15040bb8809d2f507
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 01e401536c1ddb0685d7b73ec0186027bcf7fe77
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818495"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989063"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights：常见问题解答
 
@@ -229,7 +230,7 @@ ms.locfileid: "68818495"
 
 ### <a name="querying-the-telemetry"></a>查询遥测
 
-使用 [REST API](https://dev.applicationinsights.io/) 运行 [Analytics](analytics.md) 查询。
+使用 [REST API](https://dev.applicationinsights.io/) 运行 [Analytics](../log-query/log-query-overview.md) 查询。
 
 ## <a name="how-can-i-set-an-alert-on-an-event"></a>如何设置事件警报？
 
@@ -294,7 +295,7 @@ Azure 警报仅出现在指标上。 创建一个每当事件发生时都跨越�
 ### <a name="proxy-passthrough"></a>代理透传
 
 可以通过配置计算机级代理或应用程序级代理来实现代理透传。
-有关详细信息，请参阅 dotnet 关于 [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings?view=azure-dotnet) 的文章。
+有关详细信息，请参阅 dotnet 关于 [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings) 的文章。
  
  示例 Web.config：
  ```xml

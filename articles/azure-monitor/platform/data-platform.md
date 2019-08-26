@@ -4,6 +4,7 @@ description: Azure Monitor 收集的监视数据划分为指标（轻型数据�
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.service: monitoring
 ms.topic: conceptual
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 614465e1c63c0b8b59575ad29eaa3eaf7167a7f9
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: ec2b261a55bfa6c6fc7f0364235027e6097e5e31
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818230"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989502"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 

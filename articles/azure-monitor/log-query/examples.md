@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 158d9da6134b6c6715be8e4c8801a03a5bc07ffd
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 133e6d6ecf86cb71f3a6a0f58a6a8124c9dc9d4c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818282"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989237"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 日志查询示例
 本文包含使用 [Kusto 查询语言](https://docs.microsoft.com/azure/kusto/query/)从 Azure Monitor 中检索不同类型的日志数据的各种[查询](log-query-overview.md)示例。 其中使用了不同的方法来合并和分析数据，因此，你可以使用这些示例来识别符合自身要求的不同策略。  
@@ -34,7 +35,7 @@ ms.locfileid: "68818282"
 Event
 | where EventLog == "Application" 
 | where TimeGenerated > ago(24h) 
-| where RenderedDescription == "cryptographic"
+| where RenderedDescription contains "cryptographic"
 ```
 
 ### <a name="search-events-related-to-unmarshaling"></a>搜索拆收相关的事件
@@ -249,7 +250,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>统计与权限相关的安全事件数
-此示例中显示 **securityEvent** 记录的数目，这些记录中的 **Activity** 列中包含整个单词 _Permissions_ 。 查询将应用到在过去 30 分钟内创建的记录。
+此示例中显示 **securityEvent** 记录的数目，这些记录中的 **Activity** 列中包含整个单词 _Permissions_。 查询将应用到在过去 30 分钟内创建的记录。
 
 ```Kusto
 SecurityEvent

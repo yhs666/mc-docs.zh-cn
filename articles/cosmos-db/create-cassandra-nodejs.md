@@ -10,11 +10,11 @@ ms.topic: quickstart
 origin.date: 09/24/2018
 ms.date: 03/18/2019
 ms.openlocfilehash: a845a14daa6ddbbe0a2b06e4d1e40c59f5bf5c47
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988332"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "69578607"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>快速入门：使用 Node.js SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -160,7 +160,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。 连接字符串使应用能与托管数据库进行通信。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”。 
+1. 在 [Azure 门户](https://portal.azure.cn/)中，选择“连接字符串”  。 
 
     使用 ![“复制”按钮](./media/create-cassandra-nodejs/copy.png) 复制最上面的值“联系点”。
 
@@ -210,7 +210,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
     按 CTRL + C 停止执行程序并关闭控制台窗口。 
 
-4. 在 Azure 门户中，打开数据资源管理器，以查询、修改和处理这些新数据。 
+4. 在 Azure 门户中，打开数据资源管理器  ，以查询、修改和处理这些新数据。 
 
     ![在数据资源管理器中查看数据](./media/create-cassandra-nodejs/data-explorer.png) 
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 origin.date: 12/05/2017
 ms.date: 08/12/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3f8315f2a43d193dc9efb353d69c87eb85b0926c
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 9b182ad6ef01f95ee770f2d160e4eaca4568e5bf
+ms.sourcegitcommit: c1d521f19017acb0c56dbea0228d8e0cb1d6874a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538792"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667686"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>SQL Server VM 的存储配置
 
@@ -112,7 +112,8 @@ Azure 根据规范创建新驱动器。 在此方案中，Azure 将执行以下�
 
 本部分提供有关在 Azure 门户中预配或配置 SQL VM 期间，Azure 自动执行的存储配置更改的参考信息。
 
-* 如果为 VM 选择了小于 2 TB 的存储，则 Azure 不会创建存储池。
+<!--Not Available on * If you have selected fewer than two TBs of storage for your VM, Azure does not create a storage pool.-->
+
 * 如果为 VM 选择了至少 2 TB 的存储，则 Azure 将配置存储池。 本主题的下一部分提供了存储池配置详细信息。
 * 自动存储配置始终使用[高级 SSD](../disks-types.md) P30 数据磁盘。 因此，所选 TB 数目与附加到 VM 的数据磁盘数目之间存在 1:1 映射。
 

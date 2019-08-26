@@ -4,6 +4,7 @@ description: 介绍了用于在引入数据时以及在查询中检索时分析 
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.service: log-analytics
 ms.topic: conceptual
@@ -11,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a4ee43e3f18dbd60bda96d5b98cb732e272fc11b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: bee68a311fc6aa7be407781c7dd6cae368b6b852
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818276"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989074"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>分析 Azure Monitor 日志中的文本数据
-Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的自定义日志。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。
+Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息。 将此数据分析为多个属性可以更轻松地在查询中进行使用。 一个常见示例是收集在单个属性中包含多个值的整个日志项目的[自定义日志](/azure-monitor/platform/data-sources-custom-logs)。 通过为不同值创建单独属性，可以对每个值进行搜索和聚合。
 
 本文介绍了用于在引入数据时以及在查询中检索时分析 Azure Monitor 中的日志数据的不同选项，比较了每个选项的相对优点。
 
@@ -28,7 +29,7 @@ Azure Monitor 收集的某些日志数据会在单个属性中包括多条信息
 在收集数据的引入时间或是在使用查询分析数据的查询时间，可以分析数据。 每种策略都具有独特的优点，如下所述。
 
 ### <a name="parse-data-at-collection-time"></a>在收集时分析数据
-如果在收集时分析数据，则配置会在表中创建新属性的“自定义字段”。 查询不必包含任何分析逻辑，只需将这些属性用作表中的任何其他字段。
+如果在收集时分析数据，则配置会在表中创建新属性的[自定义字段](/azure-monitor/platform/custom-fields)。 查询不必包含任何分析逻辑，只需将这些属性用作表中的任何其他字段。
 
 此方法的优点包括以下这些：
 
@@ -79,7 +80,7 @@ Time=2018-03-10 01:38:22 Event Code=302 Status=Error Message=Application could n
 Time=2018-03-10 01:31:34 Event Code=303 Status=Error Message=Application lost connection to database
 ```
 
-以下查询会将此数据分析为各个单独属性。 会添加包含 _project_ 的行以便仅返回计算的属性，而不是 _RawData_ ，这是从自定义日志保存整个条目的单个属性。
+以下查询会将此数据分析为各个单独属性。 会添加包含 _project_ 的行以便仅返回计算的属性，而不是 _RawData_，这是从自定义日志保存整个条目的单个属性。
 
 ```Kusto
 MyCustomLog_CL
@@ -171,7 +172,7 @@ SecurityEvent
 ```
 
 ## 使用函数模拟表 <a name="Use-function-to-simulate-a-table"></a>
-可能具有对特定表执行相同分析的多个查询。 在这种情况下，创建一个函数以返回经过分析的数据，而不是在每个查询中复制分析逻辑。 随后可以在其他查询中使用函数别名来代替原始表。
+可能具有对特定表执行相同分析的多个查询。 在这种情况下，[创建一个函数](functions.md)以返回经过分析的数据，而不是在每个查询中复制分析逻辑。 随后可以在其他查询中使用函数别名来代替原始表。
 
 请考虑上面的以逗号分隔的自定义日志示例。 若要在多个查询中使用经过分析的数据，请使用以下查询插件函数，并使用别名 _MyCustomCSVLog_ 保存它。
 

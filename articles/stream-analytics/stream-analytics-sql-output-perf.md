@@ -5,29 +5,29 @@ services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 09/21/2018
-ms.date: 11/06/18
-ms.openlocfilehash: 7e34ba2e0553f0aa7eb9c8efd0a6764beaa6bb2e
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+origin.date: 08/09/2019
+ms.date: 3/18/2019
+ms.openlocfilehash: ba9ab7f69dd4296ad78d1d82660c0c1d286fc89c
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52666599"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969555"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>从 Azure 流分析输出到 Azure SQL 数据库
 
 本文提供有关在使用 Azure 流分析将数据载入 SQL Azure 数据库时，如何提高写入吞吐量性能的提示。
 
-Azure 流分析中的 SQL 输出支持使用并行写入作为一个选项。 此选项允许[完全并行](/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs)作业拓扑，其中，多个输出分区将并行写入到目标表。 但是，在 Azure 流分析中启用此选项可能并不足以提高吞吐量，因为此选项严重依赖于 SQL Azure 数据库配置和表架构。 选择的索引、群集键、索引填充因子和压缩都会对加载表所需的时间产生影响。 有关如何基于内部基准优化 SQL Azure 数据库以提高查询和加载性能的详细信息，请参阅 [SQL 数据库性能指南](/sql-database/sql-database-performance-guidance)。
+Azure 流分析中的 SQL 输出支持使用并行写入作为一个选项。 此选项允许[完全并行](stream-analytics-parallelization.md#embarrassingly-parallel-jobs)作业拓扑，其中，多个输出分区将并行写入到目标表。 但是，在 Azure 流分析中启用此选项可能并不足以提高吞吐量，因为此选项严重依赖于 SQL Azure 数据库配置和表架构。 选择的索引、群集键、索引填充因子和压缩都会对加载表所需的时间产生影响。 有关如何基于内部基准优化 SQL Azure 数据库以提高查询和加载性能的详细信息，请参阅 [SQL 数据库性能指南](../sql-database/sql-database-performance-guidance.md)。 与 SQL Azure 数据库并行编写时，无法保证写入顺序。
 
 下面是每个服务中一些可以帮助提高解决方案整体吞吐量的配置。
 
 ## <a name="azure-stream-analytics"></a>Azure 流分析
 
-- **继承分区** - 使用此 SQL 输出配置选项可以继承先前查询步骤或输入的分区方案。 启用此选项后，写入到基于磁盘的表以及对作业使用[完全并行](/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs)拓扑时，吞吐量预期会提高。 其他许多[输出](/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks)已自动采用此分区。 使用此选项执行批量插入时，还会禁用表锁定 (TABLOCK)。
+- **继承分区** � 使用此 SQL 输出配置选项可以继承先前查询步骤或输入的分区方案。 启用此选项后，写入到基于磁盘的表以及对作业使用[完全并行](stream-analytics-parallelization.md#embarrassingly-parallel-jobs)拓扑时，吞吐量预期会提高。 其他许多[输出](stream-analytics-parallelization.md#partitions-in-sources-and-sinks)已自动采用此分区。 使用此选项执行批量插入时，还会禁用表锁定 (TABLOCK)。
 
 > [!NOTE] 
 > 如果输入分区超过 8 个，则继承输入分区方案可能不是适当的选择。 包含单个标识列和聚集索引的表曾经达到过此上限。 根据架构和选择的索引，观察结果可能有所不同。

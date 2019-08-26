@@ -2,28 +2,22 @@
 title: 快速入门 - 使用“Azure Active Directory 标识保护”检测到会话风险后阻止访问 | Microsoft Docs
 description: 本快速入门介绍如何配置 Azure Active Directory (Azure AD) 标识保护登录风险条件访问策略，以基于会话风险阻止登录。
 services: active-directory
-keywords: 标识保护, 应用的条件访问, Azure AD 的条件访问, 安全访问公司资源, 条件访问策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: identity
+ms.topic: quickstart
 origin.date: 09/13/2018
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55233f66645bdf4d031a4a7d4050450b0ce07133
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: b8f0e21dac6384badc5733d9dc0b858341eb6d06
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973322"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993377"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>快速入门：使用“Azure Active Directory 标识保护”检测到会话风险后阻止访问  
 
@@ -33,23 +27,16 @@ ms.locfileid: "68973322"
 
 ![创建策略](./media/quickstart-sign-in-risk-policy/1004.png)
 
-
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-
-
 
 ## <a name="prerequisites"></a>先决条件 
 
 若要完成本教程中的方案，需要：
 
 - 对 Azure AD Premium P2 版本的访问权限 - Azure AD 标识保护是一项 Azure AD Premium P2 功能  。 
-
 - **标识保护** - 本快速入门中的方案需要启用“标识保护”。 如果不知道如何启用“标识保护”，请参阅[启用 Azure Active Directory 标识保护](../identity-protection/enable.md)。
-
 - **Tor 浏览器** - [Tor 浏览器](https://www.torproject.org/projects/torbrowser.html.en)可帮助保护你在网络中的隐私。 “标识保护”将来自 Tor 浏览器的登录检测为“从匿名 IP 地址登录”，这种登录存在中等风险级别。 
-
 - 名为 Alain Charon 的测试帐户：如果不知道如何创建测试帐户，请参阅[添加新用户](../fundamentals/add-users-azure-active-directory.md#add-a-new-user)  。
-
 
 ## <a name="test-your-sign-in"></a>测试登录 
 
@@ -58,9 +45,7 @@ ms.locfileid: "68973322"
 **测试登录：**
 
 1. 以 **Alain Charon** 的身份登录到 [Azure 门户](https://portal.azure.cn)。
-
 2. 注销。 
-
 
 ## <a name="create-your-conditional-access-policy"></a>创建条件访问策略 
 
@@ -73,43 +58,25 @@ ms.locfileid: "68973322"
 | 用户  | Alain Charon  |
 | Conditions | 登录风险，中等及以上 |
 | 控制 | 阻止访问 |
- 
 
 ![创建策略](./media/quickstart-sign-in-risk-policy/201.png)
-
- 
-
 
 **若要配置条件访问策略，请执行以下操作：**
 
 1. 以全局管理员身份登录 [Azure 门户](https://portal.azure.cn)。
-
 2. 转到[“Azure AD 标识保护”页](https://portal.azure.cn/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview)。
- 
 3. 在“Azure AD 标识保护”页上的“配置”部分中，单击“登录风险策略”    。
- 
 4. 在策略页上的“分配”部分，单击“用户”   。
-
 5. 在“用户”页上，单击“选择用户”   。
-
 6. 在“选择用户”页上，选择“Alain Charon”，然后单击“选择”    。
-
 7. 在“用户”页上，单击“完成”   。 
-
 8. 在策略页上的“分配”部分，单击“条件”   。
-
 9. 在“条件”页上，单击“登录风险”   。
-
 10. 在“登录风险”页上，选择“中等及以上”，然后单击“选择”    。 
-
 11. 在“条件”页面上，单击“完成”   。
-
 12. 在策略页上的“控件”部分，单击“访问”   。
-
 13. 在“访问”页上，单击“允许访问”，选择“需要多重身份验证”，然后单击“选择”     。
-
 14. 在策略页上，单击“保存”  。  
-
 
 ## <a name="test-your-conditional-access-policy"></a>测试条件访问策略
 
@@ -123,8 +90,6 @@ ms.locfileid: "68973322"
 不再需要时，请删除测试用户、Tor 浏览器并禁用登录风险条件访问策略：
 
 - 如果不知道如何删除 Azure AD 用户，请参阅[如何添加或删除用户](../fundamentals/add-users-azure-active-directory.md#delete-a-user)。
-
 - 有关删除 Tor 浏览器的说明，请参阅[卸载](https://tb-manual.torproject.org/uninstalling/)。
 
-
-
+<!-- Update_Description: update metedata properties -->

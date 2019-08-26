@@ -7,12 +7,12 @@ ms.topic: sample
 origin.date: 05/23/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6b3352ae0692df5e05aff4cc7a230a52aa420ad0
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 98516f060bb1e33f5bbff3821b324c1b285722ec
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514292"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578634"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置生存时间
 
@@ -35,10 +35,11 @@ ms.locfileid: "68514292"
     * 选择“启用(无默认值)”或选择“启用”，然后设置一个 TTL 值  
     * 单击“保存”  以保存更改。
 
-    ![在 Azure 门户中配置生存时间](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
-- 当 DefaultTimeToLive 为 null 时，生存时间为“关”
-- 当 DefaultTimeToLive 为 -1 时，“生存时间”设置为“开”（无默认值）
-- 当 DefaultTimeToLive 具有任何其他整数值（0 除外）时，“生存时间”设置为“开”
+        ![在 Azure 门户中配置生存时间](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+    
+        - 当 DefaultTimeToLive 为 null 时，生存时间为“关”
+        - 当 DefaultTimeToLive 为 -1 时，“生存时间”设置为“开”（无默认值）
+        - 当 DefaultTimeToLive 具有任何其他整数值（0 除外）时，“生存时间”设置为“开”
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>使用 SDK 在容器上启用生存时间
 

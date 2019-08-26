@@ -4,22 +4,20 @@ description: 了解如何使用 Azure 资源管理器模板部署虚拟机扩展
 services: azure-resource-manager
 documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 11/13/2018
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 9ccd39a7277adc521d216aa5df1f5163faab5909
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: e292882041f2d11ae94122dff1e667b143263312
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529430"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993586"
 ---
 <!-- Verify Successfully-->
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板部署虚拟机扩展
@@ -64,10 +62,10 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本教程中使用的模板称为[部署简单的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/)。
 
-1. 在 Visual Studio Code 中，选择“文件” > “打开文件”。
-2. 在“文件名”框中粘贴以下 URL： https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json 
+1. 在 Visual Studio Code 中，选择“文件” > “打开文件”。  
+1. 在“文件名”框中粘贴以下 URL： https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json 
 
-3. 若要打开该文件，请选择“打开”。  
+1. 若要打开该文件，请选择“打开”。   
     该模板定义五个资源：
 
     * `Microsoft.Storage/storageAccounts`。 
@@ -84,11 +82,13 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
      在自定义模板之前，不妨对其进行一些基本的了解。
 
-4. 选择“文件” > “另存为”，使用文件名 *azuredeploy.json* 将该文件的副本保存到本地计算机。
+1. 选择“文件” > “另存为”，使用文件名 *azuredeploy.json* 将该文件的副本保存到本地计算机。  
 
 ## <a name="edit-the-template"></a>编辑模板
 
 将虚拟机扩展资源添加到包含以下内容的现有模板：
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 > [!NOTE]
 > 你应当创建一个新的存储帐户，使其包含名为 **usescriptextensions** 的 blob 容器，并将 [**installWebServer.ps1**](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1) 文件上传到它。
@@ -98,7 +98,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 >    "https://<your-storage-account>.blob.core.chinacloudapi.cn/usescriptextensions/installWebServer.ps1"`
 > ],
 > ```
-    
+
+<!--MOONCAKE: CUSTOMIZE-->
 
 ```json
 {
@@ -129,7 +130,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 下面是一些重要元素：
 
-* **name**：由于扩展资源是虚拟机对象的子资源，因此其名称必须有虚拟机名称前缀。 请参阅[子资源](./resource-group-authoring-templates.md#child-resources)。
+* **name**：由于扩展资源是虚拟机对象的子资源，因此其名称必须有虚拟机名称前缀。 请参阅[设置子资源的名称和类型](child-resource-name-type.md)。
 * **dependsOn**：在创建虚拟机以后创建扩展资源。
 * **fileUris**：存储脚本文件的位置。 如果不使用提供的位置，则需更新这些值。
 * **commandToExecute**：此命令调用脚本。  
@@ -141,7 +142,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 ## <a name="verify-the-deployment"></a>验证部署
 
 1. 在 Azure 门户中选择 VM。
-1. 在 VM 概述中，选择“单击进行复制”复制 IP 地址，并将其粘贴到浏览器标签页中。  
+1. 在 VM 概述中，选择“单击进行复制”复制 IP 地址，并将其粘贴到浏览器标签页中。   
     此时会打开默认的 Internet Information Services (IIS) 欢迎页：
 
     ![Internet Information Services 欢迎页](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
@@ -150,11 +151,11 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 不再需要部署的 Azure 资源时，请通过删除资源组将其清除。
 
-1. 在 Azure 门户的左窗格中选择“资源组”。
-2. 在“按名称筛选”框中输入资源组名称。
+1. 在 Azure 门户的左窗格中选择“资源组”  。
+2. 在“按名称筛选”框中输入资源组名称。 
 3. 选择资源组名称。  
     将显示资源组中的六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 05/07/2018
-ms.openlocfilehash: 0ff64bd02cae465e5956a81bc71791e519b6cde2
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 13153af8aac67d5043b558556be430c5f2368302
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657393"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969582"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -23,7 +23,7 @@ ms.locfileid: "52657393"
 
 ## <a name="prerequisites"></a>先决条件
 
-在开始此过程之前，必须具备以下条件：
+在开始执行此过程之前，必须具备以下先决条件：
 
 * Visual Studio 2017 或 2015
 * 已下载并安装了 [Azure.NET SDK](https://www.azure.cn/downloads/)
@@ -140,7 +140,7 @@ ms.locfileid: "52657393"
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>为现有流分析作业启用监视功能
 
-以下代码为**现有**流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“Id”属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，目的是将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
+以下代码为**现有**流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“Id”  属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，目的是将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
 
 > [!WARNING]
 > 如果此前为其他流分析作业启用了监视功能，那么不管是通过 Azure 门户进行还是通过以下代码以编程方式完成，**我们都建议提供在之前启用监视功能时所使用的同一个存储帐户名称。**

@@ -11,12 +11,12 @@ origin.date: 10/18/2018
 ms.date: 05/20/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: b4cacb1664acd00912d6c6354a5a173a8017d4de
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+ms.openlocfilehash: 427c48a3989ce1105df2d2eb6fbf2a1bd6de6f29
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668828"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993472"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 
@@ -46,7 +46,6 @@ Azure 自动化 [Desired State Configuration](automation-dsc-overview.md) 是一
 Azure 自动化包含一组共享资源，方便用户大规模地完成环境的自动化操作和配置。
 
 * **[计划](automation-schedules.md)** - 用在服务中，在预定义的时间触发自动化。
-* **[模块](automation-integration-modules.md)** - 模块用于管理 Azure 和其他系统。 请将其导入到适用于 Microsoft、第三方、社区或自定义 cmdlet 和 DSC 资源的自动化帐户中。
 * **[Python 2 包](python-packages.md)** - 将 Python 2 包添加到自动化帐户以在 Python runbook 中使用。
 * **[凭据](automation-credentials.md)** - 安全地存储可供 Runbook 和配置在运行时使用的敏感信息。
 * **[连接](automation-connections.md)** - 以名称/值对的形式存储信息。在连接资源中连接到系统时，需要使用其中包含的常用信息。 连接由模块作者定义，在运行时的 Runbook 和配置中使用。

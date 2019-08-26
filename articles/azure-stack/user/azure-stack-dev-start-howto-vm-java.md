@@ -10,12 +10,12 @@ ms.date: 07/29/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 04/24/2019
-ms.openlocfilehash: dbdeb76de05795eb1cd8926f4b3ff0213baf8c2a
-ms.sourcegitcommit: 4d34571d65d908124039b734ddc51091122fa2bf
+ms.openlocfilehash: d17f0539772dd6a28e3c8d0008b36db3c52af5fb
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513314"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670979"
 ---
 # <a name="deploy-a-java-web-app-to-a-vm-in-azure-stack"></a>将 Java Web 应用部署到 Azure Stack 中的 VM
 
@@ -291,9 +291,10 @@ ms.locfileid: "68513314"
 
     ```HTTP  
        http://yourmachine.local.cloudapp.azurestack.external:8080/sample
+    ```
+    
+## <a name="next-steps"></a>后续步骤
 
-## Next steps
-
-- Learn more about how to [develop for Azure Stack](azure-stack-dev-start.md).
-- Learn about [common deployments for Azure Stack as IaaS](azure-stack-dev-start-deploy-app.md).
-- To learn the Java programming language and find additional resources for Java, see [Java.com](https://www.java.com).
+- 详细了解如何[针对 Azure Stack 进行开发](azure-stack-dev-start.md)。
+- 了解[用作 IaaS 的 Azure Stack 的常见部署](azure-stack-dev-start-deploy-app.md)。
+- 若要了解 Java 编程语言并查找适用于 Java 的其他资源，请参阅 [Java.com](https://www.java.com)。

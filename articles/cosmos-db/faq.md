@@ -8,12 +8,12 @@ origin.date: 05/20/2019
 ms.date: 07/29/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 283151d4ece45db0d7a3ae41d189b030cdcc311e
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: ccfca062c5285640df42e64cee5c163e873198cf
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514434"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578627"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>有关 Azure Cosmos DB 中不同 API 的常见问题
 
@@ -67,7 +67,7 @@ Azure Cosmos DB 有一个不受架构影响的索引编制引擎，能够自动�
 
 若要咨询技术问题，可在问答论坛中发帖：
 
-* [Azure 支持](https://www.azure.cn/support/contact/)
+* [Azure 支持](https://support.azure.cn/support/contact/)
 
 <!--Not Available on * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow is best for programming questions. Make sure your question is [on-topic](https://stackoverflow.com/help/on-topic) and [provide as many details as possible, making the question clear and answerable](https://stackoverflow.com/help/how-to-ask)-->
 
@@ -721,7 +721,7 @@ Apache Cassandra API 是一项平台服务，使用它可以轻松做出容量�
 
 出于可用性和低延迟的原因，Azure Cosmos DB 提供现成的多区域分布。 不需要设置副本或其他内容。 所有写入均在你进行写入的区域中经过仲裁永久认可，同时提供性能保障。
 
-### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gcgrace-compression-memtableflushperiod-and-more"></a>布隆筛选器、缓存、读取修复更改、gc_grace 和 compression memtable_flush_period 等表元数据的各项设置有什么变化？
+### <a name="what-happens-with-respect-to-various-settings-for-table-metadata-like-bloom-filter-caching-read-repair-change-gc_grace-compression-memtable_flush_period-and-more"></a>布隆筛选器、缓存、读取修复更改、gc_grace 和 compression memtable_flush_period 等表元数据的各项设置有什么变化？
 
 Azure Cosmos DB 为读/写操作提供性能和吞吐量，无需更改任何配置设置，也不会意外处理这些设置。
 
@@ -737,9 +737,9 @@ Azure Cosmos DB 是一个平台服务，可帮助你提高工作效率，而无�
 
 ### <a name="which-client-sdks-can-work-with-apache-cassandra-api-of-azure-cosmos-db"></a>哪些客户端 SDK 适用于 Azure Cosmos DB 的 Apache Cassandra API？
 
-Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程序。 如果使用其他驱动程序或者遇到问题，请联系 [Azure 支持部门](https://www.azure.cn/support/contact/)。
+Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程序。 如果使用其他驱动程序或者遇到问题，请联系 [Azure 支持部门](https://support.azure.cn/support/contact/)。
 
-<!--Correct on https://www.azure.cn/support/contact/-->
+<!--Correct on https://support.azure.cn/support/contact/-->
 
 ### <a name="is-composite-partition-key-supported"></a>是否支持复合分区键？
 
@@ -751,12 +751,12 @@ Apache Cassandra SDK 的使用 CQLv3 的客户端驱动程序用于客户端程�
 
 ### <a name="can-an-on-premises-apache-cassandra-cluster-be-paired-with-azure-cosmos-dbs-cassandra-api"></a>本地 Apache Cassandra 群集是否可与 Azure Cosmos DB 的 Cassandra API 配对？
 
-目前，Azure Cosmos DB 针对云环境提供了优化的体验，且不产生操作开销。 如果需要配对，请联系 [Azure 支持](https://www.azure.cn/support/contact/)并提供方案说明。
+目前，Azure Cosmos DB 针对云环境提供了优化的体验，且不产生操作开销。 如果需要配对，请联系 [Azure 支持](https://support.azure.cn/support/contact/)并提供方案说明。
 
 ### <a name="does-cassandra-api-provide-full-backups"></a>Cassandra API 是否提供完整备份？
 
 Azure Cosmos DB 的所有 API 目前都提供间隔四小时的两个免费完整备份。 这可确保你不需要设置备份计划和其他配置。
-如果希望修改保留期和频率，请联系 [Azure 支持部门](https://www.azure.cn/zh-cn/support/contact/)或提交支持案例。 [Azure Cosmos DB 的自动联机备份和还原](online-backup-and-restore.md)一文中提供了有关备份功能的信息。
+如果希望修改保留期和频率，请联系 [Azure 支持部门](https://support.azure.cn/support/contact/)或提交支持案例。 [Azure Cosmos DB 的自动联机备份和还原](online-backup-and-restore.md)一文中提供了有关备份功能的信息。
 
 ### <a name="how-does-the-cassandra-api-account-handle-failover-if-a-region-goes-down"></a>当某个区域出现故障时，Cassandra API 帐户如何处理故障转移？
 

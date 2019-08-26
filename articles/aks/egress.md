@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 03/04/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1970c8344734a5cb8d4e80c56a1ab31de7c924db
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: de4dd49415630dfc322eba4d640a43f5d4e23726
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731227"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993206"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>为 Azure Kubernetes 服务 (AKS) 中的出口流量使用公用静态 IP 地址
 
@@ -35,7 +35,7 @@ AKS 群集的出站流量遵循 [Azure 负载均衡器约定][outbound-connectio
 
 ## <a name="create-a-static-public-ip"></a>创建静态公共 IP
 
-创建静态公用 IP 地址以用于 AKS 时，必须在节点资源组中创建 IP 地址资源  。 使用 [az aks show][az-aks-show] 命令并添加 `--query nodeResourceGroup` 查询参数获取资源组名称。 以下示例获取名为 myResourceGroup  的资源组中 AKS 群集名称 myAKSCluster  的节点资源组：
+使用 [az aks show][az-aks-show] 命令并添加 `--query nodeResourceGroup` 查询参数获取资源组名称。 以下示例获取名为 myResourceGroup  的资源组中 AKS 群集名称 myAKSCluster  的节点资源组：
 
 ```azurecli
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -127,15 +127,16 @@ $ curl -s checkip.dyndns.org
 若要避免在 Azure 负载均衡器上维护多个公用 IP 地址，可以使用入口控制器。 入口控制器提供的其他好处包括：SSL/TLS 终止、对 URI 重写的支持以及上游 SSL/TLS 加密。 有关详细信息，请参阅[在 AKS 中创建基本入口控制器][ingress-aks-cluster]。
 
 <!-- LINKS - internal -->
-[az-network-public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
-[az-network-public-ip-list]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
+
+[az-network-public-ip-create]: https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
+[az-network-public-ip-list]: https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
-[azure-cli-install]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [ingress-aks-cluster]: ./ingress-basic.md
 [outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#scenarios
-[public-ip-create]: https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
+[public-ip-create]: https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!-- Update_Description: wording update -->

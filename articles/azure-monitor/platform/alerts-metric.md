@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: c88ba515b79db2e545cf5ba44791576ea4b9be28
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b67d052213a75bebc98e371d6065c9c325af682b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514013"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989032"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理指标警报
 
@@ -39,7 +39,7 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 6. 此时会显示资源支持的信号列表，请选择要为其创建警报的指标。
 
-7. （可选）通过调整**期间**和**聚合**来优化指标。 如果指标包含维度，则会显示“维度”表。  为每个维度选择一个或多个值。 指标警报将会运行，以评估所选值的所有组合的条件。 还可以针对任一维度**选择 \\** *。 **选择 \\** * 会将选择范围动态调整为某个维度的所有当前和未来值。
+7. （可选）通过调整**期间**和**聚合**来优化指标。 如果指标包含维度，则会显示“维度”表。  为每个维度选择一个或多个值。 指标警报将会运行，以评估所选值的所有组合的条件。 [详细了解如何针对多维指标发出警报](alerts-metric-overview.md)。 还可以针对任一维度**选择 \*** 。 **选择 \*** 会将选择范围动态调整为某个维度的所有当前和未来值。
 
 8. 随后会该指标在显示过去 6 小时的图表。 定义警报参数：“条件类型”、“频率”、“运算符”和“阈值”或“严重性”，这将确定指标警报规则将评估的逻辑。      [详细了解动态阈值条件类型和敏感度选项](alerts-dynamic-thresholds.md)。
 
@@ -80,10 +80,13 @@ Azure Monitor 中的指标警报提供了一种在指标超出阈值时获得通
 
 6. 单击“完成”保存所做的编辑。 
 
-## 使用 Azure CLI <a name="with-azure-cli"></a>
+## <a name="with-azure-cli"></a>使用 Azure CLI
 
-前面几个部分介绍了如何使用 Azure 门户创建、查看和管理指标警报规则。 本部分将介绍如何使用跨平台 [Azure CLI](/cli/get-started-with-azure-cli?view=azure-cli-latest) 实现相同的结果。
-1. 打开 Powershell：
+前面几个部分介绍了如何使用 Azure 门户创建、查看和管理指标警报规则。 本部分将介绍如何使用跨平台 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) 实现相同的结果。 使用 Azure CLI 的最快捷方式是通过 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)。 本文将使用 Cloud Shell。
+
+1. 转到 Azure 门户，单击“Cloud Shell”。 
+
+2. 在提示符下，可以结合 ``--help`` 选项使用命令来详细了解相应的命令及其用法。 例如，以下命令显示可用于创建、查看和管理指标警报的命令列表
 
     ```azurecli
     az monitor metrics alert --help

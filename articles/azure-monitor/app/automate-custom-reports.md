@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: c75fda95b59280da1f4bc39861b1adc19967f3c9
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: bafe999fc932f3cdf5dbe6f33fe92b11abbe4cb5
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969678"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989467"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>使用 Azure Application Insights 数据自动化自定义报表
 
@@ -78,7 +79,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights 计划的摘要报表
 
-1. 在 Azure 门户中，选择“创建资源” > “函数应用”。  
+1. 在 Azure 门户中，选择“创建资源” > “计算” > “Function App”。   
 
    ![“创建 Azure 资源函数应用”屏幕截图](./media/automate-custom-reports/function-app-01.png)
 

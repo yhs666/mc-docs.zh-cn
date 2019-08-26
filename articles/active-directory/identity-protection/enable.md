@@ -2,28 +2,22 @@
 title: 启用 Azure Active Directory 标识保护 | Microsoft Docs
 description: 了解如何启用 Azure Active Directory 标识保护。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 08/02/2018
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3cf5f75de2b25e35731d05ed3df7b4944faf9e3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: d57ac441a1ddc9156bf50f6e90baf867e330f11f
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973449"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993416"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>启用 Azure Active Directory 标识保护
 
@@ -60,4 +54,4 @@ Azure Active Directory 标识保护是 Azure Active Directory (Azure AD) 的一�
 ## <a name="next-steps"></a>后续步骤
 * [Azure Active Directory 标识保护](/active-directory/identity-protection/overview)
 
-
+<!-- Update_Description: update metedata properties -->

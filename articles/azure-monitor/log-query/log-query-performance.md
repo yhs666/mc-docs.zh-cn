@@ -5,20 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 01/17/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b7787bf9724bc7f13e50e4e398c9e55ca79b9649
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 21366094b0eb4970168c20323b8ce1769343c9c9
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818421"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989219"
 ---
 # <a name="writing-efficient-log-queries-in-azure-monitor"></a>在 Azure Monitor 中编写有效的日志查询
 本文提供有关在 Azure Monitor 中编写有效日志查询的建议。 使用这些策略可确保以最低的开销快速运行查询。

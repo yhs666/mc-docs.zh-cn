@@ -2,30 +2,25 @@
 title: Azure AD 标识保护中的登录体验 | Microsoft Docs
 description: 概述了当“标识保护”已缓解或补救某个用户问题时或当某个策略要求使用多重身份验证时的用户体验。
 services: active-directory
-keywords: Azure Active Directory 标识保护, Cloud App Discovery, 管理应用程序, 安全, 风险, 风险级别, 漏洞, 安全策略
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 01/15/2018
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16f65e8868dc45119c15c41cb12e252c7f58d4f1
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 8be21f65b73ffaed32be22f911a235dd2a29277c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973450"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993415"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Azure AD 标识保护中的登录体验
+
 使用 Azure Active Directory 标识保护时，可以：
 
 * 要求用户注册多重身份验证
@@ -111,6 +106,7 @@ ms.locfileid: "68973450"
 ![补救](./media/flows/160.png "补救")
 
 ## <a name="see-also"></a>另请参阅
+
 * [Azure Active Directory 标识保护](/active-directory/identity-protection/overview) 
 
-
+<!-- Update_Description: update metedata properties -->

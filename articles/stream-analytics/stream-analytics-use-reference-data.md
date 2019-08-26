@@ -3,21 +3,23 @@ title: 使用参考数据在 Azure 流分析中查找
 description: 本文介绍如何使用参考数据在 Azure 流分析作业的查询设计中查找或关联数据。
 services: stream-analytics
 author: lingliw
+ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: mamccrea
+ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: v-lingwu
-ms.openlocfilehash: 0c6072a3fc2bc015c0a6be6ead98842978bc8e41
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+origin.date: 08/09/2019
+ms.date: 06/21/2019
+ms.openlocfilehash: d1f36431f79a4d4f018847a88993b3d2b7972ea9
+ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818548"
+ms.lasthandoff: 08/13/2019
+ms.locfileid: "68969526"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
-参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或与数据流相关联。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用引用数据，通常会在查询中使用[引用数据联合](https://msdn.microsoft.com/library/azure/dn949258.aspx)。 流分析使用 Azure Blob 存储作为引用数据的存储层，并且通过 Azure 数据工厂，可以将引用数据转换和/或复制到 Azure Blob 存储。 引用数据建模为 blob 序列（在输入配置中定义），这些 blob 按blob 名称中指定的日期/时间顺序升序排列。 它**仅**支持使用**大于**序列中最后一个 blob 指定的日期/时间的日期/时间添加到序列的末尾。
+
+参考数据（也称为查找表）是一个静态的或本质上缓慢变化的有限数据集，用于执行查找或增大数据流。 例如，在 IoT 方案中，可以将关于传感器的元数据（不经常更改）存储在参考数据中，并将其与实时 IoT 数据流相联接。 Azure 流分析在内存中加载参考数据以实现低延迟流处理。 为了在 Azure 流分析作业中利用参考数据，通常会在查询中使用[参考数据联接](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics)。 
 
 
 
@@ -43,9 +45,10 @@ ms.locfileid: "68818548"
 
 ### <a name="static-reference-data"></a>静态参考数据
 
-如果不希望参考数据发生变化，则可以通过在输入配置中指定静态路径来启用对静态参考数据的支持。 Azure 流分析从指定路径中获取 Blob。 不需要 {date} 和 {time} 替换令牌。 参考数据在流分析中不可变。 因此，不建议覆盖静态参考数据 Blob。
+如果不希望参考数据发生变化，则可以通过在输入配置中指定静态路径来启用对静态参考数据的支持。 Azure 流分析从指定路径中获取 Blob。 不需要 {date} 和 {time} 替换令牌。 由于参考数据在流分析中是不可变的，因此不建议覆盖静态参考数据 blob。
 
-## <a name="generating-reference-data-on-a-schedule"></a>按计划生成引用数据
+### <a name="generate-reference-data-on-a-schedule"></a>按计划生成参考数据
+
 如果引用数据是缓慢变化的数据集，则使用 {date} 和 {time} 替换令牌在输入配置中指定路径模式即可实现对刷新引用数据的支持。 流分析根据此路径模式选取更新的引用数据定义。 例如，使用 `sample/{date}/{time}/products.csv` 模式时，日期格式为 **“YYYY-MM-DD”** ，时间格式为 **“HH-mm”** ，可指示流分析在 2015 年 4 月 16 日下午 5:30（UTC 时区）提取更新的 Blob`sample/2015-04-16/17-30/products.csv`。
 
 Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。
@@ -53,7 +56,7 @@ Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。
 > [!NOTE]
 > 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv` ，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
 > 
-> 例如 作业找到 blob `sample/2015-04-16/17-30/products.csv` 后，它将忽略编码日期早于 2015 年 4 月 16 日下午 5:30 的任何文件，因此如果晚到达的 `sample/2015-04-16/17-25/products.csv` blob 在同一容器中创建，该作业不会使用它。
+> 例如，作业找到 blob `sample/2015-04-16/17-30/products.csv` 后，它将忽略编码日期早于 2015 年 4 月 16 日下午 5:30 的任何文件，因此如果晚到达的 `sample/2015-04-16/17-25/products.csv` blob 在同一容器中创建，该作业不会使用它。
 > 
 > 同样，如果 `sample/2015-04-16/17-30/products.csv` 仅在 2015 年 4 月 16 日晚上 10:03 生成，但容器中没有更早日期的 blob，则该作业将从 2015 年 4 月 16 日晚上 10:03 起开始使用此文件，而在此之前使用以前的引用数据。
 > 

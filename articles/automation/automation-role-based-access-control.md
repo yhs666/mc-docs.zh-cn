@@ -8,15 +8,15 @@ ms.subservice: shared-capabilities
 author: WenJason
 ms.author: v-jay
 origin.date: 05/17/2018
-ms.date: 05/20/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: bb9c552af37fbbd3c46e6a8daa3bec216ef7db1c
-ms.sourcegitcommit: c4812614cd0af1b13f911895b6b0582f0b140886
+ms.openlocfilehash: 4af8d49469afdebc15c87f888b65514cf3c6dd4e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135567"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993470"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Azure 自动化中基于角色的访问控制
 
@@ -329,7 +329,7 @@ Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remov
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>自动化操作员角色的用户体验 - 自动化帐户
 
-在“自动化帐户”范围内分配了“自动化操作员”角色的用户在查看被分配到的自动化帐户时，只能查看在自动化帐户中创建的 Runbook、Runbook 作业和计划的列表，而不能查看其定义。 该用户可以启动、停止、暂停、恢复或计划 Runbook 作业。 该用户无法访问其他自动化资源，例如配置或 DSC 节点。
+在“自动化帐户”范围内分配了“自动化操作员”角色的用户在查看被分配到的自动化帐户时，只能查看在自动化帐户中创建的 Runbook、Runbook 作业和计划的列表，而不能查看其定义。 该用户可以启动、停止、暂停、恢复或计划 Runbook 作业。 该用户无法访问其他自动化资源，例如配置、混合辅助角色组或 DSC 节点。
 
 ![对资源无访问权限](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 

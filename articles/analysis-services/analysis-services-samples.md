@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: b4dc1c824aa2f05ccfd39b43b69bc0e8833185c2
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: fd382d6f35a152b21043f8e1e318a5ef0eacea44
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195399"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993312"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 示例
 
@@ -38,11 +38,11 @@ GitHub 上的这些示例数据库可用于创建和测试自己的模型。
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Azure 门户中的 Adventure Works Internet Sales 示例模型
 
-如果在 Azure 门户中设置 Analysis Services 服务器，可以快速并轻松地创建示例模型。 在 Azure 门户中的服务器概述页上，单击“新建模型”，然后在“选择数据源”中，选择“示例数据”。
+如果在 Azure 门户中设置 Analysis Services 服务器，可以快速并轻松地创建示例模型。 在 Azure 门户中的服务器概述页上，单击“新建模型”  ，然后在“选择数据源”  中，选择“示例数据”  。
 
 ## <a name="next-steps"></a>后续步骤
 
-[Adventure Works 教程](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Adventure Works 教程](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
 [Azure 本地数据网关](analysis-services-gateway.md)
 
 <!--Update_Description: update meta properties, update link -->

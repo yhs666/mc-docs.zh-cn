@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: v-lingwu
 ms.component: logs
-ms.openlocfilehash: 2ec85ca1d24fdf0c207df76bb2879ddfaa6111e1
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 4f37bb4ea325653e309f4a08feadaf1c08fe1edb
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818388"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989221"
 ---
 # <a name="overview-of-azure-diagnostic-logs"></a>Azure 诊断日志概述
 
@@ -39,7 +39,7 @@ ms.locfileid: "68818388"
 
 * 将诊断日志保存到[**存储帐户**](../../azure-monitor/platform/archive-diagnostic-logs.md)进行审核或手动检查。 可以使用**资源诊断设置**指定保留时间（天）。
 * [将诊断日志流式传输到**事件中心**](diagnostic-logs-stream-event-hubs.md)，方便第三方服务或自定义分析解决方案（例如 PowerBI）引入。
-* 使用 [Azure Monitor](../../azure-monitor/platform/collect-azure-metrics-logs.md) 对其进行分析时，其中的数据将立即写入到 Azure Monitor，而无需先将数据写入到存储。  
+* 使用 [Azure Monitor](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) 对其进行分析时，其中的数据将立即写入到 Azure Monitor，而无需先将数据写入到存储。  
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

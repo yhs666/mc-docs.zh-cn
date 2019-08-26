@@ -6,6 +6,7 @@ documentationcenter: ''
 keywords: WAD2AI, Azure 诊断
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8d6668a180ec5054edc8cc1c5ff16d2b3b249c51
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fc70921ed842f93cb1bcdcce949de14eba3f9341
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818374"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989679"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>适用于 Azure 云服务的 Application Insights
 [Application Insights][start] 可以通过将 Application Insights SDK 提供的数据与云服务提供的 [Azure 诊断](../../azure-monitor/platform/diagnostics-extension-overview.md)数据合并，来监视 [Azure 云服务应用](/cloud-services/)的可用性、性能、故障和使用情况。 通过收到的有关应用在现实中的性能和有效性的反馈，可以针对每个开发生命周期确定合理的设计方向。
@@ -41,7 +42,7 @@ ms.locfileid: "68818374"
 
 如果只需此选项，则操作到此完成。 
 
-后续步骤是[通过应用查看指标](../../azure-monitor/app/metrics-explorer.md)、[使用 Analytics 查询数据](../../azure-monitor/app/analytics.md)。 
+后续步骤是[通过应用查看指标](../../azure-monitor/app/metrics-explorer.md)、[使用 Analytics 查询数据](../../azure-monitor/log-query/log-query-overview.md)。 
 
 若要在浏览器中监视性能，还可能需要设置[可用性测试](../../azure-monitor/app/monitor-web-app-availability.md)并[将代码添加到网页](../../azure-monitor/app/javascript.md)。
 
@@ -226,18 +227,18 @@ ms.locfileid: "68818374"
 ## <a name="performance-counters"></a>性能计数器
 默认收集以下计数器：
 
-    * \Process(??APP_WIN32_PROC??)\%处理器时间
-    * \Memory\Available Bytes
-    * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
-    * \Process(??APP_WIN32_PROC??)\Private Bytes
-    * \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
-    * \Processor(_Total)\% 处理器时间
+* \Process(??APP_WIN32_PROC??)\%处理器时间
+* \Memory\Available Bytes
+* \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
+* \Process(??APP_WIN32_PROC??)\Private Bytes
+* \Process(??APP_WIN32_PROC??)\IO Data Bytes/sec
+* \Processor(_Total)\% 处理器时间
 
 对于 Web 角色，还将收集以下计数器：
 
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
-    * \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests/Sec
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Request Execution Time
+* \ASP.NET Applications(??APP_W3SVC_PROC??)\Requests In Application Queue
 
 可[按此示例所示](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14)，通过编辑 *ApplicationInsights.config* 来指定其他自定义性能计数器或 Windows 性能计数器。
 
@@ -265,7 +266,7 @@ ms.locfileid: "68818374"
 
 如果系统使用其他 Azure 服务（例如流分析），也可以包含这些服务的监视图表。 
 
-如果有客户端移动应用，请使用 [App Center](../../azure-monitor/learn/mobile-center-quickstart.md)。 在 [Analytics](../../azure-monitor/app/analytics.md) 中创建查询来显示事件计数，并将事件固定到仪表板。
+如果有客户端移动应用，请使用 [App Center](../../azure-monitor/learn/mobile-center-quickstart.md)。 在 [Analytics](../../azure-monitor/log-query/log-query-overview.md) 中创建查询来显示事件计数，并将事件固定到仪表板。
 
 ## <a name="example"></a>示例
 [该示例](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService)监视包含一个 Web 角色和两个辅助角色的服务。

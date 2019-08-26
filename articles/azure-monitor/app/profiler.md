@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -12,19 +13,18 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 71155b15f552ae49555afecb583ddea117c25ad4
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 29e774b2d15400384583498658477f1583bb61da
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562664"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989580"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>使用 Application Insights 探查实时 Azure 应用服务应用
 
 你可以在使用基本服务层级或更高层级的 Azure 应用服务上运行的 ASP.NET 和 ASP.NET Core 应用上运行 Profiler。 目前只有通过[此方法](profiler-aspnetcore-linux.md)才能在 Linux 上启用 Profiler。
 
-<a name="installation"></a>
-##  <a name="enable-profiler-for-your-app"></a>为应用启用 Profiler
+## <a id="installation"></a> 为应用启用 Profiler
 若要为应用启用 Profiler，请遵循下面的说明。 如果你在运行另一种类型的 Azure 服务，则下面提供了用于在其他受支持平台上启用 Profiler 的说明：
 * [云服务](../../azure-monitor/app/profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Service Fabric 应用程序](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
@@ -63,10 +63,10 @@ Application Insights Profiler 是作为应用服务运行时的一部分预先�
 
 如果要为其他云启用 Profiler，可以使用以下应用设置。
 
-|应用设置    | 美国政府值| 中国云 |   
-|---------------|---------------------|-------------|
-|ApplicationInsightsProfilerEndpoint         | https://agent.serviceprofiler.azure.us    | https://profiler.applicationinsights.azure.cn |
-|ApplicationInsightsEndpoint | https://dc.applicationinsights.us | https://dc.applicationinsights.azure.cn |
+|应用设置    | 中国云 |   
+|---------------|-------------|
+|ApplicationInsightsProfilerEndpoint | https://profiler.applicationinsights.azure.cn |
+|ApplicationInsightsEndpoint  | https://dc.applicationinsights.azure.cn |
 
 ## <a name="disable-profiler"></a>禁用 Profiler
 

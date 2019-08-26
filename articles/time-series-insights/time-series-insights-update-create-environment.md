@@ -11,12 +11,12 @@ ms.topic: tutorial
 origin.date: 06/18/2019
 ms.date: 07/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bdbb56b6c94f083f6c03a2790b2992f6e4145ea
-ms.sourcegitcommit: c0f7c439184efa26597e97e5431500a2a43c81a5
+ms.openlocfilehash: 3a4f6f1cb035cddcbb06938d6dcdfc7f3ddf5990
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67456430"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993199"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-preview-environment"></a>教程：设置 Azure 时序见解预览环境
 
@@ -32,6 +32,10 @@ ms.locfileid: "67456430"
 
 >[!TIP]
 > [IoT 解决方案加速器](https://www.azureiotsolutions.com/Accelerators)提供企业级的预配置解决方案，可用于加速自定义 IoT 解决方案的开发。
+如果没有 Azure 订阅，请注册一个[试用的 Azure 订阅](https://wwww.azure.cn/pricing/1rmb-trial)。
+## <a name="prerequisites"></a>先决条件
+
+* 所用的 Azure 登录帐户还必须是订阅的“所有者”角色的成员。  有关详细信息，请参阅[使用基于角色的访问控制和 Azure 门户管理访问权限](../role-based-access-control/role-assignments-portal.md)。
 
 ## <a name="create-a-device-simulation"></a>创建设备模拟
 
@@ -56,7 +60,7 @@ ms.locfileid: "67456430"
 
     [![“创建设备模拟解决方案”页](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## <a name="create-a-time-series-insights-preview-payg-environment"></a>创建时序见解预览 PAYG 环境
+## <a name="create-a-preview-payg-environment"></a>创建预览版 PAYG 环境
 
 本部分介绍如何使用 [Azure 门户](https://portal.azure.cn/)创建 Azure 时序见解预览版环境，并将其连接到 IoT 解决方案加速器创建的 IoT 中心。
 
@@ -124,7 +128,9 @@ ms.locfileid: "67456430"
 
    如果未列出你的凭据，则必须授予自己访问该环境的权限。 若要详细了解如何设置权限，请参阅[授予数据访问权限](./time-series-insights-data-access.md)。
 
-## <a name="stream-data-into-your-environment"></a>将数据流式传输到环境
+## <a name="stream-data"></a>流式传输数据
+
+现已部署了时序见解环境，请将数据流式传输到该环境进行分析。
 
 1. 导航回到 [Azure IoT 解决方案加速器页](https://www.azureiotsolutions.com/Accelerators)。 在解决方案加速器仪表板中找到你的解决方案。 然后选择“启动”： 
 
@@ -152,7 +158,7 @@ ms.locfileid: "67456430"
 
     [![Azure IoT 模拟仪表板](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## <a name="analyze-data-in-your-environment"></a>在环境中分析数据
+## <a name="analyze-data"></a>分析数据
 
 在此部分，使用 [Azure 时序见解预览资源管理器](./time-series-insights-update-explorer.md)对时序数据进行基本的分析。
 
@@ -322,6 +328,14 @@ ms.locfileid: "67456430"
 1. 若要查看事件详细信息，请选择一个区域，然后右键单击图表：
 
    [![事件的详细列表](media/v2-update-provision/define-eighteen.png)](media/v2-update-provision/define-eighteen.png#lightbox)
+
+
+## <a name="clean-up-resources"></a>清理资源
+
+现在你已完成本教程，请清除已创建的资源：
+
+1. 从 [Azure 门户](https://portal.azure.cn)的左侧菜单中，选择“所有资源”  ，找到“Azure 时序见解”资源组。
+1. 通过选择“删除”  来删除整个资源组（以及其中包含的所有资源），或者单独删除每个资源。
 
 ## <a name="next-steps"></a>后续步骤
 

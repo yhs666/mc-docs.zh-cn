@@ -4,6 +4,7 @@ description: 介绍 Azure 中存储监视数据的不同位置，包括 Azure Mo
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.service: azure-monitor
 ms.devlang: na
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bc539bec367d82da15217e47d8ef7cc5f110214d
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 41ee4cca72375a01f649f8f89b08802f58c71da9
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969608"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989512"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor 中的监视数据位置
 
