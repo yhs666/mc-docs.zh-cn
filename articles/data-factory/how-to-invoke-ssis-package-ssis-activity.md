@@ -14,12 +14,12 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
-ms.openlocfilehash: 1f1528600b728d56755508d0d6a7800fbf3713ba
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: f4825ad235922daa6ab0fb860433309247c74aa8
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908733"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69671009"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>在 Azure 数据工厂中使用“执行 SSIS 包”活动运行 SSIS 包
 本文介绍如何使用“执行 SSIS 包”活动在 Azure 数据工厂 (ADF) 管道中运行 SQL Server Integration Services (SSIS) 包。 
@@ -78,7 +78,7 @@ ms.locfileid: "68908733"
    
    如果在通过 SQL Server Data Tools ( SSDT) 创建包时使用了 **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** 保护级别，则需要在“加密密码”中输入密码的值。  或者，可将 AKV 中存储的机密用作其值（参阅上文）。 如果使用了 **EncryptSensitiveWithUserKey** 保护级别，则需要在配置文件中或在“SSIS 参数”/“连接管理器”/“属性替代”选项卡上重新输入敏感值（参阅下文）。    如果使用了 **EncryptAllWithUserKey** 保护级别，将不支持该设置，因此，需要通过 SSDT 或 `dtutil` 命令行实用工具将包重新配置为使用其他保护级别。 
    
-   对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 若要记录包执行但不使用可在包中指定的标准日志提供程序，需要通过在“日志记录路径”中提供其 UNC 路径来指定日志文件夹。  例如，如果将日志存储在 Azure 文件中，则日志记录路径为 `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`。 将在此路径中为每个包运行创建一个与“执行 SSIS 包”活动运行 ID 同名的子文件夹，其中的日志文件每隔 5 分钟生成一次。 
+   对于“日志记录级别”，请为包执行选择预定义的日志记录范围  。 如果要改为输入自定义日志记录名称，请选中“自定义”复选框  。 若要记录包执行但不使用可在包中指定的标准日志提供程序，需要通过在“日志记录路径”中提供其 UNC 路径来指定日志文件夹。  例如，如果将日志存储在 Azure 文件中，则日志记录路径为 `\\<storage account name>.file.core.chinacloudapi.cn\<file share name>\<log folder name>`。 将在此路径中为每个包运行创建一个与“执行 SSIS 包”活动运行 ID 同名的子文件夹，其中的日志文件每隔 5 分钟生成一次。 
    
    最后，还需要指定用于访问日志文件夹的凭据。 如果先前已输入包访问凭据的值（参阅上文），则可以通过选中“与包访问凭据相同”复选框来重复使用这些值。  否则，需要输入日志访问凭据（**域**/**用户名**/**密码**）的值。 例如，如果将日志存储在 Azure 文件中，则“域”为 `Azure`，“用户名”为 `<storage account name>`，“密码”为 `<storage account key>`。    或者，可将 AKV 中存储的机密用作其值（参阅上文）。 这些凭据用于存储日志。 
    
