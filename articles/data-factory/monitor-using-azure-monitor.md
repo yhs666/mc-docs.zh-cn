@@ -276,14 +276,14 @@ https://management.chinacloudapi.cn/{resource-id}/providers/microsoft.insights/d
 
 | 属性 | 类型 | 说明 | 示例 |
 | --- | --- | --- | --- |
-| 级别 |String | 诊断日志的级别。 活动运行日志始终为级别 4。 | `4`  |
+| Level |String | 诊断日志的级别。 活动运行日志始终为级别 4。 | `4`  |
 | correlationId |String | 用于跟踪特定端到端请求的唯一 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | String | 事件的时间，以时间跨度表示，采用 UTC 格式 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| 活动运行的 ID | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| 管道运行的 ID | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| String | 数据工厂资源的关联资源 ID | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | 诊断日志的类别。 请将此属性设置为“ActivityRuns”。 | `ActivityRuns` |
-|级别| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
+|level| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
 |operationName| String |活动的名称及其状态。 如果状态为启动检测信号，则返回 `MyActivity -`。 如果状态为结束检测信号，则返回 `MyActivity - Succeeded` 和最终状态 | `MyActivity - Succeeded` |
 |pipelineName| String | 管道的名称 | `MyPipeline` |
 |activityName| String | 活动名称 | `MyActivity` |
@@ -322,13 +322,13 @@ https://management.chinacloudapi.cn/{resource-id}/providers/microsoft.insights/d
 
 | 属性 | 类型 | 说明 | 示例 |
 | --- | --- | --- | --- |
-| 级别 |String | 诊断日志的级别。 活动运行日志为级别 4。 | `4`  |
+| Level |String | 诊断日志的级别。 活动运行日志为级别 4。 | `4`  |
 | correlationId |String | 用于跟踪特定端到端请求的唯一 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | String | 事件的时间，以时间跨度表示，采用 UTC 格式 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| 管道运行的 ID | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |ResourceId| String | 数据工厂资源的关联资源 ID | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | 诊断日志的类别。 请将此属性设置为“PipelineRuns” | `PipelineRuns` |
-|级别| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
+|level| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
 |operationName| String |管道的名称及其状态。 如果管道运行已完成，则返回“Pipeline - Succeeded”和最终状态| `MyPipeline - Succeeded` |
 |pipelineName| String | 管道的名称 | `MyPipeline` |
 |start| String | 活动运行的开始时间，以时间跨度表示，采用 UTC 格式 | `2017-06-26T20:55:29.5007959Z`|
@@ -366,13 +366,13 @@ https://management.chinacloudapi.cn/{resource-id}/providers/microsoft.insights/d
 
 | 属性 | 类型 | 说明 | 示例 |
 | --- | --- | --- | --- |
-| 级别 |String | 诊断日志的级别。 对于活动运行日志，请设置为级别 4。 | `4`  |
+| Level |String | 诊断日志的级别。 对于活动运行日志，请设置为级别 4。 | `4`  |
 | correlationId |String | 用于跟踪特定端到端请求的唯一 ID | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
 | time | String | 事件的时间，以时间跨度表示，采用 UTC 格式 `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| 触发器运行的 ID | `08587023010602533858661257311` |
 |ResourceId| String | 数据工厂资源的关联资源 ID | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | 诊断日志的类别。 请将此属性设置为“PipelineRuns” | `PipelineRuns` |
-|级别| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
+|level| String | 诊断日志的级别。 请将此属性设置为“Informational” | `Informational` |
 |operationName| String |触发器的名称，以及指示是否已成功激发的最终状态。 如果检测信号成功，则返回“MyTrigger - Succeeded”| `MyTrigger - Succeeded` |
 |triggerName| String | 触发器的名称 | `MyTrigger` |
 |triggerType| String | 触发器的类型（手动触发器或计划的触发器） | `ScheduleTrigger` |
