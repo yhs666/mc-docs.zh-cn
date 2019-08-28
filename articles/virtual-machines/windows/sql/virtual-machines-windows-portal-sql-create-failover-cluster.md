@@ -47,7 +47,7 @@ ms.locfileid: "69538840"
 
 有关 S2D 的详细信息，请参阅 [Windows Server 2016 Datacenter Edition 存储空间直通 \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)。
 
-S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述的体系结构为超聚合。 超聚合基础结构将存储放置在托管群集应用程序的相同服务器上。 在此体系结构中，存储位于每个 SQL Server FCI 节点上。
+S2D 支持两种类型的体系结构 - 聚合与超聚合。 本文档中所述的体系结构为超聚合。 超融合基础设施将存储放置在托管群集应用程序的相同服务器上。 在此体系结构中，存储位于每个 SQL Server FCI 节点上。
 
 ## <a name="licensing-and-pricing"></a>许可与定价
 

@@ -27,7 +27,7 @@ ms.locfileid: "68513266"
 
 *适用于：Azure Stack 集成系统和 Azure Stack 开发工具包*
 
-使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。 该模块使用 [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell cmdlet 创建一项 Azure 策略，用于限制订阅中提供的资源类型和服务。 然后使用 [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在合适的作用域内创建一个策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
+使用 Azure Stack 策略模块，可为 Azure 订阅配置与 Azure Stack 相同的版本控制和服务可用性。 该模块使用 [New-AzureRmPolicyDefinition](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicydefinition) PowerShell cmdlet 创建一项 Azure Policy ，用于限制订阅中提供的资源类型和服务。 然后使用 [New-AzureRmPolicyAssignment](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet 在合适的作用域内创建一个策略分配。 配置策略后，可以使用 Azure 订阅来开发针对 Azure Stack 的应用。
 
 ## <a name="install-the-module"></a>安装模块
 
@@ -68,7 +68,7 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ## <a name="policy-in-action"></a>执行中的策略
 
-部署 Azure 策略后，当尝试部署被策略禁止的资源时会收到错误：
+部署 Azure Policy 后，当尝试部署被策略禁止的资源时会收到错误：
 
 ![由于策略约束而资源部署失败的结果](./media/azure-stack-policy-module/image1.png)
 

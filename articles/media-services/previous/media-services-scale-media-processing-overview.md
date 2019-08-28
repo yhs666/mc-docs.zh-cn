@@ -49,7 +49,7 @@ ms.locfileid: "69671006"
 
 ## <a name="billing"></a>计费
 
-根据在帐户中预配的媒体保留单位的分钟数计费。 这与帐户中是否有作业运行无关。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
+根据在帐户中预配的媒体预留单位的分钟数计费。 这与帐户中是否有作业运行无关。 有关详细说明，请参阅[媒体服务定价](https://www.azure.cn/pricing/details/media-services/)页的“常见问题”部分。   
 
 ## <a name="quotas-and-limitations"></a>配额和限制
 有关配额和限制以及如何开具支持票证的信息，请参阅[配额和限制](media-services-quotas-and-limitations.md)。

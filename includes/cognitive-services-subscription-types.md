@@ -15,7 +15,7 @@ ms.locfileid: "67844613"
 ## <a name="azure-cognitive-service-subscription-types"></a>Azure 认知服务订阅类型
 
 > [!NOTE]
-> 订阅所有者可以通过应用 [Azure 策略](/governance/policy/overview#policy-definition)，分配“不允许的资源类型”策略定义并指定“Microsoft.CognitiveServices/accounts”作为目标资源类型来禁止为资源组和订阅创建认知服务帐户  。
+> 订阅所有者可以通过应用 [Azure Policy ](/governance/policy/overview#policy-definition)，分配“不允许的资源类型”策略定义并指定“Microsoft.CognitiveServices/accounts”作为目标资源类型来禁止为资源组和订阅创建认知服务帐户  。
 
 可以通过两种不同的订阅来访问 Azure 认知服务：多服务订阅或单服务订阅。 通过这些订阅，可以同时连接到单个服务或多个服务。
 
