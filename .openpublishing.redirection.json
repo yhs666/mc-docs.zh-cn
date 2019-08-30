@@ -16268,6 +16268,51 @@
       "source_path": "articles/azure-monitor/platform/service-notifications.md",
       "redirect_url": "/service-health/service-notifications",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-load-with-data-factory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-load-with-data-factory.md",
+      "redirect_url": "/data-factory/load-azure-sql-data-warehouse",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-restore-points",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-september-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-august-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-july-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-june-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-may-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
+      "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
+      "redirect_document_id": false
     }
 
   ]
