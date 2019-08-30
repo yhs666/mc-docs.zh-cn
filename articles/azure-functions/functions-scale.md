@@ -45,14 +45,14 @@ ms.locfileid: "68331946"
 
 下表指出了在 Windows 或 Linux 上运行应用时，目前对三个托管计划的支持级别：
 
-| | 消耗量计划 | 专用计划 |
+| | 消耗计划 | 专用计划 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | GA |
 | Linux | 预览 | GA |
 
-## <a name="consumption-plan"></a>消耗量计划
+## <a name="consumption-plan"></a>消耗计划
 
-使用消耗计划时，会根据传入事件数自动添加和删除 Azure Functions 主机实例。 这个无服务器计划会自动缩放，仅在函数运行时，才会产生计算资源费用。 在消费计划中，函数执行在可配置的时间段后超时。
+使用消耗计划时，会根据传入事件数自动添加和删除 Azure Functions 主机实例。 这个无服务器计划会自动缩放，仅在函数运行时，才会产生计算资源费用。 在消耗计划中，函数执行在可配置的时间段后超时。
 
 账单将基于执行数量、执行时间和所用内存。 账单是基于函数应用内的所有函数聚合而生成的。 有关详细信息，请参阅 [Azure Functions 定价页](https://www.azure.cn/pricing/details/azure-functions/)。
 
@@ -101,7 +101,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-此命令的输出为 `dynamic` 时，函数应用采用消耗量计划。 所有其他值均表示应用服务计划的不同层。
+此命令的输出为 `dynamic` 时，函数应用采用消耗计划。 所有其他值均表示应用服务计划的不同层。
 
 ## <a name="storage-account-requirements"></a>存储帐户要求
 
@@ -118,7 +118,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 函数代码文件存储在函数主要存储帐户中的 Azure 文件共享上。 删除函数应用的主存储帐户时，函数代码文件将被删除并且无法恢复。
 
 > [!NOTE]
-> 在消耗量计划中使用 blob 触发器时，处理新的 blob 可能会出现长达 10 分钟的延迟。 函数应用处于空闲时会发生这种延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [blob 触发器绑定参考文章](functions-bindings-storage-blob.md#trigger)。
+> 在消耗计划中使用 blob 触发器时，处理新的 blob 可能会出现长达 10 分钟的延迟。 函数应用处于空闲时会发生这种延迟。 函数应用运行后，就会立即处理 Blob。 有关详细信息，请参阅 [blob 触发器绑定参考文章](functions-bindings-storage-blob.md#trigger)。
 
 ### <a name="runtime-scaling"></a>运行时缩放
 
