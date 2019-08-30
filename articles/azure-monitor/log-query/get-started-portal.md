@@ -4,16 +4,17 @@ description: 本文提供有关在 Azure 门户中使用 Log Analytics 编写查
 services: log-analytics
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 01/21/2019
+ms.date: 07/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0ecf7e2b60b8d0f166f6debd701610681534ab81
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 17de9dbf54c2b814c5a6a4949cb303bde1fd5e4a
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513837"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989243"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor 中的 Log Analytics 入门
 
@@ -32,7 +33,7 @@ ms.locfileid: "68513837"
 有关编写日志查询的教程，请参阅 [Azure Monitor 中的日志查询入门](get-started-queries.md)。<br>
 有关日志查询的详细信息，请参阅 [Azure Monitor 中的日志查询概述](log-query-overview.md)。
 
-## <a name="meet-log-analytics"></a>初识 Log Analytics
+## <a name="meet-log-analytics"></a>了解 Log Analytics
 Log Analytics 是用来编写和执行 Azure Monitor 日志查询的 Web 工具。 可以通过在 Azure Monitor 菜单中选择“日志”来将其打开。  它将启动并显示一个新的空白查询。
 
 ![主页](media/get-started-portal/homepage.png)
@@ -178,6 +179,9 @@ Event
 可以保存整个查询页，或者将单个查询保存为一个函数。 函数是也可以由其他查询引用的查询。 若要将查询保存为函数，必须提供函数别名，这是当此查询由其他查询引用时，用来调用此查询的名称。
 
 ![保存函数](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>保存查询或编辑已保存的查询时，在“名称”  字段中支持以下字符 - `a�z, A�Z, 0-9, -, _, ., <space>, (, ), |`。
 
 Log Analytics 查询始终保存到选定的工作区中，并与该工作区的其他用户共享。
 

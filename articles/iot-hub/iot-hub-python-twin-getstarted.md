@@ -12,12 +12,12 @@ ms.workload: na
 origin.date: 02/21/2019
 ms.date: 05/06/2019
 ms.author: v-yiso
-ms.openlocfilehash: 07cb2c0fc3af08de64580de2e427c02034ccface
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 07cd167695357e2387930b5c160310b2b6c83437
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64854788"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993591"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -27,37 +27,30 @@ ms.locfileid: "64854788"
 * **AddTagsAndQuery.py**，这是一个 Python 后端应用，用于添加标记并查询设备孪生。
 * **ReportConnectivity.py**，这是一个 .Python 应用，用于模拟使用早先创建的设备标识连接到 IoT 中心的设备，并报告其连接状况。
 
-> [!NOTE]
-> [Azure IoT SDK][lnk-hub-sdks] 文章介绍了可用于构建设备和后端应用的 Azure IoT SDK。
-> 
-> 
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-若要完成本教程，需要满足以下条件：
+下面是必备组件的安装说明。
 
-* [Python 2.x 或 3.x][lnk-python-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip - Python 包管理系统][lnk-install-pip]。
-* 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
-* 有效的 Azure 帐户。 （如果没有帐户，只需花费几分钟就能创建一个[免费帐户][lnk-free-trial]。）
-
-> [!NOTE]
-> 适用于 `azure-iothub-service-client` 和 `azure-iothub-device-client` 的 pip 包目前仅供 Windows OS 使用。 对于 Linux/Mac OS，请参阅[准备适用于 Python 的开发环境][lnk-python-devbox]一文中特定于 Linux 和 Mac OS 的部分。
-> 
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
+
 ## <a name="create-the-service-app"></a>创建服务应用
 在本部分中，将创建一个 Python 控制台应用，该应用将位置元数据添加到与 **{Device Id}** 关联的设备孪生。 然后，该应用将选择位于 Redmond 的设备来查询存储在 IoT 中心的设备孪生，然后查询报告移动电话网络连接的设备孪生。
 
-1. 打开命令提示符，然后安装用于 Python 的 Azure IoT 中心服务 SDK。 在安装 SDK 之后关闭命令提示符。
+1. 打开命令提示符，然后安装用于 Python 的 Azure IoT 中心服务 SDK  。 在安装 SDK 之后关闭命令提示符。
 
     ```
     pip install azure-iothub-service-client
@@ -157,7 +150,7 @@ ms.locfileid: "64854788"
 ## <a name="create-the-device-app"></a>创建设备应用
 在本部分中，将创建一个 Python 控制台应用，该应用以你的 **{Device Id}** 身份连接到中心，然后更新其设备孪生的报告属性，来说明它是使用手机网络进行连接的。
 
-1. 打开命令提示符，然后安装用于 Python 的 Azure IoT 中心服务 SDK。 在安装 SDK 之后关闭命令提示符。
+1. 打开命令提示符，然后安装用于 Python 的 Azure IoT 中心服务 SDK  。 在安装 SDK 之后关闭命令提示符。
 
     ```
     pip install azure-iothub-device-client
@@ -262,7 +255,7 @@ ms.locfileid: "64854788"
     python AddTagsAndQuery.py
     ```
 
-    这一次，两个查询结果中应当都会显示你的 **{Device ID}**。
+    这一次，两个查询结果中应当都会显示你的 **{Device ID}** 。
 
     ![第二个查询](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
@@ -271,8 +264,8 @@ ms.locfileid: "64854788"
 
 充分利用以下资源：
 
-* 通过 [IoT 中心入门][lnk-iothub-getstarted]教程学习如何从设备发送遥测数据，
-* 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备，
+* 通过 [IoT 中心入门][lnk-iothub-getstarted]教程学习如何从设备发送遥测数据。
+* 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备。
 * 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
 <!-- images -->
 [1]: media/iot-hub-python-twin-getstarted/1.png [2]: media/iot-hub-python-twin-getstarted/2.png [3]: media/iot-hub-python-twin-getstarted/3.png
