@@ -5,20 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2019
+ms.date: 07/09/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ad34eacf14e2ba53600341e1ce0b257996faae8d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d827f744c7694720e095aa3bdbc5c3a1bf99061b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562958"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989441"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>通过 Azure PowerShell 或资源管理器模板启用用于 VM 的 Azure Monitor（预览版）
 
@@ -32,7 +33,7 @@ ms.locfileid: "67562958"
 
 ### <a name="enable-performance-counters"></a>启用性能计数器
 
-如果解决方案引用的 Log Analytics 工作区尚未配置为收集解决方案所需的性能计数器，则需要启用性能计数器。 为此，可采用下面两种方式之一：
+如果解决方案引用的 Log Analytics 工作区尚未配置为收集解决方案所需的性能计数器，则需要启用性能计数器。 为此，可以采用下面两种方式之一：
 * 手动方式，如 [Log Analytics 中的 Windows 和 Linux 性能数据源](../../azure-monitor/platform/data-sources-performance-counters.md)所述
 * 通过下载并运行可从 [Azure PowerShell 库](https://www.powershellgallery.com/packages/Enable-VMInsightsPerfCounters/1.1)获取的 PowerShell 脚本
 
@@ -208,7 +209,7 @@ provisioningState       : Succeeded
 
 对于每个 VM 或虚拟机规模集，该脚本将验证是否已安装 VM 扩展。 如果未安装 VM 扩展，脚本会尝试重新安装它。 如果已安装 VM 扩展，脚本将安装 Log Analytics 代理和 Dependency Agent VM 扩展。
 
-此脚本需要 Azure PowerShell 模块 Az 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 以创建与 Azure 的连接。
+验证是否使用的是启用了 `Enable-AzureRM` 兼容性别名的 Azure PowerShell 模块 Az 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount` 以创建与 Azure 的连接。
 
 若要获取脚本的参数详细信息和示例用法的列表，请运行 `Get-Help`。
 
@@ -366,6 +367,5 @@ Failed: (0)
 现已为虚拟机启用了监视，可在用于 VM 的 Azure Monitor 中使用此信息进行分析。
  
 - 若要了解如何使用运行状况功能，请参阅[查看用于 VM 的 Azure Monitor 的运行状况](vminsights-health.md)。 
-- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。 
-- 若要通过 VM 的性能了解瓶颈和整体利用率，请参阅[查看 Azure VM 性能](vminsights-performance.md)。 
+- 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
 - 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。

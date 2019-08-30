@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/15/2019
-ms.date: 07/15/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8b1bf4418f116fe57b694ba0942f2c15d085ae7f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: cb9f150819366cd2b20cec0d6069546c019aade3
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570530"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993043"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>使用 IoT 中心消息路由将设备到云消息发送到不同的终结点
 
@@ -43,6 +43,8 @@ IoT 中心有一个默认的内置终结点（消息/事件），此终结点与
 IoT 中心支持将数据以 [Apache Avro](https://avro.apache.org/) 格式和 JSON 格式写入 Azure Blob 存储。 编码 JSON 格式的功能通常可在 IoT 中心可用的所有区域中使用。 默认值为 AVRO。 只有在配置 Blob 存储终结点时才能设置编码格式。 不能编辑现有终结点的格式。 使用 JSON 编码时，必须在消息[系统属性](iot-hub-devguide-routing-query-syntax.md#system-properties)中将 contentType 设置为 JSON，将 contentEncoding 设置为 UTF-8。 如果未设置此项，则 IoT 中心将以 base 64 编码格式写入消息。 可以使用 IoT 中心的创建或更新 REST API（具体说来就是 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties)、Azure 门户、[Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) 或 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)）选择编码格式。 下图说明如何在 Azure 门户中选择编码格式。
 
 ![Blob 存储终结点编码](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
+
+IoT 中心还支持将消息路由到 ADLS Gen2 帐户，这些帐户是在 Blob 存储的基础上构建的已启用[分层命名空间](/storage/blobs/data-lake-storage-namespace)的存储帐户。 此功能处于公共预览阶段，适用于美国西部 2 和美国中西部的新 ADLS Gen2 帐户。 我们将很快在所有云区域推出此功能。
 
 IoT 中心将在消息达到特定大小或在经过一定的事件后，对消息进行批处理并将数据写入 Blob。 IoT 中心默认为以下文件命名约定：
 
@@ -85,6 +87,8 @@ IoT 中心将在消息达到特定大小或在经过一定的事件后，对消�
 使用以下教程了解如何从终结点读取消息。
 
 * 从[内置终结点](quickstart-send-telemetry-node.md)进行读取
+
+* 从 [Blob 存储](../storage/blobs/storage-blob-event-quickstart.md)进行读取
 
 * 从[事件中心](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)进行读取
 

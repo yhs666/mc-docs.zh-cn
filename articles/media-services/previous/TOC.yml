@@ -227,7 +227,7 @@
         - name: 处理长时间运行的操作
           href: media-services-dotnet-long-operations.md
         - name: 碎片化 MP4 实时引入规范
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
     - name: 保护内容
       href: media-services-content-protection-overview.md
       items:
@@ -235,6 +235,8 @@
           href: media-services-rest-storage-encryption.md
         - name: AES-128 加密
           href: media-services-protect-with-aes128.md
+        - name: 用于流式处理的 PlayReady
+          href: media-services-protect-with-playready-widevine.md
         - name: 适用于流式处理的 FairPlay
           href: media-services-protect-hls-with-fairplay.md
         - name: 适用于 Windows 10 的脱机 PlayReady
@@ -405,7 +407,11 @@
     - name: 规范
       items:
         - name: 实时引入 - 碎片化的 MP4 实时引入规范
-          href: media-services-fmp4-live-ingest-overview.md
+          href: ../media-services-fmp4-live-ingest-overview.md
+        - name: 实时引入 - 在实时传送视频流中发出超时元数据信号
+          href: ../media-services-specifications-live-timed-metadata.md
+        - name: 平滑流式处理 HEVC
+          href: ../media-services-specifications-ms-sstr-amendment-hevc.md
 - name: 资源
   items:
     - name: 定价

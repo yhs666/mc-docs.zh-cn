@@ -5,21 +5,22 @@ services: azure-monitor
 documentationcenter: azure-monitor
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2019
+ms.date: 07/29/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 68c5144d4ef6809bdf7ec7131de242057fef96dc
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: b03dafa17c32e25b2c246bbc93319c849178078f
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969675"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989415"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>通过 Azure Monitor 日志管理使用情况和成本
 
@@ -112,7 +113,6 @@ Log Analytics 费用将添加到 Azure 帐单。 可以在 Azure 门户的“计
 > [!NOTE]
 > 若要使用通过购买用于 System Center 的 OMS E1 套件、OMS E2 套件或 OMS 附加产品所获得的权利，请选择 Log Analytics 的“按节点”定价层  。
 
-Log Analytics 的早期采用者也可以使用原有的“标准”和“高级”定价层   ，这两个定价层的固定数据保留期分别为 30 天和 365 天。 
 
 ## <a name="changing-pricing-tier"></a>更改定价层
 
@@ -145,6 +145,7 @@ Operation | where OperationCategory == 'Data Collection Status'
 若想在数据收集停止时收到通知，请使用*创建每日数据上限*警报中所述的步骤，以便在数据收集停止时收到通知。 使用[创建操作组](action-groups.md)中介绍的步骤，为警报规则配置电子邮件、Webhook 或 Runbook 操作。 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>排查使用量超出预期的原因
+
 使用量较高是由下面的一个或两个原因引起的：
 - 将数据发送到 Log Analytics 工作区的节点数超出预期
 - 发送到 Log Analytics 工作区的数据量超出预期
@@ -213,7 +214,7 @@ Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
 
 ### <a name="data-volume-by-computer"></a>按计算机的数据量
 
-若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` 属性 ([log-standard-properties#_billedsize.md](learn more))（以字节为单位提供大小）：
+若要查看每台计算机引入的可计费事件的**大小**，请使用 `_BilledSize` [属性](log-standard-properties.md#_billedsize)（以字节为单位提供大小）：
 
 ```kusto
 union withsource = tt * 
@@ -244,7 +245,7 @@ union withsource = tt *
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>按 Azure 资源、资源组或订阅计算的数据量
 
-对于托管在 Azure 中的节点的数据，可以__按计算机__获取引入的可计费事件的**大小**，并使用 _ResourceId 属性，该属性提供资源的完整路径：
+对于托管在 Azure 中的节点的数据，可以获取每台计算机  引入的可计费事件的**大小**，并使用 _ResourceId [属性](log-standard-properties.md#_resourceid)，该属性提供资源的完整路径：
 
 ```kusto
 union withsource = tt * 

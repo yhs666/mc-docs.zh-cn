@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: db05f70aa99b13fe26ad85854ae4e6fa62ae4bfc
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: b0bc146b94f1bfe6e2378f0c82486a3cab5ec4e1
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818254"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989036"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 
@@ -56,7 +56,7 @@ ms.locfileid: "68818254"
 
 ## <a name="what-you-can-alert-on"></a>可以报警的内容
 
-可以按照“监视数据源”中的说明，针对指标和日志发出警报。 这些检查包括但不限于：
+可以按照[监视数据源](../../azure-monitor/platform/data-sources.md)中的说明，针对指标和日志发出警报。 这些检查包括但不限于：
 - 指标值
 - 日志搜索查询
 - 活动日志事件
@@ -67,7 +67,7 @@ ms.locfileid: "68818254"
 
 | **监视器源** | **信号类型**  | **说明** | 
 |-------------|----------------|-------------|
-| 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。  |
+| 服务运行状况 | 活动日志  | 不支持。 请参阅[创建有关服务通知的活动日志警报](/service-health/alerts-activity-log-service-notifications)。  |
 | Application Insights | Web 可用性测试 | 不支持。 请参阅 [Web 测试警报](../../azure-monitor/app/monitor-web-app-availability.md)。 适用于任何经检测可将数据发送到 Application Insights 的网站。 网站的可用性或响应度低于预期时，就会收到通知。 |
 
 ## <a name="manage-alerts"></a>管理警报
@@ -169,6 +169,10 @@ ms.locfileid: "68818254"
 | 摘要 | 显示警报的属性和其他重要信息。 |
 | 历史记录 | 列出警报执行的每个操作，以及对警报进行的任何更改。 目前仅限状态更改。 |
 | 诊断 | 有关包含警报的智能组的信息。 “警报计数”表示包含在智能组中的警报数量  。 包括同一智能组中在过去 30 天内创建的其他警报，无论警报列表页面中的时间筛选器是什么。 选择某个警报以查看其详细信息。 |
+
+## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>警报实例的基于角色的访问控制 (RBAC)
+
+使用和管理警报实例需要用户具有[监视参与者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor)或[监视读取者](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader)的内置 RBAC 角色。 在任何 Azure 资源管理器范围（从订阅级别到资源级别的粒度分配）内都支持这些角色。 例如，如果用户仅对虚拟机“ContosoVM1”具有“监视参与者”访问权限，则他只能使用和管理“ContosoVM1”上生成的警报。
 
 ## <a name="manage-your-alert-instances-programmatically"></a>以编程方式管理警报实例
 

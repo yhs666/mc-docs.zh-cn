@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 06/17/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02318e29f5b9edf74eee3be9481fd0b3d1b3cef3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 6a96a486119ba9d4c66ac7f83c8b802f0371f386
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973010"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993194"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>如何：使用条件访问阻止向 Azure AD 进行旧身份验证   
 
@@ -51,13 +51,13 @@ Azure AD 支持多个最广泛使用的身份验证和授权协议，包括旧�
 
 ### <a name="identify-legacy-authentication-use"></a>确定旧身份验证使用情况
 
-你需要先了解你的用户是否有使用旧身份验证的应用，以及它如何影响你的整个目录，然后才能在你的目录中阻止旧身份验证。 可以使用 Azure AD 登录日志来了解是否正在使用旧身份验证。
+需要先了解用户是否有使用旧式身份验证的应用，以及它如何影响整个目录，然后才能在目录中阻止旧式身份验证。 可以使用 Azure AD 登录日志来了解是否正在使用旧式身份验证。
 
 1. 导航到“Azure 门户”   > “Azure Active Directory”   > “登录”  。
 1. 单击“列”   > “客户端应用”  添加“客户端应用”列（如果未显示）。
-1. 按“客户端应用”   > “其他客户端”  筛选，然后单击“应用”  。
+1. 单击“添加筛选器”   > “客户端应用”  > 选择“其他客户端”  的所有选项，然后单击“应用”  。
 
-筛选将仅显示旧身份验证协议进行的登录尝试。 单击每个单独的登录尝试将显示其他详细信息。 “基本信息”  选项卡下的“客户端应用”  字段将指示使用了哪个旧身份验证协议。
+筛选将仅显示旧式身份验证协议进行的登录尝试。 单击每个单独的登录尝试将显示其他详细信息。 “基本信息”  选项卡下的“客户端应用”  字段将指示使用了哪个旧式身份验证协议。
 
 这些日志将指示哪些用户仍然依赖于旧身份验证，以及哪些应用程序使用旧协议发出身份验证请求。 对于未出现在这些日志中且已确认不使用旧身份验证的用户，请仅为这些用户实施条件访问策略。
 
@@ -123,3 +123,4 @@ Azure 具有一项安全功能，可阻止你创建此类策略，因为此配�
 - 如果你还不熟悉配置条件访问策略，请参见[通过 Azure Active Directory 条件访问要求特定应用进行多重身份验证](app-based-mfa.md)的示例。
 - 有关新式身份验证支持的详细信息，请参阅[如何对 Office 2013 和 Office 2016 客户端应用使用新式身份验证](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 
 
+<!-- Update_Description: wording update -->

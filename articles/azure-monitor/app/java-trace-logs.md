@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: fc0a9e2f-3beb-4f47-a9fe-3f86cd29d97a
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f839b9f49da03a8a7265345d0229f24272e65f93
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 8c48543abb9bc76e9d0c379bb20f6df795927b3b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732162"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989637"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 Java 跟踪日志
 如果使用 Logback 或 Log4J（v1.2 或 v2.0）进行跟踪，可将跟踪日志自动发送到 Application Insights，以便在其中发现和搜索日志。
@@ -169,9 +170,5 @@ Application Insights 追加器可由配置的任何记录器（而不一定是�
 
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
 [java]: java-get-started.md
-
-
-
-
 
 

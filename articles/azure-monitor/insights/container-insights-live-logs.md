@@ -3,22 +3,23 @@ title: 实时查看 Azure Monitor 以获取容器日志 | Microsoft Docs
 description: 本文介绍在不将 kubectl 与适用于容器的 Azure Monitor 配合使用的情况下，如何实时查看容器日志 (stdout/stderr) 和事件。
 services: azure-monitor
 documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
+author: lingliw
+manager: digimobile
+origin.date: 08/22/2019
+editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
-ms.author: magoedte
-ms.openlocfilehash: 7f0690be8d1f30054ea48fcb0e39a19343cca9e6
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.author: v-lingwu
+ms.openlocfilehash: e911746b1e31190388e2a00023bbe75c4e1a2210
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513795"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989082"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何实时查看日志和事件（预览）
 适用于容器的 Azure Monitor 包含一项功能，该功能目前为预览版，可以实时查看 Azure Kubernetes 服务 (AKS) 容器日志 (stdout/stderr) 和事件，不需运行 kubectl 命令。 选择任一选项后，“节点”、“控制器”和“容器”视图上的性能数据表下方将显示新窗格    。 它显示了容器引擎生成的实时日志记录和事件，可以进一步实时排查问题。
@@ -72,7 +73,7 @@ ms.locfileid: "68513795"
 
 可将 AKS 配置为使用 Azure Active Directory (AD) 进行用户身份验证。 如果是第一次配置它，请参阅[将 Azure Active Directory 与 Azure Kubernetes 服务集成](../../aks/azure-ad-integration.md)。 在创建[客户端应用程序](../../aks/azure-ad-integration.md)的步骤中，请指定以下内容：
 
-- **重定向 URI (可选)** ：这是一个 **Web** 应用程序类型，基 URL 值应该为 `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`。
+-  **重定向 URI**：需要创建两个 **Web** 应用程序类型。 第一个基 URL 值应为 `https://afd.hosting.azureportal.chinacloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`，第二个基 URL 值应为 `https://monitoring.hosting.azureportal.chinacloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`。
 - 注册应用程序以后，请在“概览”页的左窗格中选择“身份验证”   。 在“身份验证”页的“高级设置”下，隐式授予“访问令牌”和“ID 令牌”，然后保存所做的更改。    
 
 >[!NOTE]

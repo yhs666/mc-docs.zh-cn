@@ -3,8 +3,8 @@ title: Azure AD 权利管理是什么？ （预览版）- Azure Active Directory
 description: 获取 Azure Active Directory 权利管理的概述，以及如何使用它来管理内部与外部用户对组、应用程序和 SharePoint Online 站点的访问权限。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-origin.date: 06/05/2019
-ms.date: 08/09/2019
+origin.date: 07/10/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0bf93cab8afb550e9b7cdf0132f3ca33620a0bf
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 6eba0f4ff8ed828f566b27a36153c46399aef944
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972806"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993282"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 权利管理是什么？ （预览版）
 
@@ -87,7 +87,7 @@ Azure AD 权利管理可帮助解决这些难题。
 
 - 资源
 - 用户需要对资源拥有的角色
-- 有资格请求访问权限的内部用户和外部用户
+- 有资格请求访问权限的内部用户和外部用户的合作伙伴组织
 - 审批过程，以及可以批准或拒绝访问权限的用户
 - 用户访问权限的持续时间
 
@@ -110,11 +110,11 @@ Azure AD 权利管理可帮助解决这些难题。
 | policy | 一组规则，定义访问权限的生命周期，例如，用户如何获取访问权限、谁可以审批请求，以及用户可以拥有访问权限多长时间。 示例策略包括员工访问权限和外部访问权限。 |
 | 目录 | 相关资源和访问包的容器。 |
 | 常规目录 | 始终可用的内置目录。 若要将资源添加到常规目录，需要特定的权限。 |
-| resource | 可为用户授予其权限的资产或服务（例如组、应用程序或站点）。 |
+| resource | 用户可以被授予对其的权限的资产或服务（如 Office 组、安全组、应用程序或 SharePoint Online 站点）。 |
 | 资源类型 | 资源的类型，包括组、应用程序和 SharePoint Online 站点。 |
 | 资源角色 | 与资源关联的权限集合。 |
 | 资源目录 | 包含一个或多个可共享的资源的目录。 |
-| 分配的用户 | 用户或组的访问包分配。 |
+| 分配的用户 | 将访问包分配给用户，以便用户具有该访问包的所有资源角色。 |
 | enable | 使用户能够请求某个访问包的过程。 |
 
 ## <a name="license-requirements"></a>许可要求
@@ -126,3 +126,4 @@ Azure AD 权利管理可帮助解决这些难题。
 - [教程：创建第一个访问包](entitlement-management-access-package-first.md)
 - [常见方案](entitlement-management-scenarios.md)
 
+<!-- Update_Description: wording update -->

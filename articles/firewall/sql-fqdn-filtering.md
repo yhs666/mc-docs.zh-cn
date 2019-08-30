@@ -5,15 +5,15 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 07/11/2019
-ms.date: 07/22/2019
+origin.date: 07/19/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3669fd4c4e254e35389fd364cac910abb9130c1d
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: f7a44a6e7f1fc8018a2a0aad7b9f38d6202763b2
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337574"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993495"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>配置使用 SQL FQDN 的 Azure 防火墙应用程序规则
 
@@ -33,8 +33,7 @@ ms.locfileid: "68337574"
 在公共预览期，仅支持以[代理模式](/sql-database/sql-database-connectivity-architecture#connection-policy)（端口 1433）使用 SQL FQDN 筛选。 如果以默认的重定向模式使用 SQL，可以使用 SQL 服务标记作为[网络规则](overview.md#network-traffic-filtering-rules)的一部分来筛选访问流量。
 如果将非默认端口用于 SQL IaaS 流量，可以在防火墙应用程序规则中配置这些端口。
 
-> [!NOTE]
-> 目前，可以通过 Azure CLI、REST 和模板在所有区域中使用包含 SQL FQDN 的应用程序规则。 门户用户界面将以增量方式添加到区域，并在完成推出时在所有区域均可用。
+目前，可以通过 Azure 门户、Azure CLI、REST 和模板在所有区域中使用包含 SQL FQDN 的应用程序规则。
 
 ## <a name="configure-using-azure-cli"></a>使用 Azure CLI 进行配置
 
@@ -47,6 +46,8 @@ ms.locfileid: "68337574"
 3. 配置使用 SQL FQDN 的应用程序规则以允许访问 SQL 服务器：
 
     ```azurecli
+    az extension add -n azure-firewall
+
     az network firewall application-rule create \
     -g FWRG \
     -f azfirewall \

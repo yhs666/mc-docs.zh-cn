@@ -5,19 +5,20 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 6/4/2019
+ms.date: 08/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dddf48fbcfcde0a8e16f79d4a8dca3187916ca61
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 6857db276cd7532881473f11f18eec62dc44d499
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562706"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989675"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -60,12 +61,107 @@ Azure Application Insights 在 Microsoft Azure *资源*中显示有关应用程�
 SDK 包含无需编写任何其他代码即可发送遥测数据的标准模块。 若要跟踪用户操作或更细致地诊断问题，请[使用 API][api] 发送自己的遥测数据。
 
 ## <a name="creating-a-resource-automatically"></a>自动创建资源
-可以编写 [PowerShell 脚本](../../azure-monitor/app/powershell.md)来自动创建资源。
+
+### <a name="powershell"></a>PowerShell
+
+新建 Application Insights 资源
+
+```powershell
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+#### <a name="example"></a>示例
+
+```powershell
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+```
+#### <a name="results"></a>结果
+
+```powershell
+Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
+ResourceGroupName  : testgroup
+Name               : test1027
+Kind               : web
+Location           : eastus
+Type               : microsoft.insights/components
+AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
+ApplicationType    : web
+Tags               : {}
+CreationDate       : 10/27/2017 4:56:40 PM
+FlowType           :
+HockeyAppId        :
+HockeyAppToken     :
+InstrumentationKey : 00000000-aaaa-bbbb-cccc-dddddddddddd
+ProvisioningState  : Succeeded
+RequestSource      : AzurePowerShell
+SamplingPercentage :
+TenantId           : {subid}
+```
+
+有关此 cmdlet 的完整 PowerShell 文档，以及若要了解如何检索检测密钥，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0)。
+
+### <a name="azure-cli-preview"></a>Azure CLI（预览版）
+
+若要访问预览版 Application Insights Azure CLI 命令，首先需要运行：
+
+```azurecli
+ az extension add -n application-insights
+```
+
+如果不运行 `az extension add` 命令，你将看到一条错误消息，指出：`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+
+现在，可以运行以下命令来创建 Application Insights 资源：
+
+```azurecli
+az monitor app-insights component create --app
+                                         --location
+                                         --resource-group
+                                         [--application-type]
+                                         [--kind]
+                                         [--tags]
+```
+
+#### <a name="example"></a>示例
+
+```azurecli
+az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+```
+
+#### <a name="results"></a>结果
+
+```azurecli
+az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+{
+  "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
+  "applicationId": "demoApp",
+  "applicationType": "web",
+  "creationDate": "2019-08-16T18:15:59.740014+00:00",
+  "etag": "\"0300edb9-0000-0100-0000-5d56f2e00000\"",
+  "flowType": "Bluefield",
+  "hockeyAppId": null,
+  "hockeyAppToken": null,
+  "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
+  "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
+  "kind": "web",
+  "location": "eastus",
+  "name": "demoApp",
+  "provisioningState": "Succeeded",
+  "requestSource": "rest",
+  "resourceGroup": "demoApp",
+  "samplingPercentage": null,
+  "tags": {},
+  "tenantId": {tenantID},
+  "type": "microsoft.insights/components"
+}
+```
+
+有关此命令的完整 Azure CLI 文档，以及若要了解如何检索检测密钥，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)。
 
 ## <a name="next-steps"></a>后续步骤
 * [诊断搜索](../../azure-monitor/app/diagnostic-search.md)
 * [探索指标](../../azure-monitor/app/metrics-explorer.md)
-* [编写分析查询](../../azure-monitor/app/analytics.md)
+* [编写分析查询](../../azure-monitor/log-query/log-query-overview.md)
 
 <!--Link references-->
 

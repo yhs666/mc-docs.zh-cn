@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 95d7c0f7abce3798f63f073587054430ec861b86
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: bc2346a18c3e00ec03967d5b106a3626ff53ea0c
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390750"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670965"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>如何生成平滑流式处理 Windows 应用商店应用程序  
 
@@ -39,7 +39,7 @@ ms.locfileid: "66390750"
 
 * Windows 8 32 位或 64 位。
 * Visual Studio 版本 2012 到 2015。
-* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
+* [适用于 Windows 8 的 Microsoft 平滑流式处理客户端 SDK](https://visualstudiogallery.msdn.microsoft.com/04423d13-3b3e-4741-a01c-1ae29e84fea6?SRC=Home)。
 
 可从 MSDN 开发人员代码示例（代码库）下载每一课后生成的解决方案： 
 
@@ -72,7 +72,7 @@ ms.locfileid: "66390750"
     | 模板组 |已安装/模板/Visual C#/Windows 应用商店 |
     | 模板 |空白应用 (XAML) |
     | Name |SSPlayer |
-    | 位置 |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | 解决方案名称 |SSPlayer |
     | 创建解决方案的目录 |（选定） |
 
@@ -508,7 +508,7 @@ MediaElement 控件并非原本就支持平滑流式处理内容。 若要启用
    ```
 
    > [!NOTE]
-   > CoreDispatcher 用于从非 UI 线程对 UI 线程进行更改。 如果调度程序线程出现瓶颈，开发人员可以选择使用他（她）想要更新的 UI 元素提供的调度程序。  例如：
+   > CoreDispatcher 用于从非 UI 线程对 UI 线程进行更改。 如果调度程序线程出现瓶颈，开发人员可以选择使用他们想要更新的 UI 元素提供的调度程序。  例如：
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 

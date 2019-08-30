@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/29/2017
-ms.date: 03/18/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 852555d28b8bcec503027da09150395b0bcfcdbb
-ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.openlocfilehash: f59cc81059e4483257200d6e3141f63d58f6e55b
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/17/2019
-ms.locfileid: "57987960"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993584"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>为 Azure 中托管的服务配置反向 DNS
 
@@ -46,8 +46,8 @@ Azure 应用服务目前不支持反向 DNS。
 例如：假定 PublicIpAddress 资源的 DNS 名称为 contosoapp1.chinaeast.cloudapp.chinacloudapi.cn，IP 地址为 23.96.52.53。 PublicIpAddress 的 ReverseFqdn 可指定为：
 * PublicIpAddress 的 DNS 名称 contosoapp1.chinaeast.cloudapp.chinacloudapi.cn
 * 同一订阅中另一个 PublicIpAddress 的 DNS 名称，如 contosoapp2.chinaeast.cloudapp.chinacloudapi.cn
-* 虚 DNS 名称（如 app1.contoso.com），只要此名称已先配置为指向 contosoapp1.chinaeast.cloudapp.chinacloudapi.cn 或同一订阅中另一个 PublicIpAddress 的 CNAME。
-* 虚 DNS 名称（如 app1.contoso.com），只要此名称已提前配置为指向 IP 地址 23.96.52.53 或同一订阅中另一个 PublicIpAddress 的 IP 地址的 A 记录。
+* 虚 DNS 名称（如 app1.contoso.com），只要此名称已先配置为指向 contosoapp1.chinaeast.cloudapp.chinacloudapi.cn 或同一订阅中另一个 PublicIpAddress 的 CNAME  。
+* 虚 DNS 名称（如 app1.contoso.com），只要此名称已提前配置为指向 IP 地址 23.96.52.53 或同一订阅中另一个 PublicIpAddress 的 IP 地址的 A 记录  。
 
 相同的约束也适用于云服务的反向 DNS。
 
@@ -62,7 +62,7 @@ Azure 当前仅支持为 IPv4 PublicIpAddress 资源配置反向 DNS。 IPv6 不
 
 #### <a name="powershell"></a>PowerShell
 
-若要将反向 DNS 添加到现有 PublicIpAddress，请执行以下操作：
+若要将反向 DNS 更新为现有 PublicIpAddress，请执行以下命令：
 
 ```powershell
 $pip = Get-AzPublicIpAddress -Name "PublicIp" -ResourceGroupName "MyResourceGroup"

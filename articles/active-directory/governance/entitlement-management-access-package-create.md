@@ -3,8 +3,8 @@ title: 在 Azure AD 权利管理（预览版）中创建新的访问包 - Azure 
 description: 了解如何在 Azure Active Directory 权利管理（预览版）中创建要共享的新资源访问包。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-origin.date: 05/16/2019
-ms.date: 08/09/2019
+origin.date: 07/23/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5460a3615b84d48d9ab2d2e15f4762bfebecaa7d
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 6b794acf4e555ecce6d1bf8210cb2a0eaebd44ea
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972868"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993358"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中创建新的访问包
 
@@ -45,7 +45,7 @@ ms.locfileid: "68972868"
 
 ## <a name="start-new-access-package"></a>启动新访问包
 
-**必备角色：** 用户管理员或目录所有者
+**必备角色：** 全局管理员、用户管理员或目录所有者
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -65,21 +65,20 @@ ms.locfileid: "68972868"
 
 1. 在“目录”下拉列表中，选择要在其中创建访问包的目录。  例如，你的某个目录所有者需要管理所有可请求的营销资源。 在这种情况下，你可以选择营销目录。
 
-    你只会看到你有权在中创建访问包的目录。 必须至少是用户管理员、目录所有者或访问包管理者角色，才能在现有目录中创建访问包。
+    你只会看到你有权在中创建访问包的目录。 若要在现有目录中创建访问包，你必须至少是全局管理员、用户管理员、该目录中的目录所有者或该目录中的访问包管理员。
 
     ![访问包 - 基本信息](./media/entitlement-management-access-package-create/basics.png)
 
-    若要在新目录中创建访问包，请单击“新建”。  输入目录的名称和说明，然后单击“创建”。 
+    如果你是全局管理员或用户管理员，并且希望在未列出的新目录中创建访问包，请单击“新建”  。 输入目录的名称和说明，然后单击“创建”。 
 
-    正在创建的访问包及其包含的所有资源将添加到新目录中。 此外，你将自动成为该目录的第一个所有者。 可以添加其他目录所有者。
+    正在创建的访问包及其包含的所有资源将添加到新目录中。 也可以稍后添加其他目录所有者。
 
-    必须至少是用户管理员或目录创建者角色才能创建新目录。
 
 1. 单击“下一步”  。
 
 ## <a name="resource-roles"></a>资源角色
 
-在“资源角色”选项卡上，选择要包含在访问包中的资源。 
+在“资源角色”选项卡上，选择要包含在访问包中的资源。   请求并接收访问包的用户将接收访问包中的所有资源角色。
 
 1. 单击要添加的资源类型（“组”、“应用程序”或“SharePoint 站点”）。   
 
@@ -87,11 +86,11 @@ ms.locfileid: "68972868"
 
     ![访问包 - 资源角色](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    如果在常规目录或新目录中创建访问包，则可以从你拥有的目录中选择任何资源。 必须至少是用户管理员或目录创建者角色才能执行此操作。
+    如果在常规目录或新目录中创建访问包，则可以从你拥有的目录中选择任何资源。 必须至少是全局管理员、用户管理员或目录创建者。
 
     如果在现有目录中创建访问包，则可以选择该目录中现有的任何资源，而无需拥有该目录。
 
-    如果你是用户管理员或目录所有者，可以通过一个额外的选项来选择你拥有的但不包含在该目录中的资源。 如果选择当前不在所选目录中的资源，则这些资源也会添加到该目录，供其他目录管理员用来生成访问包。 如果只想要选择当前位于所选目录中的资源，请选中“选择”窗格顶部的“仅查看”复选框。 
+    如果你是全局管理员、用户管理员或目录所有者，可以通过一个额外的选项来选择你拥有的但尚未包含在该目录中的资源。 如果选择当前不在所选目录中的资源，则这些资源也会添加到该目录，供其他目录管理员用来生成访问包。 如果只想要选择当前位于所选目录中的资源，请选中“选择”窗格顶部的“仅查看”复选框。 
 
 1. 选择资源后，在“角色”列表中选择要将用户分配到的资源角色。 
 
@@ -107,7 +106,7 @@ ms.locfileid: "68972868"
 
     ![访问包 - 策略](./media/entitlement-management-access-package-create/policy.png)
 
-1. 如果选择“稍后”，请跳到“查看 + 创建”部分以创建访问包。  [](#review--create)
+1. 如果选择“稍后”，请跳到 [查看 + 创建](#review--create) 部分以创建访问包。 
 
 1. 如果选择“立即”，请执行下列其中一个策略部分中的步骤。 
 
@@ -131,3 +130,4 @@ ms.locfileid: "68972868"
 - [添加目录所有者或访问包管理者](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [创建和管理目录](entitlement-management-catalog-create.md)
 
+<!-- Update_Description: wording update -->

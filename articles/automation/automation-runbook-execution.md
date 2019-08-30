@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 04/04/2019
-ms.date: 07/15/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d55972dadbc29822562d708938c21c83381759c2
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.openlocfilehash: dd4836679a63839de2214189a534bd9e230041db
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391981"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993466"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>在 Azure 自动化中执行 Runbook
 
@@ -29,7 +29,22 @@ ms.locfileid: "68391981"
 
 ## <a name="where-to-run-your-runbooks"></a>运行 runbook 的位置
 
-Azure 自动化中的 Runbook 可以在 Azure 中的沙盒上运行。 沙盒是 Azure 中可以由多个作业使用的共享环境。 使用同一沙盒的作业受沙盒的资源限制约束。 大多数 runbook 都可在 Azure 沙盒中轻松运行。
+Azure 自动化中的 Runbook 可以在 Azure 中的沙盒上运行，也可以在[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)上运行。 沙盒是 Azure 中可以由多个作业使用的共享环境。 使用同一沙盒的作业受沙盒的资源限制约束。 混合 Runbook 辅助角色既可以直接在托管角色的计算机上运行 Runbook，也可以对环境中的资源运行 Runbook，从而管理这些本地资源。 Runbook 在 Azure 自动化中进行存储和管理，然后发送到一台或多台指定的计算机。 大多数 runbook 都可在 Azure 沙盒中轻松运行。 在某些特定方案中，可能会建议选择混合 Runbook（而不是 Azure 沙盒）执行 Runbook。 请参阅下表，了解一些示例方案：
+
+|任务|最佳选择|注释|
+|---|---|---|
+|与 Azure 资源集成|Azure 沙盒|托管在 Azure 中，身份验证更为简单。 如果使用的是 Azure VM 上的混合 Runbook 辅助角色，则可使用 [Azure 资源的托管标识](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
+|管理 Azure 资源的最佳性能|Azure 沙盒|脚本在同一环境中运行，因此延迟更低|
+|最大程度减少运营成本|Azure 沙盒|没有计算开销，不需要 VM|
+|长期脚本|混合 Runbook 辅助角色|Azure 沙盒具有[对资源的限制](../azure-subscription-service-limits.md#automation-limits)|
+|与本地服务进行交互|混合 Runbook 辅助角色|可以直接访问主机|
+|需要第三方软件和可执行文件|混合 Runbook 辅助角色|管理操作系统并且可以安装软件|
+|资源密集型脚本|混合 Runbook 辅助角色| Azure 沙盒具有[对资源的限制](../azure-subscription-service-limits.md#automation-limits)|
+|使用具有特定需求的模块| 混合 Runbook 辅助角色|下面是一些示例：</br> **WinSCP** - winscp.exe 上的依赖项 </br> **IISAdministration** - 需要启用 IIS|
+|安装需要安装程序的模块|混合 Runbook 辅助角色|沙盒的模块必须是可复制的|
+|使用需要不同于 4.7.2 版本的 .NET Framework 的 Runbook 或模块|混合 Runbook 辅助角色|自动化沙盒的 .NET Framework 4.7.2 无法进行升级|
+|需要提升权限的脚本|混合 Runbook 辅助角色|沙盒不允许提升权限。 若要解决此问题，请使用混合 Runbook 辅助角色，可以在运行需要提升权限的命令时关闭 UAC 并使用 `Invoke-Command`|
+|需要访问 WMI 的脚本|混合 Runbook 辅助角色|在云中的沙盒中运行的作业[无权访问 WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Runbook 行为
 
@@ -175,7 +190,7 @@ function Get-ContosoFiles
 
 ### <a name="using-executables-or-calling-processes"></a>使用可执行文件或调用进程
 
-在 Azure 沙盒中运行的 Runbook 不支持调用进程（例如 .exe 或 subprocess.call）。 这是因为，Azure 沙盒是在容器中运行的共享进程，它可能无权访问所有底层 API。 适用于需要第三方软件或需要调用子进程的方案。
+在 Azure 沙盒中运行的 Runbook 不支持调用进程（例如 .exe 或 subprocess.call）。 这是因为，Azure 沙盒是在容器中运行的共享进程，它可能无权访问所有底层 API。 对于需要第三方软件或调用子进程的方案，建议在[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)上执行 runbook。
 
 ### <a name="device-and-application-characteristics"></a>设备和应用程序特征
 
@@ -288,7 +303,7 @@ foreach ($log in $JobActivityLogs)
     $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
 
     if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
-    { 
+    {
         # Get runbook
         $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
                                             -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
@@ -304,9 +319,11 @@ $JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 
 为了在云中的所有 Runbook 之间共享资源，Azure 自动化会暂时卸载或停止已运行三小时以上的所有作业。 [基于 PowerShell 的 Runbook](automation-runbook-types.md#powershell-runbooks) 和 [Python Runbook](automation-runbook-types.md#python-runbooks) 的作业将停止且不会重启，作业状态显示“已停止”。
 
+对于长期任务，建议使用[混合 Runbook 辅助角色](automation-hrw-run-runbooks.md#job-behavior)。 混合 Runbook 辅助角色不受公平份额限制，并且不会限制 runbook 的执行时间。 其他作业[限制](../azure-subscription-service-limits.md#automation-limits)适用于 Azure 沙盒和混合 Runbook 辅助角色。 虽然混合 Runbook 辅助角色不受 3 小时公平份额限制的限制，但应开发在混合 Runbook 辅助角色上运行的 runbook，以便在出现意外的本地基础结构问题时支持重启行为。
+
 另一种选择是通过使用子 runbook 来优化 runbook。 如果 runbook 在多个资源上遍历同一函数，例如在多个数据库上执行某个数据库操作，可将该函数移到[子 runbook](automation-child-runbooks.md)，并使用 [Start-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet 进行调用。 各个子 runbook 是在单独的进程中并行执行的。 此行为降低了完成父 runbook 所需的时间总量。 如果有在子 Runbook 完成后执行的操作，可使用 Runbook 中的 [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet 检查每个子 Runbook 的作业状态。
 
 ## <a name="next-steps"></a>后续步骤
 
 * 若要详细了解可用于在 Azure 自动化中启动 Runbook 的不同方法，请参阅[在 Azure 自动化中启动 Runbook](automation-starting-a-runbook.md)
-
+* 有关 PowerShell 的详细信息（包括语言参考和学习模块），请参阅 [PowerShell 文档](https://docs.microsoft.com/en-us/powershell/scripting/overview)。

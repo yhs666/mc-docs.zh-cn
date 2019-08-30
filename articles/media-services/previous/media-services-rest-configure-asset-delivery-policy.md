@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 83030d82ceb3f36ecbb59e07bcf5ea0a7467ef96
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 71619e365e306730b99acb8e4dbece673c29feb6
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624155"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667645"
 ---
 # <a name="configuring-asset-delivery-policies"></a>配置资产传送策略
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
 如果打算传送动态加密的资产，媒体服务内容传送工作流中的步骤之一是为资产配置传送策略。 资产传送策略告知媒体服务希望如何传送资产：应该将资产动态打包成哪种流式处理协议（例如 MPEG DASH、HLS、平滑流或全部），是否要动态加密资产以及如何加密（信封或常用加密）。
@@ -30,13 +34,13 @@ ms.locfileid: "58624155"
 本主题介绍创建和配置资产传送策略的原因和方式。
 
 > [!NOTE]
-> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+> 创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 >
 > 此外，若要使用动态打包和动态加密，用户的资产必须包含一组自适应比特率 MP4 或自适应比特率平滑流式处理文件。
 
 可以将不同的策略应用到同一个资产。 例如，可以将 PlayReady 加密应用到平滑流式处理，将 AES 信封加密应用到 MPEG DASH 和 HLS。 将阻止流式处理传送策略中未定义的任何协议（例如，添加仅将 HLS 指定为协议的单个策略）。 如果根本没有定义任何传送策略，则情况不是这样。 此时，将允许所有明文形式的协议。
 
-如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”。 要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
+如果要传送存储加密资产，则必须配置资产的传送策略。 在流式传输资产之前，流式处理服务器会删除存储加密，再使用指定的传送策略流式传输用户的内容。 例如，若要传送使用高级加密标准 (AES) 信封加密密钥加密的资产，请将策略类型设为“DynamicEnvelopeEncryption”  。 要删除存储加密并以明文的形式流式传输资产，请将策略类型设置为 **NoDynamicEncryption**。 下面是演示如何配置这些策略类型的示例。
 
 根据配置资产传送策略的方式，可以动态打包、动态加密和流式传输以下流式处理协议：平滑流式处理、HLS、MPEG DASH 流。
 
@@ -238,7 +242,7 @@ MPEG DASH
 获取上一步创建的内容密钥的 PlayReady 传送方法的传送 URL。 客户端使用返回的 URL 来请求 PlayReady 许可证，以播放受保护内容。 有关详细信息，请参阅 [获取传送 URL](#get_delivery_url)。
 
 ### <a name="create-asset-delivery-policy"></a>创建资产传送策略
-以下 HTTP 请求将创建 AssetDeliveryPolicy，该策略配置为将动态通用加密 (DynamicCommonEncryption) 应用到平滑流式处理协议（在本示例中，已阻止流式处理其他协议）。 
+以下 HTTP 请求将创建 AssetDeliveryPolicy，该策略配置为将动态通用加密 (DynamicCommonEncryption) 应用到平滑流式处理协议（在本示例中，已阻止流式处理其他协议）    。 
 
 有关创建 AssetDeliveryPolicy 时可以指定哪些值的信息，请参阅 [定义 AssetDeliveryPolicy 时使用的类型](#types) 部分。   
 

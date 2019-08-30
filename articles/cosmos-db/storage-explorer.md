@@ -8,12 +8,12 @@ origin.date: 12/07/2018
 ms.date: 03/04/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 8d75ef5423afeba3563357a001248f9ec4feb789
-ms.sourcegitcommit: b56dae931f7f590479bf1428b76187917c444bbd
+ms.openlocfilehash: 45bb2e29c8a18319c74b95d445b0889320211de3
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56988012"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578593"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器处理数据
 
@@ -33,19 +33,21 @@ ms.locfileid: "56988012"
 
 1. 安装 **Azure 存储资源管理器**之后，单击左侧的**插件**图标，如下图中所示：
 
-   ![插件图标](./media/storage-explorer/plug-in-icon.png)
+    ![插件图标](./media/storage-explorer/plug-in-icon.png)
    
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
-2. 在“添加 Azure 帐户”中选择值“Azure 中国”，然后单击“登录”。
+    
+2. 在“添加 Azure 帐户”  中选择值“Azure 中国”  ，然后单击“登录”  。
     
     <!--MOONCAKE: Select the Azure China value in Add an Azure Account -->
-   ![连接到 Azure 订阅](./media/storage-explorer/connect-to-azure-subscription.png)
+    
+    ![连接到 Azure 订阅](./media/storage-explorer/connect-to-azure-subscription.png)
 
-2. 在“Azure 登录”对话框中，选择“登录”，然后输入 Azure 凭据。
+2. 在“Azure 登录”  对话框中，选择“登录”  ，然后输入 Azure 凭据。
 
     ![登录](./media/storage-explorer/sign-in.png)
 
-3. 从列表中选择你的订阅，然后单击“应用”。
+3. 从列表中选择你的订阅，然后单击“应用”  。
 
     ![应用](./media/storage-explorer/apply-subscription.png)
 
@@ -59,11 +61,11 @@ ms.locfileid: "56988012"
 
 连接到 Azure Cosmos DB 的一种替代方法是使用连接字符串。 按照以下步骤可使用连接字符串进行连接。
 
-1. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB...”
+1. 在左侧树中找到“本地和附加”  ，右键单击“Cosmos DB 帐户”  ，然后选择“连接到 Cosmos DB...” 
 
     ![通过连接字符串连接到 Cosmos DB](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 目前仅支持 SQL API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
+2. 目前仅支持 SQL API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
     
     <!-- Not Available on Table API-->
     
@@ -75,11 +77,11 @@ ms.locfileid: "56988012"
 
 1. 安装并启动模拟器。 有关如何安装模拟器的信息，请参阅 [Cosmos DB 模拟器](/cosmos-db/local-emulator)
 
-2. 在左侧树中找到“本地和附加”，右键单击“Cosmos DB 帐户”，然后选择“连接到 Cosmos DB 模拟器...”
+2. 在左侧树中找到“本地和附加”  ，右键单击“Cosmos DB 帐户”  ，然后选择“连接到 Cosmos DB 模拟器...” 
 
     ![通过模拟器连接到 Cosmos DB](./media/storage-explorer/emulator-entry.png)
 
-3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。 有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
+3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
 
     ![通过模拟器对话框连接到 Cosmos DB](./media/storage-explorer/emulator-dialog.png)
 
@@ -98,43 +100,43 @@ ms.locfileid: "56988012"
 
 通过在资源管理器窗格中右键单击订阅，可以执行许多快速操作任务：
 
-* 右键单击 Azure Cosmos DB 帐户或数据库，可以选择“在门户中打开”，然后在 Azure 门户上通过浏览器管理资源。
+* 右键单击 Azure Cosmos DB 帐户或数据库，可以选择“在门户中打开”  ，然后在 Azure 门户上通过浏览器管理资源。
 
      ![在门户中打开](./media/storage-explorer/open-in-portal.png)
 
-* 还可以将 Azure Cosmos DB 帐户、数据库、集合添加到“快速访问”。
-* 通过“从此处搜索”可以在所选路径下进行关键字搜索。
+* 还可以将 Azure Cosmos DB 帐户、数据库、集合添加到“快速访问”  。
+* 通过“从此处搜索”  可以在所选路径下进行关键字搜索。
 
     ![从此处搜索](./media/storage-explorer/search-from-here.png) 
 
 ### <a name="database-and-collection-management"></a>数据库和集合管理
 #### <a name="create-a-database"></a>创建数据库 
-- 右键单击 Azure Cosmos DB 帐户，选择“创建数据库”，输入数据库名称，然后按 **Enter** 以完成。
+- 右键单击 Azure Cosmos DB 帐户，选择“创建数据库”  ，输入数据库名称，然后按 **Enter** 以完成。
 
     ![创建数据库](./media/storage-explorer/create-database.png) 
 
 #### <a name="delete-a-database"></a>删除数据库
-- 右键单击数据库，单击“删除数据库”，然后在弹出窗口中单击“是”。 数据库节点会删除，并且 Azure Cosmos DB 帐户会自动刷新。
+- 右键单击数据库，单击“删除数据库”  ，然后在弹出窗口中单击“是”  。 数据库节点会删除，并且 Azure Cosmos DB 帐户会自动刷新。
 
     ![删除数据库 1](./media/storage-explorer/delete-database1.png)  
 
     ![删除数据库 2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>创建集合
-1. 右键单击数据库，选择“创建集合”，然后提供以下信息，如“集合 ID”、“存储容量”等。单击“确定”完成。 
+1. 右键单击数据库，选择“创建集合”  ，然后提供以下信息，如“集合 ID”  、“存储容量”  等。单击“确定”  完成。 
 
     ![创建集合 1](./media/storage-explorer/create-collection.png)
 
     ![创建集合 2](./media/storage-explorer/create-collection2.png) 
 
-2. 选择“无限制”以便能够指定分区键，然后单击“确定”完成操作。
+2. 选择“无限制”以便能够指定分区键，然后单击“确定”完成操作。  
 
     如果在创建集合时使用分区键，则一旦创建完成，便无法对集合更改分区键值。
 
     ![分区键](./media/storage-explorer/partitionkey.png)
 
 #### <a name="delete-a-collection"></a>删除集合
-- 右键单击集合，单击“删除集合”，然后在弹出窗口中单击“是”。 
+- 右键单击集合，单击“删除集合”  ，然后在弹出窗口中单击“是”  。 
 
     集合节点会删除，并且数据库会自动刷新。
 
@@ -143,23 +145,23 @@ ms.locfileid: "56988012"
 ### <a name="document-management"></a>文档管理
 
 #### <a name="create-and-modify-documents"></a>创建和修改文档
-- 若要创建新文档，请打开左窗口中的“文档”，单击“新建文档”，在右窗格中编辑内容，然后单击“保存”。 还可以更新现有文档，然后单击“保存”。 可以通过单击“放弃”来放弃更改。
+- 若要创建新文档，请打开左窗口中的“文档”  ，单击“新建文档”  ，在右窗格中编辑内容，然后单击“保存”  。 还可以更新现有文档，然后单击“保存”  。 可以通过单击“放弃”  来放弃更改。
 
     ![文档](./media/storage-explorer/document.png)
 
 #### <a name="delete-a-document"></a>删除文档
-- 单击“删除”按钮以删除所选文档。
+- 单击“删除”  按钮以删除所选文档。
 
 #### <a name="query-for-documents"></a>查询文档
-- 通过输入 [SQL 查询](how-to-sql-query.md)来编辑文档筛选器，然后单击“应用”。
+- 通过输入 [SQL 查询](how-to-sql-query.md)来编辑文档筛选器，然后单击“应用”  。
 
     ![文档筛选器](./media/storage-explorer/document-filter.png)
 
 <!-- Not Available on ### Graph management-->
 <!-- Not Available on ### Table management -->
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理存储过程、触发器和 UDF
-* 若要创建存储过程，请在左侧树中，右键单击“存储过程”，选择“创建存储过程”，在左侧输入名称，在右侧窗口中输入存储过程脚本，然后单击“创建”。 
-* 还可以双击，进行更新，然后单击“更新”保存，从而编辑现有存储过程，或单击“放弃”以取消更改。
+* 若要创建存储过程，请在左侧树中，右键单击“存储过程”  ，选择“创建存储过程”  ，在左侧输入名称，在右侧窗口中输入存储过程脚本，然后单击“创建”  。 
+* 还可以双击，进行更新，然后单击“更新”  保存，从而编辑现有存储过程，或单击“放弃”  以取消更改。
 
     ![存储过程](./media/storage-explorer/stored-procedure.png)
 * 适用于**触发器**和 **UDF** 的操作与**存储过程**类似。
@@ -178,22 +180,22 @@ ms.locfileid: "56988012"
 
 出现此错误有多个原因，最常见的两个原因是：
 
-+ 你位于“透明代理”之后，这意味着某人（例如 IT 部门）在拦截 HTTPS 流量，将其解密后又使用自签名证书对其加密。
++ 你位于“透明代理”之后，这意味着某人（例如 IT 部门）在拦截 HTTPS 流量，将其解密后又使用自签名证书对其加密  。
 
 + 正在运行的软件（如防病毒软件）在向收到的 HTTPS 消息注入自签名 SSL 证书。
 
 存储资源管理器在遇到其中一个这样的“自签名证书”时，将再也无法判断收到的 HTTPS 消息是否已被篡改。 但若拥有一份自签名证书的副本，则可让存储资源管理器信任它。 若无法确定谁在注入证书，则可自行尝试通过以下步骤找到它：
 
 1. 安装 Open SSL
-     - [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任意轻量版本均可）
-     - Mac 和 Linux：应包含在操作系统中
+    - [Windows](https://slproweb.com/products/Win32OpenSSL.html)（任意轻量版本均可）
+    - Mac 和 Linux：应包含在操作系统中
 2. 运行 Open SSL
-    - Windows:转到安装目录，然后转到“/bin/”，然后双击“openssl.exe”。
-    - Mac 和 Linux：从终端执行“openssl”
+    - Windows:转到安装目录，然后转到“/bin/”，然后双击“openssl.exe”   。
+    - Mac 和 Linux：从终端执行“openssl” 
 3. 执行 `s_client -showcerts -connect microsoft.com:443`
 4. 查找自签名证书。 若不确定哪个证书为自签名，则请查找使用者（“s:”）和证书颁发者（“i:”）相同的任意位置。
-5.  找到任何自签名证书后，将每个证书中从“-----BEGIN CERTIFICATE-----”（含）到“-----END CERTIFICATE-----”（含）的部分复制和粘贴到新的 .cer 文件。
-6.  打开存储资源管理器，然后转到“编辑” > “SSL 证书” > “导入证书”。 使用文件选取器查找、选择和打开所创建的 .cer 文件。
+5. 找到任何自签名证书后，将每个证书中从“-----BEGIN CERTIFICATE-----”（含）到“-----END CERTIFICATE-----”（含）的部分复制和粘贴到新的 .cer 文件。  
+6. 打开存储资源管理器，然后转到“编辑”   >   “SSL 证书” >   “导入证书”。 使用文件选取器查找、选择和打开所创建的 .cer 文件。
 
 若通过上述步骤无法找到任何自签名证书，可通过发送反馈以获取更多帮助。
 
@@ -206,9 +208,9 @@ ms.locfileid: "56988012"
 - 如果使用代理，请确保已正确配置存储资源管理器代理
 - 尝试移除并重新添加帐户
 - 尝试从主目录删除以下文件（例如：C:\Users\ContosoUser），然后重新添加帐户：
-  - .adalcache
-  - .devaccounts
-  - .extaccounts
+    - .adalcache
+    - .devaccounts
+    - .extaccounts
 - 登录查询任何错误消息时，请查看开发人员工具控制台（F12）
 
 ![console](./media/storage-explorer/console.png)
@@ -226,14 +228,14 @@ ms.locfileid: "56988012"
 如果无法移除帐户，或重新验证链接不起作用
 
 - 尝试从主目录删除以下文件，然后重新添加帐户：
-  - .adalcache
-  - .devaccounts
-  - .extaccounts
+    - .adalcache
+    - .devaccounts
+    - .extaccounts
 - 若要删除附加了 SAS 的存储资源，请删除：
-  - %AppData%/StorageExplorer 文件夹（对于 Windows）
-  - Mac 中的 /Users/<your_name>/Library/Application SUpport/StorageExplorer
-  - ~/.config/StorageExplorer（对于 Linux）
-  - 删除这些文件之后，**需要重新输入所有凭据**
+    - %AppData%/StorageExplorer 文件夹（对于 Windows）
+    - Mac 中的 /Users/<your_name>/Library/Application SUpport/StorageExplorer
+    - ~/.config/StorageExplorer（对于 Linux）
+    - 删除这些文件之后，**需要重新输入所有凭据**
 
 ### <a name="httphttps-proxy-issue"></a>Http/Https 代理问题
 
@@ -264,7 +266,7 @@ ms.locfileid: "56988012"
 
 ## <a name="contact-us"></a>联系我们
 
-如果以上解决方案均不起作用，请向 Azure Cosmos DB 开发人员工具团队（[MSDN Azure 和 CSDN Azure](https://www.azure.cn/support/contact/)）发送电子邮件，对问题进行详细说明，以便解决问题。
+如果以上解决方案均不起作用，请向 Azure Cosmos DB 开发工具团队（[Azure 支持](https://support.azure.cn/support/contact/)）发送电子邮件，对问题进行详细说明，以便解决问题。
 
 ## <a name="next-steps"></a>后续步骤
 

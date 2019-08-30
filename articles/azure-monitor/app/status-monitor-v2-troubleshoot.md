@@ -5,30 +5,26 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 6/4/2019
+ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f460be2e03afb6fb6630d13a385f3ac572d6c321
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d00d92483271e5ac6aae43488c0e430a362fb8f7
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562649"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989205"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>对状态监视器 v2 进行故障排除
 
 启用监视时，可能会遇到阻止数据收集的问题。
 本文列出了所有已知问题，并提供了故障排除示例。
 如果遇到此处未列出的问题，可以通过 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues) 联系我们。
-
-
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们建议不要将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
 
 ## <a name="known-issues"></a>已知问题
 
@@ -80,6 +76,19 @@ HttpModule 无法注入到此共享配置中。
         <add name="ManagedHttpModuleHelper" type="Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.ManagedHttpModuleHelper, Microsoft.AppInsights.IIS.ManagedHttpModuleHelper, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" preCondition="managedHandler,runtimeVersionv4.0" />
     </modules>
     ```
+
+### <a name="iis-nested-applications"></a>IIS 嵌套应用程序
+
+在 1.0 版中，我们不在 IIS 中检测嵌套应用程序。
+我们正在[此处](https://github.com/microsoft/ApplicationInsights-Home/issues/369)跟踪此问题。
+
+### <a name="advanced-sdk-configuration-isnt-available"></a>高级 SDK 配置不可用。
+
+在 1.0 版中，SDK 配置不向最终用户公开。
+我们正在[此处](https://github.com/microsoft/ApplicationInsights-Home/issues/375)跟踪此问题。
+
+    
+    
 ## <a name="troubleshooting"></a>故障排除
     
 ### <a name="troubleshooting-powershell"></a>PowerShell 故障排除
@@ -97,19 +106,20 @@ HttpModule 无法注入到此共享配置中。
 运行 `Get-Command -Module Az.ApplicationMonitor` 命令来获取可用命令：
 
 ```
-Command type     Name                                               Version    Source
+CommandType     Name                                               Version    Source
 -----------     ----                                               -------    ------
-Cmdlet          Disable-ApplicationInsightsMonitoring              0.2.1      Az.ApplicationMonitor
-Cmdlet          Disable-InstrumentationEngine                      0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-ApplicationInsightsMonitoring               0.2.1      Az.ApplicationMonitor
-Cmdlet          Enable-InstrumentationEngine                       0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
-Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.2.1      Az.ApplicationMonitor
-Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.2.1      Az.ApplicationMonitor
+Cmdlet          Disable-ApplicationInsightsMonitoring              0.4.0      Az.ApplicationMonitor
+Cmdlet          Disable-InstrumentationEngine                      0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-ApplicationInsightsMonitoring               0.4.0      Az.ApplicationMonitor
+Cmdlet          Enable-InstrumentationEngine                       0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Get-ApplicationInsightsMonitoringStatus            0.4.0      Az.ApplicationMonitor
+Cmdlet          Set-ApplicationInsightsMonitoringConfig            0.4.0      Az.ApplicationMonitor
+Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az.ApplicationMonitor
 ```
 
 #### <a name="determine-the-current-version-of-the-status-monitor-v2-module"></a>确定状态监视器 v2 模块的当前版本
-运行 `Get-ApplicationInsightsMonitoringStatus` 命令来显示有关该模块的以下信息：
+运行 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 命令来显示有关该模块的以下信息：
    - PowerShell 模块版本
    - Application Insights SDK 版本
    - PowerShell 模块的文件路径

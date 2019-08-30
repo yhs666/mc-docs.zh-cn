@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
+title: Azure AD 身份验证库 (ADAL) 客户端的错误处理最佳做法
 description: 提供适用于 ADAL 客户端应用程序的错误处理指南和最佳做法。
 services: active-directory
 documentationcenter: ''
@@ -8,20 +8,20 @@ manager: CelesteDG
 ms.author: v-junlch
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 02/27/2017
-ms.date: 06/24/2019
-ms.custom: ''
+ms.date: 08/23/2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c04bdcbe6faa055a94b86af7f7ef9569f30e60bf
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 8bce26050be1cd1a54c2965bcabeccaacc8d3101
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568554"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993241"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Azure Active Directory 身份验证库 (ADAL) 客户端的错误处理最佳做法
 
@@ -587,7 +587,7 @@ window.Logging = {
 
 欢迎通过下方的“评论”部分提供反馈，帮助我们改进内容。
 
-[![“登录”按钮][AAD-Sign-In]][AAD-Sign-In]
+[![显示“使用 Microsoft 登录”按钮][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
@@ -600,4 +600,4 @@ window.Logging = {
 [AAD-Sign-In]:./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

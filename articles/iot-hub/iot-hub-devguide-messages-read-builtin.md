@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 02/26/2019
+origin.date: 08/08/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: 00eb09f5714a8aa6c1f652c177afb73c37428901
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/02/2019
+ms.openlocfilehash: fabf42de23e9592acb1fff002e3b55fc119a20f6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570522"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993041"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>从内置终结点读取设备到云的消息
 
@@ -25,13 +25,13 @@ ms.locfileid: "67570522"
 | **分区计数** | 在创建时设置此属性，以便为设备到云事件引入定义[分区][lnk-event-hub-partitions]数。 |
 | **保留时间**  | 此属性指定 IoT 中心保留消息的时间（以天为单位）。 默认值为一天，但可以增加到七天。 |
 
-IoT 中心允许将数据保留在内置的事件中心，最长保留期为 7 天。 可以在创建 IoT 中心期间设置保留时间。 IoT 中心的数据保留大小取决于 IoT 中心层和单元类型。 就大小来说，内置事件中心能够保留的消息的最大大小为至少 24 小时的配额。 例如，使用 1 个 S1 单元时，在每条消息的大小为 4k 的情况下，IoT 中心提供的存储足以保留至少 40 万条消息。 如果设备发送的消息较小，则这些消息可能会保留更长的时间（最多 7 天），具体取决于使用的存储。 我们保证至少将数据保留指定的保留时间。
+IoT 中心允许将数据保留在内置的事件中心，最长保留期为 7 天。 可以在创建 IoT 中心期间设置保留时间。 IoT 中心的数据保留时间取决于 IoT 中心层和单元类型。 就大小来说，内置事件中心能够保留的消息的最大大小为至少 24 小时的配额。 例如，使用 1 个 S1 单元时，在每条消息的大小为 4k 的情况下，IoT 中心提供的存储足以保留至少 40 万条消息。 如果设备发送的消息较小，则这些消息可能会保留更长的时间（最多 7 天），具体取决于使用的存储。 我们保证至少将数据保留指定的保留时间。
 
-IoT 中心还支持用户管理内置设备到云接收终结点上的使用者组。
+IoT 中心还支持用户管理内置设备到云接收终结点上的使用者组。 每个 IoT 中心最多可以有 20 个使用者组。
 
 如果使用[消息路由](iot-hub-devguide-messages-d2c.md)，并启用了[回退路由](iot-hub-devguide-messages-d2c.md#fallback-route)，则与任何路由上的查询不匹配的所有消息都会进入内置终结点。 如果禁用此回退路由，将删除与任何查询都不匹配的消息。
 
-可以使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis], or with the [Azure portal][lnk-management-portal] 以编程方式修改保留期时间。
+可以使用 [IoT 中心资源提供程序 REST API][lnk-resource-provider-apis] 以编程方式修改保留期时间，或通过 [Azure 门户][lnk-management-portal]进行修改。
 
 IoT 中心向后端服务公开 **messages/events** 内置终结点，让后端服务读取中心收到的设备到云消息。 该终结点与事件中心兼容，因此可以使用事件中心服务支持的任何机制读取消息。
 

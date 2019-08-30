@@ -5,30 +5,30 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/09/2019
-ms.date: 04/15/2019
+origin.date: 07/26/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2104267e04ebca87bbb58a0f6be4da082cef8059
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 8ed2541d7f801850527bc47e28582306d6f1f6a2
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529387"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993329"
 ---
 # <a name="monitor-server-metrics"></a>监视服务器指标
 
-Analysis Services 提供相关指标，可帮助监视服务器的性能和运行状况。 例如，监视内存和 CPU 使用率、客户端连接数和查询资源消耗量。 Analysis Services 使用与大多数其他 Azure 服务相同的监视框架。 若要了解详细信息，请参阅 [Azure 中的指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
+Analysis Services 在 Azure 指标资源管理器（门户中的一个免费工具）中提供指标，以帮助你监视服务器的性能和运行状况。 例如，监视内存和 CPU 使用率、客户端连接数和查询资源消耗量。 Analysis Services 使用与大多数其他 Azure 服务相同的监视框架。 若要了解详细信息，请参阅 [Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)。
 
-若要跨资源组或订阅中的多个服务资源执行更深入的诊断、跟踪性能并确定趋势，请使用 [Azure Monitor](https://www.azure.cn/home/features/monitor/)。 Azure Monitor（服务）可能会导致服务计费。
+若要跨资源组或订阅中的多个服务资源执行更深入的诊断、跟踪性能并确定趋势，请使用 [Azure Monitor](../azure-monitor/overview.md)。 Azure Monitor（服务）可能会导致服务计费。
 
 ## <a name="to-monitor-metrics-for-an-analysis-services-server"></a>监视 Analysis Services 服务器的指标
 
-1. 在 Azure 门户中，选择“指标”。
+1. 在 Azure 门户中，选择“指标”  。
 
     ![在 Azure 门户中进行监视](./media/analysis-services-monitor/aas-monitor-portal.png)
 
-2. 在“可用指标”中，选择要包含在图表中的指标。 
+2. 在“可用指标”  中，选择要包含在图表中的指标。 
 
     ![“监视”图表](./media/analysis-services-monitor/aas-monitor-chart.png)
 
@@ -83,8 +83,8 @@ Analysis Services 提供相关指标，可帮助监视服务器的性能和运�
 |TotalConnectionRequests|连接请求总数|计数|平均值|连接请求总数。 |
 
 ## <a name="next-steps"></a>后续步骤
-[在 Azure 中监视](../monitoring-and-diagnostics/monitoring-overview.md)   
-[Azure 中的指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
+[Azure Monitor 概述](../azure-monitor/overview.md)      
+[Azure 指标资源管理器入门](../azure-monitor/platform/metrics-getting-started.md)      
 [Azure Monitor REST API 中的指标](https://docs.microsoft.com/rest/api/monitor/metrics)
 
-<!--Update_Description: update meta properties, wording update -->
+<!--Update_Description: update meta properties, wording update, update link -->

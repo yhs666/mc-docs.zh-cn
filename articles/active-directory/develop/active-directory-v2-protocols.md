@@ -12,19 +12,19 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/30/2019
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3095ce2a4a518fdb9bdf7444502c363f4e9ba8c5
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 31117f7b5d82537f1080987da4eb4a752c00974e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568546"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993232"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft 标识平台协议
 
@@ -37,7 +37,7 @@ ms.locfileid: "67568546"
 
 几乎在所有的 OAuth 2.0 和 OpenID Connect 流中，都有四个参与交换的对象：
 
-![OAuth 2.0 角色](./media/active-directory-v2-flows/protocols-roles.svg)
+![显示 OAuth 2.0 角色的示意图](./media/active-directory-v2-flows/protocols-roles.svg)
 
 * **授权服务器**是 Microsoft 标识平台终结点，它负责确保用户的标识、授予和吊销对资源的访问权限，以及颁发令牌。 授权服务器也称为标识提供者 - 它可安全处理与用户信息、用户访问权，以及流中各方彼此间信任关系有关的任何项目。
 * 资源所有者通常是最终用户  。 它是拥有数据的一方，并且有权允许第三方访问该数据或资源。

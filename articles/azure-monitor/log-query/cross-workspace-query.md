@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 168a37238215b42160a88041ff967cc391a9bd99
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 4669d60572d844f91e2b55015d2b5f6aae87d31c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513833"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989246"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure Monitor 中执行跨资源日志查询  
 
@@ -43,9 +44,6 @@ ms.locfileid: "68513833"
 * 资源名称 - 用户可读的工作区名称，有时称为“组件名称”  。 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >按名称标识工作区会假设它在所有可访问订阅中是唯一的。 如果具有多个采用指定名称的应用程序，查询将因多义性而失败。 在这种情况下，必须使用其他标识符之一。
 
 * 限定名称 - 工作区的“全名”，由订阅名称、资源组和组件名称组成，并采用以下格式：*subscriptionName/resourceGroup/componentName*。 
 
@@ -74,6 +72,9 @@ ms.locfileid: "68513833"
 * 资源名称 - 人类可读的应用名称，有时称为“组件名称”  。  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >按名称标识应用程序会假设它在所有可访问的订阅中是唯一的。 如果具有多个采用指定名称的应用程序，查询将因多义性而失败。 在这种情况下，必须使用其他标识符之一。
 
 * 限定名称 - 应用的“全名”，由订阅名称、资源组和组件名称组成，并采用以下格式：*subscriptionName/resourceGroup/componentName*。 
 

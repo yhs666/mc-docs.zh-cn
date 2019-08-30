@@ -4,6 +4,7 @@ description: 介绍用于监视 Azure 资源及其上运行的应用程序的运
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.service: azure-monitor
 ms.devlang: na
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0c176a729fe3e564438e449529404b2105de99b8
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 63f23c315fe931caefe26a02151d0a0f020a01e1
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969607"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989370"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -69,7 +70,7 @@ Azure 应用程序中的监视数据源可以组织为层，最高的层是应�
 [Azure 活动日志](activity-logs-overview.md)包含服务运行状况记录，以及对 Azure 订阅中的资源所做的配置更改的记录。 活动日志可供所有 Azure 资源使用，代表其外部视图。 
 
 | 目标 | 说明 | 参考 |
-|:---|:---|:---|
+|:---|:---|
 | 活动日志 | 活动日志将收集到其自身的数据存储中，可以通过 Azure Monitor 菜单查看这些日志，或使用它来创建活动日志警报。 | [在 Azure 门户中查询活动日志](activity-log-view.md#azure-portal) |
 | Azure Monitor 日志 | 配置 Azure Monitor 日志来收集活动日志，以结合其他监视数据对其进行分析。 | [收集和分析 Azure Monitor 的 Log Analytics 工作区中的 Azure 活动日志](activity-log-collect.md) |
 | Azure 存储 | 将活动日志导出到 Azure 存储进行存档。 | [存档活动日志](activity-log-export.md#archive-activity-log)  |
@@ -80,7 +81,7 @@ Azure 应用程序中的监视数据源可以组织为层，最高的层是应�
 
 | 目标 | 说明 | 参考 |
 |:---|:---|:---|
-| 活动日志<br>Azure Monitor 日志 | 服务运行状况记录存储在 Azure 活动日志中，因此，可以在 Azure 门户中查看这些记录，或者像处理活动日志时一样对这些记录执行任何其他活动。 | [使用 Azure 门户查看服务运行状况通知](service-notifications.md) |
+| 活动日志<br>Azure Monitor 日志 | 服务运行状况记录存储在 Azure 活动日志中，因此，可以在 Azure 门户中查看这些记录，或者像处理活动日志时一样对这些记录执行任何其他活动。 | [使用 Azure 门户查看服务运行状况通知](/service-health/service-notifications) |
 
 
 ## <a name="azure-resources"></a>Azure 资源
@@ -95,7 +96,7 @@ Azure 应用程序中的监视数据源可以组织为层，最高的层是应�
 | 目标 | 说明 | 参考 |
 |:---|:---|:---|
 | Azure Monitor 指标 | 平台指标将写入到 Azure Monitor 指标数据库，无需进行任何配置。 从指标资源管理器访问平台指标。  | [Azure 指标资源管理器入门](metrics-getting-started.md)<br>[Azure Monitor 支持的指标](metrics-supported.md) |
-| Azure Monitor 日志 | 将平台指标复制到日志中，以使用 Log Analytics 进行趋势分析和其他分析。 | [将 Azure 诊断定向到 Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
+| Azure Monitor 日志 | 将平台指标复制到日志中，以使用 Log Analytics 进行趋势分析和其他分析。 | [将 Azure 诊断定向到 Log Analytics](diagnostic-logs-stream-log-store.md) |
 | 事件中心 | 使用事件中心将指标流式传输到其他位置。 |[将 Azure 监视数据流式传输到事件中心以便外部工具使用](stream-monitoring-data-event-hubs.md) |
 
 ### <a name="diagnostic-logs"></a>诊断日志

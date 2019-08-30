@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: 5b9c9c83-3435-488c-b4f6-7653003ae18a
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f5150cf454b5074867acef5e1b93e9ebbd380344
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 48fe9dc9df1e8624e09d301130035944bb162bec
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818438"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989624"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure 中的网络性能监视器解决方案
 
@@ -244,7 +245,7 @@ NPM 可从以下任一区域托管的工作区监视世界上任何地方网络�
 
 这意味着使用[操作组](/platform/action-groups#overview)管理所有通知。  
 
-如果你是通过 Azure Monitor 创建警报的 NPM 用户： 
+如果你是通过 Log Analytics 创建警报的 NPM 用户： 
 1. 你将看到一个链接，该链接可将你重定向到 Azure 门户。 单击该链接以访问门户。
 2. 单击“网络性能监视器解决方案”磁贴。 
 3. 导航到“配置”。  

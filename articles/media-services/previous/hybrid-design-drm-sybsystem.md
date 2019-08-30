@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 7caecb4343f245f258f1e90777dd94c6252b55ec
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.reviewer: juliako
+ms.openlocfilehash: c6f613187703964ec3a4ee5f03cb39eb4018122d
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624199"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667642"
 ---
 # <a name="hybrid-design-of-drm-subsystems"></a>DRM 子系统的混合设计 
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 本主题介绍如何使用 Azure 媒体服务进行 DRM 子系统的混合设计。
 
@@ -86,7 +90,7 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 
 通过配置资产传送策略，可以控制 AMS 流式处理终结点的 AMS 动态打包程序和动态加密使用的以下属性：
 
-* 流协议和 DRM 加密组合，例如 MPEG-DASH、平滑流式处理和 PlayReady 下的 HLS。
+* 流协议和 DRM 加密组合，例如平滑流式处理和 PlayReady 下的 HLS。
 * 每个相关 DRM 的默认/嵌入式许可证传送 URL。
 * DASH MPD 或 HLS 播放列表中的许可证获取 URL (LA_URL) 是否包含 FairPlay 的密钥 ID (KID) 查询字符串。
 
@@ -106,24 +110,24 @@ DRM 支持包括 DRM 加密（动态加密）和许可证传送，其中的 Azur
 
 ### <a name="sample-1"></a>示例 1
 
-* 源（基）URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
-* FairPlay LA_URL (HLS)： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
+* 源（基）URL： https://willzhanmswest.streaming.mediaservices.windows.net/1efbd6bb-1e66-4e53-88c3-f7e5657a9bbd/RussianWaltz.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
+* FairPlay LA_URL (HLS)： https://willzhanmswest.keydelivery.mediaservices.windows.net/FairPlay/?kid=ba7e8fb0-ee22-4291-9654-6222ac611bd8 
 
 ### <a name="sample-2"></a>示例 2
 
-* 源（基）URL： http://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）： http://willzhan12.chinacloudapp.cn/PlayReady/RightsManager.asmx 
+* 源（基）URL： https://willzhanmswest.streaming.mediaservices.windows.net/1a670626-4515-49ee-9e7f-cd50853e41d8/Microsoft_HoloLens_TransformYourWorld_816p23.ism/Manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： http://willzhan12.cloudapp.net/PlayReady/RightsManager.asmx 
 
 ### <a name="sample-3"></a>示例 3
 
-* 源 URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.chinacloudapi.cn/PlayReady/ 
+* 源 URL： https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/ 
 
 ### <a name="sample-4"></a>示例 4
 
-* 源 URL： https://willzhanmswest.streaming.mediaservices.chinacloudapi.cn/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
-* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhan12.chinacloudapp.cn/playready/rightsmanager.asmx 
+* 源 URL： https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500.ism/manifest 
+* PlayReady LA_URL（DASH 和平滑流式处理）： https://willzhan12.cloudapp.net/playready/rightsmanager.asmx 
 
 ## <a name="summary"></a>摘要
 

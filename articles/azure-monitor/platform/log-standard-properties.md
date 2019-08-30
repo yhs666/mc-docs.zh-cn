@@ -10,22 +10,25 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 07/18/2019
 ms.author: bwren
-ms.openlocfilehash: f8bacd58b871921eba52d8f133f4277c468ced97
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 34a31b76f59e7d7e45ebd6ee8f7797facf90241b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562870"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989418"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Azure Monitor 日志中的标准属性
 Azure Monitor 日志中的数据[作为一组记录存储在 Log Analytics 工作区或 Application Insights 应用程序](../log-query/logs-structure.md)中，每条记录都具有特定的数据类型，该数据类型包含一组惟一的属性。 许多数据类型都具有在多种类型中通用的标准属性。 本文介绍这些属性，并提供如何在查询中使用它们的示例。
 
-其中一些属性仍在实现过程中，因此你可能会在某些数据类型中看到它们，但在其他数据类型中却看不到。
+> [!NOTE]
+> 某些标准属性不会显示在 Log Analytics 的架构视图或 intellisense 中，也不会显示在查询结果中，除非在输出中显式指定该属性。
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated 和 timestamp
-**TimeGenerated**（Log Analytics 工作区）和 **Timestamp**（Application Insights 应用程序）属性包含创建记录的日期和时间。 它提供了一个用于按时间进行筛选或汇总的常用属性。 为 Azure 门户中的视图或仪表板选择时间范围时，它使用 TimeGenerated 或 timestamp 来筛选结果。
+**TimeGenerated**（Log Analytics 工作区）和 **Timestamp**（Application Insights 应用程序）属性包含数据源创建记录的日期和时间。 如需更多详细信息，请参阅 [Azure Monitor 中的日志数据引入时间](data-ingestion-time.md)。
+
+**TimeGenerated** 和 **timestamp** 提供了一个用于按时间进行筛选或汇总的常用属性。 为 Azure 门户中的视图或仪表板选择时间范围时，它使用 TimeGenerated 或 timestamp 来筛选结果。 
 
 ### <a name="examples"></a>示例
 
@@ -48,6 +51,20 @@ exceptions
 | sort by timestamp asc 
 ```
 
+## <a name="_timereceived"></a>\_TimeReceived
+**\_TimeReceived** 属性包含 Azure 云中的 Azure Monitor 引入点收到记录的日期和时间。 这可以用来确定数据源和云之间的延迟问题。 例如，从代理发送数据时，网络问题会导致延迟。 如需更多详细信息，请参阅 [Azure Monitor 中的日志数据引入时间](data-ingestion-time.md)。
+
+以下查询给出了从代理发送的事件记录的平均延迟（按小时）。 这包括从代理到云的时间，以及记录可供日志查询所花费的总时间。
+
+```Kusto
+Event
+| where TimeGenerated > ago(1d) 
+| project TimeGenerated, TimeReceived = _TimeReceived, IngestionTime = ingestion_time() 
+| extend AgentLatency = toreal(datetime_diff('Millisecond',TimeReceived,TimeGenerated)) / 1000
+| extend TotalLatency = toreal(datetime_diff('Millisecond',IngestionTime,TimeGenerated)) / 1000
+| summarize avg(AgentLatency), avg(TotalLatency) by bin(TimeGenerated,1hr)
+``` 
+
 ## <a name="type-and-itemtype"></a>Type 和 itemType
 **Type**（Log Analytics 工作区）和 **itemType**（Application Insights 应用程序）属性保存从中检索记录的表的名称，也可以将其视为记录类型。 此属性在将多个表的记录进行组合的查询中非常有用，例如，使用 `search` 运算符区分不同类型的记录的那些查询。 在某些地方， **$table** 可以用来替代 **Type**。
 
@@ -58,9 +75,13 @@ exceptions
 search * 
 | where TimeGenerated > ago(1h)
 | summarize count() by Type
-```
 
-## <a name="resourceid"></a>\_ResourceId
+```
+## <a name="_itemid"></a>\_ItemId
+**\_ItemId** 属性保留记录的唯一标识符。
+
+
+## <a name="_resourceid"></a>\_ResourceId
 **\_ResourceId** 属性包含与记录关联的资源的唯一标识符。 这为你提供了一个标准属性，用于将查询范围限定为仅来自特定资源的记录，或者跨多个表联接相关数据。
 
 对于 Azure 资源， **_ResourceId** 的值是 [Azure 资源 ID URL](../../azure-resource-manager/resource-group-template-functions-resource.md)。 该属性目前仅限于 Azure 资源，但它将扩展到 Azure 之外的资源，例如本地计算机。
@@ -106,7 +127,7 @@ union withsource = tt *
 
 请谨慎使用这些 `union withsource = tt *` 查询，因为跨数据类型执行扫描的开销很大。
 
-## <a name="isbillable"></a>\_IsBillable
+## <a name="_isbillable"></a>\_IsBillable
 **\_IsBillable** 属性指定是否对引入的数据进行计费。 **\_IsBillable** 等于 _false_ 的数据是免费收集的，不会向你的 Azure 帐户收费。
 
 ### <a name="examples"></a>示例
@@ -133,7 +154,7 @@ union withsource = tt *
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
 ```
 
-## <a name="billedsize"></a>\_BilledSize
+## <a name="_billedsize"></a>\_BilledSize
 **\_BilledSize** 属性指定 **\_IsBillable** 为 true 时将向 Azure 帐户计费的数据字节大小。
 
 ### <a name="examples"></a>示例

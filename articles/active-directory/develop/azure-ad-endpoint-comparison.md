@@ -11,18 +11,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 06/24/2019
+origin.date: 08/01/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db7acdbbfa7ff4c6bc66e5912c667c4aaac0b846
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 63ff77cda5ef633ffb793970d70d95bbb9227ae6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568524"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993221"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>为何更新为 Microsoft 标识平台 (v2.0)？
 
@@ -38,7 +38,7 @@ ms.locfileid: "67568524"
 * v1.0 终结点仅允许使用工作和学校帐户登录到应用程序 (Azure AD)
 * Microsoft 标识平台终结点使工作帐户和学校帐户可从 Azure AD 登录。
 
-使用 Microsoft 标识平台终结点可以编写接受工作帐户和学校帐户登录的应用。 这样，你便可以编写完全不区分帐户的应用。 例如，如果应用调用 [Microsoft Graph](https://graph.microsoft.io)，则工作帐户可以使用某些附加功能和数据，如 SharePoint 站点或目录数据。 但是，对于许多操作，例如[读取用户的邮件](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages)，可使用相同的代码访问工作帐户和学校帐户的电子邮件。
+使用 Microsoft 标识平台终结点可以编写接受工作帐户和学校帐户登录的应用。 这样，你便可以编写完全不区分帐户的应用。 例如，如果应用调用 [Microsoft Graph](https://graph.microsoft.io)，则工作帐户可以使用某些附加功能和数据，如 SharePoint 站点或目录数据。 但对于许多操作，相同的代码可以访问工作和学校帐户的电子邮件。
 
 对于 Microsoft 标识平台终结点，可以使用 Microsoft 身份验证库 (MSAL) 来获取对使用者、教育和企业领域的访问权限。 Azure AD v1.0 终结点仅接受工作和学校帐户的登录。
 
@@ -46,7 +46,7 @@ ms.locfileid: "67568524"
 
 使用 Azure AD v1.0 终结点的应用需要提前指定所需的 OAuth 2.0 权限，例如：
 
-![权限注册 UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
+![显示权限注册 UI 的示例](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
 直接在应用程序注册中设置的权限是**静态的**。 尽管在 Azure 门户中定义应用的静态权限能保持代码的简洁性，但可能会给开发人员带来几个问题：
 
@@ -115,6 +115,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ## <a name="token-claims"></a>令牌声明
 
 为了使有效负荷保持在较小的规模，Microsoft 标识平台终结点默认会在其令牌中发布少量的声明。 如果你的应用和服务依赖于 v1.0 令牌中的特定声明，而 Microsoft 标识平台令牌中默认不再提供该声明，请考虑使用[可选声明](active-directory-optional-claims.md)功能来包含该声明。
+
+> [!IMPORTANT]
+> v1.0 和 v2.0 终结点都可以颁发 v1.0 和 v2.0 令牌！ id_tokens 始终  与请求它们的终结点相匹配，而访问令牌始终  与客户端将使用该令牌调用的 Web API 所需的格式相匹配。  因此，如果应用使用 v2.0 终结点来获取一个调用 Microsoft Graph 的令牌（需要 v1.0 格式的访问令牌），那么应用将收到一个 v1.0 格式的令牌。  
 
 ## <a name="limitations"></a>限制
 

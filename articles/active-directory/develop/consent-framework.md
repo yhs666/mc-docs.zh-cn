@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 11/30/2018
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d8a3b3fadac5e76e5115ecec67c23815052fb4d
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 5ae86025749be5593ea11b63deb7dc30903e7be4
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568520"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993225"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 许可框架
 
@@ -51,7 +51,7 @@ ms.locfileid: "67568520"
 
 1. 用户登录后，Azure AD 将决定是否要向该用户显示同意页。 根据该用户（或其组织的管理员）是否已授予应用程序许可而决定。 如果尚未授予许可，Azure AD 会提示用户授予许可，并显示运行该应用程序所需的权限。 许可对话框中显示的权限集与在 Azure 门户中的“委托权限”  中选择的权限集相匹配。
 
-    ![用户同意体验](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![显示“同意”对话框中显示的权限的示例](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. 用户授予许可后，授权代码会返回到应用程序，应用程序可凭此获取访问令牌和刷新令牌。 有关此流程的详细信息，请参阅 [Web API 应用类型](web-api.md)。
 

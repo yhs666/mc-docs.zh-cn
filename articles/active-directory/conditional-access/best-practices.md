@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 origin.date: 01/25/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cfd8dd0de009b1de8b28b3df32f3e22a22f1e1e
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 146d5c6388915029d453184d7450a4babbde43cc
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973014"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993131"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory 中条件访问的最佳做法
 
@@ -51,11 +51,12 @@ ms.locfileid: "68973014"
 所有策略都是在两个阶段中强制实施的：
 
 - 在**第一个**阶段中，将对所有策略进行评估并收集不满足的所有访问控制。 
-- 在**第二个**阶段中，将提示你去满足尚未满足的要求。 如果其中任何一个策略阻止访问，则会阻止你并且不会提示你去满足其他策略控制。 如果策略阻止你，则会提示你按以下顺序满足其他策略控制：
+
+- 在**第二个**阶段中，将提示你去满足尚未满足的要求。 如果其中任何一个策略阻止访问，则会阻止你并且不会提示你去满足其他策略控制。 如果没有策略阻止你，则会提示你按以下顺序满足其他策略控制：
 
    ![顺序](./media/best-practices/06.png)
     
-   然后是外部 MFA 提供程序和使用条款。
+   接下来是使用条款。
 
 ### <a name="how-are-assignments-evaluated"></a>如何计算分配？
 
@@ -93,7 +94,7 @@ ms.locfileid: "68973014"
 
 由于 Office 365 应用是相互连接的，因此建议你在创建策略时将常用应用分配到一起。
 
-常见的相互连接的应用程序包括 Microsoft Flow、Microsoft Planner、Microsoft Teams、Office 365 Exchange Online、Office 365 SharePoint Online 和 Office 365 Yammer。
+常见的相互连接的应用程序包括 Microsoft Planner、Microsoft Teams、Office 365 Exchange Online、Office 365 SharePoint Online 和 Office 365 Yammer。
 
 如果访问权限是在会话或任务的开始时控制的，则这对需要用户交互（例如多重身份验证）的策略来说很重要。 如果你不这样做，用户将无法完成应用中的某些任务。 例如，如果你在访问 SharePoint 时要求在非托管设备上进行多重身份验证，但在访问电子邮件时却不这样做，则在电子邮件中工作的用户无法将 SharePoint 文件附加到邮件中。 有关详细信息，可参阅此文：[Azure Active Directory 条件访问中的服务依赖项是什么？](service-dependencies.md)。
 
@@ -147,3 +148,4 @@ ms.locfileid: "68973014"
 - 如何配置条件访问策略，请参阅[通过 Azure Active Directory 条件访问要求特定应用必须使用 MFA](app-based-mfa.md)。
 - 若要了解如何规划条件访问策略，请参阅[如何在 Azure Active Directory 中规划条件访问部署](plan-conditional-access.md)。
 
+<!-- Update_Description: wording update -->

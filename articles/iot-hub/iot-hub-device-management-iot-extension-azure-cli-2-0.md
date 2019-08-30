@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 01/16/2018
-ms.date: 05/06/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: fc1a0a1813188de82959087cedc71b5e9f3bbcf7
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 3ab76df82b2d44c07288b72b84146e3364d6d5dc
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64855520"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993046"
 ---
 # <a name="use-the-iot-extension-for-azure-cli-for-azure-iot-hub-device-management"></a>针对 Azure IoT 中心设备管理，使用适用于 Azure CLI 的 IoT 扩展
 
@@ -44,7 +44,7 @@ ms.locfileid: "64855520"
 
 ## <a name="what-you-learn"></a>学习内容
 
-了解在开发计算机上通过各种管理选项使用适用于 Azure CLI 的 IoT 扩展。
+了解如何在开发计算机上通过各种管理选项使用适用于 Azure CLI 的 IoT 扩展。
 
 ## <a name="what-you-do"></a>准备工作
 
@@ -52,7 +52,7 @@ ms.locfileid: "64855520"
 
 ## <a name="what-you-need"></a>需要什么
 
-* 完成 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)教程或其中一个设备教程；例如[将 Raspberry Pi 与 Node.js 配合使用](iot-hub-raspberry-pi-kit-node-get-started.md)。 这包括以下要求：
+* 完成 [Raspberry Pi 联机模拟器](iot-hub-raspberry-pi-web-simulator-get-started.md)教程或其中一个设备教程；例如[将 Raspberry Pi 与 Node.js 配合使用](iot-hub-raspberry-pi-kit-node-get-started.md)。 这些项包括以下要求：
 
   - 一个有效的 Azure 订阅。
   - 已在订阅中创建一个 Azure IoT 中心。
@@ -66,8 +66,7 @@ ms.locfileid: "64855520"
 
 * 安装 IoT 扩展。 最简单的方法是运行 `az extension add --name azure-cli-iot-ext`。 [IoT 扩展自述文件](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md)介绍了该扩展的多种安装方法。
 
-
-## <a name="log-in-to-your-azure-account"></a>登录到 Azure 帐户
+## <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 
 通过运行以下命令登录到 Azure 帐户：
 

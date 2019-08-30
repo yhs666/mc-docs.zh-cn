@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/19/2018
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: fa86a73bca0154e7076765b2662bd023a10d8435
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 6acbb09c50c65e66d7c8ca6855c29741a1d126f3
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514419"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993615"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>使用 IoT 中心发送云到设备消息 (iOS)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
@@ -36,7 +36,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 * **sample-service**：通过 IoT 中心将云到设备的消息发送到模拟设备应用，然后接收中心的传送确认。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
+> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](https://www.azure.com/develop/iot)。
 
 要完成本教程，需要以下各项：
 
@@ -92,6 +92,12 @@ pod install
 
    ![运行项目](media/iot-hub-ios-swift-c2d/run-sample.png)
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+在本文中，你将创建一项后端服务，用于通过你在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-ios.md)中创建的 IoT 中心发送云到设备消息。 若要发送云到设备消息，服务需要“服务连接”权限。  默认情况下，每个 IoT 中心都使用名为 **service** 的共享访问策略创建，该策略授予此权限。
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="simulate-a-service-device"></a>模拟服务设备
 
 在本部分，我们将模拟另一个 iOS 设备，该设备上安装了可以通过 IoT 中心发送云到设备的消息的 Swift 应用。 此配置可用于以下 IoT 场景：一台 iPhone 或 iPad 充当与 IoT 中心连接的其他 iOS 设备的控制器。 
@@ -116,13 +122,7 @@ pod install
 
 ### <a name="run-the-sample-service-application"></a>运行示例服务应用程序
 
-1. 检索 IoT 中心的服务连接字符串。 可以从 [Azure 门户](https://portal.azure.cn)上“共享访问策略”边栏选项卡中的“iothubowner”策略复制此字符串，或者使用以下 CLI 命令检索它：    
-
-    ```azurecli
-    az iot hub show-connection-string --name {YourIoTHubName} --output table
-    ```
-
-2. 在 XCode 中打开示例工作区。
+1. 在 XCode 中打开示例工作区。
 
    ```sh
    open AzureIoTServiceSample.xcworkspace

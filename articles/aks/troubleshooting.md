@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: troubleshooting
 origin.date: 08/13/2018
-ms.date: 05/13/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 910f5c13df70dcf921b71a43666c01c0a3a64bd4
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 4303df1cd314c942676de68bc2245de7dfab105b
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520693"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993476"
 ---
 # <a name="aks-troubleshooting"></a>AKS 疑难解答
 
@@ -26,7 +26,7 @@ ms.locfileid: "65520693"
 
 ## <a name="im-getting-a-quota-exceeded-error-during-creation-or-upgrade-what-should-i-do"></a>在创建或升级期间遇到“超出配额”的错误。 我该怎么办？ 
 
-需要[请求内核](https://support.windowsazure.cn/support/support-azure)。
+需要[请求内核](https://support.azure.cn/support/support-azure/)。
 
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>对 AKS 而言，每个节点设置的最大 Pod 是多少？
 
@@ -66,7 +66,7 @@ ms.locfileid: "65520693"
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>无法使用 Kubectl 日志获取日志或无法连接到 API 服务器。 我收到“来自服务器的错误：拨号后端时出错: 拨打 tcp...”。 我该怎么办？
 
-请确保默认网络安全组未被修改并且端口 22 已打开以连接到 API 服务器。 使用 `kubectl get pods --namespace kube-system` 命令检查 `tunnelfront` Pod是否在 *kube-system* 命名空间中运行。 如果没有，请强制删除 Pod，它会重启。
+请确保默认网络安全组未被修改并且端口 22 和 9000 已打开以连接到 API 服务器。 使用 `kubectl get pods --namespace kube-system` 命令检查 `tunnelfront` Pod是否在 *kube-system* 命名空间中运行。 如果没有，请强制删除 Pod，它会重启。
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>我在尝试进行升级或缩放，并收到“消息：不允许更改属性‘imageReference’”错误。 如何修复此问题？
 
@@ -74,12 +74,12 @@ ms.locfileid: "65520693"
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>有错误指出，我的群集处于故障状态，在解决此解决之前无法进行升级或缩放
 
-*此故障排除帮助摘自 [aks-cluster-failed](troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade)*
+*此故障排除帮助摘自 [aks-cluster-failed](troubleshooting.md#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)*
 
 如果群集出于多种原因进入故障状态，则会发生此错误。 请遵循以下步骤解决群集故障状态，然后重试先前失败的操作：
 
 1. 除非群集摆脱 `failed` 状态，否则 `upgrade` 和 `scale` 操作不会成功。 常见的根本问题和解决方法包括：
-    * 使用**不足的计算 (CRP) 配额**进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](https://support.windowsazure.cn/support/support-azure)，然后尝试扩展到超出初始配额限制。
+    * 使用**不足的计算 (CRP) 配额**进行缩放。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高计算配额](https://support.azure.cn/support/support-azure/)，然后尝试扩展到超出初始配额限制。
     * 使用高级网络和**不足的子网（网络）资源**缩放群集。 若要解决此问题，请先将群集缩放回到配额内的稳定目标状态。 遵循[这些步骤请求提高资源配额](../azure-resource-manager/resource-manager-quota-errors.md#solution)，然后尝试扩展到超出初始配额限制。
 2. 解决升级失败的根本原因后，群集应会进入成功状态。 确认处于成功状态后，重试原始操作。
 
@@ -87,10 +87,14 @@ ms.locfileid: "65520693"
 
 *此故障排除帮助摘自 [aks-pending-upgrade](troubleshooting.md#im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade)*
 
-如果当前正在执行升级操作，或者过去尝试了升级，但随后升级失败，则群集操作会受到限制。 若要诊断此问题，请运行 `az aks show -g myResourceGroup -n myAKSCluster -o table` 检索群集上的详细状态。 根据结果：
+使用单节点池时，群集上的升级和缩放操作是互斥的。 不能让群集或节点池同时升级和缩放， 而只能先在目标资源上完成一个操作类型，然后再在同一资源上执行下一个请求。 因此，如果当前正在执行升级或缩放操作，或者曾经尝试过这些操作，但随后失败，则其他操作会受到限制。 
 
-* 如果群集正在升级，请等到该操作终止。 如果升级成功，请重试先前失败的操作。
-* 如果群集升级失败，请遵循上面所述的步骤
+<!--MOONCAKE: Not Available on [multiple node pools](use-multiple-node-pools.md)-->
+
+若要诊断此问题，请运行 `az aks show -g myResourceGroup -n myAKSCluster -o table` 检索群集上的详细状态。 根据结果：
+
+* 如果群集正在升级，请等到该操作终止。 如果升级成功，请再次重试先前失败的操作。
+* 如果群集升级失败，请按前面部分所述的步骤操作。
 
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>是否可以将我的群集移动到其他订阅，或者说，是否可以将包含我的群集的订阅移动到新租户？
 
@@ -106,3 +110,17 @@ Azure 平台和 AKS 都实施了命名限制。 如果资源名称或参数违�
 
 * AKS *MC_* 资源组名称组合了资源组名称和资源名称。 自动生成的语法 `MC_resourceGroupName_resourceName_AzureRegion` 不能超过 80 个字符。 如果需要，请缩短你的资源组名称或 AKS 群集名称的长度。
 * *dnsPrefix* 的开头和结尾必须是字母数字值。 有效字符包括字母数字值和连字符 (-)。 *dnsPrefix* 不能包含特殊字符，例如句点 (.)。
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>我在尝试创建、更新、缩放、删除或升级群集时收到错误，该操作不被允许，因为另一个操作正在进行。
+
+*此故障排除帮助摘自 [aks-pending-operation](troubleshooting.md#im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress)*
+
+当上一个操作仍在进行时，群集操作会受限。 若要检索群集的详细状态，请使用 `az aks show -g myResourceGroup -n myAKSCluster -o table` 命令。 根据需要使用自己的资源组和 AKS 群集名称。
+
+根据群集状态的输出：
+
+* 如果群集的预配状态不是“成功”或“失败”，请等待   操作（升级/更新/创建/缩放/删除/迁移  ）终止。 当上一操作完成后，请重试最新的群集操作。
+
+* 如果群集的升级失败，请按[有错误指出，我的群集处于故障状态，在解决此解决之前无法进行升级或缩放](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed)中概述的步骤操作。
+
+<!--Update_Description: wording update-->

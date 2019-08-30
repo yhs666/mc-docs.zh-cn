@@ -3,7 +3,7 @@ title: Xamarin Android 注意事项（适用于 .NET 的 Microsoft 身份验证�
 description: 了解将 Xamarin Android 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,22 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/24/2019
-ms.date: 06/18/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0545309158a8d48ca622cb344269779ff6cb5a59
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 8f9389575c2bc9287856e424d9aa42eac130bddf
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305986"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993250"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>与 MSAL.NET 配合使用时特定于 Xamarin Android 的注意事项
 本文介绍将 Xamarin Android 与适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 配合使用时的具体注意事项。
-
-本文适用于 MSAL.NET 3.x。 如果对 MSAL.NET 2.x 感兴趣，请参阅 [MSAL.NET 2.x 中的 Xamarin Android 详情](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Xamarin-Android-specifics-2x)。
 
 ## <a name="set-the-parent-activity"></a>设置父活动
 
@@ -39,6 +37,26 @@ var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
+也可以通过回调在 PublicClientApplication 级别（MSAL4.2+ 中）设置此项。
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => parentActivity)
+  .Build();
+```
+
+建议使用[此处](https://github.com/jamesmontemagno/CurrentActivityPlugin)的 CurrentActivityPlugin。  然后，PublicClientApplication 生成器代码将如下所示：
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => CrossCurrentActivity.Current)
+  .Build();
+```
+
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>确保身份验证流的交互部分结束后控制返回到 MSAL。
 在 Android 上，需重写 `Activity` 的 `OnActivityResult` 方法并调用 AuthenticationContinuationHelper MSAL 类的 SetAuthenticationContinuationEventArgs 方法。
@@ -93,12 +111,12 @@ var authResult = AcquireTokenInteractive(scopes)
 - 所有 Xamarin.Android.Support 包应该都以版本 25.4.0.2 为目标
 - 清除/重新生成
 - 尝试在 Visual Studio 中将最大并行项目内部版本数设置为 1（“选项”->“项目和解决方案”->“生成并运行”->“最大并行项目内部版本数”）
-- 另外，如果是从命令行生成的，请尝试删除命令中的 /m（如果使用了它）。
+- 或者，如果是从命令行生成的，请尝试从命令中删除“/m”（如果正在使用它）。
 
 
 ### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>错误：名称 'AuthenticationContinuationHelper' 不存在于当前上下文中
 
-这可能是因为 Visual Studio 未正确更新 Android.csproj* 文件。 有时候， **<HintPath>** 文件路径会错误地包含 netstandard13（应该包含 **monoandroid90**）。
+这可能是因为 Visual Studio 未正确更新 Android.csproj* 文件。 有时， **\<HintPath>** 文件路径错误地包含 netstandard13 而不是 **monoandroid90**。
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,
@@ -115,3 +133,4 @@ var authResult = AcquireTokenInteractive(scopes)
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS、Android、UWP | 一个简单的 Xamarin Forms 应用，它展示了如何使用 MSAL 通过 AADD v2.0 终结点对 MSA 和 Azure AD 进行身份验证，以及如何使用生成的令牌访问 Microsoft Graph。 <br>![拓扑](./media/msal-net-xamarin-android-considerations/topology.png) |
 
+<!-- Update_Description: wording update -->

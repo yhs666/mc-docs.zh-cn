@@ -9,14 +9,14 @@ ms.topic: conceptual
 origin.date: 06/28/2017
 ms.author: dobett
 ms.date: 08/05/2019
-ms.openlocfilehash: e6299eb5eb7bdba0ebd29ac3bdb3f20471d93a81
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 1b8f4b7de215dcde57d3a1eb5f6a525a72b6e99f
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514418"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993609"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-java"></a>使用 IoT 中心将文件从设备上传到云 (Java)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -117,11 +117,15 @@ ms.locfileid: "68514418"
     mvn clean package -DskipTests
     ```
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+在本文中，你将创建一项后端服务，用于从你在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-java.md)中创建的 IoT 中心接收文件上传通知消息。 若要接收文件上传通知消息，服务需要“服务连接”权限。  默认情况下，每个 IoT 中心都使用名为 **service** 的共享访问策略创建，该策略授予此权限。
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>接收文件上传通知
 
 本部分中的操作将创建一个 Java 控制台应用，用于接收来自 IoT 中心的文件上传通知消息。
-
-需要使用 IoT 中心的 **iothubowner** 的连接字符串才能完成本部分。 可以在 [Azure 门户](https://portal.azure.cn/)上的“共享访问策略”边栏选项卡中找到该连接字符串。 
 
 1. 在命令提示符下使用以下命令，创建名为 **read-file-upload-notification** 的 Maven 项目。 请注意，此命令是一条很长的命令：
 
@@ -158,7 +162,7 @@ ms.locfileid: "68514418"
     import java.util.concurrent.Executors;
     ```
 
-1. 将以下类级变量添加到 **App** 类：
+7. 将以下类级变量添加到 **App** 类。 将 `{Your IoT Hub connection string}` 占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";

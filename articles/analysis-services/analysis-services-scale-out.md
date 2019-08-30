@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 06/03/2019
+origin.date: 08/01/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb44ee0b2474d4bfc5772de962490593de7226aa
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 4c25500430823099a7c976e0004fc972aa1016de
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195402"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993318"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 横向扩展
 
@@ -79,11 +79,11 @@ ms.locfileid: "66195402"
 
 ### <a name="in-azure-portal"></a>在 Azure 门户中配置
 
-1. 在门户中，单击“横向扩展”  。使用滑块选择查询副本服务器的数量。 选择的副本数量不包括现有的服务器。
+1. 在门户中，单击“横向扩展”  。使用滑块选择查询副本服务器的数量。 选择的副本数量不包括现有的服务器。  
 
 2. 在“从查询池分离处理服务器”中，选择“是”以将处理服务器和查询服务器分开  。 使用默认连接字符串（不带 `:rw`）的客户端[连接](#connections)将重定向到查询池中的副本。 
 
-   ![横向扩展滑块](media/analysis-services-scale-out/aas-scale-out-slider.png)
+    ![横向扩展滑块](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. 单击“保存”以预配新的查询副本服务器  。 
 
@@ -146,6 +146,10 @@ ms.locfileid: "66195402"
 对于 PowerShell 中的 SSMS、SSDT 和连接字符串、Azure 函数应用以及 AMO，请使用“管理服务器名称”  。 管理服务器名称包含特殊限定符 `:rw`（读取-写入）。 所有处理操作均在管理服务器（主服务器）上发生。
 
 ![服务器名称](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="scale-up-scale-down-vs-scale-out"></a>纵向扩展、纵向缩减与横向扩展
+
+可以在具有多个副本的服务器上更改定价层。 同一定价层适用于所有副本。 缩放操作将首先同时关闭所有副本，然后在新的定价层上启动所有副本。
 
 ## <a name="troubleshoot"></a>故障排除
 

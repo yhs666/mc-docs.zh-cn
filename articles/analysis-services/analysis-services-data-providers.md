@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 06/05/2019
-ms.date: 07/22/2019
+origin.date: 08/13/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: d95ab776dd3806528baa9658926f15375f8120a0
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: e1b2785fae9e6da22db7cf5a3a70e69345407823
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308835"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993348"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>用于连接到 Azure Analysis Services 的客户端库
 
@@ -24,10 +24,10 @@ ms.locfileid: "68308835"
 
 |下载  |产品版本  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.24.20    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.24.20      |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   16.3.0.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    16.3.0.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.0.33.23    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |    15.0.33.23      |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.2.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.2.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO 和 ADOMD（NuGet 包）
 
@@ -35,8 +35,8 @@ Analysis Services Management Objects (AMO) 和 ADOMD 客户端库在 [NuGet.org]
 
 |程序包  | 产品版本  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    16.3.0     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   16.3.0      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.2     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.2      |
 
 NuGet 包程序集 AssemblyVersion 遵循语义版本控制：MAJOR.MINOR.PATCH。 NuGet 引用加载预期的版本，即使 GAC 中存在不同的版本（由 MSI 安装导致的）。 PATCH 将随每次发布递增。 AMO 和 ADOMD 版本保持同步。
 
@@ -66,9 +66,7 @@ AMO 是用于服务器管理和数据定义的托管客户端库。 它由工具
 
 ADOMD.NET 是用于查询 Analysis Services 数据的托管数据客户端库。 它由工具和客户端应用程序安装和使用。 
 
-连接到数据库时，所有三个库的连接字符串属性相似。 使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring?view=analysisservices-dotnet#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) 为 ADOMD.NET 定义的几乎任何连接字符串同样适用于 AMO 和 Analysis Services OLE DB 提供程序 (MSOLAP)。 若要了解详细信息，请参阅[连接字符串属性 &#40;Analysis Services&#41;](https://docs.microsoft.com/sql/analysis-services/instances/connection-string-properties-analysis-services)。  
-
-<!--MOONCAKE: URL CORRECT on https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring?view=analysisservices-dotnet#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString-->
+连接到数据库时，所有三个库的连接字符串属性相似。 使用 [Microsoft.AnalysisServices.AdomdClient.AdomdConnection.ConnectionString](https://docs.microsoft.com/dotnet/api/microsoft.analysisservices.adomdclient.adomdconnection.connectionstring#Microsoft_AnalysisServices_AdomdClient_AdomdConnection_ConnectionString) 为 ADOMD.NET 定义的几乎任何连接字符串同样适用于 AMO 和 Analysis Services OLE DB 提供程序 (MSOLAP)。 若要了解详细信息，请参阅[连接字符串属性 &#40;Analysis Services&#41;](https://docs.microsoft.com/analysis-services/instances/connection-string-properties-analysis-services)。  
 
 <a name="bkmk_LibUpdate"></a>
 ## <a name="how-to-determine-client-library-version"></a>如何确定客户端库版本   

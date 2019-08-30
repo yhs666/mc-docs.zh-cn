@@ -4,24 +4,26 @@ description: 了解如何配置“Azure AD 标识保护”多重身份验证注�
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/01/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.author: v-junlch
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f278e26d90700d038f66f431878f0d33c2b3943
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: f45bf95876383b613f3faad35139b9d7518c76cb
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973386"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993397"
 ---
 # <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>如何：配置 Azure 多重身份验证注册策略
 
-Azure AD 标识保护通过配置条件访问策略，实现无论你登录到哪个应用，都需要注册 MFA，从而帮助你管理多重身份验证 (MFA) 注册的实施。 本文将说明策略的用途以及如何配置它。
+Azure AD 标识保护通过配置条件访问策略，实现无论你登录到哪个新式身份验证应用，都需要注册 MFA，从而帮助你管理多重身份验证 (MFA) 注册的实施。 本文将说明策略的用途以及如何配置它。
+
+
 
 ## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>什么是 Azure 多重身份验证注册策略？
 
@@ -60,6 +62,8 @@ MFA 注册策略位于[“Azure AD 标识保护”页](https://portal.azure.cn/#
 
 ## <a name="user-experience"></a>用户体验
 
+Azure Active Directory 标识保护将在用户下次以交互方式登录时提示他们注册。
+
 如需相关用户体验的概述，请参阅：
 
 - [多重身份验证注册流程](flows.md#multi-factor-authentication-registration)。  
@@ -69,3 +73,4 @@ MFA 注册策略位于[“Azure AD 标识保护”页](https://portal.azure.cn/#
 
 若要获取“Azure AD 标识保护”的概述，请参阅 [Azure AD 标识保护概述](overview.md)。
 
+<!-- Update_Description: wording update -->

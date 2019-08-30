@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 07/12/2019
-ms.date: 07/22/2019
+origin.date: 08/16/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 68c9dbcb7e944715a371101825856f075afbaa80
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 9b1fecf1393fc9e2aa4bc680b0a9b5b34d2922b5
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68337542"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993572"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -151,6 +151,8 @@ ms.locfileid: "68337542"
 ## <a name="variables"></a>变量
 
 使用[变量](resource-group-authoring-templates.md#variables)时，以下信息可以提供帮助：
+
+* 对变量名称使用混合大小写。
 
 * 针对需要在模板中多次使用的值使用变量。 如果一次只使用一个值，则硬编码值可使模板更易于阅读。
 

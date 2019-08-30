@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 89b140036bd8a31be668665e8440600c08e41628
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: cf4e9523a040aba8178ee39d044059a866fb7cac
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514026"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989196"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>在 Azure Monitor 中排查日志警报问题  
 
 本文介绍如何解决在 Azure Monitor 中设置日志警报时可能发生的常见问题， 并提供有关日志警报功能或配置的常见问题的解决方法。 
 
-术语“日志警报”  描述基于 [Azure Log Analytics 工作区](../log-query/get-started-portal.md)或 [Azure Application Insights](../../azure-monitor/app/analytics.md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
+术语“日志警报”  描述基于 [Azure Log Analytics 工作区](/azure-monitor/log-query/get-started-portal)或 [Azure Application Insights](../../azure-monitor/log-query/log-query-overview.md) 中的日志查询触发的规则。 在 [Azure Monitor 中的日志警报](../platform/alerts-unified-log.md)中详细了解功能、术语和类型。
 
 > [!NOTE]
 > 本文不考虑 Azure 门户中显示警报规则已触发以及不是通过关联的操作组执行通知的情况。 对于此类情况，请参阅[在 Azure 门户中创建和管理操作组](../platform/action-groups.md)中的详细信息。
@@ -30,7 +30,7 @@ ms.locfileid: "68514026"
 
 ### <a name="data-ingestion-time-for-logs"></a>日志的数据引入时间
 
-日志警报基于 [Log Analytics](../log-query/get-started-portal.md) 或 [Application Insights](../../azure-monitor/app/analytics.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
+日志警报基于 [Log Analytics](/azure-monitor/log-query/get-started-portal) 或 [Application Insights](../../azure-monitor/log-query/log-query-overview.md) 定期运行查询。 由于 Azure Monitor 需要处理来自数千个客户以及全球各种源的若干 TB 的数据，因此，该服务很容易发生不同的时间延迟。 有关详细信息，请参阅 [Azure Monitor 日志中的数据引入时间](../platform/data-ingestion-time.md)。
 
 如果系统发现所需的数据尚未引入，为了缓解延迟，它会等待一段时间，并重试警报查询多次。 为系统设置的等待时间呈指数级递增。 日志警报只会在数据可用后才会触发，因此，延迟可能是日志数据引入速度缓慢造成的。 
 
@@ -48,7 +48,7 @@ ms.locfileid: "68514026"
 
 根据[在 Azure 门户中创建日志警报规则](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal)一文中的步骤 8 所述，日志警报提供一个“抑制警报”选项，用于在配置的一段时间内抑制触发和通知操作。  因此，你可能认为某个警报未激发， 但实际上它已激发，只不过是抑制了而已。  
 
-![抑制警报](media/alert-log-troubleshoot/LogAlertSuppress.png)
+![阻止警报](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>指标度量警报规则不正确
 
@@ -192,5 +192,5 @@ Azure 活动日志中的以下示例事件适用于因持续失败而被禁用�
 ## <a name="next-steps"></a>后续步骤
 
 - 了解 [Azure 中的日志警报](../platform/alerts-unified-log.md)。
-- 详细了解 [Application Insights](../../azure-monitor/app/analytics.md)。
+- 详细了解 [Application Insights](../../azure-monitor/log-query/log-query-overview.md)。
 - 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。

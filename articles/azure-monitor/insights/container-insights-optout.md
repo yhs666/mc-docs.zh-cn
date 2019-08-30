@@ -5,20 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cbc982e05d4a652e828052160104009a80383e1f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8f673a1714f62bf194fa4d03df367d54dad38808
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818133"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989605"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -42,7 +43,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 * [使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
->模板需要部署在群集所在的资源组中。 如果在使用此模板时省略任何其他属性或加载项，则可能导致从群集中删除这些属性或加载项。 例如，*enableRBAC*。  
+>模板需要部署在群集所在的资源组中。 如果在使用此模板时省略任何其他属性或加载项，则可能导致从群集中删除这些属性或加载项。 例如，*enableRBAC*（用于群集中实施的 RBAC 策略），或 *aksResourceTagValues*（如果为 AKS 群集指定了标记）。  
 >
 
 如果选择使用 Azure CLI，首先需要在本地安装和使用 CLI。 必须运行 Azure CLI 2.0.27 版或更高版本。 若要确定版本，请运行 `az --version`。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 
@@ -68,12 +69,19 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
            "description": "Location of the AKS resource e.g. \"East US\""
          }
        }
+       },
+    "aksResourceTagValues": {
+      "type": "object",
+      "metadata": {
+        "description": "Existing all tags on AKS Cluster Resource"
+      }
     },
     "resources": [
       {
         "name": "[split(parameters('aksResourceId'),'/')[8]]",
         "type": "Microsoft.ContainerService/managedClusters",
         "location": "[parameters('aksResourceLocation')]",
+        "tags": "[parameters('aksResourceTagValues')]"
         "apiVersion": "2018-03-31",
         "properties": {
           "mode": "Incremental",
@@ -95,14 +103,21 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 
     ```json
     {
-     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "aksResourceId": {
-         "value": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-      },
-      "aksResourceLocation": {
-        "value": "<aksClusterRegion>"
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "value": "/subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+        },
+        "aksResourceLocation": {
+          "value": "<aksClusterRegion>"
+        },
+        "aksResourceTagValues": {
+          "value": {
+            "<existing-tag-name1>": "<existing-tag-value1>",
+            "<existing-tag-name2>": "<existing-tag-value2>",
+            "<existing-tag-nameN>": "<existing-tag-valueN>"
+          }
         }
       }
     }
@@ -113,6 +128,8 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
     ![容器属性页面](media/container-insights-optout/container-properties-page.png)
 
     位于“属性”页时，还请复制“工作区资源 ID”   。 如果决定稍后删除 Log Analytics 工作区，则需要此值。 不在此流程中执行删除 Log Analytics 工作区的操作。 
+
+    编辑 **aksResourceTagValues** 的值，以匹配为 AKS 群集指定的现有标记值。
 
 5. 将此文件以“OptOutParam.json”文件名保存到本地文件夹  。
 6. 已做好部署此模板的准备。 

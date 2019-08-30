@@ -6,19 +6,19 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 08/13/2018
+origin.date: 08/08/2019
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: ffe5eade51126b831ab453fd6004954ff2c11e84
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/02/2019
+ms.openlocfilehash: 59b4a5171124f6d0c3e37187a9672e3a3057ce80
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570528"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993042"
 ---
 # <a name="create-and-read-iot-hub-messages"></a>创建和读取 IoT 中心消息
 
-为了支持无缝的跨协议互操作性，IoT 中心为所有面向设备的协议定义了通用消息格式。 此消息格式用于[设备到云][lnk-d2c]and [cloud-to-device][lnk-c2d]消息。 
+为了支持无缝的跨协议互操作性，IoT 中心为所有面向设备的协议定义了通用消息格式。 此消息格式用于[设备到云][lnk-d2c]和[云到设备][lnk-c2d]的消息。 
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -46,22 +46,29 @@ IoT 中心消息由以下部分组成：
 
 有关如何使用不同协议对已发送消息进行编码和解码的详细信息，请参阅 [Azure IoT SDK](iot-hub-devguide-sdks.md)。
 
-下表列出 IoT 中心消息中的系统属性集。
+## <a name="system-properties-of-d2c-iot-hub-messages"></a>**D2C** IoT 中心消息的系统属性
 
-| 属性 | 说明 | 用户可设置吗？ |
+| 属性 | 说明  |用户可设置？|关键字（用于 </br>路由查询）|
+| --- | --- | --- | --- |
+| message-id |用户可设置的消息标识符，用于请求-答复模式。 格式：ASCII 7 位字母数字字符 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` 的区分大小写字符串（最长为 128 个字符）。  | 是 | messageId |
+| iothub-enqueuedtime |IoT 中心收到[设备到云](iot-hub-devguide-d2c-guidance.md)消息的日期和时间。 | 否 | enqueuedTime |
+| user-id |用于指定消息的源的 ID。 如果消息是由 IoT 中心生成的，则设置为 `{iot hub name}`。 | 是 | userId |
+| iothub-connection-device-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **deviceId** 。 | 否 | connectionDeviceId |
+| iothub-connection-module-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **moduleId**。 | 否 | connectionModuleId |
+| iothub-connection-auth-generation-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **connectionDeviceGenerationId**（根据[设备标识属性](iot-hub-devguide-identity-registry.md#device-identity-properties)）。 | 否 |connectionDeviceGenerationId |
+| iothub-connection-auth-method |由 IoT 中心对设备到云的消息设置的身份验证方法。 此属性包含用于验证发送消息的设备的身份验证方法的相关信息。| 否 | connectionAuthMethod |
+
+## <a name="system-properties-of-c2d-iot-hub-messages"></a>**C2D** IoT 中心消息的系统属性
+
+| 属性 | 说明  |用户可设置？|
 | --- | --- | --- |
-| message-id |用户可设置的消息标识符，用于请求-答复模式。 格式：ASCII 7 位字母数字字符 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` 的区分大小写字符串（最长为 128 个字符）。 | 是 |
-| sequence-number |IoT 中心分配给每条云到设备消息的编号（对每个设备队列是唯一的）。 | 对于 C2D 消息为否；对于其他情况则为是。 |
-| to |[云到设备](iot-hub-devguide-c2d-guidance.md)消息中指定的目标。 | 对于 C2D 消息为否；对于其他情况则为是。 |
-| absolute-expiry-time |消息过期的日期和时间。 | 是 |
-| iothub-enqueuedtime |IoT 中心收到[设备到云](iot-hub-devguide-d2c-guidance.md)消息的日期和时间。 | 对于 D2C 消息为否；对于其他情况则为是。 |
-| correlation-id |响应消息中的字符串属性，通常包含采用“请求-答复”模式的请求的 MessageId。 | 是 |
-| user-id |用于指定消息的源的 ID。 如果消息是由 IoT 中心生成的，则设置为 `{iot hub name}`。 | 否 |
-| iothub-ack |反馈消息生成器。 此属性在云到设备的消息中用于请求 IoT 中心因为设备使用消息而生成反馈消息。 可能的值：**none**（默认值）：不生成任何反馈消息；**positive**：如果消息已完成，则接收反馈消息；**negative**：如果消息未由设备完成就过期（或已达到最大传送计数），则收到反馈消息；**full**：positive 和 negative。 <!-- robinsh For more information, see [Message feedback][lnk-feedback].--> | 是 |
-| iothub-connection-device-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **deviceId** 。 | 对于 D2C 消息为否；对于其他情况则为是。 |
-| iothub-connection-auth-generation-id |IoT 中心对设备到云的消息设置的 ID。 它包含发送消息的设备的 **generationId**（根据[设备标识属性](iot-hub-devguide-identity-registry.md#device-identity-properties)）。 | 对于 D2C 消息为否；对于其他情况则为是。 |
-| iothub-connection-auth-method |由 IoT 中心对设备到云的消息设置的身份验证方法。 此属性包含用于验证发送消息的设备的身份验证方法的相关信息。 <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].--> | 对于 D2C 消息为否；对于其他情况则为是。 |
-| iothub-creation-time-utc | 在设备上创建消息的日期和时间。 设备必须显式设置此值。 | 是 |
+| message-id |用户可设置的消息标识符，用于请求-答复模式。 格式：ASCII 7 位字母数字字符 + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}` 的区分大小写字符串（最长为 128 个字符）。  |是|
+| sequence-number |IoT 中心分配给每条云到设备消息的编号（对每个设备队列是唯一的）。 |否|
+| to |[云到设备](iot-hub-devguide-c2d-guidance.md)消息中指定的目标。 |否|
+| absolute-expiry-time |消息过期的日期和时间。 |否|   |
+| correlation-id |响应消息中的字符串属性，通常包含采用“请求-答复”模式的请求的 MessageId。 |是|
+| user-id |用于指定消息的源的 ID。 如果消息是由 IoT 中心生成的，则设置为 `{iot hub name}`。 |是|
+| iothub-ack |反馈消息生成器。 此属性在云到设备的消息中用于请求 IoT 中心因为设备使用消息而生成反馈消息。 可能的值：**none**（默认值）：不生成任何反馈消息；**positive**：如果消息已完成，则接收反馈消息；**negative**：如果消息未由设备完成就过期（或已达到最大传送计数），则收到反馈消息；**full**：positive 和 negative。 |是|
 
 ## <a name="message-size"></a>消息大小
 

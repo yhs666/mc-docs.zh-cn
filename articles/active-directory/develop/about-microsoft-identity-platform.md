@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/24/2019
+origin.date: 06/03/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312b444095f53286e46f732ceaa65ca24d43f839
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: f5c8a3110f9d44a739b06ac4fac3486306454418
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568559"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993244"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft 标识平台的发展
 
@@ -35,7 +35,7 @@ Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台�
 
 - 工作和学校帐户（Azure AD 预配帐户）
 
-借助 Microsoft 统一标识平台，可以一次性编写代码，然后将任何 Microsoft 标识身份验证到应用程序。 对于多个平台，存在完全受支持的开源库，称为 Microsoft 身份验证库 (MSAL)。 MSAL 易于使用，为用户提供出色的单一登录 (SSO) 体验，帮助你实现高可靠性和性能，采用 Microsoft 安全开发生命周期 (SDL) 开发。 调用 API 时，可以将应用程序配置为使用递增同意，这允许你延迟对同意的请求以实现更广的范围，直到应用程序的使用在运行时对此作出保证。
+借助 Microsoft 统一标识平台，可以一次性编写代码，然后将任何 Microsoft 标识身份验证到应用程序。 对于多个平台，存在完全受支持的开源库，称为 Microsoft 身份验证库 (MSAL)。 MSAL 易于使用，可帮助你实现高可靠性和性能，采用 Microsoft 安全开发生命周期 (SDL) 开发。 调用 API 时，可以将应用程序配置为使用递增同意，这允许你延迟对同意的请求以实现更广的范围，直到应用程序的使用在运行时对此作出保证。
 
 可以使用 Azure 门户注册和配置应用程序，并将 Microsoft Graph API 用于编程应用程序配置。
 
@@ -57,7 +57,7 @@ Microsoft Graph 中的应用程序 API 当前处于预览阶段  。 使用此 A
 
 ### <a name="msal-libraries"></a>MSAL 库
 
-可以使用 MSAL 库生成对所有 Microsoft 标识进行身份验证的应用程序。 .NET 中的 SAL 库已正式发布。 适用于 JavaScript、iOS 和 Android 的 MSAL 库处于预览阶段，适合用于生产环境。 我们为预览版 MSAL 库提供的生产级别支持与我们为正式版 MSAL 和 ADAL 提供的生产级别支持相同。
+可以使用 MSAL 库生成对所有 Microsoft 标识进行身份验证的应用程序。 .NET 和 JavaScript 中的 MSAL 库已正式发布。 适用于 iOS 和 Android 的 MSAL 库处于预览阶段，适合用于生产环境。 我们为预览版 MSAL 库提供的生产级别支持与我们为正式版 MSAL 和 ADAL 提供的生产级别支持相同。
 
 还可使用 MSAL 库将应用程序与 Azure AD B2C 集成。
 
@@ -74,3 +74,4 @@ Microsoft 标识平台 (v2.0) 终结点现已经过 OIDC 认证。 它适用于 
 * [Microsoft 标识平台 (v2.0) 概述](v2-overview.md)
 * [适用于开发人员的 Azure Active Directory (v1.0) 概述](v1-overview.md)
 
+<!-- Update_Description: wording update -->

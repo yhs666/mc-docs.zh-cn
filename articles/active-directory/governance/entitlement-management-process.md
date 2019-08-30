@@ -3,8 +3,8 @@ title: Azure AD 权利管理（预览版）中的请求过程和电子邮件通�
 description: 了解访问包请求过程，以及 Azure Active Directory 权利管理（预览版）中何时发送电子邮件通知。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 origin.date: 05/30/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3268de9cd25e18792f64f60da8abfd1a2d6da204
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: dc6384f9f8f3fad3cad3ff45648e2f6c2f1b3586
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972807"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993356"
 ---
 # <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Azure AD 权利管理（预览版）中的请求过程和电子邮件通知
 
@@ -48,7 +48,7 @@ ms.locfileid: "68972807"
 | Expired | 如果在审批请求超时期限内没有任何审批者审批请求，该请求将会过期。 若要重试，用户必须重新提交请求。 |
 | 已拒绝 | 审批者拒绝了请求。 |
 | 已批准 | 审批者批准了请求。 |
-| 传送 | **尚未**为用户分配对访问包中所有资源的访问权限。 如果这是一个外部用户，则表示用户尚未访问资源目录并接受权限提示。 |
+| 传送 | **尚未**为用户分配对访问包中所有资源的访问权限。 如果这是外部用户，则用户可能尚未访问资源目录并接受同意提示。 |
 | 已交货 | 已经为用户分配了对访问包中所有资源的访问权限。 |
 | 访问权限已延期 | 如果策略中允许延期，则表示用户已延期分配。 |
 | 访问权限已过期 | 用户对访问包的访问权限已过期。 若要重新获得访问权限，用户必须提交请求。 |
@@ -97,3 +97,4 @@ ms.locfileid: "68972807"
 - [请求访问访问包](entitlement-management-request-access.md)
 - [批准或拒绝访问请求](entitlement-management-request-approve.md)
 
+<!-- Update_Description: wording update -->

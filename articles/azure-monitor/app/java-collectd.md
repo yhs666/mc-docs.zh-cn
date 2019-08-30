@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
 ms.service: application-insights
 ms.workload: tbd
@@ -12,19 +13,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2a52483f0afed1c1ad63d5d8ce2c644c005c6dda
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 47ccd68d26dc50ca8c67e03bb7b285f1f80ccaf1
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732279"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989641"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd：Application Insights 中的 Linux 性能指标
 
 
 若要浏览 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 中 Linux 系统性能指标，请安装 [collectd](https://collectd.org/) 及其 Application Insights 插件。 此开放源解决方案收集了各种系统和网络统计信息。
 
-如果[已通过 Application Insights 检测 Java Web 服务][java]，则通常会使用 collectd。 它可提供更多数据，有助于增强应用性能或诊断问题。 
+如果已[使用 Application Insights 检测了 Java Web 服务][java]，则通常会使用 collectd。 它可提供更多数据，有助于增强应用性能或诊断问题。 
 
 ## <a name="get-your-instrumentation-key"></a>获取检测密钥
 在[世纪互联 Azure 门户](https://portal.azure.cn)中，打开要显示数据的 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 资源。 （或[创建新资源](../../azure-monitor/app/create-new-resource.md )。）

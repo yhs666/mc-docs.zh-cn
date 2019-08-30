@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b400219a0ac766362b325f67249f7f789f9a41e8
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 6e6ef0126f4024fce07c0b0b97a842244b5ebc55
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513817"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989026"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>在 Log Analytics 中通过 REST API 创建和管理警报规则
 使用 Log Analytics 警报 REST API 可以在 Log Analytics 中创建和管理警报。  本文详细介绍了该 API 并提供了几个执行不同操作的示例。
@@ -66,7 +67,7 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 ```
 
 ### <a name="creating-a-schedule"></a>创建计划
-结合使用 Put 方法和唯一计划 ID 创建一个新计划。  请注意，两个计划 ID 不能一样，即使它们与不同的已保存搜索相关联。  在 Log Analytics 控制台中创建计划时，将为计划 ID 创建一个 GUID。
+结合使用 Put 方法和唯一计划 ID 创建一个新计划。  两个计划的 ID 不能相同，即使它们与不同的已保存搜索关联，也是如此。  在 Log Analytics 控制台中创建计划时，将为计划 ID 创建一个 GUID。
 
 > [!NOTE]
 > 所有已保存的搜索、计划和使用 Log Analytics API 创建的操作的名称必须小写。
@@ -134,14 +135,8 @@ Log Analytics 搜索 REST API 为 RESTful，可通过 Azure 资源管理器 REST
 | 取消 |用于停止警报通知的选项。 | 对于每个警报均为可选，无论是在警报扩展到 Azure 之前还是之后。 |
 | 操作组 |在其中指定所需操作的 Azure 操作组的 ID，例如 - 电子邮件、SMS、语音呼叫、Webhook、自动化 Runbook、ITSM 连接器，等等。| 警报扩展到 Azure 后所必需的|
 | 自定义操作|修改有关从操作组中选择操作的标准输出| 对于每个警报都是可选的，可以在警报扩展到 Azure 后使用。 |
-| EmailNotification |向多个收件人发送邮件。 | 如果警报扩展到 Azure，则不是必需的|
-| 补救 |在 Azure 自动化中启动 Runbook，以尝试纠正发现的问题。 |如果警报扩展到 Azure，则不是必需的|
-| Webhook 操作 | 将来自警报的数据以 JSON 形式推送到所需的服务 |如果警报扩展到 Azure，则不是必需的|
 
-> [!NOTE]
-> 从 2018 年 5 月 14 日开始，Log Analytics 工作区的 Azure 公有云实例中的所有警报都将自动扩展到 Azure。 在 2018 年 5 月 14 日之前，用户可以自愿开始将警报扩展到 Azure。
-
-#### <a name="thresholds"></a>阈值
+### <a name="thresholds"></a>阈值
 一项警报操作应具有一个且只能有一个阈值。  当已保存搜索的结果匹配与该搜索关联的操作中的阈值时，将运行该操作中的任何其他进程。  操作也可以只包含一个阈值，以便与不包含阈值的其他类型的操作一起使用。
 
 阈值具有下表中的属性。
@@ -344,158 +339,11 @@ Azure 中的所有警报都使用操作组作为用来处理操作的默认机�
     $AzNsJson = "{'etag': 'datetime'2017-12-13T10%3A52%3A21.1697364Z'\"', properties': { 'Name': 'test-alert', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 12 },'Severity': 'critical', 'AzNsNotification': {'GroupIds': ['subscriptions/1234a45-123d-4321-12aa-123b12a5678/resourcegroups/my-resource-group/providers/microsoft.insights/actiongroups/test-actiongroup']}, 'CustomEmailSubject': 'Azure Alert fired','CustomWebhookPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}' }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myAzNsaction?api-version=2015-03-20 $AzNsJson
 
-#### <a name="email-notification"></a>电子邮件通知
-向一个或多个收件人发送邮件的电子邮件通知。  它们具有下表中的属性。   
-
-| 属性 | 说明 |
-|:--- |:--- |
-| 收件人 |邮件地址列表。 |
-| 使用者 |邮件主题。 |
-| 附件 |当前不支持附件，因此其值始终为“None”。 |
-
-下面是响应仅具备一个阈值的电子邮件通知操作的示例。  
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My email action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "EmailNotification": {
-            "Recipients": [
-                "recipient1@contoso.com",
-                "recipient2@contoso.com"
-            ],
-            "Subject": "This is the subject",
-            "Attachment": "None"
-        },
-        "Version": 1
-    }
-
-结合使用 Put 方法和唯一操作 ID 可为计划创建新电子邮件操作。  下面的示例创建了具备一个阈值的电子邮件通知，因此当已保存搜索的结果超出阈值时会发送邮件。
-
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-结合使用 Put 方法和现有操作 ID 可修改计划的电子邮件操作。  请求正文必须包含操作的 etag。
-
-    $emailJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
-
-#### <a name="remediation-actions"></a>修正操作
-修正在 Azure 自动化中启动 Runbook，尝试纠正警报发现的问题。  必须为用于修正操作的 Runbook 创建 Webhook，并在 WebhookUri 属性中指定 URI。  使用 Azure 门户创建此操作时，会自动为 Runbook 创建新的 Webhook。
-
-修正具有下表中的属性。
-
-| 属性 | 说明 |
-|:--- |:--- |
-| RunbookName |Runbook 的名称。 它必须与 Log Analytics 工作区自动化解决方案中配置的自动化帐户中发布的 Runbook 相匹配。 |
-| WebhookUri |Webhook 的 URI。 |
-| Expiry |Webhook 的到期日期和时间。  如果 Webhook 没有到期日期和时间，那么这可以是任何有效的未来日期。 |
-
-下面是响应仅具备一个阈值的修正操作的示例。
-
-    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
-    "properties": {
-        "Type": "Alert",
-        "Name": "My remediation action",
-        "Threshold": {
-            "Operator": "gt",
-            "Value": 10
-        },
-        "Remediation": {
-            "RunbookName": "My-Runbook",
-            "WebhookUri": "https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d",
-            "Expiry": "2018-02-25T18:27:20"
-            },
-        "Version": 1
-    }
-
-结合使用 Put 方法和唯一操作 ID 可为计划创建新的修正操作。  下面的示例创建了具备一个阈值的修正，因此当已保存搜索的结果超出该阈值时便会启动 Runbook。
-
-    $remediateJson = "{'properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-结合使用 Put 方法和现有操作 ID 可修改计划的修正操作。  请求正文必须包含操作的 etag。
-
-    $remediateJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Type':'Alert', 'Name': 'My Remediation Action', 'Version':'1', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'Remediation': {'RunbookName': 'My-Runbook', 'WebhookUri':'https://s1events.azure-automation.net/webhooks?token=4jCibOjO3w4W2Cfg%2b2NkjLYdafnusaG6i8tnP8h%2fNNg%3d', 'Expiry':'2018-02-25T18:27:20Z'} }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myremediationaction?api-version=2015-03-20 $remediateJson
-
-#### <a name="example"></a>示例
-下面是创建新电子邮件警报的完整示例。  这会创建一个新计划以及包含阈值和电子邮件的操作。
-
-    $subscriptionId = "3d56705e-5b26-5bcc-9368-dbc8d2fafbfc"
-    $resourceGroup  = "MyResourceGroup"    
-    $workspaceName    = "MyWorkspace"
-    $searchId       = "MySearch"
-    $scheduleId     = "MySchedule"
-    $thresholdId    = "MyThreshold"
-    $actionId       = "MyEmailAction"
-    
-    $scheduleJson = "{'properties': { 'Interval': 15, 'QueryTimeSpan':15, 'Active':'true' }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/?api-version=2015-03-20 $scheduleJson
-    
-    $emailJson = "{'properties': { 'Name': 'MyEmailAction', 'Version':'1', 'Severity':'Warning', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 }, 'EmailNotification': {'Recipients': ['recipient1@contoso.com', 'recipient2@contoso.com'], 'Subject':'This is the subject', 'Attachment':'None'} }"
-    armclient put /subscriptions/$subscriptionId/resourceGroups/$resourceGroup/providers/Microsoft.OperationalInsights/workspaces/$workspaceName/savedSearches/$searchId/schedules/$scheduleId/actions/$actionId/?api-version=2015-03-20 $emailJson
-
-#### <a name="webhook-actions"></a>Webhook 操作
-Webhook 操作通过调用 URL 和提供要发送的负载（可选）启动进程。  Webhook 操作与修正操作类似，不同之处在于它们是用于 Webhook，可能调用 Azure 自动化 Runbook 之外的进程。  此外，它们还提供了额外的选项，即提供要发送到远程进程的负载。
-
-Webhook 操作没有阈值，但应添加到具有带阈值的警报操作的计划中。  
-
-下面是响应 Webhook 操作和包含阀值的关联警报操作的示例。
-
-    {
-        "__metadata": {},
-        "value": [
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/72884702-acf9-4653-bb67-f42436b342b4",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"",
-                "properties": {
-                    "Type": "Webhook",
-                    "Name": "My Webhook Action",
-                    "WebhookUri": "https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VfkYTIlpk%2fc%2bJBP",
-                    "CustomPayload": "{\"fielld1\":\"value1\",\"field2\":\"value2\"}",
-                    "Version": 1
-                }
-            },
-            {
-                "id": "subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/bwren/savedSearches/2d1b30fb-7f48-4de5-9614-79ee244b52de/schedules/b80f5621-7217-4007-b32d-165d14377093/Actions/90a27cf8-71b7-4df2-b04f-54ed01f1e4b6",
-                "etag": "W/\"datetime'2016-02-26T20%3A25%3A00.565204Z'\"",
-                "properties": {
-                    "Type": "Alert",
-                    "Name": "Threshold for my webhook action",
-                    "Threshold": {
-                        "Operator": "gt",
-                        "Value": 10
-                    },
-                    "Version": 1
-                }
-            }
-        ]
-    }
-
-##### <a name="create-or-edit-a-webhook-action"></a>创建或编辑 Webhook 操作
-结合使用 Put 方法和唯一操作 ID 为计划创建新的 Webhook 操作。  下面的示例创建了 Webhook 操作和包含一个阈值的警报操作，因此已保存搜索的结果超出该阈值时会触发 Webhook。
-
-    $thresholdAction = "{'properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdAction
-
-    $webhookAction = "{'properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
-结合使用 Put 方法和现有操作 ID 修改计划的 Webhook 操作。  请求正文必须包含操作的 etag。
-
-    $webhookAction = "{'etag': 'W/\"datetime'2016-02-26T20%3A25%3A00.6862124Z'\"','properties': {'Type': 'Webhook', 'Name': 'My Webhook", 'WebhookUri': 'https://oaaswebhookdf.chinacloudapp.cn/webhooks?token=VrkYTKlhk%2fc%2bKBP', 'CustomPayload': '{\"field1\":\"value1\",\"field2\":\"value2\"}', 'Version': 1 }"
-    armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mywebhookaction?api-version=2015-03-20 $webhookAction
-
 
 ## <a name="next-steps"></a>后续步骤
 * 在 Log Analytics 中使用 [REST API 执行日志搜索](../../azure-monitor/log-query/log-query-overview.md)。
-* 了解 [Azure 警报中的日志警报](../../azure-monitor/platform/alerts-unified-log.md)
-
+* 了解 [Azure Monitor 中的日志警报](../../azure-monitor/platform/alerts-unified-log.md)
+* 如何[在 Azure monitor 中创建、编辑或管理日志警报规则](../../azure-monitor/platform/alerts-log.md)
 
 
 

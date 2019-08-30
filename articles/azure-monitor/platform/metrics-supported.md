@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 05/20/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 23454f7ecaa42a23d4b8f36f92d63f584a64c915
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 16757c7c9104c97ff32c763a7e345c600944c40d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513995"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989693"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure 监视器支持的指标
 Azure 监视器提供多种方式来与指标交互，包括在门户中制作指标图表、通过 REST API 访问指标，或者使用 PowerShell 或 CLI 查询指标。 下面是目前可在 Azure 监视器的指标管道中使用的完整指标列表。 其他指标可在门户或旧版 API 中使用。 下面的此列表仅包含可以通过合并的 Azure Monitor 指标管道使用的指标。 若要查询和访问这些指标，请使用 [2018-01-01 API 版本](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
@@ -77,22 +77,23 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|TotalRequests|网关请求总数|计数|总计|网关请求数|位置、主机名|
-|SuccessfulRequests|成功的网关请求数|计数|总计|成功的网关请求数|位置、主机名|
-|UnauthorizedRequests|未经授权的网关请求数|计数|总计|未经授权的网关请求数|位置、主机名|
-|FailedRequests|失败的网关请求数|计数|总计|失败的网关请求数|位置、主机名|
-|OtherRequests|其他网关请求数|计数|总计|其他网关请求数|位置、主机名|
-|持续时间|网关请求的总持续时间|毫秒|平均值|网关请求的总持续时间，以毫秒为单位|位置、主机名|
-|容量|容量|百分比|平均值|ApiManagement 服务的利用率指标|Location|
-|EventHubTotalEvents|事件中心事件总数|计数|总计|发送到事件中心的事件数|Location|
-|EventHubSuccessfulEvents|成功的事件中心事件数|计数|总计|成功的事件中心事件数|Location|
-|EventHubTotalFailedEvents|失败的事件中心事件数|计数|总计|失败的事件中心事件数|Location|
-|EventHubRejectedEvents|拒绝的事件中心事件数|计数|总计|拒绝的事件中心事件（配置不当或未授权）数|Location|
-|EventHubThrottledEvents|限制的事件中心事件数|计数|总计|限制的事件中心事件数|Location|
-|EventHubTimedoutEvents|超时的事件中心事件数|计数|总计|超时的事件中心事件数|Location|
-|EventHubDroppedEvents|删除的事件中心事件数|计数|总计|由于达到队列大小限制而跳过的事件数|Location|
-|EventHubTotalBytesSent|事件中心事件大小|字节|总计|事件中心事件的总大小，以字节为单位|Location|
-|请求|请求|计数|总计|网关请求数|Location、BackendResponseCode、LastErrorReason、GatewayResponseCode|
+|请求|请求|计数|总计|给定时段的网关请求总数。 它可以按不同的维度切片，便于诊断问题。 |Location、BackendResponseCode、LastErrorReason、GatewayResponseCode|
+|TotalRequests|网关请求总数|计数|总计|给定时段的网关请求总数。 此指标已弃用，建议使用新的 `Requests` 指标。 |位置、主机名|
+|SuccessfulRequests|成功的网关请求数|计数|总计|给定时段内成功的网关请求的总数。 此指标已弃用，建议使用新的 `Requests` 指标。|位置、主机名|
+|UnauthorizedRequests|未经授权的网关请求数|计数|总计| 给定时段的未授权网关请求总数。 此指标已弃用，建议使用新的 `Requests` 指标。|位置、主机名|
+|FailedRequests|失败的网关请求数|计数|总计|给定时段的失败网关请求总数。 此指标已弃用，建议使用新的 `Requests` 指标。|位置、主机名|
+|OtherRequests|其他网关请求数|计数|总计|给定时段的网关请求总数，这些请求不包括在“成功”、“未授权”或“失败”类别中。 此指标已弃用，建议使用新的 `Requests` 指标。 |位置、主机名|
+|持续时间|网关请求的总持续时间|毫秒|平均值|从 API 管理从客户端收到请求到它将响应返回给客户端之间的时间。|位置、主机名|
+|容量|容量|百分比|平均值|API 管理实例上的负载指示器，用户可以据此进行明智的决策，决定是否缩放实例以容纳更多的负载。|Location|
+|EventHubTotalEvents|事件中心事件总数|计数|总计|给定时段内从 API 管理发送到事件中心的事件总数。|Location|
+|EventHubSuccessfulEvents|成功的事件中心事件数|计数|总计|给定时段的成功的 EventHub 事件的总数。|Location|
+|EventHubTotalFailedEvents|失败的事件中心事件数|计数|总计|给定时段内失败的 EventHub 事件的总数。|Location|
+|EventHubRejectedEvents|拒绝的事件中心事件数|计数|总计|给定时段内拒绝的事件中心事件（配置不当或未授权）总数。|Location|
+|EventHubThrottledEvents|限制的事件中心事件数|计数|总计|给定时段内受限的 EventHub 事件的总数。|Location|
+|EventHubTimedoutEvents|超时的事件中心事件数|计数|总计|给定时段内超时的 EventHub 事件的总数。|Location|
+|EventHubDroppedEvents|删除的事件中心事件数|计数|总计|给定时段内由于达到队列大小限制而跳过的事件总数。|Location|
+|EventHubTotalBytesSent|事件中心事件大小|字节|总计|给定时段内 EventHub 事件的总大小（单位：字节）。|Location|
+
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -906,15 +907,19 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 
 |指标|指标显示名称|计价单位|聚合类型|说明|维度|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|缓存使用率|百分比|平均值|群集范围内的使用率级别|无维度|
-|QueryDuration|查询持续时间|毫秒|平均值|队列持续时间（秒）|QueryStatus|
-|IngestionsLoadFactor|引入使用率|百分比|平均值|群集中已使用引入槽的比率|无维度|
-|IsEngineAnsweringQuery|保持活动状态|计数|平均值|完整性检查表明群集对查询做出了响应|无维度|
-|IngestCommandOriginalSizeInMb|引入量 (MB)|计数|总计|已引入群集的数据总量 (MB)|无维度|
-|IngestedEventAgeSeconds|引入延迟（秒）|秒|平均值|从源（例如消息位于事件中心）到群集的引入时间（秒）|无维度|
-|EventRecievedFromEventHub|处理的事件数（针对事件中心）|计数|总计|从事件中心引入时，由群集处理的事件数|无维度|
-|IngestionResult|引入结果|计数|计数|引入操作的数量|IngestionResultDetails|
-|EngineCPU|CPU|百分比|平均值|CPU 使用率级别|无维度|
+|CacheUtilization|缓存使用率|百分比|平均值|群集范围内的使用率级别|无|
+|QueryDuration|查询持续时间|毫秒|平均值|队列持续时间（秒）|查询状态|
+|IngestionUtilization|引入使用率|百分比|平均值|群集中已使用引入槽的比率|无|
+|KeepAlive|保持活动状态|计数|平均值|完整性检查表明群集对查询做出了响应|无|
+|IngestionVolumeInMB|引入量 (MB)|计数|总计|已引入群集的数据总量 (MB)|数据库|
+|IngestionLatencyInSeconds|引入延迟（秒）|秒|平均值|从源（例如消息位于事件中心）到群集的引入时间（秒）|无|
+|EventProcessedForEventHubs|处理的事件数（针对事件中心）|计数|总计|从事件中心引入时，由群集处理的事件数|无|
+|IngestionResult|引入结果|计数|计数|引入操作的数量|状态|
+|CPU|CPU|百分比|平均值|CPU 使用率级别|无|
+| ContinuousExportNumOfRecordsExported | 在连续导出中导出的记录数 | 计数 | 总计 | 在导出操作中为每个写入的存储项目导出的记录数  | 无 |
+| ExportUtilization | 导出利用率 | 百分比 | 最大值 | 导出利用率 | 无 |
+| ContinuousExportPendingCount | 连续导出挂起计数 | 计数 | 最大值 | 做好执行准备的挂起的连续导出作业数 | 无 |
+| ContinuousExportMaxLatenessMinutes | 连续导出最大延迟分钟数 | 计数 | 最大值 | 所有处于挂起状态并做好执行准备的连续导出的最长时间（单位：分钟） | 无 |
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -1236,9 +1241,9 @@ Azure 监视器提供多种方式来与指标交互，包括在门户中制作�
 |outgoing.wns.authenticationerror|WNS 身份验证错误数|计数|总计|与 Windows Live 通信时因凭据无效或令牌错误而发生错误，因为未传递通知。|无维度|
 |outgoing.apns.success|APNS 成功的通知数|计数|总计|所有成功的通知的计数。|无维度|
 |outgoing.apns.invalidcredentials|APNS 授权错误数|计数|总计|因为 PNS 未接受所提供的凭据或者凭据被阻止而失败的推送的计数。|无维度|
-|outgoing.apns.badchannel|APNS 坏通道错误|计数|总计|因令牌无效而失败的推送的计数（APNS 状态代码：8）。|无维度|
+|outgoing.apns.badchannel|APNS 坏通道错误|计数|总计|因令牌无效而失败的推送的计数（APNS 二进制协议状态代码：8. APNS HTTP 协议状态代码：400，包含“BadDeviceToken”）。|无维度|
 |outgoing.apns.expiredchannel|APNS 已过期通道错误|计数|总计|由 APNS 反馈通道致其无效的令牌的计数。|无维度|
-|outgoing.apns.invalidnotificationsize|APNS 无效通知大小错误|计数|总计|因有效负载太大而失败的推送的计数（APNS 状态代码：7）。|无维度|
+|outgoing.apns.invalidnotificationsize|APNS 无效通知大小错误|计数|总计|因有效负载过大而失败的推送的计数（APNS 二进制协议状态代码：7）。|无维度|
 |outgoing.apns.pnserror|APNS 错误数|计数|总计|因为与 APNS 通信时发生错误而失败的推送的计数。|无维度|
 |outgoing.gcm.success|GCM 成功的通知数|计数|总计|所有成功的通知的计数。|无维度|
 |outgoing.gcm.invalidcredentials|GCM 授权错误数（凭据无效）|计数|总计|因为 PNS 未接受所提供的凭据或者凭据被阻止而失败的推送的计数。|无维度|

@@ -12,15 +12,15 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 04/22/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: d431be4cbe8d5fd9ec98b7b2ecc9a7c6dff2a24b
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/26/2019
+ms.openlocfilehash: 8ba02fc7ae99f1eb4f58e87116a2e551e2aa14d9
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629213"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578535"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>适用于单一数据库的 Azure SQL 数据库基于 vCore 的购买模型限制
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>使用基于 vCore 的购买模型的单一数据库的资源限制
 
 本文提供针对使用基于 vCore 的购买模型的 Azure SQL 数据库的单一数据库的详细资源限制。
 
@@ -147,7 +147,7 @@ ms.locfileid: "65629213"
 |TempDB 大小 (GB)|32|64|128|
 |存储类型|高级（远程）存储|高级（远程）存储|高级（远程）存储|
 |IO 延迟（近似）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|5-7 毫秒（写入）<br>5-10 毫秒（读取）|
-|目标 IOPS (64 KB)|250|500|1000|
+|目标 IOPS (64 KB)|500|1000|2000|
 |日志速率限制 (MBps)|2.5|5.6|10 个|
 |最大并发工作线程数（请求数）|75|150|300|
 |允许的最大会话数|30000|30000|30000|
@@ -269,7 +269,7 @@ ms.locfileid: "65629213"
 |最大日志大小 (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB 大小 (GB)|64|128|256|384|384|384|384|384|
 |存储类型|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|本地 SSD|
-|目标 IOPS (64 KB)|待定|待定|待定|待定|待定|待定|待定|待定|
+|目标 IOPS (64 KB)| [注释 1](#note-1) |[注释 1](#note-1)|[注释 1](#note-1) |[注释 1](#note-1) |[注释 1](#note-1) |[注释 1](#note-1) |[注释 1](#note-1) | [注释 1](#note-1) |
 |IO 延迟（近似）|待定|待定|待定|待定|待定|待定|待定|待定|
 |最大并发工作线程数（请求数）|200|400|800|1600|2400|3200|4000|8000|
 |允许的最大会话数|30000|30000|30000|30000|30000|30000|30000|30000|
@@ -279,10 +279,15 @@ ms.locfileid: "65629213"
 |随附的备份存储 |7|7|7|7|7|7|7|7|
 |||
 
-## <a name="next-steps"></a>后续步骤
+### <a name="note-1"></a>注释 1
+
+超大规模是具有多个级别缓存的多层体系结构。 有效 IOPS 将取决于工作负荷。
+
+### <a name="next-steps"></a>后续步骤
 
 - 有关单一数据库的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的单一数据库的资源限制](sql-database-dtu-resource-limits-single-databases.md)
 - 有关弹性池的 vCore 资源限制，请参阅[使用基于 vCore 的购买模型的弹性池的资源限制](sql-database-vcore-resource-limits-elastic-pools.md)
 - 有关弹性池的 DTU 资源限制，请参阅[使用基于 DTU 的购买模型的弹性池的资源限制](sql-database-dtu-resource-limits-elastic-pools.md)
+- 有关托管实例的资源限制，请参阅[托管实例资源限制](sql-database-managed-instance-resource-limits.md)。
 - 有关常规 Azure 限制的相关信息，请参阅 [Azure 订阅和服务限制、配额和约束](../azure-subscription-service-limits.md)。
 - 有关数据库服务器上的资源限制的信息，请参阅 [SQL 数据库服务器资源限制概述](sql-database-resource-limits-database-server.md)了解有关服务器级别和订阅级别限制的信息。

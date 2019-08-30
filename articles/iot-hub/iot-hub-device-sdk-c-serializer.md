@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 09/06/2016
-ms.date: 12/03/2018
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: b73abe9b001b7b8edb945898fffc73e70cc4c944
-ms.sourcegitcommit: 59db70ef3ed61538666fd1071dcf8d03864f10a9
+ms.openlocfilehash: d9b7ea69a617ea03754a2762f0f65d72edbba55a
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52674767"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993049"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>适用于 C 语言的 Azure IoT 设备 SDK - 有关序列化程序的详细信息
 
@@ -197,9 +197,9 @@ EDM_DATE_TIME_OFFSET GetDateTimeOffset(time_t time)
 {"aDouble":1.100000000000000, "aInt":2, "aFloat":3.000000, "aLong":4, "aInt8":5, "auInt8":6, "aInt16":7, "aInt32":8, "aInt64":9, "aBool":true, "aAsciiCharPtr":"ascii string 1", "aDateTimeOffset":"2015-09-14T21:18:21Z", "aGuid":"00010203-0405-0607-0809-0A0B0C0D0E0F", "aBinary":"AQID"}
 ```
 
-请注意，序列化采用 JSON，这是由**序列化程序**库生成的格式。 另请注意，序列化 JSON 对象的每个成员都与模型中定义的 **TestType** 成员匹配。 值也与代码中使用的值完全匹配。 不过请注意，二进制数据采用 base64 编码：“AQID”是 {0x01, 0x02, 0x03} 的 base64 编码。
+请注意，序列化采用 JSON，这是由**序列化程序**库生成的格式。 另请注意，序列化 JSON 对象的每个成员都与模型中定义的 **TestType** 成员匹配。 值也与代码中使用的值完全匹配。 但是，请注意，二进制数据是 base64 编码的：“AQID”是 {0x01, 0x02, 0x03} 的 base64 编码。
 
-此示例演示使用**序列化程序**库的优点 - 它支持我们将 JSON 发送到云中，而无需在应用程序中显式处理序列化。 我们只需考虑如何在模型中设置数据事件的值，并调用简单的 API 将这些事件发送到云。
+此示例演示使用 **序列化程序** 库的优点 -- 它可让我们将 JSON 发送到云，而不需要在应用程序中显式处理序列化。 我们只需考虑如何在模型中设置数据事件的值，并调用简单的 API 将这些事件发送到云。
 
 有了此信息，我们便可以定义包含受支持数据类型范围的模型，这些数据类型包括复杂类型（甚至可以包含其他复杂类型内的复杂类型）。 不过，上述示例生成的序列化 JSON 突显了一个重点。 *如何* 利用 **序列化程序** 库发送数据完全决定了 JSON 的构成形式。 此特定要点就是接下来要讨论的内容。
 
@@ -523,7 +523,7 @@ EXECUTE_COMMAND_RESULT SetAirResistance(ContosoAnemometer* device, int Position)
 {"Name" : "", "Parameters" : "" }
 ```
 
-将使用两个属性来发送序列化的 JSON 对象：**Name** 是操作（消息）的名称，**Parameters** 包含该操作的参数。
+将使用两个属性来发送序列化 JSON 对象：**Name** 是操作（消息）的名称，**Parameters** 包含该操作的参数。
 
 例如，要调用 **SetAirResistance** ，可以将以下消息发送给设备：
 
@@ -574,9 +574,8 @@ azure-c-shared-utility\\macro\_utils\_h\_generator.
 
 这些值是 SDK 随附的默认参数。 每个参数的含义如下：
 
--   nMacroParameters – 控制可以在一个 DECLARE\_MODEL 宏定义中指定的参数数目。
-
--   nArithmetic – 控制模型中允许的成员总数。
+* nMacroParameters – 控制可以在一个 DECLARE\_MODEL 宏定义中指定的参数数目。
+* nArithmetic – 控制模型中允许的成员总数。
 
 这些参数之所以重要，是因为它们控制模型的大小。 例如，假设有以下模型定义：
 
@@ -621,25 +620,19 @@ WITH_DATA(int, MyData)
 
 如 [前一篇文章](iot-hub-device-sdk-c-iothubclient.md)中所述，有一组由较高级别 API 构成的函数：
 
--   IoTHubClient\_CreateFromConnectionString
-
--   IoTHubClient\_SendEventAsync
-
--   IoTHubClient\_SetMessageCallback
-
--   IoTHubClient\_Destroy
+* IoTHubClient\_CreateFromConnectionString
+* IoTHubClient\_SendEventAsync
+* IoTHubClient\_SetMessageCallback
+* IoTHubClient\_Destroy
 
 **simplesample\_amqp** 中演示了这些 API。
 
 还有一组类似但级别更低的 API。
 
--   IoTHubClient\_LL\_CreateFromConnectionString
-
--   IoTHubClient\_LL\_SendEventAsync
-
--   IoTHubClient\_LL\_SetMessageCallback
-
--   IoTHubClient\_LL\_Destroy
+* IoTHubClient\_LL\_CreateFromConnectionString
+* IoTHubClient\_LL\_SendEventAsync
+* IoTHubClient\_LL\_SetMessageCallback
+* IoTHubClient\_LL\_Destroy
 
 请注意，较低级别的 API 的工作原理与前面文章中所述的完全相同。 如果想要使用后台线程来处理事件发送和消息接收，可以使用第一组 API。 如果想要掌握与 IoT 中心之间发送和接收数据时的明确控制权，可以使用第二组 API。 上述任何一组 API 都可以很好地配合使用 **序列化程序** 库。
 

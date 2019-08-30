@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f495e0fc78033f5e4a473e7237f1b1ebd2c27eb4
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c93aea108178e17718b92a2bd1fc2613bcfcea4d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818420"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989073"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 日志查询
 Azure Monitor 日志在 Azure 数据资源管理器之上构建，Azure Monitor 日志查询使用同一 Kusto 查询语言的某个版本。 [Azure 数据资源管理器查询语言文档](https://azure.microsoft.com/azure/kusto/query)提供了该语言的完整详细信息，在编写 Azure Monitor 日志查询时，应将此文档用作主要参考资源。 本页提供了用于学习编写查询，以及该语言的 Azure Monitor 实现差异的其他资源的链接。

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
 origin.date: 07/10/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4276e26b33cadd42c8fcc6c9016c1d5790d76527
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 6f283b324023c8b8a4f555b04f0ec2b548e95963
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973158"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993246"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory 条件访问设置参考
 
@@ -43,7 +43,7 @@ ms.locfileid: "68973158"
 可以从 Microsoft 为以下云应用分配条件访问策略：
 
 - Azure Analysis Services
-- Azure SQL 数据库和数据仓库 - [了解详细信息](/sql-database/sql-database-conditional-access)
+- Azure SQL 数据库和数据仓库
 - Azure 管理 
 - Azure 订阅管理
 - Microsoft Cloud App Security
@@ -64,6 +64,7 @@ ms.locfileid: "68973158"
 - Office Delve
 - Office Sway
 - Outlook 组
+- Power BI 服务
 - Project Online
 - Skype for Business Online
 - 虚拟专用网络 (VPN)
@@ -89,6 +90,8 @@ ms.locfileid: "68973158"
 
 ![将访问策略绑定到客户端 OS](./media/technical-reference/41.png)
 
+如果使用**其他客户端**条件来阻止旧身份验证，还可以设置设备平台条件。
+
 ## <a name="client-apps-condition"></a>客户端应用条件
 
 在条件访问策略中，可以配置[客户端应用](conditions.md#client-apps)条件，以将策略绑定到发起访问尝试的客户端应用。 设置客户端应用条件，在用户尝试从以下类型的客户端应用进行访问时授予其访问权限或阻止访问：
@@ -106,19 +109,19 @@ ms.locfileid: "68973158"
 
 此设置适用于所有浏览器。 但是，若要符合设备策略（如兼容设备要求），支持以下操作系统和浏览器：
 
-| 操作系统                     | 浏览器                                      |
-| :--                    | :--                                           |
-| Windows 10             | Internet Explorer、Microsoft Edge、Chrome     |
-| Windows 8/8.1        | Internet Explorer、Chrome                     |
-| Windows 7              | Internet Explorer、Chrome                     |
-| iOS                    | Safari、Microsoft Edge、Intune Managed Browser |
-| Android                | Chrome、Microsoft Edge、Intune Managed Browser |
-| Windows Phone          | Internet Explorer、Microsoft Edge             |
-| Windows Server 2016    | Internet Explorer、Microsoft Edge             |
-| Windows Server 2016    | Chrome                                        |
-| Windows Server 2012 R2 | Internet Explorer、Chrome                     |
-| Windows Server 2008 R2 | Internet Explorer、Chrome                     |
-| macOS                  | Chrome、Safari                                |
+| 操作系统                     | 浏览器                                        |
+| :--                    | :--                                             |
+| Windows 10             | Microsoft Edge、Internet Explorer、Chrome       |
+| Windows 8/8.1        | Internet Explorer、Chrome                       |
+| Windows 7              | Internet Explorer、Chrome                       |
+| iOS                    | Microsoft Edge、Intune Managed Browser、Safari  |
+| Android                | Microsoft Edge、Intune Managed Browser、Chrome  |
+| Windows Phone          | Microsoft Edge、Internet Explorer               |
+| Windows Server 2019    | Microsoft Edge、Internet Explorer、Chrome       |
+| Windows Server 2016    | Microsoft Edge、Internet Explorer               |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
+| macOS                  | Chrome、Safari                                  |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>为何我在浏览器中看到证书提示
 
@@ -135,7 +138,7 @@ ms.locfileid: "68973158"
 | `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | 类型 | REG_SZ (String) |
-| 数据 | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
+| 数据 | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 对于 Windows 8.1 和 7  中的 Chrome 支持，请创建以下注册表项：
 
@@ -193,6 +196,8 @@ ms.locfileid: "68973158"
 此设置适用于以下客户端应用：
 
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Intune Managed Browser
@@ -229,8 +234,11 @@ ms.locfileid: "68973158"
 
 此设置适用于以下客户端应用：
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **备注**
 
@@ -246,3 +254,4 @@ ms.locfileid: "68973158"
 <!--Image references-->
 [1]: ./media/technical-reference/01.png
 
+<!-- Update_Description: wording update -->

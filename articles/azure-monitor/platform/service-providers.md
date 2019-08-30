@@ -5,20 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 08/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ddc8a067b8cf18586dbe98a671aefddb6243d679
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 6b221f44780cb07c845bb9f3393b3acf2e679137
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818125"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989154"
 ---
 # <a name="azure-monitor-for-service-providers"></a>适用于服务提供商的 Azure Monitor
 Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (MSP)、大型企业、独立软件供应商 (ISV) 和主机托管服务提供商管理和监视客户本地或云基础结构中的服务器。 
@@ -28,7 +29,7 @@ Azure Monitor 中的 Log Analytics 工作区可以帮助托管服务提供商 (M
 
 ## <a name="architectures-for-service-providers"></a>适用于服务提供商的体系结构
 
-借助 Log Analytics 工作区，管理员可控制日志流动和隔离，并创建满足其特定业务需求的日志体系结构。 [本文](/azure-monitor/platform/manage-access)介绍有关工作区管理的一般注意事项。 服务提供商有其他注意事项。
+借助 Log Analytics 工作区，管理员可控制[日志](data-platform-logs.md)数据的流动和隔离，并创建满足其特定业务需求的体系结构。 [此文](design-logs-deployment.md)介绍了工作区的设计、部署和迁移注意事项，[管理访问权限](manage-access.md)一文讨论了如何应用和管理日志数据的权限。 服务提供商有其他注意事项。
 
 对于 Log Analytics 工作区，有三种可能的体系结构适用于服务提供商：
 

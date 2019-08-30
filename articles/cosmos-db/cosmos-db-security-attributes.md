@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 05/08/2019
 ms.date: 06/17/2019
 ms.author: v-yeche
-ms.openlocfilehash: a042abc96779e46e21f607530c8e9bd4689c01a5
-ms.sourcegitcommit: 43eb6282d454a14a9eca1dfed11ed34adb963bd1
+ms.openlocfilehash: 31bf6f7691c7dcf71e54e28f9b2a47dba9a1a525
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151602"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578612"
 ---
 # <a name="security-attributes-for-azure-cosmos-db"></a>Azure Cosmos DB 的安全属性
 
@@ -46,7 +46,9 @@ ms.locfileid: "67151602"
 
 | 安全属性 | 是/否 | 注释|
 |---|---|--|
-| Azure 监视支持（Log Analytics、App Insights 等）| 是 | 发送到 Azure Cosmos DB 的所有请求将被记录。 支持 [Azure 监视](../azure-monitor/overview.md)、Azure 指标和 Azure 审核日志记录。  可以记录对应于数据平面请求、查询运行时统计、查询文本和 MongoDB 请求的信息。 还可以设置警报。 |
+| Azure 监视支持 (Log analytics)| 是 | 发送到 Azure Cosmos DB 的所有请求将被记录。 支持 [Azure 监视](../azure-monitor/overview.md)、Azure 指标和 Azure 审核日志记录。  可以记录对应于数据平面请求、查询运行时统计、查询文本和 MongoDB 请求的信息。 还可以设置警报。 |
+
+<!--Not Available on App insights-->
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
 

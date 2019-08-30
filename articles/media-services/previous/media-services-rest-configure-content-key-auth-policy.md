@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 04/01/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 8ba66a56cf1b4e3014489045eb9bb48752cd9783
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 89bf6b91962b17144c6a07d1bd317b5304f92952
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624179"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667654"
 ---
-# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略  
+# <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+  
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
@@ -437,8 +441,7 @@ ms.locfileid: "58624179"
     {
         None = 0,
         PlayReadyLicense = 1,
-        BaselineHttp = 2,
-        Widevine = 3
+        BaselineHttp = 2
     }
 
 

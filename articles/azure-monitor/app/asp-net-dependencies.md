@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: d15c4ca8-4c1a-47ab-a03d-c322b4bb2a9e
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2f7bacae73adb0cc6ce2bb8a182076b029e85f87
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c16d6f61c86ebe9e34c60706af00ee934f0379a7
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818373"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989475"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
@@ -33,7 +34,7 @@ ms.locfileid: "68818373"
 |---------------|-------|
 |Http/Https | 本地或远程 http/https 调用 |
 |WCF 调用| 仅当使用基于 Http 的绑定时，才会自动跟踪。|
-|SQL | 使用 `SqlClient` 发出的调用。 请参阅[此文](##advanced-sql-tracking-to-get-full-sql-query)来捕获 SQL 查询。  |
+|SQL | 使用 `SqlClient` 发出的调用。 请参阅[此文](#advanced-sql-tracking-to-get-full-sql-query)来捕获 SQL 查询。  |
 |[Azure 存储（Blob、表、队列）](https://www.nuget.org/packages/WindowsAzure.Storage/) | 使用 Azure 存储客户端发出的调用。 |
 |[事件中心客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.EventHubs) | 1\.1.0 和更高版本。 |
 |[ServiceBus 客户端 SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| 3\.0.0 和更高版本。 |
@@ -90,7 +91,7 @@ ms.locfileid: "68818373"
 
 ## <a name="tracking-ajax-calls-from-web-pages"></a>跟踪来自网页的 AJAX 调用
 
-对于网页，Application Insights JavaScript SDK 将按[此处](javascript.md#ajax-performance)所述，以依赖项的形式自动收集 AJAX 调用。 本文档重点介绍来自服务器组件的依赖项。
+对于网页，Application Insights JavaScript SDK 以依赖项的形式自动收集 AJAX 调用。
 
 ## <a name="advanced-sql-tracking-to-get-full-sql-query"></a>使用高级 SQL 跟踪获取完整的 SQL 查询
 
@@ -112,7 +113,7 @@ ms.locfileid: "68818373"
 
 * [应用程序地图](app-map.md)直观显示应用与相邻组件之间的依赖关系。
 * [事务诊断](transaction-diagnostics.md)显示统一的关联服务器数据。
-* [“浏览器”选项卡](javascript.md#ajax-performance)显示从用户浏览器发出的 AJAX 调用。
+* [“浏览器”选项卡](javascript.md)显示从用户浏览器发出的 AJAX 调用。
 * 单击缓慢或失败的请求可以检查其依赖性调用。
 * [Analytics](#logs-analytics) 可用于查询依赖性数据。
 

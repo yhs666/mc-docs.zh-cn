@@ -9,15 +9,15 @@ ms.devlang: javascript
 ms.topic: conceptual
 origin.date: 06/16/2017
 ms.author: v-yiso
-ms.date: 10/29/2018
-ms.openlocfilehash: f0d7744a631e7c899d51a77c34173e98a8e3f753
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 09/02/2019
+ms.openlocfilehash: 6a542228ca1560a870f5ce2e4eebdb7fa69cc569
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514465"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993605"
 ---
-# <a name="send-cloud-to-device-messages-with-iot-hub-node"></a>使用 IoT 中心发送云到设备消息 (Node)
+# <a name="send-cloud-to-device-messages-with-iot-hub-nodejs"></a>使用 IoT 中心发送云到设备消息 (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -42,7 +42,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 * **SendCloudToDeviceMessage**，它将云到设备消息通过 IoT 中心发送到模拟设备应用，然后接收其传送确认。
 
 > [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
+> IoT 中心通过 Azure IoT 设备 SDK 对许多设备平台和语言（包括 C、Java、Python 和 Javascript）提供 SDK 支持。 有关如何将设备连接到本教程的代码以及通常如何连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
 >
 
 要完成本教程，需要以下各项：
@@ -55,41 +55,40 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 
 在本部分中，将修改在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)中创建的模拟设备应用，以接收来自 IoT 中心的云到设备消息。
 
-1. 使用文本编辑器打开 SimulatedDevice.js 文件。
-2. 修改 **connectCallback** 函数以处理 IoT 中心发来的消息。 在本示例中，设备始终调用 **complete** 函数，以通知 IoT 中心它已处理消息。 **connectCallback** 函数的新版本类似于以下代码片段：
-   
+1. 使用文本编辑器打开 **SimulatedDevice.js** 文件。 此文件位于 **iot-hub\Quickstarts\simulated-device** 文件夹中，该文件夹位于在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门中下载的 Node.js 示例代码的根文件夹中。
+
+2. 将一个处理程序注册到设备客户端，用于接收从 IoT 中心发送的消息。 将对 `client.on` 的调用直接添加到创建设备客户端的行后面，如以下代码片段所示：
+
     ```javascript
-    var connectCallback = function (err) {
-      if (err) {
-        console.log('Could not connect: ' + err);
-      } else {
-        console.log('Client connected');
-        client.on('message', function (msg) {
-          console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
-          client.complete(msg, printResultFor('completed'));
-        });
-        // Create a message and send it to the IoT Hub every second
-        setInterval(function(){
-            var temperature = 20 + (Math.random() * 15);
-            var humidity = 60 + (Math.random() * 20);            
-            var data = JSON.stringify({ deviceId: 'myFirstNodeDevice', temperature: temperature, humidity: humidity });
-            var message = new Message(data);
-            message.properties.add('temperatureAlert', (temperature > 30) ? 'true' : 'false');
-            console.log("Sending message: " + message.getData());
-            client.sendEvent(message, printResultFor('send'));
-        }, 1000);
-      }
-    };
+    var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
+
+    client.on('message', function (msg) {
+      console.log('Id: ' + msg.messageId + ' Body: ' + msg.data);
+      client.complete(msg, function (err) {
+        if (err) {
+          console.error('complete error: ' + err.toString());
+        } else {
+          console.log('complete sent');
+        }
+      });
+    });
     ```
 
+    在本示例中，设备调用 **complete** 函数，以通知 IoT 中心它已处理消息。 如果使用 MQTT 传输，则对 **complete** 的调用不是必需的，可以省略。 对 HTTPS 和 AMQP 来说，它是必需的。
+  
    > [!NOTE]
-   > 如果使用 HTTPS（而不使用 MQTT 或 AMQP）作为传输，则 DeviceClient  实例将不会频繁（频率低于每 25 分钟一次）检查 IoT 中心发来的消息。 有关 MQTT、AMQP 和 HTTPS 支持之间的差异以及 IoT 中心限制的详细信息，请参阅 [IoT 中心开发人员指南][IoT Hub developer guide - C2D]。
-   > 
-   > 
+   > 如果使用 HTTPS（而不使用 MQTT 或 AMQP）作为传输，则 DeviceClient  实例将不会频繁（频率低于每 25 分钟一次）检查 IoT 中心发来的消息。 有关 MQTT、AMQP 和 HTTPS 支持之间的差异以及 IoT 中心限制的详细信息，请参阅 [IoT 中心开发人员指南](iot-hub-devguide-messaging.md)。
+   >
+
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+在本文中，你将创建一项后端服务，用于通过你在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-node.md)中创建的 IoT 中心发送云到设备消息。 若要发送云到设备消息，服务需要“服务连接”权限。  默认情况下，每个 IoT 中心都使用名为 **service** 的共享访问策略创建，该策略授予此权限。
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## <a name="send-a-cloud-to-device-message"></a>发送云到设备的消息
 
-在本部分中，会创建一个 Node.js 控制台应用，用于将云到设备的消息发送到模拟设备应用。 需要在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门中添加的设备的设备 ID。 还需要中心的 IoT 中心连接字符串（位于 [Azure 门户](https://portal.azure.cn)）。
+在本部分中，会创建一个 Node.js 控制台应用，用于将云到设备的消息发送到模拟设备应用。 需要在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门中添加的设备的设备 ID。 还需要先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串。
 
 1. 创建名为 **sendcloudtodevicemessage**的空文件夹。 在命令提示符处，使用以下命令在 **sendcloudtodevicemessage** 文件夹中创建一个 package.json 文件。 接受所有默认值：
    
@@ -111,7 +110,7 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
     var Message = require('azure-iot-common').Message;
     ```
 
-5. 将以下代码添加到 **SendCloudToDeviceMessage.js** 文件。 将“{iot hub connection string}”占位符值替换为你在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门中创建的中心的 IoT 中心连接字符串。 将“{device id}”占位符值替换为你在[从设备将遥测数据发送到 IoT 中心](quickstart-send-telemetry-node.md)快速入门中添加的设备的设备 ID：
+5. 将以下代码添加到 **SendCloudToDeviceMessage.js** 文件。 将“{iot hub connection string}”和“{device id}”占位符值替换为之前记下的 IoT 中心连接字符串和设备 ID：
 
     ```javascript
     var connectionString = '{iot hub connection string}';
@@ -161,8 +160,8 @@ Azure IoT 中心是一项完全托管的服务，有助于在数百万台设备�
 ## <a name="run-the-applications"></a>运行应用程序
 现在，已准备就绪，可以运行应用程序了。
 
-1. 在 **simulateddevice** 文件夹的命令提示符下，运行以下命令将遥测发送到 IoT 中心，并侦听云到设备消息：
-   
+1. 在 **simulated-device** 文件夹的命令提示符下，运行以下命令将遥测发送到 IoT 中心，并侦听云到设备消息：
+
     ```shell
     node SimulatedDevice.js 
     ```

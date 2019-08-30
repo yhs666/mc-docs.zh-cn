@@ -5,20 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 08/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6c737389b8bfd6b60c7b516066651ec3e8ef3b3a
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: b8d67193777524924a4926232b032c9e5b165499
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513816"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989078"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>配置用于容器的 Azure Monitor 的代理数据收集
 
@@ -30,14 +31,14 @@ ms.locfileid: "68513816"
 >目前，对 Prometheus 的支持是公共预览版中的一项功能。
 >
 
-## <a name="configure-your-cluster-with-custom-data-collection-settings"></a>使用自定义数据收集设置配置群集
+## <a name="configmap-file-settings-overview"></a>ConfigMap 文件设置概述
 
 我们已提供一个模板 ConfigMap 文件，你可以使用自定义内容轻松编辑此文件，而无需从头开始创建。 在开始之前，请查看有关 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) 的 Kubernetes 文档，并熟悉如何创建、配置和部署 ConfigMap。 这样，就可以按命名空间或者在整个群集中筛选 stderr 和 stdout，以及筛选在所有群集 pod/节点中运行的任何容器的环境变量。
 
 >[!IMPORTANT]
 >支持从容器工作负荷收集 stdout、stderr 和环境变量的最低代理版本为 ciprod06142019 或以上。 支持擦除 Prometheus 指标的最低代理版本为 ciprod07092019 或以上。 若要验证代理版本，请在“节点”选项卡中选择一个节点，然后在属性窗格中记下“代理映像标记”属性的值。    
 
-### <a name="overview-of-configurable-data-collection-settings"></a>可配置的数据收集设置概述
+### <a name="data-collection-settings"></a>数据收集设置
 
 下面是可以配置的用于控制数据收集的设置。
 
@@ -51,12 +52,24 @@ ms.locfileid: "68513816"
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |逗号分隔的数组 |不收集其 stderr 日志的 Kubernetes 命名空间数组。 仅当 `log_collection_settings.stdout.enabled` 设置为 `true` 时，此设置才会生效。 如果未在 ConfigMap 中指定，默认值为 `exclude_namespaces = ["kube-system"]`。 |
 | `[log_collection_settings.env_var] enabled =` |布尔 | true 或 false | 此设置控制是否启用环境变量收集。 如果设置为 `false`，则不会收集所有群集 pod/节点中运行的任何容器的环境变量。 如果未在 ConfigMap 中指定，默认值为 `enabled = true`。 |
 
-## <a name="overview-of-configurable-prometheus-scraping-settings"></a>可配置的 Prometheus 擦除设置概述
+### <a name="prometheus-scraping-settings"></a>Prometheus 擦除设置
+
+![Prometheus 的容器监视体系结构](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
+
+用于容器的 Azure Monitor 提供一种无缝的体验，允许通过多种擦除收集 Prometheus 指标，具体机制如下表所示。 这些指标通过在单个 ConfigMap 文件中指定的一系列设置进行收集，该文件与用来配置从容器工作负荷收集 stdout、stderr 和环境变量的文件相同。 
 
 从以下两个角度之一执行从 Prometheus 主动擦除指标的操作：
 
 * 群集范围 - 获取 HTTP URL，并从列出的服务终结点、k8s 服务（例如 kube-dns 和 kube-state-metrics）以及特定于应用程序的 pod 批注发现目标。 将在 ConfigMap 节 *[Prometheus data_collection_settings.cluster]* 中定义此上下文中收集的指标。
 * 节点范围 - 获取 HTTP URL，并从列出的服务终结点发现目标。 将在 ConfigMap 节 *[Prometheus_data_collection_settings.node]* 中定义此上下文中收集的指标。
+
+| 终结点 | 作用域 | 示例 |
+|----------|-------|---------|
+| Pod 批注 | 群集范围 | 批注： <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Kubernetes 服务 | 群集范围 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
+| URL/终结点 | 单节点和/或群集范围 | `http://myurl:9101/metrics` |
+
+指定 URL 后，用于容器的 Azure Monitor 仅擦除此终结点。 指定 Kubernetes 服务后，将使用群集 DNS 服务器来解析服务名称以获取 IP 地址，然后擦除已解析的服务。
 
 |作用域 | 键 | 数据类型 | Value | 说明 |
 |------|-----|-----------|-------|-------------|
@@ -64,8 +77,8 @@ ms.locfileid: "68513816"
 | | `urls` | String | 逗号分隔的数组 | HTTP 终结点（指定的 IP 地址或有效的 URL 路径）。 例如：`urls=[$NODE_IP/metrics]`。 （$NODE_IP 是容器参数的特定 Azure Monitor，可以使用它来代替节点 IP 地址。 必须全部大写。） |
 | | `kubernetes_services` | String | 逗号分隔的数组 | 用于从 kube-state-metrics 擦除指标的 Kubernetes 服务数组。 例如 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`。|
 | | `monitor_kubernetes_pods` | 布尔 | true 或 false | 如果在群集范围设置中将此项设置为 `true`，则容器代理的 Azure Monitor 将在整个群集中擦除以下 Prometheus 批注的 Kubernetes pod：<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | 布尔 | true 或 false | 启用 pod 擦除。 |
-| | `prometheus.io/scheme` | String | http 或 https | 默认为通过 HTTP 擦除。 如果需要，请设置为 `https`。 | 
+| | `prometheus.io/scrape` | 布尔 | true 或 false | 启用 pod 擦除。 `monitor_kubernetes_pods` 必须设置为 `true`。 |
+| | `prometheus.io/scheme` | String | http 或 https | 默认为通过 HTTP 擦除。 必要时设置为 `https`。 | 
 | | `prometheus.io/path` | String | 逗号分隔的数组 | 要从中提取指标的 HTTP 资源路径。 如果指标路径不是 `/metrics`，请使用此批注定义它。 |
 | | `prometheus.io/port` | String | 9102 | 指定要侦听的端口。 如果未设置端口，则默认为 9102。 |
 | 节点范围 | `urls` | String | 逗号分隔的数组 | HTTP 终结点（指定的 IP 地址或有效的 URL 路径）。 例如：`urls=[$NODE_IP/metrics]`。 （$NODE_IP 是容器参数的特定 Azure Monitor，可以使用它来代替节点 IP 地址。 必须全部大写。） |
@@ -74,7 +87,7 @@ ms.locfileid: "68513816"
 
 ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 不能使用推翻收集规则的其他 ConfigMap。
 
-### <a name="configure-and-deploy-configmaps"></a>使用 ConfigMap 进行配置和部署
+## <a name="configure-and-deploy-configmaps"></a>使用 ConfigMap 进行配置和部署
 
 执行以下步骤，以配置 ConfigMap 配置文件并将其部署到群集。
 
@@ -84,6 +97,47 @@ ConfigMap 是一个全局列表，只能将一个 ConfigMap 应用到代理。 �
     - 若要排除特定命名空间的 stdout 日志收集，可以参考以下示例配置键/值：`[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`。
     - 若要禁用特定容器的环境变量收集，请设置键/值 `[log_collection_settings.env_var] enabled = true` 以全局启用变量收集，然后遵循[此处](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container)所述的步骤完成特定容器的配置。
     - 若要在群集范围禁用 stderr 日志收集，请参考以下示例配置键/值：`[log_collection_settings.stderr] enabled = false`。
+    
+    - 以下示例演示了如何通过多种方式配置 ConfigMap 文件指标：从 URL 群集范围配置、从代理的 DameonSet 节点范围配置，以及通过指定 Pod 批注进行配置
+
+        - 跨群集从特定 URL 擦除 Prometheus 指标。
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
+         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        ```
+
+        - 从代理的 DaemonSet（在群集的每个节点中运行）擦除 Prometheus 指标。
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings 
+         [prometheus_data_collection_settings.node] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
+         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
+         urls = ["http://$NODE_IP:9103/metrics"] 
+         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+         fielddrop = ["metric_to_drop"] 
+        ```
+
+        - 通过指定 Pod 批注擦除 Prometheus 指标。
+
+        ```
+         prometheus-data-collection-settings: |- 
+         # Custom Prometheus metrics data collection settings
+         [prometheus_data_collection_settings.cluster] 
+         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
+         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
+          - prometheus.io/scrape:"true" #Enable scraping for this pod 
+          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
+        ```
 
 1. 运行以下 kubectl 命令创建 ConfigMap：`kubectl apply -f <configmap_yaml_file.yaml>`。
     
@@ -108,7 +162,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 ## <a name="applying-updated-configmap"></a>应用已更新的 ConfigMap
 
-如果你已将 ConfigMap 部署到群集，但想要使用较新的配置更新 ConfigMap，只需编辑以前用过的 ConfigMap 文件，然后使用前面提到的相同命令 `kubectl apply -f <configmap_yaml_file.yaml` 应用该文件。
+如果你已将 ConfigMap 部署到群集，但想要使用较新的配置更新 ConfigMap，可以编辑以前用过的 ConfigMap 文件，然后使用前面提到的相同命令 `kubectl apply -f <configmap_yaml_file.yaml` 应用该文件。
 
 配置更改可能需要几分钟时间才能完成并生效，群集中的所有 omsagent pod 将会重启。 所有 omsagent pod 的重启是轮流式的重启，而不是一次性全部重启。 重启完成后，系统会显示包含结果的消息，如下所示：`configmap "container-azm-ms-agentconfig" updated`。
 

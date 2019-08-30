@@ -13,12 +13,12 @@ ms.reviewer: vanto, carlrab, emlisa
 manager: digimobile
 origin.date: 05/14/2019
 ms.date: 08/19/2019
-ms.openlocfilehash: 4dab67a55cd84d8c1cb412fdae471dfcbb7eeab1
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 99d25cf87bee66b1eec7256d4770b305c188985b
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544158"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578630"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 
@@ -118,7 +118,7 @@ SQL Server 始终对所有连接强制要求加密 (SSL/TLS)。 这样可以确�
 
 ### <a name="key-management-with-azure-key-vault"></a>使用 Azure Key Vault 的密钥管理
 
-[创建自己的密钥](transparent-data-encryption-byok-azure-sql.md) (BYOK) 支持 [透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE)，允许客户使用  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)（Azure 基于云的外部密钥管理系统）来获得密钥管理和轮换的所有权。 如果撤销了数据库对密钥保管库的访问权限，则无法解密数据库和将其读入内存。 Azure Key Vault 提供集中密钥管理平台，利用严格监控的硬件安全模块 (HSM)，并可在密钥与数据管理之间实现职责分离，以帮助满足安全合规性要求。
+[创建自己的密钥](transparent-data-encryption-byok-azure-sql.md) (BYOK) 支持 [透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE)，允许客户使用  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)（Azure 基于云的外部密钥管理系统）来获得密钥管理和轮换的所有权。 如果撤销了数据库对密钥保管库的访问权限，则无法解密数据库和将其读入内存。 Azure Key Vault 提供集中密钥管理平台，并可在密钥与数据管理之间实现职责分离，以帮助满足安全合规性要求。
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted（使用中加密）
 

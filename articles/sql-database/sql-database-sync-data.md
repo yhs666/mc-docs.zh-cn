@@ -12,20 +12,20 @@ ms.author: v-jay
 ms.reviewer: douglasl
 manager: digimobile
 origin.date: 01/25/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: f470c7dce50c454a8a4468b926c61734ec15eaed
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 08/26/2019
+ms.openlocfilehash: b2e5ab0cce614df27bab1933e551c570cc12671d
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629215"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578555"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>使用 SQL 数据同步跨多个云和本地数据库同步数据
 
 使用 SQL 数据同步这项基于 Azure SQL 数据库的服务，可以跨多个 SQL 数据库和 SQL Server 实例双向同步选定数据。
 
 > [!IMPORTANT]
-> 目前，Azure SQL 数据同步不支持 Azure SQL 数据库托管实例。
+> 目前，Azure SQL 数据同步不支持 Azure SQL 数据库托管实例  。
 
 ## <a name="when-to-use-data-sync"></a>何时使用 SQL 数据同步
 
@@ -37,13 +37,13 @@ ms.locfileid: "65629215"
 
 数据同步不是以下场景的首选解决方案：
 
--   灾难恢复
-
--   读取缩放
-
--   ETL（OLTP 到 OLAP）
-
--   从本地 SQL Server 迁移到 Azure SQL 数据库
+| 方案 | 一些建议的解决方案 |
+|----------|----------------------------|
+| 灾难恢复 | [Azure 异地冗余备份](sql-database-automated-backups.md) |
+| 读取缩放 | [使用只读副本对只读的查询工作负荷进行负载均衡（预览版）](sql-database-read-scale-out.md) |
+| ETL（OLTP 到 OLAP） | [Azure 数据工厂](/data-factory/)或 [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
+| 从本地 SQL Server 迁移到 Azure SQL 数据库 | [Azure 数据库迁移服务](/dms/) |
+|||
 
 ## <a name="overview-of-sql-data-sync"></a>SQL 数据同步概述
 
@@ -51,9 +51,9 @@ SQL 数据同步以同步组的概念为依据。 同步组是一组要同步的
 
 SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的一个数据库定义为中心数据库。 其余数据库均为成员数据库。 仅在中心和各成员之间同步数据。
 
-- 中心数据库必须是 Azure SQL 数据库。
-- 成员数据库可以是 SQL 数据库、本地 SQL Server 数据库或 Azure 虚拟机上的 SQL Server 实例。
-- 同步数据库包含数据同步的元数据和日志。同步数据库必须是与中心数据库位于同一区域的 Azure SQL 数据库。 同步数据库的创建者和所有者均为客户。
+- 中心数据库  必须是 Azure SQL 数据库。
+- 成员数据库  可以是 SQL 数据库、本地 SQL Server 数据库或 Azure 虚拟机上的 SQL Server 实例。
+- 同步数据库  包含数据同步的元数据和日志。同步数据库必须是与中心数据库位于同一区域的 Azure SQL 数据库。 同步数据库的创建者和所有者均为客户。
 
 > [!NOTE]
 > 如果使用本地数据库作为成员数据库，则必须[安装并配置本地同步代理](sql-database-get-started-sql-data-sync.md#add-on-prem)。
@@ -62,18 +62,18 @@ SQL 数据同步使用中心辐射型拓扑来同步数据。 将同步组中的
 
 同步组具有以下属性：
 
-- “同步架构”描述了在同步的数据。
-- “同步方向”可以是双向同步，也可以仅为单向同步。 也就是说，“同步方向”可以是“从中心同步到成员”和/或“从成员同步到中心”。
-- “同步间隔”描述多久执行一次同步。
-- “冲突解决策略”是组级别策略，可以是“中心胜出”，也可以是“成员胜出”。
+- “同步架构”  描述了在同步的数据。
+- “同步方向”  可以是双向同步，也可以仅为单向同步。 也就是说，“同步方向”可以是“从中心同步到成员”  和/或“从成员同步到中心”  。
+- “同步间隔”  描述多久执行一次同步。
+- “冲突解决策略”  是组级别策略，可以是“中心胜出”  ，也可以是“成员胜出”  。
 
 ## <a name="how-does-data-sync-work"></a>数据同步的工作原理
 
 - **跟踪数据更改：** SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 更改记录在用户数据库中的端表内。 请注意，默认情况下 BULK INSERT 不会激发触发器。 如果未指定 FIRE_TRIGGERS，则不执行任何插入触发器操作。 添加 FIRE_TRIGGERS 选项，以便数据同步可以跟踪这些插入。 
 - **同步数据：** 根据设计，SQL 数据同步采用中心辐射型模型。 中心与各个成员同步数据。 中心内的更改会先下载到成员，然后成员内的更改会上传到中心。
-- **解决冲突：** SQL 数据同步提供两个冲突解决选项，即“中心胜出”或“成员胜出”。
-  - 如果选择“中心胜出”，中心内的更改始终覆盖成员内的更改。
-  - 如果选择“成员胜出”，成员内的更改覆盖中心内的更改。 如果有多个成员，最终值取决于哪个成员最先同步。
+- **解决冲突：** SQL 数据同步提供两个冲突解决选项，即“中心胜出”或“成员胜出”   。
+  - 如果选择“中心胜出”  ，中心内的更改始终覆盖成员内的更改。
+  - 如果选择“成员胜出”  ，成员内的更改覆盖中心内的更改。 如果有多个成员，最终值取决于哪个成员最先同步。
 
 ## <a name="compare-data-sync-with-transactional-replication"></a>将数据同步与事务复制进行比较
 
@@ -130,6 +130,7 @@ SQL 数据同步使用插入、更新和删除触发器来跟踪更改。 它在
 - 对象（数据库、表和列）的名称不能包含可打印字符句点 (.)、左方括号 ([) 或右方括号 (])。
 - 不支持 Azure Active Directory 身份验证。
 - 不支持具有相同名称但架构不同（例如，dbo.customers 和 sales.customers）的表。
+- 不支持具有用户定义数据类型的列
 
 #### <a name="unsupported-data-types"></a>不支持的数据类型
 
@@ -202,7 +203,7 @@ SQL 数据同步在所有区域中都可用。
 
 ### <a name="can-data-sync-sync-encrypted-tables-and-columns"></a>数据同步是否可以同步加密的表或列
 
-- 如果数据库使用了 Always Encrypted，则只能同步未加密的表和列。 无法同步加密的列，因为数据同步无法对数据进行解密。
+- 如果数据库使用了 Always Encrypted，则只能同步未加密的表和列。  无法同步加密的列，因为数据同步无法对数据进行解密。
 - 如果某个列使用了列级加密 (CLE)，则可以对该列进行同步，只要行大小小于最大大小 24 MB。 数据同步将密钥 (CLE) 加密的列视为普通的二进制数据。 若要解密其他同步成员上的数据，则需要具有相同的证书。
 
 ### <a name="is-collation-supported-in-sql-data-sync"></a>SQL 数据同步是否支持排序规则

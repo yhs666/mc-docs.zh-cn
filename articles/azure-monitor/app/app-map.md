@@ -5,20 +5,22 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+originate.date: 08/20/2019
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: d80d2549d7cc9779f3a954e394ddc67ea5566abc
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c8ef8a7ebd9043732f42344e59510d4aae25ae8e
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562737"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989687"
 ---
 # <a name="application-map-triage-distributed-applications"></a>应用程序映射：会审分布式应用程序
 
@@ -119,7 +121,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**将初始值设定项加载到活动 TelemetryConfiguration**
+**ASP.NET 应用：将初始值设定项加载到活动 TelemetryConfiguration**
 
 在 ApplicationInsights.config 中：
 
@@ -132,9 +134,6 @@ namespace CustomInitializer.Telemetry
       </TelemetryInitializers>
     </ApplicationInsights>
 ```
-
-> [!NOTE]
-> 使用 `ApplicationInsights.config` 添加初始值设定项对于 ASP.NET Core 应用程序无效。
 
 ASP.NET Web 应用程序的另一种方法是在代码中（例如在 Global.aspx.cs 中）实例化初始值设定项：
 
@@ -149,15 +148,20 @@ ASP.NET Web 应用程序的另一种方法是在代码中（例如在 Global.asp
     }
 ```
 
+> [!NOTE]
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+
+**ASP.NET Core 应用：将初始值设定项加载到 TelemetryConfiguration**
+
 对于 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
  using CustomInitializer.Telemetry;
  public void ConfigureServices(IServiceCollection services)
-    {
-        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-    }
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 ### <a name="nodejs"></a>Node.js
@@ -195,7 +199,7 @@ Spring Boot 入门版会自动将云角色名称分配给你为 spring.applicati
 
 ```javascript
 appInsights.queue.push(() => {
-appInsights.context.addTelemetryInitializer((envelope) => {
+appInsights.addTelemetryInitializer((envelope) => {
   envelope.tags["ai.cloud.role"] = "your role name";
   envelope.tags["ai.cloud.roleInstance"] = "your role instance";
 });

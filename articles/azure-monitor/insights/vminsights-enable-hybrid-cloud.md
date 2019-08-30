@@ -5,20 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/07/2019
+ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c5815ee4451122eba62a375bcd61ccbb811541e0
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: c3271da7652842062329d5fc702e367055583207
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562954"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989136"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>为混合环境启用用于 VM 的 Azure Monitor（预览版）
 
@@ -26,7 +27,7 @@ ms.locfileid: "67562954"
 
 本文介绍如何为数据中心或其他云环境中托管的虚拟机或物理计算机启用用于 VM 的 Azure Monitor（预览版）。 在此过程结束时，你将已成功地开始监视环境中的虚拟机，并了解这些虚拟机是否会遇到任何性能或可用性问题。 
 
-在开始前，请务必查看[先决条件](vminsights-enable-overview.md)，并验证订阅和资源是否满足相关要求。
+在开始前，请务必查看[先决条件](vminsights-enable-overview.md)，并验证订阅和资源是否满足相关要求。 查看 [Log Analytics Linux 和 Windows 代理](../platform/log-analytics-agent.md)的要求与部署方法。
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -81,13 +82,68 @@ ms.locfileid: "67562954"
 
 Dependency Agent 的文件放置在以下目录中：
 
-| 文件 | 位置 |
+| 文件 | Location |
 |:--|:--|
 | 核心文件 | /opt/microsoft/dependency-agent |
 | 日志文件 | /var/opt/microsoft/dependency-agent/log |
 | 配置文件 | /etc/opt/microsoft/dependency-agent/config |
 | 服务可执行文件 | /opt/microsoft/dependency-agent/bin/microsoft-dependency-agent<br>/opt/microsoft/dependency-agent/bin/microsoft-dependency-agent-manager |
 | 二进制存储文件 | /var/opt/microsoft/dependency-agent/storage |
+
+## <a name="installation-script-examples"></a>安装脚本示例
+
+要在多台服务器上同时轻松部署 Dependency Agent，可以使用以下脚本示例在 Windows 或 Linux 上下载和安装 Dependency Agent。
+
+### <a name="powershell-script-for-windows"></a>适用于 Windows 的 PowerShell 脚本
+
+```powershell
+Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
+
+.\InstallDependencyAgent-Windows.exe /S
+```
+
+### <a name="shell-script-for-linux"></a>适用于 Linux 的 Shell 脚本
+
+```
+wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
+sudo sh InstallDependencyAgent-Linux64.bin -s
+```
+
+## <a name="desired-state-configuration"></a>Desired State Configuration
+
+若通过期望状态配置 (DSC) 部署 Dependency Agent，可通过如下示例代码使用 xPSDesiredStateConfiguration 模块：
+
+```powershell
+configuration ServiceMap {
+
+    Import-DscResource -ModuleName xPSDesiredStateConfiguration
+
+    $DAPackageLocalPath = "C:\InstallDependencyAgent-Windows.exe"
+
+    Node localhost
+    {
+        # Download and install the Dependency agent
+        xRemoteFile DAPackage 
+        {
+            Uri = "https://aka.ms/dependencyagentwindows"
+            DestinationPath = $DAPackageLocalPath
+        }
+
+        xPackage DA
+        {
+            Ensure="Present"
+            Name = "Dependency Agent"
+            Path = $DAPackageLocalPath
+            Arguments = '/S'
+            ProductId = ""
+            InstalledCheckRegKey = "HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\DependencyAgent"
+            InstalledCheckRegValueName = "DisplayName"
+            InstalledCheckRegValueData = "Dependency Agent"
+            DependsOn = "[xRemoteFile]DAPackage"
+        }
+    }
+}
+```
 
 ## <a name="enable-performance-counters"></a>启用性能计数器
 如果解决方案引用的 Log Analytics 工作区尚未配置为收集解决方案所需的性能计数器，则需要启用性能计数器。 为此，可以采用下面两种方式之一：
@@ -186,11 +242,39 @@ Dependency Agent 的文件放置在以下目录中：
     ```
    启用监视后，可能需要约 10 分钟才能查看混合计算机的运行状况和指标。
 
+## <a name="troubleshooting"></a>故障排除
+
+### <a name="vm-doesnt-appear-on-the-map"></a>VM 未出现在映射上
+
+如果 Dependency Agent 安装成功，但在映射上没有看到你的计算机，请按照以下步骤诊断问题。
+
+1. Dependency Agent 是否已安装成功？ 可通过检查是否已安装并运行服务来验证这一点。
+
+    Windows  ：查找名为“Microsoft Dependency Agent”的服务。 
+
+    Linux  ：查找正在运行的进程“microsoft-dependency-agent”。
+
+2. 是否处于 [Log Analytics 的免费定价层](/azure-monitor/insights/solutions)？ 免费计划最多允许五台仅有的计算机。 任何后续的计算机都不会出现在映射上，即使之前的五台计算机不再发送数据，也是如此。
+
+3. 计算机是否正在向 Azure Monitor 日志发送日志和性能数据？ 对计算机执行以下查询： 
+
+    ```Kusto
+    Usage | where Computer == "computer-name" | summarize sum(Quantity), any(QuantityUnit) by DataType
+    ```
+
+    它是否返回了一个或多个结果？ 是否为最新数据？ 如果是，则表示 Log Analytics 代理正常运行并正在与服务通信。 如果不是，请检查服务器上的代理：[适用于 Windows 的 Log Analytics 代理故障排除](../platform/agent-windows-troubleshoot.md)或[适用于 Linux 的 Log Analytics 代理故障排除](../platform/agent-linux-troubleshoot.md)。
+
+#### <a name="computer-appears-on-the-map-but-has-no-processes"></a>计算机出现在映射上，但没有进程
+
+如果在映射上看到了服务器，但它没有任何进程或连接数据，则表明已安装并运行 Dependency Agent，但未加载内核驱动程序。 
+
+请检查 C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file（针对 Windows）或 /var/opt/microsoft/dependency-agent/log/service.log file（针对 Linux）。 文件的最后几行应指出为何未加载内核。 例如，如果更新内核，则内核在 Linux 上可能不受支持。
+
+
 ## <a name="next-steps"></a>后续步骤
 
 既然虚拟机已启用了监视，此信息在用于 VM 的 Azure Monitor 中可供分析。
  
 - 若要了解如何使用运行状况功能，请参阅[查看用于 VM 的 Azure Monitor 的运行状况](vminsights-health.md)。
 - 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。
-- 若要通过 VM 的性能了解瓶颈和整体利用率，请参阅[查看 Azure VM 性能](vminsights-performance.md)。
 - 若要查看已发现的应用程序依赖项，请参阅[查看用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。

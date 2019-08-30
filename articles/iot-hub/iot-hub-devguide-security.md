@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 origin.date: 07/18/2018
 ms.author: v-yiso
-ms.date: 03/04/2019
-ms.openlocfilehash: 251a141fe82146f62fda47f669ed9f97af5718c1
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.date: 09/02/2019
+ms.openlocfilehash: e368afc9e2a7d848d4076a1dcf2e65ac13c09e57
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665619"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993045"
 ---
 # <a name="control-access-to-iot-hub"></a>控制对 IoT 中心的访问
 
@@ -63,7 +63,7 @@ Azure IoT 中心可根据共享访问策略和标识注册表安全凭据验证�
 安全凭据（例如对称密钥）永远不会通过网络发送。
 
 > [!NOTE]
-> 如同 [Azure Resource Manager][lnk-azure-resource-manager] 中的所有提供程序一样，Azure IoT 中心资源提供程序也通过 Azure 订阅受到保护。
+> 如同 [Azure 资源管理器][lnk-azure-resource-manager]中的所有提供程序一样，Azure IoT 中心资源提供程序也通过 Azure 订阅受到保护。
 
 有关如何构造和使用安全令牌的详细信息，请参阅 [IoT 中心安全令牌][lnk-sas-tokens]。
 
@@ -82,9 +82,9 @@ Azure IoT 中心可根据共享访问策略和标识注册表安全凭据验证�
 * `{policyName}@sas.root.{iothubName}` （若使用 IoT 中心级别的令牌）。
 * `{deviceId}@sas.{iothubname}` （若为设备范围的令牌）。
 
-在这两种情况下，密码字段都包含令牌，如 [IoT Hub security tokens][lnk-sas-tokens]（IoT 中心安全令牌）中所述。
+在这两种情况下，密码字段都包含令牌，如 [IoT 中心安全令牌][lnk-sas-tokens]所述。
 
-HTTPS 通过在 Authorization 请求标头中包含有效的令牌来实施身份验证。
+HTTPS 通过在 Authorization  请求标头中包含有效的令牌来实施身份验证。
 
 #### <a name="example"></a>示例
 用户名（DeviceId 区分大小写）：`iothubname.azure-devices.net/DeviceId`
@@ -123,7 +123,7 @@ IoT 中心还允许设备使用 [X.509 证书][lnk-x509]向 IoT 中心进行身�
 
 可以使用安全令牌向设备和服务授予限时访问 IoT 中心特定功能的权限。 若要获取授权连接到 IoT 中心，设备和服务必须发送使用共享访问或对称密钥进行签名的安全令牌。 这些密钥与设备标识一起存储在标识注册表中。
 
-使用共享访问密钥进行签名的令牌可授权访问与共享访问策略权限相关的所有功能。 使用设备标识的对称密钥进行签名的令牌只能向相关设备标识授予 DeviceConnect 权限。
+使用共享访问密钥进行签名的令牌可授权访问与共享访问策略权限相关的所有功能。 使用设备标识的对称密钥进行签名的令牌只能向相关设备标识授予 DeviceConnect  权限。
 
 安全令牌采用以下格式：
 
@@ -133,7 +133,7 @@ SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={UR
 
 以下是预期值：
 
-| 值 | 说明 |
+| Value | 说明 |
 | --- | --- |
 | {signature} |HMAC-SHA256 签名字符串的格式为： `{URL-encoded-resourceURI} + "\n" + expiry`。 **重要说明**：密钥是从 base64 解码得出的，用作执行 HMAC-SHA256 计算的密钥。 |
 | {resourceURI} |使用此令牌可以访问的终结点的 URI 前缀（根据分段）以 IoT 中心的主机名开头（无协议）。 例如 `myHub.azure-devices.cn/devices/device1` |
@@ -193,6 +193,11 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
+
+下面是必备组件的安装说明。
+
+[!INCLUDE [Iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
 
 C# 中用于生成安全令牌的功能是：
 
@@ -280,12 +285,12 @@ SharedAccessSignature sr=myhub.azure-devices.cn%2fdevices%2fdevice1&sig=13y8ejUk
 
 ### <a name="use-a-shared-access-policy"></a>使用共享访问策略
 
-使用共享访问策略创建令牌时，将 `skn` 字段设置为策略名称。 此策略必须授予 DeviceConnect 权限。
+使用共享访问策略创建令牌时，将 `skn` 字段设置为策略名称。 此策略必须授予 DeviceConnect  权限。
 
 使用共享访问策略访问设备功能的两个主要方案是：
 
-* [云协议网关][lnk-endpoints]，
-* [令牌服务][lnk-custom-auth] 。
+* [云协议网关][lnk-endpoints]、
+* 用于实现自定义身份验证方案的[令牌服务][lnk-custom-auth]。
 
 由于共享访问策略可潜在授权访问任何连接设备的权限，因此创建安全令牌时必须使用正确的资源 URI。 这对令牌服务尤其重要，它必须使用资源 URI 将令牌的范围限定到特定设备。 这一点与协议网关的关系不大，因为协议网关是对所有设备的通信进行调节。
 
@@ -403,15 +408,15 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ## <a name="custom-device-and-module-authentication"></a>自定义设备和模块身份验证
 
-可以使用 IoT 中心[标识注册表][lnk-identity-registry]，通过[令牌][lnk-sas-tokens]配置每个设备/模块的安全凭据和访问控制。 如果 IoT 解决方案已经具有自定义标识注册表和/或身份验证方案，可考虑通过创建“令牌服务”，将此基础结构与 IoT 中心集成。 这样，便可以在解决方案中使用其他 IoT 功能。
+可以使用 IoT 中心[标识注册表][lnk-identity-registry]，通过[令牌][lnk-sas-tokens]配置每个设备/模块的安全凭据和访问控制。 如果 IoT 解决方案已经具有自定义标识注册表和/或身份验证方案，可考虑通过创建“令牌服务”  ，将此基础结构与 IoT 中心集成。 这样，便可以在解决方案中使用其他 IoT 功能。
 
-令牌服务是自定义云服务。 它使用包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略创建设备范围的或模块范围的令牌。 这些令牌可让设备和模块连接到 IoT 中心。
+令牌服务是自定义云服务。 它使用包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略  创建设备范围的  或模块范围的  令牌。 这些令牌可让设备和模块连接到 IoT 中心。
 
   ![令牌服务模式的步骤][img-tokenservice]
 
 下面是令牌服务模式的主要步骤：
 
-1. 为 IoT 中心创建包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略。 可以在 [Azure 门户][lnk-management-portal] 中或以编程方式创建此策略。 令牌服务使用此策略为它创建的令牌签名。
+1. 为 IoT 中心创建包含 **DeviceConnect** 或 **ModuleConnect** 权限的 IoT 中心共享访问策略。 可以在 [Azure 门户][lnk-management-portal]中或以编程方式创建此策略。 令牌服务使用此策略为它创建的令牌签名。
 1. 当设备/模块需要访问 IoT 中心时，将向令牌服务请求已签名的令牌。 设备/模块可以使用自定义标识注册表/身份验证方案来进行身份验证，以确定令牌服务用来创建令牌的设备/模块标识。
 1. 令牌服务返回令牌。 创建令牌时，使用 `/devices/{deviceId}` 或 `/devices/{deviceId}/module/{moduleId}` 作为 `resourceURI`，使用 `deviceId` 作为要进行身份验证的设备，或者使用 `moduleId` 作为要进行身份验证的模块。 令牌服务使用共享访问策略来构造令牌。
 1. 设备/模块直接通过 IoT 中心使用令牌。
@@ -427,7 +432,7 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 
 ### <a name="comparison-with-a-custom-gateway"></a>与自定义网关的比较
 
-令牌服务模式是使用 IoT 中心实现自定义标识注册表/身份验证方案的建议方式。 建议使用这种模式是因为 IoT 中心继续处理大部分解决方案流量。 但是，如果自定义身份验证方案与协议过度交织，可能需要自定义网关来处理所有流量。 使用[传输层安全 (TLS) 和预共享密钥 (PSK)][lnk-tls-psk] 就是这种情况的例子。 有关详细信息，请参阅[协议网关][lnk-protocols]一文。
+令牌服务模式是使用 IoT 中心实现自定义标识注册表/身份验证方案的建议方式。 建议使用这种模式是因为 IoT 中心继续处理大部分解决方案流量。 但是，如果自定义身份验证方案与协议过度交织，可能需要自定义网关  来处理所有流量。 使用[传输层安全性 (TLS) 和预共享密钥 (PSK)][lnk-tls-psk] 就是这种情况的例子。 有关详细信息，请参阅[协议网关][lnk-protocols]一文。
 
 ## <a name="reference-topics"></a>参考主题：
 以下参考主题提供有关控制对 IoT 中心的访问的详细信息。
@@ -445,17 +450,17 @@ var deviceClient = DeviceClient.Create("<IotHub DNS HostName>", authMethod);
 ## <a name="additional-reference-material"></a>其他参考资料
 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [IoT 中心终结点][lnk-endpoints]，介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
+* [IoT 中心终结点][lnk-endpoints]介绍了每个 IoT 中心针对运行时和管理操作公开的各种终结点。
 * [限制和配额][lnk-quotas]介绍了适用于 IoT 中心服务的配额和限制行为。
-* [Azure IoT 设备和服务 SDK][lnk-sdks]，列出了在开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
-* [IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备克隆和作业相关信息的查询语言。
-* [IoT 中心 MQTT 支持][lnk-devguide-mqtt] 提供有关 IoT 中心对 MQTT 协议的支持的详细信息。
+* [Azure IoT 设备和服务 SDK][lnk-sdks] 列出了开发与 IoT 中心交互的设备和服务应用时可使用的各种语言 SDK。
+* [IoT 中心查询语言][lnk-query]介绍了可用来从 IoT 中心检索设备孪生和作业相关信息的查询语言。
+* [IoT 中心 MQTT 支持][lnk-devguide-mqtt]提供了有关 IoT 中心对 MQTT 协议的支持的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
 既然已了解如何控制对 IoT 中心的访问，可能有兴趣了解以下 IoT 中心开发人员指南主题：
 
-* [使用设备孪生同步状态和配置][lnk-devguide-device-twins]
+* [使用设备孪生来同步状态和配置][lnk-devguide-device-twins]
 * [在设备上调用直接方法][lnk-devguide-directmethods]
 * [在多台设备上计划作业][lnk-devguide-jobs]
 

@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 67710115-c861-40f8-a377-57c7fa6909b4
 ms.service: log-analytics
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f0f64581b8e9256a9a5d2b78fb3dea42c4eaa064
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: dc2b8bf2baacbf27925134247d3fc6e5f268ad55
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514027"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989531"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor 中的代理数据源
-Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  来自代理的数据将存储为包含一组记录的日志数据。  每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。
+Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  来自代理的数据存储为包含记录集的[日志数据](data-platform-logs.md)。  每个数据源将创建具有某种特殊类型的记录，而每个类型都具有自己的一组属性。
 
 ![日志数据收集](media/agent-data-sources/overview.png)
 
@@ -29,7 +30,7 @@ Azure Monitor 从代理收集的数据是由你配置的数据源定义的。  �
 下表列出了 Azure Monitor 中当前可用的代理数据源。  每个数据源都链接到一篇单独的文章，提供该数据源的详细信息。   它还提供了有关收集方法和收集频率的信息。 
 
 
-| 数据源 | 平台 | Azure Monitoring Agent | Operations Manager 代理 | Azure 存储 | 需要 Operations Manager？ | Operations Manager 代理数据通过管理组发送 | 收集频率 |
+| 数据源 | 平台 | Log Analytics 代理 | Operations Manager 代理 | Azure 存储 | 需要 Operations Manager？ | Operations Manager 代理数据通过管理组发送 | 收集频率 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [自定义日志](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | 到达时 |
 | [自定义日志](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | 到达时 |

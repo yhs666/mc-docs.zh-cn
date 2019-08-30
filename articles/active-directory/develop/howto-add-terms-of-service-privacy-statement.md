@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/22/2019
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24428df8856b5b6035aa65dd9dfa02548edef6e2
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: db2b30bd44b8c487b09e36f7cfc96dd1d5b588a9
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568485"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993220"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>如何：配置应用的服务条款和隐私声明
 
@@ -70,9 +70,10 @@ ms.locfileid: "67568485"
 4. 填写“服务条款 URL”和“隐私声明 URL”字段   。
 5. 保存所做更改。
 
-    ![含有服务条款和隐私声明 URL 的应用属性部分](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![应用属性包含服务条款和隐私声明 URL](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>使用应用对象 JSON
+
 如果想要直接修改应用对象 JSON，可以使用 Azure 门户中的清单编辑器来包含指向应用的服务条款和隐私声明的链接。
 
 ```json

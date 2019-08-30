@@ -12,20 +12,20 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 04/08/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 8800fe00940a8378133dc14f18c2d0401efb6697
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 05/26/2019
+ms.openlocfilehash: 25a54c46c3a036709b820287d768da66de30b8d6
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629216"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578560"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>什么是 Azure SQL 数据库中的单一数据库
 
 单一数据库部署选项使用自己的资源集在 Azure SQL 数据库中创建数据库，并通过 SQL 数据库服务器进行管理。 使用单一数据库，每个数据库都彼此独立且可移植，各自在[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)或[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)中有其自己的服务层级，并具备有保证的计算大小。
 
 > [!IMPORTANT]
-> 单一数据库是用于 Azure SQL 数据库的两个部署选项之一。 另一个是[弹性池](sql-database-elastic-pool.md)。
+> 单一数据库是用于 Azure SQL 数据库的三个部署选项之一。 其他两个是[弹性池](sql-database-elastic-pool.md)和[托管实例](sql-database-managed-instance.md)。
 > [!NOTE]
 > 有关 Azure SQL 数据库术语词汇表，请参阅 [SQL 数据库术语词汇表](sql-database-glossary-terms.md)
 
@@ -43,7 +43,7 @@ ms.locfileid: "65629216"
 
 ## <a name="availability-capabilities"></a>可用性功能
 
-单一数据库和弹性池都提供许多可用性特征。 有关信息，请参阅[可用性特征](sql-database-technical-overview.md#availability-capabilities)。
+单一数据库、弹性池和托管实例全都提供许多可用性特征。 有关信息，请参阅[可用性特征](sql-database-technical-overview.md#availability-capabilities)。
 
 ## <a name="transact-sql-differences"></a>Transact-SQL 的差异
 

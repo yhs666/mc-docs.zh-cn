@@ -1,5 +1,5 @@
 ---
-title: 使用 Azure Media Encoder Standard 自动生成比特率阶梯 | Microsoft 文档
+title: 使用 Media Encoder Standard 自动生成比特率阶梯 - Azure | Microsoft Docs
 description: 本主题介绍如何使用 Media Encoder Standard (MES) 根据输入分辨率和比特率自动生成比特率阶梯。 不会超过输入分辨率和比特率。 例如，如果输入在 3Mbps 时为 720p，则输出最多会保持 720p，并且会以低于 3Mbps 的速率开始。
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: a687330596d16a56f9baf7d080a1bef5729b27c8
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: a8e743a18d879a09a1104309f95682cfc40302ad
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624152"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670961"
 ---
-#  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Azure Media Encoder Standard 自动生成比特率阶梯  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>使用 Media Encoder Standard 自动生成比特率阶梯  
 
 ## <a name="overview"></a>概述
 
@@ -29,11 +29,11 @@ ms.locfileid: "58624152"
 
 ### <a name="encoding-for-streaming-only"></a>编码为仅流式处理
 
-如果打算将源视频编码为仅流式处理，则应在创建编码任务时使用“自适应流式处理”预设。 使用“自适应流式处理”预设时，MES 编码器会以智能方式为比特率阶梯设置一个上限。 但是，用户无法控制编码成本，因为是由服务确定要使用的层数和分辨率。 可以在本文末尾看到 MES 生成的输出层示例，这些示例是使用“自适应流式处理”预设进行编码得来的。 该输出资产包含无音频和视频交错的 MP4 文件。
+如果打算将源视频编码为仅流式处理，则应在创建编码任务时使用“自适应流式处理”预设。 使用“自适应流式处理”预设时，  MES 编码器会以智能方式为比特率阶梯设置一个上限。 但是，用户无法控制编码成本，因为是由服务确定要使用的层数和分辨率。 可以在本文末尾看到 MES 生成的输出层示例，这些示例是使用“自适应流式处理”预设进行编码得来的  。 该输出资产包含无音频和视频交错的 MP4 文件。
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>编码为流式处理和渐进式下载
 
-如果打算将源视频编码为流式处理以及生成可供渐进式下载的 MP4 文件，则应在创建编码任务时使用“内容自适应多比特率 MP4”预设。 使用“内容自适应多比特率 MP4”预设时，MES 编码器应用与上述相同的编码逻辑，但现在输出资产会包含音频和视频交错的 MP4 文件。 可使用其中一个 MP4 文件（例如，最高比特率版本）作为渐进式下载文件。
+如果打算将源视频编码为流式处理以及生成可供渐进式下载的 MP4 文件，则应在创建编码任务时使用“内容自适应多比特率 MP4”预设。 使用“内容自适应多比特率 MP4”预设时，MES 编码器应用与上述相同的编码逻辑，但现在输出资产会包含音频和视频交错的 MP4 文件  。 可使用其中一个 MP4 文件（例如，最高比特率版本）作为渐进式下载文件。
 
 ## <a id="encoding_with_dotnet"></a>使用媒体服务 .NET SDK 进行编码
 
@@ -41,7 +41,7 @@ ms.locfileid: "58624152"
 
 - 创建编码作业。
 - 获取对 Media Encoder Standard 编码器的引用。
-- 向作业添加一个编码任务，指定使用“自适应流式处理”预设。 
+- 向作业添加一个编码任务，指定使用“自适应流式处理”预设。  
 - 创建包含所编码资产的输出资产。
 - 添加事件处理程序以检查作业进度。
 - 提交作业。
@@ -170,7 +170,7 @@ namespace AdaptiveStreamingMESPresest
 
 ## <a id="output"></a>输出
 
-此部分显示 MES 生成的输出层的三个示例，是使用“自适应流式处理”预设进行编码得来的。 
+此部分显示 MES 生成的输出层的三个示例，是使用“自适应流式处理”  预设进行编码得来的。 
 
 ### <a name="example-1"></a>示例 1
 高度为“1080”，帧速率为“29.970”的源生成 6 个视频层：

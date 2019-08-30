@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/26/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: fff92e5a3177bd4ef4ca691ff33831aa2e2d13d8
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: be0ff37194cd9e06ae1407d16cae7a6584fb0a93
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731240"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993580"
 ---
 <!--NOTICE: MOONCAKE HAVE RELEASE THE AAD INTERGRATION-->
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>将 Azure Active Directory 与 Azure Kubernetes Service 集成
@@ -180,6 +180,9 @@ az aks create \
 
 ## <a name="create-an-rbac-binding"></a>创建 RBAC 绑定
 
+> [!NOTE]
+> 群集角色绑定名称区分大小写。
+
 在对 AKS 群集使用 Azure Active Directory 帐户之前，必须创建角色绑定或群集角色绑定。 角色定义要授予的权限，绑定将这些权限应用于目标用户。 这些分配可应用于特定命名空间或整个群集。 有关详细信息，请参阅[使用 RBAC 授权][rbac-authorization]。
 
 首先，使用管理员访问权限，结合 `--admin` 参数运行 [az aks get-credentials][az-aks-get-credentials] 命令登录到群集。
@@ -258,6 +261,8 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 运行 `kubectl` 命令后，系统会提示你使用 Azure 进行身份验证。 请遵照屏幕上的说明完成该过程，如以下示例中所示：
 
+<!--MOONCAKE: CORRECT ON https://aka.ms/deviceloginchina-->
+
 ```console
 $ kubectl get nodes
 
@@ -292,15 +297,17 @@ error: You must be logged in to the server (Unauthorized)
 有关标识和资源控制的详细信息，请参阅[有关 AKS 中的身份验证和授权的最佳做法][operator-best-practices-identity]。
 
 <!-- LINKS - external -->
+
 [kubernetes-webhook]: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 
 <!-- LINKS - internal -->
+
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
-[az-ad-user-show]: https://docs.azure.cn/zh-cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
+[az-ad-user-show]: https://docs.azure.cn/cli/ad/user?view=azure-cli-latest#az-ad-user-show
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md

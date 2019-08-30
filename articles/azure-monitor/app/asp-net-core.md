@@ -5,19 +5,21 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+originate.date: 08/20/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b072e10f4c57d6dc0317d11040de2a97f585cff8
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: ec2f8a2f6c18439593a827370750a802c36574b2
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818505"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989664"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>适用于 ASP.NET Core 应用程序的 Application Insights
 
@@ -312,6 +314,23 @@ using Microsoft.ApplicationInsights.Channel;
         services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
 
         services.AddApplicationInsightsTelemetry();
+    }
+```
+
+### <a name="disable-telemetry-dynamically"></a>动态禁用遥测
+
+如果要有条件和动态地禁用遥测，可以在代码中的任何位置使用 ASP.NET Core 依赖项注入容器解析 `TelemetryConfiguration` 实例，并在其上设置 `DisableTelemetry` 标志。
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry();
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
+    {
+        configuration.DisableTelemetry = true;
+        ...
     }
 ```
 

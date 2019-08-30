@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
@@ -12,43 +13,83 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1d6114810f8e9e6793b3660f55139ac532026a2f
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d331f52352fc3d6ae5906c7bad2abb48a5a6bf98
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562654"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989271"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus-v022-alpha"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringStatus (v0.2.2-alpha)
+# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>状态监视器 v2 API：Get-ApplicationInsightsMonitoringStatus
 
 本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
-
-
 ## <a name="description"></a>说明
 
-对所用的 PowerShell 模块启用故障排除。
+此 cmdlet 提供有关状态监视器的故障排除信息。
+使用此 cmdlet 调查监视状态、PowerShell 模块的版本，以及检查正在运行的进程。
 此 cmdlet 将报告监视所需的版本信息和密钥文件相关信息。
-其他参数提供有关监视状态的额外报告。
 
 > [!IMPORTANT] 
 > 此 cmdlet 需要具有管理员权限的 PowerShell 会话。
 
 ## <a name="examples"></a>示例
 
+### <a name="example-application-status"></a>示例：应用程序状态
 
-### <a name="example-basic-information"></a>示例：基本信息
-
-运行 `Get-ApplicationInsightsMonitoringStatus` 可显示有关当前模块的信息：
+运行 `Get-ApplicationInsightsMonitoringStatus` 命令来显示网站的监视状态。
 
 ```
-PS C:\> Get-ApplicationInsightsMonitoringStatus
+PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
+Machine Identifier:
+811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639
+
+IIS Websites:
+
+SiteName               : Default Web Site
+ApplicationPoolName    : DefaultAppPool
+SiteId                 : 1
+SiteState              : Stopped
+
+SiteName               : DemoWebApp111
+ApplicationPoolName    : DemoWebApp111
+SiteId                 : 2
+SiteState              : Started
+ProcessId              : not found
+
+SiteName               : DemoWebApp222
+ApplicationPoolName    : DemoWebApp222
+SiteId                 : 3
+SiteState              : Started
+ProcessId              : 2024
+Instrumented           : true
+InstrumentationKey     : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123
+
+SiteName               : DemoWebApp333
+ApplicationPoolName    : DemoWebApp333
+SiteId                 : 4
+SiteState              : Started
+ProcessId              : 5184
+AppAlreadyInstrumented : true
+```
+
+在此示例中，
+- **计算机标识符**是一个匿名 ID，用于唯一标识服务器。 如果你创建支持请求，我们需要该 ID 来查找你的服务器的日志。
+- “默认网站”在 IIS 中处于“已停止”状态 
+- **DemoWebApp111** 已在 IIS 中启动，但尚未收到任何请求。 此报告显示没有正在运行的进程（ProcessId：找不到）。
+- **DemoWebApp222** 正在运行且正受监视（已检测：是）。 根据用户配置，此站点的检测密钥 xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx123 匹配。
+- **DemoWebApp333** 已使用 Application Insights SDK 进行手动检测。 状态监视器检测到 SDK，不会监视此站点。
+
+
+### <a name="example-powershell-module-information"></a>示例：PowerShell 模块信息
+
+运行 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 命令可显示有关当前模块的信息：
+
+```
+PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
 
 PowerShell Module version:
-0.2.2-alpha
+0.4.0-alpha
 
 Application Insights SDK version:
 2.9.0.3872
@@ -60,21 +101,38 @@ PowerShell Module Directory:
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\PowerShell
 
 Runtime Paths:
-ParentDirectory: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content Exists: False
-ConfigurationPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\applicationInsights.ikey.config Exists: True
-ManagedHttpModuleHelperPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll Exists: True
-RedfieldIISModulePath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll Exists: True
-InstrumentationEngine86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll Exists: True
-InstrumentationEngine64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll Exists: True
-InstrumentationEngineExtensionHost86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll Exists: True
-InstrumentationEngineExtensionHost64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll Exists: True
-InstrumentationEngineExtensionConfig86Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-InstrumentationEngineExtensionConfig64Path: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config Exists: True
-ApplicationInsightsSdkPath: C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\0.2.2\content\Runtime\Microsoft.ApplicationInsights.dll Exists: True
+ParentDirectory (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content
 
+ConfigurationPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applicationInsights.ikey.config
 
-Machine Identifier:
-0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF
+ManagedHttpModuleHelperPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.AppInsights.IIS.ManagedHttpModuleHelper.dll
+
+RedfieldIISModulePath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.RedfieldIISModule.dll
+
+InstrumentationEngine86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\MicrosoftInstrumentationEngine_x86.dll
+
+InstrumentationEngine64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\MicrosoftInstrumentationEngine_x64.dll
+
+InstrumentationEngineExtensionHost86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.ApplicationInsights.ExtensionsHost_x86.dll
+
+InstrumentationEngineExtensionHost64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.ApplicationInsights.ExtensionsHost_x64.dll
+
+InstrumentationEngineExtensionConfig86Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation32\Microsoft.InstrumentationEngine.Extensions.config
+
+InstrumentationEngineExtensionConfig64Path (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Instrumentation64\Microsoft.InstrumentationEngine.Extensions.config
+
+ApplicationInsightsSdkPath (Exists: True)
+C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
 ### <a name="example-runtime-status"></a>示例：运行时状态
@@ -115,18 +173,22 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>parameters
 
 ### <a name="no-parameters"></a>（不带参数）
 
-在默认情况下，此 cmdlet 将报告监视所需的 DLL 的版本号和路径。
+默认情况下，此 cmdlet 会报告 Web 应用程序的监视状态。
+使用此选项来查看是否已成功检测应用程序。
+也可查看哪个检测密钥已与站点匹配。
 
+
+### <a name="-powershellmodule"></a>-PowerShellModule
+可选  。 使用此开关报告监视所需的 DLL 的版本号和路径。
 如果需要标识任何 DLL 的版本（包括 Application Insights SDK），请使用此选项。
-
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-可选  。 使用此参数报告 IIS 是否正在运行。
+可选  。 使用此开关报告 IIS 是否正在运行。
 它还将下载外部工具，以确定是否将必要的 DLL 加载到 IIS 运行时。
 
 
@@ -145,7 +207,3 @@ listdlls64.exe -accepteula w3wp
 
  使用状态监视器 v2 执行更多操作：
  - 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
-
-
-
-

@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 07/08/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb63f8b48e4df0aa340627fa48450be96db6b76e
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 098776520b0b61f5ea149d7b715721f12df87258
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731253"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993576"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>有关 Azure Kubernetes 服务 (AKS) 的常见问题解答
 
@@ -126,7 +126,58 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 
 用户无法覆盖最小 `maxPods` 验证值。
 
-<!--Not Available on ## Can I apply Azure reservation discounts to my AKS agent nodes?-->
+<!--Not Available on ## Can I apply Azure reservation discounts to my AKS agent nodes?-->## 我可以在 Azure 租户之间移动/迁移群集吗？
+
+可以使用 `az aks update-credentials` 命令在 Azure 租户之间移动 AKS 群集。 按[选择更新或创建服务主体](/aks/update-credentials)中的说明操作，然后[使用新凭据更新 AKS 群集](/aks/update-credentials#update-aks-cluster-with-new-credentials)。
+
+## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>我可以在订阅之间移动/迁移群集吗？
+
+目前不支持在订阅之间移动群集。
+
+## <a name="can-i-move-my-aks-clusters-from-the-current-azure-subscription-to-another"></a>是否可以将 AKS 群集从当前的 Azure 订阅移到另一个订阅？ 
+
+不支持在 Azure 订阅之间移动 AKS 群集及其关联的资源。
+
+## <a name="why-is-my-cluster-delete-taking-so-long"></a>为何群集删除需要如此长的时间？ 
+
+大多数群集是按用户请求删除的；某些情况下，尤其是在客户引入自己的资源组或执行跨 RG 任务的情况下，删除操作可能需要更多的时间，或者可能会失败。 如果在删除时出现问题，请仔细检查，确保没有在 RG 上进行锁定、RG 之外的任何资源均已取消与 RG 的关联，等等。
+
+## <a name="if-i-have-pod--deployments-in-state-nodelost-or-unknown-can-i-still-upgrade-my-cluster"></a>如果 Pod/部署处于“NodeLost”或“未知”状态，是否仍然可以升级群集？
+
+可以，但是 AKS 不建议这样做。 理想情况下，升级应该在群集状态已知且正常的情况下完成。
+
+## <a name="if-i-have-a-cluster-with-one-or-more-nodes-in-an-unhealthy-state-or-shut-down-can-i-perform-an-upgrade"></a>如果我有一个群集的一个或多个节点处于“运行不正常”状态或关闭状态，是否可以进行升级？
+
+否。请删除/移除任何处于故障状态的节点或因为其他原因从群集中移除的节点，然后再进行升级。
+
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>我运行了群集删除操作，但出现错误：`[Errno 11001] getaddrinfo failed` 
+
+这种情况最可能的原因是用户有一个或多个网络安全组 (NSG) 仍在使用并与群集相关联。  请将网络安全组删除，然后再次尝试群集删除操作。
+
+## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>我运行了升级，但现在我的 Pod 处于崩溃循环中，且就绪情况探测失败。
+
+请确认你的服务主体尚未过期。  请参阅：[AKS 服务主体](/aks/kubernetes-service-principal)和 [AKS 更新凭据](/aks/update-credentials)。
+
+## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>我的群集在运行，但突然不能预配 LoadBalancers，不能装载 PVC，等等。 
+
+请确认你的服务主体尚未过期。  请参阅：[AKS 服务主体](/aks/kubernetes-service-principal)和 [AKS 更新凭据](/aks/update-credentials)。
+
+## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>是否可以使用虚拟机规模集 API 手动进行缩放？
+
+否。使用虚拟机规模集 API 进行的缩放操作不受支持。 请使用 AKS API (`az aks scale`)。
+
+## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>是否可以使用虚拟机规模集手动缩放到 0 个节点？
+
+否。使用虚拟机规模集 API 进行的缩放操作不受支持。
+
+## <a name="can-i-stop-or-de-allocate-all-my-vms"></a>是否可以停止或解除分配我的所有 VM？
+
+虽然 AKS 的复原机制可以经受此类配置并从其恢复，但我们建议你不要这样进行配置。
+
+## <a name="can-i-use-custom-vm-extensions"></a>是否可以使用自定义 VM 扩展？
+
+否。AKS 是一项托管服务，不支持操作 IaaS 资源。 若要安装自定义组件等内容， 请利用 Kubernetes 的 API 和机制。 例如，利用 DaemonSets 安装所需组件。
+
 <!-- LINKS - internal -->
 
 [aks-regions]: ./quotas-skus-regions.md#region-availability
@@ -141,7 +192,7 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 
 <!--MOONCAKE: CORRECT FOR URL OF aks-preview-cli-->
 
-[aks-preview-cli]: https://docs.microsoft.com/en-us/cli/azure/ext/aks-preview/aks?view=azure-cli-latest
+[aks-preview-cli]: https://docs.microsoft.com/cli/azure/ext/aks-preview/aks?view=azure-cli-latest
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 
 <!--Not Avaialble on [aks-rm-template]: /templates/microsoft.containerservice/2019-06-01/managedclusters-->
@@ -162,4 +213,4 @@ AKS 目前尚未与 Azure Key Vault 本机集成。 但是，[Kubernetes 项目�
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
 [private-clusters-github-issue]: https://github.com/Azure/AKS/issues/948
 
-<!-- Update_Description: wording update, move file to new directory -->
+<!-- Update_Description: wording update, update link -->

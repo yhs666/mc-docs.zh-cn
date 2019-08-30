@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89b480514c6f69b1c7b51aa1db220ad3e276fcbe
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: feae9e9a6fa2f8b24c1901282d386d364e08c60f
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562652"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989197"
 ---
 # <a name="get-started-with-status-monitor-v2"></a>状态监视器 v2 入门
 
@@ -27,12 +28,7 @@ ms.locfileid: "67562652"
 
 有关这些命令的说明、自定义说明以及有关故障排除的信息，请参阅[详细说明](status-monitor-v2-detailed-instructions.md)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth?WT.mc_id=A261C142F)。 
-
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
-
+如果没有 Azure 订阅，可以在开始前创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
 
 ## <a name="download-and-install-via-powershell-gallery"></a>通过 PowerShell 库下载并安装
 
@@ -85,7 +81,7 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 - [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况。
 - [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-- [使用分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询。
+- [使用分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
 - [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
 
  添加更多遥测：
@@ -96,9 +92,5 @@ Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx
 
 使用状态监视器 v2 执行更多操作：
 
-- 查看[详细说明](status-monitor-v2-detailed-instructions.md)，了解本指南中的命令说明。
-- 使用我们的指南对状态监视器 v2 进行[故障排除](status-monitor-v2-troubleshoot.md)。
-
-
-
-
+- 有关此处找到的命令的说明，请查看[详细说明](status-monitor-v2-detailed-instructions.md)。
+- 使用我们的指南可[排查状态监视器 v2 问题](status-monitor-v2-troubleshoot.md)。

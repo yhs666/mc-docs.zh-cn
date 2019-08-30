@@ -1,19 +1,21 @@
 ---
 title: 基于 Azure Application Insights 日志的指标 | Microsoft Docs
 description: 本文列出了 Azure Application Insights 指标以及支持的聚合与维度。 基于日志的指标的详细信息包括底层 Kusto 查询语句。
-author: vgorbenko
-services: azure-monitor
+author: lingliw
+manager: digimobile
+origin.date: 08/22/2019
+editor: ''
+ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 07/03/2019
-ms.author: vitalyg
-ms.subservice: application-insights
-ms.openlocfilehash: ff67a3554e6a33bfc97db3f5326cdf6aa3079086
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.date: 6/4/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 2c26d3b63e3ab6e5bb9e09b43d57ca031d7b1444
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514066"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989056"
 ---
 # <a name="application-insights-log-based-metrics"></a>基于 Application Insights 日志的指标
 
@@ -93,7 +95,7 @@ availabilityResults
 浏览器指标由 Application Insights JavaScript SDK 从实际的最终用户浏览器收集。 它们提供 Web 应用用户体验的深入见解。 通常不会对浏览器指标采样，这意味着，在用量数字方面，与服务器端指标相比，它们提供的精度更高，而后者的采样可能会导致结果有偏差。
 
 > [!NOTE]
-> 若要收集浏览器指标，必须使用 [Application Insights JavaScript SDK 代码片段](../../azure-monitor/app/javascript.md#add-the-sdk-script-to-your-app-or-web-pages)来检测应用程序。
+> 若要收集浏览器指标，必须使用 [Application Insights JavaScript SDK](../../azure-monitor/app/javascript.md) 来检测应用程序。
 
 ### <a name="browser-page-load-time-browsertimingstotalduration"></a>浏览器页面加载时间 (browserTimings/totalDuration)
 

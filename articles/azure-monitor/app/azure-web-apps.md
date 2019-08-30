@@ -5,16 +5,17 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d44d581335f1abcd4607f647b44fe18f56a1420f
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 4bbde6e7e070f5b241ac61617d5fe36a99eea830
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562721"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989681"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -39,7 +40,7 @@ ms.locfileid: "67562721"
 > [!NOTE]
 > 如果同时检测到了基于代理的监视和基于手动 SDK 的检测，则只会遵循手动检测设置， 目的是防止发送重复数据。 有关详细信息，请查看下面的[故障排除部分](/azure-monitor/app/azure-web-apps#troubleshooting)。
 
-## <a name="enable-agent-based-monitoring-net"></a>启用基于代理的监视 (.NET)
+## <a name="enable-agent-based-monitoring-for-net-applications"></a>为 .NET 应用程序启用基于代理的监视
 
 > [!NOTE]
 > 不支持 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression 的组合。 有关详细信息，请参阅[故障排除部分](/azure-monitor/app/azure-web-apps#troubleshooting)中的说明。
@@ -75,7 +76,7 @@ ms.locfileid: "67562721"
 
     * 有关受支持自适应采样遥测处理器设置的列表，可以参阅[代码](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs)和[相关的文档](sampling.md)。
 
-## <a name="enable-agent-based-monitoring-net-core"></a>启用基于代理的监视 (.NET Core)
+## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>为 .NET Core 应用程序启用基于代理的监视
 
 支持以下 .NET Core 版本：ASP.NET Core 2.0、ASP.NET Core 2.1、ASP.NET Core 2.2
 
@@ -96,7 +97,7 @@ ms.locfileid: "67562721"
 
     ![根据平台选择选项](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-net"></a>启用客户端监视 (.NET)
+## <a name="enable-client-side-monitoring-for-net-applications"></a>为 .NET 应用程序启用客户端监视
 
 可以选择为 ASP.NET 启用客户端监视。 若要启用客户端监视：
 
@@ -113,7 +114,7 @@ ms.locfileid: "67562721"
 
 若要禁用客户端监视，请从“应用程序设置”中删除关联的键值对，或将值设置为 false。
 
-## <a name="enable-client-side-monitoring-net-core"></a>启用客户端监视 (.NET Core)
+## <a name="enable-client-side-monitoring-for-net-core-applications"></a>为 .NET Core 应用程序启用客户端监视
 
 对于使用“建议的集合”的 .NET Core 应用，**默认已启用**客户端监视，无论是否存在应用设置“APPINSIGHTS_JAVASCRIPT_ENABLED”。 
 
@@ -359,7 +360,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 |`AppContainsDiagnosticSourceAssembly**:true`|此值表示扩展已检测到对应用程序中的 `System.Diagnostics.DiagnosticSource` 的引用，因此将会回退。| 删除引用。
 |`IKeyExists:false`|此值表示 AppSetting 中不存在检测密钥 `APPINSIGHTS_INSTRUMENTATIONKEY`。 可能的原因：可能意外删除了这些值，忘记了在自动化脚本中设置这些值，等等。 | 确保该设置在应用服务的应用程序设置中存在。
 
-### <a name="appinsightsjavascriptenabled-and-urlcompression-is-not-supported"></a>不支持 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
+### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>不支持 APPINSIGHTS_JAVASCRIPT_ENABLED 和 urlCompression
 
 如果在对内容进行编码的情况下使用 APPINSIGHTS_JAVASCRIPT_ENABLED=true，可能会出现如下所示的错误： 
 

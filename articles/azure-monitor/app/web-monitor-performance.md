@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 40650472-e860-4c1b-a589-9956245df307
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 015f5e7feea5ebbe6cbef52fd2d2099bbc9af51d
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 76dc0fee10a0071903251f4972f3a71a3a722131
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732150"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989422"
 ---
 # <a name="monitor-performance-in-web-applications"></a>在 Web 应用程序中监视性能
 
@@ -147,7 +148,7 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 ## <a name="next-steps"></a>后续步骤
 [Web 测试][availability] - 使 Web 请求按固定间隔从世界各地发送到应用程序。
 
-[捕获和搜索诊断跟踪][diagnostic] - 插入跟踪调用并筛查结果以查明问题。
+[捕获和搜索诊断跟踪][diagnostic] - 插入跟踪调用并筛选结果以查明问题。
 
 [使用情况跟踪][usage] - 查明用户使用应用程序的方式。
 

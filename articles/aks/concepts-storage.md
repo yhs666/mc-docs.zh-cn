@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 96d13ff6ff43224b9cf9643d2e6b92d43e8e004a
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 58b70b96b6aa6e317f1b379dd70e7aefd616414f
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731259"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993210"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的应用程序存储选项
 
@@ -35,7 +35,10 @@ ms.locfileid: "68731259"
 用于存储和检索数据的传统卷作为 Azure 存储支持的 Kubernetes 资源创建。 你可以手动创建这些数据卷并直接分配给 Pod，也可以让 Kubernetes 自动创建它们。 这些数据卷可以使用 Azure 磁盘或 Azure 文件：
 
 - *Azure 磁盘*可用于创建 Kubernetes *DataDisk* 资源。 Azure 磁盘可以使用由高性能 SSD 支持的 Azure 高级存储，也可以使用由普通 HDD 支持 Azure 标准存储。 对于大部分生产和开发工作负荷，请使用高级存储。 Azure 磁盘以 *ReadWriteOnce* 的形式装载，因此仅可用于单个节点。 对于可以同时由多个节点访问的存储卷，请使用 Azure 文件。
-- *Azure 文件*可用于将 Azure 存储帐户支持的 SMB 3.0 共享装载到 Pod。 借助 Azure 文件,可跨多个节点和 Pod 共享数据。 目前，Azure 文件只能使用普通 HDD 支持的 Azure 标准存储。
+- *Azure 文件*可用于将 Azure 存储帐户支持的 SMB 3.0 共享装载到 Pod。 借助 Azure 文件,可跨多个节点和 Pod 共享数据。 文件可以使用由常规 HDD 支持的 Azure 标准存储，也可以使用由高性能 SSD 支持的Azure 高级存储。
+    
+    > [!NOTE] 
+    > Azure 文件存储支持运行 Kubernetes 1.13 或更高版本的 AKS 群集中的高级存储。
 
 在 Kubernetes 中，卷不仅仅能够表示可以存储和检索信息的传统磁盘。 Kubernetes 卷还可以用于将数据注入 Pod 以供容器使用。 Kubernetes 中常见的其他卷类型包括：
 
@@ -142,6 +145,7 @@ spec:
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
+
 [aks-static-disks]: azure-disk-volume.md
 [aks-static-files]: azure-files-volume.md
 [aks-dynamic-disks]: azure-disks-dynamic-pv.md
@@ -153,4 +157,4 @@ spec:
 [aks-concepts-network]: concepts-network.md
 [operator-best-practices-storage]: operator-best-practices-storage.md
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: wording update -->

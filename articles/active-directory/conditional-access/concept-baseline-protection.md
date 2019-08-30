@@ -6,22 +6,22 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 05/16/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: becd62cfcb5b8b8c93f7df28ec1e41e505a4f631
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 0dc334ee497d2c92ceccfe14a0f85c7757f3a588
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972982"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993126"
 ---
 # <a name="what-are-baseline-policies"></a>什么是基线策略？
 
-基线策略是一组预定义的策略，可帮助防范组织遭到多种常见攻击。 这些常见攻击包括密码喷洒、重放和网络钓鱼。 基线策略可在所有版本的 Azure AD 中使用。 Microsoft 之所以向所有用户提供这些基线保护策略，是因为在过去多年以来，基于身份的攻击不断增多。 这四个策略旨在确保所有组织在无需额外增加成本的情况下实现基线级别的安全性。  
+基线策略是一组预定义的策略，可帮助组织防范多种常见攻击。 这些常见攻击包括密码喷洒、重放和网络钓鱼。 基线策略可在所有版本的 Azure AD 中使用。 Microsoft 之所以向所有用户提供这些基线保护策略，是因为在过去多年以来，基于身份的攻击不断增多。 这四个策略旨在确保所有组织在无需额外增加成本的情况下实现基线级别的安全性。  
 
 管理自定义的条件访问策略需要 Azure AD Premium 许可证。
 
@@ -42,7 +42,7 @@ ms.locfileid: "68972982"
 
 由于管理员帐户拥有的超级权力和访问权限，应十分谨慎地对待这些帐户。 增强对特权帐户的保护的一种常用方法是要求在使用这些帐户登录时进行更强的帐户验证。 在 Azure Active Directory 中，可以通过要求管理员注册并使用 Azure 多重身份验证来实施更强的帐户验证。
 
-[要求管理员执行 MFA（预览版）](howto-baseline-protect-administrators.md)是要求对以下目录角色（被认为是特权最高的 Azure AD 角色）执行多重身份验证 (MFA) 的基线策略：
+[要求对管理员进行 MFA (预览)](howto-baseline-protect-administrators.md) 是要求对以下目录角色（被认为是特权最高的 Azure AD 角色）执行多重身份验证 (MFA) 的基线策略：
 
 * 全局管理员
 * SharePoint 管理员
@@ -53,13 +53,16 @@ ms.locfileid: "68972982"
 * 计费管理员
 * 用户管理员
 
-如果组织在脚本或代码中使用这些帐户，请考虑将其替换为 [托管标识](../managed-identities-azure-resources/overview.md)。
+如果组织在脚本或代码中使用这些帐户，请考虑将其替换为[托管标识](../managed-identities-azure-resources/overview.md)。
 
 ### <a name="end-user-protection-preview"></a>最终用户保护（预览版）
 
 高特权管理员并不是攻击者的唯一目标。 恶意行动者往往针对普通用户。 获取访问权限后，这类恶意行动者可以代表原始帐户持有者请求访问特权信息，或者下载整个目录并针对整个组织展开网络钓鱼攻击。 增强对所有用户的保护的一种常用方法是在检测到有风险的登录时要求使用更强的帐户验证。
 
-**最终用户保护（预览版）** 是保护目录中所有用户的基线策略。 启用此策略需要所有用户在 14 天内注册 Azure 多重身份验证。 注册后，只会在检测到有风险的登录企图时，才提示用户执行 MFA。 在重置密码并解除风险之前，会封锁已遭到入侵的用户帐户。
+**最终用户保护（预览版）** 是保护目录中所有用户的基线策略。 启用此策略需要所有用户在 14 天内注册 Azure 多重身份验证。 注册后，只会在检测到有风险的登录企图时，才提示用户执行 MFA。 在重置密码并解除风险之前，会封锁已遭到入侵的用户帐户。 
+
+[!NOTE]
+任何之前标记为有风险的用户都将被阻止，直到密码重置和策略激活后风险解除。
 
 ### <a name="block-legacy-authentication-preview"></a>阻止旧式身份验证（预览版）
 
@@ -85,7 +88,7 @@ ms.locfileid: "68972982"
 
 若要启用基线策略：
 
-1. 以全局管理员、安全管理员或条件访问管理员的身份登录到  **Azure 门户**。
+1. 以全局管理员、安全管理员或条件访问管理员的身份登录 **Azure 门户**。
 1. 浏览到“Azure Active Directory”   > “条件访问”  。
 1. 在策略列表中，选择要启用的基线策略。
 1. 将“启用策略”设置为“打开”。  
@@ -101,3 +104,4 @@ ms.locfileid: "68972982"
 * [阻止旧式身份验证（预览版）](howto-baseline-protect-legacy-auth.md)
 * [要求对服务管理执行 MFA（预览版）](howto-baseline-protect-azure.md)
 
+<!-- Update_Description: wording update -->

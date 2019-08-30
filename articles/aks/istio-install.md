@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: article
 origin.date: 04/19/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 38e7b3d74ea8185150a81ff612bb1d650a770d8e
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 23524bebd7929891bcacf87cbf3ea76ced858ce9
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731246"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993197"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 中安装和使用 Istio
 
@@ -42,6 +42,8 @@ ms.locfileid: "68731246"
 本文中详述的步骤假设已创建 AKS 群集（已启用 RBAC 的 Kubernetes `1.11` 及更高版本）并已与该群集建立 `kubectl` 连接。 如果需要帮助完成这些项目，请参阅 [AKS 快速入门][aks-quickstart]。
 
 需要使用 [Helm][helm] 按照这些说明安装 Istio。 建议在群集中正确安装并配置版本 `2.12.2` 或更高版本。 安装 Helm 时如需帮助，请参阅 [AKS Helm 安装指南][helm-install]。 所有 Istio Pod 也必须按计划在 Linux 节点上运行。
+
+确保你已阅读 [Istio 性能和可伸缩性](https://istio.io/docs/concepts/performance-and-scalability/)文档，以了解在 AKS 群集中运行 Istio 时的其他资源要求。 核心和内存要求将因特定工作负荷而异。 选择适当数量的节点和 VM 大小以适合你的设置。
 
 本文将 Istio 安装指南分为多个独立步骤。 最终结果的结构与官方 Istio 安装[指南][istio-install-helm]相同。
 
@@ -167,6 +169,8 @@ $PATH = [environment]::GetEnvironmentVariable("PATH", "User") + ";C:\Istio\"
 [environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
 [environment]::SetEnvironmentVariable("PATH", $PATH)
 ```
+
+<!--MOONCAKE: CORRECT ON ";C:\Istio\" WITHOUT EMPTY CHAR-->
 
 现在，请转到[在 AKS 上安装 Istio CRD](#install-the-istio-crds-on-aks) 部分。
 
@@ -548,6 +552,7 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 - [Kubernetes 托管应用程序的零检测应用程序监视][app-insights]
 
 <!-- LINKS - external -->
+
 [istio]: https://istio.io
 [helm]: https://helm.sh
 
@@ -576,6 +581,7 @@ kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete
 [app-insights]: /azure-monitor/app/kubernetes
 
 <!-- LINKS - internal -->
+
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [istio-scenario-routing]: ./istio-scenario-routing.md
 [helm-install]: ./kubernetes-helm.md

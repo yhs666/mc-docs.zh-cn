@@ -5,19 +5,19 @@ services: container-service
 author: rockboyfor
 ms.service: container-service
 ms.topic: article
-origin.date: 05/24/2019
-ms.date: 07/29/2019
+origin.date: 07/31/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 66f632effc1c692d06abed092100ba790e718164
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 54447d0051491123b9939341770cab736f3212b5
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731201"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993451"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>使用 SSH 连接到 Azure Kubernetes 服务 (AKS) 群集节点以进行维护或故障排除
 
-在 Azure Kubernetes 服务 (AKS) 群集的整个生命周期内，可能需要访问 AKS 节点。 进行这种访问的原因包括维护、日志收集或其他故障排除操作。 可以使用 SSH 访问 AKS 节点。出于安全考虑，AKS 节点不会在 Internet 中公开。
+在 Azure Kubernetes 服务 (AKS) 群集的整个生命周期内，可能需要访问 AKS 节点。 进行这种访问的原因包括维护、日志收集或其他故障排除操作。 可以使用 SSH 访问 AKS 节点。 出于安全考虑，AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点，需使用专用 IP 地址。
 
 <!--Not Available on Windows Server nodes (currently in preview in AKS)-->
 
@@ -27,75 +27,117 @@ ms.locfileid: "68731201"
 
 本文假定你拥有现有的 AKS 群集。 如果需要 AKS 群集，请参阅 AKS 快速入门[使用 Azure CLI][aks-quickstart-cli] 或[使用 Azure 门户][aks-quickstart-portal]。
 
+默认情况下，在创建 AKS 群集时会获取或生成 SSH 密钥，然后将其添加到节点。 本文介绍如何指定与创建 AKS 群集时使用的 SSH 密钥不同的 SSH 密钥。 此外介绍如何确定节点的专用 IP 地址，并使用 SSH 连接到该节点。 如果不需要指定不同的 SSH 密钥，则可以跳过将 SSH 公钥添加到节点的步骤。
+
+本文假设你已有一个 SSH 密钥。 可以使用 [macOS 或 Linux][ssh-nix] 创建 SSH 密钥。 如果使用 PuTTY Gen 来创建密钥对，请在保存密钥对时使用 OpenSSH 格式而不是默认的 PuTTy 私钥格式（.ppk 文件）。
+
+<!--MOONCAKE: Windows not Available on MOONCAKE, so [Windows][ssh-windows] is invalid same time-->
+
 还需安装并配置 Azure CLI 2.0.64 或更高版本。 运行  `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅 [安装 Azure CLI][install-azure-cli]。
 
-## <a name="add-your-public-ssh-key"></a>添加 SSH 公钥
+## <a name="configure-virtual-machine-scale-set-based-aks-clusters-for-ssh-access"></a>配置基于虚拟机规模集的 AKS 群集以进行 SSH 访问
 
-默认情况下，在创建 AKS 群集时会获取或生成 SSH 密钥，然后将其添加到节点。 如果需要指定的 SSH 密钥不同于创建 AKS 群集时所使用的，请将 SSH 公钥添加到 Linux AKS 节点。 可以根据需要使用 [macOS 或 Linux][ssh-nix] 或 [Windows][ssh-windows] 创建一个 SSH 密钥。 如果使用 PuTTY Gen 来创建密钥对，请在保存密钥对时使用 OpenSSH 格式而不是默认的 PuTTy 私钥格式（.ppk 文件）。
+若要配置基于虚拟机规模集的 SSH 访问，请找到群集的虚拟机规模集名称，并将 SSH 公钥添加到该规模集。
+
+使用 [az aks show][az-aks-show] 命令获取 AKS 群集的资源组名称，然后使用 [az vmss list][az-vmss-list] 命令获取规模集的名称。
+
+```azurecli
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
+```
+
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 的群集资源组名称分配到 *CLUSTER_RESOURCE_GROUP*。 然后，该示例使用 *CLUSTER_RESOURCE_GROUP* 列出规模集名称并将其分配到 *SCALE_SET_NAME*。  
 
 > [!NOTE]
 > SSH 密钥目前只能使用 Azure CLI 添加到 Linux 节点。 
 
 <!--Not Available on Windows Server nodes-->
 
-获取 AKS 节点的专用 IP 地址的步骤因运行的 AKS 群集的类型而异：
+若要将 SSH 密钥添加到虚拟机规模集中的节点，请使用 [az vmss extension set][az-vmss-extension-set] 和 [az vmss update-instances][az-vmss-update-instances] 命令。
 
-* 对于大多数 AKS 群集，请按步骤[获取常规 AKS 群集的 IP 地址](#add-ssh-keys-to-regular-aks-clusters)。
+```azurecli
+az vmss extension set  \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --vmss-name $SCALE_SET_NAME \
+    --name VMAccessForLinux \
+    --publisher Microsoft.OSTCExtensions \
+    --version 1.4 \
+    --protected-settings "{\"username\":\"azureuser\", \"ssh_key\":\"$(cat ~/.ssh/id_rsa.pub)\"}"
 
-<!--Not Available on  use virtual machine scale sets, such as multiple node pools or Windows Server container support-->
+az vmss update-instances --instance-ids '*' \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --name $SCALE_SET_NAME
+```
 
-### <a name="add-ssh-keys-to-regular-aks-clusters"></a>将 SSH 密钥添加到常规 AKS 群集
+以上示例使用前面命令中的 *CLUSTER_RESOURCE_GROUP* 和 *SCALE_SET_NAME* 变量。 以上示例还使用 *~/.ssh/id_rsa.pub* 作为 SSH 公钥的位置。
 
-若要将 SSH 密钥添加到 Linux AKS 节点，请完成以下步骤：
+> [!NOTE]
+> 默认情况下，AKS 节点的用户名为 *azureuser*。
 
-1. 使用 [az aks show][az-aks-show] 获取 AKS 群集资源的资源组名称。 群集名称分配给名为 *CLUSTER_RESOURCE_GROUP* 的变量。 将 *myResourceGroup* 替换为 AKS 群集所在的资源组的名称：
+将 SSH 公钥添加到规模集后，可以通过 SSH 连接到该规模集中的节点虚拟机（使用其 IP 地址进行连接）。 使用 [kubectl get][kubectl-get] 命令查看 AKS 群集节点的专用 IP 地址。
 
-    ```azurecli
-    CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
-    ```
+```console
+kubectl get nodes -o wide
+```
 
-1. 使用 [az vm list][az-vm-list] 命令列出 AKS 群集资源组中的 VM。 这些 VM 是 AKS 节点：
+以下示例输出显示了群集中所有节点的内部 IP 地址。
 
-    ```azurecli
-    az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
-    ```
+<!-- MOONCAKE: Not Available on  including a Windows Server node-->
 
-    以下示例输出显示 AKS 节点：
+```console
+$ kubectl get nodes -o wide
 
-    ```
-    Name                      ResourceGroup                                  Location
-    ------------------------  ---------------------------------------------  ----------
-    aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast2  chinaeast2
-    ```
+NAME                                STATUS   ROLES   AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                    KERNEL-VERSION      CONTAINER-RUNTIME
+aks-nodepool1-42485177-vmss000000   Ready    agent   18h   v1.12.7   10.240.0.4    <none>        Ubuntu 16.04.6 LTS          4.15.0-1040-azure   docker://3.0.4
+```
 
-1. 若要将 SSH 密钥添加到节点，请使用 [az vm user update][az-vm-user-update] 命令。 提供资源组名称，然后提供在上一步骤中获取的 AKS 节点之一。 默认情况下，AKS 节点的用户名为 *azureuser*。 提供自己的 SSH 公钥位置（例如 *~/.ssh/id_rsa.pub*），或粘贴 SSH 公钥的内容：
+<!--MOONCAKE: Not Available on aksnpwin000000                      Ready    agent   13h   v1.12.7   10.240.0.67   <none>        Windows Server Datacenter   10.0.17763.437-->
 
-    ```azurecli
-    az vm user update \
-      --resource-group $CLUSTER_RESOURCE_GROUP \
-      --name aks-nodepool1-79590246-0 \
-      --username azureuser \
-      --ssh-key-value ~/.ssh/id_rsa.pub
-    ```
+记录要进行故障排除的节点的内部 IP 地址。
 
-<!--Not Available on ### Add SSH keys to virtual machine scale set-based AKS clusters-->
-## <a name="get-the-aks-node-address"></a>获取 AKS 节点地址
+若要使用 SSH 访问节点，请遵循[创建 SSH 连接](#create-the-ssh-connection)中的步骤。
 
-AKS 节点不会在 Internet 中公开。 若要通过 SSH 连接到 AKS 节点，需使用专用 IP 地址。 下一步将在 AKS 群集中创建一个帮助器 Pod，以允许你通过 SSH 连接到节点的此专用 IP 地址。 获取 AKS 节点的专用 IP 地址的步骤因运行的 AKS 群集的类型而异：
+## <a name="configure-virtual-machine-availability-set-based-aks-clusters-for-ssh-access"></a>配置基于虚拟机可用性集的 AKS 群集以进行 SSH 访问
 
-* 对于大多数 AKS 群集，请按步骤[获取常规 AKS 群集的 IP 地址](#ssh-to-regular-aks-clusters)。
+若要配置基于虚拟机可用性集的 AKS 群集以进行 SSH 访问，请找到群集的 Linux 节点名称，并将 SSH 公钥添加到该节点。
 
-<!--Not Available on  use virtual machine scale sets, such as multiple node pools or Windows Server container support-->
+使用 [az aks show][az-aks-show] 命令获取 AKS 群集的资源组名称，然后使用 [az vmss list][az-vm-list] 命令列出群集 Linux 节点的虚拟机名称。
 
-### <a name="ssh-to-regular-aks-clusters"></a>通过 SSH 连接到常规 AKS 群集
+```azurecli
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
+```
 
-使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令查看 AKS 群集节点的专用 IP 地址。 提供在前面的 [az-aks-show][az-aks-show] 步骤中获取的自己的 AKS 群集资源组名称：
+以上示例将 *myResourceGroup* 中 *myAKSCluster* 的群集资源组名称分配到 *CLUSTER_RESOURCE_GROUP*。 然后，该示例使用 *CLUSTER_RESOURCE_GROUP* 列出虚拟机名称。 示例输出显示了虚拟机的名称： 
+
+```
+Name                      ResourceGroup                                  Location
+------------------------  ---------------------------------------------  ----------
+aks-nodepool1-79590246-0  MC_myResourceGroupAKS_myAKSClusterRBAC_chinaeast2  chinaeast2
+```
+
+若要将 SSH 密钥添加到节点，请使用 [az vm user update][az-vm-user-update] 命令。
+
+```azurecli
+az vm user update \
+    --resource-group $CLUSTER_RESOURCE_GROUP \
+    --name aks-nodepool1-79590246-0 \
+    --username azureuser \
+    --ssh-key-value ~/.ssh/id_rsa.pub
+```
+
+以上示例使用前面命令中的 *CLUSTER_RESOURCE_GROUP* 变量和节点虚拟机名称。 以上示例还使用 *~/.ssh/id_rsa.pub* 作为 SSH 公钥的位置。 也可以使用 SSH 公钥内容，而不是指定路径。
+
+> [!NOTE]
+> 默认情况下，AKS 节点的用户名为 *azureuser*。
+
+将 SSH 公钥添加到节点虚拟机后，可以通过 SSH 连接到该虚拟机（使用其 IP 地址进行连接）。 使用 [az vm list-ip-addresses][az-vm-list-ip-addresses] 命令查看 AKS 群集节点的专用 IP 地址。
 
 ```azurecli
 az vm list-ip-addresses --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-以下示例输出显示 AKS 节点的专用 IP 地址：
+以上示例使用前面命令中设置的 *CLUSTER_RESOURCE_GROUP* 变量。 以下示例输出显示 AKS 节点的专用 IP 地址：
 
 ```
 VirtualMachine            PrivateIPAddresses
@@ -103,7 +145,6 @@ VirtualMachine            PrivateIPAddresses
 aks-nodepool1-79590246-0  10.240.0.4
 ```
 
-<!--Not Available on ### SSH to virtual machine scale set-based AKS clusters-->
 ## <a name="create-the-ssh-connection"></a>建立 SSH 连接
 
 若要与 AKS 节点建立 SSH 连接，请在 AKS 群集中运行帮助器 pod。 使用此帮助器 pod 可以通过 SSH 依次访问群集和其他 SSH 节点。 若要创建并使用此帮助器 pod，请完成以下步骤：
@@ -116,13 +157,13 @@ aks-nodepool1-79590246-0  10.240.0.4
 
     <!--Not Available on Windows Server nodes (currently in preview in AKS), add a node selector-->
 
-1. 基础 Debian 映像不包含 SSH 组件。 将终端会话连接到该容器后，按如下所示使用 `apt-get` 安装 SSH 客户端：
+1. 将终端会话连接到该容器后，使用 `apt-get` 安装 SSH 客户端：
 
     ```console
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. 在未连接到容器的新终端窗口中，使用 [kubectl get pod][kubectl-get] 命令列出 AKS 群集中的 Pod。 在上一步骤中创建的 pod 以名称 *aks-ssh* 开头，如以下示例所示：
+1. 打开一个未连接到容器的新终端窗口，使用 [kubectl get pod][kubectl-get] 命令列出 AKS 群集中的 Pod。 在上一步骤中创建的 pod 以名称 *aks-ssh* 开头，如以下示例所示：
 
     ```
     $ kubectl get pods
@@ -131,7 +172,7 @@ aks-nodepool1-79590246-0  10.240.0.4
     aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
     ```
 
-1. 本文的第一个步骤已将 SSH 公钥添加到了 AKS 节点。 现在，请将 SSH 私钥复制到 pod 中。 此私钥用来与 AKS 节点建立 SSH 连接。
+1. 在前面的步骤中，你已将 SSH 公钥添加到要进行故障排除的 AKS 节点。 现在，请将 SSH 私钥复制到帮助器 Pod 中。 此私钥用来与 AKS 节点建立 SSH 连接。
 
     提供在上一步骤中获取的自己的 *aks-ssh* pod 名称。 如果需要，请将 *~/.ssh/id_rsa* 更改为 SSH 私钥的位置：
 
@@ -145,7 +186,7 @@ aks-nodepool1-79590246-0  10.240.0.4
     chmod 0600 id_rsa
     ```
 
-1. 现在，与 AKS 节点建立 SSH 连接。 同样，AKS 节点的默认用户名为 *azureuser*。 遵照提示继续建立连接，因为一开始就信任 SSH 密钥。 然后，系统会提供 AKS 节点的 bash 提示：
+1. 与 AKS 节点建立 SSH 连接。 同样，AKS 节点的默认用户名为 *azureuser*。 遵照提示继续建立连接，因为一开始就信任 SSH 密钥。 然后，系统会提供 AKS 节点的 bash 提示：
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
@@ -179,27 +220,29 @@ aks-nodepool1-79590246-0  10.240.0.4
 <!--Not Avaialble on [view the Kubernetes master node logs][view-master-logs]-->
 
 <!-- EXTERNAL LINKS -->
+
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
+
 [az-aks-show]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-show
-[az-vm-list]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list
-[az-vm-user-update]: https://docs.azure.cn/zh-cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
-[az-vm-list-ip-addresses]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
+[az-vm-list]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list
+[az-vm-user-update]: https://docs.azure.cn/cli/vm/user?view=azure-cli-latest#az-vm-user-update
+[az-vm-list-ip-addresses]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-ip-addresses
 [view-kubelet-logs]: kubelet-logs.md
 
 <!--Not Avaialble on [view-master-logs]: view-master-logs.md-->
 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!--Not Avaialble on [aks-windows-rdp]: rdp.md-->
 
 [ssh-nix]: ../virtual-machines/linux/mac-create-ssh-keys.md
 [ssh-windows]: ../virtual-machines/linux/ssh-from-windows.md
-[az-vmss-list]: https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-list
-[az-vmss-extension-set]: https://docs.azure.cn/zh-cn/cli/vmss/extension?view=azure-cli-latest#az-vmss-extension-set
-[az-vmss-update-instances]: https://docs.azure.cn/zh-cn/cli/vmss?view=azure-cli-latest#az-vmss-update-instances
+[az-vmss-list]: https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-list
+[az-vmss-extension-set]: https://docs.azure.cn/cli/vmss/extension?view=azure-cli-latest#az-vmss-extension-set
+[az-vmss-update-instances]: https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-update-instances
 
 <!-- Update_Description: wording update, update link -->

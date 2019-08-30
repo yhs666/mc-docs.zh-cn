@@ -6,14 +6,14 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d279bde17392c2df62c3c0443cddcad1137877ec
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 1b26fb75977ddf99baaa7658ae22b33cf8a02e67
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562920"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989075"
 ---
 # <a name="log-query-scope-and-time-range-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics 中的日志查询范围和时间范围
 在 [Azure 门户上的 Log Analytics 中](get-started-portal.md)运行[日志查询](log-query-overview.md)时，该查询评估的数据集取决于所选的范围和时间范围。 本文介绍范围和时间范围，以及如何根据要求设置这两项。 本文还介绍了不同范围类型的行为。
@@ -50,11 +50,24 @@ ms.locfileid: "67562920"
 - [工作区](workspace-expression.md)
  
 
+## <a name="query-limits"></a>查询限制
+对于 Azure 资源将数据写入多个 Log Analytics 工作区，你可能有业务要求。 工作区不需与资源位于同一区域，单个工作区可能从多个区域的资源收集数据。  
+
+将范围设置为一个资源或一组资源是 Log Analytics 的特别强大的功能，因为它允许你在单个查询中自动合并分布式数据。 不过，如果需要从多个 Azure 区域的工作区检索数据，它可能会显著影响性能。
+
+Log Analytics 有助于防止跨多个区域中工作区的查询的过量开销，其方法是在特定数目的区域被使用时发出警告或错误。 如果范围包含的工作区位于 5 个或更多个区域中，则查询会收到警告。 查询仍会运行，但可能需要很长的时间才能完成。
+
+![查询警告](media/scope/query-warning.png)
+
+如果范围包含的工作区位于 20 个或更多个区域中，则系统会阻止查询运行。 在这种情况下，系统会要求你减少工作区区域的数目，然后尝试再次运行查询。 下拉菜单会显示查询范围内的所有区域，你应该减少区域的数目，然后尝试再次运行查询。
+
+![查询失败](media/scope/query-failed.png)
+
 
 ## <a name="time-range"></a>时间范围
 时间范围根据记录的创建时间，指定查询要评估的记录集。 此项设置由工作区或应用程序中每条记录上的标准属性定义，下表指定了这些属性。
 
-| 位置 | 属性 |
+| Location | 属性 |
 |:---|:---|
 | Log Analytics 工作区          | TimeGenerated |
 | Application Insights 应用程序 | timestamp     |

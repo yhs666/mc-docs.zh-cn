@@ -5,20 +5,22 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+originate.date: 08/20/2019
 ms.date: 6/4/2019
 ms.reviewer: lmolkova
 ms.author: v-lingwu
-ms.openlocfilehash: d27281c9c7ffdb975b76566276b148d8b5380d57
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 9b5eb37bed4a0fe37dcda024a67f7b378556d1a6
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135913"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989676"
 ---
 # <a name="application-insights-for-net-console-applications"></a>适用于 .NET 控制台应用程序的 Application Insights
 使用 [Application Insights](../../azure-monitor/app/app-insights-overview.md) 可以监视 Web 应用程序的可用性、性能和使用情况。
@@ -33,8 +35,10 @@ ms.locfileid: "67135913"
 * 在跟踪任何遥测之前，请先在代码中设置检测密钥（或设置 APPINSIGHTS_INSTRUMENTATIONKEY 环境变量）。 设置后，应能手动跟踪遥测并在 Azure 门户中查看
 
 ```csharp
-TelemetryConfiguration.Active.InstrumentationKey = " *your key* ";
-var telemetryClient = new TelemetryClient();
+// you may use different options to create configuration as shown later in this article
+TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+configuration.InstrumentationKey = " *your key* ";
+var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
@@ -46,7 +50,6 @@ telemetryClient.TrackTrace("Hello World!");
 > 提到了 **ApplicationInsights.config** 的说明仅适用于以 .NET Framework 为目标的应用，不适用于 .NET Core 应用程序。
 
 ### <a name="using-config-file"></a>使用配置文件
-
 默认情况下，创建 `TelemetryConfiguration` 时，Application Insights SDK 在工作目录中查找 `ApplicationInsights.config` 文件
 
 ```csharp
@@ -93,6 +96,8 @@ var telemetryClient = new TelemetryClient(configuration);
 ```
 
 ### <a name="configuring-telemetry-collection-from-code"></a>通过代码配置遥测集合
+> [!NOTE]
+> .NET Core 不支持读取配置文件。 可以考虑使用[适用于 ASP.NET Core 的 Application Insights SDK](../../azure-monitor/app/asp-net-core.md)
 
 * 在应用程序启动期间创建并配置 `DependencyTrackingTelemetryModule` 实例 - 该实例必须是单一实例，并在应用程序生存期中保留。
 
@@ -117,14 +122,18 @@ module.Initialize(configuration);
 * 添加常用遥测初始值设定项
 
 ```csharp
-// stamps telemetry with correlation identifiers
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
-
 // ensures proper DependencyTelemetry.Type is set for Azure RESTful API calls
-TelemetryConfiguration.Active.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
+configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 ```
 
-* 对于 .NET Framework Windows 应用，还可安装并初始化性能计数器收集器模块，如[此处](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)所述
+如果使用普通 `TelemetryConfiguration()` 构造函数创建了配置，则还需要另外启用相关支持。 如果从文件读取配置，则**不需要它**，使用了 `TelemetryConfiguration.CreateDefault()` 或 `TelemetryConfiguration.Active`。
+
+```csharp
+configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
+```
+
+* 还可能需要安装并初始化性能计数器收集器模块，如[此处](https://apmtips.com/blog/2017/02/13/enable-application-insights-live-metrics-from-code/)所述
+
 
 #### <a name="full-example"></a>完整示例
 
@@ -141,10 +150,9 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            TelemetryConfiguration configuration = TelemetryConfiguration.Active;
+            TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
 
             configuration.InstrumentationKey = "removed";
-            configuration.TelemetryInitializers.Add(new OperationCorrelationTelemetryInitializer());
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
             var telemetryClient = new TelemetryClient();

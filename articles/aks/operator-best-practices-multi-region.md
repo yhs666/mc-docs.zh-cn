@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 11/28/2018
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 191f9be8ffbcf15338e0b3b33cfe812d50e5297e
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 76292e8a30dfa43de2c4f0a87744f5d8618ba7cf
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731244"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993487"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中实现业务连续性和灾难恢复的最佳做法
 
@@ -35,7 +35,9 @@ ms.locfileid: "68731244"
 一个 AKS 群集部署到单个区域中。 为避免系统受到区域故障的影响，可以跨不同区域将应用程序部署到多个 AKS 群集中。 规划 AKS 群集的部署位置时，请考虑：
 
 * [**AKS 区域可用性**](/aks/quotas-skus-regions#region-availability)：选择靠近用户的区域。 AKS 不断向新区域扩展。
+    
     <!--Not Available on [Azure paired regions](/best-practices-availability-paired-regions)-->
+    
 * **Azure 配对区域**：对于你的地理区域，选择两个相互配对的区域。 配对区域协调平台更新，并在需要时确定恢复工作的优先级。
 * **服务可用性**：确定配对区域应采用热/热、热/暖还是热/冷配置。 是否要同时运行两个区域，其中一个区域已准备好开始提供流量？  或者，是否要运行一个区域，以便有时间来准备好提供流量？
 
@@ -60,11 +62,14 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 <!--Not Available on [Configure the geographic traffic routing method using Traffic Manager](/traffic-manager/traffic-manager-configure-geographic-routing-method)-->
 <!--Not Available on Preview content ### Layer 7 application routing with Azure Front Door-->
 <!--Not Avaialble on [Azure Front Door (currently in preview)](/frontdoor/front-door-overview)-->
+
 ## <a name="enable-geo-replication-for-container-images"></a>为容器映像启用异地复制
 
 **最佳做法**：将容器映像存储在 Azure 容器注册表，并将注册表异地复制到每个 AKS 区域。
 
 若要在 AKS 中部署和运行应用程序，需要一种方法来存储和提取容器映像。 容器注册表与 AKS 集成，因此可以安全存储容器映像或 Helm 图表。 容器注册表支持多主数据库异地复制来自动将映像复制到世界各地的 Azure 区域。 
+
+若要提高性能和可用性，请使用容器注册表异地复制在你拥有 AKS 群集的每个区域中创建一个注册表。 然后每个 AKS 群集将从同一区域的本地容器注册表中拉取容器映像：
 
 ![用于容器映像的容器注册表异地复制](media/operator-best-practices-bc-dr/acr-geo-replication.png)
 
@@ -104,7 +109,7 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 
 即使删除了 pod，应用程序也可能需要持久存储。 在 Kubernetes 中，可以使用持久性卷来持久保存数据存储。 持久性卷会装载到节点 VM，然后公开给 pod。 持久性卷遵循 pod，即使 pod 被移动到同一群集内的其他节点也是如此。
 
-使用的复制策略取决于存储解决方案。 常见的存储解决方案（例如 [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/)、[Ceph](http://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[Rook](https://rook.io/docs/rook/master/disaster-recovery.html) 和 [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)）在灾难恢复和复制方面都提供了自身的指导。
+使用的复制策略取决于存储解决方案。 常见的存储解决方案（例如 [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/)、[Ceph](https://docs.ceph.com/docs/master/cephfs/disaster-recovery/)、[Rook](https://rook.io/docs/rook/master/disaster-recovery.html) 和 [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps)）在灾难恢复和复制方面都提供了自身的指导。
 
 典型的策略是提供一个通用存储点，应用程序可在其中写入其数据。 然后跨区域复制此数据，在本地访问。
 
@@ -129,6 +134,7 @@ AKS 区域可用性和配对区域是共同考虑的因素。 将 AKS 群集部�
 * [基本 Kubernetes 计划程序功能][aks-best-practices-scheduler]
 
 <!-- INTERNAL LINKS -->
+
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 

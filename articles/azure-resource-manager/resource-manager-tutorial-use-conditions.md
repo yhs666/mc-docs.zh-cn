@@ -11,15 +11,15 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 origin.date: 05/21/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: a2e316234e77b41788d4a3732236f95a6dc271b6
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 9973831d84b088d0dcbd5ed939e2c79ce669eb9d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337543"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993585"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>教程：在 Azure 资源管理器模板中使用条件
@@ -41,7 +41,9 @@ ms.locfileid: "68337543"
 本教程仅介绍使用条件的基本方案。 有关详细信息，请参阅：
 
 * [模板文件结构：条件](./resource-group-authoring-templates.md#condition)。
+    
     <!--Not Available on * [Conditionally deploy a resource in an Azure Resource Manager template](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy)-->
+
 * [模板函数：If](./resource-group-template-functions-logical.md#if)。
 * [用于 Azure 资源管理器模板的比较函数](./resource-group-template-functions-comparison.md)
 
@@ -170,7 +172,7 @@ New-AzResourceGroupDeployment `
 > [!NOTE]
 > 如果 **newOrExisting** 为 **new**，但具有指定存储帐户名称的存储帐户已存在，则部署将会失败。
 
-请尝试创建 **newOrExisting** 设置为“existing”的另一个部署，并指定现有存储帐户。 若要提前创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
+通过将 **newOrExisting** 设置为“existing”并指定现有存储帐户来尝试进行另一个部署。 若要提前创建存储帐户，请参阅[创建存储帐户](../storage/common/storage-quickstart-create-account.md)。
 
 ## <a name="clean-up-resources"></a>清理资源
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/06/2017
-ms.date: 10/29/2018
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 92b5494fc7d1501990cf26bf37e6230226c7ba96
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: 98d20f7019d55256eef9b78cdef7a6daeca084b0
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "66195019"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993596"
 ---
-# <a name="schedule-and-broadcast-jobs-node"></a>计划和广播作业 (Node)
+# <a name="schedule-and-broadcast-jobs-nodejs"></a>计划和广播作业 (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -52,15 +52,13 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 要完成本教程，需要以下各项：
 
 * Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
-* 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
+* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[试用帐户][lnk-free-trial]。）
 
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
@@ -99,8 +97,8 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 
         // Respond the cloud app for the direct method
         response.send(200, function(err) {
-            if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
+            if (err) {
+                console.error('An error occurred when sending a method response:\n' + err.toString());
             } else {
                 console.log('Response to method \'' + request.methodName + '\' sent successfully.');
             }
@@ -126,7 +124,12 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
-> 
+
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在此部分中，会创建一个 Node.js 控制台应用，它使用直接方法对设备启动远程 **lockDoor** 并更新设备孪生的属性。
@@ -265,7 +268,6 @@ scheduleJobService.js，它调用模拟设备应用中的直接方法，并通�
 
 若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
 
-[教程：固件更新方法][lnk-fwupdate]
 
 若要继续完成 IoT 中心入门内容，请参阅 [Azure IoT Edge 入门][lnk-iot-edge]。
 

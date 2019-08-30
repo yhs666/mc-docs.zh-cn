@@ -3,22 +3,23 @@ title: 查看 Azure Monitor 中的 Azure 活动日志事件
 description: 在 Azure Monitor 中查看 Azure 活动日志并使用 PowerShell、CLI 和 REST API 进行检索。
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: cedf61bc9f959c8a2365dc0e00ae67abead2dc22
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 30f90b2eff33d7f5f82557bbcabaed0cd9687595
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562896"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989535"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>查看和检索 Azure 活动日志事件
 
-Azure 活动日志可以方便用户深入了解 Azure 中发生的订阅级别事件[](activity-logs-overview.md)。 本文详细介绍了如何使用不同的方法来查看和检索活动日志事件。
+[Azure 活动日志](activity-logs-overview.md) 可以方便用户深入了解 Azure 中发生的订阅级别事件。 本文详细介绍了如何使用不同的方法来查看和检索活动日志事件。
 
 ## <a name="azure-portal"></a>Azure 门户
 在 Azure 门户的“监视器”菜单中查看所有资源的活动日志。  在该资源的菜单的“活动日志”选项中查看特定资源的活动日志。 
@@ -161,5 +162,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 
 * [阅读活动日志概述](activity-logs-overview.md)
 * [将活动日志存档到存储或将其流式传输到事件中心](activity-log-export.md)
-
+* [将 Azure 活动日志流式传输到事件中心](/azure-monitor/platform/activity-log-export)
+* [将 Azure 活动日志存档到存储](activity-log-export.md)
 

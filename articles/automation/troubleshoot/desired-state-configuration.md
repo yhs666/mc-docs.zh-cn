@@ -7,19 +7,41 @@ ms.subservice: ''
 author: WenJason
 ms.author: v-jay
 origin.date: 04/16/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 1fee68d5276b3fe639625c7570215fb9dd821a24
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: 04198047bf036141b5d28b60f9792599ffe1a7d9
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298099"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993565"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 疑难解答
 
 本文提供有关 Desired State Configuration (DSC) 问题疑难解答的信息。
+
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Desired State Configuration (DSC) 故障排除步骤
+
+如果在 Azure State Configuration 中编译或部署配置时出错，可使用以下步骤来诊断问题。
+
+1. **确保配置在本地计算机上编译成功：** Azure State Configuration 在 PowerShell DSC 基础上构建。 可以在 [PowerShell DSC 文档](https://docs.microsoft.com/en-us/powershell/scripting/overview)中找到 DSC 语言和语法的文档。
+
+   在本地计算机上编译 DSC 配置即可发现并解决常见错误，例如：
+
+   - **缺少模块**
+   - **语法错误**
+   - **逻辑错误**
+
+2. **在节点上查看 DSC 日志：** 如果配置编译成功，但在应用到节点时失败，则可在日志中查找详细信息。 若要了解在何处查找 DSC 日志，请参阅 [DSC 事件日志在哪里](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)。
+
+   另外，[xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) 可以帮助你分析 DSC 日志中的详细信息。 如果你联系支持部门，他们会要求你提供这些日志，以便对你的问题进行诊断。
+
+   可以根据[安装稳定版本模块](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)中提供的说明在本地计算机上安装 **xDscDiagnostics**。
+
+   若要在 Azure 计算机上安装 **xDscDiagnostics**，可以使用 [az vm run-command](/cli/vm/run-command) 或 [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/azurerm.compute/invoke-azurermvmruncommand)。 也可在门户中使用“运行命令”选项，  只需按照[使用“运行命令”在 Windows VM 中运行 PowerShell 脚本](../../virtual-machines/windows/run-command.md)中的步骤操作即可。
+
+   若要了解如何使用 **xDscDiagnostics**，请参阅[使用 xDscDiagnostics 分析 DSC 日志](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)和 [xDscDiagnostics Cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)。
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>使用所需状态配置 (DSC) 时的常见错误
 
@@ -62,7 +84,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 * 确保要为节点分配“节点配置名称”，而不是“配置名称”。
 * 可以使用 Azure 门户或 PowerShell cmdlet 将节点配置分配给节点。
 
-  * 若要使用 Azure 门户将节点配置分配给节点，请打开“DSC 节点”页，然后选择一个节点，并单击“分配节点配置”按钮   。  
+  * 若要使用 Azure 门户将节点配置分配给节点，请打开“DSC 节点”页，然后选择一个节点，并单击“分配节点配置”按钮   。
   * 若要使用 PowerShell cmdlet 将节点配置分配给节点，请使用 **Set-AzureRmAutomationDscNode** cmdlet
 
 ### <a name="no-mof-files"></a>场景：编译配置时未生成节点配置（MOF 文件）
@@ -84,7 +106,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 下述解决方案中的任何一种都可以解决此问题：
 
 * 确保配置定义中 **Node** 关键字旁边的表达式的计算结果不为 $null。
-* 如果要在编译配置时传递 ConfigurationData，请确保从 [ConfigurationData](../automation-dsc-compile.md#configurationdata)传递配置需要的预期值。
+* 如果要在编译配置时传递 ConfigurationData，请确保从 [ConfigurationData](../automation-dsc-compile.md)传递配置需要的预期值。
 
 ### <a name="dsc-in-progress"></a>场景：DSC 节点报告卡在了“正在进行”状态
 
@@ -120,7 +142,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="resolution"></a>解决方法
 
-* 确保传入正确的 **ConfigurationData**，以便将配置中涉及的每个节点配置的 **PSDscAllowPlainTextPassword** 设置为 true。 有关详细信息，请参阅 [Azure 自动化 DSC 中的资产](../automation-dsc-compile.md#assets)。
+* 确保传入正确的 **ConfigurationData**，以便将配置中涉及的每个节点配置的 **PSDscAllowPlainTextPassword** 设置为 true。 有关详细信息，请参阅 [Azure 自动化 DSC 中的资产](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)。
 
 ### <a name="failure-processing-extension"></a>场景：从 dsc 扩展载入时，出现“处理扩展失败”错误
 
@@ -153,14 +175,31 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>原因
 
-客户已确定，如果 /tmp 位置设置为 noexec，则当前版本的 DSC 将无法应用配置。
+客户已确定，如果 `/tmp` 位置设置为 `noexec`，则当前版本的 DSC 将无法应用配置。
 
 #### <a name="resolution"></a>解决方法
 
-* 从 /tmp 位置中删除 noexec 选项。
+* 从 `/tmp` 位置中删除 `noexec` 选项。
+
+### <a name="compilation-node-name-overlap"></a>场景：节点配置名称重叠可能导致发布错误
+
+#### <a name="issue"></a>问题
+
+如果使用单个配置脚本来生成多个节点配置，而某些节点配置的名称是其他名称的子集，则编译服务出问题可能导致分配的配置错误。  这只发生在使用单个脚本来生成配置且每个节点都有配置数据的情况下，并且仅发生在字符串开头出现名称重叠的情况下。
+
+例如，如果在使用单个配置脚本生成配置时，根据的是使用 cmdlet 作为哈希表传递的节点数据，且节点数据包含名为“server”和“1server”的服务器，则可能会发生上述错误。
+
+#### <a name="cause"></a>原因
+
+编译服务的已知问题。
+
+#### <a name="resolution"></a>解决方法
+
+最佳解决方法将是在本地或 CI/CD 管道中进行编译，然后将 MOF 文件直接上传到服务。  如果必须在服务中进行编译，则较佳解决方法将是拆分编译作业，这样就不会发生名称重叠现象。
 
 ## <a name="next-steps"></a>后续步骤
 
 如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
 
-* 如需更多帮助，可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/)并选择“获取支持”。 
+* 通过 [Azure 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home)获取 Azure 专家的解答
+* 如需更多帮助，可以提交 Azure 支持事件。 转到 [Azure 支持站点](https://www.azure.cn/support/)。

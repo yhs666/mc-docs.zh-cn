@@ -13,17 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 876d55162e40498b2dd4d7945eef645af4500a63
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 2ede382f59e2e4acc02d3e42c5dbb99cfd49e53f
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625525"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667650"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>适用于 iOS 的脱机 FairPlay Streaming 
-Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+
+Azure 媒体服务提供一套设计良好的[内容保护服务](https://docs.azure.cn/media-services/media-services-content-protection-overview)，包括：
 
 - Microsoft PlayReady
 - Apple FairPlay
@@ -34,7 +38,7 @@ Microsoft Azure 媒体服务提供一套设计良好的[内容保护服务](http
 除通过各种流式处理协议对联机流式处理的内容提供保护外，通常还要求提供受保护内容的脱机模式功能。 以下情况需要脱机模式支持：
 
 * 在 Internet 连接不可用（如旅行期间）时播放。
-* 某些内容提供程序可能不允许在某个国家/地区边界之外进行 DRM 许可证传送。 如果用户想在国外旅行期间查看内容，需要脱机下载。
+* 某些内容提供程序可能不允许在某个国家/地区的边界之外进行 DRM 许可证传送。 如果用户想在该国家/地区外旅行期间查看内容，需要脱机下载。
 * 在某些国家/地区，Internet 可用性和/或宽带仍然受到限制。 为获得满意的观看体验，用户可能选择首先下载以便能够观看高分辨率的内容。 在此情况下，通常问题不在于网络可用性，而在于受限的网络宽带。 此时，Over-the-Top (OTT)/联机视频平台 (OVP) 提供商会请求脱机模式支持。
 
 本文介绍 FairPlay Streaming (FPS) 脱机模式支持，适用于运行 iOS 10 或更高版本的设备。 此功能不支持其他 Apple 平台，例如 watchOS、tvOS 或 macOS 上的 Safari。
@@ -199,7 +203,7 @@ func requestApplicationCertificate() throws -> Data {
 - **为什么添加 audio-only=false 之后，在脱机模式期间仍只播放音频而不播放视频？** 根据内容分发网络 (CDN) 缓存键的设计，可能会缓存该内容。 请清除缓存。
 - **除 iOS 10 之外，iOS 11 是否也支持 FPS 脱机模式？** 是的。 iOS 10 和 iOS 11 支持 FPS 脱机模式。
 - **为什么在 FPS Server SDK 中，无法使用 FairPlay Streaming 和 HTTP Live Streaming 找到文档“脱机播放”？** 从 FPS Server SDK 版本 4 开始，此文档已合并到“FairPlay Streaming 编程指南”。
-- **FPS 脱机模式的以下 API 中最后一个参数代表什么？**
+- **FPS 脱机模式的以下 API 中最后一个参数代表什么？** 
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
     有关此 API 的文档，请参阅 [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration 方法](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet)。 该参数代表脱机租赁的持续时间（以小时为单位）。

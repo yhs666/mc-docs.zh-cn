@@ -13,20 +13,24 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 02/10/2019
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 42c2b84e81c6a680ac02ec44097e60e35666b556
-ms.sourcegitcommit: 7b93bc945ba49490ea392476a8e9ba1a273098e3
+ms.openlocfilehash: 790fd1ddf351b53e859852ff88ba678f5725545a
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833376"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670951"
 ---
 # <a name="dynamic-encryption-configure-a-content-key-authorization-policy"></a>动态加密：配置内容密钥授权策略
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
- 可以使用 Azure 媒体服务传送受高级加密标准 (AES)（使用 128 位加密密钥）或受 [PlayReady 数字版权管理 (DRM)](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP Live Streaming (HLS) 流。 使用媒体服务，还可以传送通过 Widevine DRM 加密的 DASH 流。 PlayReady 是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。
+ 可以使用 Azure 媒体服务传送受高级加密标准 (AES)（使用 128 位加密密钥）或受 [PlayReady 数字版权管理 (DRM)](https://www.microsoft.com/playready/overview/) 保护的 MPEG-DASH 流、平滑流式处理流和 HTTP Live Streaming (HLS) 流。 PlayReady 是按通用加密 (ISO/IEC 23001-7 CENC) 规范加密的。
 
 媒体服务还提供了一个密钥/许可证传送服务，客户端可从中获取 AES 密钥或 PlayReady 许可证，以用于播放加密的内容。
 
@@ -103,7 +107,7 @@ ms.locfileid: "56833376"
 ```csharp
 #### Token restriction schema
     <?xml version="1.0" encoding="utf-8"?>
-    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/TokenRestrictionTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:complexType name="TokenClaim">
         <xs:sequence>
           <xs:element name="ClaimType" nillable="true" type="xs:string" />
@@ -232,6 +236,8 @@ ms.locfileid: "56833376"
 可以使用媒体服务配置相应的权限和限制，这样当用户尝试播放受保护的内容时，PlayReady DRM 运行时就会强制实施这些权限和限制。 
 
 使用 PlayReady 保护内容时，需要在授权策略中指定的项目之一是用于定义 [PlayReady 许可证模板](media-services-playready-license-template-overview.md)的 XML 字符串。 在用于 .NET 的媒体服务 SDK 中，PlayReadyLicenseResponseTemplate 和 PlayReadyLicenseTemplate 类有助于定义 PlayReady 许可证模板。
+
+若要了解如何使用 PlayReady 加密内容，请参阅[使用 PlayReady 动态通用加密](media-services-protect-with-playready-widevine.md)。
 
 ### <a name="open-restriction"></a>开放限制
 开放限制意味着系统会将密钥传送到发出密钥请求的任何用户。 此限制可能适用于测试用途。
@@ -409,8 +415,7 @@ ms.locfileid: "56833376"
     {
       None = 0,
       PlayReadyLicense = 1,
-      BaselineHttp = 2,
-      Widevine = 3
+      BaselineHttp = 2
     }
 ```
 

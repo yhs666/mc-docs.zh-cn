@@ -5,15 +5,15 @@ author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 05/23/2017
+origin.date: 07/22/2017
 ms.author: v-yiso
-ms.date: 03/18/2019
-ms.openlocfilehash: adfe63d5306384a17800c11c614675136ed5ad7f
-ms.sourcegitcommit: 0582c93925fb82aaa38737a621f04941e7f9c6c8
+ms.date: 09/02/2019
+ms.openlocfilehash: 482beef44d03b3352ad0bf51de18fb25df39968e
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57560468"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993613"
 ---
 # <a name="use-ip-filters"></a>使用 IP 筛选器
 
@@ -34,37 +34,43 @@ ms.locfileid: "57560468"
 
 ## <a name="default-setting"></a>默认设置
 
-默认情况下，门户中针对 IoT 中心的“IP 筛选器”网格为空。 此默认设置意味着中心会接受来自任何 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。
+默认情况下，门户中针对 IoT 中心的“IP 筛选器”网格为空。  此默认设置意味着中心会接受来自任何 IP 地址的连接。 此默认设置等效于接受 0.0.0.0/0 IP 地址范围的规则。
 
 ![IoT 中心默认 IP 筛选器设置](./media/iot-hub-ip-filtering/ip-filter-default.png)
 
 ## <a name="add-or-edit-an-ip-filter-rule"></a>添加或编辑 IP 筛选器规则
 
-添加 IP 筛选器规则时，系统会提示用户提供以下值：
-
-- **IP 筛选器规则名称** ，必须是一个唯一的、不区分大小写的字母数字字符串，最长 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
-- 选择“拒绝”或“接受”作为 IP 筛选器规则的“操作”。
-- 提供单个 IPv4 地址或者以 CIDR 表示法提供一个 IP 地址块。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。
+若要添加 IP 筛选器规则，请选择“+ 添加 IP 筛选器规则”。 
 
 ![向 IoT 中心添加 IP 筛选规则](./media/iot-hub-ip-filtering/ip-filter-add-rule.png)
 
-保存规则后，会出现一个提醒，通知你更新正在进行。
+选择“添加 IP 筛选器规则”  后，请填写字段。
+
+![在选择“添加 IP 筛选器规则”后](./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png)
+
+* 提供 IP 筛选器规则的**名称**。 此项必须是不区分大小写的唯一字母数字字符串，长度不超过 128 个字符。 只接受 ASCII 7 位字母数字字符以及以下字符：`{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}`。
+
+* 提供单个 IPv4 地址或者以 CIDR 表示法提供一个 IP 地址块。 例如，在 CIDR 表示法中，192.168.100.0/22 表示从 192.168.100.0 到 192.168.103.255 的 1024 个 IPv4 地址。
+
+* 选择“允许”或“阻止”作为 IP 筛选器规则的“操作”。   
+
+填写这些字段后，请选择“保存”以保存该规则  。 会出现一个提醒，通知你更新正在进行。
 
 ![关于保存 IP 筛选规则的通知](./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png)
 
-当存在的 IP 筛选规则达到最大数目 10 时，“添加”选项被禁用。
+当存在的 IP 筛选规则达到最大数目 10 时，“添加”  选项被禁用。
 
-可以通过双击包含某个现有规则的行编辑该规则。
+若要编辑现有规则，请选择要更改的数据，进行更改，然后选择“保存”以保存所做的编辑。 
 
 > [!NOTE]
-> 拒绝 IP 地址即可阻止其他 Azure 服务（例如门户中的 Azure 流分析、Azure 虚拟机或设备资源管理器）与 IoT 中心交互。
+> 拒绝 IP 地址可以防止其他 Azure 服务（例如门户中的 Azure 流分析、Azure 虚拟机或设备资源管理器）与 IoT 中心交互。
 
 > [!WARNING]
 > 如果使用 Azure 流分析 (ASA) 并启用 IP 筛选从 IoT 中心读取消息，请在 ASA 连接字符串中使用与事件中心兼容的名称和 IoT 中心的终结点。
 
 ## <a name="delete-an-ip-filter-rule"></a>删除 IP 筛选器规则
 
-如果要删除 IP 筛选器规则，请在网格中选择一个或多个规则，并单击“删除”。
+若要删除 IP 筛选器规则，请选择与该行对应的垃圾桶图标，然后选择“保存”。  此时会删除规则并保存所做的更改。
 
 ![删除 IoT 中心 IP 筛选规则](./media/iot-hub-ip-filtering/ip-filter-delete-rule.png)
 
@@ -156,7 +162,7 @@ IP 筛选器规则按顺序应用，与 IP 地址匹配的第一条规则决定�
 
 可以通过单击行开头的三个竖直点并使用拖放操作更改 IP 筛选规则在网格中的顺序。
 
-若要保存新的 IP 筛选器规则顺序，请单击“保存”。
+若要保存新的 IP 筛选器规则顺序，请单击“保存”。 
 
 ![更改 IoT 中心 IP 筛选规则的顺序](./media/iot-hub-ip-filtering/ip-filter-rule-order.png)
 

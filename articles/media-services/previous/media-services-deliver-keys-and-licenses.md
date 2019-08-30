@@ -13,25 +13,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/18/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 43eaf9d11d006e2aa27f2f972d2b7c9798f8c3f7
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: b44e4ce85383db91ca485d692541c588ba47f371
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390849"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670960"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>使用媒体服务传送 DRM 许可证或 AES 密钥 
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 > [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 >
 
-Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。  一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
+Azure 媒体服务可引入、编码、添加内容保护，以及流式传输内容。 有关详细信息，请参阅[使用 PlayReady 动态通用加密](media-services-protect-with-playready-widevine.md)。 一些客户希望将媒体服务仅用于传送许可证和/或密钥，以及通过使用其本地服务器进行编码、加密和流式处理。 本文说明如何使用媒体服务来传送 PlayReady 许可证，但使用本地服务器来完成其余部分。 
 
 ## <a name="overview"></a>概述
-媒体服务提供传送 PlayReady 数字版权管理 (DRM) 许可证及 AES-128 密钥的服务。 媒体服务还提供用于配置所需权限和限制的 API，这样当用户播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。 当用户请求受保护的内容时，播放器应用程序会从媒体服务许可证服务请求许可证。 如果许可证获得授权，媒体服务许可证服务会向该播放器颁发许可证。 PlayReady 和 Widevine 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
+媒体服务提供传送 PlayReady 数字版权管理 (DRM) 许可证及 AES-128 密钥的服务。 媒体服务还提供用于配置所需权限和限制的 API，这样当用户播放 DRM 保护的内容时，DRM 运行时便会强制实施这些权限和限制。 当用户请求受保护的内容时，播放器应用程序会从媒体服务许可证服务请求许可证。 如果许可证获得授权，媒体服务许可证服务会向该播放器颁发许可证。 PlayReady 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
 
 媒体服务支持通过多种方式对发出许可证或密钥请求的用户进行授权。 配置内容密钥授权策略。 策略可以有一个或多个限制。 选项为打开或令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 (SWT) 格式和 JSON Web 令牌 (JWT) 格式的令牌。
 
@@ -54,7 +57,7 @@ Azure 媒体服务可引入、编码、添加内容保护，以及流式传输�
     ```
  
 ## <a name="net-code-example"></a>.NET 代码示例
-以下代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 若要配置本地服务器，需要一个内容密钥、密钥 ID 和许可证获取 URL。 配置本地服务器后，可以从自己的流服务器进行流式传输。 由于加密的流指向媒体服务许可证服务器，因此播放器会从媒体服务请求许可证。 如果选择令牌身份验证，则媒体服务许可证服务器将对通过 HTTPS 发送的令牌进行验证。 如果该令牌有效，许可证服务器会将许可证传递回播放器中。 以下代码示例仅演示如何创建通用内容密钥，并获取 PlayReady 或 Widevine 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
+以下代码示例演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 若要配置本地服务器，需要一个内容密钥、密钥 ID 和许可证获取 URL。 配置本地服务器后，可以从自己的流服务器进行流式传输。 由于加密的流指向媒体服务许可证服务器，因此播放器会从媒体服务请求许可证。 如果选择令牌身份验证，则媒体服务许可证服务器将对通过 HTTPS 发送的令牌进行验证。 如果该令牌有效，许可证服务器会将许可证传递回播放器中。 以下代码示例仅演示如何创建通用内容密钥，并获取 PlayReady 许可证获取 URL。 如果想要传送 AES-128 密钥，则需要创建信封内容密钥，并获取密钥获取 URL。 有关详细信息，请参阅[使用 AES-128 动态加密和密钥传递服务](media-services-protect-with-aes128.md)。
 
 ```csharp
 using System;
@@ -62,7 +65,6 @@ using System.Collections.Generic;
 using System.Configuration;
 using Microsoft.WindowsAzure.MediaServices.Client;
 using Microsoft.WindowsAzure.MediaServices.Client.ContentKeyAuthorization;
-using Microsoft.WindowsAzure.MediaServices.Client.Widevine;
 using Newtonsoft.Json;
 
 namespace DeliverDRMLicenses

@@ -12,20 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 32879054b48991078534eec2de62be9196661aca
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 083379cc43fe66d91bb024c2a4bea8b5d92d27d3
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818496"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989261"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace-v031-alpha"></a>状态监视器 v2 API：Start-ApplicationInsightsMonitoringTrace (v0.3.1-alpha)
+# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>状态监视器 v2 API：Start-ApplicationInsightsMonitoringTrace
 
-本文介绍了属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
-
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
+本文介绍属于 [Az.ApplicationMonitor PowerShell 模块](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)的 cmdlet。
 
 ## <a name="description"></a>说明
 

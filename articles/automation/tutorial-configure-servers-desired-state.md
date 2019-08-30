@@ -9,13 +9,13 @@ ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 07/15/2019
-ms.openlocfilehash: 22d5551644e0b3e256dfb02cd2ee0e97f47acaee
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.date: 08/26/2019
+ms.openlocfilehash: 3ee4d192b7f6c1e3ea2bbc720c25c51bcc3c2fdb
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844385"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993276"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
@@ -64,6 +64,9 @@ configuration TestConfig {
    }
 }
 ```
+
+> [!NOTE]
+> 在需要导入多个提供 DSC 资源的模块的更高级方案中，请确保每个模块在配置中都有唯一的 `Import-DscResource` 行。
 
 调用 `Import-AzureRmAutomationDscConfiguration` cmdlet，将配置上传到自动化帐户：
 
@@ -131,6 +134,17 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 这会将名为 `TestConfig.WebServer` 的节点配置分配到名为 `DscVm` 的已注册 DSC 节点。
 默认情况下，每隔 30 分钟会检查一次 DSC 节点是否符合节点配置。
 有关如何更改符合性检查间隔的信息，请参阅[配置本地配置管理器](https://docs.microsoft.com/PowerShell/DSC/metaConfig)。
+
+## <a name="working-with-partial-configurations"></a>使用部分配置
+
+Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs)。
+在此方案中，DSC 配置为独立管理多个配置，并且每个配置都从 Azure 自动化中检索。
+但是，每个自动化帐户只能为一个节点分配一个配置。
+这意味着，如果对节点使用两种配置，则需要两个自动化帐户。
+
+有关如何从请求服务注册部分配置的详细信息，请参阅[部分配置](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)的文档。
+
+有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced)。
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>检查托管节点的符合性状态
 

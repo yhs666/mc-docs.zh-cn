@@ -9,25 +9,27 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/22/2019
-ms.date: 06/20/2019
+origin.date: 07/03/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e36704c47a736fec99ba222654305c1f388866
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 3737ac0d7c661fa6d41ce5d362578b7e5a65ea93
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305976"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993233"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>如何：向 Azure AD 应用提供可选声明
 
-应用程序开发人员可以使用此功能来指定要在发送到其应用程序的令牌中添加哪些声明。 使用可选声明可以：
+应用程序开发人员可以在其 Azure AD 应用中使用可选声明来指定他们希望在发送到其应用程序的令牌中使用哪些声明。 
+
+使用可选声明可以：
 
 - 选择要包含在应用程序令牌中的附加声明。
 - 更改 Azure AD 在令牌中返回的某些声明的行为。
@@ -35,23 +37,22 @@ ms.locfileid: "67305976"
 
 如需标准声明的列表，请参阅[访问令牌](access-tokens.md)和 [id_token](id-tokens.md) 声明文档。 
 
-虽然可选声明在 v1.0 和 v2.0 格式的令牌以及 SAML 令牌中均受支持，但在从 v1.0 迁移到 v2.0 时，可以充分发挥其价值。 [v2.0 Azure AD 终结点](active-directory-appmodel-v2-overview.md)的目标之一是缩小令牌大小，以确保客户端获得最佳性能。 因此，以前包含在访问令牌和 ID 令牌中的多个声明不再在 v2.0 令牌中提供，必须根据应用程序专门请求这些声明。
+虽然可选声明在 v1.0 和 v2.0 格式的令牌以及 SAML 令牌中均受支持，但在从 v1.0 迁移到 v2.0 时，可以充分发挥其价值。 [v2.0 Microsoft 标识平台终结点](active-directory-appmodel-v2-overview.md)的目标之一是减小令牌大小，以确保客户端获得最佳性能。 因此，以前包含在访问令牌和 ID 令牌中的多个声明不再在 v2.0 令牌中提供，必须根据应用程序专门请求这些声明。
 
 **表 1：适用性**
 
-| 帐户类型 | V1.0 令牌 | V2.0 令牌  |
+| 帐户类型 | v1.0 令牌 | v2.0 令牌  |
 |--------------|---------------|----------------|
-| Microsoft 个人帐户  | 不适用  | 不支持|
 | Azure AD 帐户      | 支持 | 支持 |
 
-## <a name="v10-and-v20-optional-claims-set"></a>V1.0 和 V2.0 可选声明集
+## <a name="v10-and-v20-optional-claims-set"></a>v1.0 和 v2.0 可选声明集
 
 下面列出了默认可对应用程序使用的可选声明集。 若要为应用程序添加自定义可选声明，请参阅下面的[目录扩展](#configuring-directory-extension-optional-claims)。 在向**访问令牌**添加声明时，这将适用于应用程序 (Web API) 请求的访问令牌  ，而不是应用程序发出的  访问令牌。 这可确保无论哪个客户端访问你的 API，正确的数据都存在于用于对你的 API 进行身份验证的访问令牌中。
 
 > [!NOTE]
 > 其中的大多数声明可包含在 v1.0 和 v2.0 令牌的 JWT 中，但不可包含在 SAML 令牌中，“令牌类型”列中指明的声明除外。 使用者帐户支持部分在“用户类型”列中标记的此类声明。  许多列出的声明不适用于使用者用户（他们没有租户，因此 `tenant_ctry` 没有值）。  
 
-**表 2：V1.0 和 V2.0 可选声明集**
+**表 2：v1.0 和 v2.0 可选声明集**
 
 | Name                       |  说明   | 令牌类型 | 用户类型 | 注释  |
 |----------------------------|----------------|------------|-----------|--------|
@@ -79,7 +80,7 @@ ms.locfileid: "67305976"
 
 这些声明始终包含在 v1.0 Azure AD 令牌中，但除非提出请求，否则不会包含在 v2.0 令牌中。 这些声明仅适用于 JWT（ID 令牌和访问令牌）。 
 
-**表 3：仅限 V2.0 的可选声明**
+**表 3：仅限 v2.0 的可选声明**
 
 | JWT 声明     | Name                            | 说明                                | 注释 |
 |---------------|---------------------------------|-------------|-------|
@@ -89,8 +90,8 @@ ms.locfileid: "67305976"
 | `pwd_url`     | 更改密码 URL             | 用户更改密码时可以访问的 URL。   |   |
 | `in_corp`     | 企业网络内部        | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。   |  以 MFA 中的[可信 IP](../authentication/howto-mfa-mfasettings.md#trusted-ips) 设置为基础。    |
 | `nickname`    | 别名                        | 用户的附加名称，不同于名字或姓氏。 | 
-| `family_name` | 姓氏                       | 根据用户对象中的定义提供用户的姓氏。 <br>"family_name":"Miller" | 在 MSA 和 AAD 中受支持   |
-| `given_name`  | 名字                      | 根据用户对象中的设置提供用户的名字和“姓氏”。<br>"given_name":"Frank"                   | 在 MSA 和 AAD 中受支持  |
+| `family_name` | 姓氏                       | 根据用户对象中的定义提供用户的姓氏。 <br>"family_name":"Miller" | 在 MSA 和 Azure AD 中受支持   |
+| `given_name`  | 名字                      | 根据用户对象中的设置提供用户的名字和“姓氏”。<br>"given_name":"Frank"                   | 在 MSA 和 Azure AD 中受支持  |
 | `upn`         | 用户主体名称 | 可以与 username_hint 参数一起使用的用户标识符。  不是用户的持久标识符，不应当用于关键数据。 | 有关声明配置，请参阅下面的[附加属性](#additional-properties-of-optional-claims)。 |
 
 ### <a name="additional-properties-of-optional-claims"></a>可选声明的附加属性
@@ -190,7 +191,8 @@ ms.locfileid: "67305976"
 除了标准的可选声明集以外，还可将令牌配置为包含目录架构扩展。 有关详细信息，请参阅[目录架构扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)。 使用此功能可以附加应用可以使用的附加用户信息 - 例如，用户设置的附加标识符或重要配置选项。 
 
 > [!Note]
-> 目录架构扩展功能只能在 AAD 中使用，因此，如果应用程序清单请求自定义扩展，而 MSA 用户登录到你的应用，则不会返回这些扩展。
+> - 目录架构扩展功能只能在 Azure AD 中使用，因此，如果应用程序清单请求自定义扩展，而 MSA 用户登录到你的应用，则不会返回这些扩展。
+> - Azure AD 可选声明仅适用于 Azure AD 扩展，不适用于 Microsoft Graph 目录扩展。 这两个 API 都需要 `Directory.ReadWriteAll` 权限，只有管理员才能同意。
 
 ### <a name="directory-extension-formatting"></a>目录扩展格式设置
 
@@ -254,3 +256,4 @@ ms.locfileid: "67305976"
 - [ID 令牌](id-tokens.md)
 - [访问令牌](access-tokens.md)
 
+<!-- Update_Description: wording update -->

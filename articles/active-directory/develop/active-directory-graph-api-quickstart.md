@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/24/2018
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3803f9d27e4148a97f0c2dcd8e9c1f5ca1771885
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 9ef27ce5c242319473498ba3b9a04aeacfd1d434
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568553"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993240"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>如何：使用 Azure AD 图形 API
 
@@ -66,7 +66,7 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 
 以下屏幕截图是导航到 Azure AD 图形资源管理器，登录并输入 `https://graph.chinacloudapi.cn/GraphDir1.partner.onmschina.cn/users?api-version=1.6` 以显示已登录用户目录中的所有用户时会看到的输出：
 
-![Azure AD 图形 API 资源管理器](./media/active-directory-graph-api-quickstart/graph_explorer.png)
+![Azure AD Graph API Explorer 中的示例输出](./media/active-directory-graph-api-quickstart/graph_explorer.png)
 
 **加载 Azure AD 图形资源管理器**：若要加载该工具，请导航到 [https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/)。 单击“登录”  ，并使用 Azure AD 帐户凭据登录，以针对租户运行 Azure AD 图形资源管理器。 如果针对自己的租户运行 Azure AD 图形资源管理器，则你或管理员需要在登录期间表示同意。 如果拥有 Office 365 订阅，则会自动拥有 Azure AD 租户。 用于登录 Office 365 的凭据事实上就是 Azure AD 帐户，可以在 Azure AD 图形资源管理器中使用这些凭据。
 
@@ -130,4 +130,4 @@ Azure Active Directory (Azure AD) 图形 API 通过 OData REST API 终结点提�
 * 了解有关 [Azure AD 图形 API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * 了解有关 [Azure AD 图形 API 权限范围](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

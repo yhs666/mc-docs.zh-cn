@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 82b66d60699c39034343887ee980e4639e879eb6
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: 9cbdac19ee78552f61989b052a4e7ff44ddcf878
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732215"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989461"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>在 Application Insights 中浏览 .NET/.NET Core 跟踪日志
 
@@ -154,12 +155,12 @@ TrackTrace 的一个优势是可将相对较长的数据放置在消息中。 �
                    SeverityLevel.Warning,
                    new Dictionary<string,string> { {"database", db.ID} });
 
-这样便可以在“[搜索][diagnostic]”中轻松筛选出与特定数据库相关的所有特定严重性级别的消息。
+这样便可以在[搜索][diagnostic]中轻松筛选出与特定数据库相关的所有特定严重性级别的消息。
 
 ## <a name="explore-your-logs"></a>浏览日志
 在调试模式下运行应用，或者实时部署它。
 
-在 [Application Insights 门户][portal]中应用的概述窗格中，选择“[搜索][diagnostic]”。
+在 [Application Insights 门户][portal]中应用的概述窗格中，选择[“搜索”][diagnostic]。
 
 例如，可以：
 

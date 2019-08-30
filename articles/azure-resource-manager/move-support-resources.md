@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
 origin.date: 07/09/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: ab50d38ffd8aa88c3ff0dee58c9b06b5418aa7d0
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: accf73e1b6e6e5d9b7906f2e739756ff2908a90c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337461"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993617"
 ---
 # <a name="move-operation-support-for-resources"></a>支持移动操作的资源
 本文列出某个 Azure 资源类型是否支持移动操作。 它还提供了有关移动资源时要考虑的特殊条件的信息。
@@ -65,6 +65,7 @@ ms.locfileid: "68337461"
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft.Scheduler](#microsoftscheduler)
+> - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
@@ -517,8 +518,14 @@ ms.locfileid: "68337461"
 | flows | 是 | 是 |
 | jobcollections | 是 | 是 |
 
-<!-- Not Available on ## Microsoft.Search-->
-<!-- Not Available on ## Microsoft.Security-->
+<!--Not Available on  ## Microsoft.Search-->
+
+
+## <a name="microsoftsecurity"></a>Microsoft.Security
+| 资源类型 | 资源组 | 订阅 |
+| ------------- | ----------- | ---------- |
+| iotsecuritysolutions | 是 | 是 |
+
 <!-- Not Available on ## Microsoft.ServerManagement-->
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
@@ -566,6 +573,7 @@ ms.locfileid: "68337461"
 
 <!-- Not Available on ## Microsoft.SqlVirtualMachine-->
 <!-- Not Available on ## Microsoft.SqlVM-->
+
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 | 资源类型 | 资源组 | 订阅 |
 | ------------- | -------------- | ------------ |

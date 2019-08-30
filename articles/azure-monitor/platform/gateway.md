@@ -5,30 +5,28 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 08/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0c594b145c018db8e5fafe049ce07da32a4f95d6
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: f58dd1984e80a74777c6eeff6b5dbab8ba04aaae
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514004"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989439"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 网关连接无法访问 Internet 的计算机
 
->[!NOTE]
->由于 Azure Operations Management Suite (OMS) 正在过渡到 Microsoft Azure Monitor，因此术语即将发生变化。 本文将 OMS 网关称作 Azure Log Analytics 网关。 
->
 
 本文介绍当直接连接的计算机或者受 Operations Manager 监视的计算机无法访问 Internet 时，如何使用 Log Analytics 网关来配置与 Azure 自动化和 Azure Monitor 的通信。 
 
-Log Analytics 网关是使用 HTTP CONNECT 命令支持 HTTP 隧道的 HTTP 转发代理。 此网关可以收集数据，并代表未连接到 Internet 的计算机将这些数据发送到 Azure Monitor 中的 Azure 自动化和 Log Analytics 工作区。  
+Log Analytics 网关是使用 HTTP CONNECT 命令支持 HTTP 隧道的 HTTP 转发代理。 此网关代表无法直接连接到 Internet 的计算机向 Azure 自动化和 Azure Monitor 中的 Log Analytics 工作区发送数据。 它不缓存来自代理的数据，代理会在这种情况下处理缓存数据，直到通信恢复为止。
 
 Log Analytics 网关支持：
 

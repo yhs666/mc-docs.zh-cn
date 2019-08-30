@@ -3,8 +3,8 @@ title: 在 Azure AD 权利管理（预览版）中查看报表和日志 - Azure 
 description: 了解如何在 Azure Active Directory 权利管理（预览版）中查看用户分配报表和审核日志。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: jocastel-MSFT
 ms.service: active-directory
 ms.workload: identity
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 origin.date: 04/19/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b19fa025cdd118330a05ed083c90f999aaca40
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: c12a81b6e6c3ac083185a002e51caaca77bd9c2d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972820"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993353"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中查看报表和日志
 
@@ -30,6 +30,8 @@ ms.locfileid: "68972820"
 > Azure Active Directory (Azure AD) 权利管理目前以公共预览版提供。
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
 > 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+
+用户分配报告和 Azure Active Directory 审核日志提供了有关目录中用户的其他详细信息。 作为管理员，你可以查看用户有权访问的资源，并查看请求日志，以便进行审核或确定用户请求的状态。 本文介绍如何使用用户分配报告和 Azure AD 审核日志。
 
 ## <a name="view-resources-a-user-has-access-to"></a>查看用户可以访问的资源
 
@@ -82,3 +84,4 @@ Azure AD 会在请求正在进行时写入更多的审核记录，包括：
 - [排查 Azure AD 权利管理的问题](entitlement-management-troubleshoot.md)
 - [常见方案](entitlement-management-scenarios.md)
 
+<!-- Update_Description: wording update -->

@@ -11,18 +11,18 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 manager: digimobile
-origin.date: 05/10/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 86391f99598166ac4b90c99b152725daa31e12ad
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+origin.date: 06/25/2019
+ms.date: 08/26/2019
+ms.openlocfilehash: 6e5395149f38ee12ff82c7d6a1be35ac0293db32
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629223"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578590"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>基于 DTU 的购买模型中的服务层
 
-基于 DTU 的购买模型中的服务层级根据一系列具有固定随附存储量、固定备份保留期和固定价格的计算大小进行区分。 基于 DTU 的购买模型中的所有服务层级都允许灵活更改计算大小，无需停机。 单一数据库和弹性池根据服务层级和计算大小按小时计费。
+基于 DTU 的购买模型中的服务层级根据一系列具有固定随附存储量、固定备份保留期和固定价格的计算大小进行区分。 基于 DTU 的购买模型中的所有服务层级都提供了以最短[停机时间](https://www.azure.cn/support/sla/sql-data/)更改计算大小的灵活性；但是，在切换期间，与数据库的连接会短时间丢失，可以使用重试逻辑来缓解这种情况。 单一数据库和弹性池根据服务层级和计算大小按小时计费。
 
 > [!IMPORTANT]
 > SQL 数据库托管实例不支持基于 DTU 的购买模型。 有关详细信息，请参阅 [Azure SQL 数据库托管实例](sql-database-managed-instance.md)。
@@ -161,9 +161,9 @@ ms.locfileid: "65629223"
 
 | 服务等级 | 吞吐量度量值 | 响应时间要求 |
 | --- | --- | --- |
-| 高级 |每秒事务数 |0.5 秒时达到 95% |
-| 标准 |每分钟事务数 |1.0 秒时达到 90% |
-| 基本 |每小时事务数 |2.0 秒时达到 80% |
+| 高级 |每秒事务数 |0\.5 秒时达到 95% |
+| 标准 |每分钟事务数 |1\.0 秒时达到 90% |
+| 基本 |每小时事务数 |2\.0 秒时达到 80% |
 
 ## <a name="next-steps"></a>后续步骤
 

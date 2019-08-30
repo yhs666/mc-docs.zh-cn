@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 09b490cc386f0440da0082d6caba352707e0a9df
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: ebd6a322038eae66a79eaeda872d702571d5bfd4
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513828"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989188"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>在 Azure Monitor 日志查询中使用字符串
 
@@ -34,10 +35,14 @@ ms.locfileid: "68513828"
 
 
 ## <a name="strings-and-escaping-them"></a>字符串及其转义
-字符串值包装在单引号或双引号字符中。 反斜杠 (\) 用于将字符转义为其后面的字符，例如，\t 表示 tab（制表符），\n 表示 newline（换行符），\" 表示引号字符本身。
+字符串值包装在单引号或双引号字符中。 反斜杠 (\\) 用于将字符转义为其后面的字符，例如，\t 表示 tab（制表符），\n 表示 newline（换行符），\" 表示引号字符本身。
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 为了防止“\\”用作转义字符，请添加“\@”作为字符串的前缀：

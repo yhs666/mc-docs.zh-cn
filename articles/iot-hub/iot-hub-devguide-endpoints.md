@@ -6,15 +6,15 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-origin.date: 07/18/2018
+origin.date: 06/10/2019
 ms.author: v-yiso
-ms.date: 06/17/2019
-ms.openlocfilehash: 9ed2f8cf6bb968a4e542976362b055c5d20790d8
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.date: 09/02/2019
+ms.openlocfilehash: d38396e34295403c861a140207427a556dc9ea99
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732540"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993054"
 ---
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
 
@@ -102,6 +102,7 @@ IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 * [用于设备孪生、作业和消息路由的 IoT 中心查询语言](iot-hub-devguide-query-language.md)
 * [配额和限制](iot-hub-devguide-quotas-throttling.md)
 * [IoT 中心 MQTT 支持](iot-hub-mqtt-support.md)
+* [了解 IoT 中心 IP 地址](iot-hub-understand-ip-address.md)
 
 [lnk-iot-edge]: https://github.com/Azure/iot-edge
 

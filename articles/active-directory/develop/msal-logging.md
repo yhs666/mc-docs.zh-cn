@@ -3,27 +3,27 @@ title: 在 MSAL 应用程序中进行日志记录 | Azure
 description: 了解如何在 Microsoft 身份验证库 (MSAL) 应用程序中进行日志记录。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/22/2019
-ms.date: 06/17/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b674be6d1caa194f4323985e685930bbcab9db
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: d5dcd21cd92305dc438a61befb9ca5ac55ada2c8
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305897"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993262"
 ---
 # <a name="logging"></a>日志记录
 用于生成日志消息的 Microsoft 身份验证库 (MSAL) 应用，这些消息可以用来诊断问题并提供详细信息。 应用可以通过数行代码配置日志记录，并可对详细程度以及是否记录组织数据进行自定义控制。 建议设置 MSAL 日志记录回调，并提供一种允许用户在遇到身份验证问题时提交日志的方法。
@@ -41,6 +41,10 @@ MSAL 的记录器允许捕获多个级别的详细信息：
 默认情况下，MSAL 记录器不捕获任何高度敏感的组织数据。 该库提供相关选项，允许你自行决定是否记录组织数据。
 
 ## <a name="logging-in-msalnet"></a>在 MSAL.NET 中进行日志记录
+
+ > [!NOTE]
+ > 有关 MSAL.NET 的详细信息，请查看 [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki)。 获取 MSAL.NET 日志记录的示例等内容。 
+ 
 在 MSAL 3.x 中，日志记录是在创建应用时使用 `.WithLogging` 生成器修饰符按应用程序设置的。 该方法采用以下可选参数：
 
 - *Level*：用于确定你需要哪种级别的日志记录。 将其设置为“Errors”时，就只会获得错误
@@ -70,7 +74,7 @@ class Program
                       .Build();
 
     AuthenticationResult result = application.AcquireTokenInteractive(scopes)
-                                             .ExecuteAsnc();
+                                             .ExecuteAsync().Result;
   }
  }
  ```
@@ -110,3 +114,4 @@ var msalConfig = {
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 ```
 
+<!-- Update_Description: wording update -->

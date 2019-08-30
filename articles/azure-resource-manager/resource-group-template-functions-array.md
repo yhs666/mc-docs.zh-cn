@@ -4,15 +4,15 @@ description: 介绍可在 Azure Resource Manager 模板中用来处理数组和�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 11/08/2018
-ms.date: 07/22/2019
+origin.date: 07/31/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: b8c357d4f519536b2a48a157d36a50264df3bfcc
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a2ec04574f56a22614250ff3cbccd3f2cc1c5c8b
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337436"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993616"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数
 
@@ -859,13 +859,13 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 ## <a name="length"></a>length
 `length(arg1)`
 
-返回数组中的元素数，或字符串中的字符数。
+返回数组中的元素数、字符串中的字符数或对象中的根级属性数。
 
 ### <a name="parameters"></a>parameters
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |数组或字符串 |用于获取元素数的数组，或用于获取字符数的字符串。 |
+| arg1 |是 |数组、字符串或对象 |用于获取元素数的数组、用于获取字符数的字符串，或用于获取根级属性数的对象。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -891,6 +891,18 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -902,6 +914,10 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -913,6 +929,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+| objectLength | int | 4 |
 
 要使用 Azure CLI 部署此示例模板，请使用：
 

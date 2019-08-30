@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.service: log-analytics
 ms.workload: na
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6ed9a3937225b52e3809b8cd0008aeb766535e05
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c3f122d6198b16bfd7b2492a00feb0af5598544d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818318"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989189"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 
@@ -68,8 +69,8 @@ ms.locfileid: "68818318"
 ### <a name="how-many-agents-should-i-use"></a>应使用多少个代理？
 对于要监视的每个子网，至少要使用一个代理。
 
-### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--you-have-reached-your-configuration-limit"></a>我可以使用的最大代理数或我会看到“...你已达到配置限制”错误的最大代理数是多少？
-NPM 将 IP 数限制为每个工作区 5000 个 IP。 如果某个节点同时拥有 IPv4 和 IPv6 地址，则计为该节点的 2 个 IP。 因此，此 5000 个 IP 的限制会决定代理数的上限。 可从“NPM”>>“配置”中的“节点”选项卡删除非活动代理。 NPM 还维护曾分配给托管代理的 VM 的所有 IP 的历史记录，这些 IP 也计为单独的 IP 并包含在 5000 个 IP 的上限中。 若要为工作区释放 IP，可使用“节点”页面删除未使用的 IP。
+### <a name="what-is-the-maximum-number-of-agents-i-can-use-or-i-see-error--youve-reached-your-configuration-limit"></a>我可以使用的最大代理数或我会看到“...你已达到配置限制”错误的最大代理数是多少？
+NPM 将 IP 数限制为每个工作区 5000 个 IP。 如果某个节点同时拥有 IPv4 和 IPv6 地址，则计为该节点的 2 个 IP。 因此，此 5000 个 IP 的限制会决定代理数的上限。 可从“NPM”>>“配置”中的“节点”选项卡删除非活动代理。 NPM 还维护曾分配给托管代理的 VM 的所有 IP 的历史记录，每个IP 计为单独的 IP 并包含在 5000 个 IP 的上限中。 若要为工作区释放 IP，可使用“节点”页面删除未使用的 IP。
 
 ## <a name="monitoring"></a>监视
 
@@ -144,7 +145,17 @@ NPM 使用跟踪路由的修改版来发现从源代理到目标的拓扑。 不
 * 网络设备不允许 ICMP_TTL_EXCEEDED 流量。
 * 防火墙阻止了来自网络设备的 ICMP_TTL_EXCEEDED 响应。
 
-### <a name="why-does-my-link-show-unhealthy-but-the-topology-does-not"></a>为何链接显示运行不正常，而拓扑不这么显示 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>我收到测试运行不正常的警报，但在 NPM 的丢失和延迟图中并没有看到过高的值。 如何查看运行不正常的项目？
+如果源和目标之间的端到端延迟超过其间的任何路径的阈值，NPM 会引发警报。 某些网络有多个路径连接相同的源和目标。 如果任何路径不正常，NPM 会引发警报。 图中看到的丢失和延迟是所有路径的平均值，因此可能无法表现单个路径的具体值。 若要了解超出阈值的位置，请查看警报中的“SubType”列。 如果问题是某个路径导致的，则 SubType 值为 NetworkPath（对应于性能监视器测试）、EndpointPath（对应于服务连接监视器测试）和 ExpressRoutePath（对应于 ExpressRotue 监视器测试）。 
+
+用于了解路径是否正常的示例查询：
+
+    NetworkMonitoring 
+    | where ( SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and          CircuitResourceID =="<your ER circuit ID>" and ConnectionResourceId == "<your ER connection resource id>"
+    | project SubType, LossHealthState, LatencyHealthState, MedianLatency 
+
+### <a name="why-does-my-test-show-unhealthy-but-the-topology-does-not"></a>为何测试显示运行不正常，而拓扑不这么显示 
 NPM 按不同的时间间隔监视端到端丢包、延迟和拓扑。 丢包和延迟每 5 秒钟度量一次，每三分钟聚合一次（适用于性能监视器和 ExpressRoute 监视器），而拓扑则使用 traceroute 每 10 分钟计算一次。 例如，在 3:44 到 4:04 之间，拓扑可能更新了三次（3:44、3:54、4:04），但丢包和延迟更新了大约七次（3:44、3:47、3:50、3:53、3:56、3:59、4:02）。 在 3:54 生成的拓扑会针对在 3:56、3:59 和 4:02 计算的丢包和延迟呈现。 假设你获得一个警报，指出你的 ER 线路在 3:59 不正常。 你登录到 NPM，尝试将拓扑时间设置为 3:59。 NPM 会呈现在 3:54 生成的拓扑。 若要了解网络的上一个已知拓扑，请 将字段 TimeProcessed（计算丢包和延迟的时间）与 TracerouteCompletedTime（计算拓扑的时间）进行比较。 
 
 ### <a name="what-is-the-difference-between-the-fields-e2emedianlatency-and-avghoplatencylist-in-the-networkmonitoring-table"></a>在 NetworkMonitoring 表中，字段 E2EMedianLatency 和 AvgHopLatencyList 的差异是什么

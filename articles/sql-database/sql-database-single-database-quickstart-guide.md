@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: carlr
 manager: digimobile
 origin.date: 02/04/2019
-ms.date: 02/25/2019
-ms.openlocfilehash: 60b46a20478ff3e13b71f96ee000b2cc5c559a43
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.date: 08/26/2019
+ms.openlocfilehash: 3d3ef39e5fb6363a7a887ee805fd858c30594e99
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663829"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578567"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>开始使用 Azure SQL 数据库中的单一数据库
 
@@ -41,6 +41,10 @@ ms.locfileid: "56663829"
 - [使用 PowerShell 更新单一数据库和缩放资源](scripts/sql-database-monitor-and-scale-database-powershell.md)
 - [使用 Azure CLI 更新单一数据库和缩放资源](scripts/sql-database-monitor-and-scale-database-cli.md)
 
+## <a name="migrating-to-a-single-database-with-minimal-downtime"></a>在尽量缩短停机时间的情况下迁移到单一数据库
+
+参考这些快速入门中的文章可以使用 `.bacpac` 文件快速创建数据库或将其导入 Azure。 但是，`.bacpac` 和 `.dacpac` 文件旨在跨不同版本的 SQL Server 和 Azure SQL 数据库中的部署选项快速移动数据库。 但是，此方法不适合用于在尽量缩短停机时间的前提下迁移生产数据库，因为需要停止添加新数据，等待将源数据库导出到 `.bacpac` 文件，然后等待将其导入 Azure SQL 数据库。 所有这些操作会导致应用程序出现一段停机时间，尤其是数据库较大时。 若要转移生产数据库，需要采用更好的方式进行迁移，以确保尽量缩短迁移所导致的停机时间。 为此，请使用[数据迁移服务 (DMS)](/dms/tutorial-sql-server-to-azure-sql?toc=/sql-database/toc.json)，它可以在尽量缩短停机时间的情况下迁移数据库。 为实现这种迁移，DMS 会以增量方式将源数据库中发生的更改推送到所要还原的单一数据库。 这样，便可以在尽量缩短停机时间的前提下，快速将应用程序从源数据库切换到目标数据库。
+
 ## <a name="next-steps"></a>后续步骤
 
 - 查看 [Azure SQL 数据库支持的功能的概要列表](sql-database-features.md)。
@@ -48,3 +52,4 @@ ms.locfileid: "56663829"
 - 在[如何在 Azure SQL 数据库中使用单一数据库](sql-database-howto-single-database.md)中查看更深入的操作指南。
 - 查找在 [PowerShell](sql-database-powershell-samples.md) 和 [Azure CLI](sql-database-cli-samples.md) 中编写的其他示例脚本。
 - 详细了解可用于配置数据库的[管理 API](sql-database-single-databases-manage.md)。
+- [确定适合本地数据库的 Azure SQL 数据库/托管实例 SKU](https://docs.microsoft.com/sql/dma/dma-sku-recommend-sql-db/)。

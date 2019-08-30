@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: f1affdb74d53989be0e083589943b392918580bd
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 14d94292c2b1eb786ba19c4f0a3ca8bdcd82c1e4
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969513"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989069"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>用于日志警报规则的 Webhook 操作
 [在 Azure 中创建日志警报](alerts-log.md)时，可以选择[使用操作组配置](action-groups.md)以执行一个或多个操作。 本文介绍可用的不同 Webhook 操作，以及如何配置基于 JSON 的自定义 Webhook。
@@ -123,6 +123,10 @@ Webhooks 包括 URL 和 JSON 格式的有效负载（即发送到外部服务的
  }
  ```   
 
+> [!NOTE]
+> 如果在 Log Analytics 上针对日志警报[切换了 API 首选项](alerts-log-api-switch.md)，则“严重性”字段值可能会更改。
+
+
 #### <a name="log-alert-for-application-insights"></a>Application Insights 的日志警报
 以下示例有效负载是适用于基于 Application Insights 的日志警报使用的不带自定义 JSON 选项的标准 Webhook  。
     
@@ -205,6 +209,6 @@ Webhooks 包括 URL 和 JSON 格式的有效负载（即发送到外部服务的
 - 了解 [Azure 警报中的日志警报](alerts-unified-log.md)。
 - 了解如何[管理 Azure 中的日志警报](alerts-log.md)。
 - 创建和管理 [Azure 中的操作组](action-groups.md)。
-- 详细了解 [Application Insights](../../azure-monitor/app/analytics.md)。
+- 详细了解 [Application Insights](../../azure-monitor/log-query/log-query-overview.md)。
 - 了解有关[日志查询](../log-query/log-query-overview.md)的详细信息。 
 

@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 04/01/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 8e058ce66f4a24482bc551cdec919859e6e38032
-ms.sourcegitcommit: 2d43e48f4c80e085e628e83822eeaa38f62d1cb2
+ms.openlocfilehash: 0b6f6ab0fa7d6113398cb24673ac06cd29f2356e
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58624206"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667651"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>配置内容密钥授权策略
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
 ## <a name="overview"></a>概述
@@ -56,7 +60,7 @@ ms.locfileid: "58624206"
 ![OpenPolicy][open_policy]
 
 ### <a name="token-restriction"></a>令牌限制
-若要选择令牌限制策略，请选择“令牌”按钮。
+若要选择令牌限制策略，请选择“令牌”  按钮。
 
 令牌受限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用简单 Web 令牌 ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) 格式和 JSON Web 令牌 (JWT) 格式的令牌。 有关详细信息，请参阅 [JWT 身份验证](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)。
 
@@ -79,7 +83,7 @@ ms.locfileid: "58624206"
           </LicenseTemplates>
         </PlayReadyLicenseResponseTemplate>
 
-可以选择“导入策略 xml”按钮并提供遵循在[媒体服务 PlayReady 许可证模板概述](media-services-playready-license-template-overview.md)中定义的 XML 架构的一个不同 XML。
+可以选择“导入策略 xml”  按钮并提供遵循在[媒体服务 PlayReady 许可证模板概述](media-services-playready-license-template-overview.md)中定义的 XML 架构的一个不同 XML。
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png
 [token_policy]: ./media/media-services-key-authorization-policy/media-services-protect-content-with-token-restriction.png

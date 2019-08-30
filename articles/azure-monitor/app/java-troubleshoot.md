@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dfe0bb9769885fc41a3ba6f1e5a333893da94cbe
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 7e18e7a5e21df98b6b540ffb848dcc7443d06872
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818353"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989636"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>用于 Java 的 Application Insights 的故障排除与常见问题解答
 使用 [Java 中的 Azure Application Insights][java] 时有疑问或遇到问题？ 请参考下面的提示。
@@ -127,6 +128,13 @@ azure.application-insights.logger.base-folder-path=C:/agent/AISDK
 azure.application-insights.logger.level=trace
 ```
 
+或者输出到标准错误：
+
+```yaml
+azure.application-insights.logger.type=console
+azure.application-insights.logger.level=trace
+```
+
 ### <a name="java-agent"></a>Java 代理
 
 若要启用 JVM 代理日志记录，请更新 [AI-Agent.xml 文件](java-agent.md)。
@@ -137,6 +145,21 @@ azure.application-insights.logger.level=trace
     <UniquePrefix>AI</UniquePrefix>
     <BaseFolderPath>C:/agent/AIAGENT</BaseFolderPath>
 </AgentLogger>
+```
+
+### <a name="java-command-line-properties"></a>Java 命令行属性
+_自版本 2.4.0_
+
+若要使用命令行选项启用日志记录，而不更改配置文件，请执行以下操作：
+
+```
+java -Dapplicationinsights.logger.file.level=trace -Dapplicationinsights.logger.file.uniquePrefix=AI -Dapplicationinsights.logger.baseFolderPath="C:/my/log/dir" -jar MyApp.jar
+```
+
+或者输出到标准错误：
+
+```
+java -Dapplicationinsights.logger.console.level=trace -jar MyApp.jar
 ```
 
 ## <a name="the-azure-start-screen"></a>Azure 开始屏幕

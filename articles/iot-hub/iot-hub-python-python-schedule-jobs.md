@@ -9,15 +9,15 @@ ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 02/16/2018
-ms.date: 05/06/2019
+origin.date: 07/30/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 9dfde3a6066c2217e31d4aa93ee2a645a4d6385f
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 7300e0b454dba73b51caf103a4d333a7b5009540
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570547"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993593"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -33,8 +33,8 @@ Azure IoT 中心是一项完全托管的服务，允许后端应用创建和跟�
 
 可在以下文章中了解有关所有这些功能的详细信息：
 
-* 设备孪生和属性：[设备孪生入门][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods] and [Tutorial: direct methods][lnk-c2d-methods]
+* 设备孪生和属性：[设备孪生入门][lnk-get-started-twin]和[教程：如何使用设备孪生属性][lnk-twin-props]
+* 直接方法：[IoT 中心开发人员指南 - 直接方法][lnk-dev-methods]和[教程：直接方法][lnk-c2d-methods]
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -49,11 +49,11 @@ simDevice.py，它使用设备标识连接到 IoT 中心并接收 lockDoor 直�
 
 scheduleJobService.py，它调用模拟设备应用中的直接方法，并通过作业更新设备孪生的所需属性  。
 
-要完成本教程，需要以下各项：
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-* [Python 2.x 或 3.x][lnk-python-download]. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable. If you are using Python 2.x, you may need to [install or upgrade *pip*, the Python package management system][lnk-install-pip]。
-* 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包][lnk-visual-c-redist]，以便使用 Python 中的本机 DLL。
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户][lnk-free-trial]。）
+下面是必备组件的安装说明。
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 > [!NOTE]
 > Azure IoT SDK for Python 不直接支持作业功能   。 本教程中转而提供一种利用异步现成和计时器的备选解决方案。 有关进一步的更新，请参阅 [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) 页面上的**服务客户端 SDK**功能列表。 
@@ -63,10 +63,6 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
@@ -161,8 +157,12 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
 > [!NOTE]
 > 为简单起见，本教程不实现任何重试策略。 在生产代码中，应该按文章 [Transient Fault Handling][lnk-transient-faults]（暂时性故障处理）中所述实施重试策略（例如指数退避）。
 > 
-> 
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-updating-a-device-twins-properties"></a>安排作业，用于调用直接方法和更新设备孪生的属性
 在本部分中，将创建一个 Python 控制台应用，它使用直接方法在设备上启动远程 lockDoor 并更新设备孪生的属性  。

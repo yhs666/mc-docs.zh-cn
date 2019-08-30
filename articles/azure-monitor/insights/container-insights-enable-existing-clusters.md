@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8662a28dbe53f666b58e7d94db85010e9212ac3a
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c20aedcef53071b9824df4085d4e5fd4f972031a
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818330"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989546"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -99,8 +100,9 @@ provisioningState       : Succeeded
 若要在 Azure 门户中直接使用某个 AKS 群集来启用监视，请执行以下操作：
 
 1. 在 Azure 门户中，选择“所有服务”。  
-2. 在资源列表中，开始键入“Containers”  。  
-    列表会根据输入的内容进行筛选。 
+
+2. 在资源列表中，开始键入“Containers”  。  列表会根据输入的内容进行筛选。 
+
 3. 选择“Kubernetes 服务”  。  
 
     ![Kubernetes 服务链接](./media/container-insights-onboard/portal-search-containers-01.png)
@@ -142,73 +144,91 @@ provisioningState       : Succeeded
 
     ```json
     {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-      "aksResourceId": {
-        "type": "string",
-        "metadata": {
-           "description": "AKS Cluster Resource ID"
-           }
-    },
-    "aksResourceLocation": {
-    "type": "string",
-     "metadata": {
-        "description": "Location of the AKS resource e.g. \"East US\""
-       }
-    },
-    "workspaceResourceId": {
-      "type": "string",
-      "metadata": {
-         "description": "Azure Monitor Log Analytics Resource ID"
-       }
-    }
-    },
-    "resources": [
-      {
-    "name": "[split(parameters('aksResourceId'),'/')[8]]",
-    "type": "Microsoft.ContainerService/managedClusters",
-    "location": "[parameters('aksResourceLocation')]",
-    "apiVersion": "2018-03-31",
-    "properties": {
-      "mode": "Incremental",
-      "id": "[parameters('aksResourceId')]",
-      "addonProfiles": {
-        "omsagent": {
-          "enabled": true,
-          "config": {
-            "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "AKS Cluster Resource ID"
           }
-         }
-       }
-      }
-     }
-     ]
+        },
+        "aksResourceLocation": {
+          "type": "string",
+          "metadata": {
+            "description": "Location of the AKS resource e.g. \"East US\""
+          }
+        },
+        "aksResourceTagValues": {
+          "type": "object",
+          "metadata": {
+            "description": "Existing all tags on AKS Cluster Resource"
+          }
+        },
+        "workspaceResourceId": {
+          "type": "string",
+          "metadata": {
+            "description": "Azure Monitor Log Analytics Resource ID"
+          }
+        }
+      },
+      "resources": [
+        {
+          "name": "[split(parameters('aksResourceId'),'/')[8]]",
+          "type": "Microsoft.ContainerService/managedClusters",
+          "location": "[parameters('aksResourceLocation')]",
+          "tags": "[parameters('aksResourceTagValues')]",
+          "apiVersion": "2018-03-31",
+          "properties": {
+            "mode": "Incremental",
+            "id": "[parameters('aksResourceId')]",
+            "addonProfiles": {
+              "omsagent": {
+                "enabled": true,
+                "config": {
+                  "logAnalyticsWorkspaceResourceID": "[parameters('workspaceResourceId')]"
+                }
+              }
+            }
+          }
+        }
+      ]
     }
     ```
 
 2. 将此文件以“existingClusterOnboarding.json”文件名保存到本地文件夹  。
+
 3. 将以下 JSON 语法粘贴到文件中：
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-         "aksResourceId": {
-           "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
-       },
-       "aksResourceLocation": {
-         "value": "<aksClusterLocation>"
-       },
-       "workspaceResourceId": {
-         "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-       }  
-     }
+      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "aksResourceId": {
+          "value": "/subscriptions/<SubscriptionId>/resourcegroups/<ResourceGroup>/providers/Microsoft.ContainerService/managedClusters/<ResourceName>"
+        },
+        "aksResourceLocation": {
+          "value": "<aksClusterLocation>"
+        },
+        "workspaceResourceId": {
+          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+        },
+        "aksResourceTagValues": {
+          "value": {
+            "<existing-tag-name1>": "<existing-tag-value1>",
+            "<existing-tag-name2>": "<existing-tag-value2>",
+            "<existing-tag-nameN>": "<existing-tag-valueN>"
+          }
+        }
+      }
     }
     ```
 
 4. 使用 AKS 群集的“AKS 概述”页面中的值，编辑 **aksResourceId** 和 **aksResourceLocation** 的值  。 **workspaceResourceId** 的值是 Log Analytics 工作区的完整资源 ID，其中包含工作区名称。 
+
+    编辑 **aksResourceTagValues** 的值，以匹配为 AKS 群集指定的现有标记值。
+
 5. 将此文件以“existingClusterParam.json”文件名保存到本地文件夹  。
 6. 已做好部署此模板的准备。 
 

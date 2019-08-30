@@ -4,6 +4,7 @@ description: 修改 Azure 政府等区域的默认 Azure Application Insights SD
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9b5e5458bb7a0ff2f158f43a1463688e59b17f7b
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 5c70db83efee4168e92c69942211b7b68d88d2f4
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67563006"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989672"
 ---
  # <a name="application-insights-overriding-default-endpoints"></a>替代默认终结点的 Application Insights
 
@@ -135,14 +136,12 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 ```javascript
 <script type="text/javascript">
-   var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
-      function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
-   }({
-      instrumentationKey:"INSTRUMENTATION_KEY"
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY",
       endpointUrl: "TelemetryChannel_Endpoint_Address"
-   });
-
-   window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
@@ -153,12 +152,18 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 |区域 |  终结点名称 | Value |
 |-----------------|:------------|:-------------|
 | Azure 中国 | 遥测通道 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure 中国 | QuickPulse（实时指标） |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure 中国 | QuickPulse（实时指标） |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure 中国 | 配置文件查询 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 遥测通道 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse（实时指标） |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 配置文件查询 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
+如果当前使用的是 [Application Insights REST API](https://dev.applicationinsights.io/
+)（通常通过“api.applicationinsights.io”访问），则需要使用你所在地区的本地终结点：
+
+|区域 |  终结点名称 | Value |
+|-----------------|:------------|:-------------|
+| Azure 中国 | REST API | `api.applicationinsights.azure.cn` |
 > [!NOTE]
 > Azure 应用服务的基于无代码代理/扩展的监视在这些区域**目前不受支持**。 一旦该功能可用，本文将立即更新。
 

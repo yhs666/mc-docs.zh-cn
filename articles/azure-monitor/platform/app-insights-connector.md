@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 248d5a615ff75625bf015353a55bd2c3ba6efd32
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 9dd0890d177b007bba45e6be99c16f4108db6ea2
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818265"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989068"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
@@ -53,7 +54,7 @@ ms.locfileid: "68818265"
 | --- | --- | --- |
 | [Windows 代理](../../azure-monitor/platform/agent-windows.md) | 否 | 解决方案不会从 Windows 代理收集信息。 |
 | [Linux 代理](../../azure-monitor/learn/quick-collect-linux-computer.md) | 否 | 解决方案不会从 Linux 代理收集信息。 |
-| [Azure 存储帐户](collect-azure-metrics-logs.md) | 否 | 该解决方案不会从 Azure 存储收集信息。 |
+| [Azure 存储帐户](diagnostic-logs-stream-log-store.md) | 否 | 该解决方案不会从 Azure 存储收集信息。 |
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -194,7 +195,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 | 国家/地区 | 请求的来源国家/地区 |
 | Province | 请求的来源省、州或区域 |
 | 城市 | 请求的来源市或镇 |
-| isSynthetic | 指示请求是由用户还是自动化方法创建的。 True = 由用户生成，false = 由自动化方法生成 |
+| isSynthetic | 指示请求是由用户还是自动化方法创建的。 True = 由自动化方法生成，false = 由用户生成 |
 | SamplingRate | SDK 生成的、发送到门户的遥测百分比。 范围为 0.0-100.0。 |
 | SampledCount | 100/(SamplingRate)。 例如，4 =&gt; 25% |
 | IsAuthenticated | True 或 False |

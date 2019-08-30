@@ -9,23 +9,35 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 ms.service: automation
 manager: digimobile
-ms.openlocfilehash: 0b12305b052fd3c1205d75e2a7215280931be793
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 03073c359f27712ebe666836f42736d6973f2415
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726470"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993549"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook 错误故障排除
 
+本文详述了 Runbook 的常见问题及其解决方法。
+
+## <a name="steps-to-troubleshoot-runbooks"></a>排查 Runbook 问题的步骤
+
+在 Azure 自动化中执行 Runbook 出现错误时，可使用以下步骤来诊断问题。
+
+1. **确保 Runbook 脚本在本地计算机上执行成功：** 请参阅 [PowerShell 文档](/powershell/scripting/overview)或 [Python 文档](https://docs.python.org/3/)，了解语言参考和学习模块。
+
+   在本地执行脚本即可发现并解决常见错误，例如：
+
+   - **缺少模块**
+   - **语法错误**
+   - **逻辑错误**
 ## <a name="authentication-errors-when-working-with-azure-automation-runbooks"></a>使用 Azure 自动化 Runbook 时遇到的身份验证错误
 
 ### <a name="sign-in-failed"></a>场景：登录 Azure 帐户失败
 
 #### <a name="issue"></a>问题
 
-使用 `Add-AzureAccount` 或 `Connect-AzureRmAccount` cmdlet 时收到以下错误
-:
+使用 `Add-AzureAccount` 或 `Connect-AzureRmAccount` cmdlet 时收到以下错误：
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -37,16 +49,16 @@ Unknown_user_type: Unknown User Type
 
 #### <a name="resolution"></a>解决方法
 
-要确定具体错误，请执行以下步骤：  
+要确定具体错误，请执行以下步骤：
 
 1. 请确保没有包含任何特殊字符。 这些字符包括用于连接 Azure 的自动化凭据资产名称中的 \@ 字符  。  
-2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 可以通过在 PowerShell ISE 中运行以下 cmdlet 来检查用户名和密码是否正确：  
+2. 查看你是否能够在本地 PowerShell ISE 编辑器中使用存储在 Azure 自动化凭据中的用户名和密码。 可以通过在 PowerShell ISE 中运行以下 cmdlet 来检查用户名和密码是否正确：
 
    ```powershell
-   $Cred = Get-Credential  
+   $Cred = Get-Credential
    #Using Azure Service Management
    Add-AzureAccount -Environment AzureChinaCloud -Credential $Cred  
-   #Using Azure Resource Manager  
+   #Using Azure Resource Manager
    Connect-AzureRmAccount -EnvironmentName AzureChinaCloud -Credential $Cred
    ```
 
@@ -97,7 +109,7 @@ The subscription named <subscription name> cannot be found.
 
 #### <a name="resolution"></a>解决方法
 
-执行以下步骤以确定是否已正确向 Azure 进行身份验证并有权访问尝试选择的订阅：  
+执行以下步骤以确定是否已正确向 Azure 进行身份验证并有权访问尝试选择的订阅：
 
 1. 在 Azure 自动化之外测试脚本，以确保它独立运行。
 2. 请确保在运行 `Select-AzureSubscription` cmdlet 之前运行 `Add-AzureAccount -EnvironmentName AzureChinaCloud` cmdlet。 
@@ -267,6 +279,9 @@ The job was tried three times but it failed
 下述解决方案中的任何一种都可以解决此问题：
 
 * 在内存限制内工作的建议方法是拆分多个 runbook 之间的工作负载，不作为内存中的诸多数据进行处理，不写入不必要的 runbook 输出，或考虑在 PowerShell 工作流 runbook 中写入多少个检查点。 可以使用 clear 方法（例如 `$myVar.clear()`）清除变量并使用 `[GC]::Collect()` 立即运行垃圾回收。 这将减少运行时期间 runbook 的内存占用情况。
+* 另一个解决方案是在[混合 Runbook 辅助角色](../automation-hrw-run-runbooks.md)上运行 runbook。 混合辅助角色不受内存和网络限制，而 Azure 沙盒则受限于此限制。
+
+* 如果需要在 Runbook 中调用进程（如 .exe 或 subprocess.call），则需要在[混合 Runbook 辅助角色](../automation-hrw-run-runbooks.md)上运行 Runbook。
 
 * 作业输出流限制为 1MB。 请确保在 try/catch 块中包含对可执行文件或子进程的调用。 如果这些调用引发异常，请将该异常中的消息写入自动化变量中。 这将防止将其写入作业输出流中。
 
@@ -290,9 +305,9 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 下述三种解决方案中的任何一种都可以解决此问题：
 
-1. 如果要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。
-2. 传递复杂对象中你所需要的名称或值，不必传递整个对象。
-3. 使用 PowerShell Runbook，而不使用 PowerShell 工作流 Runbook。
+* 如果要将复杂对象从一个 cmdlet 传送到另一个 cmdlet，则可将这两个 cmdlet 包装在 InlineScript 中。
+* 传递复杂对象中你所需要的名称或值，不必传递整个对象。
+* 使用 PowerShell Runbook，而不使用 PowerShell 工作流 Runbook。
 
 ### <a name="runbook-fails"></a>场景：我的 Runbook 只能在本地运行
 
@@ -304,19 +319,20 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 脚本作为 Runbook 运行会失败是由于以下原因之一：
 
-1. 身份验证问题
-2. 所需的模块未导入或已过期。
-3. 脚本可能会提示输入用户交互。
-4. 某些模块对 Windows 计算机上存在的库进行假设。 这些库可能不存在于沙盒中。
-5. 某些模块依赖的 .NET 版本不同于沙盒中可用的版本。
+* 身份验证问题
+* 所需的模块未导入或已过期。
+* 脚本可能会提示输入用户交互。
+* 某些模块对 Windows 计算机上存在的库进行假设。 这些库可能不存在于沙盒中。
+* 某些模块依赖的 .NET 版本不同于沙盒中可用的版本。
 
 #### <a name="resolution"></a>解决方法
 
 下述任一解决方案可能可以解决此问题：
 
-1. 验证是否正确[对Azure 进行身份验证](../manage-runas-account.md)。
-2. 确认没有任何 cmdlet 提示输入信息。 Runbook 中不支持此行为。
-3. 检查模块中的任何内容是否依赖于模块中未包含的内容。
+* 验证是否正确[对Azure 进行身份验证](../manage-runas-account.md)。
+* 确认没有任何 cmdlet 提示输入信息。 Runbook 中不支持此行为。
+* 检查模块中的任何内容是否依赖于模块中未包含的内容。
+* Azure 沙盒使用 .NET Framework 4.7.2，如果模块使用更高版本，则无法使用。 在这种情况下，应使用 [混合 Runbook 辅助角色](../automation-hybrid-runbook-worker.md)
 
 如果使用这些解决方案均未解决问题，请查看[作业日志](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)以了解 Runbook 失败的特定详细信息。
 
@@ -336,10 +352,10 @@ The quota for the monthly total job run time has been reached for this subscript
 
 #### <a name="resolution"></a>解决方法
 
-如果想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：  
+如果想要每月使用 500 分钟以上的处理时间，则需将订阅从免费层改为基本层。 可以通过下述步骤升级到基本层：
 
-1. 登录到 Azure 订阅  
-2. 选择要升级的自动化帐户  
+1. 登录到 Azure 订阅
+2. 选择要升级的自动化帐户
 3. 单击“设置” > “定价”   。
 4. 单击页面底部的“启用”  ，以将帐户升级到“基本”  层。
 
@@ -359,11 +375,12 @@ Runbook 作业失败并显示错误：
 
 #### <a name="resolution"></a>解决方法
 
-下述解决方案中的任何一种都可以解决此问题：  
+下述解决方案中的任何一种都可以解决此问题：
 
-* 检查输入的 cmdlet 名称是否正确。  
-* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 runbook 中的有效参数集。  
-* 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName  。  
+* 检查输入的 cmdlet 名称是否正确。
+* 确保 cmdlet 存在于自动化帐户中，且没有冲突。 要验证 cmdlet 是否存在，请在编辑模式下打开 Runbook，并搜索希望在库中找到的 cmdlet，或者运行 `Get-Command <CommandName>`。 验证该 cmdlet 可供帐户使用且与其他 cmdlet 或 runbook 不存在名称冲突以后，可将其添加到画布上，并确保使用的是 runbook 中的有效参数集。
+* 如果存在名称冲突且 cmdlet 可在两个不同的模块中使用，则可使用 cmdlet 的完全限定名称来解决此问题。 例如，可以使用 ModuleName\CmdletName  。
+* 如果是在本地执行混合辅助角色组中的 runbook，则请确保模块和 cmdlet 已安装在托管混合辅助角色的计算机上。
 
 ### <a name="long-running-runbook"></a>场景：长时间运行的 Runbook 无法完成
 
@@ -383,7 +400,11 @@ Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 
 #### <a name="resolution"></a>解决方法
 
-一种选择是通过创建[子 runbook](../automation-child-runbooks.md) 来优化 runbook。 如果 runbook 在多个资源上遍历同一函数，例如在多个数据库上执行某个数据库操作，则可将该函数移到子 runbook。 各个子 runbook 是在单独的进程中并行执行的。 此行为降低了完成父 runbook 所需的时间总量。
+建议的解决方案是在[混合 Runbook 辅助角色](../automation-hrw-run-runbooks.md)上运行 runbook。
+
+混合辅助角色不受[公平份额](../automation-runbook-execution.md#fair-share) 3 小时 runbook 限制，而 Azure 沙盒受限于此限制。 应开发在混合 Runbook 辅助角色上运行的 Runbook，以便在出现意外的本地基础结构问题时支持重启行为。
+
+另一种选择是通过创建[子 runbook](../automation-child-runbooks.md) 来优化 runbook。 如果 runbook 在多个资源上遍历同一函数，例如在多个数据库上执行某个数据库操作，则可将该函数移到子 runbook。 各个子 runbook 是在单独的进程中并行执行的。 此行为降低了完成父 runbook 所需的时间总量。
 
 启用子 runbook 方案的 PowerShell cmdlet 是：
 
@@ -430,8 +451,32 @@ Runbook 超出了 Azure 沙盒中公平份额允许的 3 小时限制。
 * 编辑 Runbook，并减少它发出的作业流数量。
 * 减少运行 cmdlet 时要检索的流数量。 若要遵循此行为，可以为 `Get-AzureRmAutomationJobOutput` cmdlet 指定 `-Stream Output` 参数以仅检索输出流。 
 
+### <a name="cannot-invoke-method"></a>场景：PowerShell 作业失败，出现错误：无法调用方法
+
+#### <a name="issue"></a>问题
+
+在 Runbook（在 Azure 中运行）中启动 PowerShell 作业时，收到以下错误消息：
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>原因
+
+在 Runbook（在 Azure 中运行）中启动 PowerShell 作业时，可能会发生此错误。 出现此行为可能是因为在 Azure 沙盒中运行的 Runbook 可能未在[完整语言模式](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_language_modes)下运行。
+
+#### <a name="resolution"></a>解决方法
+
+可通过两种方法来解决此错误：
+
+* 使用 `Start-AzureRmAutomationRunbook` 而不是 `Start-Job` 来启动 Runbook
+* 如果 Runbook 出现此错误消息，请在混合 Runbook 辅助角色上运行它
+
+若要详细了解 Azure 自动化 Runbook 的此行为和其他行为，请参阅 [Runbook 行为](../automation-runbook-execution.md#runbook-behavior)。
+
 ## <a name="next-steps"></a>后续步骤
 
 如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道之一获取更多支持：
 
-* 如需更多帮助，可以提交 Azure 支持事件。 请转到 [Azure 支持站点](https://www.azure.cn/support/)并选择“获取支持”。 
+* 通过 [Azure 论坛](https://social.msdn.microsoft.com/Forums/zh-cn/home)获取 Azure 专家的解答
+* 如需更多帮助，可以提交 Azure 支持事件。 转到 [Azure 支持站点](https://www.azure.cn/support/)。

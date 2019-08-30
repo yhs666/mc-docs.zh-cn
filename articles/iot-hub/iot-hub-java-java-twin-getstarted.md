@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/04/2017
 ms.author: dobett
-ms.date: 12/31/2018
-ms.openlocfilehash: bb877831ed2eea6985875d6003f478c08c362c65
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.date: 09/02/2019
+ms.openlocfilehash: f7019dc68087949e7748759bf1653d629fa9555c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "66195023"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993611"
 ---
 # <a name="get-started-with-device-twins-java"></a>设备孪生入门 (Java)
 
@@ -41,13 +41,15 @@ ms.locfileid: "66195023"
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-twin-shared-access-policy-text](../../includes/iot-hub-howto-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-custom-connection-string](../../includes/iot-hub-include-find-custom-connection-string.md)]
 
 ## <a name="create-the-service-app"></a>创建服务应用
 
@@ -75,7 +77,7 @@ ms.locfileid: "66195023"
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
+    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-service-client**。
 
 1. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
@@ -110,7 +112,7 @@ ms.locfileid: "66195023"
     import java.util.Set;
     ```
 
-1. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为在“创建 IoT 中心”部分记下的 IoT 中心连接字符串：
+9. 将以下类级变量添加到 **App** 类。 将 `{youriothubconnectionstring}` 替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -208,7 +210,9 @@ ms.locfileid: "66195023"
 
 1. 生成 **add-tags-query** 应用并更正任何错误。 在命令提示符下，导航到 `add-tags-query` 文件夹并运行以下命令：
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-device-app"></a>创建设备应用
 
@@ -216,7 +220,9 @@ ms.locfileid: "66195023"
 
 1. 在命令提示符下使用以下命令，在 `iot-java-twin-getstarted` 文件夹中创建名为 **simulated-device** 的 Maven 项目。 请注意，这是一条很长的命令：
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
 2. 在命令提示符下，导航到 `simulated-device` 文件夹。
 
@@ -231,7 +237,7 @@ ms.locfileid: "66195023"
     ```
 
     > [!NOTE]
-    > 可以使用 [Maven 搜索](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
+    > 可以使用 [Maven 搜索](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22)检查是否有最新版本的 **iot-device-client**。
 
 4. 在 **dependencies** 节点后添加以下 **build** 节点。 此配置指示 Maven 使用 Java 1.8 来生成应用：
 
@@ -266,7 +272,7 @@ ms.locfileid: "66195023"
     import java.util.Scanner;
     ```
 
-8. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值：
+8. 将以下类级变量添加到 **App** 类。 将 `{youriothubname}` 替换为 IoT 中心名称，将 `{yourdevicekey}` 替换为在“创建设备标识”部分中生成的设备密钥值： 
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.cn;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -346,7 +352,9 @@ ms.locfileid: "66195023"
 
 15. 生成 **simulated-device** 应用并更正任何错误。 在命令提示符下，导航到 `simulated-device` 文件夹并运行以下命令：
 
-     `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>运行应用
 
@@ -354,7 +362,9 @@ ms.locfileid: "66195023"
 
 1. 在 `add-tags-query` 文件夹中的命令提示符下，运行以下命令以运行 **add-tags-query** 服务应用：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![Java IoT 中心服务应用会更新标记值并运行设备查询](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
@@ -362,13 +372,17 @@ ms.locfileid: "66195023"
 
 1. 在 `simulated-device` 文件夹中的命令提示符下，运行以下命令将 **connectivityType** 报告属性添加到设备孪生：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![设备客户端会添加 **connectivityType** 报告属性](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
 1. 在 `add-tags-query` 文件夹中的命令提示符下，再次运行以下命令以运行 **add-tags-query** 服务应用：
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
     ![Java IoT 中心服务应用会更新标记值并运行设备查询](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 

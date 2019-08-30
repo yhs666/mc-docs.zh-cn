@@ -5,6 +5,7 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f32fb0c082f034cec24a68e81f087433dea66a0b
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 168070e62f63050cbb1cbfd1d9a79ee853e087a9
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818158"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989702"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>使用适用于容器的 Azure Monitor 了解 AKS 群集性能 
 借助适用于容器的 Azure Monitor，可以使用性能图表和运行状况从两个角度（直接从 AKS 群集查看，或是从 Azure Monitor 查看订阅中的所有 AKS 群集）查看 Azure Kubernetes 服务 (AKS) 群集的工作负载。 在监视特定 AKS 群集时，还可以查看 Azure 容器实例 (ACI)。
@@ -40,6 +41,78 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 登录到 [Azure 门户](https://portal.azure.cn)。 
 
+## <a name="multi-cluster-view-from-azure-monitor"></a>从 Azure Monitor 获得的多群集视图
+
+若要查看已部署的所有 AKS 群集的运行状况，请在 Azure 门户的左窗格中选择“监视”。   在“见解”部分，选择“容器”。    
+
+![Azure Monitor 多群集仪表板示例](./media/container-insights-analyze/azmon-containers-multiview.png)
+
+在“受监视的群集”选项卡上，可以了解以下情况： 
+
+1. 多少群集处于严重或不正常状态？多少群集处于正常或未报告状态（也称未知状态）？
+2. 我的所有 [Azure Kubernetes 引擎（AKS 引擎）](https://github.com/Azure/aks-engine)部署是否都正常？
+3. 每个群集部署了多少节点、用户和系统 Pod？
+4. 多少磁盘空间可用？是否有容量问题？
+
+包含的运行状况有： 
+
+* **正常** - VM 没有检测到任何问题，并且按要求运行。 
+* **严重** - 检测到一个或多个严重问题，需要解决这些问题才能按预期还原正常操作状态。
+* **警告** - 检测到一个或多个需要解决的问题，不解决这些问题可能会导致运行状况变得严重。
+* **未知** - 如果服务无法与节点或 Pod 建立连接，则状态将更改为未知状态。
+* **找不到** - 工作区、资源组或包含此解决方案的工作区的订阅已删除。
+* **未授权** - 用户没有读取工作区中的数据所需的权限。
+*  - 尝试从工作区中读取数据时发生错误。
+* **配置不正确** - 未在指定工作区中正确配置适用于容器的 Azure Monitor。
+* **没有数据** - 在过去 30 分钟内未向工作区报告数据。
+
+在进行运行状况计算时，会将这三种状况中“最差”的一种视为群集的总体状况，唯一的例外是  - 如果这三种状况中的任何一种为“未知”，则群集总体状况会显示为“未知”。    
+
+下表提供了计算明细，该计算控制多群集视图中受监视群集的运行状况。
+
+| |状态 |可用性 |  
+|-------|-------|-----------------|  
+|**用户 Pod**| | |  
+| |Healthy |100% |  
+| |警告 |90 - 99% |  
+| |关键 |<90% |  
+| |Unknown |如果未在过去 30 分钟报告 |  
+|**系统 Pod**| | |  
+| |Healthy |100% |
+| |警告 |不适用 |
+| |关键 |<100% |
+| |Unknown |如果未在过去 30 分钟报告 |
+|**Node** | | |
+| |Healthy |>85% |
+| |警告 |60 - 84% |
+| |关键 |<60% |
+| |Unknown |如果未在过去 30 分钟报告 |
+
+在群集列表中，可以通过单击群集名称向下钻取到“群集”页，  通过单击该特定群集的“节点”列中的节点汇总向下钻取到“节点”性能页，   或者通过单击“用户 Pod”或“系统 Pod”列的汇总向下钻取到“控制器”性能页。      
+
+## <a name="view-performance-directly-from-an-aks-cluster"></a>直接从 AKS 群集查看性能
+
+可以直接从 AKS 群集访问适用于容器的 Azure Monitor，只需从左窗格中选择“见解”即可。  分四个视角查看有关 AKS 群集的信息：
+
+- 群集
+- Nodes 
+- 控制器  
+- 容器
+
+单击“见解”时打开的默认页为“群集”，其中包括四个性能折线图，显示群集的主要性能指标   。 
+
+![“群集”选项卡上的性能图表示例](./media/container-insights-analyze/containers-cluster-perfview.png)
+
+性能图表显示四个性能指标：
+
+- **节点 CPU 利用率&nbsp;%** ：从聚合视角反映整个群集的 CPU 利用率。 若要筛选出相关结果的时间范围，可通过图表上的百分位选择器选择“Avg”、“Min”、“Max”、“50th”、“90th”、“95th”（单选或复选均可）       。 
+- **节点内存利用率&nbsp;%** ：提供整个群集的内存利用率的聚合视角。 若要筛选出相关结果的时间范围，可通过图表上的百分位选择器选择“Avg”、“Min”、“Max”、“50th”、“90th”、“95th”（单选或复选均可）       。 
+- **节点计数**：Kubernetes 提供的节点计数和状态。 表示的群集节点状态为“全部”、“就绪”和“未就绪”，可通过图表上的选择器单独筛选或以组合方式进行筛选    。 
+- **活动 Pod 计数**：Kubernetes 提供的 Pod 计数和状态。 表示的 Pod 状态为“全部”、“挂起”、“正在运行”和“未知”，可通过图表上的选择器单独筛选或以组合方式进行筛选     。 
+
+可以使用向左键/向右键循环浏览图表上的每个数据点，使用向上键/向下键循环显示百分位线。 单击其中任一图表右上角的图钉图标会将所选图表固定到你上次查看的最后一个 Azure 仪表板。 在仪表板中，可以调整图表大小及其位置。 在仪表板中选择图表会将你重定向到用于容器的 Azure Monitor，并加载正确的作用域和视图。
+
+适用于容器的 Azure Monitor 也支持 Azure Monitor [指标资源管理器](../platform/metrics-getting-started.md)。在该管理器中，你可以创建自己的绘图图表、将趋势相关联并对其进行调查，以及将内容固定到仪表板。 在指标资源管理器中，还可以使用所设置的条件将指标可视化为[基于指标的警报规则](../platform/alerts-metric.md)的基础。  
 
 ## <a name="view-container-metrics-in-metrics-explorer"></a>在指标资源管理器中查看容器指标
 在指标资源管理器中，可以通过适用于容器的 Azure Monitor 查看聚合的节点和 Pod 利用率指标。 下表汇总了详细信息，这些信息有助于你了解如何使用指标图表来可视化容器指标。
@@ -203,19 +276,33 @@ Azure Monitor 提供一个多群集视图，显示在订阅中跨资源组部署
 | ![“已终止”状态图标](./media/container-insights-analyze/containers-terminated-icon.png) | 成功停止或无法停止|  
 | ![“已失败”状态图标](./media/container-insights-analyze/containers-failed-icon.png) | “已失败”状态 |  
 
-## <a name="disk-capacity-workbook"></a>磁盘容量工作簿
+## <a name="workbooks"></a>工作簿
+
 工作簿可将文本、 [日志查询](../log-query/query-language.md)、[指标](../platform/data-platform-metrics.md)和参数合并到丰富的交互式报表中。 有权访问相同 Azure 资源的其他团队成员都可编辑工作簿。
 
-用于容器的 Azure Monitor 包含一个用于入门的工作簿：“磁盘容量”。   该工作簿在容器中为每个提供给节点的磁盘提供包含以下方面内容的交互式磁盘使用情况图表：
+用于容器的 Azure Monitor 包含四个用于入门的工作簿：
 
-- 所有磁盘的磁盘百分比使用情况
-- 所有磁盘的可用磁盘空间
-- 一个表，为每个节点磁盘显示其已使用空间百分比、已使用空间趋势百分比、可用磁盘空间 (GiB)，以及可用磁盘空间趋势 (GiB)。 选择表中的某个行时，会在下面显示已使用空间百分比和可用磁盘空间 (GiB) 
+- **磁盘容量**：在容器中为每个提供给节点的磁盘提供包含以下方面内容的交互式磁盘使用情况图表：
 
-访问此工作簿的方法是从“查看工作簿”下拉列表选择“磁盘容量”。    
+    - 所有磁盘的磁盘百分比使用情况
+    - 所有磁盘的可用磁盘空间
+    - 一个网格，为每个节点磁盘显示其已使用空间百分比、已使用空间趋势百分比、可用磁盘空间 (GiB)，以及可用磁盘空间趋势 (GiB)。 选择表中的某个行时，会在下面显示已使用空间百分比和可用磁盘空间 (GiB) 
+
+- **磁盘 IO**：在容器中为每个提供给节点的磁盘提供包含以下方面内容的交互式磁盘使用率图表：
+
+    - 跨所有磁盘按读取字节数/秒、写入字节数/秒以及读取和写入字节数/秒趋势汇总的磁盘 I/O 
+    - 八个显示关键性能指标的性能图表，用于度量和标识磁盘 I/O 瓶颈。
+
+- **Kubelet**：包括两个显示关键节点操作统计信息的网格：
+
+    - 节点网格的概览汇总了每个节点的总操作数、总错误数、成功的操作数（按百分比），以及趋势。
+    - 操作类型概览汇总了每个操作的总操作数、总错误数、成功的操作数（按百分比），以及趋势。
+
+- **网络**：提供每个节点网络适配器的交互式网络使用率图表，并提供一个表示关键性能指标的网格，用于度量网络适配器的性能。  
+
+访问这些工作簿的方法是从“查看工作簿”下拉列表中选择每个工作簿。   
 
 ![“查看工作簿”下拉列表](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
-
 
 ## <a name="next-steps"></a>后续步骤
 - 请查看[使用用于容器的 Azure Monitor 创建性能警报](container-insights-alerts.md)，了解如何针对高 CPU 和内存利用率创建警报以支持 DevOps 或操作流程和过程。 

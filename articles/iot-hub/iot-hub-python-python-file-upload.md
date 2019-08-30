@@ -9,17 +9,17 @@ ms.devlang: python
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 01/22/2019
-ms.date: 03/04/2019
+origin.date: 07/30/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 56c54f64907b201978d616ab467f1c5ac87db2ac
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: e88aa40a47ce75cb6c8157fa10261df8d8859571
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514462"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993592"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-python"></a>使用 IoT 中心将文件从设备上传到云 (Python)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -37,15 +37,11 @@ ms.locfileid: "68514462"
 
 * FileUpload.py，该应用使用 Python 设备 SDK 将文件上传到存储中  。
 
-> [!NOTE]
-> IoT 中心通过 Azure IoT 设备 SDK 来支持许多设备平台和语言（包括 C、.NET、Javascript、Python 和 Java）。 有关如何将设备连接到 Azure IoT 中心的分步说明，请参阅 [Azure IoT 开发人员中心](/develop/iot)。
+[!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-要完成本教程，需要以下各项：
+下面是必备组件的安装说明。
 
-* [Python 2.x 或 3.x][lnk-python-download]。 请确保根据安装程序的要求，使用 32 位或 64 位安装。 在安装过程中出现提示时，请确保将 Python 添加到特定于平台的环境变量中。 如果使用 Python 2.x，则可能需要[安装或升级 pip  - Python 包管理系统][lnk-install-pip]。
-* 如果使用 Windows OS，则请安装 [Visual C++ 可再发行组件包](https://www.microsoft.com/download/confirmation.aspx?id=48145)，以便使用 Python 中的本机 DLL。
-* 有效的 Azure 帐户。 （如果没有帐户，只需几分钟即可创建一个[免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。）
-* Azure 帐户中的 IoT 中心，具有用于测试文件上传功能的设备标识。 
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

@@ -5,20 +5,21 @@ services: azure-monitor
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 08/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5a1d071eabd4431a84a605aed511b8ffe0d99ed8
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 7fc297a979a25a2a838c3d6db0864abf3ecd62c1
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513793"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989603"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>用于容器的 Azure Monitor 概述
 
@@ -40,16 +41,16 @@ ms.locfileid: "68513793"
 * 配置警报，以便在节点或容器上的 CPU 和内存使用率超出阈值时主动通知你或将其记录下来。
 * 与 [Prometheus](https://prometheus.io/docs/introduction/overview/) 集成，以使用[查询](container-insights-log-search.md)查看从节点和 Kubernetes 收集的应用程序和工作负荷指标，以创建自定义警报、仪表板和详细的执行详细分析。
 
->[!NOTE]
->目前，对 Prometheus 的支持是公共预览版中的一项功能。
->
+    >[!NOTE]
+    >目前，对 Prometheus 的支持是公共预览版中的一项功能。
+    >
 
 ## <a name="how-do-i-access-this-feature"></a>如何访问此功能？
 可以通过两种方式访问用于容器的 Azure Monitor：从 Azure Monitor 访问或直接从所选 AKS 群集访问。 在 Azure Monitor 中可以从全局角度查看已部署的所有容器（受到监视的容器和未受监视的容器），从而可以跨订阅和资源组进行搜索和筛选，然后从所选容器钻取到用于容器的 Azure Monitor。  否则，可以直接从 AKS 页上选定的 AKS 容器访问该功能。  
 
 ![访问用于容器的 Azure Monitor 的方法概述](./media/container-insights-overview/azmon-containers-experience.png)
 
-如果想要监视和管理 Docker 和 Windows 容器主机以查看配置、审核和资源利用率，请参阅[容器监视解决方案](../../azure-monitor/insights/containers.md)。
+如果有兴趣监视和管理在 AKS 外部运行的 Docker 和 Windows 容器主机以查看配置、审核和资源利用率，请参阅[容器监视解决方案](../../azure-monitor/insights/containers.md)。
 
 ## <a name="next-steps"></a>后续步骤
 若要开始监视 AKS 群集，请查看[如何为容器启用 Azure Monitor](container-insights-onboard.md) 以了解启用监视的要求和可用方法。  

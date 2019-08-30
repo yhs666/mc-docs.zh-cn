@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 03/16/2018
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: b38117570bebe547d065ec47cff6bf3d13d52428
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 21dca3e2bd28f59cbfc3402a1d6cf5feae9121b7
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502622"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993566"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>在 Azure 自动化中启动 Runbook
 
@@ -28,16 +28,20 @@ ms.locfileid: "59502622"
 | [Azure 自动化 API](https://docs.microsoft.com/rest/api/automation/) |<li>最有弹性的方法，但也最复杂。<br> <li>从任何可发出 HTTP 请求的自定义代码调用。<br> <li>使用证书或 OAuth 用户主体/服务主体对请求进行身份验证。<br> <li>提供简单和复杂的参数值。 *如果正在使用 API 调用 Python runbook，则必须序列化 JSON 有效负载。*<br> <li>跟踪作业状态。 |
 | [Webhook](automation-webhooks.md) |<li>从单个 HTTP 请求启动 Runbook。<br> <li>使用 URL 中的安全令牌进行身份验证。<br> <li>客户端无法替代创建 Webhook 时指定的参数值。 Runbook 可以定义填入了 HTTP 请求详细信息的单个参数。<br> <li>无法通过 Webhook URL 跟踪作业状态。 |
 | [响应 Azure 警报](../azure-monitor/platform/alerts-overview.md) |<li>启动 Runbook 以响应 Azure 警报。<br> <li>为 Runbook 配置 webhook 并链接到警报。<br> <li>使用 URL 中的安全令牌进行身份验证。 |
-| [计划](automation-schedules.md) |<li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 门户、PowerShell cmdlet 或 Azure API 来操作计划。<br> <li>提供与计划配合使用的参数值。 |
+| [计划](automation-schedules.md) |<li>按每小时、每天、每周或每月计划自动启动 Runbook。<br> <li>通过 Azure 门户、PowerShell cmdlet 或 Azure API 来操作计划。<br> <li>提供与计划配置使用的参数值。 |
 | [从另一个 Runbook](automation-child-runbooks.md) |<li>将一个 Runbook 作为另一个 Runbook 中的活动使用。<br> <li>对多个 Runbook 使用的功能很有用。<br> <li>为子 Runbook 提供参数值，并使用父 Runbook 中的输出。 |
+
+下图演示了 Runbook 生命周期的详细分步过程。 它包括在 Azure 自动化中启动 Runbook 的不同方式、混合 Runbook 辅助角色执行 Azure 自动化 Runbook 所需的组件以及不同组件之间的交互方式。 若要了解如何在数据中心执行自动化 Runbook，请参阅[混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)
+
+![Runbook 体系结构](media/automation-starting-runbook/runbooks-architecture.png)
 
 ## <a name="start-a-runbook-with-the-azure-portal"></a>使用 Azure 门户启动 Runbook
 
-1. 在 Azure 门户中，选择“自动化”，并单击自动化帐户的名称。
-2. 在“中心”菜单中选择“Runbook”。
-3. 在“Runbook”页上，选择 Runbook 并单击“启动”。
+1. 在 Azure 门户中，选择“自动化”  ，并单击自动化帐户的名称。
+2. 在“中心”菜单中选择“Runbook”。 
+3. 在“Runbook”页上，选择 Runbook 并单击“启动”   。
 4. 如果 Runbook 包含参数，则系统会提示在文本框中提供每个参数的值。 有关参数的详细信息，请参阅 [Runbook 参数](#runbook-parameters)。
-5. 在“作业”页上，可以查看 runbook 作业的状态。
+5. 在“作业”  页上，可以查看 runbook 作业的状态。
 
 ## <a name="start-a-runbook-with-powershell"></a>使用 PowerShell 启动 Runbook
 
@@ -81,7 +85,7 @@ Azure 自动化 Web 服务将为使用特定数据类型的参数提供特殊功
 
 ### <a name="named-values"></a>命名值
 
-如果参数的数据类型为 [object]，则可以使用以下 JSON 格式向它发送命名值列表：{Name1:'Value1', Name2:'Value2', Name3:'Value3'}。 这些值必须使用简单类型。 Runbook 以 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject) 的形式接收参数，该对象的属性对应于每个命名值。
+如果参数的数据类型为 [object]，则可以使用以下 JSON 格式向它发送命名值列表：{Name1:'Value1', Name2:'Value2', Name3:'Value3'}  。 这些值必须使用简单类型。 Runbook 以 [PSCustomObject](https://docs.microsoft.com/dotnet/api/system.management.automation.pscustomobject) 的形式接收参数，该对象的属性对应于每个命名值。
 
 请考虑以下接受名为 user 的参数的测试 Runbook。
 
@@ -118,7 +122,7 @@ Smith
 
 ### <a name="arrays"></a>数组
 
-如果参数是数组（如 [array] 或 [string[]]），则可以使用以下 JSON 格式向它发送值列表：*[Value1,Value2,Value3]*。 这些值必须使用简单类型。
+如果参数是数组（如 [array] 或 [string[]]），则可以使用以下 JSON 格式向它发送值列表： *[Value1,Value2,Value3]* 。 这些值必须使用简单类型。
 
 请考虑以下接受名为 *user*的参数的测试 Runbook。
 
@@ -182,5 +186,6 @@ jsmith
 
 ## <a name="next-steps"></a>后续步骤
 
-* 本文中的 Runbook 体系结构提供了在 Azure 中管理资源的 Runbook 的高级概述。
+* 本文中的 Runbook 体系结构提供了在本地和 Azure 中使用混合 Runbook 辅助角色管理资源的 Runbook 的高级概述。 若要了解如何在数据中心执行自动化 Runbook，请参阅 [混合 Runbook 辅助角色](automation-hybrid-runbook-worker.md)。
 * 若要详细了解如何创建模块化 Runbook，供其他 Runbook 用于特定或常用函数，请参阅[子 Runbook](automation-child-runbooks.md)。
+* 有关 PowerShell 的详细信息（包括语言参考和学习模块），请参阅 [PowerShell 文档](https://docs.microsoft.com/en-us/powershell/scripting/overview)。

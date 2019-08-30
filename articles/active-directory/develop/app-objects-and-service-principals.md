@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/13/2019
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ebb6e0ebe9c3750e2262053df73a5bc08a3acd7
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: c72bd548219f697ff666aaf1e98ca350852ec6b6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568536"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993231"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory 中的应用程序对象和服务主体对象
 
@@ -84,7 +84,7 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 - **Contoso** - Contoso 组织使用的租户，即 **HR 应用**的使用者
 - **Fabrikam** - Fabrikam 组织使用的租户，它也使用 **HR 应用**
 
-![应用程序对象与服务主体对象之间的关系](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![应用对象与服务主体对象之间的关系](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 在此示例方案中：
 
@@ -107,4 +107,4 @@ Azure AD 应用程序由其唯一一个应用程序对象来定义，该对象�
 [MS-Graph-Sp-Entity]: https://docs.microsoft.com/graph/api/resources/serviceprincipal
 [AZURE-Portal]: https://portal.azure.cn
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 04/26/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f7add6d75c44973ee94e9805953137fa136e08e
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 319c3f987c73228724e3ecca5f2078a8dfbf0422
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972948"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993121"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>使用条件访问配置身份验证会话管理
 
@@ -40,7 +40,7 @@ Azure Active Directory (Azure AD) 的默认用户登录频率配置为 90 天滚
 
 不要求用户在 90 天内重新登录看似不安全，但实际上，任何违反 IT 策略的行为都会导致会话吊销。 部分示例包括（但不限于）密码更改、设备不合规或禁用帐户。 也可以[使用 PowerShell 显式吊销用户会话](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)。 Azure AD 的默认配置是“如果用户会话的安全状况未发生变化，则不要求用户提供其凭据”。
 
-登录频率设置适用于已根据标准实现了 OATH2 或 OIDC 协议的应用。 大多数适用于 Windows、Mac 和 Mobile 的 Microsoft 本机应用都符合该设置。
+登录频率设置适用于已根据标准实现了 OAUTH2 或 OIDC 协议的应用。 大多数适用于 Windows、Mac 和 Mobile 的 Microsoft 本机应用都符合该设置。
 
 ## <a name="persistence-of-browsing-sessions"></a>浏览会话的持久性
 
@@ -103,3 +103,4 @@ Azure Active Directory (Azure AD) 的默认用户登录频率配置为 90 天滚
 * 若要了解如何配置条件访问策略，请参阅[通过 Azure Active Directory 条件访问要求特定应用必须使用 MFA](app-based-mfa.md) 一文。
 * 如果已准备好针对环境配置条件访问策略，请参阅 [Azure Active Directory 中条件访问的最佳做法](best-practices.md)一文。
 
+<!-- Update_Description: wording update -->

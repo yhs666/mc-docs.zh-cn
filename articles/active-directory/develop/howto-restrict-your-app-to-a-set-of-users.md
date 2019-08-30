@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 09/24/2018
-ms.date: 06/24/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49f0d634ece7d7a1f856c044cd3497eb0d4c0b77
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: a93b30012129c51d349af0c7cbfec4eaf348a51a
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568475"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993216"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>如何：将应用限制为一组用户
 
@@ -46,10 +46,12 @@ ms.locfileid: "67568475"
 
 ## <a name="update-the-app-to-enable-user-assignment"></a>更新应用，允许用户分配
 
+### <a name="enterprise-applications-requires-the-global-adminstrator-role"></a>企业应用程序（需要全局管理员角色）
+
 1. 转到 [**Azure 门户**](https://portal.azure.cn/)，以“全局管理员”身份登录。 
 1. 在顶栏中选择登录的帐户。 
 1. 在“目录”下  ，选择要在其中注册应用的 Azure AD 租户。
-1. 在左侧导航栏中，选择“Azure Active Directory”。  如果 Azure Active Directory 在导航窗格中不可用，则请执行以下步骤：
+1. 在左侧导航栏中，选择“Azure Active Directory”。  如果 Azure Active Directory 在导航窗格中不可用，请执行以下步骤：
 
     1. 在左侧的主导航菜单顶部选择“所有服务”。 
     1. 在筛选器搜索框中键入“Azure Active Directory”  ，然后从结果中选择“Azure Active Directory”  项。
@@ -60,8 +62,10 @@ ms.locfileid: "67568475"
      如果看不到希望其显示在这里的应用程序，请使用“所有应用程序”列表顶部的各种筛选器来限制此列表，或者在列表中向下滚动，以便找到应用程序。 
 
 1. 从列表中选择要向其分配用户或安全组的应用程序。
-1. 在应用程序的“概览”页中，从应用程序的左侧导航菜单中选择“属性”   。
+1. 在应用程序的“概述”页上，从应用程序的左侧导航菜单中选择“属性”   。
 1. 找到设置“需要进行用户分配?”，将其设置为“是”。   将此选项设置为“是”时，必须先将用户分配到此应用程序，然后用户才能访问它。 
+1. 选择“保存”  以保存此配置更改。
+
 1. 选择“保存”  以保存此配置更改。
 
 ## <a name="assign-users-and-groups-to-the-app"></a>将用户和组分配到应用
@@ -79,4 +83,4 @@ ms.locfileid: "67568475"
 1. 确认已添加的用户和组显示在更新的“用户和组”列表中。 
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

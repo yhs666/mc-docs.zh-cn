@@ -6,14 +6,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 04/01/2018
-ms.date: 03/18/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 0de610153f6571627d91d3729fbf7965424971ef
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 09a08184d8b0756c8d48d0f5922161ace7718c65
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627044"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993038"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Azure IoT SDK 平台支持
 
@@ -94,7 +94,7 @@ Microsoft 支持各种操作系统/平台/框架，后者可以通过 Azure IoT 
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 调制解调器     | [Qualcomm LTE for IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk)（用于 IoT SDK 的 Qualcomm LTE） | [论坛](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
 | ST Microelectronics | STM32L4 系列 <br/> STM32F4 系列 <br/>  STM32F7 系列 <br/>  用于 IoT 节点的 STM32L4 发现包    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [支持](https://www.st.com/content/st_com/en/support/support-home.html)
-| Texas Instruments   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [适用于 SimpleLink 的 Azure IoT 插件](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 论坛](https://e2e.ti.com) <br/> [CC3220 的 TI E2E 论坛](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4 的 TI E2E 论坛](https://e2e.ti.com/support/microcontrollers/msp430/) |
+| Texas Instruments   | CC3220SF LaunchPad </br> CC3220S LaunchPad </br> CC3235SF LaunchPad </br> CC3235S LaunchPad </br> MSP432E4 LaunchPad | [适用于 SimpleLink 的 Azure IoT 插件](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E 论坛](https://e2e.ti.com) <br/> [CC3220 的 TI E2E 论坛](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [MSP432E4 的 TI E2E 论坛](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
 
 

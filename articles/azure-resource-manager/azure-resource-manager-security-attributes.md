@@ -1,20 +1,20 @@
 ---
-title: Azure 资源管理器的常见安全属性
-description: 用于评估 Azure 资源管理器的常见安全属性的清单
+title: Azure 资源管理器的安全属性
+description: 用于评估 Azure 资源管理器的安全属性的清单
 services: azure-resource-manager
 author: rockboyfor
 manager: digimobile
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc8ed4797f346f2a526679af260125de7d69cf79
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 9b296a053d7a75a9302f81843566144e55a0fa34
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337295"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993581"
 ---
 # <a name="security-attributes-for-azure-resource-manager"></a>Azure 资源管理器的安全属性
 
@@ -26,8 +26,8 @@ ms.locfileid: "68337295"
 
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
-| 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>| 是 |  |
-| 传输中加密：<ul><li>快速路由加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 是 | HTTPS/TLS。 |
+| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能）| 是 |  |
+| 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 是 | HTTPS/TLS。 |
 | 加密密钥处理（CMK、BYOK 等）| 不适用 | Azure 资源管理器不存储客户内容，仅存储控制数据。 |
 | 列级加密（Azure 数据服务）| 是 | |
 | 加密的 API 调用| 是 | |

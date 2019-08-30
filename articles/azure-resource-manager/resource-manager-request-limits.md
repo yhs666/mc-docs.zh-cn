@@ -5,19 +5,19 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/09/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 3ffa322e20742f04bac24d58f48070219412bf5f
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 01a9f49ece3c8d68822060a1b45c63a1f1d6bf49
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337391"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993455"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 
-对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制的范围是发出请求的安全主体（用户或应用程序）和订阅 ID 或租户 ID。 如果请求来自多个安全主体，则在整个订阅或租户中实施的限制大于每小时 12,000 个和 1,200 个。
+对于每个 Azure 订阅和租户，资源管理器最多允许每小时 12,000 个读取请求和每小时 1,200 个写入请求。 这些限制的范围是发出请求的安全主体（用户或应用程序）和订阅 ID 或租户 ID。 如果请求来自多个安全主体，则对订阅或租户的限制大于每小时 12,000 个和每小时 1,200 个。
 
 请求将应用到订阅或租户。 订阅请求是需要传递订阅 ID 的请求，例如在订阅中检索资源组。 租户请求不包括订阅 ID，例如，检索有效的 Azure 位置。
 

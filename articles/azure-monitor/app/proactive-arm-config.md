@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.workload: tbd
@@ -13,12 +14,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 381ef84d4e6af9e894a2d088f63efe57460c4e2b
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: b8fa625a72c35919d17949e6703f358983df47bd
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969665"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989326"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>使用 Azure 资源管理器模板管理 Application Insights 智能检测规则
 
@@ -175,7 +176,7 @@ ms.locfileid: "68969665"
 下表列出了门户中显示的智能检测规则名称，以及应在 Azure 资源管理器模板中为这些规则使用的内部名称。
 
 > [!NOTE]
-> 标记为“预览”的智能检测规则不支持电子邮件通知。 因此，只能为这些规则设置已启用的属性。 
+> 标记为“预览”  的智能检测规则不支持电子邮件通知。 因此，只能为这些规则设置“已启用”  属性。 
 
 | Azure 门户规则名称 | 内部名称
 |:---|:---|

@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/20/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
@@ -12,14 +13,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4ff9db5bc548ed27b2792db97a6f466e19a4f664
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 47d833ee50d7b65b1fb87b07706ce4ca492ccfcb
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562684"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989692"
 ---
-# <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>在运行时使用 Application Insights 状态监视器检测 Web 应用
+# <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>在运行时使用 Application Insights 无代码附加检测 Web 应用
 
 无需修改或重新部署代码，即可使用 Azure Application Insights 检测实时 Web 应用。 需要[世纪互联 Azure](https://www.azure.cn) 订阅。
 
@@ -63,7 +64,7 @@ ms.locfileid: "67562684"
 2. 如果尚未安装 Application Insights 状态监视器，请[下载并运行安装程序](#download)
 3. 在状态监视器中，选择已安装的 Web 应用程序或者要监视的网站。 使用 Azure 凭据登录。
 
-    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 [Web 测试][availability]or [client monitoring][client]，请选择现有资源。） 
+    配置资源，以便在其中通过 Application Insights 门户查看结果。 （通常情况下，最好是创建新的资源。 如果已针对此应用进行了 [Web 测试][availability]或[客户端监视][client]，请选择现有资源。） 
 
     ![选择应用和资源。](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -185,7 +186,7 @@ Start-ApplicationInsightsMonitoring -Name appName -InstrumentationKey 00000000-0
 * Windows server 2012 R2
 * Windows Server 2016
 
-（装有最新 SP 及 .NET Framework 4.5）
+装有最新 SP 及 .NET Framework 4.5（状态监视器基于此版本的 Framework 构建）
 
 在客户端：对于 Windows 7、8、8.1 和 10，同样需要安装 .NET Framework 4.5
 
@@ -317,7 +318,7 @@ IIS 支持的是：IIS 7、7.5、8、8.5（IIS 是必需的）
 
 * [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况
 * [搜索事件和日志][diagnostic]以诊断问题
-* [分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询
+* [分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询
 
 添加更多遥测：
 

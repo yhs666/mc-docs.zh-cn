@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 06/03/2019
+ms.date: 08/21/2019
 ms.author: v-jay
-ms.openlocfilehash: 171722ca1377770f293a66897bc9aa7c3a1ff0c8
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: a0eb1efc6c58ff0ba5c8b836b79dae7e20bb21e3
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390763"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667657"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>使用 Azure 门户配置内容保护策略
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 > [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。

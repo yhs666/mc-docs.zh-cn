@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20f0bbb28129439da849b04fc52123fc4ce2a217
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 1888449b223d9fc7b5441d7fdec91dc5aba81082
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513879"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989645"
 ---
 # <a name="how-do-i--in-application-insights"></a>如何在 Application Insights 中执行...？
 ## <a name="get-an-email-when-"></a>... 时收到电子邮件
@@ -134,16 +135,25 @@ ms.locfileid: "68513879"
 ## <a name="disable-telemetry"></a>禁用遥测
 **动态停止和启动**从服务器收集与传输遥测数据：
 
-```
+### <a name="aspnet-classic-applications"></a>ASP.NET 经典应用程序
 
+```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
+### <a name="other-applications"></a>其他应用程序
+建议不要在控制台或 ASP.NET Core 应用程序中使用 `TelemetryConfiguration.Active` 单一实例。
+如果自行创建了 `TelemetryConfiguration` 实例，请将 `DisableTelemetry` 设置为 `true`。
 
+对于 ASP.NET Core 应用程序，可以使用 [ASP.NET Core 依赖项注入](/aspnet/core/fundamentals/dependency-injection/)来访问 `TelemetryConfiguration` 实例。 请在[适用于 ASP.NET Core 应用程序的 Application Insights](../../azure-monitor/app/asp-net-core.md)一文中找到更多详细信息。
 
-若要**禁用选定的标准收集器**（例如性能计数器、HTTP 请求或依赖项），请删除或注释掉 [ApplicationInsights.config](../../azure-monitor/app/api-custom-events-metrics.md) 中的相关行。例如，如果想要发送自己的 TrackRequest 数据，则可以这样做。
+## <a name="disable-selected-standard-collectors"></a>禁用选定的标准收集器
+可以禁用标准收集器（例如，性能计数器、HTTP 请求或依赖项）
+
+* **ASP.NET 应用程序** - 删除或注释掉 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 中的相关行
+* **ASP.NET Core 应用程序** - 按照 [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules) 中的遥测模块配置选项进行操作
 
 ## <a name="view-system-performance-counters"></a>查看系统性能计数器
 可以在指标资源管理器中显示的指标信息是一组系统性能计数器。 有一个标题为“服务器”的预定义边栏选项卡显示了其中的多个计数器。 

@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
@@ -13,12 +14,12 @@ ms.date: 6/4/2019
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 17cb3747b3275322d087d4cb59da6778f36a6f97
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 040bc191718376a5eb3185b31116345baada361d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562645"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989617"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights 使用分析
 
@@ -132,11 +133,11 @@ Web 或移动应用有哪些最热门的功能？ 用户是否使用应用实现
 
 在 Application Insights 门户中根据属性值筛选和拆分数据，以便比较不同的版本。
 
-为此，请[设置遥测初始值设定项](../../azure-monitor/app/api-filtering-sampling.md##add-properties-itelemetryinitializer)：
+为此，请[设置遥测初始值设定项](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)：
+
+**ASP.NET 应用**
 
 ```csharp
-
-
     // Telemetry initializer class
     public class MyTelemetryInitializer : ITelemetryInitializer
     {
@@ -155,8 +156,24 @@ Web 或移动应用有哪些最热门的功能？ 用户是否使用应用实现
     {
         // ...
         TelemetryConfiguration.Active.TelemetryInitializers
-        .Add(new MyTelemetryInitializer());
+         .Add(new MyTelemetryInitializer());
     }
+```
+
+**ASP.NET Core 应用**
+
+> [!NOTE]
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+
+对于 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
 ```
 
 所有新的 TelemetryClient 会自动添加指定的属性值。 单个遥测事件可以替代默认值。

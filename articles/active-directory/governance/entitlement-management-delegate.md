@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 origin.date: 07/10/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc86d75338783adfe801c6a2180997cda9776c08
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: a238f632bb6c79ccb5d74799a26af77382d71ee2
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972827"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993355"
 ---
 # <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中委托任务
 
@@ -87,7 +87,7 @@ ms.locfileid: "68972827"
 | [将目录所有者或访问包管理者添加到目录](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
 | [在目录中创建新的访问包](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
 | [管理访问包中的资源角色](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [指定谁可以请求访问包](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [创建和编辑策略](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [直接将用户分配到访问包](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [查看谁有访问包的分配](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [查看访问包的请求](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
@@ -137,7 +137,7 @@ ms.locfileid: "68972827"
 
 若要委托目录或目录中访问包的管理权限，请将用户添加到目录所有者或访问包管理者角色。 创建目录的任何人将成为第一个目录所有者。 遵循以下步骤将用户分配到目录所有者或访问包管理者角色。
 
-**必备角色：** 用户管理员或目录所有者
+**必备角色：** 全局管理员、用户管理员或目录所有者
 
 1. 在 Azure 门户中，依次单击“Azure Active Directory”、“标识监管”。  
 
@@ -154,3 +154,4 @@ ms.locfileid: "68972827"
 - [添加审批者](entitlement-management-access-package-edit.md#policy-request)
 - [将资源添加到目录](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
 
+<!-- Update_Description: wording update -->

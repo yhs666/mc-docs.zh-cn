@@ -10,13 +10,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/15/2018
 ms.author: v-yiso
-ms.date: 07/15/2019
-ms.openlocfilehash: bc5fbe66a1698a33dd80a8129ea10556c8ebaac7
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.date: 09/02/2019
+ms.openlocfilehash: 8542b4a2c960169a08e7cc3bfa280fd5e78c7c49
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569999"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993052"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>从 IoT 中心发送云到设备的消息
 
@@ -46,7 +46,7 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
 
 * 放弃消息，这会使 IoT 中心将消息放回队列，并将状态设置为“已排队”   。 通过 MQTT 协议连接的设备无法放弃云到设备的消息。
 
-线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在可见性超时（或锁定超时）之后，消息从不可见状态自动转换回已排队状态     。 此超时的默认值为一分钟。
+线程可能无法处理消息，且不通知 IoT 中心。 在此情况下，在可见性超时（或锁定超时）之后，消息从不可见状态自动转换回已排队状态     。 此超时的值为一分钟，无法更改。
 
 消息可以在“已排队”与“不可见”状态之间转换的次数，以 IoT 中心上“最大传送计数”属性中指定的次数为上限    。 在该转换次数之后，IoT 中心会将消息的状态设置为“死信”  。 同样，IoT 中心也会在消息的到期时间之后，将消息的状态设置为“死信”  。 有关详细信息，请参阅[生存时间](#message-expiration-time-to-live)。
 
@@ -123,6 +123,12 @@ IoT 中心服务向设备发送消息时，该服务会将消息状态设置为�
   ...
 ]
 ```
+
+**所删除设备的待处理反馈**
+
+删除设备时，也会删除任何待处理的反馈。 设备反馈是成批发送的。 如果在设备确认收到消息和准备下一个反馈批次之间的窄窗口（通常少于 1 秒）内删除设备，则不会发生反馈。
+
+可以通过等待一段时间让待处理的反馈在删除设备之前到达来解决此问题。 删除设备后，应认为相关消息反馈丢失。
 
 ## <a name="cloud-to-device-configuration-options"></a>云到设备的配置选项
 

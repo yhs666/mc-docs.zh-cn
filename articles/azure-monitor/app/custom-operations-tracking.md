@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/20/2019
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
@@ -12,12 +13,12 @@ ms.topic: conceptual
 ms.date: 6/4/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 3005a35407e22cef8bd01a8b83ef9e7c86a44438
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: db19ab30a690b95f81ad39467d4ab83d13040272
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818364"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989671"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>使用 Application Insights .NET SDK 跟踪自定义操作
 
@@ -51,7 +52,10 @@ Application Insights Web SDK 自动收集 ASP.NET 应用程序（在 IIS 管道�
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
 {
-    private readonly TelemetryClient telemetryClient = new TelemetryClient(TelemetryConfiguration.Active);
+    // you may create a new TelemetryConfiguration instance, reuse one you already have
+    // or fetch the instance created by Application Insights SDK.
+    private readonly TelemetryConfiguration telemetryConfiguration = TelemetryConfiguration.CreateDefault();
+    private readonly TelemetryClient telemetryClient = new TelemetryClient(telemetryConfiguration);
     
     public ApplicationInsightsMiddleware(OwinMiddleware next) : base(next) {}
 
@@ -207,20 +211,7 @@ public async Task Process(BrokeredMessage message)
 以下示例显示如何跟踪 [Azure 存储队列](../../storage/queues/storage-dotnet-how-to-use-queues.md)操作，并将生成者、使用者和 Azure 存储之间的遥测相关联。 
 
 存储队列具有一个 HTTP API。 用于 HTTP 请求的 Application Insights Dependency Collector 会跟踪对该队列的所有调用。
-请确保在 `applicationInsights.config` 中有 `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer`。 如果没有，则按 [Azure Application Insights SDK 中的筛选和预处理](../../azure-monitor/app/api-filtering-sampling.md)中所述以编程方式添加。
-
-如果手动配置 Application Insights，请确保创建并初始化 `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`，如下所示：
- 
-```csharp
-DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
-
-// You can prevent correlation header injection to some domains by adding it to the excluded list.
-// Make sure you add a Storage endpoint. Otherwise, you might experience request signature validation issues on the Storage service side.
-module.ExcludeComponentCorrelationHttpHeadersOnDomains.Add("core.chinacloudapi.cn");
-module.Initialize(TelemetryConfiguration.Active);
-
-// Do not forget to dispose of the module during application shutdown.
-```
+它在 ASP.NET 和 ASP.NET Core 应用程序上默认配置。使用其他类型的应用程序时，可参阅[控制台应用程序文档](../../azure-monitor/app/console.md)
 
 用户可能还想将 Application Insights 操作 ID 与存储请求 ID 相关联。 有关如何设置与获取存储请求客户端和服务器请求 ID 的信息，请参阅[对 Azure 存储进行监视、诊断和故障排除](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing)。
 
@@ -494,6 +485,13 @@ public async Task RunAllTasks()
     await Task.WhenAll(task1, task2);
 }
 ```
+
+## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>ApplicationInsights 操作与 System.Diagnostics.Activity
+`System.Diagnostics.Activity` 表示分布式跟踪上下文，可供框架和库用于在进程内外创建和传播上下文，并关联遥测项。 活动与 `System.Diagnostics.DiagnosticSource` 配合使用，后者是框架/库之间的通知机制，用于通知有趣的事件（传入或传出请求、异常等）。
+
+活动是 Application Insights 中的“一类公民”，自动依赖项和请求集合特别依赖它们和 `DiagnosticSource` 事件。 如果在应用程序中创建活动，则不会创建 Application Insights 遥测。 Application Insights 需要接收 DiagnosticSource 事件并了解事件名称和有效负载，然后才能将活动转换为遥测。
+
+每项 Application Insights 操作（请求或依赖）都涉及 `Activity` - 调用 `StartOperation` 时，它会在下面创建活动。 `StartOperation` 是建议的方法，用于手动跟踪请求或依赖项遥测，并确保一切都已关联。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: analysis-services
 ms.topic: conceptual
 origin.date: 04/26/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: fe21dccd38583d09af0941f8de911631039e45d1
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: befbfce1d991818e3c6fa14d1411613b5f0c86c6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308862"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993542"
 ---
 # <a name="refresh-with-logic-apps"></a>使用逻辑应用进行刷新
 
@@ -67,7 +67,7 @@ ms.locfileid: "68308862"
 |属性  |Value  |
 |---------|---------|
 |**方法**     |POST         |
-|**URI**     | https://*服务器区域*/servers/*aas 服务器名称*/models/*数据库名称*/ <br /> <br /> 例如：https:\//chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWorks/|
+|**URI**     | https://服务器区域  /servers/aas 服务器名称  /models/数据库名称  /refreshes <br /> <br /> 例如：https:\//chinanorth.asazure.chinacloudapi.cn/servers/myserver/models/AdventureWorks/refreshes|
 |**标头**     |   Content-Type、application/json <br /> <br />  ![标头](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**正文**     |   若要详细了解如何构建请求正文，请参阅[使用 REST API - POST /refreshes 执行异步刷新](analysis-services-async-refresh.md#post-refreshes)。 |
 |**身份验证**     |Active Directory OAuth         |

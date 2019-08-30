@@ -9,21 +9,21 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/10/2019
-ms.date: 06/17/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01dcccfd1df8666addde8d3c436af289aef7f54e
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: c75e0684257f33ec91701c42fdd19725c075da3a
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305911"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993264"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS 与 ADAL JS 的差异
 
@@ -60,13 +60,13 @@ ms.locfileid: "67305911"
 
     v2.0 协议在请求中使用范围而不是资源。 换而言之，当应用程序需要使用某个资源（例如 MS Graph）的权限请求令牌时，传递给库方法的值的差异如下：
 
-    v1.0：resource=https://microsoftgraph.chinacloudapi.cn
+    v1.0：resource = https\://microsoftgraph.chinacloudapi.cn
 
-    v2.0：scope = https://microsoftgraph.chinacloudapi.cn/User.Read
+    v2.0：scope = https\://microsoftgraph.chinacloudapi.cn/User.Read
 
     可以使用 API 的 URI 按“应用 ID URI/范围”格式请求任何资源 API 的范围。例如：https:\//mytenant.partner.onmschina.cn/myapi/api.read
 
-    仅对于 MS Graph API 而言，范围值 `user.read` 将映射到 `https://microsoftgraph.chinacloudapi.cn/User.Read`，并且两者可以换用。
+    仅对于 MS Graph API 而言，范围值 `user.read` 将映射到 https://microsoftgraph.chinacloudapi.cn/User.Read ，并且两者可以换用。
 
     ```javascript
     var request = {
@@ -103,3 +103,4 @@ ms.locfileid: "67305911"
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请阅读 [v1.0 与 v2.0 的比较](azure-ad-endpoint-comparison.md)。
 
+<!-- Update_Description: wording update -->

@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/22/2019
-ms.date: 06/24/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 540b809346fe94f0930519a2f1a87ffb11db6fbb
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 213872f5b17d851f0a0fa657728f3fce081e9f23
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568483"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993219"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>如何：使用多租户应用程序模式让任何 Azure Active Directory 用户登录
 
@@ -107,7 +107,7 @@ Web 应用程序和 Web API 接收并验证 Microsoft 标识平台发送的令�
 
 对于多租户应用程序，应用程序的初始注册过程是在开发人员使用的 Azure AD 租户中进行的。 当来自不同租户的用户首次登录应用程序时，Azure AD 会要求他们同意应用程序所请求的权限。 如果他们同意，系统将在用户的租户中创建一个称为“服务主体”  的应用程序表示形式，然后登录即可继续进行。 系统还会在记录用户对应用程序的同意意向的目录中创建委托。 有关应用程序的 Application 和 ServicePrincipal 对象以及它们之间关系的详细信息，请参阅[应用程序对象和服务主体对象][AAD-App-SP-Objects]。
 
-![同意单层应用][Consent-Single-Tier]
+![说明如何同意单层应用][Consent-Single-Tier]
 
 这种同意体验受应用程序请求的权限的影响。 Microsoft 标识平台支持两种类型的权限：仅限应用的权限和委托的权限。
 
@@ -120,7 +120,7 @@ Web 应用程序和 Web API 接收并验证 Microsoft 标识平台发送的令�
 
 仅限应用的权限始终需要租户管理员的同意。 如果应用程序请求仅限应用的权限，当用户尝试登录应用程序时，会显示一条错误消息，指出该用户无法同意。
 
-有些委托的权限也需要租户管理员的同意。 例如，若要能够以登录用户身份写回 Azure AD，就需要租户管理员的同意。 与仅限应用的权限一样，如果普通用户尝试登录请求委托权限的应用程序，而该权限需要管理员同意，则应用程序会收到错误。 权限是否需要管理员同意是由发布资源的开发人员决定的，可以在该资源的文档中找到相关信息。 [Azure AD Graph API][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] 的权限文档指示哪些权限需要管理员同意。
+有些委托的权限也需要租户管理员的同意。 例如，若要能够以登录用户身份写回 Azure AD，就需要租户管理员的同意。 与仅限应用的权限一样，如果普通用户尝试登录请求委托权限的应用程序，而该权限需要管理员同意，则应用程序会收到错误。 权限是否需要管理员同意是由发布资源的开发人员决定的，可以在该资源的文档中找到相关信息。 [Azure AD Graph API][AAD-Graph-Perm-Scopes] 和 [Microsoft Graph API][MSFT-Graph-permission-scopes] 的权限文档指示哪些权限需要管理员同意。
 
 如果应用程序使用需要管理员同意的权限，你需要提供某种表示，例如可供管理员发起操作的按钮或链接。 应用程序针对此操作发送的请求是一个普通的 OAuth2/OpenID Connect 授权请求，但此请求同时也包含 `prompt=admin_consent` 查询字符串参数。 在管理员同意且系统已在客户的租户中创建服务主体之后，后续登录请求就不再需要 `prompt=admin_consent` 参数。 由于管理员已确定可接受请求的权限，因此从该时间点之后，不再提示租户中的任何其他用户同意。
 
@@ -145,7 +145,7 @@ Web 应用程序和 Web API 接收并验证 Microsoft 标识平台发送的令�
 
 在本文末尾的[相关内容](#related-content)部分的多层本机客户端调用 Web API 示例中对此进行了演示。 下图针对在单个租户中注册的多层应用提供了同意概览。
 
-![同意已知的多层客户端应用][Consent-Multi-Tier-Known-Client]
+![说明如何同意已知的多层客户端应用][Consent-Multi-Tier-Known-Client]
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>多个租户中的多个层
 
@@ -160,7 +160,7 @@ Web 应用程序和 Web API 接收并验证 Microsoft 标识平台发送的令�
 
 下图针对在不同租户中注册的多层应用提供了同意概览。
 
-![同意多层多方应用][Consent-Multi-Tier-Multi-Party]
+![说明如何同意多层多方应用][Consent-Multi-Tier-Multi-Party]
 
 ### <a name="revoking-consent"></a>撤销同意
 

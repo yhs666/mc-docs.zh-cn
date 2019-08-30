@@ -11,15 +11,15 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 10/19/2018
-ms.date: 05/20/2019
+origin.date: 7/17/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: f2300fc6bf9f68493c83c740c68ed49c2c13a285
-ms.sourcegitcommit: 11d81f0e4350a72d296e5664c2e5dc7e5f350926
+ms.openlocfilehash: 176f8268c00f4aa8fe471c03d5c4cd95869be3d6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65731977"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993564"
 ---
 # <a name="load-balancer-outbound-rules"></a>负载均衡器出站规则
 
@@ -46,7 +46,7 @@ ms.locfileid: "65731977"
 
 **前端** + **参数** + **后端池**
 
-出站规则为后端池识别的、要转换为前端的所有虚拟机配置出站 NAT。  参数针对出站 NAT 算法提供更精细的控制。
+出站规则为后端池识别的、要转换为前端的所有虚拟机配置出站 NAT。    参数针对出站 NAT 算法提供更精细的控制。 
 
 API 版本“2018-07-01”允许按如下所示构建出站规则定义：
 
@@ -209,7 +209,7 @@ disableOutboundSNAT 参数默认为 false，这意味着，负载均衡规则**�
 - 可配置的出站空闲超时范围为 4 到 120 分钟（240 到 7200 秒）。
 - 负载均衡器不支持将 ICMP 用于出站 NAT。
 - 不能使用门户来配置或查看出站规则。  请改为使用模板、REST API、Az CLI 2.0 或 PowerShell。
-- 出站规则只能应用于主 NIC 和主 IP 配置。
+- 出站规则只能应用于 NIC 的主 IP 配置。  支持多个 NIC。
 
 ## <a name="next-steps"></a>后续步骤
 

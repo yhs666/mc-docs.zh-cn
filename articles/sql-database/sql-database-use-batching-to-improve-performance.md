@@ -13,12 +13,12 @@ ms.reviewer: genemi
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 04/08/2019
-ms.openlocfilehash: 52a113c376dbb75cba1ab2d41fc6600a41546424
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.openlocfilehash: cc8b4b8594311e6f088d6974de9a35512b62d9f8
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003516"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578544"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>如何使用批处理来改善 SQL 数据库应用程序的性能
 
@@ -34,7 +34,7 @@ ms.locfileid: "59003516"
 * SQL 数据库的多租户特征意味着数据访问层的效率与数据库的总体缩放性关联。 SQL 数据库必须防止任何单个租户/用户独占数据库资源，从而对其他租户不利。 在使用量超过预定义的配额时，SQL 数据库可减小吞吐量或引发限制异常。 一些提高效率的措施（如批处理），允许你在达到这些配额前在 SQL 数据库上做更多的工作。 
 * 批处理对于使用多个数据库或联合的体系结构也很有效（分片）。 与每个数据库单位的交互效率仍是影响总体伸缩性的关键因素。 
 
-使用 SQL 数据库的一个好处是不必管理用于托管数据库的服务器。 但是，这个托管的基础结构也意味着必须重新考虑数据库优化。 你将不再致力于改进数据库硬件或网络基础结构。 Microsoft Azure 将控制这些环境。 你可以控制的主要方面是应用程序如何与 SQL 数据库交互。 批处理就是这些优化措施之一。 
+使用 SQL 数据库的一个好处是不必管理用于托管数据库的服务器。 但是，这个托管的基础结构也意味着必须重新考虑数据库优化。 你将不再致力于改进数据库硬件或网络基础结构。 Azure 将控制这些环境。 你可以控制的主要方面是应用程序如何与 SQL 数据库交互。 批处理就是这些优化措施之一。 
 
 本文的第一部分比较了使用 SQL 数据库的 .NET 应用程序可用的各种批处理方法。 最后两个部分介绍批处理准则和方案。
 
@@ -43,7 +43,7 @@ ms.locfileid: "59003516"
 ### <a name="note-about-timing-results-in-this-article"></a>请注意本文中的执行时间结果
 
 > [!NOTE]
-> 结果并不是基准，而是用于显示**相对性能**。 计时基于至少运行 10 次测试后的平均值。 操作将插入空表。 这些测试会在 V12 以前的版本中测量，不一定对应于在使用新 [DTU 服务层](sql-database-service-tiers-dtu.md)或 [vCore 服务层](sql-database-service-tiers-vcore.md)的 V12 数据库中可能获得的吞吐量。 批处理技术的相对优势应该类似。
+> 结果并不是基准，而是用于显示**相对性能**。 计时基于至少运行 10 次测试后的平均值。 操作将插入空表。 这些测试会在 V12 以前的版本中测量，不一定对应于在使用新 [DTU 服务层级](sql-database-service-tiers-dtu.md)或 [vCore 服务层级](sql-database-service-tiers-vcore.md)的 V12 数据库中可能获得的吞吐量。 批处理技术的相对优势应该类似。
 
 ### <a name="transactions"></a>事务
 
@@ -106,7 +106,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Azure 到 Azure（同一数据中心）**：
+**Azure 到 Azure（同一数据中心）** ：
 
 | 操作 | 无事务（毫秒） | 事务（毫秒） |
 | --- | --- | --- |

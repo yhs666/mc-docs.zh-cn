@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: nodejs
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0cb683abbaabcc5926bc53ffa4e6027d2f267bc9
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 7ecd1c4fbef5a4b7a406e78181291c6f4a4e527d
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562690"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989688"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>使用 Application Insights 监视 Node.js 服务和应用
 
@@ -35,7 +36,7 @@ Node.js SDK 可以自动监视传入和传出的 HTTP 请求、异常和某些�
 
 ### <a name="prerequisites"></a>先决条件
 
-开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]. If your organization already has an Azure subscription, an administrator can follow [these instructions][add-aad-user]以将你添加到其中。
+开始之前，请确保拥有 Azure 订阅，否则请[获取一个新的试用版][azure-free-offer]。 如果组织已经拥有 Azure 订阅，管理员可以按照[这些说明][add-aad-user]将你添加到该订阅。
 
 [azure-free-offer]: https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth
 [add-aad-user]: https://docs.azure.cn/zh-cn/active-directory/fundamentals/add-users-azure-active-directory

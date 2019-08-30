@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: c5b489f737f6a4670c48afd076b7666453f86c0e
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.openlocfilehash: ff431292226d39556b3819f9d0bb603dd31e82bb
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731189"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989433"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure 诊断扩展配置架构版本和历史记录
 此页为世纪互联 Azure SDK 附带的 Azure 诊断扩展架构版本编制了索引。  
@@ -187,7 +187,7 @@ Azure 诊断扩展可以与其他 Azure 诊断产品（例如 Azure Monitor，�
 
 * 在 Azure SDK 2.4 及更早版本中，诊断插件在运行时使用连接字符串获取用于传输诊断日志的存储帐户信息。
 * 在 Azure SDK 2.6 及更高版本中，Visual Studio 在发布过程中通过诊断连接字符串使用相应的存储帐户信息来配置诊断扩展。 借助连接字符串，可以为 Visual Studio 在发布时使用的不同服务配置定义不同的存储帐户。 但是，因为诊断插件已不再可用（在 Azure SDK 2.5 之后），.cscfg 文件本身不能启用诊断扩展。 必须通过工具（如 Visual Studio 或 PowerShell）单独启用扩展。
-* 为了简化使用 PowerShell 配置诊断扩展的过程，Visual Studio 的程序包输出还包含每个角色的诊断扩展的公共配置 XML。 Visual Studio 使用诊断连接字符串来填充公共配置中存在的存储帐户信息。 公共配置文件在“扩展”文件夹中创建，并遵循模式 PaaSDiagnostics<RoleName>.PubConfig.xml。 任何基于 PowerShell 的部署都可以使用此模式将每个配置映射到角色。
+* 为了简化使用 PowerShell 配置诊断扩展的过程，Visual Studio 的程序包输出还包含每个角色的诊断扩展的公共配置 XML。 Visual Studio 使用诊断连接字符串来填充公共配置中存在的存储帐户信息。 公共配置文件在“扩展”文件夹中创建，并遵循模式 `PaaSDiagnostics.<RoleName>.PubConfig.xml`。 任何基于 PowerShell 的部署都可以使用此模式将每个配置映射到角色。
 * .cscfg 文件中的连接字符串还由 Azure 门户用于访问诊断数据，使这些数据可以显示在“监视”选项卡中。  需要连接字符串才能配置服务，从而在门户中显示详细监视数据。
 
 #### <a name="migrating-projects-to-azure-sdk-26-and-later"></a>将项目迁移到 Azure SDK 2.6 和更高版本

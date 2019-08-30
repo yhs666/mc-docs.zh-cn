@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/19/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: f618d466c0ff4f7b19dfae96a138bcd6eca43e8e
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 2dd6b7d128e8a30fad96af5e694a773c34068fa4
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390759"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670992"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>使用 Apple FairPlay 或 Microsoft PlayReady 保护 HLS 内容
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 > [!NOTE]
 > 若要完成本教程，需要一个 Azure 帐户。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
@@ -43,6 +46,10 @@ ms.locfileid: "66390759"
 
 本文演示如何使用媒体服务通过 Apple FairPlay 动态加密 HLS 内容。 它还演示了如何使用媒体服务许可证传送服务将 FairPlay 许可证传送到客户端。
 
+> [!NOTE]
+> 如果还想使用 PlayReady 加密 HLS 内容，则需要创建通用的内容密钥并将其与资产相关联。 还需要配置内容密钥的授权策略，如[使用 PlayReady 动态通用加密](media-services-protect-with-playready-widevine.md)中所述。
+>
+>
 
 ## <a name="requirements-and-considerations"></a>要求和注意事项
 
@@ -112,13 +119,6 @@ ms.locfileid: "66390759"
    * 动态加密类型（常用的 CBC 加密）。
    * 许可证获取 URL。
 
-     > [!NOTE]
-     > 如果要传送使用 FairPlay 和其他数字版权管理 (DRM) 系统加密的流，则必须配置单独的传送策略：
-     >
-     > * 一个 IAssetDeliveryPolicy，用于使用通用加密 (CENC) (PlayReady) 和 Smooth with PlayReady 配置 HTTP 上的动态自适应流式处理 (DASH)
-     > * 另一个 IAssetDeliveryPolicy 用来配置 HLS 的 FairPlay
-     >
-     >
 6. 创建 OnDemand 定位符以获取流式处理 URL。
 
 ## <a name="use-fairplay-key-delivery-by-player-apps"></a>使用播放器应用执行的 FairPlay 密钥传送
@@ -510,7 +510,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

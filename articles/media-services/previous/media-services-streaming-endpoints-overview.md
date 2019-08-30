@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 281da57b625e17654b6ba0674bc17c924e1395e9
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 2cfd114cb8ec0d7f244c00e19257b13f55b4156a
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236466"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69671005"
 ---
 # <a name="streaming-endpoints-overview"></a>流式处理终结点概述  
 
 
 在 Azure 媒体服务 (AMS) 中，**流式处理终结点**代表一个流服务，它可以直接将内容分发给客户端播放器应用程序。 StreamingEndpoint 服务的出站流可以是实时流、视频点播，也可以是媒体服务帐户中进行的渐进式资产下载。 每个 Azure 媒体服务帐户包括一个默认的 StreamingEndpoint。 可以在该帐户下创建其他 StreamingEndpoint。 StreamingEndpoint 有两个版本：1.0 和 2.0。 从 2017 年 1 月 10 日开始，任何新创建的 AMS 帐户都会包括 2.0 版的 **默认** StreamingEndpoint。 添加到该帐户的其他流式处理终结点也会是 2.0 版。 此更改不会影响现有帐户；现有的 StreamingEndpoint 会是 1.0 版，但可以升级到 2.0 版。 此更改将导致行为、计费和功能更改（有关详细信息，请参阅下面所述的**流式处理类型和版本**部分）。
 
-Azure 媒体服务将以下属性添加到流式处理终结点实体：**FreeTrialEndTime**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
+Azure 媒体服务将以下属性添加到流式处理终结点实体：**CdnProvider**、**CdnProfile**、**StreamingEndpointVersion**。 有关这些属性的详细概述，请参阅 [此文](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint)。 
 
 用户创建 Azure 媒体服务帐户时，将为用户创建一个处于“已停止”  状态的默认标准流式处理终结点。 无法删除默认流式处理终结点。  
                 
@@ -80,16 +80,13 @@ Azure 媒体服务将以下属性添加到流式处理终结点实体：**FreeTr
 
 功能|标准|高级
 ---|---|---
-前 15 天免费 <sup>1</sup>| 是 |否
 按比例计费| 每日|每日
 动态加密|是|是
 动态打包|是|是
 缩放|自动扩展到目标吞吐量。|额外流单元。
-IP 筛选/G20/自定义主机 <sup>2</sup>|是|是
+IP 筛选/G20/自定义主机|是|是
 渐进式下载|是|是
 建议的用法 |建议用于绝大多数的流式处理方案。|专业用途。 
-
-<sup>1</sup> 免费试用仅适用于新创建的媒体服务帐户和默认的流式处理终结点。<br/>
 
 有关 SLA 的信息，请参阅[定价和 SLA](https://azure.cn/pricing/details/media-services/)。
 

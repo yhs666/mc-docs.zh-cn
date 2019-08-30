@@ -4,15 +4,15 @@ description: 介绍了可在 Azure Resource Manager 模板中用来处理字符�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 04/08/2019
-ms.date: 07/22/2019
+origin.date: 07/31/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4c1bd14864184f9370e85f60c5b314081e4a867b
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 162edf21ca3240390c24be498b44a7c2e6983e2a
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337289"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993546"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的字符串函数
 
@@ -724,7 +724,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 ### <a name="remarks"></a>备注
 
-使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](https://docs.microsoft.com/zh-cn/dotnet/api/system.string.format) 方法相同。
+使用此函数来为模板中的字符串设置格式。 此函数使用的格式设置选项与 .NET 中的 [System.String.Format](https://docs.microsoft.com//dotnet/api/system.string.format) 方法相同。
 
 ### <a name="examples"></a>示例
 
@@ -1014,13 +1014,13 @@ Resource Manager 提供以下用于处理字符串的函数：
 
 `length(string)`
 
-返回字符串中的字符数，或数组中的元素数。
+返回字符串中的字符数、数组中的元素数或对象中的根级属性数。
 
 ### <a name="parameters"></a>parameters
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| arg1 |是 |数组或字符串 |用于获取元素数的数组，或用于获取字符数的字符串。 |
+| arg1 |是 |数组、字符串或对象 |用于获取元素数的数组、用于获取字符数的字符串，或用于获取根级属性数的对象。 |
 
 ### <a name="return-value"></a>返回值
 
@@ -1046,6 +1046,18 @@ Resource Manager 提供以下用于处理字符串的函数：
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1057,6 +1069,10 @@ Resource Manager 提供以下用于处理字符串的函数：
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1068,6 +1084,7 @@ Resource Manager 提供以下用于处理字符串的函数：
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
+| objectLength | int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -2071,7 +2088,7 @@ URI 编码值的解码后字符串。
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| format |否 |string |要转换为字符串的 URI 编码值。 使用[标准格式字符串](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/zh-cn/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
+| format |否 |string |要转换为字符串的 URI 编码值。 使用[标准格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)或[自定义格式字符串](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)。 |
 
 ### <a name="remarks"></a>备注
 

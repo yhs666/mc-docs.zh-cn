@@ -8,16 +8,16 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 origin.date: 06/28/2017
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: 116172381b9b653c89e07fefcfdfae170cbc80bd
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: f2710128074635cda6a945a8167150394bafd795
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514464"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993604"
 ---
-# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>使用 IoT 中心将文件从设备上传到云
+# <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-nodejs"></a>使用 IoT 中心将文件从设备上传到云 (Node.js)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -116,6 +116,12 @@ ms.locfileid: "68514464"
 
 1. 将一个图像文件复制到 `simulateddevice` 文件夹并将其重命名为 `myimage.png`。
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+在本文中，你将创建一项后端服务，用于从你在[将遥测数据从设备发送到 IoT 中心](quickstart-send-telemetry-node.md)中创建的 IoT 中心接收文件上传通知消息。 若要接收文件上传通知消息，服务需要“服务连接”权限。  默认情况下，每个 IoT 中心都使用名为 **service** 的共享访问策略创建，该策略授予此权限。
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## <a name="receive-a-file-upload-notification"></a>接收文件上传通知
 
 本部分中的操作将会创建一个 Node.js 控制台应用，用于接收来自 IoT 中心的文件上传通知消息。
@@ -144,7 +150,7 @@ ms.locfileid: "68514464"
     var Client = require('azure-iothub').Client;
     ```
 
-1. 添加 `iothubconnectionstring` 变量，并使用它创建一个客户端  实例。  将 `{iothubconnectionstring}` 替换为在  “创建 IoT 中心”部分中创建的 IoT 中心的连接字符串：
+5. 添加 `iothubconnectionstring` 变量，并使用它创建一个客户端  实例。  将 `{iothubconnectionstring}` 占位符值替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串：
 
     ```javascript
     var connectionString = '{iothubconnectionstring}';

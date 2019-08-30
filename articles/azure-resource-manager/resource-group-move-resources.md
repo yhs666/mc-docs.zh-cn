@@ -4,15 +4,15 @@ description: 使用 Azure Resource Manager 将资源移到新的资源组或订�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/09/2019
-ms.date: 07/22/2019
+origin.date: 08/19/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 030d6fb061a48f18b9de850f650f1bd84aa44490
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 6ef447b7f4b487c30edb7f62ec3f07194ef38b32
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337452"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993504"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>将资源移到新的资源组或订阅
 
@@ -31,12 +31,19 @@ ms.locfileid: "68337452"
 1. 某些服务在移动资源时有特定的限制或要求。 如果要移动以下任何服务，请在移动之前查看该指南。
 
     * [应用程序服务移动指南](./move-limitations/app-service-move-limitations.md)
+        
         <!--Not Available on * [Azure DevOps Services move guidance](https://docs.microsoft.com/zh-cn/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)-->
-    * [经典部署模型移动指南](./move-limitations/classic-model-move-limitations.md) - 经典计算、经典存储、经典虚拟网络和云服务  <!--Not Available on * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)-->
+    
+    * [经典部署模型移动指南](./move-limitations/classic-model-move-limitations.md) - 经典计算、经典存储、经典虚拟网络和云服务
+    * [网络移动指南](./move-limitations/networking-move-limitations.md)
+        
+        <!--Not Available on * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)-->
+    
     * [虚拟机移动指南](./move-limitations/virtual-machines-move-limitations.md)
-    * [虚拟网络移动指南](./move-limitations/virtual-network-move-limitations.md)
 
-1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/zh-cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”  作为问题类型。
+    如果目标资源组包含虚拟网络，则其依赖资源的状态可以阻止此移动，即使这些资源未涉及移动。 有关详细信息，请参阅[网络移动指南](./move-limitations/virtual-network-move-limitations.md)。
+
+1. 源订阅和目标订阅必须处于活动状态。 如果在启用已禁用的帐户时遇到问题，请[创建 Azure 支持请求](https://support.azure.cn/support/support-azure/?l=zh-cn)。 选择“订阅管理”  作为问题类型。
 
 1. 源订阅与目标订阅必须在同一个 [Azure Active Directory 租户](../active-directory/develop/quickstart-create-new-tenant.md)中。 若要检查这两个订阅是否具有相同的租户 ID，请使用 Azure PowerShell 或 Azure CLI。
 
@@ -57,8 +64,10 @@ ms.locfileid: "68337452"
     如果源订阅和目标订阅的租户 ID 不相同，可使用以下方法协调租户 ID：
 
     * [将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer/)
+        
         <!--MOONCAKE: URL CORRECT ON /billing/billing-subscription-transfer/ -->
-    * 将 Azure 订阅关联或添加到 Azure Active Directory   <!--MOONCAKE: NOT Available on (../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)-->
+        
+    * [如何将 Azure 订阅关联或添加到 Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 1. 必须针对要移动的资源的资源提供程序注册目标订阅。 否则，会收到错误，指明 **未针对资源类型注册订阅**。 将资源移到新的订阅时，可能会看到此错误，但该订阅从未配合该资源类型使用。
 
     对于 PowerShell，请使用以下命令来获取注册状态：
@@ -93,6 +102,24 @@ ms.locfileid: "68337452"
     * 目标资源组上的 Microsoft.Resources/subscriptions/resourceGroups/write  权限。
 
 1. 在移动资源之前，请检查要将资源移动到的订阅的订阅配额。 如果移动资源意味着订阅将超出其限制，则需要检查是否可以请求增加配额。 有关限制的列表及如何请求增加配额的信息，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
+
+1. **若要跨订阅移动，则资源及其依赖资源必须位于同一资源组中，并且必须一起移动。** 例如，如果 VM 带有托管磁盘，则 VM 和托管磁盘以及其他依赖资源必须一起移动。
+
+    如果要将某个资源移到新的订阅，请进行检查，看看该资源是否有任何依赖资源，以及它们是否位于同一资源组中。 如果这些资源不在同一资源组中，请看看能否将这些资源合并成同一资源组。 如果可以，请跨资源组使用一个移动操作，将所有这些资源并入同一资源组。
+
+    有关详细信息，请参阅[跨订阅移动方案](#scenario-for-move-across-subscriptions)。
+
+## <a name="scenario-for-move-across-subscriptions"></a>跨订阅移动方案
+
+将资源从一个订阅移到另一个订阅分为三步：
+
+![跨订阅移动方案](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+为了演示方便，我们只有一个依赖资源。
+
+* 步骤 1：如果依赖资源分布在不同的资源组中，请先将它们移到一个资源组。
+* 步骤 2：将资源和依赖资源一起从源订阅移到目标订阅。
+* 步骤 3：也可将依赖资源重新分布到目标订阅中的不同资源组。 
 
 ## <a name="validate-move"></a>验证移动
 
@@ -188,7 +215,7 @@ Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.Resource
 <a name="use-azure-cli"></a>
 ## <a name="use-azure-cli"></a>使用 Azure CLI
 
-若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/zh-cn/cli/resource?view=azure-cli-latest#az-resource-move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
+若要将现有资源移动到另一个资源组或订阅，请使用 [az resource move](https://docs.azure.cn/cli/resource?view=azure-cli-latest#az-resource-move) 命令。 提供要移动的资源的资源 ID。 下面的示例演示了如何将多个资源移动到新的资源组。 在 `--ids` 参数中，提供要移动的资源 ID 的空格分隔列表。
 
 ```azurecli
 webapp=$(az resource show -g OldRG -n ExampleSite --resource-type "Microsoft.Web/sites" --query id --output tsv)

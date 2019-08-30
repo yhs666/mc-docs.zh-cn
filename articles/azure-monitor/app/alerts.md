@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.reviewer: lagayhar
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
@@ -13,15 +14,15 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3055b1819695d82d2a8a9b915284f515348921c
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.openlocfilehash: 3835ddf01fc9109f56b1ec7e5a0700e7fc2da9c9
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236020"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989529"
 ---
 # <a name="set-alerts-in-application-insights"></a>在 Application Insights 中设置警报
-当 Web 应用中的性能或用法指标发生变化时，[Azure Application Insights][start] 可发出警报。 
+当 Web 应用中的性能或使用情况指标发生变化时，[Azure Application Insights][start] 可发出警报。 
 
 Application Insights 在[各种平台][platforms]上监视实时应用，帮助诊断性能问题和了解使用模式。
 
@@ -29,7 +30,7 @@ Application Insights 在[各种平台][platforms]上监视实时应用，帮助�
 
 * [**指标警报**](../../azure-monitor/platform/alerts-metric-overview.md)：某一指标（例如响应时间、异常计数、CPU 使用率或页面视图）超过某个阈值有一些时间时，此类警报会发出通知。
 * [**日志警报**](../../azure-monitor/platform/alerts-unified-log.md)用于描述警报，其中的警报信号基于自定义的 Kusto 查询。
-* [**Web 测试**][availability]：当站点在 Internet 上不可用或响应缓慢时，它会向用户发送通知。 [了解详细信息][availability]。
+* [**Web 测试**][availability]：当站点在 Internet 上不可用或响应缓慢时，它会通知你。 [了解详细信息][availability]。
 * [**主动诊断**](../../azure-monitor/app/proactive-diagnostics.md)：由系统自动配置，通知出现了异常的性能模式。
 
 ## <a name="set-a-metric-alert"></a>设置指标警报
@@ -84,7 +85,7 @@ Application Insights 在[各种平台][platforms]上监视实时应用，帮助�
 
 常用的警报包括：
 
-* [浏览器指标][client]（尤其是浏览器**页面加载时间**）非常适合用于 web 应用程序。 如果页面包含许多脚本，则应留意浏览器异常  。 若要获取这些指标和警报，必须设置[网页监视][client]。
+* [浏览器指标][client]（尤其是浏览器**页面加载时间**）非常适合用于 Web 应用程序。 如果页面包含许多脚本，则应留意浏览器异常  。 若要获取这些指标和警报，必须设置[网页监视][client]。
 * **服务器响应时间**适合用于 Web 应用程序的服务器端。 还可以设置警报来注意此指标，确定高请求率是否不按比例变化：变化可能表示应用资源不足。 
 * **服务器异常** - 若要查看这些异常，必须执行一些[附加设置](../../azure-monitor/app/asp-net-exceptions.md)。
 

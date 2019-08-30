@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f04f6e67c5714aa8391f993030b9f8418890f7f6
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: f700e0829754f3236264e9cfebb7976642cb35f0
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818338"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989208"
 ---
 # <a name="status-monitor-v2"></a>状态监视器 v2
 
@@ -26,13 +27,11 @@ ms.locfileid: "68818338"
 该模块提供了使用 IIS 托管的 .NET Web 应用的无代码检测。
 遥测数据将发送到 Azure 门户，你可以在其中[监视](/azure-monitor/app/app-insights-overview)应用。
 
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
-
 ## <a name="powershell-gallery"></a>PowerShell 库
 
-PowerShell 库位于此处： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
+状态监视器 v2 位于此处： https://www.powershellgallery.com/packages/Az.ApplicationMonitor 。
+
+![PowerShell 库](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
 ## <a name="instructions"></a>说明
@@ -47,6 +46,7 @@ PowerShell 库位于此处： https://www.powershellgallery.com/packages/Az.Appl
 - [Get-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-get-config.md)
 - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md)
 - [Set-ApplicationInsightsMonitoringConfig](status-monitor-v2-api-set-config.md)
+- [Start-ApplicationInsightsMonitoringTrace](status-monitor-v2-api-start-trace.md)
 
 ## <a name="troubleshooting"></a>故障排除
 - [故障排除](status-monitor-v2-troubleshoot.md)
@@ -63,13 +63,13 @@ PowerShell 库位于此处： https://www.powershellgallery.com/packages/Az.Appl
   
 - 如何验证启用是否成功？
 
-   没有用于验证启用是否成功的 cmdlet。
-我们建议你使用[实时指标](/azure-monitor/app/live-stream)来快速确定应用是否正在发送遥测数据。
+  - [Get-ApplicationInsightsMonitoringStatus](status-monitor-v2-api-get-status.md) cmdlet 可用于验证启用是否成功。
+  - 我们建议你使用[实时指标](https://docs.microsoft.com/azure/azure-monitor/app/live-stream)来快速确定应用是否正在发送遥测数据。
 
-   还可以使用 [Log Analytics](../log-query/get-started-portal.md) 列出当前正在发送遥测数据的所有云角色：
-   ```Kusto
-   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
-   ```
+  - 还可以使用 [Log Analytics](../log-query/get-started-portal.md) 列出当前正在发送遥测数据的所有云角色：
+      ```Kusto
+      union * | summarize count() by cloud_RoleName, cloud_RoleInstance
+      ```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -77,7 +77,7 @@ PowerShell 库位于此处： https://www.powershellgallery.com/packages/Az.Appl
 
 * [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况。
 * [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-* [使用分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询。
+* [使用分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
 * [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
 
 添加更多遥测：

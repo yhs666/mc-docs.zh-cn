@@ -12,13 +12,13 @@ ms.author: v-jay
 ms.reviewer: ''
 manager: digimobile
 origin.date: 12/03/2018
-ms.date: 03/11/2019
-ms.openlocfilehash: 4b03e1be67ab8a4341425a8f38c3aefa1ff6a5d4
-ms.sourcegitcommit: 0ccbf718e90bc4e374df83b1460585d3b17239ab
+ms.date: 08/26/2019
+ms.openlocfilehash: 9c952f8d99c2f7f4abadc3c8064aba3e39ff7574
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57347129"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578543"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>解析迁移到 SQL 数据库的过程中的 Transact-SQL 差异
 
@@ -57,7 +57,7 @@ SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 
 - 高可用性：与通过 Azure 帐户管理的高可用性相关的语法。 这包括备份、还原、Always On、数据库镜像、日志传送、恢复模式的语法。
 - 日志读取器：依赖于在 SQL 数据库上不可用的日志读取器的语法：推送复制、更改数据捕获。 SQL 数据库可以是推送复制项目的订阅服务器。
 - 函数：`fn_get_sql`、`fn_virtualfilestats`、`fn_virtualservernodes`
-- 硬件：与硬件相关的服务器设置（例如，内存、工作线程、CPU 相关性、跟踪标志）有关的语法。 请改用服务层和计算大小。
+- 硬件：与硬件相关的服务器设置（例如，内存、工作线程、CPU 相关性、跟踪标志）有关的语法。 请改用服务层级和计算大小。
 - `KILL STATS JOB`
 - `OPENQUERY`、`OPENROWSET`、`OPENDATASOURCE` 和由四部分构成的名称
 - .NET Framework：CLR 与 SQL Server 集成
@@ -84,7 +84,7 @@ SQL Server 和 Azure SQL 数据库都完全支持应用程序使用的大多数 
 
 ### <a name="about-the-applies-to-tags"></a>有关“适用于”标记
 
-Transact-SQL 参考包含从 SQL Server 2008 到最新版本的相关文章。 文章标题下面有一个图标栏，其中列出了四个 SQL Server 平台，并指明了适用性。 例如，SQL Server 2012 中引入了可用性组。   [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 一文指明该语句适用于 **SQL Server（从版本 2012 开始）**。 该语句不适用于 SQL Server 2008、SQL Server 2008 R2、Azure SQL 数据库、Azure SQL 数据仓库或并行数据仓库。
+Transact-SQL 参考包含从 SQL Server 2008 到最新版本的相关文章。 文章标题下面有一个图标栏，其中列出了四个 SQL Server 平台，并指明了适用性。 例如，SQL Server 2012 中引入了可用性组。  [CREATE AVAILABILITY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) 一文指明该语句适用于 **SQL Server（从版本 2012 开始）** 。 该语句不适用于 SQL Server 2008、SQL Server 2008 R2、Azure SQL 数据库、Azure SQL 数据仓库或并行数据仓库。
 
 在某些情况下，产品中可能使用了某篇文章的常规主旨，但产品之间存在细微差异。 在适当的情况下，我们会在文章的中间位置指出该差异。 在某些情况下，产品中可能使用了某篇文章的常规主旨，但产品之间存在细微差异。 在适当的情况下，我们会在文章的中间位置指出该差异。 例如，CREATE TRIGGER 文章在 SQL 数据库中可用。 但服务器级触发器的 **ALL SERVER** 选项指示不能在 SQL 数据库中使用服务器级触发器。 请改用数据库级触发器。
 

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 05/16/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc126f02b445f9036719f711361402e01965d0d3
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: fb002c2492d42c5701c763ec5c85bac5bde2f7ab
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972955"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993185"
 ---
 # <a name="baseline-policy-end-user-protection-preview"></a>基线策略：最终用户保护（预览版）
 
@@ -33,6 +33,8 @@ ms.locfileid: "68972955"
 ## <a name="recovering-compromised-accounts"></a>恢复遭到入侵的帐户
 
 为帮助保护客户，Microsoft 的已泄漏凭据服务将查找公开提供的用户名/密码对。 如果这些凭据对与我们的某个用户相匹配，我们会立即帮助保护该帐户。 识别为凭据已泄漏的用户将确认为已遭到入侵。 在重置其密码之前，我们会阻止这些用户登录。
+
+分配了 Azure AD Premium 许可证的用户可以通过自助式密码重置 (SSPR) 恢复访问权限（如果在其目录中启用了该功能）。 没有高级许可证而被阻止的用户必须联系管理员，以执行手动密码重置并解除标记的用户风险事件。
 
 ### <a name="steps-to-unblock-a-user"></a>解除阻止用户的步骤
 
@@ -63,11 +65,11 @@ ms.locfileid: "68972955"
 
 若要启用此策略并保护用户：
 
-1. 以全局管理员、安全管理员或条件访问管理员的身份登录到  **Azure 门户**。
+1. 以全局管理员、安全管理员或条件访问管理员的身份登录 **Azure 门户**。
 1. 浏览到“Azure Active Directory”   > “条件访问”  。
 1. 在策略列表中选择“基线策略:  最终用户保护(预览版)”。
 1. 将“启用策略”设置为“立即使用策略”。  
-1. 单击“保存”。 ****
+1. 单击“保存”  。
 
 ## <a name="next-steps"></a>后续步骤
 

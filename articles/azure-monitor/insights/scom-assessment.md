@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 49aad8b1-3e05-4588-956c-6fdd7715cda1
 ms.service: log-analytics
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4324d93101e1df8a25ac6be14336b30ab7a3618c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: c3369a5c70cca862144e8697ccff97d0688f8525
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514059"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989663"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>使用 System Center Operations Manager 运行状况检查（预览版）解决方案优化环境
 
@@ -157,7 +158,7 @@ System Center Operations Manager 运行状况检查解决方案的管理包中�
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>为特定的管理服务器启用规则
 
-1. 在 Operations Manager 操作控制台的“创作”工作区的“规则”窗格中，搜索规则“Microsoft System Center Advisor SCOM 评估运行评估规则”。   
+1. 在 Operations Manager Operations 控制台的“创作”工作区的“规则”窗格中，搜索规则“Microsoft System Center Operations Manager 运行运行状况检查规则”。   
 2. 在搜索结果中，选择包含文本“类型:  管理服务器”的规则。
 3. 右键单击该规则，并单击“重写” > “对于类为管理服务器的特定对象”   。
 4.  在可用管理服务器列表中，选择要在其上运行该规则的管理服务器。  这应该是前面配置的，要与运行方式帐户关联的同一个管理服务器。

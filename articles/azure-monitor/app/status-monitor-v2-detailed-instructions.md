@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
 ms.workload: tbd
@@ -12,22 +13,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 793cc8b6a1b5dca1387476c11bf0d89d2ebd2a73
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fd1b8901a0d7b5cda27c6ad6e7c13e7700f5524c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818340"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989543"
 ---
 # <a name="status-monitor-v2-detailed-instructions"></a>状态监视器 v2：详细说明
 
 本文介绍如何载入到 PowerShell 库和下载 ApplicationMonitor 模块。
-它介绍了开始使用此服务所需的最常用参数。
-它还提供了在无法访问 Internet 时的手动操作说明。
-
-> [!IMPORTANT]
-> 状态监视器 v2 目前为公共预览版。
-> 此预览版在提供时没有附带服务级别协议，我们不建议将其用于生产工作负荷。 有些功能可能不受支持，有些功能可能受到限制。
+包含了开始使用所需的最常见参数。
+我们还提供了手动下载说明，以防你无法访问 Internet。
 
 ## <a name="get-an-instrumentation-key"></a>获取检测密钥
 
@@ -35,11 +32,10 @@ ms.locfileid: "68818340"
 
 ## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>以管理员身份使用提升的执行策略运行 PowerShell
 
-**以管理员身份运行**
+### <a name="run-as-admin"></a>以管理员身份运行
 
 PowerShell 需要拥有管理员级别的权限才能对计算机进行更改。
-
-**执行策略**
+### <a name="execution-policy"></a>执行策略
 - 说明:默认禁用 PowerShell 脚本的运行。 我们建议仅允许在当前范围运行 RemoteSigned 脚本。
 - 参考：[关于执行策略](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6)和 [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
@@ -241,7 +237,7 @@ Application Insights SDK 需要将应用的遥测数据发送给 Microsoft。 �
 
 - [浏览指标](../../azure-monitor/app/metrics-explorer.md)，以便监视性能和使用情况。
 - [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)以诊断问题。
-- [使用分析](../../azure-monitor/app/analytics.md)，以便进行更高级的查询。
+- [使用分析](../../azure-monitor/log-query/log-query-overview.md)，以便进行更高级的查询。
 - [创建仪表板](../../azure-monitor/app/overview-dashboard.md)。
 
  添加更多遥测：

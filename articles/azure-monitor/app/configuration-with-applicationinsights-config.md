@@ -5,25 +5,27 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
+originate.date: 08/20/2019
 ms.date: 6/4/2019
 ms.reviewer: olegan
 ms.author: v-lingwu
-ms.openlocfilehash: 5a4ee5fe3181bce728d15618b3a8b2ff1d4bf04d
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: f3d8af276dd64908ac8d6e6fbd91d87312b6bfda
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562710"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989677"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>使用 ApplicationInsights.config 或 .xml 配置 Application Insights SDK
 Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://www.nuget.org/packages/Microsoft.ApplicationInsights)提供 API，用于将遥测数据发送到 Application Insights。 [其他包](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)提供遥测*模块*和*初始值设定项*，用于自动从应用程序及其上下文跟踪遥测。 可以通过调整配置文件来启用或禁用遥测模块和初始值设定项并为其设置参数。
 
-配置文件名为 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，具体取决于应用程序的类型。 [安装大多数版本的 SDK][start] 时，系统会自动将配置文件添加到项目。 通过使用 [IIS 服务器上的状态监视器][redfield]或者在选择[适用于 Azure 网站或 VM 的 Application Insights 扩展](azure-web-apps.md)时，也会将配置文件添加到 Web 应用。
+配置文件名为 `ApplicationInsights.config` 或 `ApplicationInsights.xml`，具体取决于应用程序的类型。 [安装大多数版本的 SDK][start] 时，系统会自动将配置文件添加到项目。 默认情况下，使用支持“添加”>“添加 Application Insights 遥测”的 Visual Studio 模板项目提供的自动化体验时，  ApplicationInsights.config 文件在项目根文件夹中创建，在编译后复制到 bin 文件夹。 通过使用 [IIS 服务器上的状态监视器][redfield]，也会将配置文件添加到 Web 应用。 如果使用了 [Azure 网站的扩展](azure-web-apps.md)或 [Azure VM 和虚拟机规模集的扩展](azure-vm-vmss-apps.md)，则会忽略此配置文件。
 
 没有等效的文件可以控制[网页中的 SDK][client]。
 
@@ -38,12 +40,14 @@ Application Insights .NET SDK 由多个 NuGet 包组成。 [核心包](https://w
 在配置文件中，每个模块都有一个对应的节点。 要禁用某个模块，请删除该节点或将其注释掉。
 
 ### <a name="dependency-tracking"></a>依赖项跟踪
-[依赖项跟踪](../../azure-monitor/app/asp-net-dependencies.md)收集有关应用对数据库以及外部服务和数据库的调用的遥测数据。 若要允许在 IIS 服务器中使用此模块，需要[安装状态监视器][redfield]。 若要在 Azure Web 应用或 VM 中使用此模块，请[选择 Application Insights 扩展](azure-web-apps.md)。
+[依赖项跟踪](../../azure-monitor/app/asp-net-dependencies.md)收集有关应用对数据库以及外部服务和数据库的调用的遥测数据。 若要允许在 IIS 服务器中使用此模块，需要[安装状态监视器][redfield]。
 
 还可以使用 [TrackDependency API](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency) 编写自己的依赖项跟踪代码。
 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet 包。
+
+依赖项可以自动收集，不需使用基于代理（无代码）的附加来修改代码。 若要在 Azure Web 应用中使用此模块，请启用 [Application Insights 扩展](azure-web-apps.md)。 若要在 Azure VM 或 Azure 虚拟机规模集中使用它，请启用[用于 VM 和虚拟机规模集的应用程序监视扩展](azure-vm-vmss-apps.md)。
 
 ### <a name="performance-collector"></a>性能收集器
 [收集系统性能计数器](../../azure-monitor/app/performance-counters.md)，例如 IIS 安装中的 CPU、内存和网络负载。 可以指定要收集哪些计数器，包括自己设置的性能计数器。

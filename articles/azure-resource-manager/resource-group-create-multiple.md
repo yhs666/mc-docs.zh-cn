@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/01/2019
-ms.date: 07/22/2019
+origin.date: 07/25/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: f147284d0d7af3b2363b70557377b3403cc8764c
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 199a9d5c59c239f52bc5b3120c199fbaf7c4cb5c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337458"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993510"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的资源、属性或变量迭代
 
@@ -142,9 +142,9 @@ count 不能为负数。 如果使用 REST API 版本 **2019-05-10** 或更高�
 * storagefabrikam
 * storagecoho
 
-默认情况下，资源管理器并行创建资源。 不会保证它们的创建顺序。 但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。
+默认情况下，资源管理器并行创建资源。 除了模板中 800 个资源的总限制外，它对并行部署的资源数量没有限制。 不会保证它们的创建顺序。
 
-若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量  。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
+但是，你可能希望将资源指定为按顺序部署。 例如，在更新生产环境时，可能需要错开更新，使任何一次仅更新一定数量。 若要按顺序部署多个资源实例，请将 `mode` 设置为“串行”，并将 `batchSize` 设置为一次要部署的实例数量  。 在串行模式下，资源管理器会在循环中创建早前实例的依赖项，以便在前一个批处理完成之前它不会启动一个批处理。
 
 例如，若要按顺序一次部署两个存储帐户，请使用：
 

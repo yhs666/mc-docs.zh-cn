@@ -5,19 +5,20 @@ services: application-insights
 documentationcenter: .net
 author: lingliw
 manager: digimobile
+origin.date: 08/20/2019
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 6/4/2019
+ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.author: v-lingwu
-ms.openlocfilehash: 3f20e9a7c086bfb230417d6c6682a237b07b0621
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: e3dddb72fee027f979ba9edc5f6e9f2335ed374e
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562705"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989674"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights 中的遥测关联
 
@@ -85,6 +86,14 @@ Application Insights 为关联 HTTP 协议定义了[扩展](https://github.com/l
 
 - 在 `RequestTrackingTelemetryModule` 下，添加 `EnableW3CHeadersExtraction` 元素，并将值设为 `true`。
 - 在 `DependencyTrackingTelemetryModule` 下，添加 `EnableW3CHeadersInjection` 元素，并将值设为 `true`。
+- 在 `TelemetryInitializers` 下添加 `W3COperationCorrelationTelemetryInitializer`，类似于 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>启用对 ASP.NET Core 应用的 W3C 分布式跟踪支持
 
@@ -136,6 +145,39 @@ public void ConfigureServices(IServiceCollection services)
 
 > [!IMPORTANT]
 > 请确保传入和传出配置完全相同。
+
+#### <a name="enable-w3c-distributed-tracing-support-for-web-apps"></a>启用对 Web 应用的 W3C 分布式跟踪支持
+
+此功能在 `Microsoft.ApplicationInsights.JavaScript` 中。 此项默认禁用。 若要启用它，请使用 `distributedTracingMode` 配置。提供 AI_AND_W3C 是为了与任何旧版 Application Insights 检测服务向后兼容：
+
+- **NPM 设置（如果使用代码段设置，则忽略）**
+
+  ```javascript
+  import { ApplicationInsights, DistributedTracingModes } from '@microsoft/applicationinsights-web';
+
+  const appInsights = new ApplicationInsights({ config: {
+    instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE',
+    distributedTracingMode: DistributedTracingModes.W3C
+    /* ...Other Configuration Options... */
+  } });
+  appInsights.loadAppInsights();
+  ```
+  
+- **代码段设置（如果使用 NPM 设置，则忽略）**
+
+  ```
+  <script type="text/javascript">
+  var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
+  (
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY",
+      distributedTracingMode: 2 // DistributedTracingModes.W3C
+      /* ...Other Configuration Options... */
+    }
+  );
+  window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+  </script>
+  ```
 
 ## <a name="opentracing-and-application-insights"></a>OpenTracing 和 Application Insights
 

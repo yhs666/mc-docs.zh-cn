@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
 origin.date: 05/16/2019
-ms.date: 08/08/2019
+ms.date: 08/21/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596186781184d2361828d67d01e82c692de447ca
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: fff6b8a1ae1d123366d6458adc3956f56e3f947d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972950"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993122"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>基线策略：阻止旧式身份验证（预览版）
 
@@ -38,7 +38,7 @@ ms.locfileid: "68972950"
 
 1. 导航到“Azure 门户”   > “Azure Active Directory”   > “登录”  。
 1. 单击“列”   > “客户端应用”  添加“客户端应用”列（如果未显示）。
-1. 按“客户端应用”   > “其他客户端”  筛选，然后单击“应用”  。
+1. 单击“添加筛选器”   > “客户端应用”  > 选择“其他客户端”  的所有选项，然后单击“应用”  。
 
 筛选将仅显示旧式身份验证协议进行的登录尝试。 单击每个单独的登录尝试将显示其他详细信息。 “基本信息”  选项卡下的“客户端应用”  字段将指示使用了哪个旧式身份验证协议。
 
@@ -111,7 +111,7 @@ Office 2010 不支持新式身份验证。 需将使用 Office 2010 的任何用
 1. 浏览到“Azure Active Directory”   > “条件访问”  。
 1. 在策略列表中选择“基线策略:  阻止旧式身份验证(预览版)”。
 1. 将“启用策略”设置为“立即使用策略”。  
-1. 单击“保存”。 ****
+1. 单击“保存” **** 。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -120,3 +120,4 @@ Office 2010 不支持新式身份验证。 需将使用 Office 2010 的任何用
 * [条件访问基线保护策略](concept-baseline-protection.md)
 * [什么是 Azure Active Directory 中的条件访问？](overview.md)
 
+<!-- Update_Description: wording update -->

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 75ead1110eb55dfc2398f75cc9faff055e3ce33c
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 0cc13eaf16e14b47675e20ee64aa9f7324cd9689
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514014"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989057"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>存档 Azure 诊断日志
 
@@ -25,7 +25,7 @@ ms.locfileid: "68514014"
 
 ## <a name="diagnostic-settings"></a>诊断设置
 
-若要使用下述任意方法存档诊断日志，可针对特定资源设置“诊断设置”  。 资源的诊断设置定义发送到目标的日志和指标数据类别（存储帐户、事件中心命名空间或 Log Analytics 工作区）。 此外，它还定义存储在存储帐户中的每个日志类别和指标数据的事件保留策略（需保留的天数）。 如果将保留策略设置为零，则会无限期（即永久）存储该日志类别的事件。 如果不需要无限期存储，可将保留策略设置为 1 到 2147483647 之间的任意天数。 [单击此处详细了解诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。 
+若要使用下述任意方法存档诊断日志，可针对特定资源设置“诊断设置”  。 资源的诊断设置定义发送到目标的日志和指标数据类别（存储帐户、事件中心命名空间或 Log Analytics 工作区）。 此外，它还定义存储在存储帐户中的每个日志类别和指标数据的事件保留策略（需保留的天数）。 如果将保留策略设置为零，则会无限期（即永久）存储该日志类别的事件。 如果不需要无限期存储，可将保留策略设置为 1 到 365 之间的任意天数。 [单击此处详细了解诊断设置](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)。 保留策略按天应用，因此在一天结束时 (UTC)，会删除当天已超过保留策略期限的日志。 例如，假设保留策略的期限为一天，则在今天开始时，会删除前天的日志。 删除过程从午夜 (UTC) 开始，但请注意，可能最多需要 24 小时才能将日志从存储帐户中删除。 
 
 > [!NOTE]
 > 当前不支持通过诊断设置发送多维指标。 多维指标将按平展后的单维指标导出，并跨维值聚合。

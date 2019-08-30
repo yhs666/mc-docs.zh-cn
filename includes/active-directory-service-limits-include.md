@@ -5,16 +5,16 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-origin.date: 02/21/2019
-ms.date: 05/10/2019
+origin.date: 05/22/2019
+ms.date: 08/20/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: d49ab8fa964d98503f3f16d53950aa6da6b08a3c
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: a989f3cf50afd92b677078ecef9d187db0bc205c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912293"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014712"
 ---
 下面是 Azure Active Directory (Azure AD) 服务的使用限制和其他服务限制。
 
@@ -28,5 +28,5 @@ ms.locfileid: "68912293"
 | 组 |<ul><li>最多有 100 位用户可以是单一组的所有者。</li><li>任意数量的对象都可以是单个组的成员。</li><li>一个用户可以是任意数量的组的成员。</li><li>使用 Azure AD Connect 时，一个小组中从本地 Active Directory 同步到 Azure Active Directory 的成员数目仅限 50,000。</li></ul> |
 | 报告 | 在报告中最多可查看或下载 1,000 行。 系统会截断其他任何数据。 |
 | 管理单元 | 对象可以是不超出 30 个管理单位的成员。 |
-| 管理员角色和权限 | <li>无法将组添加为所有者。<li>无法将组分配给角色。<li>无法更改租户开关之外的默认用户权限（Azure AD 中的用户设置）。 |
+| 管理员角色和权限 | <ul><li>无法将组添加为[所有者](/active-directory/fundamentals/users-default-permissions)。</li><li>无法将组分配给[角色](/active-directory/users-groups-roles/directory-assign-admin-roles)。</li><li>无法在租户范围交换机之外限制用户读取其他用户的目录信息的能力，以禁止所有非管理员用户访问所有目录信息（不推荐）。 有关默认权限的详细信息，请参阅[此处](/active-directory/fundamentals/users-default-permissions)。</li><li>在管理员角色成员身份添加和撤销生效之前，最多可能需要 15 分钟或注销/登录。</li></ul> |
 

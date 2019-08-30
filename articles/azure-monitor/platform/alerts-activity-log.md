@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 61143fe5eaa4f95bd0a4b98299e2bd1873520dd6
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 07b12d906cdccb302f49f81573fb1b785cca1be5
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818269"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989054"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>使用 Azure Monitor 创建、查看和管理活动日志警报  
 
@@ -22,7 +22,7 @@ ms.locfileid: "68818269"
 这些警报针对 Azure 资源，可以使用 Azure 资源管理器模板来创建。 此外，还可以在 Azure 门户中创建、更新或删除它们。 通常，你可以创建活动日志警报，以便在 Azure 订阅中的资源发生特定的更改时接收通知。 警报通常限于特定的资源组或资源。 例如，你可能希望在删除示例资源组 **myProductionResourceGroup** 中的任何虚拟机时收到通知。 或者，你可能希望在任何新角色分配到订阅中的用户时收到通知。
 
 > [!IMPORTANT]
-> 无法通过活动日志警报创建界面创建服务运行状况警报通知。 若要详细了解如何创建和使用服务运行状况通知，请参阅[接收有关服务运行状况通知的活动日志警报](alerts-activity-log-service-notifications.md)。
+> 无法通过活动日志警报创建界面创建服务运行状况警报通知。 若要详细了解如何创建和使用服务运行状况通知，请参阅[接收有关服务运行状况通知的活动日志警报](/service-health/alerts-activity-log-service-notifications)。
 
 创建警报规则时，请确保：
 
@@ -55,7 +55,7 @@ ms.locfileid: "68818269"
 
      > [!NOTE]
      > 
-     > 可以为活动日志信号选择资源、资源组或整个订阅。
+     > 只能为活动日志信号选择 [Azure 资源管理器](../../azure-resource-manager/resource-group-overview.md)跟踪的资源、资源组或整个订阅。 
 
      **警报目标示例视图**
 
@@ -81,7 +81,7 @@ ms.locfileid: "68818269"
 
        此示例信号图已应用警报逻辑：
 
-       ![ 已选择条件](media/alerts-activity-log/criteria-selected.png)
+       ![已选择条件](media/alerts-activity-log/criteria-selected.png)
 
 4. 在“定义警报详细信息”下提供以下详细信息： 
 
@@ -247,4 +247,4 @@ set [az monitor activity-log alert](/cli/monitor/activity-log/alert?view=azure-c
 - 了解 [活动日志的 Webhook 架构](../../azure-monitor/platform/activity-log-alerts-webhook.md)。
 - 阅读[活动日志概述](../../azure-monitor/platform/activity-log-alerts.md)。
 - 详细了解[操作组](../../azure-monitor/platform/action-groups.md)。  
-- 了解[服务运行状况通知](../../azure-monitor/platform/service-notifications.md)。
+- 了解[服务运行状况通知](/service-health/service-notifications)。

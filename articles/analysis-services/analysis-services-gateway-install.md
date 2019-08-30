@@ -1,24 +1,26 @@
 ---
-title: 安装本地数据网关 | Azure
+title: 安装 Azure Analysis Services 的本地数据网关 | Azure
 description: 了解如何安装并配置本地数据网关。
 author: rockboyfor
 manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-origin.date: 01/08/2019
-ms.date: 07/22/2019
+origin.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: a7be8ad7412c8635a7f9a16664de4b7c2d0e455e
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: 2aebf7e9b1579c0c163de491e2e3a102ce2f9744
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308838"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993346"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>安装并配置本地数据网关
 
-当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。 若要了解有关网关的详细信息，请参阅[本地数据网关](analysis-services-gateway.md)。
+当同一区域中的一个或多个 Azure Analysis Services 服务器连接到本地数据源时，需要本地数据网关。  虽然你安装的网关与其他服务（例如 Power BI、Power Apps 和逻辑应用）使用的网关相同，但在针对 Azure Analysis Services 进行安装时，有一些需要完成的额外步骤。 本安装文章专门针对 **Azure Analysis Services**。
+
+若要详细了解网关以及 Azure Analysis Services 如何使用网关，请参阅[连接达到本地数据源](analysis-services-gateway.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -41,7 +43,10 @@ ms.locfileid: "68308838"
 * 在计算机处于开启但未处于休眠状态下安装网关。
 * 不要在使用无线网络连接的计算机上安装网关。 否则，可能会降低性能。
 * 安装网关时，你用来登录到计算机的用户帐户必须具有“作为服务登录”权限。 安装完成后，本地数据网关服务使用 NT SERVICE\PBIEgwService 帐户作为服务登录。 可以在安装期间指定一个不同的帐户，也可以在安装完成后在“服务”中指定一个不同的帐户。 请确保组策略设置同时允许你在安装时登录的帐户以及你选择的具有“作为服务登录”权限的服务帐户。
-* 在 Azure AD 中使用与要在其中注册网关的订阅相同[租户](https://docs.microsoft.com/zh-cn/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
+* 在 Azure AD 中使用与要在其中注册网关的订阅相同租户的帐户登录到 Azure。 安装和注册网关时不支持 Azure B2B（来宾）帐户。
+    
+    <!--MOONCAKE: Not Available on [tenant](https://docs.microsoft.com/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)-->
+    
 * 如果数据源位于 Azure 虚拟网络 (VNet) 上，则必须配置 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 服务器属性。
 
 <!--MOONCAKE Not Available on * The (unified) gateway described here is not supported in Azure Germany regions. Instead, use **Dedicated On-premises gateway for Azure Analysis Services**, installed from your server's **Quick Start** in the portal.-->
@@ -49,14 +54,16 @@ ms.locfileid: "68308838"
 <a name="download"></a>
 ## <a name="download"></a>下载
 
-[下载网关](https://aka.ms/azureasgateway)
-
-<!--MOONCAKE URL correct on (https://aka.ms/azureasgateway)-->
+ [下载网关](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
 <a name="install"></a>
 ## <a name="install"></a>安装
 
 1. 运行安装程序。
+
+2. 选择“本地数据网关”。 
+
+    ![选择](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 选择位置，接受条款，并单击“安装”。 
 
@@ -90,9 +97,9 @@ ms.locfileid: "68308838"
 
 安装并注册网关后，需在 Azure 订阅中创建网关资源。 使用注册网关时所用的同一帐户登录到 Azure。
 
-1. 在 Azure 门户中，单击“创建资源” > “集成” > “本地数据网关”。   
+1. 在 Azure 门户中单击“创建资源”，接着搜索“本地数据网关”，然后单击“创建”。   
 
-   ![创建网关资源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
+    ![创建网关资源](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 
 2. 在“创建连接网关”中，输入以下设置： 
 
@@ -106,9 +113,9 @@ ms.locfileid: "68308838"
 
     * **位置**：选择网关的注册区域。
 
-    * **安装名称**：如果尚未选择网关安装，请选择注册的网关。 
+    * **安装名称**：如果尚未选择网关安装，请选择在计算机上安装并注册的网关。 
 
-     完成后，单击“创建”  。
+        完成后，单击“创建”  。
 
 <a name="connect-servers"></a>
 ## <a name="connect-servers-to-the-gateway-resource"></a>将服务器连接到网关资源
@@ -123,6 +130,10 @@ ms.locfileid: "68308838"
 
     > [!NOTE]
     > 如果列表中不显示你的网关，很可能是你的服务器与你注册网关时指定的区域不在同一个区域。 
+
+    在服务器和网关资源之间成功建立连接以后，状态会显示“已连接”。 
+
+    ![将服务器连接到网关资源成功](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
 就这么简单。 如需打开端口或执行任何故障排除，请务必查看[本地数据网关](analysis-services-gateway.md)。
 

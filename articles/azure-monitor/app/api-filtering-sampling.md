@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 38a9e454-43d5-4dba-a0f0-bd7cd75fb97b
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d6bc66cec10e4f1fc35541e9e87f56dc9ce3bb41
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 9b0a934d66df96ba00fd1f6cfaafb0c144677d56
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562734"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989213"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测 | Microsoft Azure
 
@@ -53,62 +54,61 @@ ms.locfileid: "67562734"
 
     请注意，遥测处理器构建一个处理链。 实例化遥测处理器时，会传递指向该链中下一个处理器的链接。 将遥测数据点传递到处理方法时，它实现该方法，然后调用该链中的下一个遥测处理器。
 
-    ```csharp
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.Extensibility;
+public class SuccessfulDependencyFilter : ITelemetryProcessor
+{
 
-    public class SuccessfulDependencyFilter : ITelemetryProcessor
-      {
+    private ITelemetryProcessor Next { get; set; }
 
-        private ITelemetryProcessor Next { get; set; }
+    // You can pass values from .config
+    public string MyParamFromConfigFile { get; set; }
 
-        // You can pass values from .config
-        public string MyParamFromConfigFile { get; set; }
+    // Link processors to each other in a chain.
+    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    {
+        this.Next = next;
+    }
+    public void Process(ITelemetry item)
+    {
+        // To filter out an item, just return
+        if (!OKtoSend(item)) { return; }
+        // Modify the item if required
+        ModifyItem(item);
 
-        // Link processors to each other in a chain.
-        public SuccessfulDependencyFilter(ITelemetryProcessor next)
-        {
-            this.Next = next;
-        }
-        public void Process(ITelemetry item)
-        {
-            // To filter out an item, just return
-            if (!OKtoSend(item)) { return; }
-            // Modify the item if required
-            ModifyItem(item);
-
-            this.Next.Process(item);
-        }
-
-        // Example: replace with your own criteria.
-        private bool OKtoSend (ITelemetry item)
-        {
-            var dependency = item as DependencyTelemetry;
-            if (dependency == null) return true;
-
-            return dependency.Success != true;
-        }
-
-        // Example: replace with your own modifiers.
-        private void ModifyItem (ITelemetry item)
-        {
-            item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
-        }
+        this.Next.Process(item);
     }
 
-    ```
-3. 在 ApplicationInsights.config 中插入此项：
+    // Example: replace with your own criteria.
+    private bool OKtoSend (ITelemetry item)
+    {
+        var dependency = item as DependencyTelemetry;
+        if (dependency == null) return true;
+
+        return dependency.Success != true;
+    }
+
+    // Example: replace with your own modifiers.
+    private void ModifyItem (ITelemetry item)
+    {
+        item.Context.Properties.Add("app-version", "1." + MyParamFromConfigFile);
+    }
+}
+```
+
+3. 添加处理器
+
+**ASP.NET 应用** 在 ApplicationInsights.config 中插入此项：
 
 ```xml
-
-    <TelemetryProcessors>
-      <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
-         <!-- Set public property -->
-         <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
-      </Add>
-    </TelemetryProcessors>
-
+<TelemetryProcessors>
+  <Add Type="WebApplication9.SuccessfulDependencyFilter, WebApplication9">
+     <!-- Set public property -->
+     <MyParamFromConfigFile>2-beta</MyParamFromConfigFile>
+  </Add>
+</TelemetryProcessors>
 ```
 
 （本部分与初始化采样筛选器部分相同。）
@@ -123,40 +123,55 @@ ms.locfileid: "67562734"
 **或者，** 可以在代码中初始化筛选器。 在合适的初始化类（例如，Global.asax.cs 中的 AppStart）中，将处理器插入链：
 
 ```csharp
+var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
+builder.Use((next) => new SuccessfulDependencyFilter(next));
 
-    var builder = TelemetryConfiguration.Active.TelemetryProcessorChainBuilder;
-    builder.Use((next) => new SuccessfulDependencyFilter(next));
+// If you have more processors:
+builder.Use((next) => new AnotherProcessor(next));
 
-    // If you have more processors:
-    builder.Use((next) => new AnotherProcessor(next));
-
-    builder.Build();
-
+builder.Build();
 ```
 
 在此点后创建的 TelemetryClients 将使用处理器。
+
+**ASP.NET Core 应用**
+
+> [!NOTE]
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+
+
+对于 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+
+```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        // ...
+        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryProcessor<SuccessfulDependencyFilter>();
+
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<AnotherProcessor>();
+    }
+```
 
 ### <a name="example-filters"></a>示例筛选器
 #### <a name="synthetic-requests"></a>综合请求
 筛选出机器人和 Web 测试。 尽管指标资源管理器提供筛选出综合源的选项，但此选项可通过在 SDK 上筛选它们减少流量。
 
 ```csharp
+public void Process(ITelemetry item)
+{
+  if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
 
-    public void Process(ITelemetry item)
-    {
-      if (!string.IsNullOrEmpty(item.Context.Operation.SyntheticSource)) {return;}
-
-      // Send everything else:
-      this.Next.Process(item);
-    }
-
+  // Send everything else:
+  this.Next.Process(item);
+}
 ```
 
 #### <a name="failed-authentication"></a>身份验证失败
 筛选出带有“401”响应的请求。
 
 ```csharp
-
 public void Process(ITelemetry item)
 {
     var request = item as RequestTelemetry;
@@ -170,7 +185,6 @@ public void Process(ITelemetry item)
     // Send everything else:
     this.Next.Process(item);
 }
-
 ```
 
 #### <a name="filter-out-fast-remote-dependency-calls"></a>筛选出快速远程依赖项调用
@@ -182,7 +196,6 @@ public void Process(ITelemetry item)
 >
 
 ```csharp
-
 public void Process(ITelemetry item)
 {
     var request = item as DependencyTelemetry;
@@ -193,7 +206,6 @@ public void Process(ITelemetry item)
     }
     this.Next.Process(item);
 }
-
 ```
 
 #### <a name="diagnose-dependency-issues"></a>诊断依赖项问题
@@ -214,43 +226,42 @@ public void Process(ITelemetry item)
 *C#*
 
 ```csharp
+using System;
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Extensibility;
 
-    using System;
-    using Microsoft.ApplicationInsights.Channel;
-    using Microsoft.ApplicationInsights.DataContracts;
-    using Microsoft.ApplicationInsights.Extensibility;
-
-    namespace MvcWebRole.Telemetry
+namespace MvcWebRole.Telemetry
+{
+  /*
+   * Custom TelemetryInitializer that overrides the default SDK
+   * behavior of treating response codes >= 400 as failed requests
+   *
+   */
+  public class MyTelemetryInitializer : ITelemetryInitializer
+  {
+    public void Initialize(ITelemetry telemetry)
     {
-      /*
-       * Custom TelemetryInitializer that overrides the default SDK
-       * behavior of treating response codes >= 400 as failed requests
-       *
-       */
-      public class MyTelemetryInitializer : ITelemetryInitializer
-      {
-        public void Initialize(ITelemetry telemetry)
+        var requestTelemetry = telemetry as RequestTelemetry;
+        // Is this a TrackRequest() ?
+        if (requestTelemetry == null) return;
+        int code;
+        bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
+        if (!parsed) return;
+        if (code >= 400 && code < 500)
         {
-            var requestTelemetry = telemetry as RequestTelemetry;
-            // Is this a TrackRequest() ?
-            if (requestTelemetry == null) return;
-            int code;
-            bool parsed = Int32.TryParse(requestTelemetry.ResponseCode, out code);
-            if (!parsed) return;
-            if (code >= 400 && code < 500)
-            {
-                // If we set the Success property, the SDK won't change it:
-                requestTelemetry.Success = true;
-                // Allow us to filter these requests in the portal:
-                requestTelemetry.Context.Properties["Overridden400s"] = "true";
-            }
-            // else leave the SDK to set the Success property      
+            // If we set the Success property, the SDK won't change it:
+            requestTelemetry.Success = true;
+            // Allow us to filter these requests in the portal:
+            requestTelemetry.Context.Properties["Overridden400s"] = "true";
         }
-      }
+        // else leave the SDK to set the Success property      
     }
+  }
+}
 ```
 
-**加载初始值设定项**
+**ASP.NET 应用：加载初始值设定项**
 
 在 ApplicationInsights.config 中：
 
@@ -270,19 +281,31 @@ public void Process(ITelemetry item)
 protected void Application_Start()
 {
     // ...
-    TelemetryConfiguration.Active.TelemetryInitializers
-    .Add(new MyTelemetryInitializer());
+    TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
 }
 ```
 
-
 [查看此示例的详细信息。](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-<a name="js-initializer"></a>
+**ASP.NET Core 应用：加载初始值设定项**
+
+> [!NOTE]
+> 使用 `ApplicationInsights.config` 或使用 `TelemetryConfiguration.Active` 添加初始值设定项对于 ASP.NET Core 应用程序无效。 
+
+对于 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 应用程序，添加新的 `TelemetryInitializer` 是通过将其添加到依赖项注入容器来完成的，如下所示。 这是在 `Startup.cs` 类的 `ConfigureServices` 方法中完成的。
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+ public void ConfigureServices(IServiceCollection services)
+{
+    services.AddSingleton<ITelemetryInitializer, MyTelemetryInitializer>();
+}
+```
 
 ### <a name="java-telemetry-initializers"></a>Java 遥测初始值设定项
-[Java SDK 文档](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
 
+[Java SDK 文档](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.telemetryinitializer?view=azure-java-stable)
 
 ```Java
 public interface TelemetryInitializer
@@ -295,7 +318,7 @@ void initialize(Telemetry telemetry); }
 
 ```xml
 <Add type="mypackage.MyConfigurableContextInitializer">
-<Param name="some_config_property" value="some_value" />
+    <Param name="some_config_property" value="some_value" />
 </Add>
 ```
 
@@ -305,22 +328,21 @@ void initialize(Telemetry telemetry); }
 在从门户获取的初始化代码后立即插入遥测初始值设定项：
 
 ```JS
+<script type="text/javascript">
+    // ... initialization code
+    ...({
+        instrumentationKey: "your instrumentation key"
+    });
+    window.appInsights = appInsights;
 
-    <script type="text/javascript">
-        // ... initialization code
-        ...({
-            instrumentationKey: "your instrumentation key"
-        });
-        window.appInsights = appInsights;
 
+    // Adding telemetry initializer.
+    // This is called whenever a new telemetry item
+    // is created.
 
-        // Adding telemetry initializer.
-        // This is called whenever a new telemetry item
-        // is created.
-
-        appInsights.queue.push(function () {
-            appInsights.context.addTelemetryInitializer(function (envelope) {
-                var telemetryItem = envelope.data.baseData;
+    appInsights.queue.push(function () {
+        appInsights.context.addTelemetryInitializer(function (envelope) {
+            var telemetryItem = envelope.data.baseData;
 
             // To check the telemetry items type - for example PageView:
             if (envelope.name == Microsoft.ApplicationInsights.Telemetry.PageView.envelopeType) {
@@ -328,20 +350,20 @@ void initialize(Telemetry telemetry); }
                 telemetryItem.url = "URL CENSORED";
             }
 
-                // To set custom properties:
-                telemetryItem.properties = telemetryItem.properties || {};
-                telemetryItem.properties["globalProperty"] = "boo";
+            // To set custom properties:
+            telemetryItem.properties = telemetryItem.properties || {};
+            telemetryItem.properties["globalProperty"] = "boo";
 
-                // To set custom metrics:
-                telemetryItem.measurements = telemetryItem.measurements || {};
-                telemetryItem.measurements["globalMetric"] = 100;
-            });
+            // To set custom metrics:
+            telemetryItem.measurements = telemetryItem.measurements || {};
+            telemetryItem.measurements["globalMetric"] = 100;
         });
+    });
 
-        // End of inserted code.
+    // End of inserted code.
 
-        appInsights.trackPageView();
-    </script>
+    appInsights.trackPageView();
+</script>
 ```
 
 有关 telemetryItem 上可用的非自定义属性摘要，请参阅[Application Insights 导出数据模型](../../azure-monitor/app/export-data-model.md)。
@@ -369,8 +391,7 @@ void initialize(Telemetry telemetry); }
 * [ASP.NET SDK](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
-<a name="next"></a>
-## <a name="next-steps"></a>后续步骤
+## <a name="next"></a>后续步骤
 * [搜索事件和日志](../../azure-monitor/app/diagnostic-search.md)
 * [采样](../../azure-monitor/app/sampling.md)
 * [故障排除](../../azure-monitor/app/troubleshoot-faq.md)

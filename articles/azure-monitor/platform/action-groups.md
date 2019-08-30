@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 5/10/2019
+ms.date: 7/22/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 137c8b425993556ac3bbc15c2fc520961b8bb411
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: a111bd2d8655ef720f35953b0d19c66e6312f744
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969638"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989696"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 ## <a name="overview"></a>概述 ##
@@ -118,6 +118,7 @@ Webhook 使用以下规则进行重试。 当返回的 HTTP 状态代码为 408�
  - 13.106.38.142
  - 13.106.38.148
  - 13.106.57.196
+ - 13.106.57.197
  - 52.244.68.117
  - 52.244.65.137
  - 52.183.31.0
@@ -227,4 +228,4 @@ Write-Host $myApp.AppRoles
 * 获取[对活动日志警报 webhook 架构的了解](../../azure-monitor/platform/activity-log-alerts-webhook.md)。  
 * 详细了解有关警报的[速率限制](../../azure-monitor/platform/alerts-rate-limiting.md)。
 * 获取[活动日志警报概述](../../azure-monitor/platform/alerts-overview.md)，了解如何接收警报。  
-* 了解如何[配置每次发布服务运行状况通知时的警报](../../azure-monitor/platform/alerts-activity-log-service-notifications.md)。
+* 了解如何[配置每次发布服务运行状况通知时的警报](/service-health/alerts-activity-log-service-notifications)。

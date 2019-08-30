@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-service
 ms.topic: article
 origin.date: 05/16/2019
-ms.date: 07/29/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8f64e404141ae3734a89d9d29a9c709232f78c05
-ms.sourcegitcommit: 84485645f7cc95b8cfb305aa062c0222896ce45d
+ms.openlocfilehash: 9d205b72088e04f49af3b42a714fac3289bf72c6
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68731226"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993203"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>在 Azure Kubernetes 服务 (AKS) 上将 GPU 用于计算密集型工作负荷
 
@@ -51,7 +51,7 @@ ms.locfileid: "68731226"
 <!--DONT REMOVE IT-->
 <!--MOONCAKE Unique content on 03/28/2019-->
 
-确保 Azure 订阅可以创建 NC 串行 VM（例如 Standard_NC6s_v3），否则，你可以提交一个支持票证，以便为 Azure 订阅启用该类型的 VM 大小。
+确保 Azure 订阅可以创建 NCv3 串行 VM（例如 Standard_NC6s_v3），否则，你可以提交一个支持票证，以便为 Azure 订阅启用该类型的 VM 大小。
 
 <!--MOONCAKE Unique content on 03/28/2019-->
 <!--DONT REMOVE IT-->
@@ -225,7 +225,7 @@ kubectl create -f https://raw.githubusercontent.com/andyzhangx/demo/master/linux
 
 ## <a name="run-a-gpu-enabled-workload"></a>运行启用了 GPU 的工作负荷
 
-若要查看 GPU 的运行情况，请通过相应的资源请求计划启用了 GPU 的工作负荷。 在此示例中，我们针对 [MNIST 数据集](http://yann.lecun.com/exdb/mnist/)运行一个 [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) 作业。
+若要查看 GPU 的运行情况，请通过相应的资源请求计划启用了 GPU 的工作负荷。 在此示例中，我们针对 [MNIST 数据集](http://yann.lecun.com/exdb/mnist/)运行一个 [Tensorflow](https://www.tensorflow.org/) 作业。
 
 创建名为“samples-tf-mnist-demo.yaml”的文件并粘贴以下 YAML 清单  。 以下作业清单包括资源限制 `nvidia.com/gpu: 1`：
 
@@ -266,7 +266,7 @@ kubectl apply -f samples-tf-mnist-demo.yaml
 
 <!--MOONCAKE: Add OR-->
 
-OR
+或
 
 <!--MOONCAKE: Add OR-->
 <!--MOONCAKE Unique content on 03/28/2019-->
@@ -392,6 +392,7 @@ kubectl delete jobs samples-tf-mnist-demo
 有关在 Kubernetes 上运行机器学习 (ML) 工作负荷的更多信息，请参阅 [Kubeflow 实验室][kubeflow-labs]。
 
 <!-- LINKS - external -->
+
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubeflow-labs]: https://github.com/Azure/kubeflow-labs
@@ -404,11 +405,12 @@ kubectl delete jobs samples-tf-mnist-demo
 [nvidia-github]: https://github.com/NVIDIA/k8s-device-plugin
 
 <!-- LINKS - internal -->
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
+
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
 [az-aks-create]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-get-credentials]: https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [aks-spark]: spark-job.md
 [gpu-skus]: ../virtual-machines/linux/sizes-gpu.md
-[install-azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[install-azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!-- Update_Description: wording update, update link -->

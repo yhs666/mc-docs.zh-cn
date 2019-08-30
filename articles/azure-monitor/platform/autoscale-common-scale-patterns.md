@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: 9e8d8027e898f24545105cb58c88ded689c60bcc
-ms.sourcegitcommit: f818003595bd7a6aa66b0d3e1e0e92e79b059868
+ms.subservice: autoscale
+ms.openlocfilehash: c17ca1be67d540cf51eac21948b3e37afd5abe74
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66731277"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989049"
 ---
 # <a name="overview-of-common-autoscale-patterns"></a>常见自动缩放模式的概述
 本文介绍一些常见模式，这些模式可在 Azure 中缩放资源。

@@ -12,16 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/14/2019
-ms.date: 04/01/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 63ffcc99f26e999c4c1217dc043560ce82ed6a84
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 6be2646c29f0055e1ff234b66130e3cb28da89d3
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625557"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670962"
 ---
 # <a name="azure-media-services-concepts"></a>Azure 媒体服务概念 
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 本部分概述最重要的媒体服务概念。
 
@@ -154,10 +157,10 @@ ArchiveWindowLength 还决定了客户端能够从当前实时位置按时间向
 有关详细信息，请参阅以下文章：
 - [保护内容概述](media-services-content-protection-overview.md)
 - [使用 AES-128 进行保护](media-services-protect-with-aes128.md)
-
+- [使用 PlayReady 进行保护](media-services-protect-with-playready-widevine.md)
 
 ## <a name="delivering"></a>传送
-### <a name="a-iddynamicpackagingdynamic-packaging"></a><a id="dynamic_packaging"/>动态打包
+### <a name="a-iddynamic_packagingdynamic-packaging"></a><a id="dynamic_packaging"/>动态打包
 使用媒体服务时，建议始终将夹层文件编码为自适应比特率 MP4 集，并使用[动态打包](media-services-dynamic-packaging-overview.md)将该集转换为所需格式。
 
 ### <a name="streaming-endpoint"></a>流式处理终结点
@@ -168,7 +171,7 @@ StreamingEndpoint 表示一个流服务，该服务可以直接将内容传递�
 建议使用动态打包和/或动态加密。
 
 >[!NOTE]
->创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+>创建 AMS 帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 有关详细信息，请参阅[此](media-services-portal-manage-streaming-endpoints.md)主题。
 
@@ -203,26 +206,26 @@ http://amstest1.streaming.mediaservices.chinacloudapi.cn/3c5fe676-199c-4620-9b03
 
 * 平滑流
 
-    {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest
 
-    http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
+http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
 * MPEG DASH
 
-    {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=mpd-time-csf)
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=mpd-time-csf)
 
-    <http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf>)
+http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
 * Apple HTTP 实时流 (HLS) V4
 
-    {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl)
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl)
 
-    <http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl>)
+http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
 * Apple HTTP 实时流 (HLS) V3
 
-    {流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl-v3)
+{流式处理终结点名称-媒体服务帐户名称}.streaming.mediaservices.chinacloudapi.cn/{定位符 ID}/{文件名}.ism/Manifest(format=m3u8-aapl-v3)
 
-    <http://testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3>)
+http:\//testendpoint-testaccount.streaming.mediaservices.chinacloudapi.cn/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
 <!--Update_Description: add Premium Streaming endpoint information-->

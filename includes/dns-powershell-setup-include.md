@@ -6,15 +6,15 @@ author: WenJason
 ms.service: dns
 ms.topic: include file for PowerShell for Azure DNS
 origin.date: 03/21/2018
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-jay
 ms.custom: include file for PowerShell for Azure DNS
-ms.openlocfilehash: 9af1ad93867950c39b5f7f670d67575285732581
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 761784cf8dcb131587399091db057b4f2c51d986
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56837040"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014717"
 ---
 ## <a name="set-up-azure-powershell-for-azure-dns"></a>设置适用于 Azure DNS 的 Azure PowerShell
 
@@ -29,7 +29,7 @@ ms.locfileid: "56837040"
 
 ### <a name="sign-in-to-your-azure-account"></a>登录到 Azure 帐户
 
-打开 PowerShell 控制台并连接到帐户。 有关详细信息，请参阅[将 PowerShell 与 Resource Manager 配合使用](../articles/azure-resource-manager/powershell-azure-resource-manager.md)。
+打开 PowerShell 控制台并连接到帐户。 有关详细信息，请参阅[使用 AzureRM 登录](https://docs.microsoft.com/powershell/azure/azurerm/authenticate-azureps)。
 
 ```powershell
 Connect-AzureRmAccount -EnvironmentName AzureChinaCloud

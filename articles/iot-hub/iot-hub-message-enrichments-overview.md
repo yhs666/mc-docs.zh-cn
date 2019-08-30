@@ -7,14 +7,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 05/10/2019
-ms.date: 06/17/2019
+ms.date: 09/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 5e5585a73aa70a2a427839d2b40b713b354ec459
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 461aee3c775eb5b13568435ef0dd819166108dd1
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732747"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993607"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>设备到云 IoT 中心消息的消息扩充（预览版）
 
@@ -30,15 +30,20 @@ ms.locfileid: "66732747"
 
 * 要对其应用扩充的一个或多个[终结点](iot-hub-devguide-endpoints.md)。
 
-键可以是任意字符串。
+**键**是一个字符串。 键只能包含字母数字字符或以下特殊字符：连字符 (`-`)、下划线 (`_`)和句点 (`.`)。
 
-值的示例如下：
+**值**可以是以下任一示例：
 
 * 任意静态字符串。 不允许条件、逻辑、操作和函数等动态值。 例如，如果你开发由多个客户使用的 SaaS 应用程序，可为每个客户分配一个标识符，并使该标识符在应用程序中可用。 当该应用程序运行时，IoT 中心会使用客户的标识符来戳记设备遥测消息，从而可为每个客户以不同的方式处理消息。
 
+* 发送消息的 IoT 中心的名称。 此值为 *$iothubname*。
+
 * 设备孪生中的信息，例如其路径。 示例包括 *$twin.tags.field* 和 *$twin.tags.latitude*。
 
-* 发送消息的 IoT 中心的名称。 此值为 *$iothubname*。
+   > [!NOTE]
+   > 目前，只有 $iothubname、$twin.tags、$twin.properties.desired 和 $twin.properties.reported 是消息扩充支持的变量。
+
+消息扩充将作为应用程序属性添加到发送到所选终结点的消息中。  
 
 ## <a name="applying-enrichments"></a>应用扩充
 
@@ -76,9 +81,6 @@ ms.locfileid: "66732747"
 
 使用消息扩充不会产生额外的费用。 目前，将消息发送到 IoT 中心需要付费。 即使消息要发往多个终结点，也只需支付该消息的费用一次。
 
-## <a name="availability"></a>可用性
-
-此功能目前以预览版提供，可在除美国东部、美国西部、西欧、[Azure 政府](https://docs.microsoft.com/en-us/azure-government/documentation-government-welcome.md)、[Azure 中国世纪互联](https://docs.microsoft.com/en-us/azure/china/china-welcome.md)和 [Azure 德国](https://azure.microsoft.com/global-infrastructure/germany/)以外的其他所有区域中使用。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -3,8 +3,8 @@ title: 在 Azure AD 权利管理（预览版）中创建和管理目录 - Azure 
 description: 了解如何在 Azure Active Directory 权利管理（预览版）中创建资源和访问包的新容器。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-origin.date: 05/29/2019
-ms.date: 08/09/2019
+origin.date: 07/23/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de101e37844555aca903838e37aba4c614682f96
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: fc5d521f82f1975f9e7039d547cff1a4fa182bf0
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972847"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993284"
 ---
 # <a name="create-and-manage-a-catalog-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中创建和管理目录
 
@@ -35,7 +35,7 @@ ms.locfileid: "68972847"
 
 目录是资源和访问包的容器。 需要将相关的资源和访问包分组时，可以创建目录。 创建目录的任何人将成为第一个目录所有者。 目录所有者可以添加其他目录所有者。
 
-**必备角色：** 用户管理员或目录创建者
+**必备角色：** 全局管理员、用户管理员或目录创建者
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
@@ -103,7 +103,7 @@ ms.locfileid: "68972847"
 
 可以编辑目录的名称和说明。 用户将在访问包的详细信息中看到此信息。
 
-**必备角色：** 用户管理员或目录所有者
+**必备角色：** 全局管理员、用户管理员或目录所有者
 
 1. 在 Azure 门户中，依次单击“Azure Active Directory”、“标识监管”。  
 
@@ -119,7 +119,7 @@ ms.locfileid: "68972847"
 
 可以删除目录，但前提是它不包含任何访问包。
 
-**必备角色：** 用户管理员或目录所有者
+**必备角色：** 全局管理员、用户管理员或目录所有者
 
 1. 在 Azure 门户中，依次单击“Azure Active Directory”、“标识监管”。  
 
@@ -134,3 +134,4 @@ ms.locfileid: "68972847"
 - [添加目录创建者](entitlement-management-delegate.md#add-a-catalog-creator)
 - [创建和管理访问包](entitlement-management-access-package-create.md)
 
+<!-- Update_Description: wording update -->

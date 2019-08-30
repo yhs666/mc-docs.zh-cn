@@ -3,8 +3,8 @@ title: 在 Azure AD 权利管理（预览版）中请求访问某个访问包- A
 description: 了解如何在 Azure Active Directory 权利管理（预览版）中使用“我的访问权限”门户来请求访问某个访问包。
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
 origin.date: 04/19/2019
-ms.date: 08/09/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bed5475ce10889561e911528712d7c3e3358dab6
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: 9ff6ca278a5d1de138b4fe92f7f72f444489f0e1
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972816"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993281"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>在 Azure AD 权利管理（预览版）中请求访问某个访问包
 
@@ -30,6 +30,10 @@ ms.locfileid: "68972816"
 > Azure Active Directory (Azure AD) 权利管理目前以公共预览版提供。
 > 此预览版在提供时没有附带服务级别协议，不建议将其用于生产工作负荷。 某些功能可能不受支持或者受限。
 > 有关详细信息，请参阅[适用于 Azure 预览版的补充使用条款](https://www.azure.cn/support/legal/)。
+
+借助 Azure AD 权利管理，访问包可实现资源和策略的一次性设置，从而在访问包的生命周期内自动管理访问权限。 
+
+访问包管理器可以配置策略，以要求用户获得访问访问包的批准。 需要访问访问包的用户可以提交请求来获得访问权限。 本文介绍如何提交访问请求。
 
 ## <a name="sign-in-to-the-my-access-portal"></a>登录到“我的访问权限”门户
 
@@ -45,7 +49,7 @@ ms.locfileid: "68972816"
 
 1. 登录到“我的访问权限”门户。
 
-    确保使用组织帐户。 如果不确定，请征询项目经理或业务经理的意见。
+    请确保使用组织（工作或学校）帐户。 如果不确定，请咨询项目或业务经理。
 
 ## <a name="request-an-access-package"></a>请求访问包
 
@@ -53,6 +57,9 @@ ms.locfileid: "68972816"
 
 **必备角色：** 请求者
 
+1. 在列表中查找访问包。  如有必要，可以键入搜索字符串，然后选择“名称”  、“目录”  或“资源”  筛选器进行搜索。
+
+    ![“我的访问权限”门户 - 资源搜索](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. 单击复选标记，选中该访问包。
 
     ![我的访问权限门户 - 访问包](./media/entitlement-management-shared/my-access-access-packages.png)
@@ -100,3 +107,4 @@ ms.locfileid: "68972816"
 - [批准或拒绝访问请求](entitlement-management-request-approve.md)
 - [请求过程和电子邮件通知](entitlement-management-process.md)
 
+<!-- Update_Description: wording update -->

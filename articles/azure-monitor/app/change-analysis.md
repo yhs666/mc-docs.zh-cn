@@ -4,18 +4,19 @@ description: 使用 Azure Monitor 中的应用程序更改分析排查 Azure 应
 services: application-insights
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
 ms.service: application-insights
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b74a8b3f1f9dfceb05357159097fe22a8c816f98
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: a250e298c32b807d37496b8231093536cfbf284b
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562713"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989680"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>使用 Azure Monitor 中的应用程序更改分析（预览版）
 
@@ -48,6 +49,11 @@ ms.locfileid: "67562713"
 ### <a name="dependency-changes"></a>依赖项更改
 
 对资源依赖项的更改也可能会导致 Web 应用出现问题。 例如，如果某个 Web 应用调用 Redis 缓存，Redis 缓存 SKU 可能会影响该 Web 应用的性能。 若要检测依赖项的更改，更改分析将检查 Web 应用的 DNS 记录。 它通过这种方式识别所有应用组件中可能导致出现问题的更改。
+目前支持以下依赖项：
+- Web 应用
+- Azure 存储
+- Azure SQL
+
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>适用于 Web 应用的更改分析功能
 
@@ -86,6 +92,14 @@ ms.locfileid: "67562713"
 ### <a name="register-the-change-analysis-resource-provider-for-your-subscription"></a>为订阅注册更改分析资源提供程序
 
 1. 注册更改分析功能标志（预览版）。 由于功能标志目前为预览版，因此需要将它注册才能让订阅看到它：
+
+   1. 打开 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/)。
+
+      ![更改 Cloud Shell 的屏幕截图](./media/change-analysis/cloud-shell.png)
+
+   1. 将 shell 类型更改为 **PowerShell**。
+
+      ![更改 Cloud Shell 的屏幕截图](./media/change-analysis/choose-powershell.png)
 
    1. 运行以下 PowerShell 命令：
 
@@ -127,5 +141,6 @@ ms.locfileid: "67562713"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 在 Azure Monitor 中[启用 Application Insights 功能](azure-web-apps.md)以便更有效地监视应用服务。
+- 为 [Azure 应用服务应用](azure-web-apps.md)启用 Application Insights。
+- 为 [Azure VM 和 Azure 虚拟机规模集的 IIS 托管应用](azure-vm-vmss-apps.md)启用 Application Insights。
 - 详细了解有助于增强更改分析功能的 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview)。

@@ -5,41 +5,43 @@ services: monitoring
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: tysonn
 ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
 ms.service: monitoring
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
+ms.date: 07/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bda5671b382e8d8d50f39bcafa718859489a13ab
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 452930ec00cfc98a5f1ba1837eb7b5c43a22117c
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514065"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989638"
 ---
 # <a name="using-service-map-solution-in-azure"></a>使用 Azure 中的服务映射解决方案
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 可使用服务映射如所想一般作为提供重要服务的互连系统查看服务器。 服务映射显示 TCP 连接的任何体系结构中服务器、进程、入站和出站连接延迟和端口之间的连接，只需安装代理，无需任何其他配置。
 
-本指南介绍载入和使用服务映射的详细信息。 有关配置服务映射和载入代理的信息，请参阅[配置 Azure 中的服务映射解决方案]( service-map-configure.md)。
+本指南介绍载入和使用服务映射的详细信息。 有关配置此解决方案的必备组件的信息，请参阅[启用用于 VM 的 Azure Monitor 概述](vminsights-enable-overview.md#prerequisites)。 总而言之，需要以下项：
+
+* 用于启用此解决方案的 Log Analytics 工作区。
+
+* 安装在 Windows 计算机或 Linux 服务器上的 Log Analytics 代理，配置为报告启用解决方案所用的同一工作区。
+
+* 安装在 Windows 计算机或 Linux 服务器上的 Dependency Agent。
 
 >[!NOTE]
->如果已部署服务映射，现在还可以在面向 VM 的 Azure Monitor 中查看映射，其中包括监视 VM 运行状况和性能的附加功能。 若要了解详细信息，请参阅“用于 VM 的 Azure Monitor 概述”。
-
+>如果已部署服务映射，现在还可以在面向 VM 的 Azure Monitor 中查看映射，其中包括监视 VM 运行状况和性能的附加功能。 若要了解详细信息，请参阅[面向 VM 的 Azure Monitor 概述](../../azure-monitor/insights/vminsights-overview.md)。 若要了解服务映射解决方案与用于 VM 的 Azure Monitor 映射功能之间的差异，请参阅以下[常见问题解答](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 
 ## <a name="enable-service-map"></a>启用服务映射
-1. 在 Azure 门户中，单击“+ 创建资源”  。
-2. 在搜索栏中键入“Service Map”  ，并按“Enter”  。
-3. 在市场搜索结果页，选择列表中的“服务映射”  。<br><br> ![选择 Azure 市场搜索结果中的服务映射解决方案](./media/service-map/marketplace-search-results.png)<br>
-4. 在“服务映射概述”  窗格上，查看解决方案详细信息，然后单击“创建”  以开始将进程载入到你的 Log Analytics 工作区。<br><br> ![载入服务映射解决方案](./media/service-map/service-map-onboard.png)。
-5. 在“配置解决方案”  窗格中，选择现有工作区或创建一个新的 Log Analytics 工作区。  有关如何创建新工作区的详细信息，请参阅[在 Azure 门户创建 Log Analytics 工作区](../../azure-monitor/learn/quick-create-workspace.md)。 提供所需的信息后，单击“创建”  。  
 
-在验证信息和部署解决方案期间，可以在菜单中的“通知”  下面跟踪操作进度。 
+1. 从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview)或者使用[从解决方案库中添加监视解决方案](solutions.md)中所述的过程，启用服务映射解决方案。
+1. 在要获取数据的每台计算机上[安装 Windows 上的 Dependency Agent](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 或[安装 Linux 上的 Dependency Agent](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux)。 依赖关系代理可以监视与直接邻居之间的连接，因此不需要在每台计算机上都具有代理。
 
 在 Azure 门户从 Log Analytics 工作区访问服务映射，并选择左窗格中的“解决方案”  选项。<br><br> ![选择工作区中的“解决方案”选项](./media/service-map/select-solution-from-workspace.png)。<br> 从解决方案列表中选择“ServiceMap(workspaceName)”  ，并在服务映射解决方案概述页面单击“服务映射摘要”标题。<br><br> ![服务映射摘要标题](./media/service-map/service-map-summary-tile.png)。
 
@@ -369,7 +371,7 @@ Linux：
 | `ReportReferenceLink` |与给定可观测结果相关的报告的链接。 |
 | `AdditionalInformation` |提供观测到的威胁的其他信息（若有）。 |
 
-### <a name="servicemapcomputercl-records"></a>ServiceMapComputer_CL 记录
+### <a name="servicemapcomputer_cl-records"></a>ServiceMapComputer_CL 记录
 类型为 *ServiceMapComputer_CL* 的记录包含具有服务映射代理的服务器的清单数据。 这些记录的属性在下表中列出：
 
 | 属性 | 说明 |
@@ -394,7 +396,7 @@ Linux：
 | `VirtualMachineName_s` | VM 的名称 |
 | `BootTime_t` | 引导时间 |
 
-### <a name="servicemapprocesscl-type-records"></a>ServiceMapProcess_CL 类型记录
+### <a name="servicemapprocess_cl-type-records"></a>ServiceMapProcess_CL 类型记录
 类型为 *ServiceMapProcess_CL* 的记录包含具有服务映射代理的服务器上 TCP 连接进程的清单数据。 这些记录的属性在下表中列出：
 
 | 属性 | 说明 |
@@ -494,6 +496,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ```
 
 ## <a name="rest-api"></a>REST API
+
 “服务映射”中的所有服务器、进程和依赖项数据均可通过[服务映射 REST API](https://docs.microsoft.com/rest/api/servicemap/) 获取。
 
 ## <a name="diagnostic-and-usage-data"></a>诊断和使用情况数据

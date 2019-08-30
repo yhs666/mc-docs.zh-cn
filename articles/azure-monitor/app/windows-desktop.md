@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: windows
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 19040746-3315-47e7-8c60-4b3000d2ddc4
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 626a6d4eed1c0abed8426e19bc3673ebff032ca7
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 211185bf07e1cb1e9dc74f16beb61745adc4bb28
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562637"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989406"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>监视经典 Windows 桌面应用中的使用情况和性能
 
@@ -37,11 +38,12 @@ ms.locfileid: "67562637"
    
     如果使用 ApplicationInsights.config，请确保它在解决方案资源管理器中的属性设置为“生成操作”=“内容”、“复制到输出目录”=“复制”  。
 5. [使用 API](../../azure-monitor/app/api-custom-events-metrics.md) 发送遥测。
-6. 运行应用，并在 Azure 门户中查看所创建的资源中的遥测。
+6. 运行应用，并在 Azure 门户中创建的资源中查看遥测。
 
 <a name="telemetry"></a>
 ## <a name="example-code"></a>示例代码
 ```csharp
+using Microsoft.ApplicationInsights;
 
     public partial class Form1 : Form
     {
@@ -62,9 +64,10 @@ ms.locfileid: "67562637"
             ...
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            stop = true;
+            e.Cancel = true;
+
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -81,7 +84,7 @@ ms.locfileid: "67562637"
 * [创建仪表板](../../azure-monitor/app/overview-dashboard.md)
 * [诊断搜索](../../azure-monitor/app/diagnostic-search.md)
 * [探索指标](../../azure-monitor/app/metrics-explorer.md)
-* [编写分析查询](../../azure-monitor/app/analytics.md)
+* [编写分析查询](../../azure-monitor/log-query/log-query-overview.md)
 
 
 

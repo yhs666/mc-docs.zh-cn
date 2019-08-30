@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 01/07/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: a12d1042c3304b8f416fa7c676bcfde4bdec9796
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 1d8fecf18e673e973153a2ad2f79fd9a13cd489a
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337549"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993582"
 ---
 # <a name="authenticate-requests-across-tenants"></a>跨租户对请求进行身份验证
 
@@ -25,7 +25,7 @@ ms.locfileid: "68337549"
 | 标头名称 | 说明 | 示例值 |
 | ----------- | ----------- | ------------ |
 | 授权 | 主令牌 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 辅助令牌 | Bearer &lt;auxiliary-token1&gt;; EncryptedBearer &lt;auxiliary-token2&gt;; Bearer &lt;auxiliary-token3&gt; |
+| x-ms-authorization-auxiliary | 辅助令牌 | Bearer &lt;auxiliary-token1&gt;、EncryptedBearer &lt;auxiliary-token2&gt;、Bearer &lt;auxiliary-token3&gt; |
 
 辅助标头最多可以容纳三个辅助令牌。 
 

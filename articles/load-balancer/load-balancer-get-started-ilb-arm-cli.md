@@ -12,14 +12,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/27/2018
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 586c45f2c3f5e41b77a09e9e78ba9e91a77feefe
-ms.sourcegitcommit: e9f088bee395a86c285993a3c6915749357c2548
+ms.openlocfilehash: 5680d57a8194b3f7c0c3e2ef807a513ad6d4b9bc
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56836906"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993368"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli"></a>使用 Azure CLI 创建内部负载均衡器以对 VM 进行负载均衡
 
@@ -61,7 +61,7 @@ ms.locfileid: "56836906"
 
 ### <a name="create-the-load-balancer"></a>创建负载均衡器
 
-使用 [az network lb create](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest) 创建名为 **myLoadBalancer** 的公共基本负载均衡器，该负载均衡器包括名为 **myFrontEnd** 的前端 IP 配置，以及名为 **myBackEndPool** 的后端池（与专用 IP 地址 **10.0.0.7 相关联）。
+使用 [az network lb create](https://docs.azure.cn/zh-cn/cli/network/lb?view=azure-cli-latest) 创建名为 **myLoadBalancer** 的内部负载均衡器，该负载均衡器包括名为 **myFrontEnd** 的前端 IP 配置，以及名为 **myBackEndPool** 的后端池（与专用 IP 地址 **10.0.0.7 相关联）。
 
 ```azurecli
   az network lb create \

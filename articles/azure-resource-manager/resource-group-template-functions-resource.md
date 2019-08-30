@@ -4,15 +4,15 @@ description: 介绍可在 Azure Resource Manager 模板中用于检索资源相�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: reference
-origin.date: 07/11/2019
-ms.date: 07/22/2019
+origin.date: 08/06/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: d818dbf2ca16202c96ac2ef0b659bc946d4d619a
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 66c1fe357dd75ecee0e700d3b7298076582bf36d
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337428"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993547"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的资源函数
 
@@ -314,9 +314,11 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 | 参数 | 必须 | 类型 | 说明 |
 |:--- |:--- |:--- |:--- |
-| resourceName 或 resourceIdentifier |是 |string |资源的名称或唯一标识符。 |
+| resourceName 或 resourceIdentifier |是 |string |资源的名称或唯一标识符。 当引用当前模板中的资源时，请仅提供资源名称作为参数。 当引用以前部署的资源时，请提供资源 ID。 |
 | apiVersion |否 |string |指定的资源的 API 版本。 如果资源不是在同一模板中预配的，请包含此参数。 通常采用 **yyyy-mm-dd**格式。 |
 | 'Full' |否 |string |一个值，指定是否要返回完整资源对象。 如果未指定 `'Full'`，仅返回资源的属性对象。 完整对象包括资源 ID 和位置等值。 |
+
+<!--MOONCAKE: Not Available on [template reference](https://docs.microsoft.com/azure/templates/)-->
 
 ### <a name="return-value"></a>返回值
 
@@ -324,17 +326,7 @@ Resource Manager 提供以下用于获取资源值的函数：
 
 ### <a name="remarks"></a>备注
 
-reference 函数检索以前部署的资源或在当前模板中部署的资源的运行时状态。 本文展示了这两种方案的示例。 当引用当前模板中的资源时，请仅提供资源名称作为参数。 当引用以前部署的资源时，请提供该资源的资源 ID 和 API 版本。
-
-<!--Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/)-->
-
-reference 函数只能用在资源定义的 properties 中以及模板或部署的 outputs 节中。 与[属性迭代](resource-group-create-multiple.md#property-iteration)一起使用时，可以使用 `input` 的 reference 函数，因为表达式已分配给资源属性。 不能将其与 `count` 一起使用，因为必须在解析 reference 函数之前确定计数。
-
-如果在同一模板内预配了被引用资源且通过其名称（而非资源 ID）引用该资源，则使用 reference 函数会隐式声明一个资源依赖于另一个资源。 也不需要同时使用 dependsOn 属性。 只有当引用的资源已完成部署后，才会对函数求值。
-
-如果在有条件部署的资源中使用 **reference** 函数，则会对该函数进行评估，即使资源尚未部署。  如果 **reference** 函数引用某个不存在的资源，则会出现错误。 使用 **if** 函数确保仅在部署资源时才评估函数。 请查看示例模板的 [if 函数](resource-group-template-functions-logical.md#if)，该模板将 if 和 reference 用于进行条件部署的资源。
-
-若要查看资源类型的属性名称和值，请创建一个模板，该模板返回 outputs 节中的对象。 如果有现有的该类型的资源，则模板只返回对象而不部署任何新资源。 
+reference 函数检索以前部署的资源或在当前模板中部署的资源的运行时状态。 本文展示了这两种方案的示例。
 
 通常情况下，可以使用 reference 函数返回对象的特定值，例如 blob 终结点 URI 或完全限定的域名  。
 
@@ -375,7 +367,45 @@ reference 函数只能用在资源定义的 properties 中以及模板或部署�
     ...
 ```
 
-有关前面模板的完整示例，请参阅[从 Windows 到 Key Vault](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo08.msiWindowsToKeyvault.json)。 一个类似示例可用于 [Linux](https://github.com/rjmax/AzureSaturday/blob/master/Demo02.ManagedServiceIdentity/demo07.msiLinuxToArm.json)。
+### <a name="valid-uses"></a>有效使用
+
+reference 函数只能用在资源定义的 properties 中以及模板或部署的 outputs 节中。 与[属性迭代](resource-group-create-multiple.md#property-iteration)一起使用时，可以使用 `input` 的 reference 函数，因为表达式已分配给资源属性。 不能将其与 `count` 一起使用，因为必须在解析 reference 函数之前确定计数。
+
+不能在[嵌套模板](resource-group-linked-templates.md#nested-template)的输出中使用引用函数返回已在嵌套模板中部署的资源， 只能使用[链接模板](resource-group-linked-templates.md#external-template-and-external-parameters)。
+
+如果在有条件部署的资源中使用 **reference** 函数，则会对该函数进行评估，即使资源尚未部署。  如果 **reference** 函数引用某个不存在的资源，则会出现错误。 使用 **if** 函数确保仅在部署资源时才评估函数。 请查看示例模板的 [if 函数](resource-group-template-functions-logical.md#if)，该模板将 if 和 reference 用于进行条件部署的资源。
+
+### <a name="implicit-dependency"></a>隐式依赖项
+
+如果在同一模板内预配了被引用资源且通过其名称（而非资源 ID）引用该资源，则使用 reference 函数会隐式声明一个资源依赖于另一个资源。 也不需要同时使用 dependsOn 属性。 只有当引用的资源已完成部署后，才会对函数求值。
+
+### <a name="resource-name-or-identifier"></a>资源名称或标识符
+
+引用部署在同一模板中的资源时，请提供资源的名称。
+
+```json
+"value": "[reference(parameters('storageAccountName'))]"
+```
+
+引用没有部署在同一模板中的资源时，请提供资源 ID。
+
+```json
+"value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
+```
+
+为了避免对你要引用的资源产生误解，可以提供完全限定的资源名称。
+
+```json
+"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+```
+
+向资源构造完全限定的引用时，类型和名称的分段组合顺序并不是这两者的简单串联。 而是，在命名空间后面，使用*类型/名称*对的序列（从最不具体到最具体）：
+
+**{resource-provider-namespace}/{parent-resource-type}/{parent-resource-name}[/{child-resource-type}/{child-resource-name}]**
+
+例如：
+
+`Microsoft.Compute/virtualMachines/myVM/extensions/myExt` 正确，`Microsoft.Compute/virtualMachines/extensions/myVM/myExt` 不正确
 
 ### <a name="example"></a>示例
 
@@ -511,7 +541,9 @@ reference 函数只能用在资源定义的 properties 中以及模板或部署�
 {
   "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
   "name": "{resourceGroupName}",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "{resourceGroupLocation}",
+  "managedBy": "{identifier-of-managing-resource}",
   "tags": {
   },
   "properties": {
@@ -519,6 +551,10 @@ reference 函数只能用在资源定义的 properties 中以及模板或部署�
   }
 }
 ```
+
+只有在资源组包含的资源由另一服务托管时，才会返回 **managedBy** 属性。 就 AKS 来说，此属性的值是管理资源的资源 ID。
+
+<!--Not Available on Managed Applications, Databricks -->
 
 ### <a name="remarks"></a>备注
 
@@ -537,6 +573,8 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
    }
 ]
 ```
+
+也可使用 resourceGroup 函数将资源组提供的标记应用到资源。 有关详细信息，请参阅[应用资源组提供的标记](resource-group-using-tags.md#apply-tags-from-resource-group)。
 
 ### <a name="example"></a>示例
 
@@ -562,6 +600,7 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 {
   "id": "/subscriptions/{subscription-id}/resourceGroups/examplegroup",
   "name": "examplegroup",
+  "type":"Microsoft.Resources/resourceGroups",
   "location": "chinaeast",
   "properties": {
     "provisioningState": "Succeeded"
@@ -754,4 +793,4 @@ resourceGroup 函数的一个常见用途是在与资源组相同的位置中创
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update powershell az cmdlet-->
+<!--Update_Description: update meta properties, wording update -->

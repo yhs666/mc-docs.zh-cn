@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 03/06/2018
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: cecd76bc4ea79291325171240e36436310fb427c
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: cc889e827877b4fd5c1e9a1415012cb188046442
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195005"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993097"
 ---
-# <a name="schedule-and-broadcast-jobs-netnet"></a>计划和广播作业 (.NET/.NET)
+# <a name="schedule-and-broadcast-jobs-net"></a>计划和广播作业 (.NET)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -57,10 +57,6 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 ## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### <a name="retrieve-connection-string-for-iot-hub"></a>检索 IoT 中心的连接字符串
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="register-a-new-device-in-the-iot-hub"></a>在 IoT 中心内注册新设备
 
@@ -150,9 +146,14 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
 1. 保存所做工作并构建解决方案。         
 
 > [!NOTE]
-> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按 MSDN 文章[暂时性故障处理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)中所述实施重试策略（例如连接重试）。
+> 为简单起见，本教程不实现任何重试策略。 在生产代码中，应按文章[暂时性故障处理](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults)中所述实施重试策略（例如连接重试）。
 > 
 
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="schedule-jobs-for-calling-a-direct-method-and-sending-device-twin-updates"></a>计划用于调用直接方法和发送设备孪生更新的作业
 
@@ -182,7 +183,7 @@ ScheduleJob，该应用使用作业来调用 LockDoor 直接方法，并在多�
     using System.Threading.Tasks;
     ```
 
-1. 将以下字段添加到 **Program** 类。 将占位符替换为在上一部分为中心创建的 IoT 中心连接字符串以及设备的名称。
+6. 将以下字段添加到 **Program** 类。 将占位符替换为先前在[获取 IoT 中心连接字符串](#get-the-iot-hub-connection-string)中复制的 IoT 中心连接字符串和设备名称。
 
     ```csharp
     static JobClient jobClient;

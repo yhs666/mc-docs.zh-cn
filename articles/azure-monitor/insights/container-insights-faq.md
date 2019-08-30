@@ -8,18 +8,22 @@ editor: tysonn
 ms.service: azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: a8885e6b3546f87263d4f7b7c91448402efb4ff4
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 27ad651932a141e00136b393d4b60e606a2d9f40
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562978"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989083"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>用于容器的 Azure Monitor 常见问题解答
 
 本 Microsoft 常见问题解答列出了用于容器的 Azure Monitor 的常见问题。 如果对该解决方案还有其他任何问题，请访问[论坛](https://feedback.azure.com/forums/34192--general-feedback)并发布问题。 当某个问题经常被问到时，我们会将该问题添加到本文中，以便可以轻松快捷地找到该问题。
+
+## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>是否可以使用用于容器的 Azure Monitor 监视 AKS-engine 群集？
+
+用于容器的 Azure Monitor 支持监视部署到 Azure 上托管的 AKS-engine（以前称为 ACS-engine）群集的容器工作负荷。 有关为此方案启用监视所需步骤的进一步详细信息和概述，请参阅[将用于容器的 Azure Monitor 用于 AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine)。
 
 ## <a name="why-dont-i-see-data-in-my-log-analytics-workspace"></a>为何 Log Analytics 工作区中不显示数据？
 

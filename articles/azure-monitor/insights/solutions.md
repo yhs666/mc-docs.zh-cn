@@ -5,20 +5,21 @@ services: log-analytics
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: f029dd6d-58ae-42c5-ad27-e6cc92352b3b
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/21/2019
+ms.date: 08/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3d496b03493e26dd7812f6c01ccff11663f20f68
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 918fe2aca8c6a47fadd0139585cb8a23f66bcb95
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818312"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989357"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的监视解决方案
 监视解决方案利用 Azure 中的服务来提供特定应用程序或服务的更多操作见解。 本文简要概述了 Azure 中的监视解决方案，并详细介绍如何了使用和安装这些解决方案。
@@ -69,7 +70,7 @@ ms.locfileid: "68818312"
 1. 在“管理解决方案”的右侧，单击“更多”。   
 1. 找到所需的监视解决方案并阅读其说明。
 1. 单击“创建”  以启动安装进程。
-1. 安装过程开始后，系统会提示提供所需的配置（根据每个解决方案而异）。
+1. 安装过程开始时，系统会提示你指定 Log Analytics 工作区，并提供解决方案所需的任何配置。
 
 ![安装解决方案](media/solutions/install-solution.png)
 

@@ -5,20 +5,21 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: Dale.Koetke
-ms.date: 6/4/2019
+ms.date: 08/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4ab5295dae36f425e3d75b1977c1de42b859104
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 0cf8d85a22d1bd3d8591b2f6ed8c11809a290fbb
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818163"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989345"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
@@ -92,7 +93,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 可通过以下操作降低数据量：
 
 * 使用[采样](../../azure-monitor/app/sampling.md)。 此项技术会降低数据速率，而无需倾斜指标。 你仍然可以在“搜索”中的相关项之间导航。 在服务器应用中，采样会自动运行。
-* [限制可在每个页面视图中报告的 Ajax 调用数](../../azure-monitor/app/javascript.md#detailed-configuration)或关闭 Ajax 报告。
+* [限制可在每个页面视图中报告的 Ajax 调用数](../../azure-monitor/app/javascript.md#configuration)或关闭 Ajax 报告。
 * [编辑 ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 关闭不需要的集合模块。 例如，用户可能认为不再需要性能计数器或依赖项数据。
 * 在单独的检测密钥之间拆分遥测。 
 * 预先聚合指标。 如果将对 TrackMetric 的调用放在应用中，则可通过使用重载降低流量，这种重载接受对一批度量值的平均偏差和标准偏差的计算结果。 也可使用[预先聚合包](https://www.myget.org/gallery/applicationinsights-sdk-labs)。
@@ -103,7 +104,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 
 不使用每日容量上限，而是使用[采样](../../azure-monitor/app/sampling.md)，将数据量调整到所需级别。 然后，仅在应用程序意外开始发送远高于预期的遥测量时，才使用每日上限作为“最后的手段”。
 
-若要更改每日上限，请在“使用情况和预估成本”窗格中 Application Insights 资源的“配置”部分，选择“每日上限”    。
+若要更改每日上限，请在“使用情况和预估成本”页中 Application Insights 资源的“配置”部分中，选择“每日上限”    。
 
 ![调整每日遥测数据量上限](./media/pricing/pricing-003.png)
 
@@ -125,13 +126,23 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 > “数据采样”窗格仅控制引入采样的值  。 它不反映 Application Insights SDK 在应用中应用的采样速率。 如果传入的遥测已在 SDK 处进行了采样，则引入采样不适用。
 >
 
-若要查找实际采样率（无论是否已应用），请使用[分析查询](analytics.md)。 该查询如下所示：
+若要查找实际采样率（无论是否已应用），请使用[分析查询](../log-query/log-query-overview.md)。 该查询如下所示：
 
     requests | where timestamp > ago(1d)
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
     | render areachart
 
 在每个保留的记录中，`itemCount` 指示它表示的原始记录数。 它等于 1 +（即以前已放弃的记录数）。 
+
+## <a name="change-the-data-retention-period"></a>更改数据保留期
+
+Application Insights 资源的默认保留期为 90 天。 可以为每个 Application Insights 资源选择不同的保留期。 完整的可用保留期集为 30、60、90、120、180、270、365、550 或 730 天。 
+
+若要更改保留期，请从 Application Insights 资源转到“使用情况和预估成本”  页，然后选择“数据保留”  选项：
+
+![调整每日遥测数据量上限](./media/pricing/pricing-005.png)
+
+当为延长保留期启用了计费时，保留时间超过 90 天的数据将按照当前针对 Azure Log Analytics 数据保留的计费费率进行计费。 请访问[“Azure Monitor 定价”页](https://azure.microsoft.com/pricing/details/monitor/)了解更多信息。 通过[投票支持此建议](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031)，随时了解可变保留进度的最新情况。 
 
 ## <a name="limits-summary"></a>限制摘要
 

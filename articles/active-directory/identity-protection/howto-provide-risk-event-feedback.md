@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-origin.date: 05/13/2019
-ms.date: 08/09/2019
+origin.date: 07/19/2019
+ms.date: 08/22/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869df0ef572496f44291966c89ed1dc5196b4e8b
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: a4b192e1c5bae40ac17dcd667eb9372037c85f23
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973365"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993390"
 ---
 # <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>如何：在 Azure AD 标识保护中提供风险反馈
 
@@ -34,13 +34,13 @@ Azure AD 标识保护允许针对其风险评估提供反馈。 以下文档列�
 
 提供 Azure AD 风险反馈的原因有多种：
 
-1. **你发现 Azure AD 的用户风险或登录风险评估不正确**。 例如，“有风险的登录”报告中显示的登录是合法的，针对该登录的所有检测结果均为误报。
-1. **你已验证 Azure AD 的用户风险或登录风险评估是正确的**。 例如，“有风险的登录”报告中显示的登录确实是恶意的，你希望 Azure AD 知道针对该登录的所有检测结果均为漏报。
-1. **你已在 Azure AD 标识保护的外部修正了该用户的风险**，希望更新用户的风险级别。
+- **你发现 Azure AD 的用户风险或登录风险评估不正确**。 例如，“有风险的登录”报告中显示的登录是合法的，针对该登录的所有检测结果均为误报。
+- **你已验证 Azure AD 的用户风险或登录风险评估是正确的**。 例如，“有风险的登录”报告中显示的登录确实是恶意的，你希望 Azure AD 知道针对该登录的所有检测结果均为漏报。
+- **你已在 Azure AD 标识保护的外部修正了该用户的风险**，希望更新用户的风险级别。
 
 ## <a name="how-does-azure-ad-use-my-risk-feedback"></a>Azure AD 如何使用我的风险反馈？
 
-Azure AD 使用你的反馈来更新底层用户和/或登录的风险。 此反馈有助于保护最终用户的安全。 例如，在确认登录凭据遭到入侵后，Azure AD 会立即将用户的风险以及登录的聚合风险（而不是实时风险）提升为到“高”。 如果此用户已包含在用户风险策略中，以强制高风险用户以安全方式重置其密码，该用户在下次登录时，将自动地自我修正。
+Azure AD 使用你的反馈来更新底层用户和/或登录的风险以及这些事件的准确性。 此反馈有助于保护最终用户的安全。 例如，在确认登录凭据遭到入侵后，Azure AD 会立即将用户的风险以及登录的聚合风险（而不是实时风险）提升为到“高”。 如果此用户已包含在用户风险策略中，以强制高风险用户以安全方式重置其密码，该用户在下次登录时，将自动地自我修正。
 
 ## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>如何提供风险反馈，幕后会发生什么情况？
 
@@ -63,3 +63,4 @@ Azure AD 使用你的反馈来更新底层用户和/或登录的风险。 此反
 
 [Azure Active Directory 标识保护风险事件参考](risk-events-reference.md)
 
+<!-- Update_Description: wording update -->

@@ -1,22 +1,24 @@
-## <a name="create-a-device-identity"></a>创建设备标识
+---
+ms.openlocfilehash: 9955d2a91176837b176a3d5c7a178df4baa7d196
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993070"
+---
+在本部分中，将使用 Azure CLI 为本文创建设备标识。 设备 ID 区分大小写。
 
-在本部分中，将使用 Azure CLI 为本教程创建设备标识。 Azure CLI 预先安装在 [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview) 中，也可以[在本地安装](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)。 设备 ID 区分大小写。
 
-1. 在使用 Azure CLI 安装 IoT 扩展的命令行环境中运行以下命令：
 
-    ```cmd/sh
+1. 运行以下命令以安装适用于 Azure CLI 的 Microsoft Azure IoT 扩展：
+
+    ```azurecli
     az extension add --name azure-cli-iot-ext
     ```
 
-1. 如果要在本地运行 Azure CLI，请使用以下命令登录 Azure 帐户（如果使用的是 Cloud Shell，则表示你已自动登录，并且无需运行此命令）：
+2. 使用以下命令创建一个名为 `myDeviceId` 的新设备标识并检索设备连接字符串：
 
-    ```cmd/sh
-    az login
-    ```
-
-1. 最后，使用以下命令创建一个名为 `myDeviceId` 的新设备标识并检索设备连接字符串：
-
-    ```cmd/sh
+    ```azurecli
     az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
     az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
     ```

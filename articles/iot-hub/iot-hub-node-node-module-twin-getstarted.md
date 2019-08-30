@@ -8,16 +8,18 @@ services: iot-hub
 ms.devlang: node
 ms.topic: conceptual
 origin.date: 04/26/2018
-ms.date: 07/15/2019
+ms.date: 09/02/2019
 ms.author: v-yiso
-ms.openlocfilehash: bc7fe01b7ab6921b20333c39b6ea5c4298f58107
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d8e2ec246a48d267e048f8fda12bb7600e3e8501
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569792"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993603"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>使用 Node.js 后端和 Node.js 设备创建 IoT 中心模块标识和模块孪生入门
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>IoT 中心模块标识和模块孪生 (Node.js) 入门
+
+[!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
 > [模块标识和模块孪生](iot-hub-devguide-module-twins.md)类似于 Azure IoT 中心设备标识和设备孪生，但提供更精细的粒度。 Azure IoT 中心设备标识和设备孪生允许后端应用程序配置设备并提供设备条件的可见性，而模块标识和模块孪生为设备的各个组件提供这些功能。 在支持多个组件的设备上（例如基于操作系统的设备或固件设备），它允许每个部件拥有独立的配置和条件。
@@ -36,8 +38,15 @@ ms.locfileid: "67569792"
 * IoT 中心。
 * 安装最新的 [Node.js SDK](https://github.com/Azure/azure-iot-sdk-node)。
 
+## <a name="create-an-iot-hub"></a>创建 IoT 中心
 
-现已创建 IoT 中心，因此已具有完成本教程剩余部分所需的主机名和 IoT 中心连接字符串。
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## <a name="get-the-iot-hub-connection-string"></a>获取 IoT 中心连接字符串
+
+[!INCLUDE [iot-hub-howto-module-twin-shared-access-policy-text](../../includes/iot-hub-howto-module-twin-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>在 IoT 中心中创建设备标识和模块标识
 

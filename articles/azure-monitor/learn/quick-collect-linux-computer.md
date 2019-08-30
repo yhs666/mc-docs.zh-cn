@@ -5,6 +5,7 @@ services: log-analytics
 documentationcenter: log-analytics
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 editor: ''
 ms.assetid: ''
 ms.service: log-analytics
@@ -14,12 +15,12 @@ ms.topic: quickstart
 ms.date: 06/14/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 3aa691569acc5a47eeed47ff351a86c8a8ae1f9d
-ms.sourcegitcommit: e78670855b207c6084997f747ad8e8c3afa3518b
+ms.openlocfilehash: 1763a4f4d91f0d610c378a03eeaf193d6fbc2ebd
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68513986"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989182"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>在混合环境中为 Linux 计算机配置 Log Analytics 代理
 [Azure Log Analytics](../platform/agent-windows.md) 可将物理或虚拟 Linux 计算机中的数据从数据中心或其他云环境直接收集到单个存储库中，以便进行详细的分析和关联。 本快速入门介绍如何通过几个简单步骤，从 Linux 计算机中配置或收集数据。  有关 Azure Linux VM 的信息，请参阅以下主题[收集 Azure 虚拟机的相关数据](quick-collect-azurevm.md)。  
@@ -32,11 +33,11 @@ ms.locfileid: "68513986"
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。 
 
 ## <a name="create-a-workspace"></a>创建工作区
-1. 在 Azure 门户中，单击“所有服务”  。 在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”  。
+1. 在 Azure 门户中，选择“所有服务”。  在资源列表中，输入 **Log Analytics**。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”  。
 
     ![Azure 门户](media/quick-collect-linux-computer/azure-portal-01.png) 
 
-2. 单击“创建”  ，然后为以下各项选择选项：
+2. 选择“创建”  ，然后为以下各项选择选项：
 
    * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。 OMS 工作区现在称为 Log Analytics 工作区。   
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。

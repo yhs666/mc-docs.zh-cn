@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 origin.date: 04/11/2018
 ms.author: v-yiso
-ms.date: 08/05/2019
-ms.openlocfilehash: 766810f9b97403630352c889a28c846835a7c641
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 09/02/2019
+ms.openlocfilehash: 4c4b1c2cdf94d0254b96eed7441deaf528996e48
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514317"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993550"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>将 Adafruit Feather HUZZAH ESP8266 连接到云中的 Azure IoT 中心
 
@@ -53,6 +53,9 @@ ms.locfileid: "68514317"
 
 * 一个有效的 Azure 订阅。 如果没有 Azure 帐户，只需花费几分钟就能[创建一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 运行 Windows 或 Ubuntu 的 Mac 或 PC。
+* [GIT](https://git-scm.com/download)
+* [Arduino](https://www.arduino.cc/en/main/software#download)
+* [适用于 USB 的 Adafruit Huzzah ESP8266 驱动程序](https://learn.adafruit.com/adafruit-feather-huzzah-esp8266/using-arduino-ide)
 * Feather HUZZAH ESP8266 要连接到的无线网络。
 * 建立 Internet 连接，以便下载配置工具。
 * [适用于 Arduino 的 Visual Studio Code 扩展](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-arduino)。

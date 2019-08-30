@@ -6,21 +6,23 @@ manager: digimobile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 origin.date: 04/23/2019
-ms.date: 07/22/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6ed13c160bb3a7f02c2ad09c53801c72c4849903
-ms.sourcegitcommit: e84b0fe3c1b2a6c9551084b6b27740c648b460ae
+ms.openlocfilehash: 8d40ca5c242c69eb15e601dc9cabce25122495f9
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308848"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993457"
 ---
 # <a name="automation-with-service-principals"></a>使用服务主体进行自动化
 
 服务主体是在租户中创建的 Azure Active Directory 应用程序资源，用于执行无人参与的资源和服务级别操作。 服务主体是特殊类型的用户标识，  具有应用程序 ID 和密码或证书。 服务主体只具有特定任务所需的权限，这些任务是按分配的角色和权限来定义的。 
 
 在 Analysis Services 中，服务主体可以与 Azure 自动化、PowerShell 无人参与模式、自定义客户端应用程序和 Web 应用配合使用，以便自动完成常见的任务。 例如，预配服务器、部署模型、数据刷新、垂直缩放、暂停/恢复等操作均可使用服务主体自动完成。 权限通过角色成员身份分配给服务主体，十分类似于常规的 Azure AD UPN 帐户。
+
+Analysis Services 还支持由托管标识使用服务主体执行的操作。 若要了解详细信息，请参阅 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)和[支持 Azure AD 身份验证的 Azure 服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services)。
 
 ## <a name="create-service-principals"></a>创建服务主体
 
@@ -96,7 +98,7 @@ Invoke-ProcessTable -Server "asazure://chinaeast.asazure.chinacloudapi.cn/myserv
 
 以下示例使用 `appID` 和 `password` 执行模型数据库刷新操作：
 
-```C#
+```csharp
 string appId = "xxx";
 string authKey = "yyy";
 string connString = $"Provider=MSOLAP;Data Source=asazure://chinanorth.asazure.chinacloudapi.cn/<servername>;User ID=app:{appId};Password={authKey};";

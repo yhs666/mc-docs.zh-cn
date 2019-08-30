@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 06/10/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 6a696955c6245b64f1e1c4bc504cf2f24d238a20
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 3926ba8f10633b3c63814d895469eccedfd38095
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726472"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993597"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -58,6 +58,8 @@ Azure Automation State Configuration 向 [PowerShell Desired State Configuration
 - Windows 10
 - Windows 8.1
 - Windows 7
+
+[Microsoft Hyper-V Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-server-2016) 独立产品 SKU 不包含 Desired State Configuraion 的实现，因此无法通过 PowerShell DSC 或 Azure 自动化 State Configuration 进行管理。
 
 运行 Linux 的节点支持以下发行版/版本：
 

@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 09/25/2018
 ms.date: 02/25/2019
-ms.openlocfilehash: 3b9b6e5cabc7d5c45dab3946dd6e9251dc5604dd
-ms.sourcegitcommit: 5ea744a50dae041d862425d67548a288757e63d1
+ms.openlocfilehash: 29c2e416461e92ae501a6f0139683cad81418210
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56663744"
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578559"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 
@@ -110,7 +110,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>步骤 2：定期运行工作负荷
 临时表的主要优点是，不需要以任何方式更改或调整网站就可以执行更改跟踪。 创建临时表后，每当对数据进行修改时，以前的行版本都会自动保存。 
 
-若要利用此特定方案的自动更改跟踪功能，只需在每次用户结束网站上的会话时更新列 **PagesVisited** ：
+若要利用此特定方案的自动更改跟踪功能，只需在每次用户在网站上结束其会话时更新列 **PagesVisited**：
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 
@@ -196,6 +196,6 @@ ALTER TABLE dbo.WebsiteUserInfo
 * [自定义清理脚本](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## <a name="next-steps"></a>后续步骤
-有关临时表的详细信息，请参阅 [MSDN 文档](https://msdn.microsoft.com/library/dn935015.aspx)。
-访问第 9 频道收听[客户实施临时表的真实成功案例](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions)，观看[临时表现场演示](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016)。
+
+有关时态表的详细信息，请参阅[签出时态表](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables)。
 

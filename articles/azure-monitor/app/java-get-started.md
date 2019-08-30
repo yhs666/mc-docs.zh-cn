@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: java
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 20d88950387510e972eae41889dedd5feda2dd83
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: d59aad6f70def0cf33c75002f21012b759929c38
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562696"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989640"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java Web 项目中的 Application Insights 入门
 
@@ -33,7 +34,7 @@ Application Insights 支持 Linux、Unix 或 Windows 上运行的 Java 应用。
 * JRE 版本 1.7 或 1.8
 * 订阅[世纪互联 Azure](https://www.azure.cn/)。
 
-如果你更喜欢 Spring 框架，请尝试[配置 Spring Boot 初始值设定程序以使用 Application Insights 指南](https://docs.azure.cn/java/spring-framework/configure-spring-boot-java-applicationinsights)
+如果你更喜欢 Spring 框架，请尝试[配置 Spring Boot 初始值设定程序以使用 Application Insights 指南](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1.获取 Application Insights 检测密钥
 1. 登录到[世纪互联 Azure 门户](https://portal.azure.cn)。
@@ -92,7 +93,7 @@ Application Insights 支持 Linux、Unix 或 Windows 上运行的 Java 应用。
 ```
 
 #### <a name="if-youre-using-eclipse-to-create-a-dynamic-web-project-"></a>如果使用 Eclipse 创建动态 Web 项目...
-使用[用于 Java 的 Application Insights SDK 插件][eclipse]。 注意：虽然使用此插件可以通过 Application Insights 更快地完成启动和运行操作（假定未使用 Maven/Gradle），但它不是一个依赖项管理系统。 因此，更新此插件不会自动更新项目中的 Application Insights 库。
+使用用于 Java 的 Application Insights SDK 插件。 注意：虽然使用此插件可以通过 Application Insights 更快地完成启动和运行操作（假定未使用 Maven/Gradle），但它不是一个依赖项管理系统。 因此，更新此插件不会自动更新项目中的 Application Insights 库。
 
 * *发生了生成或校验和验证错误？* 尝试使用特定版本，例如：`version:'2.0.n'`。 可以在 [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)（SDK 发行说明）或 [Maven artifacts](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights)（Maven 项目）中找到最新版本。
 * *若要更新到新的 SDK*，请刷新项目的依赖项。
@@ -323,7 +324,7 @@ public class AppInsightsConfig {
 ![钻取到特定示例视图](./media/java-get-started/007-instance.png)
 
 ### <a name="analytics-powerful-query-language"></a>分析：功能强大的查询语言
-随着累积的数据越来越多，可以运行查询来聚合数据以及查找单个实例。  [分析](../../azure-monitor/app/analytics.md) 是一个强大的工具，既可用于了解性能和使用情况，也可用于诊断。
+随着累积的数据越来越多，可以运行查询来聚合数据以及查找单个实例。  [分析](../../azure-monitor/log-query/log-query-overview.md) 是一个强大的工具，既可用于了解性能和使用情况，也可用于诊断。
 
 ![分析示例](./media/java-get-started/0025.png)
 
@@ -435,30 +436,6 @@ Application Insights Java SDK 现支持 [W3C 分布式跟踪](https://w3c.github
 ### <a name="unix-performance-counters"></a>Unix 性能计数器
 * [使用 Application Insights 插件安装 collectd](java-collectd.md) ，获取各种不同的系统和网络数据。
 
-## <a name="local-forwarder"></a>本地转发器
-
-[本地转发器](/azure-monitor/app/app-insights-overview)是从各种 SDK 和框架中收集 Application Insights 或 [OpenCensus](https://opencensus.io/) 遥测并将其路由到 Application Insights 的代理。 它能够在 Windows 和 Linux 下运行。
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-如果使用的是 SpringBoot 入门版，请将以下内容添加到配置文件（application.properties）中：
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-SpringBoot application.properties 和 applicationinsights.xml 配置的默认值是相同的。
-
 ## <a name="get-user-and-session-data"></a>获取用户和会话数据
 好了，现在正在从 Web 服务发送遥测数据。 若要获取应用程序的 360 度全方位视图，可以添加更多监视：
 
@@ -487,7 +464,7 @@ Application Insights 可以定期测试网站，检查网站是否正常运行�
 * [监视 Unix 性能计数器](java-collectd.md)
 * [将监视功能添加到网页](javascript.md)，监视器页面加载时间、AJAX 调用、浏览器异常。
 * 编写[自定义遥测](../../azure-monitor/app/api-custom-events-metrics.md)来跟踪浏览器或服务器中的使用情况。
-* 使用[分析](../../azure-monitor/app/analytics.md)从应用通过遥测执行功能强大的查询
+* 使用[分析](../../azure-monitor/log-query/log-query-overview.md)从应用通过遥测执行功能强大的查询
 * 有关详细信息，请访问[面向 Java 开发人员的 Azure](https://docs.azure.cn/java/)。
 
 <!--Link references-->
@@ -496,7 +473,6 @@ Application Insights 可以定期测试网站，检查网站是否正常运行�
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

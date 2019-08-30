@@ -5,6 +5,7 @@ services: application-insights
 documentationcenter: ''
 author: lingliw
 manager: digimobile
+origin.date: 08/22/2019
 ms.assetid: 5b816f4c-a77a-4674-ae36-802ee3a2f56d
 ms.service: application-insights
 ms.workload: tbd
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 00192e42ae47e58b0bc7d76034b4aacc65baba7a
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: 5b3b18131a87a87f31b29dc79da60c0f678b9db7
+ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562679"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69989697"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights 中的系统性能计数器
 
@@ -30,43 +31,40 @@ Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desk
 ![Application Insights 中报告的性能计数器](./media/performance-counters/performance-counters.png)
 
 配置为为 ASP.NET/ASP.NET Core Web 应用程序收集的当前默认计数器包括：
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- ASP.NET Requests/Sec
+- .NET CLR Exceptions Thrown/sec
+- ASP.NET ApplicationsRequest Execution Time
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
+- ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
 
 ## <a name="add-counters"></a>添加计数器
 
 如果你需要的性能计数器未包括在指标列表中，则你可以添加它。
 
 1. 通过在本地服务器上使用此 PowerShell 命令，了解服务器中有哪些计数器可用：
-   
+
     `Get-Counter -ListSet *`
-   
+
     （请参阅 [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx)。）
 2. 打开 ApplicationInsights.config。
-   
-   * 如果在开发期间已将 Application Insights 添加到了应用，请在项目中编辑 ApplicationInsights.config，然后将它重新部署到服务器。
-   * 如果已使用状态监视器在运行时检测 Web 应用，则在 IIS 的应用根目录中查找 ApplicationInsights.config。 在每个服务器实例的该位置更新它。
-3. 编辑性能收集器指令：
-   
-```XML
-   
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
 
-```
+   * 如果在开发期间已将 Application Insights 添加到了应用，请在项目中编辑 ApplicationInsights.config，然后将它重新部署到服务器。
+3. 编辑性能收集器指令：
+
+    ```XML
+
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
 
 > [!NOTE]
 > ASP.NET Core 应用程序没有 `ApplicationInsights.config`，因此上述方法对 ASP.NET Core 应用程序无效。
@@ -83,8 +81,7 @@ Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desk
 要收集系统性能计数器并将它们发送到 Application Insights，可以改编下面的片段：
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
@@ -92,7 +89,7 @@ Windows 提供了各种[性能计数器](https://docs.microsoft.com/windows/desk
 ```
 或者，可以执行与所创建自定义指标相同的操作：
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
@@ -121,7 +118,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>分析中的性能计数器
-可以在[分析](../../azure-monitor/app/analytics.md)中搜索并显示性能计数器报告。
+可以在[分析](../../azure-monitor/log-query/log-query-overview.md)中搜索并显示性能计数器报告。
 
 **PerformanceCounters** 架构公开每个性能计数器的 `category`、`counter` 名称和 `instance` 名称。  在每个应用程序的遥测中，将仅看到该应用程序的计数器。 例如，若要查看哪些计数器可用： 
 

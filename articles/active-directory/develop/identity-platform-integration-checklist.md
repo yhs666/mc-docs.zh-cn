@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: lenalepa, sureshja, jesakowi
-ms.custom: aaddev
-ms.openlocfilehash: 989c994af4f4fb3bccb639b22971deafc4d55ceb
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.custom: aaddev, identityplatformtop40
+ms.openlocfilehash: 736d3cbca2e2eb2ba9f8feb97b94945dbed77a57
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305967"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993215"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Microsoft 标识平台集成查检表
 
@@ -67,7 +67,7 @@ Microsoft 标识平台集成查检表旨在引导你完成高质量且安全的�
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果应用已注册到目录中，请最小化并手动监视应用注册所有者的列表。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 除非有明确的要求，否则请不要启用对 [OAuth2 隐式授权流](v2-oauth2-implicit-grant-flow.md)的支持。 在[此处](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant)了解有效方案。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 不要使用[资源所有者密码凭据流 (ROPC)](v2-oauth-ropc.md)，因为它会直接处理用户的密码。 此流所需的信任度和用户公开度很高，仅当无法使用其他更安全的流时，才应使用此流。 |
-| ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 保护和管理应用凭据。 使用[证书凭据](active-directory-certificate-credentials.md)，而不是密码凭据（客户端机密）。 如果必须使用密码凭据，请不要手动设置。 不要将凭据存储在代码或配置中，切勿允许人类处理这些凭据。 如果可能，请使用 [Azure Key Vault](/key-vault/key-vault-whatis) 存储和定期轮换凭据。 |
+| ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 保护和管理应用凭据。 使用[证书凭据](active-directory-certificate-credentials.md)，而不是密码凭据（客户端机密）。 如果必须使用密码凭据，请不要手动设置。 不要将凭据存储在代码或配置中，切勿允许人类处理这些凭据。 如果可能，请使用 [Azure 资源的托管标识](/active-directory/managed-identities-azure-resources/overview)或 [Azure Key Vault](/key-vault/key-vault-whatis) 存储和定期轮换凭据。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 确保应用程序请求最低特权权限。 只在有需要时，才请求应用程序绝对需要的权限。 了解不同的[权限类型](v1-permissions-and-consent.md#types-of-permissions)。 仅在必要时使用应用程序权限；尽量使用委托的权限。 有关 Microsoft Graph 权限的完整列表，请参阅此[权限参考](https://docs.microsoft.com/graph/permissions-reference)。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 如果你在使用 Microsoft 标识平台保护 API，请仔细考虑该 API 应该公开的权限。 考虑解决方案需要哪种适当的粒度级，以及哪些权限需要管理员许可。 在做出任何授权决策之前，请检查传入令牌中的预期权限。 |
 
@@ -94,6 +94,7 @@ Microsoft 标识平台集成查检表旨在引导你完成高质量且安全的�
 
 |   |   |
 |---|---|
+| ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 测试可能影响用户使用应用程序的能力的[条件访问策略](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut)。 |
 | ![复选框](./media/active-directory-integration-checklist/checkbox-two.svg) | 使用你打算支持的所有可能帐户（例如工作或学校帐户）测试应用程序。 |
 
 ## <a name="additional-resources"></a>其他资源
@@ -108,3 +109,4 @@ Microsoft 标识平台集成查检表旨在引导你完成高质量且安全的�
 * [Microsoft 标识平台中的权限和许可](v2-permissions-and-consent.md)
 * [Microsoft 图形 API](https://developer.microsoft.com/graph)
 
+<!-- Update_Description: wording update -->

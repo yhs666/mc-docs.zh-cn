@@ -4,15 +4,15 @@ description: 演示如何应用标记来组织 Azure 资源进行计费和管理
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/11/2019
-ms.date: 07/22/2019
+origin.date: 07/17/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 377651e315a6856d88391b877e4cf236a2b5ac29
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: f9f91278d11010b602b3de801a75224924307620
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337439"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993548"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>使用标记整理 Azure 资源
 
@@ -251,7 +251,148 @@ done
 
 ## <a name="templates"></a>模板
 
-[!INCLUDE [resource-manager-tags-in-templates](../../includes/resource-manager-tags-in-templates.md)]
+若要在部署过程中标记资源，请将 `tags` 元素添加到要部署的资源。 提供标记名称和值。
+
+### <a name="apply-a-literal-value-to-the-tag-name"></a>将文本值应用到标记名称
+
+以下示例显示了具有设置为文本值的两个标记（`Dept` 和 `Environment`）的存储帐户：
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+若要设置日期/时间值的标记，请使用 [utcNow 函数](resource-group-template-functions-string.md#utcnow)。
+
+### <a name="apply-an-object-to-the-tag-element"></a>将对象应用到标记元素
+
+可以定义一个存储多个标记的对象参数，并将该对象应用于标记元素。 对象中的每个属性会成为资源的单独标记。 以下示例有一个名为 `tagValues` 的参数，该标记应用于标记元素。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "tagValues": {
+            "type": "object",
+            "defaultValue": {
+                "Dept": "Finance",
+                "Environment": "Production"
+            }
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('tagValues')]",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-a-json-string-to-the-tag-name"></a>将 JSON 字符串应用到标记名称
+
+要将多个值存储在单个标记中，请应用表示这些值的 JSON 字符串。 整个 JSON 字符串存储为一个标记，该标记不能超过 256 个字符。 以下示例有一个名为 `CostCenter` 的标记，其中包含 JSON 字符串中的多个值：  
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
+
+### <a name="apply-tags-from-resource-group"></a>应用资源组中的标记
+
+若要将资源组中的标记应用于资源，请使用 [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 函数。 获取标记值时，请使用 `tags.[tag-name]` 语法而不是 `tags.tag-name` 语法，因为有些字符在点表示法中无法正确解析。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2019-04-01",
+            "type": "Microsoft.Storage/storageAccounts",
+            "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+            "location": "[parameters('location')]",
+            "tags": {
+                "Dept": "[resourceGroup().tags['Dept']]",
+                "Environment": "[resourceGroup().tags['Environment']]"
+            },
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "Storage",
+            "properties": {}
+        }
+    ]
+}
+```
 
 ## <a name="portal"></a>门户
 

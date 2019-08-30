@@ -3,27 +3,27 @@ title: 了解 Microsoft 身份验证库 (MSAL) | Azure
 description: 借助 Microsoft 身份验证库 (MSAL)，应用程序开发人员可以获取令牌，以调用受保护的 Web API。 这些 Web API 可以是 Microsoft Graph、其他 Microsoft API、第三方 Web API 或你自己的 Web API。 MSAL 支持多个应用程序体系结构和平台。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/25/2019
-ms.date: 06/14/2019
+ms.date: 08/23/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9855692ee156c0e3e89bde266887f69b160d914f
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 6d828cbadc8e7a3b8c1839fa870965fdd658ca1c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305983"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993247"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>Microsoft 身份验证库 (MSAL) 的概述
 借助 Microsoft 身份验证库 (MSAL)，开发人员能够从 Microsoft 标识平台终结点获取[令牌](developer-glossary.md#security-token)，以访问受保护的 Web API。 这些 Web API 可以是 Microsoft Graph、其他 Microsoft API、第三方 Web API 或你自己的 Web API。 MSAL 适用于 .NET、JavaScript、Android 和 iOS，支持许多不同的应用程序体系结构和平台。
@@ -59,6 +59,7 @@ MSAL 为你提供了许多获取令牌的方法，将一致的 API 用于许多�
 | ![MSAL.js](./media/sample-v2-code/logo_js.png) <br/>[MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript 框架：例如 AngularJS、Ember.js 或 Durandal.js|
 | ![适用于 Android 的 MSAL](./media/sample-v2-code/logo_Android.png) <br/>[适用于 Android 的 MSAL（预览版）](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![适用于 iOS 的 MSAL](./media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C（预览版）](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
+| ![MSAL4J](./media/sample-v2-code/logo_java.png) <br/>[MSAL4J 预览版](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
 
 ## <a name="differences-between-adal-and-msal"></a>ADAL 和 MSAL 之间的差异
 Active Directory 身份验证库 (ADAL) 与适用于开发人员的 Azure AD (v1.0) 终结点集成，其中 MSAL 与 Microsoft 标识平台 (v2.0) 终结点集成。 此外，借助 MSAL，还可以获取 Azure AD B2C 的身份验证。
@@ -66,4 +67,4 @@ Active Directory 身份验证库 (ADAL) 与适用于开发人员的 Azure AD (v1
 有关更多具体信息，请参阅[从 ADAL.NET 迁移到 MSAL.NET](msal-net-migration.md) 和[从 ADAL.js 迁移到 MSAL.js](msal-compare-msal-js-and-adal-js.md)。
 
             
-
+<!-- Update_Description: wording update -->

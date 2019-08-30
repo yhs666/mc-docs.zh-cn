@@ -4,15 +4,15 @@ description: 介绍如何使用 Azure Resource Manager 模板中的链接模板�
 author: rockboyfor
 ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 05/01/2019
-ms.date: 07/22/2019
+origin.date: 07/17/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3e61c37cdc16a53c8f3c77efc7394237001ca9eb
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: b06b2286b4f5965716ca1b601bf4ef2311796f75
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337445"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993505"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
@@ -91,7 +91,7 @@ ms.locfileid: "68337445"
 > ],
 > ```
 >
-> 不能在嵌套模板的 outputs 节中使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
+> 对于已在嵌套模板中部署的资源，不能在嵌套模板的 outputs 节使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
 
 嵌套模板需要与标准模板[相同的属性](resource-group-authoring-templates.md)。
 

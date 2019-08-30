@@ -14,14 +14,17 @@ ms.topic: hero-article
 origin.date: 02/10/2019
 ms.date: 03/04/2019
 ms.author: v-jay
-ms.openlocfilehash: 001bdde7c4dfb4d1000025d53ffab0588d1d4e9a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: b4239cc3e4ef9565fcc813bba4dac7f3f771e040
+ms.sourcegitcommit: 8e8675ae9d7c0d0286d65be6b5aa64e555334823
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236529"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69667655"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>媒体服务功能的跨数据中心方案和可用性
+
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
 
 可以使用 Azure 媒体服务 (AMS) 安全地上传、存储、编码和打包视频或音频内容，以便将点播流和实时传送视频流交付到各种客户端（例如，电视、电脑和移动设备）。
 
@@ -224,7 +227,6 @@ AMS 提供两个按需编码器：  Media Encoder Standard。 有关详细信息
 |AES-128 密钥|GA|全部|
 |Fairplay|GA|全部|
 |PlayReady|GA|全部|
-|Widevine|GA|德国、美国联邦政府和中国除外。
 
 ### <a name="reserved-units-rus"></a>预留单位 (RU)
 

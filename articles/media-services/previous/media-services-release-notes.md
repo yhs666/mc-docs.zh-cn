@@ -12,23 +12,26 @@ ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 05/20/2019
+ms.date: 08/26/2019
 ms.author: v-jay
-ms.openlocfilehash: 4c98ef8d55a71efd5f82e298f76aa7b35592f707
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.openlocfilehash: 47da7853156674905c5a51e106ff38fa2d548b77
+ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236471"
+ms.lasthandoff: 08/21/2019
+ms.locfileid: "69670976"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure 媒体服务发行说明
 
 这些 Azure 媒体服务发行说明汇总了与以前版本相比的变更之处和已知的问题。
 
+> [!NOTE]
+> Google Widevine 目前在中国地区不可用。
+
 我们希望能够倾听客户的心声，以便努力解决对客户造成影响的问题。 要报告问题或提出问题，请将在 [Azure 媒体服务 MSDN 论坛]提交问题。 
 
 ## <a name="a-idissuescurrently-known-issues"></a><a id="issues"/>当前已知的问题
-### <a name="a-idgeneralissuesmedia-services-general-issues"></a><a id="general_issues"/>媒体服务一般问题
+### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>媒体服务一般问题
 
 | 问题 | 说明 |
 | --- | --- |
@@ -40,7 +43,7 @@ ms.locfileid: "67236471"
 | 某些客户端可能会在平滑流式处理清单中碰到重复标记问题。 |有关详细信息，请参阅[此部分](media-services-deliver-content-overview.md#known-issues)。 |
 | 媒体服务 .NET SDK 对象无法序列化，因此无法与 Azure Redis 缓存配合使用。 |如果尝试对 SDK AssetCollection 对象进行序列化以将其添加到 Azure Redis 缓存，则会引发异常。 |
 
-## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
+## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 版本历史记录
 有关媒体服务 REST API 版本历史记录的信息，请参阅 [Azure 媒体服务 REST API 参考]。
 
 ## <a name="december-2018"></a>2018 年 12 月
@@ -79,7 +82,7 @@ CMAF 和“cbcs”加密支持 Apple HLS (iOS 11+) 以及支持 CMAF 的 MPEG-DA
 * 如果源视频是使用 H.265(HEVC) 视频编解码器编码的（例如，使用 iOS11 或 GoPro Hero 6 捕获的视频），则现在可以使用高级编码器或标准编码器来编码这些视频。 有关专利许可证的信息，请参阅[联机服务条款](https://azure.microsoft.com/support/legal/)。
 * 对于包含多语言音轨的内容，必须根据相应文件格式规范（例如 ISO MP4）正确标记语言值。 然后即可使用标准编码器编码内容以便进行流式处理。 生成的流式处理定位符将列出可用的音频语言。
 * 标准编码器现在支持两个仅限音频的新系统预设：“AAC 音频”和“AAC 优质音频”。 这两个预设分别生成 128 Kbps 和 192 Kbps 比特率的立体声高级音频编码 (AAC) 输出。
-* 高级编码器现支持以 QuickTime/MOV 文件格式作为输入。 视频编解码器必须是[这篇 GitHub 文章中列出的 Apple ProRes 类型](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats)之一。 音频必须是 AAC 或脉冲编码调制 (PCM) 格式。 高级编码器不支持使用 QuickTime/MOV 文件中包装的 DVC/DVCPro 视频等内容作为输入。 标准版编码器支持这些视频编解码器。
+* 高级编码器现支持以 QuickTime/MOV 文件格式作为输入。 视频编解码器必须是[这篇 GitHub 文章中列出的 Apple ProRes 类型](/media-services/media-services-media-encoder-standard-formats)之一。 音频必须是 AAC 或脉冲编码调制 (PCM) 格式。 高级编码器不支持使用 QuickTime/MOV 文件中包装的 DVC/DVCPro 视频等内容作为输入。 标准版编码器支持这些视频编解码器。
 * 编码器中进行了以下 bug 修复：
 
     * 现可使用输入资产提交作业。 这些作业完成后，可修改资产（例如添加、删除或重命名资产中的文件），并提交其他作业。
@@ -130,7 +133,7 @@ Azure 媒体编修器正式发布：此媒体处理器通过模糊选定个体�
 
  现可使用媒体服务访问其服务的遥测/指标数据。 可使用当前版本的媒体服务收集实时通道、流式处理终结点和存档实体的遥测数据。 有关详细信息，请参阅[媒体服务遥测](media-services-telemetry-overview.md)。
 
-## <a name="a-idjulychanges16july-2016-release"></a><a id="july_changes16"/>2016 年 7 月版本
+## <a name="a-idjuly_changes16july-2016-release"></a><a id="july_changes16"/>2016 年 7 月版本
 ### <a name="updates-to-the-manifest-file-ism-generated-by-encoding-tasks"></a>编码任务所生成清单文件 (*.ISM) 的更新
 将某个编码任务提交到 Media Encoder Standard 或 Media Encoder Premium 后，该编码任务会在输出资产中生成[流式处理清单文件](media-services-deliver-content-overview.md) (*.ism)。 最新的服务版本已更新此流式处理清单文件的语法。
 
@@ -178,6 +181,7 @@ Azure SDK 团队已发布新版 [Azure SDK for PHP](https://github.com/Azure/azu
 
 * 以下[代码示例](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)可帮助你快速入门：
   * vodworkflow_aes.php  ：此 PHP 文件演示如何使用 AES-128 动态加密和密钥传送服务。 它基于[使用 AES-128 动态加密和密钥传送服务](media-services-protect-with-aes128.md)中所述的 .NET 示例。
+  * vodworkflow_aes.php  ：此 PHP 文件演示如何使用 PlayReady 动态加密和许可证传送服务。 它基于[使用 PlayReady 动态通用加密](media-services-protect-with-playready-widevine.md)中所述的 .NET 示例。
   * scale_encoding_units.php  ：此 PHP 文件演示如何缩放编码预留单位。
 
 ## <a id="august_changes_15"></a>2015 年 8 月版本
