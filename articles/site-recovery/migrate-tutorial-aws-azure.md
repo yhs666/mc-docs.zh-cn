@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
 origin.date: 05/30/2019
-ms.date: 07/08/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 2a39877556447e179b94d95609839dc60c5fd63c
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: bc66017b06915931397877ea1746b351993bb1a5
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861712"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134462"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>将 Amazon Web Services (AWS) VM 迁移到 Azure
 
@@ -41,6 +41,7 @@ ms.locfileid: "67861712"
     - CentOS 6.4 到 6.10、7.1 到 7.6（仅限 HVM 虚拟化实例）
 
     <!-- Not Available on - Red Hat Enterprise Linux 6.7 (HVM virtualized instances only) and  must have only Citrix PV or AWS PV drivers. Instances running RedHat PV drivers **aren't** supported.-->
+
 - 必须在要复制的每个 VM 上安装移动服务。 
 
     > [!IMPORTANT]
@@ -97,8 +98,15 @@ ms.locfileid: "67861712"
 6. 对于“资源组”  ，请选择“使用现有”  ，然后选择“migrationRG”  。
 7.  选择“中国北部”作为“位置”  。
 8. 在“子网”  下，保留“名称”  和“IP 范围”  的默认值。
+    
+    <!--Not Available on 9. Add instructions for DDoS protection settings.-->
+    
 9. 让“服务终结点”选项保持禁用状态。 
+
+    <!--Not Available on 11. Add instructions for Firewall settings-->
+    
 10. 完成操作后，选择“创建”  。
+
 
 ## <a name="prepare-the-infrastructure"></a>准备基础结构
 
@@ -158,7 +166,7 @@ ms.locfileid: "67861712"
 
 必须先创建复制策略，然后才能启用复制。
 
-1. 选择“复制并关联”  。
+1. 选择“创建并关联”  。
 2. 在“名称”  中输入 **myReplicationPolicy**。
 3. 其余选项均保留默认设置，然后选择“确定”  以创建策略。 新策略会自动与配置服务器关联。
 
