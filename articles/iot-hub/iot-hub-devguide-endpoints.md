@@ -1,107 +1,127 @@
 ---
-title: "了解 Azure IoT 中心终结点 | Azure"
-description: "开发人员指南 - 有关 IoT 中心面向设备和面向服务的终结点的参考信息。"
-services: iot-hub
-documentationcenter: .net
+title: 了解 Azure IoT 中心终结点 | Azure
+description: 开发人员指南 - 有关 IoT 中心面向设备和面向服务的终结点的参考信息。
 author: dominicbetts
 manager: timlt
-editor: 
-ms.assetid: 57ba52ae-19c6-43e4-bc6c-d8a5c2476e95
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/22/2017
+services: iot-hub
+ms.topic: conceptual
+origin.date: 06/10/2019
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: 7f45c5f5117d5e0b3fad64e756a899a638dc7e61
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.date: 09/02/2019
+ms.openlocfilehash: d38396e34295403c861a140207427a556dc9ea99
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993054"
 ---
-
 # <a name="reference---iot-hub-endpoints"></a>参考 - IoT 中心终结点
+
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
+
+## <a name="iot-hub-names"></a>IoT 中心名称
+
+可在中心的“概述”页上找到在门户中托管终结点的 IoT 中心的主机名  。 默认情况下，IoT 中心的 DNS 名称如下所示：`{your iot hub name}.azure-devices.cn`。
 ## <a name="list-of-built-in-iot-hub-endpoints"></a>内置 IoT 中心终结点列表
 Azure IoT 中心属于多租户服务，向各种执行组件公开功能。 下图显示了 IoT 中心公开的各种终结点。
 
-![IoT 中心终结点][img-endpoints]
+![IoT 中心终结点](./media/iot-hub-devguide-endpoints/endpoints.png)
 
-以下是终结点的说明：
+以下列表对这些终结点进行了说明：
 
-* **资源提供程序**。 IoT 中心资源提供程序公开 [Azure Resource Manager][lnk-arm] 界面，可让 Azure 订阅所有者创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理 [中心级别的安全策略][lnk-accesscontrol]，相对于设备级别的访问控制和云到设备及设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让用户 [导出设备标识][lnk-importexport]。
-* **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTP REST 终结点（创建、检索、更新和删除）。 [设备标识][lnk-device-identities]用于设备身份验证和访问控制。
-* **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTP REST 终结点，用于查询和更新[设备孪生][lnk-twins]（更新标记和属性）。
-* **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTP REST 终结点，用于查询和管理 [作业][lnk-jobs]。
-* **设备终结点**。 对于标识注册表中预配的每个设备，IoT 中心公开设备可用来发送和接收消息的一组终结点：
+* **资源提供程序**。 IoT 中心资源提供程序公开一个 [Azure 资源管理器](../azure-resource-manager/resource-group-overview.md)接口。 此接口使 Azure 订阅所有者可以创建和删除 IoT 中心以及更新 IoT 中心属性。 IoT 中心属性可管理[中心级别安全策略](iot-hub-devguide-security.md#access-control-and-permissions)，而不是设备级别的访问控制以及云到设备和设备到云消息传送的功能选项。 IoT 中心资源提供程序还可让你[导出设备标识](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)。
 
-  * *发送设备到云的消息*。 使用此终结点[发送设备到云的消息][lnk-d2c]。
-  * *接收云到设备的消息*。 设备使用此终结点接收面向[云到设备的消息][lnk-c2d]。
-  * *启动文件上传*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件][lnk-upload]。
-  * *检索并更新设备孪生的属性*。 设备使用此终结点访问其 [设备孪生][lnk-twins]的属性。
-  * *接收直接方法请求*。 设备使用此终结点侦听[直接方法][lnk-methods]的请求。
+* **设备标识管理**。 每个 IoT 中心公开一组用于管理设备标识的 HTTPS REST 终结点（创建、检索、更新和删除）。 [设备标识](iot-hub-devguide-identity-registry.md)用于设备身份验证和访问控制。
 
-    这些终结点使用 [MQTT v3.1.1][lnk-mqtt]、HTTP 1.1 和 [AMQP 1.0][lnk-amqp] 协议进行公开。 请注意，也可以通过端口 443 上的 [WebSockets][lnk-websockets] 来实现 AMQP。
+* **设备孪生管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和更新[设备孪生](iot-hub-devguide-device-twins.md)（更新标记和属性）。
 
-    设备孪生的终结点和方法的终结点只能通过 [MQTT v3.1.1][lnk-mqtt]使用。
-* **服务终结点**。 每个 IoT 中心公开解决方案后端可用来与设备通信的一组终结点。 这些终结点目前只能通过 [AMQP][lnk-amqp] 协议公开，方法调用终结点除外，后者通过 HTTP 1.1 公开。
+* **作业管理**。 每个 IoT 中心都会公开一组面向服务的 HTTPS REST 终结点，用于查询和管理[作业](iot-hub-devguide-jobs.md)。
 
-  * *接收设备到云的消息*。 此终结点与 [Azure 事件中心][lnk-event-hubs]兼容。 后端服务可用它来读取由设备发送的 [设备到云消息][lnk-d2c] 。 除了此内置终结点外，还可以在 IoT 中心创建自定义终结点。
-  * *发送云到设备的消息并接收传递确认*。 这些终结点可让解决方案后端发送可靠的 [云到设备的消息][lnk-c2d]，以及接收对应的传送或过期确认。
-  * *接收文件通知*。 此消息传递终结点允许你在设备成功上传文件时接收通知。 
-  * *直接方法调用*。 此终结点允许后端服务调用设备上的[直接方法][lnk-methods]。
-  * *接收操作监视事件*。 此终结点可以用于接收操作监视事件，前提是已将 IoT 中心配置为发出这些事件。 如需更多详细信息，请参阅 [IoT 中心操作监视][lnk-operations-mon]。
+* **设备终结点**。 对于标识注册表中的每个设备，IoT 中心都会公开一组终结点：
 
-[Azure IoT SDK][lnk-sdks] 一文介绍了访问这些终结点的各种方法。
+  * *发送设备到云的消息*。 设备使用此终结点[发送设备到云的消息](iot-hub-devguide-messages-d2c.md)。
 
-最后请务必注意，所有的 IoT 中心终结点都使用 [TLS][lnk-tls] 协议，且绝不会在未加密/不安全的通道上公开任何终结点。
+  * *接收云到设备的消息*。 设备使用此终结点接收目标[云到设备的消息](iot-hub-devguide-messages-c2d.md)。
+
+  * *启动文件上传*。 设备使用此终结点接收来自 IoT 中心的 Azure 存储 SAS URI，以便[上传文件](iot-hub-devguide-file-upload.md)。
+
+  * *检索并更新设备孪生的属性*。 设备使用此终结点访问其[设备孪生](iot-hub-devguide-device-twins.md)的属性。
+
+  * *接收直接方法请求*。 设备使用此终结点侦听[直接方法](iot-hub-devguide-direct-methods.md)的请求。
+
+    这些终结点使用 [MQTT v3.1.1](https://mqtt.org/)、HTTPS 1.1 和 [AMQP 1.0](https://www.amqp.org/) 协议进行公开。 还可通过端口 443 上的 [WebSocket](https://tools.ietf.org/html/rfc6455) 来实现 AMQP。
+
+* **服务终结点**。 每个 IoT 中心公开一组终结点，供解决方案后端用于与设备通信。 除了一个例外，这些终结点只使用 [AMQP](https://www.amqp.org/) 协议进行公开。 方法调用终结点通过 HTTPS 协议进行公开。
+  
+  * *接收设备到云的消息*。 此终结点与 [Azure 事件中心](/event-hubs/)兼容。 后端服务可用它来读取由设备发送的[设备到云的消息](iot-hub-devguide-messages-d2c.md)。 除了此内置终结点外，还可以在 IoT 中心创建自定义终结点。
+  
+  * *发送云到设备的消息并接收传递确认*。 这些终结点可让解决方案后端发送可靠的[云到设备的消息](iot-hub-devguide-messages-c2d.md)，以及接收对应的传送或过期确认。
+  
+  * *接收文件通知*。 此消息传递终结点允许在设备成功上传文件时接收通知。 
+  
+  * *直接方法调用*。 此终结点允许后端服务在设备上调用[直接方法](iot-hub-devguide-direct-methods.md)。
+  
+  * *接收操作监视事件*。 此终结点可以用于接收操作监视事件，前提是已将 IoT 中心配置为发出这些事件。 有关详细信息，请参阅 [IoT 中心操作监视](iot-hub-operations-monitoring.md)。
+
+[Azure IoT SDK](iot-hub-devguide-sdks.md) 一文介绍了访问这些终结点的各种方法。
+
+所有 IoT 中心终结点都使用 [TLS](https://tools.ietf.org/html/rfc5246) 协议，且绝不会在未加密/不安全的通道上公开任何终结点。
 
 ## <a name="custom-endpoints"></a>自定义终结点
-可将订阅中的现有 Azure 服务链接到用作消息路由终结点的 IoT 中心。 这些终结点充当服务终结点，并用作消息路由的接收器。 设备无法直接写入附加终结点。 若要了解有关消息路由的详细信息，请参阅 [通过 IoT 中心发送和接收消息][lnk-devguide-messaging]中的开发人员指南条目。
+
+可将订阅中的现有 Azure 服务链接到用作消息路由终结点的 IoT 中心。 这些终结点充当服务终结点，并用作消息路由的接收器。 设备无法直接写入附加终结点。 详细了解[消息路由](../iot-hub/iot-hub-devguide-messages-d2c.md)。
 
 IoT 中心当前支持将以下 Azure 服务作为附加终结点：
 
+* Azure 存储容器
 * 事件中心
 * 服务总线队列
 * 服务总线主题
 
-IoT 中心需要这些服务终结点的写入权限，以便使用消息路由。 如果通过 Azure 门户配置终结点，则将为你添加必要权限。 请确保将服务配置为支持预期吞吐量。 可能需要在首次配置 IoT 解决方案时监视附加终结点，然后针对实际负载进行任意的必要调整。
+有关可添加的终结点的数量限制，请参阅[配额和限制](iot-hub-devguide-quotas-throttling.md)。
 
-如果消息与多个路由匹配，而这些路由全部指向同一终结点，则 IoT 中心仅向该终结点传递一次消息。 因此不必在服务总线队列或主题中配置重复数据删除。 在分区队列中，分区相关性可保障消息排序。 不支持将已启用会话的队列用作终结点。 也不支持已启用重复数据删除的分区队列和主题。
+可以使用 REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 获取终结点的运行状况状态。 我们建议使用与路由消息延迟相关的 [IoT 中心指标](iot-hub-metrics.md)来识别和调试终结点运行状况不佳或运行不正常时的错误，因为我们预计当终结点处于其中一种状态时，延迟会更高。
 
-有关可添加终结点的数量限制，请参阅 [配额和限制][lnk-devguide-quotas]。
+|运行状况状态|说明|
+|---|---|
+|healthy|终结点按预期方式接受消息。|
+|不正常|终结点未按预期方式接受消息，IoT 中心正重试将数据发送到此终结点。 当 IoT 中心建立了最终一致的运行状况状态以后，系统会将不正常终结点的状态更新为正常。|
+|未知|IoT 中心尚未建立与该终结点的连接。 尚未向该终结点传送任何消息，也未拒绝该终结点发送的任何消息。|
+|不活动|重试期间，在 IoT 中心重试发送消息以后，终结点不接受消息。|
 
 ## <a name="field-gateways"></a>现场网关
-在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可以是高度专业化的硬件，也可以是运行软件的低功率计算机，只需能够完成网关所适用的端到端方案即可。
 
-可以使用 [Azure IoT 网关 SDK][lnk-gateway-sdk] 实现现场网关。 此 SDK 提供特定功能，例如能够在同一个 IoT 中心连接上多路复用来自多个设备的通信。
+在 IoT 解决方案中， *现场网关* 位于设备和 IoT 中心终结点之间。 它通常位于靠近设备的位置。 设备使用设备支持的协议，直接与现场网关通信。 现场网关使用 IoT 中心支持的协议连接到 IoT 中心终结点。 现场网关可能是专用硬件设备或运行自定义网关软件的低功率计算机。
+
+可使用 [Azure IoT Edge](/iot-edge/) 实现现场网关。 IoT Edge 提供一些功能，例如从多台设备向同一 IoT 中心连接多路复用通信。
 
 ## <a name="next-steps"></a>后续步骤
 此 IoT 中心开发人员指南中的其他参考主题包括：
 
-* [设备孪生和作业的 IoT 中心查询语言][lnk-devguide-query]
-* [配额和限制][lnk-devguide-quotas]
-* [IoT 中心 MQTT 支持][lnk-devguide-mqtt]
+* [用于设备孪生、作业和消息路由的 IoT 中心查询语言](iot-hub-devguide-query-language.md)
+* [配额和限制](iot-hub-devguide-quotas-throttling.md)
+* [IoT 中心 MQTT 支持](iot-hub-mqtt-support.md)
+* [了解 IoT 中心 IP 地址](iot-hub-understand-ip-address.md)
 
-[lnk-gateway-sdk]: https://github.com/Azure/azure-iot-gateway-sdk
+[lnk-iot-edge]: https://github.com/Azure/iot-edge
 
 [img-endpoints]: ./media/iot-hub-devguide-endpoints/endpoints.png
 [lnk-amqp]: https://www.amqp.org/
 [lnk-mqtt]: http://mqtt.org/
 [lnk-websockets]: https://tools.ietf.org/html/rfc6455
 [lnk-arm]: ../azure-resource-manager/resource-group-overview.md
-[lnk-event-hubs]: ../event-hubs/index.md
+[lnk-event-hubs]: /event-hubs/
 
 [lnk-tls]: https://tools.ietf.org/html/rfc5246
 
 [lnk-sdks]: ./iot-hub-devguide-sdks.md
 [lnk-accesscontrol]: ./iot-hub-devguide-security.md#access-control-and-permissions
 [lnk-importexport]: ./iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-d2c]: ./iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-d2c]: ./iot-hub-devguide-messages-d2c.md
 [lnk-device-identities]: ./iot-hub-devguide-identity-registry.md
 [lnk-upload]: ./iot-hub-devguide-file-upload.md
-[lnk-c2d]: ./iot-hub-devguide-messaging.md#cloud-to-device-messages
+[lnk-c2d]: ./iot-hub-devguide-messages-c2d.md
 [lnk-methods]: ./iot-hub-devguide-direct-methods.md
 [lnk-twins]: ./iot-hub-devguide-device-twins.md
 [lnk-query]: ./iot-hub-devguide-query-language.md
@@ -112,3 +132,5 @@ IoT 中心需要这些服务终结点的写入权限，以便使用消息路由�
 [lnk-devguide-mqtt]: ./iot-hub-mqtt-support.md
 [lnk-devguide-messaging]: ./iot-hub-devguide-messaging.md
 [lnk-operations-mon]: ./iot-hub-operations-monitoring.md
+
+<!--Update_Description: update wording-->

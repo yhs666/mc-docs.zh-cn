@@ -1,169 +1,106 @@
 ---
-title: "使用 Python 连接到 Azure SQL 数据库 | Azure"
-description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Python 代码示例。"
+title: 使用 Python 查询 Azure SQL 数据库 | Microsoft Docs
+description: 本主题介绍如何使用 Python 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
-author: meet-bhagdev
-manager: jhubbard
-editor: 
-ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
-ms.custom: quick start connect
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.subservice: development
+ms.custom: ''
 ms.devlang: python
-ms.topic: article
-ms.date: 04/05/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 3245e1e56111995016dc49d7aed5de58ccbc26b3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: ''
+manager: digimobile
+origin.date: 03/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 65a37649dd69784e22a58298b9a67837f42e7bcf
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544139"
 ---
-# <a name="azure-sql-database-use-python-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Python 进行连接和数据查询
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>快速入门：使用 Python 查询 Azure SQL 数据库
 
- 本快速入门演示了如何通过 Mac OS、Ubuntu Linux 和 Windows 平台使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
+ 本快速入门演示了如何使用 [Python](https://python.org) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句查询数据。 如需进一步的 SDK 详细信息，请查看[参考](https://docs.microsoft.com/python/api/overview/azure/sql)文档、[pyodbc GitHub 存储库](https://github.com/mkleehammer/pyodbc/wiki/)以及 [pyodbc 示例](https://github.com/mkleehammer/pyodbc/wiki/Getting-started)。
 
-此快速入门使用以下某个快速入门中创建的资源作为其起点：
+## <a name="prerequisites"></a>先决条件
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
+若要完成本快速入门，请确保符合以下条件：
 
-## <a name="install-the-python-and-database-communication-libraries"></a>安装 Python 和数据库通信库
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-### <a name="mac-os"></a>**Mac OS**
-打开终端并导航到你要在其中创建 python 脚本的目录。 输入以下命令，安装 **brew**、**Microsoft ODBC Driver for Mac**和 **pyodbc**。 pyodbc 使用 Linux 上的 Microsoft ODBC 驱动程序连接到 SQL 数据库。
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
+  |||
 
-``` bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew tap microsoft/msodbcsql https://github.com/Microsoft/homebrew-msodbcsql-preview
-brew update
-brew install msodbcsql 
-#for silent install ACCEPT_EULA=y brew install msodbcsql
-sudo pip install pyodbc==3.1.1
-```
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
+  
+- 适用于你的操作系统的 Python 和相关软件：
+  
+  - **MacOS**：安装 Homebrew 和 Python，接着安装 ODBC 驱动程序和 SQLCMD，再安装 Python Driver for SQL Server。 请参阅 [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/)（在 macOS 上使用 SQL Server 创建 Python 应用）中的步骤 1.2、1.3 和 2.1。 有关详细信息，请参阅[在 Linux 和 macOS 上安装 Microsoft ODBC 驱动程序](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server)。
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-打开终端并导航到你要在其中创建 python 脚本的目录。 输入以下命令，安装**适用于 Linux 的 Microsoft ODBC 驱动程序**和 **pyodbc**。 pyodbc 使用 Linux 上的 Microsoft ODBC 驱动程序连接到 SQL 数据库。
+  - **Ubuntu**：使用 `sudo apt-get install python python-pip gcc g++ build-essential` 安装 Python 和其他所需的程序包。 下载并安装用于 SQL Server 的 ODBC 驱动程序、SQLCMD 和 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux)。
 
-```bash
-sudo su
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql.list
-exit
-sudo apt-get update
-sudo apt-get install msodbcsql mssql-tools unixodbc-dev
-sudo pip install pyodbc==3.1.1
-```
+  - Windows  ：安装用于 SQL Server 的 Python、ODBC 驱动程序和 SQLCMD 以及 Python 驱动程序。 有关说明，请参阅[配置用于 pyodbc Python 开发的开发环境](https://docs.microsoft.com/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows)。
 
-### <a name="windows"></a>**Windows**
-安装 [Microsoft ODBC 驱动程序 13.1](https://www.microsoft.com/download/details.aspx?id=53339)。 pyodbc 使用 Linux 上的 Microsoft ODBC 驱动程序连接到 SQL 数据库。 
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
-然后使用 pip 安装 pyodbc
-
-```cmd
-pip install pyodbc==3.1.1
-```
-
-可在 [此处](http://stackoverflow.com/questions/4750806/how-to-install-pip-on-windows)
-
-## <a name="get-connection-information"></a>获取连接信息
-
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
+
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。
+
+## <a name="create-code-to-query-your-sql-database"></a>创建用于查询 SQL 数据库的代码 
+
+1. 在文本编辑器中，创建新文件 sqltest.py  。  
    
-## <a name="select-data"></a>选择数据
-使用 [pyodbc.connect](https://github.com/mkleehammer/pyodbc/wiki) 函数和 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 语句查询 Azure SQL 数据库中的数据。 [Cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数可用于针对 SQL 数据库从查询中检索结果集。 此函数实际上可接受任何查询，并返回可使用 [cursor.fetchone()](https://mkleehammer.github.io/pyodbc/api-cursor.html) 循环访问的结果集。
+1. 添加以下代码。 将自己的值替换为 \<服务器>、\<数据库>、\<用户名> 和 \<密码>。
+   
+   >[!IMPORTANT]
+   >本示例中的代码使用示例 AdventureWorksLT 数据，在创建数据库时可以选择该数据作为源。 如果数据库有不同数据，请在 SELECT 查询中使用自己数据库中的表。 
+   
+   ```python
+   import pyodbc
+   server = '<server>.database.chinacloudapi.cn'
+   database = '<database>'
+   username = '<username>'
+   password = '<password>'
+   driver= '{ODBC Driver 17 for SQL Server}'
+   cnxn = pyodbc.connect('DRIVER='+driver+';SERVER='+server+';PORT=1433;DATABASE='+database+';UID='+username+';PWD='+ password)
+   cursor = cnxn.cursor()
+   cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
+   row = cursor.fetchone()
+   while row:
+       print (str(row[0]) + " " + str(row[1]))
+       row = cursor.fetchone()
+   ```
+   
 
-```Python
-import pyodbc
-server = 'yourserver.database.chinacloudapi.cn'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-cursor.execute("SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid")
-row = cursor.fetchone()
-while row:
-    print str(row[0]) + " " + str(row[1])
-    row = cursor.fetchone()
-```
+## <a name="run-the-code"></a>运行代码
 
+1. 请在命令提示符处运行以下命令：
 
-## <a name="insert-data"></a>插入数据
-在 SQL 数据库中，可以使用 [IDENTITY](https://msdn.microsoft.com/library/ms186775.aspx) 属性和 [SEQUENCE](https://msdn.microsoft.com/library/ff878058.aspx) 对象自动生成[主键值](https://msdn.microsoft.com/library/ms179610.aspx)。 
+   ```cmd
+   python sqltest.py
+   ```
 
-```Python
-import pyodbc
-server = 'yourserver.database.chinacloudapi.cn'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-with cursor.execute("INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')"): 
-    print ('Successfuly Inserted!')
-cnxn.commit()
-```
-
-## <a name="update-data"></a>更新数据
-可使用 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数执行 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 语句，更新 Azure SQL 数据库中的数据。
-
-```Python
-import pyodbc
-server = 'yourserver.database.chinacloudapi.cn'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?"
-with cursor.execute(tsql,50,'BrandNewProduct'):
-    print ('Successfuly Updated!')
-cnxn.commit()
-
-```
-
-
-## <a name="delete-data"></a>删除数据
-可使用 [cursor.execute](https://mkleehammer.github.io/pyodbc/api-cursor.html) 函数执行 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 语句，删除 Azure SQL 数据库中的数据。
-
-```Python
-import pyodbc
-server = 'yourserver.database.chinacloudapi.cn'
-database = 'yourdatabase'
-username = 'yourusername'
-password = 'yourpassword'
-driver= '{ODBC Driver 13 for SQL Server}'
-cnxn = pyodbc.connect('DRIVER='+driver+';PORT=1433;SERVER='+server+';PORT=1443;DATABASE='+database+';UID='+username+';PWD='+ password)
-cursor = cnxn.cursor()
-tsql = "DELETE FROM SalesLT.Product WHERE Name = ?"
-with cursor.execute(tsql,'BrandNewProduct'):
-    print ('Successfuly Deleted!')
-cnxn.commit()
-```
+1. 确认已返回前 20 个类别/产品行，然后关闭命令窗口。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 [Microsoft Python Driver for SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/) 的详细信息。
-- 访问 [Python 开发人员中心](https://www.azure.cn/develop/python/)。
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+- [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)
+- [用于 SQL Server 的 Microsoft Python 驱动程序](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)
+- [Python 开发人员中心](/develop/python/?v=17.23h)
 

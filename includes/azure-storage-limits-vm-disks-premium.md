@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: virtual-machines
+ms.topic: include
+origin.date: 11/09/2018
+ms.date: 12/24/2018
+ms.author: v-yeche
+ms.openlocfilehash: c9948d41f309fcbc6ae9d814885495571d6dcd46
+ms.sourcegitcommit: 96ceb27357f624536228af537b482df08c722a72
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53736797"
+---
 **高级非托管虚拟机磁盘：每个帐户的限制**
 
 | 资源 | 默认限制 |
@@ -10,18 +24,12 @@
 
 **高级非托管虚拟机磁盘：每个磁盘的限制**
 
-| 高级存储磁盘类型 | P10 | P20 | P30 |
-| --- | --- | --- | --- |
-| 磁盘大小 |128 GiB |512 GiB |1024 GiB (1 TB) |
-| 每个磁盘的最大 IOPS |500 |2300 |5000 |
-| 每个磁盘的最大吞吐量 |100 MB/秒 | 150 MB/秒 |200 MB/秒 |
-| 每个存储帐户的磁盘的最大数目 |280 |70 |35 |
+| 高级存储磁盘类型 | P10 | P20 | P30 | P40 | P50 |
+| --- | --- | --- | --- | --- | --- |
+| 磁盘大小 |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
+| 每个磁盘的最大 IOPS |500 |2300 |5000 |7500 |7500 |
+| 每个磁盘的最大吞吐量 |100 MB/秒 | 150 MB/秒 |200 MB/秒 |250 MB/秒 |250 MB/秒 |
+| 每个存储帐户的磁盘的最大数目 |280 |70 |35 | 17 | 8 |
 
-**高级非托管虚拟机磁盘：每个 VM 的限制**
+<!-- Not Available on GS5 VM-->
 
-| 资源 | 默认限制 |
-| --- | --- |
-| 每个 VM 的最大 IOPS |GS5 VM 为 80,000 IOPS<sup>1</sup> |
-| 每个 VM 的最大吞吐量 |GS5 VM 为 2,000 MB/秒<sup>1</sup> |
-
-<sup>1</sup>有关其他 VM 大小的限制，请参阅 [VM 大小](../articles/virtual-machines/linux/sizes.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)。

@@ -1,169 +1,169 @@
 ---
-title: "使用模板创建 Azure 事件中心命名空间和使用者组 | Azure"
-description: "使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间"
+title: 创建具有使用者组的事件中心 - Azure 事件中心 | Azure Docs
+description: 使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 services: event-hubs
 documentationcenter: .net
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 03/07/2017
-wacn.date: 
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: f4d6d3fbe3c6bc36c8f02738694e43edc76d7bad
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+origin.date: 08/16/2018
+ms.date: 08/05/2019
+ms.author: v-biyu
+ms.openlocfilehash: a78e9822ecc012328abc3051b77a8396c9dcc277
+ms.sourcegitcommit: 434ba2ff85c81c2feb1394366acc6aa7184a6edb
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/22/2019
+ms.locfileid: "68371757"
 ---
+# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 
-# <a name="create-an-event-hubs-namespace-with-event-hub-and-consumer-group-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
 
-本文介绍如何使用 Azure Resource Manager 模板创建包含一个事件中心和一个使用者组的事件中心类型的命名空间。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求
+在此快速入门中，使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-overview.md)创建事件中心。 部署 Azure 资源管理器模板以创建包含一个事件中心的类型为[事件中心](event-hubs-what-is-event-hubs.md)的命名空间。 本文介绍如何定义要部署的资源以及如何定义执行部署时指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。 有关创建模板的信息，请参阅[创作 Azure 资源管理器模板][Authoring Azure Resource Manager templates]。
 
-有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-有关完整的模板，请参阅 GitHub 上的 [事件中心和使用者组模板][Event Hub and consumer group template] 。
+## <a name="create-an-event-hub"></a>创建事件中心
 
-> [!NOTE]
-> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates] 库并搜索事件中心。
-> 
-> 
-
-## <a name="what-will-you-deploy"></a>你将部署什么内容？
-
-使用此模板，你将部署包含事件中心和使用者组的事件中心命名空间。
-
-[事件中心](./event-hubs-what-is-event-hubs.md)是一种事件处理服务，用于向 Azure 提供大规模的事件与遥测数据入口，并且具有较低的延迟和较高的可靠性。
-
-若要自动运行部署，请单击以下按钮：
-
-[![部署到 Azure](./media/event-hubs-resource-manager-namespace-event-hub/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
-
-## <a name="parameters"></a>Parameters
-
-使用 Azure Resource Manager，可以定义在部署模板时想要指定的值的参数。 该模板具有一个名为 `Parameters` 的部分，其中包含所有参数值。 你应该为随着要部署的项目或要部署到的环境而变化的值定义参数。 不要为永远保持不变的值定义参数。 模板中的每个参数值定义所部署的资源。
-
-模板定义以下参数。
-
-### <a name="eventhubnamespacename"></a>eventHubNamespaceName
-
-要创建的事件中心命名空间的名称。
-
+本快速入门使用[现有快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)：
 ```json
-"eventHubNamespaceName": {
-"type": "string"
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "projectName":{
+      "type": "string",
+      "metadata": {
+        "description": "Specifies a project name that is used to generate the Event Hub name and the Namespace name."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Specifies the Azure location for all resources."
+      }
+    },
+    "eventHubSku": {
+      "type": "string",
+      "allowedValues": [ "Basic", "Standard" ],
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "Specifies the messaging tier for service Bus namespace."
+      }
+    }
+  },
+  "variables": {
+    "eventHubNamespaceName": "[concat(parameters('projectName'), 'ns')]",
+    "eventHubName": "[parameters('projectName')]"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "type": "Microsoft.EventHub/namespaces",
+      "name": "[variables('eventHubNamespaceName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('eventHubSku')]",
+        "tier": "[parameters('eventHubSku')]",
+        "capacity": 1
+      },
+      "properties": {
+        "isAutoInflateEnabled": false,
+        "maximumThroughputUnits": 0
+      }
+    },
+    {
+      "apiVersion": "2017-04-01",
+      "type": "Microsoft.EventHub/namespaces/eventhubs",
+      "name": "[concat(variables('eventHubNamespaceName'), '/', variables('eventHubName'))]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.EventHub/namespaces', variables('eventHubNamespaceName'))]"
+      ],
+      "properties": {
+        "messageRetentionInDays": 7,
+        "partitionCount": 1
+      }
+    }
+  ]
 }
 ```
+若要部署模板，请执行以下操作：
 
-### <a name="eventhubname"></a>eventHubName
+1. 从以下代码块中选择“试用”  ，然后按照说明登录 Azure CLI。
 
-在事件中心命名空间中创建的事件中心的名称。
+   ```azurepowershell
+   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+   $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
+   $resourceGroupName = "${projectName}rg"
+   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json"
 
-```json
-"eventHubName": {
-"type": "string"
-}
+   New-AzResourceGroup -Name $resourceGroupName -Location $location
+   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
+
+   Write-Host "Press [ENTER] to continue ..."
+   ```
+
+   创建事件中心需要一些时间。
+
+1. 选择“复制”以复制 PowerShell 脚本。 
+1. 右键单击 shell 控制台，然后选择“粘贴”  。
+
+## <a name="verify-the-deployment"></a>验证部署
+
+若要验证部署，可以从 [Azure 门户](https://portal.azure.cn)打开资源组，也可以使用以下 Azure PowerShell 脚本。
+
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
+$namespaceName = "${projectName}ns"
+
+Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
+
+Write-Host "Press [ENTER] to continue ..."
 ```
 
-### <a name="eventhubconsumergroupname"></a>eventHubConsumerGroupName
+## <a name="clean-up-resources"></a>清理资源
 
-为事件中心创建的使用者组的名称。
+不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-```json
-"eventHubConsumerGroupName": {
-"type": "string"
-}
-```
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+$resourceGroupName = "${projectName}rg"
 
-### <a name="apiversion"></a>apiVersion
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
-模板的 API 版本。
-
-```json
-"apiVersion": {
-"type": "string"
-}
-```
-
-## <a name="resources-to-deploy"></a>要部署的资源
-
-创建包含事件中心和使用者组的 **EventHubs**类型的命名空间。
-
-```json
-"resources":[  
-      {  
-         "apiVersion":"[variables('ehVersion')]",
-         "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/namespaces",
-         "location":"[variables('location')]",
-         "sku":{  
-            "name":"Standard",
-            "tier":"Standard"
-         },
-         "resources":[  
-            {  
-               "apiVersion":"[variables('ehVersion')]",
-               "name":"[parameters('eventHubName')]",
-               "type":"EventHubs",
-               "dependsOn":[  
-                  "[concat('Microsoft.EventHub/namespaces/', parameters('namespaceName'))]"
-               ],
-               "properties":{  
-                  "path":"[parameters('eventHubName')]"
-               },
-               "resources":[  
-                  {  
-                     "apiVersion":"[variables('ehVersion')]",
-                     "name":"[parameters('consumerGroupName')]",
-                     "type":"ConsumerGroups",
-                     "dependsOn":[  
-                        "[parameters('eventHubName')]"
-                     ],
-                     "properties":{  
-
-                 }
-              }
-           ]
-        }
-     ]
-  }
-],
-```
-
-## <a name="commands-to-run-deployment"></a>运行部署的命令
-
-[!INCLUDE [app-service-deploy-commands](../../includes/app-service-deploy-commands.md)]
-
-## <a name="powershell"></a>PowerShell
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json
-```
-
-## <a name="azure-cli"></a>Azure CLI
-
-```cli
-azure config mode arm
-
-azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-event-hubs-create-event-hub-and-consumer-group/azuredeploy.json][]
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 ## <a name="next-steps"></a>后续步骤
-访问以下链接可以了解有关事件中心的详细信息：
 
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
-* [创建事件中心](./event-hubs-create.md)
-* [事件中心常见问题](./event-hubs-faq.md)
+在本文中，你创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅“发送和接收事件”教程  ：
+
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
+
+
+[3]: ./media/event-hubs-quickstart-powershell/sender1.png
+[4]: ./media/event-hubs-quickstart-powershell/receiver1.png
+[5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Azure Quickstart Templates]:  https://github.com/Azure/azure-quickstart-templates/?term=event+hubs
-[Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
+[Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
-[Event Hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/
+[Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

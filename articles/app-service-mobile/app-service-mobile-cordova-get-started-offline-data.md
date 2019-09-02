@@ -1,37 +1,41 @@
 ---
 title: 为 Azure 移动应用启用脱机同步 (Cordova) | Azure
 description: 了解如何在 Cordova 应用程序中使用应用服务移动应用来缓存和同步脱机数据
-documentationCenter: cordova
-authors: adrianhall
-manager: erikre
+documentationcenter: cordova
+author: conceptdev
+manager: crdun
 editor: ''
 services: app-service\mobile
-
+ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/30/2016
-wacn.date: 01/23/2017
+origin.date: 10/30/2016
+ms.date: 01/29/2018
 ms.author: v-yiso
+ms.openlocfilehash: fd8d9d67de00465e70761151978a9b9e34b1e72b
+ms.sourcegitcommit: 0cb57e97931b392d917b21753598e1bd97506038
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906167"
 ---
-
-# 为 Cordova 移动应用启用脱机同步
+# <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>为 Cordova 移动应用启用脱机同步
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-本教程介绍适用于 Cordova 的 Azure 移动应用的脱机同步功能。脱机同步允许最终用户与移动应用交互（查看、添加或修改数据），即使在没有网络连接时也是如此。在本地数据库中存储更改。设备重新联机后，这些更改会与远程服务同步。
+本教程介绍适用于 Cordova 的 Azure 移动应用的脱机同步功能。 借助脱机同步，最终用户即使在没有网络连接时也能够与移动应用进行交互（查看、添加或修改数据）。 在本地数据库中存储更改。  设备重新联机后，这些更改会与远程服务同步。
 
-本教程基于完成教程 [Apache Cordova 快速入门]时创建的移动应用的 Cordova 快速入门解决方案。在本教程中，将更新快速入门解决方案，以添加 Azure 移动应用的脱机功能。我们还重点介绍了该应用中的特定于脱机的代码。
+本教程基于完成教程 [Apache Cordova 快速入门]时创建的移动应用的 Cordova 快速入门解决方案。 在本教程中，需更新快速入门解决方案，以便添加 Azure 移动应用的脱机功能。  我们还重点介绍了该应用中的特定于脱机的代码。
 
-若要了解有关脱机同步功能的详细信息，请参阅主题 [Azure 移动应用中的脱机数据同步]。若要深入了解 API 用法，请参阅 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
+若要了解有关脱机同步功能的详细信息，请参阅主题 [Azure 移动应用中的脱机数据同步]。 若要深入了解 API 用法，请参阅 [API 文件](https://azure.github.io/azure-mobile-apps-js-client)。
 
-## 在快速入门解决方案中添加脱机同步功能
+## <a name="add-offline-sync-to-the-quickstart-solution"></a>在快速入门解决方案中添加脱机同步功能
+应用中必须添加脱机同步代码。 脱机同步功能需要 cordova-sqlite-storage 插件，该插件会在项目中包含 Azure 移动应用时自动添加到应用中。 快速入门项目包含上述两个插件。
 
-应用中必须添加脱机同步代码。脱机同步功能需要 cordova-sqlite-storage 插件，该插件会在项目中包含 Azure 移动应用时自动添加到应用中。快速入门项目包含上述两个插件。
-
-1. 在 Visual Studio 解决方案资源管理器中，打开 index.js，然后将以下代码
+1. 在 Visual Studio 解决方案资源管理器中，打开 index.js，并将以下代码
 
     ```
     var client,            // Connection to the Azure Mobile App backend
@@ -73,9 +77,9 @@ ms.author: v-yiso
     syncContext = client.getSyncContext();
     ```
 
-    前面增加的代码会初始化本地存储，并定义与 Azure 后端中使用的列值匹配的本地表。（无需在此代码中包含所有列值。） `version` 字段由移动后端维护并用于冲突解决方案。
+    前面增加的代码会初始化本地存储，并定义与 Azure 后端中使用的列值匹配的本地表。 （无需在此代码中包含所有列值。）） `version` 字段由移动后端维护并用于冲突解决方案。
 
-    调用 **getSyncContext** 可获取对同步上下文的引用。对于调用 `.push()` 时客户端应用修改的所有表，此同步上下文通过跟踪和推送这些表中的更改来帮助保持表关系。
+    调用 **getSyncContext**可获取对同步上下文的引用。 对于调用 `.push()` 时客户端应用修改的所有表，此同步上下文通过跟踪和推送这些表中的更改来帮助保持表关系。
 
 3. 将应用程序 URL 更新为移动应用的应用程序 URL。
 
@@ -123,7 +127,7 @@ ms.author: v-yiso
 
     此代码使用本地数据库进行所有创建、读取、更新和删除 (CRUD) 表操作。
 
-    此示例会对同步冲突执行简单的错误处理。实际应用程序会处理各种错误，例如网络状况、服务器冲突等。有关代码示例，请参阅[脱机同步示例]。
+    此示例会对同步冲突执行简单的错误处理。 实际应用程序会处理各种错误，例如网络状况、服务器冲突等。 有关代码示例，请参阅 [脱机同步示例]。
 
 5. 接下来，添加此函数以执行实际同步操作。
 
@@ -141,19 +145,19 @@ ms.author: v-yiso
     }
     ```
 
-    通过调用 **syncContext.push()**，决定何时将更改推送到移动应用后端。例如，在绑定到同步按钮的按钮事件处理程序中，可调用 **syncBackend**。
+    调用 syncContext.push() 可决定何时将更改推送到移动应用后端。 例如，在绑定到同步按钮的按钮事件处理程序中，可调用 **syncBackend** 。
 
-## 脱机同步注意事项
+## <a name="offline-sync-considerations"></a>脱机同步注意事项
 
-在示例中， **syncContext** 的 **push** 方法仅会在应用启动时在登录的回调函数中调用。在实际应用程序中，还可以手动或在网络状态发生更改时触发此同步功能。
+示例中 syncContext 的 push 方法仅会在应用启动时在登录的回调函数中调用。  在实际应用程序中，还可以手动或在网络状态发生更改时触发此同步功能。
 
-如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作将自动触发推送操作。在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
+如果对一个表执行拉取操作，并且该表具有由上下文跟踪的未完成的本地更新，那么该拉取操作自动触发推送操作。 在此示例中刷新、添加和完成项时，可省略显式 **push** 调用，因为它可能是冗余的。
 
-在所提供的代码中，将查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步]中的 *增量同步* 部分。
+在所提供的代码中，会查询远程 todoItem 表中的所有记录，也可以筛选记录，只需将查询 ID 和查询传递给 **push** 即可。 有关详细信息，请参阅 [Azure 移动应用中的脱机数据同步] 中的 *增量同步*部分。
 
-## （可选）禁用身份验证
+## <a name="optional-disable-authentication"></a>（可选）禁用身份验证
 
-如果不想在测试脱机同步功能之前设置身份验证，请注释禁止登录的回调函数，但让回调函数内部的代码保持取消注释状态。注释禁止登录行后，该代码应如下所示：
+如果不想在测试脱机同步功能之前设置身份验证，请为用于登录的回调函数添加注释，但不对回调函数内的代码添加注释。  注释禁止登录行后，该代码应如下所示：
 
 ```
   // Login to the service.
@@ -166,51 +170,51 @@ ms.author: v-yiso
   // }, handleError);
 ```
 
-现在，应用将在运行应用时与 Azure 后端同步。
+现在，应用会在运行应用时与 Azure 后端同步。
 
-## 运行客户端应用
-启用脱机同步后，可在每个平台上至少运行一次客户端应用程序，以填充本地存储数据库。稍后，模拟脱机场景，并在应用处于脱机状态时修改本地存储中的数据。
+## <a name="run-the-client-app"></a>运行客户端应用
+启用脱机同步后，可在每个平台上至少运行一次客户端应用程序，以填充本地存储数据库。 稍后，模拟脱机场景，并在应用处于脱机状态时修改本地存储中的数据。
 
-## （可选）测试同步行为
-本节对客户端项目进行修改，通过对后端使用无效的应用程序 URL 来模拟脱机场景。添加或更改数据项时，这些更改保存在本地存储中，但在重新建立连接之前，这些更改不会同步到后端数据存储中。
+## <a name="optional-test-the-sync-behavior"></a>（可选）测试同步行为
+本节对客户端项目进行修改，通过对后端使用无效的应用程序 URL 来模拟脱机场景。 添加或更改数据项时，这些更改保存在本地存储中，但在重新建立连接之前，这些更改不会同步到后端数据存储中。
 
-1. 在解决方案资源管理器中，打开 index.js 项目文件，然后更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
+1. 在解决方案资源管理器中，打开 index.js 项目文件，并更改应用程序 URL，使其指向无效的 URL，如以下代码所示：
 
     ```
-    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.cn-fail');
+    client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.chinacloudsites.cn-fail');
     ```
 
 2. 在 index.html 中，使用同一无效的 URL 更新 CSP `<meta>` 元素。
 
     ```
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.chinacloudsites.cn-fail; style-src 'self'; media-src *">
     ```
 
-3. 生成并运行客户端应用，请注意，如果应用在登录后尝试与后端同步，则会在控制台中记录异常。添加的任何新项在推送到移动后端之前，只存在于本地存储中。客户端应用的行为就像它已连接到后端一样。
+3. 生成并运行客户端应用，请注意，如果应用在登录后尝试与后端同步，则会在控制台中记录异常。 添加的任何新项在推送到移动后端之前，只存在于本地存储中。 客户端应用的行为就像它已连接到后端一样。
 
 4. 关闭应用程序并重新启动它，以验证你创建的新项目是否已永久保存到本地存储中。
 
-5. （可选）使用 Visual Studio 查看 Azure SQL 数据库表，以了解后端数据库中的数据是否未更改。
+5. （可选）使用 Visual Studio 查看 Azure SQL 数据库表，看看后端数据库中的数据是否未更改。
 
-    在 Visual Studio 中，打开“服务器资源管理器”。导航到“Azure”->“SQL 数据库”中的数据库。右键单击数据库并选择“在 SQL Server 对象资源管理器中打开”。现在便可以浏览 SQL 数据库表及其内容。
+    在 Visual Studio 中，打开“服务器资源管理器”。 导航到“Azure”->“SQL 数据库”中的数据库。 右键单击数据库并选择“在 SQL Server 对象资源管理器中打开” 。 现在便可以浏览 SQL 数据库表及其内容。
 
-## （可选）测试与移动后端的重新连接
+## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>（可选）测试与移动后端的重新连接
 
-本节将应用重新连接到移动后端，可模拟重新回到联机状态的应用。登录时，数据将同步到移动后端。
+本节将应用重新连接到移动后端，可模拟重新回到联机状态的应用。 登录时，数据将同步到移动后端。
 
 1. 重新打开 index.js 并还原应用程序 URL。
 2. 重新打开 index.html，更正 CSP `<meta>` 元素中的应用程序 URL。
-3. 重新生成并运行客户端应用。应用在登录后尝试与移动应用后端进行同步。验证调试控制台中是否未记录任何异常。
-4. （可选）使用 SQL Server 对象资源管理器或 Fiddler 之类的 REST 工具查看更新后的数据。请注意，数据已在后端数据库和本地存储之间进行同步。
+3. 重新生成并运行客户端应用。 应用在登录后尝试与移动应用后端进行同步。 验证调试控制台中是否未记录任何异常。
+4. （可选）使用 SQL Server 对象资源管理器或 Fiddler 之类的 REST 工具查看更新后的数据。 请注意，数据已在后端数据库和本地存储之间进行同步。
 
     请注意，数据已在数据库和本地存储之间进行同步，并包含在应用断开连接时添加的项目。
 
-## 其他资源
+## <a name="additional-resources"></a>其他资源
 * [Azure 移动应用中的脱机数据同步]
 * [用于 Apache Cordova 的 Visual Studio 工具]
 
-## 后续步骤
-* 在[脱机同步示例]中，查看更高级的脱机同步功能，例如冲突解决
+## <a name="next-steps"></a>后续步骤
+* 在 [脱机同步示例]
 * 在 [API 文档](https://azure.github.io/azure-mobile-apps-js-client)中，查看脱机同步 API 参考。
 
 <!-- ##Summary -->
@@ -218,19 +222,15 @@ ms.author: v-yiso
 <!-- Images -->
 
 <!-- URLs. -->
-
 [Apache Cordova 快速入门]: ./app-service-mobile-cordova-get-started.md
 [脱机同步示例]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
-[Offline Data Sync in Azure Mobile Apps]: ./app-service-mobile-offline-data-sync.md
+[Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
 [Azure 移动应用中的脱机数据同步]: ./app-service-mobile-offline-data-sync.md
 [Adding Authentication]: ./app-service-mobile-cordova-get-started-users.md
 [authentication]: ./app-service-mobile-cordova-get-started-users.md
 [Work with the .NET backend server SDK for Azure Mobile Apps]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Visual Studio Community 2015]: http://www.visualstudio.com/
-[用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/vs/cordova/
+[用于 Apache Cordova 的 Visual Studio 工具]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [Apache Cordova SDK]: ./app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md
-
-<!---HONumber=Mooncake_0116_2017-->
-<!--Update_Description:update wording and code-->

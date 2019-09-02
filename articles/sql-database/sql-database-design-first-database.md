@@ -1,287 +1,284 @@
 ---
-title: "设计你的第一个 Azure SQL 数据库 | Azure"
-description: "了解如何设计你的第一个 Azure SQL 数据库。"
+title: 教程：使用 SSMS 在 Azure SQL 数据库中设计第一个关系数据库 | Microsoft Docs
+description: 了解如何使用 SQL Server Management Studio 在 Azure SQL 数据库的单一数据库中设计第一个关系数据库。
 services: sql-database
-documentationcenter: 
-author: janeng
-manager: jstrauss
-editor: 
-tags: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: tutorial-develop
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: 
-ms.date: 03/30/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 5acda1b0711f62e38c7f1916ec68770232bacf84
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.subservice: development
+ms.topic: tutorial
+author: WenJason
+ms.author: v-jay
+ms.reviewer: v-masebo
+manager: digimobile
+origin.date: 02/08/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 269a3cb56947cc84aa04ff74f5b688b276397ad7
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544350"
 ---
+# <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>教程：使用 SSMS 在 Azure SQL 数据库的单一数据库中设计关系数据库
 
-# <a name="design-your-first-azure-sql-database"></a>设计你的第一个 Azure SQL 数据库
+Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本教程介绍如何使用 Azure 门户和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) 执行以下操作：
 
-在本教程中，你将为大专院校建立一个数据库以跟踪学生成绩和选课情况。 本教程将演示如何使用 [Azure 门户](https://portal.azure.cn/)和 [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS) 在 Azure SQL 数据库逻辑服务器上创建 Azure SQL 数据库、将表添加到数据库、将数据加载到表，以及查询数据库。 它还将演示如何使用 SQL 数据库[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)功能将数据库还原到以前的时间点。
+> [!div class="checklist"]
+> - 使用 Azure 门户创建单一数据库*
+> - 通过 Azure 门户设置服务器级 IP 防火墙规则
+> - 使用 SSMS 连接到数据库
+> - 使用 SSMS 创建表
+> - 使用 BCP 大容量加载数据
+> - 使用 SSMS 查询数据
 
-若要完成本教程，请确保已安装最新版的 [ SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx) (SSMS)。 
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-## <a name="step-1-log-in-to-the-azure-portal-preview"></a>步骤 1：登录到 Azure 门户
+> [!NOTE]
+> 本教程使用单一数据库。 你也可以使用弹性池中的共用数据库，或托管实例中的实例数据库。 若要连接到托管实例，请参阅以下托管实例快速入门：[快速入门：配置 Azure VM 以连接到 Azure SQL 数据库托管实例](sql-database-managed-instance-configure-vm.md)和[快速入门：配置从本地到 Azure SQL 数据库托管实例的点到站点连接](sql-database-managed-instance-configure-p2s.md)。
+
+## <a name="prerequisites"></a>先决条件
+
+要完成本教程，请确保已安装：
+
+- [SQL Server Management Studio](https://msdn.microsoft.com/library/ms174173.aspx)（最新版本）
+- [BCP 和 SQLCMD](https://www.microsoft.com/download/details.aspx?id=36433)（最新版本）
+
+## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 
 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-## <a name="step-2-create-a-blank-sql-database-in-azure"></a>步骤 2：在 Azure 中创建空的 SQL 数据库
+## <a name="create-a-blank-single-database"></a>创建空的单一数据库
 
-创建 Azure SQL 数据库时，会使用定义好的一组[计算和存储资源](sql-database-service-tiers.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 数据库逻辑服务器](sql-database-features.md)中创建。 
+创建 Azure SQL 数据库中的单一数据库时，会使用定义好的一组计算和存储资源。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)中创建，使用[数据库服务器](sql-database-servers.md)进行托管。
 
-按照以下步骤创建空的 SQL 数据库。 
+遵循以下步骤创建空白的单一数据库。
 
-1. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角单击“创建资源”。 
+2. 在“新建”  页上的“Azure 市场”部分中选择“数据库”  ，然后在“特别推荐”部分中单击“SQL 数据库”   。
 
-2. 从“新建”页中选择“数据库”，然后从“数据库”页中选择“SQL 数据库”。 
+   ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
 
-    ![创建空数据库](./media/sql-database-design-first-database/create-empty-database.png)
+3. 如上图所示，在“SQL 数据库”表单中填写以下信息  ：
 
-3. 如上图所示，在“SQL 数据库”窗体中填写以下信息：     
+    | 设置       | 建议的值 | 说明 |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **数据库名称** | yourDatabase  | 如需有效的数据库名称，请参阅[数据库标识符](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
+    | **订阅** | yourSubscription   | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
+    | **资源组** | yourResourceGroup  | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+    | **选择源** | 空白数据库 | 指定应创建空白数据库。 |
 
-   - 数据库名称：**mySampleDatabase**
-   - 资源组：**myResourceGroup**
-   - 源：**空白数据库**
+4. 单击“服务器”以使用现有的数据库服务器，或者创建并配置新的数据库服务器  。 选择现有服务器或单击“创建新服务器”，然后在“新建服务器”窗体中填写以下信息   ：
 
-4. 单击“服务器”，为新数据库创建并配置新服务器。 填写“新建服务器”窗体，指定全局唯一的服务器名称，提供服务器管理员登录名，然后指定所选的密码。 
+    | 设置       | 建议的值 | 说明 |
+    | ------------ | ------------------ | ------------------------------------------------- |
+    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
+    | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅[Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
+    | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须使用以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
+    | **Location** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
-    ![创建数据库 - 服务器](./media//sql-database-design-first-database/create-database-server.png)
-5. 单击“选择”。
+    ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
 
-6. 单击“定价层”为新数据库指定服务层和性能级别。 对于本教程，请选择 **20 DTU** 和 **250** GB 存储。
+5. 单击“选择”。 
+6. 单击“定价层”  ，指定服务层级、DTU 或 vCore 数，以及存储量。 可以浏览相关选项，了解每个服务层级可提供的 DTU/vCore 数和存储。
 
-    ![创建数据库 - s1](./media/sql-database-design-first-database/create-empty-database-pricing-tier.png)
+    选择服务层、DTU 数或 vCore 数以及存储量后，然后单击“应用”  。
 
-7. 单击“应用” 。  
+7. 输入空白数据库的“排序规则”（就本教程来说，请使用默认值）  。 有关排序规则的详细信息，请参阅 [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations)（排序规则）
 
-8. 单击“创建”预配数据库。 大约需要一分半的时间才能完成预配。 
+8. 填写“SQL 数据库”窗体后，单击“创建”以预配单一数据库   。 这个步骤可能需要几分钟的时间。
 
-9. 在工具栏上，单击“通知”可监视部署过程。
+9. 在工具栏上，单击“通知”可监视部署过程。 
 
-    ![通知](./media/sql-database-get-started-portal/notification.png)
+   ![通知](./media/sql-database-design-first-database/notification.png)
 
+## <a name="create-a-server-level-ip-firewall-rule"></a>创建服务器级 IP 防火墙规则
 
-## <a name="step-3-create-a-server-level-firewall-rule"></a>步骤 3：创建服务器级防火墙规则
+SQL 数据库服务在服务器级别创建 IP 防火墙。 此防火墙阻止外部应用程序和工具连接到服务器和服务器上的任何数据库，除非防火墙规则允许其 IP 通过防火墙。 若要启用与单一数据库的外部连接，必须首先为 IP 地址（或 IP 地址范围）添加 IP 防火墙规则。 遵循这些步骤创建 [SQL 数据库服务器级 IP 防火墙规则](sql-database-firewall-configure.md)。
 
-Azure SQL 数据库受防火墙保护。 默认情况下，将拒绝与服务器和服务器内数据库的所有连接。 按照以下步骤为服务器创建 [SQL 数据库服务器级防火墙规则](sql-database-firewall-configure.md)，允许从客户端的 IP 地址进行连接。 
+> [!IMPORTANT]
+> SQL 数据库服务通过端口 1433 进行通信。 如果尝试从企业网络内部连接到此服务，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到单一数据库，除非管理员打开端口 1433。
 
-1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击新数据库 **mySampleDatabase**。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20170313.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。
+1. 部署完成后，在左侧菜单中单击“SQL 数据库”，然后在“SQL 数据库”页上单击“yourDatabase”    。 此时会打开数据库的概览页，显示完全限定的**服务器名称**（例如 yourserver.database.chinacloudapi.cn  ），并且会提供进行进一步配置所需的选项。
 
-      ![服务器防火墙规则](./media/sql-database-design-first-database/server-firewall-rule.png) 
+2. 复制此完全限定的服务器名称，将其用于从 SQL Server Management Studio 连接到服务器和数据库。
 
-2. 如上图所示，在工具栏上单击“设置服务器防火墙”。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
+   ![服务器名称](./media/sql-database-design-first-database/server-name.png)
 
-3. 在工具栏上单击“添加客户端 IP”，然后单击“保存”。 此时会针对当前的 IP 地址创建服务器级防火墙规则。
+3. 单击工具栏上的“设置服务器防火墙”  。 此时会打开 SQL 数据库服务器的“防火墙设置”页。 
 
-      ![设置服务器防火墙规则](./media/sql-database-design-first-database/server-firewall-rule-set.png) 
+   ![服务器级别 IP 防火墙规则](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. 单击“确定”，然后单击“X”关闭“防火墙设置”页。
+4. 在工具栏上单击“添加客户端 IP”，将当前的 IP 地址添加到新的 IP 防火墙规则。  IP 防火墙规则可以针对单个 IP 地址或一系列 IP 地址打开端口 1433。
 
-现在可以使用 SQL Server Management Studio 或其他所选工具连接到数据库及其服务器。
+5. 单击“保存”  。 此时会针对当前的 IP 地址创建服务器级 IP 防火墙规则，在 SQL 数据库服务器上打开端口 1433。
 
-> [!NOTE]
-> 通过端口 1433 进行的 SQL 数据库通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
->
+6. 单击“确定”，并关闭“防火墙设置”页。  
 
-## <a name="step-4---get-connection-information"></a>步骤 4 - 获取连接信息
+你的 IP 地址现在可以通过 IP 防火墙。 现在可以使用 SQL Server Management Studio 或其他所选工具连接到单一数据库。 确保使用之前创建的服务器管理员帐户。
 
-请在 Azure 门户中获取 Azure SQL 数据库服务器的完全限定服务器名称。 请使用 SQL Server Management Studio 通过完全限定的服务器名称连接到服务器。
+> [!IMPORTANT]
+> 默认情况下，所有 Azure 服务都允许通过 SQL 数据库 IP 防火墙进行访问。  在此页上单击“关”即可对所有 Azure 服务执行禁用操作。
 
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。
+## <a name="connect-to-the-database"></a>连接到数据库
 
-    ![连接信息](./media/sql-database-connect-query-ssms/connection-information.png) 
-
-## <a name="step-5---connect-to-your-database-using-sql-server-management-studio"></a>步骤 5 - 使用 SQL Server Management Studio 连接到数据库
-
-使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) 建立到 Azure SQL 数据库服务器的连接。
+使用 [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) 来与单一数据库建立连接。
 
 1. 打开 SQL Server Management Studio。
+2. 在“连接到服务器”对话框中，输入以下信息： 
 
-2. 在“连接到服务器”对话框中，输入以下信息：
-   - **服务器类型**：指定数据库引擎
-   - **服务器名称**：输入完全限定的服务器名称，例如 **mynewserver20170313.database.chinacloudapi.cn**
-   - **身份验证**：指定 SQL Server 身份验证
-   - **登录名**：输入服务器管理员帐户
-   - **密码**：输入服务器管理员帐户的密码
+   | 设置       | 建议的值 | 说明 |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **服务器类型** | 数据库引擎 | 此值是必需的。 |
+   | **服务器名称** | 完全限定的服务器名称 | 例如，yourserver.database.chinacloudapi.cn  。 |
+   | **身份验证** | SQL Server 身份验证 | SQL 身份验证是本教程中配置的唯一身份验证类型。 |
+   | **登录名** | 服务器管理员帐户 | 在创建服务器时指定的帐户。 |
+   | **密码** | 服务器管理员帐户的密码 | 创建服务器时指定的密码。 |
 
+   ![连接到服务器](./media/sql-database-design-first-database/connect.png)
 
-   <img src="./media/sql-database-connect-query-ssms/connect.png" alt="connect to server" style="width: 780px;" />
+3. 单击“连接到服务器”  对话框中的“选项”  。 在“连接到数据库”部分输入 yourDatabase，以连接到此数据库   。
 
-3. 单击“连接到服务器”对话框中的“选项”。 在“连接到数据库”部分输入 **mySampleDatabase**，以连接到此数据库。
+    ![连接到服务器上的 DB](./media/sql-database-design-first-database/options-connect-to-db.png)  
 
-   ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
+4. 单击“连接”  。 此时会在 SSMS 中打开“对象资源管理器”窗口  。
 
-4. 单击“连接”。 此时会在 SSMS 中打开“对象资源管理器”窗口。 
+5. 在对象资源管理器中展开“数据库”，然后展开 yourDatabase，查看示例数据库中的对象    。
 
-5. 在对象资源管理器中展开“数据库”，然后展开 **mySampleDatabase**，查看示例数据库中的对象。
+   ![数据库对象](./media/sql-database-design-first-database/connected.png)  
 
-   ![数据库对象](./media/sql-database-connect-query-ssms/connected.png)  
-
-## <a name="step-6---create-tables-in-the-database"></a>步骤 6 - 在数据库中创建表 
+## <a name="create-tables-in-your-database"></a>在数据库中创建表
 
 使用 [Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-reference) 创建具有 4 个表格的数据库架构，这些表格是大专院校的学生管理系统的模型：
 
 - 人员
 - 课程
 - 学生
-- 学分，用于为大专院校的学生管理系统建模
+- 额度
 
-以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，Student 表引用 **Person** 表的 **PersonId** 列。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx)（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
+以下关系图显示了这些表的相互关系。 其中一些表引用其他表中的列。 例如，“学生”表引用“人员”表的 PersonId 列    。 请研究此关系图，了解本教程中各种表的相互关系。 若要深入了解如何创建有效的数据库表，请参阅 [Create effective database tables](https://msdn.microsoft.com/library/cc505842.aspx)（创建有效的数据库表）。 有关如何选择数据类型的信息，请参阅 [Data types](https://docs.microsoft.com/sql/t-sql/data-types/data-types-transact-sql)（数据类型）。
 
 > [!NOTE]
-> 还可以使用 [SQL Server Management Studio 中的表设计器](https://msdn.microsoft.com/library/hh272695.aspx)来创建和设计表。 
+> 还可以使用 [SQL Server Management Studio 中的表设计器](https://docs.microsoft.com/sql/ssms/visual-db-tools/design-database-diagrams-visual-database-tools)来创建和设计表。
 
 ![表关系](./media/sql-database-design-first-database/tutorial-database-tables.png)
 
-1. 在“对象资源管理器”中，右键单击“mySampleDatabase”，然后单击“新建查询”。 此时会打开一个空白查询窗口，该窗口连接到数据库。
+1. 在“对象资源管理器”中，右键单击 yourDatabase，并选择“新建查询”    。 此时会打开一个空白查询窗口，该窗口连接到数据库。
 
-2. 在查询窗口中执行以下查询，在数据库中创建 4 个表： 
+2. 在查询窗口中执行以下查询，在数据库中创建 4 个表：
 
-   ```sql 
+   ```sql
    -- Create Person table
+   CREATE TABLE Person
+   (
+       PersonId INT IDENTITY PRIMARY KEY,
+       FirstName NVARCHAR(128) NOT NULL,
+       MiddelInitial NVARCHAR(10),
+       LastName NVARCHAR(128) NOT NULL,
+       DateOfBirth DATE NOT NULL
+   )
 
-    CREATE TABLE Person
-    (
-      PersonId      INT IDENTITY PRIMARY KEY,
-      FirstName     NVARCHAR(128) NOT NULL,
-      MiddelInitial NVARCHAR(10),
-      LastName      NVARCHAR(128) NOT NULL,
-      DateOfBirth   DATE NOT NULL
-    )
-   
    -- Create Student table
- 
-    CREATE TABLE Student
-    (
-      StudentId INT IDENTITY PRIMARY KEY,
-      PersonId  INT REFERENCES Person (PersonId),
-      Email     NVARCHAR(256)
-    )
-    
+   CREATE TABLE Student
+   (
+       StudentId INT IDENTITY PRIMARY KEY,
+       PersonId INT REFERENCES Person (PersonId),
+       Email NVARCHAR(256)
+   )
+
    -- Create Course table
- 
-    CREATE TABLE Course
-    (
-      CourseId  INT IDENTITY PRIMARY KEY,
-      Name      NVARCHAR(50) NOT NULL,
-      Teacher   NVARCHAR(256) NOT NULL
-    ) 
+   CREATE TABLE Course
+   (
+       CourseId INT IDENTITY PRIMARY KEY,
+       Name NVARCHAR(50) NOT NULL,
+       Teacher NVARCHAR(256) NOT NULL
+   )
 
    -- Create Credit table
- 
-    CREATE TABLE Credit
-    (
-      StudentId   INT REFERENCES Student (StudentId),
-      CourseId    INT REFERENCES Course (CourseId),
-      Grade       DECIMAL(5,2) CHECK (Grade <= 100.00),
-      Attempt     TINYINT,
-      CONSTRAINT  [UQ_studentgrades] UNIQUE CLUSTERED
-      (
-        StudentId, CourseId, Grade, Attempt
-      )
-    )
+   CREATE TABLE Credit
+   (
+       StudentId INT REFERENCES Student (StudentId),
+       CourseId INT REFERENCES Course (CourseId),
+       Grade DECIMAL(5,2) CHECK (Grade <= 100.00),
+       Attempt TINYINT,
+       CONSTRAINT [UQ_studentgrades] UNIQUE CLUSTERED
+       (
+           StudentId, CourseId, Grade, Attempt
+       )
+   )
    ```
 
-![创建表](./media/sql-database-design-first-database/create-tables.png)
+   ![创建表](./media/sql-database-design-first-database/create-tables.png)
 
-3. 展开 SQL Server Management Studio 对象资源管理器中的“表”节点，查看所创建的表。
+3. 展开“对象资源管理器”中 yourDatabase 下的“表”节点以查看创建的表    。
 
    ![创建的 ssms 表](./media/sql-database-design-first-database/ssms-tables-created.png)
 
-## <a name="step-7---load-data-into-the-tables"></a>步骤 7：将数据加载到表
+## <a name="load-data-into-the-tables"></a>将数据加载到表
 
-1. 在“下载”文件夹中创建名为 **SampleTableData** 的文件夹，为数据库存储示例数据。 
+1. 在“下载”文件夹中创建名为 sampleData 的文件夹，为数据库存储示例数据  。
 
-2. 右键单击以下链接并将它们保存到 **SampleTableData** 文件夹。 
+2. 右键单击以下链接并将它们保存到 sampleData 文件夹  。
 
    - [SampleCourseData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCourseData)
    - [SamplePersonData](https://sqldbtutorial.blob.core.windows.net/tutorials/SamplePersonData)
    - [SampleStudentData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleStudentData)
    - [SampleCreditData](https://sqldbtutorial.blob.core.windows.net/tutorials/SampleCreditData)
 
-3. 打开命令提示符窗口并导航到 SampleTableData 文件夹。
+3. 打开命令提示符窗口并导航到 sampleData 文件夹  。
 
-4. 执行以下命令，将示例数据插入表，使用环境值替换 **ServerName**、**DatabaseName**、**UserName** 和 **Password** 的值。
-  
-   ```bcp
-   bcp Course in SampleCourseData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Person in SamplePersonData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Student in SampleStudentData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
-   bcp Credit in SampleCreditData -S <ServerName>.database.chinacloudapi.cn -d <DatabaseName> -U <Username> -P <password> -q -c -t ","
+4. 执行以下命令，将示例数据插入表，使用环境值替换“服务器”、“数据库”、“用户”和“密码”的值     。
+
+   ```cmd
+   bcp Course in SampleCourseData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Person in SamplePersonData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Student in SampleStudentData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
+   bcp Credit in SampleCreditData.txt -S <server>.database.chinacloudapi.cn -d <database> -U <user> -P <password> -q -c -t ","
    ```
 
 现已将示例数据加载到了之前创建的表中。
 
-## <a name="step-8---query-the-tables"></a>步骤 8 - 查询表
+## <a name="query-data"></a>查询数据
 
-执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](https://technet.microsoft.com/library/bb264565.aspx)。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的班级中分数高于 75% 的所有学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的所有课程。
+执行以下查询，从数据库表中检索信息。 有关写入 SQL 查询的详细信息，请参阅[写入 SQL 查询](https://technet.microsoft.com/library/bb264565.aspx)。 第一个查询将联接所有 4 个表，以查找由“Dominick Pope”授课的分数高于 75% 的学生。 第二个查询将联接所有 4 个表，以查找“Noe Coleman”注册过的课程。
 
 1. 在 SQL Server Management Studio 查询窗口中，执行以下查询：
 
-   ```sql 
+   ```sql
    -- Find the students taught by Dominick Pope who have a grade higher than 75%
-
-    SELECT  person.FirstName,
-        person.LastName,
-        course.Name,
-        credit.Grade
-    FROM  Person AS person
-        INNER JOIN Student AS student ON person.PersonId = student.PersonId
-        INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
-        INNER JOIN Course AS course ON credit.CourseId = course.courseId
-    WHERE course.Teacher = 'Dominick Pope' 
-        AND Grade > 75
+   SELECT  person.FirstName, person.LastName, course.Name, credit.Grade
+   FROM  Person AS person
+       INNER JOIN Student AS student ON person.PersonId = student.PersonId
+       INNER JOIN Credit AS credit ON student.StudentId = credit.StudentId
+       INNER JOIN Course AS course ON credit.CourseId = course.courseId
+   WHERE course.Teacher = 'Dominick Pope'
+       AND Grade > 75
    ```
 
-2. 在 SQL Server Management Studio 查询窗口中，执行以下查询：
+2. 在查询窗口中执行以下查询：
 
    ```sql
    -- Find all the courses in which Noe Coleman has ever enrolled
-
-    SELECT  course.Name,
-        course.Teacher,
-        credit.Grade
-    FROM  Course AS course
-        INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
-        INNER JOIN Student AS student ON student.StudentId = credit.StudentId
-        INNER JOIN Person AS person ON person.PersonId = student.PersonId
-    WHERE person.FirstName = 'Noe'
-        AND person.LastName = 'Coleman'
+   SELECT  course.Name, course.Teacher, credit.Grade
+   FROM  Course AS course
+       INNER JOIN Credit AS credit ON credit.CourseId = course.CourseId
+       INNER JOIN Student AS student ON student.StudentId = credit.StudentId
+       INNER JOIN Person AS person ON person.PersonId = student.PersonId
+   WHERE person.FirstName = 'Noe'
+       AND person.LastName = 'Coleman'
    ```
 
-## <a name="step-9---restore-a-database-to-a-previous-point-in-time"></a>步骤 9 - 将数据库还原到以前的时间点 
+## <a name="next-steps"></a>后续步骤
 
-假设意外删除了某个表。 这是不能轻易还原的内容。 借助 Azure SQL 数据库，可返回到最近 35 天内的任意时间点并将此时间点还原到新的数据库。 可以通过此数据库恢复已删除的数据。 以下步骤将示例数据库还原到添加这些表之前的时间点。
+本教程介绍了许多基本数据库任务。 你已了解如何：
 
-1. 在数据库的“SQL 数据库”页上，单击工具栏上的“还原”。 此时会打开“还原”页。
+> [!div class="checklist"]
+> - 创建单一数据库
+> - 设置服务器级 IP 防火墙规则
+> - 使用 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS) 连接到该数据库
+> - 创建表
+> - 批量加载数据
+> - 查询该数据
 
-   ![还原](./media/sql-database-design-first-database/restore.png)
+转向下一教程，了解如何使用 Visual Studio 和 C# 设计数据库。
 
-2. 使用必需信息填充“还原”窗体：
-    * 数据库名称：提供数据库名称 
-    * 时间点：选择“还原”窗体上的“时间点”选项卡 
-    * 还原点：选择更改数据库前的时间
-    * 目标服务器：还原数据库时不能更改此值 
-    * 弹性数据库池：选择“无”  
-    * 定价层：选择“20 DTU”和“250 GB”存储。
-
-   ![还原点](./media/sql-database-design-first-database/restore-point.png)
-
-3. 单击“确定”，将数据库[还原到添加这些表之前的时间点](sql-database-recovery-using-backups.md#point-in-time-restore)。 将数据库还原到不同的时间点时，会在指定时间点（前提是在[服务层](sql-database-service-tiers.md)保留时间段内）原始数据库所在的服务器中创建一个备份数据库。
-
-## <a name="next-steps"></a>后续步骤 
-
-若要了解常见任务的 PowerShell 示例，请参阅 [SQL 数据库 PowerShell 示例](sql-database-powershell-samples.md)
-
+> [!div class="nextstepaction"]
+> [在 Azure SQL 数据库 C# 和 ADO.NET 的单一数据库中设计关系数据库](sql-database-design-first-database-csharp.md)

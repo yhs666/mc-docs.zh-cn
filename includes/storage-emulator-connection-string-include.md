@@ -1,3 +1,17 @@
+---
+author: WenJason
+ms.service: storage
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 01/14/2019
+ms.author: v-jay
+ms.openlocfilehash: 85072774791ab7ab91757bb8f6779810badeee53
+ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67850777"
+---
 存储模拟器支持单一固定的帐户和众所周知的用于共享密钥身份验证的身份验证密钥。 此帐户和密钥是允许用于存储模拟器的唯一共享密钥凭据。 它们具有以下特点：
 
 ```
@@ -21,11 +35,12 @@ Account key: Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZ
 ```
 
 #### <a name="connect-to-the-emulator-account-using-the-well-known-account-name-and-key"></a>使用从众所周知的帐户名称和密钥连接到存储模拟器
-若要创建引用存储模拟器帐户名称和密钥的连接字符串，必须在连接字符串中为你希望从模拟器中使用的每个服务指定终结点。 这是必须的，这样连接字符串将引用与生产存储帐户中的终结点不同的模拟器终结点。 例如，你的连接字符串的值将如下所示：
+要创建引用存储模拟器帐户名称和密钥的连接字符串，必须在连接字符串中希望从模拟器中使用的每个服务指定终结点。 这是必须的，这样连接字符串将引用与生产存储帐户中的终结点不同的模拟器终结点。 例如，你的连接字符串的值将如下所示：
 
 ```
 DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;
 AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;
+EndpointSuffix=core.chinacloudapi.cn;
 BlobEndpoint=http://127.0.0.1:10000/devstoreaccount1;
 TableEndpoint=http://127.0.0.1:10002/devstoreaccount1;
 QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
@@ -34,7 +49,7 @@ QueueEndpoint=http://127.0.0.1:10001/devstoreaccount1;
 此值等同于如上所示的快捷方式 `UseDevelopmentStorage=true`。
 
 #### <a name="specify-an-http-proxy"></a>指定 HTTP 代理
-你还可以指定一个 HTTP 代理，以便在针对存储模拟器测试服务时进行使用。 当你针对存储服务调试操作时，这对观察 HTTP 请求和响应很有用。 若要指定代理，请将 `DevelopmentStorageProxyUri` 选项添加到连接字符串，并将它的值设置为代理 URI。 例如，下面是一个指向存储模拟器并配置 HTTP 代理的连接字符串：
+还可以指定一个 HTTP 代理，以便在针对存储模拟器测试服务时进行使用。 针对存储服务调试操作时，这对观察 HTTP 请求和响应很有用。 要指定代理，请将 `DevelopmentStorageProxyUri` 选项添加到连接字符串，并将它的值设置为代理 URI。 例如，下面是一个指向存储模拟器并配置 HTTP 代理的连接字符串：
 
 ```
 UseDevelopmentStorage=true;DevelopmentStorageProxyUri=http://myProxyUri

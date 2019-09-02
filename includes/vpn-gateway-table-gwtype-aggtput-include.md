@@ -1,16 +1,37 @@
-下表显示网关类型和预计的网关 SKU 聚合吞吐量。 此表适用于 Resource Manager 与经典部署模型。 定价因网关 SKU 而异。 有关详细信息，请参阅 [VPN 网关定价](https://www.azure.cn/pricing/details/vpn-gateway/)。
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 12/05/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: 7ecc567b73d655465264e80249a9daf143612b79
+ms.sourcegitcommit: 15a80d044339dab8bce43eb7be110ba01f630056
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578659"
+---
+|**SKU**   | **S2S/VNet 到 VNet<br>隧道** | **P2S<br> SSTP 连接** | **P2S<br> IKEv2 连接** | **聚合<br>吞吐量基准** | **BGP** |
+|---       | ---        | ---       | ---            | ---       | --- |
+|**基本** | 最大 10 个    | 最大 128  | 不支持  | 100 Mbps  | 不支持|
+|**VpnGw1**| 最大 30*   | 最大 128  | 最大 250       | 650 Mbps  | 支持 |
+|**VpnGw2**| 最大 30*   | 最大 128  | 最大 500       | 1 Gbps    | 支持 |
+|**VpnGw3**| 最大 30*   | 最大 128  | 最大 1000      | 1.25 Gbps | 支持 |
 
-请注意，UltraPerformance 网关 SKU 未在此表中表示。 有关 UltraPerformance SKU 的信息，请参阅 [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md) 文档。
 
-|  | **VPN 网关吞吐量 (1)** | **VPN 网关最大 IPsec 隧道数 (2)** | **ExpressRoute 网关吞吐量** | **VPN 网关和 ExpressRoute 共存** |
-| --- | --- | --- | --- | --- |
-| **基本 SKU (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |否 |
-| **标准 SKU (4)(5)** |100 Mbps |10 |1000 Mbps |是 |
-| **高性能 SKU (4)** |200 Mbps |30 |2000 Mbps |是 |
+* 聚合吞吐量基准基于对通过单个网关聚合的多个隧道的测量。 适用于 VPN 网关的聚合吞吐量基准组合了 S2S 和 P2S。 **如果有大量的 P2S 连接，则可能会对 S2S 连接造成负面影响，因为存在吞吐量限制。** 受 Internet 流量情况和应用程序行为影响，无法保证聚合吞吐量基准。
 
-* (1) VPN 吞吐量是根据同一 Azure 区域 VNet 之间的度量进行的粗略估计。 这不是 Internet 上跨地点连接的保证吞吐量。 这是可能的最大吞吐量度量。
-* (2) 隧道数量是指 RouteBased VPN。 PolicyBased VPN 只能支持一个站点到站点 VPN 隧道。
-* (3) 基本 SKU 不支持 BGP。
-* (4) 此 SKU 不支持 PolicyBased VPN。 仅基本 SKU 支持它们。
-* (5) 此 SKU 不支持主动-主动 S2S VPN 网关连接。 只有 HighPerformance SKU 才支持主动-主动连接。
-* (6) 用于 Expressroute 的基本 SKU 已弃用。
+* 这些连接限制是独立的。 例如，在 VpnGw1 SKU 上可以有 128 个 SSTP 连接，还可以有 250 个 IKEv2 连接。
+
+* 可在 [定价](https://www.azure.cn/pricing/details/vpn-gateway) 页上找到定价信息。
+
+* 可在 [SLA](https://www.azure.cn/support/sla/vpn-gateway/) 页上查看 SLA（服务级别协议）信息。
+
+* 仅在使用资源管理器部署模型的情况下才支持将 VpnGw1、VpnGw2 和 VpnGw3 用于 VPN 网关。
+
+* 基本 SKU 被视为旧版 SKU。 基本 SKU 具有某些功能限制。 使用基本 SKU 的网关无法调整为新网关 SKU 中的一种，必须更改为新的 SKU，这就需要删除并新建 VPN 网关。 使用基本 SKU 前，请验证所需功能是否受支持。

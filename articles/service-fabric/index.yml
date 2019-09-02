@@ -1,0 +1,89 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 504921cb55c5003092543f16bf2a10fba3c586df
+ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/05/2018
+ms.locfileid: "52901107"
+documentType: LandingData
+title: Azure Service Fabric 文档
+metadata:
+  title: Azure Service Fabric 文档 - 教程、API 参考 | Azure
+  meta.description: Learn how to use Service Fabric middleware platform to package and deploy microservices for cloud-scale applications. Tutorials, API references, and code samples.
+  services: service-fabric
+  author: rockboyfor
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: service-fabric
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 11/03/2017
+  ms.date: 12/10/2018
+  ms.author: v-yeche
+abstract:
+  description: Azure Service Fabric 是一种分布式系统平台，可借助它轻松打包、部署和管理可缩放且可靠的微服务和容器。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 参考我们的快速入门、教程和示例了解如何使用 Azure Service Fabric。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 了解如何将第一个 Service Fabric 应用程序部署到云：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /service-fabric/media/index/logo_net.svg
+      text: .NET
+      href: service-fabric-quickstart-dotnet
+    - image:
+        src: /service-fabric/media/index/logo_Java.svg
+      text: Java (Reliable Services)
+      href: service-fabric-quickstart-java-reliable-services
+    - image:
+        src: /service-fabric/media/index/logo_Java.svg
+      text: Java (Spring Boot)
+      href: service-fabric-quickstart-java-spring-boot
+    - image:
+        src: /service-fabric/media/index/logo_linux.svg
+      text: Linux 容器
+      href: service-fabric-quickstart-containers-linux
+    - image:
+        src: /service-fabric/media/index/logo_Windows.svg
+      text: Windows 容器
+      href: service-fabric-quickstart-containers
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何在 Azure 上部署、管理和监视安全的 Web 应用程序
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="service-fabric-tutorial-create-dotnet-app">部署 .NET 应用程序</a>
+    - html: <a href="service-fabric-tutorial-create-java-app">部署 Java 应用程序</a>
+    - html: <a href="service-fabric-host-app-in-a-container">将现有 .NET 应用程序容器化</a>
+    - html: 创建和管理 <a href="service-fabric-tutorial-create-vnet-and-windows-cluster">Windows</a> 或 <a href="service-fabric-tutorial-create-vnet-and-linux-cluster">Linux</a> 群集
+- title: 概念
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="service-fabric-overview-microservices">了解微服务</a>
+    - html: <a href="service-fabric-content-roadmap">大图</a>
+    - html: <a href="service-fabric-application-scenarios">应用程序方案</a>
+    - html: <a href="service-fabric-patterns-and-scenarios">模式和方案</a>
+    - html: <a href="service-fabric-architecture">体系结构</a>
+    - html: <a href="service-fabric-technical-overview">术语</a>
+- title: 示例
+  items:
+  - type: paragraph
+    text: 查找常见管理任务的脚本：
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 示例
+      html: <p><a href="service-fabric-powershell-samples">Azure PowerShell</a></p><p><a href="samples-cli">Service Fabric CLI</a></p>
+    - title: .NET
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-getting-started/">入门</a></p><p><a href="https://github.com/Azure-Samples/service-fabric-dotnet-quickstart">投票</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-web-reference-app/">Web 引用</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-dotnet-iot/">IoT</a></p><p><a href="https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/">监视程序</a></p>
+    - title: Java
+      html: <p><a href="https://azure.microsoft.com/resources/samples/service-fabric-java-getting-started/">入门</a></p>

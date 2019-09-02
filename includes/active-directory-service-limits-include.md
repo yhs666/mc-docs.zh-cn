@@ -1,12 +1,32 @@
-以下是 Azure Active Directory 服务的使用限制和其他服务限制。
+---
+title: include 文件
+description: include 文件
+services: active-directory
+author: curtand
+ms.service: active-directory
+ms.topic: include
+origin.date: 05/22/2019
+ms.date: 08/20/2019
+ms.author: v-junlch
+ms.custom: include file
+ms.openlocfilehash: a989f3cf50afd92b677078ecef9d187db0bc205c
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "70014712"
+---
+下面是 Azure Active Directory (Azure AD) 服务的使用限制和其他服务限制。
 
-| 类别 | 限制 |
+| Category | 限制 |
 | --- | --- |
-| 目录 |单个用户只能与最多 20 个 Azure Active Directory 目录相关联。<br />可能的组合的示例： <ul> <li>单个用户创建了 20 个目录。</li><li>单个用户以成员身份添加到 20 个目录。</li><li>单个用户创建了 10 个目录，之后其他人又将该用户添加到 10 个不同的目录。</li></ul> |
-| 对象 |<ul><li>Azure Active Directory 免费版用户最多可以在单个目录中使用 500,000 个对象。</li><li>非管理员用户最多可以创建 250 个对象。</li></ul> |
-| 架构扩展 |<ul><li>String 类型扩展最多只能有 256 个字符。 </li><li>Binary 类型扩展限制在 256 字节以内。</li><li>100 扩展值（在 ALL 类型和 ALL 应用程序中）可以编写到任何单一对象中。</li><li>仅“用户”、“组”、“TenantDetail”、“设备”、“应用程序”和“ServicePrincipal” 实体可以用“String”类型或“Binary”类型单一值属性进行扩展。</li><li>架构扩展仅在 Graph API 1.21 预览版中可用。 必须授予应用程序编写访问注册扩展的权限。</li></ul> |
-| 应用程序 |最多有 10 位用户可以是单一应用程序的所有者。 |
-| 组 |<ul><li>最多有 10 位用户可以是单一组的所有者。</li><li>Azure Active Directory 中的单个组可以具有任意数量的对象。</li><li>使用 Azure Active Directory 目录同步 (DirSync) 时，一个小组中从本地 Active Directory 同步到 Azure Active Directory 的成员数目仅限 15000。</li><li>使用 Azure AD Connect 时，一个小组中从本地 Active Directory 同步到 Azure Active Directory 的成员数目仅限 50000。</li></ul> |
-| 访问面板 |<ul><li>对应用程序的数量没有限制，应用程序可在每位获得 Azure AD Premium 或企业移动套件许可的最终用户的“访问面板”中查看。</li><li>每位获得免费版或 Azure AD 基本版 Azure Active Directory 许可的最终用户最多可在“访问面板”中查看 10 个应用磁贴（例如：Box、Salesforce 或 Dropbox）。 此限制不适用于管理员帐户。</li></ul> |
+| 目录 | 单个用户最多可以是 500 个 Azure AD 目录的成员或来宾。<br/>单个用户最多可以创建 20 个目录。 |
+| 域 | 可以添加不超过 900 个的托管域名。 若要将所有域设置为与本地 Active Directory 联合，则可以在每个目录中添加不超过 450 个的域名。 |
+| 对象 |<ul><li>默认情况下，Azure Active Directory 免费版用户最多可以在单个目录中创建 50,000 个对象。 如果你有至少一个经验证的域，则 Azure AD 中的默认目录服务配额会扩展到 300,000 个对象。 </li><li>非管理员用户最多可以创建 250 个对象。 活动对象和可供还原的已删除对象都会计入此配额。 只能还原在不到 30 天前删除的对象。 不再可供还原的已删除对象在 30 天内按四分之一的值计入此配额。 可以[将管理员角色分配给](../articles/active-directory/users-groups-roles/directory-assign-admin-roles.md)在执行常规职责过程中可能会重复超出此配额的非管理员用户。</li></ul> |
+| 架构扩展 |<ul><li>String 类型扩展最多只能有 256 个字符。 </li><li>Binary 类型扩展限制在 256 字节以内。</li><li>只能将 100 个扩展值（包括所有类型和所有应用程序）写入任何单一对象中。  </li><li>仅“用户”、“组”、“TenantDetail”、“设备”、“应用程序”和“ServicePrincipal”实体可以用字符串类型或二进制文件类型单一值属性进行扩展。</li><li>架构扩展仅在 Graph API 1.21 预览版中可用。 必须授予应用程序编写访问注册扩展的权限。</li></ul> |
+| 应用程序 |最多有 100 位用户可以是单一应用程序的所有者。 |
+| 组 |<ul><li>最多有 100 位用户可以是单一组的所有者。</li><li>任意数量的对象都可以是单个组的成员。</li><li>一个用户可以是任意数量的组的成员。</li><li>使用 Azure AD Connect 时，一个小组中从本地 Active Directory 同步到 Azure Active Directory 的成员数目仅限 50,000。</li></ul> |
 | 报告 | 在报告中最多可查看或下载 1,000 行。 系统会截断其他任何数据。 |
 | 管理单元 | 对象可以是不超出 30 个管理单位的成员。 |
+| 管理员角色和权限 | <ul><li>无法将组添加为[所有者](/active-directory/fundamentals/users-default-permissions)。</li><li>无法将组分配给[角色](/active-directory/users-groups-roles/directory-assign-admin-roles)。</li><li>无法在租户范围交换机之外限制用户读取其他用户的目录信息的能力，以禁止所有非管理员用户访问所有目录信息（不推荐）。 有关默认权限的详细信息，请参阅[此处](/active-directory/fundamentals/users-default-permissions)。</li><li>在管理员角色成员身份添加和撤销生效之前，最多可能需要 15 分钟或注销/登录。</li></ul> |
+

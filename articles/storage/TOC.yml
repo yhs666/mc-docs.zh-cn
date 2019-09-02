@@ -1,0 +1,32 @@
+items:
+- name: Azure 存储文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: 简介
+    href: ./common/storage-introduction.md
+  - name: 选择 Blob、文件或磁盘
+    href: ./common/storage-decide-blobs-files-disks.md
+  expanded: true
+- name: Blob
+  href: ./blobs/storage-blobs-overview.md
+- name: Data Lake Storage Gen2
+  href: ./blobs/data-lake-storage-introduction.md
+- name: 文件
+  href: ./files/storage-files-introduction.md
+- name: 队列
+  href: ./queues/storage-queues-introduction.md
+- name: 表
+  href: ./tables/table-storage-overview.md
+- name: 磁盘
+  items:
+  - name: Windows
+    href: ../virtual-machines/windows/managed-disks-overview.md
+  - name: Linux
+    href: ../virtual-machines/linux/managed-disks-overview.md
+ms.openlocfilehash: b223e9331942990dc079239541e3cd3f908d236e
+ms.sourcegitcommit: dd504a2a7f6bc060c3537fe467de518e97c89f8a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196546"

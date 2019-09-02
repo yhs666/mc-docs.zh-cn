@@ -1,71 +1,92 @@
 ---
-title: Azure Active Directory 身份验证库 | Azure
-description: 通过 Azure AD 身份验证库 (ADAL)，客户端应用程序开发人员能够轻松地使用户通过云或本地 Active Directory (AD) 的身份验证，然后获取访问令牌，以进行安全的 API 调用。
+title: Azure Active Directory 身份验证库 | Microsoft Docs
+description: 通过 Azure AD 身份验证库 (ADAL)，客户端应用程序开发人员能够轻松地使用户通过云或本地 Active Directory (AD) 的身份验证，并获取访问令牌，以进行安全的 API 调用。
 services: active-directory
 documentationcenter: ''
-author: bryanla
-manager: mbaldwin
-editor: mbaldwin
-
+author: rwike77
+manager: CelesteDG
+editor: ''
 ms.assetid: 2e4fc79a-0285-40be-8c77-65edee408a22
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/13/2017
-wacn.date: 02/07/2017
+origin.date: 12/01/2018
+ms.date: 06/24/2019
 ms.author: v-junlch
+ms.reviewer: saeeda, jmprieur
+ms.custom: aaddev
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 0f3fa031130f15de988f50030e60ed5e26e5f3b9
+ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/05/2019
+ms.locfileid: "67568558"
 ---
+# <a name="azure-active-directory-authentication-libraries"></a>Azure Active Directory 身份验证库
 
-# Azure Active Directory 身份验证库
-通过 Azure AD 身份验证库 (ADAL)，客户端应用程序开发人员能够轻松利用云或本地 Active Directory (AD) 对用户进行身份验证，然后获取访问令牌，进行安全的 API 调用。ADAL 提供许多可以方便开发人员进行身份验证的功能，例如，异步支持、用于存储访问令牌和刷新令牌的可配置令牌缓存、访问令牌过期且刷新令牌可用时自动刷新令牌，等等。ADAL 可以应对大部分复杂情况，因而可以帮助开发人员集中处理其应用程序中的业务逻辑，并可轻松保护资源而不必成为安全方面的专家。
+通过 Azure Active Directory 身份验证库 (ADAL) v1.0，应用程序开发人员可以利用云或本地 Active Directory (AD) 对用户进行身份验证，并获取令牌来保护 API 调用。 ADAL 通过以下功能使开发者更轻松地进行身份验证：
 
-可在各种平台上使用 ADAL。
+- 存储访问令牌和刷新令牌的可配置令牌缓存
+- 当访问令牌过期且刷新令牌可用时，自动刷新令牌
+- 支持异步方法调用
 
-### 客户端库
+> [!NOTE]
+> 在找 Azure AD v2.0 库 (MSAL) 吗？ 请参阅 [MSAL 库指南](/active-directory/develop/reference-v2-libraries)。
+>
+>
 
-| 平台 | 库 | 下载 | 源代码 | 示例 | 引用
+## <a name="microsoft-supported-client-libraries"></a>Microsoft 支持的客户端库
+
+| 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet ](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](./active-directory-devquickstarts-dotnet.md) |[引用](https://docs.microsoft.com/active-directory/adal/microsoft.identitymodel.clients.activedirectory) | 
-| .NET 客户端、Windows 应用商店、Windows Phone 8.1 |ADAL .NET v2 |[NuGet ](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.2) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.2) | [桌面应用](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) |[引用](https://docs.microsoft.com/zh-cn/active-directory/adal//v2/microsoft.identitymodel.clients.activedirectory) | 
-| JavaScript |ADAL.js |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
-| iOS、macOS |ADAL |[CocoaPods](http://cocoadocs.org/docsets/ADAL/) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 应用](./active-directory-devquickstarts-ios.md) | [引用](http://cocoadocs.org/docsets/ADALiOS)|
-| Android |ADAL |[中央存储库](http://search.maven.org/remotecontent?filepath=com/microsoft/aad/adal/) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 应用](./active-directory-devquickstarts-android.md) | [JavaDocs](http://javadoc.io/doc/com.microsoft.aad/adal/)|
-| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | | |
-| Java |ADAL4J |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Github](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 应用](./active-directory-devquickstarts-webapp-java.md) | |
+| .NET 客户端、Windows 应用商店、UWP、Xamarin iOS 和 Android |ADAL .NET v3 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet) | [桌面应用](/active-directory/develop/quickstart-v1-dotnet) |[引用](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet) |
+| .NET 客户端、Windows 应用商店、Windows Phone 8.1 |ADAL .NET v2 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/2.28.4) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/releases/tag/v2.28.4) | [桌面应用](https://github.com/AzureADQuickStarts/NativeClient-DotNet/releases/tag/v2.X) | |
+| Javascript |ADAL.js |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-js) |[单页应用](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) | |
+| iOS、macOS |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc/releases) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-objc) |[iOS 应用](/active-directory/develop/quickstart-v1-ios) | [引用](http://cocoadocs.org/docsets/ADAL/2.5.1/)|
+| Android |ADAL | Maven |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-android) |[Android 应用](/active-directory/develop/quickstart-v1-android) | [JavaDocs](https://javadoc.io/doc/com.microsoft.aad/adal/)|
+| Node.js |ADAL |[npm](https://www.npmjs.com/package/adal-node) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs) | [Node.js Web 应用](https://github.com/Azure-Samples/active-directory-node-webapp-openidconnect)|[引用](https://docs.microsoft.com/javascript/api/adal-node/?view=azure-node-latest) |
+| Java |ADAL4J |[Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3Aadal4j%20g%3Acom.microsoft.azure) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-java) |[Java Web 应用](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) |[引用](https://javadoc.io/doc/com.microsoft.azure/adal4j) |
+| Python |ADAL |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[GitHub](https://github.com/AzureAD/azure-activedirectory-library-for-python) |[Python Web 应用](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi) |[引用](https://adal-python.readthedocs.io/) |
 
-### 服务器库 
+## <a name="microsoft-supported-server-libraries"></a>Microsoft 支持的服务器库
 
-| 平台 | 库 | 下载 | 源代码 | 示例 | 引用
+| 平台 | 库 | 下载 | 源代码 | 示例 | 参考
 | --- | --- | --- | --- | --- | --- |
-| .NET |OWIN for AzureAD|[NuGet ](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[CodePlex](http://katanaproject.codeplex.com) |[MVC 应用](./active-directory-devquickstarts-webapp-dotnet.md) | |
-| .NET |OWIN for OpenIDConnect |[NuGet ](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[CodePlex](http://katanaproject.codeplex.com) |[Web 应用](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
-| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[Github](https://github.com/AzureAD/passport-azure-ad) | [Web API](./active-directory-devquickstarts-webapi-nodejs.md)| |
-| .NET |用于 WS 联合身份验证的 OWIN |[NuGet ](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[CodePlex](http://katanaproject.codeplex.com) |[MVC Web 应用](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
-| .NET |适用于 .NET 4.5 的标识协议扩展 |[NuGet ](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[Github](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
-| .NET |适用于 .NET 4.5 的 JWT 处理程序 |[NuGet ](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[Github](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET |OWIN for AzureAD|[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.ActiveDirectory/) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.ActiveDirectory) |[MVC 应用](/active-directory/develop/quickstart-v1-aspnet-webapp) | |
+| .NET |OWIN for OpenIDConnect |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.OpenIdConnect) |[Web 应用](https://github.com/AzureADSamples/WebApp-OpenIDConnect-DotNet) | |
+| .NET |用于 WS 联合身份验证的 OWIN |[NuGet](https://www.nuget.org/packages/Microsoft.Owin.Security.WsFederation) |[GitHub](https://github.com/aspnet/AspNetKatana/tree/dev/src/Microsoft.Owin.Security.WsFederation) |[MVC Web 应用](https://github.com/AzureADSamples/WebApp-WSFederation-DotNet) | |
+| .NET |适用于 .NET 4.5 的标识协议扩展 |[NuGet](https://www.nuget.org/packages/Microsoft.IdentityModel.Protocol.Extensions) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| .NET |适用于 .NET 4.5 的 JWT 处理程序 |[NuGet](https://www.nuget.org/packages/System.IdentityModel.Tokens.Jwt) |[GitHub](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) | | |
+| Node.js |Azure AD Passport |[npm](https://www.npmjs.com/package/passport-azure-ad) |[GitHub](https://github.com/AzureAD/passport-azure-ad) | [Web API](/active-directory/develop/quickstart-v1-nodejs-webapi)| |
 
-## 方案
-以下是可以使用 ADAL 进行身份验证的三种常见方案。
+## <a name="scenarios"></a>方案
 
-### 对客户端应用程序的用户进行身份验证以访问远程资源
-在本方案中，开发人员有一个客户端（如 WPF 应用程序）需要访问由 Azure AD 保护的远程资源（如 Web API）。他有一个 Azure 订阅，知道如何调用下游 Web API，还知道 Web API 使用哪个 Azure AD 租户。因此，他可以将身份验证体验完全委托给 ADAL 或显式处理用户凭据，以使用 ADAL 促成通过 Azure AD 的身份验证。使用 ADAL 可以轻松地对用户进行身份验证、从 Azure AD 获取访问令牌和刷新令牌，然后使用访问令牌向 Web API 发出请求。
+以下是在访问远程资源的客户端中使用 ADAL 的三种常见方案：
 
-有关使用 Azure AD 身份验证演示此方案的代码示例，请参阅[本机客户端 WPF 应用程序到 Web API](https://github.com/azureadsamples/nativeclient-dotnet)。
+### <a name="authenticating-users-of-a-native-client-application-running-on-a-device"></a>对设备上运行的本机客户端应用程序的用户进行身份验证
 
-### 对服务器应用程序进行身份验证以访问远程资源
-在此方案中，开发人员在服务器上有一个正在运行的应用程序需要访问由 Azure AD 保护的远程资源（如 Web API）。他有一个 Azure 订阅，知道如何调用下游服务，还知道 Web API 使用哪个 Azure AD 租户。因此，他可以显式处理应用程序的凭据，使用 ADAL 促成通过 Azure AD 的身份验证。使用 ADAL 可以轻松地使用应用程序的客户端凭据从 Azure AD 中检索令牌，然后使用该令牌向 Web API 发出请求。ADAL 还通过缓存访问令牌并在必要时续订，来处理对访问令牌生存期的管理。有关演示此方案的代码示例，请参阅[控制台应用程序到 Web API](https://github.com/AzureADSamples/Daemon-DotNet)。
+在此方案中，开发人员有一个移动客户端或桌面应用程序需要访问远程资源（如 Web API）。 该 Web API 不允许匿名调用，并且必须在经过身份验证的用户的上下文中调用。 该 Web API 已预先配置为信任由特定 Azure AD 租户颁发的访问令牌。 Azure AD 已预先配置为颁发该资源的访问令牌。 若要从客户端调用 Web API，开发人员可使用 ADAL 来简化 Azure AD 的身份验证。 使用 ADAL 最安全的方法是使其呈现用于收集用户凭据的用户界面（呈现为浏览器窗口）。
 
-### 代表用户对服务器应用程序进行身份验证以访问远程资源
-在此方案中，开发人员在服务器上有一个正在运行的应用程序需要访问由 Azure AD 保护的远程资源（如 Web API）。还需要代表 Azure AD 中的用户发出请求。他有一个 Azure 订阅，知道如何调用下游 Web API，还知道服务使用哪个 Azure AD 租户。用户通过 Web 应用程序的身份验证后，应用程序可以从 Azure AD 获取该用户的授权代码。然后，Web 应用程序可以使用该授权代码以及与应用程序关联的客户端凭据，代表用户通过 ADAL 从 Azure AD 中获取访问令牌和刷新令牌。Web 应用程序拥有访问令牌后，就可以调用 Web API，直到该令牌过期。令牌过期后，Web 应用程序可以使用前面收到的刷新令牌，通过 ADAL 获取新的访问令牌。
+使用 ADAL 可以轻松地对用户进行身份验证，从 Azure AD 获取访问令牌和刷新令牌，然后使用访问令牌调用 Web API。
 
-## 另请参阅
-[Azure Active Directory 开发人员指南](./active-directory-developers-guide.md)
+有关使用 Azure AD 身份验证演示此方案的代码示例，请参阅 [本机客户端 WPF 应用程序到 Web API](https://github.com/azureadsamples/nativeclient-dotnet)。
 
-[Azure Active directory 的身份验证方案](./active-directory-authentication-scenarios.md)
+### <a name="authenticating-a-confidential-client-application-running-on-a-web-server"></a>对 Web 服务器上运行的机密客户端应用程序进行身份验证
 
-[Azure Active Directory 代码示例](./active-directory-code-samples.md)
+在此方案中，开发人员在服务器上有一个正在运行的应用程序需要访问远程资源（如 Web API）。 该 Web API 不允许匿名调用，因此必须从授权服务中调用它。 该 Web API 已预先配置为信任由特定 Azure AD 租户颁发的访问令牌。 Azure AD 已预先配置为向具有客户端凭据（客户端 ID 和密码）的服务颁发该资源的访问令牌。 ADAL 可简化 Azure AD 对服务的身份验证，并返回可用于调用该 Web API 的访问令牌。 ADAL 还通过缓存访问令牌并在必要时续订，来处理对访问令牌生存期的管理。 有关演示此方案的代码示例，请参阅[守护程序控制台应用程序到 Web API](https://github.com/AzureADSamples/Daemon-DotNet)。
 
-<!---HONumber=Mooncake_0120_2017-->
-<!---Update_Description: wording and link update -->
+### <a name="authenticating-a-confidential-client-application-running-on-a-server-on-behalf-of-a-user"></a>代表用户对服务器上运行的机密客户端应用程序进行身份验证
+
+在此方案中，开发人员在服务器上有一个正在运行的 Web 应用程序需要访问远程资源（如 Web API）。 该 Web API 不允许匿名调用，因此必须以经过身份验证的用户身份从授权服务中调用它。 该 Web API 已预先配置为信任由特定 Azure AD 租户颁发的访问令牌，而 Azure AD 已预先配置为向具有客户端凭据的服务颁发该资源的访问令牌。 用户在 Web 应用程序中进行身份验证后，应用程序可以从 Azure AD 获取该用户的授权代码。 然后，Web 应用程序可以使用该授权代码以及与应用程序关联的客户端凭据，代表用户通过 ADAL 从 Azure AD 中获取访问令牌和刷新令牌。 Web 应用程序拥有访问令牌后，就可以调用 Web API，直到该令牌过期。 令牌过期后，Web 应用程序可以使用前面收到的刷新令牌，通过 ADAL 获取新的访问令牌。 有关演示此方案的代码示例，请参阅[本机客户端到 Web API 到 Web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof)。
+
+## <a name="see-also"></a>另请参阅
+
+- [Azure Active Directory 开发人员指南](v1-overview.md)
+- [Azure Active directory 的身份验证方案](authentication-scenarios.md)
+- [Azure Active Directory 代码示例](sample-v1-code.md)
+
+<!--Update_Description: link update -->

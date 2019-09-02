@@ -1,0 +1,197 @@
+---
+title: 语言支持 - 文本翻译 API
+titleSuffix: Azure Cognitive Services
+description: 文本翻译 API 支持的自然语言列表。
+services: cognitive-services
+author: rajdeep-in
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: translator-text
+ms.topic: reference
+origin.date: 02/21/2019
+ms.date: 06/11/2019
+ms.author: v-junlch
+ms.openlocfilehash: 7f6e35ad0d041cd70dbe5bb6c68fa7c89c91e686
+ms.sourcegitcommit: 259c97c9322da7add9de9f955eac275d743c9424
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/11/2019
+ms.locfileid: "66830112"
+---
+# <a name="language-and-region-support-for-the-translator-text-api"></a>文本翻译 API 的语言和区域支持
+
+文本翻译 API 支持对以下语言进行文本到文本翻译。 神经机器翻译 (NMT) 是采用 AI 的高质量机器翻译的新标准，当神经系统可用时，其可使用文本翻译 API 作为默认值。 统计系统仅在没有神经系统时才可用。
+
+[详细了解机器翻译的工作原理](https://www.microsoft.com/translator/mt.aspx)
+
+
+|语言|  语言代码|  神经/统计 |
+|:-----|:-----:|:-----|
+|南非荷兰语| `af`    |   神经|
+|阿拉伯语|    `ar`    |   神经|
+|Bangla|    `bn`    |   神经|
+|波斯尼亚语(拉丁语系)|   `bs`    |   神经|
+|保加利亚语| `bg`    |   神经|
+|粤语(繁体)|   `yue`   |   统计|
+|加泰罗尼亚语|   `ca`    |   统计|
+|中文(简体)|    `zh-Hans`   |神经|
+|中文(繁体)|   `zh-Hant`   |神经|
+|克罗地亚语|  `hr`    |   神经|
+|捷克语| `cs`    |   神经|
+|丹麦语|    `da`    |神经|
+|荷兰语| `nl`    |   神经|
+|英语|   `en`    |   神经|
+|爱沙尼亚语|  `et`    |   神经|
+|斐济语|    `fj`    |   统计|
+|菲律宾语|  `fil`   |   统计|
+|芬兰语|   `fi`    |   神经|
+|法语|    `fr`    |   神经|
+|德语|    `de`    |   神经|
+|希腊语| `el`    |   神经|
+|海地克里奥尔语|    `ht`    |统计|
+|希伯来语 |`he`   |神经|
+|印地语| `hi`    |   神经|
+|白苗文| `mww`   |   统计|
+|匈牙利语| `hu`    |   神经|
+|冰岛语| `is`    |   神经|
+|印度尼西亚语|    `id`    |   统计|
+|意大利语|   `it`    |   神经|
+|日语|  `ja`    |   神经|
+|斯瓦希里语| `sw`    |   统计|
+|克林贡语|   `tlh`   |   统计|
+|克林贡语(plqaD)|   `tlh-Qaak`  |   统计|
+|韩语 |`ko`   |   神经|
+|拉脱维亚语|   `lv`    |   神经|
+|立陶宛语|    `lt`    |   神经|
+|马拉加斯语|  `mg`    |   统计|
+|马来语| `ms`    |统计|
+|马耳他语|   `mt`    |   统计|
+|挪威语| `nb`    |   神经|
+|波斯语|   `fa`    |   统计|
+|波兰语|    `pl`    |   神经|
+|葡萄牙语|    `pt`    |   神经|
+|克雷塔罗奥托米语|   `otq`   |   统计|
+|罗马尼亚语|  `ro`    |   神经|
+|俄语|   `ru`    |   神经|
+|萨摩亚语|    `sm`    |   统计|
+|塞尔维亚语(西里尔文)|    `sr-Cyrl`   |   统计|
+|塞尔维亚语(拉丁语系)|   `sr-Latn`   |统计|
+|斯洛伐克语|    `sk`    |   神经|
+|斯洛文尼亚语| `sl`    |   神经|
+|西班牙语|   `es`    |   神经|
+|瑞典语|   `sv`    |神经|
+|塔希提语|  `ty`    |   统计|
+|泰米尔语| `ta`    |   统计|
+|泰卢固语|    `te`    |   神经|
+|泰语|  `th`    |   神经|
+|汤加语|    `to`    |   统计|
+|土耳其语|   `tr`    |神经|
+|乌克兰语| `uk`    |   神经|
+|乌尔都语|  `ur`    |   统计|
+|越南语|    `vi`    |   神经|
+|威尔士语| `cy`    |   神经|
+|尤卡坦玛雅语|  `yua`   |   统计|
+
+## <a name="transliteration"></a>音译
+
+Transliterate 方法支持以下语言。 在“音译方向”中，“<-->”表示该语言可以从列出的两侧脚本互相音译。 “-->” 表示该语言只能从一个脚本音译到另一个脚本。
+
+| 语言    | 语言代码 | 脚本 | 音译方向 | 脚本|
+|:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
+| 阿拉伯语 | `ar` | 阿拉伯语 `Arab` | <--> | 拉丁语 `Latn` |
+|Bangla  | `bn` | 孟加拉语 `Beng` | <--> | 拉丁语 `Latn` |
+| 中文(简体) | `zh-Hans` | 简体中文 `Hans`| <--> | 拉丁语 `Latn` |
+| 中文(简体) | `zh-Hans` | 简体中文 `Hans`| <--> | 繁体中文 `Hant`|
+| 中文(繁体) | `zh-Hant` | 繁体中文 `Hant`| <--> | 拉丁语 `Latn` |
+| 中文(繁体) | `zh-Hant` | 繁体中文 `Hant`| <--> | 简体中文 `Hans` |
+| 古吉拉特语 | `gu`  | 古吉拉特语 `Gujr` | --> | 拉丁语 `Latn` |
+| 希伯来语 | `he` | 希伯来语 `Hebr` | <--> | 拉丁语 `Latn` |
+| 印地语 | `hi` | 梵语 `Deva` | <--> | 拉丁语 `Latn` |
+| 日语 | `ja` | 日语 `Jpan` | <--> | 拉丁语 `Latn` |
+| 卡纳达语 | `kn` | 卡纳达语 `Knda` | --> | 拉丁语 `Latn` |
+| 马拉雅拉姆语 | `ml` | 马拉雅拉姆语 `Mlym` | --> | 拉丁语 `Latn` |
+| 马拉地语 | `mr` | 梵语 `Deva` | --> | 拉丁语 `Latn` |
+| 奥里雅语 | `or` | 奥里雅语 `Orya` | <--> | 拉丁语 `Latn` |
+| 旁遮普语 | `pa` | 果鲁穆奇语 `Guru`  | <--> | 拉丁语 `Latn`  |
+| 塞尔维亚语(西里尔文) | `sr-Cyrl` | 西里尔语 `Cyrl`  | --> | 拉丁语 `Latn` |
+| 塞尔维亚语(拉丁语系) | `sr-Latn` | 拉丁语 `Latn` | --> | 西里尔语 `Cyrl`|
+| 泰米尔语 | `ta` | 泰米尔语 `Taml` | --> | 拉丁语 `Latn` |
+| 泰卢固语 | `te` | 泰卢固语 `Telu` | --> | 拉丁语 `Latn` |
+| 泰语 | `th` | 泰语 `Thai` | <--> | 拉丁语 `Latn` |
+
+## <a name="dictionary"></a>字典
+
+字典使用 Lookup 和 Examples 方法支持以下将语言翻译成英语或将英语翻译为以下语言。
+
+| 语言    | 语言代码 |
+|:----------- |:-------------:|
+| 南非荷兰语      | `af`          |
+| 阿拉伯语       | `ar`          |
+| Bangla      | `bn`          |
+| 波斯尼亚语(拉丁语系)      | `bs`          |
+| 保加利亚语      | `bg`          |
+| 加泰罗尼亚语      | `ca`          |
+| 中文(简体)      | `zh-Hans`          |
+| 克罗地亚语      | `hr`          |
+| 捷克语      | `cs`          |
+| 丹麦语      | `da`          |
+| 荷兰语      | `nl`          |
+| 爱沙尼亚语      | `et`          |
+| 芬兰语      | `fi`          |
+| 法语      | `fr`          |
+| 德语      | `de`          |
+| 希腊语      | `el`          |
+| 海地克里奥尔语      | `ht`          |
+| 希伯来语      | `he`          |
+| 印地语      | `hi`          |
+| 白苗文      | `mww`          |
+| 匈牙利语      | `hu`          |
+| 冰岛语    | `is`  |
+| 印度尼西亚语      | `id`          |
+| 意大利语      | `it`          |
+| 日语      | `ja`          |
+| 斯瓦希里语      | `sw`          |
+| 克林贡语      | `tlh`          |
+| 韩语      | `ko`          |
+| 拉脱维亚语      | `lv`          |
+| 立陶宛语      | `lt`          |
+| 马来语      | `ms`          |
+| 马耳他语      | `mt`          |
+| 挪威语      | `nb`          |
+| 波斯语      | `fa`          |
+| 波兰语      | `pl`          |
+| 葡萄牙语      | `pt`          |
+| 罗马尼亚语      | `ro`          |
+| 俄语      | `ru`          |
+| 塞尔维亚语(拉丁语系)      | `sr-Latn`          |
+| 斯洛伐克语     | `sk`          |
+| 斯洛文尼亚语      | `sl`          |
+| 西班牙语      | `es`          |
+| 瑞典语      | `sv`          |
+| 泰米尔语      | `ta`          |
+| 泰语      | `th`          |
+| 土耳其语      | `tr`          |
+| 乌克兰语      | `uk`          |
+| 乌尔都语      | `ur`          |
+| 越南语      | `vi`          |
+| 威尔士语      | `cy`          |
+
+## <a name="detect"></a>Detect
+
+翻译工具文本 API 检测可用于翻译和音译的所有语言。
+
+
+## <a name="access-the-translator-text-api-language-list-programmatically"></a>以编程方式访问文本翻译 API 语言列表
+
+可以使用 Languages 方法检索文本翻译 API v3.0 支持的语言列表。 可按功能、语言代码以及该语言在英文或任何其他受支持语言中的名称来查看列表。 当有新语言可用时，Microsoft Translator 服务会自动更新此列表。
+
+[查看语言操作参考文档](reference/v3-0-languages.md)
+
+
+## <a name="access-the-list-on-the-microsoft-translator-website"></a>访问 Microsoft Translator 网站上的列表
+
+若要快速查看语言，Microsoft Translator 网站上显示了 文本翻译和语音 API 支持的所有语言。 此列表不包括特定于开发者的信息，例如语言代码。
+
+[查看语言列表](https://www.microsoft.com/translator/languages.aspx)
+
+<!-- Update_Description: update metedata properties -->

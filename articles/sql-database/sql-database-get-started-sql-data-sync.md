@@ -1,188 +1,241 @@
 ---
-title: SQL 数据库 s 数据同步入门
-description: 本教程帮助你 Azure SQL 数据同步（预览版）入门。
+title: 设置 Azure SQL 数据同步 | Microsoft Docs
+description: 本教程介绍如何设置 Azure SQL 数据同步
 services: sql-database
-documentationCenter: ''
-authors: jennieHubbard
-manager: jhubbard
-editor: ''
-
 ms.service: sql-database
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/11/2016
-wacn.date: 08/15/2016
-ms.author: v-johch
+ms.subservice: data-movement
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: douglasl
+manager: digimobile
+origin.date: 01/14/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 6c98db1cd3f07ddb1dd919427ae75cfa95e2d35a
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544325"
 ---
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>教程：设置 Azure SQL 数据库和本地 SQL Server 之间的 SQL 数据同步
 
-#Azure SQL 数据同步入门（预览版）
-在本教程中，你将了解使用 Azure 经典管理门户的 Azure SQL 数据同步的基础知识。
+本教程将介绍如何创建包含 Azure SQL 数据库和 SQL Server 实例的同步组，从而设置 Azure SQL 数据同步。 同步组进行了自定义配置，并根据设置的计划进行同步。
 
-本教程假定你之前未使用过 SQL Server 和 Azure SQL 数据库。在本教程中，你将创建一个完全配置且按既定计划同步的混合（SQL Server 和 SQL 数据库实例）同步组。
+阅读本教程的前提是，至少具有 SQL 数据库和 SQL Server 领域的一些经验。
+
+有关 SQL 数据同步的概述，请参阅[使用 Azure SQL 数据同步跨云和本地数据库同步数据](sql-database-sync-data.md)。
+
+有关如何配置 SQL 数据同步的 PowerShell 示例，请参阅[如何在 Azure SQL 数据库](scripts/sql-database-sync-data-between-sql-databases.md)或 [Azure SQL 数据库和 SQL Server 本地数据库](scripts/sql-database-sync-data-between-azure-onprem.md)之间进行同步
+
+> [!IMPORTANT]
+> 目前，Azure SQL 数据同步不支持 Azure SQL 数据库托管实例  。
+
+## <a name="create-sync-group"></a>创建同步组
+
+1. 在浏览器中，导航到 Azure 门户。 从仪表板中找到 SQL 数据库，或者在“SQL 数据库”页的工具栏上选择“SQL 数据库”图标，选择要用作数据同步的中心数据库的数据库   。
+
+    > [!NOTE]
+    > 中心数据库是同步拓扑的中央终结点，其中同步组具有多个数据库终结点。 同步组中具有终结点的所有其他成员数据库会与中心数据库进行同步。
+
+1. 在选定数据库的“SQL 数据库”页中，选择“同步到其他数据库”   。
+
+    ![“同步到其他数据库”选项](media/sql-database-get-started-sql-data-sync/datasync-overview.png)
+
+1. 在“同步到其他数据库”页中，选择“新建同步组”   。 “新建同步组”页随即打开，其中突出显示“创建同步组(步骤 1)”   。
+
+   ![步骤 1 设置](media/sql-database-get-started-sql-data-sync/stepone.png)
+
+   在“创建数据同步组”页中，请更改以下设置  ：
+
+   | 设置                        | 说明 |
+   | ------------------------------ | ------------------------------------------------- |
+   | **同步组名称** | 输入新同步组的名称。 此名称不同于数据库本身的名称。 |
+   | **同步元数据数据库** | 选择创建数据库（推荐）或使用现有数据库。<br/><br/>如果选择“新建数据库”，请选择“创建新数据库”   。 然后在“SQL 数据库”页中，命名并配置新数据库，再选择“确定”   。<br/><br/>如果选择“使用现有数据库”，请从列表中选择数据库  。 |
+   | **自动同步** | 选择“开”或“关”   。<br/><br/>如果选择“开”，请在“同步频率”部分中输入数字，然后选择“秒”、“分钟”、“小时”或“天”       。 |
+   | **冲突解决方法** | 选择“中心胜出”或“成员胜出”   。<br/><br/>“中心胜出”表示发生冲突时，中心数据库中的数据将覆盖成员数据库中的冲突数据  。<br/><br/>“成员胜出”表示发生冲突时，成员数据库中的数据将覆盖中心数据库中的冲突数据  。 |
+
+   > [!NOTE]
+   > Azure 建议新建空的数据库，用作“同步元数据数据库”  。 SQL 数据同步在此数据库中创建表，并经常运行工作负载。 此数据库作为所选区域中所有同步组的“同步元数据数据库”共享，如果不删除该区域中的所有同步组和同步代理，则无法更改数据库或数据库名称  。
+
+   选择“确定”，并等待创建和部署同步组  。
+
+## <a name="add-sync-members"></a>添加同步成员
+
+创建并部署新的同步组后，“新建同步组”页中将突出显示“添加同步成员(步骤 2)”   。
+
+在“中心数据库”部分中，输入中心数据库所在的 SQL 数据库服务器的现有凭据  。 请勿在此部分中输入新  凭据。
+
+![步骤 2 设置](media/sql-database-get-started-sql-data-sync/steptwo.png)
+
+### <a name="to-add-an-azure-sql-database"></a>添加 Azure SQL 数据库
+
+在“成员数据库”  部分中，视需要通过选择“添加 Azure SQL 数据库”  ，将 Azure SQL 数据库添加到同步组中。 此时，“配置 Azure SQL 数据库”  页随即打开。
+
+  ![步骤 2 - 配置数据库](media/sql-database-get-started-sql-data-sync/steptwo-configure.png)
+
+  在“配置 Azure SQL 数据库”  页中，更改以下设置：
+
+  | 设置                       | 说明 |
+  | ----------------------------- | ------------------------------------------------- |
+  | **同步成员名称** | 提供新同步成员的名称。 此名称不同于数据库本身的名称。 |
+  | **订阅** | 选择关联的 Azure 订阅，以用于计费。 |
+  | **Azure SQL Server** | 选择现有 SQL 数据库服务器。 |
+  | **Azure SQL 数据库** | 选择现有 SQL 数据库。 |
+  | **同步方向** | 选择“双向同步”、“向中心同步”或“从中心同步”    。 |
+  | “用户名”和“密码”   | 输入成员数据库所在的 SQL 数据库服务器的现有凭据。 请勿在此部分中输入新  凭据。 |
+
+  选择“确定”  ，并等待新同步成员创建和部署完成。
+
+<a name="add-on-prem"></a>
+### <a name="to-add-an-on-premises-sql-server-database"></a>添加本地 SQL Server 数据库
+
+在“成员数据库”  部分中，请根据需要选择“添加本地数据库”  ，从而将本地 SQL Server 数据库添加到同步组。 随即打开“配置本地”页，可以在其中执行以下操作  ：
+
+1. 选择“选择同步代理网关”  。 “选择同步代理”  页随即打开。
+
+   ![创建同步代理](media/sql-database-get-started-sql-data-sync/steptwo-agent.png)
+
+1. 在“选择同步代理”页中，选择是使用现有代理还是创建代理  。
+
+   如果选择“现有代理”，请从列表中选择现有代理  。
+
+   如果选择“新建代理”，请执行以下操作  ：
+
+   1. 通过提供的链接下载 Data Sync Agent，并将其安装在 SQL Server 所在的计算机上。 还可以直接从 [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693) 下载代理。
+
+      > [!IMPORTANT]
+      > 必须在防火墙中打开出站 TCP 端口 1433，以便客户端代理能够与服务器进行通信。
+
+   1. 输入代理名称。
+
+   1. 选择“创建并生成密钥”并将代理密钥复制到剪贴板  。
+
+   1. 选择“确定”  ，关闭“选择同步代理”  页。
+
+1. 在 SQL Server 计算机上，找到并运行客户端同步代理应用程序。
+
+   ![数据同步客户端代理应用程序](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+
+    1. 在同步代理应用程序中，选择“提交代理密钥”  。 此时，“同步元数据数据库配置”  对话框打开。
+
+    1. 在“同步元数据数据库配置”  对话框中，粘贴从 Azure 门户复制的代理密钥。 还需要输入元数据数据库所在 Azure SQL 数据库服务器的现有凭据。 （如果创建了元数据数据库，则此数据库与中心数据库位于同一服务器上。）选择“确定”  ，并等待配置完成。
+
+        ![输入代理密钥和服务器凭据](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
+
+        > [!NOTE]
+        > 如果看到防火墙错误消息，请在 Azure 上创建防火墙规则，以允许来自 SQL Server 计算机的传入流量。 可以在门户中或在 SQL Server Management Studio (SSMS) 中手动创建规则。 在 SSMS 中，输入其名称 <hub_database_name>.database.chinacloudapi.cn，即可连接到 Azure 上的中心数据库。
+
+    1. 选择“注册”以向代理注册 SQL Server 数据库  。 此时，“SQL Server 数据库配置”  对话框打开。
+
+        ![添加和配置 SQL Server 数据库](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
+
+    1. 在“SQL Server 配置”对话框中，选择是使用 SQL Server 身份验证还是使用 Windows 身份验证进行连接  。 如果选择 SQL Server 身份验证，请输入现有凭据。 提供 SQL Server 名称和要同步的数据库的名称，然后选择“测试连接”测试设置  。 然后选择“保存”，注册的数据库将显示在列表中  。
+
+        ![SQL Server 数据库现已注册](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
+
+    1. 关闭客户端同步代理应用。
+
+1. 在门户的“配置本地数据库”页中，选择“选择数据库”   。
+
+1. 在“选择数据库”  页的“同步成员名称”  字段中，输入新同步成员的名称。 此名称不同于数据库本身的名称。 从列表中选择数据库。 在“同步方向”字段中，选择“双向同步”、“向中心同步”或“从中心同步”     。
+
+    ![选择本地数据库](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
+
+1. 选择“确定”  ，关闭“选择数据库”  页。 再选择“确定”  ，关闭“配置本地数据库”  页，并等待新同步成员创建和部署完成。 最后，选择“确定”，关闭“选择同步成员”页   。
 
 > [!NOTE]
-> 有关 Azure SQL 数据同步的完整技术文档集以前位于 MSDN 中，现在以 .pdf 文件提供。可从[此处](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)下载。
+> 要连接到 SQL 数据同步和本地代理，请将自己的用户名添加到角色 DataSync_Executor  。 SQL 数据同步在 SQL Server 实例中创建此角色。
 
-## 步骤 1：连接到 Azure SQL 数据库
+## <a name="configure-sync-group"></a>配置同步组
 
-1. 登录到[管理门户](http://manage.windowsazure.cn)。
+创建并部署新同步组成员后，“新建同步组”页中将突出显示“配置同步组(步骤 3)”   。
 
-2. 在左窗格中，单击“SQL 数据库”。
+![步骤 3 设置](media/sql-database-get-started-sql-data-sync/stepthree.png)
 
-3. 单击页面底部的“同步”。单击“同步”后，将出现一个显示可供添加内容的列表 –“新建同步组”和“新建同步代理”。
+1. 在“表”页中，依次选择同步组成员列表中的数据库和“刷新架构”   。
 
-4. 若要启动“新建 SQL 数据同步代理”向导，请单击“新建同步代理”。
+1. 从列表中，选择要同步的表。默认情况下，所有列都处于选中状态，因此请禁用不想同步的列的复选框。请务必保持主键列的选中状态不变。
 
-5. 如果你之前没有添加代理，请“单击此处进行下载”。
+1. 选择“其他安全性验证”  。
 
-    ![Image1](./media/sql-database-get-started-sql-data-sync/SQLDatabaseScreen-Figure1.PNG)
+1. 默认情况下，在计划或手动运行数据库之前，不会同步数据库。 要运行手动同步，请导航到 Azure 门户中的 SQL 数据库，选择“同步到其他数据库”，然后选择同步组  。 “数据同步”页随即打开  。 选择“同步”。 
 
-## 步骤 2：添加客户端代理
-仅当你要在同步组中包含本地 SQL Server 数据库时，才需要执行此步骤。如果你的同步组只具有 SQL 数据库实例，则请跳到步骤 4。
+    ![手动同步](media/sql-database-get-started-sql-data-sync/datasync-sync.png)
 
-<a id="InstallRequiredSoftware"></a>
-### 步骤 2a：安装必要的软件
-确保你安装客户端代理的计算机上安装有下列软件。
+## <a name="faq"></a>常见问题
 
-- **.NET Framework 4.0**
+数据同步以什么频率同步数据？ 
 
- 从[此处](http://go.microsoft.com/fwlink/?linkid=205836)安装 .NET Framework 4.0。
+同步之间的最短持续时间为五分钟。
 
-- **Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)**
+SQL 数据同步是否能完全创建表？ 
 
- 从[此处](http://www.microsoft.com/zh-cn/download/details.aspx?id=26728)安装 Microsoft SQL Server 2008 R2 SP1 System CLR Types (x86)
+如果目标数据库中缺少同步架构表，则 SQL 数据同步会使用所选择的列创建进行创建。 但是，由于以下原因，这不会导致完全保真架构：
 
-- **Microsoft SQL Server 2008 R2 SP1 共享管理对象 (x86)**
+- 仅在目标表中创建所选的列。 将忽略未选中的列。
+- 仅在目标表中创建选定的列索引。 对于未选中的列，将忽略这些索引。
+- 不会创建 XML 类型列的索引。
+- 不会创建 CHECK 约束。
+- 不会创建源表上的触发器。
+- 不会创建视图和存储过程。
 
- 从[此处](http://www.microsoft.com/zh-cn/download/details.aspx?id=26728)安装 Microsoft SQL Server 2008 R2 SP1 Shared Management Objects (x86)
+考虑到这些限制，我们的建议如下：
 
-<a id="InstallClient"></a>
-### 步骤 2b：安装新的客户端代理
+- 对于生产环境，请自行创建完全保真架构。
+- 在试验服务时，请使用自动预配功能。
 
-按照[安装客户端代理（SQL 数据同步）](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)中的说明来安装代理。
+**为什么会看到没有创建的表？**
 
-<a id="RegisterSSDb"></a>
-### 步骤 2c：完成新建 SQL 数据同步代理向导
+数据同步在数据库中创建其他表用于跟踪更改。 请不要删除这些表，否则数据同步会停止运行。
 
-1. 	返回到新建 SQL 数据同步代理向导。
-2. 为代理提供一个有意义的名称。
-3. 从下拉列表中，选择托管此代理的“区域”（数据中心）。
-4. 从下拉列表中，选择托管此代理的“订阅”。
-5. 单击右箭头。
+**同步后的数据是否具有收敛性？**
 
-## 步骤 3：使用客户端代理注册 SQL Server 数据库
+不一定。 取具有一个中心和三个辐射（A、B 和 C）的同步组，其中同步为中心到 A、中心到 B 和中心到 C。如果在中心到 A 同步后对数据库 A 进行了更改，则在下一次同步任务前，该更改不会写入数据库 B 或数据库 C  。
 
-安装客户端代理后，向该代理注册您要包含在同步组中的每个本地 SQL Server 数据库。
-若要向该代理注册数据库，请按照[向客户端代理注册 SQL Server 数据库](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)中的说明操作。
+**如何将架构更改应用到同步组？**
 
-## 步骤 4：创建同步组
+手动进行所有架构更改并对其进行传播。
 
-<a id="StartNewSGWizard"></a>
-### 步骤 4a：启动新建同步组向导
+1. 将架构更改手动复制到中心以及所有同步成员。
+1. 更新同步架构。
 
-1. 返回到[管理门户](http://manage.windowsazure.cn)。
-2. 单击“SQL 数据库”。
-3. 单击页面底部的“添加同步”，然后从下拉列表中选择“新建同步组”。
+添加新表和新列：
 
-    ![Image2](./media/sql-database-get-started-sql-data-sync/NewSyncGroup-Figure2.png)
+新表和新列在添加到同步架构之前不会影响当前同步，并且数据同步会将其忽略。 添加新的数据库对象时，请遵循以下顺序：
 
-<a id=""></a>
-### 步骤 4b：输入基本设置
+1. 将新表或新列添加到中心，然后添加到所有同步成员。
+1. 将新表或新列添加到同步架构。
+1. 开始将值插入新表和新列中。
 
-1. 为该同步组输入一个有意义的名称。
-2. 从下拉列表中，选择托管此同步组的“区域”（数据中心）。
-3. 单击右箭头。
+更改列的数据类型：
 
-    ![Image3](./media/sql-database-get-started-sql-data-sync/NewSyncGroupName-Figure3.PNG)
+更改现有列的数据类型时，数据同步会继续运行，前提是新值属于在同步架构中定义的原始数据类型。 例如，如果在源数据库中将类型从 int 更改为 bigint，除非插入的值对于 int 数据类型来说过大，否则数据同步会继续运行    。 要完成此更改，请将架构更改手动复制到中心以及所有同步成员，然后更新同步架构。
 
-<a id="DefineHubDB"></a>
-### 步骤 4c：定义同步中心
+**如何使用数据同步导出和导入数据库？**
 
-1. 从下拉列表中，选择 SQL 数据库实例以用作同步组中心。
-2. 输入此 SQL 数据库实例的凭据 –“中心用户名”和“中心密码”。
-3. 等待 SQL 数据同步确认该用户名和密码。在凭据被确认后，你可以在密码右侧看到一个绿色复选标记出现。
-4. 从下拉列表中，选择“冲突解决”策略。
+在将数据库导出为 .bacpac 文件，并导入要创建数据库的文件后，请执行以下操作以在新数据库中使用数据同步  ：
 
- **中心 Wins** – 写入中心数据库的任何更改都将写入引用数据库，以覆盖同一引用数据库记录中的更改。从功能上看，这意味着写入中心的首次更改会传播到其他数据库。
+1. 使用[此脚本](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql)清理新数据库上的数据同步对象和其他表。 该脚本从数据库中删除所有必需的数据同步对象。
+1. 重新创建包含新数据库的同步组。 如果不再需要旧同步组，请删除它。
 
- **客户端 Wins** – 写入中心的更改将被引用数据库中的更改覆盖。从功能上看，这意味着写入中心的最后一次更改会被保留并传播到其他数据库。
+**在哪里可以找到有关客户端代理的信息？**
 
-5. 单击右箭头。
+有关客户端代理的常见问题解答，请参阅[代理常见问题解答](sql-database-data-sync-agent.md#agent-faq)。
 
-    ![Image4](./media/sql-database-get-started-sql-data-sync/NewSyncGroupHub-Figure4.PNG)
+## <a name="next-steps"></a>后续步骤
 
-<a id="AddRefDB"></a>
-### 步骤 4d：添加引用数据库
+祝贺。 你已创建了一个包含 SQL 数据库实例和 SQL Server 数据库的同步组。
 
-对你要额外添加到同步组中的每个数据库重复此步骤。
+有关 SQL 数据同步的详细信息，请参阅：
 
-1. 从下拉列表中，选择要添加的数据库。
+- [Azure SQL 数据同步的 Data Sync Agent](sql-database-data-sync-agent.md)
+- [最佳做法](sql-database-best-practices-data-sync.md)和[如何解决 Azure SQL 数据同步问题](sql-database-troubleshoot-data-sync.md)
+- [使用 Transact-SQL 更新同步架构](sql-database-update-sync-schema.md) 或使用 [PowerShell](scripts/sql-database-sync-update-schema.md) 更新同步架构
 
-    下拉列表中的数据库包含已向代理进行注册的 SQL Server 数据库，以及 SQL 数据库实例。
-2. 输入此数据库的凭据 –“用户名”和“密码”。
-3. 从下拉列表中，选择此数据库的“同步方向”。
+有关 SQL 数据库的详细信息，请参阅：
 
-    **双向** – 引用数据库中的更改将写入中心数据库，对中心数据库的更改将写入引用数据库。
-
-    **从中心同步** - 数据库从中心接收更新，而不将更改发送到中心。
-
-    **同步到中心** - 数据库将更新发送到中心。中心的更改不会写入此数据库。
-
-4. 若要完成创建同步组，请单击向导右下方的复选标记。等待 SQL 数据同步确认凭据。绿色复选标记表示凭据已被确认。
-
-5. 再次单击复选标记。你将会返回到 SQL 数据库下的“同步”页。现在，此同步组将与其他同步组和代理一同列出。
-
-    ![Image5](./media/sql-database-get-started-sql-data-sync/NewSyncGroupReference-Figure5.PNG)
-
-## 步骤 5：定义要同步的数据
-
-利用 Azure SQL 数据同步，你可以选择要同步的表和列。如果你还希望对列进行筛选以便仅同步具有特定值（如 Age>=65）的行，请使用 Azure 的 SQL 数据同步门户以及“选择要同步的表、列和行”文档，来定义要同步的数据。
-
-1. 返回到[管理门户](http://manage.windowsazure.cn)。
-2. 单击“SQL 数据库”。
-3. 单击“同步”选项卡。
-4. 单击此同步组的名称。
-5. 单击“同步规则”选项卡。
-6. 选择你要提供同步组架构的数据库。
-7. 单击右箭头。
-8. 单击“刷新架构”。
-9. 对于数据库中的每个表，选择要包含在同步中的列。
-    - 不能选择包含不受支持数据类型的列。
-    - 如果表中没有列被选中，则该表将不会包含在同步组中。
-    - 若要选择/取消选择全部表，请单击屏幕底部的“选择”。
-10. 单击“保存”，然后等待同步组完成预配。
-11. 若要返回到数据同步登陆页，请单击屏幕左上角（同步组名称的上方）的后退箭头。
-
-    ![Image6](./media/sql-database-get-started-sql-data-sync/NewSyncGroupSyncRules-Figure6.PNG)
-
-## 步骤 6：配置同步组
-
-您可以始终通过单击数据同步登录页底部的“同步”来对同步组执行同步操作。
-若要按照计划同步，请配置该同步组。
-
-1. 返回到[管理门户](http://manage.windowsazure.cn)。
-2. 单击“SQL 数据库”。
-3. 单击“同步”选项卡。
-4. 单击此同步组的名称。
-5. 单击“配置”选项卡。
-6. **自动同步**
-    - 若要将同步组配置为按照设定频率进行同步，请单击“打开”。还可以通过单击“同步”来按需进行同步。
-    - 单击“关闭”可将同步组配置为仅在单击“同步”时才同步。
-7. **同步频率**
-    - 如果“自动同步”处于开启状态，可设置同步频率。频率必须介于 5 分钟到 1 个月之间。
-8. 单击“保存”。
-
-![Image7](./media/sql-database-get-started-sql-data-sync/NewSyncGroupConfigure-Figure7.PNG)
-
-祝贺你。你已创建了一个包含 SQL 数据库实例和 SQL Server 数据库的同步组。
-
-## 后续步骤
-有关 SQL 数据库和 SQL 数据同步的其他信息，请参阅：
-
-* [下载完整的 SQL 数据同步技术文档](http://download.microsoft.com/download/4/E/3/4E394315-A4CB-4C59-9696-B25215A19CEF/SQL_Data_Sync_Preview.pdf)
-* [SQL 数据库概述](./sql-database-technical-overview.md)
-* [数据库生命周期管理](https://msdn.microsoft.com/zh-cn/library/jj907294.aspx)
-
-<!---HONumber=Mooncake_Quality_Review_1118_2016-->
+- [SQL 数据库概述](sql-database-technical-overview.md)
+- [数据库生命周期管理](https://msdn.microsoft.com/library/jj907294.aspx)

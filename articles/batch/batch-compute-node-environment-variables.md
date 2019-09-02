@@ -1,33 +1,38 @@
 ---
-title: "Azure 批处理计算节点环境变量 | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: 任务运行时环境变量 - Azure Batch | Azure Docs
+description: Azure Batch 分析的任务运行时环境变量指导和参考。
+services: batch
+author: lingliw
+manager: digimobile
+ms.assetid: ''
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
+ms.devlang: multiple
 ms.topic: article
-ms.assetid: 3990f0c8-b627-432f-9551-5ce10f9bb0ca
-caps.latest.revision: 14
-author: tamram
-ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: dd664e6476f7fc6d49c42da990553addfe733425
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.tgt_pltfrm: vm-windows
+ms.workload: big-compute
+ms.date: 04/23/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 42f21d3ff8cb2adb9af013c607218cfaece940b1
+ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68818460"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Azure 批处理计算节点环境变量
-[Azure 批处理服务](https://azure.microsoft.com/services/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
+# <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 
-有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](https://docs.microsoft.com/azure/batch/batch-api-basics#environment-settings-for-tasks)。
+[Azure Batch 服务](/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
+
+有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks)。
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
-这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](./batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+这些环境变量仅在**任务用户**（即执行任务的节点上的用户帐户）的上下文中可见。 如果通过远程桌面协议 (RDP) 或安全外壳 (SSH) [远程连接](batch-api-basics.md#connecting-to-compute-nodes)到计算节点并列出环境变量，将*看不到*这些变量。 这是因为，用于远程连接的用户帐户与任务使用的帐户不同。
+若要获取环境变量的当前值，请在 Windows 计算节点上启动 `cmd.exe`，或在 Linux 节点上启动 `/bin/sh`：
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>环境变量的命令行扩展
 
@@ -39,31 +44,33 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="environment-variables"></a>环境变量
 
-| 变量名称         | 说明                                                              | 可用性 | 示例 |
+| 变量名称                     | 说明                                                              | 可用性 | 示例 |
 |-----------------------------------|--------------------------------------------------------------------------|--------------|---------|
-| `AZ_BATCH_ACCOUNT_NAME`           | 任务所属的 Batch 帐户名。 | 所有任务。 | `mybatchaccount` |
-| `AZ_BATCH_CERTIFICATES_DIR`       | [任务工作目录][files_dirs]内的目录，会在其中为 Linux 计算节点存储证书。 请注意，此环境变量不适用于 Windows 计算节点。 | 所有任务。 | `/mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs` |
-| `AZ_BATCH_JOB_ID`                 | 任务所属的作业的 ID。 | 除启动任务以外的所有任务。 | `batchjob001` |
-| `AZ_BATCH_JOB_PREP_DIR`           | 节点上的作业准备[任务目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation` |
-| `AZ_BATCH_JOB_PREP_WORKING_DIR`   | 节点上的作业准备[任务工作目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | `C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd` |
-| `AZ_BATCH_NODE_ID`                | 任务分配到的节点的 ID。 | 所有任务。 | `tvm-1219235766_3-20160919t172711z` |
-| `AZ_BATCH_NODE_ROOT_DIR`          | 节点上所有[批处理目录][files_dirs]的根目录的完整路径。 | 所有任务。 | `C:\user\tasks` |
-| `AZ_BATCH_NODE_SHARED_DIR`        | 节点上[共享目录][files_dirs]的完整路径。 节点上执行的所有任务具有此目录的读取/写入权限。 在其他节点上执行的任务没有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 所有任务。 | `C:\user\tasks\shared` |
-| `AZ_BATCH_NODE_STARTUP_DIR`       | 节点上的[启动任务目录][files_dirs]的完整路径。 | 所有任务。 | `C:\user\tasks\startup` |
-| `AZ_BATCH_POOL_ID`                | 运行任务的池的 ID。 | 所有任务。 | `batchpool001` |
-| `AZ_BATCH_TASK_DIR`               | 节点上的[任务目录][files_dirs]的完整路径。 此目录包含任务的 `stdout.txt` 和 `stderr.txt`，以及 `AZ_BATCH_TASK_WORKING_DIR`。 | 所有任务。 | `C:\user\tasks\workitems\batchjob001\job-1\task001` |
-| `AZ_BATCH_TASK_ID`                | 当前任务的 ID。 | 除启动任务以外的所有任务。 | `task001` |
-| `AZ_BATCH_TASK_WORKING_DIR`       | 节点上的[任务工作目录][files_dirs]的完整路径。 当前正在运行的任务具有对此目录的读取/写入权限。 | 所有任务。 | `C:\user\tasks\workitems\batchjob001\job-1\task001\wd` |
-| `CCP_NODES`                       | 分配给[多实例任务][multi_instance]的节点和每个节点的内核数的列表。 使用 `numNodes<space>node1IP<space>node1Cores<space>` 格式列出了节点和内核<br/>`node2IP<space>node2Cores<space> ...`，其中节点数后跟一个或多个节点 IP 地址和每个节点的内核数。 |  多实例主要和子任务。 |`2 10.0.0.4 1 10.0.0.5 1` |
-| `AZ_BATCH_NODE_LIST`              | 使用 `nodeIP;nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4;10.0.0.5` |
-| `AZ_BATCH_HOST_LIST`              | 使用 `nodeIP,nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4,10.0.0.5` |
-| `AZ_BATCH_MASTER_NODE`            | 在其上运行[多实例任务][multi_instance]的主要任务的计算节点的 IP 地址和端口。 | 多实例主要和子任务。 | `10.0.0.4:6000`|
-| `AZ_BATCH_TASK_SHARED_DIR` | [多实例任务][multi_instance]的主要任务和每个子任务的目录路径相同。 路径存在于运行多实例任务的每个节点上，并且在该节点上运行的任务命令（[协调命令][coord_cmd]和[应用程序命令][app_cmd]）对其具有读取/写入权限。 在其他节点上执行的子任务或主要任务不具有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 多实例主要和子任务。 | `C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask` |
-| `AZ_BATCH_IS_CURRENT_NODE_MASTER` | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |
+| AZ_BATCH_ACCOUNT_NAME           | 任务所属的 Batch 帐户名。                  | 所有任务。   | mybatchaccount |
+| AZ_BATCH_ACCOUNT_URL            | Batch 帐户的 URL。 | 所有任务。 | `https://myaccount.chinanorth.batch.chinacloudapi.cn` |
+| AZ_BATCH_APP_PACKAGE            | 所有应用包环境变量的前缀。 例如，如果应用程序“Foo”版本“1”已安装到池，则环境变量为 AZ_BATCH_APP_PACKAGE_FOO_1。 AZ_BATCH_APP_PACKAGE_FOO_1 指向包下载到的位置（文件夹）。 | 包含关联应用包的任何任务。 如果节点本身拥有应用程序包，则还可用于所有任务。 | AZ_BATCH_APP_PACKAGE_FOO_1 |
+| AZ_BATCH_AUTHENTICATION_TOKEN   | 一种身份验证令牌，用于授予对一组有限的 Batch 服务操作的访问权限。 仅当[添加任务](https://docs.microsoft.com/rest/api/batchservice/task/add#request-body)时设置 [authenticationTokenSettings](https://docs.microsoft.com/rest/api/batchservice/task/add#authenticationtokensettings) 时，才会显示此环境变量。 令牌值在 Batch API 中用作凭据以创建 Batch 客户端，例如在 [BatchClient.Open() .NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.batchclient.open#Microsoft_Azure_Batch_BatchClient_Open_Microsoft_Azure_Batch_Auth_BatchTokenCredentials_) 中。 | 所有任务。 | OAuth2 访问令牌 |
+| AZ_BATCH_CERTIFICATES_DIR       | [任务工作目录][files_dirs]内的目录，会在其中为 Linux 计算节点存储证书。 请注意，此环境变量不适用于 Windows 计算节点。                                                  | 所有任务。   |  /mnt/batch/tasks/workitems/batchjob001/job-1/task001/certs |
+| AZ_BATCH_HOST_LIST              | 以 `nodeIP,nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4,10.0.0.5` |
+| AZ_BATCH_IS_CURRENT_NODE_MASTER | 指定当前节点是否为[多实例任务][multi_instance]的主节点。 可能的值为 `true` 和 `false`。| 多实例主要和子任务。 | `true` |
+| AZ_BATCH_JOB_ID                 | 任务所属的作业的 ID。 | 除启动任务以外的所有任务。 | batchjob001 |
+| AZ_BATCH_JOB_PREP_DIR           | 节点上作业准备[任务目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation |
+| AZ_BATCH_JOB_PREP_WORKING_DIR   | 节点上作业准备[任务工作目录][files_dirs]的完整路径。 | 除启动任务和作业准备任务之外的所有任务。 仅当使用作业准备任务来配置作业时才适用。 | C:\user\tasks\workitems\jobprepreleasesamplejob\job-1\jobpreparation\wd |
+| AZ_BATCH_MASTER_NODE            | 运行[多实例任务][multi_instance]的主要任务的计算节点的 IP 地址和端口。 | 多实例主要和子任务。 | `10.0.0.4:6000` |
+| AZ_BATCH_NODE_ID                | 任务分配到的节点的 ID。 | 所有任务。 | tvm-1219235766_3-20160919t172711z |
+| AZ_BATCH_NODE_IS_DEDICATED      | 如果为 `true`，则当前节点是一个专用节点。 | 所有任务。 | `true` |
+| AZ_BATCH_NODE_LIST              | 以 `nodeIP;nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_ROOT_DIR          | 节点上所有[批处理目录][files_dirs]的根目录的完整路径。 | 所有任务。 | C:\user\tasks |
+| AZ_BATCH_NODE_SHARED_DIR        | 节点上[共享目录][files_dirs]的完整路径。 节点上执行的所有任务具有此目录的读取/写入权限。 在其他节点上执行的任务没有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 所有任务。 | C:\user\tasks\shared |
+| AZ_BATCH_NODE_STARTUP_DIR       | 节点上[启动任务目录][files_dirs]的完整路径。 | 所有任务。 | C:\user\tasks\startup |
+| AZ_BATCH_POOL_ID                | 运行任务的池的 ID。 | 所有任务。 | batchpool001 |
+| AZ_BATCH_TASK_DIR               | 节点上[任务目录][files_dirs]的完整路径。 此目录包含任务的 `stdout.txt` 和 `stderr.txt`，以及 AZ_BATCH_TASK_WORKING_DIR。 | 所有任务。 | C:\user\tasks\workitems\batchjob001\job-1\task001 |
+| AZ_BATCH_TASK_ID                | 当前任务的 ID。 | 除启动任务以外的所有任务。 | task001 |
+| AZ_BATCH_TASK_SHARED_DIR | 一个目录路径，对于[多实例任务][multi_instance]的主要任务和每个子任务来说都相同。 该路径存在于运行多实例任务的每个节点上，并且在该节点上运行的任务命令（[协调命令][coord_cmd]和[应用程序命令][app_cmd]）对其具有读取/写入权限。 在其他节点上执行的子任务或主要任务不具有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 多实例主要和子任务。 | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
+| AZ_BATCH_TASK_WORKING_DIR       | 节点上[任务工作目录][files_dirs]的完整路径。 当前正在运行的任务具有对此目录的读取/写入权限。 | 所有任务。 | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
+| CCP_NODES                       | 分配给[多实例任务][multi_instance]的节点和每个节点的核心数的列表。 使用 `numNodes<space>node1IP<space>node1Cores<space>` 格式列出了节点和内核<br/>`node2IP<space>node2Cores<space> ...`，其中节点数后跟一个或多个节点 IP 地址和每个节点的内核数。 |  多实例主要和子任务。 |`2 10.0.0.4 1 10.0.0.5 1` |
 
-
-[files_dirs]: ./batch-api-basics.md#files-and-directories
-[multi_instance]: ./batch-mpi.md
-[coord_cmd]:./batch-mpi.md#coordination-command
-[app_cmd]:./batch-mpi.md#application-command
-
+[files_dirs]: https://docs.azure.cn/zh-cn//batch/batch-api-basics/#files-and-directories
+[multi_instance]: https://docs.azure.cn/zh-cn//batch//batch-mpi
+[coord_cmd]: https:https://docs.azure.cn/zh-cn/batch//batch-mpi/#coordination-command
+[app_cmd]: https://docs.azure.cn/zh-cn//batch//batch-mpi/#application-command

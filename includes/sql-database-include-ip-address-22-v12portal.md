@@ -1,27 +1,46 @@
-<!--
-../includes/sql-database-include-ip-address-22-v12portal.md
+---
+title: 服务器级别防火墙规则
+description: 服务器级别防火墙规则
+keywords: sql 连接, 连接字符串
+services: sql-database
+author: WenJason
+manager: digimobile
+ms.service: sql-database
+ms.custom: develop apps
+ms.topic: include
+origin.date: 07/13/2018
+ms.date: 09/02/2018
+ms.author: v-jay
+ms.openlocfilehash: c2dfb283a765b72a62ab6568de162781fce3d1cb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52665509"
+---
+1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-Latest Freshness check:  2016-03-21 , daleche.
+2. 在左侧的列表中，选择“所有服务”。
 
-As of circa 2015-09-04, the following topics might include this include:
-/documentation/articles/sql-database-configure-firewall-settings/
-/documentation/articles/sql-database-connect-query/
+3. 滚动并选择“SQL Server”。
 
-## Server-level firewall rules
+    ![在门户中找到 Azure SQL 数据库服务器][b21-FindServerInPortal]
+5. 在筛选器文本框中，开始键入服务器的名称。 此时会显示行。
 
-### Add a server-level firewall rule through the new Azure portal
--->
+6. 选择服务器所对应的行。 此时会显示服务器的边栏选项卡。
 
-1. 登录到 [Azure 经典管理门户](https://manage.windowsazure.cn)（网址为 http://manage.windowsazure.cn/ ）。
+7. 在服务器边栏选项卡上选择“设置”。
 
-2. 滚动并单击“SQL 数据库”。
+8. 选择“防火墙”。
 
-3. 单击顶部显示的“服务器”，
+    ![选择“设置”>“防火墙”][b31-SettingsFirewallNavig]
+9. 选择“添加客户端 IP”。 在第一个文本框中键入新规则的名称。
 
-4. 单击“配置”。 
+10. 键入你想要启用的范围的下限和上限 IP 地址值。
 
-5. 在“允许的 IP 地址”部分添加你想要启用的范围的下限和上限 IP 地址值。
-    - 为方便起见，可以让下限值以 **.0** 结尾，让上限值以 **.255** 结尾。
+    * 为方便起见，可以让下限值以 **.0** 结尾，让上限值以 **.255** 结尾。
+
+11. 选择“其他安全性验证” 。
 
 <!-- Image references. -->
 
@@ -31,11 +50,11 @@ As of circa 2015-09-04, the following topics might include this include:
 
 [b41-AddRange]: ./media/sql-database-include-ip-address-22-v12portal/firewall-ip-b41-v12portal-addrange.png
 
+
+
 <!--
 These includes/ files are a sequenced set, but you can pick and choose:
 
-../includes/sql-database-include-ip-address-22-v12portal.md
-? ../includes/sql-database-include-ip-address-*.md
+includes/sql-database-include-ip-address-22-v12portal.md
+? includes/sql-database-include-ip-address-*.md
 -->
-
-<!---HONumber=Mooncake_0503_2016-->

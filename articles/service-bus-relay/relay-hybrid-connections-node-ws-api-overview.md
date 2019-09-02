@@ -1,28 +1,28 @@
 ---
-title: "Azure 中继节点 API 概述 | Azure"
-description: "中继节点 API 概述"
+title: Azure 中继节点 API 概述 | Azure
+description: 中继节点 API 概述
 services: service-bus-relay
 documentationcenter: na
-author: jtaubensee
+author: sethmanheim
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: b7d6e822-7c32-4cb5-a4b8-df7d009bdc85
 ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/23/2017
+origin.date: 01/23/2018
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e9758fd8ae34fac1f960cfeb0f0d9c39dd743d8a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.date: 03/12/2018
+ms.openlocfilehash: 26e290fe246cc1708d9bedd40b91edd0432daccb
+ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68332202"
 ---
-
-# <a name="relay-hybrid-connections-hyco-ws-node-api-overview"></a>中继混合连接 hyco ws 节点 API 概述
+# <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 
 ## <a name="overview"></a>概述
 
@@ -32,7 +32,7 @@ Azure 中继混合连接的 [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) �
   
 ## <a name="documentation"></a>文档
 
-API [记录于主要的 ‘ws’ 包中](https://github.com/websockets/ws/blob/master/doc/ws.md)。 本文档介绍此包与该基线有何不同。 
+API [记录于主要的 ‘ws’ 包中](https://github.com/websockets/ws/blob/master/doc/ws.md)。 本文介绍此包与该基线有何不同。 
 
 基程序包和此 ‘hyco-ws’ 之间的主要区别是添加了新的服务器类、通过 `require('hyco-ws').RelayedServer` 导出以及添加了一些帮助程序方法。
 
@@ -40,7 +40,7 @@ API [记录于主要的 ‘ws’ 包中](https://github.com/websockets/ws/blob/m
 
 包导出上提供了几种实用方法，可按以下方式引用：
 
-``` JavaScript
+```JavaScript
 const WebSocket = require('hyco-ws');
 
 var listenUri = WebSocket.createRelayListenUri('namespace.servicebus.windows.net', 'path');
@@ -58,12 +58,12 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 
 为给定命名空间和路径创建有效的 Azure 中继混合连接侦听器 URI。 此 URI 随后可用于 WebSocketServer 类的中继版本。
 
-- **namespaceName**（必需）- 要使用的 Azure 中继命名空间的域限定名称
-- **path**（必需）- 该命名空间中现有 Azure 中继混合连接的名称
-- **token**（可选）- 以前颁发的中继访问令牌，嵌入到                        侦听器 URI 中（请参阅以下示例）
-- **id**（可选）- 用于启用请求的端到端诊断跟踪的跟踪标识符
+- `namespaceName`（必需）- 要使用的 Azure 中继命名空间的域限定名称。
+- `path`（必需）- 该命名空间中现有 Azure 中继混合连接的名称。
+- `token`（可选）- 以前颁发的中继访问令牌，嵌入到侦听器 URI 中（请参阅以下示例）。
+- `id`（可选）- 用于启用请求的端到端诊断跟踪的跟踪标识符。
 
-**token** 值是可选的，仅在不可能发送 HTTP 头和 WebSocket 握手时使用，这与 W3C WebSocket 堆栈的情况相同。                  
+`token` 值是可选的，仅在不可能发送 HTTP 头和 WebSocket 握手时使用，这与 W3C WebSocket 堆栈的情况相同。                  
 
 
 #### <a name="createrelaysenduri"></a>createRelaySendUri 
@@ -73,12 +73,12 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 
 为给定命名空间和路径创建有效的 Azure 中继混合连接发送 URI。 此 URI 可与任何 WebSocket 客户端配合使用。
 
-- **namespaceName**（必需）- 要使用的 Azure 中继命名空间的域限定名称
-- **path**（必需）- 该命名空间中现有 Azure 中继混合连接的名称
-- **token**（可选）- 以前颁发的中继访问令牌，嵌入到                        发送 URI 中（请参阅以下示例）
-- **id**（可选）- 用于启用请求的端到端诊断跟踪的跟踪标识符
+- `namespaceName`（必需）- 要使用的 Azure 中继命名空间的域限定名称。
+- `path`（必需）- 该命名空间中现有 Azure 中继混合连接的名称。
+- `token`（可选）- 以前颁发的中继访问令牌，嵌入到发送 URI 中（请参阅以下示例）。
+- `id`（可选）- 用于启用请求的端到端诊断跟踪的跟踪标识符。
 
-**token** 值是可选的，仅在不可能发送 HTTP 头和 WebSocket 握手时使用，这与 W3C WebSocket 堆栈的情况相同。                   
+`token` 值是可选的，仅在不可能发送 HTTP 头和 WebSocket 握手时使用，这与 W3C WebSocket 堆栈的情况相同。                   
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
@@ -88,11 +88,10 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 为给定目标 URI、SAS 规则和 SAS 规则密钥创建 Azure 中继共享访问签名 (SAS) 令牌，其有效期为指定的数秒钟或者如果忽略到期参数，则为从当前时刻起一小时。
 
-- **uri**（必需）- 为之颁发令牌的 URI。 规范化此 URI 可使用 HTTP 方案，并除去查询字符串信息。
-- **ruleName**（必需）- 由给定 URI 表示的实体的 SAS 规则名称，或者                           由 URI 主机部分表示的命名空间的 SAS 规则名称。
-- **key**（必需）- SAS 规则的有效密钥。 
-- **expirationSeconds**（可选）- 已生成的令牌过期之前的秒数。 
-                            如果未指定，则默认值为 1 小时 (3600)。
+- `uri`（必需）- 为之颁发令牌的 URI。 规范化此 URI 以使用 HTTP 方案，且将除去查询字符串信息。
+- `ruleName`（必需）- 由给定 URI 表示的实体的 SAS 规则名称，或者由 URI 主机部分表示的命名空间的 SAS 规则名称。
+- `key`（必需）- SAS 规则的有效密钥。 
+- `expirationSeconds`（可选）- 已生成的令牌过期之前的秒数。 如果未指定，则默认值为 1 小时 (3600)。
 
 颁发的令牌在给定的时间段内授予指定的 SAS 规则相关的权限。
 
@@ -101,13 +100,13 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
-此方法在功能上等效于之前记录的 **createRelayToken** 方法，但返回正确追加到输入 URI 的令牌。
+此方法在功能上等效于之前记录的 `createRelayToken` 方法，但返回正确追加到输入 URI 的令牌。
 
 ### <a name="class-wsrelayedserver"></a>Class ws.RelayedServer
 
 `hycows.RelayedServer` 类可替代 `ws.Server` 类，不侦听本地网络，但委托侦听 Azure 中继服务。
 
-这两个类通常为约定兼容，也就是说，通过更改使用 `ws.Server` 类的现有应用程序可以相当轻易地使用中继版本。 主要差异在于构造函数和可用选项。
+这两个类通常为约定兼容，也就是说，使用 `ws.Server` 类的现有应用程序可以轻易改为使用中继版本。 主要差异在于构造函数和可用选项。
 
 #### <a name="constructor"></a>构造函数  
 
@@ -126,19 +125,19 @@ var wss = new server(
 
 构造函数参数：
 
-- **server**（必需）- 要侦听的混合连接名称的完全限定 URI，通常                         使用 WebSocket.createRelayListenUri() 帮助程序方法构造。
-- **token**（必需）- 此参数可以保留以前颁发的令牌字符串，也可以保留为获得此类令牌字符串而调用的回调函数。 在启用令牌续订时，首选回调选项。
+- `server`（必需）- 要侦听的混合连接名称的完全限定 URI，通常使用 WebSocket.createRelayListenUri() 帮助程序方法构造。
+- `token`（必需）- 此参数可以保留以前颁发的令牌字符串，也可以保留为获得此类令牌字符串而调用的回调函数。 在启用令牌续订时，首选回调选项。
 
 #### <a name="events"></a>事件
 
-`RelayedServer` 实例将发出三个事件，使你能够处理传入的请求、建立连接，以及检测错误条件。 订阅 'connect' 事件后才能处理消息。 
+`RelayedServer` 实例将发出三个事件，使你能够处理传入的请求、建立连接，以及检测错误条件。 订阅 `connect` 事件后才能处理消息。 
 
 ##### <a name="headers"></a>headers
 ``` JavaScript 
 function(headers)
 ```
 
-接受传入连接前将引发 'headers' 事件，可以实现将标头的修改发送到客户端。 
+接受传入连接前将引发 `headers` 事件，可以实现将标头的修改发送到客户端。 
 
 ##### <a name="connection"></a>连接
 ``` JavaScript
@@ -153,7 +152,7 @@ function(socket)
 function(error)
 ```
 
-如果基础服务器发出错误，将转发到此处。  
+如果基础服务器发出错误，则会转发到此处。  
 
 #### <a name="helpers"></a>帮助程序
 
@@ -180,13 +179,17 @@ function(error)
     });
 ``` 
 
-var server = createRelayedServer([options], [connectCallback] )
+##### <a name="createrelayedserver"></a>createRelayedServer
 
-此方法调用构造函数以创建 RelayedServer 的新实例，然后订阅提供的 'connection' 事件的回调。
+```javascript
+var server = createRelayedServer([options], [connectCallback] )
+```
+
+此方法调用构造函数以创建 RelayedServer 的新实例，并订阅提供的 'connection' 事件的回调。
  
 ##### <a name="relayedconnect"></a>relayedConnect
 
-只需在函数中生成 `createRelayedServer` 帮助程序的镜像，`relayedConnect` 将创建客户端连接，并订阅生成套接字上的 'open' 事件。
+只需在函数中生成 `createRelayedServer` 帮助程序的镜像，`relayedConnect` 会创建客户端连接，并订阅生成套接字上的 'open' 事件。
 
 ``` JavaScript
     var uri = WebSocket.createRelaySendUri(ns, path);
@@ -201,6 +204,8 @@ var server = createRelayedServer([options], [connectCallback] )
 
 ## <a name="next-steps"></a>后续步骤
 若要了解有关 Azure 中继的详细信息，请访问以下链接：
-* [什么是 Azure 中继？](./relay-what-is-it.md)
-* [可用的中继 API](./relay-api-overview.md)
+* [什么是 Azure 中继？](relay-what-is-it.md)
+* [可用的中继 API](relay-api-overview.md)
 
+
+<!--Update_Description:update meta properties and wording-->

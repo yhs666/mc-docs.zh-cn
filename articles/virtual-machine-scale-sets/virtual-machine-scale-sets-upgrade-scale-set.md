@@ -1,103 +1,463 @@
 ---
-title: 在虚拟机规模集上部署应用 | Azure
-description: 在虚拟机规模集上部署应用
+title: 修改 Azure 虚拟机规模集 | Microsoft Docs
+description: 了解如何使用 REST API、Azure PowerShell 和 Azure CLI 修改和更新 Azure 虚拟机规模集
 services: virtual-machine-scale-sets
-documentationCenter: ''
-authors: gbowerman
-manager: timlt
+documentationcenter: ''
+author: mayanknayar
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
-
+ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
-wacn.date: 10/31/2016
-ms.author: v-dazen
+origin.date: 02/14/2018
+ms.date: 03/20/2019
+ms.author: v-junlch
+ms.openlocfilehash: b208ed2dc9cf6afdfdc700581a47c422024bad96
+ms.sourcegitcommit: 5c73061b924d06efa98d562b5296c862ce737cc7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58256373"
 ---
+# <a name="modify-a-virtual-machine-scale-set"></a>修改虚拟机规模集
 
-# 升级虚拟机规模集
+在应用程序的整个生命周期内，你可能需要修改或更新你的虚拟机规模集。 这些更新可能包括更新规模集的配置，或更改应用程序配置。 本文介绍了如何使用 REST API、Azure PowerShell 或 Azure CLI 修改现有规模集。
 
-本文介绍了如何在不停机的情况下为 Azure 虚拟机规模集推出 OS 更新。在此上下文中，OS 更新涉及到更改 OS 的版本或 SKU，或者更改自定义映像的 URI。在不停机的情况下更新意味着一次只更新一台或一个组中的虚拟机（如一次更新一个容错域），而不是一次更新所有虚拟机。这样做能使没有进行升级的虚拟机继续运行。
+## <a name="fundamental-concepts"></a>基本概念
 
-为了避免混淆，我们来区分一下可能要执行的 OS 更新的三种类型：
+### <a name="the-scale-set-model"></a>规模集模型
+规模集有一个“规模集模型”，用于以整体方式捕获规模集的所需状态。 若要查询规模集的模型，可使用以下命令： 
 
-- 更改平台映像的版本或 SKU。例如，将 Ubuntu 14.04.2-LTS 版本从 14.04.201506100 更改为 14.04.201507060，或者将 Ubuntu 15.10/最新 SKU 更改为 16.04.0-LTS/最新。本文中介绍了此方案。
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesets/get](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/get)：
 
-- 更改指向生成的自定义映像的新版本的 URI（“属性”>“virtualMachineProfile”>“storageProfile”>“osDisk”>“映像”>“URI”）。本文中介绍了此方案。
+    ```rest
+    GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
 
-- 从虚拟机内部修补 OS（这样的示例包括安装安全修补程序以及运行 Windows 更新）。尽管此方案是受支持的，但在本文中不予讨论。
+- 通过 Azure PowerShell 使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)：
 
-前两个选项是本文中所讨论的受支持的要求。若要执行第三个选项，需要创建新的规模集。
+    ```powershell
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
+    ```
 
-此处不讨论部署为 [Azure Service Fabric](https://www.azure.cn/home/features/service-fabric/) 的一部分的虚拟机规模集。
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss)：
 
-更改平台映像的 OS 版本/SKU 或自定义映像的 URI 的基本顺序，如下所示：
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet
+    ```
 
-1. 获取虚拟机规模集模型。
+- 还可以使用特定于语言的 [Azure SDK](/downloads/)。
 
-2. 更改模型中的版本、SKU 或 URI 值。
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
-3. 更新模型。
-
-4. 对规模集中的虚拟机执行 *manualUpgrade* 调用。只有将规模集中的 *upgradePolicy* 设置为“手动”时，此步骤才适用。如果设置为“自动”，所有的虚拟机则会同时升级，从而导致停机。
-
-在记住了这些背景信息后，来看一下如何通过使用 REST API 在 PowerShell 中更新规模集的版本。尽管这些示例涵盖了关于平台映像的示例，但是本文提供了足量的信息使用户能够适应此过程以自定义映像。
-
-## PowerShell ##
-
-此示例会将 Windows 虚拟机规模集更新到新版本 4.0.20160229。更新模型后，它将一次更新一个虚拟机实例。
-
-```powershell
-$rgname = "myrg"
-$vmssname = "myvmss"
-$newversion = "4.0.20160229"
-$instanceid = "1"
-
-# get the VMSS model
-$vmss = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
-
-# set the new version in the model data
-$vmss.virtualMachineProfile.storageProfile.imageReference.version = $newversion
-
-# update the virtual machine scale set model
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $vmss
-
-# now start updating instances
-Update-AzureRmVmssInstance -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $instanceId
+```azurecli
+az vmss show --resource-group myResourceGroup --name myScaleSet
+{
+  "location": "chinanorth",
+  "overprovision": true,
+  "plan": null,
+  "singlePlacementGroup": true,
+  "sku": {
+    "additionalProperties": {},
+    "capacity": 1,
+    "name": "Standard_D2_v2",
+    "tier": "Standard"
+  },
+}
 ```
 
-如果要更新自定义映像的 URI，而不是更改平台映像版本，请将“设置新版本”一行替换为以下内容：
+这些属性作为一个整体应用到规模集。
 
-```powershell
-# set the new version in the model data
-$vmss.virtualMachineProfile.storageProfile.osDisk.image.uri= $newURI
+
+### <a name="the-scale-set-instance-view"></a>规模集实例视图
+规模集还有一个“规模集实例视图”，用于以整体方式捕获规模集当前的“运行时”状态。 若要查询规模集的实例视图，可使用以下命令：
+
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesets/getinstanceview](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getinstanceview)：
+
+    ```rest
+    GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
+    ```
+
+- 通过 Azure PowerShell 使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss)：
+
+    ```powershell
+    Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
+    ```
+
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss)：
+
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
+    ```
+
+- 还可以使用特定于语言的 [Azure SDK](/downloads/)
+
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
+
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
+{
+  "statuses": [
+    {
+      "additionalProperties": {},
+      "code": "ProvisioningState/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "level": "Info",
+      "message": null,
+      "time": "{time}"
+    }
+  ],
+  "virtualMachine": {
+    "additionalProperties": {},
+    "statusesSummary": [
+      {
+        "additionalProperties": {},
+        "code": "ProvisioningState/succeeded",
+        "count": 1
+      }
+    ]
+  }
+}
 ```
 
-## REST API
+这些属性汇总了规模集中 VM 的当前运行时状态，例如应用于规模集的扩展的状态。
 
-这里有一些使用 Azure REST API 推出 OS 版本更新的 Python 示例。两种都使用了 Azure REST API 包装函数的轻型 [azurerm](https://pypi.python.org/pypi/azurerm) 库，可先对规模集模型执行 GET，然后使用更新的模型执行 PUT。它们也会查看虚拟机实例视图来根据更新域识别虚拟机。
 
-### Vmssupgrade
+### <a name="the-scale-set-vm-model-view"></a>规模集 VM 模型视图
+规模集中的每个 VM 实例都有自己的模型视图，这类似于每个规模集都有模型视图的情况。 若要查询规模集中特定 VM 实例的模型视图，可使用以下命令：
 
- [Vmssupgrade](https://github.com/gbowerman/vmsstools) 是用于为正在运行的虚拟机规模集推出 OS 升级的 Python 脚本，一次一个更新域。
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesetvms/get](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/get)：
 
-![用于选择虚拟机或更新域的 Vmssupgrade 脚本](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssupgrade-screenshot.png)  
+    ```rest
+    GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
+    ```
 
-使用此脚本，可选择要更新的具体虚拟机或者指定更新域。它支持更改平台映像版本或更改自定义映像的 URI。
+- 通过 Azure PowerShell 使用 [Get-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)：
 
-### Vmsseditor
+    ```powershell
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
 
-[Vmsseditor](https://github.com/gbowerman/vmssdashboard) 是一个适用于虚拟机规模集的通用编辑器，用于显示状态为 heatmap 的虚拟机规模集，其中一行表示一个更新域。除此之外，还可以使用新版本、SKU 或自定义映像 URI 来更新规模集的模型，然后选择要升级的容错域。执行此操作时，该更新域中的所有虚拟机都将升级到新模型。或者，可以根据所选的批大小执行滚动升级。
+- 通过 Azure CLI 使用 [az vmss show](/cli/vmss)：
 
-以下屏幕截图显示了 Ubuntu 14.04-2LTS 版本 14.04.201507060 的规模集的模型。自此屏幕截图截取之后，又为此工具添加了更多的选项。
+    ```azurecli
+    az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
 
-![适用于 Ubuntu 14.04-2LTS 的规模集的 Vmsseditor 模型](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor1.png)  
+- 还可以使用 [Azure SDK](/downloads/)。
 
-单击“升级”和“获取详细信息”之后，UD 0 中的虚拟机将开始进行更新。
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
 
-![显示正在进行更新的 Vmsseditor](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)  
+```azurecli
+$ az vmss show --resource-group myResourceGroup --name myScaleSet
+{
+  "location": "chinanorth",
+  "name": "{name}",
+  "sku": {
+    "name": "Standard_D2_v2",
+    "tier": "Standard"
+  },
+}
+```
 
-<!---HONumber=Mooncake_1024_2016-->
+这些属性描述的是规模集中某个 VM 实例的配置，而不是规模集作为一个整体的配置。 例如，规模集模型使用 `overprovision` 作为属性，而规模集中 VM 实例的模型则不是这样。 之所以存在这种差异，是因为过度预配是规模集作为一个整体的属性，而不是规模集中各个 VM 实例的属性（有关过度预配的详细信息，请参阅[规模集的设计注意事项](virtual-machine-scale-sets-design-overview.md#overprovisioning)）。
+
+
+### <a name="the-scale-set-vm-instance-view"></a>规模集 VM 实例视图
+规模集中的每个 VM 实例都有自己的实例视图，这类似于每个规模集都有实例视图的情况。 若要查询规模集中特定 VM 实例的实例视图，可使用以下命令：
+
+- 通过 REST API 使用 [compute/virtualmachinescalesetvms/getinstanceview](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/getinstanceview)：
+
+    ```rest
+    GET https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
+    ```
+
+- 通过 Azure PowerShell 使用 [Get-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm)：
+
+    ```powershell
+    Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
+    ```
+
+- 通过 Azure CLI 使用 [az vmss get-instance-view](/cli/vmss)
+
+    ```azurecli
+    az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
+
+- 还可以使用 [Azure SDK](/downloads/)
+
+输出的具体呈现取决于提供给命令的选项。 下面的示例显示了来自 Azure CLI 的精简版示例输出：
+
+```azurecli
+$ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+{
+  "additionalProperties": {
+    "osName": "ubuntu",
+    "osVersion": "16.04"
+  },
+  "disks": [
+    {
+      "name": "{name}",
+      "statuses": [
+        {
+          "additionalProperties": {},
+          "code": "ProvisioningState/succeeded",
+          "displayStatus": "Provisioning succeeded",
+          "time": "{time}"
+        }
+      ]
+    }
+  ],
+  "statuses": [
+    {
+      "additionalProperties": {},
+      "code": "ProvisioningState/succeeded",
+      "displayStatus": "Provisioning succeeded",
+      "time": "{time}"
+    },
+    {
+      "additionalProperties": {},
+      "code": "PowerState/running",
+      "displayStatus": "VM running"
+    }
+  ],
+  "vmAgent": {
+    "statuses": [
+      {
+        "additionalProperties": {},
+        "code": "ProvisioningState/succeeded",
+        "displayStatus": "Ready",
+        "level": "Info",
+        "message": "Guest Agent is running",
+        "time": "{time}"
+      }
+    ],
+    "vmAgentVersion": "{version}"
+  },
+}
+```
+
+这些属性描述的是规模集中 VM 实例的当前运行时状态，包括应用于规模集的任何扩展。
+
+
+## <a name="how-to-update-global-scale-set-properties"></a>如何更新全局规模集属性
+若要更新某个全局规模集属性，必须在规模集模型中更新该属性。 可通过以下方式进行该更新：
+
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesets/createorupdate](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)：
+
+    ```rest
+    PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
+    ```
+
+- 可以使用 REST API 中的属性部署资源管理器模板，以便更新全局规模集属性。
+
+- 通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
+
+    ```powershell
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
+    ```
+
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
+    - 修改属性：
+
+        ```azurecli
+        az vmss update --set {propertyPath}={value}
+        ```
+
+    - 向规模集中的列表属性添加对象： 
+
+        ```azurecli
+        az vmss update --add {propertyPath} {JSONObjectToAdd}
+        ```
+
+    - 从规模集中的列表属性删除对象： 
+
+        ```azurecli
+        az vmss update --remove {propertyPath} {indexToRemove}
+        ```
+
+    - 如果此前已使用 `az vmss create` 命令部署了规模集，则可再次运行 `az vmss create` 命令来更新规模集。 请确保 `az vmss create` 命令中的所有属性都与以前的一样，要修改的属性除外。
+
+- 还可以使用 [Azure SDK](/downloads/)。
+
+更新规模集模型以后，新配置就会应用到在规模集中创建的新 VM。 但是，规模集中现有 VM 的模型仍需使用总体说来最新的规模集模型进行更新。 在每个 VM 的模型中有一个名为 `latestModelApplied` 的布尔属性，该属性指示 VM 是否已使用总体来说最新的规模集模型进行更新（`true` 意味着 VM 已使用最新模型进行更新）。
+
+
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>如何使用最新的规模集模型对 VM 进行更新
+规模集有一项“升级策略”，该策略决定了如何使用最新的规模集模型对 VM 进行更新。 升级策略的三种模式是：
+
+- **自动** - 在此模式下，规模集无法保证 VM 的关闭顺序。 规模集可能同时关闭所有 VM。 
+- **滚动** - 在此模式下，规模集以批次的方式推出更新，批次之间的暂停时间为可选。
+- **手动** - 在此模式下，对规模集模型进行更新时，现有的 VM 不会发生任何事情。
+ 
+若要更新现有的 VM，必须对每个现有的 VM 进行“手动升级”。 可通过以下方式进行此手动升级：
+
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesets/updateinstances](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/updateinstances)：
+
+    ```rest
+    POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
+    ```
+
+- 通过 Azure PowerShell 使用 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance)：
+    
+    ```powershell
+    Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
+    ```
+
+- 通过 Azure CLI 使用 [az vmss update-instances](/cli/vmss)
+
+    ```azurecli
+    az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
+    ```
+
+- 还可以使用特定于语言的 [Azure SDK](/downloads/)。
+
+>[!NOTE]
+> Service Fabric 群集只能使用“自动”模式，但采用不同方式来处理更新。 有关详细信息，请参阅 [Service Fabric 应用程序升级](../service-fabric/service-fabric-application-upgrade.md)。
+
+有一类对全局规模集属性的修改不遵循升级策略。 只能通过 API 版本 *2017-12-01* 或更高版本修改规模集 OS 配置文件（例如管理员用户名和密码）。 这些更改仅适用于在对规模集模型进行更改后创建的 VM。 若要更新现有的 VM，必须对每个现有的 VM 执行“重置映像”操作。 可通过以下方式执行此重置映像操作：
+
+- 如下所示通过 REST API 使用 [compute/virtualmachinescalesets/reimage](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/reimage)：
+
+    ```rest
+    POST https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
+    ```
+
+- 通过 Azure PowerShell 使用 [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm)：
+
+    ```powershell
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    ```
+
+- 通过 Azure CLI 使用 [az vmss reimage](/cli/vmss)：
+
+    ```azurecli
+    az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
+    ```
+
+- 还可以使用特定于语言的 [Azure SDK](/downloads/)。
+
+
+## <a name="properties-with-restrictions-on-modification"></a>对修改有限制的属性
+
+### <a name="create-time-properties"></a>创建时属性
+某些属性只能在创建规模集时设置。 这些属性包括：
+
+- Image reference publisher
+- image reference offer
+- 托管 OS 磁盘存储帐户类型
+
+### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>只能在当前值的基础上更改的属性
+某些属性可以更改，但也有例外，具体取决于当前值。 这些属性包括：
+
+- **singlePlacementGroup** - 如果 singlePlacementGroup 为 true，则可将其修改为 false。 但是，如果 singlePlacementGroup 为 false，则**不可**将其修改为 true。
+- **subnet** - 修改规模集的子网的前提是，原始子网和新子网在同一虚拟网络中。
+
+### <a name="properties-that-require-deallocation-to-change"></a>需要解除分配才能更改的属性
+某些属性只有在规模集中的 VM 已解除分配的情况下，才能更改为特定值。 这些属性包括：
+
+- **SKU 名称** - 如果新 VM SKU 在规模集当前所在的硬件上不受支持，则需先将规模集中的 VM 解除分配，然后才能修改 SKU 名称。 有关详细信息，请参阅[如何调整 Azure VM 的大小](../virtual-machines/windows/resize-vm.md)。
+
+
+## <a name="vm-specific-updates"></a>特定于 VM 的更新
+某些修改可以应用于特定的 VM，但不能应用于全局规模集属性。 目前，唯一受支持的特定于 VM 的更新是将数据磁盘附加到规模集中的 VM 或者从其分离数据磁盘。 此功能为预览版。 有关详细信息，请参阅[预览版文档](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk)。
+
+
+## <a name="scenarios"></a>方案
+
+### <a name="application-updates"></a>应用程序更新
+如果应用程序已通过扩展部署到规模集，则更新扩展配置会导致应用程序按升级策略进行更新。 例如，如果新版脚本在自定义脚本扩展中运行，则可更新 *fileUris* 属性，使之指向新脚本。 在某些情况下，可能需要强制进行更新，即使扩展配置未更改（例如，在未更改脚本 URI 的情况下更新脚本）。 在这些情况下，可以通过修改 *forceUpdateTag* 来强制进行更新。 Azure 平台不解释此属性。 如果更改此值，不会影响扩展的运行方式。 更改只是会强制扩展重新运行。 有关 *forceUpdateTag* 的详细信息，请参阅[针对扩展的 REST API 文档](https://docs.microsoft.com/rest/api/compute/virtualmachineextensions/createorupdate)。 请注意，*forceUpdateTag* 可用于所有扩展，而不仅仅是自定义脚本扩展。
+
+通过自定义映像来部署应用程序也很常见。 以下部分介绍此情景。
+
+### <a name="os-updates"></a>操作系统更新
+如果使用 Azure 平台映像，可以通过修改 *imageReference* 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)）。
+
+>[!NOTE]
+> 使用平台映像时，通常指定 "latest" 作为映像引用版本。 在你执行创建、横向扩展和重置映像操作时，将使用最新发布的脚本创建 VM。 但是，这**并不**意味着 OS 映像会随新映像版本的发布自动进行更新。 当前处于预览版状态的一个独立功能提供了自动 OS 升级功能。
+
+如果使用自定义映像，可以通过更新 *imageReference* ID 来更新映像（有关详细信息，请参阅 [REST API 文档](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)）。
+
+## <a name="examples"></a>示例
+
+### <a name="update-the-os-image-for-your-scale-set"></a>更新规模集的 OS 映像
+你可能具有运行旧版 Ubuntu LTS 16.04 的规模集。 你希望将其更新到新版 Ubuntu LTS 16.04，例如版本 *16.04.201801090*。 映像引用版本属性不是列表的一部分，因此可以使用下列命令之一直接修改这些属性：
+
+- 如下所示，通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
+
+    ```powershell
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
+    ```
+
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
+
+    ```azurecli
+    az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
+    ```
+
+或者，你可能想要更改规模集使用的映像。 例如，你可能想要更新或更改规模集使用的自定义映像。 可以通过更新“映像引用 ID”属性来更改规模集使用的映像。 “映像引用 ID”属性不是列表的一部分，因此可以使用下列命令之一直接修改该属性：
+
+- 如下所示，通过 Azure PowerShell 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss)：
+
+    ```powershell
+    Update-AzVmss `
+        -ResourceGroupName "myResourceGroup" `
+        -VMScaleSetName "myScaleSet" `
+        -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+- 通过 Azure CLI 使用 [az vmss update](/cli/vmss)：
+
+    ```azurecli
+    az vmss update `
+        --resource-group myResourceGroup `
+        --name myScaleSet `
+        --set virtualMachineProfile.storageProfile.imageReference.id=/subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
+    ```
+
+
+### <a name="update-the-load-balancer-for-your-scale-set"></a>更新规模集的负载均衡器
+假设在规模集带有 Azure 负载均衡器的情况下，需要将 Azure 负载均衡器替换为 Azure 应用程序网关。 规模集的负载均衡器和应用程序网关属性是列表的一部分，因此可以使用以下命令来删除或添加列表元素，而不必直接修改属性：
+
+- Azure Powershell：
+
+    ```powershell
+    # Get the current model of the scale set and store it in a local PowerShell object named $vmss
+    $vmss=Get-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet"
+    
+    # Create a local PowerShell object for the new desired IP configuration, which includes the reference to the application gateway
+    $ipconf = New-AzVmssIPConfig "myNic" -ApplicationGatewayBackendAddressPoolsId /subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendAddressPoolName} -SubnetId $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Subnet.Id -Name $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0].Name
+    
+    # Replace the existing IP configuration in the local PowerShell object (which contains the references to the current Azure Load Balancer) with the new IP configuration
+    $vmss.VirtualMachineProfile.NetworkProfile.NetworkInterfaceConfigurations[0].IpConfigurations[0] = $ipconf
+    
+    # Update the model of the scale set with the new configuration in the local PowerShell object
+    Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -virtualMachineScaleSet $vmss
+    ```
+
+- Azure CLI：
+
+    ```azurecli
+    # Remove the load balancer backend pool from the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerBackendAddressPools 0
+    
+    # Remove the load balancer backend pool from the scale set model; only necessary if you have NAT pools configured on the scale set
+    az vmss update --resource-group myResourceGroup --name myScaleSet --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools 0
+    
+    # Add the application gateway backend pool to the scale set model
+    az vmss update --resource-group myResourceGroup --name myScaleSet --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].ApplicationGatewayBackendAddressPools '{"id": "/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/{applicationGatewayBackendPoolName}"}'
+    ```
+
+>[!NOTE]
+> 这些命令假定规模集上只有一个 IP 配置和负载均衡器。 如果有多个，则可能需要使用 *0* 之外的列表索引。
+
+
+## <a name="next-steps"></a>后续步骤
+还可以使用 [Azure CLI](virtual-machine-scale-sets-manage-cli.md) 或 [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md) 对规模集执行常见的管理任务。
+
+
+<!-- Update_Description: wording update -->

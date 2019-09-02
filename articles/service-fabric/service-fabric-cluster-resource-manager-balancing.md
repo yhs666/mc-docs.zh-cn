@@ -1,50 +1,57 @@
 ---
-title: 使用 Azure Service Fabric 群集资源管理器平衡群集 | Azure
-description: 介绍如何使用 Azure Service Fabric 群集资源管理器平衡群集。
+title: 均衡 Azure Service Fabric 群集 | Azure
+description: 介绍如何使用 Azure Service Fabric 群集 Resource Manager 平衡群集。
 services: service-fabric
 documentationcenter: .net
-author: masnider
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
-
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/05/2017
-wacn.date: 02/20/2017
-ms.author: v-johch
+origin.date: 08/18/2017
+ms.date: 08/05/2019
+ms.author: v-yeche
+ms.openlocfilehash: 2bda41fb0ba215c0013413ac5728fd67be84cda8
+ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68753180"
 ---
+# <a name="balancing-your-service-fabric-cluster"></a>均衡 Service Fabric 群集
+Service Fabric 群集资源管理器支持动态负载更改、对添加或删除节点或服务做出反应。 还会自动更正约束冲突和主动重新均衡群集。 但这些操作的执行频率是多少，又是什么触发了这些操作？
 
-# 均衡 Service Fabric 群集
-Service Fabric 群集资源管理器支持动态负载更改，对节点或服务的添加或删除作出反应，纠正约束冲突，以及重新均衡群集。但是，执行这些操作的频率是什么，以及如何触发这些操作呢？
+群集资源管理器可以执行三种不同类别的工作。 它们具有以下特点：
 
-与均衡相关的第一组控件是一组计时器。这些计时器控制群集资源管理器针对需要处理的事项检查群集状态的频率。共有三种不同的工作类别，每一种都有对应的计时器。它们具有以下特点：
+1. 放置 - 此阶段负责放置任何遗漏的有状态副本或无状态实例。 放置既包括新服务也包括处理已失败的有状态副本或无状态实例。 可在此进行删除和丢弃副本或实例。
+2. 约束检查 - 此阶段检查并更正系统中不同放置约束（规则）的违规情况。 规则示例包括确保节点不超出容量，以及符合服务的放置约束。
+3. 均衡 - 此阶段根据为不同指标配置的所需均衡级别检查是否需要重新均衡。 如果需要，则尝试查找群集中更均衡的排列方式。
 
-1. 放置 - 此阶段负责放置任何遗漏的有状态副本或无状态实例。这包括两项新服务，可处理已失败的有状态副本或无状态实例。可在此进行删除和丢弃副本或实例。
-2. 约束检查 – 此阶段检查并更正系统中不同放置约束（规则）的违规情况。规则示例包括确保节点不超出容量，以及符合服务的放置约束。
-3. 均衡 - 此阶段根据针对不同指标配置的所需均衡级别查看是否需要主动式重新均衡。如果需要，则尝试查找群集中更均衡的排列方式。
+## <a name="configuring-cluster-resource-manager-timers"></a>配置群集资源管理器计时器
+与均衡相关的第一组控件是一组计时器。 这些计时器控制群集资源管理器检查群集并采取纠正措施的频率。
 
-## 配置群集资源管理器的步骤和计时器
-群集资源管理器可以进行的每种不同类型的修复都由不同的计时器控制，控管修复频率。激发每个计时器时，将会计划任务。默认情况下，资源管理器：
+群集 Resource Manager 可以进行的每种不同类型的修复都由不同的计时器控制，控管修复频率。 激发每个计时器时，会计划任务。 默认情况下，Resource Manager：
 
-* 每隔 1/10 秒扫描其状态并应用更新（例如记录节点处于关闭状态）
-* 每隔 1 秒设置放置和约束检查标记
-* 每隔 5 秒设置均衡标记。
+* 每 1/10 秒扫描其状态并应用更新（如记录某节点处于关闭状态）
+* 每秒设置放置检查标志
+* 每秒设置约束检查标志
+* 每隔 5 秒设置一次均衡标志
 
-以下配置信息中对此有所反映：
+下面是用于管理这些计时器的配置示例：
 
 ClusterManifest.xml：
 
 ```xml
-    <Section Name="PlacementAndLoadBalancing">
-        <Parameter Name="PLBRefreshGap" Value="0.1" />
-        <Parameter Name="MinPlacementInterval" Value="1.0" />
-        <Parameter Name="MinConstraintCheckInterval" Value="1.0" />
-        <Parameter Name="MinLoadBalancingInterval" Value="5.0" />
-    </Section>
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PLBRefreshGap" Value="0.1" />
+    <Parameter Name="MinPlacementInterval" Value="1.0" />
+    <Parameter Name="MinConstraintCheckInterval" Value="1.0" />
+    <Parameter Name="MinLoadBalancingInterval" Value="5.0" />
+</Section>
 ```
 
 通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：
@@ -63,6 +70,10 @@ ClusterManifest.xml：
           "value": "1.0"
       },
       {
+          "name": "MinConstraintCheckInterval",
+          "value": "1.0"
+      },
+      {
           "name": "MinLoadBalancingInterval",
           "value": "5.0"
       }
@@ -71,14 +82,16 @@ ClusterManifest.xml：
 ]
 ```
 
-今天群集资源管理器按顺序一次只执行这些操作中的一个（这就是为什么我们将这些计时器称为“最小间隔”）。例如，群集资源管理器处理挂起的请求，以在均衡群集之前创建服务。根据指定的默认时间间隔所示，群集资源管理器会扫描并检查需要频繁执行的任何操作，因此在每个步骤结束时所做的更改集通常比较小。频繁进行微小更改让群集资源管理器能够对群集中发生的事情快速响应。许多相同类型的事件往往同时发生，因此默认计时器可进行某种批处理。默认情况下，群集资源管理器不扫描群集中数小时内进行的更改或尝试一次处理所有更改。这样会导致大量改动。
+现在，群集资源管理器仅按顺序一次执行这些操作中的一个。 因此将这些计时器称为“最小间隔”，将计时器停止时可采取的操作称为“设置标志”。 例如，群集 Resource Manager 处理挂起的请求，以在均衡群集之前创建服务。 可以看到，群集资源管理器根据指定的默认时间间隔扫描它需要频繁执行的任何操作。 通常这意味着在每个步骤中所采取的变更集很小。 通过频繁的小更改，群集资源管理器可以在群集中发生事件时迅速做出响应。 许多相同类型的事件往往同时发生，因此默认计时器可进行某种批处理。 
 
-群集资源管理器还需要一些其他信息来确定群集是否不均衡。为此，我们设置了其他两项配置：*均衡阈值*和*活动阈值*。
+例如，节点出现故障时，它们可以一次性地对整个容错域执行这样的操作。 会在 *PLBRefreshGap* 后的下一个状态更新过程中捕获所有这些故障。 在以下放置、约束检查和均衡运行的过程中，确定要修正的内容。 默认情况下，群集 Resource Manager 不扫描群集中数小时内进行的更改或尝试一次处理所有更改。 这样会导致大量改动。
 
-## 均衡阈值
-平衡阈值是触发主动式重新平衡的主要控件。MinLoadBalancingInterval 计时器只反应群集资源管理器应检查的频率，并不代表发生了什么情况。均衡阈值以某个特定指标来定义群集的不均衡程度，使资源管理器能够考虑它是否不均衡并触发均衡操作。
+群集 Resource Manager 还需要一些其他信息来确定群集是否不均衡。 为此，我们还提供了另外两个配置：*BalancingThresholds* 和 *ActivityThresholds*。
 
-均衡阈值根据每个指标定义为群集定义的一部分。有关指标的详细信息，请参阅[此文](./service-fabric-cluster-resource-manager-metrics.md)。
+## <a name="balancing-thresholds"></a>均衡阈值
+均衡阈值是触发重新均衡的主要控件。 指标的均衡阈值是一个比率  。 如果负载最重的节点上某个指标的负载除以负载最轻的节点的负载量超过指标的 *BalancingThreshold*，群集是不均衡的。 因此群集 Resource Manager 进行下一次检查时将触发均衡。 *MinLoadBalancingInterval* 计时器定义群集资源管理器应检查是否需要重新均衡的频率。 检查并不代表发生任何事件。 
+
+均衡阈值根据每个指标定义为群集定义的一部分。 有关指标的详细信息，请参阅[此文](service-fabric-cluster-resource-manager-metrics.md)。
 
 ClusterManifest.xml
 
@@ -109,28 +122,34 @@ ClusterManifest.xml
 ]
 ```
 
-指标的平衡阈值是一个比率。如果负载最重的节点的负载量除以负载最轻的节点的负载量超过此数，此群集将被视为不均衡。因此群集资源管理器进行下一次检查时将触发均衡。
+<center>
 
-<center> 
-![均衡阈值示例][Image1]
+![平衡阈值示例][Image1]
+
 </center>
 
-在此示例中，每个服务使用一个单位的指标。在最上面的示例中，节点的负载上限为 5，下限为 2。假设此指标的均衡阈值为 3。群集中的比率为 5/2 = 2.5，这小于指定的均衡阈值 3，因此群集被视为均衡。群集资源管理器进行检查时将不会触发均衡。
+在此示例中，每个服务使用一个单位的指标。 在最上面的示例中，节点的负载上限为 5，下限为 2。 假设此指标的均衡阈值为 3。 群集中的比率为 5/2 = 2.5，这小于指定的均衡阈值 3，因此群集被视为均衡。 群集 Resource Manager 进行检查时不会触发均衡。
 
-在最下面的示例中，节点的负载上限为 10，下限为 2（因此比率为 5）。5 大于该指标的指定均衡阈值 3。因此，下一次引发均衡计时器时，将计划运行重新均衡。在此类情况下，系统几乎一定会将某些负载分散到 Node3。Service Fabric 群集资源管理器不使用贪婪法则，因此有些负载也可能被分散到 Node2。这样节点之间的整体差异将缩减到最小，这也是群集资源管理器的目标之一。
+在底部的示例中，节点的最大负载为 10，最小负载为 2，因此比率为 5。 5 大于该指标的指定均衡阈值 3。 因此，下一次引发均衡计时器时，将计划运行重新均衡。 在此类似情况下，一些负载通常会分配到 Node3。 因为 Service Fabric 群集资源管理器不使用贪婪方法，所以一些负载也可能分配到 Node2。 
 
-<center> 
+<center>
+
 ![均衡阈值示例操作][Image2]
 </center>
 
-低于均衡阈值不是直接目标。均衡阈值只是触发机制，告诉群集资源管理器应该查看群集，确定可以做出哪些改进（如果有）。事实上，只是进行均衡搜索不代表任何内容的改动 - 有时群集不均衡，但此情形也无法进行改进。
+> [!NOTE]
+> “均衡”会处理两种不同的策略，管理群集中的负载。 群集资源管理器使用的默认策略是在群集的节点间分发负载。 另一个策略是[碎片整理](service-fabric-cluster-resource-manager-defragmentation-metrics.md)。 在同一均衡运行的过程中，执行碎片整理。 均衡和碎片整理策略可以用于同一群集中的不同指标。 一个服务可具有均衡和碎片整理两个指标。 对于碎片整理指标，群集中负载的比率低于均衡阈值时，会触发重新均衡  。 
+>
 
-## 活动阈值
-有时，虽然节点相当不均衡，但群集中的负载*总量*很低。负载缺乏可能是暂时性的下降，或是因为群集是新的并且刚刚开始引导。不管是哪种情况，建议不要花费时间来均衡群集，因为实际的收获很少。要使群集得到均衡，将消耗网络和计算资源来进行变动，但不会产生任何绝对差异。为避免此问题，可以使用另一个被称为活动阈值的控制方法。活动阈值可以指定活动的绝对下限。如果没有节点高于此阈值，即使达到均衡阈值，也不触发均衡。
+低于均衡阈值不是直接目标。 均衡阈值只是一个触发器  。 均衡运行时，群集资源管理器会确定它可进行哪些改进（如有）。 因为仅仅启动均衡搜索并不意味着会移动任何内容。 有时群集是不均衡的，但约束过度，就无法修正。 或者，改进需要[成本高昂](service-fabric-cluster-resource-manager-movement-cost.md)的移动）。
 
-请参阅下图示例。同时假设我们让此指标的均衡阈值保持 3，但现在还有活动阈值 1536。在第一种情况下，根据均衡阈值，群集为不均衡状态，但没有节点符合活动阈值，因此保持现状。在最下面的示例中，Node1 已远远超过活动阈值。因为已超过指标的均衡阈值和活动阈值，因此将计划执行均衡。
+## <a name="activity-thresholds"></a>活动阈值
+有时，虽然节点相当不均衡，但群集中的负载 *总量* 很低。 负载缺乏可能是暂时性的下降，或是因为群集是新的并且刚刚开始引导。 不管是哪种情况，建议不要花费时间来均衡群集，因为实际的收获很少。 如果均衡群集，会耗费网络和计算资源进行移动操作，却不会产生任何大的绝对差异  。 为了避免不必要的移动，可使用名为“活动阈值”的另一种控件。 活动阈值可以指定活动的绝对下限。 如果没有节点高于此阈值，即使达到均衡阈值，也不触发均衡。
 
-<center> 
+假设我们为此指标保留三个均衡阈值。 另外假设具有 1536 个活动阈值。 在第一种情况下，根据均衡阈值，群集为不均衡状态，但没有节点符合活动阈值，因此保持现状。 在底部的示例中，Node1 超过活动阈值。 由于同时超过了指标的均衡阈值和活动阈值，所以计划进行均衡。 有关示例，请看下图： 
+
+<center>
+
 ![活动阈值示例][Image3]
 </center>
 
@@ -138,10 +157,10 @@ ClusterManifest.xml
 
 ClusterManifest.xml
 
-```xml
-<Section Name="MetricActivityThresholds">
-  <Parameter Name="Memory" Value="1536"/>
-</Section>
+``` xml
+    <Section Name="MetricActivityThresholds">
+      <Parameter Name="Memory" Value="1536"/>
+    </Section>
 ```
 
 通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：
@@ -162,35 +181,48 @@ ClusterManifest.xml
 
 均衡和活动阈值都绑定到具体指标，只有在同一个指标的均衡阈值和活动阈值都超过时才触发均衡。
 
-## 一起平衡服务
-值得一提的是，群集是否不均衡是整个群集范围的决定。但解决这种情况的方法是移动单个服务副本和实例。这种说法很合理，是吗？ 如果内存堆积在某一个节点上，可能是由多个副本或实例造成的。修复不均衡需要移动所有使用不均衡指标的有状态副本或无状态实例。
+> [!NOTE]
+> 如未指定，则指标的均衡阈值为 1，活动阈值为 0。 这表示对于任何给定的负载，群集资源管理器将尝试使该指标保持完美平衡。 如果正在使用自定义指标，则建议显式定义指标的均衡和活动阈值。 
+>
 
-偶尔也会移动均衡的服务。在有其他不均衡情况的时候，如果该服务的所有指标都已均衡（已经非常完美了），为何还会发生服务四处移动的情况？ 让我们看一看！
+## <a name="balancing-services-together"></a>一起平衡服务
+群集是否非均衡是从整个群集来看。 但解决这种情况的方法是移动单个服务副本和实例。 这种说法很合理，是吗？ 如果内存堆积在某一个节点上，可能是由多个副本或实例造成的。 修复不均衡需要移动所有使用不均衡指标的有状态副本或无状态实例。
 
-假设有四个服务：Service1、Service2、Service3 及 Service4。Service1 针对 Metric1 和 Metric2 指标进行报告、Service2 针对 Metric2 和 Metric3 指标进行报告、Service3 针对 Metric3 和 Metric4 指标进行报告，Service4 针对 Metric99 指标进行报告。你可以看到此处的运行情况。这里形成了一个链条！ 我们的确没有 4 个独立的服务，但我们有许多相关的服务（Service1、Service2 和 Service3）以及一个独立的服务。
+但本身不均衡的服务偶尔会移动（请记住之前有关局部权重和全局权重的讨论）。 为什么某服务的所有指标均衡时，该服务会移动？ 请看以下示例：
 
-<center> 
-![一起均衡服务][Image4]
+- 假设有四个服务：Service1、Service2、Service3 及 Service4。 
+- Service1 报告指标 Metric1 和 Metric2。 
+- Service2 报告指标 Metric2 和 Metric3。 
+- Service3 报告指标 Metric3 和 Metric4。
+- Service4 报告指标 Metric99。 
+
+可以看到此处的运行情况：这里是一个链条！ 我们没有 4 个独立的服务，我们拥有 3 个相关的服务以及 1 个独立的服务。
+
+<center>
+
+![一起平衡服务][Image4]
+
 </center>
 
-因此，Metric1 不均衡可能会导致属于 Service3 且不报告 Metric1 的副本或实例四处移动。这种移动通常有限，但是根据 Metric1 究竟有多么不平衡以及需要在群集中进行哪些更改才能更正问题，移动幅度可能变大。可以肯定的是，指标 1、2 或 3 不均衡不会导致 Service4 中的移动。这没有任何意义，因为移动属于 Service4 的副本或实例完全不影响指标 1、2 或 3 的均衡。
+由于此链条，指标 1-4 不均衡可能会导致属于服务 1-3 的副本或实例四处移动。 此外，指标 1、2 或 3 不均衡一定不会在 Service4 中引起移动。 因为移动属于 Service4 的副本或实例绝对不会影响指标 1-3 的均衡，所以这样做毫无意义。
 
-群集资源管理器自动找出相关的服务，因为可能添加、删除了服务，或者服务的指标配置发生了更改。例如，在两个均衡轮次之间，Service2 可能已重新配置为删除 Metric2。此更改会中断 Service1 和 Service2 之间的链接。现在有三个相关服务组，而不是两个：
+群集资源管理器会自动计算出哪些服务是相关的。 添加、移除或更改服务的指标会影响服务间的关系。 例如，在两次运行均衡之间，Service2 可能已经更新为删除 Metric2。 这会中断 Service1 和 Service2 之间的链接。 现在有三组相关服务，而不是两组：
 
-<center> 
-![一起均衡服务][Image5]
+<center>
+
+![一起平衡服务][Image5]
+
 </center>
 
-## 后续步骤
-- 指标是 Service Fabric 群集资源管理器在群集中管理消耗和容量的方式。若要详细了解指标及其配置方式，请查看[此文](./service-fabric-cluster-resource-manager-metrics.md)
-- 移动成本是向群集资源管理器发出信号，表示移动某些服务比移动其他服务会产生更高成本的方式之一。有关移动成本的详细信息，请参阅[此文](./service-fabric-cluster-resource-manager-movement-cost.md)
-- 群集资源管理器提供多个限制机制，你可以配置这些限制机制，以减慢群集中的流动。这些限制通常不是必要的，但如果需要，可以在[此处](./service-fabric-cluster-resource-manager-advanced-throttling.md)了解其相关信息
+## <a name="next-steps"></a>后续步骤
+* 指标是 Service Fabric 群集资源管理器在群集中管理消耗和容量的方式。 若要详细了解指标及其配置方式，请查看[此文](service-fabric-cluster-resource-manager-metrics.md)
+* 移动成本是向群集 Resource Manager 发出信号，表示移动某些服务比移动其他服务会产生更高成本的方式之一。 若要详细了解移动成本，请参阅[此文](service-fabric-cluster-resource-manager-movement-cost.md)
+* 群集 Resource Manager 提供多个限制机制，可以配置这些限制机制，以减慢群集中的流动。 这些限制通常不是必要的，但如果需要，可以在[此处](service-fabric-cluster-resource-manager-advanced-throttling.md)了解其相关信息
 
-[Image1]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
-[Image2]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
-[Image3]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
-[Image4]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
-[Image5]: ./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
+[Image1]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resrouce-manager-balancing-thresholds.png
+[Image2]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-threshold-triggered-results.png
+[Image3]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-activity-thresholds.png
+[Image4]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together1.png
+[Image5]:./media/service-fabric-cluster-resource-manager-balancing/cluster-resource-manager-balancing-services-together2.png
 
-<!---HONumber=Mooncake_0213_2017-->
-<!--Update_Description: add ClusterConfig.json sample script; wording update -->
+<!--Update_Description: update meta properties -->

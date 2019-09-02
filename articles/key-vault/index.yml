@@ -1,0 +1,87 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: d6129d774d90d199b1b3d6d2e7c730575024bb44
+ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 01/03/2019
+ms.locfileid: "53996356"
+documentType: LandingData
+title: Key Vault 文档
+metadata:
+  title: Azure Key Vault 文档 - 教程和 API 参考 | Microsoft 文档
+  meta.description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  author: barclayn
+  manager: mbaldwin
+  layout: LandingPage
+  ms.service: key-vault
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+origin.date: 01/23/2017
+ms.date: 01/14/2019
+ms.author: v-biyu
+abstract:
+  description: 了解如何使用 Key Vault 保护和管理云应用程序和服务使用的加密密钥和机密。 教程、API 参考和其他文档介绍了如何创建及维护用于访问和加密资源与解决方案的密钥和机密。
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /key-vault/key-vault-whatis
+      html: <p>了解与 Azure Key Vault 相关的基础概念。</p>
+      image:
+        src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+      title: 概念
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: /key-vault/quick-create-cli
+    - image:
+        src: media/index/logo_powershell.svg
+      text: PowerShell
+      href: /key-vault/quick-create-powershell
+    - image:
+        src: media/index/portal.svg
+      text: Azure 门户
+      href: /key-vault/quick-create-portal
+    - image:
+        src: media/index/logo_NET.svg
+      text: .NET
+      href: /key-vault/quick-create-net
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Node.js
+      href: /key-vault/quick-create-node
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何在各种方案中使用 Key Vault
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/key-vault/tutorial-net-create-vault-azure-web-app">通过 Web 应用程序开始使用 Key Vault</a>
+    - html: <a href="/key-vault/tutorial-net-linux-virtual-machine">如何将 Azure Key Vault 与 Azure Linux 虚拟机配合使用</a></li>
+    - html: <a href="/key-vault/tutorial-net-windows-virtual-machine">如何将 Azure Key Vault 与 Azure Windows 虚拟机配合使用</a>
+    - html: <a href="/key-vault/tutorial-python-linux-virtual-machine">如何将 Azure Key Vault 与 Azure Linux 虚拟机配合使用</a>
+    - html: <a href="/key-vault/tutorial-python-windows-virtual-machine">如何将 Azure Key Vault 与 Azure Windows 虚拟机配合使用</a>
+- title: 参考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: <p><a href="/powershell/module/azurerm.keyvault/">PowerShell</a></p><p><a href="/cli/keyvault">Azure CLI 2</a></p>
+    - title: 语言
+      html: <p><a href="/dotnet/api/overview//key-vault">.NET</a></p><p><a href="/java/api/overview/keyvault">Java</a></p><p><a href="https://docs.microsoft.com/python/api/overview/azure/key-vault">Python</a></p><p><a href="https://docs.microsoft.com/javascript/api/overview/azure/key-vault">Node.js</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/keyvault">REST API</a></p>

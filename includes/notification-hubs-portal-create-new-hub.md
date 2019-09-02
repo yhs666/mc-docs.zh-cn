@@ -1,23 +1,43 @@
-1. 登录到 [Azure 门户](https://portal.azure.cn)，然后单击屏幕左上角的“+新建”。
+---
+title: include 文件
+description: include 文件
+services: notification-hubs
+author: jwargo
+ms.service: notification-hubs
+ms.topic: include
+origin.date: 03/28/2018
+ms.date: 03/11/2019
+ms.author: v-biyu
+ms.custom: include file
+ms.openlocfilehash: e43912f4ef4d7df9daee3748bbca812f5d17ec6f
+ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/19/2019
+ms.locfileid: "69578669"
+---
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在左侧菜单上选择“所有服务”  ，然后在“移动”部分中选择“通知中心”。   选择服务名称旁边的星星 (`*`) 以将其添加到左侧菜单上的“收藏夹”部分。  在将“通知中心”  添加到“收藏夹”  之后，在菜单上选择它。 
 
-2. 单击“新建”，然后单击“Web + 移动”。根据需要向下滚动，然后单击“通知中心”。
+      ![Azure 门户 - 选择“通知中心”](./media/notification-hubs-portal-create-new-hub/all-services-select-notification-hubs.png)
+3. 在“通知中心”  页面上，在工具栏上选择“添加”  。 
 
-	![Azure 门户 - 创建通知中心](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-create.png)
+      ![通知中心 -“添加”工具栏按钮](./media/notification-hubs-portal-create-new-hub/add-toolbar-button.png)
+4. 在“通知中心”  页面上，执行以下步骤： 
+    1. 为通知中心指定一个名称。    
+    2. 为命名空间指定一个名称。   命名空间包含一个或多个中心。 
+    3. 选择要在其中创建通知中心的位置  。 
+    4. 选择一个现有资源组，或者为新资源组输入一个名称  。
+    5. 选择“创建”  。 
 
-3. 确保在“通知中心”字段中指定唯一的名称。选择所需的“区域”、“订阅”和“资源组”（如果已经有一个）。
+        ![Azure 门户 - 设置通知中心属性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
+4. 选择“通知”（钟形图标），然后选择“转到资源”   。 还可以刷新“通知中心”  页中的列表，然后选择通知中心。 
 
-    如果你已经有想在其中创建中心的服务总线命名空间，则通过“命名空间”字段中的“选择现有”选项来选择它。否则，可以使用根据中心名称创建的默认名称，前提是该命名空间名称可用。
+      ![Azure 门户 - 通知 -> 转到资源](./media/notification-hubs-portal-create-new-hub/go-to-notification-hub.png)
+5. 从列表中选择“访问策略”  。 记下向你提供的两个连接字符串。 稍后在处理推送通知时需要它们。
 
-    准备就绪后，单击“创建”。
+      >[!IMPORTANT]
+      >请**勿**在应用程序中使用 DefaultFullSharedAccessSignature。 这只能在后端使用。
+      >
 
-    ![Azure 门户 - 设置通知中心属性](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-settings.png)
-
-4. 创建命名空间和通知中心后，就将进入相应的门户页。
-
-    ![Azure 门户 - 通知中心门户页面](./media/notification-hubs-portal-create-new-hub/notification-hubs-azure-portal-page.png)
-
-5. 单击“设置”和“访问策略”，记下都提供给你的两个连接字符串，随后将需要它们来处理推送通知。
-
-    ![Azure 门户 - 通知中心连接字符串](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)
-
-<!---HONumber=Mooncake_0725_2016-->
+      ![Azure 门户 - 通知中心连接字符串](./media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png)

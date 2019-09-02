@@ -1,31 +1,25 @@
 ---
-title: "Azure 事件中心管理库 | Azure"
-description: "通过 .NET 管理事件中心命名空间和实体"
+title: Azure 事件中心管理库 | Azure
+description: 通过 .NET 管理事件中心命名空间和实体
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: jtaubensee
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: 
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/10/2017
-wacn.date: 
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 0fadb5c3724bdfadb30f5b479ea7f8545549d063
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
+origin.date: 08/13/2018
+ms.date: 12/10/2018
+ms.author: v-biyu
+ms.openlocfilehash: 4b1905e852e98c09cb828f8a0b13eb134796a6bb
+ms.sourcegitcommit: 547436d67011c6fe58538cfb60b5b9c69db1533a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52676923"
 ---
-
 # <a name="event-hubs-management-libraries"></a>事件中心管理库
 
-事件中心管理库可以动态设置事件中心命名空间和实体。 这样可以实现复杂的部署和消息传递方案，以便能够以编程方式确定要设置的实体。 这些库目前可用于 .NET。
+可以使用 Azure 事件中心管理库动态预配事件中心命名空间和实体。 这种动态性可以实现复杂的部署和消息传送方案，以便能够以编程方式确定要预配的实体。 这些库目前可用于 .NET。
 
 ## <a name="supported-functionality"></a>受支持的功能
 
@@ -41,14 +35,13 @@ ms.lasthandoff: 04/28/2017
 * [使用 Azure PowerShell 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [使用 Azure CLI 创建服务主体来访问资源](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-这些教程将提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 必须具有要在其中运行的资源组的“所有者”权限。
+这些教程提供 `AppId`（客户端 ID）、`TenantId` 和 `ClientSecret`（身份验证密钥），这些都将用于管理库进行的身份验证。 若要对资源组运行命令，必须拥有“所有者”权限。
 
 ## <a name="programming-pattern"></a>编程模式
 
 所有事件中心资源的操纵模式都遵循常用协议：
 
-1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 Azure Active Directory 获取令牌。
-
+1. 使用 `Microsoft.IdentityModel.Clients.ActiveDirectory` 库从 AAD 获取令牌。
     ```csharp
     var context = new AuthenticationContext($"https://login.chinacloudapi.cn/{tenantId}");
 
@@ -58,8 +51,7 @@ ms.lasthandoff: 04/28/2017
     );
     ```
 
-2. 创建 `EventHubManagementClient` 对象。
-
+1. 创建 `EventHubManagementClient` 对象。
     ```csharp
     var creds = new TokenCredentials(token);
     var ehClient = new EventHubManagementClient(creds)
@@ -68,8 +60,7 @@ ms.lasthandoff: 04/28/2017
     };
     ```
 
-3. 将 CreateOrUpdate 参数设置为指定的值。
-
+1. 将 `CreateOrUpdate` 参数设置为指定值。
     ```csharp
     var ehParams = new EventHubCreateOrUpdateParameters()
     {
@@ -77,12 +68,13 @@ ms.lasthandoff: 04/28/2017
     };
     ```
 
-4. 执行调用。
-
+1. 执行调用。
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
 ## <a name="next-steps"></a>后续步骤
 * [.NET 管理示例](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
-* [Microsoft.Azure.Management.EventHub 引用](http://docs.microsoft.com/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub)
+* [Microsoft.Azure.Management.EventHub 引用](https://docs.azure.cn/zh-cn/dotnet/api/Microsoft.Azure.Management.EventHub?view=azure-dotnet)
+
+<!--Update_Description: update meta properties -->

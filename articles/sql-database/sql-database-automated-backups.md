@@ -1,220 +1,195 @@
 ---
-title: SQL 数据库备份 - 自动、异地冗余 | Azure
-description: SQL 数据库每隔数分钟自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。
+title: Azure SQL 数据库自动化异地冗余备份 | Microsoft Docs
+description: SQL 数据库每隔几分钟会自动创建一个本地数据库备份，并使用 Azure 读取访问异地冗余存储来提供异地冗余。
 services: sql-database
-documentationcenter: ''
-author: anosov1960
-manager: jhubbard
-editor: ''
-
-ms.assetid: 3ee3d49d-16fa-47cf-a3ab-7b22aa491a8d
 ms.service: sql-database
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 11/02/2016
-wacn.date: 12/20/2016
-ms.author: v-johch
+ms.subservice: backup-restore
+ms.custom: ''
+ms.devlang: ''
+ms.topic: conceptual
+author: WenJason
+ms.author: v-jay
+ms.reviewer: mathoma, carlrab
+manager: digimobile
+origin.date: 06/27/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 82e4cb74783ecd0398a270f833705322e41e7245
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544402"
 ---
+# <a name="automated-backups"></a>自动备份
 
-# 了解 SQL 数据库备份
-<!------------------
-This topic is annotated with TEMPLATE guidelines for FEATURE TOPICS.
+SQL 数据库自动创建数据库备份（保留 7 到 35 天），并使用 Azure [读取访问异地冗余存储 (RA-GRS)](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)，确保即使数据中心不可用也会保留这些备份。 这些备份是自动创建的。 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 如果安全规则要求备份在较长时间（最长 10 年）内可用，可以在单一数据库和弹性池中配置[长期保留](sql-database-long-term-retention.md)。
 
-Metadata guidelines
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-pageTitle
-    60 characters or less. Includes name of the feature - primary benefit. Not the same as H1. Its 60 characters or fewer including all characters between the quotes and the Azure site identifier.
+## <a name="what-is-a-sql-database-backup"></a>什么是 SQL 数据库备份？
 
-description
-    115-145 characters. Duplicate of the first sentence in the introduction. This is the abstract of the article that displays under the title when searching in Bing or Google. 
-
-```
-Example: "SQL Database automatically creates a local database backup every few minutes and uses Azure read-access geo-redundant storage for geo-redundancy."
-```
-
-TEMPLATE GUIDELINES for feature topics
-
-The Feature Topic is a one-pager (ok, sometimes longer) that explains a capability of the product or service. It explains what the capability is and characteristics of the capability.  
-
-It is a "learning" topic, not an action topic.
-
-DO explain this:
-    • Definition of the feature terminology.  i.e., What is a database backup?
-    • Characteristics and capabilities of the feature. (How the feature works)
-    • Common uses with links to overview topics that recommend when to use the feature.
-    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    • Next Steps with links to related overviews, features, and tasks.
-
-DON'T explain this:
-    • How to steps for using the feature (Tasks)
-    • How to solve business problems that incorporate the feature (Overviews)
-
-GUIDELINES for the H1 
-
-```
-The H1 should answer the question "What is in this topic?" Write the H1 heading in conversational language and use search key words as much as possible. Since this is a learning topic, make sure the title indicates that and doesn't mislead people to think this will tell them how to do tasks.  
-
-To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
-
-Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
-```
-
-GUIDELINES for introduction
-
-```
-The introduction is 1-2 sentences.  It is optimized for search and sets proper expectations about what to expect in the article. It should contain the top key words that you are using throughout the article.The introduction should be brief and to the point of what the feature is, what it is used for, and what's in the article. 
-
-If the introduction is short enough, your article can pop to the top in Google Instant Answers.
-
-In this example:
-```
-
-Sentence #1 Explains what the article will cover, which is what the feature is or does. This is also the metadata description. 
-    SQL Database automatically creates a database backup every five minutes and uses Azure read-access geo-redundant storage (RA-GRS) to provide geo-redundancy. 
-
-Sentence #2 Explains why I should care about this.  
-    Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion.
-
--------------------->
-
-SQL 数据库会自动创建数据库备份，并使用 Azure 读取访问异地冗余存储 (RA-GRS) 来提供异地冗余。这些备份是自动创建的，不收取额外的费用。不需要执行任何操作就能进行这样的备份。数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。
-
-<!-- This image needs work, so not putting it in right now.
-
-This diagram shows SQL Database running in the US East region. It creates a database backup every five minutes, which it stores locally to Azure Read Access Geo-redundant Storage (RA-GRS). Azure uses geo-replication to copy the database backups to a paired data center in the US West region.
-
-![geo-restore](./media/sql-database-geo-restore/geo-restore-1.png)
-
--->
-
-<!---------------
-GUIDELINES for the first ## H2.
-
-```
-The first ## describes what the feature encompasses and how it is used. It points to related task articles.
-
-For consistency, being the heading with "What is ... "
-```
------------------>
-
-## 什么是 SQL 数据库备份？
-<!-- 
-    Explains what a SQL Database backup is and answers an important question that people want to know.
--->
-
-<!----------------- 
-    Explains first component of the backup feature
------------------->
-
-SQL 数据库使用 SQL Server 技术创建[完整](https://msdn.microsoft.com/zh-cn/library/ms186289.aspx)、[差异](https://msdn.microsoft.com/zh-cn/library/ms175526.aspx)和[事务日志](https://msdn.microsoft.com/zh-cn/library/ms191429.aspx)备份。一般每隔 5-10 分钟创建一次事务日志备份，具体频率取决于性能级别和数据库活动量。借助事务日志备份以及完整备份和差异备份，可将数据库还原到托管数据库的服务器上的特定时间点。还原数据库时，服务会确定需要还原哪些完整、差异和事务日志备份。
-
-<!--------------- 
-    Explicit list of what to do with a local backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
+SQL 数据库使用 SQL Server 技术，每周创建[完整备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/full-database-backups-sql-server)，每 12 小时创建[差异备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server)，每 5-10 分钟创建[事务日志备份](https://docs.microsoft.com/sql/relational-databases/backup-restore/transaction-log-backups-sql-server)。 备份存储在 [RA-GRS 存储 blob](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 中，这些 blob 将复制到配对数据中心，以防止数据中心服务中断。 还原数据库时，服务会确定需要还原哪些完整、差异和事务日志备份。
 
 可使用这些备份：
 
-* 在保留期内将数据库还原到某个时间点。此操作会在与原始数据库相同的服务器中创建新数据库。
-* 将已删除的数据库还原到删除时的时间点或保留期内的任意时间点。仅可在创建原始数据库所在的同一服务器中还原已删除的数据库。
-* 将数据库还原到其他地理区域。在无法访问服务器和数据库的情况下，此操作可帮助从地理位置灾难中恢复，它会在全球任意位置的任意现有服务器中创建新数据库。
-* 若要执行还原，请参阅[从备份还原数据库](./sql-database-recovery-using-backups.md)。
+- 使用 Azure 门户、Azure PowerShell、Azure CLI 或 REST API **将现有的数据库还原到过去的某个时间点**（在保留期内）。 在单一数据库和弹性池中，此操作会在与原始数据库相同的服务器中创建新数据库。 在“托管实例”中，此操作可以创建数据库的一个副本，或者创建在同一订阅下的相同或不同托管实例。
+  - 在 7 到 35 天的范围内 **[更改备份保留期](#how-to-change-the-pitr-backup-retention-period)** ，以便配置备份策略。
+  - 在单一数据库和弹性池中使用 [Azure 门户](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)或 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) **更改长期保留期策略（最长为 10 年）** 。
+- **将已删除的数据库还原到删除时的时间点**或保留期内的任意时间。 仅可在创建原始数据库所在的同一逻辑服务器或托管实例中还原已删除的数据库。
+- **将数据库还原到其他地理区域**。 在无法访问服务器和数据库的情况下，异地还原可帮助从地理位置灾难中恢复。 它会在全球任意位置的任意现有服务器中创建新数据库。
+- 如果为数据库配置了长期保留策略 (LTR)，请在单一数据库或弹性池中**从特定的长期备份还原数据库**。 LTR 允许使用 [Azure 门户](sql-database-long-term-backup-retention-configure.md#view-backups-and-restore-from-a-backup-using-azure-portal)或 [Azure PowerShell](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups) 还原旧版本的数据库，以满足符合性请求或运行旧版本的应用程序。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
+- 若要执行还原，请参阅[从备份还原数据库](sql-database-recovery-using-backups.md)。
 
-<!----------------- 
-    Explains first component of the backup feature
------------------->
+> [!NOTE]
+> 在 Azure 存储中，术语“复制”指将文件从一个位置复制到另一个位置  。 SQL 数据库复制是指让多个辅助数据库与主数据库保持同步  。
 
-<!--------------- 
-    Explicit list of what to do with a geo-redundant backup. "Use a ..." helps people to scan the topic and find the uses quickly.
----------------->
+可以使用以下示例尝试这其中的部分操作：
 
->[!NOTE]
-> 在 Azure 存储中，术语“复制”是指将文件从一个位置复制到另一个位置。SQL 的“数据库复制”是指让多个辅助数据库与主数据库同步。
+| | Azure 门户 | Azure PowerShell |
+|---|---|---|
+| 更改备份保留 | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [托管实例](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [单一数据库](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[托管实例](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| 更改长期备份保留 | [单一数据库](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>托管实例 - 不可用  | [单一数据库](sql-database-long-term-backup-retention-configure.md#use-powershell-to-configure-long-term-retention-policies-and-restore-backups)<br/>托管实例 - 不可用  |
+| 从时间点还原数据库 | [单一数据库](sql-database-recovery-using-backups.md#point-in-time-restore) | [单一数据库](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [托管实例](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
+| 还原已删除的数据库 | [单一数据库](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [单一数据库](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [托管实例](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| 从 Azure Blob 存储还原数据库 | 单一数据库 - 不可用 <br/>托管实例 - 不可用  | 单一数据库 - 不可用 <br/>[托管实例](/sql-database/sql-database-managed-instance-get-started-restore) |
 
-<!----------------
-    The next ## H2's discuss key characteristics of how the feature works. The title is in conversational language and asks the question that will be answered.
-------------------->
+## <a name="how-long-are-backups-kept"></a>备份保留多长时间？
 
-## 免费附送的备份存储空间有多少？
-SQL 数据库提供的备份存储容量高达最大预配数据库存储空间的两倍，不收取任何额外费用。例如，如果有一个标准数据库实例并且预配的数据库大小为 250 GB，则可以免费获得 500 GB 的备份存储空间。如果数据库超过提供的备份存储空间，则可以选择与 Azure 支持联系来缩短保留期。另一种做法是按照标准读取访问异地冗余存储 (RA-GRS) 费率付费购买额外的备份存储空间。
+每个 SQL 数据库的默认备份保留期为 7 到 35 天，具体取决于购买模型和服务层级。 可以在 SQL 数据库服务器上更新数据库的备份保持期。 有关详细信息，请参阅[更改备份保持期](#how-to-change-the-pitr-backup-retention-period)。
 
-## 多久备份一次？
-每周执行一次完整数据库备份，通常每隔数小时执行一次差异数据库备份，通常每隔 5-10 分钟执行一次事务日志备份。会在数据库创建后立即计划第一次完整备份。完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。在完成首次完整备份后，将在后台以静默方式自动计划和管理所有后续备份。在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。
+如果删除了某个数据库，SQL 数据库以保存联机数据库的相同方式保存其备份。 例如，如果删除了保留期为 7 天的某个基本数据库，已保存 4 天的备份将继续保存 3 天。
 
-备份存储异地复制根据 Azure 存储复制计划执行。
-
-## 备份的保留时间有多长？
-
-每个 SQL 数据库备份都有一个保留期，该期限基于数据库的[服务层](./sql-database-service-tiers.md)。各服务层中数据库的保留期如下：
-
-<!------------------
-
-```
-Using a list so the information is easy to find when scanning.
-```
-------------------->
-
-* 基本服务层为 7 天。
-* 标准服务层为 35 天。
-* 高级服务层为 35 天。
-
-如果将数据库从标准或高级服务层降级到基本服务层，备份将保存 7 天。超过 7 天的所有现有备份将不再可用。
-
-如果将数据库从基本服务层升级到标准或高级服务层，SQL 数据库将保存现有备份，直到超过 35 天。此时创建的新备份将保存 35 天。
-
-如果删除了某个数据库，SQL 数据库将以保存联机数据库的相同方式保存其备份。例如删除了保留期为 7 天的某个基本数据库。已保存 4 天的备份将继续保存 3 天。
+如果需要备份保留时间超过最长的保持期，则可以修改备份属性，以向数据库添加一个或多个长期保持期。 有关详细信息，请参阅 [长期保留](sql-database-long-term-retention.md)。
 
 > [!IMPORTANT]
-> 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则属于该服务器的所有数据库也将被删除且不可恢复。无法还原已删除的服务器。
+> 如果删除了托管 SQL 数据库的 Azure SQL 服务器，则也会删除属于该服务器的所有弹性池和数据库，且不可恢复。 无法还原已删除的服务器。 但是，如果配置了长期保留，则不会删除具有 LTR 的数据库的备份，并且可以还原这些数据库。
 
-<!-------------------
-OPTIONAL section
-## Best practices 
---------------------->
+### <a name="default-backup-retention-period"></a>默认备份保持期
 
-<!-------------------
-OPTIONAL section
-## General remarks
---------------------->
+#### <a name="dtu-based-purchasing-model"></a>基于 DTU 的购买模型
 
-<!-------------------
-OPTIONAL section
-## Limitations and restrictions
---------------------->
+使用基于 DTU 的购买模型创建的数据库的默认保留期取决于服务层级：
 
-<!-------------------
-OPTIONAL section
-## Metadata
---------------------->
+- “基本”服务层级为**一**周。
+- “标准”服务层级为**五**周。
+- “高级”服务层级为**五**周。
 
-<!-------------------
-OPTIONAL section
-## Performance
---------------------->
+#### <a name="vcore-based-purchasing-model"></a>基于 vCore 的购买模型
 
-<!-------------------
-OPTIONAL section
-## Permissions
---------------------->
+如果使用的是[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)，则默认备份保留期为**七**天（适用于单一数据库、共用数据库和实例数据库）。 对于所有 Azure SQL 数据库（单一数据库、共用数据库和实例数据库），可以[将备份保持期更改为最多 35 天](#how-to-change-the-pitr-backup-retention-period)。
 
-<!-------------------
-OPTIONAL section
-## Security
---------------------->
+> [!WARNING]
+> 如果缩短当前保留期，早于新保留期的所有现有备份将不再可用。 如果延长当前保留期，SQL 数据库将保留现有备份，直至达到更长的保留期。
 
-<!-------------------
-GUIDELINES for Next Steps
+## <a name="how-often-do-backups-happen"></a>备份发生的频率
 
+### <a name="backups-for-point-in-time-restore"></a>用于时间点还原的备份
+
+SQL 数据库支持自助时间点还原 (PITR)，可自动创建完整备份、差异备份和事务日志备份。 每周创建一次完整数据库备份，一般每隔 12 小时创建一次差异数据库备份，一般每隔 5 - 10 分钟创建一次事务日志备份，具体频率取决于计算大小和数据库活动量。 会在数据库创建后立即计划第一次完整备份。 完整备份通常可在 30 分钟内完成，但如果数据库很大，花费的时间可能更长。 例如，对已还原的数据库或数据库副本执行初始备份可能需要更长时间。 在完成首次完整备份后，在后台以静默方式自动计划和管理所有后续备份。 在平衡整体系统工作负荷时，SQL 数据库服务会确定所有数据库备份的确切时间。 不能更改或禁用备份作业。 
+
+PITR 备份是异地冗余的，受 [Azure 存储跨区域复制](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)的保护
+
+有关详细信息，请参阅[时间点还原](sql-database-recovery-using-backups.md#point-in-time-restore)
+
+### <a name="backups-for-long-term-retention"></a>长期保留的备份
+
+单一数据库和共用数据库提供选项，用于在 Azure Blob 存储中将完整备份的长期保留 (LTR) 配置为最多 10 年。 如果已启用 LTR 策略，每周完整备份将自动复制到不同的 RA-GRS 存储容器。 为了满足不同的符合性要求，可为每周、每月和/或每年备份选择不同的保留期。 存储消耗量取决于所选的备份频率和保留期。 可以使用 [LTR 定价计算器](https://azure.cn/pricing/calculator/?service=sql-database)来估算 LTR 存储成本。
+
+与 PITR 一样，LTR 备份是异地冗余的，受 [Azure 存储跨区域复制](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)的保护。
+
+有关详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
+
+## <a name="storage-costs"></a>存储费用
+默认情况下，数据库的七天自动备份会复制到 RA-GRS 标准 blob 存储。 存储由每周完整备份、每日差异备份和 5 分钟复制一次的事务日志备份使用。 事务日志的大小取决于数据库的变化率。 提供与 100% 数据库大小相等的最小存储量，不收取额外费用。 超出此部分的其他备份存储用量将以 GB 为单位每月进行收费。
+
+有关存储价格的详细信息，请参阅[定价](https://azure.cn/pricing/details/sql-database/single/)页。 
+
+## <a name="are-backups-encrypted"></a>备份是否已加密
+
+如果使用 TDE 加密数据库，备份（包括 LTR 备份）会自动静态加密。 为 Azure SQL 数据库启用 TDE 时，也会加密备份。 默认情况下，所有新的 Azure SQL 数据库都配置为启用 TDE。 有关 TDE 的详细信息，请参阅[使用 Azure SQL 数据库进行透明数据加密](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)。
+
+## <a name="how-does-azure-ensure-backup-integrity"></a>Azure 如何确保备份完整性
+
+Azure SQL 数据库工程团队持续不断地自动测试放置在逻辑服务器和弹性池（这在托管实例中不可用）中的数据库的自动数据库备份的还原。 进行时间点还原后，数据库还会进行使用 DBCC CHECKDB 的完整性检查。
+
+在迁移完成后，托管实例会通过 `CHECKSUM` 对使用本机 `RESTORE` 命令或数据迁移服务还原的数据库进行自动初始备份。
+
+在完整性检查期间发现的任何问题都将导致向工程团队发出警报。
+
+## <a name="how-do-automated-backups-impact-compliance"></a>自动备份如何影响符合性
+
+将数据库从默认 PITR 保留期为 35 天的基于 DTU 的服务层级迁移到基于 vCore 的服务层级时，将保留 PITR 保留期以确保不会违反应用程序的数据恢复策略。 如果默认保留期不满足合规要求，可以使用 PowerShell 或 REST API 更改 PITR 保留期。 有关详细信息，请参阅[更改备份保持期](#how-to-change-the-pitr-backup-retention-period)。
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
+
+## <a name="how-to-change-the-pitr-backup-retention-period"></a>如何更改 PITR 备份保持期
+
+可以使用 Azure 门户、PowerShell 或 REST API 更改默认 PITR 备份保持期。 支持的值包括：7、14、21、28 或 35 天。 以下示例演示如何将 PITR 保留期更改为 28 天。
+
+> [!NOTE]
+> 这些 API 将只影响 PITR 保留期。 如果为数据库配置了 LTR，LTR 不会受到影响。 有关如何更改 LTR 保持期的详细信息，请参阅[长期保留](sql-database-long-term-retention.md)。
+
+### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>使用 Azure 门户更改 PITR 备份保持期
+
+若要使用 Azure 门户更改 PITR 备份保留期，请导航到要在门户中更改其保留期的服务器对象，然后根据要修改的服务器对象选择适当的选项。
+
+#### <a name="change-pitr-for-a-sql-database-server"></a>更改 SQL 数据库服务器的 PITR
+
+![更改 PITR Azure 门户](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
+
+#### <a name="change-pitr-for-a-managed-instance"></a>更改托管实例的 PITR
+
+![更改 PITR Azure 门户](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
+
+### <a name="change-pitr-backup-retention-period-using-powershell"></a>使用 PowerShell 更改 PITR 备份保留期
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
+
+```powershell
+Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28
 ```
-The last section is Next Steps. Give a next step that would be relevant to the customer after they have learned about the feature and the tasks associated with it.  Perhaps point them to one or two key scenarios that use this feature.
 
-You don't need to repeat links you have already given them.
+### <a name="change-pitr-retention-period-using-rest-api"></a>使用 REST API 更改 PITR 保留期
+
+#### <a name="sample-request"></a>示例请求
+
+```http
+PUT https://management.chinacloudapi.cn/subscriptions/00000000-1111-2222-3333-444444444444/resourceGroups/resourceGroup/providers/Microsoft.Sql/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default?api-version=2017-10-01-preview
 ```
---------------------->
 
-## 后续步骤
+#### <a name="request-body"></a>请求正文
 
-数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](./sql-database-business-continuity.md)。
+```json
+{
+  "properties":{
+    "retentionDays":28
+  }
+}
+```
 
-<!---HONumber=Mooncake_1212_2016-->
+#### <a name="sample-response"></a>示例响应
+
+状态代码：200
+
+```json
+{
+  "id": "/subscriptions/00000000-1111-2222-3333-444444444444/providers/Microsoft.Sql/resourceGroups/resourceGroup/servers/testserver/databases/testDatabase/backupShortTermRetentionPolicies/default",
+  "name": "default",
+  "type": "Microsoft.Sql/resourceGroups/servers/databases/backupShortTermRetentionPolicies",
+  "properties": {
+    "retentionDays": 28
+  }
+}
+```
+
+有关详细信息，请参阅[备份保持期 REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies)。
+
+## <a name="next-steps"></a>后续步骤
+
+- 数据库备份是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库备份可以保护数据免遭意外损坏或删除。 若要了解其他 Azure SQL 数据库业务连续性解决方案，请参阅[业务连续性概述](sql-database-business-continuity.md)。
+- 要使用 Azure 门户还原到某个时间点，请参阅[使用 Azure 门户将数据库还原到某个时间点](sql-database-recovery-using-backups.md)。
+- 要使用 PowerShell 还原到某个时间点，请参阅[使用 PowerShell 将数据库还原到某个时间点](scripts/sql-database-restore-database-powershell.md)。
+- 若要使用 Azure 门户在 Azure Blob 存储中配置和管理自动备份的长期保留，并从中进行还原，请参阅[使用 Azure 门户管理长期备份保留](sql-database-long-term-backup-retention-configure.md)。
+- 若要使用 PowerShell 在 Azure Blob 存储中配置和管理自动备份的长期保留，并从中进行还原，请参阅[使用 PowerShell 管理长期备份保留](sql-database-long-term-backup-retention-configure.md)。

@@ -1,11 +1,11 @@
 ---
-title: "在 Azure 中使用模板创建 Windows VM | Azure"
-description: "将 Resource Manager 模板与 PowerShell 配合使用，轻松创建新的 Windows VM。"
+title: 通过资源管理器模板创建 Windows 虚拟机 | Azure
+description: 将 Resource Manager 模板与 PowerShell 配合使用，轻松创建新的 Windows VM。
 services: virtual-machines-windows
-documentationcenter: 
-author: davidmu1
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager
 ms.assetid: 19129d61-8c04-4aa9-a01f-361a09466805
 ms.service: virtual-machines-windows
@@ -13,94 +13,267 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
-wacn.date: 
-ms.author: v-dazen
+origin.date: 03/22/2019
+ms.date: 08/12/2019
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 4cf2636abac23b7a4b61a6e3b273349b8893bae1
-ms.lasthandoff: 04/06/2017
-
-
+ms.openlocfilehash: 1baa73cbe3182f0a8d302ac8f76da905bb134bb6
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539155"
 ---
-
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>通过 Resource Manager 模板创建 Windows 虚拟机
 
-本文介绍如何使用 PowerShell 部署 Azure Resource Manager 模板。 [此模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json) 将在包含单个子网的新虚拟网络上部署运行 Windows Server 的单个虚拟机。
+了解如何使用 Azure 资源管理器模板和 Azure PowerShell 创建 Windows 虚拟机。 本文中使用的模板会在包含单个子网的新虚拟网络上部署运行 Windows Server 的单个虚拟机。 若要创建 Linux 虚拟机，请参阅[如何使用 Azure 资源管理器模板创建 Linux 虚拟机](../linux/create-ssh-secured-vm-from-template.md)。
 
-有关虚拟机资源的详细说明，请参阅 [Azure Resource Manager 模板中的虚拟机](template-description.md)。
+<!--Not Available on from the Azure Cloud shell-->
 
-执行本文中的步骤大约需要 5 分钟时间。
+## <a name="create-a-virtual-machine"></a>创建虚拟机
 
-## <a name="step-1-install-azure-powershell"></a>步骤 1：安装 Azure PowerShell
+创建 Azure 虚拟机通常包括两个步骤：
 
-有关安装最新版 Azure PowerShell、选择订阅和登录到帐户的信息，请参阅[如何安装和配置 Azure PowerShell](../../powershell-install-configure.md)。
+- 创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。
+- 创建虚拟机。
 
-## <a name="step-2-create-a-resource-group"></a>步骤 2：创建资源组
+以下示例通过 [Azure 快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json)创建 VM。 下面是该模板的副本：
 
-必须在[资源组](../../azure-resource-manager/resource-group-overview.md)中部署所有资源。
-
-1. 获取可以创建资源的可用位置列表。
-
-    ```powershell
-    Get-AzureRmLocation | sort DisplayName | Select DisplayName
-    ```
-
-2. 在所选位置中创建资源组。 本示例演示了如何在**中国北部**位置创建一个名为 **myResourceGroup** 的资源组：
-
-    ```powershell
-    New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China North"
-    ```
-
-    用户应看到与此示例类似的内容：
-
-    ```powershell
-    ResourceGroupName : myResourceGroup
-    Location          : chinaeast
-    ProvisioningState : Succeeded
-    Tags              :
-    ResourceId        : /subscriptions/{subscription-id}/resourceGroups/myResourceGroup
-    ```
-
-## <a name="step-3-create-the-resources"></a>步骤 3：创建资源
-部署模板并在出现提示时提供参数值。 本示例在创建的资源组中部署 101-vm-simple-windows 模板：
-
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myResourceGroup" -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" 
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "type": "string",
+      "metadata": {
+        "description": "Username for the Virtual Machine."
+      }
+    },
+    "adminPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "Password for the Virtual Machine."
+      }
+    },
+    "dnsLabelPrefix": {
+      "type": "string",
+      "metadata": {
+        "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+      }
+    },
+    "windowsOSVersion": {
+      "type": "string",
+      "defaultValue": "2016-Datacenter",
+      "allowedValues": [
+        "2008-R2-SP1",
+        "2012-Datacenter",
+        "2012-R2-Datacenter",
+        "2016-Nano-Server",
+        "2016-Datacenter-with-Containers",
+        "2016-Datacenter",
+        "2019-Datacenter"
+      ],
+      "metadata": {
+        "description": "The Windows version for the VM. This will pick a fully patched image of this given Windows version."
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
+    "nicName": "myVMNic",
+    "addressPrefix": "10.0.0.0/16",
+    "subnetName": "Subnet",
+    "subnetPrefix": "10.0.0.0/24",
+    "publicIPAddressName": "myPublicIP",
+    "vmName": "SimpleWinVM",
+    "virtualNetworkName": "MyVNET",
+    "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('storageAccountName')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage",
+      "properties": {}
+    },
+    {
+      "type": "Microsoft.Network/publicIPAddresses",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('publicIPAddressName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "publicIPAllocationMethod": "Dynamic",
+        "dnsSettings": {
+          "domainNameLabel": "[parameters('dnsLabelPrefix')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.Network/virtualNetworks",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('virtualNetworkName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "addressSpace": {
+          "addressPrefixes": [
+            "[variables('addressPrefix')]"
+          ]
+        },
+        "subnets": [
+          {
+            "name": "[variables('subnetName')]",
+            "properties": {
+              "addressPrefix": "[variables('subnetPrefix')]"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Network/networkInterfaces",
+      "apiVersion": "2018-11-01",
+      "name": "[variables('nicName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Network/publicIPAddresses/', variables('publicIPAddressName'))]",
+        "[resourceId('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+      ],
+      "properties": {
+        "ipConfigurations": [
+          {
+            "name": "ipconfig1",
+            "properties": {
+              "privateIPAllocationMethod": "Dynamic",
+              "publicIPAddress": {
+                "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('publicIPAddressName'))]"
+              },
+              "subnet": {
+                "id": "[variables('subnetRef')]"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "Microsoft.Compute/virtualMachines",
+      "apiVersion": "2018-10-01",
+      "name": "[variables('vmName')]",
+      "location": "[parameters('location')]",
+      "dependsOn": [
+        "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+        "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+      ],
+      "properties": {
+        "hardwareProfile": {
+          "vmSize": "Standard_A2"
+        },
+        "osProfile": {
+          "computerName": "[variables('vmName')]",
+          "adminUsername": "[parameters('adminUsername')]",
+          "adminPassword": "[parameters('adminPassword')]"
+        },
+        "storageProfile": {
+          "imageReference": {
+            "publisher": "MicrosoftWindowsServer",
+            "offer": "WindowsServer",
+            "sku": "[parameters('windowsOSVersion')]",
+            "version": "latest"
+          },
+          "osDisk": {
+            "createOption": "FromImage"
+          },
+          "dataDisks": [
+            {
+              "diskSizeGB": 1023,
+              "lun": 0,
+              "createOption": "Empty"
+            }
+          ]
+        },
+        "networkProfile": {
+          "networkInterfaces": [
+            {
+              "id": "[resourceId('Microsoft.Network/networkInterfaces',variables('nicName'))]"
+            }
+          ]
+        },
+        "diagnosticsProfile": {
+          "bootDiagnostics": {
+            "enabled": true,
+            "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))).primaryEndpoints.blob]"
+          }
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "hostname": {
+      "type": "string",
+      "value": "[reference(variables('publicIPAddressName')).dnsSettings.fqdn]"
+    }
+  }
+}
 ```
 
-用户需要提供 VM 上的管理员帐户的名称、帐户的密码和 DNS 前缀。
+若要使用 Azure 本地 Powershell 运行 PowerShell 脚本，需要具有管理员权限。
 
-用户应看到与此示例类似的内容：
+<!--Not Avaialble on instead of from the Azure Cloud shell-->
 
-    DeploymentName    : azuredeploy
-    ResourceGroupName : myResourceGroup
-    ProvisioningState : Succeeded
-    Timestamp         : 12/29/2016 8:11:37 PM
-    Mode              : Incremental
-    TemplateLink      :
-       Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/
-                        101-vm-simple-windows/azuredeploy.json
-       ContentVersion : 1.0.0.0
-    Parameters        :
-      Name             Type                       Value
-      ===============  =========================  ==========
-      adminUsername    String                     myAdminUser
-      adminPassword    SecureString
-      dnsLabelPrefix   String                     myDomain
-      windowsOSVersion String                     2016-Datacenter
-    Outputs           :
-      Name             Type                       Value
-      ===============  =========================  ===========
-      hostname         String                     myDomain.chinaeast.chinacloudapp.cn
-    DeploymentDebugLogLevel :
+```powershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
+$adminUsername = Read-Host -Prompt "Enter the administrator username"
+$adminPassword = Read-Host -Prompt "Enter the administrator password" -AsSecureString
+$dnsLabelPrefix = Read-Host -Prompt "Enter an unique DNS name for the public IP"
 
-> [!NOTE]
-> 还可通过本地文件部署模板和参数。 有关详细信息，请参阅[对 Azure 存储空间使用 Azure PowerShell](../../storage/storage-powershell-guide-full.md)。
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json" `
+    -adminUsername $adminUsername `
+    -adminPassword $adminPassword `
+    -dnsLabelPrefix $dnsLabelPrefix
+
+ (Get-AzVm -ResourceGroupName $resourceGroupName).name
+
+```
+
+如果选择在本地安装并使用 PowerShell，则本教程需要 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 以创建与 Azure 的连接。
+
+<!--Not Available on instead of from the Azure local Shell-->
+
+在前面的示例中，指定了 GitHub 中存储的一个模板。 还可以下载或创建模板并使用 `--template-file` 参数指定本地路径。
+
+下面是一些其他资源：
+
+- 若要了解如何开发资源管理器模板，请参阅 [Azure 资源管理器文档](/azure-resource-manager/)。
+    
+    <!--Not Available on  [Azure template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.compute/allversions)-->
+
+- 若要查看更多的虚拟机模板示例，请参阅 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular)。
+
+## <a name="connect-to-the-virtual-machine"></a>连接到虚拟机
+
+上一脚本中的最后一个 PowerShell 命令显示虚拟机名称。 若要连接到虚拟机，请参阅[如何连接并登录运行 Windows 的 Azure 虚拟机](./connect-logon.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 如果部署出现问题，后续措施是参阅[排查使用 Azure Resource Manager 时的常见 Azure 部署错误](../../azure-resource-manager/resource-manager-common-deployment-errors.md)。
-- 阅读[使用 Resource Manager 和 PowerShell 创建 Windows VM](../virtual-machines-windows-ps-create.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何使用 Azure PowerShell 创建虚拟机。
-- 查看[使用 Azure Resource Manager 和 PowerShell 管理虚拟机](ps-manage.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何管理创建的虚拟机。
+- 如果部署出现问题，可以参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](../../resource-manager-common-deployment-errors.md)。
+- 通过查看[使用 Azure PowerShell 模块创建和管理 Windows VM](tutorial-manage-vm.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)，了解如何创建和管理虚拟机。
+
+<!--Not Avaialble on Microsoft templates-->
+<!--Update_Description: update meta properties, wording update -->

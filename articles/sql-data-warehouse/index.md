@@ -1,28 +1,27 @@
 ---
-title: "Azure SQL 数据仓库文档 - 教程、API 参考 | Microsoft 文档"
-description: "了解如何使用结合了 SQL Server 与大规模并行处理的 SQL 数据仓库。 文档说明如何加载、分析、管理和导出数据。"
+title: Azure SQL 数据仓库文档 - 教程和概念 | Microsoft Docs
+description: 了解如何使用将 SQL 关系数据库与大规模并行处理相结合的 Azure SQL 数据仓库。 教程和其他文档介绍了如何使用数据仓库设计、加载、管理和分析数据。
 services: sql-data-warehouse
-author: carolz
-manager: carolz
+author: WenJason
+manager: digimobile
 layout: LandingPage
-ms.assetid: 
 ms.service: sql-data-warehouse
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: landing-page
-ms.date: 01/23/2017
-ms.author: v-yeche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 576e12831945701b880e891394c0cbb8374d333b
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.topic: overview
+ms.component: design
+origin.date: 04/11/2018
+ms.date: 11/12/2018
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: d47b265bef2b4ff48caf3d0b2cacaeebd8cbdfb7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52646825"
 ---
-
 # <a name="sql-data-warehouse-documentation"></a>SQL 数据仓库文档
 
-了解如何使用 SQL 数据仓库，其结合了 SQL Server 关系数据库与大规模并行处理。 教程和其他文档介绍了如何将数据加载到数据仓库，然后分析、管理和导出数据。
+了解如何使用将 SQL 关系数据库与大规模并行处理相结合的 Azure SQL 数据仓库。 教程和其他文档介绍了如何使用数据仓库设计、加载、管理和分析数据。 
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -50,7 +49,8 @@ ms.lasthandoff: 05/12/2017
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,3 +62,37 @@ ms.lasthandoff: 05/12/2017
         </a>
     </li>
 </ul>
+
+---
+
+<h2>参考</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>命令行</h3>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlets</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL 语言元素</a></p>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL 语句</a></p>
+                        <p><a href="/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL 系统视图</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+

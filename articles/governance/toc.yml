@@ -1,0 +1,33 @@
+items:
+- name: Azure 治理文档
+  href: index.yml
+- name: 概述
+  items:
+  - name: Azure 管理
+    href: azure-management.md
+  expanded: true
+- name: 组件和服务
+  items:
+  - name: 管理组
+    items:
+    - name: 概述
+      href: management-groups/index.md
+    - name: 创建
+      href: management-groups/create.md
+    - name: 管理
+      href: management-groups/manage.md
+  - name: 策略
+    href: policy/overview.md
+  expanded: true
+- name: 资源
+  items:
+  - name: Azure 服务
+    href: https://www.azure.cn/zh-cn/home/features/products-by-region
+  - name: 定价计算器
+    href: https://www.azure.cn/zh-cn/pricing/calculator/
+ms.openlocfilehash: 3898ad66215d4aab0510116a1cdec96e98b46cdd
+ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471983"

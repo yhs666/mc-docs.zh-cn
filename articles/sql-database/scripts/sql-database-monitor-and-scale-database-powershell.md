@@ -1,110 +1,135 @@
 ---
-title: "Azure PowerShell 脚本 - 监视和缩放单个 SQL 数据库 | Microsoft 文档"
-description: "Azure PowerShell 脚本示例 - 使用 PowerShell 监视和缩放单个 SQL 数据库"
+title: PowerShell 示例 - 监视缩放 - 单一 Azure SQL 数据库 | Microsoft Docs
+description: 监视和缩放单一 Azure SQL 数据库的 Azure PowerShell 示例脚本
 services: sql-database
-documentationcenter: sql-database
-author: janeng
-manager: jstrauss
-editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.subservice: performance
+ms.custom: ''
 ms.devlang: PowerShell
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 03/07/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: 23ec7b49b923dcb3fa9bc33ae21ea5fee99db11f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.topic: sample
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 03/12/2019
+ms.date: 04/29/2019
+ms.openlocfilehash: fce941e7af5d14f98eb0b5c7f4f94e8395bd1926
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854949"
 ---
+# <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
 
-# <a name="monitor-and-scale-a-single-sql-database-using-powershell"></a>使用 PowerShell 监视和缩放单个 SQL 数据库
+此 PowerShell 脚本示例监视数据库的性能指标，将数据库扩展到更高的计算大小，并根据性能指标之一创建警报规则。
 
-此示例 PowerShell 脚本监视一个数据库的性能指标，将其缩放为更高的性能级别，并基于性能指标之一创建警报规则。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-在运行此脚本前，请确保已使用 `Add-AzureRmAccount` cmdlet 创建了到 Azure 的连接。
+本教程需要 AZ PowerShell 1.4.0 或更高版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 此外，还需要运行 `Connect-AzAccount -EnvironmentName AzureChinaCloud` 以创建与 Azure 的连接。
 
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-# Set an admin login and password for your database
-$adminlogin = "ServerAdmin"
+# Connect-AzAccount -Environment AzureChinaCloud
+# The SubscriptionId in which to create these objects
+$SubscriptionId = ''
+# Set the resource group name and location for your server
+$resourceGroupName = "myResourceGroup-$(Get-Random)"
+$location = "chinaeast"
+# Set an admin login and password for your server
+$adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
-# The logical server name has to be unique in the system
-$servername = "server-$($(Get-AzureRMContext).Subscription.SubscriptionId)"
+# Set server name - the logical server name has to be unique in the system
+$serverName = "server-$(Get-Random)"
+# The sample database name
+$databaseName = "mySampleDatabase"
+# The ip address range that you want to allow to access your server
+$startIp = "0.0.0.0"
+$endIp = "0.0.0.0"
 
-# Create a new resource group
-New-AzureRmResourceGroup -Name "myResourceGroup" -Location "China East"
+# Set subscription 
+Set-AzContext -SubscriptionId $subscriptionId 
 
-# Create a new server with a system wide unique server name
-New-AzureRmSqlServer -ResourceGroupName "myResourceGroup" `
-    -ServerName $servername `
-    -Location "China East" `
-    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+# Create a resource group
+$resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location
 
-# Create a blank database with S0 performance level
-New-AzureRmSqlDatabase  -ResourceGroupName "myResourceGroup" `
-    -ServerName $servername `
-    -DatabaseName "MySampleDatabase" -RequestedServiceObjectiveName "S0"
+# Create a server with a system wide unique server name
+$server = New-AzSqlServer -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -Location $location `
+    -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $adminSqlLogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+
+# Create a server firewall rule that allows access from the specified IP range
+$serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+
+# Create a blank database with an S0 performance level
+$database = New-AzSqlDatabase  -ResourceGroupName $resourceGroupName `
+    -ServerName $serverName `
+    -DatabaseName $databaseName `
+    -RequestedServiceObjectiveName "S0" `
+    -SampleName "AdventureWorksLT"
 
 # Monitor the DTU consumption on the imported database in 5 minute intervals
 $MonitorParameters = @{
-  ResourceId = "/subscriptions/$($(Get-AzureRMContext).Subscription.SubscriptionId)/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/server-$($(Get-AzureRMContext).Subscription.SubscriptionId)/databases/MySampleDatabase"
+  ResourceId = "/subscriptions/$($(Get-AzContext).Subscription.Id)/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/databases/$databaseName"
   TimeGrain = [TimeSpan]::Parse("00:05:00")
   MetricNames = "dtu_consumption_percent"
 }
-(Get-AzureRmMetric @MonitorParameters -DetailedOutput).MetricValues
+(Get-AzMetric @MonitorParameters -DetailedOutput).MetricValues
 
-# Scale the database performance to Standard S2
-Set-AzureRmSqlDatabase -ResourceGroupName "myResourceGroup" `
+# Scale the database performance to Standard S1
+$database = Set-AzSqlDatabase -ResourceGroupName $resourceGroupName `
     -ServerName $servername `
-    -DatabaseName "MySampleDatabase" `
+    -DatabaseName $databasename `
     -Edition "Standard" `
     -RequestedServiceObjectiveName "S1"
 
 # Set an alert rule to automatically monitor DTU in the future
-Add-AzureRMMetricAlertRule -ResourceGroup "myResourceGroup" `
+Add-AzMetricAlertRule -ResourceGroup $resourceGroupName `
     -Name "MySampleAlertRule" `
-    -Location "China East" `
-    -TargetResourceId "/subscriptions/$($(Get-AzureRMContext).Subscription.SubscriptionId)/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/server-$($(Get-AzureRMContext).Subscription.SubscriptionId)/databases/MySampleDatabase" `
+    -Location $location `
+    -TargetResourceId "/subscriptions/$($(Get-AzContext).Subscription.Id)/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/databases/$databaseName" `
     -MetricName "dtu_consumption_percent" `
     -Operator "GreaterThan" `
     -Threshold 90 `
     -WindowSize $([TimeSpan]::Parse("00:05:00")) `
     -TimeAggregationOperator "Average" `
-    -Actions $(New-AzureRmAlertRuleEmail -SendToServiceOwners)
+    -Action $(New-AzAlertRuleEmail -SendToServiceOwner)
 ```
+
+> [!NOTE]
+> 有关指标的完整列表，请参阅[支持的指标](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases)。
+> [!TIP]
+> 使用 [Get-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseactivity) 获取数据库操作的状态，并使用 [Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqldatabaseactivity) 取消数据库更新操作。
+
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName "myResourceGroup"
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
- [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | 创建用于存储所有资源的资源组。 |
-| [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/new-azurermsqlserver) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [Get-AzureRmMetric](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.5.0/get-azurermmetric) | 显示数据库的大小使用情况信息。|
-| [Set-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.5.0/set-azurermsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [Add-AzureRMMetricAlertRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.insights/v2.5.0/add-azurermmetricalertrule) | 设置警报规则，以便在将来自动监视 DTU。 |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
+ [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
+| [Get-AzMetric](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetric) | 显示数据库的大小使用情况信息。|
+| [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [Add-AzMetricAlertRule](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule) | 设置警报规则，以便在将来自动监视 DTU。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组，包括所有嵌套的资源。 |
 |||
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/)。
+有关 Azure PowerShell 的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
 可以在 [Azure SQL 数据库 PowerShell 脚本](../sql-database-powershell-samples.md)中找到更多 SQL 数据库 PowerShell 脚本示例。
-

@@ -1,0 +1,64 @@
+- name: 安全中心文档
+  href: index.yml
+- name: 快速入门
+  expanded: true
+  items:
+    - name: Azure 订阅
+      href: security-center-get-started.md
+    - name: Linux 计算机
+      href: quick-onboard-linux-computer.md
+    - name: Azure Stack 虚拟机
+      href: quick-onboard-azure-stack.md
+- name: 教程
+  items:
+    - name: 保护资源
+      href: tutorial-protect-resources.md
+    - name: 响应事件
+      href: tutorial-security-incident.md
+    - name: 提高合规性
+      href: security-center-compliance-dashboard.md
+- name: 概念
+  items:
+    - name: 数据安全性
+      href: security-center-data-security.md
+- name: 操作指南
+  items:
+    - name: 保护应用服务
+      href: security-center-app-services.md
+    - name: 使用安全策略
+      href: tutorial-security-policy.md
+    - name: 实施安全建议
+      href: security-center-recommendations.md
+      items:
+        - name: 保护计算机和应用
+          href: security-center-virtual-machine-protection.md
+    - name: Archive
+      items:
+        - name: 添加 Web 应用程序防火墙
+          href: security-center-add-web-application-firewall.md
+        - name: 完成应用程序保护
+          href: 'security-center-add-web-application-firewall.md#finalize-application-protection'
+        - name: 添加下一代防火墙
+          href: security-center-add-next-generation-firewall.md
+        - name: 仅通过 NGFW 路由流量
+          href: 'security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only'
+- name: 参考
+  items:
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: 服务更新
+      href: 'https://www.azure.cn/zh-cn/what-is-new/'
+- name: 资源
+  items:
+    - name: 常见问题
+      href: security-center-faq.md
+    - name: Azure 安全性
+      href: /security/
+    - name: Azure 安全性、隐私性与合规性博客
+      href: 'https://blogs.msdn.com/b/azuresecurity/'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: 定价
+      href: /pricing/details/security-center/
+    - name: 区域可用性
+      href: 'https://www.azure.cn/zh-cn/home/features/products-by-region'

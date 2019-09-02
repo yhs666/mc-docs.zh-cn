@@ -1,125 +1,130 @@
 ---
-title: "Azure CLI 脚本 - 移动 SQL 数据库和弹性池 | Azure"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 在弹性池之间移动 SQL 数据库"
+title: CLI 示例 - 移动 Azure SQL 数据库 - SQL 弹性池 | Microsoft Docs
+description: 在 SQL 弹性池中移动 SQL 数据库的 Azure CLI 示例脚本
 services: sql-database
-documentationcenter: sql-database
-author: janeng
-manager: jstrauss
-editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
+ms.subservice: elastic-pools
+ms.custom: ''
 ms.devlang: azurecli
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 04/04/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 15b8fd5fc1753828fa596e062b791108a26c8db4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+ms.topic: sample
+author: WenJason
+ms.author: v-jay
+ms.reviewer: carlrab
+manager: digimobile
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: d86374ee56701c3366545b98748910d5d09a11fb
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544114"
 ---
+# <a name="use-cli-to-move-an-azure-sql-database-in-a-sql-elastic-pool"></a>使用 CLI 在 SQL 弹性池中移动 Azure SQL 数据库
 
-# <a name="create-elastic-pools-and-move-databases-between-pools-and-out-of-a-pool-using-the-azure-cli"></a>使用 Azure CLI 创建弹性池，并在池之间和池外移动数据库
+此 Azure CLI 脚本示例创建两个弹性池，将 Azure SQL 数据库从一个 SQL 弹性池移到另一个 SQL 弹性池中，然后将数据库移出弹性池，并转为单一数据库计算大小。
 
-此示例 CLI 脚本创建两个弹性池，将数据库从一个弹性池移到另一个弹性池中，然后将数据库移出弹性池，移到单一数据库性能级别。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( https://docs.azure.cn/cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
 adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
 # The logical server name has to be unique in the system
-servername=server-$RANDOM
+servername=server$RANDOM
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    --location "China East" 
+    --name $resourceGroupName \
+    --location $location
 
 # Create a logical server in the resource group
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location "China East" \
+    --resource-group $resourceGroupName \
+    --location $location \
     --admin-user $adminlogin \
     --admin-password $password
 
 # Create two pools in the logical server
-az sql elastic-pools create \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+az sql elastic-pool create \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name myFirstPool \
-    --dtu 50 \
-    --database-dtu-max 20
-az sql elastic-pools create \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1
+az sql elastic-pool create \
+    --resource-group $resourceGroupName \
     --server $servername \
-    --name MySecondPool \
-    --dtu 50 \
-    --database-dtu-max 50
+    --name mySecondPool \
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1
 
 # Create a database in the first pool
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --elastic-pool-name myFirstPool
+    --elastic-pool myFirstPool
 
 # Move the database to the second pool - create command updates the db if it exists
 az sql db create \
-    --resource-group myResourceGroup \
-    --server-name $servername \
-    --name mySampleDatabase \
-    --elastic-pool-name mySecondPool
-
-# Move the database to standalone S1 performance level
-az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
-    --service-objective S1
+    --elastic-pool mySecondPool
+
+# Move the database to standalone S0 service tier
+az sql db create \
+    --resource-group $resourceGroupName \
+    --server $servername \
+    --name mySampleDatabase \
+    --service-objective S0
+
+# Echo random password
+echo $password
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | 创建用于托管数据库或弹性池的逻辑服务器。 |
-| [az sql elastic-pools create](https://docs.microsoft.com/cli/azure/sql/elastic-pools#create) | 在逻辑服务器中创建弹性池。 |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | 在逻辑服务器中创建数据库作为单一数据库或入池数据库。 |
-| [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#set) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [az sql elastic-pools create](/cli/sql/elastic-pool#az-sql-elastic-pool-create) | 创建弹性池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或创建弹性池中的数据库。 |
+| [az sql db update](/cli/sql/db#az-sql-db-update) | 更新数据库属性，或者将数据库移入、移出弹性池或在弹性池之间移动。 |
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
-
-

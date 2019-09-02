@@ -1,0 +1,38 @@
+---
+ms.openlocfilehash: 12471b3bb405b3289104adbf8f6e574f8b0bc183
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "63829449"
+---
+- VNet 与 Batch 帐户必须位于同一 Azure 区域  和订阅  中。
+
+- 对于使用虚拟机配置创建的池，仅支持基于 Azure 资源管理器的 VNet。 对于使用云服务配置创建的池，仅支持经典 VNet。
+  
+- 若要使用经典 VNet，`MicrosoftAzureBatch` 服务主体必须为指定的 VNet 提供 `Classic Virtual Machine Contributor` 基于角色的访问控制 (RBAC) 角色。 若要使用基于 Azure 资源管理器的 VNet，你需要拥有访问 VNet 并在子网中部署 VM 的权限。
+
+- 为池指定的子网必须提供足够的未分配 IP 地址来容纳面向该池的 VM 的数量；即，池的 `targetDedicatedNodes` 和 `targetLowPriorityNodes` 属性的总和。 如果子网没有足够的未分配 IP 地址，池将分配部分计算节点，并发生调整大小错误。 
+
+- 部署在 Azure VNet 的虚拟机配置中的池会自动分配其他 Azure 网络资源。 在 VNet 中，每 50 个池节点需要以下资源：1 个网络安全组、1 个公共 IP 地址和 1 个负载均衡器。 在包含创建 Batch 池时提供的虚拟网络的订阅中，这些资源受[配额](../articles/batch/batch-quota-limit.md)的限制。
+
+- VNet 必须允许来自 Batch 服务的通信，才能在计算节点上计划任务。 这可以通过检查 VNet 是否具有任何关联的网络安全组 (NSG) 来进行验证。 如果 NSG 拒绝与指定子网中的计算节点通信，则 Batch 服务会将计算节点的状态设置为“不可用”  。 
+
+- 如果指定的 VNet 具有关联的网络安全组 (NSG) 和/或防火墙，则配置入站端口和出站端口，如以下各表中所示：
+
+
+  |    目标端口    |    源 IP 地址      |   Source Port    |    Batch 是否添加 NSG？    |    是使用 VM 所必需的吗？    |    来自用户的操作   |
+  |---------------------------|---------------------------|----------------------------|----------------------------|-------------------------------------|-----------------------|
+  |   <ul><li>对于使用虚拟机配置创建的池：29876、29877</li><li>对于使用云服务配置创建的池：10100、20100、30100</li></ul>        |    * <br /><br />虽然这需要有效地“全部允许”，但 Batch 服务在虚拟机配置下创建的每个 VM 上的网络接口级别应用 NSG，以筛选掉所有非 Batch 服务 IP 地址。 | * 或 443 |    是的。 Batch 在附加到 VM 的网络接口 (NIC) 级别添加 NSG。 这些 NSG 仅允许来自 Batch 服务角色 IP 地址的流量。 即使为 Internet 打开这些端口，流量也会在 NIC 上被阻止。 |    是  |  不需指定 NSG，因为 Batch 仅允许 Batch IP 地址。 <br /><br /> 但是，如果指定 NSG，请确保这些端口对入站流量开放。|
+  |    3389 (Windows)、22 (Linux)               |    用户计算机，用于调试目的，方便远程访问 VM。    |   *  | 否                                    |    否                    |    如需允许远程访问（RDP 或 SSH）VM，请添加 NSG。   |                                
+
+
+  |    出站端口    |    目标    |    Batch 是否添加 NSG？    |    是使用 VM 所必需的吗？    |    来自用户的操作    |
+  |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
+  |    443    |    Azure 存储    |    否    |    是    |    如果添加任何 NSG，请确保该端口对出站流量开放。    |
+
+   另请确保可以通过为 VNet 提供服务的自定义 DNS 服务器解析 Azure 存储终结点。 具体而言，`<account>.table.core.chinacloudapi.cn`、`<account>.queue.core.chinacloudapi.cn` 和 `<account>.blob.core.chinacloudapi.cn` 形式的 URL 应当是可以解析的。 
+
+   如果添加基于资源管理器的 NSG，则可使用[服务标记](../articles/virtual-network/security-overview.md#service-tags)，针对特定区域选择适用于出站连接的存储 IP 地址。 请注意，存储 IP 地址必须与 Batch 帐户及 VNet 位于同一区域。 所选 Azure 区域中的服务标记目前为预览版。
+
+<!-- ms.date: 09/07/2018 -->

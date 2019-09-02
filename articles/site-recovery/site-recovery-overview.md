@@ -1,66 +1,66 @@
 ---
-title: 什么是 Site Recovery？ | Azure
-description: 概述了 Azure Site Recovery 服务并汇总了各种部署方案。
-documentationcenter: ''
-author: rayne-wiselman
-manager: cfreeman
-editor: ''
-
-ms.assetid: e9b97b00-0c92-4970-ae92-5166a4d43b68
+title: 关于 Azure Site Recovery | Azure
+description: 简要介绍 Azure Site Recovery 服务并概述灾难恢复和迁移部署方案。
+services: site-recovery
+author: rockboyfor
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 03/14/2017
-wacn.date: 03/31/2017
-ms.author: v-johch
+ms.topic: overview
+origin.date: 05/30/2019
+ms.date: 07/08/2019
+ms.author: v-yeche
+ms.custom: MVC
+ms.openlocfilehash: db2c819abd038f0bbc6c04056078561fcd0ab59c
+ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67861635"
 ---
+# <a name="about-site-recovery"></a>关于 Site Recovery
 
-# 什么是 Site Recovery？
+欢迎使用 Azure Site Recovery 服务！ 本文快速简要地介绍了该服务。
 
-欢迎使用 Azure Site Recovery 服务！ 本文提供了该服务的快速概述。
+组织需采用业务连续性和灾难恢复 (BCDR) 策略，在发生计划内和计划外停机时确保数据的安全以及应用和工作负荷的正常启动和运行。
 
-自然事件和操作失败会导致服务中断。你的组织需要制定业务连续性和灾难恢复 (BCDR) 策略，以确保在计划内和计划外停机期间使数据保持安全、使应用保持可用且使业务尽快恢复到正常运行状况。
+Azure 恢复服务有助于制定 BCDR 策略：
 
-Azure 恢复服务是你的 BCDR 策略的一部分。[Azure 备份](https://www.azure.cn/home/features/back-up/)服务确保你的数据安全且可恢复。Site Recovery 将对工作负荷进行复制、故障转移和恢复，以便它们在发生故障时保持可用。
+- **Site Recovery 服务**：Site Recovery 有助于保持业务应用和工作负荷在停机期间的正常运行，从而确保业务连续性。 Site Recovery 将在物理机和虚拟机 (VM) 上运行的工作负荷从主站点复制到辅助位置。 主站点发生停机时，可以故障转移到辅助位置，从该位置访问应用。 在主位置再次运行后，可以故障回复到该位置。  
+- **备份服务**：[Azure 备份](/backup/)服务会将数据备份到 Azure，从而确保其安全并使之可以恢复。
 
-## Site Recovery 的功能是什么？
+Site Recovery 可以为以下计算机管理复制：
 
-- **云中的灾难恢复** - 你可以将在 VM 和物理服务器上运行的工作负荷复制到 Azure 而非复制到辅助站点。这就消除了维护辅助数据中心时面临的成本和复杂性。
-- **针对混合环境的灵活复制** - 你可以复制在受支持的本地 Hyper-V VM、Windows/Linux 物理服务器上运行的任何工作负荷。
-- **迁移** - 你可以使用 Site Recovery 将本地 AWS 实例迁移到 Azure VM，或者在 Azure 区域之间迁移 Azure VM。
-- **简化的 BCDR** - 你可以从 Azure 门户中的单个位置部署复制。你可以针对单台计算机和多台计算机运行简单的故障转移和故障回复。
-- **恢复能力** - Site Recovery 在不截获应用程序数据的情况下安排复制和故障转移。复制的数据可以存储在 Azure 存储中，可充分利用其提供的恢复能力。发生故障转移时，将基于复制的数据创建 Azure VM。
-- **复制性能** - Site Recovery 对 Hyper-V 的复制频率最低可为 30 秒。你可以设置恢复点目标 (RPO) 阈值来控制以何频率创建数据恢复点，并且你可以通过 Site Recovery 的自动化恢复流程以及与 [Azure 流量管理器](https://azure.microsoft.com/zh-cn/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)的集成降低恢复时间目标 (RTO)。
-- **应用程序一致性** - 使用应用程序一致快照进行计算机复制。除了捕获磁盘数据以外，应用程序一致的快照还捕获内存中的所有数据以及流程中的所有事务。
-- **无中断地进行测试** - 可以轻松运行测试故障转移来支持灾难恢复演练，且不会影响生产环境。
-- **灵活的故障转移和恢复** - 可以运行计划的故障转移，因为是预期的中断，所以不会丢失任何数据；或是运行非计划的故障转移，以在发生非预期的灾难时将数据损失减到最少（取决于复制频率）。当主站点重新可用时，可以轻松地故障回复到主站点。
-- **自定义恢复计划** - 使用恢复计划可以创建模型，自定义故障转移和恢复分散在多个 VM 中的多层应用程序。你可以对计划内的组进行排序，以及添加脚本和手动操作。恢复计划可以与 Azure 自动化 runbook 进行集成。
-- **多层应用** - 你可以创建恢复计划来针对多层应用进行有序的故障转移和恢复。你可以在恢复计划中将计算机分组到不同的层中（例如数据库、Web、应用），并自定义每个组的故障转移和启动方式。
-* **与现有 BCDR 技术的集成** - Site Recovery 与其他 BCDR 技术集成。例如，可以使用 Site Recovery 保护企业工作负荷的 SQL Server 后端，包括本机支持 SQL Server AlwaysOn 以便管理可用性组的故障转移。
-* **与自动化库的集成** - 丰富的 Azure 自动化库，提供特定于应用程序的生产就绪型脚本，可以下载并与 Site Recovery 集成。
-* **简单的网络管理** — Site Recovery 和 Azure 中的高级网络管理简化了应用程序网络要求，包括保留 IP 地址、配置负载均衡器，以及集成 Azure 流量管理器来提高网络切换的效率。
+- 在 Azure 区域之间进行复制的 Azure VM。
+- 本地 VM、 Azure Stack VM 和物理服务器。
 
-## 支持的功能
+## <a name="what-does-site-recovery-provide"></a>Site Recovery 的功能是什么？
+
+**功能** | **详细信息**
+--- | ---
+**简单的 BCDR 解决方案** | 可以在 Azure 门户中使用 Site Recovery，以便设置和管理从单个位置进行的复制、故障转移和故障回复。
+**Azure VM 复制** | 可以设置 Azure VM 从主要区域到次要区域的灾难恢复。
+**本地 VM 复制** | 可以将本地 VM 和物理服务器复制到 Azure 或辅助性的本地数据中心。 将数据复制到 Azure 以后，就不需进行复杂的辅助数据中心维护，从而消除相关成本。
+**工作负荷复制** | 复制在支持的 Azure VM、本地 Hyper-V 和 VMware VM 以及 Windows/Linux 物理服务器上运行的任何工作负荷。
+**数据复原能力** | Site Recovery 会协调复制，而不会拦截应用程序数据。 复制到 Azure 时，数据存储在 Azure 存储中，具有后者提供的复原能力。 发生故障转移时，会基于复制的数据创建 Azure VM。
+**RTO 和 RPO 目标** | 让恢复时间目标 (RTO) 和恢复点目标 (RPO) 始终处于组织限制范围内。 Site Recovery 为 Azure VM 和 VMware VM 提供持续复制，为 Hyper-V 提供低至 30 秒的复制频率。 可以通过与 [Azure 流量管理器](https://azure.microsoft.com/blog/reduce-rto-by-using-azure-traffic-manager-with-azure-site-recovery/)集成来进一步降低 RTO。
+**让应用在故障转移后保持一致** | 可以通过应用程序一致性快照使用恢复点进行复制。 这些快照可捕获磁盘数据、内存中的所有数据，以及正在处理的所有事务。
+**在不中断的情况下测试** | 可轻松地运行灾难恢复练习，不会影响正在进行的复制。
+**灵活的故障转移** | 可针对预期会出现的中断运行计划内故障转移，确保不丢失任何数据；或者针对意外灾难运行计划外故障转移，尽量减少数据丢失（具体取决于复制频率）。 当主站点重新可用时，可以轻松地故障回复到主站点。
+**自定义的恢复计划** | 可以通过恢复计划对多个 VM 上运行的多层应用程序的故障转移和恢复进行自定义和排序操作。 可以在恢复计划中将计算机组合到一起，选择性地添加脚本和手动操作。 恢复计划可以与 Azure 自动化 runbook 进行集成。
+**BCDR 集成** | Site Recovery 可与其他 BCDR 技术集成。 例如，可使用 Site Recovery 保护企业工作负荷的 SQL Server 后端，为 SQL Server AlwaysOn 提供本机支持，进而管理可用性组的故障转移。
+**Azure 自动化集成** | 丰富的 Azure 自动化库提供特定于应用程序的生产就绪型脚本，可下载它们并将其与 Site Recovery 集成。
+**网络集成** | Site Recovery 和 Azure 集成可简化应用程序网络管理，具体包括：保留 IP 地址、配置负载均衡器并集成 Azure 流量管理器，从而实现高效的网络切换。
+
+## <a name="what-can-i-replicate"></a>可复制哪些内容？
 
 **支持** | **详细信息**
 --- | ---
-**Site Recovery 支持哪些区域？** | [支持的区域](https://www.azure.cn/support/service-dashboard/) |
-**我可以复制哪些内容？** | 本地 Hyper-V VM、Windows 和 Linux 物理服务器。
-**复制的计算机需要什么操作系统？** | 对于 Hyper-V VM，Azure 和 Hyper-V 支持的任何[来宾 OS](https://technet.microsoft.com/zh-cn/windows-server-docs/compute/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows)都受支持。<br/><br/> 适用于物理服务器的[操作系统](./site-recovery-support-matrix-to-azure.md#support-for-replicated-machine-os-versions)
-**可以复制到何处？** | 可以复制到 Azure 存储，或复制到辅助数据中心<br/><br/> 对于 Hyper-V，只有 System Center VMM 云中托管的 Hyper-V 主机上的 VM 可以复制到辅助数据中心。
-**我可以复制哪些工作负荷** | 你可以复制在受支持的复制计算机上运行的任何工作负荷。此外，Site Recovery 团队还针对[许多应用](./site-recovery-workload.md#workload-summary)执行了特定于应用的测试。
+**复制方案** | 将 Azure VM 从一个 Azure 区域复制到另一个 Azure 区域。<br/><br/>  将本地 VMware VM、Hyper-V VM、物理服务器（Windows 和 Linux）、Azure Stack VM 复制到 Azure。<br/><br/> <br/><br/> 将 AWS Windows 实例复制到 Azure。<br/><br/> 将本地 VMware VM、System Center VMM 托管的 Hyper-V VM 以及物理服务器复制到辅助站点。
+**区域** | 查看 Site Recovery [支持的区域](https://www.azure.cn/support/service-dashboard/)。 |
+**复制的计算机** | 查看 [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) 复制、[本地 VMware VM 和物理服务器](vmware-physical-azure-support-matrix.md#replicated-machines)以及[本地 Hyper-V VM](hyper-v-azure-support-matrix.md#replicated-vms) 的复制要求。
+**工作负荷** | 可以在支持复制的计算机上复制运行的任何工作负荷。 另外，Site Recovery 团队已针对[多个应用](site-recovery-workload.md#workload-summary)执行了特定于应用的测试。
 
-## 哪一种 Azure 门户？
+## <a name="next-steps"></a>后续步骤
+* 阅读有关[工作负荷支持](site-recovery-workload.md)的更多内容。
+* [区域之间的 Azure VM 复制](azure-to-azure-quickstart.md)入门。
 
-* Site Recovery 可以部署在 [Azure 经典管理门户](https://manage.windowsazure.cn/)中。
-* 在 Azure 经典管理门户中，可以同时支持 Site Recovery 和经典服务管理模型。
-* 经典管理门户仅应当用来维护现有的 Site Recovery 部署。无法在经典管理门户中创建新的保管库。
-
-## 后续步骤
-* 阅读有关[工作负荷支持](./site-recovery-workload.md)的详细信息
-* 详细了解 [Site Recovery 体系结构和组件](./site-recovery-components.md)
-
-<!---HONumber=Mooncake_0327_2017-->
-<!--Update_Description: content structure simplify-->
+<!--Update_Description: update meta properties -->

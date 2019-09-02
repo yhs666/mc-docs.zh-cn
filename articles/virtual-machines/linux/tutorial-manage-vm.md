@@ -1,176 +1,336 @@
 ---
-title: "使用 Azure CLI 管理 Linux 虚拟机 | Azure"
-description: "教程 - 使用 Azure CLI 管理 Linux 虚拟机"
+title: 教程 - 使用 Azure CLI 创建和管理 Linux VM | Azure
+description: 本教程介绍如何使用 Azure CLI 在 Azure 中创建和管理 Linux VM
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
-tags: azure-service-management
-ms.assetid: 
+tags: azure-resource-manager
+ms.assetid: ''
 ms.service: virtual-machines-linux
-ms.devlang: azurecli
-ms.topic: article
+ms.devlang: na
+ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/28/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: a2084798dc02ec48962e8f31cfcc70d04ed399fa
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+origin.date: 03/23/2018
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: 4ac35cad5e64dd2863ee590315780c9a6cb14f74
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912939"
 ---
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>教程：使用 Azure CLI 创建和管理 Linux VM
 
-# <a name="manage-linux-virtual-machines-with-the-azure-cli"></a>使用 Azure CLI 管理 Linux 虚拟机
+Azure 虚拟机提供完全可配置的灵活计算环境。 本教程介绍 Azure 虚拟机的基本部署项目，例如选择 VM 大小、选择 VM 映像和部署 VM。 你将学习如何执行以下操作：
 
-本教程将创建一个虚拟机并执行常见的管理任务，例如添加磁盘、自动化软件安装以及创建虚拟机快照。 
-
-若要完成本教程，请确保已安装最新的 [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)。
-
-## <a name="step-1---log-in-to-azure"></a>步骤 1 - 登录 Azure
-
-首先，使用 [az login](https://docs.microsoft.com/cli/azure/#login) 命令打开终端并登录 Azure 订阅。
+> [!div class="checklist"]
+> * 创建并连接到 VM
+> * 选择并使用 VM 映像
+> * 查看和使用特定 VM 大小
+> * 调整 VM 的大小
+> * 查看并了解 VM 状态
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-```azurecli
-az login
+如果选择在本地安装并使用 CLI，本教程要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
+
+## <a name="create-resource-group"></a>创建资源组
+
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 命令创建资源组。 
+
+Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在“chinaeast”  区域中创建了名为“myResourceGroupVM”  的资源组。 
+
+```azurecli 
+az group create --name myResourceGroupVM --location chinaeast
 ```
 
-## <a name="step-2---create-resource-group"></a>步骤 2 - 创建资源组
+创建或修改 VM 时指定资源组，本教程会对此进行演示。
 
-使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 命令创建资源组。 
+## <a name="create-virtual-machine"></a>创建虚拟机
 
-Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须在创建虚拟机前创建资源组。 在此示例中，在 `chinanorth` 区域中创建了名为 `myResourceGroup` 的资源组。 
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 命令创建虚拟机。 
 
-```azurecli
-az group create --name myResourceGroup --location chinanorth
-```
-
-## <a name="step-3---prepare-configuration"></a>步骤 3 - 准备配置文件
-
-部署虚拟机时，可使用 **cloud-init** 自动执行配置，如安装软件包、创建文件和运行脚本。 在本教程中，有两个项目为自动配置：
-
-- 安装 NGINX Web 服务器
-- 在 VM 上预配第二个磁盘
-
-由于 **cloud-init** 配置在 VM 部署时间进行，因此需在创建虚拟机前定义 **cloud-init** 配置。
-
-创建名为 `cloud-init.txt` 的文件，并将以下内容复制到其中。 此配置将安装 NGINX 包，并将命令运行到共振峰，安装第二个磁盘。
-
-```yaml
-#cloud-config
-package_upgrade: true
-packages:
-  - nginx
-runcmd:
-  - (echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
-  - sudo mkfs -t ext4 /dev/sdc1
-  - sudo mkdir /datadrive
-  - sudo mount /dev/sdc1 /datadrive
-```
-
-## <a name="step-4---create-virtual-machine"></a>步骤 4 - 创建虚拟机
-
-使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create) 命令创建虚拟机。 
-
-创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 在此示例中，创建了一个名为 `myVM` 的运行 Ubuntu 的虚拟机。`--custom-data` 参数接受 cloud-init 配置，并将其暂存在 VM 上。 最后，如果不存在 SSH 密钥，则会进行创建。
+创建虚拟机时，可使用多个选项，例如操作系统映像、磁盘大小调整和管理凭据。 下面的示例创建一个名为 *myVM*、运行 Ubuntu Server 的 VM。 将在该 VM 上创建名为 *azureuser* 的用户帐户，并生成 SSH 密钥（如果这些密钥在默认密钥位置 ( *~/.ssh*) 中不存在）：
 
 ```azurecli
 az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image Canonical:UbuntuServer:14.04.3-LTS:latest \
-  --generate-ssh-keys \
-  --use-unmanaged-disk \
-  --custom-data cloud-init.txt
+    --resource-group myResourceGroupVM \
+    --name myVM \
+    --image UbuntuLTS \
+    --admin-username azureuser \
+    --generate-ssh-keys
 ```
 
-创建 VM 后，Azure CLI 会输出以下信息。 记下公共 IP 地址，访问虚拟机时需使用该地址。 
+创建 VM 可能需要几分钟。 创建 VM 后，Azure CLI 会输出有关 VM 的信息。 请记下 `publicIpAddress`，可以使用此地址访问虚拟机。 
 
-```azurecli
+```azurecli 
 {
   "fqdns": "",
-  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "chinanorth",
+  "id": "/subscriptions/d5b9d4b7-6fc1-0000-0000-000000000000/resourceGroups/myResourceGroupVM/providers/Microsoft.Compute/virtualMachines/myVM",
+  "location": "chinaeast",
   "macAddress": "00-0D-3A-23-9A-49",
   "powerState": "VM running",
   "privateIpAddress": "10.0.0.4",
   "publicIpAddress": "52.174.34.95",
-  "resourceGroup": "myResourceGroup"
+  "resourceGroup": "myResourceGroupVM"
 }
 ```
 
-部署 VM 后，可能需要几分钟才能完成 **cloud-init** 配置。 
+## <a name="connect-to-vm"></a>连接到 VM
 
-## <a name="step-5---configure-firewall"></a>步骤 5 - 配置防火墙
+现在可以使用 SSH 从本地计算机连接到 VM。 将示例 IP 地址替换为上一步骤中记下的 `publicIpAddress`。
 
-Azure [网络安全组](../../virtual-network/virtual-networks-nsg.md) (NSG) 控制一个或多个虚拟机的入站和出站流量。 网络安全组规则允许或拒绝特定端口上或端口范围内的网络流量。 这些规则还可包括源地址前缀，这样只有源自预定义源的流量才可与虚拟机进行通信。
-
-在上一节中，已安装了 NGINX Web 服务器。 如果没有网络安全组规则允许端口 80 上的入站流量，则无法在 Internet 上访问 Web 服务器。 此步骤将介绍如何创建 NSG 规则，允许端口 80 上的入站连接。
-
-### <a name="create-nsg-rule"></a>创建 NSG 规则
-
-若要创建入站 NSG 规则，请使用 [az vm open-port](https://docs.microsoft.com/cli/azure/vm#open-port) 命令。 以下示例将打开虚拟机的 `80` 端口。
-
-```azurecli
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM 
+```bash
+ssh azureuser@52.174.34.95
 ```
 
-现在浏览到虚拟机的公共 IP 地址。 如果具有 NSG 规则，将显示默认 NGINX 站点。
+登录 VM 后，可以安装和配置应用程序。 完成后，可按正常方式关闭 SSH 会话：
 
-![NGINX 默认站点](./media/tutorial-manage-vm/nginx.png)  
+```bash
+exit
+```
 
-## <a name="step-7---management-tasks"></a>步骤 6 - 管理任务
+## <a name="understand-vm-images"></a>了解 VM 映像
 
-在虚拟机生命周期中，你可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，可能还需要创建脚本来自动执行重复或复杂的任务。 使用 Azure CLI，可从命令行或脚本运行许多常见的管理任务。 
+Azure 市场包括许多可用于创建 VM 的映像。 在之前的步骤中，使用 Ubuntu 映像创建了虚拟机。 在此步骤中，Azure CLI 用于在市场中搜索 CentOS 映像，此映像稍后用于部署第二个虚拟机。 
+
+若要查看最常用映像的列表，请使用 [az vm image list](https://docs.azure.cn/cli/vm/image?view=azure-cli-latest#az-vm-image-list) 命令。
+
+```azurecli 
+az vm image list --output table
+```
+
+命令输出返回 Azure 上最常用的 VM 映像。
+
+```bash
+Offer          Publisher               Sku                 Urn                                                             UrnAlias             Version
+-------------  ----------------------  ------------------  --------------------------------------------------------------  -------------------  ---------
+WindowsServer  MicrosoftWindowsServer  2016-Datacenter     MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest     Win2016Datacenter    latest
+WindowsServer  MicrosoftWindowsServer  2012-R2-Datacenter  MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest  Win2012R2Datacenter  latest
+WindowsServer  MicrosoftWindowsServer  2008-R2-SP1         MicrosoftWindowsServer:WindowsServer:2008-R2-SP1:latest         Win2008R2SP1         latest
+WindowsServer  MicrosoftWindowsServer  2012-Datacenter     MicrosoftWindowsServer:WindowsServer:2012-Datacenter:latest     Win2012Datacenter    latest
+UbuntuServer   Canonical               16.04-LTS           Canonical:UbuntuServer:16.04-LTS:latest                         UbuntuLTS            latest
+CentOS         OpenLogic               7.3                 OpenLogic:CentOS:7.3:latest                                     CentOS               latest
+openSUSE-Leap  SUSE                    42.2                SUSE:openSUSE-Leap:42.2:latest                                  openSUSE-Leap        latest
+SLES           SUSE                    12-SP2              SUSE:SLES:12-SP2:latest                                         SLES                 latest
+Debian         credativ                8                   credativ:Debian:8:latest                                        Debian               latest
+CoreOS         CoreOS                  Stable              CoreOS:CoreOS:Stable:latest                                     CoreOS               latest
+```
+
+<!-- Not Available on RHEL-->
+
+可以通过添加 `--all` 参数查看完整列表。 还可以按 `--publisher` 或 `--offer` 筛选映像列表。 在此示例中，已在列表中筛选出其产品与“CentOS”  匹配的所有映像。 
+
+```azurecli 
+az vm image list --offer CentOS --all --output table
+```
+
+部分输出：
+
+```azurecli 
+Offer             Publisher         Sku   Urn                                     Version
+----------------  ----------------  ----  --------------------------------------  -----------
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201501         6.5.201501
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201503         6.5.201503
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.201506         6.5.201506
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20150904       6.5.20150904
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309       6.5.20160309
+CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
+```
+
+若要使用特定的映像部署 VM，请记下“Urn”列中的值，包括发布者、产品/服务、SKU，以及用于[标识](cli-ps-findimage.md#terminology)映像的版本号（可选）。  指定映像时，可将映像版本号替换为“latest”，这会选择最新的发行版。 在此示例中，`--image` 参数用于指定最新版本的 CentOS 6.5 映像。  
+
+```azurecli 
+az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
+```
+
+## <a name="understand-vm-sizes"></a>了解 VM 大小
+
+虚拟机大小决定虚拟机可用计算资源（如 CPU、GPU 和内存）的数量。 需要根据预期的工作负载适当调整虚拟机的大小。 如果工作负荷增加，可调整现有虚拟机的大小。
+
+### <a name="vm-sizes"></a>VM 大小
+
+下表将大小分类成了多个用例。  
+
+| 类型                     | 常见大小           |    说明       |
+|--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| [常规用途](sizes-general.md)         |B、Dsv3、Dv3、DSv2、Dv2、Av2| CPU 与内存之比均衡。 适用于开发/测试、小到中型应用程序和数据解决方案。  |
+| [计算优化](sizes-compute.md)   | Fsv2          | 高 CPU 与内存之比。 适用于中等流量的应用程序、网络设备和批处理。        |
+| [内存优化](sizes-memory.md)    | Esv3、Ev3、M、DSv2、Dv2  | 较高的内存核心比。 适用于关系数据库、中到大型缓存和内存中分析。                 |
+| [GPU](sizes-gpu.md)          | NCv3            | 专门针对大量图形绘制和视频编辑的 VM。       |
+
+<!-- Not Available on DC -->
+<!-- Not Available on [Storage optimized](sizes-storage.md)      | Lsv2, Ls  -->
+<!-- Not Available NV, NVv2, NC, NCv2, NCv3, ND-->
+<!-- Not Available [High performance](sizes-hpc.md) | H -->
+
+### <a name="find-available-vm-sizes"></a>查找可用的 VM 大小
+
+若要查看在特定区域可用的 VM 大小的列表，请使用 [az vm list-sizes](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-sizes) 命令。 
+
+```azurecli 
+az vm list-sizes --location chinaeast --output table
+```
+
+部分输出：
+
+```azurecli 
+  MaxDataDiskCount    MemoryInMb  Name                      NumberOfCores    OsDiskSizeInMb    ResourceDiskSizeInMb
+------------------  ------------  ----------------------  ---------------  ----------------  ----------------------
+                 2          3584  Standard_DS1                          1           1047552                    7168
+                 4          7168  Standard_DS2                          2           1047552                   14336
+                 8         14336  Standard_DS3                          4           1047552                   28672
+                16         28672  Standard_DS4                          8           1047552                   57344
+                 4         14336  Standard_DS11                         2           1047552                   28672
+                 8         28672  Standard_DS12                         4           1047552                   57344
+                16         57344  Standard_DS13                         8           1047552                  114688
+                32        114688  Standard_DS14                        16           1047552                  229376
+                 1           768  Standard_A0                           1           1047552                   20480
+                 2          1792  Standard_A1                           1           1047552                   71680
+                 4          3584  Standard_A2                           2           1047552                  138240
+                 8          7168  Standard_A3                           4           1047552                  291840
+                 4         14336  Standard_A5                           2           1047552                  138240
+                16         14336  Standard_A4                           8           1047552                  619520
+                 8         28672  Standard_A6                           4           1047552                  291840
+                16         57344  Standard_A7                           8           1047552                  619520
+```
+
+### <a name="create-vm-with-specific-size"></a>创建具有特定大小的 VM
+
+在前面的 VM 创建示例中未提供大小，因此会使用默认大小。 可以在创建时使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 和 `--size` 参数选择 VM 大小。 
+
+```azurecli 
+az vm create \
+    --resource-group myResourceGroupVM \
+    --name myVM3 \
+    --image UbuntuLTS \
+    --size Standard_F4s \
+    --generate-ssh-keys
+```
+
+### <a name="resize-a-vm"></a>调整 VM 的大小
+
+部署 VM 后，可调整其大小以增加或减少资源分配。 可通过 [az vm show](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show) 查看 VM 的当前大小：
+
+```azurecli
+az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
+```
+
+调整 VM 大小之前，请检查所需的大小在当前 Azure 群集上是否可用。 [az vm list-vm-resize-options](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-list-vm-resize-options) 命令返回大小列表。 
+
+```azurecli 
+az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --query [].name
+```
+如果所需大小可用，则可从开机状态调整 VM 大小，但需在此操作期间重启 VM。 使用 [az vm resize](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-resize) 命令执行大小调整。
+
+```azurecli 
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
+```
+
+如果所需大小在当前群集上不可用，则需解除分配 VM，然后才能执行调整大小操作。 使用 [az vm deallocate](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-deallocate) 命令停止和解除分配 VM。 请注意，重新打开 VM 的电源时，可能会删除临时磁盘上的所有数据。 除非使用静态 IP 地址，否则公共 IP 地址也会更改。 
+
+```azurecli 
+az vm deallocate --resource-group myResourceGroupVM --name myVM
+```
+
+解除分配后，可能会发生大小调整。 
+
+```azurecli 
+az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_GS1
+```
+
+调整大小后，可以启动 VM。
+
+```azurecli 
+az vm start --resource-group myResourceGroupVM --name myVM
+```
+
+## <a name="vm-power-states"></a>VM 电源状态
+
+Azure VM 可能会处于多种电源状态之一。 从虚拟机监控程序的角度来看，此状态表示 VM 的当前状态。 
+
+### <a name="power-states"></a>电源状态
+
+| 电源状态 | 说明
+|----|----|
+| 正在启动 | 指示正在启动虚拟机。 |
+| 正在运行 | 指示虚拟机正在运行。 |
+| 正在停止 | 指示正在停止虚拟机。 | 
+| 已停止 | 指示虚拟机已停止。 虚拟机处于停止状态时仍会产生计算费用。  |
+| 正在解除分配 | 指示正在解除分配虚拟机。 |
+| 已解除分配 | 指示虚拟机已从虚拟机监控程序中删除，但仍可在控制面板中使用。 处于“已解除分配”状态的虚拟机不会产生计算费用。 |
+| - | 指示虚拟机的电源状态未知。 |
+
+### <a name="find-the-power-state"></a>查找电源状态
+
+若要检索特定 VM 的状态，请使用 [az vm get-instance-view](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-get-instance-view) 命令。 请确保为虚拟机和资源组指定有效的名称。 
+
+```azurecli 
+az vm get-instance-view \
+    --name myVM \
+    --resource-group myResourceGroupVM \
+    --query instanceView.statuses[1] --output table
+```
+
+输出：
+
+```azurecli 
+ode                DisplayStatus    Level
+------------------  ---------------  -------
+PowerState/running  VM running       Info
+```
+
+## <a name="management-tasks"></a>管理任务
+
+在虚拟机生命周期中，可能需要运行管理任务，例如启动、停止或删除虚拟机。 此外，可能还需要创建脚本来自动执行重复或复杂的任务。 使用 Azure CLI，可从命令行或脚本运行许多常见的管理任务。 
 
 ### <a name="get-ip-address"></a>获取 IP 地址
 
 此命令返回虚拟机的私有 IP 地址和公共 IP 地址。  
 
-```azurecli
-az vm list-ip-addresses --resource-group myResourceGroup --name myVM
-```
-
-### <a name="resize-virtual-machine"></a>调整虚拟机大小
-
-若要调整 Azure 虚拟机的大小，需要知道所选 Azure 区域中可用的大小的名称。 可使用 [az vm list-sizes](https://docs.microsoft.com/cli/azure/vm#list-sizes) 命令找到这些大小。
-
-```azurecli
-az vm list-sizes --location chinanorth --output table
-```
-
-可使用 [az vm resize](https://docs.microsoft.com/cli/azure/vm#resize) 命令调整虚拟机大小。 
-
-```azurecli
-az vm resize -g myResourceGroup -n myVM --size Standard_F4s
+```azurecli 
+az vm list-ip-addresses --resource-group myResourceGroupVM --name myVM --output table
 ```
 
 ### <a name="stop-virtual-machine"></a>停止虚拟机
 
-```azurecli
-az vm stop --resource-group myResourceGroup --name myVM
+```azurecli 
+az vm stop --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="start-virtual-machine"></a>启动虚拟机
 
-```azurecli
-az vm start --resource-group myResourceGroup --name myVM
+```azurecli 
+az vm start --resource-group myResourceGroupVM --name myVM
 ```
 
 ### <a name="delete-resource-group"></a>删除资源组
 
-删除资源组会删除其包含的所有资源。
+删除资源组还会删除其包含的所有资源，例如 VM、虚拟网络和磁盘。 `--no-wait` 参数会使光标返回提示符处，不会等待操作完成。 `--yes` 参数将确认是否希望删除资源，不会显示询问是否删除的额外提示。
 
-```azurecli
-az group delete --name myResourceGroup
+```azurecli 
+az group delete --name myResourceGroupVM --no-wait --yes
 ```
 
 ## <a name="next-steps"></a>后续步骤
-本教程使用单个 Azure 资源创建单个虚拟机。 下一个教程基于这些概念，创建高度可用的应用程序，这些应用程序负载均衡且具有针对维护事件的弹性。 继续学习下一个教程 - [在 Azure 中的 Linux 虚拟机上生成负载均衡的高可用性应用程序](tutorial-load-balance-nodejs.md)。
 
-示例 - [Azure CLI 示例脚本](../windows/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)
+在本教程中，你已学习 VM 创建和管理的基本知识，例如如何：
+
+> [!div class="checklist"]
+> * 创建并连接到 VM
+> * 选择并使用 VM 映像
+> * 查看和使用特定 VM 大小
+> * 调整 VM 的大小
+> * 查看并了解 VM 状态
+
+请转到下一教程，了解 VM 磁盘。  
+
+> [!div class="nextstepaction"]
+> [创建和管理 VM 磁盘](./tutorial-manage-disks.md)
+
+<!--Update_Description: update meta properties, update links, wording update -->

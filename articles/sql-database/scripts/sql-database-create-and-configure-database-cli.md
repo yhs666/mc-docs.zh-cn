@@ -1,67 +1,73 @@
 ---
-title: "Azure CLI 脚本 - 创建 SQL 数据库 | Microsoft 文档"
-description: "Azure CLI 脚本示例 - 使用 Azure CLI 创建 SQL 数据库"
+title: CLI 示例 - 创建 Azure SQL 数据库 | Microsoft Docs
+description: 使用此 Azure CLI 示例脚本创建 SQL 数据库。
 services: sql-database
-documentationcenter: sql-database
-author: janeng
-manager: jstrauss
-editor: carlrab
-tags: azure-service-management
-ms.assetid: 
 ms.service: sql-database
-ms.custom: sample
-ms.devlang: CLI
-ms.topic: article
-ms.tgt_pltfrm: sql-database
-ms.workload: database
-ms.date: 03/16/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7cc8d7b9c616d399509cd9dbdd155b0e9a7987a8
-ms.openlocfilehash: eb513c8801d974078fc6e290a58c04c6e93a43c4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/07/2017
-
+ms.subservice: single-database
+ms.custom: ''
+ms.devlang: azurecli
+ms.topic: sample
+author: WenJason
+manager: digimobile
+ms.author: v-jay
+ms.reviewer: ''
+origin.date: 06/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 8677ef3c64912f77296219b17d0f94553b268ce8
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544414"
 ---
+# <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>使用 CLI 创建单一 Azure SQL 数据库并配置防火墙规则
 
-# <a name="create-a-single-sql-database-and-configure-a-firewall-rule-using-the-azure-cli"></a>使用 Azure CLI 创建单个 SQL 数据库并配置防火墙规则
+此 Azure CLI 脚本示例创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。
 
-此示例 CLI 脚本创建 Azure SQL 数据库，并配置服务器级防火墙规则。 成功运行该脚本后，可以通过所有 Azure 服务和配置的 IP 地址访问 SQL 数据库。 
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-必要时，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 创建与 Azure 的连接。
-
-此示例在 Bash shell 中正常工作。 有关在 Windows 上运行 Azure CLI 脚本的选项，请参阅[在 Windows 中运行 Azure CLI](../../virtual-machines/virtual-machines-windows-cli-options.md)。
+本主题需要运行 Azure CLI 版本 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI]( /cli/install-azure-cli)。 
 
 ## <a name="sample-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
+# set execution context (if necessary)
+az account set --subscription <replace with your subscription name or id>
+
+# Set the resource group name and location for your server
+resourceGroupName=myResourceGroup-$RANDOM
+location=chinaeast
+
 # Set an admin login and password for your database
 adminlogin=ServerAdmin
-password=ChangeYourAdminPassword1
+password=`openssl rand -base64 16`
+# password=<EnterYourComplexPasswordHere1>
+
 # The logical server name has to be unique in the system
 servername=server-$RANDOM
+
 # The ip address range that you want to allow to access your DB
 startip=0.0.0.0
 endip=0.0.0.0
 
 # Create a resource group
 az group create \
-    --name myResourceGroup \
-    --location "China East"
+    --name $resourceGroupName \
+    --location $location
 
 # Create a logical server in the resource group
 az sql server create \
     --name $servername \
-    --resource-group myResourceGroup \
-    --location "China East"  \
+    --resource-group $resourceGroupName \
+    --location $location  \
     --admin-user $adminlogin \
     --admin-password $password
 
 # Configure a firewall rule for the server
 az sql server firewall-rule create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     -n AllowYourIp \
     --start-ip-address $startip \
@@ -69,36 +75,39 @@ az sql server firewall-rule create \
 
 # Create a database in the server
 az sql db create \
-    --resource-group myResourceGroup \
+    --resource-group $resourceGroupName \
     --server $servername \
     --name mySampleDatabase \
     --sample-name AdventureWorksLT \
-    --service-objective S0
+    --edition GeneralPurpose \
+    --family Gen4 \
+    --capacity 1 
+
+# Echo random password
+echo $password
 ```
 ## <a name="clean-up-deployment"></a>清理部署
 
-运行脚本示例后，可以使用以下命令删除资源组以及与其关联的所有资源。
+使用以下命令删除资源组及其相关的所有资源。
 
 ```azurecli
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
 此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#create) | 创建用于托管 SQL 数据库的逻辑服务器。 |
-| [az sql server firewall create](https://docs.microsoft.com/cli/azure/sql/server/firewall#create) | 创建一个防火墙规则，以允许从输入的 IP 地址范围访问服务器上的所有 SQL 数据库。 |
-| [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#create) | 在逻辑服务器中创建 SQL 数据库。 |
-| [az group delete](https://docs.microsoft.com/cli/azure/resource#delete) | 删除资源组，包括所有嵌套的资源。 |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库或弹性池的 SQL 数据库服务器。 |
+| [az sql server firewall create](/cli/sql/server/firewall-rule#az-sql-server-firewall-rule-create) | 创建一个防火墙规则，允许从输入的 IP 地址范围访问 SQL 数据库服务器上的所有单一数据库和弹性池。 |
+| [az sql db create](/cli/sql/db#az-sql-db-create) | 创建单一数据库或弹性池。 |
+| [az group delete](/cli/resource#az-resource-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/)。
 
 其他 SQL 数据库 CLI 脚本示例可以在 [Azure SQL 数据库文档](../sql-database-cli-samples.md)中找到。
-
-

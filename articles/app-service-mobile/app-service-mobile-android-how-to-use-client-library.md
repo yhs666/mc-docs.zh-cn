@@ -1,33 +1,34 @@
 ---
-title: "如何使用用于 Android 的 Azure 移动应用 SDK | Microsoft Docs"
-description: "如何使用用于 Android 的 Azure 移动应用 SDK"
+title: 如何使用用于 Android 的 Azure 移动应用 SDK
+description: 如何使用用于 Android 的 Azure 移动应用 SDK
 services: app-service\mobile
 documentationcenter: android
-author: adrianhall
-manager: adrianhall
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 04/25/2017
-ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4a18b6116e37e365e2d4c4e2d144d7588310292e
-ms.openlocfilehash: 46f35823e07db31b81401594ca194db058adf615
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/19/2017
-
+origin.date: 11/16/2017
+ms.author: v-biyu
+ms.date: 01/07/2019
+ms.openlocfilehash: fc2e053163675b7d86aacf0ed5145d682efd43d2
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58626095"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>如何使用用于 Android 的 Azure 移动应用 SDK
 
 本指南说明如何使用用于移动应用的 Android 客户端 SDK 来实现常见方案，例如：
 
-- 查询数据（插入、更新和删除）。
-- 身份验证。
-- 处理错误。
-- 自定义客户端。 
+* 查询数据（插入、更新和删除）。
+* 身份验证。
+* 处理错误。
+* 自定义客户端。
 
 本指南侧重于客户端 Android SDK。  若要详细了解移动应用的服务器端 SDK，请参阅 [Work with .NET backend SDK][10]（使用 .NET 后端）或 [How to use the Node.js backend SDK][11]（如何使用 Node.js 后端 SDK）。
 
@@ -41,7 +42,7 @@ ms.lasthandoff: 05/19/2017
 
 ## <a name="setup-and-prerequisites"></a>安装与先决条件
 
-完成[移动应用快速入门](./app-service-mobile-android-get-started.md)教程。  此任务可确保满足开发 Azure 移动应用的所有先决条件。  快速入门还帮助配置帐户及创建第一个移动应用后端。
+完成[移动应用快速入门](app-service-mobile-android-get-started.md)教程。  此任务可确保满足开发 Azure 移动应用的所有先决条件。  快速入门还帮助配置帐户及创建第一个移动应用后端。
 
 如果决定不完成快速入门教程，请完成以下任务：
 
@@ -49,7 +50,7 @@ ms.lasthandoff: 05/19/2017
 - 在 Android Studio 中， [更新 Gradle 生成文件](#gradle-build)。
 - [启用 Internet 权限](#enable-internet)。
 
-###<a name="gradle-build"></a>更新 Gradle 生成文件
+### <a name="gradle-build"></a>更新 Gradle 生成文件
 
 更改以下两个 **build.gradle** 文件：
 
@@ -66,12 +67,12 @@ ms.lasthandoff: 05/19/2017
 2. 将以下代码添加到*依赖关系*标记内*模块应用*级别的 **build.gradle** 文件：
 
     ```text
-    compile 'com.microsoft.azure:azure-mobile-android:3.3.0'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     ```
 
-    目前的最新版本为 3.3.0。 [bintray][14] 中列出了支持的版本。
+    目前的最新版本为 3.4.0。 [bintray][14] 中列出了支持的版本。
 
-###<a name="enable-internet"></a>启用 Internet 权限
+### <a name="enable-internet"></a>启用 Internet 权限
 
 若要访问 Azure，应用中必须已启用 Internet 权限。 如果尚未启用，请将以下代码行添加到 **AndroidManifest.xml** 文件：
 
@@ -108,7 +109,7 @@ package com.example.appname.services;
 import android.content.Context;
 import com.microsoft.windowsazure.mobileservices.*;
 
-public AzureServiceAdapter {
+public class AzureServiceAdapter {
     private String mMobileBackendUrl = "https://myappname.azurewebsites.cn";
     private Context mContext;
     private MobileServiceClient mClient;
@@ -189,7 +190,7 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-若要了解如何在移动应用后端中创建更多表，请参阅[如何定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。
+若要了解如何在移动应用后端中创建更多表，请参阅[如何：定义表控制器][15]（.NET 后端）或[使用动态架构定义表][16]（Node.js 后端）。
 
 Azure 移动应用后端表定义了五个特殊字段，其中四个字段可用于客户端：
 
@@ -225,18 +226,18 @@ public class ToDoItem
 
     @com.google.gson.annotations.SerializedName("createdAt")
     private DateTimeOffset mCreatedAt;
-    public DateTimeOffset getUpdatedAt() { return mCreatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
+    public DateTimeOffset getCreatedAt() { return mCreatedAt; }
+    protected void setCreatedAt(DateTimeOffset createdAt) { mCreatedAt = createdAt; }
 
     @com.google.gson.annotations.SerializedName("updatedAt")
     private DateTimeOffset mUpdatedAt;
     public DateTimeOffset getUpdatedAt() { return mUpdatedAt; }
-    protected DateTimeOffset setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
+    protected void setUpdatedAt(DateTimeOffset updatedAt) { mUpdatedAt = updatedAt; }
 
     @com.google.gson.annotations.SerializedName("version")
     private String mVersion;
-    public String getText() { return mVersion; }
-    public final void setText(String version) { mVersion = version; }
+    public String getVersion() { return mVersion; }
+    public final void setVersion(String version) { mVersion = version; }
 
     public ToDoItem() { }
 
@@ -302,7 +303,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，然后再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法将返回 [`ListenableFuture<E>`][18]。
+上面的示例返回所有结果（结果数上限为服务器设置的最大页面大小）。  `.execute()` 方法在后端上执行查询。  查询先转换为 [OData v3][19] 查询，再传输到移动应用后端。  移动应用后端收到查询后，会先将查询转换为 SQL 语句，然后在 SQL Azure 实例上执行该语句。  由于网络活动需要一段时间，因此 `.execute()` 方法返回 [`ListenableFuture<E>`][18]。
 
 ### <a name="filtering"></a>筛选返回的数据
 
@@ -350,7 +351,7 @@ List<ToDoItem> results = mToDoTable
     .get();
 ```
 
-可将谓词与以下逻辑方法相组合：**and**、**or** 和 **not**。 以下示例组合前述两个示例。
+可将谓词与以下逻辑方法相组合：**and**、**or** 和 **not**。 以下示例组合前面的两个示例。
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -400,11 +401,11 @@ List<ToDoItemNarrow> result = mToDoTable
     .get();
 ```
 
-Select 函数的参数是要返回的表列的字符串名称。  **select** 方法需要接在 **where** 和 **orderBy** 等方法的后面。 它可以后接 **skip** 和 **top** 等分页方法。
+select 函数的参数是要返回的表列的字符串名称。  **select** 方法需要接在 **where** 和 **orderBy** 等方法的后面。 它可以后接 **skip** 和 **top** 等分页方法。
 
 ### <a name="paging"></a>在页中返回数据
 
-数据**始终**在页面中返回。  返回的最大记录数由服务器设置。  如果客户端请求更多记录，服务器将返回最大记录数。  默认情况下，服务器上的最大页面大小为 50 个记录。
+数据**始终**在页面中返回。  返回的最大记录数由服务器设置。  如果客户端请求更多记录，则服务器返回最大记录数。  默认情况下，服务器上的最大页面大小为 50 个记录。
 
 第一个示例说明如何选择表中的前 5 个项。 该查询返回 **ToDoItems**表中的项。 **mToDoTable** 是对前面创建的后端表的引用：
 
@@ -446,7 +447,7 @@ do {
 > [!TIP]
 > 选择适当的页面大小可在执行请求时使用的内存量、带宽用量以及完全接收数据时产生的延迟之间进行平衡。  默认值（50 个记录）适用于所有设备。  如果以独占方式在较大的内存设备上运行，最高可将页面大小增大到 500。  我们发现，将页面大小增大到超过 500 条记录会导致出现不可接受的延迟，以及消耗大量内存的问题。
 
-### <a name="chaining"></a>如何连接查询方法
+### <a name="chaining"></a>如何：连接查询方法
 
 用于查询后端表的方法是可以连接的。 通过链接查询方法，可以选择已排序并分页的筛选行的特定列。 可以创建复杂的逻辑筛选器。  每个查询方法都会返回一个查询对象。 若要结束方法序列并真正运行查询，可以调用 **execute** 方法。 例如：
 
@@ -464,7 +465,7 @@ List<ToDoItem> results = mToDoTable
         .get();
 ```
 
-链接的查询方法必须按照以下顺序排序：
+必须按照以下顺序排序已链接的查询方法：
 
 1. 筛选 (**where**) 方法。
 2. 排序 (**orderBy**) 方法。
@@ -479,9 +480,7 @@ List<ToDoItem> results = mToDoTable
 - 屏幕布局
 - 将两者关联起来的适配器。
 
-以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。
-
-代码指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
+以下示例代码将移动应用 SQL Azure 表 **ToDoItem** 中的数据返回到一个数组中。 此活动是数据应用程序的常见模式。  数据库查询通常会返回行的集合，客户端在列表或数组中获取该集合。 在此示例中，该数组就是数据源。  代码将指定屏幕布局，用于定义设备中显示的数据视图。  这两者与适配器绑定在一起，在此代码中，适配器是 **ArrayAdapter&lt;ToDoItem&gt;** 类的扩展。
 
 #### <a name="layout"></a>定义布局
 
@@ -498,7 +497,7 @@ List<ToDoItem> results = mToDoTable
 
 在上述代码中， *listitem* 属性指定列表中单个行的布局 ID。 此代码指定复选框及其关联文本，并针对列表中的每个项进行一次实例化。 此布局不显示 **id** 字段，如果使用更复杂的布局，则会在屏幕中指定更多的字段。 以下代码摘自 **row_list_to_do.xml** 文件。
 
-```
+```java
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -513,10 +512,7 @@ List<ToDoItem> results = mToDoTable
 ```
 
 #### <a name="adapter"></a>定义适配器
-
-由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类将使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。
-
-在代码中，我们可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
+由于视图的数据源是 **ToDoItem** 的数组，因此我们需要基于 **ArrayAdapter&lt;ToDoItem&gt;** 类子类化适配器。 此子类使用 **row_list_to_do** 布局为每个 **ToDoItem** 生成一个视图。  在代码中，可以定义以下类作为 **ArrayAdapter&lt;E&gt;** 类的扩展：
 
 ```java
 public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
@@ -578,7 +574,7 @@ ToDoItemAdapter 构造函数的第二个参数是对布局的引用。 我们现
 
 #### <a name="use-adapter"></a>使用适配器绑定到 UI
 
-现在，你可以使用数据绑定了。 下面的代码说明如何获取表中的项，以及使用返回的项填充本地适配器。
+现在，可以使用数据绑定了。 下面的代码说明如何获取表中的项，以及使用返回的项填充本地适配器。
 
 ```java
     public void showAll(View view) {
@@ -609,7 +605,6 @@ ToDoItemAdapter 构造函数的第二个参数是对布局的引用。 我们现
 
 请在每次修改 **ToDoItem** 表时调用适配器。 修改是逐条记录进行的，因此，要处理的是单个行而不是一个集合。 插入项时，需要对适配器调用 **add** 方法；删除项时，需要调用 **remove** 方法。
 
-
 可以在 [Android 快速入门项目][21]中找到完整示例。
 
 ## <a name="inserting"></a>将数据插入后端
@@ -632,8 +627,7 @@ ToDoItem entity = mToDoTable
 
 返回的实体将匹配插入后端表的数据，包括 ID 和后端上设置的任何其他值（例如 `createdAt`、`updatedAt` 和 `version` 字段）。
 
-
-移动应用表需要名为 **id**的主键列。 默认情况下，此列是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
+移动应用表需要名为 **id**的主键列。此列必须是字符串。 ID 列的默认值为 GUID。  可以提供其他唯一的值，例如电子邮件地址或用户名。 如果没有为插入的记录提供字符串 ID 值，后端会生成新的 GUID。
 
 字符串 ID 值提供以下优势：
 
@@ -645,7 +639,7 @@ ToDoItem entity = mToDoTable
 
 ## <a name="updating"></a>更新移动应用中的数据
 
-若要更新表中的数据，请将新对象传递给 **update()** 方法。
+要更新表中的数据，请将新对象传递给 **update()** 方法。
 
 ```java
 mToDoTable
@@ -653,8 +647,7 @@ mToDoTable
     .get();
 ```
 
-在此示例中，*item* 是对 *ToDoItem* 表中某个行的引用，该表包含一些更改。
-具有相同 **id** 的行会更新。
+在此示例中，*item* 是对 *ToDoItem* 表中某个行的引用，该表包含一些更改。  具有相同 **id** 的行会更新。
 
 ## <a name="deleting"></a>删除移动应用中的数据
 
@@ -683,11 +676,9 @@ ToDoItem result = mToDoTable
                     .get();
 ```
 
-##<a name="untyped"></a>如何处理非类型化数据
+## <a name="untyped"></a>如何：处理非类型化数据
 
-使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表中包含许多列，但只需要引用其中几个列。  类型化模型需要在数据类中定义移动应用表的所有列。  
-
-用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
+使用非类型化编程模型可以准确控制 JSON 序列化。  在某些常见方案中，可能会希望使用非类型化编程模型。 例如，如果后端表包含很多列，并且只需引用列的子集。  类型化模型需要在数据类中定义移动应用后端中定义的所有列。  用于访问数据的大多数 API 调用都与类型化编程调用类似。 主要差别在于，在非类型化模型中，要对 **MobileServiceJsonTable** 对象而不是 **MobileServiceTable** 对象调用方法。
 
 ### <a name="json_instance"></a>创建非类型化表的实例
 
@@ -738,7 +729,7 @@ mToDoTable.delete(ID);
 ```
 
 ### <a name="json_get"></a>从非类型化表中返回所有行
-以下代码演示了如何检索整个表。 由于使用的是 Json 数据表，你可以选择性地只检索某些表的列。
+以下代码演示了如何检索整个表。 由于使用的是 Json 数据表，可以选择性地只检索某些表的列。
 
 ```java
 public void showAllUntyped(View view) {
@@ -780,9 +771,9 @@ public void showAllUntyped(View view) {
 
 Azure 移动应用客户端 SDK 还可使用 SQLite 数据库在本地存储服务器数据的副本，从而实现脱机数据同步。  无需建立移动连接即可针对脱机表执行操作。  脱机同步有助于提高恢复能力和性能，代价是用于解决冲突的逻辑变得更复杂。  Azure 移动应用客户端 SDK 实现以下功能：
 
-* 增量同步：仅下载已更新的和新的记录，从而减少了带宽和内存消耗。
+* 增量同步：仅下载已更新记录和新记录，从而减少了带宽和内存消耗。
 * 乐观并发：假设操作成功。  冲突解决推迟到在服务器上执行更新之后。
-* 冲突解决：SDK 检测服务器上发生的有冲突更改，并提供挂钩来提醒用户。
+* 冲突解决方法：SDK 检测何时在服务器上进行了有冲突的更改，并提供挂钩来提醒用户。
 * 软删除：将已删除的记录标记为已删除，使其他设备能够更新其脱机缓存。
 
 ### <a name="initialize-offline-sync"></a>初始化脱机同步
@@ -835,7 +826,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 对于联机表，可以使用 `.getTable()`。  对于脱机表，可以使用 `.getSyncTable()`：
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 可用于联机表的所有方法（包括筛选、排序、分页、插入数据、更新数据和删除数据）同样适用于脱机表。
@@ -867,7 +858,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 ### <a name="handle-conflicts-during-offline-synchronization"></a>在脱机同步期间处理冲突
 
-如果在执行 `.push()` 操作期间发生冲突，将引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
+如果在执行 `.push()` 操作期间发生冲突，会引发 `MobileServiceConflictException`。   服务器发出的项嵌入在异常中，可以通过针对该异常执行 `.getItem()` 来检索该项。  通过针对 MobileServiceSyncContext 对象调用以下项来调整推送：
 
 *  `.cancelAndDiscardItem()`
 *  `.cancelAndUpdateItem()`
@@ -877,7 +868,7 @@ private AsyncTask<Void, Void, Void> sync(MobileServiceClient mClient) {
 
 ## <a name="custom-api"></a>调用自定义 API
 
-自定义 API 可让你定义自定义终结点，这些终结点将会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
+自定义 API 可让你定义自定义终结点，这些终结点会公开不映射到插入、更新、删除或读取操作的服务器功能。 使用自定义 API 能够以更大的力度控制消息传送，包括读取和设置 HTTP 消息标头，以及定义除 JSON 以外的消息正文格式。
 
 从 Android 客户端调用 **invokeApi** 方法，以调用自定义 API 终结点。 以下示例演示了如何调用名为 **completeAll** 的 API 终结点，从而返回名为 **MarkAllResult** 的集合类。
 
@@ -905,9 +896,9 @@ public void completeItem(View view) {
 
 教程已详细说明如何添加这些功能。
 
-应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)，这些提供者包括：Facebook、Google、Microsoft 帐户、Twitter 和 Azure Active Directory。 你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 你还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
+应用服务支持使用各种外部标识提供者[对应用用户进行身份验证](app-service-mobile-android-get-started-users.md)：Facebook、Google、Microsoft Account、Twitter 和 Azure Active Directory。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在后端中使用已经过身份验证的用户的标识来实施授权规则。
 
-支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者的 Web 界面，因此可提供最简单的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
+支持两种身份验证流：**服务器**流和**客户端**流。 服务器流依赖于标识提供者 Web 界面，因此可提供最简便的身份验证体验。  无需其他 SDK 即可实现服务器流身份验证。 服务器流身份验证不会与移动设备深度集成，因此仅建议用于概念验证方案。
 
 客户端流依赖于标识提供者提供的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。  例如，可以将 Facebook SDK 集成到移动应用程序中。  移动客户端会切换到 Facebook 应用，并在换回移动应用前确认已登录。
 
@@ -918,7 +909,7 @@ public void completeItem(View view) {
 - 限制只有应用服务后端上经过身份验证的用户才能拥有表权限。
 - 将身份验证代码添加到应用。
 
-你可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [Get started with authentication] 和服务器 SDK 操作方法文档。
+可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以使用已经过身份验证的用户的 SID 来修改请求。  有关详细信息，请查看 [身份验证入门] 和服务器 SDK 操作方法文档。
 
 ### <a name="caching"></a>身份验证：服务器流
 
@@ -996,12 +987,12 @@ dependencies {
     compile 'com.google.guava:guava:18.0'
     compile 'com.android.support:customtabs:23.0.1'
     compile 'com.squareup.okhttp:okhttp:2.5.0'
-    compile 'com.microsoft.azure:azure-mobile-android:3.2.0@aar'
+    compile 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
     compile 'com.microsoft.azure:azure-notifications-handler:1.0.1@jar'
 }
 ```
 
-可以使用 **getUserId** 方法从 **MobileServiceUser** 获取已登录用户的 ID。 有关如何使用 Futures 调用异步登录 API 的示例，请参阅 [Get started with authentication]（身份验证入门）。
+可以使用 **getUserId** 方法从 **MobileServiceUser** 获取已登录用户的 ID。 有关如何使用 Futures 调用异步登录 API 的示例，请参阅 [身份验证入门]。
 
 > [!WARNING]
 > 所述的 URL 方案区分大小写。  请确保出现的所有 `{url_scheme_of_you_app}` 的大小写匹配。
@@ -1010,7 +1001,7 @@ dependencies {
 
 缓存身份验证令牌需要将用户 ID 和身份验证令牌存储在设备本地。 下次启动应用时，只需检查缓存，如果这些值存在，则可以跳过登录过程，并使用这些数据重新进入客户端。 但是，这些数据是敏感的，为安全起见，应该以加密形式存储，以防手机失窃。  可以在 [缓存身份验证令牌][7]部分中了解有关缓存身份验证令牌的完整示例。
 
-尝试使用过期的令牌时，会收到“401 未授权”  响应。 可以使用筛选器处理身份验证错误。  筛选器会截获对应用服务后端提出的请求。 筛选器代码会测试 401 响应，触发登录进程，然后恢复生成 401 响应的请求。
+尝试使用过期的令牌时，会收到“401 未授权”  响应。 可以使用筛选器处理身份验证错误。  筛选器会截获对应用服务后端提出的请求。 筛选器代码会测试 401 响应，触发登录进程，并恢复生成 401 响应的请求。
 
 ### <a name="refresh"></a>使用刷新令牌
 
@@ -1049,7 +1040,7 @@ MobileServiceUser user = mClient
 
 * 像配置服务器流身份验证一样配置 Azure 应用服务身份验证和授权。
 * 集成用于身份验证的身份验证提供程序 SDK，以生成访问令牌。
-* 按如下所示调用 `.login()` 方法：
+* 按如下所示调用 `.login()` 方法（`result` 应为 `AuthenticationResult`）：
 
     ```java
     JSONObject payload = new JSONObject();
@@ -1067,6 +1058,8 @@ MobileServiceUser user = mClient
     });
     ```
 
+请参阅下一部分中的完整代码示例。
+
 将 `onSuccess()` 方法替换为成功登录后要使用的任何代码。  `{provider}` 字符串是有效的提供程序：**aad** (Azure Active Directory)、**facebook**、**google**、**microsoftaccount** 或 **twitter**。  如果已实现自定义身份验证，则还可以使用自定义身份验证提供程序标记。
 
 ### <a name="adal"></a>使用 Active Directory 身份验证库 (ADAL) 对用户进行身份验证
@@ -1076,38 +1069,16 @@ MobileServiceUser user = mClient
 1. 根据[如何为 Active Directory 登录配置应用服务][22]教程的说明，为 AAD 登录配置移动应用。 请务必完成注册本机客户端应用程序的可选步骤。
 2. 通过修改 build.gradle 文件并包含以下定义来安装 ADAL：
 
-    ```
-    repositories {
-        mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
-        maven {
-            url "YourLocalMavenRepoPath\\.m2\\repository"
-        }
-    }
-    packagingOptions {
-        exclude 'META-INF/MSFTSIG.RSA'
-        exclude 'META-INF/MSFTSIG.SF'
-    }
-    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile('com.microsoft.aad:adal:1.1.1') {
-            exclude group: 'com.android.support'
-        } // Recent version is 1.1.1
-        compile 'com.android.support:support-v4:23.0.0'
-    }
-    ```
-    
-3. 将以下代码添加到应用程序并进行以下替换：
+    repositories {      mavenCentral()      flatDir {          dirs 'libs'      }      maven {          url "YourLocalMavenRepoPath\\.m2\\repository"      }  }  packagingOptions {      exclude 'META-INF/MSFTSIG.RSA'      exclude 'META-INF/MSFTSIG.SF'  }  dependencies {      compile fileTree(dir: 'libs', include: ['*.jar'])      compile('com.microsoft.aad:adal:1.1.1') {          exclude group: 'com.android.support'      } // Recent version is 1.1.1      compile 'com.android.support:support-v4:23.0.0'  }
 
-* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.chinacloudapi.cn/contoso.onmicrosoft.com。 
+1. 将以下代码添加到应用程序并进行以下替换：
 
+* 将 **INSERT-AUTHORITY-HERE** 替换为在其中预配应用程序的租户的名称。 格式应为 https://login.microsoftonline.com/contoso.onmicrosoft.com。
 * 将 **INSERT-RESOURCE-ID-HERE** 替换移动应用后端的客户端 ID。 可以在门户中“Azure Active Directory 设置”下面的“高级”选项卡获取此客户端 ID。
-
 * 将 **INSERT-CLIENT-ID-HERE** 替换为从本机客户端应用程序复制的客户端 ID。
 
-* 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 _/.auth/login/done_ 终结点（使用 HTTPS 方案）。 此值应类似于 _https://contoso.azurewebsites.cn/.auth/login/done_。
+    * 将 **INSERT-REDIRECT-URI-HERE** 替换为站点的 */.auth/login/done* 终结点（使用 HTTPS 方案）。 此值应类似于 *https://contoso.chinacloudsites.cn/.auth/login/done*。
+  值应类似于 _https://contoso.chinacloudsites.cn/.auth/login/done_。
 
 ```java
 private AuthenticationContext mContext;
@@ -1167,7 +1138,7 @@ private void authenticate() {
         mContext.onActivityResult(requestCode, resultCode, data);
     }
     }
-```
+    ```
 
 ## <a name="filters"></a>Adjust the Client-Server Communication
 
@@ -1184,7 +1155,7 @@ The Client connection is normally a basic HTTP connection using the underlying H
 Call the `.setAndroidHttpClientFactory()` method immediately after creating your client reference.  For example, to set the connection timeout to 60 seconds (instead of the default 10 seconds):
 
 ```java
-mClient = new MobileServiceClient("https://myappname.azurewebsites.net");
+mClient = new MobileServiceClient("https://myappname.chinacloudsites.cn");
 mClient.setAndroidHttpClientFactory(new OkHttpClientFactory() {
     @Override
     public OkHttpClient createOkHttpClient() {
@@ -1222,7 +1193,7 @@ private class ProgressFilter implements ServiceFilter {
             public void onSuccess(ServiceFilterResponse response) {
                 runOnUiThread(new Runnable() {
                     @Override
-                    pubic void run() {
+                    public void run() {
                         if (mProgressBar != null)
                             mProgressBar.setVisibility(ProgressBar.GONE);
                     }
@@ -1249,10 +1220,7 @@ mClient = new MobileServiceClient(applicationUrl).withFilter(new ProgressFilter(
 private class CustomHeaderFilter implements ServiceFilter {
 
     @Override
-    public ListenableFuture<ServiceFilterResponse> handleRequest(
-                ServiceFilterRequest request,
-                NextServiceFilterCallback next) {
-
+    public ListenableFuture<ServiceFilterResponse> handleRequest(ServiceFilterRequest request, NextServiceFilterCallback next) {
         runOnUiThread(new Runnable() {
 
             @Override
@@ -1274,7 +1242,7 @@ private class CustomHeaderFilter implements ServiceFilter {
 
 ### <a name="conversions"></a>配置自动序列化
 
-可以使用 gson API，指定适用于每个列的转换策略。 在发送数据到 Azure 应用服务之前，Android 客户端库会在幕后使用 gson 将 Java 对象序列化为 JSON 数据。  下面的代码使用 **setFieldNamingStrategy()** 方法设置策略。 此示例删除初始字符（“m”），然后将每个字段名称的下一个字符小写。 例如，它会将“mId”变为“id”。  实现转换策略，减少在大多数字段中使用 `SerializedName()` 批注的需求。
+可以使用 gson API，指定适用于每个列的转换策略。 在发送数据到 Azure 应用服务之前，Android 客户端库会在幕后使用 gson 将 Java 对象序列化为 JSON 数据。  下面的代码使用 **setFieldNamingStrategy()** 方法设置策略。 此示例删除初始字符（“m”），并将每个字段名称的下一个字符小写。 例如，它将“mId”变为“id”。  实现转换策略，减少在大多数字段中使用 `SerializedName()` 批注的需求。
 
 ```java
 FieldNamingStrategy namingStrategy = new FieldNamingStrategy() {
@@ -1298,7 +1266,7 @@ client.setGsonBuilder(
 [ASCII control codes C0 and C1]: http://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: http://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.cn
-[Get started with authentication]: ./app-service-mobile-android-get-started-users.md
+[身份验证入门]: ./app-service-mobile-android-get-started-users.md
 [2]: http://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [4]: http://go.microsoft.com/fwlink/p/?LinkId=296840
 [5]: ./app-service-mobile-android-get-started-push.md
@@ -1311,13 +1279,16 @@ client.setGsonBuilder(
 [12]: http://azure.github.io/azure-mobile-apps-android-client/
 [13]: ./app-service-mobile-android-get-started.md#create-a-new-azure-mobile-app-backend
 [14]: http://go.microsoft.com/fwlink/p/?LinkID=717034
-[15]: ./app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-define-a-table-controller
+[15]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#define-table-controller
 [16]: ./app-service-mobile-node-backend-how-to-use-server-sdk.md#TableOperations
 [17]: https://developer.android.com/reference/java/util/UUID.html
 [18]: https://github.com/google/guava/wiki/ListenableFutureExplained
 [19]: http://www.odata.org/documentation/odata-version-3-0/
 [20]: http://hashtagfail.com/post/46493261719/mobile-services-android-querying
 [21]: https://github.com/Azure-Samples/azure-mobile-apps-android-quickstart
-[22]: app-service-mobile-how-to-configure-active-directory-authentication.md
+[22]: ../app-service/configure-authentication-provider-aad.md
 [Future]: http://developer.android.com/reference/java/util/concurrent/Future.html
 [AsyncTask]: http://developer.android.com/reference/android/os/AsyncTask.html
+
+
+<!--Update_Description: update wording -->

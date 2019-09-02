@@ -1,88 +1,103 @@
 ---
-title: 使用 PowerShell 打开 VM 的端口 | Azure
+title: 如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点 | Azure
 description: 了解如何使用 Azure Resource Manager 部署模型和 Azure PowerShell 在 Windows VM 上打开端口/创建终结点
 services: virtual-machines-windows
 documentationcenter: ''
-author: iainfoulds
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: ''
-
 ms.assetid: cf45f7d8-451a-48ab-8419-730366d54f1e
 ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/09/2017
-wacn.date: 03/28/2017
-ms.author: v-dazen
+origin.date: 12/13/2017
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.openlocfilehash: f4291d5a6ffaa11d60af1c8d3d5499cc70fd7e7e
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539145"
 ---
-
-# 使用 PowerShell 打开 Azure 中 VM 的端口和终结点
+# <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>如何在 Azure 中使用 PowerShell 打开 VM 的端口和终结点
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
-## 快速命令
-若要创建网络安全组和 ACL 规则，需要[安装最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。用户也可以[使用 Azure 门户执行这些步骤](nsg-quickstart-portal.md)。
+## <a name="quick-commands"></a>快速命令
+若要创建网络安全组和 ACL 规则，需要[安装最新版本的 Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)。 也可以[使用 Azure 门户执行这些步骤](nsg-quickstart-portal.md)。
 
 登录 Azure 帐户：
 
-```
-Login-AzureRmAccount -EnvironmentName AzureChinaCloud
-```
-
-在以下示例中，请将示例参数名称替换为你自己的值。示例参数名称包括 `myResourceGroup`、`myNetworkSecurityGroup` 和 `myVnet`。
-
-创建规则。以下示例创建名为 `myNetworkSecurityGroupRule` 的规则，以便允许在端口 80 上传输 TCP 流量：
-
-```
-$httprule = New-AzureRmNetworkSecurityRuleConfig -Name "myNetworkSecurityGroupRule" `
-    -Description "Allow HTTP" -Access "Allow" -Protocol "Tcp" -Direction "Inbound" `
-    -Priority "100" -SourceAddressPrefix "Internet" -SourcePortRange * `
-    -DestinationAddressPrefix * -DestinationPortRange 80
+```powershell
+Connect-AzAccount -Environment AzureChinaCloud
 ```
 
-接下来，创建网络安全组，并按如下所示分配刚刚创建的 HTTP 规则。以下示例创建名为 `myNetworkSecurityGroup` 的网络安全组：
+在以下示例中，请将参数名称替换成自己的值。 示例参数名称包括了 myResourceGroup  、myNetworkSecurityGroup  和 myVnet  。
 
-```
-$nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
-    -Location "ChinaNorth" -Name "myNetworkSecurityGroup" -SecurityRules $httprule
+使用 [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig) 创建规则。 以下示例创建一个名为 myNetworkSecurityGroupRule  的规则，以允许端口 80  上的 tcp  流量：
+
+```powershell
+$httprule = New-AzNetworkSecurityRuleConfig `
+    -Name "myNetworkSecurityGroupRule" `
+    -Description "Allow HTTP" `
+    -Access "Allow" `
+    -Protocol "Tcp" `
+    -Direction "Inbound" `
+    -Priority "100" `
+    -SourceAddressPrefix "Internet" `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 80
 ```
 
-现在将网络安全组分配给子网。以下示例将名为 `myVnet` 的现有虚拟网络分配给变量 `$vnet`：
+接下来，使用 [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup) 创建网络安全组，并按以下步骤分配刚刚创建的 HTTP 规则。 以下示例创建名为“myNetworkSecurityGroup”  的网络安全组：
 
+```powershell
+$nsg = New-AzNetworkSecurityGroup `
+    -ResourceGroupName "myResourceGroup" `
+    -Location "ChinaEast" `
+    -Name "myNetworkSecurityGroup" `
+    -SecurityRules $httprule
 ```
-$vnet = Get-AzureRmVirtualNetwork -ResourceGroupName "myResourceGroup" `
+
+现在将网络安全组分配给子网。 以下示例使用 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) 向变量 *$vnet* 分配名为 *myVnet* 的现有虚拟网络：
+
+```powershell
+$vnet = Get-AzVirtualNetwork `
+    -ResourceGroupName "myResourceGroup" `
     -Name "myVnet"
 ```
 
-将网络安全组与子网相关联。以下示例将名为 `mySubnet` 的子网与网络安全组相关联：
+使用 [Set-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 将网络安全组关联到子网。 以下示例将名为 mySubnet  的子网与网络安全组相关联：
 
-```
+```powershell
 $subnetPrefix = $vnet.Subnets|?{$_.Name -eq 'mySubnet'}
 
-Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name "mySubnet" `
+Set-AzVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name "mySubnet" `
     -AddressPrefix $subnetPrefix.AddressPrefix `
     -NetworkSecurityGroup $nsg
 ```
 
-最后，更新虚拟网络以使做出的更改生效：
+最后，使用 [Set-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/set-azvirtualnetwork) 更新虚拟网络，使更改生效：
 
+```powershell
+Set-AzVirtualNetwork -VirtualNetwork $vnet
 ```
-Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-```
 
-## <a name="more-information-on-network-security-groups"></a> 有关网络安全组的详细信息
-利用此处的快速命令，可以让流向 VM 的流量开始正常运行。网络安全组提供许多出色的功能和粒度来控制资源的访问。请参阅[创建网络安全组和 ACL 规则](../../virtual-network/virtual-networks-create-nsg-arm-ps.md)了解更多信息。
+## <a name="more-information-on-network-security-groups"></a>有关网络安全组的详细信息
+利用此处的快速命令，可以让流向 VM 的流量开始正常运行。 网络安全组提供许多出色的功能和粒度来控制资源的访问。 可以[在此处详细了解如何创建网络安全组和 ACL 规则](tutorial-virtual-network.md#secure-network-traffic)。
 
-可以将网络安全组和 ACL 规则定义为 Azure Resource Manager 模板的一部分。深入了解[使用模板创建网络安全组](../../virtual-network/virtual-networks-create-nsg-arm-template.md)。
+对于高可用性 Web 应用程序，应将 VM 放置在 Azure 负载均衡器后。 当负载均衡器向 VM 分配流量时，网络安全组可以筛选流量。 有关详细信息，请参阅[如何在 Azure 中均衡 Linux 虚拟机负载以创建高可用性应用程序](tutorial-load-balancer.md)。
 
-如果需要使用端口转发将唯一的外部端口映射至 VM 上的内部端口，请使用负载均衡器和网络地址转换 (NAT) 规则。例如，你可能想对外公开 TCP 端口 8080，然后让流量定向到 VM 上的 TCP 端口 80。了解如何[创建面向 Internet 的负载均衡器](../../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
-
-## 后续步骤
-在本示例中，你创建了简单的规则来允许 HTTP 流量。下列文章更介绍了有关创建更详细环境的信息：
+## <a name="next-steps"></a>后续步骤
+在本示例中，创建了简单的规则来允许 HTTP 流量。 下列文章更介绍了有关创建更详细环境的信息：
 
 * [Azure Resource Manager 概述](../../azure-resource-manager/resource-group-overview.md)
-* [什么是网络安全组 (NSG)？](../../virtual-network/virtual-networks-nsg.md)
+* [什么是网络安全组？](../../virtual-network/security-overview.md)
 * [Azure Resource Manager 中负载均衡器的概述](../../load-balancer/load-balancer-arm.md)
 
-<!---HONumber=Mooncake_1212_2016-->
+<!--Update_Description: update link , update meta properties -->

@@ -1,29 +1,27 @@
 ---
-title: "池删除完成事件 - Azure | Microsoft Docs"
-ms.custom: 
-ms.date: 2017-02-01
-ms.prod: azure
-ms.reviewer: 
+title: Azure Batch 池删除完成事件 | Microsoft Docs
+description: Batch 池删除完成事件参考。
+services: batch
+author: dlepow
+manager: jeconnoc
+ms.assetid: ''
 ms.service: batch
-ms.suite: 
-ms.tgt_pltfrm: 
-ms.topic: reference
-ms.assetid: 580a1278-5740-4143-826c-7d875ef127ff
-caps.latest.revision: 5
-author: tamram
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: ''
+ms.workload: big-compute
+origin.date: 04/20/2017
+ms.date: 05/14/2018
 ms.author: v-junlch
-manager: timlt
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 4e30609cd4adc2dc7875b5016c6ace48e8ad235a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 65d6c2fcf4308d95b96522c8816ef17c36f483f5
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663934"
 ---
 # <a name="pool-delete-complete-event"></a>池删除完成事件
-池删除完成事件日志正文
 
-## <a name="remarks"></a>备注
  当完成池删除操作时，会发出此事件。
 
  以下示例演示了池删除完成事件的正文。
@@ -36,7 +34,7 @@ ms.lasthandoff: 05/05/2017
 }
 ```
 
-|元素|类型|说明|
+|元素|类型|注释|
 |-------------|----------|-----------|
 |id|String|池的 id。|
 |startTime|DateTime|池删除开始的时间。|
@@ -45,3 +43,4 @@ ms.lasthandoff: 05/05/2017
 ## <a name="remarks"></a>备注
 有关池调整大小操作的状态和错误代码的详细信息，请参阅[从帐户中删除池](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account)。
 
+<!-- Update_Description: update metedata properties -->

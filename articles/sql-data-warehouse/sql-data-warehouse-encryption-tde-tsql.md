@@ -1,82 +1,85 @@
 ---
-title: SQL 数据仓库中的透明数据加密 (TDE) | Azure
+title: SQL 数据仓库 (T-SQL) 中的透明数据加密 | Microsoft 文档
 description: SQL 数据仓库 (T-SQL) 中的透明数据加密 (TDE)
 services: sql-data-warehouse
-documentationCenter: ''
-authors: ronortloff
-manager: barbkess
-editor: ''
-
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
-wacn.date: 01/17/2017
-ms.author: v-yeche
+ms.topic: conceptual
+ms.subservice: implement
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: cbd67f7001bf9ba4092ec8574d8185b737596421
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348037"
 ---
-
-# 透明数据加密 (TDE) 入门
-
+# <a name="get-started-with-transparent-data-encryption-tde"></a>透明数据加密 (TDE) 入门
 > [!div class="op_single_selector"]
->- [安全性概述](./sql-data-warehouse-overview-manage-security.md)
->- [身份验证](./sql-data-warehouse-authentication.md)
->- [加密（门户）](./sql-data-warehouse-encryption-tde.md)
->- [加密 (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
+> * [安全性概述](sql-data-warehouse-overview-manage-security.md)
+> * [身份验证](sql-data-warehouse-authentication.md)
+> * [加密（门户）](sql-data-warehouse-encryption-tde.md)
+> * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
-## 所需的权限
+## <a name="required-permissions"></a>所需权限
 若要启用透明数据加密 (TDE)，用户必须是管理员或 dbmanager 角色的成员。
 
-## 启用加密
+## <a name="enabling-encryption"></a>启用加密
 执行以下步骤，对 SQL 数据仓库启用 TDE：
 
-1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到托管数据库的服务器上的 *master* 数据库
+1. 使用在 master 数据库中充当管理员或 *dbmanager* 角色成员的登录名，连接到托管数据库的服务器上的 **master** 数据库
 2. 执行以下语句来加密数据库。
 
-    ```sql
-    ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
-    ```
+```sql
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
+```
 
-## 禁用加密
+## <a name="disabling-encryption"></a>禁用加密
 执行以下步骤，对 SQL 数据仓库禁用 TDE：
 
 1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到 *master* 数据库
 2. 执行以下语句来加密数据库。
 
-    ```sql
-    ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
-    ```
+```sql
+ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
+```
 
 > [!NOTE]
 > 在更改 TDE 设置之前，必须恢复暂停的 SQL 数据仓库。
+> 
+> 
 
-## 验证加密
+## <a name="verifying-encryption"></a>验证加密
 若要验证 SQL 数据仓库的加密状态，请遵循以下步骤：
 
-1. 使用在 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名，连接到 *master* 数据库或实例数据库
+1. 使用在 master 数据库中充当管理员或 *dbmanager* 角色成员的登录名，连接到 **master** 数据库或实例数据库
 2. 执行以下语句来加密数据库。
 
-    SELECT
-        [name],
-        [is_encrypted]
-    FROM
-        sys.databases;
+```sql
+SELECT
+    [name],
+    [is_encrypted]
+FROM
+    sys.databases;
+```
 
 结果 ```1``` 表示数据库已加密，```0``` 表示数据库未加密。
 
-## 加密 DMV
-* [sys.databases][sys.databases]
-* [sys.dm\_pdw\_nodes\_database\_encryption\_keys][sys.dm_pdw_nodes_database_encryption_keys]
+## <a name="encryption-dmvs"></a>加密 DMV
+* [sys.databases][sys.databases] 
+* [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->
-
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/zh-cn/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/zh-cn/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/zh-cn/library/mt203922.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx  
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx  
 
 <!--Image references-->
 
 <!--Link references-->
-
-<!---HONumber=Mooncake_Quality_Review_0117_2017-->

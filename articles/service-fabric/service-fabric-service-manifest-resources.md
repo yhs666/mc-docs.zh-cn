@@ -1,26 +1,26 @@
 ---
-title: "指定 Service Fabric 服务终结点 | Microsoft 文档"
-description: "如何在服务清单中描述终结点资源，包括如何设置 HTTPS 终结点"
+title: 指定 Service Fabric 服务终结点 | Azure
+description: 如何在服务清单中描述终结点资源，包括如何设置 HTTPS 终结点
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: da36cbdb-6531-4dae-88e8-a311ab71520d
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d1b81737031afbe09173b0bf682f024f066c391f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 02/23/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
+ms.openlocfilehash: 93fbf8fd484ffed47ae4698cf7cb94298eb37515
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463614"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>在服务清单中指定资源
 ## <a name="overview"></a>概述
@@ -35,6 +35,17 @@ ms.lasthandoff: 04/14/2017
     <Endpoint Name="ServiceEndpoint1" Protocol="http"/>
     <Endpoint Name="ServiceEndpoint2" Protocol="http" Port="80"/>
     <Endpoint Name="ServiceEndpoint3" Protocol="https"/>
+  </Endpoints>
+</Resources>
+```
+
+如果在单个服务包中有多个代码包，则还需要在“终结点”部分中引用代码包。  例如，如果 **ServiceEndpoint2a** 和 **ServiceEndpoint2b** 是同一个服务包中引用不同代码包的终结点，则对应于每个终结点的代码包按如下所示说明：
+
+```xml
+<Resources>
+  <Endpoints>
+    <Endpoint Name="ServiceEndpoint2a" Protocol="http" Port="802" CodePackageRef="Code1"/>
+    <Endpoint Name="ServiceEndpoint2b" Protocol="http" Port="801" CodePackageRef="Code2"/>
   </Endpoints>
 </Resources>
 ```
@@ -68,7 +79,7 @@ HTTP 终结点由 Service Fabric 自动建立 ACL。
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an
        independently updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -90,17 +101,20 @@ HTTP 终结点由 Service Fabric 自动建立 ACL。
 </ServiceManifest>
 ```
 
-## <a name="example-specifying-an-https-endpoint-for-your-service"></a>示例：指定用于你的服务的 HTTPS 终结点
+## <a name="example-specifying-an-https-endpoint-for-your-service"></a>示例：指定用于服务的 HTTPS 终结点
 HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进行加密。 若要在 Service Fabric 服务上启用 HTTPS，请在服务清单的“*资源 -> 终结点 -> 终结点*”部分中指定该协议，如前面针对终结点 *ServiceEndpoint3* 的操作所示。
 
 > [!NOTE]
-> 不能在应用程序升级期间更改服务的协议，因为这是一项破坏性更改。
-> 
+> 在应用程序升级期间不能更改服务的协议。 如果在升级期间进行了更改，那会是一项重大的更改。
 > 
 
-下面是你需要为 HTTPS 设置的一个示例 ApplicationManifest。 必须提供证书的指纹。 EndpointRef 是对 ServiceManifest 中 EndpointResource 的引用，你为其设置 HTTPS 协议。 可以添加多个 EndpointCertificate。  
+> [!WARNING] 
+> 使用 HTTPS 时，请勿将同一端口和证书用于已部署到同一节点的不同服务实例（独立于应用程序）。 在不同的应用程序实例中使用相同的端口升级两个不同的服务将导致升级失败。 有关详细信息，请参阅[使用 HTTPS 终结点升级多个应用程序](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)。
+>
 
-```
+下面是需要为 HTTPS 设置的一个示例 ApplicationManifest。 必须提供证书的指纹。 EndpointRef 是对 ServiceManifest 中 EndpointResource 的引用，为其设置 HTTPS 协议。 可以添加多个 EndpointCertificate。  
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
@@ -108,7 +122,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
                      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
-    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="2" />
+    <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />
     <Parameter Name="Stateful1_TargetReplicaSetSize" DefaultValue="3" />
   </Parameters>
@@ -129,7 +143,7 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
 
          The attribute ServiceTypeName below must match the name defined in the imported ServiceManifest.xml file. -->
     <Service Name="Stateful1">
-      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_MinReplicaSetSize]">
+      <StatefulService ServiceTypeName="Stateful1Type" TargetReplicaSetSize="[Stateful1_TargetReplicaSetSize]" MinReplicaSetSize="[Stateful1_ ]">
         <UniformInt64Partition PartitionCount="[Stateful1_PartitionCount]" LowKey="-9223372036854775808" HighKey="9223372036854775807" />
       </StatefulService>
     </Service>
@@ -139,3 +153,67 @@ HTTPS 协议提供服务器身份验证，用于对客户端-服务器通信进�
   </Certificates>
 </ApplicationManifest>
 ```
+
+对于 Linux 群集，**MY** 存储默认为文件夹 **/var/lib/sfcerts**。
+
+## <a name="overriding-endpoints-in-servicemanifestxml"></a>重写 ServiceManifest.xml 中的终结点
+
+在 ApplicationManifest 中，添加一个 ResourceOverrides 部分，作为 ConfigOverrides 部分的同级。 在本部分中，可以为服务清单中指定的资源部分中的终结点部分指定替代。 运行时 5.7.217/SDK 2.7.217 及更高版本支持替代终结点。
+
+若要使用 ApplicationParameter 重写 ServiceManifest 中的终结点，请更改 ApplicationManifest，如下所示：
+
+在 ServiceManifestImport 部分添加一个新部分“ResourceOverrides”。
+
+```xml
+<ServiceManifestImport>
+    <ServiceManifestRef ServiceManifestName="Stateless1Pkg" ServiceManifestVersion="1.0.0" />
+    <ConfigOverrides />
+    <ResourceOverrides>
+      <Endpoints>
+        <Endpoint Name="ServiceEndpoint" Port="[Port]" Protocol="[Protocol]" Type="[Type]" />
+        <Endpoint Name="ServiceEndpoint1" Port="[Port1]" Protocol="[Protocol1] "/>
+      </Endpoints>
+    </ResourceOverrides>
+        <Policies>
+           <EndpointBindingPolicy CertificateRef="TestCert1" EndpointRef="ServiceEndpoint"/>
+        </Policies>
+  </ServiceManifestImport>
+```
+
+在 Parameters 中添加以下内容：
+
+```xml
+  <Parameters>
+    <Parameter Name="Port" DefaultValue="" />
+    <Parameter Name="Protocol" DefaultValue="" />
+    <Parameter Name="Type" DefaultValue="" />
+    <Parameter Name="Port1" DefaultValue="" />
+    <Parameter Name="Protocol1" DefaultValue="" />
+  </Parameters>
+```
+
+部署应用程序时，可以传入这些值作为 ApplicationParameter。  例如：
+
+```powershell
+PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
+```
+
+注意：如果为 ApplicationParameters 提供的值为空，将返回到 ServiceManifest 中为对应 EndPointName 提供的默认值。
+
+例如：
+
+如果在指定的 ServiceManifest 中
+
+```xml
+  <Resources>
+    <Endpoints>
+      <Endpoint Name="ServiceEndpoint1" Protocol="tcp"/>
+    </Endpoints>
+  </Resources>
+```
+
+并且应用程序参数的 Port1 和 Protocol1 值为 null 或为空。 仍由 ServiceFabric 决定端口。 而协议将为 TCP。
+
+假设指定了错误值。 例如，对于“端口”，指定了字符串值“Foo”而不是 int。New-ServiceFabricApplication 命令将失败并返回错误：“ResourceOverrides”节中名为“ServiceEndpoint1”的替代参数的属性“Port1”无效。 指定的值为“Foo”，而要求的值为“int”。
+
+<!--Update_Description: update meta properties, wording update -->

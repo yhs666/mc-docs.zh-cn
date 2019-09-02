@@ -1,104 +1,106 @@
 ---
-title: "Azure 快速入门 - 创建 Windows VM 门户 | Azure"
-description: "Azure 快速入门 - 创建 Windows VM 门户"
+title: 快速入门 - 在 Azure 门户中创建 Windows VM | Azure
+description: 本快速入门介绍了如何使用 Azure 门户创建 Windows 虚拟机
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-windows
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/13/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 5303691c5caa9bf286bc664aadae9fa54a4ac0ef
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+origin.date: 07/02/2019
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: 45f6eac7a383cff8f44aff8b8b6cb9503f2e80b9
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539154"
 ---
+# <a name="quickstart-create-a-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 Windows 虚拟机
 
-# <a name="create-a-windows-virtual-machine-with-the-azure-portal-preview"></a>使用 Azure 门户创建 Windows 虚拟机
+可以通过 Azure 门户创建 Azure 虚拟机 (VM)。 此方法提供基于浏览器的用户界面来创建 VM 及其相关资源。 本快速入门展示了如何使用 Azure 门户在 Azure 中部署运行 Windows Server 2016 的虚拟机 (VM)。 若要查看运行中的 VM，可以通过 RDP 登录到该 VM 并安装 IIS Web 服务器。
 
-可以通过 Azure 门户创建 Azure 虚拟机。 此方法提供一个基于浏览器的用户界面，用于创建和配置虚拟机和所有相关的资源。 此快速入门介绍了如何使用 Azure 门户创建虚拟机。 部署完成后，我们将连接到服务器并安装 IIS。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-## <a name="log-in-to-azure"></a>登录 Azure
-
-通过 http://portal.azure.cn 登录到 Azure 门户。
+通过 https://portal.azure.cn 登录到 Azure 门户。
 
 ## <a name="create-virtual-machine"></a>创建虚拟机
 
-2. 单击 Azure 门户左上角的“新建”按钮。
+1. 在 Azure 门户的左上角选择“创建资源”。 
 
-3. 从“新建”边栏选项卡中选择“计算”，从“计算”边栏选项卡中选择“Windows Server 2016 Datacenter”，然后单击“创建”按钮。
+1. 在“新建”  页的“常用”  下，选择“Windows Server 2016 Datacenter”  。
 
-4. 填写虚拟机“基本信息”表单。 在此处输入的用户名和密码用于登录到虚拟机。 对于“资源组”，请创建一个新的资源组。 资源组是在其中创建并集中管理 Azure 资源的逻辑容器。 完成后，单击“确定”。
+1. 在“基本信息”  标签页中的“项目详细信息”  下，确保选择了正确的订阅，然后选择“新建资源组”  。 对于名称，请键入 *myResourceGroup*。 
 
-    ![在门户边栏选项卡中输入 VM 的基本信息](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)  
+    ![为 VM 创建新的资源组](./media/quick-create-portal/project-details.png)
 
-5. 为 VM 选择大小。 若要查看更多的大小，请选择“全部查看”或更改“支持的磁盘类型”筛选器。 
+1. 在“实例详细信息”  下，键入 *myVM* 作为**虚拟机名称**，并选择“中国北部”  作为**位置**。 保留其他默认值。
 
-    ![显示 VM 大小的屏幕截图](./media/quick-create-portal/create-windows-vm-portal-sizes.png)  
+    ![“实例详细信息”部分](./media/quick-create-portal/instance-details.png)
 
-6. 设置保留默认值，然后单击“确定”。
+1. 在“管理员帐户”  下，提供用户名（例如 *azureuser*）和密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](faq.md#what-are-the-password-requirements-when-creating-a-vm)。
 
-7. 在摘要页上，单击“确定”以开始虚拟机部署。
+    ![输入用户名和密码](./media/quick-create-portal/administrator-account.png)
 
-8. 若要监视部署状态，请单击虚拟机。 可以在 Azure 门户仪表板上或者通过从左侧菜单中选择“虚拟机”来找到该 VM。 创建 VM 后，状态将从“正在部署”更改为“正在运行”。
+1. 在“入站端口规则”  下，选择“允许所选端口”  ，然后从下拉列表中选择“RDP (3389)”  和“HTTP”  。
 
-## <a name="open-port-80-for-web-traffic"></a>为 Web 流量打开端口 80 
+    ![为 RDP 和 HTTP 打开端口](./media/quick-create-portal/inbound-port-rules.png)
 
-若要允许 IIS 的流量，需要为 Web 流量打开端口 80。 此步骤将介绍如何创建网络安全组 (NSG) 规则，以允许端口 80 上的入站连接。
+1. 保留剩余的默认值，然后选择页面底部的“查看 + 创建”  按钮。
 
-1. 在虚拟机边栏选项卡的“基本信息”部分，单击**资源组**的名称。
-2. 在资源组的边栏选项卡中，单击资源列表中的“网络安全组”。 NSG 名称应为 VM 名称后面追加“-nsg”。
-3. 单击“入站安全规则”标题，打开入站规则列表。 此时列表中应会出现一条适用于 RDP 的规则。
-4. 单击“+ 添加”，打开“添加入站安全规则”边栏选项卡。
-5. 在“名称”中，键入 **IIS**。 请确保将“端口范围”设置为 80，将“操作”设置为“允许”。 单击 **“确定”**。
+    ![查看并创建](./media/quick-create-portal/review-create.png)
 
 ## <a name="connect-to-virtual-machine"></a>连接到虚拟机
 
-在部署完成后，创建到虚拟机的远程桌面连接。
+创建到虚拟机的远程桌面连接。 这些说明指明了如何从 Windows 计算机连接到 VM。 在 Mac 上，需要一个 RDP 客户端，例如 Mac 应用商店提供的这个[远程桌面客户端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
 
-1. 单击虚拟机边栏选项卡上的“连接”按钮。 此时会创建和下载远程桌面协议文件（.rdp 文件）。
+1. 单击虚拟机属性页上的“连接”按钮。  
 
-    ![门户 9](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png) 
+    ![从门户连接到 Azure VM](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. 若要连接到 VM，请打开下载的 RDP 文件。 出现提示时，请单击“连接”。 在 Mac 上，你需要一个 RDP 客户端，例如 Mac 应用商店提供的这个[远程桌面客户端](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)。
+2. 在“连接到虚拟机”  页面中，保留默认选项，以使用 DNS 名称通过端口 3389 进行连接，然后单击“下载 RDP 文件”  。
 
-3. 输入在创建虚拟机时指定的用户名和密码，然后单击“确定”。
+2. 打开下载的 RDP 文件，然后在出现提示时单击“连接”  。 
 
-4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”继续进行连接。
+3. 在“Windows 安全性”  窗口中，依次选择“更多选择”  、“使用其他帐户”  。 以 **localhost**\\*username* 的形式键入用户名，输入为虚拟机创建的密码，然后单击“确定”。 
 
-## <a name="install-iis-using-powershell"></a>使用 PowerShell 安装 IIS
+4. 你可能会在登录过程中收到证书警告。 单击“是”或“继续”以创建连接。  
 
-在虚拟机上打开 PowerShell 提示符并运行以下命令，以便安装 IIS 并启用本地防火墙规则，使之允许 Web 通信：
+## <a name="install-web-server"></a>安装 Web 服务器
+
+若要查看运行中的 VM，请安装 IIS Web 服务器。 在 VM 中打开 PowerShell 提示符并运行以下命令：
 
 ```powershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
+完成后，关闭到 VM 的 RDP 连接。
+
 ## <a name="view-the-iis-welcome-page"></a>查看 IIS 欢迎页
 
-IIS 已安装，并且现在已从 Internet 打开 VM 上的端口 80 - 你可以使用所选的 Web 浏览器查看默认的 IIS 欢迎页。 从 VM 的边栏选项卡中获取**公共 IP 地址**，并使用它访问默认网页。 
+在门户中选择 VM，在 VM 的概述中，使用 IP 地址右侧的“单击以复制”按钮复制该地址，并将其粘贴到浏览器标签页中。  此时会打开默认的 IIS 欢迎页，如下所示：
 
-![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png) 
+![IIS 默认站点](./media/quick-create-powershell/default-iis-website.png)
 
-## <a name="delete-virtual-machine"></a>删除虚拟机
+## <a name="clean-up-resources"></a>清理资源
 
-不再需要资源组、虚拟机和所有相关的资源时，可将其删除。 为此，请从虚拟机边栏选项卡中选择该资源组，然后单击“删除”。
+当不再需要时，可以删除资源组、虚拟机和所有相关资源。 选择虚拟机的资源组，然后选择“删除”  。 确认资源组名称，以完成资源删除。
 
 ## <a name="next-steps"></a>后续步骤
 
-[安装角色和配置防火墙教程](hero-role.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+在本快速入门中，你部署了简单的虚拟机，打开了 Web 流量的网络端口，并安装了一个基本 Web 服务器。 若要详细了解 Azure 虚拟机，请继续学习 Windows VM 的教程。
 
-[浏览 VM 部署 CLI 示例](cli-samples.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)
+> [!div class="nextstepaction"]
+> [Azure Windows 虚拟机教程](./tutorial-manage-vm.md)
 
+<!--Update_Description: update meta properties, wording update -->

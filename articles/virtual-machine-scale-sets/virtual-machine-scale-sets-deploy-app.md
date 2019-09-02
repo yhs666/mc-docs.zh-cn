@@ -1,11 +1,11 @@
 ---
-title: "在虚拟机规模集上部署应用 | Azure"
-description: "在虚拟机规模集上部署应用"
+title: 将应用程序部署到 Azure 虚拟机规模集 | Microsoft Docs
+description: 了解如何将应用程序部署到规模集中的 Linux 和 Windows 虚拟机实例
 services: virtual-machine-scale-sets
-documentationcenter: 
-author: gbowerman
-manager: timlt
-editor: 
+documentationcenter: ''
+author: cynthn
+manager: jeconnoc
+editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
@@ -13,55 +13,113 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/07/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: caec63b8e9a121f973226d92ad0690830887a21d
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/06/2017
-
-
+origin.date: 05/29/2018
+ms.date: 02/12/2019
+ms.author: v-junlch
+ms.openlocfilehash: c21d9f79eb566e4d5a67287b16ea499f4fc64de2
+ms.sourcegitcommit: 24dd5964eafbe8aa4badbca837c2a1a7836f2df7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56101582"
 ---
-# <a name="deploy-an-app-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用
-在 VM 规模集上运行的应用程序通常是以三种方法之一部署的：
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>在虚拟机规模集上部署应用程序
 
-* 部署时在平台映像中安装新软件
-* 创建在单个 VHD 中包含 OS 和应用程序的自定义 VM 映像
-* 将平台或自定义映像部署为容器主机，并将应用部署为一个或多个容器
+若要在规模集中的虚拟机 (VM) 实例上运行应用程序，首先需要安装应用程序组件和所需文件。 本文介绍如何为规模集中的实例生成自定义 VM 映像，或在现有 VM 实例上自动运行安装脚本。 本文还将介绍如何跨规模集管理应用程序或 OS 更新。
 
-## <a name="install-new-software-on-a-platform-image-at-deployment-time"></a>部署时在平台映像中安装新软件
-在本文的语境中，平台映像是指从 Azure 应用商店获取的操作系统映像，例如 Ubuntu 16.04、Windows Server 2012 R2 等。
 
-可以使用 [VM 扩展](../virtual-machines/virtual-machines-windows-extensions-features.md?toc=%2fvirtual-machines%2fwindows%2ftoc.json)在平台映像中安装新软件。 VM 扩展是部署 VM 时运行的软件。 可以使用自定义脚本扩展，在部署时运行所需的任何代码。
+## <a name="build-a-custom-vm-image"></a>生成自定义 VM 映像
+使用 Azure 平台映像之一在规模集中创建实例时，不会安装或配置其他软件。 可以自动安装这些组件，但这会增加将 VM 实例预配到规模集所需的时间。 如果将多个配置更改应用到 VM 实例，那么这些配置脚本和任务会产生管理开销。
 
-此方法的优点是在应用程序代码与 OS 之间提供某种程度的隔离，可以单独维护应用程序。 当然，这也意味着会出现更多的运动组件，如果脚本需要下载和配置的项很多，VM 部署时间也可能更长。
+若要减少配置管理和预配 VM 的时间，可以创建自定义 VM 映像，使其在规模集中预配实例后立即准备好运行应用程序。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
->[!NOTE]
->如果在自定义脚本扩展命令中传递敏感信息（例如密码），请务必在自定义脚本扩展的 `protectedSettings` 属性（而不是 `settings` 属性）中指定 `commandToExecute`。
+- [Azure CLI](tutorial-use-custom-image-cli.md)
+- [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-## <a name="create-a-custom-vm-image-that-includes-both-the-os-and-the-application-in-a-single-vhd"></a>创建在单个 VHD 中包含 OS 和应用程序的自定义 VM 映像 
-此处的规模集由一组 VM 构成，这些 VM 是从创建的映像复制的，必须对其进行维护。 这种方法不需要在部署 VM 时进行额外的配置。 但是，在 `2016-03-30` 版（和更低版本）的 VM 规模集中，VM 的 OS 磁盘限制为一个存储帐户。 因此，一个规模集中最多能包含 40 个 VM，而不像在平台映像中，每个规模集限制为 100 个 VM。 有关详细信息，请参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。
 
-## <a name="deploy-a-platform-or-a-custom-image-as-a-container-host-and-your-app-as-one-or-more-containers"></a>将平台或自定义映像部署为容器主机，并将应用部署为一个或多个容器
-平台或自定义映像基本上是一个容器主机，因此可以将应用程序安装为一个或多个容器。  可以使用 orchestrator 或配置管理工具来管理应用程序容器。 这种方法的优势是可以从应用程序层抽象化云基础结构，并且可以独立维护应用程序。
+## <a name="already-provisioned"></a>使用自定义脚本扩展安装应用
+自定义脚本扩展在 Azure VM 上下载和执行脚本。 此扩展适用于部署后配置、软件安装或其他任何配置/管理任务。 可以从 Azure 存储或 GitHub 下载脚本，或者在扩展运行时将脚本提供给 Azure 门户。 若要深入了解如何通过规模集创建和使用自定义 VM 映像，请参阅以下教程：
 
-## <a name="what-happens-when-a-vm-scale-set-scales-out"></a>扩展 VM 规模集会发生什么情况？
-通过增加容量将一个或多个 VM 添加到规模集时，会自动安装应用程序。 例如，如果规模集包含定义的扩展，则每次创建新 VM 时，这些扩展都会在新 VM 上运行。 如果规模集基于自定义映像，所有新 VM 都是自定义源映像的副本。 如果规模集 VM 是容器主机，则可以使用启动代码加载自定义脚本扩展中的容器，或者，扩展可以安装一个可向群集协调器（例如 Azure 容器服务）注册的代理。
+- [Azure CLI](tutorial-install-apps-cli.md)
+- [Azure PowerShell](tutorial-install-apps-powershell.md)
+- [Azure Resource Manager 模板](tutorial-install-apps-template.md)
 
-## <a name="how-do-you-manage-application-updates-in-vm-scale-sets"></a>如何管理 VM 规模集中的应用程序更新？
-对于 VM 规模集中的应用程序更新，有三个派生自上述三种应用程序部署方法的主要方法：
 
-* 使用 VM 扩展进行更新。 每次创建新 VM、重置现有 VM 的映像或更新 VM 扩展时，都会执行针对 VM 规模集定义的所有 VM 扩展。 如果需要更新应用程序，可行的方法是通过扩展直接更新应用程序 - 只需更新扩展定义即可。 为此，一个简单的方法是将 fileUris 更改为指向新软件。
+## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>使用 PowerShell DSC 将应用安装到 Windows VM
+[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) 是一个管理平台，用于定义目标计算机的配置。 DSC 配置定义要在计算机上安装的内容，以及如何配置主机。 本地配置管理器 (LCM) 引擎在每个目标节点上运行，此类节点根据推送的配置处理请求的操作。
 
-* 不可变的自定义映像方法。 将应用程序（或应用组件）制作成 VM 映像时，可以专注于构建可靠的管道，将映像的构建、测试和部署自动化。 可对体系结构进行设计，帮助将分阶段的规模集快速切换到生产环境。 [Azure Spinnaker 驱动程序的工作原理](https://github.com/spinnaker/deck/tree/master/app/scripts/modules/azure)很好地示范了这种方法 - [http://www.spinnaker.io/](http://www.spinnaker.io/)。
+通过 PowerShell DSC 扩展，可使用 PowerShell 在规模集中自定义 VM 实例。 以下示例：
 
-Packer 和 Terraform 也支持 Azure Resource Manager，因此也可以“代码方式”定义映像并在 Azure 中将其生成，然后在规模集中使用 VHD。 但是，这种做法会给应用商店映像造成问题，在这种情况下，扩展/自定义脚本变得更加重要，因为无法直接在应用商店中处理代码。
+- 指示 VM 实例从 GitHub 下载 DSC 包 - https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip
+- 设置用于运行安装脚本的扩展 - `configure-http.ps1`
+- 使用 [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) 获取有关规模集的信息
+- 使用 [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) 将扩展应用到 VM 实例
 
-* 更新容器 将应用程序生命周期管理抽象化为高于云基础结构的级别（例如通过包装应用程序），将应用组件抽象化为容器，并通过容器协调器和配置管理器（例如 Chef/Puppet）管理这些容器。
+DSC 扩展会应用于名为 myResourceGroup 的资源组中的 myScaleSet VM 实例。 按如下所示输入自己的名称：
 
-然后，规模集 VM 将变成容器的稳定基础，只需偶尔进行安全和 OS 相关的更新。 如前所述，Azure 容器服务就是采用此方法并围绕它构建服务的好例子。
+```powershell
+# Define the script for your Desired Configuration to download and run
+$dscConfig = @{
+  "wmfVersion" = "latest";
+  "configuration" = @{
+    "url" = "https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip";
+    "script" = "configure-http.ps1";
+    "function" = "WebsiteTest";
+  };
+}
 
-## <a name="how-do-you-roll-out-an-os-update-across-update-domains"></a>如何跨更新域推出 OS 更新？
-假设要在更新 OS 映像的同时让 VM 规模集持续运行。 为此，一种做法是每次更新一个 VM 的 VM 映像。 可以使用 PowerShell 或 Azure CLI 实现此目的。 有单独的命令可在单个 VM 上更新 VM 规模集模型（其配置的定义方式），以及发出“手动升级”调用。 [升级虚拟机规模集](./virtual-machine-scale-sets-upgrade-scale-set.md) Azure 文档还进一步介绍了可用于跨 VM 规模集执行 OS 升级的选项。
+# Get information about the scale set
+$vmss = Get-AzVmss `
+                -ResourceGroupName "myResourceGroup" `
+                -VMScaleSetName "myScaleSet"
+
+# Add the Desired State Configuration extension to install IIS and configure basic website
+$vmss = Add-AzVmssExtension `
+    -VirtualMachineScaleSet $vmss `
+    -Publisher Microsoft.Powershell `
+    -Type DSC `
+    -TypeHandlerVersion 2.24 `
+    -Name "DSC" `
+    -Setting $dscConfig
+
+# Update the scale set and apply the Desired State Configuration extension to the VM instances
+Update-AzVmss `
+    -ResourceGroupName "myResourceGroup" `
+    -Name "myScaleSet"  `
+    -VirtualMachineScaleSet $vmss
+```
+
+如果规模集上的升级策略为*手动*，则使用 [Update-AzVmssInstance](https://docs.microsoft.com/powershell/module/az.compute/update-azvmssinstance) 更新 VM 实例。 此 cmdlet 会将更新的规模集配置应用于 VM 实例，并安装应用程序。
+
+
+## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>使用 cloud-init 将应用安装到 Linux VM
+[Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) 是一种广泛使用的方法，用于在首次启动 Linux VM 时对其进行自定义。 可使用 cloud-init 来安装程序包和写入文件，或者配置用户和安全性。 在初始启动期间运行 cloud-init 时，无需额外的步骤和代理即可应用配置。
+
+Cloud-init 还支持不同的发行版。 例如，不需使用 apt-get install 或 yum install 来安装包， 而是可定义要安装的程序包的列表。 Cloud-init 将对所选发行版自动使用本机包管理工具。
+
+有关详细信息，包括示例 cloud-init.txt 文件，请参阅[使用 cloud-init 自定义 Azure VM](../virtual-machines/linux/using-cloud-init.md)。
+
+若要创建规模集并使用 cloud-init 文件，请将 `--custom-data` 参数添加到 [az vmss create](/cli/vmss) 命令并指定 cloud-init 文件的名称。 以下示例会在 myResourceGroup 中创建名为 myScaleSet 的规模集，并配置包含名为 cloud-init.txt 的文件的 VM 实例。 按如下所示输入自己的名称：
+
+```azurecli
+az vmss create `
+  --resource-group myResourceGroup `
+  --name myScaleSet `
+  --image UbuntuLTS `
+  --upgrade-policy-mode automatic `
+  --custom-data cloud-init.txt `
+  --admin-username azureuser `
+  --generate-ssh-keys
+```
+
+
+### <a name="install-applications-with-os-updates"></a>使用 OS 更新安装应用程序
+新的 OS 版本可用时，可使用或生成新的自定义映像并[将 OS 升级部署](virtual-machine-scale-sets-upgrade-scale-set.md)到规模集中。 每个 VM 实例均会升级到指定的最新映像。 可使用预安装了应用程序的自定义映像、自定义脚本扩展或 PowerShell DSC 使应用程序在你执行升级时自动可用。 执行此过程时，可能需要为应用程序维护制定计划，确保不存在版本兼容问题。
+
+如果使用预安装了应用程序的自定义 VM 映像，则可将应用程序更新与部署管道集成，以便生成新的映像并在规模集中部署 OS 升级。 此方法可使管道选取最新的应用程序版本，创建和验证 VM 映像，然后升级规模集中的 VM 实例。 若要运行跨自定义 VM 映像生成并部署应用程序更新的部署管道，可[创建 Packer 映像并使用 Visual Studio Team Services 进行部署](https://docs.microsoft.com/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset)，也可以使用其他平台，如 [Spinnaker](https://www.spinnaker.io/) 或 [Jenkins](https://jenkins.io/)。
+
+
+## <a name="next-steps"></a>后续步骤
+生成应用程序并将其部署到规模集时，可参阅[规模集设计概述](virtual-machine-scale-sets-design-overview.md)。 若要深入了解如何管理规模集，请参阅[使用 PowerShell 管理规模集](virtual-machine-scale-sets-windows-manage.md)。
+
+<!-- Update_Description: code and link update -->

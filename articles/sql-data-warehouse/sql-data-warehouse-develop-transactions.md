@@ -1,43 +1,64 @@
 ---
-title: "SQL 数据仓库中的事务 | Azure"
-description: "有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。"
+title: 使用 Azure SQL 数据仓库中的事务 | Microsoft Docs
+description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
 services: sql-data-warehouse
-documentationcenter: NA
-author: jrowlandjones
-manager: jhubbard
-editor: 
-ms.assetid: ae621788-e575-41f5-8bfe-fa04dc4b0b53
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-services
-ms.date: 10/31/2016
-ms.author: v-yeche
-wacn.date: 
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 53315bc2be93dc3a03f5177c8ce85d4efb519934
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
+ms.topic: conceptual
+ms.subservice: implement
+origin.date: 03/22/2019
+ms.date: 04/01/2019
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: 718962dc6528d8981c577e6710a27a80d3b74125
+ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58627495"
 ---
+# <a name="using-transactions-in-sql-data-warehouse"></a>使用 SQL 数据仓库中的事务
+有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
 
-# <a name="transactions-in-sql-data-warehouse"></a>SQL 数据仓库中的事务
-如你所料，SQL 数据仓库支持支持事务作为数据仓库工作负荷的一部分。 但是，为了确保 SQL 数据仓库的性能维持在一定的程度，相比于 SQL Server，其某些功能会受到限制。 本文将突出两者的差异，并列出其他信息。 
+## <a name="what-to-expect"></a>期望
+如你所料，SQL 数据仓库支持支持事务作为数据仓库工作负荷的一部分。 但是，为了确保 SQL 数据仓库的性能维持在一定的程度，相比于 SQL Server，其某些功能会受到限制。 本文突出两者的差异，并列出其他信息。 
 
 ## <a name="transaction-isolation-levels"></a>事务隔离级别
-SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `READ UNCOMMITTED` ，这无法更改。 你可以实现许多编码方法，以避免脏读数据（如果你对此有所考虑的话）。 大多数流行方法利用 CTAS 和表分区切换（通常称为滑动窗口模式），以防止用户查询仍正准备的数据。 预先筛选数据的视图也是常用的方法。  
+SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离级别受限于 READ UNCOMMITTED；此级别不能更改。 如果考虑 READ UNCOMMITTED，可以实现许多编码方法，以避免脏读数据。 大多数流行方法使用 CTAS 和表分区切换（通常称为滑动窗口模式），以防止用户查询仍正准备的数据。 预先筛选数据的视图也是常用的方法。  
 
 ## <a name="transaction-size"></a>事务大小
-单个数据修改事务有大小限制。 限制目前按“每个分发”进行应用。 因此，通过将限制乘以分发数，可得总分配额。 若要预计事务中的最大行数，请将分发上限除以每一行的总大小。 对于可变长度列，考虑采用平均的列长度而不使用最大大小。
+单个数据修改事务有大小限制。 限制按每个分发进行应用。 因此，通过将限制乘以分发数，可得总分配额。 要预计事务中的最大行数，请将分发上限除以每一行的总大小。 对于可变长度列，考虑采用平均的列长度而不使用最大大小。
 
 下表中进行了以下假设：
 
 * 出现平均数据分布 
 * 平均行长度为 250 个字节
 
-| [DWU][DWU] | 每个分布的上限（GiB） | 分布的数量 | 最大事务大小（GiB） | # 每个分布的行数 | 每个事务的最大行数 |
+## <a name="gen2"></a>Gen2
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每个分布的上限 (GB) | 分布的数量 | 最大事务大小 (GB) | 每个分布的行数 | 每个事务的最大行数 |
+| --- | --- | --- | --- | --- | --- |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+
+## <a name="gen1"></a>Gen1
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | 每个分布的上限 (GB) | 分布的数量 | 最大事务大小 (GB) | 每个分布的行数 | 每个事务的最大行数 |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -54,7 +75,7 @@ SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `R
 
 事务大小限制按每个事务或操作进行应用。 不会跨所有当前事务进行应用。 因此，允许每个事务向日志写入此数量的数据。 
 
-为优化和最大程度减少写入到日志中的数据量，请参阅[事务最佳做法][Transactions best practices]一文。
+为优化和最大程度减少写入到日志中的数据量，请参阅[事务最佳做法](sql-data-warehouse-develop-best-practices-transactions.md)一文。
 
 > [!WARNING]
 > 最大事务大小仅可在哈希或者 ROUND_ROBIN 分布式表（其中数据均匀分布）中实现。 如果事务以偏斜方式向分布写入数据，那么更有可能在达到最大事务大小之前达到该限制。
@@ -63,14 +84,14 @@ SQL 数据仓库实现 ACID 事务。 但是，事务支持的隔离仅限于 `R
 > 
 
 ## <a name="transaction-state"></a>事务状态
-SQL 数据仓库使用 XACT_STATE() 函数（采用值 -2）来报告失败的事务。 这表示事务已失败并标记为仅可回滚
+SQL 数据仓库使用 XACT_STATE() 函数（采用值 -2）来报告失败的事务。 此值表示事务已失败并标记为仅可回滚。
 
 > [!NOTE]
-> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如， `SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 但是，SQL 数据仓库不允许执行此操作。 如果 SQL 数据仓库事务内部发生错误，它将自动进入 -2 状态，并且在该语句回退之前，您无法执行任何 Select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，因为你可能需要修改代码。
+> XACT_STATE 函数使用 -2 表示失败的事务，以代表 SQL Server 中不同的行为。 SQL Server 使用值 -1 来代表无法提交的事务。 SQL Server 可以容忍事务内的某些错误，而无需将其标记为无法提交。 例如，`SELECT 1/0` 导致错误，但不强制事务进入无法提交状态。 SQL Server 还允许读取无法提交的事务。 但是，SQL 数据仓库不允许执行此操作。 如果 SQL 数据仓库事务内部发生错误，它自动进入 -2 状态，并且在该语句回退之前，您无法执行任何 Select 语句。 因此，必须查看应用程序代码是否使用 XACT_STATE()，你可能需要修改代码。
 > 
 > 
 
-例如，在 SQL Server 中，您可能会看到如下所示的事务：
+例如，在 SQL Server 中，可能会看到如下所示的事务：
 
 ```sql
 SET NOCOUNT ON;
@@ -93,8 +114,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
     END CATCH;
@@ -108,11 +129,11 @@ END
 SELECT @xact_state AS TransactionState;
 ```
 
-如果将代码按如上所示保持原样，会获得以下错误消息：
+前面的代码提供以下错误消息：
 
 Msg 111233, Level 16, State 1, Line 1 111233；当前事务已中止，所有挂起的更改都已回退。 原因：仅回退状态的事务未在 DDL、DML 或 SELECT 语句之前显式回退。
 
-你也不会获得 ERROR_* 函数的输出值。
+不会获得 ERROR_* 函数的输出值。
 
 在 SQL 数据仓库中，该代码需要稍做更改：
 
@@ -153,10 +174,10 @@ SELECT @xact_state AS TransactionState;
 
 现在观察到了预期行为。 事务中的错误得到了管理，并且 ERROR_* 函数提供了预期值。
 
-所做的一切改变是事务的 `ROLLBACK` 必须发生于在 `CATCH` 块中读取错误信息之前。
+所做的一切改变是事务的 ROLLBACK 必须发生于在 CATCH 块中读取错误信息之前。
 
 ## <a name="errorline-function"></a>Error_Line() 函数
-另外值得注意的是，SQL 数据仓库不实现或支持 ERROR_LINE() 函数。 如果你的代码中包含此函数，需要将它删除才能符合 SQL 数据仓库的要求。 请在代码中使用查询标签，而不是实现等效的功能。 有关此功能的详细信息，请参阅 [LABEL][LABEL] 一文。
+另外值得注意的是，SQL 数据仓库不实现或支持 ERROR_LINE() 函数。 如果代码中包含此函数，需要将它删除才能符合 SQL 数据仓库的要求。 请在代码中使用查询标签，而不是实现等效的功能。 有关详细信息，请参阅 [LABEL](sql-data-warehouse-develop-label.md) 一文。
 
 ## <a name="using-throw-and-raiserror"></a>使用 THROW 和 RAISERROR
 THROW 是在 SQL 数据仓库中引发异常的新式做法，但也支持 RAISERROR。 不过，有些值得注意的差异。
@@ -165,7 +186,7 @@ THROW 是在 SQL 数据仓库中引发异常的新式做法，但也支持 RAISE
 * RAISERROR 错误消息固定为 50,000
 * 不支持 sys.messages
 
-## <a name="limitiations"></a>限制
+## <a name="limitations"></a>限制
 SQL 数据仓库有一些与事务相关的其他限制。
 
 这些限制如下：
@@ -175,20 +196,8 @@ SQL 数据仓库有一些与事务相关的其他限制。
 * 不允许保存点
 * 无已命名事务
 * 无已标记事务
-* 不支持 DDL，如用户定义的事务内的 `CREATE TABLE`
+* 不支持 DDL，例如用户定义的事务内的 CREATE TABLE
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关优化事务的详细信息，请参阅 [事务最佳实践][Transactions best practices]。  若要了解有关其他 SQL 数据仓库最佳实践的详细信息，请参阅 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]。
+若要了解有关优化事务的详细信息，请参阅[事务最佳做法](sql-data-warehouse-develop-best-practices-transactions.md)。 若要了解有关其他 SQL 数据仓库最佳做法的信息，请参阅 [SQL 数据仓库最佳做法](sql-data-warehouse-best-practices.md)。
 
-<!--Image references-->
-
-<!--Article references-->
-[DWU]: ./sql-data-warehouse-overview-what-is.md
-[development overview]: ./sql-data-warehouse-overview-develop.md
-[Transactions best practices]: ./sql-data-warehouse-develop-best-practices-transactions.md
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[LABEL]: ./sql-data-warehouse-develop-label.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->

@@ -1,265 +1,163 @@
 ---
-title: "使用 Node.js 连接 Azure SQL 数据库 | Azure"
-description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Node.js 代码示例。"
+title: 使用 Node.js 查询 Azure SQL 数据库 | Microsoft Docs
+description: 如何使用 Node.js 创建连接到 Azure SQL 数据库的程序并使用 T-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
-author: LuisBosquez
-manager: jhubbard
-editor: 
-ms.assetid: 53f70e37-5eb4-400d-972e-dd7ea0caacd4
 ms.service: sql-database
-ms.custom: quick start connect
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.subservice: development
 ms.devlang: nodejs
-ms.topic: article
-ms.date: 04/05/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: d7b6b1e7640013541dfb1faa11f3edf494f36475
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: v-masebo
+manager: digimobile
+origin.date: 03/25/2019
+ms.date: 08/19/2019
+ms.openlocfilehash: 491b29a7368285db70a874761cb1d350d9a130c8
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544384"
 ---
-# <a name="azure-sql-database-use-nodejs-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Node.js 进行连接和数据查询
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>快速入门：使用 Node.js 查询 Azure SQL 数据库
 
-本快速入门演示了如何通过 Windows、Ubuntu Linux 和 Mac 平台使用 [Node.js](https://nodejs.org/en/) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
+本文演示了如何使用 [Node.js](https://nodejs.org) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
 
-此快速入门使用以下指南中创建的资源作为其起点：
+## <a name="prerequisites"></a>先决条件
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
+若要完成此示例，请确保具备以下先决条件：
 
-## <a name="install-nodejs"></a>安装 Node.js 
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-### <a name="mac-os"></a>**Mac OS**
-输入以下命令安装 **brew**（适用于 Mac OS X 和 **Node.js** 的易用程序包管理器）。
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
+  |||
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew install node
-```
-
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-输入以下命令安装 **Node.js** 和 **npm**（适用于 Node.js 的程序包管理器）。
-
-```bash
-sudo apt-get install -y nodejs npm
-```
-
-### <a name="windows"></a>**Windows**
-请访问 [Node.js 下载页](https://nodejs.org/en/download/)并选择所需的 Windows 安装程序选项。
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
 
-## <a name="install-the-tedious-sql-server-driver-for-nodejs"></a>安装适用于 Node.js 的 Tedious SQL Server 驱动程序
-适用于 Node.js 的推荐驱动程序是 **[tedious](https://github.com/tediousjs/tedious)**。 Tedious 是 Microsoft 推出的一个开源协议，适用于任何平台上的 Node.js 应用程序。 在本教程中，需要一个空的目录，以便存放代码和即将安装的 `npm` 依赖项。
+- 适用于操作系统的 Node.js 相关软件：
 
-若要安装 **tedious** 驱动程序，请在目录中运行以下命令：
+  - **MacOS**：安装 Homebrew 和 Node.js，然后安装 ODBC 驱动程序和 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/)。
+  
+  - **Ubuntu**：安装 Node.js，然后安装 ODBC 驱动程序和 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/)。
+  
+  - **Windows**：安装 Chocolatey 和 Node.js，然后安装 ODBC 驱动程序和 SQLCMD。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/)。
 
-```cmd
-npm install tedious
-```
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
 
-## <a name="get-connection-information"></a>获取连接信息
-
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="connection strings" style="width: 780px;" />
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-3. 请确保导入 **AdventureWorksLT** 数据库，因为此示例将使用它。
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。 
 
-## <a name="read-from-the-database"></a>从数据库读取
-首先从 tedious 驱动程序库中导入驱动程序连接和请求类。 然后，创建配置对象，并将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 使用指定的 `config` 对象创建 `Connection` 对象。 之后，定义 `connection` 对象的 `connect` 事件的回调，以执行 `queryDatabase()` 函数。
+## <a name="create-the-project"></a>创建项目
 
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+打开命令提示符，并创建一个名为 *sqltest* 的文件夹。 导航到已创建的文件夹，并运行以下命令：
 
+  ```bash
+  npm init -y
+  npm install tedious@5.0.3
+  npm install async@2.6.2
+  ```
 
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.chinacloudapi.cn', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-var connection = new Connection(config);
+## <a name="add-code-to-query-database"></a>添加用于查询数据库的代码
 
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
+1. 在喜欢的文本编辑器中，创建新文件 *sqltest.js*。
+
+1. 将其内容替换为以下代码。 然后，为服务器、数据库、用户和密码添加相应的值。
+
+    ```js
+    var Connection = require('tedious').Connection;
+    var Request = require('tedious').Request;
+
+    // Create connection to database
+    var config =
+    {
+        authentication: {
+            options: {
+                userName: 'userName', // update me
+                password: 'password' // update me
+            },
+            type: 'default'
+        },
+        server: 'your_server.database.chinacloudapi.cn', // update me
+        options:
+        {
+            database: 'your_database', //update me
+            encrypt: true
+        }
     }
-    else{
-        queryDatabase()
-    }
-});
+    var connection = new Connection(config);
 
-function queryDatabase(){
-    console.log('Reading rows from the Table...');
-
-    // Read all rows from table
-    request = new Request(
-        "SELECT TOP 1 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) returned');
+    // Attempt to connect and execute queries if connection goes through
+    connection.on('connect', function(err)
+        {
+            if (err)
+            {
+                console.log(err)
+            }
+            else
+            {
+                queryDatabase()
+            }
         }
     );
-    
-    request.on('row', function(columns) {
-        columns.forEach(function(column) {
-            console.log("%s\t%s", column.metadata.colName, column.value);
+
+    function queryDatabase()
+    {
+        console.log('Reading rows from the Table...');
+
+        // Read all rows from table
+        var request = new Request(
+            "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName FROM [SalesLT].[ProductCategory] pc "
+                + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid",
+            function(err, rowCount, rows)
+            {
+                console.log(rowCount + ' row(s) returned');
+                process.exit();
+            }
+        );
+
+        request.on('row', function(columns) {
+            columns.forEach(function(column) {
+                console.log("%s\t%s", column.metadata.colName, column.value);
+            });
         });
-    });
-
-    connection.execSql(request);
-}
-```
-
-## <a name="insert-data-into-the-database"></a>将数据插入数据库
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `insertIntoDatabase()` 函数中使用 **INSERT 语句**。
-
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
-
-
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.chinacloudapi.cn', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
+        connection.execSql(request);
     }
-    else{
-        insertIntoDatabase()
-    }
-});
+    ```
 
-function insertIntoDatabase(){
-    console.log("Inserting a brand new product into database...");
-    request = new Request(
-        "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, StandardCost, ListPrice, SellStartDate) OUTPUT INSERTED.ProductID VALUES ('BrandNewProduct', '200989', 'Blue', 75, 80, '7/1/2016')",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) inserted');
-        }
-    );
-    connection.execSql(request);
-}
-```
+> [!NOTE]
+> 代码示例使用适用于 Azure SQL 的 **AdventureWorksLT** 示例数据库。
 
-## <a name="update-data-in-the-database"></a>更新数据库中的数据
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `updateInDatabase()` 函数中使用 **UPDATE 语句**。 此示例中使用了在上一示例中插入的产品名称。
+## <a name="run-the-code"></a>运行代码
 
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
+1. 在命令提示符下运行此程序。
 
+    ```bash
+    node sqltest.js
+    ```
 
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.chinacloudapi.cn', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        updateInDatabase()
-    }
-});
-
-function updateInDatabase(){
-    console.log("Updating the price of the brand new product in database...");
-    request = new Request(
-        "UPDATE SalesLT.Product SET ListPrice = 50 WHERE Name = 'BrandNewProduct'",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) updated');
-        }
-    );
-    connection.execSql(request);
-}
-```
-
-## <a name="delete-data-from-the-database"></a>从数据库删除数据
-与上面的**从数据库读取**示例类似的步骤。 确保将 **username**、**password**、**server** 和 **database** 变量替换为上面获取的连接参数。 这次，在 `deleteFromDatabase()` 函数中使用 **INSERT 语句**。 此示例也使用在上一个示例中插入的产品名称。
-
-```js
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;
-
-
-// Create connection to database
-var config = {
-  userName: 'your_username', // update me
-  password: 'your_password', // update me
-  server: 'your_server.database.chinacloudapi.cn', // update me
-  options: {
-      database: 'your_database' //update me
-  }
-}
-
-var connection = new Connection(config);
-
-// Attempt to connect and execute queries if connection goes through
-connection.on('connect', function(err) {
-    if (err) {
-        console.log(err)
-    }
-    else{
-        deleteFromDatabase()
-    }
-});
-
-function deleteFromDatabase(){
-    console.log("Deleting the brand new product in database...");
-    request = new Request(
-        "DELETE FROM SalesLT.Product WHERE Name = 'BrandNewProduct'",
-        function(err, rowCount, rows) {
-            console.log(rowCount + ' row(s) returned');
-        }
-    );
-    connection.execSql(request);
-}
-```
-
+1. 验证是否已返回前 20 行，然后关闭应用程序窗口。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 [Microsoft Node.js Driver for SQL Server](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Java 进行连接和查询，请参阅[使用 Java 进行连接和查询](sql-database-connect-query-java.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+- [用于 SQL Server 的 Microsoft Node.js 驱动程序](https://docs.microsoft.com/sql/connect/node-js/node-js-driver-for-sql-server/)
 
+- 通过 [.NET core](sql-database-connect-query-dotnet-core.md)、[Visual Studio Code](sql-database-connect-query-vscode.md) 或 [SSMS](sql-database-connect-query-ssms.md)（仅限 Windows）在 Windows/Linux/macOS 上进行连接和查询
 
+- [在 Windows/Linux/macOS 中通过命令行使用 .NET Core 入门](https://docs.microsoft.com/dotnet/core/tutorials/using-with-xplat-cli)
+
+- 使用 [.NET](sql-database-design-first-database-csharp.md) 或 [SSMS](sql-database-design-first-database.md) 设计第一个 Azure SQL 数据库

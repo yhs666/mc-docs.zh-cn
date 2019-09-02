@@ -43,4 +43,4 @@ Raspbian 的默认凭据为用户名 **pi** 和密码 **raspberry**。 在 GUI �
 [lnk-pi-ssh]: https://www.raspberrypi.org/documentation/remote-access/ssh/README.md
 [lnk-ssh-windows]: https://www.raspberrypi.org/documentation/remote-access/ssh/windows.md
 [lnk-ssh-linux]: https://www.raspberrypi.org/documentation/remote-access/ssh/unix.md
-[lnk-starter-kits]: /develop/iot/iot-starter-kits/
+[lnk-starter-kits]: https://www.azure.cn/develop/iot/iot-starter-kits/

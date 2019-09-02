@@ -1,0 +1,36 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 防火墙文档
+metadata:
+  title: Azure 防火墙文档 - 教程和 API 参考
+  meta.description: 'Learn how to create Azure Firewalls. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.'
+  services: firewall
+  author: rockboyfor
+  ms.service: firewall
+  ms.topic: landing-page
+  origin.date: 09/24/2018
+  ms.date: 07/22/2019
+  ms.author: v-yeche
+abstract:
+  description: 了解如何部署 Azure 防火墙（一种基于云的网络安全服务）。 教程、API 参考和其他文档介绍了如何设置应用程序级策略和网络级策略以保护 Azure 虚拟网络资源。
+sections:
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 了解如何部署 Azure 防火墙
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/firewall/tutorial-firewall-deploy-portal">使用 Azure 门户部署和配置 Azure 防火墙</a>
+          - html: <a href="/firewall/tutorial-hybrid-ps">在混合网络中部署</a>
+          - html: <a href="/firewall/tutorial-firewall-dnat">使用 DNAT 筛选入站流量</a>
+          - html: <a href="/firewall/tutorial-diagnostics">监视 Azure 防火墙日志</a>
+  - title: 示例
+    items:
+      - type: paragraph
+        text: 常见任务的脚本示例。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/firewall/sample-powershell">Azure PowerShell</a>

@@ -1,0 +1,138 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 198135e63d64f35b26bf4c1fd7a70f768d297f43
+ms.sourcegitcommit: a46f12240aea05f253fb4445b5e88564a2a2a120
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/26/2018
+ms.locfileid: "53785226"
+documentType: LandingData
+title: Azure 事件中心文档
+metadata:
+  document_id: ''
+  title: Azure 事件中心文档 - 教程、快速入门和 API 参考
+  meta.description: Learn how to use Event Hubs to ingest millions of events per second from connected IoT devices and applications on a broad set of platforms.
+  services: event-hubs
+  author: spelluru
+  manager: timlt
+  ms.service: event-hubs
+  ms.topic: landing-page
+  origin.date: 05/14/2018
+  ms.date: 01/07/2018
+  ms.author: v-biyu
+abstract:
+  description: Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到事件中心的数据。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 了解如何<b>创建</b>事件中心：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /event-hubs/media/index/portal.svg
+      text: Azure 门户
+      href: /event-hubs/event-hubs-quickstart-portal
+    - image:
+        src: /event-hubs/media/index/cli.svg
+      text: Azure CLI
+      href: /event-hubs/event-hubs-quickstart-cli
+    - image:
+        src: /event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /event-hubs/event-hubs-quickstart-powershell
+  - type: paragraph
+    text: 了解如何向事件中心<b>发送事件</b>：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /event-hubs/media/index/logo_net.svg
+      text: .NET framework
+      href: /event-hubs/event-hubs-dotnet-framework-getstarted-send
+    - image:
+        src: /event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /event-hubs/event-hubs-dotnet-standard-getstarted-send
+    - image:
+        src: /event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /event-hubs/event-hubs-java-get-started-send
+    - image:
+        src: /event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /event-hubs/event-hubs-python-get-started-send
+    - image:
+        src: /event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /event-hubs/event-hubs-node-get-started-send
+    - image:
+        src: /event-hubs/media/index/logo_go.svg
+      text: Go
+      href: /event-hubs/event-hubs-go-get-started-send
+    - image:
+        src: /event-hubs/media/index/logo_c.svg
+      text: C
+      href: /event-hubs/event-hubs-c-getstarted-send
+  - type: paragraph
+    text: 了解如何从事件中心<b>接收事件</b>：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /event-hubs/media/index/logo_net.svg
+      text: .NET framework
+      href: /event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph
+    - image:
+        src: /event-hubs/media/index/logo_netcore.svg
+      text: .NET Standard
+      href: /event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
+    - image:
+        src: /event-hubs/media/index/logo_java.svg
+      text: Java
+      href: /event-hubs/event-hubs-java-get-started-receive-eph
+    - image:
+        src: /event-hubs/media/index/logo_python.svg
+      text: Python
+      href: /event-hubs/event-hubs-python-get-started-receive
+    - image:
+        src: /event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: /event-hubs/event-hubs-node-get-started-receive
+    - image:
+        src: /event-hubs/media/index/logo_go.svg
+      text: Go
+      href: /event-hubs/event-hubs-go-get-started-receive-eph
+- title: 示例
+  items:
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /event-hubs/media/index/logo_net.svg
+      text: .NET framework
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet
+    - image:
+        src: /event-hubs/media/index/logo_java.svg
+      text: Java
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Java
+    - image:
+        src: /event-hubs/media/index/logo_python.svg
+      text: Python
+      href: https://github.com/Azure/azure-event-hubs-python/tree/master/examples
+    - image:
+        src: /event-hubs/media/index/logo_nodejs.svg
+      text: Node.js
+      href: https://github.com/Azure/azure-event-hubs-node
+    - image:
+        src: /event-hubs/media/index/logo_go.svg
+      text: Go
+      href: https://github.com/Azure/azure-event-hubs-go/tree/master/_examples
+    - image:
+        src: /event-hubs/media/index/cli.svg
+      text: Azure CLI
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI
+    - image:
+        src: /event-hubs/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell

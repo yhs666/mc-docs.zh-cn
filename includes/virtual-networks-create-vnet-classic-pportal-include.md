@@ -1,40 +1,45 @@
-<!-- Ibiza portal: tested -->
-
-## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a> 如何在 Azure 门户中创建经典 VNet
-
+---
+title: include 文件
+description: include 文件
+services: virtual-network
+author: rockboyfor
+ms.service: virtual-network
+ms.topic: include
+origin.date: 04/13/2018
+ms.date: 06/11/2018
+ms.author: v-yeche
+ms.custom: include file
+ms.openlocfilehash: f0cffe9990a996e59b5f7b1202118712fcd80549
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52663913"
+---
+## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>如何在 Azure 门户中创建经典 VNet
 若要基于上述方案创建经典 VNet，请执行以下步骤。
 
-1. 从浏览器导航到 http://portal.azure.cn ，如有必要，请使用 Azure 帐户登录。
-2. 单击**“新建”**>**“网络”**>**“虚拟网络”**，请注意，**“选择部署模型”**列表已显示**“经典”**，然后单击**“创建”**，如下图所示。
+1. 在浏览器中导航到 http://portal.azure.cn，并在必要时使用 Azure 帐户登录。
+2. 单击“创建资源” > “网络” > “虚拟网络”。 请注意，“选择部署模型”列表已显示了“经典”。 3. 单击“创建”，如下图所示。
 
-    ![在门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+    ![在 Azure 门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)
+4. 在“虚拟网络”窗格中，键入 VNet 的**名称**，并单击“地址空间”。 为 VNet 及其第一个子网配置地址空间设置，然后单击“确定”。 下图显示了我们的方案的 CIDR 块设置。
 
-3. 在**“虚拟网络”**边栏选项卡中，键入 VNet 的**名称**，然后单击**“地址空间”**。为 VNet 及其第一个子网配置地址空间设置，然后单击**“确定”**。下图显示了我们的方案的 CIDR 块设置。
+    ![“地址空间”窗格](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
+5. 单击“资源组”并选择要将 VNet 添加到的资源组，或者单击“新建资源组”将 VNet 添加到新资源组。 下图显示了名为 **TestRG** 的新资源组的资源组设置。 有关资源组的详细信息，请访问 [Azure Resource Manager 概述](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)。
 
-    ![“地址空间”边栏选项卡](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure2.png)
-
-4. 单击**“资源组”**并选择要将 VNet 添加到的资源组，或者单击**“新建资源组”**将 VNet 添加到新资源组。下图显示了名为 **TestRG** 的新资源组的资源组设置。有关资源组的详细信息，请访问 [Azure 资源管理器概述](../articles/azure-resource-manager/resource-group-overview.md#resource-groups)。
-
-    ![“创建资源组”边栏选项卡](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
-
-5. 如有必要，更改你的 VNet 的**“订阅”**和**“位置”**设置。
-
-6. 如果你不想看到该 VNet 作为**启动板**中的磁贴，请禁用**“固定到启动板”**。
-
-7. 单击**“创建”**，注意名为**“创建虚拟网络”**的磁贴，如下图中所示。
+    ![“创建资源组”窗格](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure3.png)
+6. 如有必要，更改 VNet 的“订阅”和“位置”设置。 
+7. 如果不想看到该 VNet 作为“启动板”中的磁贴，请禁用“固定到启动板”。 
+8. 单击“创建”，注意名为“创建虚拟网络”的磁贴，如下图所示。
 
     ![在门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure4.png)
-
-8. 等待创建 VNet，当看到下面的磁贴时，单击它以添加更多子网。
+9. 等待 VNet 完成创建，当看到下面的磁贴时，单击它以添加更多子网。
 
     ![在门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure5.png)
-
-9. 你应当看到你的 VNet 的**配置**，如下所示。
+10. 你应该会看到你的 VNet 的**配置**，如下所示。 
 
     ![在门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure6.png)
+11. 单击“子网” > “添加”，然后为子网键入“名称”并指定“地址范围(CIDR 块)”，然后单击“确定”。 下图显示了当前方案的设置。
 
-10. 单击**“子网”**>**“添加”**，然后为你的子网键入**名称**并指定**“地址范围(CIDR 块)”**，然后单击**“确定”**。下图显示了当前方案的设置。
-
-    ![在门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)
-
-<!---HONumber=69-->
+    ![在 Azure 门户中创建 VNet](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure7.gif)

@@ -1,8 +1,26 @@
-可以使用通过企业解决方案生成的根证书（推荐），也可以生成自签名证书。 如果使用自签名证书，请确保参阅[为点到站点连接创建自签名根证书](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert)一文。 本文包含的特定设置是生成 P2S 兼容证书所必需的。
+---
+title: include 文件
+description: include 文件
+services: vpn-gateway
+author: WenJason
+ms.service: vpn-gateway
+ms.topic: include
+origin.date: 12/11/2018
+ms.date: 12/24/2018
+ms.author: v-jay
+ms.custom: include file
+ms.openlocfilehash: a6c16debcb1e93f35754579ae8869f5dac558c76
+ms.sourcegitcommit: 0a5a7daaf864ef787197f2b8e62539786b6835b3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53656632"
+---
+使用通过企业解决方案生成的根证书（推荐），或者生成自签名证书。 创建根证书后，将公共证书数据（不是私钥）作为 Base64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据上传到 Azure 服务器。
 
-创建根证书以后，请将公共证书数据（不是密钥）作为 Base-64 编码的 X.509 .cer 文件导出。 然后，将公共证书数据从根证书上传到 Azure。
+* **企业证书：** 如果使用的是企业级解决方案，可以使用现有的证书链。 获取要使用的根证书的 .cer 文件。
+* **自签名根证书：** 如果使用的不是企业证书解决方案，请创建自签名根证书。 否则，创建的证书将不兼容 P2S 连接，客户端在尝试连接时会收到连接错误。 可以使用 Azure PowerShell、MakeCert 或 OpenSSL。 以下文章中的步骤介绍了如何生成兼容的自签名根证书：
 
-* **企业证书：**如果要使用企业级解决方案，可以使用现有的证书链。 获取要使用的根证书的 .cer 文件。
-* **自签名根证书：**如果使用的不是企业证书解决方案，则需要创建自签名根证书。 若要使用点到站点连接，根证书必须包含特定值。 有关说明，请参阅以下文章：
-    * 若要创建自签名根证书，请参阅[为点到站点连接创建自签名根证书](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#rootcert)。
-    * 若要导出公钥（.cer 文件），请参阅[为点到站点连接创建自签名根证书](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer)。
+  * [Windows 10 PowerShell 说明](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md)：这些说明要求使用 Windows 10 和 PowerShell 来生成证书。 从根证书生成的客户端证书可以安装在任何受支持的 P2S 客户端上。
+  * [MakeCert 说明](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)：使用 MakeCert 的前提是，无法接触用于生成证书的 Windows 10 计算机。 虽然 MakeCert 已弃用，但仍可使用它来生成证书。 从根证书生成的客户端证书可以安装在任何受支持的 P2S 客户端上。
+  * [Linux 说明](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md)

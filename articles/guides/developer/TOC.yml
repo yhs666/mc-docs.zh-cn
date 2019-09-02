@@ -1,0 +1,196 @@
+- name: 概述
+  items:
+    - name: 开发人员指南
+      href: azure-developer-guide.md
+    - name: SDK 和工具
+      href: '/index#pivot=sdkstools'
+    - name: Azure 帐户、平台和服务概述
+      href: /articles/others/azure-for-aliyun-overview?toc=%2fguides%2fdeveloper%2ftoc.json
+    - name: Azure 和阿里云服务比较
+      href: /articles/others/azure-for-aliyun-service-comparison?toc=%2fguides%2fdeveloper%2ftoc.json
+    - name: Azure 和 AWS 服务比较
+      href: 'https://docs.microsoft.com/zh-cn/azure/architecture/aws-professional/services'
+    - name: 中国区 Azure 应用程序开发说明
+      href: /articles/others/developerdifferences?toc=%2fguides%2fdeveloper%2ftoc.json
+- name: 快速入门
+  items:
+    - name: Web 应用
+      href: /app-service/app-service-web-get-started-html
+    - name: 虚拟机
+      items:
+        - name: Linux
+          href: /virtual-machines/linux/quick-create-portal
+        - name: Windows
+          href: /virtual-machines/windows/quick-create-portal
+    - name: 无服务器
+      href: /azure-functions/functions-create-first-azure-function
+    - name: 微服务
+      items:
+        - name: Service Fabric
+          href: /service-fabric/service-fabric-create-your-first-application-in-visual-studio
+- name: 教程
+  items:
+    - name: 创建和部署 Web 应用
+      items:
+        - name: 将 .NET 与 SQL DB 配合使用
+          href: /app-service/app-service-web-tutorial-dotnet-sqldatabase
+        - name: 将 Node.js 与 Mongo DB 配合使用
+          href: /app-service/app-service-web-tutorial-nodejs-mongodb-app
+        - name: 将 PHP 与 MySQL 配合使用
+          href: /app-service/app-service-web-tutorial-php-mysql
+        - name: 将 Java 与 MySQL 配合使用
+          href: /app-service/app-service-web-tutorial-java-mysql
+    - name: 部署复杂的 VM 模板
+      items:
+        - name: Linux
+          href: /virtual-machines/linux/tutorial-manage-vm
+        - name: Windows
+          href: /virtual-machines/windows/tutorial-manage-vm
+    - name: 创建连接到 Azure 的函数
+      href: /azure-functions/functions-create-an-azure-connected-function
+- name: 示例
+  items:
+    - name: Azure CLI
+      items:
+        - name: Web 应用
+          href: /app-service/samples-cli
+        - name: Linux VM
+          href: /virtual-machines/linux/cli-samples
+        - name: Windows VM
+          href: /virtual-machines/windows/cli-samples
+    - name: Azure PowerShell
+      items:
+        - name: Web 应用
+          href: /app-service/samples-powershell
+        - name: Linux VM
+          href: /virtual-machines/linux/powershell-samples
+        - name: Windows VM
+          href: /virtual-machines/windows/powershell-samples
+- name: 概念
+  items:
+    - name: 计费和订阅
+      href: /billing/billing-getting-started
+    - name: 宿主比较
+      href: /app-service/overview-compare
+    - name: 什么是应用服务？
+      href: /app-service/overview
+    - name: 虚拟机
+      items:
+        - name: Linux VM
+          href: /virtual-machines/linux/overview
+        - name: Windows VM
+          href: /virtual-machines/windows/overview
+    - name: Service Fabric 概述
+      href: /service-fabric/service-fabric-overview
+- name: 操作方法指南
+  items:
+    - name: 计划
+      items:
+        - name: Web 应用程序体系结构
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/'
+        - name: VM 体系结构
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/'
+        - name: 连接到本地网络
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/'
+        - name: 微服务模式/方案
+          href: /service-fabric/service-fabric-patterns-and-scenarios
+    - name: 开发
+      items:
+        - name: Linux VM
+          href: /virtual-machines/linux/create-ssh-secured-vm-from-template
+        - name: Windows VM
+          href: /virtual-machines/windows/ps-template
+        - name: 无服务器应用
+          href: /azure-functions/functions-reference
+        - name: 微服务群集
+          href: /service-fabric/service-fabric-cluster-creation-via-portal
+    - name: 部署
+      items:
+        - name: 来自源代码管理的 Web 和移动应用
+          href: /app-service/deploy-continuous-deployment
+        - name: 本地微服务
+          href: /service-fabric/service-fabric-get-started-with-a-local-cluster
+        - name: Linux VM
+          href: /virtual-machines/linux/tutorial-manage-vm
+        - name: Windows VM
+          href: /virtual-machines/windows/tutorial-manage-vm
+    - name: 存储数据
+      items:
+        - name: Blob
+          href: /storage/blobs/storage-dotnet-how-to-use-blobs
+        - name: 文件共享
+          href: /storage/files/storage-dotnet-how-to-use-files
+        - name: 键值对
+          href: /cosmos-db/create-table-dotnet
+        - name: JSON 文档
+          href: /cosmos-db/create-sql-api-dotnet
+        - name: 关系表
+          href: /sql-database/sql-database-get-started
+        - name: 消息队列
+          href: /storage/queues/storage-dotnet-how-to-use-queues
+    - name: 缩放
+      items:
+        - name: Web 和移动应用
+          href: /app-service/web-sites-scale
+        - name: 虚拟机
+          href: /virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+        - name: 微服务应用
+          href: /service-fabric/service-fabric-concepts-scalability
+    - name: 安全
+      items:
+        - name: Web 和移动应用
+          href: /app-service/app-service-web-tutorial-custom-ssl
+    - name: Backup
+      items:
+        - name: Web 和移动应用
+          href: /app-service/manage-backup
+        - name: 虚拟机
+          href: /backup/backup-azure-vms-introduction
+    - name: 监视
+      items:
+        - name: Web 和移动应用
+          href: /app-service/troubleshoot-diagnostic-logs
+        - name: Linux VM
+          href: /virtual-machines/linux/tutorial-monitoring
+        - name: Windows VM
+          href: /virtual-machines/windows/tutorial-monitoring
+        - name: 微服务
+          href: /service-fabric/service-fabric-diagnostics-overview
+    - name: 自动化
+      items:
+        - name: 缩放 Linux VM
+          href: /virtual-machines/linux/tutorial-create-vmss
+        - name: 缩放 Windows VM
+          href: /virtual-machines/windows/tutorial-create-vmss
+- name: 参考
+  items:
+    - name: REST
+      href: 'https://docs.microsoft.com/rest/api/'
+    - name: SDK
+      items:
+        - name: .NET
+          href: /dotnet/api/overview/?view=azure-dotnet
+        - name: Java
+          href: /java/api/overview/?view=azure-java-stable
+        - name: Node.js
+          href: 'https://azure.github.io/azure-sdk-for-node/'
+        - name: PHP
+          href: 'https://github.com/Azure/azure-sdk-for-php/blob/master/README.md'
+        - name: Python
+          href: 'http://azure-sdk-for-python.readthedocs.io/en/latest/'
+        - name: Ruby
+          href: 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md'
+    - name: 命令行界面
+      items:
+        - name: Azure CLI
+          href: /cli/
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/'
+- name: 资源
+  items:
+    - name: Azure 限制和配额
+      href: ../../azure-subscription-service-limits.md?toc=%2fazure%2fguides%2fdeveloper%2ftoc.json
+    - name: Azure 区域
+      href: 'https://www.azure.cn/support/service-dashboard'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/pricing/calculator/'

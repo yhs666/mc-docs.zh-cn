@@ -1,39 +1,51 @@
 ---
-title: "Linux Azure VM 大小 - 内存 | Azure"
-description: "列出 Azure 中适用于 Linux 虚拟机的各种内存优化大小。"
+title: 内存优化虚拟机大小 | Azure
+description: 列出 Azure 中适用于 Linux 虚拟机的各种内存优化大小。 针对此系列中的大小列出了 vCPU、数据磁盘和 NIC 的数量，以及存储吞吐量和网络带宽。
 services: virtual-machines-linux
-documentationcenter: 
-author: cynthn
-manager: timlt
-editor: 
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+keywords: VM 隔离,隔离的 VM,隔离,隔离的
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/22/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0ad431b27a67272f72ad2f72c5cd224e7b44a01f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 05/16/2019
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.openlocfilehash: ed350a1ad89163dfa298a9992e12e816ab89511c
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912996"
 ---
-
-# <a name="memory-optimized-linux-vm-sizes"></a>内存优化 Linux VM 大小
+# <a name="memory-optimized-virtual-machine-sizes"></a>内存优化虚拟机大小
 
 [!INCLUDE [virtual-machines-common-sizes-memory](../../../includes/virtual-machines-common-sizes-memory.md)]
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## <a name="other-sizes"></a>其他大小
-- [常规用途](../windows/sizes-general.md)
-- [计算优化](../windows/sizes-compute.md)
+- [常规用途](sizes-general.md)
+- [计算优化](sizes-compute.md)
+
+    <!--Not Avaialble - [Storage optimized](sizes-storage.md)-->
+    
+- [GPU](../windows/sizes-gpu.md)
+
+    <!--Not Avaialble - [High performance compute](sizes-hpc.md)-->
+    
+- [前几代](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>后续步骤
-了解有关 [Azure 计算单元 (ACU)](../windows/acu.md) 如何帮助你跨 Azure SKU 比较计算性能的详细信息。
+
+* 了解有关 [Azure 计算单元 (ACU)](acu.md) 如何帮助跨 Azure SKU 比较计算性能的详细信息。
+
+* 了解如何[使用 Azure CLI 创建和管理 Linux VM](tutorial-manage-vm.md)
+
+<!-- Update_Description: update meta properties, wording update -->

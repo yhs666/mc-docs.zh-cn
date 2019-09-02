@@ -1,101 +1,99 @@
 ---
-title: "Azure 虚拟网络 | Azure"
-description: "了解 Azure 虚拟网络概念和功能。"
+title: Azure 虚拟网络 | Azure
+description: 了解 Azure 虚拟网络概念和功能。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
 tags: azure-resource-manager
-ms.assetid: 9633de4b-a867-4ddf-be3c-a332edf02e24
+Customer intent: As someone with a basic network background that is new to Azure, I want to understand the capabilities of Azure Virtual Network, so that my Azure resources such as VMs, can securely communicate with each other, the internet, and my on-premises resources.
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/23/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: afa0a46a4d260c3d595e70c2d98038deb127b20f
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
-
+origin.date: 06/19/2019
+ms.date: 07/22/2019
+ms.author: v-yeche
+ms.openlocfilehash: b19d8b24d9a0080264c50d3ed12e47a92a8dd1c6
+ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 07/26/2019
+ms.locfileid: "68514220"
 ---
-# <a name="azure-virtual-network"></a>Azure 虚拟网络
+# <a name="what-is-azure-virtual-network"></a>什么是 Azure 虚拟网络？
 
-通过 Azure 虚拟网络服务可安全地将 Azure 资源连接到具有虚拟网络 (VNet) 的各个资源。 VNet 是你自己的网络在云中的表示形式。 VNet 是对专用于你的订阅的 Azure 云进行的逻辑隔离。 也可将 VNet 连接到本地网络。 下图显示了 Azure 虚拟网络服务的部分功能：
+Azure 虚拟网络 (VNet) 是 Azure 中专用网络的基本构建块。 VNet 允许许多类型的 Azure 资源（例如 Azure 虚拟机 (VM)）以安全方式彼此通信、与 Internet 通信，以及与本地网络通信。 VNet 类似于在你在自己的数据中心运营的传统网络，但附带了 Azure 基础设施的其他优势，例如可伸缩性、可用性和隔离性。
 
-![网络示意图](./media/virtual-networks-overview/virtual-network-overview.png)
+## <a name="vnet-concepts"></a>VNet 概念
 
-若要了解有关以下 Azure 虚拟网络功能的详细信息，请单击功能：
+- **地址空间：** 创建 VNet 时，必须使用公共和专用 (RFC 1918) 地址指定自定义的专用 IP 地址空间。 Azure 从分配的地址空间中向虚拟网络中的资源分配一个专用 IP 地址。 例如，如果在地址空间为 10.0.0.0/16 的 VNet 中部署某个 VM，将为该 VM 分配类似于 10.0.0.4 的专用 IP。
+- **子网：** 使用子网可将虚拟网络划分为一个或多个子网络，并向每个子网分配一部分虚拟网络地址空间。 然后，可以在特定的子网中部署 Azure 资源。 就像在传统网络中一样，使用子网可将 VNet 地址空间划分为适合组织内部网络的网段。 这还会提高地址分配效率。 可以使用网络安全组保护子网中的资源。 有关详细信息，请参阅[安全组](security-overview.md)。
+- **区域**：VNet 局限于一个区域/位置；但是，可以使用虚拟网络对等互连将不同区域的多个虚拟网络连接起来。
+- **订阅：** VNet 的范围限定为订阅。 可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure [区域](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json)中实现多个虚拟网络。
+    <!--MOONCAKE: Not Available on #region-->
+    
+## <a name="best-practices"></a>最佳实践
 
-- **[隔离：](#isolation)**VNet 之间彼此隔离。 你可以为使用相同 CIDR 地址块的开发、测试和生产创建单独的 VNet。 相反地，你也可以创建使用不同 CIDR 地址的多个 VNet 并将网络连接在一起。 可将一个 VNet 分为多个子网。 Azure 为连接到 VNet 的 VM 和云服务角色实例提供内部名称解析。 可选择配置 VNet 来使用自己的 DNS 服务器，而不使用 Azure 内部名称解析。
-- **[Internet 连接：](#internet)**默认情况下，所有 Azure 虚拟机 (VM) 和连接到 VNet 的云服务角色实例都具有 Internet 访问权限。 根据需要，还可对特定资源启用入站访问。
-- **[Azure 资源连接：](#within-vnet)**云服务和 VM 等 Azure 资源可连接到同一 VNet。 即使资源在不同的子网中，也可使用专用 IP 地址连接彼此。 Azure 提供子网、VNet 和本地网络之间的默认路由，因此无需配置和管理路由。
-- **[VNet 连接性：](#connect-vnets)**VNet 可相互之间进行连接，从而使连接到任何 VNet 的资源与任何其他 VNet 上的所有资源进行通信。
-- **[本地连接性：](#connect-on-premises)**可通过网络和 Azure 间的专用网络连接或基于 Internet 的站点到站点 VPN 连接将 VNet 连接到本地网络。
-- **[流量筛选：](#filtering)**按源 IP 地址和端口、目标 IP 地址和端口以及协议对 VM 和云服务角色实例网络流量进行入站和出站筛选。
-- **[路由：](#routing)**可选择通过配置自己的路由或通过网关使用 BGP 路由来替代 Azure 默认路由。
+在 Azure 中构建网络时，必须记住以下通用设计原则：
 
-## <a name = "isolation"></a>网络隔离和细分
+- 确保地址空间不重叠。 确保 VNet 地址空间（CIDR 块）不与组织的其他网络范围重叠。
+- 子网不应涵盖 VNet 的整个地址空间。 提前规划，为将来留出一些地址空间。
+- 建议使用少量的大型 VNet，而不要使用多个小型 VNet。 这可以防止出现管理开销。
+- 使用网络完全组 (NSG) 保护 VNet。
 
-可在每个 Azure [订阅](../azure-glossary-cloud-terminology.md?toc=%2fvirtual-network%2ftoc.json#subscription)和 Azure 区域中实现多个 VNet。 每个 VNet 与其他 VNet 隔离。 对于每个 VNet，可执行以下操作：
+<a name="internet"></a>
+## <a name="communicate-with-the-internet"></a>与 Internet 通信
 
-- 使用公共和专用 (RFC 1918) 地址指定自定义专用 IP 地址空间。 Azure 从分配的地址空间中向连接到 VNet 的资源分配一个专用 IP 地址。
-- 将 VNet 细分为一个或多个子网，并向每个子网分配一部分 VNet 地址空间。
-- 使用 Azure 提供的名称解析或指定你自己的 DNS 服务器以供连接到 VNet 的资源使用。 若要了解 VNet 中名称解析的详细信息，请阅读 [VM 和云服务的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)一文。
+默认情况下，VNet 中的所有资源都可以与 Internet 进行出站通信。 可以通过分配公共 IP 地址或公共负载均衡器来与资源进行入站通信。 还可以使用公共 IP 或公共负载均衡器来管理出站连接。  若要详细了解 Azure 中的出站连接，请参阅[出站连接](../load-balancer/load-balancer-outbound-connections.md)、[公共 IP 地址](virtual-network-public-ip-address.md)和[负载均衡器](../load-balancer/load-balancer-overview.md)。
 
-## <a name = "internet"></a>连接到 Internet
-默认情况下，连接到 VNet 的所有资源都具有 Internet 出站连接。 资源的专用 IP 地址是由 Azure 基础结构转换到公共 IP 地址中的源网络地址 (SNAT)。 若要了解出站网络连接的详细信息，请阅读[了解 Azure 中的出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json#standalone-vm-with-no-instance-level-public-ip-address)一文。 可通过实现自定义路由和流量筛选更改默认连接。
+>[!NOTE]
+>仅使用内部[标准负载均衡器](../load-balancer/load-balancer-standard-overview.md)时，在定义[出站连接](../load-balancer/load-balancer-outbound-connections.md)如何与实例级公共 IP 或公共负载均衡器配合使用之前，出站连接不可用。
 
-若要从 Internet 入站通信到 Azure 资源或出站通信到不具 SNAT 的 Internet，则必须向资源分配一个公共 IP 地址。 若要详细了解公共 IP 地址，请阅读 [公共 IP 地址](virtual-network-public-ip-address.md)一文。
+<a name="within-vnet"></a>
+## <a name="communicate-between-azure-resources"></a>Azure 资源之间的通信
 
-## <a name="within-vnet"></a>连接 Azure 资源
-可将多个 Azure 资源连接到 VNet，例如虚拟机 (VM)、云服务、应用服务环境和虚拟机规模集。 VM 通过网络接口 (NIC) 连接到 VNet 中的子网。 若要了解有关 NIC 的详细信息，请阅读[网络接口](virtual-network-network-interface.md)一文。
+Azure 资源采用下述某种方式安全地相互通信：
 
-## <a name="connect-vnets"></a>连接虚拟网络
+- **通过虚拟网络**：可以将 VM 和多个其他类型的 Azure 资源部署到虚拟网络，如 Azure 应用服务环境、Azure Kubernetes 服务 (AKS) 和 Azure 虚拟机规模集。 若要查看可部署到虚拟网络的 Azure 资源的完整列表，请参阅[虚拟网络服务集成](virtual-network-for-azure-services.md)。
+- **通过虚拟网络服务终结点**：通过直接连接将虚拟网络专用地址空间和虚拟网络的标识扩展到 Azure 服务资源，例如 Azure 存储帐户和 Azure SQL 数据库。 使用服务终结点可以保护关键的 Azure 服务资源，只允许在客户自己的虚拟网络中对其进行访问。 有关详细信息，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。
+- **通过 VNet 对等互连**：可以互相连接虚拟网络，使虚拟网络中的资源能够通过虚拟网络对等互连相互进行通信。 连接的虚拟网络可以在相同或不同的 Azure 区域中。 有关详细信息，请参阅[虚拟网络对等互连](virtual-network-peering-overview.md)。
 
-VNet 之间可相互连接，因此，连接到任意一个 VNet 的资源都可与 VNet 之间的每个资源进行通信。 可使用以下两个中任意一个选项或使用这两个选项相互连接 VNet：
+<a name="connect-on-premises"></a>
+## <a name="communicate-with-on-premises-resources"></a>与本地资源通信
 
-- **对等互连：**使连接到相同 Azure 位置中不同 Azure VNet 的资源可相互进行通信。 如果资源连接到同一 VNet，则 VNet 之间的带宽和延迟相同。 若要了解对等互连的详细信息，请阅读[虚拟网络对等互连](virtual-network-peering-overview.md)一文。
-- **VNet 到 VNet连接：**可使资源连接到相同或不同 Azure 位置中的不同 Azure VNet。 与对等互连不同，VNet 之间的带宽有一定限制，因为流量必须流经 Azure VPN 网关。 若要深入了解通过 VNet 到 VNet 连接进行 VNet 连接，请阅读[配置 VNet 到 VNet 连接](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)一文。
+可组合使用以下任何选项将本地计算机和网络连接到虚拟网络：
 
-## <a name="connect-on-premises"></a>连接到本地网络
+- **点到站点虚拟专用网络 (VPN)：** 在网络中的虚拟网络和单台计算机之间建立连接。 要与虚拟网络建立连接的每台计算机必须配置其连接。 这种连接类型适用于刚开始使用 Azure 的人员或开发人员，因为该连接类型仅需对现有网络作出极少更改或不做任何更改。 计算机与虚拟网络之间的通信经 Internet 通过加密的通道来发送。 若要了解更多信息，请参阅[点到站点 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#P2S)。
+- **站点到站点 VPN：** 在本地 VPN 设备和虚拟网络中部署的 Azure VPN 网关之间建立连接。 此连接类型可使授权的任何本地资源访问虚拟网络。 本地 VPN 设备和 Azure VPN 网关之间的通信经 Internet 通过加密的通道来发送。 若要了解更多信息，请参阅[站点到站点 VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#s2smulti)。
+- **Azure ExpressRoute：** 通过 ExpressRoute 合作伙伴在网络和 Azure 之间建立连接。 此连接是专用连接。 流量不经过 Internet。 若要了解详细信息，请参阅 [ExpressRoute](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#ExpressRoute)。
 
-可组合使用以下任何选项将本地网络连接到 VNet：
+<a name="filtering"></a>
+## <a name="filter-network-traffic"></a>筛选网络流量
 
-- **点到站点虚拟网络 (VPN)：**在连接到网络的单台电脑和 VNet 之间建立连接。 这种连接类型适用于刚开始使用 Azure 的人员或开发人员，因为该连接类型仅需对现有网络作出极少更改或不做任何更改。 此连接使用 SSTP 协议在电脑和 VNet 之间通过 Internet 提供加密通信。 由于流量遍历 Internet，因此点到站点 VPN 的延迟不可预测。
-- **站点到站点 VPN：**在 VPN 设备和 Azure VPN 网关之间建立连接。 此连接类型可使授权的任何本地资源访问 VNet。 此连接是一个 IPSec/IKE VPN，该 VPN 通过 Internet 在本地设备和 Azure VPN 网关之间提供加密通信。 由于流量遍历 Internet，因此站点到站点连接的延迟不可预测。
-- **Azure ExpressRoute：**通过 ExpressRoute 合作伙伴在网络和 Azure 之间建立连接。 此连接是专用连接。 流量不会遍历 Internet。 由于流量未遍历 Internet，因此 ExpressRoute 连接的延迟可预测。
-
-若要了解有关所有以前连接选项的详细信息，请阅读[连接拓扑图](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fvirtual-network%2ftoc.json#a-namediagramsaconnection-topology-diagrams)一文。
-
-## <a name="filtering"></a>筛选网络流量
 可使用以下两个选项中任意一个或同时使用这两个方案筛选子网之间的网络流量：
 
-- **网络安全组 (NSG)：**每个 NSG 可包含多个入站和出站安全规则，通过这些规则可按源和目标 IP 地址、端口和协议筛选流量。 可将 NSG 应用到一个 VM 中的每个 NIC。 也可将 NSG 应用到 NIC 或其他 Azure 资源所连接的子网。 有关 NSG 的详细信息，请参阅[网络安全组](virtual-networks-nsg.md)一文。
-- **网络虚拟设备 (NVA)：**NVA 是运行软件的 VM，软件可执行网络功能，例如防火墙。 NVA 也可用于提供 WAN 优化和其他网络流量功能。 NVA 通常与用户定义路由或 BGP 路由配合使用。 还可使用 NVA 筛选 VNet 之间的流量。
+- **安全组：** 网络安全组和应用程序安全组可包含多个入站和出站安全规则，通过这些规则可按源和目标 IP 地址、端口和协议筛选出入资源的流量。 要了解详细信息，请参阅[网络安全组](security-overview.md#network-security-groups)或[应用程序安全组](security-overview.md#application-security-groups)。
+- **网络虚拟设备：** 虚拟网络设备是可执行网络功能（例如防火墙、WAN 优化等）的 VM。 若要查看可在虚拟网络中部署的网络虚拟设备，请参阅 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&page=1&subcategories=appliances)。
 
-## <a name="routing"></a>路由网络流量
+<a name="routing"></a>
+## <a name="route-network-traffic"></a>路由网络流量
 
-默认情况下，Azure 会创建路由表，这些路由表可使连接到 VNet 中任何子网的资源相互进行通信。 可使用以下两个选项中任意一个或同时使用二者替代 Azure 创建的默认路由：
+默认情况下，Azure 在子网、连接的虚拟网络、本地网络以及 Internet 之间路由流量。 可使用以下两个选项中任意一个或同时使用二者替代 Azure 创建的默认路由：
 
-- **用户定义路由：**可创建自定义路由表，其中包含可对每个子网控制流量路由位置的路由。 若要详细了解用户定义的路由，请阅读[用户定义的路由](virtual-networks-udr-overview.md)一文。
-- **BGP 路由：**如果使用 Azure VPN 网关或 ExpressRoute 连接将 VNet 连接到本地网络，则可将 BGP 路由传播到 VNet。
+- **路由表：** 可创建自定义路由表，其中包含可对每个子网控制流量路由到位置的路由。 详细了解[路由表](virtual-networks-udr-overview.md#user-defined)。
+- **边界网关协议 (BGP) 路由：** 如果使用 Azure VPN 网关或 ExpressRoute 连接将虚拟网络连接到本地网络，则可将本地 BGP 路由传播到虚拟网络。 详细了解如何将 BGP 与 [Azure VPN 网关](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fvirtual-network%2ftoc.json)和 [ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fvirtual-network%2ftoc.json#dynamic-route-exchange) 配合使用。
+
+## <a name="azure-vnet-limits"></a>Azure VNet 的限制
+
+可部署的 Azure 资源数存在一定的限制。 大多数 Azure 网络限制设置在最大值。 但是，你可以根据 [VNet 限制页](../azure-subscription-service-limits.md#networking-limits)中的指定，[提高某些网络限制](https://support.azure.cn/zh-cn/support/support-azure/)。 
 
 ## <a name="pricing"></a>定价
 
-虚拟网络、子网、路由表或网络安全组无收费。 出站 Internet 带宽使用、公共 IP 地址、虚拟网络对等互连、VPN 网关和 ExpressRoute 各有其定价结构。 相关详细信息，请查看[虚拟网络](https://www.azure.cn/pricing/details/networking/)、[VPN 网关](https://www.azure.cn/pricing/details/vpn-gateway/)和 [ExpressRoute](https://www.azure.cn/pricing/details/expressroute/) 定价页面。
-
-## <a name="faq"></a>常见问题
-
-若要查看关于虚拟网络的常见问题解答，请参阅[虚拟网络常见问题解答](virtual-networks-faq.md)一文。
+使用 Azure VNet 不会产生费用，它是免费的。 标准费率适用于虚拟机 (VM) 等资源和其他产品。 有关详细信息，请参阅 [VNet 定价](https://www.azure.cn/pricing/details/networking/)和 Azure [定价计算器](https://www.azure.cn/pricing/calculator/)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 完成[创建首个虚拟网络](virtual-network-get-started-vnet-subnet.md)一文中的步骤，创建自己的首个虚拟网络，并将几个 VM 连接到此网络。
-- 完成[配置点到站点连接](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fvirtual-network%2ftoc.json)一文中的步骤，为 VNet 创建一个点到站点连接。
+若要使用虚拟网络来入门，请先创建一个虚拟网络，向其部署一些 VM，然后在 VM 之间通信。 有关详细信息，请参阅[创建虚拟网络](quick-create-portal.md)快速入门。
 
+<!--Update_Description: update meta properties, wording update -->

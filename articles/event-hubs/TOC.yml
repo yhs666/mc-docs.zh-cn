@@ -1,0 +1,149 @@
+- name: 事件中心文档
+  href: ./index.yml
+- name: 概述
+  items:
+    - name: 什么是事件中心？
+      href: event-hubs-about.md
+    - name: 事件中心捕获
+      href: event-hubs-capture-overview.md
+    - name: 事件中心专用层
+      href: event-hubs-dedicated-overview.md
+- name: 快速入门
+  expanded: true
+  items:
+    - name: 创建事件中心
+      items:
+        - name: Azure 门户
+          href: event-hubs-create.md
+        - name: Azure CLI
+          href: event-hubs-quickstart-cli.md
+        - name: Azure PowerShell
+          href: event-hubs-quickstart-powershell.md
+        - name: Azure Resource Manager 模板
+          displayName: ARM
+          href: event-hubs-resource-manager-namespace-event-hub.md
+    - name: 发送和接收事件
+      items:
+        - name: .NET Core
+          href: event-hubs-dotnet-standard-getstarted-send.md
+        - name: Java
+          href: event-hubs-java-get-started-send.md
+    - name: 捕获事件
+      items:
+        - name: 使用 Azure 门户启用事件中心捕获
+          href: event-hubs-capture-enable-through-portal.md
+        - name: 使用资源管理器模板启用事件中心捕获
+          href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+        - name: 使用 Python 捕获事件中心数据
+          href: event-hubs-capture-python.md
+- name: 示例
+  href: event-hubs-samples.md
+- name: 概念
+  items:
+    - name: 事件中心术语
+      href: event-hubs-features.md
+    - name: 可用性和一致性
+      href: event-hubs-availability-and-consistency.md
+    - name: 可伸缩性
+      href: event-hubs-scalability.md
+    - name: 安全性
+      items:
+        - name: Azure 资源的托管标识
+          href: event-hubs-managed-service-identity.md
+        - name: 身份验证和安全模型概述
+          href: event-hubs-authentication-and-security-model-overview.md
+        - name: 安全属性
+          href: event-hubs-security-attributes.md
+    - name: AMQP 1.0 协议指南
+      href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
+      maintainContext: true
+- name: 操作指南
+  items:
+    - name: 开发
+      items:
+        - name: 获取事件中心连接字符串
+          href: event-hubs-get-connection-string.md
+        - name: 编程指南
+          href: event-hubs-programming-guide.md
+        - name: 使用事件处理程序主机接收事件
+          href: event-hubs-event-processor-host.md
+    - name: 使用客户端库
+      items:
+        - name: .NET framework
+          items:
+            - name: 使用 .NET Framework 发送和接收事件
+              href: event-hubs-dotnet-framework-getstarted-send.md
+        - name: Python
+          items:
+            - name: 使用 Python 发送和接收事件
+              href: event-hubs-python-get-started-send.md
+            - name: 使用 Python 发送、接收和捕获事件
+              href: event-hubs-python.md
+        - name: Node.js
+          items:
+            - name: 使用 Node.js 发送和接收事件
+              href: event-hubs-node-get-started-send.md
+        - name: Go
+          items:
+            - name: 使用 Go 发送和接收事件
+              href: event-hubs-go-get-started-send.md
+        - name: C（仅发送）
+          items:
+            - name: 使用 C 发送事件
+              href: event-hubs-c-getstarted-send.md
+        - name: Apache Storm（仅接收）
+          items:
+            - name: 使用 Apache Storm 接收事件
+              href: event-hubs-storm-getstarted-receive.md
+    - name: 管理和监视
+      items:
+        - name: 使用 Azure 监视来监视事件中心
+          href: event-hubs-metrics-azure-monitor.md
+        - name: 自动缩放吞吐量单位
+          href: event-hubs-auto-inflate.md
+        - name: 事件中心管理库
+          href: event-hubs-management-libraries.md
+    - name: 安全
+      items:
+        - name: 使用防火墙
+          href: event-hubs-ip-filtering.md
+    - name: 故障排除
+      items:
+        - name: 异常
+          href: event-hubs-messaging-exceptions.md
+- name: 参考
+  items:
+    - name: Java
+      items:
+        - name: com.microsoft.azure.eventhubs
+          href: 'https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.eventhubs?view=azure-java-stable'
+        - name: com.microsoft.azure.eventprocessorhost
+          href: 'https://docs.azure.cn/zh-cn/java/api/com.microsoft.azure.eventprocessorhost?view=azure-java-stable'
+    - name: .NET
+      items:
+        - name: Microsoft.Azure.EventHubs
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs'
+        - name: Microsoft.Azure.EventHubs.Processor
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.eventhubs.processor'
+        - name: Microsoft.ServiceBus.Messaging
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging'
+        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost'
+        - name: Microsoft.Azure.Management.EventHub
+          href: 'https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.eventhub'
+    - name: Node.js
+      href: 'http://docs.microsoft.com/javascript/api/overview/azure/event-hub?view=azure-node-latest'
+    - name: REST
+      href: 'http://docs.microsoft.com/rest/api/eventhub'
+    - name: 配额
+      href: event-hubs-quotas.md
+- name: 资源
+  items:
+    - name: 常见问题
+      href: event-hubs-faq.md
+    - name: 定价
+      href: 'https://www.azure.cn/pricing/details/event-hubs/'
+    - name: 定价计算器
+      href: 'https://www.azure.cn/pricing/calculator/'
+    - name: 服务更新
+      href: 'https://www.azure.cn/what-is-new/'

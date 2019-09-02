@@ -1,69 +1,63 @@
 ---
-title: SQL 数据仓库（门户）中的透明数据加密 | Azure
+title: SQL 数据仓库（门户）中的透明数据加密 | Microsoft 文档
 description: SQL 数据仓库中的透明数据加密 (TDE)
 services: sql-data-warehouse
-documentationCenter: ''
-authors: ronortloff
-manager: barbkess
-editor: ''
-
+author: WenJason
+manager: digimobile
 ms.service: sql-data-warehouse
-ms.workload: data-management
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2016
-wacn.date: 12/12/2016
-ms.author: v-yeche
+ms.topic: conceptual
+ms.subservice: implement
+origin.date: 04/17/2018
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.reviewer: igorstan
+ms.openlocfilehash: f67e0c5cb3dc6f2a05f5e218a8ba04d936543e9e
+ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58348151"
 ---
-
-# SQL 数据仓库中的透明数据加密 (TDE) 入门
-
+# <a name="get-started-with-transparent-data-encryption-tde-in-sql-data-warehouse"></a>SQL 数据仓库中的透明数据加密 (TDE) 入门
 > [!div class="op_single_selector"]
->- [安全性概述](./sql-data-warehouse-overview-manage-security.md)
->- [身份验证](./sql-data-warehouse-authentication.md)
->- [加密（门户）](./sql-data-warehouse-encryption-tde.md)
->- [加密 (T-SQL)](./sql-data-warehouse-encryption-tde-tsql.md)
+> * [安全性概述](sql-data-warehouse-overview-manage-security.md)
+> * [身份验证](sql-data-warehouse-authentication.md)
+> * [加密（门户）](sql-data-warehouse-encryption-tde.md)
+> * [加密 (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
+> 
+> 
 
-## 所需的权限
+## <a name="required-permissions"></a>所需权限
 若要启用透明数据加密 (TDE)，用户必须是管理员或 dbmanager 角色的成员。
 
-## 启用加密
+## <a name="enabling-encryption"></a>启用加密
 若要为 SQL 数据仓库启用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
-2. 在数据库边栏选项卡中，单击“设置”按钮
-3. 选择“透明数据加密”选项 
-![][1]
-4. 选择“打开”设置 
-![][2]
-5. 选择“保存” 
-![][3]  
+1. 在 [Azure 门户](https://portal.azure.cn)
+3. 选择“透明数据加密”选项 ![][1]
+4. 选择“打开”设置![][2]
+5. 选择“保存”
+   ![][3]  
 
-## 禁用加密
+## <a name="disabling-encryption"></a>禁用加密
 若要为 SQL 数据仓库禁用 TDE，请遵循以下步骤：
 
-1. 在 [Azure 门户](https://portal.azure.cn/)中打开数据库
-2. 在数据库边栏选项卡中，单击“设置”按钮
-3. 选择“透明数据加密”选项 
-![][1]
-4. 选择“关闭”设置 
-![][4]
-5. 选择“保存” 
-![][5]  
+1. 在 [Azure 门户](https://portal.azure.cn)
+3. 选择“透明数据加密”选项 ![][1]
+4. 选择“关闭”设置![][4]
+5. 选择“保存”
+   ![][5]  
 
-##加密 DMV
-
+## <a name="encryption-dmvs"></a>加密 DMV
 可使用下列 DMV 来确认加密：
 
-- [sys.databases]
-- [sys.dm\_pdw\_nodes\_database\_encryption\_keys]
+* [sys.databases]
+* [sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--MSDN references-->
-
-[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/zh-cn/library/bb934049.aspx
-[sys.databases]: http://msdn.microsoft.com/zh-cn/library/ms178534.aspx
-[sys.dm\_pdw\_nodes\_database\_encryption\_keys]: https://msdn.microsoft.com/zh-cn/library/mt203922.aspx
+[Transparent Data Encryption (TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
+[sys.databases]: http://msdn.microsoft.com/library/ms178534.aspx
+[sys.dm_pdw_nodes_database_encryption_keys]: https://msdn.microsoft.com/library/mt203922.aspx
 
 <!--Image references-->
 [1]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings.png
@@ -73,5 +67,3 @@ ms.author: v-yeche
 [5]: ./media/sql-data-warehouse-security-tde/sql-data-warehouse-security-tde-portal-settings-save2.png
 
 <!--Link references-->
-
-<!---HONumber=Mooncake_1205_2016-->

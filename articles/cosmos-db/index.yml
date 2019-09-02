@@ -1,0 +1,144 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Cosmos DB 文档
+metadata:
+  document_id: e77bd640-1036-8b31-955c-a2cc990c69a1
+  title: Azure Cosmos DB 文档 - 教程和 API 参考
+  description: 了解如何使用 Azure Cosmos DB 这一多区域分布式多模型数据库服务。 教程介绍了如何生成和查询文档、键/值与图形数据库。
+  author: rockboyfor
+  ms.author: v-yeche
+  ms.service: cosmos-db
+  ms.topic: landing-page
+  origin.date: 05/20/2019
+  ms.date: 07/29/2019
+abstract:
+  description: Azure Cosmos DB 是完全托管的数据库服务，具有统包多区域分布和透明多主数据库复制功能。 你可以对数据库中的事务数据运行多区域分布的低延迟运营与分析工作负荷和 AI。 参考我们的快速入门、教程和示例，了解如何使用 Azure Cosmos DB。
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /cosmos-db/distribute-data-globally/
+            html: <p>了解适用于所有 Azure Cosmos DB API 的多区域分布、预配的吞吐量、索引编制和其他概念。</p>
+            image:
+              src: media/index/azure-cosmos-db-icon.png
+            title: 概念
+          - href: /cosmos-db/sql-api-query-reference/
+            html: <p>如果要生成新的非关系文档数据库并希望使用熟悉的 SQL 语法进行查询，请使用 SQL API。</p>
+            image:
+              src: media/index/sql-api.svg
+            title: SQL API
+          - href: /cosmos-db/graph-introduction/
+            html: <p>如果要生成可对实体之间的关系进行建模和遍历操作的图形数据库，请使用 Gremlin API。</p>
+            image:
+              src: media/index/graph-api.svg
+            title: Gremlin API
+          - href: /cosmos-db/mongodb-introduction/
+            html: <p>如果要将数据从 MongoDB 数据库迁移到 Azure Cosmos DB 的完全托管服务，请使用 Azure Cosmos DB 的用于 MongoDB 的 API。</p>
+            image:
+              src: media/index/mongodb-api.svg
+            title: Azure Cosmos DB 的用于 MongoDB 的 API
+          - href: /cosmos-db/cassandra-introduction/
+            html: <p>如果要将数据从 Cassandra 数据库迁移到 Azure Cosmos DB 的完全托管服务，请使用 Cassandra API。</p>
+            image:
+              src: media/index/cassandra-api.png
+            title: Cassandra API
+          - href: /cosmos-db/table-introduction/
+            html: <p>如果要将数据从 Azure 表存储迁移到 Azure Cosmos DB 的高级版表产品/服务，请使用表 API。</p>
+            image:
+              src: media/index/table-api.svg
+            title: 表 API
+          - href: /cosmos-db/change-feed/
+            html: <p>利用更改源执行实时分析，方法是按 Azure Cosmos DB 容器中文档的修改顺序读取这些文档的排序列表。 </p>
+            image:
+              src: media/index/change-feed-logo.png
+            title: 更改源
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: 了解如何通过以下多模型 API 快速入门之一，使用 Azure Cosmos DB 创建多区域分布式数据库：
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo_java.svg
+            title: Java
+          - image:
+              src: media/index/logo_net.svg
+            title: .NET
+          - image:
+              src: media/index/logo_nodejs.svg
+            title: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            title: Python
+          - image:
+              src: media/index/logo_gremlin.svg
+            title: Gremlin
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_gopher.svg'
+            title: Go
+          - image:
+              src: media/index/logo_xamarin.svg
+            title: Xamarin
+        rows:
+          - title: SQL API
+            values:
+              - href: /cosmos-db/create-sql-api-java
+              - href: /cosmos-db/create-sql-api-dotnet
+              - href: /cosmos-db/create-sql-api-nodejs
+              - href: /cosmos-db/create-sql-api-python
+              - href: null
+              - href: null
+              - href: /cosmos-db/create-sql-api-xamarin-dotnet
+          - title: 适用于 MongoDB 的 API
+            values:
+              - href: /cosmos-db/create-mongodb-java
+              - href: /cosmos-db/create-mongodb-dotnet
+              - href: /cosmos-db/create-mongodb-nodejs
+              - href: /cosmos-db/create-mongodb-flask
+              - href: null
+              - href: /cosmos-db/create-mongodb-golang
+              - href: /cosmos-db/create-mongodb-xamarin
+          - title: Gremlin API
+            values:
+              - href: /cosmos-db/create-graph-java
+              - href: /cosmos-db/create-graph-dotnet
+              - href: /cosmos-db/create-graph-nodejs
+              - href: /cosmos-db/create-graph-python
+              - href: /cosmos-db/create-graph-gremlin-console
+              - href: null
+              - href: null
+          - title: 表 API
+            values:
+              - href: /cosmos-db/create-table-java
+              - href: /cosmos-db/create-table-dotnet
+              - href: /cosmos-db/create-table-nodejs
+              - href: /cosmos-db/create-table-python
+              - href: null
+              - href: null
+              - href: null
+          - title: Cassandra API
+            values:
+              - href: /cosmos-db/create-cassandra-java
+              - href: /cosmos-db/create-cassandra-dotnet
+              - href: /cosmos-db/create-cassandra-nodejs
+              - href: /cosmos-db/create-cassandra-python
+              - href: null
+              - href: null
+              - href: null
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 了解如何使用 Azure Cosmos DB 开发应用：
+      - type: list
+        style: ordered
+        items:
+          - html: 使用 Azure Cosmos DB 开发应用：<a href="/cosmos-db/tutorial-develop-sql-api-dotnet">SQL</a> | <a href="/cosmos-db/tutorial-develop-mongodb-nodejs">MongoDB</a> | <a href="/cosmos-db/tutorial-develop-table-dotnet">表</a> | <a href="/cosmos-db/tutorial-develop-graph-dotnet">Gremlin</a> | <a href="/cosmos-db/create-cassandra-api-account-java">Cassandra</a>
+          - html: 将数据迁移到 Azure Cosmos DB：<a href="import-data">SQL</a> | <a href="mongodb-migrate">MongoDB</a> | <a href="/cosmos-db/table-import">表</a> | <a href="/cosmos-db/cassandra-import-data">Cassandra</a>
+          - html: 使用 Azure Cosmos DB 查询数据：<a href="/cosmos-db/tutorial-query-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-query-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-query-table">表</a> | <a href="/cosmos-db/tutorial-query-graph">Gremlin</a>
+          - html: 使用 Azure Cosmos DB 进行多区域数据库复制：<a href="/cosmos-db/tutorial-global-distribution-sql-api">SQL</a> | <a href="/cosmos-db/tutorial-global-distribution-mongodb">MongoDB</a> | <a href="/cosmos-db/tutorial-global-distribution-table">表</a>
+          - html: <a href="local-emulator">使用模拟器本地开发应用程序</a>
+          - html: <a href="/cosmos-db/tutorial-functions-http-trigger">使用 Azure Cosmos DB 输入绑定创建 HTTP 触发器</a>

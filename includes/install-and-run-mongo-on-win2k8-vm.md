@@ -73,7 +73,7 @@
 
 12. 如果你在创建虚拟机时未配置 MongoDB 的终结点，你可以现在完成此操作。 你需要防火墙规则和终结点能够远程连接到 MongoDB。
 
-    在 Azure 门户中，依次单击“虚拟机(经典)”、你的新建虚拟机的名称和“终结点”。
+  在 Azure 门户中，依次单击“虚拟机(经典)”、你的新建虚拟机的名称和“终结点”。
 
     ![终结点][Image7]
 
@@ -91,7 +91,6 @@
 [MongoDownloads]: http://www.mongodb.org/downloads
 
 [MongoWindowsSvcOptions]: http://www.mongodb.org/display/DOCS/Windows+Service
-
 
 [Image1]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall1.png
 [Image2]: ./media/install-and-run-mongo-on-win2k8-vm/WinFirewall2.png

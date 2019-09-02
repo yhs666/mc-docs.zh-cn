@@ -1,55 +1,49 @@
 ---
 title: 在 Azure 应用服务移动应用中创建 iOS 应用 | Azure
-description: 遵循本教程开始使用 Azure 移动应用后端以 Objective-C 或 Swift 进行 iOS 开发
+description: 按照本教程，开始使用 Azure 移动应用后端，以 Objective-C 或 Swift 语言开发 iOS
 services: app-service\mobile
-documentationCenter: ios
-authors: yuaxu
-manager: yuchayk
+documentationcenter: ios
+author: conceptdev
+manager: crdun
 editor: ''
-
+ms.assetid: 6461a899-9340-42dd-b118-ffc5ba00e846
 ms.service: app-service-mobile
 ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
-ms.topic: hero-article
-ms.date: 10/01/2016
-wacn.date: 11/21/2016
-ms.author: v-yiso
+ms.topic: conceptual
+origin.date: 08/17/2018
+ms.date: 06/17/2019
+ms.author: v-biyu
+ms.openlocfilehash: 2f7e57ee3b476c5c4bbb9b6a7ecc7c5d98de1a0f
+ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 06/05/2019
+ms.locfileid: "66687466"
 ---
-
-#创建 iOS 应用
+# <a name="create-an-ios-app"></a>创建 iOS 应用
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
-## 概述
+## <a name="overview"></a>概述
 
-本教程说明如何将云后端服务 [Azure 移动应用](./app-service-mobile-value-prop.md)添加到 iOS 应用。首先将创建新的移动后端。然后，使用一个简单的 _待办事项列表_ iOS 应用在 Azure 中存储数据。
+本教程说明如何将云后端服务 [Azure 应用服务移动应用](app-service-mobile-value-prop.md)添加到 iOS 应用。 第一步是在 Azure 上创建一个新的移动后端。 然后，下载一个简单的“待办事项列表”  iOS 示例应用以在 Azure 中存储数据。
 
-## 先决条件
+若要完成本教程，需要一台 Mac 和 [一个 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
 
-若要完成本教程，您需要以下各项：
-
-* [有效的 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)
-* 装有 [Visual Studio Community 2013] 或更高版本的电脑
-* 装有 Xcode 7.3 或更高版本的 Mac
-
-## 步骤 I：创建新的 Azure 移动应用后端
+## <a name="create-a-new-azure-mobile-app-backend"></a>创建新的 Azure 移动应用后端
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## 步骤 II：配置后端项目
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>创建数据库连接并配置客户端和服务器项目
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## 步骤 III：下载并运行 iOS 应用
+## <a name="run-the-ios-app"></a>运行 iOS 应用
 
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
-
-<!-- Images. -->
 
 <!-- URLs -->
 [Azure portal]: https://portal.azure.cn/
 [Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [Visual Studio Community 2013]: https://go.microsoft.com/fwLink/p/?LinkID=534203
-
-<!---HONumber=Mooncake_0919_2016-->

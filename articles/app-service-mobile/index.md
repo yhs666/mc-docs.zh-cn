@@ -1,24 +1,24 @@
 ---
-title: Azure 移动应用文档 - 教程, API 参考 | Azure
-description: "了解如何在 Azure 应用服务中使用移动应用生成和托管本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。"
-services: app-service\mobile
-author: carolz
+title: Azure 移动应用文档 - 教程和 API 参考 | Azure
+description: 了解如何在 Azure 应用服务中使用移动应用生成和托管本机 iOS、Android 或 Windows 应用，或使用 Xamarin 或 Cordova 的跨平台应用。
+services: app-service-mobile
+author: czeumault
 manager: carolz
 layout: LandingPage
-ms.assetid: 
+ms.assetid: ''
 ms.service: app-service-mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 01/23/2017
-wacn.date: ''
-ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 59bab7c719a01643dacf5549c0674d149e8b92f4
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
+origin.date: 05/25/2018
+ms.date: 10/29/2018
+ms.author: v-biyu
+ms.openlocfilehash: 9b73dda29481997f8b9678387a6b034835068f73
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52659969"
 ---
 # <a name="mobile-apps-documentation"></a>移动应用文档
 
@@ -37,6 +37,24 @@ ms.lasthandoff: 05/12/2017
                     </div>
                     <div class="cardText">
                         <h3>了解移动应用</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/video-library.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>应用服务视频库</h3>
                     </div>
                 </div>
             </div>
@@ -168,5 +186,28 @@ ms.lasthandoff: 05/12/2017
             </div>
         </div>
         </a>
+    </li>
+</ul>
+
+---
+
+<h2>参考</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>语言</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn961176.aspx">.NET 后端 SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-node/">Node.js backend SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-android-client/">Android client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-ios-client/">iOS client SDK</a></p>
+                        <p><a href="https://azure.github.io/azure-mobile-apps-js-client/">JavaScript/Cordova client SDK</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt419521.aspx">Windows/Xamarin 客户端 SDK</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>

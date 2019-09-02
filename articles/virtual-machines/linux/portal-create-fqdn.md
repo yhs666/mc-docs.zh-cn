@@ -1,33 +1,45 @@
 ---
-title: 在 Azure 门户中为 VM 创建 FQDN | Azure
-description: 了解如何在 Azure 门户中为基于 Resource Manager 的虚拟机创建完全限定域名 (FQDN)。
+title: 在 Azure 门户中为 Linux VM 创建完全限定的域名 | Azure
+description: 了解如何在 Azure 门户中为基于 Resource Manager 的虚拟机创建完全限定域名或 FQDN。
 services: virtual-machines-linux
-documentationCenter: ''
-authors: iainfoulds
-manager: timlt
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-
+ms.assetid: 2cd6c249-a737-4a0a-b5ba-e1c09e551b30
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/14/2017
-wacn.date: 04/27/2017
-ms.author: v-dazen
+origin.date: 08/15/2018
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: bd5a325c40bab68cb6c80a821beef5f17605b567
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912960"
 ---
+# <a name="create-a-fully-qualified-domain-name-in-the-azure-portal-for-a-linux-vm"></a>在 Azure 门户中为 Linux VM 创建完全限定的域名
 
-# 在 Azure 门户中创建完全限定的域名
-在 [Azure 门户](https://portal.azure.cn)中使用 Resource Manager 部署模型创建虚拟机 (VM) 时，该门户会为虚拟机自动创建一个公共 IP 资源。可以使用此 IP 地址远程访问 VM。默认情况下，该门户不会创建[完全限定域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name)（简称 FQDN），但在创建 VM 后，创建完全限定域名相当容易。本文演示了创建 DNS 名称或 FQDN 的步骤。
+在 [Azure 门户](https://portal.azure.cn)中创建虚拟机 (VM) 时，此门户会自动为虚拟机创建公共 IP 资源。 可以使用此 IP 地址远程访问 VM。 虽然此门户不会创建[完全限定的域名](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) (FQDN)，但可以在创建 VM 后添加完全限定的域名。 本文演示了创建 DNS 名称或 FQDN 的步骤。
+
+## <a name="create-a-fqdn"></a>创建 FQDN
+阅读本文的前提是已创建 VM。 如果需要，可以[在门户中创建 VM](quick-create-portal.md)，也可以[使用 Azure CLI 创建 VM](quick-create-cli.md)。 在 VM 正常运行后，请按照以下步骤操作：
 
 [!INCLUDE [virtual-machines-common-portal-create-fqdn](../../../includes/virtual-machines-common-portal-create-fqdn.md)]
 
-你现在可以使用此 DNS 名称远程连接至 VM，例如用于 `ssh ops@mydns.chinanorth.chinacloudapp.cn`。
+现在可以使用此 DNS 名称（例如搭配 `ssh azureuser@mydns.chinanorth.cloudapp.chinacloudapi.cn`）远程连接至 VM。
 
-## 后续步骤
-你的 VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框架或服务，例如 nginx、MongoDB、Docker 等等。
+<!--MOONCAKE: CORRECT ON cloudapp.azure.com to cloudapp.chinacloudapi.cn -->
 
-你也可以详细了解[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，以获取有关生成 Azure 部署的提示。
+## <a name="next-steps"></a>后续步骤
+VM 已经有公共 IP 和 DNS 名称，现在可以部署通用应用程序框架或服务，例如 nginx、MongoDB、Docker 等等。
 
-<!---HONumber=Mooncake_Quality_Review_1215_2016-->
+也可以深入了解[使用 Resource Manager](../../azure-resource-manager/resource-group-overview.md)，获取生成 Azure 部署的相关提示。
+
+<!--Update_Description: update meta properties -->

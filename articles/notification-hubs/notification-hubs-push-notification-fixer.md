@@ -1,259 +1,286 @@
 ---
-title: Azure 通知中心 - 诊断指南
-description: 有关如何在 Azure 通知中心诊断常见问题的指南。
+title: 诊断 Azure 通知中心内删除通知的问题
+description: 了解如何诊断 Azure 通知中心的已删除通知的常见问题。
 services: notification-hubs
-documentationCenter: Mobile
-authors: wesmc7777
-manager: dwrede
-editor: ''
-
+documentationcenter: Mobile
+author: jwargo
+manager: patniko
+editor: spelluru
+ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/03/2016
-ms.author: v-junlch
-wacn.date: 01/19/2017
+origin.date: 04/14/2018
+ms.date: 05/27/2019
+ms.author: v-biyu
+ms.openlocfilehash: 3d9fe5735af8ef04156c926241543086d697c71c
+ms.sourcegitcommit: 10d64397ade7f24ed35270b78fc9ff38fab0fce6
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/15/2019
+ms.locfileid: "65628742"
 ---
+# <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>诊断 Azure 通知中心内删除通知的问题
 
-#Azure 通知中心 - 诊断指南
+对于 Azure 通知中心，一个常见问题是如何排查客户端设备上不显示应用程序发出的通知的问题。 客户想要知道删除通知的位置和原因以及如何修复该问题。 本文标识了通知被删除或设备收不到通知的各种原因。 此外还介绍了如何确定根本原因。
 
-##概述
+首先务必了解通知中心如何将通知推送到设备。
 
-我们从 Azure 通知中心客户处收到的最常见问题之一是如何找出以下问题的原因：他们看不到从应用程序后端发送的通知显示在客户端设备上，删除通知的位置和原因以及如何修复此类问题。在本文中，我们将查看为什么通知被删除或没有在设备上终止的各种原因。我们还将浏览你可以用来分析和找出根本原因的方法。
+![通知中心体系结构][0]
 
-首先，理解 Azure 通知中心如何将通知推送到设备很重要。
-![][0]
+在典型的发送通知流中，消息从*应用程序后端*发送到通知中心。 通知中心处理所有注册。 它会考虑配置的标记和标记表达式，以确定目标。 目标是指需要接收推送通知的注册。 这些注册可能跨越所有受支持的平台：Android、百度（中国的 Android 设备）、Fire OS (Amazon) iOS、Windows 和 Windows Phone。
 
-在典型的发送通知工作流中，消息是从**应用程序后端**发送到 **Azure 通知中心 (NH)**，这反过来会处理将确定“目标”的已配置标记和标记表达式考虑在内的所有注册，即需要接收推送通知的所有注册。这些注册可以横跨各种受支持的平台 - iOS、Google、Windows、Windows Phone、Kindle 和 Baidu for China Android。建立目标之后，NH 将推送出通知，将通知拆分为多个批量发送到设备平台专用**推送通知服务 (PNS)**（例如，APNS for Apple、GCM for Google 等）。NH 使用各自的 PNS（基于在 Azure 经典管理门户中“配置通知中心”页上设置的凭据）进行身份验证。然后，PNS 会将通知转发到各自的**客户端设备**。这是平台推荐的方式，用以传递推送通知，并且注意通知传递的最后 Leg 在平台 PNS 和设备之间发生。因此，我们有四个主要组件（ *客户端* 、 *应用程序后端* 、 *Azure 通知中心 (NH)* 和 *推送通知服务 (PNS)* ）并且这些组件的任意一个都有可能导致通知被删除。可在[通知中心概述]中找到有关此体系结构的更多详细信息。
+确定目标之后，通知中心服务将通知推送到设备平台的“推送通知服务”。 示例包括适用于 Apple 的 Apple Push Notification 服务 (APNs)。 通知中心推送跨多批注册拆分的通知。 通知中心基于你在 Azure 门户的“配置通知中心”下设置的凭据，向各自的推送通知服务验证身份。 然后，推送通知服务将通知转发到各自的*客户端设备*。 
 
-在可能指示配置问题的初始测试/暂存阶段中，可能出现无法传递通知的情况，或者可能在生产中发生这种情况，这可能导致所有或部分通知被删除，同时指明一些更深层次的应用程序或消息模式问题。在本节中，我们将在下面查看各种已删除通知场景，从常见类型到更加稀有的类型一应俱全，其中一些你可能发现很常见，其中一些并不常见。
+通知传递的最后一步在平台推送通知服务与设备之间进行。 通知传送可能会在推送通知过程的四个阶段（客户端、应用程序后端、通知中心和平台推送通知服务）中的任何一个阶段失败。 有关通知中心体系结构的详细信息，请参阅[通知中心概述]。
 
-## Azure 通知中心配置错误 
+在初始测试/暂存阶段，可能出现无法传递通知的情况。 于此阶段删除的通知可能表示存在配置问题。 如果在生产阶段出现无法传递通知的情况，则可能删除部分或全部通知。 这种情况表示存在更深层次的应用程序或消息模式问题。
 
-Azure 通知中心需要在开发人员的应用程序的环境中对自身进行身份验证，以成功将通知发送到各自的 PNS。这种情况是可能的，方法是开发人员在各自的平台（Google、Apple、Windows 等）中创建开发人员帐户，然后注册可在其中获取凭据（需要在通知中心配置部分下的门户中进行配置）的应用程序。如果没有通过任何通知，第一步应该是确保在通知中心中配置正确的凭据，并且要与在平台专用开发人员帐户下创建的应用程序相匹配。你会发现[入门教程]非常有用，以便一步一步完成此过程。下面是一些常见的错误配置：
+下一部分将着眼于各种可能删除通知的场景，从常见类型到更加稀有的类型一应俱全。
 
-1. **常规**
+## <a name="notification-hubs-misconfiguration"></a>通知中心配置错误 ##
+若要成功将通知发送到各自的推送通知服务，通知中心服务需要在开发人员的应用程序环境中对自身进行身份验证。 为此，开发人员可在各自的平台（Apple、Windows 等）中创建开发人员帐户。 然后，开发人员向从中获取凭据的平台注册自己的应用程序。 
 
-    a) 确保你的通知中心名称（不含错字）相同：
+你必须将平台凭据添加到 Azure 门户中。 如果设备未收到任何通知，第一步是确保在通知中心配置正确的凭据。 凭据必须与在平台特定开发人员帐户下创建的应用程序相匹配。
 
-	- 其中你从客户端进行注册，
-	- 其中从后端发送通知，
-	- 其中你已配置 PNS 凭据并且
-	- 你已在客户端和后端配置它的 SAS 凭据。
+有关如何完成此过程的分步说明，请参阅 [Azure 通知中心入门]。
+
+下面是一些需要检查的常见错误配置：
+
+### <a name="notification-hub-name-location"></a>通知中心名称位置
+
+确保以下各个位置中的通知中心名称（不含错字）均相同：
+   * 从客户端注册的位置
+   * 从后端发送通知的位置
+   * 配置推送通知服务凭据的位置
+
+确保在客户端和应用程序后端上使用正确的共享访问签名配置字符串。 一般而言，必须在客户端上使用 **DefaultListenSharedAccessSignature**，在应用程序后端上使用 **DefaultFullSharedAccessSignature**。 这会授予向通知中心发送通知的权限。
+
+### <a name="apn-configuration"></a>APN 配置 ###
+
+必须维护两个不同的中心：一个用于生产目的，另一个用于测试。 必须将在沙盒环境中使用的证书上传到一个中心，将要在生产环境中使用的证书上传到另一个中心。 请勿尝试将不同类型的证书上传到相同的中心。 这会导致通知失败。
+
+如果无意中将不同类型的证书上传到相同的中心，应删除该中心并重新上传到新的中心。 如果出于某种原因无法删除该中心，最起码必须从该中心删除所有现有注册。
 
 
-    b) 确保你使用的是客户端和应用程序后端上的正确 SAS 配置字符串。一般说来，你必须在客户端上使用**DefaultListenSharedAccessSignature** 并在应用程序后端（它可赋予你向 NH 发送通知的权限）上使用 **DefaultFullSharedAccessSignature**
+## <a name="application-issues"></a>应用程序问题 ##
 
-2. **Apple 推送通知服务 (APNS) 配置**
+### <a name="tags-and-tag-expressions"></a>标记和标记表达式 ###
 
-    你必须维护两个不同的中心 - 一个用于生产目的，另一个用于测试目的。这意味着将你要在沙箱环境中使用的证书上载到一个中心，并将你要在生产中使用的证书上载到另一个中心。请勿尝试将不同类型的证书上载到相同的中心，因为它可能造成通知完全失败。如果你发现自己无意中将不同类型的证书上载到相同的中心，我们建议删除该中心并重新开始。由于某种原因，如果你无法删除中心，则最起码必须从该中心中删除所有现有注册。
+如果使用标记或标记表达式来细分受众，在发送通知时可能找不到目标。 此错误根据 send 调用中指定的标记或标记表达式而定。
 
-3. **Google Cloud Messaging (GCM) 配置**
+发送通知时，请查看注册，确保有匹配的标记。 然后，确保仅从含有这些注册的客户端收到通知。
 
-    a) 确保你在云项目下启用“Google Cloud Messaging for Android”。
+例如，假设使用“政治”标记向通知中心注册了所有设备。 如果使用“体育”标记发送通知，则通知将不会发送到任何设备。 复杂的用例可能涉及到标记表达式，其中已使用“标记 A”或“标记 B”进行注册，但目标是“标记 A 和 标记 B”。 本文稍后的自我诊断提示部分将介绍如何查看注册及其标记。
 
-    ![][2]
+### <a name="template-issues"></a>模板问题 ###
 
-    b) 确保在创建“服务器密钥”的同时获取 NH 将用于在 GCM 中进行身份验证的凭据。
+如果使用模板，请确保遵循[模板]中所述的准则。
 
-    ![][3]
+### <a name="invalid-registrations"></a>注册无效 ###
 
-    c) 确保你已在客户端上配置“项目 ID”，其中该客户端是你可以从仪表板中获取的完全数字实体：
-
-    ![][1]
-
-##应用程序问题
-
-1) **标记/标记表达式**
-
-如果你使用标记或标记表达式来细分受众，当你发送通知时这总是有可能的，根据你在发送调用中指定的标记/标记表达式，未发现目标。当你发送通知并验证仅从含有这些注册的客户端中收到通知时，最好查看你的注册以确保存在匹配的标记。例如，如果在 NH 中完成所有注册，其中标记显示“政治”，而你要发送含有“体育”标记的通知，则该通知不会被发送到任何设备。复杂的情况可能涉及到标记表达式，其中你只使用“Tag A”或“Tag B”进行注册，而在发送通知时，却定位“Tag A && Tag B”。在下文的自我诊断提示部分中，有几种方法你可以用于查看注册以及它们含有的标记。
-
-2) **模板问题**
-
-如果你使用的是模板，则确保遵循[模板指南]中描述的以下指南。
-
-3) **注册无效**
-
-假设通知中心配置正确，而且任意标记/标记表达式使用正确（可以找到需要向其发送通知的有效目标），NH 将会关闭并行的几个批处理，每个批处理都会向一组注册发送消息。
+如果通知中心配置正确，所有标记或标记表达式的用法也正确，则会找到有效的目标。 应将通知发送到这些目标。 接着，通知中心会并行启动几个处理批次。 每个批次将消息发送到一组注册。
 
 > [!NOTE]
-> 由于我们执行并行处理，因此不保证传递通知的顺序。
+> 由于通知中心并行处理批次，因此不保证通知的传送顺序。
 
-现在，已为“最多一次”消息传递模型优化 Azure 通知中心。这表示我们尝试执行重复数据消除，从而不向设备发送一次以上的通知。为了确保这一点，在实际将消息发送到 PNS 之前，我们浏览注册并确保每个设备标识符仅发送一条消息。当每个批处理被发送到 PNS 之后（这反过来会接受和验证注册），PNS 有可能在批处理的一个或多个注册中检测到错误，将错误返回到 Azure NH，并停止处理，从而完全删除该批处理。对于使用 TCP 流协议的 APNS 也是如此。尽管我们已针对“最多一次”传送做了优化，但在这种情况下，我们将从数据库中删除出错的注册，然后针对该批中的其他设备重试通知传送。
+通知中心已针对“最多一次”消息传递模型进行优化。 我们尝试执行重复数据消除，从而不向设备传递一次以上的通知。 在将消息发送到推送通知服务之前，会检查注册以确保仅为每个设备标识符发送一条消息。
 
-可以使用 Azure 通知中心 REST API 来获取有关注册的失败传送尝试的错误信息：[Per Message Telemetry: Get Notification Message Telemetry](https://msdn.microsoft.com/zh-cn/library/azure/mt608135.aspx)（按照消息遥测数据：获取通知消息遥测数据）和 [PNS Feedback](https://msdn.microsoft.com/zh-cn/library/azure/mt705560.aspx)（PNS 反馈）。有关示例代码，请参阅 [SendRESTExample](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample)。
+每个批次将发送到推送通知服务，后者接受并验证注册。 在此过程中，推送通知服务可能会在某个批次中检测到一个或多个注册的错误。 然后，推送通知服务会向通知中心返回错误，而推送过程将会停止。 推送通知服务会完全删除该批次。 对于使用 TCP 流协议的 APNs 也是如此。
 
-##PNS 问题
+在这种情况下，出错的注册会从数据库中删除。 然后，我们针对该批次中的其他设备重试通知传递。
 
-各自的 PNS 收到通知消息之后，那么它的责任就是将通知传递到设备。此时，Azure 通知中心是不相关的，而且不会控制何时将通知传递到设备或是否将通知传递到设备。由于平台通知服务非常强大，这些通知会在几秒钟时间从 PNS 到达很多设备。但是，如果 PNS 进行限制的话，那么 Azure 通知中心会应用指数让步策略；如果 PNS 在 30 分钟之内都无法联系，则我们会准备一个策略以宣布这些消息过期并永久删除它们。
+若要获取有关针对注册的失败传递尝试的更多错误信息，可以使用通知中心 REST API [按消息遥测：获取通知消息遥测数据](https://msdn.microsoft.com/library/azure/mt608135.aspx)和 [PNS 反馈](https://msdn.microsoft.com/library/azure/mt705560.aspx)。 有关示例代码，请参阅[发送 REST 示例](https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/SendRestExample)。
 
-如果 PNS 尝试传递通知，但设备处于脱机状态，则通知被 PNS 短暂存储，然后在设备可用时传递到该设备。只存储了特定应用的一个最近通知。如果在设备处于脱机状态时发送了多个通知，则每个新通知将导致前一个通知被放弃。只保留最新通知的这类行为在 APNS 中被称为合并通知，在 GCM（它使用折叠密钥）中被称为折叠通知。如果设备长时间处于脱机状态，则放弃所有为它存储的通知。来源 — APNS 指南和 GCM 指南
+## <a name="push-notification-service-issues"></a>推送通知服务问题
 
-在 Azure 通知中心中，可以使用泛型 `SendNotification` API（例如，对于 .NET SDK，使用 `SendNotificationAsync`）通过 HTTP 标头来传递合并密钥，此 API 还会按原样将 HTTP 标头传递到各自的 PNS。
+推送通知服务收到通知后，会将通知传送到设备。 此时，通知中心无法控制向设备传送通知的操作。
 
-##自我诊断提示
+由于平台通知服务非常强大，通知往往在几秒内即可抵达设备。 如果推送通知服务进行限制，通知中心会应用指数回退策略。 如果推送通知服务在 30 分钟之内都无法访问，会实施一个策略，让消息过期并永久删除它们。
 
-此处我们将检查用于诊断的各种途径以及所有通知中心问题的根本原因：
+如果推送通知服务尝试传递通知，但设备处于脱机状态，则推送通知服务会存储通知。 通知只会存储有限的一段时间。 等设备可用时再将通知传递到设备。
 
-###验证凭据
+对于每个应用，仅存储一个最新通知。 如果在设备处于脱机状态时发送了多个通知，则每个新通知将导致前一个通知被放弃。 只保留最新通知的行为在 APNs 中称为“合并通知”。 如果设备长时间处于脱机状态，则放弃为它存储的所有通知。 有关详细信息，请参阅 [APNs 概述]。
 
-1. **PNS 开发人员门户**
+在通知中心，可以使用泛型 SendNotification API 通过 HTTP 标头来传递合并密钥。 例如，对于 .NET SDK，你会使用 `SendNotificationAsync`。 SendNotification API 还会将按原样传递的 HTTP 标头传递到各自的推送通知服务。
 
-    使用[入门教程]在各自的 PNS 开发人员门户（APNS、GCM、WNS 等）中验证它们。
+## <a name="self-diagnosis-tips"></a>自我诊断提示
 
-2. **Azure 经典管理门户**
+下面介绍了诊断通知中心已删除通知的根本原因的各种途径。
 
-    转到“配置”选项卡，查看并将凭据与从 PNS 开发人员门户中获取的凭据进行匹配。
+### <a name="verify-credentials"></a>验证凭据 ###
 
-    ![][4]
+#### <a name="push-notification-service-developer-portal"></a>推送通知服务开发人员门户 ####
 
-###验证注册
+在各自的推送通知服务开发人员门户（APNs、Windows 通知服务等）中验证凭据。 有关详细信息，请参阅 [Azure 通知中心入门]。
 
-1. **Visual Studio**
+#### <a name="azure-portal"></a>Azure 门户 ####
 
-    如果使用 Visual Studio 进行开发，则可以连接到 Azure，并查看和管理大量 Azure 服务，包括“服务器资源管理器”中的通知中心。这主要用于你的开发/测试环境。
+若要查看凭据并将凭据与从推送通知服务开发人员门户获取的凭据进行匹配，请在 Azure 门户中转到“访问策略”选项卡。
 
-    ![][9]
+![Azure 门户访问策略][4]
 
-    你可以在中心中查看和管理所有注册，其中该中心已经针对平台、本机或模板注册、所有标记、PNS 标识符、注册 ID 以及过期日期进行很好地分类。你可以动态编辑注册；假如你要编辑所有标记，这非常有用。
+### <a name="verify-registrations"></a>验证注册
 
-    ![][8]
+#### <a name="visual-studio"></a>Visual Studio ####
 
-    > [!NOTE]
-    > 编辑注册的 Visual Studio 功能应该只能在开发/测试有限的注册时使用。如果需要批量修复注册，可以考虑使用[导入/导出注册](https://msdn.microsoft.com/zh-cn/library/dn790624.aspx)中所述的导出/导入注册功能
+在 Visual Studio 中，可以通过服务器资源管理器连接到 Azure，以查看和管理包括通知中心在内的多个 Azure 服务。 此快捷方式主要用于开发/测试环境。
 
-2. **服务总线资源管理器**
+![Visual Studio 服务器资源管理器][9]
 
-    很多客户使用此处（[ServiceBus 资源管理器]）中描述的 ServiceBus 资源管理器，查看并管理它们的通知中心。 [ServiceBus 资源管理器代码]是开放源代码项目，可从 code.microsoft.com 中获取
+可以查看和管理中心内的所有注册。 这些注册可按平台、本机或模板注册、标记、推送通知服务标识符、注册 ID 及过期日期分类。 还可以在此页面中编辑注册。 它对于编辑标记特别有用。
 
-###验证消息通知
+在“服务器资源管理器”中右键单击你的通知中心，然后选择“诊断”。 
 
-1. **Azure 经典管理门户**
+![Visual Studio 服务器资源管理器：“诊断”菜单](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
-    你可以转到“调试”选项卡向你的客户端发送测试通知，无需启动和运行任何服务后端。
+会看到以下页面：
 
-    ![][7]
+![Visual Studio：“诊断”页](./media/notification-hubs-diagnosing/diagnose-page.png)
 
-2. **Visual Studio**
+切换到“设备注册”页：
 
-    你还可以从 Visual Studio 的 comforts 发送测试通知：
+![Visual Studio：设备注册](./media/notification-hubs-diagnosing/VSRegistrations.png)
 
-    ![][10]
+若要发送测试通知消息，可以使用“测试性发送”页：
 
-    你可以在此处阅读有关 Visual Studio 通知中心 Azure 资源管理器功能的更多信息
+![Visual Studio：测试发送](./media/notification-hubs-diagnosing/test-send-vs.png)
 
-    - [VS 服务器资源管理器概述]
-    - [VS 服务器资源管理器博客文章 - 1]
-    - [VS 服务器资源管理器博客文章 - 2]
+> [!NOTE]
+> 用于编辑注册的 Visual Studio 功能只能在开发/测试有限的注册时使用。 如果需要批量编辑注册，请考虑使用以下教程中所述的导出和导入注册功能：[如何：批量导出和修改注册](https://msdn.microsoft.com/library/dn790624.aspx)。
 
-###调试失败的通知/查看通知结果
+#### <a name="service-bus-explorer"></a>服务总线资源管理器 ####
 
-**EnableTestSend 属性**
+许多客户使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)来查看和管理自己的通知中心。 服务总线资源管理器是一个开源项目。 
 
-当你通过通知中心发送通知时，起初只要对 NH 排队以进行处理，从而找到它的所有目标，然后最终 NH 将它发送到 PNS。这意味着，当你使用 REST API 或任意客户端 SDK 时，你的发送调用的成功返回只表示消息已成功在通知中心中排队。当 NH 最终准备将消息发送到 PNS 时，它不会深入探索发生了什么情况。如果你的通知没有到达客户端设备，则可能在 NH 尝试将消息传递到 PNS 时出现错误。例如，负载大小超出了 PNS 允许的上限，或者在 NH 中配置的凭据无效等。
-若要深入分析 PNS 错误，我们引入了一个名为 [EnableTestSend 功能]的属性。当你从门户或 Visual Studio 客户端中发送测试消息时，系统会自动启用此属性，从而允许你查看详细的调试信息。根据 .NET SDK 的示例，你可以通过 API 使用此属性，其现在可用，并且最终将被添加到所有客户端 SDK。若要和 REST 调用一起使用此属性，直接在你的发送调用的末尾附加名为“test”的查询字符串参数。例如：
+### <a name="verify-message-notifications"></a>验证消息通知
 
+#### <a name="azure-portal"></a>Azure 门户 ####
+
+若要向客户端发送测试通知，而不启动和运行服务后端，请在“支持 + 故障排除”下选择“测试发送”。
+
+![Azure 中的测试发送功能][7]
+
+#### <a name="visual-studio"></a>Visual Studio ####
+
+也可以从 Visual Studio 发送测试通知。
+
+![Visual Studio 中的测试发送功能][10]
+
+有关将通知中心与 Visual Studio 服务器资源管理器搭配使用的详细信息，请参阅以下文章：
+
+* [查看通知中心的设备注册]
+* [深入探讨：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]
+* [宣布推出 Visual Studio 2013 Update 3 和 Azure SDK 2.4]
+
+### <a name="debug-failed-notifications-and-review-notification-outcome"></a>调试失败的通知和查看通知结果
+
+#### <a name="enabletestsend-property"></a>EnableTestSend 属性 ####
+
+通过通知中心发送通知时，通知最初将会排队。 通知中心确定正确的目标后，便将通知发送到推送通知服务。 如果使用 REST API 或任意客户端 SDK，send 调用的返回只表示消息已在通知中心排队。 至于通知中心最终将消息发送到推送通知服务时发生了什么情况，此调用不提供任何深入信息。
+
+如果通知未抵达客户端设备，原因可能是当通知中心尝试将消息传送到推送通知服务时发生了错误。 例如，有效负载大小可能超出了推送通知服务允许的上限，或者在通知中心配置的凭据可能无效。
+
+若要深入了解推送通知服务错误，可以使用 [EnableTestSend] 属性。 从门户或 Visual Studio 客户端发送测试消息时，系统会自动启用此属性。 可以使用此属性以及通过 API 查看详细的调试信息。 目前可在 .NET SDK 中使用此属性。 最终，它将添加到所有客户端 SDK 中。
+
+若要结合使用 `EnableTestSend` 属性和 REST 调用，可在发送调用的末尾追加名为 test 的查询字符串参数。 例如：
+
+```text
+    https://mynamespace.servicebus.chinacloudapi.cn/mynotificationhub/messages?api-version=2013-10&test
 ```
-https://mynamespace.servicebus.chinacloudapi.cn/mynotificationhub/messages?api-version=2013-10&test
-```
 
-*示例 (.NET SDK)* 
+#### <a name="net-sdk-example"></a>.NET SDK 示例 ####
 
-假设你正在使用 .NET SDK 发送本机 toast 通知：
+下面是使用 .NET SDK 发送本机弹出 (toast) 通知的示例：
 
-```
+```csharp
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName);
 var result = await hub.SendWindowsNativeNotificationAsync(toast);
 Console.WriteLine(result.State);
 ```
 
-`result.State` 将只在执行结束时陈述 `Enqueued`，而不深入分析你的推送发生了什么情况。 
-现在，你可以使用 `EnableTestSend` 布尔值属性，同时初始化 `NotificationHubClient`，并获取有关发送通知时遇到的 PNS 错误的详细状态。此处发送调用需要更多时间进行返回，因为它只在 NH 已将通知传递到 PNS 之后返回以确定结果。
+在执行结束时，`result.State` 只表示 `Enqueued`。 结果未深入分析推送通知发生了什么。
 
+接下来，可以使用 `EnableTestSend` 布尔属性。 初始化 `NotificationHubClient` 时，可使用 `EnableTestSend` 属性获取有关发送通知时出现的推送通知服务错误的详细状态。 send 调用需要更多时间才能返回，因为它首先需要通知中心将通知传送到推送通知服务。
+
+```csharp
+    bool enableTestSend = true;
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
+
+    var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
+    Console.WriteLine(outcome.State);
+
+    foreach (RegistrationResult result in outcome.Results)
+    {
+        Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
+    }
 ```
-bool enableTestSend = true;
-NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(connString, hubName, enableTestSend);
 
-var outcome = await hub.SendWindowsNativeNotificationAsync(toast);
-Console.WriteLine(outcome.State);
+#### <a name="sample-output"></a>示例输出 ####
 
-foreach (RegistrationResult result in outcome.Results)
-{
-    Console.WriteLine(result.ApplicationPlatform + "\n" + result.RegistrationId + "\n" + result.Outcome);
-}
-```
-
-*示例输出* 
-
-```
+```text
 DetailedStateAvailable
 windows
 7619785862101227384-7840974832647865618-3
 The Token obtained from the Token Provider is wrong
 ```
 
-此消息表示在通知中心配置的凭据无效，或在中心注册方面存在问题，推荐的方案是删除此注册并让客户端重新创建注册，然后发送消息。
+此消息表示在通知中心内配置的凭据无效，或者中心内的注册有问题。 请删除此注册，让客户端重新创建注册后再发送消息。
 
 > [!NOTE]
-> 请注意，此属性的使用已经受到极大限制，而且你只能在有限的注册集中的开发/测试环境中使用此属性。我们仅向 10 台设备发送调试通知。此外，我们每分钟向 10 台设备发送有限的处理调试。
+> 使用 `EnableTestSend` 属性受到严重限制。 此选项只能在开发/测试环境中与一组有限的注册结合使用。 调试通知只会发送到 10 个设备。 此外，限制为每分钟最多处理 10 个调试发送操作。
 
-###查看遥测 
+### <a name="review-telemetry"></a>查看遥测 ###
 
-1. **使用 Azure 经典管理门户**
+#### <a name="azure-portal"></a>Azure 门户 ####
 
-    通过该门户可以获取有关通知中心上所有活动的快速概述。
+在该门户中，可以快速了解通知中心的所有活动。
 
-    a) 从“仪表板”选项卡上，你可以查看注册、通知以及每个平台的错误的汇总视图。
+1. 在“概述”选项卡上，可以查看每个平台的注册、通知和错误的汇总视图。
 
-    ![][5]
+   ![通知中心概述仪表板][5]
 
-    b) 从“监视器”选项卡中，你还可以添加其他很多平台专用指标，以便针对在NH 尝试发送通知给 PNS 时返回的所有 PNS 特有错误进行深入查看。
+2. 在“监视器”选项卡上，可以添加许多其他平台特定指标，以便进行深入了解。 可以专门查看当通知中心尝试将通知发送到推送通知服务时返回的错误。
 
-    ![][6]
+   ![Azure 门户活动日志][6]
 
-    c) 首先，你应该查看**传入消息**、**注册操作**、**成功通知**，然后转到每个平台选项卡以查看 PNS 特有错误。
+3. 首先查看“传入消息”、“注册操作”和“成功通知”。 然后转到每个平台选项卡查看特定于推送通知服务的错误。
 
-    d) 如果你在身份验证设置中错误配置了通知中心，那么你将看到 PNS 身份验证错误。这表示要检查 PNS 凭据。
+4. 如果通知中心的身份验证设置不正确，则出现“PNS 身份验证错误”消息。 它表示要检查推送通知服务凭据。
 
-2) **以编程方式访问**
+#### <a name="programmatic-access"></a>以编程方式访问 ####
 
-在此处了解更多详情 -
-
-- [以编程方式遥测访问]
-- [通过 API 示例遥测访问]
+有关编程访问的详细信息，请参阅[以编程方式遥测访问]。
 
 > [!NOTE]
-> 与功能（例如，**导出/导入注册**、**通过 API 进行遥测访问**等）相关的若干个遥测只可在标准层中使用。如果你使用免费层或基本层并尝试使用这些功能，那么在从 REST API 中直接使用它们时使用 SDK 和 HTTP 403（禁止），将收到这方面的异常消息。确保已通过 Azure 经典管理门户向上移到标准层。
+> 与遥测相关的多项功能（例如，导出和导入注册、通过 API 进行遥测访问）只能在“标准”服务层级使用。 如果尝试从“免费”或“基本”服务层级使用这些功能，则在使用 SDK 时会收到异常消息。 如果直接从 REST API 使用这些功能，将会收到 HTTP 403（已禁止）错误。
+>
+> 若要使用与遥测相关的功能，首先确保在 Azure 门户中使用“标准”服务层级。  
 
 <!-- IMAGES -->
-
 [0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/GCMConfigure.png
-[2]: ./media/notification-hubs-diagnosing/GCMEnable.png
-[3]: ./media/notification-hubs-diagnosing/GCMServerKey.png
-[4]: ./media/notification-hubs-diagnosing/PortalConfigure.png
+[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
+[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
+[4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
 [5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalMonitoring.png
-[7]: ./media/notification-hubs-diagnosing/PortalTestNotification.png
+[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
 [9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-
-[通知中心概述]: ./notification-hubs-push-notification-overview.md
-[入门教程]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[模板指南]: https://msdn.microsoft.com/zh-cn/library/dn530748.aspx
-[Export/Import Registrations]: http://msdn.microsoft.com/zh-cn/library/dn790624.aspx
-[ServiceBus 资源管理器]: http://msdn.microsoft.com/zh-cn/library/dn530751.aspx
-[ServiceBus 资源管理器代码]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[VS 服务器资源管理器概述]: http://msdn.microsoft.com/zh-cn/library/windows/apps/xaml/dn792122.aspx
-[VS 服务器资源管理器博客文章 - 1]: http://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[VS 服务器资源管理器博客文章 - 2]: http://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
-[EnableTestSend 功能]: http://msdn.microsoft.com/zh-cn/library/microsoft.servicebus.notifications.notificationhubclient.enabletestsend.aspx
-[以编程方式遥测访问]: http://msdn.microsoft.com/zh-cn/library/azure/dn458823.aspx
-[通过 API 示例遥测访问]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-
-<!---HONumber=Mooncake_1114_2016-->
+[通知中心概述]: notification-hubs-push-notification-overview.md
+[Azure 通知中心入门]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+[模板]: https://msdn.microsoft.com/library/dn530748.aspx
+[APNs 概述]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
+[Export and modify registrations in bulk]: http://msdn.microsoft.com/library/dn790624.aspx
+[Service Bus Explorer]: https://msdn.microsoft.com/library/dn530751.aspx#sb_explorer
+[Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
+[查看通知中心的设备注册]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[深入探讨：Visual Studio 2013 Update 2 RC 和 Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
+[宣布推出 Visual Studio 2013 Update 3 和 Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[EnableTestSend]: https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[以编程方式遥测访问]: https://msdn.microsoft.com/library/azure/dn458823.aspx

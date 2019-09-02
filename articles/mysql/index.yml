@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: bec42ed68e63fbb49cd831ed52548ffd1a627251
+ms.sourcegitcommit: c5646ca7d1b4b19c2cb9136ce8c887e7fcf3a990
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/17/2019
+ms.locfileid: "57990159"
+documentType: LandingData
+title: 用于 MySQL 的 Azure 数据库文档
+metadata:
+  document_id: 8d915ae6-9101-ad37-0736-3eaa59c2dd34
+  title: Azure MySQL 文档 - 教程和 API 参考 | Microsoft Docs
+  description: Azure Database for MySQL 是 Microsoft 云中的关系型数据库服务，它基于开源 MySQL 数据库引擎，专为开发人员而构建。
+  author: WenJason
+  ms.author: v-jay
+  ms.service: mysql
+  ms.topic: landing-page
+  origin.date: 02/25/2019
+  ms.date: 03/18/2019
+abstract:
+  description: Azure Database for MySQL 是基于开源 MySQL Server 引擎的关系型数据库服务。  它是完全托管的数据库即服务产品，能够处理任务关键型工作负荷，并提供可预测的性能和动态可伸缩性。 利用所选的开源工具和平台开发包含 Azure Database for MySQL 的应用程序。 参考我们的快速入门、教程和示例了解如何使用用于 MySQL 的 Azure 数据库。
+sections:
+- title: 5 分钟快速入门
+  items:
+  - type: paragraph
+    text: 了解如何通过以下方式创建 MySQL Database on Azure：
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /virtual-machines/linux/media/index/portal.svg
+      text: Azure 门户
+      href: /mysql/quickstart-create-mysql-server-database-using-azure-portal
+    - image:
+        src: /virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /mysql/quickstart-create-mysql-server-database-using-azure-cli
+- title: 分步教程
+  items:
+  - type: paragraph
+    text: 了解如何设计数据库和开发应用：
+  - type: list
+    style: ordered
+    items:
+    - html: 设计数据库&#58; <a href="/mysql/tutorial-design-database-using-portal">Azure 门户</a> | <a href="/mysql/tutorial-design-database-using-cli">Azure CLI</a>
+    - html: 创建 Web 应用&#58; <a href="https://portal.azure.cn/#create/hub">Wordpress - 门户</a> | <a href="../app-service-web/app-service-web-tutorial-php-mysql.md?toc=%2fmysql%2ftoc.json">PHP - Azure CLI</a>
+- title: 示例
+  items:
+  - type: paragraph
+    text: 查找脚本来管理常见任务。
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/mysql/sample-scripts-azure-cli">Azure CLI</a>
+- title: 参考
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: 命令行
+      html: <p><a href="/cli/mysql">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="https://docs.microsoft.com/rest/api/mysql">REST API</a></p>

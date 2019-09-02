@@ -1,31 +1,31 @@
 ---
-title: "基于角色的 Azure 微服务中的事件 | Microsoft Docs"
-description: "Service Fabric Reliable Actors 的事件简介。"
+title: 基于执行组件的 Azure Service Fabric 执行组件中的事件 | Azure
+description: Service Fabric Reliable Actors 的事件简介。
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/02/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: d2eedf435c2b7ef75f6bccd8da2a037fb0ea4c59
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/14/2017
-
-
+origin.date: 10/06/2017
+ms.date: 10/15/2018
+ms.author: v-yeche
+ms.openlocfilehash: 8b6b550edbb224375828a37b84556b24d292655c
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660264"
 ---
 # <a name="actor-events"></a>执行组件事件
 执行组件事件提供了一种尽最大努力将通知从执行组件发送到客户端的方法。 执行组件事件设计用于从执行组件到客户端的通信，而不应用于从执行组件到执行组件的通信。
 
-以下代码段演示如何在你的应用程序中使用执行组件事件。
+以下代码段演示如何在应用程序中使用执行组件事件。
 
 定义说明由执行组件发布的事件的接口。 此接口必须派生自 `IActorEvents` 接口。 方法的参数必须为[数据协定可序列化](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)。 当事件通知是单向且为最佳效果时，方法必须返回 void。
 
@@ -33,6 +33,13 @@ ms.lasthandoff: 04/14/2017
 public interface IGameEvents : IActorEvents
 {
     void GameScoreUpdated(Guid gameId, string currentScore);
+}
+```
+
+```Java
+public interface GameEvents implements ActorEvents
+{
+    void gameScoreUpdated(UUID gameId, String currentScore);
 }
 ```
 
@@ -44,6 +51,15 @@ public interface IGameActor : IActor, IActorEventPublisher<IGameEvents>
     Task UpdateGameStatus(GameStatus status);
 
     Task<string> GetGameScore();
+}
+```
+
+```Java
+public interface GameActor extends Actor, ActorEventPublisherE<GameEvents>
+{
+    CompletableFuture<?> updateGameStatus(GameStatus status);
+
+    CompletableFuture<String> getGameScore();
 }
 ```
 
@@ -59,6 +75,15 @@ class GameEventsHandler : IGameEvents
 }
 ```
 
+```Java
+class GameEventsHandler implements GameEvents {
+    public void gameScoreUpdated(UUID gameId, String currentScore)
+    {
+        System.out.println("Updates: Game: "+gameId+" ,Score: "+currentScore);
+    }
+}
+```
+
 在客户端上，为发布事件并订阅其事件的执行组件创建代理。
 
 ```csharp
@@ -68,18 +93,32 @@ var proxy = ActorProxy.Create<IGameActor>(
 await proxy.SubscribeAsync<IGameEvents>(new GameEventsHandler());
 ```
 
+```Java
+GameActor actorProxy = ActorProxyBase.create<GameActor>(GameActor.class, new ActorId(UUID.fromString(args)));
+
+return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler());
+```
+
 如果发生故障转移，执行组件可能会故障转移到不同的进程或节点。 执行组件代理管理活动的订阅，并自动重新订阅它们。 可以通过 `ActorProxyEventExtensions.SubscribeAsync<TEvent>` API 控制重新订阅的间隔。 若要取消订阅，请使用 `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` API。
 
-在执行组件上，只需在事件发生时发布事件。 如果有订阅此事件的用户，那么执行组件运行时会向他们发送通知。
+在执行组件上，在事件发生时发布事件。 如果有订阅此事件的用户，那么执行组件运行时会向他们发送通知。
 
 ```csharp
 var ev = GetEvent<IGameEvents>();
 ev.GameScoreUpdated(Id.GetGuidId(), score);
 ```
 
+```Java
+GameEvents event = getEvent<GameEvents>(GameEvents.class);
+event.gameScoreUpdated(Id.getUUIDId(), score);
+```
+
 ## <a name="next-steps"></a>后续步骤
 * [执行组件可重入性](service-fabric-reliable-actors-reentrancy.md)
 * [执行组件诊断和性能监视](service-fabric-reliable-actors-diagnostics.md)
 * [执行组件 API 参考文档](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [代码示例](https://github.com/Azure/servicefabric-samples)
+* [C# 代码示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [C# .NET Core 示例代码](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started)
+* [Java 代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
+<!--Update_Description: update meta properties-->

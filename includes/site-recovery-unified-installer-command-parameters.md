@@ -1,3 +1,17 @@
+---
+author: rockboyfor
+ms.service: site-recovery
+ms.topic: include
+origin.date: 10/26/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
+ms.openlocfilehash: 23dcafe70a9f5221c155e3b764a679cd77d17b95
+ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57463702"
+---
 |参数名称| 类型 | 说明| 可能的值|
 |-|-|-|-|
 | /ServerMode|必需|指定是要同时安装配置服务器和进程服务器，还是只安装进程服务器|CS<br>PS|
@@ -13,6 +27,4 @@
 |DataTransferSecurePort|可选|用于复制数据的 PSIP 上的端口号| 有效端口号（默认值为 9433）|
 |/SkipSpaceCheck|可选|跳过缓存磁盘的空间检查| |
 |/AcceptThirdpartyEULA|必需|该标志表示接受第三方 EULA| |
-|/ShowThirdpartyEULA|可选|显示第三方 EULA。如果作为输入提供，将忽略所有其他参数| |
-
-<!---HONumber=Mooncake_0327_2017-->
+|/ShowThirdpartyEULA|可选|显示第三方 EULA。 如果作为输入提供，将忽略所有其他参数| |

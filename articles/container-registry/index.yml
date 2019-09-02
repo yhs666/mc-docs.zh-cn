@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure 容器注册表文档
+metadata:
+  title: Azure 容器注册表文档 - 教程 | Azure
+  description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
+  services: container-registry
+  author: rockboyfor
+  manager: digimobile
+  ms.service: container-registry
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  origin.date: 07/26/2017
+  ms.date: 04/15/2019
+  ms.author: v-yeche
+abstract:
+  description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
+sections:
+  - title: 5 分钟快速入门
+    items:
+      - type: paragraph
+        text: 了解如何部署 Azure 容器注册表。
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
+            text: Azure CLI
+            href: /container-registry/container-registry-get-started-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure 门户
+            href: /container-registry/container-registry-get-started-portal
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
+            text: Azure PowerShell
+            href: /container-registry/container-registry-get-started-powershell

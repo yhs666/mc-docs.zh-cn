@@ -1,108 +1,144 @@
 ---
-title: "Azure HDInsight 上的 Hadoop 组件发行说明 | Azure"
-description: "Azure HDInsight 的 Hadoop 组件的最新发行说明和版本。 获取有关 Hadoop、Apache Storm 和 HBase 的开发技巧和详细信息。"
+title: Azure HDInsight 发行说明
+description: Azure HDInsight 的最新发行说明。 获取 Hadoop、Spark、R Server、Hive 和更多工具的开发技巧和详细信息。
 services: hdinsight
-documentationcenter: 
-editor: cgronlun
-manager: jhubbard
-author: nitinme
-tags: azure-portal
-ms.assetid: a363e5f6-dd75-476a-87fa-46beb480c1fe
-ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 04/06/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2c4ee90387d280f15b2f2ed656f7d4862ad80901
-ms.openlocfilehash: 9e640c7547562a5e2018393aa084556d0d1fccc2
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/28/2017
-
-
+ms.service: hdinsight
+ms.topic: conceptual
+origin.date: 04/15/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: dcc1aaafee45da5540fac8fca69ec359b81e881d
+ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520795"
 ---
-# <a name="release-notes-for-hadoop-components-on-azure-hdinsight"></a>Azure HDInsight 上的 Hadoop 组件发行说明
+# <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
 
-[!INCLUDE [hdinsight-linux-acn-version.md](../../includes/hdinsight-linux-acn-version.md)]
+本文提供有关**最新** Azure HDInsight 版本更新的信息。 有关较早版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
 
-本文提供有关**最新** Azure HDInsight 版本更新的信息。 有关之前版本的信息，请参阅 [HDInsight 发行说明存档](hdinsight-release-notes-archive.md)。
-
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
 
-## <a name="04062017---general-availability-of-hdinsight-36"></a> HDInsight 3.6 公开上市
+## <a name="summary"></a>摘要
 
-* 在此次发布中，Azure HDInsight 添加了基于 HDP 2.6 的 3.6 版。 [此处](http://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.0/bk_release-notes/content/ch_relnotes.html)提供 HDP 2.6 发行说明；[此处](hdinsight-component-versioning.md)提供有关 HDInsight 版本的详细信息。 HDInsight 3.6 仅针对以下工作负荷提供。
+Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和 Apache Spark 分析服务之一。
 
-    * Hadoop v2.7.3
-    * HBase v1.1.2
-    * Storm v1.1.0
-    * Spark v2.1.0
-    * Interactive Hive v2.1.0
+## <a name="new-features"></a>新增功能
 
-* **Hive View 2.0 支持**。 这应该能够改善 Interactive Hive 的用户体验。 有关详细信息，请参阅 [Hortonworks 文档](http://docs.hortonworks.com/HDPDocuments/Ambari-2.5.0.3/bk_ambari-views/content/ch_using_hive_view.html)。
+有关 HDInsight 4.0 的重要更改的详细信息。，请参阅 [HDI 4.0 中有哪些新增功能？](../hdinsight/hdinsight-version-release.md)。
 
-* **Hive LLAP 性能增强**。 有关详细信息，请参阅 [Hortonworks 文档](https://hortonworks.com/blog/top-5-performance-boosters-with-apache-hive-llap/)。
+## <a name="component-versions"></a>组件版本
 
-* **Hive 中的新增功能**。 有关详细信息，请参阅 [Hortonworks 文档](https://hortonworks.com/apache/hive/#section_4)。
+下面提供了所有 HDInsight 4.0 组件的正式 Apache 版本。 列出的组件是可用的最新稳定版本。
 
-* **Hive CLI 弃用**：已弃用 Hive CLI，建议客户改为使用 Beeline。 有关详细信息，请参阅 [Apache 文档](https://cwiki.apache.org/confluence/display/Hive/Replacing+the+Implementation+of+Hive+CLI+Using+Beeline)。 有关如何将 Beeline 与 HDInsight 配合使用的说明，请参阅[将 Beeline 与 HDInsight Hadoop 群集配合使用](hdinsight-hadoop-use-hive-beeline.md)。
+- Apache Ambari 2.7.1
+- Apache Hadoop 3.1.1
+- Apache HBase 2.0.0
+- Apache Hive 3.1.0
+- Apache Kafka 1.1.1
+- Apache Mahout 0.9.0+
+- Apache Oozie 4.2.0
+- Apache Phoenix 4.7.0
+- Apache Pig 0.16.0
+- Apache Ranger 0.7.0
+- Apache Slider 0.92.0
+- Apache Spark 2.3.1
+- Apache Sqoop 1.4.7
+- Apache TEZ 0.9.1
+- Apache Zeppelin 0.8.0
+- Apache ZooKeeper 3.4.6
 
-* **Apache Phoenix 和 HBase 中的新增功能**。
-    * 存储配额支持：常用于多租户环境，可按表和按命名空间提供有限的存储空间。
-    * Phoenix 索引改进：增量创建索引以及从之前失败的场景中重新生成/恢复索引。
-    * Phoenix 数据完整性工具：支持验证架构、索引和其他元数据。
+除了上面所列的版本以外，Apache 组件的较高版本有时也会捆绑在 HDP 分发版中。 在这种情况下，这些较高版本会列在“技术预览”表中，并且在生产环境中不应替换为上述列表中的 Apache 组件版本。
 
-* **HBase 问题**：运行 CSV 批量上传 MapReduce 作业时，以下语法可能会导致错误。
+## <a name="apache-patch-information"></a>Apache 修补程序信息
 
-        HADOOP_CLASSPATH=$(hbase mapredcp):/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+有关 HDInsight 4.0 中可用的修补程序的详细信息，请参阅下表中适用于每个产品的修补程序列表。
 
-    应改为使用以下语法。
+| 产品名称 | 修补程序信息 |
+|---|---|
+| Ambari | [Ambari 修补程序信息](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
+| Hadoop | [Hadoop 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
+| HBase | [HBase 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| Hive  | 此版本提供 Hive 3.1.0，但不提供其他 Apache 修补程序。  |
+| Kafka | 此版本提供 Kafka 1.1.1，但不提供其他 Apache 修补程序。 |
+| Oozie | [Oozie 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
+| Phoenix | [Phoenix 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
+| Pig | [Pig 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
+| Ranger | [Ranger 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
+| Spark | [Spark 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| Sqoop | 此版本提供 Sqoop 1.4.7，但不提供其他 Apache 修补程序。 |
+| Tez | 此版本提供 Tez 0.9.1，但不提供其他 Apache 修补程序。 |
+| Zeppelin | 此版本提供 Zeppelin 0.8.0，但不提供其他 Apache 修补程序。 |
+| Zookeeper | [Zookeeper 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
 
-        HADOOP_CLASSPATH=/path/to/hbase-protocol.jar:/path/to/hbase/conf hadoop jar phoenix-<version>-client.jar org.apache.phoenix.mapreduce.CsvBulkLoadTool --table EXAMPLE --input /data/example.csv
+## <a name="fixed-common-vulnerabilities-and-exposures"></a>修复了常见漏洞和透露
 
-## <a name="02282017---release-of-spark-21-on-hdinsight-36-preview"></a> 发布 Spark 2.1 on HDInsight 3.6（预览版）
-* [Spark 2.1](http://spark.apache.org/releases/spark-release-2-1-0.html) 纠正了旧版中的许多稳定性和可用性问题。 它还带来了针对所有 Spark 工作负荷（如 Spark Core、SQL、ML 和流式处理）的新功能。
-* 结构化流式处理通过支持事件时间水印和 Kafka 0.10 连接器提高了可伸缩性。
-* 现在使用新的可缩放分区处理机制处理 Spark SQL 分区。 有关如何升级，请参阅 [此处](http://spark.apache.org/releases/spark-release-2-1-0.html) 的更多详细信息。
-* Azure HDInsight 3.6 预览版中的 Spark 2.1 目前不支持使用 ODBC 驱动程序的 BI 工具连接。
+有关此版本中已解决的安全问题的详细信息，请参阅 Hortonworks 编写的[修复了 HDP 3.0.1 的常见漏洞和透露](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html)。
 
-## <a name="11182016---release-of-spark-201-on-hdinsight-35"></a> 发布 Spark 2.0.1 on HDInsight 3.5
-Spark 2.0.1 现已在 Spark 群集（HDInsight 版本 3.5）上发行。
+## <a name="known-issues"></a>已知问题
 
-## <a name="11162016---release-of-r-server-90-on-hdinsight-35-spark-20"></a> 发布 R Server 9.0 on HDInsight 3.5 (Spark 2.0)
-*    R Server 群集现在包括适用于两个版本的选项：R Server 9.0 on HDI 3.5 (Spark 2.0) 和 R Server 8.0 on HDI 3.4 (Spark 1.6)。
-*    R Server 9.0 on HDI 3.5 (Spark 2.0) 以 R 3.3.2 为基础构建，包括名为 RxHiveData 和 RxParquetData 的全新 ScaleR 数据源功能，可以将数据从 Hive 和 Parquet 直接加载到 Spark DataFrames 供 ScaleR 分析。 有关详细信息，可以使用 ?RxHiveData 和 ?RxParquetData 命令查看 R 中这些函数的内联帮助。
-*    现在，作为预配流的一部分，RStudio Server 社区版（通过选择退出选项）默认安装在“群集预配”边栏选项卡上。
+### <a name="replication-is-broken-for-secure-hbase-with-default-installation"></a>使用默认安装选项时 Secure HBase 的复制中断
 
-## <a name="11092016---release-of-spark-20-on-hdinsight"></a> 发布 Spark 2.0 on HDInsight
-* HDInsight 3.5 上的 Spark 2.0 群集现支持 Livy 和 Jupyter 服务。
+对于 HDInsight 4.0，请执行以下步骤：
 
-## <a name="10262016---release-of-r-server-on-hdinsight"></a> 发布 R Server on HDInsight
-* 进行边缘节点访问的 URI 已更改为 **clustername**-ed-ssh.azurehdinsight.cn
-* R Server on HDInsight 群集预配已简化。
-* R Server on HDInsight 现已作为常用的 HDInsight“R Server”群集类型推出，不再作为单独的 HDInsight 应用程序安装。 边缘节点和 R Server 二进制文件现在会在 R Server 群集部署过程中进行预配。 这将提高预配的速度和可靠性。 R Server 的定价模型会相应地进行更新。
+1. 启用群集间通信。
+1. 登录到活动的头节点。
+1. 使用以下命令下载一个脚本以启用复制：
 
-## <a name="08302016---release-of-r-server-on-hdinsight"></a> 发布 R Server on HDInsight
-随此版本一起部署的基于 Linux 的 HDInsight 群集的所有版本号包括：
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. 键入命令 `sudo kinit <domainuser>`。
+1. 键入以下命令以运行该脚本：
 
-| HDI | HDI 群集版本 | HDP | HDP 内部版本 | Ambari 内部版本 |
-| --- | --- | --- | --- | --- |
-| 3.2 |3.2.1000.0.8268980 |2.2 |2.2.9.1-19 |2.2.1.12-4 |
-| 3.3 |3.3.1000.0.8268980 |2.3 |2.3.3.1-25 |2.2.1.12-4 |
-| 3.4 |3.4.1000.0.8269383 |2.4 |2.4.2.4-5 |2.2.1.12-4 |
+    ```
+    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+对于 HDInsight 3.6，请执行以下步骤：
 
-随此版本一起部署的基于 Windows 的 HDInsight 群集的所有版本号：
+1. 登录到活动的 HMaster ZK。
+1. 使用以下命令下载一个脚本以启用复制：
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. 键入命令 `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`。
+1. 输入以下命令：
 
-| HDI | HDI 群集版本 | HDP | HDP 内部版本 |
-| --- | --- | --- | --- |
-| 2.1 |2.1.10.1033.2559206 |1.3 |1.3.12.0-01795 |
-| 3.0 |3.0.6.1033.2559206 |2.0 |2.0.13.0-2117 |
-| 3.1 |3.1.4.1033.2559206 |2.1 |2.1.16.0-2374 |
-| 3.2 |3.2.7.1033.2559206 |2.2 |2.2.9.1-11 |
-| 3.3 |3.3.0.1033.2559206 |2.3 |2.3.3.1-25 |
+    ```bash
+    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
 
+### <a name="phoenix-sqlline-stops-working-after-migrating-hbase-cluster-to-hdinsight-40"></a>将 HBase 群集迁移到 HDInsight 4.0 后，Phoenix Sqlline 停止工作
+
+执行以下步骤：
+
+1. 删除以下 Phoenix 表：
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.MUTEX`
+    1. `SYSTEM.CATALOG`
+1. 如果无法删除其中的任何表，请重启 HBase 以清除与表建立的任何连接。
+1. 再次运行 `sqlline.py`。 Phoenix 将重新创建在步骤 1 中删除的所有表。
+1. 重新生成 HBase 数据的 Phoenix 表和视图。
+
+### <a name="phoenix-sqlline-stops-working-after-replicating-hbase-phoenix-metadata-from-hdinsight-36-to-40"></a>将 HBase Phoenix 元数据从 HDInsight 3.6 复制到 4.0 之后，Phoenix Sqlline 停止工作
+
+执行以下步骤：
+
+1. 在执行复制之前，请转到目标 4.0 群集并执行 `sqlline.py`。 此命令将生成类似于 `SYSTEM.MUTEX` 和 `SYSTEM.LOG` 且只存在于 4.0 中的 Phoenix 表。
+1. 删除以下表：
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.CATALOG`
+1. 启动 HBase 复制
+
+## <a name="deprecation"></a>弃用
+
+Apache Storm 和机器学习服务在 HDInsight 4.0 中不可用。

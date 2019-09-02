@@ -1,29 +1,29 @@
 ---
-title: "Azure CLI 脚本示例 - 在负载均衡虚拟机规模集中部署 LAMP 堆栈 | Azure"
-description: "使用自定义脚本扩展在 Azure 上的负载均衡虚拟机规模集中部署 LAMP 堆栈。"
+title: Azure CLI 脚本示例 - 在负载均衡虚拟机规模集中部署 LAMP 堆栈 | Azure
+description: 使用自定义脚本扩展在 Azure 上的负载均衡虚拟机规模集中部署 LAMP 堆栈。
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: allclark
-manager: douge
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 66b5de20c1a965a5ca3bae7a4b78e43929f886bd
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+origin.date: 04/05/2017
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.custom: mvc
+ms.openlocfilehash: 8782d67e96b2af69863bbb9f5e07e517245d7e8c
+ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69539044"
 ---
-
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>在负载均衡虚拟机规模集中部署 LAMP 堆栈
 
 此示例创建一个虚拟机规模集，并应用运行自定义脚本的扩展在规模集中每个虚拟机上部署 LAMP 堆栈。
@@ -32,8 +32,12 @@ ms.lasthandoff: 05/05/2017
 
 ## <a name="sample-script"></a>示例脚本
 
-```azurecli-interactive
+```azurecli
 #!/bin/bash
+
+# Sign in the Azure China Cloud
+az cloud set -n AzureChinaCloud
+az login 
 
 # Create the resource group if it doesn't exist
 az group create -n myResourceGroup -l chinanorth
@@ -89,7 +93,7 @@ echo "You can now reach the scale set by opening your browser to: 'http://${FQDN
 
 运行如下命令来删除资源组、规模集和 VM 以及所有相关资源。
 
-```azurecli
+```azurecli 
 az group delete -n myResourceGroup
 ```
 
@@ -97,20 +101,21 @@ az group delete -n myResourceGroup
 
 此脚本使用以下命令创建资源组、虚拟机、可用性集、负载均衡器和所有相关资源。 表中的每条命令均链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#create) | 创建用于存储所有资源的资源组。 |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss#create) | 创建虚拟机规模集 |
-| [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) | 添加负载均衡终结点 |
-| [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#set) | 创建对 VM 部署运行自定义脚本的扩展 |
-| [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#update-instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
-| [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#list) | 获取示例创建的 VM 的 IP 地址。 |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#show) | 获取负载均衡器使用的前端和后端端口。 |
+| [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az vmss create](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-create) | 创建虚拟机规模集 |
+| [az network lb rule create](https://docs.azure.cn/cli/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create) | 添加负载均衡终结点 |
+| [az vmss extension set](https://docs.azure.cn/cli/vmss/extension?view=azure-cli-latest#az-vmss-extension-set) | 创建对 VM 部署运行自定义脚本的扩展 |
+| [az vmss update-instances](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-update-instances) | 在将扩展应用到规模集之前部署的 VM 实例上运行此自定义脚本。 |
+| [az vmss scale](https://docs.azure.cn/cli/vmss?view=azure-cli-latest#az-vmss-scale) | 通过添加更多 VM 实例来扩大规模集。 部署实例时，在实例上运行此自定义脚本。 |
+| [az network public-ip list](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-list) | 获取示例创建的 VM 的 IP 地址。 |
+| [az network lb show](https://docs.azure.cn/cli/network/lb?view=azure-cli-latest#az-network-lb-show) | 获取负载均衡器使用的前端和后端端口。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.azure.cn/cli/index?view=azure-cli-latest)。
 
 可以在 [Azure Linux VM 文档](../linux/cli-samples.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)中找到其他虚拟机 CLI 脚本示例。
 
+<!--Update_Description: update meta properties -->

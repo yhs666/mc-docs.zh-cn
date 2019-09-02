@@ -1,116 +1,126 @@
 ---
-title: "使用 Java 连接到 Azure SQL 数据库 | Azure"
-description: "演示了一个可以用来连接到 Azure SQL 数据库并进行查询的 Java 代码示例。"
+title: 使用 Java 查询 Azure SQL 数据库 | Microsoft Docs
+description: 介绍如何使用 Java 创建连接到 Azure SQL 数据库的程序并使用 T-SQL 语句对其进行查询。
 services: sql-database
-documentationcenter: 
-author: ajlam
-manager: jhubbard
-editor: 
-ms.assetid: 
 ms.service: sql-database
-ms.custom: quick start connect
-ms.workload: drivers
-ms.tgt_pltfrm: na
+ms.subservice: development
 ms.devlang: java
-ms.topic: article
-ms.date: 04/05/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 7dc86c514f02e638dba8b603faf8289feba78c94
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+ms.topic: quickstart
+author: WenJason
+ms.author: v-jay
+ms.reviewer: v-masebo
+manager: digimobile
+origin.date: 03/25/2019
+ms.date: 04/15/2019
+ms.openlocfilehash: 7d8683db5160c7b6c96db4122cd43c2814bef711
+ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/16/2019
+ms.locfileid: "69544385"
 ---
-# <a name="azure-sql-database-use-java-to-connect-and-query-data"></a>Azure SQL 数据库：使用 Java 进行连接和数据查询
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>快速入门：使用 Java 查询 Azure SQL 数据库
 
-本快速入门演示了如何通过 Mac OS、Ubuntu Linux 和 Windows 平台使用 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 连接到 Azure SQL 数据库，然后使用 Transact-SQL 语句在数据库中查询、插入、更新和删除数据。
+本文演示了如何使用 [Java](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 连接到 Azure SQL 数据库。 然后即可使用 T-SQL 语句来查询数据。
 
-此快速入门使用以下某个快速入门中创建的资源作为其起点：
+## <a name="prerequisites"></a>先决条件
 
-- [创建 DB - 门户](sql-database-get-started-portal.md)
-- [创建 DB - CLI](sql-database-get-started-cli.md)
+若要完成此示例，请确保具备以下先决条件：
 
-## <a name="install-java-software"></a>安装 Java 软件
+- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
-### <a name="mac-os"></a>**Mac OS**
-打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **brew** 和 **Maven**。 
+  || 单一数据库 | 托管实例 |
+  |:--- |:--- |:---|
+  | 创建| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | 配置 | [服务器级别 IP 防火墙规则](sql-database-server-level-firewall-rule.md)| [从 VM 进行连接](sql-database-managed-instance-configure-vm.md)|
+  |||[从现场进行连接](sql-database-managed-instance-configure-p2s.md)
+  |加载数据|根据快速入门加载的 Adventure Works|[还原 Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||从 [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 所提供的 [BACPAC](sql-database-import.md) 文件还原或导入 Adventure Works|
+  |||
 
-```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew update
-brew install maven
-```
+  > [!IMPORTANT]
+  > 本文中脚本的编写目的是使用 Adventure Works 数据库。 使用托管实例时，必须将 Adventure Works 数据库导入一个实例数据库，或者修改本文中的脚本，以便使用 Wide World Importers 数据库。
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
-打开终端并导航到要在其中创建 Java 项目的目录。 输入以下命令安装 **Maven**。 
+- 已为操作系统安装与 Java 相关的软件：
 
-```bash
-sudo apt-get install maven
-```
+  - **MacOS**：安装 Homebrew 和 Java，然后安装 Maven。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)。
 
-### <a name="windows"></a>**Windows**
-使用官方安装程序安装 [Maven](https://maven.apache.org/download.cgi)。  
+  - **Ubuntu**：安装 Java 和 Java 开发工具包，然后安装 Maven。 请参阅[步骤 1.2、1.3 和 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)。
 
-## <a name="get-connection-information"></a>获取连接信息
+  - **Windows**：安装 Java，然后安装 Maven。 请参阅[步骤 1.2 和 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)。
 
-在 Azure 门户中获取连接字符串。 请使用连接字符串连接到 Azure SQL 数据库。
+## <a name="get-sql-server-connection-information"></a>获取 SQL Server 连接信息
+
+获取连接到 Azure SQL 数据库所需的连接信息。 在后续过程中，将需要完全限定的服务器名称或主机名称、数据库名称和登录信息。
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-2. 从左侧菜单中选择“SQL 数据库”，然后单击“SQL 数据库”页上的数据库。 
-3. 在数据库的“概要”窗格中，查看完全限定的服务器名称。 
 
-    <img src="./media/sql-database-connect-query-dotnet/server-name.png" alt="server name" style="width: 780px;" />
+2. 导航到“SQL 数据库”或“SQL 托管实例”页。  
 
-4. 单击“显示数据库连接字符串”。
+3. 在“概览”页中，查看单一数据库的“服务器名称”旁边的完全限定的服务器名称，或者托管实例的“主机”旁边的完全限定的服务器名称    。 若要复制服务器名称或主机名称，请将鼠标悬停在其上方，然后选择“复制”图标  。 
 
-5. 查看完整的 **JDBC** 连接字符串。
+## <a name="create-the-project"></a>创建项目
 
-    <img src="./media/sql-database-connect-query-jdbc/jdbc-connection-string.png" alt="JDBC connection string" style="width: 780px;" />
+1. 从命令提示符创建名为 sqltest 的新 Maven 项目。 
 
-### <a name="create-maven-project"></a>**创建 Maven 项目**
-从终端创建一个新的 Maven 项目。 
-```bash
-mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
-```
+    ```bash
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
+    ```
 
-将 **Microsoft JDBC Driver for SQL Server** 添加到 ***pom.xml*** 中的依赖项。 
+1. 将文件夹更改为 *sqltest*，然后使用喜欢的文本编辑器打开 pom.xml  。 使用以下代码，将 **Microsoft JDBC Driver for SQL Server** 添加到项目的依赖项。
 
-```xml
-<dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>6.1.0.jre8</version>
-</dependency>
-```
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.sqlserver</groupId>
+        <artifactId>mssql-jdbc</artifactId>
+        <version>7.0.0.jre8</version>
+    </dependency>
+    ```
 
-## <a name="select-data"></a>选择数据
+1. 另请在 pom.xml  中向项目添加以下属性。 如果没有 properties 节，可以将其添加到 dependencies 后面。
 
-借助[连接](https://docs.microsoft.com/sql/connect/jdbc/working-with-a-connection)和 [SELECT](https://msdn.microsoft.com/library/ms189499.aspx) Transact-SQL 语句，使用 Java 查询 Azure SQL 数据库中的数据。
+   ```xml
+   <properties>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+   </properties>
+   ```
 
-```java
-package com.sqldbsamples;
+1. 保存并关闭  pom.xml。
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.DriverManager;
+## <a name="add-code-to-query-database"></a>添加用于查询数据库的代码
 
-public class App {
+1. 此时，你应该在 Maven 项目中有了一个名为  App.java 的文件，其位置为：
 
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
-        try {
+1. 打开该文件并将其内容替换为以下代码。 然后，为服务器、数据库、用户和密码添加相应的值。
+
+    ```java
+    package com.sqldbsamples;
+
+    import java.sql.Connection;
+    import java.sql.Statement;
+    import java.sql.PreparedStatement;
+    import java.sql.ResultSet;
+    import java.sql.DriverManager;
+
+    public class App {
+
+        public static void main(String[] args) {
+
+            // Connect to database
+            String hostName = "your_server.database.chinacloudapi.cn"; // update me
+            String dbName = "your_database"; // update me
+            String user = "your_username"; // update me
+            String password = "your_password"; // update me
+            String url = String.format("jdbc:sqlserver://%s:1433;database=%s;user=%s;password=%s;encrypt=true;"
+                + "hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
+            Connection connection = null;
+
+            try {
                 connection = DriverManager.getConnection(url);
                 String schema = connection.getSchema();
                 System.out.println("Successful connection - Schema: " + schema);
@@ -119,194 +129,48 @@ public class App {
                 System.out.println("=========================================");
 
                 // Create and execute a SELECT SQL statement.
-                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName " 
+                String selectSql = "SELECT TOP 20 pc.Name as CategoryName, p.name as ProductName "
                     + "FROM [SalesLT].[ProductCategory] pc "  
                     + "JOIN [SalesLT].[Product] p ON pc.productcategoryid = p.productcategoryid";
-                
+
                 try (Statement statement = connection.createStatement();
-                    ResultSet resultSet = statement.executeQuery(selectSql)) {
+                ResultSet resultSet = statement.executeQuery(selectSql)) {
 
-                        // Print results from select statement
-                        System.out.println("Top 20 categories:");
-                        while (resultSet.next())
-                        {
-                            System.out.println(resultSet.getString(1) + " "
-                                + resultSet.getString(2));
-                        }
+                    // Print results from select statement
+                    System.out.println("Top 20 categories:");
+                    while (resultSet.next())
+                    {
+                        System.out.println(resultSet.getString(1) + " "
+                            + resultSet.getString(2));
+                    }
+                    connection.close();
                 }
-        }
-        catch (Exception e) {
+            }
+            catch (Exception e) {
                 e.printStackTrace();
+            }
         }
     }
-}
-```
+    ```
 
-## <a name="insert-data"></a>插入数据
+   > [!NOTE]
+   > 代码示例使用适用于 Azure SQL 的 **AdventureWorksLT** 示例数据库。
 
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Transact-SQL 语句将数据插入 Azure SQL 数据库。
+## <a name="run-the-code"></a>运行代码
 
-```java
-package com.sqldbsamples;
+1. 在命令提示符下运行此应用。
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
+    ```bash
+    mvn package -DskipTests
+    mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
+    ```
 
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Insert data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to insert data
-                String insertSql = "INSERT INTO SalesLT.Product (Name, ProductNumber, Color, )" 
-                    + " StandardCost, ListPrice, SellStartDate) VALUES (?,?,?,?,?,?);";
-
-                java.util.Date date = new java.util.Date();
-                java.sql.Timestamp sqlTimeStamp = new java.sql.Timestamp(date.getTime());
-
-                try (PreparedStatement prep = connection.prepareStatement(insertSql)) {
-                        prep.setString(1, "BrandNewProduct");
-                        prep.setInt(2, 200989);
-                        prep.setString(3, "Blue");
-                        prep.setDouble(4, 75);
-                        prep.setDouble(5, 80);
-                        prep.setTimestamp(6, sqlTimeStamp);
-
-                        int count = prep.executeUpdate();
-                        System.out.println("Inserted: " + count + " row(s)");
-                }
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-## <a name="update-data"></a>更新数据
-
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL 语句更新 Azure SQL 数据库中的数据。
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Update data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to update data
-                String updateSql = "UPDATE SalesLT.Product SET ListPrice = ? WHERE Name = ?";
-
-                try (PreparedStatement prep = connection.prepareStatement(updateSql)) {
-                        prep.setString(1, "500");
-                        prep.setString(2, "BrandNewProduct");
-
-                        int count = prep.executeUpdate();
-                        System.out.println("Updated: " + count + " row(s)")
-                }
-        }
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
-
-
-
-## <a name="delete-data"></a>删除数据
-
-使用 [Prepared Statements](https://docs.microsoft.com/sql/connect/jdbc/using-statements-with-sql) 和 [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Transact-SQL 语句删除 Azure SQL 数据库中的数据。
-
-```java
-package com.sqldbsamples;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.DriverManager;
-
-public class App {
-
-    public static void main(String[] args) {
-    
-        // Connect to database
-        String hostName = "yourserver";
-        String dbName = "yourdatabase";
-        String user = "yourusername";
-        String password = "yourpassword";
-        String url = String.format("jdbc:sqlserver://%s.database.chinacloudapi.cn:1433;database=%s;user=%s;password=%s;encrypt=true;hostNameInCertificate=*.database.chinacloudapi.cn;loginTimeout=30;", hostName, dbName, user, password);
-        Connection connection = null;
-
-        try {
-                connection = DriverManager.getConnection(url);
-                String schema = connection.getSchema();
-                System.out.println("Successful connection - Schema: " + schema);
-
-                System.out.println("Delete data example:");
-                System.out.println("=========================================");
-
-                // Prepared statement to delete data
-                String deleteSql = "DELETE SalesLT.Product WHERE Name = ?";
-
-                try (PreparedStatement prep = connection.prepareStatement(deleteSql)) {
-                        prep.setString(1, "BrandNewProduct");
-
-                        int count = prep.executeUpdate();
-                        System.out.println("Deleted: " + count + " row(s)");
-                }
-        }        
-        catch (Exception e) {
-                e.printStackTrace();
-        }
-    }
-}
-```
+1. 验证是否返回了前 20 行，然后关闭应用窗口。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)的 GitHub 存储库。
-- [提出问题](https://github.com/microsoft/mssql-jdbc/issues)。
-- 若要使用 SQL Server Management Studio 进行连接和查询，请参阅[使用 SSMS 进行连接和查询](sql-database-connect-query-ssms.md)
-- 若要使用 Visual Studio 进行连接和查询，请参阅[使用 Visual Studio Code 进行连接和查询](sql-database-connect-query-vscode.md)。
-- 若要使用 .NET 进行连接和查询，请参阅[使用 .NET 进行连接和查询](sql-database-connect-query-dotnet.md)。
-- 若要使用 PHP 进行连接和查询，请参阅[使用 PHP 进行连接和查询](sql-database-connect-query-php.md)。
-- 若要使用 Node.js 进行连接和查询，请参阅[使用 Node.js 进行连接和查询](sql-database-connect-query-nodejs.md)。
-- 若要使用 Python 进行连接和查询，请参阅[使用 Python 进行连接和查询](sql-database-connect-query-python.md)。
-- 若要使用 Ruby 进行连接和查询，请参阅[使用 Ruby 进行连接和查询](sql-database-connect-query-ruby.md)。
+- [设计第一个 Azure SQL 数据库](sql-database-design-first-database.md)  
 
+- [用于 SQL Server 的 Microsoft JDBC 驱动程序](https://github.com/microsoft/mssql-jdbc)  
 
+- [报告问题/提出问题](https://github.com/microsoft/mssql-jdbc/issues)  

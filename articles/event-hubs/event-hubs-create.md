@@ -1,80 +1,109 @@
 ---
-title: 创建 Azure 事件中心 | Azure
-description: 使用 Azure 门户创建 Azure 事件中心命名空间和事件中心
+title: Azure 快速入门 - 使用 Azure 门户创建事件中心 | Azure Docs
+description: 本快速入门介绍如何使用 Azure 门户创建 Azure 事件中心，然后使用 .NET Standard SDK 发送和接收事件。
 services: event-hubs
-documentationcenter: na
-author: jtaubensee
+documentationcenter: ''
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-
-ms.assetid: ff99e327-c8db-4354-9040-9c60c51a2191
 ms.service: event-hubs
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/25/2017
-wacn.date: 03/24/2017
-ms.author: v-yeche
+ms.topic: quickstart
+origin.date: 08/16/2018
+ms.date: 05/06/2019
+ms.author: v-biyu
+ms.openlocfilehash: 95bc8ccd109788aef8fbe56cc05a159507e65193
+ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64854650"
 ---
+# <a name="quickstart-create-an-event-hub-using-azure-portal"></a>快速入门：使用 Azure 门户创建事件中心
+Azure 事件中心是一个大数据流式处理平台和事件引入服务，每秒能够接收和处理数百万个事件。 事件中心可以处理和存储分布式软件和设备生成的事件、数据或遥测。 可以使用任何实时分析提供程序或批处理/存储适配器转换和存储发送到数据中心的数据。 有关事件中心的详细概述，请参阅[事件中心概述](event-hubs-about.md)和[事件中心功能](event-hubs-features.md)。
 
-# 使用 Azure 门户创建事件中心命名空间和事件中心
+在本快速入门中，请使用 [Azure 门户](https://portal.azure.cn)创建事件中心。
 
-## 创建事件中心命名空间
+## <a name="prerequisites"></a>先决条件
 
-1. 登录到 [Azure 门户][Azure portal]，然后单击屏幕左上角的“新建”。
+若要完成本快速入门，请确保具备以下项：
 
-2. 单击“物联网”，然后单击“事件中心”。
+- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
+- [Visual Studio 2017 Update 3（版本 15.3 (26730.01)）](https://www.visualstudio.com/vs)或更高版本。
+- [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
-    ![](./media/event-hubs-create/create-event-hub9.png)  
+## <a name="create-a-resource-group"></a>创建资源组
 
-3. 在“创建命名空间”边栏选项卡中，输入命名空间名称。系统会立即检查该名称是否可用。
+资源组是 Azure 资源的逻辑集合。 所有资源在资源组中进行部署和管理。 创建资源组：
 
-    ![](./media/event-hubs-create/create-event-hub1.png)  
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+2. 在左侧导航栏中，单击“资源组”。 。
 
-4. 在确保命名空间名称可用后，选择定价层（基本或标准）。此外，选择 Azure 订阅、资源组和要在其中创建该资源的位置。
+   ![资源组 -“添加”按钮](./media/event-hubs-quickstart-portal/resource-groups1.png)
 
-5. 单击“创建”以创建命名空间。
+2. 对于“订阅”，请选择要在其中创建资源组的 Azure 订阅的名称。
+3. 键入**资源组的唯一名称**。 系统会立即检查该名称是否在当前选定的 Azure 订阅中可用。
+4. 选择资源组所在的**区域**。
+5. 选择“查看 + 创建”。
 
-6. 在事件中心命名空间列表中，单击新建的命名空间。
+   ![资源组 - 创建](./media/event-hubs-quickstart-portal/resource-groups2.png)
+6. 在“查看 + 创建”页上，选择“创建”。 
 
-    ![](./media/event-hubs-create/create-event-hub2.png)  
+## <a name="create-an-event-hubs-namespace"></a>创建事件中心命名空间
 
-7. 在命名空间边栏选项卡中，单击“事件中心”。
+事件中心命名空间提供唯一的范围容器，可以通过其完全限定的域名进行引用，而在该容器中，可以创建一个或多个事件中心。 若要使用门户在资源组中创建命名空间，请执行以下操作：
 
-    ![](./media/event-hubs-create/create-event-hub3.png)  
+1. 在 Azure 门户中，单击屏幕左上角的“创建资源”。
+2. 在左侧菜单中选择“所有服务”，然后在“分析”类别中的“事件中心”旁边选择**星号 (`*`)**。 确认“事件中心”已添加到左侧导航菜单中的“收藏夹”。 
+    
+   ![搜索事件中心](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
+3. 选择左侧导航菜单中“收藏夹”下的“事件中心”，然后选择工具栏上的“添加”。
 
-## 创建事件中心
+   ![“添加”工具栏按钮](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+4. 在“创建命名空间”页上执行以下步骤：
+    1. 输入该命名空间的名称。 系统会立即检查该名称是否可用。
+    2. 选择定价层（基本或标准）。
+    3. 选择要在其中创建命名空间的**订阅**。
+    4. 选择命名空间所在的**位置**。
+    5. 选择“创建” 。 可能需要等待几分钟让系统完全预配资源。
 
-1. 在边栏选项卡顶部，单击“添加事件中心”。
+       ![创建事件中心命名空间](./media/event-hubs-quickstart-portal/create-event-hub1.png)
+5. 刷新“事件中心”页，以查看事件中心命名空间。 可以在警报中检查事件中心的创建状态。 
 
-    ![](./media/event-hubs-create/create-event-hub4.png)  
+    ![创建事件中心命名空间](./media/event-hubs-quickstart-portal/event-hubs-refresh.png)
+6. 选择命名空间。 门户中会显示“事件中心命名空间”的主页。 
 
-2. 键入事件中心的名称后，单击“创建”。
+   ![命名空间的主页](./media/event-hubs-quickstart-portal/namespace-home-page.png)
+    
+## <a name="create-an-event-hub"></a>创建事件中心
 
-    ![](./media/event-hubs-create/create-event-hub5.png)  
+若要在该命名空间中创建事件中心，请执行以下操作：
 
-3. 在事件中心的列表中，单击新创建的事件中心名称。
+1. 在“事件中心命名空间”页上，选择左侧菜单中的“事件中心”。
+1. 在窗口顶部，单击“+ 事件中心”。
+   
+    ![添加事件中心 - 按钮](./media/event-hubs-quickstart-portal/create-event-hub4.png)
+1. 为事件中心键入名称，然后单击“创建”。
+   
+    ![创建事件中心](./media/event-hubs-quickstart-portal/create-event-hub5.png)
+4. 可以在警报中检查事件中心的创建状态。 创建事件中心后，事件中心列表中会显示该事件中心，如下图所示：
 
-     ![](./media/event-hubs-create/create-event-hub6.png)  
+    ![已创建事件中心](./media/event-hubs-quickstart-portal/event-hub-created.png)
 
-4. 返回命名空间边栏选项卡（不是特定的事件中心边栏选项卡），单击“共享访问策略”，然后单击“RootManageSharedAccessKey”。
+祝贺！ 现已使用门户创建了一个事件中心命名空间，并在该命名空间中创建了一个事件中心。 
 
-     ![](./media/event-hubs-create/create-event-hub7.png)  
+## <a name="next-steps"></a>后续步骤
 
-5. 单击复制按钮，将 **RootManageSharedAccessKey** 连接字符串复制到剪贴板。保存该连接字符串，以便本教程以后使用。
+在本文中，你已创建一个资源组、一个事件中心命名空间和一个事件中心。 有关如何将事件发送到事件中心（或）从事件中心接收事件的分步说明，请参阅“发送和接收事件”教程： 
 
-     ![](./media/event-hubs-create/create-event-hub8.png)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C（仅发送）](event-hubs-c-getstarted-send.md)
+- [Apache Storm（仅接收）](event-hubs-storm-getstarted-receive.md)
 
-现在，你的事件中心就创建好了，并且具有收发事件所需的连接字符串。
-
-## 后续步骤
-若要了解有关事件中心的详细信息，请访问以下链接：
-
-* [事件中心概述](./event-hubs-what-is-event-hubs.md)
-* [事件中心 API 概述](./event-hubs-api-overview.md)
 
 [Azure portal]: https://portal.azure.cn/
-
-<!---HONumber=Mooncake_0320_2017-->
-<!--Update_Description: new article about how to create event hubs-->
+[3]: ./media/event-hubs-quickstart-portal/sender1.png
+[4]: ./media/event-hubs-quickstart-portal/receiver1.png

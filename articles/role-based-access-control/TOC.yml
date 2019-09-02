@@ -1,0 +1,85 @@
+- name: Azure 资源的 RBAC 文档
+  href: index.yml
+  items: null
+- name: 概述
+  items:
+    - name: 什么是 RBAC?
+      href: overview.md
+    - name: 了解不同角色
+      href: rbac-and-directory-admin-roles.md
+- name: 快速入门
+  items:
+    - name: 查看用户的访问权限
+      href: check-access.md
+- name: 教程
+  items:
+    - name: 授予用户访问权限 - 门户
+      href: quickstart-assign-role-user-portal.md
+    - name: 授予用户访问权限 - PowerShell
+      href: tutorial-role-assignments-user-powershell.md
+    - name: 授予用户访问权限 - 资源管理器模板
+      displayName: 'ARM, resource manager template'
+      href: tutorial-role-assignments-user-template.md
+    - name: 授予组访问权限 - PowerShell
+      href: tutorial-role-assignments-group-powershell.md
+    - name: 创建自定义角色 - PowerShell
+      href: tutorial-custom-role-powershell.md
+    - name: 创建自定义角色 - CLI
+      href: tutorial-custom-role-cli.md
+- name: 概念
+  items:
+    - name: 了解角色定义
+      href: role-definitions.md
+- name: 操作指南
+  items:
+    - name: 管理访问权限
+      items:
+        - name: 门户
+          href: role-assignments-portal.md
+        - name: PowerShell
+          href: role-assignments-powershell.md
+        - name: Azure CLI
+          href: role-assignments-cli.md
+        - name: REST API
+          href: role-assignments-rest.md
+        - name: 模板
+          href: role-assignments-template.md
+    - name: 自定义角色
+      items:
+        - name: 概述
+          href: custom-roles.md
+        - name: PowerShell
+          href: custom-roles-powershell.md
+        - name: Azure CLI
+          href: custom-roles-cli.md
+        - name: REST API
+          href: custom-roles-rest.md
+    - name: 查看活动日志
+      href: change-history-report.md
+    - name: 提升访问权限来管理所有订阅
+      href: elevate-access-global-admin.md
+    - name: 经典管理员
+      href: classic-administrators.md
+    - name: 故障排除
+      href: troubleshooting.md
+- name: 参考
+  items:
+    - name: 内置角色
+      href: built-in-roles.md
+    - name: 资源提供程序操作
+      href: resource-provider-operations.md
+    - name: RBAC 限制
+      href: '../azure-subscription-service-limits.md#role-based-access-control-limits'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.resources'
+    - name: Azure CLI
+      href: /cli/role?view=azure-cli-latest
+    - name: REST API
+      href: 'https://docs.microsoft.com/rest/api/authorization/'
+    - name: Resource Manager 模板
+      displayName: ARM
+      items:
+        - name: 角色分配
+          href: 'https://docs.microsoft.com/azure/templates/microsoft.authorization/roleassignments'
+        - name: 角色定义
+          href: 'https://docs.microsoft.com/azure/templates/microsoft.authorization/roledefinitions'

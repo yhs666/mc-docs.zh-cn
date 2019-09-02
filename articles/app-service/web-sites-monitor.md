@@ -1,0 +1,174 @@
+---
+title: 监视应用 - Azure 应用服务 | Azure Docs
+description: 了解如何使用 Azure 门户在 Azure 应用服务中监视应用。
+services: app-service
+documentationcenter: ''
+author: btardif
+manager: erikre
+editor: ''
+ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
+ms.service: app-service
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+origin.date: 11/28/2017
+ms.date: 02/25/2019
+ms.author: v-biyu
+ms.custom: seodec18
+ms.openlocfilehash: 71a5132858b026e7c67d5b7a781549549713d004
+ms.sourcegitcommit: d5e91077ff761220be2db327ceed115e958871c8
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 02/13/2019
+ms.locfileid: "56222606"
+---
+# <a name="monitor-apps-in-azure-app-service"></a>监视 Azure 应用服务中的应用
+[应用服务](overview.md)针对 [Azure 门户](https://portal.azure.cn)中的 Web 应用、移动后端和 API 应用提供内置监视功能。
+
+在 Azure 门户中，可以查看应用的配额和指标，查看应用服务计划，以及自动设置基于指标的警报和缩放。
+
+## <a name="understand-quotas"></a>了解配额
+
+对于托管在应用服务中的应用，其可用资源受到某些限制。 限制由与应用关联的应用服务计划定义。
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
+如果应用托管在“免费”或“共享”计划中，则该应用可用资源的限制由配额定义。
+
+如果应用托管在“基本”、“标准”或“高级”计划中，则该应用可用资源的限制由应用服务计划的大小（小、中、大）和实例计数（1、2、3 等等）设置。
+
+“免费”或“共享”应用的配额如下：
+
+| Quota | 说明 |
+| --- | --- |
+| **CPU（短期）** | 5 分钟间隔内允许此应用使用的 CPU 量。 此配额每五分钟重置。 |
+| **CPU（天）** | 一天内允许此应用使用的 CPU 总量。 此配额每隔 24 小时在 UTC 午夜时间重置。 |
+| **内存** | 允许此应用具有的内存总量。 |
+| **带宽** | 一天内允许此应用使用的传出带宽总量。 此配额每隔 24 小时在 UTC 午夜时间重置。 |
+| **Filesystem** | 允许的存储空间总量。 |
+
+适用于托管在“基本”、“标准”和“高级”计划中的应用的唯一配额是“文件系统”。
+
+有关各种应用服务 SKU 的特定配额、限制和可用功能的详细信息，请参阅 [Azure 订阅服务限制](../azure-subscription-service-limits.md#app-service-limits)。
+
+### <a name="quota-enforcement"></a>配额强制执行
+
+如果应用超过“CPU（短期）”、“CPU（天）”或“带宽”配额，则将终止该应用，直到配额重置。 在此期间，所有传入请求都将导致 HTTP 403 错误。
+
+![403 错误消息][http403]
+
+如果超过应用内存配额，则将重启该应用。
+
+如果超过文件系统配额，则任何写入操作都会失败。 写入操作失败包括对日志的任何写入。
+
+可通过升级应用服务计划在应用中提高或删除配额。
+
+## <a name="understand-metrics"></a>了解指标
+
+指标提供有关应用或应用服务计划行为的信息。
+
+应用的可用指标包括：
+
+| 指标 | 说明 |
+| --- | --- |
+| **平均响应时间** | 应用处理请求的平均时间，以毫秒为单位。 |
+| **平均内存工作集** | 应用使用的平均内存量，以 MiB 为单位。 |
+| **连接** | 沙盒中存在的绑定套接字的数目（w3wp.exe 及其子进程）。  绑定套接字是通过调用 bind()/connect() API 创建的，并一直保留到通过 CloseHandle()/closesocket() 关闭所述的套接字。 |
+| **CPU 时间** | 应用消耗的 CPU 量，以秒为单位。 有关此指标的详细信息，请参阅 [CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)。 |
+| **当前程序集** | 此应用程序中的所有 AppDomain 中加载的程序集的当前数量。 |
+| **数据输入** | 应用消耗的传入带宽量，以 MiB 为单位。 |
+| **数据输出** | 应用消耗的传出带宽量，以 MiB 为单位。 |
+| **第 0 代垃圾回收** | 自应用进程启动以来对第 0 代对象进行垃圾回收的次数。 较高代系的垃圾回收包括所有较低代系的垃圾回收。|
+| **第 1 代垃圾回收** | 自应用进程启动以来对第 1 代对象进行垃圾回收的次数。 较高代系的垃圾回收包括所有较低代系的垃圾回收。|
+| **第 2 代垃圾回收** | 自应用进程启动以来对第 2 代对象进行垃圾回收的次数。|
+| **句柄计数** | 应用进程当前打开的句柄总数。|
+| **Http 2xx** | 导致 HTTP 状态代码大于等于 200 但小于 300 的请求计数。 |
+| **Http 3xx** | 导致 HTTP 状态代码大于等于 300 但小于 400 的请求计数。 |
+| **Http 401** | 导致 HTTP 401 状态代码的请求计数。 |
+| **Http 403** | 导致 HTTP 403 状态代码的请求计数。 |
+| **Http 404** | 导致 HTTP 404 状态代码的请求计数。 |
+| **Http 406** | 导致 HTTP 406 状态代码的请求计数。 |
+| **Http 4xx** | 导致 HTTP 状态代码大于等于 400 但小于 500 的请求计数。 |
+| **Http 服务器错误** | 导致 HTTP 状态代码大于等于 500 但小于 600 的请求计数。 |
+| **IO 每秒其他字节数** | 应用进程向不涉及数据的 I/O 操作（例如控制操作）发出字节的速率。|
+| **IO 每秒其他操作数** | 应用进程发出非读写 I/O 操作的速率。|
+| **IO 每秒读取字节数** | 应用进程通过 I/O 操作读取字节的速率。|
+| **IO 每秒读取操作数** | 应用进程发出读取 I/O 操作的速率。|
+| **IO 每秒写入字节数** | 应用进程向 I/O 操作写入字节的速率。|
+| **IO 每秒写入操作数** | 应用进程发出写入 I/O 操作的速率。|
+| **内存工作集** | 应用当前使用的内存量，以 MiB 为单位。 |
+| **专用字节数** | 专用字节数是应用进程已分配的无法与其他进程共享的内存的当前大小（字节）。|
+| **请求** | 请求总数，不考虑是否导致 HTTP 状态代码。 |
+| **应用程序队列中的请求数** | 应用程序请求队列中的请求数。|
+| **线程计数** | 应用进程中当前处于活动状态的线程数。|
+| **应用程序域总数** | 此应用程序中加载的 AppDomain 的当前数目。|
+| **卸载的应用程序域总数** | 自应用程序启动以来卸载的 AppDomain 的总数。|
+
+
+应用服务计划的可用指标包括：
+
+> [!NOTE]
+> 应用服务计划指标仅适用于“基本”、“标准”和“高级”层中的计划。
+> 
+
+| 指标 | 说明 |
+| --- | --- |
+| **CPU 百分比** | 计划的所有实例使用的平均 CPU 量。 |
+| **内存百分比** | 计划的所有实例使用的平均内存量。 |
+| **数据输入** | 计划的所有实例使用的平均输入带宽量。 |
+| **数据输出** | 计划的所有实例使用的平均输出带宽量。 |
+| **磁盘队列长度** | 在存储上排队的读取和写入请求的平均数量。 过高的磁盘队列长度表示应用可能由于磁盘 I/O 过多而速度变慢。 |
+| **Http 队列长度** | 必须在队列排满之前排入队列中的 HTTP 请求的平均数量。 较高或不断增长的 HTTP 队列长度表示计划处于高负载状态。 |
+
+### <a name="cpu-time-vs-cpu-percentage"></a>CPU 时间和 CPU 百分比
+<!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->
+
+有两个反映 CPU 使用率的指标：
+
+**CPU 时间**：适用于托管在“免费”或“共享”计划中的应用，因为这些应用的其中一个配额由应用所用的 CPU 时间定义。
+
+**CPU 百分比**：适用于托管在“基本”、“标准”和“高级”计划中的应用，因为它们可横向扩展。CPU 百分比是所有实例中总用量的良好指标。
+
+## <a name="metrics-granularity-and-retention-policy"></a>指标粒度和保留策略
+应用和应用服务计划的指标由具有下列粒度和保留策略的服务进行记录和聚合：
+
+* “分钟”粒度级的指标将保留 30 小时。
+* “小时”粒度级的指标将保留 30 天。
+* “天”粒度级的指标将保留 30 天。
+
+## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>在 Azure 门户中监视配额和指标
+若要查看影响应用的各种配额和指标的状态，请转到 [Azure 门户](https://portal.azure.cn)。
+
+![Azure 门户中的“配额”图表][quotas]
+
+若要查找配额，请选择“设置” > “配额”。 在图表中，可以查看： 
+1. 配额名称。
+1. 配额的重置时间间隔。
+1. 配额的当前限制。
+1. 配额的当前值。
+
+![Azure 门户中的“指标”图表][metrics]可以直接从“资源”页访问指标。 自定义图表： 
+1. 选择该图表。
+1. 选择“编辑图表”。
+1. 编辑“时间范围”。
+1. 编辑“图表类型”。
+1. 编辑要显示的指标。  
+
+若要详细了解指标，请参阅[监视服务指标](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)。
+
+## <a name="alerts-and-autoscale"></a>警报和自动缩放
+可将应用或应用服务计划的指标挂接到警报。 有关详细信息，请参阅[接收警报通知](../monitoring-and-diagnostics/insights-alerts-portal.md)。
+
+托管在“基本”、“标准”或“高级”应用服务计划中的应用服务应用支持自动缩放。 使用自动缩放可以配置用于监视应用服务计划指标的规则。 规则可以增加或减少实例计数，并根据需要提供更多的资源。 规则还有助于避免过度预配应用，从而节省资金。
+
+有关自动缩放的详细信息，请参阅[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及[有关 Azure Monitor 自动缩放的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)。
+
+[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:/cloud-services/cloud-services-sizes-specs
+
+
+<!-- Images. -->
+[http403]: ./media/web-sites-monitor/http403.png
+[quotas]: ./media/web-sites-monitor/quotas.png
+[metrics]: ./media/web-sites-monitor/metrics.png

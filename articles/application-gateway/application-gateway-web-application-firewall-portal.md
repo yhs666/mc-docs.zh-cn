@@ -1,206 +1,213 @@
 ---
-title: 使用门户创建具有 Web 应用程序防火墙的应用程序网关 | Azure
-description: 了解如何使用门户创建具有 Web 应用程序防火墙的应用程序网关
+title: 教程 - 创建具有 Web 应用程序防火墙的应用程序网关 - Azure 门户 | Microsoft Docs
+description: 本教程介绍如何使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关。
 services: application-gateway
-documentationcenter: na
-author: georgewallace
-manager: carmonm
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/03/2017
-wacn.date: 05/31/2017
-ms.author: v-dazen
+ms.topic: tutorial
+origin.date: 04/16/2019
+ms.date: 05/20/2019
+ms.author: v-junlch
+ms.openlocfilehash: 140abefea755c09b465f51f1a658608af1282206
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960877"
 ---
+# <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>教程：使用 Azure 门户创建具有 Web 应用程序防火墙的应用程序网关
 
-# 使用门户创建具有 Web 应用程序防火墙的应用程序网关
-> [!div class="op_single_selector"]
->- [Azure 门户](./application-gateway-web-application-firewall-portal.md)
->- [Azure Resource Manager PowerShell](./application-gateway-web-application-firewall-powershell.md)
+本教程演示如何使用 Azure 门户创建具有 [Web 应用程序防火墙](application-gateway-web-application-firewall-overview.md) (WAF) 的[应用程序网关](application-gateway-introduction.md)。 WAF 使用 [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 规则保护应用程序。 这些规则包括针对各种攻击（例如 SQL 注入、跨站点脚本攻击和会话劫持）的保护。 创建应用程序网关后，可对其进行测试，以确保正常工作。 使用 Azure 应用程序网关可为端口分配侦听器、创建规则以及向后端池添加资源，以便将应用程序 Web 流量定向到特定资源。 为简单起见，本教程使用了带有公共前端 IP 的简单设置、在此应用程序网关上托管单个站点的基本侦听器、用于后端池的两台虚拟机以及基本请求传递规则。
 
-Azure 应用程序网关中的 Web 应用程序防火墙 (WAF) 可保护 Web 应用程序，使其免受常见 Web 攻击的威胁，例如 SQL 注入、跨站点脚本攻击和会话劫持。Web 应用程序可以防止 OWASP 十大常见 Web 漏洞中的大部分漏洞。
+本教程介绍如何执行下列操作：
 
-Azure 应用程序网关是第 7 层负载均衡器。它在不同服务器之间提供故障转移和性能路由 HTTP 请求，而不管它们是在云中还是本地。应用程序网关提供许多应用程序传送控制器 (ADC) 功能，包括 HTTP 负载均衡、基于 cookie 的会话相关性、安全套接字层 (SSL) 卸载、自定义运行状况探测、多站点支持，以及许多其他功能。若要查找支持的功能的完整列表，请参阅[应用程序网关概述](./application-gateway-introduction.md)
+> [!div class="checklist"]
+> * 创建启用 WAF 的应用程序网关
+> * 创建用作后端服务器的虚拟机
+> * 创建存储帐户和配置诊断
+> * 测试应用程序网关
 
-## <a name="scenario"></a> 方案
+![Web 应用程序防火墙示例](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
-本文介绍两个方案：
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-在第一个方案中，可了解如何[将 Web 应用程序防火墙添加到现有的应用程序网关](#add-web-application-firewall-to-an-existing-application-gateway)。
+如果你愿意，可以使用 [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) 或 [Azure CLI](tutorial-restrict-web-traffic-cli.md) 完成本教程中的步骤。
 
-在第二个方案中，可了解如何[创建具有 Web 应用程序防火墙的应用程序网关](#create-an-application-gateway-with-web-application-firewall)
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
-![方案示例][scenario]  
+## <a name="sign-in-to-azure"></a>登录 Azure
 
-> [!NOTE]
-> 针对应用程序网关进行的其他配置（包括自定义运行状况探测、后端池地址以及其他规则）是在对应用程序网关配置以后配置的，不是在初始部署期间配置的。
-> 
-> 
+通过 [https://portal.azure.cn](https://portal.azure.cn) 登录到 Azure 门户
 
-## 开始之前
+## <a name="create-an-application-gateway"></a>创建应用程序网关
 
-Azure 应用程序网关需要自己的子网。在创建虚拟网络时，请确保保留足够的地址空间，以便设置多个子网。将应用程序网关部署到子网后，只能向该子网添加其他应用程序网关。
+Azure 需要一个虚拟网络才能在资源之间通信。 可以创建新的虚拟网络，或者使用现有的虚拟网络。 本示例将创建新的虚拟网络。 可以在创建应用程序网关的同时创建虚拟网络。 在独立的子网中创建应用程序网关实例。 在本示例中创建两个子网：一个用于应用程序网关，另一个用于后端服务器。
 
-## <a name="add-web-application-firewall-to-an-existing-application-gateway"></a> 将 Web 应用程序防火墙添加到现有的应用程序网关
+选择 Azure 门户左侧菜单上的“创建资源”  。 此时会显示“新建”窗口。 
 
-此方案会更新现有的应用程序网关，以在阻止模式下支持 Web 应用程序防火墙。
+选择“网络”  ，然后在“特色”列表中选择“应用程序网关”   。
 
-### 步骤 1
+### <a name="basics-page"></a>“基本信息”页面
 
-导航到 Azure 门户，然后选择现有的应用程序网关。
+1. 在“基本信息”页上，输入这些值作为以下应用程序网关设置： 
+   - **名称**：输入 *myAppGateway* 作为应用程序网关的名称。
+   - **资源组**：选择 **myResourceGroupAG** 作为资源组。 如果该资源组不存在，请选择“新建”，创建一个新的  。
+   - 对于应用程序网关的层，选择 *WAF*。
+       
+       ![新建应用程序网关](./media/application-gateway-web-application-firewall-portal/application-gateway-create.png)
 
-![创建应用程序网关][1]  
+接受其他设置的默认值，然后单击“确定”  。
 
-### 步骤 2
+### <a name="settings-page"></a>“设置”页
 
-单击“配置”并更新应用程序网关设置。完成后，单击“保存”
+1. 在“设置”  页的“子网配置”  下，选择“选择虚拟网络”  。 <br>
+2. 在“选择虚拟网络”页上，选择“新建”，然后为以下虚拟网络设置输入相应值：  
+   - **名称**：输入 *myVNet* 作为虚拟网络的名称。
+   - **地址空间**：输入 *10.0.0.0/16* 作为虚拟网络地址空间。
+   - **子网名称**：输入 *myAGSubnet* 作为子网名称。<br>应用程序网关子网只能包含应用程序网关。 不允许其他资源。
+   - **子网地址范围**：输入 *10.0.0.0/24* 作为子网地址范围。
 
-用于更新现有应用程序网关以支持 Web 应用程序防火墙的设置如下：
+        ![创建虚拟网络](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 
-* **层** - 所选的层必须是 **WAF** 才能支持 Web 应用程序防火墙
-* **SKU 大小** - 此设置是指具有 Web 应用程序防火墙的应用程序网关的大小，可用选项包括**中型**和**大型**。
-* **防火墙状态** - 此设置会禁用或启用 Web 应用程序防火墙。
-* **防火墙模式** - 此设置是指 Web 应用程序防火墙处理恶意流量的方式。**检测**模式只记录事件，而**阻止**模式则会记录事件并停止恶意流量。
+3. 单击“确定”  创建虚拟网络和子网。
+4. 选择“前端 IP 配置”。  在“前端 IP 配置”  下，验证“IP 地址类型”  是否设置为“公共”  。 在“公共 IP 地址”下，  验证是否已选择“新建”  。 <br>可根据用例将前端 IP 配置为公共或专用 IP。 在此处选择公共前端 IP。
+5. 输入 *myAGPublicIPAddress* 作为公共 IP 地址名称。
+6. 接受其他设置的默认值，然后选择“确定”  。<br>为简单起见，在本教程中选择默认值，但可以根据用例为其他设置配置自定义值。
 
-![显示基本设置的边栏选项卡][2]  
+### <a name="summary-page"></a>“摘要”页
 
-> [!NOTE]
-> 若要查看 Web 应用程序防火墙日志，必须启用诊断功能并选择 ApplicationGatewayFirewallLog。进行测试时，可以选择 1 作为实例计数。必须知道的是，2 以下的实例计数不受 SLA 支持，因此不建议使用。使用 Web 应用程序防火墙时，无法使用小型网关。
-> 
-> 
+复查摘要页上的设置，然后选择“确定”   以创建虚拟网络、公共 IP 地址和应用程序网关。 Azure 可能需要数分钟时间来创建应用程序网关。 请等待部署成功完成，然后再前进到下一部分。
 
-## <a name="create-an-application-gateway-with-web-application-firewall"></a> 创建具有 Web 应用程序防火墙的应用程序网关
+## <a name="add-backend-pool"></a>添加后端池
 
-此方案将：
+后端池用于将请求传递到为请求提供服务的后端服务器。 后端池可以具有 NIC、虚拟机规模集、公共 IP、内部 IP、完全限定的域名 (FQDN) 和多租户后端（例如 Azure 应用服务）。 将后端目标添加到后端池。
 
-* 创建包含两个实例的中型应用程序防火墙应用程序网关。
-* 创建名为 AdatumAppGatewayVNET 且包含 10.0.0.0/16 保留 CIDR 块的虚拟网络。
-* 创建名为 Appgatewaysubnet 且使用 10.0.0.0/28 作为其 CIDR 块的子网。
-* 配置进行 SSL 卸载的证书。
+本示例将使用虚拟机作为目标后端。 可以使用现有的虚拟机，或创建新的虚拟机。 在此处，创建两台虚拟机，供 Azure 用作应用程序网关的后端服务器。 为此，请执行以下操作：
 
-### 步骤 1
+1. 创建新的子网 *myBackendSubnet*，我们将在该子网中创建新的 VM。 
+2. 创建两个新的 VM（myVM 和 myVM2），用作后端服务器   。
+3. 在虚拟机上安装 IIS，以验证是否成功创建了应用程序网关。
+4. 将后端服务器添加到后端池。
 
-导航到 Azure 门户，单击“新建”>“网络”>“应用程序网关”
+### <a name="add-a-subnet"></a>添加子网
 
-![创建应用程序网关][1-1]  
+按以下步骤将子网添加到已创建的虚拟网络：
 
-### 步骤 2
+1. 在 Azure 门户的左侧菜单上选择“所有资源”，在搜索框中输入 *myVNet*，然后从搜索结果中选择 **myVNet**。 
 
-下一步，填写有关应用程序网关的基本信息。请务必选择“WAF”作为层。完成后，单击“确定”
+2. 从左侧菜单选择“子网”  ，然后选择“+ 子网”。  
 
-基本设置需要的信息如下：
+   ![创建子网](./media/application-gateway-create-gateway-portal/application-gateway-subnet.png)
 
-* **Name** - 应用程序网关的名称。
-* **层** - 应用程序网关的层，可用选项包括**标准**和 **WAF**。Web 应用程序防火墙仅在 WAF 层中提供。
-* **SKU 大小** - 此设置是指应用程序网关的大小，可用选项包括**中型**和**大型**。
-* **实例计数** - 实例的数目，此值应该是 **2** 到 **10** 之间的数字。
-* **资源组** - 用于保存应用程序网关的资源组，可以是现有资源组，也可以是新的资源组。
-* **位置** - 应用程序网关所在的区域，与资源组的位置相同。*位置很重要，因为虚拟网络和公共 IP 必须与网关位于同一位置*。
+3. 在“添加子网”页中输入 *myBackendSubnet* 作为子网的**名称**，然后选择“确定”。  
 
-![显示基本设置的边栏选项卡][2-2]  
+### <a name="create-a-virtual-machine"></a>创建虚拟机
 
-> [!NOTE]
-> 进行测试时，可以选择 1 作为实例计数。必须知道的是，2 以下的实例计数不受 SLA 支持，因此不建议使用。Web 应用程序防火墙方案不支持小型网关。
-> 
-> 
+1. 在 Azure 门户中，选择“创建资源”。  此时会显示“新建”窗口。 
+2. 选择“计算”，然后在“特色”列表中选择“Windows Server 2016 Datacenter”。    此时会显示“创建虚拟机”页。 <br>应用程序网关可将流量路由到其后端池中使用的任何类型的虚拟机。 本示例使用 Windows Server 2016 Datacenter。
+3. 对于以下虚拟机设置，请在“基本信息”选项卡中输入相应值： 
+   - **资源组**：选择 **myResourceGroupAG** 作为资源组名称。
+   - **虚拟机名称**：输入 *myVM* 作为虚拟机的名称。
+   - **用户名**：输入 *azureuser* 作为管理员用户名。
+   - **密码**：输入 *Azure123456!* 作为管理员密码。
+4. 接受其他默认值，然后选择“下一步:**磁盘”** 。  
+5. 接受“磁盘”  选项卡的默认值，然后选择“下一步:**网络”** 。
+6. 在“网络”  选项卡上，验证是否已选择 **myVNet** 作为**虚拟网络**，以及是否已将“子网”  设置为 **myBackendSubnet**。 接受其他默认值，然后选择“下一步:**管理”** 。<br>应用程序网关可与其所在的虚拟网络外部的实例进行通信，但需要确保已建立 IP 连接。
+7. 在“管理”  选项卡上，将“启动诊断”  设置为“关闭”。  接受其他默认值，然后选择“复查 + 创建”  。
+8. 在“复查 + 创建”选项卡上复查设置，更正任何验证错误，然后选择“创建”。  
+9. 等待虚拟机创建完成，然后再继续操作。
 
-### 步骤 3
+### <a name="install-iis-for-testing"></a>安装 IIS 用于测试
 
-定义基本设置以后，下一步是定义要使用的虚拟网络。虚拟网络托管的应用程序也是通过应用程序网关进行负载均衡的应用程序。
+本示例在虚拟机上安装 IIS，只为验证 Azure 是否已成功创建应用程序网关。 
 
-单击“选择虚拟网络”对虚拟网络进行配置。
+1. 打开 powershell 并使用订阅登录。
+    ```
+    Connect-AzAccount -Environment AzureChinaCloud
+    ```
 
-![显示应用程序网关设置的边栏选项卡][3]
+2. 运行以下命令以在虚拟机上安装 IIS： 
 
-### 步骤 4
+   ```azurepowershell
+   Set-AzVMExtension `
+     -ResourceGroupName myResourceGroupAG `
+     -ExtensionName IIS `
+     -VMName myVM `
+     -Publisher Microsoft.Compute `
+     -ExtensionType CustomScriptExtension `
+     -TypeHandlerVersion 1.4 `
+     -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+     -Location ChinaNorth
+   ```
 
-在“选择虚拟网络”边栏选项卡中，单击“新建”
+3. 使用以前完成的步骤创建第二个虚拟机并安装 IIS。 使用 *myVM2* 作为虚拟机名称，以及作为 **Set-AzVMExtension** cmdlet 的 **VMName** 设置。
 
-虽然此方案未进行说明，但此时可选择现有的虚拟网络。如果使用现有的虚拟网络，请务必了解，需要空的子网或只限应用程序网关资源的子网才能使用该虚拟网络。
+### <a name="add-backend-servers-to-backend-pool"></a>将后端服务器添加到后端池
 
-![选择虚拟网络边栏选项卡][4]  
+1. 选择“所有资源”，然后选择“myAppGateway”。  
 
-### 步骤 5
+2. 从左侧菜单中选择“后端池”。  当你创建应用程序网关时，Azure 自动创建了默认池 **appGatewayBackendPool**。 
 
-在“创建虚拟网络”边栏选项卡中填写网络信息，如前面的[方案](#scenario)说明中所述。
+3. 选择“appGatewayBackendPool”  。
 
-![使用输入的信息创建虚拟网络边栏选项卡][5]  
+4. 在“目标”  下，从下拉列表中选择“虚拟机”。 
 
-### 步骤 6
+5. 在“虚拟机”和“网络接口”   下，从下拉列表中选择 **myVM** 和 **myVM2** 虚拟机及其关联的网络接口。
 
-创建虚拟网络后，下一步是定义应用程序网关的前端 IP。此时，你可以为前端选择公共 IP 地址或专用 IP 地址。具体选择取决于应用程序是面向 Internet 的还是仅供内部使用的。本方案假定使用的是公共 IP 地址。若要选择专用 IP 地址，可单击“专用”按钮。此时系统会选择自动分配的 IP 地址，你也可以单击“选择特定的专用 IP 地址”复选框手动输入一个。
+   ![添加后端服务器](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-单击“选择公共 IP 地址”。如果现有的公共 IP 地址可用，则此时可以选择该地址。在本方案中，你需要创建新的公共 IP 地址。单击“新建”
+6. 选择“其他安全性验证”  。
 
-![选择公共 IP 地址边栏选项卡][6]  
+## <a name="create-a-storage-account-and-configure-diagnostics"></a>创建存储帐户和配置诊断
 
-### 步骤 7
+### <a name="create-a-storage-account"></a>创建存储帐户
 
-接下来为公共 IP 地址提供一个友好名称，然后单击“确定”
+在本教程中，应用程序网关使用存储帐户来存储用于检测和防范目的的数据。 也可以使用 Azure Monitor 日志或事件中心来记录数据。
 
-![创建公共 IP 地址边栏选项卡][7]  
+1. 单击 Azure 门户左上角的“新建”。 
+2. 选择“存储”，然后选择“存储帐户 - blob、文件、表、队列”   。
+3. 输入存储帐户的名称，对于资源组选择“使用现有资源组”  ，然后选择 **myResourceGroupAG**。 在此示例中，存储帐户名称是 *myagstore1*。 接受其他设置的默认值，然后单击“创建”  。
 
-### 步骤 8
+### <a name="configure-diagnostics"></a>配置诊断
 
-接下来，设置侦听器配置。如果使用的是 **http**，不需进行任何配置，单击“确定”即可。若要使用 **https**，需要进一步配置。
+配置诊断以将数据记录到 ApplicationGatewayAccessLog、ApplicationGatewayPerformanceLog 和 ApplicationGatewayFirewallLog 日志中。
 
-若要使用 **https**，需要提供证书。需要提供证书的私钥，这样就需要提供证书的 .pfx 导出结果以及文件的密码。
+1. 在左侧菜单中，单击“所有资源”  ，然后选择 *myAppGateway*。
+2. 在“监视”下面，单击“诊断日志”。 
+3. 单击“添加诊断设置”  。
+4. 输入 *myDiagnosticsSettings* 作为诊断设置的名称。
+5. 选择“存档到存储帐户”  ，然后单击“配置”  以选择前面创建的 *myagstore1* 存储帐户。
+6. 选择要收集和保留的应用程序网关日志。
+7. 单击“保存”  。
 
-单击“HTTPS”，然后单击“上载 PFX 证书”文本框旁边的“文件夹”图标。导航到文件系统中的 .pfx 证书文件。选中该文件后，为证书提供一个友好名称，然后键入 .pfx 文件的密码。
+    ![配置诊断](./media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-完成后，单击“确定”查看应用程序网关的设置。
+## <a name="test-the-application-gateway"></a>测试应用程序网关
 
-![“设置”边栏选项卡上的“侦听器配置”部分][8]  
+虽然不需 IIS 即可创建应用程序网关，但本快速入门中安装了它，用来验证 Azure 是否已成功创建应用程序网关。 使用 IIS 测试应用程序网关：
 
-### 步骤 9
+1. 在“概览”页上找到应用程序网关的公共 IP 地址。 
 
-配置 **WAF** 特定设置。
+    ![记录应用程序网关公共 IP 地址](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)另外，你也可选择“所有资源”  ，在搜索框中输入 *myAGPublicIPAddress*，然后在搜索结果中将其选中。 Azure 会在“概览”页上显示公共 IP 地址。 
+2. 复制该公共 IP 地址，并将其粘贴到浏览器的地址栏。
+3. 检查响应。 有效响应验证应用程序网关是否已成功创建，以及是否能够成功连接后端。
 
-* **防火墙状态** - 此设置可打开或关闭 WAF。
-* **防火墙模式** - 此设置确定 WAF 对恶意流量采取的操作。如果选择**检测**，只会记录流量。如果选择**阻止**，会记录并停止流量，同时提供“403 未授权”响应。
+    ![测试应用程序网关](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
-![Web 应用程序防火墙设置][9]  
+## <a name="clean-up-resources"></a>清理资源
 
-### 步骤 10
+如果不再需要通过应用程序网关创建的资源，请删除资源组。 删除资源组时，也会删除应用程序网关和及其所有的相关资源。 
 
-查看“摘要”页，然后单击“确定”。现在会让应用程序网关排队，然后创建它。
+若要删除资源组，请执行以下操作：
 
-### 步骤 11
+1. 在 Azure 门户的左侧菜单上选择“资源组”  。
+2. 在“资源组”页的列表中搜索“myResourceGroupAG”，然后将其选中。  
+3. 在“资源组”页上，选择“删除资源组”   。
+4. 在“键入资源组名称”字段中输入“myResourceGroupAG”，然后选择“删除”   
 
-创建应用程序网关以后，可在门户中导航到该网关，然后继续进行配置。
+## <a name="next-steps"></a>后续步骤
 
-![应用程序网关资源视图][10]  
+> [!div class="nextstepaction"]
+> [了解有关如何使用 Azure 应用程序网关的详细信息](application-gateway-introduction.md)
 
-这些步骤会创建基本的应用程序网关，提供侦听器、后端池、后端 http 设置以及规则的默认设置。预配成功后，即可根据部署修改这些设置
-
-## 后续步骤
-
-若要了解如何配置诊断日志记录，以及如何记录通过 Web 应用程序防火墙检测到或阻止的事件，请参阅[应用程序网关诊断](./application-gateway-diagnostics.md)
-
-访问[创建自定义运行状况探测](./application-gateway-create-probe-portal.md)，了解如何创建自定义运行状况探测
-
-访问[配置 SSL 卸载](./application-gateway-ssl-portal.md)，了解如何配置 SSL 卸载并从 Web 服务器中剥离开销较高的 SSL 解密
-
-<!--Image references-->
-
-[1]: ./media/application-gateway-web-application-firewall-portal/figure1.png
-[2]: ./media/application-gateway-web-application-firewall-portal/figure2.png
-[1-1]: ./media/application-gateway-web-application-firewall-portal/figure1-1.png
-[2-2]: ./media/application-gateway-web-application-firewall-portal/figure2-2.png
-[3]: ./media/application-gateway-web-application-firewall-portal/figure3.png
-[4]: ./media/application-gateway-web-application-firewall-portal/figure4.png
-[5]: ./media/application-gateway-web-application-firewall-portal/figure5.png
-[6]: ./media/application-gateway-web-application-firewall-portal/figure6.png
-[7]: ./media/application-gateway-web-application-firewall-portal/figure7.png
-[8]: ./media/application-gateway-web-application-firewall-portal/figure8.png
-[9]: ./media/application-gateway-web-application-firewall-portal/figure9.png
-[10]: ./media/application-gateway-web-application-firewall-portal/figure10.png
-[scenario]: ./media/application-gateway-web-application-firewall-portal/scenario.png
-
-<!---HONumber=Mooncake_1128_2016-->
+<!-- Update_Description: wording update -->

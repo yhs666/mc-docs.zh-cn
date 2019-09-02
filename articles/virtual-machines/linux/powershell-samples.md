@@ -1,27 +1,27 @@
 ---
-title: "Azure 虚拟机 PowerShell 示例 | Azure"
-description: "Azure 虚拟机 PowerShell 示例"
+title: Azure 虚拟机 PowerShell 示例 | Azure
+description: Azure 虚拟机 PowerShell 示例
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: neilpeterson
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/01/2017
-wacn.date: 
-ms.author: v-dazen
-translationtype: Human Translation
-ms.sourcegitcommit: e0e6e13098e42358a7eaf3a810930af750e724dd
-ms.openlocfilehash: 3cea728fe50e5e2602043b52356eaa5cc58b37d3
-ms.lasthandoff: 04/06/2017
-
-
+origin.date: 03/01/2019
+ms.date: 08/12/2019
+ms.author: v-yeche
+ms.openlocfilehash: 86d0b4155ecdf68c5e9d03f591a6a0c66797f386
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912954"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure 虚拟机 PowerShell 示例
 
@@ -30,5 +30,24 @@ ms.lasthandoff: 04/06/2017
 | | |
 |---|---|
 |**创建虚拟机**||
-| [创建完全配置的虚拟机](../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建资源组、虚拟机以及所有相关资源。|
-| [创建 VM 并运行配置脚本](../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 NGINX。 |
+| [创建完全配置的虚拟机](./../scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建资源组、虚拟机以及所有相关资源。|
+| [创建已启用 Docker 的 VM](./../scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，将此 VM 配置为 Docker 主机，并运行 NGINX 容器。 |
+| [创建 VM 并运行配置脚本](./../scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 NGINX。 |
+| [创建安装有 WordPress 的 VM](./../scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个虚拟机，并使用 Azure 自定义脚本扩展安装 WordPress。 |
+| [从托管 OS 磁盘创建 VM](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 通过将现有托管磁盘附加为 OS 磁盘来创建虚拟机。 |
+| [从快照创建 VM](./../scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 通过先从快照创建托管磁盘，然后将新的托管磁盘附加为 OS 磁盘来从快照创建虚拟机。 |
+|**管理存储**||
+| [在相同或不同的订阅中从 VHD 创建托管磁盘](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 在相同或不同订阅中，从专用 VHD 将托管磁盘创建为 OS 磁盘，或从数据 VHD 将托管磁盘创建为数据磁盘。  |
+| [从快照创建托管磁盘](../scripts/virtual-machines-linux-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 从快照创建托管磁盘。 |
+| [将快照作为 VHD 导出到存储帐户](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 将托管快照作为 VHD 导出到不同区域中的存储帐户。 |
+| [将托管磁盘的 VHD 导出到存储帐户](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 将托管磁盘的基础 VHD 导出到不同区域的存储帐户。 |
+| [从 VHD 创建快照](../scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 从 VHD 创建快照，然后使用该快照快速创建多个相同的托管磁盘。  |
+| [将快照复制到相同或不同的订阅](../scripts/virtual-machines-linux-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 将快照复制到父快照所在区域中的相同或不同订阅。 |
+|**监视虚拟机**||
+| [将托管磁盘复制到相同或不同的订阅](../scripts/virtual-machines-linux-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 将托管磁盘复制到父托管磁盘所在区域中的相同或不同订阅。
+| [使用 PowerShell 收集订阅中所有 VM 的详细信息](../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) | 创建一个 csv，其中包含所提供订阅中 VM 的 VM 名称、资源组名称、区域、虚拟网络、子网、专用 IP 地址、OS 类型和公共 IP 地址。
+| | |
+
+<!-- Not Available on virtual-machines-linux-powershell-sample-create-vm-oms.md -->
+
+<!-- Update_Description: update meta properties, wording update -->

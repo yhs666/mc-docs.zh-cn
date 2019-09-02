@@ -1,4 +1,4 @@
-4. 在名为 `ToDoBroadcastReceiver` 的项目中创建一个新类。
+4. 在名为 `ToDoBroadcastReceiver`的项目中创建一个新类。
 
 5. 将以下 using 语句添加到 **ToDoBroadcastReceiver** 类：
 
@@ -38,7 +38,7 @@
     }
     ```
 
-    在上述代码中，你必须将 _`<PROJECT_NUMBER>`_ 替换为你在 Google 开发人员门户中设置应用程序时 Google 分配的项目编号。
+    在上述代码中，你必须将 _`<PROJECT_NUMBER>`_ 替换为你在 Google 开发人员门户中设置应用程序时 Google 分配的项目编号。 
 
 8. 在 ToDoBroadcastReceiver.cs 项目文件中，添加定义 **PushHandlerService** 类的以下代码：
 
@@ -53,12 +53,12 @@
     }
     ```
 
-    请注意，此类派生自 **GcmServiceBase**，“服务”属性必须应用于此类。
+    请注意，此类派生自 **GcmServiceBase**，必须对此类应用 **Service** 属性。
 
     >[!NOTE]
-    >**GcmServiceBase** 类实现 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()** 和 **OnError()** 方法。必须在 **PushHandlerService** 类中重写这些方法。
+    >**GcmServiceBase** 类实现 **OnRegistered()**、**OnUnRegistered()**、**OnMessage()** 和 **OnError()** 方法。 必须在 **PushHandlerService** 类中重写这些方法。
 
-5. 将以下代码添加到 **PushHandlerService** 类，以便重写 **OnRegistered **事件处理程序。
+5. 将以下代码添加到 **PushHandlerService** 类，以便重写 **OnRegistered** 事件处理程序。 
 
     ```
     protected override void OnRegistered(Context context, string registrationId)
@@ -99,7 +99,7 @@
     }
     ```
 
-    此方法使用返回的 GCM 注册 ID 向 Azure 注册以获取推送通知。仅能在创建注册后向其添加标记。有关详细信息，请参阅[如何：将标记添加到设备安装以启用“推送到标记”](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#how-to-add-tags-to-a-device-installation-to-enable-push-to-tags)。
+    此方法使用返回的 GCM 注册 ID 向 Azure 注册以获取推送通知。 仅能在创建注册后向其添加标记。 有关详细信息，请参阅[如何：将标记添加到设备安装以启用“推送到标记”](../articles/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#tags)。
 
 10. 在 **PushHandlerService** 中使用以下代码重写 **OnMessage** 方法：
 
@@ -121,7 +121,7 @@
             // Create a new intent to show the notification in the UI. 
             PendingIntent contentIntent = 
                 PendingIntent.GetActivity(context, 0, 
-                new Intent(this, typeof(ToDoActivity)), 0);	          
+                new Intent(this, typeof(ToDoActivity)), 0);           
 
             // Create the notification using the builder.
             var builder = new Notification.Builder(context);
@@ -139,7 +139,7 @@
     }
     ```
 
-12. 使用以下代码重写 **OnUnRegistered ()** 和 **OnError ()** 方法。
+12. 使用以下代码重写 **OnUnRegistered()** 和 **OnError()** 方法。
 
     ```
     protected override void OnUnRegistered(Context context, string registrationId)
@@ -153,5 +153,3 @@
             string.Format("Error occurred in the notification: {0}.", errorId));
     }
     ```
-
-<!---HONumber=Mooncake_0919_2016-->

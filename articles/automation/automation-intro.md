@@ -1,79 +1,85 @@
 ---
-title: 什么是 Azure 自动化 | Azure
-description: 了解 Azure 自动化的重要性和常见问题的答案，为创建和使用 Runbook 做准备。
+title: Azure 自动化概述
+description: 了解如何使用 Azure 自动化自动完成基础结构和应用程序的生命周期。
 services: automation
-documentationCenter: ''
-authors: mgoedtel
-manager: jwhit
-editor: ''
-keywords: 什么是自动化, azure 自动化, azure 自动化示例
-
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/10/2016
-wacn.date: 01/03/2017
-ms.author: v-dazen
+ms.subservice: process-automation
+author: WenJason
+ms.author: v-jay
+keywords: azure 自动化, DSC, powershell, desired state configuration, 更新管理, 更改跟踪, 清单, runbook, python, 图形
+origin.date: 10/18/2018
+ms.date: 05/20/2019
+ms.custom: mvc
+ms.topic: overview
+ms.openlocfilehash: 427c48a3989ce1105df2d2eb6fbf2a1bd6de6f29
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993472"
 ---
+# <a name="an-introduction-to-azure-automation"></a>Azure 自动化简介
 
-# Azure 自动化概述
+Azure 自动化提供基于云的自动化和配置服务，用于跨 Azure 环境和非 Azure 环境进行一致的管理。 它包含流程自动化、更新管理和配置功能。 可以通过 Azure 自动化在工作负荷和资源的部署、操作和解除授权过程中进行完全的控制。
+本文概述了 Azure 自动化并回答了一些常见问题。 有关不同功能的详细信息，请访问本概述中提供的链接。
 
-借助 Azure 自动化，用户可以自动完成通常要在云环境和企业环境中执行的手动、长时间进行、易出错且重复性高的任务。它可以节省时间，可以提高常规管理任务的可靠性，甚至可以将这些任务安排成按特定的时间间隔自动执行。你可以使用 Runbook 实现这些过程的自动化，或者使用 Desired State Configuration 实现配置管理的自动化。本文概述了 Azure 自动化并回答了一些常见问题。您可以参考此库中的其他文章，以了解有关不同主题的更多详细信息。
+## <a name="azure-automation-capabilities"></a>Azure 自动化功能
 
-## 使用 Runbook 实现过程的自动化
+![自动化功能概述](media/automation-overview/automation-overview.png)
 
-Runbook 是 Azure 自动化中执行某些自动化过程的一组任务。它可以是一个简单的过程（如启动虚拟机和创建日志项），也可以是一个复杂的 Runbook，组合其他较小的 Runbook 来执行复杂的过程，这些复杂的过程可以跨多个资源甚至多个云来执行，也可以在本地环境中执行。
+### <a name="process-automation"></a>流程自动化
 
-例如，如果 SQL 数据库即将达到最大大小，你可以通过现有的手动过程来截断该数据库，手动过程包括多个步骤，例如连接到服务器、连接到数据库、获取数据库的当前大小、查看是否超过了阈值，然后截断该数据库并通知用户。您无需手动执行每个步骤，而是可以创建一个将所有这些任务作为单个过程执行的 Runbook。你可以启动 Runbook，提供所需的信息，如 SQL 服务器名称、数据库名称、收件人电子邮件，然后无需干预，等待该过程自动完成即可。
+可以通过 Azure 自动化自动完成频繁进行的、耗时的、易出错的云管理任务。 有了这样的自动化，你就可以专注于能够让业务增值的工作。 还可以通过自动化来减少错误和提升效率，从而降低运营成本。 可以将 Azure 服务和其他公用系统集成，这些系统是部署、配置和管理端到端流程所必需的。 可以在 PowerShell 或 Python 中使用此服务以图形方式[创作 Runbook](automation-runbook-types.md)。 可以使用混合 Runbook 辅助角色跨本地环境进行协调，实现统一管理。 可以通过 [Webhook](automation-webhooks.md) 从 ITSM、DevOps 和监视系统触发自动化，从而满足相关请求并确保持续交付和操作。
 
-## Runbook 可以自动化哪些任务？
+### <a name="configuration-management"></a>配置管理
 
-Azure 自动化中的 Runbook 基于 Windows PowerShell 工作流，因此它们能够执行 PowerShell 可以完成的任何工作。如果应用程序或服务具有一个 API，Runbook 可以使用它。如果你有一个用于该应用程序的 PowerShell 模块，可以将该模块加载到 Azure 自动化中，并在 Runbook 中包括这些 cmdlet。Azure 自动化 Runbook 在 Azure 云中运行，因此可以访问任何云资源或者那些可从云中访问的外部资源。
+Azure 自动化 [Desired State Configuration](automation-dsc-overview.md) 是一个针对 PowerShell DSC 的基于云的解决方案，可提供企业环境所需的服务。 可以在 Azure 自动化中管理 DSC 资源，并将配置应用于 Azure 云的 DSC 拉取服务器中的虚拟机或物理机。 它提供各种报告，告知各种重要的事件，例如节点何时没有遵循其指定配置。 可以在云中或本地监视并自动更新物理机和虚拟机的计算机配置，不管操作系统是Windows 还是 Linux。
 
-## 从社区获取 Runbook
+可以获取有关来宾内资源的清单，了解已安装的应用程序和其他配置项。 可以通过丰富的报告和搜索功能快速查找详细信息，了解操作系统中的具体配置。 可以跨服务、守护程序、软件、注册表和文件跟踪更改，快速确定问题原因。 另外，当环境中出现不需要的更改时，还可以使用 DSC 的诊断和警报功能。
 
-[Runbook 库](./automation-runbook-gallery.md#runbooks-in-runbook-gallery)包含来自 Microsoft 和社区的 Runbook，既可以在您的环境中使用未经修改的 Runbook，也可以根据自己的目的对其进行自定义。您还可以将它们作为学习如何创建自己的 Runbook 的参考。您甚至可以将您认为对其他用户有用的自己的 Runbook 分享到库中。
+### <a name="update-management"></a>更新管理
 
-## 使用 Azure 自动化创建 Runbook 
+通过 Azure 自动化跨混合环境更新 Windows 和 Linux 系统。 可以在 Azure 中、本地和其他云中了解更新符合性。 可以创建计划性部署，在定义的维护时段协调各种更新的安装。 如果不应在计算机上安装某个更新，可以将该更新从部署中排除。
 
-您可以从头开始[创建您自己的 Runbook](./automation-creating-importing-runbook.md)，根据您自己的要求修改[Runbook 库](./automation-runbook-gallery.md)中的 Runbook。Azure.cn 中只有一个 Runbook 类型。你可以使用 PowerShell 工作流 Runbook，该 Runbook 可以脱机编辑，也可以使用 Azure 经典管理门户中的[文本编辑器](./automation-edit-textual-runbook.md)进行编辑。
+### <a name="shared-resources"></a>共享资源
 
-## 获取模块和配置 
+Azure 自动化包含一组共享资源，方便用户大规模地完成环境的自动化操作和配置。
 
-你可以获取包含 cmdlet 的 PowerShell 模块，这些 cmdlet 可以用于 [PowerShell 库](http://www.powershellgallery.com/)中的 Runbook。你可以下载并手动导入它们。你不能直接从 Azure 经典管理门户安装这些模块，但可以在下载之后进行安装，就像使用任何其他模块一样。
+* **[计划](automation-schedules.md)** - 用在服务中，在预定义的时间触发自动化。
+* **[Python 2 包](python-packages.md)** - 将 Python 2 包添加到自动化帐户以在 Python runbook 中使用。
+* **[凭据](automation-credentials.md)** - 安全地存储可供 Runbook 和配置在运行时使用的敏感信息。
+* **[连接](automation-connections.md)** - 以名称/值对的形式存储信息。在连接资源中连接到系统时，需要使用其中包含的常用信息。 连接由模块作者定义，在运行时的 Runbook 和配置中使用。
+* **[证书](automation-certificates.md)** - 存储证书，使之在运行时可供用于身份验证，确保已部署资源的安全。
+* **[变量](automation-variables.md)** - 通过变量来保存那些可以跨 Runbook 和配置使用的内容。 可以更改值而不需修改引用这些值的 Runbook 和配置。
 
-## Azure 自动化实际应用示例 
+### <a name="source-control-integration"></a>源代码管理集成
 
-以下是一些使用 Azure 自动化的自动化方案种类的示例。
+Azure 自动化能够[与源代码管理集成](source-control-integration.md)，这会在可将 runbook 或配置签入源代码管理系统的情况下，改进代码配置。
 
-* 在不同的 Azure 订阅中创建和复制虚拟机。
-* 计划文件复制操作，以便将文件从本地计算机复制到 Azure Blob 存储容器。
-* 自动执行各种安全功能，例如在检测到拒绝服务攻击时拒绝来自某个客户端的请求。
-* 确保计算机始终符合配置的安全策略。
-* 通过管理确保在云和本地基础结构中对应用程序代码进行连续的部署。
-* 针对你的实验室环境在 Azure 中构建 Active Directory 林。
-* 如果 SQL 数据库即将达到其最大大小，则截断数据库中的表。
-* 远程更新 Azure 网站的环境设置。
+### <a name="role-based-access-control"></a>基于角色的访问控制
 
-## Azure 自动化如何与其他自动化工具关联？
+Azure 自动化支持基于角色的访问控制来控制对自动化帐户及其资源的访问。有关自动化帐户、runbook 和作业的配置 RBAC 的详细信息，请参阅[适用于 Azure 自动化的基于角色的访问控制](automation-role-based-access-control.md)。
 
-[Service Management 自动化(SMA)](http://technet.microsoft.com/zh-cn/library/dn469260.aspx) 用于自动处理私有云中的管理任务。它作为 [Azure Pack](https://www.microsoft.com/server-cloud/) 的组件本地安装在你的数据中心中。SMA 和 Azure 自动化使用基于 Windows PowerShell 工作流的相同的 Runbook 格式。
+### <a name="windows-and-linux"></a>Windows 和 Linux
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/zh-cn/library/hh237242.aspx) 适用于本地资源的自动化。它使用与 Azure 自动化和 Service Management 自动化不同的 Runbook 格式，并且具有图形界面，可用于创建 Runbook 而无需编写任何脚本。它的 Runbook 由专门为 Orchestrator 编写的集成包中的活动构成。
+根据设计，Azure 自动化可以在混合云环境中使用，且同时适用于 Windows 和 Linux。 可以通过它对部署的工作负荷及其运行时所依赖的操作系统进行一致的自动化操作和配置。
 
-## 从哪里可以获得详细信息？ 
+## <a name="common-scenarios-for-automation"></a>常用自动化方案
 
-我们提供了多种资源，以帮助您了解有关 Azure 自动化的信息以及学习如何创建您自己的 Runbook。
+Azure 自动化可以在基础结构和应用程序的整个生命周期中进行管理。 可以将有关组织如何交付和维护工作负荷的知识传输到系统中； 可以使用 PowerShell、Desired State Configuration、Python、图形 Runbook 等常用语言进行创作； 可以获取已部署资源的完整清单，以便进行针对性操作、完成相关报告并了解符合性情况； 确定哪些更改可能导致配置错误，哪些更改可以改进操作符合性。
 
-* “Azure 自动化库”就是您当前正在查看的资源。该库中的文章提供了有关配置和管理 Azure 自动化以及创作自己的 Runbook 的完整文档。
-* [Azure PowerShell cmdlet](http://msdn.microsoft.com/zh-cn/library/jj156055.aspx) 提供了有关使用 Windows PowerShell 自动完成 Azure 操作的信息。Runbook 使用这些 cmdlet 来处理 Azure 资源。
-* [自动化论坛](https://social.msdn.microsoft.com/Forums/azure/zh-cn/home?forum=azureautomation)允许您提出有关 Azure 自动化的问题，并将由 Microsoft 和自动化社区提供解答。
-* [Azure 自动化 Cmdlet](https://msdn.microsoft.com/zh-cn/library/dn690262.aspx) 提供有关管理任务自动化的信息。它包含的 cmdlet 可用于管理自动化帐户、资产、Runbook。
+* **生成/部署资源** - 使用 Runbook 和 Azure 资源管理器模板在混合环境中部署 VM。 集成到 Jenkins 等开发工具中。
+* **配置 VM** - 使用基础结构和应用程序所需的配置评估和配置 Windows 和 Linux 计算机。
+* **监视** - 确定计算机上那些导致问题的更改，进行相应的补救，或者将其升级到管理系统。
+* **保护** - 在已引发安全警报的情况下隔离 VM。 设置来宾内要求。
+* **管控** - 为团队设置基于角色的访问控制。 恢复未使用的资源。
 
-## 我是否可以提供反馈？ 
+## <a name="pricing-for-automation"></a>自动化定价
 
-**欢迎提供反馈！** 如果您正在寻找 Azure 自动化 Runbook 解决方案或集成模块，请在脚本中心发布脚本请求。如果您有关于 Azure 自动化的反馈或功能请求，请将其发布在[用户之声](https://www.azure.cn/product-feedback)。谢谢！
+可以在[定价](https://www.azure.cn/pricing/details/automation/)页查看 Azure 自动化的价格。
 
-<!---HONumber=Mooncake_Quality_Review_1230_2016-->
+## <a name="next-steps"></a>后续步骤
+
+> [!div class="nextstepaction"]
+> [创建自动化帐户](automation-quickstart-create-account.md)
+

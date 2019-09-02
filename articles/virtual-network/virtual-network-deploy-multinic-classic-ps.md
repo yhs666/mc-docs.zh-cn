@@ -1,11 +1,11 @@
 ---
-title: "创建具有多个 NIC 的 VM（经典）- Azure PowerShell | Azure"
-description: "了解如何使用 PowerShell 创建具有多个 NIC 的 VM（经典）。"
+title: 创建具有多个 NIC 的 VM（经典）- Azure PowerShell | Azure
+description: 了解如何使用 PowerShell 创建具有多个 NIC 的 VM（经典）。
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 tags: azure-service-management
 ms.assetid: 6e50f39a-2497-4845-a5d4-7332dbc203c5
 ms.service: virtual-network
@@ -13,56 +13,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
-wacn.date: 
-ms.author: v-dazen
+origin.date: 10/31/2018
+ms.date: 12/17/2018
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 78da854d58905bc82228bcbff1de0fcfbc12d5ac
-ms.openlocfilehash: 803c7058df2c7e021495d0f124fe9f9db6b87d86
-ms.contentlocale: zh-cn
-ms.lasthandoff: 04/22/2017
-
-
+ms.openlocfilehash: e26257fdf493b80e7acd1ad74aa7efaeab39e8da
+ms.sourcegitcommit: 1b6a310ba636b6dd32d7810821bcb79250393499
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/14/2018
+ms.locfileid: "53389383"
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>使用 PowerShell 创建具有多个 NIC 的 VM（经典）
 
 [!INCLUDE [virtual-network-deploy-multinic-classic-selectors-include.md](../../includes/virtual-network-deploy-multinic-classic-selectors-include.md)]
 
-你可以在 Azure 中创建虚拟机 (VM)，然后将多个网络接口 (NIC) 附加到每个 VM。 有多个 NIC 时，可跨各个 NIC 分隔不同的流量类型。 例如，一个 NIC 可能会与 Internet 通信，而另一个 NIC 则只与未连接到 Internet 的内部资源通信。 许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）都需要具备跨多个 NIC 分离网络流量的能力。
+可以在 Azure 中创建虚拟机 (VM)，并将多个网络接口 (NIC) 附加到每个 VM。 通过多个 NIC 可分离跨 NIC 的流量类型。 例如，一个 NIC 可与 Internet 通信，而另一个 NIC 仅与未连接到 Internet 的内部资源通信。 许多网络虚拟设备（例如应用程序交付和 WAN 优化解决方案）都需要具备跨多个 NIC 分离网络流量的能力。
 
 > [!IMPORTANT]
-> Azure 具有用于创建和处理资源的两个不同的部署模型：[Resource Manager 和经典](../resource-manager-deployment-model.md)。 本文介绍使用经典部署模型的情况。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](virtual-network-deploy-multinic-arm-ps.md)执行这些步骤。
+> Azure 具有用于创建和处理资源的两个不同的部署模型：[资源管理器部署模型和经典部署模型](../resource-manager-deployment-model.md)。 本文介绍使用经典部署模型。 Azure 建议大多数新部署使用 Resource Manager 模型。 了解如何使用 [Resource Manager 部署模型](../virtual-machines/windows/multiple-nics.md)执行这些步骤。
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-以下步骤使用名为 *IaaSStory* 的资源组用于 WEB 服务器，将名为 *IaaSStory-BackEnd* 的资源组用于 DB 服务器。
+以下步骤使用名为 *IaaSStory* 的资源组作为主资源组，并在名为 *IaaSStory-BackEnd* 的资源组中实现后端服务器。
 
-## <a name="Prerequisites"></a>先决条件
+## <a name="prerequisites"></a>先决条件
 
-需要先创建具有此方案需要的所有资源的 *IaaSStory* 资源组，然后才能创建数据库服务器。 若要创建这些资源，请完成以下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
+创建数据库服务器之前，需要先使用此方案的所有必需资源创建 *IaaSStory* 资源组。 若要创建这些资源，请完成如下步骤。 若要创建虚拟网络，请完成[创建虚拟网络](virtual-networks-create-vnet-classic-netcfg-ps.md)一文中的步骤。
 
 [!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## <a name="create-the-back-end-vms"></a>创建后端 VM
 后端 VM 取决于以下资源的创建：
 
-* **后端子网**。 各数据库服务器将分别属于各个子网，以便隔离流量。 以下脚本需要在名为 *WTestVnet*的虚拟网络中存在此子网。
-* **数据磁盘的存储帐户**。 为了提高性能，数据库服务器上的数据磁盘将使用固态驱动器 (SSD) 技术，这需要高级存储帐户。 请确保部署到的 Azure 位置支持高级存储。
+* **后端子网**。 各数据库服务器将分别属于各个子网，以便隔离流量。 以下脚本期望此子网存在于名为 *WTestVnet* 的虚拟网络中。
+* **数据磁盘的存储帐户**。 为了提高性能，数据库服务器上的数据磁盘使用固态驱动器 (SSD) 技术，这需要高级存储帐户。 请确保部署到的 Azure 位置支持高级存储。
 * **可用性集**。 所有数据库服务器都将添加到单个可用性集，以确保在维护期间至少有一个 VM 已启动且正在运行。
 
 ### <a name="step-1---start-your-script"></a>步骤 1 - 启动脚本
-可在 [此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)下载所用的完整 PowerShell 脚本。 按照以下步骤更改脚本，以便用于具体环境。
+可以在[此处](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1)下载所用的完整 PowerShell 脚本。 请按以下步骤更改要在环境中使用的脚本。
 
-1. 根据在上述 [先决条件](#Prerequisites)中部署的现有资源组，更改以下变量的值。
-
+1. 基于在上面[先决条件](#prerequisites)中部署的现有资源组更改以下变量的值。
+    
+    <!-- Archor is correct on #prerequisites -->
     ```powershell
     $location              = "China North"
     $vnetName              = "WTestVNet"
     $backendSubnetName     = "BackEnd"
     ```
 
-2. 根据要用于后端部署的值，更改以下变量的值。
+2. 基于要用于后端部署的值更改以下变量的值。
 
     ```powershell
     $backendCSName         = "IaaSStory-Backend"
@@ -117,7 +117,7 @@ ms.lasthandoff: 04/22/2017
 ### <a name="step-3---create-vms"></a>步骤 3 - 创建 VM
 需要使用循环创建所需数量的 VM，并在循环中创建所需的 NIC 和 VM。 若要创建 NIC 和 VM，请执行以下步骤。
 
-1. 启动 `for` 循环，基于 `$numberOfVMs` 变量的值重复执行命令，从而以所需次数创建一个 VM 和两个 NIC。
+1. 启动 `for` 循环以基于 `$numberOfVMs` 变量的值重复执行命令以根据需要创建任意多次一个 VM 和两个 NIC。
 
     ```powershell
     for ($suffixNumber = 1; $suffixNumber -le $numberOfVMs; $suffixNumber++){
@@ -138,14 +138,14 @@ ms.lasthandoff: 04/22/2017
     ```powershell
     Add-AzureProvisioningConfig -VM $vmConfig -Windows `
         -AdminUsername $cred.UserName `
-        -Password $cred.Password
+        -Password $cred.GetNetworkCredential().Password
     ```
 
 4. 设置默认 NIC，并为其分配静态 IP 地址。
 
     ```powershell
-    Set-AzureSubnet            -SubnetNames $backendSubnetName -VM $vmConfig
-    Set-AzureStaticVNetIP     -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
+    Set-AzureSubnet         -SubnetNames $backendSubnetName -VM $vmConfig
+    Set-AzureStaticVNetIP   -IPAddress ($ipAddressPrefix+$suffixNumber+3) -VM $vmConfig
     ```
 
 5. 为每个 VM 添加第二个 NIC。
@@ -173,7 +173,7 @@ ms.lasthandoff: 04/22/2017
     -LUN 1
     ```
 
-7. 创建每个 VM，然后结束循环。
+7. 创建每个 VM，并结束循环。
 
     ```powershell
     New-AzureVM -VM $vmConfig `
@@ -194,8 +194,17 @@ ms.lasthandoff: 04/22/2017
         New-AzureStorageAccount xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
         WARNING: No deployment found in service: 'IaaSStory-Backend'.
-2. 在凭据提示中填写所需信息，然后单击“**确定**”。 返回以下输出。
+2. 在凭据提示中填写所需信息，并单击“**确定**”。 返回以下输出。
 
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
         New-AzureVM             xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Succeeded
 
+### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>步骤 5 - 在 VM 的操作系统中配置路由
+
+Azure DHCP 会将默认网关分配给附加到虚拟机的第一个（主）网络接口。 Azure 不会将默认网关分配给附加到虚拟机的其他（辅助）网络接口。 因此，默认情况下无法与辅助网络接口所在子网的外部资源进行通信。 但是，辅助网络接口可以与子网之外的资源进行通信。 要配置二级网络接口的路由，请参阅以下文章：
+
+- [为多个 NIC 配置 Windows VM](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics)
+
+- [为多个 NIC 配置 Linux VM](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics)
+
+<!--Update_Description: update meta properties -->

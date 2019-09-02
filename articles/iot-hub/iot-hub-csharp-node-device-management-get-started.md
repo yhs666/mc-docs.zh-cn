@@ -1,43 +1,30 @@
 ---
-title: "Azure IoT 中心设备管理入门 (.NET/Node) | Azure"
-description: "如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。"
+title: Azure IoT 中心设备管理入门 (.NET/Node) | Azure
+description: 如何使用 Azure IoT 中心设备管理启动远程设备重启。 使用适用于 Node.js 的 Azure IoT 设备 SDK 实现包含直接方法的模拟设备应用，并使用适用于 .NET 的 Azure IoT 服务 SDK 实现调用直接方法的服务应用。
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
 manager: timlt
-editor: 
+editor: ''
 ms.assetid: e044006d-ffd6-469b-bc63-c182ad066e31
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/17/2016
-wacn.date: 
+origin.date: 10/05/2017
+ms.date: 11/20/2017
 ms.author: v-yiso
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08618ee31568db24eba7a7d9a5fc3b079cf34577
-ms.openlocfilehash: e5d88eea2f6c0b83b8654790fab47e06cac53661
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b8510c3421ac2a02e13d6fed112c7bce6480f6cd
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52662338"
 ---
-
 # <a name="get-started-with-device-management-netnode"></a>设备管理入门 (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
-## <a name="introduction"></a>介绍
-后端应用可以使用 Azure IoT 中心的基元（即设备孪生和直接方法）远程启动和监视设备上的设备管理操作。  此文章提供有关后端应用和设备如何使用 IoT 中心协同工作来启动和监视远程设备重新启动的指导和代码。
-
-若要从基于云的后端应用启动和监视设备上的设备管理操作，请使用 IoT 中心基元（如[设备孪生][lnk-devtwin]和[直接方法][lnk-c2dmethod]）。 本教程说明后端应用和设备如何协同工作，实现从 IoT 中心启动和监视远程设备重新启动。
-
-使用直接方法可从云中的后端应用启动设备管理操作，例如重新启动、恢复出厂设置以及固件更新。 设备负责以下操作：
-
-* 处理从 IoT 中心发送的方法请求。
-* 在设备上启动相应的设备特定操作。
-* 通过报告属性向 IoT 中心提供状态更新。
-
-可以使用云中的后端应用运行设备孪生查询，以报告设备管理操作的进度。
 
 本教程演示如何：
 
@@ -51,10 +38,10 @@ ms.lasthandoff: 05/26/2017
 
 **TriggerReboot**，它在模拟设备应用中调用直接方法、显示响应以及显示更新的报告属性。
 
-若要完成本教程，您需要以下各项：
+要完成本教程，需要以下各项：
 
 * Visual Studio 2015 或 Visual Studio 2017。
-* Node.js 版本 0.12.x 或更高版本， <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
+* Node.js 版本 4.0.x 或更高版本； <br/>  [准备开发环境][lnk-dev-setup]介绍了如何在 Windows 或 Linux 上安装本教程所用的 Node.js。
 * 有效的 Azure 帐户。 如果没有帐户，可以创建一个[试用帐户][lnk-free-trial]，只需几分钟即可完成。
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -62,32 +49,29 @@ ms.lasthandoff: 05/26/2017
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>使用直接方法在设备上触发远程重新启动
-在本部分中，你将创建一个 .NET 控制台应用（使用 C#）以使用直接方法在设备上启动远程重新启动。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
+在本部分中，你创建一个 .NET 控制台应用（使用 C#）以使用直接方法在设备上启动远程重新启动。 该应用使用设备孪生查询来搜索该设备的上次重新启动时间。
 
 1. 在 Visual Studio 中，使用“控制台应用(.NET Framework)”项目模板将 Visual C# Windows 经典桌面项目添加到新解决方案。 确保 .NET Framework 版本为 4.5.1 或更高。 将项目命名为 **TriggerReboot**。
 
     ![新的 Visual C# Windows 经典桌面项目][img-createapp]
 
-2. 在“解决方案资源管理器”中，右键单击“TriggerReboot”项目，然后单击“管理 NuGet 包”。
-3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，然后接受使用条款。 该过程将下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
+2. 在“解决方案资源管理器”中，右键单击“TriggerReboot”项目，并单击“管理 NuGet 包”。
+3. 在“NuGet 包管理器”窗口中，选择“浏览”，搜索 **microsoft.azure.devices**，选择“安装”以安装 **Microsoft.Azure.Devices** 包，并接受使用条款。 此过程会下载、安装 [Azure IoT 服务 SDK][lnk-nuget-service-sdk] NuGet 包及其依赖项并添加对它的引用。
 
     ![“NuGet 包管理器”窗口][img-servicenuget]
 4. 在 **Program.cs** 文件顶部添加以下 `using` 语句：
-
-    ```
-    using Microsoft.Azure.Devices;
-    ```
-
-5. 将以下字段添加到 **Program** 类。 将占位符值替换为在上一部分和目标设备中为中心创建的 IoT 中心连接字符串。
-
-    ```
-    static RegistryManager registryManager;
-    static string connString = "{iot hub connection string}";
-    static ServiceClient client;
-    static JobClient jobClient;
-    static string targetDevice = "{deviceIdForTargetDevice}";
-    ```
-
+   
+        using Microsoft.Azure.Devices;
+        using Microsoft.Azure.Devices.Shared;
+        
+5. 将以下字段添加到 **Program** 类。 将占位符值替换为在“创建 IoT 中心”部分中为中心创建的 IoT 中心连接字符串。 
+   
+        static RegistryManager registryManager;
+        static string connString = "{iot hub connection string}";
+        static ServiceClient client;
+        static JobClient jobClient;
+        static string targetDevice = "myDeviceId";
+        
 6. 将以下方法添加到 **Program** 类。  此代码获取重新启动设备的设备孪生并输出报告属性。
 
     ```
@@ -223,26 +207,11 @@ ms.lasthandoff: 05/26/2017
     ```
     node dmpatterns_getstarted_device.js
     ```
-2. 运行 C# 控制台应用 **TriggerReboot**。 右键单击“TriggerReboot”项目，选择“调试”，然后选择“启动新实例”。
+2. 运行 C# 控制台应用 **TriggerReboot**。 右键单击“TriggerReboot”项目，选择“调试”，并选择“启动新实例”。
 
 3. 可在控制台查看对直接方法的设备响应。
 
-## <a name="customize-and-extend-the-device-management-actions"></a>自定义和扩展设备管理操作
-IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设备孪生和云到设备方法基元启用自定义模式。 设备管理操作的其他示例包括恢复出厂设置、固件更新、软件更新、电源管理、网络和连接管理以及数据加密。
-
-## <a name="device-maintenance-windows"></a>设备维护时段
-通常情况下，将设备配置为在某一时间执行操作，以最大程度减少中断和停机时间。  设备维护时段是一种常用模式，用于定义设备应更新其配置的时间。 后端解决方案使用设备孪生所需属性在设备上定义并激活策略，以启用维护时段。 当设备收到维护时段策略时，它可以使用设备孪生报告属性报告策略状态。 然后，后端应用可以使用设备孪生查询来证明设备和每个策略的符合性。
-
-## <a name="next-steps"></a>后续步骤
-在本教程中，将使用直接方法触发设备上的远程重新启动。 使用报告属性报告设备上次重新启动时间，并查询设备孪生从云中发现设备上次重新启动时间。
-
-若要继续完成 IoT 中心和设备管理模式（如远程无线固件更新）的入门内容，请参阅：
-
-[教程：如何进行固件更新][lnk-fwupdate]
-
-若要了解如何扩展 IoT 解决方案并在多个设备上计划方法调用，请参阅 [Schedule and broadcast jobs][lnk-tutorial-jobs] （计划和广播作业）教程。
-
-若要继续完成 IoT 中心入门内容，请参阅 [IoT Edge 入门][lnk-gateway-SDK]。
+[!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
 
 <!-- images and links -->
 [img-output]: ./media/iot-hub-get-started-with-dm/image6.png
@@ -253,12 +222,9 @@ IoT 解决方案可扩展已定义的设备管理模式集，或通过使用设�
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md
 
 [lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-[lnk-fwupdate]: ./iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.cn/
-[Using resource groups to manage your Azure resources]: ../resource-group-portal.md
+[Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: ./iot-hub-node-node-schedule-jobs.md
-[lnk-gateway-SDK]: ./iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: ./iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: ./iot-hub-devguide-direct-methods.md

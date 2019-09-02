@@ -1,26 +1,26 @@
 ---
-title: "Reliable Services 通信概述 | Azure"
-description: "概述 Reliable Services 通信模型，包括在服务上打开侦听器、解析终结点，以及在服务之间进行通信。"
+title: Reliable Services 通信概述 | Azure
+description: 概述 Reliable Services 通信模型，包括在服务上打开侦听器、解析终结点，以及在服务之间进行通信。
 services: service-fabric
 documentationcenter: .net
-author: vturecek
-manager: timlt
+author: rockboyfor
+manager: digimobile
 editor: BharatNarasimman
 ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
 ms.service: service-fabric
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 04/07/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 0954b8fa696777db43008bd15f4312f376bf6e8c
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 11/01/2017
+ms.date: 05/28/2018
+ms.author: v-yeche
+ms.openlocfilehash: cb8063f8431f69c6cbed0fe3b3883b7c5efd89d7
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52660897"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通信 API
 “Azure Service Fabric 即平台”完全不受服务间通信的影响。 所有协议和堆栈（从 UDP 到 HTTP）都可接受。 至于服务应以哪种方式通信，完全由服务开发人员选择。 Reliable Services 应用程序框架提供了一些内置的通信堆栈和 API，可用于生成自定义通信组件。
@@ -56,7 +56,7 @@ public interface CommunicationListener {
 对于无状态服务：
 
 ```csharp
-class MyStatelessService : StatelessService
+public class MyStatelessService : StatelessService
 {
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
@@ -78,13 +78,16 @@ public class MyStatelessService extends StatelessService {
 
 对于有状态服务：
 
-> [!NOTE]
-> Java 目前不支持有状态的 Reliable Services。
->
->
+```java
+    @Override
+    protected List<ServiceReplicaListener> createServiceReplicaListeners() {
+        ...
+    }
+    ...
+```
 
 ```csharp
-class MyStatefulService : StatefulService
+public class MyStatefulService : StatefulService
 {
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
     {
@@ -94,11 +97,11 @@ class MyStatefulService : StatefulService
 }
 ```
 
-在这两种情况下，都将返回侦听器的集合。 这可让你的服务通过多个侦听器，可能使用不同的协议在多个终结点上侦听。 例如，你可能有一个 HTTP 侦听器和一个单独的 WebSocket 侦听器。 当客户端请求服务实例或分区的侦听地址时，每个侦听器将获取一个名称，生成的“名称 : 地址”对集合以 JSON 对象的形式表示。
+在这两种情况下，都会返回侦听器的集合。 这可让服务通过多个侦听器，可能使用不同的协议在多个终结点上侦听。 例如，你可能有一个 HTTP 侦听器和一个单独的 WebSocket 侦听器。 当客户端请求服务实例或分区的侦听地址时，每个侦听器会获取一个名称，生成的“名称 : 地址”对集合以 JSON 对象的形式表示。
 
-在无状态服务中，重写将返回 ServiceInstanceListeners 的集合。 `ServiceInstanceListener` 包含一个函数，用于创建 `ICommunicationListener(C#) / CommunicationListener(Java)` 并为其提供名称。 对于有状态服务，重写将返回 ServiceReplicaListeners 集合。 这与无状态服务稍有不同，因为 `ServiceReplicaListener` 可以选择在辅助副本上打开 `ICommunicationListener`。 你不仅可以在服务中使用多个通信侦听器，而且还可以指定哪些侦听器要在辅助副本上接受请求，以及哪些侦听器只能在主副本上进行侦听。
+在无状态服务中，重写会返回 ServiceInstanceListeners 的集合。 `ServiceInstanceListener` 包含一个函数，用于创建 `ICommunicationListener(C#) / CommunicationListener(Java)` 并为其提供名称。 对于有状态服务，重写会返回 ServiceReplicaListeners 集合。 这与无状态服务稍有不同，因为 `ServiceReplicaListener` 可以选择在辅助副本上打开 `ICommunicationListener`。 不仅可以在服务中使用多个通信侦听器，而且还可以指定哪些侦听器要在辅助副本上接受请求，以及哪些侦听器只能在主副本上进行侦听。
 
-例如，你可以创建一个只在主要副本上接受 RPC 调用的 ServiceRemotingListener，并创建另一个可通过 HTTP 在次要副本上接受读取请求的自定义侦听器：
+例如，可以创建一个只在主要副本上接受 RPC 调用的 ServiceRemotingListener，并创建另一个可通过 HTTP 在次要副本上接受读取请求的自定义侦听器：
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -123,7 +126,7 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 >
 >
 
-最后，在[服务清单](service-fabric-application-model.md)中有关终结点的节下面描述服务所需的终结点。
+最后，在[服务清单](service-fabric-application-and-service-manifests.md)中有关终结点的节下面描述服务所需的终结点。
 
 ```xml
 <Resources>
@@ -195,7 +198,7 @@ public CompletableFuture<String> openAsync(CancellationToken cancellationToken)
 Service Fabric 提供许多 API，使客户端和其他服务随后可以通过服务名称请求此地址。 这一点很重要，因为服务地址不是静态的。 服务为了资源平衡和可用性目的在群集中移动。 这是允许客户端为服务解析侦听地址的机制。
 
 > [!NOTE]
-> 有关如何用 C# 编写通信侦听器的完整演练，请参阅 [Service Fabric Web API 服务与 OWIN 自托管](service-fabric-reliable-services-communication-webapi.md)，而在 Java 中，你可以编写自己的 HTTP 服务器实现，请参阅 https://github.com/Azure-Samples/service-fabric-java-getting-started 中的 EchoServer 应用程序示例。
+> 有关如何用 C# 编写通信侦听器的完整演练，请参阅 [Service Fabric Web API 服务与 OWIN 自托管](service-fabric-reliable-services-communication-webapi.md)，而在 Java 中，可以编写自己的 HTTP 服务器实现，请参阅 https://github.com/Azure-Samples/service-fabric-java-getting-started 中的 EchoServer 应用程序示例。
 >
 >
 
@@ -269,12 +272,12 @@ CompletableFuture<ResolvedServicePartition> partition =
 ### <a name="communication-clients-and-factories"></a>通信客户端和工厂
 通信工厂库可实现典型的错误处理重试模式，从而可以更轻松地重试连接已解析服务终结点。 尽管你提供错误处理程序，工厂库还是会提供重试机制。
 
-`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` 定义由通信客户端工厂实现的基接口，该通信客户端工厂生成可与 Service Fabric 服务通信的客户端。 CommunicationClientFactory 的实现将取决于客户端要与之进行通信的 Service Fabric 服务所使用的通信堆栈。 Reliable Services API 提供 `CommunicationClientFactoryBase<TCommunicationClient>`。 这提供了 CommunicationClientFactory 接口的基实现，并可执行所有通信堆栈共有的任务。 （这些任务包括使用 ServicePartitionResolver 来确定服务终结点）。 客户端通常实现抽象 CommunicationClientFactoryBase 类来处理通信堆栈特定的逻辑。
+`ICommunicationClientFactory(C#) / CommunicationClientFactory(Java)` 定义由通信客户端工厂实现的基接口，该通信客户端工厂生成可与 Service Fabric 服务通信的客户端。 CommunicationClientFactory 的实现取决于客户端要与之进行通信的 Service Fabric 服务所使用的通信堆栈。 Reliable Services API 提供 `CommunicationClientFactoryBase<TCommunicationClient>`。 这提供了 CommunicationClientFactory 接口的基实现，并可执行所有通信堆栈共有的任务。 （这些任务包括使用 ServicePartitionResolver 来确定服务终结点）。 客户端通常实现抽象 CommunicationClientFactoryBase 类来处理通信堆栈特定的逻辑。
 
 通信客户端只接收地址，并使用它连接到服务。 客户端可以使用它想要的任何协议。
 
 ```csharp
-class MyCommunicationClient : ICommunicationClient
+public class MyCommunicationClient : ICommunicationClient
 {
     public ResolvedServiceEndpoint Endpoint { get; set; }
 
@@ -357,7 +360,6 @@ class MyExceptionHandler : IExceptionHandler
         result = new ExceptionHandlingRetryResult(exceptionInformation.Exception, true, retrySettings, retrySettings.DefaultMaxRetryCount);
         return true;
 
-
         // if exceptionInformation.Exception is known and is not transient (indicates a new service endpoint address must be resolved)
         result = new ExceptionHandlingRetryResult(exceptionInformation.Exception, false, retrySettings, retrySettings.DefaultMaxRetryCount);
         return true;
@@ -378,7 +380,6 @@ public class MyExceptionHandler implements ExceptionHandler {
          */
         result = new ExceptionHandlingRetryResult(exceptionInformation.getException(), true, retrySettings, retrySettings.getDefaultMaxRetryCount());
         return true;
-
 
         /* if exceptionInformation.getException() is known and is not transient (indicates a new service endpoint address must be resolved)
          */
@@ -429,8 +430,8 @@ CompletableFuture<?> result = myServicePartitionClient.invokeWithRetryAsync(clie
 ```
 
 ## <a name="next-steps"></a>后续步骤
-* 请参阅 [GitHUb 上的 C# 示例项目](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/WordCount)或 [GitHUb 上的 Java 示例项目](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/Services/WatchDog)中服务之间的 HTTP 通信示例。
+* [ASP.NET Core 和 Reliable Services](service-fabric-reliable-services-communication-aspnetcore.md)
 * [使用 Reliable Services 远程控制执行远程过程调用](service-fabric-reliable-services-communication-remoting.md)
-* [Reliable Services 中使用 OWIN 的 Web API](service-fabric-reliable-services-communication-webapi.md)
 * [使用 Reliable Services 的 WCF 通信](service-fabric-reliable-services-communication-wcf.md)
 
+<!-- Update_Description: update meta properties -->

@@ -1,31 +1,36 @@
 ---
-title: 保护你的 IoT 部署 | Azure
-description: 如何保护你的 IoT 部署。包括保护设备预配、连接和对 IoT 中心服务的访问的指导原则
+title: 保护 Azure IoT 部署
+description: 如何保护 IoT 部署。 包括保护设备预配、连接和对 IoT 中心服务的访问的指导原则。
 services: iot-hub
-documentationCenter: ''
-authors: YuriDio
+documentationcenter: ''
+author: dominicbetts
 manager: timlt
 editor: ''
-
+ms.assetid: dfddaf86-2733-44fe-804c-586a5a7364cc
 ms.service: iot-hub
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/16/2017
-wacn.date: 03/10/2017
+origin.date: 01/17/2018
 ms.author: v-yiso
+ms.date: 03/19/2018
+ms.openlocfilehash: 2249d08577b6ebfd14522ea48b9976fea6f98ca4
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52644540"
 ---
-
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
-## 另请参阅
+## <a name="see-also"></a>另请参阅
 
 若要进一步探索 IoT 中心的功能，请参阅：
 
-- [使用网关 SDK 模拟设备][lnk-gateway]
+* [使用 Azure IoT Edge 将 AI 部署到边缘设备][lnk-iotedge]
 
-[lnk-gateway]: ./iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
 
-<!---HONumber=Mooncake_0109_2017-->
-<!--Update_Description:update wording-->
+
+<!--Update_Description:update meta properties only-->

@@ -1,48 +1,45 @@
 ---
-title: "验证 Azure 虚拟网络的 VPN 吞吐量 | Azure"
-description: "本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。"
+title: 验证到达 Azure 虚拟网络的 VPN 吞吐量 | Microsoft Docs
+description: 本文旨在帮助用户验证从本地资源到达 Azure 虚拟机的网络吞吐量。
 services: vpn-gateway
 documentationcenter: na
-author: chadmath
-manager: jasmc
-editor: 
+author: WenJason
+manager: digimobile
+editor: ''
 tags: azure-resource-manager,azure-service-management
-ms.assetid: 
+ms.assetid: ''
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/10/2017
-wacn.date: 
-ms.author: v-dazen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8fd60f0e1095add1bff99de28a0b65a8662ce661
-ms.openlocfilehash: 2c5e8cd6eb3f24d018f95c293b5e3bf82c2722f3
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/12/2017
-
-
+origin.date: 06/15/2018
+ms.date: 03/25/2019
+ms.author: v-jay
+ms.openlocfilehash: 24bff705481b9a7002d99d377b89a3d3316c87d8
+ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/02/2019
+ms.locfileid: "68732349"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>如何验证到达虚拟网络的 VPN 吞吐量
 
 通过 VPN 网关连接，可以在 Azure 内的虚拟网络与本地 IT 基础结构之间创建安全的跨界连接。
 
-本文演示如何验证从本地资源到达 Azure 虚拟机的网络吞吐量， 还会提供故障排除指南。
+本文将演示如何验证从本地资源到达 Azure 虚拟机 (VM) 的网络吞吐量。
 
->[!NOTE]
->本文旨在帮助诊断并解决常见的问题。 如果使用以下信息无法解决问题，请[与支持人员联系](https://www.azure.cn/support/contact/)。
->
->
+> [!NOTE]
+> 本文旨在帮助诊断并解决常见的问题。 如果使用以下信息无法解决问题，请[与支持人员联系](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 
 ## <a name="overview"></a>概述
 
 VPN 网关连接涉及以下组件：
 
-- 本地 VPN 设备（请查看包含[已验证的 VPN 设备](vpn-gateway-about-vpn-devices.md#devicetable)的列表）。
-- 公共 Internet
-- Azure VPN 网关
-- Azure 虚拟机
+* 本地 VPN 设备（请查看[已验证 VPN 设备](vpn-gateway-about-vpn-devices.md#devicetable)的列表。）
+* 公共 Internet
+* Azure VPN 网关
+* Azure VM
 
 下图显示的是通过 VPN 建立的从本地网络至 Azure 虚拟网络的逻辑连接。
 
@@ -50,83 +47,91 @@ VPN 网关连接涉及以下组件：
 
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>计算最大的预期流入/流出量
 
-1.    确定应用程序的基准吞吐量需求。
-2.    确定 Azure VPN 网关的吞吐量限制。 有关帮助，请参阅[规划和设计 VPN 网关](vpn-gateway-plan-design.md)的“按 SKU 和 VPN 类型列出的聚合吞吐量”部分。
-3.    确定与 VM 大小相应的 [Azure VM 吞吐量指南](../virtual-machines/virtual-machines-windows-sizes.md)。
-4.    确定 Internet 服务提供商 (ISP) 的带宽。
-5.    计算预期吞吐量 -（VM、网关、ISP）的最小带宽 * 0.8。
+1. 确定应用程序的基准吞吐量需求。
+1. 确定 Azure VPN 网关的吞吐量限制。 如需帮助，请参阅[关于 VPN 网关](vpn-gateway-about-vpngateways.md#gwsku)的“网关 SKU”部分。
+1. 确定与 VM 大小相应的 [Azure VM 吞吐量指南](../virtual-machines/virtual-machines-windows-sizes.md)。
+1. 确定 Internet 服务提供商 (ISP) 的带宽。
+1. 使用 VM、VPN 网关或 ISP 的最小带宽来计算预期的吞吐量；其度量方式是兆位/每秒 (/) 除以八 (8)。
 
-如果计算得出的吞吐量无法满足应用程序的基准吞吐量需求，则需提高已被确定为瓶颈的资源的带宽。 若要调整 Azure VPN 网关的大小，请参阅[更改网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 若要调整虚拟机的大小，请参阅[调整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果 Internet 的带宽不及预期，可能还需要联系 ISP。
+如果计算得出的吞吐量无法满足应用程序的基准吞吐量需求，则必须提高已被确定为瓶颈的资源的带宽。 若要调整 Azure VPN 网关的大小，请参阅[更改网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。 若要调整虚拟机的大小，请参阅[调整 VM 的大小](../virtual-machines/virtual-machines-windows-resize-vm.md)。 如果 Internet 的带宽不及预期，也可联系 ISP。
+
+> [!NOTE]
+> VPN 网关吞吐量是所有站点到站点\VNET 到 VNET 或点到站点连接的聚合。
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>使用性能工具验证网络吞吐量
 
 此验证应在非高峰时段执行，因为测试期间的 VPN 隧道吞吐量饱和度无法给出准确的结果。
 
-此测试将使用 iPerf 工具来实施，此工具在 Windows 和 Linux 上均可使用，并且有“客户端”和“服务器”两种模式。 对于 Windows VM，其限速为 3 Gbps。
+此测试使用 iPerf 工具来实施，此工具在 Windows 和 Linux 上均可使用，并且有“客户端”和“服务器”两种模式。 对于 Windows VM，其限速为 3Gbps。
 
-此工具不会对磁盘执行任何读/写操作。 它只会生成从一端至另一端的自生成 TCP 流量。 它已生成的统计信息基于各种旨在测量客户端和服务器节点间可用带宽的试验。 在两个节点间进行测试时，一个节点充当服务器，另一个则充当客户端。 完成此测试后，建议对调两个节点的角色，以测试它们的上传和下载吞吐量。
+此工具不会对磁盘执行任何读/写操作。 它只会生成从一端至另一端的自生成 TCP 流量。 它已生成的统计信息基于各种旨在测量客户端和服务器节点间可用带宽的试验。 在两个节点间进行测试时，一个节点充当服务器，另一个节点充当客户端。 完成此测试后，建议对调两个节点的角色，以测试它们的上传和下载吞吐量。
 
 ### <a name="download-iperf"></a>下载 iPerf
+
 下载 [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip)。 有关详情，请参阅 [iPerf 文档](https://iperf.fr/iperf-doc.php)。
 
- >[!NOTE]
- >本文所讨论的第三方产品由独立于 Microsoft 的公司生产。 Microsoft 对这些产品的性能和可靠性不作任何明示或默示担保。
- >
- >
+ > [!NOTE]
+ > 本文所讨论的第三方产品由独立于 Microsoft 的公司生产。 Microsoft 对这些产品的性能和可靠性不作任何明示或默示担保。
 
 ### <a name="run-iperf-iperf3exe"></a>运行 iPerf (iperf3.exe)
+
 1. 启用允许流量的 NSG/ACL 规则（适用于在 Azure VM 上进行公共 IP 地址测试）。
 
-2. 在两个节点上，为端口 5001 启用防火墙例外。
+1. 在两个节点上，为端口 5001 启用防火墙例外。
 
-    **Windows：**以管理员身份运行以下命令：
+   **Windows:** 以管理员身份运行以下命令：
 
-    ```CMD
-    netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
-    ```
+   ```CMD
+   netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
+   ```
 
-    若要在测试完成后删除规则，请运行此命令：
+   若要在测试完成后删除规则，请运行此命令：
 
-    ```CMD
-    netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
-    ```
-    </br>
-    **Azure Linux：**Azure Linux 映像都具有限制性较低的防火墙。 如果有应用程序在侦听某个端口，则流量会被允许通过。 受保护的自定义映像可能需要显式打开端口。 常见的 Linux OS 层防火墙包括 `iptables`、`ufw` 或 `firewalld`。
+   ```CMD
+   netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
+   ```
 
-3. 在服务器节点上，更改为从中提取 iperf3.exe 的目录。 然后，在服务器模式下运行 iPerf 并将其设置为侦听端口 5001，如以下命令所示：
+   **Azure Linux：** Azure Linux 映像具有限制性较低的防火墙。 如果有应用程序在侦听某个端口，则流量会被允许通过。 受保护的自定义映像可能需要显式打开端口。 常见的 Linux OS 层防火墙包括 `iptables`、`ufw` 或 `firewalld`。
 
-     ```CMD
-     cd c:\iperf-3.1.2-win65
+1. 在服务器节点上，更改为从中提取 iperf3.exe 的目录。 然后，在服务器模式下运行 iPerf 并将其设置为侦听端口 5001，如以下命令所示：
 
-     iperf3.exe -s -p 5001
-     ```
+   ```CMD
+   cd c:\iperf-3.1.2-win65
 
-4. 在客户端节点上，转到从中提取 iperf 工具的目录，然后运行以下命令：
+   iperf3.exe -s -p 5001
+   ```
 
-    ```CMD
-    iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
-    ```
+   > [!Note]
+   > 可以根据环境中的特定防火墙限制自定义端口 5001。
 
-    客户端会将端口 5001 的流量引入服务器，持续时间为 30 秒。 标志“-P”，表明正同时使用 32 个连至服务器节点的连接。
+1. 在客户端节点上，转到从中提取 iperf 工具的目录，并运行以下命令：
 
-    以下屏幕显示了本示例中的输出：
+   ```CMD
+   iperf3.exe -c <IP of the iperf Server> -t 30 -p 5001 -P 32
+   ```
 
-    ![输出](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
+   客户端将端口 5001 上 30 秒的流量引导到服务器。 标志“-P”表明我们正同时发出 32 个连至服务器节点的连接。
 
-5. （可选）若要保留测试结果，请运行以下命令：
+   以下屏幕显示了本示例中的输出：
 
-    ```CMD
-    iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
-    ```
+   ![输出](./media/vpn-gateway-validate-throughput-to-vnet/06theoutput.png)
 
-6. 完成上述步骤后，请调换角色以使服务器节点变为客户端节点（反之亦然），然后执行相同的步骤。
+1. （可选）若要保留测试结果，请运行以下命令：
 
+   ```CMD
+   iperf3.exe -c IPofTheServerToReach -t 30 -p 5001 -P 32  >> output.txt
+   ```
+
+1. 完成上述步骤后，请调换角色以使服务器节点变为客户端节点（反之亦然），然后执行相同的步骤。
+
+> [!Note]
+> Iperf 不是唯一工具。 [NTTTCP 是用于测试的备用解决方案](/virtual-network/virtual-network-bandwidth-testing)。
 ## <a name="address-slow-file-copy-issues"></a>解决文件复制速度缓慢问题
 在使用 Windows 资源管理器时，或者在通过 RDP 会话进行拖放时，文件的复制速度可能会很缓慢。 此问题通常是由以下的一个或两个因素造成的：
 
-- 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作” > “复制选项” > “文件复制”。<br><br>
+- 文件复制应用程序（如 Windows 资源管理器和 RDP）在复制文件时没有使用多个线程。 为了提高性能，请通过多线程文件复制应用程序（如 [Richcopy](https://technet.microsoft.com/magazine/2009.04.utilityspotlight.aspx)）使用 16 或 32 个线程来复制文件。 若要更改 Richcopy 中的文件复制线程数目，请单击“操作”   > “复制选项”   > “文件复制”  。<br><br>
 ![文件复制速度缓慢问题](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
-- VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/storage-e2e-troubleshooting.md)。
+- VM 磁盘读/写速度不够快。 有关详细信息，请参阅 [Azure 存储故障排除](../storage/common/storage-e2e-troubleshooting.md)。
 
 ## <a name="on-premises-device-external-facing-interface"></a>本地设备上的对外接口
 如果 Azure 中的[本地网络](vpn-gateway-howto-site-to-site-resource-manager-portal.md#LocalNetworkGateway)定义中包含本地 VPN 设备面向 Internet 的 IP 地址，则可能会出现 VPN 无法显示、偶发性断连或性能问题。
@@ -138,7 +143,7 @@ VPN 网关连接涉及以下组件：
 ![检查延迟](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 
 ## <a name="next-steps"></a>后续步骤
+
 有关详细信息或帮助，请查看以下链接：
 
-- [优化 Azure 虚拟机网络吞吐量](../virtual-network/virtual-network-optimize-network-bandwidth.md)
-- [Azure.cn 支持部门](https://www.azure.cn/support/contact/)
+* [Microsoft 支持部门](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)

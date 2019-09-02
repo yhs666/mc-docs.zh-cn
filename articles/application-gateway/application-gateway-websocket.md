@@ -1,33 +1,39 @@
 ---
-title: 应用程序网关 WebSocket 支持 | Azure
+title: Azure 应用程序网关中的 WebSocket 支持 | Microsoft Docs
 description: 此页概述了应用程序网关的 WebSocket 支持。
-documentationCenter: na
-services: application-gateway
-authors: amsriva
-manager: rossort
-editor: amsriva
-
+author: vhorne
+ms.author: v-junlch
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 12/16/2016
-wacn.date: 01/25/2017
-ms.author: v-dazen
+origin.date: 03/18/2019
+ms.date: 05/20/2019
+ms.openlocfilehash: 6a3306e4d34b99f85416d61f220a4fd9cf7b53f2
+ms.sourcegitcommit: dc0db00da570f0c57f4a1398797fc158a2c423c5
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65960908"
 ---
+# <a name="overview-of-websocket-support-in-application-gateway"></a>应用程序网关中的 WebSocket 支持概述
 
-# 应用程序网关 WebSocket 支持
+应用程序网关跨所有网关大小为 WebSocket 提供本机支持。 用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。 
 
-以 [RFC6455](https://tools.ietf.org/html/rfc6455) 进行标准化的 WebSocket 协议通过长时间运行的 TCP 连接，让服务器和客户端之间实现全双工通信。此功能让 Web 服务器和客户端之间能够进行交互性更强的通信。这种通信可以是双向的，而且不像基于 HTTP 的实现那样需要轮询。不同于 HTTP，WebSocket 的开销很低，并且可以对多个请求/响应重复使用同一 TCP 连接，进而提高资源利用率。WebSocket 协议设计为通过传统 HTTP 端口 80 和 443 运行。
+以 [RFC6455](https://tools.ietf.org/html/rfc6455) 进行标准化的 WebSocket 协议通过长时间运行的 TCP 连接，让服务器和客户端之间实现全双工通信。 此功能让 Web 服务器和客户端之间能够进行交互性更强的通信。这种通信可以是双向的，而且不像基于 HTTP 的实现那样需要轮询。 不同于 HTTP，WebSocket 的开销很低，并且可以对多个请求/响应重复使用同一 TCP 连接，进而提高资源利用率。 WebSocket 协议设计为通过传统 HTTP 端口 80 和 443 运行。
 
-应用程序网关跨所有网关大小为 WebSocket 提供本机支持。用户无法通过配置设置来选择性地启用或禁用 WebSocket 支持。可以在端口 80/443 上继续使用标准 HTTPListener 来接收 WebSocket 流量。随后会使用应用程序网关规则中指定的相应后端池，将 WebSocket 流量定向到已启用 WebSocket 的后端服务器。
+可以在端口 80 或 443 上继续使用标准 HTTP 侦听器来接收 WebSocket 流量。 随后会使用应用程序网关规则中指定的相应后端池，将 WebSocket 流量定向到已启用 WebSocket 的后端服务器。 后端服务器必须响应应用程序网关探测，如[运行状况探测概述](application-gateway-probe-overview.md)部分中所述。 应用程序网关运行状况探测仅适用于 HTTP/HTTPS。 每个后端服务器必须响应 HTTP 探测，这样，应用程序网关才能将 WebSocket 流量路由到服务器。
 
-后端服务器必须响应应用程序网关探测，如[运行状况探测概述](./application-gateway-probe-overview.md)部分中所述。应用程序网关运行状况探测仅限 HTTP/HTTPS，这意味着每个后端服务器都必须响应 HTTP 探测，应用程序网关才能将 WebSocket 流量路由到服务器。
+它用在受益于快速实时通信的应用（例如聊天、仪表板和游戏应用）中。
 
-## 侦听器配置元素
+## <a name="how-does-websocket-work"></a>WebSocket 工作原理
 
-现有的 HTTPListener 可用于支持 WebSocket。以下是示例模板文件中 HttpListeners 元素的代码片段。需要同时拥有 HTTP 和 HTTPS 侦听器才能支持 WebSocket 并保护 WebSocket 流量。同样，可以使用[门户](./application-gateway-create-gateway-portal.md)或 [PowerShell](./application-gateway-create-gateway-arm.md) 在端口 80/443 上创建具有侦听器的应用程序网关，以支持 WebSocket 通信。
+若要建立 WebSocket 连接，需在客户端和服务器之间交换特定的基于 HTTP 的握手。 如果成功，则应用程序层协议会使用之前建立的 TCP 连接从 HTTP“升级”为 WebSocket。 然后就完全不使用 HTTP；两个终结点可以使用 WebSocket 协议来发送或接收数据，直至 WebSocket 连接关闭。 
+
+![addcert](./media/application-gateway-websocket/websocket.png)
+
+### <a name="listener-configuration-element"></a>侦听器配置元素
+
+现有的 HTTP 侦听器可用于支持 WebSocket 流量。 以下是示例模板文件中 httpListeners 元素的代码片段。 需要同时拥有 HTTP 和 HTTPS 侦听器才能支持 WebSocket 并保护 WebSocket 流量。 同样，可以使用门户或 Azure PowerShell 在端口 80/443 上创建具有侦听器的应用程序网关，以支持 WebSocket 通信。
 
 ```json
 "httpListeners": [
@@ -35,14 +41,14 @@ ms.author: v-dazen
             "name": "appGatewayHttpsListener",
             "properties": {
                 "FrontendIPConfiguration": {
-                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/DefaultFrontendPublicIP"
+                    "Id": "/subscriptions/{subscriptionId/resourceGroups/{resourceGroupName/providers/Microsoft.Network/applicationGateways/{applicationGatewayName/frontendIPConfigurations/DefaultFrontendPublicIP"
                 },
                 "FrontendPort": {
-                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort443'"
+                    "Id": "/subscriptions/{subscriptionId/resourceGroups/{resourceGroupName/providers/Microsoft.Network/applicationGateways/{applicationGatewayName/frontendPorts/appGatewayFrontendPort443'"
                 },
                 "Protocol": "Https",
                 "SslCertificate": {
-                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/sslCertificates/appGatewaySslCert1'"
+                    "Id": "/subscriptions/{subscriptionId/resourceGroups/{resourceGroupName/providers/Microsoft.Network/applicationGateways/{applicationGatewayName/sslCertificates/appGatewaySslCert1'"
                 },
             }
         },
@@ -50,10 +56,10 @@ ms.author: v-dazen
             "name": "appGatewayHttpListener",
             "properties": {
                 "FrontendIPConfiguration": {
-                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendIPConfigurations/appGatewayFrontendIP'"
+                    "Id": "/subscriptions/{subscriptionId/resourceGroups/{resourceGroupName/providers/Microsoft.Network/applicationGateways/{applicationGatewayName/frontendIPConfigurations/appGatewayFrontendIP'"
                 },
                 "FrontendPort": {
-                    "Id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/frontendPorts/appGatewayFrontendPort80'"
+                    "Id": "/subscriptions/{subscriptionId/resourceGroups/{resourceGroupName/providers/Microsoft.Network/applicationGateways/{applicationGatewayName/frontendPorts/appGatewayFrontendPort80'"
                 },
                 "Protocol": "Http",
             }
@@ -61,9 +67,9 @@ ms.author: v-dazen
     ],
 ```
 
-## BackendAddressPool、BackendHttpSetting 和路由规则配置
+## <a name="backendaddresspool-backendhttpsetting-and-routing-rule-configuration"></a>BackendAddressPool、BackendHttpSetting 和路由规则配置
 
-如果后端池具有已启用 WebSocket 的服务器，那么应使用 BackendAddressPool 对其进行定义。只能使用后端端口 80/443 对 BackendHttpSetting 进行定义。基于 cookie 的相关性和 requestTimeouts 的属性与 WebSocket 流量不相关。不需更改路由规则。应继续使用“基本”路由规则，以便将适当的侦听器绑定到相应的后端地址池。
+如果后端池具有已启用 WebSocket 的服务器，那么应使用 BackendAddressPool 对其进行定义。 backendHttpSetting 是使用后端端口 80 和 443 定义的。 基于 cookie 的相关性和 requestTimeouts 的属性与 WebSocket 流量不相关。 不需要对路由规则进行更改，可使用“基本”路由规则将适当的侦听器绑定到相应的后端地址池。 
 
 ```json
 "requestRoutingRules": [{
@@ -71,13 +77,13 @@ ms.author: v-dazen
     "properties": {
         "RuleType": "Basic",
         "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpsListener')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/httpListeners/appGatewayHttpsListener')]"
         },
         "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/ContosoServerPool')]"
         },
         "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
         }
     }
 
@@ -86,38 +92,39 @@ ms.author: v-dazen
     "properties": {
         "RuleType": "Basic",
         "httpListener": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/httpListeners/appGatewayHttpListener')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/httpListeners/appGatewayHttpListener')]"
         },
         "backendAddressPool": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendAddressPools/ContosoServerPool')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendAddressPools/ContosoServerPool')]"
         },
         "backendHttpSettings": {
-            "id": "/subscriptions/<subid>/resourceGroups/<rgName>/providers/Microsoft.Network/applicationGateways/applicationGateway1/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
+            "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/applicationGateways/{applicationGatewayName}/backendHttpSettingsCollection/appGatewayBackendHttpSettings')]"
         }
 
     }
 }]
 ```
 
-## 已启用 WebSocket 的后端
+## <a name="websocket-enabled-backend"></a>已启用 WebSocket 的后端
 
-后端必须具有在已配置端口（通常为 80/443）上运行的 HTTP/HTTPS Web 服务器，WebSocket 才能运行。此要求是因为 WebSocket 协议要求初始握手是 HTTP，且标头字段为升级到 WebSocket 协议。
+后端必须具有在已配置端口（通常为 80/443）上运行的 HTTP/HTTPS Web 服务器，WebSocket 才能运行。 之所以提出此要求，是因为 WebSocket 协议要求初始握手是 HTTP，且标头字段为升级到 WebSocket 协议。 下面是一个标头示例：
 
 ```
-GET /chat HTTP/1.1
-Host: server.example.com
-Upgrade: websocket
-Connection: Upgrade
-Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
-Origin: http://example.com
-Sec-WebSocket-Protocol: chat, superchat
-Sec-WebSocket-Version: 13
+    GET /chat HTTP/1.1
+    Host: server.example.com
+    Upgrade: websocket
+    Connection: Upgrade
+    Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==
+    Origin: https://example.com
+    Sec-WebSocket-Protocol: chat, superchat
+    Sec-WebSocket-Version: 13
 ```
 
-另一个原因是该应用程序网关后端运行状况探测仅支持 HTTP/HTTPS 协议。如果后端服务器没有响应 HTTP/HTTPS 探测，它将被移出后端池，且包括 WebSocket 请求在内的任何请求都无法到达此后端。
+另一个原因是该应用程序网关后端运行状况探测仅支持 HTTP 和 HTTPS 协议。 如果后端服务器未响应 HTTP 或 HTTPS 探测，会将它从后端池中排除。
 
-## 后续步骤
+## <a name="next-steps"></a>后续步骤
 
-了解 WebSocket 支持后，请转到[创建应用程序网关](./application-gateway-create-gateway.md)，开始使用已启用 WebSocket 的 Web 应用程序。
+了解 WebSocket 支持后，请转到[创建应用程序网关](quick-create-powershell.md)，开始使用已启用 WebSocket 的 Web 应用程序。
 
-<!---HONumber=Mooncake_1010_2016-->
+
+<!-- Update_Description: wording update -->

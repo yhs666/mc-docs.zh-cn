@@ -1,107 +1,74 @@
 ---
-title: "使用 Azure CLI 将磁盘添加到 Linux VM | Azure"
-description: "了解如何使用 Azure CLI 1.0 and Azure CLI 2.0 将持久性磁盘添加到 Linux VM。"
-keywords: "linux 虚拟机,添加资源磁盘"
+title: 将磁盘添加到 Linux VM | Azure
+description: 了解如何使用 Azure CLI 将持久性数据磁盘添加到 Linux VM
 services: virtual-machines-linux
-documentationcenter: 
-author: rickstercdn
-manager: timlt
+documentationcenter: ''
+author: rockboyfor
+manager: digimobile
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: 3005a066-7a84-4dc5-bdaa-574c75e6e411
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
-ms.date: 02/02/2017
-wacn.date: 
-ms.author: v-dazen
+ms.devlang: azurecli
+origin.date: 06/13/2018
+ms.date: 08/12/2019
+ms.author: v-yeche
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: a114d832e9c5320e9a109c9020fcaa2f2fdd43a9
-ms.openlocfilehash: 90684aec1d082dff985c89cd02a0405faa5aef5b
-ms.lasthandoff: 04/21/2017
-
+ms.subservice: disks
+ms.openlocfilehash: 6b9e4f2c48eb267f12b11cf0d67d6cd71e0a7596
+ms.sourcegitcommit: 8ac3d22ed9be821c51ee26e786894bf5a8736bfc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912919"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>将磁盘添加到 Linux VM
-本文介绍如何将持久性磁盘附加到 VM 以保存数据 - 即使 VM 由于维护或调整大小而重新预配。 
-
-## <a name="quick-commands"></a>快速命令
-以下示例将 `50`GB 磁盘附加到名为 `myResourceGroup` 的资源组中名为 `myVM` 的 VM：
+本文介绍了如何将持久性磁盘附加到 VM 以便持久保存数据 - 即使 VM 由于维护或调整大小而重新预配。
 
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
-使用非托管磁盘：
+## <a name="attach-a-new-disk-to-a-vm"></a>将新磁盘附加到 VM
+
+如果只需要在 VM 上添加新的空数据磁盘，请使用 [az vm disk attach](https://docs.azure.cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令以及 `--new` 参数。 以下示例创建一个名为“myDataDisk”  且大小为 50 GB 的磁盘：
+
+<!-- Not Available on [Overview of Availability Zones](../../availability-zones/az-overview.md) -->
 
 ```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
+az vm disk attach \
+   -g myResourceGroup \
+   --vm-name myVM \
+   --name myDataDisk \
+   --new \
+   --size-gb 50
 ```
-## <a name="attach-an-unmanaged-disk"></a>附加非托管磁盘
 
-如果不介意在与 VM 相同的存储帐户中创建磁盘，则可快速附加新磁盘。 键入 `az vm unmanaged-disk attach` 可为 VM 创建和连接新的 GB 磁盘。 如果你未显式标识存储帐户，则创建的任何磁盘将位于 OS 磁盘所在的同一个存储帐户中。 以下示例将一个 `50`GB 的磁盘附加到资源组 `myResourceGroup` 中名为 `myVM` 的 VM：
+## <a name="attach-an-existing-disk"></a>附加现有磁盘
+
+若要附加现有磁盘，请查找磁盘 ID 并将该 ID 传递到 [az vm disk attach](https://docs.azure.cn/cli/vm/disk?view=azure-cli-latest#az-vm-disk-attach) 命令。 以下示例查询 *myResourceGroup* 中名为 *myDataDisk* 的磁盘，然后将其附加到名为 *myVM* 的 VM：
 
 ```azurecli
-az vm unmanaged-disk attach -g myResourceGroup -n myUnmanagedDisk --vm-name myVM \
-  --new --size-gb 50
+diskId=$(az disk show -g myResourceGroup -n myDataDisk --query 'id' -o tsv)
+
+az vm disk attach -g myResourceGroup --vm-name myVM --name $diskId
 ```
 
-## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a> 连接到 Linux VM 以装入新磁盘
-> [!NOTE]
-> 本主题使用用户名和密码连接到 VM。 若要使用公钥和私钥对与 VM 通信，请参阅 [How to Use SSH with Linux on Azure](mac-create-ssh-keys.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)（如何在 Azure 上将 SSH 用于 Linux）。 
-> 
-> 
+## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>连接到 Linux VM 以装入新磁盘
 
-需要使用 SSH 访问 Azure VM 才能分区、格式化和装入新磁盘以供 Linux VM 使用。 如果不熟悉如何使用 **ssh** 进行连接，请注意，该命令采用 `ssh <username>@<FQDNofAzureVM> -p <the ssh port>` 格式，如下所示：
+若要对新磁盘进行分区、格式化和装载，以便 Linux VM 可以使用它，请通过 SSH 登录到 VM。 有关详细信息，请参阅[如何在 Azure 中将 SSH 用于 Linux](mac-create-ssh-keys.md)。 以下示例使用公共 DNS 条目 *mypublicdns.chinanorth.cloudapp.chinacloudapi.cn* 和用户名 *azureuser* 连接到一个 VM：
 
 ```bash
-ssh ops@mypublicdns.chinanorth.chinacloudapp.cn -p 22
+ssh azureuser@mypublicdns.chinanorth.cloudapp.chinacloudapi.cn
 ```
 
-输出
-
-```bash
-The authenticity of host 'mypublicdns.chinanorth.chinacloudapp.cn (191.239.51.1)' can't be established.
-ECDSA key fingerprint is bx:xx:xx:xx:xx:xx:xx:xx:xx:x:x:x:x:x:x:xx.
-Are you sure you want to continue connecting (yes/no)? yes
-Warning: Permanently added 'mypublicdns.chinanorth.chinacloudapp.cn,191.239.51.1' (ECDSA) to the list of known hosts.
-ops@mypublicdns.chinanorth.chinacloudapp.cn's password:
-Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.16.0-37-generic x86_64)
-
-* Documentation:  https://help.ubuntu.com/
-
-System information as of Fri May 22 21:02:32 UTC 2015
-
-System load: 0.37              Memory usage: 2%   Processes:       207
-Usage of /:  41.4% of 1.94GB   Swap usage:   0%   Users logged in: 0
-
-Graph this data and manage this system at:
-  https://landscape.canonical.com/
-
-Get cloud support with Ubuntu Advantage Cloud Guest:
-  http://www.ubuntu.com/business/services/cloud
-
-0 packages can be updated.
-0 updates are security updates.
-
-The programs included with the Ubuntu system are free software;
-the exact distribution terms for each program are described in the
-individual files in /usr/share/doc/*/copyright.
-
-Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
-applicable law.
-
-ops@myVM:~$
-```
-
-现在，你已连接到 VM，可以附加磁盘了。  首先，使用 `dmesg | grep SCSI` 来查找磁盘（用于发现新磁盘的方法可能各不相同）。 在本示例中，键入的内容如下所示：
+连接到 VM 后就可以附加磁盘了。 首先，使用 `dmesg` 来查找磁盘（用于发现新磁盘的方法可能各不相同）。 以下示例使用 dmesg 来筛选 *SCSI* 磁盘：
 
 ```bash
 dmesg | grep SCSI
 ```
 
-输出
+输出类似于以下示例：
 
 ```bash
 [    0.294784] SCSI subsystem initialized
@@ -111,13 +78,16 @@ dmesg | grep SCSI
 [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
 ```
 
-而在本主题中，`sdc` 磁盘是我们所需要的。 现在使用 `sudo fdisk /dev/sdc` 对磁盘进行分区 -- 假定在你的示例中，磁盘为 `sdc`，则应将其设置为分区 1 中的主磁盘，并接受其他默认设置值。
+> [!NOTE]
+> 建议你使用适用于你的发行版的最新版 fdisk 或 parted。
+
+此处，*sdc* 是我们需要的磁盘。 使用 `parted` 对磁盘进行分区，如果磁盘大小为 2TiB 或更大，则必须使用 GPT 进行分区，如果小于 2TiB，则可以使用 MBR 或 GPT 进行分区。 如果使用 MBR 分区，则可以使用 `fdisk`。 将其设置为分区 1 中的主磁盘，并接受其他默认值。 以下示例在 */dev/sdc* 上启动 `fdisk` 进程：
 
 ```bash
 sudo fdisk /dev/sdc
 ```
 
-输出
+使用 `n` 命令添加新分区。 在此示例中，我们还选择主分区的 `p` 并接受其余默认值。 输出将类似于以下示例：
 
 ```bash
 Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel
@@ -139,7 +109,7 @@ Last sector, +sectors or +size{K,M,G} (2048-10485759, default 10485759):
 Using default value 10485759
 ```
 
-系统提示时，键入 `p` 创建分区：
+通过键入 `p` 打印分区表并使用 `w` 将该表写入磁盘，然后退出。 输出应类似于以下示例：
 
 ```bash
 Command (m for help): p
@@ -161,13 +131,19 @@ Calling ioctl() to re-read partition table.
 Syncing disks.
 ```
 
-同时，还需将文件系统写入分区，只需使用 **mkfs** 命令指定文件系统类型和设备名称即可。 本主题使用上面提供的 `ext4` 和 `/dev/sdc1`：
+使用以下命令更新内核：
+
+```
+partprobe 
+```
+
+现在，使用 `mkfs` 命令将文件系统写入到该分区。 指定文件系统类型和设备名称。 以下示例在通过前面的步骤创建的 */dev/sdc1* 分区中创建 *ext4* 文件系统：
 
 ```bash
 sudo mkfs -t ext4 /dev/sdc1
 ```
 
-输出
+输出类似于以下示例：
 
 ```bash
 mke2fs 1.42.9 (4-Feb-2014)
@@ -192,38 +168,25 @@ Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
 
-现在，我们使用 `mkdir`创建一个目录来装载文件系统：
+现在，使用 `mkdir` 创建一个目录来装载文件系统。 以下示例在 */datadrive* 处创建一个目录：
 
 ```bash
 sudo mkdir /datadrive
 ```
 
-并使用 `mount`来装载目录：
+然后，使用 `mount` 来装载文件系统。 以下示例将 */dev/sdc1* 分区装载到 */datadrive* 装入点：
 
 ```bash
 sudo mount /dev/sdc1 /datadrive
 ```
 
-数据磁盘现在可以作为 `/datadrive`使用。
+若要确保在重新引导后自动重新装载驱动器，必须将其添加到 */etc/fstab* 文件。 此外，强烈建议在 */etc/fstab* 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（例如 */dev/sdc1*）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置。 然后为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，请使用 `blkid` 实用工具：
 
 ```bash
-ls
+sudo blkid
 ```
 
-输出
-
-```bash
-bin   datadrive  etc   initrd.img  lib64       media  opt   root  sbin  sys  usr  vmlinuz
-boot  dev        home  lib         lost+found  mnt    proc  run   srv   tmp  var
-```
-
-若要确保在重新引导后自动重新装载驱动器，必须将其添加到 /etc/fstab 文件。 此外，强烈建议在 /etc/fstab 中使用 UUID（全局唯一标识符）来引用驱动器而不是只使用设备名称（例如 `/dev/sdc1`）。 如果 OS 在启动过程中检测到磁盘错误，使用 UUID 可以避免将错误的磁盘装载到给定位置。 然后为剩余的数据磁盘分配这些设备 ID。 若要查找新驱动器的 UUID，可以使用 **blkid** 实用工具：
-
-```bash
-sudo -i blkid
-```
-
-输出与下面类似：
+输出与以下示例类似：
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -232,33 +195,33 @@ sudo -i blkid
 ```
 
 > [!NOTE]
-> 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑之前创建 /etc/fstab 文件的备份。
-> 
-> 
+> 错误地编辑 **/etc/fstab** 文件可能会导致系统无法引导。 如果没有把握，请参考分发的文档来获取有关如何正确编辑该文件的信息。 另外，建议在编辑前备份 /etc/fstab 文件。
 
-接下来，请在文本编辑器中打开 **/etc/fstab** 文件。
+接下来，在文本编辑器中打开 */etc/fstab* 文件，如下所示：
 
 ```bash
 sudo vi /etc/fstab
 ```
 
-在此示例中，将使用在之前的步骤中创建的新 **/dev/sdc1** 设备的 UUID 值并使用装载点 **/datadrive**。 将以下行添加到 **/etc/fstab** 文件的末尾：
+在此示例中，使用在之前的步骤中创建的 /dev/sdc1  设备的 UUID 值并使用装入点 /datadrive  。 将以下行添加到 */etc/fstab* 文件的末尾：
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
 ```
 
 > [!NOTE]
-> 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版提供 `nofail` 和/或 `nobootwait` fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
-> 
-> 即使文件系统已损坏或磁盘在引导时不存在， **nofail** 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+> 之后，在不编辑 fstab 的情况下删除数据磁盘可能会导致 VM 无法启动。 大多数分发版都提供 *nofail* 和/或 *nobootwait* fstab 选项。 这些选项使系统在磁盘无法装载的情况下也能启动。 有关这些参数的详细信息，请查阅分发文档。
+>
+> 即使文件系统已损坏或磁盘在引导时不存在， *nofail* 选项也能确保 VM 启动。 如果不使用此选项，可能会遇到 [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
+
+<!--Not Available on [Serial Console documentation](/virtual-machines/troubleshooting/serial-console-linux)-->
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Azure 中对 Linux 的 TRIM/UNMAP 支持
-某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 这主要适用于标准存储，以通知 Azure 已删除的页不再有效，并且可以丢弃。 如果创建了较大的文件，然后将其删除，这样可以节省成本。
+某些 Linux 内核支持 TRIM/UNMAP 操作以放弃磁盘上未使用的块。 此功能主要用于标准存储中，如果你创建大型文件后又将其删除，则该功能将通知 Azure 已删除的页不再有效并且可以丢弃，可以节省成本。
 
 在 Linux VM 中有两种方法可以启用 TRIM 支持。 与往常一样，有关建议的方法，请参阅分发：
 
-* 在 `/etc/fstab` 中使用 `discard` 装载选项，例如：
+* 在 */etc/fstab* 中使用 `discard` 装载选项，例如：
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
@@ -280,9 +243,12 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
     ```
 
 ## <a name="troubleshooting"></a>故障排除
+
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>后续步骤
-* 请记住，除非将该信息写入 [fstab](http://en.wikipedia.org/wiki/Fstab) 文件，否则即使重新启动 VM，新磁盘也无法供 VM 使用。
-* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md?toc=%2fvirtual-machines%2flinux%2ftoc.json)的建议。
-* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md?toc=%2fvirtual-machines%2flinux%2ftoc.json) 来提高性能。
+
+* 为确保正确配置 Linux VM，请查看有关[优化 Linux 计算机性能](optimization.md)的建议。
+* 可以添加更多的磁盘来扩展存储容量，[配置 RAID](configure-raid.md) 来提高性能。
+
+<!--Update_Description: update meta properties, update link, wording update -->

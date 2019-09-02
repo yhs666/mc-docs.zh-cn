@@ -1,45 +1,37 @@
 ---
-title: "Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure"
-description: "Linux 上的 Azure Service Fabric 预览版和 Windows 上的 Azure Service Fabric 之间的差异。"
+title: Linux 和 Windows 之间的 Azure Service Fabric 差异 | Azure
+description: Linux 上的 Azure Service Fabric 与 Windows 上的 Azure Service Fabric 之间的差异。
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
-manager: timlt
-editor: 
+author: rockboyfor
+manager: digimobile
+editor: ''
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/23/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e77fc917f2c0f9af97021dc85a77d854eebab92a
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 02/23/2018
+ms.date: 10/15/2018
+ms.author: v-yeche
+ms.openlocfilehash: 5a3ea04f83a2923146c899ecf96601c3f42297cb
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52651491"
 ---
-# <a name="differences-between-service-fabric-on-linux-preview-and-windows-generally-available"></a>Linux 上的 Service Fabric（预览版）与 Windows 上的 Service Fabric（正式版）之间的差异
+# <a name="differences-between-service-fabric-on-linux-and-windows"></a>Linux 上的 Service Fabric 与 Windows 上的 Service Fabric 之间的差异
 
-由于 Linux 上的 Service Fabric 是预览版，因此某些在 Windows 上受支持的功能，在 Linux 上不受支持。 最终，当 Linux 上的 Service Fabric 公开发布时，这些功能集会一致。
+某些在 Windows 上受支持的功能，在 Linux 上尚不受支持。 最终，功能集将会一致，并且随着每个版本的发布，此功能差异将会缩小。 最新的可用版本之间存在以下差异。
 
-* Linux 不支持 Reliable Collections（和 Reliable Stateful Services）。
-* ReverseProxy 在 Linux 上不可用。
-* 独立安装程序在 Linux 上不可用。
-* 清单文件的 XML 架构验证不在 Linux 上执行。 
-* Linux 不支持控制台重定向。 
-* 故障分析服务 (FAS) 在 Linux 上不可用。
-* Azure Active Directory 支持在 Linux 上不可用。
-* Powershell 命令的某些 CLI 命令对等项不可用。
-* 只能针对 Linux 群集运行部分 Powershell 命令（在下一部分展开介绍）。
-
->[!NOTE]
->即使在 Windows 上，也不支持在生产群集中进行控制台重定向。
-
-在 Windows 上使用 VisualStudio、Powershell、VSTS 和 ETW 以及在 Linux 上使用 Yeoman、Eclipse、Jenkins 和 LTTng 时，开发工具是不同的。
+* Envoy（反向代理）在 Linux 上以预览版提供
+* 在 Linux 中尚未推出适用于 Linux 的独立安装程序
+* 控制台重定向（在 Linux 或 Windows 生产群集中不受支持）
+* Linux 上的故障分析服务 (FAS)
+* 用于 Service Fabric 服务的 DNS 服务（Linux 上的容器支持 DNS 服务）
+* 某些 Powershell 命令的 CLI 命令等效项（下面已列出，其中的大多数命令仅适用于独立群集）
 
 ## <a name="powershell-cmdlets-that-do-not-work-against-a-linux-service-fabric-cluster"></a>不能对 Linux Service Fabric 群集使用的 Powershell cmdlet
 
@@ -65,7 +57,6 @@ ms.lasthandoff: 05/05/2017
 * Start-ServiceFabricPartitionRestart
 * Stop-ServiceFabricChaos
 * Stop-ServiceFabricTestCommand
-* Cmd
 * Get-ServiceFabricNodeConfiguration
 * Get-ServiceFabricClusterConfiguration
 * Get-ServiceFabricClusterConfigurationUpgradeStatus
@@ -97,13 +88,12 @@ ms.lasthandoff: 05/05/2017
 * Stop-ServiceFabricRepairTask
 * Update-ServiceFabricRepairTaskHealthPolicy
 
-
-
 ## <a name="next-steps"></a>后续步骤
 * [在 Linux 上准备开发环境](service-fabric-get-started-linux.md)
 * [在 OSX 上准备开发环境](service-fabric-get-started-mac.md)
 * [使用 Yeoman 在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-create-your-first-linux-application-with-java.md)
 * [使用适用于 Eclipse 的 Service Fabric 插件在 Linux 上创建和部署第一个 Service Fabric Java 应用程序](service-fabric-get-started-eclipse.md)
 * [在 Linux 上创建第一个 CSharp 应用程序](service-fabric-create-your-first-linux-application-with-csharp.md)
-* [使用 Azure CLI 管理 Service Fabric 应用程序](service-fabric-azure-cli.md)
+* [使用 Service Fabric CLI 管理应用程序](service-fabric-application-lifecycle-sfctl.md)
 
+<!--Update_Description: update meta properties, wording update -->

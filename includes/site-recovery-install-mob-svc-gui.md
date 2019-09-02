@@ -1,13 +1,22 @@
-1. 将相关的安装程序复制到服务器并启动安装程序。
-2. 在“开始之前”中选择“移动服务”。
+1. 将安装复制到服务器，并打开安装程序。
+2. 在“安装选项”上，选择“安装移动服务”。
 
-    ![移动服务](./media/site-recovery-install-mob-svc-gui/mobility3.png)  
+    ![“移动服务安装选项”页](./media/site-recovery-install-mob-svc-gui/mobility1.png)
 
-3. 在“配置服务器详细信息”中，指定配置服务器的 IP 地址和通行短语。
+3. 选择安装位置，并选择“安装”开始安装过程。
 
-    ![移动服务](./media/site-recovery-install-mob-svc-gui/mobility6.png)  
+    ![“移动服务安装位置”页](./media/site-recovery-install-mob-svc-gui/mobility2.png)
 
-4. 保留“安装位置”中的默认设置，然后单击“下一步”开始安装。
-5. 在“安装进度”中监视安装过程，然后根据提示重新启动计算机。安装该服务后，可能需要大约 15 分钟，状态才会在门户中更新。
+4. 可以使用“安装进度”页监视安装程序的进度。
 
-<!---HONumber=Mooncake_0327_2017-->
+    ![“移动服务安装进度”页](./media/site-recovery-install-mob-svc-gui/mobility3.png)
+
+5. 安装完成后，选择“转到配置”，将移动服务注册到配置服务器。
+
+    ![“移动服务注册”页](./media/site-recovery-install-mob-svc-gui/mobility4.png)
+
+6. 选择“注册”完成注册。
+
+    ![移动服务注册最后一页](./media/site-recovery-install-mob-svc-gui/mobility5.png)
+<!--Update_Description: wording update-->
+<!--ms.date: 03/05/2018-->

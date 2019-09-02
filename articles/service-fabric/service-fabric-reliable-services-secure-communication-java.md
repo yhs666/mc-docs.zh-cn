@@ -1,37 +1,38 @@
 ---
-title: "在 Azure Service Fabric 中帮助保护服务的通信 | Azure"
-description: "概述如何帮助保护在 Azure Service Fabric 群集中运行的 Reliable Services 的通信。"
+title: 在 Azure Service Fabric 中通过 Java 保护服务远程处理通信 | Azure
+description: 了解如何保护 Azure Service Fabric 群集中运行的 Java 可靠服务的基于服务远程处理的通信。
 services: service-fabric
 documentationcenter: java
-author: PavanKunapareddyMSFT
-manager: timlt
-ms.assetid: 
+author: rockboyfor
+manager: digimobile
+ms.assetid: ''
 ms.service: service-fabric
 ms.devlang: java
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 03/09/2017
-ms.author: v-johch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: e33d62ec8570780dac5e5e3831c78f27e94bb3cb
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
-
+origin.date: 06/30/2017
+ms.date: 08/20/2018
+ms.author: v-yeche
+ms.openlocfilehash: 4d3fbd793e5095f7b4a04726f1f0ba2dc0947d54
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52655841"
 ---
-# <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>在 Azure Service Fabric 中帮助保护服务的通信
+# <a name="secure-service-remoting-communications-in-a-java-service"></a>保护 Java 服务的服务远程处理通信
 > [!div class="op_single_selector"]
 > * [Windows 上的 C#](service-fabric-reliable-services-secure-communication.md)
 > * [Linux 上的 Java](service-fabric-reliable-services-secure-communication-java.md)
 >
 >
 
-## <a name="help-secure-a-service-when-youre-using-service-remoting"></a>使用服务远程处理时帮助保护服务
-我们将使用一个现有[示例](service-fabric-reliable-services-communication-remoting-java.md)来解释如何为 Reliable Services 设置远程处理。 若要在使用服务远程处理时帮助保护服务，请遵循以下步骤：
+安全是通信最为重视的要素之一。 Reliable Services 应用程序框架提供了一些预先生成的通信堆栈和工具供你用来提高安全性。 本文介绍如何在 Java 服务中使用服务远程处理时提高安全性。 它基于现有的[示例](service-fabric-reliable-services-communication-remoting-java.md)构建，该示例解释了如何为使用 Java 编写的可靠服务设置远程处理。 
 
-1. 创建接口 `HelloWorldStateless`，用于定义可供服务的远程过程调用使用的方法。 服务将使用 `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` 包中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `CommunicationListener` 实现。
+若要在 Java 服务中使用服务远程处理时帮助保护服务，请遵循以下步骤：
+
+1. 创建接口 `HelloWorldStateless`，用于定义可供服务的远程过程调用使用的方法。 服务会使用 `microsoft.serviceFabric.services.remoting.fabricTransport.runtime` 包中声明的 `FabricTransportServiceRemotingListener`。 这是可以提供远程处理功能的 `CommunicationListener` 实现。
 
     ```java
     public interface HelloWorldStateless extends Service {
@@ -55,11 +56,13 @@ ms.lasthandoff: 05/05/2017
     ```
 2. 添加侦听器设置和安全凭据。
 
-    确保你要用来帮助保护服务通信的证书安装在群集中的所有节点上。 有两种方式可用于提供侦听器设置和安全凭据：
+    确保要用来帮助保护服务通信的证书安装在群集中的所有节点上。 对于在 Linux 上运行的服务，证书必须以 PEM 格式的文件提供，要么是包含证书和私钥的 `.pem` 文件，要么是包含证书的 `.crt` 文件和包含私钥的 `.key` 文件。 有关详细信息，请参阅 [Linux 节点上的 X.509 证书的位置和格式](./service-fabric-configure-certificates-linux.md#location-and-format-of-x509-certificates-on-linux-nodes)。
 
-   1. 使用[配置包](service-fabric-application-model.md)提供：
+    有两种方式可用于提供侦听器设置和安全凭据：
 
-       在 settings.xml 文件中添加 `TransportSettings` 节。
+   1. 使用[配置包](service-fabric-application-and-service-manifests.md)提供：
+
+       在 settings.xml 文件中添加名为 `TransportSettings` 的节。
 
        ```xml
        <!--Section name should always end with "TransportSettings".-->
@@ -86,7 +89,7 @@ ms.lasthandoff: 05/05/2017
         }
        ```
 
-        如果将在 settings.xml 中添加 `TransportSettings` 节而不添加任何前缀，`FabricTransportListenerSettings` 将默认加载此节中的所有设置。
+        如果要在 settings.xml 中添加 `TransportSettings` 节而不添加任何前缀，`FabricTransportListenerSettings` 将默认加载此节中的所有设置。
 
         ```xml
         <!--"TransportSettings" section without any prefix.-->
@@ -94,7 +97,7 @@ ms.lasthandoff: 05/05/2017
             ...
         </Section>
         ```
-        在这种情况下，`CreateServiceReplicaListeners` 方法如下所示：
+        在这种情况下，`CreateServiceInstanceListeners` 方法如下所示：
 
         ```java
         protected List<ServiceInstanceListener> createServiceInstanceListeners() {
@@ -122,3 +125,4 @@ ms.lasthandoff: 05/05/2017
 
     ```
 
+<!--Update_Description: update meta properties, wording update-->

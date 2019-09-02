@@ -1,93 +1,114 @@
 ---
-title: "Azure CLI 脚本示例 - 在批处理中添加应用程序 | Microsoft Docs"
-description: "Azure CLI 脚本示例 - 在批处理中添加应用程序"
+title: Azure CLI 脚本示例 - 在 Batch 中添加应用程序 | Microsoft Docs
+description: Azure CLI 脚本示例 - 在 Batch 中添加应用程序
 services: batch
-documentationcenter: 
-author: annatisch
-manager: daryls
-editor: tysonn
-ms.assetid: 
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
 ms.service: batch
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 03/20/2017
+origin.date: 01/29/2018
+ms.date: 09/07/2018
 ms.author: v-junlch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 457fc748a9a2d66d7a2906b988e127b09ee11e18
-ms.openlocfilehash: 09bec453bfe064e3f13e15ce5b15816ee4c49821
-ms.contentlocale: zh-cn
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 6f7243a02f4c377413f4e5add10991da4ffea839
+ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52654529"
 ---
+# <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>CLI 示例：向 Azure Batch 帐户添加应用程序
 
-# <a name="adding-applications-to-azure-batch-with-azure-cli"></a>使用 Azure CLI 将应用程序添加到 Azure 批处理
+此脚本演示如何添加要与 Azure Batch 池或任务配合使用的应用程序。 若要设置添加到 Batch 帐户的应用程序，请将可执行文件与所有依赖文件一起打包为 zip 文件。 
 
-此脚本演示如何设置要与 Azure 批处理池或任务配合使用的应用程序。 若要设置应用程序，请将可执行文件与所有依赖文件一起打包为 .zip 文件。 在此示例中，可执行 zip 文件名为“my-application-exe.zip”。
-运行此脚本时假定已设置批处理帐户。 有关详细信息，请参阅[用于创建批处理帐户的示例脚本](./batch-cli-sample-create-account.md)。
 
-如果需要，请使用 [Azure CLI 安装指南](https://docs.microsoft.com/cli/azure/install-azure-cli)中的说明安装 Azure CLI，然后运行 `az login` 登录到 Azure。
+如果选择在本地安装并使用 CLI，本文要求运行 Azure CLI 2.0.20 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](/cli/install-azure-cli)。 
 
-## <a name="sample-script"></a>示例脚本
+## <a name="example-script"></a>示例脚本
 
 ```azurecli
 #!/bin/bash
 
-# Authenticate CLI session.
-az login
+# Create a resource group.
+az group create --name myResourceGroup --location chinanorth
+
+# Create a general-purpose storage account in your resource group.
+az storage account create \
+    --resource-group myResourceGroup \
+    --name mystorageaccount \
+    --location chinanorth \
+    --sku Standard_LRS
+
+# Create a Batch account.
+az batch account create \
+    --name mybatchaccount \
+    --storage-account mystorageaccount \
+    --resource-group myResourceGroup \
+    --location chinanorth
+
+# Authenticate against the account directly for further CLI interaction.
+az batch account login \
+    --name mybatchaccount \
+    --resource-group myResourceGroup \
+    --shared-key-auth
 
 # Create a new application.
 az batch application create \
-    --resource-group myresourcegroup \
+    --resource-group myResourceGroup \
     --name mybatchaccount \
     --application-id myapp \
     --display-name "My Application"
 
 # An application can reference multiple application executable packages
-# of different versions. The executables and any dependencies will need
-# to be zipped up for the package. Once uploaded, the CLI will attempt
+# of different versions. The executables and any dependencies need
+# to be zipped up for the package. Once uploaded, the CLI attempts
 # to activate the package so that it's ready for use.
 az batch application package create \
-    --resource-group myresourcegroup \
+    --resource-group myResourceGroup \
     --name mybatchaccount \
     --application-id myapp \
     --package-file my-application-exe.zip \
     --version 1.0
 
-# We will update our application to assign the newly added application
+# Update the application to assign the newly added application
 # package as the default version.
 az batch application set \
-    --resource-group myresourcegroup \
+    --resource-group myResourceGroup \
     --name mybatchaccount \
     --application-id myapp \
     --default-version 1.0
 ```
+## <a name="clean-up-deployment"></a>清理部署
 
-## <a name="clean-up-application"></a>清除应用程序
-
-运行上述示例脚本后，可运行以下命令以删除应用程序及其已上载的应用程序包。
+运行以下命令以删除资源组及其相关的所有资源。
 
 ```azurecli
-az batch application package delete -g myresourcegroup -n mybatchaccount --application-id myapp --version 1.0 --yes
-az batch application delete -g myresourcegroup -n mybatchaccount --application-id myapp --yes
+az group delete --name myResourceGroup
 ```
 
 ## <a name="script-explanation"></a>脚本说明
 
-此脚本使用以下命令创建应用程序并上载应用程序包。
-表中的每条命令均链接到特定于命令的文档。
+此脚本使用以下命令。
+表中的每条命令链接到特定于命令的文档。
 
-| 命令 | 说明 |
+| 命令 | 注释 |
 |---|---|
-| [az batch application create](https://docs.microsoft.com/cli/azure/batch/application#create) | 创建应用程序。  |
-| [az batch application set](https://docs.microsoft.com/cli/azure/batch/application#set) | 更新应用程序的属性。  |
-| [az batch application package create](https://docs.microsoft.com/cli/azure/batch/application/package#create) | 将应用程序包添加到指定的应用程序。  |
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
+| [az batch account create](/cli/batch/account#az-batch-account-create) | 创建批处理帐户。 |
+| [az batch account login](/cli/batch/account#az-batch-account-login) | 针对指定的批处理帐户进行身份验证，以便进一步进行 CLI 交互。  |
+| [az batch application create](/cli/batch/application#az-batch-application-create) | 创建应用程序。  |
+| [az batch application package create](/cli/batch/application/package#az-batch-application-package-create) | 将应用程序包添加到指定的应用程序。  |
+| [az batch application set](/cli/batch/application#az-batch-application-set) | 更新应用程序的属性。  |
+| [az group delete](/cli/group#az-group-delete) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
 
-有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](https://docs.microsoft.com/cli/azure/overview)。
+有关 Azure CLI 的详细信息，请参阅 [Azure CLI 文档](/cli)。
 
-可以在 [Azure 批处理 CLI 文档](../batch-cli-samples.md)中找到其他批处理 CLI 脚本示例。
-
-
+<!-- Update_Description: link update -->
