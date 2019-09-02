@@ -113,9 +113,9 @@ await fc.ApplicationManager.CreateApplicationAsync(ad);
 - **MinimumNodes** - 定义应用程序实例应在其上运行的最小节点数。  
 - **NodeReservationCapacity** - 此设置是应用程序的各项指标。 应用程序中的服务在节点上运行，该值是为该节点上的该应用程序保留的该指标的量。
 
-结合使用 MinimumNodes 和 NodeReservationCapacity 可以保证为群集中的应用程序保留最小负载。 如果群集中存在的剩余容量比所需要的总保留容量小，则无法创建应用程序。 
+结合使用 MinimumNodes 和 NodeReservationCapacity 可以保证为群集中的应用程序保留最小负载   。 如果群集中存在的剩余容量比所需要的总预留容量小，则无法创建应用程序。 
 
-下面是容量保留的一个示例：
+下面是容量预留的一个示例：
 
 <center>
 
@@ -154,7 +154,7 @@ ad.Metrics.Add(appMetric);
 await fc.ApplicationManager.CreateApplicationAsync(ad);
 ```
 
-Service Fabric 为 Application1 保留两个节点上的容量，并不允许 Application2 的服务使用该容量，即使此时 Application1 中的服务唯有消耗负载。 我们认为这些保留的应用程序容量是根据该节点上和群集中的剩余容量消耗和计算的。  可以立即从剩余的群集容量中扣除保留容量，但是仅当特定节点上至少放置一个服务对象时，才从该节点的容量扣除保留的消耗量。 使用后面这种保留方式可以获得弹性并改善资源利用率，因为只会根据需要在节点上保留资源。
+Service Fabric 为 Application1 保留两个节点上的容量，并不允许 Application2 的服务使用该容量，即使此时 Application1 中的服务唯有消耗负载。 我们认为这些保留的应用程序容量是根据该节点上和群集中的剩余容量消耗和计算的。  可以立即从剩余的群集容量中扣除预留，但是仅当特定节点上至少放置一个服务对象时，才从该节点的容量扣除预留的消耗量。 使用后面这种预留方式可以获得弹性并改善资源利用率，因为只会根据需要在节点上预留资源。
 
 ## <a name="obtaining-the-application-load-information"></a>获取应用程序负载信息
 对于每个应用程序，如果具有为一个或多个指标定义的应用程序容量，可以获取其服务的副本报告的聚合负载的相关信息。
@@ -181,7 +181,7 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 ApplicationLoad 查询返回针对应用程序所指定应用程序容量的基本信息。 此信息包括最小节点数和最大节点数信息，以及应用程序当前使用的节点数。 还包括有关每个应用程序负载指标的信息，包括：
 
 * 指标名称：指标的名称。
-* 保留容量：在群集中为此应用程序保留的群集容量。
+* 预留容量：在群集中为此应用程序保留的群集容量。
 * 应用程序负载：此应用程序的子副本的总负载。
 * 应用程序容量：允许的最大应用程序负载值。
 
@@ -201,13 +201,13 @@ Update-ServiceFabricApplication -Name fabric:/MyApplication1 -RemoveApplicationC
 - 所有整数参数必须为非负数。
 - MinimumNodes 不得大于 MaximumNodes。
 - 如果已定义负载指标的容量，则这些容量必须遵守以下规则：
-  - 节点保留容量不得大于最大节点容量。 例如，不能将节点上指标“CPU”的容量限制为 2 个单位，也不能尝试在每个节点上保留 3 个单位。
+  - 节点预留容量不得大于最大节点容量。 例如，不能将节点上指标“CPU”的容量限制为 2 个单位，也不能尝试在每个节点上保留 3 个单位。
   - 如果已指定 MaximumNodes，则 MaximumNodes 和最大节点容量的积不得大于应用程序容量总计。 例如，如果将负载指标“CPU”的最大节点容量设置为 8， 将最大节点数设置为 10。 在这种情况下，此负载指标的应用程序容量总计必须大于 80。
 
 在创建和更新应用程序的过程中，都会强制限制。
 
 ## <a name="how-not-to-use-application-capacity"></a>在哪些情况下不应使用应用程序容量
-- 不要尝试使用应用程序组功能将应用程序限制在特定节点子集。 换言之，可以指定应用程序最多在 5 个节点上运行，但不能指定群集中特定的 5 个节点。 可使用服务放置约束完成将应用程序限制在特定节点。
+- 不要尝试使用应用程序组功能将应用程序限制在特定节点子集。  换言之，可以指定应用程序最多在 5 个节点上运行，但不能指定群集中特定的 5 个节点。 可使用服务放置约束完成将应用程序限制在特定节点。
 - 不要尝试通过使用应用程序容量确保将同一应用程序中的两个服务放在同一节点上。 改用[关联](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)或[放置约束](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)。
 
 ## <a name="next-steps"></a>后续步骤

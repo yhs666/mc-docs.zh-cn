@@ -7,16 +7,16 @@ manager: shivamg
 keywords: windows server 备份; 备份 windows server; 备份和灾难恢复
 ms.service: backup
 ms.topic: tutorial
-origin.date: 09/25/2018
+origin.date: 08/25/2019
 ms.date: 8/22/2018
-ms.author: v-junlch
+ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b6fc0d920467f1ac26f71143acd0b4c485f45242
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: f95d32ad1d1f61cea8d6b0d5b1c115941af47935
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569716"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103723"
 ---
 # <a name="back-up-windows-server-to-azure"></a>将 Windows Server 备份到 Azure
 
@@ -27,7 +27,7 @@ ms.locfileid: "67569716"
 > [!div class="checklist"]
 > * 下载和设置 MARS 代理
 > * 为服务器备份配置备份时间和保留计划
-> * 执行即席备份
+> * 执行临时备份
 
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
@@ -68,8 +68,8 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 3. 在“备份目标”菜单  上：
 
-   - 对于“工作负载的运行位置?”，请选择“本地”   
-   - 对于“要备份的项?”，请选择“文件和文件夹”以及“系统状态”    
+   * 对于“工作负载的运行位置?”，请选择“本地”   ； 
+   * 对于“要备份的项?”，请选择“文件和文件夹”以及“系统状态”   
 
      ![提供保管库信息](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
     
@@ -129,7 +129,7 @@ Azure 恢复服务 (MARS) 代理在 Windows Server 和恢复服务保管库之�
 
 11. 在向导完成创建备份计划后，请单击“**关闭**”。
 
-## <a name="perform-an-ad-hoc-back-up"></a>执行即席备份
+## <a name="perform-an-ad-hoc-back-up"></a>执行临时备份
 
 备份作业运行时表示计划已建立。 但服务器尚未备份。 运行按需备份是灾难恢复最佳做法，可确保服务器的数据弹性。
 

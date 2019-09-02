@@ -4,18 +4,18 @@ description: 本教程逐步介绍如何设置开发计算机和云资源，以�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/10/2019
-ms.date: 07/22/2019
+origin.date: 08/13/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 15a144a113cc1a8d03c8ff1b7c207ee52649f0b3
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 30bf9ebd5d907906fe84f32cdf99fab60526b2ed
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845253"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174272"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>教程：开发适用于 Linux 设备的 IoT Edge 模块
 
@@ -43,7 +43,7 @@ ms.locfileid: "67845253"
 
 开发 IoT Edge 模块时，必须了解开发计算机与该模块最终要部署到的目标 IoT Edge 设备之间的差异。 生成的用于保存模块代码的容器必须与目标设备的操作系统 (OS) 相匹配。  例如，最常见的情形是在 Windows 计算机上开发面向运行 IoT Edge 的 Linux 设备的模块。 在这种情况下，容器操作系统将是 Linux。 在学习本教程的过程中，请注意开发计算机 OS 与容器 OS 之间的差异。  
 
-本教程面向运行 IoT Edge 的 Linux 设备。 只要开发计算机可以运行 Linux 容器，则你就可以使用首选的开发计算机操作系统。 我们建议使用 Visual Studio Code 对 Linux 设备进行开发，而本教程也正是使用此工具。 还可以使用 Visual Studio，但这两个工具提供的支持存在差异。
+本教程面向运行 IoT Edge 的 Linux 设备。 只要开发计算机可以运行 Linux 容器，就可以使用首选操作系统。 我们建议使用 Visual Studio Code 对 Linux 设备进行开发，而本教程也正是使用此工具。 还可以使用 Visual Studio，但这两个工具提供的支持存在差异。
 
 下表列出了 Visual Studio Code 和 Visual Studio 支持的 **Linux 容器**开发方案。
 
@@ -52,7 +52,10 @@ ms.locfileid: "67845253"
 | **Linux 设备体系结构** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Azure 服务** | Azure Functions <br> Azure 流分析 <br> Azure 机器学习 |   |
 | **语言** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **详细信息** | [适用于 Visual Studio Code 的 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [适用于 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)、[适用于 Visual Studio 2019 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+| **详细信息** | [适用于 Visual Studio Code 的 Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [适用于 Visual Studio 2017 的 Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) <br> [适用于 Visual Studio 2019 的 Azure IoT Edge 工具](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
+
+>[!NOTE]
+>[公共预览版](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)中提供对 Linux ARM64 设备的支持。 有关详细信息，请参阅[在 Visual Studio Code（预览版）中开发和调试 ARM64 IoT Edge 模块](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)。
 
 本教程将会讲解 Visual Studio Code 的开发步骤。 如果想要使用 Visual Studio，请参阅[使用 Visual Studio 2019 为 Azure IoT Edge 开发和调试模块](how-to-visual-studio-develop-module.md)中的说明。
 
@@ -191,11 +194,11 @@ IoT Edge 扩展尝试从 Azure 提取容器注册表凭据，并将其填充到�
 
 7. 查找 $edgeAgent 所需属性的 **modules** 属性。 
 
-   此处应会列出两个模块。 第一个模块是 **tempSensor**，它默认包含在所有模板中，提供可用于测试模块的模拟温度数据。 第二个模块是在创建此解决方案过程中创建的 **SampleModule** 模块。
+   此处应会列出两个模块。 第一个模块是 **SimulatedTemperatureSensor**，该模块默认包含在所有模板中，提供可用于测试模块的模拟温度数据。 第二个模块是在创建此解决方案过程中创建的 **SampleModule** 模块。
 
 7. 在文件底部，找到 **$edgeHub** 模块的所需属性。 
 
-   IoT Edge 中心模块的功能之一是在部署中的所有模块之间路由消息。 查看 **routes** 属性中的值。 第一个路由 **SampleModuleToIoTHub** 使用通配符 ( **\*** ) 指示 SampleModule 模块中的任何输出队列传出的任何消息。 这些消息进入 *$upstream*（用于指示 IoT 中心的保留名称）。 第二个路由 sensorToSampleModule 接收 tempSensor 模块传出的消息，并将其路由到 *input1* 输入队列，在 SampleModule 代码中可以看到该队列已初始化。 
+   IoT Edge 中心模块的功能之一是在部署中的所有模块之间路由消息。 查看 **routes** 属性中的值。 第一个路由 **SampleModuleToIoTHub** 使用通配符 ( **\*** ) 指示 SampleModule 模块中的任何输出队列传出的任何消息。 这些消息进入 *$upstream*（用于指示 IoT 中心的保留名称）。 第二个路由 sensorToSampleModule 接收来自 SimulatedTemperatureSensor 模块的消息，并将它们路由到在 SampleModule 代码中初始化的 input1  输入队列。 
 
    ![在 deployment.template.json 中查看路由](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -279,7 +282,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 4. 展开 IoT Edge 设备的详细信息，然后展开设备的“模块”列表。  
 
-5. 使用刷新按钮更新设备视图，直到看到 tempSensor 和 SampleModule 模块在设备上运行。 
+5. 使用“刷新”按钮更新设备视图，直至看到设备上运行 SimulatedTemperatureSensor 和 SampleModule 模块。 
 
    启动这两个模块可能需要几分钟时间。 IoT Edge 运行时需要接收其新部署清单、从容器运行时提取模块映像，然后启动每个新模块。 
 
@@ -287,7 +290,7 @@ Visual Studio Code 现在有权访问你的容器注册表。接下来，可将�
 
 ## <a name="view-messages-from-device"></a>查看来自设备的消息
 
-SampleModule 代码通过其输入队列接收消息，然后通过其输出队列传递消息。 部署清单声明了从 tempSensor 向 SampleModule 传递消息，然后从 SampleModule 向 IoT 中心转发消息的路由。 使用适用于 Visual Studio Code 的 Azure IoT Tools 可以查看单个设备发出的已抵达 IoT 中心的消息。 
+SampleModule 代码通过其输入队列接收消息，然后通过其输出队列传递消息。 部署清单声明了从 SimulatedTemperatureSensor 将消息传递到 SampleModule，再将消息从 SampleModule 转发到 IoT 中心的路由。 使用适用于 Visual Studio Code 的 Azure IoT Tools 可以查看单个设备发出的已抵达 IoT 中心的消息。 
 
 1. 在 Visual Studio Code 资源管理器中，右键单击想要监视的 IoT Edge 设备，然后选择“开始监视内置事件终结点”  。 
 
@@ -307,7 +310,7 @@ SampleModule 代码通过其输入队列接收消息，然后通过其输出队�
    iotedge list
    ```
 
-   应会看到四个模块：两个 IoT Edge 运行时模块、tempSensor 和 SampleModule。 所有四个模块应列为“正在运行”。
+   应该看到四个模块：两个 IoT Edge 运行时模块、SimulatedTemperatureSensor 和 SampleModule。 所有四个模块应列为“正在运行”。
 
 * 检查特定模块的日志：
 
@@ -317,7 +320,7 @@ SampleModule 代码通过其输入队列接收消息，然后通过其输出队�
 
    IoT Edge 模块区分大小写。 
 
-   tempSensor 和 SamplModule 日志应显示它们正在处理的消息。 edgeAgent 模块负责启动其他模块，因此，其日志将包含有关实现部署清单的信息。 如有任一模块未列出或未运行，edgeAgent 日志可能会包含错误。 edgeHub 模块负责模块与 IoT 中心之间的通信。 如果模块已启动并正在运行，但消息未抵达 IoT 中心，edgeHub 日志可能会包含错误。 
+   SimulatedTemperatureSensor 和 SampleModule 日志应显示其正在处理的消息。 edgeAgent 模块负责启动其他模块，因此，其日志将包含有关实现部署清单的信息。 如有任一模块未列出或未运行，edgeAgent 日志可能会包含错误。 edgeHub 模块负责模块与 IoT 中心之间的通信。 如果模块已启动并正在运行，但消息未抵达 IoT 中心，edgeHub 日志可能会包含错误。 
 
 ## <a name="next-steps"></a>后续步骤
 
