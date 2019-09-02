@@ -5,16 +5,16 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
-origin.date: 02/11/2019
-ms.date: 05/27/2019
+origin.date: 07/23/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 5e5e8b12a47476a3c6c3792c964c9cddce63ae97
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 014298eeef9e07bbbebe47fa32e4ce5b484d6caf
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195028"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131727"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教程：使用 PowerShell 创建和管理 VPN 网关
 
@@ -36,6 +36,25 @@ Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程�
 
 ## <a name="common-network-parameter-values"></a>通用网络参数值
 
+下面是本教程中使用的参数值。 在示例中，变量转换为以下内容：
+
+```
+#$RG1         = The name of the resource group
+#$VNet1       = The name of the virtual network
+#$Location1   = The location region
+#$FESubnet1   = The name of the first subnet
+#$BESubnet1   = The name of the second subnet
+#$VNet1Prefix = The address range for the virtual network
+#$FEPrefix1   = Addresses for the first subnet
+#$BEPrefix1   = Addresses for the second subnet
+#$GwPrefix1   = Addresses for the GatewaySubnet
+#$VNet1ASN    = ASN for the virtual network
+#$DNS1        = The IP address of the DNS server you want to use for name resolution
+#$Gw1         = The name of the virtual network gateway
+#$GwIP1       = The public IP address for the virtual network gateway
+#$GwIPConf1   = The name of the IP configuration
+```
+
 根据你的环境和网络设置更改以下值，然后复制并粘贴以设置本教程的变量。
 
 ```azurepowershell
@@ -44,7 +63,6 @@ $VNet1       = "VNet1"
 $Location1   = "China North"
 $FESubnet1   = "FrontEnd"
 $BESubnet1   = "Backend"
-$GwSubnet1   = "GatewaySubnet"
 $VNet1Prefix = "10.1.0.0/16"
 $FEPrefix1   = "10.1.0.0/24"
 $BEPrefix1   = "10.1.1.0/24"
@@ -58,7 +76,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
-使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须先创建资源组。 以下示例在“中国北部”区域中创建名为 *TestRG1* 的资源组：
+使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 必须先创建资源组。 以下示例在“中国北部”  区域中创建名为 *TestRG1* 的资源组：
 
 ```azurepowershell
 New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -66,12 +84,12 @@ New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
 
 ## <a name="create-a-virtual-network"></a>创建虚拟网络
 
-Azure VPN 网关为虚拟网络提供跨界连接和 P2S VPN 服务器功能。 可以将 VPN 网关添加到现有虚拟网络，也可以创建新的虚拟网络和网关。 此示例创建包含三个子网的全新虚拟网络：Frontend、Backend 和 GatewaySubnet，使用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 和 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 进行创建：
+Azure VPN 网关为虚拟网络提供跨界连接和 P2S VPN 服务器功能。 可以将 VPN 网关添加到现有虚拟网络，也可以创建新的虚拟网络和网关。 请注意，该示例特别指定了网关子网的名称。 必须始终将网关子网的名称指定为“GatewaySubnet”，才能使其正常工作。 此示例创建包含三个子网的全新虚拟网络：Frontend、Backend 和 GatewaySubnet，使用 [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) 和 [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) 进行创建：
 
 ```azurepowershell
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubnet1 -AddressPrefix $FEPrefix1
 $besub1 = New-AzVirtualNetworkSubnetConfig -Name $BESubnet1 -AddressPrefix $BEPrefix1
-$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name $GWSubnet1 -AddressPrefix $GwPrefix1
+$gwsub1 = New-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -AddressPrefix $GwPrefix1
 $vnet   = New-AzVirtualNetwork `
             -Name $VNet1 `
             -ResourceGroupName $RG1 `
@@ -133,7 +151,7 @@ $gateway = Get-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroup $RG1
 Resize-AzVirtualNetworkGateway -GatewaySku VpnGw2 -VirtualNetworkGateway $gateway
 ```
 
-调整 VPN 网关大小也将花费大约 30 到 45 分钟，但是此操作“不会”中断或删除现有连接和配置。
+调整 VPN 网关大小也将花费大约 30 到 45 分钟，但是此操作“不会”  中断或删除现有连接和配置。
 
 ## <a name="reset-a-gateway"></a>重置网关
 

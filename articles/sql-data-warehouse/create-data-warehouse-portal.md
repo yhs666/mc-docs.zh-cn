@@ -12,12 +12,12 @@ ms.date: 06/24/2019
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: sqlfreshmay19
-ms.openlocfilehash: 026d1af81e5642680ba0f7f35af8ce16f1885f2c
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 9ae42f66eee1172c3fc2b7c3f8c4a824a3009a37
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151765"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131888"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建和查询 Azure SQL 数据仓库
 
@@ -38,7 +38,7 @@ ms.locfileid: "67151765"
 
 ## <a name="create-a-data-warehouse"></a>创建数据仓库
 
-创建 Azure SQL 数据仓库时，会使用一组定义好的[计算资源](memory-and-concurrency-limits.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-logical-servers.md)中创建。 
+使用一组定义好的[计算资源](memory-and-concurrency-limits.md)创建 Azure SQL 数据仓库。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-logical-servers.md)中创建。 
 
 按照这些步骤创建包含 AdventureWorksDW 示例数据的 SQL 数据仓库。 
 
@@ -172,7 +172,6 @@ SQL 数据仓库使用 T-SQL 作为查询语言。 打开一个查询窗口并�
 
     ![查询数据库](media/create-data-warehouse-portal/query-databases.png)
 
-<!-- Not Available due to there is not load sample database in Azure.cn -->
 
 ## <a name="clean-up-resources"></a>清理资源
 

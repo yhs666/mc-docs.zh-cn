@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 01/03/2019
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0dfa9d9aa8f98b5f33df0e7387a877376316481f
-ms.sourcegitcommit: f1ecc209500946d4f185ed0d748615d14d4152a7
+ms.openlocfilehash: 5a0755b5926250bd14b48bf9dfc2a3ccde86cf96
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57463476"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173955"
 ---
 # <a name="introduction-to-reliable-collections-in-azure-service-fabric-stateful-services"></a>Azure Service Fabric 有状态服务中的可靠集合简介
 
@@ -53,8 +53,8 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 
 目前，**Microsoft.ServiceFabric.Data.Collections** 包含三个集合：
 
-* [Reliable Dictionary](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2)：表示可复制、事务性和异步的键/值对集合。 类似于 **ConcurrentDictionary**，键和值都可以是任何类型。
-* [可靠队列](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)：表示可复制、事务性和异步的严格先进先出 (FIFO) 队列。 类似于 **ConcurrentQueue**，值可以是任何类型。
+* [Reliable Dictionary](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections.ireliabledictionary-2?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliabledictionary_2)：表示可复制、事务性和异步的键/值对集合。 类似于 **ConcurrentDictionary**，键和值都可以是任何类型。
+* [可靠队列](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections.ireliablequeue-1?view=azure-dotnet#microsoft_servicefabric_data_collections_ireliablequeue_1)：表示可复制、事务性和异步的严格先进先出 (FIFO) 队列。 类似于 **ConcurrentQueue**，值可以是任何类型。
 * [可靠的并发队列](service-fabric-reliable-services-reliable-concurrent-queue.md)：表示用于实现高吞吐量的可复制、事务性和异步的“尽力排序”队列。 它与 **ConcurrentQueue** 类似，值可以是任意类型。
 
 ## <a name="next-steps"></a>后续步骤
@@ -63,13 +63,13 @@ Reliable Collections 提供全新的非常一致保证，使应用程序状态�
 * [使用可靠集合](service-fabric-work-with-reliable-collections.md)
 * [事务和锁](service-fabric-reliable-services-reliable-collections-transactions-locks.md)
 * 管理数据
-  * [备份和还原](service-fabric-reliable-services-backup-restore.md)
-  * [通知](service-fabric-reliable-services-notifications.md)
-  * [Reliable Collection 序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
-  * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
-  * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
+    * [备份和还原](service-fabric-reliable-services-backup-restore.md)
+    * [通知](service-fabric-reliable-services-notifications.md)
+    * [Reliable Collection 序列化](service-fabric-reliable-services-reliable-collections-serialization.md)
+    * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
+    * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
 * 其他
-  * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
-  * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+    * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
+    * [Reliable Collections 的开发人员参考](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
 
 <!-- Update_Description: update meta properties, update link -->

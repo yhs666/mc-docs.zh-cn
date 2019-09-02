@@ -1,21 +1,21 @@
 ---
-title: Extact 文本匹配实体
+title: 提取文本匹配实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解如何添加有助于 LUIS 标记字词或短语变体的列表实体。
 services: cognitive-services
 author: lingliw
-titleSuffix: Azure
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: tutorial
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1a1423ad65e8f6801f01ff128ded15dba332740b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: d1d4782f51f1e66bd5d1563b82640dcd42dacb3e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544208"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103862"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用列表实体提升实体检测 
 本教程展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
@@ -148,22 +148,22 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     });
   ```
 
-  运行下面的命令，安装 NPM 依赖项，并通过运行代码来创建列表实体：
+运行下面的命令，安装 NPM 依赖项，并通过运行代码来创建列表实体：
 
-  ```console
-  npm install && node add-entity-list.js
-  ```
+```console
+npm install && node add-entity-list.js
+```
 
-  代码运行输出的是列表实体 ID：
+代码运行输出的是列表实体 ID：
 
-  ```console
-  026e92b3-4834-484f-8608-6114a83b03a6
-  ```
+```console
+026e92b3-4834-484f-8608-6114a83b03a6
+```
 
-  ## <a name="train-the-model"></a>训练模型
-  定型 LUIS，让新列表能够影响查询结果。 定型过程分为两部分，然后在定型完成后检查状态。 有多个模型的应用可能需要一段时间才能完成定型。 下面的代码先定型应用，然后等到定型成功完成。 此代码使用等待并重试策略，以免发生 429“请求次数过多”错误。 
+## <a name="train-the-model"></a>训练模型
+定型 LUIS，让新列表能够影响查询结果。 定型过程分为两部分，然后在定型完成后检查状态。 有多个模型的应用可能需要一段时间才能完成定型。 下面的代码先定型应用，然后等到定型成功完成。 此代码使用等待并重试策略，以免发生 429“请求次数过多”错误。 
 
-  创建 Node.js 文件，并将下面的代码复制到其中。 更改 authoringKey、appId、versionId 和 region 值。
+创建 Node.js 文件，并将下面的代码复制到其中。 更改 authoringKey、appId、versionId 和 region 值。
 
   ```
     /*-----------------------------------------------------------------------------
@@ -236,28 +236,28 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
     });
   ```
 
-  运行下面的命令，通过运行代码来定型应用：
+运行下面的命令，通过运行代码来定型应用：
 
-  ```console
-  node train.js
-  ```
+```console
+node train.js
+```
 
-  代码运行输出的是，LUIS 模型的每次定型迭代状态。 执行下面的代码只需要检查一次定型：
+代码运行输出的是，LUIS 模型的每次定型迭代状态。 执行下面的代码只需要检查一次定型：
 
-  ```console
-  1 trained = true
-  [ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
-    { modelId: '5530e900-571d-40ec-9c78-63e66b50c7d4',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
-    { modelId: '519faa39-ae1a-4d98-965c-abff6f743fe6',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
-    { modelId: '9671a485-36a9-46d5-aacd-b16d05115415',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
-    { modelId: '9ef7d891-54ab-48bf-8112-c34dcd75d5e2',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
-    { modelId: '8e16a660-8781-4abf-bf3d-f296ebe1bf2d',
-      details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } } ]
+```console
+1 trained = true
+[ { modelId: '2c549f95-867a-4189-9c35-44b95c78b70f',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
+  { modelId: '5530e900-571d-40ec-9c78-63e66b50c7d4',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
+  { modelId: '519faa39-ae1a-4d98-965c-abff6f743fe6',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
+  { modelId: '9671a485-36a9-46d5-aacd-b16d05115415',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
+  { modelId: '9ef7d891-54ab-48bf-8112-c34dcd75d5e2',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } },
+  { modelId: '8e16a660-8781-4abf-bf3d-f296ebe1bf2d',
+    details: { statusId: 2, status: 'UpToDate', exampleCount: 45 } } ]
 
   ```
   ## <a name="publish-the-model"></a>发布模型

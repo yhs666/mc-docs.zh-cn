@@ -4,18 +4,18 @@ description: 通过适用于 Azure CLI 的 IoT 扩展将模块部署到 IoT Edge
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/09/2019
-ms.date: 01/28/2019
+origin.date: 08/16/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ed523d934a9ac96cbcae895c3c0b9c92b9fc84f9
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: ecb2fa48a984c5733c1974adcc55951007429ae4
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337363"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174000"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>使用 Azure CLI 部署 Azure IoT Edge 模块
 
@@ -73,7 +73,7 @@ ms.locfileid: "68337363"
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -97,7 +97,7 @@ ms.locfileid: "68337363"
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 07/01/2019
+origin.date: 05/08/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: agirling, saeeda, benv
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63e04484b2914db363e79d856f6bc846d37fefd
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 900c28fb7e920ba7172c631a4fdf3b484a2d1a02
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568666"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134210"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft 标识平台 (v2.0) 概述
 
@@ -37,13 +37,13 @@ Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台�
 - **应用程序配置 API 和 PowerShell**：允许通过 REST API（Microsoft Graph 和 Azure Active Directory Graph 1.6）和 PowerShell 以编程方式配置应用程序。
 - **开发人员内容**：概念性和参考文档、快速入门示例、代码示例、教程以及操作指南。
 
-对于开发人员而言，Microsoft 标识平台可无缝集成到标识和安全领域的创新中，例如无密码身份验证和升级身份验证。  你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
+对于开发人员而言，Microsoft 标识平台可无缝集成到标识和安全领域的创新中，例如无密码身份验证、升级身份验证和条件访问。  你不需要自己实现这样的功能：集成了 Microsoft 标识平台的应用程序原本就可以利用这样的创新。
 
 使用 Microsoft 标识平台，你可以编写一次代码并影响任何用户。 你可以构建一次应用并使其在许多平台上运行，也可以构建充当客户端以及资源应用程序 (API) 的应用。
 
 ## <a name="getting-started"></a>入门
 
-可以轻松使用标识。 选择适合你的方案 - 每个方案路径都有一个快速入门和一个概述页面，可以通过它们在数分钟内实现正常运转：
+可以轻松使用标识。 选择适合你的[方案](authentication-flows-app-scenarios.md) - 每个方案路径都有一个快速入门和一个概述页面，可以通过它们在几分钟内实现正常运转：
 
 - [构建单页应用](scenario-spa-overview.md)
 - [构建用于让用户登录的 Web 应用](scenario-web-app-sign-user-overview.md)
@@ -62,6 +62,7 @@ Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台�
 
 如果要详细了解核心身份验证概念，建议你先阅读以下主题：
 
+- [身份验证流和应用程序方案](authentication-flows-app-scenarios.md)
 - [身份验证基础知识](authentication-scenarios.md)
 - [应用程序和服务主体](app-objects-and-service-principals.md)
 - [受众](v2-supported-account-types.md)
@@ -78,4 +79,3 @@ Microsoft 标识平台由 Azure Active Directory (Azure AD) 开发人员平台�
 - 按照 [Microsoft 标识平台集成清单](identity-platform-integration-checklist.md)测试你的集成。
 
 <!-- Update_Description: wording update -->
-

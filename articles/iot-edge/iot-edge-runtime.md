@@ -4,18 +4,18 @@ description: 了解 Azure IoT Edge 运行时如何管理设备上的模块、安
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 03/13/2019
-ms.date: 04/08/2019
+origin.date: 06/06/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 5842d691fcacbab44aa020ec45236c43478744ab
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 40fbd58a0141f003795703d7125fcceb297d4093
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337316"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174260"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>了解 Azure IoT Edge 运行时及其体系结构
 
@@ -61,7 +61,7 @@ IoT Edge 中心促进模块间通信。 使用 IoT Edge 中心作为消息中转
 为了将数据发送到 IoT Edge 中心，模块会调用 SendEventAsync 方法。 第一个参数指定要发送消息的输出。 下面的伪代码在 **output1** 上发送消息：
 
    ```csharp
-   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
+   ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```

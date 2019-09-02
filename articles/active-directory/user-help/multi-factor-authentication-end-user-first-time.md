@@ -12,15 +12,15 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 07/04/2019
+ms.date: 08/28/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25b5d1c6e2c7d3cc328532937bd4783ef5b558a0
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: ae78c9eaa4ab7f06dd7487386878c0933bc11cd6
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568753"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134359"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>为帐户设置双重验证
 双重验证是一种额外的安全步骤，可使帐户更难被其他人攻破，从而帮助保护帐户。 如果正在阅读本文，可能会收到来自工作或学校管理员的有关多重身份验证的电子邮件。 或者，也许会在尝试登录时收到消息，要求设置其他安全性验证。 如果是这种情况， **在完成自动注册过程之前无法登录**。
@@ -91,13 +91,6 @@ ms.locfileid: "67568753"
 4. 选择“与我联系”  以验证电话号码。 根据所选的模式，我们会发送短信或拨打电话。 按照屏幕上提供的说明，选择“验证”  。
 5. 单击“Done”（完成）  。
 
-## <a name="use-your-office-phone-as-the-contact-method"></a>使用办公电话作为联系方法
-1. 从下拉列表中选择“办公电话”   
-
-    ![设置](./media/multi-factor-authentication-end-user-first-time/office.png)  
-2. 会使用公司联系人信息自动填充电话号码框。 如果号码错误或丢失，请联系管理员进行更改。
-3. 选择“联系我”  验证电话号码，我们拨打该号码。 按照屏幕上提供的说明，选择“验证”  。
-4. 单击“Done”（完成）  。
 
 ## <a name="next-steps"></a>后续步骤
 - 更改首选项和[管理双重验证设置](multi-factor-authentication-end-user-manage-settings.md)

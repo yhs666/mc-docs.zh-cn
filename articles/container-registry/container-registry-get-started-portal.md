@@ -3,18 +3,19 @@ title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure 门户
 description: 快速了解如何使用 Azure 门户创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7c43a0f529f122fae6e98c89ee6c61f92400b3d5
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 8c831f58acfd3f8856d887385878932452e74721
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195459"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134443"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用容器注册表
 
@@ -94,6 +95,7 @@ az acr login --name <acrName>
 <!-- Not Availble on > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]-->
 
 <!-- IMAGES -->
+
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
 [qs-portal-02]: ./media/container-registry-get-started-portal/qs-portal-02.png
 [qs-portal-03]: ./media/container-registry-get-started-portal/qs-portal-03.png
@@ -102,6 +104,7 @@ az acr login --name <acrName>
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
 
 <!-- LINKS - external -->
+
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-pull]: https://docs.docker.com/engine/reference/commandline/pull/
@@ -115,7 +118,7 @@ az acr login --name <acrName>
 <!-- Not Availble on [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md-->
 
 [container-registry-skus]: container-registry-skus.md
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
+[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
 
 <!-- Update_Description: update meta properties, update link, wording update -->

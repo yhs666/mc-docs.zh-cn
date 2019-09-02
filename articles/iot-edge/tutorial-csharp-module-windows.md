@@ -6,16 +6,16 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 04/23/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5af9867dce3d2aab6611e3a9d0982030914e8dc7
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 150b60ba1b2a8b26ca17b329ff37eb5310416074
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732727"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174278"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C# IoT Edge 模块
 
@@ -52,10 +52,10 @@ ms.locfileid: "66732727"
 * 一个[运行 Azure IoT Edge 的 Windows 设备](quickstart.md)。
 * 一个容器注册表，例如 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
 * 配置了 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 扩展的 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
-* 配置为运行 Windows 容器的 [Docker CE](https://docs.docker.com/install/)。
+* 配置为运行 Windows 容器的 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/)。
 
 > [!TIP]
-> 如果使用的是 Visual Studio 2017（15.7 或更高版本），请从 Visual Studio 市场下载并安装适用于 VS 2017 的 [Azure IoT Edge Tools（预览版）](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
+> 如果使用的是 Visual Studio 2017（版本 15.7 或更高版本），请从 Visual Studio 市场下载并安装适用于 VS 2017 的 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
 
 ## <a name="create-a-module-project"></a>创建模块项目
 
@@ -269,7 +269,7 @@ Azure IoT Edge Tools 为 Visual Studio 中支持的所有 IoT Edge 模块语言�
 
 8. 保存 Program.cs 文件。
 
-9. 在 IoT Edge 解决方案中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **tempSensor** 和 **CSharpModule**），并告知 IoT Edge 中心如何在它们之间路由消息。
+9. 在 IoT Edge 解决方案中打开 **deployment.template.json** 文件。 此文件告知 IoT Edge 代理部署哪些模块（在本例中为 **SimulatedTemperatureSensor** 和 **CSharpModule**），并告知 IoT Edge 中心如何在它们之间路由消息。
 
 10. 将 **CSharpModule** 模块孪生添加到部署清单。 在 **modulesContent** 节底部的 **$edgeHub** 模块孪生后面插入以下 JSON 内容： 
 

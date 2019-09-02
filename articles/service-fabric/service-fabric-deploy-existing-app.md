@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 07/02/2017
-ms.date: 04/29/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 82f7a5b3016852c75f0a42e00ce64b616b20dc6d
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 26a7c4d4495b60d247698153f751fea9fcc65995
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844743"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174050"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>打包现有可执行文件并将其部署到 Service Fabric
 将现有可执行文件打包为[来宾可执行文件](service-fabric-guest-executables-introduction.md)时，可以选择是使用 Visual Studio 项目模板，还是[手动创建应用程序包](#manually)。 使用 Visual Studio 时，新的项目模板为用户创建应用程序包结构和清单文件。
@@ -71,8 +71,9 @@ Yeoman 创建应用程序包，其中包含相应的应用程序和清单文件�
 
 <!--
 >[AZURE.NOTE] We do provide a packaging tool that allows you to create the ApplicationPackage automatically. The tool is currently in preview. You can download it from here.
-<!--Not Available on [here](https://aka.ms/servicefabricpacktool)-->
 -->
+
+<!--Not Available on [here](https://aka.ms/servicefabricpacktool)-->
 
 ### <a name="create-the-package-directory-structure"></a>创建包目录结构
 可以首先创建目录结构，如[打包 Azure Service Fabric 应用](/service-fabric/service-fabric-package-apps)中所述。

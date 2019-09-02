@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/01/2019
+origin.date: 08/24/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 256258cb2af78acb15e63d3abc8b8d40e61c441b
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: f7967c7b41db48fc9b5e1b8dc8c138ed665af722
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348317"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104094"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>语音 SDK 的音频输入流 API 简介
 
-语音 SDK 的音频输入流 API 可使流式音频流入识别器，无需使用麦克风或输入文件 API。
+语音 SDK 的音频输入流 API 可使流式音频流入识别器，无需使用麦克风或输入文件 API  。
 
 使用音频输入流时需按以下步骤操作：
 

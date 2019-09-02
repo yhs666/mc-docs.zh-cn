@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 482b16a1a4672339885b54fce6683227c897da7b
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 1cd289e4f8b740ca0dd14e08f30eb993548053aa
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204185"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174006"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升级和更新 Azure Service Fabric 群集
 
@@ -100,10 +100,7 @@ Service Fabric 使用创建群集时指定的 [X.509 服务器证书](service-fa
 可以在群集上自定义许多不同的配置设置，例如群集的可靠性级别和节点属性。 有关详细信息，请参阅 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)。
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>修补群集节点的操作系统
-修补业务流程应用程序 (POA) 是一个 Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。 可在群集上部署[适用于 Windows 的修补业务流程应用程序](service-fabric-patch-orchestration-application.md)或[适用于 Linux 的修补业务流程应用程序](service-fabric-patch-orchestration-application-linux.md)，以便以协调一致的方式安装修补程序，同时使服务始终可用。 
-
-## <a name="os-upgrades-on-the-vms-that-make-up-the-cluster"></a>构成群集的 VM 上的操作系统升级
-如果必须升级群集虚拟机上的操作系统映像，必须一次升级一个 VM。 需要自行负责这种升级 - 目前没有自动化的功能用于实现此目的。
+修补业务流程应用程序 (POA) 是一个 Service Fabric 应用程序，可在 Service Fabric 群集中自动修补操作系统，而无需停机。 [适用于 Windows 的修补业务流程应用程序](service-fabric-patch-orchestration-application.md)可部署在群集上，以便以协调一致的方式安装修补程序，同时使服务始终可用。
 
 ## <a name="next-steps"></a>后续步骤
 * 了解如何自定义 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)的部分内容
@@ -111,6 +108,7 @@ Service Fabric 使用创建群集时指定的 [X.509 服务器证书](service-fa
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->
+
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png

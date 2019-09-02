@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/12/2019
-ms.date: 07/01/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5d335a090dc30c93356e4a011bcc889fa56de97
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: f050a9f198c7b77e48b1606d2af261016e9eff82
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568727"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134122"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -61,7 +61,7 @@ ms.locfileid: "67568727"
 > 1. 在“重定向 URI”部分下选择“添加 URI”。    键入 **urn:ietf:wg:oauth:2.0:oob**。
 > 1. 选择“其他安全性验证”  。
 
-> [!div renderon="portal" class="sxs-lookup alert alert-info"]
+> [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>步骤 1：配置应用程序
 > 为使此快速入门中的代码示例正常运行，需要将重定向 URI 添加为 **urn:ietf:wg:oauth:2.0:oob**。
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -83,6 +83,9 @@ ms.locfileid: "67568727"
     ```csharp
     private const string ClientId = "Enter_the_Application_Id_here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入门支持 Enter_the_Supported_Account_Info_Here。    
 
 > [!div renderon="docs"]
 > 其中：
@@ -155,7 +158,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### <a name="get-a-user-token-silently"></a>以无提示方式获取用户令牌
 
-使用 `AcquireTokenSilent` 方法可获取令牌，以在初始 `AcquireTokenAsync` 方法后访问受保护资源。 你不希望在用户每次需要访问资源时都要求其验证其凭据。 大多数时候，你希望在无需任何用户交互的情况下进行令牌获取和续订
+使用 `AcquireTokenSilent` 方法可获取令牌，以在初始 `AcquireTokenInteractive` 方法后访问受保护资源。 你不希望在用户每次需要访问资源时都要求其验证其凭据。 大多数时候，你希望在无需任何用户交互的情况下进行令牌获取和续订
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

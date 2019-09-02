@@ -5,15 +5,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/14/2019
-ms.date: 07/08/2019
+origin.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 45f23e14a84e1e3f79147fcf90283acffb730dac
-ms.sourcegitcommit: 5b069ee9c9b64cde9a6c8e90a95f61ed52183a92
+ms.openlocfilehash: 5fda8da012b7039f13d4357f03d8f1111905f54d
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67674110"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134475"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>为 VMware VM/物理服务器设置大规模灾难恢复
 
@@ -83,7 +83,7 @@ ms.locfileid: "67674110"
 
 **Task** | **详细信息** | **操作**
 --- | --- | ---
-**检查核心数** | 如果可用配额中的核心数少于故障转移时的目标总数，故障转移将会失败。 | 对于 VMware VM，请检查目标订阅中是否有足够的核心，与部署规划器的核心建议相符。<br/><br/> 对于物理服务器，请检查 Azure 核心数是否符合人工估算结果。<br/><br/> 若要检查配额，请在 Azure 门户中依次单击“订阅”、“用量 + 配额”。  <br/><br/> [详细了解](https://support.azure.cn/zh-cn/support/support-azure/)如何提高配额。
+**检查核心数** | 如果可用配额中的核心数少于故障转移时的目标总数，故障转移将会失败。 | 对于 VMware VM，请检查目标订阅中是否有足够的核心，与部署规划器的核心建议相符。<br/><br/> 对于物理服务器，请检查 Azure 核心数是否符合人工估算结果。<br/><br/> 若要检查配额，请在 Azure 门户中依次单击“订阅”、“用量 + 配额”。  <br/><br/> [详细了解](https://support.azure.cn/support/support-azure/)如何提高配额。
 **检查故障转移限制** | 故障转移次数不得超过 Site Recovery 的故障转移限制。 |  如果故障转移次数超过限制，你可以添加订阅并故障转移到多个订阅，或者提高订阅的配额。 
 
 <!--MOONCAKE: CORRECT ON https://support.azure.cn/zh-cn/support/support-azure/-->
@@ -127,7 +127,7 @@ ms.locfileid: "67674110"
 
 **CPU** | 内存  | 缓存磁盘  | **复制的计算机限制**
  --- | --- | --- | ---
-8 个 vCPU<br /> 2 个插槽 * 4 个核心 @ 2.5 GHz | 16 GB | 600 TB | 最多 550 台计算机<br /> 假设每台计算机有 3 个 100 GB 的磁盘。
+8 个 vCPU<br /> 2 个插槽 * 4 个核心 @ 2.5 GHz | 16 GB | 600 GB | 最多 550 台计算机<br /> 假设每台计算机有 3 个 100 GB 的磁盘。
 
 - 这些限制基于使用 OVF 模板设置的配置服务器。
 - 这些限制假设不是使用配置服务器上默认运行的进程服务器。

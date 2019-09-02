@@ -1,5 +1,5 @@
 ---
-title: 生成一个 iOS 应用，使其与 Azure AD 集成以方便登录，并使用 OAuth 2.0 调用受保护的 API | Microsoft Docs
+title: 构建与 Azure AD 集成的 iOS 应用，以便使用 OAuth 2.0 登录 | Microsoft Docs
 description: 了解如何从 iOS 应用将用户登录并调用 Microsoft Graph API。
 services: active-directory
 documentationcenter: ios
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 07/01/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9449f303b05c8e0fb931f8351f59f7ab9ed3cc44
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: fbb01a5ec116da9ad34d3d3f482a7e9811ba9620
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568731"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134125"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -101,7 +101,7 @@ ms.locfileid: "67568731"
     link_with ['QuickStart']
     xcodeproj 'QuickStart'
 
-    pod 'ADALiOS'
+    pod 'ADAL'
     ```
 
 1. 使用 CocoaPods 加载 podfile。 此步骤将创建你加载的新 XCode 工作区。

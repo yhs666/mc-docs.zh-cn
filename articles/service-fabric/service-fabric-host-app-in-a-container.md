@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/08/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: a6f4e10e8107931750b02801c94b0279cab803cb
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 353e4f7857af9c31d2c9a1cc30f2d698f1c992b1
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753146"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174253"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>教程：将 Windows 容器中的 .NET 应用程序部署到 Azure Service Fabric
 
@@ -69,7 +69,7 @@ ms.locfileid: "68753146"
 $subscriptionID="<subscription ID>"
 
 # Sign in to your Azure account and select your subscription.
-Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $subscriptionID 
+Connect-AzAccount -Environment AzureChinaCloud -SubscriptionId $subscriptionID 
 
 # The data center and resource name for your resources.
 $dbresourcegroupname = "fabrikam-fiber-db-group"

@@ -5,21 +5,26 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 01/31/2019
-ms.date: 03/04/2019
+origin.date: 08/14/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: fdb07dcbe1a18eddbb03f2436b1fae37272440bf
-ms.sourcegitcommit: dcd11929ada5035d127be1ab85d93beb72909dc3
+ms.openlocfilehash: 1971be6a068f4a4a8611d99c2c072b4eb5e605d8
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56833137"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131685"
 ---
 # <a name="generate-and-export-certificates"></a>生成并导出证书
 
 点到站点连接使用证书进行身份验证。 本文介绍了如何使用 Linux CLI 和 strongSwan 创建自签名根证书并生成客户端证书。 如果要查找不同的证书说明，请参阅 [Powershell](vpn-gateway-certificates-point-to-site.md) 或 [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) 文章。 有关如何使用 GUI 而不是 CLI 安装 strongSwan 的信息，请参阅[客户端配置](point-to-site-vpn-client-configuration-azure-cert.md#install)一文中的步骤。
 
-## <a name="generate-and-export"></a>生成并导出
+## <a name="install-strongswan"></a>安装 strongSwan
+
+[!INCLUDE [strongSwan Install](../../includes/vpn-gateway-strongswan-install-include.md)]
+
+## <a name="generate-and-export-certificates"></a>生成并导出证书
+
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ## <a name="next-steps"></a>后续步骤

@@ -1,20 +1,20 @@
 ---
 title: 适用于 Azure Data Lake Storage Gen2 的 Azure Blob 文件系统驱动程序
 description: ABFS Hadoop Filesystem 驱动程序
-services: storage
 author: WenJason
 ms.topic: conceptual
 ms.author: v-jay
+ms.reviewer: jamesbak
 origin.date: 12/06/2018
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: bf8fbd6abdf31467c09fdedbf74fe612388b4b64
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 0feeac68b39595a2ab83adb310008e15547a44ee
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844394"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209409"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob FileSystem 驱动程序 (ABFS)：用于 Hadoop 的专用 Azure 存储驱动程序
 
@@ -55,11 +55,11 @@ ABFS 驱动程序支持两种形式的身份验证，以便 Hadoop 应用程序�
 
 ABFS 驱动程序的所有配置均存储在 <code>core-site.xml</code> 配置文件中。 在带有 [Ambari](https://ambari.apache.org/) 的 Hadoop 分发上，还可使用 Web 门户或 Ambari REST API 管理配置。
 
-要详细了解所有受支持的配置条目，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)。
+要详细了解所有受支持的配置条目，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)。
 
 ### <a name="hadoop-documentation"></a>Hadoop 文档
 
-要完整了解 ABFS 驱动程序，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/current/hadoop-azure/index.html)
+要完整了解 ABFS 驱动程序，请参阅[官方 Hadoop 文档](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
 
 ## <a name="next-steps"></a>后续步骤
 

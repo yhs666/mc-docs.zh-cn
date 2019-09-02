@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/14/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5c5e3a026ed030f17208c71403f12b671fd7e61d
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 506efa9475f1da4a90fc77ce514280ccf3063db9
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753161"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174248"
 ---
 # <a name="remove-a-service-fabric-node-type"></a>删除 Service Fabric 节点类型
 本文介绍如何通过删除群集的现有节点类型来缩放 Azure Service Fabric 群集。 Service Fabric 群集是通过网络连接在一起的一组虚拟机或物理机，可在其中部署和管理微服务。 属于群集一部分的计算机或 VM 称为节点。 虚拟机规模集是一种 Azure 计算资源，用于将一组 VM 作为一个集进行部署和管理。 Azure 群集中定义的每个节点类型[设置为独立的规模集](service-fabric-cluster-nodetypes.md)。 然后可以单独管理每个节点类型。 创建 Service Fabric 群集之后，可以通过删除节点类型（虚拟机规模集）及其所有节点来水平缩放群集。  随时可以缩放群集，即使该群集上正在运行工作负荷。  在缩放群集的同时，应用程序也会随之自动缩放。
@@ -85,4 +85,4 @@ Foreach($node in $nodes)
 - 了解有关[节点类型和虚拟机规模集](service-fabric-cluster-nodetypes.md)的更多信息。
 - 了解有关 [Service Fabric 群集缩放](service-fabric-cluster-scaling.md)的更多信息。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties-->

@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 05/21/2019
-ms.date: 07/15/2019
-ms.openlocfilehash: 3d17ccdf81f6223f624b851a1d24e221e0d6b653
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 07/02/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: d964eaac311bcd1670b64faffbab2b7159bb062e
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845099"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131867"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>配置应用程序的 SSL 连接性以安全连接到 Azure Database for MySQL
 
@@ -40,13 +40,15 @@ OpenSSL>x509 -inform DEV -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.
 ## <a name="step-5-bind-ssl"></a>步骤 5：绑定 SSL
 ### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>使用 MySQL Workbench 通过 SSL 连接到服务器
 配置 MySQL Workbench，以便安全地通过 SSL 连接。 从“设置新连接”对话框，导航到“SSL”选项卡  。在“SSL CA 文件:”字段中输入 **DigiCertGlobalRootCA.pem** 的文件位置。  
-![保存自定义磁贴](./media/howto-configure-ssl/mysql-workbench-ssl.png) 对于现有连接，可以通过右键单击“连接”图标并选择“编辑”来绑定 SSL。 然后导航到“SSL”  选项卡，并绑定证书文件。
+![保存自定义磁贴](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
+对于现有连接，可以通过右键单击“连接”图标并选择“编辑”来绑定 SSL。 然后导航到“SSL”  选项卡，并绑定证书文件。
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>使用 MySQL CLI 通过 SSL 连接到服务器
 绑定 SSL 证书的另一种方法是使用 MySQL 命令行接口执行以下命令。 
 
 ```bash
-mysql.exe -h mydemoserver.mysql.database.chinacloudapi.cn -u Username@mydemoserver -p --ssl-ca=C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem
+mysql.exe -h mydemoserver.mysql.database.chinacloudapi.cn -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem
 ```
 
 > [!NOTE]
@@ -92,22 +94,22 @@ $db = new PDO('mysql:host=mydemoserver.mysql.database.chinacloudapi.cn;port=3306
 ### <a name="python-mysqlconnector-python"></a>Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mysql.database.chinacloudapi.cn', 
-        ssl_ca='C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mysql.database.chinacloudapi.cn', 
+                                   ssl_ca='C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 
 ### <a name="python-pymysql"></a>Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mysql.database.chinacloudapi.cn', 
-        ssl = {'ssl': {'ca': 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host = 'mydemoserver.mysql.database.chinacloudapi.cn', 
+                       ssl = {'ssl': {'ssl-ca': 'C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem'}})
 ```
 
 ### <a name="django-pymysql"></a>Django (PyMySQL)
@@ -145,7 +147,7 @@ pem, _ := ioutil.ReadFile("C:\OpenSSL-Win32\bin\DigiCertGlobalRootCA.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }
-mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool, InsecureSkipVerify: true})
+mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.chinacloudapi.cn', 'quickstartdb')    
 db, _ := sql.Open("mysql", connectionString)

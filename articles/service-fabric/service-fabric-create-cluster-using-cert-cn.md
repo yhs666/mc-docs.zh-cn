@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2018
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8bfe08e0d99d45fa3b99ecb35aad95c9bffd0a1d
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 0660cf0579585b013c78e32807d2c5f363d6ab7c
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753160"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174052"
 ---
 # <a name="deploy-a-service-fabric-cluster-that-uses-certificate-common-name-instead-of-thumbprint"></a>部署使用证书公用名称而非指纹的 Service Fabric 群集
 两个证书不能具有相同的指纹，具有相同的指纹会使群集证书滚动更新或管理变得困难。 但是，多个证书可以具有相同的公用名称或使用者。  使用证书公用名称会使群集的证书管理更加简单。 本文介绍了如何部署 Service Fabric 群集来使用证书公用名称而非证书指纹。
@@ -44,7 +44,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 $SubscriptionId  =  "<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
+Connect-AzAccount -Environment AzureChinaCloud -SubscriptionId $SubscriptionId
 
 $region = "chinaeast"
 $KeyVaultResourceGroupName  = "mykeyvaultgroup"
@@ -235,7 +235,7 @@ $clusterloc="chinaeast"
 $id="<subscription ID>"
 
 # Sign in to your Azure account and select your subscription
-Login-AzAccount -Environment AzureChinaCloud -SubscriptionId $id 
+Connect-AzAccount -Environment AzureChinaCloud -SubscriptionId $id 
 
 # Create a new resource group and deploy the cluster.
 New-AzResourceGroup -Name $groupname -Location $clusterloc

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 12/10/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 493e4807427e2e7d3c18e6c7f16b4ebdef7fe627
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 6fe4cb90ac63ffd4bcef822a445e1e34bb07688e
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901182"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174009"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>升级群集的 Service Fabric 版本
 
@@ -126,6 +126,7 @@ Output:
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->
+
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png
@@ -134,6 +135,4 @@ Output:
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
-
-<!-- Update_Description: new articles on service Fabric cluster upgrade version azure -->
-<!--ms.date: 12/10/2018-->
+<!-- Update_Description: wording update -->

@@ -10,18 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 272abb9a87546650c1b98dee4a6f4fafb3cd81c6
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: ba8fee35722dac78236835292ce73b569d7df91d
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204038"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173968"
 ---
 # <a name="remove-an-application-from-a-service-fabric-cluster"></a>从 Service Fabric 群集中删除应用程序
 
@@ -36,7 +35,7 @@ ms.locfileid: "57204038"
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
 
 # Delete the application
 sfctl application delete \

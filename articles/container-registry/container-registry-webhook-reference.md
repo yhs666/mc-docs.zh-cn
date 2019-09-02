@@ -3,17 +3,18 @@ title: Azure 容器注册表 Webhook 架构参考
 description: Azure 容器注册表的 Webhook 请求 JSON 有效负载参考。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 03/05/2019
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7f5c12eb4841333462c5bbfbbd915d07bbefa751
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 8b69c05440d6039b1404f20024ba06cb1d6f89d3
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529264"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134367"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure 容器注册表 Webhook 参考
 
@@ -144,7 +145,7 @@ docker push myregistry.azurecr.cn/hello-world:v1
 }
 ```
 
-触发 **chart_push** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest) 命令：
+触发 **chart_push** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/cli/acr?view=azure-cli-latest) 命令：
 
 ```azurecli
 az acr helm push wordpress-5.4.0.tgz --name MyRegistry
@@ -165,7 +166,7 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 |[请求](#delete_request)|复杂类型|生成 Webhook 事件的请求。|
 
 <a name="delete_target"></a>
-###  <a name="target"></a>目标
+### <a name="target"></a>目标
 
 |元素|类型|说明|
 |------------------|----------|-----------|
@@ -174,7 +175,7 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
 |`repository`|String|存储库名称。|
 
 <a name="delete_request"></a>
-###  <a name="request"></a>request
+### <a name="request"></a>request
 
 |元素|类型|说明|
 |------------------|----------|-----------|
@@ -204,7 +205,7 @@ az acr helm push wordpress-5.4.0.tgz --name MyRegistry
   }
 ```
 
-触发 **delete** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest) 命令：
+触发 **delete** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/cli/acr?view=azure-cli-latest) 命令：
 
 ```azurecli
 # Delete repository
@@ -228,7 +229,7 @@ az acr repository delete --name MyRegistry --image MyRepository:MyTag
 |[目标](#chart_delete_target)|复杂类型|触发 Webhook 事件的事件目标。|
 
 <a name="chart_delete_target"></a>
-###  <a name="target"></a>目标
+### <a name="target"></a>目标
 
 |元素|类型|说明|
 |------------------|----------|-----------|
@@ -259,7 +260,7 @@ az acr repository delete --name MyRegistry --image MyRepository:MyTag
 }
 ```
 
-触发 **chart_delete** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest) 命令：
+触发 **chart_delete** 事件 Webhook 的示例 [Azure CLI](https://docs.azure.cn/cli/acr?view=azure-cli-latest) 命令：
 
 ```azurecli
 az acr helm delete wordpress --version 5.4.0 --name MyRegistry
@@ -269,4 +270,4 @@ az acr helm delete wordpress --version 5.4.0 --name MyRegistry
 
 [使用 Azure 容器注册表 webhook](container-registry-webhook.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

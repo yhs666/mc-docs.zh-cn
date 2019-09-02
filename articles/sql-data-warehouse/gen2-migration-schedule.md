@@ -9,14 +9,14 @@ manager: digimobile
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-origin.date: 04/03/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 2726c8fd9777b05564223b4ae13ec133fb4af081
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 07/22/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 014bad38b4ec2b850371a532e3da989f7bde648f
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544374"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131877"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>将数据仓库升级到 Gen2
 
@@ -34,9 +34,9 @@ Azure 有助于降低运行数据仓库的入门级成本。  能够处理高要
 | **区域** | **较低的 Gen2 可用** | **自动升级开始时间** |
 |:--- |:--- |:--- |
 | 中国东部 |\* |\* |
-| 中国东部 2 |可用 |仅 Gen2 |
+| 中国东部 2 |可用 |完成 |
 | 中国北部 |\* |\* |
-| 中国北部 2 |可用 |仅 Gen2 |
+| 中国北部 2 |可用 |完成 |
 
 ## <a name="automatic-upgrade-process"></a>自动升级过程
 
@@ -58,7 +58,7 @@ Azure 有助于降低运行数据仓库的入门级成本。  能够处理高要
 - [就地升级](upgrade-to-latest-generation.md) - 此选项会将现有的 Gen1 数据仓库升级到 Gen2。 重启数据仓库时，升级过程会导致连接性短暂下降（大约 5 分钟）。  重启数据仓库后，它将完全可用。 如果在升级期间遇到问题，请联系 Azure 支持部门。
 - [从还原点升级](sql-data-warehouse-restore.md) - 在当前 Gen1 数据仓库中创建用户定义的还原点，然后直接还原到 Gen2 实例。 现有的 Gen1 数据仓库将保持现状。 恢复完成后，Gen2 数据仓库将完全可用。  在已还原的 Gen2 实例上运行所有测试和验证过程后，可以删除原始 Gen1 实例。
 
-   - 步骤 1：在 Azure 门户中，[创建用户定义的还原点](sql-data-warehouse-restore.md#create-a-user-defined-restore-point-using-the-azure-portal)。
+   - 步骤 1：在 Azure 门户中，[创建用户定义的还原点](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)。
    - 步骤 2：从用户定义的还原点还原时，将“性能级别”设置为首选的 Gen2 层。
 
 升级过程继续在后台升级数据文件时，可能会经历一段时间的性能下降。 性能下降的总时间将根据数据文件的大小而有所不同。
@@ -125,5 +125,5 @@ Azure 有助于降低运行数据仓库的入门级成本。  能够处理高要
 - [资源运行状况监视器](/service-health/resource-health-overview)
 - [开始迁移前查看](upgrade-to-latest-generation.md#before-you-begin)
 - [就地升级和从还原点升级](upgrade-to-latest-generation.md)
-- [创建用户定义的还原点](sql-data-warehouse-restore.md#restore-through-the-azure-portal)
-- [了解如何还原到 Gen2](sql-data-warehouse-restore.md#restore-an-active-or-paused-database-using-the-azure-portal)
+- [创建用户定义的还原点](sql-data-warehouse-restore-points.md)
+- [了解如何还原到 Gen2](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-data-warehouse-through-the-azure-portal)

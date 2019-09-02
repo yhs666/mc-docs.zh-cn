@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e993cb6eff16da9f9f1bcb55e978f81f97796f2b
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: b545b90d318a81acae462fabb9ebc82dbf15fae1
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135930"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103948"
 ---
 # <a name="quickstart-change-model-using-c"></a>快速入门：使用 C# 更改模型
 

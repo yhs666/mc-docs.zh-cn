@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 origin.date: 04/30/2019
-ms.date: 05/20/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a898a4b1bed2fb02f78e659b0879bcdaa19b8103
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.openlocfilehash: 67bcc3e9f198b8934f26e1e170bac0017b93bb50
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828831"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131794"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 
@@ -24,9 +24,9 @@ ms.locfileid: "65828831"
 
 ## <a name="what-is-a-data-warehouse-snapshot"></a>什么是数据仓库快照
 
-数据仓库快照会创建一个还原点，利用该还原点可将数据仓库恢复或复制到以前的状态。  由于 SQL 数据仓库属于分布式系统，因此数据仓库快照包含许多位于 Azure 存储中的文件。 快照捕获数据仓库中存储的数据的增量更改。
+数据仓库快照会创建一个还原点，利用该还原点可将数据仓库恢复或复制到以前的状态。   由于 SQL 数据仓库属于分布式系统，因此数据仓库快照包含许多位于 Azure 存储中的文件。 快照捕获数据仓库中存储的数据的增量更改。
 
-数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。 还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库还原速度因数据库大小以及源和目标数据仓库的位置而异。 就同一区域的平均还原速度来说，通常需要大约 20 分钟才能完成还原。 
+数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。  还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库还原速度因数据库大小以及源和目标数据仓库的位置而异。 就同一区域的平均还原速度来说，通常需要大约 20 分钟才能完成还原。 
 
 ## <a name="automatic-restore-points"></a>自动还原点
 
@@ -90,7 +90,7 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 
 ## <a name="geo-redundant-restore"></a>异地冗余还原
 
-可[将数据仓库还原](https://docs.azure.cn/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region)到支持所选性能级别的 SQL 数据仓库的任何区域。 
+可[将数据仓库还原](/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell)到支持所选性能级别的 SQL 数据仓库的任何区域。
 
 > [!NOTE]
 > 若要执行异地冗余还原，不能选择退出此功能。
@@ -98,5 +98,3 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 ## <a name="next-steps"></a>后续步骤
 
 有关灾难规划的详细信息，请参阅[业务连续性概述](../sql-database/sql-database-business-continuity.md)
-
-<!-- Update_Description: update meta properties, wording update -->

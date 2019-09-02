@@ -81,7 +81,7 @@ sections:
           - html: <a href="luis-tutorial-prebuilt-intents-entities">添加预构建的意向和实体</a>
           - html: <a href="luis-quickstart-intents-regex-entity">添加正则表达式实体</a>
           - html: <a href="luis-quickstart-intent-and-list-entity">添加列表实体</a>
-          - html: <a href="luis-quickstart-intent-and-hier-entity">添加分层的实体</a>
+          - html: <a href="tutorial-entity-roles">使用实体角色</a>
           - html: <a href="luis-quickstart-primary-and-secondary-data">添加简单实体和短语列表</a>
           - html: <a href="luis-quickstart-intent-and-key-phrase">添加 keyPhrase 实体</a>
           - html: <a href="luis-quickstart-intent-and-sentiment-analysis">添加情绪分析</a>

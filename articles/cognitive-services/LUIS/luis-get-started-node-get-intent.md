@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1b41a37844b5d5f165e401ef5ee49d5a665d50aa
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d8148fc7efb0a9271f3ef23e3c39efe6ceaf7ec6
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332103"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104012"
 ---
 # <a name="quickstart-get-intent-using-nodejs"></a>快速入门：使用 Node.js 获取意向
 

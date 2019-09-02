@@ -4,18 +4,18 @@ description: 在本教程中，你将一个 Azure 函数开发为 IoT Edge模块
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 01/04/2019
-ms.date: 06/17/2019
+origin.date: 06/25/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: fc8c67ca9bce77322a79c542cec484c1f33802b1
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: b68f0f2e782901a8abef2fe02a759863864e9651
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845246"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174273"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>教程：将 Azure Functions 作为 IoT Edge 模块进行部署
 
@@ -217,7 +217,7 @@ ms.locfileid: "67845246"
 
 7. 浏览到包含 **CSharpFunction** 的解决方案文件夹。 打开 config 文件夹，选择 deployment.json 文件，然后选择“选择 Edge 部署清单”。  
 
-8. 刷新“Azure IoT 中心设备”部分。  此时会看到新的 **CSharpFunction** 在运行，此外还有 **TempSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 在运行。 新模块显示可能需要一些时间。 IoT Edge 设备必须从 IoT 中心检索其新的部署信息，启动新容器，然后将状态报告回 IoT 中心。 
+4. 刷新“Azure IoT 中心设备”部分。  此时应看到新的 **CSharpFunction** 与 **SimulatedTemperatureSensor** 模块以及 **$edgeAgent** 和 **$edgeHub** 一起运行。 新模块显示可能需要一些时间。 IoT Edge 设备必须从 IoT 中心检索其新的部署信息，启动新容器，然后将状态报告回 IoT 中心。 
 
    ![在 VS Code 中查看部署的模块](./media/tutorial-deploy-function/view-modules.png)
 

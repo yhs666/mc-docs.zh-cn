@@ -5,21 +5,20 @@ services: stream-analytics
 author: lingliw
 ms.author: v-lingwu
 manager: digimobile
-ms.reviewer: jasonh
-ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 05/29/2019
-ms.openlocfilehash: ce51281a9f34a9b3f875208aa4f56e2f36ed2531
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.service: stream-analytics
+origin.date: 06/21/2019
+ms.date: 08/29/2019
+ms.openlocfilehash: e52860097cc5c05b27c1d7a4191b67530242aa6a
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969581"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169523"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建流分析作业
 
-本快速入门介绍如何开始创建流分析作业。 在本快速入门中，请定义一个流分析作业，以便每隔 30 秒读取一次示例传感器数据并筛选出平均温度超过 100 的行。 在本文中，请从 Blob 存储读取数据，对数据进行转换，然后将数据写回到同一 Blob 存储中的另一容器。 在本快速入门中使用的输入数据文件包含的静态数据仅供说明之用。 在实际方案中，请将流式处理输入数据用于流分析作业。
+本快速入门介绍如何开始创建流分析作业。 在本快速入门中，请定义一个流分析作业，以便读取实时流数据并筛选温度高于 27 的消息。 流分析作业会从 IoT 中心读取数据，对数据进行转换，然后将数据写回到 Blob 存储中的容器。 在本快速入门中使用的输入数据由 Raspberry Pi 联机模拟器生成。 
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -29,7 +28,7 @@ ms.locfileid: "68969581"
 
 ## <a name="prepare-the-input-data"></a>对输入数据进行准备
 
-在定义流分析作业之前，应该对稍后会配置为作业输入的数据进行准备。 若要对作业所需的输入数据进行准备，请完成以下步骤：
+在定义流分析作业之前，应该准备输入数据。 实时传感器数据将引入到 IoT 中心，随后配置为作业输入。 若要对作业所需的输入数据进行准备，请完成以下步骤：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 

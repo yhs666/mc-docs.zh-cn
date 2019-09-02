@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 05/30/2019
-ms.date: 08/05/2019
+origin.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: b925d1a6304eeb4e6b083706d07279b793b109c3
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 5e63affd7646be529771fe154aee79e7f15b75c3
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819675"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134425"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 到 Azure 的灾难恢复体系结构
 
@@ -143,7 +143,7 @@ Site Recovery 按如下所述创建快照：
 --- | --- | --- 
 允许 HTTPS 出站通信：端口 443 | 允许对应于源区域中存储帐户的范围 | 存储。
 允许 HTTPS 出站通信：端口 443 | 允许对应于 Azure Active Directory (Azure AD) 的范围。<br/><br/> 如果将来添加了 Azure AD 地址，则需要创建新的网络安全组 (NSG) 规则。  | AzureActiveDirectory
-允许 HTTPS 出站通信：端口 443 | 允许访问对应于目标位置的 Site Recovery 终结点。 
+允许 HTTPS 出站通信：端口 443 | 允许访问对应于目标位置的 [Site Recovery 终结点](/site-recovery/azure-to-azure-about-networking#site-recovery-ip-in-china)。 
 
 <!--MOONCAKE: Not Available on .<region-name>-->
 <!--MOONCAKE: Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->
@@ -154,7 +154,7 @@ Site Recovery 按如下所述创建快照：
 --- | --- | --- 
 允许 HTTPS 出站通信：端口 443 | 允许对应于目标区域中存储帐户的范围。 | 存储。
 允许 HTTPS 出站通信：端口 443 | 允许对应于 Azure AD 的范围。<br/><br/> 如果将来添加了 Azure AD 地址，则需要创建新的 NSG 规则。  | AzureActiveDirectory
-允许 HTTPS 出站通信：端口 443 | 允许访问对应于源位置的 Site Recovery 终结点。 
+允许 HTTPS 出站通信：端口 443 | 允许访问对应于源位置的 [Site Recovery 终结点](/site-recovery/azure-to-azure-about-networking#site-recovery-ip-in-china)。 
 
 <!--MOONCAKE: Not Available on .<region-name>-->
 <!--MOONCAKE: Not Avaialble on [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips)-->

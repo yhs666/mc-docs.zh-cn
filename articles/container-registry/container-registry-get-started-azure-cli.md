@@ -3,18 +3,19 @@ title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure CLI
 description: 快速了解如何使用 Azure CLI 创建专用 Docker 容器注册表。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 17af99f03002f1fd3746280e25ae43f8c1422ea8
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 900ff5290ad60ec8e726dab44bff9b1d5d892334
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195453"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134437"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建专用容器注册表
 
@@ -25,11 +26,12 @@ Azure 容器注册表是托管的 Docker 容器注册表服务，用于存储专
 还必须在本地安装 Docker。 Docker 提供的包可在任何 [macOS][docker-mac]、[Windows][docker-windows] 或 [Linux][docker-linux] 系统上轻松配置 Docker。
 
 <!--Not Available on Azure Cloud Shell-->
+
 ## <a name="create-a-resource-group"></a>创建资源组
 
 使用 [az group create][az-group-create] 命令创建资源组。 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-以下示例在“chinanorth”位置创建名为“myResourceGroup”的资源组。
+以下示例在“chinanorth”  位置创建名为“myResourceGroup”  的资源组。
 
 ```azurecli
 az group create --name myResourceGroup --location chinanorth
@@ -37,9 +39,9 @@ az group create --name myResourceGroup --location chinanorth
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
-在本快速入门中，请创建一个基本注册表。该注册表已优化过成本，是供开发者了解 Azure 容器注册表的选项。 有关可用服务层级的详细信息，请参阅[容器注册表 SKU][container-registry-skus]。
+本快速入门将创建一个“基本”注册表。该注册表已针对成本进行优化，是可供开发人员了解 Azure 容器注册表的选项。  有关可用服务层级的详细信息，请参阅[容器注册表 SKU][container-registry-skus]。
 
-使用 [az acr create][az-acr-create] 命令创建 ACR 实例。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 myContainerRegistry007。 将其更新为唯一值。
+使用 [az acr create][az-acr-create] 命令创建 ACR 实例。 注册表名称在 Azure 中必须唯一，并且包含 5-50 个字母数字字符。 以下示例使用 myContainerRegistry007  。 将其更新为唯一值。
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name myContainerRegistry007 --sku Basic
@@ -98,7 +100,7 @@ Result
 hello-world
 ```
 
-以下示例列出了 hello-world 存储库中的标记。
+以下示例列出了 hello-world 存储库中的标记  。
 
 ```azurecli
 az acr repository show-tags --name <acrName> --repository hello-world --output table
@@ -132,6 +134,7 @@ az group delete --name myResourceGroup
 <!-- Not Available on > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]-->
 
 <!-- LINKS - external -->
+
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
@@ -142,15 +145,15 @@ az group delete --name myResourceGroup
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - internal -->
-[az-acr-create]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-create
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-group-create]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create
-[az-group-delete]: https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+[az-acr-create]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-create
+[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
+[az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!--Not Available on [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md-->
 
 [container-registry-skus]: container-registry-skus.md
 
-<!-- Not Available on [container-registry-auth-aci]: container-registry-auth-aci.md-->
 <!-- Update_Description: wording update, updat meta properties -->

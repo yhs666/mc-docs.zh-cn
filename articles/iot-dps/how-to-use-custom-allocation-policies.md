@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 650d653aa2a3014a6b4afb6f2dac31c821de11c4
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 5f1ee87a97f2ec69b2778fb95540689cc287c15d
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66194964"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173972"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>如何使用自定义分配策略
 
@@ -156,7 +156,7 @@ ms.locfileid: "66194964"
 
 10. 将新 C# 函数的代码替换为以下代码，然后单击“保存”  ：    
 
-    ```C#
+    ```csharp
     #r "Newtonsoft.Json"
     using System.Net;
     using System.Text;
@@ -528,7 +528,7 @@ ms.locfileid: "66194964"
 
 若要按名称删除资源组：
 
-1. 登录到 [Azure 门户](https://portal.azure.com)，然后单击“资源组”。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)，然后单击“资源组”。 
 
 2. 在“按名称筛选...”  文本框中，键入包含资源的资源组名称“contoso-us-resource-group”  。 
 

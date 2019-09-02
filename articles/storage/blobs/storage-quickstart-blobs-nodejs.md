@@ -1,20 +1,19 @@
 ---
 title: 如何使用适用于 Node.js v2 的客户端库在 Azure 存储中创建 Blob
 description: 在对象 (Blob) 存储中创建存储帐户和容器。 随后，使用适用于 Node.js v2 的 Azure 存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
-services: storage
 author: WenJason
-ms.custom: mvc
-ms.service: storage
-ms.topic: conceptual
-origin.date: 02/04/2019
-ms.date: 02/25/2019
 ms.author: v-jay
-ms.openlocfilehash: f48e1236800c32d4bf9fdf855d64d1330e948f95
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+origin.date: 02/04/2019
+ms.date: 09/09/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: conceptual
+ms.openlocfilehash: d4730cbe195060c2f8f1fc93a303b3c1095db31d
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665549"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209400"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-nodejs-v2"></a>如何使用适用于 Node.js v2 的客户端库上传、下载和列出 Blob
 
@@ -148,7 +147,7 @@ const createContainer = async (containerName) => {
 };
 ```
 
-**createContainerIfNotExists** 的第二个参数（选项）接受一个值作为 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)。 如果 *publicAccessLevel* 的值为 *blob*，则表示会公开特定的 Blob 数据。 此设置不同于容器级别的访问权限，后者授予列出容器内容的权限。
+**createContainerIfNotExists** 的第二个参数（选项  ）接受一个值作为 [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest)。 如果 *publicAccessLevel* 的值为 *blob*，则表示会公开特定的 Blob 数据。 此设置不同于容器  级别的访问权限，后者授予列出容器内容的权限。
 
 使用 **createContainerIfNotExists** 时，应用程序可以多次运行 *createContainer* 命令，在容器存在的情况下也不会返回错误。 在生产环境中，通常只调用 **createContainerIfNotExists** 一次，因为在应用程序中，从头至尾使用的是同一容器。 在这种情况下，可以通过门户或 Azure CLI 提前创建容器。
 

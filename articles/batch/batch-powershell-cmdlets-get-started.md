@@ -3,24 +3,24 @@ title: PowerShell 入门 - Azure Batch | Azure Docs
 description: 快速介绍可用于管理 Batch 资源的 Azure PowerShell cmdlet。
 services: batch
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
-ms.assetid: f9ad62c5-27bf-4e6b-a5bf-c5f5914e6199
+ms.assetid: ''
 ms.service: batch
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: powershell
 ms.workload: big-compute
 ms.date: 01/15/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 3e37cc846e01d4445695cc90e21beaae2565f17a
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 21acc442715ded869e9ce3c7ad25bcd963ad7b0e
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818457"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104060"
 ---
 # <a name="manage-batch-resources-with-powershell-cmdlets"></a>使用 PowerShell cmdlet 管理 Batch 资源
 
@@ -99,7 +99,7 @@ Remove-AzBatchAccount -AccountName <account_name>
 
 ## <a name="create-a-batchaccountcontext-object"></a>创建 BatchAccountContext 对象
 
-可以通过共享密钥身份验证或 Azure Active Directory 身份验证进行身份验证，以便管理 Batch 资源。 若要使用 Batch PowerShell cmdlet 进行身份验证，需先创建 BatchAccountContext 对象来存储帐户凭据或标识。 将 BatchAccountContext 对象传入使用 **BatchContext** 参数的 cmdlet。 
+可以通过共享密钥身份验证或 Azure Active Directory 身份验证进行身份验证，以便管理 Batch 资源。 若要使用 Batch PowerShell cmdlet 进行身份验证，需先创建 BatchAccountContext 对象来存储帐户凭据或标识。 将 BatchAccountContext 对象传入使用 **BatchContext** 参数的 cmdlet。
 
 ### <a name="shared-key-authentication"></a>共享密钥身份验证
 
@@ -129,7 +129,7 @@ $context = Get-AzBatchAccount -AccountName <account_name>
 运行 **New-AzBatchPool**时，传递 PSCloudServiceConfiguration 或 PSVirtualMachineConfiguration 对象中的操作系统设置。 例如，以下代码片段可以在虚拟机配置中创建包含 Standard_A1 大小计算节点的 Batch 池，这些节点包含 Ubuntu Server 18.04-LTS 映像。 在这里，**VirtualMachineConfiguration** 参数指定 *$configuration* 变量作为 PSVirtualMachineConfiguration 对象。 **BatchContext** 参数将先前定义的变量 *$context* 指定为 BatchAccountContext 对象。
 
 ```powershell
-$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04.0-LTS")
+$imageRef = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSImageReference" -ArgumentList @("UbuntuServer","Canonical","18.04-LTS")
 
 $configuration = New-Object -TypeName "Microsoft.Azure.Commands.Batch.Models.PSVirtualMachineConfiguration" -ArgumentList @($imageRef, "batch.node.ubuntu 18.04")
 
@@ -151,6 +151,7 @@ Get-AzBatchPool -BatchContext $context
 ```
 
 ### <a name="use-an-odata-filter"></a>使用 OData 筛选器
+
 可以使用 **Filter** 参数提供一个 OData 筛选器，以便只查找所需的对象。 例如，可以查找 ID 以“myPool”开头的所有池：
 
 ```powershell
@@ -172,6 +173,7 @@ Get-AzBatchPool -Id "myPool" -BatchContext $context
 **Id** 参数仅支持完整 ID 搜索，而不支持通配符或 OData 样式的筛选器。
 
 ### <a name="use-the-maxcount-parameter"></a>使用 MaxCount 参数
+
 默认情况下，每个 cmdlet 最多返回 1000 个对象。 如果达到此限制，可以优化筛选器以返回更少的对象，或者使用 **MaxCount** 参数显式设置最大值。 例如：
 
 ```powershell
@@ -197,6 +199,7 @@ Get-AzBatchComputeNode -PoolId "myPool" -BatchContext $context | Restart-AzBatch
 ```
 
 ## <a name="application-package-management"></a>应用程序包管理
+
 应用程序包提供将应用程序部署到池中计算节点的简化方式。 使用 Batch PowerShell cmdlet 可以在 Batch 帐户中上传和管理应用程序包，以及将包版本部署到计算节点。
 
 **创建** 应用程序：
@@ -241,9 +244,10 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 > 在删除应用程序之前，必须删除该应用程序的所有应用程序包版本。 如果尝试删除的应用程序当前存在应用程序包，则会收到“冲突”错误。
 
 ### <a name="deploy-an-application-package"></a>部署应用程序包
+
 在创建池时，可以指定一个或多个要部署的应用程序包。 如果创建池时指定包，该包在节点加入池时部署到每个节点。 将节点重新启动或重置映像时，也会部署包。
 
-创建池时，请指定 `-ApplicationPackageReference` 选项，以便在池节点加入该池时，将应用程序包部署到这些节点。 首先创建 **PSApplicationPackageReference** 对象，为其配置需要部署到池的计算节点的应用程序 ID 和包版本：
+在创建池时指定 `-ApplicationPackageReference` 选项，以便在节点加入池时将应用程序包部署到这些节点。 首先，创建 **PSApplicationPackageReference** 对象，并使用应用程序 ID 和要部署到池中计算节点的包版本来配置该对象：
 
 ```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -253,7 +257,7 @@ $appPackageReference.ApplicationId = "MyBatchApplication"
 $appPackageReference.Version = "1.0"
 ```
 
-接下来，请创建池，并将包引用对象指定为 `ApplicationPackageReferences` 选项的参数：
+现在创建池，并将包引用对象指定为 `ApplicationPackageReferences` 选项的参数：
 
 ```powershell
 New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServiceConfiguration $configuration -BatchContext $context -ApplicationPackageReferences $appPackageReference
@@ -265,7 +269,8 @@ New-AzBatchPool -Id "PoolWithAppPackage" -VirtualMachineSize "Small" -CloudServi
 > 必须将一个 Azure 存储帐户链接到你的 Batch 帐户才能使用应用程序包。
 
 ### <a name="update-a-pools-application-packages"></a>更新池的应用程序包
-若要更新分配给现有池的应用程序，请首先使用所需属性（应用程序 ID 和包版本）创建 PSApplicationPackageReference 对象：
+
+若要更新分配到现有池的应用程序，请先创建包含所需的属性（应用程序 ID 和包版本）的 PSApplicationPackageReference 对象：
 
 ```powershell
 $appPackageReference = New-Object Microsoft.Azure.Commands.Batch.Models.PSApplicationPackageReference
@@ -296,8 +301,6 @@ Get-AzBatchComputeNode -PoolId "PoolWithAppPackage" -BatchContext $context | Res
 
 > [!TIP]
 > 可将多个应用程序包部署到池中的计算节点。 如果想要*添加*应用程序包而不是替换当前部署的包，请省略上面的 `$pool.ApplicationPackageReferences.Clear()` 代码行。
-> 
-> 
 
 ## <a name="next-steps"></a>后续步骤
 - 有关详细的 cmdlet 语法和示例，请参阅 [Azure Batch cmdlet reference](https://docs.microsoft.com/powershell/module/azurerm.batch/#batch)（Azure Batch cmdlet 参考）。

@@ -1,25 +1,21 @@
 ---
 title: '教程：Azure 流分析 JavaScript 用户定义的函数 | Azure '
 description: 在本教程中，将使用 JavaScript 用户定义的函数执行高级查询机制
-keywords: javascript, 用户定义的函数, udf
 services: stream-analytics
 author: lingliw
 manager: digimobile
-ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 origin.date: 04/01/2018
-ms.date: 11/06/18
-ms.workload: data-services
-ms.author: v-lingwu
-ms.openlocfilehash: dfa3e2165f0ca6545f58f2bc1180ab5f2be79761
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.date: 11/06/2018
+ms.openlocfilehash: 01bd0626b0c94d40891752916ce5e157710c195b
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544753"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169536"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>教程：Azure 流分析 JavaScript 用户定义的函数
 
@@ -73,8 +69,8 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
     }
     ```
 
-6. 选择“其他安全性验证”  。 该函数随即显示在函数列表中。
-7. 选择新的 **hex2Int** 函数并检查函数定义。 所有函数的函数别名带有 **UDF** 前缀。 在流分析查询中调用该函数时，需要 *包含该前缀* 。 在本例中，调用的是 **UDF.hex2Int**。
+6.  选择“其他安全性验证”  。 该函数随即显示在函数列表中。
+7.  选择新的 **hex2Int** 函数并检查函数定义。 所有函数的函数别名带有 **UDF** 前缀。 在流分析查询中调用该函数时，需要 *包含该前缀* 。 在本例中，调用的是 **UDF.hex2Int**。
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>在查询中调用 JavaScript 用户定义的函数
 
@@ -91,8 +87,9 @@ JavaScript 用户定义的函数支持仅用于计算的且不需要外部连接
         InputStream
     ```
 
-3. 若要上传示例数据文件，请右键单击作业输入。
-4. 若要测试查询，请选择“测试”。 
+3.  若要上传示例数据文件，请右键单击作业输入。
+4.  若要测试查询，请选择“测试”。 
+
 
 ## <a name="supported-javascript-objects"></a>支持的 JavaScript 对象
 Azure 流分析 JavaScript 用户定义的函数支持标准的内置 JavaScript 对象。 有关这些对象的列表，请参阅 [Global Objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects)（全局对象）。
@@ -111,11 +108,13 @@ Record | Object
 Array | Array
 Null | Null
 
+
 下面是 JavaScript 到流分析的转换：
+
 
 Javascript | 流分析
 --- | ---
-Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double日期
+Number | 如果数字已舍入并介于 long.MinValue 和 long.MaxValue 之间，则为 Bigint；否则为 double
 Date | DateTime
 String | nvarchar(MAX)
 Object | Record

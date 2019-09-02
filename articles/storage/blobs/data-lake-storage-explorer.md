@@ -1,23 +1,22 @@
 ---
-title: '快速入门：使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 中管理数据 '
+title: 使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 中管理数据
 description: 本快速入门介绍如何使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中创建文件系统，以及目录和文件。 接下来，介绍如何将文件下载到本地计算机，以及如何查看目录中的所有文件。
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-origin.date: 12/05/2018
-ms.date: 05/27/2019
+ms.topic: conceptual
+origin.date: 07/19/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 5813f0ac881fd20499726d6e040bd2a8635cb9e8
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.reviewer: stewu
+ms.openlocfilehash: f3e5c5ba3f95acac75babd3be2d830ba6f864739
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004192"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209407"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>快速入门：使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中管理数据
+# <a name="use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>使用 Azure 存储资源管理器在 Azure Data Lake Storage Gen2 帐户中管理数据
 
 本快速入门介绍如何使用 [Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)创建目录和 blob。 接下来，介绍如何将 blob 下载到本地计算机，以及如何在目录中查看所有 blob。 此外，还将了解如何创建 blob 快照、管理目录访问策略以及创建共享访问签名。
 
@@ -29,17 +28,17 @@ ms.locfileid: "66004192"
 
 ## <a name="sign-in-to-storage-explorer"></a>登录到存储资源管理器
 
-首次启动时，会显示“Microsoft Azure 存储资源管理器 - 连接”窗口。 尽管存储资源管理器提供了几种连接到存储帐户的方法，但是目前只有一种方法支持管理 ACL。
+首次启动时，会显示“Microsoft Azure 存储资源管理器 - 连接”窗口。  尽管存储资源管理器提供了几种连接到存储帐户的方法，但是目前只有一种方法支持管理 ACL。
 
 |任务|目的|
 |---|---|
 |添加 Azure 帐户 | 将你重定向到组织登录页，以便在 Azure 上进行身份验证。 目前，如果想管理和设置 ACL，这是唯一支持的身份验证方法。 |
 
-选择“添加 Azure 帐户”，并单击“登录”。遵照屏幕提示登录到 Azure 帐户。
+选择“添加 Azure 帐户”  ，并单击“登录”  。遵照屏幕提示登录到 Azure 帐户。
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-完成连接以后，Azure 存储资源管理器会进行加载并显示“资源管理器”选项卡。 以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
+完成连接以后，Azure 存储资源管理器会进行加载并显示“资源管理器”选项卡。  以下视图可以查看通过 [Azure 存储模拟器](../common/storage-use-emulator.md?toc=%2fstorage%2fblobs%2ftoc.json)、[Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fstorage%2fblobs%2ftoc.json) 帐户或 [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fstorage%2fblobs%2ftoc.json) 环境配置的所有 Azure 存储帐户和本地存储。
 
 ![“Microsoft Azure 存储资源管理器 - 连接”窗口](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
@@ -47,7 +46,7 @@ ms.locfileid: "66004192"
 
 始终将 Blob 上传到目录中。 这样，就能够整理 blob 组，就像在计算机的文件夹中整理文件一样。
 
-要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”。 输入文件系统的名称。 完成后，按 **Enter** 创建文件系统。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下。
+要创建目录，请展开在前面的步骤中创建的存储帐户。 选择“Blob 容器”，然后右键单击并选择“创建 Blob 容器”   。 输入文件系统的名称。 完成后，按 **Enter** 创建文件系统。 成功创建 Blob 目录后，该目录会显示在所选存储帐户的“Blob 容器”文件夹下  。
 
 ![Microsoft Azure 存储资源管理器 - 创建文件系统](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
@@ -55,25 +54,25 @@ ms.locfileid: "66004192"
 
 Blob 存储支持块 blob、追加 blob 和页 blob。 用于备份 IaaS VM 的 VHD 文件都是页 blob。 追加 blob 用于日志记录，例如有时需要写入到文件，再继续添加更多信息。 Blob 存储中存储的大多数文件都是块 blob。
 
-在目录功能区中，选择“上传”。 此操作提供上传文件夹或文件的选项。
+在目录功能区中，选择“上传”  。 此操作提供上传文件夹或文件的选项。
 
 选择要上传的文件或文件夹。
 
-在“上传到文件夹(可选)”字段中输入一个文件夹名称，用于在目录下的文件夹中存储文件或文件夹。 如果没有选择任何文件夹，文件会直接上传到目录。
+在“上传到文件夹(可选)”字段中输入一个文件夹名称，用于在目录下的文件夹中存储文件或文件夹  。 如果没有选择任何文件夹，文件会直接上传到目录。
 
 ![Microsoft Azure 存储资源管理器 - 上传 Blob](media/storage-quickstart-blobs-storage-explorer/uploadblob.png)
 
-选择“确定”后，选定的文件会排队等待上传，然后上传每个文件。 上传完成后，结果将显示在“活动”窗口中。
+选择“确定”后，选定的文件会排队等待上传，然后上传每个文件。  上传完成后，结果将显示在“活动”窗口中。 
 
 ## <a name="view-blobs-in-a-directory"></a>查看目录中的 Blob
 
-在 Azure 存储资源管理器应用程序的存储帐户下选择一个目录。 主窗格会显示一个列表，包含所选目录中的所有 Blob。
+在 Azure 存储资源管理器应用程序的存储帐户下选择一个目录  。 主窗格会显示一个列表，包含所选目录中的所有 Blob。
 
 ![Microsoft Azure 存储资源管理器 - 列出目录中的所有 Blob](media/storage-quickstart-blobs-storage-explorer/listblobs.png)
 
 ## <a name="download-blobs"></a>下载 Blob
 
-若要使用“Azure 存储资源管理器”下载 Blob，请选择所需的 Blob，然后在功能区中选择“下载”。 此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将 Blob 下载到本地位置。
+若要使用“Azure 存储资源管理器”下载 Blob，请选择所需的 Blob，然后在功能区中选择“下载”。   此时将打开文件对话框，可在其中输入文件名。 选择“保存”，开始将 Blob 下载到本地位置。 
 
 ## <a name="next-steps"></a>后续步骤
 

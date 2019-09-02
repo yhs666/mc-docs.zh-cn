@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 11/06/18
-ms.openlocfilehash: 587606a85b36e6e9dff3f420d37fef934677c99b
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 12/07/2018
+ms.date: 08/07/2019
+ms.openlocfilehash: 7805a6008755298d4f4826cec9a1bd66c456bfbe
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969539"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169617"
 ---
 # <a name="troubleshoot-input-connections"></a>排查输入连接问题
 

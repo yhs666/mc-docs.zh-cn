@@ -1,21 +1,20 @@
 ---
 title: 教程：使用 Apache Hive on Azure HDInsight 执行提取、转换、加载 (ETL) 操作
 description: 本教程介绍如何从原始 CSV 数据集提取数据，使用 Apache Hive on Azure HDInsight 将其转换，然后使用 Sqoop 将已转换的数据加载到 Azure SQL 数据库。
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 origin.date: 02/21/2019
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: jamesbak
-ms.openlocfilehash: affe0a0769689dc7c1617547620daf6544705ce7
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: f342c14a9e9f78bd43bf77a4ebb8ea57af558318
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844510"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209344"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>教程：使用 Apache Hive on Azure HDInsight 提取、转换和加载数据
 
@@ -42,7 +41,7 @@ ms.locfileid: "67844510"
 
 * **Azure SQL 数据库**：使用 Azure SQL 数据库作为目标数据存储。 如果没有 SQL 数据库，请参阅[在 Azure 门户中创建 Azure SQL 数据库](../../sql-database/sql-database-get-started.md)。
 
-* **Azure CLI**：安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
+* **Azure CLI**：如果尚未安装 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli?view=azure-cli-latest)。
 
 * **安全外壳 (SSH) 客户端**：有关详细信息，请参阅[使用 SSH 连接到 HDInsight (Hadoop)](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)。
 
@@ -238,7 +237,7 @@ ms.locfileid: "67844510"
 
     ![获取 Azure SQL 服务器的详细信息](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "获取 Azure SQL 服务器的详细信息")
 
-    有多种方法可连接到 SQL 数据库并创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](http://www.freetds.org/)。
+    有多种方法可连接到 SQL 数据库并创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](https://www.freetds.org/)。
 
 5. 若要安装 FreeTDS，请使用以下命令从 SSH 连接到群集：
 

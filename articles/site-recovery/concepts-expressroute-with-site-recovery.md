@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 06/27/2019
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: dfb6b1f2d19846d471f2ddf036316f34dbdfcd39
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: c4b22f97f19cd9b8f7a90f3bae84835c9707cd6d
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819626"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134402"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>将 Azure ExpressRoute 与 Azure Site Recovery 结合使用
 
@@ -64,9 +64,7 @@ Azure Site Recovery 支持对 [Azure 虚拟机](azure-to-azure-architecture.md)�
 
 如果已经使用 ExpressRoute 从本地数据中心连接到源区域中的 Azure VM，则可以计划在故障转移目标区域重新建立 ExpressRoute 连接。 进行灾难恢复时，可以使用相同的 ExpressRoute 线路通过新的虚拟网络连接连接到目标区域，也可以使用不同的 ExpressRoute 线路和连接。 [此处](azure-vm-disaster-recovery-with-expressroute.md#fail-over-azure-vms-when-using-expressroute)介绍了各种可能的方案。
 
-可以将 Azure 虚拟机复制到同一地理群集内的任何 Azure 区域，详细信息如[此处](../site-recovery/azure-to-azure-support-matrix.md#region-support)所述。 如果所选目标 Azure 区域与源区域不在同一地缘政治区域内，则可能需要启用 ExpressRoute Premium。 有关更多详细信息，请查看 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
-
-<!--Not Available on Anchor [ExpressRoute locations](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region)-->
+可以将 Azure 虚拟机复制到同一地理群集内的任何 Azure 区域，详细信息如[此处](../site-recovery/azure-to-azure-support-matrix.md#region-support)所述。 如果所选目标 Azure 区域与源区域不在同一地缘政治区域内，则可能需要启用 ExpressRoute Premium。 有关更多详细信息，请查看 [ExpressRoute 位置](../expressroute/expressroute-locations.md)和 [ExpressRoute 定价](https://www.azure.cn/pricing/details/expressroute/)。
 
 ## <a name="next-steps"></a>后续步骤
 - 详细了解 [ExpressRoute 线路](../expressroute/expressroute-circuit-peerings.md)。

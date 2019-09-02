@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/12/19
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: ca3d54623f42765aa5feeb4388e1a54073073cbd
-ms.sourcegitcommit: fd927ef42e8e7c5829d7c73dc9864e26f2a11aaa
+ms.openlocfilehash: b98f753b950227520fa228d78e20ebae7af25e21
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67562739"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104078"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>用于诊断评估和监视的 Batch 指标、警报和日志
 
@@ -89,7 +89,7 @@ ms.locfileid: "67562739"
 
 诊断日志的其他可选目标：
 
-- 将 Batch 诊断日志事件流式传输到 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)。 数据中心每秒可以接受数百万事件，用户可以使用任何实时分析提供程序转换并存储这些事件。 
+* 将 Batch 诊断日志事件流式传输到 [Azure 事件中心](../event-hubs/event-hubs-what-is-event-hubs.md)。 数据中心每秒可以接受数百万事件，用户可以使用任何实时分析提供程序转换并存储这些事件。 
 
 > [!NOTE]
 > 使用 Azure 服务存储或处理诊断日志数据可能会产生额外的费用。 
@@ -105,7 +105,7 @@ ms.locfileid: "67562739"
 
 4. 单击“保存”  。
 
-    ![Batch 诊断](./media/batch-diagnostics/diagnostics-portal.png)
+    ![Batch 诊断](media/batch-diagnostics/diagnostics-portal.png)
 
 用于启用日志收集的其他选项包括：在门户中使用 Azure Monitor 配置诊断设置、使用[资源管理器模板](../azure-monitor/platform/diagnostic-logs-stream-template.md)，或者使用 Azure PowerShell 或 Azure CLI。 请参阅[从 Azure 资源收集和使用日志数据](../azure-monitor/platform/diagnostic-logs-overview.md)。
 

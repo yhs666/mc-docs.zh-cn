@@ -1,5 +1,5 @@
 ---
-title: 简单实体，短语列表
+title: 简单实体，短语列表 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在本教程中，请使用简单实体从话语中提取雇佣工作名称的机器学习数据。 若要提高提取的准确性，请添加一个短语列表，其中包含特定于简单实体的术语。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 99e3ab17450ddf894b784e6989f9acc919233488
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 38fe9ca71bf1c7b03c2531d5a51146b1876fd99d
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332272"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103998"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教程：通过简单实体和短语列表提取名称
 
@@ -237,7 +237,7 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 
     确保选中“这些值可互换”  ，因为这些值应全都被视为作业的同义词。 了解有关可互换和不可互换[短语列表概念](luis-concept-feature.md#how-to-use-phrase-lists)的更多信息。
 
-1. 选择“保存”，激活短语列表。 
+1. 选择“完成”，以激活短语列表。 
 
     [![“新建短语列表”弹出对话框以及短语列表值框中字词的屏幕截图](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 

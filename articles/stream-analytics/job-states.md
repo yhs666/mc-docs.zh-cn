@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 06/21/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: c65b3836d2e4f84b01e79c9fae3dc4c6a3212615
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 9569680d6fba0508a45cab9e82b0d204c0f5a379
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970538"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169524"
 ---
 # <a name="azure-stream-analytics-job-states"></a>Azure 流分析作业状态
 

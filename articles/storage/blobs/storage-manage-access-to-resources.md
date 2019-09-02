@@ -6,21 +6,21 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/30/2019
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
-ms.openlocfilehash: ff640b74c86c9cd38f0daa1db3da73d499e2ba9d
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: ab238d3f7ef4094a9062ad562933bb64f2e62655
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844488"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209305"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>管理对容器和 Blob 的匿名读取访问
 
 可以启用对 Azure Blob 存储中的容器及其 Blob 的匿名公共读取访问。 这样做可以授予对这些资源的只读访问权限，无需共享帐户密钥，也无需共享访问签名 (SAS)。
 
-如果想要始终允许对某些 Blob 进行匿名读取访问，最好的方法是启用公共读取访问。 可以创建共享访问签名，实现更精细的控制。 利用共享访问签名，可以针对特定时间段提供使用不同权限的受限访问。 有关创建共享访问签名的详细信息，请参阅[在 Azure 存储中使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)。
+如果想要始终允许对某些 Blob 进行匿名读取访问，最好的方法是启用公共读取访问。 可以创建共享访问签名，实现更精细的控制。 利用共享访问签名，可以针对特定时间段提供使用不同权限的受限访问。 有关创建共享访问签名的详细信息，请参阅[在 Azure 存储中使用共享访问签名 (SAS)](../common/storage-sas-overview.md?toc=%2fstorage%2fblobs%2ftoc.json)。
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>授予对容器和 Blob 的匿名用户权限
 
@@ -161,4 +161,4 @@ public static void DownloadBlobAnonymously()
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure 存储服务的授权](https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-azure-storage-services)
-* [使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fstorage%2fblobs%2ftoc.json)
+* [使用共享访问签名 (SAS)](../common/storage-sas-overview.md?toc=%2fstorage%2fblobs%2ftoc.json)

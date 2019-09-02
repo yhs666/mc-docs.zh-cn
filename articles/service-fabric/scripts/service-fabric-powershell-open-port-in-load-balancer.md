@@ -10,22 +10,23 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 origin.date: 05/18/2018
-ms.date: 05/28/2018
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 580e6a29ba7539a414b84db05d793694543bfcfb
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 26c651fd2a532d9195140707e8ead162e0c4f286
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52657256"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174085"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>打开 Azure 负载均衡器中的应用程序端口
 
 正在 Azure 中运行的 Service Fabric 应用程序位于 Azure 负载均衡器后。 此示例脚本将打开 Azure 负载均衡器中的端口，以便 Service Fabric 应用程序可与外部客户端通信。 根据需要自定义参数。 如果群集在某个网络安全组中，则还要[添加入站网络安全组规则](service-fabric-powershell-add-nsg-rule.md)来允许入站流量。
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 必要时，使用 [Service Fabric SDK](../service-fabric-get-started.md) 安装 Service Fabric PowerShell 模块。 
 
@@ -37,20 +38,25 @@ $probename = "AppPortProbe6"
 $rulename="AppPortLBRule6"
 $RGname="mysftestclustergroup"
 $port=8303
+$subscriptionID = 'subscription ID'
+
+# Login and select your subscription
+Connect-AzAccount -Environment AzureChinaCloud
+Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription 
 
 # Get the load balancer resource
-$resource = Get-AzureRmResource | Where {$_.ResourceGroupName -eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"} 
-$slb = Get-AzureRmLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
+$resource = Get-AzResource | Where {$_.ResourceGroupName -eq $RGname -and $_.ResourceType -eq "Microsoft.Network/loadBalancers"} 
+$slb = Get-AzLoadBalancer -Name $resource.Name -ResourceGroupName $RGname
 
 # Add a new probe configuration to the load balancer
-$slb | Add-AzureRmLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
+$slb | Add-AzLoadBalancerProbeConfig -Name $probename -Protocol Tcp -Port $port -IntervalInSeconds 15 -ProbeCount 2
 
 # Add rule configuration to the load balancer
-$probe = Get-AzureRmLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
-$slb | Add-AzureRmLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
+$probe = Get-AzLoadBalancerProbeConfig -Name $probename -LoadBalancer $slb
+$slb | Add-AzLoadBalancerRuleConfig -Name $rulename -BackendAddressPool $slb.BackendAddressPools[0] -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -Probe $probe -Protocol Tcp -FrontendPort $port -BackendPort $port
 
 # Set the goal state for the load balancer
-$slb | Set-AzureRmLoadBalancer
+$slb | Set-AzLoadBalancer
 
 ```
 
@@ -60,12 +66,12 @@ $slb | Set-AzureRmLoadBalancer
 
 | 命令 | 注释 |
 |---|---|
-| [Get-AzureRmResource](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermresource) | 获取 Azure 资源。  |
-| [Get-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermloadbalancer) | 获取 Azure 负载均衡器。 |
-| [Add-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | 向负载均衡器添加探测配置。|
-| [Get-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | 获取负载均衡器的探测配置。 |
-| [Add-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | 向负载均衡器添加规则配置。 |
-| [Set-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermloadbalancer) | 设置负载均衡器的目标状态。 |
+| [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) | 获取 Azure 资源。  |
+| [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer) | 获取 Azure 负载均衡器。 |
+| [Add-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerprobeconfig) | 向负载均衡器添加探测配置。|
+| [Get-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancerprobeconfig) | 获取负载均衡器的探测配置。 |
+| [Add-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/add-azloadbalancerruleconfig) | 向负载均衡器添加规则配置。 |
+| [Set-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/set-azloadbalancer) | 设置负载均衡器的目标状态。 |
 
 ## <a name="next-steps"></a>后续步骤
 

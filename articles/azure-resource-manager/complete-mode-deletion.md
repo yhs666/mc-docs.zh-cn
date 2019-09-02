@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 08/04/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: c04a23a9b1f5ca517c5fcaad79bbb12bb08f9ad5
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: 025c4bdd7ab6378f7b76e2d08add23b6877a7504
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993618"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134455"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>针对完全模式部署的 Azure 资源删除
 
@@ -79,7 +79,6 @@ ms.locfileid: "69993618"
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.Subscription](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Web](#microsoftweb)
 
@@ -883,7 +882,49 @@ ms.locfileid: "69993618"
 > | jobcollections | 是 |
 
 <!-- Not Available on ## Microsoft.Search-->
-<!-- Not Available on ## Microsoft.Security-->
+
+<a name="microsoftsecurity"></a>
+## <a name="microsoftsecurity"></a>Microsoft.Security
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 完整模式删除 |
+> | ------------- | ----------- |
+> | adaptiveNetworkHardenings | 否 |
+> | advancedThreatProtectionSettings | 否 |
+> | alerts | 否 |
+> | allowedConnections | 否 |
+> | applicationWhitelistings | 否 |
+> | assessmentMetadata | 否 |
+> | assessments | 否 |
+> | AutoProvisioningSettings | 否 |
+> | Compliances | 否 |
+> | dataCollectionAgents | 否 |
+> | deviceSecurityGroups | 否 |
+> | discoveredSecuritySolutions | 否 |
+> | externalSecuritySolutions | 否 |
+> | InformationProtectionPolicies | 否 |
+> | iotSecuritySolutions | 是 |
+> | iotSecuritySolutions/analyticsModels | 否 |
+> | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 否 |
+> | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 否 |
+> | jitNetworkAccessPolicies | 否 |
+> | playbookConfigurations | 是 |
+> | 策略 | 否 |
+> | pricings | 否 |
+> | regulatoryComplianceStandards | 否 |
+> | regulatoryComplianceStandards/regulatoryComplianceControls | 否 |
+> | regulatoryComplianceStandards/regulatoryComplianceControls/regulatoryComplianceAssessments | 否 |
+> | securityContacts | 否 |
+> | securitySolutions | 否 |
+> | securitySolutionsReferenceData | 否 |
+> | securityStatuses | 否 |
+> | securityStatusesSummaries | 否 |
+> | serverVulnerabilityAssessments | 否 |
+> | 设置 | 否 |
+> | 任务 | 否 |
+> | topologies | 否 |
+> | workspaceSettings | 否 |
+
 <!-- Not Available on ## Microsoft.SecurityGraph-->
 
 <!-- Not Available on ## Microsoft.SecurityInsights-->

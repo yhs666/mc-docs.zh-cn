@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/18/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 8aea3e82ba602a3d5aabe7aedd02b5f021043393
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c9a04c02e638dd11d5880fa16717b6aa083ecb05
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570467"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104165"
 ---
 # <a name="restore-system-state-to-windows-server"></a>将系统状态还原为 Windows Server
 
@@ -66,7 +66,7 @@ ms.locfileid: "67570467"
 
 9. 将恢复目标中的 WindowsImageBackup 目录复制到服务器的非关键卷中  。 通常，Windows OS 卷是关键卷。
 
-10. 恢复成功后，按照[将已恢复的系统状态文件应用到 Windows Server](#apply-restored-system-state-files-to-the-windows-server) 中的步骤进行操作，完成系统状态恢复过程。
+10. 恢复成功后，按照[将已恢复的系统状态文件应用到 Windows Server](#apply-restored-system-state-on-a-windows-server) 中的步骤进行操作，完成系统状态恢复过程。
 
 ## <a name="recover-system-state-files-to-an-alternate-server"></a>将系统状态文件恢复到备用服务器
 

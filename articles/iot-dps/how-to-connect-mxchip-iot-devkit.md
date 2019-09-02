@@ -4,17 +4,17 @@ description: 如何使用 Azure IoT 中心设备预配服务的自动预配功�
 author: liydu
 ms.author: v-yiso
 origin.date: 06/25/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: 670cf81566c1aee17f4d13d7473bc7947ca47152
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: c90bc697a22c277a6e47cb8248c713f14e8c57af
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845042"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174093"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>使用 Azure IoT 中心设备预配服务的自动预配功能将 MXChip IoT DevKit 注册到 IoT 中心
 
@@ -33,15 +33,15 @@ ms.locfileid: "67845042"
 
 * 按照[将 IoT DevKit AZ3166 连接到云中的 Azure IoT 中心](/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment)的“准备开发环境”部分中的步骤配置 DevKit 的 Wi-Fi 并准备开发环境。
 * 参考[更新 DevKit 固件](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/)教程升级到最新固件（1.3.0 或以上）。
-* 按照[使用 Azure 门户设置 IoT 中心设备预配服务](/azure/iot-dps/quick-setup-auto-provision)中的步骤，创建 IoT 中心并将其链接到设备预配服务实例。
+* 按照[使用 Azure 门户设置 IoT 中心设备预配服务](/iot-dps/quick-setup-auto-provision)中的步骤，创建 IoT 中心并将其链接到设备预配服务实例。
 
 ## <a name="open-sample-project"></a>打开示例项目
 
 1. 确保 IoT DevKit **未连接**到计算机。 先启动 VS Code，然后将 DevKit 连接到计算机。
 
-1. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:  Open Examples...”。然后选择“IoT DevKit”作为开发板。 
+2. 单击 `F1` 以打开命令面板，键入并选择“Azure IoT Device Workbench:  Open Examples...”。然后选择“IoT DevKit”作为开发板。 
 
-1. 在 IoT Workbench“示例”页中，找到“使用 DPS 进行设备注册”，然后单击“打开示例”   。 然后选择用于下载示例代码的默认路径。
+3. 在 IoT Workbench“示例”页中，找到“使用 DPS 进行设备注册”，然后单击“打开示例”   。 然后选择用于下载示例代码的默认路径。
     ![打开示例](media/how-to-connect-mxchip-iot-devkit/open-sample.png)
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>将唯一设备机密保存在设备安全存储上
@@ -75,12 +75,12 @@ ms.locfileid: "67845042"
 
 ## <a name="update-the-global-device-endpoint-and-id-scope"></a>更新全局设备终结点和 ID 范围
 
-在设备代码中，需要指定[设备预配终结点](/azure/iot-dps/concepts-service#device-provisioning-endpoint)和 ID 范围以确保租户隔离。
+在设备代码中，需要指定[设备预配终结点](/iot-dps/concepts-service#device-provisioning-endpoint)和 ID 范围以确保租户隔离。
 
 1. 在 Azure 门户中，选择设备预配服务的“概述”窗格，记下“全局设备终结点”和“ID 范围”的值    。
   ![设备预配服务全局终结点和 ID 范围](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
-1. 打开“DeKitDPS.ino”  。 找到 `[Global Device Endpoint]` 和 `[ID Scope]` 并将其替换为刚刚记下的值。
+1. 打开 **DevKitDPS.ino**。 找到 `[Global Device Endpoint]` 和 `[ID Scope]` 并将其替换为刚刚记下的值。
   ![设备预配服务终结点](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. 在代码中填充 `registrationId` 变量。 仅允许使用最多 128 个字符的字母数字、小写和连字符组合。 同样记下该值。
@@ -91,7 +91,7 @@ ms.locfileid: "67845042"
 
 ## <a name="generate-x509-certificate"></a>生成 X.509 证书
 
-此示例使用的[证明机制](/azure/iot-dps/concepts-device#attestation-mechanism)是 X.509 证书。 需要使用实用程序来生成它。
+此示例使用的[证明机制](/iot-dps/concepts-device#attestation-mechanism)是 X.509 证书。 需要使用实用程序来生成它。
 
 > [!NOTE]
 > X.509 证书生成器现仅支持 Windows。

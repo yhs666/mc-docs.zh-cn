@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: workload management
+ms.subservice: workload-management
 origin.date: 05/01/2019
-ms.date: 08/19/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3e716025ce290633377e02db448f03a398f7b257
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 39777fe9d5437bdf585bdac047aecc8547a1e18a
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544411"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131865"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql"></a>快速入门：使用 T-SQL 创建工作负荷分类器
 
@@ -31,7 +31,7 @@ ms.locfileid: "69544411"
 
 ## <a name="prerequisites"></a>先决条件
 
-本快速入门假设读者已有一个 SQL 数据仓库，并且拥有“控制数据库”权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
+本快速入门假设你已有 SQL 数据仓库，并且具有 CONTROL DATABASE 权限。 如果需要创建一个 SQL 数据仓库，可使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。
 
 ## <a name="sign-in-to-the-azure-portal"></a>登录到 Azure 门户
 

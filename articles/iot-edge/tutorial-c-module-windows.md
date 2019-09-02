@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 05/28/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d4b37b364bcc56b7d913bb63e40e8be441792dad
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 1ae5b37ce081aa803e278d9a7ee757754c11131b
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845252"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174279"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C IoT Edge 模块
 
@@ -51,7 +51,7 @@ ms.locfileid: "67845252"
 * 一个[运行 Azure IoT Edge 的 Windows 设备](quickstart.md)。
 * 一个容器注册表，例如 [Azure 容器注册表](https://docs.microsoft.com/azure/container-registry/)。
 * 配置了 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) 扩展的 [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio)。
-* 配置为运行 Windows 容器的 [Docker CE](https://docs.docker.com/install/)。
+* 配置为运行 Windows 容器的 [Docker Desktop](https://docs.docker.com/docker-for-windows/install/)。
 * 通过 vcpkg 安装 Azure IoT C SDK for Windows x64：
 
    ```powershell
@@ -63,7 +63,7 @@ ms.locfileid: "67845252"
    ```
    
 > [!TIP]
-> 如果使用的是 Visual Studio 2017（15.7 或更高版本），请从 Visual Studio 市场下载并安装适用于 VS 2017 的 [Azure IoT Edge Tools（预览版）](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
+> 如果使用的是 Visual Studio 2017（版本 15.7 或更高版本），请从 Visual Studio 市场下载并安装适用于 VS 2017 的 [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
 
 ## <a name="create-a-module-project"></a>创建模块项目
 

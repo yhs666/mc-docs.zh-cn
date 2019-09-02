@@ -4,24 +4,24 @@ description: 本教程逐步介绍如何设置开发计算机和云资源，以�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 06/06/2019
-ms.date: 07/22/2019
+origin.date: 08/15/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 9869be82fa9df94abdf1cb560cb2bb6c629260ea
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 1cd6d2b07625c86ebc0d980961a35c7e731a8a41
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845459"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174271"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>教程：开发适用于 Windows 设备的 IoT Edge 模块
 
 使用 Visual Studio 开发代码并将其部署到运行 IoT Edge 的 Windows 设备。
 
-在快速入门中，你已使用 Windows 虚拟机创建了一个 IoT Edge 设备，并通过 Azure 市场部署了一个预生成的模块。 本教程将逐步介绍如何开发你自己的代码并将其部署到 IoT Edge 设备。 本教程是更详细地介绍特定编程语言或 Azure 服务的其他所有教程的有用先决条件。 
+在快速入门中，你已使用 Windows 虚拟机创建了一个 IoT Edge 设备，并通过 Azure 市场部署了一个预生成的模块。 本教程将逐步介绍如何开发你自己的代码并将其部署到 IoT Edge 设备。 本教程是学习其他教程的有用先决条件，其他教程将更详细地介绍特定编程语言或 Azure 服务。 
 
 本教程使用**将 C# 模块部署到 Windows 设备**的示例。 之所以选择了此示例，原因在于它是最常见的开发方案。 如果你希望使用不同的语言进行开发，或者计划将 Azure 服务作为模块来部署，本教程还有助于了解开发工具。 了解开发概念之后，可以选择首选的语言或 Azure 服务深入到详细信息。 
 
@@ -129,17 +129,17 @@ Azure IoT Edge Tools 扩展为 Visual Studio 中支持的所有 IoT Edge 模块�
    ![配置新的 Azure IoT Edge 项目](./media/tutorial-develop-for-windows/configure-project.png)
  
 
-4. 在 IoT Edge 应用程序和模块窗口中，使用以下值配置项目： 
+4. 在“添加模块”窗口中，使用下列值配置项目： 
 
    | 字段 | Value |
    | ----- | ----- |
-   | 选择模板 | 选择“C# 模块”。  | 
-   | 模块项目名称 | 接受默认值 **IoTEdgeModule1**。 | 
-   | Docker 映像存储库 | 映像存储库包含容器注册表的名称和容器映像的名称。 系统已基于模块项目名称值预先填充容器映像。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/iotedgemodule1。 |
+   | Visual Studio 模板 | 选择“C# 模块”。  | 
+   | 模块名称 | 接受默认的 **IotEdgeModule1**。 | 
+   | 存储库 URL | 映像存储库包含容器注册表的名称和容器映像的名称。 系统已基于模块项目名称值预先填充容器映像。 将 **localhost:5000** 替换为 Azure 容器注册表中的登录服务器值。 可以在 Azure 门户的容器注册表的“概览”页中检索登录服务器。 <br><br> 最终的映像存储库看起来类似于 \<registry name\>.azurecr.io/iotedgemodule1。 |
 
    ![配置目标设备、模块类型和容器注册表的项目](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
-5. 选择“是”以应用所做的更改  。 
+5. 选择“添加”  以创建模块。 
 
 新项目载入到 Visual Studio 窗口中后，请花费片刻时间来熟悉它所创建的文件： 
 

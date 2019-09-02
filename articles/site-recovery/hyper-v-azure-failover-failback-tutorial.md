@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 08/07/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: ef90c874b5e8953c2ff5ea3224a1759b32de2208
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: f8765f168500ea2e865c3d0eff1343b607533389
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861704"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134391"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>对复制到 Azure 的 Hyper-V VM 进行故障转移和故障回复
 
@@ -65,8 +65,8 @@ ms.locfileid: "67861704"
 3. 选择“在开始故障转移前关闭计算机”  。 在触发故障转移之前，Site Recovery 会尝试关闭源 VM。 即使关机失败，故障转移也仍会继续。 可以在“作业”  页上跟踪故障转移进度。
 4. 验证故障转移后，单击“提交”  。 这会删除所有可用的恢复点。
 
-> [!WARNING]
-> **请勿取消正在进行的故障转移**：如果取消正在进行的故障转移，故障转移会停止，但 VM 不再复制。
+    > [!WARNING]
+    > **请勿取消正在进行的故障转移**：如果取消正在进行的故障转移，故障转移会停止，但 VM 不再复制。
 
 ## <a name="failback-azure-vm-to-on-premises-and-reverse-replicate-the-on-premises-vm"></a>将 Azure VM 故障回复到本地并反向复制本地 VM
 

@@ -35,8 +35,6 @@
           href: backup-azure-backup-faq.md
         - name: Azure VM 备份常见问题解答
           href: backup-azure-vm-backup-faq.md
-        - name: 有关自动升级备份保管库的常见问题解答
-          href: backup-upgrade-backup-vault.md
     - name: 备份体系结构
       href: backup-architecture.md
     - name: 基于角色的访问控制

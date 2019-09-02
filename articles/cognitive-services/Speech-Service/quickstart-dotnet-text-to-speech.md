@@ -7,16 +7,16 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-origin.date: 12/13/2018
-ms.date: 04/01/2019
+ms.topic: quickstart
+origin.date: 08/05/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: a86bcd3ebf3a6ec86866ccd0c8adf99790bc3e06
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 549b24efec651de76577c2a16aa9c35bcad124b9
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348427"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104082"
 ---
 # <a name="quickstart-convert-text-to-speech-using-net-core"></a>快速入门：使用 .NET Core 将文本转换为语音
 
@@ -161,7 +161,7 @@ string body = @"<speak version='1.0' xmlns='https://www.w3.org/2001/10/synthesis
 ```
 
 > [!NOTE]
-> 此示例使用 `ZiraRUS` 语音字体。 如需 Microsoft 提供的语音/语言的完整列表，请参阅[语言支持](language-support.md)。 若要为品牌创建唯一且可识别的语音，请参阅[创建自定义语音字体](how-to-customize-voice-font.md)。
+> 此示例使用 `ZiraRUS` 语音字体。 如需 Microsoft 提供的语音/语言的完整列表，请参阅[语言支持](language-support.md)。
 
 ## <a name="instantiate-the-client-make-a-request-and-save-synthesized-audio-to-a-file"></a>实例化客户端，发出请求，然后将合成的音频保存到文件
 
@@ -236,5 +236,4 @@ dotnet run
 ## <a name="see-also"></a>另请参阅
 
 * [文本到语音 API 参考](https://docs.azure.cn/cognitive-services/speech-service/rest-apis#text-to-speech-api)
-* [创建自定义语音字体](how-to-customize-voice-font.md)
 * [录制语音样本用于创建自定义语音](record-custom-voice-samples.md)

@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 966e53d3385e5b2bf9f42b2e7a731d5f835d8660
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: dac5e8eaf637e26f46fa9b72ed8d4803aad74e3a
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332165"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103844"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中部署应用
 
@@ -46,11 +46,11 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
     |定价层|**S0**|此资源的默认定价层。|
     |资源组|`my-cognitive-service-resource-group`|为所有认知服务资源创建新资源组。 完成资源后，可以删除资源组以清理订阅。 | 
 
-    ![Azure API 选择](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png) 
+   ![Azure API 选择](./media/get-started-portal-deploy-app/create-cognitive-services-resource.png)
 
-1. 选择“创建”以创建 Azure 资源  。 
+1. 选择“创建”以创建 Azure 资源  。
 
-    在下一部分中，你将了解如何在 LUIS 门户中将此新资源连接到 LUIS 应用。 
+   在下一部分中，你将了解如何在 LUIS 门户中将此新资源连接到 LUIS 应用。
 
 ## <a name="assign-the-resource-key-to-the-luis-app-in-the-luis-portal"></a>将资源关键字分配给 LUIS 门户中的 LUIS 应用
 
@@ -62,15 +62,15 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 1. 若要添加 LUIS，请选择“分配资源 +”  。
 
-    [![将资源分配给应用](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+   [![将资源分配给应用](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
 
 1. 选择租户、订阅和资源名称。 选择“分配资源”。 
 
-    ![将资源分配给应用](./media/get-started-portal-deploy-app/assign-resource.png)
+   ![将资源分配给应用](./media/get-started-portal-deploy-app/assign-resource.png)
 
 1. 在表中找到新行并复制终结点 URL。 它构造正确，可以向用于预测的 LUIS API 终结点发出 `HTTP GET` 请求。
 
-## <a name="train-and-publish-the-app"></a>训练并发布应用 
+## <a name="train-and-publish-the-app"></a>训练并发布应用
 
 在准备测试应用时，对应用进行训练。 如果需要通过查询预测终结点运行时将当前训练的版本用于客户端应用程序，请发布应用。
 
@@ -80,7 +80,7 @@ LUIS 应用准备好将话语预测返回到客户端应用程序（例如聊天
 
 1. 绿色的成功通知栏出现在浏览器窗口顶部时，请选择“参阅终结点列表”  。
 
-    ![在浏览器中成功发布了应用通知栏](./media/get-started-portal-deploy-app/successfully-published-notification.png)
+   ![在浏览器中成功发布了应用通知栏](./media/get-started-portal-deploy-app/successfully-published-notification.png)
 
 1. 在“密钥和终结点设置”页的底部找到已分配资源和相应终结点 URL 的列表。 
 

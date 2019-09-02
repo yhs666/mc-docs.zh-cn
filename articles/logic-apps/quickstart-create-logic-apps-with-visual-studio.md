@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.custom: mvc
 origin.date: 04/25/2019
 ms.author: v-yiso
-ms.date: 08/26/2019
-ms.openlocfilehash: 1f8742a0d6a7878ee4410c9915cba1c9789317b8
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.date: 09/09/2019
+ms.openlocfilehash: 069cdab5c4a9d8267b44460aa2648fc32f9a57c1
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538900"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174110"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>快速入门：使用 Azure 逻辑应用创建自动化任务、流程和工作流 - Visual Studio
 
@@ -44,7 +44,7 @@ ms.locfileid: "69538900"
     > 安装 Visual Studio 2019 或 2017 时，请务必选择“Azure 开发”工作负荷。 
 
   * [用于 .NET 的 Microsoft Azure SDK（2.9.1 或更高版本）](/downloads/)。 
-  详细了解[用于 .NET 的 Azure SDK]https://docs.azure.cn/zh-cn/dotnet/dotnet-tools?view=azure-dotnet&tabs=windows) 。
+  详细了解[用于 .NET 的 Azure SDK](https://docs.azure.cn/zh-cn/dotnet/dotnet-tools?view=azure-dotnet&tabs=windows)。
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -65,6 +65,8 @@ ms.locfileid: "69538900"
   例如，对于 Dynamics CRM Online 连接，设计器会在 CRM 实例中检查默认属性和自定义属性。
 
 * 逻辑应用支持的（例如 Office 365 Outlook、Outlook.com 或 Gmail）电子邮件帐户。 至于其他提供商，请[查看此处的连接器列表](/connectors/)。 本示例使用 Office 365 Outlook。 如果使用其他提供商，整个步骤仍然是相同的，但 UI 可能稍有不同。
+
+<a name="create-resource-group-project"></a>
 
 ## <a name="create-azure-resource-group-project"></a>创建 Azure 资源组项目
 
@@ -142,6 +144,8 @@ ms.locfileid: "69538900"
 
 1. 保存你的 Visual Studio 解决方案。 （键盘：Ctrl + S）
 
+<a name="deploy-to-Azure"></a>
+
 ## <a name="deploy-logic-app-to-azure"></a>将逻辑应用部署到 Azure
 
 必须先将逻辑应用从 Visual Studio 部署到 Azure，然后才能运行并测试逻辑应用。
@@ -174,6 +178,22 @@ ms.locfileid: "69538900"
    ![Outlook 针对每个新的 RSS 项发送电子邮件](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 祝贺你，你已使用 Visual Studio 成功生成并部署了逻辑应用。 若要管理逻辑应用并查看其运行历史记录，请参阅[使用 Visual Studio 管理逻辑应用](../logic-apps/manage-logic-apps-with-visual-studio.md)。
+
+## <a name="add-new-logic-app"></a>添加新逻辑应用
+
+如果你有现有的 Azure 资源组项目，则可以使用“JSON 大纲”窗口向该项目添加一个新的空白逻辑应用。
+
+1. 在“解决方案资源管理器”中，打开 `<logic-app-name>.json` 文件。
+
+1. 在“视图”菜单中，选择“其他窗口” > “JSON 大纲”。   
+
+1. 若要将资源添加到模板文件，请在“JSON 大纲”窗口顶部选择“添加资源”  。 或者在“JSON 大纲”窗口中，右键单击“资源”  ，并选择“添加新资源”  。
+
+   ![“JSON 大纲”窗口](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
+
+1. 在“添加资源”  对话框中，找到并选择“逻辑应用”  。 为逻辑应用命名，并选择“添加”  。
+
+   ![添加资源](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## <a name="clean-up-resources"></a>清理资源
 

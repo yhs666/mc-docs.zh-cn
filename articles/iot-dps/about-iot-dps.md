@@ -2,18 +2,19 @@
 title: Azure IoT 中心设备预配服务概述 | Microsoft Docs
 description: 介绍在 Azure 中使用设备预配服务和 IoT 中心预配设备
 author: nberdy
-ms.author: nberdy
-ms.date: 12/05/2017
+ms.author: v-yiso
+origin.date: 04/04/2019
+ms.date: 09/09/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: bad33376b9457eff25e3407c8e480cf7c0078a1d
-ms.sourcegitcommit: 66e360fe2577c9b7ddd96ff78e0ede36c3593b99
+ms.openlocfilehash: 2cc1f6d1a70171a506a5457b60e70d2e81105529
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57988543"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174218"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中心设备预配服务预配设备
 Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT 解决方案需求。 IoT 中心设备预配服务是针对 IoT 中心的帮助程序服务，无需人为干预即可零接触实时预配至合适的 IoT 中心，客户可以采用安全且可缩放的方式预配数百万台设备。
@@ -46,8 +47,8 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 ## <a name="provisioning-process"></a>设置过程
 在设备的部署过程中有两个不同的步骤，其中设备预配服务部分可以独立完成：
 
-* 制造步骤，其中设备在出厂时创建和准备，以及
-* 云设置步骤，其中将设备预配服务配置为自动预配。
+* 制造步骤，其中设备在出厂时创建和准备，以及 
+* 云设置步骤，其中将设备预配服务配置为自动预配  。
 
 这两个步骤都与现有的制造和部署过程无缝衔接。 设备预配服务甚至简化了一些部署过程，这些过程需要大量的手动操作来获取设备上的连接信息。
 
@@ -66,7 +67,7 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 将服务配置为自动预配后，必须使其准备好注册设备。 此步骤由设备操作员完成，设备操作员知道设备的所需配置，并且负责确保预配服务在寻找其 IoT 中心时可以正确地证明设备的标识。 设备操作员从制造商处获取识别性密钥信息，并将其添加到注册列表。 添加新条目或现有条目更新为关于设备的最新信息后，随之会更新注册列表。
 
 ## <a name="registration-and-provisioning"></a>注册和预配
-预配意味着各种含义，具体取决于使用术语的行业。 在将 IoT 设备预配至其云解决方案的情况中，预配由两部分构成：
+预配意味着各种含义，具体取决于使用术语的行业  。 在将 IoT 设备预配至其云解决方案的情况中，预配由两部分构成：
 
 1. 第一部分是通过注册设备来建立设备和 IoT 解决方案之间的初始连接。
 2. 第二部分是根据其注册到的解决方案的具体要求将适当的配置应用于设备。
@@ -76,9 +77,9 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 ## <a name="features-of-the-device-provisioning-service"></a>设备预配服务的功能
 设备预配服务具有许多功能，使其非常适合用来预配设备。
 
-* 对基于 X.509 和 TPM 的标识的安全证明支持。
-* 注册列表，其中包含可能在某一时刻注册的设备/设备组的完整记录。 注册列表包含有关设备注册后所需的设备配置信息，并可随时更新。
-* 多分配策略，用于根据自己的需要控制设备预配服务向 IoT 中心分配设备的方式。
+* 对基于 X.509 和 TPM 的标识  的安全证明支持。
+* 注册列表，其中包含可能在某一时刻注册的设备/设备组的完整记录  。 注册列表包含有关设备注册后所需的设备配置信息，并可随时更新。
+* 多分配策略，用于根据自己的需要控制设备预配服务向 IoT 中心分配设备的方式  。
 * **监视和诊断日志记录**，用于确保一切都正常工作。
 * **多中心支持**，允许设备预配服务将设备分配给多个 IoT 中心。 设备预配服务可跨多个 Azure 订阅与中心进行通讯。
 * **跨区域支持**，允许设备预配服务将设备分配给多个 IoT 中心。
@@ -96,7 +97,7 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 
 设备预配服务仅对服务操作支持 HTTPS 连接。
 
-## <a name="regions"></a>区域
+## <a name="regions"></a>Regions
 设备预配服务在许多区域可用。 [Azure 区域](https://azure.microsoft.com/regions/)页面中提供了所有服务的现有区域和新宣布推出区域的更新列表。 可以在 [Azure 状态](https://azure.microsoft.com/status/)页面上检查设备预配服务的可用性。
 
 > [!NOTE]
@@ -107,6 +108,8 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 
 ## <a name="quotas"></a>配额
 每个 Azure 订阅附带默认的配额限制，这些限制可能影响 IoT 解决方案的范围。 每个订阅的当前限制是每订阅 10 个设备预配服务。
+
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 有关配额限制的更多详细信息，请参阅：
 

@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 07/10/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 94926b0596d3dabfa35ef5442b3ad968dc9e1331
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: f28651ae392d0d28576176c3c1b703b5e8c457a0
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819649"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174229"
 ---
 <!--Verify Successfully-->
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>快速入门：将 Windows 容器部署到 Service Fabric

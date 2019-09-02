@@ -13,18 +13,38 @@
       href: container-registry-get-started-portal.md
     - name: 创建容器注册表 - PowerShell
       href: container-registry-get-started-powershell.md
+    - name: 生成并运行映像 - CLI
+      href: container-registry-quickstart-task-cli.md
+- name: 教程
+  items:
+    - name: 生成容器映像
+      items:
+        - name: 1 - 在 Azure 中生成映像
+          href: container-registry-tutorial-quick-task.md
+        - name: 2a - 提交源代码时自动生成
+          href: container-registry-tutorial-build-task.md
+        - name: 2b - 提交源代码时执行多步骤任务
+          href: container-registry-tutorial-multistep-task.md
+        - name: 3 - 基础映像更新生成
+          href: container-registry-tutorial-base-image-update.md
+    - name: 异地复制注册表
+      items:
+        - name: 1 - 准备容器注册表
+          href: container-registry-tutorial-prepare-registry.md
 - name: 概念
   items:
     - name: 容器注册表 SKU
       href: container-registry-skus.md
+    - name: 注册表、存储库和映像
+      href: container-registry-concepts.md
     - name: 图像存储
       href: container-registry-storage.md
     - name: 内容格式
       href: container-registry-image-formats.md
+    - name: 标记和版本映像
+      href: container-registry-image-tag-version.md
     - name: 异地复制
       href: container-registry-geo-replication.md
-    - name: 角色和权限
-      href: container-registry-roles.md
     - name: 注册最佳做法
       href: container-registry-best-practices.md
 - name: 操作指南
@@ -40,7 +60,9 @@
         - name: 锁定容器映像
           href: container-registry-image-lock.md
         - name: 删除容器映像
-          href: container-registry-delete.md
+          items:
+            - name: 删除映像数据 - CLI
+              href: container-registry-delete.md
         - name: 升级经典注册表
           href: container-registry-upgrade.md
         - name: 使用 ACR webhook
@@ -49,35 +71,63 @@
           href: container-registry-helm-repos.md
     - name: 安全性和身份验证
       items:
-        - name: 身份验证概述
-          href: container-registry-authentication.md
+        - name: 身份验证
           items:
+            - name: 身份验证概述
+              href: container-registry-authentication.md
             - name: 服务主体身份验证
               href: container-registry-auth-service-principal.md
             - name: 托管标识身份验证
               href: container-registry-authentication-managed-identity.md
+        - name: 角色和权限
+          href: container-registry-roles.md
+    - name: ACR 任务
+      items:
+        - name: ACR 任务概述
+          href: container-registry-tasks-overview.md
+        - name: 计划的任务
+          href: container-registry-tasks-scheduled.md
+        - name: 多步骤任务
+          href: container-registry-tasks-multi-step.md
+        - name: 使用托管标识访问受保护的资源
+          items:
+            - name: 在任务上启用托管标识
+              href: container-registry-tasks-authentication-managed-identity.md
+            - name: 从任务中进行跨注册表身份验证
+              href: container-registry-tasks-cross-registry-authentication.md
+            - name: 使用密钥保管库进行外部身份验证
+              href: container-registry-tasks-authentication-key-vault.md
     - name: 注册表和其他 Azure 服务
       items:
         - name: Azure Kubernetes 服务 (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: 故障排除
+      items:
+        - name: 诊断常见问题
+          href: container-registry-check-health.md
 - name: 参考
   items:
     - name: Azure CLI
-      href: 'https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest'
+      href: 'https://docs.azure.cn/cli/acr?view=azure-cli-latest'
     - name: REST
       href: 'https://docs.microsoft.com/rest/api/containerregistry'
     - name: PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.containerregistry'
     - name: .NET
-      href: 'https://docs.azure.cn/zh-cn/dotnet/api/overview/containerregistry'
+      href: 'https://docs.azure.cn/dotnet/api/overview/containerregistry'
     - name: Python
       href: 'https://docs.microsoft.com/python/api/overview/azure/container-registry'
     - name: Java
       href: 'https://docs.microsoft.com/java/api/overview/azure/containerregistry'
     - name: Node.js
       href: 'http://docs.microsoft.com/javascript/api/overview/azure/container-registry'
+    - name: ACR 任务 YAML
+      href: container-registry-tasks-reference-yaml.md
     - name: Webhook 架构
       href: container-registry-webhook-reference.md
+    - name: 运行状况检查错误
+      href: container-registry-health-error-reference.md
+      maintainContext: true
 - name: 资源
   items:
     - name: 上市区域
@@ -85,6 +135,8 @@
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/container-registry/'
     - name: 提供产品反馈
-      href: 'https://www.azure.cn/support/contact/'
+      href: 'https://support.azure.cn/support/contact/'
     - name: 视频
-      href: 'https://www.azure.cn/video-center/&sort=newest'
+      href: 'https://www.azure.cn/video-center/'
+    - name: 常见问题解答
+      href: container-registry-faq.md

@@ -4,17 +4,17 @@ description: 将 Azure IoT Edge 用作可处理来自下游设备的消息的透
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 11/29/2018
-ms.date: 05/06/2019
+origin.date: 06/07/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a6587dfd7ce1373689cce3da3c11d96a6f013c77
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 4d4e6ec564160b65f5503d06da64c897f739e5db
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845147"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174007"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>将 IoT Edge 设备配置为充当透明网关
 
@@ -50,9 +50,8 @@ ms.locfileid: "67845147"
 ## <a name="prerequisites"></a>先决条件
 
 要配置为网关的 Azure IoT Edge 设备。 对以下操作系统之一使用 IoT Edge 安装步骤：
-  * [Windows](./how-to-install-iot-edge-windows.md)
-  * [Linux x64](./how-to-install-iot-edge-linux.md)
-  * [Linux ARM32](./how-to-install-iot-edge-linux-arm.md)
+  * [Windows](how-to-install-iot-edge-windows.md)
+  * [Linux](how-to-install-iot-edge-linux.md)
 
 本文在多个位置提到了“网关主机名”  。 网关主机名在 IoT Edge 网关设备上的 config.yaml 文件的 **hostname** 参数中声明。 它用于创建本文中所用的证书，并在下游设备的连接字符串中引用。 网关主机名必须能够解析成 IP 地址，不管是使用 DNS 还是主机文件条目。
 
@@ -182,11 +181,13 @@ Azure IoT Edge Git 存储库包含可用于生成测试证书的脚本。 在本
    cp <path>/iotedge/tools/CACertificates/certGen.sh .
    ```
 
-4. 将 OpenSSL 配置为使用提供的脚本生成证书。 
+<!--
+4. Configure OpenSSL to generate certificates using the provided script. 
 
    ```bash
    chmod 700 certGen.sh 
    ```
+-->
 
 ### <a name="create-certificates"></a>创建证书
 

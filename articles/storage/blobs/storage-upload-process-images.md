@@ -11,12 +11,12 @@ ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: seguler
 ms.custom: mvc
-ms.openlocfilehash: a9f6e80e3190631e953a4f6dcef82885c3b144ab
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: b817ff6e4f93101a0e0925692ab8e3cc003c2fbe
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844515"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174079"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>教程：使用 Azure 存储在云中上传图像数据
 
@@ -63,6 +63,9 @@ az group create --name myResourceGroup --location chinanorth
 
 此示例将图像上传到 Azure 存储帐户中的 blob 容器。 存储帐户提供唯一的命名空间来存储和访问 Azure 存储数据对象。 使用 [az storage account create](/cli/storage/account) 命令在创建的资源组中创建存储帐户。
 
+> [!IMPORTANT]
+> 在本教程的第 2 部分中，你将 Azure 事件网格与 Blob 存储配合使用。 请确保在支持事件网格的 Azure 区域中创建你的存储帐户。 有关受支持区域的列表，请参阅 [Azure 产品（按区域）](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。
+
 在以下命令中，请将 `<blob_storage_account>` 占位符替换为你自己的 Blob 存储帐户的全局唯一名称。  
 
 ```azurecli 
@@ -75,7 +78,7 @@ az storage account create --name $blobStorageAccount \
 
 ## <a name="create-blob-storage-containers"></a>创建 Blob 存储容器
 
-应用使用 Blob 存储帐户中的两个容器。 容器类似于文件夹，用于存储 blob。 images  容器是应用在其中上传完整分辨率图像的位置。 
+应用使用 Blob 存储帐户中的两个容器。 容器类似于文件夹，用于存储 blob。 images  容器是应用在其中上传完整分辨率图像的位置。 在本系列的后面部分中，一个 Azure 函数应用将调整大小后的图像缩略图上传到 thumbnails  容器。
 
 使用 [az storage account keys list](/cli/storage/account/keys) 命令获取存储帐户密钥。 然后，使用此密钥通过 [az storage container create](/cli/storage/container) 命令创建两个容器。  
 
@@ -127,7 +130,7 @@ az webapp create --name $webapp --resource-group myResourceGroup --plan myAppSer
 
 应用服务支持通过多种方式将内容部署到 Web 应用。 在本教程中，将从[公共 GitHub 示例存储库](https://github.com/WenJason/storage-blob-upload-from-webapp)部署 Web 应用。 使用 [az webapp deployment source config](/cli/webapp/deployment/source) 命令配置 Web 应用的 GitHub 部署。
 
-示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.WindowsAzure.Storage](/dotnet/api/microsoft.windowsazure.storage?view=azure-dotnet)、[Microsoft.WindowsAzure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 Microsoft.WindowsAzure.Storage.Auth 命名空间与 Azure 存储进行交互。
+示例项目包含一个 [ASP.NET MVC](https://www.asp.net/mvc) 应用。 该应用接受一个图像，将其保存到存储帐户，然后从缩略图容器显示图像。 Web 应用使用 Azure 存储客户端库中的 [Microsoft.Azure.Storage](/dotnet/api/overview/storage?view=azure-dotnet)、[Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.windowsazure.storage.blob?view=azure-dotnet) 和 Microsoft.Azure.Storage.Auth 命名空间与 Azure 存储进行交互。
 
 ```azurecli
 az webapp deployment source config --name $webapp \
@@ -421,3 +424,11 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 在本系列的第二部分中，您将使缩略图创建自动化，以便不需要此图像。 在 Azure 门户中的 **thumbnails** 容器中，选择上传的图像，然后选择“删除”  以删除图像。 
 
+## <a name="next-steps"></a>后续步骤
+
+在本系列的第一部分中，你已学习了如何配置 Web 应用来与存储进行交互。
+
+请前进到本系列的第二部分，以了解如何使用事件网格触发 Azure 函数以调整图像大小。
+
+> [!div class="nextstepaction"]
+> [使用事件网格触发 Azure 函数以调整上传的图像大小](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fstorage%2fblobs%2ftoc.json)

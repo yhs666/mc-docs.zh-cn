@@ -13,17 +13,17 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 06/25/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: afde65b21ac12f02fd2bdb238b3077823f7cfb5e
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 46665e0ed2664c375ab01595b8d618a413cebfc7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568735"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134311"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>快速入门：从 Android 应用登录用户并调用 Microsoft Graph API
 
@@ -31,7 +31,7 @@ ms.locfileid: "67568735"
 
 如果你要开发 Android 应用程序，Microsoft 可让 Azure Active Directory (Azure AD) 用户拥有简单直接的登录体验。 Azure AD 允许应用程序通过 Microsoft Graph 或你自己的受保护 Web API 访问用户数据。
 
-Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 OpenID Connect 来支持 [Azure Active Directory 帐户](https://www.azure.cn/home/features/active-directory/)，从而使你的应用能够开始使用 [Azure 云](https://cloud.microsoft.com)和 [Microsoft Graph API](https://developer.microsoft.com/graph)。
+Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 OpenID Connect 来支持 [Azure Active Directory 帐户](https://www.azure.cn/home/features/active-directory/)，从而使你的应用能够开始使用 [Azure 云](https://www.azure.cn/pricing/1rmb-trial/)和 [Microsoft Graph API](https://developer.microsoft.com/graph)。
 
 在本快速入门中，你将学习如何：
 
@@ -46,7 +46,7 @@ Azure AD 身份验证库 (ADAL) Android 库使用行业标准的 OAuth 2.0 和 O
 
 ## <a name="scenario-sign-in-users-and-call-the-microsoft-graph"></a>方案：让用户登录并调用 Microsoft Graph
 
-![拓扑](./media/quickstart-v1-android/active-directory-android-topology.png)
+![显示 Azure AD 和 Android 拓扑](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 可以将此应用用于所有 Azure AD 帐户。 它同时支持单租户方案和多租户方案（分步讨论）。 它演示了如何生成应用来连接企业用户并通过 Microsoft Graph 访问其 Azure 和 O365 数据。 在身份验证流中，最终用户需要登录该应用程序并同意其权限，某些情况下可能需要管理员同意该应用。 本示例中的大部分逻辑展示了如何对最终用户进行身份验证并对 Microsoft Graph 进行基本调用。
 

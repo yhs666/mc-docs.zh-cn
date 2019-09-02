@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 05/08/2017
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0ca1d6d46fa6086f7fdb664de533759b2c193cd4
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 7fca1702469ca8769e6259ed3d6dd99ab9b38bab
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819682"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173953"
 ---
 # <a name="reliable-collection-object-serialization-in-azure-service-fabric"></a>Azure Service Fabric 中的 Reliable Collection 对象序列化
 Reliable Collections 通过复制和保留项目，确保这些项目在机器故障和电力中断时能够持久。
@@ -56,7 +56,7 @@ Reliable State Manager 拥有针对以下类型的内置串行化程序：
 
 自定义串行化程序通常用于提高性能，或用于在网络传输时以及在磁盘上加密数据。 除了其他原因外，自定义序列化程序还通常比通用序列化程序更高效，因为它们不需要串行化有关类型的信息。 
 
-[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义序列化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有可靠集合都有权访问相关序列化程序来读取其保留的数据。
+[IReliableStateManager.TryAddStateSerializer\<T>](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.ireliablestatemanager.tryaddstateserializer?view=azure-dotnet) 用于为给定类型 T 注册自定义序列化程序。此注册应在 StatefulServiceBase 构造内发生，以确保在开始恢复前，所有可靠集合都有权访问相关序列化程序来读取其保留的数据。
 
 ```csharp
 public StatefulBackendService(StatefulServiceContext context)
@@ -74,7 +74,7 @@ public StatefulBackendService(StatefulServiceContext context)
 
 ### <a name="how-to-implement-a-custom-serializer"></a>如何实现自定义串行化程序
 
-自定义序列化程序需要实现 [IStateSerializer\<T>](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.istateserializer-1?view=azure-dotnet) 接口。
+自定义序列化程序需要实现 [IStateSerializer\<T>](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.istateserializer-1?view=azure-dotnet) 接口。
 
 > [!NOTE]
 > IStateSerializer\<T> 包含读取和写入重载，可接受名为基值的附加 T。 此 API 用于差分序列化。 当前未公开差分序列化功能。 因此，在公开和启用差分序列化前，不会调用这两个重载。
@@ -151,7 +151,7 @@ public class OrderKeySerializer : IStateSerializer<OrderKey>
 
 ## <a name="next-steps"></a>后续步骤
   * [序列化和升级](service-fabric-application-upgrade-data-serialization.md)
-  * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+  * [Reliable Collections 的开发人员参考](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
   * [使用 Visual Studio 升级应用程序](service-fabric-application-upgrade-tutorial.md)逐步讲解了如何使用 Visual Studio 进行应用程序升级。
   * [使用 Powershell 升级应用程序](service-fabric-application-upgrade-tutorial-powershell.md)逐步讲解了如何使用 PowerShell 进行应用程序升级。
   * 使用[升级参数](service-fabric-application-upgrade-parameters.md)来控制应用程序的升级方式。

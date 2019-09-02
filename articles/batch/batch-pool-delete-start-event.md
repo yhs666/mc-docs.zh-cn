@@ -2,23 +2,23 @@
 title: Azure Batch 池删除开始事件 | Microsoft Docs
 description: Batch 池删除开始事件参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2017
+origin.date: 06/20/2019
 ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 6f42f4d0ce77f49cd0117982b7f06afbb83f9106
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-lingwu
+ms.openlocfilehash: 12f1ef9d73a9610f76cbcbe4bfde7a65b74c4880
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648883"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104069"
 ---
 # <a name="pool-delete-start-event"></a>池删除开始事件
 

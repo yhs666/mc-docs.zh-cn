@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 46f3e95bb6b406733c720b49825123739f6bf40f
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 9b52950b7c8443cb61a6c6408fa87dfa9389a2a3
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204025"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174014"
 ---
 # <a name="upgrading-and-updating-a-service-fabric-standalone-cluster"></a>升级和更新 Service Fabric 独立群集
 
@@ -33,7 +33,7 @@ ms.locfileid: "57204025"
 
 ## <a name="customize-configuration-settings"></a>自定义配置设置
 
-可以在 ClusterConfig.json 文件中设置许多不同的[配置设置](service-fabric-cluster-manifest.md)，例如群集的可靠性级别和节点属性。  若要了解详细信息，请阅读[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。  还可自定义许多其他更高级的设置。  有关详细信息，请参阅 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)。
+可以在 ClusterConfig.json 文件中设置许多不同的[配置设置](service-fabric-cluster-manifest.md)，例如群集的可靠性级别和节点属性  。  若要了解详细信息，请阅读[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。  还可自定义许多其他更高级的设置。  有关详细信息，请参阅 [Service Fabric 群集结构设置](service-fabric-cluster-fabric-settings.md)。
 
 ## <a name="define-node-properties"></a>定义节点属性
 有时，可能需要确保仅在群集中特定类型的节点上运行某些工作负荷。 例如，某些工作负荷可能需要 GPU 或 SSD，而有些则不用。 对于群集中的每个节点类型，可以向群集节点添加自定义节点属性。 放置约束是附加到单个服务的语句，这些服务专供 1 个或多个节点属性选择。 放置约束定义服务运行的位置。
@@ -52,6 +52,7 @@ ms.locfileid: "57204025"
 * 了解[应用程序升级](service-fabric-application-upgrade.md)
 
 <!--Image references-->
+
 [CertificateUpgrade]: ./media/service-fabric-cluster-upgrade/CertificateUpgrade2.png
 [AddingProbes]: ./media/service-fabric-cluster-upgrade/addingProbes2.PNG
 [AddingLBRules]: ./media/service-fabric-cluster-upgrade/addingLBRules.png

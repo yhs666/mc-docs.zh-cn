@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/11/2019
-ms.date: 07/01/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18448cdbc3d91f77de4afb15954c6131130dea5a
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: f48375a92937f74ef70de3a180cf14dde9728f7f
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568579"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134293"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>快速入门：获取令牌并从 Windows 桌面应用中调用 Microsoft Graph API
 
@@ -71,7 +71,7 @@ ms.locfileid: "67568579"
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步骤 2：下载 Visual Studio 项目
 
-[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)（[在 Github 上查看该项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/)）
+[下载 Visual Studio 项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)（[在 GitHub 上查看项目](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/)）
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>步骤 3：配置 Visual Studio 项目
 
@@ -83,6 +83,9 @@ ms.locfileid: "67568579"
     private static string ClientId = "Enter_the_Application_Id_here";
     private static string Tenant = "Enter_the_Tenant_Info_Here";
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入门支持 Enter_the_Supported_Account_Info_Here。
 
 > [!div renderon="docs"]
 > 其中：
@@ -149,7 +152,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 
 #### <a name="get-a-user-token-silently"></a>以无提示方式获取用户令牌
 
-你不希望在用户每次需要访问资源时都要求其验证其凭据。 大多数情况下，你希望在无需任何用户交互的情况下进行令牌获取和续订。 可以使用 `AcquireTokenSilentAsync` 方法获取令牌，以在初始 `AcquireTokenInteractive` 方法后访问受保护资源：
+你不希望在用户每次需要访问资源时都要求其验证其凭据。 大多数情况下，你希望在无需任何用户交互的情况下进行令牌获取和续订。 可以使用 `AcquireTokenSilent` 方法获取令牌，以在初始 `AcquireTokenInteractive` 方法后访问受保护资源：
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

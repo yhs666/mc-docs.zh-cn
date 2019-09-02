@@ -58,7 +58,6 @@ sections:
             values:
               - href: quickstart-csharp-detect.md
               - href: quickstart-java-detect.md
-              - href: quickstart-nodejs-detect.md
               - href: quickstart-python-detect.md
               - href: quickstart-go-detect.md
           - title: 获取备用翻译和使用情况

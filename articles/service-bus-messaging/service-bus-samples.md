@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: adc8b1d82308678eee97ca6722d2224d697834ea
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3eab9d2f8f2e1d60f5ef4a424256564ecd2599c7
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818549"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169596"
 ---
 # <a name="service-bus-messaging-samples"></a>服务总线消息传送示例
 服务总线消息传送示例演示[服务总线消息传送](/service-bus/)中的关键功能。 目前，可以在以下两个位置找到这些示例：
@@ -28,7 +28,7 @@ ms.locfileid: "68818549"
 | -------------------- | ----------------------- |
 | .NET、Java 和管理 | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
 ## <a name="service-bus-explorer"></a>服务总线资源管理器
 

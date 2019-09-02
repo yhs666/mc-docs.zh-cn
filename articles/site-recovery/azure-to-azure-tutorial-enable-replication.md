@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 618aad2a9a5fe8817da43c7ee50f5e4fa67a177d
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 072f08c4c4de0731981e928618cfe480920cf683
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861665"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134415"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>为 Azure VM 设置灾难恢复
 
@@ -56,12 +56,12 @@ ms.locfileid: "67861665"
 
     新保管库将添加到“仪表板”中的“所有资源”下，以及“恢复服务保管库”主页面上。   
 
-## <a name="verify-target-resources"></a>验证目标资源
+## <a name="verify-target-resource-settings"></a>验证目标资源设置
 
 1. 验证 Azure 订阅是否允许在目标区域中创建 VM。 请联系支持部门，启用所需配额。
 2. 确保订阅中有足够的资源，能够支持与源 VM 匹配的 VM 大小。 Site Recovery 会为目标 VM 选择相同的大小或尽可能接近的大小。
 
-## <a name="configure-outbound-network-connectivity"></a>配置出站网络连接
+## <a name="set-up-outbound-network-connectivity-for-vms"></a>设置 VM 的出站网络连接
 
 若要使 Site Recovery 按预期工作，需在要复制的 VM 中对出站网络连接进行修改。
 
@@ -85,11 +85,13 @@ ms.locfileid: "67861665"
 
 <!--Not Available on - [Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)-->
 <!--Not Available on - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/download/details.aspx?id=54770)-->
-  
+<!--MOONCAKE: CUSTOMIZE ON (/site-recovery/azure-to-azure-about-networking#site-recovery-ip-in-china)-->
+
 - [中国的 Windows Azure 数据中心 IP 范围](https://www.microsoft.com/download/confirmation.aspx?id=57062)
 - [Office 365 URL 和 IP 地址范围](https://docs.microsoft.com/en-us/office365/enterprise/urls-and-ip-address-ranges-21vianet)
-  
-<!--Not Available on - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)-->
+- [Site Recovery 服务终结点 IP 地址](/site-recovery/azure-to-azure-about-networking#site-recovery-ip-in-china)
+
+<!--MOONCAKE: CUSTOMIZE ON (/site-recovery/azure-to-azure-about-networking#site-recovery-ip-in-china)-->
 
 如果你正在使用 NSG，则可以为源区域创建存储服务标记 NSG 规则。 [了解详细信息](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)。
 

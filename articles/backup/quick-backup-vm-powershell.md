@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 56468f6466512cad346ddf637c8d49255ebc8fcb
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: c63fefbfaf0f39b8f1f7fb1fcd5f8558b84e14fe
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570597"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104134"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
@@ -76,7 +76,7 @@ ms.locfileid: "67570597"
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > 只有在没有受保管库保护的备份项的情况下，才能修改存储冗余性。
@@ -104,7 +104,6 @@ ms.locfileid: "67570597"
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## <a name="start-a-backup-job"></a>启动备份作业
 

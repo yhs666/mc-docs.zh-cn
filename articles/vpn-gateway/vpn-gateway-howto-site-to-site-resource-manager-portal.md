@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 12/19/2018
-ms.date: 03/25/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 83d27c9cd40a1e6462b713edb49d09660a33ddab
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 97cdbd9339ed91fa597154ea9c01152362e96b93
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348065"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131660"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>在 Azure 门户中创建站点到站点连接
 
@@ -43,7 +43,7 @@ ms.locfileid: "58348065"
 
 本文中的示例使用以下值。 可使用这些值创建测试环境，或参考这些值以更好地理解本文中的示例。 有关通用 VPN 网关设置的详细信息，请参阅[关于 VPN 网关设置](vpn-gateway-about-vpn-gateway-settings.md)。
 
-* **VNet 名称：** TestVNet1
+* **VNet 名称：** VNet1
 * **地址空间：** 10.1.0.0/16
 * **订阅：** 要使用的订阅
 * **资源组：** TestRG1
@@ -67,9 +67,11 @@ ms.locfileid: "58348065"
 
 ## <a name="dns"></a>2.指定 DNS 服务器
 
-创建站点到站点连接不需要 DNS。 但是，如果希望对部署到虚拟网络的资源进行名称解析，则应指定 DNS 服务器。 可以通过此设置指定 DNS 服务器，以便将其用于此虚拟网络的名称解析。 此设置不创建 DNS 服务器。 有关名称解析的详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+创建站点到站点连接不需要 DNS。
 
-[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-specify-dns-portal-include.md)]
+但是，如果希望对部署到虚拟网络的资源进行名称解析，则应指定 DNS 服务器。 可以通过此设置指定 DNS 服务器，以便将其用于此虚拟网络的名称解析。 此设置不创建 DNS 服务器。 有关名称解析的详细信息，请参阅 [VM 和角色实例的名称解析](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)。
+
+[!INCLUDE [Specify a dns server - optional](../../includes/vpn-gateway-add-dns-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>3.创建网关子网
 
@@ -94,7 +96,7 @@ ms.locfileid: "58348065"
 通过站点到站点连接连接到本地网络需要 VPN 设备。 在此步骤中，请配置 VPN 设备。 配置 VPN 设备时，需要以下项：
 
 - 共享密钥。 此共享密钥就是在创建站点到站点 VPN 连接时指定的共享密钥。 在示例中，我们使用基本的共享密钥。 建议生成更复杂的可用密钥。
-- 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到“虚拟网关”，然后单击网关的名称。
+- 虚拟网关的“公共 IP 地址”。 可以通过 Azure 门户、PowerShell 或 CLI 查看公共 IP 地址。 若要使用 Azure 门户查找 VPN 网关的公共 IP 地址，请导航到“虚拟网关”，然后单击网关的名称。 
 
 [!INCLUDE [Configure a VPN device](../../includes/vpn-gateway-configure-vpn-device-include.md)]
 
@@ -124,10 +126,10 @@ ms.locfileid: "58348065"
 
 可以添加其他连接，前提是连接之间不存在地址空间重叠。
 
-1. 若要添加其他连接，请导航到 VPN 网关，然后单击“连接”打开“连接”页。
-2. 单击“+添加”添加连接。 调整连接类型以反映“VNet 到 VNet”（如果连接到另一个 VNet 网关）或“站点到站点”。
+1. 若要添加其他连接，请导航到 VPN 网关，然后单击“连接”  打开“连接”页。
+2. 单击“+添加”  添加连接。 调整连接类型以反映“VNet 到 VNet”（如果连接到另一个 VNet 网关）或“站点到站点”。
 3. 如果要使用“站点到站点”连接进行连接，并且尚未为要连接到的站点创建本地网络网关，则可以创建一个新的本地网络网关。
-4. 指定要使用的共享密钥，然后单击“确定”以创建连接。
+4. 指定要使用的共享密钥，然后单击“确定”  以创建连接。
 
 ## <a name="next-steps"></a>后续步骤
 

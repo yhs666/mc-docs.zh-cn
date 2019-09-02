@@ -3,24 +3,23 @@ title: 使用托管标识进行 Azure 容器注册表身份验证
 description: 通过使用用户分配或系统分配的托管 Azure 标识，提供对专用容器注册表中映像的访问。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/16/2019
-ms.date: 06/03/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 63c92480666ea030f00d65df9e67b3a185bacbf2
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: fb611c26a2379d5da7b8e418fd8f8ed3153e0041
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67673966"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134141"
 ---
 <!--Verify successfully-->
 # <a name="use-an-azure-managed-identity-to-authenticate-to-an-azure-container-registry"></a>使用 Azure 托管标识向 Azure 容器注册表验证身份 
 
-使用 Azure 资源的托管标识从另一个 Azure 资源向 Azure 容器注册表验证身份，而无需提供或管理注册表凭据。 例如，在 Linux VM 上设置用户分配或系统分配的托管标识，以便从容器注册表访问容器映像，就像使用公共注册表一样容易。
-
-<!--Not Available on [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)-->
+使用 [Azure 资源的托管标识](../active-directory/managed-identities-azure-resources/overview.md)从另一个 Azure 资源向 Azure 容器注册表验证身份，而无需提供或管理注册表凭据。 例如，在 Linux VM 上设置用户分配或系统分配的托管标识，以便从容器注册表访问容器映像，就像使用公共注册表一样容易。
 
 本文将详细介绍托管标识以及如何：
 
@@ -35,9 +34,7 @@ ms.locfileid: "67673966"
 
 ## <a name="why-use-a-managed-identity"></a>为什么使用托管标识？
 
-Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure 服务提供一个自动托管标识。 可以为某些 Azure 资源（包括虚拟机）配置托管标识。 然后使用该标识访问其他 Azure 资源，而无需在代码或脚本中传递凭据。
-
-<!--Not Available on [certain Azure resources](../active-directory/managed-identities-azure-resources/services-support-msi.md)-->
+Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure 服务提供一个自动托管标识。 你可以为[某些 Azure 资源](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)（包括虚拟机）配置托管标识。 然后使用该标识访问其他 Azure 资源，而无需在代码或脚本中传递凭据。
 
 托管标识有两种类型：
 
@@ -47,21 +44,13 @@ Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure
 
 为 Azure 资源设置托管标识后，便可以根据需要授予该标识对另一资源的访问权限，这一点与所有安全主体一样。 例如，为托管标识分配角色，该角色对 Azure 中的专用注册表具有拉取、推送和拉取或其他权限。 （有关完整的注册表角色列表，请参阅 [Azure 容器注册表角色和权限](container-registry-roles.md)。）可以授予标识对一个或多个资源的访问权限。
 
-然后使用该标识向支持 Azure AD 身份验证的任何服务进行身份验证，而无需在代码中放入任何凭据。 若要使用该标识从虚拟机访问 Azure 容器注册表，请向 Azure 资源管理器验证身份。 选择如何使用托管标识进行身份验证，具体取决于你的方案：
+然后使用该标识向[支持 Azure AD 身份验证的任何服务](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)进行身份验证，而无需在代码中放入任何凭据。 若要使用该标识从虚拟机访问 Azure 容器注册表，请向 Azure 资源管理器验证身份。 选择如何使用托管标识进行身份验证，具体取决于你的方案：
 
-<!--Not Available on [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication)-->
+* 使用 HTTP 或 REST 调用以编程方式[获取 Azure AD 访问令牌](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
 
-* 使用 HTTP 或 REST 调用以编程方式获取 Azure AD 访问令牌
+* 使用 [Azure SDK](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)
 
-<!--Not Available on [Acquire an Azure AD access token](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)-->
-
-* 使用 Azure SDK
-
-<!--Not Available on [Azure SDKs](../active-directory/managed-identities-azure-resources/how-to-use-vm-sdk.md)-->
-
-* 使用标识登录 Azure CLI 或 PowerShell。 
-
-<!--Not Available on [Sign into Azure CLI or PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)-->
+* 使用标识[登录 Azure CLI 或 PowerShell](../active-directory/managed-identities-azure-resources/how-to-use-vm-sign-in.md)。 
 
 ## <a name="create-a-container-registry"></a>创建容器注册表
 
@@ -71,7 +60,7 @@ Azure 资源的托管标识可在 Azure Active Directory (Azure AD) 中为 Azure
 
 ## <a name="create-a-docker-enabled-vm"></a>创建一个启用了 Docker 的 VM
 
-创建一个启用了 Docker 的 Ubuntu 虚拟机。 还需要在该虚拟机上安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果已有 Azure 虚拟机，请跳过此虚拟机创建步骤。
+创建一个启用了 Docker 的 Ubuntu 虚拟机。 还需要在该虚拟机上安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 如果已有 Azure 虚拟机，请跳过此虚拟机创建步骤。
 
 使用 [az vm create][az-vm-create] 部署默认的 Ubuntu Azure 虚拟机。 以下示例在名为 *myResourceGroup* 的现有资源组中创建名为 *myDockerVM* 的 VM：
 
@@ -100,6 +89,8 @@ ssh azureuser@publicIpAddress
 sudo apt install docker.io -y
 ```
 
+<!--MOONCAKE: CORRECT ON docker.io-->
+
 安装完成后，运行以下命令验证 Docker 在 VM 上是否正常运行：
 
 ```bash
@@ -116,7 +107,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="install-the-azure-cli"></a>安装 Azure CLI
 
-按照[使用 apt 安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli-apt?view=azure-cli-latest) 中的步骤在 Ubuntu 虚拟机上安装 Azure CLI。 在本文中，请确保安装版本 2.0.55 或更高版本。
+按照[使用 apt 安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt?view=azure-cli-latest) 中的步骤在 Ubuntu 虚拟机上安装 Azure CLI。 在本文中，请确保安装版本 2.0.55 或更高版本。
 
 退出 SSH 会话。
 
@@ -124,7 +115,7 @@ This message shows that your installation appears to be working correctly.
 
 ### <a name="create-an-identity"></a>创建标识
 
-使用 [az identity create](https://docs.microsoft.com/zh-cn/cli/azure/identity?view=azure-cli-latest#az-identity-create) 命令在订阅中创建标识。 可以使用先前用于创建容器注册表或虚拟机的相同资源组，也可以使用不同的资源组。
+使用 [az identity create](https://docs.microsoft.com/cli/azure/identity?view=azure-cli-latest#az-identity-create) 命令在订阅中创建标识。 可以使用先前用于创建容器注册表或虚拟机的相同资源组，也可以使用不同的资源组。
 
 ```azurecli
 az identity create --resource-group myResourceGroup --name myACRId
@@ -257,9 +248,10 @@ docker pull mycontainerregistry.azurecr.cn/aci-helloworld:v1
 > * 授予标识对 Azure 容器注册表的访问权限
 > * 使用托管标识访问注册表并拉取容器映像
 
-<!--Not Available on  [managed identities for Azure resources](/active-directory/managed-identities-azure-resources/)-->
+* 详细了解 [Azure 资源的托管标识](/active-directory/managed-identities-azure-resources/)。
 
 <!-- LINKS - external -->
+
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-login]: https://docs.docker.com/engine/reference/commandline/login/
 [docker-mac]: https://docs.docker.com/docker-for-mac/
@@ -267,15 +259,16 @@ docker pull mycontainerregistry.azurecr.cn/aci-helloworld:v1
 [docker-windows]: https://docs.docker.com/docker-for-windows/
 
 <!-- LINKS - Internal -->
-[az-login]: https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
-[az-acr-show]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-show
-[az-vm-create]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create
-[az-vm-show]: https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-show
-[az-vm-identity-assign]: https://docs.azure.cn/zh-cn/cli/vm/identity?view=azure-cli-latest#az-vm-identity-assign
-[az-role-assignment-create]: https://docs.azure.cn/zh-cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
-[az-acr-login]: https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login
+
+[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
+[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-acr-show]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-show
+[az-vm-create]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create
+[az-vm-show]: https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-show
+[az-vm-identity-assign]: https://docs.azure.cn/cli/vm/identity?view=azure-cli-latest#az-vm-identity-assign
+[az-role-assignment-create]: https://docs.azure.cn/cli/role/assignment?view=azure-cli-latest#az-role-assignment-create
+[az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
 [az-identity-show]: https://docs.microsoft.com/zh-cn/cli/azure/identity?view=azure-cli-latest#az-identity-show
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
 <!--Update_Description: wording update-->

@@ -1,5 +1,6 @@
 ---
-title: 什么是语言理解 (LUIS) - Azure 认知服务 | Azure Docs
+title: 什么是语言理解 (LUIS)？
+titleSuffix: Azure Cognitive Services
 description: 语言理解 (LUIS) 是一种基于云的 API 服务，可在用户对话的自然语言文本中应用自定义机器学习智能，以便预测整体含义并提炼出相关的详细信息。
 services: cognitive-services
 author: lingliw
@@ -9,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 06/11/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7130213df11cf9684db2044a0f893974548c1a9e
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: db992c87372dae3654bcc357371e6767cf91f5e2
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544122"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104108"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 

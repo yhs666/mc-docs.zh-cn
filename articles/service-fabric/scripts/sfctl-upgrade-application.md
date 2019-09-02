@@ -10,18 +10,17 @@ tags: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 origin.date: 12/06/2017
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 734ff63a9327133b519dfd9cdbc62ea4748414b5
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 79eb0bac2d1e1afa88799e686fd13e167be21c7e
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204176"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174105"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
@@ -36,7 +35,7 @@ ms.locfileid: "57204176"
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
 
 # Upload the latest bits of an application
 sfctl application upload --path ~/app_package_dir_2

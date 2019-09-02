@@ -2,23 +2,24 @@
 title: 常见问题解答 (FAQ) - Azure Active Directory | Microsoft Docs
 description: 有关 Azure 和 Azure Active Directory、密码管理以及应用程序访问的常见问题和解答。
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/12/2018
-ms.date: 01/02/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 8694f335740959a43762bf61be931e0c019595a7
-ms.sourcegitcommit: 4f91d9bc4c607cf254479a6e5c726849caa95ad8
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: f726d6812d003a0853784eac9ffa7358ab3687f7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53996233"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134196"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>有关 Azure Active Directory 的常见问题
 Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决方案，涉及到标识、访问管理和安全的方方面面。
@@ -29,22 +30,26 @@ Azure Active Directory (Azure AD) 是综合性的标识即服务 (IDaaS) 解决�
 ## <a name="access-azure-and-azure-active-directory"></a>访问 Azure 和 Azure Active Directory
 **问：尝试在 Azure 门户中访问 Azure AD 时，为何出现“找不到订阅”错误？**
 
-**答：** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [https://account.windowsazure.cn/Home/Index](https://account.windowsazure.cn/Home/Index)，了解一次性激活步骤。 否则需要激活一个试用版 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)或付费版订阅。
+**答:** 若要访问 Azure 门户，每个用户都需要 Azure 订阅的权限。 如果订阅为付费型 Office 365 订阅或 Azure AD 订阅，请访问 [https://account.windowsazure.cn/Home/Index](https://account.windowsazure.cn/Home/Index)，了解一次性激活步骤。 否则需要激活一个试用版 [Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)或付费版订阅。
 
-- - -
+有关详细信息，请参阅：
+
+* [Azure 订阅与 Azure Active Directory 的关联方式](active-directory-how-subscriptions-associated-directory.md)
+
+---
 **问：Azure AD、Office 365 与 Azure 之间是什么关系？**
 
-**答：** Azure AD 为所有 Web 服务提供通用的标识和访问功能。 不管使用的是 Office 365、Azure、Intune 还是其他服务，都是在使用 Azure AD 为上述所有服务启用登录和访问管理。
+**答:** Azure AD 为所有 Web 服务提供通用的标识和访问功能。 不管使用的是 Office 365、Azure、Intune 还是其他服务，都是在使用 Azure AD 为上述所有服务启用登录和访问管理。
 
 可以将所有已设置为使用 Web 服务的用户定义为一个或多个 Azure AD 实例中的用户帐户。 可以在设置这些帐户时启用免费的 Azure AD 功能，例如云应用程序访问。
 
 Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合性的企业级管理和安全解决方案来弥补其他 Web 服务（例如 Office 365 和 Azure）的不足。
 
-- - -
+---
 
 **问：所有者和全局管理员之间有什么区别？**
 
-**答：** 默认情况下，注册 Azure 订阅的人员将被分配 Azure 资源的所有者角色。 所有者可以使用 Microsoft 帐户，也可以使用 Azure 订阅与之关联的目录中的工作或学校帐户。  此角色有权在 Azure 门户中管理服务。
+**答:** 默认情况下，注册 Azure 订阅的人员将被分配 Azure 资源的所有者角色。 所有者可以使用 Microsoft 帐户，也可以使用 Azure 订阅与之关联的目录中的工作或学校帐户。  此角色有权在 Azure 门户中管理服务。
 
 如果其他人需要使用相同的订阅登录和访问服务，则可以为其分配相应的[内置角色](../../role-based-access-control/built-in-roles.md)。 有关其他信息，请参阅[使用 RBAC 和 Azure 门户管理访问权限](../../role-based-access-control/role-assignments-portal.md)。
 
@@ -52,23 +57,24 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 
 另外，Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合性的企业级管理和安全解决方案来弥补其他 Web 服务（例如 Office 365 和 Azure）的不足。
 
-- - -
+---
 **问：是否可以通过报告来查看我的 Azure AD 用户许可证何时过期？**
 
-**答：** 否。  此功能目前不可用。
+**答:** 否。  此功能目前不可用。
 
-- - -
+---
 
 ## <a name="get-started-with-hybrid-azure-ad"></a>混合 Azure AD 入门
 
 
 **问：如果我已被添加为协作者，该如何离开原来的租户？**
 
-**答：** 如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
-- - -
+**答:** 如果被作为协作者添加到另一组织的租户，可使用右上角的“租户切换器”在租户之间切换。  目前还无法主动离开邀请组织，Microsoft 正致力于提供该功能。  在该功能推出之前，可以请求邀请组织将你从其租户中删除。
+
+---
 **问：如何将我的本地目录连接到 Azure AD？**
 
-**答：** 可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
+**答:** 可以使用 Azure AD Connect 将本地目录连接到 Azure AD。
 
 有关详细信息，请参阅[将本地标识与 Azure Active Directory 集成](../hybrid/whatis-hybrid-identity.md)。
 
@@ -77,7 +83,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 - - -
 **问：如果尝试更改 Office 365/Azure AD 密码时忘记了现有的密码，该怎么办？**
 
-**答：** 对于这种情况，有几个选项。  在可用的情况下，使用自助密码重置 (SSPR)。  SSPR 是否适用取决于其配置方式。  
+**答:** 对于这种情况，有几个选项。  在可用的情况下，使用自助密码重置 (SSPR)。  SSPR 是否适用取决于其配置方式。  
 
 对于 Office 365 用户，管理员可以使用 [重置用户密码](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US)中所述的步骤重置密码。
 
@@ -87,7 +93,7 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 - [使用 PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
-- - -
+---
 ## <a name="security"></a>安全性
 **问：是将在失败尝试次数达到特定数字后锁定帐户，还是会使用更复杂的策略？**
 
@@ -96,6 +102,10 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 **问：某些（常用）密码被拒绝并显示消息“此密码已使用多次”，这是指当前 Active Directory 中使用的密码吗？**
 
 这是指全局通用的密码，例如“Password”和“123456”的任何变体。
+
+**问：B2C 租户中就会阻止来自可疑来源（僵尸网络、Tor 终结点）的登录请求还是需要使用基本或高级版租户才能阻止？**
+
+我们确实有一个网关，该网关筛选请求且提供一些保护免受僵尸网络的危害，并应用于所有 B2C 租户。
 
 ## <a name="application-access"></a>应用程序访问
 
@@ -106,32 +116,23 @@ Azure AD 付费型服务（例如企业移动性 + 安全性）可通过综合�
 - - -
 **问：用户如何使用 Azure AD 来登录应用程序？**
 
-**答：** Azure AD 提供多种方式供用户查看和访问其应用程序，例如：
+**答:** Azure AD 提供多种方式供用户查看和访问其应用程序，例如：
 
-- Azure AD 访问面板
-- Office 365 应用程序启动器
-- 直接登录到联合应用
-- 联合、基于密码或现有应用的深层链接
+* Azure AD 访问面板
+* Office 365 应用程序启动器
+* 直接登录到联合应用
+* 联合、基于密码或现有应用的深层链接
 
-- - -
-**问：Azure AD 可通过哪些不同的方式来启用对应用程序的身份验证和单一登录？**
-
-**答：** Azure AD 支持使用多种标准化协议（例如 SAML 2.0、OpenID Connect、OAuth 2.0 和 WS-Federation）进行身份验证和授权。 对于仅支持基于窗体的身份验证的应用程序，Azure AD 还支持密码保管和自动化登录功能。  
-
-有关详细信息，请参阅：
-
-- [Azure AD 的身份验证方案](../develop/authentication-scenarios.md)
-- [Active Directory 身份验证协议](/active-directory/develop/active-directory-developers-guide)
 
 - - -
 
 **问：什么是 SaaS 应用的自动化用户预配？**
 
-**答：** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
+**答:** 使用 Azure AD 可在许多流行的云 (SaaS) 应用程序中自动创建、维护和删除用户标识。
 
 - - -
 **问：是否可以通过 Azure AD 设置安全的 LDAP 连接？**
 
-**答：** 否。 Azure AD 不支持 LDAP 协议。
+**答:** 否。 Azure AD 不支持 LDAP 协议。
 
 <!-- Update_Description: wording update -->

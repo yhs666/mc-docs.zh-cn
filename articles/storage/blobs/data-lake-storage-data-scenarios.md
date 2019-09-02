@@ -1,20 +1,20 @@
 ---
 title: 涉及 Azure Data Lake Storage Gen2 的数据方案 | Microsoft Docs
 description: 了解可在 Data Lake Storage Gen2（以前称为 Azure Data Lake Store）中进行数据引入、处理、下载和可视化的不同方案和工具
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 02/12/2019
-ms.date: 07/22/2019
+origin.date: 07/23/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: f6d712837f4f9a3a5e3434a9919c50e6ee7fd318
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.reviewer: stewu
+ms.openlocfilehash: cca274780fd4fc886b8ab7820a3c54c9df5d9fd0
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391985"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209405"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>使用 Azure Data Lake Storage Gen2 满足大数据需求
 
@@ -40,8 +40,8 @@ Data Lake Storage Gen2 帐户是一个存储帐户，其命名空间具有层次
 
 |工具 | 指南 |
 |---|--|
-|Azure 存储资源管理器 | [使用存储资源管理器创建文件系统](/storage/blobs/data-lake-storage-explorer#create-a-filesystem) |
-|AzCopy | [使用 AzCopyV10 创建 Blob 容器或文件共享](/storage/common/storage-use-azcopy-v10?toc=%2fstorage%2fblobs%2ftoc.json#create-a-blob-container-or-file-share)|
+|Azure 存储资源管理器 | [使用存储资源管理器创建文件系统](/storage/blobs/data-lake-storage-explorer#create-a-file-system) |
+|AzCopy | [使用 AzCopyV10 创建 Blob 容器或文件共享](/storage/common/storage-use-azcopy-v10#transfer-files)|
 |将 Hadoop 文件系统 (HDFS) 命令行界面 (CLI) 与 HDInsight 配合使用 |[通过将 HDFS 与 HDInsight 配合使用来创建文件系统](/storage/blobs/data-lake-storage-use-hdfs-data-lake-storage?toc=%2fstorage%2fblobs%2ftoc.json#create-a-file-system) |
 
 使用存储资源管理器或 AzCopy 创建文件系统是最容易的方法。 使用 HDInsight 创建文件系统需要的工作会多一些。 但是，如果已打算使用 HDInsight 群集来处理数据，则可先创建群集，然后使用 HDFS CLI 来创建文件系统。  
@@ -185,4 +185,4 @@ Azure ExpressRoute 允许在 Azure 数据中心与本地中的基础结构之间
 |工具 | 指南 |
 |---|--|
 |Azure 数据工厂 | [Azure 数据工厂中的 Copy 活动](/data-factory/copy-activity-overview) |
-|Apache DistCop | [使用 DistCp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 之间复制数据](/storage/blobs/data-lake-storage-use-distcp) |
+|Apache DistCp | [使用 DistCp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 之间复制数据](/storage/blobs/data-lake-storage-use-distcp) |

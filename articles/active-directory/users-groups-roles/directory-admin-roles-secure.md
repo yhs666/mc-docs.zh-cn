@@ -7,7 +7,7 @@ author: curtand
 manager: mtillman
 ms.author: v-junlch
 origin.date: 03/18/2019
-ms.date: 08/12/2019
+ms.date: 08/28/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58f8f406e404210886cc48158cb37bfe51bc127
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: f8a0cadbb23bc54004f33d1a8ba55c2b57989888
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68973046"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134358"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>确保 Azure AD 中混合部署和云部署的特权访问安全性
 
@@ -414,15 +414,16 @@ Cloud App Security SIEM 代理将 Cloud App Security 与 SIEM 服务器集成，
 
 ## <a name="next-steps"></a>后续步骤
 
-* [Microsoft 信任中心确保产品安全性](https://www.microsoft.com/trustcenter/security) - Azure 云产品和服务的安全特性
+* [Microsoft 信任中心确保产品安全性](https://www.trustcenter.cn/zh-cn/security/default.html) - Azure 云产品和服务的安全特性
 
-* [Microsoft 信任中心 - 符合性](https://www.microsoft.com/trustcenter/compliance/complianceofferings) - Microsoft 推出的一组范围广泛的符合性产品/服务，适用于云服务
+* [Microsoft 信任中心 - 符合性](https://www.trustcenter.cn/zh-cn/compliance/default.html/complianceofferings) - Microsoft 推出的一组范围广泛的符合性产品/服务，适用于云服务
 
 * [有关如何执行风险评估的指南](https://www.microsoft.com/trustcenter/guidance/risk-assessment) - 管理 Azure 云服务的安全性和符合性要求
 
 ### <a name="other-microsoft-online-services"></a>其他 Microsoft Online Services
 
-* [Microsoft Intune 安全性](https://www.microsoft.com/trustcenter/security/intune-security) - Intune 从云端提供移动设备管理、移动应用程序管理和电脑管理功能。
+* [Microsoft Intune 安全性](https://www.trustcenter.cn/zh-cn/security/default.html/intune-security) - Intune 从云端提供移动设备管理、移动应用程序管理和电脑管理功能。
 
-* [Microsoft Dynamics 365 安全性](https://www.microsoft.com/trustcenter/security/dynamics365-security) - Dynamics 365 是 Azure 的基于云的解决方案，该方案将客户关系管理 (CRM) 和企业资源规划 (ERP) 功能统合在一起。
+* [Microsoft Dynamics 365 安全性](https://www.trustcenter.cn/zh-cn/security/default.html/dynamics365-security) - Dynamics 365 是 Azure 的基于云的解决方案，该方案将客户关系管理 (CRM) 和企业资源规划 (ERP) 功能统合在一起。
 
+<!-- Update_Description: link update -->

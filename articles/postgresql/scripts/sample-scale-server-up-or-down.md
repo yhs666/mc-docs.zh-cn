@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 脚本 - 缩放 Azure Database for PostgreSQL
+title: Azure CLI 脚本 - 缩放和监视 Azure Database for PostgreSQL
 description: Azure CLI 脚本示例 - 在查询指标后用于 PostgreSQL 服务器的 Azure 数据库缩放为不同的性能级别。
 author: WenJason
 ms.author: v-jay
@@ -7,65 +7,79 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-origin.date: 04/05/2018
-ms.date: 02/18/2019
-ms.openlocfilehash: ba953bb40a19298261336440bb64d1d8a7e40f96
-ms.sourcegitcommit: 2bcf3b51503f38df647c08ba68589850d91fedfe
+origin.date: 08/07/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 1ed1d52a371f2a0209517ac74abe31e70854f2de
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56303063"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131793"
 ---
 # <a name="monitor-and-scale-a-single-postgresql-server-using-azure-cli"></a>使用 Azure CLI 监视和缩放单个 PostgreSQL 服务器
-此示例 CLI 脚本在查询指标后用于 PostgreSQL 服务器的单个 Azure 数据库缩放为不同的性能级别。 
+此示例 CLI 脚本在查询指标后为单个 Azure Database for PostgreSQL 服务器缩放计算和存储。 计算可以增加或减少。 存储只能增加。 
 
 本文需要 Azure CLI 2.0 或更高版本。 通过运行 `az --version` 来查看版本。 请参阅[安装 Azure CLI]( /cli/install-azure-cli)，了解如何安装或升级 Azure CLI 的版本。
 
 ## <a name="sample-script"></a>示例脚本
-在此示例脚本中，编辑突出显示的行，将管理员用户名和密码更新为你自己的。 将 `az monitor` 命令中使用的 SubscriptionID 替换为自己的订阅 ID。
+使用你的订阅 ID 更新脚本。
 
 ```cli
 #!/bin/bash
 
+# Set up variables
+RESOURCE_GROUP="myresourcegroup"
+SERVER_NAME="mydemoserver-$RANDOM"
+PASSWORD=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 12)
+echo password $PASSWORD # returns the generated password
+LOCATION="chinaeast2"
+ADMIN_USER="myadmin"
+SUBSCRIPTION_ID="" # enter your subscription ID
+
 # Create a resource group
 az group create \
---name myresourcegroup \
---location chinaeast2
+    --name $RESOURCE_GROUP \
+    --location $LOCATION
 
 # Create a PostgreSQL server in the resource group
-# Name of a server maps to DNS name and is thus required to be globally unique in Azure.
-# Substitute the <server_admin_password> with your own value.
 az postgres server create \
---name mydemoserver \
---resource-group myresourcegroup \
---location chinaeast2 \
---admin-user myadmin \
---admin-password <server_admin_password> \
---sku-name GP_Gen5_2 \
+    --name $SERVER_NAME \
+    --resource-group $RESOURCE_GROUP \
+    --location $LOCATION \
+    --admin-user $ADMIN_USER \
+    --admin-password $PASSWORD \
+    --sku-name GP_Gen5_2
 
 # Monitor usage metrics - CPU
 az monitor metrics list \
---resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" \
---metric cpu_percent \
---interval PT1M
+    --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DBforPostgreSQL/servers/$SERVER_NAME" \
+    --metric cpu_percent \
+    --interval PT1M
 
 # Monitor usage metrics - Storage
 az monitor metrics list \
---resource "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/mydemoserver" \
---metric storage_used \
---interval PT1M
+    --resource "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.DBforPostgreSQL/servers/$SERVER_NAME" \
+    --metric storage_used \
+    --interval PT1M
 
-# Scale up the server to provision more vCores within the same Tier
+# Scale up the server by provisionining more vCores within the same tier
 az postgres server update \
---resource-group myresourcegroup \
---name mydemoserver \
---sku-name GP_Gen5_4
+    --resource-group $RESOURCE_GROUP \
+    --name $SERVER_NAME \
+    --sku-name GP_Gen5_4
+
+# Scale down the server by provisioning fewer vCores within the same tier
+az postgres server update \
+    --resource-group $RESOURCE_GROUP \
+    --name $SERVER_NAME \
+    --sku-name GP_Gen5_2
 
 # Scale up the server to provision a storage size of 7GB
+# Storage size cannot be reduced
 az postgres server update \
---resource-group myresourcegroup \
---name mydemoserver \
---storage-size 7168
+    --resource-group $RESOURCE_GROUP \
+    --name $SERVER_NAME \
+    --storage-size 7168
 ```
 
 ## <a name="clean-up-deployment"></a>清理部署
@@ -73,7 +87,8 @@ az postgres server update \
 
 ```bash
 #!/bin/bash
-az group delete --name myresourcegroup
+RESOURCE_GROUP = "" # enter your resource group name
+az group delete --name $RESOURCE_GROUP
 ```
 
 ## <a name="script-explanation"></a>脚本说明
@@ -82,11 +97,12 @@ az group delete --name myresourcegroup
 | **命令** | **说明** |
 |---|---|
 | [az group create](/cli/group) | 创建用于存储所有资源的资源组。 |
-| [az postgres server create](/cli/postgres/server) | 创建托管数据库的 PostgreSQL 服务器。 |
+| [az postgres server create](/cli/postgres/server#az-postgres-server-create) | 创建托管数据库的 PostgreSQL 服务器。 |
+| [az postgres server update](/cli/postgres/server#az-postgres-server-update) | 更新 PostgreSQL 服务器的属性。 |
 | [az monitor metrics list](/cli/monitor/metrics) | 列出资源的指标值。 |
 | [az group delete](/cli/group) | 删除资源组，包括所有嵌套的资源。 |
 
 ## <a name="next-steps"></a>后续步骤
-- 阅读有关 Azure CLI 的更多信息：[Azure CLI 文档](/cli)
+- 详细了解 [Azure Database for PostgreSQL 计算和存储](../concepts-pricing-tiers.md)
 - 请尝试其他脚本：[用于 PostgreSQL 的 Azure 数据库的 Azure CLI 示例](../sample-scripts-azure-cli.md)
-- 阅读有关缩放的详细信息：[服务层](../concepts-service-tiers.md)以及[计算单位和存储单元](../concepts-compute-unit-and-storage.md)
+- 详细了解 [Azure CLI](/cli/)

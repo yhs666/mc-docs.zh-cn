@@ -1,5 +1,5 @@
 ---
-title: 快速入门：将文本转换为语音 (Python) - 语音服务
+title: 快速入门：将文本转换为语音，Python - 语音服务
 titleSuffix: Azure Cognitive Services
 description: 本快速入门介绍如何使用 Python 和文本转语音 REST API 将文本转换为语音。 本指南中包含的示例文本以语音合成标记语言 (SSML) 的形式构造。 这样你就可以选择语音响应的语音和语言。
 services: cognitive-services
@@ -7,17 +7,16 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 origin.date: 01/11/2019
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: 4672f3e2fb41a3c4ea2377a278cd337211eadc11
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 38a3178ae2d9976c7cbbe6deec9fd0821c839c4f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348302"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103767"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>快速入门：使用 Python 将文本转换为语音
 
@@ -38,7 +37,9 @@ ms.locfileid: "58348302"
 使用最喜欢的 IDE 或编辑器创建新的 Python 项目。 然后，将此代码片段复制到项目的名为 `tts.py` 的文件中。
 
 ```python
-import os, requests, time
+import os
+import requests
+import time
 from xml.etree import ElementTree
 ```
 
@@ -52,8 +53,10 @@ from xml.etree import ElementTree
 在以下几个部分，我们将创建一些方法用于处理授权、调用文本转语音 API，以及验证响应。 首先让我们添加一些代码，以确保此示例适用于 Python 2.7.x 和 3.x。
 
 ```python
-try: input = raw_input
-except NameError: pass
+try:
+    input = raw_input
+except NameError:
+    pass
 ```
 
 接下来，让我们创建一个类。 我们将在此类中放置用于交换令牌和调用文本转语音 API 的方法。
@@ -98,7 +101,6 @@ def get_token(self):
 
 >[!NOTE]
 > 此示例使用 `ZiraRUS` 语音字体。 如需 Microsoft 提供的语音/语言的完整列表，请参阅[语言支持](language-support.md)。
-> 若要为品牌创建唯一且可识别的语音，请参阅[创建自定义语音字体](how-to-customize-voice-font.md)。
 
 最后，向服务发出请求。 如果该请求成功，则会返回 200 状态代码，语音响应将写入到带时间戳的文件。
 
@@ -166,5 +168,4 @@ python tts.py
 ## <a name="see-also"></a>另请参阅
 
 * [文本到语音 API 参考](https://docs.azure.cn/zh-cn/cognitive-services/speech-service/rest-apis#text-to-speech-api)
-* [创建自定义语音字体](how-to-customize-voice-font.md)
 * [录制语音样本用于创建自定义语音](record-custom-voice-samples.md)

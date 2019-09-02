@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 07/12/2019
-ms.openlocfilehash: e858bd29509d722b497acf6a392d8576f2730a4f
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 12/07/2018
+ms.date: 08/09/2019
+ms.openlocfilehash: 5b5b0a50280c865dea066fc392370c3e1b757b39
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970430"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169622"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>教程：使用 Azure Pipelines 通过 CI/CD 部署 Azure 流分析作业
 本教程介绍了如何使用 Azure 管道为 Azure 流分析作业设置持续集成和部署。 

@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2452c78a86f3a8d22820a209acbef7987adc7a88
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 72a843d5a5ba9a6ecbe2eb846b830e73b9659999
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306016"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134107"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的桌面应用 - 代码配置
 
@@ -51,7 +51,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.partner.microsoftonline.cn/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -62,7 +62,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
 ```CSharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
 IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicationOptions(options)
-        .WithRedirectUri("https://login.partner.microsoftonline.cn/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .Build();
 ```
 
@@ -73,7 +73,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 ```CSharp
 IPublicClientApplication app;
 app = PublicClientApplicationBuilder.Create(clientId)
-        .WithRedirectUri("https://login.partner.microsoftonline.cn/common/oauth2/nativeclient")
+        .WithDefaultRedirectUri()
         .WithAadAuthority(AzureCloudInstance.AzureChina,
                          AadAuthorityAudience.AzureAdMultipleOrgs)
         .Build();
@@ -170,7 +170,7 @@ public class SampleConfiguration
 ```CSharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
 var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.PublicClientApplicationOptions)
-           .WithRedirectUri("https://login.partner.microsoftonline.cn/common/oauth2/nativeclient")
+           .WithDefaultRedirectUri()
            .Build();
 ```
 
@@ -181,3 +181,4 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
 > [!div class="nextstepaction"]
 > [获取桌面应用的令牌](scenario-desktop-acquire-token.md)
 
+<!-- Update_Description: code update -->

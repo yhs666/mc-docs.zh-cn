@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4deb63b5b11f986c916c7d9cd635c7519cb79556
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 0aa9cada235447c40cee26c0e64599ca9b6c0129
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753159"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174254"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>在 Linux 上准备开发环境
 > [!div class="op_single_selector"]
@@ -107,8 +107,8 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 7. 将 Azul JDK 密钥添加到 APT Keyring 并设置其存储库。
 
     ```bash
-    curl -fsSL https://repos.azul.com/azul-repo.key | sudo apt-key add -
-    sudo add-apt-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+    sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
 8. 根据新添加的存储库刷新包列表。
@@ -118,6 +118,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
     ```
 
 <!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
+
 ## <a name="install-and-set-up-the-service-fabric-sdk-for-a-local-cluster"></a>为本地群集安装并设置 Service Fabric SDK
 
 更新源后，可安装 SDK。 安装 Service Fabric SDK 包，确认安装，并同意许可协议。
@@ -136,6 +137,7 @@ sudo apt-get install servicefabricsdkcommon
 >   ```
 
 <!-- Not Available on ### Red Hat Enterprise Linux 7.4 (Service Fabric preview support)-->
+
 SDK 安装随附的 Service Fabric 运行时包含下表中所述的包。 
 
  | | DotNetCore | Java | Python | NodeJS | 

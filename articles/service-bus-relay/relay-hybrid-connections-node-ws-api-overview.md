@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 01/23/2018
 ms.author: v-yiso
 ms.date: 03/12/2018
-ms.openlocfilehash: 26e290fe246cc1708d9bedd40b91edd0432daccb
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: ee531a29cd678a782c881ada140bbd987c3495ce
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332202"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169574"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>中继混合连接 Node API 概述
 
@@ -52,7 +52,8 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 帮助程序方法可用于此包，但也可用于节点服务器，使 Web 或设备客户端能够创建侦听器或发件人。 服务器使用这些方法时，向它们传递嵌入生存期较短的令牌的 URI。 这些 URI 也可用于不支持设置 WebSocket 握手的 HTTP 头的常见 WebSocket 堆栈。 将授权令牌嵌入到 URI 主要针对这些库外使用方案。 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
-``` JavaScript
+
+```JavaScript
 var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 ```
 
@@ -66,8 +67,9 @@ var uri = createRelayListenUri([namespaceName], [path], [[token]], [[id]])
 `token` 值是可选的，仅在不可能发送 HTTP 头和 WebSocket 握手时使用，这与 W3C WebSocket 堆栈的情况相同。                  
 
 
-#### <a name="createrelaysenduri"></a>createRelaySendUri 
-``` JavaScript
+#### <a name="createrelaysenduri"></a>createRelaySendUri
+ 
+```JavaScript
 var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 ```
 
@@ -82,7 +84,8 @@ var uri = createRelaySendUri([namespaceName], [path], [[token]], [[id]])
 
 
 #### <a name="createrelaytoken"></a>createRelayToken 
-``` JavaScript
+
+```JavaScript
 var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
@@ -96,7 +99,8 @@ var token = createRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 颁发的令牌在给定的时间段内授予指定的 SAS 规则相关的权限。
 
 #### <a name="appendrelaytoken"></a>appendRelayToken
-``` JavaScript
+
+```JavaScript
 var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 ```
 
@@ -110,13 +114,13 @@ var uri = appendRelayToken([uri], [ruleName], [key], [[expirationSeconds]])
 
 #### <a name="constructor"></a>构造函数  
 
-``` JavaScript 
+```JavaScript 
 var ws = require('hyco-ws');
 var server = ws.RelayedServer;
 
 var wss = new server(
     {
-        server : ws.createRelayListenUri(ns, path),
+        server: ws.createRelayListenUri(ns, path),
         token: function() { return ws.createRelayToken('http://' + ns, keyrule, key); }
     });
 ```
@@ -133,14 +137,16 @@ var wss = new server(
 `RelayedServer` 实例将发出三个事件，使你能够处理传入的请求、建立连接，以及检测错误条件。 订阅 `connect` 事件后才能处理消息。 
 
 ##### <a name="headers"></a>headers
-``` JavaScript 
+
+```JavaScript 
 function(headers)
 ```
 
 接受传入连接前将引发 `headers` 事件，可以实现将标头的修改发送到客户端。 
 
 ##### <a name="connection"></a>连接
-``` JavaScript
+
+```JavaScript
 function(socket)
 ```
 
@@ -148,7 +154,8 @@ function(socket)
 
 
 ##### <a name="error"></a>error
-``` JavaScript
+
+```JavaScript
 function(error)
 ```
 
@@ -160,23 +167,23 @@ function(error)
 
 ##### <a name="createrelayedlistener"></a>createRelayedListener
 
-``` JavaScript
-    var WebSocket = require('hyco-ws');
+```JavaScript
+var WebSocket = require('hyco-ws');
 
-    var wss = WebSocket.createRelayedServer(
-        {
-            server : WebSocket.createRelayListenUri(ns, path),
-            token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
-        }, 
-        function (ws) {
-            console.log('connection accepted');
-            ws.onmessage = function (event) {
-                console.log(JSON.parse(event.data));
-            };
-            ws.on('close', function () {
-                console.log('connection closed');
-            });       
-    });
+var wss = WebSocket.createRelayedServer(
+    {
+        server: WebSocket.createRelayListenUri(ns, path),
+        token: function() { return WebSocket.createRelayToken('http://' + ns, keyrule, key); }
+    }, 
+    function (ws) {
+        console.log('connection accepted');
+        ws.onmessage = function (event) {
+            console.log(JSON.parse(event.data));
+        };
+        ws.on('close', function () {
+            console.log('connection closed');
+        });       
+});
 ``` 
 
 ##### <a name="createrelayedserver"></a>createRelayedServer
@@ -191,15 +198,15 @@ var server = createRelayedServer([options], [connectCallback] )
 
 只需在函数中生成 `createRelayedServer` 帮助程序的镜像，`relayedConnect` 会创建客户端连接，并订阅生成套接字上的 'open' 事件。
 
-``` JavaScript
-    var uri = WebSocket.createRelaySendUri(ns, path);
-    WebSocket.relayedConnect(
-        uri,
-        WebSocket.createRelayToken(uri, keyrule, key),
-        function (socket) {
-            ...
-        }
-    );
+```JavaScript
+var uri = WebSocket.createRelaySendUri(ns, path);
+WebSocket.relayedConnect(
+    uri,
+    WebSocket.createRelayToken(uri, keyrule, key),
+    function (socket) {
+        ...
+    }
+);
 ```
 
 ## <a name="next-steps"></a>后续步骤

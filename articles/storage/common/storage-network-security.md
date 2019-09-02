@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 26b82d9c686e7750a108a02360202dbcdb9be5dd
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: a48a905623233f90370490a2c7dd79906a6db0e6
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844412"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209348"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>配置 Azure 存储防火墙和虚拟网络
 
@@ -350,6 +350,7 @@ IP 网络规则仅适用于**公共 Internet** IP 地址。 IP 规则不允许�
 |服务|资源提供程序名称|目的|
 |:------|:---------------------|:------|
 |Azure 备份|Microsoft.RecoveryServices|在 IAAS 虚拟机中运行非托管磁盘的备份和还原。 （不是托管磁盘的必需操作）。 [了解详细信息](https://docs.azure.cn/backup/backup-introduction-to-azure-backup)。|
+| Azure 事件网格         | Microsoft.EventGrid        | 启用 Blob 存储事件发布并允许事件网格发布到存储队列。 了解有关 [blob 存储事件](/event-grid/event-sources)和[发布到队列](/event-grid/event-handlers)的信息。                                                                                                     |
 |Azure 事件中心|Microsoft.EventHub|使用事件中心捕获功能存档数据。  [了解详细信息](/event-hubs/event-hubs-capture-overview)。|
 |Azure HDInsight|Microsoft.HDInsight|为新的 HDInsight 群集预配默认文件系统的初始内容。 [了解详细信息](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)。|
 |Azure Monitor|Microsoft.Insights|允许将监视数据写入受保护存储帐户[了解详细信息](/monitoring-and-diagnostics/monitoring-roles-permissions-security)。|

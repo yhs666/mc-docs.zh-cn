@@ -1,5 +1,5 @@
 ---
-title: 语言支持
+title: 语言支持 - LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS 在服务中具有多种功能。 并非所有功能都会同等地以各种语言提供。 请确保你所定位的语言文化支持你感兴趣的功能。 LUIS 应用特定于区域性，一旦设置即无法更改。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bfe4c9908f8bb985da7db566dab82f4d04c215e1
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 87ceac660cbcfbce47ccb67117a5200599f49beb
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544212"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103906"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 
@@ -164,6 +164,3 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 在应用级别进行词汇切分。 不支持版本级别的词汇切分。 
 
 [将文件导入为新应用](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此操作意味着新应用具有不同的应用 ID，但使用文件中指定的 tokenizer 版本。 
-
-
-

@@ -8,11 +8,9 @@ metadata:
   author: rockboyfor
   manager: digimobile
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   origin.date: 07/26/2017
-  ms.date: 04/15/2019
+  ms.date: 08/26/2019
   ms.author: v-yeche
 abstract:
   description: 使用 Azure 容器注册表可以生成、存储和管理所有类型的容器部署的映像。 参考这些快速入门、教程和示例了解如何使用 Azure 容器注册表。
@@ -36,3 +34,12 @@ sections:
               src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
             text: Azure PowerShell
             href: /container-registry/container-registry-get-started-powershell
+  - title: 分步教程
+    items:
+      - type: paragraph
+        text: 参考这些教程来了解如何使用 Azure 容器注册表。
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/container-registry/container-registry-tutorial-prepare-registry">容器注册表异地复制</a>

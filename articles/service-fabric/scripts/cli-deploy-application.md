@@ -10,18 +10,17 @@ tags: azure-service-management
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 origin.date: 04/16/2018
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f1c983509b5b787597c775b6380393f63e2faadb
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: c1d724c14d5938ee93c1c9a44213f4112d8e8e68
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204081"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173979"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>将应用程序部署到 Service Fabric 群集
 
@@ -36,7 +35,7 @@ ms.locfileid: "57204081"
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
 
 # Upload the application files to the image store
 # (note the last folder name, Debug in this example)

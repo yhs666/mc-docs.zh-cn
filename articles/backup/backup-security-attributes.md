@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 104af22c7763f8077da09a7250da3231ef2d661f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 1f4de429be04b845cdb5b235ed817389ba75a4db
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818467"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103727"
 ---
 # <a name="security-attributes-for-azure-backup"></a>Azure 备份的安全属性
 
@@ -25,8 +25,8 @@ ms.locfileid: "68818467"
 
 | 安全属性 | Yes/No | 注释 |
 |---|---|--|
-| 静态加密：<ul><li>服务器端加密</li><li>使用客户托管密钥的服务器端加密</li><li>其他加密功能（例如客户端、始终加密等）</ul>| 是 | 对存储帐户使用存储服务加密。 |
-| 传输中加密：<ul><li>快速路由加密</li><li>VNet 中加密</li><li>VNet-VNet 加密</ul>| 否 | 使用 HTTPS。 |
+| 静态加密（例如服务器端加密、带客户托管密钥的服务器端加密，以及其他加密功能）| 是 | 对存储帐户使用存储服务加密。 |
+| 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 否 | 使用 HTTPS。 |
 | 加密密钥处理（CMK、BYOK 等）| 否 |  |
 | 列级加密（Azure 数据服务）| 否 |  |
 | 加密的 API 调用| 是 |  |

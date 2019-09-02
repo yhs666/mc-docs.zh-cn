@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 12/06/2018
-ms.openlocfilehash: ef1f18e150cbe7830e9b2e78efbc3513cec110c9
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 546d9f6721c0011fef583b5b9744995488b83fc0
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969596"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169630"
 ---
 # <a name="checkpoint-and-replay-concepts-in-azure-stream-analytics-jobs"></a>Azure 流分析作业中的检查点和重播概念
 本文介绍 Azure 流分析中内部检查点和重播的概念及其对作业恢复的影响。 每当运行流分析作业时，都会在内部维护状态信息。 该状态信息定期保存在检查点中。 在某些情况下，如果发生作业失败或升级，则会使用检查点信息进行作业恢复。 在另一些情况下，检查点无法用于恢复，而必须使用重播。
@@ -29,6 +29,7 @@ Azure 流分析作业的独有功能之一是执行有状态的处理，如开�
 2. 时态联接 (JOIN with DATEDIFF)
 
 3. 时态分析函数（ISFIRST、LAST 和 LAG with LIMIT DURATION）
+
 
 ## <a name="job-recovery-from-node-failure-including-os-upgrade"></a>发生节点故障（包括 OS 升级）后进行作业恢复
 每当运行流分析作业时，该作业将在内部横向扩展，以跨多个工作节点执行工作。 每个工作节点的状态每隔几分钟就会创建检查点一次，从而在发生故障时帮助系统恢复。

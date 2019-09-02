@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 03/29/2019
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: c7b992737447b4b91f2c8372ad8071d1ce1a3619
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 014974fe3ed7770d1c3cf78781b1160971dada3c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538767"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134433"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>关于 Azure 到 Azure 复制的网络
 
@@ -61,6 +61,9 @@ login.chinacloudapi.cn | 对于 Site Recovery 服务 URL 的授权和身份验�
 - 创建一个基于 [Azure Active Directory (AAD) 服务标记](../virtual-network/security-overview.md#service-tags)的 NSG 规则以允许访问与 AAD 对应的所有 IP 地址
     - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
 - Site Recovery 服务终结点 IP 地址（在[中国的 Site Recovery 服务终结点](#site-recovery-ip-in-china)中提供），具体取决于目标位置。
+
+    <!--MOONCAKE: CORRECT ON URL-->
+    
 - 在生产 NSG 中创建所需的 NSG 规则之前，建议先在测试 NSG 中创建这些规则，并确保没有任何问题。
 
 Site Recovery IP 地址范围如下：
@@ -74,6 +77,8 @@ Site Recovery IP 地址范围如下：
 中国北部 | 40.125.202.254 | 42.159.4.151
 中国东部 2 | 40.73.118.52 | 40.73.100.125          
 中国北部 2 | 40.73.35.193 | 40.73.33.230
+
+<!--MOONCAKE: CUSTOMIZE, UPDATE CAREFULLY-->
 
 ## <a name="example-nsg-configuration"></a>NSG 配置示例
 

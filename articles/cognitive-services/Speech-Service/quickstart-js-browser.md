@@ -8,29 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 2/20/2019
-ms.date: 04/01/2019
+origin.date: 8/20/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 53c11132ae7e62f34d9edd4c7ecf5a4429de7b17
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: de519a0ce82c0614da9c6ecc5b69f617c94938ee
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627612"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103774"
 ---
 # <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>快速入门：在浏览器中使用语音 SDK 通过 JavaScript 识别语音
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 本文介绍如何创建使用认知服务语音 SDK 的 JavaScript 绑定以将语音转录为文本的网站。
-应用程序基于 Microsoft 认知服务语音 SDK（[下载版本 1.3.0](https://aka.ms/csspeech/jsbrowserpackage)）。
+该应用程序基于适用于 JavaScript 的语音 SDK（[下载版本 1.5.0](https://aka.ms/csspeech/jsbrowserpackage)）。
 
 ## <a name="prerequisites"></a>先决条件
 
 * 语音服务的订阅密钥。 请参阅[试用语音服务](get-started.md)。
 * 配有可正常工作的麦克风的电脑或 Mac。
 * 文本编辑器。
-* Microsoft Edge 的当前版本。
+* Chrome、Microsoft Edge 或 Safari 的当前版本。
 * （可选）支持承载 PHP 脚本的 web 服务器。
 
 ## <a name="create-a-new-website-folder"></a>新建网站文件夹
@@ -53,7 +53,7 @@ ms.locfileid: "58627612"
    ```html
    <html>
    <head>
-      <title>Microsoft Cognitive Service Speech SDK JavaScript Quickstart</title>
+      <title>Speech SDK JavaScript Quickstart</title>
    </head>
    <body>
     <!-- UI code goes here -->
@@ -243,6 +243,10 @@ function RequestAuthorizationToken() {
 ## <a name="build-and-run-the-sample-locally"></a>在本地生成和运行示例
 
 要启动应用，双击 index.html 文件或使用你喜欢的 web 浏览器打开 index.html。 随即显示的简单 GUI 允许你输入订阅密钥和[区域](regions.md)以及使用麦克风触发识别。
+
+> [!NOTE]
+> 此方法对 Safari 浏览器不起作用。
+> 在 Safari 上，示例网页需要托管在 Web 服务器上；Safari 不允许从本地文件加载的网站使用麦克风。
 
 ## <a name="build-and-run-the-sample-via-a-web-server"></a>通过 web 服务器生成并运行示例
 

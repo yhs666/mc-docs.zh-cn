@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 09/06/2017
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 3a6c183f74785f813db9ebce0d71a0150209825b
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 7c5342bd094af8e344d11d1b72f4e6f325380415
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732374"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209345"
 ---
 # <a name="azure-storage-client-tools"></a>Azure 存储客户端工具
 Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或者与数据交互。 下表列出了可用于实现此目的的多种工具。 在每个能够枚举和/或访问数据抽象的块中打上“X”。 该表还指明了工具是否免费。 “试用”表示存在免费试用版，但完整版产品不是免费的。 “是/否”表示有一个免费版本，而提供的其他版本需要购买。
@@ -143,10 +143,10 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
     <td>X</td>
     <td>X</td>
-    <td></td>
-    <td>Y</td>
-    <td></td>
     <td>X</td>
+    <td>Y</td>
+    <td>X</td>
+    <td></td>
     <td></td>
     <td></td>
   </tr>
@@ -207,4 +207,3 @@ Azure 存储用户经常要使用 Azure 存储客户端工具查看其数据或�
     <td></td>
   </tr>
 </table>
-<!--Update_Description: update link references-->

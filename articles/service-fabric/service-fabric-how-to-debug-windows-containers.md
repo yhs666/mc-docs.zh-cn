@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/14/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: c6e64c1e6cc28a0c35acf33a985a910d706eda47
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 0f9dc25ba89ff4233701b58cfa11f9061de516fd
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753143"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174249"
 ---
 # <a name="how-to-debug-windows-containers-in-azure-service-fabric-using-visual-studio-2019"></a>如何：使用 Visual Studio 2019 在 Azure Service Fabric 中调试 Windows 容器
 
@@ -27,8 +27,8 @@ ms.locfileid: "68753143"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 在 Windows 10 上，按照此快速入门[配置 Windows 10 以运行 Windows 容器](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/quick-start-windows-10)
-* 在 Windows Server 2016 上，按照此快速入门[配置 Windows 2016 以运行 Windows 容器](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/quick-start-windows-server)
+* 在 Windows 10 上，按照此快速入门[配置 Windows 10 以运行 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10)
+* 在 Windows Server 2016 上，按照此快速入门[配置 Windows 2016 以运行 Windows 容器](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)
 * 按照[在 Windows 上准备开发环境](/service-fabric/service-fabric-get-started)来设置本地 Service Fabric 环境
 
 ## <a name="configure-your-developer-environment-to-debug-containers"></a>配置开发人员环境以调试容器

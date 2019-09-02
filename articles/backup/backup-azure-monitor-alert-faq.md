@@ -2,18 +2,18 @@
 title: Azure 备份监视警报常见问题解答
 description: 针对以下常见问题的解答：Azure 备份监视警报
 services: backup
-author: srinathvasireddy
-manager: sivan
+author: lingliw
+manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: srinathv
-ms.openlocfilehash: e3c862c91614f92d826f9eaf85d487192ae2d81e
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.author: v-lingwu
+ms.openlocfilehash: 6379ac850847503883e2414e5da9564c5f0503bb
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332685"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104164"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure 备份监视警报 - 常见问题解答
 本文解答有关 Azure 备份监视警报的常见问题。

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/10/2019
-ms.date: 07/01/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cee24ca8b5c2b879c5985e59bd97e18437d2e85d
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: a2f2b16f6a824182488a82be29fd07a12f395f04
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568580"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134288"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>快速入门：使用应用的标识获取令牌并从控制台应用中调用 Microsoft Graph API
 
@@ -77,7 +77,7 @@ ms.locfileid: "67568580"
 > > [为我进行这些更改]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![已配置](./media/quickstart-v2-windows-desktop/green-check.png) 应用程序已使用这些属性进行配置。
+> > ![已配置](./media/quickstart-v2-netcore-daemon/green-check.png) 应用程序已使用这些属性进行配置。
 
 #### <a name="step-2-download-your-visual-studio-project"></a>步骤 2：下载 Visual Studio 项目
 
@@ -96,6 +96,10 @@ ms.locfileid: "67568580"
     ```
     > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
     > > [生成新的客户端机密]()
+    
+    > [!div class="sxs-lookup" renderon="portal"]
+    > > [!NOTE]
+    > > 本快速入门支持 Enter_the_Supported_Account_Info_Here。
     
     > [!div renderon="docs"]
     >> 其中：
@@ -139,7 +143,7 @@ https://login.partner.microsoftonline.cn/Enter_the_Tenant_Id_Here/adminconsent?c
 
 #### <a name="step-5-run-the-application"></a>步骤 5：运行应用程序
 
-如果使用 Visual Studio，请按 **F5** 运行该应用程序，否则请通过命令提示符或控制台来运行该应用程序：
+如果使用 Visual Studio，请按 F5 运行该应用程序，否则请通过命令提示符或控制台来运行该应用程序  ：
 
 ```console
 cd {ProjectFolder}\daemon-console
@@ -212,7 +216,7 @@ result = await app.AcquireTokenForClient(scopes)
 > |---------|---------|
 > | `scopes` | 包含请求的范围。 对于机密客户端，这应该使用与 `{Application ID URI}/.default` 类似的格式，指示所请求的范围是在 Azure 门户的应用对象集中静态定义的范围（就 Microsoft Graph 来说，`{Application ID URI}` 指向 `https://microsoftgraph.chinacloudapi.cn`）。 就自定义 Web API 来说，`{Application ID URI}` 在  Azure 门户的应用程序注册（预览版）的“公开 API”部分定义。 |
 
-有关详细信息，请参阅 [`AcquireTokenForClient` 的参考文档](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__)
+有关详细信息，请参阅 [`AcquireTokenForClient` 的参考文档](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclient?view=azure-dotnet)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 

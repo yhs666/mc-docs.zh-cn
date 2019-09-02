@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 06/11/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: a302d69b62139e0fdd3a3bb457001f2b48d06eb0
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 06/28/2019
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 124ff0baf883b090bbf76f79aa11acc1825803f4
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348423"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104102"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>文本转语音常见问题
 
@@ -26,7 +26,7 @@ ms.locfileid: "58348423"
 
 **问：标准语音模型和自定义语音模型之间的区别是什么？**
 
-**答**：标准语音模型（也称为“语音字体”）已使用 Microsoft 拥有的数据进行训练，并已部署在云中。 可以使用自定义语音模型调整平均模型并转换说话者语音风格的音色和表达，或者基于用户准备的定型数据对完整的新模型进行定型。 如今，越来越多的客户希望为他们的机器人提供独一无二的品牌语音。 自定义语音生成平台是正确的选择。
+**答**：标准语音模型（也称为“语音字体”  ）已使用 Microsoft 拥有的数据进行训练，并已部署在云中。 可以使用自定义语音模型调整平均模型并转换说话者语音风格的音色和表达，或者基于用户准备的定型数据对完整的新模型进行定型。 如今，越来越多的客户希望为他们的机器人提供独一无二的品牌语音。 自定义语音生成平台是正确的选择。
 
 **问：如果想要使用标准语音模型，应从何处开始？**
 

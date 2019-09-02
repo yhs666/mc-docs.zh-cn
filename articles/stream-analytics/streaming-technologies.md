@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: quickstart
-origin.date: 08/09/2019
-ms.date: 05/15/2019
-ms.openlocfilehash: 4fcd6475db3700fb47d1d3bc898990ae0b521ae0
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 05/15/2019
+ms.date: 08/09/2019
+ms.openlocfilehash: db226b12ef56aba4ee9c1124f2cfa421ad20577b
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970417"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169621"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>在 Azure 上选择实时分析和流式处理技术
 

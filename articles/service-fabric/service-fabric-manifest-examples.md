@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/11/2018
-ms.date: 07/09/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: ad21ca93d8c6f0e47c1d2362447d14d1e7a97327
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 4db8066b7a7c2d6d09516a328e266c4dd8d23de4
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645824"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174243"
 ---
 # <a name="service-fabric-application-and-service-manifest-examples"></a>Service Fabric 应用程序和服务清单示例
 此部分包含应用程序和服务清单的示例。 这些示例不是要演示重要的方案，而是演示可以使用的不同设置以及如何使用它们。 
@@ -49,5 +48,5 @@ ms.locfileid: "52645824"
 |将命令传递给容器|[容器 FrontEndService 服务清单](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
 |[将证书导入到容器中](service-fabric-securing-containers.md)|[容器 FrontEndService 服务清单](service-fabric-manifest-example-container-app.md#frontendservice-service-manifest)|
 |[配置卷驱动程序](service-fabric-containers-volume-logging-drivers.md)|[容器 BackEndService 服务清单](service-fabric-manifest-example-container-app.md#backendservice-service-manifest)|
-<!-- Update_Description: new articles on service fabric manifest examples -->
-<!--ms.date: 07/09/2018-->
+
+<!-- Update_Description: wording update -->

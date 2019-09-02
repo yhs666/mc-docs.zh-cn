@@ -1,22 +1,20 @@
 ---
 title: Azure 快速入门 - 在浏览器中使用 JavaScript 和 HTML 在对象存储中创建 blob
 description: 了解如何通过 BlobService 实例在 HTML 页面中使用 JavaScript 上传、列出和删除 Blob。
-services: storage
 keywords: 存储, javascript, html
 author: WenJason
-ms.custom: mvc
-ms.service: storage
 ms.author: v-jay
 origin.date: 11/14/2018
-ms.date: 12/10/2018
+ms.date: 09/09/2019
+ms.service: storage
+ms.subservice: blobs
 ms.topic: quickstart
-ms.component: blobs
-ms.openlocfilehash: 9a502ba1127143cb1f2694f06124ef19a791ccac
-ms.sourcegitcommit: 5f2849d5751cb634f1cdc04d581c32296e33ef1b
+ms.openlocfilehash: 66926df9873909110b36295cc159779986d627d0
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53029005"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209402"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -51,7 +49,7 @@ ms.locfileid: "53029005"
 接下来，请使用 Azure CLI 2.0 创建一个安全令牌。
 
 ## <a name="create-a-shared-access-signature"></a>创建共享访问签名
-在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
+在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-sas-overview.md)。
 
 可以将 Azure CLI 与 Azure 存储资源管理器配合使用来创建 SAS。 下表对使用 CLI 生成 SAS 时需要提供值的参数进行了说明。
 
@@ -77,7 +75,7 @@ az storage account generate-sas
 ```
 你可能会觉得每个参数之后的一系列值有点费解。 这些参数值取自相应权限的第一个字母。 下表解释了这些值的来源： 
 
-| 参数        | 值   | 说明  |
+| 参数        | Value   | 说明  |
 |------------------|---------|---------|
 | *权限*    | racwdl  | 此 SAS 允许 *read*（读取）、*append*（追加）、*create*（创建）、*write*（编写）、*delete*（删除）和 *list*（列出）功能。 |
 | *resource-types* | sco     | 受 SAS 影响的资源为 *service*（服务）、*container*（容器）和 *object*（对象）。 |

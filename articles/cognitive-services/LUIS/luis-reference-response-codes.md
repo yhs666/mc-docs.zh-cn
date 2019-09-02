@@ -8,15 +8,16 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+origin.date: 08/26/2019
+ms.date: 03/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dc70f9e2e7fff30ca547a2cf7616e8080929798c
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 621ed600050881af271739de94d71ad8e57299d8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65555550"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103865"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常见的 API 响应代码及其含义
 

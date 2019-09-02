@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 07/08/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: c1906361c551106968c47dafef3ed514bdc4dcd2
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: c20911a173c131b8cd5542b3d3fb6f945ef0ec69
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844947"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174259"
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>在 Azure Service Fabric 上托管 Node.js 应用程序
 
@@ -92,6 +92,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
       <!-- This endpoint is used by the communication listener to obtain the port on which to 
            listen. Please note that if your service is partitioned, this port is shared with 
            replicas of different partitions that are placed in your code. -->
+
       <Endpoint Name="MyGuestAppServiceTypeEndpoint" Port="80" Protocol="http" Type="Input" />
     </Endpoints>
   </Resources>
@@ -127,7 +128,7 @@ Visual Studio 会创建应用程序项目和执行组件服务项目，并在解
 
 首先，打开 Azure 门户并找到 Service Fabric 服务。
 
-检查服务地址的概览边栏选项卡。 使用“客户端连接终结点”  属性中的域名。 例如，`http://mysvcfab1.chinanorth.cloudapp.chinacloudapi.cn`。
+检查服务地址的概览边栏选项卡。 使用“客户端连接终结点”  属性中的域名。 例如，`http://mysvcfab1.chinanorth2.cloudapp.chinacloudapi.cn`。
 
 ![Azure 门户中的 Service Fabric 概览边栏选项卡][overview]
 

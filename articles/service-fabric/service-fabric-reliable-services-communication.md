@@ -8,19 +8,19 @@ manager: digimobile
 editor: BharatNarasimman
 ms.assetid: 36217988-420e-409d-b0a4-e0e875b6eac8
 ms.service: service-fabric
-ms.devlang: multiple
+ms.devlang: csharp, java
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 11/01/2017
-ms.date: 05/28/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: cb8063f8431f69c6cbed0fe3b3883b7c5efd89d7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a1f6aa25cb8ec28fc32fa1f4cd051c6992d19ea1
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660897"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174057"
 ---
 # <a name="how-to-use-the-reliable-services-communication-apis"></a>如何使用 Reliable Services 通信 API
 “Azure Service Fabric 即平台”完全不受服务间通信的影响。 所有协议和堆栈（从 UDP 到 HTTP）都可接受。 至于服务应以哪种方式通信，完全由服务开发人员选择。 Reliable Services 应用程序框架提供了一些内置的通信堆栈和 API，可用于生成自定义通信组件。
@@ -97,7 +97,7 @@ public class MyStatefulService : StatefulService
 }
 ```
 
-在这两种情况下，都会返回侦听器的集合。 这可让服务通过多个侦听器，可能使用不同的协议在多个终结点上侦听。 例如，你可能有一个 HTTP 侦听器和一个单独的 WebSocket 侦听器。 当客户端请求服务实例或分区的侦听地址时，每个侦听器会获取一个名称，生成的“名称 : 地址”对集合以 JSON 对象的形式表示。
+在这两种情况下，都会返回侦听器的集合。 这可让服务通过多个侦听器，可能使用不同的协议在多个终结点上侦听。 例如，你可能有一个 HTTP 侦听器和一个单独的 WebSocket 侦听器。 当客户端请求服务实例或分区的侦听地址时，每个侦听器会获取一个名称，生成的“名称 : 地址”  对集合以 JSON 对象的形式表示。
 
 在无状态服务中，重写会返回 ServiceInstanceListeners 的集合。 `ServiceInstanceListener` 包含一个函数，用于创建 `ICommunicationListener(C#) / CommunicationListener(Java)` 并为其提供名称。 对于有状态服务，重写会返回 ServiceReplicaListeners 集合。 这与无状态服务稍有不同，因为 `ServiceReplicaListener` 可以选择在辅助副本上打开 `ICommunicationListener`。 不仅可以在服务中使用多个通信侦听器，而且还可以指定哪些侦听器要在辅助副本上接受请求，以及哪些侦听器只能在主副本上进行侦听。
 
@@ -346,8 +346,8 @@ public class MyCommunicationClientFactory extends CommunicationClientFactoryBase
 
 * **不可重试**的异常只会重新引发回调用方。
 * **可重试**的异常进一步分为**暂时性**和**非暂时性**两种类型。
-  * **暂时性**异常是只会重试而不会重新解析服务终结点地址的异常。 这类异常包括暂时性网络问题或服务错误响应，但不包括指出服务终结点地址不存在的异常。
-  * **非暂时性** 异常是需要重新解析服务终结点地址的异常。 这类异常包括指出无法访问服务终结点（表示服务已移至其他节点）的异常。
+    * **暂时性**异常是只会重试而不会重新解析服务终结点地址的异常。 这类异常包括暂时性网络问题或服务错误响应，但不包括指出服务终结点地址不存在的异常。
+    * **非暂时性** 异常是需要重新解析服务终结点地址的异常。 这类异常包括指出无法访问服务终结点（表示服务已移至其他节点）的异常。
 
 `TryHandleException` 针对给定异常做出决定。 如果它**不知道**要对异常做出哪些决定，则应返回 **false**。 如果它**知道**如何做决定，则应相应地设置结果并返回 **true**。
 
@@ -374,7 +374,7 @@ class MyExceptionHandler : IExceptionHandler
 public class MyExceptionHandler implements ExceptionHandler {
 
     @Override
-    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {        
+    public ExceptionHandlingResult handleException(ExceptionInformation exceptionInformation, OperationRetrySettings retrySettings) {
 
         /* if exceptionInformation.getException() is known and is transient (can be retried without re-resolving)
          */

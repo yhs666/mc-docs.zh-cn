@@ -12,14 +12,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/02/2019
+ms.date: 05/09/2019
 ms.author: v-lingwu
-ms.openlocfilehash: abf061d12e8fefe53e0008fe0c562cd1c7ec2485
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 0b914f7ef2948d6857e0d7354938fe0acf7ed14f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989131"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103832"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>启用用于 VM 的 Azure Monitor（预览版）进行评估
 
@@ -87,3 +87,4 @@ ms.locfileid: "69989131"
 
 * 若要了解如何使用运行状况功能，请参阅[了解 Azure Monitor VM 的运行状况](vminsights-health.md)。 
 * 若要查看已发现的应用程序依赖项，请参阅[使用用于 VM 的 Azure Monitor 映射](vminsights-maps.md)。 
+* 若了解瓶颈、整体利用率和 VM 的性能，请参阅[查看 Azure VM 性能](vminsights-performance.md)。

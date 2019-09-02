@@ -1,21 +1,21 @@
 ---
 title: Azure 备份：监视 Azure 备份保护的工作负荷
 description: 使用 Azure 门户监视 Azure 备份工作负荷
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: lingliw
+manager: digimobile
 keywords: Azure 备份; 警报
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: pullabhk
+ms.author: v-lingwu
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 4999ecd1d603a95bf51954acd7c236df0c232dfe
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 2968d3f990cfd2fa177eed0b3829440ea1edb7b3
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332684"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104159"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>监视 Azure 备份工作负荷
 

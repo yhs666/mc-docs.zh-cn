@@ -7,12 +7,12 @@ manager: jeconnoc
 ms.author: v-lingwu
 ms.date: 02/07/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0d3d7acb715d3812dfb475e3c05cb327974bf067
-ms.sourcegitcommit: 5738c2b28f5cd95a52847591b26cf310afd81394
+ms.openlocfilehash: 9deb32af3de899edfcb918566365aa2b51bae334
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65586642"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104063"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Azure 渲染的参考体系结构
 
@@ -57,7 +57,6 @@ ms.locfileid: "65586642"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 详细了解如何将[渲染管理器](batch-rendering-render-managers.md)与 Azure Batch 配合使用。
+* 详细了解如何将[渲染管理器](batch-rendering-render-managers.md)与 Azure Batch 配合使用。
 
-- 详细了解[在 Azure 中渲染](batch-rendering-service.md)的选项。
-
+* 详细了解[在 Azure 中渲染](batch-rendering-service.md)的选项。

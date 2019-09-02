@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 origin.date: 06/11/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8269359acbc21f5d302aaa19051ee36f63ef9c7e
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 3f058d3f8cd7803292ba94679a5e773990ef7215
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626294"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174246"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Reliable Services 应用程序和服务清单示例
 下面是应用程序和服务清单的示例，这些清单适用于带 ASP.NET Core Web 前端和有状态后端的 Service Fabric 应用程序。 这些示例的目的是说明什么设置可用以及如何使用它们。 这些应用程序和服务清单基于 [Service Fabric .NET 快速入门](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/)清单。
@@ -39,7 +38,7 @@ ms.locfileid: "58626294"
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifest xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VotingType" ApplicationTypeVersion="1.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Parameters>
     <Parameter Name="VotingData_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="VotingData_PartitionCount" DefaultValue="1" />
@@ -166,6 +165,7 @@ ms.locfileid: "58626294"
 
   </Policies>
 </ApplicationManifest>
+
 ```
 
 ## <a name="votingweb-service-manifest"></a>VotingWeb 服务清单
@@ -175,8 +175,8 @@ ms.locfileid: "58626294"
 <ServiceManifest Name="VotingWebPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -229,6 +229,7 @@ ms.locfileid: "58626294"
     </Endpoints>
   </Resources>
 </ServiceManifest>
+
 ```
 
 ## <a name="votingdata-service-manifest"></a>VotingData 服务清单
@@ -238,8 +239,8 @@ ms.locfileid: "58626294"
 <ServiceManifest Name="VotingDataPkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType. 
          This name must match the string used in RegisterServiceType call in Program.cs. -->
@@ -276,6 +277,7 @@ ms.locfileid: "58626294"
   </Resources>
 
 </ServiceManifest>
+
 ```
 
 ## <a name="application-manifest-elements"></a>应用程序清单元素
@@ -460,4 +462,4 @@ EntryPoint 指定的可执行文件通常是长时间运行的服务主机。 �
 ### <a name="endpoint-element"></a>Endpoint 元素
 要重写的已在服务清单中声明的终结点。 有关详细信息，请参阅 [Endpoint 元素](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

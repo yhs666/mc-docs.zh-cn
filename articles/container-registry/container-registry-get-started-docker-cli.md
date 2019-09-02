@@ -7,15 +7,15 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/23/2019
-ms.date: 04/15/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 54720427ad3f91e86688a4abe6f75bad95594583
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: db86429b246a90f9c42fade641509b9a17f2e6d6
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529210"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134436"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>使用 Docker CLI 将第一个映像推送到专用 Docker 容器注册表
 
@@ -30,7 +30,7 @@ Azure 容器注册表存储和管理专用 [Docker](https://hub.docker.com) 容�
 
 ## <a name="log-in-to-a-registry"></a>登录到注册表
 
-可[通过多种方式验证](container-registry-authentication.md)专用容器注册表。 在命令行中操作时，建议的方法是使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/zh-cn/cli/acr?view=azure-cli-latest#az-acr-login)。 例如，若要登录到名为 *myregistry* 的注册表：
+可[通过多种方式验证](container-registry-authentication.md)专用容器注册表。 在命令行中操作时，建议的方法是使用 Azure CLI 命令 [az acr login](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login)。 例如，若要登录到名为 *myregistry* 的注册表：
 
 ```azurecli
 az acr login --name myregistry
@@ -117,7 +117,7 @@ docker run -it --rm -p 8080:80 myregistry.azurecr.cn/samples/nginx
 docker rmi myregistry.azurecr.cn/samples/nginx
 ```
 
-若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除 `samples/nginx:latest` 标记引用的清单、所有唯一的层数据以及引用此清单的其他所有标记。
+若要从 Azure 容器注册表中删除映像，可以使用 Azure CLI 命令[az acr repository delete](https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-delete)。 例如，以下命令删除 `samples/nginx:latest` 标记引用的清单、所有唯一的层数据以及引用此清单的其他所有标记。
 
 ```azurecli
 az acr repository delete --name myregistry --image samples/nginx:latest
@@ -137,6 +137,7 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 可以选择安装[适用于 Visual Studio Code 的 Docker 扩展](https://code.visualstudio.com/docs/azure/docker)以及适用于 Azure 容器注册表的 [Azure 帐户](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)扩展。 通过 Azure 容器注册表拉取和推送映像，或者运行 ACR 任务，这一切都可以在 Visual Studio Code 中进行。
 
 <!-- LINKS - external -->
+
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
 [docker-mac]: https://docs.docker.com/docker-for-mac/
 [docker-windows]: https://docs.docker.com/docker-for-windows/

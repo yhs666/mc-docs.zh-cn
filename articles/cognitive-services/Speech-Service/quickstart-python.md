@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 2/20/2019
-ms.date: 04/01/2019
+origin.date: 8/20/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
-ms.openlocfilehash: 1ce8953a57c07e400f56a3c9c4fd783f23a125ad
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 8fc73b068e0ca6eb529207ad974900a4022fbe65
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348372"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103764"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>快速入门：使用适用于 Python 的语音 SDK 识别语音
 
@@ -28,18 +28,27 @@ ms.locfileid: "58348372"
 
 * 语音服务的 Azure 订阅密钥。 [获取一个试用版](get-started.md)。
 * [Python 3.5 或更高版本](https://www.python.org/downloads/)。
-* Python 语音 SDK 包适用于以下操作系统： 
+* Python 语音 SDK 包适用于以下操作系统：
     * Windows：x64 和 x86。
     * Mac：macOS X 10.12 或更高版本。
-    * Linux：x64 架构上的 Ubuntu 16.04 或 18.04。
-* 在 Ubuntu 上，请运行以下命令安装所需的包：
+    * Linux：x64 上的 Ubuntu 16.04、Ubuntu 18.04、Debian 9。
+* 在 Linux 上，请运行以下命令安装所需的包：
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-  ```
+  * 在 Ubuntu 上：
 
-* 在 Windows 上，还需要安装适用于你的平台的 [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
+
+  * 在 Debian 9 上：
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
+
+* 在 Windows 上，需要安装适用于平台的 [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。
 
 ## <a name="install-the-speech-sdk"></a>安装语音 SDK
 

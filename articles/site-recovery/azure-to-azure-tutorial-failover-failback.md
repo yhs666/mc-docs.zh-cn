@@ -6,16 +6,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 07/01/2019
-ms.date: 08/05/2019
+origin.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 3092160e63fe804cbd521b98691789003fc36d09
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: ceb5d4fb89e6746dae11e49fe694dee51c6c456c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819627"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134412"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>在区域之间故障转移和重新保护 Azure VM
 
@@ -56,10 +56,10 @@ ms.locfileid: "68819627"
 6. 如果故障转移后的虚拟机符合要求，可以“提交”  故障转移。
    提交会删除该服务提供的所有恢复点。 现在无法无法更改恢复点。
 
-> [!NOTE]
-> 当你将启用 VM 复制后添加磁盘的 VM 进行故障转移时，复制点会显示可用于恢复的磁盘。 例如，如果 VM 有一个磁盘，你添加了一个新的磁盘，则在添加磁盘之前创建的复制点会显示复制点包含“1 个磁盘（共 2 个）”。
+    > [!NOTE]
+    > 当你将启用 VM 复制后添加磁盘的 VM 进行故障转移时，复制点会显示可用于恢复的磁盘。 例如，如果 VM 有一个磁盘，你添加了一个新的磁盘，则在添加磁盘之前创建的复制点会显示复制点包含“1 个磁盘（共 2 个）”。
 
-![使用添加的磁盘进行故障转移](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+    ![使用添加的磁盘进行故障转移](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>重新保护辅助 VM
 

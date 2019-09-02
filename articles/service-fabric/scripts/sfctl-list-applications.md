@@ -10,18 +10,17 @@ tags: ''
 ms.assetid: ''
 ms.service: service-fabric
 ms.workload: multiple
-ms.devlang: na
 ms.topic: sample
 origin.date: 04/13/2018
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 3e71d7b96b9b30dba4f8d77a51dd0c01cf9f42fd
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: c263663229efd3fd14a94b18a2ea5557d59e9db7
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204008"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174115"
 ---
 # <a name="list-applications-running-in-a-service-fabric-cluster"></a>列出在 Service Fabric 群集中运行的应用程序
 
@@ -36,7 +35,7 @@ ms.locfileid: "57204008"
 
 # Select cluster
 sfctl cluster select \
-    --endpoint http://svcfab1.chinanorth.cloudapp.chinacloudapi.cn:19080
+    --endpoint http://svcfab1.chinanorth2.cloudapp.chinacloudapi.cn:19080
 
 # Retrieve all applications from the cluster
 sfctl application list
@@ -47,4 +46,5 @@ sfctl application list
 有关详细信息，请参阅 [Service Fabric CLI 文档](../service-fabric-cli.md)。
 
 在 [Service Fabric CLI 示例](../samples-cli.md)中可找到 Azure Service Fabric 的其他 Service Fabric CLI 示例。
+
 <!--Update_Description: update meta properties -->

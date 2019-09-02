@@ -8,15 +8,15 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
 origin.date: 04/18/2018
-ms.date: 04/01/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 6584fe7e0d363d68e01e89dacac0271fd560f2c0
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7e18f432855894f3ef3a0c34511a9fa9ec186d21
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625174"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131674"
 ---
 # <a name="quickstart-pause-and-resume-compute-for-an-azure-sql-data-warehouse-in-the-azure-portal"></a>快速入门：在 Azure 门户中暂停和恢复 Azure SQL 数据仓库的计算
 
@@ -30,27 +30,27 @@ ms.locfileid: "58625174"
 
 ## <a name="before-you-begin"></a>准备阶段
 
-使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库。 
+使用[创建并连接 - 门户](create-data-warehouse-portal.md)创建名为“mySampleDataWarehouse”的数据仓库  。 
 
 ## <a name="pause-compute"></a>暂停计算
 
-为了节省成本，可以按需暂停和恢复计算资源。 例如，如果用户晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，并在白天时恢复使用。 数据库暂停时，不对计算资源进行收费。 但是，仍将向你收取存储费用。 
+为了节省成本，可以按需暂停和恢复计算资源。 例如，如果用户晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，并在白天时恢复使用。 数据库暂停时，不对计算资源进行收费。 但是，仍将收取存储费用。 
 
 执行以下步骤，暂停 SQL 数据仓库。
 
-1. 在 Azure 门户的左侧页面中，单击“SQL 数据库”。
-2. 从“SQL 数据库”页中选择“mySampleDataWarehouse”。 此操作将打开数据仓库。 
-3. 在“mySampleDataWarehouse”页中，可看到“状态”显示为“联机”。
+1. 在 Azure 门户的左侧页面中，单击“SQL 数据库”  。
+2. 从“SQL 数据库”页中选择“mySampleDataWarehouse”   。 此操作将打开数据仓库。 
+3. 在“mySampleDataWarehouse”页中，可看到“状态”显示为“联机”    。
 
     ![联机计算](media/pause-and-resume-compute-portal/compute-online.png)
 
-4. 要暂停数据仓库，请单击“暂停”按钮。 
-5. 此时将出现询问是否恢复的确认提问。 单击 **“是”**。
-6. 等待几分钟后，“状态”将更改为“正在暂停”。
+4. 要暂停数据仓库，请单击“暂停”按钮  。 
+5. 此时将出现询问是否恢复的确认提问。 单击 **“是”** 。
+6. 等待几分钟后，“状态”将更改为“正在暂停”   。
 
     ![正在暂停](media/pause-and-resume-compute-portal/pausing.png)
 
-7. 完成暂停操作后，状态显示“已暂停”，选项按钮为“启动”。
+7. 完成暂停操作后，状态显示“已暂停”，选项按钮为“启动”   。
 8. 现在，数据仓库的计算资源处于脱机状态。 在恢复服务之前无需为计算付费。
 
     ![脱机计算](media/pause-and-resume-compute-portal/compute-offline.png)
@@ -60,19 +60,19 @@ ms.locfileid: "58625174"
 
 执行以下步骤，恢复 SQL 数据仓库。
 
-1. 在 Azure 门户的左侧页面中，单击“SQL 数据库”。
-2. 从“SQL 数据库”页中选择“mySampleDataWarehouse”。 此操作将打开数据仓库。 
-3. 在“mySampleDataWarehouse”页中，可看到“状态”显示为“已暂停”。
+1. 在 Azure 门户的左侧页面中，单击“SQL 数据库”  。
+2. 从“SQL 数据库”页中选择“mySampleDataWarehouse”   。 此操作将打开数据仓库。 
+3. 在“mySampleDataWarehouse”页中，可看到“状态”显示为“已暂停”    。
 
     ![脱机计算](media/pause-and-resume-compute-portal/compute-offline.png)
 
-4. 要恢复数据仓库，请单击“启动”。 
-5. 此时将出现询问是否启动的确认提问。 单击 **“是”**。
-6. 可看到“状态”显示为“正在恢复”。
+4. 要恢复数据仓库，请单击“启动”  。 
+5. 此时将出现询问是否启动的确认提问。 单击 **“是”** 。
+6. 可看到“状态”显示为“正在恢复”   。
 
     ![正在恢复](media/pause-and-resume-compute-portal/resuming.png)
 
-7. 数据仓库恢复联机时，其状态将显示为“联机”，且选项按钮为“暂停”。
+7. 数据仓库恢复联机时，其状态将显示为“联机”，且选项按钮为“暂停”   。
 8. 此时数据仓库的计算资源处于联机状态，可使用该服务。 收取已恢复计算费用。
 
     ![联机计算](media/pause-and-resume-compute-portal/compute-online.png)
@@ -90,13 +90,13 @@ ms.locfileid: "58625174"
 
     ![清理资源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. 要暂停计算，请单击“暂停”按钮。 暂停数据仓库后，可看到“启动”按钮。  要恢复计算，请单击“启动”。
+1. 要暂停计算，请单击“暂停”  按钮。 暂停数据仓库后，可看到“启动”  按钮。  要恢复计算，请单击“启动”  。
 
-2. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”。
+2. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”  。
 
-3. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”，然后单击“删除”。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
+3. 若要删除创建的 SQL Server，请单击“mynewserver-20181129.database.chinacloudapi.cn”  ，然后单击“删除”  。  请谨慎执行此删除操作，因为删除服务器的同时也会删除分配给该服务器的所有数据库。
 
-4. 要删除资源组，请单击“myResourceGroup”，然后单击“删除资源组”。
+4. 要删除资源组，请单击“myResourceGroup”  ，然后单击“删除资源组”  。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -104,6 +104,4 @@ ms.locfileid: "58625174"
 现在已暂停并恢复了数据仓库的计算。 若要了解有关 Azure SQL 数据仓库的详细信息，请继续有关加载数据的教程。
 
 > [!div class="nextstepaction"]
->[将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)
-<!-- Update_Description: new articles on pause and resume database on portal -->
-<!--ms.date: 03/12/2018-->
+> [将数据加载到 SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)

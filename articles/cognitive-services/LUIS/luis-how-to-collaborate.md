@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/19/19
 ms.author: v-lingwu
-ms.openlocfilehash: 46deb115fc42ee9c2d5a6df60c7d70ce2287a68c
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 3598344b8be2330c47e8b118fdbe364bfbb54613
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544215"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104007"
 ---
 # <a name="how-to-manage-authors-and-collaborators"></a>如何管理作者和协作者 
 

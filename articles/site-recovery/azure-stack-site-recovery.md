@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.topic: conceptual
 ms.service: site-recovery
-origin.date: 05/30/2019
-ms.date: 07/08/2019
+origin.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0d16fa22340616da66a4201faa4b0060cdd4cce2
-ms.sourcegitcommit: e575142416298f4d88e3d12cca58b03c80694a32
+ms.openlocfilehash: 58c530d09e7a27b827d326378853b2e4db4dff1c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67861730"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134439"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>将 Azure Stack VM 复制到 Azure
 
@@ -133,6 +133,8 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
     ![专用 IP 地址](./media/azure-stack-site-recovery/private-ip.png)
 
 ## <a name="step-2-create-a-vault-and-select-a-replication-goal"></a>步骤 2：创建保管库并选择复制目标
+
+<!--Notice: Correct on **Monitoring + Management** on Mooncake-->
 
 1. 在 Azure 门户中，选择“创建资源” > “监视 + 管理” > “备份和站点恢复(OMS)”。   
 
@@ -276,7 +278,9 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 按如下方式为 VM 运行测试故障转移：
 
 1. 在“受保护的项”   > “复制的项”  中，单击 VM >“+测试故障转移”  。
+    
     <!--MOONCAKE: Protected Items to replace Setting-->
+    
 2. 在本演练中，我们将选择使用“最新处理”恢复点  。 
 3. 在“测试故障转移”中，选择目标 Azure 网络  。
 4. 单击“确定”  开始故障转移。
@@ -294,7 +298,9 @@ Site Recovery 有助于实现业务连续性和灾难恢复 (BCDR) 策略。 该
 然后按如下所述运行故障转移：
 
 1. 在“受保护的项”   > “复制的项”  中，单击计算机 >“故障转移”  。
+    
     <!--MOONCAKE: Protected Items to replace Setting-->
+    
 2. 选择要使用的恢复点。
 3. 在“测试故障转移”中，选择目标 Azure 网络  。
 4. 选择“在开始故障转移前关闭计算机”  。 选择此设置后，Site Recovery 会在开始故障转移前尝试关闭源计算机。 但即使关机失败，故障转移也仍会继续。 

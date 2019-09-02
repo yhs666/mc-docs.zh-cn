@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/08/2019
-ms.date: 06/25/2019
+origin.date: 08/14/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07d6c00cf3d5913822ccdc05d61ac78e33097b56
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: dd2de1227494ced9e5e9116c76bd264b3507a13e
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134313"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>快速入门：配置应用程序来公开 Web API
 
@@ -53,7 +53,7 @@ ms.locfileid: "67568585"
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>通过 UI 公开新的范围
 
-[![通过 UI 公开 API](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![演示如何使用 UI 公开 API](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 若要通过 UI 公开新的范围，请执行以下操作：
 
@@ -117,8 +117,9 @@ ms.locfileid: "67568585"
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>验证 Web API 是否已公开给其他应用程序
 
 1. 返回到 Azure AD 租户，选择“应用注册”，找到并选择要配置的客户端应用程序。 
-1. 重复“配置客户端应用程序以访问 Web API”中概述的步骤。
-1. 执行到“选择 API”这一步时，请选择资源。  此时会看到可供客户端权限请求使用的新范围。
+1. 重复[将客户端应用程序配置为访问 Web API](quickstart-configure-app-access-web-apis.md) 中概述的步骤。
+1. 执行到[选择 API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
+) 这一步时，请选择资源。 此时会看到可供客户端权限请求使用的新范围。
 
 ## <a name="more-on-the-application-manifest"></a>有关应用程序清单的更多信息
 

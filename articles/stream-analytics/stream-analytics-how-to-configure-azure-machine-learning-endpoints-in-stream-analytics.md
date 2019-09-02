@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 06/11/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 77dead26774962a773e1587a48400e087f70a855
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 76841c47fcca8f93b1313c6c5192b9827c357c8e
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970491"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169535"
 ---
 # <a name="azure-machine-learning-studio-integration-in-stream-analytics-preview"></a>流分析中的 Azure 机器学习工作室集成（预览）
 流分析支持调用 Azure 机器学习工作室终结点的用户定义函数。 [流分析 REST API 库](https://msdn.microsoft.com/library/azure/dn835031.aspx)中详细介绍了对此功能的 REST API 支持。 本文提供在流分析中成功实现此功能所需的补充信息。 也可在 [此处](stream-analytics-machine-learning-integration-tutorial.md)获取已发布的教程。

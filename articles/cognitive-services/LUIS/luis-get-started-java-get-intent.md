@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 007aec262da1a675296bab70cfbdbb49b31be827
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: a7e4c522c6337ba3324193803eebb65ebc95eb35
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135923"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104014"
 ---
 # <a name="quickstart-get-intent-using-java"></a>快速入门：使用 Java 获取意向
 

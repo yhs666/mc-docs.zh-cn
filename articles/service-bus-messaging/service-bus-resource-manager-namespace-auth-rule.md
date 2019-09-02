@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 58fa244aeee1668cf45b53bea07c19be398b82ef
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fd5e1a169ee6ac137005711c66efa2e45c4001f4
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818515"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169600"
 ---
 # <a name="create-a-service-bus-authorization-rule-for-namespace-and-queue-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板为命名空间和队列创建服务总线授权规则
 
@@ -29,7 +29,7 @@ ms.locfileid: "68818515"
 
 有关完整的模板，请参阅 GitHub 上的[服务总线授权规则模板][Service Bus auth rule template]。
 
->[!NOTE]
+> [!NOTE]
 > 以下 Azure Resource Manager 模板可供下载和部署。
 > 
 > * [创建服务总线命名空间](service-bus-resource-manager-namespace.md)
@@ -58,7 +58,6 @@ ms.locfileid: "68818515"
 模板定义以下参数。
 
 ### <a name="servicebusnamespacename"></a>serviceBusNamespaceName
-
 要创建的服务总线命名空间的名称。
 
 ```json
@@ -67,8 +66,7 @@ ms.locfileid: "68818515"
 }
 ```
 
-### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName 
-
+### <a name="namespaceauthorizationrulename"></a>namespaceAuthorizationRuleName
 命名空间的授权规则的名称。
 
 ```json
@@ -78,7 +76,6 @@ ms.locfileid: "68818515"
 ```
 
 ### <a name="servicebusqueuename"></a>serviceBusQueueName
-
 服务总线命名空间中的队列的名称。
 
 ```json
@@ -88,7 +85,6 @@ ms.locfileid: "68818515"
 ```
 
 ### <a name="servicebusapiversion"></a>serviceBusApiVersion
-
 模板的服务总线 API 版本。
 
 ```json
@@ -101,7 +97,6 @@ ms.locfileid: "68818515"
 ```
 
 ## <a name="resources-to-deploy"></a>要部署的资源
-
 创建 **消息传送**类型的标准服务总线命名空间，以及命名空间和实体的服务总线授权规则。
 
 ```json

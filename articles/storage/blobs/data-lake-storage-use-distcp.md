@@ -1,21 +1,20 @@
 ---
 title: 使用 DistCp 将数据复制到 Azure Data Lake Storage Gen2 | Microsoft Docs
 description: 使用 DistCp 工具将数据复制到 Data Lake Storage Gen2 和从中复制数据
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 origin.date: 12/06/2018
-ms.date: 05/27/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.reviewer: seguler
-ms.openlocfilehash: 048718183ee03e44c2905769237b225f5d53a492
-ms.sourcegitcommit: 623e8f0d52c42d236ad2a0136d5aebd6528dbee3
+ms.reviewer: stewu
+ms.openlocfilehash: 2df6e90b8b44b0bb67fac56844734b9e7335bb95
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236041"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209335"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2"></a>使用 DistCp 在 Azure 存储 Blob 与 Data Lake Storage Gen2 之间复制数据
 
@@ -67,7 +66,7 @@ HDInsight 群集附带 DistCp 实用工具，该实用工具可用于从不同�
 
 **示例**
 
-    hadoop distcp wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.chinacloudapi.cn/myfolder -m 100
+    hadoop distcp -m 100 wasbs://<CONTAINER_NAME>@<STORAGE_ACCOUNT_NAME>.blob.core.chinacloudapi.cn/example/data/gutenberg abfss://<FILE_SYSTEM_NAME>@<STORAGE_ACCOUNT_NAME>.dfs.core.chinacloudapi.cn/myfolder -m 100
 
 ### <a name="how-do-i-determine-the-number-of-mappers-to-use"></a>如何确定要使用的映射器数？
 

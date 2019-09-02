@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/11/2019
-ms.date: 07/01/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a79b3a09ef2f11df696725bb2dc2d7ba761a007
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: da7c50ef604d9ae088a6fd27326444283c2a4901
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568583"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134300"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>快速入门：向 ASP.NET Core Web 应用添加 Microsoft 登录功能
 
@@ -86,6 +86,10 @@ ms.locfileid: "67568583"
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入门支持 Enter_the_Supported_Account_Info_Here。
 
 > [!div renderon="docs"]
 > 其中：

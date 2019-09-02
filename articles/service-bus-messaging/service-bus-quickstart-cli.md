@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0d6b782b5652152883f97bab6b256ba558cc1fac
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3fd2762ee15976811febe13b21a6fe4c30c37b75
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818558"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169601"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入门：使用 Azure CLI 创建服务总线队列
 本快速入门介绍了如何使用 Azure CLI 和服务总线 Java 库通过服务总线来发送和接收消息。 最后，如果对更多的技术细节感兴趣，可以[阅读说明](#understand-the-sample-code)，了解示例代码的重要元素。
@@ -22,7 +22,7 @@ ms.locfileid: "68818558"
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>先决条件
-如果没有 Azure 订阅，可在开始前创建一个[试用帐户][]。
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户][trial account]。
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,8 +32,7 @@ ms.locfileid: "68818558"
 如果在 Web 浏览器中启动 Cloud Shell，不管是直接这样做还是在 Azure 门户中这样做，则请在 Cloud Shell 左上角看到 **PowerShell** 时切换到 **Bash**。 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>使用 Azure CLI 创建资源
-
-在 Cloud Shell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：
+在 Cloud Shell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：Java 示例程序要求队列名称为 BasicQueue，因此请不要更改它。 可能需要逐一复制/粘贴命令，这样就可以先替换值，然后再运行它们。 
 
 ```azurecli
 # Create a resource group
@@ -287,21 +286,21 @@ public void run(String connectionString) throws Exception {
 
 ```java
 CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
-List<HashMap<String, String>> data =
-        GSON.fromJson(
-                "[" +
-                        "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
-                        "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
-                        "{'name' = 'Curie', 'firstName' = 'Marie'}," +
-                        "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
-                        "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
-                        "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
-                        "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
-                        "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
-                        "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
-                        "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
-                        "]",
-                new TypeToken<List<HashMap<String, String>>>() {}.getType());
+    List<HashMap<String, String>> data =
+            GSON.fromJson(
+                    "[" +
+                            "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                            "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                            "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                            "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                            "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                            "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                            "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                            "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                            "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                            "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                            "]",
+                    new TypeToken<List<HashMap<String, String>>>() {}.getType());
 
     List<CompletableFuture> tasks = new ArrayList<>();
     for (int i = 0; i < data.size(); i++) {
@@ -367,6 +366,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 }
 ```
+
+> [!NOTE]
+> 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
 
 ## <a name="next-steps"></a>后续步骤
 

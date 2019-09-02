@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/23/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba29c4370449439e547997d239fe1c8bc19818dc
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 86eb8533eab6d4b0a64e2e9261502f95b46d77f6
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753173"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174140"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 安全 
 
@@ -68,7 +68,7 @@ ms.locfileid: "68753173"
 
 ## <a name="apply-an-access-control-list-acl-to-your-certificate-for-your-service-fabric-cluster"></a>将访问控制列表 (ACL) 应用到 Service Fabric 群集的证书
 
-[虚拟机规模集扩展](https://docs.azure.cn/zh-cn/cli/vmss/extension?view=azure-cli-latest)发布服务器 Microsoft.Azure.ServiceFabric 用于配置节点安全性。
+[虚拟机规模集扩展](https://docs.azure.cn/cli/vmss/extension?view=azure-cli-latest)发布服务器 Microsoft.Azure.ServiceFabric 用于配置节点安全性。
 若要将 ACL 应用到 Service Fabric 群集过程的证书，请使用以下资源管理器模板属性：
 
 ```json
@@ -155,11 +155,11 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 在加密受保护的值以后，[在 Service Fabric 应用程序中指定加密的机密](/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)，并[解密服务代码中加密的机密](/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code)。
 
-<!--Not Available on ## Authenticate Service Fabric applications to Azure Resources using Managed Service Identity (MSI)-->
+## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>使用托管服务标识 (MSI) 向 Azure 资源验证 Service Fabric 应用程序
 
 
 ## <a name="windows-security-baselines"></a>Windows 安全基线
-[我们建议实现广为人知且经过充分测试的业界标准配置，如 Azure 安全基线，而不是自行创建基线](https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-security-baselines)；用于在虚拟机规模集上预配这些基线的一个选项是，使用 Azure Desired State Configuration (DSC) 扩展处理程序，以在 VM 处于联机状态时对其进行配置，以便其运行生产软件。
+[我们建议实现广为人知且经过充分测试的业界标准配置，如 Azure 安全基线，而不是自行创建基线](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines)；用于在虚拟机规模集上预配这些基线的一个选项是，使用 Azure Desired State Configuration (DSC) 扩展处理程序，以在 VM 处于联机状态时对其进行配置，以便其运行生产软件。
 
 <!--Not Avaialble on ## Azure Firewall-->
 
@@ -168,7 +168,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 ## <a name="windows-defender"></a>Windows Defender 
 
-默认情况下，Windows Defender 防病毒安装在 Windows Server 2016 上。 有关详细信息，请参阅 [Windows Server 2016 上的 Windows Defender 防病毒](https://docs.microsoft.com/zh-cn/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)。 用户界面默认安装在某些 SKU 上，但不是必需的。 若要降低 Windows Defender 引发的性能影响和资源使用开销，在安全策略允许排除开源软件的进程和路径的情况下，请声明以下虚拟机规模集扩展资源管理器模板属性，将 Service Fabric 群集排除在扫描范围外：
+默认情况下，Windows Defender 防病毒安装在 Windows Server 2016 上。 有关详细信息，请参阅 [Windows Server 2016 上的 Windows Defender 防病毒](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-on-windows-server-2016)。 用户界面默认安装在某些 SKU 上，但不是必需的。 若要降低 Windows Defender 引发的性能影响和资源使用开销，在安全策略允许排除开源软件的进程和路径的情况下，请声明以下虚拟机规模集扩展资源管理器模板属性，将 Service Fabric 群集排除在扫描范围外：
 
 ```json
  {

@@ -6,16 +6,16 @@ manager: digimobile
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-origin.date: 04/08/2019
-ms.date: 06/10/2019
+origin.date: 05/30/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 99b0448d9e23e534200b3539896fd7cccfb450df
-ms.sourcegitcommit: 440d53bb61dbed39f2a24cc232023fc831671837
+ms.openlocfilehash: 6df0f16dc8b838c9976cc982b6ffb67cff9cd2f0
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66390699"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134449"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>运行 Azure 灾难恢复演练
 
@@ -87,8 +87,8 @@ ms.locfileid: "66390699"
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [针对 VMware VM 运行故障转移和故障回复](vmware-azure-tutorial-failover-failback.md)。
-> [针对 Hyper-V VM 运行故障转移和故障回复](hyper-v-azure-failover-failback-tutorial.md)。
-> [针对物理计算机运行故障转移和故障回复](physical-to-azure-failover-failback.md)。
+> [对 VMware VM 运行故障转移和故障回复](vmware-azure-tutorial-failover-failback.md)
+> [对 Hyper-V VM 运行故障转移和故障回复](hyper-v-azure-failover-failback-tutorial.md)
+> [对物理计算机运行故障转移和故障回复](physical-to-azure-failover-failback.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

@@ -8,15 +8,16 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+origin.date: 08/26/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4b699a75b4b351af49ece371ca09e2a3584d9711
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 80a6d7fc762a12bf469f0fea5d2175f332c5b525
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332064"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103919"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本进行编辑和测试，而不会影响暂存应用或生产应用
 

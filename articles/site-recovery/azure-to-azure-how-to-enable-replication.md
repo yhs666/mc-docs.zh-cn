@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 04/29/2018
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 510a5f3898ef42f6e9afe7506c67ad4d5bb4e5d8
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 64feb920cc60372bfc9ffe71ae93206c55184a25
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819677"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134430"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>将 Azure VM 复制到另一个 Azure 区域
 
@@ -124,7 +124,7 @@ ms.locfileid: "68819677"
 >在初始复制期间，VM 状态刷新可能需要一段时间，但不显示进度。 单击“刷新”按钮可获取最新状态。 
 >
 
-# <a name="next-steps"></a>后续步骤
+## <a name="next-steps"></a>后续步骤
 
 [详细了解](site-recovery-test-failover-to-azure.md)如何运行测试故障转移。
 

@@ -13,28 +13,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 10/12/2018
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4ef29b7800069a4a77217ae8a00a09d8fd79624
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 277c42a111fbed2f6b6e4256442c02b83481f867
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195443"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174061"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>Azure Service Fabric Reliable Services 中的 ASP.NET Core
 
 ASP.NET Core 是一个开源跨平台框架。 此框架用于生成基于云的 Internet 联网应用程序，例如 Web 应用、IoT 应用和移动后端。
 
-本文深入说明如何使用 NuGet 包的 **Microsoft.ServiceFabric.AspNetCore** 集在 Service Fabric Reliable Services 中 托管 ASP.NET Core 服务。
+本文详细说明如何使用 NuGet 包的 **Microsoft.ServiceFabric.AspNetCore** 集在 Service Fabric Reliable Services 中 托管 ASP.NET Core 服务。
 
-有关 Service Fabric 中 ASP.NET Core 的入门教程以及如何设置开发环境的说明，请参阅[教程：创建和部署包含 ASP.NET Core Web API 前端服务和有状态后端服务的应用程序](service-fabric-tutorial-create-dotnet-app.md)。
+有关 Service Fabric 中 ASP.NET Core 的入门教程以及如何设置开发环境的说明，请参阅[教程：使用 ASP.NET Core Web API 前端服务和有状态后端服务创建和部署应用程序](service-fabric-tutorial-create-dotnet-app.md)。
 
 本文的剩余内容假设你熟悉 ASP.NET Core。 如果不熟悉，请通读 [ASP.NET Core 基础知识](https://docs.microsoft.com/aspnet/core/fundamentals/index)。
 
 ## <a name="aspnet-core-in-the-service-fabric-environment"></a>Service Fabric 环境中的 ASP.NET Core
 
-ASP.NET Core 和 Service Fabric 应用都可以在 .NET Core 或完整的 .NET Framework 上运行。 可在 Service Fabric 中以两种不同方式使用 ASP.NET Core：
+ASP.NET Core 和 Service Fabric 应用都可以在 .NET Core 或完整的 .NET Framework 上运行。 可在 Service Fabric 中以两种的不同方式使用 ASP.NET Core：
  - **作为来宾可执行文件托管**。 此方法主要用于在 Service Fabric 上运行现有 ASP.NET Core 应用程序，无需更改代码。
  - **在 Reliable Service 内部运行**。 此方法可改善与 Service Fabric 运行时的集成，实现有状态的 ASP.NET Core 服务。
 
@@ -46,10 +46,10 @@ ASP.NET Core 和 Service Fabric 应用都可以在 .NET Core 或完整的 .NET F
 
 传统的 ASP.NET（最高为 MVC 5）通过 System.Web.dll 与 IIS 紧密耦合。 ASP.NET Core 在 Web 服务器和 Web 应用程序之间提供分隔。 这种隔离使 Web 应用程序能够在不同的 Web 服务器之间移植。 此外，还允许 Web 服务器自我托管  。 这意味着，你可以在自己的进程（而不是由 IIS 等专用 Web 服务器软件拥有的进程）中启动 Web 服务器。
 
-若要合并 Service Fabric 服务和 ASP.NET，无论是作为来宾可执行文件还是在 Reliable Service 中合并，都必须能够在服务主机进程内启动 ASP.NET。 可借助 ASP.NET Core 的自托管功能执行此操作。
+若要合并 Service Fabric 服务和 ASP.NET，无论是作为来宾可执行文件或是在 Reliable Service 中，必须能够在服务主机进程内启动 ASP.NET。 可借助 ASP.NET Core 的自托管功能执行此操作。
 
 ## <a name="hosting-aspnet-core-in-a-reliable-service"></a>在 Reliable Service 中托管 ASP.NET Core
-通常情况下，自托管 ASP.NET Core 应用程序会在应用程序的入口点创建 WebHost，如 `Program.cs` 中的 `static void Main()` 方法。 在这种情况下，WebHost 的生命周期绑定到进程的生命周期。
+通常情况下，自托管 ASP.NET Core 应用程序会在应用程序的入口点创建 WebHost，如 `Program.cs` 中的 `static void Main()` 方法。 在这种情况下，WebHost 的生命周期绑定到进程的生命周期中。
 
 ![在进程中托管 ASP.NET Core][0]
 
@@ -65,7 +65,7 @@ Reliable Service 实例由派生自 `StatelessService` 或 `StatefulService` 的
 这两种通信侦听器都能提供采用以下参数的构造函数：
  - **`ServiceContext serviceContext`** ：这是包含有关运行中服务的信息的 `ServiceContext` 对象。
  - **`string endpointName`** ：这是 ServiceManifest.xml 中 `Endpoint` 配置的名称。 它是两个通信侦听器的主要不同之处。 HTTP.sys 需要 `Endpoint` 配置，而 Kestrel 不需要  。
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** ：这是实现的 lambda，在其中创建和返回 `IWebHost`。 它允许按常规方式在在 ASP.NET Core 应用程序中配置 `IWebHost`。 lambda 提供为你生成的 URL，具体取决于使用的 Service Fabric 集成选项和你提供的 `Endpoint` 配置。 然后，可以修改 URL 或使用它来启动 Web 服务器。
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** ：这是实现的 lambda，在其中创建和返回 `IWebHost`。 它允许按平时一样在 ASP.NET Core 应用程序中使用的方法配置 `IWebHost`。 lambda 提供生成的 URL，具体取决于使用的 Service Fabric 集成选项和你提供的 `Endpoint` 配置。 然后，可以修改 URL 或使用它来启动 Web 服务器。
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric 集成中间件
 `Microsoft.ServiceFabric.AspNetCore` NuGet 包包含添加 Service Fabric 可识别的中间件的 `IWebHostBuilder` 上的 `UseServiceFabricIntegration` 扩展方法。 此中间件将 Kestrel 或 HTTP.sys `ICommunicationListener` 配置为向 Service Fabric 命名服务注册唯一的服务 URL。 然后，它验证客户端请求，以确保客户端连接到适当的服务。 
@@ -73,7 +73,7 @@ Reliable Service 实例由派生自 `StatelessService` 或 `StatefulService` 的
 为了防止客户端错误地连接到错误的服务，必须执行此步骤。 这是因为，在 Service Fabric 等共享主机环境中，多个 Web 应用程序可在同一物理机或虚拟机上运行，但不使用唯一的主机名。 后续部分对此方案进行详细说明。
 
 ### <a name="a-case-of-mistaken-identity"></a>错误标识示例
-服务副本（无论哪种协议）侦听唯一的 IP:port 组合。 服务副本开始侦听 IP:port 终结点后，它向 Service Fabric 命名服务报告该终结点地址。 该命名服务中的客户端或其他服务可以发现该地址。 如果服务使用动态分配的应用程序端口，服务副本可能恰巧使用同一物理计算机或虚拟机上其他服务此前使用的相同 IP:port 终结点。 这可能会导致客户端错误地连接到错误的服务。 如果发生以下事件序列，可能会出现此情况：
+服务副本（无论哪种协议）侦听唯一的 IP:port 组合。 服务副本开始侦听 IP:port 终结点后，它向 Service Fabric 命名服务报告该终结点地址。 该命名服务中的客户端或其他服务可以发现该地址。 如果服务使用动态分配的应用程序端口，服务副本可能恰巧使用同一物理计算机或虚拟机上的以前其他服务所使用的相同 IP:port 终结点。 这可能会导致客户端错误地连接到错误的服务。 如果发生以下事件序列，可能会出现此情况：
 
  1. 服务 A 通过 HTTP 侦听 10.0.0.1:30000。 
  2. 客户端解析服务 A 并获取地址 10.0.0.1:30000。
@@ -400,7 +400,7 @@ public Startup()
 {
     ICodePackageActivationContext activationContext = FabricRuntime.GetActivationContext();
     var builder = new ConfigurationBuilder()        
-        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = true); // set flag to decrypt the value
+        .AddServiceFabricConfiguration(activationContext, (options) => options.DecryptValue = false); // set flag to decrypt the value
     Configuration = builder.Build();
 }
 ```
@@ -521,6 +521,7 @@ Service Fabric 配置提供程序还支持配置更新。 可以使用 ASP.NET C
 [使用 Visual Studio 调试 Service Fabric 应用程序](service-fabric-debugging-your-application.md)
 
 <!--Image references-->
+
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png
 [1]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-servicefabric.png
 [2]:./media/service-fabric-reliable-services-communication-aspnetcore/integration.png

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/06/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4bd92b229d38857ababc35ac0e39ac706879983
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: d8d01e84189844139a1a53cb6cce59fb549a608b
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305860"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134250"
 ---
 # <a name="single-page-application---sign-in"></a>单页应用程序 - 登录
 
@@ -37,7 +37,7 @@ ms.locfileid: "67305860"
 也可选择传递 API 的作用域，该作用域需在用户登录时获得用户许可。
 
 > [!NOTE]
-> 如果应用程序已经可以访问经身份验证的用户上下文或 ID 令牌，则可跳过登录步骤，直接获取令牌。 有关更多详细信息，请参阅[在不使用 msal.js 登录名的情况下进行 SSO](msal-js-sso.md#sso-without-msaljs-login)。
+> 如果应用程序已经可以访问经身份验证的用户上下文或 ID 令牌，则可跳过登录步骤，直接获取令牌。 
 
 ## <a name="choosing-between-a-pop-up-or-redirect-experience"></a>在弹出窗口或重定向体验之间进行选择
 
@@ -53,8 +53,7 @@ ms.locfileid: "67305860"
 
 ```javascript
 const loginRequest = {
-    scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read", 
-             "https://microsoftgraph.chinacloudapi.cn/user.write"]
+    scopes: ["https://microsoftgraph.chinacloudapi.cn/User.ReadWrite"]
 }
 
 userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
@@ -88,8 +87,7 @@ userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
   imports: [ MsalModule.forRoot({
                 clientID: 'your_app_id',
                 popUp: true,
-                consentScopes: ["https://microsoftgraph.chinacloudapi.cn/user.read", 
-                                "https://microsoftgraph.chinacloudapi.cn/user.write"]
+                consentScopes: ["https://microsoftgraph.chinacloudapi.cn/User.ReadWrite"]
             })]
          })
 ```
@@ -108,8 +106,7 @@ function authCallback(error, response) {
 userAgentApplication.handleRedirectCallback(authCallback);
 
 const loginRequest = {
-    scopes: ["https://microsoftgraph.chinacloudapi.cn/user.read", 
-             "https://microsoftgraph.chinacloudapi.cn/user.write"]
+    scopes: ["https://microsoftgraph.chinacloudapi.cn/User.ReadWrite"]
 }
 
 userAgentApplication.loginRedirect(loginRequest);
@@ -165,3 +162,4 @@ this.authService.logout();
 > [!div class="nextstepaction"]
 > [获取应用的令牌](scenario-spa-acquire-token.md)
 
+<!-- Update_Description: code update -->

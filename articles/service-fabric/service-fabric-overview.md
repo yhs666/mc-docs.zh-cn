@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/22/2019
-ms.date: 07/08/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 5b8737d987f51e4c28c02f015d0ed5eb29a00544
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 8900a0227bc975e6f9b33cad890a06f1839d09e0
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844928"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174191"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Azure Service Fabric 概述
 Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打包、部署和管理可缩放的可靠微服务和容器。 Service Fabric 还解决了开发和管理云本机应用程序面临的重大难题。 开发人员和管理员不仅可以避免复杂的基础结构问题，而且可以专注于实现可缩放、可靠且可管理的要求苛刻的任务关键型工作负荷。 Service Fabric 代表了下一代平台，用于生成和管理在容器中运行的企业级单层云规模应用程序。
@@ -29,7 +29,7 @@ Azure Service Fabric 是一款分布式系统平台，可方便用户轻松打�
 <!-- Not Available Channel9 video href="https://aka.ms/servicefabricvideo" -->
 
 ## <a name="compliance"></a>合规性
-Azure Service Fabric 资源提供程序在所有 Azure 区域中都可用，并符合 Azure 所具有的所有合规性证书；这包括以下内容：SOC、ISO、PCI DSS、HIPAA 和 GDPR。 请查看以下内容以获取合规性证书的完整列表：[合规性产品](https://www.trustcenter.cn/zh-cn/compliance/default.html)
+Azure Service Fabric 资源提供程序在所有 Azure 区域中都可用，并符合 Azure 所具有的所有合规性证书；这包括以下内容：SOC、ISO、PCI DSS、HIPAA 和 GDPR。 请查看以下内容以获取合规性证书的完整列表：[合规性产品](https://www.trustcenter.cn/compliance/default.html)
 
 <!--MOONCAKE: correct on https://www.trustcenter.cn/zh-cn/compliance/default.html-->
 
@@ -68,7 +68,7 @@ Service Fabric 支持包含容器的云应用程序具有完整的应用程序�
 
 借助 Service Fabric 应用程序生命周期管理功能，应用程序管理员和 IT 操作人员能够使用低接触的简单工作流预配、部署、修补和监视应用程序。 这些内置的工作流极大地减少了 IT 操作人员保持应用程序持续可用的负担。
 
-大多数应用程序都包含无状态和有状态微服务、容器以及同时部署的其他可执行文件。 通过在应用程序上采用强类型，可以使用 Service Fabric 部署多个应用程序实例。 每个实例将单独进行管理和升级。 重点是，Service Fabric 能够部署容器或任何可执行文件，并确保它们的可靠性。 例如，Service Fabric 可部署 .NET、ASP.NET Core、node.js、Windows 容器、Linux 容器、Java 虚拟机、脚本、Angular 或应用程序的其他任何组成部分。
+大多数应用程序都包含无状态和有状态微服务、容器以及同时部署的其他可执行文件。 通过在应用程序上采用强类型，可以使用 Service Fabric 部署多个应用程序实例。 每个实例将单独进行管理和升级。 重点是，Service Fabric 能够部署容器或任何可执行文件，并确保它们的可靠性。 例如，Service Fabric 可部署 .NET、ASP.NET Core、Python、Node.js、Windows 容器、Linux 容器、Java 虚拟机、脚本、Angular 或应用程序的其他任何组成部分。
 
 Service Fabric 与 [Azure Pipelines](https://www.visualstudio.com/team-services/)、[Jenkins](https://jenkins.io/index.html) 和 [Octopus Deploy](https://octopus.com/) 等 CI/CD 工具集成，并可与其他任何常用 CI/CD 工具配合使用。
 

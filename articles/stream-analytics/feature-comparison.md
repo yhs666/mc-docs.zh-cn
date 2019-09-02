@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 06/27/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: cf7b0af41f3025ea64cae2e3aa5e431c8f93e55b
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 0dd11d7b24ac922bbeecd8907ed0c27dc85e7cc0
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68970531"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169636"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Azure 流分析功能比较
 

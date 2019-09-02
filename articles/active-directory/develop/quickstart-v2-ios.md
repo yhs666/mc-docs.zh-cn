@@ -3,7 +3,7 @@ title: Microsoft 标识平台 iOS 快速入门 | Azure
 description: 了解如何在 iOS 应用程序中将用户登录并查询 Microsoft Graph。
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: TylerMSFT
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 07/01/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598955c27d0bb7459bf6f73da2f78c87119ecf7b
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 104473cf9ebae4e8b328b24844d0b7cca642b951
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568582"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134298"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>快速入门：从 iOS 应用将用户登录并调用 Microsoft Graph API
 
@@ -91,8 +91,7 @@ ms.locfileid: "67568582"
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.partner.microsoftonline.cn/Enter_the_Tenant_Info_Here"
->
->    ```
+>    ``` 
 > 1. 右键单击“Info.plist”并选择“打开方式” > “源代码”。   
 > 1. 在 dict 根节点下，将值替换为自己的 ***捆绑 ID***：
 >
@@ -109,6 +108,10 @@ ms.locfileid: "67568582"
 > 
 >    ```
 > 1. 生成并运行应用！ 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > 本快速入门支持 Enter_the_Supported_Account_Info_Here。
 
 > [!div renderon="docs"]
 >
@@ -218,8 +221,8 @@ MSAL 有两种用来获取令牌的方法：`acquireToken` 和 `acquireTokenSile
 
 * 用户首次登录应用程序
 * 如果用户重置其密码，则他们需要输入凭据 
-* 当应用程序首次请求资源的访问权限时
-* 需要 MFA 策略时
+* 应用程序首次请求访问资源时
+* 需要 MFA 或其他条件访问策略时
 
 ```swift
 let parameters = MSALInteractiveTokenParameters(scopes: kScopes)

@@ -1,5 +1,5 @@
 ---
-title: 预生成意向和实体
+title: 预生成意向和实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 在本教程中，我们将预生成的意向和实体添加到某个应用，以便快速了解意向预测和数据提取。 不需要使用预生成的实体标记任何话语。 自动检测实体。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/19/19
+ms.date: 04/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b5ce1340f793964626c2c5bfeda1b565072e6187
-ms.sourcegitcommit: bf4c3c25756ae4bf67efbccca3ec9712b346f871
+ms.openlocfilehash: 2d7d3681dab5bcef6213621a9cbc7b4e8c03e252
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65557081"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103877"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>教程：确定常见意向和实体
 
@@ -47,13 +47,13 @@ LUIS 提供几个预生成意向，以便提供常见用户意向。
 
 1. [!INCLUDE [Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
-1. 选择“添加预生成域意向”。 
+1. 选择“添加预生成域意向”  。 
 
 1. 搜索 `Utilities`。 
 
     [![“预生成意向”对话框的屏幕截图，其中的搜索框中包含“实用工具”](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
-1. 选择以下意向，然后选择“完成”： 
+1. 选择以下意向，然后选择“完成”  ： 
 
    * Utilities.Cancel
    * Utilities.Confirm
@@ -68,11 +68,11 @@ LUIS 提供几个预生成意向，以便提供常见用户意向。
 
 LUIS 为常见数据提取提供多个预生成的实体。 
 
-1. 在左侧导航菜单中选择“实体”。
+1. 在左侧导航菜单中选择“实体”  。
 
-1. 选择“添加预生成的实体”按钮。
+1. 选择“添加预生成的实体”按钮  。
 
-1. 从预生成的实体列表中选择以下实体，然后选择“完成”：
+1. 从预生成的实体列表中选择以下实体，然后选择“完成”： 
 
    * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**

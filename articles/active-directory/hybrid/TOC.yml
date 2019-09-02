@@ -25,6 +25,8 @@
       items:
         - name: 什么是 Azure AD Connect Sync？
           href: how-to-connect-sync-whatis.md
+        - name: Azure ADSync 服务帐户
+          href: concept-adsync-service-account.md
         - name: Azure AD Connect 同步功能
           href: how-to-connect-syncservice-features.md
         - name: 什么是 Azure AD Connect 同步服务管理器？

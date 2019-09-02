@@ -50,6 +50,14 @@
           href: ../common/storage-account-manage.md?toc=%2fstorage%2ftables%2ftoc.json
         - name: 升级存储帐户
           href: ../common/storage-account-upgrade.md?toc=%2fstorage%2ftables%2ftoc.json
+    - name: 冗余
+      items:
+        - name: Azure 存储复制
+          href: ../common/storage-redundancy.md?toc=%2fstorage%2ftables%2ftoc.json
+        - name: 本地冗余存储
+          href: ../common/storage-redundancy-lrs.md?toc=%2fstorage%2ftables%2ftoc.json
+        - name: 异地冗余存储
+          href: ../common/storage-redundancy-grs.md?toc=%2fstorage%2ftables%2ftoc.json
     - name: 设计可伸缩的高性能表
       href: table-storage-design.md
     - name: 表设计准则
@@ -67,6 +75,7 @@
 - name: 操作指南
   items:
     - name: 创建存储帐户
+      displayName: 'resource manager, resource manager template, template, ARM'
       href: /storage/common/storage-quickstart-create-account
       maintainContext: true
     - name: 如何使用存储模拟器

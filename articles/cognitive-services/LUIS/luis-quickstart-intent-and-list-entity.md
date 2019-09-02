@@ -1,5 +1,5 @@
 ---
-title: 文本完全匹配
+title: 文本完全匹配 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 获取与项的预定义列表匹配的数据。 列表中的每个项可以有也是完全匹配的同义词
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6097a423840dc10dd7d6a6bba4c2a1087a8d34bd
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: b0e56b6098471641bd0c906b3cadd735b2e2a695
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332273"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104001"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 

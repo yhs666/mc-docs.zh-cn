@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 origin.date: 12/10/2017
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5c9a943a012974df39f7e47763ea75f7ce3f7106
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 86370b6a113171625f248d7a98c9b2ed2b3ad62a
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195421"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173958"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Azure Service Fabric 中 Reliable Collections 的相关指导原则和建议
 本部分提供有关使用可靠状态管理器和 Reliable Collections 的指导原则。 目的是帮助用户避免常见错误。
@@ -63,6 +63,6 @@ ms.locfileid: "66195421"
     * [可靠状态管理器和配置](service-fabric-reliable-services-configuration.md)
 * 其他
     * [Reliable Services 快速启动](service-fabric-reliable-services-quick-start.md)
-    * [Reliable Collections 的开发人员参考](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
+    * [Reliable Collections 的开发人员参考](https://docs.azure.cn/dotnet/api/microsoft.servicefabric.data.collections?view=azure-dotnet#microsoft_servicefabric_data_collections)
 
 <!-- Update_Description: update meta properties -->

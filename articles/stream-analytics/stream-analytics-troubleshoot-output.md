@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 10/11/2018
-ms.date: 11/06/18
-ms.openlocfilehash: dcfadff12dcd43a818da81b78bd3143e88916ecb
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+origin.date: 08/11/2019
+ms.date: 12/07/2018
+ms.openlocfilehash: 8a9bebf63a1aad38e6a25884db9107a761da42cd
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969532"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169610"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Azure 流分析输出的故障排除
 

@@ -8,19 +8,18 @@ manager: digimobile
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 12/06/2017
-ms.date: 01/07/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 23f1ec79a4d42e7ad95fb71a6439bec72e78e54a
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9aa5103cde08eec06b25062c1614d6ea047e1802
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083680"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174077"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>为 Service Fabric 群集打开端口
 
@@ -28,9 +27,11 @@ ms.locfileid: "54083680"
 
 将 Service Fabric 群集部署到 Azure 后，系统会自动创建负载均衡器。 如果没有负载均衡器，请参阅[配置面向 Internet 的负载均衡器](../load-balancer/load-balancer-get-started-internet-portal.md)。
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="configure-service-fabric"></a>配置 Service Fabric
 
-Service Fabric 应用程序 ServiceManifest.xml 配置文件定义应用程序应使用的终结点。 更新配置文件以定义终结点后，必须更新负载均衡器，公开该（或其他）端口。 有关如何创建 Service Fabric 终结点的详细信息，请参阅[设置终结点](service-fabric-service-manifest-resources.md)。
+Service Fabric 应用程序 ServiceManifest.xml 配置文件定义应用程序应使用的终结点  。 更新配置文件以定义终结点后，必须更新负载均衡器，公开该（或其他）端口。 有关如何创建 Service Fabric 终结点的详细信息，请参阅[设置终结点](service-fabric-service-manifest-resources.md)。
 
 ## <a name="create-a-load-balancer-rule"></a>创建负载均衡器规则
 
@@ -44,7 +45,7 @@ Service Fabric 应用程序 ServiceManifest.xml 配置文件定义应用程序�
 - 内部端口。
 
 ## <a name="azure-cli"></a>Azure CLI
-使用单个命令即可使用 Azure CLI 创建负载均衡器规则。 你只需知道用于创建新规则的负载均衡器和资源组的名称。
+使用单个命令即可使用 Azure CLI 创建负载均衡器规则  。 你只需知道用于创建新规则的负载均衡器和资源组的名称。
 
 >[!NOTE]
 >如果需要确定负载均衡器的名称，可使用此命令来快速获取所有负载均衡器和关联资源组的列表。
@@ -81,14 +82,14 @@ PowerShell 比 Azure CLI 稍显复杂。 请按照这些概念步骤操作，创
 >[!NOTE]
 >如果需要确定负载均衡器的名称，可使用此命令来快速获取所有负载均衡器和关联资源组的列表。
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -97,10 +98,10 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-对于 `New-AzureRmLoadBalancerRuleConfig` 命令，`-FrontendPort` 表示负载均衡器针对外部连接公开的端口，而 `-BackendPort` 表示 Service Fabric 应用正在侦听的端口。
+对于 `New-AzLoadBalancerRuleConfig` 命令，`-FrontendPort` 表示负载均衡器针对外部连接公开的端口，而 `-BackendPort` 表示 Service Fabric 应用正在侦听的端口。
 
 >[!NOTE]
 >有关如何使用 PowerShell 创建负载均衡器的详细信息，请参阅[使用 PowerShell 创建负载均衡器](../load-balancer/load-balancer-get-started-internet-arm-ps.md)。
@@ -108,4 +109,5 @@ $lb | Set-AzureRmLoadBalancer
 ## <a name="next-steps"></a>后续步骤
 
 详细了解 [Service Fabric 中的网络](service-fabric-patterns-networking.md)。
+
 <!-- Update_Description: update meta properties, wording update -->

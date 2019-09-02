@@ -2,8 +2,8 @@
 title: Azure Batch 池删除完成事件 | Microsoft Docs
 description: Batch 池删除完成事件参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.devlang: multiple
@@ -13,12 +13,12 @@ ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 05/14/2018
 ms.author: v-junlch
-ms.openlocfilehash: 65d6c2fcf4308d95b96522c8816ef17c36f483f5
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 56c90cbc6e57198638db1cb186541dacfa68965f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52663934"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104070"
 ---
 # <a name="pool-delete-complete-event"></a>池删除完成事件
 

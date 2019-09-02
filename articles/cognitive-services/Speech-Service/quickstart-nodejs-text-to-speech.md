@@ -7,17 +7,17 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: quickstart
 origin.date: 01/11/2019
-ms.date: 04/01/2019
+ms.date: 07/05/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 5a27b1f7381a2d97e6e6373b3b8491ad9c27f57f
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 8ef0b28be87316821051170be421dee1d7aa1341
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348457"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103768"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>快速入门：使用 Node.js 将文本转换为语音
 
@@ -87,7 +87,6 @@ function getAccessToken(subscriptionKey) {
 
 >[!NOTE]
 > 此示例使用 `JessaRUS` 语音字体。 如需 Microsoft 提供的语音/语言的完整列表，请参阅[语言支持](language-support.md)。
-> 若要为品牌创建唯一且可识别的语音，请参阅[创建自定义语音字体](how-to-customize-voice-font.md)。
 
 最后，向服务发出请求。 如果该请求成功，则会返回 200 状态代码，语音响应将写入为 `TTSOutput.wav`。
 
@@ -187,5 +186,4 @@ node tts.js
 ## <a name="see-also"></a>另请参阅
 
 * [文本到语音 API 参考](https://docs.azure.cn/cognitive-services/speech-service/rest-apis#text-to-speech-api)
-* [创建自定义语音字体](how-to-customize-voice-font.md)
 * [录制语音样本用于创建自定义语音](record-custom-voice-samples.md)

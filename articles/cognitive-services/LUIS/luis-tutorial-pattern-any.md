@@ -1,5 +1,5 @@
 ---
-title: Pattern.any 实体
+title: Pattern.any 实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 对于格式良好且数据结尾可能容易与话语的剩余单词混淆的话语，使用 pattern.any 实体可从中提取数据。
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 06/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0c2904b2b66ebf1e369480cef69f868db07383c8
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 027b988f180a64a1c0324f5fa1b5c3fe8ad9b87a
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332268"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103965"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>教程：使用 Pattern.any 实体提取自由格式数据
 
@@ -68,7 +68,7 @@ ms.locfileid: "68332268"
 
 1. 下载并保存[应用 JSON 文件](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json)。
 
-1. 在 [LUIS 门户](https://www.luis.ai)的“我的应用”  页上，将 JSON 导入到新应用中。
+1. 在 [LUIS 门户](https://luis.azure.cn)的“我的应用”  页上，将 JSON 导入到新应用中。
 
 1. 在“管理”  部分的“版本”  选项卡上，克隆版本并将其命名为 `patt-any`。 克隆非常适合用于演练各种 LUIS 功能，且不会影响原始版本。 由于版本名称用作 URL 路由的一部分，因此该名称不能包含任何在 URL 中无效的字符。
 

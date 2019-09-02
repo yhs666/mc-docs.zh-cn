@@ -145,6 +145,8 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: 导入和导出
           href: howto-migrate-using-export-and-import.md
+        - name: 停机时间最短的迁移
+          href: howto-migrate-online.md
     - name: 配置服务器参数
       items:
         - name: Azure 门户
@@ -223,3 +225,5 @@
       href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all'
     - name: 支持选项
       href: 'https://www.azure.cn/zh-cn/support/contact/'
+    - name: 数据库迁移指南
+      href: /dms/

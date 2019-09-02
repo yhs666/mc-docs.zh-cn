@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 06/12/2019
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 5bd201d38d89547a315f4f7edca33b41c12027ca
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 7b17223fd4fe69b30b6c11de2bcd1e264568d560
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732437"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131710"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>针对来自 VPN 网关的诊断日志事件设置警报
 
@@ -73,9 +73,11 @@ Azure 中提供以下日志：
 
 10. 在“搜索查询”文本框中输入以下查询。  适当替换 <> 中的值。
 
-     `AzureDiagnostics |
-     where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
-     remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"`
+    ```
+    AzureDiagnostics |
+      where Category  == "TunnelDiagnosticLog" and ResourceId == toupper("<RESOURCEID OF GATEWAY>") and TimeGenerated > ago(5m) and
+      remoteIP_s == "<REMOTE IP OF TUNNEL>" and status_s == "Disconnected"
+    ```
 
     将阈值设置为 0，然后选择“完成”。 
 

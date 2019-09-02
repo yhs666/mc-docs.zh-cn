@@ -5,20 +5,19 @@ services: batch
 author: lingliw
 manager: digimobile
 ms.service: batch
-ms.topic: get-started-article
-origin.date: 06/18/2018
-ms.date: 11/26/2018
+ms.topic: conceptual
+ms.date: 12/07/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d73acddad30587f20ba1bfa95f3a5ee6fc554479
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 8467157e6e3bcd444dd59951285ea926232528b7
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818461"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103964"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 
-使用 Azure Batch 处理并行工作负荷通常是使用[批处理 API](#batch-development-apis) 之一以编程方式实现的。 客户端应用程序或服务可使用 Batch API 与 Batch 服务通信。 Batch API 允许用户创建和管理计算节点（虚拟机或云服务）池。 然后即可计划作业和任务，使之在这些节点上运行。 
+使用 Azure Batch 处理并行工作负荷通常是使用批处理 API 之一以编程方式实现的。 客户端应用程序或服务可使用 Batch API 与 Batch 服务通信。 Batch API 允许用户创建和管理计算节点（虚拟机或云服务）池。 然后即可计划作业和任务，使之在这些节点上运行。 
 
 可以为组织高效处理大量工作负荷，或提供服务前端给客户，让他们可以在一个、数百个甚至数千个节点上，按需要或按计划运行作业和任务。 
 
@@ -47,7 +46,6 @@ ms.locfileid: "68818461"
 ## 批处理管理 API <a name="batch-development-apis"></a>
 
 通过用于 Batch 的 Azure Resource Manager API，可以编程方式访问批处理帐户。 可以使用这些 API 通过 Microsoft.Batch 提供程序以编程方式管理 Batch 帐户、配额、应用程序包和其他资源。  
-
 
 |             API              |             API 参考             |           下载           |                教程                |                                 代码示例                                  |
 |------------------------------|---------------------------------------|------------------------------|----------------------------------------|-------------------------------------------------------------------------------|
@@ -80,8 +78,9 @@ ms.locfileid: "68818461"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
-- 下载 [GitHub 上的代码示例][github_samples]，了解 C# 和 Python 如何与 Batch 交互以计划和处理示例工作负荷。
+* 对于准备使用 Batch 的任何人，有必要阅读 [面向开发人员的 Batch 功能概述](batch-api-basics.md)了解基本信息。 本文中包含有关 Batch 服务资源（如池、节点、作业和任务）以及生成 Batch 应用程序时可以使用的许多 API 功能的更多详细信息。
+* [Get started with the Azure Batch library for .NET](tutorial-parallel-dotnet.md) （适用于 .NET 的 Azure Batch 库入门），了解如何使用 C# 和 Batch .NET 库在常见的 Batch 工作流中执行简单的工作负荷。 也提供 [Python 版](tutorial-parallel-python.md)和 [Node.js 教程](batch-nodejs-get-started.md)。
+* 下载 [GitHub 上的代码示例][github_samples]，了解 C# 和 Python 如何与 Batch 交互以计划和处理示例工作负荷。
 
 
 [azure_storage]: https://www.azure.cn/home/features/storage/

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ffc986eb4a4e343570e190ecdf6afbb15e23149f
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 389e14e48001470997ed96d0a67a8b28d01f3675
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135926"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104020"
 ---
 # <a name="quickstart-get-intent-using-go"></a>快速入门：使用 Go 获取意向
 

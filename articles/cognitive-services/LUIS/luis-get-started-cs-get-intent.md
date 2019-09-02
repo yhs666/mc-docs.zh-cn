@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 817a284e3f62f7977bd046d0a72982648b71c032
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 824d7c052c9c475c0d22253efe0ce8d57ef5450a
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135927"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104019"
 ---
 # <a name="quickstart-get-intent-using-c"></a>快速入门：使用 C# 获取意向
 

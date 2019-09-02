@@ -12,16 +12,16 @@ ms.devlang: python
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 01/30/2019
-ms.date: 08/05/2019
+origin.date: 07/22/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: ab149a3e4a2ab8b278facda26e4e4c34dd0589a4
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 2dd1b683455935e82d304be8000305c937a9c30a
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819625"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174238"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>快速入门：将 Linux 容器部署到 Service Fabric
 
@@ -37,7 +37,7 @@ Azure Service Fabric 是一款分布式系统平台，可用于部署和管理�
 
 1. 如果还没有订阅，请在开始前创建一个[试用版 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-2. 安装 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli-apt?view=azure-cli-latest)
+2. 安装 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli-apt?view=azure-cli-latest)
 
 3. 安装 [Service Fabric SDK 和 CLI](service-fabric-get-started-linux.md#installation-methods)
 
@@ -182,7 +182,7 @@ Service Fabric 可确保在发生故障时，将容器实例自动转移到群�
 
 若要删除群集及其占用的所有资源，最简单的方式是删除资源组。
 
-登录到 Azure，选择要删除群集的订阅 ID。 可通过登录到 Azure 门户查找订阅 ID。 使用 [az group delete 命令](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-delete-command)删除资源组和所有群集资源。
+登录到 Azure，选择要删除群集的订阅 ID。 可通过登录到 Azure 门户查找订阅 ID。 使用 [az group delete 命令](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete-command)删除资源组和所有群集资源。
 
 ```azurecli
 az login

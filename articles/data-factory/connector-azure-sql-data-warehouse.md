@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 05/24/2019
 ms.date: 08/12/2019
 ms.author: v-jay
-ms.openlocfilehash: 7549259337f15522e99cf1207b01f1bd15ddd2b4
-ms.sourcegitcommit: 871688d27d7b1a7905af019e14e904fabef8b03d
+ms.openlocfilehash: 725f6cc9cd24043919169888d4ad61571de580fb
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68908713"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131815"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>使用 Azure 数据工厂将数据复制到 Azure SQL 数据仓库或从 Azure SQL 数据仓库复制数据 
 
@@ -537,8 +537,6 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 )”是 PolyBase 本机配置，用于指定 PolyBase 从文本文件检索数据时如何处理分隔文本文件中的缺失值。 
 
 **其他**
-
-若要了解更多已知的 PolyBase 问题，请参阅[排查 Azure SQL 数据仓库 PolyBase 加载问题](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase)。
 
 ### <a name="sql-data-warehouse-resource-class"></a>SQL 数据仓库资源类
 

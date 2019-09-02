@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/25/2019
-ms.date: 05/10/2019
+ms.date: 08/27/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91654faf18b7c148243ebfa2f1b77b5cc072a542
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: 80e9187443c17d7aa1447d27c71a4bfe60ef51fc
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520747"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134071"
 ---
 # <a name="change-the-azure-ad-connector-account-password"></a>更改 Azure AD 连接器帐户密码
 Azure AD 连接器帐户应该是免费服务。 但如果需要重置其凭据，则可以参阅本主题。 例如，全局管理员错误地使用 PowerShell 对帐户重置了密码。
@@ -40,12 +40,12 @@ Azure AD 连接器帐户应该是免费服务。 但如果需要重置其凭据�
 ## <a name="known-issues-these-steps-can-solve"></a>这些步骤可以解决的已知问题
 本部分列出了客户报告的可以通过重置 Azure AD 连接器帐户凭据解决的错误。
 
-- - -
+---
 事件 6900  
 服务器在处理密码更改通知时遇到意外的错误：  
 AADSTS70002：验证凭据时出错。 AADSTS50054：使用了旧密码进行身份验证。
 
-- - -
+---
 事件 659  
 检索密码策略同步配置时出错。 Microsoft.IdentityModel.Clients.ActiveDirectory.AdalServiceException：  
 AADSTS70002：验证凭据时出错。 AADSTS50054：使用了旧密码进行身份验证。

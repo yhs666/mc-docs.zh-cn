@@ -8,20 +8,20 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 02b3b3881db7ed0c61dfec1c4f86d38ba7836584
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 876d8b075c7d2912ea404aa5a1943ecd887c2df8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332171"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103851"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>快速入门：在 LUIS 门户中创建新应用
 
 本快速入门将在 [LUIS 门户](https://luis.azure.cn)中生成新应用。 首先创建应用的基本部件、**意向**和**实体**。 然后，通过在交互式测试面板中提供用于获取预测的意向的示例用户话语，对应用进行测试。
 
-生成应用是免费的操作，不需要 Azure 订阅。 准备好部署应用后，可以创建 Azure 认知服务资源并将其分配到应用。 此部署过程将在[下一篇快速入门](get-started-portal-deploy-app.md)中予以介绍。
+生成应用是免费的操作，不需要 Azure 订阅。 做好部署应用的准备以后，请参阅[有关如何部署应用的快速入门](get-started-portal-deploy-app.md)。 该快速入门介绍如何创建 Azure 认知服务资源并将其分配到应用。
 
 ## <a name="create-an-app"></a>创建应用
 
@@ -39,7 +39,7 @@ ms.locfileid: "68332171"
     |环境|**英语**|用户的言语语言：**en-us**<br>必填|
     |说明|`App made with LUIS Portal`|应用的说明<br>可选|
 
-    ![输入新应用设置](./media/get-started-portal-build-app/create-new-app-settings.png)
+   ![输入新应用设置](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 ## <a name="create-intents"></a>创建意向
 
@@ -59,11 +59,11 @@ ms.locfileid: "68332171"
 
 1. 创建应用后，会转到“生成”部分的“意向”页。   选择“创建新意向”  。
 
-    [![选择“创建新意向”按钮](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![选择“创建新意向”按钮](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. 输入意向名称 `FindForm`，然后选择“完成”。 
 
-    ![输入意向名称 FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
+   ![输入意向名称 FindForm](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>添加示例话语
 
@@ -113,25 +113,25 @@ ms.locfileid: "68332171"
 
 1. 输入名称 `Human Resources Form Number`，选择“正则表达式”实体类型，然后输入正则表达式 `hrf-[0-9]{6}`。  此条目匹配文本字符 `hrf-`，允许对刚好 6 位数进行匹配。
 
-    ![输入正则表达式实体的实体信息](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![输入正则表达式实体的实体信息](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. 选择“完成”  。 
+1. 选择“完成”  。
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>将话语示例添加到 None 意向
 
 **None** 意向是回退意向，不可留空。 每为应用的其他意向添加 10 个示例话语，此意向就应该包含 1 个话语。
 
-**None** 意向的示例言语应在客户端应用程序域的范围以外。 
+**None** 意向的示例言语应在客户端应用程序域的范围以外。
 
 1. 在左侧菜单中选择“意向”，然后从意向列表中选择“None”。  
 
 1. 将以下示例言语添加到该意向：
 
-    |None 意向示例言语|
-    |--|
-    |Barking dogs are annoying|
-    |Order a pizza for me|
-    |Penguins in the ocean|
+   |None 意向示例言语|
+   |--|
+   |Barking dogs are annoying|
+   |Order a pizza for me|
+   |Penguins in the ocean|
 
    对于此人力资源应用，这些示例言语在域的范围以外。 如果人力资源域包括动物、食物或海洋，则应将其他示例话语用于 **None** 意向。
 
@@ -145,7 +145,7 @@ ms.locfileid: "68332171"
 
    会标记该实体在示例言语中的显示位置。 若要查看原始文本而不是实体名称，请在工具栏中切换“实体视图”。 
 
-    [![标记有实体的所有示例言语](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
+   [![标记有实体的所有示例言语](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png)](./media/get-started-portal-build-app/all-example-utterances-marked-with-entities.png#lightbox)
 
 ## <a name="test-your-new-app-with-the-interactive-test-pane"></a>使用交互式测试窗格测试新应用
 
@@ -155,9 +155,9 @@ ms.locfileid: "68332171"
 
 1. 添加新话语，然后按 Enter：
 
-    ```Is there a form named hrf-234098```
+   ```Is there a form named hrf-234098```
 
-    ![在测试窗格中测试新言语](./media/get-started-portal-build-app/test-new-utterance.png)
+   ![在测试窗格中测试新言语](./media/get-started-portal-build-app/test-new-utterance.png)
 
    排名靠前的预测意向为 **FindForm**（正确），其置信度超过 90% (0.977)。 已提取“人力资源表格编号”实体，其值为 hrf-234098。 
 

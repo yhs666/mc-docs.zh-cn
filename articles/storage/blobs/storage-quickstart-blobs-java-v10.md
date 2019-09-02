@@ -1,20 +1,19 @@
 ---
-title: Azure 快速入门：使用 Java 存储 SDK V10 在对象存储中创建 Blob | Microsoft Docs
+title: 快速入门：使用 Java 存储 SDK 创建 blob
 description: 本快速入门介绍如何使用 Java 存储 SDK 在对象 (Azure Blob) 存储中创建容器、上传文件、列出对象以及进行下载。
-services: storage
 author: WenJason
-ms.custom: mvc
+ms.author: v-jay
+origin.date: 11/14/2018
+ms.date: 09/09/2019
 ms.service: storage
 ms.topic: quickstart
-origin.date: 11/14/2018
-ms.date: 05/20/2019
-ms.author: v-jay
-ms.openlocfilehash: 70d67f752d6df4cde737c7b3f9fef71979466d34
-ms.sourcegitcommit: a0b9a3955cfe3a58c3cd77f2998631986a898633
+ms.custom: seo-java-july2019
+ms.openlocfilehash: dd6e824ac4ee04974705364646656f62c3da2c9a
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65549998"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209310"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>快速入门：使用 Java 存储 SDK V10 上传、下载和列出 Blob
 
@@ -50,14 +49,14 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart.git
 
 ### <a name="linux-example"></a>Linux 示例
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### <a name="windows-example"></a>Windows 示例
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -74,7 +73,7 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 如果在 Windows 上运行应用程序，则此示例显示输出。
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample
@@ -101,7 +100,7 @@ Cleaning up the sample and exiting!
 
 你可以控制此示例，因此请输入命令，让其运行代码。 输入区分大小写。
 
-还可以使用工具（如 [Azure 存储资源管理器](http://storageexplorer.com/?toc=%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，用于访问存储帐户信息。 
+还可以使用工具（如 [Azure 存储资源管理器](https://storageexplorer.com/?toc=%2fstorage%2fblobs%2ftoc.json)）查看 Blob 存储中的文件。 Azure 存储资源管理器是免费的跨平台工具，用于访问存储帐户信息。 
 
 验证文件。 然后，请选择 **E** 和 **Enter**，以便完成演示并删除测试文件。 了解此示例的用途以后，请打开 **Quickstart.java** 文件，查看代码。 
 
@@ -173,7 +172,7 @@ Blob 存储支持块 blob、追加 blob 和页 blob。 块 blob 是最常用的�
 
      此操作创建 Blob（如果该 Blob 尚不存在）， 或者覆盖 Blob（如果该 Blob 已存在）。
 
-示例代码创建用于上传和下载的本地文件。 它将要上传的文件存储为 **sourceFile**，并在 **blob** 中存储 Blob 的 URL。 以下示例将文件上传到名为“quickstart”的容器。
+示例代码创建用于上传和下载的本地文件。 它将要上传的文件存储为 **sourceFile**，并在 **blob** 中存储 Blob 的 URL。 以下示例将文件上传到名为“quickstart”的容器  。
 
 ```java
 static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {

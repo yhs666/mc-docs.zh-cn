@@ -5,17 +5,17 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 11/01/2018
-ms.date: 07/29/2019
+origin.date: 06/25/2019
+ms.date: 09/09/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f35bd05cac68be76ce103908f9cb8a43fd9ef059
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: afca37b8c8c9135ff1401683455f404aae105003
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337378"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174274"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>教程：在边缘使用自定义视觉服务进行图像分类
 
@@ -369,9 +369,9 @@ Visual Studio Code 中的 Python 模块模板包含一些可以在运行后对 I
 
 1. 在解决方案文件夹中打开 **deployment.template.json** 文件。 
 
-2. 找到 **modules** 节，其中应包含三个模块：两个你创建的，即 classifier 和 cameraCapture，第三个是默认包含的，即 tempSensor。 
+2. 找到 **modules** 节，其中应包含三个模块：两个你创建的，即 classifier 和 cameraCapture，第三个是默认包含的，即 SimulatedTemperatureSensor。 
 
-3. 删除 **tempSensor** 模块及其所有参数。 包括此模块是为了提供测试方案的示例数据，但我们在此部署中不需要它。 
+3. 删除 **SimulatedTemperatureSensor** 模块及其所有参数。 包括此模块是为了提供测试方案的示例数据，但我们在此部署中不需要它。 
 
 4. 如果为图像分类模块提供了 **classifier** 之外的名称，现在请检查该名称，确保其采用全小写形式。 cameraCapture 模块调用 classifier 模块时使用的请求库可以将所有请求格式化为小写，而 IoT Edge 区分大小写。 
 

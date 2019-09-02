@@ -1,23 +1,22 @@
 ---
 title: 创建 Azure Data Lake Storage Gen2 存储帐户 | Microsoft Docs
 description: 快速学习使用 Azure 门户、Azure PowerShell 或 Azure CLI 创建能够访问 Data Lake Storage Gen2 的新存储帐户。
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-origin.date: 12/06/2018
-ms.date: 05/27/2019
+origin.date: 08/19/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.reviewer: jamesbak
-ms.openlocfilehash: 741577cc7474f7bc9cb778383c5014828014ead4
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.reviewer: stewu
+ms.openlocfilehash: b62edb74dbdb4e525206f69a8e6c23dcf6762ed5
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004117"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209351"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-storage-account"></a>快速入门：创建 Azure Data Lake Storage Gen2 存储帐户
+# <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>创建 Azure Data Lake Storage Gen2 存储帐户
 
 Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introduction.md)，该命名空间提供了一个适合与 Hadoop 分布式文件系统 (HDFS) 配合使用的基于本机目录的文件系统。 可以通过 [ABFS 驱动程序](data-lake-storage-abfs-driver.md)从 HDFS 访问 Data Lake Storage Gen2 数据。
 
@@ -115,7 +114,7 @@ Azure Data Lake Storage Gen2 [支持分层命名空间](data-lake-storage-introd
 安装 Az.Storage 模块
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### <a name="sign-in-to-your-azure-subscription"></a>登录到 Azure 订阅

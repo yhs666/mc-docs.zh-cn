@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 12/13/2018
-ms.date: 04/01/2019
+origin.date: 08/27/2019
+ms.date: 07/23/2019
 ms.author: v-biyu
-ms.openlocfilehash: aa5cb153f38519ebe6f95c90ad4e69f024466464
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: a006e8e16bedce8a96e84b90bce897de969fb46c
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625319"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104132"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>快速入门：使用适用于 C# 的语音 SDK 翻译语音 (UWP)
 
@@ -31,7 +31,7 @@ ms.locfileid: "58625319"
 
 本快速入门需要：
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) 或更高版本
 * 语音服务的 Azure 订阅密钥。 [获取一个试用版](get-started.md)。
 
 ## <a name="create-a-visual-studio-project"></a>创建 Visual Studio 项目
@@ -243,19 +243,19 @@ namespace helloworld
 
 ## <a name="build-and-run-the-app"></a>生成并运行应用
 
-1. 构建应用程序。 从菜单栏中，选择“构建” > “构建解决方案”。 现在，编译代码时应不会提示错误。
+1. 构建应用程序。 从菜单栏中，选择“构建” > “构建解决方案”   。 现在，编译代码时应不会提示错误。
 
     ![Visual Studio 应用程序的屏幕截图，其中突出显示了“生成解决方案”选项](media/sdk/qs-csharp-uwp-08-build.png "成功生成")
 
-1. 启动应用程序。 在菜单栏中，选择“调试” > “开始调试”，或按 F5。
+1. 启动应用程序。 在菜单栏中，选择“调试” > “开始调试”，或按 F5    。
 
     ![Visual Studio 应用程序的屏幕截图，其中突出显示了“启动调试”选项](media/sdk/qs-csharp-uwp-09-start-debugging.png "启动应用进入调试")
 
-1. 弹出一个窗口。 选择“启用麦克风”，然后确认弹出的权限请求。
+1. 弹出一个窗口。 选择“启用麦克风”，然后确认弹出的权限请求  。
 
     ![权限请求的屏幕截图](media/sdk/qs-csharp-uwp-10-access-prompt.png "启动应用进入调试")
 
-1. 选择“使用麦克风输入进行语音识别”，然后对着设备的麦克风说一个英文短语或句子。 你的语音将传输到语音服务并转录为文本，该文本将显示在窗口中。
+1. 选择“使用麦克风输入进行语音识别”，然后对着设备的麦克风说一个英文短语或句子  。 你的语音将传输到语音服务并转录为文本，该文本将显示在窗口中。
 
     ![语音识别用户界面的屏幕截图](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
@@ -264,7 +264,3 @@ namespace helloworld
 > [!div class="nextstepaction"]
 > [浏览 GitHub 上的 C# 示例](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>另请参阅
-
-- [自定义声学模型](how-to-customize-acoustic-models.md)
-- [自定义语言模型](how-to-customize-language-model.md)

@@ -7,12 +7,12 @@ ms.topic: reference
 origin.date: 08/05/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: e0052efe014c7184ce8811529225fb2c1092c6a7
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: c6155c4b11362efbdc13a1ba4e8b83c980ec7e00
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993573"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134375"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。 标记为“支持标记”  的列指示资源类型是否具有标记的属性。 标记为“在成本报表中标记”  的列指示该资源类型是否将标记传递给成本报表。
@@ -977,6 +977,8 @@ ms.locfileid: "69993573"
 > | servers/restorableDroppedDatabases | 否 | 否 |
 > | servers/serviceobjectives | 否 | 否 |
 > | servers/tdeCertificates | 否 | 否 |
+
+<a name="sqlnote" />
 
 > [!NOTE]
 > Master 数据库不支持标记，但其他数据库（包括 Azure SQL 数据仓库数据库）支持标记。 Azure SQL 数据仓库数据库必须处于活动（而非暂停）状态。

@@ -4,18 +4,18 @@ description: 本快速入门介绍如何创建 IoT Edge 设备，然后从 Azure
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 03/19/2019
-ms.date: 06/17/2019
+origin.date: 08/16/2019
+ms.date: 09/09/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a19e32ba63125cee7df8202b76d29b787c6294f0
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 2a46708b60878615f0280367422533b38ac321d4
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732729"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174037"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>快速入门：将你的第一个 IoT Edge 模块从 Azure 门户部署到 Windows 设备
 

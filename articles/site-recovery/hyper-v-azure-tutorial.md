@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-origin.date: 05/30/2019
-ms.date: 08/05/2019
+origin.date: 08/07/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: MVC
-ms.openlocfilehash: 31294ded0034087e8bbb789a7d43464e22f0d66b
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 9967ae4feed80fefcb847263fd7d72446852393e
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819606"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134386"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>对 Azure 设置本地 Hyper-V VM 的灾难恢复
 

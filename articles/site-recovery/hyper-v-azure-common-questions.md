@@ -5,16 +5,16 @@ services: site-recovery
 author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
-origin.date: 06/30/2019
-ms.date: 08/05/2019
+origin.date: 08/07/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.author: v-yeche
-ms.openlocfilehash: 08f000a8432182c21b664d1c7bcdb82eb6e8df68
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 7b2be4485c4cdce3c58ab3a6fe5e191b44581fc3
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819589"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134392"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>常见问题 - Hyper-V 到 Azure 的灾难恢复
 
@@ -152,23 +152,26 @@ Site Recovery 通过公共终结点或使用 ExpressRoute 公共对等互连将�
 <!--MOONCAKE Anchor is missing on #publicpeering-->
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>为何不能通过 VPN 复制？
+
 复制到 Azure 时，复制流量将到达 Azure 存储帐户的公共终结点。 因此，只能使用 ExpressRoute（公共对等互连）通过公共 Internet 进行复制，VPN 不起作用。 
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>复制的 VM 要满足哪些要求？
+
 若要复制某个 Hyper-V VM，该 VM 必须运行受支持的操作系统。 此外，该 VM 必须满足 Azure VM 的要求。 在支持矩阵中[了解详细信息](hyper-v-azure-support-matrix.md#replicated-vms)。
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>可以多久复制到 Azure 一次？
+
 可以每隔 30 秒（高级存储除外）、5 分钟或 15 分钟复制一次 Hyper-V VM。
 
 ### <a name="can-i-extend-replication"></a>是否可以扩展复制？
 不支持扩展扩展或链式复制。
 
-<!--Not Available on  Request this feature in [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
+<!--Not Available on  Request this feature in [feedback forum](https://support.azure.cn/support/contact/)-->
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>是否可以执行脱机初始复制？
 不支持此操作。
 
-<!--Not Available on  Request this feature in the [feedback forum](https://support.azure.cn/en-us/support/contact/)-->
+<!--Not Available on  Request this feature in the [feedback forum](https://support.azure.cn/support/contact/)-->
 
 ### <a name="can-i-exclude-disks"></a>是否可以排除磁盘？
 可以从复制中排除磁盘。 
@@ -194,6 +197,7 @@ Site Recovery 不会在启用复制的 Hyper-V VM 上显式安装任何内容。
 ### <a name="how-do-i-fail-over-to-azure"></a>如何故障转移到 Azure？
 
 可以运行从本地 Hyper-V VM 到 Azure 的计划内或计划外故障转移。
+
 - 如果运行计划内故障转移，则源 VM 关闭以确保不会丢失数据。
 - 如果无法访问主站点，可以运行计划外故障转移。
 - 可以故障转移单个虚拟机，或者创建恢复计划来协调多个虚拟机的故障转移。

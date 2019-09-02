@@ -4,17 +4,17 @@ description: 了解部署清单如何声明要部署的模块、如何部署这�
 author: kgremban
 manager: philmea
 ms.author: v-yiso
-origin.date: 03/28/2019
-ms.date: 06/17/2019
+origin.date: 05/28/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fbc4c7b94204450c6fc669e300ca40fbc8cfe65e
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 27dad1ef5265421cdc9177038a8725665f413d36
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732730"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174084"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>了解如何在 IoT Edge 中部署模块和建立路由
 
@@ -237,7 +237,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
           }
         },
         "modules": {
-          "tempSensor": {
+          "SimulatedTemperatureSensor": {
             "version": "1.0",
             "type": "docker",
             "status": "running",
@@ -264,7 +264,7 @@ IoT Edge 中心会一直存储消息，直到达到在 [IoT Edge 中心所需属
       "properties.desired": {
         "schemaVersion": "1.0",
         "routes": {
-          "sensorToFilter": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
+          "sensorToFilter": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filtermodule/inputs/input1\")",
           "filterToIoTHub": "FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
         },
         "storeAndForwardConfiguration": {

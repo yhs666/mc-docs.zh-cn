@@ -6,19 +6,19 @@ ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
 origin.date: 06/27/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 243aa310d12dad46fc2fe568b13329173557f58d
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.date: 09/02/2019
+ms.openlocfilehash: 38980aba36d74de80c1066a179b427deb6ea5a9d
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514253"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131839"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>使用查询存储监视 Azure Database for MySQL 的性能
 
 **适用于：**  Azure Database for MySQL 5.7
 
-> [!NOTE]
+> [!IMPORTANT]
 > 查询存储目前以预览版提供。
 
 使用 Azure Database for MySQL 中的查询存储功能可以跟踪一段时间内的查询性能。 通过帮助快速查找运行时间最长且资源最密集的查询，查询存储可简化性能故障排除。 查询存储自动捕获查询和运行时统计信息的历史记录，并保留它们以供查看。 它按时间范围分隔数据，以便可以查看数据库使用模式。 所有用户、数据库和查询的数据都存储在 Azure Database for MySQL 实例上的 **mysql** 架构数据库中。
@@ -113,7 +113,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 删除文本和常数后，通过查看查询的结构来规范化查询。 如果除文本值之外两个查询相同，则它们将具有相同的哈希值。
 
-### <a name="mysqlquerystore"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>mysql.query_store
 
 此视图返回查询存储中的所有数据。 每个不同的数据库 ID、用户 ID 和查询 ID 都有一行。
 
@@ -146,7 +146,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `first_seen` | timestamp| 否| 在聚合时段发生第一次查询的时间 (UTC)|
 | `last_seen` | timestamp| 否| 在此聚合时段发生最后一次查询的时间 (UTC)|
 
-### <a name="mysqlquerystorewaitstats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
 
 此视图返回查询存储中的等待事件数据。 每个不同的数据库 ID、用户 ID、查询 ID 和事件都有一行。
 

@@ -13,12 +13,12 @@ ms.reviewer: sstein, carlrab
 manager: digimobile
 origin.date: 07/08/2019
 ms.date: 08/19/2019
-ms.openlocfilehash: 02d75abad2956e38c1df55d7b222bb25b6bae514
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 7e10901cf490a694d7bc329fe360a293379ed35b
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544857"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131703"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL 数据库托管实例常见问题解答 (FAQ)
 
@@ -93,7 +93,7 @@ ms.locfileid: "69544857"
 
 ## <a name="is-the-backup-storage-deducted-from-my-managed-instance-storage"></a>备份存储是否是从托管实例存储中扣减出来的？ 
 
-不是，备份存储不是从托管实例的存储空间中扣减出来的。 备份存储与实例存储空间无关，其大小不受限制。 备份存储受实例数据库备份的保留时间（可配置为 7 到 35 天）的限制。 有关详细信息，请参阅[自动化备份](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups)。
+不是，备份存储不是从托管实例的存储空间中扣减出来的。 备份存储与实例存储空间无关，其大小不受限制。 备份存储受实例数据库备份的保留时间（可配置为 7 到 35 天）的限制。 有关详细信息，请参阅[自动化备份](/sql-database/sql-database-automated-backups)。
   
 ## <a name="how-can-i-set-inbound-nsg-rules-on-management-ports"></a>如何针对管理端口设置入站 NSG 规则？
 
@@ -166,7 +166,7 @@ DNS 配置最终会刷新：
 
 若要在托管实例与 SQL Server 之间进行性能比较，可以从[有关 Azure SQL 托管实例与 SQL Server 之间的性能比较的最佳做法](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210)着手。
 
-由于必需的完整恢复模型以及事务日志写入吞吐量[限制](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)方面的原因，托管实例上的数据加载速度通常比 SQL Server 中的速度更慢。 有时，通过将瞬态数据载入 tempdb 而不是用户数据库，或者使用聚集列存储或内存优化表，可以解决此问题。
+由于必需的完整恢复模型以及事务日志写入吞吐量[限制](/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)方面的原因，托管实例上的数据加载速度通常比 SQL Server 中的速度更慢。 有时，通过将瞬态数据载入 tempdb 而不是用户数据库，或者使用聚集列存储或内存优化表，可以解决此问题。
 
 
 ## <a name="can-i-restore-my-encrypted-database-to-managed-instance"></a>是否可将加密的数据库还原到托管实例？

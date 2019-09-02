@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/20/2018
-ms.date: 12/10/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 511642c74e63d4fb5b824ea1877cbd1b70af23f9
-ms.sourcegitcommit: 38f95433f2877cd649587fd3b68112fb6909e0cf
+ms.openlocfilehash: 580bf2753770430a593d752df038b956c7855179
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52901136"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174258"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Azure Service Fabric 中的 DNS 服务
 DNS 服务是可选的系统服务，可以在群集中启用，用于发现使用 DNS 协议的其他服务。 
@@ -47,14 +47,14 @@ DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务
 > [!NOTE]
 > 在 Linux 上尚不支持用于 Service Fabric 服务的 DNS 服务。
 
-使用门户创建群集时，默认情况下，会在“群集配置”菜单的“包括 DNS 服务”复选框中启用 DNS 服务：
+使用门户创建群集时，默认情况下，会在“群集配置”菜单的“包括 DNS 服务”复选框中启用 DNS 服务   ：
 
 ![通过门户启用 DNS 服务](./media/service-fabric-dnsservice/enable-dns-service.png)
 
 如果不使用门户创建群集或者要更新现有群集，则需要在模板中启用 DNS 服务：
 
 - 若要部署新的群集，可以使用[示例模板](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-cluster-5-node-1-nodetype)或创建自己的资源管理器模板。 
-- 若要更新现有群集，可以导航到门户的群集资源组并单击“自动化脚本”，使用反映群集和组中其他资源的当前状态的模板。 若要了解详细信息，请参阅[从资源组导出模板](/azure-resource-manager/resource-manager-export-template#export-the-template-from-resource-group)。
+- 若要更新现有群集，可以导航到门户的群集资源组并单击“自动化脚本”，使用反映群集和组中其他资源的当前状态的模板  。 若要了解详细信息，请参阅[从资源组导出模板](/azure-resource-manager/resource-manager-export-template)。
 
 有了模板后，可以通过以下步骤启用 DNS 服务：
 
@@ -72,9 +72,9 @@ DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务
 
 2. 现在，通过以下方式之一启用 DNS 服务：
 
-   - 若要启用采用默认设置的 DNS 服务，请将其添加到 `properties` 节中的 `addonFeatures` 节，如以下示例所示：
+    - 若要启用采用默认设置的 DNS 服务，请将其添加到 `properties` 节中的 `addonFeatures` 节，如以下示例所示：
 
-       ```json
+        ```json
            "properties": {
               ...
 
@@ -83,10 +83,10 @@ DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务
               ],
               ...
            }
-       ```
-   - 若要启用采用非默认设置的服务，请将 `DnsService` 节添加到 `properties` 节中的 `fabricSettings` 节。 在这种情况下，不需要将 DnsService 添加到 `addonFeatures`。 若要详细了解可为 DNS 服务设置的属性，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
+        ```
+    - 若要启用采用非默认设置的服务，请将 `DnsService` 节添加到 `properties` 节中的 `fabricSettings` 节。 在这种情况下，不需要将 DnsService 添加到 `addonFeatures`。 若要详细了解可为 DNS 服务设置的属性，请参阅 [DNS 服务设置](./service-fabric-cluster-fabric-settings.md#dnsservice)。
 
-       ```json
+        ```json
            "properties": {
              ...  
              "fabricSettings": [
@@ -111,8 +111,8 @@ DNS 服务不支持动态端口。 若要解析在动态端口上公开的服务
                ...
               ]
             }
-       ```
-1. 通过这些更改更新群集模板后，请应用更改并等待升级完成。 完成升级后，DNS 系统服务将开始在群集中运行。 服务名称是 `fabric:/System/DnsService`，可以在 Service Fabric Explorer 的“系统”服务部分下找到它。 
+        ```
+1. 通过这些更改更新群集模板后，请应用更改并等待升级完成。 完成升级后，DNS 系统服务将开始在群集中运行。 服务名称是 `fabric:/System/DnsService`，可以在 Service Fabric Explorer 的“系统”服务部分下找到它  。 
 
 ## <a name="setting-the-dns-name-for-your-service"></a>设置服务的 DNS 名称
 可以在 ApplicationManifest.xml 文件中或者通过 PowerShell 命令，以声明方式为默认服务设置 DNS 名称。

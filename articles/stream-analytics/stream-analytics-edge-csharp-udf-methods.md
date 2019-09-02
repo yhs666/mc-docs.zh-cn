@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
+origin.date: 12/06/2018
 ms.date: 07/12/2019
-ms.openlocfilehash: 3b5df39597bcce732d367a181e5855019f6d0cd0
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: f47b326a81314c3df265e1c3990691a3c5e017c6
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969593"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169631"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>为 Azure 流分析 Edge 作业开发 .NET Standard 用户定义函数（预览版）
 

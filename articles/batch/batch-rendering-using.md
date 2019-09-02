@@ -1,18 +1,19 @@
 ---
-title: Azure Batch 渲染
+title: 渲染功能 - Azure Batch
 description: 如何使用 Azure Batch 的渲染功能
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: v-junlch
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa52bd75a19efb311a7eca4c97994b7bb0696074
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 146c54749e751e0f7c3909b43cf2ae20bbfb4790
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648621"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104048"
 ---
 # <a name="using-azure-batch-rendering"></a>使用 Azure Batch 渲染
 
@@ -58,9 +59,9 @@ ms.locfileid: "52648621"
 
 我们为某些客户端应用程序提供了插件。  使用插件可以直接从应用程序创建池和作业，或调用 Batch Explorer。
 
-- [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
-- [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
-- [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
+* [Blender](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/blender)
+* [Autodesk 3ds Max](https://github.com/Azure/azure-batch-rendering/tree/master/plugins/3ds-max)
+* [Autodesk Maya](https://github.com/Azure/azure-batch-maya)
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -13,17 +13,17 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/09/2019
-ms.date: 06/25/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 466d7d421bf79cead0abc97f146cf08d4f2185d4
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: db23ddbcb7e16ac1f9e56998925d14e0119f6904
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568740"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134312"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>快速入门：将应用程序注册到 Microsoft 标识平台
 
@@ -50,15 +50,15 @@ ms.locfileid: "67568740"
        - 对于 Web 应用程序，请提供应用的基 URL。 例如，`http://localhost:31544` 可以是本地计算机上运行的 Web 应用的 URL。 用户将使用此 URL 登录到 Web 客户端应用程序。
        - 对于公共客户端应用程序，请提供 Azure AD 返回令牌响应时所用的 URI。 输入特定于应用程序的值，例如 `myapp://auth`。
 
-     若要查看 Web 应用程序或本机应用程序的特定示例，请参阅[快速入门](/active-directory/develop/#quickstarts)。
+     若要查看 Web 应用程序或本机应用程序的特定示例，请参阅[快速入门](/active-directory/develop)。
 
 1. 完成后，选择“注册”  。
 
-    [![在 Azure 门户中注册新应用程序](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
+    [![显示在 Azure 门户中注册新应用程序的屏幕](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
 Azure AD 会将唯一的应用程序（客户端）ID 分配给应用，同时你会转到应用程序的“概览”页。  若要向应用程序添加其他功能，可以选择其他配置选项，包括品牌、证书和机密、API 权限，等等。
 
-[![新注册应用的概览页](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
+[![新注册的应用的概述页示例](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -67,7 +67,7 @@ Azure AD 会将唯一的应用程序（客户端）ID 分配给应用，同时�
     - [将客户端应用程序配置为访问 Web API](quickstart-configure-app-access-web-apis.md)
     - [将应用程序配置为公开 Web API](quickstart-configure-app-expose-web-apis.md)
     - [修改应用程序支持的帐户](quickstart-modify-supported-accounts.md)
-- 选择一个[快速入门](/active-directory/develop/#quickstarts)，了解如何快速生成应用并添加功能，例如获取令牌、刷新令牌、进行用户登录、显示某些用户信息，等等。
+- 选择一个[快速入门](/active-directory/develop)，了解如何快速生成应用并添加功能，例如获取令牌、刷新令牌、进行用户登录、显示某些用户信息，等等。
 - 如需深入了解表示已注册应用程序和它们之间的关系的两个 Azure AD 对象，请参阅[应用程序对象和服务主体对象](app-objects-and-service-principals.md)。
 - 如需深入了解开发应用时应使用的品牌准则，请参阅[应用程序的品牌准则](howto-add-branding-in-azure-ad-apps.md)。
 

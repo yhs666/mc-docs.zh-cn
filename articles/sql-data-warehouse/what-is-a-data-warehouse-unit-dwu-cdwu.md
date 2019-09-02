@@ -7,17 +7,17 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-origin.date: 04/17/2018
-ms.date: 06/24/2019
+origin.date: 05/30/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: a54580312f0c2dbd1d987900a351831fa9227024
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 6662535286da921f0607d7c92ba80b1d29914b02
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151764"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131859"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>数据仓库单位 (DWU) 和计算数据仓库单位 (cDWU)
 
@@ -44,6 +44,8 @@ Azure SQL 数据仓库 CPU、内存和 IO 将捆绑到称为数据仓库单位 (
 ## <a name="service-level-objective"></a>服务级别目标
 
 服务级别目标 (SLO) 是确定数据仓库的成本和性能级别的可伸缩性设置。 第 2 代服务级别以计算数据仓库单位 (cDWU) 计量，例如 DW2000c。 第 1 代服务级别以 DWU 计量，例如 DW2000。
+  > [!NOTE]
+  > Azure SQL 数据仓库 Gen2 最近添加了额外的扩展功能，以支持低至 100 cDWU 的计算层。 当前在 Gen1 上需要较低计算层的现有数据仓库现可升级到当前可用区域中的 Gen2，无需额外成本。  如果你的区域尚不支持，仍可升级到支持的区域。
 
 在 T-SQL 中，SERVICE_OBJECTIVE 设置确定了数据仓库的服务级别和性能层。
 
@@ -57,8 +59,8 @@ WITH
 
 --Gen2
 CREATE DATABASE myComputeSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000c'
+(Edition = 'Datawarehouse'
+ ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```

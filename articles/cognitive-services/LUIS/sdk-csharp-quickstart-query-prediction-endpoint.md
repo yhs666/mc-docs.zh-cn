@@ -1,5 +1,5 @@
 ---
-title: 快速入门：C# SDK 查询预测终结点
+title: 快速入门：C# SDK 查询预测终结点 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 使用 C# SDK 向 LUIS 发送用户话语并接收预测。
 author: lingliw
@@ -8,14 +8,14 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/19/19
+ms.date: 07/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cb81d76eebd550112982bc3263405bcc9476eb5c
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 7b0bd73e9ce012755f311e31aaa6303925f4e130
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818435"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104109"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询预测终结点
 

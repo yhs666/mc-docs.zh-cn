@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 11/06/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: c43d0b97fca465cea3e318ce858fb4cc59ae4821
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 38f1e7ca07761d424f5d854d1b7de5de47b4475b
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818540"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169620"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Azure WCF 中继 REST 教程
 本教程介绍如何生成简单的 Azure 中继主机应用程序，用于公开基于 REST 的接口。 REST 使 Web 客户端（例如 Web 浏览器）可通过 HTTP 请求访问服务总线 API。
@@ -578,6 +578,5 @@ namespace Microsoft.ServiceBus.Samples
 至此，你已使用 Azure 中继服务构建一个应用程序，接下来请参阅以下文章了解详细信息：
 
 * [Azure 中继概述](relay-what-is-it.md)
-* [如何通过 .NET 使用 WCF 中继服务](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.cn

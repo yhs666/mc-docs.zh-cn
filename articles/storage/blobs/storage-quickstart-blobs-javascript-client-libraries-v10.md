@@ -9,15 +9,15 @@ ms.service: storage
 ms.author: v-jay
 ms.reviewer: seguler
 origin.date: 05/20/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 378c7af3855fb0f0977a91859d1689fd8538133d
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 6024fddc8b52396edc9a48383117192b6a8f5137
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732362"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209307"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -58,7 +58,7 @@ Azure 存储 JavaScript 客户端库无法直接通过文件系统来使用，�
 
 ## <a name="create-a-shared-access-signature"></a>创建共享访问签名
 
-在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-dotnet-shared-access-signature-part-1.md)。
+在浏览器中运行的代码可以使用共享访问签名 (SAS) 对发往 Blob 存储的请求进行授权。 使用 SAS 时，客户端可以在没有帐户访问密钥或连接字符串的情况下授权对存储资源的访问。 有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS)](../common/storage-sas-overview.md)。
 
 可以使用 Azure CLI、Azure 门户或 Azure 存储资源管理器来创建 SAS。 下表描述了使用 CLI 生成 SAS 时需要提供值的参数。
 
@@ -291,7 +291,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-此代码将在循环中调用 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) 函数，以确保检索所有段。 对于每个段，它会循环访问它所包含的 Blob 项列表，并更新 **Files** 列表。
+此代码将在循环中调用 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) 函数，以确保检索所有段。 对于每个段，它会循环访问它所包含的 Blob 项列表，并更新 **Files** 列表。
 
 ### <a name="upload-blobs"></a>上传 Blob
 

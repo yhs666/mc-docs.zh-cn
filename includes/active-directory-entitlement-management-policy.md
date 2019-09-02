@@ -5,22 +5,24 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-origin.date: 05/16/2019
-ms.date: 08/09/2019
+origin.date: 07/31/2019
+ms.date: 08/20/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 086eb3b379b351c7fad596b650381a3bb95c13a0
-ms.sourcegitcommit: 44548f2ebec1246f6ac799f5b2640ad1b5d7c8a9
+ms.openlocfilehash: bbf59082f057598229f2917aebbd80bb7f5bd6e3
+ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68972857"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69993297"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>策略:适用于目录中的用户
 
-如果你希望将策略应用于目录中可请求此访问包的用户和组，请执行以下步骤。
+如果你希望将策略应用于目录中可请求此访问包的用户和组，请执行以下步骤。  “目录中的用户”  是指内部用户和曾经被邀请访问目录的外部用户，不管是他们自己通过另一访问包请求权利管理，还是别人通过 Azure AD B2B 邀请他们。 定义策略时，可以指定单个用户，也可以指定用户组（更常见）。 例如，组织可能已经有一个组（例如“所有员工”）。   如果将该组添加到可以请求访问权限的用户的策略中，则该组的任何成员都可以请求访问权限。
 
 1. 在“可以请求访问权限的用户”部分，选择“你目录中的用户”。  
+
+    请注意，“适用于目录中的用户”设置包括已添加到目录中的成员用户和来宾用户。  如果只希望包含成员用户，不包含来宾用户，请选择“适用于目录中的用户”，然后选择包含成员用户的组。  必要时可以创建一个包含成员用户的动态组 (user.userType -eq "Member")。 有关详细信息，请参阅 [Azure Active Directory 中的动态组成员资格规则](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md)。
 
 1. 在“选择用户和组”部分，单击“添加用户和组”。  
 
@@ -30,20 +32,20 @@ ms.locfileid: "68972857"
 
 1. 单击“选择”以添加用户和组。 
 
-1. 向下跳转到“策略:[](#policy-request)请求”部分。
+1. 向下跳转到 [策略:请求](#policy-request) 部分。
 
 ### <a name="policy-for-users-not-in-your-directory"></a>策略:适用于不在目录中的用户
 
-如果你希望将策略应用于不是目录中可请求此访问包的用户和组，请执行以下步骤。 必须在“组织关系协作限制”设置中配置要允许的目录。 
+如果你希望将策略应用于不是目录中可请求此访问包的用户和组，请执行以下步骤。 “不在目录中的用户”是指在另一个 Azure AD 目录中的用户，这些用户可能未被邀请访问目录。  目前只能从拥有 Azure AD 的组织添加用户。 必须在“组织关系协作限制”设置中配置要允许的目录。 
 
 > [!NOTE]
-> 将为不是目录中的其请求已审批或自动审批的用户创建来宾用户帐户。 将邀请来宾，但他们不会收到邀请电子邮件。 传递其访问包分配时，他们将收到电子邮件。 默认情况下，当来宾用户不再有任何访问包分配时（因为他们的上次分配已过期或已取消），将会阻止该来宾用户帐户登录并将其删除。 如果希望无限期地在目录中保留来宾用户（即使他们没有任何访问包分配），可以更改权利管理配置的设置。
+> 将为不是目录中的其请求已审批或自动审批的用户创建来宾外部用户帐户。 将邀请来宾，但他们不会收到邀请电子邮件。 传递其访问包分配时，他们将收到电子邮件。 默认情况下，当来宾用户不再有任何访问包分配时（因为他们的上次分配已过期或已取消），将会阻止该来宾用户帐户登录并随后将其删除。 如果希望无限期地在目录中保留来宾用户（即使他们没有任何访问包分配），可以更改权利管理配置的设置。
 
 1. 在“可以请求访问权限的用户”部分，选择“不在你目录中的用户”。  
 
 1. 在“选择外部 Azure AD 目录”部分，单击“添加目录”。  
 
-1. 输入域名并搜索外部 Azure AD 目录。
+1. 输入域名并使用该域名搜索 Azure AD 目录。
 
 1. 根据提供的目录名称和初始域验证该目录是否正确。
 
@@ -58,7 +60,7 @@ ms.locfileid: "68972857"
 
 1. 添加要包括在策略中的所有目录后，单击“选择”。 
 
-1. 向下跳转到“策略:[](#policy-request)请求”部分。
+1. 向下跳转到“[策略:请求](#policy-request)”部分。
 
 ### <a name="policy-none-administrator-direct-assignments-only"></a>策略:无(仅限管理员直接分配)
 
@@ -68,7 +70,7 @@ ms.locfileid: "68972857"
 
     创建访问包后，可以直接将特定的内部和外部用户分配到该访问包。 如果指定外部用户，将在目录中创建来宾用户帐户。
 
-1. 向下跳转到“策略:[](#policy-expiration)过期时间”部分。
+1. 向下跳转到“[策略:过期时间](#policy-expiration)”部分。
 
 ### <a name="policy-request"></a>策略:请求
 

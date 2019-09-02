@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/18/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: dda765980399c24bbadfd1a72627c2f43f6e22a5
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 5984b088fdf0a7cca204368b1a424f4cb538f642
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625669"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174049"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>在 Linux 上创建第一个 Java Service Fabric Reliable Actors 应用程序
 > [!div class="op_single_selector"]
@@ -51,8 +51,8 @@ Service Fabric 提供基架工具，可以借助此类工具，使用 Yeoman 模
 * **执行组件接口**。 执行组件接口用于定义执行组件的强类型公共接口。 在 Reliable Actor 模型术语中，执行组件接口用于定义执行组件可以理解并处理的消息类型。 其他执行组件或客户端应用程序使用此执行组件接口将消息“发送”（异步方式）到此执行组件。 Reliable Actors 可实现多个接口。
 * **ActorProxy 类**。 客户端应用程序使用 ActorProxy 类调用通过执行组件接口公开的方法。 ActorProxy 类提供两个重要功能：
 
-  * 名称解析：能够在群集中找到执行组件（查找托管它的群集节点）。
-  * 故障处理：例如，在需要将执行组件重新定位到群集中另一个节点的故障之后，它可以重试方法调用和重新解析执行组件的位置。
+    * 名称解析：能够在群集中找到执行组件（查找托管它的群集节点）。
+    * 故障处理：例如，在需要将执行组件重新定位到群集中另一个节点的故障之后，它可以重试方法调用和重新解析执行组件的位置。
 
 有必要提一下与执行组件接口有关的以下规则：
 
@@ -66,7 +66,7 @@ Service Fabric 应用程序包含一个或多个服务，每个服务都在提�
 1. 在终端中，键入 ``yo azuresfjava``。
 2. 命名应用程序。
 3. 选择第一个服务的类型并将其命名。 对于本教程，请选择“Reliable Actor 服务”。 有关其他服务类型的详细信息，请参阅 [Service Fabric 编程模型概述](service-fabric-choose-framework.md)。
-   ![适用于 Java 的 Service Fabric Yeoman 生成器][sf-yeoman]
+    ![适用于 Java 的 Service Fabric Yeoman 生成器][sf-yeoman]
 
 如果将应用程序命名为“HelloWorldActorApplication”，将执行组件命名为“HelloWorldActor”，则会创建以下基架：
 
@@ -192,10 +192,10 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 
 若要生成并打包应用程序，请运行以下命令：
 
-  ```bash
-  cd HelloWorldActorApplication
-  gradle
-  ```
+```bash
+cd HelloWorldActorApplication
+gradle
+```
 
 ## <a name="deploy-the-application"></a>部署应用程序
 生成应用程序后，可以将其部署到本地群集。
@@ -217,7 +217,7 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 这些命令的参数可以在应用程序包内的生成清单中找到。
 
 应用程序部署完以后，请打开浏览器并导航到 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)，其地址为 [http://localhost:19080/Explorer](http://localhost:19080/Explorer)。
-然后，展开“应用程序”节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
+然后，展开“应用程序”  节点，注意现在有一个条目是用于应用程序类型，另一个条目用于该类型的第一个实例。
 
 > [!IMPORTANT]
 > 必须将证书配置为向 Service Fabric 运行时验证应用程序，才能将应用程序部署到 Azure 中的安全 Linux 群集。 这样可便于 Reliable Actors 服务与基础 Service Fabric 运行时 API 通信。 若要了解详细信息，请参阅[将 Reliable Services 应用程序配置为在 Linux 群集上运行](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters)。  
@@ -231,13 +231,13 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 
 1. 使用监视实用工具运行脚本，查看执行组件服务的输出。  测试脚本对角色调用 `setCountAsync()` 方法来递增计数器，对角色调用 `getCountAsync()` 方法来获取新的计数器值，并向控制台显示该值。
 
-   若为 MAC OS X，需要运行下面的附加命令，将 HelloWorldTestClient 文件夹复制到容器内的某位置。    
+    若为 MAC OS X，需要运行下面的附加命令，将 HelloWorldTestClient 文件夹复制到容器内的某位置。    
 
     ```bash
-     docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
-     docker exec -it [first-four-digits-of-container-ID] /bin/bash
-     cd /home
-     ```
+    docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home
+    docker exec -it [first-four-digits-of-container-ID] /bin/bash
+    cd /home
+    ```
 
     ```bash
     cd HelloWorldActorTestClient
@@ -248,7 +248,7 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 
     ![在 Service Fabric Explorer 中查找主副本][sfx-primary]
 
-3. 在“节点”中，单击上一步找到的节点，然后从“操作”菜单中选择“停用(重启)”。 此操作重启运行主要服务副本的节点，并强制故障转移到在其他节点上运行的其中一个次要副本。  该次要副本将提升为主要副本，并在其他节点上创建另一次要副本，然后主要副本开始执行读/写操作。 节点重启时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但计数器仍继续递增。
+3. 在“节点”中，单击上一步找到的节点，然后从“操作”菜单中选择“停用(重启)”   。 此操作重启运行主要服务副本的节点，并强制故障转移到在其他节点上运行的其中一个次要副本。  该次要副本将提升为主要副本，并在其他节点上创建另一次要副本，然后主要副本开始执行读/写操作。 节点重启时，请注意来自测试客户端的输出，并注意虽然发生故障转移，但计数器仍继续递增。
 
 ## <a name="remove-the-application"></a>删除应用程序
 使用模板中提供的卸载脚本可从群集的映像存储区删除应用程序实例、注销应用程序包并删除应用程序包。
@@ -257,10 +257,10 @@ Service Fabric Java 依赖项从 Maven 提取。 若要生成和使用 Service F
 ./uninstall.sh
 ```
 
-在 Service Fabric Explorer 中，可看到应用程序和应用程序类型不再显示在“应用程序”节点中。
+在 Service Fabric Explorer 中，可看到应用程序和应用程序类型不再显示在“应用程序”节点中  。
 
 ## <a name="service-fabric-java-libraries-on-maven"></a>Maven 上的 Service Fabric Java 库
-Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 或 ``build.gradle`` 中添加依赖项，以便使用 mavenCentral 提供的 Service Fabric Java 库。 
+Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 或 ``build.gradle`` 中添加依赖项，以便使用 mavenCentral  提供的 Service Fabric Java 库。 
 
 ### <a name="actors"></a>执行组件
 
@@ -356,8 +356,9 @@ Service Fabric Java 库已托管在 Maven 中。 可以在项目的 ``pom.xml`` 
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
 <!-- Images -->
+
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-java/sfx-primary.png
 [sf-eclipse-templates]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-eclipse-templates.png
 
-&lt;!--Update_Description：更新元属性，更新链接 -&gt;
+<!--Update_Description: update meta properties, update link-->

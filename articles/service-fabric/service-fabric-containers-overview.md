@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/08/2018
-ms.date: 04/29/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 45dc2a85158e24269d24291ebc12b1832028664a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: b0ffa2985d0e03114834553550a76a8516e30a0a
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67844744"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174056"
 ---
 # <a name="service-fabric-and-containers"></a>Service Fabric 和容器
 
@@ -77,7 +77,7 @@ Windows Server 2016 提供两种不同类型的容器，它们的隔离程度有
 
 以下是容器作为一个不错的选择的典型示例：
 
-* **IIS 直接迁移**：可将现有 [ASP.NET MVC](https://www.asp.net/mvc) 应用放在容器中，而无需将其迁移到 ASP.NET Core。 这些 ASP.NET MVC 应用都依赖于 Internet Information Services (IIS)。 可以从预先创建的 IIS 映像将这些应用打包到容器映像，然后使用 Service Fabric 进行部署。 有关 Windows 容器的信息，请参阅 [Windows Server 上的容器映像](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/quick-start/quick-start-windows-server)。
+* **IIS 直接迁移**：可将现有 [ASP.NET MVC](https://www.asp.net/mvc) 应用放在容器中，而无需将其迁移到 ASP.NET Core。 这些 ASP.NET MVC 应用都依赖于 Internet Information Services (IIS)。 可以从预先创建的 IIS 映像将这些应用打包到容器映像，然后使用 Service Fabric 进行部署。 有关 Windows 容器的信息，请参阅 [Windows Server 上的容器映像](https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-server)。
 
 * **将容器与 Service Fabric 微服务混合使用**：将现有容器映像用于应用程序的一部分。 例如，对于应用程序的 Web 前端，可以使用 [NGINX 容器](https://hub.docker.com/_/nginx/) ；对于更密集的后端计算，可以使用有状态服务。
 
@@ -102,7 +102,7 @@ Service Fabric 提供多种容器功能，可帮助构建由容器化的微服�
 * 能够设置容器的安全凭据。
 * 容器的不同网络模式选择。
 
-<!--Not Available on For a comprehensive overview of container support on Azure, such as how to create a Kubernetes cluster with Azure Kubernetes Service, how to create a private Docker registry in Azure Container Registry, and more, see [Azure for Containers](/containers/)-->
+<!--Not Available on For a comprehensive overview of container support on Azure, such as how to create a Kubernetes cluster with Azure Kubernetes Service, how to create a private Docker registry in Azure Container Registry, and more, see Azure for Containers-->
 <!--Not Available on [Azure for Containers](/containers/)-->
 
 ## <a name="next-steps"></a>后续步骤
@@ -111,7 +111,7 @@ Service Fabric 提供多种容器功能，可帮助构建由容器化的微服�
 
 [在 Linux 上创建第一个 Service Fabric 容器应用程序](service-fabric-get-started-containers-linux.md)  
 [在 Windows 上创建第一个 Service Fabric 容器应用程序](service-fabric-get-started-containers.md)  
-[了解更多关于 Windows 容器的信息](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/about/)
+[了解更多关于 Windows 容器的信息](https://docs.microsoft.com/virtualization/windowscontainers/about/)
 
 [Image1]: media/service-fabric-containers/Service-Fabric-Types-of-Isolation.png
 
