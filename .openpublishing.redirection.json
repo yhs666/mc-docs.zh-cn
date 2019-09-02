@@ -16313,7 +16313,18 @@
       "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-properties-metadata.md",
+      "redirect_url": "/storage/blobs/storage-blob-container-properties-metadata",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-dotnet-shared-access-signature-part-1.md",
+      "redirect_url": "/azure/storage/common/storage-sas-overview",
+      "redirect_document_id": true
     }
+
 
   ]
 }
