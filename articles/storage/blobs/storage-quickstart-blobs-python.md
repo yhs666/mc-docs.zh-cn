@@ -1,21 +1,19 @@
 ---
 title: Azure 快速入门 - 使用 Python 在对象存储中创建 Blob | Microsoft Docs
 description: 本快速入门将在对象 (Blob) 存储中创建存储帐户和容器。 然后，使用适用于 Python 的存储客户端库将一个 Blob 上传到 Azure 存储，下载一个 Blob，然后列出容器中的 Blob。
-services: storage
 author: WenJason
-ms.custom: mvc
-ms.service: storage
-ms.topic: quickstart
-origin.date: 12/14/2018
-ms.date: 08/05/2019
 ms.author: v-jay
-ms.reviewer: seguler
-ms.openlocfilehash: 45efda115e0f9d4be925f725779e5ff5308ee3aa
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+origin.date: 12/14/2018
+ms.date: 09/09/2019
+ms.service: storage
+ms.subservice: blobs
+ms.topic: quickstart
+ms.openlocfilehash: 15b5e5ff9be19944300dc0c05a30d79f33367c80
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732267"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209316"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>快速入门：使用 Python 上传、下载和列出 Blob
 
@@ -95,13 +93,13 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 
 此部分将实例化对象，新建容器，然后设置容器的权限，以便 blob 成为公共 blob。 容器名称为 quickstartblobs  。 
 
-```python 
+```python
 # Create the BlockBlockService that is used to call the Blob service for the storage account.
 block_blob_service = BlockBlobService(account_name='accountname', account_key='accountkey', endpoint_suffix='core.chinacloudapi.cn')
- 
+
 # Create a container called 'quickstartblobs'.
 container_name = 'quickstartblobs'
-block_blob_service.create_container(container_name) 
+block_blob_service.create_container(container_name)
 
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)

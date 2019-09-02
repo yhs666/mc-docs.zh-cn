@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 11/01/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a4a32761fa9732e01952e3f30e553a35cc5fa363
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: ec1f7b41268433eb1a1def05fd7875d99c8bf58f
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332206"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169635"
 ---
 # <a name="expose-an-on-premises-wcf-service-to-a-web-application-in-the-cloud-by-using-azure-relay"></a>使用 Azure 中继向云中的 Web 应用程序公开本地 WCF 服务 
 本文演示如何使用 Azure 和 Visual Studio 生成混合云应用程序。 创建一个使用多个 Azure 资源的应用程序，让其在云中启动并运行。
@@ -48,7 +48,6 @@ ms.locfileid: "68332206"
 - 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://azure.microsoft.com/downloads/)安装它。
 
 ## <a name="how-azure-relay-helps-with-hybrid-solutions"></a>Azure 中继功能将为混合解决方案带来哪些帮助
-
 业务解决方案通常由为处理独特的新业务需求而编写的自定义代码和已有的解决方案和系统所提供的现有功能组成。
 
 解决方案架构师开始使用云来轻松地处理缩放需求和降低运营成本。 在此过程中，他们发现希望用作其解决方案的构建基块的现有服务资产位于企业防火墙内，无法通过云解决方案轻松访问。 许多内部服务的构建或托管方式使得它们无法在企业网络边缘轻松公开。
@@ -63,6 +62,7 @@ ms.locfileid: "68332206"
 本教程假定产品信息位于现有的本地系统中，而且你使用 Azure 中继来访问该系统。 这是由在简单的控制台应用程序中运行的 Web 服务模拟的，并由一系列内存中产品提供支持。 你能够在自己的计算机上运行此控制台应用程序并将 Web 角色部署到 Azure 中。 通过此操作，将会看到在 Azure 数据中心运行的 Web 角色确实会调入你的计算机，即使你的计算机几乎肯定会驻留在至少一个防火墙和一个网络地址转换 (NAT) 层后面，情况也是如此。
 
 ## <a name="set-up-the-development-environment"></a>设置开发环境
+
 在开始开发 Azure 应用程序之前，需要下载工具并设置开发环境：
 
 1. 从 SDK [下载页](https://www.azure.cn/downloads/)安装用于 .NET 的 Azure SDK。
@@ -186,7 +186,7 @@ ms.locfileid: "68332206"
         }
     }
     ```
-12. 在“解决方案资源管理器”中，双击“App.config”  文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：确保将 *yourServiceNamespace* 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
+12. 在“解决方案资源管理器”中，双击“App.config”  文件以在 Visual Studio 编辑器中将其打开。 在 `<system.ServiceModel>` 元素的底部（仍在 `<system.ServiceModel>` 中）添加以下 XML 代码：确保将 yourServiceNamespace 替换为命名空间的名称，并将 *yourKey* 替换为之前从门户中检索到的 SAS 密钥：
 
     ```xml
     <system.serviceModel>
@@ -349,7 +349,7 @@ ms.locfileid: "68332206"
 
    ![添加为链接][24]
 
-6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 *yourServiceNamespace* 替换为你的服务命名空间的名称，并将 *yourKey* 替换为你的 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
+6. 现在，在 Visual Studio 编辑器中打开 **HomeController.cs** 文件，并将命名空间定义替换为以下代码：确保将 yourServiceNamespace 替换为你的服务命名空间的名称，并将 *yourKey* 替换为你的 SAS 密钥。 这会使客户端能够调用本地服务，并返回调用的结果。
 
    ```csharp
    namespace ProductsWeb.Controllers
