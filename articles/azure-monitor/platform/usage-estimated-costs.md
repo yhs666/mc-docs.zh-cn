@@ -25,7 +25,7 @@ ms.locfileid: "67562279"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/monitor/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/monitor/) 等核心监视功能的使用情况。  对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析产品/服务购买的 Log Analytics 使用情况功能。
+在 Azure 门户的 Monitor 中心，“使用情况和预估成本”页说明[警报、指标和通知](https://www.azure.cn/pricing/details/monitor/)、[Azure Log Analytics](https://www.azure.cn/pricing/details/monitor/) 及 [Azure Application Insights](https://www.azure.cn/pricing/details/monitor/) 等核心监视功能的使用情况。  对于使用 2018 年 4 月之前提供的定价计划的客户，这还包括通过见解和分析套餐购买的 Log Analytics 使用情况功能。
 
 在此页上，用户可以查看过去 31 天的资源使用情况（按订阅聚合）。 “钻取”显示的是 31 天的使用趋势。 需要聚合大量的数据才能进行此估算，因此请耐心等待页面加载。
 

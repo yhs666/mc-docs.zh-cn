@@ -158,7 +158,7 @@ Azure 资源管理器在运行时评估主要模板并检索和评估每个嵌�
 
 `_artifactsLocation` 参数的默认值通过上述方式使用。 如果需要从其他位置检索链接模板，则参数输入在部署时可用于重写默认值 - 无需更改模板本身。
 
-### <a name="use-artifactslocation-instead-of-hardcoding-links"></a>使用 _artifactsLocation 取代硬编码链接
+### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>使用 _artifactsLocation 取代硬编码链接
 
 `_artifactsLocation` 参数中的 URL 除了用于嵌套模板，还可用作部署模板的所有相关项目的基。 某些 VM 扩展包含存储在模板外的脚本的链接。 对于这些扩展，不应对链接进行硬编码。 例如，自定义脚本和 PowerShell DSC 扩展可能链接到 GitHub 上的外部脚本，如下所示： 
 
@@ -490,7 +490,7 @@ Azure Stack 环境中的特定资源具有独特属性，必须在模板中考�
 
 ### <a name="ensure-vm-images-are-available"></a>确保 VM 映像可用
 
-Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可以供 Azure 和合作伙伴部署。 这些映像构成平台上 VM 的基础。 但云一致模板应该仅引用可用的参数 - 尤其是可用于全球 Azure、Azure 主权云或 Azure Stack 的 VM 映像的发布服务器、产品和 SKU。
+Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可以供 Azure 和合作伙伴部署。 这些映像构成平台上 VM 的基础。 但云一致模板应该仅引用可用的参数 - 尤其是可用于全球 Azure、Azure 主权云或 Azure Stack 的 VM 映像的发布服务器、套餐和 SKU。
 
 要检索位置中的可用 VM 映像列表，请运行以下 Azure CLI 命令：
 
