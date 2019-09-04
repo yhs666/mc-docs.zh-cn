@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/07/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 4d24773197359b35fde03208019a245b6f509454
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: b3dfd043ca532bf87c67111681acd4b3687f32ce
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732259"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209289"
 ---
 # <a name="azure-storage-performance-and-scalability-checklist"></a>Azure 存储性能和可伸缩性清单
 
@@ -173,7 +173,7 @@ Azure 存储使用基于范围的分区方案来对系统进行缩放和负载�
 
 #### <a name="useful-resources"></a>有用的资源
 
-有关 SAS 的详细信息，请参阅[共享访问签名，第 1 部分：了解 SAS 模型](../storage-dotnet-shared-access-signature-part-1.md)。  
+有关 SAS 的详细信息，请参阅[使用共享访问签名 (SAS) 授予对 Azure 存储资源的有限访问权限](storage-sas-overview.md)。  
 
 有关 CORS 的详细信息，请参阅 [Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dn535601.aspx)（对 Azure 存储服务的跨域资源共享 (CORS) 支持）。  
 
@@ -187,7 +187,7 @@ Azure 存储使用基于范围的分区方案来对系统进行缩放和负载�
 
 配置、查看以及始终由应用程序使用的其他数据都非常适合进行缓存。  
 
-有关如何通过使用 .NET 获取 Blob 的属性来发现上次修改日期的示例，请参阅[设置和检索属性与元数据](../blobs/storage-properties-metadata.md)。 有关条件性下载的详细信息，请参阅 [Conditionally Refresh a Local Copy of a Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx)（有条件地刷新 Blob 的本地副本）。  
+有关条件下载的详细信息，请参阅 [Specifying Conditional Headers for Blob Service Operations](https://docs.microsoft.com/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations)（为 Blob 服务操作指定条件标头）。  
 
 #### <a name="subheading8"></a>批量上传数据
 
@@ -294,8 +294,6 @@ Azure 存储团队发布了命令行工具“AzCopy”，该工具用于通过�
 ### <a name="subheading20"></a>使用元数据
 
 Blob 服务支持 head 请求，这其中可能包含有关 Blob 的元数据。 例如，如果应用程序需要某张照片中的 EXIF 数据，则可以检索该照片，并从中提取数据。 为了节省带宽并改进性能，应用程序可能会在上传照片时将 EXIF 数据存储在 Blob 的元数据中：随后只需使用 HEAD 请求便可检索元数据中的 EXIF 数据，这样就可以在每次读取 Blob 时，显著节省带宽和提取 EXIF 数据所需的处理时间。 在只需元数据而不需要 Blob 的完整内容时，这种方法很有用。  每个 Blob 只能存储 8 KB 的元数据（该服务不会接受数据大小超过此要求的存储请求），因此如果数据大小不符合该要求，则可能无法使用此方法。  
-
-有关如何使用 .NET 获取 Blob 的元数据的示例，请参阅[设置和检索属性与元数据](../blobs/storage-properties-metadata.md)。  
 
 ### <a name="rapid-uploading"></a>快速上传
 

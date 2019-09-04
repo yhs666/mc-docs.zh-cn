@@ -6,20 +6,20 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/20/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: da10046c5f429d86c2eaf1190f7a3047d6210bd7
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: e318734b2ccd59dc452e8275118cb487b34514a0
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732384"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209362"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>配置 Azure 存储连接字符串
 
-连接字符串包含应用程序在运行时访问 Azure 存储帐户中的数据所需的身份验证信息。 可以将连接字符串配置为：
+连接字符串包含应用程序在运行时使用共享密钥授权访问 Azure 存储帐户中的数据所需的身份验证信息。 可以将连接字符串配置为：
 
 * 连接到 Azure 存储模拟器。
 * 在 Azure 中访问存储帐户。
@@ -146,6 +146,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [使用 Azure 存储模拟器进行开发和测试](storage-use-emulator.md)
 * [Azure 存储资源管理器](storage-explorers.md)
-* [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-
-<!--Update_Description: update link-->
+* [使用共享访问签名 (SAS)](storage-sas-overview.md)

@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/16/2019
-ms.date: 05/27/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: af88b0758ac8ce726b61da1831d23def8ef42ca6
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 0d344150a64ba3dc23a851d8c48e1927e397b28a
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004354"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209382"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>通过 Azure 门户配置客户管理的密钥用于 Azure 存储加密
 
@@ -26,6 +26,7 @@ ms.locfileid: "66004354"
 
 > [!IMPORTANT]
 > 将客户管理的密钥用于 Azure 存储加密需要为 Key Vault 配置两个必需的属性：“软删除”和“不要清除”。   在 Azure 门户中创建新的 Key Vault 时，默认会启用这些属性。 但是，如果需要针对现有的 Key Vault 启用这些属性，必须使用 PowerShell 或 Azure CLI。
+> 仅支持 RSA 密钥以及密钥大小 2048。
 
 ## <a name="enable-customer-managed-keys"></a>启用客户管理的密钥
 

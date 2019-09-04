@@ -10,12 +10,12 @@ ms.date: 07/15/2019
 ms.author: v-jay
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: cd2873ce469f6b5ce6447d2c12e34b81ca9eb184
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: a79ca6cd7e6ec22a4148a8453e9d856705d712a5
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844429"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209292"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-azure-storage"></a>对 Azure 存储进行监视、诊断和故障排除
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -800,6 +800,16 @@ Microsoft Message Analyzer 中内置的“Web 代理”  跟踪基于 Fiddler；
 
 在“文本导入向导”  的第 1 步中，选择分号  作为唯一的分隔符，然后选择双引号作为文本限定符  。 然后单击“完成”  ，并选择数据在工作簿中的位置。
 
+## <a name="next-steps"></a>后续步骤
+
+有关 Azure 存储中的分析的详细信息，请参阅以下资源：
+
+* [在 Azure 门户中监视存储帐户](storage-monitor-storage-account.md)
+* [存储分析](storage-analytics.md)
+* [存储分析指标](storage-analytics-metrics.md)
+* [存储分析指标表架构](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-metrics-table-schema)
+* [存储分析日志](storage-analytics-logging.md)
+* [存储分析日志格式](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [介绍]: #introduction

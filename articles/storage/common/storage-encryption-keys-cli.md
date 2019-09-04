@@ -6,22 +6,26 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/24/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 82a4a296003f2c9abedf72b20b1a238b63086004
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 673cb0c23f60e3fdd351ad49707b85dd1085a01d
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732375"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209350"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-azure-cli"></a>通过 Azure CLI 配置客户管理的密钥用于 Azure 存储加密
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
 本文介绍如何使用 Azure CLI 配置包含客户管理的密钥的 Key Vault。
+
+> [!IMPORTANT]
+> 将客户管理的密钥用于 Azure 存储加密需要为 Key Vault 配置两个必需的属性：“软删除”和“不要清除”。   在 Azure 门户中创建新的 Key Vault 时，默认会启用这些属性。 但是，如果需要针对现有的 Key Vault 启用这些属性，必须使用 PowerShell 或 Azure CLI。
+> 仅支持 RSA 密钥以及密钥大小 2048。
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>将标识分配到存储帐户
 
@@ -37,6 +41,8 @@ az storage account update \
     --resource-group <resource_group> \
     --assign-identity
 ```
+
+有关使用 Azure CLI 配置系统分配的托管标识的详细信息，请参阅[使用 Azure CLI 在 Azure VM 上配置 Azure 资源的托管标识](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)。
 
 ## <a name="create-a-new-key-vault"></a>创建新的 Key Vault
 

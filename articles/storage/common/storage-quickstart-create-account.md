@@ -6,16 +6,16 @@ author: WenJason
 ms.custom: mvc
 ms.service: storage
 ms.topic: article
-origin.date: 05/06/2019
-ms.date: 07/15/2019
+origin.date: 06/28/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 20e5e7043d470e593e5ce394dcaeb46d5cc2e984
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 4bad6237eb58f9910b699fb04b78e23e382f0ac2
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844416"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209374"
 ---
 # <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -45,6 +45,10 @@ Azure 存储帐户包含所有的 Azure 存储数据对象：Blob、文件、队
 
 也可在本地安装和使用 Azure CLI。 本操作指南文章要求运行 Azure CLI 2.0.4 或更高版本。 运行 `az --version` 即可查找版本。 如需进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
+
+无。
+
 ---
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
@@ -69,6 +73,10 @@ Connect-AzAccount -Environment AzureChinaCloud
 az cloud set -n AzureChinaCloud
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
+
+不适用
 
 ---
 
@@ -156,6 +164,31 @@ az storage account create \
 |本地冗余存储 (LRS)     |Standard_LRS         |
 |异地冗余存储 (GRS)     |Standard_GRS         |
 |读取访问异地冗余存储 (GRS)     |Standard_RAGRS         |
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
+
+可以使用 Azure Powershell 或 Azure CLI 来部署资源管理器模板以创建存储帐户。 本操作指南文章中使用的模板来自 [Azure 资源管理器快速入门模板](https://azure.microsoft.com/resources/templates/101-storage-account-create/)。 若要运行脚本，请选择“试用”  打开 Azure Cloud shell。 若要粘贴脚本，请右键单击 shell，然后选择“粘贴”  。
+
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. chinaeast):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+若要了解如何创建模板，请参阅：
+
+- [Azure 资源管理器文档](/azure-resource-manager/)。
+- [存储帐户模板参考](https://docs.microsoft.com/azure/templates/microsoft.storage/allversions)。
 
 ---
 
@@ -189,6 +222,21 @@ Remove-AzResourceGroup -Name $resourceGroup
 az group delete --name storage-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
+
+若要删除资源组及其关联的资源（包括新的存储帐户），请使用 Azure PowerShell 或 Azure CLI。
+
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>后续步骤
@@ -209,5 +257,10 @@ az group delete --name storage-resource-group
 
 > [!div class="nextstepaction"]
 > [通过 Azure CLI 使用 Blob](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[模板](#tab/template)
+
+> [!div class="nextstepaction"]
+> [通过 Azure 门户使用 Blob](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

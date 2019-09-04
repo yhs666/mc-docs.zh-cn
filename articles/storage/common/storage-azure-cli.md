@@ -10,12 +10,12 @@ origin.date: 06/02/2017
 ms.date: 02/25/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 4b3e5fc344e26904a7ddbeb8cb6a0fc4180f06d6
-ms.sourcegitcommit: 0fd74557936098811166d0e9148e66b350e5b5fa
+ms.openlocfilehash: 6e55d40558ab8deba8f5d9193e7a2f8b727b8199
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56665641"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209387"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>将 Azure CLI 用于 Azure 存储
 
@@ -92,10 +92,10 @@ Subgroups:
 
 若要使用 Azure 订阅中的资源，必须首先使用 `az login`登录到 Azure 帐户。 登录方法有多种：
 
-* 交互式登录：`az login`
-* 使用用户名和密码登录：`az login -u johndoe@contoso.com -p VerySecret`
+* 交互式登录  ：`az login`
+* 使用用户名和密码登录  ：`az login -u johndoe@contoso.com -p VerySecret`
   * 这不能用于 Microsoft 帐户或使用多重身份验证的帐户。
-* 使用服务主体登录：`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.partner.onmschina.cn`
+* 使用服务主体登录  ：`az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.partner.onmschina.cn`
 
 ## <a name="azure-cli-sample-script"></a>Azure CLI 示例脚本
 
@@ -134,20 +134,20 @@ echo "Done"
 
 2. 接下来，更新脚本的变量以反映用户的配置设置。 按照明确的说明替换以下值：
 
-   * \<storage_account_name\>：存储帐户的名称。
-   * \<storage_account_key\>：存储帐户的主访问密钥或辅助访问密钥。
-   * \<container_name\>：要创建的新容器的名称，例如“azure-cli-sample-container”。
-   * \<blob_name\>：容器中的目标 Blob 的名称。
-   * \<file_to_upload\>：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”。
-   * \<destination_file\>：目标文件路径，如“~/downloadedImage.png”。
+   * \<storage_account_name\>：存储帐户的名称  。
+   * \<storage_account_key\>：存储帐户的主访问密钥或辅助访问密钥  。
+   * \<container_name\>：要创建的新容器的名称，例如“azure-cli-sample-container”  。
+   * \<blob_name\>：容器中的目标 Blob 的名称  。
+   * \<file_to_upload\>：本地计算机上小文件的路径，例如：“~/images/HelloWorld.png”  。
+   * \<destination_file\>：目标文件路径，如“~/downloadedImage.png”  。
 
-3. 更新了必要的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh。
+3. 更新了必要的变量后，保存脚本并退出编辑器。 后续步骤假定已将脚本命名为 my_storage_sample.sh  。
 
 4. 如有必要，将脚本标记为可执行文件：`chmod +x my_storage_sample.sh`
 
 5. 执行该脚本。 例如，在 Bash 中： `./my_storage_sample.sh`
 
-应看到类似于以下内容的输出，在脚本中指定的 \<destination_file\> 应出现在本地计算机上。
+应看到类似于以下内容的输出，在脚本中指定的 \<destination_file\> 应出现在本地计算机上  。
 
 ```
 Creating the container...
@@ -325,6 +325,17 @@ az storage blob copy start \
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### <a name="set-the-content-type"></a>设置内容类型
+
+内容类型（也称为 MIME 类型）标识 Blob 中数据的格式。 浏览器和其他软件使用内容类型来确定如何处理数据。 例如，PNG 图像的内容类型为 `image/png`。 若要设置内容类型，请使用 `blob update` 命令：
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## <a name="create-and-manage-file-shares"></a>创建和管理文件共享
 Azure 文件使用服务器消息块 (SMB) 协议为应用程序提供共享存储。 Azure 虚拟机和云服务以及本地应用程序可以通过装载的共享来共享文件数据。 可以通过 Azure CLI 管理文件共享和文件数据。 有关 Azure 文件的详细信息，请参阅 [Azure 文件简介](../files/storage-files-introduction.md)。
 
@@ -342,7 +353,7 @@ az storage share create --name myshare
 az storage directory create --name myDir --share-name myshare
 ```
 
-目录路径可以包括多个级别，例如 dir1/dir2。 但在创建子目录之前，必须确保所有父目录都存在。 例如，对于路径 dir1/dir2，必须先创建目录 dir1，然后再创建目录 dir2。
+目录路径可以包括多个级别，例如 dir1/dir2  。 但在创建子目录之前，必须确保所有父目录都存在。 例如，对于路径 dir1/dir2，必须先创建目录 dir1，然后再创建目录 dir2    。
 
 ### <a name="upload-a-local-file-to-a-share"></a>将本地文件上传到共享
 以下示例将文件从 **~/temp/samplefile.txt** 上传到 **myshare** 文件共享的根目录。 `--source` 参数指定要上传的现有本地文件。
