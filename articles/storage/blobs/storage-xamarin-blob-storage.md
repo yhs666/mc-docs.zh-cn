@@ -4,16 +4,16 @@ description: 用于 Xamarin 的 Azure 存储客户端库使开发人员能够使
 author: WenJason
 ms.author: v-jay
 origin.date: 05/11/2017
-ms.date: 09/02/2019
+ms.date: 09/09/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 22e31775c9fb168330ccd7c1cfe4054402561d86
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 1ad114d7701422ec7fc11032774b68f744f4762d
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174075"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209398"
 ---
 # <a name="how-to-use-blob-storage-from-xamarin"></a>如何通过 Xamarin 使用 Blob 存储
 
