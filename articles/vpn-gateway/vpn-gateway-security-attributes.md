@@ -7,18 +7,18 @@ manager: digimobile
 ms.service: load-balancer
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 08/12/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 9c6dcc34adcaaf7cf88cf81ae35935984106ef50
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: b2d86ec64bac7268e20c910f87ffe7d2c62fdb47
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732450"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131670"
 ---
 # <a name="security-attributes-for-azure-vpn-gateway"></a>Azure VPN 网关的安全属性
 
-本文阐述了 Azure VPN 网关中内置的常用安全属性。
+本文介绍 Azure VPN 网关中内置的安全属性。
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

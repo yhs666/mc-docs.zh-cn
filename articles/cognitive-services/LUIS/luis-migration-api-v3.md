@@ -3,22 +3,22 @@ title: API V2 到 V3 的 迁移
 titleSuffix: Azure Cognitive Services
 description: 终结点 API 版本 3 已发生更改。 请使用本指南了解如何迁移到终结点 API 版本 3。
 services: cognitive-services
-author: diberry
-manager: nitinme
+author: lingliw
+manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 07/30/2019
 ms.author: diberry
-ms.openlocfilehash: 0e67e7d39b7bda6ddf53a58f3336e69fce50b31b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 51bd77872b77721d085c73a9a78119e934c4b925
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544130"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103904"
 ---
-# <a name="preview-migrate-to-api-version-3x--for-luis-apps"></a>预览版：迁移到 LUIS 应用的 API 版本 3.x
+# <a name="preview-migrate-to-api-version-3x-for-luis-apps"></a>预览版：迁移到 LUIS 应用的 API 版本 3.x
 
 查询预测终结点 API 已发生更改。 请使用本指南了解如何迁移到终结点 API 版本 3。 
 
@@ -53,6 +53,11 @@ V3 终结点 HTTP 调用的格式已更改。
 |GET|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
 |POST|https://<b>{REGION}</b>.api.cognitive.azure.cn/luis/<b>v3.0-preview</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |||
+
+槽的有效值：
+
+* `production`
+* `staging`
 
 ## <a name="endpoint-url-changes-by-version-id"></a>终结点 URL 按版本 ID 更改
 

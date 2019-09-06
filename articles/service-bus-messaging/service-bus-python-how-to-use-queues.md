@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e10d4a35ab22fdc28fae3e03f5efc8bbf37f2c77
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 8915488191dbd3cdf45df29b53f8b3385049a36e
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544355"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169603"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>如何通过 Python 使用服务总线队列
 
@@ -45,7 +45,7 @@ ms.locfileid: "69544355"
 from azure.servicebus import ServiceBusClient
 ```
 
-以下代码创建 **ServiceBusClient** 对象。 将 `mynamespace`、`sharedaccesskeyname` 和 `sharedaccesskey` 替换为命名空间、共享访问签名 (SAS) 密钥名称和值。
+以下代码创建 **ServiceBusClient** 对象。 将 `<CONNECTION STRING>` 替换为服务总线连接字符串。
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -60,11 +60,8 @@ sb_client.create_queue("taskqueue")
 `create_queue` 方法还支持其他选项，通过这些选项可以重写默认队列设置，例如消息生存时间 (TTL) 或最大队列大小。 以下示例将最大队列大小设置为 5 GB，将 TTL 值设置为 1 分钟：
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
+                       default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 ## <a name="send-messages-to-a-queue"></a>向队列发送消息
@@ -75,12 +72,13 @@ sb_client.create_queue("taskqueue", queue_options)
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 服务总线队列在[标准层](service-bus-premium-messaging.md)中支持的最大消息大小为 256 KB，在[高级层](service-bus-premium-messaging.md)中则为 1 MB。 标头最大大小为 64 KB，其中包括标准和自定义应用程序属性。 一个队列可包含的消息数不受限制，但消息的总大小受限。 此队列大小在创建时定义，上限为 5 GB。 有关配额的详细信息，请参阅 [服务总线配额][Service Bus quotas]。
@@ -91,10 +89,11 @@ queue_client.send(Message("Message"))
 ```python
 from azure.servicebus import QueueClient, Message
 
-# Create the QueueClient 
-queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE NAME>")
+# Create the QueueClient
+queue_client = QueueClient.from_connection_string(
+    "<CONNECTION STRING>", "<QUEUE NAME>")
 
-## Receive the message from the queue
+# Receive the message from the queue
 with queue_client.get_receiver() as queue_receiver:
     messages = queue_receiver.fetch_next(timeout=3)
     for message in messages:
@@ -113,7 +112,6 @@ msg.delete()
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>如何处理应用程序崩溃和不可读消息
-
 Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或消息处理问题中恢复。 如果接收方应用程序因某种原因无法处理消息，则可对 **Message** 对象调用 **unlock** 方法。 这会导致 Service Bus 解锁队列中的消息并使其能够重新被同一个正在使用的应用程序或其他正在使用的应用程序接收。
 
 还存在与队列中已锁定的消息相关联的超时，并且如果应用程序未能在锁定超时到期之前处理消息（例如，如果应用程序崩溃），服务总线则将自动解锁该消息，使它可以再次被接收。

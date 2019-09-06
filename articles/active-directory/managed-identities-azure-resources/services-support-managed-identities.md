@@ -5,18 +5,18 @@ services: active-directory
 author: MarkusVi
 ms.author: v-junlch
 origin.date: 06/19/2019
-ms.date: 08/05/2019
+ms.date: 08/28/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5ea721956863c73962353140aa982136fa3091d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c581713b1ebba4f1eadd6ddb07806ffd065dc1f7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818629"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134315"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>支持 Azure 资源托管标识的服务
 
@@ -137,6 +137,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [通过 Azure 门户分配访问权限](howto-assign-access-portal.md)
 - [通过 Powershell 分配访问权限](howto-assign-access-powershell.md)
 - [通过 Azure CLI 分配访问权限](howto-assign-access-CLI.md)
+- [通过 Azure 资源管理器模板分配访问权限](../../role-based-access-control/role-assignments-template.md)
 
 | 云 | 资源 ID | 状态 |
 |--------|------------|--------|
@@ -185,10 +186,10 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 | 云 | 资源 ID | 状态 |
 |--------|------------|--------|
-| Azure 全球 | `https://storage.azure.com/` | 可用 |
-| Azure Government | `https://storage.azure.com/` | 可用 |
-| Azure 德国 | `https://storage.azure.com/` | 可用 |
-| Azure 中国世纪互联 | `https://storage.azure.com/` | 可用 |
+| Azure 全球 | | 可用 |
+| Azure Government | | 可用 |
+| Azure 德国 | | 可用 |
+| Azure 中国世纪互联 | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | 可用 |
 
 ### <a name="azure-analysis-services"></a>Azure Analysis Services
 
@@ -199,3 +200,4 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 | Azure 德国 | | 可用 |
 | Azure 中国世纪互联 | `https://*.asazure.chinacloudapi.cn` | 可用 |
 
+<!-- Update_Description: wording update -->

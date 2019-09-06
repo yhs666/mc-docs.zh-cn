@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/12/19
 ms.author: v-lingwu
-ms.openlocfilehash: 2382a64a5aa0409bbe63436cd35416877c7c2790
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 58dda73d886f19be009ed873155b91cce82e5148
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570608"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103744"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>备份和还原已加密的 Azure VM
 
@@ -155,7 +155,7 @@ Azure VM 需要拥有只读访问权限才能备份密钥和机密以及关联�
 
 ## <a name="next-steps"></a>后续步骤
 
-如果遇到任何问题，请查看
+如果遇到任何问题，请查看以下文章：
 
 - 备份和还原已加密的 Azure VM 时出现的[常见错误](backup-azure-vms-troubleshoot.md)。
 - [Azure VM 代理/备份扩展](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)问题。

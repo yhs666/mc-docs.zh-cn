@@ -1,5 +1,5 @@
 ---
-title: 新增功能 - 语言理解
+title: 新增功能 - 语言理解 (LUIS)
 titleSuffix: Azure Cognitive Services
 description: 本文包含有关语言理解的新闻。
 author: diberry
@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 07/22/2019
 ms.author: diberry
-ms.openlocfilehash: 9d1f001b55edf555448389d0a386bab06072643d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 71fc877c874a746ecdeead4c642172ce2ac3830d
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544115"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104107"
 ---
 # <a name="whats-new-in-language-understanding"></a>语言理解中的新增功能
 

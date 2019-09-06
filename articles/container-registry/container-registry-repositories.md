@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 01/05/2018
-ms.date: 07/02/2018
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: bf75deb4a19a25c34d4950443f5d5690aa8f1513
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: cc72a6c5d28c228ca7578f497ed963c5e64d9b4a
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52660721"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134458"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>在 Azure 门户中查看容器注册表存储库
 
@@ -23,7 +23,7 @@ ms.locfileid: "52660721"
 ## <a name="prerequisites"></a>先决条件
 
 * **容器注册表**：在 Azure 订阅中创建容器注册表。 例如，使用 [Azure 门户](container-registry-get-started-portal.md)或 [Azure CLI](container-registry-get-started-azure-cli.md)。
-* **Docker CLI**：在本地计算机上安装 [Docker][docker-install]，该应用可为你提供 Docker 命令行接口。
+* **Docker CLI**：在本地计算机上安装 [Docker][docker-install]，该工具可为你提供 Docker 命令行接口。
 * **容器映像**：将映像推送到容器注册表。 有关如何推送和拉取映像的指南，请参阅[推送和拉取映像](container-registry-get-started-docker-cli.md)。
 
 ## <a name="view-repositories-in-azure-portal"></a>在 Azure 门户中查看存储库
@@ -40,9 +40,9 @@ docker push myregistry.azurecr.cn/samples/nginx
 
 若要查看存储库，请执行以下操作：
 
-1. 登录 [Azure 门户][portal]
+1. 登录到 [Azure 门户][portal]
 1. 选择向其推送了 Nginx 映像的 **Azure 容器注册表**
-1. 选择“存储库”可查看包含注册表中映像的存储库的列表
+1. 选择“存储库”  可查看包含注册表中映像的存储库的列表
 1. 选择某个存储库以查看该存储库中的映像标记
 
 例如，如果已按照[推送和拉取映像](container-registry-get-started-docker-cli.md)中的说明推送了 Nginx 映像，应看到的内容如下所示：
@@ -53,8 +53,10 @@ docker push myregistry.azurecr.cn/samples/nginx
 <!-- Not Available on [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)-->
 
 <!-- LINKS - External -->
+
 [docker-install]: https://docs.docker.com/engine/installation/
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [portal]: https://portal.azure.cn
-<!-- Update_Description: new article on container registry repositories -->
+
+<!-- Update_Description: wording update -->
 <!--ms.date: 07/02/2018-->

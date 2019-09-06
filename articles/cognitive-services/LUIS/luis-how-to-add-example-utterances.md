@@ -1,6 +1,6 @@
 ---
-title: 添加示例话语
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 添加示例话语 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 示例表述是用户问题或命令的文本示例。 若要传授语言理解 (LUIS)，需将示例话语添加到意向。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 811ab331bbc5f38bfd83bf47dcc9fcc1e4d88471
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: a6c90de8b15542ec9fff6a17cbf47df3e5b38375
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332081"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103931"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>将实体添加到示例话语 
 

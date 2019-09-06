@@ -6,45 +6,44 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: article
-origin.date: 04/08/2019
-ms.date: 08/05/2019
+origin.date: 08/08/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8563e97df1a8d8daec40ad17a94f30773b98cd1
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 1f534e006377454c3d75c07c05b9190beeec5658
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819671"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134424"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>将启用了 Azure 磁盘加密的虚拟机复制到另一个 Azure 区域
 
 本文介绍如何将启用了 Azure 磁盘加密的 VM 从一个 Azure 区域复制到另一个 Azure 区域。
 
 >[!NOTE]
->目前，Azure Site Recovery 仅支持运行 Windows OS 且已[使用 Azure Active Directory (Azure AD) 启用加密](/security/azure-security-disk-encryption-windows-aad)的 Azure VM。
+>Azure Site Recovery 当前仅支持运行 Windows 操作系统且支持 Azure 磁盘加密的 VM。 仅当支持 Azure 磁盘加密的 VM 使用托管磁盘时，才支持不使用 Azure AD 应用的这些 VM。 不支持使用非托管磁盘的 VM。
+
+>[!NOTE]
+>如果从 ADE V1（使用 Azure AD 应用）切换到 ADE V2（不使用 Azure AD 应用），则需要在启用 ADE V2 后禁用复制再启用复制。
 
 <a name="required-user-permissions"></a>
 ## <a name="required-user-permissions"></a>所需的用户权限
-Site Recovery 要求用户拥有在目标区域创建 Key Vault 以及将密钥复制到该区域的权限。
+Site Recovery 要求用户具有在目标区域中创建密钥保管库以及将源区域密钥保管库中的密钥复制到目标区域密钥保管库的权限。
 
-若要通过 Azure 门户为启用了磁盘加密的 VM 启用复制，用户需要以下权限：
+若要从 Azure 门户为支持磁盘加密的 VM 启用复制，用户需要对**源区域和目标区域**密钥保管库具有以下权限。
 
 - 密钥保管库权限
-    - 列出
-    - 创建
-    - Get
+    - 列出、创建和获取
 
 - 密钥保管库机密权限
-    - 列出
-    - 创建
-    - Get
+    - 机密管理操作
+        - 获取、列出和设置
 
 - Key Vault 密钥权限（只有当 VM 使用“密钥加密密钥”来加密磁盘加密密钥时才需要）
-    - 列出
-    - Get
-    - 创建
-    - 加密
-    - 解密
+    - 密钥管理操作
+        - 获取、列出和创建
+    - 加密操作
+        - 解密和加密
 
 若要管理权限，请在门户中转到 Key Vault 资源。 添加用户所需的权限。 以下示例演示如何启用对源区域中 Key Vault *ContosoWeb2Keyvault* 的权限。
 
@@ -68,11 +67,15 @@ Site Recovery 要求用户拥有在目标区域创建 Key Vault 以及将密钥�
 1. [打开“CopyKeys”原始脚本代码](https://aka.ms/ade-asr-copy-keys-code)。
 2. 将该脚本复制到一个文件并将其命名为 **Copy-keys.ps1**。
     
+    <!--MOONCAKE: CUSTOMIZE-->
+    
     > [!NOTE]
     > 执行此脚本之前，请替换以下项，使之与 Azure 中国云环境匹配。
     > 1. **Get-Authentication** 函数 *请将 `https://vault.azure.net` 替换为 `https://vault.azure.cn`。
     >     *将 `https://login.windows.net` 替换为 `https://login.chinacloudapi.cn`。
     > 2. **Start-CopyKeys** 函数 *请将 `Login-AzureRmAccount` 替换为 'Login-AzureRmAccount -Environment AzureChinaCloud'。
+    
+    <!--MOONCAKE: CUSTOMIZE-->
     
 3. 打开 Windows PowerShell 应用程序，并转到该文件所保存到的文件夹。
 4. 执行 Copy-keys.ps1。

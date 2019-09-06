@@ -1,5 +1,5 @@
 ---
-title: 增加终结点配额
+title: 增加终结点配额 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。
 author: lingliw
@@ -8,17 +8,17 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8f8b271cca7cdec798372c493e5c9d529d29453c
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: b1d51a2130962153cae54be976109cb4d41e8d48
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544230"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103975"
 ---
-# <a name="use-21vianet-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用世纪互联 Azure 流量管理器管理密钥之间的终结点配额
+# <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>使用 Microsoft Azure 流量管理器管理密钥之间的终结点配额
 语言理解 (LUIS) 提供增加终结点请求配额的功能，可超出单个密钥的配额。 可通过以下方法实现此功能：为 LUIS 创建多个密钥，并在“资源和密钥”部分中的“发布”页面上将其添加到 LUIS 应用程序   。 
 
 客户端应用程序必须管理密钥之间的流量。 LUIS 不执行此操作。 

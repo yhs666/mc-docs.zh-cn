@@ -3,7 +3,7 @@ title: 调用 Web API 的移动应用（移到生产环境）- Microsoft 标识�
 description: 了解如何构建调用 Web API 的移动应用（移到生产环境）
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
-ms.reviwer: brandwe
+ms.reviwer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893545c67e82328294c28af298e7dae6b3d2dc15
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 648dc90e86f8bc0cccbb17f28b0f9049a1441abc
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305906"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134255"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>调用 Web API 的移动应用 - 移到生产环境
 
@@ -49,3 +49,6 @@ ms.locfileid: "67305906"
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
+试用[示例 | 桌面和移动公共客户端应用](sample-v2-code.md#desktop-and-mobile-public-client-apps)提供的其他示例
+
+<!-- Update_Description: wording update -->

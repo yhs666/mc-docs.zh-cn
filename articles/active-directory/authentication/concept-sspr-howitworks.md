@@ -5,28 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 01/30/2019
-ms.date: 08/15/2019
+origin.date: 08/16/2019
+ms.date: 08/29/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd8118e30cf5c5a8dba1b0d783b5e8e884863a53
-ms.sourcegitcommit: 8aafc2af4f15907358c02bde82bc6fab8eb2442a
+ms.openlocfilehash: 93fba0c6d27be197c6368013fc78b2ad23280dfa
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69448494"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134164"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>工作原理：Azure AD 自助密码重置
 
 自助密码重置 (SSPR) 的工作原理 该选项在界面中意味着什么？ 请继续阅读，详细了解 Azure Active Directory (Azure AD) SSPR。
-
-|     |
-| --- |
-| 将移动应用通知和移动应用代码用作 Azure AD 自助密码重置方法是 Azure Active Directory 的公共预览版功能。 有关预览版的详细信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)|
-|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>密码重置门户的工作原理
 
@@ -62,8 +57,8 @@ ms.locfileid: "69448494"
 
 如果已启用 SSPR，则必须选择以下至少一个选项作为身份验证方法。 有时，这些选项也称为“门限”。 我们强烈建议**选择两种或更多种身份验证方法**，以便在用户无法使用所需的方法时，能够更灵活地选择其他方法。 
 
-* 移动应用通知（预览版）
-* 移动应用代码（预览版）
+* 移动应用通知
+* 移动应用代码
 * Email
 * 移动电话
 * 办公电话
@@ -72,7 +67,7 @@ ms.locfileid: "69448494"
 仅当用户在管理员已启用的身份验证方法中输入了数据时，他们才能重置其密码。
 
 > [!IMPORTANT]
-> 从 2019 年 3 月开始，试用 Azure AD 租户中的 MFA 和 SSPR 用户将无法使用电话呼叫选项。 SMS 消息不受此更改影响。 付费 Azure AD 租户中的用户将继续可以使用电话呼叫。 此更改仅影响试用 Azure AD 租户。
+> 从 2019 年 3 月开始，免费/试用 Azure AD 租户中的 MFA 和 SSPR 用户将无法使用电话呼叫选项。 SMS 消息不受此更改影响。 付费 Azure AD 租户中的用户将继续可以使用电话呼叫。 此更改仅影响免费/试用 Azure AD 租户。
 
 > [!WARNING]
 > 要使用[管理员重置策略差异](concept-sspr-policy.md#administrator-reset-policy-differences)中定义的方法，将需要具有分配了帐户的 Azure 管理员角色。
@@ -87,7 +82,7 @@ ms.locfileid: "69448494"
 
 如果没有为用户注册最少数目的所需方法，他们将看到一个错误页面，让他们请求管理员重置其密码。
 
-#### <a name="mobile-app-and-sspr-preview"></a>移动应用和 SSPR（预览版）
+#### <a name="mobile-app-and-sspr"></a>移动应用和 SSPR
 
 使用移动应用（例如 Microsoft Authenticator 应用）作为密码重置方法时，应注意以下几个注意事项：
 
@@ -207,3 +202,4 @@ Azure AD 自助服务密码重置相当于在 Active Directory 中执行管理�
 [Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "可用的 Azure AD 身份验证方法和所需数量"
 [Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "本地集成密码写回配置和故障排除信息"
 
+<!-- Update_Description: wording update -->

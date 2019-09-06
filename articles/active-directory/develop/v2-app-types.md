@@ -12,19 +12,19 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 04/06/2019
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e35d43c990bd2d25a2ef8df79371faa0e7a7e95c
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 237ed78b3d5a39680afec5a0f3a3ede7fd8936d7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568683"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134235"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 标识平台的应用程序类型
 
@@ -56,7 +56,7 @@ https://login.partner.microsoftonline.cn/common/oauth2/v2.0/token
 
 在此流中，应用直接从 Microsoft 标识平台授权终结点接收令牌，无需任何服务器到服务器的交换。 所有身份验证逻辑和会话处理将完全在 JavaScript 客户端中发生，无需额外的页面重定向。
 
-![隐式身份验证流](./media/v2-app-types/convergence-scenarios-implicit.svg)
+![显示隐式身份验证流](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
 若要查看此方案的实际运行情况，请尝试运行 [Microsoft 标识平台入门](v2-overview.md#getting-started)部分提供的单页应用代码示例之一。
 
@@ -81,7 +81,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 在 Web 服务器应用中，登录身份验证流大致采用以下步骤：
 
-![Web 应用身份验证流](./media/v2-app-types/convergence-scenarios-webapp.svg)
+![显示 Web 应用身份验证流](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
 使用从 Microsoft 标识平台终结点接收的公共签名密钥验证 ID 令牌便可确保用户的标识正确。 这会设置一个可在后续页面请求中用于识别用户的会话 Cookie。
 
@@ -107,7 +107,7 @@ Web API 可让用户通过公开权限（也称为[范围](v2-permissions-and-co
 
 Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应用、桌面和移动应用、单页应用、服务器端守护程序，甚至其他 Web API。 Web API 的高级流如下所示：
 
-![Web API 身份验证流](./media/v2-app-types/convergence-scenarios-webapi.svg)
+![显示 Web API 身份验证流](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
 若要了解如何使用 OAuth2 访问令牌保护 Web API，请查看 [Microsoft 标识平台入门](v2-overview.md#getting-started)部分提供的 Web API 代码示例。
 
@@ -119,7 +119,7 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 
 在此流中，应用在用户登录时从 Microsoft 标识平台终结点接收授权代码。 授权代码表示应用有权代表登录用户调用后端服务。 应用可在后台交换 OAuth 2.0 访问令牌和刷新令牌的授权代码。 应用可以使用访问令牌在 HTTP 请求中向 Web API 进行身份验证；在旧的访问令牌过期时，可以使用刷新令牌获取新的访问令牌。
 
-![本机应用身份验证流](./media/v2-app-types/convergence-scenarios-native.svg)
+![显示本机应用身份验证流](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>守护程序和服务器端应用
 
@@ -127,7 +127,7 @@ Web API 可以从各种应用接收访问令牌，其中包括 Web 服务器应�
 
 在此流中，应用通过直接与 `/token` 终结点交互来获取访问权限：
 
-![守护程序应用身份验证流](./media/v2-app-types/convergence-scenarios-daemon.svg)
+![显示守护程序应用身份验证流](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 若要生成守护程序，请参阅[客户端凭据文档](v2-oauth2-client-creds-grant-flow.md)，或者尝试 [.NET 示例应用](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2)。
 

@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 1da57012040a729ecc03c65c8dbfdb50f959d2b5
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 553cb121545a3d601a19361c9a6c601868ede637
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845244"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104067"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -70,6 +70,7 @@ ms.locfileid: "67845244"
 | 每个应用程序的应用程序包数 | 40 |
 | 每个池的应用程序包数 | 10 个 |
 | 最长任务生存期 | 180 天<sup>1</sup> |
+| 每个计算节点的[装载数](virtual-file-mount.md) | 10 个 |
 
 <sup>1</sup> 最长任务生存期（从添加到作业时算起到任务完成时结束）为 180 天。 已完成的任务会保存 7 天；最长生存期内未完成的任务的数据不可访问。
 
@@ -80,7 +81,7 @@ ms.locfileid: "67845244"
 1. 在门户中选择“Batch 帐户”  ，并选择所需的 Batch 帐户。
 1. 在 Batch 帐户的菜单上选择“配额”  。
 1. 显示当前应用于 Batch 帐户的配额
-   
+
     ![Batch 帐户配额][account_quotas]
 
 ## <a name="increase-a-quota"></a>提高配额
@@ -105,7 +106,7 @@ ms.locfileid: "67845244"
       
     a. 在“提供详细信息”中，指定位置、配额类型和 Batch 帐户。 
     
-    ![Batch 配额增加][quota_increase]
+    ![增加 Batch 配额][quota_increase]
 
     配额类型包括：
 
@@ -135,9 +136,9 @@ ms.locfileid: "67845244"
 
 部署在 Azure 虚拟网络中的虚拟机配置中的 Batch 池可自动分配其他 Azure 网络资源。 在虚拟网络中，每 50 个池节点需要以下资源：
 
-* 1 个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
-* 1 个[公共 IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
-* 1 个[负载均衡器](../load-balancer/load-balancer-overview.md)
+* 一个[网络安全组](../virtual-network/security-overview.md#network-security-groups)
+* 一个[公共 IP 地址](../virtual-network/virtual-network-ip-addresses-overview-arm.md)
+* 一个[负载均衡器](../load-balancer/load-balancer-overview.md)
 
 在包含创建 Batch 池时提供的虚拟网络的订阅中分配这些资源。 这些资源受订阅的[资源配额](../azure-subscription-service-limits.md)限制。 如果计划在虚拟网络中部署大型池，请检查订阅的这些资源配额。 如果需要，请在 Azure 门户中选择“帮助和支持”，请求增大配额  。
 
@@ -152,5 +153,5 @@ ms.locfileid: "67845244"
 [support_sev]: http://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
-
+[quota_increase]: ./media/batch-quota-limit/quota-increase.png
 <!-- Update_Description: wording update -->

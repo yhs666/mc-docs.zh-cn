@@ -1,54 +1,53 @@
 ---
-title: 什么是 Azure Active Directory？ | Microsoft Docs
-description: 了解 Azure Active Directory，包括必要的术语和相关功能。
+title: 什么是 Azure Active Directory？ - Azure Active Directory | Microsoft Docs
+description: 有关 Azure Active Directory 的概述和概念信息，包括术语、可用的许可证、相关功能的列表及其详细信息链接。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.topic: overview
-origin.date: 11/13/2018
-ms.date: 03/18/2019
+origin.date: 07/31/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
-ms.openlocfilehash: 0792dbddd3e242b98ad7867060e247fb5c3482b1
-ms.sourcegitcommit: 46a8da077726a15b5923e4e688fd92153ebe2bf0
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: d119d196dfd7d185a2ad9569c555ca23744b0925
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58186650"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134180"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
-Azure Active Directory (Azure AD) 是 Microsoft 提供的多租户、基于云的目录和标识管理服务。 Azure AD 将核心目录服务、应用程序访问管理和标识保护融入单个解决方案中，提供基于标准的平台，可帮助开发人员根据集中的策略和规则实现对其应用的访问控制。
 
-![Azure AD Connect 堆栈](./media/active-directory-whatis/Azure_Active_Directory.png)
+Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工登录及访问以下位置的资源：
 
->[!Note]
->中国地区目前不支持 Azure Active Directory Premium P1 版、Premium P2 版和 Azure Active Directory 基本版。
 
-## <a name="benefits-of-azure-ad"></a>Azure AD 的优势
-Azure AD 可帮助你：
+## <a name="terminology"></a>术语
 
--   为整个企业中的每个用户创建和管理单一标识，使用户和组与 [Azure AD Connect](../connect/active-directory-aadconnect.md) 保持同步。
+为了更好地理解 Azure AD 及其文档，我们建议查看以下术语。
 
--   通过对本地应用和云应用强制执行基于规则的[多重身份验证](../authentication/concept-mfa-howitworks.md)，启用应用程序访问安全性。
-
-## <a name="who-uses-azure-ad"></a>谁使用 Azure AD
-Azure AD 适用于应用开发人员以及 Office 365、Azure 用户。
-
-- **面向应用开发人员。** Azure AD 通过提供与全球数百万组织所用的标识管理解决方案的集成，帮助你专注于构建应用。
-
-- **面向 Office 365 客户和 Azure 客户。** 你已在使用 Azure AD。 每个 Office 365 和 Azure 租户实际上是 Azure AD 租户，因此你可以立即开始管理用户对集成云应用的访问。
-
-## <a name="how-reliable-is-azure-ad"></a>Azure AD 的可靠性如何？
-Azure AD 的多租户、地理分布、高可用性设计意味着可以依赖它来解决最关键的业务需求。 Azure AD 通过自动故障转移在全球 28 个数据中心中运行。 这意味着即使数据中心出现故障，目录数据的副本也会存在于至少另外两个区域分散的数据中心中，并且可供即时访问。
-
-有关服务级别协议的详细信息，请参阅[服务级别协议](https://www.azure.cn/support/legal/sla/)。
-
-## <a name="choose-an-edition"></a>选择版本
-有关这些版本的定价选项，请参阅 [Azure Active Directory 定价](https://www.azure.cn/pricing/details/active-directory/)
-
+|术语或概念|说明|
+|---------------|-----------|
+|标识| 可以获得身份验证的东西。 标识可以是具有用户名和密码的用户。 标识还包括可能需要通过密钥或证书进行身份验证的应用程序或其他服务器。|
+|帐户| 具有与之关联的数据的标识。 你不能拥有没有标识的帐户。|
+|Azure AD 帐户| 通过 Azure AD 或其他 Azure 云服务（例如 Office 365）创建的标识。 标识存储在 Azure AD 中，可供组织的云服务订阅访问。 此帐户有时也称为工作或学校帐户。|
+|Azure 订阅| 用于为 Azure 云服务付费。 可以有多个订阅，这些订阅与一张信用卡关联。|
+|Azure 租户| 组织在注册 Azure、Microsoft Intune 或 Office 365 等 Azure 云服务订阅时自动创建的专用且受信任的 Azure AD 实例。 一个 Azure 租户表示一个组织。|
+|单租户| 可以将访问专用环境中的其他服务的 Azure 租户视为单租户。|
+|多租户| 可以将访问共享环境中的其他服务的 Azure 租户（跨多个组织）视为多租户。|
+|Azure AD 目录|每个 Azure 租户都有一个专用且受信任的 Azure AD 目录。 Azure AD 目录包括租户的用户、组和应用，用于针对租户资源执行标识和访问管理功能。|
+|自定义域|每个新的 Azure AD directory 都附带了一个初始域名 domainname.partner.onmschina.cn。 除了该初始名称，还可以向列表添加组织的域名，其中包括用来开展业务的名称以及用户用来访问组织资源的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 alain@contoso.com。|
+|帐户管理员|从概念上讲，此经典订阅管理员角色是订阅的账单所有者。 此角色可以访问 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)，用于管理一个帐户中的所有订阅。 有关详细信息，请参阅[经典订阅管理员角色、Azure 基于角色的访问控制 (RBAC) 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
+|服务管理员|此经典订阅管理员角色用于管理所有 Azure 资源，包括访问权限。 此角色拥有在订阅范围内分配有“所有者”角色的用户的等效访问权限。 有关详细信息，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
+|所有者|此角色有助于管理所有 Azure 资源，包括访问权限。 此角色在称为基于角色的访问控制 (RBAC) 的较新授权系统上构建，该系统可提供对 Azure 资源的精细访问管理。 有关详细信息，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
+|Azure AD 全局管理员|此管理员角色自动分配给创建 Azure AD 租户的人员。 全局管理员可以执行 Azure AD 以及与 Azure AD 联合的任意服务（例如 Exchange Online、SharePoint Online 和 Skype for Business Online）的所有管理功能。 可以有多个全局管理员，但只有全局管理员才能向用户分配管理员角色（包括分配其他全局管理员）。<br><br>**注意**<br>此管理员角色在 Azure 门户中称为“全局管理员”，但在 Microsoft Graph API、Azure AD Graph API 和 Azure AD PowerShell 中称为“公司管理员”。 <br><br>有关各种管理员角色的详细信息，请参阅 [Azure Active Directory 中的管理员角色权限](../users-groups-roles/directory-assign-admin-roles.md)。|
 
 ## <a name="next-steps"></a>后续步骤
-- [将 Azure AD 与 Windows Server Active Directory 集成](../hybrid/how-to-connect-install-express.md)。
 
-<!-- Update_Description: update metedata properties -->
+- [注册 Azure Active Directory Premium](active-directory-get-started-premium.md)
+
+- [将 Azure 订阅关联到 Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
+
+- [访问 Azure Active Directory 并创建新租户](active-directory-access-create-new-tenant.md)
+

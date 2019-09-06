@@ -12,24 +12,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/11/2018
-ms.date: 01/07/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6ef909faa2dccd8cc40e88d7452dcab65175214b
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 9b31eda37090bc7b3a9bedb7e5cad6f339691eea
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083748"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174018"
 ---
-<a name="preparemachines"></a>
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>规划和准备 Service Fabric 独立群集部署
+
+<a name="preparemachines"></a>
+
 在创建群集之前，请执行以下步骤。
 
 ## <a name="plan-your-cluster-infrastructure"></a>规划群集基础结构
 需要在“拥有的”计算机上创建 Service Fabric 群集，以便确定群集需应对的故障类型。 例如，是否需要为这些计算机单独提供电源线或 Internet 连接？ 此外，还应考虑这些计算机的物理安全性。 计算机位于何处，谁需要访问它们？ 在做出这些决定后，可以采用逻辑方式将计算机映射到多个容错域（请参阅下一步骤）。 相比于测试群集，生产群集的基础结构规划更复杂。
 
 ## <a name="determine-the-number-of-fault-domains-and-upgrade-domains"></a>确定容错域和升级域的数目
-“容错域 (FD)”是故障的物理单元，与数据中心的物理基础结构直接相关。[](service-fabric-cluster-resource-manager-cluster-description.md) 容错域由共享单一故障点的硬件组件（计算机、交换机、网络等）组成。 尽管容错域与机架之间没有 1:1 映射，但是大致上，可将每个机架视为一个容错域。
+“容错域 (FD)”是故障的物理单元，与数据中心的物理基础结构直接相关。[  ](service-fabric-cluster-resource-manager-cluster-description.md) 容错域由共享单一故障点的硬件组件（计算机、交换机、网络等）组成。 尽管容错域与机架之间没有 1:1 映射，但是大致上，可将每个机架视为一个容错域。
 
 在 ClusterConfig.json 中指定 FD 时，可以选择每个 FD 的名称。 Service Fabric 支持分层的 FD，因此，可以在 FD 中反映基础结构拓扑。  例如，以下 FD 是有效的：
 
@@ -37,7 +39,7 @@ ms.locfileid: "54083748"
 * "faultDomain": "fd:/FD1"
 * "faultDomain": "fd:/Room1/Rack1/PDU1/M1"
 
-升级域 (UD) 是节点的逻辑单元。 在 Service Fabric 协调式升级（应用程序升级或群集升级）期间，将关闭 UD 中的所有节点以执行升级，而其他 UD 中的节点仍可用来为请求提供服务。 对计算机进行的固件升级不遵循 UD，因此每次必须在一台计算机上执行此操作。
+升级域 (UD) 是节点的逻辑单元。  在 Service Fabric 协调式升级（应用程序升级或群集升级）期间，将关闭 UD 中的所有节点以执行升级，而其他 UD 中的节点仍可用来为请求提供服务。 对计算机进行的固件升级不遵循 UD，因此每次必须在一台计算机上执行此操作。
 
 领会这些概念的最简单方法是将 FD 视为非计划内故障的单元，将 UD 视为计划维护的单元。
 
@@ -66,7 +68,7 @@ ms.locfileid: "54083748"
 * 至少 40 GB 可用磁盘空间
 * 一个 4 核心或更多核心的 CPU
 * 与所有计算机的安全网络建立连接
-* 已安装 Windows Server 操作系统（有效版本：2012 R2、2016、1709 或 1803）
+* 已安装 Windows Server 操作系统（有效版本：2012 R2、2016、1709、1803 或 2019）
 * [.NET Framework 4.5.1 或更高版本](https://www.microsoft.com/download/details.aspx?id=40773)的完整安装版
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * 应在所有计算机上运行 [RemoteRegistry 服务](https://technet.microsoft.com/library/cc754820)
@@ -77,7 +79,7 @@ ms.locfileid: "54083748"
 [下载链接 - Service Fabric 独立包 - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) ，将包解压缩到群集外的一台部署计算机中或解压缩到群集内的其中一台计算机中。
 
 ## <a name="modify-cluster-configuration"></a>修改群集配置
-若要创建独立群集，必须创建独立群集配置 ClusterConfig.json 文件，其中描述群集的规范。 可以基于在以下链接中找到的模板创建配置文件。 <br>
+若要创建独立群集，必须创建独立群集配置 ClusterConfig.json 文件，其中描述群集的规范。 可以基于在以下链接中找到的模板创建配置文件。 <br />
 [独立群集配置](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 有关此文件中各个节的详细信息，请参阅 [Windows 独立群集的配置设置](service-fabric-cluster-manifest.md)。
@@ -86,8 +88,8 @@ ms.locfileid: "54083748"
 
 | **配置设置** | **说明** |
 | --- | --- |
-| **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br> 名称 - 即节点类型名称。 <br>终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。 可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。 这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。 例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br>IsPrimary - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 true），系统服务将在该主节点上运行。 应将所有其他节点类型设置为 false 值 |
-| **Nodes** |这些是群集内的每个节点的详细信息（节点类型、节点名称、IP 地址、节点的容错域和升级域）。 要在其上创建群集的计算机必须与其 IP 地址一起列在此处。 <br> 如果对所有节点使用相同的 IP 地址，则会创建一个可用于测试的单机群集。 不要将单机群集用于部署生产工作负荷。 |
+| **NodeTypes** |节点类型可让你将群集节点划分到不同的组中。 一个群集必须至少有一个节点类型。 组中的所有节点具有以下共同特征： <br /> 名称 - 即节点类型名称。  <br />终结点端口 - 即与此节点类型关联的各种命名终结点（端口）。  可以使用任何端口号，只要它们不会与此清单中的其他部分发生冲突，并且未被计算机/VM 上运行的其他应用程序使用。 <br /> 放置属性 - 即此节点类型的相应属性，可用作系统服务或你拥有的服务的放置约束。  这些属性是用户定义的键/值对，可为指定节点提供额外的元数据。 节点属性的示例包括节点是否有硬盘或图形卡、其硬盘的轴数、内核数和其他物理属性。 <br /> 容量 - 节点容量，定义特定节点提供的特定资源的名称和数量。  例如，节点可以定义名为“MemoryInMb”的指标容量，而且默认有 2048 MB 的可用内存。 这些容量在运行时使用，以确保将需要特定资源量的服务放在具有所需数量的可用资源的节点上。<br />IsPrimary - 如果定义了多个 NodeType，请确保只有一个设置为主节点（值为 true），系统服务将在该主节点上运行。   应将所有其他节点类型设置为 false 值  |
+| **Nodes** |这些是群集内的每个节点的详细信息（节点类型、节点名称、IP 地址、节点的容错域和升级域）。 要在其上创建群集的计算机必须与其 IP 地址一起列在此处。 <br /> 如果对所有节点使用相同的 IP 地址，则会创建一个可用于测试的单机群集。 不要将单机群集用于部署生产工作负荷。 |
 
 群集配置将所有设置配置到环境后，可针对群集环境对其进行测试（步骤 7）。
 
@@ -95,7 +97,7 @@ ms.locfileid: "54083748"
 
 ## <a name="environment-setup"></a>环境设置
 
-群集管理员配置 Service Fabric 独立群集时，需按照以下准则设置环境： <br>
+群集管理员配置 Service Fabric 独立群集时，需按照以下准则设置环境： <br />
 1. 创建群集的用户应对群集配置文件中作为节点列出的所有计算机具有管理员级别的安全特权。
 2. 从中创建群集的计算机以及每个群集节点计算机必须：
     * 已卸载 Service Fabric SDK
@@ -109,32 +111,32 @@ ms.locfileid: "54083748"
 3. 群集节点计算机不应为域控制器。
 4. 如果要部署的群集是安全群集，请验证是否已具备必需的安全先决条件，以及是否已根据配置进行正确配置。
 5. 如果群集计算机无法访问 Internet，请在群集配置中设置以下项：
-   * 禁用遥测：在“属性”下，设置 "enableTelemetry": false
-   * 禁用自动 Fabric 版本下载和通知当前群集版本支持即将终止：在“属性”下，设置 "fabricClusterAutoupgradeEnabled": false
-   * 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com download.microsoft.com
+    * 禁用遥测： 在“属性”下  ，设置 *"enableTelemetry": false*
+    * 禁用自动下载 Fabric 版本和禁用通知当前群集版本支持即将终止： 在“属性”  下，设置 *"fabricClusterAutoupgradeEnabled": false*
+    * 或者，如果网络 Internet 访问仅限于允许列表中的域，则需要自动升级以下域：go.microsoft.com   download.microsoft.com
 
 6. 设置适当的 Service Fabric 防病毒排除项：
 
-| **防病毒排除目录** |
-| --- |
-| Program Files\Microsoft Service Fabric |
-| FabricDataRoot（从群集配置中） |
-| FabricLogRoot（从群集配置中） |
+    | **防病毒排除目录** |
+    | --- |
+    | Program Files\Microsoft Service Fabric |
+    | FabricDataRoot（从群集配置中） |
+    | FabricLogRoot（从群集配置中） |
 
-| **防病毒排除进程** |
-| --- |
-| Fabric.exe |
-| FabricHost.exe |
-| FabricInstallerService.exe |
-| FabricSetup.exe |
-| FabricDeployer.exe |
-| ImageBuilder.exe |
-| FabricGateway.exe |
-| FabricDCA.exe |
-| FabricFAS.exe |
-| FabricUOS.exe |
-| FabricRM.exe |
-| FileStoreService.exe |
+    | **防病毒排除进程** |
+    | --- |
+    | Fabric.exe |
+    | FabricHost.exe |
+    | FabricInstallerService.exe |
+    | FabricSetup.exe |
+    | FabricDeployer.exe |
+    | ImageBuilder.exe |
+    | FabricGateway.exe |
+    | FabricDCA.exe |
+    | FabricFAS.exe |
+    | FabricUOS.exe |
+    | FabricRM.exe |
+    | FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>使用 TestConfiguration 脚本验证环境
 可以在独立包中找到 TestConfiguration.ps1 脚本。 它作为最佳做法分析器，可验证上述某些条件，并应该用作健全性检查来验证是否可以在给定环境上部署群集。 如果出现任何故障，请参阅[环境设置](service-fabric-cluster-standalone-deployment-preparation.md)下的列表进行故障排除。 

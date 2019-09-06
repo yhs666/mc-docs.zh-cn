@@ -3,7 +3,7 @@ title: 调用 Web API 的移动应用 - 获取应用的令牌 | Microsoft 标识
 description: 了解如何生成调用 Web API 的移动应用（获取应用的令牌）
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92ada69a49ebf90b714a21f93cd156e34321ee13
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 02a84a147d61adb56e00b47c6a234b4b1122d53d
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305969"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134264"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>用于调用 Web API 的移动应用 - 获取令牌
 
@@ -145,6 +145,8 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
 
 #### <a name="xamarin"></a>Xamarin
 
+以下示例演示了如何以少量的代码来以交互方式获取令牌，用于在 Microsoft Graph 中读取用户的个人资料。
+
 ```CSharp
 string[] scopes = new string["https://microsoftgraph.chinacloudapi.cn/.default"];
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
@@ -155,16 +157,52 @@ try
  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
              .ExecuteAsync();
 }
-catch(MsalUiRequiredException e)
+catch(MsalUiRequiredException)
 {
  result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 }
 ```
 
+### <a name="mandatory-parameters"></a>必需参数
+
+`AcquireTokenInteractive` 只有一个必需的参数 ``scopes``，其中包含一个定义需要令牌的范围的字符串枚举。 如果该令牌适用于 Microsoft Graph，可以在名为“权限”的部分中每个 Microsoft Graph API 的 API 参考中找到所需的范围。 例如，对于 `list the user's contacts`，需要使用范围 "User.Read", "Contacts.Read"。 另请参阅 [Microsoft Graph 权限参考](https://developer.microsoft.com/graph/docs/concepts/permissions_reference)。
+
+如果在构建应用时未指定它，则在 Android 上还需要指定父活动（使用 `.WithParentActivityOrWindow`，请参见下文），以便令牌在交互后返回到该父活动。 如果未指定父活动，则调用 `.ExecuteAsync()` 时会引发异常。
+
+### <a name="specific-optional-parameters"></a>特定的可选参数
+
+#### <a name="withprompt"></a>WithPrompt
+
+`WithPrompt()` 用于通过指定提示来控制与用户的交互
+
+<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+
+该类定义以下常量：
+
+- ``SelectAccount``：强制 STS 显示帐户选择对话框，其中包含用户已建立会话的帐户。 当应用程序开发人员想要让用户在不同的标识之间选择时，此选项非常有用。 此选项会驱动 MSAL 向标识提供者发送 ``prompt=select_account``。 这是默认的选项，它能够很好地根据可用的信息（帐户、用户会话的存在性等）提供尽量最佳的 体验。除非十分必要，否则不要更改此选项。
+- ``Consent``：应用程序开发人员可以使用此选项强制要求向用户显示许可提示，即使以前已经授予了许可。 在这种情况下，MSAL 会将 `prompt=consent` 发送到标识提供者。 此选项可用于某些注重安全的应用程序，其中的组织监管机制要求每次使用该应用程序时，都要向用户显示许可对话框。
+- ``ForceLogin``：应用程序开发人员可以使用此选项来让服务向用户显示凭据提示，即使不需要这种用户提示。 如果获取令牌失败，可以使用此选项让用户重新登录。 在这种情况下，MSAL 会将 `prompt=login` 发送到标识提供者。 同样，我们已看到此选项在某些注重安全的应用程序中使用，其中的组织监管机制要求用户每次在访问应用程序的特定部分时重新登录。
+- ``Never``（仅适用于 .NET 4.5 和 WinRT）不会提示用户，而是尝试使用隐藏的嵌入式 Web 视图中存储的 Cookie（请参阅“MSAL.NET 中的 Web 视图”）。 使用此选项可能会失败，在这种情况下，`AcquireTokenInteractive` 会引发异常来告知需要 UI 交互，你需要使用另一个 `Prompt` 参数。
+- ``NoPrompt``：不会向标识提供者发送任何提示。 此选项仅适用于 Azure AD B2C 编辑配置文件策略（请参阅 [B2C 细节](https://aka.ms/msal-net-b2c-specificities)）。
+
+#### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
+
+此修饰符在高级方案中使用，其中，你希望用户提前许可多个资源（不想要使用增量许可，这种许可通常与 MSAL.NET/Microsoft 标识平台 v2.0 配合使用）。 有关详细信息，请参阅[如何：让用户提前许可多个资源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+
+```CSharp
+var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
+                     .WithExtraScopeToConsent(scopesForVendorApi)
+                     .ExecuteAsync();
+```
+
+#### <a name="other-optional-parameters"></a>其他可选参数
+
+在 [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods) 的参考文档中详细了解 `AcquireTokenInteractive` 的所有其他可选参数
+
 ### <a name="via-the-protocol"></a>通过协议
 
-建议不要直接使用协议。 如果这样做，应用不会支持某些单一登录 (SSO) 和设备管理方案。
+建议不要直接使用协议。 如果你直接使用，则应用将不支持某些条件访问方案。
 
 使用协议获取移动应用的令牌时，需发出两个请求：获取授权代码，然后用它来换取令牌。
 
@@ -199,3 +237,4 @@ client_id=<CLIENT_ID>
 > [!div class="nextstepaction"]
 > [调用 Web API](scenario-mobile-call-api.md)
 
+<!-- Update_Description: wording update -->

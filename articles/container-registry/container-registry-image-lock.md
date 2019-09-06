@@ -3,17 +3,18 @@ title: 锁定 Azure 容器注册表中的映像
 description: 设置容器映像或存储库的属性，使之不会在 Azure 容器注册表中遭到删除或覆盖。
 services: container-registry
 author: rockboyfor
+manager: digimobile
 ms.service: container-registry
 ms.topic: article
 origin.date: 02/19/2019
-ms.date: 03/25/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3c52c67f3e1cff5f13e5f96850ba8339c51d98ed
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: d0357a04de1246261fd9e199713f0614793fa87c
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529268"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134460"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>锁定 Azure 容器注册表中的容器映像
 
@@ -23,9 +24,9 @@ ms.locfileid: "59529268"
 
 ## <a name="scenarios"></a>方案
 
-默认情况下，Azure 容器注册表中带标记的映像是可变的，因此，如果具有相应的权限，你可以反复更新带有相同标记的映像并将其推送到注册表。 还可以根据需要[删除](container-registry-delete.md)容器映像。 开发映像并需要保持注册表的大小时，此行为很有用。
+默认情况下，Azure 容器注册表中带标记的映像是可变的，因此，如果具有相应的权限，你可以反复更新带有相同标记的映像并将其推送到注册表。  还可以根据需要[删除](container-registry-delete.md)容器映像。 开发映像并需要保持注册表的大小时，此行为很有用。
 
-但是，将容器映像部署到生产环境时，可能需要不可变的容器映像。 不可变的映像是指不能意外删除或覆盖的映像。 使用 [az acr repository update][az-acr-repository-update] 命令设置存储库属性，以便可以：
+但是，将容器映像部署到生产环境时，可能需要不可变的容器映像。  不可变的映像是指不能意外删除或覆盖的映像。 使用 [az acr repository update][az-acr-repository-update] 命令设置存储库属性，以便可以：
 
 * 锁定某个映像版本或整个存储库
 
@@ -38,7 +39,7 @@ ms.locfileid: "59529268"
 ## <a name="lock-an-image-or-repository"></a>锁定映像或存储库 
 
 ### <a name="show-the-current-repository-attributes"></a>显示当前存储库属性
-若要查看存储库的当前属性，请使用下面的 [az acr repository show][az-acr-repository-show] 命令：
+若要查看存储库的当前属性，请运行以下 [az acr repository show][az-acr-repository-show] 命令：
 
 ```azurecli
 az acr repository show \
@@ -47,7 +48,7 @@ az acr repository show \
 ```
 
 ### <a name="show-the-current-image-attributes"></a>显示当前映像属性
-若要查看标记的当前属性，请使用下面的 [az acr repository show][az-acr-repository-show] 命令：
+若要查看标记的当前属性，请运行以下 [az acr repository show][az-acr-repository-show] 命令：
 
 ```azurecli
 az acr repository show \
@@ -152,10 +153,11 @@ az acr repository update \
 有关删除操作的详细信息，请参阅[删除 Azure 容器注册表中的容器映像][container-registry-delete]。
 
 <!-- LINKS - Internal -->
-[az-acr-repository-update]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-update
-[az-acr-repository-show]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show
-[az-acr-repository-show-manifests]: https://docs.azure.cn/zh-cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
-[azure-cli]: https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest
+
+[az-acr-repository-update]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-update
+[az-acr-repository-show]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show
+[az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
+[azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 [container-registry-delete]: container-registry-delete.md
 
 <!--Update_Description: wording update -->

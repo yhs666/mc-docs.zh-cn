@@ -5,17 +5,18 @@ services: service-bus-messaging
 documentationcenter: na
 author: lingliw
 manager: digimobile
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-origin.date: 09/14/2018
+origin.date: 09/02/2019
 ms.date: 10/31/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 7ec2eac7a57932bd54d987bf5f2897c0394a1e2b
-ms.sourcegitcommit: 884c387780131bfa2aab0e54d177cb61ad7070a3
+ms.openlocfilehash: 96e82bd36976017c3c214cd1612f40ca83f947d5
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65609815"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169606"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>使用服务总线消息传递改进性能的最佳实践
 
@@ -26,6 +27,7 @@ ms.locfileid: "65609815"
 以下部分介绍服务总线用以帮助提高性能的几个概念。
 
 ## <a name="protocols"></a>协议
+
 服务总线支持客户端通过以下三种协议之一发送和接收消息：
 
 1. 高级消息队列协议 (AMQP)
@@ -36,7 +38,7 @@ AMQP 和 SBMP 都很高效，因为只要存在消息工厂，就可以保持与
 
 ## <a name="reusing-factories-and-clients"></a>重用工厂和客户端
 
-[QueueClient][QueueClient] 或 [MessageSender][MessageSender] 等服务总线客户端对象是通过 [MessagingFactory][MessagingFactory] 对象创建的，该对象还提供连接的内部管理。 发送消息后，建议不关闭消息工厂或队列、主题和订阅客户端，并在发送下一条消息时再重新创建它们。 关闭消息工厂将删除与服务总线服务的连接，并且会在重新创建工厂时建立新的连接。 建立连接是一项成本高昂的操作，可通过针对多个操作重复使用相同的工厂和客户端对象来避免这一操作。 可以使用 [QueueClient][QueueClient] 对象，安全地从并发异步操作和多个线程发送消息。 
+[QueueClient][QueueClient] 或 [MessageSender][MessageSender] 等服务总线客户端对象是通过 [MessagingFactory][MessagingFactory] 对象创建的，该对象还提供连接的内部管理。 发送消息后，建议不关闭消息工厂或队列、主题和订阅客户端，并在发送下一条消息时再重新创建它们。 关闭消息工厂将删除与服务总线服务的连接，并且会在重新创建工厂时建立新的连接。 建立连接是一项成本高昂的操作，可通过针对多个操作重复使用相同的工厂和客户端对象来避免这一操作。 这些客户端对象可安全地用于并发异步操作及从多个线程安全地使用。 
 
 ## <a name="concurrent-operations"></a>并发操作
 
@@ -70,18 +72,20 @@ AMQP 和 SBMP 都很高效，因为只要存在消息工厂，就可以保持与
   ```
 
 ## <a name="receive-mode"></a>接收模式
+
 创建队列或订阅客户端时，可以指定接收模式：*Peek-lock* 或 *Receive and Delete*。 默认接收模式是 [PeekLock][PeekLock]。 在此模式下操作时，客户端发送请求以从服务总线接收消息。 客户端收到消息后，会发送完成消息的请求。
 
-将接收模式设置为 [ReceiveAndDelete][ReceiveAndDelete]时，这两个步骤将合并到单个请求中。 这些步骤减少了操作的总体数目，并可以提高总消息吞吐量。 性能提高的同时也会产生丢失消息的风险。
+如果将接收模式设置为 [ReceiveAndDelete][ReceiveAndDelete]时，这两个步骤将合并到单个请求中。 这些步骤减少了操作的总体数目，并可以提高总消息吞吐量。 性能提高的同时也会产生丢失消息的风险。
 
 服务总线不支持“接收并删除”操作的事务。 此外，在客户端想要延迟消息或将其放入[死信队列](service-bus-dead-letter-queues.md)的情况下，需要使用扫视-锁定语义。
 
 ## <a name="client-side-batching"></a>客户端批处理
+
 客户端批处理允许队列或主题客户端延迟一段时间发送消息。 如果客户端在这段时间内发送其他消息，则会将这些消息以单个批次传送。 客户端批处理还会导致队列或订阅客户端将多个**完成**请求批处理为单个请求。 批处理仅适用于异步**发送**和**完成**操作。 同步操作会立即发送到服务总线服务。 不会针对扫视或接收操作执行批处理，也不会跨客户端执行批处理。
 
-默认情况下，客户端的批处理间隔时间为 20 毫秒。 可通过在创建消息工厂之前设置 [BatchFlushInterval][BatchFlushInterval] 属性，更改批处理的间隔时间。 此设置会影响此工厂创建的所有客户端。
+默认情况下，客户端的批处理间隔时间为 20 毫秒。 可通过在创建消息工厂之前，设置 [BatchFlushInterval][BatchFlushInterval] 属性，更改批处理的间隔时间。 此设置会影响此工厂创建的所有客户端。
 
-要禁用批处理，请将 [BatchFlushInterval][BatchFlushInterval] 属性设置为 **TimeSpan.Zero**。 例如：
+要禁用批处理，则将 [BatchFlushInterval][BatchFlushInterval] 属性设置为 **TimeSpan.Zero**。 例如：
 
 ```csharp
 MessagingFactorySettings mfs = new MessagingFactorySettings();
@@ -110,7 +114,7 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 在此间隔期间发生的其他存储操作会被添加到此批中。 批量存储访问仅影响**发送**和**完成**操作；接收操作不会受到影响。 批量存储访问是实体上的一个属性。 将跨所有启用了批量存储访问的实体实施批处理。
 
-在创建新队列、主题或订阅时，默认情况下启用批量存储访问。 要禁用批量存储访问，请在创建实体之前将 [EnableBatchedOperations][EnableBatchedOperations] 属性设置为 **false** 。 例如：
+创建新队列、主题或订阅时，默认会启用批量存储访问。 要禁用批量存储访问，则在创建实体之前将 [EnableBatchedOperations][EnableBatchedOperations] 属性设置为 **false** 。 例如：
 
 ```csharp
 QueueDescription qd = new QueueDescription();
@@ -232,7 +236,7 @@ Queue q = namespaceManager.CreateQueue(qd);
 * 使用分区主题提高性能和可用性。
 
 ## <a name="next-steps"></a>后续步骤
-若要了解有关优化服务总线性能的详细信息，请参阅 [分区消息传送实体][Partitioned messaging entities]。
+若要了解有关优化服务总线性能的详细信息，请参阅 [分区消息实体][Partitioned messaging entities]。
 
 [QueueClient]: /dotnet/api/microsoft.azure.servicebus.queueclient
 [MessageSender]: /dotnet/api/microsoft.azure.servicebus.core.messagesender

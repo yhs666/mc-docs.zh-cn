@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
 origin.date: 06/27/2019
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: b87f14e796159b1b6b392c7ad737e7635b3b3dcc
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 519db3273940a4fdd044d7daabfd14ba25bcd263
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819585"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134467"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>使用 Azure Site Recovery 为多层 SharePoint 应用程序设置灾难恢复
 
@@ -135,7 +135,13 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 可以单击下面的“部署到 Azure”按钮，将最常用的 Azure Site Recovery 脚本部署到自动化帐户。 使用任何已发布的脚本时，请确保遵循脚本中的指导。
 
-[![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+> [!NOTE]
+> 选择以下 `Deploy to Azure` 后，选择 `Edit template` 并根据 Azure 中国区环境更新以下项。
+> * 在第 14 行中，将 `automationRegion` 参数的 `allowedValues` 属性替换为以下项。
+>   `chinaeast2,chinanorth,chinanorth2`
+> * 选择“保存”。
+    
+[![“部署到 Azure”](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fazure-quickstart-templates%2Fmaster%2Fasr-automation-recovery%2F%2Fazuredeploy.json)
 
 1. 将操作前脚本添加到“组 1”，以故障转移 SQL 可用性组。 使用示例脚本中发布的“ASR-SQL-FailoverAG”脚本。 确保遵循脚本中的指导，并相应地在脚本中进行所需的更改。
 
@@ -187,7 +193,7 @@ Microsoft SharePoint 是一个功能强大的应用程序，可帮助小组或�
 
 有关针对 AD 和 DNS 执行测试故障转移的指导，指参阅[针对 AD 和 DNS 的测试故障转移注意事项](site-recovery-active-directory.md#test-failover-considerations)文档。
 
-有关为 SQL Always ON 可用性组执行测试故障转移的指导，请参阅[使用 Azure Site Recovery 执行应用程序 DR 并执行测试故障转移](site-recovery-sql.md#disaster-recovery-of-application)一文。
+有关为 SQL Always ON 可用性组执行测试故障转移的指导，请参阅[使用 Azure Site Recovery 执行应用程序 DR 并执行测试故障转移](site-recovery-sql.md#disaster-recovery-of-an-application)一文。
 
 ## <a name="doing-a-failover"></a>执行故障转移
 执行故障转移时，请遵循[此指南](site-recovery-failover.md)。

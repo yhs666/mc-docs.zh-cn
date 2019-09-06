@@ -9,15 +9,15 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 origin.date: 12/18/2018
-ms.date: 04/01/2019
+ms.date: 07/23/2019
 ms.author: v-biyu
 ms.custom: seodec18
-ms.openlocfilehash: 8afc85ec5831250751dd226d2ae7559506efa8ae
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.openlocfilehash: 8973f9fadef57bf7f7baff130a363551bb892489
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348453"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104122"
 ---
 # <a name="ship-an-application"></a>交付应用程序
 
@@ -29,10 +29,10 @@ ms.locfileid: "58348453"
 
 认知服务语音 SDK 在 Windows 10 和 Windows Server 2016 上进行测试。
 
-认知服务语音 SDK 要求系统上具有 [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 可在此处下载最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2017` 安装程序：
+认知服务语音 SDK 要求系统上安装有 [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)。 可在此处下载最新版 `Microsoft Visual C++ Redistributable for Visual Studio 2019` 安装程序：
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 如果应用程序使用托管代码，则目标计算机上需要 `.NET Framework 4.6.1` 或更高版本。
 
@@ -48,21 +48,31 @@ ms.locfileid: "58348453"
 >[!NOTE]
 > 从版本 1.3.0 开始，不再需要 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 文件（在以前的版本中提供）。 此功能现在集成到核心 SDK 中。
 
+>[!NOTE]
+> 对于 Windows 窗体应用 (.NET Framework) C# 项目，请确保项目的部署设置中包含这些库。 你可以在 `Properties -> Publish Section` 下查看此内容。 单击 `Application Files` 按钮并从向下滚动列表中查找相应的库。 请确保将值设置为 `Included`。 Visual Studio 将在发布/部署项目时包含该文件。
+
 ## <a name="linux"></a>Linux
 
-Speech SDK 目前支持 Ubuntu 16.04 和 18.04 发行版。
+语音 SDK 目前支持 Ubuntu 16.04、Ubuntu 18.04 和 Debian 9 发行版。
 对于本机应用程序，需要交付语音 SDK 库 `libMicrosoft.CognitiveServices.Speech.core.so`。
 请确保选择与应用程序匹配的版本（x86、x64）。 根据 Linux 版本，可能还需要包括以下依赖项：
 
 * GNU C 库的共享库（包括 POSIX 线程编程库 `libpthreads`）
-* OpenSSL 库 (`libssl.so.1.0.0`)
+* OpenSSL 库（`libssl.so.1.0.0` 或 `libssl.so.1.0.2`）
 * ALSA 应用程序的共享库 (`libasound.so.2`)
 
 举例来说，应该已默认安装 GNU C 库。 可使用以下命令安装后三个依赖项：
 
 ```sh
 sudo apt-get update
-sudo apt-get install libssl1.0.0 libasound2 wget
+sudo apt-get install libssl1.0.0 libasound2
+```
+
+在 Debian 9 上安装以下包：
+
+```sh
+sudo apt-get update
+sudo apt-get install libssl1.0.2 libasound2
 ```
 
 ## <a name="next-steps"></a>后续步骤

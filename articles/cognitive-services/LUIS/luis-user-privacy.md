@@ -1,5 +1,5 @@
 ---
-title: 导出和删除数据
+title: 导出和删除数据 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 删除客户数据以确保隐私和合规性。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 04/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b5129fe0b7182e92f0e63ec5d479d86968ef5e4c
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: ac9e97f98a550cbd4db03943cc42181289223d0f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135977"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103852"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在认知服务中的语言理解 (LUIS) 中导出和删除客户数据
 
@@ -27,7 +27,7 @@ ms.locfileid: "67135977"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-客户内容以加密方式存储在 Azure 区域性 Azure 存储中，并且包括：
+客户内容以加密方式存储在 Microsoft 区域性 Azure 存储中，并且包括：
 
 - 在注册时收集的用户帐户内容
 - 构建模型时所需的训练数据

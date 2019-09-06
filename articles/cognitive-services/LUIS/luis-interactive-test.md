@@ -1,6 +1,6 @@
 ---
 title: 在 LUIS 门户中测试应用
-titleSuffix: Language Understanding - Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 使用语言理解 (LUIS) 持续优化应用程序并改进其语言理解能力。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f23f161a6c71a119ad3e6cbb847f2f07f2dd71d4
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 132829bdf7f63edc20100c2ad47ed0af644d5742
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544222"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104005"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>在 LUIS 门户中测试 LUIS 应用
 对应用进行<a name="train-your-app"></a>
@@ -105,12 +105,10 @@ ms.locfileid: "69544222"
 
 3. “已发布”面板打开后，选择“[其他设置](#additional-settings-in-test-panel)”   。
 
-4. 在弹出的对话框中，输入必应拼写检查服务密钥  。 
-    ![输入必应拼写检查服务密钥](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+4. 在弹出对话框中，选中“启用必应拼写检查”  并输入密钥，然后选择“完成”  。 
+    ![输入必应拼写检查服务密钥](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
 5. 输入一个拼写不正确的查询，例如 `book flite to seattle`，并按 Enter。 在发送至 LUIS 的查询中，拼写不正确的 `flite` 单词会被替换，生成的 JSON 将原始查询显示为 `query`，并将查询中更正的拼写显示为 `alteredQuery`。
-
-    ![更正的 JSON 拼写](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

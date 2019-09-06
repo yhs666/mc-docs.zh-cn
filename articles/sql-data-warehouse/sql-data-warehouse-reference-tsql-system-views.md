@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: query
 origin.date: 06/13/2018
-ms.date: 08/19/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbecf3ff3a4d244eb1ef7983422412a396267b3
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: a97bf905e8398c50991b159b29fcd963efa1e873
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544243"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131885"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库支持的系统视图
 有关 Azure SQL 数据仓库中支持的 T-SQL 语句文档的链接。
@@ -91,6 +91,7 @@ ms.locfileid: "69544243"
 * [sys.database_files](https://msdn.microsoft.com/library/ms174397.aspx)
 * [sys.database_permissions](https://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)
+* [sys.database_query_store_options](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-query-store-options-transact-sql?view=azure-sqldw-latest)
 * [sys.database_role_members](https://msdn.microsoft.com/library/ms189780.aspx)
 * [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
@@ -113,6 +114,12 @@ ms.locfileid: "69544243"
 * [sys.partition_schemes](https://msdn.microsoft.com/library/ms189752.aspx)
 * [sys.partitions](https://msdn.microsoft.com/library/ms175012.aspx)
 * [sys.procedures](https://msdn.microsoft.com/library/ms188737.aspx)
+* [sys.query_context_settings](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-context-settings-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_plan](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-plan-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-query-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_query_text](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-query-text-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql?view=azure-sqldw-latest)
+* [sys.query_store_runtime_stats_interval](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-interval-transact-sql?view=azure-sqldw-latest)
 * [sys.schemas](https://msdn.microsoft.com/library/ms176011.aspx)
 * [sys.securable_classes](https://msdn.microsoft.com/library/ms408301.aspx)
 * [sys.sql_expression_dependencies](https://msdn.microsoft.com/library/bb677315.aspx)

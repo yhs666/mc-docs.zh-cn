@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 5/6/2019
-ms.date: 08/05/2019
-ms.openlocfilehash: c87d5d82be260bcf087d114dda59c4a8f83265e1
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+origin.date: 07/31/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 7ffb35d39c4f29f42ad94e6d5fdf513a1f8ab08e
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732368"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131871"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 单一服务器中的定价层
 
@@ -52,7 +52,12 @@ ms.locfileid: "68732368"
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
 | IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
 
-在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
+在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 
+
+>[!NOTE]
+> 存储只能增加，不能减少。
+
+“基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
 
 可以通过 Azure 门户或 Azure CLI 命令监视 I/O 使用情况。 要监视的相关指标是[存储上限、存储百分比、已用存储和 IO 百分比](concepts-monitoring.md)。
 
@@ -70,9 +75,11 @@ ms.locfileid: "68732368"
 
 ### <a name="storage-auto-grow"></a>存储自动增长
 
-如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
+存储自动增长可防止服务器耗尽存储空间并变为只读。 如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
 
 例如，如果已预配 1000 GB 的存储，而实际使用量超过 950 GB，则服务器存储大小会增加到 1050 GB。 或者，如果已预配 10 GB 的存储，则当可用存储少于 1 GB 时，存储大小会增加到 15 GB。
+
+请记住，存储只能增加，不能减少。
 
 ## <a name="backup"></a>Backup
 
@@ -81,6 +88,9 @@ ms.locfileid: "68732368"
 ## <a name="scale-resources"></a>缩放资源
 
 创建服务器之后，可以独立地更改 vCore 数、硬件生成、定价层（基本层的操作除外）、存储量和备份保留期。 创建服务器之后，不能更改备份存储类型。 可以向上或向下调整 VCore 数。 备份保留期可以从 7 天到 35 天进行上下调整。 存储大小只能增加。 可以通过门户或 Azure CLI 缩放资源。 有关使用 Azure CLI 进行缩放的示例，请参阅[使用 Azure CLI 监视和缩放 Azure Database for PostgreSQL 服务器](scripts/sample-scale-server-up-or-down.md)。
+
+> [!NOTE] 
+> 存储大小只能增加。 增加后，将不能返回到更小的存储大小。
 
 更改 vCore 数、硬件生成或定价层时，将会使用新的计算分配创建原始服务器的副本。 启动并运行新服务器后，连接将切换到新服务器。 在系统切换到新服务器的短暂期间，无法建立新的连接，所有未提交的连接将会回退。 此时段不定，但大多数情况下短于一分钟。
 

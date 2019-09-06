@@ -5,17 +5,17 @@ author: kgremban
 manager: timlt
 ms.author: v-yiso
 origin.date: 06/25/2019
-ms.date: 07/22/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e663934a094ffe1c9c67dd267b90dddf50b51280
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+ms.openlocfilehash: 7ea53ad034262a2b84c391fac4550abeb2b940a6
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845174"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70173966"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>通过 Azure 门户部署 Azure IoT Edge 模块
 
@@ -53,7 +53,7 @@ Azure 门户提供部署清单的创建向导，无需你手动构建 JSON 文�
    * **Azure 流分析模块** - 仅限通过 Azure 流分析工作负荷生成的模块。 
 4. 选择“IoT Edge 模块”  。
 5. 提供模块名称，然后指定容器映像。 例如： 
-   * **名称** - tempSensor
+   * **名称** - SimulatedTemperatureSensor
    * **映像 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 6. 必要时请填写可选字段。 要详细了解容器创建选项、重启策略和所需状态，请参阅 [EdgeAgent 必需属性](module-edgeagent-edgehub.md#edgeagent-desired-properties)。 要详细了解模块孪生，请参阅[定义或更新所需属性](module-composition.md#define-or-update-desired-properties)。
 7. 选择“其他安全性验证”  。

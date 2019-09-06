@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 11/11/2016
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 3a9bd6d5336ba3fece14eba74a57cffa2879779b
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: f85e8ce53cebab8de247b377a974545a571d005d
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63847949"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104112"
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>使用 Windows PowerShell 脚本发布到开发和测试环境
 
@@ -147,7 +147,7 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
 
 如果网站具有多个部署环境（称为槽位），而并非仅在 Azure 中有单个生产站点，则可将槽位名称包括在 JSON 配置文件的网站名称中。 例如，如果某个网站的名称为 **mysite**，该网站的一个槽的名称为 **test**，则 URI 为 `mysite-test.chinacloudapp.cn`，但要在配置文件中使用的正确名称为 mysite(test)。 只有当网站和槽已在订阅中存在时，才能这样做。 如果它们不存在，请运行脚本来创建网站，而不指定槽位，然后在 [Azure 门户](https://portal.azure.cn/)中创建槽位，再使用修改的网站名称来运行脚本。 有关 Web 应用的部署槽位的详细信息，请参阅[为 Azure App Service 中的 Web 应用设置过渡环境](app-service/web-sites-staged-publishing.md)。
 
-## <a name="how-to-run-the-publish-scripts"></a>如何运行发布脚本
+## 如何运行发布脚本 <a name="customizing-and-extending-publish-scripts"></a>
 
 如果以前从未运行过 Windows PowerShell 脚本，则首先必须设置执行策略以启用要运行的脚本。 该策略是一项安全功能，旨在为运行 Windows PowerShell 脚本的用户提供防护，让其在执行脚本时免受恶意软件或病毒的攻击。
 
@@ -159,7 +159,7 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
 
     有关更多信息，请参阅[如何：在 Visual Studio 中创建 Web 部署包](https://msdn.microsoft.com/library/dd465323.aspx)。 也可以自动创建 Web 部署包，如[自定义和扩展发布脚本](#customizing-and-extending-publish-scripts)中所述。
 
-1. 在“解决方案资源管理器”中打开脚本的上下文菜单，然后选择“使用 PowerShell ISE 打开”。
+1. 在“解决方案资源管理器”中打开脚本的上下文菜单，然后选择“使用 PowerShell ISE 打开”   。
 2. 如果首次在此计算机上运行 Windows PowerShell 脚本，请使用管理员权限打开命令提示窗口并键入以下命令：
 
     ```powershell
@@ -174,9 +174,9 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
 
     出现提示时，请提供用户名和密码。
 
-    请注意，当自动编写脚本时，这一提供 Azure 凭据的方法不起作用， 而是应使用 `.publishsettings` 文件来提供凭据。 仅限一次使用 Get-AzurePublishSettingsFile 命令从 Azure 下载文件，此后则使用 Import-AzurePublishSettingsFile 导入该文件。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
+    请注意，当自动编写脚本时，这一提供 Azure 凭据的方法不起作用， 而是应使用 `.publishsettings` 文件来提供凭据。 仅限一次使用 Get-AzurePublishSettingsFile 命令从 Azure 下载文件，此后则使用 Import-AzurePublishSettingsFile 导入该文件   。 有关详细信息，请参阅[如何安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。
 
-4. （可选）如果希望创建虚拟机、数据库和网站等 Azure 资源，而不发布 Web 应用程序，请使用 Publish-WebApplication.ps1 命令以及设置为 JSON 配置文件的 -Configuration 参数。 此命令行使用 JSON 配置文件来确定要创建的资源。 由于它的其他命令行参数使用默认设置，因此它会创建资源，但不发布 Web 应用程序。 -Verbose 选项可提供有关运行情况的详细信息。
+4. （可选）如果希望创建虚拟机、数据库和网站等 Azure 资源，而不发布 Web 应用程序，请使用 Publish-WebApplication.ps1 命令以及设置为 JSON 配置文件的 -Configuration 参数   。 此命令行使用 JSON 配置文件来确定要创建的资源。 由于它的其他命令行参数使用默认设置，因此它会创建资源，但不发布 Web 应用程序。 -Verbose 选项可提供有关运行情况的详细信息。
 
     ```powershell
     Publish-WebApplication.ps1 -Verbose -Configuration C:\Path\WebProject-WAWS-dev.json
@@ -192,7 +192,7 @@ JSON 文件是在 **Configurations** 文件夹中创建的，其中包含的配�
     -Verbose
     ```
 
-    若要创建虚拟机，则命令类似于以下形式。 此示例还显示了如何为多个数据库指定凭据。 对于这些脚本创建的虚拟机，SSL 证书不是来自受信任的根证书颁发机构。 因此，需要使用 -AllowUntrusted 选项。
+    若要创建虚拟机，则命令类似于以下形式。 此示例还显示了如何为多个数据库指定凭据。 对于这些脚本创建的虚拟机，SSL 证书不是来自受信任的根证书颁发机构。 因此，需要使用 -AllowUntrusted 选项  。
 
     ```powershell
     Publish-WebApplication.ps1 `
@@ -307,7 +307,7 @@ return $WebDeployPackage
     要自动测试应用程序，请将代码添加到 `Test-WebApplication`。 请务必取消注释 **Publish-WebApplication.ps1** 中调用这些函数的行。 如果不提供实现，则可以使用 Visual Studio 手动生成项目，并运行发布脚本来发布到 Azure。
 
 ## <a name="publishing-function-summary"></a>发布函数摘要
-若要获取可在 Windows PowerShell 命令提示符处使用的函数的相关帮助，请使用 `Get-Help function-name`命令。 帮助中包含参数帮助和示例。 脚本源文件 AzureWebAppPublishModule.psm1 和 Publish-WebApplication.ps1 中也提供了相同的帮助文本。 脚本和帮助已使用 Visual Studio 语言本地化。
+若要获取可在 Windows PowerShell 命令提示符处使用的函数的相关帮助，请使用 `Get-Help function-name`命令。 帮助中包含参数帮助和示例。 脚本源文件 AzureWebAppPublishModule.psm1  和 Publish-WebApplication.ps1  中也提供了相同的帮助文本。 脚本和帮助已使用 Visual Studio 语言本地化。
 
 **AzureWebAppPublishModule**
 
@@ -316,7 +316,7 @@ return $WebDeployPackage
 |--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |         Add-AzureSQLDatabase         |                                                                                                                                                                                                                                                                             创建新的 Azure SQL 数据库。                                                                                                                                                                                                                                                                              |
 |        Add-AzureSQLDatabases         |                                                                                                                                                                                                                                          基于 Visual Studio 生成的 JSON 配置文件中的值创建 Azure SQL 数据库。                                                                                                                                                                                                                                          |
-|             Add-AzureVM              |                                                                                                                                                                                        创建 Azure 虚拟机并返回所部署 VM 的 URL。 该函数将设置先决条件，然后调用 New-AzureVM 函数（Azure 模块）来创建新的虚拟机。                                                                                                                                                                                         |
+|             Add-AzureVM              |                                                                                                                                                                                        创建 Azure 虚拟机并返回所部署 VM 的 URL。 该函数将设置先决条件，然后调用 New-AzureVM 函数（Azure 模块）来创建新的虚拟机  。                                                                                                                                                                                         |
 |         Add-AzureVMEndpoints         |                                                                                                                                                                                                                                            将新的输入终结点添加到虚拟机，并返回包含新终结点的虚拟机。                                                                                                                                                                                                                                            |
 |          Add-AzureVMStorage          |                                                                                                                                               在当前订阅中创建新的 Azure 存储帐户。 该帐户的名称以“devtest”开头，后接一个唯一的字母数字字符串。 该函数返回新存储帐户的名称。 为新的存储帐户指定位置或地缘组。                                                                                                                                               |
 |           Add-AzureWebsite           |                                                                                                                                      使用特定的名称和位置创建网站。 此函数调用 Azure 模块中的 **New-AzureWebsite** 函数。 如果订阅尚未包含具有指定名称的网站，此函数会创建该网站并返回一个网站对象。 否则返回 `$null`。                                                                                                                                      |
@@ -336,8 +336,8 @@ return $WebDeployPackage
 |            Test-HttpsUrl             |                                                                                                                                                                              将输入 URL 转换为 System.Uri 对象。 如果 URL 是绝对的并且其方案为 https，则返回 `$True` 。 如果 URL 是相对的并且其方案不是 HTTPS，或如果无法将输入字符串转换为 URL，则返回 `$false` 。                                                                                                                                                                              |
 |             Test-Member              |                                                                                                                                                                                                                                              如果某个属性或方法是对象的成员，则返回 `$true` 。 否则返回 `$false`。                                                                                                                                                                                                                                               |
 |         Write-ErrorWithTime          |                                                                                                                                                                                               写入以当前时间作为前缀的错误消息。 将消息写入错误流前，此函数会调用 **Format-DevTestMessageWithTime** 函数来添加时间前缀。                                                                                                                                                                                               |
-|          Write-HostWithTime          |                                                                                                                                                                                将以当前时间作为前缀的消息写入主机程序 (Write-Host)。 写入主机程序的效果各不相同。 大多数托管 Windows PowerShell 的程序会将这些消息写入标准输出。                                                                                                                                                                                 |
-|        Write-VerboseWithTime         |                                                                                                                                                                      写入以当前时间作为前缀的详细消息。 由于该函数调用 Write-Verbose，因此，仅当使用 Verbose 参数运行脚本，或者将 VerbosePreference 首选项设置为 Continue 时，才显示该消息。                                                                                                                                                                       |
+|          Write-HostWithTime          |                                                                                                                                                                                将以当前时间作为前缀的消息写入主机程序 (Write-Host)  。 写入主机程序的效果各不相同。 大多数托管 Windows PowerShell 的程序会将这些消息写入标准输出。                                                                                                                                                                                 |
+|        Write-VerboseWithTime         |                                                                                                                                                                      写入以当前时间作为前缀的详细消息。 由于该函数调用 Write-Verbose，因此，仅当使用 Verbose 参数运行脚本，或者将 VerbosePreference 首选项设置为 Continue 时，才显示该消息     。                                                                                                                                                                       |
 
 **Publish-WebApplication**
 

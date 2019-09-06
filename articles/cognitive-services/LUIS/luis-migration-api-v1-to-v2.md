@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 04/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b08ad533fe01e88fdbd492b46eb7b7c7bb9a7f3d
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: da3da0bd9c0c4d8891f36f19d259ec0e4aba1c76
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135724"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103993"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 应用的 API v1 到 v2 迁移指南
 第 1 版[终结点](https://aka.ms/v1-endpoint-api-docs)和[创作](https://aka.ms/v1-authoring-api-docs) API 已弃用。 使用此指南学习如何迁移至第 2 版[终结点](https://aka.ms/luis-endpoint-apis)和[创作](https://aka.ms/luis-authoring-apis) API。 

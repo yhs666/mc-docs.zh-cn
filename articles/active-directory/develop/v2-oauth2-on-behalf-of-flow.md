@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/05/2019
-ms.date: 07/01/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6735b0549677c15a76cbd5865191e7b9aa917657
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 209f6dbc311e10773045d78e63a3aa6dbb148e6e
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568668"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134213"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft 标识平台和 OAuth 2.0 代理流
 
@@ -34,7 +34,7 @@ OAuth 2.0 代理流 (OBO) 适用于这样的用例：应用程序调用某个服
 
 > [!NOTE]
 >
-> - Microsoft 标识平台终结点并非支持所有方案和功能。 若要确定是否应使用 Microsoft 标识平台终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。 具体而言，具有 Microsoft 帐户 (MSA) 和 Azure AD 受众的应用不支持已知的客户端应用程序。 因此，OBO 的常见许可模式不适用于登录工作或学校帐户的客户端。 若要详细了解如何处理该流的此步骤，请参阅[为中间层应用程序获得同意](#gaining-consent-for-the-middle-tier-application)。
+> - Microsoft 标识平台终结点并非支持所有方案和功能。 若要确定是否应使用 Microsoft 标识平台终结点，请阅读 [Microsoft 标识平台限制](azure-ad-endpoint-comparison.md)。 具体而言，具有 Azure AD 受众的应用不支持已知的客户端应用程序。 因此，OBO 的常见许可模式不适用于登录工作或学校帐户的客户端。 若要详细了解如何处理该流的此步骤，请参阅[为中间层应用程序获得同意](#gaining-consent-for-the-middle-tier-application)。
 > - 自 2018 年 5 月起，派生 `id_token` 的某些隐式流不能用于 OBO 流。 单页应用 (SPA) 应改为将**访问**令牌传递给中间层机密客户端，才能执行 OBO 流。 有关哪些客户端可以执行 OBO 调用的详细信息，请参阅[限制](#client-limitations)。
 
 ## <a name="protocol-diagram"></a>协议图
@@ -43,7 +43,7 @@ OAuth 2.0 代理流 (OBO) 适用于这样的用例：应用程序调用某个服
 
 所遵循的步骤构成 OBO 流，并借助以下关系图进行说明。
 
-![OAuth2.0 代理流](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![显示 OAuth2.0 代理流](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. 客户端应用程序使用令牌 A（其中包含 API A 的 `aud` 声明）向 API A 发出请求。
 1. API A 向 Microsoft 标识平台令牌颁发终结点进行身份验证并请求访问 API B 的令牌。
@@ -224,4 +224,4 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 * [Microsoft 标识平台中的 OAuth 2.0 代码流](v2-oauth2-auth-code-flow.md)
 * [使用 `/.default` 范围](v2-permissions-and-consent.md#the-default-scope)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

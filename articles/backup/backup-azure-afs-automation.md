@@ -5,14 +5,14 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/21/19
+ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7e7bb9fbee35c65ac28af30b7fd2536b7f39ff8f
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 3ac7b5c3329cb29f915a25c229e9a85a473034a7
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818493"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103706"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 备份和还原 Azure 文件
 
@@ -128,7 +128,7 @@ Get-AzRecoveryServicesVault
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
-Location          : WestUS
+Location          : China North
 ResourceGroupName : Contoso-docs-rg
 SubscriptionId    : 1234-567f-8910-abc
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
@@ -150,10 +150,11 @@ Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultConte
 
 ### <a name="fetch-the-vault-id"></a>提取保管库 ID
 
-我们已计划根据 Azure PowerShell 指导原则弃用保管库上下文设置。 你可以改为存储或提取保管库 ID，并将其传递给相关命令，如下所示：
+我们已计划根据 Azure PowerShell 指导原则弃用保管库上下文设置。 可以改为存储或提取保管库 ID，并将其传递给相关命令。 因此，如果你尚未设置保管库上下文或想要指定为某个保管库运行的命令，请将保管库 ID 作为“-vaultID”传递给所有相关命令，如下所示：
 
 ```powershell
 $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
+New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType "AzureFiles" -RetentionPolicy $retPol -SchedulePolicy $schPol -VaultID $vaultID
 ```
 
 ## <a name="configure-a-backup-policy"></a>配置备份策略
@@ -164,6 +165,18 @@ $vaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Nam
 - 使用 [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject?view=azps-1.4.0) 查看默认的备份保留策略。
 - 使用 [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject?view=azps-1.4.0) 查看默认的备份策略计划。
 -  使用 [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy?view=azps-1.4.0) cmdlet 创建新的备份策略。 输入计划和保留策略对象。
+
+默认情况下，会在“计划策略对象”中定义开始时间。 请使用以下示例将开始时间更改为所需的开始时间。 所需的开始时间也应采用 UTC 格式。 以下示例假设在进行每日备份时，所需的开始时间为 UTC 时间凌晨 1:00。
+
+```powershell
+$schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureFiles"
+$UtcTime = Get-Date -Date "2019-03-20 01:30:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+> [!IMPORTANT]
+> 只需以 30 分钟的倍数提供开始时间。 在上面的示例中，开始时间只能是“01:00:00”或“02:30:00”。 开始时间不能为“01:15:00”
 
 以下示例将计划策略和保留策略存储在变量中。 然后，它使用这些变量作为新策略 (**NewAFSPolicy**) 的参数。 “NewAFSPolicy”进行每日备份，并将其保留 30 天  。
 
@@ -178,10 +191,8 @@ New-AzRecoveryServicesBackupProtectionPolicy -Name "NewAFSPolicy" -WorkloadType 
 ```powershell
 Name                 WorkloadType       BackupManagementType BackupTime                DaysOfWeek
 ----                 ------------       -------------------- ----------                ----------
-NewAFSPolicy           AzureFiles            AzureStorage              10/24/2017 1:30:00 AM
+NewAFSPolicy           AzureFiles            AzureStorage              10/24/2019 1:30:00 AM
 ```
-
-
 
 ## <a name="enable-backup"></a>启用备份
 
@@ -260,6 +271,12 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 ```
 
 创建备份时使用 Azure 文件共享快照，因此通常作业在命令返回此输出时完成。
+
+### <a name="using-on-demand-backups-to-extend-retention"></a>使用按需备份延长保留期
+
+可以使用按需备份将快照保留 10 年。 计划程序可用于运行可选择保留期的按需 PowerShell 脚本，从而每周、每月或每年定期拍摄快照。 拍摄定期快照时，请参阅[使用 Azure 备份进行按需备份的限制](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-)。
+
+如果你正在寻找示例脚本，可以参考 github 上的示例脚本 (https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup) ，该脚本使用 Azure 自动化 Runbook，可让你定期计划备份，甚至最多保留 10 年。
 
 ### <a name="modify-the-protection-policy"></a>修改保护策略
 

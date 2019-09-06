@@ -5,22 +5,22 @@ services: service-bus-messaging
 documentationcenter: php
 author: lingliw
 manager: digimobile
-editor: ''
+editor: spelluru
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-origin.date: 09/06/2018
-ms.date: 10/31/2018
+origin.date: 09/02/2019
+ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af6dee30f0669bc17ab61b6f51de0795f003fc84
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 82f3c861f7fa83f8d2c93aa7b5dc7df2af263a1f
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544360"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169602"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>如何通过 PHP 使用服务总线主题和订阅
 
@@ -53,10 +53,24 @@ ms.locfileid: "69544360"
 
 ## <a name="get-the-azure-client-libraries"></a>获取 Azure 客户端库
 
-[!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
+### <a name="install-via-composer"></a>通过 Composer 安装
+1. 在项目的根目录中创建一个名为 **composer.json** 的文件并向其添加以下代码：
+   
+    ```json
+    {
+      "require": {
+        "microsoft/windowsazure": "*"
+      }
+    }
+    ```
+2. 将 **[composer.phar][composer-phar]** 下载到项目根目录中。
+3. 打开命令提示符并在项目根目录中执行以下命令
+   
+    ```
+    php composer.phar install
+    ```
 
 ## <a name="configure-your-application-to-use-service-bus"></a>配置应用程序以使用服务总线
-
 若要使用服务总线 API：
 
 1. 使用 [require_once][require-once] 语句引用 autoloader 文件。
@@ -70,7 +84,7 @@ ms.locfileid: "69544360"
 > 
 
 ```php
-require_once 'vendor\autoload.php';
+require_once 'vendor/autoload.php';
 use WindowsAzure\Common\ServicesBuilder;
 ```
 
@@ -97,7 +111,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 ```php
 require_once 'vendor/autoload.php';
 
-    use WindowsAzure\Common\ServicesBuilder;
+use WindowsAzure\Common\ServicesBuilder;
 
 $connectionString = "Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[Primary Key]";
 
@@ -119,7 +133,7 @@ use WindowsAzure\ServiceBus\Models\TopicInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try {       
+try {
     // Create topic.
     $topicInfo = new TopicInfo("mytopic");
     $serviceBusRestProxy->createTopic($topicInfo);
@@ -143,7 +157,7 @@ catch(ServiceException $e){
 主题订阅也是使用 `ServiceBusRestProxy->createSubscription` 方法创建的。 订阅已命名，并且具有一个限制传递到订阅的虚拟队列的消息集的可选筛选器。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
-如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll  筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为“mysubscription”的订阅，并使用默认的 **MatchAll** 筛选器。
+如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll  筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建名为 `mysubscription` 的订阅，并使用默认的 **MatchAll** 筛选器。
 
 ```php
 require_once 'vendor/autoload.php';
@@ -155,7 +169,7 @@ use WindowsAzure\ServiceBus\Models\SubscriptionInfo;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+try {
     // Create subscription.
     $subscriptionInfo = new SubscriptionInfo("mysubscription");
     $serviceBusRestProxy->createSubscription("mytopic", $subscriptionInfo);
@@ -221,7 +235,7 @@ use WindowsAzure\ServiceBus\Models\BrokeredMessage;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {
+try {
     // Create message.
     $message = new BrokeredMessage();
     $message->setBody("my message");
@@ -327,7 +341,7 @@ use WindowsAzure\Common\ServiceException;
 // Create Service Bus REST proxy.
 $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($connectionString);
 
-try    {        
+try {
     // Delete topic.
     $serviceBusRestProxy->deleteTopic("mytopic");
 }
@@ -350,8 +364,8 @@ $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ## <a name="next-steps"></a>后续步骤
 有关详细信息，请参阅[队列、主题和订阅][Queues, topics, and subscriptions]。
 
-[BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage
+[BrokeredMessage]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[sqlfilter]: /dotnet/api/microsoft.servicebus.messaging.sqlfilter#microsoft_servicebus_messaging_sqlfilter
-[require-once]: http://php.net/require_once
-[Service Bus quotas]: ./service-bus-quotas.md
+[sqlfilter]: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter
+[require-once]: https://php.net/require_once
+[Service Bus quotas]: service-bus-quotas.md

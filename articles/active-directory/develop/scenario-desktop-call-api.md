@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d66f785a2448998fade918a8ee7b6b333fdf238
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 8889136773bb3eb48836c2d2c20d8cb064cf9b51
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306025"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134106"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>调用 Web API 的桌面应用 - 调用 Web API
 
@@ -35,7 +35,7 @@ ms.locfileid: "67306025"
 More includes will come later for Python and Java
 -->
 
-## <a name="calling-several-apis---incremental-consent"></a>调用若干 API - 增量许可
+## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>调用若干 API - 增量许可和条件访问
 
 如果你需要为同一用户调用多个 API，则在获得了第一个 API 的令牌后，就可以直接调用 `AcquireTokenSilent`，在大多数情况下你将以无提示方式获取其他 API 的令牌。
 
@@ -72,5 +72,6 @@ catch(MsalUiRequiredException ex)
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [移到生产环境](scenario-desktop-production.md)
+> [转移到生产环境](scenario-desktop-production.md)
 
+<!-- Update_Description: wording update -->

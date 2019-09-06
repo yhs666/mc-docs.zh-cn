@@ -9,29 +9,37 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f0551d0baa8489825352d19dc9bed148691c3ba7
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 72abbd382ea0ad1bbe83d76d5f79b1d3140ed08a
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544099"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104034"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 应用的企业策略
 查看企业应用的设计策略。
 
 ## <a name="when-you-expect-luis-requests-beyond-the-quota"></a>LUIS 请求超出配额
-如果 LUIS 应用请求率超过了允许的[配额率](https://www.azure.cn/pricing/details/cognitive-services/)，请将负载分散至多个具有[相同应用定义](#use-multiple-apps-with-same-app-definition)的 LUIS 应用，或创建多个密钥并将这些密钥[分配](#assign-multiple-luis-keys-to-same-app)至该应用。 
+
+LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。 
+
+如果 LUIS 应用请求速率超过了允许的[配额速率](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)，你可以：
+
+* 将负载分散到更多具有[相同应用定义](#use-multiple-apps-with-same-app-definition)的 LUIS 应用。 这包括从[容器](luis-container-howto.md)运行 LUIS（可选）。 
+* 创建[多个密钥](#assign-multiple-luis-keys-to-same-app)并将其分配给应用。 
 
 ### <a name="use-multiple-apps-with-same-app-definition"></a>使用多个具有相同应用定义的应用
-导出原始 LUIS 应用，然后将该应用导入回单独的应用。 每个应用都有其自己的应用 ID。 在发布时，请为每个应用创建单独的密钥，而不是对所有应用使用相同的密钥。 均衡所有应用的负载，避免单个应用处于过载状态。 
+导出原始 LUIS 应用，然后将该应用导入回单独的应用。 每个应用都有其自己的应用 ID。 在发布时，请为每个应用创建单独的密钥，而不是对所有应用使用相同的密钥。  
 
 若要在所有应用之间获取同样的最高意向，请确保第一意向和第二意向之间的差距足够大，不会让 LUIS 混淆，针对陈述中微小的变化在应用间给出不同的结果。 
 
+训练这些同级应用时，请确保[使用所有数据进行训练](luis-how-to-train.md#train-with-all-data)。
+
 将单个应用指定为主应用。 建议查看的任何陈述都应添加到主应用，然后移回所有其他应用。 这是应用的一次完整导出，或是将主应用中已标记的陈述加载到子级。 可从 [LUIS](luis-reference-regions.md) 网站或者[单个话语](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08)或[批量话语](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)的创作 API 完成加载。 
 
-计划定期（例如每两周一次）[查看终结点陈述](luis-how-to-review-endpoint-utterances.md)以进行主动学习，然后重新训练并重新发布。 
+计划定期评审（例如每两周一次）[终结点话语](luis-how-to-review-endpoint-utterances.md)以进行主动学习，然后重新训练并重新发布。 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>将多个 LUIS 密钥分配到相同的应用
 如果 LUIS 应用接收到的终结点命中数超过了单个密钥的配额，请创建更多密钥并将它们分配到该 LUIS 应用。 创建流量管理器或负载均衡器，管理这些终结点密钥间的终结点查询。 
@@ -54,7 +62,7 @@ ms.locfileid: "69544099"
 
 在 LUIS 中使用应用列表中名为 `Dispatch` 的版本记录父域。 
 
-聊天机器人接收陈述，然后发送至父 LUIS 应用进行预测。 父应用中的最高预测意向决定下一个要调用的子 LUIS 应用。 聊天机器人将该陈述发送至子应用进行更具体的预测。
+聊天机器人接收话语，然后发送至父 LUIS 应用进行预测。 父应用中的最高预测意向决定下一个要调用的 LUIS 子应用。 聊天机器人将话语发送至子应用进行更具体的预测。
 
 了解如何从 Bot Builder v4 [dispatcher-application-tutorial][dispatcher-application-tutorial] 生成这个调用层次结构。  
 

@@ -1,6 +1,6 @@
 ---
-title: 温度预生成实体
-titleSuffix: Azure
+title: 温度预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的温度预构建实体信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8665bef0297cc51688338eca9680079804cad9f3
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 9c45222f3afe4f2e248fd0884ff9407353fd0195
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332136"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103971"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的温度预生成实体
 “温度”提取了各种温度类型。 此实体已定型，因此不需要将包含温度的陈述示例添加到应用程序中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在温度实体。 

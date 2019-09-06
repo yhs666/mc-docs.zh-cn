@@ -5,22 +5,26 @@ services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 03/21/2018
-ms.date: 12/24/2018
+origin.date: 08/14/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: 34e0a99001c7015e24b443cb4886b1b41903c21c
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.openlocfilehash: 27cabf58d4b77f37b550e8ecc59666c4eb221183
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "63821021"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131717"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### <a name="can-i-use-my-own-internal-pki-root-ca-for-point-to-site-connectivity"></a>是否可以将我自己的内部 PKI 根 CA 用于点到站点连接？
+### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>是否可以使用自己的内部 PKI 根 CA 来生成用于点到站点连接的证书？
 
 是的。 以前只可使用自签名根证书。 仍可上传 20 个根证书。
+
+### <a name="can-i-use-certificates-from-azure-key-vault"></a>是否可以使用 Azure 密钥保管库中的证书？
+
+否。
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>可以使用哪些工具来创建证书？
 

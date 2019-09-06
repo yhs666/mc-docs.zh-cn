@@ -1,6 +1,6 @@
 ---
-title: 序号预生成实体
-titleSuffix: Azure
+title: 序号预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的序号预构建实体的信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d07d552260beb16fef515e97742e5aec2fd37819
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fe2c9890104ba2a744d9c7603dff4fab1c4d8a8f
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818440"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103880"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的序号预生成实体
 序号是一个集合内的对象的数字表示形式：`first`、`second`、`third`。 此实体已定型，因此不需要将包含序号的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持序号实体。 

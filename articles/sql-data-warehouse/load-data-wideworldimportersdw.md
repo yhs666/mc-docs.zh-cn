@@ -11,12 +11,12 @@ origin.date: 04/17/2018
 ms.date: 08/19/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: e160a3c582c38d881b4145fa7647553fc6c1e4de
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 3d74eccfc1351c89938cd55804ca6f666e8aa580
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544377"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131882"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>教程：将数据加载到 Azure SQL 数据仓库
 
@@ -45,7 +45,7 @@ ms.locfileid: "69544377"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](memory-and-concurrency-limits.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+使用一组定义好的[计算资源](memory-and-concurrency-limits.md)创建 Azure SQL 数据仓库。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "69544377"
 
 3. 使用以下信息填写“SQL 数据仓库”表单：   
 
-   | 设置 | 建议的值 | 说明 | 
+   | 设置 | 建议的值 | 说明 | 
    | ------- | --------------- | ----------- | 
    | **数据库名称** | SampleDW | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 | 
    | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
@@ -68,7 +68,7 @@ ms.locfileid: "69544377"
 
 4. 单击“服务器”，为新数据库创建并配置新服务器。  使用以下信息填写“新建服务器”窗体：  
 
-    | 设置 | 建议的值 | 说明 | 
+    | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- |
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
     | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
@@ -79,9 +79,9 @@ ms.locfileid: "69544377"
 
 5. 单击“选择”。 
 
-6. 单击“性能层”  ，指定是否针对弹性或计算，以及数据仓库单位对数据仓库进行优化。 
+6. 单击“性能层”  ，指定数据仓库是 Gen1 还是 Gen2，以及数据仓库单位的数量。 
 
-7. 对于本教程，选择“针对弹性进行优化”  服务层级。 默认情况下，滑块设置为“DW400”  。  请尝试上下移动滑块，以查看其工作原理。 
+7. 对于本教程，请选择 **Gen1** 服务层。 默认情况下，滑块设置为“DW400”  。  请尝试上下移动滑块，以查看其工作原理。 
 
     ![配置性能](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -147,7 +147,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 2. 在“连接到服务器”对话框中，输入以下信息： 
 
-    | 设置      | 建议的值 | 说明 | 
+    | 设置      | 建议的值 | 说明 | 
     | ------------ | --------------- | ----------- | 
     | 服务器类型 | 数据库引擎 | 此值是必需的 |
     | 服务器名称 | 完全限定的服务器名称 | 例如，**sample-svr.database.chinacloudapi.cn** 就是完全限定的服务器名称。 |
@@ -232,7 +232,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     CREATE MASTER KEY;
     ```
 
-4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) 语句，定义 Azure Blob 的位置。 这是外部出租车数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”  。
+4. 运行以下 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql) 语句，定义 Azure Blob 的位置。 这是外部全球进口商数据的位置。  要运行追加到查询窗口的命令，请突出显示要运行的命令，然后单击“执行”  。
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -1095,7 +1095,7 @@ SQL 数据仓库通过将数据缓存到每个计算节点来复制表。 针对
 
 请按照下列步骤按需清理资源。
 
-1. 登录 [Azure 门户](https://portal.azure.cn)，单击数据仓库。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，单击数据仓库。
 
     ![清理资源](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 

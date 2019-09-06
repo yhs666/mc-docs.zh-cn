@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7cb4f29aabdf72e5a01786dcd4b34027b773a35
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: e8812914c9e2f50b8b50972329b03b535658bbcf
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305876"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134101"
 ---
 # <a name="web-app-that-signs-in-users---app-registration"></a>用于登录用户的 Web 应用 - 应用注册
 
@@ -49,14 +49,14 @@ ms.locfileid: "67305876"
 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
 1. 在左侧导航窗格中，选择“Azure Active Directory”服务  ，然后选择“应用注册” > “新建注册”。  
 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
-   - 为应用程序选择支持的帐户类型（请参阅[支持的帐户类型](./v2-supported-account-types.md)）
-   - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `AspNetCore-WebApp`。
-   - 在“回复 URL”中添加应用的回复 URL，例如 `https://localhost:44321/`，然后选择“注册”。  
+   1. 为应用程序选择支持的帐户类型（请参阅[支持的帐户类型](./v2-supported-account-types.md)）
+   1. 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `AspNetCore-WebApp`。
+   1. 在**重定向 URI** 中，添加将在成功进行身份验证后接受返回的令牌响应的应用程序类型和 URI 目标。 例如，`https://localhost:44321/`。  选择“注册”  。
 1. 选择“身份验证”菜单，然后添加以下信息  ：
-- 在“回复 URL”中添加 `https://localhost:44321/signin-oidc`，然后选择“注册”。  
-- 在“高级设置”  部分，将“注销 URL”设置为 `https://localhost:44321/signout-oidc`。 
-- 在“隐式授权”下，勾选“ID 令牌”。  
-- 选择“其他安全性验证”  。
+   1. 在“答复 URL”中添加 `https://localhost:44321/signin-oidc`。 
+   1. 在“高级设置”  部分，将“注销 URL”设置为 `https://localhost:44321/signout-oidc`。 
+   1. 在“隐式授权”下，勾选“ID 令牌”。  
+   1. 选择“其他安全性验证”  。
 
 ### <a name="register-an-app-using-powershell"></a>使用 PowerShell 注册应用
 
@@ -72,3 +72,4 @@ ms.locfileid: "67305876"
 > [!div class="nextstepaction"]
 > [应用的代码配置](scenario-web-app-sign-user-app-configuration.md)
 
+<!-- Update_Description: wording update -->

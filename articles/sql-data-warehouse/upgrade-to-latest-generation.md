@@ -11,12 +11,12 @@ origin.date: 02/19/2019
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a28c54ee208a1c70f9a2540225a81face9fbc6c
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 9513ec90ad1209606d8c82824236110760024366
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195189"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131866"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>通过升级 SQL 数据仓库优化性能
 

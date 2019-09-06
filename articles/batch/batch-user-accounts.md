@@ -12,16 +12,26 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/12/19
+origin.date: 08/26/2019
+ms.date: 05/22/2017
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: b93840f315c55869349ed2f15932738b84511e93
-ms.sourcegitcommit: f9d082d429c46cee3611a78682b2fc30e1220c87
+ms.openlocfilehash: 393be0ba2cd189c0fa8cb216f09fe816552c9613
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59566331"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104137"
 ---
+> [!NOTE] 
+> 出于安全原因，本文中所述的用户帐户与用于远程桌面协议 (RDP) 或安全外壳 (SSH) 的用户帐户不同。 
+>
+> 若要通过 SSH 连接到运行 Linux 虚拟机配置的节点，请参阅[使用远程桌面连接到 Azure 中的 Linux VM](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)。 若要通过 RDP 连接到运行 Windows 的节点，请参阅[连接到 Windows Server VM](../virtual-machines/windows/connect-logon.md)。<br /><br />
+> 若要通过 RDP 连接到运行云服务配置的节点，请参阅[为 Azure 云服务中的角色启用远程桌面连接](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)。
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>在 Batch 中的用户帐户下运行任务
 
 Azure Batch 中的任务始终在用户帐户下运行。 默认情况下，任务在没有管理员权限的标准用户帐户下运行。 这些默认用户帐户设置通常足以满足操作需要。 但是，对于某些方案，如果能够配置用于运行任务的用户帐户，则会很有帮助。 本文介绍用户帐户的类型以及如何为方案配置这些帐户。
@@ -36,14 +46,6 @@ Azure Batch 提供两种类型的用户帐户来运行任务：
 
 > [!IMPORTANT] 
 > Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，你需要更新代码才能调用该版本。 如果你要从旧版 Batch 迁移代码，请注意，REST API 或 Batch 客户端库不再支持 **runElevated** 属性。 请使用任务的新 **userIdentity** 属性指定提升级别。 有关使用某个客户端库时如何更新 Batch 代码的快速指导，请参阅标题为[将代码更新到最新的 Batch 客户端库](#update-your-code-to-the-latest-batch-client-library)的部分。
->
->
-
-> [!NOTE] 
-> 出于安全原因，本文中所述的用户帐户不支持远程桌面协议 (RDP) 或安全外壳 (SSH)。 
->
-> 若要通过 SSH 连接到运行 Linux 虚拟机配置的节点，请参阅[使用远程桌面连接到 Azure 中的 Linux VM](../virtual-machines/virtual-machines-linux-use-remote-desktop.md)。 若要通过 RDP 连接到运行 Windows 的节点，请参阅[连接到 Windows Server VM](../virtual-machines/windows/connect-logon.md)。<br /><br />
-> 若要通过 RDP 连接到运行云服务配置的节点，请参阅[为 Azure 云服务中的角色启用远程桌面连接](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md)。
 >
 >
 
@@ -335,5 +337,5 @@ Batch 服务版本 2017-01-01.4.0 引入了一项重大更改，已将早期版�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
+* 有关 Batch 深入概述的信息，请参阅[使用 Batch 开发大规模并行计算解决方案](batch-api-basics.md)。
 <!-- Update_Description: wording update -->

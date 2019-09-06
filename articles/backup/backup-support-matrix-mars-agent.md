@@ -1,19 +1,18 @@
 ---
-title: 使用 Azure 备份对运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机进行备份的支持矩阵
+title: Microsoft Azure 恢复服务 (MARS) 代理的支持矩阵 - Azure 备份
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
-services: backup
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: v-lingwu
-ms.openlocfilehash: a882968925a880cec2f4578019c8a8edc4d633ea
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 364fd34b9b7dbae2e32b30e3c49c8e92548012f7
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818462"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104144"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 

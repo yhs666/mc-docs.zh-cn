@@ -6,17 +6,17 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load-data
 origin.date: 04/26/2019
-ms.date: 06/24/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 812d9f001f8f6afd085474a031be3a2403393fd2
-ms.sourcegitcommit: 4d78c9881b553cd8feecb5555efe0de708545a63
+ms.openlocfilehash: 09d8351b384400ed6c188803e684e47f5e9dc854
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67151766"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131881"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
@@ -45,7 +45,7 @@ ms.locfileid: "67151766"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-创建 Azure SQL 数据仓库时，会使用定义好的一组[计算资源](memory-and-concurrency-limits.md)。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+使用一组定义好的[计算资源](memory-and-concurrency-limits.md)创建 Azure SQL 数据仓库。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -57,7 +57,7 @@ ms.locfileid: "67151766"
 
 3. 使用以下信息填写“SQL 数据仓库”表单：   
 
-   | 设置 | 建议的值 | 说明 | 
+   | 设置 | 建议的值 | 说明 | 
    | ------- | --------------- | ----------- | 
    | **数据库名称** | mySampleDataWarehouse | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 | 
    | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
@@ -68,7 +68,7 @@ ms.locfileid: "67151766"
 
 4. 单击“服务器”，为新数据库创建并配置新服务器。  使用以下信息填写“新建服务器”窗体：  
 
-    | 设置 | 建议的值 | 说明 | 
+    | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- |
     | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
     | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
@@ -147,7 +147,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 2. 在“连接到服务器”对话框中，输入以下信息： 
 
-    | 设置      | 建议的值 | 说明 | 
+    | 设置      | 建议的值 | 说明 | 
     | ------------ | --------------- | ----------- | 
     | 服务器类型 | 数据库引擎 | 此值是必需的 |
     | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20180430.database.chinacloudapi.cn**。 |
@@ -597,7 +597,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
        ```
        > [!NOTE] 
-       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用托管标识。
+       > - 使用 Azure 存储访问密钥时，不需指定 SECRET，因为此机制在后台使用[托管标识](/active-directory/managed-identities-azure-resources/overview)。
        > - 使用 Azure 存储帐户时，IDENTITY 名称应该为 **'托管服务标识'** ，以便通过 PolyBase 进行连接。
     
    1. 创建外部数据源，使用托管服务标识指定数据库范围的凭据。

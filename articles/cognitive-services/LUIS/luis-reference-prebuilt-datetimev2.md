@@ -1,6 +1,6 @@
 ---
-title: DatetimeV2 预生成实体
-titleSuffix: Azure
+title: DatetimeV2 预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含语言理解 (LUIS) 中的 datetimeV2 预生成实体信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 80c8855b698059c9a6c102d18e50c28f0e892017
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: b89b47e207c973782e05d814398a753e0cc513d9
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332059"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103985"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 DatetimeV2 预生成实体
 

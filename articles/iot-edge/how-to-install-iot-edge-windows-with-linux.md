@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 06/17/2019
+ms.date: 09/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 5addb1c329c6634f26e59dfcdb3b95c71ec6a3f8
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: efa864176eb40475fb90abcff5fc4ed1715f1258
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732735"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174039"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>使用 Windows 上的 IoT Edge 运行 Linux 容器
 
@@ -31,9 +31,7 @@ ms.locfileid: "66732735"
 
 ### <a name="supported-windows-versions"></a>支持的 Windows 版本
 
-包含 Linux 容器的 Azure IoT Edge 可在以下版本的 Windows 上运行： 
-* Windows 10 周年更新（内部版本 14393）或更高版本
-* Windows Server 2016 或更高版本
+带有 Linux 容器的 Azure IoT Edge 可以在满足 [Docker Desktop 要求](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)的任何 Windows 版本上运行
 
 有关最新版 IoT Edge 包含的功能的详细信息，请参阅 [Azure IoT Edge 发行说明](https://github.com/Azure/azure-iotedge/releases)。
 
@@ -107,7 +105,7 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 首次[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，其他系统模块 **edgeHub** 也会在设备上启动。 
 
 ```powershell
 iotedge list

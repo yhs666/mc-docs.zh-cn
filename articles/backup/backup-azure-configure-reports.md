@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b8bdc5ff7e5483e58c207cbfeea9a1ad9757630b
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: c048d005b5df7bfff3ec9377aef327f502f9f4b2
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332195"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103801"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
 本文介绍使用恢复服务保管库为 Azure 备份配置报表所需执行的步骤。 另外还介绍如何通过 Power BI 访问报表。 完成这些步骤后，可直接转到 Power BI，以便查看、自定义和创建报表。
@@ -37,7 +37,7 @@ ms.locfileid: "68332195"
 - 注册资源提供程序 Microsoft.insights  （如果尚未注册）。 将订阅用于存储帐户和恢复服务保管库，以便报表数据可以流向存储帐户。 要执行此步骤，请转到 Azure 门户，选择“订阅”   > “资源提供程序”  ，并找到此提供程序以进行注册。
 
 ## <a name="configure-storage-account-for-reports"></a>配置报表的存储帐户
-请按以下步骤操作，使用 Azure 门户配置恢复服务保管库的存储帐户。 这是一次性配置。 配置存储帐户后，可以直接转到 Power BI 来查看内容包并使用报表。
+请按以下步骤操作，使用 Azure 门户配置恢复服务保管库的存储帐户。 这是一次性配置。 配置存储帐户后，可以直接转到 Power BI 来查看模板应用和使用报表。
 
 1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，则请在 Azure 门户中选择“所有服务”  。
 
@@ -82,13 +82,11 @@ ms.locfileid: "68332195"
 | 错误详细信息 | 解决方法 |
 | --- | --- |
 | 为备份报表设置存储帐户后，“存储帐户”  仍显示“未配置”  。 | 如果已成功配置存储帐户，则即使存在此问题，报表数据仍会流入该帐户。 若要解决此问题，请转到 Azure 门户并选择“所有服务”   > “诊断设置”   > “恢复服务保管库”   > “编辑设置”  。 删除以前配置的设置，然后在同一边栏选项卡中创建新设置。 这次请在“名称”  框中选择“服务”  。 现在，应会显示配置的存储帐户。 |
-|在 Power BI 中导入 Azure 备份内容包后，会显示“404 - 未找到容器”错误消息。 | 如上所述，在恢复服务保管库中配置报表后，必须等待 24 小时，Power BI 中才会正确显示报表。 如果在 24 小时内尝试访问报表，会显示此错误消息，因为尚不存在完整的数据，无法显示有效报表。 |
+|在 Power BI 中导入 Azure 备份模板应用后，会显示“404 - 未找到容器”错误消息。 | 如上所述，在恢复服务保管库中配置报表后，必须等待 24 小时，Power BI 中才会正确显示报表。 如果在 24 小时内尝试访问报表，会显示此错误消息，因为尚不存在完整的数据，无法显示有效报表。 |
 
 ## <a name="next-steps"></a>后续步骤
-配置存储帐户并导入 Azure 备份内容包后，需在后续步骤中自定义报表，并使用报表数据模型创建报表。 有关详细信息，请参阅以下文章。
+配置存储帐户并导入 Azure 备份模板应用后，需在后续步骤中自定义报表，并使用报表数据模型创建报表。 有关详细信息，请参阅以下文章。
 
 * [使用 Azure 备份报表数据模型](backup-azure-reports-data-model.md)
 * [在 Power BI 中筛选报表](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [在 Power BI 中创建报表](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
-

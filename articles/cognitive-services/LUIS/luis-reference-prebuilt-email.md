@@ -1,6 +1,6 @@
 ---
-title: LUIS 预生成实体电子邮件参考 - Azure | Azure Docs
-titleSuffix: Azure
+title: LUIS 预生成实体电子邮件参考
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的电子邮件预构建实体信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dc1161f9fa76f7d389f440a2f91920505fe97e79
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 704881c733ebbcbff9723a823b86b0a7faf7f534
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332078"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103886"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的电子邮件预生成实体
 电子邮件提取包括陈述中的整个电子邮件地址。 此实体已定型，因此不需要将包含电子邮件的陈述示例添加到应用程序意向中。 只有 `en-us` 语言区域中支持电子邮件实体。 

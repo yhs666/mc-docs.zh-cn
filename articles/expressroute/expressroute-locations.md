@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/07/2018
+origin.date: 08/14/2019
 ms.author: v-yiso
-ms.date: 10/15/2018
-ms.openlocfilehash: 557ec7d890b984746fe21f22e664f861b5632238
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 09/09/2019
+ms.openlocfilehash: e01db74b66ed63f9a2d6c31c06c8078f1aa92e2d
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627471"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174168"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 合作伙伴和对等位置
 
@@ -29,7 +29,7 @@ ms.locfileid: "58627471"
 > * [按位置列出的提供商](./expressroute-locations-providers.md)
 
 
-本文中的表格提供有关 ExpressRoute 连接提供商、ExpressRoute 地理覆盖范围、通过 ExpressRoute 支持的 Microsoft 云服务以及 ExpressRoute 系统集成商 (SI) 的信息。
+本文中的表格提供了有关 ExpressRoute 地理覆盖范围和位置、ExpressRoute 连接提供商和 ExpressRoute 系统集成商 (SI) 的信息。
 
 ## <a name="partners"></a>ExpressRoute 连接服务提供商
 所有 Azure 区域和位置都支持 ExpressRoute。 以下地图提供了 Azure 区域和 ExpressRoute 位置的列表。 ExpressRoute 位置是指 Microsoft 与多个服务提供商对等互连的位置。
@@ -62,9 +62,9 @@ ms.locfileid: "58627471"
 
 标准 ExpressRoute SKU 不支持跨地缘政治区域的连接。 需要启用 ExpressRoute 高级外接程序以支持全球连接。 不支持连接到国家/地区云环境。 如果需要，请与连接服务提供商合作。
 
-## <a name="locations"></a>连接服务提供商位置
+## <a name="partners"></a>ExpressRoute 连接服务提供商
 
-下表显示按服务提供商列出的位置。 若要按位置查看可用的提供商，请参阅[按位置列出的服务提供商](./expressroute-locations-providers.md#locations)。
+下表显示按服务提供商列出的位置。 若要按位置查看可用的提供商，请参阅[按位置列出的服务提供商](expressroute-locations-providers.md)。
 
 
 ### <a name="production-azure"></a>生产 Azure

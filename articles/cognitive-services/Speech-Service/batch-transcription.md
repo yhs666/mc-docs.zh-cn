@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 2/20/2019
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.custom: seodec18
-ms.openlocfilehash: 55906ee24a626921fa0e19dd69ae9c1d54c0e6e8
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 8/26/2019
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: e17f11bed6ffccb4601fbdea4eb42e95ee5e6ae0
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348397"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104105"
 ---
 # <a name="why-use-batch-transcription"></a>为何使用 Batch 听录？
 
@@ -34,7 +33,7 @@ ms.locfileid: "58348397"
 
 ### <a name="custom-models"></a>自定义模式
 
-如果计划自定义声学或语言模型，请遵循[自定义声学模型](how-to-customize-acoustic-models.md)和[自定义语言模型](how-to-customize-language-model.md)中的步骤。 若要在批量听录中使用所创模型，则需要其模型 ID。 此 ID 不是在“终结点详细信息”视图中查找到的终结点 ID，而是选择模型“详细信息”时可检索到的模型 ID。
+若要在批量听录中使用所创模型，则需要其模型 ID。 此 ID 不是在“终结点详细信息”视图中查找到的终结点 ID，而是选择模型“详细信息”时可检索到的模型 ID。
 
 ## <a name="the-batch-transcription-api"></a>Batch 听录 API
 
@@ -66,14 +65,15 @@ Batch 听录 API 支持以下格式：
 ```json
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
-  "models": ["<optional acoustic model ID>, <optional language model ID>"],
-  "locale": "<local to us, for example en-US>",
-  "name": "<user define name of the transcription batch>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -83,19 +83,111 @@ Batch 听录 API 支持以下格式：
 
 ### <a name="configuration-properties"></a>配置属性
 
-| 参数 | 说明 | 必需/可选 |
-|-----------|-------------|---------------------|
-| `ProfanityFilterMode` | 指定如何处理识别结果中的不雅内容。 接受的值为 `none`（禁用不雅内容筛选）、`masked`（将不雅内容替换为星号）、`removed`（从结果中删除所有不雅内容）或 `tags`（添加“不雅内容”标记）。 默认设置是 `masked`。 | 可选 |
-| `PunctuationMode` | 指定如何处理识别结果中的标点。 接受的值为 `none`（禁用标点）、`dictated`（表示使用显式标点）、`automatic`（允许解码器处理标点）或 `dictatedandautomatic`（表示使用专用标点符号或自动使用标点）。 | 可选 |
- | `AddWordLevelTimestamps` | 指定是否应将字级时间戳添加到输出。 接受的值为 `true`，其支持字级时间戳和 `false`（默认值）禁用它。 | 可选 |
+使用以下可选属性来配置听录：
+
+| 参数 | 说明 |
+|-----------|-------------|
+| `ProfanityFilterMode` | 指定如何处理识别结果中的不雅内容。 接受的值为 `None`（禁用不雅内容筛选）、`masked`（将不雅内容替换为星号）、`removed`（从结果中删除所有不雅内容）或 `tags`（添加“不雅内容”标记）。 默认设置是 `masked`。 |
+| `PunctuationMode` | 指定如何处理识别结果中的标点。 接受的值为 `None`（禁用标点）、`dictated`（表示使用显式标点）、`automatic`（允许解码器处理标点）或 `dictatedandautomatic`（表示使用专用标点符号或自动使用标点）。 |
+ | `AddWordLevelTimestamps` | 指定是否应将字级时间戳添加到输出。 接受的值为 `true`，其支持字级时间戳和 `false`（默认值）禁用它。 |
+ | `AddSentiment` | 指定应将情绪添加到言语。 接受的值为 `true`（按言语启用情绪）和 `false`（默认值，禁用情绪）。 |
+ | `AddDiarization` | 指定应该对预期为包含两个语音的单声道输入执行分割聚类分析。 接受的值为 `true`（启用分割聚类）和 `false`（默认值，禁用分割聚类）。 还需要将 `AddWordLevelTimestamps` 设置为 true。|
+
+### <a name="storage"></a>存储
+
+批量听录支持使用 [Azure Blob 存储](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)来读取音频以及将听录内容写入存储。
+
+## <a name="webhooks"></a>Webhook
+
+脚本状态轮询可能并不高效，或者无法提供最佳用户体验。 若要轮询状态，可以注册回调，以便在长时间运行的脚本任务完成时通知客户端。
+
+## <a name="speaker-separation-diarization"></a>讲述人分离（分割聚类）
+
+分割聚类是将讲述人语音分隔成音频片段的过程。 Batch 管道支持分割聚类，并且能够识别单声道录制内容中的两个讲述人。
+
+若要请求处理音频听录请求以进行分割聚类，只需在 HTTP 请求中添加相关的参数，如下所示。
+
+ ```json
+{
+  "recordingsUrl": "<URL to the Azure blob to transcribe>",
+  "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
+  "locale": "<locale to us, for example en-US>",
+  "name": "<user defined name of the transcription batch>",
+  "description": "<optional description of the transcription>",
+  "properties": {
+    "AddWordLevelTimestamps" : "True",
+    "AddDiarization" : "True"
+  }
+}
+```
+
+如上述请求中的参数所示，还必须“启用”文字级别时间戳。
+
+相应的音频将包含以编号标识的讲述人（目前仅支持两个语音，因此讲述人将标识为“讲述人 1”和“讲述人 2”），后接听录输出。
+
+另请注意，分割聚类在立体声录制内容中不可用。 此外，所有 JSON 输出将包含讲述人标记。 如果未使用分割聚类，JSON 输出中会显示“讲述人:Null”。
+
+> [!NOTE]
+> 分割聚类在所有区域和区域设置中可用！
+
+## <a name="sentiment"></a>情绪
+
+情绪是批量听录 API 中的一项新功能，并且是呼叫中心领域的一项重要功能。 客户可在其请求中使用 `AddSentiment` 参数来实现以下目的
+
+1.  获取有关客户满意度的见解
+2.  获取有关座席（受理来电的团队）绩效的见解
+3.  找出某次通话改变消极结局的确切时间点
+4.  找出将消极通话转变为积极通话时的良好交互情况
+5.  了解客户对某个产品或服务喜欢和不喜欢的方面
+
+情绪按音频段评分，其中，音频段定义为从言语（偏移量）开头到字节流末尾的检测静音区的消逝时间。 该段内的整个文本用于计算情绪。 对于每个声道的整个通话或整个语音，我们不会计算任何聚合情绪值。 这些聚合留给领域所有者进一步应用。
+
+情绪将以词法形式应用。
+
+下面是 JSON 输出示例：
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+此功能使用情绪模型，该模型目前为 Beta 版。
 
 ## <a name="sample-code"></a>代码示例
 
-完整示例可在 `samples/batch` 子目录的 [GitHub 示例存储库](https://aka.ms/csspeech/samples)中获得。
+`samples/batch` 子目录内的 [GitHub 示例存储库](https://aka.ms/csspeech/samples)中提供了完整示例。
 
-如要使用自定义声学或语言模型，必须使用订阅信息、服务区域、指向要转录的音频文件的 SAS URI 和模型 ID 来自定义示例代码。 
+如要使用自定义声学或语言模型，必须使用订阅信息、服务区域、指向要转录的音频文件的 SAS URI 和模型 ID 来自定义示例代码。
 
-```C#
+```
 // Replace with your subscription key
       private const string SubscriptionKey = "<YourSubscriptionKey>";
 
@@ -105,7 +197,8 @@ Batch 听录 API 支持以下格式：
 
       // recordings and locale
       private const string Locale = "en-US";
-      private const string RecordingsBlobUri = "<URI pointing to an audio file stored in Azure Blob Storage>";
+      private const string RecordingsBlobUri = "<SAS URI pointing to an audio file stored in Azure Blob Storage>";
+     
 
       // For usage of baseline models, no acoustic and language model needs to be specified.
       private static Guid[] modelList = new Guid[0];
@@ -124,7 +217,7 @@ Batch 听录 API 支持以下格式：
 
 示例代码将设置客户端并提交转录请求。 然后它将轮询状态信息并打印关于转录进度的详细信息。
 
-```C#
+```
 // get all transcriptions for the user
 transcriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
 
@@ -147,16 +240,18 @@ foreach (var transcription in transcriptions)
             // if the transcription was successfull, check the results
             if (transcription.Status == "Succeeded")
             {
-                var resultsUri = transcription.ResultsUrls["channel_0"];
-
+                var resultsUri0 = transcription.ResultsUrls["channel_0"];
+     
                 WebClient webClient = new WebClient();
 
                 var filename = Path.GetTempFileName();
-                webClient.DownloadFile(resultsUri, filename);
-
-                var results = File.ReadAllText(filename);
+                webClient.DownloadFile(resultsUri0, filename);
+                var results0 = File.ReadAllText(filename);
+                var resultObject0 = JsonConvert.DeserializeObject<RootObject>(results0);
+                Console.WriteLine(results0);
+                
                 Console.WriteLine("Transcription succeeded. Results: ");
-                Console.WriteLine(results);
+                Console.WriteLine(results0);
             }
             break;
 
@@ -179,10 +274,6 @@ foreach (var transcription in transcriptions)
 
 > [!NOTE]
 > 对于基线听录，无需声明基线模型的 ID。 如果只指定语言模型 ID（而不指定声学模型 ID），则自动选择匹配的声学模型。 如果只指定声学模型 ID，则自动选择匹配的语言模型。
-
-### <a name="supported-storage"></a>支持的存储
-
-目前，仅支持 Azure Blob 存储。
 
 ## <a name="download-the-sample"></a>下载示例
 

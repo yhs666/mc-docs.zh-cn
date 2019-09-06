@@ -16,12 +16,12 @@ ms.custom: H1Hack27Feb2017
 origin.date: 07/21/2017
 ms.author: v-yiso
 ms.date: 04/08/2019
-ms.openlocfilehash: ca66b10e184ecb70c309cff1e309c3ec02a8986f
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 52493eb76567b1fdd93df26918487c72ca33e70a
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69539131"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174217"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>针对 Azure 逻辑应用监视状态、设置诊断日志记录，并启用警报
 
@@ -270,6 +270,26 @@ ms.locfileid: "69539131"
         "myActionHTTPValue": "@action()['outputs']['body']['<content>']",
         "transactionId": "@action()['inputs']['body']['<content>']"
     }
+  }
+  ```
+  下面是使用“初始化变量”  操作的另一个示例。 该示例从操作的输入添加跟踪的属性，其中输入是数组，而不是记录。  
+
+  ``` json
+  "actions": { 
+   "Initialize_variable": { 
+      "inputs": { 
+         "variables": [{ 
+            "name": "ConnectorName", 
+            "type": "String", 
+            "value": "SFTP-SSH" 
+         }]
+      },
+      "runAfter": {},
+      "trackedProperties": { 
+         "Track1": "@action().inputs.variables[0].value"
+      },
+      "type": "InitializeVariable"
+   } 
   }
   ```
 

@@ -8,15 +8,15 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 07/10/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 555366c4156889b07767be3ce76e69b6f3ae90db
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: b2e88882524b56778c051ef93961317ae8227c41
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337318"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174035"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>在 Windows 上安装 Azure IoT Edge 运行时
 
@@ -59,7 +59,7 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 某个 PowerShell 脚本将下载并安装 Azure IoT Edge 安全守护程序。 然后，安全守护程序将启动两个运行时模块中的第一个，即 IoT Edge 代理，以便能够远程部署其他模块。 
 
-首次在设备上安装 IoT Edge 运行时时，需要使用 IoT 中心内的标识预配该设备。 可以使用 IoT 中心提供的设备连接字符串手动预配单个 IoT Edge 设备。 或者，可以使用设备预配服务自动预配设备，需要设置多个设备时，这种做法非常有用。 根据预配选项，选择合适的安装脚本。 
+首次在设备上安装 IoT Edge 运行时时，需要使用 IoT 中心内的标识预配该设备。 可以使用 IoT 中心提供的设备连接字符串手动预配单个 IoT Edge 设备。 或者，可以使用设备预配服务 (DPS) 自动预配设备，需要设置多个设备时，这种做法非常有用。 根据预配选项，选择合适的安装脚本。 
 
 以下部分介绍新设备上 IoT Edge 安装脚本的常见用例和参数。 
 
@@ -142,25 +142,23 @@ Azure IoT Edge 依赖于 [OCI 兼容的](https://www.opencontainers.org/)容器�
 
 4. 此时，IoT Core 设备可能会自动重启。 其他 Windows 10 或 Windows Server 设备可能会提示你重启。 如果是这样，请立即重启设备。 设备准备就绪后，再次以管理员身份运行 PowerShell。
 
-6. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 该命令默认为使用 Windows 容器手动预配。 通过 `-Dps` 标志使用设备预配服务，而不是手动预配。
+1. Initialize-IoTEdge 命令在计算机上配置 IoT Edge 运行时  。 该命令默认为使用 Windows 容器手动预配。 通过 `-Dps` 标志使用设备预配服务，而不是手动预配。 将 `{scope ID}` 替换为设备调配服务中的范围 ID，并将 `{registration ID}` 替换为设备中的注册 ID，这两个 ID 都应该在步骤 1 中检索到。
 
    使用 **Initialize-IoTEdge** 命令将 DPS 与 TPM 证明配合使用：
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
    ```
 
    使用 **Initialize-IoTEdge** 命令将 DPS 与对称密钥证明配合使用。 将 `{symmetric key}` 替换为设备密钥。
 
    ```powershell
    . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -SymmetricKey {symmetric key}
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
-1. 出现提示时，请提供设备预配服务中的范围 ID 以及设备中的注册 ID，在步骤 1 中应已检索到这两个 ID。
-
-8. 使用[验证安装是否成功](#verify-successful-installation)中的步骤检查设备上的 IoT Edge 状态。 
+1. 使用[验证安装是否成功](#verify-successful-installation)中的步骤检查设备上的 IoT Edge 状态。 
 
 手动安装和预配设备时，可以使用附加的参数来修改安装，包括：
 * 定向流量，使其通过代理服务器
@@ -202,7 +200,7 @@ Get-Service iotedge
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 [部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，将会看到其他模块。 
+列出正在运行的模块。 完成新的安装后，应会看到唯一运行的模块是 **edgeAgent**。 首次[部署 IoT Edge 模块](how-to-deploy-modules-portal.md)后，其他系统模块 **edgeHub** 也会在设备上启动。 
 
 ```powershell
 iotedge list
@@ -261,6 +259,7 @@ Update-IoTEdge
 若要从 Windows 设备中删除 IoT Edge 安装，请在 PowerShell 管理窗口中使用以下命令。 此命令会删除 IoT Edge 运行时，以及现有的配置和 Moby 引擎数据。 
 
 ```powershell
+. {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
 
@@ -294,7 +293,7 @@ Initialize-IoTEdge 命令使用设备连接字符串和操作详细信息配置 
 | **Dps** | 无 | **开关参数**。 如果未指定预配类型，则 manual 是默认值。<br><br>声明你要提供设备预配服务 (DPS) 范围 ID 和设备的注册 ID，以通过 DPS 进行预配。  |
 | **DeviceConnectionString** | 已在 IoT 中心注册的 IoT Edge 设备中的连接字符串，括在单引号中 | 对于手动安装，此参数是**必需**的。 如果未在脚本参数中提供连接字符串，则安装期间系统会提示你提供连接字符串。 |
 | **ScopeId** | 与 IoT 中心关联的设备预配服务实例中的范围 ID。 | 对于 DPS 安装，此参数是**必需**的。 如果未在脚本参数中提供范围 ID，则安装期间系统会提示你提供范围 ID。 |
-| **RegistrationId** | 设备生成的注册 ID | 对于 DPS 安装，此参数是**必需**的。 如果未在脚本参数中提供注册 ID，则安装期间系统会提示你提供注册 ID。 |
+| **RegistrationId** | 设备生成的注册 ID | 对于 DPS 安装，此参数是**必需**的。 |
 | **SymmetricKey** | 使用 DPS 时用于预配 IoT Edge 设备标识的对称密钥 | 如果使用对称密钥证明，则是 DPS 安装所**必需**的。 |
 | **ContainerOs** | **Windows** 或 **Linux** | 如果未指定容器操作系统，则 Windows 是默认值。<br><br>对于 Windows 容器，IoT Edge 使用安装中包含的 moby 容器引擎。 对于 Linux 容器，需要在开始安装之前安装容器引擎。 |
 | **InvokeWebRequestParameters** | 参数和值的哈希表 | 在安装期间，会发出多个 Web 请求。 请使用此字段来设置这些 Web 请求的参数。 此参数可用于配置代理服务器的凭据。 有关详细信息，请参阅[将 IoT Edge 设备配置为通过代理服务器进行通信](how-to-configure-proxy-support.md)。 |

@@ -1,7 +1,7 @@
 ---
-title: 管理帐户和密钥
-titleSuffix: Language Understanding - Azure Cognitive Services
-description: LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 account.windowsazure.cn 上进行管理。 创作密钥在 LUIS 门户的“设置”页面上进行管理。
+title: 管理帐户和密钥 - LUIS
+titleSuffix: Azure Cognitive Services
+description: LUIS 帐户信息的两个关键部分是用户帐户和创作密钥。 登录信息在 account.microsoft.com 上进行管理。 创作密钥在 LUIS 门户的“设置”页面上进行管理。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 249bdf064ec2a511ac5356f43db87ef1d4dbfc52
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 0e0e5f9bcb992fbd67da1175315c4eabf1a6d50b
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544352"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103928"
 ---
 # <a name="manage-account-and-authoring-key"></a>管理帐户和创作密钥
 

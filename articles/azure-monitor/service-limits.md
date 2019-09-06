@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 599edd372a1e73daa5dcc7a337439d0cc7449ba1
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: 4864e431aac28060dc6ac5993d10530a3bac906b
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989484"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104036"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 服务限制
 
@@ -31,6 +31,10 @@ ms.locfileid: "69989484"
 ## <a name="action-groups"></a>操作组
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## <a name="log-queries-and-language"></a>日志查询和语言
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-log-queries.md)]
 
 ## <a name="log-analytics-workspaces"></a>Log Analytics 工作区
 

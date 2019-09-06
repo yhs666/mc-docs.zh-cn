@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6a0e39a55a1e4713885175145bb9fee8f8e22fe3
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 4ccf13e0c2e7761d52c585905c6c6a9b8c9a65c7
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818465"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104145"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 可以使用 [Azure 备份服务](backup-overview.md)备份本地计算机和工作负荷以及 Azure 虚拟机 (VM)。 本文汇总了使用 Azure 备份服务备份 Azure VM 时的支持设置和限制。
@@ -44,7 +44,7 @@ ms.locfileid: "68818465"
 创建 Linux VM 时启用备份 | 支持：<br/><br/> - Ubuntu Server：18.04、17.10、17.04、16.04 (LTS)、14.04 (LTS)<br/><br/> - Red Hat：RHEL 6.7、6.8、6.9、7.2、7.3、7.4<br/><br/> - SUSE Linux Enterprise Server：11 SP4、12 SP2、12 SP3、15 <br/><br/> - Debian：8、9<br/><br/> - CentOS：6.9、7.3<br/><br/> - Oracle Linux：6.7、6.8、6.9、7.2、7.3
 备份已关闭的 VM/脱机 VM | 。<br/><br/> 仅创建崩溃一致性快照，不会创建应用一致性快照。
 迁移到托管磁盘后备份磁盘 | 。<br/><br/> 备份将继续工作。 因此不需要执行任何操作。
-启用资源组锁定后备份托管磁盘 | 不支持。<br/><br/> Azure 备份无法删除旧的资源点；如果达到了还原点数目的上限，备份将开始失败。
+启用资源组锁定后备份托管磁盘 | 不支持。<br/><br/> Azure 备份无法删除旧的还原点；如果达到了还原点数目的上限，备份将开始失败。
 修改 VM 的备份策略 | 。<br/><br/> 将使用新策略中的计划和保留期设置备份 VM。 如果保留期设置已延长，则会标记并保留现有的恢复点。 如果保留期设置已缩短，则会在下一个清理作业中清理现有的恢复点，并最终将其删除。
 取消备份作业 | 在快照过程中受支持。<br/><br/> 快照正在传输到保管库时不受支持。
 将 VM 备份到其他区域或订阅 |  不支持。
@@ -131,7 +131,6 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 还原到现有 VM | 使用“替换磁盘”选项。
 在为存储帐户启用了 Azure 存储服务加密 (SSE) 的情况下还原磁盘 | 不支持。<br/><br/> 还原到未启用 SSE 的帐户。
 还原到混合存储帐户 | 不支持。<br/><br/> 根据存储帐户类型，所有已还原的磁盘将是高级或标准类型，而不是混合类型。
-使用区域冗余存储 (ZRS) 还原到存储帐户 | 支持（适用于 2019 年 1 月以后备份且可以使用可用性区域的 VM）
 将 VM 直接还原到可用性集 | 对于托管磁盘，可以还原磁盘，并在模板中使用可用性集选项。<br/><br/> 不支持非托管磁盘。 对于非托管磁盘，可以还原磁盘，然后在可用性集中创建 VM。
 升级到托管 VM 后还原非托管 VM 的备份| 。<br/><br/> 可以还原磁盘，然后创建托管 VM。
 在将 VM 迁移到托管磁盘之前将 VM 还原到还原点 | 。<br/><br/> 还原到非托管磁盘（默认设置），将已还原的磁盘转换为托管磁盘，然后使用托管磁盘创建 VM。
@@ -145,7 +144,6 @@ DPM/MABS 磁盘上的恢复点数 | 文件服务器为 64 个，应用服务器�
 --- | ---
 VM 大小 |   至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小。<br/><br/> [了解详细信息。](/virtual-machines/windows/sizes)
 备份[可用性集](/virtual-machines/windows/regions-and-availability#availability-sets)中的 VM | 。<br/><br/> 无法使用快速创建 VM 的选项来还原可用性集中的 VM。 还原 VM 时，需要还原磁盘并使用它来部署 VM，或者还原磁盘并使用它来替换现有磁盘。
-备份[可用性区域](/availability-zones/az-overview)中的 VM |  不支持。
 备份使用[混合使用权益 (HUB)](/virtual-machines/windows/hybrid-use-benefit-licensing) 部署的 VM | 。
 备份[规模集](/virtual-machine-scale-sets/overview)中部署的 VM |  不支持。
 备份从 [Azure 市场](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)部署的 VM<br/><br/> （由 Microsoft 或第三方发布） |  。<br/><br/> VM 必须运行受支持的操作系统。<br/><br/> 恢复 VM 上的文件时，可以仅还原到兼容的 OS（不是早期版本或更高版本的 OS）。 我们不会将 Azure 市场 VM 作为 VM 还原（因为这需要订单信息），而只会作为磁盘还原。
@@ -159,9 +157,9 @@ VM 大小 |   至少有 2 个 CPU 核心和 1-GB RAM 的任意 Azure VM 大小�
 
 **组件** | **支持**
 --- | ---
-Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><br/> 最大支持 4 TB 的磁盘。
-数据磁盘大小 | 单个磁盘最大可以为 4095 GB。<br/><br/> 如果保管库运行最新版本的 Azure 备份（称为“即时还原”），则支持不超过 4TB 的磁盘大小。 [了解详细信息](backup-instant-restore-capability.md)。  
-存储类型 | 标准 HDD、标准 SSD、高级 SSD。 <br/><br/> 如果保管库已升级到最新版本的 Azure VM 备份（称为“即时还原”），则支持标准 SSD。 [了解详细信息](backup-instant-restore-capability.md)。
+Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><br/> 最大支持 4 TB 的磁盘。<br/><br/>若要注册 Azure 备份大磁盘的受限公共预览版以支持大于 4 TB 且最大 30 TB 的磁盘，请参阅此[文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
+数据磁盘大小 | 单个磁盘最大可以为 4095 GB。<br/><br/>若要注册 Azure 备份大磁盘的受限公共预览版以支持大于 4 TB 且最大 30 TB 的磁盘，请参阅此[文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
+存储类型 | 标准 HDD、标准 SSD、高级 SSD。
 托管磁盘 | 。
 加密的磁盘 | 。<br/><br/> 可以备份已启用 Azure 磁盘加密的 Azure VM（包含或不包含 Azure AD 应用）。<br/><br/> 无法在文件/文件夹级别恢复已加密的 VM。 必须恢复整个 VM。<br/><br/> 可以在已受 Azure 备份保护的 VM 上启用加密。
 已启用写入加速器的磁盘 | 不支持。<br/><br/> Azure 备份会在备份期间自动排除已启用写入加速器的磁盘。 由于这些磁盘未备份，因此将无法从 VM 的恢复点还原这些磁盘。
@@ -169,9 +167,6 @@ Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。 <br/><
 将磁盘添加到受保护的 VM | 。
 调整受保护 VM 上的磁盘大小 | 。
 共享存储| 不建议使用群集共享卷 (CSV) 或横向扩展文件服务器备份 VM。 在备份期间，CSV 写入器可能会失败。 还原时，包含 CSV 卷的磁盘可能不会启动。
-
-> [!NOTE]
-> Azure 备份不建议重设磁盘大小。
 
 
 ## <a name="vm-network-support"></a>VM 网络支持

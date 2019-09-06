@@ -3,7 +3,7 @@ title: 调用 Web API 的移动应用 - 调用 Web API | Microsoft 标识平台
 description: 了解如何构建调用 Web API 的移动应用（调用 Web API）
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: jmprieur
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ea43458a9af60a3b8ec8210b58063fb7abe7f1b
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 508359e82f8d81ad4a3f4a9660aa64290ed18331
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305992"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134258"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>调用 Web API 的移动应用 - 调用 Web API
 
@@ -115,26 +115,52 @@ MSAL 也提供 `Account` 的抽象。 `Account` 表示当前用户的已登录�
 
 ### <a name="xamarin"></a>Xamarin
 
-```CSharp
-httpClient = new HttpClient();
-
-// Put access token in HTTP request.
-httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
-
-// Call Graph.
-HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
-...
-}
-```
+[!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 ## <a name="making-several-api-requests"></a>发出多个 API 请求
 
 如需调用同一 API 多次，或者需要调用多个 API，请在生成应用时考虑以下事项：
 
 - **增量许可**：Microsoft 标识平台允许应用在需要权限的时候获取用户许可，而不是在开始时统一这样做。 应用在每次准备调用 API 时，应该只请求需要使用的作用域。
+- **条件访问**：在某些情况下，你可能会在发出几个 API 请求时收到其他条件访问要求。 如果第一个请求没有应用条件访问策略，并且应用尝试以无提示方式访问需要条件访问的新 API，则可能会发生这种情况。 若要处理这种情况，请务必捕获来自无提示请求的错误，并准备好进行交互式请求。  若要了解详细信息，请参阅[条件访问指南](conditional-access-dev-guide.md)。
+
+## <a name="calling-several-apis-in-xamarin-or-uwp---incremental-consent-and-conditional-access"></a>在 Xamarin 或 UWP 中调用若干 API - 增量许可和条件访问
+
+如果需要为同一用户调用多个 API，则在为用户获取令牌后，可以通过随后调用 `AcquireTokenSilent` 获取令牌来避免重复要求用户提供凭据。
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+```
+
+需要交互的情况是：
+
+- 用户已同意第一个 API，但现在需要同意更多范围（增量许可）
+- 第一个 API 不需要多重身份验证，但下一个 API 需要。
+
+```CSharp
+var result = await app.AcquireTokenXX("scopeApi1")
+                      .ExecuteAsync();
+
+try
+{
+ result = await app.AcquireTokenSilent("scopeApi2")
+                  .ExecuteAsync();
+}
+catch(MsalUiRequiredException ex)
+{
+ result = await app.AcquireTokenInteractive("scopeApi2")
+                  .WithClaims(ex.Claims)
+                  .ExecuteAsync();
+}
+```
 
 ## <a name="next-steps"></a>后续步骤
 
 > [!div class="nextstepaction"]
-> [移到生产环境](scenario-mobile-production.md)
+> [转移到生产环境](scenario-mobile-production.md)
 
+<!-- Update_Description: wording update -->

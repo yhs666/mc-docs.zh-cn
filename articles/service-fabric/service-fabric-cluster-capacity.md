@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/09/2019
-ms.date: 08/05/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1037e7ec4456822b12f7895ae90ab4a6965a2eac
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: 7c9e9e035336aaa46a05ff20837f2a2a0fb9c389
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753183"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174106"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -63,7 +63,9 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 * 主节点类型的 **VM 大小下限**取决于选择的**持久性层**。 默认持续性层为“青铜”。 请参阅[群集的持续性特征](/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster)以了解更多详细信息。  
 * 主节点类型的 **VM 数目下限**取决于选择的**可靠性层**。 默认可靠性层为“白银”。 请参阅[群集的可靠性特征](/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster)以获取更多详细信息。  
 
-在 Azure 资源管理器模板中，主节点类型在[节点类型定义](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)下配置了 `isPrimary` 属性。
+在 Azure 资源管理器模板中，主节点类型在节点类型定义下配置了 `isPrimary` 属性。
+
+<!--Not Available on [node type definition](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)-->
 
 ### <a name="non-primary-node-type"></a>非主节点类型
 
@@ -84,7 +86,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 <!-- Not Avaible on L series, GS series, G series (L32s, GS5, G5,) -->
 
 > [!WARNING]
-> 以青铜级持续性运行的节点类型不具有任何特权  。 这意味着，不会停止或延迟对无状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
+> 以铜级持续性运行的节点类型不具有任何特权  。 这意味着，不会停止或延迟对无状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
 > 
 > 无论任何持续性级别，VM 规模集上的[释放](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate)操作都将破坏群集
 
@@ -216,6 +218,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 * [Nodetype 与虚拟机规模集的关系](service-fabric-cluster-nodetypes.md)
 
 <!--Image references-->
+
 [SystemServices]: ./media/service-fabric-cluster-capacity/SystemServices.png
 
 <!--Update_Description: wording update, wording update -->

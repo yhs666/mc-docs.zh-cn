@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fdf60f73c1db6a32a121010ea3ef62a4ee1518
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: f8989cd80e77cd9d67e42bb0b538e3b312d7d5db
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305982"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134269"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>调用 Web API 的桌面应用 - 获取令牌
 
@@ -127,7 +127,7 @@ WithParentActivityOrWindow(object parent).
 
 #### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-此修饰符在高级方案中使用，其中，你希望用户提前许可多个资源（不想要使用增量许可，这种许可通常与 MSAL.NET/Microsoft 标识平台 v2.0 配合使用）。 有关详细信息，请参阅[如何：让用户提前许可多个资源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
+此修饰符在高级方案中使用，在该方案中你希望用户提前许可多个资源（并且不想使用增量许可，这种许可通常与 MSAL.NET/Microsoft 标识平台配合使用）。 有关详细信息，请参阅[如何：让用户提前许可多个资源](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources)。
 
 ```CSharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
@@ -180,7 +180,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 - IWA 适用于针对 .NET Framework、.NET Core 和 UWP 平台编写的应用
 - IWA 不会绕过 MFA（多重身份验证）。 如果配置了 MFA，需要 MFA 质询时，IWA 可能会失败，因为 MFA 需要用户交互。
   > [!NOTE]
-  > 此问题比较棘手。 IWA 不是交互式的，但 2FA 需要用户交互。 你无法控制标识提供者何时请求执行 2FA，但租户管理员可以。 根据我们的观察，在未通过 VPN 连接到企业网络（有时，甚至已通过 VPN 连接到企业网络）的情况下，从不同的国家/地区登录时都需要执行 2FA。 Azure Active Directory 不会料想存在一组确定性的规则，而是使用 AI 来连续判断是否需要执行 2FA。 如果 IWA 失败，应回退到用户提示（交互式身份验证或设备代码流）。
+  > 此问题比较棘手。 IWA 不是交互式的，但 MFA 需要用户交互。 你无法控制标识提供者何时请求执行 MFA，但租户管理员可以。 根据我们的观察，当你从不同的国家/地区登录时，当你没有通过 VPN 连接到公司网络时，有时甚至在通过 VPN 连接时，都需要执行 MFA。 不需要一组确定的规则，Azure Active Directory 使用 AI 来不断判断是否需要执行 MFA。 如果 IWA 失败，应回退到用户提示（交互式身份验证或设备代码流）。
 
 - 在 `PublicClientApplicationBuilder` 中传入的颁发机构需要：
   - 租户化（采用 `https://login.partner.microsoftonline.cn/{tenant}/` 格式，其中，`tenant` 是表示租户 ID 或者与该租户关联的域的 GUID）。
@@ -197,7 +197,7 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
 
 - 已针对 .NET Desktop、.NET Core 和 Windows 通用 (UWP) 应用启用此流。 在 .NET Core 上，只有采用用户名的重载可用，因为 .NET Core 平台无法请求用于登录 OS 的用户名。
   
-有关许可的详细信息，请参阅 [v2.0 权限和许可](/active-directory/develop/v2-permissions-and-consent)
+有关同意的详细信息，请参阅 [Microsoft 标识平台的权限和同意](/active-directory/develop/v2-permissions-and-consent)
 
 ### <a name="how-to-use-it"></a>如何使用
 
@@ -292,18 +292,18 @@ static async Task GetATokenForGraph()
 
 **不建议**使用此流，因为要求用户提供其密码的应用程序是不安全的。 有关此问题的详细信息，请参阅[此文](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/)。 在已加入 Windows 域的计算机上以静默方式获取令牌的首选流是 [Windows 集成身份验证](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication)。 否则，也可以使用[设备代码流](https://aka.ms/msal-net-device-code-flow)
 
+> [!NOTE] 
 > 尽管在某些情况下此流有用，但如果你要在交互式方案中（需要提供自己的 UI）使用用户名/密码，应认真考虑如何摆脱此流。 使用用户名/密码意味着会丧失许多功能：
-
+>
 > - 新式标识的核心租户：密码被盗用、重放。 我们的观点是共享机密可能会被截获。
 > 此方法与无密码登录是不兼容的。
 > - 需要执行 MFA 的用户将无法登录（因为没有交互）
-> - 用户无法执行单一登录
 
 ### <a name="constraints"></a>约束
 
 以下约束也适用：
 
-- 用户名/密码流与多重身份验证不兼容：因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
+- 用户名/密码流与条件访问和多重身份验证不兼容：因此，如果应用在 Azure AD 租户中运行，而该租户中的租户管理员需要多重身份验证，则你无法使用此流。 许多组织都会提出这种要求。
 - 它仅适用工作和学校帐户（而不适用于 MSA）
 - 可在 .NET Desktop 和 .NET Core 中使用该流，但不能在 UWP 中使用
 
@@ -323,7 +323,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.partner.microsoftonline.cn/contoso.com";
  string[] scopes = new string[] { "https://microsoftgraph.chinacloudapi.cn/user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
        .WithAuthority(authority)
        .Build();
  var accounts = await app.GetAccountsAsync();
@@ -364,7 +364,7 @@ static async Task GetATokenForGraph()
  string authority = "https://login.partner.microsoftonline.cn/contoso.com";
  string[] scopes = new string[] { "https://microsoftgraph.chinacloudapi.cn/user.read" };
  IPublicClientApplication app;
- app = PublicClientApplicationBuild.Create(clientId)
+ app = PublicClientApplicationBuilder.Create(clientId)
                                    .WithAuthority(authority)
                                    .Build();
  var accounts = await app.GetAccountsAsync();
@@ -648,16 +648,15 @@ static async Task<AuthenticationResult> GetATokenForGraph()
   ![图像](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
 > [!IMPORTANT]
-> MSAL.NET 将为你创建令牌缓存，当你调用应用程序的 `GetUserTokenCache` 和 `GetAppTokenCache` 方法时，它会提供 `IToken` 缓存。 最好是不要自行实现接口。 实现自定义令牌缓存序列化时，你的责任是：
+> MSAL.NET 将为你创建令牌缓存，当你调用应用程序的 `UserTokenCache` 和 `AppTokenCache` 属性时，它会提供 `IToken` 缓存。 最好是不要自行实现接口。 实现自定义令牌缓存序列化时，你的责任是：
 >
-> - 对 `BeforeAccess` 和 `AfterAccess`“事件”做出反应。 `BeforeAccess` 委托负责反序列化缓存，而 `AfterAccess` 负责序列化缓存。
+> - 对 `BeforeAccess` 和 `AfterAccess`“事件”（或其*异步*对应事件）做出反应。 `BeforeAccess` 委托负责反序列化缓存，而 `AfterAccess` 负责序列化缓存。
 > - 其中的一部分事件存储或加载 Blob，这些 Blob 将通过事件参数传递到所需的任何存储。
 
 所用的策略会有所不同，具体取决于是针对公共客户端应用程序（桌面）还是机密客户端应用程序（Web 应用/Web API、守护程序应用）编写令牌缓存序列化。
 
 从 MSAL V2.x 开始，会根据你只是要以 MSAL.NET 格式序列化缓存（在 MSAL 和不同的平台中通用的统一格式缓存），还是同时想要支持 ADAL V3 的[传统](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)令牌缓存序列化，提供多个不同的选项。
 
-以下示例部分说明了如何自定义令牌缓存序列化，以在 ADAL.NET 3.x、ADAL.NET 5.x 与 MSAL.NET 之间共享 SSO 状态：[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 
 ### <a name="simple-token-cache-serialization-msal-only"></a>简单令牌缓存序列化（仅限 MSAL）
 
@@ -722,6 +721,7 @@ static class TokenCacheHelper
 
 [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) 开源库中提供了适用于公共客户端应用程序（适用于 Windows、Mac 和 Linux 上运行的桌面应用程序）的基于产品质量令牌缓存文件的序列化程序预览。 可以通过以下 Nuget 包将此程序包含在应用程序中：[Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/)。
 
+> [!NOTE]
 > 免责声明。 Microsoft.Identity.Client.Extensions.Msal 库是基于 MSAL.NET 的扩展。 这些库中的类将来可能会按原样或者在做出重大更改的情况下归入 MSAL.NET。
 
 ### <a name="dual-token-cache-serialization-msal-unified-cache--adal-v3"></a>双令牌缓存序列化（MSAL 统一缓存和 ADAL V3）
@@ -772,18 +772,12 @@ namespace CommonCacheMsalV3
   /// <returns></returns>
   public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   cache.SetBeforeAccess(BeforeAccessNotification);
+   cache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format
@@ -877,3 +871,4 @@ namespace CommonCacheMsalV3
 > [!div class="nextstepaction"]
 > [从桌面应用调用 Web API](scenario-desktop-call-api.md)
 
+<!-- Update_Description: wording update -->

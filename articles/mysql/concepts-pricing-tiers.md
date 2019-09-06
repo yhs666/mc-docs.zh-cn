@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 06/27/2019
-ms.date: 07/29/2019
-ms.openlocfilehash: bb54c9bfcba81f40265f2a5301651466d84af175
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+origin.date: 07/31/2019
+ms.date: 09/02/2019
+ms.openlocfilehash: 422ef66827597376988ced5d90c4506ca676e95c
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514254"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131843"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 定价层
 
@@ -55,7 +55,12 @@ ms.locfileid: "68514254"
 | 存储增量大小 | 1 GB | 1 GB | 1 GB |
 | IOPS | 变量 |3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS | 3 IOPS/GB<br/>至少 100 IOPS<br/>最大 6000 IOPS |
 
-在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 “基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
+在创建服务器的过程中和之后，可以添加更多的存储容量，这样系统就可以根据工作负荷的存储使用情况自动增加存储。 
+
+>[!NOTE]
+> 存储只能增加，不能减少。
+
+“基本”层不提供 IOPS 保证。 在“常规用途”和“内存优化”定价层中，IOPS 与预配的存储大小按 3:1 的比例缩放。
 
 可以通过 Azure 门户或 Azure CLI 命令监视 I/O 使用情况。 要监视的相关指标是[存储上限、存储百分比、已用存储和 IO 百分比](concepts-monitoring.md)。
 
@@ -71,9 +76,11 @@ ms.locfileid: "68514254"
 
 ### <a name="storage-auto-grow"></a>存储自动增长
 
-如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
+存储自动增长可防止服务器耗尽存储空间并变为只读。 如果启用了存储自动增长，存储会在不影响工作负荷的情况下自动增长。 对于预配的存储大小小于 100 GB 的服务器，可用存储空间一小于 1 GB 或预配的存储的 10%，预配的存储大小就会立即增加 5 GB。 对于预配的存储大小大于 100 GB 的服务器，可用存储空间一小于预配的存储大小的 5%，预配的存储大小就会立即增加 5%。 适用上面指定的最大存储限制。
 
 例如，如果已预配 1000 GB 的存储，而实际使用量超过 950 GB，则服务器存储大小会增加到 1050 GB。 或者，如果已预配 10 GB 的存储，则当可用存储少于 1 GB 时，存储大小会增加到 15 GB。
+
+请记住，存储只能增加，不能减少。
 
 ## <a name="backup"></a>Backup
 

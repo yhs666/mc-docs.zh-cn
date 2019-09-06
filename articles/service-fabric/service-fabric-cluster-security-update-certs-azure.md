@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/13/2018
-ms.date: 03/04/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0cc65f6495b8c69c792c23152dddd406979dbbf7
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 4130655780e2d7eba3ed2d4575338270dbb83f9c
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204108"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174027"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>在 Azure 中添加或删除 Service Fabric 群集的证书
 建议先了解 Service Fabric 使用 X.509 证书的方式，并熟悉[群集安全性应用场景](service-fabric-cluster-security.md)。 在继续下一步之前，必须先了解群集证书的定义和用途。
 
-Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日期最远的已定义证书，而不管其主要或次要配置定义如何。 回退到经典行为是非推荐的高级操作，需要在 Fabric.Code 配置内将“UseSecondaryIfNever”设置参数的值设置为 false。
+Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日期最远的已定义证书，而不管其主要或次要配置定义如何。 回退到经典行为是非推荐的高级操作，需要在 Fabric.Code 配置内将“UseSecondaryIfNewer”设置参数的值设置为 false。
 
 在创建群集期间配置证书安全性时，Service Fabric 允许指定两个群集证书（主要证书和辅助证书）以及客户端证书。 请参阅[通过门户创建 Azure 群集](service-fabric-cluster-creation-via-portal.md)或[通过 Azure Resource Manager 创建 Azure 群集](service-fabric-cluster-creation-via-arm.md)，了解在创建时进行相关设置的详细信息。 如果在创建时只指定了一个群集证书，该证书会用作主证书。 在创建群集后，可以添加一个新证书作为辅助证书。
 
@@ -33,6 +33,8 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 > 对于安全群集，始终至少需要部署一个有效的（未吊销或过期）群集证书（主证书或辅助证书），否则，群集无法正常运行。 在所有有效证书过期前的 90 天，系统针对节点生成警告跟踪和警告运行状况事件。 Service Fabric 当前不会针对此文发送电子邮件或其他任何通知。 
 > 
 > 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>使用门户添加辅助群集证书
 无法通过 Azure 门户使用 Azure powershell 添加辅助群集证书。 本文档稍后将概述该过程。
@@ -46,7 +48,7 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>使用 Resource Manager Powershell 添加辅助证书
 > [!TIP]
-> 现在可以使用 [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet 更好、更轻松地添加辅助证书。 无需执行本部分中的其余步骤。  此外，使用 [Add-AzureRmServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet 时，不需要使用最初用来创建和部署群集的模板。
+> 现在有一种更好、更简单的方法来使用 [Add-AzServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet 添加辅助证书。 无需执行本部分中的其余步骤。  此外，使用 [Add-AzServiceFabricClusterCertificate](https://docs.microsoft.com/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet 时，不需要使用最初用来创建和部署群集的模板。
 
 执行这些步骤的前提是，熟悉资源管理器的工作原理，并已使用资源管理器模板至少部署了一个 Service Fabric 群集，同时已准备好在设置此群集时使用的模板。 此外，还有一个前提就是，可以熟练使用 JSON。
 
@@ -195,19 +197,19 @@ Azure Service Fabrics SDK 的默认证书加载行为是部署和使用过期日
 - 登录到 Azure 帐户，选择特定的 Azure 订阅。 对于有权访问多个 Azure 订阅的用户而言，这是一个重要步骤。
 
 ```powershell
-Connect-AzureRmAccount -Environment AzureChinaCloud
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount -Environment AzureChinaCloud
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 部署模板之前先进行测试。 使用群集当前部署到的同一个资源组。
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-将模板部署到该资源组。 使用群集当前部署到的同一个资源组。 运行 New-AzureRmResourceGroupDeployment 命令。 无需指定模式，因为默认值为 **incremental**。
+将模板部署到该资源组。 使用群集当前部署到的同一个资源组。 运行 New-AzResourceGroupDeployment 命令。 无需指定模式，因为默认值为 **incremental**。
 
 > [!NOTE]
 > 如果将 Mode 设置为 Complete，可能会无意中删除不在模板中的资源。 因此请不要在此方案中使用该模式。
@@ -215,7 +217,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 下面是已填充数据的同一个 Powershell 命令示例。
@@ -225,7 +227,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 
@@ -259,7 +261,7 @@ Connect-serviceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveInterval
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>将应用程序证书部署到群集。
+## <a name="deploying-client-certificates-to-the-cluster"></a>将客户端证书部署到群集。
 
 可以使用与上述步骤 5 相同的步骤，将证书从 keyvault 部署到节点。 只需定义并使用不同的参数。
 
@@ -290,6 +292,7 @@ Get-ServiceFabricClusterHealth
 * [为客户端设置基于角色的访问](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
+
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG
 [Json_Pub_Setting1]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_14.PNG
 [Json_Pub_Setting2]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_15.PNG

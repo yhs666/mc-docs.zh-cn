@@ -1,6 +1,6 @@
 ---
-title: 维度预生成实体
-titleSuffix: Azure
+title: 维度预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中维度预构建实体的信息。
 services: cognitive-services
 ms.custom: seodec18
@@ -8,15 +8,15 @@ author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9be8378fdbfc05054c9126d203b84b0d876c6531
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 19fcc14ebb61973313fbe98a6f25ab4d515c8be8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332114"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103889"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的维度预生成实体
 预构建维度实体检测各种类型的维度，无论 LUIS 应用语言区域是怎样的。 此实体已定型，因此不需要将包含维度的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持维度实体。 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b00e99f83992d5aee67768251010f7ee29eb8d26
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: b1f507c83ec1405f59ad1547786d92abeaa4f8c6
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332149"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104151"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 
@@ -29,12 +29,10 @@ ms.locfileid: "68332149"
 **错误代码**：UserErrorGuestAgentStatusUnavailable <br>
 **错误消息**：VM 代理无法与 Azure 备份进行通信<br>
 
-注册并计划备份服务的 VM 后，备份将通过与 VM 代理进行通信获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：<br>
-**原因 1：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
-**原因 2：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3：[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
-**原因 4：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)**  
-**原因 5：[VM 无法访问 Internet](#the-vm-has-no-internet-access)**
+Azure VM 代理可能已停止、已过期、处于不一致状态或未安装，从而阻止 Azure 备份服务触发快照。  
+    
+- 如果 VM 代理已停止或处于不一致状态，请**重启代理**，然后重试备份操作（尝试临时备份）。 有关重启代理的步骤，请参阅 [Windows VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。 
+- 如果未安装 VM 代理或 VM 代理已过期，请安装/更新 VM 代理，然后重试备份操作。 有关安装/更新代理的步骤，请参阅 [Windows VM](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 或 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)。  
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 无法与 VM 代理通信以获取快照状态
 
@@ -44,7 +42,8 @@ ms.locfileid: "68332149"
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
 **原因 1：[代理安装在 VM 中，但无响应（针对 Windows VM）](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **原因 2：[VM 中安装的代理已过时（针对 Linux VM）](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**原因 3：[VM 无法访问 Internet](#the-vm-has-no-internet-access)**
+**原因 3：[无法检索快照状态或无法创建快照](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**     
+**原因 4：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)** 
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 已达到还原点集合的最大限制
 
@@ -78,9 +77,9 @@ ms.locfileid: "68332149"
 **原因 2：[备份扩展无法更新或加载](#the-backup-extension-fails-to-update-or-load)**  
 **原因 3：[VM 无法访问 Internet](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot 扩展操作失败
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot 扩展操作失败
 
-**错误代码**：ExtentionOperationFailedForManagedDisks <br>
+**错误代码**：ExtensionOperationFailedForManagedDisks <br>
 **错误消息**：VMSnapshot 扩展操作失败<br>
 
 注册和计划 Azure 备份服务的 VM 后，备份会通过与 VM 备份扩展通信来获取时间点快照，从而启动作业。 以下任何条件都可能阻止快照的触发。 如果未触发快照，则备份可能失败。 请按所列顺序完成以下故障排除步骤，然后重试操作：  
@@ -107,7 +106,7 @@ ms.locfileid: "68332149"
 **错误代码**：UserErrorUnsupportedDiskSize <br>
 **错误消息**：当前 Azure 备份不支持大于 4095GB 的磁盘大小 <br>
 
-对磁盘大小大于 4095GB 的 VM 进行备份时，备份操作可能会失败。 即将推出对大型磁盘的支持。  
+对磁盘大小大于 4,095 GB 的 VM 进行备份时，备份操作可能会失败。 若要注册 Azure 备份大磁盘的受限公共预览版以支持大于 4 TB 且最大 30 TB 的磁盘，请参阅此[文章](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - 无法启动备份，因为另一个备份操作当前正在进行中
 
@@ -153,7 +152,7 @@ VM 代理可能已损坏或服务可能已停止。 重新安装 VM 代理可帮
 7. 运行按需备份：
     * 在门户中，选择“立即备份”  。
 
-此外，检查是否在 VM 中[安装了 Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed?view=azure-dotnet)。 VM 代理需要使用 .NET 4.5 来与服务通信。
+此外，检查是否在 VM 中[安装了 Microsoft .NET 4.5](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)。 VM 代理需要使用 .NET 4.5 来与服务通信。
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM 中安装的代理已过时（针对 Linux VM）
 

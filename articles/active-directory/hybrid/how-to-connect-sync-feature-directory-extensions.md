@@ -13,15 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/05/2018
-ms.date: 02/13/2019
+ms.date: 08/27/2019
 ms.subservice: hybrid
 ms.author: v-junlch
-ms.openlocfilehash: 7c4323d8ca3618ac6155168d79e50a646abc8b0a
-ms.sourcegitcommit: 3f266322470d2a3f8fdd4682e854f833466701af
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 57ca91588066eb7eed7889fa5aaa1430ab4cf7b6
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56222685"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134083"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect 同步：目录扩展
 通过目录扩展，可以使用本地 Active Directory 中的属性扩展 Azure AD 中的架构。 此功能允许使用继续在本地管理的属性来构建 LOB 应用。 可以通过 [Azure AD Graph API 目录扩展](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)或 [Microsoft Graph](https://developer.microsoft.com/graph/) 使用这些属性。 可以使用 [Azure AD Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china/)和 [Microsoft Graph 资源管理器](https://developer.microsoft.com/graph/graph-explorer)查看可用属性。
@@ -37,9 +38,9 @@ ms.locfileid: "56222685"
 
 安装显示以下属性，它们是有效的候选项：
 
-- “用户”和“组”对象类型
-- 单值属性：String、Boolean、Integer、Binary
-- 多值属性：String、Binary
+* “用户”和“组”对象类型
+* 单值属性：String、Boolean、Integer、Binary
+* 多值属性：String、Binary
 
 
 >[!NOTE]
@@ -62,7 +63,7 @@ Azure AD 中的对象最多可以有 100 个目录扩展属性。 最大长度�
 另外，也可以使用 [Microsoft Graph 资源管理器](https://developer.microsoft.com/zh-cn/graph/graph-explorer-china)通过 Microsoft Graph API 查询属性。
 
 >[!NOTE]
-> 你需要指定要返回的属性。 如下所示显式选择属性： https://microsoftgraph.chinacloudapi.cn/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division。 
+> 你需要指定要返回的属性。 按如下所示显式选择属性：https\://microsoftgraph.chinacloudapi.cn/beta/users/abbie.spencer@fabrikamonline.com?$select=extension_9d98ed114c4840d298fad781915f27e4_employeeID,extension_9d98ed114c4840d298fad781915f27e4_division。 
 >
 > 有关详细信息，请参阅 [Microsoft Graph：使用查询参数](https://developer.microsoft.com/graph/docs/concepts/query_parameters#select-parameter)。
 

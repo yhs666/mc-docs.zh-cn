@@ -1,6 +1,6 @@
 ---
 title: 区域 - 语音服务
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: 语音服务区域的参考。
 services: cognitive-services
 author: mahilleb-msft
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 01/14/2019
-ms.date: 04/01/2019
-ms.author: v-biyu
+origin.date: 08/26/2019
+ms.date: 03/12/2019
+ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: b0dad12cece51bf197dc090d31ebd4aeffff7f92
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: dcd766872233616ce28e6cb6425eaee6e6d3a992
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625633"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103745"
 ---
 # <a name="speech-service-supported-regions"></a>语音服务支持的区域
 
@@ -29,23 +29,33 @@ ms.locfileid: "58625633"
 
 在[语音 SDK](speech-sdk.md) 中，区域指定为字符串（例如，在 C# 语音 SDK 中用作 `SpeechConfig.FromSubscription` 的参数）。
 
-### <a name="speech-recognition-and-translation"></a>语音识别和翻译
+### <a name="speech-to-text-text-to-speech-and-translation"></a>语音转文本、文本转语音和翻译
 
-以下区域提供语音 SDK，用于“语音识别”和“翻译”：
+可以在以下区域使用语音 SDK，以进行**语音识别**、**文本转语音**和**翻译**：
 
 
-| 区域 | 语音 SDK 参数 | 语音自定义门户 |
-|--------|----------------------|-----------------------------|
-|        |                      |                             |
+  区域 | 语音 SDK 参数 | 语音自定义门户
+ ------|-------|--------
+ 美国西部 | `westus` | https://westus.cris.ai
 
 ### <a name="intent-recognition"></a>意向识别
 
 通过语音 SDK 实现**意向识别**的可用区域如下：
 
+ 全球区域 | 区域 | 语音 SDK 参数
+ ------|-------|--------
+ 中国 | 中国北部 | `chinanorth`
 
-| 全球区域 | 区域 | 语音 SDK 参数 |
-|---------------|--------|----------------------|
-|               |        |                      |
+这是[语言理解服务 (LUIS)](/azure/cognitive-services/luis/luis-reference-regions) 支持的发布区域的子集。
+
+### 语音优先虚拟助手 <a name="standard-and-neural-voices"></a>
+
+[语音 SDK](speech-sdk.md) 在以下区域支持**语音优先虚拟助理**功能：
+
+区域 | 语音 SDK 参数
+-------|---------------------
+中国北部 | `chinanorth`
+
 
 ## <a name="rest-apis"></a>REST API
 

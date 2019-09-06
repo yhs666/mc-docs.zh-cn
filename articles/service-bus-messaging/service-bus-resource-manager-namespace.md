@@ -12,197 +12,154 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 06/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 90ec000da9fcda6d2cfcca154b9d700e0b86c48c
-ms.sourcegitcommit: cca72cbb9e0536d9aaddba4b7ce2771679c08824
+ms.openlocfilehash: e296a91eb4031eb9eaf8e84afca97b54273c739b
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58544809"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169599"
 ---
-# <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>使用 Azure Resource Manager 模板创建服务总线命名空间
-在本快速入门中，我们将创建一个 Azure 资源管理器模板，用于创建采用**标准** SKU 的类型为 **Messaging** 的服务总线命名空间。 本文还定义了为执行部署指定的参数。 可将此模板用于自己的部署，或自定义此模板以满足要求。 有关创建模板的详细信息，请参阅 [创作 Azure Resource Manager 模板][Authoring Azure Resource Manager templates]。 有关完整的模板，请参阅 GitHub 上的[服务总线命名空间模板][Service Bus namespace template]。
+# <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建服务总线命名空间
 
->[!NOTE]
-> 以下 Azure Resource Manager 模板可供下载和部署。 
-> 
-> * [创建包含队列的服务总线命名空间](service-bus-resource-manager-namespace-queue.md)
-> * [创建包含主题和订阅的服务总线命名空间](service-bus-resource-manager-namespace-topic.md)
-> * [创建包含队列和授权规则的服务总线命名空间](service-bus-resource-manager-namespace-auth-rule.md)
-> * [创建包含主题、订阅和规则的服务总线命名空间](service-bus-resource-manager-namespace-topic-with-rule.md)
-> 
-> 若要检查最新模板，请访问 [Azure 快速启动模板][Azure Quickstart Templates] 库并搜索服务总线。
+了解如何部署 Azure 资源管理器模板以创建服务总线命名空间。 可将此模板用于自己的部署，或自定义此模板以满足要求。 有关创建模板的详细信息，请参阅 [Azure 资源管理器文档](/azure/azure-resource-manager/)。
 
-## <a name="quick-deployment"></a>快速部署
-若要运行该示例且不编写任何 JSON 和运行 PowerShell/CLI 命令，请选择以下按钮：
+还可使用以下模板创建服务总线命名空间：
 
-[![“部署到 Azure”](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+* [创建包含队列的服务总线命名空间](./service-bus-resource-manager-namespace-queue.md)
+* [创建包含主题和订阅的服务总线命名空间](./service-bus-resource-manager-namespace-topic.md)
+* [创建包含队列和授权规则的服务总线命名空间](./service-bus-resource-manager-namespace-auth-rule.md)
+* [创建包含主题、订阅和规则的服务总线命名空间](./service-bus-resource-manager-namespace-topic-with-rule.md)
 
-若要创建模板并手动部署，请通读本文中的以下部分。
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>先决条件
-若要完成本快速入门，需要一个 Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
 
-若要使用 **Azure PowerShell** 部署资源管理器模板，请[安装 Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0)。
+## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
-若要使用 **Azure CLI** 部署资源管理器模板，请[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
+在本快速入门中，使用 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/)中的[现有资源管理器模板](https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/azuredeploy.json)：
 
-## <a name="create-the-resource-manager-template-json"></a>创建资源管理器模板 JSON 
-创建包含以下内容的名为 **MyServiceBusNamespace.json** 的 JSON 文件： 
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "serviceBusNamespaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "Name of the Service Bus namespace"
-            }
-        },
-        "serviceBusSku": {
-            "type": "string",
-            "allowedValues": [
-                "Basic",
-                "Standard",
-                "Premium"
-            ],
-            "defaultValue": "Standard",
-            "metadata": {
-                "description": "The messaging tier for service Bus namespace"
-            }
-        },
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "Location for all resources."
-            }
-        }
-    },
-    "resources": [
-        {
-            "apiVersion": "2017-04-01",
-            "name": "[parameters('serviceBusNamespaceName')]",
-            "type": "Microsoft.ServiceBus/namespaces",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('serviceBusSku')]"
-            }
-        }
-    ]
-}
 ```
-
-此模板创建一个标准服务总线命名空间。
-
-## <a name="create-the-parameters-json"></a>创建参数 JSON
-在上一步骤中创建的模板包含名为 `Parameters` 的节。 请根据要部署的项目或根据目标环境，为这些值定义参数。 此模板定义以下参数：**serviceBusNamespaceName**、**serviceBusSku** 和 **location**。 若要详细了解服务总线的 SKU，请参阅[服务总线 SKU](https://www.azure.cn/pricing/details/service-bus/)。
-
-创建包含以下内容的名为 **MyServiceBusNamespace-Parameters.json** 的 JSON 文件： 
-
-> [!NOTE] 
-> 指定服务总线命名空间的名称。 
-
-```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "serviceBusNamespaceName": {
-      "value": "<Specify a name for the Service Bus namespace>"
+      "type": "string",
+      "metadata": {
+        "description": "Name of the Service Bus namespace"
+      }
     },
     "serviceBusSku": {
-      "value": "Standard"
+      "type": "string",
+      "allowedValues": [
+        "Basic",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "Standard",
+      "metadata": {
+        "description": "The messaging tier for service Bus namespace"
+      }
     },
     "location": {
-        "value": "China East"
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
+    }
+  },
+  "variables": {
+    "defaultSASKeyName": "RootManageSharedAccessKey",
+    "defaultAuthRuleResourceId": "[resourceId('Microsoft.ServiceBus/namespaces/authorizationRules', parameters('serviceBusNamespaceName'), variables('defaultSASKeyName'))]",
+    "sbVersion": "2017-04-01"
+  },
+  "resources": [
+    {
+      "apiVersion": "2017-04-01",
+      "name": "[parameters('serviceBusNamespaceName')]",
+      "type": "Microsoft.ServiceBus/namespaces",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('serviceBusSku')]"
+      }
+    }
+  ],
+  "outputs": {
+    "NamespaceDefaultConnectionString": {
+      "type": "string",
+      "value": "[listkeys(variables('defaultAuthRuleResourceId'), variables('sbVersion')).primaryConnectionString]"
+    },
+    "DefaultSharedAccessPolicyPrimaryKey": {
+      "type": "string",
+      "value": "[listkeys(variables('defaultAuthRuleResourceId'), variables('sbVersion')).primaryKey]"
     }
   }
 }
 ```
 
-## <a name="use-azure-powershell-to-deploy-the-template"></a>使用 Azure PowerShell 部署模板
+若要查找更多模板示例，请参阅 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Servicebus&pageNumber=1&sort=Popular)。
 
-### <a name="sign-in-to-azure"></a>登录 Azure
-1. 启动 Azure PowerShell
+若要通过部署模板创建服务总线命名空间，请执行以下操作：
 
-2. 运行以下命令来登录到 Azure：
+1. 从以下代码块中选择“试用”  ，然后按照说明登录 Azure Cloud shell。
 
-   ```azurepowershell
-   Login-AzureRmAccount -Environment AzureChinaCloud
-   ```
-3. 如果发出以下命令来设置当前的订阅上下文：
+    ```azurepowershell-interactive
+    $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${serviceBusNamespaceName}rg"
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-servicebus-create-namespace/azuredeploy.json"
 
-   ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
-   ```
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -serviceBusNamespaceName $serviceBusNamespaceName
 
-### <a name="deploy-resources"></a>部署资源
-若要使用 Azure PowerShell 部署资源，请切换到 JSON 文件所保存到的文件夹，并运行以下命令：
-
-> [!IMPORTANT]
-> 在运行命令之前，请指定 Azure 资源组的名称作为 $resourceGroupName 的值。 
-
-1. 为资源组名称声明一个变量，并为其指定值。 
-
-    ```azurepowershell
-    $resourceGroupName = "<Specify a name for the Azure resource group>"
-    ```
-2. 创建 Azure 资源组。
-
-    ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'China East'
-    ```
-3. 部署资源管理器模板。 指定部署本身、资源组、模板 JSON 文件和参数 JSON 文件的名称
-
-    ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
-## <a name="use-azure-cli-to-deploy-the-template"></a>使用 Azure CLI 部署模板
+    资源组名称是追加了 **rg** 的服务总线命名空间名称。
 
-### <a name="sign-in-to-azure"></a>登录 Azure
+2. 选择“复制”以复制 PowerShell 脚本。 
+3. 右键单击 shell 控制台，然后选择“粘贴”  。
 
-1. 运行以下命令来登录到 Azure：
+创建事件中心需要一些时间。
 
-    ```azurecli
-    az login
-    ```
-2. 设置当前订阅上下文。 将 `MyAzureSub` 替换为要使用的 Azure 订阅的名称：
+## <a name="verify-the-deployment"></a>验证部署
 
-    ```azurecli
-    az account set --subscription <Name of your Azure subscription>
-    ``` 
+若要查看部署的服务总线命名空间，可以从 Azure 门户打开资源组，或者使用以下 Azure PowerShell 脚本。 如果 Cloud shell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
 
-### <a name="deploy-resources"></a>部署资源
-若要使用 Azure CLI 部署资源，请切换到包含 JSON 文件的文件夹，并运行以下命令：
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
 
-> [!IMPORTANT]
-> 在 az group create 命令中指定 Azure 资源组的名称。 上获取。
+Get-AzServiceBusNamespace -ResourceGroupName $resourceGroupName -Name $serviceBusNamespaceName
 
-1. 创建 Azure 资源组。 
-    ```azurecli
-    az group create --name <YourResourceGroupName> --location chinaeast
-    ```
+Write-Host "Press [ENTER] to continue ..."
+```
 
-2. 部署资源管理器模板。 指定资源组、部署、模板 JSON 文件、参数 JSON 文件的名称。
+在本教程中，请使用 Azure PowerShell 来部署模板。 如需其他模板部署方法，请参阅：
 
-    ```azurecli
-    az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyServiceBusNamespace.json --parameters @MyServiceBusNamespace-Parameters.json
-    ```
+* [使用 Azure 门户](../azure-resource-manager/resource-group-template-deploy-portal.md)。
+* [使用 Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)。
+* [使用 REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)。
+
+## <a name="clean-up-resources"></a>清理资源
+
+不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。 如果 Cloud shell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
+
+```azurepowershell-interactive
+$serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
+$resourceGroupName = "${serviceBusNamespaceName}rg"
+
+Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
+
+Write-Host "Press [ENTER] to continue ..."
+```
 
 ## <a name="next-steps"></a>后续步骤
-在本文中，我们已创建一个服务总线命名空间。 请参阅其他快速入门，了解如何创建和使用队列、主题/订阅： 
 
-- [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
-- [服务总线主题入门](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+在本文中，我们已创建一个服务总线命名空间。 请参阅其他快速入门，了解如何创建和使用队列、主题/订阅：
 
-  [Authoring Azure Resource Manager Templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-  [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
-[Azure Quickstart Templates]: https://github.com/Azure/azure-quickstart-templates/?term=service+bus
-  [Service Bus pricing and billing]: ./service-bus-pricing-billing.md
-  [Using Azure PowerShell with Azure Resource Manager]: ../azure-resource-manager/powershell-azure-resource-manager.md
-  [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
+* [服务总线队列入门](service-bus-dotnet-get-started-with-queues.md)
+* [服务总线主题入门](service-bus-dotnet-how-to-use-topics-subscriptions.md)

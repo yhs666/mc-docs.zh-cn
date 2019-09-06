@@ -1,5 +1,5 @@
 ---
-title: 实体角色
+title: 实体角色 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 角色是仅在模式中使用的实体的已命名上下文子类型。 例如，在表述 `buy a ticket from New York to London` 中，纽约和伦敦都是城市，但是两者在句中的含义不同。 纽约为出发城市，伦敦为目标城市。
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/19/19
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: af2196afe855dd453ff1c71173454cbbc1c94a5f
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 24454fbe80f459fa0d56a228c473698db0960ec3
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332106"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103944"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>上下文子类型的实体角色
 
@@ -55,7 +55,7 @@ Schedule the meeting from 8 to 9
 
 ## <a name="are-multiple-entities-in-an-utterance-the-same-thing-as-roles"></a>言语中的多个实体是否与角色相同？ 
 
-多个实体可以存在于一个言语中，无需使用角色即可提取这些实体。 如果句子上下文指示实体版本包含值，则应使用角色。 
+多个实体可以存在于一个言语中，无需使用角色即可提取这些实体。 如果句子的上下文指示实体的哪个版本具有值，则应该使用角色。 
 
 ### <a name="dont-use-roles-for-duplicates-without-meaning"></a>不要对没有含义的重复项使用角色
 

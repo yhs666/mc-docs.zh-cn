@@ -1,6 +1,6 @@
 ---
-title: 已弃用的预生成实体
-titleSuffix: Azure
+title: 已弃用的预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中已弃用的预构建实体的信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a1aeee9a4f7559e4e2fae77cedcbb3673a3804e9
-ms.sourcegitcommit: e77582e79df32272e64c6765fdb3613241671c20
+ms.openlocfilehash: 3d54a685919298143f24377b78fc926c9d52e8e8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "67135719"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103897"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 应用中已弃用的预生成实体
 以下预构建实体已被弃用，不能添加到新的 LUIS 应用中。

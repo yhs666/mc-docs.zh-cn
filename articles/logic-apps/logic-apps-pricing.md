@@ -12,12 +12,12 @@ ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 origin.date: 05/22/2019
 ms.date: 08/26/2019
-ms.openlocfilehash: 495b4e8dcba5975b80e89e6b8262eff7328e87f2
-ms.sourcegitcommit: d624f006b024131ced8569c62a94494931d66af7
+ms.openlocfilehash: 081882c31a8125f18dbf17b5d04bb741c2ae3be7
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69538749"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174090"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure 逻辑应用的定价模型
 
@@ -70,10 +70,23 @@ Azure 逻辑应用将所有成功和不成功的操作作为执行进行计量�
 
 ## <a name="disabled-logic-apps"></a>禁用的逻辑应用
 
-禁用的逻辑应用在禁用期间不会产生费用，因为它们无法创建新实例。
-禁用逻辑应用后，当前正在运行的实例可能需要在一段时间之后才会完全停止。
+禁用的逻辑应用不收费，因为它们在禁用时无法创建新实例。禁用逻辑应用后，任何当前正在运行的实例可能需要一段时间才能完全停止。
 
+<a name="input-output-sizes"></a>
 
+### <a name="view-action-input-and-output-sizes"></a>查看操作输入和输出大小
+
+1. 在 Azure 门户中，查找并打开逻辑应用。
+
+1. 在逻辑应用的菜单中，选择“概述”  。
+
+1. 在右侧窗格的“运行历史记录”  下，选择具有要检查的输入和输出的运行。
+
+1. 在“逻辑应用运行”  下，选择“运行详细信息”  。
+
+1. 在“逻辑应用运行详细信息”  窗格的“操作表”中（其中列出了每个操作的状态和持续时间），选择要查看的操作。
+
+1. 在“逻辑应用操作”  窗格中，找到该操作的输入和输出的大小（分别显示在“输入链接”  和“输出链接”  下）。
 ## <a name="next-steps"></a>后续步骤
 
 * [详细了解 Azure 逻辑应用](logic-apps-overview.md)

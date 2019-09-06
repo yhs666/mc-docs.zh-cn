@@ -7,20 +7,20 @@ author: chlandsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
-origin.date: 2/20/2019
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 2fb1d5f5bd669fa0fb239b747523a2a865069f69
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+ms.topic: conceptual
+origin.date: 8/20/2019
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 3e56ec567613b0812fdec74a9b67c6cf0fa5b466
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348405"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104096"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>使用语音 SDK 选择音频输入设备
 
-1.3.0 版语音 SDK 引入了用于选择音频输入的 API。本文介绍如何获取已连接到系统的音频设备的 ID。
+1\.3.0 版语音 SDK 引入了用于选择音频输入的 API。本文介绍如何获取已连接到系统的音频设备的 ID。
 然后，可以通过 `AudioConfig` 对象配置音频设备，以便在语音 SDK 中使用这些项目：
 
 ```C++
@@ -43,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> 目前无法通过 JavaScript 使用此功能。
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> 在 Node.js 中运行的 JavaScript 无法使用麦克风
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>在 Windows 桌面版应用程序上的音频设备 ID
 
@@ -374,7 +377,3 @@ iOS 不支持通过语音 SDK 来选择音频设备。
 > [!div class="nextstepaction"]
 > [浏览 GitHub 上的示例](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>另请参阅
-
-- [自定义声学模型](how-to-customize-acoustic-models.md)
-- [自定义语言模型](how-to-customize-language-model.md)

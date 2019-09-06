@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 1569ab30f08a013f7062b9988415f07f1ccd7373
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 9e0672fd209b85fafb924c3c1ccc490bf6e03289
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570520"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104129"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安装和升级 Azure 备份服务器 
 <a name="install-and-upgrade-azure-backup-server"></a>
@@ -40,7 +40,7 @@ ms.locfileid: "67570520"
 
 Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负荷备份功能。 本文链接到 DPM 文档，介绍一些共享功能。 尽管 Azure 备份服务器与 DPM 有许多相同的功能，但 Azure 备份服务器无法备份到磁带，也不与 System Center 集成。
 
-## <a name="choose-an-installation-platform"></a>选择安装平台 
+## <a name="choose-an-installation-platform"></a>选择安装平台
 若要启动并运行 Azure 备份服务器，首先要设置 Windows Server。 服务器可位于 Azure 中，也可位于本地。
 
 ### <a name="using-a-server-in-azure"></a>使用 Azure 中的服务器
@@ -80,12 +80,14 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
 若要编辑存储复制设置，请执行以下操作：
 
-1. 选择保管库以打开保管库仪表板和“设置”菜单。 如果“设置”菜单未打开，请在保管库仪表板中单击“所有设置”   。
-2. 在“设置”菜单中，单击“备份基础结构” > “备份配置”，打开“备份配置”边栏选项卡     。 在“备份配置”菜单中，选择保管库的存储复制选项  。
+1. 从“恢复服务保管库”边栏选项卡中，单击新保管库  。 在“设置”部分下，单击“属性”   。
+2. 在“属性”  中的“备份配置”  下，单击“更新”  。
 
-    ![备份保管库列表](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. 选择存储复制类型，然后单击“保存”  。
 
-    选择好保管库的存储选项后，可以开始将 VM 与保管库相关联。 若要开始关联，请发现及注册 Azure 虚拟机。
+     ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## <a name="software-package"></a>软件包
 ### <a name="downloading-the-software-package"></a>下载软件包
@@ -247,16 +249,17 @@ MABS 使用 System Center Data Protection Manager 保护代理。 [此处](https
 
 如果需要将 MABS 移到新服务器，同时保留存储，请执行以下步骤。 仅当所有数据都在新式备份存储中时，才能执行此操作。
 
+
   > [!IMPORTANT]
-  > - 新服务器的名称必须与原始 Azure 备份服务器实例的名称相同。 若要使用以前的存储池和 Data Protection Manager 数据库来保留恢复点，则不能更改新 Azure 备份服务器实例的名称。
-  > - 必须创建 Data Protection Manager 数据库的备份。 稍后需要还原数据库。
+  > - 新服务器的名称必须与原始 Azure 备份服务器实例的名称相同。 若要使用以前的存储池和 MABS 数据库(DPMDB)保留恢复点，则不能更改新 Azure 备份服务器实例的名称。
+  > - 必须有 MABS 数据库 (DPMDB) 的备份。 稍后需要还原数据库。
 
 1. 在显示窗格中，选择要为其更新保护代理的客户端计算机。
-2. 关闭原始 Azure 备份服务器或对其停止传输。
+2. 关闭原始 Azure 备份服务器或将其从线路断开。
 3. 重置 Active Directory 中的计算机帐户。
 4. 在新计算机上安装 Server 2016 并将其命名为与原始 Azure 备份服务器相同的计算机名称。
 5. 加入域
-6. 安装 Azure 备份服务器 V2 或更高版本（将 DPM 存储池磁盘从旧服务器中移出并导入到该服务器）
+6. 安装 Azure 备份服务器 V2 或更高版本（从旧服务器移出 MABS 存储池磁盘并导入）
 7. 还原步骤 1 中创建的 DPMDB。
 8. 将存储从原始备份服务器连接到新服务器。
 9. 从 SQL 还原 DPMDB
@@ -271,7 +274,7 @@ MABS 使用 System Center Data Protection Manager 保护代理。 [此处](https
 ## <a name="network-connectivity"></a>网络连接
 Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若要验证计算机是否已连接到 Azure，请在 Azure 备份服务器 PowerShell 控制台中使用 ```Get-DPMCloudConnection``` cmdlet。 如果该 cmdlet 的输出为 TRUE，则表示已建立连接，否则表示未建立连接。
 
-同时，Azure 订阅必须处于正常运行状态。 若要了解订阅的状态并对其进行管理，请登录到 [订阅门户](https://account.windowsazure.cn/Subscriptions)。
+同时，Azure 订阅必须处于正常运行状态。 若要了解订阅的状态并对其进行管理，请登录到[订阅门户](https://account.windowsazure.cn/Subscriptions)。
 
 了解 Azure 连接和 Azure 订阅的状态后，可以使用下表来确定提供的备份/还原功能受到了哪些影响。
 
@@ -296,7 +299,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 在 Azure 备份服务器计算机上还原与 Azure 的连接之后，可执行的操作取决于 Azure 订阅状态。 上表详细列出了有关计算机在“连接”之后允许的操作的信息。
 
 ### <a name="handling-subscription-states"></a>处理订阅状态
-可以将 Azure 订阅从“已过期”  或“已取消预配”  状态更改为“活动”  状态。 但是，当状态不是“*活动*”时，此操作对产品的行为会造成某些影响：
+可以将 Azure 订阅从“已过期”  或“已取消预配”  状态更改为“活动”  状态。 但是，当状态不是“活动”  时，此操作对产品的行为会造成某些影响：
 
 * “已取消预配”  的订阅在取消预配的这段期间将失去功能。 切换为“*活动*”后，将恢复产品的备份/还原功能。 此外，只要以够长的保留期来保存本地磁盘上的备份数据，则还可以检索这些数据。 但是，一旦订阅进入“*已取消预配*”状态，Azure 中的备份数据便会丢失且不可检索。
 * “*已过期*”的订阅只会在恢复“*活动*”状态之前失去功能。 在订阅处于“*已过期*”期间计划的任何备份都不会运行。

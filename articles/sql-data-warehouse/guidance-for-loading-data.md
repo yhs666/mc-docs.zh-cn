@@ -6,18 +6,18 @@ author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-origin.date: 05/31/2019
-ms.date: 08/12/2019
+ms.subservice: load-data
+origin.date: 08/08/2019
+ms.date: 09/02/2019
 ms.author: v-jay
 ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: 44405f38922e4f4a3ee656881c1e7a63a83ba51d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 51ea9e3c2b5f1770500d7986e9f5175fe81c7a29
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544373"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131874"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>将数据加载到 Azure SQL 数据仓库中的最佳做法
 
@@ -70,8 +70,8 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 例如，考虑为部门 A 使用数据库架构 schema_A，为部门 B 使用 schema_B；让数据库用户 user_A 和 user_B 分别作为部门 A 和 B 中加载的 PolyBase 用户。 这些用户已被授予 CONTROL 数据库权限。 架构 A 和 B 的创建者现在使用 DENY 锁定其架构：
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 现在 user_A 和 user_B 被锁在其他部门的架构之外。
@@ -88,6 +88,9 @@ PolyBase 无法加载数据大小超过 1,000,000 字节的行。 将数据置�
 
 - 若要确保加载用户有足够的内存来实现最大压缩率，请使用属于中大型资源类的加载用户。 
 - 加载足够的行，以便完全填充新的行组。 在大容量加载期间，数据会以 1,048,576 行为一个完整的行组直接压缩到列存储中。 不到 102,400 行的加载会将行发送到增量存储中以 B 树索引的形式保存。 如果加载的行太少，这些行可能会全部进入增量存储中，不会立即压缩成列存储格式。
+
+## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>使用 SQLBulkCopy API 或 BCP 时增加批大小
+如前所述，使用 PolyBase 加载将为 SQL 数据仓库提供最高吞吐量。 如果无法使用 PolyBase 加载，并且必须使用 SQLBulkCopy API（或 BCP），则应考虑增加批大小以获得更高的吞吐量。 
 
 ## <a name="handling-loading-failures"></a>处理加载失败
 
@@ -129,7 +132,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 将密钥从密钥 1 轮换为密钥 2
 
@@ -144,6 +147,3 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 - 若要详细了解 PolyBase 以及如何设计提取、加载和转换 (ELT) 过程，请参阅[为 SQL 数据仓库设计 ELT](design-elt-data-loading.md)。
 - 如需加载教程，请参阅[使用 PolyBase 将数据从 Azure Blob 存储加载到 Azure SQL 数据仓库](load-data-from-azure-blob-storage-using-polybase.md)。
 - 若要监视数据加载，请参阅[使用 DMV 监视工作负荷](sql-data-warehouse-manage-monitor.md)。
-
-
-

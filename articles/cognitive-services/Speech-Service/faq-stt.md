@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 06/11/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
-ms.openlocfilehash: 8dff25ff96657b49b692b9b35da00203922455a9
-ms.sourcegitcommit: edce097f471b6e9427718f0641ee2b421e3c0ed2
+origin.date: 08/11/2019
+ms.date: 07/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 3fccf7688d2930e836d78248abe69125b3753613
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58348261"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104104"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>语音转文本常见问题解答
 
@@ -30,7 +30,7 @@ ms.locfileid: "58348261"
 
 **问：如果想要使用基线模型，从何处开始？**
 
-**答**：首先，获取[订阅密钥](get-started.md)。 如果想要对预先部署的基线模型进行 REST 调用，请参阅 [REST API](rest-apis.md)。 如果想要使用 WebSocket，请[下载 SDK](speech-sdk.md)。
+**答**：首先，获取[订阅密钥](get-started.md)。 如果想要使用 WebSocket，请[下载 SDK](speech-sdk.md)。
 
 **问：是否始终需要生成自定义语音模型？**
 
@@ -40,7 +40,7 @@ ms.locfileid: "58348261"
 
 **问：如何知道何时完成数据集或模型的处理？**
 
-**答**：目前，表中模型或数据集的状态是唯一可以了解的途径。 处理完成后，状态是“成功”。
+**答**：目前，表中模型或数据集的状态是唯一可以了解的途径。 处理完成后，状态是“成功”  。
 
 **问：能否创建多个模型？**
 
@@ -84,7 +84,12 @@ ms.locfileid: "58348261"
 
 **答**：REST API 将请求限制为每 5 秒 25 个。 可以在我们的[语音转文本](speech-to-text.md)页面中找到详细信息。
 
-如果有禁止使用自定义语音服务的其他隐私问题，请联系其中一个支持渠道。
+**问：双声道音频如何收费？**
+
+**答**：如果你单独提交每个声道（每个声道在其自己的文件中），将按每个文件的持续时间对你收费。 如果你提交单个文件，其中每个声道都一起多路复用，则按单个文件的持续时间对你收费。
+
+> [!IMPORTANT]
+> 如果有禁止使用自定义语音服务的其他隐私问题，请联系其中一个支持渠道。
 
 ## <a name="importing-data"></a>导入数据
 
@@ -112,7 +117,7 @@ ms.locfileid: "58348261"
 
 **问：如何收集声学数据？**
 
-**答**：可以创建独立的数据收集应用程序，或使用现成的录音软件。 你还可以创建一个记录音频数据并使用该数据的应用程序版本。 
+**答**：可以创建独立的数据收集应用程序，或使用现成的录音软件。 你还可以创建一个用于记录音频数据并使用该数据的应用程序版本。 
 
 **问：是否需要自行转录适应数据？**
 

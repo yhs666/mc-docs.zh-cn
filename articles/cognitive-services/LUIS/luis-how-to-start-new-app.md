@@ -1,6 +1,6 @@
 ---
-title: 创建新应用
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 创建新应用 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 在语言理解 (LUIS) 网页上创建和管理应用程序。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d67ff0cff80ef01d4cc06b73fe3c26acc7c4af62
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: 02cf88f2f02e006dbfd078b3322098fc644f5d93
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332060"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103917"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>在 LUIS 门户中创建新的 LUIS 应用
 可通过多种方法创建 LUIS 应用。 可以在 [LUIS](https://luis.azure.cn) 门户中创建 LUIS 应用，也可以通过 LUIS 创作 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 创建。

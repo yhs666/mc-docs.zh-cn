@@ -1,5 +1,5 @@
 ---
-title: 批处理测试
+title: 批处理测试 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本教程演示如何使用批处理测试在应用中查找话语预测问题并进行修复。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b2d08ab553a94e65620b0cd17d957c60b3eff691
-ms.sourcegitcommit: 10a858569fbfde321e71b649701ca3862bbc0178
+ms.openlocfilehash: 5089ec46bbea87a5429185529bb0648f7e1c92a8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65997320"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103872"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教程：成批测试数据集
 
@@ -126,19 +126,19 @@ ms.locfileid: "65997320"
 
 ### <a name="getjobinformation-test-results"></a>GetJobInformation 测试结果
 
-显示在筛选器中的 GetJobInformation 测试结果显示四种预测中有 2 种是成功的  。 选择右上象限上方的名称“误报”，查看图表下方的话语  。 
+显示在筛选器中的 GetJobInformation 测试结果显示四种预测中有 2 种是成功的  。 在左下象限中选择名称“漏报”  ，以查看图表下方的话语。 
 
-![LUIS 批处理测试话语](./media/luis-tutorial-batch-testing/hr-applyforjobs-false-positive-results.png)
+使用键盘 Ctrl+E 切换到标签视图以查看用户话语的确切文本。 
 
-为什么两个话语被预测为 ApplyForJob，而不是正确的意向 GetJobInformation   ？ 两个意向在字词的选择和排列方式方面密切相关。 在复合实体中包装此外，ApplyForJob 的示例几乎是 GetJobInformation 的三倍   。 示例话语的这种不平衡对 ApplyForJob 意向有利  。 
+话语 `Is there a database position open in Los Colinas?` 标记为“GetJobInformation”  ，但当前模型预测话语为“ApplyForJob”  。 
+
+ApplyForJob 的示例几乎是 GetJobInformation 的三倍   。 示例话语的这种不平衡对 ApplyForJob 意向有利  ，从而导致不正确的预测。 
 
 请注意，这两个意向都有相同的错误计数。 一个意向中的错误预测也会影响另一个意向。 由于错误地预测了一个意向的话语，也错误地未预测另一个意向，因此二者都有错误。 
 
-![LUIS 批处理测试筛选器错误](./media/luis-tutorial-batch-testing/hr-intent-error-count.png)
+<a name="fix-the-app"></a>
 
-对应于“误报”部分中顶点的话语为 `Can I apply for any database jobs with this resume?` 和 `Can I apply for any database jobs with this resume?`  。 对于第一个话语，单词 `resume` 仅在 ApplyForJob 中使用过  。 对于第二个话语，单词 `apply` 仅在 ApplyForJob 意向中使用过  。
-
-## <a name="fix-the-app"></a>修复应用
+## <a name="how-to-fix-the-app"></a>如何修复应用
 
 本部分的目标是通过修复应用，正确预测 GetJobInformation 的所有话语  。 
 
@@ -146,7 +146,7 @@ ms.locfileid: "65997320"
 
 可能还想知道如何从 ApplyForJob 中删除话语，直到话语数量与 GetJobInformation 中相同   。 这可能会修复测试结果，但会阻碍 LUIS 下一次准确地预测该意向。 
 
-第一个解决方法是向 GetJobInformation 添加更多话语  。 第二个解决方法是减少针对 ApplyForJob 意向的单词（如 `resume` 和 `apply`）的权重  。 
+解决方法是向 GetJobInformation 添加更多话语  。 请记得改变话语长度、字词选择和字词排列，同时仍以查找工作信息的意向为目标，而不是  申请工作。
 
 ### <a name="add-more-utterances"></a>添加更多话语
 
@@ -184,15 +184,13 @@ ms.locfileid: "65997320"
 
 1. 选择顶部导航栏的“测试”  。 如果批处理结果仍处于打开状态，请选择“返回到列表”  。  
 
-2. 选择批处理名称右侧的省略号 (...) 按钮，然后选择“运行数据集”  。 请等待批处理测试完成。 请注意，“查看结果”按钮现在为绿色  。 这意味着整个批处理已成功运行。
+1. 选择批处理名称右侧的省略号 (...) 按钮，然后选择“运行”  。 请等待批处理测试完成。 请注意，“查看结果”按钮现在为绿色  。 这意味着整个批处理已成功运行。
 
-3. 选择“查看结果”  。 所有意向的名称左侧都应有绿色图标。 
-
-    ![LUIS 的屏幕截图，其中已突出显示“批处理结果”按钮](./media/luis-tutorial-batch-testing/hr-batch-test-intents-no-errors.png)
+1. 选择“查看结果”  。 所有意向的名称左侧都应有绿色图标。 
 
 ## <a name="create-batch-file-with-entities"></a>使用实体创建批处理文件 
 
-若要验证批处理测试中的实体，需要在批处理 JSON 文件中标记实体。 仅使用机器学习实体：简单、分层（仅父级）和复合实体。 不要添加非机器学习实体，因为它们总是通过正则表达式或显式文本匹配找到的。
+若要验证批处理测试中的实体，需要在批处理 JSON 文件中标记实体。 
 
 总字（[令牌](luis-glossary.md#token)）计数的实体的变化会影响预测质量。 请确保提供给具有标记话语的意向的定型数据包括各种长度的实体。 
 

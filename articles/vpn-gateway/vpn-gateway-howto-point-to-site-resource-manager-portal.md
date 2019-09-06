@@ -3,25 +3,23 @@ title: 使用点到站点和本机 Azure 证书身份验证将计算机连接到
 description: 使用 P2S 和自签名证书或 CA 颁发的证书将 Windows、Mac OS X 和 Linux 客户端安全地连接到 Azure 虚拟网络。 本文使用 Azure 门户。
 services: vpn-gateway
 author: WenJason
-tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 6/18/2019
-ms.date: 08/05/2019
+origin.date: 07/31/2019
+ms.date: 09/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 4a0b4cc0fd6c13eacd2e9d96462b17a1f526454c
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: ed6a9687e58777090baa3afb6d3c6255ae5a2ba7
+ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732290"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70131715"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>使用本机 Azure 证书身份验证配置与 VNet 的点到站点连接：Azure 门户
 
 本文介绍如何将运行 Windows、Linux 或 Mac OS X 的单个客户端安全地连接到 Azure VNet。 若要从远程位置连接到 VNet，例如从家里或会议室进行远程通信，则可使用点到站点 VPN。 如果只有一些客户端需要连接到 VNet，也可使用 P2S VPN 来代替站点到站点 VPN。 点到站点连接不需要 VPN 设备或面向公众的 IP 地址。 P2S 基于 SSTP（安全套接字隧道协议）或 IKEv2 创建 VPN 连接。 有关点到站点 VPN 的详细信息，请参阅[关于点到站点 VPN](point-to-site-about.md)。
 
 ![将计算机连接到 Azure VNet - 点到站点连接示意图](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/p2snativeportal.png)
-
 
 ## <a name="architecture"></a>体系结构
 
@@ -74,7 +72,7 @@ ms.locfileid: "68732290"
 [!INCLUDE [create-gateway](../../includes/vpn-gateway-add-gw-p2s-rm-portal-include.md)]
 
 >[!NOTE]
->基本 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果计划让 Mac 客户端连接到虚拟网络，请不要使用基本 SKU。
+>基本网关 SKU 不支持 IKEv2 或 RADIUS 身份验证。 如果计划将 Mac 客户端连接到虚拟网络，请不要使用基本 SKU。
 >
 
 ## <a name="generatecert"></a>5.生成证书
@@ -243,4 +241,3 @@ VPN 客户端配置文件包含的设置用来对设备进行配置以通过 P2S
 连接完成后，即可将虚拟机添加到虚拟网络。 有关详细信息，请参阅[虚拟机](https://docs.azure.cn/)。 若要详细了解网络和虚拟机，请参阅 [Azure 和 Linux VM 网络概述](../virtual-machines/linux/azure-vm-network-overview.md)。
 
 有关 P2S 故障排除信息，请参阅[排查 Azure 点到站点连接问题](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)。
-<!--Update_Description: wording update -->

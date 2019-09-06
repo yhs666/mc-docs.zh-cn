@@ -5,16 +5,16 @@ author: rockboyfor
 manager: digimobile
 ms.service: site-recovery
 ms.topic: conceptual
-origin.date: 11/27/2018
-ms.date: 04/22/2019
+origin.date: 07/31/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 27982b9e4d9d85fd4a7f2dce1d41c17965bab921
-ms.sourcegitcommit: 9e50dde3362b6e6b192761ead6cd3f434dfb2168
+ms.openlocfilehash: 5f70d4c302dee940cb149f81310a4a1b8403c374
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67725219"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134397"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>使用 Azure Site Recovery 保护文件服务器 
 
@@ -56,7 +56,7 @@ DFSR 使用称为远程差分压缩 (RDC) 的压缩算法，该算法可用于�
 
 |环境  |建议  |考虑的要点 |
 |---------|---------|---------|
-|带有或不带 DFSR 的文件服务器环境|   [使用 Site Recovery 进行复制](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支持共享磁盘群集或网络附加存储 (NAS)。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br> Site Recovery 不支持 SMB 3.0。 仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。
+|带有或不带 DFSR 的文件服务器环境|   [使用 Site Recovery 进行复制](#replicate-an-on-premises-file-server-by-using-site-recovery)   |    Site Recovery 不支持共享磁盘群集或网络附加存储 (NAS)。 如果环境使用上述任何配置，请相应地使用其他任何方法。 <br /> Site Recovery 不支持 SMB 3.0。 仅当已在文件原始位置更新了对文件所做的更改时，复制的 VM 才会合并更改。<br />  Site Recovery 提供了近乎同步的数据复制过程，因此在发生计划外故障转移情况时，可能会丢失数据，并且可能会产生 USN 不匹配问题。
 |带有 DFSR 的文件服务器环境     |  [将 DFSR 扩展到 Azure IaaS 虚拟机](#extend-dfsr-to-an-azure-iaas-virtual-machine)  |      DFSR 可在带宽严重不足的环境中正常工作。 此方法要求一直保持运行某个 Azure VM。 需要在规划中考虑该 VM 的成本。         |
 
 <!-- Not Available on [File Sync ](#use-azure-file-sync-service-to-replicate-your-files)-->

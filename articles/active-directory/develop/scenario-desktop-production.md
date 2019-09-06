@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e64ea9f2727c30d920499641368c16fb1db21d
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: b723146bee56d876dd1d7ae1bb0c39717e31da70
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306005"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134112"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>调用 Web API 的桌面应用 - 移到生产环境
 
@@ -31,7 +31,7 @@ ms.locfileid: "67306005"
 
 ## <a name="handling-errors-in-desktop-applications"></a>在桌面应用程序中处理错误
 
-你已了解，在不同的流中如何处理静默流的错误（如代码片段所示）。 你还了解，有些情况下需要交互（增量许可）。
+你已了解，在不同的流中如何处理静默流的错误（如代码片段所示）。 你还了解，有些情况下需要交互（增量许可和条件访问）。
 
 ## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>如何让用户提前许可多个资源
 
@@ -80,3 +80,4 @@ AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync()
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
+<!-- Update_Description: wording update -->

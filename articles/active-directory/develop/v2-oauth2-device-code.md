@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/20/2019
-ms.date: 06/21/2019
+origin.date: 06/12/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf9f7558c3f440c2cbca87bda04c46de14d406b
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: bc16456c99e6e358afc635af5c890f469747ba7f
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305834"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134217"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Microsoft 标识平台和 OAuth 2.0 设备代码流
 
@@ -32,7 +32,7 @@ ms.locfileid: "67305834"
 Microsoft 标识平台支持[设备代码授予](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12)，可让用户登录到智能电视、IoT 设备或打印机等输入受限的设备。  若要启用此流，设备会让用户在另一台设备上的浏览器中访问一个网页，以进行登录。  用户登录后，设备可以获取所需的访问令牌和刷新令牌。  
 
 > [!IMPORTANT]
-> 目前，Microsoft 标识平台终结点仅支持将设备流用于 Azure AD 租户。  这意味着，必须使用设置为租户的终结点或 `organizations` 终结点。  
+> 目前，Microsoft 标识平台终结点仅支持将设备流用于 Azure AD 租户。  这意味着，必须使用设置为租户的终结点或 `organizations` 终结点。  即将启用此支持。 
 >
 
 > [!NOTE]
@@ -50,12 +50,12 @@ Microsoft 标识平台支持[设备代码授予](https://tools.ietf.org/html/dra
 
 > [!TIP]
 > 尝试在 Postman 中执行此请求！
-> [![在 Postman 中运行](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+> [![尝试在 Postman 中运行此请求](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
 ```
 // Line breaks are for legibility only.
 
-POST https://login.partner.microsoftonline.cn/{tenant}/devicecode
+POST https://login.partner.microsoftonline.cn/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
@@ -78,7 +78,6 @@ scope=https://microsoftgraph.chinacloudapi.cn/user.read%20openid%20profile
 |`device_code`     | String | 一个长字符串，用于验证客户端与授权服务器之间的会话。 客户端使用此参数从授权服务器请求访问令牌。 |
 |`user_code`       | String | 向用户显示的短字符串，用于标识辅助设备上的会话。|
 |`verification_uri`| URI | 用户在登录时应使用 `user_code` 转到的 URI。 |
-|`verification_uri_complete`| URI | 结合了 `user_code` 和 `verification_uri` 的 URI，用于与用户之间进行非文本传输（例如，通过设备蓝牙或 QR 码）。  |
 |`expires_in`      | int | `device_code` 和 `user_code` 过期之前的秒数。 |
 |`interval`        | int | 在发出下一个轮询请求之前客户端应等待的秒数。 |
 | `message`        | String | 用户可读的字符串，包含面向用户的说明。 可以通过在请求中包含 `?mkt=xx-XX` 格式的**查询参数**并填充相应的语言区域性代码，将此字符串本地化。 |
@@ -141,3 +140,4 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 可以运行 [OAuth 代码流文档](v2-oauth2-auth-code-flow.md#refresh-the-access-token)中所述的同一个流，使用刷新令牌来获取新的访问令牌和刷新令牌。  
 
+<!-- Update_Description: wording update -->

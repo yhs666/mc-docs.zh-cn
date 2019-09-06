@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 origin.date: 03/15/2018
-ms.date: 05/28/2018
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: baab9594f7c10d1c5b55c9531084effc81b69a88
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 0028e371967f40568ef9c41cd9d5e91150d502fa
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52648358"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174250"
 ---
 # <a name="deploy-an-existing-executable-to-service-fabric"></a>将现有可执行文件部署到 Service Fabric
 可以在 Azure Service Fabric 中运行任何类型的代码（如 Node.js、Java 或 C++）作为服务。 Service Fabric 将这些类型的服务称为来宾可执行文件。
@@ -45,7 +45,7 @@ ms.locfileid: "52648358"
 
 * **应用程序清单**：应用程序清单用于描述应用程序。 它列出自身的构成服务，以及用于定义应如何部署一个或多个服务的其他参数（如实例数）。
 
-  在 Service Fabric 中，应用程序是部署和升级的单位。 可将应用程序作为一个单位进行升级，其中潜在的失败和潜在回滚受到管理。 Service Fabric 保证升级过程成功，一旦升级失败，它不会使应用程序保持未知或不稳定状态。
+    在 Service Fabric 中，应用程序是部署和升级的单位。 可将应用程序作为一个单位进行升级，其中潜在的失败和潜在回滚受到管理。 Service Fabric 保证升级过程成功，一旦升级失败，它不会使应用程序保持未知或不稳定状态。
 * **服务清单** 服务清单描述服务的组件。 其中包含服务的名称和类型、其代码以及配置等数据。 服务清单还包含一些可以用于在部署之后配置服务的其他参数。
 
 ## <a name="application-package-file-structure"></a>应用程序包文件结构
@@ -81,4 +81,5 @@ ApplicationPackageRoot 包含定义应用程序的 ApplicationManifest.xml 文�
 * [使用 Visual Studio 创建第一个来宾可执行应用程序](quickstart-guest-app.md)
 * [打包和部署来宾可执行文件的示例](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)，包括打包工具的预发行版本的链接
 * [使用 REST 通过命名服务进行通信的两种来宾可执行文件（C# 和 nodejs）示例](https://github.com/Azure-Samples/service-fabric-containers)
-<!-- Update_Description: update meta properties -->
+
+<!-- Update_Description: update meta properties, wording update -->

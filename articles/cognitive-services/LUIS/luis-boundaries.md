@@ -1,22 +1,22 @@
 ---
-title: 限制
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 限制 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文介绍 Azure 认知服务语言理解 (LUIS) 的已知限制。 LUIS 具有多个边界区域。 模型边界可控制 LUIS 中的意向、实体和功能。 基于密钥类型的配额限制。 键盘组合可控制 LUIS 网站。
 services: cognitive-services
 author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/19/19
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 51a6a61d41160584272519f2db93e70949e6fc8b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: 03b3fc079cb8593dc005a6f3c82d22ace2776b31
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544207"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104090"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的边界
 LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 边界的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[世界区域映射](luis-reference-regions.md)。 

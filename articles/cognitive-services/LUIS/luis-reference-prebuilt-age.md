@@ -1,6 +1,6 @@
 ---
-title: 存在时间预生成实体
-titleSuffix: Azure
+title: 存在时间预生成实体 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中的存在时间预构建实体信息。
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2019
-ms.author: v-lingwu
-ms.openlocfilehash: c847c630e69865cab499f5b3b2e84060c0539e56
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.author: diberry
+ms.openlocfilehash: 8028770bc651b1742734c62e4546e305cd888735
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332269"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103986"
 ---
 # <a name="age-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的存在时间预生成实体
 预构建存在时间实体同时采用数字和天、周、月以及年捕获存在时间值。 此实体已定型，因此不需要将包含存在时间的陈述示例添加到应用程序意向中。 [许多语言区域](luis-reference-prebuilt-entities.md)都支持存在时间实体。 

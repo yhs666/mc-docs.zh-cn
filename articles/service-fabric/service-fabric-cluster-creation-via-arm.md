@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/16/2018
-ms.date: 06/03/2019
+ms.date: 09/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: ea5f28eafd2ecb990b0185eef52f4250c70788ed
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: ced2f4c09d82f9023915811a5a53a2678cd3a6dc
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195381"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174151"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>使用 Azure 资源管理器创建 Service Fabric 群集 
 > [!div class="op_single_selector"]
@@ -45,7 +45,7 @@ ms.locfileid: "66195381"
 
 以下为关于 Service Fabric 模块的参考文档：
 * [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
-* [az SF CLI 模块](https://docs.azure.cn/zh-cn/cli/sf?view=azure-cli-latest)
+* [az SF CLI 模块](https://docs.azure.cn/cli/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>登录 Azure
 
@@ -119,7 +119,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-your-own-custom-template"></a>使用自己的自定义模板
 
-如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何 [自定义群集模板][customize-your-cluster-template]。
+如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何[自定义群集模板][customize-your-cluster-template]。
 
 如果已有一个自定义模板，请仔细检查模板中的所有三个证书相关参数以及参数文件已按如下所示命名且如下所示的值为 null：
 
@@ -212,7 +212,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 ```
 
 ### <a name="use-your-own-custom-cluster-template"></a>使用自己的自定义群集模板
-如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何 [自定义群集模板][customize-your-cluster-template]。
+如果需要根据需要编写自定义模板，我们强烈建议从 [Azure Service Fabric 模板示例](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master)中提供的模板之一着手。 了解如何[自定义群集模板][customize-your-cluster-template]。
 
 如果已有一个自定义模板，请确保模板中的所有三个证书相关参数以及参数文件已按如下所示命名并使用 null 值。
 
@@ -295,6 +295,10 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 <!--Not Available on [Microsoft.ServiceFabric/clusters template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/clusters)-->
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-Az-ps [azure-CLI]:https://docs.azure.cn/zh-cn/cli/get-started-with-azure-cli?view=azure-cli-latest [service-fabric-cluster-security]: service-fabric-cluster-security.md [customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
+
+[azure-powershell]: https://docs.microsoft.com/powershell/azure/install-Az-ps
+[azure-CLI]: https://docs.azure.cn/cli/get-started-with-azure-cli?view=azure-cli-latest
+[service-fabric-cluster-security]: service-fabric-cluster-security.md
+[customize-your-cluster-template]: service-fabric-cluster-creation-create-template.md
 
 <!--Update_Description: update meta properties, wording update, update link -->

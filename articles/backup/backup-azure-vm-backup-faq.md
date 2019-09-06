@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2efe9836b01906a86942deb73906f6892adf2648
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: f3c919fdf1df63a275396cc72da7bfbc96ef39ff
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332146"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103731"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>常见问题 - 备份 Azure VM
 
@@ -46,10 +46,6 @@ ms.locfileid: "68332146"
 如果恢复服务保管库和 VM 的资源组不同，请确保具有恢复服务保管库资源组的写入权限。  
 
 
-### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>使用 Azure 备份可以备份哪些 Azure VM？
-
-查看支持矩阵，了解支持详细信息和限制。
-
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>按需备份作业是否与计划的备份使用相同的保留计划？
 否。 为按需备份作业指定保留期。 默认情况下，从门户触发时，该作业会保留 30 天。
 
@@ -68,16 +64,11 @@ ms.locfileid: "68332146"
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>可以取消正在进行的备份作业吗？
 是的。 可以取消处于“正在创建快照”状态的备份作业。  如果作业正在从快照传输数据，则不能将它取消。
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>我在由 Azure 备份服务创建的资源组（即 `AzureBackupRG_<geo>_<number>`）上启用了锁定，我的备份是否继续有效？
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprg_geo_number-will-my-backups-continue-to-work"></a>我在由 Azure 备份服务创建的资源组（即 `AzureBackupRG_<geo>_<number>`）上启用了锁定，我的备份是否继续有效？
 如果锁定 Azure 备份服务创建的资源组，则由于还原点的最大数目限制为 18 个，备份会开始失败。
 
 用户需去除锁定并从该资源组中清除还原点集合，才能使未来的备份成功。请[按照这些步骤](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal)删除还原点集合。
 
-### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>备份策略是否考虑夏令时 (DST)？
-否。 本地计算机上的日期和时间是应用了当前夏令时的当地时间。 由于 DST，为计划的备份设置的时间可能不同于当地时间。
-
-### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>可将多少个数据磁盘附加到 Azure 备份要备份的 VM？
-Azure 备份可以备份最多包含 16 个磁盘的 VM。 [即时还原](backup-instant-restore-capability.md)中提供了对 16 个磁盘的支持。
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Azure 备份是否支持标准 SSD 托管磁盘？
 Azure 备份支持[标准 SSD 托管磁盘](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/)。 SSD 托管磁盘为 Azure VM 提供了一种新型的持久存储。 [即时还原](backup-instant-restore-capability.md)中提供了对 SSD 托管磁盘的支持。
@@ -128,7 +119,7 @@ Azure 虚拟机备份策略支持的最小保留期限为 7 天，最长为 9999
 对于托管磁盘 Azure VM，可以在还原托管磁盘时通过在模板中提供一个选项，来实现还原到可用性集。 此模板包含名为“可用性集”的输入参数。 
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>我们提高还原速度？
-为了获得更快的还原性能，我们正在转到[即时还原](backup-instant-restore-capability.md)功能。
+[即时还原](backup-instant-restore-capability.md)功能有助于更快地备份和从快照即时还原。
 
 ## <a name="manage-vm-backups"></a>管理 VM 备份
 
@@ -146,5 +137,5 @@ VM 是使用已修改策略或新策略中的计划和保留设置备份的。
 
 可以从执行移动操作之前创建的可用还原点还原 VM。
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>可以与同一备份策略关联的 VM 数是否有限制？
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>对于可与同一备份策略关联的 VM 数是否有限制？
 有，可以从门户关联到同一备份策略的 VM 数量限制为 100 个。 我们建议，如果 VM 数超过 100 个，请创建具有相同计划或不同计划的多个备份策略。

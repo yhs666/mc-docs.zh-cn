@@ -8,15 +8,15 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/18/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9ad253df07b434916db7f736f42e8c9e61ecd027
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: ddff710295df6ed391cc64624a82407726e4b919
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544123"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104110"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -120,7 +120,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### <a name="my-luis-app-was-working-yesterday-but-today-im-getting-403-errors-i-didnt-change-the-app-how-do-i-fix-it"></a>我的 LUIS 应用昨天还可以正常使用，但今天却出现 403 错误。 我没有更改应用。 如何解决问题？
-根据下一常见问题解答中的[说明](#how-do-i-create-and-assign-a-luis-endpoint-key)创建一个 LUIS 终结点密钥，然后将其分配给应用。 然后，必须更改针对此终结点的 HTTP 请求才能[使用新终结点密钥](luis-concept-keys.md#use-endpoint-key-in-query)。
+按照这些[说明](#how-do-i-create-and-assign-a-luis-endpoint-key)创建一个 LUIS 终结点密钥，然后将其分配给应用。 然后，必须更改客户端应用程序对终结点的 HTTP 请求以[使用新的终结点密钥](luis-concept-keys.md#use-endpoint-key-in-query)。 如果你在不同的区域中创建了新资源，那么也要更改 HTTP 客户端请求的区域。
 
 ### <a name="how-do-i-secure-my-luis-endpoint"></a>如何保护 LUIS 终结点安全？
 请参阅[保护终结点安全](luis-concept-security.md#securing-the-endpoint)。

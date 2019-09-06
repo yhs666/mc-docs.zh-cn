@@ -14,12 +14,12 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ec974321529b2396e153d7dec3959a933e5ca1f9
-ms.sourcegitcommit: 4c10e625a71a955a0de69e9b2d10a61cac6fcb06
+ms.openlocfilehash: bc9709beec40b9b2294a3eb5af50b4626626b038
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67046955"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169608"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-ruby"></a>如何通过 Ruby 使用服务总线主题和订阅
  
@@ -68,7 +68,9 @@ topic = azure_service_bus_service.create_topic(topic)
 ## <a name="create-subscriptions"></a>创建订阅
 主题订阅也是使用 **Azure::ServiceBusService** 对象创建的。 订阅已命名，并且具有一个限制传递到订阅的虚拟队列的消息集的可选筛选器。
 
-订阅是永久性的。 除非删除它或与之相关的主题，否则订阅将继续存在。 如果应用程序包含创建订阅的逻辑，则它应首先使用 getSubscription 方法检查该订阅是否已经存在。
+默认情况下，订阅是永久性的。 除非删除它或与之相关的主题，否则订阅将继续存在。 如果应用程序包含创建订阅的逻辑，则它应首先使用 getSubscription 方法检查该订阅是否已经存在。
+
+可以通过设置 [AutoDeleteOnIdle 属性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)来自动删除订阅。
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>创建具有默认 (MatchAll) 筛选器的订阅
 如果在创建新订阅时未指定任何筛选器，则将使用默认的 MatchAll  筛选器。 使用 **MatchAll** 筛选器时，发布到主题的所有消息都会置于订阅的虚拟队列中。 以下示例创建了名为“all-messages”的订阅并使用了默认的 **MatchAll** 筛选器。
@@ -156,7 +158,7 @@ Service Bus 提供了相关功能来帮助你轻松地从应用程序错误或�
 如果应用程序在处理消息之后，但在调用 `delete_subscription_message()` 方法之前崩溃，则在应用程序重启时会将该消息重新传送给它。 此情况通常称作“至少处理一次”  ，即每条消息将至少被处理一次，但在某些情况下，同一消息可能会被重新传送。 如果方案无法容忍重复处理，则应用程序开发人员应向其应用程序添加更多逻辑以处理重复消息传送。 此逻辑通常可通过使用消息的 `message_id` 属性实现，该属性在多次传送尝试中保持不变。
 
 ## <a name="delete-topics-and-subscriptions"></a>删除主题和订阅
-主题和订阅具有持久性，必须通过 [Azure 门户][Azure portal]或以编程方式显式删除。 下面的示例演示如何删除名为 `test-topic` 的主题。
+除非设置 [AutoDeleteOnIdle 属性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.autodeleteonidle)，否则主题和订阅是永久性的。 可以通过 [Azure 门户][Azure portal]或以编程方式删除这些主题和订阅。 下面的示例演示如何删除名为 `test-topic` 的主题。
 
 ```ruby
 azure_service_bus_service.delete_topic("test-topic")
@@ -167,6 +169,9 @@ azure_service_bus_service.delete_topic("test-topic")
 ```ruby
 azure_service_bus_service.delete_subscription("test-topic", "high-messages")
 ```
+
+> [!NOTE]
+> 可以使用[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer/)管理服务总线资源。 服务总线资源管理器允许用户连接到服务总线命名空间并以一种简单的方式管理消息传送实体。 该工具提供高级功能，如导入/导出功能或用于对主题、队列、订阅、中继服务、通知中心和事件中心进行测试的功能。 
 
 ## <a name="next-steps"></a>后续步骤
 现在，已了解有关 Service Bus 主题的基础知识，单击下面的链接可了解更多信息。

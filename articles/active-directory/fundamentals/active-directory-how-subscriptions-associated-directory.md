@@ -2,24 +2,24 @@
 title: 将现有 Azure 订阅添加到租户 - Azure Active Directory | Microsoft Docs
 description: 有关将现有 Azure 订阅添加到 Azure Active Directory 租户的说明。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
 origin.date: 03/13/2019
-ms.date: 07/04/2019
+ms.date: 08/27/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 782891956166712f4be2d97535d73322cc239953
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 7477dae0c47cf378374ae4666101677c5e12e785
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568759"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134191"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>将 Azure 订阅关联或添加到 Azure Active Directory 租户
 
@@ -71,7 +71,7 @@ Azure 订阅与 Azure Active Directory (Azure AD) 建立了信任关系，即该
 
 1. 如果有任何密钥保管库，则必须更改该密钥保管库租户 ID。 有关详细信息，请参阅[在订阅移动后更改密钥保管库租户 ID](../../key-vault/key-vault-subscription-move-fix.md)。
 
-2. 如果已使用系统为资源分配的托管标识，则必须重新启用这些标识。 如果已使用用户分配的托管标识，则必须重新创建这些标识。 重新启用或重新创建托管标识后，必须重新建立分配给这些标识的权限。 
+2. 如果已使用系统为资源分配的托管标识，则必须重新启用这些标识。 如果已使用用户分配的托管标识，则必须重新创建这些标识。 重新启用或重新创建托管标识后，必须重新建立分配给这些标识的权限。 有关详细信息，请参阅[什么是 Azure 资源的托管标识？](../managed-identities-azure-resources/overview.md)。
 
 3. 如果已使用此订阅注册 Azure Stack，则必须重新注册。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure](/azure-stack/operator/azure-stack-registration)。
 
@@ -83,3 +83,4 @@ Azure 订阅与 Azure Active Directory (Azure AD) 建立了信任关系，即该
 
 - 若要详细了解如何在 Azure AD 中分配角色，请参阅[如何使用 Azure Active Directory 为用户分配目录角色](active-directory-users-assign-role-azure-portal.md)
 
+<!-- Update_Description: wording update -->

@@ -1,6 +1,6 @@
 ---
-title: 订阅密钥
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 订阅密钥 - LUIS
+titleSuffix: Azure Cognitive Services
 description: '无需创建订阅密钥即可免费使用前 1000 个终结点查询。 如果收到 HTTP 403 或 429 形式的“超出配额”错误，则需要创建密钥并将其分配到应用。 '
 services: cognitive-services
 author: lingliw
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 888e3264a6808761a3eb3d1ae21a465d0162c73d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: f8475d6a8b97a3e52f74f9e98c796086b41cfe64
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818446"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104010"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>将订阅密钥与 LUIS 应用配合使用
 

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/20/2019
+origin.date: 07/16/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9c16b8ae97e6e0f6bca65ec5dae95c8a155a85
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: bf61254bd9026ac9f98234fa32d88c66b23f294d
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67306002"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134249"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>调用 Web API 的 Web 应用 - 代码配置
 
@@ -30,6 +30,12 @@ ms.locfileid: "67306002"
 - 让 ASP.NET 或 ASP.NET Core 请求授权代码。 这样，ASP.NET/ASP.NET Core 就会让用户登录并提供许可。
 - 订阅 Web 应用接收的授权代码。
 - 收到身份验证代码后，使用 MSAL 库兑换该代码，生成的访问令牌和刷新令牌将存储在令牌缓存中。 此处，可在应用程序的其他组成部分使用缓存来以静默方式获取其他令牌。
+
+> [!NOTE]
+> 本文中的代码片段摘自 GitHub 上的以下完全可正常运行的示例：
+>
+> - [ASP.NET Core Web 应用增量教程](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)
+> - [ASP.NET Web 应用示例](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
 
 ## <a name="libraries-supporting-web-app-scenarios"></a>支持 Web 应用方案的库
 
@@ -43,9 +49,14 @@ ms.locfileid: "67306002"
 
 ## <a name="aspnet-core-configuration"></a>ASP.NET Core 配置
 
-ASP.NET Core 中的配置在 `Startup.cs` 文件中发生。 需要订阅 `OnAuthorizationCodeReceived` Open ID Connect 事件，并通过此事件调用 MSAL.NET 的方法 `AcquireTokenFromAuthorizationCode`，这会影响到令牌缓存中的存储行为、所请求范围的访问令牌、在访问令牌即将过期时用于刷新访问令牌的刷新令牌，或者代表相同用户获取令牌（但为不同资源的令牌）的刷新令牌。
+ASP.NET Core 中的配置在 `Startup.cs` 文件中发生。 需要订阅 `OnAuthorizationCodeReceived` Open ID Connect 事件，并通过此事件调用 MSAL.NET 的方法 `AcquireTokenFromAuthorizationCode`，此方法的作用是在令牌缓存中存储所请求 `scopes` 的访问令牌以及在访问令牌即将过期时用于刷新访问令牌的刷新令牌，或者代表相同用户获取令牌（但为不同资源的令牌）的刷新令牌。
 
-以下代码中的注释可帮助你了解 MSAL.NET 和 ASP.NET Core 的一些编写技巧
+```CSharp
+string[] scopes = new string[]{ "https://microsoftgraph.chinacloudapi.cn/user.read" };
+string[] scopesRequestedByMsalNet = new string[]{ "openid", "profile", "offline_access" };
+```
+
+以下代码中的注释可帮助你了解 MSAL.NET 和 ASP.NET Core 的一些编写技巧。 [ASP.NET Core Web 应用增量教程第 2 章](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)中提供了完整的详细信息
 
 ```CSharp
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -55,7 +66,7 @@ ASP.NET Core 中的配置在 `Startup.cs` 文件中发生。 需要订阅 `OnAut
 
    // This "offline_access" scope is required by MSAL.NET and automatically provided by Azure AD when users
    // sign in with work or school accounts)
-   options.Scope.Add(OidcConstants.ScopeOfflineAccess);
+   options.Scope.Add("offline_access");
    options.Scope.Add("https://microsoftgraph.chinacloudapi.cn/user.read"); // for instance
 
    // Handling the auth redemption by MSAL.NET so that a token is available in the token cache
@@ -87,7 +98,12 @@ ASP.NET Core 中的配置在 `Startup.cs` 文件中发生。 需要订阅 `OnAut
    };
 ```
 
-在 ASP.NET Core 中，生成机密客户端应用程序会用到 HttpContext 中的信息。 此 HttpContext 了解 Web 应用的 URL 和已登录的用户（在 `ClaimsPrincipal` 中）。 它还使用 ASP.NET Core 配置，该配置包含已绑定到 `_applicationOptions` 数据结构的“AzureAD”节。 最后，应用程序需要维护令牌缓存。
+在 ASP.NET Core 中，生成机密客户端应用程序会用到 HttpContext 中的信息。 此 `HttpContext` 了解 Web 应用的 URL 和已登录的用户（在 `ClaimsPrincipal` 中）。 
+
+它还使用 ASP.NET Core 配置，该配置包含已绑定到以下两项的“AzureAD”节：
+
+- 类型为 [ConfidentialClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationoptions?view=azure-dotnet) 的 `_applicationOptions` 数据结构
+- ASP.NET Core `Authentication.AzureAD.UI` 中定义的 [AzureAdOptions](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/AzureADOptions.cs) 类型的 `azureAdOptions` 实例。 最后，应用程序需要维护令牌缓存。
 
 ```CSharp
 /// <summary>
@@ -115,19 +131,22 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
  // Initialize token cache providers. In the case of Web applications, there must be one
  // token cache per user (here the key of the token cache is in the claimsPrincipal which
  // contains the identity of the signed-in user)
- if (this.UserTokenCacheProvider != null)
+ if (UserTokenCacheProvider != null)
  {
-  this.UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
+  UserTokenCacheProvider.Initialize(app.UserTokenCache, httpContext, claimsPrincipal);
  }
- if (this.AppTokenCacheProvider != null)
+ if (AppTokenCacheProvider != null)
  {
-  this.AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
+  AppTokenCacheProvider.Initialize(app.AppTokenCache, httpContext);
  }
  return app;
 }
 ```
 
-`AcquireTokenByAuthorizationCode` 真正兑换 ASP.NET 请求的授权代码，并获取已添加到 MSAL.NET 用户令牌缓存的令牌。 然后在 ASP.NET Core 控制器中使用这些令牌。
+有关令牌缓存提供程序的详细信息，请参阅 [ASP.NET Core Web 应用教程 | 令牌缓存](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/455d32f09f4f6647b066ebee583f1a708376b12f/2-WebApp-graph-user/2-2-TokenCache)
+
+> [!NOTE]
+> `AcquireTokenByAuthorizationCode` 真正兑换 ASP.NET 请求的授权代码，并获取已添加到 MSAL.NET 用户令牌缓存的令牌。 然后在 ASP.NET Core 控制器中使用这些令牌。
 
 ## <a name="aspnet-configuration"></a>ASP.NET 配置
 
@@ -150,9 +169,7 @@ private void ConfigureAuth(IAppBuilder app)
   Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
   TokenValidationParameters = new TokenValidationParameters
   {
-  // We'll inject our own issuer validation logic below.
-  ValidateIssuer = false,
-  NameClaimType = "name",
+   NameClaimType = "name",
   },
   Notifications = new OpenIdConnectAuthenticationNotifications()
   {
@@ -181,6 +198,9 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 }
 ```
 
+最后，机密客户端应用程序还可以使用客户端证书或客户端断言（而不是客户端密码）来证明其身份。
+使用客户端断言是一种高级方案，详见[客户端断言](msal-net-client-assertions.md)
+
 ### <a name="msalnet-token-cache-for-a-aspnet-core-web-app"></a>ASP.NET (Core) Web 应用的 MSAL.NET 令牌缓存
 
 在 Web 应用（实际上是 Web API）中，令牌缓存实现不同于桌面应用程序令牌缓存实现（通常[基于文件](scenario-desktop-acquire-token.md#file-based-token-cache)）。 它可以使用 ASP.NET/ASP.NET Core 会话、Redis 缓存、数据库，甚至 Azure Blob 存储。 在上面的代码片段中，这是绑定缓存服务的 `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` 方法调用的对象。 本方案指南不会介绍相关的详细信息，但提供了链接。
@@ -197,3 +217,4 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 > [!div class="nextstepaction"]
 > [登录到 Web 应用](scenario-web-app-call-api-sign-in.md)
 
+<!-- Update_Description: wording update -->

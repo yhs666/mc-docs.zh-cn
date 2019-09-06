@@ -1,5 +1,5 @@
 ---
-title: 所有预构建实体
+title: 所有预生成实体 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含了语言理解 (LUIS) 中包括的预构建实体的列表。
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a589cc6cc4985a7567660f4788ccdf6eb017fdc0
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: d8465e27725af27a3114dd4758566e9d3ada8af0
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332113"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103984"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 模型中每个区域性的实体
 

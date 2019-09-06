@@ -8,14 +8,14 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 origin.date: 07/09/2019
-ms.date: 07/29/2019
+ms.date: 09/09/2019
 ms.author: gregman
-ms.openlocfilehash: fde20c8bb0888f2ad4315d096892c284ea3b4fad
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 535494af5c233e83e06039c657746a659c93062e
+ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337319"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70174040"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>在 Ubuntu 虚拟机上运行 Azure IoT Edge
 
@@ -49,14 +49,14 @@ ms.locfileid: "68337319"
 
 1. 如果在桌面上使用 Azure CLI，请先登录：
 
-   ```azurecli-interactive
+   ```azurecli
    az login
    ```
     
 1. 如果你有多个订阅，请选择要使用的订阅：
    1. 列出订阅：
     
-      ```azurecli-interactive
+      ```azurecli
       az account list --output table
       ```
     
@@ -64,13 +64,13 @@ ms.locfileid: "68337319"
 
    1. 使用刚复制的 ID 设置工作订阅：
     
-      ```azurecli-interactive 
+      ```azurecli 
       az account set -s {SubscriptionId}
       ```
     
 1. 创建新资源组（或者在后续步骤中指定现有的资源组）：
 
-   ```azurecli-interactive
+   ```azurecli
    az group create --name IoTEdgeResources --location westus2
    ```
 
@@ -82,13 +82,13 @@ ms.locfileid: "68337319"
 
 1. 创建新虚拟机：
 
-   ```azurecli-interactive
+   ```azurecli
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
 1. 设置设备连接字符串（如果你不熟悉此过程，可以遵循[使用 Azure CLI 注册新的 Azure IoT Edge 设备](how-to-register-device-cli.md)操作指南）：
 
-   ```azurecli-interactive
+   ```azurecli
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
@@ -102,3 +102,5 @@ ms.locfileid: "68337319"
 如果无法正确安装 IoT Edge 运行时，请参阅[故障排除](troubleshoot.md)页。
 
 若要将现有安装更新到最新版本的 IoT Edge，请参阅[更新 IoT Edge 安全守护程序和运行时](how-to-update-iot-edge.md)。
+
+如果要通过 SSH 或其他入站连接打开端口以访问 VM，请参阅 Azure 虚拟机文档，了解[如何打开 Linux VM 的端口和终结点](../virtual-machines/linux/nsg-quickstart.md)

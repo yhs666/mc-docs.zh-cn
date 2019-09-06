@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: site-recovery
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 08/05/2019
+ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: e15bc437edaa3dcc1597a27f9cf8d7a9445ede41
-ms.sourcegitcommit: a1c9c946d80b6be66520676327abd825c0253657
+ms.openlocfilehash: 2d734aa0082f65340a6a0bc01a9269c1b41a19e7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68819637"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134421"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Azure 到 Azure VM 复制问题故障排除
 
@@ -31,10 +31,10 @@ ms.locfileid: "68819637"
 
 错误代码  | **可能的原因** | 建议 
 --- | --- | ---
-150097<br><br />**消息**：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。<br /><br />- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。<br /><br />- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.azure.cn/zh-cn/support/support-azure/)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
+150097<br />**消息**：无法为虚拟机 VmName 启用复制。 | - 可能未启用订阅 ID，无法在目标区域位置中创建任何 VM。<br /><br />- 可能未启用订阅 ID 或没有足够的配额，无法在目标区域位置中创建特定大小的 VM。<br /><br />- 对于订阅 ID，在目标区域位置中找不到与源 VM NIC 计数 (2) 匹配的合适的目标 VM 大小。| 联系 [Azure 计费支持](https://support.azure.cn/support/support-azure/)，对订阅启用 VM 创建，以便在目标位置中创建所需大小的 VM。 启用后，重试失败的操作。
 
 ### <a name="fix-the-problem"></a>解决问题
-可联系 [Azure 计费支持](https://support.azure.cn/zh-cn/support/support-azure/)启用订阅，以便在目标位置中创建所需大小的 VM。
+可联系 [Azure 计费支持](https://support.azure.cn/support/support-azure/)启用订阅，以便在目标位置中创建所需大小的 VM。
 
 如果目标位置存在容量约束，可禁用复制然后在订阅拥有充足配额的其他位置启用复制，以便创建所需大小的 VM.
 
@@ -45,7 +45,7 @@ ms.locfileid: "68819637"
 
 错误代码  | 可能的原因  | **建议**
 --- | --- | ---
-151066<br><br />**消息**：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br><br />- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
+151066<br />**消息**：Site Recovery 配置失败。 | 计算机上不存在用于授权和身份验证的必需受信根证书。 | - 对于运行 Windows 操作系统的 VM，请确保计算机上存在受信任的根证书。 有关信息，请参阅[配置受信任根和不允许的证书](https://technet.microsoft.com/library/dn265983.aspx)。<br />- 对于运行 Linux 操作系统的 VM，请按照 Linux 操作系统版本分发商发布的受信任的根证书指南进行操作。
 
 ### <a name="fix-the-problem"></a>解决问题
 **Windows**
@@ -176,9 +176,7 @@ ms.locfileid: "68819637"
         - 如果将来要向 Azure Active Directory (AAD) 添加新地址，则需要创建新的 NSG 规则。
 
 > [!NOTE]
-> 如果虚拟机位于**标准**内部负载均衡器之后，则默认情况下无法访问 O365 IP，即 login.partner.microsoftonline.cn。 请将其更改为**基本**内部负载均衡器类型或创建[此文](../load-balancer/configure-load-balancer-outbound-cli.md)中提到的出站访问权限。
-
-<!--MOONCAKE: CORRECT ON login.partner.microsoftonline.cn-->
+> 如果虚拟机位于**标准**内部负载均衡器之后，则默认情况下无法访问 O365 IP，即 login.chinacloudapi.cn。 请将其更改为**基本**内部负载均衡器类型或创建[此文](../load-balancer/configure-load-balancer-outbound-cli.md)中提到的出站访问权限。
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>问题 3：Site Recovery 配置失败 (151197)
 - 可能的原因  <br />
@@ -211,7 +209,7 @@ ms.locfileid: "68819637"
 
 错误代码  | 可能的原因  | 建议 
 --- | --- | ---
-150039<br><br />**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。<br /><br />- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。<br /><br />对于 Windows：[附加并初始化新的磁盘](/virtual-machines/windows/attach-managed-disk-portal)。<br /><br />对于 Linux：[在 Linux 中初始化新的数据磁盘](/virtual-machines/linux/add-disk)。
+150039<br />**消息**：逻辑单元号 (LUN) 为 (LUNValue) 的 Azure 数据磁盘 (DiskName) (DiskURI) 未映射到具有相同 LUN 值的 VM 报告的相应磁盘。 | - 新的数据磁盘已附加到 VM，但未初始化。<br /><br />- VM 中的数据磁盘未正确报告附加到 VM 的磁盘的 LUN 值。| 确保数据磁盘已初始化，然后重试该操作。<br /><br />对于 Windows：[附加并初始化新的磁盘](/virtual-machines/windows/attach-managed-disk-portal)。<br /><br />对于 Linux：[在 Linux 中初始化新的数据磁盘](/virtual-machines/linux/add-disk)。
 
 ### <a name="fix-the-problem"></a>解决问题
 确保数据磁盘已初始化，然后重试该操作：
@@ -357,7 +355,7 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 
 错误代码  | 可能的原因  | **建议**
 --- | --- | ---
-151025<br><br />**消息**：Site Recovery 扩展安装失败 | - 禁用了“COM + 系统应用程序”服务。<br /><br />- 禁用了“卷影复制”服务。| 将“COM + 系统应用程序”和“卷影复制”服务设置为自动或手动启动模式。
+151025<br />**消息**：Site Recovery 扩展安装失败 | - 禁用了“COM + 系统应用程序”服务。<br /><br />- 禁用了“卷影复制”服务。| 将“COM + 系统应用程序”和“卷影复制”服务设置为自动或手动启动模式。
 
 ### <a name="fix-the-problem"></a>解决问题
 
@@ -368,7 +366,7 @@ Azure Site Recovery 当前强制要求源区域资源组和虚拟机应位于同
 
 错误代码  | 可能的原因  | **建议**
 --- | --- | ---
-150172<br><br />**消息**：无法为虚拟机启用保护，因为它的磁盘(DiskName)的大小为(DiskSize)，小于所支持的最小大小 1024 MB。 | - 磁盘小于支持的大小 (1024 MB)| 请确保磁盘大小在支持的大小范围内，然后重试该操作。
+150172<br />**消息**：无法为虚拟机启用保护，因为它的磁盘(DiskName)的大小为(DiskSize)，小于所支持的最小大小 1024 MB。 | - 磁盘小于支持的大小 (1024 MB)| 请确保磁盘大小在支持的大小范围内，然后重试该操作。
 
 <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>启用保护失败，因为 GRUB 配置中提到的设备名不是 UUID（错误代码 151126）

@@ -5,19 +5,19 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 01/11/2019
-ms.date: 04/08/2019
+origin.date: 06/03/2018
+ms.date: 08/29/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e08ac19054fa272f3852e963be7a72aa35461f
-ms.sourcegitcommit: 1e18b9e4fbdefdc5466db81abc054d184714f2b4
+ms.openlocfilehash: 9c3ae02788dd9018262669a796065c4c3b1c75b7
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59243669"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134165"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>如何获取 Azure 多重身份验证
 
@@ -25,6 +25,7 @@ ms.locfileid: "59243669"
 
 > [!IMPORTANT]
 > 本文旨在指导用户如何以不同的方式购买 Azure 多重身份验证。 有关定价和计费的具体详细信息，请始终参阅[多重身份验证定价页](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>可用的 Azure 多重身份验证版本
 
@@ -32,10 +33,11 @@ ms.locfileid: "59243669"
 
 | 版本 | 说明 |
 | --- | --- |
-| 适用于 Office 365 的多重身份验证 <br> Microsoft 365 商业版 |此版本专门与 Office 365 应用程序配合使用，可以从 Office 365 或 Microsoft 365 门户进行管理。 管理员可以[使用双重验证来保护 Office 365 资源](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商业版订阅的一部分。 |
-| 面向 Azure AD 管理员的多重身份验证 | Azure AD 租户中被分配了 Azure AD 全局管理员角色的用户可以免费启用双重验证。|
+| 适用于 Office 365 的多重身份验证 <br> Microsoft 365 商业版 | 此版本通过 Office 365 或 Microsoft 365 门户进行管理。 管理员可以[使用双重验证来保护 Office 365 资源](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6)。 此版本是 Office 365 或 Microsoft 365 商业版订阅的一部分。 |
+| 面向 Azure AD 管理员的多重身份验证 | Azure AD 租户中被分配了 Azure AD 全局管理员角色的用户可以免费启用双重验证。 |
 
 ## <a name="feature-comparison-of-versions"></a>版本功能比较
+
 下表提供了 Azure 多重身份验证的各个版本中可用的功能列表。
 
 > [!NOTE]
@@ -61,4 +63,4 @@ Azure AD 租户中被分配了全局管理员角色的用户可以免费为其 A
 
 - 有关定价详细信息，请参阅 [Azure MFA 定价](https://www.azure.cn/pricing/details/multi-factor-authentication/)。
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/18/2019
-ms.date: 06/20/2019
+ms.date: 08/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 312d4d0f2ecd2d42c094e38d15a64072b0d31964
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: e75c4503a133140484cb5ff73881178ea1180161
+ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305862"
+ms.lasthandoff: 08/29/2019
+ms.locfileid: "70134268"
 ---
 # <a name="desktop-app-that-calls-web-apis---app-registration"></a>调用 Web API 的桌面应用 - 应用注册
 
@@ -46,12 +46,13 @@ ms.locfileid: "67305862"
 
 同样，可以在桌面应用程序中使用的重定向 URI 将取决于要使用的流。
 
-- 如果使用交互式身份验证，则需使用 `https://login.partner.microsoftonline.cn/common/oauth2/nativeclient`。 单击应用程序的“身份验证”部分中的相应 URL 即可实现此配置 
+- 如果使用**交互式身份验证**，则需使用 `https://login.partner.microsoftonline.cn/common/oauth2/nativeclient`。 单击应用程序的“身份验证”部分中的相应 URL 即可实现此配置 
   
   > [!IMPORTANT]
   > 目前，在默认情况下，MSAL.NET 会在 Windows 上运行的桌面应用程序中使用另一重定向 URI (`urn:ietf:wg:oauth:2.0:oob`)。 我们在将来需要更改此默认设置，因此建议你使用 `https://login.partner.microsoftonline.cn/common/oauth2/nativeclient`
 
-- 如果应用仅使用集成 Windows 身份验证、用户名/密码或设备代码流，则不需为应用程序注册重定向 URI。 事实上，这些流会往返 Microsoft 标识平台 v2.0 终结点，因此不会在任何特定 URI 上回调你的应用程序。 为了将它们与也没有重定向 URI 的机密客户端应用程序流（在守护程序应用程序中使用的客户端凭据流）区分，需宣称你的应用程序是公共客户端应用程序。 实现此配置的方法是：转到应用程序的“身份验证”部分，  然后在“高级设置”子部分针对“将应用程序视为公共客户端”问题（位于“默认客户端类型”段落）选择“是”    
+- 如果应用仅使用集成 Windows 身份验证、用户名/密码，则不需为应用程序注册重定向 URI。 事实上，这些流会往返 Microsoft 标识平台 v2.0 终结点，因此不会在任何特定 URI 上回调你的应用程序。 
+- 为了将设备代码流、集成 Windows 身份验证和用户名/密码与也没有重定向 URI 的机密客户端应用程序流（在守护程序应用程序中使用的客户端凭据流）区分开来，你需要表示你的应用程序是公共客户端应用程序。 实现此配置的方法是：转到应用程序的“身份验证”部分，  然后在“高级设置”子部分针对“将应用程序视为公共客户端”问题（位于“默认客户端类型”段落）选择“是”    
 
   ![允许公共客户端](./media/scenarios/default-client-type.png)
 
@@ -64,3 +65,4 @@ ms.locfileid: "67305862"
 > [!div class="nextstepaction"]
 > [桌面应用 - 应用配置](scenario-desktop-app-configuration.md)
 
+<!-- Update_Description: wording update -->
