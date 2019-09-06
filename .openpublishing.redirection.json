@@ -16328,6 +16328,231 @@
       "source_path": "articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
       "redirect_url": "/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
       "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-adventure-works-tutorial.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-1-create-a-new-tabular-model-project.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-10-create-partitions.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-11-create-roles.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-12-analyze-in-excel.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-13-deploy.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-2-Get-data.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-3-mark-as-date-table.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-4-create-relationships.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-5-create-calculated-columns.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-6-create-measures.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-7-create-key-performance-indicators.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-8-create-perspectives.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-lesson-9-create-hierarchies.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-detail-rows.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-dynamic-security.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/analysis-services/tutorials/aas-supplemental-lesson-ragged-hierarchies.md",
+        "redirect_url": "/analysis-services/analysis-services-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/create-firewall-powershell.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/ha-failover-policy-powershell.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-failover-priority-update",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/scale-multiregion-powershell.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-ru-update",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/secure-get-account-key-powershell.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string-powershell.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/secure-regenerate-key-powershell.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-connection-string-get.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-create.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-firewall-create.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-get.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-update",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-get.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-key-regenerate.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/common/ps-account-keys-connection-strings",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-tags-update.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-conflict-policy.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-custom.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-index-none.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-container-create-index-none",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-shared.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create-unique-key-ttl.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-create.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-delete.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-get.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-container-list.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create-shared.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-create.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-create",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-delete.md",
+        "redirect_url": "/cosmos-db/powershell-samples-sql",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-get.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-database-list.md",
+        "redirect_url": "/cosmos-db/scripts/powershell/sql/ps-sql-list-get",
+        "redirect_document_id": false
     }
 
 
