@@ -12,36 +12,38 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
+origin.date: 06/12/2018
 ms.date: 01/21/19
 ms.author: v-lingwu
-ms.openlocfilehash: a38bb10839e701dd1f6263e2808813d297ba262e
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: 68ec5bad8b38d149084b44967e48dd69cba89da1
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969667"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169526"
 ---
 # <a name="21vianet-azure-storage-explorer-release-notes"></a>世纪互联 Azure 存储资源管理器发行说明
 
-本文包含 Azure 存储资源管理器 1.4.3 发行版及以前版本的发行说明。
+本文包含 Azure 存储资源管理器 1.9.0 发行版及以前版本的发行说明。
 
-[世纪互联 Azure 存储资源管理器](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
+[Microsoft Azure 存储资源管理器](./vs-azure-tools-storage-manage-with-storage-explorer.md)是一款独立应用，可用于在 Windows、macOS 和 Linux 上轻松处理 Azure 存储数据。
 
-## <a name="version-180"></a>版本 1.8.0
-2019 年 5 月 1 日
+## <a name="version-190"></a>版本 1.9.0
+2019/7/1
 
-### <a name="download-azure-storage-explorer-180"></a>下载 Azure 存储资源管理器 1.8.0
-- [适用于 Windows 的 Azure 存储资源管理器 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [适用于 Mac 的 Azure 存储资源管理器 1.8.0](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [适用于 Linux 的 Azure 存储资源管理器 1.8.0](https://go.microsoft.com/fwlink/?LinkId=722418)
+### <a name="download-azure-storage-explorer-190"></a>下载 Azure 存储资源管理器 1.9.0
+- [适用于 Windows 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [适用于 Mac 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [适用于 Linux 的 Azure 存储资源管理器 1.9.0](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="new"></a>新建
 
-* 集成的 AzCopy 版本已更新为版本 10.1.0。
-* 现在可以使用 Ctrl/Cmd+R 来刷新当前具有焦点的编辑器了。 [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
-* Azure Stack 存储 API 版本已更改为 2017-04-17。
-* ADLS Gen2 的“管理访问权限”对话框现在将以与其他 POSIX 权限工具类似的方式使掩码保持同步。 如果所做的更改导致某个用户或组的权限超出了掩码的边界，则 UI 还会发出警告。 [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
-* 对于 AzCopy 上传，现在启用了用于计算和设置 MD5 哈希的标志。 [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+* 现在可以通过 Azure AD 附加 Blob 容器（RBAC 或 ACL 权限）。 此功能旨在帮助那些可以访问容器但不能访问容器所在的存储帐户的用户。 若要详细了解此功能，请参阅入门指南。
+* 获取和中断租约现在适用于 RBAC。 [#1354](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1354)
+* 管理访问策略和设置公共访问级别现在适用于 RBAC。 [#1355](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1355)
+* 删除 Blob 文件夹现在适用于 RBAC。 [#1450](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1450)
+* 更改 Blob 访问层级现在适用于 RBAC。 [#1446](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1446)
+* 现在可以通过“帮助”→“重置”快速重置“快速访问”。 [#1327](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1327)
 
 ### <a name="preview-features"></a>预览功能
 
@@ -50,11 +52,12 @@ ms.locfileid: "68969667"
 
 ### <a name="fixes"></a>修复项
 
-* “访问策略”对话框将不再在没有截止日期的存储访问策略上设置截止日期。 [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
-* 对“生成 SAS”对话框进行了一些更改，以确保在生成 SAS 时正确地使用所存储的访问策略。 [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
-* 当尝试将非 512 字节对齐的文件上传到页 blob 时，存储资源管理器现在会公开一个相关性更强的错误。 [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
-* 复制利用了显示名称的 Blob 容器将会失败。 现在使用的是 Blob 容器的实际名称。 [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
-* 尝试对名称中包含 unicode 字符的 ADLS Gen2 文件夹执行某些操作将会失败。 现在，所有操作应当都可正常工作。 [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+* 修复了无法为一个帐户加载超过 50 个订阅的问题。 [#1416](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1416)
+* 修复了“登录”按钮在信息栏上无法使用的问题。信息栏会在直接链接故障时显示。 [#1358](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1358)
+* 修复了无法在 macOS 上上传 .app 文件的问题。 [#1119](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1119)
+* 修复了 Blob 重命名失败时“全部重试”无法使用的问题。 [#992](https://www.github.com/Microsoft/AzureStorageExplorer/issues/992)
+* 修复了在打开 Blob 时“取消”无法使用的问题。 [#1464](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1464)
+* 修复了产品中出现的多个拼写和工具提示问题。 十分感谢所有报告这些问题的人！ [#1303](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1303)、[#1328](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1328)、[#1329](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1329)、[#1331](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1331)、[#1336](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1336)、[#1352](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1352)、[#1368](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1368)、[#1395](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1395)
 
 ### <a name="known-issues"></a>已知问题
 
@@ -74,6 +77,7 @@ ms.locfileid: "68969667"
    * 文件共享
    * 访问层级
    * 软删除
+   * ADLS Gen2
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
     ```
@@ -84,6 +88,8 @@ ms.locfileid: "68969667"
 
 ## <a name="previous-releases"></a>以前的版本
 
+* [版本 1.8.1](#version-181)
+* [版本 1.8.0](#version-180)
 * [版本 1.7.0](#version-170)
 * [版本 1.6.2](#version-162)
 * [版本 1.6.1](#version-161)
@@ -119,6 +125,115 @@ ms.locfileid: "68969667"
 * [版本 0.7.20160129.1](#version-07201601291)
 * [版本 0.7.20160105.0](#version-07201601050)
 * [版本 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-181"></a>版本 1.8.1
+2019/5/13
+
+### <a name="hotfixes"></a>修补程序
+* 在某些情况下，在资源级别单击“加载更多”不会返回下一页的资源。 此问题已解决。 [#1359](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1359)
+* 在 Windows 上，如果某个文件或文件夹在下载时，文件或文件夹的名称有一个字符对于 Windows 路径无效，则 AzCopy 下载会失败。 此问题已解决。 [#1350](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1350)
+* 在极罕见的情况下，在对文件共享重命名或在文件共享中重命名时，如果重命名的复制失败，或者存储资源管理器无法通过 Azure 确认复制是否成功，则存储资源管理器可能会在复制完成之前删除原始文件。 此问题已解决。
+
+### <a name="new"></a>新建
+
+* 集成的 AzCopy 版本已更新为版本 10.1.0。
+* 现在可以使用 Ctrl/Cmd+R 来刷新当前具有焦点的编辑器了。 [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 存储 API 版本已更改为 2017-04-17。
+* ADLS Gen2 的“管理访问权限”对话框现在将以与其他 POSIX 权限工具类似的方式使掩码保持同步。 如果所做的更改导致某个用户或组的权限超出了掩码的边界，则 UI 还会发出警告。 [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* 对于 AzCopy 上传，现在启用了用于计算和设置 MD5 哈希的标志。 [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>预览功能
+
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+
+### <a name="fixes"></a>修复项
+
+* “访问策略”对话框将不再在没有截止日期的存储访问策略上设置截止日期。 [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 对“生成 SAS”对话框进行了一些更改，以确保在生成 SAS 时正确地使用所存储的访问策略。 [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 当尝试将非 512 字节对齐的文件上传到页 blob 时，存储资源管理器现在会公开一个相关性更强的错误。 [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 复制利用了显示名称的 Blob 容器将会失败。 现在使用的是 Blob 容器的实际名称。 [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 尝试对名称中包含 unicode 字符的 ADLS Gen2 文件夹执行某些操作将会失败。 现在，所有操作应当都可正常工作。 [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>已知问题
+
+* 在执行非 AzCopy Blob 下载时，不会验证大型文件的 MD5。 这是由存储 SDK 中的一个 bug 导致的。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
+* 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
+* 如果使用用于 Mac 的 VS 并曾经创建过自定义 AAD 配置，可能无法登录。 若要解决此问题，请删除 ~/.IdentityService/AadConfigurations 的内容。 如果这样做不能对你解除阻止，请对此问题发表评论。
+* Azurite 还没有完全实现所有存储 API。 因此，在使用 Azurite 进行开发存储时可能会出现意外的错误或行为。
+* 在极少数情况下，树焦点可能会停滞在“快速访问”上。 要使焦点取消停滞，可以单击“全部刷新”。
+* 由于 NodeJS 中的 bug，从 OneDrive 文件夹上传不正常工作。 该 bug 已修复，但尚未集成到 Electron 中。 若要在向/从 Blob 容器上传或下载时解决此问题，可以使用试验性的 AzCopy 功能。
+* 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+* 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是此处介绍的“取消筛选”解决办法。
+* 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+* Azure Stack 不支持以下功能。 在处理 Azure Stack 资源时尝试使用这些功能可能会导致意外错误。
+   * 文件共享
+   * 访问层级
+   * 软删除
+   * ADLS Gen2
+* 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 在 Linux 上运行存储资源管理器需要首先安装某些依赖项。 有关详细信息，请查看存储资源管理器[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)。
+
+## <a name="version-180"></a>版本 1.8.0
+2019 年 5 月 1 日
+
+### <a name="new"></a>新建
+
+* 集成的 AzCopy 版本已更新为版本 10.1.0。
+* 现在可以使用 Ctrl/Cmd+R 来刷新当前具有焦点的编辑器了。 [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
+* Azure Stack 存储 API 版本已更改为 2017-04-17。
+* ADLS Gen2 的“管理访问权限”对话框现在将以与其他 POSIX 权限工具类似的方式使掩码保持同步。 如果所做的更改导致某个用户或组的权限超出了掩码的边界，则 UI 还会发出警告。 [#1253](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1253)
+* 对于 AzCopy 上传，现在启用了用于计算和设置 MD5 哈希的标志。 [#1223](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1223)
+
+
+### <a name="preview-features"></a>预览功能
+
+* 设备代码流登录现在可供预览。 若要启用此功能，请转到“预览”→“使用设备代码流登录”。 我们鼓励所有在空白登录窗口中遇到问题的用户试用此功能，因为经过证实，它是一种更可靠的登录方式。
+* 与 AzCopy 集成的存储资源管理器目前可供预览。 若要启用此功能，请转到“预览”→“使用 AzCopy 来改善 Blob 上传和下载”。 使用 AzCopy 应该可以更快且更有效地完成 Blob 传输。
+
+### <a name="fixes"></a>修复项
+
+* “访问策略”对话框将不再在没有截止日期的存储访问策略上设置截止日期。 [#764](https://www.github.com/Microsoft/AzureStorageExplorer/issues/764)
+* 对“生成 SAS”对话框进行了一些更改，以确保在生成 SAS 时正确地使用所存储的访问策略。 [#1269](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1269)
+* 当尝试将非 512 字节对齐的文件上传到页 blob 时，存储资源管理器现在会公开一个相关性更强的错误。 [#1050](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1050)
+* 复制利用了显示名称的 Blob 容器将会失败。 现在使用的是 Blob 容器的实际名称。 [#1166](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1166)
+* 尝试对名称中包含 unicode 字符的 ADLS Gen2 文件夹执行某些操作将会失败。 现在，所有操作应当都可正常工作。 [#980](https://www.github.com/Microsoft/AzureStorageExplorer/issues/980)
+
+### <a name="known-issues"></a>已知问题
+
+* 在执行非 AzCopy Blob 下载时，不会验证大型文件的 MD5。 这是由存储 SDK 中的一个 bug 导致的。 [#1212](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1212)
+* 使用 RBAC 时，存储资源管理器需要一些管理层权限才能访问存储资源。 有关详细信息，请参阅[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting)。
+* 在代理后面尝试访问 ADLS Gen2 Blob 可能会失败。
+* 从通过 SAS URI 附加的资源（例如 Blob 容器）进行分离可能会导致一个错误，该错误会阻止其他附件正确显示。 若要解决此问题，只需刷新组节点。 有关详细信息，请参阅 #537。
+* 如果使用用于 Mac 的 VS 并曾经创建过自定义 AAD 配置，可能无法登录。 若要解决此问题，请删除 ~/.IdentityService/AadConfigurations 的内容。 如果这样做不能对你解除阻止，请对此问题发表评论。
+* Azurite 还没有完全实现所有存储 API。 因此，在使用 Azurite 进行开发存储时可能会出现意外的错误或行为。
+* 在极少数情况下，树焦点可能会停滞在“快速访问”上。 要使焦点取消停滞，可以单击“全部刷新”。
+* 由于 NodeJS 中的 bug，从 OneDrive 文件夹上传不正常工作。 该 bug 已修复，但尚未集成到 Electron 中。 若要在向/从 Blob 容器上传或下载时解决此问题，可以使用试验性的 AzCopy 功能。
+* 当以 Azure Stack 为目标时，将某些文件作为追加 blob 进行上传可能会失败。
+* 对任务单击“取消”后，可能需要一段时间才能取消该任务。 这是因为我们使用的是此处介绍的“取消筛选”解决办法。
+* 如果选择错误的 PIN/智能卡证书，需要重启存储资源管理器，使其忘记该选择。
+* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
+* Azure Stack 不支持以下功能。 在处理 Azure Stack 资源时尝试使用这些功能可能会导致意外错误。
+   * 文件共享
+   * 访问层级
+   * 软删除
+   * ADLS Gen2
+* 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* 在 Linux 上运行存储资源管理器需要首先安装某些依赖项。 有关详细信息，请查看存储资源管理器[故障排除指南](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies)。
 
 ## <a name="version-170"></a>版本 1.7.0
 3/5/2019
@@ -692,7 +807,7 @@ ms.locfileid: "68969667"
 * 使用没有读取权限的 SAS 时，无法上传大型 blob。 已修改上传逻辑以在这种情况下正常工作。 [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
 * 为容器设置公共访问级别将删除所有访问策略，反之亦然。 现在，在设置两者中的任何一个时，都会保留公共访问级别和访问策略。 [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
 * “AccessTierChangeTime”在“属性”对话框中被截断。 此问题已解决。 [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* “创建新目录”对话框中缺少“世纪互联 Azure 存储资源管理器 -”前缀。 此问题已解决。 [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* “创建新目录”对话框中缺少“Microsoft Azure 存储资源管理器 -”前缀。 此问题已解决。 [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
 * 辅助功能：使用 VoiceOver 时很难在“添加实体”对话框中导航。 已进行改进。 [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
 * 辅助功能：“操作和属性”窗格的“折叠/展开”按钮的背景颜色与“高对比度黑色”主题中的类似 UI 控件不一致。 颜色已更改。 [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
 * 辅助功能：在“高对比度黑色”主题中，“属性”对话框中“X”按钮的焦点样式不可见。 此问题已解决。 [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
@@ -715,11 +830,11 @@ ms.locfileid: "68969667"
    * 软删除
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -772,11 +887,11 @@ ms.locfileid: "68969667"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -826,11 +941,11 @@ ms.locfileid: "68969667"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
-* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
+* 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -892,9 +1007,9 @@ ms.locfileid: "68969667"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * 对于 Linux 用户，需要安装 [.NET Core 2.0](https://docs.microsoft.com/zh-cn/dotnet/core/linux-prerequisites?view=azure-dotnet?tabs=netcore2x)。
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
@@ -929,9 +1044,9 @@ ms.locfileid: "68969667"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
@@ -978,9 +1093,9 @@ ms.locfileid: "68969667"
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
 
-```
-./StorageExplorer.exe --disable-gpu
-```
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
 
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
@@ -1024,9 +1139,11 @@ ms.locfileid: "68969667"
 * 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
-  ```
-  ./StorageExplorer --disable-gpu
-  ```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -1086,9 +1203,11 @@ ms.locfileid: "68969667"
 * 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
-  ```
-  ./StorageExplorer --disable-gpu
-  ```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -1140,9 +1259,11 @@ ms.locfileid: "68969667"
 * 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据。
 * 尽管 Azure Stack 当前不支持文件共享，但附加 Azure Stack 存储帐户下仍会显示“文件共享”节点。
 * 存储资源管理器使用的 Electron shell 在进行某项 GPU（图形处理单元）硬件加速时出现问题。 如果存储资源管理器显示了一个空白（空的）主窗口，则可以尝试从命令行启动存储资源管理器，并通过添加 `--disable-gpu` 开关禁用 GPU 加速。
-  ```
-  ./StorageExplorer --disable-gpu
-  ```
+
+    ```
+    ./StorageExplorer --disable-gpu
+    ```
+
 * 对于 Ubuntu 14.04 用户，需确保 GCC 是最新版本 - 为此，可运行以下命令并重启计算机：
 
     ```
@@ -1166,11 +1287,13 @@ ms.locfileid: "68969667"
 * 增强的 Azure Stack 登录体验
 * 改善了同时上传/下载多个小型文件时的性能
 
+
 ### <a name="fixes"></a>修复项
 * 对于某些 Blob 类型，在发生上传冲突期间选择“替换”有时会导致重新开始上传。
 * 在版本 0.8.15 中，上传有时会停滞在 99%。
 * 将文件上传到文件共享时，如果选择上传到某个不存在的目录，上传将会失败。
 * 存储资源管理器为共享访问签名和表查询生成错误的时间戳。
+
 
 ### <a name="known-issues"></a>已知问题
 * 目前无法正常使用名称和密钥连接字符串。 下一个版本会修复此问题。 在此之前，可以使用附加名称和密钥的功能。
@@ -1256,6 +1379,7 @@ ms.locfileid: "68969667"
     sudo apt-get upgrade
     sudo apt-get dist-upgrade
     ```
+
 
 ### <a name="version-0812-and-0811-and-0810"></a>版本 0.8.12、0.8.11 和 0.8.10
 2017/04/07
@@ -1453,7 +1577,7 @@ ms.locfileid: "68969667"
 * macOS 安装可能需要提升的权限
 * 帐户设置面板可能显示需重新输入凭据才能筛选订阅
 * 重命名文件共享、blob 容器和表不会保留容器中的元数据或其他属性，例如文件共享配额、公共访问级别或访问策略
-* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间保留 blob、文件和实体的所有其他属性和元数据
+* 重命名 blob（单独地或在已重命名的 blob 容器中）不保留快照。 重命名期间会保留 blob、文件和实体的所有其他属性及元数据
 * 在 SAS 附加帐户中，复制或重命名资源无法正常工作
 
 2016/07/07

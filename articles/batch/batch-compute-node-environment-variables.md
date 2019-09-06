@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 04/23/2019
+ms.date: 08/13/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 42f21d3ff8cb2adb9af013c607218cfaece940b1
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 62179c3539c61d821a4ce712777a9a6e2e8ec2b9
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818460"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104076"
 ---
 # <a name="azure-batch-runtime-environment-variables"></a>Azure Batch 运行时环境变量
 
 [Azure Batch 服务](/batch/)在计算节点上设置以下环境变量。 可以在任务命令行中引用这些环境变量，也可在命令行运行的程序和脚本中引用它们。
 
-有关将环境变量用于批处理的其他信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks)。
+有关将环境变量用于 Batch 的详细信息，请参阅[任务的环境设置](/batch/batch-api-basics#environment-settings-for-tasks)。
 
 ## <a name="environment-variable-visibility"></a>环境变量的可见性
 
@@ -60,6 +60,7 @@ ms.locfileid: "68818460"
 | AZ_BATCH_NODE_ID                | 任务分配到的节点的 ID。 | 所有任务。 | tvm-1219235766_3-20160919t172711z |
 | AZ_BATCH_NODE_IS_DEDICATED      | 如果为 `true`，则当前节点是一个专用节点。 | 所有任务。 | `true` |
 | AZ_BATCH_NODE_LIST              | 以 `nodeIP;nodeIP` 格式列出了分配给[多实例任务][multi_instance]的节点的列表。 | 多实例主要和子任务。 | `10.0.0.4;10.0.0.5` |
+| AZ_BATCH_NODE_MOUNTS_DIR        | 所有装载目录所在的节点级别[文件系统装载](virtual-file-mount.md)位置的完整路径。 Windows 文件共享使用驱动器号，因此对于 Windows，装载驱动器是设备和驱动器的一部分。  |  如果用户知道装载目录的装载权限，则所有任务（包括启动任务）都有权访问该用户。 | 例如，在 Ubuntu 中，位置为：`/mnt/batch/tasks/fsmounts` |
 | AZ_BATCH_NODE_ROOT_DIR          | 节点上所有[批处理目录][files_dirs]的根目录的完整路径。 | 所有任务。 | C:\user\tasks |
 | AZ_BATCH_NODE_SHARED_DIR        | 节点上[共享目录][files_dirs]的完整路径。 节点上执行的所有任务具有此目录的读取/写入权限。 在其他节点上执行的任务没有对此目录（它不是“共享”的网络目录）的远程访问权限。 | 所有任务。 | C:\user\tasks\shared |
 | AZ_BATCH_NODE_STARTUP_DIR       | 节点上[启动任务目录][files_dirs]的完整路径。 | 所有任务。 | C:\user\tasks\startup |

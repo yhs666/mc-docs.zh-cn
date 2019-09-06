@@ -73,7 +73,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | Category |否 |要启用的日志类别的逗号分隔列表。 |
 | Enabled |是 |一个布尔值，表示此资源是启用还是禁用了诊断。 |
 | RetentionEnabled |否 |一个布尔值，表示此资源是否启用了保留策略。 |
-| RetentionInDays |否 |事件的保留天数，介于 1 到 365 之间。 值为零时，将无限期存储日志。 |
+| RetentionInDays |否 |活动的保留天数，介于 1 到 365 之间。 值为零时，将无限期存储日志。 |
 
 ## <a name="archive-diagnostic-logs-via-the-azure-cli"></a>通过 Azure CLI 存档诊断日志
 

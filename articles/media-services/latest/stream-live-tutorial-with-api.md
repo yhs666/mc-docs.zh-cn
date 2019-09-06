@@ -24,7 +24,7 @@ ms.locfileid: "52659757"
 ---
 # <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>使用 .NET Core 通过 Azure 媒体服务 v3 进行实时流式传输
 
-在媒体服务中，[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) 负责处理实时传送视频流内容。 LiveEvent 提供输入终结点（引入 URL），然后由你将该终结点提供给实时编码器。 LiveEvent 从实时编码器接收实时输入流，并通过一个或多个 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) 使其可用于流式处理。 LiveEvents 还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。 本教程演示如何使用 .NET Core 创建**直通**类型的直播事件。 
+在媒体服务中，[LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) 负责处理实时传送视频流内容。 LiveEvent 提供输入终结点（引入 URL），然后由你将该终结点提供给实时编码器。 LiveEvent 从实时编码器接收实时输入流，并通过一个或多个 [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) 使其可用于流式处理。 LiveEvents 还提供可用于预览的预览终结点（预览 URL），并在进一步处理和传递流之前对流进行验证。 本教程演示如何使用 .NET Core 创建**直通**类型的直播活动。 
 
 > [!NOTE]
 > 确保在继续操作之前查看[使用媒体服务 v3 的实时传送视频流](live-streaming-overview.md)。 
@@ -47,7 +47,7 @@ ms.locfileid: "52659757"
 
 * 安装 Visual Studio Code 或 Visual Studio
 * 一个用于广播事件的相机或设备（例如便携式计算机）。
-* 一个本地实时编码器，用于将信号从相机转换为发送至媒体服务实时传送视频流服务的流。 流必须为 **RTMP** 或“平滑流式处理”格式。
+* 一个本地实时编码器，用于将信号从相机转换为发送至媒体服务实时传送视频流服务的流。 流必须为 **RTMP** 或“平滑流式处理”  格式。
 
 ## <a name="download-the-sample"></a>下载示例
 
@@ -69,7 +69,7 @@ ms.locfileid: "52659757"
 
 ## <a name="examine-the-code-that-performs-live-streaming"></a>检查执行实时传送视频流的代码
 
-此部分讨论 MediaV3LiveApp 项目的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) 文件中定义的函数。
+此部分讨论 MediaV3LiveApp 项目的 [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs) 文件中定义的函数  。
 
 此示例为每个资源创建唯一的后缀，因此即使在没有清理的情况下运行示例多次，也不会有名称冲突。
 
@@ -79,7 +79,7 @@ ms.locfileid: "52659757"
  
 ### <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
 
-若要开始将媒体服务 API 与 .NET 结合使用，需要创建 AzureMediaServicesClient 对象。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。  
+若要开始将媒体服务 API 与 .NET 结合使用，需要创建 AzureMediaServicesClient 对象  。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。  
 
 ```csharp
 private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
@@ -93,14 +93,14 @@ private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAs
 }
 ```
 
-### <a name="create-a-live-event"></a>创建直播事件
+### <a name="create-a-live-event"></a>创建直播活动
 
-此部分介绍如何创建“直通”类型的 LiveEvent（LiveEventEncodingType 设置为“无”）。 若要创建为实时编码启用的 LiveEvent，请将 LiveEventEncodingType 设置为“基本”。 
+此部分介绍如何创建“直通”  类型的 LiveEvent（LiveEventEncodingType 设置为“无”）。 若要创建为实时编码启用的 LiveEvent，请将 LiveEventEncodingType 设置为“基本”。 
 
-可能需要在创建直播事件时指定的一些其他事项包括：
+可能需要在创建直播活动时指定的一些其他事项包括：
 
 * 媒体服务位置 
-* 直播事件的流式处理协议（目前支持 RTMP、平滑流式处理和 RTP (MPEG-TS) 协议）
+* 直播活动的流式处理协议（目前支持 RTMP、平滑流式处理和 RTP (MPEG-TS) 协议）
        
     运行 LiveEvent 或其关联的 LiveOutput 时，不能更改协议选项。 如果需要其他协议，应当为每个流式处理协议创建单独的 LiveEvent。  
 * 对引入和预览的 IP 限制。 可定义允许向该 LiveEvent 引入视频的 IP 地址。 允许的 IP 地址可以指定为单个 IP 地址（例如“10.0.0.1”）、使用一个 IP 地址和 CIDR 子网掩码的 IP 范围（例如“10.0.0.1/22”）或使用一个 IP 地址和点分十进制子网掩码的 IP 范围（例如“10.0.0.1(255.255.252.0)”）。
@@ -215,7 +215,7 @@ liveOutput = client.LiveOutputs.Create(config.ResourceGroup, config.AccountName,
 #### <a name="create-a-streaminglocator"></a>创建 StreamingLocator
 
 > [!NOTE]
-> 创建媒体服务帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。  若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
+> 创建媒体服务帐户后，会将一个处于“已停止”状态的**默认**流式处理终结点添加到帐户。   若要开始对内容进行流式处理并利用动态打包和动态加密功能，必须确保要从其流式获取内容的流式处理终结点处于“正在运行”状态。 
 
 
 ```csharp
@@ -252,7 +252,7 @@ foreach (StreamingPath path in paths.StreamingPaths)
 
 * 停止从编码器推送流。
 * 停止 LiveEvent。 停止 LiveEvent 后，不会产生任何费用。 需要重新启动它时，它会采用相同的引入 URL，因此无需重新配置编码器。
-* 除非要继续以点播流形式提供直播事件的存档，否则可以停止 StreamingEndpoint。 如果 LiveEvent 处于停止状态，不会产生任何费用。
+* 除非要继续以点播流形式提供直播活动的存档，否则可以停止 StreamingEndpoint。 如果 LiveEvent 处于停止状态，不会产生任何费用。
 
 ```csharp
 private static void CleanupLiveEventAndOutput(IAzureMediaServicesClient client, string resourceGroup, string accountName, string liveEventName, string liveOutputName)
@@ -318,7 +318,7 @@ private static void CleanupAccount(IAzureMediaServicesClient client, string reso
 
 若要观看事件，请复制流式传输 URL（在运行[创建 StreamingLocator](#create-a-streaminglocator) 中所述的代码时获得），然后使用所选播放器。 可以使用 [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) 来测试 http://ampdemo.azureedge.net 中的流。 
 
-停止时，实时事件会自动转换为点播内容。 即使你停止并删除了事件，只要没有删除资产，用户也能够按需将已存档内容作为视频进行流式传输。 如果资产被某个事件使用，则无法将其删除，必须先删除该事件。 
+直播活动在停止后会自动转换为点播内容。 即使你停止并删除了事件，只要没有删除资产，用户也能够按需将已存档内容作为视频进行流式传输。 如果资产被某个事件使用，则无法将其删除，必须先删除该事件。 
 
 ## <a name="clean-up-resources"></a>清理资源
 

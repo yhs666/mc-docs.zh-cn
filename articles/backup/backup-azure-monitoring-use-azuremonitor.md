@@ -1,21 +1,21 @@
 ---
 title: Azure 备份：使用 Azure Monitor 监视 Azure 备份
 description: 使用 Azure Monitor 监视 Azure 备份工作负荷及创建自定义警报。
-services: backup
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: lingliw
+manager: digimobile
 keywords: Log Analytics; Azure 备份; 警报; 诊断设置; 操作组
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: v-lingwu
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 47e5823922e8099fa221b8eb7037fc85cb1d5fb5
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 11d5d71891205b75a5ca5e09b82b321a8d4abbb8
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818487"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104163"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure Monitor 进行大规模监视
 
@@ -31,7 +31,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 > [!NOTE]
 > 来自 Azure VM 备份、Azure 备份代理、System Center Data Protection Manager、Azure VM 中的 SQL 备份以及 Azure 文件共享备份的数据将通过诊断设置传送到 Log Analytics 工作区。 
 
-若要进行大规模监视，需要使用两个 Azure 服务的功能。 诊断设置将多个 Azure 资源管理器资源的数据发送到另一个资源。  *Log Analytics* 生成自定义警报，在其中，可以使用操作组定义其他通知通道。 
+若要进行大规模监视/报告，需要使用两个 Azure 服务的功能。 诊断设置将多个 Azure 资源管理器资源的数据发送到另一个资源。  *Log Analytics* 生成自定义警报，在其中，可以使用操作组定义其他通知通道。 
 
 以下部分详细介绍了如何使用 Log Analytics 大规模监视 Azure 备份。
 
@@ -50,50 +50,33 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
 ### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>将解决方案部署到 Log Analytics 工作区
 
-数据进入 Log Analytics 工作区后，[将一个 GitHub 模板部署](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/)到 Log Analytics 以可视化数据。 为了正确识别工作区，请确保为其提供相同的资源组、工作区名称和工作区位置。 然后在工作区中安装此模板。
+> [!IMPORTANT]
+> 我们发布了一个更新的多视图[模板](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/)，适用于在 Azure 备份中进行基于 LA 的监视和报告。 请注意，使用过[旧版解决方案](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/)的用户会继续在其工作区中看到它，即使已部署新解决方案。 但是，旧解决方案可能会提供不准确的结果，因为存在某些小的架构更改。 因此，用户需要部署新模板。
 
-> [!NOTE]
-> 如果 Log Analytics 工作区中没有警报、备份作业或还原作业，门户中可能会出现“BadArgumentError”错误代码。 请忽略此错误并继续使用该解决方案。 相关数据类型开始流入工作区后，可视化效果将反映相同的信息，你不再会看到错误。
+数据进入 Log Analytics 工作区后，[将一个 GitHub 模板部署](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/)到 Log Analytics 以可视化数据。 为了正确识别工作区，请确保为其提供相同的资源组、工作区名称和工作区位置。 然后在工作区中安装此模板。
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>使用 Log Analytics 查看 Azure 备份数据
 
-部署模板后，用于监视 Azure 备份的解决方案将显示在工作区摘要区域中。 若要访问摘要，请遵循以下路径之一：
+部署模板后，用于在 Azure 备份中进行监视和报告的解决方案将显示在工作区摘要区域中。 若要访问摘要，请遵循以下路径之一：
 
 - **Azure Monitor**：在“见解”部分选择“更多”，然后选择相关的工作区。  
 - **Log Analytics 工作区**：选择相关的工作区，然后在“常规”下选择“工作区摘要”。  
 
-![Log Analytics 监视磁贴](media/backup-azure-monitoring-laworkspace/la-azurebackup-azuremonitor-tile.png)
+![Log Analytics 监视和报告磁贴](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
 
-选择“监视”磁贴时，设计器模板将打开有关 Azure 备份中的基本监视数据的一系列图形。 下面是显示的一些图形：
+选择任意概览磁贴即可查看进一步的信息。 下面是显示的一些报表：
 
-* 所有备份作业
+* 非日志备份作业
 
-   ![备份作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-allbackupjobs.png)
+   ![备份作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* 还原作业
+* 来自 Azure 资源备份的警报
 
-   ![还原作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-restorejobs.png)
+   ![还原作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
-* Azure 资源的内置 Azure 备份警报
-
-   ![Azure 资源的内置 Azure 备份警报的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts.png)
-
-* 本地资源的内置 Azure 备份警报
-
-   ![本地资源的内置 Azure 备份警报的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-activealerts-onprem.png)
-
-* 活动数据源
-
-   ![活动备份实体的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-activedatasources.png)
-
-* 恢复服务保管库云存储
-
-   ![恢复服务保管库云存储的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-cloudstorage-in-gb.png)
-
+类似地，单击其他磁贴即可查看有关还原作业、云存储、备份项、来自本地资源备份的警报以及日志备份作业的报表。
+ 
 这些图形随模板一起提供。 如果需要，可以编辑图形或添加更多图形。
-
-> [!IMPORTANT]
-> 部署模板时，实际上是在创建一个只读锁。 若要编辑并保存模板，需要删除该锁。 可以在“锁”窗格中 Log Analytics 工作区的“设置”部分删除锁。  
 
 ### <a name="create-alerts-by-using-log-analytics"></a>使用 Log Analytics 创建警报
 
@@ -255,7 +238,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
    ![新建警报规则](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-此处的资源是恢复服务保管库本身。 必须针对要在其中通过活动日志接收通知的所有保管库重复相同的步骤。 条件中不包含阈值、期限或频率，因为此警报基于事件。 生成相关的活动日志后，会立即引发警报。
+此处的资源是恢复服务保管库本身。 请针对要在其中通过活动日志接收通知的所有保管库重复相同的步骤。 条件中不包含阈值、期限或频率，因为此警报基于事件。 生成相关的活动日志后，会立即引发警报。
 
 ## <a name="using-log-analytics-to-monitor-at-scale"></a>使用 Log Analytics 进行大规模监视
 

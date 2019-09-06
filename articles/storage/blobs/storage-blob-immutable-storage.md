@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 06/01/2019
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 6a144002964d14fc20329af75b71db41ea3d7fb5
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: 092ccbc07fc0a439da30ff42c03c57a7a6c5171a
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844503"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209331"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>在 Azure Blob 存储中存储业务关键型数据
 
@@ -92,7 +92,7 @@ Azure Blob 存储的不可变存储支持两类 WORM 或不可变策略：基于
 - 对于某个存储帐户而言，使用锁定的基于时间的不可变策略的最大容器数为 1,000。
 - 最小保留时间间隔为 1 天。 最大值为 146,000 天（400 年）。
 - 对于容器而言，为了延长锁定的基于时间的不可变策略的保留时间间隔而可执行的最大编辑次数为 5。
-- 对于容器而言，将根据策略的持续时间最多保留 7 个基于时间的保留策略审核日志。
+- 对于容器而言，将针对锁定策略最多保留 7 个基于时间的保留策略审核日志。
 
 ### <a name="legal-hold"></a>法定保留
 - 对于某个存储帐户而言，使用法定保留设置的最大容器数为 1,000。
@@ -176,7 +176,7 @@ Az.Storage 模块支持不可变存储。  若要启用该功能，请执行以�
 
 **此功能是只适用于块 Blob，还是也适用于页 Blob 和追加 Blob？**
 
-不可变存储可以用于任何 Blob 类型，但我们建议主要将其用于块 Blob。 与块 Blob 不同，页 Blob 和追加 Blob 需先在 WORM 容器外部创建，然后复制到容器中。 将这些 Blob 复制到 WORM 容器中后，就不再允许对追加 Blob 执行追加操作，也不允许对页 Blob 进行更改。 
+不可变存储可以用于任何 Blob 类型，因为它是在容器级别设置的，但我们建议你将 WORM 用于主要存储块 Blob 的容器。 与块 Blob 不同，任何新的页 Blob 和追加 Blob 需先在 WORM 容器外部创建，然后复制到容器中。 将这些 Blob 复制到 WORM 容器中后，就不再允许对追加 Blob 执行追加操作，也不允许对页 Blob 进行更改。  因此，强烈建议不要在存储 VHD（页 Blob）的容器上为任何活动的虚拟机设置 WORM 策略，因为它会锁定 VM 磁盘。
 
 **是否需要创建新的存储帐户才能使用此功能？**
 

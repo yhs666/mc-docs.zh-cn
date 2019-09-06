@@ -7,14 +7,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: article
 origin.date: 06/03/2019
-ms.date: 07/15/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 4bed5756bd0be88bf607664a539aaa608fa3f268
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.openlocfilehash: ff2623edb5aabd85827749c600f40244937f1c08
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844464"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209384"
 ---
 # <a name="choose-an-azure-solution-for-data-transfer"></a>选择 Azure 数据传输解决方案
 
@@ -36,6 +36,11 @@ ms.locfileid: "67844464"
 
     - **图形界面** - 如果偶尔仅传输几个文件，并且无需自动执行数据传输，则可以选择图形界面工具（如 Azure 存储资源管理器或 Azure 门户中基于 Web 的浏览工具）。
     - **脚本化或编程传输** - 可以使用我们提供的优化软件工具，或直接调用我们的 REST API/SDK。 可用的可编写脚本工具有 AzCopy、Azure PowerShell 和 Azure CLI。 对于编程接口，请使用用于 .NET、Java、Python、Node/JS、C++、Go、PHP 或 Ruby 的 SDK 之一。
+    -  - 可以设置云管道，以在多个 Azure 服务、本地或这两者的组合之间定期传输文件。 使用 Azure 数据工厂可设置和管理数据管道，以及移动和转换数据以进行分析。
+
+## <a name="data-transfer-feature-in-azure-portal"></a>Azure 门户中的数据传输功能
+
+也可转到 Azure 门户中的 Azure 存储帐户，然后选择“数据传输”功能。  请在环境中提供网络带宽、要传输的数据大小以及数据传输的频率。 将会看到与提供的信息相对应的最佳数据传输解决方案。 
 
 ## <a name="next-steps"></a>后续步骤
 

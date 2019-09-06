@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 04/08/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: tables
-ms.openlocfilehash: 31835b18f2d36866c8234846ba00b02fdeac35cd
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: ef5ef9c41f1a1f6bec63079e8eb1e3416a2e824c
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732407"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209406"
 ---
 # <a name="table-design-patterns"></a>表设计模式
 本文介绍适用于表服务解决方案的一些模式。 此外，还将了解如何实际解决其他表存储设计文章中提出的一些问题和权衡。 下图总结了不同模式之间的关系：  
@@ -49,7 +49,7 @@ ms.locfileid: "68732407"
 * 若要查找销售部门中的所有员工，其员工 ID 范围为 000100 到 000199，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000100') and (RowKey le 'empid_000199')  
 * 要通过以字母“a”开头的邮件地址查找销售部门中的所有雇员，请使用：$filter=(PartitionKey eq 'Sales') and (RowKey ge 'email_a') and (RowKey lt 'email_b')  
   
-  请注意，上述示例中使用的筛选器语法源自表服务 REST API，详细信息请参阅 [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx)（查询实体）。  
+  上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
@@ -87,7 +87,7 @@ ms.locfileid: "68732407"
 
 如果还要能够基于另一个属性（例如，电子邮件地址）的值查找员工实体，则必须使用效率较低的分区扫描来查找匹配项。 这是因为表服务不提供辅助索引。 此外，还无法选择请求按 **RowKey** 顺序以外顺序排序的员工列表。  
 
-预期针对这些实体的事务量很大，并且想要将表服务限制客户端的风险降到最低。  
+预期针对这些实体的事务量较大，并且想要将表服务限制客户端的风险降到最低。  
 
 ### <a name="solution"></a>解决方案
 若要解决缺少辅助索引的问题，可存储每个实体的多个副本，每个副本都使用不同的 **PartitionKey** 和 **RowKey** 值。 如果存储具有如下所示的结构的实体，则可以基于邮件地址或员工 ID 高效地检索员工实体。 通过 **PartitionKey** 的前缀值“empid_”和“email_”，用户可识别要用于查询的索引。  
@@ -105,7 +105,7 @@ ms.locfileid: "68732407"
 * 若要查找销售部门中的所有员工，其员工 ID 范围为 **000100** 到 **000199** 且按照 ID 序号排列，请使用：$filter=(PartitionKey eq 'empid_Sales') and (RowKey ge '000100') and (RowKey le '000199')  
 * 要在销售部门中通过以“a”开头的邮件地址并按照邮件地址顺序查找所有员工，请使用：$filter=(PartitionKey eq 'email_Sales') and (RowKey ge 'a') and (RowKey lt 'b')  
 
-请注意，上述示例中使用的筛选器语法源自表服务 REST API，详细信息请参阅 [Query Entities](https://msdn.microsoft.com/library/azure/dd179421.aspx)（查询实体）。  
+上述示例中使用的筛选器语法源自表服务 REST API，有关详细信息，请参阅[查询实体](https://msdn.microsoft.com/library/azure/dd179421.aspx)。  
 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
@@ -163,7 +163,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
 
-* 此解决方案不提供事务隔离。 例如，当辅助角色执行步骤 **4** 和步骤 **5** 之间的操作时，客户端可以读取 **Current** 和 **Archive** 表，并查看数据的不一致视图。 请注意，数据将最终保持一致。  
+* 此解决方案不提供事务隔离。 例如，当辅助角色执行步骤 **4** 和步骤 **5** 之间的操作时，客户端可以读取 **Current** 和 **Archive** 表，并查看数据的不一致视图。 数据将最终保持一致。  
 * 必须确保步骤 4 和步骤 5 是幂等的，才能确保最终是一致的。  
 * 可以通过使用多个队列和辅助角色实例来扩展此解决方案。  
 
@@ -233,13 +233,13 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 
 **EmployeeIDs** 属性包含一个员工 ID 列表，其中员工的姓氏存储在 **RowKey** 中。  
 
-使用第三个选项时，不能使用 EGT 来保持一致性，因为索引实体位于与员工实体不同的分区中。 应确保索引实体与员工实体是最终一致的。  
+使用第三个选项时，不能使用 EGT 来保持一致性，因为索引实体位于与员工实体不同的分区中。 确保索引实体与员工实体最终一致。  
 
 ### <a name="issues-and-considerations"></a>问题和注意事项
 在决定如何实现此模式时，请考虑以下几点：  
 
 * 此解决方案至少需要两个查询来检索匹配的实体：一个用于查询索引实体来获取 **RowKey** 值的列表，另一个用于检索列表中的每个实体。  
-* 鉴于单个实体的最大大小为 1 MB，此解决方案中的选项 #2 和选项 #3 假定任何给定姓氏的员工 ID 列表永远不会超过 1 MB。 如果员工 ID 列表的大小有可能大于 1 MB，请使用选项 #1，并将索引数据存储在 blob 存储中。  
+* 鉴于单个实体的最大大小为 1 MB，此解决方案中的选项 #2 和选项 #3 假定任何给定姓氏的员工 ID 列表永远不会超过 1 MB。 如果员工 ID 列表的大小有可能大于 1 MB，请使用选项 #1，并将索引数据存储在 Blob 存储中。  
 * 如果使用选项 #2 （使用 EGT 处理添加和删除员工，以及更改员工的姓氏），则必须评估事务量是否将接近给定分区的可伸缩性限制。 如果将接近，应考虑使用最终一致解决方案（选项 #1 或选项 #3），该方案使用队列来处理更新请求，并使你能够将索引实体存储在与员工实体所在的分区不同的分区中。  
 * 此解决方案中的选项 #2 假定你要在部门内按姓氏进行查找：例如，要在销售部门中检索姓氏为 Jones 的员工的列表。 如果要能够在整个组织内查找姓氏为 Jones 的所有员工，请使用选项 #1 或选项 #3。
 * 可实现基于队列且实现最终一致性的解决方案，更多详细信息请参阅[最终一致的事务模式](#eventually-consistent-transactions-pattern)。  
@@ -290,7 +290,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 使用复合 **RowKey** 值可让客户端使用单个点查询查找相关数据。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-在关系数据库中，很自然会在查询中使用联接以便在单个查询中向客户端返回相关的数据片段。 例如，可能会使用员工 ID 来查找包含该员工的绩效和评价数据的相关实体的列表。  
+在关系数据库中，自然会在查询中使用联接以便在单个查询中向客户端返回相关的数据片段。 例如，可能会使用员工 ID 来查找包含该员工的绩效和评价数据的相关实体的列表。  
 
 假定你使用以下结构在表服务中存储员工实体：  
 
@@ -337,9 +337,9 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 一个常见的需求是能够检索最近创建的实体，例如某个员工提交的最近 10 个费用报销单。 表查询支持 **$top** 查询操作以返回一个集中的前 n 个实体：没有等效的查询操作可返回一个集中的最后 *n* 个实体。  
 
 ### <a name="solution"></a>解决方案
-利用按日期/时间倒序顺序自然排序的 **RowKey** 存储实体，由此使最新条目始终显示为表格中的第一条。  
+使用自然地以日期/时间倒序排序的 **RowKey** 存储实体，通过使用这种方法，最新的条目将始终为表中的第一个条目。  
 
-例如，若要能够检索某个员工提交的最近十个费用报销单，可以使用从当前日期/时间派生的反向时点值。 下面的 C# 代码示例显示了一种方法，可用于为 **RowKey** 创建合适的“反向时点”值，使其按从最新到最旧的顺序排序：  
+例如，若要能够检索某个员工提交的最近 10 个费用报销单，可以使用从当前日期/时间派生的反向时点值。 下面的 C# 代码示例显示了一种方法，可用于为 **RowKey** 创建合适的“反向时点”值，使其按从最新到最旧的顺序排序：  
 
 `string invertedTicks = string.Format("{0:D19}", DateTime.MaxValue.Ticks - DateTime.UtcNow.Ticks);`  
 
@@ -376,7 +376,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 ![登录尝试的日期和时间](media/storage-table-design-guide/storage-table-design-IMAGE21.png)
 
-此方法可避免产生分区热点，因为应用程序可以在一个单独的分区中插入和删除每个用户的登录实体。 但是，如果用户有大量实体，此方法可能成本高昂且非常耗时，因为用户首先需要执行表扫描以便确定所有要删除的实体，然后必须删除每个旧实体。 请注意，可以通过在 EGT 中成批处理多个删除请求来减少到服务器的往返次数。  
+此方法可避免产生分区热点，因为应用程序可以在一个单独的分区中插入和删除每个用户的登录实体。 但是，如果用户有大量实体，此方法可能成本高昂且非常耗时，因为用户首先需要执行表扫描以便确定所有要删除的实体，然后必须删除每个旧实体。 可以通过在 EGT 中成批处理多个删除请求来减少到服务器的往返次数。  
 
 ### <a name="solution"></a>解决方案
 对每天的登录尝试使用一个单独的表。 在插入实体时可以使用上面的实体设计避免产生热点，而删除旧实体现在只是每天删除一个表的问题（单个存储操作），而不用每天查找并删除成百上千个单个登录实体。  
@@ -490,7 +490,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 当你需要进行大量插入操作时，可通过将插入操作分散到多个分区，来提高可伸缩性。  
 
 ### <a name="context-and-problem"></a>上下文和问题
-将实体前置或后置于存储实体通常会导致应用程序将新实体添加到分区序列中的第一个分区或最后一个分区。 在这种情况下，在任何给定时间所有插入都发生在同一个分区中，从而产生了热点，使表服务无法将插入负载均衡到多个节点，可能会导致应用程序命中分区的可伸缩性目标。 例如，如果有一个应用程序记录员工对网络和资源的访问，则在事务量达到单个分区的伸缩性目标时，如下所示的实体结构可能会导致当前小时的分区成为热点：  
+将实体前置或后置于存储实体通常会导致应用程序将新实体添加到分区序列中的第一个分区或最后一个分区。 在这种情况下，对于任何指定时间，所有插入都发生在同一个分区中，从而产生热点，使表服务无法将插入负载均衡分配到多个节点，这可能会导致应用程序达到分区的伸缩性目标。 例如，如果有一个应用程序记录员工对网络和资源的访问，则在事务量达到单个分区的伸缩性目标时，如下所示的实体结构可能会导致当前小时的分区成为热点：  
 
 ![实体结构](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
@@ -589,7 +589,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-employeeTable 是实现 CreateQuery<ITableEntity>() 方法的 CloudTable 对象，该方法返回 TableQuery<ITableEntity>。 此类型的对象实现 IQueryable 并允许同时使用 LINQ 查询表达式和点表示法语法。
+employeeTable 是实现 CreateQuery\<ITableEntity>() 方法的 CloudTable 对象，该方法返回 TableQuery\<ITableEntity>。 此类型的对象实现 IQueryable 并允许同时使用 LINQ 查询表达式和点表示法语法。
 
 检索多个实体，并通过使用 **where** 子句指定查询来实现。 若要避免表扫描，应始终在 where 子句中包括 **PartitionKey** 值，如有可能也包括 **RowKey** 值以避免表和分区扫描。 表服务支持一组有限的比较运算符（大于、大于等于、小于、小于等于、等于和不等于）可用于 where 子句。 
 
@@ -706,7 +706,7 @@ foreach (var e in entities)
 ## <a name="modifying-entities"></a>修改实体
 使用存储客户端库可以通过插入、删除和更新实体修改存储在表服务中的实体。 可以使用 EGT 将多个插入、更新和删除操作一起批量处理以减少所需的往返次数并提高解决方案的性能。  
 
-请注意，存储客户端库执行 EGT 时引发的异常通常包含导致批处理失败的实体的索引。 如果正在调试使用 EGT 的代码，这非常有用。  
+存储客户端库执行 EGT 时引发的异常通常包含导致批处理失败的实体的索引。 如果正在调试使用 EGT 的代码，这非常有用。  
 
 还应考虑设计如何影响客户端应用程序处理并发和更新操作的方式。  
 
@@ -813,7 +813,7 @@ foreach (var e in entities)
 </tr>
 </table>
 
-请注意，每个实体仍然必须具有 **PartitionKey**、**RowKey** 和 **Timestamp** 值，但可以具有任何一组属性。 此外，没有任何信息指示实体的类型，除非选择在某处存储该信息。 有两个用于标识实体类型的选项：  
+每个实体仍然必须具有 **PartitionKey**、**RowKey** 和 **Timestamp** 值，但可以具有任何一组属性。 此外，没有任何信息指示实体的类型，除非选择在某处存储该信息。 有两个用于标识实体类型的选项：  
 
 * 在 **RowKey**（或可能是 **PartitionKey**）前面添加实体类型。 例如，将 **EMPLOYEE_000123** 或 **DEPARTMENT_SALES** 作为 **RowKey** 值。  
 * 使用一个单独的属性来记录实体类型，如下表中所示。  
@@ -960,7 +960,7 @@ foreach (var e in entities)
 }  
 ```
 
-请注意，若要检索其他属性，必须对 **DynamicTableEntity** 类的 **Properties** 属性使用 **TryGetValue** 方法。  
+若要检索其他属性，必须对 **DynamicTableEntity** 类的 **Properties** 属性使用 **TryGetValue** 方法。  
 
 第三个选项是组合使用 **DynamicTableEntity** 类型和 **EntityResolver** 实例。 使用此选项可以在同一查询中解析为多种 POCO 类型。 在此示例中，**EntityResolver** 委托使用 **EntityType** 属性来区分查询返回的两种实体类型。 **Resolve** 方法使用 **resolver** 委托将 **DynamicTableEntity** 实例解析为 **TableEntity** 实例。  
 
@@ -1031,7 +1031,7 @@ employeeTable.Execute(TableOperation.Merge(department));
 * 可以卸下 Web 角色和辅助角色在管理传递到客户端设备（如最终用户计算机和移动设备）的实体时执行的一些工作负荷。  
 * 可以向客户端分配一组受约束且有时间限制的权限（如允许对特定资源进行只读访问）。  
 
-若要深入了解如何在表服务中使用 SAS 令牌，请参阅[使用共享访问签名 (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md)。  
+若要深入了解如何在表服务中使用 SAS 令牌，请参阅[使用共享访问签名 (SAS)](../../storage/common/storage-sas-overview.md)。  
 
 但是，仍必须生成授权客户端应用程序访问表服务中的实体的 SAS 令牌：应在可安全地访问存储帐户密钥的环境中执行此操作。 通常，使用 Web 角色或辅助角色生成 SAS 令牌并将其传递给需要访问实体的客户端应用程序。 由于生成 SAS 令牌并将其传递到客户端仍有开销，应考虑如何最有效地减少此开销，尤其是在大容量方案中。  
 
@@ -1092,7 +1092,7 @@ private static async Task ManyEntitiesQueryAsync(CloudTable employeeTable, strin
 
 客户端应用程序可以多次调用此方法（对 **department** 参数使用不同值），并且每个查询都会在一个单独的线程中运行。  
 
-请注意，**TableQuery** 类中的 **Execute** 方法没有异步版本，因为 **IEnumerable** 接口不支持异步枚举。  
+**TableQuery** 类中的 **Execute** 方法没有异步版本，因为 **IEnumerable** 接口不支持异步枚举。  
 
 此外，还可以用异步方式插入、更新和删除实体。 以下 C# 示例说明了一个简单的同步方法，该方法用于插入或替换员工实体：  
 

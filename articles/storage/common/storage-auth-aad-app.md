@@ -1,22 +1,22 @@
 ---
-title: 在客户端应用程序中使用 Azure Active Directory 进行身份验证以访问 Blob 和队列数据
+title: 使用客户端应用程序中的 Azure Active Directory 授权访问 Blob 和队列 - Azure 存储
 description: 使用 Azure Active Directory 从客户端应用程序内部进行身份验证、获取 OAuth 2.0 令牌，以及授权对 Azure Blob 存储和队列存储的请求。
 services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 06/05/2019
-ms.date: 08/05/2019
+origin.date: 07/18/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 85e807e9e03352c777954710770ca5cd3639d933
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 44c9d8ca340167cdcad9db85576a8c7491926cda
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732398"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209396"
 ---
-# <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>在应用程序中使用 Azure Active Directory 进行身份验证以访问 Blob 和队列
+# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>使用客户端应用程序中的 Azure Active Directory 授权访问 Blob 和队列
 
 将 Azure Active Directory (Azure AD) 与 Azure Blob 存储和队列存储配合使用的主要优点在于不再需要在代码中存储凭据。 可以从 Microsoft 标识平台（以前称为 Azure AD）请求 OAuth 2.0 访问令牌。 Azure AD 对运行应用程序的安全主体（用户、组或服务主体）进行身份验证。 如果身份验证成功，Azure AD 会将访问令牌返回应用程序，应用程序可随之使用访问令牌对 Azure Blob 存储或队列存储请求授权。
 
@@ -79,6 +79,22 @@ ms.locfileid: "68732398"
 
 有关支持获取令牌的方案列表，请参阅[适用于 .NET 的 Microsoft 身份验证库 (MSAL)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub 存储库的[方案](https://aka.ms/msal-net-scenarios)部分。
 
+## <a name="well-known-values-for-authentication-with-azure-ad"></a>使用 Azure AD 进行身份验证的已知值
+
+若要使用 Azure AD 验证安全主体的身份，需要在代码中包含一些已知值。
+
+### <a name="azure-ad-authority"></a>Azure AD 颁发机构
+
+对于 Azure，基本 Azure AD 颁发机构如下所示，其中 *tenant-id* 是 Active Directory 租户 ID（或目录 ID）：
+
+`https://login.partner.microsoftonline.cn/<tenant-id>/`
+
+租户 ID 用于标识要用于身份验证的 Azure AD 租户。 它也称为目录 ID。 若要检索租户 ID，请在 Azure 门户中导航到应用注册的“概述”页，并从中复制该值。 
+
+### <a name="azure-storage-resource-id"></a>Azure 存储资源 ID
+
+[!INCLUDE [storage-resource-id-include](../../../includes/storage-resource-id-include.md)]
+
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 代码示例：创建块 Blob
 
 代码示例展示如何从 Azure AD 获取访问令牌。 访问令牌用于对指定用户进行身份验证，然后授权用于创建块 blob 的请求。 若要让此示例能够正常工作，请首先遵循上述部分列出的步骤。
@@ -90,24 +106,6 @@ ms.locfileid: "68732398"
 - 客户端（或应用程序）ID。 可从应用注册的“概述”页检索此值。 
 - 客户端重定向 URI。 可应用注册的“身份验证”设置检索此值。 
 - 客户端机密的值。 可从先前复制到的位置检索此值。
-
-### <a name="well-known-values-for-authentication-with-azure-ad"></a>使用 Azure AD 进行身份验证的已知值
-
-若要使用 Azure AD 验证安全主体的身份，需要在代码中包含一些已知值。
-
-#### <a name="azure-ad-authority"></a>Azure AD 颁发机构
-
-对于 Microsoft 公有云，基本 Azure AD 颁发机构如下，其中 *tenant-id* 是 Active Directory 租户 ID（或目录 ID）：
-
-`https://login.partner.microsoftonline.cn/<tenant-id>/`
-
-租户 ID 用于标识要用于身份验证的 Azure AD 租户。 它也称为目录 ID。 若要检索租户 ID，请在 Azure 门户中导航到应用注册的“概述”页，并从中复制该值。 
-
-#### <a name="storage-resource-id"></a>存储资源 ID
-
-使用 Azure 存储资源 ID 获取用于对 Azure 存储请求授权的令牌：
-
-`https://storage.azure.com/`
 
 ### <a name="create-a-storage-account-and-container"></a>创建存储帐户和容器
 
@@ -178,9 +176,11 @@ Authorization: Bearer eyJ0eXAiOnJKV1...Xd6j
 
 #### <a name="get-an-oauth-token-from-azure-ad"></a>从 Azure AD 获取 OAuth 令牌
 
-接下来，添加从 Azure AD 请求令牌的方法。 请求的令牌将代表用户。我们将使用 GetTokenOnBehalfOfUser 方法。
+接下来，添加代表用户从 Azure AD 请求令牌的方法。 此方法定义要授予的权限的范围。 若要详细了解权限和范围，请参阅 [Microsoft 标识平台终结点中的权限和许可](../../active-directory/develop/v2-permissions-and-consent.md)。
 
-请记住，如果你最近已登录，当前正在请求 `storage.azure.com` 资源的令牌，则需要向用户显示一个 UI，让用户许可你代表他们执行此类操作。 为了提供便利，需要捕获 `MsalUiRequiredException` 并添加请求用户许可的功能，如以下示例中所示：
+请使用资源 ID 来构造获取的令牌的范围。 此示例构造范围时，将资源 ID 与内置的 `user_impersonation` 范围配合使用，后者指示令牌是代表用户请求的。
+
+请记住，可能需要为用户呈现一个界面，让用户允许代表他/她来请求令牌。 必须进行许可时，此示例会捕获 **MsalUiRequiredException** 并调用另一方法，促进许可请求：
 
 ```csharp
 public async Task<IActionResult> Blob()
@@ -195,7 +195,8 @@ public async Task<IActionResult> Blob()
     }
     catch (MsalUiRequiredException ex)
     {
-        AuthenticationProperties properties = BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
+        AuthenticationProperties properties =
+            BuildAuthenticationPropertiesForIncrementalConsent(scopes, ex);
         return Challenge(properties);
     }
 }
@@ -210,11 +211,12 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 {
     AuthenticationProperties properties = new AuthenticationProperties();
 
-    // Set the scopes, including the scopes that ADAL.NET / MSAL.NET need for the Token cache.
+    // Set the scopes, including the scopes that ADAL.NET or MSAL.NET need for the Token cache.
     string[] additionalBuildInScopes = new string[] { "openid", "offline_access", "profile" };
     properties.SetParameter<ICollection<string>>(OpenIdConnectParameterNames.Scope, scopes.Union(additionalBuildInScopes).ToList());
 
-    // Attempt to set the login_hint so that the logged-in user is not presented with an account selection dialog.
+    // Attempt to set the login_hint so that the logged-in user is not presented
+    // with an account selection dialog.
     string loginHint = HttpContext.User.GetLoginHint();
     if (!string.IsNullOrWhiteSpace(loginHint))
     {
@@ -236,7 +238,7 @@ private AuthenticationProperties BuildAuthenticationPropertiesForIncrementalCons
 
 ## <a name="view-and-run-the-completed-sample"></a>查看和运行已完成的示例
 
-若要运行示例应用程序，请先从 [GitHub](https://aka.ms/aadstorage) 克隆或下载它。 然后根据以下部分所述更新应用程序。
+若要运行示例应用程序，请先从 [GitHub](https://github.com/Azure-Samples/storage-dotnet-azure-ad-msal) 克隆或下载它。 然后根据以下部分所述更新应用程序。
 
 ### <a name="provide-values-in-the-settings-file"></a>在设置文件中提供值
 
@@ -298,3 +300,4 @@ CloudBlockBlob blob = new CloudBlockBlob(
 
 - 若要详细了解 Microsoft 标识平台，请参阅 [Microsoft 标识平台](/active-directory/develop/)。
 - 若要详细了解 Azure 存储中的 RBAC 角色，请参阅[使用 RBAC 管理存储数据的访问权限](storage-auth-aad-rbac.md)。
+- 若要了解如何将 Azure 资源的托管标识与 Azure 存储一起使用，请参阅[使用 Azure 资源的 Azure Active Directory 和托管标识验证对 Blob 和队列的访问权限](storage-auth-aad-msi.md)。

@@ -1,28 +1,28 @@
 ---
-title: 仪表板 - 语言理解
+title: 仪表板 - 语言理解 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 使用分析摘要仪表板（一个可视化的报告工具）修复意向。
+description: 使用分析仪表板（一个可视化报告工具）修复意向。
 services: cognitive-services
 author: lingliw
 manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 474089796f950273d3f60384693952ffb4260832
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: bc2fd67e8ce8974848eb1d0a13c1fb26edea73a1
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332152"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70103920"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用仪表板来改善应用
 
 使用示例言语时查找并修复已训练应用的意向问题。 仪表板显示整体性的应用信息，并突出显示应予以修复的意向。 
 
-检查仪表板分析信息是一个迭代的过程，在更改和改善模型的过程中需要反复检查。
+查看仪表板分析是一个迭代过程，请在更改和改进模型时重复此过程。
 
 对于在意向中不包含任何示例言语的应用（称为仅限模式的应用），此页不会提供相关的分析。  
 

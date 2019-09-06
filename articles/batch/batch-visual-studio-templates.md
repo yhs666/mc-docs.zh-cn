@@ -1,10 +1,10 @@
 ---
-title: 使用 Visual Studio 模板生成 Batch 解决方案 - Azure | Microsoft Docs
+title: 使用 Visual Studio 模板生成解决方案 - Azure Batch | Docs
 description: 了解 Visual Studio 项目模板如何帮助在 Azure Batch 上实现和运行计算密集型工作负荷。
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
 ms.service: batch
@@ -16,12 +16,12 @@ origin.date: 02/27/2017
 ms.date: 09/07/2018
 ms.author: v-junlch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 075f66a577c9063fe5d74ca11ced0736ffb3be4a
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: a15b67a4cc0e65439e3ccdc3f0c4fc194be56686
+ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52658768"
+ms.lasthandoff: 08/28/2019
+ms.locfileid: "70104141"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>使用 Visual Studio 项目模板快速启动 Batch 解决方案
 
@@ -59,26 +59,26 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 - 安装有 Visual Studio 2015 的一台计算机。 Batch 模板当前仅支持 Visual Studio 2015。
 - Batch 模板，可从 [Visual Studio 库][vs_gallery]以 Visual Studio 扩展的形式获取。 有两种方式可获取模板：
   
-  - 使用 Visual Studio 中的“扩展和更新”对话框安装模板（有关详细信息，请参阅[查找和使用 Visual Studio 扩展][vs_find_use_ext]）。 在“扩展和更新”对话框中，搜索并下载以下两个扩展：
+  - 使用 Visual Studio 中的“扩展和更新”  对话框安装模板（有关详细信息，请参阅[查找和使用 Visual Studio 扩展][vs_find_use_ext]）。 在“扩展和更新”  对话框中，搜索并下载以下两个扩展：
     
     - 随附作业拆分器的 Azure Batch 作业管理器
     - Azure Batch 任务处理器
-  - 从 Visual Studio 的联机库下载模板： [Azure Batch 项目模板][vs_gallery_templates]
+  - 从 Visual Studio 的联机库下载模板：[Azure Batch 项目模板][vs_gallery_templates]
 - 如果打算使用[应用程序包](batch-application-packages.md)功能将作业管理器和任务处理器部署到 Batch 计算节点，需要将存储帐户链接到 Batch 帐户。
 
 ## <a name="preparation"></a>准备工作
 建议创建可在其中包含作业管理器和任务处理器的解决方案，因为这样可以更轻松地在作业管理器和任务处理器程序之间共享代码。 若要创建此解决方案，请遵循以下步骤：
 
-1. 打开 Visual Studio，并选择“文件” > “新建” > “项目”。
-2. 在“模板”下展开“其他项目类型”，单击“Visual Studio 解决方案”，并选择“空白解决方案”。
+1. 打开 Visual Studio，并选择“文件”   > “新建”   > “项目”  。
+2. 在“模板”  下展开“其他项目类型”  ，单击“Visual Studio 解决方案”  ，并选择“空白解决方案”  。
 3. 键入用于描述应用程序和此解决方案用途的名称（例如，“LitwareBatchTaskPrograms”）。
-4. 若要创建新解决方案，请单击“确定”。
+4. 若要创建新解决方案，请单击“确定”  。
 
 ## <a name="job-manager-template"></a>作业管理器模板
 作业管理器模板可帮助实现作业管理器任务以执行以下操作：
 
-- 将一个作业拆分为多个任务。
-- 提交这些任务以在 Batch 上运行。
+* 将一个作业拆分为多个任务。
+* 提交这些任务以在 Batch 上运行。
 
 > [!NOTE]
 > 有关作业管理器任务的详细信息，请参阅[面向开发人员的 Batch 功能概述](batch-api-basics.md#job-manager-task)。
@@ -89,18 +89,18 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 若要在前面创建的解决方案中添加作业管理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
-2. 在解决方案资源管理器中，右键单击解决方案，并单击“添加” > “新建项目”。
-3. 在“Visual C#”下单击“云”，并单击“随附作业拆分器的 Azure Batch 作业管理器”。
+2. 在解决方案资源管理器中，右键单击解决方案，并单击“添加”   > “新建项目”  。
+3. 在“Visual C#”  下单击“云”  ，并单击“随附作业拆分器的 Azure Batch 作业管理器”  。
 4. 键入用于描述应用程序并将此项目标识为作业管理器的名称（例如“LitwareJobManager”）。
-5. 若要创建项目，请单击“确定”。
+5. 若要创建项目，请单击“确定”  。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
 
 ### <a name="job-manager-template-files-and-their-purpose"></a>作业管理器模板文件及其用途
 使用作业管理器模板创建项目时，它生成三组代码文件：
 
-- 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
-- 框架目录。 此目录包含的文件负责处理作业管理器程序执行的样板工作，例如解压缩参数、在 Batch 作业中添加任务等。一般情况下，不需要修改这些文件。
-- 作业拆分器文件 (JobSplitter.cs)。 此处可供存放用于将作业拆分为多个任务的应用程序特定逻辑。
+* 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
+* 框架目录。 此目录包含的文件负责处理作业管理器程序执行的“样板”工作，例如解包参数、向 Batch 作业添加任务等。一般情况下，不需要修改这些文件。
+* 作业拆分器文件 (JobSplitter.cs)。 此处可供存放用于将作业拆分为多个任务的应用程序特定逻辑。
 
 当然，可以根据作业拆分逻辑的复杂性，视需要添加其他文件来支持作业拆分器代码。
 
@@ -112,11 +112,11 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 
 **框架文件**
 
-- `Configuration.cs`：封装作业配置数据的加载，例如 Batch 帐户详细信息、链接的存储帐户凭据、作业和任务信息，以及作业参数。 它还通过 Configuration.EnvironmentVariable 类提供 Batch 定义的环境变量（请参阅 Batch 文档中“Environment settings for tasks”（任务的环境设置））的访问权限。
-- `IConfiguration.cs`：抽象化配置类的实现，以便可以使用虚构或模拟的配置对象对作业拆分器进行单元测试。
-- `JobManager.cs`：协调作业管理器程序的组件。 它负责初始化作业拆分器、调用作业拆分器，以及将作业拆分器返回的任务分派给任务提交器。
-- `JobManagerException.cs`：代表需要由作业管理器终止的错误。 JobManagerException 用于包装可在终止过程中提供特定诊断信息的“预期”错误。
-- `TaskSubmitter.cs`：此类负责将作业拆分器返回的任务添加到 Batch 作业。 JobManager 类将一连串任务聚合成批，以便有效、及时地添加到作业中，然后在每一批的后台线程上调用 TaskSubmitter.SubmitTasks。
+* `Configuration.cs`：封装作业配置数据的加载，例如 Batch 帐户详细信息、链接的存储帐户凭据、作业和任务信息，以及作业参数。 它还通过 Configuration.EnvironmentVariable 类提供 Batch 定义的环境变量（请参阅 Batch 文档中“Environment settings for tasks”（任务的环境设置））的访问权限。
+* `IConfiguration.cs`：抽象化配置类的实现，以便可以使用虚构或模拟的配置对象对作业拆分器进行单元测试。
+* `JobManager.cs`：协调作业管理器程序的组件。 它负责初始化作业拆分器、调用作业拆分器，以及将作业拆分器返回的任务分派给任务提交器。
+* `JobManagerException.cs`：代表需要由作业管理器终止的错误。 JobManagerException 用于包装可在终止过程中提供特定诊断信息的“预期”错误。
+* `TaskSubmitter.cs`：此类负责将作业拆分器返回的任务添加到 Batch 作业。 JobManager 类将一连串任务聚合成批，以便有效、及时地添加到作业中，然后在每一批的后台线程上调用 TaskSubmitter.SubmitTasks。
 
 **作业拆分器**
 
@@ -124,9 +124,9 @@ Batch 的**作业管理器**和**任务处理器 Visual Studio 模板**提供代
 
 **标准 .NET 命令行项目文件**
 
-- `App.config`：标准的 .NET 应用程序配置文件。
-- `Packages.config`：标准的 NuGet 包依赖项文件。
-- `Program.cs`：包含程序入口点和顶层异常处理。
+* `App.config`：标准 .NET 应用程序配置文件。
+* `Packages.config`：标准 NuGet 包依赖项文件。
+* `Program.cs`：包含程序入口点和顶层异常处理。
 
 ### <a name="implementing-the-job-splitter"></a>实现作业拆分器
 当打开作业管理器模板项目时，项目默认情况下打开 JobSplitter.cs 文件。 可按如下所示使用 Split() 方法为工作负荷中的任务实现拆分逻辑：
@@ -164,9 +164,9 @@ public IEnumerable<CloudTask> Split()
 
 Split() 实现具有以下项的访问权限：
 
-- 作业参数，通过 `_parameters` 字段。
-- 代表作业的 CloudJob 对象，通过 `_job` 字段。
-- 代表作业管理器任务的 CloudTask 对象，通过 `_jobManagerTask` 字段。
+* 作业参数，通过 `_parameters` 字段。
+* 代表作业的 CloudJob 对象，通过 `_job` 字段。
+* 代表作业管理器任务的 CloudTask 对象，通过 `_jobManagerTask` 字段。
 
 `Split()` 实现不需要直接将任务添加到作业中。 相反地，代码应返回一连串的 CloudTask 对象，并由调用作业拆分器的框架类自动添加到作业中。 通常使用 C# 的迭代器 (`yield return`) 功能实现作业拆分器，因为这可让任务尽快开始运行，而不是等待所有要计算的任务。
 
@@ -174,14 +174,14 @@ Split() 实现具有以下项的访问权限：
 
 如果作业拆分器发生错误，它应该：
 
-- 使用 C# `yield break` 语句终止序列，在此情况下，将作业管理器视为成功；或者
-- 引发异常，在此情况下，将作业管理器视为失败，并可能根据客户端对它的配置进行重试。
+* 使用 C# `yield break` 语句终止序列，在此情况下，将作业管理器视为成功；或者
+* 引发异常，在此情况下，将作业管理器视为失败，并可能根据客户端对它的配置进行重试。
 
 在这两种情况下，作业拆分器已返回并添加到 Batch 作业的任何任务都有资格运行。 如果不想让此情况发生，可以：
 
-- 终止作业，不让它从作业拆分器返回
-- 先编写整个任务集合再将它返回（也就是返回 `ICollection<CloudTask>` 或 `IList<CloudTask>`，而不是使用 C# 迭代器实现作业拆分器）
-- 使用任务依赖项让所有任务依赖于成功完成作业管理器
+* 终止作业，不让它从作业拆分器返回
+* 先编写整个任务集合再将它返回（也就是返回 `ICollection<CloudTask>` 或 `IList<CloudTask>`，而不是使用 C# 迭代器实现作业拆分器）
+* 使用任务依赖项让所有任务依赖于成功完成作业管理器
 
 **作业管理器重试**
 
@@ -231,11 +231,11 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 客户端应该将作业管理器的 *killJobOnCompletion* 标志设置为 **false**。
 
-客户端通常可以安全地将 runExclusive 设置为 false。
+客户端通常可以安全地将 runExclusive  设置为 false  。
 
-客户端应使用 resourceFiles 或 applicationPackageReferences 集合将作业管理器可执行文件（及其所需的 DLL）部署到计算节点。
+客户端应使用 resourceFiles  或 applicationPackageReferences  集合将作业管理器可执行文件（及其所需的 DLL）部署到计算节点。
 
-默认情况下，作业管理器在失败时不重试。 根据作业管理器逻辑，客户端可能需要通过 constraints/maxTaskRetryCount 启用重试。
+默认情况下，作业管理器在失败时不重试。 根据作业管理器逻辑，客户端可能需要通过 constraints  /maxTaskRetryCount  启用重试。
 
 **作业设置**
 
@@ -246,9 +246,9 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 ## <a name="task-processor-template"></a>任务处理器模板
 任务处理器模板可帮助实现任务处理器来执行以下操作：
 
-- 设置要让每个 Batch 任务运行所需的信息。
-- 运行每个 Batch 任务所需的所有操作。
-- 将任务输出存储到持久性存储。
+* 设置要让每个 Batch 任务运行所需的信息。
+* 运行每个 Batch 任务所需的所有操作。
+* 将任务输出存储到持久性存储。
 
 尽管不需要任务处理器就能在 Batch 上运行任务，但使用任务处理器的主要优点是，提供包装器以在一个位置实现所有任务执行操作。 例如，如果需要在每个任务的上下文中运行多个应用程序，或者如果需要在完成各项任务之后将数据复制到持久性存储。
 
@@ -258,18 +258,18 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 若要在前面创建的解决方案中添加任务处理器，请遵循以下步骤：
 
 1. 在 Visual Studio 中打开现有解决方案。
-2. 在解决方案资源管理器中，右键单击解决方案，单击“添加”，并单击“新建项目”。
-3. 在“Visual C#”下单击“云”，并单击“Azure Batch 任务处理器”。
+2. 在解决方案资源管理器中，右键单击解决方案，单击“添加”  ，并单击“新建项目”  。
+3. 在“Visual C#”  下单击“云”  ，并单击“Azure Batch 任务处理器”  。
 4. 键入用于描述应用程序并将此项目标识为任务处理器的名称（例如“LitwareTaskProcessor”）。
-5. 若要创建项目，请单击“确定”。
+5. 若要创建项目，请单击“确定”  。
 6. 最后，生成项目来强制 Visual Studio 加载所有引用的 NuGet 包，并验证项目是否有效以便能开始对其进行修改。
 
 ### <a name="task-processor-template-files-and-their-purpose"></a>任务处理器模板文件及其用途
 使用任务处理器模板创建项目时，它生成三组代码文件：
 
-- 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
-- 框架目录。 此目录包含的文件负责处理作业管理器程序执行的样板工作，例如解压缩参数、在 Batch 作业中添加任务等。一般情况下，不需要修改这些文件。
-- 任务处理器文件 (TaskProcessor.cs)。 此文件可供存放用于执行任务的应用程序特定逻辑（通常是通过向外调用现有的可执行文件）。 预处理和和后处理代码（例如下载额外数据或上传结果文件）也存放在此。
+* 主程序文件 (Program.cs)。 此文件包含程序入口点和顶层异常处理。 一般情况下，不需要修改此文件。
+* 框架目录。 此目录包含的文件负责处理作业管理器程序执行的“样板”工作，例如解包参数、向 Batch 作业添加任务等。一般情况下，不需要修改这些文件。
+* 任务处理器文件 (TaskProcessor.cs)。 此文件可供存放用于执行任务的应用程序特定逻辑（通常是通过向外调用现有的可执行文件）。 预处理和和后处理代码（例如下载额外数据或上传结果文件）也存放在此。
 
 当然，可以根据作业拆分逻辑的复杂性，视需要添加其他文件来支持任务处理器代码。
 
@@ -281,26 +281,26 @@ job.JobManagerTask.EnvironmentSettings = new [] {
 
 **框架文件**
 
-- `Configuration.cs`：封装作业配置数据的加载，例如 Batch 帐户详细信息、链接的存储帐户凭据、作业和任务信息，以及作业参数。 它还通过 Configuration.EnvironmentVariable 类提供 Batch 定义的环境变量（请参阅 Batch 文档中“Environment settings for tasks”（任务的环境设置））的访问权限。
-- `IConfiguration.cs`：抽象化配置类的实现，以便可以使用虚构或模拟的配置对象对作业拆分器进行单元测试。
-- `TaskProcessorException.cs`：代表需要由作业管理器终止的错误。 TaskProcessorException 用于包装可在终止过程中提供特定诊断信息的“预期”错误。
+* `Configuration.cs`：封装作业配置数据的加载，例如 Batch 帐户详细信息、链接的存储帐户凭据、作业和任务信息，以及作业参数。 它还通过 Configuration.EnvironmentVariable 类提供 Batch 定义的环境变量（请参阅 Batch 文档中“Environment settings for tasks”（任务的环境设置））的访问权限。
+* `IConfiguration.cs`：抽象化配置类的实现，以便可以使用虚构或模拟的配置对象对作业拆分器进行单元测试。
+* `TaskProcessorException.cs`：代表需要由作业管理器终止的错误。 TaskProcessorException 用于包装可在终止过程中提供特定诊断信息的“预期”错误。
 
 **任务处理器**
 
-- `TaskProcessor.cs`：运行任务。 框架调用 TaskProcessor.Run 方法。 这是会在其中注入任务的应用程序特定逻辑的类。 实现 Run 方法以便：
-  - 分析和验证任何任务参数
-  - 针对要调用的任何外部程序编写命令行
-  - 记录为了调试所可能需要的任何诊断信息
-  - 使用该命令行启动进程
-  - 等待进程退出
-  - 捕获进程的退出代码以确定其成功还是失败
-  - 保存所有想要保留在持久性存储中的输出文件
+* `TaskProcessor.cs`：运行任务。 框架调用 TaskProcessor.Run 方法。 这是会在其中注入任务的应用程序特定逻辑的类。 实现 Run 方法以便：
+  * 分析和验证任何任务参数
+  * 针对要调用的任何外部程序编写命令行
+  * 记录为了调试所可能需要的任何诊断信息
+  * 使用该命令行启动进程
+  * 等待进程退出
+  * 捕获进程的退出代码以确定其成功还是失败
+  * 保存所有想要保留在持久性存储中的输出文件
 
 **标准 .NET 命令行项目文件**
 
-- `App.config`：标准的 .NET 应用程序配置文件。
-- `Packages.config`：标准的 NuGet 包依赖项文件。
-- `Program.cs`：包含程序入口点和顶层异常处理。
+* `App.config`：标准 .NET 应用程序配置文件。
+* `Packages.config`：标准 NuGet 包依赖项文件。
+* `Program.cs`：包含程序入口点和顶层异常处理。
 
 ## <a name="implementing-the-task-processor"></a>实现任务处理器
 当打开任务处理器模板项目时，项目默认情况下打开 TaskProcessor.cs 文件。 可按如下所示使用 Run() 方法为工作负荷中的任务实现运行逻辑：
@@ -357,9 +357,9 @@ Run() 方法负责启动命令行、启动一个或多个进程、等待所有�
 
 Run() 实现具有以下项的访问权限：
 
-- 任务参数，通过 `_parameters` 字段。
-- 作业和任务 ID，通过 `_jobId` 和 `_taskId` 字段。
-- 任务配置，通过 `_configuration` 字段。
+* 任务参数，通过 `_parameters` 字段。
+* 作业和任务 ID，通过 `_jobId` 和 `_taskId` 字段。
+* 任务配置，通过 `_configuration` 字段。
 
 **任务失败**
 
@@ -386,7 +386,7 @@ Run() 实现具有以下项的访问权限：
 ### <a name="client-considerations"></a>客户端注意事项
 **存储凭据**
 
-如果任务处理器使用 Azure Blob 存储来保存输出，例如使用文件约定帮助器库，则它需要访问云存储帐户凭据或包含共享访问签名 (SAS) 的 Blob 容器 URL。 模板支持通过通用环境变量来提供凭据。 客户端可按如下所示传递存储凭据：
+如果任务处理器使用 Azure Blob 存储来保存输出，例如使用文件约定帮助器库，则它需要访问云存储帐户凭据或包含共享访问签名 (SAS) 的 Blob 容器 URL   。 模板支持通过通用环境变量来提供凭据。 客户端可按如下所示传递存储凭据：
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -407,9 +407,9 @@ job.CommonEnvironmentSettings = new [] {
 ### <a name="pass-environment-settings"></a>传递环境设置
 客户端可以环境设置的形式将信息传递给作业管理器任务。 然后，作业管理器任务可在生成作为计算作业一部分来运行的任务处理器任务时使用此信息。 可以环境设置形式传递的信息示例如下：
 
-- 存储帐户名称和帐户密钥
-- Batch 帐户 URL
-- Batch 帐户密钥
+* 存储帐户名称和帐户密钥
+* Batch 帐户 URL
+* Batch 帐户密钥
 
 Batch 服务提供一个简单的机制，用于在 [Microsoft.Azure.Batch.JobManagerTask][net_jobmanagertask] 中使用 `EnvironmentSettings` 属性将环境设置传递到作业管理器任务。
 
@@ -428,8 +428,8 @@ Batch 服务提供一个简单的机制，用于在 [Microsoft.Azure.Batch.JobMa
 
 parameters.json 的资源文件，如果找到，则将它加载为参数字典。 有几个选项可用于将参数传递给任务处理器任务：
 
-- 重复使用作业参数 JSON。 这适用于唯一的参数都是作业范围的参数时（例如渲染高度和宽度）。 为此，请于在作业拆分器中创建 CloudTask 时，从作业管理器任务的 ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) 将 parameters.json 资源文件对象的引用添加到 CloudTask 的 ResourceFiles 集合。
-- 生成和上传任务特定的 parameters.json 文档作为作业拆分器执行的一部分，并在任务的资源文件集合中引用该 Blob。 如果不同的任务有不同的参数，就必须这样做。 以参数形式将帧索引传递到任务的 3D 渲染方案便是可能的示例。
+* 重复使用作业参数 JSON。 这适用于唯一的参数都是作业范围的参数时（例如渲染高度和宽度）。 为此，请于在作业拆分器中创建 CloudTask 时，从作业管理器任务的 ResourceFiles (`JobSplitter._jobManagerTask.ResourceFiles`) 将 parameters.json 资源文件对象的引用添加到 CloudTask 的 ResourceFiles 集合。
+* 生成和上传任务特定的 parameters.json 文档作为作业拆分器执行的一部分，并在任务的资源文件集合中引用该 Blob。 如果不同的任务有不同的参数，就必须这样做。 以参数形式将帧索引传递到任务的 3D 渲染方案便是可能的示例。
 
 > [!NOTE]
 > 内置的参数处理程序只支持字符串到字符串的字典。 如果想要以参数值的形式传递复杂 JSON 值，需要以字符串形式传递并在任务处理器中进行分析，或者修改框架的 `Configuration.GetTaskParameters` 方法。

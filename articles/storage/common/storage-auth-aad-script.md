@@ -5,17 +5,17 @@ services: storage
 author: WenJason
 ms.service: storage
 ms.topic: article
-origin.date: 04/19/2019
-ms.date: 08/05/2019
+origin.date: 07/03/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1a42e0a414ff531d3ed5c6e8910401d1b8eaf977
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: fc348876bfe8f9714da2c7e21568cc49967370a7
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732379"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209390"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>使用 Azure AD 凭据运行 Azure CLI 或 PowerShell 命令以访问 Blob 或队列数据
 
@@ -46,7 +46,7 @@ Azure CLI 支持使用 `--auth-mode` 参数进行 Blob 和队列数据操作：
     az cloud set AzureChinaCloud
     az login
     ```
-    
+
 1. 指定所需的订阅。 使用 [az group create](/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 使用 [az storage account create](/cli/storage/account?view=azure-cli-latest#az-storage-account-create) 在该资源组中创建存储帐户： 
 
     ```azurecli
@@ -63,12 +63,12 @@ Azure CLI 支持使用 `--auth-mode` 参数进行 Blob 和队列数据操作：
         --sku Standard_LRS \
         --encryption-services blob
     ```
-    
+
 1. 创建容器之前，请向自己分配[存储 Blob 数据参与者](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)角色。 即使你是帐户所有者，也需要显式权限才能针对存储帐户执行数据操作。 有关如何分配 RBAC 角色的详细信息，请参阅[在 Azure 门户中使用 RBAC 授予对 Azure Blob 和队列数据的访问权限](storage-auth-aad-rbac.md)。
 
     > [!IMPORTANT]
     > 传播 RBAC 角色分配可能需要花费几分钟时间。
-    
+
 1. 在将 `--auth-mode` 参数设置为 `login` 的情况下，调用 [az storage container create](/cli/storage/container?view=azure-cli-latest#az-storage-container-create) 命令以使用 Azure AD 凭据创建容器：
 
     ```azurecli
@@ -88,12 +88,14 @@ Azure CLI 支持使用 `--auth-mode` 参数进行 Blob 和队列数据操作：
 
 以下示例演示如何在 Azure PowerShell 中使用 Azure AD 凭据，在新的存储帐户中创建一个容器。 请务必将尖括号中的占位符值替换为你自己的值：
 
-1. 使用 `Connect-AzAccount` 命令登录到 Azure 订阅，然后遵照屏幕上的指示输入 Azure AD 凭据： 
+1. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) 命令登录到 Azure 帐户。
 
     ```powershell
     Connect-AzAccount -Environment AzureChinaCloud
     ```
-    
+
+    若要详细了解如何使用 PowerShell 登录 Azure，请参阅[使用 Azure PowerShell 登录](https://docs.microsoft.com/powershell/azure/authenticate-azureps)。
+
 1. 调用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 创建 Azure 资源组。 
 
     ```powershell
@@ -132,4 +134,5 @@ Azure CLI 支持使用 `--auth-mode` 参数进行 Blob 和队列数据操作：
 ## <a name="next-steps"></a>后续步骤
 
 - 若要详细了解 Azure 存储中的 RBAC 角色，请参阅[使用 RBAC 管理存储数据的访问权限](storage-auth-aad-rbac.md)。
+- 若要了解如何将 Azure 资源的托管标识与 Azure 存储一起使用，请参阅[使用 Azure 资源的 Azure Active Directory 和托管标识验证对 Blob 和队列的访问权限](storage-auth-aad-msi.md)。
 - 若要了解如何从存储应用程序内授予容器和队列访问权限，请参阅[将 Azure AD 与存储应用程序配合使用](storage-auth-aad-app.md)。

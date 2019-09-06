@@ -1,20 +1,20 @@
 ---
 title: Azure Data Lake Storage Gen2 的已知问题 | Microsoft Docs
 description: 了解 Azure Data Lake Storage Gen2 的限制和已知问题
-services: storage
 author: WenJason
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-origin.date: 04/26/2019
-ms.date: 07/15/2019
+origin.date: 07/31/2019
+ms.date: 09/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 8ac3a52c2d5d1248240ad6f8281e46a12eda51fd
-ms.sourcegitcommit: 80336a53411d5fce4c25e291e6634fa6bd72695e
+ms.reviewer: jamesbak
+ms.openlocfilehash: 7d129b575c25df2b14ddd426a8ce4fe27c6cadf3
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844384"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209403"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 的已知问题
 
@@ -32,9 +32,6 @@ Blob 存储 API 已禁用，以防止可能出现的功能可操作性问题，�
 
 使用未启用分层命名空间的存储帐户意味着无法访问 Data Lake Storage Gen2 特定的功能，例如目录和文件系统访问控制列表。
 
-### <a name="what-to-do-with-unmanaged-virtual-machine-vm-disks"></a>对于非托管虚拟机 (VM) 磁盘要采取的措施
-
-这些组件依赖于被禁用的 Blob 存储 API，因此，若要在存储帐户中启用分层命名空间，请考虑将其放到未启用分层命名空间功能的存储帐户中。
 
 ### <a name="what-to-do-if-you-used-blob-apis-to-load-data-before-blob-apis-were-disabled"></a>如果在禁用 Blob API 之前已使用 Blob API 上传了数据，该怎么办
 
@@ -48,7 +45,41 @@ Blob 存储 API 已禁用，以防止可能出现的功能可操作性问题，�
 
 在这些情况下，我们可以在有限的时间段内恢复对 Blob API 的访问权限，以便你可以将此数据复制到未启用分层命名空间功能的存储帐户。
 
-## <a name="all-other-features-and-tools"></a>所有其他功能和工具
+### <a name="issues-and-limitations-with-using-blob-apis-on-accounts-that-have-a-hierarchical-namespace"></a>在有分层命名空间的帐户上使用 Blob API 时存在的问题和限制
+
+本部分介绍使用 Blob API 和 Data Lake Storage Gen2 API 对相同的数据执行操作时存在的问题和限制。
+
+* 不能同时使用 Blob API 和 Data Lake Storage API 向文件的同一实例写入数据。
+
+* 如果使用 Data Lake Storage Gen2 API 向某个文件写入数据，则在调用[获取块列表](https://docs.microsoft.com/rest/api/storageservices/get-block-list) Blob API 时，该文件的块将不可见。
+
+* 覆盖某个文件时，可以使用 Data Lake Storage Gen2 API 或 Blob API。 这不会影响文件属性。
+
+* 如果在使用[列出 Blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 操作时不指定分隔符，则结果会包含目录和 Blob。
+
+  如果选择使用分隔符，请只使用正斜杠 (`/`)。 这是唯一支持的分隔符。
+
+* 如果使用[删除 Blob](https://docs.microsoft.com/rest/api/storageservices/delete-blob) API 来删除目录，则只能在该目录为空的情况下将其删除。
+
+  这意味着，不能使用 Blob API 以递归方式删除目录。
+
+这些 Blob REST API 不受支持：
+
+* [放置 Blob（页）](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [放置页](https://docs.microsoft.com/rest/api/storageservices/put-page)
+* [获取页面范围](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
+* [增量复制 Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
+* [从 URL 放置页](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [放置 Blob（追加）](https://docs.microsoft.com/rest/api/storageservices/put-blob)
+* [追加块](https://docs.microsoft.com/rest/api/storageservices/append-block)
+* [从 URL 追加块](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
+## <a name="issues-with-unmanaged-virtual-machine-vm-disks"></a>非托管虚拟机 (VM) 磁盘的问题
+
+在有分层命名空间的帐户中，非托管 VM 磁盘不受支持。 若要在存储帐户中启用分层命名空间，请将非托管 VM 磁盘放到未启用分层命名空间功能的存储帐户中。
+
+
+## <a name="support-for-other-blob-storage-features"></a>支持其他 Blob 存储功能
 
 下表列出了使用分层命名空间的存储帐户 (Azure Data Lake Storage Gen2) 尚不支持或者仅部分支持的所有其他功能与工具。
 

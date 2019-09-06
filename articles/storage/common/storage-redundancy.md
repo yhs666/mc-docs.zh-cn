@@ -6,16 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 07/10/2019
-ms.date: 08/05/2019
+ms.date: 09/09/2019
 ms.author: v-jay
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3f7e1db058ef750e1108bc237d4bd5d052889911
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 5a6cc651b5c4b47286260cb7f220658721092fea
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732258"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209365"
 ---
 # <a name="azure-storage-redundancy"></a>Azure 存储冗余
 
@@ -53,17 +53,18 @@ Azure 存储使用循环冗余检验 (CRC) 定期验证存储的数据的完整�
 有关 Azure 存储确保持续性和可用性的信息，请参阅 [Azure 存储 SLA](https://azure.cn/support/sla/storage/)。
 
 > [!NOTE]
-> 高级存储仅支持本地冗余存储 (LRS)。
+> Azure 高级存储仅支持本地冗余存储 (LRS)。
 
 ## <a name="changing-replication-strategy"></a>更改复制策略
 你可以使用 [Azure 门户](https://portal.azure.cn/)、[Azure Powershell](storage-powershell-guide-full.md)、[Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure 客户端库](https://docs.azure.cn/index?view=azure-dotnet#pivot=sdkstools)之一来更改存储帐户的复制策略。 更改存储帐户的复制类型不会导致停机。
 
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>更改帐户的复制策略是否产生任何费用？
-这取决于转换路径。 从最便宜到最昂贵的冗余产品/服务依次为 LRS、GRS 和 RA-GRS。 例如，从 LRS 转移到其他任何存储会产生额外的费用，因为这是转移到更高级的冗余级别。  转移到 GRS 或 RA-GRS 会产生出口带宽费用，因为（主要区域中的）数据将复制到远程次要区域。  这是在初始设置期间收取的一次性费用。 复制数据后，无需进一步支付转换费用。 只有在复制任何新数据，或者复制现有数据的更新时才要付费。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页面](https://www.azure.cn/pricing/details/storage/blobs/)。
 
-如果将存储帐户从 GRS 转换为 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
+这取决于转换路径。 从最便宜到最昂贵的 Azure 存储冗余产品/服务依次为 LRS、GRS 和 RA-GRS。 例如，从 LRS 转移到任何其他类型的复制会产生额外的费用，因为这是转移到更高级的冗余级别。  迁移到 GRS 或 RA-GRS 会产生出口带宽费用，因为（主要区域中的）数据将复制到远程次要区域。  此费用是在初始设置期间收取的一次性费用。 复制数据后，无需进一步支付迁移费用。 只有在复制任何新数据，或者复制现有数据的更新时才要付费。 有关带宽费用的详细信息，请参阅 [Azure 存储定价页面](https://www.azure.cn/pricing/details/storage/blobs/)。
 
-如果将存储帐户从 RA-GRS 转换为 GRS 或 LRS，则会在完成转换 30 天后以 RA-GRS 方式对该帐户计费。
+如果将存储帐户从 GRS 迁移到 LRS，则不会产生额外的费用，但从次要位置复制的数据将被删除。
+
+如果将存储帐户从 RA-GRS 迁移到 GRS 或 LRS，则会在完成转换 30 天后以 RA-GRS 方式对该帐户计费。
 
 ## <a name="see-also"></a>另请参阅
 

@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 04/20/2017
 ms.date: 05/07/2018
-ms.openlocfilehash: 13153af8aac67d5043b558556be430c5f2368302
-ms.sourcegitcommit: 3702f1f85e102c56f43d80049205b2943895c8ce
+ms.openlocfilehash: b4335b98f6e7c92fe8e2738644b1bdb887405ba3
+ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68969582"
+ms.lasthandoff: 08/30/2019
+ms.locfileid: "70169632"
 ---
 # <a name="programmatically-create-a-stream-analytics-job-monitor"></a>以编程方式创建流分析作业监视器
 
@@ -25,7 +25,7 @@ ms.locfileid: "68969582"
 
 在开始执行此过程之前，必须具备以下先决条件：
 
-* Visual Studio 2017 或 2015
+* Visual Studio 2019 或 2015
 * 已下载并安装了 [Azure.NET SDK](https://www.azure.cn/downloads/)
 * 需要已启用监视功能的现有流分析作业
 
@@ -33,12 +33,12 @@ ms.locfileid: "68969582"
 
 1. 创建 Visual Studio C# .NET 控制台应用程序。
 2. 在程序包管理器控制台中运行以下命令以安装 NuGet 包。 第一个是 Azure 流分析管理 .NET SDK。 第二个是 Azure Monitor SDK，将用于启用监视功能。 最后一个是用于进行身份验证的 Azure Active Directory 客户端。
-
-    ```
-    Install-Package Microsoft.Azure.Management.StreamAnalytics
-    Install-Package Microsoft.Azure.Insights -Pre
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
-    ```
+   
+   ```powershell
+   Install-Package Microsoft.Azure.Management.StreamAnalytics
+   Install-Package Microsoft.Azure.Insights -Pre
+   Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
+   ```
 3. 将下面的 appSettings 部分添加到 App.config 文件。
 
     ```
@@ -62,64 +62,61 @@ ms.locfileid: "68969582"
     Get-AzureAccount
     ```
 4. 将以下 using 语句添加到项目中的源文件 (Program.cs)。
-
-    ```
-    using System;
-    using System.Configuration;
-    using System.Threading;
-    using Microsoft.Azure;
-    using Microsoft.Azure.Management.Insights;
-    using Microsoft.Azure.Management.Insights.Models;
-    using Microsoft.Azure.Management.StreamAnalytics;
-    using Microsoft.Azure.Management.StreamAnalytics.Models;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
-    ```
-
+   
+   ```csharp
+     using System;
+     using System.Configuration;
+     using System.Threading;
+     using Microsoft.Azure;
+     using Microsoft.Azure.Management.Insights;
+     using Microsoft.Azure.Management.Insights.Models;
+     using Microsoft.Azure.Management.StreamAnalytics;
+     using Microsoft.Azure.Management.StreamAnalytics.Models;
+     using Microsoft.IdentityModel.Clients.ActiveDirectory;
+   ```
 5. 添加一个身份验证帮助器方法。
 
-    ```
-    public static string GetAuthorizationHeader()
-
-    {
-         AuthenticationResult result = null;
-         var thread = new Thread(() =>
+   ```csharp   
+   public static string GetAuthorizationHeader()
+   {
+      AuthenticationResult result = null;
+      var thread = new Thread(() =>
+      {
+         try
          {
-             try
-             {
-                 var context = new AuthenticationContext(
-                     ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                     ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-
-                 result = context.AcquireToken(
-                     resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                     clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                     redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                     promptBehavior: PromptBehavior.Always);
-             }
-             catch (Exception threadEx)
-             {
-                 Console.WriteLine(threadEx.Message);
-             }
-         });
-
-         thread.SetApartmentState(ApartmentState.STA);
-         thread.Name = "AcquireTokenThread";
-         thread.Start();
-         thread.Join();
-
-         if (result != null)
-         {
-             return result.AccessToken;
+             var context = new AuthenticationContext(
+                ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+             result = context.AcquireToken(
+                 resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                 clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                 redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                 promptBehavior: PromptBehavior.Always);
          }
+         catch (Exception threadEx)
+         {
+             Console.WriteLine(threadEx.Message);
+         }
+     });
 
+     thread.SetApartmentState(ApartmentState.STA);
+     thread.Name = "AcquireTokenThread";
+     thread.Start();
+     thread.Join();
+   
+     if (result != null)
+     {
+         return result.AccessToken;
+     }
          throw new InvalidOperationException("Failed to acquire token");
-    }
-    ```
+   }
+   ```
 
 ## <a name="create-management-clients"></a>创建管理客户端
 
 以下代码可设置必需变量和管理客户端。
 
+   ```csharp
     string resourceGroupName = "<YOUR AZURE RESOURCE GROUP NAME>";
     string streamAnalyticsJobName = "<YOUR STREAM ANALYTICS JOB NAME>";
 
@@ -137,10 +134,11 @@ ms.locfileid: "68969582"
     StreamAnalyticsManagementClient(aadTokenCredentials, resourceManagerUri);
     InsightsManagementClient insightsClient = new
     InsightsManagementClient(aadTokenCredentials, resourceManagerUri);
+   ```
 
 ## <a name="enable-monitoring-for-an-existing-stream-analytics-job"></a>为现有流分析作业启用监视功能
 
-以下代码为**现有**流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“Id”  属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，目的是将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
+以下代码为**现有**流分析作业启用监视功能。 代码的第一部分针对流分析服务执行 GET 请求，目的是检索特定流分析作业的信息。 它使用“ID”  属性（从 GET 请求检索而得）作为代码第二部分中 Put 方法的参数，该方法将 PUT 请求发送到 Insights 服务以为流分析作业启用监视功能。
 
 > [!WARNING]
 > 如果此前为其他流分析作业启用了监视功能，那么不管是通过 Azure 门户进行还是通过以下代码以编程方式完成，**我们都建议提供在之前启用监视功能时所使用的同一个存储帐户名称。**
@@ -152,23 +150,25 @@ ms.locfileid: "68969582"
 > 用于替换以下代码中的 `<YOUR STORAGE ACCOUNT NAME>` 的存储帐户名称应该是为其启用监视功能的流分析作业所在的同一订阅中的存储帐户。
 > 
 > 
+>    ```csharp
+>    // Get an existing Stream Analytics job
+>     JobGetParameters jobGetParameters = new JobGetParameters()
+>     {
+>         PropertiesToExpand = "inputs,transformation,outputs"
+>     };
+>     JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
+>
+>    // Enable monitoring
+>    ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
+>    {
+>            Properties = new ServiceDiagnosticSettings()
+>           {
+>               StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
+>           }
+>    };
+>   insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
+>   ```
 
-    // Get an existing Stream Analytics job
-    JobGetParameters jobGetParameters = new JobGetParameters()
-    {
-        PropertiesToExpand = "inputs,transformation,outputs"
-    };
-    JobGetResponse jobGetResponse = streamAnalyticsClient.StreamingJobs.Get(resourceGroupName, streamAnalyticsJobName, jobGetParameters);
-
-    // Enable monitoring
-    ServiceDiagnosticSettingsPutParameters insightPutParameters = new ServiceDiagnosticSettingsPutParameters()
-    {
-            Properties = new ServiceDiagnosticSettings()
-            {
-                StorageAccountName = "<YOUR STORAGE ACCOUNT NAME>"
-            }
-    };
-    insightsClient.ServiceDiagnosticSettingsOperations.Put(jobGetResponse.Job.Id, insightPutParameters);
 
 ## <a name="get-support"></a>获取支持
 

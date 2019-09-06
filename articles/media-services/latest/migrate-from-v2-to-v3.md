@@ -34,7 +34,7 @@ ms.locfileid: "52648289"
 
 ### <a name="api-is-more-approachable"></a>API 更便于访问
 
-*  v3 基于一个统一的 API 接口，该接口公开了基于 Azure 资源管理器构建的管理和操作功能。 Azure 资源管理器模板可用于创建和部署转换、流式处理终结点、直播事件等等。
+*  v3 基于一个统一的 API 接口，该接口公开了基于 Azure 资源管理器构建的管理和操作功能。 Azure 资源管理器模板可用于创建和部署转换、流式处理终结点、直播活动等等。
 * 可用于 .Net、.Net Core、Node.js、Python、Java、Ruby 的 SDK。
 * Azure CLI 集成。
 

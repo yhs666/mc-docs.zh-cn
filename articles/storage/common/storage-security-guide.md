@@ -6,15 +6,16 @@ author: WenJason
 ms.service: storage
 ms.topic: article
 origin.date: 03/21/2019
-ms.date: 05/27/2019
+ms.date: 09/09/2019
 ms.author: v-jay
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 542dae09377ac57c2065acc54c975cac43506dae
-ms.sourcegitcommit: 2a020ee232b901b13c9f1c4d27ad65228a34d58b
+ms.openlocfilehash: 1f4ae7a0197d50091a85bd1421f699b678b2908c
+ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68391983"
+ms.lasthandoff: 09/02/2019
+ms.locfileid: "70209364"
 ---
 # <a name="azure-storage-security-guide"></a>Azure 存储安全指南
 
@@ -25,8 +26,8 @@ Azure 存储提供一整套安全性功能，这些功能相辅相成，帮助�
     - 可以将作用域为存储帐户的 RBAC 角色分配给安全主体，并使用 Azure AD 为密钥管理之类的资源管理操作授权。
     - 支持通过 Azure AD 集成执行 blob 和队列数据操作。 可以将范围为订阅、资源组、存储帐户或单个容器或队列的 RBAC 角色分配给 Azure 资源的某个安全主体或托管标识。 有关详细信息，请参阅[使用 Azure Active Directory 对 Azure 存储访问进行身份验证](storage-auth-aad.md)。   
 - 在应用程序和 Azure 之间传输数据时，可使用[客户端加密](storage-client-side-encryption.md)、HTTPS 或 SMB 3.0 保护数据。  
-- Azure 虚拟机使用的 OS 和数据磁盘可使用 [Azure 磁盘加密](../../security/azure-security-disk-encryption.md)进行加密。 
-- 在 Azure 存储中，可以使用[共享访问签名](storage-dotnet-shared-access-signature-part-1.md)授予数据对象的委派访问权限。
+- Azure 虚拟机使用的 OS 和数据磁盘可使用 [Azure 磁盘加密](../../security/azure-security-disk-encryption.md)进行加密。
+- 在 Azure 存储中，可以使用共享访问签名授予数据对象的委派访问权限。 有关详细信息，请参阅[使用共享访问签名 (SAS) 授予对 Azure 存储资源的有限访问权限](storage-sas-overview.md)。
 
 本文概述其中每项可配合 Azure 存储使用的安全功能。 提供了详述每项功能的文章的链接，让你能够轻松深入每个主题。
 
@@ -239,11 +240,6 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
   * [构造服务 SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [构造帐户 SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* 这是有关使用 .NET 客户端库创建共享访问签名和存储访问策略的教程。
-  * [使用共享访问签名 (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-
-    本文包含 SAS 模型的说明、共享访问签名的示例，以及 SAS 用法最佳实践的建议。 此外还介绍了如何吊销授予的权限。
-
 * 身份验证
 
   * [Authentication for the Azure Storage Services](https://msdn.microsoft.com/library/azure/dd179428.aspx)（Azure 存储服务的身份验证）
@@ -278,7 +274,7 @@ http://mystorage.blob.core.chinacloudapi.cn/mycontainer/myblob.txt (URL to the b
 
 针对所有存储帐户启用 SSE，并且不能禁用。 将数据写入 Azure 存储时，SSE 自动加密数据。 从 Azure 存储读取数据时，Azure 存储会在返回数据之前将其解密。 SSE 帮助保护数据，而无需修改代码或将代码添加到任何应用程序。
 
-可以使用 Azure 托管的密钥或自己的自定义密钥。 Azure 生成托管密钥，并根据内部 Azure Policy 的定义管理其安全存储和定期轮换。 
+可以使用 Azure 托管的密钥或自己的自定义密钥。 Azure 生成托管密钥，并根据内部 Azure Policy 的定义管理其安全存储和定期轮换。 有关使用自定义密钥的详细信息，请参阅[在 Azure 密钥保管库中使用客户托管密钥进行存储服务加密](storage-service-encryption-customer-managed-keys.md)。
 
 SSE 自动加密所有性能层（标准和高级）、所有部署模型（Azure 资源管理器和经典）、所有 Azure 存储服务（Blob、队列、表和文件）中的数据。 
 
